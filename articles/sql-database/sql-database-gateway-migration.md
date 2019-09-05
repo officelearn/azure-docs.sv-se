@@ -10,12 +10,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto
 ms.date: 07/01/2019
-ms.openlocfilehash: 1fc6c054b32c62fbebaa2af738e25ef0dec362ac
-ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
+ms.openlocfilehash: 2e578c6bfdfb25eaba3d0c692ff33aa5b0572669
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69981292"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70306002"
 ---
 # <a name="azure-sql-database-traffic-migration-to-newer-gateways"></a>Azure SQL Database trafikmigrering till nyare gateways
 
@@ -41,11 +41,11 @@ Den första avrundingen av trafikmigrering till nyare gateways har schemalagts f
 - Östasien
 
 Trafikmigreringen kommer att ändra den offentliga IP-adress som DNS matchar för SQL Database.
-Du kommer att påverkas om du har
+Du kommer att påverkas om du har:
 - Hårdkoda IP-adressen för en viss gateway i din lokala brand vägg
 - Undernät som använder Microsoft. SQL som en tjänst slut punkt men inte kan kommunicera med IP-adresser för gateway
 
-Du påverkas inte om du har 
+Du påverkas inte om du har:
 - Omdirigering som anslutnings princip
 - Anslutningar till SQL Database inifrån Azure och med service märken
 - Anslutningar som görs med stödda versioner av JDBC-drivrutinen för SQL Server kommer inte att se någon påverkan. Information om vilka JDBC-versioner som stöds finns i [Hämta Microsoft JDBC-drivrutin för SQL Server](/sql/connect/jdbc/download-microsoft-jdbc-driver-for-sql-server).

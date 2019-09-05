@@ -8,12 +8,12 @@ ms.topic: sample
 ms.date: 04/05/2018
 author: wmengmsft
 ms.author: wmeng
-ms.openlocfilehash: 45925b1c4252b0ff0080a2c287e7ed2fae444168
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 7611af5f4d5b79ddb2abb7546f2e3ea6c0d4c4c5
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68986282"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70308401"
 ---
 # <a name="how-to-use-azure-table-storage-or-the-azure-cosmos-db-table-api-from-nodejs"></a>Använda Azure Table Storage eller Azure Cosmos DB Table-API:et från Node.js
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
@@ -459,6 +459,6 @@ Mer information finns i resurserna nedan.
 
 * [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) är en kostnadsfri, fristående app från Microsoft som gör det möjligt att arbeta visuellt med Azure Storage-data i Windows, macOS och Linux.
 * [Azure Storage SDK för Node.js](https://github.com/Azure/azure-storage-node)-databas på GitHub.
-* [Azure för Node.js-utvecklare](https://docs.microsoft.com/javascript/azure/?view=azure-node-latest)
+* [Azure för Node.js-utvecklare](https://docs.microsoft.com/azure/javascript/)
 * [Skapa en Node.js-webbapp i Azure](../app-service/app-service-web-get-started-nodejs.md)
 * [Skapa och distribuera ett Node.js-program till en Azure-molntjänst](../cloud-services/cloud-services-nodejs-develop-deploy-app.md) (med hjälp av Windows PowerShell)

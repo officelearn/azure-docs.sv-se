@@ -1,76 +1,112 @@
 ---
-title: Go-to-Marketing-tjänster – dina Marketplace-förmåner | Azure
+title: Go-to-Marketing-tjänster – dina kommersiella Marketplace-förmåner | Azure
 description: Go-to-Marketing-tjänster – Microsoft-resurser som utgivare kan använda beskrivs i det här avsnittet.
-services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
+services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security, Partner Center
 author: qianw211
 ms.service: marketplace
 ms.topic: article
-ms.date: 01/12/2019
-ms.author: ellacroi
-ms.openlocfilehash: 02fcda2d851ddefa1c592bf0b5b09d5e5d59828f
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.date: 09/04/2019
+ms.author: v-qiwe
+ms.openlocfilehash: d1a0f3ea46922b8a684c269c13df068e0c879cbd
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70128230"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70309056"
 ---
-# <a name="your-marketplace-benefits"></a>Dina Marketplace-förmåner
+# <a name="your-commercial-marketplace-benefits"></a>Dina kommersiella marknads förmåner
 
-Som en del av din publicerings resa måste du skapa tekniska och marknadsförings till gångar för ditt erbjudande. Det finns därför tekniska och marknadsförings förmåner som Azure Marketplace och AppSource-utgivare kan använda för att förbättra kund engagemang med ditt erbjudande. Du kan få de tekniska resurserna nedan användbara.
+Du har publicerat på Marketplace och nu vill du se att ditt erbjudande lyckas. Vi ger dig fördelarna – försäljning, teknik och marknadsföring – du behöver påskynda ditt erbjudande.
 
-## <a name="technical-resources-provided-by-microsoft"></a>Tekniska resurser från Microsoft
+När du är live med ditt erbjudande kommer marknads avdelningen för marknads avdelningen att lanseras för att börja arbeta med dig med dina berättigade förmåner. Förmåner för Marketplace-förmåner periodiseras baserat på ditt handels marknads engagemang och försäljning. Desto mer du tar, desto mer du får tillbaka.
 
-När du skapar ditt erbjudande kan du dra nytta av ett antal Microsoft-resurser, till exempel konsult med en teknisk expert, eller få support för att testa en Marketplace-speciell lösning.
+## <a name="marketplace-rewards"></a>Marknads förmåner
 
-Tekniska resurser kan användas när som helst.  I tabellen nedan visas fördelarna:
+Marknads förmåner har utformats för att ge stöd åt dig i ditt speciella tillväxt steg, med hjälp av medvetenhets aktiviteter som hjälper dig att få dina första kunder. När du växer via Marketplace kan du låsa upp nya förmåner som hjälper dig att konvertera kunder och avsluta avtal. 
 
-![](./media/marketplace-publishers-guide/technical-benefit-table.png)
+Programmet skapar en positiv feedback-slinga: fördelarna i varje stadium av tillväxten är utformade för att gå vidare till nästa steg, vilket gör att du kan utveckla din verksamhet till Microsoft-kunder, med Microsofts fält och via Microsofts kanal genom att dra nytta av kommersiell marknads plats som plattform. 
 
-## <a name="how-to-access-microsoft-resources"></a>Få åtkomst till Microsoft-resurser
+Dina förmåner särskiljs utifrån om ditt erbjudande är [list, utvärdering eller Transact](https://docs.microsoft.com/azure/marketplace/determine-your-listing-type#choose-a-publishing-option).
 
-Fördelarna till marknaden är tillgängliga för partner som nyligen har publicerat ett erbjudande. 
+Du kommer att kontaktas av en medlem i teamet för förmåner när ditt erbjudande går live, baserat på din behörighet. 
 
-1. Onboarding [Registrera dig](https://azuremarketplace.microsoft.com/sell) för att få åtkomst till Cloud Partner Portal och Onboarding support-resurser.
-2. Microsoft Marketplace-konsultation: Dra nytta av detta [kostnads fria samråd](https://support.microsoft.com/help/4010317/microsoft-marketplaces-consultation) för att planera arkitekturen i din app i Marketplace.
-3. Marketplace-Forum: Ställ dina frågor direkt till Microsoft-anställda och andra Marketplace-partner i [Marketplace-forumet](https://www.microsoftpartnercommunity.com/t5/Azure-Marketplace-and-AppSource/bd-p/2222).
-4. Teknisk support: Använd Hjälp-menyn i [Cloud Partner Portal](https://cloudpartner.azure.com/) för att få hjälp med dina Marketplace-relaterade support frågor. 
-5. AAD-integrering och utveckling och testning av sponsring: du kommer att välja när du är live med ett transactable-erbjudande (som kan distribueras och fakturerbart). Se nästa avsnitt för hur du kommer igång med go-to-Marketing-förmåner.
+När du ökar din fakturerade försäljning via Marketplace-plattformen för Transact-partner, så kan du låsa upp fler förmåner per nivå. 
 
-## <a name="go-to-market-gtm-benefits-in-the-marketplace"></a>Go-to-Marketing (GTM)-förmåner på Marketplace
+Minimi kravet för att publicera i butiker är en MPNID, så dessa fördelar är tillgängliga för alla partner oavsett MPN kompetens status eller partner typ. Varje partner har befogenhet att växa sin verksamhet via Marketplace som en plattform. 
 
-Nya listor i både Azure Marketplace och AppSource är berättigade till att få kostnads fria Marketplace-GTM-förmåner via vårt Microsoft GTM Services-team. Det här teamet hjälper dig att optimera dina listor och öka medvetenheten för dina lösningar på Microsoft Marketplace.
+Du får support för att förstå vilka resurser som är tillgängliga och hur du implementerar bästa praxis, som du också kan [Granska på egen hand](https://partner.microsoft.com/asset/collection/azure-marketplace-and-appsource-publisher-toolkit#/). 
 
-| Butik | Ytterligare tillgängliga förmåner |
-|:--- |:--- |
-| AppSource |  Microsoft Gold-partner <br> Transact-erbjudanden – marknads förmåner <br> Prov program |
-| Azure Marketplace | Transact-erbjudanden – marknads förmåner <br> Utvärderings erbjudanden |
+Detaljerade beskrivningar av alla program förmåner finns i [program däcket Marketplace](https://aka.ms/marketplacerewards)Benefits.
 
-GTM-supporten innehåller mallar, webb innehåll, utbildning och verktyg för att marknadsföra ditt företag.
+Dina steg för att komma igång är enkla:
 
-För att få åtkomst till dessa förmåner behöver du:
+1. Publicera ett erbjudande i antingen Microsoft AppSource eller Azure Marketplace.
+2. Teamet når ut till "ägare" eller "primär kontakt" per Marketplace-erbjudande. Det är en bra idé att ange antingen en individ eller ett alias som du kontrollerar regelbundet: meddelanden som skickas till alias, info@company.com till exempel ofta blir förlorade.
 
-1. Publicera ett erbjudande på antingen Azure Marketplace eller AppSource.
-2. Se till att du har angett en marknadsförings kontakt i **kontakt informations** delen av ditt erbjudande. Detta bör vara en dedikerad marknadsförings resurs, i stället för ett alias som är catch-all. (Undvik att använda "support\@", "info\@", "Marketing\@" osv.)
+>[!Note]
+>Om erbjudandet har varit Live i mer än fyra veckor och du inte har fått ett meddelande, kan du kontrol lera i organisationen som är ägare till erbjudandet i fråga, antingen genom att titta på Cloud Partner Portal eller i Partner Center. De bör ha kommunikation och nästa steg. <br> <br> Om du inte kan fastställa ägaren, eller om ägaren har lämnat företaget, kan du generera ett support ärende på https://aka.ms/marketplacepublishersupport.
 
-Utifrån din lösnings status, erbjuden lista, utvärdering eller Transact – marknads intresse, kommer du att få ett e-postmeddelande med självhjälps resurser eller en inbjudan till ett samråds samtal med en engagerad engagemang hanterare. Du behöver inte göra något för att initiera samtalet – Marketplace-onboarding-teamet kommer att kontakta dig utifrån den information som du anger i [Cloud Partner Portal](https://cloudpartner.azure.com/).
+Omfattningen av de aktiviteter som är tillgängliga för dig expanderas när du växer dina erbjudanden i Marketplace. Alla listor får en grundläggande optimerings nivå för optimering och befordran som en del av en självbetjänings-e-post med resurser och bästa praxis.
 
-Omfattningen av de aktiviteter som är tillgängliga för dig expanderas när du växer dina erbjudanden i Marketplace. Alla listor får en grundläggande nivå av optimerings rekommendationer och befordran.  Dessa listor är också berättigade till ytterligare marknadsförings förmåner baserat på lösnings status (en lista, utvärderings version eller en utvärderings version av en giltig marknads plats), vald Marketplace och utmärkelse för Microsoft partner kompetens.
+## <a name="list-trial-and-consulting-benefits"></a>Lista, utvärdering och konsult förmåner
+
+Om du publicerar en utvärderings version eller ett konsult bevis för koncept, implementering eller workshop, tilldelas du en förlovnings ansvarig i tre månader, som hjälper dig att komma igång med att gå till marknads plan. Du kan upprepa det här tre månaders samengagemanget varje gång du publicerar ett nytt erbjudande, så att du kan få var och en av dina nya erbjudanden som börjar med framgång.
 
 I tabellen nedan sammanfattas kraven för krav för lista och utvärderings versioner:
 
-![](./media/marketplace-publishers-guide/gtm-eligibility-requirements.png)
+![Go-to-Marketing-förmåner](./media/marketplace-publishers-guide/gtm-eligibility-requirements.png)
 
-\*Kräver silver-eller guld-kompetens. <br>
-\*\*Kräver guld kompetens. <br>
-\*\*\*Kräver guld kompetens och samförsäljnings klar i partner listor. <br>
-Endast ^ Transact, som är tillämpligt på Azure Marketplace.
+Detaljerade beskrivningar för alla dessa förmåner finns i [program däcken för Marketplace](https://aka.ms/marketplacerewards)-förmåner.
 
 ## <a name="marketplace-rewards-for-transact-partners"></a>Marknads förmåner för Transact-partner
 
-En fullständig lista över förmåner för marknads vårds förmåner kan visas i [program sammanfattnings bilderna](https://aka.ms/marketplacerewards).
+När du går live med ditt transactable-erbjudande i Azure Marketplace eller Microsoft AppSource kan du få åtkomst till ytterligare förmåner när du ökar dina fakturerade försäljnings transaktioner via den kommersiella Marketplace. 
+
+Dessa fördelar är utformade för att ge stöd åt dig i marknadsförings-, försäljnings-och teknik aktiviteter och hjälper dig att få fler besökare, få fler leads och konvertera mer verksamhet.
+
+Alla partner som har ett Live-erbjudande får arbeta med en engagerad engagemang hanterare för att välja de mest värde aktiviteterna för din portfölj av Marketplace-erbjudanden. Det här åtagandet är Evergreen per erbjudande, vilket innebär att du kan välja dina aktiviteter och tidpunkten för dessa aktiviteter för att anpassa sig till tidpunkten för företagets bredare marknadsförings-och Sälj strategier. 
+
+![Marknadsförings förmåner](./media/marketplace-publishers-guide/marketing-benefit.png)
+
+![Sälj förmåner](./media/marketplace-publishers-guide/sales-benefit.png)
+
+![Tekniska fördelar](./media/marketplace-publishers-guide/technical-benefit.png)
+
+Detaljerade beskrivningar för alla dessa förmåner finns i [program däcken för Marketplace](https://aka.ms/marketplacerewards)-förmåner.
+
+Förutom förmåns förmånerna har företags program partner med Dynamics-erbjudanden publicerat till Microsoft AppSource har en extra programmering som är tillgänglig för dem via [ISV Connect](https://partner.microsoft.com/en-us/solutions/business-applications/isv-overview). Detta inkluderar teknisk, marknadsförings-och försäljnings support som är specialiserad för affärs program partner behov.
+
+## <a name="marketplace-rewards-requirements-and-restrictions"></a>Krav och begränsningar för Marketplace-förmåner
+
+### <a name="publisher-agreement"></a>Utgivar avtal
+
+Alla aktiviteter som beskrivs på den här sidan omfattas av [publicerings avtalet för Marketplace](https://docs.microsoft.com/legal/marketplace/terms) och omfattas av tillägget för kommersiella förmåner.
+
+### <a name="cancellation-policy"></a>Annulleringspolicy
+
+[Lista och utvärderings versioner](https://docs.microsoft.com/azure/marketplace/determine-your-listing-type) kan välja ut eller avanmäla sig till aktiviteter per erbjudande publicering. Partner kan när som helst säga upp eventuella engagemang. 
+
+Microsoft förbehåller sig rätten att återkalla och säga upp förmåner till marknads plats förmåner för utgivare som: 
+
+* delta i olaglig aktivitet med hjälp av sin Marketplace-lista.
+* finns i listan från den kommersiella marknads platsen. 
+* Använd sitt erbjudande för att Visa marknadsföring eller annat innehåll som strider mot upphovs rätts eller varumärkes lagar.
+* strider mot principerna för [Azure Sponsring-programmet](https://azure.microsoft.com/offers/ms-azr-0036p/), inklusive, men inte begränsat till, med hjälp av Azure sponsring-finansiering för sina egna interna åtgärder eller Bitcoin-utvinning. 
+
+### <a name="offer-availability"></a>Erbjudandets tillgänglighet
+
+Det här erbjudandet utförs på engelska för alla partner med ett Live-erbjudande i Azure Marketplace eller Microsoft AppSource.
+
+Transaktioner som är beprövade att vara bedrägliga räknas inte över till en utgivares [nivå för fakturerings program](https://aka.ms/marketplacepublisherrewards)som anges i avsnittet [lista, utvärdering, rådgivning](#list-trial-and-consulting-benefits) , avsnittet om [förmåner i Transact-partner](#marketplace-rewards-for-transact-partners) och det [detaljerade programmet ](https://aka.ms/marketplacepublisherrewards). Microsoft kommer att allokera partners till kvalificerings nivåer baserat på den faktiska fakturerade försäljningen efter att bedrägerien har tagits bort. 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Logga in på [Cloud Partner Portal](https://cloudpartner.azure.com/) för att skapa och konfigurera ditt erbjudande.
+Om du har skapat ditt erbjudande i Cloud Partner Portal loggar du in för att skapa eller konfigurera ditt erbjudande.
+
+Om du har skapat erbjudandet i Partner Center loggar du in för att skapa eller konfigurera ditt erbjudande.
+
+Granska de [självbetjänings resurser som är tillgängliga för dig](https://partner.microsoft.com/asset/collection/azure-marketplace-and-appsource-publisher-toolkit#/).
+
+Registrera dig för [Microsoft AppSource och Azure Marketplace community-forum](https://www.microsoftpartnercommunity.com/t5/Azure-Marketplace-and-AppSource/bd-p/2222) och lär dig mer om relevanta ämnen eller delta i diskussionen.
 
 ---

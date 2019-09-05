@@ -9,12 +9,12 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: gwallace
-ms.openlocfilehash: b3d8e364a982f85ad9df6e48dc4d28da1e8efb40
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: 080ec61df2042a4cf2eac9d5175c4681f98fd9df
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68359065"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70306777"
 ---
 # <a name="build-and-deploy-a-nodejs-web-application-using-express-on-an-azure-cloud-services"></a>Bygg och distribuera ett Node. js-webbprogram med hjälp av Express på en Azure-Cloud Services
 
@@ -40,7 +40,7 @@ Utför följande steg för att skapa ett nytt Cloud Service-projekt med namnet "
         PS C:\Node\expressapp> Set-AzureServiceProjectRole WebRole1 Node 0.10.21
    
     > [!NOTE]
-    > Som standard använder **Add-AzureNodeWebRole** en äldre version av Node. js. Satsen **set-AzureServiceProjectRole** ovan instruerar Azure att använda v 0.10.21 of Node.  Observera att parametrarna är Skift läges känsliga.  Du kan kontrol lera att rätt version av Node. js har marker ATS genom att  kontrol lera egenskapen enginess i **WebRole1\package.JSON**.
+    > Som standard använder **Add-AzureNodeWebRole** en äldre version av Node. js. Satsen **set-AzureServiceProjectRole** ovan instruerar Azure att använda v 0.10.21 of Node.  Observera att parametrarna är Skift läges känsliga.  Du kan kontrol lera att rätt version av Node. js har marker ATS genom att kontrol lera egenskapen **enginess** i **WebRole1\package.JSON**.
     > 
     > 
 
@@ -114,7 +114,7 @@ När distributions åtgärden har slutförts öppnas och visas webb sidan i webb
 ![En webbläsare som visar Express-sidan. URL: en anger att den nu finns på Azure.](./media/cloud-services-nodejs-develop-deploy-express-app/node36.png)
 
 ## <a name="next-steps"></a>Nästa steg
-Mer information finns i [Node.js Developer Center](https://docs.microsoft.com/javascript/azure/?view=azure-node-latest).
+Mer information finns i [Node.js Developer Center](https://docs.microsoft.com/azure/javascript/).
 
 [Node.js Web Application]: https://www.windowsazure.com/develop/nodejs/tutorials/getting-started/
 [Express]: https://expressjs.com/

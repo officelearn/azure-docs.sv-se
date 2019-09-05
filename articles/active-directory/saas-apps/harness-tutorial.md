@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 08/22/2019
+ms.date: 09/02/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 37a527e8cd83d292d8af8af5acd0c903c63081f2
-ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.openlocfilehash: 709bf2e413ddb40ae1ed84672cea0c0b71be2ce6
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70014078"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70305948"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-harness"></a>Självstudier: Azure Active Directory enkel inloggning (SSO) med nät
 
@@ -65,7 +65,7 @@ Om du vill konfigurera och testa Azure AD SSO med-nätet slutför du följande B
 
 1. **[Konfigurera Azure AD SSO](#configure-azure-ad-sso)** – så att användarna kan använda den här funktionen.
     1. **[Skapa en Azure AD-test](#create-an-azure-ad-test-user)** för att testa enkel inloggning med Azure AD med B. Simon.
-    1. **[Tilldela Azure AD](#assign-the-azure-ad-test-user)** -testuser-för att aktivera B. Simon för att använda enkel inloggning med Azure AD.
+    1. **[Tilldela Azure AD-testuser](#assign-the-azure-ad-test-user)** -för att aktivera B. Simon för att använda enkel inloggning med Azure AD.
 1. **[Konfigurera](#configure-harness-sso)** enkel inloggning – för att konfigurera inställningar för enkel inloggning på program sidan.
     1. **[Skapa en test användare](#create-harness-test-user)** för att få en motsvarighet till B. Simon i ett nät som är länkat till Azure AD-representation av användare.
 1. **[Testa SSO](#test-sso)** – för att kontrol lera om konfigurationen fungerar.
@@ -74,7 +74,7 @@ Om du vill konfigurera och testa Azure AD SSO med-nätet slutför du följande B
 
 Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
-1. I [Azure Portal](https://portal.azure.com/)går du till sidan för integrations program integration och letar upp avsnittet **Hantera** och väljer **enkel inloggning**.
+1. I [Azure Portal](https://portal.azure.com/)går du till sidan **för integrations program integration** och letar upp avsnittet **Hantera** och väljer **enkel inloggning**.
 1. På sidan **Välj metod för enkel inloggning** väljer du **SAML**.
 1. På sidan **Konfigurera enkel inloggning med SAML** klickar du på ikonen Redigera/penna för **grundläggande SAML-konfiguration** för att redigera inställningarna.
 
@@ -131,17 +131,25 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 ## <a name="configure-harness-sso"></a>Konfigurera enkel inloggning för nät
 
-1. Öppna ett nytt webbläsarfönster och logga in på din företags webbplats som administratör.
+1. Om du vill automatisera konfigurationen i ett nät måste du installera **webb läsar tillägget Mina appar med säker inloggning** genom att klicka på **installera tillägget**.
 
-1. Klicka på**Inställningar**för **kontinuerlig säkerhets** > **åtkomst hantering** > på sidan längst upp till höger på sidan.
+    ![Mina Apps-tillägg](common/install-myappssecure-extension.png)
+
+2. När du har lagt till tillägg i webbläsaren, kan du klicka på **installations programmet** för att dirigera dig till programmet för nät. Därifrån anger du administratörsautentiseringsuppgifter för att logga in på nätet. Webb läsar tillägget kommer automatiskt att konfigurera programmet åt dig och automatisera steg 3-6.
+
+    ![Konfigurera konfiguration](common/setup-sso.png)
+
+3. Om du vill konfigurera nät manuellt öppnar du ett nytt webbläsarfönster och loggar in på din företags webbplats som administratör och utför följande steg:
+
+4. Klicka på**Inställningar**för **kontinuerlig säkerhets** > **åtkomst hantering** > på sidan längst upp till höger på sidan.
 
     ![Konfiguration av nät](./media/harness-tutorial/configure01.png)
 
-1. I avsnittet **SSO** -providers klickar du på **+ Lägg till SSO** -providers> **SAML**.
+5. I avsnittet **SSO-providers** klickar du på **+ Lägg till SSO-providers** > **SAML**.
 
     ![Konfiguration av nät](./media/harness-tutorial/configure03.png)
 
-1. Utför följande steg på popup-sidan för **SAML** -providern:
+6. Utför följande steg på popup-sidan för **SAML-providern** :
 
     ![Konfiguration av nät](./media/harness-tutorial/configure02.png)
 
@@ -161,7 +169,7 @@ Om du vill att Azure AD-användare ska kunna logga in på ett nät, måste de ti
 
 1. Logga in för att ansluta som administratör.
 
-1. Längst upp till höger på sidan klickar du på principer för **kontinuerlig säkerhets** > **åtkomst hantering** > .
+1. Längst upp till höger på sidan**klickar du på**principer för **kontinuerlig säkerhets** > **åtkomst hantering** > .
 
     ![Konfiguration av nät](./media/harness-tutorial/configure04.png)
 

@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: quickstart
 ms.date: 08/07/2019
 ms.author: diberry
-ms.openlocfilehash: dd2bb5fc4d6ecf2cac0fa629c59abb0e017d43b0
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: dcbbaa2f4c6ebe709c879909f873b212f238ff2a
+ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68857294"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70375862"
 ---
 # <a name="quickstart-qna-maker-client-library-for-nodejs"></a>Snabbstart: QnA Maker klient bibliotek för Node. js
 
@@ -27,7 +27,7 @@ Använd QnA Maker klient bibliotek för Node. js för att:
 * Hantera en kunskaps bas
 * Publicera en kunskapsbas
 
-[Referens dokumentation](https://docs.microsoft.com/javascript/api/overview/azure/cognitiveservices/qnamaker?view=azure-node-latest) | [bibliotek käll kods](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/Knowledge.QnAMaker) | [paket (NPM)](https://www.npmjs.com/package/@azure/cognitiveservices-qnamaker) | [Node. js-exempel](https://github.com/Azure-Samples/cognitive-services-qnamaker-nodejs/blob/master/documentation-samples/quickstarts/knowledgebase_quickstart/knowledgebase_quickstart.js)
+[Referens dokumentation](https://docs.microsoft.com/javascript/api/azure-cognitiveservices-textanalytics) | [bibliotek käll kods](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/Knowledge.QnAMaker) | [paket (NPM)](https://www.npmjs.com/package/@azure/cognitiveservices-qnamaker) | [Node. js-exempel](https://github.com/Azure-Samples/cognitive-services-qnamaker-nodejs/blob/master/documentation-samples/quickstarts/knowledgebase_quickstart/knowledgebase_quickstart.js)
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -40,7 +40,7 @@ Använd QnA Maker klient bibliotek för Node. js för att:
 
 Azure-Cognitive Services representeras av Azure-resurser som du prenumererar på. Skapa en resurs för QnA Maker med hjälp av [Azure Portal](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) eller [Azure CLI](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli) på den lokala datorn. 
 
-När du har hämtat en nyckel från resursen [skapar](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) du miljövariabler för resursen, med `QNAMAKER_SUBSCRIPTION_KEY` namnet `QNAMAKER_HOST`och. Använd de nyckel-och värd värden som finns i resursens **nycklar** och **översikts** sidor i Azure Portal.
+När du har hämtat en nyckel från resursen [skapar du miljövariabler](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) för resursen, med `QNAMAKER_SUBSCRIPTION_KEY` namnet `QNAMAKER_HOST`och. Använd de nyckel-och värd värden som finns i resursens **nycklar** och **översikts** sidor i Azure Portal.
 
 ### <a name="create-a-new-nodejs-application"></a>Skapa ett nytt Node.js-program
 
@@ -71,7 +71,7 @@ Appens `package.json` fil uppdateras med beroenden.
 
 QnA Maker-klienten är ett [QnAMakerClient](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-qnamaker/qnamakerclient?view=azure-node-latest) -objekt som autentiserar till Azure med hjälp av ServiceClientCredentials, som innehåller din nyckel.
 
-När klienten har skapats använder du kunskaps [bas](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-qnamaker/qnamakerclient?view=azure-node-latest#knowledgebase) egenskapen skapa, hantera och publicera din kunskaps bas. 
+När klienten har skapats använder du [kunskaps bas](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-qnamaker/qnamakerclient?view=azure-node-latest#knowledgebase) egenskapen skapa, hantera och publicera din kunskaps bas. 
 
 Hantera din kunskaps bas genom att skicka ett JSON-objekt. För omedelbara åtgärder returnerar en metod vanligt vis ett JSON-objekt som indikerar status. För långvariga åtgärder är svaret åtgärds-ID. Anropa [klienten. Operations. getDetails](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-qnamaker/operations?view=azure-node-latest#getdetails-string--servicecallback-operation--) -metoden med åtgärds-ID för att fastställa [status för begäran](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-qnamaker/operationstatetype?view=azure-node-latest). 
 

@@ -12,12 +12,12 @@ ms.workload: infrastructure-services
 ms.date: 06/10/2019
 ms.author: kumud
 ms.reviewer: tyao
-ms.openlocfilehash: c993e465bc439ff52cba3241dbff64b7655d1f12
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.openlocfilehash: f7d205920704ce8aedf3b2e3c07bd429b3c64964
+ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67849180"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70375350"
 ---
 # <a name="frequently-asked-questions-for-azure-web-application-firewall"></a>Vanliga frågor och svar om Azure Web Application-brandvägg
 
@@ -53,12 +53,6 @@ Att distribuera en WAF-princip globalt tar vanligt vis cirka 5 minuter och slutf
 
 När det är integrerat med frontend-tjänsten är WAF en global resurs. Samma konfiguration gäller för alla platser i front dörren.
  
-## <a name="how-do-i-limit-access-to-my-back-end-to-be-from-front-door-only"></a>Hur gör jag för att begränsa åtkomsten till min backend-sida till enbart från Front dörren?
-
-Du kan konfigurera IP-Access Control listan i din server del så att den endast tillåter utgående IP-adressintervall för front luckan och nekar direkt åtkomst från Internet. Service märken stöds för användning i det virtuella nätverket. Dessutom kan du kontrol lera att fältet X-vidarebefordrad-värd-HTTP-rubrik är giltigt för ditt webb program.
-
-
-
 
 ## <a name="which-azure-waf-options-should-i-choose"></a>Vilka alternativ för Azure-WAF ska jag välja?
 
@@ -72,6 +66,9 @@ För närvarande stöds endast ModSec BOKNINGs-2.2.9 och datoriserade bokning 3,
 ## <a name="is-ddos-protection-integrated-with-front-door"></a>Är DDoS-skydd integrerat med front dörren? 
 
 I globalt distribuerat i Azures nätverks gränser kan Azures front dörr absorbera och geografiskt isolera stora volym attacker. Du kan skapa en anpassad WAF-princip för automatisk blockering och hastighets begränsning av http (s)-attacker som har kända signaturer. Fler fler kan du aktivera DDoS Protection standard på det virtuella nätverk där dina Server delar distribueras. Azure DDoS Protection standard kunder får ytterligare fördelar, inklusive kostnads skydd, SLA-garanti och åtkomst till experter från DDoS Rapid Response-teamet för omedelbar hjälp vid ett angrepp. 
+
+Vi rekommenderar att du låser upp dina Server delar i produktions miljön för att minska risken för DDoS-attacker. Se [Hur gör jag för att Lås upp åtkomsten till min server del till endast Azures front dörr?](https://docs.microsoft.com/en-us/azure/frontdoor/front-door-faq#how-do-i-lock-down-the-access-to-my-backend-to-only-azure-front-door)
+
 
 ## <a name="next-steps"></a>Nästa steg
 

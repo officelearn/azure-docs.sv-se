@@ -9,12 +9,12 @@ ms.date: 02/25/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 7785c6b5c575bf862b1ba0edccc75fc1c6031b08
-ms.sourcegitcommit: df7942ba1f28903ff7bef640ecef894e95f7f335
+ms.openlocfilehash: b2cd7232bce674dfa5aa2c6f4b6d9386fa7a189b
+ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69015646"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70376456"
 ---
 # <a name="disaster-recovery-and-storage-account-failover-preview-in-azure-storage"></a>Haveri beredskap och lagrings konto redundans (för hands version) i Azure Storage
 
@@ -43,7 +43,7 @@ Andra Azure Storage alternativ för redundans inkluderar zoner-redundant lagring
 > [!WARNING]
 > Geo-redundant lagring medför risk för data förlust. Data replikeras till den sekundära regionen asynkront, vilket innebär att det uppstår en fördröjning mellan när data som skrivs till den primära regionen skrivs till den sekundära regionen. I händelse av ett avbrott går Skriv åtgärder till den primära slut punkten som ännu inte har repliker ATS till den sekundära slut punkten förlorade.
 
-## <a name="design-for-high-availability"></a>Design för hög tillgänglighet
+## <a name="design-for-high-availability"></a>Utforma för hög tillgänglighet
 
 Det är viktigt att utforma ditt program för hög tillgänglighet från start. Se dessa Azure-resurser för att få hjälp med att utforma ditt program och planera för haveri beredskap:
 
@@ -168,7 +168,6 @@ Tänk på att data som lagras på en temporär disk förloras när den virtuella
 Följande funktioner och tjänster stöds inte för för hands versionen av kontot:
 
 - Azure File Sync stöder inte redundans för lagrings konto. Lagrings konton som innehåller Azure-filresurser som används som moln slut punkter i Azure File Sync får inte växlas över. Om du gör det upphör synkroniseringen att fungera och det kan också leda till oväntad data förlust när det gäller nynivåbaserade filer.  
-- Lagrings konton som använder Azure Data Lake Storage Gen2 hierarkisk namnrymd kan inte redundansväxla.
 - Det går inte att redundansväxla ett lagrings konto som innehåller arkiverade blobbar. Underhåll arkiverade blobbar i ett separat lagrings konto som du inte planerar att redundansväxla.
 - Det går inte att redundansväxla ett lagrings konto som innehåller Premium block-blobar. Lagrings konton som stöder Premium block-blobbar har för närvarande inte stöd för GEO-redundans.
 - När redundansväxlingen är klar slutar följande funktioner att fungera om den ursprungligen är aktive rad: [Händelse prenumerationer](https://docs.microsoft.com/azure/storage/blobs/storage-blob-event-overview), [livs cykel principer](https://docs.microsoft.com/azure/storage/blobs/storage-lifecycle-management-concepts), [Lagringsanalys loggning](https://docs.microsoft.com/rest/api/storageservices/about-storage-analytics-logging).

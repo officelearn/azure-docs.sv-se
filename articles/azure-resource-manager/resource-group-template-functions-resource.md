@@ -4,14 +4,14 @@ description: Beskriver funktionerna du använder i en Azure Resource Manager-mal
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 08/20/2019
+ms.date: 09/04/2019
 ms.author: tomfitz
-ms.openlocfilehash: 85462e78b3660546bad80ef69f332522bf015549
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: 43369131700681de5523043f414129a2e4169f44
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70194808"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70306934"
 ---
 # <a name="resource-functions-for-azure-resource-manager-templates"></a>Resursfunktioner för Azure Resource Manager-mallar
 
@@ -61,7 +61,6 @@ Den möjliga användningen av List * visas i följande tabell.
 | Microsoft.CognitiveServices/accounts | [Listnycklar](/rest/api/cognitiveservices/accountmanagement/accounts/listkeys) |
 | Microsoft. ContainerRegistry/register | [listBuildSourceUploadUrl](/rest/api/containerregistry/registries%20(tasks)/getbuildsourceuploadurl) |
 | Microsoft. ContainerRegistry/register | [listCredentials](/rest/api/containerregistry/registries/listcredentials) |
-| Microsoft. ContainerRegistry/register | [listPolicies](/rest/api/containerregistry/registries/listpolicies) |
 | Microsoft. ContainerRegistry/register | [listUsages](/rest/api/containerregistry/registries/listusages) |
 | Microsoft.ContainerRegistry/registries/webhooks | [listEvents](/rest/api/containerregistry/webhooks/listevents) |
 | Microsoft. ContainerRegistry/register/kör | [listLogSasUrl](/rest/api/containerregistry/runs/getlogsasurl) |
@@ -397,7 +396,7 @@ Använd `'Full'` när du behöver resurs-värden som inte ingår i Egenskaper f�
 
 Referens-funktionen kan endast användas i egenskaperna för en resursdefinition och outputs-avsnittet av en mall eller distribution. När det används med [egenskapen iteration](resource-group-create-multiple.md#property-iteration)kan du använda funktionen Reference för `input` eftersom uttrycket har tilldelats till resurs egenskapen. Du kan inte använda den `count` med eftersom antalet måste bestämmas innan referens funktionen har åtgärd ATS.
 
-Du kan inte använda funktionen reference i utdata för en kapslad [mall](resource-group-linked-templates.md#nested-template) för att returnera en resurs som du har distribuerat i den kapslade mallen. Använd i stället en [länkad mall](resource-group-linked-templates.md#external-template-and-external-parameters).
+Du kan inte använda funktionen reference i utdata för en [kapslad mall](resource-group-linked-templates.md#nested-template) för att returnera en resurs som du har distribuerat i den kapslade mallen. Använd i stället en [länkad mall](resource-group-linked-templates.md#external-template-and-external-parameters).
 
 Om du använder funktionen **Reference** i en resurs som är villkorligt distribuerad utvärderas funktionen även om resursen inte har distribuerats.  Du får ett fel meddelande om **referens** funktionen hänvisar till en resurs som inte finns. Använd funktionen **IF** för att se till att funktionen endast utvärderas när resursen distribueras. Se [funktionen IF](resource-group-template-functions-logical.md#if) för en exempel mall som använder IF och Reference med en villkorligt distribuerad resurs.
 

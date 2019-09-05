@@ -8,12 +8,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/15/2018
 ms.author: mlearned
-ms.openlocfilehash: 1f07581be8fc416f8aae5eec1460ca3d33bda8f9
-ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
+ms.openlocfilehash: 3c11367945b74db9be20ade86c7bc26901440e4d
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70114240"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70305150"
 ---
 # <a name="preview---authenticate-with-azure-container-registry-from-azure-kubernetes-service"></a>Förhands granskning – autentisera med Azure Container Registry från Azure Kubernetes-tjänsten
 
@@ -37,7 +37,7 @@ Du måste ha följande:
 
 ## <a name="install-latest-aks-cli-preview-extension"></a>Installera det senaste AKS CLI Preview-tillägget
 
-Du behöver tillägget **AKS-Preview 0.4.8** eller senare.
+Du behöver tillägget **AKS-Preview 0.4.13** eller senare.
 
 ```azurecli
 az extension remove --name aks-preview 
@@ -46,25 +46,33 @@ az extension add -y --name aks-preview
 
 ## <a name="create-a-new-aks-cluster-with-acr-integration"></a>Skapa ett nytt AKS-kluster med ACR-integrering
 
-Du kan ställa in AKS-och ACR-integration när du skapar ditt AKS-kluster.  För att tillåta ett AKS-kluster att samverka med ACR används ett Azure Active Directory **tjänstens huvud namn** . Följande CLI-kommando skapar en ACR i resurs gruppen som du anger och konfigurerar lämplig **ACRPull** -roll för tjänstens huvud namn. Om *ACR-namnet* inte finns i den resurs grupp som du anger, skapas automatiskt ett standard namn `aks<resource-group>acr` för ACR.  Ange giltiga värden för parametrarna nedan.  Parametrarna inom hak paren tes är valfria.
+Du kan ställa in AKS-och ACR-integration när du skapar ditt AKS-kluster.  För att tillåta ett AKS-kluster att samverka med ACR används ett Azure Active Directory **tjänstens huvud namn** . Med följande CLI-kommando kan du auktorisera en befintlig ACR i din prenumeration och konfigurera rätt **ACRPull** -roll för tjänstens huvud namn. Ange giltiga värden för parametrarna nedan.  Parametrarna inom hak paren tes är valfria.
 ```azurecli
 az login
-az aks create -n myAKSCluster -g myResourceGroup --enable-acr [--acr <acr-name-or-resource-id>]
+az acr create -n myContainerRegistry -g myContainerRegistryResourceGroup --sku basic [in case you do not have an existing ACR]
+az aks create -n myAKSCluster -g myResourceGroup --attach-acr <acr-name-or-resource-id>
 ```
 \* * Ett ACR resurs-ID har följande format: 
 
-/Subscriptions/< prenumeration-d >/resourceGroups/< resurs-grupp-Name >/providers/Microsoft.ContainerRegistry/registries/<name> 
+/Subscriptions/< prenumeration-d >/resourceGroups/< resurs-grupp-Name >/providers/Microsoft.ContainerRegistry/registries/{name} 
   
 Det här steget kan ta flera minuter att slutföra.
 
-## <a name="create-acr-integration-for-existing-aks-clusters"></a>Skapa ACR-integrering för befintliga AKS-kluster
+## <a name="configure-acr-integration-for-existing-aks-clusters"></a>Konfigurera ACR-integrering för befintliga AKS-kluster
 
 Integrera en befintlig ACR med befintliga AKS-kluster genom att ange giltiga värden för **ACR-Name** eller **ACR-Resource-ID** enligt nedan.
 
 ```azurecli
-az aks update -n myAKSCluster -g myResourceGroup --enable-acr --acr <acrName>
-az aks update -n myAKSCluster -g myResourceGroup --enable-acr --acr <acr-resource-id>
+az aks update -n myAKSCluster -g myResourceGroup --attach-acr <acrName>
+az aks update -n myAKSCluster -g myResourceGroup --attach-acr <acr-resource-id>
 ```
+
+Du kan också ta bort integrationen mellan ett ACR och ett AKS-kluster med följande
+```azurecli
+az aks update -n myAKSCluster -g myResourceGroup --detach-acr <acrName>
+az aks update -n myAKSCluster -g myResourceGroup --detach-acr <acr-resource-id>
+```
+
 
 ## <a name="log-in-to-your-acr"></a>Logga in på din ACR
 

@@ -12,12 +12,12 @@ ms.reviewer: klam, deli, LADocs
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 10/05/2018
-ms.openlocfilehash: f0b568289a50b9883e6e0f1cba6b793c9e6e90e8
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.openlocfilehash: b9f9a402ecde09dd00c2b070f784858a141e556b
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70051725"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70309009"
 ---
 # <a name="quickstart-create-and-manage-automated-logic-app-workflows---visual-studio-code"></a>Snabbstart: Skapa och hantera automatiserade Logic app-arbetsflöden – Visual Studio Code
 
@@ -41,7 +41,7 @@ Innan du börjar ska du kontrol lera att du har följande objekt:
 
 * Hämta och installera följande verktyg, om du inte redan har dem: 
 
-  * [Visual Studio Code version 1.25.1 eller senare]("https://code.visualstudio.com/), som är kostnads fri
+  * [Visual Studio Code version 1.25.1 eller senare](https://code.visualstudio.com/), som är kostnads fri
 
   * Visual Studio Code-tillägg för Azure Logic Apps
 

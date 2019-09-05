@@ -10,21 +10,21 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 08/06/2019
+ms.date: 09/04/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e15fa8c79663fc2517039124f9be8c1ecd57b8a8
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 8b5479bc7f4e65f23a2e2dcf7deb91742fe50610
+ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68837873"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70382494"
 ---
 # <a name="delegate-app-registration-permissions-in-azure-active-directory"></a>Delegera registrerings behörigheter för app i Azure Active Directory
 
-Den här artikeln beskriver hur du använder app-behörigheter i anpassade roller i Azure Active Directory (Azure AD) för att hantera dina program hanterings behov. Azure Active Directory (Azure AD) låter dig delegera skapande-och hanterings behörigheter för program på följande sätt:
+Den här artikeln beskriver hur du använder behörigheter som beviljats av anpassade roller i Azure Active Directory (Azure AD) för att hantera dina program hanterings behov. I Azure AD kan du delegera program skapande-och hanterings behörigheter på följande sätt:
 
 - [Begränsa vem som kan skapa program](#restrict-who-can-create-applications) och hantera de program som de skapar. Som standard i Azure AD kan alla användare registrera program registreringar och hantera alla aspekter av program som de skapar. Detta kan begränsas till att endast tillåta valda personer som har behörighet.
 - [Tilldela en eller flera ägare till ett program](#assign-application-owners). Detta är ett enkelt sätt att ge någon möjlighet att hantera alla aspekter av Azure AD-konfigurationen för ett enskilt program.
@@ -40,7 +40,7 @@ Som standard i Azure AD kan alla användare registrera program registreringar oc
 ### <a name="to-disable-the-default-ability-to-create-application-registrations-or-consent-to-applications"></a>Så här inaktiverar du standard möjligheten att skapa program registreringar eller medgivande till program
 
 1. Logga in på din Azure AD-organisation med ett konto som är berättigat till rollen global administratör i din Azure AD-organisation.
-1. När du har fått tillräckliga behörigheter anger du ett eller båda av följande:
+1. Ange ett eller båda av följande:
 
     - På [sidan användar inställningar för din organisation](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/UserSettings)ställer du in inställningen för **användare kan registrera program** på Nej. Då inaktive ras standard möjligheten för användare att skapa program registreringar.
     - I [användar inställningarna för företags program](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/UserSettings/menuId/)ställer du in **användarnas medgivande till program som har åtkomst till företags data för deras ställe** -inställning till Nej. Detta inaktiverar standard möjligheten för användare att samtycka till program som har åtkomst till företags information för deras räkning.

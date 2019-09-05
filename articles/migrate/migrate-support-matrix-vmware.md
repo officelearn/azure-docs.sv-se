@@ -8,12 +8,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: raynew
-ms.openlocfilehash: 7fe2c39871f1cd512da7f9a2c5146e79abbe74a6
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: ecceb1177d7b7015afc92f10284a9372d0cfb4a2
+ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70279606"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70375303"
 ---
 # <a name="support-matrix-for-vmware-assessment-and-migration"></a>Stödmatris för utvärdering och migrering av VMware
 
@@ -73,7 +73,7 @@ Azure Migrate kör en förenklad installation för att identifiera virtuella VMw
 
 **Support** | **Detaljer**
 --- | ---
-**Distribution av utrustning** | Du distribuerar installationen som en virtuell VMware-dator. Du behöver tillräckligt med resurser på vCenter Server för att allokera en virtuell dator med 32 GB RAM, 8 virtuella processorer och en extern virtuell växel.<br/><br/> Enheten kräver Internet åtkomst, antingen direkt eller via en proxyserver.<br/> Den virtuella datorn måste distribueras på en ESXi-värd som kör version 5,5 eller senare. 
+**Distribution av utrustning** | Du distribuerar installationen som en virtuell VMware-dator. Du behöver tillräckligt med resurser på vCenter Server för att allokera en virtuell dator med 32 GB RAM, 8 virtuella processorer, cirka 80 GB disk lagring och en extern virtuell växel.<br/><br/> Enheten kräver Internet åtkomst, antingen direkt eller via en proxyserver.<br/> Den virtuella datorn måste distribueras på en ESXi-värd som kör version 5,5 eller senare. 
 **Azure Migrate projekt** | En apparat kan associeras med ett enda projekt. <br/> Valfritt antal enheter kan associeras med ett enda projekt.<br/> Du kan utvärdera upp till 35 000 virtuella datorer i ett projekt.
 **Identifikation** | En apparat kan identifiera upp till 10 000 virtuella VMware-datorer på en vCenter Server.<br/> En apparat kan ansluta till en enda vCenter Server.
 **Utvärderings grupp** | Du kan lägga till upp till 35 000 datorer i en enda grupp.

@@ -3,23 +3,26 @@ title: Förstå hur du granskar innehållet på en dator
 description: Lär dig hur Azure Policy använder gäst konfiguration för att granska inställningar i en Azure-dator.
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 03/18/2019
+ms.date: 09/04/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 06a767af71f457273e0e20d1248d64c22b3563e7
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: bfa7f7486a9fa5ef62e8bf9e01dbe39d675d8d27
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 09/04/2019
-ms.locfileid: "70274952"
+ms.locfileid: "70308556"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Förstå Azure Policy gäst-konfiguration
 
-Förutom att granska och [Reparera](../how-to/remediate-resources.md) Azure-resurser kan Azure policy granska inställningarna i en dator. Verifieringen utförs av gäst-konfiguration-tillägget och klienten. Tillägget med klienten, verifierar inställningar, till exempel konfigurationen av operativsystemet, programkonfigurationen eller närvaro, miljöinställningar och mer.
+Utöver att granska och [Reparera](../how-to/remediate-resources.md) Azure-resurser kan Azure policy granska inställningarna i en dator. Verifieringen utförs av gäst-konfiguration-tillägget och klienten. Tillägget, via klienten, validerar inställningar som:
 
-För tillfället utför Azure Policy-gäst konfigurationen bara en granskning av inställningarna på datorn.
-Det går inte att använda konfigurationer än.
+- Operativ systemets konfiguration
+- Program konfiguration eller närvaro
+- Miljöinställningar
+
+För närvarande granskar Azure Policy-gäst konfigurationen endast inställningar i datorn. Konfigurationen används inte.
 
 ## <a name="extension-and-client"></a>Tillägget och klient
 
@@ -27,8 +30,7 @@ Om du vill granska inställningarna i en dator är ett [tillägg för virtuell d
 
 ### <a name="limits-set-on-the-extension"></a>Begränsningar som angetts för tillägget
 
-För att begränsa tillägget från att påverka program som körs på datorn får gäst konfigurationen inte överstiga mer än 5% processor belastning.
-Detta gäller både för konfigurationer som tillhandahålls av Microsoft som "inbyggda" och för anpassade konfigurationer som skapats av kunder.
+För att begränsa tillägget från att påverka program som körs på datorn får gäst konfigurationen inte överstiga mer än 5% processor belastning. Den här begränsningen finns för både inbyggda och anpassade definitioner.
 
 ## <a name="register-guest-configuration-resource-provider"></a>Registrera resursprovidern för gäst-konfiguration
 
@@ -68,7 +70,7 @@ I följande tabell visas en lista över de lokala verktyg som används på varje
 
 ### <a name="validation-frequency"></a>Validerings frekvens
 
-Klienten för gäst konfiguration söker efter nytt innehåll var 5: e minut. När en gäst tilldelning tas emot kontrol leras inställningarna på 15-minuters intervall. Resultat skickas till resurs leverantören för gäst konfigurationen så snart granskningen är klar. När en [utlösare](../how-to/get-compliance-data.md#evaluation-triggers) för princip utvärdering inträffar skrivs datorns tillstånd till resurs leverantören för gäst konfiguration. Detta gör att Azure Policy utvärdera Azure Resource Manager egenskaper. En utvärdering på begäran Azure Policy hämtar det senaste värdet från resurs leverantören för gäst konfigurationen. Den utlöser dock inte en ny granskning av konfigurationen på datorn.
+Klienten för gäst konfiguration söker efter nytt innehåll var 5: e minut. När en gäst tilldelning tas emot kontrol leras inställningarna på 15-minuters intervall. Resultat skickas till resurs leverantören för gäst konfigurationen så snart granskningen är klar. När en [utlösare](../how-to/get-compliance-data.md#evaluation-triggers) för princip utvärdering inträffar skrivs datorns tillstånd till resurs leverantören för gäst konfiguration. Den här uppdateringen gör att Azure Policy utvärdera Azure Resource Manager egenskaper. En utvärdering på begäran Azure Policy hämtar det senaste värdet från resurs leverantören för gäst konfigurationen. Den utlöser dock inte en ny granskning av konfigurationen på datorn.
 
 ## <a name="supported-client-types"></a>Stöds klienttyper
 
@@ -93,7 +95,7 @@ Windows Server Nano Server stöds inte i någon version.
 
 ## <a name="guest-configuration-extension-network-requirements"></a>Nätverks krav för gäst konfigurations tillägg
 
-För att kunna kommunicera med resurs leverantören för gäst konfiguration i Azure måste datorer ha utgående åtkomst till Azure-datacenter på port **443**. Om du använder ett privat virtuellt nätverk i Azure och inte tillåter utgående trafik måste undantag konfigureras med regler för [nätverks säkerhets grupper](../../../virtual-network/manage-network-security-group.md#create-a-security-rule) . För tillfället finns det ingen service tag för Azure Policy gäst konfiguration.
+För att kunna kommunicera med resurs leverantören för gäst konfiguration i Azure måste datorer ha utgående åtkomst till Azure-datacenter på port **443**. Om du använder ett privat virtuellt nätverk i Azure som inte tillåter utgående trafik, konfigurerar du undantag med regler för [nätverks säkerhets grupper](../../../virtual-network/manage-network-security-group.md#create-a-security-rule) . Det finns för närvarande ingen service tag för Azure Policy gäst konfiguration.
 
 I IP-adress listor kan du hämta [Microsoft Azure Data Center IP-intervall](https://www.microsoft.com/download/details.aspx?id=41653). Den här filen uppdateras varje vecka och har de för närvarande distribuerade intervallen och eventuella kommande ändringar i IP-intervallen. Du behöver bara tillåta utgående åtkomst till IP-adresserna i de regioner där de virtuella datorerna distribueras.
 
@@ -113,16 +115,14 @@ Den **DeployIfNotExists** principdefinitionen kontrollerar och korrigerar följa
 
 Om tilldelningen **DeployIfNotExists** är icke-kompatibel kan en [reparations uppgift](../how-to/remediate-resources.md#create-a-remediation-task) användas.
 
-När **DeployIfNotExists** -tilldelningen är kompatibel använder **AuditIfNotExists** -princip tilldelningen de lokala verifierings verktygen för att avgöra om konfigurations tilldelningen är kompatibel eller inte kompatibel.
-Verktyget verifiering ger resultatet till gäst-konfiguration-klienten. Klienten vidarebefordrar resultaten till gäst-tillägg, vilket gör dem tillgängliga via resursprovidern gäst-konfiguration.
+När **DeployIfNotExists** -tilldelningen är kompatibel använder **AuditIfNotExists** -princip tilldelningen de lokala verifierings verktygen för att avgöra om konfigurations tilldelningen är kompatibel eller inte kompatibel. Verktyget verifiering ger resultatet till gäst-konfiguration-klienten. Klienten vidarebefordrar resultaten till gäst-tillägg, vilket gör dem tillgängliga via resursprovidern gäst-konfiguration.
 
 Azure Policy använder resursen gäst konfigurationstjänst **complianceStatus** egenskapen att rapportera kompatibilitet i den **efterlevnad** noden. Mer information finns i [komma kompatibilitetsdata](../how-to/getting-compliance-data.md).
 
 > [!NOTE]
-> **DeployIfNotExists** -principen krävs för att **AuditIfNotExists** -principen ska returnera resultat.
-> Utan **DeployIfNotExists**visar **AuditIfNotExists** -principen "0 av 0" resurser som status.
+> **DeployIfNotExists** -principen krävs för att **AuditIfNotExists** -principen ska returnera resultat. Utan **DeployIfNotExists**visar **AuditIfNotExists** -principen "0 av 0" resurser som status.
 
-Alla inbyggda principer för gästen konfiguration ingår i ett initiativ till gruppen definitioner för modulen tilldelningar. Det inbyggda initiativet med namnet *[för hands version]: Granska lösen ords säkerhets inställningar i Linux-och* Windows-datorer innehåller 18 principer. Det finns sex **DeployIfNotExists** och **AuditIfNotExists** par för Windows och tre par för Linux. I båda fallen logiken i definitionen verifierar endast målet operativsystemet ska utvärderas baserat på den [principregeln](definition-structure.md#policy-rule) definition.
+Alla inbyggda principer för gästen konfiguration ingår i ett initiativ till gruppen definitioner för modulen tilldelningar. Det inbyggda initiativet med namnet *[för hands version]: Granska lösen ords säkerhets inställningar i Linux-och* Windows-datorer innehåller 18 principer. Det finns sex **DeployIfNotExists** och **AuditIfNotExists** par för Windows och tre par för Linux. [Princip definitions](definition-structure.md#policy-rule) logiken verifierar att endast mål operativ systemet utvärderas.
 
 ### <a name="multiple-assignments"></a>Flera tilldelningar
 
@@ -130,7 +130,7 @@ Principer för gäst konfiguration stöder för närvarande bara tilldelning av 
 
 ## <a name="built-in-resource-modules"></a>Inbyggda resurs moduler
 
-När gäst konfigurations tillägget är installerat, ingår PowerShell-modulen "GuestConfiguration" i den senaste versionen av DSC-resurs-moduler. Den här modulen kan laddas ned från PowerShell-galleriet med hjälp av länken "manuell hämtning" från sidan för modulen [GuestConfiguration/](https://www.powershellgallery.com/packages/GuestConfiguration/).
+När du installerar gäst konfigurations tillägget ingår PowerShell-modulen "GuestConfiguration" i den senaste versionen av DSC-resurs-moduler. Den här modulen kan laddas ned från PowerShell-galleriet med hjälp av länken "manuell hämtning" från sidan för modulen [GuestConfiguration/](https://www.powershellgallery.com/packages/GuestConfiguration/).
 Fil formatet '. nupkg ' kan byta namn till '. zip ' för att expandera och granska.
 
 ## <a name="client-log-files"></a>Loggfiler för klienter
@@ -145,11 +145,12 @@ Där `<version>` refererar till det aktuella versions numret.
 
 ### <a name="collecting-logs-remotely"></a>Samla in loggar via fjärr anslutning
 
-Det första steget i Felsöka konfigurationer av gäst konfiguration eller moduler bör vara att använda `Test-GuestConfigurationPackage` cmdleten genom att följa stegen i [testa ett gäst konfigurations paket](../how-to/guest-configuration-create.md#test-a-guest-configuration-package).  Om detta inte lyckas kan insamling av klient loggar hjälpa till att diagnostisera problem.
+Det första steget i Felsöka konfigurationer av gäst konfiguration eller moduler bör vara att använda `Test-GuestConfigurationPackage` cmdleten genom att följa stegen i [testa ett gäst konfigurations paket](../how-to/guest-configuration-create.md#test-a-guest-configuration-package).
+Om det inte lyckas kan insamling av klient loggar hjälpa till att diagnostisera problem.
 
 #### <a name="windows"></a>Windows
 
-Om du vill använda funktionen för körning av virtuella Azure-datorer för att avbilda information från loggfiler i Windows-datorer kan du använda PowerShell-skriptet i följande exempel. Information om hur du kör skriptet från Azure-portalen eller använder Azure PowerShell finns i [köra PowerShell-skript i din virtuella Windows-dator med kommandot kör](../../../virtual-machines/windows/run-command.md).
+Om du vill använda funktionen för körning av virtuella Azure-datorer för att avbilda information från loggfiler i Windows-datorer kan du använda PowerShell-skriptet i följande exempel. Mer information finns i [köra PowerShell-skript i din virtuella Windows-dator med kommandot kör](../../../virtual-machines/windows/run-command.md).
 
 ```powershell
 $linesToIncludeBeforeMatch = 0
@@ -160,7 +161,7 @@ Select-String -Path "$latestVersion\dsc\logs\dsc.log" -pattern 'DSCEngine','DSCM
 
 #### <a name="linux"></a>Linux
 
-Om du vill använda funktionen för körning av virtuella Azure-datorer för att avbilda information från loggfiler på Linux-datorer kan du använda följande exempel på bash-skript. Information om hur du kör skriptet från Azure-portalen eller med Azure CLI finns i [köra gränssnitts skript i din virtuella Linux-dator med kommandot kör](../../../virtual-machines/linux/run-command.md)
+Om du vill använda funktionen för körning av virtuella Azure-datorer för att avbilda information från loggfiler på Linux-datorer kan du vara användbar i följande exempel bash-skript. Mer information finns i [Kör Shell-skript i din virtuella Linux-dator med kommandot kör](../../../virtual-machines/linux/run-command.md)
 
 ```Bash
 linesToIncludeBeforeMatch=0

@@ -5,20 +5,17 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 05/21/2019
-ms.openlocfilehash: 74f27f70c4a0752975a53b3889681d3910b1dd05
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.date: 09/04/2019
+ms.openlocfilehash: 275c7bc8127855712c191141ef681526da7c377b
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69906422"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70309491"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mysql-using-the-azure-portal"></a>Skapa och hantera Läs repliker i Azure Database for MySQL med hjälp av Azure Portal
 
 I den här artikeln får du lära dig hur du skapar och hanterar Läs repliker i Azure Database for MySQL-tjänsten med hjälp av Azure Portal.
-
-> [!IMPORTANT]
-> Du kan skapa en Läs replik i samma region som din huvud server eller i valfri annan Azure-region som du väljer. Replikering mellan regioner är för närvarande en offentlig för hands version.
 
 ## <a name="prerequisites"></a>Förutsättningar
 

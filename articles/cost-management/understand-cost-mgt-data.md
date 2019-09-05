@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 07/01/2019
+ms.date: 09/04/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: micflan
 ms.custom: ''
-ms.openlocfilehash: e44acfc66a8faf76068af9c31233e89c45ee02f7
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: b50c7c0fbd2ef2c3825ba4c69232b69188d7ffbb
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68953170"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70308302"
 ---
 # <a name="understand-cost-management-data"></a>Förstå Cost Management-data
 
@@ -25,7 +25,7 @@ Cost Management omfattar all användning och alla inköp, inklusive reservatione
 
 ## <a name="supported-microsoft-azure-offers"></a>Microsoft Azure erbjudanden som stöds
 
-Följande information visar de [Microsoft Azure erbjudanden](https://azure.microsoft.com/support/legal/offer-details/) som stöds för närvarande i Azure Cost Management. Ett Azure-erbjudande är den typ av Azure-prenumeration du har. Data är tillgängliga i Cost Management som startar på **tillgängliga data från** datum. Om en prenumeration ändras får kostnader innan det ändrings datumet för erbjudandet inte är tillgängliga. 
+Följande information visar de [Microsoft Azure erbjudanden](https://azure.microsoft.com/support/legal/offer-details/) som stöds för närvarande i Azure Cost Management. Ett Azure-erbjudande är den typ av Azure-prenumeration du har. Data är tillgängliga i Cost Management som startar på **tillgängliga data från** datum. Om en prenumeration ändras får kostnader innan det ändrings datumet för erbjudandet inte är tillgängliga.
 
 | **Kategori**  | **Erbjudandets namn** | **Kvot-ID** | **Erbjudande nummer** | **Data tillgängliga från** |
 | --- | --- | --- | --- | --- |
@@ -37,11 +37,10 @@ Följande information visar de [Microsoft Azure erbjudanden](https://azure.micro
 | **Microsofts kund avtal** | [Microsoft Azure plan för utveckling/testning](https://azure.microsoft.com/offers/ms-azr-0148g) | MSDNDevTest_2014-09-01 | Gäller inte | Mars 2019<sup>3</sup> |
 | **Microsoft Developer Network (MSDN)** | [MSDN-plattformar](https://azure.microsoft.com/offers/ms-azr-0062p) <sup>4</sup> | MSDN_2014-09-01 | MS-AZR-0062P | 2 oktober 2018<sup>2</sup> |
 | **Betala per användning** | [Betala per användning](https://azure.microsoft.com/offers/ms-azr-0003p)                  | PayAsYouGo_2014-09-01 | MS-AZR-0003P | 2 oktober 2018<sup>2</sup> |
-| **Betala per användning** | [Betala per användning – utveckling/testning](https://azure.microsoft.com/offers/ms-azr-0023p)         | MSDNDevTest_2014-09-01 | MS-AZR-0023P | 2 oktober 2018<sup>2</sup> |
+| **Betala per användning** | [Dev/Test – betala per användning](https://azure.microsoft.com/offers/ms-azr-0023p)         | MSDNDevTest_2014-09-01 | MS-AZR-0023P | 2 oktober 2018<sup>2</sup> |
 | **Betala per användning** | [Microsoft Partner Network](https://azure.microsoft.com/offers/ms-azr-0025p)      | MPN_2014-09-01 | MS-AZR-0025P | 2 oktober 2018<sup>2</sup> |
 | **Betala per användning** | [Kostnads fri utvärdering](https://azure.microsoft.com/offers/ms-azr-0044p) <sup>4</sup>         | FreeTrial_2014-09-01 | MS-AZR-0044P | 2 oktober 2018<sup>2</sup> |
 | **Betala per användning** | [Azure i Open](https://azure.microsoft.com/offers/ms-azr-0111p) <sup>4</sup>      | AzureInOpen_2014-09-01 | MS-AZR-0111P | 2 oktober 2018<sup>2</sup> |
-| **Betala per användning** | [Azure för studenter](https://azure.microsoft.com/offers/ms-azr-0170p) <sup>4</sup> | AzureForStudents_2018-01-01 | MS-AZR-0170P | 2 oktober 2018<sup>2</sup> |
 | **Betala per användning** | Azure-pass<sup>4</sup>                                                            | AzurePass_2014-09-01 | MS-AZR-0120P, MS-AZR-0122P - MS-AZR-0125P, MS-AZR-0128P - MS-AZR-0130P | 2 oktober 2018<sup>2</sup> |
 | **Visual Studio** | [Visual Studio Enterprise – MPN](https://azure.microsoft.com/offers/ms-azr-0029p) <sup>4</sup>     | MPN_2014-09-01 | MS-AZR-0029P | 2 oktober 2018<sup>2</sup> |
 | **Visual Studio** | [Visual Studio Professional](https://azure.microsoft.com/offers/ms-azr-0059p)<sup>4</sup>         | MSDN_2014-09-01 | MS-AZR-0059P | 2 oktober 2018<sup>2</sup> |
@@ -66,14 +65,15 @@ Följande erbjudanden stöds inte än:
 | **Leverantör av moln lösningar (CSP)** | Azure Government CSP                               | CSP_2015-05-01 | MS-AZR-USGOV-0145P |
 | **Leverantör av moln lösningar (CSP)** | Azure Tyskland i CSP för Microsoft Cloud i Tyskland   | CSP_2015-05-01 | MS-AZR-DE-0145P |
 | **Betala per användning**                 | Azure för studenter Starter | DreamSpark_2015-02-01 | MS-AZR-0144P |
+| **Betala per användning** | [Azure för studenter](https://azure.microsoft.com/offers/ms-azr-0170p) <sup>4</sup> | AzureForStudents_2018-01-01 | MS-AZR-0170P |
 | **Betala per användning**                 | [Microsoft Azure-sponsring](https://azure.microsoft.com/offers/ms-azr-0036p/) | Sponsored_2016-01-01 | MS-AZR-0036P |
-| **Support avtal** | Standard Support                    | Default_2014-09-01 | MS-AZR-0041P |
-| **Support avtal** | Professional Direct support         | Default_2014-09-01 | MS-AZR-0042P |
-| **Support avtal** | Support för utvecklare                   | Default_2014-09-01 | MS-AZR-0043P |
-| **Support avtal** | Plan för Tyskland-support                | Default_2014-09-01 | MS-AZR-DE-0043P |
-| **Support avtal** | Azure Government Standard Support   | Default_2014-09-01 | MS-AZR-USGOV-0041P |
-| **Support avtal** | Azure Government Pro-Direct-support | Default_2014-09-01 | MS-AZR-USGOV-0042P |
-| **Support avtal** | Azure Government Developer Support  | Default_2014-09-01 | MS-AZR-USGOV-0043P |
+| **Supportavtal** | Standard Support                    | Default_2014-09-01 | MS-AZR-0041P |
+| **Supportavtal** | Professional Direct support         | Default_2014-09-01 | MS-AZR-0042P |
+| **Supportavtal** | Support för utvecklare                   | Default_2014-09-01 | MS-AZR-0043P |
+| **Supportavtal** | Plan för Tyskland-support                | Default_2014-09-01 | MS-AZR-DE-0043P |
+| **Supportavtal** | Azure Government Standard Support   | Default_2014-09-01 | MS-AZR-USGOV-0041P |
+| **Supportavtal** | Azure Government Pro-Direct-support | Default_2014-09-01 | MS-AZR-USGOV-0042P |
+| **Supportavtal** | Azure Government Developer Support  | Default_2014-09-01 | MS-AZR-USGOV-0043P |
 
 ## <a name="determine-your-offer-type"></a>Fastställ din erbjudande typ
 Om du inte ser data för en prenumeration och vill ta reda på om din prenumeration omfattas av de erbjudanden som stöds, kan du kontrol lera att din prenumeration stöds. Om du vill kontrol lera att en Azure-prenumeration stöds loggar du in på [Azure Portal](https://portal.azure.com). Välj sedan **alla tjänster** i den vänstra meny rutan. I listan över tjänster väljer du **prenumerationer**. I menyn prenumerations lista klickar du på den prenumeration som du vill verifiera. Din prenumeration visas på fliken Översikt och du kan se **erbjudandet** och **erbjudande-ID**. I följande bild visas ett exempel.
@@ -110,7 +110,7 @@ _<sup>**8**</sup> resurs Taggar används när användning genereras från varje 
 
 ## <a name="rated-usage-data-refresh-schedule"></a>Schema för data uppdatering av klassificerad användning
 
-Information om kostnader och användning finns i Cost Management + fakturering i Azure Portal och stödda [API: er](index.yml). Tänk på följande när du granskar kostnader:
+Information om kostnader och användning finns i Cost Management + fakturering i Azure Portal och [stödda API: er](index.yml). Tänk på följande när du granskar kostnader:
 
 - Uppskattade avgifter för den aktuella fakturerings perioden uppdateras sex gånger per dag.
 - Uppskattade avgifter för den aktuella fakturerings perioden kan ändras när du förbrukar mer användning.

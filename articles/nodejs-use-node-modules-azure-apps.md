@@ -1,6 +1,6 @@
 ---
-title: Arbeta med Node.js-moduler
-description: Lär dig hur du arbetar med Node.js-moduler när du använder Azure App Service eller molntjänster.
+title: Arbeta med Node. js-moduler
+description: Lär dig hur du arbetar med Node. js-moduler när du använder Azure App Service eller Cloud Services.
 services: ''
 documentationcenter: nodejs
 author: rloutlaw
@@ -14,80 +14,80 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 08/17/2016
 ms.author: routlaw
-ms.openlocfilehash: 571e8d640e068b6635ab4091a01283d698b0264d
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: 61be6bcd957a4e81147d5ef472b8f850e5605e41
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67595656"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70309282"
 ---
 # <a name="using-nodejs-modules-with-azure-applications"></a>Använda Node.js-moduler med Azure-program
-Detta dokument ger vägledning om hur du använder Node.js-moduler med program som körs på Azure. Det innehåller vägledning om att säkerställa att ditt program använder en specifik version av en modul som använder inbyggda moduler med Azure.
+Det här dokumentet ger vägledning om hur du använder Node. js-moduler med program som finns på Azure. Det ger vägledning om hur du säkerställer att programmet använder en specifik version av en modul samt hur du använder inbyggda moduler med Azure.
 
-Om du redan är bekant med Node.js-moduler, **package.json** och **npm shrinkwrap.json** filer, följande information ger en snabb sammanfattning av vad som beskrivs i den här artikeln:
+Om du redan är van vid att använda Node. js-moduler, **Package. JSON** -och **NPM-shrinkwrap. JSON-** filer, ger följande information en snabb översikt över vad som beskrivs i den här artikeln:
 
-* Azure App Service förstår **package.json** och **npm shrinkwrap.json** filer och kan installera moduler baserat på posterna i de här filerna.
+* Azure App Service förstår **Package. JSON** **-och NPM-shrinkwrap. JSON-** filer och kan installera moduler baserat på poster i dessa filer.
 
-* Azure Cloud Services förväntar sig att alla moduler som ska installeras på utvecklingsmiljön och **nod\_moduler** directory för att ingå som en del av distributionspaketet. Det är möjligt att aktivera stöd för att installera moduler med **package.json** eller **npm shrinkwrap.json** filer på molntjänster; men den här konfigurationen kräver anpassning av standard skript som används av Cloud Service-projekt. Ett exempel på hur du konfigurerar den här miljön finns i [Azure startåtgärd för att köra npm-installation för att undvika att distribuera node-moduler](https://github.com/woloski/nodeonazure-blog/blob/master/articles/startup-task-to-run-npm-in-azure.markdown)
-
-> [!NOTE]
-> Azure-datorer behandlas inte i den här artikeln eftersom distributionsupplevelsen i en virtuell dator är beroende av operativsystemet som är värd för den virtuella datorn.
-> 
-> 
-
-## <a name="nodejs-modules"></a>Node.js-moduler
-Modulerna är inläsningsbar JavaScript-paket som tillhandahåller funktioner för ditt program. Moduler installeras vanligtvis under den **npm** kommandoradsverktyget verktyget, men vissa moduler (t.ex http-modul) tillhandahålls som en del av core Node.js-paketet.
-
-När moduler installeras de lagras i den **nod\_moduler** katalogen i roten för din program-katalogstruktur. Varje modul inom den **nod\_moduler** directory hanterar en egen katalog som innehåller alla moduler som den är beroende av och problemet upprepas för varje modul ända ned beroendekedjan. Den här miljön kan varje modulen installerad för att du har en egen version krav för modulerna som den är beroende av, men det kan resultera i en stor katalogstruktur.
-
-Distribuera den **nod\_moduler** katalogen som en del av ditt program ökar storleken på distributionen jämfört med en **package.json** eller  **npm-shrinkwrap.json** filen; men det garanterar att versionerna av moduler som används i produktion är samma som de moduler som används under utveckling.
-
-### <a name="native-modules"></a>Ursprungliga moduler
-De flesta moduler är helt enkelt klartext JavaScript-filer, är vissa moduler plattformsspecifika binära avbildningar. Dessa moduler kompileras under installationen, vanligtvis med hjälp av Python och nod-gyp. Eftersom Azure Cloud Services är beroende av den **nod\_moduler** mapp som distribueras som en del av programmet, alla inbyggda modulen som ingår i de installerade modulerna ska fungera i en molntjänst så länge den har installerats och kompilerade på ett system för utveckling av Windows.
-
-Azure App Service stöder inte alla interna moduler och kan misslyckas vid kompilering moduler med specifika krav. Även om vissa populära moduler mongodb har valfritt inbyggda beroenden och fungerar utan att de, visade två lösningar lyckas med nästan alla ursprungliga moduler som är tillgängliga idag:
-
-* Kör **npm-installationsprogrammet** på en Windows-dator som har alla inbyggda modulens nödvändiga komponenter installerade. Sedan distribuerar den skapade **nod\_moduler** mappen som en del av programmet till Azure App Service.
-
-  * Innan du kompilerar, kontrollera att din lokala Node.js-installation har matchande arkitektur och versionen är så nära som möjligt till den som används i Azure (de aktuella värdena kan vara markerad på runtime från egenskaperna för **process.arch** och **process.version**).
-
-* Azure App Service kan konfigureras för att köra anpassade bash eller kommandoskript under distributionen, vilket ger dig möjlighet att köra anpassade kommandon och konfigurera exakt hur **npm-installationsprogrammet** körs. Se en video som visar hur du konfigurerar den miljön, [distributionsskript för anpassad webbplats med Kudu](https://azure.microsoft.com/resources/videos/custom-web-site-deployment-scripts-with-kudu/).
-
-### <a name="using-a-packagejson-file"></a>Med hjälp av en package.json-fil
-
-Den **package.json** filen är ett sätt att ange högsta nivån beroendena programmet kräver så att Värdplattformen kan installera beroenden, i stället för att du inkludera den **noden\_ moduler** mappen som en del av distributionen. När programmet har distribuerats, den **npm-installationsprogrammet** används för att parsa den **package.json** filen och installera alla beroenden som anges.
-
-Under utveckling, kan du använda den **--spara**, **--spara dev**, eller **--spara valfritt** parametrar när du installerar moduler om du vill lägga till en post för modulen din **package.json** filen automatiskt. Mer information finns i [npm install](https://docs.npmjs.com/cli/install).
-
-Ett potentiellt problem med den **package.json** filen är det bara anger versionen för översta beroenden. Varje modul som är installerad kan eller kan inte ange versionen av moduler som den är beroende av och så det är möjligt att du kan få en annan beroendekedja än det som används under utveckling.
+* Azure Cloud Services förväntar sig att alla moduler ska installeras i utvecklings miljön och att **katalogen\_Node-moduler** ska ingå som en del av distributions paketet. Det går att aktivera stöd för installation av moduler med hjälp av **Package. JSON** eller **NPM-shrinkwrap. JSON** -filer på Cloud Services; den här konfigurationen kräver dock anpassning av de standard skript som används av moln tjänst projekt. Ett exempel på hur du konfigurerar den här miljön finns i [Start uppgift i Azure så här kör du NPM installera för att undvika distribution av Node-moduler](https://github.com/woloski/nodeonazure-blog/blob/master/articles/startup-task-to-run-npm-in-azure.markdown)
 
 > [!NOTE]
-> När du distribuerar till Azure App Service om din <b>package.json</b> filen refererar till en inbyggd modul som kan uppstå ett fel som liknar följande exempel när du publicerar programmet med Git:
-> 
-> npm fel! module-name@0.6.0 installera: 'noden gyp konfigurera build'
-> 
-> npm fel! ”cmd” / c ”” nod gyp konfigurera build ”' misslyckades med 1
+> Azure Virtual Machines diskuteras inte i den här artikeln eftersom distributions miljön i en virtuell dator är beroende av det operativ system som den virtuella datorn har.
 > 
 > 
 
-### <a name="using-a-npm-shrinkwrapjson-file"></a>Med en npm-shrinkwrap.json-fil
-Den **npm shrinkwrap.json** filen är ett försök att åtgärda modulen versionshantering begränsningar i den **package.json** fil. Medan den **package.json** filen bara innehåller versioner för de översta modulerna i **npm shrinkwrap.json** filen innehåller versionskraven för beroendekedjan hela modulen.
+## <a name="nodejs-modules"></a>Node. js-moduler
+Moduler är inbelastnings bara JavaScript-paket som tillhandahåller specifika funktioner för ditt program. Moduler installeras vanligt vis med kommando rads verktyget **NPM** , men vissa moduler (t. ex. http-modulen) tillhandahålls som en del av paketet core Node. js.
 
-När programmet är redo för produktion, kan du låsa versionskraven och skapa en **npm shrinkwrap.json** filen med hjälp av den **npm förpackningsplasten** kommando. Det här kommandot ska använda de versioner som är installerad på den **nod\_moduler** mappen och registrera dessa versioner till den **npm shrinkwrap.json** fil. När programmet har distribuerats till den faktiska driftsmiljön den **npm-installationsprogrammet** används för att parsa den **npm shrinkwrap.json** filen och installera alla beroenden som anges. Mer information finns i [npm-förpackningsplasten](https://docs.npmjs.com/cli/shrinkwrap).
+När moduler är installerade lagras de i katalogen **Node\_-moduler** i roten i din program katalog struktur. Varje modul i katalogen **Node\_-moduler** underhåller sin egen katalog som innehåller alla moduler som den är beroende av, och det här beteendet upprepas för varje modul, oavsett hur beroende kedjan är. I den här miljön kan varje modul installeras för att ha sina egna versions krav för de moduler som är beroende av, men det kan leda till en stor katalog struktur.
+
+Om du **distribuerar\_noden för Node-moduler** som en del av programmet ökar storleken på distributionen jämfört med att använda en **Package. JSON** -eller **NPM-shrinkwrap. JSON-** fil, men den garanterar dock att versionerna av modulerna som används i produktion är samma som de moduler som används i utvecklingen.
+
+### <a name="native-modules"></a>Inbyggda moduler
+De flesta moduler är bara JavaScript-filer med oformaterad text, men vissa moduler är plattformsspecifika binära avbildningar. Dessa moduler kompileras vid installations tiden, vanligt vis med python och Node-Gyp. Eftersom Azure Cloud Services förlitar **sig\_** på mappen moduler som distribueras som en del av programmet, bör alla inbyggda moduler som ingår i de installerade modulerna fungera i en moln tjänst så länge den har installerats och kompilerats på en Windows Development system.
+
+Azure App Service har inte stöd för alla inbyggda moduler, och kan Miss kan Miss Missing när moduler kompileras med specifika krav. Vissa populära moduler som MongoDB har valfria inbyggda beroenden och fungerar bra utan dem, men två lösningar har visat sig uppfylla varandra med nästan alla inbyggda moduler som är tillgängliga idag:
+
+* Kör **NPM-installationen** på en Windows-dator som har alla förutsättningar för inbyggd modul installerad. Distribuera sedan mappen skapade **Node\_-moduler** som en del av programmet för att Azure App Service.
+
+  * Innan du kompilerar kontrollerar du att den lokala Node. js-installationen har en matchande arkitektur och att versionen är så nära som möjligt för den som används i Azure (de aktuella värdena kan kontrol leras vid körning från egenskaperna **process. båge** och **process. version** ).
+
+* Azure App Service kan konfigureras för att köra anpassade bash eller Shell-skript under distributionen, vilket ger dig möjlighet att köra anpassade kommandon och exakt konfigurera hur **NPM-installationen** körs. En video som visar hur du konfigurerar miljön finns i avsnittet om [distributions skript för anpassad webbplats med kudu](https://azure.microsoft.com/resources/videos/custom-web-site-deployment-scripts-with-kudu/).
+
+### <a name="using-a-packagejson-file"></a>Använda en Package. JSON-fil
+
+**Package. JSON** -filen är ett sätt att ange de toppnivå beroenden som programmet kräver, så att värd plattformen kan installera beroenden, i stället för att du ska **inkludera\_mappen moduler** som en del av spridningen. När programmet har distribuerats används **installations kommandot NPM** för att tolka **Package. JSON** -filen och installera alla beroenden som anges.
+
+Under utvecklingen kan du använda parametrarna **--Save**, **--Save-dev**eller **--Save-optional** när du installerar moduler för att lägga till en post för modulen i **Package. JSON** -filen automatiskt. Mer information finns i [NPM-install](https://docs.npmjs.com/cli/install).
+
+Ett möjligt problem med **Package. JSON** -filen är att den bara anger versionen för toppnivå beroenden. Varje modul som installeras kan eller kan inte ange vilken version av moduler den är beroende av, och därför kan det hända att du får en annan beroende kedja än den som används i utvecklingen.
 
 > [!NOTE]
-> När du distribuerar till Azure App Service om din <b>npm shrinkwrap.json</b> filen refererar till en inbyggd modul som kan uppstå ett fel som liknar följande exempel när du publicerar programmet med Git:
+> När du distribuerar till Azure App Service, om din <b>Package. JSON</b> -fil refererar till en inbyggd modul kan du se ett fel som liknar följande exempel när du publicerar programmet med git:
 > 
-> npm fel! module-name@0.6.0 installera: 'noden gyp konfigurera build'
+> NPM fel! module-name@0.6.0installera: ' Node-Gyp konfigurera build '
 > 
-> npm fel! ”cmd” / c ”” nod gyp konfigurera build ”' misslyckades med 1
+> NPM fel! "cmd"/c "" Node-Gyp Configure Build "misslyckades med 1
+> 
+> 
+
+### <a name="using-a-npm-shrinkwrapjson-file"></a>Använda en NPM-shrinkwrap. JSON-fil
+**NPM-shrinkwrap. JSON-** filen är ett försök att adressera versions begränsningarna för modulerna i **Package. JSON** -filen. Även om **Package. JSON** -filen bara innehåller versioner för modulerna på den översta nivån, innehåller **NPM-shrinkwrap. JSON-** filen versions kraven för den fullständiga modulens beroende kedja.
+
+När programmet är redo för produktion kan du låsa versions kraven och skapa en **NPM-shrinkwrap. JSON-** fil med hjälp av kommandot **NPM shrinkwrap** . Det här kommandot använder de versioner som för närvarande är installerade i **noden\_moduler** och registrerar dessa versioner i filen **NPM-shrinkwrap. JSON** . När programmet har distribuerats till värd miljön används **NPM install** -kommandot för att parsa **NPM-shrinkwrap. JSON-** filen och installera alla beroenden som anges. Mer information finns i [NPM-shrinkwrap](https://docs.npmjs.com/cli/shrinkwrap).
+
+> [!NOTE]
+> Om din <b>NPM-shrinkwrap. JSON-</b> fil refererar till en inbyggd modul när du distribuerar till Azure App Service kan du se ett fel som liknar följande exempel när du publicerar programmet med git:
+> 
+> NPM fel! module-name@0.6.0installera: ' Node-Gyp konfigurera build '
+> 
+> NPM fel! "cmd"/c "" Node-Gyp Configure Build "misslyckades med 1
 > 
 > 
 
 ## <a name="next-steps"></a>Nästa steg
-Nu när du förstår hur du använder Node.js-moduler med Azure, lär du dig hur du [ange Node.js-version](https://github.com/squillace/staging/blob/master/articles/nodejs-specify-node-version-azure-apps.md), [skapa och distribuera en Node.js-webbapp](app-service/app-service-web-get-started-nodejs.md), och [hur du använder kommandoradsgränssnittet för Azure Gränssnitt för Mac och Linux](https://azure.microsoft.com/blog/using-windows-azure-with-the-command-line-tools-for-mac-and-linux/).
+Nu när du vet hur du använder Node. js-moduler med Azure får du lära dig hur du [anger Node. js-versionen](https://github.com/squillace/staging/blob/master/articles/nodejs-specify-node-version-azure-apps.md), [skapar och distribuerar en Node. js-webbapp](app-service/app-service-web-get-started-nodejs.md)och [hur du använder Azures kommando rads gränssnitt för Mac och Linux](https://azure.microsoft.com/blog/using-windows-azure-with-the-command-line-tools-for-mac-and-linux/).
 
-Mer information finns i [Node.js Developer Center](/nodejs/azure/).
+Mer information finns i [Node.js Developer Center](/azure/javascript/).
 
 [specify the Node.js version]: nodejs-specify-node-version-azure-apps.md
 [How to use the Azure Command-Line Interface for Mac and Linux]:cli-install-nodejs.md

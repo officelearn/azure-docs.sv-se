@@ -4,15 +4,15 @@ description: Beskriver hur du förbereder för utvärdering och migrering av lok
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 07/11/2019
+ms.date: 09/04/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 5bd4926494e13c1dd0cfb6283292ade967471238
-ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.openlocfilehash: 3b623675343d63385213091b66e220c5358c6437
+ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70013421"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70383329"
 ---
 # <a name="prepare-vmware-vms-for-assessment-and-migration-to-azure"></a>Förbered virtuella VMware-datorer för utvärdering och migrering till Azure
 
@@ -93,7 +93,7 @@ Tilldela roll tilldelnings behörigheter för resurs gruppen där Azure Migrate-
 1. I resurs gruppen i Azure Portal väljer du **åtkomst kontroll (IAM)** .
 2. Leta upp det relevanta kontot i **kontrol lera åtkomst**och klicka på det för att visa behörigheter.
 
-    - Deltagar behörigheterna räcker för att köra Server utvärderingen.
+    - **Deltagar** behörigheterna räcker för att köra Server utvärderingen.
     - Om du vill köra en programbegränsad Server-migrering, måste du ha behörighet som **ägare** (eller **deltagare** och **användar åtkomst administratör**).
 
 3. Om du inte har de behörigheter som krävs kan du begära dem från resurs gruppens ägare. 
@@ -126,7 +126,7 @@ Innan du konfigurerar Azure Migrate-installationen och påbörjar utvärderingen
 1. [Kontrol lera](migrate-support-matrix-vmware.md#assessment-appliance-requirements) kraven för att konfigurera Azure Migrate-installationen i VMware.
 2. [Granska](migrate-support-matrix-vmware.md#assessment-url-access-requirements) de Azure-URL: er som krävs för att komma åt installations programmet.
 3. Granska de data som installeras av enheten under identifiering och utvärdering.
-4. [](migrate-support-matrix-vmware.md#assessment-port-requirements) Antecknings portens åtkomst krav för produkten.
+4. [Antecknings](migrate-support-matrix-vmware.md#assessment-port-requirements) portens åtkomst krav för produkten.
 5. Du distribuerar Azure Migrate-installationen som en virtuell VMware-dator med en ägg fil. På vCenter Server kontrollerar du att ditt konto har behörighet att skapa en virtuell dator med en ägg fil.
 
 

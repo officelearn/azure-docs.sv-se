@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: quickstart
 ms.date: 08/28/2019
 ms.author: shthowse
-ms.openlocfilehash: c3cd64d0a683a60132808bca6a7ceb4aa84db4f1
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: b5eb327daa74d8e6f384d6f8e1054fb265ce4a7d
+ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70195202"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70375876"
 ---
 # <a name="quickstart-text-analytics-client-library-for-nodejs"></a>Snabbstart: Klient bibliotek för text analys för Node. js
 <a name="HOLTop"></a>
@@ -29,7 +29,7 @@ Använd Textanalys klient bibliotek för Node. js för att utföra:
 * Enhets igenkänning
 * Extrahering av nyckelfraser
 
-[Referens dokumentation](https://docs.microsoft.com/javascript/api/overview/azure/cognitiveservices/textanalytics?view=azure-node-latest) | [bibliotek käll kods](https://github.com/Azure/azure-sdk-for-node/tree/master/lib/services/cognitiveServicesTextAnalytics) | [paket (NPM)](https://www.npmjs.com/package/azure-cognitiveservices-textanalytics) | [exempel](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/)
+[Referens dokumentation](https://docs.microsoft.com/javascript/api/azure-cognitiveservices-textanalytics) | [bibliotek käll kods](https://github.com/Azure/azure-sdk-for-node/tree/master/lib/services/cognitiveServicesTextAnalytics) | [paket (NPM)](https://www.npmjs.com/package/azure-cognitiveservices-textanalytics) | [exempel](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/)
 
 ## <a name="prerequisites"></a>Förutsättningar
 

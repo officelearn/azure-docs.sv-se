@@ -11,12 +11,12 @@ ms.date: 05/28/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: sqlfreshmay19
-ms.openlocfilehash: b7b7d4cfe699ffdef3a8f736f5656d0b0067453a
-ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
+ms.openlocfilehash: 83475af3cfdd83e718243d80b84599d53716a5d5
+ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69575190"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70375846"
 ---
 # <a name="quickstart-create-and-query-an-azure-sql-data-warehouse-in-the-azure-portal"></a>Snabbstart: Skapa och skicka frågor till en Azure SQL Data Warehouse i Azure Portal
 
@@ -37,7 +37,7 @@ Logga in på [Azure Portal](https://portal.azure.com/).
 
 ## <a name="create-a-data-warehouse"></a>Skapa ett datalager
 
-En Azure SQL Data Warehouse skapas med en definierad uppsättning beräknings [resurser](memory-and-concurrency-limits.md). Databasen skapas inom en [Azure-resursgrupp](../azure-resource-manager/resource-group-overview.md) och i en [logisk Azure SQL-server](../sql-database/sql-database-logical-servers.md). 
+En Azure SQL Data Warehouse skapas med en definierad uppsättning [beräknings resurser](memory-and-concurrency-limits.md). Databasen skapas inom en [Azure-resursgrupp](../azure-resource-manager/resource-group-overview.md) och i en [logisk Azure SQL-server](../sql-database/sql-database-logical-servers.md). 
 
 Följ dessa steg om du vill skapa en SQL Data Warehouse som innehåller exempel data för AdventureWorksDW. 
 
@@ -98,7 +98,7 @@ Tjänsten SQL Data Warehouse skapar en brand vägg på server nivå. Den här br
 > SQL Database Warehouse kommunicerar via port 1433. Om du försöker ansluta inifrån ett företagsnätverk kanske utgående trafik via port 1433 inte tillåts av nätverkets brandvägg. I så fall kommer du inte att kunna ansluta till din Azure SQL Database-server om inte din IT-avdelning öppnar port 1433.
 
 1. När distributionen är klar väljer du **alla tjänster** i den vänstra menyn. Välj **databaser**, Välj stjärnan bredvid **SQL Data Warehouses** för att lägga till SQL Data Warehouse i dina favoriter.
-1. Välj **SQL Data Warehouses** på menyn till vänster och klicka sedan på **MySampleDatabase** på sidan **SQL Data Warehouse** . Översikts sidan för databasen öppnas och visar det fullständigt kvalificerade Server namnet (till exempel **mynewserver-20180430.Database.Windows.net**) och alternativ för ytterligare konfiguration.
+1. Välj **SQL Data Warehouses** på menyn till vänster och klicka sedan på **MySampleDataWarehouse** på sidan **SQL Data Warehouse** . Översikts sidan för databasen öppnas och visar det fullständigt kvalificerade Server namnet (till exempel **mynewserver-20180430.Database.Windows.net**) och alternativ för ytterligare konfiguration.
 1. Kopiera det här fullständigt kvalificerade Server namnet som ska användas för att ansluta till servern och dess databaser i den här och andra snabb starter. Öppna serverinställningarna genom att klicka på servernamnet.
 
    ![hitta servernamn](media/load-data-from-azure-blob-storage-using-polybase/find-server-name.png)

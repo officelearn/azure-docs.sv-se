@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: timlt
-ms.openlocfilehash: af5b16448a39e0106dbc04724607ff603483484c
-ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
+ms.openlocfilehash: e1c206c329b491ec9f8d36a12e2b4bf8ed8107b3
+ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69997751"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70383024"
 ---
 # <a name="what-is-azure-iot-central-preview-features"></a>Vad är Azure IoT Central (för hands versions funktioner)?
 
@@ -62,7 +62,7 @@ Den här artikeln beskriver för Azure IoT Central:
 - Mat ris schema typer stöds inte.
 - Export och program kopiering av program mal len stöds inte.
 - Endast C-enhetens SDK och Node. js-enhet och tjänst-SDK: er stöds.
-- Den är endast tillgänglig i SELECT-regioner.
+- Den är endast tillgänglig i regionerna Nord Europa och USA, centrala.
 
 ## <a name="personas"></a>Profiler
 
@@ -80,7 +80,7 @@ Som byggare använder du Azure IoT Central till att skapa en anpassad, molnbaser
 - ett molnbaserat program som tar emot telemetri från dina enheter och låter dig hantera dessa enheter.
 - flera enheter som kör anpassad kod är anslutna till ditt molnbaserade program.
 
-Du kan snabbt distribuera ett nytt Azure IoT Central-program och sedan anpassa det efter dina specifika krav i webbläsaren. Som ett verktyg använder du webbaserade verktyg för att skapa en enhets _mall_ för de enheter som ansluter till ditt program. En enhets mall är den skiss som definierar egenskaperna och beteendet för en typ av enhet, till exempel:
+Du kan snabbt distribuera ett nytt Azure IoT Central-program och sedan anpassa det efter dina specifika krav i webbläsaren. Som ett verktyg använder du webbaserade verktyg för att skapa en _enhets mall_ för de enheter som ansluter till ditt program. En enhets mall är den skiss som definierar egenskaperna och beteendet för en typ av enhet, till exempel:
 
 - Telemetri som skickas.
 - företagsegenskaper som en operatör kan ändra

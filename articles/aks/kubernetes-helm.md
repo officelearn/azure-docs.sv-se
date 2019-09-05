@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 05/23/2019
 ms.author: zarhoads
-ms.openlocfilehash: 27d557ab12093223450fd7bc1b88c68e1f156947
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: bc74ac660c5bba0624416d0a1724d959a4c385a7
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70135506"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70305275"
 ---
 # <a name="install-applications-with-helm-in-azure-kubernetes-service-aks"></a>Installera program med Helm i Azure Kubernetes service (AKS)
 
@@ -70,10 +70,12 @@ Med ett RBAC-aktiverat Kubernetes-kluster kan du styra åtkomst nivån till klus
 
 ## <a name="configure-helm"></a>Konfigurera Helm
 
-Om du vill distribuera en Basic-till-till-AKS-kluster använder du kommandot [Helm init][helm-init] . Om klustret inte är RBAC-aktiverat tar du `--service-account` bort argumentet och värdet. Om du har konfigurerat TLS/SSL för till gång och Helm, hoppar du över detta grundläggande initierings steg och `--tiller-tls-` anger i stället det krav som visas i nästa exempel.
+Om du vill distribuera en Basic-till-till-AKS-kluster använder du kommandot [Helm init][helm-init] . Om klustret inte är RBAC-aktiverat tar du `--service-account` bort argumentet och värdet. I följande exempel anger du även [historiken-Max][helm-history-max] till 200.
+
+Om du har konfigurerat TLS/SSL för till gång och Helm, hoppar du över detta grundläggande initierings steg och `--tiller-tls-` anger i stället det krav som visas i nästa exempel.
 
 ```console
-helm init --service-account tiller --node-selectors "beta.kubernetes.io/os=linux"
+helm init --history-max 200 --service-account tiller --node-selectors "beta.kubernetes.io/os=linux"
 ```
 
 Om du har konfigurerat TLS/SSL mellan Helm och till, anger `--tiller-tls-*` du parametrar och namn för dina egna certifikat, som du ser i följande exempel:
@@ -85,8 +87,9 @@ helm init \
     --tiller-tls-key tiller.key.pem \
     --tiller-tls-verify \
     --tls-ca-cert ca.cert.pem \
+    --history-max 200 \
     --service-account tiller \
-    --node-selectors "beta.kubernetes.io/os"="linux"
+    --node-selectors "beta.kubernetes.io/os=linux"
 ```
 
 ## <a name="find-helm-charts"></a>Hitta Helm-diagram
@@ -140,7 +143,7 @@ $ helm repo update
 Hold tight while we grab the latest from your chart repositories...
 ...Skip local chart repository
 ...Successfully got an update from the "stable" chart repository
-Update Complete. ⎈ Happy Helming!⎈
+Update Complete.
 ```
 
 ## <a name="run-helm-charts"></a>Köra Helm-diagram
@@ -217,6 +220,7 @@ Mer information om hur du hanterar Kubernetes program distributioner med Helm fi
 [helm-install]: https://docs.helm.sh/using_helm/#installing-helm
 [helm-install-options]: https://github.com/kubernetes/helm/blob/master/docs/install.md
 [helm-list]: https://docs.helm.sh/helm/#helm-list
+[helm-history-max]: https://helm.sh/docs/using_helm/#initialize-helm-and-install-tiller
 [helm-rbac]: https://docs.helm.sh/using_helm/#role-based-access-control
 [helm-repo-update]: https://docs.helm.sh/helm/#helm-repo-update
 [helm-search]: https://docs.helm.sh/helm/#helm-search

@@ -1,6 +1,6 @@
 ---
-title: Ansluta eller koppla från en delad bildgalleriet i Azure Lab Services | Microsoft Docs
-description: Lär dig hur du kopplar en delad bildgalleriet till ett labb i Azure Lab Services.
+title: Koppla eller koppla från ett delat avbildnings galleri i Azure Lab Services | Microsoft Docs
+description: Lär dig hur du ansluter ett delat avbildnings galleri till ett labb i Azure Lab Services.
 services: lab-services
 documentationcenter: na
 author: spelluru
@@ -11,84 +11,78 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/07/2019
+ms.date: 09/05/2019
 ms.author: spelluru
-ms.openlocfilehash: de4e9fb4b15f4c346926fe46f23255c668204c2e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 18a14981c97af8e9d90480f7b04d50fc6df6b01d
+ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65413893"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70382714"
 ---
-# <a name="attach-or-detach-a-shared-image-gallery-in-azure-lab-services"></a>Ansluta eller koppla från en delad bildgalleriet i Azure Lab Services
-Lärare/testlabb-administratören kan spara en mall för VM-avbildning i en Azure [delade bildgalleriet](../../virtual-machines/windows/shared-image-galleries.md) för att det ska återanvändas av andra. Som ett första steg bifogar lab administratören en befintliga delade bildgalleriet till labb-kontot. Delade bildgalleriet är kopplade labs som skapats i labb-kontot kan spara bilder i delade avbildningsgalleri. Andra lärare kan välja den här avbildningen från det delade avbildningsgalleriet så att du skapar en mall för deras klasser. 
+# <a name="attach-or-detach-a-shared-image-gallery-in-azure-lab-services"></a>Koppla eller koppla från ett delat avbildnings galleri i Azure Lab Services
+Lärare/labb administratören kan spara en mall för en virtuell dator i ett galleri för Azure- [delade avbildningar](../../virtual-machines/windows/shared-image-galleries.md) så att de kan återanvändas av andra. Som ett första steg kopplar labb administratören ett befintligt delat avbildnings galleri till labb kontot. När du har bifogat det delade bild galleriet kan labb som skapats i labb kontot Spara bilder i det delade avbildnings galleriet. Andra lärare kan välja den här avbildningen från galleriet för delade avbildningar för att skapa en mall för deras klasser. 
 
-Den här artikeln visar hur du ansluta eller koppla från en delad bildgalleriet till ett labbkonto. 
+Den här artikeln visar hur du kopplar eller kopplar från ett delat avbildnings galleri till ett labb konto. 
 
-## <a name="configure-at-the-time-of-lab-account-creation"></a>Konfigurera vid tidpunkten för labb har skapats
-När du skapar ett labbkonto, kan du koppla en delad bildgalleriet till labb-kontot. Du kan välja ett befintligt delat avbildningsgalleri från den nedrullningsbara listan, eller så kan du skapa en ny. För att skapa och koppla en delad bildgalleriet till labb-kontot, Välj **Skapa nytt**, ange ett namn för galleriet och ange **OK**. 
+## <a name="configure-at-the-time-of-lab-account-creation"></a>Konfigurera när labb kontot skapas
+När du skapar ett labb konto kan du koppla ett delat avbildnings galleri till labb kontot. Du kan antingen välja ett befintligt delat avbildnings Galleri från den nedrullningsbara listan eller skapa ett nytt. Om du vill skapa och koppla ett delat avbildnings galleri till labb kontot väljer du **Skapa nytt**, anger ett namn för galleriet och anger **OK**. 
 
-![Konfigurera delade bildgalleriet vid tidpunkten för labb har skapats](../media/how-to-use-shared-image-gallery/new-lab-account.png)
+![Konfigurera det delade avbildnings galleriet när labb kontot skapas](../media/how-to-use-shared-image-gallery/new-lab-account.png)
 
-## <a name="configure-after-the-lab-account-is-created"></a>Konfigurera när labb-kontot har skapats
-När labbkonto har skapats kan göra du följande uppgifter:
+## <a name="configure-after-the-lab-account-is-created"></a>Konfigurera när labb kontot har skapats
+När du har skapat labb kontot kan du utföra följande uppgifter:
 
-- Skapa och koppla en delad bildgalleri
-- Koppla en delad bildgalleriet till labbkonto
-- Koppla från en delad bildgalleriet från labbkonto
+- Skapa och bifoga ett delat avbildnings Galleri
+- Koppla ett delat avbildnings galleri till labb kontot
+- Koppla bort ett delat avbildnings Galleri från labb kontot
 
-## <a name="create-and-attach-a-shared-image-gallery"></a>Skapa och koppla en delad bildgalleri
+## <a name="create-and-attach-a-shared-image-gallery"></a>Skapa och bifoga ett delat avbildnings Galleri
 1. Logga in på [Azure Portal](https://portal.azure.com).
-2. På menyn till vänster väljer du **Alla tjänster**. Välj **Lab Services** i den **DEVOPS** avsnittet. Om du väljer star (`*`) bredvid **Lab Services**, läggs den till den **Favoriter** avsnitt i den vänstra menyn. Nästa gång och senare, väljer du **Lab Services** under **Favoriter**.
+2. På menyn till vänster väljer du **Alla tjänster**. Välj **labb tjänster** i avsnittet **DEVOPS** . Om du väljer Star (`*`) bredvid **labb tjänster**läggs den till i avsnittet **Favoriter** på den vänstra menyn. I nästa steg kan du välja **labb tjänster** under **Favoriter**.
 
-    ![Alla tjänster -> Lab Services](../media/tutorial-setup-lab-account/select-lab-accounts-service.png)
-3. Välj ditt labbkonto för att se den **Labbkonto** sidan. 
-4. Välj **delad bildgalleriet** på den vänstra menyn och välj **+ skapa** i verktygsfältet.  
+    ![Alla tjänster – > Lab-tjänster](../media/tutorial-setup-lab-account/select-lab-accounts-service.png)
+3. Välj ditt labb konto för att se sidan **labb konto** . 
+4. Välj **Galleri för delad avbildning** på den vänstra menyn och välj **+ skapa** i verktygsfältet.  
 
-    ![Skapa delade bild galleri-knapp](../media/how-to-use-shared-image-gallery/new-shared-image-gallery-button.png)
-5. I den **skapa delade bildgalleriet** fönstret, ange en **namn** för galleriet, och ange **OK**. 
+    ![Knappen Skapa delad bild galleri](../media/how-to-use-shared-image-gallery/new-shared-image-gallery-button.png)
+5. I fönstret **skapa delad avbildnings Galleri** anger du ett **namn** för galleriet och anger **OK**. 
 
-    ![Skapa delade bild gallery-fönstret](../media/how-to-use-shared-image-gallery/create-shared-image-gallery-window.png)
+    ![Skapa ett delat bild galleri fönster](../media/how-to-use-shared-image-gallery/create-shared-image-gallery-window.png)
 
-    Azure Lab Services skapar delad avbildningsgalleriet och bifogas labbkonto. Alla labs som skapats i den här testlabb-kontot har åtkomst till anslutna delade bildgalleriet. 
+    Azure Lab Services skapar galleriet för delade avbildningar och bifogar det till labb kontot. Alla labb som skapats i det här labb kontot har åtkomst till den bifogade delade avbildnings galleriet. 
 
-    ![Bifogad bild-galleriet](../media/how-to-use-shared-image-gallery/image-gallery-in-list.png)
+    ![Galleri för bifogade bilder](../media/how-to-use-shared-image-gallery/image-gallery-in-list.png)
 
-    Längst ned i fönstret, kan du se avbildningar i galleriet med delade avbildningar. Det finns inga bilder i det här nya galleriet. När du överför avbildningar i galleriet, visas de på den här sidan.     
+    I det nedre fönstret visas bilder i det delade bild galleriet. Det finns inga bilder i det här nya galleriet. När du laddar upp bilder till galleriet kan du se dem på den här sidan.     
 
-    Alla avbildningar i galleriet med anslutna delade avbildningar är aktiverade som standard. Du kan aktivera eller inaktivera valda avbildningar genom att markera dem i listan och använda den **aktivera valda avbildningar** eller **inaktivera valda avbildningar** knappen.
+    Alla avbildningar i den bifogade delade avbildnings galleriet är aktiverade som standard. Du kan aktivera eller inaktivera valda avbildningar genom att markera dem i listan och använda knappen **aktivera markerade bilder** eller **inaktivera valda avbildningar** .
 
-## <a name="attach-an-existing-shared-image-gallery"></a>Bifoga en befintlig delad bildgalleri
-Följande procedur visar hur du kopplar ett galleri med befintliga delade avbildningar till ett labbkonto. 
+## <a name="attach-an-existing-shared-image-gallery"></a>Bifoga ett befintligt delat avbildnings Galleri
+Följande procedur visar hur du ansluter ett befintligt delat avbildnings galleri till ett labb konto. 
 
-1. På den **Labbkonto** väljer **delad bildgalleriet** på den vänstra menyn och välj **bifoga** i verktygsfältet. 
+1. På sidan **labb konto** väljer du **delad avbildnings Galleri** på den vänstra menyn och väljer **koppla** i verktygsfältet. 
 
-    ![Delade bild galleriet – Lägg till knapp](../media/how-to-use-shared-image-gallery/sig-attach-button.png)
-5. På den **bifoga en befintlig delad bildgalleriet** väljer bildgalleriet delade, och välj **OK**.
+    ![Galleri för delad avbildning – Lägg till knapp](../media/how-to-use-shared-image-gallery/sig-attach-button.png)
+5. På sidan **bifoga en befintlig delad avbildning** väljer du ditt delade avbildnings galleri och väljer **OK**.
 
-    ![Välj ett befintligt galleri](../media/how-to-use-shared-image-gallery/select-image-gallery.png)
-6. Du ser följande skärm: 
+    ![Välj ett befintligt Galleri](../media/how-to-use-shared-image-gallery/select-image-gallery.png)
+6. Följande skärm bild visas: 
 
-    ![Min galleriet i listan](../media/how-to-use-shared-image-gallery/my-gallery-in-list.png)
+    ![Mitt galleri i listan](../media/how-to-use-shared-image-gallery/my-gallery-in-list.png)
     
-    I det här exemplet finns inga bilder i delade avbildningsgalleri ännu.
+    I det här exemplet finns det inga avbildningar i galleriet för delade avbildningar ännu.
 
-    Azure Lab Services identitet har lagts till som deltagare i delade avbildningsgalleri som är kopplad till labbet. Det gör att lärare / IT-administratören att spara VM-avbildningar i delade avbildningsgalleri. Alla labs som skapats i den här testlabb-kontot har åtkomst till anslutna delade bildgalleriet. 
+    Azure Lab Services identitet läggs till som deltagare i det delade avbildnings galleriet som är kopplat till labbet. Det gör det möjligt för lärare/IT-administratörer att spara avbildningar av virtuella datorer i det delade avbildnings galleriet. Alla labb som skapats i det här labb kontot har åtkomst till den bifogade delade avbildnings galleriet. 
 
-    Alla avbildningar i galleriet med anslutna delade avbildningar är aktiverade som standard. Du kan aktivera eller inaktivera valda avbildningar genom att markera dem i listan och använda den **aktivera valda avbildningar** eller **inaktivera valda avbildningar** knappen. 
+    Alla avbildningar i den bifogade delade avbildnings galleriet är aktiverade som standard. Du kan aktivera eller inaktivera valda avbildningar genom att markera dem i listan och använda knappen **aktivera markerade bilder** eller **inaktivera valda avbildningar** . 
 
-## <a name="save-an-image-to-the-shared-image-gallery"></a>Spara en avbildning i delade avbildningsgalleri
-När en delad bildgalleriet kopplas en labb-kontoadministratören eller en lärare spara eller ladda upp en bild i delade avbildningsgalleri så att den kan återanvändas av andra lärare. Anvisningar för att ladda upp en bild i delade avbildningsgalleri finns i [delad bildgalleriet översikt](../../virtual-machines/windows/shared-images.md). 
+## <a name="detach-a-shared-image-gallery"></a>Koppla från ett delat avbildnings Galleri
+Endast ett delat avbildnings Galleri kan kopplas till ett labb. Om du vill koppla ett annat galleri för delad avbildning tar du bort det nuvarande innan du kopplar det nya. Om du vill koppla från ett delat avbildnings Galleri från labbet väljer du **koppla** från i verktygsfältet och bekräftar från kopplings åtgärden. 
 
-> [!NOTE]
-> Konfigurationfilen, stöder labb för klassrum-användargränssnittet (UI) inte sparar en labb-avbildning i delade avbildningsgalleri. 
-
-## <a name="detach-a-shared-image-gallery"></a>Koppla från en delad bildgalleri
-Endast en delad bildgalleriet kan kopplas till ett labb. Om du vill koppla en annan delad bildgalleriet koppla från den aktuella artikeln innan du kopplar den nya servern. Om du vill koppla bort en delad bildgalleriet i din Övning, Välj **Detach** i verktygsfältet och Bekräfta vid frigörandet. 
-
-![Koppla från delade bildgalleriet från labbkonto](../media/how-to-use-shared-image-gallery/detach.png)
+![Koppla bort galleriet för delade avbildningar från labb kontot](../media/how-to-use-shared-image-gallery/detach.png)
 
 ## <a name="next-steps"></a>Nästa steg
-Läs om hur du sparar en labb-avbildning i delade avbildningsgalleri eller använda en avbildning från avbildningsgalleriet delade skapa en virtuell dator i [hur du använder delade bildgalleriet](how-to-use-shared-image-gallery.md).
+Information om hur du sparar en labb avbildning i det delade avbildnings galleriet eller använder en avbildning från galleriet för delade avbildningar för att skapa en virtuell dator finns i [använda delade avbildnings galleriet](how-to-use-shared-image-gallery.md).
 
-För mer information om delade bildgallerier i allmänhet, se [delade bildgalleriet](../../virtual-machines/windows/shared-image-galleries.md).
+Mer information om delade avbildnings gallerier i allmänhet finns i avsnittet [Shared Image Gallery](../../virtual-machines/windows/shared-image-galleries.md).

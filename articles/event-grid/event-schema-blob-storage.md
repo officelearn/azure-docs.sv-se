@@ -295,7 +295,7 @@ En händelse har följande data på översta nivån:
 | Egenskap | Type | Beskrivning |
 | -------- | ---- | ----------- |
 | topic | string | Fullständig resurs Sök väg till händelse källan. Det går inte att skriva till det här fältet. Event Grid ger det här värdet. |
-| subject | string | Publisher-definierad sökväg till händelsens ämne. |
+| topic | string | Publisher-definierad sökväg till händelsens ämne. |
 | eventType | string | En av de registrerade händelse typerna för den här händelse källan. |
 | eventTime | string | Tiden då händelsen genereras baserat på providerns UTC-tid. |
 | id | string | Unikt ID för händelsen. |

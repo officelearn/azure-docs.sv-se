@@ -1,7 +1,7 @@
 ---
-title: Skapa, publicera och besvara i QnA Maker
+title: 'Självstudier: Skapa, publicera och svara i QnA Maker'
 titleSuffix: Azure Cognitive Services
-description: Skapa en ny kunskapsbas med frågor och svar från en offentlig webbaserade vanliga frågor och svar. Spara, träna och publicera i knowledge base. När kunskapsbasen har publicerats kan skicka en fråga och ta emot ett svar med ett cURL-kommando. Sedan skapa en robot och testa bot med samma fråga.
+description: Skapa en ny kunskaps bas med frågor och svar från en offentlig webbaserad vanliga frågor och svar. Spara, träna och publicera kunskaps basen. När kunskaps basen har publicerats kan du skicka en fråga och få ett svar med ett spiral kommando. Skapa sedan en robot och testa roboten med samma fråga.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -9,33 +9,33 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: tutorial
-ms.date: 05/07/2019
+ms.date: 09/03/2019
 ms.author: diberry
-ms.openlocfilehash: a13e0cb0e594571344b16d007ef13475b384b73d
-ms.sourcegitcommit: 18a0d58358ec860c87961a45d10403079113164d
+ms.openlocfilehash: 6cc509b9f9a9087fbe832dbd35b3dfd8d60a6577
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66693022"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70308070"
 ---
-# <a name="tutorial-from-the-qna-maker-portal-create-a-knowledge-base"></a>Självstudier: Skapa en kunskapsbas från QnA Maker-portalen
+# <a name="tutorial-from-the-qna-maker-portal-create-a-knowledge-base"></a>Självstudier: Skapa en kunskaps bas från QnA Maker-portalen
 
-Skapa en ny kunskapsbas med frågor och svar från en offentlig webbaserade vanliga frågor och svar. Spara, träna och publicera i knowledge base. När kunskapsbasen har publicerats kan skicka en fråga och ta emot ett svar med ett cURL-kommando. Sedan skapa en robot och testa bot med samma fråga. 
+Skapa en ny kunskaps bas med frågor och svar från en offentlig webbaserad vanliga frågor och svar. Spara, träna och publicera kunskaps basen. När kunskaps basen har publicerats kan du skicka en fråga och få ett svar med ett spiral kommando. Skapa sedan en robot och testa roboten med samma fråga. 
 
 I den här guiden får du lära dig att: 
 
 > [!div class="checklist"]
-> * Skapa en kunskapsbas i QnA Maker-portalen.
-> * Granska, spara och tränar kunskapsbasen.
-> * Publicera i knowledge base.
-> * Använda cURL för att söka i knowledge base.
+> * Skapa en kunskaps bas i QnA Maker portalen.
+> * Granska, Spara och träna kunskaps basen.
+> * Publicera kunskaps basen.
+> * Använd sväng för att fråga kunskaps basen.
 > * Skapa en robot.
  
 
 > [!NOTE]
 > Den programmässiga versionen av den här självstudien finns med en kompletta lösning från GitHub-lagringsplatsen [**Azure-Samples/cognitive-services-qnamaker-csharp**](https://github.com/Azure-Samples/cognitive-services-qnamaker-csharp/tree/master/documentation-samples/tutorials/create-publish-answer-knowledge-base).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Den här självstudien kräver en befintlig [QnA Maker-tjänst](../How-To/set-up-qnamaker-service-azure.md). 
 
@@ -45,75 +45,75 @@ Den här självstudien kräver en befintlig [QnA Maker-tjänst](../How-To/set-up
 
 1. Välj **Skapa en kunskapsbas** på den översta menyn.
 
-    ![Skärmbild av QnA Maker-portalen](../media/qnamaker-tutorial-create-publish-query-in-portal/create-kb-step-1.png)
+    ![Skärm bild av QnA Maker Portal](../media/qnamaker-tutorial-create-publish-query-in-portal/create-kb-step-1.png)
 
-1. Hoppa över det första steget, eftersom du kommer att använda din befintliga QnA Maker-tjänsten. 
+1. Hoppa över det första steget eftersom du kommer att använda din befintliga QnA Maker-tjänst. 
 
 1. Välj dina befintliga inställningar:  
 
     |Inställning|Syfte|
     |--|--|
-    |Microsoft Azure Directory ID|Detta ID är associerad med det konto som används för att logga in på Azure-portalen och QnA Maker-portalen. |
-    |Prenumerationsnamn för Azure|Faktureringskonto där du skapade QnA Maker-resursen.|
+    |Microsoft Azure katalog-ID|Detta ID är kopplat till det konto som du använder för att logga in på Azure Portal och QnA Maker portalen. |
+    |Prenumerationsnamn för Azure|Det fakturerings konto där du skapade QnA Maker-resursen.|
     |Azure QnA Service|Din befintliga QnA Maker-resurs.|
 
-    ![Skärmbild av QnA Maker-portalen](../media/qnamaker-tutorial-create-publish-query-in-portal/create-kb-step-2.png)
+    ![Skärm bild av QnA Maker Portal](../media/qnamaker-tutorial-create-publish-query-in-portal/create-kb-step-2.png)
 
-1. Ange namnet på din kunskapsbas `My Tutorial kb`.
+1. Ange namnet `My Tutorial kb`på din kunskaps bas.
 
-    ![Skärmbild av QnA Maker-portalen](../media/qnamaker-tutorial-create-publish-query-in-portal/create-kb-step-3.png)
+    ![Skärm bild av QnA Maker Portal](../media/qnamaker-tutorial-create-publish-query-in-portal/create-kb-step-3.png)
 
-1. Fyll i kunskapsbasen med följande inställningar:  
+1. Fyll i kunskaps basen med följande inställningar:  
 
     |Inställningsnamn|Inställningsvärde|Syfte|
     |--|--|--|
     |URL|`https://docs.microsoft.com/azure/cognitive-services/qnamaker/faqs` |Innehållet i vanliga frågor och svar på den URL:en är formaterad med en fråga som följs av ett svar. QnA Maker kan tolka det här formatet för att extrahera frågor och tillhörande svar.|
     |Fil |_används inte i den här självstudien_|Det här laddar upp filer för frågor och svar. |
-    |Kommunikationspersonlighet|Eget|Detta ger en vänlig och en Vardaglig [personlighet](../Concepts/best-practices.md#chit-chat) till vanliga frågor och svar. Du kan redigera dessa frågor och svar senare. |
+    |Kommunikationspersonlighet|Eget|Detta ger en användarvänlig och enhetlig [personlighet](../Concepts/best-practices.md#chit-chat) till vanliga frågor och svar. Du kan redigera dessa frågor och svar senare. |
 
-    ![Skärmbild av QnA Maker-portalen](../media/qnamaker-tutorial-create-publish-query-in-portal/create-kb-step-4.png)
+    ![Skärm bild av QnA Maker Portal](../media/qnamaker-tutorial-create-publish-query-in-portal/create-kb-step-4.png)
 
 1. Välj alternativet för att **skapa kunskapsbasen** i skapandeprocessen.
 
-    ![Skärmbild av QnA Maker-portalen](../media/qnamaker-tutorial-create-publish-query-in-portal/create-kb-step-5.png)
+    ![Skärm bild av QnA Maker Portal](../media/qnamaker-tutorial-create-publish-query-in-portal/create-kb-step-5.png)
 
 ## <a name="review-save-and-train-the-knowledge-base"></a>Granska, spara och träna kunskapsbasen
 
 1. Granska frågorna och svaren. Den första sidan är frågor och svar från URL: en. 
 
-    ![Skärmbild av QnA Maker-portalen](../media/qnamaker-tutorial-create-publish-query-in-portal/save-and-train-kb.png)
+    ![Skärm bild av QnA Maker Portal](../media/qnamaker-tutorial-create-publish-query-in-portal/save-and-train-kb.png)
 
 1. Välj den sista sidan med frågor och svar längst ned i tabellen. På sidan visas frågor och svar från kommunikationspersonligheten. 
 
-1. I verktygsfältet ovanför listan med frågor och svar, Välj den **Visningsalternativ** ikonen och välj sedan **visa metadata**. Detta visar metadatataggar för varje fråga och svar. Kommunikationsfrågor har redan metadata **editorial: chit-chat** (redaktionellt: kommunikation) angett. Den här metadata som returneras till klientprogrammet, tillsammans med det valda svaret. Klientprogrammet, till exempel en chattrobot, kan använda dessa filtrerade metadata för att fastställa ytterligare bearbetning eller interaktioner med användaren.
+1. Välj ikonen **visnings alternativ** i verktygsfältet ovanför listan med frågor och svar och välj sedan **Visa metadata**. Detta visar metadatataggar för varje fråga och svar. Kommunikationsfrågor har redan metadata **editorial: chit-chat** (redaktionellt: kommunikation) angett. Dessa metadata returneras till klient programmet, tillsammans med det valda svaret. Klientprogrammet, till exempel en chattrobot, kan använda dessa filtrerade metadata för att fastställa ytterligare bearbetning eller interaktioner med användaren.
 
-    ![Skärmbild av QnA Maker-portalen](../media/qnamaker-tutorial-create-publish-query-in-portal/save-and-train-kb-chit-chat.png)
+    ![Skärm bild av QnA Maker Portal](../media/qnamaker-tutorial-create-publish-query-in-portal/save-and-train-kb-chit-chat.png)
 
 1. Välj alternativet för att **spara och träna** på den övre menyraden.
 
-## <a name="publish-to-get-knowledge-base-endpoints"></a>Publicera för att få kunskapsbas slutpunkter
+## <a name="publish-to-get-knowledge-base-endpoints"></a>Publicera för att få kunskaps bas slut punkter
 
 Välj knappen **Publicera** på den övre menyn. Välj **Publicera** på publiceringssidan.
 
-![Skärmbild av QnA Maker-portalen](../media/qnamaker-tutorial-create-publish-query-in-portal/publish-1.png)
+![Skärm bild av QnA Maker Portal](../media/qnamaker-tutorial-create-publish-query-in-portal/publish-1.png)
 
-När kunskapsbasen har publicerats visas slutpunkten.
+När kunskaps basen har publicerats visas slut punkten.
 
-![Skärmbild av endpoint-inställningar](../media/qnamaker-tutorial-create-publish-query-in-portal/publish-2.png)
+![Skärm bild av slut punkts inställningar](../media/qnamaker-tutorial-create-publish-query-in-portal/publish-2.png)
 
-Stäng inte det här **publicera** sidan. Du behöver den senare i guiden, för att skapa en robot. 
+Stäng inte den här **publicerings** sidan. Du behöver den senare i självstudien för att skapa en bot. 
 
-## <a name="use-curl-to-query-for-an-faq-answer"></a>Använd cURL för att fråga efter ett svar på vanliga frågor och svar
+## <a name="use-curl-to-query-for-an-faq-answer"></a>Använd klammer för att fråga efter svar på vanliga frågor
 
 1. Välj fliken **Curl**. 
 
-    ![Skärmbild av Curl fliken](../media/qnamaker-tutorial-create-publish-query-in-portal/publish-3-curl.png)
+    ![Skärm bild av fliken vändning](../media/qnamaker-tutorial-create-publish-query-in-portal/publish-3-curl.png)
 
-1. Kopiera texten för den **Curl** fliken och köra den i ett cURL-aktiverade terminal eller kommandoraden. Auktorisering sidhuvudets värde innehåller texten `Endpoint`, med ett avslutande blanksteg och sedan nyckeln.
+1. Kopiera texten på fliken **vändning** och kör den i en sväng aktive rad terminal eller kommando rad. Authorization-huvudets värde inkluderar texten `Endpoint`, med ett avslutande blank steg och sedan nyckeln.
 
 1. Ersätt `<Your question>` med `How large can my KB be?`. Det här är nära frågan `How large a knowledge base can I create?` men inte exakt densamma. QnA Maker tillämpar bearbetning av naturligt språk för att fastställa att de två frågorna är desamma.     
 
-1. Köra cURL-kommando och få JSON-svar, inklusive poäng och svar. 
+1. Kör kommandot vändning och ta emot JSON-svaret, inklusive poäng och svar. 
 
     ```TXT
       % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
@@ -137,11 +137,11 @@ Stäng inte det här **publicera** sidan. Du behöver den senare i guiden, för 
 
     QnA Maker är ganska trygg med poängen 42,81 %.  
 
-## <a name="use-curl-to-query-for-a-chit-chat-answer"></a>Använda cURL för att fråga efter en Chit-chatt-svar
+## <a name="use-curl-to-query-for-a-chit-chat-answer"></a>Använd sväng för att fråga efter ett "Chi2test"-svar
 
-1. I terminalen cURL-aktiverade ersätter `How large can my KB be?` med en bot konversationen slut instruktion från användare, till exempel `Thank you`.   
+1. I den spiral-aktiverade terminalen ersätter `How large can my KB be?` du med en robots konversations slut uttryck från användaren, `Thank you`till exempel.   
 
-1. Köra cURL-kommando och få JSON-svar, inklusive poäng och svar. 
+1. Kör kommandot vändning och ta emot JSON-svaret, inklusive poäng och svar. 
 
     ```TXT
       % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
@@ -175,15 +175,15 @@ Stäng inte det här **publicera** sidan. Du behöver den senare i guiden, för 
    
     ```
 
-    Eftersom frågan `Thank you` exakt matchar en kommunikationsfråga är QnA Maker helt säker med poängen 100. QnA Maker returneras alla relaterade frågor, samt metadata-egenskap som innehåller Chit-chatt taggen metadatainformation.  
+    Eftersom frågan `Thank you` exakt matchar en kommunikationsfråga är QnA Maker helt säker med poängen 100. QnA Maker också returnerade alla relaterade frågor, samt egenskapen metadata som innehåller information om metadata tag gen för Chi2test.  
 
-## <a name="use-curl-to-query-for-the-default-answer"></a>Använda cURL till frågan för standardsvar
+## <a name="use-curl-to-query-for-the-default-answer"></a>Använd sväng för att fråga efter standard svaret
 
-Alla frågor som QnA Maker inte är säker på om får Standardsvar. Det här svaret har konfigurerats i Azure-portalen. 
+Alla frågor som QnA Maker inte är säkra på att ta emot standard svaret. Det här svaret har konfigurerats i Azure-portalen. 
 
-1. I terminalen cURL-aktiverade ersätter `Thank you` med `x`. 
+1. I den spiral-aktiverade terminalen ersätter `Thank you` du `x`med. 
 
-1. Köra cURL-kommando och få JSON-svar, inklusive poäng och svar. 
+1. Kör kommandot vändning och ta emot JSON-svaret, inklusive poäng och svar. 
 
     ```TXT
       % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
@@ -201,17 +201,17 @@ Alla frågor som QnA Maker inte är säker på om får Standardsvar. Det här sv
     }
     ```
     
-    QnA Maker returnerade ett resultat på `0`, vilket innebär att inga förtroende. Den returnerade även standard-svaret. 
+    QNA Maker returnerade ett resultat `0`av, vilket innebär ingen exakthet. Den returnerade även standard svaret. 
 
-## <a name="create-a-knowledge-base-bot"></a>Skapa en kunskapsbas-robot
+## <a name="create-a-knowledge-base-bot"></a>Skapa en kunskaps bas robot
 
-Mer information finns i [skapa en chattrobot med den här kunskapsbas](create-qna-bot.md).
+Mer information finns i [skapa en chatt-robot med den här kunskaps basen](create-qna-bot.md).
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-När du är klar med knowledge base-robot, tar du bort resursgruppen, `my-tutorial-rg`, för att ta bort alla Azure-resurser skapas i bot-processen.
+När du är färdig med kunskaps bas roboten tar du bort resurs gruppen `my-tutorial-rg`, för att ta bort alla Azure-resurser som skapats i bot processen.
 
-När du är klar med kunskapsbas i QnA Maker-portalen väljer du **min kunskapsbaser**. Välj sedan kunskapsbasen, **Mina självstudien kb**, och välj ikonen Ta bort längst till höger på den raden.  
+När du är färdig med kunskaps basen väljer du **Mina kunskaps**baser i QNA Maker-portalen. Välj sedan kunskaps basen, **min självstudie i KB**och välj Ta bort-ikonen längst till höger på raden.  
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -222,4 +222,4 @@ Mer information om [kommunikationspersonligheter](../Concepts/best-practices.md#
 Mer information om standardsvaret finns i [Ingen matchning hittades](../Concepts/confidence-score.md#no-match-found). 
 
 > [!div class="nextstepaction"]
-> [Skapa en chattrobot med den här kunskapsbas](create-qna-bot.md)
+> [Skapa en chatt-robot med den här kunskaps basen](create-qna-bot.md)

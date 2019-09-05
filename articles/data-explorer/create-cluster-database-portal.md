@@ -7,12 +7,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 07/22/2019
-ms.openlocfilehash: cfab883f9b9b063bd51b9fdb7306d45371449180
-ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
+ms.openlocfilehash: 079f87dec67f98d502d135fc012b5523211d5957
+ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68406088"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70381796"
 ---
 # <a name="quickstart-create-an-azure-data-explorer-cluster-and-database"></a>Snabbstart: Skapa ett Azure Data Explorer-kluster och en databas
 
@@ -55,9 +55,9 @@ Skapa ett Azure Data Explorer-kluster med en definierad uppsättning beräknings
     | Resource group | Din resurs grupp | Använd en befintlig resursgrupp eller skapa en ny resursgrupp. |
     | Klusternamn | Ett unikt klusternamn | Välj ett unikt namn som identifierar klustret. Domännamnet *[region]. kusto.windows .net* läggs till i klusternamnet som du anger. Namnet får bara innehålla gemena bokstäver och siffror. Det måste innehålla mellan 4 och 22 tecken.
     | Region | USA, *västra* eller *västra USA 2* | Välj *västra USA* eller *västra USA 2* (om du använder tillgänglighets zoner) för den här snabb starten. Välj den region som bäst uppfyller dina behov för ett produktionssystem.
-    | Tillgänglighetszoner | *1*, *2*och/eller *3* | För zoner som stöds av redundans väljer du i vilka zoner som dina instanser ska finnas (valfritt). Klusternoderna skapas som standard i samma data Center. Använd [Azure-tillgänglighetszoner](/azure/availability-zones/az-overview) för att placera kluster instanserna i olika tillgänglighets zoner i samma region. Genom att välja flera tillgänglighets zoner kan du eliminera en enskild felpunkt och garantera hög tillgänglighet. 
+    | Tillgänglighetszoner | *1*, *2*och/eller *3* | Placera kluster instanserna i olika tillgänglighets zoner i samma region (valfritt). [Azure-tillgänglighetszoner](/azure/availability-zones/az-overview) är unika fysiska platser inom samma Azure-region. De skyddar ett Azure Datautforskaren-kluster och data från delvis regions fel. Klusternoderna skapas som standard i samma data Center. Genom att välja flera tillgänglighets zoner kan du eliminera en enskild felpunkt och garantera hög tillgänglighet. Det går bara att distribuera till tillgänglighets zoner när klustret skapas och kan inte ändras vid ett senare tillfälle.
     | Beräkningsspecifikationer | *D13_v2* | Välj den lägsta prisspecifikationen för den här snabbstarten. För ett produktionssystem väljer du den specifikation som bäst uppfyller dina behov.
-    | | |
+    | | | |
 
 1. Välj **Granska + skapa** för att granska din klusterinformation och **Skapa** för att etablera klustret. Etableringen tar normalt cirka 10 minuter.
 

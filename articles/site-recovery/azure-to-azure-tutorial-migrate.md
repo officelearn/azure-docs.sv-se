@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: rajanaki
 ms.custom: MVC
-ms.openlocfilehash: 3790b543a1a6dcbb793dbf661441700e6fa24232
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 4404f785116110d99dc242d2dae39c4a462f45e9
+ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69611886"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70376255"
 ---
 # <a name="move-azure-vms-to-another-region"></a>Migrera virtuella Azure-datorer till en annan region
 
@@ -71,7 +71,7 @@ I den här kursen ska du:
 
     Information om hur du skapar de vanligaste nätverks resurserna som är relevanta för dig baserat på konfigurationen av den virtuella käll datorn finns i följande dokumentation:
     - [Nätverkssäkerhetsgrupper](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group)
-    - [Lastbalanserare](https://docs.microsoft.com/azure/load-balancer/#step-by-step-tutorials)
+    - [Lastbalanserare](https://docs.microsoft.com/azure/load-balancer)
     -  [Offentlig IP-adress](../virtual-network/virtual-network-public-ip-address.md)
     - Information om andra nätverks komponenter finns i [dokumentationen till nätverket](https://docs.microsoft.com/azure/#pivot=products&panel=network).
 

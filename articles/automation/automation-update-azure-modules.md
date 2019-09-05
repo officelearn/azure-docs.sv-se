@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 06/14/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: a71eb00ce4d4ace6ccc17e050946b39debed929c
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: 23475fb77210eeea0568bb996529c81458db9c6c
+ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70034888"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70382765"
 ---
 # <a name="how-to-update-azure-powershell-modules-in-azure-automation"></a>Så här uppdaterar du Azure PowerShell moduler i Azure Automation
 
@@ -48,10 +48,6 @@ Följande är några saker som du bör tänka på när du använder den här pro
 
 * Om du vill använda en speciell Azure PowerShell-modul i stället för den senaste tillgängliga på PowerShell-galleriet, måste du skicka dessa versioner till den `ModuleVersionOverrides` valfria parametern för **Update-AutomationAzureModulesForAccount-** runbooken. Exempel finns i [Update-AutomationAzureModulesForAccount. ps1](https://github.com/Microsoft/AzureAutomation-Account-Modules-Update/blob/master/Update-AutomationAzureModulesForAccount.ps1
 ) -runbooken. Azure PowerShell moduler som inte nämns i `ModuleVersionOverrides` parametern uppdateras med de senaste modulerna på PowerShell-galleriet. Om du inte skickar något till `ModuleVersionOverrides` parametern, uppdateras alla moduler med de senaste modulerna på PowerShell-galleriet. Detta är samma sak som knappen **Uppdatera Azure-moduler** .
-
-## <a name="known-issues"></a>Kända problem
-
-Det finns ett känt problem med att uppdatera AzureRM-modulerna i ett Automation-konto som finns i en resurs grupp med ett numeriskt namn som börjar med 0. Om du vill uppdatera dina Azure-moduler i ditt Automation-konto måste det finnas i en resurs grupp som har ett alfanumeriskt namn. Resurs grupper med numeriska namn som börjar med 0 kan inte uppdatera AzureRM-moduler för tillfället.
 
 ## <a name="next-steps"></a>Nästa steg
 

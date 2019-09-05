@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 04/16/2019
 ms.author: rajanaki
 ms.custom: MVC
-ms.openlocfilehash: 63150b8924438df8d77fdd088811d9fbe3ec2d84
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: bff6268507c0d2ec0aa1eac0c7e2e9d2513ded58
+ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68967313"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70376130"
 ---
 # <a name="move-azure-vms-between-azure-government-and-public-regions"></a>Flytta virtuella Azure-datorer mellan Azure Government och offentliga regioner 
 
@@ -98,8 +98,8 @@ Mobilitets tjänsten måste installeras på varje server som du vill replikera. 
      I följande dokument visas hur du skapar de vanligaste nätverksresurserna, baserat på den virtuella källdatorkonfigurationen.
 
     - [Nätverkssäkerhetsgrupper](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group)
-    - [Lastbalanserare](https://docs.microsoft.com/azure/load-balancer/#step-by-step-tutorials)
-    - [Offentlig IP-adress](https://docs.microsoft.com/azure/load-balancer/#step-by-step-tutorials)
+    - [Lastbalanserare](https://docs.microsoft.com/azure/load-balancer)
+    - [Offentlig IP-adress](../virtual-network/virtual-network-public-ip-address.md)
     
     Alla andra nätverkskomponenter beskrivs i nätverkets [dokumentation](https://docs.microsoft.com/azure/#pivot=products&panel=network). 
 
@@ -146,7 +146,7 @@ Kontrol lera att datorn har åtkomst till dessa URL: er baserat på din miljö:
 
 IP-adressbaserade brand Väggs regler ska tillåta kommunikation till alla Azure-URL: er som anges ovan över HTTPS-port (443). För att förenkla och begränsa IP-intervallen rekommenderar vi att URL-filtrering görs.
 
-- **Kommersiella** IP-adresser – tillåta [IP-intervall för Azure](https://www.microsoft.com/download/confirmation.aspx?id=41653)-datacenter och HTTPS-porten (443). Tillåt IP-adressintervall för Azure-regionen för din prenumeration för att stödja URL: erna AAD, backup, Replication och Storage.  
+- **Kommersiella** IP-adresser – tillåta [IP-intervall för Azure-datacenter](https://www.microsoft.com/download/confirmation.aspx?id=41653)och HTTPS-porten (443). Tillåt IP-adressintervall för Azure-regionen för din prenumeration för att stödja URL: erna AAD, backup, Replication och Storage.  
 - **Myndigheter för myndigheter** – Tillåt URL: er för [Azure Government-DATAcenter](https://www.microsoft.com/en-us/download/details.aspx?id=57063)och HTTPS-porten (443) för alla USGov-regioner (Virginia, Texas, Arizona och Iowa) för att stödja URL: er för AAD, säkerhets kopiering, replikering och lagring.  
 
 #### <a name="run-setup"></a>Kör installationsprogrammet
@@ -173,12 +173,12 @@ Välj och kontrollera målresurserna.
 2. I **Skapa replikeringsprincip** anger du ett principnamn.
 3. I **Tröskelvärde för replikeringspunktmål** anger du gränsen för replikeringspunktmålet (RPO). Det här värdet anger hur ofta data återställnings punkter skapas. En avisering genereras när den kontinuerliga replikeringen överskrider den här gränsen.
 4. I **Återställningspunkt för kvarhållning** anger du kvarhållningsperioden (i antal timmar) för varje återställningspunkt. Replikerade virtuella datorer kan återställas till valfri punkt i ett fönster. Upp till 24 timmars kvarhållning stöds för datorer replikerade till premiumlagring och 72 timmar för standardlagring.
-5. I **frekvens**för programkonsekventa ögonblicks bilder anger du hur ofta återställnings punkter (i minuter) som innehåller programkonsekventa ögonblicks bilder ska skapas. Klicka på **OK** för att skapa principen.
+5. I **frekvens för programkonsekventa ögonblicks bilder**anger du hur ofta återställnings punkter (i minuter) som innehåller programkonsekventa ögonblicks bilder ska skapas. Klicka på **OK** för att skapa principen.
 
     ![Replikeringsprincip](./media/physical-azure-disaster-recovery/replication-policy.png)
 
 
-Principen associeras automatiskt med konfigurationsservern. Som standard skapas automatiskt en matchande princip för återställning efter fel. Om replikeringsprincipen till exempel är **rep-princip** skapas en princip för återställning efter fel . Den här principen används inte förrän du initierar en återställning efter fel från Azure.
+Principen associeras automatiskt med konfigurationsservern. Som standard skapas automatiskt en matchande princip för återställning efter fel. Om replikeringsprincipen till exempel är **rep-princip** skapas **en princip för återställning efter fel** . Den här principen används inte förrän du initierar en återställning efter fel från Azure.
 
 ### <a name="enable-replication"></a>Aktivera replikering
 

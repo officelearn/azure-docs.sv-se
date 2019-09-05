@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: 0ae82f8980b995edab3419374e27a2cb905935d5
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 9d242c48068e96498a811f52dbc599abd32bc936
+ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70099502"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70383011"
 ---
 # <a name="create-an-azure-iot-central-application-preview-features"></a>Skapa ett Azure IoT Central-program (för hands versions funktioner)
 
@@ -40,7 +40,7 @@ Så här skapar du ett nytt Azure IoT Central-program som innehåller för hands
    - **Betala** per användning-program debiteras per enhet och de första fem Enheterna är kostnads fria. Om du skapar ett program **enligt principen betala per** användning måste du välja din *katalog*, Azure- *prenumeration*och *region*:
       - *Directory* är Azure Active Directory (AD) för att skapa ditt program. Den innehåller användaridentiteter, autentiseringsuppgifter och övrig organisatorisk information. Om du inte har en Azure AD skapas en åt dig när du skapar en Azure-prenumeration.
       - Med en *Azure-prenumeration* kan du skapa instanser av Azure-tjänster. IoT Central etablerar resurser i din prenumeration. Om du inte har någon Azure-prenumeration kan du skapa en på [Azures registreringssida](https://aka.ms/createazuresubscription). När du har skapat Azure-prenumerationen kan du gå tillbaka till sidan **Skapa program**. Din nya prenumeration visas i listrutan **Azure-prenumeration**.
-      - *Region* är den fysiska platsen där du vill skapa ditt program. Normalt väljer du den region som är fysiskt närmast dina enheter för att få bästa möjliga prestanda. Du kan se de regioner där Azure IoT Central är tillgängligt på sidan [produkter som är tillgängliga efter region](https://azure.microsoft.com/regions/services/) . När du har valt en region kan du inte senare flytta programmet till en annan region.
+      - *Region* är den fysiska platsen där du vill skapa ditt program. Under den offentliga för hands versionen är de enda tillgängliga regionerna för ett för **hands versions program** **Nord Europa** och **centrala USA**.
 
       Läs mer om prissättning på [sidan med prisinformation för Azure IoT Central.](https://azure.microsoft.com/pricing/details/iot-central/)
 

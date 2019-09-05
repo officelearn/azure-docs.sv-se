@@ -6,19 +6,16 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 07/26/2019
-ms.openlocfilehash: 7944f985f2317690f3a13add783192c49acbe22f
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.openlocfilehash: ba0f3bd002b2675c33ea5106ce64c7957c9989d0
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69907648"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70309128"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mariadb-using-the-azure-cli"></a>Skapa och hantera Läs repliker i Azure Database for MariaDB med Azure CLI
 
 I den här artikeln får du lära dig hur du skapar och hanterar Läs repliker i samma Azure-region som huvud servern i Azure Database for MariaDB tjänsten med hjälp av Azure CLI.
-
-> [!IMPORTANT]
-> Du kan skapa en Läs replik i samma region som din huvud server eller i valfri annan Azure-region som du väljer. Läs repliker (samma region och över region) finns för närvarande i offentlig för hands version.
 
 ## <a name="prerequisites"></a>Förutsättningar
 

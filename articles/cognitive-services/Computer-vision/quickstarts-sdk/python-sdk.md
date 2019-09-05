@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 04/17/2019
+ms.date: 09/03/2019
 ms.author: pafarley
-ms.openlocfilehash: c03568ece97bdaad86f4564debf9f3b2fa14c6ed
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: bc42edc3e97aa68c5fe9d2b3162913e8925df4ee
+ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "67786650"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70375644"
 ---
 # <a name="azure-cognitive-services-computer-vision-sdk-for-python"></a>Azure Cognitive Services-SDK för visuellt innehåll och för Python
 
@@ -42,7 +42,7 @@ Letar du efter mer dokumentation?
 
 ### <a name="if-you-dont-have-an-azure-subscription"></a>Om du inte har en Azure-prenumeration
 
-Skapa en kostnads fri nyckel som är giltig i 7 **[][computervision_resource]** dagar med den visuellt innehåll tjänsten. När nyckeln har skapats kopierar du nyckeln och slut punkts namnet. Du behöver detta för att [skapa klienten](#create-client).
+Skapa en kostnads fri nyckel som är giltig i 7 dagar **[med den visuellt innehåll][computervision_resource]** tjänsten. När nyckeln har skapats kopierar du nyckeln och slut punkts namnet. Du behöver detta för att [skapa klienten](#create-client).
 
 Spara följande när nyckeln har skapats:
 
@@ -312,7 +312,7 @@ except HTTPFailure as e:
 
 ### <a name="handle-transient-errors-with-retries"></a>Hantera tillfälliga fel med återförsök
 
-När du arbetar med [ComputerVisionClient][ref_computervisionclient] -klienten kan du stöta på tillfälliga fel som orsakas av de [hastighets begränsningar][computervision_request_units] som tillämpas av tjänsten eller andra övergående problem som nätverks avbrott. Information om hur du hanterar dessa typer av fel finns i [mönster][azure_pattern_retry] för återförsök i design mönster guiden för molnet och det relaterade [krets brytar mönstret][azure_pattern_circuit_breaker].
+När du arbetar med [ComputerVisionClient][ref_computervisionclient] -klienten kan du stöta på tillfälliga fel som orsakas av de [hastighets begränsningar][computervision_request_units] som tillämpas av tjänsten eller andra övergående problem som nätverks avbrott. Information om hur du hanterar dessa typer av fel finns i [mönster för återförsök][azure_pattern_retry] i design mönster guiden för molnet och det relaterade [krets brytar mönstret][azure_pattern_circuit_breaker].
 
 ## <a name="next-steps"></a>Nästa steg
 

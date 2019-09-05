@@ -7,12 +7,12 @@ ms.author: parthp
 ms.service: marketplace
 ms.topic: guide
 ms.date: 07/05/2019
-ms.openlocfilehash: b1839316f8f11af7e4f365694fc017c262d00a86
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: 71a74476bcec6cb2ab3dc5efabe1a550577f0107
+ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70191739"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70383248"
 ---
 # <a name="create-a-commercial-marketplace-account-in-partner-center"></a>Skapa ett kommersiellt marknads plats konto i Partner Center
 
@@ -20,7 +20,7 @@ Om du vill publicera dina erbjudanden till [Azure Marketplace](https://azuremark
 
 ## <a name="create-a-partner-center-account"></a>Skapa ett partner Center-konto
 
-I den här artikeln får du lära dig hur du skapar ett partner Center-konto, inklusive hur du: 
+I den här artikeln får du lära dig hur du skapar ett partner Center-konto, inklusive hur du:
 
 - [Registrera dig med hjälp av sidan för registrering av Partner Center](#to-create-a-commercial-marketplace-account-in-partner-center)
 - [Logga in med ett arbets konto](#sign-in-with-a-work-account)
@@ -56,11 +56,11 @@ Du måste godkänna de allmänna villkoren i [Microsoft Marketplace Publisher-av
 
 #### <a name="provide-your-publisher-profile"></a>Ange din utgivar profil
 
-Din utgivar profil innehåller ditt företags namn och ditt MPN-ID. Om du ännu inte har gjort det måste du gå med i [Microsoft Partner Network](https://partner.microsoft.com/commercial). När du har anslutit till Microsoft Partner Network får du ett MPN-ID. 
+Din utgivar profil innehåller ditt företags namn och ditt MPN-ID. Om du ännu inte har gjort det måste du gå med i [Microsoft Partner Network](https://partner.microsoft.com/commercial). När du har anslutit till Microsoft Partner Network får du ett MPN-ID.
 
-Skapa ett utgivar-ID. Ditt utgivar-ID identifierar ditt företag och dina erbjudanden i Marketplace och AppSource. 
+Skapa ett utgivar-ID. Ditt utgivar-ID identifierar ditt företag och dina erbjudanden i Marketplace och AppSource.
 
-När du har bekräftat din utgivar profil information godkänner du villkoren och skapar ditt partner Center-konto genom att välja **Godkänn och fortsätt**. 
+När du har bekräftat din utgivar profil information godkänner du villkoren och skapar ditt partner Center-konto genom att välja **Godkänn och fortsätt**.
 
 >[!Important]
 >*Du måste ha behörighet att agera på företagets vägnar för att kunna godkänna dessa villkor.*

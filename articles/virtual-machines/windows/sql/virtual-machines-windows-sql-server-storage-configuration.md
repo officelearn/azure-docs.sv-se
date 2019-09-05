@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 12/05/2017
 ms.author: mathoma
-ms.openlocfilehash: e28478d31a674d742870344b33eac6b84c3ae584
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 2705b42849922ce7e3650162b8f1ff78723685c2
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70123840"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70309248"
 ---
 # <a name="storage-configuration-for-sql-server-vms"></a>Lagrings konfiguration för SQL Server virtuella datorer
 
@@ -54,7 +54,7 @@ Baserat på dina val utför Azure följande konfigurations åtgärder för lagri
 * Kopplar lagringspoolen till en ny enhet på den virtuella datorn.
 * Optimerar den här nya enheten baserat på din angivna arbets belastnings typ (data lager, transaktionell bearbetning eller allmänt).
 
-Mer information om hur Azure konfigurerar lagrings inställningar finns i [avsnittet lagrings konfiguration](#storage-configuration). En fullständig genom gång av hur du skapar en SQL Server VM i Azure Portal finns i vägledningen för [etablering](virtual-machines-windows-portal-sql-server-provision.md).
+Mer information om hur Azure konfigurerar lagrings inställningar finns i [avsnittet lagrings konfiguration](#storage-configuration). En fullständig genom gång av hur du skapar en SQL Server VM i Azure Portal finns i [vägledningen för etablering](virtual-machines-windows-portal-sql-server-provision.md).
 
 ### <a name="resource-manage-templates"></a>Resurs hanterings mallar
 
@@ -110,8 +110,7 @@ Det andra alternativet för att utöka lagringen är att utöka den befintliga e
 
 Det här avsnittet innehåller en referens för de lagrings konfigurations ändringar som Azure utför automatiskt vid etablering eller konfiguration av SQL VM i Azure Portal.
 
-* Om du har valt färre än två TBs-lagring för den virtuella datorn skapar inte Azure en lagringspool.
-* Om du har valt minst två TBs för lagring för den virtuella datorn konfigurerar Azure en lagringspool. Nästa avsnitt av det här avsnittet innehåller information om konfigurationen av lagringspoolen.
+* Azure konfigurerar en lagringspool från det lagrings utrymme som valts från den virtuella datorn. Nästa avsnitt av det här avsnittet innehåller information om konfigurationen av lagringspoolen.
 * Automatisk lagrings konfiguration använder alltid [Premium SSD](../disks-types.md) P30-datadiskar. Det finns därför en 1:1-mappning mellan det valda antalet terabyte och antalet data diskar som är anslutna till den virtuella datorn.
 
 Information om priser finns på sidan för [lagrings priser](https://azure.microsoft.com/pricing/details/storage) på fliken **disklagring** .

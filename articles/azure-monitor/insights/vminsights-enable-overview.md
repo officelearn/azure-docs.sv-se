@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 07/30/2019
 ms.author: magoedte
 ms.openlocfilehash: f395ba5d63463aa177b453d187d025a4461eff28
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2019
+ms.lasthandoff: 09/05/2019
 ms.locfileid: "69905578"
 ---
 # <a name="enable-azure-monitor-for-vms-preview-overview"></a>Aktivera Azure Monitor for VMs (för hands version) – Översikt
@@ -26,7 +26,7 @@ Den här artikeln innehåller en översikt över tillgängliga alternativ för a
 
 Så här konfigurerar du Azure Monitor for VMs:
 
-* Aktivera en enskild virtuell Azure-dator eller skalnings uppsättning för virtuella datorer genom att välja insikter **(för hands version)** direkt från den virtuella datorn eller skalnings uppsättningen för virtuella datorer.
+* Aktivera en enskild virtuell Azure-dator eller skalnings uppsättning för virtuella datorer genom att välja **insikter (för hands version)** direkt från den virtuella datorn eller skalnings uppsättningen för virtuella datorer.
 * Aktivera två eller flera virtuella Azure-datorer och skalnings uppsättningar för virtuella datorer med hjälp av Azure Policy. Den här metoden säkerställer att de nödvändiga beroendena är installerade och korrekt konfigurerade för befintliga och nya virtuella datorer och skalnings uppsättningar. Icke-kompatibla virtuella datorer och skalnings uppsättningar rapporteras, så du kan välja om du vill aktivera dem och åtgärda dem.
 * Aktivera två eller flera virtuella Azure-datorer eller virtuella datorn skalningsuppsättningar över en viss prenumeration eller resursgrupp med hjälp av PowerShell.
 * Aktivera Azure Monitor for VMs för att övervaka virtuella datorer eller fysiska datorer som finns i företagets nätverk eller i annan moln miljö.
@@ -101,7 +101,7 @@ I följande tabell visas de Windows-och Linux-operativsystem som Azure Monitor f
 <sup>1</sup> the prestanda funktion i Azure Monitor för virtuella datorer är tillgängliga från Azure Monitor. Den är inte tillgänglig direkt från den vänstra rutan i den virtuella Azure-datorn.
 
 >[!NOTE]
->Hälso funktionen i Azure Monitor for VMs stöder inte kapslad [virtualisering](../../virtual-machines/windows/nested-virtualization.md) i en virtuell Azure-dator.
+>Hälso funktionen i Azure Monitor for VMs stöder inte [kapslad virtualisering](../../virtual-machines/windows/nested-virtualization.md) i en virtuell Azure-dator.
 >
 
 >[!NOTE]
@@ -188,7 +188,7 @@ Aktivera Azure Monitor for VMs med någon av de metoder som beskrivs i den här 
 
 | Distributions tillstånd | Metod | Beskrivning |
 |------------------|--------|-------------|
-| Enskild virtuell Azure-dator eller skalnings uppsättning för virtuell dator | [Aktivera från den virtuella datorn](vminsights-enable-single-vm.md) | Du kan aktivera en enskild virtuell Azure-dator genom att välja insikter **(för hands version)** direkt från den virtuella datorn eller skalnings uppsättningen för virtuella datorer. |
+| Enskild virtuell Azure-dator eller skalnings uppsättning för virtuell dator | [Aktivera från den virtuella datorn](vminsights-enable-single-vm.md) | Du kan aktivera en enskild virtuell Azure-dator genom att välja **insikter (för hands version)** direkt från den virtuella datorn eller skalnings uppsättningen för virtuella datorer. |
 | Flera virtuella Azure-datorer eller skalnings uppsättningar för virtuella datorer | [Aktivera via Azure Policy](vminsights-enable-at-scale-policy.md) | Du kan aktivera flera virtuella Azure-datorer med hjälp av Azure Policy och tillgängliga princip definitioner. |
 | Flera virtuella Azure-datorer eller skalnings uppsättningar för virtuella datorer | [Aktivera via Azure PowerShell eller Azure Resource Manager mallar](vminsights-enable-at-scale-powershell.md) | Du kan aktivera flera virtuella Azure-datorer eller skalnings uppsättningar för virtuella datorer i en angiven prenumeration eller resurs grupp med hjälp av Azure PowerShell eller Azure Resource Manager mallar. |
 | Hybridmoln | [Aktivera för Hybrid miljön](vminsights-enable-hybrid-cloud.md) | Du kan distribuera till virtuella datorer eller fysiska datorer som finns i ditt data Center eller i andra moln miljöer. |

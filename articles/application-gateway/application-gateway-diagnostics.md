@@ -7,14 +7,14 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 3/28/2019
 ms.author: victorh
-ms.openlocfilehash: d9b0c551cdfb92b380a967aaa5bdce7c278fd39e
-ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
+ms.openlocfilehash: 6df78a46e6bc8055f8cce89e199d01ad631e178e
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70183583"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70306194"
 ---
-# <a name="back-end-health-diagnostic-logs-and-metrics-for-application-gateway"></a>Backend-hälsa, diagnostikloggar och mått för Application Gateway
+# <a name="back-end-health-and-diagnostic-logs-for-application-gateway"></a>Server dels hälsa och diagnostikloggar för Application Gateway
 
 Genom att använda Azure Application Gateway kan du övervaka resurser på följande sätt:
 
@@ -22,7 +22,7 @@ Genom att använda Azure Application Gateway kan du övervaka resurser på följ
 
 * [Loggar](#diagnostic-logging): Loggar gör att prestanda, åtkomst och andra data kan sparas eller förbrukas från en resurs i övervaknings syfte.
 
-* [Mått](#metrics): Application Gateway har för närvarande sju mått för att visa prestanda räknare.
+* [Mått](application-gateway-metrics.md): Application Gateway har flera mått som hjälper dig att kontrol lera att systemet fungerar som förväntat.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -172,7 +172,7 @@ Azure genererar aktivitets loggen som standard. Loggarna bevaras för 90 dagar i
 |sentBytes| Storlek på paket som skickas, i byte.|
 |timeTaken| Tids längd (i millisekunder) som det tar för en begäran att bearbetas och dess svar ska skickas. Detta beräknas som intervallet från den tidpunkt då Application Gateway tar emot den första byten i en HTTP-begäran till den tidpunkt då åtgärden skicka svar slutförs. Det är viktigt att Observera att det tidsödande fältet vanligt vis innehåller den tid som paket för begäran och svar överförs över nätverket. |
 |sslEnabled| Huruvida kommunikationen med backend-pooler använder SSL. Giltiga värden är på och av.|
-|host| Det värdnamn som begäran har skickats till backend-servern. Om backend-värdnamnet åsidosätts visas detta namn.|
+|host| Det värdnamn som begäran har skickats till backend-servern. Om värd namnet för Server delen åsidosätts, kommer det här namnet att återspegla detta.|
 |originalHost| Det värdnamn som begäran togs emot av Application Gateway från klienten.|
 ```json
 {
@@ -359,67 +359,6 @@ Du kan också ansluta till ditt lagringskonto och hämta JSON-loggposter för å
 #### <a name="analyzing-access-logs-through-goaccess"></a>Analysera åtkomst loggar via GoAccess
 
 Vi har publicerat en Resource Manager-mall som installerar och kör den populära [GoAccess](https://goaccess.io/) log analyzer för Application Gateway åtkomst loggar. GoAccess tillhandahåller värdefull statistik för HTTP-trafik, till exempel unika besökare, begärda filer, värdar, operativ system, webbläsare, HTTP-statuskod med mera. Mer information finns i [Readme-filen i mappen Resource Manager-mall i GitHub](https://aka.ms/appgwgoaccessreadme).
-
-## <a name="metrics"></a>Mått
-
-Mått är en funktion för vissa Azure-resurser där du kan visa prestanda räknare i portalen. För Application Gateway är följande mått tillgängliga:
-
-- **Aktuella anslutningar**
-- **Misslyckade förfrågningar**
-- **Antal felfria värdar**
-
-   Du kan filtrera efter en pool per server del för att Visa felfria/Felaktiga värdar i en viss backend-pool.
-
-
-- **Svars status**
-
-   Svars status kod distributionen kan kategoriseras ytterligare för att Visa svar i 2xx-, 3xx-, 4xx-och 5xx-kategorier.
-
-- **Dataflöde**
-- **Totalt antal förfrågningar**
-- **Antal felaktiga värdar**
-
-   Du kan filtrera efter en pool per server del för att Visa felfria/Felaktiga värdar i en viss backend-pool.
-
-Bläddra till en Application Gateway, under **övervakning** Välj **mått**. Om du vill visa de tillgängliga värdena väljer du listrutan **MÅTT**.
-
-I följande bild visas ett exempel med tre mått som visas under de senaste 30 minuterna:
-
-[![](media/application-gateway-diagnostics/figure5.png "Metric-vy")](media/application-gateway-diagnostics/figure5-lb.png#lightbox)
-
-Om du vill se en aktuell lista över mått, se [mått som stöds med Azure Monitor](../azure-monitor/platform/metrics-supported.md).
-
-### <a name="alert-rules"></a>Varningsregler
-
-Du kan starta aviserings regler baserat på mått för en resurs. En avisering kan t. ex. anropa en webhook eller skicka en e-post till en administratör om data flödet för programgatewayen är över, under eller vid ett tröskelvärde under en angiven period.
-
-Följande exempel visar hur du skapar en varnings regel som skickar ett e-postmeddelande till en administratör när data flödet har överträtt ett tröskelvärde:
-
-1. Välj **Lägg till mått avisering** för att öppna sidan **Lägg till regel** . Du kan också komma åt den här sidan från sidan mått.
-
-   ![Knappen Lägg till mått avisering][6]
-
-2. På sidan **Lägg till regel** fyller du i avsnitten namn, villkor och meddelande och väljer **OK**.
-
-   * Välj något av de fyra värdena i villkors väljaren: **Större än**, **större än eller lika med**, **mindre än**eller **mindre än eller lika**med.
-
-   * I **period** väljaren väljer du en period på fem minuter till sex timmar.
-
-   * Om du väljer **e-postägare, deltagare och läsare**kan e-postmeddelandet vara dynamiskt baserat på de användare som har åtkomst till resursen. Annars kan du ange en kommaavgränsad lista med användare i rutan **ytterligare administratörs e-post (er)** .
-
-   ![Sidan Lägg till regel][7]
-
-Om tröskelvärdet överskrids kommer ett e-postmeddelande som liknar det som finns i följande bild att bli:
-
-![E-postmeddelande för överträtt tröskel][8]
-
-En lista med aviseringar visas när du har skapat en mått-avisering. Den ger en översikt över alla aviserings regler.
-
-![Lista över aviseringar och regler][9]
-
-Mer information om aviserings aviseringar finns i [ta emot aviseringar](../monitoring-and-diagnostics/insights-receive-alert-notifications.md).
-
-Om du vill veta mer om webhookar och hur du kan använda dem med aviseringar kan du gå till [Konfigurera en webhook på en Azure Metric-avisering](../azure-monitor/platform/alerts-webhooks.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

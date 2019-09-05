@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 08/01/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8f04e6f8df55059e2aa2981f85f40e487c6f0f8b
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: 3249957fa20c208d0fd06c676200753163d4bfc8
+ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68823684"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70376082"
 ---
 # <a name="tutorial-integrate-learning-at-work-with-azure-active-directory"></a>Självstudier: Integrera utbildning på arbetet med Azure Active Directory
 
@@ -67,7 +67,7 @@ Om du vill konfigurera och testa Azure AD SSO med inlärning på arbetet slutfö
 1. **[Konfigurera Azure AD SSO](#configure-azure-ad-sso)** – så att användarna kan använda den här funktionen.
 2. **[Konfigurera utbildning i arbetet SSO](#configure-learning-at-work-sso)** – för att konfigurera inställningarna för enkel inloggning på program sidan.
 3. **[Skapa en Azure AD-test](#create-an-azure-ad-test-user)** för att testa enkel inloggning med Azure AD med B. Simon.
-4. **[Tilldela Azure AD](#assign-the-azure-ad-test-user)** -testuser-för att aktivera B. Simon för att använda enkel inloggning med Azure AD.
+4. **[Tilldela Azure AD-testuser](#assign-the-azure-ad-test-user)** -för att aktivera B. Simon för att använda enkel inloggning med Azure AD.
 5. **[Skapa utbildnings-och arbets test användare](#create-learning-at-work-test-user)** – om du vill ha en motsvarighet till B. Simon i inlärnings arbete som är länkat till Azure AD-representation av användare.
 6. **[Testa SSO](#test-sso)** – för att kontrol lera om konfigurationen fungerar.
 
@@ -90,9 +90,9 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
     > [!NOTE]
     > Dessa värden är inte verkliga. Uppdatera de här värdena med faktisk inloggnings-URL och identifierare. Kontakta [Learning support-teamet](https://www.learninga-z.com/site/contact/support) för att få dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
-5. I utbildnings-och arbets program förväntas SAML-intyg i ett särskilt format, vilket kräver att du lägger till anpassade attribut mappningar i konfigurationen för SAML-token. Följande skärm bild visar en lista över standardattribut, där as **NameIdentifier** mappas med **User. UserPrincipalName**.
+5. I utbildnings-och arbets program förväntas SAML-intyg i ett särskilt format, vilket kräver att du lägger till anpassade attribut mappningar i konfigurationen för SAML-token. Följande skärmbild visar en lista över standardattribut, där **nameidentifier** mappas med **user.userprincipalname**.
 
-    Du kan uppdatera **NameIdentifier** -värdet i Azure AD baserat på din organisations konfiguration och det här värdet måste matcha **användar-ID: t** i Saba-molnet för att du ska kunna redigera mappningen av attribut genom att klicka på ikonen **Redigera**  och ändra attributet mappning.
+    Du kan uppdatera **NameIdentifier** -värdet i Azure AD baserat på din organisations konfiguration och det här värdet måste matcha **användar-ID: t** i Saba-molnet för att du ska kunna redigera mappningen av attribut genom att klicka på ikonen **Redigera** och ändra attributmappning.
 
     ![image](common/edit-attribute.png)
 
@@ -140,7 +140,7 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 ### <a name="create-learning-at-work-test-user"></a>Skapa test användare för utbildning i arbetet
 
-I det här avsnittet skapar du en användare som heter B. Simon i inlärningen på arbetet. Arbeta med [support teamet för utbildning på](https://www.learninga-z.com/site/contact/support) arbets plats för att lägga till användarna i Learning-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
+I det här avsnittet skapar du en användare som heter B. Simon i inlärningen på arbetet. Arbeta med [support teamet för utbildning på](https://www.learninga-z.com/site/contact/support) arbets plats för att lägga till användarna i Learning-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
 
 ### <a name="test-sso"></a>Testa SSO 
 

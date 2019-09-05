@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 07/11/2019
 ms.author: ellacroi
-ms.openlocfilehash: b8d0759d96b0b2566934f117f5dea32ec4ad015c
-ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
+ms.openlocfilehash: 209905eaf90e006ded232be73ab2a3a428568eda
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68000010"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70309025"
 ---
 # <a name="marketplace-faqs"></a>Vanliga frågor om Marketplace
 
@@ -36,7 +36,7 @@ Azure Marketplace erbjuder tekniska lösningar och tjänster från Microsoft och
 
 * bas operativ system
 * databases
-* security
+* säkerhet
 * identity
 * nätverk
 * Blockchain
@@ -185,7 +185,7 @@ Enterprise-avtal-kunder (EA) debiteras mot deras EA. Vissa Azure Marketplace-erb
 
 **Var kan jag se information om min Azure Marketplace-prenumeration och fakturerings information?**
 
-MOSP – kunder som prenumererar på [Microsoft Online](https://azure.microsoft.com/support/legal/subscription-agreement/?country=us&language=en) (Web Direct) kan visa inköps information för Marketplace på fliken fakturor i avsnittet Cost Management + fakturering i [Azure Portal].
+MOSP – kunder som [prenumererar på Microsoft Online](https://azure.microsoft.com/support/legal/subscription-agreement/?country=us&language=en) (Web Direct) kan visa inköps information för Marketplace på fliken fakturor i avsnittet Cost Management + fakturering i [Azure Portal].
 
 Enterprise-avtal-kunder (EA) kan visa inköps information för Marketplace på fliken fakturor i avsnittet Cost Management + fakturering i [Azure Portal].
 
@@ -225,7 +225,7 @@ Du hittar en uppskattad användnings information i [Azure Portal]. Sådan uppska
 
 Kontakta program utgivaren direkt för allmän program support om användning eller fel sökning.
 
-Kontakta [Azure](https://support.microsoft.com/getsupport?oaspworkflow=start_1.0.0.0&wf=0&wfname=productselection&prid=16230&forceorigin=esmc&ccsid=636694515623707953)-supporten för fakturerings-och prenumerations problem med ditt Azure Marketplace-köp.
+Kontakta [Azure-supporten](https://support.microsoft.com/getsupport?oaspworkflow=start_1.0.0.0&wf=0&wfname=productselection&prid=16230&forceorigin=esmc&ccsid=636694515623707953)för fakturerings-och prenumerations problem med ditt Azure Marketplace-köp.
 
 **Vem kontaktar jag om jag behöver teknisk support för en lösning som jag har köpt på Azure Marketplace?**
 
@@ -233,7 +233,7 @@ Kontakta utgivar leverantören för all teknisk produkt support. Information om 
 
 **Vem kontaktar jag för fakturerings support/frågor om en lösning från tredje part som köpts från Marketplace?**
 
-Kontakta Microsoft Support på [Azure](https://support.microsoft.com/getsupport?oaspworkflow=start_1.0.0.0&wf=0&wfname=productselection&prid=16230&forceorigin=esmc&ccsid=636694515623707953)-supporten.
+Kontakta Microsoft Support på [Azure-supporten](https://support.microsoft.com/getsupport?oaspworkflow=start_1.0.0.0&wf=0&wfname=productselection&prid=16230&forceorigin=esmc&ccsid=636694515623707953).
 
 **Vem kontaktar jag om jag har frågor om priser eller villkor för partner lösningar som säljs på Azure Marketplace?**
 
@@ -263,7 +263,7 @@ Azure Marketplace är utformat för IT-proffs och moln utvecklare som är intres
 
 **Varför ska jag publicera mitt program på Azure Marketplace och hur fördelar det mig?**
 
-Azure Marketplace tillhandahåller en marknad för Microsoft-partner för att marknadsföra och sälja produkter och tjänster till Azure-kunder. Utgivare får direkt åtkomst till 140 globala marknader, våra 300000 + partners och Azures nätverk för företags kunder.  Marketplace innehåller över 90% av Fortune 500-företag och många av världens ledande utvecklare. Nya partner i Azure Marketplace erbjuds automatiskt en uppsättning [kostnads besparingar på marknaden](gtm-your-marketplace-benefits.md#go-to-market-gtm-benefits-in-the-marketplace) för att öka medvetenheten om sina erbjudanden i Azures marknads plats.
+Azure Marketplace tillhandahåller en marknad för Microsoft-partner för att marknadsföra och sälja produkter och tjänster till Azure-kunder. Utgivare får direkt åtkomst till 140 globala marknader, våra 300000 + partners och Azures nätverk för företags kunder.  Marketplace innehåller över 90% av Fortune 500-företag och många av världens ledande utvecklare. Nya partner i Azure Marketplace erbjuds automatiskt en uppsättning [kostnads besparingar på marknaden](gtm-your-marketplace-benefits.md#list-trial-and-consulting-benefits) för att öka medvetenheten om sina erbjudanden i Azures marknads plats.
 
 **Vad är differentierings faktorn mellan Azure Marketplace och AppSource?**
 
@@ -291,7 +291,7 @@ Det finns inga publicerings avgifter när du överför en lista, en utvärdering
 
 **Finns det några transaktions avgifter för inköp via Azure Marketplace?**
 
-När lösnings licensen har köpts via Azure Marketplace delas intäkterna för program varu licensen mellan utgivaren och Microsoft.  Detta görs i enlighet med villkoren i Marketplace: a utgivar [avtal](https://cloudpartner.azure.com/Content/Unversioned/PublisherAgreement2.pdf). Lösningar med BYOL (ta med egna licens tjänster) debiterar dessutom inte transaktions avgifter.
+När lösnings licensen har köpts via Azure Marketplace delas intäkterna för program varu licensen mellan utgivaren och Microsoft.  Detta görs i enlighet med villkoren i Marketplace: a [utgivar avtal](https://cloudpartner.azure.com/Content/Unversioned/PublisherAgreement2.pdf). Lösningar med BYOL (ta med egna licens tjänster) debiterar dessutom inte transaktions avgifter.
 
 **Vad är ett standard kontrakt?**
 
@@ -402,7 +402,7 @@ Logga ett ärende med [Microsoft Support](https://support.microsoft.com/getsuppo
 
 Kontakta [Cloud Partner Portal support](https://support.microsoft.com/getsupport?wf=0&tenant=ClassicCommercial&oaspworkflow=start_1.0.0.0&locale=en-us&supportregion=en-us&pesid=16230&ccsid=636565784998876007)om du vill ha allmän program support för användbarhet eller fel sökning.
 
-Kontakta [Azure](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)-supporten för fakturerings-och prenumerations problem med ditt Azure Marketplace-köp.
+Kontakta [Azure-supporten](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)för fakturerings-och prenumerations problem med ditt Azure Marketplace-köp.
 
 **Vem kontaktar jag för att publicera eller erbjuda hanterings frågor?**
 

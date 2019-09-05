@@ -11,12 +11,12 @@ author: rastala
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 07/31/2019
-ms.openlocfilehash: 9b58d6e189c891d0dd2917d7d150f133dc35f917
-ms.sourcegitcommit: 3f78a6ffee0b83788d554959db7efc5d00130376
+ms.openlocfilehash: b938d55749373711ddf2a19df12b987276b224ca
+ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70019102"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70376301"
 ---
 # <a name="start-monitor-and-cancel-training-runs-in-python"></a>Starta, övervaka och avbryta inlärnings körningar i python
 
@@ -226,7 +226,7 @@ Använd [`create_children()`](https://docs.microsoft.com/python/api/azureml-core
 
 Underordnade körningar kan också skickas från en överordnad körning. På så sätt kan du skapa hierarkier av överordnad och underordnad körning, som körs på olika beräknings mål, som är anslutna via det gemensamma överordnade körnings-ID.
 
-Använd metoden [' submit_child () '](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py#submit-child-count-none--tag-key-none--tag-values-none-) för att skicka en underordnad körning inifrån en överordnad körning. Om du vill göra detta i det överordnade kör-skriptet hämtar du körnings kontexten och skickar den underordnade körningen med hjälp av metoden ' ' submit_child ' ' för kontext instansen.
+Använd metoden [' submit_child () '](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py#submit-child-config--tags-none----kwargs-) för att skicka en underordnad körning inifrån en överordnad körning. Om du vill göra detta i det överordnade kör-skriptet hämtar du körnings kontexten och skickar den underordnade körningen med hjälp av metoden ' ' submit_child ' ' för kontext instansen.
 
 ```python
 ## In parent run script
@@ -335,7 +335,7 @@ Mer information om hur du frågar Azure CLI-resultat finns i [läsa utdata från
 
 Följande antecknings böcker demonstrerar begreppen i den här artikeln:
 
-* Mer information om loggnings-API: er finns i [logg-API](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/logging-api/logging-api.ipynb)-anteckningsboken.
+* Mer information om loggnings-API: er finns i [logg-API-anteckningsboken](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/logging-api/logging-api.ipynb).
 
 * Mer information om hur du hanterar körningar med Azure Machine Learning SDK finns i [antecknings boken hantera körningar](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training/manage-runs).
 

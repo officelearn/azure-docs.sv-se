@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 09/03/2019
 ms.author: diberry
-ms.openlocfilehash: 7874a2bad63a4c5b47545c06a91228e64d523849
-ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
+ms.openlocfilehash: 3907a244bc2d85e7225f94b15150298fd80a032f
+ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70258799"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70382343"
 ---
 # <a name="language-understanding-frequently-asked-questions-faq"></a>Vanliga frågor och svar om Language Understanding
 
@@ -265,7 +265,7 @@ Din nyckel för redigering/starter får bara 1000 endpoint frågar en månad. Sk
 Det första problemet är att isolera om problemet är relaterat till LUIS eller sker utanför LUIS mellan. 
 
 #### <a name="resolve-issue-in-luis"></a>Lös problem i LUIS
-Skicka samma uttryck till LUIS från Luis- [slutpunkten](luis-get-started-create-app.md#query-the-endpoint-with-a-different-utterance). Om du får ett fel meddelande kan du lösa problemet i LUIS tills felet inte längre returneras. Vanliga fel är:
+Skicka samma uttryck till LUIS från Luis- [slutpunkten](luis-get-started-create-app.md#query-the-v2-api-prediction-endpoint). Om du får ett fel meddelande kan du lösa problemet i LUIS tills felet inte längre returneras. Vanliga fel är:
 
 * `Out of call volume quota. Quota will be replenished in <time>.`– Det här problemet indikerar att du antingen måste ändra från en redigerings nyckel till en [slut punkts nyckel](luis-how-to-azure-subscription.md) eller ändra [tjänst nivåerna](luis-how-to-azure-subscription.md#change-pricing-tier). 
 

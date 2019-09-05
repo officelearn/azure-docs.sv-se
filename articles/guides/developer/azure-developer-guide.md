@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: glenga
-ms.openlocfilehash: f04dd628ae0999edd202c98521526ae70e1ff0af
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 367027a48dd51dd88de63cb163e05e0e8503755d
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70141221"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70308588"
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Introduktionsguide för Azure-utvecklare
 
@@ -188,7 +188,7 @@ Med ditt program igång i Azure måste du kunna övervaka prestanda, titta efter
 
 Oavsett om det är etablering av virtuella datorer eller om du publicerar dina webbappar med kontinuerlig integrering, integreras Azure med de flesta populära DevOps-verktygen. Med stöd för verktyg som Jenkins, GitHub, Puppet, chef, TeamCity, Ansible, Azure DevOps och andra kan du arbeta med de verktyg som du redan har och maximera din befintliga upplevelse.
 
-> **Prova nu:** [Prova flera av DevOps](https://azure.microsoft.com/try/devops/)-integreringarna.
+> **Prova nu:** [Prova flera av DevOps-integreringarna](https://azure.microsoft.com/try/devops/).
 > 
 > **Kom igång**: Om du vill se DevOps-alternativ för en App Service app, se [kontinuerlig distribution till Azure App Service](../../app-service/deploy-continuous-deployment.md).
 
@@ -227,14 +227,14 @@ Azure Portal är ett webbaserat program som du kan använda för att skapa, hant
 
 ### <a name="rest-apis"></a>REST API:er
 
-Azure bygger på en uppsättning REST API: er som stöder Azure Portal gränssnittet. De flesta av dessa REST API: er stöds också för att låta dig program mässigt etablera och hantera dina Azure-resurser och-program från valfri enhet med Internet. En fullständig uppsättning REST API-dokumentation finns i [Azure rest SDK](https://docs.microsoft.com/rest/api/)-referensen.
+Azure bygger på en uppsättning REST API: er som stöder Azure Portal gränssnittet. De flesta av dessa REST API: er stöds också för att låta dig program mässigt etablera och hantera dina Azure-resurser och-program från valfri enhet med Internet. En fullständig uppsättning REST API-dokumentation finns i [Azure rest SDK-referensen](https://docs.microsoft.com/rest/api/).
 
 ### <a name="apis"></a>API:er
 
 Förutom REST-API: er kan många Azure-tjänster också hantera resurser från dina program program mässigt med hjälp av plattformsspecifika Azure-SDK: er, inklusive SDK: er för följande utvecklings plattformar:
 
 -   [NET](https://go.microsoft.com/fwlink/?linkid=834925)
--   [Node.js](https://docs.microsoft.com/javascript/azure)
+-   [Node.js](https://docs.microsoft.com/azure/javascript/)
 -   [Java](https://docs.microsoft.com/java/azure)
 -   [PHP](https://github.com/Azure/azure-sdk-for-php/blob/master/README.md)
 -   [Python](/azure/python/)

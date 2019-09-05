@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a063891339a46366490447b7c7a7a1a14fd81be6
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: 316a523a6216354ae5b6166be55e183a4e050766
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68828922"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70305078"
 ---
 # <a name="enable-passwordless-security-key-sign-in-for-azure-ad-preview"></a>Aktivera lösen ords skydds nyckel inloggning för Azure AD (för hands version)
 
@@ -54,7 +54,7 @@ Om du vill använda specifika enhets grupper för att aktivera Credential-provid
    1. Namn: Säkerhets nycklar för Windows-inloggning
    1. Beskrivning: Aktiverar FIDO-säkerhetsnycklar som ska användas under Windows-inloggning
    1. Plattform: Windows 10 och senare
-   1. Plattforms typ: Anpassat
+   1. Profil typ: Anpassat
    1. Anpassade OMA-URI-inställningar:
       1. Namn: Aktivera säkerhets nycklar för FIDO för Windows-inloggning
       1. OMA-URI: ./Device/Vendor/MSFT/PassportForWork/SecurityKey/UseSecurityKeyForSignin
@@ -96,7 +96,7 @@ Mer information om vilka nycklar och tillverkare som stöds finns i avsnittet om
 
 ### <a name="enable-the-combined-registration-experience"></a>Aktivera kombinerad registrerings upplevelse
 
-Registrerings funktioner för metoder för lösen ords kryptering förlitar sig på den kombinerade förhands granskningen. Följ anvisningarna i artikeln Aktivera kombinerad registrering av [säkerhets information (för hands version)](howto-registration-mfa-sspr-combined.md)för att aktivera den kombinerade förhands granskningen.
+Registrerings funktioner för metoder för lösen ords kryptering förlitar sig på den kombinerade förhands granskningen. Följ anvisningarna i artikeln [Aktivera kombinerad registrering av säkerhets information (för hands version)](howto-registration-mfa-sspr-combined.md)för att aktivera den kombinerade förhands granskningen.
 
 ### <a name="enable-new-passwordless-authentication-method"></a>Aktivera ny autentiseringsmetod för lösen ord
 
@@ -118,8 +118,8 @@ Registrerings funktioner för metoder för lösen ords kryptering förlitar sig 
 1. Bläddra till [https://myprofile.microsoft.com](https://myprofile.microsoft.com)
 1. Logga in om inte redan
 1. Klicka på **säkerhets information**
-   1. Om användaren redan har minst en Azure Multi-Factor Authentication-metod registrerad kan de omedelbart registrera en säkerhets nyckel för FIDO2.
-   1. Om de inte har minst en Azure Multi-Factor Authentication-metod registrerad måste de lägga till en.
+   1. Om användaren redan har minst en registrerad Azure-Multi-Factor Authentication kan de omedelbart registrera en säkerhets nyckel för FIDO2.
+   1. Om de inte har minst en registrerad Azure-Multi-Factor Authentication måste de lägga till en.
 1. Lägg till en säkerhets nyckel för FIDO2 genom att klicka på **Lägg till metod** och välja **säkerhets nyckel**
 1. Välj **USB-enhet** eller **NFC-enhet**
 1. Låt din nyckel vara klar och välj **Nästa**

@@ -1,6 +1,6 @@
 ---
-title: Inte Azure virtuella datorer som replikeras till en sekundär Azure-region för haveriberedskap med Azure Site Recovery-tjänsten.
-description: Lär dig hur du växlar tillbaka Azure virtuella datorer med Azure Site Recovery-tjänsten.
+title: Återställa virtuella Azure-datorer som replikeras till en sekundär Azure-region för haveri beredskap med tjänsten Azure Site Recovery.
+description: Lär dig hur du växlar tillbaka virtuella Azure-datorer med tjänsten Azure Site Recovery.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
@@ -9,62 +9,55 @@ ms.topic: tutorial
 ms.date: 05/30/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: a3b67e9b0dc41eeb14000400912892fbf29acfe2
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
+ms.openlocfilehash: 3910336efe50131fbd5df72039af345eb7346385
+ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66399486"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70383228"
 ---
-# <a name="fail-back-an-azure-vm-between-azure-regions"></a>Återställa en Azure virtuell dator mellan Azure-regioner
+# <a name="fail-back-an-azure-vm-between-azure-regions"></a>Återställa en virtuell Azure-dator mellan Azure-regioner
 
 [Azure Site Recovery](site-recovery-overview.md)-tjänsten bidrar till din strategi för haveriberedskap genom att hantera och samordna replikering, redundans och återställning av fysiska servrar och virtuella Azure-datorer.
 
-Den här självstudien beskrivs hur du inte återställa en virtuell Azure-dator. När du har redundansväxlat kan växla du tillbaka till den primära regionen när den är tillgänglig. I den här guiden får du lära dig att:
+I den här självstudien beskrivs hur du växlar tillbaka en enskild virtuell Azure-dator. När du har växlat över måste du växla tillbaka till den primära regionen när den är tillgänglig. I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > 
 > * Återställa den virtuella datorn i den sekundära regionen.
-> * Återaktivera skyddet för den primära virtuella datorn tillbaka till den sekundära regionen.
+> * Skydda den primära virtuella datorn igen till den sekundära regionen.
 > 
 > [!NOTE]
 > 
-> Den här kursen hjälper dig att växla över några virtuella datorer till en målregion och tillbaka till källregionen med minsta anpassningar. Mer detaljerad information, granska de [anvisningar hjälper på Azure Virtual Machines](https://docs.microsoft.com/azure/virtual-machines/windows/).
+> Den här självstudien hjälper dig att redundansväxla ett fåtal virtuella datorer till en mål region och tillbaka till käll regionen med minimal anpassning. Mer detaljerade instruktioner finns i [instruktions guiderna på virtuella Azure-datorer](https://docs.microsoft.com/azure/virtual-machines/windows/).
 
 ## <a name="before-you-start"></a>Innan du börjar
 
-* Se till att statusen för den virtuella datorn är **Redundansväxling bekräftad**.
-* Kontrollera att den primära regionen är tillgänglig och att det går att skapa och komma åt nya resurser i den.
-* Kontrollera att det återaktivering av skyddet är aktiverat.
+* Kontrol lera att statusen för den virtuella datorn är **redundans bekräftad**.
+* Kontrol lera att den primära regionen är tillgänglig och att du kan skapa och komma åt nya resurser i den.
+* Se till att skydd är aktiverat.
 
 ## <a name="fail-back-to-the-primary-region"></a>Växla tillbaka till den primära regionen
 
-När virtuella datorerna åter skyddats kan växla du tillbaka till den primära regionen efter behov.
+När de virtuella datorerna har återskyddats kan du växla tillbaka till den primära regionen efter behov.
 
-1. I valvet, väljer **replikerade objekt**, och välj sedan den virtuella datorn som har återaktivera skyddet.
+1. I valvet väljer du **replikerade objekt**och väljer sedan den virtuella dator som har återskyddats.
 
-    ![Växla tillbaka till primär](./media/site-recovery-azure-to-azure-failback/azure-to-azure-failback.png)
+    ![Återställning efter fel till primär](./media/site-recovery-azure-to-azure-failback/azure-to-azure-failback.png)
 
-3. Välj **Redundanstest** för att utföra ett test failover tillbaka till den primära regionen.
-4. Välj återställningspunkten och virtuellt nätverk för redundanstestning och välj sedan **OK**. Du kan granska testet VM som skapats i den primära regionen.
-5. När redundanstestet har slutförts väljer **Rensa redundanstestning** att rensa upp resurserna som du skapade i källregionen för redundanstestning.
-6. I **replikerade objekt**, Välj den virtuella datorn och välj sedan **redundans**.
-7. I **redundans**, Välj en återställningspunkt för att växla över till:
-    - **Senaste (standard)** : Bearbetar alla data i Site Recovery-tjänsten och ger lägsta mål för återställningspunkt (RPO).
-    - **Senaste bearbetade**: Återställer den virtuella datorn till den senaste återställningspunkten som bearbetats av Site Recovery.
-    - **Anpassat**: Flyttas över till en specifik återställningspunkt. Det här alternativet är användbart för att utföra test av redundansväxling.
+2. I **replikerade objekt**väljer du den virtuella datorn och väljer sedan **redundans**.
+3. I **redundans**väljer du en återställnings punkt att redundansväxla till:
+    - **Senaste (standard)** : Bearbetar alla data i Site Recoverys tjänsten och ger lägsta återställnings punkt mål (återställnings punkt mål).
+    - **Senaste bearbetade**: Återställer den virtuella datorn till den senaste återställnings punkten som har bearbetats av Site Recovery.
+    - **Anpassat**: Växlar över till en viss återställnings punkt. Det här alternativet är användbart för att utföra test av redundansväxling.
+4. Välj **Stäng datorn innan du påbörjar redundans** om du vill att Site Recovery ska försöka stänga av virtuella datorer i Dr-regionen innan redundansväxlingen utlöses. Redundansväxlingen fortsätter även om avstängningen Miss lyckas. 
+5. Följ redundansförloppet på sidan **Jobb**.
+6. När redundansväxlingen är klar verifierar du den virtuella datorn genom att logga in på den. Du kan ändra återställnings punkten efter behov.
+7. När du har verifierat redundansväxlingen väljer du **genomför redundansväxlingen**. Commit tar bort alla tillgängliga återställnings punkter. Alternativet ändra återställnings punkt är inte längre tillgängligt.
+8. Den virtuella datorn ska visa som misslyckad över och kunde inte återställas.
 
-8. Välj **Stäng datorn innan du påbörjar redundans** om du vill använda Site Recovery försöker stänga av virtuella källdatorer innan du utlöser redundansväxlingen. Redundansväxlingen fortsätter även om avstängningen misslyckas. Observera att Site Recovery inte rensa källan efter en redundansväxling.
-9. Följ redundansförloppet på sidan **Jobb**.
-10. När redundansväxlingen är klar, verifierar du den virtuella datorn genom att logga in på den. Du kan ändra dess återställningspunkt efter behov.
-11. När du har kontrollerat växling vid fel, Välj **etablerar redundansen**. Genomför tar bort alla tillgängliga återställningspunkter. Ändra recovery point alternativet är inte längre tillgängligt.
-12. Den virtuella datorn ska visa som växlas över och växlas tillbaka.
-
-    ![Virtuell dator på primära och sekundära regioner](./media/site-recovery-azure-to-azure-failback/azure-to-azure-failback-vm-view.png)
-
-> [!NOTE]
-> Katastrofåterställning virtuella datorer kvar i avstängning/deallocated. Det här är avsiktligt eftersom Site Recovery sparar VM-informationen, som kan vara användbart för redundans från primärt till den sekundära regionen senare. Du debiteras inte för de frigörs virtuella datorerna, så att de bör hållas som de är.
+    ![VM i primär och sekundär region](./media/site-recovery-azure-to-azure-failback/azure-to-azure-failback-vm-view.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Läs mer](azure-to-azure-how-to-reprotect.md#what-happens-during-reprotection) om flödet återaktiveringen av skyddet.
+[Läs mer](azure-to-azure-how-to-reprotect.md#what-happens-during-reprotection) om återskydds flödet.

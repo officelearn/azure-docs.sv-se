@@ -17,12 +17,12 @@ ms.date: 08/08/2019
 ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4c5f7e45a1e1daa5d8504db2506a79e88c28bcc1
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 1b5aedd5c9bde7689df14c7efdf8d58692680c13
+ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68989603"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70383176"
 ---
 # <a name="sign-in-activity-report-error-codes"></a>Felkoder för inloggnings aktivitet 
 
@@ -44,11 +44,11 @@ Filtrera rapporten för att visa alla misslyckade inloggningar genom att välja 
 
 ![Inloggningsaktivitet](./media/reference-sign-ins-error-codes/06.png "inloggningsaktivitet")
 
-Om du markerar ett objekt i den filtrerade listan **öppnas aktivitets informationen: Inloggnings** blad. I den här vyn får du ytterligare information om inloggnings händelsen misslyckades, inklusive felkoden för **inloggning** och **fel orsaken**.
+Om du markerar ett objekt i den filtrerade listan **öppnas aktivitets informationen: Inloggnings** blad. I den här vyn får du ytterligare information om inloggnings händelsen misslyckades, inklusive **felkoden för inloggning** och **fel orsaken**.
 
 ![Inloggningsaktivitet](./media/reference-sign-ins-error-codes/05.png "inloggningsaktivitet")
 
-Du kan också program mässigt komma åt inloggnings data med hjälp av rapporterings- [API: et](concept-reporting-api.md).
+Du kan också program mässigt komma åt inloggnings data med hjälp av [rapporterings-API: et](concept-reporting-api.md).
 
 ## <a name="error-codes"></a>Felkoder
 
@@ -153,6 +153,8 @@ Du kan också program mässigt komma åt inloggnings data med hjälp av rapporte
 |70018|Ogiltig verifieringskod på grund av att användaren skriver in fel användarkod för kodflödet för enheten. Auktorisering är inte godkänd.|
 |70019|Verifieringskoden har upphört att gälla. Låt användaren försöka logga in igen.|
 |70037|Felaktigt utmaningssvar har angetts. Fjärrsessionen för autentisering nekad.|
+|70043|Hantering av Azure villkorlig åtkomst tvingar sessionen att gå ut|
+|70044|Hantering av Azure villkorlig åtkomst tvingar sessionen att gå ut|
 |75001|Ett fel uppstod under bindningen för SAML-meddelande.|
 |75003|Programmet returnerade ett fel relaterat till bindning som inte stöds (SAML-protokollsvar kan inte skickas via andra bindningar än HTTP POST). Kontakta appägaren.|
 |75005|Azure AD stöder inte SAML-begäran som skickades av programmet för enkel inloggning. Kontakta appägaren.|

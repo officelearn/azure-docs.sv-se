@@ -1,5 +1,5 @@
 ---
-title: Enkel entitet, fras lista – LUIS
+title: 'Självstudier: Enkel entitet, fras lista – LUIS'
 titleSuffix: Azure Cognitive Services
 description: I den här självstudien extraherar du data med jobbnamn via maskininlärning ur ett yttrande med hjälp av en enkel entitet. Om du vill öka noggrannheten i extraheringen lägger du till en fraslista med villkor som är specifika för den enkla entiteten.
 services: cognitive-services
@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 07/16/2019
+ms.date: 09/04/2019
 ms.author: diberry
-ms.openlocfilehash: 1b731d8000e748813649ea32c91b9566a8bc245a
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: 87e4fe3671f419383cb342fdb7dca55a8d2eb45d
+ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69648609"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70376272"
 ---
 # <a name="tutorial-extract-names-with-simple-entity-and-a-phrase-list"></a>Självstudier: Extrahera namn med en enkel entitet och en fraslista
 

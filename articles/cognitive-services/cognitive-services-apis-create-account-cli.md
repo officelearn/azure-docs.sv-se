@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 07/17/2019
 ms.author: aahi
-ms.openlocfilehash: 8f3d30866ac6db0cdece9af8144fcfa266871172
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: e57bb55f5bbeba9cb476672723511a4d19c46165
+ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68697895"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70383261"
 ---
 # <a name="create-a-cognitive-services-resource-using-the-azure-command-line-interfacecli"></a>Skapa en Cognitive Services resurs med hjälp av kommando rads gränssnittet för Azure (CLI)
 
@@ -23,12 +23,12 @@ Använd den här snabb starten för att komma igång med Azure Cognitive Service
 
 I den här snabb starten får du lära dig hur du registrerar dig för Azure Cognitive Services och skapar ett konto som har en tjänst prenumeration eller flera tjänster med hjälp av [kommando rads gränssnittet för Azure (CLI)](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Dessa tjänster representeras av Azure- [resurser](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-portal), vilket gör att du kan ansluta till en eller flera av azure-API:er för Cognitive Services.
 
+[!INCLUDE [cognitive-services-subscription-types](../../includes/cognitive-services-subscription-types.md)]
+
 ## <a name="prerequisites"></a>Förutsättningar
 
 * En giltig Azure-prenumeration – [skapa en](https://azure.microsoft.com/free/) kostnads fri.
 * [Kommando rads gränssnittet för Azure (CLI)](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
-
-[!INCLUDE [cognitive-services-subscription-types](../../includes/cognitive-services-subscription-types.md)]
 
 ## <a name="install-the-azure-cli-and-sign-in"></a>Installera Azure CLI och logga in 
 

@@ -6,26 +6,29 @@ author: dlepow
 manager: gwallace
 ms.service: container-instances
 ms.topic: article
-ms.date: 08/01/2018
+ms.date: 09/03/2019
 ms.author: danlep
-ms.openlocfilehash: d555ba6b8c2b32fc6ec56d6c51dda9626b6f0cb0
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 3103fe7fbf7dcd587f43b673ef53f32893908ecb
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68325537"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70307720"
 ---
 # <a name="update-containers-in-azure-container-instances"></a>Uppdatera behållare i Azure Container Instances
 
-Under normal drift av dina behållar instanser kan du se till att du behöver uppdatera behållarna i en behållar grupp. Till exempel kanske du vill uppdatera avbildnings versionen, ändra ett DNS-namn, uppdatera miljövariabler eller uppdatera status för en behållare vars program har kraschat.
+Under normal drift av dina behållar instanser kan du se till att du behöver uppdatera de behållare som körs i en [behållar grupp](container-instances-container-groups.md). Till exempel kanske du vill uppdatera avbildnings versionen, ändra ett DNS-namn, uppdatera miljövariabler eller uppdatera status för en behållare vars program har kraschat.
+
+> [!NOTE]
+> Avslutade eller borttagna behållar grupper kan inte uppdateras. När en behållar grupp har avslut ATS (har statusen lyckad eller misslyckad) eller har tagits bort måste gruppen distribueras som ny.
 
 ## <a name="update-a-container-group"></a>Uppdatera en behållar grupp
 
-Uppdatera behållarna i en behållar grupp genom att distribuera om en befintlig grupp med minst en modifierad egenskap. När du uppdaterar en behållar grupp startas alla behållare som körs i gruppen om på plats.
+Uppdatera behållarna i en behållare grupp som körs genom att distribuera om en befintlig grupp med minst en ändrad egenskap. När du uppdaterar en behållar grupp startas alla behållare som körs i gruppen om på plats, vanligt vis på samma underliggande behållar värd.
 
-Distribuera om en befintlig behållar grupp genom att utfärda kommandot CREATE (eller använda Azure Portal) och ange namnet på en befintlig grupp. Ändra minst en giltig egenskap för gruppen när du utfärdar kommandot CREATE för att utlösa omdistributionen. Alla behållar grupp egenskaper är inte giltiga för omdistribution. Se [egenskaper som kräver ta bort](#properties-that-require-container-delete) för en lista med egenskaper som inte stöds.
+Distribuera om en befintlig behållar grupp genom att utfärda kommandot CREATE (eller använda Azure Portal) och ange namnet på en befintlig grupp. Ändra minst en giltig egenskap för gruppen när du utfärdar kommandot CREATE för att utlösa omdistributionen och lämna de återstående egenskaperna oförändrade (eller Fortsätt att använda standardvärden). Alla behållar grupp egenskaper är inte giltiga för omdistribution. Se [egenskaper som kräver ta bort](#properties-that-require-container-delete) för en lista med egenskaper som inte stöds.
 
-Följande Azure CLI-exempel uppdaterar en behållar grupp med en ny DNS-benämning. Eftersom egenskaps egenskapen för DNS-namn för gruppen ändras omdistribueras behållar gruppen och dess behållare startas om.
+Följande Azure CLI-exempel uppdaterar en behållar grupp med en ny DNS-benämning. Eftersom egenskapen DNS-namn på gruppen är en som kan uppdateras, omdistribueras behållar gruppen och dess behållare startas om.
 
 Första distribution med DNS-namn etikett för *program-mellanlagring*:
 
@@ -35,10 +38,10 @@ az container create --resource-group myResourceGroup --name mycontainer \
     --image nginx:alpine --dns-name-label myapplication-staging
 ```
 
-Uppdatera behållar gruppen med en ny DNS-benämning, mina *program*:
+Uppdatera behållar gruppen med en ny DNS-benämning, mina *program*och lämna de återstående egenskaperna oförändrade:
 
 ```azurecli-interactive
-# Update container group (restarts container)
+# Update DNS name label (restarts container), leave other properties unchanged
 az container create --resource-group myResourceGroup --name mycontainer \
     --image nginx:alpine --dns-name-label myapplication
 ```
@@ -75,16 +78,16 @@ När du tar bort en behållar grupp och återskapar den, är den inte "omdistrib
 
 ## <a name="next-steps"></a>Nästa steg
 
-Som nämns flera gånger i den här artikeln är behållar **gruppen**. Varje behållare i Azure Container Instances distribueras i en behållar grupp och behållar grupper kan innehålla fler än en behållare.
+Som nämns flera gånger i den här artikeln är **behållar gruppen**. Varje behållare i Azure Container Instances distribueras i en behållar grupp och behållar grupper kan innehålla fler än en behållare.
 
 [Behållargrupper i Azure Container Instances](container-instances-container-groups.md)
 
 [Distribuera en grupp med flera behållare](container-instances-multi-container-group.md)
 
+[Stoppa eller starta behållare manuellt i Azure Container Instances](container-instances-stop-start.md)
+
 <!-- LINKS - External -->
 
 <!-- LINKS - Internal -->
 [az-container-create]: /cli/azure/container?view=azure-cli-latest#az-container-create
-[az-container-logs]: /cli/azure/container?view=azure-cli-latest#az-container-logs
-[az-container-show]: /cli/azure/container?view=azure-cli-latest#az-container-show
 [azure-cli-install]: /cli/azure/install-azure-cli

@@ -1,6 +1,6 @@
 ---
-title: Analysera video och ljud filer med Azure Media Services | Microsoft Docs
-description: När du använder Azure Media Services kan analysera du dina ljud- och contnet med AudioAnalyzerPreset och VideoAnalyzerPreset.
+title: Analysera video-och ljudfiler med Azure Media Services | Microsoft Docs
+description: När du använder Azure Media Services kan du analysera ljud-och video innehåll med hjälp av AudioAnalyzerPreset och VideoAnalyzerPreset.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -11,63 +11,63 @@ ms.workload: ''
 ms.topic: article
 ms.date: 04/21/2019
 ms.author: juliako
-ms.openlocfilehash: 9154e5d58a36bde1827d63d11d57a77b4289a781
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 477733dcb76647b2c03f79dea4f55c3102d262b8
+ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64689376"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70376192"
 ---
 # <a name="analyzing-video-and-audio-files"></a>Analysera video-och ljudfiler
 
-Azure Media Services v3 kan du extrahera insikter från din video och ljud filer med Video Indexer via AMS v3 analyzer förinställningar (beskrivs i den här artikeln). Använd Video Indexer direkt för att indexera mer detaljerad information. Mer information om när du bör använda analysförinställningar för Video Indexer eller Media Services finns i [jämförelsedokumentet](../video-indexer/compare-video-indexer-with-media-services-presets.md).
+Med Azure Media Services v3 kan du extrahera insikter från dina video-och ljudfiler med Video Indexer till AMS v3 Analyzer-för hands inställningar (beskrivs i den här artikeln). Använd Video Indexer direkt för att indexera mer detaljerad information. Mer information om när du bör använda analysförinställningar för Video Indexer eller Media Services finns i [jämförelsedokumentet](../video-indexer/compare-video-indexer-with-media-services-presets.md).
 
-Om du vill analysera ditt innehåll med Media Services v3 förinställningar kan du skapa en **transformera** och skicka en **jobbet** som använder en av dessa förinställningar: [VideoAnalyzerPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#videoanalyzerpreset) eller **AudioAnalyzerPreset**. I följande artikel visar hur du använder **VideoAnalyzerPreset**: [Självstudier: Analysera videoklipp med Azure Media Services](analyze-videos-tutorial-with-api.md).
+Om du vill analysera ditt innehåll med Media Services v3-för inställningar skapar du en **transformering** och skickar ett **jobb** som använder någon av följande för inställningar: [VideoAnalyzerPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#videoanalyzerpreset) eller **AudioAnalyzerPreset**. Följande artikel visar hur du använder **VideoAnalyzerPreset**: [Gång Analysera videor med Azure Media Services](analyze-videos-tutorial-with-api.md).
 
 > [!NOTE]
 > När du använder en Video- eller Audio Analyzer-förinställningen använder du Azure-portalen för att ställa in ditt konto på att ha 10 mediereserverade S3-enheter. Mer information finns i [Skala mediebearbetning](media-reserved-units-cli-how-to.md).
 
 ## <a name="built-in-presets"></a>Inbyggda förinställningar
 
-Media Services stöder för närvarande följande inbyggda analyzer förinställningar:  
+Media Services stöder för närvarande följande inbyggda Analyzer-för hands inställningar:  
 
 |**Förinställda namnet**|**Scenario**|**Detaljer**|
 |---|---|---|
-|[AudioAnalyzerPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#audioanalyzerpreset)|Analysera ljud|Förinställningen gäller en fördefinierad uppsättning AI-baserade analysis-åtgärder, inklusive taltranskription. Förinställningen stöder för närvarande, bearbetning av innehåll med en enda ljudspår som innehåller tal i en enda språk. Du kan ange språk för ljud nyttolasten i indata i BCP-47 formatet för ”språk tagg-regioner”. Språk som stöds är engelska (en-US ”och” en-GB ”), spanska (” es-ES ”och” es-MX ”), franska (” fr-FR ”), italienska (” it-IT ”), japanska ('ja-JP”), portugisiska ('pt-BR ”), kinesiska ('zh-CN”), tyska (”de-DE”), arabiska ('ar-t.ex ”.), ryska ('ru-RU”), Hindi (”Hej-IN” ), och koreanska ('ko-KR ”).<br/><br/> Om språket inte angetts eller är inställt på null-värden, automatisk språkidentifiering väljer du det första språk som har identifierats och bearbeta med det valda språket för hela filen. Funktionen för identifiering av automatisk språk stöder för närvarande engelska, kinesiska, franska, tyska, italienska, japanska, spanska, ryska och portugisiska. Det stöder för närvarande inte dynamiskt växla mellan olika språk om det första språket som har identifierats. Funktionen för automatisk identifiering fungerar bäst med ljudinspelningar med märks tydligt tal. Om det inte går att hitta språket automatisk språkidentifiering, tillbaka utskrift till engelska.|
-|[VideoAnalyzerPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#videoanalyzerpreset)|Analysera ljud och video|Extraherar insikter (omfattande metadata) från både ljud och video och matar ut en fil i JSON-format. Du kan ange om du bara vill lyfta ut kunskaper ljud vid bearbetning av en videofil. Mer information finns i [analysera video](analyze-videos-tutorial-with-api.md).|
-|[FaceDetectorPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#facedetectorpreset)|Identifiera alla ansikten som finns i videon|Beskriver inställningarna som ska användas när du analyserar en video för att identifiera alla ansikten som finns.|
+|[AudioAnalyzerPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#audioanalyzerpreset)|Analysera ljud|För inställningen används en fördefinierad uppsättning av AI-baserade analys åtgärder, inklusive tal avskrifter. För närvarande stöder för inställningen bearbetning av innehåll med ett enda ljud spår som innehåller tal på ett och samma språk. Du kan ange språket för ljud nytto lasten i indata med BCP-47-formatet för ' language tag-region '. Språk som stöds är engelska ("en-US" och "en-GB"), spanska ("es-ES" och "es-MX"), franska (fr-FR). italienska ("IT-IT"), japanska (' ja-JP '), portugisiska (' pt-BR '), kinesiska (' zh-CN '), tyska ("de-DE"), arabiska ("ar-tex"), ryska (' ru-RU '), hindi ("Hi-IN" ) och koreanska ("ko-KR").<br/><br/> Om språket inte har angetts eller är inställt på null, kommer automatisk språk identifiering att välja det första språket som identifierats och bearbeta det valda språket under filens varaktighet. Funktionen för automatisk språk identifiering stöder för närvarande engelska, kinesiska, franska, tyska, italienska, japanska, spanska, ryska och portugisiska. Det stöder för närvarande inte dynamisk växling mellan språk när det första språket har identifierats. Funktionen för automatisk språk identifiering fungerar bäst med ljud inspelningar med tydligt discernible tal. Om automatisk språk identifiering inte kan hitta språket, kommer avskriften att återgå till engelska.|
+|[VideoAnalyzerPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#videoanalyzerpreset)|Analysera ljud och video|Extraherar insikter (avancerade metadata) från både ljud och video och matar ut en JSON-format fil. Du kan ange om du bara vill extrahera ljud insikter när du bearbetar en videofil. Mer information finns i [Analysera video](analyze-videos-tutorial-with-api.md).|
+|[FaceDetectorPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#facedetectorpreset)|Identifiera alla ansikten som finns i videon|Beskriver de inställningar som ska användas när du analyserar en video för att identifiera alla ytor som finns.|
 
 ### <a name="audioanalyzerpreset"></a>AudioAnalyzerPreset
 
-Förinställningen kan du extrahera insikter för flera ljud från en ljud- eller video-fil. Utdata innehåller en JSON-fil (med insikterna) och VTT-filen för ljudavskrifter. Den här förinställningen accepterar en egenskap som anger språket i indatafilen i form av en [BCP47](https://tools.ietf.org/html/bcp47) sträng. Ljud insikterna är:
+För inställningen gör att du kan extrahera flera ljud insikter från en ljud-eller video fil. Utdata innehåller en JSON-fil (med alla insikter) och VTT-filen för ljud avskriften. Den här för inställningen accepterar en egenskap som anger språket för indatafilen i form av en [BCP47](https://tools.ietf.org/html/bcp47) -sträng. Ljud insikten innehåller:
 
-* Ljudutskrift – avskrifter av orden med tidsstämplar. Flera språk som stöds
-* Talare indexering – en mappning av talare och motsvarande talade ord
-* Tal attitydanalys – utdata för attitydanalys som utförs på ljudutskrift
-* Nyckelord – nyckelord som extraheras från ljudutskrift.
+* Ljud avskrift – en avskrift av talade ord med tidsstämplar. Flera språk stöds
+* Talare-indexering – en mappning av högtalarna och motsvarande talade ord
+* Analys av tal sentiment – resultatet av sentiment-analysen utförs på ljud avskriften
+* Nyckelord – Nyckelord som extraheras från ljud avskriften.
 
 ### <a name="videoanalyzerpreset"></a>VideoAnalyzerPreset
 
-Förinställningen kan du extrahera flera ljud- och insikter från en videofil. Utdata innehåller en JSON-fil (med insikterna), en VTT-fil för videoavskriften och en samling av miniatyrbilder. Den här förinställningen också godkänner en [BCP47](https://tools.ietf.org/html/bcp47) sträng (som motsvarar språket i videon) som en egenskap. Videoinsikter inkluderar alla ljud insikter som nämns ovan och följande funktioner:
+För inställningen kan du extrahera flera ljud-och video insikter från en videofil. Utdata innehåller en JSON-fil (med alla insikter), en VTT-fil för video avskriften och en samling med miniatyrer. Den här för hands inställningen accepterar också en [BCP47](https://tools.ietf.org/html/bcp47) sträng (som representerar videons språk) som en egenskap. Video insikten innehåller alla ljud insikter som nämns ovan och följande ytterligare objekt:
 
-* Ansikte spårning – den tid under vilken ansikten finns i videon. Varje ansikte har ett ansikts-id och en motsvarande samling av miniatyrbilder
-* Visual text – den text som har identifierats via optisk teckenläsning. Texten är stämplad och används också för att extrahera nyckelord (utöver ljudavskrifter)
-* Nyckelrutor – en samling nyckelrutor som extraheras från videon
-* Visual innehållsmoderering – delen av videor som har flaggats som vuxet eller olämpligt sin natur
-* Anteckningens – ett resultat av att kommentera videor baserat på en fördefinierad objektmodell
+* Ansikts spårning – den tid under vilken ansikten finns i videon. Varje ansikte har ett ansikts-ID och en motsvarande samling med miniatyrer
+* Visuell text – den text som identifieras via optisk tecken igenkänning. Texten är tidsstämplad och används även för att extrahera nyckelord (förutom ljud avskriften)
+* Nyckel rutor – en samling nyckel rutor som extraheras från videon
+* Redaktör för visuellt innehåll – den del av videor som har flaggats som vuxen eller vågat i naturen
+* Anteckning – ett resultat av att kommentera videor baserat på en fördefinierad objekt modell
 
-##  <a name="insightsjson-elements"></a>insights.json elements
+##  <a name="insightsjson-elements"></a>Insights. JSON-element
 
-Utdata innehåller en JSON-fil (insights.json) med alla de insikter som hittades i video eller ljud. Json kan innehålla följande element:
+Utdata innehåller en JSON-fil (Insights. JSON) med alla insikter som hittades i videon eller ljudet. JSON kan innehålla följande element:
 
-### <a name="transcript"></a>avskrift
+### <a name="transcript"></a>avskrifts
 
-|Namn|Beskrivning|
+|Name|Beskrivning|
 |---|---|
 |id|Rad-ID.|
-|text|Avskriften.|
-|language|Avskriften-språk. Avser att stödja avskrift där varje rad kan ha ett annat språk.|
-|instanser|En lista över tidsintervall där den här raden visas. Om-instansen är avskrift, har endast 1 instans.|
+|text|Själva avskriften.|
+|language|Avskrifts språket. Avsett att stödja avskrifter där varje rad kan ha ett annat språk.|
+|instanser|En lista med tidsintervaller där denna rad visades. Om instansen avskrifts har den bara en instans.|
 
 Exempel:
 
@@ -98,15 +98,15 @@ Exempel:
 ] 
 ```
 
-### <a name="ocr"></a>OCR
+### <a name="ocr"></a>stöd
 
-|Namn|Beskrivning|
+|Name|Beskrivning|
 |---|---|
-|id|OCR rad-ID.|
+|id|ID för OCR-linje.|
 |text|OCR-text.|
-|förtroende|Igenkänning av förtroende.|
-|language|OCR-språk.|
-|instanser|En lista över tidsintervall där den här OCR visades (samma OCR kan visas flera gånger).|
+|tillit|Igenkännings förtroendet.|
+|language|OCR-språket.|
+|instanser|En lista med tidsintervall där denna OCR visades (samma OCR kan förekomma flera gånger).|
 
 ```json
 "ocr": [
@@ -141,21 +141,21 @@ Exempel:
   ],
 ```
 
-### <a name="faces"></a>ansikten
+### <a name="faces"></a>ytor
 
-|Namn|Beskrivning|
+|Name|Beskrivning|
 |---|---|
 |id|Ansikts-ID.|
-|name|Ansikts-namnet. Det kan vara ”okänt #0”, en identifierade kändisar eller en kund utbildad person.|
-|förtroende|Face ID förtroende.|
-|description|En beskrivning av kändisar. |
-|thumbnailId|ID för miniatyrbilden för den sida.|
+|name|Ansikts namnet. Det kan vara okänd #0, en identifierad kändis eller en kundutbildad person.|
+|tillit|Förtroende för ansikts identifiering.|
+|description|En beskrivning av kändis. |
+|thumbnailId|ID för miniatyr bilden för den aktuella ytan.|
 |knownPersonId|Om det är en känd person, dess interna ID.|
-|referenceId|Om det är en Bing kändisar, dess Bing-ID.|
-|referenceType|För närvarande bara Bing.|
-|title|Om det är en kändisar, dess rubrik (till exempel ”Microsofts VD”).|
-|imageUrl|Om det är en kändisar, dess bild-url.|
-|instanser|Dessa är instanser av där ansiktet visas i det angivna tidsintervallet. Varje instans har också en thumbnailsId. |
+|referenceId|Om det är en Bing-kändis, dess Bing-ID.|
+|referenceType|Just Bing.|
+|title|Om det är en kändis, dess titel (till exempel "Microsofts VD").|
+|imageUrl|Om det är en kändis, dess bild-URL.|
+|instanser|Detta är instanser av där ytan fanns inom det aktuella tidsintervallet. Varje instans har också en thumbnailsId. |
 
 ```json
 "faces": [{
@@ -186,13 +186,13 @@ Exempel:
 }]
 ```
 
-### <a name="shots"></a>skärmbilder
+### <a name="shots"></a>bilder
 
-|Namn|Beskrivning|
+|Name|Beskrivning|
 |---|---|
-|id|Som ID.|
-|Nyckelrutor|En lista över viktiga ramarna i på nedan (var och en har ett ID och en lista över instanser tidsintervall). Viktiga bildrutor instanser har ett thumbnailId fält med den bildrutan miniatyr-ID.|
-|instanser|En lista över tidsintervall för den här som visar (skärmbilder har endast 1 instans).|
+|id|Bild-ID.|
+|Nyckel rutor|En lista över nyckel bild rutor i instansen (var och en har ett ID och en lista över instanser av instans intervallet). Nyckel bilds instanser har ett thumbnailId-fält med nyckel rutans miniatyr-ID.|
+|instanser|En lista över tidsintervallen för den här instansen (dum par har bara en instans).|
 
 ```json
 "Shots": [
@@ -243,27 +243,27 @@ Exempel:
   ]
 ```
 
-### <a name="statistics"></a>statistik
+### <a name="statistics"></a>uppgifterna
 
-|Namn|Beskrivning|
+|Name|Beskrivning|
 |---|---|
-|CorrespondenceCount|Antal svaren i videon.|
+|CorrespondenceCount|Antal korrespondens i videon.|
 |WordCount|Antalet ord per talare.|
-|SpeakerNumberOfFragments|Mängden fragment talaren har i en video.|
-|SpeakerLongestMonolog|Talarens längsta monolog. Om talaren har silences inuti monolog ingår den. Åsidosatt inaktivitet i början och slutet av monolog tas bort.| 
-|SpeakerTalkToListenRatio|Beräkningen baseras på den tid som ägnats åt talarens monolog (utan intervallet mellan) dividerat med den totala tiden för videon. Tiden avrundas till tredje decimaltecknet.|
+|SpeakerNumberOfFragments|Mängden fragment som talare har i en video.|
+|SpeakerLongestMonolog|Föredragets längsta monolog. Om högtalaren har tystnad i monolog är den inkluderad. Tystnad i början och slutet av monolog tas bort.| 
+|SpeakerTalkToListenRatio|Beräkningen baseras på den tid som ägnats åt högtalar monolog (utan tystnad mellan) dividerat med videons totala tid. Tiden avrundas till det tredje decimal tecknet.|
 
 
 ### <a name="sentiments"></a>sentiment
 
-Sentiment sammanställs efter deras sentimentType fält (positiv/Neutral/negativ). Till exempel 0 0.1, 0.1 0.2.
+Sentiment sammanställs av deras sentimentType-fält (positiv/neutral/negativ). Till exempel 0-0,1, 0,1-0,2.
 
-|Namn|Beskrivning|
+|Name|Beskrivning|
 |---|---|
 |id|Sentiment-ID.|
-|averageScore |Medelvärdet för samtliga värden i alla instanser av den typ av sentiment – positiv/Neutral/negativ|
-|instanser|En lista över tidsintervall där den här sentiment visades.|
-|sentimentType |Typen kan vara ”positiva', 'Neutral' eller 'Negativt”.|
+|averageScore |Medelvärdet av alla resultat från alla instanser av sentiment-typ positiv/neutral/negativ|
+|instanser|En lista med tidsintervaller där denna sentiment visades.|
+|sentimentType |Typen kan vara "positiv", "neutral" eller "negativ".|
 
 ```json
 "sentiments": [
@@ -293,12 +293,12 @@ Sentiment sammanställs efter deras sentimentType fält (positiv/Neutral/negativ
 
 ### <a name="labels"></a>etiketter
 
-|Namn|Beskrivning|
+|Name|Beskrivning|
 |---|---|
-|id|Etikett-ID.|
-|name|Etikettnamn (till exempel ”dator”, ”TV”).|
-|language|Etiketten namn språk (vid översättning). BCP-47|
-|instanser|En lista över tidsintervall där den här etiketten visas (en etikett kan visas flera gånger). Varje instans har ett förtroende-fält. |
+|id|Etikett-ID: t.|
+|name|Etikett namnet (till exempel "dator", "TV").|
+|language|Etikettens namn språk (vid översättning). BCP-47|
+|instanser|En lista med tidsintervall där etiketten visas (en etikett kan visas flera gånger). Varje instans har ett konfidens fält. |
 
 
 ```json
@@ -352,13 +352,13 @@ Sentiment sammanställs efter deras sentimentType fält (positiv/Neutral/negativ
 
 ### <a name="keywords"></a>nyckelord
 
-|Namn|Beskrivning|
+|Name|Beskrivning|
 |---|---|
-|id|Nyckelordet-ID.|
-|text|Nyckelordstexten.|
-|förtroende|Den nyckelordet igenkänning av förtroende.|
-|language|Nyckelordet språk (vid översättning).|
-|instanser|En lista över tidsintervall där det här nyckelordet visas (ett nyckelord kan visas flera gånger).|
+|id|Nyckelords-ID: t.|
+|text|Nyckelords texten.|
+|tillit|Nyckelordets tolknings säkerhet.|
+|language|Nyckelords språket (vid översättning).|
+|instanser|En lista med tidsintervall där det här nyckelordet visades (ett nyckelord kan visas flera gånger).|
 
 ```json
 "keywords": [
@@ -399,16 +399,16 @@ Sentiment sammanställs efter deras sentimentType fält (positiv/Neutral/negativ
 
 #### <a name="visualcontentmoderation"></a>visualContentModeration
 
-VisualContentModeration blocket innehåller tidsintervall som Video Indexer hittas ha potentiellt vuxet innehåll. Om visualContentModeration är tom, finns det inga vuxet innehåll som har identifierats.
+VisualContentModeration-blocket innehåller tidsintervall som Video Indexer hittade för att potentiellt ha vuxen innehåll. Om visualContentModeration är tomt finns det inget olämpligt innehåll som identifierats.
 
-Videor som finns för vuxet eller olämpligt innehåll kan vara tillgängliga för privata vyn. Användare har möjlighet att skicka en begäran om en mänsklig granskning av innehållet, i vilket fall IsAdult attributet innehåller resultatet av mänsklig granskning.
+Videor som innehåller vuxen eller vågat innehåll kan endast vara tillgängliga för privat vy. Användare har möjlighet att skicka en begäran om en mänsklig granskning av innehållet, i så fall kan IsAdult-attributet innehålla resultatet av mänsklig granskning.
 
-|Namn|Beskrivning|
+|Name|Beskrivning|
 |---|---|
-|id|Visual innehållsmoderering-ID.|
-|adultScore|Poäng för Vuxeninnehåll (från content moderator).|
-|racyScore|Poäng för vågat (från innehållsmoderering).|
-|instanser|En lista över tidsintervall där den här visual innehållsmoderering visades.|
+|id|ID för moderator för visuellt innehåll.|
+|adultScore|Den vuxen poängen (från Content moderator).|
+|racyScore|Vågat-poängen (från innehålls redigering).|
+|instanser|En lista med tidsintervaller där den här visuella innehålls kontrollanten visades.|
 
 ```json
 "VisualContentModeration": [
@@ -438,4 +438,4 @@ Videor som finns för vuxet eller olämpligt innehåll kan vara tillgängliga f�
 ```
 ## <a name="next-steps"></a>Nästa steg
 
-[Självstudie: Analysera videor med Azure Media Services](analyze-videos-tutorial-with-api.md)
+[Självstudier: Analysera videor med Azure Media Services](analyze-videos-tutorial-with-api.md)

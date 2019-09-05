@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 66dbfa40d5a19c7f15ed2772740b84652ae3e58c
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: 5559d30921ea44679b4ecd24c77e26be163c18fc
+ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70231268"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70375900"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>Instruktioner: Planera implementeringen av hybrid Azure Active Directorys anslutning
 
@@ -77,7 +77,7 @@ Hybrid Azure AD Join stöds inte för närvarande om din miljö består av en en
 
 Hybrid Azure AD Join stöds inte för närvarande när VDI (Virtual Desktop Infrastructure) används.
 
-Hybrid Azure AD Join stöds inte för FIPS-kompatibla TPM: er. Om dina enheter har FIPS-kompatibla TPM: er måste du inaktivera dem innan du fortsätter med hybrid Azure AD-anslutning. Microsoft tillhandahåller inga verktyg för att inaktivera FIPS-läge för TPM eftersom det är beroende av TPM-tillverkaren. Kontakta maskin varans OEM om du vill ha hjälp.
+Hybrid Azure AD-anslutning stöds för FIPS-kompatibla TPM 2,0 och stöds inte för TPM 1,2. Om dina enheter har FIPS-kompatibel TPM 1,2 måste du inaktivera dem innan du fortsätter med hybrid Azure AD-anslutning. Microsoft tillhandahåller inga verktyg för att inaktivera FIPS-läge för TPM eftersom det är beroende av TPM-tillverkaren. Kontakta maskin varans OEM om du vill ha hjälp.
 
 Hybrid Azure AD Join stöds inte för Windows Server som kör rollen domänkontrollant (DC).
 

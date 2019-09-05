@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2018
 ms.author: damaerte
-ms.openlocfilehash: f60125123d019cbfa93bfc1b06da7ac90b54e311
-ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
+ms.openlocfilehash: b2823c935d11ae99ab1d87ae708945721820ad8c
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68742043"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70306738"
 ---
 [!INCLUDE [PersistingStorage-introblock](../../includes/cloud-shell-persisting-shell-storage-introblock.md)]
 
@@ -31,18 +31,35 @@ Cloud Shell sparar filer genom båda följande metoder:
 > [!NOTE]
 > Alla filer i `$Home` katalogen, till exempel SSH-nycklar, finns kvar i din användar disk avbildning, som lagras i den monterade fil resursen. Använd bästa praxis när du bevarar information `$Home` i din katalog och monterade fil resursen.
 
-## <a name="bash-specific-commands"></a>Bash kommandon
+## <a name="clouddrive-commands"></a>clouddrive-kommandon
 
 ### <a name="use-the-clouddrive-command"></a>`clouddrive` Använda kommandot
-Med bash i Cloud Shell kan du köra ett kommando som kallas `clouddrive`, vilket gör att du kan uppdatera fil resursen som är monterad till Cloud Shell manuellt.
+I Cloud Shell kan du köra ett kommando som kallas `clouddrive`, vilket gör att du kan uppdatera fil resursen som är monterad till Cloud Shell manuellt.
 ![Köra kommandot "clouddrive"](media/persisting-shell-storage/clouddrive-h.png)
+
+### <a name="list-clouddrive"></a>Lista`clouddrive`
+För att identifiera vilken fil resurs som monteras som `clouddrive`kör du `df` kommandot. 
+
+Fil Sök vägen till clouddrive visar ditt lagrings konto namn och fil resurs i URL: en. Till exempel, `//storageaccountname.file.core.windows.net/filesharename`
+
+```
+justin@Azure:~$ df
+Filesystem                                          1K-blocks   Used  Available Use% Mounted on
+overlay                                             29711408 5577940   24117084  19% /
+tmpfs                                                 986716       0     986716   0% /dev
+tmpfs                                                 986716       0     986716   0% /sys/fs/cgroup
+/dev/sda1                                           29711408 5577940   24117084  19% /etc/hosts
+shm                                                    65536       0      65536   0% /dev/shm
+//mystoragename.file.core.windows.net/fileshareName 5368709120    64 5368709056   1% /home/justin/clouddrive
+justin@Azure:~$
+```
 
 ### <a name="mount-a-new-clouddrive"></a>Montera en ny clouddrive
 
 #### <a name="prerequisites-for-manual-mounting"></a>Krav för manuell montering
 Du kan uppdatera fil resursen som är kopplad till Cloud Shell med hjälp `clouddrive mount` av kommandot.
 
-Om du monterar en befintlig fil resurs måste lagrings kontona finnas i din SELECT Cloud Shell-region. Hämta platsen genom att köra `env` från bash och `ACC_LOCATION`kontrol lera.
+Om du monterar en befintlig fil resurs måste lagrings kontona finnas i din SELECT Cloud Shell-region. Hämta platsen genom att köra `env` och `ACC_LOCATION`kontrol lera.
 
 #### <a name="the-clouddrive-mount-command"></a>`clouddrive mount` Kommandot
 
@@ -70,24 +87,7 @@ Fil resursen kommer att finnas kvar om du inte tar bort den manuellt. Cloud Shel
 ![Kör clouddrive-unmount'command](media/persisting-shell-storage/unmount-h.png)
 
 > [!WARNING]
-> Även om du kör det här kommandot tar du `$Home` inte bort några resurser, manuellt tar bort en resurs grupp, ett lagrings konto eller en fil resurs som är mappad till Cloud Shell raderar katalog disk avbildningen och eventuella filer i fil resursen. Det går inte att ångra den här åtgärden.
-
-### <a name="list-clouddrive"></a>Lista`clouddrive`
-För att identifiera vilken fil resurs som monteras som `clouddrive`kör du `df` kommandot. 
-
-Fil Sök vägen till clouddrive visar ditt lagrings konto namn och fil resurs i URL: en. Till exempel, `//storageaccountname.file.core.windows.net/filesharename`
-
-```
-justin@Azure:~$ df
-Filesystem                                          1K-blocks   Used  Available Use% Mounted on
-overlay                                             29711408 5577940   24117084  19% /
-tmpfs                                                 986716       0     986716   0% /dev
-tmpfs                                                 986716       0     986716   0% /sys/fs/cgroup
-/dev/sda1                                           29711408 5577940   24117084  19% /etc/hosts
-shm                                                    65536       0      65536   0% /dev/shm
-//mystoragename.file.core.windows.net/fileshareName 5368709120    64 5368709056   1% /home/justin/clouddrive
-justin@Azure:~$
-```
+> Även om du kör det här kommandot tar du `$Home` inte bort några resurser, manuellt tar bort en resurs grupp, ett lagrings konto eller en fil resurs som är mappad till Cloud Shell raderar katalog disk avbildningen och eventuella filer i fil resursen. Det går inte att utföra den här åtgärden.
 ## <a name="powershell-specific-commands"></a>PowerShell-/regionsspecifika kommandon
 
 ### <a name="list-clouddrive-azure-file-shares"></a>Visa `clouddrive` en lista över Azure-filresurser
@@ -102,10 +102,9 @@ Du kan demontera en Azure-filresurs som är monterad till Cloud Shell när som h
 
 [!INCLUDE [PersistingStorage-endblock](../../includes/cloud-shell-persisting-shell-storage-endblock.md)]
 
-Anteckning: Om du behöver definiera en funktion i en fil och anropa den från PowerShell-cmdletarna måste punkt operatorn inkluderas. Till exempel:. .\MyFunctions.ps1
+Obs! Om du behöver definiera en funktion i en fil och anropa den från PowerShell-cmdletarna måste punkt operatorn inkluderas. Till exempel:. .\MyFunctions.ps1
 
 ## <a name="next-steps"></a>Nästa steg
-[Bash i Cloud Shell snabb start](quickstart.md) <br>
-[PowerShell i Cloud Shell snabb start](quickstart-powershell.md) <br>
+[Cloud Shell snabb start](quickstart.md) <br>
 [Läs mer om lagring av Microsoft Azure filer](https://docs.microsoft.com/azure/storage/storage-introduction) <br>
 [Läs mer om lagrings märken](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags) <br>

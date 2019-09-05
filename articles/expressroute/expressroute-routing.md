@@ -5,15 +5,15 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 06/12/2019
+ms.date: 09/04/2019
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: 458808f9d2c496ae4c29b05bd8a3531b94ba78c0
-ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
+ms.openlocfilehash: 9d4822d07a95fcdec32c0c4146562884302fa4f8
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68422685"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70308321"
 ---
 # <a name="expressroute-routing-requirements"></a>ExpressRoute-routningskrav
 För att kunna ansluta till Microsofts molntjänster med ExpressRoute måste du konfigurera och hantera routning. Vissa anslutningsleverantörer erbjuder konfigurering och hantering av routning som en hanterad tjänst. Fråga din anslutningsleverantör om de erbjuder denna tjänst. Om inte måste du uppfylla följande krav:
@@ -211,7 +211,7 @@ Alla vägar som annonseras från Microsoft taggas med lämpligt community-värde
 > 
 
 ### <a name="service-to-bgp-community-value"></a>Tjänst till BGP community-värde
-Förutom ovanstående taggar Microsoft också prefix baserat på vilken tjänst de tillhör. Detta gäller endast för Microsoft-peering. Tabellen nedan innehåller en mappning av tjänsten till community-värden för BGP.
+Förutom ovanstående taggar Microsoft också prefix baserat på vilken tjänst de tillhör. Detta gäller endast för Microsoft-peering. Tabellen nedan innehåller en mappning av tjänsten till community-värden för BGP. Du kan köra cmdleten "Get-AzBgpServiceCommunity" om du vill se en fullständig lista över de senaste värdena.
 
 | **Tjänst** | **BGP-community värde** |
 | --- | --- |

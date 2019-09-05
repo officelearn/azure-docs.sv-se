@@ -1,27 +1,27 @@
 ---
 title: 'Snabbstart: Översätta tal, C# (UWP) – tal service'
 titleSuffix: Azure Cognitive Services
-description: I den här snabbstarten skapar du ett enkelt Universal Windows Platform-program (UWP) för att samla in användarens tal, översätta det till ett annat språk och mata ut texten till kommandoraden. Den här guiden är utformad för Windows-användare.
+description: I den här snabb starten skapar du ett Universell Windows-plattform-program (UWP) för att avbilda användar tal, översätter det till ett annat språk och skriva ut texten på kommando raden. Den här guiden är utformad för Windows-användare.
 services: cognitive-services
 author: lisaweixu
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.date: 07/23/2019
+ms.date: 08/19/2019
 ms.author: erhopf
 ms.topic: quickstart
-ms.openlocfilehash: 813edbea0548a5cac9532750a450de08bd238028
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: e513cbbc615965ef196a830351aab8ac241c3f20
+ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68640029"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70382607"
 ---
 # <a name="quickstart-translate-speech-with-the-speech-sdk-for-c-uwp"></a>Snabbstart: Översätt tal med Speech-SDK för C# (UWP)
 
-Snabb Starter är också tillgängliga för [tal-till-text](quickstart-csharp-uwp.md), [text till tal](quickstart-text-to-speech-csharp-uwp.md) och [röst-och första virtuella assistent](quickstart-virtual-assistant-csharp-uwp.md).
+Snabb Starter är också tillgängliga för [tal igenkänning](quickstart-csharp-uwp.md), [tal syntes](quickstart-text-to-speech-csharp-uwp.md)och [röst-och den första virtuella assistenten](quickstart-virtual-assistant-csharp-uwp.md).
 
-I den här snabbstarten skapar du ett enkelt Universal Windows Platform-program (UWP) som samlar in användarens tal från din dators mikrofon, översätter talet och transkriberar den översatta texten till kommandoraden i realtid. Det här programmet är utformat för att köras på 64-bitars Windows och är byggt med [talet SDK NuGet-paketet](https://aka.ms/csspeech/nuget) och Microsoft Visual Studio 2017 eller senare.
+I den här snabb starten skapar du ett Universell Windows-plattform-program (UWP) som avbildar användar tal från datorns mikrofon, översätter talet och omvandlar den översatta texten till kommando raden i real tid. Det här programmet är utformat för att köras på 64-bitars Windows, och det är byggt med [talet SDK NuGet-paketet](https://aka.ms/csspeech/nuget) och Microsoft Visual Studio 2019.
 
 En fullständig lista över språk som är tillgängliga för talöversättning finns i [språkstöd](language-support.md).
 
@@ -32,7 +32,7 @@ En fullständig lista över språk som är tillgängliga för talöversättning 
 
 För den här snabbstarten krävs:
 
-* [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/) eller senare
+* [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/).
 * En Azure-prenumerationsnyckel för Speech Service. [Skaffa en kostnadsfritt](get-started.md).
 
 ## <a name="create-a-visual-studio-project"></a>Skapa ett Visual Studio-projekt
@@ -41,37 +41,43 @@ För den här snabbstarten krävs:
 
 ## <a name="add-sample-code"></a>Lägga till exempelkod
 
-1. Programmets användargränssnitt definieras med hjälp av XAML. Öppna `MainPage.xaml` i Solution Explorer. I designerns XAML-vy infogar du följande XAML-kodavsnitt mellan `<Grid>` och `</Grid>`.
+Lägg nu till XAML-koden som definierar användar gränssnittet för programmet och Lägg till C# koden för bakomliggande implementering.
 
-    [!code-xml[UI elements](~/samples-cognitive-services-speech-sdk/quickstart/speech-translation/csharp-uwp/helloworld/MainPage.xaml#StackPanel)]
+1. Öppna`MainPage.xaml`i **Solution Explorer**.
 
-1. Öppna källfilen för den bakomliggande koden, `MainPage.xaml.cs` (du hittar den grupperad under `MainPage.xaml`). Ersätt all kod i den med nedanstående.
+1. I designerns XAML-vy infogar du följande XAML-kodfragment i **Rutnäts** tag gen ( `<Grid>` mellan `</Grid>`och):
 
-    [!code-csharp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/speech-translation/csharp-uwp/helloworld/MainPage.xaml.cs#code)]
+   [!code-xml[UI elements](~/samples-cognitive-services-speech-sdk/quickstart/speech-translation/csharp-uwp/helloworld/MainPage.xaml#StackPanel)]
 
-1. I `SpeechTranslationFromMicrophone_ButtonClicked`-hanteraren i den här filen ersätter du strängen `YourSubscriptionKey` med din prenumerationsnyckel.
+1. Öppnakäll filen `MainPage.xaml.cs`bakomliggande kod i Solution Explorer. (Det är grupperat `MainPage.xaml`under.)
 
-1. I `SpeechTranslationFromMicrophone_ButtonClicked`-hanteraren ersätter du även strängen `YourServiceRegion` med den [region](regions.md) som är associerad med din prenumeration (till exempel `westus` för en kostnadsfri utvärderingsversion).
+1. Ersätt all kod i den med följande kodfragment:
 
-1. Spara alla ändringar i projektet.
+   [!code-csharp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/speech-translation/csharp-uwp/helloworld/MainPage.xaml.cs#code)]
 
-## <a name="build-and-run-the-app"></a>Skapa och kör appen
+1. Leta upp strängen `YourSubscriptionKey`i hanterarenidenhärfilenochersättdenmeddinprenumerationsnyckel.`SpeechTranslationFromMicrophone_ButtonClicked`
 
-1. Skapa programmet. På menyraden väljer du **Skapa** > **Skapa lösning**. Koden bör nu kompileras utan fel.
+1. Leta upp strängen `YourServiceRegion`i [](regions.md) hanteraren och ersätt den med den region som är associerad med din prenumeration `SpeechTranslationFromMicrophone_ButtonClicked` . (Använd `westus` till exempel för den kostnads fria prov prenumerationen.)
 
-    ![Skärmbild av Visual Studio-programmet med Skapa lösning markerat](media/sdk/qs-csharp-uwp-08-build.png "Slutförd byggprocess")
+1. Välj **Arkiv** > **Spara alla** på Meny raden för att spara ändringarna.
 
-1. Starta programmet. På menyraden väljer du **Felsök** > **Starta felsökning**, eller så trycker du på **F5**.
+## <a name="build-and-run-the-application"></a>Skapa och kör appen
 
-    ![Skärmbild av Visual Studio-programmet, med Starta felsökning markerat](media/sdk/qs-csharp-uwp-09-start-debugging.png "Starta appen i felsökningsläge")
+Nu är du redo att bygga och testa ditt program.
 
-1. Ett fönster öppnas. Välj **Aktivera mikrofon** och bekräfta behörighetsbegäran som visas.
+1. Välj **bygge** > **build-lösning** i meny raden för att bygga programmet. Koden bör nu kompileras utan fel.
 
-    ![Skärmbild av behörighetsbegäran](media/sdk/qs-csharp-uwp-10-access-prompt.png "Starta appen i felsökningsläge")
+1. Starta programmet genom att välja **Felsök** > **Starta fel sökning** (eller tryck på **F5**). Fönstret **HelloWorld** visas.
 
-1. Välj **Speech recognition with microphone input** (Taligenkänning med mikrofonindata) och tala in en fras eller mening på engelska i enhetens mikrofon. Ditt tal överförs till Speech-tjänsten och transkriberas till text som visas i fönstret.
+   ![Exempel på UWP översättnings C# program i-snabb start](media/sdk/qs-translate-speech-uwp-helloworld-window.png)
 
-    ![Skärmbild av användargränssnittet för taligenkänning](media/sdk/qs-translate-csharp-uwp-ui-result.png)
+1. Välj **aktivera mikrofon**och när åtkomst behörighets förfrågan öppnas, Välj **Ja**.
+
+   ![Åtkomst behörighets förfrågan för mikrofon](media/sdk/qs-csharp-uwp-10-access-prompt.png)
+
+1. Välj **Översätt tal från mikrofon inmatningen**och tala en engelsk fras eller mening i enhetens mikrofon. Programmet skickar din röst till tal tjänsten som översätter talet till text på ett annat språk (i det här fallet tyska). Tal tjänsten skickar den översatta texten tillbaka till programmet, som visar översättningen i fönstret.
+
+   ![Användar gränssnitt för tal Översättning](media/sdk/qs-translate-csharp-uwp-ui-result.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -80,5 +86,4 @@ För den här snabbstarten krävs:
 
 ## <a name="see-also"></a>Se också
 
-- [Anpassa akustiska modeller](how-to-customize-acoustic-models.md)
-- [Anpassa språkmodeller](how-to-customize-language-model.md)
+- [Träna en modell för Custom Speech](how-to-custom-speech-train-model.md)

@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
-ms.date: 02/28/2019
+ms.date: 09/03/2019
 ms.author: diberry
-ms.openlocfilehash: 2b888a275b08c7011c6e0b60ff1cd1d70b42f465
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 008ecf221dfcc069f6ac3b2ee3d8e5e46056c83c
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68559846"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70308137"
 ---
-# <a name="get-answers-to-a-question-from-a-knowledge-base-with-java"></a>Få svar på en fråga med hjälp av en kunskapsbas med Java
+# <a name="quickstart-get-answers-to-a-question-from-a-knowledge-base-with-java"></a>Snabbstart: Få svar på en fråga med hjälp av en kunskapsbas med Java
 
 Den här snabbstarten vägleder dig genom att programmatiskt hämta ett svar från en publicerad QnA Maker-kunskapsbas. Kunskaps basen innehåller frågor och svar från [data källor](../Concepts/data-sources-supported.md) som vanliga frågor och svar. [Frågan](../how-to/metadata-generateanswer-usage.md#generateanswer-request-configuration) skickas till QNA Maker tjänsten. [Svaret](../how-to/metadata-generateanswer-usage.md#generateanswer-response-properties) innehåller det mest förväntade svaret. 
 

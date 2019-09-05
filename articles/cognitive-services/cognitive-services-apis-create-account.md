@@ -9,52 +9,48 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 07/16/2019
 ms.author: aahi
-ms.openlocfilehash: c7db2b4d49e3b9297c32d2e11ffe7c7702c17544
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: ae25ffdf3f819c30fdfb1d3110042579f0b197b9
+ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70274579"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70381786"
 ---
 # <a name="create-a-cognitive-services-resource-using-the-azure-portal"></a>Skapa en Cognitive Services resurs med hjälp av Azure Portal
 
-Använd den här snabb starten för att skapa en Azure Cognitive Services-resurs med hjälp av Azure Portal. När du har skapat en Cognitive Services resurs får du en slut punkt och en nyckel som du kan använda för att autentisera dina program.
+Använd den här snabb starten för att börja använda Azure Cognitive Services. När du har skapat en kognitiv tjänst resurs i Azure Portal får du en slut punkt och en nyckel för att autentisera dina program.
+
+
+[!INCLUDE [cognitive-services-subscription-types](../../includes/cognitive-services-subscription-types.md)]
 
 ## <a name="prerequisites"></a>Förutsättningar
 
 * En giltig Azure-prenumeration – [skapa en kostnads fri](https://azure.microsoft.com/free/).
 
-[!INCLUDE [cognitive-services-subscription-types](../../includes/cognitive-services-subscription-types.md)]
-
 ## <a name="create-a-new-azure-cognitive-services-resource"></a>Skapa en ny Azure Cognitive Services-resurs
 
-Innan du skapar en Cognitive Services resurs måste du ha en Azure-resurs grupp som innehåller resursen. När du skapar en ny resurs har du möjlighet att antingen skapa en ny resurs grupp eller använda en befintlig. Den här artikeln visar hur du skapar en ny resurs grupp.
-
-1. Logga in på [Azure Portal](https://portal.azure.com)och klicka på **+ skapa en resurs**.
-
-    ![Välj API:er för Cognitive Services](media/cognitive-services-apis-create-account/azurePortalScreenMulti.png)
-
-2. Som tidigare nämnts kan du skapa en Cognitive Services-resurs på två sätt – med hjälp av en resurs för flera tjänster eller en resurs för en enskild tjänst.
+1. Skapa en resurs.
 
     #### <a name="multi-service-resourcetabmultiservice"></a>[Resurs för flera tjänster](#tab/multiservice)
 
-    Om du vill skapa en resurs för flera tjänster anger du **Cognitive Services** i Sök fältet.
-
-    ![Sök efter Cognitive Services](media/cognitive-services-apis-create-account/azureCogServSearchMulti.png)
-
-    På sidan Cognitive Services väljer du **skapa**.
-
-    ![Skapa Cognitive Services konto](media/cognitive-services-apis-create-account/azurecogservsearchmulti-2.png)
+    Resursen för flera tjänster heter **Cognitive Services** i portalen. [Skapa en Cognitive Services-resurs](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne).
+    
+    Vid detta tillfälle kan dessa tjänster **inte** anropas med hjälp av nycklar för flera tjänster: QnA Maker, tal tjänster, Custom Vision och avvikelse detektor.
+    
 
     #### <a name="single-service-resourcetabsingleservice"></a>[Resurs för enskild tjänst](#tab/singleservice)
 
-    Om du vill se alla tillgängliga kognitiva tjänster väljer du **AI + Machine Learning**under **Azure Marketplace**. Om du inte ser den tjänst som du är intresse rad av, klickar du på **Visa alla** och bläddrar till **Cognitive Services**. Klicka på **Visa mer** om du vill visa hela katalogen med Cognitive Services.
+    Använd länkarna nedan för att skapa en resurs för de tillgängliga Cognitive Services:
 
-    När du är på den tjänst som du är intresse rad av, klickar du på **skapa**.
-    
-    ![Välj API:er för Cognitive Services](media/cognitive-services-apis-create-account/azureMarketplace.png)
-
+    | Visuellt innehåll                      | Tal                  | Språk                          | Beslut             | Search                 |
+    |-----------------------------|-------------------------|-----------------------------------|----------------------|------------------------|
+    | [Datorvision](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision)         | [Speech Services](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices)     | [Avancerad läsare](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesImmersiveReader)              | [Avvikelse detektor](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAnomalyDetector) | [Bing-sökning API-v7](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7) |
+    | [Custom vision service](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesCustomVision) | [Talarigenkänning](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeakerRecognition) | [Språkförståelse (LUIS)](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesLUIS) | [Content Moderator](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesContentModerator) | [Anpassad sökning i Bing](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingCustomSearch) |
+    | [Ansikte](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFace)                    |                         | [QnA Maker](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker)                     | [Personanpassare](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesPersonalizer)     | [Entitetssökning i Bing](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingEntitySearch) |
+    | [Hand SKRIFTS tolk](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesInkRecognizer)        |                         | [Textanalys](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics)                |                      | [Stavningskontroll i Bing](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingSpellCheck-v7)   |
+    |           |                         | [Talöversättning](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation)               |                      | [Automatiska förslag i Bing](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingAutosuggest-v7)                       |
     ***
+
 3. Ange följande information på sidan **skapa** :
 
     #### <a name="multi-service-resourcetabmultiservice"></a>[Resurs för flera tjänster](#tab/multiservice)
@@ -89,32 +85,23 @@ Innan du skapar en Cognitive Services resurs måste du ha en Azure-resurs grupp 
 
 ## <a name="get-the-keys-for-your-resource"></a>Hämta nycklar för din resurs
 
-När resursen har skapats visas ett popup-meddelande längst upp till höger på skärmen. Klicka på **gå till resurs** i meddelandet för att se den kognitiva tjänst resurs som du har skapat. 
+När resursen har distribuerats klickar **du på gå till resurs** under **Nästa steg**.
 
-![Gå till kognitiva tjänst resurser](media/cognitive-services-apis-create-account/cog-serv-go-to-resource.png)
+![Sök efter Cognitive Services](media/cognitive-services-apis-create-account/resource-next-steps.png)
 
-Från snabb starts fönstret som öppnas kan du komma åt din slut punkt och nyckel.
+Från snabb starts fönstret som öppnas kan du komma åt nyckeln och slut punkten.
 
 ![Hämta nyckel och slut punkt](media/cognitive-services-apis-create-account/get-cog-serv-keys.png)
 
 [!INCLUDE [cognitive-services-environment-variables](../../includes/cognitive-services-environment-variables.md)]
 
-## <a name="pricing-tiers-and-billing"></a>Pris nivåer och fakturering
-
-Pris nivåerna (och den mängd du debiteras) baseras på antalet transaktioner som du skickar med hjälp av autentiseringsinformationen. Varje pris nivå anger:
-* maximalt antal tillåtna transaktioner per sekund (TPS).
-* tjänst funktioner som Aktiver ATS inom pris nivån.
-* Kostnaden för ett fördefinierat antal transaktioner. Om du fortsätter över den här mängden kommer du att få en extra avgift som anges i [pris informationen](https://azure.microsoft.com/pricing/details/cognitive-services/custom-vision-service/) för din tjänst.
-
 ## <a name="clean-up-resources"></a>Rensa resurser
 
 Om du vill rensa och ta bort en Cognitive Services prenumeration kan du ta bort resursen eller resurs gruppen. Om du tar bort resurs gruppen tas även andra resurser som ingår i gruppen bort.
 
-Ta bort en resursgrupp med Azure-portalen:
-
 1. I Azure-portalen expanderar du menyn på vänster sida för att öppna tjänstemenyn och väljer **Resursgrupper** för att visa listan över dina resursgrupper.
-2. Leta upp resurs gruppen som du vill ta bort och högerklicka på knappen mer (...) på höger sida av listan.
-3. Välj **Ta bort resursgrupp** och bekräfta.
+2. Leta upp resurs gruppen som innehåller resursen som ska tas bort
+3. Högerklicka på listan över resurs grupper. Välj **Ta bort resursgrupp** och bekräfta.
 
 ## <a name="see-also"></a>Se också
 

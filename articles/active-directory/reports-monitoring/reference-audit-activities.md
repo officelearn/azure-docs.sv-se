@@ -17,12 +17,12 @@ ms.date: 01/24/2019
 ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 56a94ef3f6ea5737b629efe44bd3e1cc1f36a693
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: aaa60a7737b7781a21e23516d139332f10bdf448
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70127129"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70306015"
 ---
 # <a name="azure-ad-audit-activity-reference"></a>Referens över granskningsaktiviteter i Azure AD
 
@@ -408,6 +408,14 @@ I den här artikeln står vilka granskningsaktiviteter som kan loggas in dina gr
 |Kataloghantering|Hämta idp:er för ett specifikt administratörsflöde|
 |Kataloghantering|Hämta lista över alla administratörsflöden|
 |Kataloghantering|Hämta lista över taggar för alla administratörsflöden för alla användare|
+|Grupphantering|Grupp medlemmar för grupp hämtning – startade|
+|Grupphantering|Grupp medlemmar för grupp hämtning – avslutad|
+|Grupphantering|Grupp medlemmar för Mass import – startade|
+|Grupphantering|Grupp medlemmar för Mass import – avslutad|
+|Grupphantering|Mass borttagning av grupp medlemmar – startat|
+|Grupphantering|Grupp medlemmar för Mass borttagning – avslutad|
+|Grupphantering|Grupp hämtnings grupper – startat|
+|Grupphantering|Grupp hämtnings grupper – klart|
 |Grupphantering|Hämta lista över klienter för en användare|
 |Grupphantering|Hämta självkontrollerade anspråk för lokala konton|
 |Grupphantering|Hämta json för lokaliserad resurs|
@@ -454,28 +462,42 @@ I den här artikeln står vilka granskningsaktiviteter som kan loggas in dina gr
 |Rollhantering|Ta bort enhetskonfiguration|
 |Rollhantering|Enheten är inte längre kompatibel|
 |Rollhantering|Enheten hanteras inte längre|
-|Användarhantering|Ta bort registrerad ägare från enhet|
-|Användarhantering|Ta bort registrerade användare från enhet|
-|Användarhantering|Uppdatera enhet|
-|Användarhantering|Uppdatera enhetskonfiguration|
-|Användarhantering|Lägg till berättigad medlem i rollen|
-|Användarhantering|Lägg till medlem till roll|
-|Användarhantering|Lägg till rolltilldelning till rolldefinition|
-|Användarhantering|Lägg till roll från mall|
-|Användarhantering|Lägg till begränsad medlem till roll|
-|Användarhantering|Ta bort behörig medlem från roll|
-|Användarhantering|Ta bort medlemmen från rollen|
-|Användarhantering|Ta bort rolltilldelning från rolldefinition|
-|Användarhantering|Ta bort begränsad medlem från roll|
-|Användarhantering|Uppdatera roll|
 |Användarhantering|AccessReview_Review|
 |Användarhantering|AccessReview_Update|
 |Användarhantering|ActivationAborted|
 |Användarhantering|ActivationAborted|
 |Användarhantering|ActivationAborted|
 |Användarhantering|ActivationRequested|
+|Användarhantering|Lägg till berättigad medlem i rollen|
+|Användarhantering|Lägg till medlem till roll|
+|Användarhantering|Lägg till rolltilldelning till rolldefinition|
+|Användarhantering|Lägg till roll från mall|
+|Användarhantering|Lägg till begränsad medlem till roll|
 |Användarhantering|Har lagts till|
 |Användarhantering|Tilldela|
+|Användarhantering|Mass skapande av användare – startat|
+|Användarhantering|Mass skapande av användare – klart|
+|Användarhantering|Mass borttagning av användare – startat|
+|Användarhantering|Mass borttagning av användare – färdig|
+|Användarhantering|Mass nedladdnings användare – startat|
+|Användarhantering|Mass nedladdnings användare – klart|
+|Användarhantering|Mass återställning borttagna användare – startat|
+|Användarhantering|Mass återställning borttagna användare – avslutad|
+|Användarhantering|Massredigera användare – startade|
+|Användarhantering|Grupp användare-avslutad|
+|Användarhantering|Ta bort registrerad ägare från enhet|
+|Användarhantering|Ta bort registrerade användare från enhet|
+|Användarhantering|Ta bort behörig medlem från roll|
+|Användarhantering|Ta bort medlemmen från rollen|
+|Användarhantering|Ta bort rolltilldelning från rolldefinition|
+|Användarhantering|Ta bort begränsad medlem från roll|
+|Användarhantering|Uppdatera enhet|
+|Användarhantering|Uppdatera enhetskonfiguration|
+|Användarhantering|Uppdatera roll|
+
+
+
+
 
 
 ## <a name="identity-protection"></a>Identitetsskydd

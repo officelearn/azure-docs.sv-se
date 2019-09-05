@@ -9,12 +9,12 @@ author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
 ms.date: 05/02/2019
-ms.openlocfilehash: 6f72daa4a601df0e3592910645c2f9b35ab64431
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 0218221426351b0b508021fc74693557f200b4e8
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68845810"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70309265"
 ---
 # <a name="tutorial-build-a-regression-model-with-automated-machine-learning-and-open-datasets"></a>Självstudier: Skapa en Regressions modell med automatisk maskin inlärning och öppna data uppsättningar
 
@@ -148,7 +148,7 @@ green_taxi_df.head(10)
       <td>1</td>
       <td>0,98</td>
       <td>Inga</td>
-      <td>Ingen</td>
+      <td>Inga</td>
       <td>– 73,921715</td>
       <td>40,766682</td>
       <td>– 73,916908</td>
@@ -195,8 +195,8 @@ green_taxi_df.head(10)
       <td>2016-01-01 01:05:37</td>
       <td>1</td>
       <td>2.44</td>
-      <td>Ingen</td>
-      <td>Ingen</td>
+      <td>Inga</td>
+      <td>Inga</td>
       <td>– 73,863045</td>
       <td>40,882923</td>
       <td>-73.839836</td>
@@ -219,7 +219,7 @@ green_taxi_df.head(10)
       <td>2016-01-04 18:03:43</td>
       <td>1</td>
       <td>2,87</td>
-      <td>Ingen</td>
+      <td>Inga</td>
       <td>Inga</td>
       <td>– 73,977730</td>
       <td>40,684647</td>
@@ -243,8 +243,8 @@ green_taxi_df.head(10)
       <td>2016-01-13 08:52:16</td>
       <td>1</td>
       <td>0,50</td>
-      <td>Ingen</td>
-      <td>Ingen</td>
+      <td>Inga</td>
+      <td>Inga</td>
       <td>– 73,942589</td>
       <td>40,841423</td>
       <td>– 73,943672</td>
@@ -316,7 +316,7 @@ green_taxi_df.head(10)
       <td>2</td>
       <td>0,80</td>
       <td>Inga</td>
-      <td>Ingen</td>
+      <td>Inga</td>
       <td>– 73,881195</td>
       <td>40,741779</td>
       <td>-73.872086</td>
@@ -453,8 +453,8 @@ green_taxi_df.head(10)
       <td>2016-01-20 17:46:33</td>
       <td>1</td>
       <td>0,98</td>
-      <td>Ingen</td>
-      <td>Ingen</td>
+      <td>Inga</td>
+      <td>Inga</td>
       <td>– 73,921715</td>
       <td>40,766682</td>
       <td>– 73,916908</td>
@@ -502,7 +502,7 @@ green_taxi_df.head(10)
       <td>1</td>
       <td>2.44</td>
       <td>Inga</td>
-      <td>Ingen</td>
+      <td>Inga</td>
       <td>– 73,863045</td>
       <td>40,882923</td>
       <td>-73.839836</td>
@@ -526,7 +526,7 @@ green_taxi_df.head(10)
       <td>1</td>
       <td>2,87</td>
       <td>Inga</td>
-      <td>Ingen</td>
+      <td>Inga</td>
       <td>– 73,977730</td>
       <td>40,684647</td>
       <td>-73.931259</td>
@@ -597,8 +597,8 @@ green_taxi_df.head(10)
       <td>2016-01-14 00:54:16</td>
       <td>1</td>
       <td>1,93</td>
-      <td>Ingen</td>
-      <td>Ingen</td>
+      <td>Inga</td>
+      <td>Inga</td>
       <td>– 73,927109</td>
       <td>40,762848</td>
       <td>-73.909302</td>
@@ -622,7 +622,7 @@ green_taxi_df.head(10)
       <td>2</td>
       <td>0,80</td>
       <td>Inga</td>
-      <td>Ingen</td>
+      <td>Inga</td>
       <td>– 73,881195</td>
       <td>40,741779</td>
       <td>-73.872086</td>
@@ -670,7 +670,7 @@ green_taxi_df.head(10)
       <td>6</td>
       <td>2,82</td>
       <td>Inga</td>
-      <td>Ingen</td>
+      <td>Inga</td>
       <td>– 73,845200</td>
       <td>40,722134</td>
       <td>– 73,810638</td>
@@ -883,7 +883,7 @@ holidays_df.head(5)
       <th>40689</th>
       <td>Algeriet</td>
       <td>Nyårs dagen</td>
-      <td>Ingen</td>
+      <td>Inga</td>
       <td>DZ</td>
       <td>Nyårs dagen</td>
       <td>2008-01-01</td>
@@ -1246,7 +1246,7 @@ weather_df.head(10)
 
 Anropa `pandas.Series.dt.normalize` igen `taxi_holidays_df`i fältet i väder data så att det matchar tids nyckeln i. `datetime` Ta bort de kolumner som inte behövs och filtrera bort poster där temperaturen är `NaN`.
 
-Nästa gruppera väder data så att du har dagliga sammansatta väder värden. Definiera ett Dictation `aggregations` för att definiera hur varje fält ska aggregeras på en daglig nivå. För `snowDepth` `precipTime` `precipDepth` och `temperature` ta medelvärdet och för och ta det dagliga Max värdet. `groupby()` Använd funktionen tillsammans med agg regeringar för att gruppera data. Förhandsgranska data för att se till att det finns en post per dag.
+Nästa gruppera väder data så att du har dagliga sammansatta väder värden. Definiera ett förutsägande `aggregations` namn för att definiera hur varje fält ska aggregeras på en daglig nivå. För `snowDepth` `precipTime` `precipDepth` och `temperature` ta medelvärdet och för och ta det dagliga Max värdet. `groupby()` Använd funktionen tillsammans med agg regeringar för att gruppera data. Förhandsgranska data för att se till att det finns en post per dag.
 
 ```python
 weather_df["datetime"] = weather_df["datetime"].dt.normalize()
@@ -1369,7 +1369,7 @@ weather_df_grouped.head(10)
 </div>
 
 > [!NOTE]
-> Exemplen i den här självstudien sammanfogar data med Pandas-funktioner och anpassade agg regeringar, men SDK: er med öppen data uppsättningar har klasser utformade för att enkelt sammanfoga och utöka data uppsättningar. Se antecknings [boken](https://github.com/Azure/OpenDatasetsNotebooks/blob/master/tutorials/data-join/04-nyc-taxi-join-weather-in-pandas.ipynb) för kod exempel för dessa design mönster.
+> Exemplen i den här självstudien sammanfogar data med Pandas-funktioner och anpassade agg regeringar, men SDK: er med öppen data uppsättningar har klasser utformade för att enkelt sammanfoga och utöka data uppsättningar. Se [antecknings boken](https://github.com/Azure/OpenDatasetsNotebooks/blob/master/tutorials/data-join/04-nyc-taxi-join-weather-in-pandas.ipynb) för kod exempel för dessa design mönster.
 
 ### <a name="cleanse-data"></a>Rensa data
 
@@ -1944,5 +1944,5 @@ Om du inte planerar att använda de resurser som du har skapat tar du bort dem, 
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Mer kod exempel finns i antecknings [böckerna](https://github.com/Azure/OpenDatasetsNotebooks) för öppen data uppsättning i Azure.
+* Mer kod exempel finns i [antecknings böckerna](https://github.com/Azure/OpenDatasetsNotebooks) för öppen data uppsättning i Azure.
 * Följ anvisningarna för [att](https://docs.microsoft.com/azure/machine-learning/service/how-to-configure-auto-train) få mer information om automatisk maskin inlärning i Azure Machine Learning-tjänsten.

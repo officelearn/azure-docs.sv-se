@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 01/23/2019
+ms.date: 09/04/2019
 ms.author: aschhab
-ms.openlocfilehash: bf2b83725f8ce8e712974c182c9a11e8ed0d04f0
-ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.openlocfilehash: df9a7325d3ffc2362ff14b9a618ca0db7928b337
+ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70013224"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70376340"
 ---
 # <a name="storage-queues-and-service-bus-queues---compared-and-contrasted"></a>Lagrings köer och Service Bus köer – jämförelse och kontrast
 I den här artikeln analyseras skillnaderna och likheter mellan de två typerna av köer som erbjuds av Microsoft Azure idag: Lagrings köer och Service Bus köer. Med hjälp av informationen kan du jämföra de olika teknikerna och fatta klokare beslut när du ska avgöra vilken lösning som passar dig bäst.
@@ -85,11 +85,10 @@ I det här avsnittet jämförs några av de grundläggande köernas funktioner s
 * Meddelanden i lagrings köer är vanligt vis först in-First, men ibland kan de vara i ordning. till exempel när ett meddelandes Synlighets-timeout går ut (till exempel till följd av att ett klient program kraschar under bearbetningen). När tids gränsen för synlighet går ut blir meddelandet synligt igen i kön för att en annan arbetare ska kunna ta den ur kön. Vid det här tillfället kan det nyligen synliga meddelandet placeras i kön (för att tas ur kö igen) efter ett meddelande som ursprungligen ställts efter det.
 * Det garanterade FIFO-mönstret i Service Bus köer kräver att meddelande tjänsten används. I händelse av att programmet kraschar vid bearbetning av ett meddelande som mottagits i **gransknings & lås** läge, kommer den att starta med det misslyckade meddelandet efter att dess TTL-period (Time-to-Live) upphör att gälla nästa gång.
 * Lagrings köer har utformats för att stödja standard scenarier för köer, till exempel för att koppla samman program komponenter för att öka skalbarheten och toleransen för haverier, belastnings utjämning och skapande av process arbets flöden.
-* Service Bus köer har stöd för minst *en gång* till leverans garanti. 
 * Inkonsekvenser avseende meddelande hantering i samband med Service Bus sessioner kan undvikas genom att använda sessionstillstånd för att lagra programmets tillstånd i förhållande till förloppet för att hantera sessionens meddelandekö och genom att använda transaktioner runt lösa mottagna meddelanden och uppdatera sessionstillståndet. Den här typen av konsekvens funktion kallas ibland *just-Once-bearbetning* i andra leverantörs produkter, men transaktions fel kommer självklart orsaka att meddelanden levereras om och att termen inte är exakt lämplig.
 * Lagrings köer ger en enhetlig och konsekvent programmerings modell mellan köer, tabeller och BLOBBAR – både för utvecklare och för drift team.
 * Service Bus köer ger stöd för lokala transaktioner i kontexten för en enskild kö.
-* Mottagnings- **och borttagnings** läget som stöds av Service Bus ger möjlighet att minska antalet meddelande åtgärder (och tillhör ande kostnad) i Exchange för sänkt leverans garanti.
+* **Mottagnings-och borttagnings** läget som stöds av Service Bus ger möjlighet att minska antalet meddelande åtgärder (och tillhör ande kostnad) i Exchange för sänkt leverans garanti.
 * Lagrings köer ger lån möjlighet att utöka lånet för meddelanden. På så sätt kan arbets tagarna upprätthålla korta lån för meddelanden. Om en arbets rutin kraschar kan du därför snabbt behandla meddelandet igen av en annan arbets tagare. Dessutom kan en anställd utöka lånet för ett meddelande om det behöver bearbeta det längre än den aktuella låne tiden.
 * Lagrings köer ger en Synlighets-timeout som du kan ange som ett meddelandes eller ett meddelandes timeout-värde. Dessutom kan du uppdatera ett meddelande med olika värden för lån vid körning och uppdatera olika värden mellan meddelanden i samma kö. Service Bus låsnings-timeout definieras i metadata för kön. Du kan dock förnya låset genom att anropa [RenewLock](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.renewlock#Microsoft_ServiceBus_Messaging_BrokeredMessage_RenewLock) -metoden.
 * Den maximala tids gränsen för en blockera mottagnings åtgärd i Service Bus köer är 24 dagar. REST-baserade tids gränser har dock ett högsta värde på 55 sekunder.

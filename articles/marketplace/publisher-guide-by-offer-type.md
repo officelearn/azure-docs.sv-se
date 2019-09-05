@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 11/13/2018
 ms.author: pabutler
-ms.openlocfilehash: 4864e2c040ad6771ad187269de43d5978fc6324f
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: 8a06573e6bcb2d5a6c6c97ad19e168f9c71aaa13
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67876061"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70308222"
 ---
 # <a name="publishing-guide-by-offer-type"></a>Publiceringsguide efter erbjudandetyp
 
@@ -34,7 +34,7 @@ Erbjudanden för Azure Marketplace-erbjudanden visas i tabellen nedan.
 | **Erbjudande typ**    | **Beskrivning**  |
 | :------------------- | :-------------------|
 | [**Virtuella datorer**](https://docs.microsoft.com/azure/marketplace/marketplace-virtual-machines) | Använd den virtuella datorns erbjudande typ när du distribuerar en virtuell installation till prenumerationen som är kopplad till din kund. |
-| [**Solution-mallar**](https://docs.microsoft.com/azure/marketplace/marketplace-solution-templates) | Använd lösnings mal len erbjudande typ när din lösning kräver ytterligare distribution och konfigurations automatisering utöver en enkel virtuell dator. |
+| [**Solution-mallar**](https://docs.microsoft.com/azure/marketplace/marketplace-solution-templates) | Använd lösnings mal len (även kallat Azure-program) som erbjudande typ när din lösning kräver ytterligare distribution och konfigurations automatisering utöver en enkel virtuell dator. Solution templates kan använda många olika typer av Azure-resurser, inklusive men inte begränsat till virtuella datorer.  |
 | [**Hanterade program**](https://docs.microsoft.com/azure/marketplace/marketplace-managed-apps) | Använd Azure app: den hanterade appens erbjudande typ när följande villkor är uppfyllda: <br> <ul> <li> Du distribuerar antingen en prenumeration baserad lösning för din kund med antingen en virtuell dator eller en hel IaaS lösning. </li> <li>Du eller din kund kräver att lösningen hanteras av en partner. </li> <ul> |
 | [**SaaS-program**](https://docs.microsoft.com/azure/marketplace/marketplace-saas-applications-technical-publishing-guide) | Använd SaaS-appens erbjudande typ för att göra det möjligt för kunden att köpa din SaaS-baserade, tekniska lösning som en prenumeration. |
 | [**Container-erbjudanden**](https://docs.microsoft.com/azure/marketplace/marketplace-containers) | Använd containerns erbjudande typ när din lösning är en Docker-behållar avbildning som tillhandahålls som en Kubernetes-baserad Azure Container Service. |

@@ -8,12 +8,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 06/12/2019
 ms.author: danlep
-ms.openlocfilehash: bc32ce59a7ec99278fb193f375d4ca945c227d2f
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.openlocfilehash: 2d7237c1d142e9f7bb5a47294d1375040be43ac3
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70172191"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70308026"
 ---
 # <a name="automate-container-image-builds-and-maintenance-with-acr-tasks"></a>Automatisera behållar avbildnings versioner och underhåll med ACR-uppgifter
 
@@ -36,26 +36,9 @@ Utvecklings cykeln för inre slingor, den iterativa processen med att skriva kod
 
 Innan du genomför din första kodrad kan ACR-aktiviteternas [snabb uppgift](container-registry-tutorial-quick-task.md) tillhandahålla en integrerad utvecklings upplevelse genom att avlasta dina behållar avbildningar till Azure. Med snabb uppgifter kan du verifiera dina automatiserade versions definitioner och fånga eventuella problem innan du genomför din kod.
 
-Med det välkända `docker build` formatet tar [AZ ACR build][az-acr-build] -kommandot i Azure CLI en *kontext* (uppsättningen filer som ska skapas), skickar ACR uppgifter och skickar som standard den inbyggda avbildningen till registret när den har slutförts.
+Med det välkända `docker build` formatet tar [AZ ACR build][az-acr-build] -kommandot i Azure CLI en [kontext](#context-locations) (uppsättningen filer som ska skapas), skickar ACR uppgifter och skickar som standard den inbyggda avbildningen till registret när den har slutförts.
 
 En introduktion finns i snabb starten för att [skapa och köra en behållar avbildning](container-registry-quickstart-task-cli.md) i Azure Container Registry.  
-
-I följande tabell visas några exempel på kontext platser som stöds för ACR-aktiviteter:
-
-| Kontext plats | Beskrivning | Exempel |
-| ---------------- | ----------- | ------- |
-| Lokalt fil system | Filer i en katalog i det lokala fil systemet. | `/home/user/projects/myapp` |
-| GitHub huvud gren | Filer inom den överordnade (eller andra standard) grenen av en GitHub-lagringsplats.  | `https://github.com/gituser/myapp-repo.git` |
-| GitHub-gren | En speciell gren av en GitHub-lagrings platsen.| `https://github.com/gituser/myapp-repo.git#mybranch` |
-| GitHub-undermapp | Filer i en undermapp i en GitHub-lagrings platsen. Exempel på en kombination av en gren och undermappar specifikation. | `https://github.com/gituser/myapp-repo.git#mybranch:myfolder` |
-| Fjärran tarball | Filer i ett komprimerat Arkiv på en fjärran sluten Server. | `http://remoteserver/myapp.tar.gz` |
-
-Som standard skapar ACR-uppgifter avbildningar för Linux OS och amd64-arkitekturen. `--platform` Ange taggen för att bygga Windows-avbildningar eller Linux-avbildningar för andra arkitekturer. Ange operativ systemet och eventuellt en arkitektur som stöds i OS/Architecture-format (till exempel `--platform Linux/arm`). För arm-arkitekturer kan du välja att ange en variant i formatet OS/Architecture/variant (till `--platform Linux/arm64/v8`exempel):
-
-| OS | Arkitektur|
-| --- | ------- | 
-| Linux | amd64<br/>koppling<br/>arm64<br/>386 |
-| Windows | amd64 |
 
 ACR-uppgifter är utformade som en primitiv container-livs cykel. Du kan till exempel integrera ACR-uppgifter i din CI/CD-lösning. Genom att köra [AZ-inloggning][az-login] med ett [huvud namn för tjänsten][az-login-service-principal]kan din CI/CD-lösning utfärda [AZ ACR build][az-acr-build] -kommandon för att starta avbildnings byggen.
 
@@ -68,7 +51,7 @@ Använd ACR-aktiviteter för att automatiskt utlösa en behållar avbildning som
 > [!IMPORTANT]
 > Om du tidigare har skapat uppgifter i för hands versionen `az acr build-task` med kommandot måste du skapa dem på nytt med hjälp av kommandot [AZ ACR Task][az-acr-task] .
 
-Lär dig hur du utlöser versioner av käll kods bekräftelse i självstudien för andra ACR uppgifter, automatiserar behållar [avbildnings avbildningar med Azure Container Registry uppgifter](container-registry-tutorial-build-task.md).
+Lär dig hur du utlöser versioner av käll kods bekräftelse i självstudien för andra ACR uppgifter, [automatiserar behållar avbildnings avbildningar med Azure Container Registry uppgifter](container-registry-tutorial-build-task.md).
 
 ## <a name="automate-os-and-framework-patching"></a>Automatisera korrigering av OS och ramverk
 
@@ -78,7 +61,7 @@ Behållar avbildningar kan delas i stor kategorisering i *bas* avbildningar och 
 
 När en operativ system-eller app Framework-avbildning uppdateras av den överordnade behållaren, till exempel med en kritisk säkerhets korrigering för operativ system, måste du också uppdatera dina bas avbildningar för att inkludera den kritiska korrigeringen. Varje program avbildning måste sedan återskapas för att inkludera dessa uppströms korrigeringar som nu ingår i bas avbildningen.
 
-Eftersom ACR-aktiviteter identifierar bas avbildnings beroenden dynamiskt när en behållar avbildning skapas, kan den identifiera när en program avbildnings bas avbildning uppdateras. Med en förkonfigurerad [build-uppgift](container-registry-tutorial-base-image-update.md#create-a-task)återbyggs ACR-aktiviteter **automatiskt varje program avbildning** åt dig. Med den här automatiska identifieringen och återuppbyggnaden sparar ACR-uppgifter den tid och ansträngning som normalt krävs för att manuellt spåra och uppdatera varje program avbildning som refererar till den uppdaterade bas avbildningen.
+Eftersom ACR-aktiviteter identifierar bas avbildnings beroenden dynamiskt när en behållar avbildning skapas, kan den identifiera när en program avbildnings bas avbildning uppdateras. Med en förkonfigurerad [build-uppgift](container-registry-tutorial-base-image-update.md#create-a-task) **återbyggs ACR-aktiviteter automatiskt varje program avbildning** åt dig. Med den här automatiska identifieringen och återuppbyggnaden sparar ACR-uppgifter den tid och ansträngning som normalt krävs för att manuellt spåra och uppdatera varje program avbildning som refererar till den uppdaterade bas avbildningen.
 
 En ACR-uppgift spårar en bas avbildnings uppdatering när bas avbildningen finns på någon av följande platser:
 
@@ -106,9 +89,30 @@ Med aktiviteter med flera steg kan du dela upp, köra och testa en bild i mer sa
 
 Lär dig mer om aktiviteter i flera steg i [köra åtgärder för att skapa, testa och korrigera flera steg i ACR uppgifter](container-registry-tasks-multi-step.md).
 
+## <a name="context-locations"></a>Kontext platser
+
+I följande tabell visas några exempel på kontext platser som stöds för ACR-aktiviteter:
+
+| Kontext plats | Beskrivning | Exempel |
+| ---------------- | ----------- | ------- |
+| Lokalt fil system | Filer i en katalog i det lokala fil systemet. | `/home/user/projects/myapp` |
+| GitHub huvud gren | Filer inom den överordnade (eller andra standard) grenen av en GitHub-lagringsplats.  | `https://github.com/gituser/myapp-repo.git` |
+| GitHub-gren | En speciell gren av en GitHub-lagrings platsen.| `https://github.com/gituser/myapp-repo.git#mybranch` |
+| GitHub-undermapp | Filer i en undermapp i en GitHub-lagrings platsen. Exempel på en kombination av en gren och undermappar specifikation. | `https://github.com/gituser/myapp-repo.git#mybranch:myfolder` |
+| Fjärran tarball | Filer i ett komprimerat Arkiv på en fjärran sluten Server. | `http://remoteserver/myapp.tar.gz` |
+
+## <a name="image-platforms"></a>Avbildnings plattformar
+
+Som standard skapar ACR-uppgifter avbildningar för Linux OS och amd64-arkitekturen. `--platform` Ange taggen för att bygga Windows-avbildningar eller Linux-avbildningar för andra arkitekturer. Ange operativ systemet och eventuellt en arkitektur som stöds i OS/Architecture-format (till exempel `--platform Linux/arm`). För ARM-arkitekturer kan du välja att ange en variant i formatet OS/Architecture/variant (till `--platform Linux/arm64/v8`exempel):
+
+| OS | Arkitektur|
+| --- | ------- | 
+| Linux | amd64<br/>koppling<br/>arm64<br/>386 |
+| Windows | amd64 |
+
 ## <a name="view-task-logs"></a>Visa aktivitets loggar
 
-Varje aktivitets körning genererar logg utdata som du kan kontrol lera för att avgöra om aktivitets stegen har körts. Om du använder kommandot [AZ ACR build](/cli/azure/acr#az-acr-build), [AZ ACR Run](/cli/azure/acr#az-acr-run)eller [AZ ACR Task Run](/cli/azure/acr/task#az-acr-task-run) för att utlösa uppgiften, strömmas logg resultatet för aktivitets körningen till konsolen och lagras även för senare hämtning. Visa loggarna för en uppgift som körs i Azure Portal eller Använd kommandot [AZ ACR Task logs](/cli/azure/acr/task#az-acr-task-logs) .
+Varje aktivitets körning genererar logg utdata som du kan kontrol lera för att avgöra om aktivitets stegen har körts. Om du använder kommandot [AZ ACR build](/cli/azure/acr#az-acr-build), [AZ ACR Run](/cli/azure/acr#az-acr-run)eller [AZ ACR Task Run](/cli/azure/acr/task#az-acr-task-run) för att utlösa uppgiften, strömmas logg resultatet för aktivitets körningen till konsolen och lagras även för senare hämtning. När en aktivitet aktive ras automatiskt, till exempel genom en käll kods bekräftelse eller en bas avbildnings uppdatering, lagras endast aktivitets loggar. Visa loggarna för en uppgift som körs i Azure Portal eller Använd kommandot [AZ ACR Task logs](/cli/azure/acr/task#az-acr-task-logs) .
 
 Från och med den 2019 juli kommer data och loggar för att köras i ett register att bevaras som standard i 30 dagar och sedan rensas automatiskt. Om du vill arkivera data för en aktivitets körning aktiverar du arkivering med hjälp av kommandot [AZ ACR Task Update-Run](/cli/azure/acr/task#az-acr-task-update-run) . I följande exempel aktive ras arkivering för aktiviteten kör *cf11* i Registry- *registret*.
 

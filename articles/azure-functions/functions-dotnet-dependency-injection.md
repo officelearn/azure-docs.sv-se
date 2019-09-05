@@ -12,12 +12,12 @@ ms.topic: reference
 ms.date: 05/28/2019
 ms.author: cshoe
 ms.reviewer: jehollan
-ms.openlocfilehash: 1dbbb6e7bd88e08520225515c422529dc260e1b2
-ms.sourcegitcommit: b49431b29a53efaa5b82f9be0f8a714f668c38ab
+ms.openlocfilehash: e31f3dc166177ce36289b97d85d90a9582c9cae5
+ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68377367"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70375985"
 ---
 # <a name="use-dependency-injection-in-net-azure-functions"></a>Använd beroende inmatning i .NET Azure Functions
 
@@ -71,7 +71,7 @@ namespace MyNamespace
 
 ## <a name="use-injected-dependencies"></a>Använda inmatade beroenden
 
-ASP.NET Core använder konstruktorn för att göra dina beroende tillgängliga för din funktion. Följande exempel visar hur `IMyService` och `HttpClient` beroenden matas in i en http-utlöst funktion.
+ASP.NET Core använder konstruktorn för att göra dina beroende tillgängliga för din funktion. Följande exempel visar hur `IMyService` och `HttpClient` beroenden matas in i en http-utlöst funktion. 
 
 ```csharp
 using System;
@@ -112,7 +112,7 @@ namespace MyNamespace
 }
 ```
 
-Användningen av konstruktorn för konstruktorn innebär att du inte bör använda statiska funktioner om du vill dra nytta av beroende inmatning.
+Användningen av konstruktorn för konstruktorn innebär att du inte bör använda statiska funktioner om du vill dra nytta av beroende inmatning. Cosmos-klienten hittar [detta](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos.Samples/CodeSamples/AzureFunctions/AzureFunctionsCosmosClient.cs).
 
 ## <a name="service-lifetimes"></a>Livs längd för tjänsten
 

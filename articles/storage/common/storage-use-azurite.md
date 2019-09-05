@@ -1,22 +1,22 @@
 ---
-title: Använd Azurite-emulatorn med öppen källkod för utveckling och testning av Blob Storage (för hands version)
-description: Azurite-emulatorn med öppen källkod (för hands version) tillhandahåller en kostnads fri lokal miljö för att testa dina Azure Blob Storage-program.
+title: Använd Azurite-emulatorn med öppen källkod för utveckling och testning av Azure Storage (för hands version)
+description: Azurite-emulatorn med öppen källkod (för hands version) tillhandahåller en kostnads fri lokal miljö för att testa dina Azure Storage-program.
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 06/12/2019
+ms.date: 08/31/2019
 ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
-ms.openlocfilehash: ebecd6cf9af5395e4da2b395ca9b2ff974a75409
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: e611afd6f10154636eb2e0dd08437b4f7468d6b3
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68721702"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70309545"
 ---
-# <a name="use-the-azurite-open-source-emulator-for-blob-storage-development-and-testing-preview"></a>Använd Azurite-emulatorn med öppen källkod för utveckling och testning av Blob Storage (för hands version)
+# <a name="use-the-azurite-open-source-emulator-for-azure-storage-development-and-testing-preview"></a>Använd Azurite-emulatorn med öppen källkod för utveckling och testning av Azure Storage (för hands version)
 
-Azurite version 3-emulator med öppen källkod (för hands version) tillhandahåller en kostnads fri lokal miljö för att testa dina Azure Blob Storage-program. När du är nöjd med hur ditt program fungerar lokalt växlar du till att använda ett Azure Storage konto i molnet. Emulatorn ger plattforms oberoende stöd för Windows, Linux och MacOS. Azurite v3 stöder API: er som implementeras av Azure-Blob Service.
+Azurite-versionen 3,2 med öppen källkod (för hands version) är en kostnads fri lokal miljö för att testa dina Azure blob-och Queue Storage-program. När du är nöjd med hur ditt program fungerar lokalt växlar du till att använda ett Azure Storage konto i molnet. Emulatorn ger plattforms oberoende stöd för Windows, Linux och MacOS. Azurite v3 stöder API: er som implementeras av Azure-Blob Service.
 
 Azurite är den framtida Storage mula-plattformen. Azurite ersätter Azure Storage- [emulatorn](storage-use-emulator.md). Azurite kommer fortfarande att uppdateras för att stödja de senaste versionerna av Azure Storage-API: er.
 
@@ -29,24 +29,27 @@ Det finns flera olika sätt att installera och köra Azurite på det lokala syst
 
 ## <a name="install-and-run-the-azurite-visual-studio-code-extension"></a>Installera och kör kod tillägget för Visual Studio-Azurite
 
-I Visual Studio Code väljer du rutan **tillägg** och söker efter *Azurite* i tilläggen **: Marketplace**.
+I Visual Studio Code väljer du rutan **tillägg** och söker efter *Azurite* i **tilläggen: Marketplace**.
 
 ![Visual Studio Code Extensions Marketplace](media/storage-use-azurite/azurite-vs-code-extension.png)
 
 Du kan också navigera till [vs Code Extension marknad](https://marketplace.visualstudio.com/items?itemName=Azurite.azurite) i din webbläsare. Välj knappen **Installera** för att öppna Visual Studio Code och gå direkt till Azurite-tilläggs sidan.
 
-Du kan snabbt starta eller stänga Azurite genom att klicka på **Azurite BLOB service** i vs Code-statusfältet eller genom att utfärda följande kommandon i vs Code-kommando paletten. Öppna kommando paletten genom att trycka på **F1** i vs Code.
+Du kan snabbt starta eller stänga Azurite genom att klicka på **[Azurite BLOB service]** eller **[Azurite Queue Service]** i fältet vs Code eller utfärda följande kommandon i vs Code-kommando paletten. Öppna kommando paletten genom att trycka på **F1** i vs Code.
 
 Tillägget har stöd för följande Visual Studio Code-kommandon:
 
    * **Azurite: Starta** alla Azurite-tjänster
    * **Azurite: Stäng** alla Azurite-tjänster
    * **Azurite: Rensa** alla Azurite Services persistency-data
-   * **Azurite: Start** -BLOB-starta blob-tjänst
-   * **Azurite: Avsluta** BLOB-Stäng BLOB service
-   * **Azurite: Rensa** Blob-tjänsten rensa BLOB
+   * **Azurite: Starta BLOB service** – starta BLOB service
+   * **Azurite: Stäng BLOB service** – Stäng BLOB service
+   * **Azurite: Rensa BLOB service** -rensa BLOB service
+   * **Azurite: Starta Queue Service** – starta Queue Service
+   * **Azurite: Stäng Queue Service** – Stäng Queue Service
+   * **Azurite: Rensa Queue Service** – tjänsten rensa kö
 
-Om du vill konfigurera Azurite i Visual Studio Code väljer du fönstret tillägg och högerklickar på **Azurite**. Välj **Konfigurera tilläggs inställningar**.
+Välj fönstret tillägg om du vill konfigurera Azurite i Visual Studio Code. Välj ikonen **Hantera** (kugg hjul) för **Azurite**. Välj **Konfigurera tilläggs inställningar**.
 
 ![Azurite konfigurera tilläggs inställningar](media/storage-use-azurite/azurite-configure-extension-settings.png)
 
@@ -56,6 +59,8 @@ Följande inställningar stöds:
    * **Azurite: BLOB-** port – den BLOB service lyssnings porten. Standard porten är 10000.
    * **Azurite: Felsök** – utdata från fel söknings loggen till Azurite-kanalen. Standardvärdet är **FALSKT**.
    * **Azurite: Plats** – sökvägen till arbets ytans plats. Standardvärdet är Visual Studio Code-arbetsmappen.
+   * **Azurite: Köa värd** -den kötjänst lyssnar slut punkten. Standardvärdet är 127.0.0.1.
+   * **Azurite: Queue port** – kötjänst lyssnings port. Standard porten är 10001.
    * **Azurite: Tyst** -tyst läge inaktiverar åtkomst loggen. Standardvärdet är **FALSKT**.
 
 ## <a name="install-and-run-azurite-by-using-npm"></a>Installera och kör Azurite med NPM
@@ -70,26 +75,33 @@ När du har installerat Azurite kan du läsa [Kör Azurite från en kommando rad
 
 ## <a name="install-and-run-the-azurite-docker-image"></a>Installera och köra Azurite Docker-avbildningen
 
-Använd [DockerHub](https://hub.docker.com/) för att hämta den [senaste Azurite](https://hub.docker.com/_/microsoft-azure-storage-azurite) -avbildningen med hjälp av följande kommando:
+Använd [DockerHub](https://hub.docker.com/) för att hämta den [senaste Azurite-avbildningen](https://hub.docker.com/_/microsoft-azure-storage-azurite) med hjälp av följande kommando:
 
 ```console
 docker pull mcr.microsoft.com/azure-storage/azurite
 ```
 
-**Kör Azurite Docker**-avbildningen:
+**Kör Azurite Docker-avbildningen**:
 
 Följande kommando kör Azurite Docker-avbildningen. `-p 10000:10000` Parametern omdirigerar begär Anden från värd datorns port 10000 till Docker-instansen.
 
 ```console
-docker run -p 10000:10000 mcr.microsoft.com/azure-storage/azurite
+docker run -p 10000:10000 -p 10001:10001 mcr.microsoft.com/azure-storage/azurite
 ```
 
 **Ange arbets ytans plats**:
 
-I följande exempel `-v c:/azurite:/data` anger `c:/azurite` parametern som Azurite-sparade data platser.
+I följande exempel `-v c:/azurite:/data` anger parametern *c:/Azurite* som den Azurite sparade data platsen. Katalogen, *c:/Azurite*, måste skapas innan du kör Docker-kommandot.
 
 ```console
-docker run -p 10000:10000 -v c:/azurite:/data mcr.microsoft.com/azure-storage/azurite
+docker run -p 10000:10000 -p 10001:10001 -v c:/azurite:/data mcr.microsoft.com/azure-storage/azurite
+```
+
+**Kör bara BLOB service**
+
+```console
+docker run -p 10000:10000 mcr.microsoft.com/azure-storage/azurite
+    azurite-blob --blobHost 0.0.0.0 --blobPort 10000
 ```
 
 **Ange alla Azurite-parametrar**:
@@ -98,18 +110,21 @@ Det här exemplet visar hur du ställer in alla kommando rads parametrar. Alla p
 
 ```console
 docker run -p 8888:8888
+           -p 9999:9999
            -v c:/azurite:/workspace mcr.microsoft.com/azure-storage/azurite azurite
            -l /workspace
            -d /workspace/debug.log
            --blobPort 8888
            --blobHost 0.0.0.0
+           --queuePort 9999
+           --queueHost 0.0.0.0
 ```
 
 Se [kommando rads alternativ](#command-line-options) för mer information om hur du konfigurerar Azurite vid start.
 
 ## <a name="clone-build-and-run-azurite-from-the-github-repository"></a>Klona, skapa och köra Azurite från GitHub-lagringsplatsen
 
-Den här installations metoden kräver att du har [git](https://git-scm.com/) installerat. Klona [GitHub](https://github.com/azure/azurite) -lagringsplatsen för Azurite-projektet med hjälp av följande konsol kommando.
+Den här installations metoden kräver att du har [git](https://git-scm.com/) installerat. Klona [GitHub-lagringsplatsen](https://github.com/azure/azurite) för Azurite-projektet med hjälp av följande konsol kommando.
 
 ```console
 git clone https://github.com/Azure/Azurite.git
@@ -143,13 +158,15 @@ Det här kommandot instruerar Azurite att lagra alla data i en viss katalog, **c
 Det här avsnittet innehåller information om kommando rads växlar som är tillgängliga när du startar Azurite. Alla kommando rads växlar är valfria.
 
 ```console
-C:\Azurite> azurite [--blobHost <IP address>] [--blobPort <port address>]
-    [-l | --location <workspace path>] [-s | --silent] [-d | --debug <log file path>]
+C:\Azurite> azurite [--blobHost <IP address>] [--blobPort <port address>] 
+    [-d | --debug <log file path>] [-l | --location <workspace path>]
+    [--queueHost <IP address>] [--queuePort <port address>]
+    [-s | --silent] [-h | --help]
 ```
 
-Växeln **-l** är en genväg för **--location**, **-s** är en genväg för **--Silent**och **-d** är en genväg för-- **Debug**.
+**-D** är en genväg för **--Debug**, **-l-** växel är en genväg för **--location**, **-s** är en genväg för- **-Silent**och **-h** är en genväg till **--Hjälp**.
 
-### <a name="listening-host"></a>Lyssna värd
+### <a name="blob-listening-host"></a>BLOB-lyssnings värd
 
 **Valfritt** Som standard lyssnar Azurite till 127.0.0.1 som den lokala servern. Använd växeln **--blobHost** för att ange adressen till dina krav.
 
@@ -168,7 +185,7 @@ azurite --blobHost 0.0.0.0
 > [!CAUTION]
 > Att tillåta fjärrbegäranden kan göra systemet sårbart för externa attacker.
 
-### <a name="listening-port-configuration"></a>Konfiguration av lyssnings port
+### <a name="blob-listening-port-configuration"></a>Konfiguration av BLOB-lyssnings port
 
 **Valfritt** Som standard lyssnar Azurite efter Blob Service på port 10000. Använd växeln **--blobPort** för att ange den lyssnings port som du behöver.
 
@@ -185,6 +202,46 @@ Låt systemet automatiskt välja en tillgänglig port:
 
 ```console
 azurite --blobPort 0
+```
+
+Porten som används visas vid start av Azurite.
+
+### <a name="queue-listening-host"></a>Köa avlyssnings värd
+
+**Valfritt** Som standard lyssnar Azurite till 127.0.0.1 som den lokala servern. Använd växeln **--queueHost** för att ange adressen till dina krav.
+
+Acceptera endast begär Anden på den lokala datorn:
+
+```console
+azurite --queueHost 127.0.0.1
+```
+
+Tillåt fjärrbegäranden:
+
+```console
+azurite --queueHost 0.0.0.0
+```
+
+> [!CAUTION]
+> Att tillåta fjärrbegäranden kan göra systemet sårbart för externa attacker.
+
+### <a name="queue-listening-port-configuration"></a>Köa lyssnings port konfiguration
+
+**Valfritt** Som standard lyssnar Azurite efter Kötjänst på port 10001. Använd växeln **--queuePort** för att ange den lyssnings port som du behöver.
+
+> [!NOTE]
+> När du har använt en anpassad port måste du uppdatera anslutnings strängen eller motsvarande konfiguration i Azure Storage verktyg eller SDK: er.
+
+Anpassa Kötjänst lyssnings port:
+
+```console
+azurite --queuePort 8888
+```
+
+Låt systemet automatiskt välja en tillgänglig port:
+
+```console
+azurite --queuePort 0
 ```
 
 Porten som används visas vid start av Azurite.

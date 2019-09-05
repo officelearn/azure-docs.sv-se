@@ -9,12 +9,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: fbd645ef9f5e687e71ce110fc84b8342e31defed
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: fbee98d64d37b2cdfc515eb733324902e238a768
+ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70087541"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70383109"
 ---
 # <a name="bindings-for-durable-functions-azure-functions"></a>Bindningar för Durable Functions (Azure Functions)
 
@@ -51,7 +51,7 @@ Här följer några anmärkningar om Dirigerings utlösaren:
 * **RETUR värden** -retur värden serialiseras till JSON och sparas i tabellen Orchestration-historik i Azure Table Storage. Dessa retur värden kan frågas av Dirigerings klientens bindning, som beskrivs senare.
 
 > [!WARNING]
-> Orchestrator-funktioner bör aldrig använda eventuella indata eller utgående bindningar än bindningen för Dirigerings utlösaren. Detta har möjlighet att orsaka problem med det varaktiga aktivitets tillägget eftersom dessa bindningar inte kan följa reglerna för enkel trådning och I/O.
+> Orchestrator-funktioner bör aldrig använda eventuella indata eller utgående bindningar än bindningen för Dirigerings utlösaren. Detta har möjlighet att orsaka problem med det varaktiga aktivitets tillägget eftersom dessa bindningar inte kan följa reglerna för enkel trådning och I/O. Om du vill använda andra bindningar lägger du till dem i en aktivitets funktion som anropas från din Orchestrator-funktion.
 
 > [!WARNING]
 > JavaScript Orchestrator-funktioner ska aldrig deklareras `async`.
@@ -240,6 +240,35 @@ public static async Task<dynamic> Mapper([ActivityTrigger] DurableActivityContex
         }
     };
 }
+```
+
+### <a name="using-input-and-output-bindings"></a>Använda indata och utgående bindningar
+
+Du kan använda vanliga indata och utgående bindningar utöver bindningen för aktivitets utlösare. Du kan till exempel ta indata till din aktivitets bindning och skicka ett meddelande till en EventHub med hjälp av EventHub-utdata-bindningen:
+
+```json
+{
+  "bindings": [
+    {
+      "name": "message",
+      "type": "activityTrigger",
+      "direction": "in"
+    },
+    {
+      "type": "eventHub",
+      "name": "outputEventHubMessage",
+      "connection": "EventhubConnectionSetting",
+      "eventHubName": "eh_messages",
+      "direction": "out"
+  }
+  ]
+}
+```
+
+```javascript
+module.exports = async function (context) {
+    context.bindings.outputEventHubMessage = context.bindings.message;
+};
 ```
 
 ## <a name="orchestration-client"></a>Orchestration-klient

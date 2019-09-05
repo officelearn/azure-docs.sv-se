@@ -9,14 +9,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 08/25/2019
+ms.date: 09/05/2019
 ms.author: diberry
-ms.openlocfilehash: 34978d552b2a5002906b65c06e0c8ad76f58761b
-ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
+ms.openlocfilehash: 1704b62cae6375d376fc43fb7a2940cd9c717072
+ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70258175"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70382510"
 ---
 # <a name="quickstart-use-prebuilt-home-automation-app"></a>Snabbstart: Använda fördefinierad hemautomatisering
 
@@ -65,7 +65,7 @@ Välj **Intents** i navigeringsfönstret till vänster för att granska avsikter
 
 Välj avsikten **HomeAutomation.TurnOff** (stänga av). Du kan se att avsikten innehåller en lista med yttranden som är märkta med entiteter.
 
-[![Skärmbild av avsikten HomeAutomation.TurnOff](media/luis-quickstart-new-app/home-automation-turnon.png "Skärmbild av avsikten HomeAutomation.TurnOff")](media/luis-quickstart-new-app/home-automation-turnon.png)
+[![Skärmbild av avsikten HomeAutomation.TurnOff](media/luis-quickstart-new-app/home-automation-turnoff.png "Skärmbild av avsikten HomeAutomation.TurnOff")](media/luis-quickstart-new-app/home-automation-turnoff.png)
 
 ## <a name="train-the-luis-app"></a>Träna LUIS-appen
 
@@ -80,10 +80,14 @@ Turn off the lights
 
 Kontrollera att avsikten med högst poäng motsvarar den avsikt du förväntade dig för varje testyttrande.
 
-I den här exemplet identifieras ”Turn off the lights” (Släck lamporna) som avsikten med högst poäng, ”HomeAutomation.TurnOff”.
+I det här exemplet `Turn off the lights` identifieras korrekt som det främsta bedömnings syftet för **HomeAutomation. TurnOff**.
 
 [![Skärmbild av testpanelen med ett yttrande markerat](media/luis-quickstart-new-app/test.png "Skärmbild av testpanelen med ett yttrande markerat")](media/luis-quickstart-new-app/test.png)
 
+
+Välj **Granska** för att granska mer information om förutsägelsen.
+
+![Skärm bild av test panelen med uttryck markerat](media/luis-quickstart-new-app/review-test-inspection-pane-in-portal.png)
 
 Välj **Test** igen för att dölja testfönstret. 
 
@@ -93,14 +97,134 @@ Välj **Test** igen för att dölja testfönstret.
 
 [!INCLUDE [LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
-## <a name="query-the-endpoint-with-a-different-utterance"></a>Skicka fråga till slutpunkten med ett annat yttrande
+## <a name="query-the-v2-api-prediction-endpoint"></a>Fråga v2-API förutsägelse slut punkt
 
 1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)] 
 
-2. Gå till slutet av webbadressen, skriv `turn off the living room light` och tryck på Retur. I webbläsaren visas JSON-svaret för HTTP-slutpunkten.
+1. Gå till slutet av webbadressen, skriv `turn off the living room light` och tryck på Retur. Webbläsaren visar API-versionen **v2** för JSON-svaret på http-slutpunkten.
 
-    [![Skärmbild av en webbläsare med ett JSON-resultat som har identifierat avsikten TurnOff](media/luis-quickstart-new-app/turn-off-living-room.png "Skärmbild av en webbläsare med ett JSON-resultat som har identifierat avsikten TurnOff")](media/luis-quickstart-new-app/turn-off-living-room.png)
+    ```json
+    {
+      "query": "turn off the living room light",
+      "topScoringIntent": {
+        "intent": "HomeAutomation.TurnOff",
+        "score": 0.9753089
+      },
+      "intents": [
+        {
+          "intent": "HomeAutomation.TurnOff",
+          "score": 0.9753089
+        },
+        {
+          "intent": "HomeAutomation.QueryState",
+          "score": 0.01027893
+        },
+        {
+          "intent": "HomeAutomation.TurnUp",
+          "score": 0.006881481
+        },
+        {
+          "intent": "HomeAutomation.SetDevice",
+          "score": 0.006786365
+        },
+        {
+          "intent": "HomeAutomation.TurnDown",
+          "score": 0.005145787
+        },
+        {
+          "intent": "HomeAutomation.TurnOn",
+          "score": 0.004114749
+        },
+        {
+          "intent": "None",
+          "score": 0.000598924
+        }
+      ],
+      "entities": [
+        {
+          "entity": "living room",
+          "type": "HomeAutomation.Location",
+          "startIndex": 13,
+          "endIndex": 23,
+          "score": 0.94558233
+        },
+        {
+          "entity": "living room light",
+          "type": "HomeAutomation.DeviceName",
+          "startIndex": 13,
+          "endIndex": 29,
+          "resolution": {
+            "values": [
+              "living room light"
+            ]
+          }
+        },
+        {
+          "entity": "light",
+          "type": "HomeAutomation.DeviceType",
+          "startIndex": 25,
+          "endIndex": 29,
+          "resolution": {
+            "values": [
+              "light"
+            ]
+          }
+        }
+      ]
+    }
+    ```
     
+## <a name="query-the-v3-api-prediction-endpoint"></a>Fråga v3 API förutsägelse-slutpunkten
+
+För en [v3 API-fråga](luis-migration-api-v3.md)i webbläsaren ändrar du Get-metoden https-begäran och ändrar värdena inom vinkelparenteser för dina egna värden. 
+
+**V2-URL med get-metod**:
+
+https://\<region >. API. kognitiv. Microsoft. com/Luis/**v 2.0**/Apps/\<AppID >? verbose = True & prenumeration-Key =\<YOUR_KEY > &**q =\<User-uttryck-text >**
+
+**V3-URL med get-metod**:
+
+https://\<region >. API. kognitiv. Microsoft. com/Luis/**v 3.0 – Preview**/Apps/\<AppID >/**lots**/**Production**/**predict**? verbose = True & prenumerations nyckel =\<YOUR_KEY > &**query =\<User-uttryck-text >**
+
+Webbläsaren visar **v3 API** -versionen av JSON-svaret för http-slutpunkten.
+
+```json
+{
+    "query": "turn off the lights",
+    "prediction": {
+        "normalizedQuery": "turn off the lights",
+        "topIntent": "HomeAutomation.TurnOff",
+        "intents": {
+            "HomeAutomation.TurnOff": {
+                "score": 0.99649024
+            }
+        },
+        "entities": {
+            "HomeAutomation.DeviceType": [
+                [
+                    "light"
+                ]
+            ],
+            "$instance": {
+                "HomeAutomation.DeviceType": [
+                    {
+                        "type": "HomeAutomation.DeviceType",
+                        "text": "lights",
+                        "startIndex": 13,
+                        "length": 6,
+                        "modelTypeId": 5,
+                        "modelType": "List Entity Extractor",
+                        "recognitionSources": [
+                            "model"
+                        ]
+                    }
+                ]
+            }
+        }
+    }
+}
+```
+
 ## <a name="clean-up-resources"></a>Rensa resurser
 
 [!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]

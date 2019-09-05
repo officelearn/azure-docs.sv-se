@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: a3423635ab226693e0b3b057e2c2cb441861ea1b
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 9abe9eb9cdad6351f49fba2dace64095783455cf
+ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68839431"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70376005"
 ---
 # <a name="getting-started-with-azure-maps-android-sdk"></a>Komma igång med Azure Maps Android SDK
 
@@ -109,7 +109,18 @@ Nästa steg i att skapa ditt program är att installera Azure Maps Android SDK. 
     * Ange information om Azure Maps-autentisering
     * Hämta kart kontroll instansen i **onCreate** -metoden
 
-    Att ange autentiseringsinformation för AzureMaps-klassen globalt med setSubscriptionKey-eller setAadProperties-metoderna gör det så att du inte behöver lägga till autentiseringsinformation i alla vyer. Kart kontrollen innehåller sina egna livs cykel metoder för hantering av Android: s OpenGL-livscykel, som måste anropas direkt från den som innehåller aktiviteten. För att appen ska fungera korrekt ska du anropa kart kontrollens livs cykel metoder, du måste åsidosätta följande livs cykel metoder i aktiviteten som innehåller kart kontrollen och anropa respektive kart kontroll metod. 
+    Att ange autentiseringsinformation för `AzureMaps` klassen globalt med hjälp av `setSubscriptionKey` metoderna eller `setAadProperties` gör det så att du inte behöver lägga till autentiseringsinformation i alla vyer. 
+
+    Kart kontrollen innehåller sina egna livs cykel metoder för hantering av Android: s OpenGL-livscykel, som måste anropas direkt från den som innehåller aktiviteten. För att appen ska fungera korrekt ska du anropa kart kontrollens livs cykel metoder, du måste åsidosätta följande livs cykel metoder i aktiviteten som innehåller kart kontrollen och anropa respektive kart kontroll metod. 
+
+    * onCreate (paket) 
+    * onStart () 
+    * onResume() 
+    * onPause () 
+    * onStop () 
+    * onDestroy() 
+    * onSaveInstanceState (paket) 
+    * onLowMemory() 
 
     Redigera filen **MainActivity. java** enligt följande:
     
@@ -140,13 +151,24 @@ Nästa steg i att skapa ditt program är att installera Azure Maps Android SDK. 
             mapControl = findViewById(R.id.mapcontrol);
 
             mapControl.onCreate(savedInstanceState);
-
+    
+            //Wait until the map resources are ready.
+            mapControl.onReady(map -> {
+                //Add your post map load code here.
+    
+            });
         }
 
         @Override
         public void onResume() {
             super.onResume();
             mapControl.onResume();
+        }
+
+        @Override
+        protected void onStart(){
+            super.onStart();
+            mapControl.onStart();
         }
 
         @Override
@@ -178,7 +200,6 @@ Nästa steg i att skapa ditt program är att installera Azure Maps Android SDK. 
             super.onSaveInstanceState(outState);
             mapControl.onSaveInstanceState(outState);
         }
-
     }
 
     ```

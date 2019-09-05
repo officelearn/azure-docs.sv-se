@@ -5,20 +5,17 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 08/21/2019
-ms.openlocfilehash: 8cfda202e57dcee4f7a783de893fb712501dfd26
-ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
+ms.date: 09/04/2019
+ms.openlocfilehash: db2457cc3e320ac413cb245f51810b654c63aa22
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69992187"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70308981"
 ---
 # <a name="read-replicas-in-azure-database-for-mariadb"></a>Läs repliker i Azure Database for MariaDB
 
 Med funktionen Läs replik kan du replikera data från en Azure Database for MariaDB-server till en skrivskyddad Server. Du kan replikera från huvudservern till upp till fem repliker. Repliker uppdateras asynkront med MariaDB-motorns binära logg (BinLog)-baserad teknik för replikering med globalt transaktions-ID (GTID). Mer information om BinLog-replikering finns i [Översikt över BinLog-replikering](https://mariadb.com/kb/en/library/replication-overview/).
-
-> [!IMPORTANT]
-> Du kan skapa en Läs replik i samma region som din huvud server eller i valfri annan Azure-region som du väljer. Läs repliker (samma region och över region) finns för närvarande i offentlig för hands version.
 
 Repliker är nya servrar som du hanterar precis som vanliga Azure Database for MariaDB-servrar. För varje Läs replik debiteras du för den etablerade beräkningen i virtuella kärnor och lagring i GB/månad.
 
@@ -37,9 +34,6 @@ Funktionen Läs replik använder asynkron replikering. Funktionen är inte avsed
 
 ## <a name="cross-region-replication"></a>Replikering mellan regioner
 Du kan skapa en Läs replik i en annan region än huvud servern. Replikering mellan regioner kan vara användbart för scenarier som haveri beredskap planering eller för att hämta data närmare dina användare.
-
-> [!IMPORTANT]
-> Replikering mellan regioner är för närvarande en offentlig för hands version.
 
 Du kan ha en huvud server i valfri [Azure Database for MariaDB region](https://azure.microsoft.com/global-infrastructure/services/?products=mariadb).  En huvud server kan ha en replik i dess kopplade region eller Universal Replica-regioner.
 
@@ -79,7 +73,7 @@ När du skapar en replik ärver den inte brand Väggs reglerna eller slut punkte
 
 Repliken ärver administratörs kontot från huvud servern. Alla användar konton på huvud servern replikeras till läsa repliker. Du kan bara ansluta till en Läs replik med hjälp av de användar konton som är tillgängliga på huvud servern.
 
-Du kan ansluta till repliken med hjälp av dess värdnamn och ett giltigt användar konto, precis som på en vanlig Azure Database for MariaDB Server. För en server med namnet unreplica med administratörsanvändar namnet administratör kan du ansluta till repliken med hjälp av MySQL CLI:
+Du kan ansluta till repliken med hjälp av dess värdnamn och ett giltigt användar konto, precis som på en vanlig Azure Database for MariaDB Server. För en server med namnet **unreplica** med administratörs **användar namnet administratör kan**du ansluta till repliken med hjälp av MySQL CLI:
 
 ```bash
 mysql -h myreplica.mariadb.database.azure.com -u myadmin@myreplica -p

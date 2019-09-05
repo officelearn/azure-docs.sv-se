@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 07/29/2019
+ms.date: 09/05/2019
 ms.author: diberry
-ms.openlocfilehash: 7a2802bd4daa1a009c610688120c9a56583b054f
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 91ff99f674439580d369aad1490ded85d39d377c
+ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68639285"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70382882"
 ---
 # <a name="best-practices-for-building-a-language-understanding-app-with-cognitive-services"></a>Metodtips för att skapa en app med language understanding med Cognitive Services
 Använd redigerings processen för appar för att skapa LUIS-appen: 
@@ -84,7 +84,7 @@ När du förstår hur appen beter sig utan dessa kan du lägga till var och en a
 
 Det går inte att lägga till dem i början av din modell design, men det är enklare att se hur varje funktion ändrar resultatet när modellen har testats med yttranden. 
 
-Vi rekommenderar att du testar via [slut punkten](luis-get-started-create-app.md#query-the-endpoint-with-a-different-utterance) så att du får den extra fördelen med [aktiv inlärning](luis-concept-review-endpoint-utterances.md). Det [interaktiva test fönstret](luis-interactive-test.md) är också en giltig test metod. 
+Vi rekommenderar att du testar via [slut punkten](luis-get-started-create-app.md#query-the-v2-api-prediction-endpoint) så att du får den extra fördelen med [aktiv inlärning](luis-concept-review-endpoint-utterances.md). Det [interaktiva test fönstret](luis-interactive-test.md) är också en giltig test metod. 
  
 
 ### <a name="phrase-lists"></a>Fraslistor

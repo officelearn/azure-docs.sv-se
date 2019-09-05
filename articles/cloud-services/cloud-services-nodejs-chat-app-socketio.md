@@ -9,12 +9,12 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: gwallace
-ms.openlocfilehash: 251fd8ec3708ed154e12b0511be24eb776a48fbf
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: bbeaacd4c7028905e279dd5dc421414f4eafae54
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68359071"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70306765"
 ---
 # <a name="build-a-nodejs-chat-application-with-socketio-on-an-azure-cloud-service"></a>Bygg ett Node. js-chattprogram med Socket.IO på en moln tjänst i Azure
 
@@ -53,9 +53,9 @@ Följande steg skapar det moln tjänst projekt som ska vara värd för Socket.IO
     ![Resultatet av New-azureservice och Add-azurenodeworkerrolecmdlets](./media/cloud-services-nodejs-chat-app-socketio/socketio-1.png)
 
 ## <a name="download-the-chat-example"></a>Ladda ned chatt-exemplet
-För det här projektet kommer vi att använda chatt-exemplet från [Socket.IO GitHub-lagringsplats]-lagringsplatsen. Utför följande steg för att ladda ned exemplet och lägga till det i projektet som du skapade tidigare.
+För det här projektet kommer vi att använda chatt-exemplet från [Socket.IO GitHub-lagringsplats]. Utför följande steg för att ladda ned exemplet och lägga till det i projektet som du skapade tidigare.
 
-1. Skapa en lokal kopia av lagrings platsen med hjälp  av knappen klona. Du kan också använda **zip** -knappen för att ladda ned projektet.
+1. Skapa en lokal kopia av lagrings platsen med hjälp av knappen **klona** . Du kan också använda **zip** -knappen för att ladda ned projektet.
    
    ![Ett webbläsarfönster som https://github.com/LearnBoost/socket.io/tree/master/examples/chat visar att ikonen för hämtning av zip är markerad](./media/cloud-services-nodejs-chat-app-socketio/socketio-22.png)
 2. Navigera till katalog strukturen för den lokala lagrings platsen tills du kommer **till\\exempel chatt** -katalogen. Kopiera innehållet i den här katalogen till katalogen **C:\\Node\\ChatApp\\WorkerRole1** som skapades tidigare.
@@ -137,14 +137,14 @@ När du har sparat ändringarna i **Server. js**kan du använda följande steg f
 Ditt program körs nu på Azure och kan vidarebefordra chatt meddelanden mellan olika klienter med Socket.IO.
 
 > [!NOTE]
-> För enkelhetens skull är det här exemplet begränsat till att chatta mellan användare som är anslutna till samma instans. Det innebär att om moln tjänsten skapar två arbets Rolls instanser, kan användarna bara chatta med andra som är anslutna till samma arbets Rolls instans. Om du vill skala programmet så att det fungerar med flera roll instanser kan du använda en teknik som Service Bus för att dela Socket.IO Store-tillstånd över instanser. Exempel finns i Service Bus köer och ämnen användnings exempel i [Azure SDK för Node. js GitHub](https://github.com/WindowsAzure/azure-sdk-for-node)-lagringsplatsen.
+> För enkelhetens skull är det här exemplet begränsat till att chatta mellan användare som är anslutna till samma instans. Det innebär att om moln tjänsten skapar två arbets Rolls instanser, kan användarna bara chatta med andra som är anslutna till samma arbets Rolls instans. Om du vill skala programmet så att det fungerar med flera roll instanser kan du använda en teknik som Service Bus för att dela Socket.IO Store-tillstånd över instanser. Exempel finns i Service Bus köer och ämnen användnings exempel i [Azure SDK för Node. js GitHub-lagringsplatsen](https://github.com/WindowsAzure/azure-sdk-for-node).
 > 
 > 
 
 ## <a name="next-steps"></a>Nästa steg
 I den här självstudien har du lärt dig hur du skapar ett Basic chat-program som finns i en Azure-moln tjänst. Information om hur du kan vara värd för det här programmet på en Azure-webbplats finns i avsnittet [om att bygga ett Node. js-chatt-program med socket.io på en Azure-webbplats][chatwebsite].
 
-Mer information finns även i [Node. js Developer Center](https://docs.microsoft.com/javascript/azure/?view=azure-node-latest).
+Mer information finns även i [Node. js Developer Center](https://docs.microsoft.com/azure/javascript/).
 
 [chatwebsite]: https://docs.microsoft.com/azure/cloud-services/cloud-services-nodejs-develop-deploy-app
 

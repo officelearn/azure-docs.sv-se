@@ -1,5 +1,5 @@
 ---
-title: Vad är Azure AD Connect-administratören agenten – Azure AD Connect | Microsoft Docs
+title: Vad är Azure AD Connect admin-agenten – Azure AD Connect | Microsoft Docs
 description: Beskriver de verktyg som används för att synkronisera och övervaka din lokala miljö med Azure AD.
 services: active-directory
 author: billmath
@@ -7,55 +7,57 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 04/25/2019
+ms.date: 09/04/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 36ab3fff4294b4cda3d1554ef2761d3f4acaca35
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 222dab87ee71870e564e426d7466555893cc565b
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64687228"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70305202"
 ---
 # <a name="what-is-the-azure-ad-connect-admin-agent"></a>Vad är Azure Active Directory Connect-administratörsagenten? 
-Azure AD Connect Administration-agenten är en ny komponent i Azure Active Directory Connect som kan installeras på en Azure Active Directory Connect-server. Den används för att samla in specifika data från Active Directory-miljön som hjälper till att ett Microsoft-support-tekniker för att felsöka problem när du öppnar ett supportärende. 
+Azure AD Connect administrations agent är en ny komponent i Azure Active Directory Connect som kan installeras på en Azure Active Directory Connect-Server. Den används för att samla in specifika data från din Active Directory-miljö som hjälper en support tekniker från Microsoft att felsöka problem när du öppnar ett support ärende. 
 
 >[!NOTE]
->Admin-agenten är inte installerat och aktiverat som standard.  Du måste installera agenten för att samla in data som hjälper till med supportärenden.
+>Administratörs agenten är inte installerad och aktive rad som standard.  Du måste installera agenten för att kunna samla in data för att hjälpa till med support ärenden.
 
-När installeras, support den Azure AD Connect Administration agenten väntar för specifika begäranden för data från Azure Active Directory, hämtar den begärda informationen från miljön för synkronisering och skickar det till Azure Active Directory, där den visas på Microsoft tekniker. 
+När Azure AD Connect administrations agenten är installerad, väntar på vissa begär Anden för data från Azure Active Directory, hämtar begärda data från Sync-miljön och skickar dem till Azure Active Directory, där de presenteras för Microsoft Support tekniker. 
 
-Den information som Azure AD Connect Administration agenten hämtar från din miljö lagras inte på något sätt – det är bara visas för Microsoft-supporttekniker att hjälpa dem att undersöka och felsöka Azure Active Directory Connect relaterade support-ärende som du öppnade Azure AD Connect Administration-agenten installeras inte på den Azure AD Connect-servern som standard. 
+Den information som Azure AD Connect administrations agenten hämtar från din miljö lagras inte på något sätt – den visas bara för Microsoft Support-teknikern för att hjälpa dem att undersöka och felsöka Azure Active Directory Connect relaterat support ärende som du öppnade Azure AD Connect administrations agenten är inte installerad på Azure AD Connect servern som standard. 
 
-## <a name="install-the-azure-ad-connect-administration-agent-on-the-azure-ad-connect-server"></a>Installera Azure AD Connect Administration-agenten på Azure AD Connect-servern 
-Azure AD Connect Administration agenten binärfiler placeras i AAD Connect-servern. Om du vill installera agenten, gör du följande: 
+## <a name="install-the-azure-ad-connect-administration-agent-on-the-azure-ad-connect-server"></a>Installera Azure AD Connect administrations agent på Azure AD Connects Server 
 
+Krav:
+1.  Azure AD Connect är installerat på servern
+2.  Azure AD Connect Health är installerat på servern
 
+![administratörs agent](media/whatis-aadc-admin-agent/adminagent0.png)
 
-1. Öppna powershell i administratörsläge 
-2. Gå till den katalog där programmet är placerad cd ”C:\Program Files\Microsoft Azure Active Directory Connect\SetupFiles” 
-3. Kör programmet AADConnectAdminAgentSetup.exe 
- 
-När du uppmanas ange dina autentiseringsuppgifter för Azure AD-global administratör. 
+Binärfilerna för Azure AD Connect administrations agenten placeras i AAD Connect-servern. Installera agenten genom att göra följande:
 
->[!NOTE]
->Det finns ett känt problem där du uppmanas att dina autentiseringsuppgifter flera gånger. Detta kommer att åtgärdas i nästa version.
+1.  Öppna PowerShell i administratörs läge
+2.  Navigera till den katalog där programmet finns CD "C:\Program\Microsoft Azure Active Directory Connect\Tools"
+3.  Kör ConfigureAdminAgent. ps1
 
-När agenten har installerats, visas följande två nya program i listan ”Lägg till/ta bort program” i Kontrollpanelen på din server: 
+När du uppmanas anger du dina autentiseringsuppgifter som global administratör för Azure AD. Detta bör vara samma autentiseringsuppgifter som angavs under Azure AD Connect installationen.
 
-![Admin-agenten](media/whatis-aadc-admin-agent/adminagent1.png)
+När agenten har installerats visas följande två nya program i listan Lägg till/ta bort program på kontroll panelen på servern: 
 
-## <a name="what-data-in-my-sync-service-is-shown-to-the-microsoft-service-engineer"></a>Vilka data i mitt synkroniseringstjänsten visas till servicetekniker Microsoft? 
-När du öppnar ett supportärende kan Microsoft Support-tekniker för en viss användare, relevanta data i Active Directory, Active Directory-anslutarplatsen i Azure Active Directory Connect-server Se Azure Active Directory-anslutarplatsen i Azure Active Directory Connect-servern och metaversum i Azure Active Directory Connect-server. 
+![administratörs agent](media/whatis-aadc-admin-agent/adminagent1.png)
 
-Microsoft Support-tekniker kan inte ändra data i systemet och kan inte se eventuella lösenord. 
+## <a name="what-data-in-my-sync-service-is-shown-to-the-microsoft-service-engineer"></a>Vilka data i min Sync-tjänst visas för Microsoft Service Engineer? 
+När du öppnar ett support ärende kan Microsoft Support-teknikern se, för en specifik användare, relevanta data i Active Directory, Active Directory kopplings utrymmet i Azure Active Directory Connect-servern, Azure Active Directory kopplings utrymme i Azure Active Directory Anslut Server och metaversum i Azure Active Directory Connect-servern. 
 
-## <a name="what-if-i-dont-want-the-microsoft-support-engineer-to-access-my-data"></a>Vad händer om jag inte vill att Microsoft-supporttekniker att komma åt mina data? 
-När agenten har installerats, om du inte vill att Microsoft servicetekniker komma åt dina data för kundsupport, kan du inaktivera funktionen genom att ändra konfigurationsfilen för tjänsten enligt följande: 
+Microsoft Support-teknikern kan inte ändra data i systemet och kan inte se några lösen ord. 
 
-1.  Öppna **C:\Program Files\Microsoft Azure AD Connect Administration Agent\AzureADConnectAdministrationAgentService.exe.config** i anteckningar.
-2.  Inaktivera **UserDataEnabled** inställningen som visas nedan. Om **UserDataEnabled** inställningen finns och är inställd på true och inställd på false. Om inställningen inte finns, lägger du till inställningen som visas nedan.    
+## <a name="what-if-i-dont-want-the-microsoft-support-engineer-to-access-my-data"></a>Vad händer om jag inte vill att Microsoft Support-teknikern ska komma åt mina data? 
+Om du inte vill att Microsoft-teknikern ska komma åt dina data för ett support samtal när agenten har installerats kan du inaktivera funktionen genom att ändra tjänstens konfigurations fil enligt beskrivningen nedan: 
+
+1.  Öppna **C:\Program Files\Microsoft Azure AD Connect administration Agent\AzureADConnectAdministrationAgentService.exe.config** i anteckningar.
+2.  Inaktivera **UserDataEnabled** -inställningen enligt vad som visas nedan. Om **UserDataEnabled** -inställningen finns och har värdet true anger du den till false. Om inställningen inte finns lägger du till inställningen som visas nedan.    
 
     ```xml
     <appSettings>
@@ -64,10 +66,10 @@ När agenten har installerats, om du inte vill att Microsoft servicetekniker kom
     </appSettings>
     ```
 
-3.  Spara konfigurationsfilen.
-4.  Starta om tjänsten för Azure AD Connect Administration agenten enligt nedan
+3.  Spara konfigurations filen.
+4.  Starta om Azure AD Connect administrations agent tjänst enligt nedan
 
-![Admin-agenten](media/whatis-aadc-admin-agent/adminagent2.png)
+![administratörs agent](media/whatis-aadc-admin-agent/adminagent2.png)
 
 ## <a name="next-steps"></a>Nästa steg
 Läs mer om hur du [integrerar dina lokala identiteter med Azure Active Directory](whatis-hybrid-identity.md).

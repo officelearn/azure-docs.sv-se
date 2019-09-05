@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: overview
-ms.date: 05/07/2019
+ms.date: 09/03/2019
 ms.author: diberry
-ms.openlocfilehash: 99750971e11171c0b315cac38089c216d42c7ba6
-ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
+ms.openlocfilehash: 7e77a5a6891335139737ba3ef377c55b6694f043
+ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68663670"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70383392"
 ---
 # <a name="what-is-personalizer"></a>Vad är Personanpassning?
 
@@ -29,7 +29,7 @@ Personanpassning i Azure är en molnbaserad API-tjänst som gör det möjligt at
 
 ## <a name="how-does-personalizer-work"></a>Hur fungerar Personanpassare?
 
-I personanpassaren används maskin inlärnings modeller för att identifiera vilken åtgärd som ska rangordnas högst i en kontext. Klient programmet innehåller en lista över möjliga åtgärder, med information om dem. och information om kontexten, som kan innehålla information om användaren, enheten osv. Personanpassaren bestämmer vilken åtgärd som ska vidtas. När ditt klient program använder den valda åtgärden ger det feedback till Personanpassaren i form av en belönings poäng. När feedbacken har tagits emot uppdaterar Personanpassaren automatiskt sin egen modell som används för framtida rangordning.
+I personanpassaren används maskin inlärnings modeller för att identifiera vilken åtgärd som ska rangordnas högst i en kontext. Klient programmet innehåller en lista över möjliga åtgärder, med information om dem. och information om kontexten, som kan innehålla information om användaren, enheten osv. Personanpassaren bestämmer vilken åtgärd som ska vidtas. När ditt klient program använder den valda åtgärden ger det feedback till Personanpassaren i form av en belönings poäng. När feedbacken har tagits emot uppdaterar Personanpassaren automatiskt sin egen modell som används för framtida rangordning. Med tiden tränar vi en modell som kan föreslå den bästa åtgärden att välja i varje sammanhang baserat på deras funktioner.
 
 ## <a name="how-do-i-use-the-personalizer"></a>Hur gör jag för att använder du Personanpassaren?
 
@@ -53,6 +53,8 @@ Ditt klient program kan till exempel lägga till en Personanpassare till:
 * Välj ett svar för chatt-roboten för att klargöra användar avsikten eller föreslå en åtgärd.
 * Prioritera förslag på vad en användare ska göra som nästa steg i en affärs process.
 
+Personanpassaren är inte en tjänst för att spara och hantera information om användar profiler, eller för att logga enskilda användares inställningar eller historik. Personanpassaren lär sig allt från varje interaktions funktion i åtgärd a-kontexten en enskild modell som kan få högsta fördelar när liknande funktioner inträffar. 
+
 ## <a name="personalization-for-developers"></a>Anpassning för utvecklare
 
 Tjänsten för personliga tjänster har två API: er:
@@ -65,4 +67,8 @@ Tjänsten för personliga tjänster har två API: er:
 ## <a name="next-steps"></a>Nästa steg
 
 * [Snabbstart: Skapa en feedback-slinga iC#](csharp-quickstart-commandline-feedback-loop.md)
+* [Snabbstart: Skapa en feedback-slinga i Node. js](quickstart-command-line-feedback-loop-nodejs-sdk.md)
+* [Snabbstart: Skapa en feedback-slinga i python](python-quickstart-commandline-feedback-loop.md)
+* [Lär dig mer om funktioner och åtgärder för rang förfrågan](concepts-features.md)
+* [Läs om hur du avgör poängen för belönings förfrågan](concept-rewards.md)
 * [Använd den interaktiva demonstrationen](https://personalizationdemo.azurewebsites.net/)

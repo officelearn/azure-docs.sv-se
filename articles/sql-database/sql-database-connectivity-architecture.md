@@ -11,12 +11,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: carlrab, vanto
 ms.date: 07/02/2019
-ms.openlocfilehash: daa9937294cb3ffa594d83fbd56777bc8af8900a
-ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
+ms.openlocfilehash: 7f7eff0a8231d994a792ad20b02607c33db1833a
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69981467"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70306141"
 ---
 # <a name="azure-sql-connectivity-architecture"></a>Arkitektur för Azure SQL-anslutning
 
@@ -67,15 +67,15 @@ Information om hur trafiken ska migreras till nya gateways i vissa regioner finn
 | Australien, Central2   | 20.36.113.0 |
 | Östra Australien       | 13.75.149.87, 40.79.161.1 |
 | Sydöstra Australien | 191.239.192.109, 13.73.109.251 |
-| Södra Brasilien         | 104.41.11.5,191.233.200.14 |
+| Södra Brasilien         | 104.41.11.5, 191.233.200.14 |
 | Centrala Kanada       | 40.85.224.249      |
 | Östra Kanada          | 40.86.226.166      |
-| Centrala USA           | 13.67.215.62, 52.182.137.15 , 23.99.160.139, 104.208.16.96 | 
+| Centrala USA           | 13.67.215.62, 52.182.137.15, 23.99.160.139, 104.208.16.96 | 
 | Kina, östra           | 139.219.130.35     |
 | Kina, östra 2         | 40.73.82.1         |
 | Kina, norra          | 139.219.15.17      |
 | Kina, norra 2        | 40.73.50.0         |
-| Östasien            | 191.234.2.139, 52.175.33.150,13.75.32.4 |
+| Östasien            | 191.234.2.139, 52.175.33.150, 13.75.32.4 |
 | East US              | 40.121.158.30, 40.79.153.12, 191.238.6.43, 40.78.225.32 |
 | USA, östra 2            | 40.79.84.180, 52.177.185.181, 52.167.104.0, 191.239.224.107, 104.208.150.3 | 
 | Frankrike, centrala       | 40.79.137.0, 40.79.129.1 |
@@ -84,16 +84,16 @@ Information om hur trafiken ska migreras till nya gateways i vissa regioner finn
 | Centrala Indien        | 104.211.96.159     |
 | Södra Indien          | 104.211.224.146    |
 | Västra Indien           | 104.211.160.80     |
-| Östra Japan           | 13.78.61.196, 40.79.184.8, 13.78.106.224 , 191.237.240.43, 40.79.192.5 | 
-| Västra Japan           | 104.214.148.156, 40.74.100.192 | 191.238.68.11,40.74.97.10 | 
+| Östra Japan           | 13.78.61.196, 40.79.184.8, 13.78.106.224, 191.237.240.43, 40.79.192.5 | 
+| Västra Japan           | 104.214.148.156, 40.74.100.192, 191.238.68.11, 40.74.97.10 | 
 | Sydkorea, centrala        | 52.231.32.42       |
 | Sydkorea, södra          | 52.231.200.86      |
 | Norra centrala USA     | 23.96.178.199, 23.98.55.75, 52.162.104.33 |
 | Norra Europa         | 40.113.93.91, 191.235.193.75, 52.138.224.1 | 
 | Sydafrika, norra   | 102.133.152.0      |
 | Sydafrika, västra    | 102.133.24.0       |
-| Södra centrala USA     | 13.66.62.124 , 23.98.162.75, 104.214.16.32   | 
-| Sydostasien      | 104.43.15.0 , 23.100.117.95, 40.78.232.3   | 
+| Södra centrala USA     | 13.66.62.124, 23.98.162.75, 104.214.16.32   | 
+| Sydostasien      | 104.43.15.0, 23.100.117.95, 40.78.232.3   | 
 | Förenade Arabemiraten, centrala          | 20.37.72.64        |
 | Förenade Arabemiraten, norra            | 65.52.248.0        |
 | Storbritannien, södra             | 51.140.184.11      |
@@ -106,7 +106,7 @@ Information om hur trafiken ska migreras till nya gateways i vissa regioner finn
 
 ## <a name="change-azure-sql-database-connection-policy"></a>Ändra Azure SQL Database anslutnings princip
 
-Om du vill ändra Azure SQL Database anslutnings princip för en Azure SQL Database-Server använder [](https://docs.microsoft.com/cli/azure/sql/server/conn-policy) du kommandot för att ansluta.
+Om du vill ändra Azure SQL Database anslutnings princip för en Azure SQL Database-Server använder [du kommandot](https://docs.microsoft.com/cli/azure/sql/server/conn-policy) för att ansluta.
 
 - Om din anslutnings princip är inställd på `Proxy`, flödar alla nätverks paket via Azure SQL Database Gateway. För den här inställningen behöver du bara tillåta utgående till Azure SQL Database Gateway-IP. Om du använder en `Proxy` inställning med mer svars tid än `Redirect`inställningen.
 - Om din anslutnings princip ställs `Redirect`in flödar alla nätverks paket direkt till databas klustret. För den här inställningen måste du tillåta utgående till flera IP-adresser.

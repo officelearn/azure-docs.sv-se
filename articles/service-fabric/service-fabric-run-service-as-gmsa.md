@@ -1,6 +1,6 @@
 ---
-title: Köra ett Azure Service Fabric-tjänsten under ett gMSA-konto | Microsoft Docs
-description: Lär dig hur du kör en tjänst som ett gMSA på ett fristående Service Fabric Windows-kluster.
+title: Köra en Azure Service Fabric-tjänst under ett gMSA-konto | Microsoft Docs
+description: Lär dig hur du kör en tjänst som en gMSA i ett Service Fabric fristående Windows-kluster.
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
@@ -14,29 +14,29 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/29/2018
 ms.author: dekapur
-ms.openlocfilehash: 5c3781c2111fff7483a7fb65bd7b2e69c2011d18
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d00eceffebb222196191a389058c0feb496e169a
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60837750"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70307643"
 ---
 # <a name="run-a-service-as-a-group-managed-service-account"></a>Köra tjänster som grupphanterade tjänstkonton
-Du kan köra en tjänst som ett grupphanterat tjänstkonto (gMSA) med hjälp av en RunAs-princip på ett fristående kluster Windows Server.  Service Fabric-program körs under kontot som Fabric.exe processen körs under som standard. Köra program under olika konton, även i en delad miljö, gör dem säkrare från varandra. Observera att det använder Active Directory lokalt i din domän och inte Azure Active Directory (AD Azure). Genom att använda ett gMSA kan finns det inga lösenord eller ett krypterat lösenord som lagras i programmanifestet.  Du kan också köra en tjänst som en [Active Directory-användare eller grupp](service-fabric-run-service-as-ad-user-or-group.md).
+På ett fristående Windows Server-kluster kan du köra en tjänst som ett grupphanterat tjänst konto (gMSA) med hjälp av en RunAs-princip.  Som standard körs Service Fabric-program under det konto som Fabric. exe-processen körs under. Att köra program under olika konton, även i en delad värd miljö, gör dem säkrare från varandra. Observera att detta använder Active Directory lokalt i din domän och inte Azure Active Directory (Azure AD). Genom att använda en gMSA finns det inget lösen ord eller krypterat lösen ord som lagras i applikations manifestet.  Du kan också köra en tjänst som [Active Directory användare eller grupp](service-fabric-run-service-as-ad-user-or-group.md).
 
-I följande exempel visas hur du skapar en gMSA-konto med namnet *svc-Test$* ; distribuera det hanterade tjänstkontot till noderna i klustret; och hur du konfigurerar huvudanvändaren.
+I följande exempel visas hur du skapar ett gMSA-konto med namnet *SVC-test $* ; så här distribuerar du det hanterade tjänst kontot till klusternoderna. och hur du konfigurerar användarens huvud namn.
 
-Förutsättningar:
-- Domänen måste en KDS-rotnyckel.
-- Domänen måste vara på en Windows Server 2012 eller senare funktionsnivå.
+Krav:
+- Domänen behöver en KDS-rot nyckel.
+- Det måste finnas minst en DOMÄNKONTROLLANT med Windows Server 2012 (eller R2) i domänen.
 
-1. Be en administratör för Active Directory-domän som skapar en hanterad tjänst konto med den `New-ADServiceAccount` kommandot och se till att den `PrincipalsAllowedToRetrieveManagedPassword` innehåller alla service fabric-klusternoder. `AccountName`, `DnsHostName`, och `ServicePrincipalName` måste vara unikt.
+1. Be en Active Directory domän administratör skapa ett grupphanterat tjänst konto med `New-ADServiceAccount` hjälp av kommandot och se `PrincipalsAllowedToRetrieveManagedPassword` till att alla noder i Service Fabric-klusternoderna ingår. `AccountName`, `DnsHostName`, och `ServicePrincipalName` måste vara unika.
 
     ```powershell
     New-ADServiceAccount -name svc-Test$ -DnsHostName svc-test.contoso.com  -ServicePrincipalNames http/svc-test.contoso.com -PrincipalsAllowedToRetrieveManagedPassword SfNode0$,SfNode1$,SfNode2$,SfNode3$,SfNode4$
     ```
 
-2. På var och en av Service Fabric-klusternoder (till exempel `SfNode0$,SfNode1$,SfNode2$,SfNode3$,SfNode4$`), installera och testa gMSA.
+2. På var och en av Service Fabric klusternoder (till exempel `SfNode0$,SfNode1$,SfNode2$,SfNode3$,SfNode4$`) installerar och testar du gMSA.
     
     ```powershell
     Add-WindowsFeature RSAT-AD-PowerShell
@@ -44,7 +44,7 @@ Förutsättningar:
     Test-AdServiceAccount svc-Test$
     ```
 
-3. Konfigurera huvudanvändaren och konfigurera RunAsPolicy för att referera till användaren.
+3. Konfigurera användarens huvud namn och konfigurera runas policy så att den refererar till användaren.
     
     ```xml
     <?xml version="1.0" encoding="utf-8"?>
@@ -65,13 +65,13 @@ Förutsättningar:
     ```
 
 > [!NOTE] 
-> Om du tillämpa en RunAs-princip till en tjänst och tjänstmanifestet deklarerar endpoint-resurser med HTTP-protokollet, måste du ange en **SecurityAccessPolicy**.  Mer information finns i [tilldela en säkerhetsåtkomstprincip för HTTP och HTTPS-slutpunkterna](service-fabric-assign-policy-to-endpoint.md). 
+> Om du använder en RunAs-princip för en tjänst och tjänst manifestet deklarerar slut punkts resurser med HTTP-protokollet måste du ange en **SecurityAccessPolicy**.  Mer information finns i [tilldela en säkerhets åtkomst princip för HTTP-och https-slutpunkter](service-fabric-assign-policy-to-endpoint.md). 
 >
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
-Som ett nästa steg kan du läsa följande artiklar:
-* [Förstå programmodellen](service-fabric-application-model.md)
-* [Ange resurser i ett tjänstmanifest](service-fabric-service-manifest-resources.md)
+I nästa steg ska du läsa följande artiklar:
+* [Förstå program modellen](service-fabric-application-model.md)
+* [Ange resurser i ett tjänst manifest](service-fabric-service-manifest-resources.md)
 * [Distribuera ett program](service-fabric-deploy-remove-applications.md)
 
 [image1]: ./media/service-fabric-application-runas-security/copy-to-output.png

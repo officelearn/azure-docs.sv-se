@@ -9,12 +9,12 @@ ms.service: azure-functions
 ms.custom: mvc
 ms.devlang: python
 manager: gwallace
-ms.openlocfilehash: cb7f5a10169c8baaecae0fc1916a439d61bfbf7c
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: 98cb6d8eb665121e5991508056aa2fd9edc0629d
+ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70170883"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70376049"
 ---
 # <a name="create-an-http-triggered-function-in-azure"></a>Skapa en HTTP-utlöst funktion i Azure
 
@@ -38,7 +38,7 @@ Innan du börjar måste du ha följande:
 
 ## <a name="create-and-activate-a-virtual-environment-optional"></a>Skapa och aktivera en virtuell miljö (valfritt)
 
-För att lokalt utveckla och testa python-funktioner rekommenderar vi att du använder en python 3,6-miljö. Kör följande kommandon för att skapa och aktivera en virtuell miljö med namnet `.venv`.
+För att lokalt utveckla och testa python-funktioner rekommenderar vi att du använder en python 3,6-miljö. Kör följande kommandon för att skapa och aktivera en virtuell miljö med namnet `.venv`. Om du vill installera venv följer du kommandot: sudo apt-get install python3-venv
 
 ### <a name="bash"></a>Bash
 
@@ -86,7 +86,7 @@ Om du vill lägga till en funktion i projektet kör du följande kommando:
 func new
 ```
 
-Välj mallen för **http-** utlösare, Skriv `HttpTrigger` som namn på funktionen och tryck på RETUR.
+Välj mallen för **http-utlösare** , Skriv `HttpTrigger` som namn på funktionen och tryck på RETUR.
 
 En undermapp med namnet _HttpTrigger_ skapas, som innehåller följande filer:
 

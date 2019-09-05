@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 07/05/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 26fea4322df625b2e38028a3b7121fb41f2acf81
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.openlocfilehash: 5558eeb4012ac563388ad47df61114534e9859ed
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68311850"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70308347"
 ---
 # <a name="developing-with-media-services-v3-apis"></a>Utveckla med Media Services v3-API: er
 
@@ -76,6 +76,10 @@ Azure Media Services v3-resursnamn (till exempel tillgångar, jobb, transformeri
 Media Services resursnamn får inte innehålla: '<', '>', '%', '&', ':', '&#92;', '?', '/', '*', '+', '.', apostrof eller några andra kontrolltecken. Alla andra tecken tillåts. Maxlängden för ett resursnamn är 260 tecken. 
 
 Mer information om namngivning av Azure Resource Manager finns i: [Namngivningskrav](https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/resource-api-reference.md#arguments-for-crud-on-resource) och [Namngivningskonventioner](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).
+
+### <a name="names-of-filesblobs-within-an-asset"></a>Namn på filer/blobbar i en till gång
+
+Namnen på filer/blobbar i en till gång måste följa både BLOB- [namnets krav](https://docs.microsoft.com/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata) och [kraven för NTFS-namn](https://docs.microsoft.com/windows/win32/fileio/naming-a-file). Orsaken till dessa krav är att filerna kan kopieras från Blob Storage till en lokal NTFS-disk för bearbetning.
 
 ## <a name="long-running-operations"></a>Tids krävande åtgärder
 

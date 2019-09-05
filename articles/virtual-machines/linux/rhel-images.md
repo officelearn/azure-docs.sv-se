@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 8/14/2019
 ms.author: borisb
-ms.openlocfilehash: e18f1db80b8fcb2c8846ce0c7294e1766cfa1ca3
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: accc59ee31ddb7371774da3235cc9ccff24ad641
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70091385"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70309232"
 ---
 # <a name="red-hat-enterprise-linux-images-in-azure"></a>Red Hat Enterprise Linux avbildningar i Azure
 I den här artikeln beskrivs tillgängliga Red Hat Enterprise Linux-avbildningar (RHEL) på Azure Marketplace tillsammans med principer kring namngivning och kvarhållning.
@@ -25,7 +25,7 @@ I den här artikeln beskrivs tillgängliga Red Hat Enterprise Linux-avbildningar
 Information om Red Hat support-principer för alla versioner av RHEL finns på sidan [Red Hat Enterprise Linux livs cykel](https://access.redhat.com/support/policy/updates/errata) .
 
 >[!Important]
-> RHEL-avbildningar som för närvarande är tillgängliga i Azure Marketplace stöder antingen BYOS-(Your-Your-Subscription-) eller licens modeller enligt principen betala per användning (PAYG). [Azure Hybrid Use](../windows/hybrid-use-benefit-licensing.md) -förmånen och dynamisk växling mellan BYOS och PAYG stöds inte. Växling av licens läge kräver omdistribution av den virtuella datorn från motsvarande avbildning.
+> RHEL-avbildningar som för närvarande är tillgängliga i Azure Marketplace stöder antingen BYOS-(Your-Your-Subscription-) eller licens modeller enligt principen betala per användning (PAYG). [Azure Hybrid Use-förmånen](../windows/hybrid-use-benefit-licensing.md) och dynamisk växling mellan BYOS och PAYG stöds inte. Växling av licens läge kräver omdistribution av den virtuella datorn från motsvarande avbildning.
 
 >[!Note]
 > För eventuella problem som rör RHEL-avbildningar i Azure Marketplace-galleriet kan du skicka ett support ärende till Microsoft.
@@ -133,12 +133,12 @@ RHEL – SAP-HANA | 6.7      | RAW    | Linux-agent | RHEL 6,7 för SAP HANA
 |             | 7.3      | LVM    | Linux-agent | RHEL 7,3 för SAP HANA
 RHEL-SAP-APPS | 6.8      | RAW    | Linux-agent | RHEL 6,8 för SAP Business Applications
 |             | 7.3      | LVM    | Linux-agent | RHEL 7,3 för SAP Business Applications
-RHEL-HA       | 7.4      | RAW    | Linux-agent | RHEL 7,4 med HA-tillägget
-|             | 7.5      | RAW    | Linux-agent | RHEL 7,5 med HA-tillägget
-|             | 7,6      | RAW    | Linux-agent | RHEL 7,6 med HA-tillägget
-RHEL – SAP-HA   | 7.4      | RAW    | Linux-agent | RHEL 7,4 för SAP med HA-tillägget
-|             | 7.5      | RAW    | Linux-agent | RHEL 7,5 för SAP med HA-tillägget
-|             | 7,6      | RAW    | Linux-agent | RHEL 7,6 för SAP med HA-tillägget
+RHEL-HA       | 7.4      | LVM    | Linux-agent | RHEL 7,4 med HA-tillägget
+|             | 7.5      | LVM    | Linux-agent | RHEL 7,5 med HA-tillägget
+|             | 7,6      | LVM    | Linux-agent | RHEL 7,6 med HA-tillägget
+RHEL – SAP-HA   | 7.4      | LVM    | Linux-agent | RHEL 7,4 för SAP med HA-tillägget
+|             | 7.5      | LVM    | Linux-agent | RHEL 7,5 för SAP med HA-tillägget
+|             | 7,6      | LVM    | Linux-agent | RHEL 7,6 för SAP med HA-tillägget
 
 ### <a name="old-naming-convention"></a>Gammal namngivnings konvention
 RHEL 7-serien med avbildningar och RHEL 6-serien med bilder som använder vissa versioner i SKU: er fram till dess att namngivnings konventionens ändring förklaras ovan.

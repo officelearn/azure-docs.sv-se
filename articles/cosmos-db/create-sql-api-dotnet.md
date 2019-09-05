@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 07/12/2019
-ms.openlocfilehash: cbf039a932c16269f703818e9f0ffef4ce852686
-ms.sourcegitcommit: 3f78a6ffee0b83788d554959db7efc5d00130376
+ms.openlocfilehash: 72e46ca55193bf79971818665a77be49ca5243e1
+ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70018743"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70382873"
 ---
 # <a name="quickstart-build-a-net-console-app-to-manage-azure-cosmos-db-sql-api-resources"></a>Snabbstart: Bygg en .NET-konsol-app för att hantera Azure Cosmos DB SQL API-resurser
 
@@ -40,7 +40,6 @@ Azure Cosmos DB är Microsofts globalt distribuerade databastjänst för flera d
 
 * Azure-prenumeration – [skapa en kostnads fri](https://azure.microsoft.com/free/) eller [prova Azure Cosmos DB kostnads fritt](https://azure.microsoft.com/try/cosmosdb/) utan en Azure-prenumeration, utan kostnad och åtaganden. 
 * [.Net Core 2,1 SDK eller senare](https://dotnet.microsoft.com/download/dotnet-core/2.1).
-* [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest)
 
 ## <a name="setting-up"></a>Konfigurera
 
@@ -48,16 +47,22 @@ Det här avsnittet beskriver hur du skapar ett Azure Cosmos-konto och konfigurer
 
 ### <a id="create-account"></a>Skapa ett Azure Cosmos-konto
 
-Följande kod skapar ett Azure Cosmos-konto med konsekvens i sessionen. Kontot replikeras i `South Central US` och `North Central US`. Välj knappen **testa** och klistra in koden för att köra den i Azure Cloud Shell. 
+Om du använder alternativet [prova Azure Cosmos dB för kostnads fri](https://azure.microsoft.com/try/cosmosdb/) för att skapa ett Azure Cosmos-konto måste du skapa ett Azure Cosmos DB konto av typen **SQL API**. Ett Azure Cosmos DB test konto har redan skapats åt dig. Du behöver inte skapa kontot explicit, så du kan hoppa över det här avsnittet och gå vidare till nästa avsnitt.
+
+Om du har en egen Azure-prenumeration eller skapat en prenumeration kostnads fritt bör du skapa ett Azure Cosmos-konto explicit. Följande kod skapar ett Azure Cosmos-konto med konsekvens i sessionen. Kontot replikeras i `South Central US` och `North Central US`.  
+
+Du kan använda Azure Cloud Shell för att skapa ett Azure Cosmos-konto. Azure Cloud Shell är ett interaktivt, autentiserat, webb läsar tillgängligt gränssnitt för att hantera Azure-resurser. Det ger dig flexibiliteten att välja den skal upplevelse som passar bäst för det sätt du arbetar, antingen bash eller PowerShell. I den här snabb starten väljer du **bash** läge. Azure Cloud Shell kräver också ett lagrings konto, så du kan skapa ett när du uppmanas till det.
+
+Välj knappen **prova** bredvid följande kod och välj **bash** läge Välj **skapa ett lagrings konto** och logga in på Cloud Shell. Nästa kopiera och klistra in följande kod i Azure Cloud Shell och kör den. Namnet på Azure Cosmos-kontot måste vara globalt unikt, se till att uppdatera `mysqlapicosmosdb` värdet innan du kör kommandot.
 
 ```azurecli-interactive
 
 # Set variables for the new SQL API account, database, and container
 resourceGroupName='myResourceGroup'
 location='southcentralus'
-accountName='mysqlapicosmosdb' 
-databaseName='FamilyDatabase'
-containerName='FamilyContainer'
+
+# The Azure Cosmos account name must be globally unique, make sure to update the `mysqlapicosmosdb` value before you run the command
+accountName='mysqlapicosmosdb'
 
 # Create a resource group
 az group create \
@@ -75,9 +80,11 @@ az cosmosdb create \
 
 ```
 
+Det tar en stund att skapa ett Azure Cosmos-konto när åtgärden har slutförts. du kan se bekräftelse resultatet. När kommandot har slutförts loggar du in på [Azure Portal](https://portal.azure.com/) och kontrollerar att Azure Cosmos-kontot med det angivna namnet finns. Du kan stänga Azure Cloud Shells fönstret när resursen har skapats. 
+
 ### <a id="create-dotnet-core-app"></a>Skapa en ny .NET-app
 
-Skapa ett nytt .NET-program i önskat redigerings program eller IDE. I ett konsol fönster kör du följande dotNet-kommando för att skapa en ny app med namnet `todo`.
+Skapa ett nytt .NET-program i önskat redigerings program eller IDE. Öppna kommando tolken i Windows eller ett terminalfönster från den lokala datorn. Du kommer att köra alla kommandon i nästa avsnitt från kommando tolken eller terminalen.  Kör följande dotNet New-kommando för att skapa en ny app med namnet `todo`. Parametern--langVersion anger egenskapen LangVersion i den skapade projekt filen.
 
 ```console
 dotnet new console --langVersion 7.1 -n todo
@@ -118,7 +125,7 @@ Exempel programmet måste autentisera till ditt Azure Cosmos-konto. För att aut
 
 1. Logga in på [Azure Portal](https://portal.azure.com/).
 
-1. Navigera till ditt Azure Cosmos-konto. 
+1. Navigera till ditt Azure Cosmos-konto.
 
 1. Öppna rutan **nycklar** och kopiera **URI: n** och **primär nyckeln** för ditt konto. Du lägger till värdena URI och nycklar i en miljö variabel i nästa steg.
 
@@ -136,15 +143,15 @@ setx PrimaryKey "<Your_Azure_Cosmos_account_PRIMARY_KEY>"
 **Linux**
 
 ```bash
-export EndpointUrl "<Your_Azure_Cosmos_account_URI>"
-export PrimaryKey "<Your_Azure_Cosmos_account_PRIMARY_KEY>"
+export EndpointUrl = "<Your_Azure_Cosmos_account_URI>"
+export PrimaryKey = "<Your_Azure_Cosmos_account_PRIMARY_KEY>"
 ```
 
 **MacOS**
 
 ```bash
-export EndpointUrl "<Your_Azure_Cosmos_account_URI>"
-export PrimaryKey "<Your_Azure_Cosmos_account_PRIMARY_KEY>"
+export EndpointUrl = "<Your_Azure_Cosmos_account_URI>"
+export PrimaryKey = "<Your_Azure_Cosmos_account_PRIMARY_KEY>"
 ```
 
  ## <a id="object-model"></a>Objekt modell
@@ -240,7 +247,7 @@ using System.Net;
 using Microsoft.Azure.Cosmos;
 ```
 
-`program.cs file`Till lägger du till kod för att läsa de miljövariabler som du har angett i föregående steg. Definiera objekten, `Database`och. `CosmosClient` `Container` Lägg till kod till main-metoden som anropar `GetStartedDemoAsync` metoden där du hanterar Azure Cosmos Account-resurser. 
+I **program.cs** -filen lägger du till kod för att läsa de miljövariabler som du har angett i föregående steg. Definiera objekten, `Database`och. `CosmosClient` `Container` Lägg till kod till main-metoden som anropar `GetStartedDemoAsync` metoden där du hanterar Azure Cosmos Account-resurser. 
 
 ```csharp
 namespace todo
@@ -355,7 +362,7 @@ private async Task AddItemsToContainerAsync()
         },
         Address = new Address { State = "WA", County = "King", City = "Seattle" },
         IsRegistered = false
- };
+    };
 
 try
 {
@@ -370,6 +377,7 @@ catch(CosmosException ex) when (ex.StatusCode == HttpStatusCode.NotFound)
 
     // Note that after creating the item, we can access the body of the item with the Resource property off the ItemResponse. We can also access the RequestCharge property to see the amount of RUs consumed on this request.
     Console.WriteLine("Created item in database with id: {0} Operation consumed {1} RUs.\n", andersenFamilyResponse.Resource.Id, andersenFamilyResponse.RequestCharge);
+}
 }
 
 ```
@@ -429,14 +437,11 @@ När du har definierat alla metoder som krävs kör du dem med i `GetStartedDemo
 public async Task GetStartedDemoAsync()
 {
     // Create a new instance of the Cosmos Client
-    this.cosmosClient = new CosmosClient(EndpointUri, PrimaryKey);
+    this.cosmosClient = new CosmosClient(EndpointUrl, PrimaryKey);
     await this.CreateDatabaseAsync();
     await this.CreateContainerAsync();
     await this.AddItemsToContainerAsync();
     await this.QueryItemsAsync();
-    await this.ReplaceFamilyItemAsync();
-    await this.DeleteFamilyItemAsync();
-    //await this.DeleteDatabaseAndCleanupAsync();
 }
 ```
 
@@ -477,7 +482,7 @@ Du kan verifiera att data har skapats genom att logga in på Azure Portal och se
 När det inte längre behövs kan du använda Azure CLI eller Azure PowerShell för att ta bort Azure Cosmos-kontot och motsvarande resurs grupp. Följande kommando visar hur du tar bort resurs gruppen med hjälp av Azure CLI:
 
 ```azurecli
-az group delete -g "myResourceGroup" -l "southcentralus"
+az group delete -g "myResourceGroup"
 ```
 
 ## <a name="next-steps"></a>Nästa steg

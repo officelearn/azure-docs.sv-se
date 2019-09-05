@@ -8,14 +8,14 @@ ms.author: dobett
 ms.date: 08/23/2019
 ms.topic: conceptual
 manager: philmea
-ms.openlocfilehash: 4d20256381eab155d4b7532591cea85e43080ec0
-ms.sourcegitcommit: 80dff35a6ded18fa15bba633bf5b768aa2284fa8
+ms.openlocfilehash: d7c538bd98b3924b422a93bc67cac405a6e4b7af
+ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70019805"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70383127"
 ---
-# <a name="as-a-csp-create-and-manage-an-azure-iot-central-application-on-behalf-of-your-customer"></a>Skapa och hantera ett Azure IoT Central-program åt kunden som CSP 
+# <a name="as-a-csp-create-and-manage-an-azure-iot-central-application-on-behalf-of-your-customer"></a>Skapa och hantera ett Azure IoT Central-program åt kunden som CSP
 
 CSP-programmet (Microsoft Cloud Solution Provider) är ett Microsoft-program för åter försäljare. Avsikten är att tillhandahålla våra kanal partner med ett program som gör att du kan sälja alla Microsofts kommersiella online tjänster. Läs mer om [Cloud Solution Provider-programmet](https://partner.microsoft.com/cloud-solution-provider).
 
@@ -67,11 +67,14 @@ Med en Azure-prenumeration kan du skapa instanser av Azure-tjänster. Azure IoT 
 
 Om du inte har någon Azure-prenumeration kan du skapa en i Microsoft Partner Center. När du har skapat Azure-prenumerationen kan du gå tillbaka till sidan **Skapa program**. Din nya prenumeration visas i listrutan **Azure-prenumeration**.
 
-Mer information finns i [Azure](https://docs.microsoft.com/azure/guides/developer/azure-developer-guide#understanding-accounts-subscriptions-and-billing)-prenumerationer.
+Mer information finns i [Azure-prenumerationer](https://docs.microsoft.com/azure/guides/developer/azure-developer-guide#understanding-accounts-subscriptions-and-billing).
 
 ## <a name="region"></a>Region
 
 Välj den region där du vill skapa ett Azure IoT Central-program. Normalt bör du välja den region som är närmast fysiskt till dina enheter för att få optimala prestanda.
+
+> [!NOTE]
+> För **hands versions** mal len är för närvarande endast tillgänglig i regionerna **Nord Europa** och **centrala USA** .
 
 Mer information finns i [Azure-regioner](https://docs.microsoft.com/azure/guides/developer/azure-developer-guide#azure-regions).
 

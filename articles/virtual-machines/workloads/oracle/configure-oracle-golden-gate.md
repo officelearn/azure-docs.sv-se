@@ -14,18 +14,18 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: rogirdh
-ms.openlocfilehash: 40eaabb149e2e897ecd4e1109e0db7c42b990925
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 31137bba8c9b6b88c6a8b9569c02ae887e73e8d0
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70101547"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70309593"
 ---
 # <a name="implement-oracle-golden-gate-on-an-azure-linux-vm"></a>Implementera den gyllene Oracle-porten på en virtuell Azure Linux-dator 
 
 Azure CLI används för att skapa och hantera Azure-resurser från kommandoraden eller i skript. Den här guiden beskriver hur du använder Azure CLI för att distribuera en Oracle 12C-databas från Azure Marketplace Gallery-avbildningen. 
 
-Det här dokumentet beskriver steg för steg hur du skapar, installerar och konfigurerar Oracle gyllene-grind på en virtuell Azure-dator.
+Det här dokumentet beskriver steg för steg hur du skapar, installerar och konfigurerar Oracle gyllene-grind på en virtuell Azure-dator. I den här självstudien installeras två virtuella datorer i en tillgänglighets uppsättning i en enda region. Samma självstudie kan användas för att konfigurera OracleGolden-grind för virtuella datorer i olika Tillgänglighetszoner i en enda Azure-region eller för installation av virtuella datorer i två olika regioner.
 
 Kontrollera att Azure CLI har installerats innan du börjar. Mer information finns i [installationsguiden för Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
@@ -347,7 +347,7 @@ SQL> EXIT;
 ### <a name="download-golden-gate-software"></a>Hämta program vara från gyllene grind
 Slutför följande steg för att ladda ned och förbereda Oracle-programmet för den gyllene porten:
 
-1. Hämta filen **fbo_ggs_Linux_x64_shiphome. zip** från nedladdnings [sidan för Oracle gyllene grind](https://www.oracle.com/technetwork/middleware/goldengate/downloads/index.html). Under nedladdnings rubriken **Oracle GoldenGate 12. x. x för Oracle Linux x86-64**, bör det finnas en uppsättning. zip-filer att ladda ned.
+1. Hämta filen **fbo_ggs_Linux_x64_shiphome. zip** från [nedladdnings sidan för Oracle gyllene grind](https://www.oracle.com/technetwork/middleware/goldengate/downloads/index.html). Under nedladdnings rubriken **Oracle GoldenGate 12. x. x för Oracle Linux x86-64**, bör det finnas en uppsättning. zip-filer att ladda ned.
 
 2. När du har hämtat zip-filerna till klient datorn använder du Secure Copy Protocol (SCP) för att kopiera filerna till den virtuella datorn:
 

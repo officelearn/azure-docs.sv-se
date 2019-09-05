@@ -16,12 +16,12 @@ ms.date: 08/19/2019
 ms.author: negoe
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 77a2e571b76044ff9114f6671b187118cf03c0ba
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: fe3ad29cfd113deba5824ce25721dc543c6267c0
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70135816"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70305056"
 ---
 # <a name="handling-exceptions-and-errors-using-msal"></a>Hantera undantag och fel med MSAL
 Undantag i Microsoft Authentication Library (MSAL) är avsedda för att utvecklare av appar ska kunna felsöka och inte Visa för slutanvändare. Undantags meddelanden är inte lokaliserade.
@@ -149,7 +149,7 @@ Mönstret för att hantera det här felet är att interaktivt hämta en token me
 I vissa fall när du anropar ett API som kräver villkorlig åtkomst kan du få en anspråks utmaning i fel meddelandet från API: et. Om principen för villkorlig åtkomst till exempel är att ha en hanterad enhet (Intune), kommer felet att vara [något som AADSTS53000: Enheten måste hanteras för att få åtkomst till den här resursen](reference-aadsts-error-codes.md) eller något liknande. I det här fallet kan du skicka anspråken i det Hämta token-anropet så att användaren uppmanas att uppfylla den aktuella principen.
 
 ### <a name="net"></a>.NET
-När du anropar ett API som kräver villkorlig åtkomst från MSAL.NET måste ditt program hantera anspråks utmanings undantag. Detta visas som en [MsalServiceException](/dotnet/api/microsoft.identity.client.msalserviceexception?view=azure-dotnet) där anspråks egenskapen inte är tom. [](/dotnet/api/microsoft.identity.client.msalserviceexception.claims?view=azure-dotnet)
+När du anropar ett API som kräver villkorlig åtkomst från MSAL.NET måste ditt program hantera anspråks utmanings undantag. Detta visas som en [MsalServiceException](/dotnet/api/microsoft.identity.client.msalserviceexception?view=azure-dotnet) där [anspråks](/dotnet/api/microsoft.identity.client.msalserviceexception.claims?view=azure-dotnet) egenskapen inte är tom.
 
 För att hantera anspråks utmaningen måste du använda `.WithClaim()` metoden `PublicClientApplicationBuilder` i klassen.
 
@@ -179,7 +179,7 @@ Att interaktivt förvärva token frågar användaren och ger dem möjlighet att 
 
 När du anropar ett API som kräver villkorlig åtkomst kan du få en anspråks utmaning i fel meddelandet från API: et. I det här fallet kan du skicka de anspråk som returneras i fel till `claimsRequest` fältet `AuthenticationParameters.ts` i klassen för att uppfylla den aktuella principen. 
 
-Mer information finns i [begära ytterligare anspråk]() .
+Mer information finns i [begära ytterligare anspråk](active-directory-optional-claims.md) .
 
 ## <a name="retrying-after-errors-and-exceptions"></a>Försöker igen efter fel och undantag
 

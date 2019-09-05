@@ -7,12 +7,12 @@ ms.reviewer: michazag
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 4/29/2019
-ms.openlocfilehash: 0fe81926327bcccac56718cc0d06e336e1af17fe
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: 6a95cbad161906bd12a608880ac694d6bdf1ed27
+ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70165094"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70383051"
 ---
 # <a name="azure-data-explorer-connector-for-apache-spark-preview"></a>Azure Datautforskaren Connector för Apache Spark (för hands version)
 
@@ -21,7 +21,7 @@ ms.locfileid: "70165094"
 Azure Datautforskaren Connector för Spark implementerar data källa och data mottagare för att flytta data mellan Azure Datautforskaren och Spark-kluster för att använda båda funktionerna. Med Azure Datautforskaren och Apache Spark kan du bygga snabba och skalbara program som riktar sig mot data drivna scenarier, till exempel Machine Learning (ML), Extract-Transform-load (ETL) och Log Analytics. Skrivning till Azure-Datautforskaren kan göras i batch-och strömnings läge.
 Läsning från Azure Datautforskaren stöder kolumn rensning och predikat mottagnings, vilket minskar mängden överförda data genom att filtrera bort data i Azure Datautforskaren.
 
-Azure Datautforskaren Spark Connector är ett [projekt med öppen källkod](https://github.com/Azure/azure-kusto-spark) som kan köras på alla Spark-kluster.
+Azure Datautforskaren Spark Connector är ett [projekt med öppen källkod](https://github.com/Azure/azure-kusto-spark) som kan köras på alla Spark-kluster. Azure Datautforskaren Spark-anslutaren gör Azure Datautforskaren ett giltigt data lager för standard Spark-källa och mottagar åtgärder som Skriv-, Läs-och writeStream. 
 
 > [!NOTE]
 > Även om några av exemplen nedan refererar till ett [Azure Databricks](https://docs.azuredatabricks.net/) Spark-kluster, tar Azure datautforskaren Spark-anslutaren inte direkta beroenden för Databricks eller någon annan Spark-distribution.
@@ -30,7 +30,7 @@ Azure Datautforskaren Spark Connector är ett [projekt med öppen källkod](http
 
 * [Skapa ett Azure Datautforskaren-kluster och-databas](/azure/data-explorer/create-cluster-database-portal) 
 * Skapa ett Spark-kluster
-* Installera Azure Datautforskaren Connector-biblioteket och bibliotek som visas [](https://github.com/Azure/azure-kusto-spark#dependencies) i beroenden, inklusive följande [Kusto Java SDK](/azure/kusto/api/java/kusto-java-client-library) -bibliotek:
+* Installera Azure Datautforskaren Connector-biblioteket och bibliotek som visas i [beroenden](https://github.com/Azure/azure-kusto-spark#dependencies) , inklusive följande [Kusto Java SDK](/azure/kusto/api/java/kusto-java-client-library) -bibliotek:
     * [Kusto data klient](https://mvnrepository.com/artifact/com.microsoft.azure.kusto/kusto-data)
     * [Kusto-klient](https://mvnrepository.com/artifact/com.microsoft.azure.kusto/kusto-ingest)
 * Färdiga bibliotek för [Spark 2,4, Scala 2,11](https://github.com/Azure/azure-kusto-spark/releases)
@@ -119,8 +119,8 @@ Den enklaste och vanliga autentiseringsmetoden. Den här metoden rekommenderas f
 
 Följande behörigheter måste beviljas i ett Azure Datautforskaren-kluster:
 
-* För läsning (data källa) måste Azure AD-programmet ha *visnings* privilegier för mål databasen eller administratörs behörighet för mål tabellen.
-* För att skriva (data mottagare) måste Azure AD-programmet ha inmatnings behörigheter för mål databasen. Det måste också ha *användar* behörighet på mål databasen för att skapa nya tabeller. Om mål tabellen redan finns kan *Administratörs* behörighet för mål tabellen konfigureras.
+* För läsning (data källa) måste Azure AD-programmet ha *visnings* privilegier för mål databasen eller *Administratörs* behörighet för mål tabellen.
+* För att skriva (data mottagare) måste Azure AD-programmet *ha* inmatnings behörigheter för mål databasen. Det måste också ha *användar* behörighet på mål databasen för att skapa nya tabeller. Om mål tabellen redan finns kan *Administratörs* behörighet för mål tabellen konfigureras.
  
 Mer information om Azure Datautforskaren huvud roller finns i [rollbaserad auktorisering](/azure/kusto/management/access-control/role-based-authorization). Information om hur du hanterar säkerhets roller finns i [hantering av säkerhets roller](/azure/kusto/management/security-roles).
 

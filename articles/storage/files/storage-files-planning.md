@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 7591cefddd6e7217c885293a2f5c878d7a82e158
-ms.sourcegitcommit: df7942ba1f28903ff7bef640ecef894e95f7f335
+ms.openlocfilehash: aa81f181c8d062e5fd68b0fbb2445f5c37540889
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69015932"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70309572"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planera för distribution av Azure Files
 
@@ -114,7 +114,7 @@ Resurser måste tillhandahållas i steg om 1 GiB. Minimi storleken är 100 GiB, 
 >
 > ingress-taxa = 40 MiB/s + 0,04 * etablerad GiB
 
-Du kan öka resurs storleken när som helst, men den kan bara minskas efter 24 timmar sedan den senaste ökningen. Efter att ha väntat i 24 timmar utan en storleks ökning kan du minska resurs storleken så många gånger du vill, tills du ökar den igen. Ändringar av IOPS/data flödes skalning börjar gälla inom några minuter efter att storleken ändrats.
+En etablerad resurs storlek anges av resurs kvoten. Du kan öka resurs kvoten när som helst, men den kan bara minskas efter 24 timmar sedan den senaste ökningen. Efter att ha väntat 24 timmar utan en kvot ökning kan du minska delnings kvoten så många gånger du vill, tills du ökar den igen. Ändringar av IOPS/data flödes skalning börjar gälla inom några minuter efter att storleken ändrats.
 
 Det går att minska storleken på den allokerade resursen under den använda GiB. Om du gör detta kommer du inte att förlora data, men du kommer fortfarande att faktureras för den storlek som används och ta emot prestanda (bas linje, data flöde och burst-IOPS) för den etablerade resursen, inte den storlek som används.
 

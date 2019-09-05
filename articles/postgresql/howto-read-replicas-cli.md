@@ -5,20 +5,17 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 08/21/2019
-ms.openlocfilehash: 63a8acad3c393a4c4d9c6a3b6750f1f934dad43d
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.date: 09/04/2019
+ms.openlocfilehash: 5946c74d0075e04112e840d78dd9f5f57bec7475
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69907433"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70309401"
 ---
 # <a name="create-and-manage-read-replicas-from-the-azure-cli"></a>Skapa och hantera Läs repliker från Azure CLI
 
-I den här artikeln får du lära dig hur du skapar och hanterar Läs repliker i Azure Database for PostgreSQL från Azure CLI. Mer information om Läs repliker finns i översikten [](concepts-read-replicas.md).
-
-> [!IMPORTANT]
-> Du kan skapa en Läs replik i samma region som din huvud server eller i valfri annan Azure-region som du väljer. Replikering mellan regioner är för närvarande en offentlig för hands version.
+I den här artikeln får du lära dig hur du skapar och hanterar Läs repliker i Azure Database for PostgreSQL från Azure CLI. Mer information om Läs repliker finns i [översikten](concepts-read-replicas.md).
 
 ## <a name="prerequisites"></a>Förutsättningar
 - En [Azure Database for postgresql-server](quickstart-create-server-up-azure-cli.md) som ska vara huvud servern.

@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: seal
 manager: femila
-ms.openlocfilehash: ee7e529593960c3a7c62021225122370c122b3c4
-ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
+ms.openlocfilehash: 4dd58f2542674633f2d5e2a1724adc7934d7f030
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 09/04/2019
-ms.locfileid: "70240976"
+ms.locfileid: "70307048"
 ---
 # <a name="manage-azure-blockchain-service-using-azure-cli"></a>Hantera Azure blockchain-tjänsten med hjälp av Azure CLI
 
@@ -186,7 +186,7 @@ az role assignment create --role <role> --assignee <assignee> --scope /subscript
 |---------|-------------|
 | **rollinnehavaren** | Namnet på Azure AD-rollen. |
 | **tilldelad person** | Användar-ID för Azure AD. Till exempel, `user@contoso.com` |
-| **utrymme** | Roll tilldelningens omfattning. Kan antingen vara en blockchain-medlem i Transaction Node. |
+| **utrymme** | Roll tilldelningens omfattning. Kan vara antingen en blockchain-medlem eller Transaction-nod. |
 
 **Exempel:**
 
@@ -219,7 +219,7 @@ az role assignment create --role <role> --assignee-object-id <assignee_object_id
 |---------|-------------|
 | **rollinnehavaren** | Namnet på Azure AD-rollen. |
 | **tilldelad person-objekt-ID** | Azure AD-grupp-ID eller program-ID. |
-| **utrymme** | Roll tilldelningens omfattning. Kan antingen vara en blockchain-medlem i Transaction Node. |
+| **utrymme** | Roll tilldelningens omfattning. Kan vara antingen en blockchain-medlem eller Transaction-nod. |
 
 **Exempel:**
 
@@ -242,7 +242,7 @@ az role assignment delete --role <myRole> --assignee <assignee> --scope /subscri
 |---------|-------------|
 | **rollinnehavaren** | Namnet på Azure AD-rollen. |
 | **tilldelad person** | Användar-ID för Azure AD. Till exempel, `user@contoso.com` |
-| **utrymme** | Roll tilldelningens omfattning. Kan antingen vara en blockchain-medlem i Transaction Node. |
+| **utrymme** | Roll tilldelningens omfattning. Kan vara antingen en blockchain-medlem eller Transaction-nod. |
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -7,12 +7,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 07/17/2019
-ms.openlocfilehash: ef4dfc4370c71eac1978a6f3535b571a5e6009b5
-ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
+ms.openlocfilehash: b0056df16dccaf1dc7e94aad1a2c6c262ffd89ee
+ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68950144"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70383364"
 ---
 # <a name="query-data-in-azure-data-lake-using-azure-data-explorer-preview"></a>Fråga efter data i Azure Data Lake med Azure Datautforskaren (förhands granskning)
 
@@ -50,6 +50,7 @@ Azure Datautforskaren integreras med Azure Blob Storage och Azure Data Lake Stor
     > * Ökad prestanda förväntas med mer detaljerad partitionering. Till exempel kommer frågor över externa tabeller med dagliga partitioner att ha bättre prestanda än de frågor som har månatliga partitionerade tabeller.
     > * När du definierar en extern tabell med partitioner förväntas lagrings strukturen vara identisk.
 Om tabellen till exempel är definierad med en DateTime-partition i formatet ÅÅÅÅ/MM/DD (standard), ska sökvägen till URI- *container1 vara/åååå/mm/dd/all_exported_blobs*. 
+    > * Om den externa tabellen är partitionerad av en datetime-kolumn, ska du alltid inkludera ett tids filter för ett stängt intervall i frågan (till exempel frågan – `ArchivedProducts | where Timestamp between (ago(1h) .. 10m)` bör utföra bättre än det här (öppna intervallet) en- `ArchivedProducts | where Timestamp > ago(1h)` ). 
 
 1. Den externa tabellen visas i den vänstra rutan i webb gränssnittet
 

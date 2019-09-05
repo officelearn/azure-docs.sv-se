@@ -1,6 +1,6 @@
 ---
-title: Konfigurera Postman för Azure Media Services REST API-anrop
-description: Lär dig hur du konfigurerar Postman för Media Services REST API-anrop.
+title: Konfigurera PostMan för Azure Media Services REST API-anrop
+description: Lär dig hur du konfigurerar Postman för Media Services REST API samtal.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -13,26 +13,29 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/11/2019
 ms.author: juliako
-ms.openlocfilehash: a2171ff8a4354a59ec2f790f9bf38b7a687419ca
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: d25596884acdb356779eafa4348240239855ce37
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60322557"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70308456"
 ---
-# <a name="configure-postman-for-media-services-rest-api-calls"></a>Konfigurera Postman för Media Services REST API-anrop
+# <a name="configure-postman-for-media-services-rest-api-calls"></a>Konfigurera PostMan för Media Services REST API-anrop
 
-Den här artikeln visar hur du konfigurerar **Postman** så att den kan användas för att anropa Azure Media Services (AMS) REST API: er. Artikeln beskriver hur du importerar miljö och samling filerna till **Postman**. Samlingen innehåller grupperade definitioner av HTTP-begäranden som anropar Azure Media Services (AMS) REST API: er. Miljö-filen innehåller variabler som används av samlingen.
+Den här artikeln visar hur du konfigurerar **Postman** så att den kan användas för att anropa Azure Media Services REST-API: er för (AMS). Artikeln visar hur du importerar miljö-och samlings filer till **Postman**. Samlingen innehåller grupperade definitioner av HTTP-begäranden som anropar Azure Media Services (AMS) REST-API: er. Miljö filen innehåller variabler som används av samlingen.
 
-Innan du börjar utveckla granska [utveckla med API: er för Media Services v3](media-services-apis-overview.md).
+Innan du börjar utveckla bör du läsa [utveckla med Media Services v3-API: er](media-services-apis-overview.md).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 - [Skapa ett Media Services-konto](create-account-cli-how-to.md). Se till att komma ihåg resursgruppens namn och namnet på Media Services-konto. 
-- Få information som behövs för att [åtkomst API: er](access-api-cli-how-to.md)
+- Hämta information som krävs för att [få åtkomst till API: er](access-api-cli-how-to.md)
 - Installera [Postman](https://www.getpostman.com/) REST-klienten för att köra REST API:er som visas i några AMS REST-självstudierna. 
 
     Vi använder **Postman** men ett REST-verktyg skulle vara lämpligt. Andra alternativ är: **Visual Studio Code** med plugin-programmet för REST eller **Telerik Fiddler**. 
+
+> [!IMPORTANT]
+> Granska [namngivnings konventioner](media-services-apis-overview.md#naming-conventions).
 
 ## <a name="download-postman-files"></a>Hämta Postman-filer
 
@@ -59,7 +62,7 @@ Det här avsnittet konfigurerar Postman.
     > [!Note]
     > Uppdatera åtkomstvariablerna med värden som du fick från avsnittet **Åtkomst till Media Services API** ovan.
 
-7. Dubbelklicka på den valda filen och ange värden som du har fått genom att följa åtkomst till API: et.
+7. Dubbelklicka på den valda filen och ange värden som du har fått genom att följa anvisningarna för att komma åt API.
 8. Stäng dialogrutan.
 9. Välj miljön **Azure Media Service v3-miljö** från listmenyn.
 
@@ -75,7 +78,7 @@ Det här avsnittet konfigurerar Postman.
 
 ## <a name="get-azure-ad-token"></a>Hämta Azure AD-token 
 
-Innan du börjar att manipulera AMS v3 resurser behöver du hämta och ange Azure AD-Token för autentisering av tjänstens huvudnamn.
+Innan du börjar ändra AMS v3-resurser måste du hämta och ange Azure AD-token för autentisering av tjänstens huvud namn.
 
 1. I det vänstra fönstret i Postman, väljer du ”Steg 1: Hämta AAD-autentiseringstoken”.
 2. Välj sedan Hämta Azure AD-token för autentisering för tjänstens huvudnamn.
@@ -99,5 +102,5 @@ Innan du börjar att manipulera AMS v3 resurser behöver du hämta och ange Azur
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Stream filer med REST](stream-files-tutorial-with-rest.md).  
-- [Självstudie: Koda en fjärrfil baserat på URL och strömma videon – REST](stream-files-tutorial-with-rest.md)
+- [Strömma filer med rest](stream-files-tutorial-with-rest.md).  
+- [Självstudier: Koda en fjärrfil baserat på URL och strömma videon – REST](stream-files-tutorial-with-rest.md)

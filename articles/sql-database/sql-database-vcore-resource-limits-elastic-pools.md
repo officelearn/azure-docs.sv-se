@@ -11,12 +11,12 @@ author: oslake
 ms.author: moslake
 ms.reviewer: carlrab
 ms.date: 06/26/2019
-ms.openlocfilehash: aa35cb1ae0ad035bdef6ff8e19cf115188ba7f3a
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: 2a5190cada0ca834cada4e02bfe7549dc43da4b8
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69640862"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70309517"
 ---
 # <a name="resource-limits-for-elastic-pools-using-the-vcore-based-purchasing-model-limits"></a>Resurs gränser för elastiska pooler med vCore-baserade inköps modell gränser
 
@@ -140,8 +140,8 @@ Du kan ange tjänst nivå, beräknings storlek och lagrings mängd med hjälp av
 |I/o-svarstid (ungefärlig)|5-7 MS (skrivning)<br>5-10 ms (läsa)|5-7 MS (skrivning)<br>5-10 ms (läsa)|5-7 MS (skrivning)<br>5-10 ms (läsa)|5-7 MS (skrivning)<br>5-10 ms (läsa)|5-7 MS (skrivning)<br>5-10 ms (läsa)|5-7 MS (skrivning)<br>5-10 ms (läsa)|5-7 MS (skrivning)<br>5-10 ms (läsa)|
 |Mål-IOPS (64 KB)|7000|7000|7000|7000|7000|7000|7000|
 |Logg hastighets gränser (Mbit/s)|37,5|37,5|37,5|37,5|37,5|37,5|37,5|
-|Maximalt antal samtidiga arbetare per pool (begär Anden) *|1680|1890|2 100|2520|33600|4200|8400|
-|Maximalt antal samtidiga inloggningar per pool (begär Anden) *|1680|1890|2 100|2520|33600|4200|8400|
+|Maximalt antal samtidiga arbetare per pool (begär Anden) *|1680|1890|2 100|2520|3360|4200|8400|
+|Maximalt antal samtidiga inloggningar per pool (begär Anden) *|1680|1890|2 100|2520|3360|4200|8400|
 |Minsta/högsta antal vCore alternativ för elastisk pool per databas|0, 0,25, 0,5, 1... 16|0, 0,25, 0,5, 1... 18|0, 0,25, 0,5, 1... 20|0, 0,25, 0,5, 1... 20, 24|0, 0,25, 0,5, 1... 20, 24, 32|0, 0,25, 0,5, 1... 16, 24, 32, 40|0, 0,25, 0,5, 1... 16, 24, 32, 40, 80|
 |Antal repliker|1|1|1|1|1|1|1|
 |Multi-AZ|Gäller inte|Saknas|Saknas|Saknas|Saknas|Saknas|Gäller inte|
@@ -285,6 +285,6 @@ I följande tabell beskrivs egenskaperna för databaser i pooler.
 - För vCore resurs gränser för en enskild databas, se [resurs gränser för enskilda databaser med den vCore-baserade inköps modellen](sql-database-vcore-resource-limits-single-databases.md)
 - För resurs gränser för DTU för en enskild databas, se [resurs gränser för enskilda databaser med hjälp av den DTU-baserade inköps modellen](sql-database-dtu-resource-limits-single-databases.md)
 - För DTU-resurs gränser för elastiska pooler, se [resurs gränser för elastiska pooler med hjälp av den DTU-baserade inköps modellen](sql-database-dtu-resource-limits-elastic-pools.md)
-- Resurs begränsningar för hanterade instanser finns i [resurs gränser](sql-database-managed-instance-resource-limits.md)för hanterade instanser.
+- Resurs begränsningar för hanterade instanser finns i [resurs gränser för hanterade](sql-database-managed-instance-resource-limits.md)instanser.
 - Information om allmänna Azure-gränser finns i [Azure-prenumeration och tjänst begränsningar, kvoter och begränsningar](../azure-subscription-service-limits.md).
 - Information om resurs gränser på en databas server finns i [Översikt över resurs gränser på en SQL Database-Server](sql-database-resource-limits-database-server.md) för information om begränsningar på Server-och prenumerations nivåer.

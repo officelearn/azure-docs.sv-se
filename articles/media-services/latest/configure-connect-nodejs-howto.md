@@ -1,6 +1,6 @@
 ---
-title: Ansluta till Azure Media Services v3 - API för Node.js
-description: Lär dig hur du ansluter till Media Services v3-API med Node.js.
+title: Ansluta till Azure Media Services v3 API-Node. js
+description: Lär dig hur du ansluter till Media Services v3-API med Node. js.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -13,25 +13,28 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/25/2019
 ms.author: juliako
-ms.openlocfilehash: 40880a2c28ce28a671930ef8837082247e61e24b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2ab620ec456610029d699952bb9625abfe4c21dc
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60733138"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70307888"
 ---
-# <a name="connect-to-media-services-v3-api---nodejs"></a>Ansluta till Media Services v3 - API för Node.js
+# <a name="connect-to-media-services-v3-api---nodejs"></a>Ansluta till Media Services v3 API-Node. js
 
-Den här artikeln visar hur du ansluter till Azure Media Services v3 node.js SDK med det tjänstens huvudnamn i metoden.
+Den här artikeln visar hur du ansluter till Azure Media Services v3 Node. js SDK med hjälp av inloggnings metoden för tjänstens huvud namn.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
-- Installera [Node.js](https://nodejs.org/en/download/).
-- [Skapa ett Media Services-konto](create-account-cli-how-to.md). Var noga med att komma ihåg resursgruppens namn och namnet på Media Services-konto.
+- Installera [Node. js](https://nodejs.org/en/download/).
+- [Skapa ett Media Services-konto](create-account-cli-how-to.md). Glöm inte att komma ihåg resurs gruppens namn och namnet på Media Services kontot.
 
-## <a name="create-packagejson"></a>Skapa package.json
+> [!IMPORTANT]
+> Granska [namngivnings konventioner](media-services-apis-overview.md#naming-conventions).
 
-1. Skapa en package.json-fil med redigeringsprogram du föredrar.
+## <a name="create-packagejson"></a>Skapa Package. JSON
+
+1. Skapa en Package. JSON-fil med hjälp av din favorit redigerare.
 1. Öppna filen och klistra in följande kod:
 
 ```json
@@ -49,25 +52,25 @@ Den här artikeln visar hur du ansluter till Azure Media Services v3 node.js SDK
 }
 ```
 
-Följande paket måste anges:
+Följande paket ska anges:
 
 |Paket|Beskrivning|
 |---|---|
-|`azure-arm-mediaservices`|Azure Media Services SDK. <br/>Om du vill kontrollera att du använder det senaste Azure Media Services-paketet, kontrollera [NPM install azure-arm-mediaservices](https://www.npmjs.com/package/azure-arm-mediaservices/).|
-|`azure-storage`|Lagrings-SDK. Används när du överför filer till tillgångar.|
+|`azure-arm-mediaservices`|Azure Media Services SDK. <br/>Kontrol lera att du använder det senaste Azure Media Servicess paketet genom att markera [NPM installera Azure-arm-Media Services](https://www.npmjs.com/package/azure-arm-mediaservices/).|
+|`azure-storage`|Storage SDK. Används vid överföring av filer till till gångar.|
 |`ms-rest-azure`| Används för att logga in.|
 
-Du kan köra följande kommando för att kontrollera att du använder det senaste paketet:
+Du kan köra följande kommando för att kontrol lera att du använder det senaste paketet:
 
 ```
 npm install azure-arm-mediaservices
 ```
 
-## <a name="connect-to-nodejs-client"></a>Ansluta till Node.js-klient
+## <a name="connect-to-nodejs-client"></a>Anslut till Node. js-klient
 
-1. Skapa en .js-fil med redigeringsprogram du föredrar.
+1. Skapa en. js-fil med hjälp av din favorit redigerare.
 1. Öppna filen och klistra in följande kod.
-1. Ange värden i avsnittet ”endpoint-config” till värden som du fick från [åtkomst API: er](access-api-cli-how-to.md).
+1. Ange värdena i avsnittet "Endpoint config" till värden som du har fått från [åtkomst till API: er](access-api-cli-how-to.md).
 
 ```js
 'use strict';
@@ -113,7 +116,7 @@ msRestAzure.loginWithServicePrincipalSecret(aadClientId, aadSecret, aadTenantId,
 
 ## <a name="run-your-app"></a>Köra appen
 
-Öppna en kommandotolk. Bläddra till den exempel katalog och kör följande kommandon:
+Öppna en kommandotolk. Bläddra till exempel katalogen och kör följande kommandon:
 
 ```
 npm install 
@@ -122,7 +125,7 @@ node index.js
 
 ## <a name="see-also"></a>Se också
 
-- [Media Services-koncepten](concepts-overview.md)
+- [Media Services begrepp](concepts-overview.md)
 - [NPM install azure-arm-mediaservices](https://www.npmjs.com/package/azure-arm-mediaservices/)
 
 ## <a name="next-steps"></a>Nästa steg

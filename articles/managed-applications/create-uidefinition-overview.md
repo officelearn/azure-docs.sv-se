@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/06/2019
 ms.author: tomfitz
-ms.openlocfilehash: 783c4f5b1f5a7f2be748bc7173da2d068e1425f4
-ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
+ms.openlocfilehash: 013e861bb93d76454f2f0fd9c36259197dd671b9
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69575646"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70308668"
 ---
 # <a name="createuidefinitionjson-for-azure-managed-applications-create-experience"></a>CreateUiDefinition. JSON för Azure Managed Applications Create Experience
 
@@ -48,7 +48,7 @@ En CreateUiDefinition innehåller alltid tre egenskaper:
 
 Hanteraren bör alltid vara `Microsoft.Azure.CreateUIDef`och den senaste versionen som stöds är. `0.1.2-preview`
 
-Schemat för Parameters-egenskapen är beroende av kombinationen av den angivna hanteraren och versionen. För hanterade program är de egenskaper som `basics`stöds `steps`,, `outputs`och. Egenskaperna grundläggande och steg innehåller elementen [](create-uidefinition-elements.md) , t. ex. text rutor och list rutor, som ska visas i Azure Portal. Egenskapen outputs används för att mappa indatavärdena för de angivna elementen till parametrarna i mallen för Azure Resource Manager distribution.
+Schemat för Parameters-egenskapen är beroende av kombinationen av den angivna hanteraren och versionen. För hanterade program är de egenskaper som `basics`stöds `steps`,, `outputs`och. Egenskaperna grundläggande och steg innehåller [elementen](create-uidefinition-elements.md) , t. ex. text rutor och list rutor, som ska visas i Azure Portal. Egenskapen outputs används för att mappa indatavärdena för de angivna elementen till parametrarna i mallen för Azure Resource Manager distribution.
 
 Inklusive `$schema` rekommenderas, men valfritt. Om det anges måste värdet för `version` matcha versionen `$schema` i URI: n.
 
@@ -106,4 +106,4 @@ Filen createUiDefinition. JSON har ett enkelt schema. Det verkliga djupet i den 
 
 Ett aktuellt JSON-schema för createUiDefinition finns här: https://schema.management.azure.com/schemas/0.1.2-preview/CreateUIDefinition.MultiVm.json.
 
-Ett exempel på en användar gränssnitts fil finns i [createUiDefinition. JSON](https://github.com/Azure/azure-managedapp-samples/blob/master/samples/201-managed-app-using-existing-vnet/createUiDefinition.json).
+Ett exempel på en användar gränssnitts fil finns i [createUiDefinition. JSON](https://github.com/Azure/azure-managedapp-samples/blob/master/Managed%20Application%20Sample%20Packages/201-managed-app-using-existing-vnet/createUiDefinition.json).

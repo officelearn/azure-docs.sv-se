@@ -1,6 +1,6 @@
 ---
-title: Skapa en anpassad roll definition i rollbaserad åtkomst kontroll i Azure AD-Azure Active Directory | Microsoft Docs
-description: Skapa anpassade Azure AD-roller med resurs omfång på Azure Active Directory resurser.
+title: Skapa och tilldela en anpassad roll i rollbaserad åtkomst kontroll i Azure AD – Azure Active Directory | Microsoft Docs
+description: Skapa och tilldela anpassade Azure AD-roller med resurs omfång på Azure Active Directory resurser.
 services: active-directory
 author: curtand
 manager: mtillman
@@ -8,25 +8,25 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 07/31/2019
+ms.date: 09/04/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c1166839608c709db9aa052d6d0db5221fa15354
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: f008cdf80e15e2737fea19f72ec6703932cf301f
+ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68880751"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70382810"
 ---
-# <a name="create-a-custom-role-and-assign-at-resource-scope-in-azure-active-directory"></a>Skapa en anpassad roll och tilldela i resurs omfånget i Azure Active Directory
+# <a name="create-and-assign-a-custom-role-in-azure-active-directory"></a>Skapa och tilldela en anpassad roll i Azure Active Directory
 
-Den här artikeln beskriver hur du skapar nya anpassade roller i Azure Active Directory (Azure AD). Du kan skapa anpassade roller på fliken [roller och administratörer](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RolesAndAdministrators) på översikts sidan för Azure AD. Rollen kan tilldelas antingen på katalog nivå omfånget eller endast för en app Registration Resource-omfattning.
+Den här artikeln beskriver hur du skapar nya anpassade roller i Azure Active Directory (Azure AD). Grunderna för anpassade roller finns i [Översikt över anpassade roller](roles-custom-overview.md). Rollen kan tilldelas antingen på katalog nivå omfånget eller endast för en app Registration Resource-omfattning.
 
-Mer information finns i [Översikt över anpassade roller](roles-custom-overview.md) för att grunderna för anpassade roller.
+Du kan skapa anpassade roller på fliken [roller och administratörer](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RolesAndAdministrators) på översikts sidan för Azure AD.
 
-## <a name="using-the-azure-ad-portal"></a>Använda Azure AD-portalen
+## <a name="create-a-role-in-the-azure-portal"></a>Skapa en roll i Azure Portal
 
 ### <a name="create-a-new-custom-role-to-grant-access-to-manage-app-registrations"></a>Skapa en ny anpassad roll för att ge åtkomst till hantering av app-registreringar
 
@@ -49,22 +49,7 @@ Mer information finns i [Översikt över anpassade roller](roles-custom-overview
 
 Den anpassade rollen visas i listan över tillgängliga roller att tilldela.
 
-## <a name="assign-a-role-scoped-to-a-resource"></a>Tilldela en roll som är begränsad till en resurs
-
-Precis som inbyggda roller kan anpassade roller tilldelas till hela organisationen för att ge åtkomst över alla registrerade appar. Men anpassade roller kan också tilldelas till resurs omfånget. På så sätt kan du ge den tilldelas behörighet att uppdatera autentiseringsuppgifter och grundläggande egenskaper för en enskild app utan att behöva skapa en andra anpassad roll.
-
-1. Om du inte redan gjort det loggar du in på [administrations centret för Azure AD](https://aad.portal.azure.com) med programutvecklare i Azure AD-organisationen.
-1. Välj **Appregistreringar**.
-1. Välj den app-registrering som du beviljar åtkomst för att hantera. Du kanske måste välja **alla program** om du vill se en fullständig lista över app-registreringar i din Azure AD-organisation.
-
-    ![Välj app-registrering som ett resurs omfång för en roll tilldelning](./media/roles-create-custom/appreg-all-apps.png)
-
-1. I appens registrering väljer du **roller och administratörer**. Om du inte redan har skapat ett följer du anvisningarna i [föregående procedur](#create-a-new-custom-role-to-grant-access-to-manage-app-registrations).
-
-1. Välj rollen för att öppna **tilldelnings** sidan.
-1. Välj **Lägg till tilldelning** för att lägga till en användare. Användaren beviljas inga behörigheter för någon annan app-registrering än den som valts.
-
-## <a name="create-a-custom-role-using-azure-ad-powershell"></a>Skapa en anpassad roll med hjälp av Azure AD PowerShell
+## <a name="create-a-role-using-powershell"></a>Skapa en roll med PowerShell
 
 ### <a name="prepare-powershell"></a>Förbered PowerShell
 
@@ -125,7 +110,7 @@ $resourceScope = '/' + $appRegistration.objectId
 $roleAssignment = New-AzureADMSRoleAssignment -ResourceScope $resourceScope -RoleDefinitionId $roleDefinition.Id -PrincipalId $user.objectId
 ```
 
-## <a name="create-a-custom-role-using-microsoft-graph-api"></a>Skapa en anpassad roll med hjälp av Microsoft Graph API
+## <a name="create-a-role-with-graph-api"></a>Skapa en roll med Graph API
 
 1. Skapa roll definitionen.
 
@@ -175,6 +160,21 @@ $roleAssignment = New-AzureADMSRoleAssignment -ResourceScope $resourceScope -Rol
        "resourceScope":"/<GUID OF APPLICATION REGISTRATION>"
    }
     ```
+
+## <a name="assign-a-custom-role-scoped-to-a-resource"></a>Tilldela en anpassad roll som är begränsad till en resurs
+
+Precis som inbyggda roller tilldelas anpassade roller som standard till standard området för hela organisationen för att ge åtkomst behörigheter över alla app-registreringar i din organisation. Men till skillnad från inbyggda roller kan anpassade roller också tilldelas i omfånget för en enskild Azure AD-resurs. På så sätt kan du ge användaren behörighet att uppdatera autentiseringsuppgifter och grundläggande egenskaper för en enskild app utan att behöva skapa en andra anpassad roll.
+
+1. Logga in på [Azure AD administrations Center](https://aad.portal.azure.com) med programutvecklare behörigheter i Azure AD-organisationen.
+1. Välj **Appregistreringar**.
+1. Välj den app-registrering som du beviljar åtkomst för att hantera. Du kanske måste välja **alla program** om du vill se en fullständig lista över app-registreringar i din Azure AD-organisation.
+
+    ![Välj app-registrering som ett resurs omfång för en roll tilldelning](./media/roles-create-custom/appreg-all-apps.png)
+
+1. I appens registrering väljer du **roller och administratörer**. Om du inte redan har skapat ett följer du anvisningarna i [föregående procedur](#create-a-new-custom-role-to-grant-access-to-manage-app-registrations).
+
+1. Välj rollen för att öppna **tilldelnings** sidan.
+1. Välj **Lägg till tilldelning** för att lägga till en användare. Användaren beviljas alla behörigheter enbart för den valda program registreringen.
 
 ## <a name="next-steps"></a>Nästa steg
 

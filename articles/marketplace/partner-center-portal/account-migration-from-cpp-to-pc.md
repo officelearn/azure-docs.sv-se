@@ -7,12 +7,12 @@ ms.author: v-qiwe
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 08/30/2019
-ms.openlocfilehash: 661adb755d076b0cc6114a287855482165ccb817
-ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
+ms.openlocfilehash: 8c7680896507cd3738fa3bce0d30a516d08509c4
+ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2019
-ms.locfileid: "70208091"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70383291"
 ---
 # <a name="account-migration-from-cloud-partner-portal-to-partner-center"></a>Konto migrering från Cloud Partner Portal till Partner Center
 
@@ -43,20 +43,20 @@ Om ditt CPP-konto inte har något Microsoft Partner Network-ID eller har ett ogi
 Migrering måste bara ske en gång för ett angivet konto. När en specifik partner har slutfört migreringen av kontot kommer alla ägare att se detta beteende på utgivar profil sidan:
 
 1. Sidan partner inställningar visas i Microsoft Partner Network, där du nu kan hantera konto inställningar. 
-2. En gul banderoll på utgivarens profil sida i CPP visas för användare som har ägar rollen och ber dem att hantera sina konto inställningar i Partner Center. 
-3. Sidan konto inställningar i CPP konverteras till skrivskyddat läge. 
+2. En gul banderoll på utgivarens profil sida i CPP visas för användare som har ägar rollen och ber dem att hantera sina konto inställningar i Partner Center.
+3. Sidan konto inställningar i CPP konverteras till skrivskyddat läge.
 
 ## <a name="move-dynamics-365-based-solutions-to-partner-center"></a>Flytta Dynamics 365-baserade lösningar till Partner Center
 
 Om du har skapat Dynamics 365 för kund engagemang eller Dynamics 365 för finans-och drift lösningar på en kommersiell partner GTM-Portal **bör dessa lösningar nu hanteras i Partner Center**.
 
-**Om du inte flyttade dina lösningar senast den 31 augusti 2019**slutför du stegen nedan så snart som möjligt. Tills du gör detta: 
+**Om du inte flyttade dina lösningar senast den 31 augusti 2019**slutför du stegen nedan så snart som möjligt. Tills du gör detta:
 - ISV: er har inte till gång till marknadsförings förmåner
 - Samtidig försäljning prioriteras förlorar sin status
-- De som kräver moln inbäddning kommer inte att uppfylla kraven
+- De som kräver moln inbäddning upphör att följa efter den 15 oktober 2019
 
 > [!NOTE]
-> Om ditt MPN-medlemskaps konto ursprungligen skapades i partner Membership Center (PMC) loggar du in på [partner Center](https://partner.microsoft.com/pcv/accountsettings/connectedpartnerprofile) för att bekräfta att ditt konto har migrerats innan du slutför stegen nedan. Om du ser en profil skärm med ditt MPN-ID är du redo att fortsätta. Om inte, måste du starta migreringen av kontot genom att följa instruktionerna i [partner medlemskaps centret](https://partners.microsoft.com/partnerprogram/Welcome.aspx). Om du behöver hjälp med det här kan [](https://partner.microsoft.com/support?issueid=100-0077)du besöka supporten.
+> Om ditt MPN-medlemskaps konto ursprungligen skapades i partner Membership Center (PMC) loggar du in på [partner Center](https://partner.microsoft.com/pcv/accountsettings/connectedpartnerprofile) för att bekräfta att ditt konto har migrerats innan du slutför stegen nedan. Om du ser en profil skärm med ditt MPN-ID är du redo att fortsätta. Om inte, måste du starta migreringen av kontot genom att följa instruktionerna i [partner medlemskaps centret](https://partners.microsoft.com/partnerprogram/Welcome.aspx). Om du behöver hjälp med det här kan du besöka [supporten](https://partner.microsoft.com/support?issueid=100-0077).
 
 1. Gå till [sidan för extern Marketplace-översikt i Partner Center](https://partner.microsoft.com/dashboard/commercial-marketplace/overview). Om du ser "kommersiell marknads plats" i det vänstra navigerings fönstret är du registrerad och bör fortsätta till nästa steg. Om inte, [Registrera dig på den kommersiella marknads platsen](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/azureisv) nu.
 2. Bekräfta att dina erbjudanden är i AppSource genom att [söka efter dina erbjudanden](https://appsource.microsoft.com/). Om dina erbjudanden redan finns i AppSource går du vidare till nästa steg. För ett erbjudande som inte finns i AppSource skapar du en [ny dynamics 365 för kund engagemang](create-new-customer-engagement-offer.md) eller en [ny Dynamics 365 för drift erbjudande](create-new-operations-offer.md).

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/10/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 1342616a0d32d8ac68965bc04f1fd3ca60146369
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: 1450d6b41d9a193f8069509aacd3343ae646c6ac
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68966772"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70307027"
 ---
 # <a name="edit-a-knowledge-base-in-qna-maker"></a>Redigera en kunskapsbas i QnA Maker
 
@@ -54,7 +54,7 @@ QnA Maker kan du hantera innehållet i kunskapsbasen genom att tillhandahålla e
 
 ## <a name="add-a-qna-pair"></a>Lägga till par med fråga och svar
 
-På sidan **Inställningar** väljer du **Lägg till QNA-par** för att lägga till en ny rad i kunskaps bas tabellen.
+På sidan **Redigera** väljer du **Lägg till QNA-par** för att lägga till en ny rad i kunskaps bas tabellen.
 
 ![Lägg till frågor och svar om par](../media/qnamaker-how-to-edit-kb/add-qnapair.png)
 

@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/12/2018
-ms.openlocfilehash: d932164f972169c93e368a41c09df039196341b5
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: b6c04edb3fc843dfe1b9176dc06bf312473591c3
+ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70141642"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70376428"
 ---
 # <a name="system-variables-supported-by-azure-data-factory"></a>Systemvariabler som stöds av Azure Data Factory
 I den här artikeln beskrivs systemvariabler som stöds av Azure Data Factory. Du kan använda dessa variabler i uttryck när du definierar Data Factory entiteter.
@@ -39,8 +39,8 @@ Dessa systemvariabler kan refereras var som helst i utlösaren JSON om utlösare
 
 | Variabel namn | Beskrivning |
 | --- | --- |
-| @trigger().scheduledTime |Tid när utlösaren schemalades för att anropa pipeline-körningen. För en utlösare som utlöses var femte minut skulle den här variabeln `2017-06-01T22:20:00Z`till `2017-06-01T22:25:00Z`exempel `2017-06-01T22:29:00Z` returneras.|
-| @trigger().startTime |Tid när utlösaren **faktiskt** startade för att anropa pipeline-körningen. För en utlösare som utlöses var femte minut kan den här variabeln till exempel returnera `2017-06-01T22:20:00.4061448Z`något `2017-06-01T22:25:00.7958577Z`som `2017-06-01T22:29:00.9935483Z` liknar detta. (Obs: Tidsstämpeln är som standard i ISO 8601-format)|
+| @trigger().scheduledTime |Tid när utlösaren schemalades för att anropa pipeline-körningen. För en utlösare som utlöses var femte minut skulle den här variabeln `2017-06-01T22:20:00Z`till `2017-06-01T22:25:00Z`exempel `2017-06-01T22:30:00Z` returneras.|
+| @trigger().startTime |Tid när utlösaren **faktiskt** startade för att anropa pipeline-körningen. För en utlösare som utlöses var femte minut kan den här variabeln till exempel returnera `2017-06-01T22:20:00.4061448Z`något `2017-06-01T22:25:00.7958577Z`som `2017-06-01T22:30:00.9935483Z` liknar detta. (Obs: Tidsstämpeln är som standard i ISO 8601-format)|
 
 ## <a name="tumbling-window-trigger-scope"></a>Utlösare för rullande fönster
 Dessa systemvariabler kan refereras var som helst i utlösaren JSON om utlösaren är av typen: "TumblingWindowTrigger."

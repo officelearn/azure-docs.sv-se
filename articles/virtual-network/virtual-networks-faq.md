@@ -13,19 +13,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/12/2019
 ms.author: kumud
-ms.openlocfilehash: 7ec731c6b75ff556c9e00f7041fea32f807fe5f4
-ms.sourcegitcommit: a3a40ad60b8ecd8dbaf7f756091a419b1fe3208e
+ms.openlocfilehash: ecb840d97a45479d32079766807b4f2788cc29ec
+ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69892025"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70382909"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Vanliga frågor och svar om Azure Virtual Network
 
 ## <a name="virtual-network-basics"></a>Virtual Network grunderna
 
 ### <a name="what-is-an-azure-virtual-network-vnet"></a>Vad är ett Azure-Virtual Network (VNet)?
-Ett Azure-Virtual Network (VNet) är en representation av ditt eget nätverk i molnet. Det är en logisk isolering av Azure-molnet dedikerad till din prenumeration. Du kan använda virtuella nätverk för att etablera och hantera virtuella privata nätverk (VPN) i Azure och, om du vill, länka virtuella nätverk med andra virtuella nätverk i Azure eller med din lokala IT-infrastruktur för att skapa hybrid lösningar eller lösningar med flera platser. Varje VNet som du skapar har ett eget CIDR-block och kan länkas till andra virtuella nätverk och lokala nätverk så länge CIDR-blocken inte överlappar varandra. Du har också kontroll över DNS-serverinställningar för virtuella nätverk och segmentering av VNet i undernät.
+Ett Azure-Virtual Network (VNet) är en representation av ditt eget nätverk i molnet. Det är en logisk isolering av Azure-molnet dedikerad till din prenumeration. Du kan använda virtuella nätverk för att etablera och hantera virtuella privata nätverk (VPN) i Azure och, om du vill, länka virtuella nätverk med andra virtuella nätverk i Azure eller med din lokala IT-infrastruktur för att skapa hybrid lösningar eller lösningar med flera platser. Varje VNet som du skapar har ett eget CIDR-block och kan kopplas till andra virtuella nätverk och lokala nätverk så länge CIDR-blocken inte överlappar varandra. Du har också kontroll över DNS-serverinställningar för virtuella nätverk och segmentering av VNet i undernät.
 
 Använd virtuella nätverk för att:
 
@@ -112,11 +112,11 @@ Ja. Alla tjänster som distribueras inom ett VNet kan ansluta utgående till Int
 Nej. Du kan inte använda IPv6 med virtuella nätverk just nu. Du kan dock tilldela IPv6-adresser till Azure Load Balancer för att belastningsutjämna virtuella datorer. Mer information finns i [Översikt över IPv6 för Azure Load Balancer](../load-balancer/load-balancer-ipv6-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 ### <a name="can-a-vnet-span-regions"></a>Kan ett VNet-intervall regioner användas?
-Nej. Ett VNet är begränsat till en enda region. Ett virtuellt nätverk gör dock att du kan spänna över tillgänglighets zoner. Mer information om tillgänglighetszoner finns i [Översikt över tillgänglighetszoner](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Du kan ansluta virtuella nätverk i olika regioner med peering av virtuella nätverk. Mer information finns i [Översikt över virtuell nätverks](virtual-network-peering-overview.md) -peering
+Nej. Ett VNet är begränsat till en enda region. Ett virtuellt nätverk gör dock att du kan spänna över tillgänglighets zoner. Mer information om tillgänglighetszoner finns i [Översikt över tillgänglighetszoner](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Du kan ansluta virtuella nätverk i olika regioner med peering av virtuella nätverk. Mer information finns i [Översikt över virtuell nätverks-peering](virtual-network-peering-overview.md)
 
 ### <a name="can-i-connect-a-vnet-to-another-vnet-in-azure"></a>Kan jag ansluta ett VNet till ett annat VNet i Azure?
 Ja. Du kan ansluta ett VNet till ett annat VNet med hjälp av något av följande:
-- **Peering för virtuellt nätverk**: Mer information finns i [Översikt över VNet](virtual-network-peering-overview.md) -peering
+- **Peering för virtuellt nätverk**: Mer information finns i [Översikt över VNet-peering](virtual-network-peering-overview.md)
 - **Ett Azure-VPN gateway**: Mer information finns i [Konfigurera en VNet-till-VNET-anslutning](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json). 
 
 ## <a name="name-resolution-dns"></a>Namn matchning (DNS)
@@ -262,11 +262,11 @@ Du kan ansluta till dessa resurser via ExpressRoute eller VNet-till-VNet via VNe
 ### <a name="can-i-enable-vnet-peering-if-my-virtual-networks-belong-to-subscriptions-within-different-azure-active-directory-tenants"></a>Kan jag aktivera VNet-peering om mina virtuella nätverk tillhör prenumerationer inom olika Azure Active Directory klienter?
 Ja. Det går att etablera VNet-peering (oavsett om den är lokal eller global) om prenumerationerna tillhör olika Azure Active Directory klienter. Du kan göra detta via PowerShell eller CLI. Portalen stöds inte ännu.
 
-### <a name="my-vnet-peering-connection-is-in-initiated-state-why-cant-i-connect"></a>Mitt VNet-peering-anslutning har initierats, varför kan jag inte ansluta?
-Om peering-anslutningen är i ett initierat tillstånd innebär det att du bara har skapat en länk. En dubbelriktad länk måste skapas för att en anslutning ska kunna upprättas. Till exempel, för peer-VNet A till VNet B, måste en länk skapas från VNetA till VNetB och från VNetB till VNetA. Om du skapar båda länkarna ändras statusen till *ansluten.*
+### <a name="my-vnet-peering-connection-is-in-initiated-state-why-cant-i-connect"></a>Mitt VNet-peering-anslutning har *initierats* , varför kan jag inte ansluta?
+Om peering-anslutningen är i ett *initierat* tillstånd innebär det att du bara har skapat en länk. En dubbelriktad länk måste skapas för att en anslutning ska kunna upprättas. Till exempel, för peer-VNet A till VNet B, måste en länk skapas från VNetA till VNetB och från VNetB till VNetA. Om du skapar båda länkarna ändras statusen till *ansluten*.
 
-### <a name="my-vnet-peering-connection-is-in-disconnected-state-why-cant-i-create-a-peering-connection"></a>Mitt VNet-peering-anslutning är i frånkopplat tillstånd, varför kan jag inte skapa en peering-anslutning?
-Om din VNet-peering-anslutning är i frånkopplat läge, innebär det att en av de länkar som skapats har tagits bort. För att återupprätta en peering-anslutning måste du ta bort länken och återskapa den.
+### <a name="my-vnet-peering-connection-is-in-disconnected-state-why-cant-i-create-a-peering-connection"></a>Mitt VNet-peering-anslutning är i *frånkopplat* tillstånd, varför kan jag inte skapa en peering-anslutning?
+Om din VNet-peering-anslutning är i *frånkopplat* läge, innebär det att en av de länkar som skapats har tagits bort. För att återupprätta en peering-anslutning måste du ta bort länken och återskapa den.
 
 ### <a name="can-i-peer-my-vnet-with-a-vnet-in-a-different-subscription"></a>Kan jag peer-mitt VNet med ett VNet i en annan prenumeration?
 Ja. Du kan peer-virtuella nätverk över prenumerationer och i flera regioner.
@@ -280,8 +280,8 @@ Det kostar inget att skapa en VNet-peering-anslutning. Data överföring mellan 
 ### <a name="is-vnet-peering-traffic-encrypted"></a>Är VNet-peering-trafiken krypterad?
 Nej. Trafik mellan resurser i peer-virtuella nätverk är privat och isolerad. Den finns kvar helt och hållet på Microsofts stamnät.
 
-### <a name="why-is-my-peering-connection-in-a-disconnected-state"></a>Varför är min peering-anslutning i frånkopplat läge?
-VNet-peering-anslutningar övergår i frånkopplat tillstånd när en VNet-peering-länk tas bort. Du måste ta bort båda länkarna för att återupprätta en lyckad peer kopplings anslutning.
+### <a name="why-is-my-peering-connection-in-a-disconnected-state"></a>Varför är min peering-anslutning i *frånkopplat* läge?
+VNet-peering-anslutningar övergår i *frånkopplat* tillstånd när en VNet-peering-länk tas bort. Du måste ta bort båda länkarna för att återupprätta en lyckad peer kopplings anslutning.
 
 ### <a name="if-i-peer-vneta-to-vnetb-and-i-peer-vnetb-to-vnetc-does-that-mean-vneta-and-vnetc-are-peered"></a>Om jag peer-VNetA till VNetB och I peer-VNetB till VNetC, så innebär det att VNetA och VNetC är peer-datorer?
 Nej. Transitiv peering stöds inte. Du måste peer-VNetA och VNetC för att det ska gå att genomföra.
@@ -301,7 +301,7 @@ För hands versionen av virtuellt nätverk är tillgänglig i alla Azure-regione
 Filtrerings funktioner stöds inte med det virtuella nätverket. Tryck på Förhandsgranska. När en KNACKNINGs konfiguration läggs till i ett nätverks gränssnitt, strömmas en djupgående kopia av alla ingångs-och utgående trafik i nätverks gränssnittet till tryck målet.
 
 ### <a name="can-multiple-tap-configurations-be-added-to-a-monitored-network-interface"></a>Kan flera tryck på konfigurationer läggas till i ett övervakat nätverks gränssnitt?
-Ett övervakat nätverks gränssnitt kan bara ha en enda KNACKNING-konfiguration. Kontrol lera med de enskilda [partner lösningarna](virtual-network-tap-overview.md#virtual-network-tap-partner-solutions) att strömma flera kopior av trafiktrycks trafiken till de analys verktyg du väljer.
+Ett övervakat nätverks gränssnitt kan bara ha en enda KNACKNING-konfiguration. Kontrol lera med den enskilda [partner lösningen](virtual-network-tap-overview.md#virtual-network-tap-partner-solutions) att kunna strömma flera kopior av trafiktrycks trafiken till de analys verktyg du väljer.
 
 ### <a name="can-the-same-virtual-network-tap-resource-aggregate-traffic-from-monitored-network-interfaces-in-more-than-one-virtual-network"></a>Kan samma virtuella nätverk trycka samman resurs mängds trafik från övervakade nätverks gränssnitt i mer än ett virtuellt nätverk?
 Ja. Samma virtuella nätverk tryck på resurs kan användas för att sammanställa speglad trafik från övervakade nätverks gränssnitt i peer-kopplat virtuella nätverk i samma prenumeration eller en annan prenumeration. Det virtuella nätverket trycker på resurs-och mål belastnings Utjämnings-eller mål nätverks gränssnittet måste vara i samma prenumeration. Alla prenumerationer måste vara under samma Azure Active Directory-klient.
@@ -317,7 +317,7 @@ Du kommer att kunna lägga till en tryck konfiguration på ett nätverks gränss
 ## <a name="virtual-network-service-endpoints"></a>Tjänstslutpunkter för virtuellt nätverk
 
 ### <a name="what-is-the-right-sequence-of-operations-to-set-up-service-endpoints-to-an-azure-service"></a>Vad är rätt åtgärds ordning för att konfigurera tjänst slut punkter till en Azure-tjänst?
-Det finns två steg för att skydda en Azure-Tjänsteresurs via tjänst slut punkter:
+Det finns två steg för att skydda en Azure service-resurs via tjänst slut punkter:
 1. Aktivera tjänstens slut punkter för Azure-tjänsten.
 2. Konfigurera VNet ACL: er för Azure-tjänsten.
 
@@ -330,13 +330,13 @@ Vissa tjänster (till exempel SQL och CosmosDB) tillåter undantag till ovanstå
 
 ### <a name="do-all-azure-services-reside-in-the-azure-virtual-network-provided-by-the-customer-how-does-vnet-service-endpoint-work-with-azure-services"></a>Finns alla Azure-tjänster i det virtuella Azure-nätverket som tillhandahålls av kunden? Hur fungerar VNet-tjänstens slut punkter med Azure-tjänster?
 
-Nej, alla Azure-tjänster finns inte i kundens virtuella nätverk. Merparten av Azures data tjänster som Azure Storage, Azure SQL och Azure Cosmos DB är tjänster för flera innehavare som kan nås via offentliga IP-adresser. Du kan lära dig mer om integrering av virtuella nätverk för Azure-tjänster [här](virtual-network-for-azure-services.md). 
+Nej, alla Azure-tjänster finns inte i kundens virtuella nätverk. Merparten av Azures data tjänster, till exempel Azure Storage, Azure SQL och Azure Cosmos DB, är tjänster för flera innehavare som kan nås via offentliga IP-adresser. Du kan lära dig mer om integrering av virtuella nätverk för Azure-tjänster [här](virtual-network-for-azure-services.md). 
 
 När du använder funktionen för VNet-tjänstens slut punkter (aktiverar VNet-tjänstens slut punkt på nätverks sidan och ställer in lämpliga VNet ACL: er på Azure-tjänstesidan), begränsas åtkomsten till en Azure-tjänst från ett tillåtet VNet och undernät.
 
 ### <a name="how-does-vnet-service-endpoint-provide-security"></a>Hur ger VNet-tjänstens slut punkt säkerhet?
 
-Slut punkts funktionen för VNet-tjänsten (aktiverar VNet-tjänstens slut punkt på nätverks sidan och ställer in lämpliga VNet-ACL: er på Azure-tjänstesidan) begränsar Azure-tjänstens åtkomst till tillåtna VNet och undernät, vilket ger en säkerhet och isolering på nätverks nivå av Azure-tjänstens trafik. All trafik som använder VNet-tjänstens slut punkter flödar över Microsoft-stamnät, vilket ger ett annat lager av isolering från det offentliga Internet. Dessutom kan kunderna välja att helt ta bort den offentliga Internet åtkomsten till Azure-tjänstens resurser och bara tillåta trafik från sina virtuella nätverk via en kombination av IP-brandvägg och VNet ACL: er, vilket skyddar Azure-tjänsteresurser från obehöriga fjärråtkomstservrar.      
+Slut punkts funktionen för VNet-tjänsten (aktiverar VNet-tjänstens slut punkt på nätverks sidan och ställer in lämpliga VNet-ACL: er på Azure-tjänstesidan) begränsar Azure-tjänstens åtkomst till det tillåtna VNet och under nätet, vilket ger en säkerhet på nätverks nivå och isolering av Azure-tjänstetrafik. All trafik som använder VNet-tjänstens slut punkter flödar över Microsoft-stamnät, vilket ger ett annat lager av isolering från det offentliga Internet. Dessutom kan kunderna välja att helt ta bort den offentliga Internet åtkomsten till Azure-tjänstens resurser och bara tillåta trafik från sina virtuella nätverk via en kombination av IP-brandvägg och VNet ACL: er, vilket skyddar Azure-tjänsteresurser från obehöriga fjärråtkomstservrar.      
 
 ### <a name="what-does-the-vnet-service-endpoint-protect---vnet-resources-or-azure-service"></a>Vad skyddar VNet-tjänstens slut punkts resurser eller Azure-tjänst?
 VNet-tjänstens slut punkter hjälper till att skydda Azure-tjänstens resurser. VNet-resurser skyddas via nätverks säkerhets grupper (NSG: er).
@@ -352,34 +352,34 @@ Ja, det kan du. Virtuella nätverk och Azure Service-resurser kan vara antingen 
 ### <a name="can-i-turn-on-vnet-service-endpoints-and-set-up-vnet-acls-if-the-virtual-network-and-the-azure-service-resources-belong-to-different-ad-tenants"></a>Kan jag aktivera VNet-tjänstens slut punkter och konfigurera VNet ACL: er om det virtuella nätverket och Azure-tjänstens resurser tillhör olika AD-klienter?
 Nej, VNet-tjänstens slut punkter och VNet-ACL: er stöds inte över AD-klienter.
 
-### <a name="can-an-on-premises-devices-ip-address-that-is-connected-through-azure-virtual-network-gateway-vpn-or-express-route-gateway-access-azure-paas-service-over-vnet-service-endpoints"></a>Kan en lokal enhets IP-adress som är ansluten via Azure Virtual Network Gateway (VPN) eller ExpressRoute Gateway åtkomst till Azure PaaS service via VNet-tjänstens slut punkter?
+### <a name="can-an-on-premises-devices-ip-address-that-is-connected-through-azure-virtual-network-gateway-vpn-or-expressroute-gateway-access-azure-paas-service-over-vnet-service-endpoints"></a>Kan en lokal enhets IP-adress som är ansluten via Azure Virtual Network Gateway (VPN) eller ExpressRoute Gateway åtkomst till Azure PaaS-tjänsten via VNet-tjänstens slut punkter?
 Som standard kan Azure-tjänstresurser som skyddas på virtuella nätverk inte nås från lokala nätverk. Om du vill tillåta trafik från lokalt måste du också tillåta offentliga (vanligt vis NAT) IP-adresser från din lokala eller ExpressRoute. De här IP-adresserna kan läggas till via IP-brandväggens konfiguration för Azures tjänst resurser.
 
-### <a name="can-i-use-vnet-service-endpoint-feature-to-secure-azure-service-to-multiple-subnets-with-in-a-virtual-network-or-across-multiple-virtual-networks"></a>Kan jag använda funktionen för VNet-tjänstens slut punkt för att skydda Azure-tjänsten till flera undernät med i ett virtuellt nätverk eller över flera virtuella nätverk?
-Om du vill skydda Azure-tjänster till flera undernät i ett virtuellt nätverk eller över flera virtuella nätverk, aktiverar du tjänstens slut punkter på nätverks sidan på varje undernät oberoende av varandra och skyddar sedan Azure-tjänsteresurser till alla undernät genom att konfigurera lämpliga VNet ACL: er på Azures tjänst sida.
+### <a name="can-i-use-vnet-service-endpoint-feature-to-secure-azure-service-to-multiple-subnets-within-a-virtual-network-or-across-multiple-virtual-networks"></a>Kan jag använda funktionen för VNet-tjänstens slut punkt för att skydda Azure-tjänsten till flera undernät i ett virtuellt nätverk eller över flera virtuella nätverk?
+Om du vill skydda Azure-tjänster till flera undernät i ett virtuellt nätverk eller över flera virtuella nätverk, aktiverar du tjänstens slut punkter på nätverks sidan på varje undernät oberoende av varandra och skyddar sedan Azure-tjänsteresurser till alla undernät genom att konfigurera lämpliga VNet ACL: er på Azure-tjänstesidan.
  
 ### <a name="how-can-i-filter-outbound-traffic-from-a-virtual-network-to-azure-services-and-still-use-service-endpoints"></a>Hur kan jag filtrera utgående trafik från ett virtuellt nätverk till Azure-tjänster och fortfarande använda tjänst slut punkter?
 Om du vill granska eller filtrera trafiken mot en Azure-tjänst från ett virtuellt nätverk kan du distribuera en virtuell nätverksinstallation inom det virtuella nätverket. Du kan sedan använda tjänst slut punkter i under nätet där den virtuella nätverks enheten distribueras och säkra Azure-tjänstens resurser enbart till det här under nätet via VNet ACL: er. Det här scenariot kan också vara användbart om du vill begränsa åtkomsten till Azure-tjänsten från det virtuella nätverket endast till vissa Azure-resurser med hjälp av filtrering av virtuella nätverks enheter. Mer information finns i [Utgående trafik med virtuella nätverksinstallationer](https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/nva-ha).
 
-### <a name="what-happens-when-you-access-an-azure-service-account-that-has-virtual-network-access-control-list-acl-enabled-from-outside-the-vnet"></a>Vad händer när du ansluter till ett Azure-tjänstkontot som har åtkomst kontrol listan för virtuella nätverk (ACL) aktive rad utanför VNet?
+### <a name="what-happens-when-you-access-an-azure-service-account-that-has-a-virtual-network-access-control-list-acl-enabled-from-outside-the-vnet"></a>Vad händer när du ansluter till ett Azure-tjänstkontot som har en åtkomst kontrol lista för virtuella nätverk (ACL) aktive rad utanför VNet?
 HTTP 403-eller HTTP 404-fel returneras.
 
 ### <a name="are-subnets-of-a-virtual-network-created-in-different-regions-allowed-to-access-an-azure-service-account-in-another-region"></a>Har undernät i ett virtuellt nätverk som skapats i olika regioner åtkomst till ett Azure-tjänstkonto i en annan region? 
 Ja, för de flesta Azure-tjänster kan virtuella nätverk som skapats i olika regioner komma åt Azure-tjänster i en annan region via VNet-tjänstens slut punkter. Om till exempel ett Azure Cosmos DB-konto finns i västra USA, östra USA och virtuella nätverk finns i flera regioner, kan det virtuella nätverket komma åt Azure Cosmos DB. Storage och SQL är undantag och är regionala i natur och både det virtuella nätverket och Azure-tjänsten måste finnas i samma region.
   
-### <a name="can-an-azure-service-have-both-vnet-acl-and-an-ip-firewall"></a>Kan en Azure-tjänst ha både VNet ACL och en IP-brandvägg?
-Ja, VNet ACL och en IP-brandvägg kan finnas tillsammans. Båda funktionerna kompletterar varandra för att säkerställa isolering och säkerhet.
+### <a name="can-an-azure-service-have-both-a-vnet-acl-and-an-ip-firewall"></a>Kan en Azure-tjänst ha både en VNet-ACL och en IP-brandvägg?
+Ja, en VNet ACL och en IP-brandvägg kan finnas tillsammans. Båda funktionerna kompletterar varandra för att säkerställa isolering och säkerhet.
  
 ### <a name="what-happens-if-you-delete-a-virtual-network-or-subnet-that-has-service-endpoint-turned-on-for-azure-service"></a>Vad händer om du tar bort ett virtuellt nätverk eller undernät med tjänstens slut punkt aktive rad för Azure-tjänsten?
 Borttagning av virtuella nätverk och undernät är oberoende åtgärder och stöds även om tjänstens slut punkter aktive ras för Azure-tjänster. I de fall där Azure-tjänsterna har aktiverat VNet ACL: er, för dessa virtuella nätverk och undernät, inaktive ras ACL-informationen för VNet som är kopplad till Azure-tjänsten när ett VNet eller ett undernät där VNet-tjänstens slut punkt är aktiverat tas bort.
  
-### <a name="what-happens-if-azure-service-account-that-has-vnet-service-endpoint-enabled-is-deleted"></a>Vad händer om Azure Service-kontot där VNet-tjänstens slut punkt är aktiverat tas bort?
-Borttagning av Azure-tjänstkontot är en oberoende åtgärd och stöds även om tjänstens slut punkt är aktive rad på nätverks sidan och VNet-ACL: er konfigureras på Azure-tjänstesidan. 
+### <a name="what-happens-if-an-azure-service-account-that-has-a-vnet-service-endpoint-enabled-is-deleted"></a>Vad händer om ett Azure-tjänstkontot som har en aktive rad VNet-tjänst-slutpunkt är aktiverat tas bort?
+Borttagningen av ett Azure-tjänstkonto är en oberoende åtgärd och stöds även om tjänstens slut punkt är aktive rad på nätverks sidan och VNet-ACL: er konfigureras på Azure Service sida. 
 
 ### <a name="what-happens-to-the-source-ip-address-of-a-resource-like-a-vm-in-a-subnet-that-has-vnet-service-endpoint-enabled"></a>Vad händer med käll-IP-adressen för en resurs (som en virtuell dator i ett undernät) som har VNet-tjänstens slut punkt aktive rad?
-När tjänst slut punkter för virtuella nätverk är aktiverade växlar käll-IP-adresserna för resurserna i det virtuella nätverkets undernät från att använda offentliga IPV4-adresser till det virtuella Azure-nätverkets privata IP-adresser för trafik till Azure-tjänsten. Observera att detta kan orsaka att en speciell IP-brandvägg som är inställd på offentlig IPV4-adress tidigare på Azure-tjänsterna inte fungerar. 
+När tjänst slut punkter för virtuella nätverk är aktiverade växlar käll-IP-adresserna för resurserna i det virtuella nätverkets undernät från att använda offentliga IPV4-adresser till det virtuella Azure-nätverkets privata IP-adresser för trafik till Azure-tjänsten. Observera att detta kan orsaka att vissa IP-brandväggar som är inställda på offentlig IPV4-adress tidigare på Azure-tjänsterna inte fungerar. 
 
-### <a name="does-service-endpoint-route-always-take-precedence"></a>Har tjänstens slut punkts flöde alltid företräde?
+### <a name="does-the-service-endpoint-route-always-take-precedence"></a>Har tjänstens slut punkts flöde alltid företräde?
 Tjänst slut punkter lägger till en system väg som har företräde framför BGP-vägar och ger optimal routning för tjänst slut punktens trafik. Tjänst slut punkter tar alltid tjänst trafik direkt från ditt virtuella nätverk till tjänsten i Microsoft Azure stamnät nätverket. Mer information om hur Azure väljer en väg finns i [Azures routning för virtuella nätverks trafik](virtual-networks-udr-overview.md).
  
 ### <a name="how-does-nsg-on-a-subnet-work-with-service-endpoints"></a>Hur fungerar NSG på ett undernät med tjänst slut punkter?
@@ -395,10 +395,10 @@ Med tjänst slut punkts principer för virtuella nätverk (VNet) kan du filtrera
 
 ### <a name="does-azure-active-directory-azure-ad-support-vnet-service-endpoints"></a>Har Azure Active Directory (Azure AD) stöd för VNet-tjänstens slut punkter?
 
-Azure Active Directory (Azure AD) stöder inte tjänstens slut punkter internt. En fullständig lista över Azure-tjänster som stöder VNet-tjänstens slut punkter visas [här](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview). Observera att "Microsoft. AzureActiveDirectory"-taggen som anges under tjänster som stöder tjänst slut punkter används för att stödja tjänst slut punkter till ADLS gen 1. För ADLS gen 1 använder Virtual Network-integrering för Azure Data Lake Storage Gen1 den virtuella nätverks tjänstens slut punkt säkerhet mellan ditt virtuella nätverk och Azure Active Directory (Azure AD) för att generera ytterligare säkerhets anspråk i åtkomsttoken. Dessa anspråk används sedan för att autentisera ditt virtuella nätverk till ditt Data Lake Storage Gen1-konto och tillåta åtkomst. Läs mer om [Azure Data Lake Store generation 1 VNet-integrering] (.. /Data-Lake-Store/data-Lake-Store-Network-Security.MD? TOC =% 2fazure% 2fvirtual-Network% 2ftoc. JSON
+Azure Active Directory (Azure AD) stöder inte tjänstens slut punkter internt. En fullständig lista över Azure-tjänster som stöder VNet-tjänstens slut punkter visas [här](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview). Observera att taggen "Microsoft. AzureActiveDirectory" som anges under tjänster som stöder tjänst slut punkter används för att stödja tjänst slut punkter till ADLS gen 1. För ADLS gen 1 använder Virtual Network-integrering för Azure Data Lake Storage Gen1 den virtuella nätverks tjänstens slut punkt säkerhet mellan ditt virtuella nätverk och Azure Active Directory (Azure AD) för att generera ytterligare säkerhets anspråk i åtkomsttoken. Dessa anspråk används sedan för att autentisera ditt virtuella nätverk till ditt Data Lake Storage Gen1-konto och tillåta åtkomst. Läs mer om [Azure Data Lake Store generation 1 VNet-integrering] (.. /Data-Lake-Store/data-Lake-Store-Network-Security.MD? TOC =% 2fazure% 2fvirtual-Network% 2ftoc. JSON
 
 ### <a name="are-there-any-limits-on-how-many-vnet-service-endpoints-i-can-set-up-from-my-vnet"></a>Finns det några begränsningar för hur många VNet-tjänstens slut punkter jag kan konfigurera från mitt VNet?
-Det finns ingen gräns för det totala antalet VNet-slutpunkter i ett virtuellt nätverk. För en Azure-tjänstresurs (till exempel ett Azure Storage-konto) kan det finnas begränsningar av antalet undernät för att skydda resursen. I följande tabell visas några exempel begränsningar: 
+Det finns ingen gräns för det totala antalet VNet-slutpunkter i ett virtuellt nätverk. För en Azure-tjänst resurs (till exempel ett Azure Storage konto) kan tjänster upprätthålla gränser för antalet undernät som används för att skydda resursen. I följande tabell visas några exempel begränsningar: 
 
 |||
 |---|---|

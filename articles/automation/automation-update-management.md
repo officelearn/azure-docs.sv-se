@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 05/22/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 6f23a1f8e60567e1c2ed89b27f0eb2bab4ca5912
-ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
+ms.openlocfilehash: 5d607809b6e0356c8807879962927e99f2bd12fd
+ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70061809"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70382729"
 ---
 # <a name="update-management-solution-in-azure"></a>Uppdateringshantering lösning i Azure
 
@@ -100,7 +100,7 @@ I följande tabell visas operativsystem som inte stöds:
 
 #### <a name="windows"></a>Windows
 
-Windows-agenter måste konfigureras för att kommunicera med en WSUS-server, eller så måste de ha åtkomst till Microsoft Update. Du kan använda Uppdateringshantering med System Center Configuration Manager. Mer information om integrations scenarier finns i [integrera System Center Configuration Manager med uppdateringshantering](oms-solution-updatemgmt-sccmintegration.md#configuration). [Windows](../azure-monitor/platform/agent-windows.md) -agenten krävs. Agenten installeras automatiskt om du registrerar en virtuell Azure-dator.
+Windows-agenter måste konfigureras för att kommunicera med en WSUS-server, eller så måste de ha åtkomst till Microsoft Update. Du kan använda Uppdateringshantering med System Center Configuration Manager. Mer information om integrations scenarier finns i [integrera System Center Configuration Manager med uppdateringshantering](oms-solution-updatemgmt-sccmintegration.md#configuration). [Windows-agenten](../azure-monitor/platform/agent-windows.md) krävs. Agenten installeras automatiskt om du registrerar en virtuell Azure-dator.
 
 > [!NOTE]
 > Det är möjligt för en användare att ändra grupprincip så att omstarter av datorn bara kan utföras av användaren, inte av systemet. Hanterade datorer kan fastna, om Uppdateringshantering inte har behörighet att starta om datorn utan manuell interaktion från användaren.
@@ -138,7 +138,7 @@ Om din System Center Operations Manager hanterings grupp är ansluten till en Lo
 * Uppdatera distributions-MP
 
 > [!NOTE]
-> Om du har en Operations Manager 1807-hanterings grupp med agenter som kon figurer ATS på hanterings grupps nivå för att kopplas till en arbets yta, är den aktuella lösningen för att hämta dem att åsidosätta **IsAutoRegistrationEnabled** till **True** i **Microsoft. IntelligencePacks. AzureAutomation. HybridAgent. init** -regel.
+> Om du har en Operations Manager 1807-eller 2019-hanterings grupp med agenter som kon figurer ATS på hanterings grupps nivå för att kopplas till en arbets yta, är den aktuella lösningen för att hämta dem att åsidosätta **IsAutoRegistrationEnabled** till **Sant** i regeln **Microsoft. IntelligencePacks. AzureAutomation. HybridAgent. init** .
 
 Mer information om hur hanterings paket för lösningar uppdateras finns i [anslut Operations Manager till Azure Monitor loggar](../azure-monitor/platform/om-agents.md).
 
@@ -177,7 +177,7 @@ På en Windows-dator kan du granska följande information för att verifiera age
 1. Öppna **Microsoft Monitoring Agent**i kontroll panelen. På fliken **Azure-Log Analytics** visar agenten följande meddelande: **Microsoft Monitoring Agent har anslutit till Log Analytics**.
 2. Öppna händelse loggen i Windows. Gå till **program-och tjänst loggar \ Operations Manager** och Sök efter händelse-ID 3000 och händelse-ID 5002 från käll **tjänst anslutningen**. Dessa händelser anger att datorn har registrerats med Log Analytics-arbetsytan och tar emot konfiguration.
 
-Om agenten inte kan kommunicera med Azure Monitor loggar och agenten är konfigurerad för att kommunicera med Internet via en brand vägg eller proxyserver, kontrollerar du att brand väggen eller proxyservern har kon figurer ATS korrekt. Information om hur du verifierar att brand väggen eller proxyservern har kon figurer ATS korrekt finns i [nätverks konfiguration för Windows-agent](../azure-monitor/platform/agent-windows.md) eller [nätverks konfiguration för Linux](../log-analytics/log-analytics-agent-linux.md)-agenten.
+Om agenten inte kan kommunicera med Azure Monitor loggar och agenten är konfigurerad för att kommunicera med Internet via en brand vägg eller proxyserver, kontrollerar du att brand väggen eller proxyservern har kon figurer ATS korrekt. Information om hur du verifierar att brand väggen eller proxyservern har kon figurer ATS korrekt finns i [nätverks konfiguration för Windows-agent](../azure-monitor/platform/agent-windows.md) eller [nätverks konfiguration för Linux-agenten](../log-analytics/log-analytics-agent-linux.md).
 
 > [!NOTE]
 > Om Linux-systemen har kon figurer ATS för att kommunicera med en proxy eller Log Analytics gateway och du registrerar den här lösningen uppdaterar du *proxyn. conf* -behörighet för att ge behörigheten omiuser Group Läs behörighet för filen genom att använda följande kommandon:
@@ -281,7 +281,7 @@ Välj **saknade uppdateringar** om du vill visa en lista med uppdateringar som s
 
 ## <a name="view-update-deployments"></a>Visa uppdaterings distributioner
 
-Välj fliken **uppdaterings distributioner** om du vill visa en lista över befintliga uppdaterings distributioner. Välj någon av uppdaterings distributionerna i tabellen för att öppna körnings fönstret för **uppdaterings distribution** för den uppdaterings distributionen. Jobb loggar lagras i högst 30 dagar.
+Välj fliken **uppdaterings distributioner** om du vill visa en lista över befintliga uppdaterings distributioner. Välj någon av uppdaterings distributionerna i tabellen för att öppna **körnings fönstret för uppdaterings distribution** för den uppdaterings distributionen. Jobb loggar lagras i högst 30 dagar.
 
 ![Översikt över resultat av uppdaterings distribution](./media/automation-update-management/update-deployment-run.png)
 
@@ -643,7 +643,7 @@ I följande avsnitt beskrivs eventuella problem med Linux-korrigeringar.
 
 På vissa Linux-varianter, till exempel Red Hat Enterprise Linux, kan uppgraderingar av operativ Systems nivå ske via paket. Detta kan leda till att Uppdateringshantering körs där versions numret för operativ systemet ändras. Eftersom Uppdateringshantering använder samma metoder för att uppdatera paket som en administratör använder lokalt på Linux-datorn, är detta avsiktligt avsiktligt.
 
-Använd undantags funktionen om du vill undvika att uppdatera operativ system versionen via uppdateringshantering körs.
+Använd **undantags** funktionen om du vill undvika att uppdatera operativ system versionen via uppdateringshantering körs.
 
 I Red Hat Enterprise Linux är paket namnet som ska undantas RedHat-release-Server. x86_64.
 

@@ -11,12 +11,12 @@ ms.author: jovanpop
 ms.reviewer: sstein, carlrab, bonova
 ms.date: 08/12/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 1bba5e91e3edda41b75a96d8b55495ca5d1c092b
-ms.sourcegitcommit: d470d4e295bf29a4acf7836ece2f10dabe8e6db2
+ms.openlocfilehash: 9d99bb6db56a8db9d78952e4cf16465e386358cc
+ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2019
-ms.locfileid: "70209644"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70383143"
 ---
 # <a name="managed-instance-t-sql-differences-limitations-and-known-issues"></a>Hanterade instans T-SQL-skillnader, begränsningar och kända problem
 
@@ -27,9 +27,9 @@ Den här artikeln sammanfattar och förklarar skillnaderna i syntax och beteende
 Det finns vissa PaaS-begränsningar som introduceras i den hanterade instansen och vissa beteende ändringar jämfört med SQL Server. Skillnaderna är indelade i följande kategorier:<a name="Differences"></a>
 
 - [Tillgänglighet](#availability) inkluderar skillnaderna i [Always on](#always-on-availability) och [backups](#backup).
-- [Säkerhet](#security) omfattar skillnaderna i [granskning](#auditing), [certifikat](#certificates), [autentiseringsuppgifter](#credential), kryptografiproviders [](#cryptographic-providers), inloggningar [och användare](#logins-and-users)samt [tjänst nyckeln och tjänstens huvud nyckel](#service-key-and-service-master-key).
+- [Säkerhet](#security) omfattar skillnaderna i [granskning](#auditing), [certifikat](#certificates), [autentiseringsuppgifter](#credential), [kryptografiproviders](#cryptographic-providers), [inloggningar och användare](#logins-and-users)samt [tjänst nyckeln och tjänstens huvud nyckel](#service-key-and-service-master-key).
 - [Konfigurationen](#configuration) inkluderar skillnaderna i [tillägg för buffertpooltillägget](#buffer-pool-extension), [sortering](#collation), [kompatibilitetsnivå](#compatibility-levels), [databas spegling](#database-mirroring), [databas alternativ](#database-options), [SQL Server Agent](#sql-server-agent)och [tabell alternativ](#tables).
-- [Funktionerna](#functionalities) omfattar [bulk INSERT/OpenRowSet](#bulk-insert--openrowset), [CLR](#clr), [DBCC](#dbcc), distribuerade [transaktioner](#distributed-transactions), [utökade händelser](#extended-events), [externa bibliotek](#external-libraries), [FILESTREAM och FileTable](#filestream-and-filetable), [full text Semantisk sökning](#full-text-semantic-search), [länkade servrar](#linked-servers), [PolyBase](#polybase), [replikering](#replication), [återställning](#restore-statement), [Service Broker](#service-broker), [lagrade procedurer, funktioner och](#stored-procedures-functions-and-triggers)utlösare.
+- [Funktionerna](#functionalities) omfattar [bulk INSERT/OpenRowSet](#bulk-insert--openrowset), [CLR](#clr), [DBCC](#dbcc), [distribuerade transaktioner](#distributed-transactions), [utökade händelser](#extended-events), [externa bibliotek](#external-libraries), [FILESTREAM och FileTable](#filestream-and-filetable), [full text Semantisk sökning](#full-text-semantic-search), [länkade servrar](#linked-servers), [PolyBase](#polybase), [replikering](#replication), [återställning](#restore-statement), [Service Broker](#service-broker), [lagrade procedurer, funktioner och utlösare](#stored-procedures-functions-and-triggers).
 - [Miljö inställningar](#Environment) som virtuella nätverk och under näts konfiguration.
 
 De flesta av dessa funktioner är arkitektur begränsningar och representerar tjänst funktioner.
@@ -64,7 +64,7 @@ Hanterade instanser har automatiska säkerhets kopieringar, så användare kan `
 Begränsningar: 
 
 - Med en hanterad instans kan du säkerhetskopiera en instans databas till en säkerhets kopia med upp till 32 Stripes, vilket är tillräckligt för databaser upp till 4 TB om komprimering av säkerhets kopia används.
-- Det går inte `BACKUP DATABASE ... WITH COPY_ONLY` att köra på en databas som är krypterad med service-hanterad Transparent datakryptering (TDE). Service-Managed TDE tvingar säkerhets kopieringarna att krypteras med en intern TDE-nyckel. Det går inte att exportera nyckeln, så du kan inte återställa säkerhets kopian. Använd automatisk säkerhets kopiering och återställning av tidpunkter, eller Använd kundhanterad [(BYOK) TDE](https://docs.microsoft.com/azure/sql-database/transparent-data-encryption-azure-sql#customer-managed-transparent-data-encryption---bring-your-own-key) i stället. Du kan också inaktivera kryptering på databasen.
+- Det går inte `BACKUP DATABASE ... WITH COPY_ONLY` att köra på en databas som är krypterad med service-hanterad Transparent datakryptering (TDE). Service-Managed TDE tvingar säkerhets kopieringarna att krypteras med en intern TDE-nyckel. Det går inte att exportera nyckeln, så du kan inte återställa säkerhets kopian. Använd automatisk säkerhets kopiering och återställning av tidpunkter, eller Använd [kundhanterad (BYOK) TDE](https://docs.microsoft.com/azure/sql-database/transparent-data-encryption-azure-sql#customer-managed-transparent-data-encryption---bring-your-own-key) i stället. Du kan också inaktivera kryptering på databasen.
 - Den största storleken för säkerhets kopierings stripe `BACKUP` med kommandot i en hanterad instans är 195 GB, vilket är den maximala BLOB-storleken. Öka antalet ränder i säkerhets kopierings kommandot för att minska storleken på enskilda stripe-volymer och håll dig inom den här gränsen.
 
     > [!TIP]
@@ -149,7 +149,7 @@ En hanterad instans kan inte komma åt filer, så det går inte att skapa krypto
 - Att ange en Azure AD-inloggning som är mappad till en Azure AD-grupp eftersom databas ägaren inte stöds.
 - Personifiering av Azure AD-huvudobjekt på server nivå med hjälp av andra Azure AD-huvudobjekt stöds, till exempel [execute as](/sql/t-sql/statements/execute-as-transact-sql) -satsen. Kör som-begränsningar är:
 
-  - Kör som-användare stöds inte för Azure AD-användare när namnet skiljer sig från inloggnings namnet. Ett exempel är när användaren skapas med syntaxen Create User [myAadUser] from login [john@contoso.com] och personifiering görs i exec as User = _myAadUser_. När du skapar en **användare** från ett Azure AD server-huvudobjekt (inloggning) anger du användar namn som samma Login_namefrån inloggningen.
+  - Kör som-användare stöds inte för Azure AD-användare när namnet skiljer sig från inloggnings namnet. Ett exempel är när användaren skapas med syntaxen Create User [myAadUser] from login [john@contoso.com] och personifiering görs i exec as User = _myAadUser_. När du skapar en **användare** från ett Azure AD server-huvudobjekt (inloggning) anger du användar namn som samma Login_name från **inloggningen**.
   - Endast SQL Server nivå huvud konton (inloggningar) som är en del av `sysadmin` rollen kan köra följande åtgärder som är riktade till Azure AD-huvud konton:
 
     - KÖRA SOM ANVÄNDARE
@@ -184,7 +184,7 @@ En hanterad instans kan inte komma åt filer, så det går inte att skapa krypto
 ### <a name="service-key-and-service-master-key"></a>Tjänst nyckel och tjänstens huvud nyckel
 
 - [Säkerhets kopiering av huvud nycklar](https://docs.microsoft.com/sql/t-sql/statements/backup-master-key-transact-sql) stöds inte (hanteras av SQL Database tjänsten).
-- [Master Key](https://docs.microsoft.com/sql/t-sql/statements/restore-master-key-transact-sql) Restore stöds inte (hanteras av SQL Database tjänsten).
+- [Master Key Restore](https://docs.microsoft.com/sql/t-sql/statements/restore-master-key-transact-sql) stöds inte (hanteras av SQL Database tjänsten).
 - [Säkerhets kopiering av tjänstens huvud nyckel](https://docs.microsoft.com/sql/t-sql/statements/backup-service-master-key-transact-sql) stöds inte (hanteras av SQL Database tjänsten).
 - Det finns inte stöd för [återställning av tjänstens huvud nyckel](https://docs.microsoft.com/sql/t-sql/statements/restore-service-master-key-transact-sql) (hanteras av SQL Database tjänsten).
 
@@ -481,7 +481,7 @@ Begränsningar:
 - `.BAK`filer som innehåller flera loggfiler kan inte återställas.
 - Säkerhets kopior som innehåller databaser som är större än 8TB, aktiva InMemory OLTP-objekt eller mer än 280 filer kan inte återställas på en Generell användning instans. 
 - Säkerhets kopieringar som innehåller databaser som är större än 4 TB-eller in-memory OLTP-objekt med den totala storlek som är större än den storlek som beskrivs i [resurs gränser](sql-database-managed-instance-resource-limits.md) kan inte återställas på affärskritisk instans.
-Information om Restore-instruktioner [](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-transact-sql)finns i Restore Statements.
+Information om Restore-instruktioner finns i [restore Statements](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-transact-sql).
 
 ### <a name="service-broker"></a>Service Broker
 
@@ -522,7 +522,7 @@ Följande variabler, funktioner och vyer returnerar olika resultat:
 ### <a name="subnet"></a>Subnet
 -  Du kan inte placera andra resurser (till exempel virtuella datorer) i under nätet där du har distribuerat din hanterade instans. Distribuera de här resurserna med ett annat undernät.
 - Under nätet måste ha tillräckligt många tillgängliga [IP-adresser](sql-database-managed-instance-connectivity-architecture.md#network-requirements). Minimivärdet är 16 och rekommendationen måste ha minst 32 IP-adresser i under nätet.
-- [Tjänstens slut punkter kan inte kopplas till under nätet för den hanterade](sql-database-managed-instance-connectivity-architecture.md#network-requirements)instansen. Kontrol lera att alternativet tjänst slut punkter är inaktiverat när du skapar det virtuella nätverket.
+- [Tjänstens slut punkter kan inte kopplas till under nätet för den hanterade instansen](sql-database-managed-instance-connectivity-architecture.md#network-requirements). Kontrol lera att alternativet tjänst slut punkter är inaktiverat när du skapar det virtuella nätverket.
 - Antalet virtuella kärnor och typer av instanser som du kan distribuera i en region har vissa [begränsningar och begränsningar](sql-database-managed-instance-resource-limits.md#regional-resource-limitations).
 - Det finns vissa [säkerhets regler som måste tillämpas på under nätet](sql-database-managed-instance-connectivity-architecture.md#network-requirements).
 
@@ -540,6 +540,14 @@ Den maximala fil storleken på `tempdb` får inte vara större än 24 GB per kä
 En hanterad instans placerar utförlig information i fel loggarna. Det finns många interna system händelser som loggas i fel loggen. Använd en anpassad procedur för att läsa fel loggar som filtrerar bort vissa irrelevanta poster. Mer information finns i [Managed instance – sp_readmierrorlog](https://blogs.msdn.microsoft.com/sqlcat/2018/05/04/azure-sql-db-managed-instance-sp_readmierrorlog/).
 
 ## <a name="Issues"></a>Kända problem
+
+### <a name="resource-governor-on-business-critical-service-tier-might-need-to-be-reconfigured-after-failover"></a>Resource Governor på Affärskritisk tjänst nivå kan behöva konfigureras om efter en redundansväxling
+
+**Ikraftträdande** Sep 2019
+
+[Resource Governor](https://docs.microsoft.com/sql/relational-databases/resource-governor/resource-governor) funktion som gör att du kan begränsa de resurser som är tilldelade till användarens arbets belastning kan klassificera vissa användares arbets belastning efter redundansväxling eller en användarinitierad ändring av tjänst nivån (till exempel ändringen av Max vCore eller Max instans lagrings storlek).
+
+**Lösning**: Kör `ALTER RESOURCE GOVERNOR RECONFIGURE` regelbundet eller som en del av SQL Agent-jobbet som kör SQL-aktiviteten när instansen startar om du använder [Resource Governor](https://docs.microsoft.com/sql/relational-databases/resource-governor/resource-governor).
 
 ### <a name="cannot-authenicate-to-external-mail-servers-using-secure-connection-ssl"></a>Det går inte att autentisering externa e-postservrar med säker anslutning (SSL)
 
@@ -585,6 +593,12 @@ SQL Server Management Studio och SQL Server Data Tools inte fuly stöd för Azur
 - Att använda Azure AD server-Huvudkonton (inloggningar) och användare (offentlig för hands version) med SQL Server Data Tools stöds inte för närvarande.
 - Skript för Azure AD server-Huvudkonton (inloggningar) och användare (offentlig för hands version) stöds inte i SQL Server Management Studio.
 
+### <a name="temporary-database-is-used-during-restore-operation"></a>Tillfällig databas används under återställnings åtgärden
+
+När en databas återställs på den hanterade instansen skapar återställnings tjänsten först en tom databas med det önskade namnet för att allokera namnet på instansen. Efter en stund kommer den här databasen att tas bort och återställning av den faktiska databasen kommer att startas. Databasen som är i *återställnings* tillstånd kommer temporärt att ha ett slumpmässigt GUID-värde i stället för namn. Det tillfälliga namnet ändras till det önskade namnet i `RESTORE` instruktionen när återställnings processen har slutförts. I den inledande fasen kan användaren komma åt den tomma databasen och till och med skapa tabeller eller läsa in data i den här databasen. Den här tillfälliga databasen kommer att tas bort när återställnings tjänsten startar den andra fasen.
+
+**Lösning**: Få inte åtkomst till den databas som du återställer förrän du ser att återställningen har slutförts.
+
 ### <a name="tempdb-structure-and-content-is-re-created"></a>TEMPDB-strukturen och innehållet har skapats på nytt
 
 `tempdb` Databasen delas alltid upp i 12 datafiler och fil strukturen kan inte ändras. Den maximala storleken per fil kan inte ändras och nya filer kan inte läggas till i `tempdb`. `Tempdb`återskapas alltid som en tom databas när instansen startar eller växlar över och eventuella ändringar som görs i `tempdb` bevaras inte.
@@ -604,7 +618,7 @@ Det här exemplet illustrerar att under vissa omständigheter, på grund av en s
 
 I det här exemplet fortsätter befintliga databaser att fungera och kan växa utan problem så länge nya filer inte läggs till. Det går inte att skapa eller återställa nya databaser eftersom det inte finns tillräckligt med utrymme för nya disk enheter, även om den totala storleken på alla databaser inte når gränsen för instans storlek. Det fel som returneras i detta fall är inte klart.
 
-Du kan [identifiera antalet återstående filer](https://medium.com/azure-sqldb-managed-instance/how-many-files-you-can-create-in-general-purpose-azure-sql-managed-instance-e1c7c32886c1) med hjälp av systemvyer. Om du når den här gränsen kan du försöka att [tömma och ta bort några av de mindre filerna med hjälp av DBCC SHRINKFILE](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-shrinkfile-transact-sql#d-emptying-a-file) -instruktionen eller växla till [Affärskritisks nivån, som inte har den här gränsen](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-resource-limits#service-tier-characteristics).
+Du kan [identifiera antalet återstående filer](https://medium.com/azure-sqldb-managed-instance/how-many-files-you-can-create-in-general-purpose-azure-sql-managed-instance-e1c7c32886c1) med hjälp av systemvyer. Om du når den här gränsen kan du försöka att [tömma och ta bort några av de mindre filerna med hjälp av DBCC SHRINKFILE-instruktionen](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-shrinkfile-transact-sql#d-emptying-a-file) eller växla till [Affärskritisks nivån, som inte har den här gränsen](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-resource-limits#service-tier-characteristics).
 
 ### <a name="guid-values-shown-instead-of-database-names"></a>GUID-värden som visas i stället för databas namn
 

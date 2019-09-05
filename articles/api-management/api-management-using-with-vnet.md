@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/01/2019
 ms.author: apimpm
-ms.openlocfilehash: f79fffe2117de77e4e44dcbbaa782b2ade81e04b
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: b89f4d2264924983aac93fb266efd71e46bea6bf
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70164190"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70305234"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Använda Azure API Management med virtuella nätverk
 Med Azure Virtual Networks (virtuella nätverk) kan du placera någon av dina Azure-resurser i ett icke-Internet-dirigerbart nätverk som du styr åtkomsten till. Dessa nätverk kan sedan anslutas till dina lokala nätverk med hjälp av olika VPN-tekniker. Om du vill veta mer om virtuella Azure-nätverk börjar du med informationen här: [Översikt över Azure-Virtual Network](../virtual-network/virtual-networks-overview.md).
@@ -25,7 +25,7 @@ Med Azure Virtual Networks (virtuella nätverk) kan du placera någon av dina Az
 Azure API Management kan distribueras inuti det virtuella nätverket (VNET), så att det kan komma åt Server dels tjänster i nätverket. Developer-portalen och API-gatewayen kan konfigureras att vara tillgängliga antingen från Internet eller endast inom det virtuella nätverket.
 
 > [!NOTE]
-> Azure API Management stöder både klassisk och Azure Resource Manager virtuella nätverk.
+> URL: en för API-importens dokument måste finnas på en offentligt tillgänglig Internet adress.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -139,7 +139,7 @@ Nedan följer en lista över vanliga fel konfigurations problem som kan uppstå 
 
 + **SMTP-relä**: Utgående nätverks anslutning för SMTP-reläet, som löses `smtpi-co1.msn.com`under värden, `smtpi-ch1.msn.com`, `smtpi-db3.msn.com` `smtpi-sin.msn.com` och`ies.global.microsoft.com`
 
-+ **CAPTCHA**för Developer-portalen: Utgående nätverks anslutning för Developer-portalens CAPTCHA, som löses under värdarna `client.hip.live.com` och. `partner.hip.live.com`
++ **CAPTCHA för Developer-portalen**: Utgående nätverks anslutning för Developer-portalens CAPTCHA, som löses under värdarna `client.hip.live.com` och. `partner.hip.live.com`
 
 + **Azure Portal diagnostik**: Om du vill aktivera flödet av diagnostikloggar från Azure Portal när du använder API Management tillägget inifrån en Virtual Network, krävs utgående åtkomst `dc.services.visualstudio.com` till på port 443. Detta hjälper till att felsöka problem som kan uppstå när du använder tillägget.
 

@@ -10,12 +10,12 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 04/18/2019
 ms.author: sbowles
-ms.openlocfilehash: 36cd9b560bd149fd837db09cba33ce6bb2199a20
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: 07089def3290d6d64919ad2551de7584646cc681
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68827737"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70306621"
 ---
 # <a name="get-face-detection-data"></a>Hämta ansikts identifierings data
 
@@ -29,7 +29,7 @@ Den här guiden visar hur du:
 
 ## <a name="setup"></a>Konfiguration
 
-Den här guiden förutsätter att du redan [](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceclient?view=azure-dotnet) har skapat ett FaceClient `faceClient`-objekt med namnet, med en ansikts prenumerations nyckel och en slut punkts-URL. Härifrån kan du använda funktionen för ansikts igenkänning genom att anropa antingen [DetectWithUrlAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceoperationsextensions.detectwithurlasync?view=azure-dotnet), som används i den här hand boken eller [DetectWithStreamAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceoperationsextensions.detectwithstreamasync?view=azure-dotnet). Instruktioner för hur du konfigurerar den här funktionen finns i avsnittet [identifiera ansikten snabb start för C# ](../quickstarts/csharp-detect-sdk.md).
+Den här guiden förutsätter att du redan [](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceclient?view=azure-dotnet) har skapat ett FaceClient `faceClient`-objekt med namnet, med en ansikts prenumerations nyckel och en slut punkts-URL. Härifrån kan du använda funktionen för ansikts igenkänning genom att anropa antingen [DetectWithUrlAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceoperationsextensions.detectwithurlasync?view=azure-dotnet), som används i den här hand boken eller [DetectWithStreamAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceoperationsextensions.detectwithstreamasync?view=azure-dotnet). Instruktioner för hur du konfigurerar den här funktionen finns i en av snabb starterna.
 
 Den här guiden fokuserar på de olika uppgifterna i identifierings anropet, till exempel vilka argument du kan skicka och vad du kan göra med returnerade data. Vi rekommenderar att du frågar efter enbart de funktioner du behöver. Varje åtgärd tar ytterligare tid att slutföra.
 
@@ -107,7 +107,7 @@ När du känner till ansikts riktningen kan du rotera den rektangulära ytan fö
 
 Förutom ansikts rektanglar och landmärken kan ansikts igenkännings-API: et analysera flera konceptuella attribut för en ansikte. En fullständig lista finns i avsnittet koncept för [ansikts attribut](../concepts/face-detection.md#attributes) .
 
-Om du vill analysera ansikts attribut ställer du in parametern _returnFaceAttributes_ på en lista med uppräknings värden för [FaceAttributeType](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.models.faceattributetype?view=azure-dotnet) .
+Om du vill analysera ansikts attribut ställer du in parametern _returnFaceAttributes_ på en lista med [uppräknings](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.models.faceattributetype?view=azure-dotnet) värden för FaceAttributeType.
 
 ```csharp
 var requiredFaceAttributes = new FaceAttributeType[] {

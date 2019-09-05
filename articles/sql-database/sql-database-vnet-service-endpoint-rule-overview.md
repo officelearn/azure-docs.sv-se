@@ -11,12 +11,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto, genemi
 ms.date: 08/27/2019
-ms.openlocfilehash: 8948a0fe6112df0d29c0f04685dadbd379a4a382
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: d924f0eb89984fbe77f94eff553d00a25b4b7a3a
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70098910"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70309623"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-database-servers"></a>Använd tjänst slut punkter och regler för virtuella nätverk för databas servrar
 
@@ -72,13 +72,11 @@ Du kan välja att använda [rollbaserad åtkomst kontroll (RBAC)][rbac-what-is-8
 
 För Azure SQL Database har funktionen regler för virtuellt nätverk följande begränsningar:
 
-- En webbapp kan mappas till en privat IP-adress i ett VNet/undernät. Även om tjänstens slut punkter är påslagna från det virtuella nätverket/under nätet kommer anslutningar från webbappen till-servern att ha en offentlig Azure-IP-källa, inte en källa för VNet/undernät. Om du vill aktivera anslutning från en webbapp till en server som har VNet brand Väggs regler måste du **ge Azure-tjänster åtkomst till servern** på servern.
-
 - I brand väggen för din SQL Database refererar varje virtuell nätverks regel till ett undernät. Alla dessa refererade undernät måste ligga inom samma geografiska region som är värd för SQL Database.
 
 - Varje Azure SQL Database Server kan ha upp till 128 ACL-poster för ett angivet virtuellt nätverk.
 
-- Regler för virtuella nätverk gäller endast för Azure Resource Manager virtuella nätverk; och inte till [klassiska][arm-deployment-model-568f] nätverk för distributions modeller.
+- Regler för virtuella nätverk gäller endast för Azure Resource Manager virtuella nätverk; och inte till [klassiska nätverk för distributions modeller][arm-deployment-model-568f] .
 
 - Att aktivera tjänst slut punkter för virtuella nätverk till Azure SQL Database också aktivera slut punkter för de MySQL-och PostgreSQL Azure-tjänsterna. Men med slut punkter på kan försök att ansluta från slut punkterna till MySQL-eller PostgreSQL-instanserna Miss lyckas.
   - Den bakomliggande orsaken är att MySQL och PostgreSQL troligen inte har någon konfigurerad regel för virtuella nätverk. Du måste konfigurera en regel för virtuella nätverk för Azure Database for MySQL och PostgreSQL och anslutningen kommer att lyckas.

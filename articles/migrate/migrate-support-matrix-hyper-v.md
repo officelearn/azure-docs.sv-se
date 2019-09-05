@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: raynew
-ms.openlocfilehash: 26b7f185a05bcf50db3af6bd3b75d5e61d6ec84b
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: 97972be655a6a03cfe29d8589a144d1e027b86fc
+ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70279561"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70376098"
 ---
 # <a name="support-matrix-for-hyper-v-assessment-and-migration"></a>Stödmatris för utvärdering och migrering av Hyper-V
 
@@ -82,7 +82,7 @@ Vid utvärdering kör Azure Migrate en förenklad installation för att identifi
 
 | **Support**                | **Detaljer**               
 | :-------------------       | :------------------- |
-| **Distribution av utrustning**   |  Du distribuerar installationen som en virtuell Hyper-V-dator.<br/> Den virtuella dator som tillhandahålls av Azure Migrate är Hyper-V VM version 5,0.<br/> Hyper-V-värden måste köra Windows Server 2012 R2 eller senare.<br/> Värden behöver tillräckligt med utrymme för att allokera 16 GB RAM, 8 virtuella processorer och 1 extern växel för den virtuella datorn.<br/> Enheten behöver en statisk eller dynamisk IP-adress och Internet åtkomst.
+| **Distribution av utrustning**   |  Du distribuerar installationen som en virtuell Hyper-V-dator.<br/> Den virtuella dator som tillhandahålls av Azure Migrate är Hyper-V VM version 5,0.<br/> Hyper-V-värden måste köra Windows Server 2012 R2 eller senare.<br/> Värden behöver tillräckligt med utrymme för att allokera 16 GB RAM-minne, 8 virtuella processorer, runt 80 GB lagrings utrymme och en extern växel för den virtuella datorns dator.<br/> Enheten behöver en statisk eller dynamisk IP-adress och Internet åtkomst.
 | **Azure Migrate projekt**  |  En apparat kan associeras med ett enda projekt.<br/> Valfritt antal enheter kan associeras med ett enda projekt.<br/> Du kan utvärdera upp till 35 000 virtuella datorer i ett projekt.
 | **Hyper-V-värdar**          | En apparat kan ansluta till upp till 300 Hyper-V-värdar.
 | **Identifikation**              | En enda apparat kan identifiera upp till 5000 virtuella datorer.

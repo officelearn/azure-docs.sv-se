@@ -9,12 +9,12 @@ ms.subservice: face-api
 ms.topic: quickstart
 ms.date: 07/26/2019
 ms.author: pafarley
-ms.openlocfilehash: d3128144a06f4faa46d18650c3dd2c21f72afc1c
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: 2a74dbe9c306c1bf2420fdaac78a9b9183cacab1
+ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70164785"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70376142"
 ---
 # <a name="quickstart-face-client-library-for-python"></a>Snabbstart: Ansikts klient bibliotek för python
 
@@ -26,6 +26,7 @@ Använd ansikts klient biblioteket för python för att:
 * Hitta liknande ansikten
 * Skapa och träna en person grupp
 * Identifiera ett ansikte
+* Verifiera ansikten
 * Ta en ögonblicks bild för datamigrering
 
 [Referens dokumentation](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-face/?view=azure-python) | [bibliotek käll kods](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-vision-face) | [paket (PiPy)](https://pypi.org/project/azure-cognitiveservices-vision-face/) | [exempel](https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=Face&sort=0)
@@ -90,6 +91,7 @@ De här kodfragmenten visar hur du gör följande uppgifter med ansikts klient b
 * [Hitta liknande ansikten](#find-similar-faces)
 * [Skapa och träna en person grupp](#create-and-train-a-person-group)
 * [Identifiera ett ansikte](#identify-a-face)
+* [Verifiera ansikten](#verify-faces)
 * [Ta en ögonblicks bild för datamigrering](#take-a-snapshot-for-data-migration)
 
 ## <a name="authenticate-the-client"></a>Autentisera klienten
@@ -108,6 +110,14 @@ Följande kod identifierar en ansikts i en fjärran sluten avbildning. Den skriv
 [!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_detect)]
 
 Se exempel koden på [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/Face/FaceQuickstart.py) för fler identifierings scenarier.
+
+### <a name="display-and-frame-faces"></a>Visa och inrama ansikten
+
+Följande kod matar ut den angivna bilden till visning och ritar rektanglar runt ansikten med hjälp av egenskapen DetectedFace. faceRectangle.
+
+[!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_frame)]
+
+![En ung kvinna med den röd rektangel ritad runt ansiktet](../images/face-rectangle-result.png)
 
 ## <a name="find-similar-faces"></a>Hitta liknande ansikten
 
@@ -177,6 +187,32 @@ Följande kod söker i roten i projektet efter en bild _test-image-person-Group.
 **Identifiera** -metoden tar en matris med identifierade ansikten och jämför dem med en **PersonGroup**. Om den kan matcha ett identifierat ansikte till en **person**sparas resultatet. Den här koden skriver ut detaljerade matchnings resultat till-konsolen.
 
 [!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_identify)]
+
+## <a name="verify-faces"></a>Verifiera ansikten
+
+Verifierings åtgärden tar ett ansikts-ID och antingen ett annat ansikts-ID eller ett **person** objekt och avgör om de tillhör samma person.
+
+Följande kod identifierar ansikten i två käll avbildningar och verifierar sedan dem mot en ansikts som identifieras från en mål avbildning.
+
+### <a name="get-test-images"></a>Hämta test bilder
+
+Följande kod block deklarerar variabler som pekar på käll-och mål avbildningarna för verifierings åtgärden.
+
+[!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_verify_baseurl)]
+
+[!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_verify_photos)]
+
+### <a name="detect-faces-for-verification"></a>Identifiera ansikten för verifiering
+
+Följande kod identifierar ansikten i käll-och mål bilderna och sparar dem i variabler.
+
+[!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_verify_detect)]
+
+### <a name="get-verification-results"></a>Få verifierings resultat
+
+Följande kod jämför var och en av käll avbildningarna till mål avbildningen och skriver ut ett meddelande som anger om de tillhör samma person.
+
+[!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_verify)]
 
 ## <a name="take-a-snapshot-for-data-migration"></a>Ta en ögonblicks bild för datamigrering
 

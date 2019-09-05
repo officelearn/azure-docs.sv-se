@@ -5,23 +5,23 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 07/31/2019
+ms.date: 09/04/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: adwise
 ms.custom: seodec18
-ms.openlocfilehash: 7fd98c7bb2cd049da8f5f68a5d2401081822eb22
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.openlocfilehash: 183030a063faa212d7d5788792aa525f530d18ef
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68779214"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70308399"
 ---
 # <a name="tutorial-create-and-manage-azure-budgets"></a>Självstudier: Skapa och hantera Azure-budgetar
 
 Budgetar i Cost Management hjälper dig att planera och öka organisationsansvar. Med budgetar kan du ta hänsyn till de Azure-tjänster du förbrukar eller prenumererar på under en viss period. De hjälper dig att informera andra om sina utgifter att proaktivt hantera kostnader och övervaka hur utgifter fortskrider över tid. När budgetgränser som du har skapat överskrids utlöses endast meddelanden. Ingen av dina resurser som påverkas och förbrukning stoppats inte. Du kan använda budgetar för att jämföra och spåra utgifter som du analysera kostnaderna.
 
-Månads budgetar utvärderas mot utgifter var fjärde timme. Data och meddelanden för förbrukade resurser är dock tillgängliga inom åtta timmar.  
+Månads budgetar utvärderas mot utgifter var fjärde timme. Data för förbrukade resurser är dock tillgängliga inom åtta timmar. När ett tröskelvärde för budget är uppfyllt, tas e-postmeddelanden emot på normalt inom mindre än åtta timmar. 
 
 Budgetar återställa automatiskt i slutet av en viss (månadsvis, Kvartalsvis eller årligen) för samma budgetbelopp när du väljer ett förfallodatum i framtiden. Eftersom de återställa med samma budgetbelopp, måste du skapa separata budgetar när budgeterade valutabelopp skiljer sig åt för framtida perioder.
 
@@ -58,7 +58,7 @@ Läs mer om att tilldela behörighet till Cost Management-data, [tilldela åtkom
 
 Du kan skapa en Azure-prenumeration budget under en månad, kvartal eller årlig. Ditt navigerings innehåll i Azure Portal avgör om du skapar en budget för en prenumeration eller för en hanterings grupp.
 
-Om du vill skapa eller Visa en budget öppnar du önskad omfattning i Azure Portal och väljer **budgetar** i menyn. Du kan till exempel navigeratill prenumerationer, välja en prenumeration i listan och sedan välja **budgetar** i menyn. Använd omfånget Pill för att växla till ett annat omfång, t. ex. en hanterings grupp, i budgetar. Mer information om omfattningar finns i [förstå och arbeta med omfattningar](understand-work-scopes.md).
+Om du vill skapa eller Visa en budget öppnar du önskad omfattning i Azure Portal och väljer **budgetar** i menyn. Du kan till exempel navigera till **prenumerationer**, välja en prenumeration i listan och sedan välja **budgetar** i menyn. Använd **omfånget** Pill för att växla till ett annat omfång, t. ex. en hanterings grupp, i budgetar. Mer information om omfattningar finns i [förstå och arbeta med omfattningar](understand-work-scopes.md).
 
 När du har skapat din budget visar de en enkel vy över dina aktuella utgifter mot dessa.
 
@@ -90,7 +90,7 @@ I exemplet ovan skapade du en budget för en prenumeration. Du kan också skapa 
 
 ## <a name="trigger-an-action-group"></a>Utlös en åtgärds grupp
 
-När du skapar eller redigerar en budget för en prenumeration eller resurs grupps omfång kan du konfigurera den så att den anropar en åtgärds grupp. Åtgärds gruppen kan utföra en rad olika åtgärder när ditt budget tröskelvärde är uppfyllt. Mer information om åtgärds grupper finns [i skapa och hantera åtgärds grupper i Azure Portal](../azure-monitor/platform/action-groups.md). Mer information om hur du använder budget baserad automatisering med åtgärds grupper finns i [hantera kostnader med Azure](../billing/billing-cost-management-budget-scenario.md)-budgetar.
+När du skapar eller redigerar en budget för en prenumeration eller resurs grupps omfång kan du konfigurera den så att den anropar en åtgärds grupp. Åtgärds gruppen kan utföra en rad olika åtgärder när ditt budget tröskelvärde är uppfyllt. Mer information om åtgärds grupper finns [i skapa och hantera åtgärds grupper i Azure Portal](../azure-monitor/platform/action-groups.md). Mer information om hur du använder budget baserad automatisering med åtgärds grupper finns i [hantera kostnader med Azure-budgetar](../billing/billing-cost-management-budget-scenario.md).
 
 Om du vill skapa eller uppdatera åtgärds grupper klickar du på **Hantera åtgärds grupper** när du skapar eller redigerar en budget.
 

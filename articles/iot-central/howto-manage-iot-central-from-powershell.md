@@ -8,12 +8,12 @@ ms.author: dobett
 ms.date: 07/11/2019
 ms.topic: conceptual
 manager: philmea
-ms.openlocfilehash: bfda4f4ebe8990a16853bdfe40065a7501de5275
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 85afb69a7656e96e2f7163ded5cb23ac1b2560ea
+ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70086892"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70380974"
 ---
 # <a name="manage-iot-central-from-azure-powershell"></a>Hantera IoT Central från Azure PowerShell
 
@@ -66,7 +66,7 @@ Skriptet skapar först en resurs grupp i regionen USA, östra för programmet. I
 |Parameter         |Beskrivning |
 |------------------|------------|
 |ResourceGroupName |Resurs gruppen som innehåller programmet. Den här resurs gruppen måste redan finnas i din prenumeration. |
-|Location |Som standard använder denna cmdlet platsen från resurs gruppen. För närvarande kan du skapa ett IoT Central program i regionerna **östra USA**, **västra USA**, **norra Europa**eller Västeuropa . |
+|Location |Som standard använder denna cmdlet platsen från resurs gruppen. För närvarande kan du skapa ett IoT Central program i regionerna **östra USA**, **västra USA**, **norra Europa** **eller Västeuropa.** |
 |Name              |Namnet på programmet i Azure Portal. |
 |Underdomän         |Under domänen i programmets URL. I exemplet är https://mysubdomain.azureiotcentral.com programmets URL. |
 |SKU               |För närvarande är det enda värdet **S1** (standard nivån). Se [priser för Azure IoT Central](https://azure.microsoft.com/pricing/details/iot-central/). |
@@ -80,6 +80,9 @@ Skriptet skapar först en resurs grupp i regionen USA, östra för programmet. I
 |iotc-default@1.0.0 |Skapar ett tomt program som du kan fylla med dina egna enhetsmallar och enheter. |
 |iotc-demo@1.0.0    |Skapar ett program som innehåller en mall för enheter som redan har skapats för en kylande varuautomat. Använd den här mallen för att börja utforska Azure IoT Central. |
 |iotc-devkit-sample@1.0.0 |Skapar ett program med enhetsmallar där du kan ansluta en MXChip- eller Raspberry Pi-enhet. Använd den här mallen om du är en enhets utvecklare som experimenterar med någon av dessa enheter. |
+
+> [!NOTE]
+> För **hands versions** mal len är för närvarande endast tillgänglig i regionerna **Nord Europa** och **centrala USA** .
 
 ## <a name="view-your-iot-central-applications"></a>Visa dina IoT Central-program
 

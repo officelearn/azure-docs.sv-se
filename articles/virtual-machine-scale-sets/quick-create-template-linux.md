@@ -16,12 +16,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/27/2018
 ms.author: cynthn
-ms.openlocfilehash: 9afc2e2362721fd2905b2a241960507aec9b15a5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: aa1aca6a1c47e486e0630e779c975b699a193d41
+ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66151084"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70375949"
 ---
 # <a name="quickstart-create-a-linux-virtual-machine-scale-set-with-an-azure-template"></a>Snabbstart: Skapa en skalningsuppsättning för virtuella Linux-datorer med en Azure-mall
 Med en VM-skalningsuppsättning kan du distribuera och hantera en uppsättning identiska, virtuella datorer med automatisk skalning. Du kan skala antalet virtuella datorer i skalningsuppsättningen manuellt eller definiera regler för automatisk skalning baserat på resursanvändning som CPU, minnesefterfrågan eller nätverkstrafik. En Azure-lastbalanserare distribuerar sedan trafiken till de virtuella datorinstanserna i skalningsuppsättningen. I den här snabbstarten skapar du en VM-skalningsuppsättning och distribuerar ett exempelprogram med en Azure Resource Manager-mall.
@@ -36,15 +36,15 @@ Om du väljer att installera och använda CLI lokalt, måste du köra Azure CLI 
 ## <a name="define-a-scale-set-in-a-template"></a>Definiera en skalningsuppsättning i en mall
 Du kan distribuera grupper av relaterade resurser med hjälp av Azure Resource Manager-mallar. Mallarna är skrivna i JavaScript Object Notation (JSON) och definierar hela infrastrukturen i Azure-miljön för din app. Med en enda mall kan du skapa VM-skalningsuppsättningen, installera program och ange regler för automatisk skalning. Du kan återanvända mallen och använda variabler och parametrar till att uppdatera befintliga, eller skapa ytterligare, skalningsuppsättningar. Du kan distribuera mallar via Azure-portalen, Azure CLI eller Azure PowerShell eller från pipelines för kontinuerlig integrering/kontinuerlig leverans (CI/CD).
 
-Mer information om mallar finns i [Översikt över Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#template-deployment). Information om JSON-syntax och JSON-egenskaper finns i mallreferensen [Microsoft.Compute/virtualMachineScaleSets](/azure/templates/microsoft.compute/virtualmachinescalesets).
+Mer information om mallar finns i [Översikt över Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/template-deployment-overview#template-deployment-process). Information om JSON-syntax och JSON-egenskaper finns i mallreferensen [Microsoft.Compute/virtualMachineScaleSets](/azure/templates/microsoft.compute/virtualmachinescalesets).
 
 När du skapar en skalningsuppsättning med en mall definierar du lämpliga resurser. Huvuddelarna i resurstypen för VM-skalningsuppsättning:
 
 | Egenskap                     | Egenskapsbeskrivning                                  | Exempelmallvärde                    |
 |------------------------------|----------------------------------------------------------|-------------------------------------------|
-| typ                         | Azure-resurstypen som ska skapas                            | Microsoft.Compute/virtualMachineScaleSets |
-| namn                         | Namnet på skalningsuppsättningen                                       | myScaleSet                                |
-| location                     | Platsen där skalningsuppsättningen skapas                     | Östra USA                                   |
+| type                         | Azure-resurstypen som ska skapas                            | Microsoft.Compute/virtualMachineScaleSets |
+| name                         | Namnet på skalningsuppsättningen                                       | myScaleSet                                |
+| location                     | Platsen där skalningsuppsättningen skapas                     | East US                                   |
 | sku.name                     | VM-storleken för varje skalningsuppsättningsinstans                  | Standard_A1                               |
 | sku.capacity                 | Antal VM-instanser som skapas inledningsvis           | 2                                         |
 | upgradePolicy.mode           | Uppgraderingsläge för VM-instanser när ändringar sker              | Automatisk                                 |
@@ -161,7 +161,7 @@ az network public-ip list \
     --query [*].ipAddress -o tsv
 ```
 
-Ange den offentliga IP-adressen för belastningsutjämnaren i en webbläsare i formatet *http:\//publicIpAddress:9000 / do_work*. Lastbalanseraren distribuerar trafik till en av dina VM-instanser enligt följande exempel:
+Ange den offentliga IP-adressen för belastningsutjämnaren i en webbläsare i formatet *http:\//publicIpAddress: 9000/do_work*. Lastbalanseraren distribuerar trafik till en av dina VM-instanser enligt följande exempel:
 
 ![Standardwebbsida i NGINX](media/virtual-machine-scale-sets-create-template/running-python-app.png)
 

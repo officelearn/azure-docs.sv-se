@@ -1,6 +1,6 @@
 ---
-title: Ansluta till Azure Media Services v3-API – .NET
-description: Lär dig hur du ansluter till Media Services v3-API med .NET.
+title: Ansluta till Azure Media Services v3 API-.NET
+description: Lär dig hur du ansluter till Media Services v3 API med .NET.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -13,61 +13,64 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/04/2019
 ms.author: juliako
-ms.openlocfilehash: a256eb787d7e3dbd800ec2e630cac591b07ca0fc
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 3ddf5a1ab37ac0af25379394b4513627139fcbd5
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67444172"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70307941"
 ---
-# <a name="connect-to-media-services-v3-api---net"></a>Ansluta till Media Services v3-API – .NET
+# <a name="connect-to-media-services-v3-api---net"></a>Ansluta till Media Services v3 API-.NET
 
-Den här artikeln visar hur du ansluter till Azure Media Services v3 .NET SDK med hjälp av metoden huvudsaklig inloggning på tjänsten.
+Den här artikeln visar hur du ansluter till Azure Media Services v3 .NET SDK med inloggnings metoden för tjänstens huvud namn.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-- [Skapa ett Media Services-konto](create-account-cli-how-to.md). Se till att komma ihåg resursgruppens namn och namnet på Media Services-konto
-- Installera ett verktyg som du vill använda för .NET-utveckling. Stegen i den här artikeln visar hur du använder [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/). Du kan använda Visual Studio Code, se [arbeta med C# ](https://code.visualstudio.com/docs/languages/csharp). Eller du kan använda en annan Kodredigerare.
+- [Skapa ett Media Services-konto](create-account-cli-how-to.md). Kom ihåg att spara resurs gruppens namn och Media Services konto namnet
+- Installera ett verktyg som du vill använda för .NET-utveckling. Stegen i den här artikeln visar hur du använder [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/). Du kan använda Visual Studio Code, se [arbeta med C# ](https://code.visualstudio.com/docs/languages/csharp). Eller så kan du använda en annan kod redigerare.
+
+> [!IMPORTANT]
+> Granska [namngivnings konventioner](media-services-apis-overview.md#naming-conventions).
 
 ## <a name="create-a-console-application"></a>Skapa ett konsolprogram
 
 1. Starta Visual Studio. 
-1. Från den **filen** -menyn klickar du på **New** > **projekt**. 
-1. Skapa en **.NET Core** -konsolapp.
+1. Från menyn **Arkiv** klickar du på **nytt** > **projekt**. 
+1. Skapa ett **.net Core** -konsolprogram.
 
-Exempelappen i det här avsnittet riktar sig mot `netcoreapp2.0`. Koden använder 'async huvudsidan ”, som är tillgängliga från och med C# 7.1. Se den här [blogg](https://blogs.msdn.microsoft.com/benwilli/2017/12/08/async-main-is-available-but-hidden/) för mer information.
+Exempel programmet i det här avsnittet är mål `netcoreapp2.0`. Koden använder async Main, som är tillgänglig från och med C# 7,1. Mer information finns i den här [bloggen](https://blogs.msdn.microsoft.com/benwilli/2017/12/08/async-main-is-available-but-hidden/) .
 
-## <a name="add-required-nuget-packages"></a>Lägg till NuGet-paket som krävs
+## <a name="add-required-nuget-packages"></a>Lägg till nödvändiga NuGet-paket
 
-1. I Visual Studio väljer **verktyg** > **NuGet-Pakethanteraren** > **NuGet Manager-konsolen**.
-2. I den **Pakethanterarkonsolen** fönstret Använd `Install-Package` att lägga till följande NuGet-paket. Till exempel `Install-Package Microsoft.Azure.Management.Media`.
+1. I Visual Studio väljer du **verktyg** > **NuGet Package Manager** > **NuGet Manager Console**.
+2. I fönstret **Package Manager-konsol** använder `Install-Package` du kommandot för att lägga till följande NuGet-paket. Till exempel `Install-Package Microsoft.Azure.Management.Media`.
 
 |Paket|Beskrivning|
 |---|---|
-|`Microsoft.Azure.Management.Media`|Azure Media Services SDK. <br/>Om du vill kontrollera att du använder det senaste Azure Media Services-paketet, kontrollera [Microsoft.Azure.Management.Media](https://www.nuget.org/packages/Microsoft.Azure.Management.Media).|
-|`Microsoft.Rest.ClientRuntime.Azure.Authentication`|ADAL-autentiseringsbibliotek för Azure SDK för NET|
-|`Microsoft.Extensions.Configuration.EnvironmentVariables`|Läs konfigurationsvärden från miljövariabler och lokala JSON-filer|
-|`Microsoft.Extensions.Configuration.Json`|Läs konfigurationsvärden från miljövariabler och lokala JSON-filer
-|`WindowsAzure.Storage`|Lagrings-SDK|
+|`Microsoft.Azure.Management.Media`|Azure Media Services SDK. <br/>Kontrol lera att du använder det senaste Azure Media Services paketet genom att kontrol lera [Microsoft. Azure. Management. Media](https://www.nuget.org/packages/Microsoft.Azure.Management.Media).|
+|`Microsoft.Rest.ClientRuntime.Azure.Authentication`|ADAL för Azure SDK för NET|
+|`Microsoft.Extensions.Configuration.EnvironmentVariables`|Läsa konfigurations värden från miljövariabler och lokala JSON-filer|
+|`Microsoft.Extensions.Configuration.Json`|Läsa konfigurations värden från miljövariabler och lokala JSON-filer
+|`WindowsAzure.Storage`|Storage SDK|
 
-## <a name="create-and-configure-the-app-settings-file"></a>Skapa och konfigurera appfilen
+## <a name="create-and-configure-the-app-settings-file"></a>Skapa och konfigurera appens inställnings fil
 
-### <a name="create-appsettingsjson"></a>Skapa appsettings.json
+### <a name="create-appsettingsjson"></a>Skapa appSettings. JSON
 
-1. Gå go **Allmänt** > **textfil**.
-1. Ge den namnet ”appsettings.json”.
-1. Ange egenskapen ”Copy to Output Directory” för JSON-fil till ”kopiera om nyare” (så att programmet kan komma åt den när publicerade).
+1. Gå till filen **allmän** > **textfil**.
+1. Ge den namnet appSettings. JSON.
+1. Ange egenskapen "Kopiera till utgående katalog" för. JSON-filen till "Kopiera om nyare" (så att programmet kan komma åt det när det publiceras).
 
-### <a name="set-values-in-appsettingsjson"></a>Ange värden i appsettings.json
+### <a name="set-values-in-appsettingsjson"></a>Ange värden i appSettings. JSON
 
-Kör den `az ams account sp create` kommandot enligt beskrivningen i [åtkomst API: er](access-api-cli-how-to.md). Kommandot returnerar json som du bör kopiera till ”appsettings.json”.
+Kör kommandot enligt beskrivningen i [API: er för åtkomst](access-api-cli-how-to.md). `az ams account sp create` Kommandot returnerar JSON som du bör kopiera till "appSettings. JSON".
  
 ## <a name="add-configuration-file"></a>Lägga till en konfigurationsfil
 
-Lägg till en konfigurationsfil som ansvarar för att läsa värdena från ”appsettings.json” för enkelhetens skull.
+För enkelhetens skull lägger du till en konfigurations fil som ansvarar för att läsa värden från "appSettings. JSON".
 
-1. Lägg till en ny .cs klass i projektet. Ge den namnet `ConfigWrapper`. 
-1. Klistra in följande kod i den här filen (det här exemplet förutsätts att du har namnområdet är `ConsoleApp1`).
+1. Lägg till en ny CS-klass i projektet. Ge den namnet `ConfigWrapper`. 
+1. Klistra in följande kod i den här filen (det här exemplet förutsätter att du `ConsoleApp1`har namn området).
 
 ```csharp
 using System;
@@ -138,9 +141,9 @@ namespace ConsoleApp1
 }
 ```
 
-## <a name="connect-to-the-net-client"></a>Anslut till .NET-klient
+## <a name="connect-to-the-net-client"></a>Ansluta till .NET-klienten
 
-Om du vill börja använda API:er för Media Services med .NET, måste du skapa ett **AzureMediaServicesClient**-objekt. När du skapar objektet måste du ange de autentiseringsuppgifter som krävs för att klienten ska kunna ansluta till Azure med hjälp av Azure AD. I koden nedan skapar funktionen GetCredentialsAsync objektet ServiceClientCredentials utifrån de autentiseringsuppgifter som anges i lokala konfigurationsfilen.
+Om du vill börja använda API:er för Media Services med .NET, måste du skapa ett **AzureMediaServicesClient**-objekt. När du skapar objektet måste du ange de autentiseringsuppgifter som krävs för att klienten ska kunna ansluta till Azure med hjälp av Azure AD. I koden nedan skapar funktionen GetCredentialsAsync ServiceClientCredentials-objektet baserat på de autentiseringsuppgifter som anges i den lokala konfigurations filen.
 
 1. Öppna `Program.cs`.
 1. Klistra in följande kod:
@@ -225,9 +228,9 @@ namespace ConsoleApp1
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Självstudie: Ladda upp, koda och strömma videor – .NET](stream-files-tutorial-with-api.md) 
-- [Självstudie: Strömma live med Media Services v3 – .NET](stream-live-tutorial-with-api.md)
-- [Självstudie: Analysera videor med Media Services v3 – .NET](analyze-videos-tutorial-with-api.md)
+- [Självstudier: Ladda upp, koda och strömma videor – .NET](stream-files-tutorial-with-api.md) 
+- [Självstudier: Strömma live med Media Services v3 – .NET](stream-live-tutorial-with-api.md)
+- [Självstudier: Analysera videor med Media Services v3 – .NET](analyze-videos-tutorial-with-api.md)
 - [Skapa jobbindata från en lokal fil – .NET](job-input-from-local-file-how-to.md)
 - [Skapa jobbindata från en HTTPS-URL – .NET](job-input-from-http-how-to.md)
 - [Koda med en anpassad transformering – .NET](customize-encoder-presets-how-to.md)

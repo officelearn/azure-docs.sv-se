@@ -9,12 +9,8 @@
   items:
     - name: Använda klient-SDK
       items:
-        - name: Identifiera ansikten i en bild
-          items:
-            - name: 'C#'
-              href: QuickStarts/csharp-detect-sdk.md
-            - name: Python
-              href: Tutorials/FaceAPIinPythonTutorial.md
+        - name: .NET SDK
+          href: Quickstarts/csharp-sdk.md
         - name: Python SDK
           href: QuickStarts/python-sdk.md
     - name: Använda REST API

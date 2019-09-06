@@ -1,57 +1,57 @@
-### YamlMime:YamlDocument
-documentType: LandingData
-title: Dokumentation om Machine Learning Studio
+### YamlMime:Landing
+title: Dokumentation om Azure Machine Learning Studio
+summary: Machine Learning Studio är ett dra-och-släpp-verktyg som du kan använda till att bygga, testa och distribuera prediktiva analyslösningar.
 metadata:
-  title: 'Dokumentation om Azure Machine Learning Studio – självstudier, referens | Microsoft Docs'
-  description: 'Machine Learning Studio är ett dra-och-släpp-verktyg där flera användare kan samarbeta för att bygga, testa och distribuera prediktiva analyslösningar utifrån dina data. Självstudier, videor och exempelmodeller visar hur du använder Studio för att skapa och distribuera Machine Learning-modeller.'
+  title: Dokumentation om Machine Learning Studio – Azure
+  description: Machine Learning Studio är ett dra-och-släpp-verktyg som du kan använda till att bygga, testa och distribuera prediktiva analyslösningar.
   services: machine-learning
   ms.service: machine-learning
   ms.subservice: studio
   ms.topic: landing-page
+  ms.collection: collection
   author: j-martens
   ms.author: jmartens
-  ms.tgt_pltfrm: na
-  ms.devlang: na
-  ms.date: 02/24/2019
-abstract:
-  description: 'Azure Machine Learning Studio är ett dra-och-släpp-verktyg där flera användare kan samarbeta för att bygga, testa och distribuera prediktiva analyslösningar utifrån dina data. Självstudier, videor och exempelmodeller visar hur du använder Studio för att skapa och distribuera Machine Learning-modeller.'
-sections:
-  - title: Steg för steg-självstudier
-    items:
-      - type: paragraph
-        text: 'Ta del av utökade självstudier som hjälper dig att skapa och distribuera modeller:'
-      - type: list
-        style: unordered
-        items:
-          - html: <a href="create-experiment">Skapa ditt första Studio-experiment</a>
-          - html: <a href="tutorial-part1-credit-risk">Skapa och distribuera en förutsägelselösning för kreditrisk</a>
-  - title: Referens
-    items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: Kommandorad
-            html: <p><a href="powershell-module">PowerShell-moduler</a></p>
-          - title: Moduler
-            html: '<p><a href="https://msdn.microsoft.com/library/azure/dn905974.aspx">Algoritm- och modulreferens</a></p>'
-          - title: REST
-            html: '<p><a href="https://docs.microsoft.com/rest/api/machinelearning/">Hantering av REST API:er</a></p><p><a href="web-service-error-codes">Felkoder för webbtjänst</a></p>'
-  - title: Fler Azure Machine Learning-tekniker
-    items:
-      - type: paragraph
-        text: 'Andra tekniker som är tillgängliga i Azure Machine Learning:'
-      - type: list
-        style: cards
-        className: cardsFTitle
-        items:
-          - title: Azure Machine Learning-tjänst
-            href: /azure/machine-learning/service/
-            image:
-              src: media/index/i_machine-learning.svg
-              href: /azure/machine-learning/service/
-          - title: Virtuell dator för datavetenskap
-            href: /azure/machine-learning/data-science-virtual-machine/
-            image:
-              src: media/index/virtual-machines.svg
-              href: /azure/machine-learning/data-science-virtual-machine/
+  ms.date: 09/03/2019
+  ms.openlocfilehash: 774c63e1df815b509a88b9de25b8199b53bfafa1
+  ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 09/04/2019
+  ms.locfileid: "70278018"
+landingContent:
+- title: Om Azure Machine Learning Studio
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Vad är Studio?
+      url: what-is-ml-studio.md
+    - text: Jämför våra ML-produkter
+      url: https://docs.microsoft.com/azure/architecture/data-guide/technology-choices/data-science-and-machine-learning?context=azure/machine-learning/studio/context/ml-context
+- title: Komma igång med Studio
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Skapa ditt första ML-experiment
+      url: create-experiment.md
+    - text: Skapa en förebyggande lösning
+      url: tutorial-part1-credit-risk.md
+- title: Referenser
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: PowerShell-moduler för kommandoraden
+      url: powershell-module.md
+    - text: Algoritm- och modulreferens
+      url: https://docs.microsoft.com/azure/machine-learning/studio-module-reference/index
+    - text: 'Hantering av REST API: er'
+      url: https://docs.microsoft.com/rest/api/machinelearning/
+    - text: Felkoder för webbtjänst
+      url: web-service-error-codes.md
+- title: Fler Azure Machine Learning-tekniker
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: Azure Machine Learning-tjänst
+      url: /azure/machine-learning/
+    - text: Virtuell Azure-dator för datavetenskap
+      url: /azure/machine-learning/data-science-virtual-machine

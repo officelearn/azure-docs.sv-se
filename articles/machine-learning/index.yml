@@ -1,92 +1,103 @@
-### YamlMime:YamlDocument
-abstract:
-  description: 'Lär dig hur du integrerar intelligenta algoritmer i appar och webbplatser med hjälp av dessa Azure Machine Learning-produkter.  Självstudier, snabbstarter, API-referenser och exempel med anvisningar.'
-documentType: LandingData
-metadata:
-  author: j-martens
-  description: 'Lär dig hur du skapar intelligenta algoritmer med dina appar, webbplatser och robotar så att de kan se, höra, tala och förstå användarnas behov genom naturlig kommunikation. Självstudier, snabbstarter, API-referenser och exempel med anvisningar.'
-  ms.author: jmartens
-  ms.subservice: core
-  ms.date: 8/14/2019
-  ms.devlang: na
-  ms.service: machine-learning
-  ms.tgt_pltfrm: na
-  ms.topic: landing-page
-  services: machine-learning
-  title: 'Dokumentation om Azure Machine Learning – Självstudier, API-referens | Microsoft Docs'
-sections:
-  - items:
-      - className: cardsM
-        columns: 2
-        items:
-          - href: /azure/machine-learning/service/overview-what-is-azure-ml
-            html: <p>Lär dig hur den här tjänsten hjälper dataforskare att utveckla och hantera AI-lösningar<br/> med hjälp av Azure CLI och Python-verktyg och -bibliotek med en mängd olika tjänster för data och beräkning i Azure. Läs mer...</p>
-            image:
-              src: /azure/machine-learning/media/index/i_machine-learning.svg
-            title: Azure Machine Learning-tjänsten
-        style: cards
-        type: list
-  - items:
-      - text: Komma igång med tjänsten Azure Machine Learning Service.
-        type: paragraph
-      - text: 'Azure Portal är ett kodlöst gränssnitt för maskininlärning som är enkelt att använda. Använd det för att träna, distribuera och hantera ML-modeller:'
-        type: paragraph
-      - items:
-          - html: <a href="service/ui-tutorial-automobile-price-train-score">Träna ditt första experiment i visuellt gränssnitts dra och släpp-användargränssnitt</a>
-          - html: <a href="service/tutorial-first-experiment-automated-ml">Använd automatiserad maskininlärning för att träna och distribuera din första klassificeringsmodell</a>
-        style: unordered
-        type: list
-      - text: 'Använd Python-SDK i skript och notebook-filer för att träna, distribuera och hantera ML-modeller:'
-        type: paragraph
-      - items:
-          - html: <a href="service/tutorial-1st-experiment-sdk-setup">Konfigurera din miljö och träna ditt första ML-experiment</a>
-          - html: <a href="service/tutorial-train-models-with-aml">Träna och distribuera bildklassificeringsmodeller</a>
-          - html: <a href="service/tutorial-auto-train-models">Använda automatiserad ML för att förutsäga taxipriser</a>
-        style: unordered
-        type: list
-      - text: 'Förbruka dina modeller:'
-        type: paragraph
-      - items:
-          - html: <a href="service/how-to-consume-web-service">Förbrukning av begäran-svar-modeller</a>
-          - html: <a href="service/how-to-run-batch-predictions">Batch-förutsägelser med ML-pipelines</a>
-        style: unordered
-        type: list
-    title: Stegvisa självstudier
-  - items:
-      - className: cardsM
-        columns: 2
-        items:
-          - href: /azure/cognitive-services/
-            html: '<p>API:er som tillhandahåller intelligenta algoritmer för dina appar, webbplatser och robotar.</p>'
-            image:
-              src: /azure/machine-learning/media/index/cognitive-services.png
-            title: Cognitive Services
-          - href: /azure/machine-learning/studio/
-            html: "<p>Ett dra-och-släpp-verktyg där flera användare kan samarbeta för att skapa, testa och distribuera prediktiva analyslösningar utifrån dina data med R eller Python.\_</p>"
-            image:
-              src: /azure/machine-learning/media/index/machine-learning-studio.svg
-            title: Azure Machine Learning Studio
-          - href: /sql/advanced-analytics/r/r-services
-            html: <p>Analys i databasen med stöd för både R och Python.</p>
-            image:
-              src: /azure/machine-learning/media/index/logo_sql.png
-            title: SQL Server Machine Learning Services
-          - href: /machine-learning-server/
-            html: '<p>En flexibel maskininlärningsplattform för företag med stöd för R- och Python-distributioner på Windows, Linux samt HDInsight Spark- och Hadoop-kluster.</p>'
-            image:
-              src: /azure/machine-learning/media/index/ml-server.png
-            title: Microsoft Machine Learning Server
-          - href: /azure/machine-learning/team-data-science-process
-            html: <p>En samarbetsbaserad datavetenskapsmetod som hjälper olika team att leverera förutsägelseanalyslösningar och intelligenta program effektivt.</p>
-            image:
-              src: /azure/machine-learning/media/index/tdsp.png
-            title: TDSP (Team Data Science Process)
-          - href: /azure/machine-learning/data-science-virtual-machine/
-            html: '<p>Experimentera utan att installera eller konfigurera programvara med hjälp av virtuella DSVM- och DLVM-datorer. Populära verktyg för dataanalys, maskininlärning och AI är förinstallerade.</p>'
-            image:
-              src: /azure/machine-learning/media/index/virtualmachine.svg
-            title: Virtuell dator för datavetenskap
-        style: cards
-        type: list
-    title: Andra Microsoft Machine Learning-tekniker
+### YamlMime:Landing
 title: Dokumentation om Azure Machine Learning
+summary: Azure Machine Learning erbjuder webbgränssnitt och SDK:er så att du snabbt kan träna och distribuera dina maskininlärningsmodeller och pipelines i stor skala. Använd dessa funktioner med Python-ramverk med öppen källkod, till exempel PyTorch, TensorFlow och scikit-learn.
+metadata:
+  title: Machine Learning-dokumentation – Azure
+  description: Azure Machine Learning erbjuder webbgränssnitt och SDK:er för att snabbt träna och distribuera dina maskininlärningsmodeller och pipelines i stor skala. Använd dessa funktioner med Python-ramverk med öppen källkod, till exempel PyTorch, TensorFlow och scikit-learn.
+  services: machine-learning
+  ms.service: machine-learning
+  ms.subservice: core
+  ms.topic: landing-page
+  ms.collection: collection
+  author: j-martens
+  ms.author: jmartens
+  ms.date: 09/03/2019
+  ms.openlocfilehash: e2c5e592c2330f1e5514c5c59c92ff5c8a3a62b2
+  ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 09/04/2019
+  ms.locfileid: "70278322"
+landingContent:
+- title: Kom igång med Azure ML
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Experimentera med notebook-filer
+      url: service/tutorial-1st-experiment-sdk-setup.md
+    - text: Experimentera i det visuella gränssnittet
+      url: service/ui-tutorial-automobile-price-train-score.md
+    - text: Automatisera ditt första experiment
+      url: service/tutorial-first-experiment-automated-ml.md
+  - linkListType: overview
+    links:
+    - text: Vad är Azure ML?
+      url: service/overview-what-is-azure-ml.md
+    - text: Arkitektur och koncept
+      url: service/concept-azure-machine-learning-architecture.md
+  - linkListType: how-to-guide
+    links:
+    - text: Konfigurera utvecklingsmiljöer
+      url: service/how-to-configure-environment.md
+    - text: Konfigurera utbildningsberäkningsmål
+      url: service/how-to-set-up-training-targets.md
+- title: Träna med Python
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Skapa ditt första ML-experiment
+      url: service/tutorial-1st-experiment-sdk-setup.md
+    - text: Träna bildklassificeringsmodeller
+      url: service/tutorial-train-models-with-aml.md
+    - text: Förutsäga taxipriser med automatisk ML
+      url: service/tutorial-auto-train-models.md
+  - linkListType: how-to-guide
+    links:
+    - text: Träna med Scikit-learn
+      url: service/how-to-train-scikit-learn.md
+    - text: Träna med TensorFlow
+      url: service/how-to-train-tensorflow.md
+    - text: Träna med PyTorch
+      url: service/how-to-train-pytorch.md
+    - text: Träna med Keras
+      url: service/how-to-train-keras.md
+- title: Träna i det visuella gränssnittet
+  linkLists:
+  - linkListType: get-started
+    links:
+    - text: Träna automatiska ML-experiment
+      url: service/tutorial-first-experiment-automated-ml.md
+    - text: Träna i det visuella gränssnittet
+      url: service/ui-tutorial-automobile-price-train-score.md
+  - linkListType: how-to-guide
+    links:
+    - text: 'Visuellt gränssnitt: förutsäga bilpriser'
+      url: service/ui-sample-regression-predict-automobile-price-basic.md
+    - text: 'Visuellt gränssnitt: förutsäga kreditrisker'
+      url: service/ui-sample-classification-predict-credit-risk-cost-sensitive.md
+    - text: 'Visuellt gränssnitt: förutsäga fördröjningar'
+      url: service/ui-sample-classification-predict-flight-delay.md
+    - text: 'Visuellt gränssnitt: förutsäga omsättning'
+      url: service/ui-sample-classification-predict-churn.md
+- title: Distribuera och hantera modeller
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Vad är MLOps?
+      url: service/concept-model-management-and-deployment.md
+    - text: Hur och var du ska distribuera
+      url: service/how-to-deploy-and-where.md
+    - text: Förutsägelse i realtid
+      url: service/how-to-consume-web-service.md
+    - text: Batchförutsägelse
+      url: service/how-to-run-batch-predictions.md
+- title: Utforska referensdokument
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: Azure ML Python SDK
+      url: https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py
+    - text: Azure ML CLI
+      url: https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml?view=azure-cli-latest
+    - text: Algoritmer och moduler för visuellt gränssnitt
+      url: algorithm-module-reference/module-reference.md

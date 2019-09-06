@@ -60,9 +60,6 @@
   items:
     - name: Malldistributioner
       href: template-deployment-overview.md
-    - name: Filstruktur för mallar
-      displayName: 'parameters,variables,resources,outputs,condition'
-      href: resource-group-authoring-templates.md
     - name: Metodtips för mallar
       href: template-best-practices.md
     - name: Mallar för molnkonsekvens
@@ -85,26 +82,38 @@
   items:
     - name: Skapa mallar
       items:
-        - name: Utvecklingsverktyg – VS Code
+        - name: Använda VS-kod
           href: resource-manager-tools-vs-code.md
-        - name: Skapa mallen
-          href: how-to-create-template.md
-        - name: Underordnat resursnamn och typ
-          href: child-resource-name-type.md
-        - name: Skapa resursgrupper och resurser i prenumerationen
-          displayName: subscription level deployment
-          href: deploy-to-subscription.md
-        - name: Definiera resursberoenden
-          href: resource-group-define-dependencies.md
+        - name: Skriva malluttryck
+          href: template-expressions.md
+        - name: Parametrar
+          href: template-parameters.md
+        - name: Variabler
+          href: template-variables.md
+        - name: Användardefinierade funktioner
+          href: template-user-defined-functions.md
+        - name: Resurser
+          items:
+            - name: Underordnat resursnamn och typ
+              href: child-resource-name-type.md
+            - name: Villkorlig distribution
+              href: conditional-resource-deployment.md
+            - name: Ange resursberoenden
+              href: resource-group-define-dependencies.md
+            - name: Ange resursplats
+              href: resource-location.md
+            - name: Använda malltillägg
+              href: resource-manager-use-extensions.md
+        - name: Utdata
+          href: template-outputs.md
         - name: Modularisera mallar
           displayName: 'linked templates, nested templates'
           href: resource-group-linked-templates.md
         - name: Skapa flera instanser
           href: resource-group-create-multiple.md
-        - name: Använda malltillägg
-          href: resource-manager-use-extensions.md
-        - name: Uppdatera resurser
-          href: /azure/architecture/building-blocks/extending-templates/update-resource
+        - name: Skapa resursgrupper och resurser i prenumerationen
+          displayName: subscription level deployment
+          href: deploy-to-subscription.md
     - name: Distribuera mallar
       items:
         - name: Distribuera – portalen
@@ -244,6 +253,9 @@
       href: resource-manager-async-operations.md
 - name: Referens
   items:
+    - name: Filstruktur för mallar
+      displayName: 'parameters,variables,resources,outputs,condition'
+      href: resource-group-authoring-templates.md
     - name: Mallreferens
       href: /azure/templates/
     - name: Mallfunktioner

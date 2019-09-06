@@ -219,10 +219,16 @@
       items:
         - name: Dokumentation om hanterad instans
           href: sql-database-managed-instance-index.yml
-        - name: Hanterade instansfunktioner
+        - name: Översikt över hanterade instanser
           href: sql-database-managed-instance.md
         - name: Vanliga frågor och svar om hanterade instanser
           href: sql-database-managed-instance-faq.md
+        - name: Instanspooler
+          items:
+            - name: Översikt över instanspooler
+              href: sql-database-instance-pools.md
+            - name: Instruktioner för instansgrupper
+              href: sql-database-instance-pools-how-to.md
         - name: Referens för API för hantering
           href: sql-database-managed-instance-create-manage.md
         - name: Resursbegränsningar

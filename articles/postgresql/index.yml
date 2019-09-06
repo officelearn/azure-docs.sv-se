@@ -1,85 +1,139 @@
-### YamlMime:YamlDocument
-documentType: LandingData
-title: Azure Database för PostgreSQL-dokumentation
+### YamlMime:Landing
+title: Azure Database for PostgreSQL-dokumentation
+summary: Azure Database for PostgreSQL är en relationsdatabastjänst baserad på Postgres-databasmotorn med öppen källkod. Det är en fullständigt hanterad databas som en tjänst som används för hantering av verksamhetskritiska arbetsbelastningar med förutsägbara prestanda, säkerhet, hög tillgänglighet och dynamisk skalbarhet. Den finns tillgänglig som två distributionsalternativ, enskild server och Hyperskala-kluster (Citus) (förhandsversion). Alternativet Hyperskala (Citus) skalar frågor över flera datorer horisontellt med hjälp av horisontell partitionering och är lämpligt för program som kräver större skala och bättre prestanda. Lär dig hur du använder Azure Database med våra snabbstarter, självstudier och exempel.
 metadata:
-  document_id: c0fe8cd3-35da-e3e5-718e-8f3cf2f87f34
-  title: 'Dokumentation om Azure PostgreSQL – självstudier, API-referens'
   description: Azure Database for PostgreSQL är en relationsdatabastjänst i Microsoft-molnet som är utformad för utvecklare baserat på PostgreSQL-databasmotorn för öppen källkod.
   author: rachel-msft
   ms.author: raagyema
+  ms.date: 08/30/2019
   ms.service: postgresql
   ms.topic: landing-page
-  ms.date: 04/26/2019
-abstract:
-  description: 'Azure Database for PostgreSQL är en relationsdatabastjänst baserad på Postgres-databasmotorn med öppen källkod.  Det är en fullständigt hanterad databas som en tjänst som används för hantering av verksamhetskritiska arbetsbelastningar med förutsägbar prestanda, säkerhet, hög tillgänglighet och dynamisk skalbarhet. Den finns tillgänglig som två distributionsalternativ, Enskild server och Hyperskala (Citus) (förhandsversion). Alternativet Hyperskala (Citus) skalar frågor över flera datorer horisontellt med hjälp av horisontell partitionering och är lämpligt för program som kräver större skala och bättre prestanda. Lär dig hur du använder Azure Database med våra snabbstarter, självstudier och exempel.'
-sections:
-  - title: Snabbstarter på 5 minuter
-    items:
-      - type: paragraph
-        text: 'Lär dig att skapa en PostgreSQL-databas med:'
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: 'https://docs.microsoft.com/azure/sql-database/media/index/portal.svg'
-            text: Enskild server i Azure-portalen
-            href: /azure/postgresql/quickstart-create-server-database-portal
-          - image:
-              src: 'https://docs.microsoft.com/azure/sql-database/media/index/cli.svg'
-            text: Enskild server i Azure CLI
-            href: /azure/postgresql/quickstart-create-server-database-azure-cli
-          - image:
-              src: 'https://docs.microsoft.com/azure/sql-database/media/index/portal.svg'
-            text: Hyperskala (Citus) i Azure-portalen
-            href: /azure/postgresql/quickstart-create-hyperscale-portal
-  - title: Steg för steg-självstudier
-    items:
-      - type: paragraph
-        text: 'För en enskild server:'
-      - type: list
-        style: ordered
-        items:
-          - html: 'Utforma en databas&#58; <a href="/azure/postgresql/tutorial-design-database-using-azure-portal">Azure Portal</a> | <a href="/azure/postgresql/tutorial-design-database-using-azure-cli">Azure CLI</a>'
-          - html: <a href="/azure/app-service/containers/tutorial-python-postgresql-app?toc=%2fazure%2fpostgresql%2ftoc.json">Skapa en webbapp med Python och CLI</a>
-          - html: <a href="/azure/postgresql/tutorial-monitor-and-tune">Övervaka och finjustera tjänsten</a>
-      - type: paragraph
-        text: 'För hyperskala (Citus) (förhandsversion):'
-      - type: list
-        style: ordered
-        items:
-          - html: <a href="/azure/postgresql/tutorial-design-database-hyperscale-multi-tenant">Utforma en databas för flera innehavare</a>
-          - html: <a href="/azure/postgresql/tutorial-design-database-hyperscale-realtime">Utforma en databas i realtid</a>
-  - title: Utveckla dina färdigheter med Microsoft Learn
-    items:
-      - type: list
-        style: cards
-        className: cardsFTitle
-        items:
-          - title: Skapa en Azure Database för PostgreSQL-server
-            href: /learn/modules/create-azure-db-for-postgresql-server/
-            image:
-              src: /learn/achievements/create-azure-db-for-postgresql-server.svg
-              href: /learn/modules/create-azure-db-for-postgresql-server/
-      - type: paragraph
-        text: <a href="/learn/browse/?products=azure">Mer interaktiv inlärning...</a>
-  - title: Exempel
-    items:
-      - type: paragraph
-        text: Hitta skript för att hantera vanliga uppgifter.
-      - type: list
-        style: unordered
-        className: spaced noBullet
-        items:
-          - html: <a href="/azure/postgresql/sample-scripts-azure-cli">Azure CLI</a>
-  - title: Referens
-    items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: Kommandorad
-            html: <p><a href="/cli/azure/postgres">Azure CLI</a></p>
-          - title: REST
-            html: <p><a href="/rest/api/postgresql">REST-API</a></p>
-          - title: Azure Resource Manager
-            html: <p><a href="/azure/templates/microsoft.dbforpostgresql/allversions">Resource Manager-mallar</a></p>
+  ms.openlocfilehash: 6d35798d5e87945656acb298ec6fa06518487f3e
+  ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 09/04/2019
+  ms.locfileid: "70259165"
+landingContent:
+- title: Om Azure Database for PostgreSQL
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Vad är Azure Database for PostgreSQL?
+      url: overview.md
+  - linkListType: whats-new
+    links:
+    - text: Ta en titt på vår blogg
+      url: https://techcommunity.microsoft.com/t5/Azure-Database-for-PostgreSQL/bg-p/ADforPostgreSQL
+- title: Skapa en enkel server
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Skapa en server med Azure-portalen
+      url: quickstart-create-server-database-portal.md
+    - text: Skapa en server med Azure CLI
+      url: quickstart-create-server-database-azure-cli.md
+  - linkListType: learn
+    links:
+    - text: 'Inlärningsmodul: Skapa en Azure Database för PostgreSQL-server'
+      url: /learn/modules/create-azure-db-for-postgresql-server/
+  - linkListType: concept
+    links:
+    - text: Prisnivåer
+      url: concepts-pricing-tiers.md
+    - text: Begränsningar
+      url: concepts-limits.md
+    - text: PostgreSQL-versioner
+      url: concepts-supported-versions.md
+    - text: PostgreSQL-tillägg – enskild server
+      url: concepts-extensions.md
+  - linkListType: tutorial
+    links:
+    - text: Utforma en databas med hjälp av Azure-portalen
+      url: tutorial-design-database-using-azure-portal.md
+    - text: Utforma en databas med hjälp av Azure CLI
+      url: tutorial-design-database-using-azure-cli.md
+    - text: Skapa en webbapp med Python och CLI
+      url: /azure/app-service/containers/tutorial-python-postgresql-app?toc=%2fazure%2fpostgresql%2ftoc.json
+    - text: Övervaka och finjustera tjänsten
+      url: tutorial-monitor-and-tune.md
+- title: Skapa ett Hyperskala-kluster (Citus) (förhandsversion)
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Skapa ett Hyperskala-kluster (Citus) (förhandsversion) i Azure-portalen
+      url: quickstart-create-hyperscale-portal.md
+  - linkListType: tutorial
+    links:
+    - text: Utforma en databas för flera innehavare
+      url: tutorial-design-database-hyperscale-multi-tenant.md
+    - text: Utforma en databas i realtid
+      url: tutorial-design-database-hyperscale-realtime.md
+  - linkListType: concept
+    links:
+    - text: PostgreSQL-tillägg – Hyperskala
+      url: concepts-hyperscale-extensions.md
+    - text: Förstå noder
+      url: concepts-hyperscale-nodes.md
+    - text: Förstå distribuerade data
+      url: concepts-hyperscale-distributed-data.md
+    - text: Konfigurera prestandaalternativ
+      url: concepts-hyperscale-configuration-options.md
+- title: Ansluta till en enskild server
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Förstå brandväggen
+      url: concepts-firewall-rules.md
+    - text: Skapa brandväggsregler
+      url: howto-manage-firewall-using-portal.md
+    - text: Konfigurera SSL
+      url: concepts-ssl-connection-security.md
+  - linkListType: get-started
+    links:
+    - text: Ansluta med Python
+      url: connect-python.md
+    - text: Ansluta med Node.js
+      url: connect-nodejs.md
+    - text: Ansluta med Java
+      url: connect-java.md
+    - text: Ansluta med Ruby
+      url: connect-ruby.md
+    - text: Ansluta med PHP
+      url: connect-php.md
+    - text: Ansluta med .NET
+      url: connect-csharp.md
+    - text: Ansluta med Go
+      url: connect-go.md
+- title: 'Kod med programmerings-API: er'
+  linkLists:
+  - linkListType: get-started
+    links:
+    - text: Azure CLI-skript för vanliga uppgifter
+      url: /azure/postgresql/sample-scripts-azure-cli
+  - linkListType: reference
+    links:
+    - text: Referens för Azure CLI-utvecklare
+      url: /rest/api/postgresql/
+    - text: Referens för REST API-utvecklare
+      url: /cli/azure/postgres
+    - text: Azure Resource Manager-mallar
+      url: /azure/templates/microsoft.dbforpostgresql/allversions
+- title: Säkerhetskopiera och migrera data
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Säkerhetskopiera och återställa på en enskild server
+      url: concepts-backup.md
+  - linkListType: how-to-guide
+    links:
+    - text: Återställa en server med hjälp av Azure-portalen
+      url: howto-restore-server-portal.md
+    - text: Återställa en server med hjälp av Azure CLI
+      url: howto-restore-server-cli.md
+    - text: Migrera en databas med dumpning och återställning
+      url: howto-migrate-using-dump-and-restore.md
+    - text: Migrera en databas med export och import
+      url: howto-migrate-using-export-and-import.md
+    - text: Migreringar med minimal stilleståndstid
+      url: howto-migrate-online.md

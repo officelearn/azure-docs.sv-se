@@ -1,30 +1,41 @@
-### YamlMime:YamlDocument
-documentType: LandingData
-title: Dokumentation om förhandsversionen av Open Datasets
+### YamlMime:Landing
+title: Dokumentation om förhandsversionen av Azure Open Datasets
+summary: Med Azure Open-datauppsättningarna får du granskade och rensade data som du kan använda med minimal förberedelse, om exempelvis väder och semestrar som kan berika maskininlärningsmodeller.
 metadata:
-  title: 'Dokumentation om förhandsversionen av Azure Open Datasets – självstudier, API-referens | Microsoft Docs'
-  description: 'Lär dig hur du använder Azure Open Datasets, hanterade och rensade data som du kan använda med minimal förberedelse. Open Datasets är offentliga data som information om exempelvis väder och semestrar som kan berika maskininlärningsmodeller. Du får hjälp av dokumentationen med självstudier, exempel och API-referenser.'
-  ms.service: open-datasets
+  title: Dokumentation om förhandsversionen av Open Datasets – Azure
+  description: Med Azure Open-datauppsättningarna får du granskade och rensade data som du kan använda med minimal förberedelse, om exempelvis väder och semestrar som kan berika maskininlärningsmodeller.
+  services: machine-learning
+  ms.service: machine-learning
+  ms.subservice: data-science-vm
   ms.topic: landing-page
+  ms.collection: collection
   author: cjgronlund
   ms.author: cgronlun
-  ms.date: 05/02/2019
-  ms.tgt_pltfrm: na
-  ms.devlang: na
-abstract:
-  description: 'Lär dig hur du använder Azure Open Datasets, hanterade och rensade data som du kan använda med minimal förberedelse. Open Datasets omfattar offentliga data som information om exempelvis väder och semestrar som kan berika maskininlärningsmodeller. Du får hjälp av dokumentationen med självstudier, exempel och API-referenser.'
-sections:
-  - title: Självstudie steg-för-steg
-    items:
-      - type: paragraph
-        text: <a href="tutorial-opendatasets-automl">Skapa en regressionsmodell med automatiserad maskininlärning</a>
-  - title: Exempel
-    items:
-      - type: paragraph
-        text: <a href="samples">Notebook-filer för att berika datauppsättningar</a>
-  - title: Referens
-    items:
-      - type: list
-        style: unordered
-        items:
-          - html: '<a href="https://docs.microsoft.com/python/api/azureml-opendatasets/?view=azure-ml-py">API-referens</a>'
+  ms.date: 09/03/2019
+  ms.openlocfilehash: a44b9bca7062e451c23453cacbe7042dacb4916c
+  ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 09/04/2019
+  ms.locfileid: "70274023"
+landingContent:
+- title: Om Open Datasets
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Vad är Open Datasets?
+      url: overview-what-are-open-datasets.md
+    - text: Exempel
+      url: samples.md
+- title: Komma igång
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Skapa en regressionsmodell med automatiserad maskininlärning
+      url: tutorial-opendatasets-automl.md
+- title: Utforska referensinnehållet
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: Python API
+      url: https://docs.microsoft.com/python/api/azureml-opendatasets/?view=azure-ml-py

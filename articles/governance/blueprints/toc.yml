@@ -153,6 +153,9 @@
     - name: Hantera tilldelningar med PowerShell
       displayName: 'create, update, remove'
       href: ./how-to/manage-assignments-ps.md
+    - name: Importera och exportera med PowerShell
+      displayName: 'import, export, folders'
+      href: ./how-to/import-export-ps.md
     - name: Uppdatera befintliga tilldelningar via portalen
       displayName: 'lock, errors'
       href: ./how-to/update-existing-assignments.md

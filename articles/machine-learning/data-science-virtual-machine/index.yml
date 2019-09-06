@@ -1,55 +1,57 @@
-### YamlMime:YamlDocument
-documentType: LandingData
+### YamlMime:Landing
 title: Dokumentation om Azure Data Science Virtual Machine
+summary: Azure Data Science Virtual Machine (DSVM) är en anpassad VM-avbildning med datavetenskap och maskininlärningsverktyg. Använd den här virtuella datorn för att skapa intelligenta program för avancerad analys.
 metadata:
   title: Dokumentation om Data Science Virtual Machine – Azure
-  description: 'Läs om hur du använder Data Science Virtual Machine, en experimentell miljö i Azure-molnet som har utformats för datavetenskap. Populära verktyg för datavetenskap och maskininlärning har förinstallerats och förkonfigurerats. Den här designen ger dig en bra start när du vill skapa intelligenta program för avancerad analys.'
+  description: Data Science Virtual Machine är en experimentell miljö i Azure-molnet som har utformats för datavetenskap. Populära datavetenskaps- och ML-verktyg förinstalleras.
   services: machine-learning
-  author: vijetajo
   ms.service: machine-learning
   ms.subservice: data-science-vm
-  ms.tgt_pltfrm: na
-  ms.devlang: na
   ms.topic: landing-page
-  ms.date: 08/19/2019
-  ms.author: vijetaj
-abstract:
-  description: Azure Data Science Virtual Machine (DSVM) är en anpassad VM-avbildning med datavetenskap och maskininlärningsverktyg. Du kan använda den här virtuella datorn för att skapa intelligenta program för avancerad analys. <a href="overview.md">Läs mer</a>.
-sections:
-  - title: Snabbstarter på fem minuter
-    items:
-      - type: paragraph
-        text: 'Läs om hur du konfigurerar en Windows- eller Linux-baserad virtuell dator för datavetenskap:'
-      - type: paragraph
-        text: <b>Windows DSVM</b>
-      - type: list
-        style: unordered
-        items:
-          - html: <a href="provision-vm">Konfigurera en Windows DSVM</a>
-          - html: <a href="vm-do-ten-things">Använda en Windows DSVM</a>
-      - type: paragraph
-        text: <b>Linux DSVM (Ubuntu | CentOS)</b>
-      - type: list
-        style: unordered
-        items:
-          - html: <a href="linux-dsvm-intro">Konfigurera en Linux CentOS DSVM</a>
-          - html: <a href="dsvm-ubuntu-intro">Konfigurera en Linux Ubuntu DSVM</a>
-          - html: <a href="linux-dsvm-walkthrough">Använda en Linux DSVM</a>
-  - title: Fler Azure Machine Learning-tekniker
-    items:
-      - type: paragraph
-        text: 'Andra tekniker som är tillgängliga i Azure Machine Learning:'
-      - type: list
-        style: cards
-        className: cardsFTitle
-        items:
-          - title: Azure Machine Learning-tjänst
-            href: /azure/machine-learning/service/
-            image:
-              src: media/index/i_machine-learning.svg
-              href: /azure/machine-learning/service/
-          - title: Azure Machine Learning Studio
-            href: /azure/machine-learning/studio/
-            image:
-              src: media/index/machine-learning-studio.svg
-              href: /azure/machine-learning/studio/
+  ms.collection: collection
+  author: j-martens
+  ms.author: jmartens
+  ms.date: 09/03/2019
+  ms.openlocfilehash: c33504124bdef2edf44842581143a8468cbb1e20
+  ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 09/04/2019
+  ms.locfileid: "70308800"
+landingContent:
+- title: Kom igång med din DVSM
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Vad är Azure DSVM?
+      url: overview.md
+    - text: Vad är Geo AI-DSVM?
+      url: geo-ai-dsvm-overview.md
+  - linkListType: get-started
+    links:
+    - text: Skapa en Windows-DSVM
+      url: provision-vm.md
+    - text: Skapa en Ubuntu-DSVM
+      url: dsvm-ubuntu-intro.md
+    - text: Skapa en CentOS-DSVM
+      url: linux-dsvm-intro.md
+    - text: Skapa en Geo AI-DSVM
+      url: provision-geo-ai-dsvm.md
+- title: Hantera din DVSM
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Skapa DSVM-pooler med autoskalning
+      url: dsvm-pools.md
+    - text: integrera med Active Directory
+      url: dsvm-common-identity.md
+    - text: Skydda autentiseringsuppgifter för resursåtkomst
+      url: dsvm-secure-access-keys.md
+- title: Fler Azure Machine Learning-tekniker
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: Azure Machine Learning-tjänst
+      url: /azure/machine-learning/
+    - text: Jämför våra ML-produkter
+      url: https://docs.microsoft.com/azure/architecture/data-guide/technology-choices/data-science-and-machine-learning?context=azure/machine-learning/studio/context/ml-context

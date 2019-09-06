@@ -712,6 +712,8 @@
       items:
         - name: Använda Power BI
           href: powerbi-visualize.md
+        - name: Skapa en live-instrumentpanel för vädret
+          href: create-real-time-weather-dashboard-powerbi.md
         - name: Använda Qlik Sense
           href: visualize-qlik-sense.md
     - name: Integrera med andra Azure-tjänster

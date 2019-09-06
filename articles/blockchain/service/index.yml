@@ -1,57 +1,81 @@
-### YamlMime:YamlDocument
-documentType: LandingData
+### YamlMime:Landing
 title: Dokumentation om Azure Blockchain Service
+summary: Lär dig hur du skapar blockkedjeprogram. Självstudier, API-referens och annan dokumentation visar dig hur du använder Azure Blockchain Service för att skapa, utveckla och hantera blockkedjeprogram på Azure.
 metadata:
-  title: 'Dokumentation om Azure Blockchain Service – självstudier, API-referens'
-  description: 'Lär dig hur du skapar blockkedjeprogram. Självstudier, API-referens och annan dokumentation visar dig hur du använder Azure Blockchain Service för att skapa, utveckla och hantera blockkedjeprogram på Azure.'
+  title: Dokumentation om Azure Blockchain Service – självstudier, API-referens
+  description: Lär dig hur du skapar blockkedjeprogram. Självstudier, API-referens och annan dokumentation visar dig hur du använder Azure Blockchain Service för att skapa, utveckla och hantera blockkedjeprogram på Azure.
   services: azure-blockchain
-  author: patricka
-  manager: femila
   ms.service: azure-blockchain
-  ms.tgt_pltfrm: na
-  ms.devlang: na
   ms.topic: landing-page
-  ms.date: 03/13/2019
+  author: PatAltimore
   ms.author: patricka
-abstract:
-  description: 'Lär dig hur du skapar blockkedjeprogram. Självstudier, API-referenser och annan dokumentation visar dig hur du använder Azure Blockchain Service för att skapa, utveckla och använda blockkedjeprogram på Azure.'
-sections:
-  - title: Snabbstarter på 5 minuter
-    items:
-      - type: paragraph
-        text: Lär dig hur du använder och ansluter till konsortiummedlemmar på Azure.
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: ./media/index/deploy.svg
-            text: Skapa en konsortiummedlem
-            href: /azure/blockchain/service/create-member
-          - image:
-              src: ./media/index/multi-connect.svg
-            text: Ansluta med MetaMask
-            href: /azure/blockchain/service/connect-metamask
-          - image:
-              src: ./media/index/cligeneric.svg
-            text: Ansluta med Geth
-            href: /azure/blockchain/service/connect-geth
-          - image:
-              src: ./media/index/code-blocks.svg
-            text: Ansluta med Truffle
-            href: /azure/blockchain/service/connect-truffle
-  - title: Steg för steg-självstudier
-    items:
-      - type: paragraph
-        text: 'Lär dig hur du skapar, konfigurerar, och utvecklar blockkedjeprogram på Azure.'
-      - type: list
-        style: unordered
-        items:
-          - html: <a href="/azure/blockchain/service/send-transaction">Skapa en Azure Blockchain Service-medlem och skicka en transaktion</a>
-  - title: Referens
-    items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: REST
-            html: '<p><a href="https://docs.microsoft.com/rest/api/blockchain">REST-API</a></p>'
+  ms.date: 08/29/2019
+  ms.openlocfilehash: c5816bb2278c138a8df07c5c289d53a818614d86
+  ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 09/04/2019
+  ms.locfileid: "70240840"
+landingContent:
+- title: Om Azure Blockchain Service
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Vad är Azure Blockchain Service?
+      url: overview.md
+  - linkListType: concept
+    links:
+    - text: Privata konsertiedrivna blockkedjenätverk
+      url: consortium.md
+    - text: Dataåtkomst och säkerhet
+      url: data-security.md
+    - text: Utvecklingsverktyg
+      url: develop.md
+- title: Komma igång
+  linkLists:
+  - linkListType: deploy
+    links:
+    - text: Skapa en blockkedjemedlem – portal
+      url: create-member.md
+    - text: Skapa en blockkedjemedlem – CLI
+      url: create-member-cli.md
+  - linkListType: quickstart
+    links:
+    - text: Använda MetaMask för att ansluta och Remix för att distribuera ett smart kontrakt
+      url: connect-metamask.md
+    - text: Använda Geth för att ansluta till en transaktionsnod
+      url: connect-geth.md
+    - text: Använda Truffle för att ansluta till en transaktionsnod
+      url: connect-truffle.md
+  - linkListType: tutorial
+    links:
+    - text: Använda smarta kontrakt i Azure Blockchain-tjänsten
+      url: send-transaction.md
+  - linkListType: video
+    links:
+    - text: Distribuera och konfigurera ditt nätverk
+      url: https://channel9.msdn.com/Shows/Blocktalk/Getting-started-with-Azure-Blockchain-Service-Part-I-Deploy-and-configure-your-network
+    - text: Skriva och testa smarta kontrakt med VS-kod
+      url: https://channel9.msdn.com/Shows/Blocktalk/Getting-started-with-Azure-Blockchain-Service-Part-II-Write-and-test-smart-contracts-with-VS-Code
+    - text: Skicka data till huvudboken
+      url: https://channel9.msdn.com/Shows/Blocktalk/Getting-started-with-Azure-Blockchain-Service-Part-III-Send-data-to-the-ledger
+    - text: Publicera händelser och data i huvudboken
+      url: https://channel9.msdn.com/Shows/Blocktalk/Getting-started-with-Azure-Blockchain-Service-Part-IV-Publish-events-and-ledger-data
+- title: Hantera
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Hantera blockkedjemedlemmar – CLI
+      url: manage-cli.md
+    - text: Hantera konsortiemedlemar – PowerShell
+      url: manage-consortium-powershell.md
+    - text: Konfigurera transaktionsnoder
+      url: configure-transaction-nodes.md
+    - text: Konfigurera Active Directory-åtkomst
+      url: configure-aad.md
+- title: API
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: REST-API
+      url: https://docs.microsoft.com/rest/api/blockchain

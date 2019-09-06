@@ -124,13 +124,13 @@
     - name: Planera din app
       displayName: 'simple, composite, prebuilt, list, regex, regular expression'
       href: luis-how-plan-your-app.md
-    - name: Redigera app
+    - name: Redigering och körningsnycklar
+      displayName: 'shared, transfer, ownership, author, access, import'
+      href: luis-concept-keys.md
+    - name: Redigera appens modell
       items:
         - name: Redigeringscykel
           href: luis-concept-app-iteration.md
-        - name: Samarbete
-          displayName: 'shared, transfer, ownership, author, access, import'
-          href: luis-concept-collaborator.md
         - name: Versionshantering
           href: luis-concept-version.md
           displayName: import
@@ -141,10 +141,10 @@
         - name: Entiteter
           displayName: 'prebuilt, custom, regular expression, regex, simple, list, pattern.any, composite, machine-learn, exact, mixed, roles'
           href: luis-concept-entity-types.md
+        - name: Entitetsroller
+          href: luis-concept-roles.md
         - name: Yttranden
           href: luis-concept-utterance.md
-        - name: Roller
-          href: luis-concept-roles.md
         - name: Fördefinierade modeller
           href: luis-concept-prebuilt-model.md
     - name: Förbättra apprestanda
@@ -180,13 +180,6 @@
         - name: Utforma strategier
           href: luis-concept-enterprise.md
           displayName: import
-    - name: Säkerhet
-      items:
-        - name: Appåtkomst
-          displayName: 'public, public app, AAD, compliance, ISO, certification, trust center, import'
-          href: luis-concept-security.md
-        - name: Redigerings- och slutpunktsnycklar
-          href: luis-concept-keys.md
 - name: Instruktionsguider
   items:
     - name: Starta en ny app
@@ -248,18 +241,22 @@
       href: luis-how-to-publish-app.md
     - name: Hantera app
       items:
-        - name: Använda prenumerationsnycklar med LUIS-appen
-          displayName: 'azure portal, resource, assign key, add key, out of quota, 403, 429, luis portal, key assignment, subscription'
+        - name: Redigering och körningsnycklar
+          displayName: 'azure portal, resource, assign key, add key, out of quota, 403, 429, luis portal, key assignment, subscription, authoring, endpoint, prediction'
           href: luis-how-to-azure-subscription.md
-        - name: Hantera versioner
-          href: luis-how-to-manage-versions.md
-          diplayName: 'import, export, container'
-        - name: Hantera författare och medarbetare
+        - name: Migrera till redigeringsnyckel
+          items:
+            - name: Översikt
+              href: luis-migration-authoring.md
+            - name: Så här migrerar du
+              href: luis-migration-authoring-steps.md
+        - name: Författare och medarbetare
           displayName: 'access, transfer, AAD, tenant, Azure AD, consent, RBAC, admin, role-based access control, ownership, import'
           href: luis-how-to-collaborate.md
-        - name: Hantera redigeringsnyckel
-          href: luis-how-to-account-settings.md
-        - name: Fördela slutpunktskvoten mellan nycklar med Traffic Manager
+        - name: Med versioner
+          href: luis-how-to-manage-versions.md
+          diplayName: 'import, export, container'
+        - name: Med Traffic Manager
           href: luis-traffic-manager.md
     - name: Migrera API
       items:

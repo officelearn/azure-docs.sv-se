@@ -1,36 +1,99 @@
-### YamlMime:YamlDocument
-documentType: LandingData
+### YamlMime:Landing
 title: Dokumentation om Azure Blockchain Workbench
+summary: Lär dig hur du skapar blockkedjeprogram. Självstudierna, API-referenserna och övrig dokumentation visar hur du distribuerar Azure Blockchain Workbench och skapar och hanterar blockkedjeprogram i Azure.
 metadata:
-  title: 'Dokumentation om Azure Blockchain Workbench – Självstudier, API-referens | Microsoft Docs'
-  description: 'Lär dig hur du skapar blockkedjeprogram. Självstudierna, API-referenserna och övrig dokumentation visar hur du distribuerar Azure Blockchain Workbench och skapar och hanterar blockkedjeprogram i Azure.'
-  services: blockchain-workbench
-  author: patricka
-  manager: femila
-  ms.service: blockchain-workbench
-  ms.tgt_pltfrm: na
-  ms.devlang: na
+  title: Dokumentation om Azure Blockchain Workbench – Självstudier, API-referens
+  description: Lär dig hur du skapar blockkedjeprogram. Självstudierna, API-referenserna och övrig dokumentation visar hur du distribuerar Azure Blockchain Workbench och skapar och hanterar blockkedjeprogram i Azure.
+  services: azure-blockchain
+  ms.service: azure-blockchain
   ms.topic: landing-page
-  ms.date: 04/17/2018
+  author: PatAltimore
   ms.author: patricka
-abstract:
-  description: 'Lär dig hur du skapar blockkedjeprogram. Självstudierna, API-referenserna och övrig dokumentation visar hur du distribuerar Azure Blockchain Workbench och skapar för att skapa och använda blockkedjeprogram i Azure.'
-sections:
-  - title: Steg för steg-självstudier
-    items:
-      - type: paragraph
-        text: 'Lär dig hur du distribuerar, skapar och använder blockkedjeprogram i Azure.'
-      - type: list
-        style: ordered
-        items:
-          - html: <a href="/azure/blockchain-workbench/blockchain-workbench-deploy">Distribuera Azure Blockchain Workbench</a>
-          - html: <a href="/azure/blockchain-workbench/blockchain-workbench-create-app">Skapa en blockkedjeapp</a>
-          - html: <a href="/azure/blockchain-workbench/blockchain-workbench-use">Använda en blockkedjeapp</a>
-  - title: Referens
-    items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: REST
-            html: '<p><a href="https://docs.microsoft.com/rest/api/azure-blockchain-workbench">REST-API</a></p>'
+  ms.date: 08/29/2019
+  ms.openlocfilehash: 515e269619f7efa5c00071794e41fff83b81ed60
+  ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 09/04/2019
+  ms.locfileid: "70240818"
+landingContent:
+- title: Om Azure Blockchain Workbench
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Vad är Azure Blockchain Workbench?
+      url: overview.md
+  - linkListType: concept
+    links:
+    - text: Arkitektur
+      url: architecture.md
+  - linkListType: video
+    links:
+    - text: Introduktion till Azure Blockchain Workbench
+      url: https://channel9.msdn.com/Shows/Blocktalk/Introduction-to-Azure-Blockchain-Workbench
+- title: Komma igång
+  linkLists:
+  - linkListType: deploy
+    links:
+    - text: Distribuera Azure Blockchain Workbench
+      url: deploy.md
+  - linkListType: tutorial
+    links:
+    - text: Skapa ett Blockchain Workbench-program
+      url: create-app.md
+    - text: Använda ett Blockchain Workbench-program
+      url: use.md
+  - linkListType: video
+    links:
+    - text: Skapa ditt första Azure Blockchain Workbench-program
+      url: https://channel9.msdn.com/Shows/Blocktalk/Building-your-first-Azure-Blockchain-Workbench-application
+- title: Exempelkontrakt
+  linkLists:
+  - linkListType: download
+    links:
+    - text: Enkel marknadsplats
+      url: https://github.com/Azure-Samples/blockchain/blob/master/blockchain-workbench/application-and-smart-contract-samples/simple-marketplace
+    - text: Grundläggande ursprung
+      url: https://github.com/Azure-Samples/blockchain/tree/master/blockchain-workbench/application-and-smart-contract-samples/basic-provenance
+    - text: Digital Locker
+      url: https://github.com/Azure-Samples/blockchain/tree/master/blockchain-workbench/application-and-smart-contract-samples/digital-locker
+    - text: Kyld transport
+      url: https://github.com/Azure-Samples/blockchain/tree/master/blockchain-workbench/application-and-smart-contract-samples/refrigerated-transportation
+    - text: Tillgångsöverföring
+      url: https://github.com/Azure-Samples/blockchain/tree/master/blockchain-workbench/application-and-smart-contract-samples/asset-transfer
+    - text: Avancerad marknadsplats med flera arbetsflöden
+      url: https://github.com/Azure-Samples/blockchain/tree/master/blockchain-workbench/application-and-smart-contract-samples/bazaar-item-listing
+- title: Hantera
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Hantera programanvändare
+      url: manage-users.md
+    - text: Tillämpningskonfiguration
+      url: configuration.md
+    - text: Programversionshantering
+      url: version-app.md
+- title: Integrera
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Integreringsmönster för smart kontrakt
+      url: integration-patterns.md
+  - linkListType: how-to-guide
+    links:
+    - text: Anslut till databas utanför kedjan
+      url: getdb-details.md
+    - text: Använda data i Excel
+      url: data-excel.md
+    - text: Använda data i Power BI
+      url: data-powerbi.md
+    - text: Använda data i SQL Management Studio
+      url: data-sql-management-studio.md
+  - linkListType: reference
+    links:
+    - text: REST-API
+      url: use-api.md
+    - text: Meddelande-API
+      url: messages-overview.md
+    - text: Databasvyer
+      url: database-views.md

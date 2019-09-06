@@ -1,49 +1,103 @@
-### YamlMime:YamlDocument
-documentType: LandingData
-title: Dokumentation om Azure Blueprints-tjänsten
+### YamlMime:Landing
+title: Dokumentation om Azure Blueprint
+summary: Förenkla distributioner genom att paketera artefakter som Azure Resource Manager-mallar, kontroller för rollbaserad åtkomst samt principer i en och samma skissdefinition.
 metadata:
-  title: 'Dokumentation om Azure Blueprint – Självstudier, API-referens'
-  description: 'Azure Blueprint är en tjänst i Azure som används för att skapa, definiera och distribuera artefakter i Azure-miljön.'
-  author: DCtheGeek
-  manager: carmonm
+  title: Dokumentation om Azure Blueprint
+  description: Förenkla distributioner genom att paketera artefakter som Azure Resource Manager-mallar, kontroller för rollbaserad åtkomst samt principer i en och samma skissdefinition.
   ms.service: blueprints
   ms.topic: landing-page
-  ms.date: 06/14/2019
+  ms.collection: collection
+  author: DCtheGeek
   ms.author: dacoulte
-abstract:
-  description: 'Med Azure Blueprints kan du distribuera och uppdatera molnmiljöer med en upprepningsbar process med sammansättningsbara artefakter som Azure Resource Manager-mallar för att tillhandahålla resurser, rollbaserade åtkomstkontroller och principer.'
-sections:
-  - title: Snabbstarter på 5 minuter
-    items:
-      - type: paragraph
-        text: 'Lär dig hur du skapar, tilldelar och hanterar skissdefinitioner i Azure.'
-      - type: list
-        style: icon48
-        items:
-          - image:
-              alt: Azure Portal
-              src: ./media/portal.svg
-            text: Azure Portal
-            href: create-blueprint-portal.md
-          - image:
-              alt: Azure PowerShell
-              src: ./media/powershell.svg
-            text: Azure PowerShell
-            href: create-blueprint-powershell.md
-          - image:
-              alt: REST
-              src: ./media/rest.svg
-            text: REST
-            href: create-blueprint-rest-api.md
-  - title: Referens
-    items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: Kommandorad
-            html: '<p><a href="/powershell/module/az.blueprint/#blueprint">Azure PowerShell</a></p>'
-          - title: Språk
-            html: <p><a href="/dotnet/api/overview/azure/blueprints/management">Azure SDK för .NET</a></p>
-          - title: REST
-            html: <p><a href="/rest/api/blueprints/">API-referens</a></p>
+  ms.date: 09/01/2019
+  ms.openlocfilehash: 44d21c07a81dc3fe5912137691b67af1a3e910e2
+  ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 09/04/2019
+  ms.locfileid: "70239210"
+landingContent:
+- title: Om Azure Blueprints
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Vad är Azure Blueprint?
+      url: ./overview.md
+    - text: Distributionssteg
+      url: ./concepts/deployment-stages.md
+    - text: Livscykeln för en skiss
+      url: ./concepts/lifecycle.md
+  - linkListType: video
+    links:
+    - text: Azure Friday – Översikt över Azure Blueprints
+      url: https://channel9.msdn.com/Shows/Azure-Friday/An-overview-of-Azure-Blueprints
+- title: Komma igång
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Skapa en ny skiss (portal)
+      url: ./create-blueprint-portal.md
+    - text: Skapa en ny skiss (PowerShell)
+      url: ./create-blueprint-powershell.md
+    - text: Skapa en ny skiss (REST API)
+      url: ./create-blueprint-rest-api.md
+  - linkListType: tutorial
+    links:
+    - text: Använda ett skissexempel
+      url: ./tutorials/create-from-sample.md
+  - linkListType: deploy
+    links:
+    - text: Index för skissexempel
+      url: ./samples/index.md
+- title: Anpassa skisser
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Dynamiska parametrar
+      url: ./concepts/parameters.md
+    - text: Sekvensartefakter
+      url: ./concepts/sequencing-order.md
+    - text: Låsa distribuerade resurser
+      url: ./concepts/resource-locking.md
+  - linkListType: tutorial
+    links:
+    - text: Skydda nya resurser med lås
+      url: ./tutorials/protect-new-resources.md
+- title: Utveckla till ”skalanpassat”
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Uppdatera befintliga skisser
+      url: ./how-to/update-existing-assignments.md
+    - text: Hantera tilldelningar med PowerShell
+      url: ./how-to/manage-assignments-ps.md
+    - text: Importera och exportera med PowerShell
+      url: ./how-to/import-export-ps.md
+    - text: Implementera skissoperatorer
+      url: ./how-to/configure-for-blueprint-operator.md
+    - text: Hantera skisser som kod
+      url: https://github.com/Azure/azure-blueprints/blob/master/README.md
+- title: Delta
+  linkLists:
+  - linkListType: get-started
+    links:
+    - text: Azure Governances YouTube-kanal
+      url: https://www.youtube.com/channel/UCZZ3-oMrVI5ssheMzaWC4uQ
+    - text: Begära produktfunktion
+      url: https://feedback.azure.com/forums/915958-azure-governance
+    - text: Teknisk community för Azure Governance
+      url: https://techcommunity.microsoft.com/t5/Azure-Governance/bd-p/AzureGovernance
+- title: Referens
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: Skisspecifika funktioner
+      url: ./reference/blueprint-functions.md
+    - text: PowerShell-modul (PSGallery)
+      url: https://www.powershellgallery.com/packages/Az.Blueprint
+    - text: Azure PowerShell
+      url: /powershell/module/az.blueprint/#blueprint
+    - text: REST-API
+      url: /rest/api/blueprints/
+    - text: .NET
+      url: /dotnet/api/overview/azure/blueprints/management

@@ -81,8 +81,10 @@
       items:
         - name: Hälsoavsökning
           href: application-gateway-probe-overview.md
-        - name: Diagnostik
+        - name: Diagnostikloggar och serverdelens hälsotillstånd
           href: application-gateway-diagnostics.md
+        - name: Mått
+          href: application-gateway-metrics.md
     - name: App Service-webbapp och stöd för flera innehavare
       href: application-gateway-web-app-overview.md
     - name: WebSocket-stöd
@@ -225,6 +227,8 @@
           href: resource-health-overview.md
         - name: Använda Log Analytics
           href: log-analytics.md
+        - name: Problem med serverdelens hälsotillstånd
+          href: application-gateway-backend-health-troubleshooting.md
     - name: Migrera från v1 till v2
       href: migrate-v1-v2.md
 - name: Referens

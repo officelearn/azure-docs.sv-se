@@ -2,15 +2,15 @@
 author: msmbaldwin
 ms.service: security
 ms.topic: include
-ms.date: 07/23/2019
+ms.date: 09/04/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 4aea8c1d1d7112ac1f9ff9042ff01d173ed986c5
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.openlocfilehash: b7881d38e04f9b5793f61110e0e3e4c76baeddf2
+ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68440895"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70743787"
 ---
-Ett säkerhetsattribut är en kvalitet eller funktion i en Azure-tjänst. Tjänsten bidrar till tjänstens möjlighet att förhindra, identifiera och reagera på säkerhets risker.
+En säkerhets kontroll är en kvalitet eller funktion i en Azure-tjänst som bidrar till tjänstens möjlighet att förhindra, identifiera och reagera på säkerhets risker.
 
-I varje kategori visar vi "Ja" eller "nej" för att ange om ett attribut används. För vissa tjänster visar vi "ej tillämpligt" för ett attribut som inte är tillämpligt. Vi kan också ange en anteckning eller en länk till mer information om ett attribut.
+För varje kontroll använder vi "Ja" eller "nej" för att ange om den för närvarande är på plats för tjänsten, "N/A", för en kontroll som inte är tillämplig för tjänsten. Vi kan också ange en anteckning eller länkar till mer information om ett attribut.

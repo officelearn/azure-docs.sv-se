@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 04/02/2019
 ms.author: bwren
-ms.openlocfilehash: 11c3ded45e87e815b6c694f0a3f9c0ccb96f8750
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: a34faeb42fce0a1ee7960f71ffce176492495f9c
+ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68813919"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70744515"
 ---
 # <a name="send-log-data-to-azure-monitor-with-the-http-data-collector-api-public-preview"></a>Skicka loggdata till Azure Monitor med API: t för HTTP-datainsamling (offentlig för hands version)
 Den här artikeln visar hur du använder API: t för HTTP-datainsamling för att skicka logg data till Azure Monitor från en REST API-klient.  Här beskrivs hur du formaterar data som samlats in av ditt skript eller program, inkluderar dem i en begäran och har den begäran som auktoriserats av Azure Monitor.  Exempel finns för PowerShell, C#och python.
@@ -59,7 +59,7 @@ Om du vill använda API: et för HTTP-datainsamling skapar du en POST-begäran s
 | Huvud | Beskrivning |
 |:--- |:--- |
 | Authorization |Signaturen för auktorisering. Senare i artikeln kan du läsa om hur du skapar ett HMAC-SHA256-huvud. |
-| Logg typ |Ange post typen för de data som skickas. Storleks gränsen för den här parametern är 100 tecken. |
+| Logg typ |Ange post typen för de data som skickas. Får bara innehålla bokstäver, siffror och under streck (_) och får inte överstiga 100 tecken. |
 | x-ms-date |Datumet då begäran bearbetades i RFC 1123-format. |
 | x-ms-AzureResourceId | Resurs-ID för den Azure-resurs som data ska associeras med. Detta fyller i egenskapen [_ResourceId](log-standard-properties.md#_resourceid) och gör att data kan tas med i [resurs kontext](design-logs-deployment.md#access-mode) frågor. Om det här fältet inte anges tas data inte med i resurs kontext frågor. |
 | time-generated-field | Namnet på ett fält i data som innehåller tidsstämpeln för dataobjektet. Om du anger ett fält används dess innehåll för **TimeGenerated**. Om det här fältet inte anges är standardvärdet för **TimeGenerated** den tidpunkt då meddelandet matas in. Innehållet i meddelande fältet ska följa ISO 8601-formatet ÅÅÅÅ-MM-DDThh: mm: ssZ. |
@@ -73,7 +73,7 @@ Här är formatet för Authorization-huvudet:
 Authorization: SharedKey <WorkspaceID>:<Signature>
 ```
 
-*WorkspaceID* är den unika identifieraren för Log Analytics arbets ytan. *Signaturen* är en [Hash-baserad Message Authentication Code (HMAC)](https://msdn.microsoft.com/library/system.security.cryptography.hmacsha256.aspx) som är konstruerad från begäran och sedan beräknas med hjälp av [SHA256](https://msdn.microsoft.com/library/system.security.cryptography.sha256.aspx)-algoritmen. Sedan kodar du den med base64-kodning.
+*WorkspaceID* är den unika identifieraren för Log Analytics arbets ytan. *Signaturen* är en [Hash-baserad Message Authentication Code (HMAC)](https://msdn.microsoft.com/library/system.security.cryptography.hmacsha256.aspx) som är konstruerad från begäran och sedan beräknas med hjälp av [SHA256-algoritmen](https://msdn.microsoft.com/library/system.security.cryptography.sha256.aspx). Sedan kodar du den med base64-kodning.
 
 Använd det här formatet för att koda signatur strängen **SharedKey** :
 
@@ -100,7 +100,7 @@ Signature=Base64(HMAC-SHA256(UTF8(StringToSign)))
 Exemplen i följande avsnitt innehåller exempel kod som hjälper dig att skapa ett Authorization-huvud.
 
 ## <a name="request-body"></a>Begärandetext
-Meddelandets brödtext måste vara i JSON. Det måste innehålla en eller flera poster med egenskaps namn och värdepar i följande format:
+Meddelandets brödtext måste vara i JSON. Den måste innehålla en eller flera poster med egenskaps namn och värdepar i följande format. Egenskaps namnet får bara innehålla bokstäver, siffror och under streck (_).
 
 ```json
 [
@@ -187,7 +187,7 @@ HTTP-statuskod 200 innebär att begäran har tagits emot för bearbetning. Detta
 
 Den här tabellen innehåller en fullständig uppsättning status koder som tjänsten kan returnera:
 
-| Kod | Status | Felkod | Beskrivning |
+| Kod | State | Felkod | Beskrivning |
 |:--- |:--- |:--- |:--- |
 | 200 |Ok | |Begäran har godkänts. |
 | 400 |Felaktig förfrågan |InactiveCustomer |Arbets ytan har stängts. |

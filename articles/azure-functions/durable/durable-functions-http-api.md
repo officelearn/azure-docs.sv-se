@@ -9,12 +9,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 07/08/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 11ae418ddbe007c6fd5aa44ef22ed7fddec9c702
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: b34fd30b8e43e674b0b346672366d680d99ebd5c
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70087274"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70734277"
 ---
 # <a name="http-apis-in-durable-functions-azure-functions"></a>HTTP-API: er i Durable Functions (Azure Functions)
 
@@ -33,7 +33,11 @@ Vart och ett av dessa HTTP-API: er är en webhook-åtgärd som hanteras direkt a
 
 [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) -klassen visar ett [CreateCheckStatusResponse](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_CreateCheckStatusResponse_) -API som kan användas för att generera en http-svars nytto last som innehåller länkar till alla åtgärder som stöds. Här är ett exempel på en HTTP-utlösnings funktion som visar hur du använder det här API: et:
 
-### <a name="c"></a>C#
+### <a name="precompiled-c"></a>FörkompileradeC#
+
+[!code-csharp[Main](~/samples-durable-functions/samples/precompiled/HttpStart.cs)]
+
+### <a name="c-script"></a>C#Över
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/HttpStart/run.csx)]
 
@@ -75,7 +79,7 @@ Location: https://{host}/runtime/webhooks/durabletask/instances/34ce9a28a6834d84
 
 ## <a name="async-operation-tracking"></a>Asynkron åtgärds spårning
 
-Det HTTP-svar som tidigare nämnts är utformat för att hjälpa till att implementera långvariga HTTP asynkrona API: er med Durable Functions. Detta kallas ibland för avsöknings *konsument mönster*. Klient/server-flödet fungerar på följande sätt:
+Det HTTP-svar som tidigare nämnts är utformat för att hjälpa till att implementera långvariga HTTP asynkrona API: er med Durable Functions. Detta kallas ibland för *avsöknings konsument mönster*. Klient/server-flödet fungerar på följande sätt:
 
 1. Klienten utfärdar en HTTP-begäran om att starta en tids krävande process, till exempel en Orchestrator-funktion.
 2. Målets http-utlösare returnerar ett http 202 `Location` -svar med `statusQueryGetUri` ett huvud med värdet.
@@ -85,7 +89,7 @@ Det HTTP-svar som tidigare nämnts är utformat för att hjälpa till att implem
 Det här protokollet tillåter samordning av långvariga processer med externa klienter eller tjänster som stöder avsökning av `Location` en http-slutpunkt och följande rubrik. De grundläggande delarna är redan inbyggda i Durable Functions HTTP-API: er.
 
 > [!NOTE]
-> Som standard har alla HTTP-baserade åtgärder som tillhandahålls av [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/) stöd för standard mönstret för asynkrona åtgärder. Den här funktionen gör det möjligt att bädda in en långsiktig, varaktig funktion som en del av ett Logic Apps-arbetsflöde. Mer information om Logic Apps stöd för asynkrona HTTP-mönster finns i [dokumentationen för Azure Logic Apps arbets flödes åtgärder och](../../logic-apps/logic-apps-workflow-actions-triggers.md#asynchronous-patterns)utlösare.
+> Som standard har alla HTTP-baserade åtgärder som tillhandahålls av [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/) stöd för standard mönstret för asynkrona åtgärder. Den här funktionen gör det möjligt att bädda in en långsiktig, varaktig funktion som en del av ett Logic Apps-arbetsflöde. Mer information om Logic Apps stöd för asynkrona HTTP-mönster finns i [dokumentationen för Azure Logic Apps arbets flödes åtgärder och utlösare](../../logic-apps/logic-apps-workflow-actions-triggers.md#asynchronous-patterns).
 
 ## <a name="http-api-reference"></a>HTTP API-referens
 
@@ -157,7 +161,7 @@ Svars nytto lasten för **http 200-** och **http 202** -fall är ett JSON-objekt
 
 | Fält                 | Datatyp | Beskrivning |
 |-----------------------|-----------|-------------|
-| **`runtimeStatus`**   | sträng    | Körnings status för instansen. Värdena omfattar *körning*, *väntar*,misslyckade, avbrutna, *avslutade*, *slutförda*. |
+| **`runtimeStatus`**   | sträng    | Körnings status för instansen. Värdena omfattar *körning*, *väntar*, *misslyckade*, *avbrutna*, *avslutade*, *slutförda*. |
 | **`input`**           | JSON      | JSON-data som används för att initiera instansen. Det här fältet `null` är `showInput` om frågesträngparametern har angetts till `false`.|
 | **`customStatus`**    | JSON      | De JSON-data som används för anpassad Dirigerings status. Det här fältet `null` är om inget anges. |
 | **`output`**          | JSON      | Instansens JSON-utdata. Det här fältet `null` är om instansen inte är i ett slutfört tillstånd. |
@@ -487,7 +491,7 @@ Flera möjliga status kod värden kan returneras.
 * **HTTP 404 (hittades inte)** : Det gick inte att hitta den angivna instansen.
 * **HTTP 410 (borta)** : Den angivna instansen har slutförts eller misslyckats och kan inte bearbeta några aktiverade händelser.
 
-Här är en exempel förfrågan som skickar JSON-strängen `"incr"` till en instans som väntar på en händelsemed namnet:
+Här är en exempel förfrågan som skickar JSON-strängen `"incr"` till en instans som väntar på en händelse **med namnet**:
 
 ```http
 POST /admin/extensions/DurableTaskExtension/instances/bcf6fb5067b046fbb021b52ba7deae5a/raiseEvent/operation?taskHub=DurableFunctionsHub&connection=Storage&code=XXX

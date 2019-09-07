@@ -3,18 +3,17 @@ title: Kontroll punkter och uppspelning i Durable Functions – Azure
 description: Lär dig hur kontroll punkter och svar fungerar i Durable Functions-tillägget för Azure Functions.
 services: functions
 author: ggailey777
-manager: jeconnoc
-keywords: ''
+manager: gwallace
 ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 1e6d3b78887c9d195fdf0137553860c141bdaaba
-ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
+ms.openlocfilehash: 5d0527de556c25a1d369d7b22c3f62579bc508f0
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70241064"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70735250"
 ---
 # <a name="checkpoints-and-replay-in-durable-functions-azure-functions"></a>Kontroll punkter och uppspelning i Durable Functions (Azure Functions)
 
@@ -128,17 +127,9 @@ Uppspelnings beteendet skapar begränsningar för den typ av kod som kan skrivas
 
   Om Orchestrator-koden behöver hämta aktuellt datum/tid bör den använda [CurrentUtcDateTime](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CurrentUtcDateTime) (.net) eller `currentUtcDateTime` (Java Script) API, som är säkert för uppspelning.
 
-  Om Orchestrator-koden behöver generera ett slumpmässigt GUID bör den använda [NewGuid](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_NewGuid) (.net)-API: et, som är säkert för repetition eller delegera GUID-generering till en aktivitets funktion (Java Script), som i det här exemplet:
+  Om Orchestrator-koden måste generera ett slumpmässigt GUID bör det använda antingen [NewGuid](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_NewGuid) (.net) eller `newGuid` (Java Script) API, som är säkert för uppspelning.
 
-  ```javascript
-  const uuid = require("uuid/v1");
-
-  module.exports = async function(context) {
-    return uuid();
-  }
-  ```
-
-  Icke-deterministiska åtgärder måste utföras i aktivitets funktioner. Detta omfattar alla interaktioner med andra indata-eller utdata-bindningar. Detta säkerställer att alla icke-deterministiska värden genereras en gång vid den första körningen och sparas i körnings historiken. Efterföljande körningar kommer sedan att använda det sparade värdet automatiskt.
+   Förutom dessa särskilda fall måste icke-deterministiska åtgärder utföras i aktivitets funktioner. Detta omfattar alla interaktioner med andra indata-eller utdata-bindningar. Detta säkerställer att alla icke-deterministiska värden genereras en gång vid den första körningen och sparas i körnings historiken. Efterföljande körningar kommer sedan att använda det sparade värdet automatiskt.
 
 * Orchestrator-koden ska vara **icke-blockerande**. Det innebär exempelvis inga I/O och inga anrop till `Thread.Sleep` (.net) eller motsvarande API: er.
 
@@ -165,7 +156,7 @@ Dessa begränsningar kan verka avskräckande i första, i praktiken att de inte 
 
 Aktiviteter som kan förväntas på ett säkert sätt i Orchestrator-funktioner kallas ibland för *varaktiga uppgifter*. Detta är uppgifter som skapas och hanteras av det varaktiga aktivitets ramverket. Exempel är de uppgifter som returneras `CallActivityAsync`av `WaitForExternalEvent`, och `CreateTimer`.
 
-Dessa *varaktiga uppgifter* hanteras internt med hjälp av en lista `TaskCompletionSource` med objekt. Under uppspelningen skapas de här aktiviteterna som en del av Orchestrator Code Execution och slutförs eftersom Dispatchern räknar upp motsvarande historik händelser. Detta görs synkront med en enda tråd tills all historik har spelats upp. Eventuella varaktiga uppgifter som inte slutförs i slutet av historik uppspelningen har lämpliga åtgärder som utförs. Ett meddelande kan till exempel vara placerat i kö för att anropa en aktivitets funktion.
+Dessa *varaktiga uppgifter* hanteras internt med hjälp av en lista `TaskCompletionSource` med objekt. Under uppspelningen skapas de här aktiviteterna som en del av Orchestrator Code Execution och slutförs eftersom Dispatchern räknar upp motsvarande historik händelser. Detta görs synkront med en enda tråd tills all historik har spelats upp. Alla varaktiga aktiviteter som inte slutförs i slutet av historik uppspelningen har lämpliga åtgärder utförda. Ett meddelande kan till exempel vara placerat i kö för att anropa en aktivitets funktion.
 
 Det körnings beteende som beskrivs här bör hjälpa dig att förstå varför Orchestrator- `await` funktions koden aldrig får innehålla en icke-beständig uppgift: dispatcher-tråden kan inte vänta på att den ska slutföras och återanrop från den aktiviteten kan eventuellt skada spårningen status för Orchestrator-funktionen. Vissa körnings kontroller är på plats för att förhindra detta.
 

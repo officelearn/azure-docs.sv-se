@@ -9,12 +9,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 6548b84f9599116aaa5055324bfa4625ea621ec3
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 3db0cd3dd01e3f5f6af6b4b668d1ccac094624a2
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70087249"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70735176"
 ---
 # <a name="manage-instances-in-durable-functions-in-azure"></a>Hantera instanser i Durable Functions i Azure
 
@@ -40,10 +40,12 @@ Den här asynkrona åtgärden slutförs när Orchestration-processen har schemal
 Parametrarna för [StartNewAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_StartNewAsync_) är följande:
 
 * **Namn på**: Namnet på Orchestrator-funktionen som ska schemaläggas.
-* Inmatade: Alla JSON-serialiserbara data som ska skickas som indata till Orchestrator-funktionen.
+* **Inmatade**: Alla JSON-serialiserbara data som ska skickas som indata till Orchestrator-funktionen.
 * **InstanceID**: Valfritt Instansens unika ID. Om du inte anger den här parametern använder metoden ett slumpmässigt ID.
 
-Här är ett enkelt C# exempel:
+Här följer några exempel:
+
+### <a name="c"></a>C#
 
 ```csharp
 [FunctionName("HelloWorldManualStart")]
@@ -63,7 +65,7 @@ Parametrarna för `startNew` är följande:
 
 * **Namn på**: Namnet på Orchestrator-funktionen som ska schemaläggas.
 * **InstanceID**: Valfritt Instansens unika ID. Om du inte anger den här parametern använder metoden ett slumpmässigt ID.
-* Inmatade: Valfritt Alla JSON-serialiserbara data som ska skickas som indata till Orchestrator-funktionen.
+* **Inmatade**: Valfritt Alla JSON-serialiserbara data som ska skickas som indata till Orchestrator-funktionen.
 
 Här är ett enkelt JavaScript-exempel:
 
@@ -118,7 +120,7 @@ Metoden returnerar ett JSON-objekt med följande egenskaper:
 * **InstanceID**: Instans-ID: t för dirigeringen (ska vara detsamma som `instanceId` indatatypen).
 * **CreatedTime**: Tiden då Orchestrator-funktionen började köras.
 * **LastUpdatedTime**: Tiden då dirigeringen senast pågick.
-* Inmatade: Indatamängden för funktionen som ett JSON-värde. Det här fältet är inte ifyllt om `showInput` är falskt.
+* **Inmatade**: Indatamängden för funktionen som ett JSON-värde. Det här fältet är inte ifyllt om `showInput` är falskt.
 * **CustomStatus**: Anpassad Dirigerings status i JSON-format.
 * **Utdata**: Resultatet av funktionen som ett JSON-värde (om funktionen har slutförts). Om Orchestrator-funktionen misslyckades innehåller den här egenskapen fel information. Om Orchestrator-funktionen avbröts innehåller den här egenskapen orsaken till uppsägningen (om det finns några).
 * **RuntimeStatus**: Ett av följande värden:
@@ -592,6 +594,8 @@ Om du vill ta bort alla data som är associerade med ett dirigering kan du rensa
 
  Metoden har två överlagringar. Den första enda rensningen av historiken med ID: t för Orchestration-instansen:
 
+### <a name="c"></a>C#
+
 ```csharp
 [FunctionName("PurgeInstanceHistory")]
 public static Task Run(
@@ -603,6 +607,8 @@ public static Task Run(
 ```
 
 I det andra exemplet visas en timer-utlöst funktion som rensar historiken för alla Dirigerings instanser som har slutförts efter angivet tidsintervall. I det här fallet tar den bort data för alla instanser som slutförts 30 eller fler dagar sedan. Det är schemalagt att köras en gång per dag, kl. 12:
+
+### <a name="c"></a>C#
 
 ```csharp
 [FunctionName("PurgeInstanceHistory")]

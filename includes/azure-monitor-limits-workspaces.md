@@ -8,63 +8,62 @@ ms.topic: include
 ms.date: 02/07/2019
 ms.author: robb
 ms.custom: include file
-ms.openlocfilehash: 21e2d3f75028d239175effa7a3608cc18ccfc95c
-ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
+ms.openlocfilehash: 5d0c43fbcc1c59c3281f412aad96a3942a5c79b1
+ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67305338"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70392904"
 ---
-**Samling datavolymer och kvarhållning** 
+**Data insamlings volym och kvarhållning** 
 
-| Nivå | Begränsa per dag | Datakvarhållning | Kommentar |
+| Nivå | Gräns per dag | Datakvarhållning | Kommentar |
 |:---|:---|:---|:---|
-| Nuvarande Per-GB-prisnivå<br>(presenteras April 2018) | Obegränsad | 30 - 730 dagar | Kvarhållning av data efter 31 dagar är tillgänglig för extra avgifter. Läs mer om priser för Azure Monitor. |
-| Äldre kostnadsfria nivåer<br>(introduced April 2016) | 500 MB | 7 dagar | När din arbetsyta når 500 MB per dag gränsen, stoppar datainmatning och återupptas i början av nästa dag. En dag baseras på UTC. Observera att data som samlas in av Azure Security Center inte är ingår i den här 500 MB per dag gränsen och fortsätter att vara insamlade ovanför den här gränsen.  |
-| Äldre fristående Per GB-nivå<br>(introduced April 2016) | Obegränsad | 30 till 730 dagar | Kvarhållning av data efter 31 dagar är tillgänglig för extra avgifter. Läs mer om priser för Azure Monitor. |
-| Äldre Per nod (OMS)<br>(introduced April 2016) | Obegränsad | 30 till 730 dagar | Kvarhållning av data efter 31 dagar är tillgänglig för extra avgifter. Läs mer om priser för Azure Monitor. |
-| Äldre Standard-nivån | Obegränsad | 30 dagar  | Det går inte att justera kvarhållning |
-| Äldre Premium-nivån | Obegränsad | 365 dagar  | Det går inte att justera kvarhållning |
+| Aktuell pris nivå per GB<br>(lanserades april 2018) | Ingen gräns | 30-730 dagar | Data kvarhållning utöver 31 dagar är tillgängligt för ytterligare kostnader. Läs mer om Azure Monitor prissättning. |
+| Äldre kostnads fria nivåer<br>(lanserades april 2016) | 500 MB | 7 dagar | När din arbets yta når gränsen på 500 MB per dag stoppas data inmatningen och återupptas i början av nästa dag. En dag baseras på UTC. Observera att data som samlas in av Azure Security Center inte ingår i den här gränsen på 500 MB per dag och fortsätter att samlas in över den här gränsen.  |
+| Äldre fristående per GB-nivå<br>(lanserades april 2016) | Ingen gräns | 30 till 730 dagar | Data kvarhållning utöver 31 dagar är tillgängligt för ytterligare kostnader. Läs mer om Azure Monitor prissättning. |
+| Bakåtkompatibelt per nod (OMS)<br>(lanserades april 2016) | Ingen gräns | 30 till 730 dagar | Data kvarhållning utöver 31 dagar är tillgängligt för ytterligare kostnader. Läs mer om Azure Monitor prissättning. |
+| Äldre standard nivå | Ingen gräns | 30 dagar  | Det går inte att justera kvarhållning |
+| Legacy Premium-nivå | Ingen gräns | 365 dagar  | Det går inte att justera kvarhållning |
 
-**Antal arbetsytor per prenumeration.**
+**Antal arbets ytor per prenumeration.**
 
-| Prisnivå    | Gräns för arbetsytan | Kommentar
+| Prisnivå    | Arbets ytans gräns | Kommentar
 |:---|:---|:---|
-| Gratis nivå  | 10 | Den här gränsen kan inte höjas. |
-| Alla andra nivåer | Obegränsad | Du är begränsad av antalet resurser i en resursgrupp och antalet resursgrupper per prenumeration. |
+| Kostnadsfri nivå  | 10 | Det går inte att öka den här gränsen. |
+| Alla andra nivåer | Ingen gräns | Du är begränsad till antalet resurser i en resurs grupp och antalet resurs grupper per prenumeration. |
 
 **Azure Portal**
 
-| Category | Limits | Kommentar |
+| Category | Begränsningar | Kommentar |
 |:---|:---|:---|
-| Maximalt antal poster som returneras av en loggfråga | 10 000 | Minska resultat med hjälp av omfång, tidsintervall och filter i frågan. |
+| Maximalt antal poster som returneras av en logg fråga | 10 000 | Minska resultatet med fråge omfånget, tidsintervallet och filtren i frågan. |
 
 
-**API för datainsamling**
+**API för data insamling**
 
-| Category | Limits | Kommentar |
+| Category | Begränsningar | Kommentar |
 |:---|:---|:---|
-| Maximal storlek för ett enskilt inlägg | 30 MB | Dela större volymer i flera olika inlägg. |
-| Maximal storlek för fältvärden  | 32 KB | Fält som är längre än 32 kB trunkeras. |
+| Maximal storlek för ett enskilt inlägg | 30 MB | Dela upp större volymer i flera inlägg. |
+| Maximal storlek för fält värden  | 32 KB | Fält som är längre än 32 kB trunkeras. |
 
-**API för webbsökning**
+**Sök-API**
 
-| Category | Limits | Kommentar |
+| Category | Begränsningar | Kommentar |
 |:---|:---|:---|
-| Maximalt antal poster som returneras för ej sammanräknade data | 5,000 | |
-| Maximalt antal poster för sammanräknade data | 500,000 | Sammanräknade data är en sökning som innefattar de `summarize` kommando. |
-| Maximal storlek på data som returneras | 64,000,000 byte (~ 61 MiB)| |
-| Maximal körtid fråga | 10 minuter | Se [tidsgränser](https://dev.loganalytics.io/documentation/Using-the-API/Timeouts) mer information.  |
-| Maximala hastigheten | 200 begäranden per 30 sekunder per AAD användar- eller klientens IP-adress | Se [hastighetsbegränsningar](https://dev.loganalytics.io/documentation/Using-the-API/Limits) mer information. |
+| Maximalt antal poster som returneras i en enskild fråga | 500,000 | |
+| Maximal storlek för returnerade data | 64 000 000 byte (~ 61 MiB)| |
+| Maximal kör tid för fråga | 10 minuter | Se [timeout](https://dev.loganalytics.io/documentation/Using-the-API/Timeouts) för mer information.  |
+| Högsta begär ande frekvens | 200 förfrågningar per 30 sekunder per AAD-användare eller klient-IP-adress | Mer information finns i avsnittet om [hastighets begränsningar](https://dev.loganalytics.io/documentation/Using-the-API/Limits) . |
 
-**Allmän arbetsytan gränser**
+**Gränser för allmän arbets yta**
 
-| Category | Limits | Kommentar |
+| Category | Begränsningar | Kommentar |
 |:---|:---|:---|
 | Maximalt antal kolumner i en tabell         | 500 | |
-| Högsta antal tecken för kolumnnamn | 500 | |
-| Regionerna kapacitet | Västra centrala USA | Du kan inte just nu skapa en ny arbetsyta i den här regionen eftersom det är på tillfälliga kapacitetsgränsen. Den här gränsen är planerat åtgärdas slutet av September 2019. |
-| Export av data | Inte tillgänglig för tillfället | Använda Azure-funktion eller Logikapp för att sammanställa och exportera data. | 
+| Maximalt antal tecken för kolumn namn | 500 | |
+| Regioner med kapacitet | Västra centrala USA | Du kan för närvarande inte skapa en ny arbets yta i det här området eftersom den har en tillfällig kapacitets gräns. Den här gränsen planeras för att åtgärdas i slutet av oktober 2019. |
+| Data export | Inte tillgänglig för närvarande | Använd Azure Function eller Logic app för att aggregera och exportera data. | 
 
 >[!NOTE]
->Beroende på hur länge du har använt Log Analytics, kanske du har åtkomst till äldre prisnivåer. Läs mer om [Log Analytics äldre prisnivåer](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#legacy-pricing-tiers). 
+>Beroende på hur länge du har använt Log Analytics kan du ha åtkomst till äldre pris nivåer. Läs mer om [Log Analytics äldre pris nivåer](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#legacy-pricing-tiers). 

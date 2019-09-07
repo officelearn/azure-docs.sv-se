@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/22/2019
+ms.date: 09/06/2019
 ms.author: magoedte
-ms.openlocfilehash: 154848c33960cb78b10c58e7a39ddec669d4fae0
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: c63feb02712447d2427061cbfabc525622107043
+ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69872993"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70744577"
 ---
 # <a name="understand-aks-cluster-performance-with-azure-monitor-for-containers"></a>Förstå prestanda för AKS-kluster med Azure Monitor för behållare
 Med Azure Monitor för behållare kan du använda prestanda diagram och hälso status för att övervaka arbets belastningen för dina Azure Kubernetes service (AKS)-kluster från två perspektiv. Du kan övervaka direkt från ett AKS-kluster, eller så kan du övervaka alla AKS-kluster i en prenumeration från Azure Monitor. Det är också möjligt att Visa Azure Container Instances när du övervakar ett speciellt AKS-kluster.
@@ -63,7 +63,7 @@ Den hälsotillstånd statusen som ingår är:
 * **Hittades inte**: Arbets ytan, resurs gruppen eller prenumerationen som innehåller arbets ytan för den här lösningen har tagits bort.
 * **Ej auktoriserad**: Användaren har inte de behörigheter som krävs för att läsa data i arbets ytan.
 * **Fel**: Ett fel uppstod vid försök att läsa data från arbets ytan.
-* Felkonfigurerad: Azure Monitor för behållare har inte kon figurer ATS korrekt på den angivna arbets ytan.
+* **Felkonfigurerad**: Azure Monitor för behållare har inte kon figurer ATS korrekt på den angivna arbets ytan.
 * **Ser du inga data?** Data har inte rapporter ATS till arbets ytan under de senaste 30 minuterna.
 
 Hälso tillstånd beräknar övergripande kluster status som *sämsta av* de tre tillstånden med ett undantag. Om något av de tre tillstånden är okänt, visar det övergripande kluster tillståndet **Okänt**. 
@@ -92,14 +92,14 @@ I listan över kluster kan du öka detalj nivån till **kluster** sidan genom at
 
 ## <a name="view-performance-directly-from-an-aks-cluster"></a>Visa prestanda direkt från ett AKS-kluster
 
-Åtkomst till Azure Monitor för behållare är tillgänglig direkt från ett AKS-kluster genom att välja insikter i den vänstra rutan. Information om ditt AKS-kluster är indelat i fyra perspektiv:
+Åtkomst till Azure Monitor för behållare är tillgänglig direkt från ett AKS-kluster genom att välja **insikter** i den vänstra rutan. Information om ditt AKS-kluster är indelat i fyra perspektiv:
 
 - Kluster
 - Noder 
 - Kontrollanter 
 - Containrar
 
-Standard sidan öppnas när du väljer insikts > **kluster**. Fyra linje prestanda diagram visar viktiga prestanda mått för klustret. 
+Standard sidan öppnas när du väljer **insikts** > **kluster**. Fyra linje prestanda diagram visar viktiga prestanda mått för klustret. 
 
 ![Prestandadiagram för exempel på fliken kluster](./media/container-insights-analyze/containers-cluster-perfview.png)
 
@@ -118,18 +118,18 @@ Azure Monitor för behållare stöder också Azure Monitor [Metrics Explorer](..
 
 I Metrics Explorer kan du visa aggregerade noder och Pod användnings mått från Azure Monitor för behållare. I följande tabell sammanfattas information som hjälper dig att förstå hur du använder mått diagram för att visualisera container mått.
 
-|Namnrymd | Mått |
-|----------|--------|
+|Namnrymd | Mått | Beskrivning | 
+|----------|--------|-------------|
 | Insights. container/Nodes | |
-| | cpuUsageMillicores |
-| | cpuUsagePercentage |
-| | memoryRssBytes |
-| | memoryRssPercentage |
-| | memoryWorkingSetBytes |
-| | memoryWorkingSetPercentage |
-| | nodesCount |
+| | cpuUsageMillicores | Aggregerad mätning av CPU-belastning i klustret. Det är en processor kärna som delas upp i 1000 enheter (Milli = 1000). Används för att fastställa användningen av kärnor i en behållare där många program kan använda en kärna.| 
+| | cpuUsagePercentage | Aggregerad genomsnittlig processor användning mätt i procent över klustret.|
+| | memoryRssBytes | RSS-minne för behållare som används i byte.| 
+| | memoryRssPercentage | RSS-minne för behållare som används i procent.|
+| | memoryWorkingSetBytes | Minne för arbets minne för behållare som används.| 
+| | memoryWorkingSetPercentage | Arbets minne för behållare som används i procent. | 
+| | nodesCount | Antalet noder från Kubernetes.|
 | Insights. container/poddar | |
-| | PodCount |
+| | PodCount | Ett Pod-antal från Kubernetes.|
 
 Du kan [dela upp](../platform/metrics-charts.md#apply-splitting-to-a-chart) ett mått för att visa det efter dimension och visualisera hur olika segment jämförs med varandra. För en nod kan du segmentera diagrammet efter *värd* dimension. Från en POD kan du segmentera den med följande dimensioner:
 
@@ -170,7 +170,7 @@ Från en utökad nod kan du öka detalj nivån från POD eller containern som k�
 
 Välj kontrollanter eller behållare högst upp på sidan för att granska status och resursutnyttjande för dessa objekt. Om du vill granska minnes användningen väljer du **minnes-RSS** eller **minnes arbets minne**i list rutan **mått** . **Minne RSS** stöds endast för Kubernetes version 1.8 och senare. Annars kan du visa värden för **Min&nbsp; %**  som *NaN&nbsp;%* , vilket är ett värde av numeriska data som representerar en odefinierad eller inte går att representera värde.
 
-**Minnes arbets minnet** visar både det residenta minnet och det virtuella minnet (cache) som ingår och är det totala antalet som programmet använder. **Minne RSS** visar bara huvud minnet, vilket är det inhemska minnet. Det här måttet visar den faktiska kapaciteten för tillgängligt minne.
+**Minnes arbets minnet** visar både det residenta minnet och det virtuella minnet (cache) som ingår och är det totala antalet som programmet använder. **Minne RSS** visar bara huvud minnet (vilket är inget men det residenta minnet med andra ord). Det här måttet visar den faktiska kapaciteten för tillgängligt minne.
 
 ![Behållaren noder prestandavy](./media/container-insights-analyze/containers-node-metric-dropdown.png)
 
@@ -182,7 +182,7 @@ När du hovrar över stapeldiagrammet under kolumnen **trend** visar varje STAPE
 
 ![Trend linje diagram hov ring – över exempel](./media/container-insights-analyze/containers-metric-trend-bar-01.png) 
 
-I nästa exempel, för den första noden i listan, *AKS-nodepool1*, är värdet för containers 9 . Det här värdet är en sammanfattning av det totala antalet distribuerade behållare.
+I nästa exempel, för den första noden i listan, *AKS-nodepool1*, är värdet för **containers** 9. Det här värdet är en sammanfattning av det totala antalet distribuerade behållare.
 
 ![Samla in behållare per nod-exempel](./media/container-insights-analyze/containers-nodes-containerstotal.png)
 

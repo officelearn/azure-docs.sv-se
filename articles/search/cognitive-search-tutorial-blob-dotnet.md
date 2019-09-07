@@ -9,12 +9,12 @@ ms.subservice: cognitive-search
 ms.topic: tutorial
 ms.date: 05/02/2019
 ms.author: maheff
-ms.openlocfilehash: ad0710a3492eeecd56989e627211da5d4a5e0e0a
-ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
+ms.openlocfilehash: 260f6a6141903ea1fd7edcfe2e031091bba322be
+ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70186251"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70744746"
 ---
 # <a name="c-tutorial-call-cognitive-services-apis-in-an-azure-search-indexing-pipeline"></a>C#Gång Anropa API:er för Cognitive Services i en Azure Search indexerings pipeline
 
@@ -66,7 +66,7 @@ En giltig nyckel upprättar förtroende, i varje begäran, mellan programmet som
 
 ## <a name="prepare-sample-data"></a>Förbereda exempel data
 
-Berikningspipelinen hämtar data från Azure-datakällor. Källdata måste komma från en datakällstyp som stöds av en [Azure Search-indexerare](search-indexer-overview.md). Azure-Table Storage stöds inte för kognitiv sökning. I den här övningen använder vi blogglagring för att demonstrera flera typer av innehåll.
+Berikningspipelinen hämtar data från Azure-datakällor. Källdata måste komma från en datakällstyp som stöds av en [Azure Search-indexerare](search-indexer-overview.md). I den här övningen använder vi blogglagring för att demonstrera flera typer av innehåll.
 
 1. [Logga](https://portal.azure.com)in på Azure Portal, navigera till ditt Azure Storage-konto, klicka på **blobbar**och klicka sedan på **+ container**.
 
@@ -247,7 +247,7 @@ OcrSkill ocrSkill = new OcrSkill(
 
 ### <a name="merge-skill"></a>Sammanfoga kunskaper
 
-I det här avsnittet ska du skapa en sammanfogad färdighet som sammanfogar dokumentets innehålls fält med den text som har producerats av OCR-kunskaper.
+I det här avsnittet ska du skapa en **sammanfogad** färdighet som sammanfogar dokumentets innehålls fält med den text som har producerats av OCR-kunskaper.
 
 ```csharp
 List<InputFieldMappingEntry> inputMappings = new List<InputFieldMappingEntry>();

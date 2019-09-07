@@ -1,20 +1,18 @@
 ---
 title: Host. JSON-referens för Azure Functions 1. x
 description: Referens dokumentation för Azure Functions Host. JSON-fil med v1-körning.
-services: functions
 author: ggailey777
-manager: jeconnoc
-keywords: ''
+manager: gwallace
 ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 10/19/2018
 ms.author: glenga
-ms.openlocfilehash: c169d9cc774a2c6264ba1520240005f13ba9d2da
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: b373afc9b5a60abee7a587fc405320fe3c583369
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70096455"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70735162"
 ---
 # <a name="hostjson-reference-for-azure-functions-1x"></a>Host. JSON-referens för Azure Functions 1. x
 
@@ -46,6 +44,13 @@ Följande exempel på *Host. JSON* -filer har alla möjliga alternativ angivna.
         "sampling": {
           "isEnabled": true,
           "maxTelemetryItemsPerSecond" : 5
+        }
+    },
+    "documentDB": {
+        "connectionMode": "Gateway",
+        "protocol": "Https",
+        "leaseOptions": {
+            "leasePrefix": "prefix"
         }
     },
     "eventHub": {
@@ -86,6 +91,9 @@ Följande exempel på *Host. JSON* -filer har alla möjliga alternativ angivna.
       "maxDequeueCount": 5,
       "newBatchThreshold": 8
     },
+    "sendGrid": {
+        "from": "Contoso Group <admin@contoso.com>"
+    },
     "serviceBus": {
       "maxConcurrentCalls": 16,
       "prefetchCount": 100,
@@ -116,13 +124,35 @@ I följande avsnitt i den här artikeln beskrivs varje toppnivå egenskap. Alla 
 
 [!INCLUDE [applicationInsights](../../includes/functions-host-json-applicationinsights.md)]
 
+## <a name="documentdb"></a>DocumentDB
+
+Konfigurations inställningar för [Azure Cosmos DB utlösare och bindningar](functions-bindings-cosmosdb.md).
+
+```json
+{
+    "documentDB": {
+        "connectionMode": "Gateway",
+        "protocol": "Https",
+        "leaseOptions": {
+            "leasePrefix": "prefix1"
+        }
+    }
+}
+```
+
+|Egenskap  |Standard | Beskrivning |
+|---------|---------|---------|
+|GatewayMode|Gateway|Anslutnings läget som används av funktionen vid anslutning till Azure Cosmos DBs tjänsten. Alternativen är `Direct` och`Gateway`|
+|Protocol|Https|Anslutnings protokollet som används av funktionen vid anslutning till Azure Cosmos DBs tjänsten.  Läs [här om du vill ha en förklaring av båda lägena](../cosmos-db/performance-tips.md#networking)|
+|leasePrefix|Saknas|Lease-prefix som ska användas för alla funktioner i en app.|
+
 ## <a name="durabletask"></a>durableTask
 
 [!INCLUDE [durabletask](../../includes/functions-host-json-durabletask.md)]
 
 ## <a name="eventhub"></a>eventHub
 
-Konfigurations inställningar för [Event Hub](functions-bindings-event-hubs.md)-utlösare och bindningar.
+Konfigurations inställningar för [Event Hub-utlösare och bindningar](functions-bindings-event-hubs.md).
 
 [!INCLUDE [functions-host-json-event-hubs](../../includes/functions-host-json-event-hubs.md)]
 
@@ -217,7 +247,7 @@ Styr filtrering av loggar som skrivits av ett [ILogger-objekt](functions-monitor
 
 ## <a name="queues"></a>kön
 
-Konfigurations inställningar för utlösare [och bindningar i lagrings kön](functions-bindings-storage-queue.md).
+Konfigurations inställningar för [utlösare och bindningar i lagrings kön](functions-bindings-storage-queue.md).
 
 ```json
 {
@@ -238,6 +268,21 @@ Konfigurations inställningar för utlösare [och bindningar i lagrings kön](fu
 |batchSize|16|Antalet köa meddelanden som funktions körningen hämtar samtidigt och processer parallellt. När antalet som bearbetas `newBatchThreshold`går ned till kör körningen en annan batch och börjar bearbeta dessa meddelanden. Det maximala antalet samtidiga meddelanden som bearbetas per `batchSize` funktion `newBatchThreshold`är plus. Den här gränsen gäller separat för varje funktion som utlöses av kön. <br><br>Om du vill undvika parallell körning av meddelanden som tas emot i en kö kan du ange `batchSize` 1. Den här inställningen eliminerar dock ingen samtidighet så länge som din funktions App körs på en enda virtuell dator (VM). Om Function-appen skalar ut till flera virtuella datorer kan varje virtuell dator köra en instans av varje funktion som utlöses av kön.<br><br>Det maximala `batchSize` värdet är 32. | 
 |maxDequeueCount|5|Antal försök att bearbeta ett meddelande innan det flyttas till en Poison-kö.| 
 |newBatchThreshold|batchSize/2|När antalet meddelanden som bearbetas samtidigt går till det här talet, hämtar körningen en annan batch.| 
+
+## <a name="sendgrid"></a>SendGrid
+
+Konfigurations inställning för [SendGrind utgående bindning](functions-bindings-sendgrid.md)
+
+```json
+{
+    "sendGrid": {
+        "from": "Contoso Group <admin@contoso.com>"
+    }
+```
+
+|Egenskap  |Standard | Beskrivning |
+|---------|---------|---------| 
+|from|Saknas|Avsändarens e-postadress för alla funktioner.| 
 
 ## <a name="servicebus"></a>serviceBus
 

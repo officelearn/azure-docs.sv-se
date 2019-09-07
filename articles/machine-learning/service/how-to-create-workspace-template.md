@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 07/16/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 89c24512e50dedbf10d145088ec77c2e6e303d1e
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 34522c9a672de51cfa53ce52c5a6a6506fcd5454
+ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69873157"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70390516"
 ---
 # <a name="use-an-azure-resource-manager-template-to-create-a-workspace-for-azure-machine-learning-service"></a>Använd en Azure Resource Manager mall för att skapa en arbets yta för Azure Machine Learning-tjänsten
 
@@ -55,6 +55,11 @@ Exempel mal len har två parametrar:
 * **Namnet på arbets ytan**, som är det egna namnet på Azure Machine Learning arbets ytan.
 
     Namnen på de andra tjänsterna genereras slumpmässigt.
+
+> [!TIP]
+> Även om mallen som är associerad med det här dokumentet skapar en ny Azure Container Registry, kan du också skapa en ny arbets yta utan att skapa ett behållar register. Om det finns i behållar registret på arbets ytan skapas ett när du utför en åtgärd som kräver ett behållar register. Till exempel utbildning eller distribution av en modell.
+>
+> Du kan också referera till ett befintligt behållar register eller lagrings konto i Azure Resource Manager mall, i stället för att skapa ett nytt.
 
 Mer information om mallar finns i följande artiklar:
 

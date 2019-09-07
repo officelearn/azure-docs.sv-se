@@ -11,12 +11,12 @@ author: oslake
 ms.author: moslake
 ms.reviewer: carlrab
 ms.date: 03/12/2019
-ms.openlocfilehash: 6b2a2029dec917672d6f4ee8db24aed60e4f5bc5
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: ca00326d5704d3dd26027d90a3e48bfc52ec5653
+ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68568664"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70744447"
 ---
 # <a name="manage-elastic-pools-in-azure-sql-database"></a>Hantera elastiska pooler i Azure SQL Database
 
@@ -42,7 +42,7 @@ Härifrån kan du göra en kombination av följande ändringar och spara alla i 
 > [!IMPORTANT]
 > PowerShell Azure Resource Manager-modulen stöds fortfarande av Azure SQL Database, men all framtida utveckling gäller AZ. SQL-modulen. De här cmdletarna finns i [AzureRM. SQL](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Argumenten för kommandona i AZ-modulen och i AzureRm-modulerna är i stort sett identiska.
 
-Använd följande PowerShell-cmdletar för att skapa och hantera SQL Database elastiska pooler och databaser i pooler med Azure PowerShell. Om du behöver installera eller uppgradera PowerShell, se [installera Azure PowerShell modul](/powershell/azure/install-az-ps). Information om hur du skapar och hanterar SQL Database-servrar för en elastisk pool finns i [skapa och hantera SQL Database-servrar](sql-database-servers.md). Information om att skapa och hantera brand Väggs regler finns i [skapa och hantera brand Väggs regler med hjälp av PowerShell](sql-database-firewall-configure.md#manage-server-level-ip-firewall-rules-using-azure-powershell).
+Använd följande PowerShell-cmdletar för att skapa och hantera SQL Database elastiska pooler och databaser i pooler med Azure PowerShell. Om du behöver installera eller uppgradera PowerShell, se [installera Azure PowerShell modul](/powershell/azure/install-az-ps). Information om hur du skapar och hanterar SQL Database-servrar för en elastisk pool finns i [skapa och hantera SQL Database-servrar](sql-database-servers.md). Information om att skapa och hantera brand Väggs regler finns i [skapa och hantera brand Väggs regler med hjälp av PowerShell](sql-database-firewall-configure.md#use-powershell-to-manage-server-level-ip-firewall-rules).
 
 > [!TIP]
 > För PowerShell-exempel skript, se [Skapa elastiska pooler och flytta databaser mellan pooler och från en pool med hjälp av PowerShell](scripts/sql-database-move-database-between-pools-powershell.md) och [Använd PowerShell för att övervaka och skala en elastisk SQL-pool i Azure SQL Database](scripts/sql-database-monitor-and-scale-pool-powershell.md).
@@ -82,7 +82,7 @@ Använd följande [Azure cli SQL Database](/cli/azure/sql/db) -kommandon för at
 
 ## <a name="transact-sql-manage-pooled-databases"></a>Transact-SQL: Hantera databaser i pooler
 
-Om du vill skapa och flytta databaser inom befintliga elastiska pooler eller returnera information om en SQL Database elastisk pool med Transact-SQL, använder du följande T-SQL-kommandon. Du kan utfärda dessa kommandon med hjälp av Azure Portal, [SQL Server Management Studio](/sql/ssms/use-sql-server-management-studio), [Visual Studio Code](https://code.visualstudio.com/docs)eller andra program som kan ansluta till en Azure SQL Database Server och skicka Transact-SQL-kommandon. För att skapa och hantera brand Väggs regler med hjälp av T-SQL, se [Hantera brand Väggs regler med hjälp av Transact-SQL](sql-database-firewall-configure.md#manage-ip-firewall-rules-using-transact-sql).
+Om du vill skapa och flytta databaser inom befintliga elastiska pooler eller returnera information om en SQL Database elastisk pool med Transact-SQL, använder du följande T-SQL-kommandon. Du kan utfärda dessa kommandon med hjälp av Azure Portal, [SQL Server Management Studio](/sql/ssms/use-sql-server-management-studio), [Visual Studio Code](https://code.visualstudio.com/docs)eller andra program som kan ansluta till en Azure SQL Database Server och skicka Transact-SQL-kommandon. För att skapa och hantera brand Väggs regler med hjälp av T-SQL, se [Hantera brand Väggs regler med hjälp av Transact-SQL](sql-database-firewall-configure.md#use-transact-sql-to-manage-ip-firewall-rules).
 
 > [!IMPORTANT]
 > Du kan inte skapa, uppdatera eller ta bort en Azure SQL Database elastisk pool med hjälp av Transact-SQL. Du kan lägga till eller ta bort databaser från en elastisk pool och du kan använda DMV: er för att returnera information om befintliga elastiska pooler.

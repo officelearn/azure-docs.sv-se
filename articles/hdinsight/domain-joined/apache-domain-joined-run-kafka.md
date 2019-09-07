@@ -1,18 +1,18 @@
 ---
-title: Självstudie – konfigurera principer för Apache Kafka i HDInsight med Enterprise Security Package - Azure
-description: Självstudie – Lär dig hur du konfigurerar Apache Ranger-principer för Kafka i Azure HDInsight med Enterprise Security Package.
+title: Självstudie – Apache Kafka med Enterprise Security Package i Azure HDInsight
+description: Självstudie – lär dig hur du konfigurerar Apache Ranger-principer för Kafka i Azure HDInsight med Enterprise Security Package.
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: tutorial
-ms.date: 06/24/2019
-ms.openlocfilehash: ba16a975aa3b1e60393006ef49a7e422c572931e
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.date: 09/04/2019
+ms.openlocfilehash: 6be97e3a94a10097e53863577da5bf9c6cde5ea0
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67441374"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70734906"
 ---
 # <a name="tutorial-configure-apache-kafka-policies-in-hdinsight-with-enterprise-security-package-preview"></a>Självstudier: Konfigurera Apache Kafka-principer i HDInsight med Enterprise Security Package (förhandsversion)
 
@@ -28,7 +28,7 @@ I den här guiden får du lära dig att:
 
 ## <a name="prerequisite"></a>Krav
 
-En [HDInsight Kafka-kluster med Enterprise Security Package](./apache-domain-joined-configure-using-azure-adds.md).
+Ett [HDInsight Kafka-kluster med Enterprise Security Package](./apache-domain-joined-configure-using-azure-adds.md).
 
 ## <a name="connect-to-apache-ranger-admin-ui"></a>Anslut till Apache Ranger Admin-gränssnittet
 
@@ -48,14 +48,14 @@ Skapa en Ranger-princip för **sales_user** och **marketing_user**.
 
 1. Öppna **Ranger-administratörsanvändargränssnittet**.
 
-2. Välj  **\<klusternamn > _kafka** under **Kafka**. En förkonfigurerad princip kan visas.
+2. **Välj\<kluster namn > _kafka** under **Kafka**. En förkonfigurerad princip kan visas.
 
 3. Välj **Lägg till ny princip** och ange följande värden:
 
    |Inställning  |Föreslaget värde  |
    |---------|---------|
    |Principnamn  |  hdi sales* policy   |
-   |Ämne   |  sales* |
+   |Avsnitt   |  sales* |
    |Välj användare  |  sales_user1 |
    |Behörigheter  | publish, consume, create |
 
@@ -68,20 +68,20 @@ Skapa en Ranger-princip för **sales_user** och **marketing_user**.
 
    Vänta en stund medan Ranger synkroniserar med Azure AD om en domänanvändare inte automatiskt har fyllts i för **Välj användare**.
 
-4. Välj **Lägg till** att spara principen.
+4. Välj **Lägg till** för att spara principen.
 
 5. Välj **Lägg till ny princip** och ange sedan följande värden:
 
    |Inställning  |Föreslaget värde  |
    |---------|---------|
    |Principnamn  |  hdi marketing policy   |
-   |Ämne   |  marketingspend |
+   |Avsnitt   |  marketingspend |
    |Välj användare  |  marketing_user1 |
    |Behörigheter  | publish, consume, create |
 
    ![Skapa en princip i Apache Ranger-administratörsanvändargränssnittet](./media/apache-domain-joined-run-kafka/apache-ranger-admin-create-policy-2.png)  
 
-6. Välj **Lägg till** att spara principen.
+6. Välj **Lägg till** för att spara principen.
 
 ## <a name="create-topics-in-a-kafka-cluster-with-esp"></a>Skapa ämnen i ett Kafka-kluster med ESP
 
@@ -108,7 +108,7 @@ Så här skapar du de två avsnitten `salesevents` och `marketingspend`:
    export KAFKABROKERS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/KAFKA/components/KAFKA_BROKER | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2`; \
    ```
 
-   Du kan behöva ställa in din utvecklingsmiljö om du inte redan har gjort det innan du fortsätter. Du måste komponenter, till exempel Java JDK, Apache Maven och en SSH-klient med scp. Mer information finns i [Installationsinstruktioner](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/tree/master/DomainJoined-Producer-Consumer).
+   Innan du fortsätter kan du behöva konfigurera utvecklings miljön om du inte redan har gjort det. Du behöver komponenter som Java-JDK, Apache Maven och en SSH-klient med SCP. Mer information finns i [installations anvisningarna](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/tree/master/DomainJoined-Producer-Consumer).
 
 1. Ladda ned [exemplen på Apache Kafka-domänansluten producent/konsument](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/tree/master/DomainJoined-Producer-Consumer).
 
@@ -187,7 +187,7 @@ Baserat på Ranger-principerna som konfigurerats kan **sales_user** skapa/använ
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Om du inte planerar att fortsätta använda det här programmet, tar du bort Kafka-klustret som du skapade med följande steg:
+Om du inte kommer att fortsätta att använda det här programmet, tar du bort det Kafka-kluster som du skapade med följande steg:
 
 1. Logga in på [Azure Portal](https://portal.azure.com/).
 1. I rutan **Sök** längst upp skriver du **HDInsight**.

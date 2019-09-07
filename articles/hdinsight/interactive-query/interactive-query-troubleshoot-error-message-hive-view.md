@@ -1,17 +1,17 @@
 ---
 title: Fråga om fel meddelande visas inte i Apache Hive visning i Azure HDInsight
-description: Frågan fungerar inte i Hive-vyn utan information
+description: Frågan Miss lyckas i Apache Hive View utan någon information om Azure HDInsight-kluster.
 ms.service: hdinsight
 ms.topic: troubleshooting
 author: hrasheed-msft
 ms.author: hrasheed
 ms.date: 07/30/2019
-ms.openlocfilehash: e87bb42b09135b61dd4cf32c9ae30b0113d800dc
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: 8f60e918c6ed2d49f2a9949b5ab096fb1e1f44bb
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68829039"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70733137"
 ---
 # <a name="scenario-query-error-message-not-displayed-in-apache-hive-view-in-azure-hdinsight"></a>Scenario: Fråga om fel meddelande visas inte i Apache Hive visning i Azure HDInsight
 

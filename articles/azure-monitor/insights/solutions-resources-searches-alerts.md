@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 07/29/2019
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e2e32fb57a5ee34da8c342649cc1740d111723ec
-ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
-ms.translationtype: MT
+ms.openlocfilehash: 7ec30e2445a5ed6008256f7abcef496247922968
+ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68662895"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70744483"
 ---
 # <a name="adding-log-analytics-saved-searches-and-alerts-to-management-solution-preview"></a>Lägga till Log Analytics sparade sökningar och varningar till hanterings lösningen (förhands granskning)
 
@@ -169,30 +169,30 @@ Aviserings åtgärder har följande struktur. Detta inkluderar vanliga variabler
 
 Egenskaperna för aviserings åtgärds resurser beskrivs i följande tabeller.
 
-| Elementnamn | Krävs | description |
+| Elementnamn | Krävs | Beskrivning |
 |:--|:--|:--|
-| type | Ja | Typ av åtgärd.  Detta är en **avisering** för aviserings åtgärder. |
-| name | Ja | Visningsnamn för aviseringen.  Detta är det namn som visas i konsolen för varnings regeln. |
-| description | Nej | Valfri beskrivning av aviseringen. |
-| severity | Ja | Allvarlighets grad för aviserings posten från följande värden:<br><br> **mindre**<br>**honom**<br>**informations**
+| `Type` | Ja | Typ av åtgärd.  Detta är en **avisering** för aviserings åtgärder. |
+| `Name` | Ja | Visningsnamn för aviseringen.  Detta är det namn som visas i konsolen för varnings regeln. |
+| `Description` | Nej | Valfri beskrivning av aviseringen. |
+| `Severity` | Ja | Allvarlighets grad för aviserings posten från följande värden:<br><br> **mindre**<br>**honom**<br>**informations**
 
 
 #### <a name="threshold"></a>Tröskelvärde
 Det här avsnittet är obligatoriskt. Den definierar egenskaperna för aviserings tröskelvärdet.
 
-| Elementnamn | Krävs | description |
+| Elementnamn | Krävs | Beskrivning |
 |:--|:--|:--|
-| Operator | Ja | Operator för jämförelsen från följande värden:<br><br>**gt = större än<br>lt = mindre än** |
-| Value | Ja | Värdet att jämföra resultaten. |
+| `Operator` | Ja | Operator för jämförelsen från följande värden:<br><br>**gt = större än<br>lt = mindre än** |
+| `Value` | Ja | Värdet att jämföra resultaten. |
 
 ##### <a name="metricstrigger"></a>MetricsTrigger
 Det här avsnittet är valfritt. Ta med en mått mätnings avisering.
 
-| Elementnamn | Krävs | description |
+| Elementnamn | Krävs | Beskrivning |
 |:--|:--|:--|
-| TriggerCondition | Ja | Anger om tröskelvärdet gäller för det totala antalet överträdelser eller över flera överträdelser från följande värden:<br><br>**Totalt<br>antal i följd** |
-| Operator | Ja | Operator för jämförelsen från följande värden:<br><br>**gt = större än<br>lt = mindre än** |
-| Value | Ja | Antalet gånger som kriteriet måste uppfyllas för att utlösa aviseringen. |
+| `TriggerCondition` | Ja | Anger om tröskelvärdet gäller för det totala antalet överträdelser eller över flera överträdelser från följande värden:<br><br>**Totalt<br>antal i följd** |
+| `Operator` | Ja | Operator för jämförelsen från följande värden:<br><br>**gt = större än<br>lt = mindre än** |
+| `Value` | Ja | Antalet gånger som kriteriet måste uppfyllas för att utlösa aviseringen. |
 
 
 #### <a name="throttling"></a>Begränsning
@@ -221,7 +221,7 @@ Följande är ett exempel på en lösning som innehåller följande resurser:
 - Schema
 - Åtgärdsgrupp
 
-Exemplet använder variabler för standardlösnings [parametrar]( solutions-solution-file.md#parameters) som vanligt vis används i en lösning i stället för hårdkoda-värden i resurs definitionerna.
+Exemplet använder variabler för [standardlösnings parametrar]( solutions-solution-file.md#parameters) som vanligt vis används i en lösning i stället för hårdkoda-värden i resurs definitionerna.
 
 ```json
 {

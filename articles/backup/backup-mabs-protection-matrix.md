@@ -8,12 +8,12 @@ ms.date: 11/13/2018
 ms.topic: conceptual
 ms.author: dacurwin
 manager: carmonm
-ms.openlocfilehash: b601f37ad7e0f0071b38a97c84cf25d57ed11ee1
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 03c7a139be59df7d80fa6d6eb0ec7219fe4d31d3
+ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68639695"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70744549"
 ---
 # <a name="azure-backup-server-protection-matrix"></a>Skyddsöversikt för Azure Backup Server
 
@@ -30,6 +30,7 @@ Den här artikeln innehåller de olika servrar och arbets belastningar som du ka
 |Klient datorer (64-bitars och 32-bitars)|Windows 8|Virtuell Windows-dator i VMWare (skyddar arbets belastningar som körs på virtuella Windows-datorer i VMWare)|J|J|Volym, dela, mapp, filer, deduplicerade volymer<br /><br />Skyddade volymer måste vara NTFS. FAT och FAT32 stöds inte.<br /><br />Volymerna måste vara minst 1 GB. Azure Backup Server använder tjänsten Volume Shadow Copy (VSS) för att ta data ögonblicks bilden och ögonblicks bilden fungerar bara om volymen är minst 1 GB.|
 |Klient datorer (64-bitars och 32-bitars)|Windows 7|Fysisk server<br /><br />Lokal virtuell Hyper-V-dator|J|J|Volym, dela, mapp, filer, deduplicerade volymer<br /><br />Skyddade volymer måste vara NTFS. FAT och FAT32 stöds inte.<br /><br />Volymerna måste vara minst 1 GB. Azure Backup Server använder tjänsten Volume Shadow Copy (VSS) för att ta data ögonblicks bilden och ögonblicks bilden fungerar bara om volymen är minst 1 GB.|
 |Klient datorer (64-bitars och 32-bitars)|Windows 7|Virtuell Windows-dator i VMWare (skyddar arbets belastningar som körs på virtuella Windows-datorer i VMWare)|J|J|Volym, dela, mapp, filer, deduplicerade volymer<br /><br />Skyddade volymer måste vara NTFS. FAT och FAT32 stöds inte.<br /><br />Volymerna måste vara minst 1 GB. Azure Backup Server använder tjänsten Volume Shadow Copy (VSS) för att ta data ögonblicks bilden och ögonblicks bilden fungerar bara om volymen är minst 1 GB.|
+|Servrar (64-bitars)|Windows Server 2019|Virtuell Azure-dator (när arbets belastningen körs som virtuell Azure-dator)<br /><br />Virtuell Windows-dator i VMWare (skyddar arbets belastningar som körs på virtuella Windows-datorer i VMWare)<br /><br />Fysisk server<br /><br />Lokal virtuell Hyper-V-dator<br /> <br /> Azure Stack|J<br /><br />Inte Nano Server|N<br /><br />Inte Nano Server|Volym, resurs, mapp, fil, system tillstånd/Bare Metal), deduplicerade volymer|
 |Servrar (32-bitars och 64-bitars)|Windows Server 2016|Virtuell Azure-dator (när arbets belastningen körs som virtuell Azure-dator)<br /><br />Virtuell Windows-dator i VMWare (skyddar arbets belastningar som körs på virtuella Windows-datorer i VMWare)<br /><br />Fysisk server<br /><br />Lokal virtuell Hyper-V-dator<br /> <br /> Azure Stack|J<br /><br />Inte Nano Server|J<br /><br />Inte Nano Server|Volym, resurs, mapp, fil, system tillstånd/Bare Metal), deduplicerade volymer|
 |Servrar (32-bitars och 64-bitars)|Windows Server 2012 R2 – Data Center och standard|Virtuell Azure-dator (när arbets belastningen körs som virtuell Azure-dator)<br /> <br /> Azure Stack|J|J|Volym, dela, mapp, fil<br /><br />Azure Backup Server måste köras på minst Windows Server 2012 R2 för att skydda Windows Server 2012 deduplicerade volymer.|
 |Servrar (32-bitars och 64-bitars)|Windows Server 2012 R2 – Data Center och standard|Virtuell Windows-dator i VMWare (skyddar arbets belastningar som körs på virtuella Windows-datorer i VMWare)<br /> <br /> Azure Stack|J|J|Volym, resurs, mapp, fil, system tillstånd/Bare Metal)<br /><br />Azure Backup Server måste köras på Windows Server 2012 eller 2012 R2 för att skydda Windows Server 2012 deduplicerade volymer.|
@@ -73,6 +74,7 @@ Den här artikeln innehåller de olika servrar och arbets belastningar som du ka
 |SharePoint|SharePoint 2010|Fysisk server<br /><br />Lokal virtuell Hyper-V-dator<br /> <br /> Azure Stack|J|J|Skydda (alla distributions scenarier): Server grupp, SharePoint-sökning, webb server innehåll för klient del<br /><br />Återställ (alla distributions scenarier): Server grupp, databas, webb program, fil-eller List objekt, SharePoint-sökning, webb server för klient del|
 |SharePoint|SharePoint 2010|Virtuell Azure-dator (när arbets belastningen körs som virtuell Azure-dator)<br /> <br /> Azure Stack|J|J|Skydda (alla distributions scenarier): Server grupp, SharePoint-sökning, webb server innehåll för klient del<br /><br />Återställ (alla distributions scenarier): Server grupp, databas, webb program, fil-eller List objekt, SharePoint-sökning, webb server för klient del|
 |SharePoint|SharePoint 2010|Virtuell Windows-dator i VMWare (skyddar arbets belastningar som körs på virtuella Windows-datorer i VMWare)<br /> <br /> Azure Stack|J|J|Skydda (alla distributions scenarier): Server grupp, SharePoint-sökning, webb server innehåll för klient del<br /><br />Återställ (alla distributions scenarier): Server grupp, databas, webb program, fil-eller List objekt, SharePoint-sökning, webb server för klient del|
+|Hyper-V-MABS för skydds agent på Hyper-V-värdservern, kluster eller VM|Windows Server 2019|Fysisk server<br /><br />Lokal virtuell Hyper-V-dator|J|N|Skydda Hyper-V-datorer, klusterdelade volymer (CSV: er)<br /><br />Ersättning Virtuell dator, återställning av filer och mappar på objekt nivå, volymer, virtuella hård diskar|
 |Hyper-V-MABS för skydds agent på Hyper-V-värdservern, kluster eller VM|Windows Server 2016|Fysisk server<br /><br />Lokal virtuell Hyper-V-dator|J|J|Skydda Hyper-V-datorer, klusterdelade volymer (CSV: er)<br /><br />Ersättning Virtuell dator, återställning av filer och mappar på objekt nivå, volymer, virtuella hård diskar|
 |Hyper-V-MABS för skydds agent på Hyper-V-värdservern, kluster eller VM|Windows Server 2012 R2 – Data Center och standard|Fysisk server<br /><br />Lokal virtuell Hyper-V-dator|J|J|Skydda Hyper-V-datorer, klusterdelade volymer (CSV: er)<br /><br />Ersättning Virtuell dator, återställning av filer och mappar på objekt nivå, volymer, virtuella hård diskar|
 |Hyper-V-MABS för skydds agent på Hyper-V-värdservern, kluster eller VM|Windows Server 2012 – Data Center och standard|Fysisk server<br /><br />Lokal virtuell Hyper-V-dator|J|J|Skydda Hyper-V-datorer, klusterdelade volymer (CSV: er)<br /><br />Ersättning Virtuell dator, återställning av filer och mappar på objekt nivå, volymer, virtuella hård diskar|

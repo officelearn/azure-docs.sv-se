@@ -8,15 +8,15 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: tutorial
-ms.date: 07/29/2019
+ms.topic: conceptual
+ms.date: 09/05/2019
 ms.author: diberry
-ms.openlocfilehash: 192c5c7a2d4c671aec0dcf72bef78abd1845b1ea
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: 1bee26dc57fd844703e2c9c97b38b9a433227fbf
+ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68946083"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70387944"
 ---
 # <a name="build-a-luis-app-programmatically-using-nodejs"></a>Skapa en LUIS-app via programmering med hjälp av Node.js
 
@@ -26,11 +26,11 @@ LUIS ger en programmatisk API som gör allt som den [LUIS](luis-reference-region
 
 * Logga in på [Luis](luis-reference-regions.md) -webbplatsen och hitta [redigerings nyckeln](luis-concept-keys.md#authoring-key) i konto inställningar. Du kan använda den här nyckeln för att anropa API: er redigering.
 * Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
-* Den här självstudien utgår från en CSV-fil för ett hypotetiskt företag loggfiler för användarbegäranden. Ladda ned den [här](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/examples/build-app-programmatically-csv/IoT.csv).
+* Den här artikeln börjar med en CSV-fil för ett hypotetiskt företags loggfiler för användar förfrågningar. Ladda ned den [här](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/examples/build-app-programmatically-csv/IoT.csv).
 * Installera den senaste Node.js med NPM. Ladda ned det från [här](https://nodejs.org/en/download/).
 * **(Rekommenderas)**  Visual Studio Code för IntelliSense och felsökning kan du hämta det från [här](https://code.visualstudio.com/) utan kostnad.
 
-All kod i den här självstudien finns i [Azure-samples language Understanding GitHub](https://github.com/Azure-Samples/cognitive-services-language-understanding/tree/master/examples/build-app-programmatically-csv)-lagringsplatsen. 
+All kod i den här artikeln är tillgänglig i [Azure-samples language Understanding GitHub-lagringsplatsen](https://github.com/Azure-Samples/cognitive-services-language-understanding/tree/master/examples/build-app-programmatically-csv). 
 
 ## <a name="map-preexisting-data-to-intents-and-entities"></a>Mappa befintliga data till avsikter och entiteter
 Även om du har ett system som inte har skapats med LUIS i åtanke, om den innehåller textdata som mappas till olika saker användare vill göra kanske du kan få fram en mappning från de befintliga kategorierna av användarens indata till avsikter i LUIS. Om du kan identifiera viktiga ord eller fraser i vad användarna sägs, mappa dessa ord till entiteter.

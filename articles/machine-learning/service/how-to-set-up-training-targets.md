@@ -11,16 +11,16 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 06/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: 07176fbe22e70658856dd266687a15d719e78e9f
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: 27361017241ba6529b93c24ce7fb95b2c1b22a62
+ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70231079"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70389895"
 ---
 # <a name="set-up-and-use-compute-targets-for-model-training"></a>Konfigurera och Använd Compute-mål för modell träning 
 
-Med Azure Machine Learning tjänsten kan du träna din modell på en mängd olika resurser eller miljöer, som sammankallas för beräknings [__mål__](concept-azure-machine-learning-architecture.md#compute-targets). Ett beräknings mål kan vara en lokal dator eller en moln resurs, till exempel en Azure Machine Learning beräkning, Azure HDInsight eller en virtuell dator för virtuella datorer.  Du kan också skapa beräknings mål för modell distribution enligt beskrivningen i ["var och hur du distribuerar dina modeller"](how-to-deploy-and-where.md).
+Med Azure Machine Learning tjänsten kan du träna din modell på en mängd olika resurser eller miljöer, som sammankallas för [__beräknings mål__](concept-azure-machine-learning-architecture.md#compute-targets). Ett beräknings mål kan vara en lokal dator eller en moln resurs, till exempel en Azure Machine Learning beräkning, Azure HDInsight eller en virtuell dator för virtuella datorer.  Du kan också skapa beräknings mål för modell distribution enligt beskrivningen i ["var och hur du distribuerar dina modeller"](how-to-deploy-and-where.md).
 
 Du kan skapa och hantera ett beräknings mål med hjälp av Azure Machine Learning SDK, Azure Portal, Azure CLI eller Azure Machine Learning VS Code-tillägg. Om du har beräkningsmål som har skapats via en annan tjänst (till exempel ett HDInsight-kluster), kan du använda dem genom att koppla dem till din arbetsyta för Azure Machine Learning-tjänsten.
  
@@ -92,7 +92,7 @@ Nu när du har kopplat beräkningen och konfigurerat din körning är nästa ste
 
 ### <a id="amlcompute"></a>Azure Machine Learning-beräkning
 
-Azure Machine Learning Compute är en hanterad beräknings infrastruktur som gör det möjligt för användaren att enkelt skapa en enda eller beräkning med flera noder. Beräkningen skapas i arbets ytans region som en resurs som kan delas med andra användare i din arbets yta. Beräkningen skalas upp automatiskt när ett jobb skickas och kan placeras i ett Azure-Virtual Network. Beräkningen körs i en behållare miljö och paketerar dina modell beroenden i en Docker- [behållare](https://www.docker.com/why-docker).
+Azure Machine Learning Compute är en hanterad beräknings infrastruktur som gör det möjligt för användaren att enkelt skapa en enda eller beräkning med flera noder. Beräkningen skapas i arbets ytans region som en resurs som kan delas med andra användare i din arbets yta. Beräkningen skalas upp automatiskt när ett jobb skickas och kan placeras i ett Azure-Virtual Network. Beräkningen körs i en behållare miljö och paketerar dina modell beroenden i en [Docker-behållare](https://www.docker.com/why-docker).
 
 Du kan använda beräkning av Azure Machine Learning för att distribuera träningsprocess över ett kluster med CPU eller GPU-beräkningsnoder i molnet. Mer information om de VM-storlekar som innehåller GPU: er finns i [GPU-optimerade storlekar för virtuella datorer](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-gpu).
 
@@ -109,7 +109,7 @@ Du kan skapa Azure Machine Learning Compute som ett beräknings mål vid körnin
 > Om du vill ange det högsta antalet noder som ska användas anger `node_count` du normalt antalet noder. Det finns för närvarande (04/04/2019) ett fel som förhindrar att detta fungerar. Som en lösning använder du `amlcompute._cluster_max_node_count` egenskapen för körnings konfigurationen. Till exempel `run_config.amlcompute._cluster_max_node_count = 5`.
 
 > [!IMPORTANT]
-> Körning-baserad skapande av Azure Machine Learning Compute är för närvarande en för hands version. Använd inte körnings-baserad generering om du använder automatisk justering av en parameter eller Automatisk maskin inlärning. Om du vill använda en inställning för min parameter eller Automatisk maskin [](#persistent) inlärning skapar du i stället ett beständigt beräknings mål.
+> Körning-baserad skapande av Azure Machine Learning Compute är för närvarande en för hands version. Använd inte körnings-baserad generering om du använder automatisk justering av en parameter eller Automatisk maskin inlärning. Om du vill använda en inställning för min parameter eller Automatisk maskin inlärning skapar du i stället ett [beständigt beräknings](#persistent) mål.
 
 1.  **Skapa, Anslut och konfigurera**: Den körnings genereringen utför alla nödvändiga steg för att skapa, ansluta och konfigurera beräknings målet med körnings konfigurationen.  
 
@@ -403,11 +403,20 @@ Växla samma experiment för att köra i ett annat beräknings mål genom att an
 
 [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/amlcompute2.py?name=amlcompute_submit)]
 
+> [!TIP]
+> I det här exemplet används som standard bara en nod i Compute-målet för träning. `node_count` Om du vill använda mer än en nod ställer du in körnings konfigurationen på önskat antal noder. Följande kod anger till exempel antalet noder som används för utbildning till fyra:
+>
+> ```python
+> src.run_config.node_count = 4
+> ```
+
 Eller så kan du:
 
 * Skicka experimentet med ett `Estimator` -objekt som det visas i [träna ml-modeller med uppskattningar](how-to-train-ml-models.md).
 * Skicka en HyperDrive-körning för inställning av min [parameter](how-to-tune-hyperparameters.md).
 * Skicka ett experiment via [vs Code-tillägget](how-to-vscode-tools.md#train-and-tune-models).
+
+Mer information finns i dokumentationen om [ScriptRunConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py) och [RunConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfiguration?view=azure-ml-py) .
 
 ## <a name="create-run-configuration-and-submit-run-using-azure-machine-learning-cli"></a>Skapa kör konfiguration och skicka körning med Azure Machine Learning CLI
 
@@ -430,7 +439,7 @@ Kör konfigurations filen är YAML formaterad, med följande avsnitt
  * Compute Target Name, antingen "Local" eller namnet på en beräkning under arbets ytan.
  * Parametrar för att köra körning: Framework, Communicator för distribuerade körningar, maximal varaktighet och antal datornoder.
  * Miljö avsnitt. Mer information om fälten i det här avsnittet finns i [skapa och hantera miljöer för utbildning och distribution](how-to-use-environments.md) .
-   * Om du vill ange python-paket som ska installeras för kör, skapa [Conda](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#create-env-file-manually)-miljöfilen och ange __condaDependenciesFile__ -fältet.
+   * Om du vill ange python-paket som ska installeras för kör, skapa [Conda-miljöfilen](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#create-env-file-manually)och ange __condaDependenciesFile__ -fältet.
  * Kör historik information för att ange loggmappen och aktivera eller inaktivera insamlingen av utdata och kör historik ögonblicks bilder.
  * Konfigurations information som är speciell för det valda ramverket.
  * Data referens och data lager information.

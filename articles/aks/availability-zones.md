@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 06/24/2019
 ms.author: mlearned
-ms.openlocfilehash: 4c2058072df4fcb068257c3e265dfe365c6d7e65
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: 690d22eadf37a24b4679ce10838074533ac65fcb
+ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69033145"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70390075"
 ---
 # <a name="preview---create-an-azure-kubernetes-service-aks-cluster-that-uses-availability-zones"></a>För hands version – skapa ett Azure Kubernetes service-kluster (AKS) som använder Tillgänglighetszoner
 
@@ -34,7 +34,7 @@ Du behöver Azure CLI-versionen 2.0.66 eller senare installerad och konfigurerad
 
 ### <a name="install-aks-preview-cli-extension"></a>Installera AKS-Preview CLI-tillägg
 
-Om du vill skapa AKS-kluster som använder tillgänglighets zoner behöver du *AKS-Preview CLI-* tillägget version 0.4.1 eller högre. Installera *AKS-Preview* Azure CLI-tillägget med kommandot [AZ Extension Add][az-extension-add] och Sök sedan efter eventuella tillgängliga uppdateringar med kommandot [AZ Extension Update][az-extension-update] ::
+Om du vill skapa AKS-kluster som använder tillgänglighets zoner behöver du *AKS-Preview CLI-* tillägget version 0.4.1 eller högre. Installera *AKS-Preview* Azure CLI-tillägget med kommandot [AZ Extension Add][az-extension-add] och Sök efter eventuella tillgängliga uppdateringar med kommandot [AZ Extension Update][az-extension-update] :
 
 ```azurecli-interactive
 # Install the aks-preview extension
@@ -44,25 +44,21 @@ az extension add --name aks-preview
 az extension update --name aks-preview
 ```
 
-### <a name="register-feature-flags-for-your-subscription"></a>Registrera funktions flaggor för din prenumeration
+### <a name="register-the-availabilityzonepreview-feature-flag-for-your-subscription"></a>Registrera funktions flaggan AvailabilityZonePreview för din prenumeration
 
-Om du vill skapa ett AKS-kluster som tillgänglighets zoner måste du först aktivera vissa funktions flaggor i din prenumeration. Kluster använder en skalnings uppsättning för virtuella datorer för att hantera distributionen och konfigurationen av Kubernetes-noderna. *Standard* -SKU: n för Azure Load Balancer krävs också för att tillhandahålla återhämtning för nätverks komponenterna för att dirigera trafik till klustret. Registrera funktions flaggorna *AvailabilityZonePreview*, *AKSAzureStandardLoadBalancer*och *VMSSPreview* med hjälp av kommandot [AZ Feature register][az-feature-register] , som visas i följande exempel:
+Om du vill skapa ett AKS-kluster som tillgänglighets zoner måste du först aktivera funktions flaggan *AvailabilityZonePreview* i din prenumeration. Registrera funktions flaggan *AvailabilityZonePreview* med [funktions registrerings kommandot AZ][az-feature-register] som visas i följande exempel:
 
 > [!CAUTION]
 > När du registrerar en funktion på en prenumeration kan du för närvarande inte avregistrera funktionen. När du har aktiverat vissa för hands versions funktioner kan standarderna användas för alla AKS-kluster och sedan skapas i prenumerationen. Aktivera inte för hands versions funktioner för produktions prenumerationer. Använd en separat prenumeration för att testa för hands versions funktionerna och samla in feedback.
 
 ```azurecli-interactive
 az feature register --name AvailabilityZonePreview --namespace Microsoft.ContainerService
-az feature register --name AKSAzureStandardLoadBalancer --namespace Microsoft.ContainerService
-az feature register --name VMSSPreview --namespace Microsoft.ContainerService
 ```
 
 Det tar några minuter för statusen att visa *registrerad*. Du kan kontrol lera registrerings statusen med hjälp av kommandot [AZ feature list][az-feature-list] :
 
 ```azurecli-interactive
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/AvailabilityZonePreview')].{Name:name,State:properties.state}"
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/AKSAzureStandardLoadBalancer')].{Name:name,State:properties.state}"
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/VMSSPreview')].{Name:name,State:properties.state}"
 ```
 
 När du är klar uppdaterar du registreringen av resurs leverantören *Microsoft. container service* med hjälp av [AZ Provider register][az-provider-register] kommando:
@@ -90,7 +86,7 @@ Följande begränsningar gäller när du skapar ett AKS-kluster med hjälp av ti
 * Kluster med aktiverade tillgänglighets zoner kräver användning av Azures standard belastnings utjämning för distribution mellan zoner.
 * Du måste använda Kubernetes-version 1.13.5 eller senare för att kunna distribuera standard belastnings utjämning.
 
-AKS-kluster som använder tillgänglighets zoner måste använda Azure Load Balancer *standard* SKU. Standard- SKU: n för Azure Load Balancer stöder inte distribution över tillgänglighets zoner. Mer information och begränsningarna för standard belastningsutjämnaren finns i för [hands versions begränsningar för Azure Load Balancer standard SKU][standard-lb-limitations].
+AKS-kluster som använder tillgänglighets zoner måste använda Azure Load Balancer *standard* SKU. *Standard-SKU:* n för Azure Load Balancer stöder inte distribution över tillgänglighets zoner. Mer information och begränsningarna för standard Load Balancer finns i begränsningar för [Azure Load Balancer standard SKU][standard-lb-limitations]: er.
 
 ### <a name="azure-disks-limitations"></a>Begränsningar för Azure disks
 

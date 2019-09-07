@@ -1,5 +1,5 @@
 ---
-title: Application Insights, C# -Luis
+title: 'Självstudier: Application Insights, C# -Luis'
 titleSuffix: Azure Cognitive Services
 description: Den här självstudien lägger till robot-och Language Understanding information för att Application Insights telemetri data lagring.
 services: cognitive-services
@@ -9,16 +9,16 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 06/16/2019
+ms.date: 09/05/2019
 ms.author: diberry
-ms.openlocfilehash: bc8cf9973ed6889b0820e5ada5565d0541532fa3
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
-ms.translationtype: MT
+ms.openlocfilehash: 93a75945025b2ab98541f1e1cf678145ddff0123
+ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68560058"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70387999"
 ---
-# <a name="add-luis-results-to-application-insights-from-a-bot-in-c"></a>Lägg till LUIS-resultat till Application Insights från en robot iC#
+# <a name="tutorial-add-luis-results-to-application-insights-from-a-bot-in-c"></a>Självstudier: Lägg till LUIS-resultat till Application Insights från en robot iC#
 
 Den här självstudien lägger till robot-och Language Understanding information för att [Application Insights](https://azure.microsoft.com/services/application-insights/) telemetri data lagring. När du har dessa data kan du fråga det med Kusto-språket eller Power BI för att analysera, aggregera och rapportera om avsikter och entiteter i uttryck i real tid. Den här analysis hjälper dig att avgöra om du ska lägga till eller redigera avsikter och entiteter av LUIS-appen.
 
@@ -35,7 +35,7 @@ I den här guiden får du lära dig att:
 * [Robotemulator](https://aka.ms/abs/build/emulatordownload)
 * [Visual Studio Code](https://code.visualstudio.com/Download)
 
-All kod i den här självstudien finns i [Azure-samples language Understanding GitHub](https://github.com/Azure-Samples/cognitive-services-language-understanding/tree/master/documentation-samples/tutorial-web-app-bot-application-insights/v4/luis-csharp-bot-johnsmith-src-telemetry)-lagringsplatsen. 
+All kod i den här självstudien finns i [Azure-samples language Understanding GitHub-lagringsplatsen](https://github.com/Azure-Samples/cognitive-services-language-understanding/tree/master/documentation-samples/tutorial-web-app-bot-application-insights/v4/luis-csharp-bot-johnsmith-src-telemetry). 
 
 ## <a name="add-application-insights-to-web-app-bot-project"></a>Lägg till Application Insights i Web App bot-projekt
 
@@ -151,7 +151,7 @@ För att kunna avbilda LUIS-informationen behöver Web App-roboten **[Microsoft.
 För att kunna lägga till data i Application Insights behöver du Instrumentation-nyckeln.
 
 1. I en webbläsare går du till [Azure Portal](https://portal.azure.com)och letar rätt på din robots **Application Insights** -resurs. Namnet kommer att ha det mesta av robotens namn och sedan slumpmässiga tecken i slutet av namnet, till exempel `luis-csharp-bot-johnsmithxqowom`. 
-1. På sidan **Översikt** i Application Insights resursen kopierar du Instrumentation- **nyckeln**.
+1. På sidan **Översikt** i Application Insights resursen kopierar du **Instrumentation-nyckeln**.
 1. Öppna filen **appSettings. JSON** i Visual Studio-roten i bot-projektet. Den här filen innehåller alla miljövariabler.
 1. Lägg till en ny variabel `BotDevAppInsightsKey` med värdet för Instrumentation-nyckeln. Värdet i måste vara inom citat tecken. 
 

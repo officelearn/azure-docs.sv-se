@@ -1,6 +1,6 @@
 ---
-title: Migrera ett HBase-kluster till en ny version - Azure HDInsight
-description: Hur du migrerar HBase-kluster till en ny version.
+title: Migrera ett HBase-kluster till en ny version – Azure HDInsight
+description: Så här migrerar du Apache HBase-kluster till en nyare version i Azure HDInsight.
 author: ashishthaps
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -8,57 +8,57 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: ashishth
-ms.openlocfilehash: a152b815daeefa4c199af9b159eee8e5783971e2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 546d491c24198d5f7a92765876e5f6919ca32020
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65143325"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70735796"
 ---
 # <a name="migrate-an-apache-hbase-cluster-to-a-new-version"></a>Migrera ett Apache HBase-kluster till en ny version
 
-Den här artikeln beskriver de steg som krävs för att uppdatera din Apache HBase-kluster på Azure HDInsight till en nyare version.
+Den här artikeln beskriver de steg som krävs för att uppdatera ditt Apache HBase-kluster på Azure HDInsight till en nyare version.
 
 > [!NOTE]  
-> Driftstopp under uppgraderingen bör vara minimal storleksordningen minuter. Det här driftstoppet orsakas av stegen för att tömma alla minnesinterna data och sedan tiden för att konfigurera och starta om tjänsterna på det nya klustret. Resultatet varierar beroende på antalet noder, mängden data och andra variabler.
+> Drift stoppet vid uppgradering bör vara minimalt i ordningen på minuter. Den här stillestånds tiden orsakas av stegen för att tömma alla InMemory-data, sedan hur lång tid det tar att konfigurera och starta om tjänsterna på det nya klustret. Resultaten varierar beroende på antalet noder, mängden data och andra variabler.
 
 ## <a name="review-apache-hbase-compatibility"></a>Granska Apache HBase-kompatibilitet
 
-Kontrollera innan du uppgraderar Apache HBase, HBase-versioner på käll- och -kluster är kompatibla. Mer information finns i [Apache Hadoop-komponenter och versioner som är tillgängliga med HDInsight](../hdinsight-component-versioning.md).
+Innan du uppgraderar Apache HBase kontrollerar du att HBase-versionerna på käll-och mål klustren är kompatibla. Mer information finns i [Apache Hadoop komponenter och versioner som är tillgängliga med HDInsight](../hdinsight-component-versioning.md).
 
 > [!NOTE]  
-> Vi rekommenderar starkt att du läser igenom kompatibilitetsöversikten version i den [HBase boken](https://hbase.apache.org/book.html#upgrading).
+> Vi rekommenderar starkt att du granskar [HBase-adressbokens](https://hbase.apache.org/book.html#upgrading)versions kompatibilitet.
 
-Här är ett exempel version kompatibilitetsöversikten. Y anger kompatibilitet och N anger en potentiella kompatibilitetsproblem:
+Här är ett exempel på en versions mat ris. Y indikerar kompatibilitet och N anger en möjlig inkompatibilitet:
 
-| Kompatibilitetstyp | Huvudversion| Podverze | Patch |
+| Typ av kompatibilitet | Huvud version| Lägre version | Korrigering |
 | --- | --- | --- | --- |
-| Klient-Server under överföring kompatibilitet | N | Y | Y |
-| Kompatibilitet för servrar | N | Y | Y |
-| Kompatibla filformat | N | Y | Y |
-| Klient-API-kompatibilitet | N | Y | Y |
-| Klienten binär kompatibilitet | N | N | Y |
-| **Serversidan begränsad API-kompatibilitet** |  |  |  |
-| Stable | N | Y | Y |
-| Utvecklas | N | N | Y |
-| Instabilt | N | N | N |
-| Beroende kompatibilitet | N | Y | Y |
-| Operativa kompatibilitet | N | N | Y |
+| Kompatibilitet med klient serverns tråd | N | J | J |
+| Server-Server-kompatibilitet | N | J | J |
+| Kompatibilitet för fil format | N | J | J |
+| Kompatibilitet för klient-API | N | J | J |
+| Klient-binär kompatibilitet | N | N | J |
+| **Begränsad API-kompatibilitet på Server Sidan** |  |  |  |
+| Stable | N | J | J |
+| Utvecklas | N | N | J |
+| Instabil | N | N | N |
+| Beroende kompatibilitet | N | J | J |
+| Operationell kompatibilitet | N | N | J |
 
 > [!NOTE]  
-> Alla de senaste inkompatibiliteter beskrivas i HBase version viktig information.
+> Eventuella avbrytande inkompatibiliteter bör beskrivas i versions information för HBase.
 
-## <a name="upgrade-with-same-apache-hbase-major-version"></a>Uppgradera med samma huvudversion för Apache HBase
+## <a name="upgrade-with-same-apache-hbase-major-version"></a>Uppgradera med samma Apache HBase huvud version
 
-Om du vill uppgradera ditt Apache HBase-kluster på Azure HDInsight, gör du följande:
+Utför följande steg för att uppgradera ditt Apache HBase-kluster på Azure HDInsight:
 
-1. Se till att ditt program är kompatibla med den nya versionen, som visas i HBase kompatibilitet matris och viktig information. Testa ditt program i ett kluster som kör Målversionen av HDInsight och HBase.
+1. Kontrol lera att programmet är kompatibelt med den nya versionen, som du ser i HBase och viktig information. Testa ditt program i ett kluster som kör mål versionen av HDInsight och HBase.
 
-2. [Konfigurera ett nytt mål HDInsight-kluster](../hdinsight-hadoop-provision-linux-clusters.md) använder samma lagringskonto, men med ett annat behållarnamn:
+2. Skapa [ett nytt mål HDInsight-kluster](../hdinsight-hadoop-provision-linux-clusters.md) med samma lagrings konto, men med ett annat behållar namn:
 
-    ![Använd samma lagringskonto, men skapa en annan behållare](./media/apache-hbase-migrate-new-version/same-storage-different-container.png)
+    ![Använd samma lagrings konto, men skapa en annan behållare](./media/apache-hbase-migrate-new-version/same-storage-different-container.png)
 
-3. Rensa din källa HBase-kluster, vilket är klustret du uppgraderar. HBase skriver inkommande data till en minnesintern lagring kallas en _memstores_. När memstores når en viss storlek, tömmer HBase den till disk för långsiktig lagring på klustrets lagringskonto. När du tar bort det gamla klustret, har memstores återvunnits, potentiellt att förlora data. Att manuellt tömma memstores för varje tabell på disk, kör följande skript. Den senaste versionen av det här skriptet finns på Azures [GitHub](https://raw.githubusercontent.com/Azure/hbase-utils/master/scripts/flush_all_tables.sh).
+3. Rensa ditt käll HBase-kluster, vilket är det kluster som du uppgraderar. HBase skriver inkommande data till ett minnes intern lager, som kallas för en _memstores_. När memstores har nått en viss storlek tömmer HBase den till disk för långsiktig lagring i klustrets lagrings konto. När du tar bort det gamla klustret återvinns memstores, vilket kan förlora data. Om du vill tömma memstores manuellt för varje tabell till disk kör du följande skript. Den senaste versionen av det här skriptet finns på Azures [GitHub](https://raw.githubusercontent.com/Azure/hbase-utils/master/scripts/flush_all_tables.sh).
 
     ```bash
     #!/bin/bash
@@ -176,46 +176,46 @@ Om du vill uppgradera ditt Apache HBase-kluster på Azure HDInsight, gör du fö
     
     ```
     
-4. Stoppa inmatning för det gamla HBase-klustret.
-5. För att säkerställa att alla de senaste data i memstores har rensats, kör du föregående skript igen.
-6. Logga in på [Apache Ambari](https://ambari.apache.org/) på det gamla klustret (https://OLDCLUSTERNAME.azurehdidnsight.net) och stoppa HBase-tjänsterna. När du uppmanas för att bekräfta att vill du stoppa tjänsterna, markerar du kryssrutan Aktivera underhållsläget för HBase. Läs mer om att ansluta till och använda Ambari [hantera HDInsight-kluster med hjälp av Ambari-Webbgränssnittet](../hdinsight-hadoop-manage-ambari.md).
+4. Stoppa inmatningen till det gamla HBase-klustret.
+5. Kör föregående skript igen för att säkerställa att alla nyligen använda data i memstores töms.
+6. Logga in på [Apache Ambari](https://ambari.apache.org/) på det gamla klustret (https://OLDCLUSTERNAME.azurehdidnsight.net) och stoppa HBase-tjänsterna. När du uppmanas att bekräfta att du vill stoppa tjänsterna ska du markera kryss rutan för att aktivera underhålls läget för HBase. Mer information om hur du ansluter till och använder Ambari finns i [Hantera HDInsight-kluster med hjälp av Ambari-WEBBgränssnittet](../hdinsight-hadoop-manage-ambari.md).
 
-    ![Klicka på tjänster i Ambari, > HBase > Stoppa under tjänståtgärder](./media/apache-hbase-migrate-new-version/stop-hbase-services.png)
+    ![I Ambari klickar du på tjänster > HBase > stoppa under tjänst åtgärder](./media/apache-hbase-migrate-new-version/stop-hbase-services.png)
 
-    ![Kontrollera aktivera på Underhållsläge för HBase kryssrutan och bekräfta sedan](./media/apache-hbase-migrate-new-version/turn-on-maintenance-mode.png)
+    ![Markera kryss rutan Aktivera underhålls läge för HBase och bekräfta sedan](./media/apache-hbase-migrate-new-version/turn-on-maintenance-mode.png)
 
-7. Logga in på Ambari på det nya HDInsight-klustret. Ändra den `fs.defaultFS` HDFS-inställningen så att den pekar till behållarens namn som används av det ursprungliga klustret. Den här inställningen är **HDFS > Peeringkonfigurationer > Avancerat > avancerade core-site**.
+7. Logga in på Ambari på det nya HDInsight-klustret. `fs.defaultFS` Ändra HDFS-inställningen så att den pekar på det behållar namn som används av det ursprungliga klustret. Den här inställningen finns under **HDFS > configs > avancerad > Advanced Core-site**.
 
-    ![Klicka på tjänster i Ambari, > HDFS > Peeringkonfigurationer > Avancerat](./media/apache-hbase-migrate-new-version/hdfs-advanced-settings.png)
+    ![I Ambari klickar du på tjänster > HDFS > config > Avancerat](./media/apache-hbase-migrate-new-version/hdfs-advanced-settings.png)
 
-    ![I Ambari, ändrar du behållarens namn](./media/apache-hbase-migrate-new-version/change-container-name.png)
+    ![I Ambari ändrar du behållar namnet](./media/apache-hbase-migrate-new-version/change-container-name.png)
 
-8. **Om du inte använder HBase-kluster med förbättrad skriver-funktionen kan du hoppa över det här steget. Det krävs endast för HBase-kluster med förbättrad skriver funktionen.**
+8. **Hoppa över det här steget om du inte använder HBase-kluster med funktionen för förbättrade skrivningar. Det behövs bara för HBase-kluster med förbättrade skrivningar.**
    
-   Ändra den `hbase.rootdir` sökvägen så att den pekar till en behållare för det ursprungliga klustret.
+   `hbase.rootdir` Ändra sökvägen så att den pekar på den ursprungliga klustrets behållare.
 
-    ![I Ambari, ändrar du behållarens namn för HBase rootdir](./media/apache-hbase-migrate-new-version/change-container-name-for-hbase-rootdir.png)
-1. Om du uppgraderar HDInsight 3.6 till 4.0, Följ stegen nedan, annars gå till steg 10:
-    1. Starta om alla nödvändiga tjänster i Ambari genom att välja **Services** > **starta om alla nödvändiga**.
-    1. Stoppa tjänsten HBase.
-    1. SSH till Zookeeper-nod och kör den [zkCli](https://github.com/go-zkcli/zkcli) kommandot `rmr /hbase-unsecure` att ta bort HBase rot znode från Zookeeper.
+    ![I Ambari ändrar du behållar namnet för HBase rootdir](./media/apache-hbase-migrate-new-version/change-container-name-for-hbase-rootdir.png)
+1. Om du uppgraderar HDInsight 3,6 till 4,0 följer du stegen nedan, annars hoppar du till steg 10:
+    1. Starta om alla nödvändiga tjänster i Ambari genom att välja **tjänster** > som**startas om allt krävs**.
+    1. Stoppa HBase-tjänsten.
+    1. SSH till Zookeeper-noden och köra kommandot `rmr /hbase-unsecure` [zkCli](https://github.com/go-zkcli/zkcli) för att ta bort HBase root-znode från Zookeeper.
     1. Starta om HBase.
-1. Följ dessa steg om du uppgraderar till en andra HDInsight-version än 4.0:
+1. Följ dessa steg om du uppgraderar till en annan HDInsight-version än 4,0:
     1. Spara ändringarna.
     1. Starta om alla nödvändiga tjänster som anges av Ambari.
 1. Peka ditt program till det nya klustret.
 
     > [!NOTE]  
-    > Statisk DNS för ditt program ändras när du uppgraderar. I stället för att hårdkoda detta DNS, kan du konfigurera en CNAME-post i DNS-inställningarna för ditt domännamn som pekar på klustrets namn. Ett annat alternativ är att använda en konfigurationsfil för ditt program som du kan uppdatera utan att omdistribuera.
+    > Den statiska DNS-filen för programmet ändras när du uppgraderar. I stället för att hårdkoda den här DNS-konfigurationen kan du konfigurera en CNAME-post i domän namnets DNS-inställningar som pekar på klustrets namn. Ett annat alternativ är att använda en konfigurations fil för ditt program som du kan uppdatera utan att distribuera om.
 
 12. Starta inmatningen för att se om allt fungerar som förväntat.
-13. Ta bort det ursprungliga klustret om du är nöjd med det nya klustret.
+13. Om det nya klustret är tillfredsställande tar du bort det ursprungliga klustret.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om [Apache HBase](https://hbase.apache.org/) och uppgradera HDInsight-kluster finns i följande artiklar:
+Mer information om [Apache HBase](https://hbase.apache.org/) och uppgradering av HDInsight-kluster finns i följande artiklar:
 
 * [Uppgradera ett HDInsight-kluster till en nyare version](../hdinsight-upgrade-cluster.md)
-* [Övervaka och hantera Azure HDInsight med hjälp av Apache Ambari-Webbgränssnittet](../hdinsight-hadoop-manage-ambari.md)
-* [Apache Hadoop-komponenter och versioner](../hdinsight-component-versioning.md)
+* [Övervaka och hantera Azure HDInsight med hjälp av Apache Ambari-webbgränssnittet](../hdinsight-hadoop-manage-ambari.md)
+* [Apache Hadoop komponenter och versioner](../hdinsight-component-versioning.md)
 * [Optimera konfigurationer med Apache Ambari](../hdinsight-changing-configs-via-ambari.md#apache-hbase-optimization-with-the-ambari-web-ui)

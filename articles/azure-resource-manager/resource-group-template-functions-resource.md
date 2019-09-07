@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: tomfitz
-ms.openlocfilehash: 43369131700681de5523043f414129a2e4169f44
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: 9e50a2705982a022284e1c54bd5ed7360a2d1663
+ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70306934"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70390693"
 ---
 # <a name="resource-functions-for-azure-resource-manager-templates"></a>Resursfunktioner för Azure Resource Manager-mallar
 
@@ -42,6 +42,10 @@ Syntaxen för den här funktionen varierar beroende på namnet på list åtgärd
 | resourceName eller resourceIdentifier |Ja |sträng |Unik identifierare för resursen. |
 | apiVersion |Ja |sträng |API-versionen av resursen runtime-tillståndet. Normalt i format, **åååå-mm-dd**. |
 | functionValues |Nej |objekt | Ett objekt som har värden för funktionen. Endast ger det här objektet för funktioner som stöder tar emot ett objekt med parametervärden, exempelvis **listAccountSas** på ett lagringskonto. Ett exempel på att skicka funktions värden visas i den här artikeln. | 
+
+### <a name="valid-uses"></a>Giltig användning
+
+List funktionerna kan bara användas i egenskaperna för en resurs definition och avsnittet utdata i en mall eller distribution. När du använder med [egenskap upprepning](resource-group-create-multiple.md#property-iteration)kan du använda List funktionerna för `input` eftersom uttrycket har tilldelats till resurs egenskapen. Du kan inte använda dem `count` med eftersom antalet måste bestämmas innan List funktionen har åtgärd ATS.
 
 ### <a name="implementations"></a>Implementeringar
 

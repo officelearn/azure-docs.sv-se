@@ -1,6 +1,6 @@
 ---
-title: Apache Hive med Data Lake (Apache Hadoop) tools för Visual Studio - Azure HDInsight
-description: Lär dig hur du använder Data Lake tools för Visual Studio för att köra Apache Hive-frågor med Apache Hadoop på Azure HDInsight.
+title: Apache Hive med Data Lake verktyg för Visual Studio – Azure HDInsight
+description: Lär dig hur du använder Data Lake verktyg för Visual Studio för att köra Apache Hive frågor med Apache Hadoop på Azure HDInsight.
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -8,29 +8,29 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/14/2019
 ms.author: hrasheed
-ms.openlocfilehash: 7480dafe435e555bfba81ebd9242bb5724c0bf3f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bded3ac97732a7cd18411cc9f4ef1707dbdf68e3
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65861604"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70735822"
 ---
-# <a name="run-apache-hive-queries-using-the-data-lake-tools-for-visual-studio"></a>Kör Apache Hive-frågor med hjälp av Data Lake-verktyg för Visual Studio
+# <a name="run-apache-hive-queries-using-the-data-lake-tools-for-visual-studio"></a>Kör Apache Hive frågor med hjälp av Data Lake verktyg för Visual Studio
 
-Lär dig hur du använder Data Lake-verktyg för Visual Studio för att fråga som Apache Hive. Data Lake-verktyg kan du enkelt skapa, skicka och övervaka Hive-frågor till Apache Hadoop på Azure HDInsight.
+Lär dig hur du använder Data Lake verktyg för Visual Studio för att fråga Apache Hive. Med Data Lake-verktygen kan du enkelt skapa, skicka och övervaka Hive-frågor till Apache Hadoop på Azure HDInsight.
 
 ## <a id="prereq"></a>Förhandskrav
 
-* Ett Apache Hadoop-kluster på HDInsight. Se [Kom igång med HDInsight på Linux](./apache-hadoop-linux-tutorial-get-started.md).
+* Ett Apache Hadoop kluster i HDInsight. Se [Kom igång med HDInsight på Linux](./apache-hadoop-linux-tutorial-get-started.md).
 
 * Visual Studio (någon av följande versioner):
 
-    * Visual Studio 2015, 2017 (alla versioner)
-    * Visual Studio Community 2013/Professional/Premium/Ultimate med uppdatering 4
+    * Visual Studio 2015, 2017 (vilken utgåva som helst)
+    * Visual Studio 2013 community/Professional/Premium/Ultimate med uppdatering 4
 
-* HDInsight tools för Visual Studio eller Azure Data Lake tools för Visual Studio. Se [Kom igång med Visual Studio Hadoop-verktyg för HDInsight](apache-hadoop-visual-studio-tools-get-started.md) information om hur du installerar och konfigurerar verktygen.
+* HDInsight Tools för Visual Studio eller Azure Data Lake Tools för Visual Studio. Se [Kom igång med Visual Studio Hadoop-verktyg för HDInsight](apache-hadoop-visual-studio-tools-get-started.md) för information om hur du installerar och konfigurerar verktygen.
 
-## <a id="run"></a> Kör Apache Hive-frågor med Visual Studio
+## <a id="run"></a>Kör Apache Hive frågor med Visual Studio
 
 Det finns två sätt att skapa och köra Hive-frågor:
 
@@ -39,29 +39,29 @@ Det finns två sätt att skapa och köra Hive-frågor:
 
 ### <a name="ad-hoc"></a>Ad hoc
 
-Ad hoc-frågor kan köras antingen **Batch** eller **interaktiv** läge.
+Ad hoc-frågor kan köras i antingen **batch** -eller **interaktivt** läge.
 
 1. Öppna **Visual Studio**.
 
-2. Från **Server Explorer**, gå till **Azure** > **HDInsight**.
+2. Från **Server Explorer**navigerar du till **Azure** > **HDInsight**.
 
-3. Expandera **HDInsight**, och högerklicka på klustret där du vill köra frågan och välj sedan **Skriv en Hive-fråga**.
+3. Expandera **HDInsight**och högerklicka på det kluster där du vill köra frågan och välj sedan **Skriv en Hive-fråga**.
 
-4. Ange följande hive-fråga:
+4. Ange följande Hive-fråga:
 
     ```hql
     SELECT * FROM hivesampletable;
     ```
 
-5. Välj **Kör**. Observera att körningsläge standardvärdet är **interaktiv**.
+5. Välj **Kör**. Observera att körnings läget är standard för **interaktiv**.
 
     ![Skärmbild på att köra interaktiva Hive-frågor](./media/apache-hadoop-use-hive-visual-studio/vs-execute-hive-query.png)
 
-6. Att köra samma fråga i **Batch** läge, växla nedrullningsbara listan från **interaktiv** till **Batch**. Observera att knappen körning ändras från **kör** till **skicka**.
+6. Om du vill köra samma fråga i **batchläge** växlar du den nedrullningsbara listan från **interaktiv** till **batch**. Observera att körnings knappen ändras från att **köras** till att **skickas**.
 
     ![Skärmbild av att skicka en hive-fråga](./media/apache-hadoop-use-hive-visual-studio/vs-batch-query.png)
 
-    Hive-redigeraren stöder IntelliSense. Data Lake Tools för Visual Studio stöder inläsning av fjärrmetadata när du redigerar Hive-skript. Exempel: Om du skriver `SELECT * FROM`, IntelliSense en lista över alla föreslagna tabellnamn. När du anger ett tabellnamn visar IntelliSense en lista över kolumnnamnen. Verktygen stöder de flesta Hive DML-instruktioner, underfrågor och inbyggda UDF. IntelliSense föreslår endast metadata för kluster som valts i verktygsfältet för HDInsight.
+    Hive-redigeraren stöder IntelliSense. Data Lake Tools för Visual Studio stöder inläsning av fjärrmetadata när du redigerar Hive-skript. Om du till exempel skriver `SELECT * FROM`visas alla föreslagna tabell namn i IntelliSense. När du anger ett tabellnamn visar IntelliSense en lista över kolumnnamnen. Verktygen stöder de flesta Hive DML-instruktioner, underfrågor och inbyggda UDF. IntelliSense föreslår endast metadata för kluster som valts i verktygsfältet för HDInsight.
 
     ![Skärmbild av HDInsight Visual Studio Tools, IntelliSense exempel 1](./media/apache-hadoop-use-hive-visual-studio/vs-intellisense-table-name.png "U-SQL IntelliSense")
    
@@ -77,13 +77,13 @@ Ad hoc-frågor kan köras antingen **Batch** eller **interaktiv** läge.
 
 1. Öppna **Visual Studio**.
 
-2. Från menyraden navigerar du till **filen** > **New** > **projekt**.
+2. I meny raden navigerar du till **filen** > **nytt** > **projekt**.
 
-3. Från den **nytt projekt** fönstret går du till **mallar** > **Azure Data Lake** > **HIVE (HDInsight)**  >  **Hive programmet**. 
+3. I fönstret **nytt projekt** navigerar du till **mallar** > **Azure Data Lake** > Hive**Hive-program** **(HDInsight)**  > . 
 
-4. Ange ett namn för det här projektet och välj sedan **OK**.
+4. Ange ett namn för projektet och välj sedan **OK**.
 
-5. Öppna den **Script.hql** filen som skapas med det här projektet och klistra in följande HiveQL-instruktioner:
+5. Öppna filen **script. HQL** som skapas med det här projektet och klistra in följande HiveQL-uttryck:
 
     ```hiveql
     set hive.execution.engine=tez;
@@ -96,40 +96,40 @@ Ad hoc-frågor kan köras antingen **Batch** eller **interaktiv** läge.
 
     Dessa instruktioner utför följande åtgärder:
 
-   * `DROP TABLE`: Om tabellen finns det här uttrycket tar bort den.
+   * `DROP TABLE`: Om tabellen finns, tar den här instruktionen bort den.
 
-   * `CREATE EXTERNAL TABLE`: Skapar en ny ”externa” tabell i Hive. Externa tabeller kan du bara lagra tabelldefinitionen i Hive (data finns kvar i den ursprungliga platsen).
+   * `CREATE EXTERNAL TABLE`: Skapar en ny extern tabell i Hive. Externa tabeller lagrar bara tabell definitionen i Hive (data finns kvar på den ursprungliga platsen).
 
      > [!NOTE]  
-     > Externa tabeller som ska användas när du förväntar dig att underliggande data uppdateras av en extern källa. Till exempel ett MapReduce-jobb eller Azure-tjänst.
+     > Externa tabeller bör användas när du förväntar dig att underliggande data ska uppdateras av en extern källa. Till exempel ett MapReduce-jobb eller en Azure-tjänst.
      >
-     > Tar bort en extern tabell har **inte** ta bort data, endast tabelldefinitionen.
+     > Att släppa en extern tabell tar **inte** bort data, endast tabell definitionen.
 
-   * `ROW FORMAT`: Beskriver hur informationen har formaterats Hive. I det här fallet avgränsas fälten i varje logg med ett blanksteg.
+   * `ROW FORMAT`: Anger Hive hur data formateras. I det här fallet separeras fälten i varje logg med ett blank steg.
 
-   * `STORED AS TEXTFILE LOCATION`: Visar Hive att data lagras i katalogen/exempeldata och att den lagras som text.
+   * `STORED AS TEXTFILE LOCATION`: Anger Hive att data lagras i exemplet/data katalogen och att de lagras som text.
 
-   * `SELECT`: Välj en uppräkning av alla rader där kolumnen `t4` innehåller värdet `[ERROR]`. Det här uttrycket returnerar värdet `3` eftersom det finns tre rader som innehåller det här värdet.
+   * `SELECT`: Välj ett antal rader där kolumnen `t4` innehåller värdet. `[ERROR]` Den här instruktionen returnerar värdet `3` eftersom det finns tre rader som innehåller det här värdet.
 
-   * `INPUT__FILE__NAME LIKE '%.log'` -Talar om Hive vi bör endast returnera data från filer som slutar på. log. Den här satsen begränsar sökningen till sample.log-fil som innehåller data.
+   * `INPUT__FILE__NAME LIKE '%.log'`-Anger Hive att vi bara ska returnera data från filer som slutar med. log. Den här satsen begränsar sökningen till exempel. log-filen som innehåller data.
 
-6. I verktygsfältet väljer du den **HDInsight-kluster** som du vill använda för den här frågan. Välj **skicka** att köra instruktionerna som ett Hive-jobb.
+6. I verktygsfältet väljer du det **HDInsight-kluster** som du vill använda för den här frågan. Välj **Skicka** för att köra uttrycken som ett Hive-jobb.
 
-   ![Skicka stapel](./media/apache-hadoop-use-hive-visual-studio/toolbar.png)
+   ![Skicka fält](./media/apache-hadoop-use-hive-visual-studio/toolbar.png)
 
-7. Den **Hive-jobbsammanfattning** öppnas och visar information om det pågående jobbet. Använd den **uppdatera** länk för att uppdatera Jobbinformationen om, tills den **jobbstatus** ändras till **slutförd**.
+7. **Sammanfattningen av Hive-jobbet** visas och visar information om det jobb som körs. Använd länken **Uppdatera** för att uppdatera jobb informationen tills **jobbets status** ändras till **slutförd**.
 
-   ![jobbsammanfattning visar ett slutfört jobb](./media/apache-hadoop-use-hive-visual-studio/jobsummary.png)
+   ![jobb sammanfattning som visar ett slutfört jobb](./media/apache-hadoop-use-hive-visual-studio/jobsummary.png)
 
-8. Använd den **Jobbutdata** länken för att visa utdata för jobbet. Den visar `[ERROR] 3`, vilket är värdet som returneras av den här frågan.
+8. Använd länken **jobbets utdata** om du vill visa utdata för jobbet. Den visas `[ERROR] 3`, vilket är det värde som returneras av den här frågan.
 
 ### <a name="additional-example"></a>Ytterligare exempel
 
-Det här exemplet är beroende av den `log4jLogs` tabellen som skapades i föregående steg.
+Det här exemplet använder den `log4jLogs` tabell som skapades i föregående steg.
 
-1. Från **Server Explorer**, högerklicka på klustret och välj **Skriv en Hive-fråga**.
+1. Från **Server Explorer**högerklickar du på klustret och väljer **Skriv en Hive-fråga**.
 
-2. Ange följande hive-fråga:
+2. Ange följande Hive-fråga:
 
     ```hql
     set hive.execution.engine=tez;
@@ -139,33 +139,33 @@ Det här exemplet är beroende av den `log4jLogs` tabellen som skapades i föreg
 
     Dessa instruktioner utför följande åtgärder:
 
-    * `CREATE TABLE IF NOT EXISTS`: Skapar en tabell om den inte redan finns. Eftersom den `EXTERNAL` nyckelord används inte, den här instruktionen skapar en intern tabell. Interna tabeller lagras i datalagret Hive och hanteras av Hive.
+    * `CREATE TABLE IF NOT EXISTS`: Skapar en tabell om den inte redan finns. `EXTERNAL` Eftersom nyckelordet inte används skapar den här instruktionen en intern tabell. Interna tabeller lagras i Hive-datalagret och hanteras av Hive.
     
     > [!NOTE]  
-    > Till skillnad från `EXTERNAL` tabeller, släppa en intern tabell även tar bort underliggande data.
+    > Till skillnad `EXTERNAL` från tabeller, raderas även underliggande data när en intern tabell släpps.
 
-    * `STORED AS ORC`: Lagrar data i optimerad raden (ORC) kolumnformat. ORC är ett mycket optimerade och effektiv format för att lagra Hive-data.
+    * `STORED AS ORC`: Lagrar data i optimerade rad kolumners (ORC)-format. ORC är ett mycket optimerat och effektivt format för att lagra Hive-data.
     
-    * `INSERT OVERWRITE ... SELECT`: Väljer rader från den `log4jLogs` tabellen som innehåller `[ERROR]`, infogar data till den `errorLogs` tabell.
+    * `INSERT OVERWRITE ... SELECT`: Markerar rader i `log4jLogs` tabellen som innehåller `[ERROR]`och `errorLogs` infogar sedan data i tabellen.
 
-3. Kör frågan i **Batch** läge.
+3. Kör frågan i **batch** -läge.
 
-4. Om du vill kontrollera att jobbet har skapats i tabellen genom att använda **Server Explorer** och expandera **Azure** > **HDInsight** > ditt HDInsight-kluster >  **Hive-databaser** > **standard**. Den **felvillkoren** tabell och **log4jLogs** tabellen visas.
+4. Verifiera att jobbet har skapats genom att använda **Server Explorer** och expandera **Azure** > **HDInsight** > ditt HDInsight-kluster > **Hive-databaser** > som**standard**. Tabellen **errorLogs** och tabellen **log4jLogs** visas.
 
 ## <a id="nextsteps"></a>Nästa steg
 
-Som du kan se ger HDInsight tools för Visual Studio ett enkelt sätt att arbeta med Hive-frågor på HDInsight.
+Som du kan se ger HDInsight-verktygen för Visual Studio ett enkelt sätt att arbeta med Hive-frågor i HDInsight.
 
 Allmän information om Hive i HDInsight:
 
-* [Använda Apache Hive med Apache Hadoop i HDInsight](hdinsight-use-hive.md)
+* [Använda Apache Hive med Apache Hadoop på HDInsight](hdinsight-use-hive.md)
 
-Information om andra sätt kan du arbeta med Hadoop i HDInsight:
+Information om andra sätt att arbeta med Hadoop i HDInsight:
 
-* [Använda Apache Pig med Apache Hadoop på HDInsight](hdinsight-use-pig.md)
+* [Använda Apache gris med Apache Hadoop på HDInsight](hdinsight-use-pig.md)
 
-* [Använda MapReduce med Apache Hadoop i HDInsight](hdinsight-use-mapreduce.md)
+* [Använda MapReduce med Apache Hadoop på HDInsight](hdinsight-use-mapreduce.md)
 
-Mer information om HDInsight-verktyg för Visual Studio:
+Mer information om HDInsight Tools för Visual Studio:
 
-* [Komma igång med HDInsight tools för Visual Studio](apache-hadoop-visual-studio-tools-get-started.md)
+* [Komma igång med HDInsight Tools för Visual Studio](apache-hadoop-visual-studio-tools-get-started.md)

@@ -1,22 +1,22 @@
 ---
 title: Använda scaler och Spark med Azure HDInsight
-description: Använd scaler och Spark med ML-tjänster i HDInsight
+description: Använd scaler och sparker för data manipulation och modell utveckling med ML-tjänster på Azure HDInsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/19/2017
-ms.openlocfilehash: b96779a0a37602b6d114c9baf517df2637f734a2
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: a91d2d569b4900e3d5b787145c242a75b928d822
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70231119"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70733370"
 ---
 # <a name="combine-scaler-and-sparkr-in-hdinsight"></a>Kombinera scaler och Sparkr i HDInsight
 
-Det här dokumentet visar hur du förutsäger fördröjningar i flygningen med en modell för skalnings-logistik regression. Exemplet använder flyg fördröjning och väder data som anslötsmed sparker.
+Det här dokumentet visar hur du förutsäger fördröjningar i flygningen med en modell för **skalnings** -logistik regression. Exemplet använder flyg fördröjning och väder data som anslöts med **sparker**.
 
 Även om båda paketen körs på Apache Hadoops Spark-körnings motor blockeras de från data delning i minnet eftersom de kräver sina egna respektive Spark-sessioner. Tills det här problemet har åtgärd ATS i en kommande version av ML Server, är lösningen att underhålla Spark-sessioner som inte överlappar och för att utbyta data via mellanliggande filer. Anvisningarna här visar att dessa krav är enkla att uppnå.
 

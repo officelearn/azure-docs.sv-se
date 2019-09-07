@@ -1,19 +1,19 @@
 ---
-title: Migrera lokala Apache Hadoop-kluster till Azure HDInsight – metod tips för infrastruktur
+title: Migrera lokala Apache Hadoop-kluster till Azure HDInsight – infrastruktur
 description: Lär dig metod tips för infrastruktur för migrering av lokala Hadoop-kluster till Azure HDInsight.
 author: hrasheed-msft
 ms.reviewer: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 04/05/2019
+ms.date: 09/04/2019
 ms.author: hrasheed
-ms.openlocfilehash: 0707f08d7c1447ff9aaae919cabfe1a668b25e3d
-ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
+ms.openlocfilehash: dbd4cc987883c959ad9b13b60491dd2288bd5643
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68404383"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70735740"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---infrastructure-best-practices"></a>Migrera lokala Apache Hadoop-kluster till Azure HDInsight – metod tips för infrastruktur
 
@@ -28,7 +28,7 @@ De viktigaste alternativen för att planera prestanda för HDInsight-kluster är
 - **Välj storlek och typ för virtuell dator (stöder nu G-serien)** – varje kluster typ har en uppsättning nodtyper och varje nodtyp har olika alternativ för deras VM-storlek och-typ. VM-storlek och-typ bestäms av processor processor kraft, RAM-storlek och nätverks fördröjning. En simulerad arbets belastning kan användas för att fastställa den optimala storleken och typen för den virtuella datorn för varje Node-typ.
 - **Välj antalet arbetsnoder** – det första antalet arbetsnoder kan bestämmas med hjälp av de simulerade arbets belastningarna. Klustret kan skalas senare genom att lägga till fler arbetsnoder för att uppfylla högsta belastnings krav. Klustret kan senare skalas tillbaka när ytterligare arbetsnoder inte krävs.
 
-Mer information finns i artikeln kapacitets [planering för HDInsight-kluster](../hdinsight-capacity-planning.md).
+Mer information finns i artikeln [kapacitets planering för HDInsight-kluster](../hdinsight-capacity-planning.md).
 
 ## <a name="use-recommended-virtual-machine-type-for-cluster"></a>Använd Rekommenderad typ av virtuell dator för kluster
 
@@ -86,7 +86,7 @@ HDInsight innehåller i förväg skrivna skript för att installera följande ko
 - Installera Presto
 - Installera Solr
 - Installera Giraph
-- Förhandsladda Hive-bibliotek
+- För inläsning av Hive-bibliotek
 - Installera eller uppgradera Mono
 
 > [!Note]  
@@ -160,7 +160,7 @@ Med hjälp av Azure Virtual Network med HDInsight kan du använda följande scen
 - Ansluta HDInsight till data lager i ett virtuellt Azure-nätverk.
 - Direkt åtkomst till Hadoop-tjänster som inte är tillgängliga offentligt via Internet. Till exempel Kafka-API: er eller HBase Java API.
 
-HDInsight kan antingen läggas till i en ny eller befintlig Azure-Virtual Network. Om HDInsight läggs till i en befintlig Virtual Network, måste befintliga nätverks säkerhets grupper och användardefinierade vägar uppdateras för att tillåta obegränsad åtkomst till [flera IP-adresser](../hdinsight-management-ip-addresses.md) i Azure Data Center. Se också till att inte blockera trafik till portarna [](../hdinsight-plan-virtual-network-deployment.md#hdinsight-ports)som används av HDInsight-tjänster.
+HDInsight kan antingen läggas till i en ny eller befintlig Azure-Virtual Network. Om HDInsight läggs till i en befintlig Virtual Network, måste befintliga nätverks säkerhets grupper och användardefinierade vägar uppdateras för att tillåta obegränsad åtkomst till [flera IP-adresser](../hdinsight-management-ip-addresses.md) i Azure Data Center. Se också till att inte blockera trafik till [portarna](../hdinsight-plan-virtual-network-deployment.md#hdinsight-ports)som används av HDInsight-tjänster.
 
 > [!Note]  
 > HDInsight har för närvarande inte stöd för Tvingad tunnel trafik. Tvingad tunnel trafik är en under näts inställning som framtvingar utgående Internet trafik till en enhet för inspektion och loggning. Ta antingen bort Tvingad tunnel trafik innan du installerar HDInsight i ett undernät eller skapa ett nytt undernät för HDInsight. HDInsight stöder inte heller begränsning av utgående nätverks anslutning.

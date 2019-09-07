@@ -1,6 +1,6 @@
 ---
-title: Automatisk vidarebefordring Azure Service Bus-meddelandeentiteter | Microsoft Docs
-description: Hur du kopplar en Service Bus-kö eller prenumeration till en annan kö eller ett ämne.
+title: Automatisk vidarebefordring Azure Service Bus meddelande enheter | Microsoft Docs
+description: Så här kedjar du en Service Bus kö eller en prenumeration till en annan kö eller ett ämne.
 services: service-bus-messaging
 documentationcenter: na
 author: axisc
@@ -14,20 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: 86fa7f62230c0ae0530b67ff2384942c876083d4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1d7b76a58a427b687d0dc36d13cfc00f32196853
+ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64686141"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70390138"
 ---
-# <a name="chaining-service-bus-entities-with-autoforwarding"></a>Länkning av Service Bus-entiteter med autoforwarding
+# <a name="chaining-service-bus-entities-with-autoforwarding"></a>Kedja Service Bus entiteter med vidarebefordran
 
-Service Bus *autoforwarding* funktionen kan du länka en kö eller prenumeration till en annan kö eller ett ämne som ingår i samma namnområde. När autoforwarding aktiveras, tar bort meddelanden som är placerade i första kö eller prenumeration (källa) automatiskt i Service Bus och placerar dem i andra kön eller ämnet (mål). Det är fortfarande möjligt att skicka ett meddelande till målentitet direkt.
+Med funktionen Service Bus *autoforwarding* kan du kedja en kö eller en prenumeration till en annan kö eller ett ämne som ingår i samma namnrymd. När automatisk vidarebefordran har Aktiver ATS tar Service Bus automatiskt bort meddelanden som placeras i den första kön eller prenumerationen (källa) och placerar dem i den andra kön eller ämnet (målet). Det är fortfarande möjligt att skicka ett meddelande till målentiteten direkt.
 
-## <a name="using-autoforwarding"></a>Med hjälp av autoforwarding
+## <a name="using-autoforwarding"></a>Använda vidarebefordran
 
-Du kan aktivera autoforwarding genom att ange den [QueueDescription.ForwardTo] [ QueueDescription.ForwardTo] eller [SubscriptionDescription.ForwardTo] [ SubscriptionDescription.ForwardTo] Egenskaper för den [QueueDescription] [ QueueDescription] eller [SubscriptionDescription] [ SubscriptionDescription] objekt till källan, som i den följande exempel:
+Du kan aktivera vidarebefordran genom att ange egenskaperna [QueueDescription. ForwardTo][QueueDescription.ForwardTo] eller [SubscriptionDescription. ForwardTo][SubscriptionDescription.ForwardTo] i [QueueDescription][QueueDescription] -eller [SubscriptionDescription][SubscriptionDescription] -objekten för källan, som i följande exempel:
 
 ```csharp
 SubscriptionDescription srcSubscription = new SubscriptionDescription (srcTopic, srcSubscriptionName);
@@ -35,44 +35,46 @@ srcSubscription.ForwardTo = destTopic;
 namespaceManager.CreateSubscription(srcSubscription));
 ```
 
-Mål-entiteten måste finnas på gång källentiteten har skapats. Om mål-entiteten inte finns, returnerar ett undantag när du uppmanas att skapa källentiteten i Service Bus.
+Målentiteten måste finnas när källentiteten skapas. Om målentiteten inte finns returnerar Service Bus ett undantag när du uppmanas att skapa käll enheten.
 
-Du kan använda autoforwarding för att skala ut enskilda avsnitt. Service Bus-begränsningar i [antalet prenumerationer på ett visst ämne](service-bus-quotas.md) till 2 000. Du kan hantera ytterligare prenumerationer genom att skapa andra nivån ämnen. Även om du inte är bunden av Service Bus-begränsning på antalet prenumerationer, kan lägga till en andra nivå av ämnen förbättra hela dataflödet för ditt ämne.
+Du kan använda vidarebefordran för att skala ut ett enskilt ämne. Service Bus begränsar [antalet prenumerationer för ett angivet ämne](service-bus-quotas.md) till 2 000. Du kan hantera ytterligare prenumerationer genom att skapa avsnitt på andra nivån. Även om du inte är kopplad till Service Bus begränsningen för antalet prenumerationer kan du förbättra det totala data flödet i ditt ämne genom att lägga till en andra nivå med avsnitt.
 
-![Scenario med automatisk vidarebefordran][0]
+![Scenario för automatisk vidarebefordring][0]
 
-Du kan också använda autoforwarding för att frikoppla avsändare från mottagare. Anta exempelvis att ett ERP-system som består av tre moduler: order bearbetning, lagerhantering och kundrelationshantering. Var och en av dessa moduler genererar meddelanden som är i kö till ett motsvarande ämne. Alice och Bob är säljare som är intresserade av alla meddelanden som är relaterade till sina kunder. Om du vill ta emot meddelanden, skapar Alice och Bob du en personlig kö och en prenumeration på var och en av de ERP-avsnitten som automatiskt vidarebefordrar alla meddelanden till deras köomfång.
+Du kan också använda vidarebefordran för att koppla ifrån meddelande avsändare från mottagare. Överväg till exempel ett ERP-system som består av tre moduler: order bearbetning, inventerings hantering och kund Relations hantering. Var och en av dessa moduler genererar meddelanden som är i kö i ett motsvarande ämne. Alice och Robert är säljare som är intresserade av alla meddelanden som är relaterade till sina kunder. För att ta emot dessa meddelanden, Alice och Bob var och en skapa en personlig kö och en prenumeration på var och en av ERP-ämnen som automatiskt vidarebefordrar alla meddelanden till kön.
 
-![Scenario med automatisk vidarebefordran][1]
+![Scenario för automatisk vidarebefordring][1]
 
-Om Alice går på semester, sin personliga kön i stället ERP-avsnittet, blir fullt. I detta scenario eftersom en säljare inte har fått några meddelanden nå ingen av ERP-ämnen någonsin kvot.
+Om Alice går på semester, hennes personliga kö i stället för ERP-ämnet, fylls. I det här scenariot, eftersom en försäljnings representant inte har tagit emot några meddelanden, når inget av ERP-ämnena kvoten.
 
 > [!NOTE]
-> När autoforwarding har konfigurerats, anges automatiskt värdet för AutoDeleteOnIdle på mål-det maximala värdet för datatypen.
-> Detta görs för att säkerställa att det finns alltid ett mål för att vidarebefordra meddelandet till.
+> När automatisk vidarebefordran konfigureras, ställs värdet för AutoDeleteOnIdle på **både källan och målet** automatiskt till det maximala värdet för data typen.
+> 
+>   - På käll sidan fungerar vidarebefordran som en mottagnings åtgärd. Källan som har installations programmet för autoforward är aldrig i själva verket "inaktiv".
+>   - På mål sidan görs detta för att säkerställa att det alltid finns ett mål för att vidarebefordra meddelandet till.
 
-## <a name="autoforwarding-considerations"></a>Autoforwarding överväganden
+## <a name="autoforwarding-considerations"></a>Att tänka på vid vidarebefordran
 
-Om målentitet ackumulerar för många meddelanden och överskrider kvoten eller mål-entiteten är inaktiverad, källentiteten lägger till meddelanden till dess [obeställbara meddelanden](service-bus-dead-letter-queues.md) tills det finns utrymme i målet (eller entiteten aktiveras på nytt). Meddelandena fortsätta att finnas i kön för obeställbara meddelanden, så du måste uttryckligen tar emot och bearbetar dem från kön för obeställbara meddelanden.
+Om målentiteten samlar in för många meddelanden och överskrider kvoten, eller om målentiteten är inaktive rad, lägger källentiteten till meddelandena i [kön för obeställbara](service-bus-dead-letter-queues.md) meddelanden tills det finns utrymme i målet (eller så har entiteten återaktiverats). Dessa meddelanden fortsätter att finnas i kön för obeställbara meddelanden, så du måste uttryckligen ta emot och bearbeta dem från kön för obeställbara meddelanden.
 
-När länkning tillsammans enskilda avsnitt för att få ett sammansatt ämne med många prenumerationer, rekommenderar vi att du har ett Måttligt antal prenumerationer på första nivån ämnet och många prenumerationer på andra nivån ämnen. Till exempel kan ett första nivån ämne med 20 prenumerationer, var och en av dem har länkats till ett andra nivån ämne med 200 prenumerationer för högre dataflöde än ett första nivån ämne med 200 prenumerationer, var och en har länkats till ett andra nivån ämne med 20 prenumerationer.
+När du sammanfogar enskilda ämnen för att få ett sammansatt ämne med många prenumerationer, rekommenderar vi att du har ett stort antal prenumerationer på den första nivån och många prenumerationer på de andra nivå avsnitten. Till exempel ett ämne på första nivån med 20 prenumerationer, var och en av dem som är länkad till ett avsnitt på en andra nivå med 200-prenumerationer, gör det möjligt att använda mer data flöde än ett ämne med 200-prenumerationer, varje länkat till ett ämne med 20 prenumerationer på andra nivån.
 
-Service Bus debiterar en åtgärd för varje vidarebefordrade meddelandet. Till exempel debiteras skickar ett meddelande till ett ämne med 20 prenumerationer, var och en av dem har konfigurerats för att autoforward meddelanden till en annan kö eller ett ämne, som 21 operations om alla prenumerationer på första nivån får en kopia av meddelandet.
+Service Bus räkningar en åtgärd för varje vidarebefordrat meddelande. Om du till exempel skickar ett meddelande till ett ämne med 20 prenumerationer, var och en av dem konfigurerade att vidarebefordra meddelanden till en annan kö eller ämne, faktureras som 21 åtgärder om alla prenumerationer på första nivån får en kopia av meddelandet.
 
-Om du vill skapa en prenumeration som går att härleda till en annan kö eller ämne skaparen av prenumerationen måste ha **hantera** behörigheter på både käll- och mål-entiteten. Skicka meddelanden till avsnittet om källan kräver endast **skicka** behörigheter på käll-avsnittet.
+Om du vill skapa en prenumeration som är länkad till en annan kö eller ett ämne måste den som skapat prenumerationen ha behörighet att **Hantera** både käll-och målentiteten. Att skicka meddelanden till käll avsnittet kräver bara behörigheterna **Skicka** i käll avsnittet.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Detaljerad information om autoforwarding finns i följande referensavsnitt:
+Detaljerad information om vidarebefordran finns i följande referens avsnitt:
 
 * [ForwardTo][QueueDescription.ForwardTo]
 * [QueueDescription][QueueDescription]
 * [SubscriptionDescription][SubscriptionDescription]
 
-Läs mer om Service Bus prestandaförbättringar i 
+Mer information om Service Bus prestanda förbättringar finns i 
 
 * [Bra metoder för att öka prestanda med hjälp av meddelanden i Service Bus](service-bus-performance-improvements.md)
-* [Partitionerade meddelandeentiteter][Partitioned messaging entities].
+* [Partitionerade meddelande enheter][Partitioned messaging entities].
 
 [QueueDescription.ForwardTo]: /dotnet/api/microsoft.servicebus.messaging.queuedescription.forwardto#Microsoft_ServiceBus_Messaging_QueueDescription_ForwardTo
 [SubscriptionDescription.ForwardTo]: /dotnet/api/microsoft.servicebus.messaging.subscriptiondescription.forwardto#Microsoft_ServiceBus_Messaging_SubscriptionDescription_ForwardTo

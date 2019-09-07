@@ -1,5 +1,5 @@
 ---
-title: 'Självstudier: Skapa Apache Hadoop kluster på begäran i Azure HDInsight med Data Factory '
+title: 'Självstudier: Apache Hadoop kluster på begäran i Azure HDInsight – Data Factory'
 description: Självstudie – lär dig hur du skapar Apache Hadoop-kluster på begäran i HDInsight med hjälp av Azure Data Factory.
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -7,12 +7,12 @@ ms.author: hrasheed
 ms.service: hdinsight
 ms.topic: tutorial
 ms.date: 04/18/2019
-ms.openlocfilehash: 7af70de91a7f7696be3b003fec11390d6db9ba60
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: de12725952a2bac6a0b86b1d2e239428c0eaa709
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68854989"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70736168"
 ---
 # <a name="tutorial-create-on-demand-apache-hadoop-clusters-in-hdinsight-using-azure-data-factory"></a>Självstudier: Skapa Apache Hadoop kluster på begäran i HDInsight med Azure Data Factory
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
@@ -199,7 +199,7 @@ I den här artikeln konfigurerar du Hive-aktiviteten för att skapa ett HDInsigh
 
 4. Välj **Skapa**. Att skapa en data fabrik kan ta var som helst mellan 2 och 4 minuter.
 
-5. När data fabriken har skapats visas ett meddelande om att **distributionen** har slutförts med knappen **gå till resurs** .  Öppna Data Factory standardvy genom att välja **gå till resurs** .
+5. När data fabriken har skapats visas ett meddelande om att **distributionen har slutförts** med knappen **gå till resurs** .  Öppna Data Factory standardvy genom att välja **gå till resurs** .
 
 6. Välj **författar & övervakare** för att starta Azure Data Factory redigerings-och övervaknings Portal.
 
@@ -228,7 +228,7 @@ I det här avsnittet skapar du två länkade tjänster i din data fabrik.
 
 4. Ange följande värden för den länkade lagrings tjänsten:
 
-    |Egenskap |Värde |
+    |Egenskap |Value |
     |---|---|
     |Name |Ange `HDIStorageLinkedService`.|
     |Azure-prenumeration |Välj din prenumeration i den nedrullningsbara listan.|
@@ -282,7 +282,7 @@ I det här avsnittet skapar du två länkade tjänster i din data fabrik.
 
     ![Lägg till aktiviteter i Data Factory pipeline](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-data-factory-add-hive-pipeline.png "Lägg till aktiviteter i Data Factory pipeline")
 
-3. Kontrol lera att du har valt Hive-aktiviteten, Välj fliken **HDI-kluster** och välj den länkade tjänst som du skapade tidigare, **HDinightLinkedService**, för HDInsight i list rutan länkad HDInsight- **tjänst** .
+3. Kontrol lera att du har valt Hive-aktiviteten, Välj fliken **HDI-kluster** och välj den länkade tjänst som du skapade tidigare, **HDinightLinkedService**, för HDInsight i list rutan **länkad HDInsight-tjänst** .
 
     ![Ange information om HDInsight-kluster för pipelinen](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-hive-activity-select-hdinsight-linked-service.png "Ange information om HDInsight-kluster för pipelinen")
 
@@ -290,7 +290,7 @@ I det här avsnittet skapar du två länkade tjänster i din data fabrik.
 
     1. För **länkad skript tjänst**väljer du **HDIStorageLinkedService** i list rutan. Det här värdet är den länkade lagrings tjänsten som du skapade tidigare.
 
-    1. För **fil Sök väg**väljer du **Bläddra** i lagrings plats och navigerar till den plats där exempel registrerings skriptet är tillgängligt. Om du körde PowerShell-skriptet tidigare bör platsen vara `adfgetstarted/hivescripts/partitionweblogs.hql`.
+    1. För **fil Sök väg**väljer du **Bläddra i lagrings** plats och navigerar till den plats där exempel registrerings skriptet är tillgängligt. Om du körde PowerShell-skriptet tidigare bör platsen vara `adfgetstarted/hivescripts/partitionweblogs.hql`.
 
         ![Ange Hive-skript information för pipelinen](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-data-factory-provide-script-path.png "Ange Hive-skript information för pipelinen")
 
@@ -308,7 +308,7 @@ I det här avsnittet skapar du två länkade tjänster i din data fabrik.
 
 ## <a name="trigger-a-pipeline"></a>Utlös en pipeline
 
-1. I verktygsfältet på design ytan väljer du **Lägg till** > utlösare**nu**.
+1. I verktygsfältet på design ytan väljer du **Lägg till utlösare** > **nu**.
 
     ![Utlös Azure Data Factory pipelinen](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-data-factory-trigger-pipeline.png "Utlös Azure Data Factory pipelinen")
 
@@ -322,7 +322,7 @@ I det här avsnittet skapar du två länkade tjänster i din data fabrik.
 
 1. Välj **Uppdatera** för att uppdatera statusen.
 
-1. Du kan också välja ikonen **Visa aktivitet som körs** för att se aktivitets körningen som är associerad med pipelinen. I skärm bilden nedan visas endast en aktivitets körning eftersom det bara finns en aktivitet i den pipeline som du skapade. Om du vill växla tillbaka till den föregående vyn väljer du pipeliner längst upp på sidan.
+1. Du kan också välja ikonen **Visa aktivitet som körs** för att se aktivitets körningen som är associerad med pipelinen. I skärm bilden nedan visas endast en aktivitets körning eftersom det bara finns en aktivitet i den pipeline som du skapade. Om du vill växla tillbaka till den föregående vyn väljer du **pipeliner** längst upp på sidan.
 
     ![Övervaka Azure Data Factory pipeline-aktivitet](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-data-factory-monitor-pipeline-activity.png "Övervaka Azure Data Factory pipeline-aktivitet")
 

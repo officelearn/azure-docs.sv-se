@@ -1,20 +1,20 @@
 ---
-title: Självstudie – konfigurera principer för Apache HBase i HDInsight med Enterprise Security Package - Azure
-description: Självstudie – Lär dig hur du konfigurerar Apache Ranger-principer för HBase i Azure HDInsight med Enterprise Security Package.
+title: Självstudie – konfigurera Apache HBase med Enterprise Security Package – Azure
+description: Självstudie – lär dig hur du konfigurerar Apache Ranger-principer för HBase i Azure HDInsight med Enterprise Security Package.
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: tutorial
-ms.date: 06/18/2019
-ms.openlocfilehash: 04592ba307cd696c20778d4a79f03be2eb0ac987
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.date: 09/04/2019
+ms.openlocfilehash: 39b87347212aef36bcced1a5b297f2f9e89bcc47
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67274391"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70734921"
 ---
-# <a name="tutorial-configure-apache-hbase-policies-in-hdinsight-with-enterprise-security-package"></a>Självstudier: Konfigurera principer för Apache HBase i HDInsight med Enterprise Security Package
+# <a name="tutorial-configure-apache-hbase-policies-in-hdinsight-with-enterprise-security-package"></a>Självstudier: Konfigurera Apache HBase-principer i HDInsight med Enterprise Security Package
 
 Lär dig hur du konfigurerar Apache Ranger-principer för Apache HBase-kluster med Enterprise Security Package (ESP). ESP-kluster är anslutna till en domän så att användare kan autentisera med autentiseringsuppgifter för domänen. I den här självstudien skapar du två Ranger-principer för att begränsa åtkomsten till olika kolumnserier i en HBase-tabell.
 
@@ -146,7 +146,7 @@ Skapa en Ranger-princip för **sales_user1** och **marketing_user1**.
 
 Baserat på de konfigurerade Ranger-principerna kan **sales_user1** visa alla data för kolumnerna i båda kolumnserierna `Name` och `Contact`. **marketing_user1** kan endast visa data i kolumnserien `Contact`.
 
-### <a name="access-data-as-salesuser1"></a>Komma åt data som sales_user1
+### <a name="access-data-as-sales_user1"></a>Komma åt data som sales_user1
 
 1. Öppna en ny SSH-anslutning till klustret. Använd följande kommando för att logga till klustret:
 
@@ -160,7 +160,7 @@ Baserat på de konfigurerade Ranger-principerna kan **sales_user1** visa alla da
    kinit sales_user1
    ```
 
-2. Öppna HBase-gränssnittet och söka igenom tabellen `Customers`.
+2. Öppna HBase-gränssnittet och Genomsök tabellen `Customers`.
 
    ```hbaseshell
    hbase shell
@@ -188,7 +188,7 @@ Baserat på de konfigurerade Ranger-principerna kan **sales_user1** visa alla da
     2 row(s) in 0.1000 seconds
     ```
 
-### <a name="access-data-as-marketinguser1"></a>Komma åt data som marketing_user1
+### <a name="access-data-as-marketing_user1"></a>Komma åt data som marketing_user1
 
 1. Öppna en ny SSH-anslutning till klustret. Använd följande kommando för att logga in som **marketing_user1**:
 
@@ -202,7 +202,7 @@ Baserat på de konfigurerade Ranger-principerna kan **sales_user1** visa alla da
    kinit marketing_user1
    ```
 
-2. Öppna HBase-gränssnittet och söka igenom tabellen `Customers`:
+2. Öppna HBase-gränssnittet och Genomsök tabellen `Customers`:
 
     ```hbaseshell
     hbase shell

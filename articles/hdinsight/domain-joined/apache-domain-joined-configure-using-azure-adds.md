@@ -1,5 +1,5 @@
 ---
-title: Enterprise Security Package konfiguration med Azure Active Directory Domain Services – Azure HDInsight
+title: Enterprise Security Package med Azure Active Directory i HDInsight
 description: Lär dig hur du konfigurerar och konfigurerar ett HDInsight-Enterprise Security Package kluster med Azure Active Directory Domain Services.
 ms.service: hdinsight
 author: hrasheed-msft
@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.topic: conceptual
 ms.custom: seodec18
 ms.date: 04/23/2019
-ms.openlocfilehash: 1165cbeff1144567e43f408c0866c0b8a571882d
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 76f95e74c8150ac797d20c3166c0e8d6ea085bf9
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70125594"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70734953"
 ---
 # <a name="configure-a-hdinsight-cluster-with-enterprise-security-package-by-using-azure-active-directory-domain-services"></a>Konfigurera ett HDInsight-kluster med Enterprise Security-paket med hjälp av Azure Active Directory Domain Services
 
@@ -80,7 +80,7 @@ När du har aktiverat Azure AD-DS körs en lokal Domain Name Service (DNS)-serve
 
 ![Uppdaterar VNET DNS-konfigurationen](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-aadds-vnet-configuration.png)
 
-Det är enklare att placera både Azure AD-DS-instansen och HDInsight-klustret i samma virtuella Azure-nätverk. Om du planerar att använda olika virtuella nätverk måste du peer-koppla dessa virtuella nätverk så att domänkontrollanten är synlig för virtuella HDI-datorer. Mer information finns i peering för [virtuella nätverk](../../virtual-network/virtual-network-peering-overview.md). 
+Det är enklare att placera både Azure AD-DS-instansen och HDInsight-klustret i samma virtuella Azure-nätverk. Om du planerar att använda olika virtuella nätverk måste du peer-koppla dessa virtuella nätverk så att domänkontrollanten är synlig för virtuella HDI-datorer. Mer information finns i [peering för virtuella nätverk](../../virtual-network/virtual-network-peering-overview.md). 
 
 När virtuella nätverk har peer-kopplats konfigurerar du HDInsight VNET för att använda en anpassad DNS-server och anger de privata IP-adresserna för Azure AD-DS som DNS-serveradresser. När båda virtuella nätverk använder samma DNS-servrar kommer ditt anpassade domän namn att matchas till rätt IP-adress och kan komma att bli tillgängligt från HDInsight. Om ditt domän namn till exempel är `contoso.com` efter det här steget, `ping contoso.com` bör du matcha till rätt Azure AD-DS IP.
 

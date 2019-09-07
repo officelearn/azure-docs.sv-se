@@ -10,17 +10,17 @@ ms.reviewer: divswa, LADocs
 ms.topic: article
 ms.date: 08/30/2019
 tags: connectors
-ms.openlocfilehash: 8712af60df2454b29c0691602260c8b826eae75c
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: 98e6b515d5e9d60f95873016ad1cb06a13799bb2
+ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70165001"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70390110"
 ---
 # <a name="connect-to-sap-systems-from-azure-logic-apps"></a>Ansluta till SAP-system från Azure Logic Apps
 
 > [!IMPORTANT]
-> De tidigare SAP Application Server-och SAP Message Server-kopplingarna är schemalagda för utfasning. Den aktuella SAP-anslutningen konsoliderar dessa tidigare SAP-anslutningar så att du inte behöver ändra Anslutnings typ, är helt kompatibel med tidigare anslutningar, innehåller många ytterligare funktioner och fortsätter att använda SAP .net Connector-biblioteket ( SAP-NCo).
+> De tidigare SAP Application Server-och SAP Message Server-kopplingarna är schemalagda för utfasning den 30 november 2019. Den aktuella SAP-anslutningen konsoliderar dessa tidigare SAP-anslutningar så att du inte behöver ändra Anslutnings typ, är helt kompatibel med tidigare anslutningar, innehåller många ytterligare funktioner och fortsätter att använda SAP .net Connector-biblioteket ( SAP-NCo).
 >
 > För logi Kap par som använder de äldre anslutningarna, [migrera till den senaste anslutningen](#migrate) innan utfasnings datumet. Annars kommer de här Logic Apps att uppleva körnings problem och kommer inte att kunna skicka meddelanden till ditt SAP-system.
 
@@ -34,7 +34,7 @@ SAP-anslutaren använder [SAP .net Connector-biblioteket (NCo)](https://support.
 
 För dessa åtgärder stöder SAP-anslutaren grundläggande autentisering genom användar namn och lösen ord. Anslutningen har även stöd för [Säker nätverkskommunikation (SNC)](https://help.sap.com/doc/saphelp_nw70/7.0.31/e6/56f466e99a11d1a5b00000e835363f/content.htm?no_cache=true). SNC kan användas för SAP NetWeaver enkel inloggning (SSO) eller för ytterligare säkerhetsfunktioner som tillhandahålls av en extern säkerhets produkt.
 
-SAP-anslutningen integreras med lokala SAP-system via den [lokala](../logic-apps/logic-apps-gateway-connection.md)datagatewayen. I skicka-scenarier, till exempel när ett meddelande skickas från en Logic app till ett SAP-system, fungerar datagatewayen som en RFC-klient och vidarebefordrar de begär Anden som tas emot från Logic app till SAP. På samma sätt fungerar datagatewayen som en RFC-server som tar emot begär Anden från SAP i Receive-scenarier och vidarebefordrar dem till Logic-appen.
+SAP-anslutningen integreras med lokala SAP-system via den [lokala datagatewayen](../logic-apps/logic-apps-gateway-connection.md). I skicka-scenarier, till exempel när ett meddelande skickas från en Logic app till ett SAP-system, fungerar datagatewayen som en RFC-klient och vidarebefordrar de begär Anden som tas emot från Logic app till SAP. På samma sätt fungerar datagatewayen som en RFC-server som tar emot begär Anden från SAP i Receive-scenarier och vidarebefordrar dem till Logic-appen.
 
 Den här artikeln visar hur du skapar exempel på Logic Apps som integreras med SAP och som täcker de tidigare beskrivna integrerings scenarierna. För logi Kap par som använder äldre SAP-kopplingar visar den här artikeln hur du migrerar dina Logi Kap par till den senaste SAP-anslutningen.
 
@@ -48,9 +48,9 @@ Om du vill följa med i den här artikeln behöver du följande objekt:
 
 * Den Logic-app från vilken du vill komma åt SAP-systemet och en utlösare som startar din Logic app-arbetsflöde. Om du inte har använt Logic Apps, se [Vad är Azure Logic Apps?](../logic-apps/logic-apps-overview.md) och [snabb start: Skapa din första Logic-](../logic-apps/quickstart-create-first-logic-app-workflow.md)app.
 
-* Din [SAP](https://wiki.scn.sap.com/wiki/display/ABAP/ABAP+Application+Server) -Programserver eller [SAP-meddelande Server](https://help.sap.com/saphelp_nw70/helpdata/en/40/c235c15ab7468bb31599cc759179ef/frameset.htm).
+* Din [SAP-Programserver](https://wiki.scn.sap.com/wiki/display/ABAP/ABAP+Application+Server) eller [SAP-meddelande Server](https://help.sap.com/saphelp_nw70/helpdata/en/40/c235c15ab7468bb31599cc759179ef/frameset.htm).
 
-* Hämta och installera den senaste [lokala](https://www.microsoft.com/download/details.aspx?id=53127) datagatewayen på en lokal dator. Se till att konfigurera din gateway i Azure Portal innan du fortsätter. Gatewayen hjälper dig att komma åt lokala data och resurser på ett säkert sätt. Mer information finns i [installera en lokal datagateway för Azure Logic Apps](../logic-apps/logic-apps-gateway-install.md).
+* Hämta och installera den senaste [lokala datagatewayen](https://www.microsoft.com/download/details.aspx?id=53127) på en lokal dator. Se till att konfigurera din gateway i Azure Portal innan du fortsätter. Gatewayen hjälper dig att komma åt lokala data och resurser på ett säkert sätt. Mer information finns i [installera en lokal datagateway för Azure Logic Apps](../logic-apps/logic-apps-gateway-install.md).
 
 * Om du använder SNC med SSO ser du till att gatewayen körs som en användare som är mappad mot SAP-användaren. Om du vill ändra standard kontot väljer du **Ändra konto**och anger autentiseringsuppgifterna för användaren.
 
@@ -88,13 +88,13 @@ I det här exemplet används en Logic-app som du kan utlösa med en HTTP-begära
 
 ### <a name="add-an-http-request-trigger"></a>Lägg till en HTTP-begäran-utlösare
 
-I Azure Logic Apps måste varje Logi Kap par starta med en [](../logic-apps/logic-apps-overview.md#logic-app-concepts)utlösare som utlöses när en enskild händelse inträffar eller när ett särskilt villkor uppfylls. Varje gång utlösaren utlöses skapar Logic Apps-motorn en Logic App-instans och börjar köra appens arbets flöde.
+I Azure Logic Apps måste varje Logi Kap par starta med en [utlösare](../logic-apps/logic-apps-overview.md#logic-app-concepts)som utlöses när en enskild händelse inträffar eller när ett särskilt villkor uppfylls. Varje gång utlösaren utlöses skapar Logic Apps-motorn en Logic App-instans och börjar köra appens arbets flöde.
 
 I det här exemplet skapar du en Logic-app med en slut punkt i Azure så att du kan skicka *http post-begäranden* till din Logic app. När din Logic app tar emot dessa HTTP-förfrågningar utlöses utlösaren och kör nästa steg i arbets flödet.
 
 1. I [Azure Portal](https://portal.azure.com)skapar du en tom Logic-app som öppnar Logic Apps designer.
 
-1. I rutan Sök anger du "http-begäran" som filter. Välj **när en HTTP-begäran tas emot**från listan utlösare.
+1. I rutan Sök anger du "http-begäran" som filter. Välj **när en HTTP-begäran tas emot**från listan **utlösare** .
 
    ![Lägg till utlösare för HTTP-begäran](./media/logic-apps-using-sap-connector/add-trigger.png)
 
@@ -108,7 +108,7 @@ I det här exemplet skapar du en Logic-app med en slut punkt i Azure så att du 
 
 ### <a name="add-an-sap-action"></a>Lägg till en SAP-åtgärd
 
-I Azure Logic Apps är en [åtgärd](../logic-apps/logic-apps-overview.md#logic-app-concepts) ett steg i arbets flödet som följer en utlösare eller en annan åtgärd. Om du inte har lagt till en utlösare i din Logic app och vill följa det här exemplet lägger du till utlösaren som [beskrivs i det här avsnittet](#add-trigger).
+I Azure Logic Apps är en [åtgärd](../logic-apps/logic-apps-overview.md#logic-app-concepts) ett steg i arbets flödet som följer en utlösare eller en annan åtgärd. Om du inte har lagt till en utlösare i din Logic app och vill följa det här exemplet [lägger du till utlösaren som beskrivs i det här avsnittet](#add-trigger).
 
 1. I Logic App Designer går du till utlösaren och väljer **nytt steg**.
 
@@ -190,7 +190,7 @@ Lägg nu till en svars åtgärd i din Logic Apps-arbetsflöde och inkludera utda
 1. I verktygsfältet designer väljer du **Kör**. Det här steget startar din Logic app manuellt.
 
 1. Utlös din Logic app genom att skicka en HTTP POST-begäran till URL: en i din HTTP Request-utlösare.
-Inkludera ditt meddelande innehåll med din begäran. Du kan använda ett verktyg som Postman för att skicka begäran. [](https://www.getpostman.com/apps)
+Inkludera ditt meddelande innehåll med din begäran. Du kan använda ett verktyg som [Postman](https://www.getpostman.com/apps)för att skicka begäran.
 
    I den här artikeln skickar begäran en IDoc-fil som måste vara i XML-format och innehålla namn området för den SAP-åtgärd som du använder, till exempel:
 
@@ -218,7 +218,7 @@ I det här exemplet används en Logic-app som utlöses när appen tar emot ett m
 
 1. I Azure Portal skapar du en tom Logic-app som öppnar Logic Apps designer.
 
-1. I rutan Sök anger du "SAP" som filter. Välj **när ett meddelande tas emot från SAP**i listan utlösare.
+1. I rutan Sök anger du "SAP" som filter. Välj **när ett meddelande tas emot från SAP**i listan **utlösare** .
 
    ![Lägg till SAP-utlösare](./media/logic-apps-using-sap-connector/add-sap-trigger.png)
 
@@ -282,7 +282,7 @@ Du kan konfigurera SAP för att [Skicka IDOCs i paket](https://help.sap.com/view
 
 Här är ett exempel som visar hur du extraherar enskilda IDOCs från ett paket med hjälp [ `xpath()` av funktionen](./workflow-definition-language-functions-reference.md#xpath):
 
-1. Innan du börjar måste du ha en Logic-app med en SAP-utlösare. Om du inte redan har den här Logic-appen följer du de föregående stegen i det här avsnittet för att konfigurera en [Logic app med en SAP](#receive-from-sap)-utlösare.
+1. Innan du börjar måste du ha en Logic-app med en SAP-utlösare. Om du inte redan har den här Logic-appen följer du de föregående stegen i det här avsnittet för att konfigurera en [Logic app med en SAP-utlösare](#receive-from-sap).
 
    Exempel:
 
@@ -319,7 +319,7 @@ I det här exemplet används en Logic-app som du kan utlösa med en HTTP-begära
 
 1. I Azure Portal skapar du en tom Logic-app som öppnar Logic Apps designer.
 
-1. I rutan Sök anger du "http-begäran" som filter. Välj **när en HTTP-begäran tas emot**från listan utlösare.
+1. I rutan Sök anger du "http-begäran" som filter. Välj **när en HTTP-begäran tas emot**från listan **utlösare** .
 
    ![Lägg till utlösare för HTTP-begäran](./media/logic-apps-using-sap-connector/add-trigger.png)
 
@@ -434,7 +434,7 @@ Du kan också hämta eller lagra de genererade schemana i-databaser, till exempe
 
 ## <a name="enable-secure-network-communications"></a>Aktivera säker nätverkskommunikation
 
-Innan du börjar ska du kontrol lera att du uppfyller de tidigare [](#pre-reqs)angivna förutsättningarna:
+Innan du börjar ska du kontrol lera att du uppfyller de tidigare angivna [förutsättningarna](#pre-reqs):
 
 * Den lokala datagatewayen är installerad på en dator som är i samma nätverk som ditt SAP-system.
 * För SSO körs gatewayen som en användare som är mappad till en SAP-användare.
@@ -536,7 +536,7 @@ Här är de kända problemen och begränsningarna för SAP-anslutningen:
 
 ## <a name="connector-reference"></a>Referens för anslutningsapp
 
-Teknisk information om utlösare, åtgärder och gränser, som beskrivs av kopplingens OpenAPI (tidigare Swagger) Beskrivning, finns i kopplingens [referens sida](/connectors/sap/).
+Teknisk information om utlösare, åtgärder och gränser, som beskrivs av kopplingens OpenAPI (tidigare Swagger) Beskrivning, finns i [kopplingens referens sida](/connectors/sap/).
 
 ## <a name="next-steps"></a>Nästa steg
 

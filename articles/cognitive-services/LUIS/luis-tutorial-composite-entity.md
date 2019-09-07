@@ -1,5 +1,5 @@
 ---
-title: Självstudie för sammansatta entiteter – LUIS
+title: 'Självstudier: Självstudie för sammansatta entiteter – LUIS'
 titleSuffix: Azure Cognitive Services
 description: Lägg till en sammansatt entitet för att paketera olika typer av extraherade data i en enda innehållande entiteten. Genom att paketera data extrahera klientprogrammet enkelt relaterade data i olika datatyper.
 services: cognitive-services
@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 07/29/2019
 ms.author: diberry
-ms.openlocfilehash: 698635b3f216c556e1e36a033703b8786a028e38
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: f20661a74397487e141e69681f207418db8ac386
+ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68946135"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70388033"
 ---
 # <a name="tutorial-group-and-extract-related-data"></a>Självstudier: Gruppera och extrahera relaterade data
 I den här självstudien lägger du till en sammansatt entitet för att paketera olika typer av extraherade data i en enda innehållande entiteten. Genom att paketera data extrahera klientprogrammet enkelt relaterade data i olika datatyper.
@@ -69,7 +69,7 @@ Flyttnings förfrågan ska innehålla avdelnings namnet och namnet på den anst�
 
 LUIS har flera fördefinierade entiteter för extrahering av data. 
 
-1. Välj **build (Bygg** ) i det övre navigerings fältet och välj sedan entiteter i den vänstra navigerings menyn.
+1. Välj **build (Bygg** ) i det övre navigerings fältet och välj sedan **entiteter** i den vänstra navigerings menyn.
 
 1. Välj knappen **Manage prebuilt entity** (Hantera fördefinierad entitet).
 

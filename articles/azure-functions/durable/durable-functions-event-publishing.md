@@ -9,12 +9,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: glenga
-ms.openlocfilehash: 837e29731b617fcb8da95b89668403638c4d049a
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: f3fd59c0d17bd9094f6887aa5ec088f9fdcdd979
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70087409"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70734442"
 ---
 # <a name="durable-functions-publishing-to-azure-event-grid-preview"></a>Durable Functions publicering till Azure Event Grid (förhands granskning)
 
@@ -26,7 +26,7 @@ Här följer några scenarier där den här funktionen är användbar:
 
 * **Avancerad övervakning och diagnostisk support**: Du kan hålla koll på dirigerings status information i ett externt arkiv som är optimerat för frågor, till exempel SQL Database eller CosmosDB.
 
-* **Tids**krävande bakgrunds aktivitet: Om du använder Durable Functions för en tids krävande bakgrunds aktivitet hjälper den här funktionen dig att känna till aktuell status.
+* **Tids krävande bakgrunds aktivitet**: Om du använder Durable Functions för en tids krävande bakgrunds aktivitet hjälper den här funktionen dig att känna till aktuell status.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -103,7 +103,7 @@ Ange appens inställning för ämnes nyckeln i Funktionsapp och `local.setting.j
 }
 ```
 
-Kontrol lera att [Storage](https://docs.microsoft.com/azure/storage/common/storage-use-emulator) -emulatorn fungerar. Det är en bra idé att köra kommandot `AzureStorageEmulator.exe clear all` innan du kör.
+Kontrol lera att [Storage-emulatorn](https://docs.microsoft.com/azure/storage/common/storage-use-emulator) fungerar. Det är en bra idé att köra kommandot `AzureStorageEmulator.exe clear all` innan du kör.
 
 ## <a name="create-functions-that-listen-for-events"></a>Skapa funktioner som lyssnar efter händelser
 
@@ -124,6 +124,16 @@ Ange namnet på funktionen och välj `Create`sedan.
 ![Skapa Event Grid-utlösaren.](./media/durable-functions-event-publishing/eventgrid-trigger-creation.png)
 
 En funktion med följande kod skapas:
+
+#### <a name="precompiled-c"></a>FörkompileradeC#
+```csharp
+public static void Run([HttpTrigger] JObject eventGridEvent, ILogger log)
+{
+    log.LogInformation(eventGridEvent.ToString(Formatting.Indented));
+}
+```
+
+#### <a name="c-script"></a>C#Över
 
 ```csharp
 #r "Newtonsoft.Json"
@@ -150,6 +160,8 @@ Nu är du redo att ta emot livs cykel händelser.
 ## <a name="create-durable-functions-to-send-the-events"></a>Skapa Durable Functions för att skicka händelser
 
 Starta fel sökning på den lokala datorn i Durable Functions-projektet.  Följande kod är samma som mall koden för Durable Functions. Du har redan `host.json` konfigurerat `local.settings.json` och på den lokala datorn.
+
+### <a name="precompiled-c"></a>FörkompileradeC#
 
 ```csharp
 using System.Collections.Generic;
@@ -188,8 +200,8 @@ namespace LifeCycleEventSpike
 
         [FunctionName("Sample_HttpStart")]
         public static async Task<HttpResponseMessage> HttpStart(
-            [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post")]HttpRequestMessage req,
-            [OrchestrationClient]DurableOrchestrationClient starter,
+            [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post")] HttpRequestMessage req,
+            [OrchestrationClient] DurableOrchestrationClient starter,
             ILogger log)
         {
             // Function input comes from the request content.

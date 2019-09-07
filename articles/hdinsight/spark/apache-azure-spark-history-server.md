@@ -1,19 +1,19 @@
 ---
-title: Använd utökad Spark-historik Server för att felsöka och diagnostisera Spark-program – Azure HDInsight
+title: Utökad Spark-historik Server för att felsöka Spark-program – Azure HDInsight
 description: Använd utökad Spark-historik Server för att felsöka och diagnostisera Spark-program – Azure HDInsight.
 ms.service: hdinsight
-author: jejiang
-ms.author: jejiang
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 09/14/2018
-ms.openlocfilehash: 641fc41c25746a67b4b1fe3d5316df17f14f113c
-ms.sourcegitcommit: b49431b29a53efaa5b82f9be0f8a714f668c38ab
+ms.date: 09/04/2019
+ms.openlocfilehash: 9ba03f6b1e658e08c3d07d7ccb5e2a99e96fe69c
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68377258"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70736459"
 ---
 # <a name="use-extended-apache-spark-history-server-to-debug-and-diagnose-apache-spark-applications"></a>Använd utökad Apache Spark historik Server för att felsöka och diagnostisera Apache Spark program
 
@@ -57,7 +57,7 @@ Välj jobb-ID och klicka sedan på **data** på verktygs menyn för att hämta d
 
     ![Spara data](./media/apache-azure-spark-history-server/sparkui-data-save.png)
 
-+ Sök genom att ange nyckelord i fälts ökningen visas Sök resultatet omedelbart.
++ Sök genom att ange nyckelord i fälts **ökningen**visas Sök resultatet omedelbart.
 
     ![Datas ökning](./media/apache-azure-spark-history-server/sparkui-data-search.png)
 
@@ -65,7 +65,7 @@ Välj jobb-ID och klicka sedan på **data** på verktygs menyn för att hämta d
 
     ![Data tabell](./media/apache-azure-spark-history-server/sparkui-data-table.png)
 
-+ Hämta en enskild fil genom att klicka på knappen **del** av fil hämtningen som placeras till höger. sedan laddas den valda filen ned till lokalt, om filen inte finns längre, öppnas en ny flik där fel meddelandena visas.
++ Hämta en enskild fil genom att klicka på knappen del av fil **hämtningen** som placeras till höger. sedan laddas den valda filen ned till lokalt, om filen inte finns längre, öppnas en ny flik där fel meddelandena visas.
 
     ![Data hämtnings rad](./media/apache-azure-spark-history-server/sparkui-data-download-row.png)
 
@@ -180,7 +180,7 @@ Klicka på fliken **data skevning** så visas motsvarande skevade uppgifter base
 ### <a name="time-skew"></a>Tids skevning
 På fliken **tids skevning** visas skevade uppgifter utifrån aktivitetens körnings tid. 
 
-+ **Ange parametrar** – det första avsnittet visar de parametrar som används för att identifiera tids skevning. Standard kriteriet för att identifiera tids skevning är: aktivitetens körnings tid är större än 3 gånger den genomsnittliga körnings tiden och körnings tiden för aktiviteten är mer än 30 sekunder. Du kan ändra parametrarna utifrån dina behov. Det **sneda steget** och **skeva diagrammet** visar motsvarande steg och aktivitets information precis som fliken  dataskevning ovan.
++ **Ange parametrar** – det första avsnittet visar de parametrar som används för att identifiera tids skevning. Standard kriteriet för att identifiera tids skevning är: aktivitetens körnings tid är större än 3 gånger den genomsnittliga körnings tiden och körnings tiden för aktiviteten är mer än 30 sekunder. Du kan ändra parametrarna utifrån dina behov. Det **sneda steget** och **skeva diagrammet** visar motsvarande steg och aktivitets information precis som fliken **dataskevning** ovan.
 
 + Klicka på **tids skevning**så visas det filtrerade resultatet i avsnittet **skevad fas** enligt parametrarna som anges i avsnittet **Ange parametrar**. Klicka på ett objekt i avsnittet **skevat Stadium** . därefter skapas motsvarande diagram i section3 och uppgifts informationen visas i den högra nedre panelen.
 
@@ -189,7 +189,7 @@ På fliken **tids skevning** visas skevade uppgifter utifrån aktivitetens körn
 ### <a name="executor-usage-analysis"></a>Användnings analys av utförar
 Användnings diagrammet för utförar visualiserar Spark-jobbets faktiska utförar-allokering och körnings status.  
 
-+ Klicka på **utförar användnings analys**, och sedan fyra typer av kurvor om utförar-användning är utkast, inklusive **allokerade körningar**, **körnings**körningar, inaktiva**körningar**och **högst utförar-instanser**. För allokerade körningar ökar eller minskar de allokerade körningarna genom att varje "utförar tillagd" eller "utförar borttagen"-händelse ökar eller minskar de allokerade körningarna. du kan kontrol lera "händelsens tids linje" på fliken "jobb" för mer
++ Klicka på **utförar användnings analys**, och sedan fyra typer av kurvor om utförar-användning är utkast, inklusive **allokerade körningar**, **körnings**körningar,**inaktiva körningar**och **högst utförar-instanser**. För allokerade körningar ökar eller minskar de allokerade körningarna genom att varje "utförar tillagd" eller "utförar borttagen"-händelse ökar eller minskar de allokerade körningarna. du kan kontrol lera "händelsens tids linje" på fliken "jobb" för mer
 
     ![Fliken körningar](./media/apache-azure-spark-history-server/sparkui-diagnosis-executors.png)
 

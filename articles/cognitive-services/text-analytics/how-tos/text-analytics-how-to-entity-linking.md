@@ -10,16 +10,16 @@ ms.subservice: text-analytics
 ms.topic: article
 ms.date: 07/30/2019
 ms.author: aahi
-ms.openlocfilehash: ea7d3f56aa512b8f5998d710451ff3b37659ca13
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 93d5b3de47ec0b3c0494589da0baf87f91a0233a
+ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68697848"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70390261"
 ---
 # <a name="how-to-use-named-entity-recognition-in-text-analytics"></a>Använda namngiven enhets igenkänning i Textanalys
 
-Det [namngivna identifierings-API: et](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634) för entiteten tar ostrukturerad text och returnerar en lista med disambiguated-entiteter med länkar till mer information på webben (Wikipedia och Bing) för varje JSON-dokument.
+Det [namngivna identifierings-API: et för entiteten](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634) tar ostrukturerad text och returnerar en lista med disambiguated-entiteter med länkar till mer information på webben (Wikipedia och Bing) för varje JSON-dokument.
 
 ## <a name="entity-linking-and-named-entity-recognition"></a>Enhets länkning och identifiering av namngiven entitet
 
@@ -98,7 +98,7 @@ Information om begäransdefinitionen finns i [Hur anropar man textanalys API:et]
 
 + Skicka en **POST**-begäran. Läs API-dokumentationen för denna begäran: [Entitets-API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634)
 
-+ Ange HTTP-slutpunkten för enhets extrahering. Den måste innehålla `/entities`-resursen: `https://[your-region].api.cognitive.microsoft.com/text/analytics/v2.1/entities`
++ Ange HTTP-slutpunkten för extrahering av nyckel fraser genom att antingen använda en Textanalys-resurs på Azure eller en instansierad [textanalys-behållare](text-analytics-how-to-install-containers.md). Du måste inkludera `/text/analytics/v2.1/entities`. Till exempel: `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v2.1/entities`.
 
 + Ange ett rubrik för begäran för att inkludera [åtkomst nyckeln](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) för textanalys åtgärder.
 

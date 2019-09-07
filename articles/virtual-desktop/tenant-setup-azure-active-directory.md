@@ -5,14 +5,14 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: tutorial
-ms.date: 03/21/2019
+ms.date: 09/06/2019
 ms.author: helohr
-ms.openlocfilehash: cd80ed3c3db2453a333c87ed706dd358ba248b47
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.openlocfilehash: 66441e852ebe0a391a5807b90eeadae230130815
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69516194"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70734454"
 ---
 # <a name="tutorial-create-a-tenant-in-windows-virtual-desktop-preview"></a>Självstudier: Skapa en klient i för hands versionen av Windows Virtual Desktop
 
@@ -49,7 +49,7 @@ Så här beviljar du tjänst behörigheter:
    >https://login.microsoftonline.com/{tenant}/adminconsent?client_id=5a0aa725-4958-4b0c-80a9-34562e23f3b7&redirect_uri=https%3A%2F%2Frdweb.wvd.microsoft.com%2FRDWeb%2FConsentCallback
    >```
 
-2. Logga in på sidan Windows-godkännande för virtuella datorer med ett globalt administratörs konto. Om du till exempel har Contoso-organisationen kan ditt konto vara admin@contoso.com eller. admin@contoso.onmicrosoft.com  
+2. Logga in på sidan Windows-godkännande för virtuella datorer med ett globalt administratörs konto. Om du till exempel har Contoso-organisationen kan ditt konto vara admin@contoso.com eller. admin@contoso.onmicrosoft.com
 3. Välj **Acceptera**.
 4. Vänta en minut så att Azure AD kan registrera medgivande.
 5. Öppna en webbläsare och påbörja det administrativa godkännande flödet till [Windows-klienten för virtuella skriv bord](https://login.microsoftonline.com/common/adminconsent?client_id=fa4345a4-a730-4230-84a8-7d9651b86739&redirect_uri=https%3A%2F%2Frdweb.wvd.microsoft.com%2FRDWeb%2FConsentCallback).
@@ -78,6 +78,7 @@ Så här tilldelar du program rollen TenantCreator:
    ![En skärm bild av de användare och grupper som har tilldelats för att hantera företags programmet "Windows Virtual Desktop". Skärm bilden visar bara en tilldelning, vilket är för "standard åtkomst".](media/tenant-default-access.png)
 5. Välj **Lägg till användare**och välj sedan **användare och grupper** på bladet **Lägg till tilldelning** .
 6. Sök efter ett användar konto som ska skapa din Windows-klient för virtuella skriv bord. För enkelhetens skull kan detta vara det globala administratörs kontot.
+   - Om du använder en Microsoft Identity-Provider som contosoadmin@live.com eller contosoadmin@outlook.com, kanske du inte kan logga in på det virtuella Windows-skrivbordet. Vi rekommenderar att du använder ett domänbaserat konto som admin@contoso.com eller admin@contoso.onmicrosoft.com i stället.
 
    ![En skärm bild av att välja en användare att lägga till som "TenantCreator".](media/tenant-assign-user.png)
 

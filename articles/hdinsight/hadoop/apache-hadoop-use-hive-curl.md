@@ -1,6 +1,6 @@
 ---
-title: Använda Apache Hadoop Hive med Curl i HDInsight - Azure
-description: Lär dig mer om att skicka via en fjärranslutning Apache Pig-jobb till HDInsight med Curl.
+title: Använda Apache Hadoop Hive med en sväng i HDInsight – Azure
+description: Lär dig att fjärrskicka Apache gris-jobb till Azure HDInsight med hjälp av sväng.
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -8,55 +8,55 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/28/2019
 ms.author: hrasheed
-ms.openlocfilehash: 334d7b886aa4e2130a12f0c8a7919986fdac55d1
-ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
+ms.openlocfilehash: e1fbeb48acdfd9d09cad2616aed9793e2ff513ad
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67508120"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70736093"
 ---
-# <a name="run-apache-hive-queries-with-apache-hadoop-in-hdinsight-using-rest"></a>Kör Apache Hive-frågor med Apache Hadoop i HDInsight med hjälp av REST
+# <a name="run-apache-hive-queries-with-apache-hadoop-in-hdinsight-using-rest"></a>Kör Apache Hive frågor med Apache Hadoop i HDInsight med REST
 
 [!INCLUDE [hive-selector](../../../includes/hdinsight-selector-use-hive.md)]
 
-Lär dig hur du använder REST-API WebHCat du kör Apache Hive-frågor med Apache Hadoop i Azure HDInsight-kluster.
+Lär dig hur du använder WebHCat-REST API för att köra Apache Hive frågor med Apache Hadoop på Azure HDInsight-kluster.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-* Ett Apache Hadoop-kluster på HDInsight. Se [Kom igång med HDInsight på Linux](./apache-hadoop-linux-tutorial-get-started.md).
+* Ett Apache Hadoop kluster i HDInsight. Se [Kom igång med HDInsight på Linux](./apache-hadoop-linux-tutorial-get-started.md).
 
-* En REST-klient. Det här dokumentet används [Invoke-WebRequest](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/invoke-webrequest) på Windows PowerShell och [Curl](https://curl.haxx.se/) på [Bash](https://docs.microsoft.com/windows/wsl/install-win10).
+* En REST-klient. I det här dokumentet används [Invoke-webbegäran](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/invoke-webrequest) på Windows PowerShell och [sväng](https://curl.haxx.se/) på [bash](https://docs.microsoft.com/windows/wsl/install-win10).
 
-* Om du använder Bash, måste du också jq, en kommandorad JSON-processor.  Se [ https://stedolan.github.io/jq/ ](https://stedolan.github.io/jq/).
+* Om du använder bash behöver du också JQ, en JSON-processor på kommando raden.  Se [https://stedolan.github.io/jq/](https://stedolan.github.io/jq/).
 
-## <a name="base-uri-for-rest-api"></a>Bas-URI för Rest API
+## <a name="base-uri-for-rest-api"></a>Bas-URI för REST API
 
-Den grundläggande identifierare URI (Uniform Resource) för REST-API på HDInsight är `https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME`, där `CLUSTERNAME` är namnet på klustret.  Klustrets namn i URI: er är **skiftlägeskänsliga**.  När klustrets namn i den fullständigt kvalificerade namn (FQDN) delen av URI: N (`CLUSTERNAME.azurehdinsight.net`) är skiftlägeskänslig andra förekomster i URI: N är skiftlägeskänsliga.
+Bas Uniform Resource Identifier (URI) för REST API på HDInsight är `https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME`, där `CLUSTERNAME` är namnet på klustret.  Kluster namn i URI: er är Skift läges **känsliga**.  Kluster namnet i det fullständigt kvalificerade domän namnet (FQDN) i URI: n (`CLUSTERNAME.azurehdinsight.net`) är Skift läges okänsligt, men andra förekomster i URI: n är Skift läges känsliga.
 
-## <a name="authentication"></a>Autentisering
+## <a name="authentication"></a>Authentication
 
-När du använder cURL eller annan REST-kommunikation med WebHCat, måste du autentisera begärandena genom att ange användarnamn och lösenord för HDInsight-klustrets administratör. REST API skyddas via [grundläggande autentisering](https://en.wikipedia.org/wiki/Basic_access_authentication). För att säkerställa att dina autentiseringsuppgifter skickas på ett säkert sätt till servern kan du alltid göra begäranden genom att använda säker HTTP (HTTPS).
+När du använder en sväng eller någon annan REST-kommunikation med WebHCat, måste du autentisera förfrågningarna genom att ange användar namn och lösen ord för HDInsight-klustrets administratör. REST API skyddas via [grundläggande autentisering](https://en.wikipedia.org/wiki/Basic_access_authentication). För att se till att dina autentiseringsuppgifter skickas på ett säkert sätt till servern ska du alltid göra begär Anden med hjälp av säker HTTP (HTTPS).
 
-### <a name="setup-preserve-credentials"></a>Installationsprogrammet (Preserve autentiseringsuppgifter)
-Bevara dina autentiseringsuppgifter för att undvika att behöva skriva in dem för varje exempel.  Klustrets namn kommer att bevaras i ett separat steg.
+### <a name="setup-preserve-credentials"></a>Installations program (bevara autentiseringsuppgifter)
+Behåll dina autentiseringsuppgifter för att undvika att behöva ange dem igen för varje exempel.  Kluster namnet kommer att bevaras i ett separat steg.
 
 **EN. Bash**  
-Redigera skriptet nedan genom att ersätta `PASSWORD` med det faktiska lösenordet.  Ange sedan kommandot.
+Redigera skriptet nedan genom att ersätta `PASSWORD` med det faktiska lösen ordet.  Ange sedan kommandot.
 
 ```bash
 export password='PASSWORD'
 ```  
 
-**B. PowerShell** köra koden nedan och ange dina autentiseringsuppgifter i popup-fönster:
+**B. PowerShell** kör koden nedan och ange dina autentiseringsuppgifter i popup-fönstret:
 
 ```powershell
 $creds = Get-Credential -UserName "admin" -Message "Enter the HDInsight login"
 ```
 
-### <a name="identify-correctly-cased-cluster-name"></a>Identifiera korrekt alltid i klustrets namn
-Faktiska versaler och gemener i klustrets namn kan skilja sig än förväntat, beroende på hur klustret har skapats.  De här stegen visar faktiska gemener och versaler och sedan lagra den i en variabel för alla efterföljande exemplen.
+### <a name="identify-correctly-cased-cluster-name"></a>Identifiera korrekt bokstäver-kluster namn
+Det faktiska Skift läget i kluster namnet kan skilja sig från förväntat, beroende på hur klustret skapades.  Stegen här visar det faktiska Skift läget och lagrar det sedan i en variabel för alla efterföljande exempel.
 
-Redigera skripten nedan och Ersätt `CLUSTERNAME` med klusternamnet på ditt. Ange sedan kommandot. (Klusternamnet FQDN-namn är inte skiftlägeskänsligt.)
+Redigera skripten nedan och Ersätt `CLUSTERNAME` med ditt kluster namn. Ange sedan kommandot. (Kluster namnet för FQDN är inte Skift läges känsligt.)
 
 ```bash
 export clusterName=$(curl -u admin:$password -sS -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters" | jq -r '.items[].Clusters.cluster_name')
@@ -73,9 +73,9 @@ $clusterName = (ConvertFrom-Json $resp.Content).items.Clusters.cluster_name;
 $clusterName
 ```
 
-## <a id="curl"></a>Kör en Hive-fråga
+## <a id="curl"></a>Köra en Hive-fråga
 
-1. Kontrollera att du kan ansluta till ditt HDInsight-kluster genom att använda något av följande kommandon:
+1. Du kan kontrol lera att du kan ansluta till ditt HDInsight-kluster med något av följande kommandon:
 
     ```bash
     curl -u admin:$password -G https://$clusterName.azurehdinsight.net/templeton/v1/status
@@ -96,10 +96,10 @@ $clusterName
 
     De parametrar som används i det här kommandot är följande:
 
-    * `-u` -Det användarnamn och lösenord som används för att autentisera begäran.
-    * `-G` -Anger att den här begäran är en åtgärd för hämtning.
+    * `-u`– Användar namnet och lösen ordet som används för att autentisera begäran.
+    * `-G`-Visar att denna begäran är en GET-åtgärd.
 
-1. I början av URL: en, `https://$CLUSTERNAME.azurehdinsight.net/templeton/v1`, är samma för alla förfrågningar. Sökvägen, `/status`, anger att begäran ska returnera statusen WebHCat (även kallat Templeton) för servern. Du kan också begära versionen av Hive med hjälp av följande kommando:
+1. Början av webb adressen, `https://$CLUSTERNAME.azurehdinsight.net/templeton/v1`är detsamma för alla begär Anden. Sökvägen, `/status`anger att begäran ska returnera statusen WebHCat (kallas även Templeton) för servern. Du kan också begära Hive-versionen genom att använda följande kommando:
 
     ```bash
     curl -u admin:$password -G https://$clusterName.azurehdinsight.net/templeton/v1/version/hive
@@ -136,32 +136,32 @@ $clusterName
     $jobID
     ```
 
-    Denna begäran använder metoden POST som skickar data som en del av begäran till REST API. Följande datavärden skickas med förfrågan:
+    Den här begäran använder POST-metoden som skickar data som en del av begäran till REST API. Följande data värden skickas med begäran:
 
-     * `user.name` -Användaren som kör kommandot.
-     * `execute` -HiveQL-instruktioner för att köra.
-     * `statusdir` -Katalogen som status för det här jobbet skrivs till.
+     * `user.name`– Användaren som kör kommandot.
+     * `execute`-HiveQL-uttryck som ska köras.
+     * `statusdir`– Den katalog som status för det här jobbet skrivs till.
 
    Dessa instruktioner utför följande åtgärder:
 
-   * `DROP TABLE` -Om tabellen redan finns tas den bort.
-   * `CREATE EXTERNAL TABLE` -Skapar en ny ”externa” tabell i Hive. Externa tabeller lagra endast tabelldefinitionen i Hive. Data finns kvar i den ursprungliga platsen.
+   * `DROP TABLE`– Om tabellen redan finns tas den bort.
+   * `CREATE EXTERNAL TABLE`-Skapar en ny extern tabell i Hive. Externa tabeller lagrar bara tabell definitionen i Hive. Data finns kvar på den ursprungliga platsen.
 
      > [!NOTE]  
-     > Externa tabeller som ska användas när du förväntar dig att underliggande data uppdateras av en extern källa. Till exempel en automatiserade uppladdningen eller en annan MapReduce-åtgärd.
+     > Externa tabeller bör användas när du förväntar dig att underliggande data ska uppdateras av en extern källa. Till exempel en automatiserad data överförings process eller en annan MapReduce-åtgärd.
      >
-     > Tar bort en extern tabell har **inte** ta bort data, endast tabelldefinitionen.
+     > Att släppa en extern tabell tar **inte** bort data, endast tabell definitionen.
 
-   * `ROW FORMAT` – Hur informationen har formaterats. Fälten i varje logg avgränsas med ett blanksteg.
-   * `STORED AS TEXTFILE LOCATION` -Där data lagras (katalogen/exempeldata) och att den lagras som text.
-   * `SELECT` -Väljer en uppräkning av alla rader där kolumnen **t4** innehåller värdet **[fel]** . Det här uttrycket returnerar värdet **3** som det finns tre rader som innehåller det här värdet.
+   * `ROW FORMAT`– Hur data formateras. Fälten i varje logg skiljs åt med ett blank steg.
+   * `STORED AS TEXTFILE LOCATION`– Var data lagras (exempel/data-katalogen) och lagras som text.
+   * `SELECT`– Väljer antalet rader där kolumnen **T4** innehåller värdet **[Error]** . Den här instruktionen returnerar värdet **3** eftersom det finns tre rader som innehåller det här värdet.
 
      > [!NOTE]  
-     > Observera att blanksteg mellan HiveQL-instruktioner har ersatts av den `+` tecken när det används med Curl. Citerade värden som innehåller ett blanksteg, till exempel avgränsare, bör inte ersättas av `+`.
+     > Observera att blank stegen mellan HiveQL-uttryck ersätts med `+` ett tecken när det används med en sväng. Citerade värden som innehåller ett blank steg, t. ex. avgränsare, ska inte `+`ersättas med.
 
-      Det här kommandot returnerar ett jobb-ID som kan användas för att kontrollera status för jobbet.
+      Det här kommandot returnerar ett jobb-ID som kan användas för att kontrol lera jobbets status.
 
-1. Om du vill kontrollera status för jobbet, använder du följande kommando:
+1. Använd följande kommando för att kontrol lera jobbets status:
 
     ```bash
     curl -u admin:$password -d user.name=admin -G https://$clusterName.azurehdinsight.net/templeton/v1/jobs/$jobid | jq .status.state
@@ -179,21 +179,21 @@ $clusterName
     (ConvertFrom-Json $fixDup).status.state
     ```
 
-    Om jobbet har slutförts tillståndet är **lyckades**.
+    Om jobbet har slutförts har statusen **slutförts**.
 
-1. När tillståndet för jobbet har ändrats till **lyckades**, kan du hämta resultatet av jobbet från Azure Blob storage. Den `statusdir` -parameter som överförs med frågan innehåller platsen för utdatafilen; i det här fallet `/example/rest`. Den här adressen lagrar utdata i den `example/curl` katalogen kluster standardlagring.
+1. När jobbets tillstånd har ändrats till **lyckades**kan du hämta resultatet från Azure Blob Storage. Den `statusdir` parameter som skickades med frågan innehåller platsen för utdatafilen, i det här `/example/rest`fallet. Den här adressen lagrar utdata i `example/curl` katalogen i klustrets standard lagring.
 
-    Du kan visa och hämta dessa filer med hjälp av den [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli). Mer information om hur du använder Azure CLI med Azure Storage finns i den [används Azure CLI med Azure Storage](https://docs.microsoft.com/azure/storage/storage-azure-cli#create-and-manage-blobs) dokumentet.
+    Du kan visa och hämta dessa filer med hjälp av [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli). Mer information om hur du använder Azure CLI med Azure Storage finns i [använda Azure CLI med Azure Storage](https://docs.microsoft.com/azure/storage/storage-azure-cli#create-and-manage-blobs) -dokument.
 
 ## <a id="nextsteps"></a>Nästa steg
 
 Allmän information om Hive med HDInsight:
 
-* [Använda Apache Hive med Apache Hadoop i HDInsight](hdinsight-use-hive.md)
+* [Använda Apache Hive med Apache Hadoop på HDInsight](hdinsight-use-hive.md)
 
-Information om andra sätt kan du arbeta med Hadoop i HDInsight:
+Information om andra sätt att arbeta med Hadoop i HDInsight:
 
-* [Använda Apache Pig med Apache Hadoop på HDInsight](hdinsight-use-pig.md)
-* [Använda MapReduce med Apache Hadoop i HDInsight](hdinsight-use-mapreduce.md)
+* [Använda Apache gris med Apache Hadoop på HDInsight](hdinsight-use-pig.md)
+* [Använda MapReduce med Apache Hadoop på HDInsight](hdinsight-use-mapreduce.md)
 
-Mer information om REST API som används i det här dokumentet finns i den [WebHCat referens](https://cwiki.apache.org/confluence/display/Hive/WebHCat+Reference) dokumentet.
+Mer information om de REST API som används i det här dokumentet finns i [referens](https://cwiki.apache.org/confluence/display/Hive/WebHCat+Reference) dokumentet för WebHCat.

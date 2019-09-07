@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 04/05/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 5573eea4e7a5322c762665d2db8e3fbed1f585a1
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.openlocfilehash: c10905c283619e6008dbe6ab8c4e721888b8b786
+ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69970445"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70743804"
 ---
 # <a name="automate-resources-in-your-datacenter-or-cloud-by-using-hybrid-runbook-worker"></a>Automatisera resurser i ditt data Center eller moln genom att använda Hybrid Runbook Worker
 
@@ -24,7 +24,7 @@ Följande bild visar den här funktionen:
 
 ![Översikt över Hybrid Runbook Worker](media/automation-hybrid-runbook-worker/automation.png)
 
-Varje Hybrid Runbook Worker är medlem i en Hybrid Runbook Worker grupp som du anger när du installerar agenten. En grupp kan innehålla en enda agent, men du kan installera flera agenter i en grupp för hög tillgänglighet.
+Varje Hybrid Runbook Worker är medlem i en Hybrid Runbook Worker grupp som du anger när du installerar agenten. En grupp kan innehålla en enda agent, men du kan installera flera agenter i en grupp för hög tillgänglighet. Varje dator kan vara värd för en Hybrid Worker rapportering till ett Automation-konto.
 
 När du startar en Runbook på en Hybrid Runbook Worker anger du den grupp som den körs på. Varje anställd i gruppen avsöker Azure Automation för att se om några jobb är tillgängliga. Om ett jobb är tillgängligt tar den första arbets tagaren att hämta jobbet. Bearbetnings tiden för jobb kön beror på maskin varu profilen för Hybrid Worker och belastningen. Du kan inte ange en viss arbetare. Hybrid Runbook Worker delar inte många av de gränser som Azure-sandbox har. De har inte samma begränsningar för disk utrymme, minne eller nätverks-Sockets. Hybrid Runbook Worker begränsas endast av resurserna i själva Hybrid Runbook Worker. Dessutom delar hybrid Runbook Worker inte den 180 minuter långa [resurs](automation-runbook-execution.md#fair-share) tids gränsen som Azure-sandbox gör. Mer information om tjänst begränsningarna för Azure-sand lådor och hybrid Runbook Worker finns på sidan jobb [gränser](../azure-subscription-service-limits.md#automation-limits) .
 

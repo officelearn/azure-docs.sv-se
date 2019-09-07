@@ -1,6 +1,6 @@
 ---
 title: Kapacitets planering för kluster i Azure HDInsight
-description: Så här anger du ett HDInsight-kluster för kapacitet och prestanda.
+description: Identifiera viktiga frågor för kapacitets-och prestanda planering för ett Azure HDInsight-kluster.
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: hrasheed
-ms.openlocfilehash: 3d82846c02754f23b4a2e86a7881c952e503b36f
-ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
+ms.openlocfilehash: 608d097f1ebad9e4e1092c7ec54a573ccb58ad81
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2019
-ms.locfileid: "70207152"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70734667"
 ---
 # <a name="capacity-planning-for-hdinsight-clusters"></a>Kapacitets planering för HDInsight-kluster
 

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 1645e97e5648032a1281e7cb410c42f0a28b6767
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 4f0cffbb65192a3698df0c658742147aea354b70
+ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68559651"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70744535"
 ---
 # <a name="how-to-create-human-labeled-transcriptions"></a>Så här skapar du medmärkade avskrifter
 
@@ -74,7 +74,7 @@ Här följer några exempel på normalisering som utförs automatiskt på avskri
 | Gå till get-EM! | Go-Hämta EM |
 | Jag är dubbelt gemensam | Jag är dubbelt gemensam |
 | 104 Elm Street | 1 0 4, gymnasium, gata |
-| Justera till 102,7 | Justera till 1 0 2 7 |
+| Justera till 102,7 | Justera till 1 0 2 punkt sju |
 | PI är cirka 3,14 | PI är cirka tre punkter 1 4 |
 IT-kostnader $3,14| IT-kostnader 3 14 |
 

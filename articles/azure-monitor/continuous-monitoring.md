@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/12/2018
 ms.author: bwren
-ms.openlocfilehash: ab633ca47f684688019b1313de61571252760a20
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: f101a8885d9bf67e8bd589d7cf932b0d35cdfe32
+ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68967754"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70744505"
 ---
 # <a name="continuous-monitoring-with-azure-monitor"></a>Kontinuerlig övervakning med Azure Monitor
 
@@ -62,7 +62,7 @@ Ett typiskt program på Azure innehåller i dag flera resurser, till exempel vir
 Kontinuerlig integrering/kontinuerlig distribution gör att du automatiskt kan integrera och distribuera kod ändringar i programmet baserat på resultaten av automatiserad testning. Det effektiviserar distributions processen och säkerställer kvaliteten på eventuella ändringar innan de flyttas till produktion.
 
 
-- Använd [Azure](/azure/devops/pipelines) -pipelines för att implementera kontinuerlig distribution och automatisera hela processen från kod genomförande till produktion utifrån dina CI/CD-tester.
+- Använd [Azure-pipelines](/azure/devops/pipelines) för att implementera kontinuerlig distribution och automatisera hela processen från kod genomförande till produktion utifrån dina CI/CD-tester.
 - Använd [kvalitets grindar](/azure/devops/pipelines/release/approvals/gates) för att integrera övervakning i för distribution eller efter distribution. Detta säkerställer att du uppfyller KPI: erna (Key Health/prestanda mått) när dina program flyttas från dev till produktion och eventuella skillnader i infrastruktur miljön eller skalan inte påverkar dina KPI: er negativt.
 - [Upprätthålla separata övervaknings instanser](../azure-monitor/app/separate-resources.md) mellan dina olika distributions miljöer, till exempel dev, test, Kanarie och Prod. Detta säkerställer att insamlade data är relevanta för alla associerade program och infrastrukturer. Om du behöver korrelera data i olika miljöer kan du använda diagram med [flera resurser i Metrics Explorer](../azure-monitor/platform/metrics-charts.md) eller skapa [kors resurs frågor i Azure Monitor](log-query/cross-workspace-query.md).
 
@@ -72,7 +72,7 @@ En viktig aspekt av övervakningen meddelar proaktivt administratörer om eventu
 
 - Skapa [aviseringar i Azure Monitor](../azure-monitor/platform/alerts-overview.md) baserat på loggar och mått för att identifiera tillstånd för förutsägbara haverier. Du bör ha målet att göra alla aviseringar åtgärds bara, vilket innebär att de representerar faktiska kritiska villkor och söker för att minska antalet falska positiva identifieringar. Använd [dynamiska tröskelvärden](platform/alerts-dynamic-thresholds.md) för att automatiskt beräkna bas linjer för mått data i stället för att definiera egna statiska tröskelvärden. 
 - Definiera åtgärder för aviseringar för att använda det mest effektiva sättet att meddela dina administratörer. Tillgängliga [åtgärder för avisering](platform/action-groups.md#create-an-action-group-by-using-the-azure-portal) är SMS, e-post, push-meddelanden eller röst samtal.
-- Använd mer avancerade åtgärder för att [ansluta till ditt ITSM-verktyg](platform/itsmc-overview.md) eller andra aviserings hanterings system via Webhooks. [](platform/activity-log-alerts-webhook.md)
+- Använd mer avancerade åtgärder för att [ansluta till ditt ITSM-verktyg](platform/itsmc-overview.md) eller andra aviserings hanterings system via [Webhooks](platform/activity-log-alerts-webhook.md).
 - Åtgärda situationer som identifieras i aviseringar och [Azure Automation runbooks](../automation/automation-webhooks.md) eller [Logic Apps](/connectors/custom-connectors/create-webhook-trigger) som kan startas från en avisering med hjälp av Webhooks. 
 - Använd automatisk [skalning](../azure-monitor/learn/tutorial-autoscale-performance-schedule.md) för att dynamiskt öka och minska dina beräknings resurser baserat på insamlade mått.
 

@@ -1,6 +1,6 @@
 ---
-title: 'Självstudier: Läsa in data och köra frågor i ett Apache Spark-kluster i Azure HDInsight '
-description: Självstudie – Lär dig att läsa in data och kör interaktiva frågor på Spark-kluster i Azure HDInsight.
+title: 'Självstudier: Läs in data och kör frågor på Apache Spark kluster i Azure HDInsight'
+description: Självstudie – lär dig hur du läser in data och kör interaktiva frågor i Spark-kluster i Azure HDInsight.
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -8,12 +8,12 @@ ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
 ms.author: hrasheed
 ms.date: 05/16/2019
-ms.openlocfilehash: e4ed8bb2631b4dc2f760dc4d92247377db591160
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: 109ed1a2ef22e498c2d19fd2e4f1848f289e9b55
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67295695"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70735277"
 ---
 # <a name="tutorial-load-data-and-run-queries-on-an-apache-spark-cluster-in-azure-hdinsight"></a>Självstudier: Läsa in data och köra frågor i ett Apache Spark-kluster i Azure HDInsight
 
@@ -24,21 +24,21 @@ I den här guiden får du lära dig att:
 > * Skapa en dataram från en csv-fil
 > * Köra frågor i dataramen
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
-Ett Apache Spark-kluster i HDInsight. Se [skapar ett Apache Spark-kluster](./apache-spark-jupyter-spark-sql-use-portal.md).
+Ett Apache Spark-kluster i HDInsight. Se [skapa ett Apache Spark-kluster](./apache-spark-jupyter-spark-sql-use-portal.md).
 
 ## <a name="create-a-jupyter-notebook"></a>Skapa en Jupyter-anteckningsbok
 
 Jupyter Notebook är en interaktiv anteckningsboksmiljö som stöder flera olika datorspråk. Du kan använda anteckningsboken för att interagera med dina data, kombinera kod med markdown-text och utföra enkla visualiseringar. 
 
-1. Redigera URL: en `https://SPARKCLUSTER.azurehdinsight.net/jupyter` genom att ersätta `SPARKCLUSTER` med namnet på ditt Spark-kluster. Ange den redigerade URL i en webbläsare. Ange autentiseringsuppgifterna för klustret om du uppmanas att göra det.
+1. Redigera URL: `https://SPARKCLUSTER.azurehdinsight.net/jupyter` en genom `SPARKCLUSTER` att ersätta med namnet på ditt Spark-kluster. Ange sedan den redigerade URL-adressen i en webbläsare. Ange autentiseringsuppgifterna för klustret om du uppmanas att göra det.
 
-2. Välj webbsida Jupyter **New** > **PySpark** att skapa en anteckningsbok. 
+2. På webb sidan Jupyter väljer du **ny** > **PySpark** för att skapa en antecknings bok. 
 
    ![Skapa en Jupyter-anteckningsbok för att köra en interaktiv Spark SQL-fråga](./media/apache-spark-load-data-run-query/hdinsight-spark-create-jupyter-interactive-spark-sql-query.png "Skapa en Jupyter-anteckningsbok för att köra en interaktiv Spark SQL-fråga")
 
-   En ny anteckningsbok skapas och öppnas med namnet Namnlös (`Untitled.ipynb`).
+   En ny antecknings bok skapas och öppnas med namnet namnlös (`Untitled.ipynb`).
 
     > [!NOTE]  
     > Genom att använda PySpark-kärnan för att skapa en anteckningsbok skapas automatiskt sessionen `spark` för dig när du kör den första kodcellen. Du behöver inte uttryckligen skapa sessionen.
@@ -49,7 +49,7 @@ Program kan skapa dataramar direkt från filer eller mappar via fjärrlagring, t
     
 ![Ögonblicksbild av data för en interaktiv Spark SQL-fråga](./media/apache-spark-load-data-run-query/hdinsight-spark-sample-data-interactive-spark-sql-query.png "Ögonblicksbild av data för en interaktiv Spark SQL-fråga")
 
-1. Klistra in följande kod i en tom cell i Jupyter-anteckningsboken och tryck sedan på **SKIFT + RETUR** att köra koden. Koden importerar de typer som krävs för det här scenariot:
+1. Klistra in följande kod i en tom cell i Jupyter Notebook och tryck sedan på **SKIFT + RETUR** för att köra koden. Koden importerar de typer som krävs för det här scenariot:
 
     ```python
     from pyspark.sql import *
@@ -87,9 +87,9 @@ När tabellen har skapats kan du köra en interaktiv fråga på datan.
 
     ![Områdesdiagram över interaktivt Spark-frågeresultat](./media/apache-spark-load-data-run-query/hdinsight-interactive-spark-query-result-area-chart.png "Områdesdiagram över interaktivt Spark-frågeresultat")
 
-3. Från menyraden notebook navigerar du till **filen** > **spara och kontrollpunkt**.
+3. Från meny raden i anteckningsbokslayout navigerar du till **filen** > **Save och Checkpoint**.
 
-4. Om du ska starta [nästa självstudie](apache-spark-use-bi-tools.md) direkt kan du lämna anteckningsboken öppen. Om den inte stänga ned anteckningsboken för att frigöra klusterresurserna: från menyraden notebook navigerar du till **filen** >  **Stäng och stoppa**.
+4. Om du ska starta [nästa självstudie](apache-spark-use-bi-tools.md) direkt kan du lämna anteckningsboken öppen. Annars stänger du antecknings boken för att frigöra kluster resurserna: från meny raden i anteckningsbok-menyn navigerar du till **filen** >  **Stäng och stoppa**.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
@@ -103,7 +103,7 @@ Du kan också välja resursgruppnamnet för att öppna resursgruppsidan. Välj s
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudien beskrivs hur du skapar en dataram från en csv-fil och hur du kör interaktiva Spark SQL-frågor mot ett Apache Spark-kluster i Azure HDInsight. Gå vidare till nästa artikel för att se hur de data som du har registrerat i Apache Spark kan hämtas till ett BI-analysverktyg såsom Power BI.
+I den här självstudien har du lärt dig hur du skapar en dataframe från en CSV-fil och hur du kör interaktiva Spark SQL-frågor mot ett Apache Spark kluster i Azure HDInsight. Gå vidare till nästa artikel för att se hur de data som du har registrerat i Apache Spark kan hämtas till ett BI-analysverktyg såsom Power BI.
 
 > [!div class="nextstepaction"]
 > [Analysera data med BI-verktyg](apache-spark-use-bi-tools.md)

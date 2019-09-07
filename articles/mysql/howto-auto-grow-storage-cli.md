@@ -6,12 +6,12 @@ ms.author: ambhatna
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 8/7/2019
-ms.openlocfilehash: f9625d8b7d27fd47bf2088d552c0a2fc64b141c9
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: c9faaa5d011a32dfbaa5a841d3bce824f7ba5c9d
+ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70143731"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70390565"
 ---
 # <a name="auto-grow-azure-database-for-mysql-storage-using-the-azure-cli"></a>Utöka Azure Database for MySQL lagring automatiskt med hjälp av Azure CLI
 I den här artikeln beskrivs hur du kan konfigurera en Azure Database for MySQL Server lagring så att den växer utan att arbets belastningen påverkas.
@@ -38,7 +38,7 @@ az mysql server update --name mydemoserver --resource-group myresourcegroup --au
 Aktivera automatisk storleks ökning av servern när du skapar en ny server med följande kommando:
 
 ```azurecli-interactive
-az mysql server create --resource-group myresourcegroup --name mydemoserver  --auto-grow Enabled --location westus --admin-user myadmin --admin-password <server_admin_password> --sku-name GP_Gen4_2 --version 5.7
+az mysql server create --resource-group myresourcegroup --name mydemoserver  --auto-grow Enabled --location westus --admin-user myadmin --admin-password <server_admin_password> --sku-name GP_Gen5_2 --version 5.7
 ```
 
 ## <a name="next-steps"></a>Nästa steg

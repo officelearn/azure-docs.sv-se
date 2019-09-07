@@ -9,12 +9,12 @@ ms.subservice: cognitive-search
 ms.topic: quickstart
 ms.date: 07/09/2019
 ms.author: heidist
-ms.openlocfilehash: a4654e5895e9c7768b9fa6b975ef848294bcc8cc
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: 72546e6327fc3286455482943dcaedbd5a8e2943
+ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69648908"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70744737"
 ---
 # <a name="quickstart-create-an-ai-indexing-pipeline-using-cognitive-skills-in-azure-search"></a>Snabbstart: Skapa en AI-indexerings pipeline med kognitiva kunskaper i Azure Search
 
@@ -45,7 +45,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 [Cognitive Services](https://azure.microsoft.com/services/cognitive-services/) innehåller AI. Den här snabb starten innehåller steg för att lägga till dessa resurser i rad när du anger pipelinen. Du behöver inte konfigurera konton i förväg.
 
-Azure-tjänster krävs för att tillhandahålla indata till indexerings pipelinen. Du kan använda vilken data källa som helst som stöds av [Azure Search indexerare](search-indexer-overview.md) förutom Azure Table Storage, vilket inte stöds för AI-indexering. I den här snabb starten används [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs/) som en behållare för källfiler för data. 
+Azure-tjänster krävs för att tillhandahålla indata till indexerings pipelinen. Du kan använda vilken data källa som helst som stöds av [Azure Search indexerare](search-indexer-overview.md). I den här snabb starten används [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs/) som en behållare för källfiler för data. 
 
 ### <a name="set-up-azure-blob-service-and-load-sample-data"></a>Konfigurera Azure Blob Service och läsa in exempeldata
 

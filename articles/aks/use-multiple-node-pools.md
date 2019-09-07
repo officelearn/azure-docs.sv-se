@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/9/2019
 ms.author: mlearned
-ms.openlocfilehash: 675d3e2f0dc27e70af497284ce273e87d005a2e1
-ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
+ms.openlocfilehash: 2a18362546ae3c31b06fc5294495d8f5ac5f0be3
+ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70241075"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70389944"
 ---
 # <a name="preview---create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>För hands version – skapa och hantera flera resurspooler för ett kluster i Azure Kubernetes service (AKS)
 
@@ -47,14 +47,13 @@ az extension update --name aks-preview
 
 ### <a name="register-multiple-node-pool-feature-provider"></a>Registrera flera funktions leverantörer för Node pool
 
-Om du vill skapa ett AKS-kluster som kan använda flera noder i pooler aktiverar du först två funktions flaggor i din prenumeration. Kluster med flera noder använder en skalnings uppsättning för virtuella datorer (VMSS) för att hantera distributionen och konfigurationen av Kubernetes-noderna. Registrera funktions flaggorna *MultiAgentpoolPreview* och *VMSSPreview* med hjälp av kommandot [AZ Feature register][az-feature-register] , som visas i följande exempel:
+Om du vill skapa ett AKS-kluster som kan använda flera noder i pooler aktiverar du först en funktions flagga för din prenumeration. Registrera funktions flaggan *MultiAgentpoolPreview* med [funktions registrerings kommandot AZ][az-feature-register] som visas i följande exempel:
 
 > [!CAUTION]
 > När du registrerar en funktion på en prenumeration kan du för närvarande inte avregistrera funktionen. När du har aktiverat vissa för hands versions funktioner kan standarderna användas för alla AKS-kluster och sedan skapas i prenumerationen. Aktivera inte för hands versions funktioner för produktions prenumerationer. Använd en separat prenumeration för att testa för hands versions funktionerna och samla in feedback.
 
 ```azurecli-interactive
 az feature register --name MultiAgentpoolPreview --namespace Microsoft.ContainerService
-az feature register --name VMSSPreview --namespace Microsoft.ContainerService
 ```
 
 > [!NOTE]
@@ -64,7 +63,6 @@ Det tar några minuter för statusen att visa *registrerad*. Du kan kontrol lera
 
 ```azurecli-interactive
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/MultiAgentpoolPreview')].{Name:name,State:properties.state}"
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/VMSSPreview')].{Name:name,State:properties.state}"
 ```
 
 När du är klar uppdaterar du registreringen av resurs leverantören *Microsoft. container service* med hjälp av [AZ Provider register][az-provider-register] kommando:
@@ -77,7 +75,7 @@ az provider register --namespace Microsoft.ContainerService
 
 Följande begränsningar gäller när du skapar och hanterar AKS-kluster som stöder flera Node-pooler:
 
-* Flera noder i pooler är bara tillgängliga för kluster som skapats efter att du har registrerat *MultiAgentpoolPreview* -och *VMSSPreview* -funktionerna för din prenumeration. Du kan inte lägga till eller hantera resurspooler med ett befintligt AKS-kluster som skapats innan de här funktionerna har registrerats.
+* Flera noder i pooler är bara tillgängliga för kluster som skapats efter att du har registrerat *MultiAgentpoolPreview* -funktionen för din prenumeration. Du kan inte lägga till eller hantera resurspooler med ett befintligt AKS-kluster som skapats innan den här funktionen har registrerats.
 * Du kan inte ta bort den första noden.
 * Det går inte att använda Dirigerings tillägget för HTTP-program.
 * Du kan inte lägga till/uppdatera/ta bort resurspooler med en befintlig Resource Manager-mall som i de flesta åtgärder. Använd i stället [en separat Resource Manager-mall](#manage-node-pools-using-a-resource-manager-template) för att göra ändringar i nodkonfigurationer i ett AKS-kluster.
@@ -86,7 +84,7 @@ När den här funktionen är i för hands version gäller följande ytterligare 
 
 * AKS-klustret kan ha högst åtta noder i pooler.
 * AKS-klustret kan ha högst 400 noder i de åtta noderna i poolen.
-* Alla noder i pooler måste finnas i samma undernät
+* Alla noder i pooler måste finnas i samma undernät.
 
 ## <a name="create-an-aks-cluster"></a>Skapa ett AKS-kluster
 

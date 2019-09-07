@@ -1,5 +1,5 @@
 ---
-title: 'Självstudier: Bearbeta data från Azure Event Hubs med Apache Spark i Azure HDInsight '
+title: 'Självstudier: Bearbeta data från Azure Event Hubs med Apache Spark i HDInsight'
 description: Självstudie – Anslut Apache Spark i Azure HDInsight till Azure Event Hubs och bearbeta strömmande data.
 ms.service: hdinsight
 author: hrasheed-msft
@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
 ms.date: 05/24/2019
-ms.openlocfilehash: 0d47c3f0838e22ad8c5185a42f5f0c748335dfa8
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.openlocfilehash: 2483ba22d3d502479e87ae385bcc837ec87a103c
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70049487"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70735341"
 ---
 # <a name="tutorial-process-tweets-using-azure-event-hubs-and-apache-spark-in-hdinsight"></a>Självstudier: Bearbeta tweets med Azure Event Hubs och Apache Spark i HDInsight
 
@@ -38,7 +38,7 @@ Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](ht
 
 Om du vill få en dataström med tweets skapar du ett program i Twitter. Följ anvisningarna skapa ett Twitter-program och skriv ned de värden som du behöver för att slutföra den här självstudien.
 
-1. Bläddra till [Twitter](https://apps.twitter.com/)-programhantering.
+1. Bläddra till [Twitter-programhantering](https://apps.twitter.com/).
 
 1. Välj **Skapa ny app**.
 
@@ -53,7 +53,7 @@ Om du vill få en dataström med tweets skapar du ett program i Twitter. Följ a
 
 1. Välj **Ja, jag har läst och samtycker till Twitter Developer Agreement**och välj sedan **skapa ditt Twitter-program**.
 
-1. Välj fliken **nycklar och åtkomst** -token.
+1. Välj fliken **nycklar och åtkomst-token** .
 
 1. Välj **skapa min åtkomsttoken** i slutet av sidan.
 

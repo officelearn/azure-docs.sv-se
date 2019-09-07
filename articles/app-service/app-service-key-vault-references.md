@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 09/03/2019
 ms.author: mahender
 ms.custom: seodec18
-ms.openlocfilehash: b33f0dec9e6ec685b19e01ce82cfe4adec88b575
-ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
+ms.openlocfilehash: 9c7f920c6b66995d53ef742a9faf574286a51d69
+ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70258602"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70390452"
 ---
 # <a name="use-key-vault-references-for-app-service-and-azure-functions-preview"></a>Använda Key Vault referenser för App Service och Azure Functions (förhands granskning)
 
@@ -38,7 +38,8 @@ För att kunna läsa hemligheter från Key Vault måste ett valv skapas och ge d
 
 1. Skapa en [åtkomst princip i Key Vault](../key-vault/key-vault-secure-your-key-vault.md#key-vault-access-policies) för den program identitet som du skapade tidigare. Aktivera hemliga behörigheten "Get" för den här principen. Konfigurera inte det "auktoriserade programmet" eller `applicationId` inställningar, eftersom detta inte är kompatibelt med en hanterad identitet.
 
-    Att bevilja åtkomst till en program identitet i Key Vault är en Databasmigrering-åtgärd och den förblir densamma för alla Azure-prenumerationer. Du kan använda den för att distribuera så många certifikat som du vill. 
+    > [!NOTE]
+    > Key Vault referenser kan för närvarande inte lösa hemligheter som lagras i ett nyckel valv med [nätverks begränsningar](../key-vault/key-vault-overview-vnet-service-endpoints.md).
 
 ## <a name="reference-syntax"></a>Syntax för referenser
 

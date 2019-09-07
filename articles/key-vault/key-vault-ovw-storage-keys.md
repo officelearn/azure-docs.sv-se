@@ -8,18 +8,18 @@ author: msmbaldwin
 ms.author: mbaldwin
 manager: barbkess
 ms.date: 03/01/2019
-ms.openlocfilehash: 7ba85d74f9126f4586313dc4e2b365d1e11f3798
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 251a7c21b671052a23f6ee18cb4278737464b25c
+ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68934183"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70744876"
 ---
 # <a name="manage-storage-account-keys-with-azure-key-vault-and-the-azure-cli"></a>Hantera lagrings konto nycklar med Azure Key Vault och Azure CLI 
 
 Azure Key Vault hanterar nycklar för Azure Storage-konton och klassiska lagrings konton. Du kan använda funktionen Key Vault hanterat lagrings konto för att slutföra flera nyckel hanterings funktioner åt dig.
 
-Ett [Azure Storage-konto](/azure/storage/storage-create-storage-account) använder en autentiseringsuppgift som består av ett konto namn och en nyckel. Nyckeln genereras automatiskt och fungerar som ett lösen ord i stället för en kryptografisk nyckel. Key Vault hanterar lagrings konto nycklar genom att lagra dem som [Key Vault hemligheter](/azure/key-vault/about-keys-secrets-and-certificates#key-vault-secrets). Nycklar visas (synkroniseras) med ett Azure Storage-konto och återskapas eller roterasregelbundet. 
+Ett [Azure Storage-konto](/azure/storage/storage-create-storage-account) använder en autentiseringsuppgift som består av ett konto namn och en nyckel. Nyckeln genereras automatiskt och fungerar som ett lösen ord i stället för en kryptografisk nyckel. Key Vault hanterar lagrings konto nycklar genom att lagra dem som [Key Vault hemligheter](/azure/key-vault/about-keys-secrets-and-certificates#key-vault-secrets). Nycklar visas (synkroniseras) med ett Azure Storage-konto och återskapas eller _roteras_regelbundet. 
 
 Tänk på följande när du använder funktionen för hanterad lagrings konto nyckel:
 
@@ -67,7 +67,7 @@ Det finns fyra grundläggande steg för att använda Key Vault för att hantera 
 
 1. Hämta ett befintligt lagrings konto.
 1. Hämta ett befintligt nyckel valv.
-1. Lägg till ett Key Vault hanterat lagrings konto i valvet. Ange `key1` som den aktiva nyckeln med en återställnings period på 180 dagar.
+1. Lägg till ett Key Vault hanterat lagrings konto i valvet. Ange `key1` som den aktiva nyckeln med en återställnings period på 90 dagar.
 1. Används `key1` för att ange en lagrings kontext för det angivna lagrings kontot.
 
 > [!NOTE]
@@ -150,7 +150,7 @@ När du har slutfört stegen i föregående avsnitt kör du följande kommandon 
 
 ## <a name="fetch-tokens-in-code"></a>Hämta token i kod
 
-Kör åtgärder på ditt lagrings konto genom att hämta token för [signatur för delad åtkomst](../storage/common/storage-dotnet-shared-access-signature-part-1.md) från Key Vault.
+Kör åtgärder på ditt lagrings konto genom att hämta [token för signatur för delad åtkomst](../storage/common/storage-dotnet-shared-access-signature-part-1.md) från Key Vault.
 
 Det finns tre sätt att autentisera till Key Vault:
 

@@ -1,127 +1,127 @@
 ---
-title: Migrera lokala Apache Hadoop-kluster till Azure HDInsight - arkitektur Metodtips
-description: Lär dig Metodtips för arkitektur för att migrera lokala Hadoop-kluster till Azure HDInsight.
+title: Migrera lokala Apache Hadoop-kluster till Azure HDInsight-arkitektur
+description: Lär dig metod tips för att migrera lokala Hadoop-kluster till Azure HDInsight.
 author: hrasheed-msft
 ms.reviewer: ashishth
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 10/25/2018
+ms.date: 09/04/2019
 ms.author: hrasheed
-ms.openlocfilehash: d1f2b79ff3ae33adb0b6e3ce5a6d96ad38fb1562
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4243100d74515576463a6812e31625ddc0ca1f48
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64693113"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70735887"
 ---
-# <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---architecture-best-practices"></a>Migrera lokala Apache Hadoop-kluster till Azure HDInsight - arkitektur Metodtips
+# <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---architecture-best-practices"></a>Migrera lokala Apache Hadoop kluster till Azure HDInsight-arkitektur metod tips
 
-Den här artikeln innehåller rekommendationer för arkitektur för Azure HDInsight-system. Det är en del i en serie som ger bästa praxis för att hjälpa migrera lokala Apache Hadoop-system till Azure HDInsight.
+Den här artikeln innehåller rekommendationer för arkitekturen i Azure HDInsight-system. Den ingår i en serie som ger bästa praxis för att hjälpa till att migrera lokala Apache Hadoop system till Azure HDInsight.
 
-## <a name="use-multiple-workload-optimized-clusters"></a>Använda flera arbetsbelastning-optimerade kluster
+## <a name="use-multiple-workload-optimized-clusters"></a>Använd flera arbets belastnings optimerade kluster
 
-Många lokala Apache Hadoop-distributioner som består av ett stort kluster som har stöd för många arbetsbelastningar. Den här enda kluster kan vara komplexa och kan kräva kompromisser till enskilda tjänster för att få allt att fungera tillsammans. Migrera lokala Hadoop-kluster till Azure HDInsight kräver en ändring i metoden.
+Många lokala Apache Hadoop distributioner består av ett enda stort kluster som har stöd för många arbets belastningar. Det här enkla klustret kan vara komplicerat och kan kräva kompromisser för enskilda tjänster för att allt ska fungera tillsammans. Att migrera lokala Hadoop-kluster till Azure HDInsight kräver en ändring i metoden.
 
-Azure HDInsight-kluster har utformats för en viss typ av beräkning användning. Eftersom lagring kan delas mellan flera kluster, är det möjligt att skapa flera arbetsbelastning-optimerade beräkningskluster för att uppfylla behoven hos olika jobb. Varje typ av kluster har den bästa konfigurationen för den specifika arbetsbelastningen. I följande tabell visas stöds klustertyper i HDInsight och motsvarande arbetsbelastningar.
+Azure HDInsight-kluster har utformats för en speciell typ av beräknings användning. Eftersom lagringen kan delas mellan flera kluster, är det möjligt att skapa flera arbets belastnings optimerade beräknings kluster för att uppfylla behoven hos olika jobb. Varje kluster typ har den optimala konfigurationen för den aktuella arbets belastningen. I följande tabell visas de kluster typer som stöds i HDInsight och motsvarande arbets belastningar.
 
-|**Arbetsbelastning**|**Typ av HDInsight-kluster**|
+|**Arbetsbelastning**|**HDInsight-kluster typ**|
 |---|---|
-|Batchbearbetning (ETL / ELT)|Hadoop, Spark|
-|Datalagerhantering|Hadoop, Spark, Interactive Query|
-|IoT / Streaming|Kafka, Storm, Spark|
-|NoSQL transaktionsbearbetning|HBase|
-|Interaktiv och snabbare frågor med cachelagring i minnet|Interaktiv fråga|
+|Batchbearbetning (ETL/ELT)|Hadoop, Spark|
+|Datalagerhantering|Hadoop, Spark, interaktiv fråga|
+|IoT/streaming|Kafka, Storm, Spark|
+|NoSQL-transaktionell bearbetning|HBase|
+|Interaktiva och snabbare frågor med minnes intern cachelagring|Interaktiv fråga|
 |Datavetenskap|ML-tjänster, Spark|
 
-I följande tabell visas olika metoder som kan användas för att skapa ett HDInsight-kluster.
+I följande tabell visas de olika metoder som kan användas för att skapa ett HDInsight-kluster.
 
-|**Verktyg**|**Webbläsarbaserade**|**Från kommandoraden**|**REST-API**|**SDK**|
+|**Verktyg**|**Webbläsare baserad**|**Kommando rad**|**REST-API**|**SDK**|
 |---|---|---|---|---|
 |[Azure Portal](../hdinsight-hadoop-create-linux-clusters-portal.md)|X||||
 |[Azure Data Factory](../hdinsight-hadoop-create-linux-clusters-adf.md)|X|X|X|X|
-|[Azure CLI (version 1.0)](../hdinsight-hadoop-create-linux-clusters-azure-cli.md)||X|||
+|[Azure CLI (ver 1,0)](../hdinsight-hadoop-create-linux-clusters-azure-cli.md)||X|||
 |[Azure PowerShell](../hdinsight-hadoop-create-linux-clusters-azure-powershell.md)||X|||
 |[cURL](../hdinsight-hadoop-create-linux-clusters-curl-rest.md)||X|X||
 |[.NET SDK](../hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md)||||X|
 |[Python SDK](https://docs.microsoft.com/python/api/overview/azure/hdinsight?view=azure-python)||||X|
 |[Java SDK](https://docs.microsoft.com/java/api/overview/azure/hdinsight?view=azure-java-stable)||||X|
-|[Azure Resource Manager-mallar](../hdinsight-hadoop-create-linux-clusters-arm-templates.md)||X|||
+|[Azure Resource Manager mallar](../hdinsight-hadoop-create-linux-clusters-arm-templates.md)||X|||
 
-Mer information finns i artikeln [Klustertyper i HDInsight](../hadoop/apache-hadoop-introduction.md).
+Mer information finns i artikel [kluster typer i HDInsight](../hadoop/apache-hadoop-introduction.md).
 
-## <a name="use-transient-on-demand-clusters"></a>Använda kluster för tillfälliga på begäran
+## <a name="use-transient-on-demand-clusters"></a>Använd tillfälliga kluster på begäran
 
-HDInsight-kluster kan gå oanvända under långa tidsperioder. För att spara på resurskostnader, stöder HDInsight på begäran tillfälliga kluster, som kan tas bort när arbetsbelastningen har slutförts.
+HDInsight-kluster kan gå oanvända under långa tids perioder. HDInsight stöder tillfälliga kluster på begäran, som kan tas bort när arbets belastningen har slutförts, för att hjälpa till att spara resurs kostnader.
 
-När du tar bort ett kluster är det associerade lagringskontot och externa metadata inte bort. Klustret skapas senare igen med hjälp av samma storage-konton och meta-butiker.
+När du tar bort ett kluster tas inte det associerade lagrings kontot och externa metadata bort. Klustret kan senare skapas på nytt med samma lagrings konton och meta-butiker.
 
-Azure Data Factory kan användas för att schemalägga skapandet av på begäran HDInsight-kluster. Mer information finns i artikeln [skapa på begäran Apache Hadoop-kluster i HDInsight med Azure Data Factory](../hdinsight-hadoop-create-linux-clusters-adf.md).
+Azure Data Factory kan användas för att schemalägga skapande av HDInsight-kluster på begäran. Mer information finns i artikeln [skapa på begäran Apache Hadoop kluster i HDInsight med hjälp av Azure Data Factory](../hdinsight-hadoop-create-linux-clusters-adf.md).
 
-## <a name="decouple-storage-from-compute"></a>Frikoppla lagring från beräkning
+## <a name="decouple-storage-from-compute"></a>Frikoppla lagring från data bearbetning
 
-Typiska lokala Hadoop-distributioner kan du använda samma uppsättning datorer för datalagring och bearbetning av data. Eftersom de är samordnade måste beräkning och lagring skalas tillsammans.
+Typiska lokala Hadoop-distributioner använder samma uppsättning datorer för data lagring och data bearbetning. Eftersom de är samplacerade måste beräkning och lagring skalas tillsammans.
 
-Storage inte behöver inte samplaceras med beräkning på HDInsight-kluster och kan antingen vara i Azure storage, Azure Data Lake Storage eller båda. Frikoppling lagring från beräkning har följande fördelar:
+I HDInsight-kluster behöver inte lagring befinna sig med beräkning och kan antingen vara i Azure Storage, Azure Data Lake Storage eller båda. Koppling av lagring från Compute har följande fördelar:
 
-- Datadelning mellan kluster.
-- Användning av tillfälliga kluster eftersom data inte är beroende av kluster.
-- Minskar kostnaden för lagring.
-- Skala lagring och beräkning separat.
-- Replikering av data mellan regioner.
+- Data delning mellan kluster.
+- Användning av tillfälliga kluster eftersom data inte är beroende av klustret.
+- Minskad lagrings kostnad.
+- Skala lagring och Compute separat.
+- Datareplikering mellan regioner.
 
-Compute beräkningsklustren skapas nära lagringskontoresurserna i en Azure-region att minska kostnaden för att avgränsa beräkning och lagring. Snabba nätverk kan du effektivt för beräkningsnoderna kan komma åt data i Azure storage.
+Beräknings kluster skapas nära lagrings konto resurser i en Azure-region för att minska prestanda kostnaderna för att åtskilja beräkning och lagring. Höghastighets nätverk gör det effektivt för datornoderna att komma åt data i Azure Storage.
 
 ## <a name="use-external-metadata-stores"></a>Använda extern metadatalagring
 
 
-Det finns två huvudsakliga metastores som fungerar med HDInsight-kluster: [Apache Hive](https://hive.apache.org/) och [Apache Oozie](https://oozie.apache.org/). Hive-metaarkiv finns centrala schemadatabasen som kan användas av databearbetning-motorer, inklusive Hadoop, Spark, LLAP, Presto och Apache Pig. Oozie-metaarkiv lagrar information om att schemalägga och status för pågående och slutförda Hadoop-jobb.
+Det finns två huvudsakliga metastores som fungerar med HDInsight-kluster: [Apache Hive](https://hive.apache.org/) -och [Apache-Oozie](https://oozie.apache.org/). Hive-metaarkiv är den centrala schema lagrings platsen som kan användas av data bearbetnings motorer, däribland Hadoop, Spark, LLAP, Presto och Apache gris. Oozie-metaarkiv lagrar information om schemaläggning och status för pågående och slutförda Hadoop-jobb.
 
 
-HDInsight använder Azure SQL Database för metastores för Hive och Oozie. Det finns två sätt att ställa in ett metaarkiv i HDInsight-kluster:
+HDInsight använder Azure SQL Database för Hive-och Oozie-metastores. Det finns två sätt att konfigurera en metaarkiv i HDInsight-kluster:
 
-1. Standardmetaarkiv
+1. Standard metaarkiv
 
-    - Utan extra kostnad.
+    - Ingen ytterligare kostnad.
     - Metaarkiv tas bort när klustret tas bort.
     - Metaarkiv kan inte delas mellan olika kluster.
     - Använder grundläggande Azure SQL DB, som har en fem DTU-gräns.
 
-1. Anpassade externt metaarkiv
+1. Anpassad extern metaarkiv
 
-    - Ange en extern Azure SQL-databas som metaarkiv.
-    - Kluster kan skapas och tas bort utan att förlora metadata, inklusive Hive schemat Oozie jobbinformation.
-    - Enkel metaarkiv db kan delas med olika typer av kluster.
+    - Ange en extern Azure SQL Database som metaarkiv.
+    - Kluster kan skapas och tas bort utan att förlora metadata, till exempel jobb information för Hive-schema Oozie.
+    - Enkel metaarkiv DB kan delas med olika typer av kluster.
     - Metaarkiv kan skalas upp efter behov.
-    - Mer information finns i [använda extern metadatalagring i Azure HDInsight](../hdinsight-use-external-metadata-stores.md).
+    - Mer information finns i [använda externa metadata butiker i Azure HDInsight](../hdinsight-use-external-metadata-stores.md).
 
-## <a name="best-practices-for-hive-metastore"></a>Metodtips för Hive-Metaarkiv
+## <a name="best-practices-for-hive-metastore"></a>Metod tips för Hive-Metaarkiv
 
-Några Metodtips för HDInsight Hive-metaarkiv är följande:
+Några HDInsight-Hive-metaarkiv bästa praxis är följande:
 
-- Använd en anpassad externt metaarkiv separat beräkningsresurser och metadata.
-- Börja med en S2-nivån Azure SQL-instansen, som ger 50 DTU och 250 GB lagring. Om du ser en flaskhals kan skala du databasen upp.
-- Dela inte metaarkiv som skapats för ett HDInsight-kluster av version med kluster i en annan version. Olika versioner av Hive använda olika scheman. Till exempel kan ett metaarkiv inte delas med både Hive 1.2 och Hive 2.1-kluster.
-- Säkerhetskopiera anpassade metastore med jämna mellanrum.
-- Behåll metaarkiv och HDInsight-kluster i samma region.
-- Övervaka metaarkiv för prestanda och tillgänglighet med hjälp av Azure SQL Database-övervakning verktyg som Azure-portalen eller Azure Monitor-loggar.
-- Kör den **analysera tabell** kommandot som krävs för att skapa statistik för tabeller och kolumner. Till exempel `ANALYZE TABLE [table_name] COMPUTE STATISTICS`.
+- Använd en anpassad extern metaarkiv för att separera beräknings resurser och metadata.
+- Börja med en S2-nivå i Azure SQL-instansen, som tillhandahåller 50 DTU och 250 GB lagrings utrymme. Om du ser en Flask hals kan du skala databasen uppåt.
+- Dela inte metaarkiv som skapats för en HDInsight-kluster version med kluster av en annan version. Olika Hive-versioner använder olika scheman. Till exempel kan en metaarkiv inte delas med både Hive 1,2-och Hive 2,1-kluster.
+- Säkerhetskopiera de anpassade metaarkiv med jämna mellanrum.
+- Behåll metaarkiv-och HDInsight-klustret i samma region.
+- Övervaka metaarkiv för prestanda och tillgänglighet med hjälp av Azure SQL Database övervaknings verktyg som Azure Portal eller Azure Monitor loggar.
+- Kör kommandot **analysera tabell** som krävs för att generera statistik för tabeller och kolumner. Till exempel `ANALYZE TABLE [table_name] COMPUTE STATISTICS`.
 
-## <a name="best-practices-for-different-workloads"></a>Metodtips för olika arbetsbelastningar
+## <a name="best-practices-for-different-workloads"></a>Metod tips för olika arbets belastningar
 
-- Överväg att använda LLAP kluster för interaktiva Hive-frågor med förbättrad svarstid [LLAP](https://cwiki.apache.org/confluence/display/Hive/LLAP) är en ny funktion i Hive 2.0 som gör att cachelagra i minnet för frågor. LLAP gör Hive-frågor som är mycket snabbare, upp till [26 x snabbare än Hive 1.x i vissa fall](https://hortonworks.com/blog/announcing-apache-hive-2-1-25x-faster-queries-much/).
+- Överväg att använda LLAP-kluster för interaktiva Hive-frågor med förbättrad svars tid [LLAP](https://cwiki.apache.org/confluence/display/Hive/LLAP) är en ny funktion i Hive 2,0 som tillåter minnes intern cachelagring av frågor. LLAP gör Hive-frågor mycket snabbare, upp till [26x snabbare än Hive 1. x i vissa fall](https://hortonworks.com/blog/announcing-apache-hive-2-1-25x-faster-queries-much/).
 - Överväg att använda Spark-jobb i stället för Hive-jobb.
-- Överväg att ersätta impala-baserade frågor med LLAP frågor.
+- Överväg att ersätta Impala-baserade frågor med LLAP-frågor.
 - Överväg att ersätta MapReduce-jobb med Spark-jobb.
-- Överväg att ersätta med låg latens Spark batch-jobb med hjälp av Spark Structured Streaming jobb.
-- Överväg att använda Azure Data Factory (ADF) 2.0 för datadirigering.
-- Överväg att Ambari för klusterhantering.
-- Ändra lagring av data från lokala HDFS WASB eller ADLS eller AD FS för bearbetning av skript.
-- Överväg att använda Ranger RBAC på Hive-tabeller och granskning.
+- Överväg att ersätta Spark-batchjobb med låg latens med hjälp av Spark strukturerade strömmande jobb.
+- Överväg att använda Azure Data Factory (ADF) 2,0 för data dirigering.
+- Överväg Ambari för kluster hantering.
+- Ändra data lagring från en lokal HDFS till WASB eller ADLS eller ADFS för bearbetning av skript.
+- Överväg att använda Ranger RBAC i Hive-tabeller och granskning.
 - Överväg att använda CosmosDB i stället för MongoDB eller Cassandra.
 
 ## <a name="next-steps"></a>Nästa steg
 
 Läs nästa artikel i den här serien:
 
-- [Metodtips för infrastruktur för lokalt till Azure HDInsight Hadoop-migrering](apache-hadoop-on-premises-migration-best-practices-infrastructure.md)
+- [Metod tips för infrastruktur för lokal att Azure HDInsight Hadoop migrering](apache-hadoop-on-premises-migration-best-practices-infrastructure.md)

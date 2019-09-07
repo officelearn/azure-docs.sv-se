@@ -1,5 +1,5 @@
 ---
-title: QnA-roboten – Azure Bot Service – QnA Maker
+title: 'Självstudier: QnA-roboten – Azure Bot Service – QnA Maker'
 titleSuffix: Azure Cognitive Services
 description: Skapa en QnA chatt-robot från publicerings sidan för en befintlig kunskaps bas. Den här roboten använder bot Framework SDK v4. Du behöver inte skriva någon kod för att skapa bot. all kod tillhandahålls åt dig.
 services: cognitive-services
@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: tutorial
-ms.date: 07/31/2019
+ms.date: 09/05/2019
 ms.author: diberry
-ms.openlocfilehash: 4bb987a5a091871bec2c0cc8cec6d9ab804bb244
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: ea6e0d266c181d930f3d18171b09d222e53da7ab
+ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68697996"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70390896"
 ---
 # <a name="tutorial-create-a-qna-bot-with-azure-bot-service-v4"></a>Självstudier: Skapa en QnA-robot med Azure Bot Service v4
 

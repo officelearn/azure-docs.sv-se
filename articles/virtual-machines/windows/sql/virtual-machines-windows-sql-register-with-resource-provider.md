@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 06/24/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: eeabb4547e3c02ebf540e6d156df97954e612fbc
-ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
+ms.openlocfilehash: edda6dffa04bfc0492b7336893c5b167ccc42ca5
+ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2019
-ms.locfileid: "70208331"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70743922"
 ---
 # <a name="register-a-sql-server-virtual-machine-in-azure-with-the-sql-vm-resource-provider"></a>Registrera en SQL Server virtuell dator i Azure med providern för SQL VM-resurs
 
@@ -241,7 +241,7 @@ Du måste registrera resurs leverantören med din prenumeration för att kunna r
 1. Gå till **prenumerationer** och välj en prenumeration på intresse.  
 1. På sidan **prenumerationer** går du till **Resource providers**. 
 1. Ange **SQL** i filtret för att ta fram SQL-relaterade resurs leverantörer. 
-1. Välj **Registrera**, **Registrera**om eller avregistrera för **Microsoft. SqlVirtualMachine** -providern, beroende på vilken åtgärd du önskar. 
+1. Välj **Registrera**, **Registrera**om eller **avregistrera** för **Microsoft. SqlVirtualMachine** -providern, beroende på vilken åtgärd du önskar. 
 
 ![Ändra providern](media/virtual-machines-windows-sql-ahb/select-resource-provider-sql.png)
 
@@ -346,7 +346,7 @@ Nej. Registrering med providern för SQL VM-resursen är inte tillgänglig i Azu
 
 **Kan jag registrera en virtuell dator med resurs leverantören för SQL-VM innan SQL Server installeras?**
 
-Nej. En virtuell dator måste ha minst en SQL Server instans för att kunna registreras hos resurs leverantören för SQL-VM. Om det inte finns någon SQL Server instans på den virtuella datorn, kommer den nya Micosoft. SqlVirtualMachine-resursen att vara i ett felaktigt tillstånd.
+Nej. En virtuell dator måste ha minst en SQL Server instans för att kunna registreras hos resurs leverantören för SQL-VM. Om det inte finns någon SQL Server instans på den virtuella datorn, kommer den nya Microsoft. SqlVirtualMachine-resursen att vara i ett felaktigt tillstånd.
 
 **Kan jag registrera en virtuell dator med resurs leverantören för SQL-VM om det finns flera SQL Server instanser?**
 

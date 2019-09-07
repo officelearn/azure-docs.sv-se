@@ -6,15 +6,15 @@ author: rboucher
 ms.service: azure-monitor
 ms.devlang: dotnet
 ms.topic: reference
-ms.date: 09/20/2018
+ms.date: 09/04/2019
 ms.author: robb
 ms.subservice: diagnostic-extension
-ms.openlocfilehash: 1230a9bcea01ef394a6299c50b8d5537850cfee5
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: e8ea8ea749243821e5382fc285e3c38f05d4c6b5
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "60527302"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70735093"
 ---
 # <a name="azure-diagnostics-extension-configuration-schema-versions-and-history"></a>Azure-diagnostik tilläggs konfiguration schema versioner och historik
 Den här sidan indexerar Azure-diagnostik tilläggs schema versioner som ingår i Microsoft Azure SDK.  
@@ -54,13 +54,7 @@ Azure-diagnostik-tillägget används med andra Microsoft-diagnostiska produkter 
  Från och med SDK 2,5 (diagnostisk version 1,2), gick Azure Diagnostics till en tilläggs modell. Verktygen för att använda nya funktioner fanns bara tillgängliga i nyare Azure SDK: er, men alla tjänster som använder Azure Diagnostics skulle hämta den senaste leverans versionen direkt från Azure. Till exempel skulle alla som fortfarande använder SDK 2,5 läsa in den senaste versionen som visas i föregående tabell, oavsett om de använder de nya funktionerna.  
 
 ## <a name="schemas-index"></a>Schema index  
-Olika versioner av Azure Diagnostics använder olika konfigurations scheman.
-
-[Konfigurations schema för diagnostik 1,0](diagnostics-extension-schema-1dot0.md)  
-
-[Konfigurations schema för diagnostik 1,2](diagnostics-extension-schema-1dot2.md)  
-
-[Konfigurations schema för diagnostik 1,3 och senare](diagnostics-extension-schema-1dot3.md)  
+Olika versioner av Azure Diagnostics använder olika konfigurations scheman. Schema 1,0 och 1,2 är inaktuella. Mer information om version 1,3 och senare finns i [konfigurations schema för diagnostik 1,3 och senare](diagnostics-extension-schema-1dot3.md)  
 
 ## <a name="version-history"></a>Versionshistorik
 

@@ -11,12 +11,12 @@ ms.author: jovanpop
 ms.reviewer: sstein, carlrab, bonova
 ms.date: 08/12/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 9d99bb6db56a8db9d78952e4cf16465e386358cc
-ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
+ms.openlocfilehash: 8f12f07d22387e5625b10e564cd05109e5bc73fc
+ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70383143"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70744399"
 ---
 # <a name="managed-instance-t-sql-differences-limitations-and-known-issues"></a>Hanterade instans T-SQL-skillnader, begränsningar och kända problem
 
@@ -303,7 +303,7 @@ Mer information finns i [Alter Database](https://docs.microsoft.com/sql/t-sql/st
 
 Följande SQL Agent-funktioner stöds för närvarande inte:
 
-- Proxyservrar
+- Proxy
 - Schemalägga jobb på en inaktiv processor
 - Aktivera eller inaktivera en agent
 - Aviseringar
@@ -339,7 +339,7 @@ En hanterad instans kan inte komma åt fil resurser och Windows-mappar, så föl
 - `ALTER ASSEMBLY`Det går inte att referera till filer. Se [Alter Assembly](https://docs.microsoft.com/sql/t-sql/statements/alter-assembly-transact-sql).
 
 ### <a name="database-mail-db_mail"></a>Database Mail (db_mail)
- - `sp_send_dbmail`Det går inte att @file_attachments skicka atachments med parametern. Lokala fil system och lagrings resurser eller Azure Blob Storage är inte tillgängliga i den här proceduren.
+ - `sp_send_dbmail`Det går inte att @file_attachments skicka bilagor med hjälp av parametern. Lokala fil system och lagrings resurser eller Azure Blob Storage är inte tillgängliga i den här proceduren.
  - Se kända problem som `@query` rör parametrar och autentisering.
  
 ### <a name="dbcc"></a>DBCC

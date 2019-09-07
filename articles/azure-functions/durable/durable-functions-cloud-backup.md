@@ -9,12 +9,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 3db98039ae057e48867c91d1081c38066067c621
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 81c1279670e786ddaa03946869773121a859d3b7
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70087437"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70735244"
 ---
 # <a name="fan-outfan-in-scenario-in-durable-functions---cloud-backup-example"></a>Exempel på anti-out/fläkt i scenario i Durable Functions-Cloud backup
 
@@ -26,9 +26,9 @@ ms.locfileid: "70087437"
 
 I det här exemplet laddar funktionerna upp alla filer i en angiven katalog rekursivt till Blob Storage. De räknar också det totala antalet byte som har överförts.
 
-Det är möjligt att skriva en enda funktion som tar hand om allt. Det huvudsakliga problemet som du skulle köra iär skalbarhet. En enskild funktions körning kan bara köras på en enskild virtuell dator, så data flödet begränsas av genomflödet för den virtuella datorn. Ett annat problem är **tillförlitlighet**. Om det uppstår ett problem halvvägs eller om hela processen tar fler än 5 minuter kan säkerhets kopieringen Miss lyckas i ett delvis slutfört tillstånd. Den måste sedan startas om.
+Det är möjligt att skriva en enda funktion som tar hand om allt. Det huvudsakliga problemet som du skulle köra i är **skalbarhet**. En enskild funktions körning kan bara köras på en enskild virtuell dator, så data flödet begränsas av genomflödet för den virtuella datorn. Ett annat problem är **tillförlitlighet**. Om det uppstår ett problem halvvägs eller om hela processen tar fler än 5 minuter kan säkerhets kopieringen Miss lyckas i ett delvis slutfört tillstånd. Den måste sedan startas om.
 
-En mer robust metod är att skriva två vanliga funktioner: en skulle räkna upp filerna och lägga till fil namnen i en kö, och en annan skulle läsa från kön och överföra filerna till Blob Storage. Detta är bättre med avseende på data flöde och pålitlighet, men kräver att du etablerar och hanterar en kö. Mer viktig information finns i användnings villkoren och samordningen om du vill göra allt mer, till exempel rapportera det totala antalet byte som överförs.
+En mer robust metod är att skriva två vanliga funktioner: en skulle räkna upp filerna och lägga till fil namnen i en kö, och en annan skulle läsa från kön och överföra filerna till Blob Storage. Detta är bättre med avseende på data flöde och pålitlighet, men kräver att du etablerar och hanterar en kö. Mer viktig information **finns i användnings villkoren och** **samordningen** om du vill göra allt mer, till exempel rapportera det totala antalet byte som överförs.
 
 En Durable Functions metod ger dig alla angivna förmåner med mycket låg belastning.
 
@@ -179,7 +179,7 @@ Här är dirigeringen som en enskild C# fil i ett Visual Studio-projekt:
 
 ## <a name="next-steps"></a>Nästa steg
 
-Det här exemplet visar hur du implementerar bläddra in/bläddra in-mönstret. I nästa exempel visas hur du implementerar övervaknings mönstret med [](durable-functions-timers.md)hjälp av varaktiga timers.
+Det här exemplet visar hur du implementerar bläddra in/bläddra in-mönstret. I nästa exempel visas hur du implementerar övervaknings mönstret med hjälp av [varaktiga timers](durable-functions-timers.md).
 
 > [!div class="nextstepaction"]
 > [Kör övervaknings exemplet](durable-functions-monitor.md)

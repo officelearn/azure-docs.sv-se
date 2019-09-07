@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: f2b26e3418e264c2613a183570c7e27f75ab5d63
-ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
+ms.openlocfilehash: 1a48088d0d7ef1e14614629340ee477833535861
+ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2019
-ms.locfileid: "70208238"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70390397"
 ---
 # <a name="store-data-at-the-edge-with-azure-blob-storage-on-iot-edge"></a>Lagra data på gränsen med Azure Blob Storage på IoT Edge
 
@@ -173,7 +173,6 @@ Azure Blob Storage-dokumentationen innehåller exempel kod för snabb start på 
 Följande snabb starts exempel använder språk som också stöds av IoT Edge, så du kan distribuera dem som IoT Edge moduler tillsammans med Blob Storage-modulen:
 
 - [NET](../storage/blobs/storage-quickstart-blobs-dotnet.md)
-- [Java](../storage/blobs/storage-quickstart-blobs-java-v10.md)
 - [Python](../storage/blobs/storage-quickstart-blobs-python.md)
     - Vi har ett känt problem när du använder det här SDK: t eftersom den här versionen av modulen inte returnerar skapande tid för BLOB. Därför fungerar inte några metoder som List blobbar. Som en lösning anger du en explicit API-version på BLOB-klienten till "2017-04-17". <br>Exempel`block_blob_service._X_MS_VERSION = '2017-04-17'`
 - [Node.js](../storage/blobs/storage-quickstart-blobs-nodejs-v10.md)

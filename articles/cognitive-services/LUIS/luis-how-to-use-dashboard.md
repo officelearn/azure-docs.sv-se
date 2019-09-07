@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 05/22/2019
 ms.author: diberry
-ms.openlocfilehash: a5c60a4c7d4f1b441ec5e8444b10594a1e67d7db
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 22e187bba3782e485685354c203a6273d5bcc618
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68932722"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70735057"
 ---
 # <a name="how-to-use-the-dashboard-to-improve-your-app"></a>Hur du använder instrument panelen för att förbättra din app
 
@@ -78,9 +78,9 @@ Den primära metoden för att åtgärda appen är att lägga till eller redigera
 
 Att lägga till exempel yttranden bör göras av någon som:
 
-* har en hög grad av förståelse för vilka yttranden som finns i olika avsikter
-* vet hur yttranden i ett syfte kan förväxlas med en annan avsikt
-* kan bestämma om två avsikter, som ofta förväxlas med varandra, ska komprimeras till ett enda avsikt och att de olika data som hämtas med entiteter
+* har en hög grad av förståelse för vilka yttranden som finns i olika avsikter.
+* vet hur yttranden i ett syfte kan förväxlas med ett annat avsikts sätt.
+* kan bestämma om två avsikter, som ofta förväxlas med varandra, ska komprimeras till ett enda avsikts sätt. I så fall måste olika data hämtas med entiteter.
 
 ### <a name="patterns-and-phrase-lists"></a>Listor med mönster och fraser
 

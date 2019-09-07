@@ -1,6 +1,6 @@
 ---
-title: Överföra filer till ett Azure Media Services-konto med hjälp av REST | Microsoft Docs
-description: Lär dig hur du hämtar medieinnehåll till Media Services genom att skapa och ladda upp tillgångar.
+title: Ladda upp filer till ett Azure Media Services-konto med REST | Microsoft Docs
+description: Lär dig hur du hämtar medie innehåll i Media Services genom att skapa och ladda upp till gångar.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: a6f872880b61a5bd9510abda2f15e2edea16e940
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 78c07330558241c889f284bcaf7302ce1327b5b8
+ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67703881"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70389808"
 ---
-# <a name="upload-files-into-a-media-services-account-using-rest"></a>Överföra filer till ett Media Services-konto med hjälp av REST
+# <a name="upload-files-into-a-media-services-account-using-rest"></a>Ladda upp filer till ett Media Services-konto med REST
 
-I Media Services överför du dina digitala filer till en blobbehållare som är associerade med en tillgång. Den [tillgången](https://docs.microsoft.com/rest/api/media/operations/asset) entiteten kan innehålla video, ljud, bilder, miniatyrsamlingar, textspår och dold textning filer (och metadata om dessa filer). När filerna överförs till den tillgången behållare, lagras innehållet på ett säkert sätt i molnet för vidare bearbetning och strömning.
+I Media Services laddar du upp dina digitala filer till en BLOB-behållare som är kopplad till en till gång. [Till gångs](https://docs.microsoft.com/rest/api/media/operations/asset) enheten kan innehålla video, ljud, bilder, miniatyr samlingar, text spår och filer med dold textning (samt metadata om dessa filer). När filerna har överförts till till gångens behållare lagras innehållet på ett säkert sätt i molnet för vidare bearbetning och strömning.
 
 Den här artikeln visar hur du laddar upp en lokal fil med hjälp av REST.
 
@@ -30,36 +30,36 @@ Den här artikeln visar hur du laddar upp en lokal fil med hjälp av REST.
 
 För att slutföra stegen som beskrivs i det här avsnittet måste ha du till:
 
-- Granska [tillgången konceptet](assets-concept.md).
+- Granska [till gångs koncept](assets-concept.md).
 - [Konfigurera Postman för Azure Media Services REST API-anrop](media-rest-apis-with-postman.md).
     
-    Se till att följa det sista steget i avsnittet [hämta Azure AD Token](media-rest-apis-with-postman.md#get-azure-ad-token). 
+    Kontrol lera att du följer det sista steget i avsnittet [Hämta Azure AD-token](media-rest-apis-with-postman.md#get-azure-ad-token). 
 
-## <a name="create-an-asset"></a>Skapa en tillgång
+## <a name="create-an-asset"></a>Skapa en till gång
 
-Det här avsnittet visar hur du skapar en ny tillgång.
+I det här avsnittet visas hur du skapar en ny till gång.
 
-1. Välj **tillgångar** -> **skapa eller uppdatera en tillgång**.
+1. Välj **till gångar** -> **skapa eller uppdatera en till gång**.
 2. Tryck på **Skicka**.
 
-    ![Skapa en tillgång](./media/upload-files/postman-create-asset.png)
+    ![Skapa en till gång](./media/upload-files/postman-create-asset.png)
 
-Du ser den **svar** med information om nyskapad tillgång.
+**Svaret** visas med information om nyligen skapade till gångar.
 
-## <a name="get-a-sas-url-with-read-write-permissions"></a>Få en SAS-URL med läs-och behörigheter 
+## <a name="get-a-sas-url-with-read-write-permissions"></a>Hämta en SAS-URL med Läs-och Skriv behörighet 
 
-Det här avsnittet visar hur du hämtar en SAS-URL som har genererats för den skapa tillgången. SAS-Webbadressen har skapats med skrivskyddad behörighet och kan användas för att ladda upp digitala filer till tillgången behållaren.
+I det här avsnittet visas hur du hämtar en SAS-URL som har skapats för den skapade till gången. SAS-URL: en skapades med Läs-och Skriv behörighet och kan användas för att överföra digitala filer till till gångs behållaren.
 
-1. Välj **tillgångar** -> **lista över URL: er för tillgången**.
+1. Välj **till gångar** -> **listar URL: erna till till**gångar.
 2. Tryck på **Skicka**.
 
     ![Överför en fil](./media/upload-files/postman-create-sas-locator.png)
 
-Du ser den **svar** med information om tillgångens URL: er. Kopiera den första URL och använda den för att överföra din fil.
+Du ser **svaret** med informationen om till gångens URL: er. Kopiera den första URL: en och Använd den för att ladda upp filen.
 
-## <a name="upload-a-file-to-blob-storage-using-the-upload-url"></a>Överföra en fil till blob storage med hjälp av URL
+## <a name="upload-a-file-to-blob-storage-using-the-upload-url"></a>Ladda upp en fil till Blob Storage med uppladdnings-URL
 
-Använda Azure Storage API: er eller SDK: er (till exempel den [Storage REST API](../../storage/common/storage-rest-api-auth.md), [JAVA SDK](../../storage/blobs/storage-quickstart-blobs-java-v10.md), eller [.NET SDK](../../storage/blobs/storage-quickstart-blobs-dotnet.md).
+Använd Azure Storage-API: er eller SDK: er (till exempel [lagrings REST API](../../storage/common/storage-rest-api-auth.md) eller [.NET SDK](../../storage/blobs/storage-quickstart-blobs-dotnet.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

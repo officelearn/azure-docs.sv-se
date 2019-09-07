@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/02/2019
+ms.date: 09/05/2019
 ms.author: spelluru
-ms.openlocfilehash: 93b3c7671a5beb4b3a451fe0efd13b9f48e00436
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: 6e0c1419e5656f184d27dce8d185a86bea71d173
+ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68941803"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70389955"
 ---
 # <a name="configure-a-shared-image-gallery-in-azure-devtest-labs"></a>Konfigurera ett delat bildgalleri i Azure DevTest Labs
 DevTest Labs stöder nu funktionen för [delad bild galleri](../virtual-machines/windows/shared-image-galleries.md) . Det gör det möjligt för labbanvändare att få åtkomst till avbildningar från en delad plats när de skapar labbresurser. Funktionen hjälper dig även att skapa ordning och struktur för dina anpassade hanterade VM-avbildningar. Funktionen för delad bild galleri stöder:
@@ -32,6 +32,9 @@ DevTest Labs stöder nu funktionen för [delad bild galleri](../virtual-machines
 Mer information finns i [dokumentationen för Shared Image Gallery](../virtual-machines/windows/shared-image-galleries.md). 
  
 Om du har ett stort antal hanterade avbildningar som du vill göra tillgängliga i hela företaget kan du använda ett delat avbildningsgalleri som en lagringsplats. Det gör det enkelt att uppdatera och dela avbildningarna. Som labbägare kan du lägga till ett befintligt delat avbildningsgalleri till ditt labb. När galleriet är tillagt kan labbägare skapa datorer från de senaste avbildningarna. En viktig fördel med den här funktionen är att DevTest Labs nu kan dela avbildningar mellan olika labb, prenumerationer och regioner. 
+
+> [!NOTE]
+> Mer information om kostnader som är associerade med tjänsten för delad avbildning finns i [fakturering för delade avbildnings Galleri](../virtual-machines/windows/shared-image-galleries.md#billing).
 
 ## <a name="considerations"></a>Överväganden
 - Du kan bara koppla ett delat bild galleri till ett labb i taget. Om du vill koppla ett annat galleri måste du koppla från det befintliga ett och koppla ett annat. 

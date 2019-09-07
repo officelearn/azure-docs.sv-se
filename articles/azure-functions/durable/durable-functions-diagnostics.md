@@ -9,12 +9,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 2cc60ee2c73aa6858f68d6b13a895a0188bb5735
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 7c02d4dfde7869da7985817b06f6de398bbef38d
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70098139"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70734496"
 ---
 # <a name="diagnostics-in-durable-functions-in-azure"></a>Diagnostik i Durable Functions i Azure
 
@@ -39,7 +39,7 @@ Varje livs cykel händelse i en Orchestration-instans gör att en spårnings hä
 * **tillstånd**: Instansens livs cykel körnings tillstånd. Giltiga värden är:
   * **Schemalagd**: Funktionen har schemalagts för körning men har ännu inte börjat köras.
   * **Startade**: Funktionen har börjat köras men har ännu inte förväntats eller slutförts.
-  * Förväntat: Orchestrator har schemalagt arbete och väntar på att det ska slutföras.
+  * **Förväntat**: Orchestrator har schemalagt arbete och väntar på att det ska slutföras.
   * **Lyssna**: Orchestrator lyssnar efter en extern händelse avisering.
   * **Slutfört**: Funktionen har slutförts.
   * **Misslyckades**: Funktionen misslyckades med ett fel.
@@ -107,7 +107,7 @@ Om du vill aktivera sändning av utförliga Dirigerings händelser `LogReplayEve
 
 ### <a name="single-instance-query"></a>Fråga för enskild instans
 
-I följande fråga visas historiska spårnings data för en enda instans av funktionen Orchestration i [Hello](durable-functions-sequence.md) -sekvensen. Det skrivs med hjälp av [AIQL (Application Insights Query Language)](https://aka.ms/LogAnalyticsLanguageReference). Den filtrerar fram uppspelnings körningen så att bara den *logiska* körnings Sök vägen visas. Händelser kan sorteras genom att sortera `timestamp` efter `sequenceNumber` och som visas i frågan nedan:
+I följande fråga visas historiska spårnings data för en enda instans av funktionen Orchestration i [Hello-sekvensen](durable-functions-sequence.md) . Det skrivs med hjälp av [AIQL (Application Insights Query Language)](https://aka.ms/LogAnalyticsLanguageReference). Den filtrerar fram uppspelnings körningen så att bara den *logiska* körnings Sök vägen visas. Händelser kan sorteras genom att sortera `timestamp` efter `sequenceNumber` och som visas i frågan nedan:
 
 ```AIQL
 let targetInstanceId = "ddd1aaa685034059b545eb004b15d4eb";
@@ -158,9 +158,26 @@ Resultatet är en lista över instans-ID: n och deras aktuella körnings status.
 
 Det är viktigt att du behåller Orchestrator-omuppspelnings beteendet i åtanke när du skriver loggar direkt från en Orchestrator-funktion. Överväg till exempel följande Orchestrator-funktion:
 
-### <a name="c"></a>C#
+### <a name="precompiled-c"></a>FörkompileradeC#
 
-```cs
+```csharp
+public static async Task Run(
+    [OrchestrationTrigger] DurableOrchestrationContext context,
+    ILogger log)
+{
+    log.LogInformation("Calling F1.");
+    await context.CallActivityAsync("F1");
+    log.LogInformation("Calling F2.");
+    await context.CallActivityAsync("F2");
+    log.LogInformation("Calling F3");
+    await context.CallActivityAsync("F3");
+    log.LogInformation("Done!");
+}
+```
+
+### <a name="c-script"></a>C#Över
+
+```csharp
 public static async Task Run(
     DurableOrchestrationContext context,
     ILogger log)
@@ -207,9 +224,26 @@ Done!
 ```
 
 > [!NOTE]
-> Kom ihåg att även om loggarna som ska anropa F1, F2 och F3, så kallas dessa funktioner bara första gången de påträffas. Efterföljande anrop som sker under uppspelningen hoppas över och utdata spelas upp i Orchestrator-logiken.
+> Kom ihåg att även om loggarna som ska anropa F1, F2 och F3, så kallas dessa funktioner *bara första* gången de påträffas. Efterföljande anrop som sker under uppspelningen hoppas över och utdata spelas upp i Orchestrator-logiken.
 
 Om du bara vill logga in på en icke-omuppspelnings körning kan du skriva ett villkors uttryck för att `IsReplaying` endast `false`logga om är. Överväg exemplet ovan, men den här gången med repetitions kontroller.
+
+#### <a name="precompiled-c"></a>FörkompileradeC#
+
+```csharp
+public static async Task Run(
+    [OrchestrationTrigger] DurableOrchestrationContext context,
+    ILogger log)
+{
+    if (!context.IsReplaying) log.LogInformation("Calling F1.");
+    await context.CallActivityAsync("F1");
+    if (!context.IsReplaying) log.LogInformation("Calling F2.");
+    await context.CallActivityAsync("F2");
+    if (!context.IsReplaying) log.LogInformation("Calling F3");
+    await context.CallActivityAsync("F3");
+    log.LogInformation("Done!");
+}
+```
 
 #### <a name="c"></a>C#
 
@@ -257,7 +291,7 @@ Done!
 
 Med anpassad Orchestration-status kan du ange ett anpassat status värde för din Orchestrator-funktion. Den här statusen tillhandahålls via http-status frågans API eller `DurableOrchestrationClient.GetStatusAsync` API: et. Den anpassade Orchestration-statusen möjliggör bättre övervakning av Orchestrator-funktioner. Till exempel kan Orchestrator-funktions koden innehålla `DurableOrchestrationContext.SetCustomStatus` anrop för att uppdatera förloppet för en tids krävande åtgärd. En klient, till exempel en webb sida eller ett annat externt system, kan sedan regelbundet fråga HTTP-status frågans API: er för mer information om förloppet. Ett exempel som `DurableOrchestrationContext.SetCustomStatus` använder finns nedan:
 
-### <a name="c"></a>C#
+### <a name="precompiled-c"></a>FörkompileradeC#
 
 ```csharp
 public static async Task SetStatusTest([OrchestrationTrigger] DurableOrchestrationContext context)

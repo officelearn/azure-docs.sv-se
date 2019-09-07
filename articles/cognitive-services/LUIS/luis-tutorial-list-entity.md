@@ -7,20 +7,20 @@ author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: tutorial
-ms.date: 07/29/2019
+ms.topic: conceptual
+ms.date: 09/05/2019
 ms.author: diberry
-ms.openlocfilehash: 979cbe16653c09ea1b019310d820b070be4a5a91
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: a722ce39a679fa13e1fe849c46b44f786ea5ee42
+ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68946054"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70390275"
 ---
 # <a name="use-a-list-entity-to-increase-entity-detection"></a>Använd en entitet i listan för att öka entitet identifiering 
-Den här självstudien visar hur du använder en [lista entitet](luis-concept-entity-types.md) att öka entitet identifiering. Lista enheter behöver inte märkta som de är en exakt matchning av villkor.  
+Den här artikeln visar hur du använder en [list-entitet](luis-concept-entity-types.md) för att öka identifieringen av entiteter. Lista enheter behöver inte märkta som de är en exakt matchning av villkor.  
 
-I den här guiden får du lära dig att:
+I den här artikeln kan du se hur du:
 
 > [!div class="checklist"]
 > * Skapa en entitet i listan 
@@ -37,7 +37,7 @@ I den här guiden får du lära dig att:
 > [!Tip]
 > Om du inte redan har en prenumeration kan du registrera dig för en [kostnadsfritt konto](https://azure.microsoft.com/free/).
 
-All kod i den här självstudien finns på [Azure-samples GitHub-lagringsplatsen](https://github.com/Azure-Samples/cognitive-services-language-understanding/tree/master/documentation-samples/tutorial-list-entity). 
+All kod i den här artikeln är tillgänglig i [GitHub-lagringsplatsen Azure-samples](https://github.com/Azure-Samples/cognitive-services-language-understanding/tree/master/documentation-samples/tutorial-list-entity). 
 
 ## <a name="use-homeautomation-app"></a>Använda HomeAutomation appar
 App HomeAutomation ger kontroll över enheter, till exempel lamporna, underhållning system och miljö som styr, till exempel uppvärmning och kylning. De här systemen har flera olika namn som kan inkludera tillverkare, smeknamn, förkortningar och slang. 
@@ -59,7 +59,7 @@ Entiteten HomeAutomation.Device är perfekt för ett litet antal enheter eller m
 
 En **lista entitet** är ett bra val för det här scenariot eftersom uppsättningen med villkor för en enhet i en byggnad eller campus är en känd uppsättning, även om det är en stor uppsättning. Med hjälp av en entitet i listan, LUIS får alla möjliga värde i uppsättningen för termostat och matcha den till bara enkel enhet ”termostat”. 
 
-Den här självstudiekursen kommer att skapa en Entitetslista med termostat. Alternativa namn för en termostat i den här självstudien är: 
+Den här artikeln går till att skapa en enhets lista med termostat. De alternativa namnen för en termostat i den här artikeln är: 
 
 |alternativa namn för termostat|
 |--|

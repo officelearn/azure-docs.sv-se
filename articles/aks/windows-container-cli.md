@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 06/17/2019
 ms.author: mlearned
-ms.openlocfilehash: a173272600bab71264ed3b85ce5141814c0a6aed
-ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
+ms.openlocfilehash: ee798ba624aaf9f21886edab36185fb1b6ae67f2
+ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70147212"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70387338"
 ---
 # <a name="preview---create-a-windows-server-container-on-an-azure-kubernetes-service-aks-cluster-using-the-azure-cli"></a>För hands version – skapa en Windows Server-behållare i ett Azure Kubernetes service-kluster (AKS) med hjälp av Azure CLI
 
@@ -79,7 +79,7 @@ az provider register --namespace Microsoft.ContainerService
 
 Följande begränsningar gäller när du skapar och hanterar AKS-kluster som stöder flera Node-pooler:
 
-* Flera resurspooler är tillgängliga för kluster som skapas när du har registrerat *WindowsPreview*. Flera resurspooler är också tillgängliga om du registrerar *MultiAgentpoolPreview* -och *VMSSPreview* -funktionerna för din prenumeration. Du kan inte lägga till eller hantera resurspooler med ett befintligt AKS-kluster som skapats innan de här funktionerna har registrerats.
+* Flera resurspooler är tillgängliga för kluster som skapas när du har registrerat *WindowsPreview*. Flera resurspooler är också tillgängliga om du registrerar *MultiAgentpoolPreview* -funktionen för din prenumeration. Du kan inte lägga till eller hantera resurspooler med ett befintligt AKS-kluster som skapats innan den här funktionen har registrerats.
 * Du kan inte ta bort den första noden.
 
 När den här funktionen är i för hands version gäller följande ytterligare begränsningar:
@@ -302,7 +302,7 @@ az group delete --name myResourceGroup --yes --no-wait
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här artikeln har du distribuerat ett Kubernetes-kluster och distribuerat ett ASP.NET exempel program i en Windows Server-behållare till det. [Få åtkomst till Kubernetes-][kubernetes-dashboard] webbinstrumentpanelen för det kluster som du nyss skapade.
+I den här artikeln har du distribuerat ett Kubernetes-kluster och distribuerat ett ASP.NET exempel program i en Windows Server-behållare till det. [Få åtkomst till Kubernetes-webbinstrumentpanelen][kubernetes-dashboard] för det kluster som du nyss skapade.
 
 Om du vill lära dig mer om AKS, och gå igenom ett exempel med fullständig distributionskod, fortsätter du till självstudiekursen om Kubernetes-kluster.
 

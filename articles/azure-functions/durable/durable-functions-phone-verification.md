@@ -9,12 +9,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 3918c37d985c6766fe6ad4601b70ddbd4597b0ba
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 4d8955517450ce3b4efdf30e2790e4be678dfc7b
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70087154"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70735185"
 ---
 # <a name="human-interaction-in-durable-functions---phone-verification-sample"></a>Mänsklig interaktion i Durable Functions-telefon verifierings exempel
 
@@ -30,7 +30,7 @@ Telefon verifiering används för att kontrol lera att slutanvändare av ditt pr
 
 Vanliga Azure Functions är tillstånds lösa (som är många andra moln slut punkter på andra plattformar), så dessa typer av interaktioner innebär uttryckligen hantering av tillstånd externt i en databas eller något annat beständigt arkiv. Dessutom måste interaktionen delas upp i flera funktioner som kan samordnas tillsammans. Du behöver till exempel minst en funktion för att bestämma en kod, spara den någonstans och skicka den till användarens telefon. Dessutom behöver du minst en annan funktion för att få svar från användaren och på annat sätt mappa den tillbaka till det ursprungliga funktions anropet för att göra kod verifieringen. En timeout är också en viktig aspekt för att garantera säkerheten. Detta kan bli ganska komplicerat snabbt.
 
-Komplexiteten i det här scenariot minskar avsevärt när du använder Durable Functions. Som du ser i det här exemplet kan en Orchestrator-funktion hantera tillstånds känsliga interaktioner enkelt och utan att involvera externa data lager. Eftersom Orchestrator-funktionerär varaktiga är dessa interaktiva flöden också mycket pålitliga.
+Komplexiteten i det här scenariot minskar avsevärt när du använder Durable Functions. Som du ser i det här exemplet kan en Orchestrator-funktion hantera tillstånds känsliga interaktioner enkelt och utan att involvera externa data lager. Eftersom Orchestrator-funktioner är *varaktiga*är dessa interaktiva flöden också mycket pålitliga.
 
 ## <a name="configuring-twilio-integration"></a>Konfigurera Twilio-integrering
 
@@ -53,7 +53,7 @@ Funktionen **E4_SmsPhoneVerification** använder standard *funktionen. JSON* fö
 
 Här är den kod som implementerar funktionen:
 
-### <a name="c"></a>C#
+### <a name="c-script"></a>C#Över
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E4_SmsPhoneVerification/run.csx)]
 
@@ -84,7 +84,7 @@ Funktionen **E4_SendSmsChallenge** använder Twilio-bindningen för att skicka S
 
 Här är koden som genererar den 4-siffriga utmanings koden och skickar SMS-meddelandet:
 
-### <a name="c"></a>C#
+### <a name="c-script"></a>C#Över
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E4_SendSmsChallenge/run.csx)]
 

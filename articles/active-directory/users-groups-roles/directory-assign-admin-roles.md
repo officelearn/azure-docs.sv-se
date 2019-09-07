@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 08/23/2019
+ms.date: 09/05/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f860b234db8cb0b40747ba042f1a845f58379597
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: c2eff9c0edf6797c08d0ef9732c903a81a6c764a
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70193868"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70733410"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Administratörs roll behörigheter i Azure Active Directory
 
@@ -85,7 +85,7 @@ Användare med den här rollen har alla behörigheter i Azure Information Protec
 
 ### <a name="b2c-user-flow-administratorb2c-user-flow-administrator-permissions"></a>[B2C användar flödes administratör](#b2c-user-flow-administrator-permissions)
 
-Användare med den här rollen kan skapa och hantera B2C Användarflöden (aka "inbyggda" principer) i Azure Portal. Genom att skapa eller redigera användar flöden kan dessa användare ändra HTML/CSS/JavaScript-innehåll i användar upplevelsen, ändra MFA-krav per användar flöde, ändra anspråk i token och justera sessionsinställningar för alla principer i klienten. Den här rollen omfattar å andra sidan inte möjligheten att granska användar data eller göra ändringar i de attribut som ingår i klient organisations schemat. Ändringar av aka-principer (Identity Experience Framework) är också utanför den här rollens omfång.
+Användare med den här rollen kan skapa och hantera B2C-Användarflöden (kallas även "inbyggda" principer) i Azure Portal. Genom att skapa eller redigera användar flöden kan dessa användare ändra HTML/CSS/JavaScript-innehåll i användar upplevelsen, ändra MFA-krav per användar flöde, ändra anspråk i token och justera sessionsinställningar för alla principer i klienten. Den här rollen omfattar å andra sidan inte möjligheten att granska användar data eller göra ändringar i de attribut som ingår i klient organisations schemat. Ändringar av identitets miljö ramverk (även kallade anpassade) är också utanför den här rollens omfång.
 
 ### <a name="b2c-user-flow-attribute-administratorb2c-user-flow-attribute-administrator-permissions"></a>[B2C-administratör för användar flöde](#b2c-user-flow-attribute-administrator-permissions)
 
@@ -194,7 +194,7 @@ Användare med den här rollen har globala behörigheter inom Microsoft Exchange
 Den här administratören hanterar federationen mellan Azure Active Directory klienter och externa identitets leverantörer. Med den här rollen kan användarna lägga till nya identitets leverantörer och konfigurera alla tillgängliga inställningar (t. ex. autentiserings Sök väg, tjänst-ID, tilldelade nyckel behållare). Den här användaren kan göra det möjligt för klienten att lita på autentiseringar från externa identitets leverantörer. Den resulterande påverkan på slutanvändarens upplevelse beror på typen av klient organisation:
 
 * Azure Active Directory klienter för anställda och partner: Att lägga till en Federation (t. ex. med Gmail) kommer omedelbart att påverka alla gäst inbjudningar som ännu inte har lösts in. Se [lägga till Google som en identitets leverantör för B2B-gäst användare](https://docs.microsoft.com/azure/active-directory/b2b/google-federation).
-* Azure Active Directory B2C klienter: Att lägga till en Federation (till exempel med Facebook eller en annan Azure AD-organisation) påverkar inte omedelbart slutanvändarens flöden direkt förrän identitets leverantören har lagts till som ett alternativ i ett användar flöde (aka inbyggd princip). Se [Konfigurera en Microsoft-konto som en identitets leverantör](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-setup-msa-app) för ett exempel. Om du vill ändra användar flöden krävs den begränsade rollen "B2C User Flow Administrator".
+* Azure Active Directory B2C klienter: Att lägga till en Federation (till exempel med Facebook eller en annan Azure AD-organisation) påverkar inte omedelbart slutanvändarens flöden direkt förrän identitets leverantören har lagts till som ett alternativ i ett användar flöde (även kallat en inbyggd princip). Se [Konfigurera en Microsoft-konto som en identitets leverantör](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-setup-msa-app) för ett exempel. Om du vill ändra användar flöden krävs den begränsade rollen "B2C User Flow Administrator".
 
 ### <a name="global-administrator--company-administratorcompany-administrator-permissions"></a>[Global administratör/företags administratör](#company-administrator-permissions)
 
@@ -352,14 +352,14 @@ Windows Defender ATP och EDR | Visa och undersök aviseringar. När du aktiverar
 
 ### <a name="service-support-administratorservice-support-administrator-permissions"></a>[Tjänst support administratör](#service-support-administrator-permissions)
 
-Användare med den här rollen kan öppna support förfrågningar med Microsoft för Azure-och Office 365-tjänster och Visa instrument panelen och meddelande centret i [Azure Portal](https://portal.azure.com) och [Microsoft 365 administrations Center](https://admin.microsoft.com). Mer information [om administratörs roller för Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
+Användare med den här rollen kan öppna support förfrågningar med Microsoft för Azure-och Office 365-tjänster och Visa instrument panelen och meddelande centret i [Azure Portal](https://portal.azure.com) och [Microsoft 365 administrations Center](https://admin.microsoft.com). Mer information [om administratörs roller](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
 
 > [!NOTE]
 > I Microsoft Graph API, Azure AD Graph API och Azure AD PowerShell identifieras den här rollen som "tjänst support administratör". Det är "tjänst administratör" i [Azure Portal](https://portal.azure.com), [Microsoft 365 administrations Center](https://admin.microsoft.com)och Intune-portalen.
 
 ### <a name="sharepoint-administratorsharepoint-service-administrator-permissions"></a>[SharePoint-administratör](#sharepoint-service-administrator-permissions)
 
-Användare med den här rollen har globala behörigheter inom Microsoft SharePoint Online när tjänsten finns, samt möjligheten att skapa och hantera alla Office 365-grupper, hantera support biljetter och övervaka tjänstens hälsa. Mer information [om administratörs roller för Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
+Användare med den här rollen har globala behörigheter inom Microsoft SharePoint Online när tjänsten finns, samt möjligheten att skapa och hantera alla Office 365-grupper, hantera support biljetter och övervaka tjänstens hälsa. Mer information [om administratörs roller](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
 
 > [!NOTE]
 > I Microsoft Graph API, Azure AD Graph API och Azure AD PowerShell identifieras den här rollen som "SharePoint-tjänsteadministratör". Det är "SharePoint-administratör" i [Azure Portal](https://portal.azure.com).
@@ -418,39 +418,49 @@ Kan skapa och hantera alla aspekter av registrerings-och företags program.
 
 | **Åtgärder** | **Beskrivning** |
 | --- | --- |
-| Microsoft. AAD. Directory/program/mål grupp/uppdatering | Uppdatera program. Audience-egenskapen i Azure Active Directory. |
-| Microsoft. AAD. Directory/program/autentisering/uppdatering | Uppdatera program. Authentication-egenskapen i Azure Active Directory. |
-| Microsoft. AAD. Directory/Applications/Basic/Update | Uppdatera grundläggande egenskaper för program i Azure Active Directory. |
-| Microsoft. AAD. Directory/Applications/skapa | Skapa program i Azure Active Directory. |
-| Microsoft. AAD. Directory/program/autentiseringsuppgifter/uppdatera | Uppdatera program. credentials-egenskapen i Azure Active Directory. |
-| Microsoft. AAD. Directory/Applications/Delete | Ta bort program i Azure Active Directory. |
-| Microsoft. AAD. Directory/program/ägare/uppdatera | Uppdatera program. Owners-egenskapen i Azure Active Directory. |
-| Microsoft. AAD. Directory/program/behörigheter/uppdatera | Uppdatera program. Permissions-egenskapen i Azure Active Directory. |
-| Microsoft. AAD. Directory/Applications/policies/Update | Uppdatera Applications. policys-egenskapen i Azure Active Directory. |
-| Microsoft. AAD. Directory/appRoleAssignments/Create | Skapa appRoleAssignments i Azure Active Directory. |
-| Microsoft. AAD. Directory/appRoleAssignments/Read | Läs appRoleAssignments i Azure Active Directory. |
-| Microsoft. AAD. Directory/appRoleAssignments/Update | Uppdatera appRoleAssignments i Azure Active Directory. |
-| Microsoft. AAD. Directory/appRoleAssignments/Delete | Ta bort appRoleAssignments i Azure Active Directory. |
-| Microsoft. AAD. Directory/auditLogs/allProperties/Read | Läs alla egenskaper (inklusive privilegierade egenskaper) på auditLogs i Azure Active Directory. |
-| Microsoft. AAD. Directory/policies/applicationConfiguration/Basic/Read | Läs policies. applicationConfiguration-egenskapen i Azure Active Directory. |
-| Microsoft. AAD. Directory/policies/applicationConfiguration/Basic/Update | Uppdatera policys. applicationConfiguration-egenskapen i Azure Active Directory. |
-| Microsoft. AAD. Directory/policys/applicationConfiguration/Create | Skapa principer i Azure Active Directory. |
-| Microsoft. AAD. Directory/policys/applicationConfiguration/Delete | Ta bort principer i Azure Active Directory. |
-| Microsoft. AAD. Directory/policies/applicationConfiguration/Owners/Read | Läs policies. applicationConfiguration-egenskapen i Azure Active Directory. |
-| Microsoft. AAD. Directory/policys/applicationConfiguration/Owners/Update | Uppdatera policys. applicationConfiguration-egenskapen i Azure Active Directory. |
-| Microsoft. AAD. Directory/policys/applicationConfiguration/policyAppliedTo/Read | Läs policies. applicationConfiguration-egenskapen i Azure Active Directory. |
-| microsoft.aad.directory/servicePrincipals/appRoleAssignedTo/update | Uppdatera service princip ALS. appRoleAssignedTo-egenskapen i Azure Active Directory. |
-| Microsoft. AAD. Directory/Service princip ALS/appRoleAssignments/Update | Uppdatera service princip ALS. appRoleAssignments-egenskapen i Azure Active Directory. |
-| Microsoft. AAD. Directory/Service princip ALS/Audience/Update | Uppdatera service princip ALS. Audience-egenskapen i Azure Active Directory. |
-| Microsoft. AAD. Directory/Service princip ALS/Authentication/Update | Uppdatera service princip ALS. Authentication-egenskapen i Azure Active Directory. |
-| microsoft.aad.directory/servicePrincipals/basic/update | Uppdatera grundläggande egenskaper för service princip ALS i Azure Active Directory. |
-| Microsoft. AAD. Directory/Service princip ALS/Create | Skapa service princip ALS i Azure Active Directory. |
-| microsoft.aad.directory/servicePrincipals/credentials/update | Uppdatera service princip ALS. credentials-egenskapen i Azure Active Directory. |
-| Microsoft. AAD. Directory/Service princip ALS/Delete | Ta bort service princip ALS i Azure Active Directory. |
-| Microsoft. AAD. Directory/Service princip ALS/Owners/Update | Uppdatera service princip ALS. Owners-egenskapen i Azure Active Directory. |
-| Microsoft. AAD. Directory/Service princip ALS/behörigheter/uppdatera | Uppdatera service princip ALS. Permissions-egenskapen i Azure Active Directory. |
-| Microsoft. AAD. Directory/Service princip ALS/policies/Update | Uppdatera service princip ALS. policys-egenskapen i Azure Active Directory. |
-| Microsoft. AAD. Directory/signInReports/allProperties/Read | Läs alla egenskaper (inklusive privilegierade egenskaper) på signInReports i Azure Active Directory. |
+| Microsoft. Directory/Application/appProxyAuthentication/Update | Uppdatera egenskaperna för autentisering av App-proxy för tjänstens huvud namn i Azure Active Directory. |
+| Microsoft. Directory/Application/appProxyUrlSettings/Update | Uppdatera Application Proxy interna och externa URL: er i Azure Active Directory. |
+| Microsoft. Directory/Applications/applicationProxy/Read | Läs alla egenskaper för App-proxy. |
+| Microsoft. Directory/Applications/applicationProxy/Update | Uppdatera alla egenskaper för App-proxy. |
+| Microsoft. Directory/program/mål grupp/uppdatering | Uppdatera program. Audience-egenskapen i Azure Active Directory. |
+| Microsoft. Directory/program/autentisering/uppdatering | Uppdatera program. Authentication-egenskapen i Azure Active Directory. |
+| Microsoft. Directory/Applications/Basic/Update | Uppdatera grundläggande egenskaper för program i Azure Active Directory. |
+| Microsoft. Directory/program/skapa | Skapa program i Azure Active Directory. |
+| microsoft.directory/applications/credentials/update | Uppdatera program. credentials-egenskapen i Azure Active Directory. |
+| Microsoft. Directory/Applications/Delete | Ta bort program i Azure Active Directory. |
+| Microsoft. Directory/program/ägare/uppdatering | Uppdatera program. Owners-egenskapen i Azure Active Directory. |
+| Microsoft. Directory/program/behörigheter/uppdatera | Uppdatera program. Permissions-egenskapen i Azure Active Directory. |
+| Microsoft. Directory/Applications/policies/Update | Uppdatera Applications. policys-egenskapen i Azure Active Directory. |
+| Microsoft. Directory/appRoleAssignments/Create | Skapa appRoleAssignments i Azure Active Directory. |
+| Microsoft. Directory/appRoleAssignments/Read | Läs appRoleAssignments i Azure Active Directory. |
+| Microsoft. Directory/appRoleAssignments/Update | Uppdatera appRoleAssignments i Azure Active Directory. |
+| Microsoft. Directory/appRoleAssignments/Delete | Ta bort appRoleAssignments i Azure Active Directory. |
+| Microsoft. Directory/auditLogs/allProperties/Read | Läs alla egenskaper (inklusive privilegierade egenskaper) på auditLogs i Azure Active Directory. |
+| Microsoft. Directory/connectorGroups/allt/Read | Läs egenskaperna för kopplings gruppen för Application Proxy i Azure Active Directory. |
+| Microsoft. Directory/connectorGroups/allt/Update | Uppdatera alla egenskaper för Application Proxy Connector-grupp i Azure Active Directory. |
+| Microsoft. Directory/connectorGroups/Create | Skapa kopplings grupper för Application Proxy i Azure Active Directory. |
+| Microsoft. Directory/connectorGroups/Delete | Ta bort kopplings grupper för Application Proxy i Azure Active Directory. |
+| Microsoft. Directory/Connectors/allt/läsa | Läs alla kopplings egenskaper för Application Proxy i Azure Active Directory. |
+| Microsoft. Directory/Connectors/skapa | Skapa Application Proxy-kopplingar i Azure Active Directory. |
+| Microsoft. Directory/policys/applicationConfiguration/Basic/Read | Läs policies. applicationConfiguration-egenskapen i Azure Active Directory. |
+| Microsoft. Directory/policys/applicationConfiguration/Basic/Update | Uppdatera policys. applicationConfiguration-egenskapen i Azure Active Directory. |
+| Microsoft. Directory/policys/applicationConfiguration/Create | Skapa principer i Azure Active Directory. |
+| Microsoft. Directory/policys/applicationConfiguration/Delete | Ta bort principer i Azure Active Directory. |
+| Microsoft. Directory/policys/applicationConfiguration/Owners/Read | Läs policies. applicationConfiguration-egenskapen i Azure Active Directory. |
+| Microsoft. Directory/policys/applicationConfiguration/Owners/Update | Uppdatera policys. applicationConfiguration-egenskapen i Azure Active Directory. |
+| Microsoft. Directory/policys/applicationConfiguration/policyAppliedTo/Read | Läs policies. applicationConfiguration-egenskapen i Azure Active Directory. |
+| microsoft.directory/servicePrincipals/appRoleAssignedTo/update | Uppdatera service princip ALS. appRoleAssignedTo-egenskapen i Azure Active Directory. |
+| microsoft.directory/servicePrincipals/appRoleAssignments/update | Uppdatera service princip ALS. appRoleAssignments-egenskapen i Azure Active Directory. |
+| microsoft.directory/servicePrincipals/audience/update | Uppdatera service princip ALS. Audience-egenskapen i Azure Active Directory. |
+| microsoft.directory/servicePrincipals/authentication/update | Uppdatera service princip ALS. Authentication-egenskapen i Azure Active Directory. |
+| microsoft.directory/servicePrincipals/basic/update | Uppdatera grundläggande egenskaper för service princip ALS i Azure Active Directory. |
+| Microsoft. Directory/Service princip ALS/Create | Skapa service princip ALS i Azure Active Directory. |
+| microsoft.directory/servicePrincipals/credentials/update | Uppdatera service princip ALS. credentials-egenskapen i Azure Active Directory. |
+| microsoft.directory/servicePrincipals/delete | Ta bort service princip ALS i Azure Active Directory. |
+| microsoft.directory/servicePrincipals/owners/update | Uppdatera service princip ALS. Owners-egenskapen i Azure Active Directory. |
+| microsoft.directory/servicePrincipals/permissions/update | Uppdatera service princip ALS. Permissions-egenskapen i Azure Active Directory. |
+| microsoft.directory/servicePrincipals/policies/update | Uppdatera service princip ALS. policys-egenskapen i Azure Active Directory. |
+| microsoft.directory/signInReports/allProperties/read | Läs alla egenskaper (inklusive privilegierade egenskaper) på signInReports i Azure Active Directory. |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Läsa och konfigurera Azure Service Health. |
 | microsoft.azure.supportTickets/allEntities/allTasks | Skapa och hantera support biljetter för Azure. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Läs och konfigurera Office 365 Service Health. |
@@ -462,10 +472,10 @@ Kan skapa program registreringar oberoende av inställningen användare kan regi
 
 | **Åtgärder** | **Beskrivning** |
 | --- | --- |
-| Microsoft. AAD. Directory/Applications/createAsOwner | Skapa program i Azure Active Directory. Skaparen läggs till som den första ägaren och det antal skapade objektet mot skapare objekt kvoten 250 har skapats. |
-| Microsoft. AAD. Directory/appRoleAssignments/createAsOwner | Skapa appRoleAssignments i Azure Active Directory. Skaparen läggs till som den första ägaren och det antal skapade objektet mot skapare objekt kvoten 250 har skapats. |
-| Microsoft. AAD. Directory/oAuth2PermissionGrants/createAsOwner | Skapa oAuth2PermissionGrants i Azure Active Directory. Skaparen läggs till som den första ägaren och det antal skapade objektet mot skapare objekt kvoten 250 har skapats. |
-| Microsoft. AAD. Directory/Service princip ALS/createAsOwner | Skapa service princip ALS i Azure Active Directory. Skaparen läggs till som den första ägaren och det antal skapade objektet mot skapare objekt kvoten 250 har skapats. |
+| Microsoft. Directory/Applications/createAsOwner | Skapa program i Azure Active Directory. Skaparen läggs till som den första ägaren och det antal skapade objektet mot skapare objekt kvoten 250 har skapats. |
+| Microsoft. Directory/appRoleAssignments/createAsOwner | Skapa appRoleAssignments i Azure Active Directory. Skaparen läggs till som den första ägaren och det antal skapade objektet mot skapare objekt kvoten 250 har skapats. |
+| Microsoft. Directory/oAuth2PermissionGrants/createAsOwner | Skapa oAuth2PermissionGrants i Azure Active Directory. Skaparen läggs till som den första ägaren och det antal skapade objektet mot skapare objekt kvoten 250 har skapats. |
+| Microsoft. Directory/Service princip ALS/createAsOwner | Skapa service princip ALS i Azure Active Directory. Skaparen läggs till som den första ägaren och det antal skapade objektet mot skapare objekt kvoten 250 har skapats. |
 
 ### <a name="authentication-administrator-permissions"></a>Administratörs behörighet för autentisering
 
@@ -473,14 +483,14 @@ Tillåts Visa, ange och återställa information om autentiseringsinformation f�
 
 | **Åtgärder** | **Beskrivning** |
 | --- | --- |
-| Microsoft. AAD. Directory/Users/invalidateAllRefreshTokens | Ogiltig verifiering av alla användares uppdateringstoken i Azure Active Directory. |
-| Microsoft. AAD. Directory/Users/strongAuthentication/Update | Uppdatera egenskaper för stark autentisering som MFA-autentiseringsinformation. |
+| Microsoft. Directory/Users/invalidateAllRefreshTokens | Ogiltig verifiering av alla användares uppdateringstoken i Azure Active Directory. |
+| Microsoft. Directory/Users/strongAuthentication/Update | Uppdatera egenskaper för stark autentisering som MFA-autentiseringsinformation. |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Läsa och konfigurera Azure Service Health. |
 | microsoft.azure.supportTickets/allEntities/allTasks | Skapa och hantera support biljetter för Azure. |
 | microsoft.office365.webPortal/allEntities/basic/read | Läsa grundläggande egenskaper för alla resurser i Microsoft. Office365. Web-Portal. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Läs och konfigurera Office 365 Service Health. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Skapa och hantera Office 365-support biljetter. |
-| Microsoft. AAD. Directory/Users/Password/Update | Uppdatera lösen ord för alla användare i Office 365-organisationen. Mer information finns i onlinedokumentationen. |
+| Microsoft. Directory/Users/Password/Update | Uppdatera lösen ord för alla användare i Office 365-organisationen. Mer information finns i onlinedokumentationen. |
 
 ### <a name="azure-information-protection-administrator-permissions"></a>Azure Information Protection administratörs behörighet
 
@@ -542,7 +552,7 @@ Kan utföra vanliga fakturerings aktiviteter, t. ex. uppdatering av betalnings i
 
 | **Åtgärder** | **Beskrivning** |
 | --- | --- |
-| Microsoft. AAD. Directory/Organization/Basic/Update | Uppdatera grundläggande egenskaper för organisation i Azure Active Directory. |
+| Microsoft. Directory/Organization/Basic/Update | Uppdatera grundläggande egenskaper för organisation i Azure Active Directory. |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Läsa och konfigurera Azure Service Health. |
 | microsoft.azure.supportTickets/allEntities/allTasks | Skapa och hantera support biljetter för Azure. |
 | microsoft.commerce.billing/allEntities/allTasks | Hantera alla aspekter av Office 365-fakturering. |
@@ -556,38 +566,38 @@ Kan skapa och hantera alla aspekter av app-registreringar och företags program 
 
 | **Åtgärder** | **Beskrivning** |
 | --- | --- |
-| Microsoft. AAD. Directory/program/mål grupp/uppdatering | Uppdatera program. Audience-egenskapen i Azure Active Directory. |
-| Microsoft. AAD. Directory/program/autentisering/uppdatering | Uppdatera program. Authentication-egenskapen i Azure Active Directory. |
-| Microsoft. AAD. Directory/Applications/Basic/Update | Uppdatera grundläggande egenskaper för program i Azure Active Directory. |
-| Microsoft. AAD. Directory/Applications/skapa | Skapa program i Azure Active Directory. |
-| Microsoft. AAD. Directory/program/autentiseringsuppgifter/uppdatera | Uppdatera program. credentials-egenskapen i Azure Active Directory. |
-| Microsoft. AAD. Directory/Applications/Delete | Ta bort program i Azure Active Directory. |
-| Microsoft. AAD. Directory/program/ägare/uppdatera | Uppdatera program. Owners-egenskapen i Azure Active Directory. |
-| Microsoft. AAD. Directory/program/behörigheter/uppdatera | Uppdatera program. Permissions-egenskapen i Azure Active Directory. |
-| Microsoft. AAD. Directory/Applications/policies/Update | Uppdatera Applications. policys-egenskapen i Azure Active Directory. |
-| Microsoft. AAD. Directory/appRoleAssignments/Create | Skapa appRoleAssignments i Azure Active Directory. |
-| Microsoft. AAD. Directory/appRoleAssignments/Update | Uppdatera appRoleAssignments i Azure Active Directory. |
-| Microsoft. AAD. Directory/appRoleAssignments/Delete | Ta bort appRoleAssignments i Azure Active Directory. |
-| Microsoft. AAD. Directory/auditLogs/allProperties/Read | Läs alla egenskaper (inklusive privilegierade egenskaper) på auditLogs i Azure Active Directory. |
-| Microsoft. AAD. Directory/policys/applicationConfiguration/Create | Skapa principer i Azure Active Directory. |
-| Microsoft. AAD. Directory/policies/applicationConfiguration/Basic/Read | Läs policies. applicationConfiguration-egenskapen i Azure Active Directory. |
-| Microsoft. AAD. Directory/policies/applicationConfiguration/Basic/Update | Uppdatera policys. applicationConfiguration-egenskapen i Azure Active Directory. |
-| Microsoft. AAD. Directory/policys/applicationConfiguration/Delete | Ta bort principer i Azure Active Directory. |
-| Microsoft. AAD. Directory/policies/applicationConfiguration/Owners/Read | Läs policies. applicationConfiguration-egenskapen i Azure Active Directory. |
-| Microsoft. AAD. Directory/policys/applicationConfiguration/Owners/Update | Uppdatera policys. applicationConfiguration-egenskapen i Azure Active Directory. |
-| Microsoft. AAD. Directory/policys/applicationConfiguration/policyAppliedTo/Read | Läs policies. applicationConfiguration-egenskapen i Azure Active Directory. |
-| microsoft.aad.directory/servicePrincipals/appRoleAssignedTo/update | Uppdatera service princip ALS. appRoleAssignedTo-egenskapen i Azure Active Directory. |
-| Microsoft. AAD. Directory/Service princip ALS/appRoleAssignments/Update | Uppdatera service princip ALS. appRoleAssignments-egenskapen i Azure Active Directory. |
-| Microsoft. AAD. Directory/Service princip ALS/Audience/Update | Uppdatera service princip ALS. Audience-egenskapen i Azure Active Directory. |
-| Microsoft. AAD. Directory/Service princip ALS/Authentication/Update | Uppdatera service princip ALS. Authentication-egenskapen i Azure Active Directory. |
-| microsoft.aad.directory/servicePrincipals/basic/update | Uppdatera grundläggande egenskaper för service princip ALS i Azure Active Directory. |
-| Microsoft. AAD. Directory/Service princip ALS/Create | Skapa service princip ALS i Azure Active Directory. |
-| microsoft.aad.directory/servicePrincipals/credentials/update | Uppdatera service princip ALS. credentials-egenskapen i Azure Active Directory. |
-| Microsoft. AAD. Directory/Service princip ALS/Delete | Ta bort service princip ALS i Azure Active Directory. |
-| Microsoft. AAD. Directory/Service princip ALS/Owners/Update | Uppdatera service princip ALS. Owners-egenskapen i Azure Active Directory. |
-| Microsoft. AAD. Directory/Service princip ALS/behörigheter/uppdatera | Uppdatera service princip ALS. Permissions-egenskapen i Azure Active Directory. |
-| Microsoft. AAD. Directory/Service princip ALS/policies/Update | Uppdatera service princip ALS. policys-egenskapen i Azure Active Directory. |
-| Microsoft. AAD. Directory/signInReports/allProperties/Read | Läs alla egenskaper (inklusive privilegierade egenskaper) på signInReports i Azure Active Directory. |
+| Microsoft. Directory/program/mål grupp/uppdatering | Uppdatera program. Audience-egenskapen i Azure Active Directory. |
+| Microsoft. Directory/program/autentisering/uppdatering | Uppdatera program. Authentication-egenskapen i Azure Active Directory. |
+| Microsoft. Directory/Applications/Basic/Update | Uppdatera grundläggande egenskaper för program i Azure Active Directory. |
+| Microsoft. Directory/program/skapa | Skapa program i Azure Active Directory. |
+| microsoft.directory/applications/credentials/update | Uppdatera program. credentials-egenskapen i Azure Active Directory. |
+| Microsoft. Directory/Applications/Delete | Ta bort program i Azure Active Directory. |
+| Microsoft. Directory/program/ägare/uppdatering | Uppdatera program. Owners-egenskapen i Azure Active Directory. |
+| Microsoft. Directory/program/behörigheter/uppdatera | Uppdatera program. Permissions-egenskapen i Azure Active Directory. |
+| Microsoft. Directory/Applications/policies/Update | Uppdatera Applications. policys-egenskapen i Azure Active Directory. |
+| Microsoft. Directory/appRoleAssignments/Create | Skapa appRoleAssignments i Azure Active Directory. |
+| Microsoft. Directory/appRoleAssignments/Update | Uppdatera appRoleAssignments i Azure Active Directory. |
+| Microsoft. Directory/appRoleAssignments/Delete | Ta bort appRoleAssignments i Azure Active Directory. |
+| Microsoft. Directory/auditLogs/allProperties/Read | Läs alla egenskaper (inklusive privilegierade egenskaper) på auditLogs i Azure Active Directory. |
+| Microsoft. Directory/policys/applicationConfiguration/Create | Skapa principer i Azure Active Directory. |
+| Microsoft. Directory/policys/applicationConfiguration/Basic/Read | Läs policies. applicationConfiguration-egenskapen i Azure Active Directory. |
+| Microsoft. Directory/policys/applicationConfiguration/Basic/Update | Uppdatera policys. applicationConfiguration-egenskapen i Azure Active Directory. |
+| Microsoft. Directory/policys/applicationConfiguration/Delete | Ta bort principer i Azure Active Directory. |
+| Microsoft. Directory/policys/applicationConfiguration/Owners/Read | Läs policies. applicationConfiguration-egenskapen i Azure Active Directory. |
+| Microsoft. Directory/policys/applicationConfiguration/Owners/Update | Uppdatera policys. applicationConfiguration-egenskapen i Azure Active Directory. |
+| Microsoft. Directory/policys/applicationConfiguration/policyAppliedTo/Read | Läs policies. applicationConfiguration-egenskapen i Azure Active Directory. |
+| microsoft.directory/servicePrincipals/appRoleAssignedTo/update | Uppdatera service princip ALS. appRoleAssignedTo-egenskapen i Azure Active Directory. |
+| microsoft.directory/servicePrincipals/appRoleAssignments/update | Uppdatera service princip ALS. appRoleAssignments-egenskapen i Azure Active Directory. |
+| microsoft.directory/servicePrincipals/audience/update | Uppdatera service princip ALS. Audience-egenskapen i Azure Active Directory. |
+| microsoft.directory/servicePrincipals/authentication/update | Uppdatera service princip ALS. Authentication-egenskapen i Azure Active Directory. |
+| microsoft.directory/servicePrincipals/basic/update | Uppdatera grundläggande egenskaper för service princip ALS i Azure Active Directory. |
+| Microsoft. Directory/Service princip ALS/Create | Skapa service princip ALS i Azure Active Directory. |
+| microsoft.directory/servicePrincipals/credentials/update | Uppdatera service princip ALS. credentials-egenskapen i Azure Active Directory. |
+| microsoft.directory/servicePrincipals/delete | Ta bort service princip ALS i Azure Active Directory. |
+| microsoft.directory/servicePrincipals/owners/update | Uppdatera service princip ALS. Owners-egenskapen i Azure Active Directory. |
+| microsoft.directory/servicePrincipals/permissions/update | Uppdatera service princip ALS. Permissions-egenskapen i Azure Active Directory. |
+| microsoft.directory/servicePrincipals/policies/update | Uppdatera service princip ALS. policys-egenskapen i Azure Active Directory. |
+| microsoft.directory/signInReports/allProperties/read | Läs alla egenskaper (inklusive privilegierade egenskaper) på signInReports i Azure Active Directory. |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Läsa och konfigurera Azure Service Health. |
 | microsoft.azure.supportTickets/allEntities/allTasks | Skapa och hantera support biljetter för Azure. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Läs och konfigurera Office 365 Service Health. |
@@ -599,12 +609,12 @@ Fullständig åtkomst till hantering av enheter i Azure AD.
 
 | **Åtgärder** | **Beskrivning** |
 | --- | --- |
-| Microsoft. AAD. Directory/auditLogs/allProperties/Read | Läs alla egenskaper (inklusive privilegierade egenskaper) på auditLogs i Azure Active Directory. |
-| Microsoft. AAD. Directory/Devices/bitLockerRecoveryKeys/Read | Läsa Devices. bitLockerRecoveryKeys-egenskapen i Azure Active Directory. |
-| Microsoft. AAD. Directory/Devices/Delete | Ta bort enheter i Azure Active Directory. |
-| Microsoft. AAD. Directory/Devices/Disable | Inaktivera enheter i Azure Active Directory. |
-| Microsoft. AAD. Directory/Devices/Enable | Aktivera enheter i Azure Active Directory. |
-| Microsoft. AAD. Directory/signInReports/allProperties/Read | Läs alla egenskaper (inklusive privilegierade egenskaper) på signInReports i Azure Active Directory. |
+| Microsoft. Directory/auditLogs/allProperties/Read | Läs alla egenskaper (inklusive privilegierade egenskaper) på auditLogs i Azure Active Directory. |
+| Microsoft. Directory/Devices/bitLockerRecoveryKeys/Read | Läsa Devices. bitLockerRecoveryKeys-egenskapen i Azure Active Directory. |
+| Microsoft. Directory/Devices/Delete | Ta bort enheter i Azure Active Directory. |
+| Microsoft. Directory/enheter/inaktivera | Inaktivera enheter i Azure Active Directory. |
+| Microsoft. Directory/Devices/Enable | Aktivera enheter i Azure Active Directory. |
+| microsoft.directory/signInReports/allProperties/read | Läs alla egenskaper (inklusive privilegierade egenskaper) på signInReports i Azure Active Directory. |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Läsa och konfigurera Azure Service Health. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Läs och konfigurera Office 365 Service Health. |
 
@@ -620,35 +630,35 @@ Kan hantera alla aspekter av Azure AD och Microsoft-tjänster som använder Azur
 | **Åtgärder** | **Beskrivning** |
 | --- | --- |
 | microsoft.aad.cloudAppSecurity/allEntities/allTasks | Skapa och ta bort alla resurser och läsa och uppdatera standard egenskaper i Microsoft. AAD. cloudAppSecurity. |
-| Microsoft. AAD. Directory/administrativeUnits/allProperties/allTasks | Skapa och ta bort administrativeUnits och läsa och uppdatera alla egenskaper i Azure Active Directory. |
-| Microsoft. AAD. Directory/Applications/allProperties/allTasks | Skapa och ta bort program och läsa och uppdatera alla egenskaper i Azure Active Directory. |
-| Microsoft. AAD. Directory/appRoleAssignments/allProperties/allTasks | Skapa och ta bort appRoleAssignments och läsa och uppdatera alla egenskaper i Azure Active Directory. |
-| Microsoft. AAD. Directory/auditLogs/allProperties/Read | Läs alla egenskaper (inklusive privilegierade egenskaper) på auditLogs i Azure Active Directory. |
-| Microsoft. AAD. Directory/Contacts/allProperties/allTasks | Skapa och ta bort kontakter och läsa och uppdatera alla egenskaper i Azure Active Directory. |
-| Microsoft. AAD. Directory/kontrakt/allProperties/allTasks | Skapa och ta bort kontrakt och läsa och uppdatera alla egenskaper i Azure Active Directory. |
-| Microsoft. AAD. Directory/Devices/allProperties/allTasks | Skapa och ta bort enheter och läsa och uppdatera alla egenskaper i Azure Active Directory. |
-| Microsoft. AAD. Directory/directoryRoles/allProperties/allTasks | Skapa och ta bort directoryRoles och läsa och uppdatera alla egenskaper i Azure Active Directory. |
-| Microsoft. AAD. Directory/directoryRoleTemplates/allProperties/allTasks | Skapa och ta bort directoryRoleTemplates och läsa och uppdatera alla egenskaper i Azure Active Directory. |
-| Microsoft. AAD. Directory/Domains/allProperties/allTasks | Skapa och ta bort domäner och läsa och uppdatera alla egenskaper i Azure Active Directory. |
-| Microsoft. AAD. Directory/Groups/allProperties/allTasks | Skapa och ta bort grupper och läsa och uppdatera alla egenskaper i Azure Active Directory. |
-| microsoft.aad.directory/groupSettings/allProperties/allTasks | Skapa och ta bort groupSettings och läsa och uppdatera alla egenskaper i Azure Active Directory. |
-| microsoft.aad.directory/groupSettingTemplates/allProperties/allTasks | Skapa och ta bort groupSettingTemplates och läsa och uppdatera alla egenskaper i Azure Active Directory. |
-| Microsoft. AAD. Directory/loginTenantBranding/allProperties/allTasks | Skapa och ta bort loginTenantBranding och läsa och uppdatera alla egenskaper i Azure Active Directory. |
-| microsoft.aad.directory/oAuth2PermissionGrants/allProperties/allTasks | Skapa och ta bort oAuth2PermissionGrants och läsa och uppdatera alla egenskaper i Azure Active Directory. |
-| Microsoft. AAD. Directory/Organization/allProperties/allTasks | Skapa och ta bort organisation och läsa och uppdatera alla egenskaper i Azure Active Directory. |
-| Microsoft. AAD. Directory/policys/allProperties/allTasks | Skapa och ta bort principer och läsa och uppdatera alla egenskaper i Azure Active Directory. |
-| Microsoft. AAD. Directory/roleAssignments/allProperties/allTasks | Skapa och ta bort roleAssignments och läsa och uppdatera alla egenskaper i Azure Active Directory. |
-| microsoft.aad.directory/roleDefinitions/allProperties/allTasks | Skapa och ta bort roleDefinitions och läsa och uppdatera alla egenskaper i Azure Active Directory. |
-| Microsoft. AAD. Directory/scopedRoleMemberships/allProperties/allTasks | Skapa och ta bort scopedRoleMemberships och läsa och uppdatera alla egenskaper i Azure Active Directory. |
-| Microsoft. AAD. Directory/serviceAction/activateService | Kan utföra Activateservice-tjänstens åtgärd i Azure Active Directory |
-| Microsoft. AAD. Directory/serviceAction/disableDirectoryFeature | Kan utföra Disabledirectoryfeature-tjänstens åtgärd i Azure Active Directory |
-| microsoft.aad.directory/serviceAction/enableDirectoryFeature | Kan utföra Enabledirectoryfeature-tjänstens åtgärd i Azure Active Directory |
-| microsoft.aad.directory/serviceAction/getAvailableExtentionProperties | Kan utföra Getavailableextentionproperties-tjänstens åtgärd i Azure Active Directory |
-| microsoft.aad.directory/servicePrincipals/allProperties/allTasks | Skapa och ta bort service princip ALS och läsa och uppdatera alla egenskaper i Azure Active Directory. |
-| Microsoft. AAD. Directory/signInReports/allProperties/Read | Läs alla egenskaper (inklusive privilegierade egenskaper) på signInReports i Azure Active Directory. |
-| microsoft.aad.directory/subscribedSkus/allProperties/allTasks | Skapa och ta bort subscribedSkus och läsa och uppdatera alla egenskaper i Azure Active Directory. |
-| Microsoft. AAD. Directory/Users/allProperties/allTasks | Skapa och ta bort användare och läsa och uppdatera alla egenskaper i Azure Active Directory. |
-| Microsoft. AAD. directorySync/upplånade/allTasks | Utföra alla åtgärder i Azure AD Connect. |
+| Microsoft. Directory/administrativeUnits/allProperties/allTasks | Skapa och ta bort administrativeUnits och läsa och uppdatera alla egenskaper i Azure Active Directory. |
+| Microsoft. Directory/Applications/allProperties/allTasks | Skapa och ta bort program och läsa och uppdatera alla egenskaper i Azure Active Directory. |
+| Microsoft. Directory/appRoleAssignments/allProperties/allTasks | Skapa och ta bort appRoleAssignments och läsa och uppdatera alla egenskaper i Azure Active Directory. |
+| Microsoft. Directory/auditLogs/allProperties/Read | Läs alla egenskaper (inklusive privilegierade egenskaper) på auditLogs i Azure Active Directory. |
+| Microsoft. Directory/Contacts/allProperties/allTasks | Skapa och ta bort kontakter och läsa och uppdatera alla egenskaper i Azure Active Directory. |
+| Microsoft. Directory/kontrakt/allProperties/allTasks | Skapa och ta bort kontrakt och läsa och uppdatera alla egenskaper i Azure Active Directory. |
+| Microsoft. Directory/Devices/allProperties/allTasks | Skapa och ta bort enheter och läsa och uppdatera alla egenskaper i Azure Active Directory. |
+| Microsoft. Directory/directoryRoles/allProperties/allTasks | Skapa och ta bort directoryRoles och läsa och uppdatera alla egenskaper i Azure Active Directory. |
+| Microsoft. Directory/directoryRoleTemplates/allProperties/allTasks | Skapa och ta bort directoryRoleTemplates och läsa och uppdatera alla egenskaper i Azure Active Directory. |
+| Microsoft. Directory/Domains/allProperties/allTasks | Skapa och ta bort domäner och läsa och uppdatera alla egenskaper i Azure Active Directory. |
+| Microsoft. Directory/Groups/allProperties/allTasks | Skapa och ta bort grupper och läsa och uppdatera alla egenskaper i Azure Active Directory. |
+| Microsoft. Directory/groupSettings/allProperties/allTasks | Skapa och ta bort groupSettings och läsa och uppdatera alla egenskaper i Azure Active Directory. |
+| Microsoft. Directory/groupSettingTemplates/allProperties/allTasks | Skapa och ta bort groupSettingTemplates och läsa och uppdatera alla egenskaper i Azure Active Directory. |
+| Microsoft. Directory/loginTenantBranding/allProperties/allTasks | Skapa och ta bort loginTenantBranding och läsa och uppdatera alla egenskaper i Azure Active Directory. |
+| Microsoft. Directory/oAuth2PermissionGrants/allProperties/allTasks | Skapa och ta bort oAuth2PermissionGrants och läsa och uppdatera alla egenskaper i Azure Active Directory. |
+| Microsoft. Directory/Organization/allProperties/allTasks | Skapa och ta bort organisation och läsa och uppdatera alla egenskaper i Azure Active Directory. |
+| Microsoft. Directory/policys/allProperties/allTasks | Skapa och ta bort principer och läsa och uppdatera alla egenskaper i Azure Active Directory. |
+| Microsoft. Directory/roleAssignments/allProperties/allTasks | Skapa och ta bort roleAssignments och läsa och uppdatera alla egenskaper i Azure Active Directory. |
+| Microsoft. Directory/roleDefinitions/allProperties/allTasks | Skapa och ta bort roleDefinitions och läsa och uppdatera alla egenskaper i Azure Active Directory. |
+| Microsoft. Directory/scopedRoleMemberships/allProperties/allTasks | Skapa och ta bort scopedRoleMemberships och läsa och uppdatera alla egenskaper i Azure Active Directory. |
+| Microsoft. Directory/serviceAction/activateService | Kan utföra Activateservice-tjänstens åtgärd i Azure Active Directory |
+| Microsoft. Directory/serviceAction/disableDirectoryFeature | Kan utföra Disabledirectoryfeature-tjänstens åtgärd i Azure Active Directory |
+| Microsoft. Directory/serviceAction/enableDirectoryFeature | Kan utföra Enabledirectoryfeature-tjänstens åtgärd i Azure Active Directory |
+| Microsoft. Directory/serviceAction/getAvailableExtentionProperties | Kan utföra Getavailableextentionproperties-tjänstens åtgärd i Azure Active Directory |
+| Microsoft. Directory/Service princip ALS/allProperties/allTasks | Skapa och ta bort service princip ALS och läsa och uppdatera alla egenskaper i Azure Active Directory. |
+| microsoft.directory/signInReports/allProperties/read | Läs alla egenskaper (inklusive privilegierade egenskaper) på signInReports i Azure Active Directory. |
+| Microsoft. Directory/subscribedSkus/allProperties/allTasks | Skapa och ta bort subscribedSkus och läsa och uppdatera alla egenskaper i Azure Active Directory. |
+| Microsoft. Directory/Users/allProperties/allTasks | Skapa och ta bort användare och läsa och uppdatera alla egenskaper i Azure Active Directory. |
+| Microsoft. directorySync/upplånade/allTasks | Utföra alla åtgärder i Azure AD Connect. |
 | Microsoft. AAD. identityProtection/upplånade/allTasks | Skapa och ta bort alla resurser och läsa och uppdatera standard egenskaper i Microsoft. AAD. identityProtection. |
 | microsoft.aad.privilegedIdentityManagement/allEntities/read | Läs alla resurser i Microsoft. AAD. privilegedIdentityManagement. |
 | microsoft.azure.advancedThreatProtection/allEntities/read | Läs alla resurser i Microsoft. Azure. advancedThreatProtection. |
@@ -725,14 +735,14 @@ Kan hantera funktioner för villkorlig åtkomst.
 
 | **Åtgärder** | **Beskrivning** |
 | --- | --- |
-| Microsoft. AAD. Directory/policies/conditionalAccess/Basic/Read | Läs policies. conditionalAccess-egenskapen i Azure Active Directory. |
-| Microsoft. AAD. Directory/policies/conditionalAccess/Basic/Update | Uppdatera policys. conditionalAccess-egenskapen i Azure Active Directory. |
-| Microsoft. AAD. Directory/policys/conditionalAccess/Create | Skapa principer i Azure Active Directory. |
-| Microsoft. AAD. Directory/policys/conditionalAccess/Delete | Ta bort principer i Azure Active Directory. |
-| Microsoft. AAD. Directory/policies/conditionalAccess/Owners/Read | Läs policies. conditionalAccess-egenskapen i Azure Active Directory. |
-| Microsoft. AAD. Directory/policys/conditionalAccess/Owners/Update | Uppdatera policys. conditionalAccess-egenskapen i Azure Active Directory. |
-| Microsoft. AAD. Directory/policys/conditionalAccess/policiesAppliedTo/Read | Läs policies. conditionalAccess-egenskapen i Azure Active Directory. |
-| microsoft.aad.directory/policies/conditionalAccess/tenantDefault/update | Uppdatera policys. conditionalAccess-egenskapen i Azure Active Directory. |
+| Microsoft. Directory/policys/conditionalAccess/Basic/Read | Läs policies. conditionalAccess-egenskapen i Azure Active Directory. |
+| Microsoft. Directory/policys/conditionalAccess/Basic/Update | Uppdatera policys. conditionalAccess-egenskapen i Azure Active Directory. |
+| Microsoft. Directory/policys/conditionalAccess/Create | Skapa principer i Azure Active Directory. |
+| Microsoft. Directory/policys/conditionalAccess/Delete | Ta bort principer i Azure Active Directory. |
+| Microsoft. Directory/policys/conditionalAccess/Owners/Read | Läs policies. conditionalAccess-egenskapen i Azure Active Directory. |
+| Microsoft. Directory/policys/conditionalAccess/Owners/Update | Uppdatera policys. conditionalAccess-egenskapen i Azure Active Directory. |
+| Microsoft. Directory/policys/conditionalAccess/policiesAppliedTo/Read | Läs policies. conditionalAccess-egenskapen i Azure Active Directory. |
+| Microsoft. Directory/policys/conditionalAccess/tenantDefault/Update | Uppdatera policys. conditionalAccess-egenskapen i Azure Active Directory. |
 
 ### <a name="crm-service-administrator-permissions"></a>Administratörs behörighet för CRM-tjänst
 
@@ -790,61 +800,61 @@ Användare som har tilldelats den här rollen läggs till i den lokala administr
 
 | **Åtgärder** | **Beskrivning** |
 | --- | --- |
-| Microsoft. AAD. Directory/groupSettings/Basic/Read | Läsa grundläggande egenskaper för groupSettings i Azure Active Directory. |
-| Microsoft. AAD. Directory/groupSettingTemplates/Basic/Read | Läsa grundläggande egenskaper för groupSettingTemplates i Azure Active Directory. |
+| Microsoft. Directory/groupSettings/Basic/Read | Läsa grundläggande egenskaper för groupSettings i Azure Active Directory. |
+| Microsoft. Directory/groupSettingTemplates/Basic/Read | Läsa grundläggande egenskaper för groupSettingTemplates i Azure Active Directory. |
 
 ### <a name="directory-readers-permissions"></a>Behörigheter för katalog läsare
 Kan läsa grundläggande katalog information. För att bevilja åtkomst till program, som inte är avsedda för användare.
 
 | **Åtgärder** | **Beskrivning** |
 | --- | --- |
-| Microsoft. AAD. Directory/administrativeUnits/Basic/Read | Läsa grundläggande egenskaper för administrativeUnits i Azure Active Directory. |
-| Microsoft. AAD. Directory/administrativeUnits/members/Read | Läs administrativeUnits. members-egenskapen i Azure Active Directory. |
-| Microsoft. AAD. Directory/program/Basic/Read | Läsa grundläggande egenskaper för program i Azure Active Directory. |
-| Microsoft. AAD. Directory/program/ägare/läsa | Läsa program. Owners-egenskapen i Azure Active Directory. |
-| Microsoft. AAD. Directory/Applications/policies/Read | Läsa program. policys-egenskapen i Azure Active Directory. |
-| Microsoft. AAD. Directory/Contacts/Basic/Read | Läsa grundläggande egenskaper för kontakter i Azure Active Directory. |
-| Microsoft. AAD. Directory/Contacts/memberOf/läsa | Läsa contacts. memberOf-egenskapen i Azure Active Directory. |
-| Microsoft. AAD. Directory/kontrakt/Basic/Read | Läsa grundläggande egenskaper för kontrakt i Azure Active Directory. |
-| Microsoft. AAD. Directory/Devices/Basic/Read | Läsa grundläggande egenskaper för enheter i Azure Active Directory. |
-| Microsoft. AAD. Directory/Devices/memberOf/Read | Läsa Devices. memberOf-egenskapen i Azure Active Directory. |
-| Microsoft. AAD. Directory/Devices/registeredOwners/Read | Läsa Devices. registeredOwners-egenskapen i Azure Active Directory. |
-| Microsoft. AAD. Directory/Devices/registeredUsers/Read | Läsa Devices. registeredUsers-egenskapen i Azure Active Directory. |
-| Microsoft. AAD. Directory/directoryRoles/Basic/Read | Läsa grundläggande egenskaper för directoryRoles i Azure Active Directory. |
-| Microsoft. AAD. Directory/directoryRoles/eligibleMembers/Read | Läsa directoryRoles. eligibleMembers-egenskapen i Azure Active Directory. |
-| Microsoft. AAD. Directory/directoryRoles/members/Read | Läs directoryRoles. members-egenskapen i Azure Active Directory. |
-| Microsoft. AAD. Directory/Domains/Basic/Read | Läsa grundläggande egenskaper för domäner i Azure Active Directory. |
-| Microsoft. AAD. Directory/Groups/appRoleAssignments/Read | Läs Groups. appRoleAssignments-egenskapen i Azure Active Directory. |
-| Microsoft. AAD. Directory/Groups/Basic/Read | Läsa grundläggande egenskaper för grupper i Azure Active Directory. |
-| Microsoft. AAD. Directory/grupper/memberOf/läsa | Läsa Groups. memberOf-egenskapen i Azure Active Directory. |
-| Microsoft. AAD. Directory/grupper/medlemmar/läsa | Läsa Groups. members-egenskapen i Azure Active Directory. |
-| Microsoft. AAD. Directory/Groups/Owners/Read | Läsa Groups. Owners-egenskapen i Azure Active Directory. |
-| Microsoft. AAD. Directory/Groups/Settings/Read | Läsa Groups. Settings-egenskapen i Azure Active Directory. |
-| Microsoft. AAD. Directory/groupSettings/Basic/Read | Läsa grundläggande egenskaper för groupSettings i Azure Active Directory. |
-| Microsoft. AAD. Directory/groupSettingTemplates/Basic/Read | Läsa grundläggande egenskaper för groupSettingTemplates i Azure Active Directory. |
-| Microsoft. AAD. Directory/oAuth2PermissionGrants/Basic/Read | Läsa grundläggande egenskaper för oAuth2PermissionGrants i Azure Active Directory. |
-| Microsoft. AAD. Directory/Organization/Basic/Read | Läsa grundläggande egenskaper för organisation i Azure Active Directory. |
-| Microsoft. AAD. Directory/Organization/trustedCAsForPasswordlessAuth/Read | Läs organisation. trustedCAsForPasswordlessAuth-egenskapen i Azure Active Directory. |
-| Microsoft. AAD. Directory/roleAssignments/Basic/Read | Läsa grundläggande egenskaper för roleAssignments i Azure Active Directory. |
-| Microsoft. AAD. Directory/roleDefinitions/Basic/Read | Läsa grundläggande egenskaper för roleDefinitions i Azure Active Directory. |
-| Microsoft. AAD. Directory/Service princip ALS/appRoleAssignedTo/Read | Läsa service princip ALS. appRoleAssignedTo-egenskapen i Azure Active Directory. |
-| Microsoft. AAD. Directory/Service princip ALS/appRoleAssignments/Read | Läsa service princip ALS. appRoleAssignments-egenskapen i Azure Active Directory. |
-| Microsoft. AAD. Directory/Service princip ALS/Basic/Read | Läsa grundläggande egenskaper för service princip ALS i Azure Active Directory. |
-| Microsoft. AAD. Directory/Service princip ALS/memberOf/läsa | Läs service princip ALS. memberOf-egenskapen i Azure Active Directory. |
-| Microsoft. AAD. Directory/Service princip ALS/oAuth2PermissionGrants/Basic/Read | Läsa service princip ALS. oAuth2PermissionGrants-egenskapen i Azure Active Directory. |
-| Microsoft. AAD. Directory/Service princip ALS/ownedObjects/Read | Läsa service princip ALS. ownedObjects-egenskapen i Azure Active Directory. |
-| Microsoft. AAD. Directory/Service princip ALS/Owners/Read | Läsa service princip ALS. Owners-egenskapen i Azure Active Directory. |
-| Microsoft. AAD. Directory/Service princip ALS/policies/Read | Läs service princip ALS. policys-egenskapen i Azure Active Directory. |
-| Microsoft. AAD. Directory/subscribedSkus/Basic/Read | Läsa grundläggande egenskaper för subscribedSkus i Azure Active Directory. |
-| Microsoft. AAD. Directory/Users/appRoleAssignments/Read | Läsa users. appRoleAssignments-egenskapen i Azure Active Directory. |
-| Microsoft. AAD. Directory/Users/Basic/Read | Läsa grundläggande egenskaper för användare i Azure Active Directory. |
-| Microsoft. AAD. Directory/Users/directReports/Read | Läsa users. directReports-egenskapen i Azure Active Directory. |
-| Microsoft. AAD. Directory/Users/Manager/Read | Läsa users. Manager-egenskapen i Azure Active Directory. |
-| Microsoft. AAD. Directory/Users/memberOf/läsa | Läsa users. memberOf-egenskapen i Azure Active Directory. |
-| Microsoft. AAD. Directory/Users/oAuth2PermissionGrants/Basic/Read | Läsa users. oAuth2PermissionGrants-egenskapen i Azure Active Directory. |
-| Microsoft. AAD. Directory/Users/ownedDevices/Read | Läsa users. ownedDevices-egenskapen i Azure Active Directory. |
-| microsoft.aad.directory/users/ownedObjects/read | Läsa users. ownedObjects-egenskapen i Azure Active Directory. |
-| Microsoft. AAD. Directory/Users/registeredDevices/Read | Läsa users. registeredDevices-egenskapen i Azure Active Directory. |
+| Microsoft. Directory/administrativeUnits/Basic/Read | Läsa grundläggande egenskaper för administrativeUnits i Azure Active Directory. |
+| Microsoft. Directory/administrativeUnits/members/Read | Läs administrativeUnits. members-egenskapen i Azure Active Directory. |
+| Microsoft. Directory/program/Basic/Read | Läsa grundläggande egenskaper för program i Azure Active Directory. |
+| Microsoft. Directory/program/ägare/läsa | Läsa program. Owners-egenskapen i Azure Active Directory. |
+| Microsoft. Directory/Applications/policies/Read | Läsa program. policys-egenskapen i Azure Active Directory. |
+| Microsoft. Directory/Contacts/Basic/Read | Läsa grundläggande egenskaper för kontakter i Azure Active Directory. |
+| Microsoft. Directory/Contacts/memberOf/läsa | Läsa contacts. memberOf-egenskapen i Azure Active Directory. |
+| Microsoft. Directory/kontrakt/Basic/Read | Läsa grundläggande egenskaper för kontrakt i Azure Active Directory. |
+| Microsoft. Directory/Devices/Basic/Read | Läsa grundläggande egenskaper för enheter i Azure Active Directory. |
+| Microsoft. Directory/Devices/memberOf/Read | Läsa Devices. memberOf-egenskapen i Azure Active Directory. |
+| Microsoft. Directory/Devices/registeredOwners/Read | Läsa Devices. registeredOwners-egenskapen i Azure Active Directory. |
+| Microsoft. Directory/Devices/registeredUsers/Read | Läsa Devices. registeredUsers-egenskapen i Azure Active Directory. |
+| Microsoft. Directory/directoryRoles/Basic/Read | Läsa grundläggande egenskaper för directoryRoles i Azure Active Directory. |
+| Microsoft. Directory/directoryRoles/eligibleMembers/Read | Läsa directoryRoles. eligibleMembers-egenskapen i Azure Active Directory. |
+| Microsoft. Directory/directoryRoles/members/Read | Läs directoryRoles. members-egenskapen i Azure Active Directory. |
+| Microsoft. Directory/Domains/Basic/Read | Läsa grundläggande egenskaper för domäner i Azure Active Directory. |
+| Microsoft. Directory/grupper/appRoleAssignments/Read | Läs Groups. appRoleAssignments-egenskapen i Azure Active Directory. |
+| Microsoft. Directory/grupper/Basic/Read | Läsa grundläggande egenskaper för grupper i Azure Active Directory. |
+| Microsoft. Directory/grupper/memberOf/läsa | Läsa Groups. memberOf-egenskapen i Azure Active Directory. |
+| Microsoft. Directory/grupper/medlemmar/läsa | Läsa Groups. members-egenskapen i Azure Active Directory. |
+| Microsoft. Directory/grupper/ägare/läsa | Läsa Groups. Owners-egenskapen i Azure Active Directory. |
+| Microsoft. Directory/grupper/inställningar/Läs | Läsa Groups. Settings-egenskapen i Azure Active Directory. |
+| Microsoft. Directory/groupSettings/Basic/Read | Läsa grundläggande egenskaper för groupSettings i Azure Active Directory. |
+| Microsoft. Directory/groupSettingTemplates/Basic/Read | Läsa grundläggande egenskaper för groupSettingTemplates i Azure Active Directory. |
+| Microsoft. Directory/oAuth2PermissionGrants/Basic/Read | Läsa grundläggande egenskaper för oAuth2PermissionGrants i Azure Active Directory. |
+| Microsoft. Directory/Organization/Basic/Read | Läsa grundläggande egenskaper för organisation i Azure Active Directory. |
+| Microsoft. Directory/Organization/trustedCAsForPasswordlessAuth/Read | Läs organisation. trustedCAsForPasswordlessAuth-egenskapen i Azure Active Directory. |
+| Microsoft. Directory/roleAssignments/Basic/Read | Läsa grundläggande egenskaper för roleAssignments i Azure Active Directory. |
+| Microsoft. Directory/roleDefinitions/Basic/Read | Läsa grundläggande egenskaper för roleDefinitions i Azure Active Directory. |
+| Microsoft. Directory/Service princip ALS/appRoleAssignedTo/Read | Läsa service princip ALS. appRoleAssignedTo-egenskapen i Azure Active Directory. |
+| Microsoft. Directory/Service princip ALS/appRoleAssignments/Read | Läsa service princip ALS. appRoleAssignments-egenskapen i Azure Active Directory. |
+| Microsoft. Directory/Service princip ALS/Basic/Read | Läsa grundläggande egenskaper för service princip ALS i Azure Active Directory. |
+| Microsoft. Directory/Service princip ALS/memberOf/läsa | Läs service princip ALS. memberOf-egenskapen i Azure Active Directory. |
+| Microsoft. Directory/Service princip ALS/oAuth2PermissionGrants/Basic/Read | Läsa service princip ALS. oAuth2PermissionGrants-egenskapen i Azure Active Directory. |
+| Microsoft. Directory/Service princip ALS/ownedObjects/Read | Läsa service princip ALS. ownedObjects-egenskapen i Azure Active Directory. |
+| Microsoft. Directory/Service princip ALS/Owners/Read | Läsa service princip ALS. Owners-egenskapen i Azure Active Directory. |
+| Microsoft. Directory/Service princip ALS/policies/Read | Läs service princip ALS. policys-egenskapen i Azure Active Directory. |
+| Microsoft. Directory/subscribedSkus/Basic/Read | Läsa grundläggande egenskaper för subscribedSkus i Azure Active Directory. |
+| Microsoft. Directory/Users/appRoleAssignments/Read | Läsa users. appRoleAssignments-egenskapen i Azure Active Directory. |
+| Microsoft. Directory/Users/Basic/Read | Läsa grundläggande egenskaper för användare i Azure Active Directory. |
+| Microsoft. Directory/Users/directReports/Read | Läsa users. directReports-egenskapen i Azure Active Directory. |
+| Microsoft. Directory/Users/Manager/Read | Läsa users. Manager-egenskapen i Azure Active Directory. |
+| Microsoft. Directory/Users/memberOf/Read | Läsa users. memberOf-egenskapen i Azure Active Directory. |
+| Microsoft. Directory/Users/oAuth2PermissionGrants/Basic/Read | Läsa users. oAuth2PermissionGrants-egenskapen i Azure Active Directory. |
+| Microsoft. Directory/Users/ownedDevices/Read | Läsa users. ownedDevices-egenskapen i Azure Active Directory. |
+| Microsoft. Directory/Users/ownedObjects/Read | Läsa users. ownedObjects-egenskapen i Azure Active Directory. |
+| Microsoft. Directory/Users/registeredDevices/Read | Läsa users. registeredDevices-egenskapen i Azure Active Directory. |
 
 ### <a name="directory-synchronization-accounts-permissions"></a>Konto behörigheter för katalog synkronisering
 
@@ -852,34 +862,34 @@ Används endast av Azure AD Connect-tjänsten.
 
 | **Åtgärder** | **Beskrivning** |
 | --- | --- |
-| Microsoft. AAD. Directory/Organization/dirSync/Update | Uppdatera organisation. dirSync-egenskapen i Azure Active Directory. |
-| Microsoft. AAD. Directory/policies/Create | Skapa principer i Azure Active Directory. |
-| Microsoft. AAD. Directory/policies/Delete | Ta bort principer i Azure Active Directory. |
-| Microsoft. AAD. Directory/policies/Basic/Read | Läsa grundläggande egenskaper för principer i Azure Active Directory. |
-| Microsoft. AAD. Directory/policies/Basic/Update | Uppdatera grundläggande egenskaper för principer i Azure Active Directory. |
-| Microsoft. AAD. Directory/policies/Owners/Read | Läs policies. Owners-egenskapen i Azure Active Directory. |
-| Microsoft. AAD. Directory/policys/Owners/Update | Uppdatera policys. Owners-egenskapen i Azure Active Directory. |
-| Microsoft. AAD. Directory/policys/policiesAppliedTo/Read | Läs policies. policiesAppliedTo-egenskapen i Azure Active Directory. |
-| Microsoft. AAD. Directory/policys/tenantDefault/Update | Uppdatera policys. tenantDefault-egenskapen i Azure Active Directory. |
-| Microsoft. AAD. Directory/Service princip ALS/appRoleAssignedTo/Read | Läsa service princip ALS. appRoleAssignedTo-egenskapen i Azure Active Directory. |
-| microsoft.aad.directory/servicePrincipals/appRoleAssignedTo/update | Uppdatera service princip ALS. appRoleAssignedTo-egenskapen i Azure Active Directory. |
-| Microsoft. AAD. Directory/Service princip ALS/appRoleAssignments/Read | Läsa service princip ALS. appRoleAssignments-egenskapen i Azure Active Directory. |
-| Microsoft. AAD. Directory/Service princip ALS/appRoleAssignments/Update | Uppdatera service princip ALS. appRoleAssignments-egenskapen i Azure Active Directory. |
-| Microsoft. AAD. Directory/Service princip ALS/Audience/Update | Uppdatera service princip ALS. Audience-egenskapen i Azure Active Directory. |
-| Microsoft. AAD. Directory/Service princip ALS/Authentication/Update | Uppdatera service princip ALS. Authentication-egenskapen i Azure Active Directory. |
-| Microsoft. AAD. Directory/Service princip ALS/Basic/Read | Läsa grundläggande egenskaper för service princip ALS i Azure Active Directory. |
-| microsoft.aad.directory/servicePrincipals/basic/update | Uppdatera grundläggande egenskaper för service princip ALS i Azure Active Directory. |
-| Microsoft. AAD. Directory/Service princip ALS/Create | Skapa service princip ALS i Azure Active Directory. |
-| microsoft.aad.directory/servicePrincipals/credentials/update | Uppdatera service princip ALS. credentials-egenskapen i Azure Active Directory. |
-| Microsoft. AAD. Directory/Service princip ALS/memberOf/läsa | Läs service princip ALS. memberOf-egenskapen i Azure Active Directory. |
-| Microsoft. AAD. Directory/Service princip ALS/oAuth2PermissionGrants/Basic/Read | Läsa service princip ALS. oAuth2PermissionGrants-egenskapen i Azure Active Directory. |
-| Microsoft. AAD. Directory/Service princip ALS/Owners/Read | Läsa service princip ALS. Owners-egenskapen i Azure Active Directory. |
-| Microsoft. AAD. Directory/Service princip ALS/Owners/Update | Uppdatera service princip ALS. Owners-egenskapen i Azure Active Directory. |
-| Microsoft. AAD. Directory/Service princip ALS/ownedObjects/Read | Läsa service princip ALS. ownedObjects-egenskapen i Azure Active Directory. |
-| Microsoft. AAD. Directory/Service princip ALS/behörigheter/uppdatera | Uppdatera service princip ALS. Permissions-egenskapen i Azure Active Directory. |
-| Microsoft. AAD. Directory/Service princip ALS/policies/Read | Läs service princip ALS. policys-egenskapen i Azure Active Directory. |
-| Microsoft. AAD. Directory/Service princip ALS/policies/Update | Uppdatera service princip ALS. policys-egenskapen i Azure Active Directory. |
-| Microsoft. AAD. directorySync/upplånade/allTasks | Utföra alla åtgärder i Azure AD Connect. |
+| Microsoft. Directory/Organization/dirSync/Update | Uppdatera organisation. dirSync-egenskapen i Azure Active Directory. |
+| Microsoft. Directory/principer/skapa | Skapa principer i Azure Active Directory. |
+| Microsoft. Directory/principer/Delete | Ta bort principer i Azure Active Directory. |
+| Microsoft. Directory/policies/Basic/Read | Läsa grundläggande egenskaper för principer i Azure Active Directory. |
+| Microsoft. Directory/policies/Basic/Update | Uppdatera grundläggande egenskaper för principer i Azure Active Directory. |
+| Microsoft. Directory/principer/ägare/läsa | Läs policies. Owners-egenskapen i Azure Active Directory. |
+| Microsoft. Directory/principer/ägare/uppdatering | Uppdatera policys. Owners-egenskapen i Azure Active Directory. |
+| Microsoft. Directory/policys/policiesAppliedTo/Read | Läs policies. policiesAppliedTo-egenskapen i Azure Active Directory. |
+| Microsoft. Directory/policys/tenantDefault/Update | Uppdatera policys. tenantDefault-egenskapen i Azure Active Directory. |
+| Microsoft. Directory/Service princip ALS/appRoleAssignedTo/Read | Läsa service princip ALS. appRoleAssignedTo-egenskapen i Azure Active Directory. |
+| microsoft.directory/servicePrincipals/appRoleAssignedTo/update | Uppdatera service princip ALS. appRoleAssignedTo-egenskapen i Azure Active Directory. |
+| Microsoft. Directory/Service princip ALS/appRoleAssignments/Read | Läsa service princip ALS. appRoleAssignments-egenskapen i Azure Active Directory. |
+| microsoft.directory/servicePrincipals/appRoleAssignments/update | Uppdatera service princip ALS. appRoleAssignments-egenskapen i Azure Active Directory. |
+| microsoft.directory/servicePrincipals/audience/update | Uppdatera service princip ALS. Audience-egenskapen i Azure Active Directory. |
+| microsoft.directory/servicePrincipals/authentication/update | Uppdatera service princip ALS. Authentication-egenskapen i Azure Active Directory. |
+| Microsoft. Directory/Service princip ALS/Basic/Read | Läsa grundläggande egenskaper för service princip ALS i Azure Active Directory. |
+| microsoft.directory/servicePrincipals/basic/update | Uppdatera grundläggande egenskaper för service princip ALS i Azure Active Directory. |
+| Microsoft. Directory/Service princip ALS/Create | Skapa service princip ALS i Azure Active Directory. |
+| microsoft.directory/servicePrincipals/credentials/update | Uppdatera service princip ALS. credentials-egenskapen i Azure Active Directory. |
+| Microsoft. Directory/Service princip ALS/memberOf/läsa | Läs service princip ALS. memberOf-egenskapen i Azure Active Directory. |
+| Microsoft. Directory/Service princip ALS/oAuth2PermissionGrants/Basic/Read | Läsa service princip ALS. oAuth2PermissionGrants-egenskapen i Azure Active Directory. |
+| Microsoft. Directory/Service princip ALS/Owners/Read | Läsa service princip ALS. Owners-egenskapen i Azure Active Directory. |
+| microsoft.directory/servicePrincipals/owners/update | Uppdatera service princip ALS. Owners-egenskapen i Azure Active Directory. |
+| Microsoft. Directory/Service princip ALS/ownedObjects/Read | Läsa service princip ALS. ownedObjects-egenskapen i Azure Active Directory. |
+| microsoft.directory/servicePrincipals/permissions/update | Uppdatera service princip ALS. Permissions-egenskapen i Azure Active Directory. |
+| Microsoft. Directory/Service princip ALS/policies/Read | Läs service princip ALS. policys-egenskapen i Azure Active Directory. |
+| microsoft.directory/servicePrincipals/policies/update | Uppdatera service princip ALS. policys-egenskapen i Azure Active Directory. |
+| Microsoft. directorySync/upplånade/allTasks | Utföra alla åtgärder i Azure AD Connect. |
 
 ### <a name="directory-writers-permissions"></a>Behörigheter för katalog skrivare
 
@@ -887,22 +897,22 @@ Kan läsa & skriva grundläggande katalog information. För att bevilja åtkomst
 
 | **Åtgärder** | **Beskrivning** |
 | --- | --- |
-| Microsoft. AAD. Directory/grupper/skapa | Skapa grupper i Azure Active Directory. |
-| Microsoft. AAD. Directory/Groups/createAsOwner | Skapa grupper i Azure Active Directory. Skaparen läggs till som den första ägaren och det antal skapade objektet mot skapare objekt kvoten 250 har skapats. |
-| Microsoft. AAD. Directory/Groups/appRoleAssignments/Update | Uppdatera Groups. appRoleAssignments-egenskapen i Azure Active Directory. |
-| Microsoft. AAD. Directory/Groups/Basic/Update | Uppdatera grundläggande egenskaper för grupper i Azure Active Directory. |
-| Microsoft. AAD. Directory/grupper/medlemmar/uppdatera | Uppdatera Groups. members-egenskapen i Azure Active Directory. |
-| Microsoft. AAD. Directory/grupper/ägare/uppdatera | Uppdatera Groups. Owners-egenskapen i Azure Active Directory. |
-| Microsoft. AAD. Directory/grupper/inställningar/uppdatera | Uppdatera Groups. Settings-egenskapen i Azure Active Directory. |
-| Microsoft. AAD. Directory/groupSettings/Basic/Update | Uppdatera grundläggande egenskaper för groupSettings i Azure Active Directory. |
-| Microsoft. AAD. Directory/groupSettings/Create | Skapa groupSettings i Azure Active Directory. |
-| Microsoft. AAD. Directory/groupSettings/Delete | Ta bort groupSettings i Azure Active Directory. |
-| Microsoft. AAD. Directory/Users/appRoleAssignments/Update | Uppdatera users. appRoleAssignments-egenskapen i Azure Active Directory. |
-| Microsoft. AAD. Directory/Users/assignLicense | Hantera licenser för användare i Azure Active Directory. |
-| Microsoft. AAD. Directory/Users/Basic/Update | Uppdatera grundläggande egenskaper för användare i Azure Active Directory. |
-| Microsoft. AAD. Directory/Users/invalidateAllRefreshTokens | Ogiltig verifiering av alla användares uppdateringstoken i Azure Active Directory. |
-| Microsoft. AAD. Directory/Users/Manager/Update | Uppdatera users. Manager-egenskapen i Azure Active Directory. |
-| Microsoft. AAD. Directory/Users/userPrincipalName/Update | Uppdatera users. userPrincipalName-egenskapen i Azure Active Directory. |
+| Microsoft. Directory/grupper/skapa | Skapa grupper i Azure Active Directory. |
+| Microsoft. Directory/grupper/createAsOwner | Skapa grupper i Azure Active Directory. Skaparen läggs till som den första ägaren och det antal skapade objektet mot skapare objekt kvoten 250 har skapats. |
+| Microsoft. Directory/Groups/appRoleAssignments/Update | Uppdatera Groups. appRoleAssignments-egenskapen i Azure Active Directory. |
+| Microsoft. Directory/grupper/Basic/Update | Uppdatera grundläggande egenskaper för grupper i Azure Active Directory. |
+| Microsoft. Directory/grupper/medlemmar/uppdatera | Uppdatera Groups. members-egenskapen i Azure Active Directory. |
+| Microsoft. Directory/grupper/ägare/uppdatera | Uppdatera Groups. Owners-egenskapen i Azure Active Directory. |
+| microsoft.directory/groups/settings/update | Uppdatera Groups. Settings-egenskapen i Azure Active Directory. |
+| Microsoft. Directory/groupSettings/Basic/Update | Uppdatera grundläggande egenskaper för groupSettings i Azure Active Directory. |
+| Microsoft. Directory/groupSettings/Create | Skapa groupSettings i Azure Active Directory. |
+| Microsoft. Directory/groupSettings/Delete | Ta bort groupSettings i Azure Active Directory. |
+| Microsoft. Directory/Users/appRoleAssignments/Update | Uppdatera users. appRoleAssignments-egenskapen i Azure Active Directory. |
+| Microsoft. Directory/Users/assignLicense | Hantera licenser för användare i Azure Active Directory. |
+| Microsoft. Directory/Users/Basic/Update | Uppdatera grundläggande egenskaper för användare i Azure Active Directory. |
+| Microsoft. Directory/Users/invalidateAllRefreshTokens | Ogiltig verifiering av alla användares uppdateringstoken i Azure Active Directory. |
+| Microsoft. Directory/Users/Manager/Update | Uppdatera users. Manager-egenskapen i Azure Active Directory. |
+| Microsoft. Directory/Users/userPrincipalName/Update | Uppdatera users. userPrincipalName-egenskapen i Azure Active Directory. |
 
 ### <a name="exchange-service-administrator-permissions"></a>Administratörs behörighet för Exchange-tjänst
 
@@ -915,12 +925,12 @@ Kan hantera alla aspekter av Exchange-produkten.
 
 | **Åtgärder** | **Beskrivning** |
 | --- | --- |
-| Microsoft. AAD. Directory/Groups/Unified/appRoleAssignments/Update | Uppdatera Groups. Unified-egenskapen i Azure Active Directory. |
-| Microsoft. AAD. Directory/Groups/Unified/Basic/Update | Uppdatera grundläggande egenskaper för Office 365-grupper. |
-| Microsoft. AAD. Directory/Groups/Unified/Create | Skapa Office 365-grupper. |
-| Microsoft. AAD. Directory/Groups/Unified/Delete | Ta bort Office 365-grupper. |
-| Microsoft. AAD. Directory/Groups/Unified/members/Update | Uppdatera medlemskap för Office 365-grupper. |
-| Microsoft. AAD. Directory/Groups/Unified/Owners/Update | Uppdatera ägarskap för Office 365-grupper. |
+| Microsoft. Directory/Groups/Unified/appRoleAssignments/Update | Uppdatera Groups. Unified-egenskapen i Azure Active Directory. |
+| Microsoft. Directory/Groups/Unified/Basic/Update | Uppdatera grundläggande egenskaper för Office 365-grupper. |
+| Microsoft. Directory/grupper/enhetlig/skapa | Skapa Office 365-grupper. |
+| Microsoft. Directory/grupper/enhetlig/ta bort | Ta bort Office 365-grupper. |
+| Microsoft. Directory/grupper/enhetlig/medlemmar/uppdatering | Uppdatera medlemskap för Office 365-grupper. |
+| Microsoft. Directory/grupper/enhetlig/ägare/uppdatering | Uppdatera ägarskap för Office 365-grupper. |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Läsa och konfigurera Azure Service Health. |
 | microsoft.azure.supportTickets/allEntities/allTasks | Skapa och hantera support biljetter för Azure. |
 | microsoft.office365.webPortal/allEntities/basic/read | Läsa grundläggande egenskaper för alla resurser i Microsoft. Office365. Web-Portal. |
@@ -941,16 +951,16 @@ Kan bjuda in gäst användare oberoende av inställningen medlemmar kan bjuda in
 
 | **Åtgärder** | **Beskrivning** |
 | --- | --- |
-| Microsoft. AAD. Directory/Users/appRoleAssignments/Read | Läsa users. appRoleAssignments-egenskapen i Azure Active Directory. |
-| Microsoft. AAD. Directory/Users/Basic/Read | Läsa grundläggande egenskaper för användare i Azure Active Directory. |
-| Microsoft. AAD. Directory/Users/directReports/Read | Läsa users. directReports-egenskapen i Azure Active Directory. |
-| Microsoft. AAD. Directory/Users/inviteGuest | Bjud in gäst användare i Azure Active Directory. |
-| Microsoft. AAD. Directory/Users/Manager/Read | Läsa users. Manager-egenskapen i Azure Active Directory. |
-| Microsoft. AAD. Directory/Users/memberOf/läsa | Läsa users. memberOf-egenskapen i Azure Active Directory. |
-| Microsoft. AAD. Directory/Users/oAuth2PermissionGrants/Basic/Read | Läsa users. oAuth2PermissionGrants-egenskapen i Azure Active Directory. |
-| Microsoft. AAD. Directory/Users/ownedDevices/Read | Läsa users. ownedDevices-egenskapen i Azure Active Directory. |
-| microsoft.aad.directory/users/ownedObjects/read | Läsa users. ownedObjects-egenskapen i Azure Active Directory. |
-| Microsoft. AAD. Directory/Users/registeredDevices/Read | Läsa users. registeredDevices-egenskapen i Azure Active Directory. |
+| Microsoft. Directory/Users/appRoleAssignments/Read | Läsa users. appRoleAssignments-egenskapen i Azure Active Directory. |
+| Microsoft. Directory/Users/Basic/Read | Läsa grundläggande egenskaper för användare i Azure Active Directory. |
+| Microsoft. Directory/Users/directReports/Read | Läsa users. directReports-egenskapen i Azure Active Directory. |
+| Microsoft. Directory/Users/inviteGuest | Bjud in gäst användare i Azure Active Directory. |
+| Microsoft. Directory/Users/Manager/Read | Läsa users. Manager-egenskapen i Azure Active Directory. |
+| Microsoft. Directory/Users/memberOf/Read | Läsa users. memberOf-egenskapen i Azure Active Directory. |
+| Microsoft. Directory/Users/oAuth2PermissionGrants/Basic/Read | Läsa users. oAuth2PermissionGrants-egenskapen i Azure Active Directory. |
+| Microsoft. Directory/Users/ownedDevices/Read | Läsa users. ownedDevices-egenskapen i Azure Active Directory. |
+| Microsoft. Directory/Users/ownedObjects/Read | Läsa users. ownedObjects-egenskapen i Azure Active Directory. |
+| Microsoft. Directory/Users/registeredDevices/Read | Läsa users. registeredDevices-egenskapen i Azure Active Directory. |
 
 ### <a name="helpdesk-administrator-permissions"></a>Administratörs behörighet för supportavdelningen
 
@@ -958,9 +968,9 @@ Kan återställa lösen ord för administratörer som inte har administratörer 
 
 | **Åtgärder** | **Beskrivning** |
 | --- | --- |
-| Microsoft. AAD. Directory/Devices/bitLockerRecoveryKeys/Read | Läsa Devices. bitLockerRecoveryKeys-egenskapen i Azure Active Directory. |
-| Microsoft. AAD. Directory/Users/invalidateAllRefreshTokens | Ogiltig verifiering av alla användares uppdateringstoken i Azure Active Directory. |
-| Microsoft. AAD. Directory/Users/Password/Update | Uppdatera lösen ord för alla användare i Azure Active Directory. Mer information finns i onlinedokumentationen. |
+| Microsoft. Directory/Devices/bitLockerRecoveryKeys/Read | Läsa Devices. bitLockerRecoveryKeys-egenskapen i Azure Active Directory. |
+| Microsoft. Directory/Users/invalidateAllRefreshTokens | Ogiltig verifiering av alla användares uppdateringstoken i Azure Active Directory. |
+| Microsoft. Directory/Users/Password/Update | Uppdatera lösen ord för alla användare i Azure Active Directory. Mer information finns i onlinedokumentationen. |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Läsa och konfigurera Azure Service Health. |
 | microsoft.azure.supportTickets/allEntities/allTasks | Skapa och hantera support biljetter för Azure. |
 | microsoft.office365.webPortal/allEntities/basic/read | Läsa grundläggande egenskaper för alla resurser i Microsoft. Office365. Web-Portal. |
@@ -978,28 +988,28 @@ Kan hantera alla aspekter av Intune-produkten.
 
 | **Åtgärder** | **Beskrivning** |
 | --- | --- |
-| Microsoft. AAD. Directory/Contacts/Basic/Update | Uppdatera grundläggande egenskaper för kontakter i Azure Active Directory. |
-| Microsoft. AAD. Directory/Contacts/Create | Skapa kontakter i Azure Active Directory. |
-| Microsoft. AAD. Directory/Contacts/Delete | Ta bort kontakter i Azure Active Directory. |
-| Microsoft. AAD. Directory/Devices/Basic/Update | Uppdatera grundläggande egenskaper för enheter i Azure Active Directory. |
-| Microsoft. AAD. Directory/Devices/bitLockerRecoveryKeys/Read | Läsa Devices. bitLockerRecoveryKeys-egenskapen i Azure Active Directory. |
-| Microsoft. AAD. Directory/Devices/Create | Skapa enheter i Azure Active Directory. |
-| Microsoft. AAD. Directory/Devices/Delete | Ta bort enheter i Azure Active Directory. |
-| Microsoft. AAD. Directory/Devices/registeredOwners/Update | Uppdatera Devices. registeredOwners-egenskapen i Azure Active Directory. |
-| microsoft.aad.directory/devices/registeredUsers/update | Uppdatera Devices. registeredUsers-egenskapen i Azure Active Directory. |
-| Microsoft. AAD. Directory/Groups/appRoleAssignments/Update | Uppdatera Groups. appRoleAssignments-egenskapen i Azure Active Directory. |
-| Microsoft. AAD. Directory/Groups/Basic/Update | Uppdatera grundläggande egenskaper för grupper i Azure Active Directory. |
-| Microsoft. AAD. Directory/grupper/skapa | Skapa grupper i Azure Active Directory. |
-| Microsoft. AAD. Directory/Groups/createAsOwner | Skapa grupper i Azure Active Directory. Skaparen läggs till som den första ägaren och det antal skapade objektet mot skapare objekt kvoten 250 har skapats. |
-| Microsoft. AAD. Directory/Groups/Delete | Ta bort grupper i Azure Active Directory. |
-| Microsoft. AAD. Directory/Groups/hiddenMembers/Read | Läs Groups. hiddenMembers-egenskapen i Azure Active Directory. |
-| Microsoft. AAD. Directory/grupper/medlemmar/uppdatera | Uppdatera Groups. members-egenskapen i Azure Active Directory. |
-| Microsoft. AAD. Directory/grupper/ägare/uppdatera | Uppdatera Groups. Owners-egenskapen i Azure Active Directory. |
-| Microsoft. AAD. Directory/Groups/Restore | Återställ grupper i Azure Active Directory. |
-| Microsoft. AAD. Directory/grupper/inställningar/uppdatera | Uppdatera Groups. Settings-egenskapen i Azure Active Directory. |
-| Microsoft. AAD. Directory/Users/appRoleAssignments/Update | Uppdatera users. appRoleAssignments-egenskapen i Azure Active Directory. |
-| Microsoft. AAD. Directory/Users/Basic/Update | Uppdatera grundläggande egenskaper för användare i Azure Active Directory. |
-| Microsoft. AAD. Directory/Users/Manager/Update | Uppdatera users. Manager-egenskapen i Azure Active Directory. |
+| Microsoft. Directory/Contacts/Basic/Update | Uppdatera grundläggande egenskaper för kontakter i Azure Active Directory. |
+| Microsoft. Directory/kontakter/skapa | Skapa kontakter i Azure Active Directory. |
+| Microsoft. Directory/Contacts/Delete | Ta bort kontakter i Azure Active Directory. |
+| Microsoft. Directory/Devices/Basic/Update | Uppdatera grundläggande egenskaper för enheter i Azure Active Directory. |
+| Microsoft. Directory/Devices/bitLockerRecoveryKeys/Read | Läsa Devices. bitLockerRecoveryKeys-egenskapen i Azure Active Directory. |
+| Microsoft. Directory/Devices/Create | Skapa enheter i Azure Active Directory. |
+| Microsoft. Directory/Devices/Delete | Ta bort enheter i Azure Active Directory. |
+| Microsoft. Directory/Devices/registeredOwners/Update | Uppdatera Devices. registeredOwners-egenskapen i Azure Active Directory. |
+| Microsoft. Directory/Devices/registeredUsers/Update | Uppdatera Devices. registeredUsers-egenskapen i Azure Active Directory. |
+| Microsoft. Directory/Groups/appRoleAssignments/Update | Uppdatera Groups. appRoleAssignments-egenskapen i Azure Active Directory. |
+| Microsoft. Directory/grupper/Basic/Update | Uppdatera grundläggande egenskaper för grupper i Azure Active Directory. |
+| Microsoft. Directory/grupper/skapa | Skapa grupper i Azure Active Directory. |
+| Microsoft. Directory/grupper/createAsOwner | Skapa grupper i Azure Active Directory. Skaparen läggs till som den första ägaren och det antal skapade objektet mot skapare objekt kvoten 250 har skapats. |
+| Microsoft. Directory/grupper/ta bort | Ta bort grupper i Azure Active Directory. |
+| Microsoft. Directory/grupper/hiddenMembers/Read | Läs Groups. hiddenMembers-egenskapen i Azure Active Directory. |
+| Microsoft. Directory/grupper/medlemmar/uppdatera | Uppdatera Groups. members-egenskapen i Azure Active Directory. |
+| Microsoft. Directory/grupper/ägare/uppdatera | Uppdatera Groups. Owners-egenskapen i Azure Active Directory. |
+| Microsoft. Directory/grupper/Återställ | Återställ grupper i Azure Active Directory. |
+| microsoft.directory/groups/settings/update | Uppdatera Groups. Settings-egenskapen i Azure Active Directory. |
+| Microsoft. Directory/Users/appRoleAssignments/Update | Uppdatera users. appRoleAssignments-egenskapen i Azure Active Directory. |
+| Microsoft. Directory/Users/Basic/Update | Uppdatera grundläggande egenskaper för användare i Azure Active Directory. |
+| Microsoft. Directory/Users/Manager/Update | Uppdatera users. Manager-egenskapen i Azure Active Directory. |
 | microsoft.azure.supportTickets/allEntities/allTasks | Skapa och hantera support biljetter för Azure. |
 | microsoft.intune/allEntities/allTasks | Hantera alla aspekter av Intune. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Skapa och hantera Office 365-support biljetter. |
@@ -1026,8 +1036,8 @@ Kan hantera produkt licenser för användare och grupper.
 
 | **Åtgärder** | **Beskrivning** |
 | --- | --- |
-| Microsoft. AAD. Directory/Users/assignLicense | Hantera licenser för användare i Azure Active Directory. |
-| microsoft.aad.directory/users/usageLocation/update | Uppdatera users. usageLocation-egenskapen i Azure Active Directory. |
+| Microsoft. Directory/Users/assignLicense | Hantera licenser för användare i Azure Active Directory. |
+| Microsoft. Directory/Users/usageLocation/Update | Uppdatera users. usageLocation-egenskapen i Azure Active Directory. |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Läsa och konfigurera Azure Service Health. |
 | microsoft.office365.webPortal/allEntities/basic/read | Läsa grundläggande egenskaper för alla resurser i Microsoft. Office365. Web-Portal. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Läs och konfigurera Office 365 Service Health. |
@@ -1089,22 +1099,22 @@ Använd inte – inte avsedd för allmän användning.
 
 | **Åtgärder** | **Beskrivning** |
 | --- | --- |
-| Microsoft. AAD. Directory/Contacts/Basic/Update | Uppdatera grundläggande egenskaper för kontakter i Azure Active Directory. |
-| Microsoft. AAD. Directory/Contacts/Create | Skapa kontakter i Azure Active Directory. |
-| Microsoft. AAD. Directory/Contacts/Delete | Ta bort kontakter i Azure Active Directory. |
-| Microsoft. AAD. Directory/grupper/skapa | Skapa grupper i Azure Active Directory. |
-| Microsoft. AAD. Directory/Groups/createAsOwner | Skapa grupper i Azure Active Directory. Skaparen läggs till som den första ägaren och det antal skapade objektet mot skapare objekt kvoten 250 har skapats. |
-| Microsoft. AAD. Directory/grupper/medlemmar/uppdatera | Uppdatera Groups. members-egenskapen i Azure Active Directory. |
-| Microsoft. AAD. Directory/grupper/ägare/uppdatera | Uppdatera Groups. Owners-egenskapen i Azure Active Directory. |
-| Microsoft. AAD. Directory/Users/appRoleAssignments/Update | Uppdatera users. appRoleAssignments-egenskapen i Azure Active Directory. |
-| Microsoft. AAD. Directory/Users/assignLicense | Hantera licenser för användare i Azure Active Directory. |
-| Microsoft. AAD. Directory/Users/Basic/Update | Uppdatera grundläggande egenskaper för användare i Azure Active Directory. |
-| Microsoft. AAD. Directory/Users/Delete | Ta bort användare i Azure Active Directory. |
-| Microsoft. AAD. Directory/Users/invalidateAllRefreshTokens | Ogiltig verifiering av alla användares uppdateringstoken i Azure Active Directory. |
-| Microsoft. AAD. Directory/Users/Manager/Update | Uppdatera users. Manager-egenskapen i Azure Active Directory. |
-| Microsoft. AAD. Directory/Users/Password/Update | Uppdatera lösen ord för alla användare i Azure Active Directory. Mer information finns i onlinedokumentationen. |
-| Microsoft. AAD. Directory/Users/Restore | Återställ borttagna användare i Azure Active Directory. |
-| Microsoft. AAD. Directory/Users/userPrincipalName/Update | Uppdatera users. userPrincipalName-egenskapen i Azure Active Directory. |
+| Microsoft. Directory/Contacts/Basic/Update | Uppdatera grundläggande egenskaper för kontakter i Azure Active Directory. |
+| Microsoft. Directory/kontakter/skapa | Skapa kontakter i Azure Active Directory. |
+| Microsoft. Directory/Contacts/Delete | Ta bort kontakter i Azure Active Directory. |
+| Microsoft. Directory/grupper/skapa | Skapa grupper i Azure Active Directory. |
+| Microsoft. Directory/grupper/createAsOwner | Skapa grupper i Azure Active Directory. Skaparen läggs till som den första ägaren och det antal skapade objektet mot skapare objekt kvoten 250 har skapats. |
+| Microsoft. Directory/grupper/medlemmar/uppdatera | Uppdatera Groups. members-egenskapen i Azure Active Directory. |
+| Microsoft. Directory/grupper/ägare/uppdatera | Uppdatera Groups. Owners-egenskapen i Azure Active Directory. |
+| Microsoft. Directory/Users/appRoleAssignments/Update | Uppdatera users. appRoleAssignments-egenskapen i Azure Active Directory. |
+| Microsoft. Directory/Users/assignLicense | Hantera licenser för användare i Azure Active Directory. |
+| Microsoft. Directory/Users/Basic/Update | Uppdatera grundläggande egenskaper för användare i Azure Active Directory. |
+| Microsoft. Directory/Users/Delete | Ta bort användare i Azure Active Directory. |
+| Microsoft. Directory/Users/invalidateAllRefreshTokens | Ogiltig verifiering av alla användares uppdateringstoken i Azure Active Directory. |
+| Microsoft. Directory/Users/Manager/Update | Uppdatera users. Manager-egenskapen i Azure Active Directory. |
+| Microsoft. Directory/Users/Password/Update | Uppdatera lösen ord för alla användare i Azure Active Directory. Mer information finns i onlinedokumentationen. |
+| Microsoft. Directory/Users/Restore | Återställ borttagna användare i Azure Active Directory. |
+| Microsoft. Directory/Users/userPrincipalName/Update | Uppdatera users. userPrincipalName-egenskapen i Azure Active Directory. |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Läsa och konfigurera Azure Service Health. |
 | microsoft.azure.supportTickets/allEntities/allTasks | Skapa och hantera support biljetter för Azure. |
 | microsoft.office365.webPortal/allEntities/basic/read | Läsa grundläggande egenskaper för alla resurser i Microsoft. Office365. Web-Portal. |
@@ -1122,24 +1132,24 @@ Använd inte – inte avsedd för allmän användning.
 
 | **Åtgärder** | **Beskrivning** |
 | --- | --- |
-| Microsoft. AAD. Directory/Contacts/Basic/Update | Uppdatera grundläggande egenskaper för kontakter i Azure Active Directory. |
-| Microsoft. AAD. Directory/Contacts/Create | Skapa kontakter i Azure Active Directory. |
-| Microsoft. AAD. Directory/Contacts/Delete | Ta bort kontakter i Azure Active Directory. |
-| Microsoft. AAD. Directory/Domains/allTasks | Skapa och ta bort domäner och läsa och uppdatera standard egenskaper i Azure Active Directory. |
-| Microsoft. AAD. Directory/grupper/skapa | Skapa grupper i Azure Active Directory. |
-| Microsoft. AAD. Directory/Groups/Delete | Ta bort grupper i Azure Active Directory. |
-| Microsoft. AAD. Directory/grupper/medlemmar/uppdatera | Uppdatera Groups. members-egenskapen i Azure Active Directory. |
-| Microsoft. AAD. Directory/Groups/Restore | Återställ grupper i Azure Active Directory. |
-| Microsoft. AAD. Directory/Organization/Basic/Update | Uppdatera grundläggande egenskaper för organisation i Azure Active Directory. |
-| Microsoft. AAD. Directory/Users/appRoleAssignments/Update | Uppdatera users. appRoleAssignments-egenskapen i Azure Active Directory. |
-| Microsoft. AAD. Directory/Users/assignLicense | Hantera licenser för användare i Azure Active Directory. |
-| Microsoft. AAD. Directory/Users/Basic/Update | Uppdatera grundläggande egenskaper för användare i Azure Active Directory. |
-| Microsoft. AAD. Directory/Users/Delete | Ta bort användare i Azure Active Directory. |
-| Microsoft. AAD. Directory/Users/invalidateAllRefreshTokens | Ogiltig verifiering av alla användares uppdateringstoken i Azure Active Directory. |
-| Microsoft. AAD. Directory/Users/Manager/Update | Uppdatera users. Manager-egenskapen i Azure Active Directory. |
-| Microsoft. AAD. Directory/Users/Password/Update | Uppdatera lösen ord för alla användare i Azure Active Directory. Mer information finns i onlinedokumentationen. |
-| Microsoft. AAD. Directory/Users/Restore | Återställ borttagna användare i Azure Active Directory. |
-| Microsoft. AAD. Directory/Users/userPrincipalName/Update | Uppdatera users. userPrincipalName-egenskapen i Azure Active Directory. |
+| Microsoft. Directory/Contacts/Basic/Update | Uppdatera grundläggande egenskaper för kontakter i Azure Active Directory. |
+| Microsoft. Directory/kontakter/skapa | Skapa kontakter i Azure Active Directory. |
+| Microsoft. Directory/Contacts/Delete | Ta bort kontakter i Azure Active Directory. |
+| Microsoft. Directory/Domains/allTasks | Skapa och ta bort domäner och läsa och uppdatera standard egenskaper i Azure Active Directory. |
+| Microsoft. Directory/grupper/skapa | Skapa grupper i Azure Active Directory. |
+| Microsoft. Directory/grupper/ta bort | Ta bort grupper i Azure Active Directory. |
+| Microsoft. Directory/grupper/medlemmar/uppdatera | Uppdatera Groups. members-egenskapen i Azure Active Directory. |
+| Microsoft. Directory/grupper/Återställ | Återställ grupper i Azure Active Directory. |
+| Microsoft. Directory/Organization/Basic/Update | Uppdatera grundläggande egenskaper för organisation i Azure Active Directory. |
+| Microsoft. Directory/Users/appRoleAssignments/Update | Uppdatera users. appRoleAssignments-egenskapen i Azure Active Directory. |
+| Microsoft. Directory/Users/assignLicense | Hantera licenser för användare i Azure Active Directory. |
+| Microsoft. Directory/Users/Basic/Update | Uppdatera grundläggande egenskaper för användare i Azure Active Directory. |
+| Microsoft. Directory/Users/Delete | Ta bort användare i Azure Active Directory. |
+| Microsoft. Directory/Users/invalidateAllRefreshTokens | Ogiltig verifiering av alla användares uppdateringstoken i Azure Active Directory. |
+| Microsoft. Directory/Users/Manager/Update | Uppdatera users. Manager-egenskapen i Azure Active Directory. |
+| Microsoft. Directory/Users/Password/Update | Uppdatera lösen ord för alla användare i Azure Active Directory. Mer information finns i onlinedokumentationen. |
+| Microsoft. Directory/Users/Restore | Återställ borttagna användare i Azure Active Directory. |
+| Microsoft. Directory/Users/userPrincipalName/Update | Uppdatera users. userPrincipalName-egenskapen i Azure Active Directory. |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Läsa och konfigurera Azure Service Health. |
 | microsoft.azure.supportTickets/allEntities/allTasks | Skapa och hantera support biljetter för Azure. |
 | microsoft.office365.webPortal/allEntities/basic/read | Läsa grundläggande egenskaper för alla resurser i Microsoft. Office365. Web-Portal. |
@@ -1152,7 +1162,7 @@ Kan återställa lösen ord för icke-administratörer och lösen ords administr
 
 | **Åtgärder** | **Beskrivning** |
 | --- | --- |
-| Microsoft. AAD. Directory/Users/Password/Update | Uppdatera lösen ord för alla användare i Azure Active Directory. Mer information finns i onlinedokumentationen. |
+| Microsoft. Directory/Users/Password/Update | Uppdatera lösen ord för alla användare i Azure Active Directory. Mer information finns i onlinedokumentationen. |
 | microsoft.office365.webPortal/allEntities/basic/read | Läsa grundläggande egenskaper för alla resurser i Microsoft. Office365. Web-Portal. |
 
 ### <a name="power-bi-service-administrator-permissions"></a>Power BI tjänst administratörs behörighet
@@ -1179,14 +1189,14 @@ Tillåts Visa, ange och återställa information om autentiseringsmetod för all
 
 | **Åtgärder** | **Beskrivning** |
 | --- | --- |
-| Microsoft. AAD. Directory/Users/invalidateAllRefreshTokens | Ogiltig verifiering av alla användares uppdateringstoken i Azure Active Directory. |
-| Microsoft. AAD. Directory/Users/strongAuthentication/Update | Uppdatera egenskaper för stark autentisering som MFA-autentiseringsinformation. |
+| Microsoft. Directory/Users/invalidateAllRefreshTokens | Ogiltig verifiering av alla användares uppdateringstoken i Azure Active Directory. |
+| Microsoft. Directory/Users/strongAuthentication/Update | Uppdatera egenskaper för stark autentisering som MFA-autentiseringsinformation. |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Läsa och konfigurera Azure Service Health. |
 | microsoft.azure.supportTickets/allEntities/allTasks | Skapa och hantera support biljetter för Azure. |
 | microsoft.office365.webPortal/allEntities/basic/read | Läsa grundläggande egenskaper för alla resurser i Microsoft. Office365. Web-Portal. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Läs och konfigurera Office 365 Service Health. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Skapa och hantera Office 365-support biljetter. |
-| Microsoft. AAD. Directory/Users/Password/Update | Uppdatera lösen ord för alla användare i Office 365-organisationen. Mer information finns i onlinedokumentationen. |
+| Microsoft. Directory/Users/Password/Update | Uppdatera lösen ord för alla användare i Office 365-organisationen. Mer information finns i onlinedokumentationen. |
 
 ### <a name="privileged-role-administrator-permissions"></a>Administratörs behörighet för privilegie rad roll
 
@@ -1200,11 +1210,11 @@ Kan hantera roll tilldelningar i Azure AD och alla aspekter av Privileged Identi
 | **Åtgärder** | **Beskrivning** |
 | --- | --- |
 | microsoft.aad.privilegedIdentityManagement/allEntities/allTasks | Skapa och ta bort alla resurser och läsa och uppdatera standard egenskaper i Microsoft. AAD. privilegedIdentityManagement. |
-| Microsoft. AAD. Directory/Service princip ALS/appRoleAssignedTo/allTasks | Läsa och konfigurera service princip ALS. appRoleAssignedTo-egenskapen i Azure Active Directory. |
-| microsoft.aad.directory/servicePrincipals/oAuth2PermissionGrants/allTasks | Läsa och konfigurera service princip ALS. oAuth2PermissionGrants-egenskapen i Azure Active Directory. |
-| Microsoft. AAD. Directory/administrativeUnits/allProperties/allTasks | Skapa och hantera administrativa enheter (inklusive medlemmar) |
-| Microsoft. AAD. Directory/roleAssignments/allProperties/allTasks | Skapa och hantera roll tilldelningar. |
-| microsoft.aad.directory/roleDefinitions/allProperties/allTasks | Skapa och hantera roll definitioner. |
+| Microsoft. Directory/Service princip ALS/appRoleAssignedTo/allTasks | Läsa och konfigurera service princip ALS. appRoleAssignedTo-egenskapen i Azure Active Directory. |
+| Microsoft. Directory/Service princip ALS/oAuth2PermissionGrants/allTasks | Läsa och konfigurera service princip ALS. oAuth2PermissionGrants-egenskapen i Azure Active Directory. |
+| Microsoft. Directory/administrativeUnits/allProperties/allTasks | Skapa och hantera administrativa enheter (inklusive medlemmar) |
+| Microsoft. Directory/roleAssignments/allProperties/allTasks | Skapa och hantera roll tilldelningar. |
+| Microsoft. Directory/roleDefinitions/allProperties/allTasks | Skapa och hantera roll definitioner. |
 
 ### <a name="reports-reader-permissions"></a>Behörigheter för rapport läsare
 
@@ -1217,8 +1227,8 @@ Kan läsa inloggnings-och gransknings rapporter.
 
 | **Åtgärder** | **Beskrivning** |
 | --- | --- |
-| Microsoft. AAD. Directory/auditLogs/allProperties/Read | Läs alla egenskaper (inklusive privilegierade egenskaper) på auditLogs i Azure Active Directory. |
-| Microsoft. AAD. Directory/signInReports/allProperties/Read | Läs alla egenskaper (inklusive privilegierade egenskaper) på signInReports i Azure Active Directory. |
+| Microsoft. Directory/auditLogs/allProperties/Read | Läs alla egenskaper (inklusive privilegierade egenskaper) på auditLogs i Azure Active Directory. |
+| microsoft.directory/signInReports/allProperties/read | Läs alla egenskaper (inklusive privilegierade egenskaper) på signInReports i Azure Active Directory. |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Läsa och konfigurera Azure Service Health. |
 | microsoft.office365.usageReports/allEntities/read | Läs Office 365-användnings rapporter. |
 
@@ -1266,16 +1276,16 @@ Kan läsa säkerhets information och rapporter och hantera konfigurationen i Azu
 
 | **Åtgärder** | **Beskrivning** |
 | --- | --- |
-| Microsoft. AAD. Directory/Applications/policies/Update | Uppdatera Applications. policys-egenskapen i Azure Active Directory. |
-| Microsoft. AAD. Directory/auditLogs/allProperties/Read | Läs alla egenskaper (inklusive privilegierade egenskaper) på auditLogs i Azure Active Directory. |
-| Microsoft. AAD. Directory/Devices/bitLockerRecoveryKeys/Read | Läsa Devices. bitLockerRecoveryKeys-egenskapen i Azure Active Directory. |
-| Microsoft. AAD. Directory/policies/Basic/Update | Uppdatera grundläggande egenskaper för principer i Azure Active Directory. |
-| Microsoft. AAD. Directory/policies/Create | Skapa principer i Azure Active Directory. |
-| Microsoft. AAD. Directory/policies/Delete | Ta bort principer i Azure Active Directory. |
-| Microsoft. AAD. Directory/policys/Owners/Update | Uppdatera policys. Owners-egenskapen i Azure Active Directory. |
-| Microsoft. AAD. Directory/policys/tenantDefault/Update | Uppdatera policys. tenantDefault-egenskapen i Azure Active Directory. |
-| Microsoft. AAD. Directory/Service princip ALS/policies/Update | Uppdatera service princip ALS. policys-egenskapen i Azure Active Directory. |
-| Microsoft. AAD. Directory/signInReports/allProperties/Read | Läs alla egenskaper (inklusive privilegierade egenskaper) på signInReports i Azure Active Directory. |
+| Microsoft. Directory/Applications/policies/Update | Uppdatera Applications. policys-egenskapen i Azure Active Directory. |
+| Microsoft. Directory/auditLogs/allProperties/Read | Läs alla egenskaper (inklusive privilegierade egenskaper) på auditLogs i Azure Active Directory. |
+| Microsoft. Directory/Devices/bitLockerRecoveryKeys/Read | Läsa Devices. bitLockerRecoveryKeys-egenskapen i Azure Active Directory. |
+| Microsoft. Directory/policies/Basic/Update | Uppdatera grundläggande egenskaper för principer i Azure Active Directory. |
+| Microsoft. Directory/principer/skapa | Skapa principer i Azure Active Directory. |
+| Microsoft. Directory/principer/Delete | Ta bort principer i Azure Active Directory. |
+| Microsoft. Directory/principer/ägare/uppdatering | Uppdatera policys. Owners-egenskapen i Azure Active Directory. |
+| Microsoft. Directory/policys/tenantDefault/Update | Uppdatera policys. tenantDefault-egenskapen i Azure Active Directory. |
+| microsoft.directory/servicePrincipals/policies/update | Uppdatera service princip ALS. policys-egenskapen i Azure Active Directory. |
+| microsoft.directory/signInReports/allProperties/read | Läs alla egenskaper (inklusive privilegierade egenskaper) på signInReports i Azure Active Directory. |
 | Microsoft. AAD. identityProtection/upplånare/Läs | Läs alla resurser i Microsoft. AAD. identityProtection. |
 | microsoft.aad.identityProtection/allEntities/update | Uppdatera alla resurser i Microsoft. AAD. identityProtection. |
 | microsoft.aad.privilegedIdentityManagement/allEntities/read | Läs alla resurser i Microsoft. AAD. privilegedIdentityManagement. |
@@ -1316,9 +1326,9 @@ Kan läsa säkerhets information och rapporter i Azure AD och Office 365.
 
 | **Åtgärder** | **Beskrivning** |
 | --- | --- |
-| Microsoft. AAD. Directory/auditLogs/allProperties/Read | Läs alla egenskaper (inklusive privilegierade egenskaper) på auditLogs i Azure Active Directory. |
-| Microsoft. AAD. Directory/Devices/bitLockerRecoveryKeys/Read | Läsa Devices. bitLockerRecoveryKeys-egenskapen i Azure Active Directory. |
-| Microsoft. AAD. Directory/signInReports/allProperties/Read | Läs alla egenskaper (inklusive privilegierade egenskaper) på signInReports i Azure Active Directory. |
+| Microsoft. Directory/auditLogs/allProperties/Read | Läs alla egenskaper (inklusive privilegierade egenskaper) på auditLogs i Azure Active Directory. |
+| Microsoft. Directory/Devices/bitLockerRecoveryKeys/Read | Läsa Devices. bitLockerRecoveryKeys-egenskapen i Azure Active Directory. |
+| microsoft.directory/signInReports/allProperties/read | Läs alla egenskaper (inklusive privilegierade egenskaper) på signInReports i Azure Active Directory. |
 | Microsoft. AAD. identityProtection/upplånare/Läs | Läs alla resurser i Microsoft. AAD. identityProtection. |
 | microsoft.aad.privilegedIdentityManagement/allEntities/read | Läs alla resurser i Microsoft. AAD. privilegedIdentityManagement. |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Läsa och konfigurera Azure Service Health. |
@@ -1354,12 +1364,12 @@ Kan hantera alla aspekter av SharePoint-tjänsten.
 
 | **Åtgärder** | **Beskrivning** |
 | --- | --- |
-| Microsoft. AAD. Directory/Groups/Unified/appRoleAssignments/Update | Uppdatera Groups. Unified-egenskapen i Azure Active Directory. |
-| Microsoft. AAD. Directory/Groups/Unified/Basic/Update | Uppdatera grundläggande egenskaper för Office 365-grupper. |
-| Microsoft. AAD. Directory/Groups/Unified/Create | Skapa Office 365-grupper. |
-| Microsoft. AAD. Directory/Groups/Unified/Delete | Ta bort Office 365-grupper. |
-| Microsoft. AAD. Directory/Groups/Unified/members/Update | Uppdatera medlemskap för Office 365-grupper. |
-| Microsoft. AAD. Directory/Groups/Unified/Owners/Update | Uppdatera ägarskap för Office 365-grupper. |
+| Microsoft. Directory/Groups/Unified/appRoleAssignments/Update | Uppdatera Groups. Unified-egenskapen i Azure Active Directory. |
+| Microsoft. Directory/Groups/Unified/Basic/Update | Uppdatera grundläggande egenskaper för Office 365-grupper. |
+| Microsoft. Directory/grupper/enhetlig/skapa | Skapa Office 365-grupper. |
+| Microsoft. Directory/grupper/enhetlig/ta bort | Ta bort Office 365-grupper. |
+| Microsoft. Directory/grupper/enhetlig/medlemmar/uppdatering | Uppdatera medlemskap för Office 365-grupper. |
+| Microsoft. Directory/grupper/enhetlig/ägare/uppdatering | Uppdatera ägarskap för Office 365-grupper. |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Läsa och konfigurera Azure Service Health. |
 | microsoft.azure.supportTickets/allEntities/allTasks | Skapa och hantera support biljetter för Azure. |
 | microsoft.office365.webPortal/allEntities/basic/read | Läsa grundläggande egenskaper för alla resurser i Microsoft. Office365. Web-Portal. |
@@ -1426,13 +1436,13 @@ Kan hantera Microsoft Teams-tjänsten.
 
 | **Åtgärder** | **Beskrivning** |
 | --- | --- |
-| Microsoft. AAD. Directory/Groups/hiddenMembers/Read | Läs Groups. hiddenMembers-egenskapen i Azure Active Directory. |
-| Microsoft. AAD. Directory/Groups/Unified/appRoleAssignments/Update | Uppdatera Groups. Unified-egenskapen i Azure Active Directory. |
-| Microsoft. AAD. Directory/Groups/Unified/Basic/Update | Uppdatera grundläggande egenskaper för Office 365-grupper. |
-| Microsoft. AAD. Directory/Groups/Unified/Create | Skapa Office 365-grupper. |
-| Microsoft. AAD. Directory/Groups/Unified/Delete | Ta bort Office 365-grupper. |
-| Microsoft. AAD. Directory/Groups/Unified/members/Update | Uppdatera medlemskap för Office 365-grupper. |
-| Microsoft. AAD. Directory/Groups/Unified/Owners/Update | Uppdatera ägarskap för Office 365-grupper. |
+| Microsoft. Directory/grupper/hiddenMembers/Read | Läs Groups. hiddenMembers-egenskapen i Azure Active Directory. |
+| Microsoft. Directory/Groups/Unified/appRoleAssignments/Update | Uppdatera Groups. Unified-egenskapen i Azure Active Directory. |
+| Microsoft. Directory/Groups/Unified/Basic/Update | Uppdatera grundläggande egenskaper för Office 365-grupper. |
+| Microsoft. Directory/grupper/enhetlig/skapa | Skapa Office 365-grupper. |
+| Microsoft. Directory/grupper/enhetlig/ta bort | Ta bort Office 365-grupper. |
+| Microsoft. Directory/grupper/enhetlig/medlemmar/uppdatering | Uppdatera medlemskap för Office 365-grupper. |
+| Microsoft. Directory/grupper/enhetlig/ägare/uppdatering | Uppdatera ägarskap för Office 365-grupper. |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Läsa och konfigurera Azure Service Health. |
 | microsoft.azure.supportTickets/allEntities/allTasks | Skapa och hantera support biljetter för Azure. |
 | microsoft.office365.webPortal/allEntities/basic/read | Läsa grundläggande egenskaper för alla resurser i Microsoft. Office365. Web-Portal. |
@@ -1445,32 +1455,32 @@ Kan hantera alla aspekter av användare och grupper, inklusive att återställa 
 
 | **Åtgärder** | **Beskrivning** |
 | --- | --- |
-| Microsoft. AAD. Directory/appRoleAssignments/Create | Skapa appRoleAssignments i Azure Active Directory. |
-| Microsoft. AAD. Directory/appRoleAssignments/Delete | Ta bort appRoleAssignments i Azure Active Directory. |
-| Microsoft. AAD. Directory/appRoleAssignments/Update | Uppdatera appRoleAssignments i Azure Active Directory. |
-| Microsoft. AAD. Directory/Contacts/Basic/Update | Uppdatera grundläggande egenskaper för kontakter i Azure Active Directory. |
-| Microsoft. AAD. Directory/Contacts/Create | Skapa kontakter i Azure Active Directory. |
-| Microsoft. AAD. Directory/Contacts/Delete | Ta bort kontakter i Azure Active Directory. |
-| Microsoft. AAD. Directory/Groups/appRoleAssignments/Update | Uppdatera Groups. appRoleAssignments-egenskapen i Azure Active Directory. |
-| Microsoft. AAD. Directory/Groups/Basic/Update | Uppdatera grundläggande egenskaper för grupper i Azure Active Directory. |
-| Microsoft. AAD. Directory/grupper/skapa | Skapa grupper i Azure Active Directory. |
-| Microsoft. AAD. Directory/Groups/createAsOwner | Skapa grupper i Azure Active Directory. Skaparen läggs till som den första ägaren och det antal skapade objektet mot skapare objekt kvoten 250 har skapats. |
-| Microsoft. AAD. Directory/Groups/Delete | Ta bort grupper i Azure Active Directory. |
-| Microsoft. AAD. Directory/Groups/hiddenMembers/Read | Läs Groups. hiddenMembers-egenskapen i Azure Active Directory. |
-| Microsoft. AAD. Directory/grupper/medlemmar/uppdatera | Uppdatera Groups. members-egenskapen i Azure Active Directory. |
-| Microsoft. AAD. Directory/grupper/ägare/uppdatera | Uppdatera Groups. Owners-egenskapen i Azure Active Directory. |
-| Microsoft. AAD. Directory/Groups/Restore | Återställ grupper i Azure Active Directory. |
-| Microsoft. AAD. Directory/grupper/inställningar/uppdatera | Uppdatera Groups. Settings-egenskapen i Azure Active Directory. |
-| Microsoft. AAD. Directory/Users/appRoleAssignments/Update | Uppdatera users. appRoleAssignments-egenskapen i Azure Active Directory. |
-| Microsoft. AAD. Directory/Users/assignLicense | Hantera licenser för användare i Azure Active Directory. |
-| Microsoft. AAD. Directory/Users/Basic/Update | Uppdatera grundläggande egenskaper för användare i Azure Active Directory. |
-| Microsoft. AAD. Directory/Users/Create | Skapa användare i Azure Active Directory. |
-| Microsoft. AAD. Directory/Users/Delete | Ta bort användare i Azure Active Directory. |
-| Microsoft. AAD. Directory/Users/invalidateAllRefreshTokens | Ogiltig verifiering av alla användares uppdateringstoken i Azure Active Directory. |
-| Microsoft. AAD. Directory/Users/Manager/Update | Uppdatera users. Manager-egenskapen i Azure Active Directory. |
-| Microsoft. AAD. Directory/Users/Password/Update | Uppdatera lösen ord för alla användare i Azure Active Directory. Mer information finns i onlinedokumentationen. |
-| Microsoft. AAD. Directory/Users/Restore | Återställ borttagna användare i Azure Active Directory. |
-| Microsoft. AAD. Directory/Users/userPrincipalName/Update | Uppdatera users. userPrincipalName-egenskapen i Azure Active Directory. |
+| Microsoft. Directory/appRoleAssignments/Create | Skapa appRoleAssignments i Azure Active Directory. |
+| Microsoft. Directory/appRoleAssignments/Delete | Ta bort appRoleAssignments i Azure Active Directory. |
+| Microsoft. Directory/appRoleAssignments/Update | Uppdatera appRoleAssignments i Azure Active Directory. |
+| Microsoft. Directory/Contacts/Basic/Update | Uppdatera grundläggande egenskaper för kontakter i Azure Active Directory. |
+| Microsoft. Directory/kontakter/skapa | Skapa kontakter i Azure Active Directory. |
+| Microsoft. Directory/Contacts/Delete | Ta bort kontakter i Azure Active Directory. |
+| Microsoft. Directory/Groups/appRoleAssignments/Update | Uppdatera Groups. appRoleAssignments-egenskapen i Azure Active Directory. |
+| Microsoft. Directory/grupper/Basic/Update | Uppdatera grundläggande egenskaper för grupper i Azure Active Directory. |
+| Microsoft. Directory/grupper/skapa | Skapa grupper i Azure Active Directory. |
+| Microsoft. Directory/grupper/createAsOwner | Skapa grupper i Azure Active Directory. Skaparen läggs till som den första ägaren och det antal skapade objektet mot skapare objekt kvoten 250 har skapats. |
+| Microsoft. Directory/grupper/ta bort | Ta bort grupper i Azure Active Directory. |
+| Microsoft. Directory/grupper/hiddenMembers/Read | Läs Groups. hiddenMembers-egenskapen i Azure Active Directory. |
+| Microsoft. Directory/grupper/medlemmar/uppdatera | Uppdatera Groups. members-egenskapen i Azure Active Directory. |
+| Microsoft. Directory/grupper/ägare/uppdatera | Uppdatera Groups. Owners-egenskapen i Azure Active Directory. |
+| Microsoft. Directory/grupper/Återställ | Återställ grupper i Azure Active Directory. |
+| microsoft.directory/groups/settings/update | Uppdatera Groups. Settings-egenskapen i Azure Active Directory. |
+| Microsoft. Directory/Users/appRoleAssignments/Update | Uppdatera users. appRoleAssignments-egenskapen i Azure Active Directory. |
+| Microsoft. Directory/Users/assignLicense | Hantera licenser för användare i Azure Active Directory. |
+| Microsoft. Directory/Users/Basic/Update | Uppdatera grundläggande egenskaper för användare i Azure Active Directory. |
+| Microsoft. Directory/Users/Create | Skapa användare i Azure Active Directory. |
+| Microsoft. Directory/Users/Delete | Ta bort användare i Azure Active Directory. |
+| Microsoft. Directory/Users/invalidateAllRefreshTokens | Ogiltig verifiering av alla användares uppdateringstoken i Azure Active Directory. |
+| Microsoft. Directory/Users/Manager/Update | Uppdatera users. Manager-egenskapen i Azure Active Directory. |
+| Microsoft. Directory/Users/Password/Update | Uppdatera lösen ord för alla användare i Azure Active Directory. Mer information finns i onlinedokumentationen. |
+| Microsoft. Directory/Users/Restore | Återställ borttagna användare i Azure Active Directory. |
+| Microsoft. Directory/Users/userPrincipalName/Update | Uppdatera users. userPrincipalName-egenskapen i Azure Active Directory. |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Läsa och konfigurera Azure Service Health. |
 | microsoft.azure.supportTickets/allEntities/allTasks | Skapa och hantera support biljetter för Azure. |
 | microsoft.office365.webPortal/allEntities/basic/read | Läsa grundläggande egenskaper för alla resurser i Microsoft. Office365. Web-Portal. |

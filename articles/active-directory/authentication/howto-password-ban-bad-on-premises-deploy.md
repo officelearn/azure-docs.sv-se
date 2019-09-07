@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c0b15c9730f7e469fde8fabd1bc4cbcd28efa66c
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 5949f57a87f324dc2e6651611574f4b66215c8a8
+ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68953016"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70389767"
 ---
 # <a name="deploy-azure-ad-password-protection"></a>Distribuera Azure AD-lösenordsskydd
 
@@ -38,7 +38,7 @@ Det är också möjligt att använda starkare lösen ords verifiering för att p
 * [Befordran av replik på domänkontrollant Miss lyckas på grund av ett svagt lösen ord för reparations läge för katalog tjänster](howto-password-ban-bad-on-premises-troubleshoot.md#domain-controller-replica-promotion-fails-because-of-a-weak-dsrm-password)
 * [Degradering av domänkontrollanten Miss lyckas på grund av ett svagt lokalt administratörs lösen ord](howto-password-ban-bad-on-premises-troubleshoot.md#domain-controller-demotion-fails-due-to-a-weak-local-administrator-password)
 
-När funktionen har körts i gransknings läge under en rimlig period, kan du växla konfigurationen från *granskning* till att kräva säkrare lösen ord. Fokuserad övervakning under den här tiden är en bra idé.
+När funktionen har körts i gransknings läge under en rimlig period, kan du växla konfigurationen från *granskning* *till att kräva säkrare* lösen ord. Fokuserad övervakning under den här tiden är en bra idé.
 
 ## <a name="deployment-requirements"></a>Distributions krav
 
@@ -142,7 +142,7 @@ Det finns två installations program som krävs för lösen ords skydd i Azure A
         ```
 
         > [!NOTE]
-        > Det här läget Miss lyckas om Azure Multi-Factor Authentication krävs för ditt konto. I så fall använder du något av de föregående två autentiseringsläget eller använder i stället ett annat konto som inte kräver MFA.
+        > Det här läget fungerar inte om Azure Multi-Factor Authentication krävs för ditt konto. I så fall använder du något av de föregående två autentiseringsläget eller använder i stället ett annat konto som inte kräver MFA.
         >
         > Du kan också se MFA krävs om Azure Device Registration (som används under försättsblad av Azure AD Password Protection) har kon figurer ATS för globalt Kräv MFA. För att undvika detta kan du använda ett annat konto som har stöd för MFA med något av de tidigare två autentiseringsläget, eller så kan du också tillfälligt minska kraven för MFA-kravet för Azure Device Registration. Det gör du genom att gå till hanterings portalen för Azure, gå till Azure Active Directory, sedan enheter, sedan enhets inställningar och sedan ange "Kräv Multi-factor auth för att ansluta enheter" till Nej. Se till att konfigurera om den här inställningen igen till Ja när registreringen är klar.
         >
@@ -186,7 +186,7 @@ Det finns två installations program som krävs för lösen ords skydd i Azure A
         ```
 
         > [!NOTE]
-        > Det här läget Miss lyckas om Azure Multi-Factor Authentication krävs för ditt konto. I så fall använder du något av de föregående två autentiseringsläget eller använder i stället ett annat konto som inte kräver MFA.
+        > Det här läget fungerar inte om Azure Multi-Factor Authentication krävs för ditt konto. I så fall använder du något av de föregående två autentiseringsläget eller använder i stället ett annat konto som inte kräver MFA.
         >
         > Du kan också se MFA krävs om Azure Device Registration (som används under försättsblad av Azure AD Password Protection) har kon figurer ATS för globalt Kräv MFA. För att undvika detta kan du använda ett annat konto som har stöd för MFA med något av de tidigare två autentiseringsläget, eller så kan du också tillfälligt minska kraven för MFA-kravet för Azure Device Registration. Det gör du genom att gå till hanterings portalen för Azure, gå till Azure Active Directory, sedan enheter, sedan enhets inställningar och sedan ange "Kräv Multi-factor auth för att ansluta enheter" till Nej. Se till att konfigurera om den här inställningen igen till Ja när registreringen är klar.
         >
@@ -295,7 +295,7 @@ Om det finns en nyare version av proxy-programvaran för lösen ords skydd i Azu
 
 Du behöver inte avinstallera den aktuella versionen av proxy-programvaran. installations programmet kommer att utföra en uppgradering på plats. Ingen omstart krävs vid uppgradering av proxy-programvaran. Program uppgraderingen kan automatiseras med hjälp av standard-MSI-procedurer, `AzureADPasswordProtectionProxySetup.exe /quiet`till exempel:.
 
-Proxyagenten stöder automatisk uppgradering. Vid automatisk uppgradering används tjänsten Microsoft Azure AD Connect agent Updateer som installeras sida vid sida med proxy-tjänsten. Automatisk uppgradering är aktiverat som standard och kan aktive ras eller inaktive ras med cmdleten Set-AzureADPasswordProtectionProxyConfiguration. Den aktuella inställningen kan frågas med hjälp av cmdleten Get-AzureADPasswordProtectionProxyConfiguration. Microsoft rekommenderar att den automatiska uppgraderingen lämnas aktive rad.
+Proxyagenten stöder automatisk uppgradering. Vid automatisk uppgradering används tjänsten Microsoft Azure AD Connect agent Updateer som installeras sida vid sida med proxy-tjänsten. Automatisk uppgradering är aktiverat som standard och kan aktive ras eller inaktive `Set-AzureADPasswordProtectionProxyConfiguration` ras med cmdleten. Den aktuella inställningen kan frågas med hjälp `Get-AzureADPasswordProtectionProxyConfiguration` av cmdleten. Microsoft rekommenderar att den automatiska uppgraderingen lämnas aktive rad.
 
 `Get-AzureADPasswordProtectionProxy` Cmdleten kan användas för att fråga program varu versionen för alla installerade proxy-agenter i en skog.
 

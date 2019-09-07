@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 09/05/2019
 ms.author: tomfitz
-ms.openlocfilehash: 71c166b9c596c3c8628f943ae5c7dbebd9c2d51c
-ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
+ms.openlocfilehash: 227ecb57b125264e7d0eba56e634966d677e0f58
+ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70384143"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70387288"
 ---
 # <a name="user-defined-functions-in-azure-resource-manager-template"></a>Användardefinierade funktioner i Azure Resource Manager mall
 
@@ -73,7 +73,7 @@ När du definierar en användar funktion finns det vissa begränsningar:
 * Funktionen kan inte komma åt variabler.
 * Funktionen kan bara använda parametrar som har definierats i funktionen. När du använder funktionen [parametrar](resource-group-template-functions-deployment.md#parameters) i en användardefinierad funktion är du begränsad till parametrarna för den funktionen.
 * Funktionen kan inte anropa andra användardefinierade funktioner.
-* Funktionen kan inte använda [referens](resource-group-template-functions-resource.md#reference) -eller [list](resource-group-template-functions-resource.md#list) funktionerna.
+* Funktionen kan inte använda [referens](resource-group-template-functions-resource.md#reference) funktionen eller någon av [list](resource-group-template-functions-resource.md#list) funktionerna.
 * Parametrar för funktionen kan inte ha standardvärden.
 
 

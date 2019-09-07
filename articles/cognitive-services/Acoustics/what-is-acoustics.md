@@ -11,24 +11,27 @@ ms.topic: overview
 ms.date: 03/20/2019
 ms.author: noelc
 ROBOTS: NOINDEX
-ms.openlocfilehash: f0685b65ce9204221e93a1ea4aa47a5e09eaac9f
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 51bfcc47961e870fb7fb87b26a78aea0f1564d46
+ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68932983"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70390312"
 ---
 # <a name="what-is-project-acoustics"></a>Vad är Project Acoustics?
-Project-Akustisker är en våg akustisk motor för interaktiva 3D-upplevelser. Den modellerar våg effekter som Diffraction, portaling och reverb-effekter i komplexa scener utan att det krävs någon manuell zon markering. Den omfattar också integrering av spel motor och ljud mellan mellanprogram. Projektets akustiska filosofi liknar statisk belysning: bagerien detaljerad fysik offline för att tillhandahålla en fysisk bas linje och Använd en förenklad körning med lättfattliga programspecifika design kontroller för att möta dina konstnärliga mål.
+Project-Akustisker är en våg akustisk motor för interaktiva 3D-upplevelser. Den modellerar våg effekter som ocklusion, hinder, Portal-och Reverberation-effekter i komplexa scener utan att kräva manuell zon markering eller processor intensiv raytracing. Den omfattar också integrering av spel motor och ljud mellan mellanprogram. Project-Akustisker-filosofi liknar statisk belysning: bageri detaljerad fysik offline för att tillhandahålla en fysisk bas linje och Använd en förenklad körning med lättfattliga programspecifika design kontroller för att möta dina konstnärliga mål för de akustiska datorerna i din virtuella värld.
 
 ![Skärm bild från växlar av krigs 4 visar akustiska voxels](media/gears-with-voxels.jpg)
 
 ## <a name="using-wave-physics-for-interactive-acoustics"></a>Använda Wave fysik för interaktiva akustiska ljud
-Raybaserade akustiska metoder kan söka efter ocklusion med en enda källa-till-lyssnande Ray-Cast eller driva reverb genom att uppskatta den lokala scen volymen med några strålar. Men dessa tekniker kan vara otillförlitliga eftersom en Pebble occludes så mycket som en Boulder. Strålar tar inte hänsyn till hur ljudet böjer sig runt objekt, ett fenomen som kallas Diffraction. Simuleringen av Project-Akustisker fångar dessa effekter med en Wave-baserad simulering. Resultatet är mer förutsägbart och tillförlitligt.
+Raybaserade akustiska metoder kan söka efter ocklusion med en enda källa-till-lyssnande Ray-Cast eller driva reverb genom att uppskatta den lokala scen volymen med några strålar. Men dessa tekniker kan vara otillförlitliga eftersom en Pebble occludes så mycket som en Boulder. Strålar tar inte hänsyn till hur ljudet böjer sig runt objekt, ett fenomen som kallas Diffraction. Simuleringen av Project-Akustisker fångar dessa effekter med en Wave-baserad simulering. De akustiska ljuden är mer förutsägbara, korrekta och sömlösa.
 
-Project-akustiska nyckel innovationer är till och med en bra akustisk simulering med traditionella design koncept för ljudet. Den översätter simulerings resultat till traditionella ljud-DSP-parametrar för ocklusion, portaling och reverb. Designern använder kontroller över den här översättnings processen. Mer information om kärn teknikerna bakom projekt akustiskt finns på sidan om [forsknings projekt](https://www.microsoft.com/en-us/research/project/project-triton/).
+Project-akustiska nyckel innovationer är att skapa en Real Sound Wave-baserad akustisk-simulering med traditionella ljud design koncept. Den översätter simulerings resultat till traditionella ljud-DSP-parametrar för ocklusion, portaling och reverb. Designern använder kontroller över den här översättnings processen. Mer information om kärn teknikerna bakom projekt akustiskt finns på sidan om [forsknings projekt](https://www.microsoft.com/en-us/research/project/project-triton/).
 
 ![Animering som visar ett vågrätt 2D-segment av våg-spridningen via en scen](media/wave-simulation.gif)
+
+## <a name="video-presentation-from-gdc-2019-30-min"></a>Video presentation från GDC 2019 (~ 30 min)
+Video(https://img.youtube.com/vi/uY4G-GUAQIE/0.jpg)](https://www.youtube.com/watch?v=uY4G-GUAQIE "om att spela upp video i") Project [ ![]
 
 ## <a name="setup"></a>Konfiguration
 [Project Akustiske Uniting-integrering](unity-integration.md) är dra och släpp och innehåller ett enhets ljud motor plugin-program. Utöka enhetens bild käll kontroller genom att koppla ett projekt akustiskt C# kontroll komponent till varje ljud objekt.

@@ -11,14 +11,14 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7033c7bd3e783157280709b2c7e889473166ac84
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 330b02e3db6af90fcfeb962e78b043b04090116e
+ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68879234"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70743247"
 ---
-# <a name="deploy-azure-ad-self-service-password-reset"></a>Distribuera återställning av lösen ord för självbetjäning i Azure AD
+# <a name="deploy-azure-ad-self-service-password-reset"></a>Distribuera självbetjäning av lösenordsåterställning för Azure AD
 
 Lösen ords återställning via självbetjäning (SSPR) är en Azure Active Directory funktion som gör att anställda kan återställa sina lösen ord utan att behöva kontakta IT-personalen. Medarbetare måste registreras för eller registreras för lösen ords återställning via självbetjäning innan tjänsten kan användas. Under registreringen väljer den anställda en eller flera autentiseringsmetoder som har Aktiver ATS av organisationen.
 
@@ -37,7 +37,7 @@ Innan du distribuerar SSPR kanske organisationer vill fastställa hur många rel
 
 ## <a name="licensing-considerations"></a>Licens överväganden
 
-Azure Active Directory är licens per användare, vilket innebär att varje användare måste ha en lämplig licens för de funktioner som de använder.
+Azure Active Directory är licensierad per användare, vilket innebär att varje användare måste ha en lämplig licens för de funktioner som de använder.
 
 Mer information om licensiering finns på [sidan Azure Active Directory prissättning](https://azure.microsoft.com/pricing/details/active-directory/)
 
@@ -53,13 +53,13 @@ Den kombinerade registrerings upplevelsen kräver inte att organisationer aktive
 
 Följande inställningar krävs för att aktivera SSPR tillsammans med rekommenderade värden.
 
-| Område | Inställning | Värde |
+| Område | Inställning | Value |
 | --- | --- | --- |
 | **Egenskaper för SSPR** | Återställning av lösen ord för självbetjäning har Aktiver ATS | **Vald** grupp för pilot/ **alla** för produktion |
 | **Autentiseringsmetoder** | Autentiseringsmetoder som krävs för registrering | Alltid 1 mer än vad som krävs för återställning |
 |   | Autentiseringsmetoder som krävs för att återställa | En eller två |
 | **Registrering** | Kräv att användare registrerar sig vid inloggning | Ja |
-|   | Antal dagar innan användare ombeds att återbekräfta sin autentiseringsinformation | 90 – 180 dagar |
+|   | Antal dagar innan användare uppmanas att bekräfta sin autentiseringsinformation | 90 – 180 dagar |
 | **Meddelanden** | Meddela användare om lösenordsåterställning | Ja |
 |   | Meddela alla administratörer när andra administratörer återställer sina lösenord | Ja |
 | **Eventuella** | Anpassa helpdesk-länk | Ja |

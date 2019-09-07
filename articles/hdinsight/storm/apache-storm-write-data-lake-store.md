@@ -1,5 +1,5 @@
 ---
-title: Självstudie – Använd Apache Storm för att skriva till lagring/Data Lake Storage – Azure HDInsight
+title: Självstudie – Apache Storm skriver till Storage/Data Lake Storage – Azure HDInsight
 description: Självstudie – lär dig hur du använder Apache Storm för att skriva till den HDFS-kompatibla lagringen för Azure HDInsight.
 ms.service: hdinsight
 author: hrasheed-msft
@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 06/24/2019
-ms.openlocfilehash: 17cb1091d34c8c0800d0b4dd1f9044fee0ef313f
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: 752bf1919634d29221a00d983b4e88fefaf628d5
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68946456"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70736342"
 ---
 # <a name="tutorial-write-to-apache-hadoop-hdfs-from-apache-storm-on-azure-hdinsight"></a>Självstudier: Skriv till Apache Hadoop HDFS från Apache Storm på Azure HDInsight
 
@@ -42,7 +42,7 @@ I den här guiden får du lära dig att:
 
 ### <a name="example-configuration"></a>Exempelkonfiguration
 
-Följande yaml är ett utdrag från `resources/writetohdfs.yaml` filen som ingår i exemplet. Den här filen definierar Storm-topologin [](https://storm.apache.org/releases/current/flux.html) med flödes ramverket för Apache storm.
+Följande yaml är ett utdrag från `resources/writetohdfs.yaml` filen som ingår i exemplet. Den här filen definierar Storm-topologin med [flödes](https://storm.apache.org/releases/current/flux.html) ramverket för Apache storm.
 
 ```yaml
 components:
@@ -114,7 +114,7 @@ Storm på HDInsight innehåller som standard inte de komponenter som `HdfsBolt` 
 
 | Egenskap | Value |
 |---|---|
-|Skripttyp |- Anpassad|
+|Skripttyp |– Anpassad|
 |Bash-skript-URI |`https://hdiconfigactions.blob.core.windows.net/linuxstormextlibv01/stormextlib.sh`|
 |Node-typ (er) |Nimbus, ansvarig|
 |Parametrar |Inga|
@@ -160,7 +160,7 @@ Information om hur du använder det här skriptet med klustret finns i avsnittet
     hdfs.url: wasbs:///
     ```
 
-    Om du vill spara filen använder du __CTRL + X__ , sedan __Y__ och slutligen __RETUR__ . Värdena i den här filen anger lagrings-URL: en och katalog namnet som data skrivs till.
+    Om du vill spara filen använder du __CTRL + X__, sedan __Y__och slutligen __RETUR__. Värdena i den här filen anger lagrings-URL: en och katalog namnet som data skrivs till.
 
 1. Använd följande kommando för att starta topologin:
 

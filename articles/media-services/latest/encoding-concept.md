@@ -12,23 +12,23 @@ ms.topic: article
 ms.date: 06/08/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: b0a71e8b3ffff822521a23aafd6764bcce9bd4d4
-ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
+ms.openlocfilehash: 590b84acd57199b291aa44f7120507023ffd026a
+ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67303937"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70389743"
 ---
 # <a name="encoding-with-media-services"></a>Encoding med Media Services
 
-Termen kodning i Media Services gäller för att konvertera filer som innehåller digital video och/eller ljud från ett format som standard till en annan, att (a) minska storleken på filerna och/eller (b) producera ett format som är kompatibel med en brett utbud av enheter och program. Den här processen kallas också video komprimering och medieomkodning nätverk. Se den [datakomprimering](https://en.wikipedia.org/wiki/Data_compression) och [vad är kodning och Transkodning?](https://www.streamingmedia.com/Articles/Editorial/What-Is-/What-Is-Encoding-and-Transcoding-75025.aspx) ytterligare beskrivning av begrepp.
+Termen encoding i Media Services gäller för processen att konvertera filer som innehåller digital video och/eller ljud från ett standardformat till en annan, med syftet att (a) minska storleken på filerna och/eller (b) som producerar ett format som är kompatibelt med en brett utbud av enheter och program. Den här processen kallas även video komprimering eller kodning. Se [data komprimeringen](https://en.wikipedia.org/wiki/Data_compression) och [vad som är kodning och omkodning?](https://www.streamingmedia.com/Articles/Editorial/What-Is-/What-Is-Encoding-and-Transcoding-75025.aspx) för att få ytterligare information om begreppen.
 
-Videor levereras vanligtvis till enheter och program genom att [Progressiv nedladdning](https://en.wikipedia.org/wiki/Progressive_download) eller via [strömning med anpassad bithastighet](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming). 
+Videor levereras vanligt vis till enheter och program genom [progressiv nedladdning](https://en.wikipedia.org/wiki/Progressive_download) eller genom [strömning med anpassningsbar bit hastighet](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming). 
 
-* För att leverera progressiv hämtning, kan du använda Azure Media Services för att konvertera en digital mediefil (mezzanine) till en [MP4](https://en.wikipedia.org/wiki/MPEG-4_Part_14) filen som innehåller video som har kodats med den [H.264](https://en.wikipedia.org/wiki/H.264/MPEG-4_AVC) codec, och ljud som har kodats med den [AAC](https://en.wikipedia.org/wiki/Advanced_Audio_Coding) codec. Den här MP4-filen skrivs till en tillgång i ditt storage-konto. Du kan använda Azure Storage API: er eller SDK: er (till exempel [Storage REST API](../../storage/common/storage-rest-api-auth.md), [JAVA SDK](../../storage/blobs/storage-quickstart-blobs-java-v10.md), eller [.NET SDK](../../storage/blobs/storage-quickstart-blobs-dotnet.md)) att hämta filen direkt. Om du har skapat utdata tillgång med ett specifikt behållarnamn i lagring, använda den platsen. Annars kan du använda Media Services för att [lista över URL: er för tillgången behållare](https://docs.microsoft.com/rest/api/media/assets/listcontainersas). 
-* För att förbereda innehåll för leverans av strömning med anpassad bithastighet, måste av mezzaninfilen kodas på flera olika bithastigheter (högt till lågt). För att säkerställa rätt övergång av kvalitet, eftersom bithastigheten sjunker, så är lösning av videon. Detta resulterar i en s.k. kodning ladder – en tabell med upplösningar och bithastigheter för utdata (se [automatiskt genererade anpassningsbar bithastighetsstege](autogen-bitrate-ladder.md)). Du kan använda Media Services för att koda ditt mezzanine-filer på flera olika bithastigheter – gör det, du får en uppsättning MP4-filer och tillhörande strömmande konfigurationsfiler som skrivs till en tillgång i ditt storage-konto. Du kan sedan använda den [dynamisk paketering](dynamic-packaging-overview.md) kapaciteten i Media Services för att leverera video via direktuppspelning protokoll som [MPEG-DASH](https://en.wikipedia.org/wiki/Dynamic_Adaptive_Streaming_over_HTTP) och [HLS](https://en.wikipedia.org/wiki/HTTP_Live_Streaming). Detta måste du skapa en [Strömningspositionerare](streaming-locators-concept.md) och skapa strömmande URL: er som motsvarar de protokoll som stöds, som kan sedan lämnas till enheter/program baserat på deras funktioner.
+* Om du vill leverera genom progressiv nedladdning kan du använda Azure Media Services för att konvertera en digital mediafil (mezzaninfil) till en [MP4](https://en.wikipedia.org/wiki/MPEG-4_Part_14) -fil som innehåller video som har kodats med [H. 264](https://en.wikipedia.org/wiki/H.264/MPEG-4_AVC) -kodeken och ljud som har kodats med [AAC-filen ](https://en.wikipedia.org/wiki/Advanced_Audio_Coding)codec. Den här MP4-filen skrivs till en till gång i ditt lagrings konto. Du kan använda Azure Storage-API: er eller SDK: er (till exempel [lagrings REST API](../../storage/common/storage-rest-api-auth.md) eller [.NET SDK](../../storage/blobs/storage-quickstart-blobs-dotnet.md)) för att hämta filen direkt. Om du skapade utmatnings till gången med ett angivet behållar namn i lager, använder du den platsen. Annars kan du använda Media Services för att [Visa URL: erna till till gångs containern](https://docs.microsoft.com/rest/api/media/assets/listcontainersas). 
+* För att förbereda innehåll för leverans av direkt uppspelning med anpassningsbar bit hastighet måste mezzaninfil-filen kodas vid flera bit hastigheter (högt till lågt). För att säkerställa en korrekt över gång av kvalitet, så är bit hastigheten lägre, så är videons upplösning. Detta resulterar i en så kallad kodnings steg – en tabell över lösningar och bit hastigheter (se [autogenererad steg-för anpassad bit hastighet](autogen-bitrate-ladder.md)). Du kan använda Media Services för att koda dina mezzaninfil-filer vid flera bit hastigheter – då får du en uppsättning MP4-filer och tillhör ande konfigurationsfiler för direkt uppspelning som skrivs till en till gång i ditt lagrings konto. Du kan sedan använda funktionen för [dynamisk paketering](dynamic-packaging-overview.md) i Media Services för att leverera videon via strömmande protokoll som [MPEG-streck](https://en.wikipedia.org/wiki/Dynamic_Adaptive_Streaming_over_HTTP) och [HLS](https://en.wikipedia.org/wiki/HTTP_Live_Streaming). Detta kräver att du skapar en [strömmande lokaliserare](streaming-locators-concept.md) och skapar strömmande URL: er som motsvarar de protokoll som stöds, som sedan kan skickas vidare till enheter/program baserat på deras funktioner.
 
-Följande diagram visar arbetsflödet för på begäran kodning med dynamisk paketering.
+Följande diagram visar arbets flödet för kodning på begäran med dynamisk paketering.
 
 ![Dynamisk paketering](./media/dynamic-packaging-overview/media-services-dynamic-packaging.png)
 
@@ -36,51 +36,51 @@ Det här avsnittet ger vägledning om att koda ditt innehåll med Media Services
 
 ## <a name="transforms-and-jobs"></a>Transformeringar och jobb
 
-Om du vill koda med Media Services v3, måste du skapa en [transformera](https://docs.microsoft.com/rest/api/media/transforms) och en [jobbet](https://docs.microsoft.com/rest/api/media/jobs). Vi definierar ett recept för kodning inställningar och utdata; jobbet har en instans av receptet. Mer information finns i [transformeringar och jobb](transforms-jobs-concept.md)
+Om du vill koda med Media Services v3 måste du skapa en [transformering](https://docs.microsoft.com/rest/api/media/transforms) och ett [jobb](https://docs.microsoft.com/rest/api/media/jobs). Transformeringen definierar ett recept för kodnings inställningar och utdata. jobbet är en instans av receptet. Mer information finns i [transformeringar och jobb](transforms-jobs-concept.md)
 
 När encoding med Media Services, använder du förinställningar som talar om kodaren hur inkommande mediefiler ska bearbetas. Du kan till exempel ange video upplösning och/eller antalet ljud kanaler som du vill i det kodade innehållet. 
 
 Du kan komma igång snabbt med en av de rekommenderade inbyggda förinställningar baserat på branschens bästa praxis eller du kan välja att skapa en anpassad förinställning om du vill rikta in dina specifika krav för scenario eller enhet. Mer information finns i [koda med en anpassad transformering](customize-encoder-presets-how-to.md). 
 
-Från och med januari 2019 när encoding med Media Encoder Standard till producerar MP4-filer, en ny .mpi-fil och lagts till i utdata tillgången. Den här MPI-filen är avsedd att förbättra prestanda för [dynamisk paketering](dynamic-packaging-overview.md) och strömning av scenarier.
+Från och med januari 2019 skapas en ny. MPI-fil när du kodar med Media Encoder Standard för att skapa MP4-filer, och läggs till i utmatnings till gången. Den här MPI-filen är avsedd att förbättra prestanda för dynamiska scenarier för [paketering](dynamic-packaging-overview.md) och strömning.
 
 > [!NOTE]
-> Du bör inte ändra eller ta bort filen MPI eller ta alla beroenden i din tjänst med befintliga (eller inte) av sådan fil.
+> Du bör inte ändra eller ta bort MPI-filen, eller ta bort beroendet i din tjänst om det finns en sådan fil.
 
-### <a name="creating-job-input-from-an-https-url"></a>Skapa jobbindata från en HTTPS-URL
+### <a name="creating-job-input-from-an-https-url"></a>Skapa jobb inmatade från en HTTPS-URL
 
-När du skickar in jobb för att bearbeta videor måste du ange var du hittar indatavideon för Media Services. Något av alternativen är att ange en HTTPS-URL som ett jobb som indata. Media Services v3 stöder för närvarande inte Chunked-kodning över HTTPS-adresser. 
+När du skickar jobb för att bearbeta dina videor måste du tala om för Media Services var du hittar Indataporten. Ett av alternativen är att ange en HTTPS-URL som ett jobb inflöde. För närvarande stöder Media Services v3 inte Chunked Transfer Encoding över HTTPS-URL: er. 
 
 #### <a name="examples"></a>Exempel
 
 * [Koda från en HTTPS-URL med .NET](stream-files-dotnet-quickstart.md)
 * [Koda från en HTTPS-URL med REST](stream-files-tutorial-with-rest.md)
 * [Koda från en HTTPS-URL med CLI](stream-files-cli-quickstart.md)
-* [Koda från en HTTPS-URL med Node.js](stream-files-nodejs-quickstart.md)
+* [Koda från en HTTPS-URL med Node. js](stream-files-nodejs-quickstart.md)
 
-### <a name="creating-job-input-from-a-local-file"></a>Skapa jobbindata från en lokal fil
+### <a name="creating-job-input-from-a-local-file"></a>Skapa jobb indata från en lokal fil
 
-Indatavideon kan lagras som en Media Service-tillgång då du skapar en indatatillgången som baseras på en fil (som lagras lokalt eller i Azure Blob storage). 
+Indataporten kan lagras som en medie tjänst till gång, i vilket fall du skapar en indata-till gång baserat på en fil (lagras lokalt eller i Azure Blob Storage). 
 
 #### <a name="examples"></a>Exempel
 
-[Koda en lokal fil med hjälp av inbyggda förinställningar](job-input-from-local-file-how-to.md)
+[Koda en lokal fil med inbyggda för hands inställningar](job-input-from-local-file-how-to.md)
 
-### <a name="creating-job-input-with-subclipping"></a>Skapa jobbindata med underklippning
+### <a name="creating-job-input-with-subclipping"></a>Skapa jobb ingångar med under Urklipp
 
-När kodning en video, kan du ange för att även trimma eller källfilen och producera utdata med endast en önskad del av indatavideon ska ha. Den här funktionen fungerar med alla [transformera](https://docs.microsoft.com/rest/api/media/transforms) som skapats med hjälp av antingen den [BuiltInStandardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#builtinstandardencoderpreset) förinställningar, eller [StandardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#standardencoderpreset) förinställningar. 
+När du kodar en video kan du ange att även trimma eller klippa ut käll filen och skapa utdata som bara har en önskad del av indata-videon. Den här funktionen fungerar med alla [transformeringar](https://docs.microsoft.com/rest/api/media/transforms) som har skapats med antingen [BuiltInStandardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#builtinstandardencoderpreset) för inställningar eller [StandardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#standardencoderpreset) för inställningar. 
 
-Du kan ange om du vill skapa en [jobbet](https://docs.microsoft.com/rest/api/media/jobs/create) med ett enda klipp för en video på begäran eller live-arkivet (en inspelade händelse). Jobbindata kan vara en tillgång eller en HTTPS-URL.
+Du kan ange att du vill skapa ett [jobb](https://docs.microsoft.com/rest/api/media/jobs/create) med ett enda klipp av en video på begäran eller Live Archive (en inspelad händelse). Jobbets inmatare kan vara en till gång eller en HTTPS-URL.
 
 > [!TIP]
-> Om du vill strömma ett sublip av videon utan reencoding videon kan du använda [före filtrering manifest med dynamiska Paketeraren](filters-dynamic-manifest-overview.md).
+> Om du vill strömma en sublip av videon utan att behöva koda om videon, kan du överväga att använda [för filtrerings manifest med dynamisk Paketeraren](filters-dynamic-manifest-overview.md).
 
 #### <a name="examples"></a>Exempel
 
 Se exempel:
 
-* [Underklipp en video med .NET](subclip-video-dotnet-howto.md)
-* [Underklipp en video med REST](subclip-video-rest-howto.md)
+* [Klipp en video med .NET](subclip-video-dotnet-howto.md)
+* [Klipp en video med REST](subclip-video-rest-howto.md)
 
 ## <a name="built-in-presets"></a>Inbyggda förinställningar
 
@@ -88,60 +88,60 @@ Media Services stöder för närvarande följande inbyggda förinställningar f�
 
 ### <a name="builtinstandardencoderpreset"></a>BuiltInStandardEncoderPreset
 
-[BuiltInStandardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#builtinstandardencoderpreset) används för att ange en inbyggd förinställning för encoding indatavideon med Standard-kodare. 
+[BuiltInStandardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#builtinstandardencoderpreset) används för att ange en inbyggd för inställning för kodning av inmatad video med Standard-kodaren. 
 
 Följande förinställningar stöds för närvarande:
 
 - **EncoderNamedPreset.AACGoodQualityAudio** -producerar en enda MP4-fil som innehåller endast stereo ljud kodade med 192 kbit/s.
 - **EncoderNamedPreset.AdaptiveStreaming** (rekommenderas). Mer information finns i [autogenerering en bithastighetsstege](autogen-bitrate-ladder.md).
-- **EncoderNamedPreset.ContentAwareEncodingExperimental** -Exponerar en experimentella förinställd för innehåll-medvetna encoding. Angivna indata innehåll försöker tjänsten automatiskt fastställa det optimala antalet lager, lämpliga bithastighet och upplösningen för leverans av Adaptiv direktuppspelning. De underliggande algoritmerna fortsätter att utvecklas över tid. Utdata innehåller MP4-filer med video och ljud överlagrad. Mer information finns i [Experimental förinställning för innehåll-medvetna encoding](cae-experimental.md).
+- **EncoderNamedPreset. ContentAwareEncodingExperimental** -visar en experimentell för inställning för innehålls medveten kodning. Med allt indata-innehåll, försöker tjänsten automatiskt fastställa det optimala antalet lager, lämpliga bit hastighets-och upplösnings inställningar för leverans av anpassad direkt uppspelning. De underliggande algoritmerna kommer att fortsätta att utvecklas över tid. Utdata kommer att innehålla MP4-filer med video och ljud som är överlagrade. Mer information finns i [experimentell för inställning för innehålls medveten kodning](cae-experimental.md).
 - **EncoderNamedPreset.H264MultipleBitrate1080p** -producerar en uppsättning 8 GOP-justerad MP4-filer, sträcker sig från 6000 kbit/s till 400 kbit/s och stereo AAC-ljud. Lösning startas vid 1080p och ned 360 p.
 - **EncoderNamedPreset.H264MultipleBitrate720p** -producerar en uppsättning 6 GOP-justerad MP4-filer, sträcker sig från 3400 kbit/s till 400 kbit/s och stereo AAC-ljud. Lösning startas vid 720p och ned 360 p.
 - **EncoderNamedPreset.H264MultipleBitrateSD** -producerar en uppsättning 5 GOP-justerad MP4-filer, sträcker sig från 1600 kbit/s till 400 kbit/s och stereo AAC-ljud. Lösning startas på 480 pixlar och ned 360 p.
-- **EncoderNamedPreset.H264SingleBitrate1080p** -producerar en MP4-fil där videon kodas med H.264-codec i 6750 kbit/s och höjdvärdet bild 1 080 bildpunkter och stereo ljudet är kodad med AAC-LC codec med 64 kbit/s.
-- **EncoderNamedPreset.H264SingleBitrate720p** -producerar en MP4-fil där videon kodas med H.264-codec på 4500 kbit/s och en Bildhöjd på 720 bildpunkter och stereo ljudet är kodad med AAC-LC codec med 64 kbit/s.
-- **EncoderNamedPreset.H264SingleBitrateSD** -producerar en MP4-fil där videon kodas med H.264-codec på 2200 kbit/s och en bild höjden 480 pixlar och stereo ljudet är kodad med AAC-LC codec med 64 kbit/s.
+- **EncoderNamedPreset. H264SingleBitrate1080p** – skapar en MP4-fil där videon kodas med H. 264-codec vid 6750 kbit/s och en bild höjd på 1080 bild punkter, och stereo ljudet kodas med AAC-LC-kodek vid 64 kbit/s.
+- **EncoderNamedPreset. H264SingleBitrate720p** – skapar en MP4-fil där videon kodas med H. 264-codec vid 4500 kbit/s och en bild höjd på 720 bild punkter, och stereo ljudet kodas med AAC-LC-kodek vid 64 kbit/s.
+- **EncoderNamedPreset. H264SingleBitrateSD** – skapar en MP4-fil där videon kodas med H. 264-codec vid 2200 kbit/s och en bild höjd på 480 bild punkter, och stereo ljudet kodas med AAC-LC-kodek vid 64 kbit/s.
 
-Den senaste listan finns i [inbyggda förinställningar som ska användas för kodning videor](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#encodernamedpreset).
+Om du vill se listan med de senaste aktuella för inställningarna, se [inbyggda för inställningar som används för att koda videor](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#encodernamedpreset).
 
-Om du vill se hur förinställningarna används, Kolla in [överför, koda och strömma filer](stream-files-tutorial-with-api.md).
+Om du vill se hur för inställningarna används kan du läsa [Ladda upp, koda och strömma filer](stream-files-tutorial-with-api.md).
 
 ### <a name="standardencoderpreset"></a>StandardEncoderPreset
 
-[StandardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#standardencoderpreset) beskriver inställningar som ska användas när kodning indatavideon med Standard-kodare. Använd denna förinställning när du anpassar transformeringen förinställningar. 
+[StandardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#standardencoderpreset) beskriver vilka inställningar som ska användas när du kodar Indataporten med Standard-kodaren. Använd denna förinställning när du anpassar transformeringen förinställningar. 
 
 #### <a name="considerations"></a>Överväganden
 
-När du skapar anpassade förinställningar, gäller följande:
+När du skapar anpassade för inställningar gäller följande aspekter:
 
-- Alla värden för höjd och bredd på AVC innehåll måste vara en multipel av 4.
-- I Azure Media Services v3 är alla kodning bithastighet i bitar per sekund. Detta skiljer sig från förinställningar med våra v2 API: er, som används kilobit per sekund som enheten. Till exempel om bithastigheten i v2 har angetts som 128 (kbit/s) skulle i v3 det ställas in till 128000 (bitar per sekund).
+- Alla värden för höjd och bredd på AVC-innehåll måste vara en multipel av 4.
+- I Azure Media Services v3 är alla kodnings bit hastigheter i bitar per sekund. Detta skiljer sig från för inställningarna med våra v2-API: er, som använde kilobit/sekund som enhet. Om bit hastigheten i v2 exempelvis angavs som 128 (kilobit/sekund), skulle den vara inställd på 128000 (bitar/sekund) i v3.
 
-### <a name="customizing-presets"></a>Anpassa förinställningar
+### <a name="customizing-presets"></a>Anpassa för inställningar
 
-Media Services stöder helt anpassa alla värden i förinställningar för att uppfylla dina specifika kodning behov och krav. Exempel som visar hur du anpassar encoder förinställningar finns:
+Media Services stöder helt anpassa alla värden i förinställningar för att uppfylla dina specifika kodning behov och krav. Exempel som visar hur du anpassar förval för kodare finns i:
 
 #### <a name="examples"></a>Exempel
 
-- [Anpassa förinställningar med .NET](customize-encoder-presets-how-to.md)
-- [Anpassa förinställningar med CLI](custom-preset-cli-howto.md)
-- [Anpassa förinställningar med REST](custom-preset-rest-howto.md)
+- [Anpassa för inställningar med .NET](customize-encoder-presets-how-to.md)
+- [Anpassa för inställningar med CLI](custom-preset-cli-howto.md)
+- [Anpassa för inställningar med REST](custom-preset-rest-howto.md)
 
-## <a name="preset-schema"></a>Förinställda schemat
+## <a name="preset-schema"></a>Förinställt schema
 
-Förinställningar finns i Media Services v3, starkt typifierad entiteter i själva API: T. Du kan hitta ”schema” definitionen för dessa objekt i [Open API Specification (eller Swagger)](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01). Du kan också visa de förinställda definitionerna (t.ex. **StandardEncoderPreset**) i den [REST API](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#standardencoderpreset), [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.standardencoderpreset?view=azure-dotnet) (eller andra Media Services v3 SDK referensdokumentation).
+I Media Services v3 är för inställningar starkt skrivna entiteter i själva API: et. Du hittar definitionen "schema" för dessa objekt i [Open API-specifikationen (eller Swagger)](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01). Du kan också Visa förinställda definitioner (som **StandardEncoderPreset**) i [REST API](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#standardencoderpreset), [.net SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.standardencoderpreset?view=azure-dotnet) (eller andra Media Services v3 SDK referens dokumentation).
 
 ## <a name="scaling-encoding-in-v3"></a>Skala kodning i v3
 
-Om du vill skala mediebearbetning Se [skala med CLI](media-reserved-units-cli-how-to.md).
+Om du vill skala medie bearbetning, se [skala med CLI](media-reserved-units-cli-how-to.md).
 
-## <a name="ask-questions-give-feedback-get-updates"></a>Ställ frågor, ge feedback, få uppdateringar
+## <a name="ask-questions-give-feedback-get-updates"></a>Ställ frågor, ge feedback, hämta uppdateringar
 
-Kolla in den [Azure Media Services-community](media-services-community.md) artikeln olika sätt du kan ställa frågor, ge feedback och få uppdateringar om Media Services.
+Kolla in [Azure Media Services community](media-services-community.md) -artikeln för att se olika sätt att ställa frågor, lämna feedback och få uppdateringar om Media Services.
 
 ## <a name="next-steps"></a>Nästa steg
 
 * [Ladda upp, koda och strömma med Media Services](stream-files-tutorial-with-api.md)
-* [Koda från en HTTPS-URL med hjälp av inbyggda förinställningar](job-input-from-http-how-to.md)
-* [Koda en lokal fil med hjälp av inbyggda förinställningar](job-input-from-local-file-how-to.md)
-* [Skapa en anpassad förinställning om du vill rikta in dina specifika krav för scenario eller enhet](customize-encoder-presets-how-to.md)
+* [Koda från en HTTPS-URL med inbyggda för hands inställningar](job-input-from-http-how-to.md)
+* [Koda en lokal fil med inbyggda för hands inställningar](job-input-from-local-file-how-to.md)
+* [Bygg en anpassad för inställning för att rikta in dig på specifika scenario-eller enhets krav](customize-encoder-presets-how-to.md)

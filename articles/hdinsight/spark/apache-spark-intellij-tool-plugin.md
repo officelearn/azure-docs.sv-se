@@ -1,19 +1,19 @@
 ---
-title: 'Självstudie – Azure Toolkit for IntelliJ: Skapa Spark-program för ett HDInsight-kluster'
+title: 'Självstudie – Azure Toolkit for IntelliJ: Spark-program för HDInsight-kluster'
 description: Självstudie – Använd Azure Toolkit for IntelliJ för att utveckla Spark-program som skrivits i Scala och skicka dem till ett HDInsight Spark-kluster.
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
-ms.date: 06/26/2019
+ms.date: 09/04/2019
 ms.author: hrasheed
-ms.openlocfilehash: 32f5ff2ebc9d938b1936d7f2929af83d552a543d
-ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
+ms.openlocfilehash: dac72cee62a3bd4cc4c315e15ace784bf24deff3
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68489868"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70736483"
 ---
 # <a name="tutorial-use-azure-toolkit-for-intellij-to-create-apache-spark-applications-for-an-hdinsight-cluster"></a>Självstudier: Använd Azure Toolkit for IntelliJ för att skapa Apache Spark-program för ett HDInsight-kluster
 
@@ -129,7 +129,7 @@ Installera Scala-plugin-programmet via följande steg:
     Koden läser data från HVAC. csv (tillgängliga på alla HDInsight Spark-kluster), hämtar de rader som bara har en siffra i den sjunde kolumnen i CSV-filen och skriver utdata till `/HVACOut` under standard lagrings behållaren för klustret.
 
 ## <a name="connect-to-your-hdinsight-cluster"></a>Anslut till ditt HDInsight-kluster
-Användaren kan antingen [Logga in i Azure](#sign-in-to-your-azure-subscription)-prenumerationen eller [Länka ett HDInsight-kluster](#link-a-cluster) med hjälp av Ambari användar namn/lösen ord eller domänanslutna autentiseringsuppgifter för att ansluta till ditt HDInsight-kluster.
+Användaren kan antingen [Logga in i Azure-prenumerationen](#sign-in-to-your-azure-subscription)eller [Länka ett HDInsight-kluster](#link-a-cluster) med hjälp av Ambari användar namn/lösen ord eller domänanslutna autentiseringsuppgifter för att ansluta till ditt HDInsight-kluster.
 
 ### <a name="sign-in-to-your-azure-subscription"></a>Logga in till din Azure-prenumeration
 
@@ -141,7 +141,7 @@ Användaren kan antingen [Logga in i Azure](#sign-in-to-your-azure-subscription)
    
    ![Azure Explorer-länken](./media/apache-spark-intellij-tool-plugin/explorer-rightclick-azure.png)
 
-3. I dialog rutan **Azure-inloggning** väljer du enhets **inloggning**och väljer sedan **Logga**in.
+3. I dialog rutan **Azure-inloggning** väljer du **enhets inloggning**och väljer sedan **Logga**in.
 
     ![Dialog rutan Azure-inloggning](./media/apache-spark-intellij-tool-plugin/view-explorer-2.png)
 
@@ -183,7 +183,7 @@ Du kan länka ett HDInsight-kluster med hjälp av Apache Ambari Managed använda
 
     * **HDInsight-kluster**  
   
-        |Egenskap |Värde |
+        |Egenskap |Value |
         |----|----|
         |Länka resurs typ|Välj **HDInsight-kluster** i den nedrullningsbara listan.|
         |Kluster namn/URL| Ange kluster namn.|
@@ -195,12 +195,12 @@ Du kan länka ett HDInsight-kluster med hjälp av Apache Ambari Managed använda
 
     * **Livy-tjänst**  
   
-        |Egenskap |Värde |
+        |Egenskap |Value |
         |----|----|
         |Länka resurs typ|Välj **livy-tjänst** i list rutan.|
         |Livy-slutpunkt| Ange livy-slutpunkt|
         |Klusternamn| Ange kluster namn.|
-        |Garn slut punkt|Valfri.|
+        |Garn slut punkt|Valfritt.|
         |Autentiseringstyp| Lämna som **grundläggande autentisering**|
         |Användarnamn| Ange kluster användar namn, standard är administratör.|
         |lösenordsinställning| Ange ett lösen ord för användar namnet.|
@@ -238,8 +238,8 @@ När du har skapat ett Scala-program kan du skicka det till klustret.
     |Jobb överförings lagring|Expandera för att visa fler alternativ.|
     |Lagrings typ|Välj **Använd Azure Blob för att överföra** från List rutan.|
     |Lagringskonto|Ange ditt lagrings konto.|
-    |Lagringsnyckel|Ange din lagrings nyckel.|
-    |Storage-behållare|Välj din lagrings behållare i list rutan när lagrings **kontot** och **lagrings nyckeln** har angetts.|
+    |Lagrings nyckel|Ange din lagrings nyckel.|
+    |Storage-behållare|Välj din lagrings behållare i list rutan när **lagrings kontot** och **lagrings nyckeln** har angetts.|
 
     ![Dialog rutan för Spark-sändning](./media/apache-spark-intellij-tool-plugin/hdi-submit-spark-app-02.png)
 

@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: f94d3cdbbd1683b20dbe1d370bcac43817458f44
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 69218cedcd5d775fe6e499086663aa124f6bfe25
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70139386"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70736007"
 ---
 # <a name="azure-data-factory---json-scripting-reference"></a>Referens för Azure Data Factory-JSON-skript
 > [!NOTE]
@@ -461,7 +461,7 @@ Om du vill definiera en Azure Blob-datauppsättning anger du **typen** av data u
 | fileName |Namn på blobben. fileName är valfritt och Skift läges känsligt.<br/><br/>Om du anger ett fil namn fungerar aktiviteten (inklusive kopia) på den aktuella blobben.<br/><br/>Om inget fil namn har angetts innehåller kopian alla blobbar i folderPath för indata-datauppsättning.<br/><br/>När inget fil namn har angetts för en data uppsättning för utdata skulle namnet på den genererade filen ha följande format: `Data.<Guid>.txt` (till exempel:: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |Nej |
 | partitionedBy |partitionedBy är en valfri egenskap. Du kan använda den för att ange en dynamisk folderPath och ett fil namn för Time Series-data. FolderPath kan till exempel vara parameterstyrda för varje timme med data. |Nej |
 | format | Följande format typer stöds: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Ange den **typ** egenskapen under format till ett av dessa värden. Mer information finns i [textformat](data-factory-supported-file-and-compression-formats.md#text-format), [Json-Format](data-factory-supported-file-and-compression-formats.md#json-format), [Avro-formatet](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc-Format](data-factory-supported-file-and-compression-formats.md#orc-format), och [Parquet-Format](data-factory-supported-file-and-compression-formats.md#parquet-format) avsnitt. <br><br> Om du vill **kopiera filer som – är** hoppa över avsnittet format i både inkommande och utgående datamängd definitioner mellan filbaserade (binär kopia). |Nej |
-| compression | Ange typ och komprimeringsnivå för data. Typer som stöds: **Gzip**,DEFLATE, **BZip2**och **ZipDeflate**. Nivåer som stöds är: **Optimal** och **snabbast**. Mer information finns i [fil-och komprimerings format i Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Nej |
+| compression | Ange typ och komprimeringsnivå för data. Typer som stöds: **Gzip**, **DEFLATE**, **BZip2**och **ZipDeflate**. Nivåer som stöds är: **Optimal** och **snabbast**. Mer information finns i [fil-och komprimerings format i Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Nej |
 
 #### <a name="example"></a>Exempel
 
@@ -644,7 +644,7 @@ Om du vill definiera en Azure Data Lake Store data uppsättning anger du **typ**
 | fileName |Namnet på filen i Azure Data Lake arkivet. fileName är valfritt och Skift läges känsligt. <br/><br/>Om du anger ett fil namn fungerar aktiviteten (inklusive kopia) på den aktuella filen.<br/><br/>Om inget fil namn har angetts innehåller kopian alla filer i folderPath för indata-datauppsättningen.<br/><br/>När inget fil namn har angetts för en data uppsättning för utdata skulle namnet på den genererade filen ha följande format: `Data.<Guid>.txt` (till exempel:: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |Nej |
 | partitionedBy |partitionedBy är en valfri egenskap. Du kan använda den för att ange en dynamisk folderPath och ett fil namn för Time Series-data. FolderPath kan till exempel vara parameterstyrda för varje timme med data. |Nej |
 | format | Följande format typer stöds: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Ange den **typ** egenskapen under format till ett av dessa värden. Mer information finns i [textformat](data-factory-supported-file-and-compression-formats.md#text-format), [Json-Format](data-factory-supported-file-and-compression-formats.md#json-format), [Avro-formatet](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc-Format](data-factory-supported-file-and-compression-formats.md#orc-format), och [Parquet-Format](data-factory-supported-file-and-compression-formats.md#parquet-format) avsnitt. <br><br> Om du vill **kopiera filer som – är** hoppa över avsnittet format i både inkommande och utgående datamängd definitioner mellan filbaserade (binär kopia). |Nej |
-| compression | Ange typ och komprimeringsnivå för data. Typer som stöds: **Gzip**,DEFLATE, **BZip2**och **ZipDeflate**. Nivåer som stöds är: **Optimal** och **snabbast**. Mer information finns i [fil-och komprimerings format i Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Nej |
+| compression | Ange typ och komprimeringsnivå för data. Typer som stöds: **Gzip**, **DEFLATE**, **BZip2**och **ZipDeflate**. Nivåer som stöds är: **Optimal** och **snabbast**. Mer information finns i [fil-och komprimerings format i Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Nej |
 
 #### <a name="example"></a>Exempel
 ```json
@@ -1226,7 +1226,7 @@ Om du kopierar data till Azure SQL Data Warehouse anger du typ av **mottagare** 
 | sqlWriterCleanupScript |Ange en fråga för kopierings aktivitet som ska köras så att data i en angiven sektor rensas. |Ett frågeuttryck. |Nej |
 | allowPolyBase |Anger om PolyBase ska användas (när det är tillämpligt) i stället för BULKINSERT-mekanismen. <br/><br/> **Att använda PolyBase är det rekommenderade sättet att läsa in data i SQL Data Warehouse.** |Sant <br/>Falskt (standard) |Nej |
 | polyBaseSettings |En grupp egenskaper som kan anges när den **allowPolybase** är inställd på **SANT**. |&nbsp; |Nej |
-| rejectValue |Anger det tal eller procentandelen rader som kan avvisas innan frågan inte kunde köras. <br/><br/>Läs mer om polybases avvisnings alternativ i avsnittet arguments i avsnittet [skapa en extern tabell (Transact-SQL)](https://msdn.microsoft.com/library/dn935021.aspx) . |0 (standard), 1, 2,... |Nej |
+| rejectValue |Anger det tal eller procentandelen rader som kan avvisas innan frågan inte kunde köras. <br/><br/>Läs mer om polybases avvisnings alternativ i avsnittet **arguments** i avsnittet [skapa en extern tabell (Transact-SQL)](https://msdn.microsoft.com/library/dn935021.aspx) . |0 (standard), 1, 2,... |Nej |
 | rejectType |Anger om alternativet rejectValue anges som ett litteralt värde eller i procent. |Värde (standard), procent |Nej |
 | rejectSampleValue |Anger det antal rader som ska hämtas innan PolyBase beräknar om procent andelen avvisade rader. |1, 2, … |Ja, om **rejectType** är **procent** |
 | useTypeDefault |Anger hur du hanterar värden som saknas i avgränsade textfiler när PolyBase hämtar data från textfilen.<br/><br/>Mer information om den här egenskapen från avsnittet argument i [skapa externt FILFORMAT (Transact-SQL)](https://msdn.microsoft.com/library/dn935026.aspx). |Sant, falskt (standard) |Nej |
@@ -3180,7 +3180,7 @@ Definiera en Amazon S3-data uppsättning genom att ange **typen** av data uppsä
 | prefix |Prefix för Objektnyckel S3. Objekt vars nycklar som börjar med prefixet är markerade. Gäller endast när nyckeln är tom. |String |Nej |
 | version |Versionen av S3-objektet om S3-versioner har Aktiver ATS. |Sträng |Nej |
 | format | Följande format typer stöds: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Ange den **typ** egenskapen under format till ett av dessa värden. Mer information finns i [textformat](data-factory-supported-file-and-compression-formats.md#text-format), [Json-Format](data-factory-supported-file-and-compression-formats.md#json-format), [Avro-formatet](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc-Format](data-factory-supported-file-and-compression-formats.md#orc-format), och [Parquet-Format](data-factory-supported-file-and-compression-formats.md#parquet-format) avsnitt. <br><br> Om du vill **kopiera filer som – är** hoppa över avsnittet format i både inkommande och utgående datamängd definitioner mellan filbaserade (binär kopia). |Nej | |
-| compression | Ange typ och komprimeringsnivå för data. Typer som stöds: **Gzip**,DEFLATE, **BZip2**och **ZipDeflate**. De nivåer som stöds är: **Optimal** och **snabbast**. Mer information finns i [fil-och komprimerings format i Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Nej | |
+| compression | Ange typ och komprimeringsnivå för data. Typer som stöds: **Gzip**, **DEFLATE**, **BZip2**och **ZipDeflate**. De nivåer som stöds är: **Optimal** och **snabbast**. Mer information finns i [fil-och komprimerings format i Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Nej | |
 
 
 > [!NOTE]
@@ -3375,7 +3375,7 @@ För att definiera en fil system data uppsättning, ange **typ** av data uppsät
 | fileFilter |Ange ett filter som ska användas för att välja en delmängd av filer i folderPath i stället för alla filer. <br/><br/>Tillåtna värden är: `*` (flera tecken) och `?` (ett tecken).<br/><br/>Exempel 1: "fileFilter": "*. log"<br/>Exempel 2: "fileFilter": 2016-1-?. format<br/><br/>Observera att fileFilter är tillämpligt för en data uppsättning för en indata-FileShare. |Nej |
 | partitionedBy |Du kan använda partitionedBy för att ange ett dynamiskt folderPath/fileName för Time Series-data. Ett exempel är folderPath-parameter för varje timme med data. |Nej |
 | format | Följande format typer stöds: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Ange den **typ** egenskapen under format till ett av dessa värden. Mer information finns i [textformat](data-factory-supported-file-and-compression-formats.md#text-format), [Json-Format](data-factory-supported-file-and-compression-formats.md#json-format), [Avro-formatet](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc-Format](data-factory-supported-file-and-compression-formats.md#orc-format), och [Parquet-Format](data-factory-supported-file-and-compression-formats.md#parquet-format) avsnitt. <br><br> Om du vill **kopiera filer som – är** hoppa över avsnittet format i både inkommande och utgående datamängd definitioner mellan filbaserade (binär kopia). |Nej |
-| compression | Ange typ och komprimeringsnivå för data. Typer som stöds: **Gzip**,DEFLATE, **BZip2**och **ZipDeflate**; och nivåer som stöds är: **Optimal** och **snabbast**. Se [fil-och komprimerings format i Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Nej |
+| compression | Ange typ och komprimeringsnivå för data. Typer som stöds: **Gzip**, **DEFLATE**, **BZip2**och **ZipDeflate**; och nivåer som stöds är: **Optimal** och **snabbast**. Se [fil-och komprimerings format i Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Nej |
 
 > [!NOTE]
 > Du kan inte använda fileName och fileFilter samtidigt.
@@ -3641,7 +3641,7 @@ Definiera en FTP-datauppsättning genom att ange **typen** av data uppsättning 
 | fileFilter |Ange ett filter som ska användas för att välja en delmängd av filer i folderPath i stället för alla filer.<br/><br/>Tillåtna värden är: `*` (flera tecken) och `?` (ett tecken).<br/><br/>Exempel 1:`"fileFilter": "*.log"`<br/>Exempel 2: `"fileFilter": 2016-1-?.txt"`<br/><br/> fileFilter är tillämpligt för en data uppsättning för en indata-FileShare. Den här egenskapen stöds inte med HDFS. |Nej |
 | partitionedBy |partitionedBy kan användas för att ange en dynamisk folderPath, fil namn för Time Series-data. Till exempel folderPath parameter för varje timme med data. |Nej |
 | format | Följande format typer stöds: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Ange den **typ** egenskapen under format till ett av dessa värden. Mer information finns i [textformat](data-factory-supported-file-and-compression-formats.md#text-format), [Json-Format](data-factory-supported-file-and-compression-formats.md#json-format), [Avro-formatet](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc-Format](data-factory-supported-file-and-compression-formats.md#orc-format), och [Parquet-Format](data-factory-supported-file-and-compression-formats.md#parquet-format) avsnitt. <br><br> Om du vill **kopiera filer som – är** hoppa över avsnittet format i både inkommande och utgående datamängd definitioner mellan filbaserade (binär kopia). |Nej |
-| compression | Ange typ och komprimeringsnivå för data. Typer som stöds: **Gzip**,DEFLATE, **BZip2**och **ZipDeflate**; och nivåer som stöds är: **Optimal** och **snabbast**. Mer information finns i [fil-och komprimerings format i Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Nej |
+| compression | Ange typ och komprimeringsnivå för data. Typer som stöds: **Gzip**, **DEFLATE**, **BZip2**och **ZipDeflate**; och nivåer som stöds är: **Optimal** och **snabbast**. Mer information finns i [fil-och komprimerings format i Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Nej |
 | useBinaryTransfer |Ange om du vill använda binärt överförings läge. Sant för binärt läge och falskt ASCII. Standardvärde: Värdet. Den här egenskapen kan endast användas när den associerade länkade tjänst typen är av typen: FtpServer. |Nej |
 
 > [!NOTE]
@@ -3782,7 +3782,7 @@ Definiera en HDFS-datauppsättning genom att ange **typen** av data uppsättning
 | fileName |Ange namnet på filen i **folderPath** om du vill att tabellen ska referera till en speciell fil i mappen. Om du inte anger något värde för den här egenskapen pekar tabellen på alla filer i mappen.<br/><br/>När inget fil namn har angetts för en data uppsättning för utdata skulle namnet på den genererade filen ha följande format: <br/><br/>`Data.<Guid>.txt`(till exempel: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |Nej |
 | partitionedBy |partitionedBy kan användas för att ange en dynamisk folderPath, fil namn för Time Series-data. Exempel: folderPath-parameter för varje timme med data. |Nej |
 | format | Följande format typer stöds: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Ange den **typ** egenskapen under format till ett av dessa värden. Mer information finns i [textformat](data-factory-supported-file-and-compression-formats.md#text-format), [Json-Format](data-factory-supported-file-and-compression-formats.md#json-format), [Avro-formatet](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc-Format](data-factory-supported-file-and-compression-formats.md#orc-format), och [Parquet-Format](data-factory-supported-file-and-compression-formats.md#parquet-format) avsnitt. <br><br> Om du vill **kopiera filer som – är** hoppa över avsnittet format i både inkommande och utgående datamängd definitioner mellan filbaserade (binär kopia). |Nej |
-| compression | Ange typ och komprimeringsnivå för data. Typer som stöds: **Gzip**,DEFLATE, **BZip2**och **ZipDeflate**. Nivåer som stöds är: **Optimal** och **snabbast**. Mer information finns i [fil-och komprimerings format i Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Nej |
+| compression | Ange typ och komprimeringsnivå för data. Typer som stöds: **Gzip**, **DEFLATE**, **BZip2**och **ZipDeflate**. Nivåer som stöds är: **Optimal** och **snabbast**. Mer information finns i [fil-och komprimerings format i Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Nej |
 
 > [!NOTE]
 > Det går inte att använda filename och fileFilter samtidigt.
@@ -3983,7 +3983,7 @@ Definiera en SFTP-datauppsättning genom att ange **typen** av data uppsättning
 | fileFilter |Ange ett filter som ska användas för att välja en delmängd av filer i folderPath i stället för alla filer.<br/><br/>Tillåtna värden är: `*` (flera tecken) och `?` (ett tecken).<br/><br/>Exempel 1:`"fileFilter": "*.log"`<br/>Exempel 2: `"fileFilter": 2016-1-?.txt"`<br/><br/> fileFilter är tillämpligt för en data uppsättning för en indata-FileShare. Den här egenskapen stöds inte med HDFS. |Nej |
 | partitionedBy |partitionedBy kan användas för att ange en dynamisk folderPath, fil namn för Time Series-data. Till exempel folderPath parameter för varje timme med data. |Nej |
 | format | Följande format typer stöds: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Ange den **typ** egenskapen under format till ett av dessa värden. Mer information finns i [textformat](data-factory-supported-file-and-compression-formats.md#text-format), [Json-Format](data-factory-supported-file-and-compression-formats.md#json-format), [Avro-formatet](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc-Format](data-factory-supported-file-and-compression-formats.md#orc-format), och [Parquet-Format](data-factory-supported-file-and-compression-formats.md#parquet-format) avsnitt. <br><br> Om du vill **kopiera filer som – är** hoppa över avsnittet format i både inkommande och utgående datamängd definitioner mellan filbaserade (binär kopia). |Nej |
-| compression | Ange typ och komprimeringsnivå för data. Typer som stöds: **Gzip**,DEFLATE, **BZip2**och **ZipDeflate**. Nivåer som stöds är: **Optimal** och **snabbast**. Mer information finns i [fil-och komprimerings format i Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Nej |
+| compression | Ange typ och komprimeringsnivå för data. Typer som stöds: **Gzip**, **DEFLATE**, **BZip2**och **ZipDeflate**. Nivåer som stöds är: **Optimal** och **snabbast**. Mer information finns i [fil-och komprimerings format i Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Nej |
 | useBinaryTransfer |Ange om du vill använda binärt överförings läge. Sant för binärt läge och falskt ASCII. Standardvärde: Värdet. Den här egenskapen kan endast användas när den associerade länkade tjänst typen är av typen: FtpServer. |Nej |
 
 > [!NOTE]
@@ -4163,8 +4163,8 @@ Om du vill definiera en HTTP-datauppsättning anger du **typen** av data uppsät
 | requestMethod | Http-metod. Tillåtna värden är **Get** eller **post**. | Nej. Standardvärdet är `GET`. |
 | additionalHeaders | Ytterligare rubriker för HTTP-begäran. | Nej |
 | requestBody | Brödtext för HTTP-begäran. | Nej |
-| format | Om du bara vill **Hämta data från http** -slutpunkten som de är utan att parsa den, kan du hoppa över format inställningarna. <br><br> Om du vill parsa innehållet i HTTP-svar under kopieringen, stöds följande format typer: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Mer information finns i [textformat](data-factory-supported-file-and-compression-formats.md#text-format), [Json-Format](data-factory-supported-file-and-compression-formats.md#json-format), [Avro-formatet](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc-Format](data-factory-supported-file-and-compression-formats.md#orc-format), och [Parquet-Format](data-factory-supported-file-and-compression-formats.md#parquet-format) avsnitt. |Nej |
-| compression | Ange typ och komprimeringsnivå för data. Typer som stöds: **Gzip**,DEFLATE, **BZip2**och **ZipDeflate**. Nivåer som stöds är: **Optimal** och **snabbast**. Mer information finns i [fil-och komprimerings format i Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Nej |
+| format | Om du bara vill **Hämta data från http-slutpunkten som de är** utan att parsa den, kan du hoppa över format inställningarna. <br><br> Om du vill parsa innehållet i HTTP-svar under kopieringen, stöds följande format typer: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Mer information finns i [textformat](data-factory-supported-file-and-compression-formats.md#text-format), [Json-Format](data-factory-supported-file-and-compression-formats.md#json-format), [Avro-formatet](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc-Format](data-factory-supported-file-and-compression-formats.md#orc-format), och [Parquet-Format](data-factory-supported-file-and-compression-formats.md#parquet-format) avsnitt. |Nej |
+| compression | Ange typ och komprimeringsnivå för data. Typer som stöds: **Gzip**, **DEFLATE**, **BZip2**och **ZipDeflate**. Nivåer som stöds är: **Optimal** och **snabbast**. Mer information finns i [fil-och komprimerings format i Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Nej |
 
 #### <a name="example-using-the-get-default-method"></a>Exempel: använda metoden GET (standard)
 
@@ -4771,7 +4771,7 @@ Definiera en webb data uppsättning genom att ange **typen** av data uppsättnin
 Mer information finns i artikeln om [webb tabell koppling](data-factory-web-table-connector.md#dataset-properties) .
 
 ### <a name="web-source-in-copy-activity"></a>Webb källa i kopierings aktivitet
-Om du kopierar data från en webb tabell anger du **käll typen** för kopierings aktiviteten till webb **källan**. För närvarande stöds inte ytterligare egenskaper när källan i kopieringsaktiviteten är av typen Websource.
+Om du kopierar data från en webb tabell anger du **käll typen** för kopierings aktiviteten till webb **källan**. För närvarande stöds inte ytterligare egenskaper när källan i kopierings aktiviteten är av typen **Websource**.
 
 #### <a name="example"></a>Exempel
 
@@ -4826,7 +4826,7 @@ I följande tabell visas de beräknings miljöer som stöds av Data Factory och 
 | [Azure Batch](#azure-batch) |[.NET-anpassad aktivitet](#net-custom-activity) |
 | [Azure Machine Learning](#azure-machine-learning) | [Machine Learning aktivitet för batch-körning](#machine-learning-batch-execution-activity) [Machine Learning uppdatera resurs aktivitet](#machine-learning-update-resource-activity) |
 | [Azure Data Lake Analytics](#azure-data-lake-analytics) |[Data Lake Analytics U-SQL](#data-lake-analytics-u-sql-activity) |
-| [Azure SQL Database](#azure-sql-database-1) [Azure SQL Data Warehouse](#azure-sql-data-warehouse-1) [SQL Server](#sql-server-1) |[Lagrad procedur](#stored-procedure-activity) |
+| [Azure SQL Database](#azure-sql-database) [Azure SQL Data Warehouse](#azure-sql-data-warehouse) [SQL Server](#sql-server-1) |[Lagrad procedur](#stored-procedure-activity) |
 
 ## <a name="on-demand-azure-hdinsight-cluster"></a>Azure HDInsight-kluster på begäran
 Azure Data Factorys tjänsten kan automatiskt skapa ett Windows/Linux-baserat HDInsight-kluster på begäran för att bearbeta data. Klustret skapas i samma region som lagrings kontot (linkedServiceName-egenskapen i JSON) som är associerad med klustret. Du kan köra följande omvandlings aktiviteter på den här länkade tjänsten [: .net anpassad aktivitet](#net-custom-activity), [Hive-aktivitet](#hdinsight-hive-activity), [gris](#hdinsight-pig-activity)-aktivitet, MapReduce- [aktivitet](#hdinsight-mapreduce-activity), Hadoop-direktuppspelning, Spark- [aktivitet](#hdinsight-spark-activity).
@@ -4995,58 +4995,6 @@ I följande exempel finns en JSON-definition för en Azure Data Lake Analytics l
     }
 }
 ```
-
-## <a name="azure-sql-database"></a>Azure SQL Database
-Du skapar en länkad Azure SQL-tjänst och använder den med den [lagrade procedur aktiviteten](#stored-procedure-activity) för att anropa en lagrad procedur från en Data Factory pipeline.
-
-### <a name="linked-service"></a>Länkad tjänst
-Om du vill definiera en Azure SQL Database länkad tjänst anger du **typen** av länkad tjänst till **AzureSqlDatabase**och anger följande egenskaper i avsnittet **typeProperties** :
-
-| Egenskap | Beskrivning | Obligatorisk |
-| --- | --- | --- |
-| connectionString |Ange information som krävs för att ansluta till Azure SQL Database-instansen för egenskapen connectionString. |Ja |
-
-#### <a name="json-example"></a>JSON-exempel
-
-```json
-{
-    "name": "AzureSqlLinkedService",
-    "properties": {
-        "type": "AzureSqlDatabase",
-        "typeProperties": {
-            "connectionString": "Server=tcp:<servername>.database.windows.net,1433;Database=<databasename>;User ID=<username>@<servername>;Password=<password>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30"
-        }
-    }
-}
-```
-
-Se artikeln om [Azure SQL Connector](data-factory-azure-sql-connector.md#linked-service-properties) för information om den här länkade tjänsten.
-
-## <a name="azure-sql-data-warehouse"></a>Azure SQL Data Warehouse
-Du skapar en Azure SQL Data Warehouse länkad tjänst och använder den med den [lagrade procedur aktiviteten](data-factory-stored-proc-activity.md) för att anropa en lagrad procedur från en Data Factory pipeline.
-
-### <a name="linked-service"></a>Länkad tjänst
-Om du vill definiera en Azure SQL Data Warehouse länkad tjänst anger du **typen** av länkad tjänst till **AzureSqlDW**och anger följande egenskaper i avsnittet **typeProperties** :
-
-| Egenskap | Beskrivning | Obligatorisk |
-| --- | --- | --- |
-| connectionString |Ange information som krävs för att ansluta till Azure SQL Data Warehouse-instansen för egenskapen connectionString. |Ja |
-
-#### <a name="json-example"></a>JSON-exempel
-
-```json
-{
-    "name": "AzureSqlDWLinkedService",
-    "properties": {
-        "type": "AzureSqlDW",
-        "typeProperties": {
-            "connectionString": "Server=tcp:<servername>.database.windows.net,1433;Database=<databasename>;User ID=<username>@<servername>;Password=<password>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30"
-        }
-    }
-}
-```
-
-Mer information finns i artikeln [Azure SQL Data Warehouse Connector](data-factory-azure-sql-data-warehouse-connector.md#linked-service-properties) .
 
 ## <a name="sql-server"></a>SQL Server
 Du skapar en SQL Server länkad tjänst och använder den med den [lagrade procedur aktiviteten](data-factory-stored-proc-activity.md) för att anropa en lagrad procedur från en Data Factory pipeline.
@@ -5293,7 +5241,7 @@ Du kan ange följande egenskaper i en JSON-definition för Hadoop streaming-akti
 | getDebugInfo | Ett valfritt element. När det är inställt på att Miss lyckas, hämtas loggarna bara vid ett haveri. När det är inställt på alla hämtas alltid loggar oavsett körnings status. |
 
 > [!NOTE]
-> Du måste ange en data uppsättning för en data uppsättning för Hadoop streaming-aktiviteten för egenskapen **utdata** . Den här data uppsättningen kan vara en dummy-datauppsättning som krävs för att driva pipeline-schemat (varje timme, varje dag osv.). Om aktiviteten inte tar indata kan du hoppa över att ange en indata-datauppsättning för aktiviteten för egenskapen Inputs.
+> Du måste ange en data uppsättning för en data uppsättning för Hadoop streaming-aktiviteten för egenskapen **utdata** . Den här data uppsättningen kan vara en dummy-datauppsättning som krävs för att driva pipeline-schemat (varje timme, varje dag osv.). Om aktiviteten inte tar indata kan du hoppa över att ange en indata-datauppsättning för aktiviteten för egenskapen **Inputs** .
 
 ## <a name="json-example"></a>JSON-exempel
 
@@ -5403,7 +5351,7 @@ Du kan ange följande egenskaper i en JSON-definition för batch körnings aktiv
 Egenskap | Beskrivning | Obligatorisk
 -------- | ----------- | --------
 webServiceInput | Data uppsättningen som ska skickas som indata för webb tjänsten för Azure Machine Learning Studio. Den här data uppsättningen måste också ingå i indata för aktiviteten. |Använd antingen WebServiceInputActivity eller webServiceInputs. |
-webServiceInputs | Ange data uppsättningar som ska skickas som indata för webb tjänsten Azure Machine Learning Studio. Om webb tjänsten tar flera indata använder du egenskapen webServiceInputs i stället för att använda egenskapen WebServiceInputActivity. Data uppsättningar som **webServiceInputs** refererar till måste också tas med i aktivitetens indata. | Använd antingen WebServiceInputActivity eller webServiceInputs. |
+webServiceInputs | Ange data uppsättningar som ska skickas som indata för webb tjänsten Azure Machine Learning Studio. Om webb tjänsten tar flera indata använder du egenskapen webServiceInputs i stället för att använda egenskapen WebServiceInputActivity. Data uppsättningar som **webServiceInputs** refererar till måste också tas med i aktivitetens **indata**. | Använd antingen WebServiceInputActivity eller webServiceInputs. |
 webServiceOutputs | De data uppsättningar som har tilldelats som utdata för webb tjänsten Azure Machine Learning Studio. Webb tjänsten returnerar utdata från den här data uppsättningen. | Ja |
 Dublettparameternamnet | Ange värden för webb tjänst parametrarna i det här avsnittet. | Nej |
 
@@ -5603,7 +5551,7 @@ Följande egenskaper stöds i avsnittet **typeProperties** när du ställer in t
 
 Om du anger en indata-datauppsättning måste den vara tillgänglig (i klar status) för att den lagrade procedur aktiviteten ska kunna köras. Det går inte att konsumera indata-dataset i den lagrade proceduren som en parameter. Den används endast för att kontrol lera beroendet innan den lagrade procedur aktiviteten startas. Du måste ange en data uppsättning för utdata för en lagrad procedur aktivitet.
 
-Data uppsättningen för utdata anger **schemat** för aktiviteten för lagrad procedur (varje timme, varje vecka, varje månad osv.). Data uppsättningen för utdata måste använda en **länkad tjänst** som refererar till en Azure SQL Database eller en Azure SQL Data Warehouse eller en SQL Server databas där du vill att den lagrade proceduren ska köras. Data uppsättningen för utdata kan fungera som ett sätt att skicka resultatet av den lagrade proceduren för efterföljande bearbetning av en annan aktivitet ([länkning av aktiviteter](data-factory-scheduling-and-execution.md##multiple-activities-in-a-pipeline)) i pipelinen. Data Factory skriver dock inte automatiskt utdata från en lagrad procedur till den här data uppsättningen. Det är den lagrade proceduren som skriver till en SQL-tabell som den resulterande data uppsättningen pekar på. I vissa fall kan data uppsättningen för utdata vara en **dummy**-datauppsättning, som endast används för att ange schemat för körning av den lagrade procedur aktiviteten.
+Data uppsättningen för utdata anger **schemat** för aktiviteten för lagrad procedur (varje timme, varje vecka, varje månad osv.). Data uppsättningen för utdata måste använda en **länkad tjänst** som refererar till en Azure SQL Database eller en Azure SQL Data Warehouse eller en SQL Server databas där du vill att den lagrade proceduren ska köras. Data uppsättningen för utdata kan fungera som ett sätt att skicka resultatet av den lagrade proceduren för efterföljande bearbetning av en annan aktivitet ([länkning av aktiviteter](data-factory-scheduling-and-execution.md##multiple-activities-in-a-pipeline)) i pipelinen. Data Factory skriver dock inte automatiskt utdata från en lagrad procedur till den här data uppsättningen. Det är den lagrade proceduren som skriver till en SQL-tabell som den resulterande data uppsättningen pekar på. I vissa fall kan data uppsättningen för utdata vara en **dummy-datauppsättning**, som endast används för att ange schemat för körning av den lagrade procedur aktiviteten.
 
 ### <a name="json-example"></a>JSON-exempel
 

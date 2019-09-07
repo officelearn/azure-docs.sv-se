@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 08/26/2019
 ms.author: helohr
-ms.openlocfilehash: 078a29fc1ab66151aa41c3901bb6a3af6479a0ba
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: dd3b68d600edcbbae73fff542e677d3ebc6b16ee
+ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70233266"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70390823"
 ---
 # <a name="create-an-fslogix-profile-container-for-a-host-pool-using-azure-netapp-files"></a>Skapa en FSLogix profil behållare för en värd-pool med hjälp av Azure NetApp Files
 
@@ -173,7 +173,7 @@ Det här avsnittet baseras på [skapa en profil behållare för en värdbaserad 
 
 10. Skapa en nyckel med namnet **profiler**.
 
-11.  Skapa ett värde med namnet Enabled med en **REG_DWORD** -typ inställd på värdet **1**.
+11.  Skapa ett värde med namnet **Enabled** med en **REG_DWORD** -typ inställd på värdet **1**.
 
 12. Skapa ett värde med namnet **VHDLocations** med en **multisträng-** typ och ange dess datavärde till URI: n för den Azure NetApp Files resursen.
 
@@ -195,11 +195,11 @@ Det här avsnittet baseras på [skapa en profil behållare för en värdbaserad 
 4. Kör följande cmdlets för att tilldela en användare till en fjärr skrivbords grupp:
 
    ```powershell
-   $tenant = "<your-wvd-tenant>"
-   $pool1 = "<wvd-pool>"
-   $appgroup = "Desktop Application Group"
-   $user1 = "<user-principal>"
-   Add-RdsAppGroupUser $tenant $pool1 $appgroup $user1
+   $wvdTenant = "<your-wvd-tenant>"
+   $hostPool = "<wvd-pool>"
+   $appGroup = "Desktop Application Group"
+   $user = "<user-principal>"
+   Add-RdsAppGroupUser $wvdTenant $hostPool $appGroup $user
    ```
 
 ## <a name="make-sure-users-can-access-the-azure-netapp-file-share"></a>Se till att användarna kan komma åt Azure-NetApp fil resurs

@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: sample
 ms.date: 07/30/2019
 ms.author: aahi
-ms.openlocfilehash: 19654a4902ae64e5de63ffc93a8d143cc518e254
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: b37de45099362fda7288db52cf17749da6e44ea6
+ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68697736"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70390215"
 ---
 # <a name="example-detect-sentiment-with-text-analytics"></a>Exempel: Identifiera sentiment med Textanalys
 
@@ -80,7 +80,7 @@ Mer information om definition av begäran finns i [anropa API för textanalys](t
 
 + Skapa en POST-begäran. Information om hur du granskar API-dokumentationen för den här begäran finns i [ATTITYDANALYS API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9).
 
-+ Ange HTTP-slutpunkten för sentiment-analys genom att antingen använda en Textanalys-resurs på Azure eller en instansierad [textanalys-behållare](text-analytics-how-to-install-containers.md). Den måste innehålla `/sentiment` resursen: `https://westus.api.cognitive.microsoft.com/text/analytics/v2.1/sentiment`.
++ Ange HTTP-slutpunkten för sentiment-analys genom att antingen använda en Textanalys-resurs på Azure eller en instansierad [textanalys-behållare](text-analytics-how-to-install-containers.md). Du måste ta `/text/analytics/v2.1/sentiment` med i URL: en. Till exempel: `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v2.1/sentiment`.
 
 + Ange ett rubrik för begäran för att inkludera [åtkomst nyckeln](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) för textanalys åtgärder.
 
@@ -139,8 +139,8 @@ I följande exempel visas svaret på dokument samlingen i den här artikeln:
 > [!NOTE]
 > * Formatet för förfrågnings formatet för Attitydanalys v3 och [data begränsningarna](../overview.md#data-limits) är desamma som i den tidigare versionen.
 > * Attitydanalys v3 vid detta tillfälle:
->    * Stöder för närvarande endast Engelskt språk.
->    * Är tillgängligt i följande regioner: `Central US`, `Central Canada`och `East Asia`.
+>    * Stöder för närvarande engelska, förenklad kinesiska och japanska språk.
+>    * Är tillgängligt i följande regioner: `Central US`, `Central Canada`och `East Asia`. 
 
 |Funktion |Beskrivning  |
 |---------|---------|

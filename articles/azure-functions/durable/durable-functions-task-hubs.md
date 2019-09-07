@@ -9,12 +9,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 12/07/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 40144fb50a01a64bbd67d541562b4fe0842fbf10
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: b0a58251530467d788710b0584b15715a207e20f
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70097787"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70734330"
 ---
 # <a name="task-hubs-in-durable-functions-azure-functions"></a>Aktivitets nav i Durable Functions (Azure Functions)
 
@@ -101,6 +101,8 @@ Aktivitets navets namn anges till värdet för `MyTaskHub` appens inställning. 
 
 Här är ett förkompilerat C# exempel på hur du skriver en funktion som använder en [OrchestrationClientBinding](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.OrchestrationClientAttribute.html) för att arbeta med en aktivitets hubb som är konfigurerad som en app-inställning:
 
+### <a name="c"></a>C#
+
 ```csharp
 [FunctionName("HttpStart")]
 public static async Task<HttpResponseMessage> Run(
@@ -119,8 +121,9 @@ public static async Task<HttpResponseMessage> Run(
 }
 ```
 
-Och nedan är den konfiguration som krävs för Java Script. Egenskapen aktivitets nav i `function.json` filen anges via appens inställning:
+### <a name="javascript"></a>JavaScript
 
+Egenskapen aktivitets nav i `function.json` filen anges via appens inställning:
 ```json
 {
     "name": "input",

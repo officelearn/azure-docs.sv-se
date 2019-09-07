@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 82b8dcfa02d21183a06fa510adb774338e72cb4e
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 8a1914b7cf79287831e0e94c19c50107c2ac216d
+ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68851710"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70390778"
 ---
 # <a name="working-with-custom-domains-in-azure-ad-application-proxy"></a>Arbeta med anpassade domäner i Azure AD Application Proxy
 
@@ -40,7 +40,7 @@ Vi rekommenderar att du konfigurerar anpassade domäner för dina program när d
 
 Innan du konfigurerar en anpassad domän kan du kontrollera att du har förberett följande krav: 
 - En [verifierad domän som har lagts till i Azure Active Directory](../fundamentals/add-custom-domain.md).
-- Ett anpassat certifikat för domänen, i form av en PFX-fil. 
+- Ett anpassat certifikat för domänen, i form av en PFX-fil.
 - En lokal app [publicerats via programproxy](application-proxy-add-on-premises-application.md).
 
 ### <a name="configure-your-custom-domain"></a>Konfigurera din anpassade domän
@@ -72,6 +72,8 @@ När du har dessa tre krav som är redo, följer du dessa steg för att konfigur
 Det finns ingen begränsning för certifikat signatur metoder. Elliptic Curve Cryptography (ECC), alternativt namn på CERTIFIKATMOTTAGARE, och andra vanliga typer av certifikat stöds. 
 
 Du kan använda ett jokerteckencertifikat så länge jokertecknet matchar den önskade externa URL: en.
+
+Certifikatet måste innehålla den privata nyckeln.
 
 Certifikat som utfärdas av din egen infrastruktur för offentliga nycklar (PKI) kan användas om certifikat kedjan är installerad på klient enheterna. Intune kan användas för att distribuera dessa certifikat till hanterade enheter. För icke-hanterade enheter måste certifikaten installeras manuellt.
 

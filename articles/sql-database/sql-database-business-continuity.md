@@ -12,12 +12,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 06/25/2019
-ms.openlocfilehash: e57427fbb7e0d3c67fc4fcbab1a50f14ef8c9501
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 5cc033787e1045926ff4fece6826e41f430d48fd
+ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68569334"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70744457"
 ---
 # <a name="overview-of-business-continuity-with-azure-sql-database"></a>Översikt över affärskontinuitet med Azure SQL Database
 
@@ -53,7 +53,7 @@ SQL Database innehåller också flera funktioner för verksamhets kontinuitet, s
 
 ## <a name="recover-a-database-within-the-same-azure-region"></a>Återställ en databas inom samma Azure-region
 
-Du kan använda automatiska databas säkerhets kopieringar för att återställa en databas till en tidpunkt tidigare. På så sätt kan du återställa från skadade data som orsakas av mänskliga fel. Med med programinformation-in-Time-återställning kan du skapa en ny databas på samma server som representerar data statusen innan händelsen skadas. För de flesta databaser tar återställnings åtgärderna i mindre än 12 timmar. Det kan ta längre tid att återställa en mycket stor eller mycket aktiv databas. Mer information om återställnings tid finns i databasens återställnings [tid](sql-database-recovery-using-backups.md#recovery-time). 
+Du kan använda automatiska databas säkerhets kopieringar för att återställa en databas till en tidpunkt tidigare. På så sätt kan du återställa från skadade data som orsakas av mänskliga fel. Med med programinformation-in-Time-återställning kan du skapa en ny databas på samma server som representerar data statusen innan händelsen skadas. För de flesta databaser tar återställnings åtgärderna i mindre än 12 timmar. Det kan ta längre tid att återställa en mycket stor eller mycket aktiv databas. Mer information om återställnings tid finns i [databasens återställnings tid](sql-database-recovery-using-backups.md#recovery-time). 
 
 Om den högsta kvarhållningsperioden för kvarhållning av säkerhets kopior för PITR (Point-in-Time Restore) inte räcker för ditt program kan du utöka det genom att konfigurera en princip för långsiktig kvarhållning (brv) för databaserna. Mer information finns i [långsiktig kvarhållning av säkerhets kopior](sql-database-long-term-retention.md).
 
@@ -107,7 +107,7 @@ Använd grupper för automatisk redundans om ditt program uppfyller något av f�
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-SQL-Database-protecting-important-DBs-from-regional-disasters-is-easy/player]
 >
 
-Du kan välja att använda en kombination av databas säkerhets kopior och aktiv geo-replikering beroende på dina program krav. En beskrivning av design överväganden för fristående databaser och elastiska pooler med hjälp av dessa funktioner för affärs kontinuitet finns i [utforma ett program för haveri beredskap](sql-database-designing-cloud-solutions-for-disaster-recovery.md) i molnet och [elastiska pooler](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md).
+Du kan välja att använda en kombination av databas säkerhets kopior och aktiv geo-replikering beroende på dina program krav. En beskrivning av design överväganden för fristående databaser och elastiska pooler med hjälp av dessa funktioner för affärs kontinuitet finns i [utforma ett program för haveri beredskap i molnet](sql-database-designing-cloud-solutions-for-disaster-recovery.md) och [elastiska pooler](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md).
 
 I följande avsnitt får du en översikt över stegen för att återställa med hjälp av databas säkerhets kopior eller aktiv geo-replikering. Detaljerade anvisningar, till exempel planerings krav, efter återställnings steg och information om hur du simulerar ett avbrott för att utföra en haveri beredskaps granskning finns i [återställa en SQL Database från ett avbrott](sql-database-disaster-recovery.md).
 
@@ -140,7 +140,7 @@ Om du använder automatiserade säkerhets kopieringar med Geo-redundant lagring 
 Efter återställningen från endera återställningsmetod måste du utföra följande ytterligare uppgifter innan dina användare och program kan komma igång igen:
 
 - Omdirigera klienter och klientprogram till den nya servern och återställda databasen
-- Se till att det finns tillräckligt med regler för IP-brandvägg på server nivå för att användarna ska kunna ansluta eller använda [brand väggar på databas nivå](sql-database-firewall-configure.md#manage-server-level-ip-firewall-rules-using-the-azure-portal) för att aktivera lämpliga regler.
+- Se till att det finns tillräckligt med regler för IP-brandvägg på server nivå för att användarna ska kunna ansluta eller använda [brand väggar på databas nivå](sql-database-firewall-configure.md#use-the-azure-portal-to-manage-server-level-ip-firewall-rules) för att aktivera lämpliga regler.
 - Se till att rätt inloggningar och behörigheter på huvuddatabasnivå är på plats (eller använd [inneslutna användare](https://docs.microsoft.com/sql/relational-databases/security/contained-database-users-making-your-database-portable))
 - Konfigurera granskning efter behov
 - Konfigurera aviseringar efter behov

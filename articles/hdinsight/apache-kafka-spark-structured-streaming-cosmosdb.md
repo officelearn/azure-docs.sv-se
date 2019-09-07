@@ -1,19 +1,19 @@
 ---
-title: Apache Spark strukturerad strömning från Apache Kafka till Azure Cosmos DB – Azure HDInsight
+title: Apache Spark data från Apache Kafka till Azure Cosmos DB – Azure HDInsight
 description: Lär dig hur du använder Apache Spark strukturerad strömning för att läsa data från Apache Kafka och sedan lagra dem i Azure Cosmos DB. I det här exemplet strömmas data med hjälp av en Jupyter Notebook från Apache Spark på HDInsight.
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 11/06/2018
+ms.date: 09/04/2019
 ms.author: hrasheed
-ms.openlocfilehash: c2d2f56f2a0686b23a3a907686dcee0760d37365
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: 546dd094614a72cada2aff60704c4fc191301ad2
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68947067"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70734941"
 ---
 # <a name="use-apache-spark-structured-streaming-with-apache-kafka-and-azure-cosmos-db"></a>Använd Apache Spark strukturerad strömning med Apache Kafka och Azure Cosmos DB
 
@@ -21,7 +21,7 @@ Lär dig hur du använder [Apache Spark](https://spark.apache.org/) [strukturera
 
 [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) är en globalt distribuerad databas för flera modeller. I det här exemplet används en SQL-API-databas modell. Mer information finns i [Välkommen till Azure Cosmos DB](../cosmos-db/introduction.md) Document.
 
-Apache Spark Structured Streaming är en bearbetningsmotor för dataströmmar som bygger på Apache Spark SQL. Med den kan du uttrycka strömmande beräkningar på samma sätt som batchberäkningar av statiska data. Mer information om strukturerad strömning finns i programmerings [guiden för strukturerad strömning](https://spark.apache.org/docs/2.2.0/structured-streaming-programming-guide.html) på Apache.org.
+Apache Spark Structured Streaming är en bearbetningsmotor för dataströmmar som bygger på Apache Spark SQL. Med den kan du uttrycka strömmande beräkningar på samma sätt som batchberäkningar av statiska data. Mer information om strukturerad strömning finns i [programmerings guiden för strukturerad strömning](https://spark.apache.org/docs/2.2.0/structured-streaming-programming-guide.html) på Apache.org.
 
 > [!IMPORTANT]  
 > I det här exemplet användes Spark 2,2 på HDInsight 3,6.

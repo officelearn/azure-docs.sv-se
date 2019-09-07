@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 09/20/2018
 ms.author: robb
 ms.subservice: diagnostic-extension
-ms.openlocfilehash: fa03017c35c76d986139eeee00eea8a9b4a00e62
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: e303fe5ca1869249d57373aab9c60a5f92b7ea9c
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "60238057"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70735107"
 ---
 # <a name="azure-diagnostics-13-and-later-configuration-schema"></a>Konfigurations schema för Azure-diagnostik 1,3 och senare
 > [!NOTE]
@@ -27,13 +27,11 @@ ms.locfileid: "60238057"
 >
 > Den här sidan är bara relevant om du använder någon av dessa tjänster.
 
-Den här sidan är giltig för version 1,3 och senare (Azure SDK 2,4 och senare). Nyare konfigurations avsnitt är kommenterade för att visa i vilken version de lades till.  
+Den här sidan är giltig för version 1,3 och senare (Azure SDK 2,4 och senare). Nyare konfigurations avsnitt är kommenterade för att visa i vilken version de lades till. Version 1,0 och 1,2 av schemat har arkiverats och är inte längre tillgängligt. 
 
 Konfigurations filen som beskrivs här används för att ange konfigurations inställningar för diagnostik När diagnostikprogrammet startar.  
 
 Tillägget används tillsammans med andra Microsoft Diagnostics-produkter som Azure Monitor, som innehåller Application Insights och Log Analytics.
-
-
 
 Hämta schema definitionen för den offentliga konfigurations filen genom att köra följande PowerShell-kommando:  
 
@@ -421,7 +419,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 |Underordnade element|Beskrivning|  
 |--------------------|-----------------|  
 |**PublicConfig**|Obligatoriskt. Se beskrivningen på en annan plats på den här sidan.|  
-|**PrivateConfig**|Valfri. Se beskrivningen på en annan plats på den här sidan.|  
+|**PrivateConfig**|Valfritt. Se beskrivningen på en annan plats på den här sidan.|  
 |**IsEnabled**|Booleskt. Se beskrivningen på en annan plats på den här sidan.|  
 
 ## <a name="publicconfig-element"></a>PublicConfig-element  
@@ -451,7 +449,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 |----------------|-----------------|  
 | **overallQuotaInMB** | Den maximala mängd lokalt disk utrymme som kan användas av de olika typerna av diagnostikdata som samlas in av Azure-diagnostik. Standardvärdet är 4096 MB.<br />
 |**useProxyServer** | Konfigurera Azure-diagnostik att använda inställningarna för proxyservern som anges i IE-inställningar.|
-|**mottagare** | Tillagt i 1,5. Valfri. Pekar på en mottagar plats för att även skicka diagnostikdata för alla underordnade element som stöder mottagare. Sink-exemplet är Application Insights eller Event Hubs.|  
+|**mottagare** | Tillagt i 1,5. Valfritt. Pekar på en mottagar plats för att även skicka diagnostikdata för alla underordnade element som stöder mottagare. Sink-exemplet är Application Insights eller Event Hubs.|  
 
 
 <br /> <br />
@@ -476,9 +474,9 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 |Attribut|Beskrivning|  
 |----------------|-----------------|  
-|**containerName**|Valfri. Namnet på BLOB-behållaren i Azure Storage kontot som ska användas för att lagra krasch dum par.|  
-|**crashDumpType**|Valfri.  Konfigurerar Azure-diagnostik att samla in mini-eller fullständiga krasch dum par.|  
-|**directoryQuotaPercentage**|Valfri.  Konfigurerar procent andelen av **overallQuotaInMB** som ska reserveras för krasch dum par på den virtuella datorn.|  
+|**containerName**|Valfritt. Namnet på BLOB-behållaren i Azure Storage kontot som ska användas för att lagra krasch dum par.|  
+|**crashDumpType**|Valfritt.  Konfigurerar Azure-diagnostik att samla in mini-eller fullständiga krasch dum par.|  
+|**directoryQuotaPercentage**|Valfritt.  Konfigurerar procent andelen av **overallQuotaInMB** som ska reserveras för krasch dum par på den virtuella datorn.|  
 
 |Underordnade element|Beskrivning|  
 |--------------------|-----------------|  
@@ -584,7 +582,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 |Underordnat element|Beskrivning|  
 |-------------------|-----------------|  
 |**PerformanceCounterConfiguration**|Följande attribut krävs:<br /><br /> - **counterSpecifier** – namnet på prestanda räknaren. Till exempel `\Processor(_Total)\% Processor Time`. Om du vill hämta en lista över prestanda räknare på värden kör du kommandot `typeperf`.<br /><br /> - **sampleRate** – hur ofta räknaren ska samplas.<br /><br /> Valfritt attribut:<br /><br /> **enhet** – enhets måttet för räknaren.|
-|**mottagare** | Tillagt i 1,5. Valfri. Pekar på en mottagar plats för att även skicka diagnostikdata. Till exempel Azure Monitor eller Event Hubs.|    
+|**mottagare** | Tillagt i 1,5. Valfritt. Pekar på en mottagar plats för att även skicka diagnostikdata. Till exempel Azure Monitor eller Event Hubs.|    
 
 
 
@@ -612,10 +610,10 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 |Attribut|type|Beskrivning|  
 |---------------|----------|-----------------|  
-|**bufferQuotaInMB**|**unsignedInt**|Valfri. Anger den maximala mängden fil system lagring som är tillgänglig för angivna data.<br /><br /> Standardvärdet är 0.|  
-|**scheduledTransferLogLevelFilter**|**string**|Valfri. Anger den lägsta allvarlighets graden för logg poster som överförs. Standardvärdet är **odefinierat**, vilket överför alla loggar. Andra möjliga värden (i högst minst information) är **utförlig**, **information**, **Varning**, **fel**och **kritisk**.|  
-|**scheduledTransferPeriod**|**Varaktighet**|Valfri. Anger intervallet mellan schemalagda data överföringar, avrundade uppåt till närmaste minut.<br /><br /> Standardvärdet är PT0S.|  
-|**mottagare** |**string**| Tillagt i 1,5. Valfri. Pekar på en mottagar plats för att även skicka diagnostikdata. Till exempel Application Insights eller Event Hubs.|  
+|**bufferQuotaInMB**|**unsignedInt**|Valfritt. Anger den maximala mängden fil system lagring som är tillgänglig för angivna data.<br /><br /> Standardvärdet är 0.|  
+|**scheduledTransferLogLevelFilter**|**string**|Valfritt. Anger den lägsta allvarlighets graden för logg poster som överförs. Standardvärdet är **odefinierat**, vilket överför alla loggar. Andra möjliga värden (i högst minst information) är **utförlig**, **information**, **Varning**, **fel**och **kritisk**.|  
+|**scheduledTransferPeriod**|**Varaktighet**|Valfritt. Anger intervallet mellan schemalagda data överföringar, avrundade uppåt till närmaste minut.<br /><br /> Standardvärdet är PT0S.|  
+|**mottagare** |**string**| Tillagt i 1,5. Valfritt. Pekar på en mottagar plats för att även skicka diagnostikdata. Till exempel Application Insights eller Event Hubs.|  
 
 ## <a name="dockersources"></a>DockerSources
  *Dekompositionsträdet Rot-DiagnosticsConfiguration-PublicConfig-WadCFG-DiagnosticMonitorConfiguration-DockerSources*

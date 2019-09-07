@@ -1,32 +1,32 @@
 ---
-title: Händelse som filtrering för Azure Event Grid
-description: Beskriver hur du kan filtrera händelser när du skapar en Azure Event Grid-prenumeration.
+title: Händelse filtrering för Azure Event Grid
+description: Beskriver hur du filtrerar händelser när du skapar en Azure Event Grid-prenumeration.
 services: event-grid
 author: spelluru
 ms.service: event-grid
 ms.topic: conceptual
 ms.date: 01/21/2019
 ms.author: spelluru
-ms.openlocfilehash: 76a4c16afc9edef0a88ac9f2892de9738fd30289
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f9fca0a9fefb5959747a4492139ae422a118db02
+ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66305062"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70390179"
 ---
-# <a name="understand-event-filtering-for-event-grid-subscriptions"></a>Förstå händelse filtrering för Event Grid-prenumerationer
+# <a name="understand-event-filtering-for-event-grid-subscriptions"></a>Förstå händelse filtrering för Event Grid prenumerationer
 
-Den här artikeln beskrivs olika sätt att filtrera vilka händelser som ska skickas till din slutpunkt. När du skapar en händelseprenumeration, finns det tre alternativ för filtrering:
+I den här artikeln beskrivs olika sätt att filtrera vilka händelser som skickas till din slut punkt. När du skapar en händelse prenumeration har du tre alternativ för filtrering:
 
-* Händelsetyper
-* Ämnet som börjar med eller slutar med
+* Händelse typer
+* Ämne börjar med eller slutar med
 * Avancerade fält och operatorer
 
-## <a name="event-type-filtering"></a>Typ av händelsefiltrering
+## <a name="event-type-filtering"></a>Händelse typs filtrering
 
-Som standard alla [händelsetyper](event-schema.md) för händelsekällan skickas till slutpunkten. Du kan välja att skicka endast vissa typer av till din slutpunkt. Exempel: du kan hämta meddelandet om uppdateringar till dina resurser, men meddelas inte för andra åtgärder som borttagningar. I så fall kan filtrera efter den `Microsoft.Resources.ResourceWriteSuccess` händelsetyp. Ange en matris med händelsetyperna eller ange `All` att hämta alla händelsetyper för händelsekällan.
+Som standard skickas alla [händelse typer](event-schema.md) för händelse källan till slut punkten. Du kan välja att bara skicka vissa händelse typer till din slut punkt. Du kan till exempel få ett meddelande om uppdateringar av dina resurser, men inte meddelas om andra åtgärder, t. ex. borttagningar. I så fall filtrerar du `Microsoft.Resources.ResourceWriteSuccess` efter händelse typ. Ange en matris med händelse typerna eller ange `All` för att hämta alla händelse typer för händelse källan.
 
-JSON-syntaxen för att filtrera efter händelsetyp är:
+JSON-syntaxen för att filtrera efter händelse typ är:
 
 ```json
 "filter": {
@@ -37,13 +37,13 @@ JSON-syntaxen för att filtrera efter händelsetyp är:
 }
 ```
 
-## <a name="subject-filtering"></a>Ämne filtrering
+## <a name="subject-filtering"></a>Ämnes filtrering
 
-För enkel filtrering efter ämne, ange ett start- och för ämnet. Du kan till exempel ange ämnet slutar med `.txt` att endast hämta händelser relaterade till att ladda upp en textfil till storage-konto. Eller, du kan filtrera ämnet börjar med `/blobServices/default/containers/testcontainer` att hämta alla händelser för den behållaren men inte andra behållare i lagringskontot.
+För enkel filtrering efter ämne anger du ett start-eller slut värde för ämnet. Du kan till exempel ange att ämnet slutar med `.txt` om du bara vill hämta händelser som rör överföring av en textfil till lagrings kontot. Eller så kan du filtrera ämnet börjar med `/blobServices/default/containers/testcontainer` för att hämta alla händelser för behållaren, men inte andra behållare i lagrings kontot.
 
-När du publicerar händelser till anpassade ämnen, skapa ämnen för händelser som gör det enkelt för prenumeranter att veta om de är intresserad av händelsen. Prenumeranter använda egenskapen ämne på filtret och dirigera händelser. Överväg att lägga till sökvägen för där händelsen har inträffat, så prenumeranter kan filtrera efter segment i sökvägen. Sökvägen kan prenumeranter att snävare eller brett Filtrera händelser. Om du anger en sökväg för tre segment som `/A/B/C` på ämnesraden prenumeranter kan filtrera efter det första segmentet `/A` att hämta en rad olika händelser. Dessa prenumeranter får händelser med ämnen som `/A/B/C` eller `/A/D/E`. Andra prenumeranter kan filtrera efter `/A/B` att hämta en smalare uppsättning händelser.
+När du publicerar händelser till anpassade ämnen skapar du ämnen för dina händelser som gör det enkelt för prenumeranter att veta om de är intresserade av evenemanget. Prenumeranter använder egenskapen subject för att filtrera och dirigera händelser. Överväg att lägga till sökvägen till platsen där händelsen inträffade, så att prenumeranter kan filtrera efter segment i den sökvägen. Med hjälp av sökvägen kan prenumeranter begränsa eller filtrera händelser på ett stort sätt. Om du anger en tre segment Sök väg `/A/B/C` som i ämnet kan prenumeranter filtrera efter det första segmentet `/A` för att få en bred uppsättning händelser. Dessa prenumeranter får händelser med ämnen `/A/B/C` som `/A/D/E`eller. Andra prenumeranter kan filtrera `/A/B` efter för att få en smalare uppsättning händelser.
 
-JSON-syntax för filtrering efter ämne är:
+JSON-syntaxen för att filtrera efter ämne är:
 
 ```json
 "filter": {
@@ -55,95 +55,112 @@ JSON-syntax för filtrering efter ämne är:
 
 ## <a name="advanced-filtering"></a>Avancerad filtrering
 
-Om du vill filtrera efter värden i fälten och anger jämförelseoperatorn, använder du alternativet för avancerad filtrering. I avancerad filtrering, anger du den:
+Använd alternativet avancerad filtrering för att filtrera efter värden i data fälten och ange jämförelse operatorn. I avancerad filtrering anger du:
 
-* typ av frågeoperator - typ av jämförelse.
-* nyckel - fältet i informationen om händelsen som du använder för filtrering. Det kan vara ett tal, ett booleskt värde eller en sträng.
-* värdet eller värdena - värdet eller värdena ska jämföras med nyckeln.
+* Operator typ – typen av jämförelse.
+* Key – fältet i de händelse data som du använder för filtrering. Det kan vara ett tal, en boolesk sträng eller en sträng.
+* värde eller värden – värdet eller värdena som ska jämföras med nyckeln.
 
-JSON-syntaxen för att använda avancerade filter är:
+Om du anger ett enskilt filter med flera värden utförs en- **eller** -åtgärd, så värdet för nyckel fältet måste vara ett av dessa värden. Här är ett exempel:
 
 ```json
-"filter": {
-  "advancedFilters": [
+"advancedFilters": [
     {
-      "operatorType": "NumberGreaterThanOrEquals",
-      "key": "Data.Key1",
-      "value": 5
+        "operatorType": "StringContains",
+        "key": "Subject",
+        "values": [
+            "/providers/microsoft.devtestlab/",
+            "/providers/Microsoft.Compute/virtualMachines/"
+        ]
+    }
+]
+```
+
+Om du anger flera olika filter utförs en- **och** -åtgärd, så varje filter villkor måste vara uppfyllt. Här är ett exempel: 
+
+```json
+"advancedFilters": [
+    {
+        "operatorType": "StringContains",
+        "key": "Subject",
+        "values": [
+            "/providers/microsoft.devtestlab/"
+        ]
     },
     {
-      "operatorType": "StringContains",
-      "key": "Subject",
-      "values": ["container1", "container2"]
+        "operatorType": "StringContains",
+        "key": "Subject",
+        "values": [
+            "/providers/Microsoft.Compute/virtualMachines/"
+        ]
     }
-  ]
-}
+]
 ```
 
 ### <a name="operator"></a>Operator
 
-Tillgängliga operatörer för tal är:
+De tillgängliga operatorerna för tal är:
 
 * NumberGreaterThan
 * NumberGreaterThanOrEquals
 * NumberLessThan
 * NumberLessThanOrEquals
-* NumberIn
+* Numberin
 * NumberNotIn
 
-Operatorn tillgängliga för booleska värden är: BoolEquals
+Den tillgängliga operatorn för booleska värden är: BoolEquals
 
-Tillgängliga operatörer för strängar är:
+Tillgängliga operatorer för strängar är:
 
 * StringContains
 * StringBeginsWith
 * StringEndsWith
-* StringIn
+* Strängin
 * StringNotIn
 
-Alla strängjämförelser är fallet insensitve.
+Alla sträng jämförelser är Case-insensitve.
 
 ### <a name="key"></a>Nyckel
 
-Använd följande värden för händelser i Event Grid-schemat för nyckeln:
+För händelser i Event Grid schemat använder du följande värden för nyckeln:
 
-* Id
-* Ämne
+* id
+* Avsnitt
 * Subject
 * Händelsetyp
 * DataVersion
-* Händelsedata (till exempel Data.key1)
+* Händelse data (t. ex. data. KEY1)
 
-Använd följande värden för händelser i molnet händelseschemat för nyckeln:
+För händelser i Cloud Events-schemat använder du följande värden för nyckeln:
 
 * EventId
-* source
+* Source
 * Händelsetyp
 * EventTypeVersion
-* Händelsedata (till exempel Data.key1)
+* Händelse data (t. ex. data. KEY1)
 
-Använda datafälten som händelse (till exempel Data.key1) för anpassade inmatningsschemat.
+Använd händelse data fält (t. ex. data. KEY1) för anpassade indata-schema.
 
 ### <a name="values"></a>Värden
 
 Värdena kan vara:
 
 * nummer
-* string
-* boolesk
-* matris
+* sträng
+* boolean
+* array
 
 ### <a name="limitations"></a>Begränsningar
 
-Avancerade filter har följande begränsningar:
+Avancerad filtrering har följande begränsningar:
 
-* Fem avancerade filter per event grid-prenumeration
-* 512 tecken per strängvärde
-* Fem värden för **i** och **inte i** operatorer
+* Fem avancerade filter per Event Grid-prenumeration
+* 512 tecken per sträng värde
+* Fem värden för **in** -och **not** -operatorer
 
 Samma nyckel kan användas i mer än ett filter.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Läs om hur du filtrerar händelser med PowerShell och Azure CLI i [Filtrera händelser för Event Grid](how-to-filter-events.md).
+* Information om hur du filtrerar händelser med PowerShell och Azure CLI finns i [Filtrera händelser för Event Grid](how-to-filter-events.md).
 * Kom igång snabbt med Event Grid, se [skapa och dirigera anpassade händelser med Azure Event Grid](custom-event-quickstart.md).

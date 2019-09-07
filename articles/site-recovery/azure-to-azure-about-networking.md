@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 3/29/2019
 ms.author: sutalasi
-ms.openlocfilehash: b549e8bf53ca7728b18e04542c7291f0ce720cb0
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 9c65d6055807ee2735f1915e8ca289dc0754535b
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69876459"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70736402"
 ---
 # <a name="about-networking-in-azure-to-azure-replication"></a>Om nätverk i Azure till Azure-replikering
 
@@ -113,7 +113,11 @@ Site Recovery IP-adressintervall är följande:
    Kina, norra 2 | 40.73.35.193 | 40.73.33.230
    Kina, östra | 42.159.205.45 | 42.159.132.40
    Kina, östra 2 | 40.73.118.52| 40.73.100.125
-  
+   Tyskland, norra| 51.116.208.58| 51.116.58.128
+   Tyskland, västra centrala | 51.116.156.176 | 51.116.154.192
+   Schweiz, västra | 51.107.231.223| 51.107.154.128
+   Schweiz, norra | 51.107.68.31| 51.107.58.128
+
 ## <a name="example-nsg-configuration"></a>Exempel på NSG-konfiguration
 
 Det här exemplet visar hur du konfigurerar NSG-regler för en virtuell dator att replikera.

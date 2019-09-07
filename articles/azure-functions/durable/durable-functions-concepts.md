@@ -9,12 +9,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 828bcaa8c93454ba845c30c03c76144310891123
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: fe3000181ed02e3640e7af48fa492f4a7db55191
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70098258"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70734569"
 ---
 # <a name="durable-functions-patterns-and-technical-concepts-azure-functions"></a>Durable Functions mönster och tekniska begrepp (Azure Functions)
 
@@ -37,6 +37,25 @@ I funktions kedje mönstret körs en sekvens med funktioner i en speciell ordnin
 
 Du kan använda Durable Functions för att implementera funktions länknings mönstret på ett koncist sätt som visas i följande exempel:
 
+#### <a name="precompiled-c"></a>FörkompileradeC#
+
+```csharp
+public static async Task<object> Run([OrchestrationTrigger] DurableOrchestrationContext context)
+{
+    try
+    {
+        var x = await context.CallActivityAsync<object>("F1");
+        var y = await context.CallActivityAsync<object>("F2", x);
+        var z = await context.CallActivityAsync<object>("F3", y);
+        return  await context.CallActivityAsync<object>("F4", z);
+    }
+    catch (Exception)
+    {
+        // Error handling or compensation goes here.
+    }
+}
+```
+
 #### <a name="c-script"></a>C#-skript
 
 ```csharp
@@ -57,7 +76,7 @@ public static async Task<object> Run(DurableOrchestrationContext context)
 ```
 
 > [!NOTE]
-> Det finns små skillnader mellan att C# C# skriva en förkompilerad varaktig funktion i och skriva en förkompilerad, hållbar funktion i skriptet som visas i exemplet. I en C# förkompilerad funktion måste de varaktiga parametrarna dekoreras med respektive attribut. Ett exempel är `[OrchestrationTrigger]` attributet `DurableOrchestrationContext` för parametern. I en C# förkompilerad varaktig funktion, om parametrarna inte är korrekt dekorerade, kan inte körningen mata in variablerna i funktionen och ett fel uppstår. Fler exempel finns i exemplen [Azure-Functions-hållbart-extensions på GitHub](https://github.com/Azure/azure-functions-durable-extension/blob/master/samples).
+> Det finns små skillnader mellan att skriva en förkompilerad varaktig C# funktion i och skriva en förkompilerad C# beständig funktion i skriptet. I en C# förkompilerad funktion måste de varaktiga parametrarna dekoreras med respektive attribut. Ett exempel är `[OrchestrationTrigger]` attributet `DurableOrchestrationContext` för parametern. I en C# förkompilerad varaktig funktion, om parametrarna inte är korrekt dekorerade, kan inte körningen mata in variablerna i funktionen och ett fel uppstår. Fler exempel finns i [exemplen Azure-Functions-hållbart-extensions på GitHub](https://github.com/Azure/azure-functions-durable-extension/blob/master/samples).
 
 #### <a name="javascript-functions-2x-only"></a>Java Script (endast funktioner 2. x)
 
@@ -88,6 +107,29 @@ I mönstret fläkt ut/fläkt i, kör du flera funktioner parallellt och väntar 
 Med normala funktioner kan du använda funktionen Skicka flera meddelanden till en kö. Fanning tillbaka i är mycket mer utmanande. I en normal funktion skriver du kod för att spåra när funktionen för köade funktioner har slutförts och sedan lagra funktions resultat. 
 
 Durable Functions-tillägget hanterar det här mönstret med relativt enkel kod:
+
+#### <a name="precompiled-c"></a>FörkompileradeC#
+
+```csharp
+public static async Task Run([OrchestrationTrigger] DurableOrchestrationContext context)
+{
+    var parallelTasks = new List<Task<int>>();
+
+    // Get a list of N work items to process in parallel.
+    object[] workBatch = await context.CallActivityAsync<object[]>("F1");
+    for (int i = 0; i < workBatch.Length; i++)
+    {
+        Task<int> task = context.CallActivityAsync<int>("F2", workBatch[i]);
+        parallelTasks.Add(task);
+    }
+
+    await Task.WhenAll(parallelTasks);
+
+    // Aggregate all N outputs and send the result to F3.
+    int sum = parallelTasks.Sum(t => t.Result);
+    await context.CallActivityAsync("F3", sum);
+}
+```
 
 #### <a name="c-script"></a>C#-skript
 
@@ -177,7 +219,29 @@ Durable Functions tillägget har inbyggda Webhooks som hanterar långvariga diri
 
 Här följer några exempel på hur du använder HTTP API-mönstret:
 
-#### <a name="c"></a>C#
+#### <a name="precompiled-c"></a>FörkompileradeC#
+
+```csharp
+// An HTTP-triggered function starts a new orchestrator function instance.
+[FunctionName("StartNewOrchestration")]
+public static async Task<HttpResponseMessage> Run(
+    [HttpTrigger] HttpRequestMessage req,
+    [OrchestrationClient] DurableOrchestrationClient starter,
+    string functionName,
+    ILogger log)
+{
+    // The function name comes from the request URL.
+    // The function input comes from the request content.
+    dynamic eventData = await req.Content.ReadAsAsync<object>();
+    string instanceId = await starter.StartNewAsync(functionName, eventData);
+
+    log.LogInformation($"Started orchestration with ID = '{instanceId}'.");
+
+    return starter.CreateCheckStatusResponse(req, instanceId);
+}
+```
+
+#### <a name="c-script"></a>C#-skript
 
 ```csharp
 // An HTTP-triggered function starts a new orchestrator function instance.
@@ -224,7 +288,7 @@ I föregående exempel tar en http-utlöst funktion i ett `functionName` värde 
 
 ### <a name="monitoring"></a>Mönster #4: Övervaka
 
-Övervaknings mönstret avser en flexibel, återkommande process i ett arbets flöde. Ett exempel är att avsöker tills vissa villkor är uppfyllda. Du kan använda en vanlig [timer](../functions-bindings-timer.md) -utlösare för att hantera ett grundläggande scenario, till exempel ett periodiskt rensnings jobb, men dess intervall är statiskt och hanteringen av instans livstider blir komplex. Du kan använda Durable Functions för att skapa flexibla upprepnings intervall, hantera aktivitets livs längder och skapa flera övervaknings processer från ett enda dirigering.
+Övervaknings mönstret avser en flexibel, återkommande process i ett arbets flöde. Ett exempel är att avsöker tills vissa villkor är uppfyllda. Du kan använda en vanlig [timer-utlösare](../functions-bindings-timer.md) för att hantera ett grundläggande scenario, till exempel ett periodiskt rensnings jobb, men dess intervall är statiskt och hanteringen av instans livstider blir komplex. Du kan använda Durable Functions för att skapa flexibla upprepnings intervall, hantera aktivitets livs längder och skapa flera övervaknings processer från ett enda dirigering.
 
 Ett exempel på ett övervaknings mönster är att byta till det tidigare asynkrona HTTP API-scenariot. I stället för att exponera en slut punkt för en extern klient för att övervaka en långvarig åtgärd, förbrukar den tids krävande övervakaren en extern slut punkt och väntar sedan på en tillstånds ändring.
 
@@ -233,6 +297,35 @@ Ett exempel på ett övervaknings mönster är att byta till det tidigare asynkr
 I några få kodrader kan du använda Durable Functions för att skapa flera Övervakare som ser godtyckliga slut punkter. Övervakarna kan avsluta körningen när ett villkor är uppfyllt, eller så kan [DurableOrchestrationClient](durable-functions-instance-management.md) avsluta övervakarna. Du kan ändra en övervakares `wait` intervall baserat på ett speciellt villkor (till exempel exponentiell backoff.) 
 
 Följande kod implementerar en grundläggande Övervakare:
+
+#### <a name="precompiled-c"></a>FörkompileradeC#
+
+```csharp
+[FunctionName("Orchestrator")]
+public static async Task Run([OrchestrationTrigger] DurableOrchestrationContext context)
+{
+    int jobId = context.GetInput<int>();
+    int pollingInterval = GetPollingInterval();
+    DateTime expiryTime = GetExpiryTime();
+
+    while (context.CurrentUtcDateTime < expiryTime)
+    {
+        var jobStatus = await context.CallActivityAsync<string>("GetJobStatus", jobId);
+        if (jobStatus == "Completed")
+        {
+            // Perform an action when a condition is met.
+            await context.CallActivityAsync("SendAlert", machineId);
+            break;
+        }
+
+        // Orchestration sleeps until this time.
+        var nextCheck = context.CurrentUtcDateTime.AddSeconds(pollingInterval);
+        await context.CreateTimer(nextCheck, CancellationToken.None);
+    }
+
+    // Perform more work here, or let the orchestration end.
+}
+```
 
 #### <a name="c-script"></a>C#-skript
 
@@ -304,6 +397,32 @@ Du kan implementera mönstret i det här exemplet med hjälp av en Orchestrator-
 
 Följande exempel skapar en godkännande process för att demonstrera de mänskliga interaktions mönstren:
 
+#### <a name="precompiled-c"></a>FörkompileradeC#
+
+```csharp
+[FunctionName("Orchestrator")]
+public static async Task Run([OrchestrationTrigger] DurableOrchestrationContext context)
+{
+    await context.CallActivityAsync("RequestApproval");
+    using (var timeoutCts = new CancellationTokenSource())
+    {
+        DateTime dueTime = context.CurrentUtcDateTime.AddHours(72);
+        Task durableTimeout = context.CreateTimer(dueTime, timeoutCts.Token);
+
+        Task<bool> approvalEvent = context.WaitForExternalEvent<bool>("ApprovalEvent");
+        if (approvalEvent == await Task.WhenAny(approvalEvent, durableTimeout))
+        {
+            timeoutCts.Cancel();
+            await context.CallActivityAsync("ProcessApproval", approvalEvent.Result);
+        }
+        else
+        {
+            await context.CallActivityAsync("Escalate");
+        }
+    }
+}
+```
+
 #### <a name="c-script"></a>C#-skript
 
 ```csharp
@@ -355,6 +474,20 @@ För att skapa en varaktig timer, `context.CreateTimer` anropa (.net) `context.d
 
 En extern klient kan leverera händelse meddelandet till en väntande Orchestrator-funktion genom att antingen använda [inbyggda http-API: er](durable-functions-http-api.md#raise-event) eller genom att använda [DurableOrchestrationClient. RaiseEventAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_RaiseEventAsync_System_String_System_String_System_Object_) -API: et från en annan funktion:
 
+#### <a name="precompiled-c"></a>FörkompileradeC#
+
+```csharp
+public static async Task Run(
+  [HttpTrigger] string instanceId,
+  [OrchestrationClient] DurableOrchestrationClient client)
+{
+    bool isApproved = true;
+    await client.RaiseEventAsync(instanceId, "ApprovalEvent", isApproved);
+}
+```
+
+#### <a name="c-script"></a>C#Över
+
 ```csharp
 public static async Task Run(string instanceId, DurableOrchestrationClient client)
 {
@@ -362,6 +495,8 @@ public static async Task Run(string instanceId, DurableOrchestrationClient clien
     await client.RaiseEventAsync(instanceId, "ApprovalEvent", isApproved);
 }
 ```
+
+#### <a name="javascript"></a>Javascript
 
 ```javascript
 const df = require("durable-functions");
@@ -447,7 +582,7 @@ public static async Task Run(
 Dynamiskt genererade proxyservrar är också tillgängliga för att signalera enheter på ett typ säkert sätt. Förutom att signalera kan klienter även fråga efter status för en entitets funktion med hjälp av metoder på `orchestrationClient` bindningen.
 
 > [!NOTE]
-> Enhets funktioner är för närvarande endast tillgängliga i [Durable Functions 2,0](durable-functions-preview.md)-förhands granskningen.
+> Enhets funktioner är för närvarande endast tillgängliga i [Durable Functions 2,0-förhands granskningen](durable-functions-preview.md).
 
 ## <a name="the-technology"></a>Tekniken
 

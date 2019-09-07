@@ -13,21 +13,21 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/22/2019
+ms.date: 09/05/2019
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9a82571260f5da679202e96f5e6f72aa2db6788a
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 7c2e80f80ea5d7e7d5ee26eee8b26506386a6e2f
+ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68834681"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70389778"
 ---
 # <a name="authorize-access-to-web-applications-using-openid-connect-and-azure-active-directory"></a>Ge åtkomst till webb program med hjälp av OpenID Connect och Azure Active Directory
 
-[OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html) är ett enkelt identitets lager som byggts ovanpå OAuth 2,0-protokollet. OAuth 2,0 definierar mekanismer för att hämta och [](access-tokens.md) använda åtkomsttoken för att komma åt skyddade resurser, men de definierar inte standard metoder för att tillhandahålla identitets information. OpenID Connect implementerar autentisering som ett tillägg till auktoriseringen av OAuth 2,0. Den innehåller information om slutanvändaren i form av en [`id_token`](id-tokens.md) som verifierar användarens identitet och ger grundläggande profil information om användaren.
+[OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html) är ett enkelt identitets lager som byggts ovanpå OAuth 2,0-protokollet. OAuth 2,0 definierar mekanismer [**för att hämta och använda åtkomsttoken**](access-tokens.md) för att komma åt skyddade resurser, men de definierar inte standard metoder för att tillhandahålla identitets information. OpenID Connect implementerar autentisering som ett tillägg till auktoriseringen av OAuth 2,0. Den innehåller information om slutanvändaren i form av en [`id_token`](id-tokens.md) som verifierar användarens identitet och ger grundläggande profil information om användaren.
 
 OpenID Connect är vår rekommendation om du skapar ett webb program som finns på en server och som nås via en webbläsare.
 
@@ -47,7 +47,7 @@ OpenID Connect beskriver ett metadataobjekt som innehåller merparten av den inf
 ```
 https://login.microsoftonline.com/{tenant}/.well-known/openid-configuration
 ```
-Metadata är ett enkelt JavaScript Object Notation (JSON)-dokument. Se följande kodfragment för ett exempel. Kodfragmentets innehåll beskrivs fullständigt i [OpenID Connect](https://openid.net)-specifikationen. Observera att om du anger ett klient- `common` ID snarare än i stället för {Tenant} ovan kommer det att resultera i klient-/regionsspecifika URI: er i det returnerade JSON-objektet.
+Metadata är ett enkelt JavaScript Object Notation (JSON)-dokument. Se följande kodfragment för ett exempel. Kodfragmentets innehåll beskrivs fullständigt i [OpenID Connect-specifikationen](https://openid.net). Observera att om du anger ett klient- `common` ID snarare än i stället för {Tenant} ovan kommer det att resultera i klient-/regionsspecifika URI: er i det returnerade JSON-objektet.
 
 ```
 {
@@ -65,7 +65,7 @@ Metadata är ett enkelt JavaScript Object Notation (JSON)-dokument. Se följande
 }
 ```
 
-Om din app har anpassade signerings nycklar som ett resultat av funktionen för anspråks [mappning](active-directory-claims-mapping.md) måste du lägga till `appid` en frågeparameter som innehåller app-ID: t för att `jwks_uri` få en pekare till appens information om signerings nyckeln. Exempel: `https://login.microsoftonline.com/{tenant}/.well-known/openid-configuration?appid=6731de76-14a6-49ae-97bc-6eba6914391e` innehåller en `jwks_uri` av `https://login.microsoftonline.com/{tenant}/discovery/keys?appid=6731de76-14a6-49ae-97bc-6eba6914391e`.
+Om din app har anpassade signerings nycklar som ett resultat av funktionen för [anspråks mappning](active-directory-claims-mapping.md) måste du lägga till `appid` en frågeparameter som innehåller app-ID: t för att `jwks_uri` få en pekare till appens information om signerings nyckeln. Exempel: `https://login.microsoftonline.com/{tenant}/.well-known/openid-configuration?appid=6731de76-14a6-49ae-97bc-6eba6914391e` innehåller en `jwks_uri` av `https://login.microsoftonline.com/{tenant}/discovery/keys?appid=6731de76-14a6-49ae-97bc-6eba6914391e`.
 
 ## <a name="send-the-sign-in-request"></a>Skicka inloggnings förfrågan
 
@@ -93,7 +93,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | Parameter |  | Beskrivning |
 | --- | --- | --- |
 | tenant |obligatorisk |`{tenant}` Värdet i sökvägen till begäran kan användas för att styra vem som kan logga in på programmet. De tillåtna värdena är klient identifierare, till exempel `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` eller `contoso.onmicrosoft.com` eller `common` för klient oberoende token |
-| client_id |obligatorisk |Det program-ID som tilldelats din app när du registrerade den med Azure AD. Du hittar det här i Azure Portal. Klicka på **Azure Active Directory**, klicka på **app**-registreringar, Välj programmet och leta upp program-ID: t på program sidan. |
+| client_id |obligatorisk |Det program-ID som tilldelats din app när du registrerade den med Azure AD. Du hittar det här i Azure Portal. Klicka på **Azure Active Directory**, klicka på **app-registreringar**, Välj programmet och leta upp program-ID: t på program sidan. |
 | response_type |obligatorisk |Måste inkludera `id_token` för OpenID Connect-inloggning. Det kan också innehålla andra response_types, till exempel `code` eller `token`. |
 | scope | rekommenderas | OpenID Connect-specifikationen kräver omfånget `openid`, som översätts till behörigheten "logga in dig" i medgivande gränssnittet. Den här och andra OIDC-omfattningarna ignoreras vid slut punkten för v 1.0, men är fortfarande en bra metod för standardkompatibla klienter. |
 | Nnär |obligatorisk |Ett värde som ingår i begäran, som genereras av appen, som ingår i det resulterande `id_token` kravet. Appen kan sedan verifiera det här värdet för att minimera omuppspelning av token. Värdet är vanligt vis en slumpmässig, unik sträng eller GUID som kan användas för att identifiera ursprunget för begäran. |
@@ -181,7 +181,7 @@ post_logout_redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
 
 | Parameter |  | Beskrivning |
 | --- | --- | --- |
-| post_logout_redirect_uri |rekommenderas |URL: en som användaren ska omdirigeras till efter en lyckad utloggning. Om detta inte anges visas ett allmänt meddelande för användaren. |
+| post_logout_redirect_uri |rekommenderas |URL: en som användaren ska omdirigeras till efter en lyckad utloggning.  URL: en måste matcha en av de omdirigerings-URI: er som registrerats för ditt program i registrerings portalen för appen.  Om *post_logout_redirect_uri* inte ingår visas ett allmänt meddelande för användaren. |
 
 ## <a name="single-sign-out"></a>Enkel utloggning
 
@@ -190,7 +190,7 @@ När du omdirigerar användaren till `end_session_endpoint`, rensar Azure AD anv
 1. Navigera till [Azure-portalen](https://portal.azure.com).
 2. Välj din Active Directory genom att klicka på ditt konto i det övre högra hörnet på sidan.
 3. I den vänstra navigerings panelen väljer du **Azure Active Directory**och väljer sedan **Appregistreringar** och väljer ditt program.
-4. Klicka på **Inställningar**, sedan på **Egenskaper** och leta upp text rutan utloggnings- **URL** . 
+4. Klicka på **Inställningar**, sedan på **Egenskaper** och leta upp text rutan **utloggnings-URL** . 
 
 ## <a name="token-acquisition"></a>Hämtning av token
 Många webbappar behöver inte bara signera användaren i, utan även få åtkomst till en webb tjänst åt den användaren med hjälp av OAuth. I det här scenariot kombineras OpenID-anslutningar för användarautentisering samtidigt `authorization_code` som du kan använda för att `access_tokens` komma åt det med [OAuth Authorization Code Flow](v1-protocols-oauth-code.md#use-the-authorization-code-to-request-an-access-token).
@@ -249,7 +249,7 @@ error=access_denied&error_description=the+user+canceled+the+authentication
 | error |En fel kods sträng som kan användas för att klassificera typer av fel som inträffar och som kan användas för att reagera på fel. |
 | error_description |Ett fel meddelande som kan hjälpa en utvecklare att identifiera rotor saken vid ett autentiseringsfel. |
 
-En beskrivning av möjliga felkoder och deras rekommenderade klient åtgärder finns i felkoder [för slut punkts fel](#error-codes-for-authorization-endpoint-errors).
+En beskrivning av möjliga felkoder och deras rekommenderade klient åtgärder finns i [felkoder för slut punkts fel](#error-codes-for-authorization-endpoint-errors).
 
 När du har fått en auktorisering `code` och en `id_token`kan du logga in användaren i och hämta [åtkomsttoken](access-tokens.md) för deras räkning. För att kunna signera användaren i måste du verifiera `id_token` exakt enligt beskrivningen ovan. För att få åtkomst till tokens, kan du följa stegen som beskrivs i avsnittet "Använd auktoriseringskod för att begära en åtkomsttoken" i vår dokumentation om [OAuth-kod flödet](v1-protocols-oauth-code.md#use-the-authorization-code-to-request-an-access-token).
 

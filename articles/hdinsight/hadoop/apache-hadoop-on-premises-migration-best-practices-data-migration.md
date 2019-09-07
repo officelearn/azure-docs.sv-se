@@ -1,6 +1,6 @@
 ---
-title: Migrera lokala Apache Hadoop-kluster till Azure HDInsight - Metodtips för migrering av data
-description: Lär dig data migration Metodtips för att migrera lokala Hadoop-kluster till Azure HDInsight.
+title: Migrera lokala Apache Hadoop-kluster till Azure HDInsight – datamigrering
+description: Lär dig metod tips för datamigrering för migrering av lokala Hadoop-kluster till Azure HDInsight.
 author: hrasheed-msft
 ms.reviewer: ashishth
 ms.service: hdinsight
@@ -8,33 +8,33 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: hrasheed
-ms.openlocfilehash: 732cb118b7a0eebdbf28c7d7fe6ced435ce7920e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 567edca422237c71f0d69c862a17fbc0d2a72795
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64713717"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70735915"
 ---
-# <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---data-migration-best-practices"></a>Migrera lokala Apache Hadoop-kluster till Azure HDInsight - Metodtips för migrering av data
+# <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---data-migration-best-practices"></a>Migrera lokala Apache Hadoop-kluster till Azure HDInsight – metod tips för data migrering
 
-Den här artikeln ger rekommendationer för migrering av data till Azure HDInsight. Det är en del i en serie som ger bästa praxis för att hjälpa migrera lokala Apache Hadoop-system till Azure HDInsight.
+Den här artikeln innehåller rekommendationer för datamigrering till Azure HDInsight. Den ingår i en serie som ger bästa praxis för att hjälpa till att migrera lokala Apache Hadoop system till Azure HDInsight.
 
 ## <a name="migrate-on-premises-data-to-azure"></a>Migrera lokala data till Azure
 
-Det finns två huvudsakliga alternativ för att migrera data från en lokal plats till Azure-miljön:
+Det finns två huvud alternativ för att migrera data från lokala datorer till Azure-miljön:
 
-1.  Överföra data över nätverket med TLS
-    1. Via internet - kan du överföra data till Azure storage via en vanliga Internetanslutning med någon av flera verktyg som: Azure Storage Explorer, AzCopy, Azure Powershell och Azure CLI.  Se [flytta data till och från Azure Storage](../../storage/common/storage-moving-data.md) för mer information.
-    2. Expressroute – ExpressRoute är en Azure-tjänst som låter dig skapa privata anslutningar mellan Microsofts datacenter och infrastruktur som finns lokalt eller i en delade miljö. ExpressRoute-anslutningar inte går via det offentliga Internet och är högre säkerhet, tillförlitlighet och hastighet med kortare svarstider än vanliga anslutningar via Internet. Mer information finns i [skapa och ändra en ExpressRoute-krets](../../expressroute/expressroute-howto-circuit-portal-resource-manager.md).
-    1. Data Box online dataöverföring – Data Box Edge och Data Box-Gateway är online-data transfer produkter som fungerar som nätverks-storage-gatewayer för att hantera data mellan webbplatsen och Azure. Data Box Edge, en lokal nätverksenhet, överför data till och från Azure och använder AI-aktiverad (artificiell intelligens) gränsdatabearbetning för att bearbeta data. Data Box Gateway är en virtuell installation med lagringsgatewayfunktioner. Mer information finns i [Azure Data Box-dokumentation – Online överföra](https://docs.microsoft.com/azure/databox-online/).
-1.  Levererade data Offline
-    1. Data rutan offline dataöverföring – Data Box Data Box-Disk, och Data Box tung enheter kan överföra stora mängder data till Azure när nätverket inte är ett alternativ. Dessa offlineenheter för dataöverföring skickas mellan din organisation och Azure-datacentret. De använder AES-kryptering för att skydda dina data i transit, och de genomgår en noggrann sanering efter uppladdning för att ta bort dina data från enheten. Mer information om Data Box offline överföring enheter finns i [Azure Data Box-dokumentation – Offline överföring](https://docs.microsoft.com/azure/databox/). Mer information om migrering av Hadoop-kluster finns i [Använd Azure Data Box för att migrera från en lokal HDFS-databas till Azure Storage](../../storage/blobs/data-lake-storage-migrate-on-premises-hdfs-cluster.md).
+1.  Överföra data över nätverk med TLS
+    1. Via Internet kan du överföra data till Azure Storage via en vanlig Internet anslutning med hjälp av ett av flera verktyg som: Azure Storage Explorer, AzCopy, Azure PowerShell och Azure CLI.  Mer information finns i [Flytta data till och från Azure Storage](../../storage/common/storage-moving-data.md) .
+    2. Express Route-ExpressRoute är en Azure-tjänst som gör att du kan skapa privata anslutningar mellan Microsoft-datacenter och infrastruktur som finns lokalt eller i en samplacerings anläggning. ExpressRoute-anslutningar inte går via det offentliga Internet och är högre säkerhet, tillförlitlighet och hastighet med kortare svarstider än vanliga anslutningar via Internet. Mer information finns i [skapa och ändra en ExpressRoute-krets](../../expressroute/expressroute-howto-circuit-portal-resource-manager.md).
+    1. Data Box-enhet data överföring online – Data Box Edge och Data Box Gateway är data överförings produkter online som fungerar som nätverks lagrings-gatewayer för att hantera data mellan din plats och Azure. Data Box Edge, en lokal nätverksenhet, överför data till och från Azure och använder AI-aktiverad (artificiell intelligens) gränsdatabearbetning för att bearbeta data. Data Box Gateway är en virtuell installation med lagringsgatewayfunktioner. Mer information finns i [Azure Data Box dokumentation – online-överföring](https://docs.microsoft.com/azure/databox-online/).
+1.  Leverera data offline
+    1. Data Box-enhet data överföring offline – Data Box-enhet, Data Box Disk och Data Box Heavy enheter kan du överföra stora mängder data till Azure när nätverket inte är ett alternativ. Dessa offlineenheter för dataöverföring skickas mellan din organisation och Azure-datacentret. De använder AES-kryptering för att skydda dina data i transit, och de genomgår en noggrann sanering efter uppladdning för att ta bort dina data från enheten. Mer information om Data Box-enhet frånkopplade överförings enheter finns i [Azure Data Box dokumentation – offline-överföring](https://docs.microsoft.com/azure/databox/). Mer information om migrering av Hadoop-kluster finns i [använda Azure Data box för att migrera från en lokal HDFS-lagring till Azure Storage](../../storage/blobs/data-lake-storage-migrate-on-premises-hdfs-cluster.md).
 
-I följande tabell har ungefärliga data transfer varaktighet baserat på bandbredden som data volym och nätverk. Använd en Data box om migrering av data förväntas ta mer än tre veckor.
+Följande tabell innehåller ungefärlig data överförings tid baserat på data volymen och nätverks bandbredden. Använd en data ruta om datamigreringen förväntas ta mer än tre veckor.
 
-|**Mängd data**|**Nätverkets bandbredd**||||
+|**Data mängd**|**Nätverks bandbredd**||||
 |---|---|---|---|---|
-|| **45 Mbps (T3)**|**100 Mbit/s**|**1 Gbit/s**|**10 Gbit/s**|
+|| **45 Mbit/s (T3)**|**100 Mbit/s**|**1 Gbit/s**|**10 Gbit/s**|
 |1 TB|2 dagar|1 dag| 2 timmar|14 minuter|
 |10 TB|22 dagar|10 dagar|1 dag|2 timmar|
 |35 TB|76 dagar|34 dagar|3 dagar|8 timmar|
@@ -45,62 +45,62 @@ I följande tabell har ungefärliga data transfer varaktighet baserat på bandbr
 |1 PB|6 år|3 år|97 dagar|10 dagar|
 |2 PB|12 år|5 år|194 dagar|19 dagar|
 
-Verktyg som är inbyggt i Azure, till exempel Apache Hadoop DistCp, Azure Data Factory och AzureCp, kan användas för att överföra data över nätverket. Verktyg från tredje part WANDisco kan också användas för samma ändamål. Apache Kafka Mirrormaker och Apache Sqoop kan användas för pågående dataöverföring från en lokal plats till Azure storage-system.
+Verktyg som är inbyggda i Azure, t. ex. Apache Hadoop DistCp, Azure Data Factory och AzureCp, kan användas för att överföra data över nätverket. Verktyget WANDisco kan också användas för samma ändamål. Apache Kafka MirrorMaker och Apache Sqoop kan användas för pågående data överföring från lokala datorer till Azure Storage-System.
 
 
-## <a name="performance-considerations-when-using-apache-hadoop-distcp"></a>Prestandaöverväganden när du använder Apache Hadoop DistCp
+## <a name="performance-considerations-when-using-apache-hadoop-distcp"></a>Prestanda överväganden när du använder Apache Hadoop DistCp
 
 
-DistCp är ett Apache-projekt som använder en karta för MapReduce-jobb för att överföra data, hantera fel och återställa dessa fel. Det tilldelar en lista över källfiler varje aktivitet i kartan. Kartan aktiviteten kopierar sedan alla dess tilldelade filer till målplatsen. Det finns flera tekniker kan förbättra prestandan för DistCp.
+DistCp är ett Apache-projekt som använder ett MapReduce-kart jobb för att överföra data, hantera fel och återställa från dessa fel. En lista med källfiler tilldelas varje kart aktivitet. Map-aktiviteten kopierar sedan alla tilldelade filer till målet. Det finns flera metoder som kan förbättra prestandan för DistCp.
 
-### <a name="increase-the-number-of-mappers"></a>Öka antalet Mappningskomponenter
+### <a name="increase-the-number-of-mappers"></a>Öka antalet mappningar
 
-DistCp försöker skapa kartan uppgifter så att var och en kopierar ungefär samma antal byte. Som standard använder DistCp jobb 20 Mappningskomponenter. Med fler Mappningskomponenter för Distcp (med den är ”parametern på kommandoraden) ökar parallellitet under överföringen data och minskar längden på dataöverföringen. Men finns det två saker att tänka på när du ökar antalet Mappningskomponenter:
+DistCp försöker skapa kart aktiviteter så att var och en kopierar ungefär samma antal byte. Som standard använder DistCp-jobb 20 mapper. Om du använder fler Mapper för Distcp (med parametern ' x på kommando raden) ökar parallellitet under data överförings processen och minskar data överföringens längd. Det finns dock två saker att tänka på när du ökar antalet mappningar:
 
-1. Distcps lägsta Granulariteten är en enskild fil. Ange ett antal Mappningskomponenter mer än antalet källfiler hjälper inte och är slöseri med tillgängliga resurser.
-1. Överväg att det tillgängliga minnet Yarn på klustret för att avgöra hur många Mappningskomponenter. Varje aktivitet i kartan öppnas som en Yarn-behållare. Om vi antar att inga andra tunga arbetsbelastningar körs på klustret, antalet Mappningskomponenter kan fastställas genom följande formel: m = (antal arbetsnoder \* YARN minne för varje arbetsnod) / YARN behållarens storlek. Om andra program använder minne kan sedan välja att bara använda en del av minnet för YARN för DistCp jobb.
+1. DistCp för den lägsta precisionen är en enskild fil. Om du anger ett antal Mapper fler än antalet källfiler går det inte att använda och de tillgängliga kluster resurserna tas bort.
+1. Överväg det tillgängliga garn minnet på klustret för att fastställa antalet mappningar. Varje kart aktivitet startas som en garn behållare. Förutsatt att inga andra tunga arbets belastningar körs i klustret, kan antalet Mapper bestämmas av följande formel: m = (antalet arbetsnoder \* garn minne för varje arbetsnod)/storlek på garn behållare. Men om andra program använder minne väljer du att bara använda en del av garn minnet för DistCp-jobb.
 
-### <a name="use-more-than-one-distcp-job"></a>Använda mer än ett DistCp jobb
+### <a name="use-more-than-one-distcp-job"></a>Använd mer än ett DistCp-jobb
 
-När storleken på datauppsättningen som ska flyttas är större än 1 TB, mer än en DistCp jobbet. Med hjälp av fler än en begränsar effekten av fel. Om alla jobb misslyckas kan behöva du bara starta om specifika jobbet i stället för alla jobb.
+När storleken på data uppsättningen som ska flyttas är större än 1 TB använder du mer än ett DistCp-jobb. Om du använder mer än ett jobb begränsas effekten av felen. Om ett jobb Miss lyckas behöver du bara starta om det aktuella jobbet i stället för alla jobb.
 
 ### <a name="consider-splitting-files"></a>Överväg att dela filer
 
-Om det finns ett litet antal stora filer kan du överväga att dela upp dem i 256 MB filsegment att få mer potentiella samtidighet med fler Mappningskomponenter.
+Om det finns ett litet antal stora filer kan du överväga att dela upp dem i 256 MB fil segment för att få mer potentiell samtidighet med fler mappningar.
 
-### <a name="use-the-strategy-command-line-parameter"></a>Använder du kommandoradsparametern 'strategi ”
+### <a name="use-the-strategy-command-line-parameter"></a>Använda kommando rads parametern "strategi"
 
-Överväg att använda `strategy = dynamic` parametern på kommandoraden. Standardvärdet för den `strategy` parametern är `uniform size`, då varje kartan kopierar ungefär samma antal byte. När den här parametern ändras till `dynamic`, lista filen delas upp i flera ”segment-filer”. Antalet segment-filer som är en multipel av antalet maps. Varje aktivitet i kartan tilldelas en av segment-filerna. När alla sökvägar i ett segment bearbetas det aktuella segmentet tas bort och ett nytt segment förvärvas. Processen fortsätter tills inga fler segment är tillgängliga. ”Dynamiska” på så sätt kan snabbare kartan-uppgifter för att använda flera sökvägar från långsammare som, därför snabbare övergripande DistCp jobbet.
+Överväg att `strategy = dynamic` använda parameter på kommando raden. Standardvärdet för `strategy` parametern är `uniform size`, i vilket fall varje karta kopierar ungefär samma antal byte. När den här parametern ändras till `dynamic`delas list filen upp i flera "segment-filer". Antalet segment-filer är en multipel av antalet kartor. Varje kart aktivitet tilldelas en av segment-filerna. När alla sökvägar i ett segment har bearbetats raderas det aktuella segmentet och ett nytt segment förvärvas. Processen fortsätter tills inga fler segment är tillgängliga. Med den här metoden "dynamisk" kan du snabbare mappa aktiviteter för att förbruka fler sökvägar än långsammare, vilket påskyndar DistCp-jobbet.
 
 ### <a name="increase-the-number-of-threads"></a>Öka antalet trådar
 
-Om du ökar den `-numListstatusThreads` parametern förbättrar prestanda. Den här parametern styr antalet trådar som ska användas för att skapa filen lista och 40 är det maximala värdet.
+Se om ökningen `-numListstatusThreads` av parametern ger bättre prestanda. Den här parametern styr antalet trådar som ska användas för att skapa fil listor och 40 är det maximala värdet.
 
-### <a name="use-the-output-committer-algorithm"></a>Använd utdata committer algoritmen
+### <a name="use-the-output-committer-algorithm"></a>Använda committer-algoritmen för utdata
 
-Se om skicka parametern `-Dmapreduce.fileoutputcommitter.algorithm.version=2` förbättrar DistCp prestanda. Den här utdata committer algoritmen har optimeringar runt skriver utdatafilerna till målet. Följande kommando är ett exempel som visar användningen av olika parametrar:
+Se om du överför parametern `-Dmapreduce.fileoutputcommitter.algorithm.version=2` förbättrar DistCp-prestanda. Den här utdata committer-algoritmen har optimeringar för att skriva utdatafilerna till målet. Följande kommando är ett exempel som visar användningen av olika parametrar:
 
 ```bash
 hadoop distcp -Dmapreduce.fileoutputcommitter.algorithm.version=2 -numListstatusThreads 30 -m 100 -strategy dynamic hdfs://nn1:8020/foo/bar wasb://<container_name>@<storage_account_name>.blob.core.windows.net/foo/
 ```
 
-## <a name="metadata-migration"></a>Metadata-migrering
+## <a name="metadata-migration"></a>Migrering av metadata
 
 ### <a name="apache-hive"></a>Apache Hive
 
-Hive-metaarkiv kan migreras med hjälp av skript eller med hjälp av DB-replikering.
+Hive-metaarkiv kan migreras antingen med hjälp av skripten eller med hjälp av DB-replikeringen.
 
-#### <a name="hive-metastore-migration-using-scripts"></a>Hive-metaarkiv migrering med hjälp av skript
+#### <a name="hive-metastore-migration-using-scripts"></a>Hive-metaarkiv migrering med skript
 
-1. Skapa Hive-DDLs från på plats Hive-metaarkiv. Det här steget kan göras med hjälp av en [omslutning bash-skript](https://github.com/hdinsight/hdinsight.github.io/blob/master/hive/hive-export-import-metastore.md).
-1. Redigera den genererade DDL för att ersätta HDFS url med WASB/ADLS/ABFS URL: er.
-1. Kör den uppdaterade DDL på metaarkiv från HDInsight-kluster.
-1. Se till att Hive-metaarkiv version är kompatibla mellan lokala platser och molnet.
+1. Generera Hive-DDLs från lokalt Hive-metaarkiv. Det här steget kan göras med hjälp av ett [wrapper bash-skript](https://github.com/hdinsight/hdinsight.github.io/blob/master/hive/hive-export-import-metastore.md).
+1. Redigera den genererade DDL: en för att ersätta HDFS-URL med WASB/ADLS/ABFS-URL: er.
+1. Kör den uppdaterade DDL: en på metaarkiv från HDInsight-klustret.
+1. Kontrol lera att den Hive-metaarkiv versionen är kompatibel mellan lokalt och molnet.
 
-#### <a name="hive-metastore-migration-using-db-replication"></a>Hive-metaarkiv migrering med hjälp av DB replikering
+#### <a name="hive-metastore-migration-using-db-replication"></a>Hive-metaarkiv migrering med DB-replikering
 
-- Konfigurera databasreplikering mellan lokala Hive-metaarkiv DB och HDInsight metaarkiv DB.
-- Använd den ”Hive MetaTool” för att ersätta HDFS url med WASB/ADLS/ABFS URL: er, till exempel:
+- Konfigurera databasreplikering mellan lokala Hive-metaarkiv DB-och HDInsight metaarkiv DB.
+- Använd "Hive-MetaTool" för att ersätta HDFS-URL med WASB/ADLS/ABFS-URL: er, till exempel:
 
 ```bash
 ./hive --service metatool -updateLocation hdfs://nn1:8020/ wasb://<container_name>@<storage_account_name>.blob.core.windows.net/
@@ -109,11 +109,11 @@ Hive-metaarkiv kan migreras med hjälp av skript eller med hjälp av DB-repliker
 ### <a name="apache-ranger"></a>Apache Ranger
 
 - Exportera lokala Ranger-principer till XML-filer.
-- Omvandla lokalt specifika HDFS-baserade sökvägar till WASB/ADLS med ett verktyg som XSLT.
-- Importera principer in Ranger som körs på HDInsight.
+- Transformera lokalt angivna HDFS-baserade sökvägar till WASB/ADLS med ett verktyg som XSLT.
+- Importera principerna på Ranger som körs på HDInsight.
 
 ## <a name="next-steps"></a>Nästa steg
 
 Läs nästa artikel i den här serien:
 
-- [Metodtips för säkerhet och DevOps för lokalt till Azure HDInsight Hadoop-migrering](apache-hadoop-on-premises-migration-best-practices-security-devops.md)
+- [Säkerhets-och DevOps metod tips för lokal att Azure HDInsight Hadoop migrering](apache-hadoop-on-premises-migration-best-practices-security-devops.md)

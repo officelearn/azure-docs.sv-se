@@ -7,19 +7,16 @@ ms.date: 02/04/2019
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
-ms.openlocfilehash: 8cb9a9c6dd2e84318cd4d05bf6e67e127fc39ce3
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 0aa3af754082d91c4a5994e42146d1f1f475f64d
+ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68726369"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70390317"
 ---
 # <a name="how-to-upload-download-and-list-blobs-using-the-client-library-for-java-v7"></a>Ladda upp, ladda ned och lista blobar med hjälp av klient biblioteket för Java-v7
 
 I den här instruktions guiden får du lära dig hur du använder klient biblioteket för Java-v7 för att ladda upp, ladda ned och lista block-blobar i en behållare i Azure Blob Storage.
-
-> [!TIP]
-> Den senaste versionen av Azure Storage klient biblioteket för Java är v10. Microsoft rekommenderar att du använder den senaste versionen av klient biblioteket när det är möjligt. Information om hur du kommer igång med [v10 finns i snabb start: Ladda upp, ladda ned och lista blobar med hjälp av Java Storage SDK](storage-quickstart-blobs-java-v10.md)-v10.
 
 ## <a name="prerequisites"></a>Förutsättningar
 

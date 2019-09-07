@@ -1,6 +1,6 @@
 ---
 title: Konfigurera Spark-inställningar – Azure HDInsight
-description: Konfigurera Spark för ett Azure HDInsight-kluster.
+description: Visa och konfigurera Apache Spark inställningar för ett Azure HDInsight-kluster
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/17/2019
-ms.openlocfilehash: eb948aa2b683f426831e1b0d34b44f814eab6b9f
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.openlocfilehash: 2d369af7c11473d811677f33f9112d41260fcecf
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68441920"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70736026"
 ---
 # <a name="configure-apache-spark-settings"></a>Konfigurera Apache Spark-inställningar
 
@@ -23,7 +23,7 @@ Standard-HDInsight Apache Spark-klustret innehåller följande noder: tre [Apach
 
 ![Spark HDInsight-arkitektur](./media/apache-spark-settings/spark-hdinsight-arch.png)
 
-Antalet virtuella datorer och VM-storlekarna för noderna i HDInsight-klustret kan också påverka Spark-konfigurationen. Konfigurations värden som inte är standard för HDInsight kräver ofta konfigurations värden som inte är standard. När du skapar ett HDInsight Spark-kluster visas föreslagna VM-storlekar för varje komponent. För närvarande är de [minnesoptimerade virtuella Linux-VM](../../virtual-machines/linux/sizes-memory.md) -storlekarna för Azure D12 v2 eller senare.
+Antalet virtuella datorer och VM-storlekarna för noderna i HDInsight-klustret kan också påverka Spark-konfigurationen. Konfigurations värden som inte är standard för HDInsight kräver ofta konfigurations värden som inte är standard. När du skapar ett HDInsight Spark-kluster visas föreslagna VM-storlekar för varje komponent. För närvarande är de [minnesoptimerade virtuella Linux-VM-storlekarna](../../virtual-machines/linux/sizes-memory.md) för Azure D12 v2 eller senare.
 
 ## <a name="apache-spark-versions"></a>Apache Spark versioner
 
@@ -91,13 +91,13 @@ Tre nyckel parametrar som ofta justeras för att justera Spark-konfigurationer f
 > [!NOTE]  
 > Dessa tre konfigurations parametrar kan konfigureras på kluster nivå (för alla program som körs i klustret) och också anges för varje enskilt program.
 
-En annan informations källa om resurserna som används av Spark-körningarna är Spark-programgränssnittet.  I Spark-ANVÄNDARGRÄNSSNITTET väljer du fliken **körningar** för att Visa sammanfattnings-och detalj visningar av konfigurationen och resurserna som används av körningarna.  Dessa vyer kan hjälpa dig att avgöra om du vill ändra standardvärdena för Spark-körningar för hela klustret eller en viss uppsättning jobb körningar.
+En annan källa till information om de resurser som används av Spark-utförarna är Spark-programgränssnittet.  I Spark-ANVÄNDARGRÄNSSNITTET väljer du fliken **körningar** för att Visa sammanfattnings-och detalj visningar av konfigurationen och resurserna som används av körningarna.  Dessa vyer kan hjälpa dig att avgöra huruvida du vill ändra standardvärdena för Spark-utförare för hela klustret eller en viss uppsättning jobbkörningar.
 
 ![Spark-körningar](./media/apache-spark-settings/spark-executors.png)
 
 Du kan också använda Ambari-REST API för att program mässigt verifiera HDInsight-och Spark-klusterresursernas kluster konfigurations inställningar.  Mer information finns på [Apache AMBARI API Reference på GitHub](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md).
 
-Beroende på din spark-arbetsbelastning kan du bestämma att en icke-standard-Spark-konfiguration ger mer optimerade Spark-jobb.  Du bör utföra benchmark-testning med exempel arbets belastningar för att verifiera alla klusterkonfigurationer som inte är standard.  Några av de vanliga parametrarna som du kan överväga att justera är:
+Beroende på din Spark-arbetsbelastning kan du bestämma att en icke-standardmässig Spark-konfiguration ger mer optimerade Spark-jobbkörningar.  Du bör utföra prestandatestning med exempelarbetsbelastningar för att validera eventuella icke-standardmässiga klusterkonfigurationer.  Några av de vanliga parametrar som du kan överväga att justera är:
 
 * `--num-executors`anger antalet körningar.
 * `--executor-cores`anger antalet kärnor för varje utförar. Vi rekommenderar att du använder mellanstora körningar, eftersom andra processer också använder en del av det tillgängliga minnet.

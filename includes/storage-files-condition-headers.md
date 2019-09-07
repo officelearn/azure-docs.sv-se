@@ -5,28 +5,28 @@ services: storage
 author: roygara
 ms.service: storage
 ms.topic: include
-ms.date: 05/17/2019
+ms.date: 09/04/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 0486b595bffd18b06d54e8377b24deab04e2aa93
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 4604616cd4f2d6c75c272586df1331fc405061cb
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67187411"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70737499"
 ---
-## <a name="error-conditionheadersnotsupported-from-a-web-application-using-azure-files-from-browser"></a>Fel ConditionHeadersNotSupported från ett webbprogram med Azure Files från webbläsaren
+## <a name="error-conditionheadersnotsupported-from-a-web-application-using-azure-files-from-browser"></a>Fel ConditionHeadersNotSupported från ett webb program med Azure Files från webbläsare
 
-När åtkomst till innehåll som finns i Azure Files via ett program som gör användning av villkorlig rubriker, till exempel en webbläsare, åtkomst misslyckas, visas ett ConditionHeadersNotSupported-fel.
+ConditionHeadersNotSupported-felet uppstår vid åtkomst till innehåll som finns i Azure Files via ett program som använder villkorliga rubriker, till exempel en webbläsare, åtkomsten Miss lyckas. Felet anger att villkors rubriker inte stöds.
 
-![ConditionHeaderNotSupported Error](media/storage-files-condition-headers/conditionalerror.png)
+![Azure Files villkorliga huvud fel](media/storage-files-condition-headers/conditionalerror.png)
 
 ### <a name="cause"></a>Orsak
 
-Villkorlig rubriker stöds inte ännu. Program som implementerar dem måste du begära fullständig fil varje gång filen öppnas.
+Villkorliga rubriker stöds inte ännu. Program som implementerar dem måste begära den fullständiga filen varje gång filen öppnas.
 
 ### <a name="workaround"></a>Lösning:
 
-När en ny fil laddas upp, är cache-control-egenskapen som standard ”no-cache”. Om du vill tvinga programmet för att begära fil måste varje gång filegenskap cache-control uppdateras från ”no-cache” till ”no-cache, no-store måste-revalidate”. Detta kan uppnås med hjälp av [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/).
+När en ny fil laddas upp är egenskapen Cache-Control som standard "no-cache". För att tvinga programmet att begära filen varje gång måste filens Cache-Control-egenskap uppdateras från "no-cache" till "no-cache, No-Store," måste revalidate ". Detta kan uppnås med hjälp av [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/).
 
-![Storage explorer innehållscachen ändring](media/storage-files-condition-headers/storage-explorer-cache.png)
+![Ändring av cache för innehålls cache i Storage Explorer för Azure Files villkorliga huvuden](media/storage-files-condition-headers/storage-explorer-cache.png)

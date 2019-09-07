@@ -9,12 +9,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: ae6c2bd27e9192966ecffb4d4296063201fca970
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 992e3f7aa53fdd006d29c06113cd30b07a406f3b
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70098021"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70734340"
 ---
 # <a name="monitor-scenario-in-durable-functions---weather-watcher-sample"></a>Övervaka scenario i Durable Functions – väder vakts exempel
 
@@ -67,7 +67,7 @@ Funktionen **E3_Monitor** använder standard *funktionen. JSON* för Orchestrato
 
 Här är den kod som implementerar funktionen:
 
-### <a name="c"></a>C#
+### <a name="c-script"></a>C#Över
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E3_Monitor/run.csx)]
 
@@ -77,7 +77,7 @@ Här är den kod som implementerar funktionen:
 
 Den här Orchestrator-funktionen utför följande åtgärder:
 
-1. Hämtar den **MonitorRequest** som består av *platsen* som ska övervakas och telefonnumret som den ska skicka ett SMS-meddelande till.
+1. Hämtar den **MonitorRequest** som består av *platsen* som ska övervakas och *telefonnumret* som den ska skicka ett SMS-meddelande till.
 2. Anger övervakningens förfallo tid. Exemplet använder ett hårdkodat värde för det kortfattat.
 3. Anropar **E3_GetIsClear** för att avgöra om det finns en rensning av Skies på den begärda platsen.
 4. Om väderet är klart anropar **E3_SendGoodWeatherAlert** för att skicka ett SMS-meddelande till det begärda telefonnumret.
@@ -103,7 +103,7 @@ Som med andra exempel är hjälp aktivitetens funktioner vanliga funktioner som 
 
 Här är implementeringen. Precis som den POCOs som används för data överföring, är logik för att hantera API-anropet och parsa API-anropet som C#är abstrakt till en delad klass i. Du kan hitta det som en del av [Visual Studio-exempel koden](#run-the-sample).
 
-### <a name="c"></a>C#
+### <a name="c-script"></a>C#Över
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E3_GetIsClear/run.csx)]
 
@@ -117,7 +117,7 @@ Funktionen **E3_SendGoodWeatherAlert** använder Twilio-bindningen för att skic
 
 Här är koden som skickar SMS-meddelandet:
 
-### <a name="c"></a>C#
+### <a name="c-script"></a>C#Över
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E3_SendGoodWeatherAlert/run.csx)]
 
@@ -183,7 +183,7 @@ Här är dirigeringen som en enskild C# fil i ett Visual Studio-projekt:
 
 ## <a name="next-steps"></a>Nästa steg
 
-Det här exemplet har visat hur du använder Durable Functions för att övervaka en extern källas [](durable-functions-timers.md) status med hjälp av varaktiga timers och villkorlig logik. Nästa exempel visar hur du använder externa händelser och [varaktiga timers](durable-functions-timers.md) för att hantera mänsklig interaktion.
+Det här exemplet har visat hur du använder Durable Functions för att övervaka en extern källas status med hjälp av [varaktiga timers](durable-functions-timers.md) och villkorlig logik. Nästa exempel visar hur du använder externa händelser och [varaktiga timers](durable-functions-timers.md) för att hantera mänsklig interaktion.
 
 > [!div class="nextstepaction"]
 > [Kör exempel på mänsklig interaktion](durable-functions-phone-verification.md)

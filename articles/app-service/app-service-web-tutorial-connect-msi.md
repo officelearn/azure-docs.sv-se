@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 08/06/2019
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 8a0b974e9b64d477e53c37757b4f2fa952befba2
-ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
+ms.openlocfilehash: 09e9a89fc79763eee5d154ba589b599fe8a180b2
+ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70061857"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70743386"
 ---
 # <a name="tutorial-secure-azure-sql-database-connection-from-app-service-using-a-managed-identity"></a>Självstudier: Säkra Azure SQL Database-anslutningar från App Service med en hanterad identitet
 
@@ -54,7 +54,7 @@ Vad du kommer att lära dig:
 
 Den här artikeln fortsätter där du slutade i [Självstudie: Bygg en ASP.net-app i Azure med](app-service-web-tutorial-dotnet-sqldatabase.md) SQL Database [eller Självstudier: Bygg en ASP.NET Core-och SQL Database-app](app-service-web-tutorial-dotnetcore-sqldb.md)i Azure App Service. Om du inte redan har gjort det följer du en av de två självstudierna först. Du kan också anpassa stegen för din egen .NET-app med SQL Database.
 
-Om du vill felsöka din app med SQL Database som Server del kontrollerar du att du har tillåtit klient anslutning från datorn. Om inte, lägger du till klientens IP-adress genom att följa stegen i [Hantera IP-brandväggens regler på server nivå med hjälp av Azure Portal](../sql-database/sql-database-firewall-configure.md#manage-server-level-ip-firewall-rules-using-the-azure-portal).
+Om du vill felsöka din app med SQL Database som Server del kontrollerar du att du har tillåtit klient anslutning från datorn. Om inte, lägger du till klientens IP-adress genom att följa stegen i [Hantera IP-brandväggens regler på server nivå med hjälp av Azure Portal](../sql-database/sql-database-firewall-configure.md#use-the-azure-portal-to-manage-server-level-ip-firewall-rules).
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -136,7 +136,7 @@ I Visual Studio öppnar du Package Manager-konsolen och lägger till NuGet-paket
 Install-Package Microsoft.Azure.Services.AppAuthentication -Version 1.3.0
 ```
 
-I `MyDbConnection` självstudierna [ASP.net Core och SQL Database](app-service-web-tutorial-dotnetcore-sqldb.md)används inte anslutnings strängen alls eftersom den lokala utvecklings miljön använder en sqlite-databasfil och Azures produktions miljö använder en anslutnings sträng från App Service. Med Active Directory autentisering vill du att båda miljöerna ska använda samma anslutnings sträng. I *appSettings. JSON*ersätter du värdet för `MyDbConnection` anslutnings strängen med:
+I `MyDbConnection` [självstudierna ASP.net Core och SQL Database](app-service-web-tutorial-dotnetcore-sqldb.md)används inte anslutnings strängen alls eftersom den lokala utvecklings miljön använder en sqlite-databasfil och Azures produktions miljö använder en anslutnings sträng från App Service. Med Active Directory autentisering vill du att båda miljöerna ska använda samma anslutnings sträng. I *appSettings. JSON*ersätter du värdet för `MyDbConnection` anslutnings strängen med:
 
 ```json
 "Server=tcp:<server-name>.database.windows.net,1433;Database=<database-name>;"

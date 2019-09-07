@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 07/16/2019
 ms.author: aahi
-ms.openlocfilehash: ae25ffdf3f819c30fdfb1d3110042579f0b197b9
-ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
+ms.openlocfilehash: d0b2c9c7450b8a44ca93a9d9fa8770b7ab3d9282
+ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70381786"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70743856"
 ---
 # <a name="create-a-cognitive-services-resource-using-the-azure-portal"></a>Skapa en Cognitive Services resurs med hjälp av Azure Portal
 
@@ -32,12 +32,17 @@ Använd den här snabb starten för att börja använda Azure Cognitive Services
 1. Skapa en resurs.
 
     #### <a name="multi-service-resourcetabmultiservice"></a>[Resurs för flera tjänster](#tab/multiservice)
-
+    
     Resursen för flera tjänster heter **Cognitive Services** i portalen. [Skapa en Cognitive Services-resurs](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne).
     
-    Vid detta tillfälle kan dessa tjänster **inte** anropas med hjälp av nycklar för flera tjänster: QnA Maker, tal tjänster, Custom Vision och avvikelse detektor.
+    För tillfället ger flera tjänst resurser åtkomst till följande Cognitive Services:
     
-
+    |                  |                                                      |                    |                               |                  |
+    |------------------|------------------------------------------------------|--------------------|-------------------------------|------------------|
+    | Visuellt innehåll  | Content Moderator                                    | Ansikte               | Language Understanding (LUIS) | Textanalys   |
+    | Textöversättning  | Bing-sökning v7 <br>(Webb, bild, nyheter, video, visualisering) | Anpassad sökning i Bing | Entitetssökning i Bing            | Automatiska förslag i Bing |
+    | Stavningskontroll i Bing |                                                      |                    |                               |                  |
+    
     #### <a name="single-service-resourcetabsingleservice"></a>[Resurs för enskild tjänst](#tab/singleservice)
 
     Använd länkarna nedan för att skapa en resurs för de tillgängliga Cognitive Services:
@@ -85,13 +90,13 @@ Använd den här snabb starten för att börja använda Azure Cognitive Services
 
 ## <a name="get-the-keys-for-your-resource"></a>Hämta nycklar för din resurs
 
-När resursen har distribuerats klickar **du på gå till resurs** under **Nästa steg**.
+1. När resursen har distribuerats klickar **du på gå till resurs** under **Nästa steg**.
 
-![Sök efter Cognitive Services](media/cognitive-services-apis-create-account/resource-next-steps.png)
+    ![Sök efter Cognitive Services](media/cognitive-services-apis-create-account/resource-next-steps.png)
 
-Från snabb starts fönstret som öppnas kan du komma åt nyckeln och slut punkten.
+2. Från snabb starts fönstret som öppnas kan du komma åt nyckeln och slut punkten.
 
-![Hämta nyckel och slut punkt](media/cognitive-services-apis-create-account/get-cog-serv-keys.png)
+    ![Hämta nyckel och slut punkt](media/cognitive-services-apis-create-account/get-cog-serv-keys.png)
 
 [!INCLUDE [cognitive-services-environment-variables](../../includes/cognitive-services-environment-variables.md)]
 

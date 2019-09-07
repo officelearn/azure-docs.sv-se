@@ -194,7 +194,7 @@
       items:
         - name: Azure Portal
           href: howto-auto-grow-storage-portal.md
-        - name: Azure Portal
+        - name: Azure CLI
           href: howto-auto-grow-storage-cli.md
     - name: Åtkomst till serverloggar
       items:

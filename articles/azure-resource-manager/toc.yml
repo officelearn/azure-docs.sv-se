@@ -4,6 +4,8 @@
   items:
     - name: Vad är Resource Manager?
       href: resource-group-overview.md
+    - name: Mallöversikt
+      href: template-deployment-overview.md
 - name: Snabbstarter
   expanded: true
   items:
@@ -58,8 +60,6 @@
       href: 'https://azure.microsoft.com/resources/samples/?sort=0&service=azure-resource-manager'
 - name: Begrepp
   items:
-    - name: Malldistributioner
-      href: template-deployment-overview.md
     - name: Metodtips för mallar
       href: template-best-practices.md
     - name: Mallar för molnkonsekvens

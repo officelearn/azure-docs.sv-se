@@ -10,12 +10,12 @@ ms.topic: quickstart
 description: Snabb Kubernetes utveckling med behållare, mikrotjänster och Java på Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes service, behållare, Java, Helm, service nät, service nät-routning, kubectl, K8s
 manager: gwallace
-ms.openlocfilehash: 146812a5553643d3cbe3b308d6b7d7bed1e66dad
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 28b6a2ecff756c878bb3bc0a69976e7cede5f7ee
+ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68725872"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70772665"
 ---
 # <a name="quickstart-debug-and-iterate-with-visual-studio-code-and-java-on-kubernetes-using-azure-dev-spaces"></a>Snabbstart: Felsöka och iterera med Visual Studio Code och Java på Kubernetes med hjälp av Azure dev Spaces
 
@@ -40,7 +40,7 @@ Du måste skapa ett AKS-kluster i en [region som stöds][supported-regions]. Kom
 
 ```cmd
 az group create --name MyResourceGroup --location eastus
-az aks create -g MyResourceGroup -n MyAKS --location eastus --node-vm-size Standard_DS2_v2 --node-count 1 --disable-rbac --generate-ssh-keys
+az aks create -g MyResourceGroup -n MyAKS --location eastus --disable-rbac --generate-ssh-keys
 ```
 
 ## <a name="enable-azure-dev-spaces-on-your-aks-cluster"></a>Aktivera Azure dev Spaces i ditt AKS-kluster
@@ -104,7 +104,7 @@ Klicka på ikonen *Felsök* till vänster och klicka på *starta Java-program (A
 Det här kommandot skapar och kör tjänsten i Azure dev Spaces. *Terminalfönstret* längst ned visar Bygg utdata och URL: er för din tjänst som kör Azure dev Spaces. *Fel söknings konsolen* visar loggens utdata.
 
 > [!Note]
-> Om du inte ser några Azure dev Spaces-kommandoni paletten, kontrol lera att du har installerat [Visual Studio Code-tillägget för Azure dev Spaces](https://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds). Kontrol lera också att du *har öppnat katalogen dev-Spaces/samples/Java/Hämta/webfrontend* i Visual Studio Code.
+> Om du inte ser några Azure dev Spaces-kommandon i *paletten*, kontrol lera att du har installerat [Visual Studio Code-tillägget för Azure dev Spaces](https://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds). Kontrol lera också att du *har öppnat katalogen dev-Spaces/samples/Java/Hämta/webfrontend* i Visual Studio Code.
 
 Du kan se den tjänst som körs genom att öppna den offentliga URL: en.
 

@@ -11,12 +11,12 @@ author: barmichal
 ms.author: mibar
 ms.reviewer: vanto
 ms.date: 08/22/2019
-ms.openlocfilehash: c8533f79dd2bf02a03ff4a37283359f3b3a5bf39
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: b145b341a4db503a00d517decf6406e26f23c3cd
+ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70066060"
+ms.lasthandoff: 09/08/2019
+ms.locfileid: "70802468"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>Kom igång med SQL-databasgranskning
 
@@ -42,7 +42,7 @@ Du kan använda granskning av SQL Database för att:
 - **Analysera** rapporter. Du kan hitta misstänkta händelser, ovanliga aktiviteter och trender.
 
 > [!IMPORTANT]
-> Gransknings loggar skrivs för att **lägga** till blobar i Azure Blob Storage i din Azure-prenumeration.
+> Gransknings loggar skrivs för att **lägga till blobar** i Azure Blob Storage i din Azure-prenumeration.
 >
 > - Alla lagrings typer (v1, v2, BLOB) stöds.
 > - Alla konfigurationer av lagringsprovider stöds.
@@ -119,7 +119,7 @@ I följande avsnitt beskrivs konfigurationen av granskning med hjälp av Azure P
 
 Om du väljer att skriva gransknings loggar till Azure Monitor loggar:
 
-- Använd [Azure Portal](https://portal.azure.com).  Öppna relevant databas. Klicka på **Visa gransknings loggar**överst i databasens gransknings sida.
+- Använd [Azure Portal](https://portal.azure.com).  Öppna relevant databas. Klicka på **Visa gransknings loggar**överst i databasens **gransknings** sida.
 
     ![Visa gransknings loggar](./media/sql-database-auditing-get-started/auditing-view-audit-logs.png)
 
@@ -150,7 +150,7 @@ Om du väljer att skriva gransknings loggar till ett Azure Storage-konto finns d
 
 - Gransknings loggar sammanställs i det konto som du valde under installationen. Du kan utforska gransknings loggar med hjälp av ett verktyg som [Azure Storage Explorer](https://storageexplorer.com/). I Azure Storage sparas gransknings loggar som en samling BLOB-filer i en behållare med namnet **sqldbauditlogs**. Mer information om hierarkin för lagringsmappen, namngivnings konventioner och logg format finns i [SQL Database Gransknings logg format](https://go.microsoft.com/fwlink/?linkid=829599).
 
-- Använd [Azure Portal](https://portal.azure.com).  Öppna relevant databas. Klicka på **Visa gransknings loggar**överst i databasens gransknings sida.
+- Använd [Azure Portal](https://portal.azure.com).  Öppna relevant databas. Klicka på **Visa gransknings loggar**överst i databasens **gransknings** sida.
 
     ![Navigeringsfönstret][7]
 
@@ -165,7 +165,7 @@ Om du väljer att skriva gransknings loggar till ett Azure Storage-konto finns d
 - Använd system funktionen **sys. fn_get_audit_file** (T-SQL) för att returnera Gransknings logg data i tabell format. Mer information om hur du använder den här funktionen finns i [sys. fn_get_audit_file](https://docs.microsoft.com/sql/relational-databases/system-functions/sys-fn-get-audit-file-transact-sql).
 
 - Använda **sammanslagna gransknings filer** i SQL Server Management Studio (från och med SSMS 17):
-    1. Från menyn SSMS väljer du **fil** > **Öppna** > filer för sammanslagen**granskning**.
+    1. Från menyn SSMS väljer du **fil** > **Öppna** > **filer för sammanslagen granskning**.
 
         ![Navigeringsfönstret][9]
     2. Dialog rutan **Lägg till gransknings filer** öppnas. Välj ett av alternativen **Lägg** till för att välja om du vill slå samman gransknings filer från en lokal disk eller importera dem från Azure Storage. Du måste ange Azure Storage information och konto nyckeln.
@@ -201,8 +201,6 @@ När du aktiverar granskning på den primära databasen med geo-replikerade data
 
     >[!IMPORTANT]
     >Med granskning på databas nivå blir lagrings inställningarna för den sekundära databasen identiska med de som finns i den primära databasen, vilket orsakar en över-regional trafik. Vi rekommenderar att du bara aktiverar granskning på server nivå och låter granskning på databas nivå vara inaktive rad för alla databaser.
-    > [!WARNING]
-    > Att använda Event Hub eller Azure Monitor loggar som mål för gransknings loggar på server nivå stöds för närvarande inte för sekundära geo-replikerade databaser.
 
 ### <a id="subheading-6">Återskapa lagrings nyckel</a>
 
@@ -219,10 +217,10 @@ I produktion är det troligt att du uppdaterar dina lagrings nycklar med jämna 
 
 ## <a name="additional-information"></a>Ytterligare information
 
-- Mer information om logg formatet, hierarkin för lagringsmappen och namngivnings konventioner finns i referensen för [logg format för BLOB-granskning](https://go.microsoft.com/fwlink/?linkid=829599).
+- Mer information om logg formatet, hierarkin för lagringsmappen och namngivnings konventioner finns i [referensen för logg format för BLOB-granskning](https://go.microsoft.com/fwlink/?linkid=829599).
 
     > [!IMPORTANT]
-    > Azure SQL Database granskning lagrar 4000 tecken med data för tecken fält i en gransknings post. När **instruktionen** eller **data_sensitivity_information** värden som returneras från en gransknings bar åtgärd innehåller fler än 4000 tecken kommer data utöver de första 4000 tecknen att trunkeras **och inte granskas**.
+    > Azure SQL Database granskning lagrar 4000 tecken med data för tecken fält i en gransknings post. När **instruktionen** eller **data_sensitivity_information** värden som returneras från en gransknings bar åtgärd innehåller fler än 4000 tecken kommer data utöver de första 4000 tecknen att **trunkeras och inte granskas**.
 
 - Gransknings loggar skrivs för att **bifoga blobbar** i en Azure Blob-lagring i din Azure-prenumeration:
   - **Premium Storage** stöds för närvarande **inte** av bifogade blobbar.

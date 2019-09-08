@@ -13,26 +13,26 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/04/2019
 ms.author: rogirdh
-ms.openlocfilehash: e9e37c54668ec0343cbfd45e51e90216955b46c4
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: d8fed68d9b830df359f8129d55f1b9911f69e8f1
+ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70100011"
+ms.lasthandoff: 09/08/2019
+ms.locfileid: "70802248"
 ---
 # <a name="overview-of-oracle-applications-and-solutions-on-azure"></a>Översikt över Oracle-program och Azure-lösningar på Azure
 
-Den här artikeln beskriver funktioner för att köra Oracle-lösningar med Azure-infrastruktur. Se även detaljerade introduktioner till tillgängliga [Oracle VM](oracle-vm-solutions.md) -avbildningar på Azure Marketplace och för hands versions möjligheten att sammanföra [Azure med Oracle Cloud Infrastructure (OCI)](oracle-oci-overview.md).
+Den här artikeln beskriver funktioner för att köra Oracle-lösningar med Azure-infrastruktur. Se även detaljerade introduktioner till tillgängliga [Oracle VM-avbildningar](oracle-vm-solutions.md) på Azure Marketplace och för hands versions möjligheten att sammanföra [Azure med Oracle Cloud Infrastructure (OCI)](oracle-oci-overview.md).
 
 ## <a name="oracle-databases-on-azure-infrastructure"></a>Oracle-databaser på Azure-infrastruktur
 
-Kör Oracle-databaser på Azure-infrastruktur med Linux-avbildningar som är tillgängliga på Azure Marketplace:
+Kör Oracle-databaser på Azure-infrastruktur med hjälp av Oracle Database på Oracle Linux avbildningar som är tillgängliga på Azure Marketplace:
 
 * Oracle Database 12,1, 12,2 och 18,3 Enterprise Edition 
 
 * Oracle Database 12,1, 12,2 och 18,3 Standard Edition 
 
-Du kan också välja att basera en lösning på en anpassad avbildning som du skapar från grunden i Azure eller ladda upp en anpassad avbildning från din lokala miljö.
+Du kan också välja att konfigurera Oracle Database på en icke-Oracle Linux avbildning som är tillgänglig i Azure, basera en lösning på en anpassad avbildning som du skapar från grunden i Azure eller ladda upp en anpassad avbildning från din lokala miljö.
 
 Du kan också konfigurera med flera anslutna diskar och förbättra databasens prestanda genom att installera ASM (automatisk lagrings hantering i Oracle).
 
@@ -46,11 +46,17 @@ Kör företags program i Azure på Oracle-operativsystem som stöds. Följande a
 
 ## <a name="high-availability-and-disaster-recovery-options"></a>Alternativ för hög tillgänglighet och haveri beredskap
 
-* Konfigurera Oracle data Guard, Active data Guard eller GoldenGate på Azure-infrastrukturen tillsammans med [Tillgänglighetszoner](../../../availability-zones/az-overview.md) för hög tillgänglighet.
+* Konfigurera [Oracle data Guard](https://docs.oracle.com/cd/B19306_01/server.102/b14239/concepts.htm#g1049956), [aktiva data skydd med FSFO](https://docs.oracle.com/en/database/oracle/oracle-database/12.2/dgbkr/index.html), [horisontell partitionering](https://docs.oracle.com/en/database/oracle/oracle-database/12.2/admin/sharding-overview.html) eller [gyllene grind](https://www.oracle.com/middleware/technologies/goldengate.html) i Azure-infrastrukturen tillsammans med [Tillgänglighetszoner](../../../availability-zones/az-overview.md) för hög tillgänglighet i regionen. Du kan också konfigurera dessa konfigurationer i flera Azure-regioner för ytterligare tillgänglighet och haveri beredskap.
 
 * Använd [Azure Site Recovery](../../../site-recovery/site-recovery-overview.md) för att dirigera och hantera haveri beredskap för dina Oracle Linux virtuella datorer i Azure och dina lokala eller fysiska servrar. 
 
-* Aktivera Oracle Real Application Clusters (RAC) i Azure med hjälp av [FlashGrid SkyCluster](https://www.flashgrid.io/oracle-rac-in-azure/).
+* Aktivera Oracle Real Application Clusters (RAC) i Azure med hjälp av [Azure VMware-lösning](https://docs.azure.cloudsimple.com/oracle-rac/) eller [FlashGrid SkyCluster](https://www.flashgrid.io/oracle-rac-in-azure/).
+
+## <a name="backup-oracle-workloads"></a>Säkerhetskopiera Oracle-arbetsbelastningar
+
+* Säkerhetskopiera dina virtuella Oracle-datorer med [Azure Backup](https://docs.microsoft.com/en-us/azure/backup/backup-overview)
+
+* Säkerhetskopiera dina Oracle Database med Oracle-RMAN och alternativt använda [Azure Blob-säkring](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-how-to-mount-container-linux) för att montera ett [Azure-Blob Storage-konto med hög redudant](https://docs.microsoft.com/en-us/azure/storage/common/storage-redundancy) och skriv dina rman-säkerhetskopieringar till det för extra återhämtning.
 
 ## <a name="integration-of-azure-with-oci-preview"></a>Integrering av Azure med OCI (för hands version)
 
@@ -82,6 +88,6 @@ Distribution av Oracle-program i Azure baseras på en "ta med din egen licens"-m
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Lär dig mer om att distribuera [VM](oracle-vm-solutions.md) -avbildningar i Azure-infrastrukturen.
+* Lär dig mer om att distribuera [VM-avbildningar](oracle-vm-solutions.md) i Azure-infrastrukturen.
 
 * Lär dig mer om att ansluta [Azure med OCI](oracle-oci-overview.md).

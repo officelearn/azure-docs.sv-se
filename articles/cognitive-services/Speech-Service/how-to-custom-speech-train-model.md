@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 07/05/2019
+ms.date: 09/06/2019
 ms.author: erhopf
-ms.openlocfilehash: b5893b4f07444b07bf142971a5df4776e549d307
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 21a0cd5e257f57a9371a30c6fe57afb88e174b53
+ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68562819"
+ms.lasthandoff: 09/08/2019
+ms.locfileid: "70801445"
 ---
 # <a name="train-a-model-for-custom-speech"></a>Träna en modell för Custom Speech
 
@@ -37,13 +37,14 @@ Om du stöter på igenkännings problem med din modell kan du förbättra precis
 
 Det första steget för att träna en modell är att överföra tränings data. Använd [förbereda och testa dina data](how-to-custom-speech-test-data.md) för steg-för-steg-instruktioner för att förbereda medmärkta avskrifter och relaterad text (yttranden och uttal). När du har överfört tränings data följer du de här anvisningarna för att börja träna din modell:
 
-1. Navigera till **> Custom Speech > utbildning för tal till text**.
-2. Klicka på **träna modell**.
-3. Ge sedan din utbildning ett **namn** och en **Beskrivning**.
-4. Välj det scenario som passar din domän bäst på den nedrullningsbara menyn för **scenario och bas linje modell** . Om du är osäker på vilket scenario du väljer väljer du **Allmänt**. Bas linje modellen är start punkten för utbildning. Om du inte har någon inställning kan du använda den senaste.
-5. På sidan **Välj tränings data** väljer du en eller flera ljud-och data uppsättningar med mänsklig etikett som du vill använda för utbildning.
-6. När utbildningen är klar kan du välja att utföra testning av precisionen för den nytränade modellen. Det här steget är valfritt.
-7. Välj **skapa** för att skapa din anpassade modell.
+1. Logga in på [Custom Speech Portal](https://speech.microsoft.com/customspeech).
+2. Navigera till **> Custom Speech > utbildning för tal till text**.
+3. Klicka på **träna modell**.
+4. Ge sedan din utbildning ett **namn** och en **Beskrivning**.
+5. Välj det scenario som passar din domän bäst på den nedrullningsbara menyn för **scenario och bas linje modell** . Om du är osäker på vilket scenario du väljer väljer du **Allmänt**. Bas linje modellen är start punkten för utbildning. Om du inte har någon inställning kan du använda den senaste.
+6. På sidan **Välj tränings data** väljer du en eller flera ljud-och data uppsättningar med mänsklig etikett som du vill använda för utbildning.
+7. När utbildningen är klar kan du välja att utföra testning av precisionen för den nytränade modellen. Det här steget är valfritt.
+8. Välj **skapa** för att skapa din anpassade modell.
 
 I övnings tabellen visas en ny post som motsvarar den nyligen skapade modellen. Tabellen visar också status:  Bearbetning, lyckades, misslyckades.
 

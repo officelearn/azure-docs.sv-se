@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 07/05/2019
+ms.date: 09/06/2019
 ms.author: erhopf
-ms.openlocfilehash: f2b95affd08c989a9d1cdee53c0a4e6df16af106
-ms.sourcegitcommit: a3a40ad60b8ecd8dbaf7f756091a419b1fe3208e
+ms.openlocfilehash: 6d697cd49363139cfeae2753a4f1ae40fca6e6b2
+ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69892039"
+ms.lasthandoff: 09/08/2019
+ms.locfileid: "70802503"
 ---
 # <a name="what-is-custom-speech"></a>Vad är Custom Speech?
 
@@ -25,17 +25,17 @@ ms.locfileid: "69892039"
 
 Innan du kan göra något med Custom Speech behöver du ett Azure-konto och en prenumeration på tal tjänster. När du har ett konto kan du Förbered dina data, träna och testa dina modeller, granska igenkännings kvalitet, utvärdera precision och slutligen distribuera och använda den anpassade tal-till-text-modellen.
 
-Det här diagrammet visar de delar som utgör den Custom Speech portalen. Använd länkarna nedan för att lära dig mer om varje steg.
+Det här diagrammet visar de delar som utgör den [Custom Speech portalen](https://speech.microsoft.com/customspeech). Använd länkarna nedan för att lära dig mer om varje steg.
 
 ![Markerar de olika komponenterna som utgör Custom Speechs portalen.](./media/custom-speech/custom-speech-overview.png)
 
-1. [Prenumerera och skapa ett projekt](#set-up-your-azure-account) – skapa ett Azure-konto och prenumerera på tal tjänsterna. Den här enhetliga prenumerationen ger dig åtkomst till tal översättning av tal till text, text till tal, tal översättning och Custom Speech-portalen. Sedan kan du skapa ditt första Custom Speech-projekt med hjälp av din röst tjänst prenumeration.
+1. [Prenumerera och skapa ett projekt](#set-up-your-azure-account) – skapa ett Azure-konto och prenumerera på tal tjänsterna. Den här enhetliga prenumerationen ger dig åtkomst till tal översättning av tal till text, text till tal, tal översättning och [Custom Speech-portalen](https://speech.microsoft.com/customspeech). Sedan kan du skapa ditt första Custom Speech-projekt med hjälp av din röst tjänst prenumeration.
 
 2. [Ladda upp test data](how-to-custom-speech-test-data.md) – Ladda upp test data (ljudfiler) för att utvärdera Microsofts tal-till-text-erbjudande för dina program, verktyg och produkter.
 
-3. [Granska igenkännings kvalitet](how-to-custom-speech-inspect-data.md) – Använd Custom Speech portalen för att spela upp ljud som laddats upp och kontrol lera kvaliteten på test data. Information om kvantitativa mått finns i [Granska data](how-to-custom-speech-inspect-data.md).
+3. [Granska igenkännings kvalitet](how-to-custom-speech-inspect-data.md) – Använd [Custom Speech portalen](https://speech.microsoft.com/customspeech) för att spela upp ljud som laddats upp och kontrol lera kvaliteten på test data. Information om kvantitativa mått finns i [Granska data](how-to-custom-speech-inspect-data.md).
 
-4. [Utvärdera precision](how-to-custom-speech-evaluate-data.md) – utvärdera precisionen för tal till text-modellen. Custom Speech-portalen ger en *fel frekvens i Word*som kan användas för att avgöra om det krävs ytterligare utbildning. Om du är nöjd med noggrannheten kan du använda API: erna för Speech service direkt. Om du vill förbättra noggrannheten med ett relativt genomsnitt på 5%-20%, använder du fliken **utbildning** i portalen för att ladda upp ytterligare tränings data, till exempel rapporter om mänsklig skrift och relaterad text.
+4. [Utvärdera precision](how-to-custom-speech-evaluate-data.md) – utvärdera precisionen för tal till text-modellen. [Custom Speech-portalen](https://speech.microsoft.com/customspeech) ger en *fel frekvens i Word*som kan användas för att avgöra om det krävs ytterligare utbildning. Om du är nöjd med noggrannheten kan du använda API: erna för Speech service direkt. Om du vill förbättra noggrannheten med ett relativt genomsnitt på 5%-20%, använder du fliken **utbildning** i portalen för att ladda upp ytterligare tränings data, till exempel rapporter om mänsklig skrift och relaterad text.
 
 5. [Träna modellen](how-to-custom-speech-train-model.md) – förbättra noggrannheten hos din tal-till-text-modell genom att tillhandahålla skrivna avskrifter (10 – 1 000 timmar) och relaterad text (< 200 MB) tillsammans med dina ljud test data. Dessa data hjälper till att träna tal-till-text-modellen. Efter utbildningen, testa om och om du är nöjd med resultatet kan du distribuera din modell.
 
@@ -43,12 +43,12 @@ Det här diagrammet visar de delar som utgör den Custom Speech portalen. Använ
 
 ## <a name="set-up-your-azure-account"></a>Konfigurera ditt Azure-konto
 
-En prenumeration på tal tjänster krävs innan du kan använda Custom Speech Portal för att skapa en anpassad modell. Följ de här anvisningarna för att skapa en standard-prenumeration för tal tjänster: [Skapa en tal prenumeration](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started#new-azure-account).
+En prenumeration på tal tjänster krävs innan du kan använda [Custom Speech Portal](https://speech.microsoft.com/customspeech) för att skapa en anpassad modell. Följ de här anvisningarna för att skapa en standard-prenumeration för tal tjänster: [Skapa en tal prenumeration](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started#new-azure-account).
 
 > [!NOTE]
 > Se till att skapa standard prenumerationer (S0), prenumerationer för kostnads fria utvärderings versioner (F0) stöds inte.
 
-När du har skapat ett Azure-konto och en prenumeration på tal tjänster måste du logga in på Custom Speech Portal och ansluta din prenumeration.
+När du har skapat ett Azure-konto och en prenumeration på tal tjänster måste du logga in på [Custom Speech Portal](https://speech.microsoft.com/customspeech) och ansluta din prenumeration.
 
 1. Hämta din prenumerations nyckel för tal tjänster från Azure Portal.
 2. Logga in på [Custom Speech portalen](https://aka.ms/custom-speech).
@@ -57,7 +57,7 @@ När du har skapat ett Azure-konto och en prenumeration på tal tjänster måste
 
 ## <a name="how-to-create-a-project"></a>Så här skapar du ett projekt
 
-Innehåll som data, modeller, tester och slut punkter organiseras i **projekt** i Custom Speech portalen. Varje projekt är specifika för en domän och ett land/språk. Du kan till exempel skapa ett projekt för Call Center som använder engelska i USA.
+Innehåll som data, modeller, tester och slut punkter organiseras i **projekt** i [Custom Speech portalen](https://speech.microsoft.com/customspeech). Varje projekt är specifika för en domän och ett land/språk. Du kan till exempel skapa ett projekt för Call Center som använder engelska i USA.
 
 Om du vill skapa ditt första projekt väljer du tal **-till-text/anpassad tal**och klickar sedan på **nytt projekt**. Följ anvisningarna i guiden för att skapa projektet. När du har skapat ett projekt bör du se fyra flikar: **Data**, **testning**, **utbildning**och **distribution**. Använd länkarna som beskrivs i [Nästa steg](#next-steps) för att lära dig hur du använder varje flik.
 

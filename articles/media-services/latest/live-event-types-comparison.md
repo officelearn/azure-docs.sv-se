@@ -1,6 +1,6 @@
 ---
-title: Azure Media Services LiveEvent typer | Microsoft Docs
-description: Den här artikeln innehåller en detaljerad tabell som jämför LiveEvent typer.
+title: Azure Media Services LiveEvent-typer | Microsoft Docs
+description: Den här artikeln innehåller en detaljerad tabell som jämför LiveEvent-typer.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -13,63 +13,63 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 06/13/2019
 ms.author: juliako
-ms.openlocfilehash: 93f01513841d1174fea796f1615ab05df0a41af4
-ms.sourcegitcommit: 6e6813f8e5fa1f6f4661a640a49dc4c864f8a6cb
+ms.openlocfilehash: 884cf8d913cec038df3b38c8af2ed0a67bd8060d
+ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67150383"
+ms.lasthandoff: 09/08/2019
+ms.locfileid: "70802241"
 ---
-# <a name="live-event-types-comparison"></a>Live-händelse typer jämförelse
+# <a name="live-event-types-comparison"></a>Jämförelse av händelse typer i real tid
 
-I Azure Media Services, en [direktsänd händelse](https://docs.microsoft.com/rest/api/media/liveevents) kan vara något av två typer: direktsänd kodning och direktlagringsdiskar. 
+I Azure Media Services kan en [Live-händelse](https://docs.microsoft.com/rest/api/media/liveevents) vara en av två typer: Live encoding och genom strömning. 
 
 ## <a name="types-comparison"></a>Jämförelse mellan typer 
 
-I följande tabell jämförs funktionerna i Live händelsetyper. Typerna anges under skapas med hjälp av [LiveEventEncodingType](https://docs.microsoft.com/rest/api/media/liveevents/create#liveeventencodingtype):
+I följande tabell jämförs funktionerna i de olika typerna av Live-händelser. Typerna anges när du skapar med [LiveEventEncodingType](https://docs.microsoft.com/rest/api/media/liveevents/create#liveeventencodingtype):
 
-* **LiveEventEncodingType.None** -en lokal livekodare skickar flera bithastighet. De infogade strömmarna passerar genom Live-händelsen utan vidare bearbetning. 
-* **LiveEventEncodingType.Standard** – med en lokal livekodare skickar en enda bithastighet till direktsänd händelse och Media Services skapar strömmar med flera bithastigheter. Om flödet bidrag är av 720p eller högre upplösning på **Default720p** förinställning kommer koda av 6 lösning/bithastighet värdepar (information följer senare i artikeln).
-* **LiveEventEncodingType.Premium1080p** – med en lokal livekodare skickar en enda bithastighet till direktsänd händelse och Media Services skapar strömmar med flera bithastigheter. Förinställningen Default1080p anger utdata lösning/bithastighet par (information följer senare i artikeln). 
+* **LiveEventEncodingType. None** – en lokal Live-kodare skickar en data ström med flera bit hastigheter. De inmatade strömmarna passerar genom Live-händelsen utan ytterligare bearbetning. 
+* **LiveEventEncodingType. standard** – en lokal Live-kodare skickar en data ström med en bit hastighet till Live-händelsen och Media Services skapar flera bit hastighets strömmar. Om bidrags flödet är av 720p eller högre, kommer **Default720p** för för inställningen att koda en uppsättning med 6 lösnings-/bit hastighets par (information följer senare i artikeln).
+* **LiveEventEncodingType. Premium1080p** – en lokal Live-kodare skickar en data ström med en bit hastighet till Live-händelsen och Media Services skapar flera bit hastighets strömmar. För inställningen Default1080p anger utdata för upplösnings-och bit hastighets par (information följer senare i artikeln). 
 
-| Funktion | Direktsändningen direkt | Standard eller Premium1080p Live-händelse |
+| Funktion | Direkt sändnings händelse | Standard-eller Premium1080p Live-händelse |
 | --- | --- | --- |
-| Enkel bithastighet indata kodas till flera olika bithastigheter i molnet |Nej |Ja |
-| Maximal upplösning som video för bidrag feed |4K (4096 x 2160 på 60 bildrutor per sekund) |1080p (1920 x 1088 på 30 bilder per sekund)|
-| Rekommenderade maximala lager i bidrag feed|Upp till 12|En med endast ljud|
-| Maximal lager i utdata| Samma som indata|Upp till 6 (se nedan systeminställningar)|
-| Maximala sammanlagda bandbredden av bidraget feed|60 Mbit/s|Gäller inte|
-| Högsta bithastighet för ett enskilt lager i bidrag |20 Mbit/s|20 Mbit/s|
-| Stöd för flera språk ljudspår|Ja|Nej|
-| Stöd för inkommande codec för indatavideo |H.264/AVC och H.265/HEVC|H.264/AVC|
-| Codec för indatavideo stöds utdata|Samma som indata|H.264/AVC|
-| Stöd för video bitar, indata och utdata|Upp till 10-bitars inklusive HDR 10/HLG|8-bitars|
-| Stöd för inkommande ljud-codec|AAC-LC, HE-AAC v1, HE-AAC v2|AAC-LC, HE-AAC v1, HE-AAC v2|
-| Ljud stöds utdata-codecs|Samma som indata|AAC-LC|
-| Maximal video upplösning på utdata-video|Samma som indata|Standard – 720p Premium1080p - 1080p|
-| Maximal bildfrekvens av indatavideon|60 bildrutor per sekund|Standard eller Premium1080p - 30 bilder per sekund|
-| Inkommande protokoll|RTMP, fragmenterad-MP4 (Smooth Streaming)|RTMP, fragmenterad-MP4 (Smooth Streaming)|
-| Pris|Se den [prissättningssidan](https://azure.microsoft.com/pricing/details/media-services/) och klicka på fliken ”Live-Video”|Se den [prissättningssidan](https://azure.microsoft.com/pricing/details/media-services/) och klicka på fliken ”Live-Video”|
-| Maximal körtid| 24 timmar x 365 dagar, live linjär | Upp till 24 timmar|
-| Möjligheten att överföra via embedded CEA 608/708 bildtexter data|Ja|Ja|
-| Stöd för att infoga pekdatorer|Nej|Nej|
-| Stöd för ad-signalering via API: et| Nej|Nej|
-| Stöd för ad-signalering via SCTE 35 in-band-meddelanden|Ja|Ja|
-| Återställa från kort bås i bidrag feed|Ja|Delvis|
-| Stöd för icke-enhetlig inkommande GOPs|Ja|Nej – indata måste ha fast GOP varaktighet|
-| Stöd för variabeln ramens rate indata|Ja|Nej – indata som måste åtgärdas bildfrekvens. Smärre variationer användas, till exempel under hög rörelse scener. Men bidrag feeden det går inte att släppa bildfrekvensen (till exempel på 15 bildrutor per sekund).|
-| Automatisk-avslutning av Live-händelse när indata-flöde går förlorad|Nej|Efter 12 timmar, om det finns inga LiveOutput som körs|
+| Inmatade enstaka bit hastighet kodas till flera bit hastigheter i molnet |Nej |Ja |
+| Maximal video upplösning för bidrags flöden |4K (4096x2160 vid 60 bild rutor/SEK) |1080p (1920x1088 vid 30 bild rutor/SEK)|
+| Rekommenderade högsta skikt i bidrags flödet|Upp till 12|Ett ljud|
+| Maximalt antal lager i utdata| Samma som indatamängden|Upp till 6 (se system för inställningar nedan)|
+| Maximal sammanställd bandbredd för bidrags flödet|60 Mbit/s|Gäller inte|
+| Högsta bit hastighet för ett enskilt lager i bidraget |20 Mbit/s|20 Mbit/s|
+| Stöd för flera språk ljud spår|Ja|Nej|
+| Codecs för inkompatibla video |H. 264/AVC och H. 265/HEVC|H. 264/AVC|
+| Video-codecar som stöds|Samma som indatamängden|H. 264/AVC|
+| Video bitdjup, indata och utdata som stöds|Upp till 10 bitar, inklusive HDR 10/HLG|8-bitars|
+| Ljud-codec som stöds|AAC-LC, HE-AAC v1, HE-AAC v2|AAC-LC, HE-AAC v1, HE-AAC v2|
+| Ljud-codec som stöds|Samma som indatamängden|AAC-LC|
+| Maximal video upplösning för video om utdata|Samma som indatamängden|Standard-720p, Premium1080p – 1080p|
+| Högsta bild Rute frekvens för inmatad video|60 bild rutor per sekund|Standard-eller Premium1080p-30 bild rutor per sekund|
+| Protokoll för indataport|RTMP, fragmenterad – MP4 (Smooth Streaming)|RTMP, fragmenterad – MP4 (Smooth Streaming)|
+| Pris|Se [sidan med priser](https://azure.microsoft.com/pricing/details/media-services/) och klicka på fliken "live video"|Se [sidan med priser](https://azure.microsoft.com/pricing/details/media-services/) och klicka på fliken "live video"|
+| Maximal kör tid| 24 timmar x 365 dagar, direkt linjärt | 24 timmar x 365 dagar, direkt linjärt (för hands version)|
+| Möjlighet att gå igenom inbäddade CEA 608/708-textning|Ja|Ja|
+| Stöd för att infoga mellanliggande|Nej|Nej|
+| Stöd för AD-signalering via API| Nej|Nej|
+| Stöd för AD-signalering via SCTE-35-meddelanden på band|Ja|Ja|
+| Möjlighet att återställa från korta bås i bidrags flödet|Ja|Delvis|
+| Stöd för icke-uniform GOPs|Ja|Nej – indatatyper måste ha fast GOP varaktighet|
+| Stöd för variabla bild Rute frekvens inmatade|Ja|Nej – indatatyper måste vara fasta bild hastigheter. Mindre variationer tolereras, till exempel vid hög rörelse i bakgrunden. Men bidrags flödet kan inte släppa bild Rute frekvensen (till exempel till 15 bild rutor per sekund).|
+| Shutoff av direkt sändning när inmatnings flöde förloras|Nej|Efter 12 timmar, om ingen LiveOutput körs|
 
-## <a name="system-presets"></a>Systeminställningar
+## <a name="system-presets"></a>System för inställningar
 
-Upplösningar och bithastigheter för utdata i utdata från livekodaren bestäms av den [presetName](https://docs.microsoft.com/rest/api/media/liveevents/create#liveeventencoding). Om du använder en **Standard** live encoder (LiveEventEncodingType.Standard), kommer *Default720p* förinställning anger en uppsättning med 6 lösning/bithastighet par som beskrivs nedan. Annars, om du använder en **Premium1080p** live encoder (LiveEventEncodingType.Premium1080p), kommer *Default1080p* förinställning anger utdata lösning/bithastighet par.
+Lösningarna och bit hastigheterna i utdata från Live-kodaren bestäms av [presetName](https://docs.microsoft.com/rest/api/media/liveevents/create#liveeventencoding). Om du använder en **vanlig** Live-kodare (LiveEventEncodingType. standard) anger *Default720p* -förvalet en uppsättning med 6 lösning/bit hastighets par som beskrivs nedan. Annars, om du använder en **Premium1080p** Live-kodare (LiveEventEncodingType. Premium1080p), anger *Default1080p* -förvalet utdatatypen för par med upplösning/bit hastighet.
 
 > [!NOTE]
-> Du kan inte använda Default1080p förinställning på en Live-händelse om den har ställts in för Standard live encoding – du får ett felmeddelande. Du får också ett fel om du försöker använda Default720p förinställning på en Premium1080p live-kodare.
+> Du kan inte använda Default1080p för en aktiv händelse om den har kon figurer ATS för vanlig Live-kodning – du får ett fel meddelande. Du får också ett fel meddelande om du försöker tillämpa Default720p på en Premium1080p Live-kodare.
 
-### <a name="output-video-streams-for-default720p"></a>Video utdataströmmar för Default720p
+### <a name="output-video-streams-for-default720p"></a>Utgående video strömmar för Default720p
 
-Om flödet bidrag är av 720p eller högre upplösning på **Default720p** förinställning kommer koda flödet i de följande 6 skikt. I tabellen nedan är bithastighet i kbit/s, MaxFPS representerar den maximala tillåtna bildfrekvensen (i bildrutor per sekund), profil representerar H.264-profil som används.
+Om bidrags flödet är av 720p eller högre, kodas **Default720p** för för inställningen till följande 6 lager. I tabellen nedan representerar bit hastigheten i kbit/s, MaxFPS representerar den högsta tillåtna bild Rute frekvensen (i ramar/Second) och profilen H. 264-profilen används.
 
 | Bithastighet | Bredd | Höjd | MaxFPS | Profil |
 | --- | --- | --- | --- | --- |
@@ -81,12 +81,12 @@ Om flödet bidrag är av 720p eller högre upplösning på **Default720p** föri
 | 200 |340 |192 |30 |Hög |
 
 > [!NOTE]
-> Om du vill anpassa live förinställningen för kodningen kan öppna ett supportärende via Azure-portalen. Du bör ange den önskade tabellen med upplösning och bithastigheter. Kontrollera att det bara finns ett lager vid 720p och högst 6 lager. Även ange att du begär en förinställning för en Standard live-kodare.
-> De specifika värdena av olika bithastigheter och upplösningar kan ändras över tid
+> Om du behöver anpassa för hands kodning av direktsänd kodning öppnar du ett support ärende via Azure Portal. Du bör ange den önskade tabellen med upplösning och bithastigheter. Kontrollera att det bara finns ett lager vid 720p och högst 6 lager. Ange också att du begär en för inställning för en vanlig Live-kodare.
+> De exakta värdena för bit hastigheterna och lösningarna kan justeras med tiden
 
-### <a name="output-video-streams-for-default1080p"></a>Video utdataströmmar för Default1080p
+### <a name="output-video-streams-for-default1080p"></a>Utgående video strömmar för Default1080p
 
-Om flödet bidrag är av 1080p-upplösning som är den **Default1080p** förinställning kommer koda flödet i de följande 6 skikt.
+Om bidrags flödet är av 1080p-upplösning kommer **Default1080p** -förvalet att koda flödet till följande 6 lager.
 
 | Bithastighet | Bredd | Höjd | MaxFPS | Profil |
 | --- | --- | --- | --- | --- |
@@ -98,35 +98,35 @@ Om flödet bidrag är av 1080p-upplösning som är den **Default1080p** förinst
 | 200 |320 |180 |30 |Hög |
 
 > [!NOTE]
-> Om du vill anpassa live förinställningen för kodningen kan öppna ett supportärende via Azure-portalen. Du bör ange den önskade tabellen med upplösning och bithastigheter. Kontrollera att det finns ett lager vid 1080p och högst 6 lager. Även ange att du begär en förinställning för en Premium1080p live-kodare.
-> De specifika värdena av olika bithastigheter och upplösningar kan ändras över tid.
+> Om du behöver anpassa för hands kodning av direktsänd kodning öppnar du ett support ärende via Azure Portal. Du bör ange den önskade tabellen med upplösning och bithastigheter. Kontrol lera att det bara finns ett lager i 1080p och högst 6 lager. Ange också att du begär en för inställning för en Premium1080p Live-kodare.
+> De exakta värdena för bit hastigheterna och lösningarna kan justeras med tiden.
 
-### <a name="output-audio-stream-for-default720p-and-default1080p"></a>Utdata ljud Stream för Default720p och Default1080p
+### <a name="output-audio-stream-for-default720p-and-default1080p"></a>Mata ut ljud ström för Default720p och Default1080p
 
-För både *Default720p* och *Default1080p* förinställningar, ljud kodas till stereo AAC-LC på 128 kbit/s. Samplingsfrekvensen följer som ljudspåret i bidraget feed.
+För både *Default720p* -och *Default1080p* -för inställningar kodas ljudet till stereo AAC-LC vid 128 kbit/s. Samplings frekvensen följer efter ljud spåret i bidrags flödet.
 
-## <a name="implicit-properties-of-the-live-encoder"></a>Implicit egenskaperna för live Encoding
+## <a name="implicit-properties-of-the-live-encoder"></a>Implicita egenskaper för Live-kodaren
 
-I föregående avsnitt beskrivs egenskaperna för live-kodare som kan kontrolleras explicit, via förinställningen – till exempel hur många lager, upplösningar och bithastigheter för utdata. Det här avsnittet visar egenskaperna implicit.
+I föregående avsnitt beskrivs egenskaperna för den Live-kodare som kan styras uttryckligen, via för inställningen, till exempel antalet lager, lösningar och bit hastigheter. Det här avsnittet förklarar de implicita egenskaperna.
 
-### <a name="group-of-pictures-gop-duration"></a>Grupp av bilder (GOP) varaktighet
+### <a name="group-of-pictures-gop-duration"></a>Grupp med bilder (GOP) varaktighet
 
-Live Encoding följer den [GOP](https://en.wikipedia.org/wiki/Group_of_pictures) struktur bidrag feed - vilket innebär att utdata-lager har samma GOP varaktighet. Därför rekommenderas det att du konfigurerar den lokala kodare för att skapa ett bidrag feed som har åtgärdats GOP varaktighet (normalt 2 sekunder). Det säkerställer att de utgående HLS och MPEG-DASH-dataströmmar från tjänsten också har korrigerats GOP varaktigheter. Små variationer i GOP varaktigheter förmodligen tolereras av de flesta enheter.
+Live-kodaren följer [GOP](https://en.wikipedia.org/wiki/Group_of_pictures) -strukturen för bidrags flödet, vilket innebär att output-lagren har samma GOP-varaktighet. Därför rekommenderar vi att du konfigurerar den lokala kodare för att skapa en bidrags flöde som har fast GOP varaktighet (vanligt vis 2 sekunder). Detta säkerställer att utgående HLS-och MPEG-dataströmmar från tjänsten också har fasta GOP-varaktigheter. Små variationer i GOP-varaktigheter kan förmodligen tolereras av de flesta enheter.
 
 ### <a name="frame-rate"></a>Bildfrekvens
 
-Live Encoding följer också varaktigheten för de enskilda bildrutorna i bidraget feed - vilket innebär att utdata-lager har bildrutor med samma varaktighet. Därför kan vi rekommenderar att du konfigurerar den lokala kodare för att skapa ett bidrag feed som har korrigerat bildfrekvens (högst 30 bildrutor per sekund). Det säkerställer att de utgående HLS och MPEG-DASH-dataströmmar från tjänsten också har åtgärdat ramens priserna varaktigheter. Små variationer i bildrutehastigheter kan tolereras av de flesta enheter, men det är inte säkert att livekodaren ger utdata som spelas upp korrekt. Din lokala livekodare bör inte nämligen (t.ex.) låg energinivå villkor) eller varierande bildfrekvens på något sätt.
+Live-kodaren följer också varaktigheten för enskilda video bild rutor i bidrags flödet – vilket innebär att utmatnings lagren har bild rutor med samma varaktighet. Därför rekommenderar vi att du konfigurerar den lokala kodare för att skapa en bidrags flöde som har fast bild Rute frekvens (högst 30 bild rutor per sekund). Detta säkerställer att de utgående HLS och MPEG-dataströmmarna från tjänsten också har varaktigheter för fasta bild hastigheter. Små variationer i bild Rute frekvenser kan tolereras av de flesta enheter, men det finns ingen garanti för att Live-kodaren kommer att skapa utdata som spelas upp korrekt. Din lokala Live-kodare ska inte släppa ramar (t. ex. under låg energi förhållanden) eller varierande bild Rute frekvens på något sätt.
 
-### <a name="resolution-of-contribution-feed-and-output-layers"></a>Upplösning av bidraget feed och mata ut lager
+### <a name="resolution-of-contribution-feed-and-output-layers"></a>Lösning av bidrags flöde och utmatnings lager
 
-Live Encoding är konfigurerad för att undvika upconverting bidraget feed. Den maximala upplösningen för utdata-lager kommer därför inte överstiga det bidrag feed.
+Live-kodaren är konfigurerad för att undvika att omvandla bidrags flödet. Det innebär att den maximala upplösningen för utdata inte överstiger den som används för bidrags flödet.
 
-Till exempel om du skickar ett bidrag feed på 720p till en Live-händelser som konfigurerats för Default1080p live encoding, utdata har endast 5 lager, från och med 720p på 3 Mbit/s, gå till 1080 p med 200 kbit/s. Eller om du skickar ett bidrag feed på 360p direktsänd kodning i en Live-händelser som konfigurerats för Standard utdata innehåller 3 lager (vid lösningar av 288p och 216p 192p). I degenererad fall, om du skickar en bidrag-feed med exempelvis 160 x 90 bildpunkter till en Standard livekodare innehåller utdata ett lager med 160 x 90 upplösning på samma bithastigheten som bidrag feed.
+Om du till exempel skickar en bidrags väg vid 720p till en Live-händelse som kon figurer ATS för Default1080p Live encoding, kommer utdata bara att ha 5 lager, från och med 720p på 3Mbps, gå ned till 1080p vid 200 kbit/s. Eller om du skickar en bidrags matning på 360p till en Live-händelse som kon figurer ATS för vanlig Live-kodning, kommer utdata att innehålla 3 lager (vid upplösningen 288p, 216p och 192p). I degenererad-fallet, om du skickar en bidrags utmatning av, t. ex. 160x90 bild punkter till en vanlig Live-kodare, kommer utdata att innehålla ett lager med 160x90-upplösning på samma bit hastighet som bidrags flödet.
 
-### <a name="bitrate-of-contribution-feed-and-output-layers"></a>Bithastighet av bidraget feed och matar ut lager
+### <a name="bitrate-of-contribution-feed-and-output-layers"></a>Bit hastighet för bidrags flöde och utmatnings lager
 
-Live Encoding är konfigurerad för att respektera bithastighet inställningarna i förinställningen oavsett bithastigheten bidrag feed. Därmed kan bithastigheten lager som utdata överskrida som bidrag feed. Till exempel om du skickar i ett bidrag feed med en upplösning på 720p med 1 Mbit/s utdata-lager är desamma som i den [tabell](live-event-types-comparison.md#output-video-streams-for-default720p) ovan.
+Live-kodaren har kon figurer ATS för att respektera bit hastighets inställningarna i för inställningen, oavsett bit hastighet för bidrags flödet. Detta resulterar i att bit hastigheten för de utgående lagren kan överstiga bidrags flödet. Om du till exempel skickar en bidrags-feed till en upplösning på 1 Mbit/s, förblir utmatnings lagren samma som i [tabellen](live-event-types-comparison.md#output-video-streams-for-default720p) ovan.
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Direktsänd strömning översikt](live-streaming-overview.md)
+[Översikt över direkt uppspelning](live-streaming-overview.md)

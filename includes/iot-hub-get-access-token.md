@@ -4,19 +4,19 @@ ms.author: robinsh
 ms.service: iot-hub
 ms.topic: include
 ms.date: 10/26/2018
-ms.openlocfilehash: b6ea8c7b3a6374572c8bd31e3c62b788efbafcbc
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 7f7dc1483002c2bdfe3227a8aade8dbf2a8da417
+ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67187997"
+ms.lasthandoff: 09/08/2019
+ms.locfileid: "70803014"
 ---
 ## <a name="obtain-an-azure-resource-manager-token"></a>Hämta en Azure Resource Manager-token
-Azure Active Directory måste autentisera alla uppgifter som du kan utföra på resurser med hjälp av Azure Resource Manager. Det här exemplet använder lösenordsautentisering, andra metoder finns [autentisering av Azure Resource Manager begär][lnk-authenticate-arm].
+Azure Active Directory måste autentisera alla aktiviteter som du utför på resurser med hjälp av Azure Resource Manager. Exemplet som visas här använder lösenordsautentisering, för andra metoder se [autentisering Azure Resource Manager begär Anden][lnk-authenticate-arm].
 
-1. Lägg till följande kod till den **Main** -metod i Program.cs att hämta en token från Azure AD med program-id och lösenord.
+1. Lägg till följande kod i **main** -metoden i program.cs för att hämta en token från Azure AD med hjälp av program-ID och lösen ord.
    
-    ```
+    ```csharp
     var authContext = new AuthenticationContext(string.Format  
       ("https://login.microsoftonline.com/{0}", tenantId));
     var credential = new ClientCredential(applicationId, password);
@@ -29,16 +29,16 @@ Azure Active Directory måste autentisera alla uppgifter som du kan utföra på 
       return;
     }
     ```
-2. Skapa en **ResourceManagementClient** objekt som använder token genom att lägga till följande kod i slutet av den **Main** metoden:
+2. Skapa ett **ResourceManagementClient** -objekt som använder token genom att lägga till följande kod i slutet av **main** -metoden:
    
-    ```
+    ```csharp
     var creds = new TokenCredentials(token.AccessToken);
     var client = new ResourceManagementClient(creds);
     client.SubscriptionId = subscriptionId;
     ```
-3. Skapa eller hämta en referens till den resursgrupp som du använder:
+3. Skapa eller hämta en referens till den resurs grupp du använder:
    
-    ```
+    ```csharp
     var rgResponse = client.ResourceGroups.CreateOrUpdate(rgName,
         new ResourceGroup("East US"));
     if (rgResponse.Properties.ProvisioningState != "Succeeded")

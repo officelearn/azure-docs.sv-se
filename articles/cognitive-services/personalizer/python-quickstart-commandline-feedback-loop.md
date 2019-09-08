@@ -10,12 +10,12 @@ ms.subservice: personalizer
 ms.topic: quickstart
 ms.date: 08/09/2019
 ms.author: diberry
-ms.openlocfilehash: ca1478801ad704888266175a23b6f436d067dd10
-ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
+ms.openlocfilehash: 9ad220287685dd2405931cd6f8cd460b06f340b2
+ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68950795"
+ms.lasthandoff: 09/08/2019
+ms.locfileid: "70801567"
 ---
 # <a name="quickstart-personalize-client-library-for-python"></a>Snabbstart: Anpassa klient bibliotek för python
 
@@ -59,7 +59,7 @@ Om du använder Visual Studio IDE är klient biblioteket tillgängligt som ett n
 
 ### <a name="change-the-model-update-frequency"></a>Ändra modell uppdaterings frekvensen
 
-Ändra uppdaterings frekvensen för **modellen** till 10 sekunder i den personliga resursen i Azure Portal. Detta kommer att träna tjänsten snabbt, så att du kan se hur de viktigaste åtgärderna ändras för varje iteration.
+Ändra **uppdaterings frekvensen för modellen** till 10 sekunder i den personliga resursen i Azure Portal. Detta kommer att träna tjänsten snabbt, så att du kan se hur de viktigaste åtgärderna ändras för varje iteration.
 
 ![Ändra modell uppdaterings frekvens](./media/settings/configure-model-update-frequency-settings.png)
 
@@ -109,6 +109,8 @@ Skapa sedan en metod för att returnera en personanpassa klient. Parametern till
 
 Åtgärder representerar de innehålls val som du vill att en Personanpassare ska rangordna. Lägg till följande metoder i program-klassen för att få en användares indata från kommando raden för tid på dag och aktuell kost preferens.
 
+[!code-python[Present time out day preference to the user](~/samples-personalizer/quickstarts/python/sample.py?name=getActions)]
+
 [!code-python[Present time out day preference to the user](~/samples-personalizer/quickstarts/python/sample.py?name=createUserFeatureTimeOfDay)]
 
 [!code-python[Present food taste preference to the user](~/samples-personalizer/quickstarts/python/sample.py?name=createUserFeatureTastePreference)]
@@ -135,7 +137,7 @@ Den här snabb starten har enkla Sammanhangs funktioner i tid på dygnet och anv
 
 För att slutföra belönings förfrågan hämtar programmet användarens val från kommando raden, tilldelar ett numeriskt värde till varje val och skickar sedan det unika ID: t för rangordning och det numeriska värdet till belönings metoden.
 
-Den här snabb starten tilldelar ett enkelt tal som en belöning, antingen noll eller 1. I produktions system kan du fastställa när och vad som ska skickas [](concept-rewards.md) till belönings anropet som en icke-trivial fråga, beroende på dina behov. 
+Den här snabb starten tilldelar ett enkelt tal som en belöning, antingen noll eller 1. I produktions system kan du fastställa när och vad som ska skickas till [belönings](concept-rewards.md) anropet som en icke-trivial fråga, beroende på dina behov. 
 
 [!code-python[The Personalizer learning loop sends a reward.](~/samples-personalizer/quickstarts/python/sample.py?name=reward&highlight=9)]
 

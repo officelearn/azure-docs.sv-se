@@ -1,113 +1,115 @@
 ---
-title: Hur du begär data i realtid i Azure Maps | Microsoft Docs
-description: Begär data i realtid med hjälp av Azure Maps mobilitetstjänsten.
+title: Så här begär du real tids data i Azure Maps | Microsoft Docs
+description: Begär real tids data med tjänsten Azure Maps Mobility.
 author: walsehgal
 ms.author: v-musehg
-ms.date: 06/05/2019
+ms.date: 09/06/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: aaab5ef4d8fc3d60a12f9e9f85f2846695fd1ab4
-ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.openlocfilehash: 75fe9c120eae99e517aa52b704fbd6c170e78649
+ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67329660"
+ms.lasthandoff: 09/08/2019
+ms.locfileid: "70802292"
 ---
-# <a name="request-real-time-data-using-the-azure-maps-mobility-service"></a>Begär data i realtid med hjälp av Azure Maps Mobilitetstjänsten
+# <a name="request-real-time-data-using-the-azure-maps-mobility-service"></a>Begär real tids data med tjänsten Azure Maps Mobility
 
-Den här artikeln visar hur du använder Azure Maps [Mobilitetstjänsten](https://aka.ms/AzureMapsMobilityService) att begära i realtid överföring data.
+Den här artikeln visar hur du använder Azure Maps [mobilitets tjänst](https://aka.ms/AzureMapsMobilityService) för att begära överförings data i real tid.
 
-I den här artikeln du lär dig hur du:
-
-
- * Begär nästa i realtid anslutningsbegäranden för alla rader som anländer till den angivna stop
- * Begär information i realtid för en viss cykel dockningsstation.
+I den här artikeln får du lära dig att:
 
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
-
-Om du vill göra något anrop till den offentliga Azure Maps-överföringen API: er, behöver du en Maps-konto och nyckel. Information om att skapa ett konto och hämta en nyckel finns i [så här hanterar du ditt Azure Maps-konto och dina nycklar](how-to-manage-account-keys.md).
-
-Den här artikeln används den [Postman-appen](https://www.getpostman.com/apps) att skapa REST-anrop. Du kan använda alla API-utvecklingsmiljö du föredrar.
+ * Begär nästa mottagna real tid för alla rader som kommer vid det aktuella stoppet
+ * Begär real tids information för en specifik cykel docknings Station.
 
 
-## <a name="request-real-time-arrivals-for-a-stop"></a>Begäran i realtid anslutningsbegäranden för stoppar
+## <a name="prerequisites"></a>Förutsättningar
 
-Begär data i realtid anslutningsbegäranden för en viss offentliga överföring stoppa du ska kunna skicka en förfrågan om att den [Real-time anslutningsbegäranden API](https://aka.ms/AzureMapsMobilityRealTimeArrivals) för Azure Maps [Mobilitetstjänsten](https://aka.ms/AzureMapsMobilityService). Du behöver den **metroID** och **stopID** att slutföra begäran. Mer information om hur du begär dessa parametrar finns i vår anvisningar som guide till [begär offentlig överföring vägar](https://aka.ms/AMapsHowToGuidePublicTransitRouting). 
+Om du vill göra anrop till API: erna för Azure Maps offentlig överföring behöver du ett Maps-konto och nyckel. Information om hur du skapar ett konto och hämtar en nyckel finns i [Hantera ditt Azure Maps konto och nycklar](how-to-manage-account-keys.md).
 
-Nu ska vi använda ”522” som våra appar i metro-ID som är metro ID för ”Bellevue – Tacoma – Seattle, WA”, och Använd stop-ID ”2060603”, vilket är en buss Avsluta när ”Ne 24th St & 162nd ARA Ne, Bellevue WA”. Om du vill begära fem i realtid anslutningsbegäranden data för alla nästa live anslutningsbegäranden på den här stop, gör du följande:
+I den här artikeln används [Postman-appen](https://www.getpostman.com/apps) för att bygga rest-anrop. Du kan använda valfri API utvecklings miljö som du föredrar.
 
-1. Skapa en samling som ska lagra begäranden. I Postman-appen, väljer **New**. I den **Skapa ny** väljer **samling**. Ge samlingen ett namn och välj den **skapa** knappen.
 
-2. För att skapa begäran, Välj **New** igen. I den **Skapa ny** väljer **begära**. Ange en **frågenamn** för begäran, väljer du den samling som du skapade i föregående steg som platsen där du vill spara begäran och välj sedan **spara**.
+## <a name="request-real-time-arrivals-for-a-stop"></a>Begär real tids mottagningar för ett stopp
+
+För att kunna begära att data tas emot i real tid för en viss offentlig överförings stopp, måste du göra en begäran till [real tids ingångs-API: t](https://aka.ms/AzureMapsMobilityRealTimeArrivals) för [tjänsten Azure Maps mobilitet](https://aka.ms/AzureMapsMobilityService). Du behöver **metroID** och **stopID** för att slutföra begäran. Mer information om hur du begär dessa parametrar finns i vår instruktions guide för att [begära offentliga överförings vägar](https://aka.ms/AMapsHowToGuidePublicTransitRouting). 
+
+Vi använder "522" som vårt tunnelbane-ID, som är Metro-ID för "Seattle – Tacoma – Bellevue, WA" och använder stopp-ID: t "522---2060603", som är ett buss avbrott på "ne 24 st & 162nd Ave Ne, Bellevue WA". Om du vill begära nästa fem real tids mottagna data för alla nästa Live-ankomst i detta steg, utför följande steg:
+
+1. Skapa en samling där förfrågningarna ska lagras. I Postman-appen väljer du **ny**. I fönstret **Skapa nytt** väljer du **samling**. Namnge samlingen och välj knappen **skapa** .
+
+2. Välj **nytt** om du vill skapa en begäran. I fönstret **Skapa nytt** väljer du **begäran**. Ange ett **namn** för begäran, Välj den samling som du skapade i föregående steg som den plats där du vill spara begäran och välj sedan **Spara**.
 
     ![Skapa en begäran i Postman](./media/how-to-request-transit-data/postman-new.png)
 
-3. Välj Hämta HTTP-metod på fliken builder och ange följande URL för att skapa en GET-begäran.
+3. Välj metoden Hämta HTTP på fliken Builder och ange följande URL för att skapa en GET-begäran.
 
     ```HTTP
-    https://atlas.microsoft.com/mobility/realtime/arrivals/json?subscription-key={subscription-key}&api-version=1.0&metroId=522&query=2060603&transitType=bus
+    https://atlas.microsoft.com/mobility/realtime/arrivals/json?subscription-key={subscription-key}&api-version=1.0&metroId=522&query=522---2060603&transitType=bus
     ```
 
-4. Efter en lyckad begäran får du följande svar.  Observera att parametern-scheduleType' definierar om den uppskattade ankomsttiden baserat på data i realtid eller statisk.
+4. Efter en lyckad begäran visas följande svar.  Observera att parametern "scheduleType" definierar om den uppskattade införsel tiden baseras på real tids data eller statiska data.
 
     ```JSON
     {
         "results": [
             {
-                "arrivalMinutes": 4,
+                "arrivalMinutes": 8,
                 "scheduleType": "realTime",
-                "patternId": 3860436,
+                "patternId": "522---4143196",
                 "line": {
-                    "lineId": 2756599,
-                    "lineGroupId": 666063,
-                    "direction": "forward",
-                    "agencyId": 5872,
+                    "lineId": "522---3760143",
+                    "lineGroupId": "522---666077",
+                    "direction": "backward",
+                    "agencyId": "522---5872",
                     "agencyName": "Metro Transit",
-                    "lineNumber": "226",
-                    "lineDestination": "Bellevue Transit Center Crossroads",
+                    "lineNumber": "249",
+                    "lineDestination": "South Bellevue S Kirkland P&R",
                     "transitType": "Bus"
                 },
                 "stop": {
-                    "stopId": 2060603,
+                    "stopId": "522---2060603",
                     "stopKey": "71300",
                     "stopName": "NE 24th St & 162nd Ave NE",
+                    "stopCode": "71300",
                     "position": {
                         "latitude": 47.631504,
                         "longitude": -122.125275
                     },
                     "mainTransitType": "Bus",
-                    "mainAgencyId": 5872,
+                    "mainAgencyId": "522---5872",
                     "mainAgencyName": "Metro Transit"
                 }
             },
             {
-                "arrivalMinutes": 30,
-                "scheduleType": "scheduledTime",
-                "patternId": 3860436,
+                "arrivalMinutes": 25,
+                "scheduleType": "realTime",
+                "patternId": "522---3510227",
                 "line": {
-                    "lineId": 2756599,
-                    "lineGroupId": 666063,
+                    "lineId": "522---2756599",
+                    "lineGroupId": "522---666063",
                     "direction": "forward",
-                    "agencyId": 5872,
+                    "agencyId": "522---5872",
                     "agencyName": "Metro Transit",
                     "lineNumber": "226",
                     "lineDestination": "Bellevue Transit Center Crossroads",
                     "transitType": "Bus"
                 },
                 "stop": {
-                    "stopId": 2060603,
+                    "stopId": "522---2060603",
                     "stopKey": "71300",
                     "stopName": "NE 24th St & 162nd Ave NE",
+                    "stopCode": "71300",
                     "position": {
                         "latitude": 47.631504,
                         "longitude": -122.125275
                     },
                     "mainTransitType": "Bus",
-                    "mainAgencyId": 5872,
+                    "mainAgencyId": "522---5872",
                     "mainAgencyName": "Metro Transit"
                 }
             }
@@ -116,26 +118,26 @@ Nu ska vi använda ”522” som våra appar i metro-ID som är metro ID för �
     ```
 
 
-## <a name="real-time-data-for-bike-docking-station"></a>Data i realtid för cykel dockningsstation
+## <a name="real-time-data-for-bike-docking-station"></a>Real tids data för cykel docknings Station
 
-Den [hämta överföring docka Info API](https://aka.ms/AzureMapsMobilityTransitDock) mobilitetstjänsten för Azure Maps tillåter för att begära statiskt och i realtid information, till exempel tillgänglighet och lediga platsen för en viss cykel eller scooter dockningsstation. Vi gör en begäran att hämta data i realtid för en dockningsstation för cyklar.
+API för att [Hämta information om transport](https://aka.ms/AzureMapsMobilityTransitDock) sidan i Azure Maps Mobility-tjänsten gör det möjligt att begära statisk och real tids information, till exempel tillgänglighet och vakans-information för en specifik cykel eller scooter docknings Station. Vi kommer att göra en begäran om att hämta real tids data för en docknings station för cyklar.
 
-Om du vill göra en begäran kom överföring docka Info API, behöver de **dockId** för den stationen. Du kan hämta docka-ID genom att göra en sökbegäran till den [hämta i närheten överföring API](https://aka.ms/AzureMapsMobilityNearbyTransit) och inställningen för den **objectType** parameter ”bikeDock”. Följ stegen nedan för att hämta data i realtid med en dockningsstation för cyklar.
+Du behöver **dockId** för den stationen för att kunna göra en begäran till informations-API: t för överförings tjänsten. Du kan hämta dock-ID genom att göra en sökbegäran till [API för att hämta närbelägen i närheten](https://aka.ms/AzureMapsMobilityNearbyTransit) och ange parametern **ObjectType** till "bikeDock". Följ stegen nedan för att hämta real tids data för en docknings station för cyklar.
 
 
-### <a name="get-dock-id"></a>Hämta docka-ID
+### <a name="get-dock-id"></a>Hämta dock-ID
 
-Att hämta **dockID**, Följ stegen nedan för att göra en begäran att hämta i närheten överföring API: et:
+Om du vill hämta **dockID**följer du stegen nedan för att göra en begäran till API: et för närliggande överföring:
 
-1. I Postman, klickar du på **ny begäran** | **GET-begäran** och ge den namnet **Get docka ID**.
+1. Klicka på **ny begäran** | **Get-begäran** i Postman och ge den ett **dock-ID**.
 
-2.  På fliken Builder väljer den **hämta** HTTP-metoden, ange följande URL för begäran och klickar på **skicka**.
+2.  På fliken Builder väljer du metoden **Hämta** http, anger följande URL för begäran och klickar på **Skicka**.
  
     ```HTTP
     https://atlas.microsoft.com/mobility/transit/nearby/json?subscription-key={subscription-key}&api-version=1.0&metroId=121&query=40.7663753,-73.9627498&radius=100&objectType=bikeDock
     ```
 
-3. Efter en lyckad begäran får du följande svar. Observera att vi nu har den **id** i svaret, som kan användas senare som frågeparameter i förfrågan om att hämta överföring docka Info API.
+3. Efter en lyckad begäran visas följande svar. Observera att vi nu har **ID: t** i svaret, som kan användas senare som en frågeparameter i begäran till API: et för att hämta överförings information.
 
     ```JSON
     {
@@ -145,10 +147,10 @@ Att hämta **dockID**, Följ stegen nedan för att göra en begäran att hämta 
                 "type": "bikeDock",
                 "objectDetails": {
                     "availableVehicles": 0,
-                    "vacantLocations": 30,
-                    "lastUpdated": "2019-05-21T20:06:59-04:00",
+                    "vacantLocations": 31,
+                    "lastUpdated": "2019-09-07T00:55:19Z",
                     "operatorInfo": {
-                        "id": "80",
+                        "id": "121---80",
                         "name": "Citi Bike"
                     }
                 },
@@ -172,31 +174,31 @@ Att hämta **dockID**, Följ stegen nedan för att göra en begäran att hämta 
     ```
 
 
-### <a name="get-real-time-bike-dock-status"></a>Hämta i realtid cykel docka status
+### <a name="get-real-time-bike-dock-status"></a>Hämta status för cykel Docking i real tid
 
-Följ stegen nedan för att göra en begäran kom överföring docka Info API: et att hämta data i realtid för valda dockan.
+Följ stegen nedan för att göra en begäran till API: t för att hämta överförings information för att hämta real tids data för den valda dock.
 
-1. I Postman, klickar du på **ny begäran** | **GET-begäran** och ge den namnet **hämta data i realtid dockan**.
+1. I Postman klickar du på **ny begäran** | **Hämta begäran** och namnger den för att **få data i real tid**.
 
-2.  På fliken Builder väljer den **hämta** HTTP-metoden, ange följande URL för begäran och klickar på **skicka**.
+2.  På fliken Builder väljer du metoden **Hämta** http, anger följande URL för begäran och klickar på **Skicka**.
  
     ```HTTP
     https://atlas.microsoft.com/mobility/transit/dock/json?subscription-key={subscription-key}&api-version=1.0&query=121---4640799
     ```
 
-3. Efter en lyckad förfrågan får du ett svar med följande struktur:
+3. Efter en lyckad begäran kommer du att få ett svar på följande struktur:
 
     ```JSON
     {
-        "availableVehicles": 1,
-        "vacantLocations": 29,
+        "availableVehicles": 0,
+        "vacantLocations": 31,
         "position": {
             "latitude": 40.767128,
             "longitude": -73.962246
         },
-        "lastUpdated": "2019-05-21T20:26:47-04:00",
+        "lastUpdated": "2019-09-07T00:55:19Z",
         "operatorInfo": {
-            "id": "80",
+            "id": "121---80",
             "name": "Citi Bike"
         }
     }
@@ -205,12 +207,12 @@ Följ stegen nedan för att göra en begäran kom överföring docka Info API: e
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig hur du begär överföring data med hjälp av Mobilitetstjänsten:
+Lär dig hur du begär överförings data med mobilitets tjänsten:
 
 > [!div class="nextstepaction"]
-> [Hur du begär data för överföring](how-to-request-transit-data.md)
+> [Så här begär du överförings data](how-to-request-transit-data.md)
 
-Utforska Azure Maps Mobility Service API-dokumentationen:
+Utforska dokumentationen för Azure Maps Mobility Service API:
 
 > [!div class="nextstepaction"]
-> [Mobility Service API-dokumentation](https://aka.ms/AzureMapsMobilityService)
+> [API-dokumentation för Mobility Service](https://aka.ms/AzureMapsMobilityService)

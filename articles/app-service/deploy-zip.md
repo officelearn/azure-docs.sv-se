@@ -14,12 +14,12 @@ ms.date: 08/12/2019
 ms.author: cephalin
 ms.reviewer: sisirap
 ms.custom: seodec18
-ms.openlocfilehash: b69488c971d6ab10e0a95e3825be097f8713016d
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 83951f6408094b8d1e04d19650a5f2ef596be988
+ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70070447"
+ms.lasthandoff: 09/08/2019
+ms.locfileid: "70801160"
 ---
 # <a name="deploy-your-app-to-azure-app-service-with-a-zip-or-war-file"></a>Distribuera din app till Azure App Service med en ZIP-eller WAR-fil
 
@@ -53,7 +53,7 @@ För att slutföra stegen i den här artikeln:
 
 I ett lokalt terminalfönster navigerar du till rot katalogen för ditt Apps-projekt. 
 
-Den här katalogen ska innehålla post filen till din webbapp, till exempel _index. html_, _index. php_och _app. js_. Det kan också innehålla paket hanterings filer _som Project. JSON_, _Composer. JSON_, _Package. JSON_, _Bower. JSON_och _Requirements. txt_.
+Den här katalogen ska innehålla post filen till din webbapp, till exempel _index. html_, _index. php_och _app. js_. Det kan också innehålla paket hanterings filer som _Project. JSON_, _Composer. JSON_, _Package. JSON_, _Bower. JSON_och _Requirements. txt_.
 
 Skapa ett ZIP-arkiv med allt i projektet. Följande kommando använder standardverktyget i terminalen:
 
@@ -66,6 +66,7 @@ Compress-Archive -Path * -DestinationPath <file-name>.zip
 ``` 
 
 [!INCLUDE [Deploy ZIP file](../../includes/app-service-web-deploy-zip.md)]
+Ovanstående slut punkt fungerar inte för Linux-App Services för tillfället. Överväg att använda FTP eller [zip Deploy-API](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-faq#continuous-integration-and-deployment) i stället.
 
 ## <a name="deploy-zip-file-with-azure-cli"></a>Distribuera ZIP-fil med Azure CLI
 

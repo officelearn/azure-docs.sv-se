@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: aa81f181c8d062e5fd68b0fbb2445f5c37540889
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: 163c3cbaeed1526f08d047c3bf357232ccb534a3
+ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70309572"
+ms.lasthandoff: 09/08/2019
+ms.locfileid: "70802388"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planera för distribution av Azure Files
 
@@ -206,14 +206,17 @@ Det här avsnittet gäller endast för standard fil resurser. Alla Premium-filre
 
 Standard fil resurser är tillgängliga i alla regioner upp till 5 TiB. I vissa regioner är det tillgängligt med en 100 TiB-gräns, dessa regioner visas i följande tabell:
 
-|Region |Redundans stöds |Stöder befintliga lagrings konton |Portal support *   |
+|Region |Redundans stöds |Stöder befintliga lagrings konton |Portal support * |
 |-------|---------|---------|---------|
-|Östra Australien  |LRS     |Nej    |Ja|
-|Frankrike, centrala  |LRS     |Nej    |Inte ännu|
-|Frankrike, södra    |LRS     |Nej    |Inte ännu|
-|Asien, Sydostasien  |LRS, ZRS|Nej    |Ja|
-|Västra Europa     |LRS, ZRS|Nej    |Ja|
-|Västra USA 2       |LRS, ZRS|Nej    |Ja|
+|Östra Australien |LRS     |Nej    |Ja|
+|Sydöstra Australien|LRS     |Nej    |Inte ännu|
+|Indien, centrala  |LRS     |Nej    |Inte ännu|
+|Frankrike, centrala  |LRS, ZRS|Nej    |LRS – Ja, ZRS – inte ännu|
+|Indien, södra    |LRS     |Nej    |Inte ännu|
+|Sydostasien |LRS, ZRS|Nej    |Ja|
+|Västra centrala USA|LRS     |Nej    |Inte ännu|
+|Västra Europa    |LRS, ZRS|Nej    |Ja|
+|Västra USA 2      |LRS, ZRS|Nej    |Ja|
 
 \* För regioner utan Portal stöd kan du fortfarande använda PowerShell eller Azure Command Line Interface (CLI) för att skapa större än 5 TiB-resurser. Du kan också skapa en ny resurs via portalen utan att ange kvot. Då skapas en resurs med standard storleken 100 TiB, som kan uppdateras senare via PowerShell eller Azure CLI.
 

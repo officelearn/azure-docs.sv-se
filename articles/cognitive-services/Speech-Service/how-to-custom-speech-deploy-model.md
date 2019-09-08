@@ -8,22 +8,22 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 07/05/2019
+ms.date: 09/06/2019
 ms.author: erhopf
-ms.openlocfilehash: 15e2ce437a746d15622dc4e093a63c87448f100d
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: fcd3e5fd6db0d7c18a5f9bfba030cd3d809b452f
+ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68559676"
+ms.lasthandoff: 09/08/2019
+ms.locfileid: "70802532"
 ---
 # <a name="deploy-a-custom-model"></a>Distribuera en anpassad modell
 
-När du har laddat upp och inspekterat data, utvärderat noggrannhet och tränat en anpassad modell, kan du distribuera en anpassad slut punkt för användning med dina appar, verktyg och produkter. I det här dokumentet får du lära dig hur du skapar och distribuerar en slut punkt med hjälp av Custom Speech portalen.
+När du har laddat upp och inspekterat data, utvärderat noggrannhet och tränat en anpassad modell, kan du distribuera en anpassad slut punkt för användning med dina appar, verktyg och produkter. I det här dokumentet får du lära dig hur du skapar och distribuerar en slut punkt med hjälp av [Custom Speech portalen](https://speech.microsoft.com/customspeech).
 
 ## <a name="create-a-custom-endpoint"></a>Skapa en anpassad slut punkt
 
-Om du vill skapa en ny anpassad slut punkt väljer du **distribution** på Custom Speech menyn högst upp på sidan. Om det här är din första körning ser du att det inte finns några slut punkter som visas i tabellen. När du har skapat en slut punkt använder du den här sidan för att spåra varje distribuerad slut punkt.
+Om du vill skapa en ny anpassad slut punkt loggar du in på [Custom Speech Portal](https://speech.microsoft.com/customspeech) och väljer **distribution** på Custom Speech menyn överst på sidan. Om det här är din första körning ser du att det inte finns några slut punkter som visas i tabellen. När du har skapat en slut punkt använder du den här sidan för att spåra varje distribuerad slut punkt.
 
 Välj sedan **Lägg till slut punkt** och ange ett **namn** och en **Beskrivning** för din anpassade slut punkt. Välj sedan den anpassade modell som du vill koppla till den här slut punkten. På den här sidan kan du också aktivera loggning. Med loggning kan du övervaka slut punkts trafik. Om den är inaktive rad lagras inte trafiken.
 
@@ -32,7 +32,7 @@ Välj sedan **Lägg till slut punkt** och ange ett **namn** och en **Beskrivning
 > [!NOTE]
 > Glöm inte att acceptera villkoren för användning och pris information.
 
-Välj sedan **skapa**. Den här åtgärden återgår till **distributions** sidan. Tabellen innehåller nu en post som motsvarar din anpassade slut punkt. Slut punktens status visar dess aktuella tillstånd. Det kan ta upp till 30 minuter att instansiera en ny slut punkt med hjälp av dina anpassade modeller. När distributions statusen ändras till slutförd , är slut punkten redo att användas.
+Välj sedan **skapa**. Den här åtgärden återgår till **distributions** sidan. Tabellen innehåller nu en post som motsvarar din anpassade slut punkt. Slut punktens status visar dess aktuella tillstånd. Det kan ta upp till 30 minuter att instansiera en ny slut punkt med hjälp av dina anpassade modeller. När distributions statusen ändras till **slutförd**, är slut punkten redo att användas.
 
 När slut punkten har distribuerats visas slut punktens namn som en länk. Klicka på länken om du vill visa information som är speciell för din slut punkt, till exempel slut punkts nyckel, slut punkts-URL och exempel kod.
 

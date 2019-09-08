@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 07/05/2019
+ms.date: 09/06/2019
 ms.author: erhopf
-ms.openlocfilehash: fad0fada4d9dd888b0b2a37b59e4eac1e016aec4
-ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
+ms.openlocfilehash: b18e1b755b4e1339bf00380d8228fc28e355d3e1
+ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68663587"
+ms.lasthandoff: 09/08/2019
+ms.locfileid: "70802513"
 ---
 # <a name="prepare-data-for-custom-speech"></a>Förbereda data för Custom Speech
 
@@ -35,7 +35,7 @@ Filerna ska grupperas efter typ i en data uppsättning och laddas upp som en zip
 
 ## <a name="upload-data"></a>Ladda upp data
 
-När du är redo att ladda upp dina data klickar du på **överför data** för att starta guiden och skapa din första data uppsättning. Du uppmanas att välja en tal data typ för din data uppsättning innan du tillåter att du överför dina data.
+När du är redo att ladda upp dina data, navigerar du till [Custom Speech Portal](https://speech.microsoft.com/customspeech)och klickar sedan på **överför data** för att starta guiden och skapa din första data uppsättning. Du uppmanas att välja en tal data typ för din data uppsättning innan du tillåter att du överför dina data.
 
 ![Välj ljud från tal portalen](./media/custom-speech/custom-speech-select-audio.png)
 
@@ -52,7 +52,7 @@ Ljuddata är optimala för att testa noggrannheten hos Microsofts bas linje tal-
 
 Använd den här tabellen för att se till att ljudfilerna är korrekt formaterade för användning med Custom Speech:
 
-| Egenskap | Värde |
+| Egenskap | Value |
 |----------|-------|
 | Fil format | RIFF (WAV) |
 | Samplingshastighet | 8 000 Hz eller 16 000 Hz |
@@ -96,7 +96,7 @@ För att lösa problem som Word-borttagning eller ersättning krävs en stor mä
 
 Transkriptionerna textnormaliseras så att de kan bearbetas av systemet. Det finns dock vissa viktiga normaliseringar som måste utföras av användaren _innan_ data laddas upp till Custom Speech Service. För det språk som ska användas när du förbereder dina avskrifter, se [så här skapar du en](how-to-custom-speech-human-labeled-transcriptions.md) medhjälpad avskrift
 
-När du har samlat in dina ljudfiler och motsvarande avskrifter bör de paketeras som en enda zip-fil innan de överförs till Custom Speech Portal. Detta är ett exempel på en data uppsättning med tre ljudfiler och en fil med mänsklig märkning:
+När du har samlat in dina ljudfiler och motsvarande avskrifter bör de paketeras som en enda zip-fil innan de överförs till [Custom Speech Portal](https://speech.microsoft.com/customspeech). Detta är ett exempel på en data uppsättning med tre ljudfiler och en fil med mänsklig märkning:
 
 ![Välj ljud från tal portalen](./media/custom-speech/custom-speech-audio-transcript-pairs.png)
 
@@ -109,7 +109,7 @@ Om du har produkt namn eller funktioner som är unika och vill se till att de id
 | Yttranden och/eller meningar | Dessa kan förbättra precisionen vid igenkänning av produkt namn eller branschspecifika ord listor inom ramen för en mening. |
 | Uttal | Dessa kan förbättra uttal av ovanliga termer, akronymer eller andra ord med odefinierade uttal. |
 
-Yttranden kan anges som en enda eller flera textfiler. Mer exakta text data är att talas, desto större sannolikhet att noggrannheten förbättras. Uttal ska anges som en enskild textfil. Allt kan paketeras som en enda zip-fil och överföras till Custom Speech Portal.
+Yttranden kan anges som en enda eller flera textfiler. Mer exakta text data är att talas, desto större sannolikhet att noggrannheten förbättras. Uttal ska anges som en enskild textfil. Allt kan paketeras som en enda zip-fil och överföras till [Custom Speech Portal](https://speech.microsoft.com/customspeech).
 
 ### <a name="guidelines-to-create-an-utterances-file"></a>Rikt linjer för att skapa en yttranden-fil
 

@@ -8,21 +8,21 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 07/05/2019
+ms.date: 09/06/2019
 ms.author: erhopf
-ms.openlocfilehash: b58f9c17995128091b5c4badd228356dbacc6ae9
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 0b5f064204c5bca35ccb1a628cb06978180c318c
+ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68562845"
+ms.lasthandoff: 09/08/2019
+ms.locfileid: "70801472"
 ---
 # <a name="inspect-custom-speech-data"></a>Granska Custom Speech data
 
 > [!NOTE]
 > På den här sidan förutsätter vi att du har läst [förbereda test data för Custom Speech](how-to-custom-speech-test-data.md) och har laddat upp en data uppsättning för inspektion.
 
-Custom Speech innehåller verktyg som gör det möjligt att visuellt inspektera igenkännings kvaliteten för en modell genom att jämföra ljuddata med motsvarande igenkännings resultat. Från Custom Speech-portalen kan du spela upp ljud som laddats upp och avgöra om det angivna igenkännings resultatet är korrekt. Med det här verktyget kan du snabbt kontrol lera kvaliteten på Microsofts bas linje för tal-till-text-modellen eller en utbildad anpassad modell utan att behöva skriva om ljud data.
+Custom Speech innehåller verktyg som gör det möjligt att visuellt inspektera igenkännings kvaliteten för en modell genom att jämföra ljuddata med motsvarande igenkännings resultat. Från [Custom Speech-portalen](https://speech.microsoft.com/customspeech)kan du spela upp ljud som laddats upp och avgöra om det angivna igenkännings resultatet är korrekt. Med det här verktyget kan du snabbt kontrol lera kvaliteten på Microsofts bas linje för tal-till-text-modellen eller en utbildad anpassad modell utan att behöva skriva om ljud data.
 
 I det här dokumentet får du lära dig att visuellt kontrol lera kvaliteten på en modell med hjälp av de tränings data som du tidigare har laddat upp.
 
@@ -32,11 +32,12 @@ På den här sidan får du lära dig att visuellt kontrol lera kvaliteten på Mi
 
 Följ de här anvisningarna för att skapa ett test:
 
-1. Navigera till **> för tal till text Custom Speech > testning**.
-2. Klicka på **Lägg till test**.
-3. Välj **inspektera kvalitet (endast ljuddata)** . Ge testet ett namn, en beskrivning och välj din ljud data uppsättning.
-4. Välj upp till två modeller som du vill testa.
-5. Klicka på **Skapa**.
+1. Logga in på [Custom Speech Portal](https://speech.microsoft.com/customspeech).
+2. Navigera till **> för tal till text Custom Speech > testning**.
+3. Klicka på **Lägg till test**.
+4. Välj **inspektera kvalitet (endast ljuddata)** . Ge testet ett namn, en beskrivning och välj din ljud data uppsättning.
+5. Välj upp till två modeller som du vill testa.
+6. Klicka på **Skapa**.
 
 När du har skapat ett test kan du jämföra modellerna sida vid sida.
 

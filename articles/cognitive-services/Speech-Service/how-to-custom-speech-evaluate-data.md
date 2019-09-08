@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 07/05/2019
+ms.date: 09/06/2019
 ms.author: erhopf
-ms.openlocfilehash: bd8bbc28247ecd924db25cb4b916d1d466065606
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 77dc50df7b46aeb6ddfddf92710d576f85492471
+ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68562870"
+ms.lasthandoff: 09/08/2019
+ms.locfileid: "70801539"
 ---
 # <a name="evaluate-custom-speech-accuracy"></a>Utvärdera Custom Speech precision
 
@@ -51,11 +51,12 @@ Om du vill testa kvaliteten på Microsofts bas linje modell för tal till text e
 
 Utvärdera modeller sida vid sida:
 
-1. Navigera till **> för tal till text Custom Speech > testning**.
-2. Klicka på **Lägg till test**.
-3. Välj **utvärdera noggrannhet**. Ge testet ett namn, en beskrivning och välj din ljud-eller data uppsättning med mänskligt märkt skrift.
-4. Välj upp till två modeller som du vill testa.
-5. Klicka på **Skapa**.
+1. Logga in på [Custom Speech Portal](https://speech.microsoft.com/customspeech).
+2. Navigera till **> för tal till text Custom Speech > testning**.
+3. Klicka på **Lägg till test**.
+4. Välj **utvärdera noggrannhet**. Ge testet ett namn, en beskrivning och välj din ljud-eller data uppsättning med mänskligt märkt skrift.
+5. Välj upp till två modeller som du vill testa.
+6. Klicka på **Skapa**.
 
 När testet har skapats kan du jämföra resultatet sida vid sida.
 

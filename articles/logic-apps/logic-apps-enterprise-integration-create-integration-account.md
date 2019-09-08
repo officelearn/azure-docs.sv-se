@@ -11,16 +11,16 @@ manager: carmonm
 ms.assetid: d3ad9e99-a9ee-477b-81bf-0881e11e632f
 ms.topic: conceptual
 ms.date: 07/26/2019
-ms.openlocfilehash: 55843f9acaafa0c5963cfac735fdb92eeeacdc02
-ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
+ms.openlocfilehash: be0f534e6770cde561f18bfcb310524a7c506416
+ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69982932"
+ms.lasthandoff: 09/08/2019
+ms.locfileid: "70801282"
 ---
 # <a name="create-and-manage-integration-accounts-for-b2b-solutions-by-using-azure-logic-apps"></a>Skapa och hantera integrations konton för B2B-lösningar med hjälp av Azure Logic Apps
 
-Innan du kan skapa [Enterprise-integration och B2B-lösningar](../logic-apps/logic-apps-enterprise-integration-overview.md) med hjälp av [Azure Logic Apps](../logic-apps/logic-apps-overview.md)måste du skapa ett integrations konto, som är en separat Azure-resurs som tillhandahåller en säker, skalbar och hanterbar behållare för integrerings artefakter som du definierar och använder med dina Logic app-arbetsflöden.
+Innan du kan skapa [Enterprise-integrering och B2B-lösningar](../logic-apps/logic-apps-enterprise-integration-overview.md) med hjälp av [Azure Logic Apps](../logic-apps/logic-apps-overview.md) behöver du skapa ett integrationskonto, vilket är en separat Azure-resurs som ger en säker, skalbar, och hanterbar container för de integreringsartefakter som du definierar och använder med dina arbetsflöden för logikappar.
 
 Du kan till exempel skapa, lagra och hantera B2B-artefakter, till exempel handels partner, avtal, kartor, scheman, certifikat och batch-konfigurationer. Innan din Logic-app kan arbeta med dessa artefakter och använda Logic Apps B2B-kopplingar måste du dessutom [Länka ditt integrations konto](#link-account) till din Logic app. Både ditt integrations konto och din Logic app måste finnas på *samma* plats eller region.
 
@@ -46,7 +46,7 @@ För den här uppgiften kan du använda antingen Azure Portal genom att följa s
 
 1. Logga in på [Azure Portal](https://portal.azure.com) med autentiseringsuppgifterna för ditt Azure-konto.
 
-1. Välj **Skapa en resurs** på Azure-huvudmenyn. I sökrutan anger du "integrations konto" som filter och väljer integrations **konto**.
+1. Välj **Skapa en resurs** på Azure-huvudmenyn. I sökrutan anger du "integrations konto" som filter och väljer **integrations konto**.
 
    ![Skapa nytt integrations konto](./media/logic-apps-enterprise-integration-create-integration-account/create-integration-account.png)
 
@@ -80,7 +80,7 @@ För den här uppgiften kan du använda antingen Azure Portal genom att följa s
 
 ## <a name="link-to-logic-app"></a>Länka till Logic app
 
-Om du vill ge dina Logi Kap par åtkomst till ett integrations konto som innehåller dina B2B-artefakter måste du först länka ditt integrations konto till din Logic app. Både Logic app-och integrations kontot måste finnas i samma region. För den här uppgiften kan du använda Azure Portal genom att följa stegen i det här avsnittet.
+Om du vill ge dina Logi Kap par åtkomst till ett integrations konto som innehåller dina B2B-artefakter måste du först länka ditt integrations konto till din Logic app. Både Logic app-och integrations kontot måste finnas i samma region. Du kan utföra den här uppgiften med hjälp av Azure Portal. Om du använder Visual Studio och din Logic-app finns i ett [Azure Resource Group-projekt](../azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)kan du [Länka din Logic app till ett integrations konto med hjälp av Visual Studio](../logic-apps/manage-logic-apps-with-visual-studio.md#link-integration-account).
 
 1. Leta upp och öppna din Logic app i Azure Portal.
 

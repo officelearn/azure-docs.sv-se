@@ -11,12 +11,12 @@ author: moslake
 ms.author: moslake
 ms.reviewer: sstein, carlrab
 ms.date: 09/06/2019
-ms.openlocfilehash: 5b13c3c93f8b2d6f3eed5a32c49baf1b9d1b201e
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.openlocfilehash: 738d6738469960c8b21809b9320c4d034613c4e3
+ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70773344"
+ms.lasthandoff: 09/08/2019
+ms.locfileid: "70802373"
 ---
 # <a name="azure-sql-database-serverless-preview"></a>Azure SQL Database utan server (för hands version)
 
@@ -292,7 +292,7 @@ Den mängd data som faktureras är det högsta antal CPU-som används och minne 
 - **Fakturerat belopp**: vCore enhets pris * Max (min virtuella kärnor, virtuella kärnor som används, minimalt minne GB * 1/3, använt minnes utrymme * 1/3) 
 - **Fakturerings frekvens**: Per sekund
 
-VCore enhets pris i kostnad per vCore per sekund. Mer information finns på [sidan med Azure SQL Database priser](https://azure.microsoft.com/pricing/details/sql-database/single/) för vissa enhets priser i en specifik region.
+Priset för vCore-enheten är kostnaden per vCore per sekund. Mer information finns på [sidan med Azure SQL Database priser](https://azure.microsoft.com/pricing/details/sql-database/single/) för vissa enhets priser i en specifik region.
 
 Den totala mängden data som faktureras exponeras enligt följande mått:
 

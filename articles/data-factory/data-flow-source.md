@@ -1,96 +1,72 @@
 ---
-title: Konfigurera en käll omvandling i funktionen för att mappa data flöde i Azure Data Factory
+title: Käll omvandling i data flöde för mappning – Azure Data Factory | Microsoft Docs
 description: Lär dig hur du konfigurerar en käll omvandling i mappnings data flödet.
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 02/12/2019
-ms.openlocfilehash: 974ece9cd035ae29ada38f34b7933d86f682194f
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.date: 09/06/2019
+ms.openlocfilehash: 16bc4c2651d5571bce823aa9c69f823d7fede8af
+ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68696223"
+ms.lasthandoff: 09/08/2019
+ms.locfileid: "70801588"
 ---
 # <a name="source-transformation-for-mapping-data-flow"></a>Käll omvandling för att mappa data flöde 
 
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
-En käll omvandling konfigurerar data källan för data flödet. Ett data flöde kan innehålla mer än en käll omvandling. När du skapar data flöden börjar du alltid med en käll omvandling.
+En käll omvandling konfigurerar data källan för data flödet. När du skapar data flöden kommer ditt första steg alltid att konfigurera en käll omvandling. Om du vill lägga till en källa klickar du på rutan **Lägg till källa** i arbets ytan data flöde.
 
-Varje data flöde kräver minst en käll omvandling. Lägg till så många källor som behövs för att slutföra dina data transformationer. Du kan ansluta dessa källor tillsammans med en JOIN-omvandling eller en union-omvandling.
+Varje data flöde kräver minst en käll omvandling, men du kan lägga till så många källor som behövs för att slutföra dina data transformationer. Du kan koppla ihop dessa källor med en JOIN-, lookup-eller union-omvandling.
+
+Varje käll omvandling är associerad med exakt en Data Factory data uppsättning. Data uppsättningen definierar formen och platsen för de data som du vill skriva till eller läsa från. Om du använder en filbaserad data uppsättning kan du använda jokertecken och fil listor i din källa för att arbeta med fler än en fil i taget.
+
+## <a name="supported-connectors-in-mapping-data-flow"></a>Anslutningar som stöds i data flöde för mappning
+
+Genom att mappa data flödet följer du metoden extrahera, läsa in, transformera (ELT) och arbetar med *mellanlagring* av data uppsättningar som är alla i Azure. För närvarande kan följande data uppsättningar användas i en käll omvandling:
+    
+* Azure Blob Storage
+* Azure Data Lake Storage Gen1
+* Azure Data Lake Storage Gen2
+* Azure SQL Data Warehouse
+* Azure SQL Database
+
+Azure Data Factory har åtkomst till över 80 inbyggda anslutningar. Om du vill ta med data från de andra källorna i ditt data flöde använder du kopierings aktiviteten för att läsa in dessa data till något av de mellanliggande mellanlagrings områdena.
+
+## <a name="source-settings"></a>Källinställningar
+
+När du har lagt till en källa konfigurerar du via fliken **käll inställningar** . Här kan du välja eller skapa den data uppsättning som din käll pekar på. Du kan också välja schema-och samplings alternativ för dina data.
+
+![Fliken käll inställningar](media/data-flow/source1.png "Fliken käll inställningar")
+
+**Schema avvikelse:** [Schema avvikelse](concepts-data-flow-schema-drift.md) är data fabriks möjlighet att hantera flexibla scheman i dina data flöden utan att uttryckligen definiera kolumn ändringar.
+
+* Markera kryss rutan **Tillåt schema avvikelse** om käll kolumnerna ska ändras ofta. Med den här inställningen kan alla inkommande källfält flöda genom omvandlingarna till mottagaren.
+
+* Om du väljer **härledda kolumn typer** instrueras Data Factory att identifiera och definiera data typer för varje ny kolumn som identifieras. När den här funktionen är inaktive rad blir alla nedsatta kolumner av typen sträng.
+
+**Verifiera schema:** Om verifiera schema har valts kan data flödet inte köras om inkommande källdata inte matchar det definierade schemat för data uppsättningen.
+
+**Hoppa över linje antal:** Fältet slopa rad antal anger hur många rader som ska ignoreras i början av data uppsättningen.
+
+**Ta** Aktivera sampling för att begränsa antalet rader från källan. Använd den här inställningen när du testar eller samplar data från källan för fel sökning.
+
+Verifiera att källan är korrekt konfigurerad genom att aktivera fel söknings läge och hämta en data förhands granskning. Mer information finns i [fel söknings läge](concepts-data-flow-debug-mode.md).
 
 > [!NOTE]
-> När du felsöker data flödet läses data från källan genom att använda samplings inställningen eller käll gränserna för fel sökningen. Om du vill skriva data till en mottagare måste du köra ditt data flöde från en data flödes aktivitet för pipeline. 
+> När fel söknings läget är aktiverat skriver rad begränsnings konfigurationen i fel söknings inställningarna över insamlings inställningen i källan under för hands versionen av data.
 
-![Alternativ för omvandling av källa på fliken käll inställningar](media/data-flow/source.png "källa")
+## <a name="file-based-source-options"></a>Filbaserade käll alternativ
 
-Koppla din transformering av data flödes källan med exakt en Data Factory data uppsättning. Data uppsättningen definierar formen och platsen för de data som du vill skriva till eller läsa från. Du kan använda jokertecken och fil listor i din källa för att arbeta med fler än en fil i taget.
+Om du använder en filbaserad data uppsättning, till exempel Azure Blob Storage eller Azure Data Lake Storage, kan du med fliken **käll alternativ** hantera hur källan läser filer.
 
-Genom att använda ett **mönster** alternativ för jokertecken instruerar ADF att gå igenom varje matchande mapp och fil i en enda käll omvandling. Detta är ett mycket effektivt sätt att bearbeta flera filer i ett enda flöde. Om du vill spåra fil namnet som bearbetas för närvarande anger du ett fält namn för fältet "kolumn att lagra fil namn" i käll alternativ.
+![Käll alternativ](media/data-flow/sourceOPtions1.png "Käll alternativ")
 
-> [!NOTE]
-> Ange flera matchnings mönster för jokertecken med plus tecknet bredvid ditt befintliga mönster för jokertecken för att lägga till fler regler för jokertecken.
+**Sökväg till jokertecken:** Genom att använda jokertecken instrueras ADF att loopa igenom varje matchande mapp och fil i en enda käll omvandling. Detta är ett effektivt sätt att bearbeta flera filer i ett enda flöde. Lägg till flera matchnings mönster för jokertecken med +-tecknet som visas när du hovrar över ditt befintliga mönster i jokertecken.
 
-## <a name="data-flow-staging-areas"></a>Mellanlagrings områden för data flöde
-Data flödet fungerar med *mellanlagring* av data uppsättningar som är alla i Azure. Använd de här data uppsättningarna för mellanlagring när du ska transformera dina data. 
-
-Data Factory har åtkomst till nästan 80 inbyggda anslutningar. Om du vill ta med data från de andra källorna i ditt data flöde använder du verktyget kopiera aktivitet för att mellanlagra data i någon av data flödets data flödes mellanlagringsplats.
-
-## <a name="options"></a>Alternativ
-
-Välj schema-och samplings alternativ för dina data.
-
-### <a name="schema-drift"></a>Schemadrift
-[Schema](concepts-data-flow-schema-drift.md) drift är ADF möjlighet att hantera flexibla scheman i dina data flöden utan att uttryckligen definiera kolumn ändringar.
-
-* Välj **Tillåt schema avvikelse** om käll kolumnerna kommer att ändras ofta. Med den här inställningen kan alla inkommande källfält flöda genom omvandlingarna till mottagaren.
-
-* Om du väljer **härledda kolumn typer** kommer ADF att instruera ADF att definiera data typer för varje ny kolumn som identifieras. När den här funktionen är inaktive rad kommer ADF att anta en sträng.
-
-### <a name="validate-schema"></a>Verifiera schema
-
-Om den inkommande versionen av käll data inte matchar det definierade schemat kan data flödet inte köras.
-
-![Offentliga käll inställningar, som visar alternativen för att verifiera schema, tillåta schema avvikelse och sampling](media/data-flow/source1.png "offentlig källa 1")
-
-### <a name="sample-the-data"></a>Sampla data
-Aktivera **sampling** för att begränsa antalet rader från källan. Använd den här inställningen när du testar eller samplar data från källan för fel sökning.
-
-## <a name="define-schema"></a>Definiera schema
-
-När källfilerna inte är starkt skrivna (till exempel flata filer i stället för Parquet-filer) definierar du data typerna för varje fält i käll omvandlingen.  
-
-![Käll omvandlings inställningar på fliken definiera schema](media/data-flow/source2.png "källa 2")
-
-Du kan senare ändra kolumn namnen i en SELECT-omvandling. Använd en omvandling med härledd kolumn för att ändra data typerna. För starkt skrivna källor kan du ändra data typerna i en senare Välj omvandling. 
-
-![Data typer i en SELECT-omvandling](media/data-flow/source003.png "data typer")
-
-### <a name="optimize-the-source-transformation"></a>Optimera käll omvandlingen
-
-På fliken **optimera** för käll omvandling kan du se en typ av **Källtyp** . Det här alternativet är bara tillgängligt när din källa är Azure SQL Database. Detta beror på att Data Factory försöker göra anslutningar parallella för att köra stora frågor mot din SQL Database källa.
-
-![Käll partitions inställningar](media/data-flow/sourcepart3.png "partitionering")
-
-Du behöver inte partitionera data på din SQL Database källa, men partitioner är användbara för stora frågor. Du kan basera partitionen på en kolumn eller en fråga.
-
-### <a name="use-a-column-to-partition-data"></a>Använda en kolumn för att partitionera data
-
-Välj en kolumn att partitionera på i käll tabellen. Ange också antalet partitioner.
-
-### <a name="use-a-query-to-partition-data"></a>Använd en fråga för att partitionera data
-
-Du kan välja att partitionera anslutningarna baserat på en fråga. Ange bara innehållet i ett WHERE-predikat. Ange till exempel Year > 1980.
-
-## <a name="source-file-management"></a>Käll fils hantering
-
-Välj inställningar för att hantera filer i din källa. 
-
-![Nya käll inställningar](media/data-flow/source2.png "Nya inställningar")
-
-* **Sökväg till jokertecken**: Från din käll behållare väljer du en serie filer som matchar ett mönster. Den här inställningen åsidosätter en fil i din data uppsättnings definition.
+Från din käll behållare väljer du en serie filer som matchar ett mönster. Det går endast att ange container i data uppsättningen. Sökvägen till jokertecken måste därför även innehålla sökvägen till din mapp från rotmappen.
 
 Jokertecken exempel:
 
@@ -103,21 +79,21 @@ Jokertecken exempel:
 * ```/data/sales/20??/**```Hämtar alla filer i 20-talet
 * ```/data/sales/2004/*/12/[XY]1?.csv```Hämtar alla CSV-filer i 2004 i december från och med X eller Y som föregås av ett tvåsiffrigt tal
 
-Container måste anges i data uppsättningen. Sökvägen till jokertecken måste därför även innehålla sökvägen till din mapp från rotmappen.
-
-* **Partitionens rot Sök väg**: Om du har partitionerade mappar i fil källan för ett ```key=value``` format (t. ex. Year = 2019) kan du be ADF att tilldela den översta nivån i det partitionens mappträd till ett kolumn namn i data flödets data ström.
+**Partitionens rot Sök väg:** Om du har partitionerade mappar i fil källan med ett ```key=value``` format (till exempel Year = 2019) kan du tilldela den översta nivån i det partitionens mappträd till ett kolumn namn i data flödet för data flödet.
 
 Ange först ett jokertecken för att inkludera alla sökvägar som är de partitionerade mapparna plus de löv-filer som du vill läsa.
 
 ![Inställningar för partitionens källfil](media/data-flow/partfile2.png "Fil inställning för partition")
 
-Använd nu inställningen för partitionens rot Sök väg för att meddela ADF vad är den översta nivån i mappstrukturen. När du nu visar innehållet i dina data kommer du att se att ADF lägger till de matchade partitioner som finns i alla mappar.
+Använd inställningen för partitionens rot Sök väg för att definiera vad mappstrukturen är. När du visar innehållet i dina data via en data förhands granskning kommer du att se att ADF lägger till de matchade partitioner som finns i alla mappar.
 
 ![Partitionens rot Sök väg] För (media/data-flow/partfile1.png "hands version av partitionens rot Sök väg")
 
-* **Lista över filer**: Detta är en fil uppsättning. Skapa en textfil som innehåller en lista över relativa Sök vägs filer som ska bearbetas. Peka på den här text filen.
-* **Kolumn att lagra fil namn på**: Lagra namnet på käll filen i en kolumn i dina data. Ange ett nytt namn här för att lagra fil namn strängen.
-* **Efter slut för ande**: Välj att inte göra något med käll filen när data flödet körts, ta bort käll filen eller flytta käll filen. Sök vägarna för flytten är relativa.
+**Lista över filer:** Detta är en fil uppsättning. Skapa en textfil som innehåller en lista över relativa Sök vägs filer som ska bearbetas. Peka på den här text filen.
+
+**Kolumn att lagra fil namn på:** Lagra namnet på käll filen i en kolumn i dina data. Ange ett nytt kolumn namn här för att lagra fil namn strängen.
+
+**Efter slut för ande:** Välj att inte göra något med käll filen när data flödet körts, ta bort käll filen eller flytta käll filen. Sök vägarna för flytten är relativa.
 
 Om du vill flytta källfilerna till en annan plats efter bearbetning väljer du först flytta för fil åtgärd. Ange sedan "från"-katalogen. Om du inte använder jokertecken för sökvägen, kommer inställningen från att vara samma mapp som källmappen.
 
@@ -133,15 +109,30 @@ Och "till" som
 
 ```/backup/priorSales```
 
-I det här fallet flyttas alla filer som skrevs under/data/Sales till/backup/priorSales.
+I det här fallet flyttas alla filer som har ursprung under/data/Sales till/backup/priorSales.
 
-### <a name="sql-datasets"></a>SQL-datauppsättningar
+> [!NOTE]
+> Fil åtgärder körs bara när du startar data flödet från en pipeline-körning (en pipeline för pipeline-fel eller körning) som använder aktiviteten kör data flöde i en pipeline. Fil åtgärder körs *inte* i fel söknings läge för data flöde.
 
-Om din källa är i SQL Database eller SQL Data Warehouse har du ytterligare alternativ för hantering av käll filer.
+**Filtrera efter senast ändrad:** Du kan filtrera vilka filer du bearbetar genom att ange ett datum intervall när de senast ändrades. Alla datum-gånger är i UTC-tid. 
 
-* **Fråga**: Ange en SQL-fråga för källan. Den här inställningen åsidosätter alla tabeller som du har valt i data uppsättningen. Observera att **order by** -satser inte stöds här, men du kan ange en fullständig Select from-instruktion. Du kan också använda användardefinierade tabell funktioner. **Select * from udfGetData ()** är en UDF i SQL som returnerar en tabell. Med den här frågan skapas en käll tabell som du kan använda i ditt data flöde.
-* **Batchstorlek**: Ange en batchstorlek för att segmentera stora data till läsningar.
-* **Isolerings nivå**: Standard för SQL-källor i data flöden för ADF-mappning är skrivskyddad. Du kan ändra isolerings nivån här till något av följande värden:
+### <a name="add-dynamic-content"></a>Lägg till dynamiskt innehåll
+
+Alla käll inställningar kan anges som uttryck med hjälp av [omvandlings uttryckets språk för mappnings data flödet](data-flow-expression-functions.md). Om du vill lägga till dynamiskt innehåll klickar eller hovrar du i fälten i panelen Inställningar. Klicka på hyperlänken för **Lägg till dynamiskt innehåll**. Detta startar uttrycks verktyget där du kan ange värden dynamiskt med uttryck, statiska literala värden eller parametrar.
+
+![Parametrar](media/data-flow/params6.png "Parametrar")
+
+## <a name="sql-source-options"></a>Alternativ för SQL-källa
+
+Om din källa är i SQL Database eller SQL Data Warehouse är ytterligare SQL-/regionsspecifika inställningar tillgängliga på fliken **käll alternativ** . 
+
+**Inleveranstransport** Välj om du vill peka källan på en tabell (motsvarande ```Select * from <table-name>```) eller ange en anpassad SQL-fråga.
+
+**Fråga**: Om du väljer fråga i fältet inmatat anger du en SQL-fråga för källan. Den här inställningen åsidosätter alla tabeller som du har valt i data uppsättningen. **Order by** -satser stöds inte här, men du kan ange en fullständig Select from-instruktion. Du kan också använda användardefinierade tabell funktioner. **Select * from udfGetData ()** är en UDF i SQL som returnerar en tabell. Med den här frågan skapas en käll tabell som du kan använda i ditt data flöde.
+
+**Batchstorlek**: Ange en batchstorlek för att segmentera stora data till läsningar.
+
+**Isolerings nivå**: Standardvärdet för SQL-källor i mappnings data flödet är Read uncommitted. Du kan ändra isolerings nivån här till något av följande värden:
 * Läs bekräftad
 * Läs ej allokerad
 * Upprepnings bar läsning
@@ -150,25 +141,33 @@ Om din källa är i SQL Database eller SQL Data Warehouse har du ytterligare alt
 
 ![Isolerings nivå](media/data-flow/isolationlevel.png "Isolerings nivå")
 
-> [!NOTE]
-> Fil åtgärder körs bara när du startar data flödet från en pipeline-körning (en pipeline för pipeline-fel eller körning) som använder aktiviteten kör data flöde i en pipeline. Fil åtgärder körs *inte* i fel söknings läge för data flöde.
+## <a name="projection"></a>Projektion
 
-### <a name="projection"></a>Projektion
-
-Som scheman i data uppsättningar definierar projektionen i en källa data kolumnerna, typerna och formaten från käll data. 
+Som scheman i data uppsättningar definierar projektionen i en källa data kolumnerna, typerna och formaten från käll data. För de flesta typer av data uppsättningar, till exempel SQL och Parquet, åtgärdas projektionen i en källa för att återspegla det schema som definierats i en data uppsättning. När källfilerna inte är starkt skrivna (till exempel enkla CSV-filer i stället för Parquet-filer) kan du definiera data typerna för varje fält i käll omvandlingen.
 
 ![Inställningar på fliken projektion](media/data-flow/source3.png "Projektion")
 
-Om text filen inte har något definierat schema väljer du **identifiera data typ** så att Data Factory kan sampla och härleda data typerna. Välj **definiera** standardformat för att automatiskt identifiera standard data formaten. 
+Om text filen inte har något definierat schema väljer du **identifiera data typ** så att Data Factory kan sampla och härleda data typerna. Välj **definiera standardformat** för att automatiskt identifiera standard data formaten. 
 
-Du kan ändra kolumn data typerna i en senare omvandling med härledd kolumn. Använd en SELECT-omvandling för att ändra kolumn namnen.
+Du kan ändra kolumn data typerna i en nedströms härledd kolumn-omvandling. Använd en SELECT-omvandling för att ändra kolumn namnen.
 
-![Inställningar för standard data format](media/data-flow/source2.png "") Standardformat
+## <a name="optimize-the-source-transformation"></a>Optimera käll omvandlingen
 
-### <a name="add-dynamic-content"></a>Lägg till dynamiskt innehåll
-När du klickar i fält i inställnings panelen visas en hyperlänk för "Lägg till dynamiskt innehåll". När du väljer att starta uttrycks verktyget kan du ange värden dynamiskt med uttryck, statiska literala värden eller parametrar.
+På fliken **optimera** för käll omvandling kan du se en typ av **Källtyp** . Det här alternativet är bara tillgängligt när din källa är Azure SQL Database. Detta beror på att Data Factory försöker göra anslutningar parallella för att köra stora frågor mot din SQL Database källa.
 
-![Parametrar](media/data-flow/params6.png "Parametrar")
+![Käll partitions inställningar](media/data-flow/sourcepart3.png "partitionering")
+
+Du behöver inte partitionera data på din SQL Database källa, men partitioner är användbara för stora frågor. Du kan basera partitionen på en kolumn eller en fråga.
+
+### <a name="use-a-column-to-partition-data"></a>Använda en kolumn för att partitionera data
+
+Välj en kolumn att partitionera på i käll tabellen. Ange också antalet partitioner.
+
+### <a name="use-a-query-to-partition-data"></a>Använd en fråga för att partitionera data
+
+Du kan välja att partitionera anslutningarna baserat på en fråga. Ange innehållet i ett WHERE-predikat. Ange till exempel Year > 1980.
+
+Mer information om optimering i data flöde för mappning finns på [fliken optimera](concepts-data-flow-optimize-tab.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

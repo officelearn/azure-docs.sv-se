@@ -10,12 +10,12 @@ ms.reviewer: klam, LADocs
 ms.topic: article
 ms.custom: mvc
 ms.date: 05/07/2019
-ms.openlocfilehash: f628be48039df63700f8e786821f29ba55cfd943
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: dd6cd16302c69266a954816868c04c8507762717
+ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70164878"
+ms.lasthandoff: 09/08/2019
+ms.locfileid: "70801255"
 ---
 # <a name="manage-logic-apps-with-visual-studio"></a>Hantera Logic Apps med Visual Studio
 
@@ -85,7 +85,7 @@ I Visual Studio kan du hitta alla Logic Apps som är associerade med din Azure-p
 
 ## <a name="open-in-visual-studio"></a>Öppna i Visual Studio
 
-I Visual Studio kan du öppna Logi Kap par som tidigare har skapats och distribuerats antingen direkt via Azure Portal eller som Azure Resource Manager projekt med Visual Studio.
+I Visual Studio kan du öppna Logi Kap par som tidigare har skapats och distribuerats antingen direkt via Azure Portal eller som Azure Resource Group-projekt med Visual Studio.
 
 1. Öppna Cloud Explorer och hitta din Logic app. 
 
@@ -123,7 +123,34 @@ Du kan ladda ned Logic Apps från [Azure Portal](https://portal.azure.com) och s
 
 4. När du uppmanas att ange en plats kan du bläddra till den platsen och spara Resource Manager-mallen för Logic app-definitionen i JSON-filformat (. JSON). 
 
-Din Logic app-definition visas i `resources` underavsnittet i Resource Manager-mallen. Nu kan du redigera Logic app-definitionen och Resource Manager-mallen med Visual Studio. Du kan också lägga till mallen som ett Azure Resource Manager projekt i en Visual Studio-lösning. Lär dig mer om [Resource Manager-projekt för Logic Apps i Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md). 
+Din Logic app-definition visas i `resources` underavsnittet i Resource Manager-mallen. Nu kan du redigera Logic app-definitionen och Resource Manager-mallen med Visual Studio. Du kan också lägga till mallen som ett [Azure Resource Group-projekt](../azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md) i en Visual Studio-lösning. Lär dig mer om [Azure Resource Group-projekt för Logic Apps i Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md). 
+
+<a name="link-integration-account"></a>
+
+## <a name="link-to-integration-account"></a>Länk till integrations konto
+
+För att skapa Logi Kap par för företag-till-företag (B2B) företags integrations scenarier, kan du länka din Logic app till ett tidigare skapat [integrations konto](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) som finns i samma region som din Logic app. Ett integrations konto innehåller B2B-artefakter, till exempel handels partner, avtal, scheman och kartor, och tillåter att din Logic app använder B2B-kopplingar för XML-verifiering och flat fil kodning eller avkodning. Även om du kan [skapa den här länken med hjälp av Azure Portal](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md#link-account), kan du också använda Visual Studio när du uppfyller [kraven](#requirements)och din Logic app finns som en JSON-fil (. JSON) i ett [Azure Resource Group-projekt](../azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md). Lär dig mer om [Azure Resource Group-projekt för Logic Apps i Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md#create-resource-group-project).
+
+1. Öppna Azure Resource Group-projektet som innehåller din Logic app i Visual Studio.
+
+1. I Solution Explorer öppnar du snabb menyn **< Logic-app-name >. JSON** -filen och väljer **Öppna med Logic App Designer**. PS/2-tangentbordet CTRL + L)
+
+   ![Öppna Logic Apps. JSON-fil med Logic App Designer](./media/manage-logic-apps-with-visual-studio/open-logic-app-designer.png)
+
+   > [!TIP]
+   > Om du inte har det här kommandot i Visual Studio 2019 kontrollerar du att du har de senaste uppdateringarna för Visual Studio.
+
+1. För att se till att Logic App Designer har fokus väljer du designerns flik eller yta så att fönstret Egenskaper visar **integrations konto** egenskapen för din Logic app.
+
+   ![Egenskaps fönstret visar egenskapen "integrations konto"](./media/manage-logic-apps-with-visual-studio/open-logic-app-properties.png)
+
+1. Öppna listan **integrations konto** och välj det integrations konto som du vill länka till din Logic app, till exempel:
+
+   ![Öppna egenskaps listan för integrations kontot](./media/manage-logic-apps-with-visual-studio/select-integration-account.png)
+
+1. Kom ihåg att spara din Visual Studio-lösning när du är klar.
+
+När du ställer in **integrations konto** egenskapen i Visual Studio och sparar din Logic app som en Azure Resource Manager mall, innehåller mallen även en parameter deklaration för det valda integrations kontot. Mer information om mallparametrar och Logic Apps finns i [översikt: Automatisera Logic app-](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md#template-parameters)distribution.
 
 <a name="refresh"></a>
 
@@ -147,7 +174,7 @@ När du är redo att distribuera dina Logic app-uppdateringar från Visual Studi
 
 ## <a name="manually-run-your-logic-app"></a>Kör din Logic app manuellt
 
-Du kan utlösa en logisk app som distribuerats i Azure från Visual Studio manuellt. I verktygsfältet Logic App Designer väljer du **Kör**utlösare.
+Du kan utlösa en logisk app som distribuerats i Azure från Visual Studio manuellt. I verktygsfältet Logic App Designer väljer du **Kör utlösare**.
 
 ![Kör Logic app manuellt](./media/manage-logic-apps-with-visual-studio/manually-run-logic-app.png)
 

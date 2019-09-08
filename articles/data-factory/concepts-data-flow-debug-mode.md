@@ -6,13 +6,13 @@ ms.author: makromer
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 10/04/2018
-ms.openlocfilehash: 71e08f00600bebcc21eba32d991353c9bcaeaa97
-ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
+ms.date: 09/06/2019
+ms.openlocfilehash: 7d1023f6c46c15b6f982193350923f5c91cdc4b9
+ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69991928"
+ms.lasthandoff: 09/08/2019
+ms.locfileid: "70801699"
 ---
 # <a name="mapping-data-flow-debug-mode"></a>Mappa fel söknings läge för data flöde
 
@@ -20,16 +20,17 @@ ms.locfileid: "69991928"
 
 ## <a name="overview"></a>Översikt
 
-Azure Data Factory mappa data flödets fel söknings läge kan växlas till med knappen "Data Flow debug" överst i design ytan. När du skapar data flöden kan du aktivera fel söknings läget och samtidigt titta på DataForm-transformeringen medan du skapar och felsöker dina data flöden. Felsökningssessionen kan användas både i data flödets design sessioner samt vid körning av pipeline-felsökning av data flöden.
+Med fel söknings läget Azure Data Factory mappnings data flödet kan du interaktivt titta på DataForm-transformeringen medan du skapar och felsöker dina data flöden. Felsökningssessionen kan användas både i data flödets design sessioner samt vid körning av pipeline-felsökning av data flöden. Om du vill aktivera fel söknings läge använder du knappen "fel sökning av data Flow" överst i design ytan.
 
-![Knappen Felsök](media/data-flow/debugbutton.png "Knappen Felsök")
+![Felsöka skjutreglage](media/data-flow/debugbutton.png "Felsöka skjutreglage")
+
+När du har aktiverat skjutreglaget uppmanas du att välja vilken integration runtime-konfiguration som du vill använda. Om du väljer AutoResolveIntegrationRuntime, kommer ett kluster med åtta kärnor i allmän beräkning med en tid på 60 minuter att leva upp. Mer information om data flödes integrerings körningar finns i [prestanda för data flöde](concepts-data-flow-performance.md#increase-size-of-your-compute-engine-in-azure-integration-runtime).
+
+![FELSÖK IR-val](media/data-flow/debugbutton2.png "FELSÖK IR-val")
 
 När fel söknings läget är aktiverat kan du interaktivt bygga ditt data flöde med ett aktivt Spark-kluster. Sessionen stängs när du har aktiverat fel sökning i Azure Data Factory. Du bör vara medveten om de timkostnad som Azure Databricks under tiden som du har aktiverat felsökningssessionen.
 
 I de flesta fall är det en bra idé att skapa dina data flöden i fel söknings läge så att du kan validera affärs logiken och Visa dina data transformationer innan du publicerar arbetet i Azure Data Factory. Använd knappen "Felsök" på pipeline-panelen för att testa ditt data flöde i en pipeline.
-
-> [!NOTE]
-> Medan fel söknings läget är grönt i Data Factory-verktygsfältet debiteras du vid fel söknings frekvensen för data flödet på 8 kärnor/timme för allmän beräkning med 60 minuters Time-to-Live 
 
 ## <a name="cluster-status"></a>Klusterstatus
 

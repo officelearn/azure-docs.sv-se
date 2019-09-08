@@ -1,10 +1,10 @@
 ---
-title: Hantera åtkomst vid akutfall administratörskonton - Azure Active Directory | Microsoft Docs
-description: Den här artikeln beskriver hur du använder för åtkomst vid akutfall för att förhindra oavsiktligt att låsas ute från Azure Active Directory (Azure AD)-klienten.
+title: Hantera administratörs konton för nöd åtkomst – Azure Active Directory | Microsoft Docs
+description: Den här artikeln beskriver hur du använder konton för nöd situationer för att förhindra oavsiktligt låsning av din Azure Active Directory (Azure AD)-organisation.
 services: active-directory
 author: markwahl-msft
 ms.author: curtand
-ms.date: 03/19/2019
+ms.date: 09/09/2019
 ms.topic: conceptual
 ms.service: active-directory
 ms.subservice: users-groups-roles
@@ -12,89 +12,148 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 42de060d81539030ef1970e01e753383662e924f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 04016df86a9bed06f2cbb79d459b10486a9b7d67
+ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67083914"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70772446"
 ---
-# <a name="manage-emergency-access-accounts-in-azure-ad"></a>Hantera åtkomst vid akutfall i Azure AD
+# <a name="manage-emergency-access-accounts-in-azure-ad"></a>Hantera konton för nöd åtkomst i Azure AD
 
-Det är viktigt att du förhindrar att av misstag låsas ute från din Azure Active Directory (Azure AD)-klient eftersom du inte kan logga in eller aktivera en befintlig enskilda användares konto som administratör. Du kan minimera effekten av oavsiktliga bristande administrativ åtkomst genom att skapa två eller flera *för åtkomst vid akutfall* i din klient.
+Det är viktigt att du förhindrar oavsiktligt låst av din Azure Active Directory (Azure AD)-organisation eftersom du inte kan logga in eller aktivera en annan användares konto som administratör. Du kan minska effekten av haveri brist på administrativ åtkomst genom att skapa två eller fler konton för *nöd åtkomst* i din organisation.
 
-För åtkomst vid akutfall är högt privilegierade och de tilldelas inte till enskilda individer. För åtkomst vid akutfall är begränsade till nödfall eller ”Bryt om” scenarier där normala administrativa konton inte kan användas. Organisationer måste ha ett mål för att begränsa nödfall Kontoanvändning till endast de tider som när det är absolut nödvändigt.
+Konton för nöd åtkomst är mycket privilegierade och de är inte tilldelade till vissa individer. Konton för nöd åtkomst är begränsade till nöd situationer eller "Break glas"-scenarier där normala administrativa konton inte kan användas. Vi rekommenderar att du upprätthåller ett mål för att begränsa användningen av nödfall till bara de tider då det är absolut nödvändigt.
 
-Den här artikeln innehåller riktlinjer för att hantera åtkomst vid akutfall i Azure AD.
+Den här artikeln innehåller rikt linjer för att hantera konton för nöd åtkomst i Azure AD.
 
-## <a name="when-would-you-use-an-emergency-access-account"></a>När ska du använda ett konto för åtkomst vid akutfall?
+## <a name="why-use-an-emergency-access-account"></a>Varför ska jag använda ett konto för nöd åtkomst
 
-En organisation kan behöva använda ett konto för åtkomst vid akutfall i följande situationer:
+En organisation kan behöva använda ett konto för nöd åtkomst i följande situationer:
 
-- Användarkonton är externa och federation är inte tillgänglig för tillfället på grund av ett cell nätverksavbrott eller en leverantör av användaridentitet avbrott. Om identitet providern värden i din miljö har slutat fungera, till exempel vara användare det går inte att logga in när Azure AD omdirigerar till sina identitetsprovider.
-- Administratörerna har registrerats via Azure Multi-Factor Authentication och deras enskilda enheter är inte tillgänglig eller tjänsten är inte tillgänglig. Användare kanske inte att slutföra Multi-Factor Authentication för att aktivera en roll. Till exempel hindrar ett nätverksavbrott cell dem från besvara telefonsamtal eller ta emot textmeddelanden, bara två autentiseringsmekanismer som de har registrerats för sin enhet.
-- Person med den senaste Global administratör för användaråtkomst har lämnat organisationen. Azure AD förhindrar det senaste kontot för Global administratör från att tas bort, men den förhindrar inte att kontot tas bort eller inaktiveras lokalt. Antingen situation kan se hur det går inte att återställa kontot.
-- Oförutsedda omständigheter, till exempel en naturkatastrof nödfall, då en mobiltelefon eller till andra nätverk kan saknas. 
+- Användar kontona är federerade och federationen är för närvarande inte tillgänglig på grund av ett avbrott i ett cell nätverk eller ett strömavbrott i identiteten. Om till exempel värd för identitetsprovider i din miljö inte är igång kan användarna inte logga in när Azure AD omdirigeras till sin identitets leverantör.
+- Administratörerna registreras via Azure Multi-Factor Authentication och alla deras enskilda enheter är inte tillgängliga eller så är tjänsten inte tillgänglig. Användare kanske inte kan slutföra Multi-Factor Authentication för att aktivera en roll. Till exempel förhindrar ett cell nätverks avbrott att de svarar på telefonsamtal eller tar emot SMS, de enda två autentiseringsmekanismer som de har registrerat för enheten.
+- Den person som har den senaste globala administratörs åtkomsten har lämnat organisationen. Azure AD förhindrar att det senaste globala administratörs kontot tas bort, men det förhindrar inte att kontot tas bort eller inaktive ras lokalt. En situation kan göra att organisationen inte kan återställa kontot.
+- Oförutsedda omständigheter, t. ex. katastrof katastrof, under vilken en mobil telefon eller andra nätverk kanske inte är tillgänglig. 
 
-## <a name="create-two-cloud-based-emergency-access-accounts"></a>Skapa två molnbaserade Nödfallsåtkomst konton
+## <a name="create-emergency-access-accounts"></a>Skapa konton för nöd åtkomst
 
-Skapa två eller flera konton för åtkomst vid akutfall. Dessa konton bör vara molnbaserad konton som använder den \*. onmicrosoft.com-domän och som inte federerad eller synkroniseras från en lokal miljö.
+Skapa två eller fler konton för nöd åtkomst. Dessa konton ska vara molnbaserade konton som använder \*. onmicrosoft.com-domänen och som inte är federerade eller synkroniserade från en lokal miljö.
 
-När du konfigurerar dessa konton, måste följande krav uppfyllas:
+När du konfigurerar de här kontona måste följande krav uppfyllas:
 
-- För åtkomst vid akutfall ska inte associeras med en enskild användare i organisationen. Se till att dina konton inte är kopplade till alla medarbetare anger mobiltelefoner, maskinvara tokens som överförs med enskilda medarbetare eller andra anställda-specifika autentiseringsuppgifter. Den här försiktighetsåtgärden täcker instanser där en medarbetare kan inte nås när autentiseringsuppgifter krävs. Det är viktigt att säkerställa att alla registrerade enheter hålls på en känd, säker plats som har flera sätt att kommunicera med Azure AD.
-- Den autentiseringsmetod som används för ett konto för åtkomst vid akutfall ska vara samma som används av dina andra administrativa konton, inklusive andra konton för åtkomst vid akutfall.  Till exempel om dina normala administratör logga in via den lokala MFA, skulle sedan Azure MFA vara en annan mekanism.  Men om Azure MFA är din primära del av autentisering för dina administrativa konton kan du överväga att en annan metod för dessa, till exempel med villkorlig åtkomst i en tredje parts MFA-provider.
-- Enheten eller autentiseringsuppgifter måste inte upphör att gälla eller vara i omfånget för automatisk rensning på grund av bristande användning.  
-- Du bör kontrollera Global administratör rolltilldelningen permanent för dina konton för åtkomst vid akutfall. 
+- Kontona för nöd åtkomst ska inte vara kopplade till någon enskild användare i organisationen. Se till att dina konton inte är anslutna till några mobila mobil telefoner, maskinvaru-token som reser med enskilda anställda eller andra autentiseringsuppgifter som är specifika för anställda. Den här försiktighets tjänsten omfattar instanser där en enskild medarbetare inte kan kontaktas när autentiseringsuppgiften behövs. Det är viktigt att se till att alla registrerade enheter hålls på en känd, säker plats som har flera sätt att kommunicera med Azure AD.
+- Den autentiseringsmekanism som används för ett konto för nöd åtkomst bör skilja sig från det som används av andra administrativa konton, inklusive andra konton för nöd åtkomst.  Om till exempel din normala Administratörs inloggning är via lokal MFA, är Azure MFA en annan mekanism.  Men om Azure MFA är din primära del av autentiseringen för dina administrativa konton, kan du överväga att använda en annan metod för dessa, till exempel att använda villkorlig åtkomst med en tredjepartsleverantör-provider från tredje part.
+- Enheten eller autentiseringsuppgiften får inte förfalla eller vara i omfånget för automatisk rensning på grund av bristande användning.  
+- Du bör göra roll tilldelningen global administratör permanent för dina konto för nöd åtkomst. 
 
+### <a name="exclude-at-least-one-account-from-phone-based-multi-factor-authentication"></a>Undanta minst ett konto från telefon-baserad Multi-Factor Authentication
 
-### <a name="exclude-at-least-one-account-from-phone-based-multi-factor-authentication"></a>Exkludera minst ett konto från telefon Multi-Factor authentication
+För att minska risken för angrepp på grund av ett komprometterat lösen ord rekommenderar Azure AD att du kräver Multi-Factor Authentication för alla enskilda användare. Den här gruppen omfattar administratörer och alla andra (till exempel finansiella tjänstemän) vars komprometterade konto skulle ha en betydande inverkan.
 
-För att minska risken för en attack som härrör från ett olämpligt lösenord rekommenderar Azure AD att multifaktorautentisering krävs för alla enskilda användare. Den här gruppen innehåller administratörer och alla andra (till exempel finansiella införlivande) vars komprometterat konto skulle ha en betydande inverkan.
-
-Minst en av dina konton för åtkomst vid akutfall ska inte ha samma multifaktorautentisering mekanism som andra icke-nödfall-konton. Detta inkluderar lösningar från tredje part för multifaktorautentisering. Om du har en princip för villkorlig åtkomst som kräver [Multi-Factor authentication för varje administratör](../authentication/howto-mfa-userstates.md) för Azure AD och andra anslutna programvara som en tjänst (SaaS)-appar bör du exkludera för åtkomst vid akutfall från den här krav, och konfigurera en annan mekanism i stället. Dessutom bör du se till konton som inte har en princip för multifaktorautentisering per användare.
+Minst ett av kontona för nöd åtkomst bör dock inte ha samma Multi-Factor Authentication-mekanism som andra icke-nödfalls konton. Detta inkluderar Multi-Factor Authentication-lösningar från tredje part. Om du har en princip för villkorlig åtkomst för att kräva [Multi-Factor Authentication för varje administratör](../authentication/howto-mfa-userstates.md) för Azure AD och andra anslutna SaaS-appar (program vara som en tjänst) bör du exkludera åtkomst konton för nöd situationer från det här kravet och konfigurera en annan mekanism i stället. Dessutom bör du se till att kontona inte har en princip för multifaktorautentisering med flera användare.
 
 ### <a name="exclude-at-least-one-account-from-conditional-access-policies"></a>Undanta minst ett konto från principer för villkorlig åtkomst
 
-Under en nödsituation vill du inte att en princip för att blockera potentiellt din åtkomst för att åtgärda ett problem. Minst ett åtkomstkonto för nödläge ska uteslutas från alla principer för villkorlig åtkomst. Om du har aktiverat en [baslinjeprincip](../conditional-access/baseline-protection.md), ska du undanta dina konton för åtkomst vid akutfall.
+Under en nöd situation vill du inte att en princip kan blockera åtkomsten för att åtgärda ett problem. Minst ett konto för nöd åtkomst ska uteslutas från alla principer för villkorlig åtkomst. Om du har aktiverat en [bas linje princip](../conditional-access/baseline-protection.md)bör du exkludera dina konton för nöd åtkomst.
 
-## <a name="additional-guidance-for-hybrid-customers"></a>Ytterligare vägledning för kunder med hybriddistributioner
+## <a name="federation-guidance"></a>Vägledning om Federation
 
-Ytterligare en möjlighet för organisationer som använder AD DS och AD FS eller liknande identitetsprovider att federera Azure AD är att konfigurera ett åtkomstkonto för nödläge vars MFA-anspråk kan anges av den identitetsprovidern.  Åtkomstkonto för nödläge kan exempelvis vara backas upp av ett certifikat och nyckelpar, till exempel en lagras på ett smartkort.  När användaren autentiseras till AD kan AD FS ange ett anspråk till Azure AD som anger att användaren har genomgått MFA-kraven.  Även med den här metoden måste organisationer fortfarande ha molnbaserade för åtkomst vid akutfall om det inte går att upprätta federation. 
+Ett ytterligare alternativ för organisationer som använder AD Domain Services och ADFS eller liknande identitets leverantör för att federera till Azure AD är att konfigurera ett åtkomst konto för nöd situationer vars MFA-anspråk kan tillhandahållas av identitets leverantören.  Till exempel kan kontot för nöd åtkomst backas upp av ett certifikat och nyckel par, till exempel ett som lagras på ett smartkort.  När användaren autentiseras till AD kan ADFS tillhandahålla ett anspråk till Azure AD som anger att användaren har uppfyllt MFA-kraven.  Till och med den här metoden måste organisationer fortfarande ha molnbaserade nöd åtkomst konton i fall federationen kan inte upprättas. 
 
-## <a name="store-devices-and-credentials-in-a-safe-location"></a>Store-enheter och autentiseringsuppgifter på en säker plats
+## <a name="store-account-credentials-safely"></a>Lagra konto uppgifter på ett säkert sätt
 
-Organisationer behöver säkerställa att autentiseringsuppgifterna för åtkomst vid akutfall hålls säkra och kända endast till personer som har behörighet att använda dem för. Vissa kunder använda ett smartkort och andra använda lösenord. Ett lösenord för ett konto för åtkomst vid akutfall är vanligtvis indelade i två eller tre delar, skrivna på separata delar av dokumentet och lagras i säkra, brandsäkert kassaskåp som är säker, separata platser.
+Organisationer måste se till att autentiseringsuppgifterna för kontona för nöd åtkomst hålls skyddade och kända för personer som har behörighet att använda dem. Vissa kunder använder ett smartkort och andra använder lösen ord. Ett lösen ord för ett konto för nöd åtkomst är vanligt vis indelat i två eller tre delar, skrivet på separata pappersark och lagras i säkra, fireproof säkrare som är skyddade, separata platser.
 
-Om du använder lösenord, kontrollera att kontona har starka lösenord som inte går ut lösenordet. Vi rekommenderar att lösenorden är minst 16 tecken långt och slumpmässigt genereras.
+Om du använder lösen ord kontrollerar du att kontona har starka lösen ord som inte förfaller lösen ordet. Det bästa är om lösen orden måste vara minst 16 tecken långa och slumpmässigt skapade.
 
+## <a name="monitor-sign-in-and-audit-logs"></a>Övervaka inloggnings-och gransknings loggar
 
-## <a name="monitor-sign-in-and-audit-logs"></a>Övervaka inloggning och granskningsloggar
+Organisationer bör övervaka inloggnings-och gransknings loggs aktiviteter från nödfalls kontona och utlösa meddelanden till andra administratörer. När du övervakar aktiviteten på Bryt glas konton kan du kontrol lera att dessa konton endast används för testning eller faktiska nöd situationer. Du kan använda Azure Log Analytics för att övervaka inloggnings loggarna och utlösa e-post och SMS-aviseringar till dina administratörer när Break glas-konton loggar in.
 
-Övervaka den [Azure AD-inloggningen och granska loggar](../reports-monitoring/concept-sign-ins.md) för alla inloggningar och granska aktivitet från åtkomst vid akutfall. Normalt kan dessa konton bör inte logga in och bör inte göra ändringar, så att använda troligen kommer att vara avvikande och kräva säkerhetsundersökning.
+### <a name="prerequisites"></a>Förutsättningar
 
-## <a name="validate-accounts-at-regular-intervals"></a>Verifiera konton med jämna mellanrum
+1. [Skicka inloggnings loggar för Azure AD](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics) till Azure Monitor.
 
-För att utbilda personalen kan använda för åtkomst vid akutfall och validera för åtkomst vid akutfall och gör följande minsta med jämna mellanrum:
+### <a name="obtain-object-ids-of-the-break-glass-accounts"></a>Hämta objekt-ID: n för rast glas kontona
 
-- Kontrollera att säkerhetsövervakning personal är medveten om att konto-check-aktivitet pågår.
-- Kontrollera att nödfall break glas processen att använda dessa konton är dokumenterade och aktuella.
-- Se till att administratörer och de inom som kan behöva utföra dessa steg vid nödfall är tränade på processen.
-- Uppdatera kontoinformation, i synnerhet eventuella lösenord för åtkomst vid akutfall-konton och verifiera sedan att åtkomst vid akutfall kan logga in och utföra administrativa uppgifter.
-- Se till att användare inte har registrerat Multi-Factor Authentication eller lösenordsåterställning via självbetjäning (SSPR) till alla enskilda användares enhet eller personlig information. 
-- Se till att enheten är tillgänglig för alla administratörer som kan behöva använda en nödsituation om konton som har registrerats för Multifaktorautentisering till en enhet för användning under inloggning eller roll-aktivering. Kontrollera också att enheten kan kommunicera via minst två nätverkssökvägar som inte delar ett gemensamt läge för fel. Exempelvis kan kan enheten kommunicera med internet via både en anläggning trådlöst nätverk och en cell-providernätverket.
+1. Logga in på [Azure Portal](https://portal.azure.com) med ett konto som tilldelats rollen användar administratör.
+1. Välj **Azure Active Directory** > **användare**.
+1. Sök efter kontot för Bryt glas och välj användarens namn.
+1. Kopiera och spara attribut för objekt-ID så att du kan använda det senare.
+1. Upprepa föregående steg för andra rast glass konton.
 
-De här stegen bör utföras med jämna mellanrum och viktiga ändringar:
+### <a name="create-an-alert-rule"></a>Skapa en varningsregel
 
-- Minst var 90 dagar
-- När det har skett en ändring i IT-personal, till exempel en ändring i jobbet, sig eller en ny nyanställda
-- När Azure AD-prenumerationer i organisationen har ändrats
+1. Logga in på [Azure Portal](https://portal.azure.com) med ett konto som tilldelats rollen övervaknings deltagare i Azure Monitor.
+1. Välj **alla tjänster**", ange" Log Analytics "i sökningen och välj sedan **Log Analytics arbets ytor**.
+1. Välj en arbetsyta.
+1. I arbets ytan väljer du **aviseringar** > **ny aviserings regel**.
+    1. Under **resurs**kontrollerar du att prenumerationen är den som du vill associera varnings regeln med.
+    1. Välj **Lägg till**under **villkor**.
+    1. Välj **anpassad loggs ökning** under **signal namn**.
+    1. Under **Sök fråga**anger du följande fråga och infogar objekt-ID: n för de två rast glas kontona.
+        > [!NOTE]
+        > För varje ytterligare rast glas konto som du vill inkludera lägger du till ett annat "eller UserId = =" ObjectGuid "" i frågan.
+
+        ![Lägg till objekt-ID: n för rast glas kontona i en varnings regel](./media/directory-emergency-access/query-image1.png)
+
+    1. Under **aviserings logik**anger du följande:
+
+        - Baserat på: Antal resultat
+        - Operator Större än
+        - Tröskel värde: 0
+
+    1. Under **utvärdera baserat på**väljer du **perioden (i minuter)** för hur länge du vill att frågan ska köras och hur ofta **(i minuter)** som du vill att frågan ska köras. Frekvensen ska vara mindre än eller lika med perioden.
+
+        ![aviserings logik](./media/directory-emergency-access/alert-image2.png)
+
+    1. Välj **Done** (Klar). Nu kan du Visa den uppskattade månads kostnaden för den här aviseringen.
+1. Välj en åtgärds grupp användare som ska meddelas via aviseringen. Om du vill skapa ett, se [skapa en åtgärds grupp](#create-an-action-group).
+1. Om du vill anpassa e-postmeddelandet som skickas till medlemmarna i åtgärds gruppen väljer du åtgärder under **Anpassa åtgärder**.
+1. Under **aviserings information**anger du namnet på varnings regeln och lägger till en valfri beskrivning.
+1. Ange händelsens **allvarlighets grad** . Vi rekommenderar att du ställer in det på **kritiskt (allvarlighets grad 0)** .
+1. Under **Aktivera regel vid skapande**, låt den vara **Ja**.
+1. Om du vill inaktivera aviseringar för en stund markerar du kryss rutan **Ignorera aviseringar** och anger vänte tiden innan aviseringen görs igen och väljer sedan **Spara**.
+1. Klicka på **skapa aviserings regel**.
+
+### <a name="create-an-action-group"></a>Skapa en åtgärds grupp
+
+1. Välj **skapa en åtgärds grupp**.
+
+    ![skapa en åtgärds grupp för meddelande åtgärder](./media/directory-emergency-access/action-group-image3.png)
+
+1. Ange åtgärds gruppens namn och ett kort namn.
+1. Verifiera prenumerationen och resurs gruppen.
+1. Under åtgärds typ väljer du **e-post/SMS/push/röst**.
+1. Ange ett åtgärds namn som **meddela global admin**.
+1. Välj **Åtgärds typ** som **e-post/SMS/push/röst**.
+1. Välj **Redigera information** för att välja de meddelande metoder som du vill konfigurera och ange nödvändig kontakt information och välj sedan **OK** för att spara informationen.
+1. Lägg till eventuella ytterligare åtgärder som du vill utlösa.
+1. Välj **OK**.
+
+## <a name="validate-accounts-regularly"></a>Validera konton regelbundet
+
+När du träna personal medlemmar att använda konton för nöd åtkomst och verifiera åtkomst kontona för nöd situationer, minst så här utför du följande steg med jämna mellanrum:
+
+- Se till att personal för säkerhets övervakning är medveten om att konto kontroll aktiviteten pågår.
+- Se till att processen för att använda dessa konton är dokumenterad och aktuell.
+- Se till att administratörer och säkerhets ansvariga som kan behöva utföra de här stegen under en nöd situation tränas av processen.
+- Uppdatera kontots autentiseringsuppgifter, särskilt eventuella lösen ord, för kontona för nöd åtkomst och kontrol lera sedan att kontona för nöd åtkomst kan logga in och utföra administrativa uppgifter.
+- Se till att användarna inte har registrerat Multi-Factor Authentication eller lösen ords återställning via självbetjäning (SSPR) till någon enskild användares enhet eller personlig information. 
+- Om kontona är registrerade för Multi-Factor Authentication till en enhet, för användning under inloggning eller roll aktivering, måste du se till att enheten är tillgänglig för alla administratörer som kan behöva använda den under en nöd situation. Kontrol lera också att enheten kan kommunicera via minst två nätverks Sök vägar som inte delar ett gemensamt felläge. Enheten kan till exempel kommunicera med Internet via både en anläggnings trådlösa nätverk och ett nätverk för en mobil leverantör.
+
+De här stegen bör utföras med jämna mellanrum och för viktiga ändringar:
+
+- Minst var 90 dag
+- När det har gjorts en nyligen genomförd ändring av IT-personal, till exempel en jobb ändring, en avresa eller en ny anställning
+- När Azure AD-prenumerationerna i organisationen har ändrats
 
 ## <a name="next-steps"></a>Nästa steg
 
 - [Skydda privilegierad åtkomst för hybrid- och molndistributioner i Azure AD](directory-admin-roles-secure.md)
-- [Lägga till användare med hjälp av Azure AD](../fundamentals/add-users-azure-active-directory.md) och [tilldela den nya användaren till rollen som Global administratör](../fundamentals/active-directory-users-assign-role-azure-portal.md)
-- [Registrera dig för Azure AD Premium](../fundamentals/active-directory-get-started-premium.md), om du inte har registrerat dig redan
-- [Hur du kräver tvåstegsverifiering för en användare](../authentication/howto-mfa-userstates.md)
-- [Konfigurera ytterligare skydd för globala administratörer i Office 365](https://docs.microsoft.com/office365/enterprise/protect-your-global-administrator-accounts), om du använder Office 365
-- [Starta en åtkomstgranskning av globala administratörer](../privileged-identity-management/pim-how-to-start-security-review.md) och [övergång befintliga globala administratörer av mer specifika administratörsroller](directory-assign-admin-roles.md)
+- [Lägg till användare med hjälp av Azure AD](../fundamentals/add-users-azure-active-directory.md) och [tilldela den nya användaren rollen som global administratör](../fundamentals/active-directory-users-assign-role-azure-portal.md)
+- [Registrera dig för Azure AD Premium](../fundamentals/active-directory-get-started-premium.md)om du inte redan har registrerat dig
+- [Så här kräver du tvåstegsverifiering för en användare](../authentication/howto-mfa-userstates.md)
+- [Konfigurera ytterligare skydd för globala administratörer i office 365](https://docs.microsoft.com/office365/enterprise/protect-your-global-administrator-accounts)om du använder Office 365
+- [Starta en åtkomst granskning av globala administratörer](../privileged-identity-management/pim-how-to-start-security-review.md) och [över gång av befintliga globala administratörer till mer detaljerade administratörs roller](directory-assign-admin-roles.md)

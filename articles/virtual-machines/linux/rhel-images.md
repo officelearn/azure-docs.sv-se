@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 8/14/2019
 ms.author: borisb
-ms.openlocfilehash: accc59ee31ddb7371774da3235cc9ccff24ad641
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: c11ce31913baa8c638e94bdf92ef622cd8899e03
+ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70309232"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70764308"
 ---
 # <a name="red-hat-enterprise-linux-images-in-azure"></a>Red Hat Enterprise Linux avbildningar i Azure
 I den här artikeln beskrivs tillgängliga Red Hat Enterprise Linux-avbildningar (RHEL) på Azure Marketplace tillsammans med principer kring namngivning och kvarhållning.
@@ -114,18 +114,19 @@ Följande erbjudanden är SKU: er som är tillgängliga för allmänt bruk:
 
 Erbjudande| SKU | Partitionering | Etableras | Anteckningar
 :----|:----|:-------------|:-------------|:-----
-RHEL          | 7-RAW    | RAW    | Linux-agent | Bilder med RHEL 7-serien. <br> Är inte kopplat till EUS-databaser som standard.
-|             | 7-LVM    | LVM    | Linux-agent | Bilder med RHEL 7-serien. <br> Är inte kopplat till EUS-databaser som standard.
-|             | 7-RAW-CI | RAW-CI | Cloud-init  | Bilder med RHEL 7-serien. <br> Är inte kopplat till EUS-databaser som standard.
-|             | 6.7      | RAW    | Linux-agent | RHEL 6,7-bilder, Gammal namngivnings konvention
-|             | 6.8      | RAW    | Linux-agent | Samma som ovan för RHEL 6,8
-|             | 6.9      | RAW    | Linux-agent | Samma som ovan för RHEL 6,9
-|             | 6.10     | RAW    | Linux-agent | Samma som ovan för RHEL 6,10
-|             | 7.2      | RAW    | Linux-agent | Samma som ovan för RHEL 7,2
-|             | 7.3      | RAW    | Linux-agent | Samma som ovan för RHEL 7,3
-|             | 7.4      | RAW    | Linux-agent | Samma som ovan för RHEL 7,4. <br> Bifogad till EUS-databaser som standard från april 2019
-|             | 7.5      | RAW    | Linux-agent | Samma som ovan för RHEL 7,5. <br> Bifogad till EUS-databaser som standard från och med juni 2019
-|             | 7,6      | RAW    | Linux-agent | Samma som ovan för RHEL 7,6. <br> Bifogad till EUS-databaser som standard från maj 2019
+RHEL          | 7-RAW    | RAW    | Linux-agent | RHEL 7. x-serien med bilder. <br> Är inte kopplat till EUS-databaser som standard.
+|             | 7-LVM    | LVM    | Linux-agent | RHEL 7. x-serien med bilder. <br> Är inte kopplat till EUS-databaser som standard.
+|             | 7-RAW-CI | RAW-CI | Cloud-init  | RHEL 7. x-serien med bilder. <br> Är inte kopplat till EUS-databaser som standard.
+|             | 6.7      | RAW    | Linux-agent |
+|             | 6.8      | RAW    | Linux-agent |
+|             | 6.9      | RAW    | Linux-agent |
+|             | 6.10     | RAW    | Linux-agent |
+|             | 7.2      | RAW    | Linux-agent |
+|             | 7.3      | RAW    | Linux-agent |
+|             | 7.4      | RAW    | Linux-agent | Anslutet till EUS-databaser som standard från april 2019.
+|             | 7.5      | RAW    | Linux-agent | Anslutet till EUS-databaser som standard från och med juni 2019.
+|             | 7,6      | RAW    | Linux-agent | Bifogad till EUS-databaser som standard från maj 2019.
+|             | 7,7      | LVM    | Linux-agent | Ansluten till EUS-databaser som standard.
 RHEL-SAP      | 7.4      | LVM    | Linux-agent | RHEL 7,4 för SAP HANA-och företags program
 |             | 7.5      | LVM    | Linux-agent | RHEL 7,5 för SAP HANA-och företags program
 RHEL – SAP-HANA | 6.7      | RAW    | Linux-agent | RHEL 6,7 för SAP HANA

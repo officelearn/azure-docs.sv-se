@@ -15,22 +15,22 @@ ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 12/18/2017
 ms.author: victorh
-ms.openlocfilehash: 1a62a4d5f06856ca0fe6356ca388047679097e3f
-ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
+ms.openlocfilehash: ccc418cd3af14c0468ab8d669ad2e2e11a0b6d57
+ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68004463"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70772263"
 ---
 # <a name="overview-of-dns-zones-and-records"></a>Översikt över DNS-zoner och-poster
 
 Den här sidan förklarar viktiga begrepp för domäner, DNS-zoner och DNS-poster och post uppsättningar och hur de stöds i Azure DNS.
 
-## <a name="domain-names"></a>Domän namn
+## <a name="domain-names"></a>Domännamn
 
 Domain Name System är en hierarki av domäner. Hierarkin startar från rotdomänen, vars namn är ” **.** ”.  Under detta kommer toppdomänerna, till exempel ”com”, ”net”, ”org”, ”se” eller ”uk”.  Under dessa finns domänerna på den andra nivån, till exempel ”org.se” eller ”co.uk”. Domänerna i DNS-hierarkin distribueras globalt, värdbaserade av DNS-namnservrar runtom i världen.
 
-En domän namns registrator är en organisation som gör det möjligt att köpa ett domän namn, till exempel "contoso.com".  Genom att köpa ett domän namn får du behörighet att kontrol lera DNS-hierarkin under det namnet, till exempel så att du kan dirigera namnet "www.contoso.com" till företagets webbplats. Registratorn kan vara värd för domänen på sina egna namnservrar åt dig, eller så kan du ange alternativa namnservrar.
+En domän namns registrator är en organisation som gör det möjligt att köpa ett domän namn, till exempel "contoso.com".  Genom att köpa ett domän namn får du behörighet att kontrol lera DNS-hierarkin under det namnet, till exempel så att du kan dirigera namnet www.contoso.com till företagets webbplats. Registratorn kan vara värd för domänen på sina egna namnservrar åt dig, eller så kan du ange alternativa namnservrar.
 
 Azure DNS tillhandahåller en globalt distribuerad namn server infrastruktur med hög tillgänglighet, som du kan använda för att vara värd för din domän. Genom att vara värd för dina domäner i Azure DNS kan du hantera dina DNS-poster med samma autentiseringsuppgifter, API: er, verktyg, fakturering och support som andra Azure-tjänster.
 
@@ -129,7 +129,7 @@ Anta att två personer eller två processer försöker ändra en DNS-post på sa
 
 Azure DNS använder ETags för att hantera samtidiga ändringar till samma resurs säkert. ETags skiljer sig från [Azure Resource Manager Taggar](#tags). Varje DNS-resurs (zon eller post uppsättning) har en associerad etag. När en resurs hämtas, hämtas även dess etag. När du uppdaterar en resurs kan du välja att skicka tillbaka etag så Azure DNS kan verifiera att etag på servern matchar. Eftersom varje uppdatering av en resurs resulterar i att etag återskapas, indikerar en etag-matchning att en samtidig ändring har skett. ETags kan också användas när du skapar en ny resurs för att se till att resursen inte redan finns.
 
-Azure DNS PowerShell använder som standard ETags för att blockera samtidiga ändringar i zoner och post uppsättningar. Den valfria *växeln* kan användas för att dölja etag-kontroller, vilket innebär att alla samtidiga ändringar som har inträffat skrivs över.
+Azure DNS PowerShell använder som standard ETags för att blockera samtidiga ändringar i zoner och post uppsättningar. Den valfria växeln kan användas för att dölja *etag-kontroller* , vilket innebär att alla samtidiga ändringar som har inträffat skrivs över.
 
 På nivån för Azure DNS REST API anges ETags med HTTP-huvuden.  Deras beteende anges i följande tabell:
 

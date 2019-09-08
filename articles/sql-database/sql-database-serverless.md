@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: moslake
 ms.author: moslake
 ms.reviewer: sstein, carlrab
-ms.date: 08/26/2019
-ms.openlocfilehash: 418ca6f8d6258b826bb126252d7cf7b1c5fee299
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.date: 09/06/2019
+ms.openlocfilehash: 5b13c3c93f8b2d6f3eed5a32c49baf1b9d1b201e
+ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70035725"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70773344"
 ---
 # <a name="azure-sql-database-serverless-preview"></a>Azure SQL Database utan server (för hands version)
 
@@ -115,7 +115,8 @@ Följande funktioner stöder inte AutoPause.  Det innebär att om någon av föl
 
 - Geo-replikering (aktiv geo-replikering och grupper för automatisk redundans).
 - Långsiktig kvarhållning av säkerhets kopior (brv).
-- Den synkroniserade databasen som används i SQL Data Sync.
+- Den synkroniserade databasen som används i SQL Data Sync.  Till skillnad från Sync-databaser, nav och medlems databaser har stöd för automatisk paus.
+- Jobb databasen som används i elastiska jobb.
 
 AutoPause förhindras tillfälligt under distributionen av vissa tjänste uppdateringar som kräver att databasen är online.  I sådana fall tillåts autopausen igen när tjänsten har uppdaterats.
 

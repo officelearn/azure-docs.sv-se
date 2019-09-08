@@ -7,12 +7,12 @@ ms.author: v-qiwe
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 08/27/2019
-ms.openlocfilehash: 8524a315228601adbb30a5def383f7b54a8f1495
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: f021ac0a7c9c46592f7969dd0df10f76aec88cb7
+ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70076113"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70773223"
 ---
 # <a name="co-sell-option-in-partner-center"></a>Alternativet samförsäljning i Partner Center
 
@@ -47,10 +47,10 @@ Lösnings områden hjälper dig att definiera scenarier som ditt erbjudande är 
 
 | **Dokument**    | **Beskrivning**  |
 | :------------------- | :-------------------|
-| *Kund One – personsökare* | Kund färdig Beskrivning av ditt erbjudande. Microsoft Sales Teams kan dela den här informationen med kunder för att hjälpa till att avgöra om ditt erbjudande kan vara en bra passning och se till att det är kund klart. <br> <br> Använd någon av de relevanta mallarna nedan: <br> <ul> <li> [Microsoft Azure One-pager-mall](https://aka.ms/Customer-One-Pager_MicrosoftAzure) </li> <li> [Microsoft Dynamics 365 1 – pager-mall](https://aka.ms/Customer-One-Pager_MicrosoftDynamics365) </li> <li> [Office 365 1 – pager-mall](https://aka.ms/Customer-One-Pager_MicrosoftOffice365) </li> <li> [Windows 10 1-pager-mall](https://aka.ms/Customer-One-Pager_Windows) </li> </ul>
+| *Kund One – personsökare* | Kund färdig Beskrivning av ditt erbjudande. Microsoft Sales Teams kan dela den här informationen med kunder för att hjälpa till att avgöra om ditt erbjudande kan vara en bra passning och se till att det är kund klart. <br> <br> Använd en av de relevanta mallarna som är tillgängliga i Partner Center: <br> <ul> <li> Microsoft Azure One-pager-mall </li> <li> Microsoft Dynamics 365 1 – pager-mall </li> <li> Office 365 1 – pager-mall </li> <li> Windows 10 1-pager-mall </li> </ul>
  |
-| *Kund presentation* | Dra däcket för att stämma av din lösning och dess värde förslag. När du har säkerställt att ditt erbjudande är kund klart kan Microsoft Sales-teamet dela med sig av presentationen med kunder för att tydliggör värdet som båda företagen tar när de distribuerar en gemensam lösning. Presentationen bör avse vad din lösning gör, hur den kan hjälpa kunder, vilka branscher lösningen är för och hur den jämförs med konkurrerande lösningar. <br> <br> Mer information finns i [kund presentations mal len](https://aka.ms/GTMServices_CustomerPresentation).|
-| *Fallstudie om kund* | Den här informationen visar en potentiell kund hur du och Microsoft har distribuerat den här lösningen i tidigare fall. <br> <br> Mer information finns i fallstudie- [mall](https://aka.ms/GTM_Case_Study_Template). |
+| *Kund presentation* | Dra däcket för att stämma av din lösning och dess värde förslag. När du har säkerställt att ditt erbjudande är kund klart kan Microsoft Sales-teamet dela med sig av presentationen med kunder för att tydliggör värdet som båda företagen tar när de distribuerar en gemensam lösning. Presentationen bör avse vad din lösning gör, hur den kan hjälpa kunder, vilka branscher lösningen är för och hur den jämförs med konkurrerande lösningar. <br> <br> Använd mallen som är tillgänglig i Partner Center.|
+| *Fallstudie om kund* | Den här informationen visar en potentiell kund hur du och Microsoft har distribuerat den här lösningen i tidigare fall. <br> <br> Använd mallen som är tillgänglig i Partner Center. |
 | *Kund-och verifierbar kund (valfritt)* | Specifika exempel på kund framgångar efter att din lösning har distribuerats. |
 | *Kanal bredds däck (valfritt)* | En bildkortlek med information som hjälper kanal åter försäljare att lära sig mer om din lösning och är redo för deras sälj team att sälja ditt erbjudande. Det innehåller vanligt vis ett höjd-och utbredds problem, information om kunder, frågor för att be kunder, prata om punkter och länkar till videor, dokumentation och supportinformation. |
 | *Referens arkitektur diagram* | Ett dokument som visar modellen som representerar IP-adressen som skapats av partnern, tillsammans med dess relation med Microsofts moln tjänster och hur den uppfyller de tekniska kraven i IP-Co-programmet. |

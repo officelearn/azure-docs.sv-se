@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/28/2018
 ms.author: robb
 ms.subservice: alerts
-ms.openlocfilehash: defc317618dfffd0e2b28c75b6168ec1dbda36b7
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
-ms.translationtype: HT
+ms.openlocfilehash: 3ac6ec9fe55e901e593f201b5ff71668d80d66e3
+ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 09/06/2019
-ms.locfileid: "70735115"
+ms.locfileid: "70773015"
 ---
 # <a name="overview-of-alerts-in-microsoft-azure"></a>Översikt över aviseringar i Microsoft Azure 
 
@@ -53,7 +53,11 @@ Nyckelattribut för en varnings regel är:
 **Aviserings Beskrivning** – en beskrivning av aviserings regeln som kon figurer ATS av användaren
 
 **Allvarlighets** grad – allvarlighets graden för aviseringen när kriteriet som anges i varnings regeln är uppfyllt. Allvarlighets graden kan vara mellan 0 och 4.
-Allvarlighets grad 0 = kritisk allvarlighets grad 1 = fel allvarlighets grad 2 = varning allvarlighets grad 3 = information allvarlighets grad 4 = utförlig
+   - Allvarlighets grad 0 = kritisk
+   - Allvarlighets grad 1 = fel
+   - Allvarlighets grad 2 = varning
+   - Allvarlighets grad 3 = information
+   - Allvarlighets grad 4 = utförlig 
 
 **Åtgärd** – en speciell åtgärd som vidtas när aviseringen utlöses. Mer information finns i [Åtgärds grupper](../../azure-monitor/platform/action-groups.md).
 

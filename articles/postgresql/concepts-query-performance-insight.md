@@ -6,16 +6,16 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 08/21/2019
-ms.openlocfilehash: cd07656ab4e6e0f684eecf35d241eac539b7a552
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.openlocfilehash: 748c6f08da535013724f68b8be424e50a2d49dfd
+ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69907471"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70764435"
 ---
 # <a name="query-performance-insight"></a>Query Performance Insight 
 
-**Gäller för:** Azure Database for PostgreSQL-enskild server 9,6 och 10
+**Gäller för:** Azure Database for PostgreSQL-enskild server version 9,6, 10, 11
 
 Query Performance Insight hjälper dig att snabbt identifiera vad dina längsta kör frågor är, hur de ändras med tiden och vilka vänte tider som påverkar dem.
 
@@ -28,7 +28,7 @@ För att Query Performance Insight ska fungera måste data finnas i [frågearkiv
 ## <a name="viewing-performance-insights"></a>Visa prestanda insikter
 På [Query Performance Insight](concepts-query-performance-insight.md)-vyn i Azure-portalen visas visualiseringar av nyckelinformation från Query Store. 
 
-På Portal-sidan på Azure Database for PostgreSQL-servern väljer du **fråga prestanda** insikter under avsnittet **intelligent prestanda** i meny raden.
+På Portal-sidan på Azure Database for PostgreSQL-servern väljer du **fråga prestanda insikter** under avsnittet **intelligent prestanda** i meny raden.
 
 ![Query Performance Insight tids krävande frågor](./media/concepts-query-performance-insight/query-performance-insight-landing-page.png)
 
@@ -43,7 +43,7 @@ Välj fliken **Väntestatistik** för att visa motsvarande visualiseringar av v�
 ![Query Performance Insight väntar på statistik](./media/concepts-query-performance-insight/query-performance-insight-wait-statistics.png)
 
 ## <a name="considerations"></a>Överväganden
-* Query Performance Insight är inte tillgängligt för [läsning](concepts-read-replicas.md)av repliker.
+* Query Performance Insight är inte tillgängligt för [läsning av repliker](concepts-read-replicas.md).
 
 ## <a name="next-steps"></a>Nästa steg
 - Lär dig mer om [övervakning och justering](concepts-monitoring.md) i Azure Database for PostgreSQL.

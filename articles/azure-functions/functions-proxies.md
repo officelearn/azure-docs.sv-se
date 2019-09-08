@@ -9,12 +9,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: alkarche
-ms.openlocfilehash: e5f856bbd8f6fdec46d947a4c726024a08a2b6e9
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 72e359cf5cfef2072d3511990297f67fc4df92bb
+ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70096042"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70773059"
 ---
 # <a name="work-with-azure-functions-proxies"></a>Arbeta med Azure Functions Proxies
 
@@ -33,7 +33,7 @@ Det här avsnittet visar hur du skapar en proxy i Functions-portalen.
 2. I den vänstra rutan väljer **nya proxyserverkonfigurationen**.
 3. Ange ett namn för proxyservern.
 4. Konfigurera den slutpunkt som exponeras i den här funktionsappen genom att ange den **flödesmallen** och **HTTP-metoder**. Dessa parametrar fungerar enligt reglerna för [HTTP-utlösare].
-5. Ange den **backend-URL** till en annan slutpunkt. Den här slutpunkten kan vara en funktion i en annan funktionsapp eller det bero på att alla andra API: er. Värdet behöver inte vara statiska och kan referera till [programinställningar] och [parametrar från den ursprungliga klientbegäran].
+5. Ange den **backend-URL** till en annan slutpunkt. Den här slutpunkten kan vara en funktion i en annan funktionsapp eller det bero på att alla andra API: er. Värdet behöver inte vara statiska och kan referera till [program inställningar] och [parametrar från den ursprungliga klientbegäran].
 6. Klicka på **Skapa**.
 
 Proxyservern finns nu som en ny slutpunkt på din funktionsapp. Från en klientperspektiv motsvarar den en HttpTrigger i Azure Functions. Du kan testa din nya proxyserverkonfigurationen genom att kopiera URL: en för Proxy och testa det med dina favoritverktyg HTTP-klienten.
@@ -44,13 +44,13 @@ Du kan ändra begäranden till och -svar från backend-server med Azure Function
 
 ### <a name="modify-backend-request"></a>Ändra backend-begäran
 
-Som standard initieras backend-begäran som en kopia av den ursprungliga begäran. Förutom att URL: en för backend-server kan du ändra till HTTP-metoden, rubriker och frågesträngsparametrarna. Ändrade värden kan referera till [programinställningar] och [parametrar från den ursprungliga klientbegäran].
+Som standard initieras backend-begäran som en kopia av den ursprungliga begäran. Förutom att URL: en för backend-server kan du ändra till HTTP-metoden, rubriker och frågesträngsparametrarna. Ändrade värden kan referera till [program inställningar] och [parametrar från den ursprungliga klientbegäran].
 
 Backend-begäranden kan ändras i portalen genom att expandera avsnittet *begär åsidosättning* på sidan information om proxyserver. 
 
 ### <a name="modify-response"></a>Ändra svaret
 
-Som standard initieras klienten svaret som en kopia av backend-svaret. Du kan ändra Svarets statuskod, orsaksfras, rubriker och brödtext. Ändrade värden kan referera till [programinställningar], [parametrar från den ursprungliga klientbegäran], och [parametrar från backend-svaret].
+Som standard initieras klienten svaret som en kopia av backend-svaret. Du kan ändra Svarets statuskod, orsaksfras, rubriker och brödtext. Ändrade värden kan referera till [program inställningar], [parametrar från den ursprungliga klientbegäran], och [parametrar från backend-svaret].
 
 Server dels begär Anden kan ändras i portalen genom att avsnittet om *åsidosättning av svar* expanderas på sidan information om proxyserver. 
 
@@ -65,7 +65,7 @@ Du kan använda `localhost` att referera till en funktion i samma funktionsapp d
 
  
 >[!Note]  
->Om din funktion använder *funktion, admin eller sys* åtkomstnivåer, måste du ange koden och clientId, enligt den ursprungliga funktions-URL. I det här fallet ser referensen ut som: `"backendurl": "https://localhost/api/httptriggerC#1?code=<keyvalue>&clientId=<keyname>"`
+>Om din funktion använder *funktion, admin eller sys* åtkomstnivåer, måste du ange koden och clientId, enligt den ursprungliga funktions-URL. I det här fallet skulle referensen se ut så här: `"backendurl": "https://localhost/api/httptriggerC#1?code=<keyvalue>&clientId=<keyname>"`Vi rekommenderar att du lagrar dessa nycklar i [program inställningar] och refererar till dem i dina-proxyservrar. På så sätt undviker du att lagra hemligheter i käll koden. 
 
 ### <a name="request-parameters"></a>Parametrarna som referens
 
@@ -141,7 +141,7 @@ Varje proxy har ett eget namn som *proxy1* i föregående exempel. Objekt för r
 * **matchCondition**: Obligatoriskt--ett objekt som definierar de begär Anden som utlöser körningen av den här proxyn. Den innehåller två egenskaper som delas med [HTTP-utlösare]:
     * _metoder_: En matris med de HTTP-metoder som proxyservern svarar på. Om det inte anges svarar proxyn på alla HTTP-metoder på vägen.
     * _väg_: Required--definierar väg mal len och kontrollerar vilka URL-adresser som proxyservern svarar på. Till skillnad från i HTTP-utlösare finns inget standardvärde.
-* nytåligi: URL: en till den backend-resurs som begäran ska skickas till via proxy. Det här värdet kan referera till programinställningar och parametrar från den ursprungliga klientbegäran. Om den här egenskapen inte finns, svarar Azure Functions med en HTTP 200 OK.
+* **Nytåligi**: URL: en till den backend-resurs som begäran ska skickas till via proxy. Det här värdet kan referera till programinställningar och parametrar från den ursprungliga klientbegäran. Om den här egenskapen inte finns, svarar Azure Functions med en HTTP 200 OK.
 * **requestOverrides**: Ett objekt som definierar omvandlingar till backend-begäran. Se [Definiera ett requestOverrides-objekt].
 * **responseOverrides**: Ett objekt som definierar omvandlingar till klient svaret. Se [Definiera ett responseOverrides-objekt].
 
@@ -253,7 +253,7 @@ En exempelkonfiguration kan se ut så här:
 [Modify the response]: #modify-response
 [Definiera ett requestOverrides-objekt]: #requestOverrides
 [Definiera ett responseOverrides-objekt]: #responseOverrides
-[programinställningar]: #use-appsettings
+[program inställningar]: #use-appsettings
 [Använda variabler]: #using-variables
 [parametrar från den ursprungliga klientbegäran]: #request-parameters
 [parametrar från backend-svaret]: #response-parameters

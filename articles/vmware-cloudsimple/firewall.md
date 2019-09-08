@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: c56d469360814cb663b4c5c11689961225eebb2d
-ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
+ms.openlocfilehash: 798f95281740213ac23892eb3b54ff780ca18395
+ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69544674"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70772350"
 ---
 # <a name="set-up-firewall-tables-and-rules-for-private-clouds"></a>Konfigurera brand Väggs tabeller och regler för privata moln
 
@@ -24,7 +24,7 @@ Med brand Väggs tabeller och associerade regler kan du ange begränsningar för
 
 ## <a name="add-a-new-firewall-table"></a>Lägg till en ny brand Väggs tabell
 
-1. [Öppna CloudSimple-portalen](monitor-activity.md) och välj **nätverk** på sido menyn.
+1. [Öppna CloudSimple-portalen](access-cloudsimple-portal.md) och välj **nätverk** på sido menyn.
 2. Välj **brand Väggs tabeller**.
 3. Välj **skapa brand Väggs tabell**.
 

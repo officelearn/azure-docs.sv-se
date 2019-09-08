@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/08/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 0e59a28ce1fb3c562bf76420a5e62e347230e964
-ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
+ms.openlocfilehash: c3a7fb14dbd22730d95a5aaed146b59ad790ce6b
+ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68669850"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70775899"
 ---
 Tillfälliga OS-diskar skapas på den lokala virtuella datorns lagrings plats (VM) och sparas inte på den fjärranslutna Azure Storage. Tillfälliga OS-diskar fungerar bra för tillstånds lösa arbets belastningar, där program är toleranta av enskilda VM-fel, men de påverkas mer av den virtuella datorns distributions tid eller avbildning av de enskilda VM-instanserna. Med en tillfällig OS-disk får du mindre Läs-/skriv fördröjning till operativ system disken och en snabbare avbildning av den virtuella datorn. 
  
@@ -175,7 +175,7 @@ Du kan distribuera en virtuell dator med en tillfällig OS-disk med hjälp av en
 
 
 ## <a name="reimage-a-vm-using-rest"></a>Återställa avbildningen av en virtuell dator med hjälp av REST
-För närvarande är den enda metoden för att återställa avbildningen av en virtuell dator instans med en tillfällig OS-disk via REST API. För skalnings uppsättningar är åter avbildning redan tillgänglig via PowerShell, CLI och portalen.
+Du kan återställa avbildningen av en virtuell dator instans med en tillfällig OS-disk med REST API enligt beskrivningen nedan och via Azure Portal genom att gå till översikts fönstret på den virtuella datorn. För skalnings uppsättningar är åter avbildning redan tillgänglig via PowerShell, CLI och portalen.
 
 ```
 POST https://management.azure.com/subscriptions/{sub-

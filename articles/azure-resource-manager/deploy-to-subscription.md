@@ -1,39 +1,37 @@
 ---
-title: Skapa resursgrupp och resurser på prenumeration – Azure Resource Manager-mall
-description: Beskriver hur du skapar en resursgrupp i en Azure Resource Manager-mall. Den visar också hur du distribuerar resurser i omfånget för Azure-prenumeration.
+title: Skapa resurs grupp och resurser vid prenumerationen – Azure Resource Manager mall
+description: Beskriver hur du skapar en resurs grupp i en Azure Resource Manager-mall. Det visar också hur du distribuerar resurser i Azures prenumerations omfång.
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 01/30/2019
+ms.date: 09/06/2019
 ms.author: tomfitz
-ms.openlocfilehash: 8414e94582ec4022915e4c353f33eec72f3dc98a
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 37f2b04a62d94cce42b095540380460c38bc5b79
+ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67205646"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70772946"
 ---
-# <a name="create-resource-groups-and-resources-at-the-subscription-level"></a>Skapa resursgrupper och resurser på prenumerationsnivån
+# <a name="create-resource-groups-and-resources-at-the-subscription-level"></a>Skapa resurs grupper och resurser på prenumerations nivå
 
-Normalt distribuerar du Azure-resurser till en resursgrupp i Azure-prenumerationen. Men kan du också skapa Azure-resursgrupper och skapa Azure-resurser på prenumerationsnivån. För att distribuera mallar på prenumerationsnivå måste använda du Azure CLI och Azure PowerShell. Azure-portalen stöder inte distribution på prenumerationsnivå.
+Normalt distribuerar du Azure-resurser till en resurs grupp i din Azure-prenumeration. Men du kan också skapa Azure-resurs grupper och skapa Azure-resurser på prenumerations nivån. Om du vill distribuera mallar på prenumerations nivå använder du Azure CLI och Azure PowerShell. Azure Portal har inte stöd för distribution på prenumerations nivån.
 
-Om du vill skapa en resursgrupp i en Azure Resource Manager-mall definierar en [ **Microsoft.Resources/resourceGroups** ](/azure/templates/microsoft.resources/allversions) resurs med ett namn och plats för resursgruppen. Du kan skapa en resursgrupp och distribuera resurser till resursgruppen i samma mall. De resurser som du kan distribuera på prenumerationsnivå är: [Principer](../governance/policy/overview.md), och [rollbaserad åtkomstkontroll](../role-based-access-control/overview.md).
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+Skapa en resurs grupp i en Azure Resource Manager mall genom att definiera en resurs för [Microsoft. Resources/resourceGroups](/azure/templates/microsoft.resources/allversions) med ett namn och en plats för resurs gruppen. Du kan skapa en resurs grupp och distribuera resurser till den resurs gruppen i samma mall. De resurser som du kan distribuera på prenumerations nivån är: [Principer](../governance/policy/overview.md)och [rollbaserad åtkomst kontroll](../role-based-access-control/overview.md).
 
 ## <a name="deployment-considerations"></a>Distributionsöverväganden
 
-Nivån prenumerationsdistributionen skiljer sig från distribution av resursgrupper i följande aspekter:
+Distribution av prenumerations nivå skiljer sig från distribution av resurs grupper i följande aspekter:
 
-### <a name="schema-and-commands"></a>Schema- och kommandon
+### <a name="schema-and-commands"></a>Schema och kommandon
 
-Schema- och kommandon som du använder för prenumerationsnivå distributioner skiljer sig från distribution av resursgrupper. 
+Schemat och kommandona som används för distributioner på prenumerations nivå skiljer sig från resurs grupp distributioner. 
 
-Schemat, använda `https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#`.
+För schemat använder `https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#`du.
 
-Azure CLI-kommando för distribution använder [az distributionen skapa](/cli/azure/deployment?view=azure-cli-latest#az-deployment-create). Till exempel distribuerar följande CLI-kommando en mall för att skapa en resursgrupp:
+För kommandot Azure CLI-distribution använder du [AZ Deployment Create](/cli/azure/deployment?view=azure-cli-latest#az-deployment-create). Följande CLI-kommando distribuerar exempelvis en mall för att skapa en resurs grupp:
 
-```azurecli
+```azurecli-interactive
 az deployment create \
   --name demoDeployment \
   --location centralus \
@@ -41,9 +39,9 @@ az deployment create \
   --parameters rgName=demoResourceGroup rgLocation=centralus
 ```
 
-PowerShell-kommando för distribution använder [New AzDeployment](/powershell/module/az.resources/new-azdeployment). Till exempel distribuerar följande PowerShell-kommando en mall för att skapa en resursgrupp:
+För kommandot PowerShell-distribution använder du [New-AzDeployment](/powershell/module/az.resources/new-azdeployment). Följande PowerShell-kommando distribuerar exempelvis en mall för att skapa en resurs grupp:
 
-```azurepowershell
+```azurepowershell-interactive
 New-AzDeployment `
   -Name demoDeployment `
   -Location centralus `
@@ -52,23 +50,23 @@ New-AzDeployment `
   -rgLocation centralus
 ```
 
-### <a name="deployment-name-and-location"></a>Namn och plats
+### <a name="deployment-name-and-location"></a>Distributions namn och plats
 
-När du distribuerar till din prenumeration, måste du ange en plats för distributionen. Du kan också ange ett namn för distributionen. Om du inte anger ett namn för distributionen, används namnet på mallen som distributionens namn. Till exempel distribuerar en mall med namnet **azuredeploy.json** skapar ett standardnamn för distribution av **azuredeploy**.
+När du distribuerar till din prenumeration måste du ange en plats för distributionen. Du kan också ange ett namn för distributionen. Om du inte anger ett namn för distributionen används namnet på mallen som distributions namn. Om du till exempel distribuerar en mall med namnet **azuredeploy. JSON** skapas ett standard distributions namn för **azuredeploy**.
 
-Platsen för prenumerationen på distributioner kan inte ändras. Du kan inte skapa en distribution i en plats när det finns en befintlig distribution med samma namn men olika plats. Om du får felkoden `InvalidDeploymentLocation`, antingen använda ett annat namn eller på samma plats som den föregående distributionen för det namnet.
+Platsen för distributioner på prenumerations nivå är oföränderlig. Du kan inte skapa en distribution på en plats om det finns en befintlig distribution med samma namn men annan plats. Om du får fel koden `InvalidDeploymentLocation`använder du antingen ett annat namn eller samma plats som den tidigare distributionen för det namnet.
 
-### <a name="use-template-functions"></a>Använda Mallfunktioner
+### <a name="use-template-functions"></a>Använda mall funktioner
 
-För prenumerationsnivå distributioner finns det några viktiga överväganden när du använder Mallfunktioner:
+För distributioner på prenumerations nivå finns det några viktiga överväganden när du använder mallarna:
 
-* Den [resourceGroup()](resource-group-template-functions-resource.md#resourcegroup) funktionen är **inte** stöds.
-* Den [resourceId()](resource-group-template-functions-resource.md#resourceid) funktionen stöds. Du kan använda den för att hämta resurs-ID för resurser som används vid prenumeration på distributioner. Till exempel hämta resurs-ID för en principdefinition med `resourceId('Microsoft.Authorization/roleDefinitions/', parameters('roleDefinition'))`
-* Den [reference()](resource-group-template-functions-resource.md#reference) och [list()](resource-group-template-functions-resource.md#list) funktioner stöds.
+* Funktionen [resourceGroup ()](resource-group-template-functions-resource.md#resourcegroup) stöds **inte** .
+* Funktionen [resourceId ()](resource-group-template-functions-resource.md#resourceid) stöds. Använd den för att hämta resurs-ID för resurser som används på prenumerations nivå distributioner. Hämta till exempel resurs-ID för en princip definition med`resourceId('Microsoft.Authorization/roleDefinitions/', parameters('roleDefinition'))`
+* Funktionerna [Reference ()](resource-group-template-functions-resource.md#reference) och [List ()](resource-group-template-functions-resource.md#list) stöds.
 
-## <a name="create-resource-groups"></a>Skapa resursgrupper
+## <a name="create-resource-groups"></a>Skapa resurs grupper
 
-Följande mall skapar en tom resursgrupp.
+Följande mall skapar en tom resurs grupp.
 
 ```json
 {
@@ -96,11 +94,11 @@ Följande mall skapar en tom resursgrupp.
 }
 ```
 
-Mallsschemat finns på [här](/azure/templates/microsoft.resources/allversions). Liknande mallar finns på [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/subscription-level-deployments).
+Du hittar mallens schema [här](/azure/templates/microsoft.resources/allversions). Liknande mallar hittar du på [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/subscription-level-deployments).
 
-## <a name="create-multiple-resource-groups"></a>Skapa flera resursgrupper
+## <a name="create-multiple-resource-groups"></a>Skapa flera resurs grupper
 
-Använd den [kopieringselement](resource-group-create-multiple.md) med resursgrupper för att skapa fler än en resursgrupp. 
+Använd [Kopiera-elementet](resource-group-create-multiple.md) med resurs grupper för att skapa fler än en resurs grupp. 
 
 ```json
 {
@@ -135,13 +133,13 @@ Använd den [kopieringselement](resource-group-create-multiple.md) med resursgru
 }
 ```
 
-Läs om hur resource iteration [distribuera fler än en instans av en resurs eller egenskapen i Azure Resource Manager-mallar](./resource-group-create-multiple.md), och [självstudien: Skapa flera resursinstanser med Resource Manager-mallar](./resource-manager-tutorial-create-multiple-instances.md).
+Information om resurs upprepning finns i [distribuera fler än en instans av en resurs eller egenskap i Azure Resource Manager mallar](./resource-group-create-multiple.md)och [Självstudier: Skapa flera resurs instanser med Resource Manager-](./resource-manager-tutorial-create-multiple-instances.md)mallar.
 
-## <a name="create-resource-group-and-deploy-resources"></a>Skapa resursgrupp och distribuera resurser
+## <a name="create-resource-group-and-deploy-resources"></a>Skapa resurs grupp och distribuera resurser
 
-Använd en kapslad mall för att skapa en resursgrupp och distribuera resurser till den. Den kapslade mallen definierar resurserna som ska distribueras till resursgruppen. Ange den kapslade mallen som beroende på resursgruppen som ska kontrollera att resursgruppen finns innan du distribuerar resurser.
+Använd en kapslad mall för att skapa resurs gruppen och distribuera resurser till den. Den kapslade mallen definierar de resurser som ska distribueras till resurs gruppen. Ange att den kapslade mallen är beroende av resurs gruppen för att kontrol lera att resurs gruppen finns innan du distribuerar resurserna.
 
-I följande exempel skapas en resursgrupp och distribuerar ett lagringskonto till resursgruppen.
+I följande exempel skapas en resurs grupp och ett lagrings konto distribueras till resurs gruppen.
 
 ```json
 {
@@ -210,7 +208,7 @@ I följande exempel skapas en resursgrupp och distribuerar ett lagringskonto til
 
 ### <a name="assign-policy"></a>Tilldela princip
 
-I följande exempel tilldelar en befintlig principdefinitionen till prenumerationen. Om principen tar parametrar kan du ange dem som ett-objekt. Om principen inte tar parametrar, använder du standard tomt-objekt.
+I följande exempel tilldelas en befintlig princip definition till prenumerationen. Om principen använder parametrar, anger du dem som ett objekt. Om principen inte tar parametrar använder du det tomma standard objektet.
 
 ```json
 {
@@ -244,35 +242,9 @@ I följande exempel tilldelar en befintlig principdefinitionen till prenumeratio
 }
 ```
 
-Om du vill använda en inbyggd princip på Azure-prenumerationen, använder du följande Azure CLI-kommandon:
+Om du vill distribuera den här mallen med Azure CLI använder du:
 
-```azurecli
-# Built-in policy that does not accept parameters
-definition=$(az policy definition list --query "[?displayName=='Audit resource location matches resource group location'].id" --output tsv)
-
-az deployment create \
-  --name demoDeployment \
-  --location centralus \
-  --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/policyassign.json \
-  --parameters policyDefinitionID=$definition policyName=auditRGLocation
-```
-
-Om du vill distribuera den här mallen med PowerShell använder du:
-
-```azurepowershell
-$definition = Get-AzPolicyDefinition | Where-Object { $_.Properties.DisplayName -eq 'Audit resource location matches resource group location' }
-
-New-AzDeployment `
-  -Name policyassign `
-  -Location centralus `
-  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/policyassign.json `
-  -policyDefinitionID $definition.PolicyDefinitionId `
-  -policyName auditRGLocation
-```
-
-Om du vill använda en inbyggd princip på Azure-prenumerationen, använder du följande Azure CLI-kommandon:
-
-```azurecli
+```azurecli-interactive
 # Built-in policy that accepts parameters
 definition=$(az policy definition list --query "[?displayName=='Allowed locations'].id" --output tsv)
 
@@ -283,9 +255,9 @@ az deployment create \
   --parameters policyDefinitionID=$definition policyName=setLocation policyParameters="{'listOfAllowedLocations': {'value': ['westus']} }"
 ```
 
-Om du vill distribuera den här mallen med PowerShell använder du:
+Använd följande om du vill distribuera den här mallen med PowerShell:
 
-```azurepowershell
+```azurepowershell-interactive
 $definition = Get-AzPolicyDefinition | Where-Object { $_.Properties.DisplayName -eq 'Allowed locations' }
 
 $locations = @("westus", "westus2")
@@ -345,7 +317,7 @@ Du kan [definiera](../governance/policy/concepts/definition-structure.md) och ti
 }
 ```
 
-För att skapa principdefinitionen i din prenumeration och tillämpa den på prenumerationen, använder du följande CLI-kommando:
+Använd följande CLI-kommando om du vill skapa en princip definition i din prenumeration och tillämpa den på prenumerationen:
 
 ```azurecli
 az deployment create \
@@ -354,7 +326,7 @@ az deployment create \
   --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/policydefineandassign.json
 ```
 
-Om du vill distribuera den här mallen med PowerShell använder du:
+Använd följande om du vill distribuera den här mallen med PowerShell:
 
 ```azurepowershell
 New-AzDeployment `
@@ -363,160 +335,9 @@ New-AzDeployment `
   -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/policydefineandassign.json
 ```
 
-## <a name="create-roles"></a>Skapa roller
-
-### <a name="assign-role-at-subscription"></a>Tilldela rollen på prenumerationen
-
-I följande exempel tilldelar en roll till en användare eller grupp för prenumerationen. I det här exemplet kan anger du inte en omfattning för tilldelningen eftersom omfånget ställs automatiskt in prenumerationen.
-
-```json
-{
-    "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "principalId": {
-            "type": "string"
-        },
-        "roleDefinitionId": {
-            "type": "string"
-        }
-    },
-    "variables": {},
-    "resources": [
-        {
-            "type": "Microsoft.Authorization/roleAssignments",
-            "name": "[guid(parameters('principalId'), deployment().name)]",
-            "apiVersion": "2017-09-01",
-            "properties": {
-                "roleDefinitionId": "[resourceId('Microsoft.Authorization/roleDefinitions', parameters('roleDefinitionId'))]",
-                "principalId": "[parameters('principalId')]"
-            }
-        }
-    ]
-}
-```
-
-Om du vill tilldela en Active Directory-grupp till en roll för din prenumeration, använder du följande Azure CLI-kommandon:
-
-```azurecli
-# Get ID of the role you want to assign
-role=$(az role definition list --name Contributor --query [].name --output tsv)
-
-# Get ID of the AD group to assign the role to
-principalid=$(az ad group show --group demogroup --query objectId --output tsv)
-
-az deployment create \
-  --name demoDeployment \
-  --location centralus \
-  --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/roleassign.json \
-  --parameters principalId=$principalid roleDefinitionId=$role
-```
-
-Om du vill distribuera den här mallen med PowerShell använder du:
-
-```azurepowershell
-$role = Get-AzRoleDefinition -Name Contributor
-
-$adgroup = Get-AzADGroup -DisplayName demogroup
-
-New-AzDeployment `
-  -Name demoRole `
-  -Location centralus `
-  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/roleassign.json `
-  -roleDefinitionId $role.Id `
-  -principalId $adgroup.Id
-```
-
-### <a name="assign-role-at-scope"></a>Tilldela roll i omfånget
-
-Följande prenumerationsnivå mall tilldelar en roll till en användare eller grupp som är begränsad till en resursgrupp i prenumerationen. Omfattningen måste vara på eller under nivån för distribution. Du kan distribuera till en prenumeration och ange en rolltilldelning för en resursgrupp i den prenumerationen. Du kan dock distribuera till en resursgrupp och ange en rolltilldelningsomfattning till prenumerationen.
-
-Om du vill tilldela rollen på ett scope, använda en kapslad distribution. Observera att resursgruppens namn har angetts både i egenskaperna för distribution av resursen och i egenskapen scope rolltilldelningen.
-
-```json
-{
-    "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",
-    "contentVersion": "1.0.0.1",
-    "parameters": {
-        "principalId": {
-            "type": "string"
-        },
-        "roleDefinitionId": {
-            "type": "string"
-        },
-        "rgName": {
-            "type": "string"
-        }
-    },
-    "variables": {},
-    "resources": [
-        {
-            "type": "Microsoft.Resources/deployments",
-            "apiVersion": "2018-05-01",
-            "name": "assignRole",
-            "resourceGroup": "[parameters('rgName')]",
-            "properties": {
-                "mode": "Incremental",
-                "template": {
-                    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-                    "contentVersion": "1.0.0.0",
-                    "parameters": {},
-                    "variables": {},
-                    "resources": [
-                        {
-                            "type": "Microsoft.Authorization/roleAssignments",
-                            "name": "[guid(parameters('principalId'), deployment().name)]",
-                            "apiVersion": "2017-09-01",
-                            "properties": {
-                                "roleDefinitionId": "[resourceId('Microsoft.Authorization/roleDefinitions', parameters('roleDefinitionId'))]",
-                                "principalId": "[parameters('principalId')]",
-                                "scope": "[concat(subscription().id, '/resourceGroups/', parameters('rgName'))]"
-                            }
-                        }
-                    ],
-                    "outputs": {}
-                }
-            }
-        }
-    ],
-    "outputs": {}
-}
-```
-
-Om du vill tilldela en Active Directory-grupp till en roll för din prenumeration, använder du följande Azure CLI-kommandon:
-
-```azurecli
-# Get ID of the role you want to assign
-role=$(az role definition list --name Contributor --query [].name --output tsv)
-
-# Get ID of the AD group to assign the role to
-principalid=$(az ad group show --group demogroup --query objectId --output tsv)
-
-az deployment create \
-  --name demoDeployment \
-  --location centralus \
-  --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/scopedRoleAssign.json \
-  --parameters principalId=$principalid roleDefinitionId=$role rgName demoRg
-```
-
-Om du vill distribuera den här mallen med PowerShell använder du:
-
-```azurepowershell
-$role = Get-AzRoleDefinition -Name Contributor
-
-$adgroup = Get-AzADGroup -DisplayName demogroup
-
-New-AzDeployment `
-  -Name demoRole `
-  -Location centralus `
-  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/scopedRoleAssign.json `
-  -roleDefinitionId $role.Id `
-  -principalId $adgroup.Id `
-  -rgName demoRg
-```
-
 ## <a name="next-steps"></a>Nästa steg
 
-* Ett exempel för att distribuera inställningar för arbetsyta för Azure Security Center finns i [deployASCwithWorkspaceSettings.json](https://github.com/krnese/AzureDeploy/blob/master/ARM/deployments/deployASCwithWorkspaceSettings.json).
-* Läs om hur du skapar Azure Resource Manager-mallar i [Webbsidemallar](resource-group-authoring-templates.md). 
-* En lista över tillgängliga funktioner i en mall finns i [Mallfunktioner](resource-group-template-functions.md).
+* Information om hur du tilldelar roller finns i [Hantera åtkomst till Azure-resurser med RBAC och Azure Resource Manager mallar](../role-based-access-control/role-assignments-template.md).
+* Ett exempel på distribution av arbets ytans inställningar för Azure Security Center finns i [deployASCwithWorkspaceSettings. JSON](https://github.com/krnese/AzureDeploy/blob/master/ARM/deployments/deployASCwithWorkspaceSettings.json).
+* Mer information om hur du skapar Azure Resource Manager-mallar finns i [Redigera mallar](resource-group-authoring-templates.md). 
+* En lista över tillgängliga funktioner i en mall finns i [Template Functions](resource-group-template-functions.md).

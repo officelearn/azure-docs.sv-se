@@ -10,17 +10,17 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
-ms.date: 06/25/2019
-ms.openlocfilehash: c46913f24deffc7c4db95d8a77db1c49ae54b6ae
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.date: 09/06/2019
+ms.openlocfilehash: 03f16987941f79f9161ccbc172bb2ca1a7139384
+ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68566690"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70773210"
 ---
 # <a name="service-tiers-in-the-dtu-based-purchase-model"></a>Tjänst nivåer i den DTU-baserade inköps modellen
 
-Tjänst nivåer i den DTU-baserade inköps modellen särskiljs med en mängd beräknings storlekar med en fast mängd av lagrings utrymme, fast kvarhållningsperiod för säkerhets kopieringar och fast pris. Alla tjänst nivåer i den DTU-baserade inköps modellen ger flexibilitet i att ändra beräknings storlekar med [](https://azure.microsoft.com/support/legal/sla/sql-database/v1_2/)minimal stillestånds tid. Det finns dock en växel över tid där anslutningen förloras till databasen under en kort tids period, vilket kan minskas med logiken för omprövning. Enkla databaser och elastiska pooler faktureras per timme baserat på tjänstnivå och beräkningsstorleken.
+Tjänst nivåer i den DTU-baserade inköps modellen särskiljs med en mängd beräknings storlekar med en fast mängd av lagrings utrymme, fast kvarhållningsperiod för säkerhets kopieringar och fast pris. Alla tjänst nivåer i den DTU-baserade inköps modellen ger flexibilitet i att ändra beräknings storlekar med minimal [stillestånds](https://azure.microsoft.com/support/legal/sla/sql-database/v1_2/)tid. Det finns dock en växel över tid där anslutningen förloras till databasen under en kort tids period, vilket kan minskas med logiken för omprövning. Enkla databaser och elastiska pooler faktureras per timme baserat på tjänstnivå och beräkningsstorleken.
 
 > [!IMPORTANT]
 > SQL Database hanterade instansen stöder inte en DTU-baserad inköps modell. Mer information finns i [Azure SQL Database Managed Instance](sql-database-managed-instance.md).
@@ -37,7 +37,7 @@ Välja tjänstnivå beror huvudsakligen på kontinuitet för företag-, lagrings
 |SLA för drifttid|99,99 %|99,99 %|99,99 %|
 |Kvarhållning av säkerhetskopior|7 dagar|35 dagar|35 dagar|
 |Processor|Låg|Låg, medel, hög|Medel, hög|
-|I/o-genomströmning (ungefärlig) |2.5 IOPS per DTU| 2.5 IOPS per DTU | 48 IOPS per DTU|
+|I/o-genomströmning (ungefärlig) |1-5 IOPS per DTU| 1-5 IOPS per DTU | 25 IOPS per DTU|
 |I/o-svarstid (ungefärlig)|5 ms (läsa), 10 ms (skriva)|5 ms (läsa), 10 ms (skriva)|2 ms (läsa/skriva)|
 |Kolumnlagringsindexering |Gäller inte|S3 och senare|Stöds|
 |Minnesintern OLTP|Gäller inte|Gäller inte|Stöds|

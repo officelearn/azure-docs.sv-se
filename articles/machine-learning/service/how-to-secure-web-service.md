@@ -11,12 +11,12 @@ ms.author: aashishb
 author: aashishb
 ms.date: 08/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: 5a2cab9dff4a075545d919cb41e72cf6e446e9d2
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: 8805e065c92b42013c1e56f20b4a032d280cb8ac
+ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69897339"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70772511"
 ---
 # <a name="use-ssl-to-secure-a-web-service-through-azure-machine-learning"></a>Använd SSL för att skydda en webb tjänst via Azure Machine Learning
 
@@ -66,7 +66,7 @@ När du begär ett certifikat måste du ange det fullständiga domän namnet fö
 > Om certifikat utfärdaren inte kan ange certifikatet och nyckeln som PEM-kodade filer kan du använda ett verktyg som [openssl](https://www.openssl.org/) för att ändra formatet.
 
 > [!WARNING]
-> Använd endast självsignerade certifikat för utveckling. Använd dem inte i produktions miljöer. Självsignerade certifikat kan orsaka problem i din klient program. Mer information finns i dokumentationen för de nätverks bibliotek som används av klient programmet.
+> Använd endast *självsignerade* certifikat för utveckling. Använd dem inte i produktions miljöer. Självsignerade certifikat kan orsaka problem i din klient program. Mer information finns i dokumentationen för de nätverks bibliotek som används av klient programmet.
 
 ## <a id="enable"></a>Aktivera SSL och distribuera
 
@@ -77,7 +77,7 @@ Om du vill distribuera (eller distribuera om) tjänsten med SSL aktiverat, anger
   > [!NOTE]
   > Informationen i det här avsnittet gäller även när du distribuerar en säker webb tjänst för det visuella gränssnittet. Om du inte är bekant med att använda python SDK, se [Vad är Azure Machine Learning SDK för python?](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
 
-När du distribuerar till AKS kan du skapa ett nytt AKS-kluster eller koppla ett befintligt.
+När du distribuerar till AKS kan du skapa ett nytt AKS-kluster eller koppla ett befintligt. Mer information om hur du skapar eller ansluter ett kluster finns i [distribuera en modell till ett Azure Kubernetes service-kluster](how-to-deploy-azure-kubernetes-service.md).
   
 -  Om du skapar ett nytt kluster använder du **[AksCompute. provisionining_configuration ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.akscompute#provisioning-configuration-agent-count-none--vm-size-none--ssl-cname-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--location-none--vnet-resourcegroup-name-none--vnet-name-none--subnet-name-none--service-cidr-none--dns-service-ip-none--docker-bridge-cidr-none--cluster-purpose-none-)** .
 - Om du ansluter ett befintligt kluster använder du **[AksCompute. attach_configuration ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.akscompute#attach-configuration-resource-group-none--cluster-name-none--resource-id-none--cluster-purpose-none-)** . Båda returnerar ett konfigurations objekt som har en **enable_ssl** -metod.

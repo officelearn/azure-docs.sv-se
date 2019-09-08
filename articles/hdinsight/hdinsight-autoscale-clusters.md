@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: hrasheed
-ms.openlocfilehash: 333eecb11f0bd20c747bc44419fea26765f886c5
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.openlocfilehash: f7e34d2bbad5f5d8e6b063269b7e87c314fdce90
+ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69509109"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70770706"
 ---
 # <a name="automatically-scale-azure-hdinsight-clusters-preview"></a>Skala automatiskt Azure HDInsight-kluster (för hands version)
 
@@ -31,7 +31,7 @@ I följande tabell beskrivs de kluster typer och versioner som är kompatibla me
 | HDInsight 3,6 utan ESP | Ja | Ja | Nej | Nej | Nej | Nej | Nej |
 | HDInsight 4,0 utan ESP | Ja | Ja | Nej | Nej | Nej | Nej | Nej |
 | HDInsight 3,6 med ESP | Ja | Ja | Nej | Nej | Nej | Nej | Nej |
-| HDInsight 3,6 med ESP | Ja | Ja | Nej | Nej | Nej | Nej | Nej |
+| HDInsight 4,0 med ESP | Ja | Ja | Nej | Nej | Nej | Nej | Nej |
 
 ## <a name="how-it-works"></a>Hur det fungerar
 
@@ -77,8 +77,8 @@ Baserat på antalet AM-behållare per nod och de aktuella processor-och minnes k
 Om du vill aktivera funktionen för automatisk skalning med belastningsutjämnad skalning utför du följande steg som en del av processen för att skapa ett vanligt kluster:
 
 1. Välj **Anpassad (storlek, inställningar, appar)** i stället för **snabb registrering**.
-1. I **anpassat** steg 5 (**kluster storlek**) markerar du kryss rutan Autoskala för arbetsnoden.
-1. Välj alternativet **load – baserat** på **typ**av autoskalning.
+1. I **anpassat** steg 5 (**kluster storlek**) markerar du kryss rutan **Autoskala för arbetsnoden** .
+1. Välj alternativet **load – baserat** på **typ av autoskalning**.
 1. Ange önskade värden för följande egenskaper:  
 
     * Ursprungligt **antal arbetsnoder**.  
@@ -94,9 +94,9 @@ Det första antalet arbetsnoder måste ligga mellan minimum och maximum, inklusi
 Om du vill aktivera funktionen för automatisk skalning med schemabaserade skalning utför du följande steg som en del av processen för att skapa ett vanligt kluster:
 
 1. Välj **Anpassad (storlek, inställningar, appar)** i stället för **snabb registrering**.
-1. I **anpassat** steg 5 (**kluster storlek**) markerar du kryss rutan Autoskala för arbetsnoden.
+1. I **anpassat** steg 5 (**kluster storlek**) markerar du kryss rutan **Autoskala för arbetsnoden** .
 1. Ange **antalet arbetsnoder**som styr gränsen för att skala upp klustret.
-1. Välj alternativet **schema – baserat** på **typ**av autoskalning.
+1. Välj alternativet **schema – baserat** på **typ av autoskalning**.
 1. Klicka på **Konfigurera** för att öppna fönstret för **Automatisk skalnings konfiguration** .
 1. Välj din tidszon och klicka sedan på **+ Lägg till villkor**
 1. Välj vecko dagarna som det nya villkoret ska gälla för.
@@ -109,7 +109,7 @@ Antalet noder måste vara mellan 1 och antalet arbets noder du angav innan du l�
 
 ### <a name="final-creation-steps"></a>Slutliga skapande steg
 
-För både belastnings-och schemabaserade skalning väljer du VM-typen för arbetsnoder genom att klicka på arbetsnodens **storlek** och **storlek**för huvudnoder. När du har valt VM-typen för varje nodtyp kan du se det beräknade kostnads intervallet för hela klustret. Justera VM-typerna så att de passar din budget.
+För både belastnings-och schemabaserade skalning väljer du VM-typen för arbetsnoder genom att klicka på **arbetsnodens storlek** och **storlek för huvudnoder**. När du har valt VM-typen för varje nodtyp kan du se det beräknade kostnads intervallet för hela klustret. Justera VM-typerna så att de passar din budget.
 
 ![Aktivera alternativ för schemaläggning av arbetsnoden för autoskalning](./media/hdinsight-autoscale-clusters/hdinsight-autoscale-clusters-node-size-selection.png)
 
@@ -187,7 +187,7 @@ Du kan skapa ett HDInsight-kluster med schemabaserade autoskalning av en Azure R
 ### <a name="enable-and-disable-autoscale-for-a-running-cluster"></a>Aktivera och inaktivera autoskalning för ett kluster som körs
 
 #### <a name="using-the-azure-portal"></a>Använda Azure Portal
-Om du vill aktivera autoskalning på ett kluster som körs väljer du **kluster storlek** under **Inställningar**. Klicka sedan på **Aktivera**autoskalning. Välj den typ av autoskalning som du vill använda och ange alternativ för belastnings beroende eller schemabaserade skalningar. Klicka slutligen på **Spara**.
+Om du vill aktivera autoskalning på ett kluster som körs väljer du **kluster storlek** under **Inställningar**. Klicka sedan på **Aktivera autoskalning**. Välj den typ av autoskalning som du vill använda och ange alternativ för belastnings beroende eller schemabaserade skalningar. Klicka slutligen på **Spara**.
 
 ![Aktivera alternativ för schemaläggning av arbetsnoden för autoskalning](./media/hdinsight-autoscale-clusters/hdinsight-autoscale-clusters-enable-running-cluster.png)
 
@@ -204,7 +204,7 @@ Använd lämpliga parametrar i nytto lasten för begäran. JSON-nyttolasten neda
 { autoscale: { capacity: { minInstanceCount: 1, maxInstanceCount: 2 } } }
 ```
 
-Se föregående avsnitt om hur du [aktiverar belastningsutjämnad](#load-based-autoscaling) autoskalning för en fullständig beskrivning av alla nytto Last parametrar.
+Se föregående avsnitt om hur du [aktiverar belastningsutjämnad autoskalning](#load-based-autoscaling) för en fullständig beskrivning av alla nytto Last parametrar.
 
 ## <a name="best-practices"></a>Bästa praxis
 

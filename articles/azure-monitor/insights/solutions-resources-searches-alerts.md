@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 07/29/2019
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7ec30e2445a5ed6008256f7abcef496247922968
-ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
-ms.translationtype: HT
+ms.openlocfilehash: d5372ac8b31db91aaac018b203ee8868fa313fd8
+ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 09/06/2019
-ms.locfileid: "70744483"
+ms.locfileid: "70772989"
 ---
 # <a name="adding-log-analytics-saved-searches-and-alerts-to-management-solution-preview"></a>Lägga till Log Analytics sparade sökningar och varningar till hanterings lösningen (förhands granskning)
 
@@ -171,11 +171,10 @@ Egenskaperna för aviserings åtgärds resurser beskrivs i följande tabeller.
 
 | Elementnamn | Krävs | Beskrivning |
 |:--|:--|:--|
-| `Type` | Ja | Typ av åtgärd.  Detta är en **avisering** för aviserings åtgärder. |
-| `Name` | Ja | Visningsnamn för aviseringen.  Detta är det namn som visas i konsolen för varnings regeln. |
-| `Description` | Nej | Valfri beskrivning av aviseringen. |
-| `Severity` | Ja | Allvarlighets grad för aviserings posten från följande värden:<br><br> **mindre**<br>**honom**<br>**informations**
-
+| `type` | Ja | Typ av åtgärd.  Detta är en **avisering** för aviserings åtgärder. |
+| `name` | Ja | Visningsnamn för aviseringen.  Detta är det namn som visas i konsolen för varnings regeln. |
+| `description` | Nej | Valfri beskrivning av aviseringen. |
+| `severity` | Ja | Allvarlighets grad för aviserings posten från följande värden:<br><br> **mindre**<br>**honom**<br>**informations**
 
 #### <a name="threshold"></a>Tröskelvärde
 Det här avsnittet är obligatoriskt. Den definierar egenskaperna för aviserings tröskelvärdet.

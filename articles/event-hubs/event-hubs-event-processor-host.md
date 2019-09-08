@@ -14,12 +14,12 @@ ms.workload: na
 ms.custom: seodec18
 ms.date: 07/16/2019
 ms.author: shvija
-ms.openlocfilehash: 013200295f3a6a48d6d96663f98bce506808cd70
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 312800482405530d57ce7b0b1e77b91c2ad069ce
+ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68277364"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70772161"
 ---
 # <a name="event-processor-host"></a>Värd för händelsebearbetning
 
@@ -141,7 +141,7 @@ Som standard [EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processo
 
 ## <a name="shut-down-gracefully"></a>Stäng av ett smidigt sätt
 
-Slutligen [EventProcessorHost.UnregisterEventProcessorAsync](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost.unregistereventprocessorasync) möjliggör en ren avstängning av alla läsare i partitionen och ska alltid anropas när du stänger en instans av [EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost). Det gick inte att göra det kan ta längre tid att starta andra instanser av **EventProcessorHost** på grund av lånets förfallotid och Epoch konflikter. Den Epoka hanteringen beskrivs i detalj i [](#epoch) avsnittet epoker i artikeln. 
+Slutligen [EventProcessorHost.UnregisterEventProcessorAsync](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost.unregistereventprocessorasync) möjliggör en ren avstängning av alla läsare i partitionen och ska alltid anropas när du stänger en instans av [EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost). Det gick inte att göra det kan ta längre tid att starta andra instanser av **EventProcessorHost** på grund av lånets förfallotid och Epoch konflikter. Den Epoka hanteringen beskrivs i detalj i avsnittet [epoker](#epoch) i artikeln. 
 
 ## <a name="lease-management"></a>Hantering av partitionsleasing
 Registrera en händelseklass-processor med en instans av EventProcessorHost startar bearbetning av händelser. Värdinstans hämtar lån på vissa partitioner i Event Hub grabbing eventuellt vissa från andra ha instanser på ett sätt som konvergerar på en jämn fördelning av partitioner i alla värdinstanser. För varje utlånat partition värdinstans skapar en instans av klassen angivna event processor, sedan tar emot händelser från partitionen och skickar dem till event processor-instans. När fler instanser läggs och fler leasingar är gripit balanserar EventProcessorHost så småningom belastningen mellan alla konsumenter.
@@ -184,6 +184,10 @@ Vi rekommenderar inte program användning där du skapar en mottagare med epok o
 - Om det redan finns en mottagare med den nya epoken E1 och du tar emot händelser och en ny mottagare skapas utan epok, kommer skapandet av den nya mottagaren inte att fungera. Värdefulla mottagare har alltid företräde i systemet.
 - Om en mottagare redan har skapats med värdet epok E1 och kopplats från, och en ny mottagare skapas utan epok på en ny MessagingFactory, kommer skapandet av den nya mottagaren att lyckas. Det finns ett villkor för att vårt system ska identifiera "mottagar från koppling" efter ~ 10 minuter.
 - Om det finns en eller flera mottagare som har skapats utan epoker och en ny mottagare skapas med epok E1, kommer alla gamla mottagare att kopplas från.
+
+
+> [!NOTE]
+> Vi rekommenderar att du använder olika konsument grupper för program som använder epoker och för de som inte använder epoker för att undvika fel. 
 
 
 ## <a name="next-steps"></a>Nästa steg

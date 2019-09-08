@@ -14,12 +14,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 22cf2be8eaed47a9440c6798acfb4383bd84c916
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: cf36c233df9f8aaf76333b0add8b1ffce869156b
+ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69611714"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70773240"
 ---
 # <a name="azure-event-hubs---geo-disaster-recovery"></a>Azure Event Hubs - geohaveriberedskap 
 
@@ -110,13 +110,19 @@ Den [i GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/Dot
 
 Observera följande överväganden att tänka på med den här versionen:
 
-1. I redundans planeringen, bör du också faktorn tid. Exempelvis kan kan du förlora anslutningen längre än 15 till 20 minuter du välja att påbörja redundans. 
+1. Enligt design replikeras Event Hubs geo-haveri beredskap inte replikerar data, och därför kan du inte återanvända det gamla förskjutning svärdet för din primära händelsehubben på den sekundära händelsehubben. Vi rekommenderar att du startar om din händelse mottagare med något av följande:
+
+- *EventPosition. FromStart ()* – om du vill läsa alla data på den sekundära händelsehubben.
+- *EventPosition. FromEnd ()* – om du vill läsa alla nya data från tiden för anslutningen till den sekundära händelsehubben.
+- *EventPosition. FromEnqueuedTime (datetime)* – om du vill läsa alla data som tas emot i den sekundära händelsehubben från ett visst datum och en specifik tidpunkt.
+
+2. I redundans planeringen, bör du också faktorn tid. Exempelvis kan kan du förlora anslutningen längre än 15 till 20 minuter du välja att påbörja redundans. 
  
-2. Det faktum att inga data replikeras innebär att för närvarande aktiva sessioner inte replikeras. Dessutom fungerar inte dubblettidentifiering och schemalagda meddelanden. Nya sessioner, schemalagda meddelanden och nya dubbletter ska fungera. 
+3. Det faktum att inga data replikeras innebär att för närvarande aktiva sessioner inte replikeras. Dessutom fungerar inte dubblettidentifiering och schemalagda meddelanden. Nya sessioner, schemalagda meddelanden och nya dubbletter ska fungera. 
 
-3. Redundansväxla en infrastruktur för komplexa distribuerade ska vara [testas](/azure/architecture/reliability/disaster-recovery#disaster-recovery-plan) minst en gång. 
+4. Redundansväxla en infrastruktur för komplexa distribuerade ska vara [testas](/azure/architecture/reliability/disaster-recovery#disaster-recovery-plan) minst en gång. 
 
-4. Synkronisera enheter kan ta lite tid, cirka 50 – 100 entiteter per minut.
+5. Synkronisera enheter kan ta lite tid, cirka 50 – 100 entiteter per minut.
 
 ## <a name="availability-zones"></a>Tillgänglighetszoner 
 

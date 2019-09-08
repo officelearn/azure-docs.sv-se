@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: swmachan
-ms.openlocfilehash: ad619ad965cf4b7d94b781818c658152f71250a7
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: cb5a3b8572cebfd6c0731a9e572e966fda280be6
+ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68595004"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70772789"
 ---
 # <a name="translator-text-api-v30"></a>Translator Text API v 3.0
 
@@ -99,7 +99,7 @@ När du använder en hemlig nyckel för flera tjänster måste du inkludera två
 
 Region krävs för multi-service text API-prenumerationen. Den region du väljer är den enda region som du kan använda för text översättning när du använder prenumerations nyckeln för flera tjänster och måste vara samma region som du valde när du registrerade dig för din prenumeration på flera tjänster via Azure Portal.
 
-Tillgängliga regioner är `australiaeast` `brazilsouth` ,`canadacentral` `centralindia` `centraluseuap` ,,`eastasia`,,,, ,,,`eastus2` `eastus` `japaneast` `northeurope` `southcentralus` `southeastasia` `uksouth`, ,`westcentralus` ,och`westus2`. `westeurope` `westus`
+Tillgängliga regioner är `australiaeast` `brazilsouth` ,`canadacentral` `centralindia` `centralus` ,,`centraluseuap`,,,, ,,,`eastus` `eastasia` `eastus2` `francecentral` `japaneast` `japanwest` `koreacentral`, `northcentralus`, ,,`northeurope`,,,,, och`southafricanorth`. `southcentralus` `southeastasia` `uksouth` `westcentralus` `westeurope` `westus` `westus2`
 
 Om du skickar den hemliga nyckeln i frågesträngen med parametern `Subscription-Key`måste du ange regionen med `Subscription-Region`Frågeparametern.
 

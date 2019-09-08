@@ -8,12 +8,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 07/18/2018
-ms.openlocfilehash: 618f118ceedb7d55caefc5e2bebceb08c1d732ac
-ms.sourcegitcommit: 3f78a6ffee0b83788d554959db7efc5d00130376
+ms.openlocfilehash: fa1aa8c560f4b9cc48c7a6a761abe4d69d5d0265
+ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70018189"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70773177"
 ---
 # <a name="control-access-to-iot-hub"></a>Styra åtkomst till IoT Hub
 
@@ -285,7 +285,7 @@ När du skapar en token från en princip för delad åtkomst anger `skn` du namn
 
 De två huvud scenarierna för att använda principer för delad åtkomst för att komma åt enhets funktioner är:
 
-* [moln protokoll](iot-hub-devguide-endpoints.md)-gatewayer,
+* [moln protokoll-gatewayer](iot-hub-devguide-endpoints.md),
 * [token Services](iot-hub-devguide-security.md#custom-device-and-module-authentication) som används för att implementera anpassade autentiseringsscheman.
 
 Eftersom principen för delad åtkomst kan ge åtkomst till att ansluta som vilken enhet som helst, är det viktigt att använda rätt resurs-URI när du skapar säkerhetstoken. Den här inställningen är särskilt viktig för token Services, som måste omfånget till en speciell enhet med hjälp av resurs-URI: n. Den här punkten är mindre relevant för protokoll-gatewayer eftersom de redan är underrättad trafik för alla enheter.
@@ -363,7 +363,7 @@ Mer information om autentisering med hjälp av certifikat utfärdare finns i [en
 
 ### <a name="register-an-x509-certificate-for-a-device"></a>Registrera ett X. 509-certifikat för en enhet
 
-[Azure IoT service SDK för C# ](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/service) (version 1.0.8 +) stöder registrering av en enhet som använder ett X. 509-certifikat för autentisering. Andra API: er, till exempel import/export av enheter, stöder också X. 509-certifikat.
+[Azure IoT service SDK för C# ](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/iothub/service) (version 1.0.8 +) stöder registrering av en enhet som använder ett X. 509-certifikat för autentisering. Andra API: er, till exempel import/export av enheter, stöder också X. 509-certifikat.
 
 Du kan också använda kommandot CLI-tillägg [AZ IoT Hub Device-Identity](/cli/azure/ext/azure-cli-iot-ext/iot/hub/device-identity?view=azure-cli-latest) för att konfigurera X. 509-certifikat för enheter.
 
@@ -390,7 +390,7 @@ await registryManager.AddDeviceAsync(device);
 
 ### <a name="use-an-x509-certificate-during-run-time-operations"></a>Använd ett X. 509-certifikat under kör tids åtgärder
 
-[Azure IoT-enhetens SDK för .net](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/device) (version 1.0.11 +) stöder användningen av X. 509-certifikat.
+[Azure IoT-enhetens SDK för .net](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/iothub/device) (version 1.0.11 +) stöder användningen av X. 509-certifikat.
 
 ### <a name="c-support"></a>C\# -support
 

@@ -5,14 +5,14 @@ author: msmbaldwin
 ms.service: security
 ms.topic: article
 ms.author: mbaldwin
-ms.date: 07/29/2019
+ms.date: 09/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 1dfcc69d90daae5869c3b69c922e99eab3585e14
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: 7855b1048826a9146e206226ae7326661e4609cb
+ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70164626"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70764389"
 ---
 # <a name="azure-disk-encryption-overview"></a>Översikt över Azure Disk Encryption
 
@@ -72,6 +72,7 @@ Azure Disk Encryption fungerar inte för följande scenarier, funktioner och tek
 * Azure Files (delade filsystem).
 * Network File System (NFS).
 * Dynamiska volymer.
+* Windows Server-behållare, som skapar dynamiska volymer för varje behållare.
 * Tillfälliga OS-diskar.
 * Kryptering av delade/distribuerade fil system som (men inte begränsat till): DFS, GFS, DRDB, CephFS osv.
 
@@ -92,8 +93,8 @@ Azure Disk Encryption för virtuella datorer för Windows och Linux innehåller:
 
 * [Disk krypterings tillägget för Windows](../virtual-machines/extensions/azure-disk-enc-windows.md).
 * [Disk krypterings tillägget för Linux](../virtual-machines/extensions/azure-disk-enc-linux.md).
-* [PowerShell disk](/powershell/module/az.compute/set-azvmdiskencryptionextension?view=azps-2.2.0)Encryption-cmdletar.
-* [Azure CLI](/cli/azure/vm/encryption?view=azure-cli-latest)-diskens krypterings-cmdletar.
+* [PowerShell Disk Encryption-cmdletar](/powershell/module/az.compute/set-azvmdiskencryptionextension?view=azps-2.2.0).
+* [Azure CLI-diskens krypterings-cmdletar](/cli/azure/vm/encryption?view=azure-cli-latest).
 * [Mallarna för Azure Resource Manager disk kryptering](azure-security-disk-encryption-appendix.md#resource-manager-templates).
 
 > [!NOTE]

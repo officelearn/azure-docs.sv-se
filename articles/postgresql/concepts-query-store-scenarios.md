@@ -1,61 +1,61 @@
 ---
-title: Användningsscenarier för Query Store i Azure Database för PostgreSQL – enskild Server
-description: Den här artikeln beskrivs några scenarier för Query Store i Azure Database för PostgreSQL – enskild Server.
+title: Frågor om användnings scenarier för frågor i Azure Database for PostgreSQL-enskild server
+description: I den här artikeln beskrivs några scenarier för Frågearkivet i Azure Database for PostgreSQL-enskild server.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
-ms.openlocfilehash: 029c595ba983d3b758568fbacaf6577014d893db
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3cdb0d4e00e667b0369cdf612662830f18dc5fb8
+ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65067292"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70764281"
 ---
-# <a name="usage-scenarios-for-query-store"></a>Användningsscenarier för Query Store
+# <a name="usage-scenarios-for-query-store"></a>Användnings scenarier för Frågearkivet
 
-**Gäller för:** Azure Database för PostgreSQL – enskild Server 9.6 och 10
+**Gäller för:** Azure Database for PostgreSQL-enskild server version 9,6, 10, 11
 
-Du kan använda Query Store i en mängd olika scenarier där spårnings- och bibehålla förutsägbara arbetsbelastningsprestandan är viktiga. Överväg följande exempel: 
-- Identifiera och justera översta dyra frågor 
+Du kan använda Query Store i många olika scenarier där det är viktigt att spåra och underhålla prestanda för förutsägbara arbets belastningar. Tänk på följande exempel: 
+- Identifiera och justera de dyraste frågorna 
 - A / B-testning 
-- Att hålla prestanda stabil under uppgraderingar 
-- Identifierar och förbättrar ad hoc-arbetsbelastningar 
+- Hålla prestanda stabila under uppgraderingar 
+- Identifiera och förbättra ad hoc-arbetsbelastningar 
 
 ## <a name="identify-and-tune-expensive-queries"></a>Identifiera och finjustera dyra frågor 
 
-### <a name="identify-longest-running-queries"></a>Identifiera längsta körning av frågor 
-Använd den [Query Performance Insight](concepts-query-performance-insight.md) vyn i Azure portal för att snabbt identifiera de längsta körning av frågorna. De här frågorna brukar normalt att använda en mycket resurser. Optimera dina körs längst frågor kan förbättra prestanda genom att frigöra resurser som ska användas i andra frågor som körs på datorn. 
+### <a name="identify-longest-running-queries"></a>Identifiera de längsta körnings frågorna 
+Använd vyn [query Performance Insight](concepts-query-performance-insight.md) i Azure Portal för att snabbt identifiera de längsta frågor som körs. Dessa frågor brukar ofta förbruka en betydande mängd resurser. Optimering av dina längsta frågor kan förbättra prestanda genom att frigöra resurser för användning av andra frågor som körs på systemet. 
 
-### <a name="target-queries-with-performance-deltas"></a>Mål-frågor med prestanda deltan 
-Query Store skär prestandadata i tidsfönster, så att du kan spåra frågeprestanda över tid. Detta hjälper dig att identifiera exakt vilka frågor som bidrar till ökad frågedata. Därmed kan du göra riktade felsökning av din arbetsbelastning.
+### <a name="target-queries-with-performance-deltas"></a>Mål frågor med prestanda delta 
+Query Store delar upp prestanda data i tid Windows, så att du kan spåra en frågas prestanda över tid. Detta hjälper dig att identifiera exakt vilka frågor som bidrar till en ökning av den totala tiden som ägnats åt. Därför kan du göra en fel sökning av din arbets belastning.
 
-### <a name="tuning-expensive-queries"></a>Justering dyra frågor 
-När du har identifierat en fråga med icke-optimal prestanda kan beror den åtgärd du utför på typen av problemet: 
-- Använd [Prestandarekommendationer](concepts-performance-recommendations.md) att avgöra om det finns några förslag på index. Om Ja, skapa indexet och sedan använda Query Store för att utvärdera prestanda för frågor när du har skapat indexet. 
-- Se till att statistik är uppdaterad för de underliggande tabeller som används av frågan.
-- Överväg att skriva om dyra frågor. Exempelvis kan dra nytta av frågeparameterisering och minska användningen av dynamisk SQL. Implementera logik som är optimala vid läsning av data som när du använder data som filtrering på databassidan visade inte på programsidan. 
+### <a name="tuning-expensive-queries"></a>Finjustera dyra frågor 
+När du identifierar en fråga med optimala prestanda beror åtgärden som du vidtar på problemets typ: 
+- Använd [prestanda rekommendationer](concepts-performance-recommendations.md) för att avgöra om det finns några föreslagna index. Om du väljer Ja skapar du indexet och använder sedan Query Store för att utvärdera frågeresultaten när du har skapat indexet. 
+- Kontrol lera att statistiken är uppdaterad för de underliggande tabellerna som används av frågan.
+- Överväg att skriva om dyra frågor. Du kan till exempel dra nytta av Query parameterisering och minska användningen av dynamisk SQL. Implementera optimal logik vid läsning av data som att använda data filtrering på databas sidan, inte på program sidan. 
 
 
 ## <a name="ab-testing"></a>A / B-testning 
-Använd Query Store att jämföra arbetsbelastningsprestandan före och efter en ändring för program som du planerar att införa. Exempel på scenarier där Query Store för att utvärdera effekten av miljön eller program ändrar att arbetsbelastningens prestanda: 
-- Börja med en ny version av ett program. 
-- Lägga till ytterligare resurser på servern. 
-- Skapa index som saknas på tabeller som refereras till av dyra frågor. 
+Använd Query Store för att jämföra arbets belastnings prestanda innan och efter ett program som du planerar att införa. Exempel på scenarier för att använda Query Store för att utvärdera påverkan på miljön eller program ändringar i arbets belastnings prestanda: 
+- Distribuera en ny version av ett program. 
+- Lägger till ytterligare resurser på servern. 
+- Skapa saknade index för tabeller som refereras av dyra frågor. 
  
-I någon av dessa scenarier, gäller följande arbetsflöde: 
-1. Kör din arbetsbelastning med Query Store före planerat att generera en baslinje för prestanda. 
-2. Använd programmet ändring eller ändringar av den kontrollerade tidpunkten. 
-3. Fortsätta att köra arbetsbelastningen tillräckligt länge för att generera prestanda bild av systemet efter ändringen. 
-4. Jämför resultatet från innan och efter ändringen. 
-5. Bestäm om du vill behålla ändring eller återställning. 
+Använd följande arbets flöde i något av dessa scenarion: 
+1. Kör din arbets belastning med Frågearkivet före den planerade ändringen för att skapa en bas linje för prestanda. 
+2. Tillämpa program ändringar vid den kontrollerade tidpunkten. 
+3. Fortsätt att köra arbets belastningen tillräckligt länge för att generera systemets prestanda avbildning efter ändringen. 
+4. Jämför resultat från före och efter ändringen. 
+5. Bestäm om du vill behålla ändringen eller återställningen. 
 
 
 ## <a name="identify-and-improve-ad-hoc-workloads"></a>Identifiera och förbättra ad hoc-arbetsbelastningar 
-Vissa arbetsbelastningar har inte dominerande frågor som du kan finjustera för att förbättra programprestanda. Dessa arbetsbelastningar kännetecknas vanligtvis med en relativt stort antal unika frågor, var och en av dem använder en del av systemresurser. Varje unik fråga körs sällan, individuellt deras runtime-användning inte är viktigt. Å andra sidan, med hänsyn till att programmet ger dig nya frågor hela tiden kan kan en stor del av systemresurser hänföras frågekompilering som inte är optimala. Detta inträffar vanligtvis om ditt program genererar frågor (i stället för med lagrade procedurer eller parameterfrågor) eller om den är beroende av ramverk för objektrelationell mappning som genererar frågor som standard. 
+Vissa arbets belastningar har inga dominerande frågor som du kan finjustera för att förbättra övergripande program prestanda. Dessa arbets belastningar karakteriseras vanligt vis med ett relativt stort antal unika frågor, där var och en av dem förbrukar en del av system resurserna. Varje unik fråga körs sällan, så att körnings förbrukningen är för tillfället inte kritisk. Å andra sidan, med tanke på att programmet genererar nya frågor hela tiden, används en stor del av system resurserna i frågans kompilering, vilket inte är optimalt. Den här situationen inträffar vanligt vis om ditt program genererar frågor (i stället för att använda lagrade procedurer eller parametriserade frågor) eller om det förlitar sig på objekt Relations mappnings ramverk som genererar frågor som standard. 
  
-Om du har kontroll över programkoden, kan du skriva om dataåtkomstlagret för att använda lagrade procedurer eller frågor med parametrar. Men kan den här situationen också förbättras utan ändringar i programmet genom att kräva frågeparameterisering för hela databasen (alla frågor) eller för enskild fråga mallar med samma fråga hash. 
+Om du har kontroll över program koden kan du överväga att skriva om data åtkomst lagret för att använda lagrade procedurer eller parametriserade frågor. Den här situationen kan dock också förbättras utan program ändringar genom att tvinga fram Parameterisering för hela databasen (alla frågor) eller för de enskilda certifikatmallarna med samma fråga-hash. 
 
 ## <a name="next-steps"></a>Nästa steg
-- Läs mer om de [bästa praxis för att använda Query Store](concepts-query-store-best-practices.md)
+- Lär dig mer om [metod tips för att använda Query Store](concepts-query-store-best-practices.md)

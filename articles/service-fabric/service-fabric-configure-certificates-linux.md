@@ -11,14 +11,14 @@ ms.service: service-fabric
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/26/2018
+ms.date: 09/06/2019
 ms.author: chackdan
-ms.openlocfilehash: 3816fb56b806029d7a23b67741197e32de6a6ff3
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 9599d59f7f23de4e54ce323aa4a2ad837d8ed074
+ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70102998"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70773260"
 ---
 # <a name="certificates-and-security-on-linux-clusters"></a>Certifikat och säkerhet på Linux-kluster
 
@@ -30,7 +30,7 @@ Service Fabric vanligt vis förväntar sig att X. 509-certifikat finns i */var/l
 
 För Linux-kluster förväntar Service Fabric att certifikaten finns som en. PEM-fil som innehåller både det certifikat och den privata nyckeln eller som en CRT-fil som innehåller certifikatet och en nyckel fil som innehåller den privata nyckeln. Alla filer ska vara i PEM-format. 
 
-Om du installerar certifikatet från Azure Key Vault med hjälp av en [Resource Manager-mall](./service-fabric-cluster-creation-create-template.md) eller [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.servicefabric/?view=latest#service_fabric) -kommandon installeras certifikatet i rätt format i */var/lib/sfcerts* -katalogen på varje nod. Om du installerar ett certifikat via en annan metod måste du kontrol lera att certifikatet är korrekt installerat på klusternoder.
+Om du installerar certifikatet från Azure Key Vault med hjälp av en [Resource Manager-mall](./service-fabric-cluster-creation-create-template.md) eller [PowerShell](https://docs.microsoft.com/powershell/module/az.servicefabric/?view=azps-2.6.0) -kommandon installeras certifikatet i rätt format i */var/lib/sfcerts* -katalogen på varje nod. Om du installerar ett certifikat via en annan metod måste du kontrol lera att certifikatet är korrekt installerat på klusternoder.
 
 ## <a name="certificates-referenced-in-the-application-manifest"></a>Certifikat som refereras i applikations manifestet
 
@@ -73,7 +73,7 @@ Följande XML visar ett **TransportSettings** -avsnitt baserat på det här form
 
 ### <a name="using-x509_2-securitycredentialstype"></a>Använda X509_2 SecurityCredentialsType
 
-Med Java SDK kan du ange **X509_2** för **SecurityCredentialsType**. Detta motsvarar `X509Credentials2` ([Java](https://docs.microsoft.com/java/api/system.fabric.x509credentials2)) typen `SecurityCredentials` (Java).[](https://docs.microsoft.com/java/api/system.fabric.securitycredentials) 
+Med Java SDK kan du ange **X509_2** för **SecurityCredentialsType**. `X509Credentials2` Detta motsvarar ([Java](https://docs.microsoft.com/java/api/system.fabric.x509credentials2) `SecurityCredentials` [) typen (Java](https://docs.microsoft.com/java/api/system.fabric.securitycredentials)). 
 
 Med en **X509_2** -referens anger du en Sök vägs parameter, så att du kan hitta certifikatet i en annan katalog än */var/lib/sfcerts*.  Följande XML visar de parametrar som används för att ange platsen för certifikatet: 
 

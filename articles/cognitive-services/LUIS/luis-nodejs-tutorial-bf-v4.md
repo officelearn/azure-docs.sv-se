@@ -9,14 +9,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 09/05/2019
+ms.date: 09/06/2019
 ms.author: diberry
-ms.openlocfilehash: 63a0717e615ff85dbc5cfc06567f83cb9aa83a30
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
-ms.translationtype: HT
+ms.openlocfilehash: 8f0438ab015f9d16fd3776421b8d0032fc0a0639
+ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 09/06/2019
-ms.locfileid: "70735023"
+ms.locfileid: "70772906"
 ---
 # <a name="tutorial-use-a-web-app-bot-enabled-with-language-understanding-in-nodejs"></a>Självstudier: Använda en Web App-robot som är aktive rad med Language Understanding i Node. js 
 
@@ -101,7 +101,7 @@ Ladda ned koden för webbappsroboten så att du kan utveckla den och använda de
 
     [![Ladda ned källkoden för webbappsroboten för grundläggande robot](../../../includes/media/cognitive-services-luis/bfv4/download-code.png)](../../../includes/media/cognitive-services-luis/bfv4/download-code.png#lightbox)
 
-1. När popup-dialogrutan frågar **innehåller appinställningar i den hämtade ZIP-filen?** väljer du **Ja**.
+1. När popup-dialogrutan frågar **innehåller appinställningar i den hämtade ZIP-filen?** väljer du **Ja**. Detta ger LUIS-inställningarna. 
 
 1. Om källkoden är zippad innehåller meddelandet en länk för att ladda ned koden. Klicka på länken. 
 
@@ -134,6 +134,13 @@ Ladda ned koden för webbappsroboten så att du kan utveckla den och använda de
 
     ````javascript
     class MainDialog extends ComponentDialog {
+
+        constructor(luisRecognizer, bookingDialog) {
+            ...
+            this.luisRecognizer = luisRecognizer;
+            ...
+        }
+
 
         ...
 
@@ -185,40 +192,6 @@ Ladda ned koden för webbappsroboten så att du kan utveckla den och använda de
 
     }
     ````
-
-
-## <a name="install-dependencies-and-start-the-bot-code-in-visual-studio"></a>Installera beroenden och starta bot-koden i Visual Studio
-
-1. I VSCode, från den integrerade terminalen, installerar du beroenden `npm install`med kommandot.
-1. Starta även roboten med kommandot `npm start`från den integrerade terminalen. Detta startar en webbapp för din robot med en HTTP-slutpunkt. -Konsolen innehåller URL-adressen och port numret för att komma åt webbplatsen som körs. Du behöver port numret i nästa del av den här självstudien.
-
-    ```console
-    > core-bot@1.0.0 start C:\Users\diberry\repos\bots\2019-bot-nodejs-basic
-    > node ./index.js
-    
-    
-    restify listening to http://[::]:3978
-    
-    Get Bot Framework Emulator: https://aka.ms/botframework-emulator
-    ```
-
-## <a name="create-an-environment-file-and-add-luis-values"></a>Skapa en miljö fil och Lägg till LUIS-värden
-
-Bot-emulatorn behöver åtkomst till din LUIS-resurs för att kunna tillhandahålla detaljerade LUIS-resultat.
-
-1. I projektets rot skapar du en fil med namnet `.env` och lägger till följande miljövariabler:
-
-    ```console
-    LuisAppId= 
-    LuisAPIKey=
-    LuisAPIHostName=
-    ```
-
-1. Från Azure Portal, för din bot-resurs, öppnar du App Services konfigurations inställningar för programmet.
-1. Öppna **Avancerad redigering**för att se värdet för varje inställning.
-
-    ![Öppna * * avancerad redigering * * för att se värdet för varje inställning.](./media/bfv4-nodejs/environment-settings-for-luis-app.png)
-
 <a name="ask-bot-a-question-for-the-book-flight-intent"></a>
 
 ## <a name="use-the-bot-emulator-to-test-the-bot"></a>Använd bot-emulatorn för att testa roboten
@@ -227,6 +200,7 @@ Ställ en fråga på roboten för att ställa en fråga om bok flyg avsikten.
 
 1. Starta bot-emulatorn och välj **Öppna bot**.
 1. Ange din robot-URL i dialog rutan **öppna en robot** -pop, till exempel `http://localhost:3978/api/messages`. `/api/messages` Vägen är webb adressen för bot.
+1. Ange **Microsoft app-ID** och **Microsoft app-lösenordet**, som finns i **. kuvert** -filen i roten av den robot kod som du laddade ned.
 
 1. I bot-emulatorn anger `Book a flight from Seattle to Berlin tomorrow` du och får samma svar för den grundläggande roboten som du fick i **testet i Web Chat**.
 

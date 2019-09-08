@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: azure-functions
 ms.custom: mvc
 manager: gwallace
-ms.openlocfilehash: 80f7185b69a7953656235d3bd622b7f61611de1a
-ms.sourcegitcommit: d470d4e295bf29a4acf7836ece2f10dabe8e6db2
+ms.openlocfilehash: 1865b1b96b5b8794f1518d639825ccd2f1dcd090
+ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2019
-ms.locfileid: "70210175"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70773141"
 ---
 # <a name="create-a-function-on-linux-using-a-custom-image"></a>Skapa en funktion i Linux med en anpassad avbildning
 
@@ -143,9 +143,8 @@ Kontrollera medan den anpassade avbildningen körs i en lokal Docker-container a
 
 ![Testa funktionsappen lokalt.](./media/functions-create-function-linux-custom-image/run-image-local-success.png)
 
-Du kan testa din funktion igen, den här gången i den lokala containern med hjälp av följande URL:
-
-`http://localhost:8080/api/myhttptrigger?name=<yourname>`
+> [!NOTE]
+> Vid det här tillfället får du ett HTTP 401-felsvar när du försöker anropa en viss HTTP-funktion. Detta beror på att funktionen körs i den lokala behållaren som i Azure, vilket innebär att funktions nyckeln är obligatorisk. Eftersom behållaren ännu inte har publicerats till en Function-app finns det ingen funktions nyckel tillgänglig. Du kommer att se senare när du använder kärn verktyg för att publicera din behållare, funktions tangenterna visas för dig. Om du vill testa funktionen som körs i den lokala behållaren kan du ändra [auktoriseringsregeln](functions-bindings-http-webhook.md#authorization-keys) till `anonymous`. 
 
 Stoppa körningen när du har verifierat funktionsappen i containern. Nu kan överföra den anpassade avbildningen till ditt Docker Hub-konto.
 
@@ -159,7 +158,7 @@ Innan du kan push-överföra en avbildning måste du logga in på Docker Hub med
 docker login --username <docker-id>
 ```
 
-Ett meddelande om att inloggningen har slutförts bekräftar att du är inloggad. När du har loggat in push-överför du avbildningen till Docker Hub med kommandot [docker push](https://docs.docker.com/engine/reference/commandline/push/).
+Meddelandet "inloggningen lyckades" bekräftar att du är inloggad. När du har loggat in push-överför du avbildningen till Docker Hub med kommandot [docker push](https://docs.docker.com/engine/reference/commandline/push/).
 
 ```bash
 docker push <docker-id>/mydockerimage:v1.0.0
@@ -209,7 +208,7 @@ Parametern _deployment-container-image-name_ anger vilken avbildning på Docker 
 
 ## <a name="configure-the-function-app"></a>Konfigurera funktionsappen
 
-Funktionen behöver anslutningssträngen för att ansluta till standardlagringskontot. När du publicerar den anpassade avbildningen i ett privat containerkonto bör du i stället använda dessa programinställningar som miljövariabler i Dockerfile med hjälp av [ENV-instruktionen](https://docs.docker.com/engine/reference/builder/#env) eller något liknande.
+Funktionen behöver anslutningssträngen för att ansluta till standardlagringskontot. När du publicerar en anpassad avbildning till ett privat behållar konto bör du i stället ange dessa program inställningar som miljövariabler i Dockerfile med hjälp av en [miljö instruktion](https://docs.docker.com/engine/reference/builder/#env), eller något liknande.
 
 I det här fallet är `<storage_name>` namnet på det lagringskonto du skapade. Visa anslutningssträngen med kommandot [az storage account show-connection-string](/cli/azure/storage/account). Lägg till dessa programinställningar i funktionsappen med kommandot [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set).
 
@@ -247,7 +246,7 @@ az functionapp deployment container config --enable-cd \
 
 Det här kommandot returnerar distributions-webhook-URL: en när kontinuerlig distribution har Aktiver ATS. Du kan också använda kommandot [AZ functionapp Deployment container show-CD-URL](/cli/azure/functionapp/deployment/container#az-functionapp-deployment-container-show-cd-url) för att returnera denna URL. 
 
-Kopiera distributions-URL: en och bläddra till din DockerHub- lagrings platsen, Välj fliken Webhooks, ange ett webhook- **namn** för webhooken, klistra in URL: en i webhook- **URL**och **+** Välj plus tecknet ().
+Kopiera distributions-URL: en och bläddra till din DockerHub-lagrings platsen, Välj fliken **Webhooks** , ange ett webhook- **namn** för webhooken, klistra in URL: en i **webhook-URL**och **+** Välj plus tecknet ().
 
 ![Lägg till webhooken i din DockerHub-lagrings platsen](media/functions-create-function-linux-custom-image/dockerhub-set-continuous-webhook.png)  
 

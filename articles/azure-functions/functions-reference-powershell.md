@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 04/22/2019
 ms.author: tyleonha
 ms.reviewer: glenga
-ms.openlocfilehash: 8c6f13f85b692d2405928fe06605d8b2ac0ec8e7
-ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.openlocfilehash: 36d24e798e73ef336324eedadee1ba3fec4c0e1d
+ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70012715"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70773035"
 ---
 # <a name="azure-functions-powershell-developer-guide"></a>Azure Functions PowerShell-guide för utvecklare
 
@@ -28,7 +28,7 @@ En PowerShell-funktion (funktion) i Azure representeras som ett PowerShell-skrip
 
 Precis som andra typer av funktioner, tar PowerShell-skript funktioner i parametrar som matchar namnen på alla angivna bindningar i `function.json` filen. En `TriggerMetadata` parameter skickas också som innehåller ytterligare information om utlösaren som startade funktionen.
 
-Den här artikeln förutsätter att du redan har läst [Azure Functions Developer](functions-reference.md)-referensen. Du bör också ha slutfört funktionen [snabb start för PowerShell](functions-create-first-function-powershell.md) för att skapa din första PowerShell-funktion.
+Den här artikeln förutsätter att du redan har läst [Azure Functions Developer-referensen](functions-reference.md). Du bör också ha slutfört funktionen [snabb start för PowerShell](functions-create-first-function-powershell.md) för att skapa din första PowerShell-funktion.
 
 ## <a name="folder-structure"></a>Mappstruktur
 
@@ -88,7 +88,7 @@ $TriggerMetadata.sys
 | Metodnamn | Namnet på den funktion som har utlösts     | sträng   |
 | RandGuid   | ett unikt GUID för den här körningen av funktionen | sträng   |
 
-Varje utlösnings typ har en annan uppsättning metadata. Till `$TriggerMetadata` exempel, för `InsertionTime`innehåller `QueueTrigger` `Id`andra saker`DequeueCount`. För ytterligare information om köns utlösare metadata, gå till den [officiella dokumentationen för köade](functions-bindings-storage-queue.md#trigger---message-metadata)utlösare. Läs dokumentationen om de utlösare som du arbetar med för att se vad som ingår i utlösarens metadata. [](functions-triggers-bindings.md)
+Varje utlösnings typ har en annan uppsättning metadata. Till `$TriggerMetadata` exempel, för `InsertionTime`innehåller `QueueTrigger` `Id`andra saker`DequeueCount`. För ytterligare information om köns utlösare metadata, gå till den [officiella dokumentationen för köade utlösare](functions-bindings-storage-queue.md#trigger---message-metadata). Läs dokumentationen om de [utlösare](functions-triggers-bindings.md) som du arbetar med för att se vad som ingår i utlösarens metadata.
 
 ## <a name="bindings"></a>Bindningar
 
@@ -291,7 +291,7 @@ Alla utlösare och bindningar representeras i kod som några få verkliga data t
 * HttpRequestContext
 * HttpResponseContext
 
-De fem första typerna i den här listan är standard-.NET-typer. De sista två används endast av [HttpTrigger](#http-triggers-and-bindings)-utlösaren.
+De fem första typerna i den här listan är standard-.NET-typer. De sista två används endast av HttpTrigger- [utlösaren](#http-triggers-and-bindings).
 
 Varje bindnings parameter i dina funktioner måste vara en av de här typerna.
 
@@ -403,14 +403,18 @@ Du kan se den aktuella versionen genom att `$PSVersionTable` skriva ut från vil
 
 ## <a name="dependency-management"></a>Beroendehantering
 
-PowerShell Functions stöder hantering av Azure-moduler av tjänsten. Genom att ändra Host. JSON och ange egenskapen managedDependency enabled till True kommer filen krav. psd1 att bearbetas. De senaste Azure-modulerna hämtas automatiskt och görs tillgängliga för funktionen.
+PowerShell Functions har stöd för att ladda ned och hantera [PowerShell Gallery](https://www.powershellgallery.com) -moduler av tjänsten. Genom att ändra Host. JSON och ange egenskapen managedDependency enabled till True kommer filen krav. psd1 att bearbetas. De angivna modulerna hämtas automatiskt och görs tillgängliga för funktionen. 
+
+Det maximala antalet moduler som stöds för närvarande är 10. Den syntax som stöds är MajorNumber. * eller den exakta modul versionen som visas nedan. Azure AZ-modulen ingår som standard när en ny PowerShell Function-app skapas.
+
+Språk arbetaren hämtar alla uppdaterade moduler vid en omstart.
 
 host.json
 ```json
 {
-    "managedDependency": {
-        "enabled": true
-    }
+  "managedDependency": {
+          "enabled": true
+       }
 }
 ```
 
@@ -419,10 +423,11 @@ requirements.psd1
 ```powershell
 @{
     Az = '1.*'
+    SqlServer = '21.1.18147'
 }
 ```
 
-Att använda dina egna anpassade moduler eller moduler från [PowerShell-galleriet](https://powershellgallery.com) är lite annorlunda än hur du gör det normalt.
+Att dra nytta av dina egna anpassade moduler är lite annorlunda än hur du gör det normalt.
 
 När du installerar modulen på den lokala datorn går den till någon av de globalt tillgängliga mapparna i `$env:PSModulePath`. Eftersom din funktion körs i Azure har du inte åtkomst till de moduler som är installerade på datorn. Detta kräver att `$env:PSModulePath` for en PowerShell Function-app skiljer sig `$env:PSModulePath` från i ett vanligt PowerShell-skript.
 
@@ -433,16 +438,19 @@ I functions `PSModulePath` , innehåller två sökvägar:
 
 ### <a name="function-app-level-modules-folder"></a>Funktion app-Level `Modules` -mapp
 
-Om du vill använda anpassade moduler eller PowerShell-moduler från PowerShell-galleriet kan du placera moduler som dina funktioner är beroende av `Modules` i en mapp. I den här mappen är moduler automatiskt tillgängliga för functions-körningen. Alla funktioner i Function-appen kan använda dessa moduler.
+Om du vill använda anpassade moduler kan du placera moduler som dina funktioner är beroende av `Modules` i en mapp. I den här mappen är moduler automatiskt tillgängliga för functions-körningen. Alla funktioner i Function-appen kan använda dessa moduler. 
 
-Om du vill dra nytta av den här funktionen `Modules` skapar du en mapp i rotmappen för din Function-app. Spara de moduler som du vill använda i dina funktioner på den här platsen.
+> [!NOTE]
+> Moduler som anges i filen Requirements. psd1 laddas ned automatiskt och inkluderas i sökvägen så att du inte behöver ta med dem i mappen moduler. Dessa lagras lokalt i mappen $env: LOCALAPPDATA/AzureFunctions och i mappen/data/ManagedDependencies när den körs i molnet.
+
+Om du vill dra nytta av funktionen för anpassad modul skapar `Modules` du en mapp i roten för din Function-app. Kopiera modulerna som du vill använda i dina funktioner till den här platsen.
 
 ```powershell
 mkdir ./Modules
-Save-Module MyGalleryModule -Path ./Modules
+Copy-Item -Path /mymodules/mycustommodule -Destination ./Modules -Recurse
 ```
 
-Använd `Save-Module` för att spara alla moduler `Modules` som används av dina funktioner eller kopiera dina egna anpassade moduler till mappen. I en modules-mapp ska din Function-app ha följande mappstruktur:
+I en modules-mapp ska din Function-app ha följande mappstruktur:
 
 ```
 PSFunctionApp
@@ -450,11 +458,12 @@ PSFunctionApp
  | | - run.ps1
  | | - function.json
  | - Modules
- | | - MyGalleryModule
- | | - MyOtherGalleryModule
- | | - MyCustomModule.psm1
+ | | - MyCustomModule
+ | | - MyOtherCustomModule
+ | | - MySpecialModule.psm1
  | - local.settings.json
  | - host.json
+ | - requirements.psd1
 ```
 
 När du startar en Function-app lägger PowerShell-språket till den `Modules` här mappen `$env:PSModulePath` till så att du kan förlita dig på att modulen laddas automatiskt upp precis som i ett vanligt PowerShell-skript.
@@ -503,19 +512,9 @@ Du ställer in miljövariabeln i [appens inställningar](functions-app-settings.
 
 ### <a name="considerations-for-using-concurrency"></a>Överväganden vid användning av samtidighet
 
-PowerShell är ett _enda trådat_ skript språk som standard. Samtidighet kan dock läggas till med hjälp av flera PowerShell-körnings utrymmen i samma process. Den här funktionen är hur Azure Functions PowerShell-körningsmiljön fungerar.
+PowerShell är ett _enda trådat_ skript språk som standard. Samtidighet kan dock läggas till med hjälp av flera PowerShell-körnings utrymmen i samma process. Mängden körnings utrymmen som skapas kommer att matcha inställningen för PSWorkerInProcConcurrencyUpperBound-programmet. Data flödet påverkas av mängden processor-och minnes mängd som är tillgängliga i den valda planen.
 
-Det finns vissa nack delar med den här metoden.
-
-#### <a name="concurrency-is-only-as-good-as-the-machine-its-running-on"></a>Samtidighet är bara lika användbart som datorn som körs på
-
-Om din Function-App körs på en [App Service plan](functions-scale.md#app-service-plan) som endast har stöd för en enda kärna kan samtidigheten inte hjälpa mycket. Det beror på att det inte finns några ytterligare kärnor som hjälper till att utjämna belastningen. I det här fallet kan prestanda variera när den enskilda kärnan har till gång till kontext växeln mellan körnings utrymmen.
-
-[Förbruknings planen](functions-scale.md#consumption-plan) körs bara med en kärna, så du kan inte utnyttja samtidighet. Om du vill dra full nytta av samtidighet kan du istället distribuera dina funktioner till en Function-app som körs på en dedikerad App Service plan med tillräckligt många kärnor.
-
-#### <a name="azure-powershell-state"></a>Azure PowerShell tillstånd
-
-Azure PowerShell använder vissa kontexter och tillstånd på processnivå för att hjälpa till att spara. Men om du aktiverar samtidighet i din Function-app och anropar åtgärder som ändrar tillstånd, kan du få licens villkoren. Dessa tävlings förhållanden är svåra att felsöka eftersom ett anrop är beroende av ett visst tillstånd och det andra anropet har ändrat tillståndet.
+Azure PowerShell använder vissa kontexter och tillstånd på _processnivå_ för att hjälpa till att spara. Men om du aktiverar samtidighet i din Function-app och anropar åtgärder som ändrar tillstånd, kan du få licens villkoren. Dessa tävlings förhållanden är svåra att felsöka eftersom ett anrop är beroende av ett visst tillstånd och det andra anropet har ändrat tillståndet.
 
 Det finns stor värde i samtidighet med Azure PowerShell eftersom vissa åtgärder kan ta lång tid. Du måste dock gå vidare med försiktighet. Om du misstänker att du råkar ut för ett konkurrens tillstånd ställer du in appens `1` PSWorkerInProcConcurrencyUpperBound till och använder i stället [språket arbets process nivå isolering](functions-app-settings.md#functions_worker_process_count) för samtidighet.
 

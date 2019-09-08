@@ -8,12 +8,12 @@ ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 08/21/2019
 ms.author: glenga
-ms.openlocfilehash: 10c356afc235494b00777561259190ae78b65482
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.openlocfilehash: ebc900735dfbb25206c4b22e3d20da62d85c61df
+ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69905683"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70773149"
 ---
 # <a name="develop-azure-functions-using-visual-studio"></a>Utveckla Azure Functions med Visual Studio  
 
@@ -41,6 +41,8 @@ Andra resurser som du behöver, till exempel ett Azure Storage konto, skapas i p
 
 > [!NOTE]
 > I Visual Studio 2017 installerar Azure Development-arbetsbelastningen Azure Functions-verktyg som ett separat tillägg. När du uppdaterar din Visual Studio 2017 bör du också kontrol lera att du använder den [senaste versionen](#check-your-tools-version) av Azure Functionss verktygen. I följande avsnitt visas hur du kontrollerar och (vid behov) uppdaterar du Azure Functions tools-tillägget i Visual Studio 2017. 
+>
+> Hoppa över det här avsnittet när du använder Visual Studio 2019.
 
 ### <a name="check-your-tools-version"></a>Kontrol lera din verktygs version i Visual Studio 2017
 
@@ -75,7 +77,7 @@ Projekt mal len skapar ett C# projekt, installerar `Microsoft.NET.Sdk.Functions`
 
 * **host.json**: Gör att du kan konfigurera funktions värden. Dessa inställningar gäller både när de körs lokalt och i Azure. Mer information finns i [Host. JSON-referens](functions-host-json.md).
 
-* **local.settings.json**: Behåller inställningar som används när funktioner körs lokalt. De här inställningarna används inte när du kör i Azure. Mer information finns i [filen med lokala inställningar](#local-settings-file).
+* **local.settings.json**: Behåller inställningar som används när funktioner körs lokalt. De här inställningarna används inte när de körs i Azure. Mer information finns i [filen med lokala inställningar](#local-settings-file).
 
     >[!IMPORTANT]
     >Eftersom filen Local. Settings. JSON kan innehålla hemligheter måste du utesluta den från projekt käll kontrollen. Inställningen **Kopiera till utdata-katalog** för den här filen bör alltid vara **kopia om**den är nyare. 
@@ -92,7 +94,7 @@ Värdena för funktionen app-inställningar kan också läsas i koden som miljö
 
 ## <a name="configure-the-project-for-local-development"></a>Konfigurera projektet för lokal utveckling
 
-Functions-körningen använder ett Azure Storage-konto internt. För alla utlösare typer än HTTP och Webhooks måste du ange **Values. AzureWebJobsStorage** -nyckeln till en giltig anslutnings sträng för Azure Storage konto. Din Function-app kan också använda [Azure Storage](../storage/common/storage-use-emulator.md) -emulatorn för anslutnings inställningen **AzureWebJobsStorage** som krävs av projektet. Om du vill använda emulatorn ställer du in värdet för `UseDevelopmentStorage=true`AzureWebJobsStorage på. Ändra den här inställningen till en faktisk lagrings konto anslutnings sträng före distributionen.
+Functions-körningen använder ett Azure Storage-konto internt. För alla utlösare typer än HTTP och Webhooks måste du ange **Values. AzureWebJobsStorage** -nyckeln till en giltig anslutnings sträng för Azure Storage konto. Din Function-app kan också använda [Azure Storage-emulatorn](../storage/common/storage-use-emulator.md) för anslutnings inställningen **AzureWebJobsStorage** som krävs av projektet. Om du vill använda emulatorn ställer du in värdet för `UseDevelopmentStorage=true`AzureWebJobsStorage på. Ändra den här inställningen till en faktisk lagrings konto anslutnings sträng före distributionen.
 
 Så här anger du anslutnings strängen för lagrings kontot:
 
@@ -100,7 +102,7 @@ Så här anger du anslutnings strängen för lagrings kontot:
 
 2. Öppna filen Local. Settings. json i projektet och ange värdet för **AzureWebJobsStorage** -nyckeln till den anslutnings sträng som du kopierade.
 
-3. Upprepa föregående steg för att lägga till unika nycklar i matrisen Arrays för alla andra anslutningar som krävs av dina funktioner. 
+3. Upprepa föregående steg för att lägga till unika nycklar i **matrisen** Arrays för alla andra anslutningar som krävs av dina funktioner. 
 
 ## <a name="add-a-function-to-your-project"></a>Lägg till en funktion i projektet
 
@@ -199,7 +201,7 @@ Använd följande steg för att publicera projektet till en Function-app i Azure
 
 ## <a name="function-app-settings"></a>Funktionsappinställningar
 
-Alla inställningar som du har lagt till i den lokala. Settings. JSON måste också läggas till i Function-appen i Azure. De här inställningarna överförs inte automatiskt när du publicerar projektet.
+Alla inställningar som du har lagt till i den lokala. Settings. JSON måste också läggas till i Function-appen i Azure. De här inställningarna laddas inte upp automatiskt när du publicerar projektet.
 
 Det enklaste sättet att överföra de nödvändiga inställningarna till din Function-app i Azure är att använda den **hantera program inställningar...** som visas när du har publicerat projektet.
 
@@ -234,4 +236,4 @@ Mer information finns i [övervaka Azure Functions](functions-monitoring.md).
 
 Mer information om Azure Functions Core Tools finns i [kod och testa Azure Functions lokalt](functions-run-local.md).
 
-Mer information om hur du utvecklar funktioner som .NET-klass bibliotek finns i [ C# Azure Functions Developer Reference](functions-dotnet-class-library.md). Den här artikeln länkar också till exempel på hur du använder attribut för att deklarera de olika typerna av bindningar som stöds av Azure Functions.    
+Mer information om hur du utvecklar funktioner som .NET-klass bibliotek finns i [Azure Functions C# Developer Reference](functions-dotnet-class-library.md). Den här artikeln länkar också till exempel på hur du använder attribut för att deklarera de olika typerna av bindningar som stöds av Azure Functions.    

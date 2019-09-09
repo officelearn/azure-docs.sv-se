@@ -1,33 +1,33 @@
 ---
-title: Förskotts betalning för SQL Data Warehouse avgifter med reserverad Azure-kapacitet
-description: Lär dig hur du kan förskottsbetala SQL Data Warehouse avgifter med reserverad kapacitet för att spara pengar.
+title: Spara kostnader för SQL Data Warehouse avgifter med reserverad Azure-kapacitet
+description: Lär dig hur du sparar kostnader för SQL Data Warehouse avgifter med reserverad kapacitet för att spara pengar.
 services: billing
 author: yashesvi
 manager: yashar
 ms.service: billing
 ms.topic: conceptual
-ms.date: 08/02/2019
+ms.date: 08/29/2019
 ms.author: banders
-ms.openlocfilehash: 6ee7a661434bb756c6cf196937229db19d06b373
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.openlocfilehash: 381a709c74f5fcf6bb1f89f07ad84d5e3af0c5e0
+ms.sourcegitcommit: b8578b14c8629c4e4dea4c2e90164e42393e8064
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68779990"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70806274"
 ---
-# <a name="prepay-for-sql-data-warehouse-charges-with-reserved-capacity"></a>Förskottsbetala SQL Data Warehouse avgifter med reserverad kapacitet
+# <a name="save-costs-for-sql-data-warehouse-charges-with-reserved-capacity"></a>Spara kostnader för SQL Data Warehouse avgifter med reserverad kapacitet
 
-Du kan spara pengar med Azure SQL Data Warehouse genom att betala för din cDWU-användning under en varaktighet på en eller tre år. Om du vill köpa SQL Data Warehouse reserverad kapacitet måste du välja Azure-region och-period. Lägg sedan till SQL Data Warehouse SKU i din varukorg och välj antalet cDWU-enheter som du vill köpa.
+Du kan spara pengar med Azure SQL Data Warehouse genom att använda en reservation för din cDWU-användning under en varaktighet på en eller tre år. Om du vill köpa SQL Data Warehouse reserverad kapacitet måste du välja Azure-region och-period. Lägg därefter till SQL Data Warehouse SKU:n till din kundvagn och välj den mängd cDWU-enheter du vill köpa.
 
-När du köper en reservation debiteras inte längre den SQL Data Warehouse användning som matchar reservations attributen enligt priserna för betala per användning.
+När du köper en reservation debiteras inte längre den SQL Data Warehouse-användning som matchar reservationsattributen enligt användningsbaserade priser.
 
-En reservation behandlar inte lagrings-eller nätverks kostnader som är kopplade till SQL Data Warehouse användning.
+En reservation täcker inte lagrings- eller nätverkskostnader kopplade till SQL Data Warehouse-användningen.
 
-När den reserverade kapaciteten går ut fortsätter SQL Data Warehouse instanser att köras men debiteras enligt priset betala per användning. Reservationer förnyas inte automatiskt.
+När den reserverade kapaciteten löper ut, fortsätter SQL Data Warehouse-instanserna att köras men debiteras enligt användningsbaserade priser. Reservationer förnyas inte automatiskt.
 
 För pris information, se [SQL Data Warehouse reserverat kapacitets erbjudande](https://azure.microsoft.com/pricing/details/sql-data-warehouse/gen2/).
 
-Du kan köpa Azure SQL Data Warehouse reserverad kapacitet i [Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade). Så här köper du reserverad kapacitet:
+Du kan köpa Azure SQL Data Warehouse reserverad kapacitet i [Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade). Betala för reservationen [fram eller med månads betalningar](billing-monthly-payments-reservations.md). Så här köper du reserverad kapacitet:
 
 - Du måste ha ägar rollen för minst en prenumeration på företag eller betala per användning.
 - För företags prenumerationer måste alternativet **Lägg till reserverade instanser** vara aktiverat i [EA-portalen](https://ea.azure.com/). Om inställningen är inaktive rad måste du vara en EA-administratör.
@@ -45,7 +45,7 @@ Anta till exempel att den totala förbrukningen av SQL Data Warehouse är DW3000
 
 1. Logga in på [Azure Portal](https://portal.azure.com/).
 2. Välj **alla tjänster** > **reservationer**.
-3. Välj en prenumeration. Använd prenumerations listan för att välja den prenumeration som används för att betala för den reserverade kapaciteten. Betalnings metoden för prenumerationen debiteras de direkta kostnaderna för den reserverade kapaciteten. Prenumerations typen måste vara ett Enterprise-avtal (erbjudande nummer: MS-AZR-0017P eller MS-AZR-0148P) eller "betala per användning" (erbjudande nummer: MS-AZR-0003P eller MS-AZR-0023P).
+3. Välj en prenumeration. Använd prenumerations listan för att välja den prenumeration som används för att betala för den reserverade kapaciteten. Betalnings metoden för prenumerationen debiteras kostnaderna för den reserverade kapaciteten. Prenumerations typen måste vara ett Enterprise-avtal (erbjudande nummer: MS-AZR-0017P eller MS-AZR-0148P) eller "betala per användning" (erbjudande nummer: MS-AZR-0003P eller MS-AZR-0023P).
    - För en företagsprenumeration dras avgifterna från registreringens återstående åtagandebelopp eller debiteras som överförbrukning.
    - Får en Betala per användning-prenumeration faktureras avgifterna från kreditkortet eller enligt fakturabetalningsmetoden.
 4. Välj ett omfång. Använd listan omfång för att välja en prenumerations omfattning.
@@ -63,7 +63,7 @@ Anta till exempel att den totala förbrukningen av SQL Data Warehouse är DW3000
 
 ## <a name="cancel-exchange-or-refund-reservations"></a>Avbryta, byta ut eller återbetala reservationer
 
-Du kan avbryta, byta ut eller återbetala reservationer med vissa begränsningar. Mer information finns i självbetjänings [utbyten och åter betalningar för Azure reservations](billing-azure-reservations-self-service-exchange-and-refund.md).
+Du kan avbryta, byta ut eller återbetala reservationer med vissa begränsningar. Mer information finns i [självbetjänings utbyten och åter betalningar för Azure reservations](billing-azure-reservations-self-service-exchange-and-refund.md).
 
 En reservations rabatt tillämpas automatiskt på antalet SQL Data Warehouse instanser som matchar omfattnings området för den reserverade kapaciteten SQL Data Warehouse och regionen. Du kan uppdatera omfånget för den SQL Data Warehouse reserverad kapacitet med [Azure Portal](https://portal.azure.com/), POWERSHELL, CLI eller via API: et.
 
@@ -79,5 +79,5 @@ Om du har frågor eller behöver hjälp, [skapa en supportbegäran](https://port
   - [Vad är Azure Reservations?](billing-save-compute-costs-reservations.md)
   - [Hantera Azure Reservations](billing-manage-reserved-vm-instance.md)
   - [Förstå Azure Reservations rabatt](billing-understand-reservation-charges.md)
-  - [Förstå reservations användningen för din prenumeration enligt principen betala per användning](billing-understand-reserved-instance-usage.md)
-  - [Förstå reservations användningen för företags registreringen](billing-understand-reserved-instance-usage-ea.md)
+  - [Förstå reservationsanvändning för din Betala per användning-prenumeration](billing-understand-reserved-instance-usage.md)
+  - [Förstå reservationsanvändning för din Enterprise-registrering](billing-understand-reserved-instance-usage-ea.md)

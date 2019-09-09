@@ -1,81 +1,81 @@
 ---
-title: Konfigurera haveriberedskap för virtuella Azure-datorer efter migrering till Azure med Azure Site Recovery | Microsoft Docs
-description: Den här artikeln beskriver hur du förbereder du datorer för att konfigurera haveriberedskap mellan Azure-regioner efter migrering till Azure med hjälp av Azure Site Recovery.
+title: Konfigurera katastrof återställning för virtuella Azure-datorer efter migrering till Azure med Azure Site Recovery
+description: Den här artikeln beskriver hur du förbereder datorer för att konfigurera haveri beredskap mellan Azure-regioner efter migrering till Azure med hjälp av Azure Site Recovery.
 services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: article
-ms.date: 05/30/2019
+ms.date: 09/09/2019
 ms.author: raynew
-ms.openlocfilehash: 4b764c8e7c3d97ff521add05033265f705c4136f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ff35c5e23c5d8a448d62a3eeb8d15ba8d5a531e4
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66399526"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70814535"
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms-after-migration-to-azure"></a>Konfigurera haveriberedskap för virtuella Azure-datorer efter migrering till Azure 
 
 
-Följ den här artikeln om du har [migreras lokala datorer till virtuella Azure-datorer](tutorial-migrate-on-premises-to-azure.md) med hjälp av den [Site Recovery](site-recovery-overview.md) , och du nu vill hämta de virtuella datorerna för haveriberedskap till en sekundär Azure-region. Artikeln beskriver hur du kontrollera att Azure VM-agenten är installerad på migrerade virtuella datorer och hur du tar bort den Site Recovery-mobilitetstjänsten som inte längre behövs efter migreringen.
+Följ den här artikeln om du har [migrerat lokala datorer till virtuella Azure-](tutorial-migrate-on-premises-to-azure.md) datorer med hjälp av [Site Recovery](site-recovery-overview.md) tjänsten och du nu vill hämta de virtuella datorerna för haveri beredskap till en sekundär Azure-region. Artikeln beskriver hur du ser till att Azure VM-agenten är installerad på migrerade virtuella datorer och hur du tar bort den Site Recovery mobilitets tjänsten som inte längre behövs efter migreringen.
 
 
 
-## <a name="verify-migration"></a>Kontrollera migreringen
+## <a name="verify-migration"></a>Verifiera migrering
 
-Innan du konfigurerar haveriberedskap, se till att migreringen har slutförts som förväntat. För att slutföra en migrering, efter redundansen, ska du välja den **fullständig migrering** alternativet för varje dator som du vill migrera. 
+Innan du konfigurerar haveri beredskap ser du till att migreringen har slutförts som förväntat. Om du vill slutföra en migrering efter redundansväxlingen väljer du alternativet **fullständig migrering** för varje dator som du vill migrera. 
 
 ## <a name="verify-the-azure-vm-agent"></a>Verifiera Azure VM-agenten
 
-Varje virtuell Azure-dator måste ha den [Azure VM-agenten](../virtual-machines/extensions/agent-windows.md) installerad. Om du vill replikera virtuella datorer i Azure installerar Site Recovery ett tillägg på agenten.
+[Azure VM-agenten](../virtual-machines/extensions/agent-windows.md) måste vara installerad på varje virtuell Azure-dator. Site Recovery installerar ett tillägg på agenten för att replikera virtuella Azure-datorer.
 
-- Om datorn kör version 9.7.0.0 eller senare av Site Recovery-mobilitetstjänsten Azure VM-agenten installeras automatiskt av mobilitetstjänsten på virtuella Windows-datorer. Du måste installera agenten automatiskt på tidigare versioner av mobilitetstjänsten.
-- För virtuella Linux-datorer måste du installera Azure VM-agenten manuellt. Du behöver bara installera Azure VM-agenten om mobilitetstjänsten installerad på den migrerade datorn är v9.6 eller tidigare.
+- Om datorn kör version 9.7.0.0 eller senare av tjänsten Site Recovery mobilitet installeras Azure VM-agenten automatiskt av mobilitets tjänsten på virtuella Windows-datorer. I tidigare versioner av mobilitets tjänsten måste du installera agenten automatiskt.
+- För virtuella Linux-datorer måste du installera Azure VM-agenten manuellt. Du behöver bara installera Azure VM-agenten om mobilitets tjänsten som är installerad på den migrerade datorn är v 9.6 eller tidigare.
 
 
-### <a name="install-the-agent-on-windows-vms"></a>Installera agenten på Windows virtuella datorer
+### <a name="install-the-agent-on-windows-vms"></a>Installera agenten på virtuella Windows-datorer
 
-Om du kör en version av tidigare än 9.7.0.0 mobilitetstjänsten Site Recovery, eller du har några andra behovet av att installera agenten manuellt, gör du följande:  
+Om du kör en version av tjänsten Site Recovery mobilitet som är tidigare än 9.7.0.0, eller om du har några andra behov av att installera agenten manuellt, gör du följande:  
 
-1. Se till att du har administratörsbehörigheter på den virtuella datorn.
-2. Ladda ned den [VM-agenten installer](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409).
-3. Kör installationsfilen.
+1. Se till att du har administratörs behörighet på den virtuella datorn.
+2. Hämta [installations programmet för VM-agenten](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409).
+3. Kör installations filen.
 
 #### <a name="validate-the-installation"></a>Verifiera installationen
-Kontrollera att agenten är installerad:
+Kontrol lera att agenten är installerad:
 
-1. Du bör se filen WaAppAgent.exe på Azure-dator, i mappen C:\WindowsAzure\Packages.
-2. Högerklicka på filen, och i **egenskaper**väljer den **information** fliken.
-3. Kontrollera att den **produktversion** fältet visar 2.6.1198.718 eller högre.
+1. På den virtuella Azure-datorn ska du se filen WaAppAgent. exe i mappen C:\WindowsAzure\Packages.
+2. Högerklicka på filen och i **Egenskaper**, Välj fliken **information** .
+3. Kontrol lera att fältet **produkt version** visar 2.6.1198.718 eller högre.
 
-[Läs mer](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-windows) om agentinstallationen för Windows.
+[Lär dig mer](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-windows) om agent installation för Windows.
 
 ### <a name="install-the-agent-on-linux-vms"></a>Installera agenten på virtuella Linux-datorer
 
-Installera den [virtuell Linux-dator](../virtual-machines/extensions/agent-linux.md) agenten manuellt på följande sätt:
+Installera [Azure Linux VM](../virtual-machines/extensions/agent-linux.md) -agenten manuellt på följande sätt:
 
-1. Kontrollera att du har administratörsbehörigheter på datorn.
-2. Vi rekommenderar starkt att du installerar Linux VM-agenten med hjälp av en RPM- eller DEB-paketet från paketdatabasen för din distribution. Alla de [godkända distribution providers](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) integrera Azure Linux-agenten i sina avbildningar och databaser.
-    - Vi rekommenderar starkt att du uppdaterar agenten endast via en lagringsplats för distribution.
-    - Vi rekommenderar inte att installera Linux VM-agenten direkt från GitHub och uppdaterar den.
-    -  Om den senaste agenten för din distribution inte är tillgänglig, kontakta distribution stöd för instruktioner om hur du installerar den. 
+1. Kontrol lera att du har administratörs behörighet på datorn.
+2. Vi rekommenderar starkt att du installerar Linux VM-agenten med ett RPM-eller DEB-paket från distributionens paket lagrings plats. Alla godkända [distributions leverantörer](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) integrerar Azure Linux Agent-paketet i sina avbildningar och databaser.
+    - Vi rekommenderar starkt att du bara uppdaterar agenten via en distributions lagrings plats.
+    - Vi rekommenderar inte att du installerar Linux VM-agenten direkt från GitHub och uppdaterar den.
+    -  Om den senaste agenten för distributionen inte är tillgänglig kan du kontakta distributions supporten för instruktioner om hur du installerar den. 
 
 #### <a name="validate-the-installation"></a>Verifiera installationen 
 
-1. Kör det här kommandot: **ps -e** så att Azure-agenten körs på Linux-VM.
-2. Om processen inte körs måste du starta om den med hjälp av följande kommandon:
+1. Kör det här kommandot: **PS-e** för att säkerställa att Azure-agenten körs på den virtuella Linux-datorn.
+2. Om processen inte körs startar du om den med hjälp av följande kommandon:
     - För Ubuntu: **tjänsten walinuxagent start**
     - För andra distributioner: **tjänsten waagent start**
 
 
-## <a name="uninstall-the-mobility-service"></a>Avinstallera mobilitetstjänsten
+## <a name="uninstall-the-mobility-service"></a>Avinstallera mobilitets tjänsten
 
-1. Avinstallera mobilitetstjänsten manuellt från Azure-dator, med någon av följande metoder. 
-    - För Windows i Kontrollpanelen > **Lägg till/ta bort program**, avinstallera **Microsoft Azure Site Recovery Mobility Service/huvudmålservern**. Kör i en upphöjd kommandotolk:
+1. Avinstallera mobilitets tjänsten manuellt från den virtuella Azure-datorn med någon av följande metoder. 
+    - För Windows går du till kontroll panelen > **Lägg till/ta bort program**, avinstallerar **Microsoft Azure Site Recovery mobilitets tjänsten/huvud mål servern**. Kör följande i en upphöjd kommando tolk:
         ```
         MsiExec.exe /qn /x {275197FC-14FD-4560-A5EB-38217F80CBD1} /L+*V "C:\ProgramData\ASRSetupLogs\UnifiedAgentMSIUninstall.log"
         ```
-    - Logga in som en rotanvändare för Linux. I en terminal, går du till **/user/local/ASR**, och kör följande kommando:
+    - För Linux loggar du in som en rot användare. I en Terminal går du till **/User/Local/ASR**och kör följande kommando:
         ```
         ./uninstall.sh -Y
         ```
@@ -83,5 +83,5 @@ Installera den [virtuell Linux-dator](../virtual-machines/extensions/agent-linux
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Granska felsökning](site-recovery-extension-troubleshoot.md) för Site Recovery-tillägget på Azure VM-agenten.
-[Replikera snabbt](azure-to-azure-quickstart.md) en Azure-dator till en sekundär region.
+[Läs fel sökning](site-recovery-extension-troubleshoot.md) för tillägget Site Recovery på Azure VM-agenten.
+[Replikera snabbt](azure-to-azure-quickstart.md) en virtuell Azure-dator till en sekundär region.

@@ -6,12 +6,12 @@ ms.author: hrasheed
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 08/14/2019
-ms.openlocfilehash: 096a8f221313b9dfa3e0fe804a10fc12246177ff
-ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
+ms.openlocfilehash: 6c0dc61cac96037406b165d7ebee693bfe709c5d
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69575722"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70811746"
 ---
 # <a name="troubleshoot-by-using-azure-hdinsight"></a>Felsöka med hjälp av Azure HDInsight
 
@@ -32,3 +32,13 @@ ms.locfileid: "69575722"
 | Loggar och dumpar | - [Åtkomst Apache Hadoop garn program loggar på Linux](hdinsight-hadoop-access-yarn-app-logs-linux.md)<br>- [Aktivera heap-dum par för Apache Hadoop tjänster i Linux](hdinsight-hadoop-collect-debug-heap-dump-linux.md)<br>- [Analysera HDInsight-loggar](hdinsight-debug-jobs.md)|
 | Fel | - [Förstå och lösa WebHCat-fel](hdinsight-hadoop-templeton-webhcat-debug-errors.md)<br>- [Apache Hive inställningar för att åtgärda OutofMemory-fel](hdinsight-hadoop-hive-out-of-memory-error-oom.md) |
 | Verktyg | - [Optimera Apache Hive-frågor](hdinsight-hadoop-optimize-hive-query.md)<br>- [Verktyget HDInsight IntelliJ](./spark/apache-spark-intellij-tool-plugin.md)<br>- [Verktyg för HDInsight-Sol förmörkelse](./spark/apache-spark-eclipse-tool-plugin.md)<br>- [Verktyget HDInsight VSCode](hdinsight-for-vscode.md)<br>- [Verktyget HDInsight Visual Studio](./hadoop/apache-hadoop-visual-studio-tools-get-started.md) |
+
+## <a name="next-steps"></a>Nästa steg
+
+Om du inte ser problemet eller inte kan lösa problemet kan du gå till någon av följande kanaler för mer support:
+
+* Få svar från Azure-experter via [Azure community support](https://azure.microsoft.com/support/community/).
+
+* Anslut till [@AzureSupport](https://twitter.com/azuresupport) – det officiella Microsoft Azure kontot för att förbättra kund upplevelsen. Att ansluta Azure-communityn till rätt resurser: svar, support och experter.
+
+* Om du behöver mer hjälp kan du skicka en support förfrågan från [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Välj **stöd** på Meny raden eller öppna **Hjälp + Support** Hub. Mer detaljerad information finns [i så här skapar du en support förfrågan för Azure](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request). Åtkomst till prenumerations hantering och fakturerings support ingår i din Microsoft Azure prenumeration och teknisk support tillhandahålls via ett av support avtalen för [Azure](https://azure.microsoft.com/support/plans/).

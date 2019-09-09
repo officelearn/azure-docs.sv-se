@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 51a19d867b4906aacfe58cb4fdfd08f32a16e5f3
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.openlocfilehash: bd83cff243c94ed62014ff95f6ca7c4e878f6af7
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69972343"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70814562"
 ---
 # <a name="private-cloud-vmware-components"></a>VMware-komponenter för privata moln
 
@@ -30,10 +30,10 @@ En VMware-stack för privata moln distribueras med följande program varu versio
 
 | Komponent | Version | Licensierad version |
 |-----------|---------|------------------|
-| ESXi | 6,7 U1 | Enterprise plus |
-| vCenter | 6,7 U1 | vCenter Standard |
+| ESXi | 6.7 U2 | Enterprise plus |
+| vCenter | 6.7 U2 | vCenter Standard |
 | vSAN | 6.7 | Företag |
-| NSX Data Center | 2.3 | Avancerat |
+| NSX Data Center | 2.4.1 | Avancerat |
 
 ## <a name="esxi"></a>ESXi
 
@@ -53,7 +53,7 @@ Embedded Platform service Controller på VCSA är associerad med en **vCenter-do
 
 Privata moln skapas med fullständigt konfigurerade virtuellt SAN-lagring för hela Flash, lokalt till klustret.  Minst tre noder av samma SKU krävs för att skapa ett vSphere-kluster med virtuellt San data lager.  Avduplicering och komprimering är aktiverat i virtuellt San-datalagret som standard.  Två disk grupper skapas på varje nod i vSphere-klustret. Varje disk grupp innehåller en cache-disk och tre kapacitets diskar.
 
-En standard lagrings princip för virtuellt San skapas i vSphere-klustret och tillämpas på virtuellt San-datalagret.  Den här principen avgör hur VM-lagrings objekt ska tillhandahållas och allokeras i data lagret för att garantera den tjänst nivå som krävs.  Lagrings principen definierar de **problem som ska tolereras (FTT)** och **metoden**för feltolerans.  Du kan skapa nya lagrings principer och tillämpa dem på de virtuella datorerna. För att upprätthålla SLA måste den 25% lediga kapaciteten vara kvar på virtuellt San-datalagret.  
+En standard lagrings princip för virtuellt San skapas i vSphere-klustret och tillämpas på virtuellt San-datalagret.  Den här principen avgör hur VM-lagrings objekt ska tillhandahållas och allokeras i data lagret för att garantera den tjänst nivå som krävs.  Lagrings principen definierar de **problem som ska tolereras (FTT)** och **metoden för feltolerans**.  Du kan skapa nya lagrings principer och tillämpa dem på de virtuella datorerna. För att upprätthålla SLA måste den 25% lediga kapaciteten vara kvar på virtuellt San-datalagret.  
 
 ### <a name="default-vsan-storage-policy"></a>Standard lagrings princip för virtuellt San
 

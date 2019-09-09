@@ -1,79 +1,78 @@
 ---
-title: Förbereda lokala Hyper-V-servrar på haveriberedskap för Hyper-V-datorer till Azure | Microsoft Docs
-description: Lär dig att förbereda lokala Hyper-V-datorer för haveriberedskap till Azure med Azure Site Recovery-tjänsten.
-services: site-recovery
+title: Förbereda lokala Hyper-V-servrar för haveri beredskap för virtuella Hyper-V-datorer till Azure
+description: Lär dig hur du förbereder lokala virtuella Hyper-V-datorer för haveri beredskap till Azure med tjänsten Azure Site Recovery.
 author: rayne-wiselman
 ms.service: site-recovery
-ms.topic: article
-ms.date: 05/30/2019
+ms.topic: tutorial
+ms.date: 09/09/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: aec5632b5ea29d52426c5d065ca41e18573fd5b9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b17e42378daf51543a2664315f2971d15c288611
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66399392"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70813723"
 ---
-# <a name="prepare-on-premises-hyper-v-servers-for-disaster-recovery-to-azure"></a>Förbereda lokala Hyper-V-servrar på haveriberedskap till Azure
+# <a name="prepare-on-premises-hyper-v-servers-for-disaster-recovery-to-azure"></a>Förbereda lokala Hyper-V-servrar för haveri beredskap till Azure
 
-Den här artikeln beskriver hur du förbereder din lokala Hyper-V-infrastruktur när du vill konfigurera haveriberedskap för Hyper-v-datorer till Azure, med hjälp av [Azure Site Recovery](site-recovery-overview.md).
+I den här artikeln beskrivs hur du förbereder en lokal Hyper-V-infrastruktur när du vill konfigurera haveri beredskap för virtuella Hyper-VM: ar till Azure med hjälp av [Azure Site Recovery](site-recovery-overview.md).
 
 
-Det här är den andra självstudien i en serie som visar hur du konfigurerar haveriberedskap till Azure för lokala Hyper-V-datorer. I den första kursen vi [ställer in Azure-komponenterna](tutorial-prepare-azure.md) krävs för Hyper-V-haveriberedskap.
+Det här är den andra självstudien i en serie som visar hur du konfigurerar haveri beredskap till Azure för lokala virtuella Hyper-V-datorer. I den första självstudien [ställer vi in de Azure-komponenter](tutorial-prepare-azure.md) som krävs för haveri beredskap för Hyper-V.
 
 I den här självstudiekursen får du lära du dig att:
 
 > [!div class="checklist"]
-> * Granska kraven för Hyper-V och kraven för VMM om Hyper-V-värdar som hanteras av System Center VMM.
-> * Förbereda VMM om det är tillämpligt.
-> * Kontrollera Internetåtkomst till Azure-platser.
-> * Förbereda virtuella datorer så att du kan komma åt dem efter redundansväxlingen till Azure.
+> * Granska Hyper-V-krav och VMM-krav om dina Hyper-V-värdar hanteras av System Center VMM.
+> * Förbered VMM om det är tillämpligt.
+> * Kontrol lera Internet åtkomst till Azure-platser.
+> * Förbered virtuella datorer så att du kan komma åt dem efter en redundansväxling till Azure.
 
 > [!NOTE]
-> Självstudier visar den enklaste distribution sökvägen för ett scenario. De använder standardalternativ där så är möjligt och visar inte alla möjliga inställningar och sökvägar. Detaljerade anvisningar finns i artikel i avsnittet How To i Site Recovery i innehållsförteckningen.
+> Självstudier visar den enklaste distributions vägen för ett scenario. De använder standardalternativ där så är möjligt och visar inte alla möjliga inställningar och sökvägar. Detaljerade anvisningar finns i artikeln i avsnittet så här i Site Recovery innehålls förteckningen.
 
 ## <a name="before-you-start"></a>Innan du börjar
 
-Kontrollera att du har förberett Azure enligt beskrivningen i den [första kursen i den här serien](tutorial-prepare-azure.md).
+Se till att du har för berett Azure enligt beskrivningen i den [första självstudien i den här serien](tutorial-prepare-azure.md).
 
-## <a name="review-requirements-and-prerequisites"></a>Granska krav och förutsättningar
+## <a name="review-requirements-and-prerequisites"></a>Granska krav och krav
 
-Se till att Hyper-V-värdar och virtuella datorer uppfyller kraven.
+Kontrol lera att Hyper-V-värdar och virtuella datorer uppfyller kraven.
 
-1. [Kontrollera](hyper-v-azure-support-matrix.md#on-premises-servers) lokala server-krav.
-2. [Kontrollera kraven](hyper-v-azure-support-matrix.md#replicated-vms) för Hyper-V-datorer som du vill replikera till Azure.
-3. Kontrollera Hyper-V-värd [nätverk](hyper-v-azure-support-matrix.md#hyper-v-network-configuration); och värdens och gästens [storage](hyper-v-azure-support-matrix.md#hyper-v-host-storage) stöd för en lokal Hyper-V-värdar.
+1. [Kontrol lera](hyper-v-azure-support-matrix.md#on-premises-servers) krav för lokal server.
+2. [Kontrol lera kraven](hyper-v-azure-support-matrix.md#replicated-vms) för virtuella Hyper-V-datorer som du vill replikera till Azure.
+3. Kontrol lera [nätverk](hyper-v-azure-support-matrix.md#hyper-v-network-configuration)för Hyper-V-värden; och stöd för värd-och gäst [lagring](hyper-v-azure-support-matrix.md#hyper-v-host-storage) för lokala Hyper-V-värdar.
 4. Kontrollera vad som stöds när det gäller [Azure-nätverk](hyper-v-azure-support-matrix.md#azure-vm-network-configuration-after-failover), [lagring](hyper-v-azure-support-matrix.md#azure-storage) och [compute](hyper-v-azure-support-matrix.md#azure-compute-features) efter redundansväxling.
 5. Dina lokala virtuella datorer som du replikerar till Azure måste uppfylla [kraven för virtuella Azure-datorer](hyper-v-azure-support-matrix.md#azure-vm-requirements).
 
 
-## <a name="prepare-vmm-optional"></a>Förbereda VMM (valfritt)
+## <a name="prepare-vmm-optional"></a>Förbered VMM (valfritt)
 
-Om Hyper-V-värdar hanteras av VMM, måste du förbereda en lokal VMM-servern. 
+Om Hyper-V-värdar hanteras av VMM måste du förbereda den lokala VMM-servern. 
 
-- Kontrollera att VMM-servern har minst ett moln, med en eller flera värdgrupper. Hyper-V-värden där virtuella datorer kör måste finnas i molnet.
-- Förbereda VMM-servern för nätverksmappning.
+- Se till att VMM-servern har minst ett moln, med en eller flera värd grupper. Den Hyper-V-värd som de virtuella datorerna körs på bör finnas i molnet.
+- Förbered VMM-servern för nätverks mappning.
 
-### <a name="prepare-vmm-for-network-mapping"></a>Förbereda VMM för nätverksmappning
+### <a name="prepare-vmm-for-network-mapping"></a>Förbereda VMM för nätverks mappning
 
-Om du använder VMM, [nätverksmappning](site-recovery-network-mapping.md) mappningar mellan en lokal virtuell dator i VMM-nätverk och virtuella Azure-nätverk. Mappningen säkerställer att virtuella Azure-datorer är anslutna till rätt nätverk när de skapas efter en redundansväxling.
+Om du använder VMM mappas [nätverks mappning](site-recovery-network-mapping.md) mellan lokala VMM VM-nätverk och virtuella Azure-nätverk. Mappning garanterar att virtuella Azure-datorer är anslutna till rätt nätverk när de skapas efter en redundansväxling.
 
-Förbereda VMM nätverksmappningen på följande sätt:
+Förbered VMM för nätverks mappning enligt följande:
 
-1. Kontrollera att du har en [logiskt nätverk för VMM](https://docs.microsoft.com/system-center/vmm/network-logical) som associeras med det moln som Hyper-V-värdarna finns.
-2. Kontrollera att du har en [Virtuellt datornätverk](https://docs.microsoft.com/system-center/vmm/network-virtual) länkad till det logiska nätverket.
-3. I VMM kan du ansluta de virtuella datorerna till det Virtuella datornätverket.
+1. Se till att du har ett [logiskt VMM-nätverk](https://docs.microsoft.com/system-center/vmm/network-logical) som är associerat med molnet där Hyper-V-värdarna finns.
+2. Se till att du har ett [virtuellt dator nätverk](https://docs.microsoft.com/system-center/vmm/network-virtual) som är kopplat till det logiska nätverket.
+3. I VMM ansluter du de virtuella datorerna till det virtuella dator nätverket.
 
-## <a name="verify-internet-access"></a>Kontrollera åtkomst till internet
+## <a name="verify-internet-access"></a>Verifiera Internet åtkomst
 
-1. För kursen är den enklaste konfigurationen för Hyper-V-värdar och VMM-servern får direkt åtkomst till internet utan att använda en proxyserver. 
-2. Kontrollera att Hyper-V-värdar och VMM-servern om det behövs, kan komma åt nödvändiga adresserna nedan.   
-3. Om du kontrollera åtkomst med IP-adress, se till att:
-    - IP-adressbaserade brandväggsregler kan ansluta till [Azure Datacenter IP-intervall](https://www.microsoft.com/download/confirmation.aspx?id=41653), och HTTPS-port (443).
+1. I självstudien är den enklaste konfigurationen för Hyper-V-värdar och VMM-servern att ha direkt åtkomst till Internet utan att använda en proxyserver. 
+2. Se till att Hyper-V-värdar och VMM-servern om det behövs kan komma åt de URL: er som krävs nedan.   
+3. Om du styr åtkomst efter IP-adress kontrollerar du att:
+    - IP-adressbaserade brand Väggs regler kan ansluta till [Azure datacenter IP-intervall](https://www.microsoft.com/download/confirmation.aspx?id=41653)och HTTPS-porten (443).
     - Tillåt IP-adressintervall för Azure-regionen för din prenumeration.
     
-### <a name="required-urls"></a>URL: erna
+### <a name="required-urls"></a>Obligatoriska URL: er
 
 
 [!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)]
@@ -81,19 +80,19 @@ Förbereda VMM nätverksmappningen på följande sätt:
 
 ## <a name="prepare-to-connect-to-azure-vms-after-failover"></a>Förbereda för att ansluta till virtuella Azure-datorer efter en redundansväxling
 
-Under ett redundansscenario kan du ansluta till din replikerade lokala nätverk.
+Under ett failover-scenario kanske du vill ansluta till det replikerade lokala nätverket.
 
-För att ansluta till Windows virtuella datorer med RDP efter en redundansväxling måste du tillåta åtkomst på följande sätt:
+För att ansluta till virtuella Windows-datorer med RDP efter redundans, Tillåt åtkomst enligt följande:
 
 1. För att få åtkomst via Internet aktiverar du RDP på den lokala virtuella datorn före redundansen. Kontrollera att TCP- och UDP-regler har lagts till för den **offentliga** profilen och att RDP tillåts i **Windows-brandväggen** > **Tillåtna appar** för alla profiler.
 2. För åtkomst via plats-till-plats-VPN aktiverar du RDP på den lokala datorn. RDP ska tillåtas i **Windows-brandväggen** -> **Tillåtna appar och funktioner** för nätverken **Domän och privat**.
-   Kontrollera att operativsystemets SAN-princip har angetts till **OnlineAll**. [Läs mer](https://support.microsoft.com/kb/3031135). Det får inte finnas några väntande Windows-uppdateringar på den virtuella datorn när du utlöser en redundans. Om det finns, kan du inte logga in på den virtuella datorn förrän uppdateringen är klar.
+   Kontrollera att operativsystemets SAN-princip har angetts till **OnlineAll**. [Läs mer](https://support.microsoft.com/kb/3031135). Det får inte finnas några väntande Windows-uppdateringar på den virtuella datorn när du utlöser en redundans. I så fall kan du inte logga in på den virtuella datorn förrän uppdateringen är klar.
 3. Efter en redundans av en virtuell Windows Azure-dator, kontrollerar du att **Startdiagnostik** visar en skärmbild av den virtuella datorn. Om du inte kan ansluta kontrollerar du att den virtuella datorn körs. Granska sedan dessa [felsökningstips](https://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx).
 
-Du kan komma åt virtuella Azure-datorer med samma IP-adress som replikerade lokal virtuell dator eller en annan IP-adress efter redundansväxling. [Läs mer](concepts-on-premises-to-azure-networking.md) om hur du konfigurerar IP-adresser för redundans.
+Efter redundansväxlingen kan du komma åt virtuella Azure-datorer med samma IP-adress som den replikerade lokala virtuella datorn eller en annan IP-adress. [Läs mer](concepts-on-premises-to-azure-networking.md) om hur du konfigurerar IP-adresser för redundans.
 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Konfigurera katastrofåterställning till Azure för Hyper-V-datorer](tutorial-hyper-v-to-azure.md)
-> [konfigurera katastrofåterställning till Azure för Hyper-V-datorer i VMM-moln](tutorial-hyper-v-vmm-to-azure.md)
+> [Konfigurera katastrof återställning till Azure för virtuella Hyper-v-datorer](tutorial-hyper-v-to-azure.md)
+> [Konfigurera haveri beredskap till Azure för virtuella Hyper-v-datorer i VMM-moln](tutorial-hyper-v-vmm-to-azure.md)

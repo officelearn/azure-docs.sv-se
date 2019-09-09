@@ -8,12 +8,12 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.openlocfilehash: 63e23275a68ddde9385bb252dcb872d02c5cea08
-ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
+ms.openlocfilehash: 829f3e730b4993a6a7f32a9224d3c6c38bd4c06e
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68405966"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70811954"
 ---
 # <a name="configure-outbound-network-traffic-for-azure-hdinsight-clusters-using-firewall-preview"></a>Konfigurera utgående nätverks trafik för Azure HDInsight-kluster med hjälp av brand vägg (för hands version)
 
@@ -27,7 +27,7 @@ Det finns flera beroenden som kräver inkommande trafik. Inkommande hanterings t
 
 De utgående trafik beroendena för HDInsight är nästan helt definierade med FQDN, som inte har statiska IP-adresser bakom dem. Bristen på statiska adresser innebär att nätverks säkerhets grupper (NSG: er) inte kan användas för att låsa utgående trafik från ett kluster. Adresserna ändras ofta nog för att det inte går att konfigurera regler baserat på den aktuella namn matchningen och använda den för att konfigurera NSG-regler.
 
-Lösningen för att skydda utgående adresser är att använda en brand Väggs enhet som kan styra utgående trafik baserat på domän namn. Azure-brandväggen kan begränsa utgående HTTP-och HTTPS-trafik baserat på FQDN för mål-eller [FQDN](https://docs.microsoft.com/azure/firewall/fqdn-tags)-taggarna.
+Lösningen för att skydda utgående adresser är att använda en brand Väggs enhet som kan styra utgående trafik baserat på domän namn. Azure-brandväggen kan begränsa utgående HTTP-och HTTPS-trafik baserat på FQDN för mål-eller [FQDN-taggarna](https://docs.microsoft.com/azure/firewall/fqdn-tags).
 
 ## <a name="configuring-azure-firewall-with-hdinsight"></a>Konfigurera Azure-brandvägg med HDInsight
 
@@ -48,11 +48,11 @@ Skapa en program regel samling som gör det möjligt för klustret att skicka oc
 
 Välj den nya brand Väggs **test-FW01** från Azure Portal. Klicka på **regler** under **Inställningar** > **program regel samling** > **Lägg till program regel samling**.
 
-![Rubrik: Lägg till programregelsamling](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-app-rule-collection.png)
+![Avdelning Lägg till programregelsamling](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-app-rule-collection.png)
 
 Utför följande steg på skärmen **Lägg till program regel samling** :
 
-1. Ange ett **namn**, **prioritet**och klicka på **Tillåt** i list  rutan med åtgärds menyn och ange följande regler i **avsnittet FQDN-Taggar** :
+1. Ange ett **namn**, **prioritet**och klicka på **Tillåt** i list rutan med **Åtgärds** menyn och ange följande regler i **avsnittet FQDN-Taggar** :
 
    | **Namn** | **Käll adress** | **FQDN-tagg** | **Anteckningar** |
    | --- | --- | --- | --- |
@@ -67,7 +67,7 @@ Utför följande steg på skärmen **Lägg till program regel samling** :
 
 1. Klicka på **Lägg till**.
 
-   ![Rubrik: Ange information om samling av program regel](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-app-rule-collection-details.png)
+   ![Avdelning Ange information om samling av program regel](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-app-rule-collection-details.png)
 
 ### <a name="configure-the-firewall-with-network-rules"></a>Konfigurera brand väggen med nätverks regler
 
@@ -93,7 +93,7 @@ Skapa nätverks reglerna för att konfigurera HDInsight-klustret på rätt sätt
 
 1. Klicka på **Lägg till** för att slutföra skapandet av din nätverks regel samling.
 
-   ![Rubrik: Ange information om samling av program regel](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-network-rule-collection.png)
+   ![Avdelning Ange program regel samling](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-network-rule-collection.png)
 
 ### <a name="create-and-configure-a-route-table"></a>Skapa och konfigurera en routningstabell
 
@@ -125,7 +125,7 @@ Om du till exempel vill konfigurera routningstabellen för ett kluster som skapa
 Slutför konfigureringen av routningstabellen:
 
 1. Tilldela routningstabellen som du har skapat till ditt HDInsight-undernät genom att klicka på **undernät** under **Inställningar** och sedan **associera**.
-1. På skärmen **associera undernät** väljer du det virtuella nätverk som klustret skapades i och **HDInsight** -undernätet som du använde för ditt HDInsight-kluster.
+1. På skärmen **associera undernät** väljer du det virtuella nätverk som klustret skapades i och **HDInsight-undernätet** som du använde för ditt HDInsight-kluster.
 1. Klicka på **OK**.
 
 ## <a name="edge-node-or-custom-application-traffic"></a>Edge-Node eller anpassad program trafik

@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: baselden
 ms.reviewer: ''
-ms.openlocfilehash: cd19d1e0cdfa1b160734b23d7f50310948ded80d
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 04a2a3f2557ccef510a831a5c9fbf89bb62cb9a7
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68879921"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70812829"
 ---
 # <a name="plan-an-azure-ad-application-proxy-deployment"></a>Planera en Azure AD-programproxy-distribution
 
@@ -36,7 +36,7 @@ I följande avsnitt får du en översikt över de viktigaste planerings elemente
 
 ### <a name="prerequisites"></a>Förutsättningar
 
-Du måste uppfylla följande krav innan du påbörjar implementeringen. Du kan se mer information om hur du konfigurerar din miljö, inklusive dessa krav, i den här [](application-proxy-add-on-premises-application.md)självstudien.
+Du måste uppfylla följande krav innan du påbörjar implementeringen. Du kan se mer information om hur du konfigurerar din miljö, inklusive dessa krav, i den här [självstudien](application-proxy-add-on-premises-application.md).
 
 * **Kopplingar**: Anslutningarna är lätta för agenter som du kan distribuera till:
    * Fysisk maskin vara lokalt
@@ -62,13 +62,13 @@ Du måste uppfylla följande krav innan du påbörjar implementeringen. Du kan s
 
 Följande grund krav måste uppfyllas för att du ska kunna konfigurera och implementera Azure-AD-programproxy.
 
-*  **Azure**-onboarding: Innan du distribuerar programproxyn måste användar identiteter synkroniseras från en lokal katalog eller skapas direkt i dina Azure AD-klienter. Identitetssynkronisering gör det möjligt för Azure AD att förautentisera användare innan de beviljar åtkomst till App proxy-publicerade program och att ha nödvändig information om användar-ID för att utföra enkel inloggning (SSO).
+*  **Azure-onboarding**: Innan du distribuerar programproxyn måste användar identiteter synkroniseras från en lokal katalog eller skapas direkt i dina Azure AD-klienter. Identitetssynkronisering gör det möjligt för Azure AD att förautentisera användare innan de beviljar åtkomst till App proxy-publicerade program och att ha nödvändig information om användar-ID för att utföra enkel inloggning (SSO).
 
 * **Krav för villkorlig åtkomst**: Vi rekommenderar inte att du använder programproxy för intranät åtkomst eftersom detta lägger till latens som påverkar användarna. Vi rekommenderar att du använder Application Proxy med förautentisering och principer för villkorlig åtkomst för fjärråtkomst från Internet.  En metod för att ge villkorlig åtkomst för intranät användning är att modernisera program så att de kan diretly autentisera med AAD. Mer information hittar du i [resurser för att migrera program till AAD](https://docs.microsoft.com/azure/active-directory/manage-apps/migration-resources) . 
 
 * **Tjänst begränsningar**: För att skydda mot överförbrukning av resurser av enskilda klienter finns det begränsade gränser som ställts in per program och klient. För att se de här begränsningarna refererar du till [Azure AD-tjänstens gränser och begränsningar](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-service-limits-restrictions). Dessa begränsnings gränser baseras på ett riktmärke som ligger över normal användnings volym och ger en stor buffert för en majoritet av distributionerna.
 
-* **Offentligt certifikat**: Om du använder anpassade domän namn måste du skaffa ett offentligt certifikat utfärdat av en betrodd certifikat utfärdare som inte tillhör Microsoft. Det kan ta en stund att hämta ett certifikat, beroende på organisationens krav, och vi rekommenderar att du startar processen så tidigt som möjligt. Azure Application Proxy stöder standardattribut [](application-proxy-wildcard.md), jokertecken eller San-baserade certifikat.
+* **Offentligt certifikat**: Om du använder anpassade domän namn måste du skaffa ett offentligt certifikat utfärdat av en betrodd certifikat utfärdare som inte tillhör Microsoft. Det kan ta en stund att hämta ett certifikat, beroende på organisationens krav, och vi rekommenderar att du startar processen så tidigt som möjligt. Azure Application Proxy stöder standardattribut, [jokertecken](application-proxy-wildcard.md)eller San-baserade certifikat.
 
 * **Domän krav**: Enkel inloggning till dina publicerade program med hjälp av Kerberos-begränsad delegering (KCD) kräver att servern som kör anslutningen och servern som kör appen är domänanslutna och delar av samma domän eller domäner med förtroende.
 Detaljerad information om avsnittet finns i [KCD för enkel inloggning](application-proxy-configure-single-sign-on-with-kcd.md) med programproxy. Kopplings tjänsten körs i kontexten för det lokala systemet och ska inte konfigureras för användning av en anpassad identitet.
@@ -85,7 +85,7 @@ Detaljerad information om avsnittet finns i [KCD för enkel inloggning](applicat
 
    * Program **publicering och administration** kräver rollen *program administratör* . Program administratörer kan hantera alla program i katalogen, inklusive registreringar, SSO-inställningar, användar-och grupp tilldelningar och licensiering, inställningar för programproxy och medgivande. Det ger inte möjlighet att hantera villkorlig åtkomst. Rollen som *moln program administratör* har alla funktioner i program administratören, förutom att den inte tillåter hantering av programproxy-inställningar.
 
-* **Licensiering**: Application Proxy är tillgängligt via Azure AD Basic prenumerationen. På sidan med [Azure Active Directory priser](https://azure.microsoft.com/pricing/details/active-directory/) finns en fullständig lista över licensierings alternativ och-funktioner.  
+* **Licensiering**: Application Proxy är tillgängligt via en Azure AD Premium-prenumeration. På sidan med [Azure Active Directory priser](https://azure.microsoft.com/pricing/details/active-directory/) finns en fullständig lista över licensierings alternativ och-funktioner.  
 
 ### <a name="application-discovery"></a>Program identifiering
 
@@ -202,7 +202,7 @@ Anta till exempel att du har tre program som publicerats via programproxyn som a
 
 ![Bild 1](media/App-proxy-deployment-plan/link-translation.png)
 
-När du aktiverar länk översättning för Benefits-appen omdirigeras länkarna till utgifter och resor till de externa URL: erna för dessa appar, så att användare som kommer åt programmen utanför företags nätverket har åtkomst till dem. Länkar från kostnader och tillbaka till förmåner fungerar inte eftersom länk översättning inte har Aktiver ATS för de två apparna. Länken till feedback omdirigeras inte eftersom det inte finns någon extern URL, så användare som använder appen förmåner kommer inte att kunna komma åt appen för feedback från utanför företags nätverket. Se detaljerad information om [länk översättning och andra alternativ](application-proxy-configure-hard-coded-link-translation.md)för omdirigering.
+När du aktiverar länk översättning för Benefits-appen omdirigeras länkarna till utgifter och resor till de externa URL: erna för dessa appar, så att användare som kommer åt programmen utanför företags nätverket har åtkomst till dem. Länkar från kostnader och tillbaka till förmåner fungerar inte eftersom länk översättning inte har Aktiver ATS för de två apparna. Länken till feedback omdirigeras inte eftersom det inte finns någon extern URL, så användare som använder appen förmåner kommer inte att kunna komma åt appen för feedback från utanför företags nätverket. Se detaljerad information om [länk översättning och andra alternativ för omdirigering](application-proxy-configure-hard-coded-link-translation.md).
 
 ### <a name="access-your-application"></a>Få åtkomst till ditt program
 
@@ -255,7 +255,7 @@ Läs [enkel inloggning till program i Azure AD](what-is-single-sign-on.md) för 
 
 Azure AD-programproxy kan också stödja program som har utvecklats för att använda vårt Azure AD Authentication Library ([ADAL](https://docs.microsoft.com/azure/active-directory/develop/active-directory-authentication-libraries)) eller Microsoft Authentication Library ([MSAL](https://azure.microsoft.com/blog/start-writing-applications-today-with-the-new-microsoft-authentication-sdks/)). Den har stöd för interna klient program genom att använda Azure AD-utfärdade token som tagits emot i huvud informationen för klientbegäran för att utföra förautentisering för användarens räkning.
 
-Läs om [interna publicerings-och mobilappar och klient](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-native-client) program och [anspråksbaserad program](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-claims-aware-apps) för att lära dig mer om tillgängliga konfigurationer av programproxy.
+Läs om [interna publicerings-och mobilappar och klient](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-native-client) [program och anspråksbaserad program](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-claims-aware-apps) för att lära dig mer om tillgängliga konfigurationer av programproxy.
 
 ### <a name="use-conditional-access-to-strengthen-security"></a>Använd villkorlig åtkomst för att förstärka säkerheten
 
@@ -296,7 +296,7 @@ Azure AD ger ytterligare insikter om din organisations program användning och d
 
 #### <a name="application-audit-logs"></a>Granskningsloggar för program
 
-Dessa loggar innehåller detaljerad information om inloggningar till program som kon figurer ATS med programproxy och enheten och användaren som har åtkomst till programmet. [Gransknings loggar](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-audit-logs) finns i Azure Portal och i gransknings- [API](https://docs.microsoft.com/graph/api/resources/directoryaudit?view=graph-rest-beta) för export. Dessutom är [användnings-och insikts rapporter](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-usage-insights-report) också tillgängliga för ditt program.
+Dessa loggar innehåller detaljerad information om inloggningar till program som kon figurer ATS med programproxy och enheten och användaren som har åtkomst till programmet. [Gransknings loggar](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-audit-logs) finns i Azure Portal och i [gransknings-API](https://docs.microsoft.com/graph/api/resources/directoryaudit?view=graph-rest-beta) för export. Dessutom är [användnings-och insikts rapporter](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-usage-insights-report) också tillgängliga för ditt program.
 
 #### <a name="application-proxy-connector-monitoring"></a>Övervakning av Application Proxy Connector
 
@@ -306,7 +306,7 @@ Kopplingar och tjänsten tar hand om alla aktiviteter för hög tillgänglighet.
 
 #### <a name="windows-event-logs-and-performance-counters"></a>Händelse loggar och prestanda räknare i Windows
 
-Anslutningarna har både administratörs-och sessions loggar. Administratörsloggar innehåller viktiga händelser och deras fel. Sessionsloggar innehåller alla transaktioner och bearbetningsinformation om. Loggar och räknare finns i Windows-händelseloggen mer information finns i [förstå Azure AD-programproxy-kopplingar](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-connectors#under-the-hood). Följ den här självstudien [för att konfigurera händelse logg data källor i Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/data-sources-windows-events).
+Anslutningarna har både administratörs-och sessions loggar. Administratörsloggar innehåller viktiga händelser och deras fel. Sessionsloggar innehåller alla transaktioner och bearbetningsinformation om. Loggar och räknare finns i Windows-händelseloggen mer information finns i [förstå Azure AD-programproxy-kopplingar](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-connectors#under-the-hood). Följ den här [självstudien för att konfigurera händelse logg data källor i Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/data-sources-windows-events).
 
 ### <a name="troubleshooting-guide-and-steps"></a>Fel söknings guide och steg
 

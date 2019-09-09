@@ -1,5 +1,5 @@
 ---
-title: Använd automatisk ML för att bygga och distribuera Machine Learning-modeller
+title: Använd Azures automatiserade ML-gränssnitt för att träna & distribuera modeller
 titleSuffix: Azure Machine Learning service
 description: Skapa, hantera och distribuera automatiserade maskin inlärnings experiment i Azure Portal
 services: machine-learning
@@ -11,12 +11,12 @@ author: tsikiksr
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 08/02/2019
-ms.openlocfilehash: 2f6d45613120d02dd96a9fe0a14ce388d20cf0c6
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 0286c82c0b4378e24fa46d0327bd6a5b26037496
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68990572"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70813658"
 ---
 # <a name="create-explore-and-deploy-automated-machine-learning-experiments-in-the-azure-portal-preview"></a>Skapa, utforska och distribuera automatiserade maskin inlärnings experiment i Azure Portal (för hands version)
 

@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: elisol, bryanla
 ms.custom: aaddev, seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0198e5f5df3d25ef825248ff78db95326dc755c2
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.openlocfilehash: 5d3cbaf76489058624e56bec50b37eeb18a99ba7
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68477062"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70812511"
 ---
 # <a name="how-to-list-your-application-in-the-azure-active-directory-application-gallery"></a>Anvisningar: Visa ditt program i Azure Active Directory-programgalleriet
 
@@ -48,18 +48,13 @@ Den här artikeln visar hur du visar en lista över ett program i Azure AD-progr
 
 - För inloggning med lösen ord kontrollerar du att ditt program stöder formulärautentisering så att lösen ords valvet kan utföras för att få enkel inloggning som förväntat.
 
-- För automatisk etablering av användare ska programmet visas i galleriet med funktionen för enkel inloggning aktiverat med SAML 2.0/WS-utfodras. Du kan begära SSO och användar etablering tillsammans på portalen, om den inte redan finns med i listan.
-
 - Behöver ett permanent konto för testning med minst 2 användare registrerade.
-
->[!NOTE]
->Vi kör med ett stort antal SCIM anslutnings begär Anden, så vi har slutat ta nya förfrågningar på vår portal. Vänta på dina begär anden tills vidare meddelande. Vi beklagar för den här fördröjningen och eventuella besvär detta kan ha orsakat.
 
 ## <a name="submit-the-request-in-the-portal"></a>Skicka begäran i portalen
 
 När du har testat att program integrationen fungerar med Azure AD skickar du din begäran om åtkomst på vår [program nätverks Portal](https://microsoft.sharepoint.com/teams/apponboarding/Apps). Om du har ett Office 365-konto använder du det för att logga in på den här portalen. Om inte, använder du Microsoft-konto (till exempel Outlook eller Hotmail) för att logga in.
 
-Om följande sida visas efter inloggningen kontaktar du integrerings [teamet för Azure AD SSO](<mailto:SaaSApplicationIntegrations@service.microsoft.com>) och anger det e-postkonto som du vill använda för att skicka begäran. Sedan lägger Azure AD-teamet till kontot i Microsoft-programmets nätverks Portal.
+Om följande sida visas efter inloggningen kontaktar du [integrerings teamet för Azure AD SSO](<mailto:SaaSApplicationIntegrations@service.microsoft.com>) och anger det e-postkonto som du vill använda för att skicka begäran. Sedan lägger Azure AD-teamet till kontot i Microsoft-programmets nätverks Portal.
 
 ![Åtkomstbegäran på SharePoint-portalen](./media/howto-app-gallery-listing/errorimage.png)
 
@@ -137,4 +132,4 @@ Tids linjen för processen med att ange ett OpenID Connect-program i galleriet �
 
 ## <a name="escalations"></a>Förfrågningar
 
-Skicka e-post till SaaSApplicationIntegrations@service.microsoft.com integrerings teamet för [Azure AD SSO](mailto:SaaSApplicationIntegrations@service.microsoft.com) , och vi svarar så snart som möjligt för alla eskaleringar.
+Skicka e-post till SaaSApplicationIntegrations@service.microsoft.com [integrerings teamet för Azure AD SSO](mailto:SaaSApplicationIntegrations@service.microsoft.com) , och vi svarar så snart som möjligt för alla eskaleringar.

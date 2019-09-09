@@ -5,18 +5,20 @@ author: yashesvi
 manager: yashar
 ms.service: billing
 ms.topic: conceptual
-ms.date: 08/06/2019
+ms.date: 08/29/2019
 ms.author: banders
-ms.openlocfilehash: 2122b6bd5fbd6b15bd5a2e411898d957708bf4c9
-ms.sourcegitcommit: a6888fba33fc20cc6a850e436f8f1d300d03771f
+ms.openlocfilehash: bb90a9dec161746356b8c13df448718c53626684
+ms.sourcegitcommit: b8578b14c8629c4e4dea4c2e90164e42393e8064
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69558865"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70806340"
 ---
 # <a name="what-are-azure-reservations"></a>Vad är Azure Reservations?
 
-Azure Reservations hjälpa dig att spara pengar genom förskotts betalning för ett år eller tre års virtuella datorer, SQL Database beräknings kapacitet, Azure Cosmos DB data flöde eller andra Azure-resurser. Förskottsbetalning gör att du kan få rabatt på de resurser du använder. Reservationer kan avsevärt minska din virtuella dator, SQL Database Compute, Azure Cosmos DB eller andra resurs kostnader upp till 72% på priserna för betala per användning. Reservationer ger en fakturerings rabatt och påverkar inte körnings statusen för dina resurser.
+Azure Reservations hjälpa dig att spara pengar genom att göra ett år eller tre års virtuella datorer, SQL Database beräknings kapacitet, Azure Cosmos DB data flöde eller andra Azure-resurser. Med hjälp av kan du få rabatt på de resurser du använder. Reservationer kan avsevärt minska din virtuella dator, SQL Database Compute, Azure Cosmos DB eller andra resurs kostnader upp till 72% på priserna för betala per användning. Reservationer ger en fakturerings rabatt och påverkar inte körnings statusen för dina resurser.
+
+Du kan betala för en reservation fram eller månads vis. Den totala kostnaden för upp-och månads reservationer är samma och du betalar inte några extra avgifter när du väljer att betala varje månad. Månatlig betalning är tillgänglig för Azure-reservationer, inte produkter från tredje part.
 
 Du kan köpa en reservation i [Azure Portal](https://ms.portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=Reservations&Microsoft_Azure_Reservations=true#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade).
 
@@ -31,6 +33,8 @@ Service planer:
 - **Reserverad virtuell dator instans** – en reservation täcker bara den virtuella datorns beräknings kostnader. Det tar inte upp ytterligare program vara, nätverk eller lagrings kostnader.
 - **Azure Cosmos DB reserverad kapacitet** – en reservation täcker data flöde som har allokerats för dina resurser. Det behandlar inte lagrings-och nätverks avgifterna.
 - **SQL Database reserverad vCore** – endast beräknings kostnaderna ingår i en reservation. Licensen debiteras separat.
+- **SQL Data Warehouse** – en reservation täcker cDWU-användning. Den behandlar inte lagrings-eller nätverks kostnader som är kopplade till SQL Data Warehouse användning.
+- **App Service Stamp-avgift** – en reservation omfattar Stamp-användning. Den gäller inte för arbetare, så andra resurser som är kopplade till stämpeln debiteras separat.
 
 För virtuella Windows-datorer och SQL Database kan du försäkra licens kostnaderna med [Azure Hybrid-förmån](https://azure.microsoft.com/pricing/hybrid-benefit/).
 
@@ -92,17 +96,17 @@ En reservations omfattning uppdateras inte automatiskt om du flyttar resurs grup
 
 ## <a name="discounted-subscription-and-offer-types"></a>Rabatterat abonnemang och erbjudande typer
 
-Reservations rabatter gäller för följande berättigade prenumerationer och erbjudande typer.
+Reservationsrabatter gäller för följande berättigade prenumerationer och erbjudandetyper.
 
-- Enterprise-avtal (erbjudande nummer: MS-AZR-0017P eller MS-AZR-0148P)
-- Enskilda planer med priser enligt principen betala per användning (erbjudande nummer: MS-AZR-0003P eller MS-AZR-0023P)
+- Enterprise-avtal (erbjudandenummer: MS-AZR-0017P eller MS-AZR-0148P)
+- Enskilda prenumerationsavtal med priser enligt principen betala per användning (erbjudandenummer: MS-AZR-0003P eller MS-AZR-0023P)
 - CSP-prenumerationer
 
-Resurser som körs i en prenumeration med andra erbjudande typer får inte reservations rabatten.
+Resurser som körs i en prenumeration med andra erbjudandetyper får inte reservationsrabatten.
 
 ## <a name="how-is-a-reservation-billed"></a>Hur faktureras en reservation?
 
-Reservationen debiteras till betalnings metoden som är kopplad till prenumerationen. Om du har en Enterprise-prenumeration dras reservations kostnaden från ditt åtagande belopp. När saldot för ditt åtagande belopp inte påverkar kostnaden för reservationen debiteras du överanvändning. Om du har en prenumeration från en enskild plan med taxan betala per användning faktureras det kredit kort som du har på ditt konto omedelbart. När du faktureras per faktura visas avgifterna på nästa faktura.
+Reservationen debiteras till betalnings metoden som är kopplad till prenumerationen. Om du har en Enterprise-prenumeration dras reservations kostnaden från ditt åtagande belopp. När saldot för ditt åtagande belopp inte påverkar kostnaden för reservationen debiteras du överanvändning. Om du har en prenumeration från en enskild plan med priser enligt principen betala per användning debiteras det kredit kort som du har på ditt konto omedelbart för första inköp. Månads betalningarna visas på din faktura och ditt kredit kort debiteras månads vis. När du faktureras per faktura visas avgifterna på nästa faktura.
 
 ## <a name="how-reservation-discount-is-applied"></a>Så här tillämpas reservations rabatten
 
@@ -116,7 +120,7 @@ Du kan till exempel skapa en resurs senare och ha en matchande reservation som u
 
 Om de virtuella datorerna körs i olika prenumerationer i registreringen/kontot väljer du omfånget som delad. Delad omfattning gör att reservations rabatten kan tillämpas på alla prenumerationer. Du kan ändra omfånget när du har köpt en reservation. Mer information finns i [hantera Azure reservations](billing-manage-reserved-vm-instance.md).
 
-En reservations rabatt gäller bara för resurser som är kopplade till företag, CSP eller prenumerationer med betala per användning-pris. Resurser som körs i en prenumeration med andra erbjudande typer får inte reservations rabatten.
+En reservations rabatt gäller bara för resurser som är kopplade till företag, CSP eller prenumerationer med betala per användning-pris. Resurser som körs i en prenumeration med andra erbjudandetyper får inte reservationsrabatten.
 
 ## <a name="when-the-reservation-term-expires"></a>När reservations perioden upphör att gälla
 
@@ -163,7 +167,7 @@ Om du har frågor eller behöver hjälp kan du [skapa en support förfrågan](ht
 - Läs mer om Azure Reservations med följande artiklar:
     - [Hantera Azure Reservations](billing-manage-reserved-vm-instance.md)
     - [Förstå reservations användningen för din prenumeration med priser enligt principen betala per användning](billing-understand-reserved-instance-usage.md)
-    - [Förstå reservations användningen för företags registreringen](billing-understand-reserved-instance-usage-ea.md)
+    - [Förstå reservationsanvändning för din Enterprise-registrering](billing-understand-reserved-instance-usage-ea.md)
     - [Windows-programkostnader som inte ingår i reservationer](billing-reserved-instance-windows-software-costs.md)
     - [Azure Reservations i programmet Partner Center Cloud Solution Provider (CSP)](/partner-center/azure-reservations)
 

@@ -8,14 +8,14 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/05/2019
 ms.author: ashishth
-ms.openlocfilehash: f07c7b7a6b1eea05ba41a875e9e78f31404c5f32
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.openlocfilehash: 8ba27261f5ba505c37ef4cc82d06b314471440bc
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70733207"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70811894"
 ---
-# <a name="apache-phoenix-in-hdinsight"></a>Apache Phoenix i HDInsight
+# <a name="apache-phoenix-in-azure-hdinsight"></a>Apache Phoenix i Azure HDInsight
 
 [Apache Phoenix](https://phoenix.apache.org/) är ett stort parallellt Relations databas lager som bygger på [Apache HBase](hbase/apache-hbase-overview.md). Med Phoenix kan du använda SQL-liknande frågor via HBase. Phoenix använder JDBC-drivrutiner för att göra det möjligt för användare att skapa, ta bort, ändra SQL-tabeller, index, vyer och sekvenser och upsert-rader individuellt och i grupp. Phoenix använder noSQL intern kompilering i stället för att använda MapReduce för att kompilera frågor, vilket gör det möjligt att skapa låg latens program ovanpå HBase. Phoenix lägger till processorer som stöder körning av kundlevererad kod i serverns adress utrymme och kör koden som samplacerade med data. Den här metoden minimerar överföring av klient/server-data.
 

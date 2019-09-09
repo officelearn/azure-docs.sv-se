@@ -1,6 +1,6 @@
 ---
 title: Hantera HDInsight-kluster med Enterprise Security Enterprise – Azure
-description: Lär dig hur du hanterar HDInsight-kluster med Enterprise Security Package.
+description: Lär dig hur du hanterar Azure HDInsight-kluster med Enterprise Security Package.
 ms.service: hdinsight
 author: omidm1
 ms.author: omidm
@@ -8,12 +8,12 @@ ms.reviewer: mamccrea
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 08/24/2018
-ms.openlocfilehash: 7fa215f843fd025d26ba0f583b96f3bb7e63c9ed
-ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
+ms.openlocfilehash: acf11b8107855c6f087f63f592cdbbad3766795e
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68488726"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70811017"
 ---
 # <a name="manage-hdinsight-clusters-with-enterprise-security-package"></a>Hantera HDInsight-kluster med Enterprise Security Package
 Lär dig mer om användare och roller i HDInsight Enterprise Security Package (ESP) och hur du hanterar ESP-kluster.
@@ -34,7 +34,7 @@ Du kan länka ett vanligt kluster med hjälp av Apache Ambari-hanterat användar
    
 3. Du kan se ett länkat kluster med kommando **list kluster**. Nu kan du skicka ett skript till det här länkade klustret.
 
-   ![länkat kluster](./media/apache-domain-joined-manage/linked-cluster.png)
+   ![länkat kluster](./media/apache-domain-joined-manage/linked-cluster.png "länkat kluster")
 
 4. Du kan också ta bort länken mellan ett kluster genom **att mata in HDInsight: Ta bort länken mellan** ett kluster och kommando paletten.
 
@@ -43,11 +43,11 @@ Du kan länka ett vanligt kluster med hjälp av Apache Ambari-hanterat användar
 Du kan länka ett vanligt kluster genom att använda Ambari-hanterat användar namn, även länka ett Hadoop-kluster med domän namn ( `user1@contoso.com`t. ex.:). 
 1. Klicka på **Länka ett kluster** från **Azure Explorer**.
 
-   ![snabb meny för länk kluster](./media/apache-domain-joined-manage/link-a-cluster-context-menu.png)
+   ![snabb meny för länk kluster IntelliJ](./media/apache-domain-joined-manage/link-a-cluster-context-menu.png)
 
 2. Ange **kluster namn**, **användar namn** och **lösen ord**. Du måste kontrol lera användar namnet och lösen ordet om autentiseringen skulle bli autentiseringsfel. Du kan också lägga till lagrings konto, lagrings nyckel och sedan välja en behållare från lagrings behållaren. Lagrings information är för lagrings Utforskaren i det vänstra trädet
    
-   ![dialog rutan länka kluster](./media/apache-domain-joined-manage/link-a-cluster-dialog.png)
+   ![länka kluster dialog IntelliJ](./media/apache-domain-joined-manage/link-a-cluster-dialog.png)
 
    > [!NOTE]  
    > Vi använder den länkade lagrings nyckeln, användar namnet och lösen ordet om klustret både är inloggat i Azure-prenumerationen och länkade ett kluster.
@@ -56,22 +56,22 @@ Du kan länka ett vanligt kluster genom att använda Ambari-hanterat användar n
    
 3. Du kan se ett länkat kluster i **HDInsight** -noden om indata-informationen är rätt. Nu kan du skicka ett program till det här länkade klustret.
 
-   ![länkat kluster](./media/apache-domain-joined-manage/linked-cluster-intellij.png)
+   ![länkat kluster IntelliJ](./media/apache-domain-joined-manage/linked-cluster-intellij.png "länkat kluster IntelliJ]")
 
 4. Du kan också ta bort länken mellan ett kluster och **Azure Explorer**.
    
-   ![olänkat kluster](./media/apache-domain-joined-manage/unlink.png)
+   ![olänkade kluster IntelliJ](./media/apache-domain-joined-manage/unlink.png)
 
 ## <a name="use-eclipse-to-link-to-domain-joined-cluster"></a>Använda Eclipse för att länka till domänanslutna kluster
 
 Du kan länka ett vanligt kluster genom att använda Ambari-hanterat användar namn, även länka ett Hadoop-kluster med domän namn ( `user1@contoso.com`t. ex.:).
 1. Klicka på **Länka ett kluster** från **Azure Explorer**.
 
-   ![snabb meny för länk kluster](./media/apache-domain-joined-manage/link-a-cluster-context-menu.png)
+   ![meny Sol förmörkelse för länk kluster snabb meny](./media/apache-domain-joined-manage/link-a-cluster-context-menu.png)
 
 2. Ange **kluster namn**, **användar namn** och **lösen ord**och klicka sedan på OK för att länka klustret. Du kan också ange lagrings konto, lagrings nyckel och välja lagrings behållare för lagrings Utforskaren som ska fungera i den vänstra trädvyn
    
-   ![dialog rutan länka kluster](./media/apache-domain-joined-manage/link-cluster-dialog.png)
+   ![dialog rutor för länk kluster dialog ruta](./media/apache-domain-joined-manage/link-cluster-dialog.png)
    
    > [!NOTE]  
    > Vi använder den länkade lagrings nyckeln, användar namnet och lösen ordet om klustret både är inloggat i Azure-prenumerationen och länkade ett kluster.
@@ -79,11 +79,11 @@ Du kan länka ett vanligt kluster genom att använda Ambari-hanterat användar n
 
 3. Du kan se ett länkat kluster i **HDInsight** -noden när du har klickat på OK, om indatan är rätt. Nu kan du skicka ett program till det här länkade klustret.
 
-   ![länkat kluster](./media/apache-domain-joined-manage/linked-cluster-intellij.png)
+   ![Sol förmörkelse i länkade kluster](./media/apache-domain-joined-manage/linked-cluster-intellij.png)
 
 4. Du kan också ta bort länken mellan ett kluster och **Azure Explorer**.
    
-   ![olänkat kluster](./media/apache-domain-joined-manage/unlink.png)
+   ![olänkade kluster med Sol förmörkelse](./media/apache-domain-joined-manage/unlink.png)
 
 ## <a name="access-the-clusters-with-enterprise-security-package"></a>Få åtkomst till kluster med Enterprise Security Package.
 

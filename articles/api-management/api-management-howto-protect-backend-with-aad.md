@@ -12,16 +12,19 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 05/21/2019
 ms.author: apimpm
-ms.openlocfilehash: 344613c50f46337ffbd7e786f6753e8030c2af22
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 653089042c87b3223b3de048b6f12056d04b0f3c
+ms.sourcegitcommit: b8578b14c8629c4e4dea4c2e90164e42393e8064
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70072250"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70806337"
 ---
 # <a name="protect-an-api-by-using-oauth-20-with-azure-active-directory-and-api-management"></a>Skydda ett API med hjälp av OAuth 2,0 med Azure Active Directory och API Management
 
 Den här guiden visar hur du konfigurerar Azure API Management-instansen för att skydda ett API genom att använda OAuth 2,0-protokollet med Azure Active Directory (Azure AD). 
+
+> [!NOTE]
+> Den här funktionen är tillgänglig i API Managements **utvecklings**-, **standard** -och **Premium** -nivå.
 
 ## <a name="prerequisites"></a>Förutsättningar
 För att följa stegen i den här artikeln måste du ha:
@@ -51,7 +54,7 @@ Det första steget är att registrera ett program i Azure AD som representerar A
     - I avsnittet **Namn** anger du ett beskrivande programnamn som ska visas för appens användare, till exempel `backend-app`. 
     - I avsnittet **konto typer som stöds** väljer du ett alternativ som passar ditt scenario. 
 
-1. Lämna avsnittet omdirigerings- **URI** tomt.
+1. Lämna avsnittet **omdirigerings-URI** tomt.
 
 1. Välj **Registrera** för att skapa programmet. 
 
@@ -77,7 +80,7 @@ Varje klient program som anropar API: et måste registreras som ett program i Az
     - I avsnittet **Namn** anger du ett beskrivande programnamn som ska visas för appens användare, till exempel `client-app`. 
     - I avsnittet **konto typer som stöds** väljer du **konton i valfri organisations katalog**. 
 
-1. I avsnittet omdirigerings-URI `Web` väljer du och anger URL: en`https://contoso5.portal.azure-api.net/signin`
+1. I avsnittet **omdirigerings** -URI `Web` väljer du och anger URL: en`https://contoso5.portal.azure-api.net/signin`
 
 1. Välj **Registrera** för att skapa programmet. 
 
@@ -126,9 +129,9 @@ I det här exemplet är Developer-konsolen klient-app. I följande steg beskrivs
 1. Ange URL för **Auktoriseringens slut punkt** och **token slut punkt**. Hämta de här värdena från sidan **slut punkter** i din Azure AD-klient. Bläddra till **Appregistreringar** sidan igen och välj **slut punkter**.
 
 
-1. Kopiera **OAuth 2,0 Authorization**-slutpunkten och klistra in den i text rutan **URL för behörighets slut punkt** . Välj **post** under metod för begäran om godkännande.
+1. Kopiera **OAuth 2,0 Authorization-slutpunkten**och klistra in den i text rutan **URL för behörighets slut punkt** . Välj **post** under metod för begäran om godkännande.
 
-1. Kopiera **OAuth 2,0**-token-slutpunkten och klistra in den i text rutan URL för token- **slutpunkt** . 
+1. Kopiera **OAuth 2,0-token-slutpunkten**och klistra in den i text rutan **URL för token-slutpunkt** . 
 
     >[!IMPORTANT]
     > Du kan använda antingen **v1** -eller **v2** -slutpunkter. Men beroende på vilken version du väljer är steget nedan olika. Vi rekommenderar att du använder v2-slutpunkter. 

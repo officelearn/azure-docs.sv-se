@@ -1,54 +1,50 @@
 ---
-title: Skapa Windows Virtual Desktop förhandsversion tjänstens huvudnamn och rolltilldelningar med hjälp av PowerShell - Azure
-description: Hur du skapar tjänstens huvudnamn och tilldela roller med hjälp av PowerShell i förhandsversion för virtuella skrivbord i Windows.
+title: Skapa Windows Virtual Desktop Preview-tjänstens huvud namn och roll tilldelningar med hjälp av PowerShell – Azure
+description: Hur du skapar tjänstens huvud namn och tilldelar roller med hjälp av PowerShell i för hands versionen av Windows Virtual Desktop.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 04/12/2019
 ms.author: helohr
-ms.openlocfilehash: 44c823653ecbad1c4dd1fd35b676c8a6d8bd1620
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 3e9ee3f5dd04ef838f78b9731885b7ea48e6c99d
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67206666"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70811317"
 ---
-# <a name="tutorial-create-service-principals-and-role-assignments-by-using-powershell"></a>Självstudier: Skapa tjänstens huvudnamn och rolltilldelningar med hjälp av PowerShell
+# <a name="tutorial-create-service-principals-and-role-assignments-by-using-powershell"></a>Självstudier: Skapa tjänstens huvudnamn och rolltilldelningar med PowerShell
 
-Tjänstens huvudnamn är identiteter som du kan skapa i Azure Active Directory för att tilldela roller och behörigheter för ett visst syfte. I Windows Virtual Desktop förhandsversion, kan du skapa en tjänst huvudnamn till:
+Tjänstens huvud namn är identiteter som du kan skapa i Azure Active Directory för att tilldela roller och behörigheter för ett specifikt syfte. I för hands versionen av Windows Virtual Desktop kan du skapa ett huvud namn för tjänsten för att:
 
-- Automatisera hanteringsuppgifter för specifika virtuella Windows-skrivbordet.
-- Använd som autentiseringsuppgifter i stället för MFA-krävs användare när du kör en Azure Resource Manager-mall för virtuella Windows-skrivbordet.
+- Automatisera vissa hanterings uppgifter för virtuella Windows-datorer.
+- Använd som autentiseringsuppgifter i stället för MFA-obligatoriska användare när du kör en Azure Resource Manager mall för Windows Virtual Desktop.
 
 I den här självstudiekursen får du lära du dig att:
 
 > [!div class="checklist"]
-> * Skapa ett huvudnamn för tjänsten i Azure Active Directory.
-> * Skapa en rolltilldelning i virtuella Windows-skrivbordet.
-> * Logga in på virtuella Windows-skrivbordet genom att använda tjänstens huvudnamn.
+> * Skapa ett huvud namn för tjänsten i Azure Active Directory.
+> * Skapa en roll tilldelning i Windows Virtual Desktop.
+> * Logga in på Windows Virtual Desktop genom att använda tjänstens huvud namn.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
-Innan du kan skapa tjänstens huvudnamn och rolltilldelningar, måste du göra tre saker:
+Innan du kan skapa tjänstens huvud namn och roll tilldelningar måste du göra tre saker:
 
-1. Installera modulen AzureAD. Kör PowerShell som administratör och kör följande cmdlet för att installera modulen:
+1. Installera AzureAD-modulen. Installera modulen genom att köra PowerShell som administratör och köra följande cmdlet:
 
     ```powershell
     Install-Module AzureAD
     ```
 
-2. Kör följande cmdlets med värdena i citattecken ersättas med värdena som är relevanta för din session.
+2. [Hämta och importera Windows Virtual Desktop PowerShell-modulen](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview)
 
-    ```powershell
-    $myTenantName = "<my-tenant-name>"
-    ```
-
-3. Följ alla anvisningarna i den här artikeln i samma PowerShell-session. Det kanske inte fungerar om du stänger fönstret och tillbaka till den senare.
+3. Följ alla anvisningar i den här artikeln i samma PowerShell-session. Det kanske inte fungerar om du stänger fönstret och återgår till det senare.
 
 ## <a name="create-a-service-principal-in-azure-active-directory"></a>Skapa ett huvudnamn för tjänsten i Azure Active Directory
 
-När du har uppfyllt kraven i din PowerShell-session, kör du följande PowerShell-cmdletar för att skapa en multitenant-tjänst tjänstobjekt i Azure.
+När du har uppfyllt kraven i PowerShell-sessionen kör du följande PowerShell-cmdletar för att skapa ett huvud namn för flera innehavare i Azure.
 
 ```powershell
 Import-Module AzureAD
@@ -57,37 +53,13 @@ $svcPrincipal = New-AzureADApplication -AvailableToOtherTenants $true -DisplayNa
 $svcPrincipalCreds = New-AzureADApplicationPasswordCredential -ObjectId $svcPrincipal.ObjectId
 ```
 
-## <a name="create-a-role-assignment-in-windows-virtual-desktop-preview"></a>Skapa en rolltilldelning i förhandsversion för virtuella skrivbord i Windows
+## <a name="view-your-credentials-in-powershell"></a>Visa dina autentiseringsuppgifter i PowerShell
 
-Nu när du har skapat ett tjänstens huvudnamn kan använda du det för att logga in på virtuella Windows-skrivbordet. Se till att logga in med ett konto som har behörighet att skapa rolltilldelningen.
+Innan du avslutar PowerShell-sessionen visar du dina autentiseringsuppgifter och skriver ned dem för framtida bruk. Lösen ordet är särskilt viktigt eftersom du inte kan hämta det när du har stängt PowerShell-sessionen.
 
-Först [hämta och importera modulen Windows PowerShell för virtuella skrivbord](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview) ska användas i PowerShell-sessionen om du inte redan har gjort.
+Här följer de tre autentiseringsuppgifterna som du bör skriva ned och vilka cmdlets du måste köra för att hämta dem:
 
-Kör följande PowerShell-cmdletar för att ansluta till virtuella Windows-skrivbordet och skapa en rolltilldelning för tjänsten huvudnamn.
-
-```powershell
-Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
-New-RdsRoleAssignment -RoleDefinitionName "RDS Owner" -ApplicationId $svcPrincipal.AppId -TenantName $myTenantName
-```
-
-## <a name="sign-in-with-the-service-principal"></a>Logga in med tjänstens huvudnamn
-
-När du skapar en rolltilldelning för tjänsten huvudnamn kan du kontrollera att tjänstens huvudnamn kan logga in på virtuella Windows-skrivbordet genom att köra följande cmdlet:
-
-```powershell
-$creds = New-Object System.Management.Automation.PSCredential($svcPrincipal.AppId, (ConvertTo-SecureString $svcPrincipalCreds.Value -AsPlainText -Force))
-Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com" -Credential $creds -ServicePrincipal -AadTenantId $aadContext.TenantId.Guid
-```
-
-När du har loggat in måste du kontrollera att allt fungerar genom att testa några Windows Virtual Desktop PowerShell-cmdlets med tjänstens huvudnamn.
-
-## <a name="view-your-credentials-in-powershell"></a>Visa dina inloggningsuppgifter i PowerShell
-
-Innan du avslutar din PowerShell-session kan visa dina autentiseringsuppgifter och Skriv ned dem för framtida bruk. Lösenordet är särskilt viktigt eftersom du kan inte hämta det när du stänger det här PowerShell-session.
-
-Här följer tre autentiseringsuppgifterna som du bör anteckna de cmdletar som du behöver köra för att få dem:
-
-- Lösenord:
+- Ords
 
     ```powershell
     $svcPrincipalCreds.Value
@@ -105,9 +77,37 @@ Här följer tre autentiseringsuppgifterna som du bör anteckna de cmdletar som 
     $svcPrincipal.AppId
     ```
 
+## <a name="create-a-role-assignment-in-windows-virtual-desktop-preview"></a>Skapa en roll tilldelning i för hands versionen av Windows Virtual Desktop
+
+Härnäst ska du skapa en RDS-roll tilldelning i Windows Virtual Desktop för tjänstens huvud namn, vilket gör att tjänstens huvud namn kan logga in på Windows Virtual Desktop. Se till att använda ett konto som har behörighet att skapa RDS-roll tilldelningar.
+
+Kör följande PowerShell-cmdlets för att ansluta till Windows Virtual Desktop och Visa dina RDS-klienter.
+
+```powershell
+Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
+Get-RdsTenant | FL
+```
+
+Använd TenantName för rätt klient och kör följande PowerShell-cmdletar för att skapa en roll tilldelning för tjänstens huvud namn i den angivna klient organisationen.
+
+```powershell
+New-RdsRoleAssignment -RoleDefinitionName "RDS Owner" -ApplicationId $svcPrincipal.AppId -TenantName "<my-rds-tenantname>"
+```
+
+## <a name="sign-in-with-the-service-principal"></a>Logga in med tjänstens huvud namn
+
+När du har skapat en roll tilldelning för tjänstens huvud namn kontrollerar du att tjänstens huvud namn kan logga in på Windows Virtual Desktop genom att köra följande cmdlet:
+
+```powershell
+$creds = New-Object System.Management.Automation.PSCredential($svcPrincipal.AppId, (ConvertTo-SecureString $svcPrincipalCreds.Value -AsPlainText -Force))
+Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com" -Credential $creds -ServicePrincipal -AadTenantId $aadContext.TenantId.Guid
+```
+
+När du har loggat in ser du till att allt fungerar genom att testa några Windows PowerShell-cmdletar för virtuella datorer med tjänstens huvud namn.
+
 ## <a name="next-steps"></a>Nästa steg
 
-När du har skapat tjänstens huvudnamn och tilldelats en roll i din klient för virtuella Windows-skrivbordet, kan du använda det för att skapa en pool med värden. Om du vill veta mer om värden pooler kan du fortsätta till självstudien för att skapa en pool med värden i virtuella Windows-skrivbordet.
+När du har skapat tjänstens huvud namn och tilldelat rollen som en roll i din Windows-klient för virtuella datorer kan du använda den för att skapa en adresspool. Om du vill veta mer om värdar för pooler fortsätter du till självstudien för att skapa en adresspool i Windows Virtual Desktop.
 
  > [!div class="nextstepaction"]
- > [Virtuella Windows-skrivbordet värd pool självstudien](./create-host-pools-azure-marketplace.md)
+ > [Självstudie för Windows virtuell Skriv bords värd](./create-host-pools-azure-marketplace.md)

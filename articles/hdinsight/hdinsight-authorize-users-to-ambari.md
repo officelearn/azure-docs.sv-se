@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/26/2017
 ms.author: hrasheed
-ms.openlocfilehash: 28f30270ab0a6c057ee583ccebc2a8540980c6cc
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.openlocfilehash: f5052d7e35c3d1c81a3d958bd6e340b9a6a5a244
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68442172"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70810696"
 ---
 # <a name="authorize-users-for-apache-ambari-views"></a>Auktorisera användare för Apache Ambari Views
 
@@ -97,7 +97,7 @@ Om du vill hantera roller går du till **hanterings sidan för Ambari**och välj
 
 Om du vill se en lista över behörigheter för varje roll, klickar du på det blå frågetecknet bredvid tabell rubriken **roller** på sidan roller.
 
-![Meny länken roller](./media/hdinsight-authorize-users-to-ambari/roles-permissions.png)
+![Meny länk behörigheter för roller](./media/hdinsight-authorize-users-to-ambari/roles-permissions.png "Meny länk behörigheter för roller")
 
 På den här sidan finns det två olika vyer som du kan använda för att hantera roller för användare och grupper: Blockera och lista.
 

@@ -1,17 +1,17 @@
 ---
 title: Lokal HDFS fastnar i fel säkert läge på Azure HDInsight-kluster
-description: Lokal HDFS fastnar i fel säkert läge på Azure HDInsight-kluster
+description: Felsöka lokala Apache HDFS i fel säkert läge på Apache-kluster i Azure HDInsight
 ms.service: hdinsight
 ms.topic: troubleshooting
 author: hrasheed-msft
 ms.author: hrasheed
 ms.date: 08/14/2019
-ms.openlocfilehash: e0fbb93e11c170f80620ac9b1e895650752ad638
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.openlocfilehash: 4c97700fa69c2f2ae235308063ee431a8dbfcbfd
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69511367"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70810716"
 ---
 # <a name="scenario-local-hdfs-stuck-in-safe-mode-on-azure-hdinsight-cluster"></a>Scenario: Lokal HDFS fastnar i fel säkert läge på Azure HDInsight-kluster
 

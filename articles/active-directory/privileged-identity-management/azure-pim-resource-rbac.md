@@ -1,9 +1,9 @@
 ---
-title: Visa aktivitet och granska historik för Azure-resursroller i PIM - Azure Active Directory | Microsoft Docs
-description: Visa aktivitet och granskningshistorik för Azure-resursroller i Azure AD Privileged Identity Management (PIM).
+title: Visa aktivitet och gransknings historik för Azure Resource roles i PIM-Azure Active Directory | Microsoft Docs
+description: Visa aktivitet och gransknings historik för Azure Resource roles i Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
-author: rolyon
+author: curtand
 manager: mtillman
 editor: ''
 ms.assetid: ''
@@ -14,103 +14,103 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
 ms.date: 04/09/2019
-ms.author: rolyon
+ms.author: curtand
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 84bd491d992ed15df288d9226b58bfe832e0692a
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 40e1ed018f66d4f5eefd02d587504cf64969f47b
+ms.sourcegitcommit: 95b180c92673507ccaa06f5d4afe9568b38a92fb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67476502"
+ms.lasthandoff: 09/08/2019
+ms.locfileid: "70804046"
 ---
-# <a name="view-activity-and-audit-history-for-azure-resource-roles-in-pim"></a>Visa aktivitet och granskningshistorik för Azure-resursroller i PIM
+# <a name="view-activity-and-audit-history-for-azure-resource-roles-in-pim"></a>Visa aktivitet och gransknings historik för Azure Resource roles i PIM
 
-Med Azure Active Directory (Azure AD) Privileged Identity Management (PIM), kan du visa inloggningsaktivitet, aktiveringar och granskningshistorik för Azure-resursroller inom din organisation. Detta inkluderar prenumerationer, resursgrupper och även virtuella datorer. Alla resurser i Azure-portalen som utnyttjar Azure rollbaserad åtkomstkontroll (RBAC)-funktioner kan dra nytta av säkerhets- och livscykel hanteringsfunktioner i PIM.
+Med Azure Active Directory (Azure AD) Privileged Identity Management (PIM) kan du Visa aktivitet, aktiveringar och gransknings historik för Azure-resurser i din organisation. Detta omfattar prenumerationer, resurs grupper och till och med virtuella datorer. Alla resurser i Azure Portal som utnyttjar RBAC-funktionen (rollbaserad åtkomst kontroll) i Azure kan dra nytta av funktionerna för säkerhet och livs cykel hantering i PIM.
 
 ## <a name="view-activity-and-activations"></a>Visa aktivitet och aktiveringar
 
-Om du vill se vilka åtgärder som en viss användare har gjort i olika resurser, kan du visa aktiviteten Azure-resurs som är associerat med en viss aktiveringsperioden.
+Om du vill se vilka åtgärder en viss användare har tagit i olika resurser kan du Visa den Azure Resource-aktivitet som är associerad med en viss aktiverings period.
 
 1. Öppna **Azure AD Privileged Identity Management**.
 
 1. Klicka på **Azure-resurser**.
 
-1. Klicka på den resurs som du vill visa aktivitet och aktiveringar för.
+1. Klicka på den resurs som du vill visa aktivitet och aktivering för.
 
 1. Klicka på **roller** eller **medlemmar**.
 
 1. Klicka på en användare.
 
-    Du kan se en grafisk vy över användaråtgärder i Azure-resurser efter datum. Den visar även de senaste rollaktiveringar under den samma tidsperioden.
+    Du ser en grafisk vy över användarens åtgärder i Azure-resurser efter datum. Den visar även de senaste roll aktiveringarna under samma tids period.
 
-    ![Information om användare med resursen aktivitet sammanfattning och rollen aktiveringar](media/azure-pim-resource-rbac/rbac-user-details.png)
+    ![Användar information med sammanfattning av resurs aktivitet och roll aktiveringar](media/azure-pim-resource-rbac/rbac-user-details.png)
 
-1. Klicka på en specifik rollaktivering om du vill visa detaljer och motsvarande Azure-resurs-aktivitet som inträffade när användaren var aktiv.
+1. Klicka på en speciell roll aktivering om du vill visa information och motsvarande Azure-resursinformation som inträffat när användaren var aktiv.
 
-    ![Rollaktivering som valts och aktivitetsinformation som visas efter datum](media/azure-pim-resource-rbac/rbac-user-resource-activity.png)
+    ![Roll aktivering har valts och aktivitets information visas efter datum](media/azure-pim-resource-rbac/rbac-user-resource-activity.png)
 
-## <a name="export-role-assignments-with-children"></a>Exportera rolltilldelningar med underordnade
+## <a name="export-role-assignments-with-children"></a>Exportera roll tilldelningar med underordnade
 
-Du kan ha efterföljandekrav där du måste ange en fullständig lista över rolltilldelningar till granskare. PIM låter dig fråga rolltilldelningar i en specifik resurs, vilket innefattar rolltilldelningar för alla underordnade resurser. Tidigare, det var svårt för administratörer att få en fullständig lista över rolltilldelningar för en prenumeration och de tvungna att exportera rolltilldelningar för varje specifik resurs. Använda PIM kan fråga du efter alla aktiva och berättigade rolltilldelningar i en prenumeration inklusive rolltilldelningar för alla resursgrupper och resurser.
+Du kan ha ett krav på efterlevnad där du måste ange en fullständig lista över roll tilldelningar till granskare. Med PIM kan du fråga roll tilldelningar för en speciell resurs, vilket innefattar roll tilldelningar för alla underordnade resurser. Tidigare var det svårt för administratörer att få en fullständig lista över roll tilldelningar för en prenumeration och de behövde exportera roll tilldelningar för varje enskild resurs. Med hjälp av PIM kan du fråga efter alla aktiva och kvalificerade roll tilldelningar i en prenumeration, inklusive roll tilldelningar för alla resurs grupper och resurser.
 
 1. Öppna **Azure AD Privileged Identity Management**.
 
 1. Klicka på **Azure-resurser**.
 
-1. Klicka på den resurs som du vill exportera rolltilldelningar för, till exempel en prenumeration.
+1. Klicka på den resurs som du vill exportera roll tilldelningar för, till exempel en prenumeration.
 
 1. Klicka på **medlemmar**.
 
-1. Klicka på **exportera** att öppna fönstret Export medlemskap.
+1. Klicka på **Exportera** för att öppna fönstret Exportera medlemskap.
 
-    ![Exportera medlemskap fönstret om du vill exportera alla medlemmar](media/azure-pim-resource-rbac/export-membership.png)
+    ![Exportera medlemskaps fönstret för att exportera alla medlemmar](media/azure-pim-resource-rbac/export-membership.png)
 
-1. Klicka på **exportera alla medlemmar** att exportera alla rolltilldelningar i en CSV-fil.
+1. Klicka på **Exportera alla medlemmar** för att exportera alla roll tilldelningar i en CSV-fil.
 
-    ![Exporterade rolltilldelningar i CSV-fil som visas i Excel](media/azure-pim-resource-rbac/export-csv.png)
+    ![Exporterade roll tilldelningar i CSV-fil som visas i Excel](media/azure-pim-resource-rbac/export-csv.png)
 
-## <a name="view-resource-audit-history"></a>Visa resurs granskningshistorik
+## <a name="view-resource-audit-history"></a>Visa resurs gransknings historik
 
-Resursgranskning ger dig en överblick över alla roll-aktivitet för en resurs.
+Resurs granskning ger dig en översikt över alla roll aktiviteter för en resurs.
 
 1. Öppna **Azure AD Privileged Identity Management**.
 
 1. Klicka på **Azure-resurser**.
 
-1. Klicka på den resurs som du vill visa granskningshistorik för.
+1. Klicka på den resurs som du vill visa gransknings historik för.
 
-1. Klicka på **resursgranskning**.
+1. Klicka på **resurs granskning**.
 
-1. Filtrera historiken med ett fördefinierat datum eller ett anpassat intervall.
+1. Filtrera historiken med ett fördefinierat datum eller anpassat intervall.
 
-    ![Granska resurslistan med filter](media/azure-pim-resource-rbac/rbac-resource-audit.png)
+    ![Resurs gransknings lista med filter](media/azure-pim-resource-rbac/rbac-resource-audit.png)
 
-1. För **granskningstyp**väljer **aktivera (tilldelad + aktiverad)** .
+1. För **gransknings typ**väljer du **Aktivera (tilldelad + aktive rad)** .
 
-    ![Granska resurslistan som filtreras efter aktivera granskningstyp](media/azure-pim-resource-rbac/rbac-audit-activity.png)
+    ![Resurs gransknings lista som filtrerats efter aktivera gransknings typ](media/azure-pim-resource-rbac/rbac-audit-activity.png)
 
-1. Under **åtgärd**, klickar du på **(aktivitet)** för en användare att se användarens aktivitetsinformation i Azure-resurser.
+1. Under **åtgärd**klickar du på **(aktivitet)** för en användare för att se användarens aktivitets information i Azure-resurser.
 
-    ![Användaren aktivitetsinformation för en viss åtgärd](media/azure-pim-resource-rbac/rbac-audit-activity-details.png)
+    ![Information om användar aktiviteter för en viss åtgärd](media/azure-pim-resource-rbac/rbac-audit-activity-details.png)
 
 ## <a name="view-my-audit"></a>Visa min granskning
 
-Min granskning kan du visa din personliga roll-aktivitet.
+I min granskning kan du Visa din personliga roll aktivitet.
 
 1. Öppna **Azure AD Privileged Identity Management**.
 
 1. Klicka på **Azure-resurser**.
 
-1. Klicka på den resurs som du vill visa granskningshistorik för.
+1. Klicka på den resurs som du vill visa gransknings historik för.
 
 1. Klicka på **min granskning**.
 
-1. Filtrera historiken med ett fördefinierat datum eller ett anpassat intervall.
+1. Filtrera historiken med ett fördefinierat datum eller anpassat intervall.
 
-    ![Granska listan för den aktuella användaren](media/azure-pim-resource-rbac/my-audit-time.png)
+    ![Gransknings lista för den aktuella användaren](media/azure-pim-resource-rbac/my-audit-time.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Tilldela Azure-resursroller i PIM](pim-resource-roles-assign-roles.md)
-- [Godkänn eller neka begäranden för Azure-resursroller i PIM](pim-resource-roles-approval-workflow.md)
-- [Visa granskningshistorik för Azure AD-roller i PIM](pim-how-to-use-audit-log.md)
+- [Tilldela Azure-resurs roller i PIM](pim-resource-roles-assign-roles.md)
+- [Godkänn eller neka begär Anden för Azure Resource roles i PIM](pim-resource-roles-approval-workflow.md)
+- [Visa gransknings historik för Azure AD-roller i PIM](pim-how-to-use-audit-log.md)

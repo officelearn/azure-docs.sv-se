@@ -1,20 +1,19 @@
 ---
-title: Konfigurera haveriberedskap för virtuella Hyper-V-datorer på lokala platser med Azure Site Recovery | Microsoft Docs
+title: Konfigurera katastrof återställning för virtuella Hyper-V-datorer mellan lokala platser med Azure Site Recovery
 description: Lär dig att konfigurera haveriberedskap för virtuella Hyper-V-datorer mellan dina lokala platser med Azure Site Recovery.
-services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 05/30/2019
+ms.date: 09/09/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 067040349a5d435860492497dddbf39aad2635eb
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
+ms.openlocfilehash: a2eb8bf10454ee01953ddd37025f0c0048d00a0a
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66398409"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70813755"
 ---
 # <a name="set-up-disaster-recovery-for-hyper-v-vms-to-a-secondary-on-premises-site"></a>Konfigurera haveriberedskap för virtuella Hyper-V-datorer till en sekundär lokal plats
 
@@ -30,7 +29,7 @@ Den här artikeln visar hur du konfigurerar haveriberedskap till en sekundär pl
 > * Skapa replikeringsprincip
 > * Aktivera replikering för en virtuell dator
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här kursen gör du följande:
 

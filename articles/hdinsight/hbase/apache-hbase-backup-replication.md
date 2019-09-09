@@ -1,6 +1,6 @@
 ---
 title: Säkerhets kopiering och replikering för Apache HBase och Apache Phoenix i Azure HDInsight
-description: Konfigurera säkerhets kopiering och replikering för HBase och Phoenix.
+description: Konfigurera säkerhets kopiering och replikering för Apache HBase och Apache Phoenix i Azure HDInsight
 author: ashishthaps
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: ashishth
-ms.openlocfilehash: a1b6e850fab5e9b9b651de9d02ee7981d71a343c
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.openlocfilehash: 3674ce1a2882fb87b79f69a98c643c73653cddc4
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70735903"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70810458"
 ---
 # <a name="set-up-backup-and-replication-for-apache-hbase-and-apache-phoenix-on-hdinsight"></a>Konfigurera säkerhets kopiering och replikering för Apache HBase och Apache Phoenix på HDInsight
 

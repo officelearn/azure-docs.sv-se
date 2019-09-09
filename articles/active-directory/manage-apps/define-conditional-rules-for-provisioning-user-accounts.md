@@ -1,6 +1,6 @@
 ---
-title: Tillhandahåll appar med Omfångsfilter | Microsoft Docs
-description: Lär dig hur du använder Omfångsfilter för att förhindra att objekt i appar som stöder automatisk användaretablering från håller på att etableras om ett objekt inte uppfyller företagets krav.
+title: Etablera appar med omfångs filter | Microsoft Docs
+description: Lär dig hur du använder omfångs filter för att förhindra att objekt i appar som har stöd för automatisk användar etablering är etablerade om ett objekt inte uppfyller dina affärs krav.
 services: active-directory
 documentationcenter: ''
 author: msmimart
@@ -15,107 +15,107 @@ ms.date: 09/11/2018
 ms.author: mimart
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2c831fc7ab1a646d41c0dc08d0e1a66380fe1232
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4bb1ed48d501ca3166e0b906c622507b59ef059a
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65824725"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70812681"
 ---
-# <a name="attribute-based-application-provisioning-with-scoping-filters"></a>Attributbaserad programetablering med Omfångsfilter
-Målet med den här artikeln är att förklara hur du använder Omfångsfilter för att definiera attributbaserade regler som bestämmer vilka användare som tilldelas ett program.
+# <a name="attribute-based-application-provisioning-with-scoping-filters"></a>Attributbaserade program etablering med omfångs filter
+Syftet med den här artikeln är att förklara hur du använder omfångs filter för att definiera attributbaserade regler som avgör vilka användare som ska tillhandahållas till ett program.
 
-## <a name="scoping-filter-use-cases"></a>Ange omfång filter användningsfall
+## <a name="scoping-filter-use-cases"></a>Användnings fall för omfattnings filter
 
-Ett Omfångsfilter kan Azure Active Directory (Azure AD) etableringstjänsten att inkludera eller exkludera alla användare som har ett attribut som matchar ett specifikt värde. Till exempel vid etablering av användare från Azure AD med ett SaaS-program som används av ett säljteam, kan du ange att endast användare med attributet ”avdelning” med ”försäljning” ska vara i omfånget för etablering.
+Ett scope-filter gör att Azure Active Directory (Azure AD) etablerings tjänsten kan ta med eller undanta användare som har ett attribut som matchar ett angivet värde. När du till exempel konfigurerar användare från Azure AD till ett SaaS-program som används av ett försäljnings team kan du ange att endast användare med ett "avdelning"-attribut för "försäljning" ska omfattas av etableringen.
 
-Omfångsfilter kan användas på olika sätt beroende på vilken typ av etablering anslutningen:
+Omfångs filter kan användas på olika sätt beroende på typ av etablerings koppling:
 
-* **Utgående etablering från Azure AD SaaS-program**. När Azure AD är källsystemet, [användar- och tilldelningar](assign-user-or-group-access-portal.md) är den vanligaste metoden för att bestämma vilka användare som är inom omfånget för etablering. Dessa tilldelningar också används för att aktivera enkel inloggning och ger en enkel metod för att hantera åtkomst och etablering. Omfångsfilter kan användas om du vill, förutom tilldelningar eller i stället för dem, för att filtrera användare baserat på attributvärden.
+* **Utgående etablering från Azure AD till SaaS-program**. När Azure AD är käll systemet är [användar-och grupp tilldelningar](assign-user-or-group-access-portal.md) den vanligaste metoden för att avgöra vilka användare som omfattas av etableringen. Dessa tilldelningar används också för att aktivera enkel inloggning och tillhandahålla en enda metod för att hantera åtkomst och etablering. Omfångs filter kan användas valfritt, förutom tilldelningar eller i stället för dem, för att filtrera användare baserat på attributvärden.
 
     >[!TIP]
-    > Du kan inaktivera etablering baserat på tilldelningar för ett enterprise-program genom att ändra inställningarna i den [omfång](user-provisioning.md#how-do-i-set-up-automatic-provisioning-to-an-application) menyn under inställningarna för allokering till **synkronisera alla användare och grupper**. Med det här alternativet och attributbaserade Omfångsfilter erbjuder snabbare prestanda än att använda gruppbaserad tilldelningar.  
+    > Du kan inaktivera etablering baserat på tilldelningar för ett företags program genom att ändra inställningarna i menyn [omfång](user-provisioning.md#how-do-i-set-up-automatic-provisioning-to-an-application) under etablerings inställningarna för att **synkronisera alla användare och grupper**. Med det här alternativet plus attributbaserade omfångs filter får du snabbare prestanda än att använda gruppbaserade tilldelningar.  
 
-* **Inkommande etablering från HCM-program till Azure AD och Active Directory**. När en [HCM-programmet till exempel Workday](../saas-apps/workday-tutorial.md) är källsystemet, Omfångsfilter är den primära metoden för att bestämma vilka användare som ska etableras från HCM-programmet till Active Directory eller Azure AD.
+* **Inkommande etablering från HCM-program till Azure AD och Active Directory**. När ett [HCM-program som Workday](../saas-apps/workday-tutorial.md) är käll systemet är definitions områdes filter den primära metoden för att avgöra vilka användare som ska tillhandahållas från HCM-programmet till Active Directory eller Azure AD.
 
-Som standard har inte Azure AD-etablering anslutningsappar eventuella attributbaserade Omfångsfilter som konfigurerats. 
+Som standard har inte Azure AD Provisioning-kopplingar några attribut-baserade omfångs filter konfigurerade. 
 
-## <a name="scoping-filter-construction"></a>Ange omfång filter konstruktion
+## <a name="scoping-filter-construction"></a>Uppförande av omfattnings filter
 
-Ett Omfångsfilter består av en eller flera *satser*. Satser avgör vilka användare som tillåts att passera Omfångsfilter genom att utvärdera varje användares attribut. Du kan till exempel ha en sats som kräver att en användares ”State” attribut är lika med ”New York”, så att endast användare i New York etableras i programmet. 
+Ett omfångs filter består av en eller flera *satser*. -Satser avgör vilka användare som tillåts passera genom omfångs filtret genom att utvärdera varje användares attribut. Du kan till exempel ha en-sats som kräver att användarens "State"-attribut är lika med "New York", så att endast nya användare i Göteborg är etablerade i programmet. 
 
-En sats definierar ett enda villkor för en enda attribut-värde. Om flera satser skapas i ett enda Omfångsfilter, är de utvärderas tillsammans med hjälp av ”AND”-logik. Det innebär att alla satser måste utvärderas till ”true” i ordning för en användare som ska etableras.
+En enskild sats definierar ett enskilt villkor för ett enda attributvärde. Om flera satser skapas i ett enda omfångs filter utvärderas de tillsammans med hjälp av "och"-logik. Det innebär att alla satser måste utvärderas till "true" för att en användare ska kunna tillhandahållas.
 
-Dessutom kan flera Omfångsfilter skapas för ett enda program. Om det finns flera Omfångsfilter, är de utvärderas tillsammans med hjälp av ”OR”-logik. Det innebär att om alla satser i någon av de konfigurerade Omfångsfilter utvärdera ”true”, användaren har etablerats.
+Slutligen kan flera omfångs filter skapas för ett enda program. Om det finns flera omfångs filter utvärderas de tillsammans med hjälp av "OR"-logik. Det innebär att om alla satser i något av de konfigurerade omfångs filtren utvärderas till "true", är användaren etablerade.
 
-Varje användare eller grupp som bearbetas av Azure AD-etableringstjänsten utvärderas alltid individuellt mot varje Omfångsfilter.
+Varje användare eller grupp som bearbetas av Azure AD Provisioning-tjänsten utvärderas alltid individuellt mot varje omfångs filter.
 
-Överväg följande Omfångsfilter exempelvis:
+Anta till exempel följande scope-filter:
 
-![Omfångsfilter](./media/define-conditional-rules-for-provisioning-user-accounts/scoping-filter.PNG) 
+![Omfångs filter](./media/define-conditional-rules-for-provisioning-user-accounts/scoping-filter.PNG) 
 
-Enligt den här Omfångsfilter måste användare uppfylla följande kriterier som ska etableras:
+Enligt det här omfångs filtret måste användarna uppfylla följande kriterier som ska tillhandahållas:
 
 * De måste vara i New York.
-* De måste arbeta i avdelningen tekniker.
-* Deras företag anställnings-ID måste vara mellan 1 000 000 och 2 000 000.
-* Deras befattning får inte vara null eller tomt.
+* De måste arbeta på teknik avdelningen.
+* Företagets anställnings-ID måste vara mellan 1 000 000 och 2 000 000.
+* Deras befattning får inte vara null eller tom.
 
-## <a name="create-scoping-filters"></a>Skapa Omfångsfilter
-Omfångsfilter konfigureras som en del av attributmappningar för varje Azure AD-användare som etablerar anslutningen. Följande procedur förutsätter att du redan har konfigurerat Automatisk etablering för [något av program som stöds](../saas-apps/tutorial-list.md) och lägger till ett Omfångsfilter till den.
+## <a name="create-scoping-filters"></a>Skapa omfångs filter
+Definitions områdes filter konfigureras som en del av mappningar av mappar för varje Azure AD-anslutning för användar etablering. Följande procedur förutsätter att du redan har konfigurerat automatisk etablering för [ett av de program som stöds](../saas-apps/tutorial-list.md) och lägger till ett omfångs filter till det.
 
-### <a name="create-a-scoping-filter"></a>Skapa ett Omfångsfilter
-1. I den [Azure-portalen](https://portal.azure.com)går du till den **Azure Active Directory** > **företagsprogram** > **alla program** avsnittet.
+### <a name="create-a-scoping-filter"></a>Skapa ett omfångs filter
+1. I [Azure Portal](https://portal.azure.com)går du**till avsnittet** **Azure Active Directory** > **program för företags program** > .
 
-2. Välj det program som du har konfigurerat Automatisk etablering: till exempel ”ServiceNow”.
+2. Välj det program som du har konfigurerat automatisk etablering för: till exempel "ServiceNow".
 
-3. Välj den **etablering** fliken.
+3. Välj fliken **etablering** .
 
-4. I den **mappningar** väljer mappningen som du vill konfigurera ett Omfångsfilter för: till exempel ”synkronisera Azure Active Directory-användare till ServiceNow”.
+4. I avsnittet **mappningar** väljer du den mappning som du vill konfigurera ett omfångs filter för: till exempel "synkronisera Azure Active Directory användare till ServiceNow".
 
-5. Välj den **Source omfång för källobjekt** menyn.
+5. Välj menyn **käll objekt omfånget** .
 
-6. Välj **Lägg till Omfångsfilter**.
+6. Välj **Lägg till omfångs filter**.
 
-7. Definiera en sats genom att välja en källa **attributnamnet**, en **operatorn**, och en **attributvärdet** för matchning. Följande operatorer som stöds:
+7. Definiera en sats genom att välja ett källattribut **namn**, en **operator**och ett **Attributvärde** som ska matchas mot. Följande operatorer stöds:
 
-   a. **ÄR LIKA MED**. Satsen returnerar ”true” om attributet utvärderade matchar värdet som Indatasträngen exakt (skiftlägeskänsligt).
+   a. **LIKA MED**. Sats returnerar true om det utvärderade attributet matchar värdet för Indatasträngen exakt (Skift läges känsligt).
 
-   b. **INTE LIKA MED**. Satsen returnerar ”true” om attributet utvärderade inte matchar värdet Indatasträngen (skiftlägeskänsligt).
+   b. **INTE LIKA MED**. Sats returnerar true om det utvärderade attributet inte matchar värdet för Indatasträngen (Skift läges känsligt).
 
-   c. **STÄMMER**. Satsen returnerar ”true” om utvärderade attribut innehåller booleska värdet true.
+   c. **ÄR SANT**. Sats returnerar true om det utvärderade attributet innehåller det booleska värdet true.
 
-   d. **ÄR FALSKT**. Satsen returnerar ”true” om utvärderade attribut innehåller booleska värdet false.
+   d. **ÄR FALSKT**. Sats returnerar true om det utvärderade attributet innehåller ett booleskt värde falskt.
 
-   e. **ÄR NULL**. Satsen returnerar ”true” om attributet utvärderade är tom.
+   e. **ÄR NULL**. Sats returnerar true om det utvärderade attributet är tomt.
 
-   f. **INTE ÄR NULL**. Satsen returnerar ”true” om det utvärderade attributet inte är tom.
+   f. **ÄR INTE NULL**. Sats returnerar true om det utvärderade attributet inte är tomt.
 
-   g. **REGEX-MATCHNING**. Satsen returnerar ”true” om attributet utvärderade matchar ett mönster för reguljärt uttryck. Till exempel: ([1-9][0-9]) matchar alla tal mellan 10 och 99.
+   g. **REGEX-MATCHNING**. Sats returnerar true om det utvärderade attributet matchar ett mönster för reguljära uttryck. Exempel: ([1-9] [0-9]) matchar alla siffror mellan 10 och 99.
 
-   h. **REGEX MATCHAR INTE**. Satsen returnerar ”true” om attributet utvärderade inte matchar ett mönster för reguljärt uttryck.
+   h. **INGEN REGEX-MATCHNING**. Sats returnerar true om det utvärderade attributet inte matchar ett mönster för reguljära uttryck.
 
-8. Välj **Lägg till ny målgrupp sats**.
+8. Välj **Lägg till ny omfångs sats**.
 
-9. Du kan också upprepa steg 7 – 8 för att lägga till fler målgrupp satser.
+9. Du kan också upprepa steg 7-8 om du vill lägga till fler omfångs satser.
 
-10. I **omfång rubrik**, lägga till ett namn för din Omfångsfilter.
+10. I **omfångs filter rubrik**, Lägg till ett namn för ditt omfångs filter.
 
 11. Välj **OK**.
 
-12. Välj **OK** igen på den **omfång filter** skärmen. Du kan också upprepa steg 6 – 11 för att lägga till en annan Omfångsfilter.
+12. Välj **OK** igen på skärmen **omfångs filter** . Du kan också upprepa steg 6-11 om du vill lägga till ett annat omfångs filter.
 
-13. Välj **spara** på den **attributmappning** skärmen. 
+13. Välj **Spara** på skärmen **Mappning av attribut** . 
 
 >[!IMPORTANT] 
-> Sparar ett nytt målgrupp filtret utlöses en ny fullständig synkronisering för programmet, där alla användare i källsystemet utvärderas igen mot den nya Omfångsfilter. Om en användare i programmet tidigare ingick i omfånget för etablering, men infaller under utanför är deras konto inaktiverat eller avetableras i programmet.
+> Om du sparar ett nytt omfångs filter utlöses en ny fullständig synkronisering för programmet, där alla användare i käll systemet utvärderas igen mot det nya omfångs filtret. Om en användare i programmet tidigare fanns inom omfånget för etablering, men faller utanför omfattningen, så inaktive ras eller avetableras kontot i programmet. Om du vill åsidosätta det här standard beteendet går du till [hoppa över borttagning för användar konton som omfattas av omfånget](skip-out-of-scope-deletions.md).
 
 
 ## <a name="related-articles"></a>Relaterade artiklar
-* [Automatisera etablering och avetablering för SaaS-program](user-provisioning.md)
-* [Anpassa attributmappningar för etableringen av användare](customize-application-attributes.md)
+* [Automatisera användar etablering och avetablering för SaaS-program](user-provisioning.md)
+* [Anpassa mappningar av attribut för användar etablering](customize-application-attributes.md)
 * [Skriva uttryck för attributmappningar](functions-for-customizing-application-data.md)
-* [Kontoetableringsmeddelanden](user-provisioning.md)
-* [Använda SCIM för att aktivera automatisk etablering av användare och grupper från Azure Active Directory till program](use-scim-to-provision-users-and-groups.md)
-* [Lista över guider om hur du integrerar SaaS-appar](../saas-apps/tutorial-list.md)
+* [Meddelanden om konto etablering](user-provisioning.md)
+* [Använd SCIM för att aktivera automatisk etablering av användare och grupper från Azure Active Directory till program](use-scim-to-provision-users-and-groups.md)
+* [Lista över självstudier om hur du integrerar SaaS-appar](../saas-apps/tutorial-list.md)
 

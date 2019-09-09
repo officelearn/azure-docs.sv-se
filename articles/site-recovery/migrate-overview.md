@@ -1,45 +1,47 @@
 ---
-title: Om migreringen av lokala datorer och Azure virtuella datorer Azure Site Recovery | Microsoft Docs
-description: Den här artikeln beskriver hur du migrerar lokala och virtuella Azure IaaS-datorer till Azure med Azure Site Recovery-tjänsten.
+title: Om migrering av lokala datorer och virtuella Azure-datorer Azure Site Recovery
+description: Den här artikeln beskriver hur du migrerar lokala och virtuella Azure IaaS-datorer till Azure med hjälp av tjänsten Azure Site Recovery.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 05/30/2019
+ms.date: 09/09/2019
 ms.author: raynew
-ms.openlocfilehash: 5b7858793ec75d20bb367a6cf49b59fa9906ec9b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c043950de9565f96d52c848f96efac80385f2321
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66396487"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70814483"
 ---
 # <a name="about-migration"></a>Om migrering
 
-Läs den här artikeln för en snabb överblick över hur [Azure Site Recovery](site-recovery-overview.md) tjänsten hjälper dig att migrera datorer. 
+I den här artikeln finns en snabb översikt över hur tjänsten [Azure Site Recovery](site-recovery-overview.md) hjälper dig att migrera datorer. 
 
-Här är vad du kan migrera med hjälp av Site Recovery:
+Det här kan du migrera med Site Recovery:
 
-- **Migrera från lokal till Azure**: Migrera lokala virtuella Hyper-V-datorer, virtuella VMware-datorer och fysiska servrar till Azure. Efter migreringen körs arbetsbelastningar som körs på lokala datorer på virtuella Azure-datorer. 
-- **Migrera inom Azure**: Migrera virtuella Azure-datorer mellan Azure-regioner. 
-- **Migrera AWS**: Migrera AWS Windows-instanser till virtuella Azure IaaS-datorer. 
+- **Migrera från lokal plats till Azure**: Migrera lokala virtuella Hyper-V-datorer, virtuella VMware-datorer och fysiska servrar till Azure. Efter migreringen körs arbetsbelastningar som körs på lokala datorer på virtuella Azure-datorer. 
+- **Migrera i Azure**: Migrera virtuella Azure-datorer mellan Azure-regioner. 
+- **MIGRERA AWS**: Migrera AWS Windows-instanser till virtuella Azure IaaS-datorer. 
 
+> [!NOTE]
+> Du kan nu migrera från en lokal plats till Azure med hjälp av tjänsten Azure Migrate. [Läs mer](../migrate/migrate-overview.md).
 
 ## <a name="what-do-we-mean-by-migration"></a>Vad menar vi med migrering?
 
-Förutom att använda Site Recovery för haveriberedskap för lokala och virtuella Azure-datorer kan använda du Site Recovery-tjänsten för att migrera dem. Vad är skillnaden?
+Förutom att använda Site Recovery för haveri beredskap för lokala och virtuella Azure-datorer kan du använda tjänsten Site Recovery för att migrera dem. Vad är skillnaden?
 
-- För disaster recovery replikera datorer med jämna mellanrum till Azure. När ett avbrott uppstår kan du redundansväxla datorerna från den primära platsen till den sekundära platsen för Azure och komma åt dem därifrån. När den primära platsen är tillgänglig igen, redundansväxla från Azure.
-- För migrering kan replikera du lokala datorer till Azure eller virtuella Azure-datorer till en sekundär region. Sedan du redundansväxlar den virtuella datorn från den primära platsen till sekundärt och slutföra migreringen. I den här processen ingår ingen återställning efter fel.  
+- Vid haveri beredskap replikerar du datorer regelbundet till Azure. När ett avbrott inträffar kan du inte köra datorerna från den primära platsen till den sekundära Azure-platsen och få åtkomst till dem därifrån. När den primära platsen är tillgänglig igen går du tillbaka från Azure.
+- Vid migrering replikerar du lokala datorer till Azure, eller virtuella Azure-datorer till en sekundär region. Sedan kan du inte återställa den virtuella datorn från den primära platsen till den sekundära och slutföra migreringsprocessen. I den här processen ingår ingen återställning efter fel.  
 
 
-## <a name="migration-scenarios"></a>Migreringsscenarier
+## <a name="migration-scenarios"></a>Scenarier för migrering
 
 **Scenario** | **Detaljer**
 --- | ---
-**Migrera från lokal till Azure** | Du kan migrera lokala virtuella VMware-datorer, Hyper-V-datorer och fysiska servrar till Azure. Om du vill göra detta måste slutföra du nästan likadant, precis som för fullständig haveriberedskap. Du inte helt enkelt inte datorer från Azure till den lokala platsen.
-**Migrera mellan Azure-regioner** | Du kan migrera virtuella Azure-datorer från en Azure-region till en annan. När migreringen är klar kan konfigurera du haveriberedskap för virtuella Azure-datorer nu i den sekundära regionen som du har migrerat.
+**Migrera från lokal plats till Azure** | Du kan migrera lokala virtuella VMware-datorer, virtuella Hyper-V-datorer och fysiska servrar till Azure. För att göra detta slutför du nästan samma steg som för fullständig haveri beredskap. Du växlar bara tillbaka datorer från Azure till den lokala platsen.
+**Migrera mellan Azure-regioner** | Du kan migrera virtuella Azure-datorer från en Azure-region till en annan. När migreringen är klar kan du konfigurera haveri beredskap för virtuella Azure-datorer nu i den sekundära regionen som du migrerade till.
 **Migrera AWS till Azure** | Du kan migrera AWS-instanser till virtuella Azure-datorer. Site Recovery behandlar AWS-instanser som fysiska servrar för migrering. 
 
 ## <a name="next-steps"></a>Nästa steg

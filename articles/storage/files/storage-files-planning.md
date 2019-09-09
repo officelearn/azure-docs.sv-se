@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 163c3cbaeed1526f08d047c3bf357232ccb534a3
-ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
+ms.openlocfilehash: dc532ed33fca5120736dfb9503d012b2877e675e
+ms.sourcegitcommit: b8578b14c8629c4e4dea4c2e90164e42393e8064
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/08/2019
-ms.locfileid: "70802388"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70806612"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planera för distribution av Azure Files
 
@@ -155,7 +155,7 @@ Nya fil resurser börjar med det fullständiga antalet krediter i sin burst-Buck
 
 ## <a name="file-share-redundancy"></a>Redundans för fil resurs
 
-Azure Files standard resurser stöder tre alternativ för dataredundans: lokalt redundant lagring (LRS), Zone-redundant lagring (ZRS), Geo-redundant lagring (GRS) och geo-Zone-redundant lagring (GZRS) (för hands version).
+Azure Files standard resurser stöder fyra alternativ för dataredundans: lokalt redundant lagring (LRS), Zone-redundant lagring (ZRS), Geo-redundant lagring (GRS) och geo-Zone-redundant lagring (GZRS) (för hands version).
 
 Azure Files Premium-resurser har endast stöd för lokalt redundant lagring (LRS).
 

@@ -1,6 +1,6 @@
 ---
-title: Omvandla data med Databricks Jar - Azure | Microsoft Docs
-description: Lär dig hur du bearbeta eller omvandla data genom att köra en Databricks-Jar.
+title: Transformera data med Databricks jar – Azure | Microsoft Docs
+description: Lär dig hur du bearbetar eller transformerar data genom att köra en Databricks-jar.
 services: data-factory
 documentationcenter: ''
 ms.assetid: ''
@@ -12,24 +12,24 @@ ms.date: 03/15/2018
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: d299a785d50657ef40c0c49cb2dce33b8939fd02
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 924367c6bb85b64bafbcb8feb546eeb490e07a34
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60860997"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70812786"
 ---
-# <a name="transform-data-by-running-a-jar-activity-in-azure-databricks"></a>Transformera data genom att köra en Jar-aktivitet i Azure Databricks
+# <a name="transform-data-by-running-a-jar-activity-in-azure-databricks"></a>Transformera data genom att köra en jar-aktivitet i Azure Databricks
 
-Azure Databricks Jar-aktiviteten i en [Data Factory-pipeline](concepts-pipelines-activities.md) kör ett Spark-Jar i Azure Databricks-klustret. Den här artikeln bygger vidare på den [datatransformeringsaktiviteter](transform-data.md) artikel som anger en allmän översikt över Dataomvandling och stöds transformeringsaktiviteter. Azure Databricks är en hanterad plattform för att köra Apache Spark.
+Azure Databricks jar-aktivitet i en [Data Factory-pipeline](concepts-pipelines-activities.md) kör en spark-jar i ditt Azure Databricks-kluster. Den här artikeln bygger på artikeln [data omvandlings aktiviteter](transform-data.md) , som visar en allmän översikt över Datatransformeringen och de omvandlings aktiviteter som stöds. Azure Databricks är en hanterad plattform för att köra Apache Spark.
 
 Om du vill se en introduktion och demonstration av den här funktionen rekommenderar vi följande videoklipp (11 minuter):
 
 > [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Execute-Jars-and-Python-scripts-on-Azure-Databricks-using-Data-Factory/player]
 
-## <a name="databricks-jar-activity-definition"></a>Databricks Jar aktivitetsdefinition
+## <a name="databricks-jar-activity-definition"></a>Definition av Databricks jar-aktivitet
 
-Här är exempel JSON-definition för en Databricks Jar aktivitet:
+Här är exempel-JSON-definitionen för en Databricks jar-aktivitet:
 
 ```json
 {
@@ -52,23 +52,26 @@ Här är exempel JSON-definition för en Databricks Jar aktivitet:
 
 ```
 
-## <a name="databricks-jar-activity-properties"></a>Egenskaper för Databricks Jar-aktivitet
+## <a name="databricks-jar-activity-properties"></a>Egenskaper för Databricks jar-aktivitet
 
-I följande tabell beskrivs de JSON-egenskaper som används i JSON-definition:
+I följande tabell beskrivs de JSON-egenskaper som används i JSON-definitionen:
 
-|Egenskap|Beskrivning|Krävs|
+|Egenskap|Beskrivning|Obligatorisk|
 |:--|---|:-:|
 |name|Namnet på aktiviteten i pipelinen.|Ja|
-|description|Text som beskriver hur aktiviteten ska hantera.|Nej|
-|type|För Databricks Jar-aktiviteten är aktivitetstypen DatabricksSparkJar.|Ja|
-|linkedServiceName|Namnet på den länkade tjänsten för Databricks som Jar-aktiviteten körs. Mer information om den här länkade tjänsten, se [länkade tjänster för Compute](compute-linked-services.md) artikeln.|Ja|
-|mainClassName|Det fullständiga namnet på den klass som innehåller main-metoden som ska köras. Den här klassen måste finnas i en JAR som tillhandahålls som ett bibliotek.|Ja|
-|parameters|Parametrar som skickas till main-metoden.  Det här är en matris med strängar.|Nej|
-|Bibliotek|En lista med bibliotek som ska installeras på det kluster som ska utföra jobbet. Det kan vara en matris med < sträng, objekt->|Ja (minst en som innehåller metoden mainClassName)|
+|description|Text som beskriver vad aktiviteten gör.|Nej|
+|type|För Databricks jar-aktivitet är aktivitets typen DatabricksSparkJar.|Ja|
+|linkedServiceName|Namnet på den länkade Databricks-tjänst som jar-aktiviteten körs på. Mer information om den här länkade tjänsten finns i artikeln [Compute-länkade tjänster](compute-linked-services.md) .|Ja|
+|mainClassName|Det fullständiga namnet på klassen som innehåller den huvudsakliga metoden som ska köras. Den här klassen måste finnas i en JAR-form som är ett bibliotek.|Ja|
+|parameters|Parametrar som skickas till main-metoden.  Detta är en sträng mat ris.|Nej|
+|biblioteksfliken|En lista med bibliotek som ska installeras i klustret som ska köra jobbet. Det kan vara en matris med < sträng, objekt >|Ja (minst en som innehåller mainClassName-metoden)|
 
-## <a name="supported-libraries-for-databricks-activities"></a>Stöds-bibliotek för databricks-aktiviteter
+> [!NOTE]
+> **Känt problem** – när du använder samma [interaktiva kluster](compute-linked-services.md#example---using-existing-interactive-cluster-in-databricks) för att köra samtidiga Databricks jar-aktiviteter (utan kluster omstart), finns det ett känt problem i Databricks där i parametrarna för den första aktiviteten kommer att användas av följande aktiviteter också. Därför leder det till att felaktiga parametrar skickas till efterföljande jobb. För att minimera detta använder du i stället ett [jobb kluster](compute-linked-services.md#example---using-new-job-cluster-in-databricks) . 
 
-I ovanstående Databricks aktivitetsdefinitionen anger du dessa typer av dokumentbibliotek: *jar*, *ägg*, *maven*, *pypi*,  *cran*.
+## <a name="supported-libraries-for-databricks-activities"></a>Bibliotek som stöds för databricks-aktiviteter
+
+I ovanstående Databricks-aktivitets definition anger du dessa biblioteks typer: *jar*, *ägg*, *maven*, *pypi*, *cran*.
 
 ```json
 {
@@ -102,19 +105,19 @@ I ovanstående Databricks aktivitetsdefinitionen anger du dessa typer av dokumen
 
 ```
 
-Mer information finns [dokumentation för Databricks](https://docs.azuredatabricks.net/api/latest/libraries.html#managedlibrarieslibrary) för bibliotekstyper.
+Mer information finns i [Databricks-dokumentationen](https://docs.azuredatabricks.net/api/latest/libraries.html#managedlibrarieslibrary) för biblioteks typer.
 
-## <a name="how-to-upload-a-library-in-databricks"></a>Hur du överför ett bibliotek i Databricks
+## <a name="how-to-upload-a-library-in-databricks"></a>Ladda upp ett bibliotek i Databricks
 
-#### <a name="using-databricks-workspace-uihttpsdocsazuredatabricksnetuser-guidelibrarieshtmlcreate-a-library"></a>[Med hjälp av Användargränssnittet för Databricks-arbetsyta](https://docs.azuredatabricks.net/user-guide/libraries.html#create-a-library)
+#### <a name="using-databricks-workspace-uihttpsdocsazuredatabricksnetuser-guidelibrarieshtmlcreate-a-library"></a>[Använda användar gränssnittet för Databricks-arbetsyta](https://docs.azuredatabricks.net/user-guide/libraries.html#create-a-library)
 
-Du kan använda för att få antingen sökvägen till biblioteket har lagts till med hjälp av Användargränssnittet kan [Databricks CLI (installation)](https://docs.azuredatabricks.net/user-guide/dev-tools/databricks-cli.html#install-the-cli). 
+Du kan hämta dBFS-sökvägen till biblioteket som lagts till med hjälp av användar gränssnittet genom att använda [DATABRICKS CLI (installation)](https://docs.azuredatabricks.net/user-guide/dev-tools/databricks-cli.html#install-the-cli). 
 
-Vanligtvis Jar-bibliotek lagras under dbfs: / FileStore/JAR: er när du använder Användargränssnittet. Du kan lista alla via CLI: *databricks fs ls dbfs: / FileStore/jobb-JAR-filer* 
+Vanligt vis lagras jar-biblioteken under dBFS:/FileStore/jar v7 när du använder användar gränssnittet. Du kan visa alla via CLI: *databricks FS LS dBFS:/FileStore/Job-Jars* 
 
 
 
 #### <a name="copy-library-using-databricks-clihttpsdocsazuredatabricksnetuser-guidedev-toolsdatabricks-clihtmlcopy-a-file-to-dbfs"></a>[Kopiera bibliotek med Databricks CLI](https://docs.azuredatabricks.net/user-guide/dev-tools/databricks-cli.html#copy-a-file-to-dbfs)
-Använda Databricks CLI [(installationsstegen)](https://docs.azuredatabricks.net/user-guide/dev-tools/databricks-cli.html#install-the-cli). 
+Använd Databricks CLI [(installations steg)](https://docs.azuredatabricks.net/user-guide/dev-tools/databricks-cli.html#install-the-cli). 
 
-Exempel – kopiera JAR-filen till dbfs: *dbfs cp SparkPi-sammansättningen-0.1.jar dbfs:/docs/sparkpi.jar*
+Exempel – kopiera JAR till dBFS: *dBFS CP sparkpi-Assembly-0,1. jar dBFS:/dokument/SparkPi. jar*

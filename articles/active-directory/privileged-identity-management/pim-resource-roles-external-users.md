@@ -1,9 +1,9 @@
 ---
-title: Bjuda in gäster och tilldela Azure-resursroller i PIM - Azure Active Directory | Microsoft Docs
-description: Lär dig hur du bjuder in externa gästanvändare och tilldela roller i Azure-resurs i Azure AD Privileged Identity Management (PIM).
+title: Bjud in gäster och tilldela Azure Resource roles i PIM – Azure Active Directory | Microsoft Docs
+description: Lär dig hur du bjuder in externa gäst användare och tilldelar Azure-resurs roller i Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
-author: rolyon
+author: curtand
 manager: mtillman
 ms.service: active-directory
 ms.devlang: na
@@ -12,160 +12,160 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
 ms.date: 04/09/2019
-ms.author: rolyon
+ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 07476c9f5db64a5d107a493022fa3548fe0dae4c
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: f3e01b58a2a2fc6f93ae5ccc15e200a0cea69a0c
+ms.sourcegitcommit: 95b180c92673507ccaa06f5d4afe9568b38a92fb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67476343"
+ms.lasthandoff: 09/08/2019
+ms.locfileid: "70804227"
 ---
-# <a name="invite-guest-users-and-assign-azure-resource-roles-in-pim"></a>Bjud in gästanvändare och tilldela Azure-resursroller i PIM
+# <a name="invite-guest-users-and-assign-azure-resource-roles-in-pim"></a>Bjud in gäst användare och tilldela Azure-resurs roller i PIM
 
-Azure Active Directory (Azure AD) business-to-business (B2B) är en uppsättning funktioner i Azure AD som gör det möjligt för företag att samarbeta med externa gästanvändare (gäster) och leverantörer med hjälp av ett konto. När du kombinerar B2B med Azure AD Privileged Identity Management (PIM) kan fortsätta du att tillämpa dina krav på efterlevnad och styrning på gäster. Du kan till exempel använda funktionerna PIM för Azure identity uppgifter med gäster:
+Azure Active Directory (Azure AD) Business-to-Business (B2B) är en uppsättning funktioner i Azure AD som gör det möjligt för organisationer att samar beta med externa gäst användare (gäster) och leverantörer med valfritt konto. När du kombinerar B2B med Azure AD Privileged Identity Management (PIM) kan du fortsätta att tillämpa krav på efterlevnad och styrning av gästerna. Du kan till exempel använda de här PIM-funktionerna för Azure Identity-uppgifter med gäster:
 
-- Tilldela åtkomst till specifika Azure-resurser
-- Aktivera just-in-time-åtkomst
-- Ange tilldelning varaktighet och slutdatum
-- Kräv MFA vid aktiv uppgift eller aktivering
-- Utföra åtkomstgranskningar
-- Använda aviseringar och granskningsloggar
+- Tilldela åtkomst till vissa Azure-resurser
+- Aktivera just-in-Time-åtkomst
+- Ange tilldelningens varaktighet och slutdatum
+- Kräv MFA vid aktiv tilldelning eller aktivering
+- Utför åtkomst granskningar
+- Använda aviseringar och gransknings loggar
 
-Den här artikeln beskriver hur du Bjud in gäst för din organisation och hantera åtkomsten till Azure-resurser med Privileged Identity Management.
+Den här artikeln beskriver hur du bjuder in en gäst i din organisation och hanterar deras åtkomst till Azure-resurser med hjälp av Privileged Identity Management.
 
-## <a name="when-would-you-invite-guests"></a>När skulle du bjuda in gäster
+## <a name="when-would-you-invite-guests"></a>När bjuder du in gäster?
 
-Här följer några scenarier när du kan bjuda in gäster till din organisation:
+Här följer några exempel scenarier när du kan bjuda in gäster till din organisation:
 
-- Tillåt att en extern egen företagare leverantör som bara har ett e-postkonto för att få åtkomst till dina Azure-resurser för ett projekt.
-- Tillåt att en extern partner i en stor organisation som använder en lokal Active Directory Federation Services för att komma åt ditt program för utgiftsrapport.
-- Tillåt supporttekniker inte i din organisation (till exempel Microsoft-supporten) tillfälligt åtkomst till din Azure-resurs för att felsöka problem.
+- Tillåt en extern självgående leverantör som bara har ett e-postkonto för att få åtkomst till dina Azure-resurser för ett projekt.
+- Tillåt en extern partner i en stor organisation som använder lokala Active Directory Federation Services (AD FS) för att få åtkomst till ditt utgifts program.
+- Tillåt support tekniker som inte tillhör din organisation (till exempel Microsoft Support) att tillfälligt komma åt din Azure-resurs för att felsöka problem.
 
-## <a name="how-does-collaboration-using-b2b-guests-work"></a>Hur fungerar samarbete med B2B gästerna arbete?
+## <a name="how-does-collaboration-using-b2b-guests-work"></a>Hur fungerar samarbete med B2B-gäster?
 
-När du använder B2B-samarbete, kan du bjuda in en extern användare till din organisation som gäst. Gästen verkar vara i din organisation, men gästen har inte några autentiseringsuppgifter som är kopplade till den. Varje gång som en gäst måste autentiseras, måste de autentiseras i deras organisation, hem och inte i din organisation. Det innebär att om gästen har inte längre åtkomst till sina hemorganisation kan de också skulle förlora åtkomsten till din organisation. Till exempel om gästen lämnar organisationen, förlora de automatiskt åtkomsten till eventuella resurser som delas med dem i Azure AD utan att du behöver göra något. Läs mer om B2B [vad är gästanvändares åtkomst i Azure Active Directory B2B?](../b2b/what-is-b2b.md).
+När du använder B2B-samarbete kan du bjuda in en extern användare till din organisation som gäst. Gästen verkar vara i din organisation, men gästen har inga associerade autentiseringsuppgifter. När en gäst måste autentiseras måste de autentiseras i sin hem organisation och inte i din organisation. Det innebär att om gästen inte längre har åtkomst till sin hem organisation, förlorar de också åtkomst till din organisation. Om gästen till exempel lämnar sin organisation förlorar de automatiskt åtkomst till de resurser som du har delat med dem i Azure AD utan att du behöver göra något. Mer information om B2B finns i [Vad är gäst användar åtkomst i Azure Active Directory B2B?](../b2b/what-is-b2b.md).
 
-![Diagram som visar hur en gästanvändare visas i din katalog, men autentiseras i deras hemkatalog.](./media/pim-resource-roles-external-users/b2b-external-user.png)
+![Diagram över hur en gäst användare visas i din katalog, men autentiseras i deras Hem Katalog](./media/pim-resource-roles-external-users/b2b-external-user.png)
 
-## <a name="check-guest-collaboration-settings"></a>Kontrollera inställningar för gäst-samarbete
+## <a name="check-guest-collaboration-settings"></a>Kontrol lera inställningarna för gäst samarbete
 
-För att se till att du kan bjuda in gäster till din organisation, bör du kontrollera inställningarna för gäst-samarbete.
+För att se till att du kan bjuda in gäster till din organisation bör du kontrol lera inställningarna för gäst samarbete.
 
 1. Logga in på [Azure-portalen](https://portal.azure.com/).
 
-1. Klicka på **Azure Active Directory** > **användarinställningar**.
+1. Klicka på **Azure Active Directory** > **användar inställningar**.
 
-1. Klicka på **hantera inställningar för externt samarbete**.
+1. Klicka på **Hantera inställningar för externt samarbete**.
 
-    ![Inställningar för externt samarbete sidan som visar behörighet, inbjudan och samarbete begränsningsinställningar](./media/pim-resource-roles-external-users/external-collaboration-settings.png)
+    ![Sidan Inställningar för extern samarbets partner som visar behörighet, Bjud in och samarbets begränsnings inställningar](./media/pim-resource-roles-external-users/external-collaboration-settings.png)
 
-1. Se till att den **administratörer och användare i gästinbjudarrollen kan bjuda in** anges för växeln **Ja**.
+1. Se till att **Administratörer och användare i rollen gäst deltagare kan bjuda** in switch har inställningen **Ja**.
 
-## <a name="invite-a-guest-and-assign-a-role"></a>Bjud in Gäst och tilldela en roll
+## <a name="invite-a-guest-and-assign-a-role"></a>Bjud in en gäst och tilldela en roll
 
-Använda PIM kan du Bjud in Gäst och gör dem tillgängliga för en Azure-resurs roll precis som en medlemsanvändare.
+Med hjälp av PIM kan du bjuda in en gäst och göra dem tillgängliga för en Azure-resurs roll precis som en medlems användare.
 
-1. Logga in på [Azure-portalen](https://portal.azure.com/) med en användare som är medlem i den [privilegierad Rolladministratör](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator) eller [Användaradministratör](../users-groups-roles/directory-assign-admin-roles.md#user-administrator) roll.
+1. Logga in på [Azure Portal](https://portal.azure.com/) med en användare som är medlem i rollen [privilegie rad roll administratör](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator) eller [användar administratör](../users-groups-roles/directory-assign-admin-roles.md#user-administrator) .
 
 1. Öppna **Azure AD Privileged Identity Management**.
 
 1. Klicka på **Azure-resurser**.
 
-1. Använd den **resursfilter** att filtrera listan över hanterade resurser.
+1. Använd **resurs filtret** om du vill filtrera listan över hanterade resurser.
 
-1. Klicka på den resurs som du vill hantera, till exempel en resurs, resursgrupp, prenumeration eller hanteringsgrupp.
+1. Klicka på den resurs som du vill hantera, till exempel en resurs, en resurs grupp, en prenumeration eller en hanterings grupp.
 
-    Du bör ange omfånget till vilka gästen behöver bara.
+    Du bör ange omfång till enbart vad gästen behöver.
 
-1. Klicka på under hantera, **roller** vill se en lista över roller för Azure-resurser.
+1. Under hantera klickar du på **roller** för att se listan över roller för Azure-resurser.
 
-    ![Azure-resursroller lista som visar antalet användare som är aktiva och berättigade](./media/pim-resource-roles-external-users/resources-roles.png)
+    ![Listan med Azure-resurser roller som visar antalet användare som är aktiva och berättigade](./media/pim-resource-roles-external-users/resources-roles.png)
 
 1. Klicka på den lägsta roll som användaren behöver.
 
-    ![Valt rollsidan Visa aktuella medlemmar i rollen](./media/pim-resource-roles-external-users/selected-role.png)
+    ![Den valda roll sidan visar de aktuella medlemmarna i rollen](./media/pim-resource-roles-external-users/selected-role.png)
 
-1. På rollsidan **Lägg till medlem** att öppna tilldelningsfönstret ny.
+1. På sidan roll klickar du på **Lägg till medlem** för att öppna fönstret nytt uppdrag.
 
-1. Klicka på **Välj en medlem eller en grupp**.
+1. Klicka på **Välj en medlem eller grupp**.
 
-    ![Ny tilldelning - Välj en medlem eller gruppen fönstret visa en lista över användare och grupper tillsammans med ett alternativ för inbjudan](./media/pim-resource-roles-external-users/select-member-group.png)
+    ![Ny tilldelning – Välj en medlem eller ett grupp fönster som visar användare och grupper tillsammans med ett alternativ för inbjudan](./media/pim-resource-roles-external-users/select-member-group.png)
 
-1. Om du vill bjuda in en gäst, klickar du på **bjuda in**.
+1. Klicka på **Bjud**in för att bjuda in en gäst.
 
-    ![Bjud in en gäst-sida med rutorna och ange en e-postadress som du kan ange ett personligt meddelande](./media/pim-resource-roles-external-users/invite-guest.png)
+    ![Bjud in en gäst sida med rutor för att ange en e-postadress och ange ett personligt meddelande](./media/pim-resource-roles-external-users/invite-guest.png)
 
-1. När du har valt en gäst, klickar du på **bjuda in**.
+1. När du har valt en gäst klickar du på **Bjud in**.
 
     Gästen ska läggas till som en vald medlem.
 
-1. I den **Välj en medlem eller en grupp** fönstret klickar du på **Välj**.
+1. I fönstret **Välj en medlem eller grupp** klickar du på **Välj**.
 
-1. I den **Medlemskapsinställningar** fönstret väljer du Tilldelningstyp och varaktighet.
+1. I rutan **medlemskaps inställningar** väljer du tilldelnings typ och varaktighet.
 
-    ![Ny tilldelning - sidan för inställningar av medlemskap med alternativ för att ange Tilldelningstyp startdatum och slutdatum](./media/pim-resource-roles-external-users/membership-settings.png)
+    ![Ny tilldelning – sidan Inställningar för medlemskap med alternativ för att ange tilldelnings typ, start datum och slutdatum](./media/pim-resource-roles-external-users/membership-settings.png)
 
-1. För att slutföra tilldelningen klickar du på **klar** och sedan **Lägg till**.
+1. Slutför tilldelningen genom att klicka på **klar** och sedan på **Lägg till**.
 
-    Gäst-rolltilldelning visas i listan med rollen.
+    Gäst Rolls tilldelningen visas i din roll lista.
 
-    ![Rollsidan lista gästen som berättigade](./media/pim-resource-roles-external-users/role-assignment.png)
+    ![Roll sidan som visar gästen som giltig](./media/pim-resource-roles-external-users/role-assignment.png)
 
-## <a name="activate-role-as-a-guest"></a>Aktivera rollen som en gäst
+## <a name="activate-role-as-a-guest"></a>Aktivera rollen som gäst
 
-Som en extern användare måste du först acceptera inbjudan till din Azure AD-organisation och eventuellt aktivera din roll.
+Som extern användare måste du först godkänna inbjudan till din Azure AD-organisation och eventuellt aktivera din roll.
 
-1. Öppna e-postmeddelandet med din inbjudan. E-postmeddelandet ser ut ungefär så här.
+1. Öppna e-postmeddelandet med din inbjudan. E-postmeddelandet kommer att se ut ungefär så här.
 
-    ![E-postinbjudan med katalognamnet, personligt meddelande och en komma igång-länk](./media/pim-resource-roles-external-users/email-invite.png)
+    ![Inbjudan till e-post med katalog namn, personligt meddelande och en kom igång-länk](./media/pim-resource-roles-external-users/email-invite.png)
 
-1. Klicka på den **börjar** länken i e-postmeddelandet.
+1. Klicka på länken **Kom igång** i e-postmeddelandet.
 
-1. När du har granskat behörigheterna, klickar du på **acceptera**.
+1. När du har granskat behörigheterna klickar du på **acceptera**.
 
-    ![Granskning behörighetssidan i en webbläsare med en lista över behörigheter som organisationen vill du att granska](./media/pim-resource-roles-external-users/invite-accept.png)
+    ![Sidan granska behörigheter i en webbläsare med en lista med behörigheter som organisationen vill granska](./media/pim-resource-roles-external-users/invite-accept.png)
 
-1. Du kan bli ombedd att acceptera användningsvillkor och ange om du vill förbli inloggad.
+1. Du kan bli ombedd att godkänna användnings villkoren och ange om du vill fortsätta vara inloggad.
 
-    Azure-portalen öppnas. Om du är bara berättigad för en roll kan du inte åtkomst till resurser.
+    Azure Portal öppnas. Om du bara är berättigad till en roll har du inte åtkomst till resurser.
 
-1. Aktivera din roll genom att öppna e-postmeddelande med din aktivera rollen länk. E-postmeddelandet ser ut ungefär så här.
+1. Om du vill aktivera din roll öppnar du e-postmeddelandet med länken Aktivera roll. E-postmeddelandet kommer att se ut ungefär så här.
 
-    ![E-postmeddelande från PIM som anger du kvalificerade för en roll med ett aktiveringslänken för rollen](./media/pim-resource-roles-external-users/email-role-assignment.png)
+    ![E-postmeddelande från PIM som anger att du är berättigad till en roll med en aktiv roll länk](./media/pim-resource-roles-external-users/email-role-assignment.png)
 
-1. Klicka på **aktivera rollen** att öppna dina berättigade roller i PIM.
+1. Klicka på **Aktivera roll** för att öppna dina giltiga roller i Pim.
 
-    ![Min rollsidan i PIM där dina berättigade roller](./media/pim-resource-roles-external-users/my-roles-eligible.png)
+    ![Sidan mina roller i PIM som visar dina kvalificerade roller](./media/pim-resource-roles-external-users/my-roles-eligible.png)
 
-1. Under åtgärden, klickar du på den **aktivera** länk.
+1. Under åtgärd klickar du på länken **Aktivera** .
 
-    Beroende på rollinställningar behöver du ange viss information för att aktivera rollen.
+    Beroende på roll inställningarna måste du ange viss information för att aktivera rollen.
 
-1. När du har angett inställningarna för rollen, klickar du på **aktivera** aktiverar rollen.
+1. När du har angett inställningarna för rollen klickar du på **Aktivera** för att aktivera rollen.
 
-    ![Aktivera sidan lista omfång och alternativ för att ange starttid, varaktighet och orsak](./media/pim-resource-roles-external-users/activate-role.png)
+    ![Aktivera omfattning och alternativ för sid lista för att ange start tid, varaktighet och orsak](./media/pim-resource-roles-external-users/activate-role.png)
 
-    Om inte administratören behöver godkänna din begäran ska ha åtkomst till de angivna resurserna.
+    Om administratören inte behöver godkänna din begäran, bör du ha åtkomst till de angivna resurserna.
 
-## <a name="view-activity-for-a-guest"></a>Visa aktivitet för gäst
+## <a name="view-activity-for-a-guest"></a>Visa aktivitet för en gäst
 
-Du kan visa granskningsloggarna för att hålla reda på vad gäster gör precis som en medlemsanvändare.
+Precis som en medlems användare kan du Visa gransknings loggar för att hålla reda på vad gästerna gör.
 
-1. Som administratör, öppna PIM och välj den resurs som har delats.
+1. Som administratör öppnar du PIM och väljer den resurs som har delats.
 
-1. Klicka på **resursgranskning** att visa aktiviteten för den resursen. Nedan visas ett exempel på aktiviteten för en resursgrupp.
+1. Klicka på **resurs granskning** om du vill visa aktiviteten för resursen. Nedan visas ett exempel på aktiviteten för en resurs grupp.
 
-    ![Azure-resurser – Resource granska lista över tid, begärande och åtgärder](./media/pim-resource-roles-external-users/audit-resource.png)
+    ![Azure-resurser – resurs gransknings sidan visar tid, begär ande och åtgärd](./media/pim-resource-roles-external-users/audit-resource.png)
 
-1. Om du vill visa aktiviteten för gästen, klickar du på **Azure Active Directory** > **användare** > gästen namn.
+1. Om du vill visa aktiviteten för gästen klickar du på **Azure Active Directory** > **användare** > gäst namn.
 
-1. Klicka på **granskningsloggar** att se granskningsloggarna för organisationen. Om det behövs kan du ange filter.
+1. Klicka på **gransknings loggar** om du vill se gransknings loggarna för organisationen. Om det behövs kan du ange filter.
 
-    ![Directory granskningsloggar lista datum, mål, initieras av, och aktivitet](./media/pim-resource-roles-external-users/audit-directory.png)
+    ![Katalog gransknings loggar lista datum, mål, initierad av och aktivitet](./media/pim-resource-roles-external-users/audit-directory.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Tilldela administratörsroller i Azure AD i PIM](pim-how-to-add-role-to-user.md)
-- [Vad är gästanvändares åtkomst i Azure Active Directory B2B?](../b2b/what-is-b2b.md)
+- [Tilldela administratörs roller för Azure AD i PIM](pim-how-to-add-role-to-user.md)
+- [Vad är gäst användar åtkomst i Azure Active Directory B2B?](../b2b/what-is-b2b.md)

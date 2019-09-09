@@ -1,6 +1,6 @@
 ---
 title: Azure HDInsight-arkitektur med Enterprise Security Package
-description: Lär dig hur du planerar HDInsight säkerhet med Enterprise Security Package.
+description: Lär dig hur du planerar säkerheten för Azure HDInsight med Enterprise Security Package.
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
@@ -8,86 +8,86 @@ ms.reviewer: omidm
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/24/2019
-ms.openlocfilehash: 8b8c200979b70e145fca64746547b37dee558848
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: e7983c4da4803965dabaa6a471fbea8a2fba5229
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67720427"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70810957"
 ---
 # <a name="use-enterprise-security-package-in-hdinsight"></a>Använda Enterprise Security Package i HDInsight
 
-Standard Azure HDInsight-kluster är en enskild användare-kluster. Det är lämpligt för de flesta företag som har små applikationsteam som att skapa stora arbetsbelastningar. Varje användare kan skapa ett dedikerat kluster på begäran och förstöra det när det inte behövs längre. 
+Standard Azure HDInsight-klustret är ett kluster med en enda användare. Det är lämpligt för de flesta företag som har mindre program grupper som skapar stora data arbets belastningar. Varje användare kan skapa ett dedikerat kluster på begäran och förstöra det när det inte behövs längre. 
 
-Många företag har flyttat mot en modell där IT-avdelningen hantera team-kluster och flera applikationsteam delar kluster. Dessa större företag ha flera användare åtkomst till varje kluster i Azure HDInsight.
+Många företag har flyttats till en modell där IT-team hanterar kluster och flera program team delar kluster. Dessa större företag behöver ha åtkomst till flera användare till varje kluster i Azure HDInsight.
 
-HDInsight bygger på populära identitetsprovidern – Active Directory--på ett hanterat sätt. Genom att integrera HDInsight med [Azure Active Directory Domain Services (Azure AD DS)](../../active-directory-domain-services/overview.md), du kan komma åt klustren med hjälp av autentiseringsuppgifter för domänen. 
+HDInsight förlitar sig på en populär identitets leverantör – Active Directory--på ett hanterat sätt. Genom att integrera HDInsight med [Azure Active Directory Domain Services (Azure AD DS)](../../active-directory-domain-services/overview.md)kan du komma åt klustren med hjälp av dina domänautentiseringsuppgifter. 
 
-Virtuella datorer (VM) i HDInsight är domänansluten till den angivna domänen. Alla tjänster som körs på HDInsight (Apache Ambari, server för Apache Hive, Apache Ranger, Apache Spark thrift-server och andra) fungerar därför sömlöst för autentiserade användare. Administratörer kan sedan skapa stark auktoriseringsprinciper med hjälp av Apache Ranger för att tillhandahålla rollbaserad åtkomstkontroll för resurser i klustret.
+De virtuella datorerna (VM) i HDInsight är domänanslutna i den angivna domänen. Alla tjänster som körs på HDInsight (Apache Ambari, Apache Hive Server, Apache Ranger, Apache Spark Thrift-Server och andra) fungerar sömlöst för den autentiserade användaren. Administratörer kan sedan skapa starka Auktoriseringsprinciper genom att använda Apache Ranger för att tillhandahålla rollbaserad åtkomst kontroll för resurser i klustret.
 
 ## <a name="integrate-hdinsight-with-active-directory"></a>Integrera HDInsight med Active Directory
 
-Öppen källkod Apache Hadoop är beroende av Kerberos-protokollet för autentisering och säkerhet. Därför är HDInsight-klusternoder med Enterprise Security Package (ESP) anslutna till en domän som hanteras av Azure AD DS. Säkerhet för Kerberos har konfigurerats för Hadoop-komponenter på klustret. 
+Apache Hadoop med öppen källkod förlitar sig på Kerberos-protokollet för autentisering och säkerhet. Därför är HDInsight-klusternoder med Enterprise Security Package (ESP) anslutna till en domän som hanteras av Azure AD DS. Kerberos-säkerhet har kon figurer ATS för Hadoop-komponenterna i klustret. 
 
-Följande skapas automatiskt:
+Följande saker skapas automatiskt:
 
-- ett huvudnamn för tjänsten för varje Hadoop-komponent
-- ett huvudnamn för datorn för varje dator som är ansluten till domänen
-- en organisationsenhet (OU) för varje kluster att lagra dessa huvudnamn för tjänsten och datorer
+- Ett tjänst huvud namn för varje Hadoop-komponent
+- En dators huvud namn för varje dator som är ansluten till domänen
+- En organisationsenhet (OU) för varje kluster för att lagra dessa tjänster och dator huvud namn
 
-Sammanfattningsvis, måste du konfigurera en miljö med:
+För att sammanfatta måste du konfigurera en miljö med:
 
-- En Active Directory-domän (hanteras av Azure AD DS). **Domännamnet måste vara 39 tecken eller mindre att arbeta med Azure HDInsight.**
-- Säkert LDAP (LDAPS) aktiverat i Azure AD DS.
-- Rätt nätverket från det virtuella nätverket för HDInsight till det Azure AD DS virtuella nätverket, om du väljer separata virtuella nätverk för dessa. En virtuell dator i det virtuella nätverket HDInsight ska ha åtkomst till Azure AD DS via vnet-peering. Om HDInsight och Azure AD DS distribueras i samma virtuella nätverk, anslutningen tillhandahålls automatiskt och ingen ytterligare åtgärd krävs.
+- En Active Directory domän (hanteras av Azure AD DS). **Domän namnet måste innehålla 39 tecken eller mindre för att fungera med Azure HDInsight.**
+- Säkert LDAP (LDAPs) som är aktiverade i Azure AD DS.
+- Korrekt nätverks anslutning från det virtuella HDInsight-nätverket till det virtuella Azure AD DS-nätverket, om du väljer separata virtuella nätverk för dem. En virtuell dator i det virtuella HDInsight-nätverket bör ha en rad syn för Azure AD DS via peering av virtuella nätverk. Om HDInsight och Azure AD DS distribueras i samma virtuella nätverk tillhandahålls anslutningen automatiskt och ingen ytterligare åtgärd krävs.
 
 ## <a name="set-up-different-domain-controllers"></a>Konfigurera olika domänkontrollanter
-HDInsight stöder för närvarande endast Azure AD DS som den huvudsakliga domänkontrollant som klustret använder för Kerberos-kommunikation. Men andra avancerade inställningar för Active Directory är möjligt, så länge som en sådan konfiguration leder till att aktivera Azure AD DS för HDInsight-åtkomst.
+HDInsight har för närvarande endast stöd för Azure AD DS som den huvudsakliga domänkontrollanten som används i klustret för Kerberos-kommunikation. Men andra komplexa Active Directory-inställningar är möjliga, så länge en sådan konfiguration leder till aktivering av Azure AD DS för HDInsight-åtkomst.
 
 ### <a name="azure-active-directory-domain-services"></a>Azure Active Directory Domain Services
-[Azure AD DS](../../active-directory-domain-services/overview.md) tillhandahåller en hanterad domän som är helt kompatibel med Windows Server Active Directory. Microsoft hand tar om hantera, uppdatera och övervakning domän i en konfiguration med hög tillgänglighet (HA). Du kan distribuera ett kluster utan att behöva bekymra dig om hur du underhåller domänkontrollanter. 
+[Azure AD DS](../../active-directory-domain-services/overview.md) tillhandahåller en hanterad domän som är helt kompatibel med Windows Server Active Directory. Microsoft tar hand om att hantera, korrigera och övervaka domänen i en installation med hög tillgänglighet (HA). Du kan distribuera klustret utan att oroa dig för att underhålla domänkontrollanter. 
 
-Användare, grupper och lösenord synkroniseras från Azure AD. Enkelriktad synkronisering från din Azure AD-instans till Azure AD DS gör det möjligt för användare att logga in till klustret med hjälp av samma företagets autentiseringsuppgifter. 
+Användare, grupper och lösen ord synkroniseras från Azure AD. Den enkelriktade synkroniseringen från Azure AD-instansen till Azure AD DS gör det möjligt för användare att logga in i klustret med samma företags uppgifter. 
 
-Mer information finns i [konfigurera HDInsight-kluster med hjälp av Azure AD DS ESP](./apache-domain-joined-configure-using-azure-adds.md).
+Mer information finns i [Konfigurera HDInsight-kluster med ESP med hjälp av Azure AD DS](./apache-domain-joined-configure-using-azure-adds.md).
 
-### <a name="on-premises-active-directory-or-active-directory-on-iaas-vms"></a>Den lokala Active Directory eller Active Directory på virtuella IaaS-datorer
+### <a name="on-premises-active-directory-or-active-directory-on-iaas-vms"></a>Lokala Active Directory eller Active Directory på virtuella IaaS-datorer
 
-Om du har en lokal Active Directory-instans eller mer komplexa Active Directory-inställningar för din domän, kan du synkronisera dessa identiteter till Azure AD med hjälp av Azure AD Connect. Sedan kan du aktivera Azure AD DS på den Active Directory-klienten. 
+Om du har en lokal Active Directory instans eller mer komplexa Active Directory-inställningar för din domän kan du synkronisera dessa identiteter med Azure AD med hjälp av Azure AD Connect. Du kan sedan aktivera Azure AD DS på den Active Directory klienten. 
 
-Eftersom Kerberos är beroende av hashvärden för lösenord, måste du [aktivera lösenordshashsynkronisering på Azure AD DS](../../active-directory-domain-services/active-directory-ds-getting-started-password-sync.md). 
+Eftersom Kerberos förlitar sig på lösen ords-hashar måste du [aktivera hash-synkronisering av lösen ord på Azure AD DS](../../active-directory-domain-services/active-directory-ds-getting-started-password-sync.md). 
 
-Om du använder federation med Active Directory Federation Services (AD FS), måste du aktivera lösenordshashsynkronisering. (En rekommenderad konfiguration, se [videon](https://youtu.be/qQruArbu2Ew).) Lösenordets hash-synkronisering hjälper med haveriberedskap om AD FS-infrastrukturen misslyckas och det ger också skydd av läcka ut autentiseringsuppgifter. Mer information finns i [aktivera lösenordshashsynkronisering med Azure AD Connect-synkronisering](../../active-directory/hybrid/how-to-connect-password-hash-synchronization.md). 
+Om du använder Federation med Active Directory Federation Services (AD FS) (AD FS) måste du aktivera hash-synkronisering av lösen ord. (För en rekommenderad installation, se [den här videon](https://youtu.be/qQruArbu2Ew).) Hash-synkronisering av lösen ord hjälper till med haveri beredskap, vilket innebär att din AD FS-infrastruktur Miss lyckas, och det ger även läckt skydd. Mer information finns i [aktivera hash-synkronisering av lösen ord med Azure AD Connect Sync](../../active-directory/hybrid/how-to-connect-password-hash-synchronization.md). 
 
-Med hjälp av en lokal Active Directory eller Active Directory på virtuella IaaS-datorer separat, utan Azure AD och Azure AD DS, inte en konfiguration som stöds för HDInsight-kluster med ESP.
+Att använda lokala Active Directory eller Active Directory endast på virtuella IaaS-datorer, utan Azure AD och Azure AD DS, är inte en konfiguration som stöds för HDInsight-kluster med ESP.
 
-Om federation används och lösenords-hash har synkroniserats korrekt, men du får autentiseringsfel, kan du kontrollera om molnet lösenordsautentisering är aktiverad för PowerShell-tjänstens huvudnamn. Om inte, måste du ställa in en [Start sfär identifiering av Startsfären princip](../../active-directory/manage-apps/configure-authentication-for-federated-users-portal.md) för Azure AD-klienten. Kontrollera och ställa in HRD-princip:
+Om Federation används och lösen ordets hash-värden synkroniseras korrekt, men du får autentiseringsfel, kontrollerar du om Cloud Password Authentication har Aktiver ATS för PowerShell-tjänstens huvud namn. Om inte, måste du ange en [HRD-princip (Home sfär Discovery)](../../active-directory/manage-apps/configure-authentication-for-federated-users-portal.md) för din Azure AD-klient. För att kontrol lera och ange HRD-principen:
 
-1. Installera förhandsversionen [Azure AD PowerShell-modulen](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2).
+1. Installera för hands versionen av [Azure AD PowerShell-modulen](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2).
 
    ```powershell
    Install-Module AzureAD
    ```
 
-2. Anslut med autentiseringsuppgifterna för global administratör (Innehavaradministratör).
+2. Anslut med autentiseringsuppgifter för global administratör (innehavaradministratör).
    
    ```powershell
    Connect-AzureAD
    ```
 
-3. Kontrollera om Microsoft Azure PowerShell-tjänstens huvudnamn har redan skapats.
+3. Kontrol lera om Microsoft Azure PowerShell tjänstens huvud namn redan har skapats.
 
    ```powershell
    Get-AzureADServicePrincipal -SearchString "Microsoft Azure Powershell"
    ```
 
-4. Om det inte finns skapar du tjänstens huvudnamn.
+4. Om den inte finns skapar du tjänstens huvud namn.
 
    ```powershell
    $powershellSPN = New-AzureADServicePrincipal -AppId 1950a258-227b-4e31-a9cf-717495945fc2
    ```
 
-5. Skapa och koppla principen till tjänstens huvudnamn.
+5. Skapa och koppla principen till tjänstens huvud namn.
 
    ```powershell
     # Determine whether policy exists

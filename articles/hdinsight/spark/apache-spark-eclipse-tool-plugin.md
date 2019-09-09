@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/30/2017
 ms.author: hrasheed
-ms.openlocfilehash: 6e8f8e7d8324f23a81cd6ae3284bd6d7cff24117
-ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
+ms.openlocfilehash: 87ac2283e96081297fdd54c1c131aa5b78a5973a
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68489846"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70814256"
 ---
 # <a name="use-azure-toolkit-for-eclipse-to-create-apache-spark-applications-for-an-hdinsight-cluster"></a>Använd Azure Toolkit for Eclipse för att skapa Apache Spark-program för ett HDInsight-kluster
 
@@ -46,7 +46,7 @@ När du öppnar Sol förmörkelse identifierar HDInsight-verktyget automatiskt o
 
 ![Automatisk installation av Scala-plugin-programmet](./media/apache-spark-eclipse-tool-plugin/auto-install-scala.png)
 
-Användaren kan antingen [Logga in i Azure](#sign-in-to-your-azure-subscription)-prenumerationen eller [Länka ett HDInsight-kluster](#link-a-cluster) med hjälp av Ambari användar namn/lösen ord eller domänanslutna autentiseringsuppgifter för start. 
+Användaren kan antingen [Logga in i Azure-prenumerationen](#sign-in-to-your-azure-subscription)eller [Länka ett HDInsight-kluster](#link-a-cluster) med hjälp av Ambari användar namn/lösen ord eller domänanslutna autentiseringsuppgifter för start. 
 
 ## <a name="sign-in-to-your-azure-subscription"></a>Logga in till din Azure-prenumeration
 1. Starta Sol förmörkelse IDE och öppna Azure Explorer. Välj **Visa vy**på **fönster** -menyn och välj sedan **annat**. I dialog rutan som öppnas expanderar du **Azure**, väljer **Azure Explorer**och väljer sedan **OK**.
@@ -61,7 +61,7 @@ Användaren kan antingen [Logga in i Azure](#sign-in-to-your-azure-subscription)
    ![Dialog rutan Välj prenumerationer](./media/apache-spark-eclipse-tool-plugin/Select-Subscriptions.png)
 1. På fliken **Azure Explorer** expanderar du **HDInsight** för att se HDInsight Spark-kluster under din prenumeration.
    
-   ![HDInsight Spark-kluster i Azure Explorer](./media/apache-spark-eclipse-tool-plugin/view-explorer-3.png)
+   ![HDInsight Spark-kluster i Azure Explorer3](./media/apache-spark-eclipse-tool-plugin/view-explorer-3.png)
 1. Du kan ytterligare expandera noden kluster namn för att se de resurser (till exempel lagrings konton) som är associerade med klustret.
    
    ![Expandera ett kluster namn om du vill se resurser](./media/apache-spark-eclipse-tool-plugin/view-explorer-4.png)
@@ -184,7 +184,7 @@ Du kan utföra olika åtgärder med hjälp av HDInsight-verktyg, inklusive åtko
 1. Expandera kluster namnet om du vill se lagrings kontot och standard lagrings behållaren för klustret.
    
    ![Lagrings konto och standard lagrings behållare](./media/apache-spark-eclipse-tool-plugin/view-explorer-5.png)
-1. Välj det lagrings behållar namn som är associerat med klustret. I den högra rutan dubbelklickar du på mappen **HVAC** . Öppna en **av filerna för** att se resultatet av programmet.
+1. Välj det lagrings behållar namn som är associerat med klustret. I den högra rutan dubbelklickar du på mappen **HVAC** . Öppna en **av filerna för att se** resultatet av programmet.
 
 ### <a name="access-the-spark-history-server"></a>Få åtkomst till Spark historik Server
 1. I Azure Explorer högerklickar du på namnet på ditt Spark-kluster och väljer sedan **Öppna användar gränssnitt för Spark-historik**. När du uppmanas till det anger du administratörens autentiseringsuppgifter för klustret. Du angav dessa när du etablerade klustret.
@@ -235,16 +235,16 @@ När användare skickar jobb till ett kluster med endast läsar roll behörighet
        
 2. Expandera **HDInsight** i **Azure Explorer**för att Visa HDInsight-kluster som finns i din prenumeration. Kluster som har marker ATS med **rollen "roll: läsare"** har bara behörighet som endast läsare.
 
-    ![HDInsight Spark-kluster i Azure Explorer](./media/apache-spark-eclipse-tool-plugin/view-explorer-6.png)
+    ![HDInsight Spark-kluster i Azure Explorer-roll läsaren](./media/apache-spark-eclipse-tool-plugin/view-explorer-6.png)
 
 3. Högerklicka på klustret med roll behörigheten endast läsare. Välj **länka det här klustret** från snabb menyn för att länka klustret. Ange Ambari användar namn och lösen ord.
 
-    ![HDInsight Spark-kluster i Azure Explorer](./media/apache-spark-eclipse-tool-plugin/view-explorer-7.png)
+    ![HDInsight Spark-kluster i Azure Explorer-länk](./media/apache-spark-eclipse-tool-plugin/view-explorer-7.png)
 
 4. Om klustret har länkats kommer HDInsight att uppdateras.
    Klustrets steg kommer att länkas.
   
-    ![HDInsight Spark-kluster i Azure Explorer](./media/apache-spark-eclipse-tool-plugin/view-explorer-8.png)
+    ![HDInsight Spark-kluster i Azure Explorer länkade](./media/apache-spark-eclipse-tool-plugin/view-explorer-8.png)
 
 
 
@@ -254,7 +254,7 @@ När användare skickar jobb till ett kluster med endast läsar roll behörighet
    
 2. Klicka på **länka det här klustret** för att länka klustret.
    
-    ![HDInsight Spark-kluster i Azure Explorer](./media/apache-spark-eclipse-tool-plugin/view-explorer-9.png)
+    ![HDInsight Spark-kluster i Azure Explorer9](./media/apache-spark-eclipse-tool-plugin/view-explorer-9.png)
 
 ### <a name="link-cluster-from-spark-submission-window"></a>Länka kluster från Spark-fönstret
 
@@ -262,23 +262,23 @@ När användare skickar jobb till ett kluster med endast läsar roll behörighet
 
 2. Högerklicka på paketet. Välj sedan **Skicka Spark-program till HDInsight**.
    
-   ![HDInsight Spark-kluster i Azure Explorer](./media/apache-spark-eclipse-tool-plugin/view-explorer-11.png)
+   ![HDInsight Spark-kluster i Azure Explorer skicka](./media/apache-spark-eclipse-tool-plugin/view-explorer-11.png)
 
 3. Välj ett kluster som har behörighet för endast läsare för **kluster namn**. Varnings meddelandet visas. Du kan klicka på **Länka** klustret om du vill länka klustret.
    
-   ![HDInsight Spark-kluster i Azure Explorer](./media/apache-spark-eclipse-tool-plugin/view-explorer-15.png)
+   ![HDInsight Spark-kluster i Azure Explorer länka detta](./media/apache-spark-eclipse-tool-plugin/view-explorer-15.png)
    
 ### <a name="view-storage-accounts"></a>Visa lagrings konton
 
 * För kluster med behörighet för endast läsare, klickar du på noden **lagrings konton** , fönstret **åtkomst nekas för lagring** . 
      
-   ![HDInsight Spark-kluster i Azure Explorer](./media/apache-spark-eclipse-tool-plugin/view-explorer-13.png)
+   ![HDInsight Spark-kluster i Azure Explorer-lagring](./media/apache-spark-eclipse-tool-plugin/view-explorer-13.png)
 
-   ![HDInsight Spark-kluster i Azure Explorer](./media/apache-spark-eclipse-tool-plugin/view-explorer-12.png)
+   ![HDInsight Spark-kluster i Azure Explorer nekas](./media/apache-spark-eclipse-tool-plugin/view-explorer-12.png)
 
 * För länkade kluster klickar du på noden **lagrings konton** , fönstret **lagrings åtkomst nekad** öppnas. 
      
-   ![HDInsight Spark-kluster i Azure Explorer](./media/apache-spark-eclipse-tool-plugin/view-explorer-14.png)
+   ![HDInsight Spark-kluster i Azure Explorer denied2](./media/apache-spark-eclipse-tool-plugin/view-explorer-14.png)
 
 ## <a name="known-problems"></a>Kända problem
 När du länkar ett kluster kan jag föreslå att du anger autentiseringsuppgifter för lagring.
@@ -287,9 +287,9 @@ När du länkar ett kluster kan jag föreslå att du anger autentiseringsuppgift
 
 Det finns två lägen för att skicka jobben. Om du har angett autentiseringsuppgifter för lagring kommer batch-läget att användas för att skicka jobbet. Annars kommer interaktivt läge att användas. Om klustret är upptaget kan du få felet nedan.
 
-![Sol förmörkelse får ett fel meddelande när klustret är upptaget](./media/apache-spark-eclipse-tool-plugin/eclipse-interactive-cluster-busy-upload.png)
+![Sol förmörkelse får ett fel meddelande när klustret är upptaget](./media/apache-spark-eclipse-tool-plugin/eclipse-interactive-cluster-busy-upload.png "Sol förmörkelse får ett fel meddelande när klustret är upptaget")
 
-![Sol förmörkelse får ett fel meddelande när klustret är upptaget](./media/apache-spark-eclipse-tool-plugin/eclipse-interactive-cluster-busy-submit.png)
+![Sol förmörkelse får ett fel meddelande när klustrets upptagna garn](./media/apache-spark-eclipse-tool-plugin/eclipse-interactive-cluster-busy-submit.png "Sol förmörkelse får ett fel meddelande när klustrets upptagna garn")
 
 ## <a name="seealso"></a>Se även
 * [: Apache Spark på Azure HDInsight](apache-spark-overview.md)

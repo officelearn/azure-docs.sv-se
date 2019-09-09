@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 09/04/2019
+ms.date: 09/09/2019
 ms.author: jingwang
-ms.openlocfilehash: 05182b42be232ade4c4206abb9c68e632ad31c03
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: 9aa9caca103efb138ca6e188f8dcb6a377e06f3a
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70275982"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70813266"
 ---
 # <a name="copy-data-from-or-to-azure-file-storage-by-using-azure-data-factory"></a>Kopiera data från eller till Azure File Storage med hjälp av Azure Data Factory
 
@@ -85,12 +85,12 @@ Följande egenskaper har stöd för Azure File Storage-länkade tjänsten:
 
 En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera datauppsättningar finns i den [datauppsättningar](concepts-datasets-linked-services.md) artikeln. 
 
-- För **Parquet, avgränsad text, Avro och binärt format**, se avsnittet [Parquet, delimited text, Avro och Binary format data uppsättning](#format-based-dataset) .
-- Andra format som **Orc/JSON-format**finns i avsnittet [annan format data uppsättning](#other-format-dataset) .
+- För **Parquet, avgränsade text-, JSON-, Avro-och binärformat**, se [Parquet, delimited text-, JSON-, Avro-och binära format-datauppsättning](#format-based-dataset) .
+- Information om andra format som **Orc-format**finns i avsnittet [annan format data uppsättning](#other-format-dataset) .
 
-### <a name="format-based-dataset"></a>Data uppsättning för Parquet, avgränsad text, Avro och binärt format
+### <a name="format-based-dataset"></a>Data uppsättning för Parquet, avgränsad text, JSON, Avro och binärt format
 
-Om du vill kopiera data till och från **Parquet, avgränsad text, Avro eller binärt format**, se [Parquet format](format-parquet.md), [avgränsat text format](format-delimited-text.md), [Avro format](format-avro.md) och [binära format](format-binary.md) -artikel på format-baserad data uppsättning och inställningar som stöds. Följande egenskaper stöds för Azure File Storage under `location` inställningar i format-baserad data mängd:
+Om du vill kopiera data till och från **Parquet, avgränsade text-, JSON-, Avro-och binärformat**, se [Parquet format](format-parquet.md), [avgränsat text format](format-delimited-text.md), [Avro format](format-avro.md) och [binärt format](format-binary.md) artikel i format-baserad data uppsättning och inställningar som stöds . Följande egenskaper stöds för Azure File Storage under `location` inställningar i format-baserad data mängd:
 
 | Egenskap   | Beskrivning                                                  | Krävs |
 | ---------- | ------------------------------------------------------------ | -------- |
@@ -130,7 +130,7 @@ Om du vill kopiera data till och från **Parquet, avgränsad text, Avro eller bi
 
 ### <a name="other-format-dataset"></a>Data uppsättning för andra format
 
-Följande egenskaper stöds för att kopiera data till och från Azure File Storage i **Orc/JSON-format**:
+Följande egenskaper stöds för att kopiera data till och från Azure File Storage i **Orc-format**:
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
@@ -184,12 +184,12 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 ### <a name="azure-file-storage-as-source"></a>Azure-fillagring som källa
 
-- Om du vill kopiera från **Parquet, avgränsad text, Avro och binärt format**, se avsnittet [Parquet, avgränsad text, Avro och binärt format](#format-based-source) .
-- Om du vill kopiera från andra format som **Orc/JSON-format**, se avsnittet [annan format källa](#other-format-source) .
+- Om du vill kopiera från **Parquet, avgränsade text-, JSON-, Avro-och binärformat**, se avsnittet [Parquet, avgränsad text, JSON, Avro och binärt format](#format-based-source) .
+- Om du vill kopiera från andra format som **Orc-format**, se avsnittet [annan format källa](#other-format-source) .
 
-#### <a name="format-based-source"></a>Parquet, avgränsad text, Avro och binär format källa
+#### <a name="format-based-source"></a>Parquet, avgränsad text, JSON, Avro och binär format källa
 
-Om du vill kopiera data från **Parquet, avgränsad text, Avro eller binärt format**, se [Parquet format](format-parquet.md), [avgränsat text format](format-delimited-text.md), [Avro format](format-avro.md) och [binärt format](format-binary.md) artikel med format-baserad kopierings aktivitets källa och inställningar som stöds . Följande egenskaper stöds för Azure File Storage under `storeSettings` inställningar i format-baserad kopierings Källa:
+Om du vill kopiera data från **Parquet, avgränsade text-, JSON-, Avro-och binärformat**, se [Parquet-format](format-parquet.md), [avgränsat text format](format-delimited-text.md), [Avro format](format-avro.md) och [binära format](format-binary.md) artikel för den formatbaserade kopierings aktivitets källan och stöds autentiseringsinställningar. Följande egenskaper stöds för Azure File Storage under `storeSettings` inställningar i format-baserad kopierings Källa:
 
 | Egenskap                 | Beskrivning                                                  | Krävs                                      |
 | ------------------------ | ------------------------------------------------------------ | --------------------------------------------- |
@@ -247,7 +247,7 @@ Om du vill kopiera data från **Parquet, avgränsad text, Avro eller binärt for
 
 #### <a name="other-format-source"></a>Annan format källa
 
-Om du vill kopiera data från Azure File Storage i **Orc/JSON-format**, stöds följande egenskaper i avsnittet Kopiera aktivitets **källa** :
+Om du vill kopiera data från Azure File Storage i **Orc-format**, stöds följande egenskaper i avsnittet Kopiera aktivitets **källa** :
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
@@ -289,12 +289,12 @@ Om du vill kopiera data från Azure File Storage i **Orc/JSON-format**, stöds f
 
 ### <a name="azure-file-storage-as-sink"></a>Azure-fillagring som mottagare
 
-- Om du vill kopiera till **Parquet, avgränsad text, Avro eller binärformat**, se avsnittet [Parquet, avgränsad text, Avro och binärt format](#format-based-sink) .
-- Om du vill kopiera till andra format som **Orc/JSON-format**, se avsnittet [annat format mottagare](#other-format-sink) .
+- Om du vill kopiera till **Parquet, avgränsad text, JSON, Avro och binärt format**, se avsnittet [Parquet, avgränsad text, JSON, Avro och binärt format](#format-based-sink) .
+- Om du vill kopiera till andra format som **Orc-format**, se avsnittet [annat format mottagare](#other-format-sink) .
 
-#### <a name="format-based-sink"></a>Parquet, avgränsad text, Avro och binärt format mottagare
+#### <a name="format-based-sink"></a>Parquet, avgränsad text, JSON, Avro och binärt format mottagare
 
-Om du vill kopiera data till **Parquet, avgränsad text, Avro eller binärt format**, se [Parquet format](format-parquet.md), [avgränsat text format](format-delimited-text.md), [Avro format](format-avro.md) och [binära format](format-binary.md) -artikel i den formatbaserade kopierings aktivitets mottagare och inställningar som stöds. Följande egenskaper stöds för Azure File Storage under `storeSettings` inställningar i format-baserad kopierings mottagare:
+Om du vill kopiera data till **Parquet, avgränsade text-, JSON-, Avro-och binärformat**, referera till [Parquet-format](format-parquet.md), [avgränsat text format](format-delimited-text.md), [Avro format](format-avro.md) och [binära format](format-binary.md) -artikel på formatbaserade kopierings aktivitets mottagare och stöd autentiseringsinställningar. Följande egenskaper stöds för Azure File Storage under `storeSettings` inställningar i format-baserad kopierings mottagare:
 
 | Egenskap                 | Beskrivning                                                  | Krävs |
 | ------------------------ | ------------------------------------------------------------ | -------- |
@@ -342,7 +342,7 @@ Om du vill kopiera data till **Parquet, avgränsad text, Avro eller binärt form
 
 #### <a name="other-format-sink"></a>Övrigt format mottagare
 
-Följande egenskaper stöds i avsnittet **mottagare** för att kopiera data till Azure File Storage i **Orc/JSON-format**:
+För att kopiera data till Azure File Storage i **Orc-format**, stöds följande egenskaper i avsnittet **mottagare** :
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |

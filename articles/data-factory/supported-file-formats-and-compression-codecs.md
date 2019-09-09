@@ -7,14 +7,14 @@ ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 09/04/2019
+ms.date: 09/09/2019
 ms.author: jingwang
-ms.openlocfilehash: b9d853cc0de08b64f2e0f5530e153724d9eeddda
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: 2c8983b5d6a44834d0c9659877c857fd73805ce6
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70277084"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70812304"
 ---
 # <a name="supported-file-formats-and-compression-codecs-in-azure-data-factory"></a>Filformat som stöds och komprimering codec-enheter i Azure Data Factory
 
@@ -87,6 +87,9 @@ Om du vill använda ett `escapeChar` i stället för `quoteChar` ersätter du ra
 * Du kopierar från en textfil och vill hoppa över några rader i början som antingen inte innehåller några data eller som innehåller rubrikinformation. Ange `skipLineCount` för att ange antalet rader som ska hoppas över. Om resten av filen innehåller en rubrikrad kan du också ange `firstRowAsHeader`. Om både `skipLineCount` och `firstRowAsHeader` anges hoppas raderna över först, varefter rubrikinformationen läses från indatafilen
 
 ## <a name="json-format"></a>JSON-format
+
+>[!NOTE]
+>Data Factory introducerade en ny data uppsättning för JSON-format, se [JSON](format-json.md) -artikel med information. Följande konfigurationer på filbaserad data lager data uppsättning stöds fortfarande som-är för bakåtkompatibla compabitility. Du rekommenderas att använda den nya modellen som går framåt.
 
 Att **en JSON-fil som för import/export-är till/från Azure Cosmos DB**, finns i avsnittet för Import/export JSON-dokument i [flytta data till och från Azure Cosmos DB](connector-azure-cosmos-db.md) artikeln.
 

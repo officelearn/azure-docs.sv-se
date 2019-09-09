@@ -7,12 +7,12 @@ ms.author: omidm
 ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 05/06/2019
-ms.openlocfilehash: eb6df3bfda131f00c04499dc80c47482229195a5
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.openlocfilehash: b21847d27dc7f444afaf1b73efa19b0b0087cfe4
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69623905"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70811672"
 ---
 # <a name="use-apache-oozie-with-apache-hadoop-to-define-and-run-a-workflow-on-linux-based-azure-hdinsight"></a>Använd Apache Oozie med Apache Hadoop för att definiera och köra ett arbets flöde på Linux-baserade Azure HDInsight
 
@@ -641,9 +641,9 @@ Du kan använda koordinatorn för att ange en start, en slut punkt och förekoms
     ![Information om koordinator jobb](./media/hdinsight-use-oozie-linux-mac/coordinatorjobinfo.png)
 
     > [!NOTE]  
-    > I den här bilden visas endast lyckade körningar av jobbet, inte de enskilda åtgärderna i det schemalagda arbets flödet. Välj en av åtgärds posterna för att se de enskilda åtgärderna.
+    > I den här bilden visas endast lyckade körningar av jobbet, inte de enskilda åtgärderna i det schemalagda arbets flödet. Välj en av **Åtgärds** posterna för att se de enskilda åtgärderna.
 
-    ![Åtgärds information](./media/hdinsight-use-oozie-linux-mac/coordinatoractionjob.png)
+    ![Information om koordinator åtgärd](./media/hdinsight-use-oozie-linux-mac/coordinatoractionjob.png)
 
 ## <a name="troubleshooting"></a>Felsökning
 
@@ -659,7 +659,7 @@ Följande är vissa fel kan uppstå och hur du löser dem.
 
 ### <a name="ja009-cannot-initialize-cluster"></a>JA009: Det går inte att initiera kluster
 
-**Symptom**: Jobbets status ändras tillinaktive rad. Information för jobbet visar `RunHiveScript` status som **START_MANUAL**. När du väljer åtgärden visas följande fel meddelande:
+**Symptom**: Jobbets status ändras till **inaktive**rad. Information för jobbet visar `RunHiveScript` status som **START_MANUAL**. När du väljer åtgärden visas följande fel meddelande:
 
     JA009: Cannot initialize Cluster. Please check your configuration for map
 
@@ -669,7 +669,7 @@ Följande är vissa fel kan uppstå och hur du löser dem.
 
 ### <a name="ja002-oozie-is-not-allowed-to-impersonate-ltusergt"></a>JA002: Oozie tillåts inte personifiera &lt;användare&gt;
 
-**Symptom**: Jobbets status ändras tillinaktive rad. Information för jobbet visar `RunHiveScript` status som **START_MANUAL**. Om du väljer åtgärden visas följande fel meddelande:
+**Symptom**: Jobbets status ändras till **inaktive**rad. Information för jobbet visar `RunHiveScript` status som **START_MANUAL**. Om du väljer åtgärden visas följande fel meddelande:
 
     JA002: User: oozie is not allowed to impersonate <USER>
 

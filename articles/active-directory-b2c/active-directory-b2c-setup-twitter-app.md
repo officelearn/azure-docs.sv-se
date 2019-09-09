@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/08/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: ff795bbbd3cf136735499b571367cf5b8a6ec170
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.openlocfilehash: 5cb5c5813bff8c0df5b119ea1cadf4f2e7c1696a
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69622160"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70811392"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-twitter-account-using-azure-active-directory-b2c"></a>Konfigurera registrering och inloggning med ett Twitter-konto med hjälp av Azure Active Directory B2C
 
@@ -27,7 +27,7 @@ Om du vill använda Twitter som identitets leverantör i Azure AD B2C måste du 
 1. Välj **skapa en app**.
 1. Ange ett **namn på appen** och en **program beskrivning**.
 1. I **webbplats-URL**anger `https://your-tenant.b2clogin.com`du. Ersätt `your-tenant` med namnet på din klient. Till exempel https://contosob2c.b2clogin.com.
-1. Ange`https://your-tenant.b2clogin.com/your-tenant.onmicrosoft.com/your-user-flow-Id/oauth1/authresp`för återanrops- **URL: en**. Ersätt `your-tenant` med namnet på ditt klient namn och `your-user-flow-Id` med identifieraren för ditt användar flöde. Till exempel `b2c_1A_signup_signin_twitter`. Du måste använda små bokstäver när du anger ditt klient namn även om klienten har definierats med versaler i Azure AD B2C.
+1. Ange`https://your-tenant.b2clogin.com/your-tenant.onmicrosoft.com/your-user-flow-Id/oauth1/authresp`för **ÅTERanrops-URL: en**. Ersätt `your-tenant` med namnet på ditt klient namn och `your-user-flow-Id` med identifieraren för ditt användar flöde. Till exempel `b2c_1A_signup_signin_twitter`. Du måste använda små bokstäver när du anger ditt klient namn och ditt användar flödes-ID även om de definieras med versaler i Azure AD B2C.
 1. Längst ned på sidan, Läs och godkänn villkoren och välj sedan **skapa**.
 1. På sidan **information om appar** väljer du **Redigera > Redigera information**, markerar kryss rutan **Aktivera inloggning med Twitter**och väljer sedan **Spara**.
 1. Välj **nycklar och tokens** och registrera konsument- **API-nyckeln** och de **hemliga nyckel** värden för konsument-API som ska användas senare.

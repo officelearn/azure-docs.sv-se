@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 07/29/2019
+ms.date: 09/9/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 3fd593ff199ff87b1c69e1097852a81a21adc1dd
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: ff267a524001802f8bcd0903fcb7119bab16ef11
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68883960"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70813326"
 ---
 # <a name="boundaries-for-your-luis-model-and-keys"></a>Gränser för din LUIS-modell och nycklar
 LUIS har flera gräns områden. Först är det [modellen gräns](#model-boundaries), som styr avsikter, entiteter och funktioner i LUIS. Det andra området är [kvotgränser](#key-limits) baserat på nyckeltyp. Ett tredje område av gränser är den [tangentbord kombination](#keyboard-controls) för att styra LUIS-webbplatsen. En fjärde området är den [världen regionsmappning](luis-reference-regions.md) mellan LUIS redigering av webbplatsen och LUIS [endpoint](luis-glossary.md#endpoint) API: er. 
@@ -29,6 +29,7 @@ Om din app överskrider LUIS-modellens gränser och gränser bör du överväga 
 |Område|Gräns|
 |--|:--|
 | [Appens namn][luis-get-started-create-app] | \* Standardvärdet max |
+| Program| 500 program per Azure-resurs |
 | [Batch-testning][batch-testing]| 10 datauppsättningar, 1000 yttranden per datauppsättning|
 | Explicit lista | 50 per program|
 | Externa entiteter | inga gränser |
@@ -44,7 +45,7 @@ Om din app överskrider LUIS-modellens gränser och gränser bör du överväga 
 | [roles](luis-concept-roles.md)|300 roller per program. 10 roller per enhet|
 | [Uttryck][utterances] | 500 tecken|
 | [Yttranden][utterances] | 15 000 per program-det finns ingen gräns för antalet yttranden per avsikt|
-| [Versioner](luis-concept-version.md)| ingen gräns |
+| [Versioner](luis-concept-version.md)| 100-versioner per program |
 | [Versions namn][luis-how-to-manage-versions] | begränsad till alfanumeriska tecken och period 10 tecken (.) |
 
 \* Standard tecknet max är 50 tecken. 
@@ -68,6 +69,8 @@ Språk förståelsen har separata nycklar, en typ för redigering och en typ fö
 
 Redigering nyckel har olika begränsningar för redigering och slutpunkten. Slutpunktsnyckeln LUIS-tjänsten är endast giltig för slutpunkten frågor.
 
+* 500 program per Azure-resurs 
+* 100-versioner per program
 
 |Nyckel|Redigering|Slutpunkt|Syfte|
 |--|--|--|--|

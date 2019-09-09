@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 04/08/2019
-ms.openlocfilehash: 8c931521e77123844817dff0e9209f8f95f7ad59
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: f7fc5b32fb18da60816056c72dde8c53d439befe
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70279905"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70812190"
 ---
 # <a name="what-is-azure-sql-database-service"></a>Vad är Azure SQL Database tjänst
 
@@ -54,7 +54,7 @@ Dynamisk skalbarhet skiljer sig från autoskalning. Med Autoskala avses när en 
 ### <a name="purchasing-models-service-tiers-compute-sizes-and-storage-amounts"></a>Inköps modeller, tjänst nivåer, beräknings storlek och lagrings belopp
 
 SQL Database erbjuder två inköps modeller:
-- Med den [vCore-baserade inköps modellen](sql-database-service-tiers-vcore.md) kan du välja antalet virtuella kärnor, mängden eller minnet samt mängden och lagrings hastigheten. Med den vCore-baserade inköps modellen kan du också använda [Azure Hybrid-förmån för SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/) för att få kostnads besparingar. Mer information om Azure Hybrid-förmån finns i [vanliga frågor och svar](#sql-database-frequently-asked-questions-faq).
+- Med den [vCore-baserade inköps modellen](sql-database-service-tiers-vcore.md) kan du välja antalet virtuella kärnor, mängden minne och lagrings hastigheten. Med den vCore-baserade inköps modellen kan du också använda [Azure Hybrid-förmån för SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/) för att få kostnads besparingar. Mer information om Azure Hybrid-förmån finns i [vanliga frågor och svar](#sql-database-frequently-asked-questions-faq).
 - Den [DTU-baserade inköps modellen](sql-database-service-tiers-dtu.md) erbjuder en blandning av beräknings-, minnes-och IO-resurser i tre tjänst nivåer för att stödja lätta till tunga databas arbets belastningar. Beräknings storlekar inom varje nivå ger en annan blandning av dessa resurser, där du kan lägga till ytterligare lagrings resurser.
 
 ### <a name="elastic-pools-to-maximize-resource-utilization"></a>Elastiska pooler som maximerar resursutnyttjandet

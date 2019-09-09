@@ -1,84 +1,83 @@
 ---
-title: Konfigurera IP-adresser för att ansluta till en sekundär lokal plats efter en redundansväxling med Azure Site Recovery | Microsoft Docs
-description: Beskriver hur du ställer in IP-adresser för att ansluta till virtuella datorer på en sekundär lokal plats efter haveriberedskap och redundans med Azure Site Recovery.
-services: site-recovery
+title: Konfigurera IP-adressering för att ansluta till en sekundär lokal plats efter redundansväxlingen med Azure Site Recovery
+description: Beskriver hur du konfigurerar IP-adresser för att ansluta till virtuella datorer på en sekundär lokal plats efter haveri beredskap och redundans med Azure Site Recovery.
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 05/30/2019
+ms.date: 09/09/2019
 ms.author: raynew
-ms.openlocfilehash: 8e4dca61016adce209bdce356ea4280fee525c05
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f158c6b71bb53d6b683577401e625e24808eb7eb
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66397955"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70813682"
 ---
-# <a name="set-up-ip-addressing-to-connect-to-a-secondary-on-premises-site-after-failover"></a>Konfigurera IP-adresser för att ansluta till en sekundär lokal plats efter redundans
+# <a name="set-up-ip-addressing-to-connect-to-a-secondary-on-premises-site-after-failover"></a>Konfigurera IP-adressering för att ansluta till en sekundär lokal plats efter redundans
 
-När du växlar över Hyper-V-datorer i System Center Virtual Machine Manager (VMM)-moln till en sekundär plats måste du kunna ansluta till repliken virtuella datorer. Den här artikeln hjälper dig att göra detta. 
+När du har växlat över virtuella Hyper-V-datorer i System Center Virtual Machine Manager-moln (VMM) till en sekundär plats måste du kunna ansluta till de virtuella replik datorerna. Den här artikeln hjälper dig att göra detta. 
 
-## <a name="connection-options"></a>Anslutningsalternativ
+## <a name="connection-options"></a>Anslutnings alternativ
 
-Det finns ett par olika sätt att hantera IP-adresser för virtuella replikdatorerna efter redundansväxlingen: 
+Efter redundansväxlingen finns det ett par olika sätt att hantera IP-adresser för virtuella replik datorer: 
 
-- **Behålla samma IP-adress efter redundansväxling**: I det här scenariot har den replikerade virtuella datorn samma IP-adress som den primära virtuella datorn. Detta förenklar nätverket utfärdar efter växling vid fel, men det krävs vissa infrastrukturarbete.
-- **Använd en annan IP-adress efter redundansväxling**: I det här scenariot hämtar en ny IP-adress i den virtuella datorn efter redundans. 
+- **Behåll samma IP-adress efter redundans**: I det här scenariot har den replikerade virtuella datorn samma IP-adress som den primära virtuella datorn. Detta fören klar nätverksrelaterade problem efter redundansväxlingen, men kräver en del infrastruktur arbete.
+- **Använd en annan IP-adress efter redundans**: I det här scenariot hämtar den virtuella datorn en ny IP-adress efter redundansväxlingen. 
  
 
-## <a name="retain-the-ip-address"></a>Behålla IP-adressen
+## <a name="retain-the-ip-address"></a>Behåll IP-adressen
 
-Om du vill behålla IP-adresser från den primära platsen efter redundans till den sekundära platsen kan du:
+Om du vill behålla IP-adresserna från den primära platsen efter redundansväxlingen till den sekundära platsen kan du:
 
-- Distribuera ett sträckt undernät mellan primärt och sekundära platser.
-- Utför en fullständig undernät redundansväxling från primär till sekundär plats. Du behöver uppdatera vägar för att ange den nya platsen för IP-adresser.
-
-
-### <a name="deploy-a-stretched-subnet"></a>Distribuera ett sträckt undernät
-
-I en konfiguration för sträckt är undernätet tillgängligt samtidigt i både de primära och sekundära platserna. I ett sträckt undernät när du flyttar en virtuell dator och dess IP-(Layer 3)-adresskonfiguration till den sekundära platsen dirigerar i nätverket automatiskt trafik till den nya platsen. 
-
-- Ur en nivå 2 (data-länk lager) måste du nätverksutrustning som kan hantera ett sträckt VLAN.
-- Genom att utvidga VLAN, utökar potentiella feldomänen till båda platserna. Detta blir en enskild felpunkt. Men det är osannolikt, i ett sådant scenario kanske du inte att kunna isolera en incident, till exempel en broadcast storm. 
+- Distribuera ett utsträckt undernät mellan primära och sekundära platser.
+- Utför en fullständig undernäts växling från den primära till den sekundära platsen. Du måste uppdatera vägar för att ange den nya platsen för IP-adresserna.
 
 
-### <a name="fail-over-a-subnet"></a>Växla över ett undernät
+### <a name="deploy-a-stretched-subnet"></a>Distribuera ett utsträckt undernät
 
-Du kan växla över hela undernätet för att få fördelarna med det sträckta undernätet utan att faktiskt utvidga den. I den här lösningen, ett undernät är tillgängliga på käll- eller plats, men inte i båda samtidigt.
+I en utsträckt konfiguration är under nätet tillgängligt samtidigt på både den primära och den sekundära platsen. När du flyttar en dator och dess IP-adress (Layer 3) till den sekundära platsen i ett utsträckt undernät dirigerar nätverket trafiken automatiskt till den nya platsen. 
 
-- Om du vill behålla IP-adressutrymmet i händelse av redundans kan du programmässigt ordna router-infrastruktur för att flytta undernät från en plats till en annan.
-- När det uppstår redundans, flytta undernät med deras associerade virtuella datorer.
-- Den huvudsakliga Nackdelen med den här metoden är att om ett fel inträffar, måste du flytta hela undernätet.
+- Från ett lager 2-perspektiv (data länk lager) behöver du nätverks utrustning som kan hantera ett utsträckt VLAN.
+- Genom att sträcka ut VLAN utökar den potentiella fel domänen till båda platserna. Det blir en enskild felpunkt. I ett sådant scenario kanske du inte kan isolera en incident, till exempel en sändning storm. 
+
+
+### <a name="fail-over-a-subnet"></a>Redundansväxla ett undernät
+
+Du kan växla över hela under nätet för att få fördelarna med det utsträckta under nätet, utan att faktiskt vidga det. I den här lösningen är ett undernät tillgängligt på käll-eller mål platsen, men inte i båda samtidigt.
+
+- Om du vill underhålla IP-adressutrymmet i händelse av en redundansväxling kan du program mässigt ordna för router-infrastrukturen för att flytta undernät från en plats till en annan.
+- När en redundansväxling inträffar flyttas undernät med tillhör ande virtuella datorer.
+- Den främsta nack delen med den här metoden är att om ett problem uppstår måste du flytta hela under nätet.
 
 #### <a name="example"></a>Exempel
 
-Här är ett exempel på fullständiga undernät redundans. 
+Här är ett exempel på en komplett undernäts växling vid fel. 
 
-- Före redundansväxlingen har den primära platsen program som körs i undernätet 192.168.1.0/24.
-- Under redundansväxlingen, alla de virtuella datorerna i det här undernätet växlas över till den sekundära platsen och behålla sina IP-adresser. 
-- Vägar mellan alla platser måste ändras för att återspegla det faktum att alla virtuella datorer i undernätet 192.168.1.0/24 har nu flyttats till den sekundära platsen.
+- Före redundansväxlingen har den primära platsen program som körs i under nätet 192.168.1.0/24.
+- Under redundansväxlingen växlar alla virtuella datorer i det här under nätet till den sekundära platsen och behåller sina IP-adresser. 
+- Vägar mellan alla platser måste ändras för att återspegla att alla virtuella datorer i under nätet 192.168.1.0/24 nu har flyttats till den sekundära platsen.
 
-På följande bild illustreras undernäten före och efter redundans.
+Följande grafik illustrerar under näten före och efter redundansväxlingen.
 
 
 **Före redundans**
 
 ![Före redundans](./media/hyper-v-vmm-networking/network-design2.png)
 
-**Efter en redundansväxling**
+**Efter redundans**
 
-![Efter en redundansväxling](./media/hyper-v-vmm-networking/network-design3.png)
+![Efter redundans](./media/hyper-v-vmm-networking/network-design3.png)
 
-Efter en redundansväxling tilldelar Webbplatsåterställning en IP-adress för varje nätverksgränssnitt på den virtuella datorn. Adressen allokeras från statisk IP-adresspool i det relevanta nätverket för varje virtuell datorinstans.
+Efter redundansväxlingen allokerar Site Recovery en IP-adress för varje nätverks gränssnitt på den virtuella datorn. Adressen tilldelas från den statiska IP-adresspoolen i det aktuella nätverket, för varje VM-instans.
 
-- Om IP-adresspool på den sekundära platsen är samma som på källplatsen, allokerar Site Recovery samma IP-adress (av den Virtuella källdatorn), till den Virtuella replikdatorn. IP-adressen är reserverad i VMM, men ändra inte IP-adress för växling vid fel på Hyper-V-värden. IP-adress för redundans på en Hyper-v-värden anges precis före redundansväxlingen.
-- Om samma IP-adress inte är tillgängligt, tilldelar Webbplatsåterställning en annan tillgänglig IP-adress från poolen.
-- Site Recovery hanterar inte IP-adresser om virtuella datorer använder DHCP. Du måste kontrollera att DHCP-servern på den sekundära platsen kan allokera adresser från samma intervall som källplatsen.
+- Om IP-adresspoolen på den sekundära platsen är samma som på käll platsen Site Recovery allokerar samma IP-adress (från den virtuella käll datorn) till den virtuella replik datorn. IP-adressen är reserverad i VMM, men den har inte angetts som IP-adress för redundans på Hyper-V-värden. IP-adressen för redundans på en Hyper-v-värd anges precis innan redundansväxlingen.
+- Om samma IP-adress inte är tillgänglig allokerar Site Recovery en annan tillgänglig IP-adress från poolen.
+- Om virtuella datorer använder DHCP hanterar Site Recovery inte IP-adresserna. Du måste kontrol lera att DHCP-servern på den sekundära platsen kan allokera adresser från samma intervall som käll platsen.
 
-### <a name="validate-the-ip-address"></a>Verifiera IP-adress
+### <a name="validate-the-ip-address"></a>Verifiera IP-adressen
 
-När du har aktiverat skydd för en virtuell dator, kan du använda följande exempelskript för att verifiera den adress som tilldelats den virtuella datorn. Den här IP-adressen är värdet som IP-adress för redundans och tilldelas den virtuella datorn vid redundansväxlingen:
+När du har aktiverat skydd för en virtuell dator kan du använda följande exempel skript för att verifiera den adress som tilldelats den virtuella datorn. Den här IP-adressen har angetts som IP-adress för redundans och tilldelas den virtuella datorn vid tidpunkten för redundans:
 
     ```
     $vm = Get-SCVirtualMachine -Name <VM_NAME>
@@ -89,10 +88,10 @@ När du har aktiverat skydd för en virtuell dator, kan du använda följande ex
 
 ## <a name="use-a-different-ip-address"></a>Använd en annan IP-adress
 
-IP-adresserna för virtuella datorer som redundansväxlar i det här scenariot har ändrats. Nackdel med den här lösningen är underhållet krävs.  DNS- och cache poster kan behöva uppdateras. Detta kan leda till driftstopp och kan undvikas på följande sätt:
+I det här scenariot ändras IP-adresserna för de virtuella datorer som växlar över. Nack delarna med den här lösningen är underhållet som krävs.  DNS-och cache-poster kan behöva uppdateras. Detta kan resultera i stillestånds tid, vilket kan minskas på följande sätt:
 
-- Använd låg TTL-värden för intranätprogram.
-- Använd följande skript i en återställningsplan för Site Recovery för en rimlig uppdatering av DNS-servern. Du behöver inte skriptet om du använder dynamisk DNS-registrering.
+- Använd låga TTL-värden för intranät program.
+- Använd följande skript i en Site Recovery återställnings plan för en tids uppdatering av DNS-servern. Du behöver inte skriptet om du använder dynamisk DNS-registrering.
 
     ```
     param(
@@ -108,25 +107,25 @@ IP-adresserna för virtuella datorer som redundansväxlar i det här scenariot h
     
 ### <a name="example"></a>Exempel 
 
-I det här exemplet har vi olika IP-adresser mellan primära och sekundära platser och det finns en tredje plats från vilka program som körs på den primära eller recovery webbplatsen är tillgänglig.
+I det här exemplet har vi olika IP-adresser för primära och sekundära platser och det finns en tredje plats från vilken program som finns på den primära platsen eller återställnings platsen kan nås.
 
-- Appar är före redundans, värdbaserade undernät 192.168.1.0/24 på den primära platsen.
-- Appar är konfigurerade i undernätet 172.16.1.0/24 på den sekundära platsen efter redundansväxlingen.
-- Alla tre platser har åtkomst till varandra.
-- Appar kommer att återställas i undernätet för återställning efter redundansväxlingen.
-- Det finns inget behov att växla över hela undernätet i det här scenariot och inga ändringar behövs för att konfigurera om VPN- eller nätverksvägar. Se till att programmen är tillgängliga för växling vid fel och vissa uppdateringar av DNS.
-- Om DNS är konfigurerad för att tillåta dynamiska uppdateringar, ska sedan de virtuella datorerna registrera sig med den nya IP-adressen när de startar efter en redundansväxling.
+- Före redundans är apparna värdbaserade undernät 192.168.1.0/24 på den primära platsen.
+- Efter redundansväxlingen konfigureras appar i under nätet 172.16.1.0/24 på den sekundära platsen.
+- Alla tre platserna har åtkomst till varandra.
+- Efter redundansväxlingen kommer appar att återställas i återställnings under nätet.
+- I det här scenariot behöver du inte redundansväxla hela under nätet och inga ändringar krävs för att konfigurera om VPN-eller nätverks vägar. Redundansväxlingen och vissa DNS-uppdateringar kontrollerar att programmen är tillgängliga.
+- Om DNS är konfigurerat för att tillåta dynamiska uppdateringar registrerar de virtuella datorerna sig själva med den nya IP-adressen när de startar efter redundansväxlingen.
 
 **Före redundans**
 
-![Olika IP-adress – före redundans](./media/hyper-v-vmm-networking/network-design10.png)
+![Annan IP-adress – före redundans](./media/hyper-v-vmm-networking/network-design10.png)
 
-**Efter en redundansväxling**
+**Efter redundans**
 
-![Annan IP-adress - efter redundans](./media/hyper-v-vmm-networking/network-design11.png)
+![Annan IP-adress – efter redundans](./media/hyper-v-vmm-networking/network-design11.png)
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Köra en redundans](hyper-v-vmm-failover-failback.md)
+[Köra en redundansväxling](hyper-v-vmm-failover-failback.md)
 

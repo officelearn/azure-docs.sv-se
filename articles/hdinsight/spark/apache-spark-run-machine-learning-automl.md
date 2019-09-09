@@ -7,14 +7,14 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 01/14/2019
-ms.openlocfilehash: aaea8a1af7ad6df89d41dc0e39d13bafbb610224
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.openlocfilehash: 599fa62d253eda7992d7d7db4f5178d3ce428a9c
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70736048"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70814051"
 ---
-# <a name="run-azure-machine-learning-workloads-with-automated-machine-learning-automl-on-apache-spark-in-azure-hdinsight"></a>Kör Azure Machine Learning-arbetsbelastningar med automatiserad Machine Learning (AutoML) på Apache Spark i Azure HDInsight
+# <a name="run-azure-machine-learning-workloads-with-automated-machine-learning-on-apache-spark-in-hdinsight"></a>Kör Azure Machine Learning arbets belastningar med automatiserad maskin inlärning på Apache Spark i HDInsight
 
 Azure Machine Learning fören klar och påskyndar byggnaden, utbildningen och distributionen av Machine Learning-modeller. I Automated Machine Learning (AutoML) börjar du med tränings data som har en definierad mål funktion och går sedan igenom kombinationer av algoritmer och funktions val för att automatiskt välja den bästa modellen för dina data baserat på utbildnings poängen. Med HDInsight kan kunderna etablera kluster med hundratals noder. AutoML som körs i spark i ett HDInsight-kluster gör att användarna kan använda beräknings kapacitet över dessa noder för att köra utbildnings jobb på ett skalbart sätt och för att köra flera utbildnings jobb parallellt. Detta gör att användarna kan köra AutoML experiment samtidigt som de delar beräkningen med sina andra Big data-arbetsbelastningar.
  

@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
-ms.date: 08/30/2019
-ms.openlocfilehash: 65a75bc3a2e7ab2361ee8ae53d11ba1604c1d1ef
-ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
+ms.date: 09/06/2019
+ms.openlocfilehash: a80e1d0e4aa243d46efa79173af3fc5d774eb46f
+ms.sourcegitcommit: b8578b14c8629c4e4dea4c2e90164e42393e8064
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2019
-ms.locfileid: "70208355"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70806603"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Använd grupper för automatisk redundans för att aktivera transparent och samordnad redundansväxling av flera databaser
 
@@ -191,6 +191,9 @@ Om programmet använder hanterad instans som datanivå, följer du dessa allmän
 
   För att säkerställa icke-avbruten anslutning till den primära instansen efter redundans måste båda de primära och sekundära instanserna finnas i samma DNS-zon. Det garanterar att samma certifikat för flera domäner (SAN) kan användas för att autentisera klient anslutningarna till någon av de två instanserna i gruppen redundans. När programmet är redo för produktions distribution skapar du en sekundär instans i en annan region och kontrollerar att den delar DNS-zonen med den primära instansen. Du kan göra det genom att ange `DNS Zone Partner` en valfri parameter med hjälp av Azure Portal, PowerShell eller REST API. 
 
+> [!IMPORTANT]
+> Första instansen som skapades i under nätet bestämmer DNS-zonen för alla efterföljande instanser i samma undernät. Det innebär att två instanser från samma undernät inte kan tillhöra olika DNS-zoner.   
+
   Mer information om hur du skapar den sekundära instansen i samma DNS-zon som den primära instansen finns i [skapa en sekundär hanterad instans](sql-database-managed-instance-failover-group-tutorial.md#3---create-a-secondary-managed-instance).
 
 - **Aktivera replikeringstrafik mellan två instanser**
@@ -237,6 +240,10 @@ Om programmet använder hanterad instans som datanivå, följer du dessa allmän
 
   > [!IMPORTANT]
   > Använd manuell gruppredundans för att flytta presidentval tillbaka till den ursprungliga platsen. När det avbrott som orsakade redundansväxlingen minskas kan du flytta dina primära databaser till den ursprungliga platsen. Om du vill göra det ska du initiera den manuella redundansväxlingen av gruppen.
+
+- **Bekräfta kända begränsningar för redundans grupper**
+
+  Storleks ändring av databas och ändra instans stöds inte för instanser i gruppen för växling vid fel. Du måste tillfälligt ta bort en redundans grupp för att kunna utföra dessa åtgärder.
 
 ## <a name="failover-groups-and-network-security"></a>Failover-grupper och nätverks säkerhet
 
@@ -316,7 +323,7 @@ Information om hur du använder återställning av punkt-till-tid med failover-g
 
 ## <a name="programmatically-managing-failover-groups"></a>Hantera failover-grupper program mässigt
 
-Som tidigare nämnts kan grupper för automatisk redundans och aktiv geo-replikering också hanteras program mässigt med hjälp av Azure PowerShell och REST API. I följande tabeller beskrivs en uppsättning kommandon som är tillgängliga. Aktiv geo-replikering innehåller en uppsättning Azure Resource Manager-API: er för hantering, inklusive [Azure SQL Database REST API](https://docs.microsoft.com/rest/api/sql/) och [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)-cmdletar. Dessa API: er kräver användning av resurs grupper och stöd för rollbaserad säkerhet (RBAC). Mer information om hur du implementerar åtkomst roller finns i [Azure Role-Based Access Control](../role-based-access-control/overview.md).
+Som tidigare nämnts kan grupper för automatisk redundans och aktiv geo-replikering också hanteras program mässigt med hjälp av Azure PowerShell och REST API. I följande tabeller beskrivs en uppsättning kommandon som är tillgängliga. Aktiv geo-replikering innehåller en uppsättning Azure Resource Manager-API: er för hantering, inklusive [Azure SQL Database REST API](https://docs.microsoft.com/rest/api/sql/) och [Azure PowerShell-cmdletar](https://docs.microsoft.com/powershell/azure/overview). Dessa API: er kräver användning av resurs grupper och stöd för rollbaserad säkerhet (RBAC). Mer information om hur du implementerar åtkomst roller finns i [Azure Role-Based Access Control](../role-based-access-control/overview.md).
 
 ### <a name="powershell-manage-sql-database-failover-with-single-databases-and-elastic-pools"></a>PowerShell: Hantera SQL Database-redundans med enkla databaser och elastiska pooler
 

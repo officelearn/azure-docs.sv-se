@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 8/27/2019
 ms.author: rkarlin
-ms.openlocfilehash: df487b5d16568605544fb69111579bd4a9fb045f
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.openlocfilehash: 9f757d5fb2c8d3a807e325068d386e16a7d6caa7
+ms.sourcegitcommit: b8578b14c8629c4e4dea4c2e90164e42393e8064
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70047609"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70806564"
 ---
 # <a name="manage-security-incidents-in-azure-security-center"></a>Hantera säkerhets incidenter i Azure Security Center
 
@@ -41,7 +41,7 @@ I Security Center är en säkerhetsincident en sammanställning av alla aviserin
 
     ![Svara på säkerhets incidenter i Azure Security Center](./media/security-center-managing-and-responding-alerts/security-center-alert-incident.png)
 
-1. Klicka på en avisering om du vill ha mer information om varje avisering. Vilka åtgärder som föreslås av Security Center varierar beroende på typ av säkerhetsavisering. Vilka åtgärder som föreslås av Security Center varierar beroende på typ av säkerhetsavisering. 
+1. Klicka på en avisering om du vill ha mer information om varje avisering. Vilka åtgärder som föreslås av Security Center varierar beroende på typ av säkerhetsavisering.
 
    > [!NOTE]
    > Samma avisering kan finnas som en del av en incident, och visas som en fristående avisering.

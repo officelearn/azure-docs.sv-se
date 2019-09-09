@@ -151,7 +151,7 @@ Alla händelser som innehåller samma översta data:
 | Egenskap | Typ | Beskrivning |
 | -------- | ---- | ----------- |
 | id | string | Unik identifierare för händelsen. |
-| topic | string | Fullständig resurssökväg till händelsekällan. Det här fältet är skrivskyddat. Event Grid ger det här värdet. |
+| subject | string | Fullständig resurssökväg till händelsekällan. Det här fältet är skrivskyddat. Event Grid ger det här värdet. |
 | subject | string | Publisher-definierade sökvägen till ämne för händelsen. |
 | eventType | string | En av typerna som registrerade händelsen för den här händelsekällan. |
 | eventTime | string | Den tid som händelsen genereras baserat på leverantörens UTC-tid. |
@@ -173,7 +173,7 @@ För **enheten ansluten** och **enheten frånkopplad** IoT Hub-händelser, datao
 | Egenskap | Typ | Beskrivning |
 | -------- | ---- | ----------- |
 | moduleId | string | Den unika identifieraren för modulen. Det här fältet är utdata bara för modulen enheter. Den här skiftlägeskänsliga strängar kan innehålla upp till 128 tecken och har stöd för ASCII 7 bitar alfanumeriska tecken och följande specialtecken: `- : . + % _ # * ? ! ( ) , = @ ; $ '`. |
-| deviceConnectionStateEventInfo | objekt | Anslutningen händelseinformation om enhetstillstånd
+| deviceConnectionStateEventInfo | object | Anslutningen händelseinformation om enhetstillstånd
 | sequenceNumber | string | Ett tal som hjälper dig att ange ordningen på enheter som är kopplade eller enhet kopplas bort händelser. Senaste händelsen kommer att ha ett sekvensnummer som är högre än föregående händelse. Det här antalet kan ändras med mer än 1, men strikt ökar. Se [hur du använder sekvensnummer](../iot-hub/iot-hub-how-to-order-connection-state-events.md). |
 
 För **Enhetstelemetri** IoT Hub-händelse, dataobjektet innehåller meddelandet med enhet till molnet i [IoT hub-meddelandeformat](../iot-hub/iot-hub-devguide-messages-construct.md) och har följande egenskaper:
@@ -188,7 +188,7 @@ För **skapa enhet** och **enheten bort** IoT Hub-händelser, dataobjektet inneh
 
 | Egenskap | Typ | Beskrivning |
 | -------- | ---- | ----------- |
-| twin | objekt | Information om enhetstvillingen, som är molnet-representation av enhetsmetadata för programmet. | 
+| twin | object | Information om enhetstvillingen, som är molnet-representation av enhetsmetadata för programmet. | 
 | deviceID | string | Den unika identifieraren för enhetstvillingen. | 
 | etag | string | En systemhälsoverifierare för att säkerställa konsekvens för uppdateringar av en enhetstvilling. Varje etag garanteras vara unikt per enhetstvillingen. |  
 | deviceEtag| string | En systemhälsoverifierare för att säkerställa konsekvens av uppdateringar till en enhetsregister. Varje deviceEtag garanteras vara unikt per enhetsregister. |
@@ -202,8 +202,8 @@ För **skapa enhet** och **enheten bort** IoT Hub-händelser, dataobjektet inneh
 | primaryThumbprint | string | Primära tumavtrycket för x509 certifikat. |
 | secondaryThumbprint | string | Sekundära tumavtrycket för x509 certifikat. | 
 | version | heltal | Ett heltal som ökas med 1 varje gång enheten twin uppdateras. |
-| desired | objekt | En del av de egenskaper som kan skrivas endast med program backend- och läsas av enheten. | 
-| reported | objekt | En del av de egenskaper som kan skrivs endast av enheten och läses av programmet backend-server. |
+| desired | object | En del av de egenskaper som kan skrivas endast med program backend- och läsas av enheten. | 
+| reported | object | En del av de egenskaper som kan skrivs endast av enheten och läses av programmet backend-server. |
 | lastUpdated | string | Uppdatera ISO8601-tidsstämpel för den senaste twin enhetsegenskapen. | 
 
 ## <a name="next-steps"></a>Nästa steg

@@ -1,61 +1,61 @@
 ---
-title: Redundansväxla och återställa virtuella Hyper-V-datorer som replikeras till ett sekundärt Datacenter för haveriberedskap med Azure Site Recovery | Microsoft Docs
-description: Lär dig hur du växlar över Hyper-V-datorer till din sekundära lokala platsen och växla tillbaka till primär plats under haveriberedskap med Azure Site Recovery.
+title: Redundansväxla och återställa virtuella Hyper-V-datorer som replikeras till ett sekundärt Data Center under haveri beredskap med Azure Site Recovery | Microsoft Docs
+description: Lär dig hur du växlar över virtuella Hyper-V-datorer till den sekundära lokala platsen och växlar tillbaka till den primära platsen under haveri beredskap med Azure Site Recovery.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 05/30/2019
+ms.date: 09/09/2019
 ms.author: raynew
-ms.openlocfilehash: 39b2e4f37abe77439410fa4a83e06a0ca7941787
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f93c9bd679272f76665a6c8e4a0c611327699839
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66398003"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70813699"
 ---
-# <a name="fail-over-and-fail-back-hyper-v-vms-replicated-to-your-secondary-on-premises-site"></a>Redundansväxla och återställa Hyper-V-datorer som replikeras till din sekundära lokala platsen
+# <a name="fail-over-and-fail-back-hyper-v-vms-replicated-to-your-secondary-on-premises-site"></a>Redundansväxla och återställa virtuella Hyper-V-datorer som replikeras till den sekundära lokala platsen
 
-Den [Azure Site Recovery](site-recovery-overview.md) tjänsten hanterar och samordnar replikering, redundans och återställning efter fel för lokala datorer och virtuella Azure-datorer (VM).
+Tjänsten [Azure Site Recovery](site-recovery-overview.md) hanterar och dirigerar replikering, redundans och återställning efter fel för lokala datorer och virtuella datorer i Azure.
 
-Den här artikeln beskriver hur du redundansväxlar en Hyper-V virtuell dator som hanteras i ett System Center Virtual Machine Manager (VMM)-moln till en sekundär VMM-plats. När du har redundansväxlat kan du återställa till den lokala platsen när den är tillgänglig. I den här artikeln kan du se hur du:
+Den här artikeln beskriver hur du växlar över en virtuell Hyper-V-dator som hanteras i ett System Center Virtual Machine Manager-moln (VMM) till en sekundär VMM-plats. När du har redundansväxlat kan du återställa till den lokala platsen när den är tillgänglig. I den här artikeln kan du se hur du:
 
 > [!div class="checklist"]
-> * Redundansväxla en Hyper-V virtuell dator från en primär VMM-moln till en sekundär VMM-moln
-> * Skydda datorer igen från den sekundära platsen till primärt och återställning
-> * Du kan också starta replikering från primära till sekundära igen
+> * Redundansväxla en virtuell Hyper-V-dator från ett primärt VMM-moln till ett sekundärt VMM-moln
+> * Skydda från den sekundära platsen till den primära platsen och växla tillbaka
+> * Du kan också starta replikering från primär till sekundär igen
 
 ## <a name="failover-and-failback"></a>Redundans och återställning efter fel
 
 Redundans och återställning efter fel har tre steg:
 
-1. **Växla över till en sekundär plats**: Redundansväxla datorer från den primära platsen till sekundärt.
-2. **Redundansväxla från den sekundära platsen**: Replikera virtuella datorer från sekundär till primär och kör en planerad redundans ska återställas.
-3. Efter den planerade redundansväxlingen att du kan också starta replikeras från den primära platsen till sekundärt igen.
+1. **Redundansväxla till sekundär plats**: Redundansväxla datorer från den primära platsen till den sekundära.
+2. **Växla tillbaka från den sekundära platsen**: Replikera virtuella datorer från sekundär till primär och kör en planerad redundansväxling för att återställa igen.
+3. Efter den planerade redundansväxlingen kan du också starta replikeringen från den primära platsen till den sekundära igen.
 
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
-- Kontrollera att du har slutfört en [programåterställningstest](hyper-v-vmm-test-failover.md) att kontrollera att allt fungerar som förväntat.
-- Kontrollera att den primära och sekundära VMM-servern är ansluten till Site Recovery för att slutföra återställning efter fel.
+- Kontrol lera att du har slutfört en [haveri beredskap](hyper-v-vmm-test-failover.md) för att kontrol lera att allt fungerar som förväntat.
+- Slutför återställning efter fel genom att kontrol lera att de primära och sekundära VMM-servrarna är anslutna till Site Recovery.
 
 
 
-## <a name="run-a-failover-from-primary-to-secondary"></a>Kör en växling från primär till sekundär
+## <a name="run-a-failover-from-primary-to-secondary"></a>Köra en redundansväxling från primär till sekundär
 
-Du kan köra en vanlig eller planerad redundans för Hyper-V-datorer.
+Du kan köra en regelbunden eller planerad redundansväxling för virtuella Hyper-V-datorer.
 
-- Använda en vanlig växling vid fel för oväntade avbrott. När du kör den här redundansen, Site Recovery skapar en virtuell dator på den sekundära platsen och aktiverar den upp. Dataförlust kan inträffa beroende på väntar på data som inte har synkroniserats.
-- En planerad redundans kan användas för underhåll, eller under förväntade avbrott. Det här alternativet ger ingen dataförlust. När en planerad redundans utlöses, Stäng virtuella källdatorn av. Osynkroniserade data synkroniseras och redundansen utlöses. 
+- Använd vanlig redundans för oväntade avbrott. När du kör den här redundansväxlingen skapar Site Recovery en virtuell dator på den sekundära platsen och skapar en säkerhets kopierings plats. Data förlust kan ske beroende på väntande data som inte har synkroniserats.
+- En planerad redundansväxling kan användas för underhåll eller vid förväntat avbrott. Det här alternativet ger ingen data förlust. När en planerad redundansväxling utlöses stängs de virtuella käll datorerna. Osynkroniserade data synkroniseras och redundansväxlingen utlöses. 
 - 
-  Den här proceduren beskriver hur du kör en vanlig växling vid fel.
+  Den här proceduren beskriver hur du kör en vanlig redundans.
 
 
 1. I **Inställningar** > **Replikerade objekt** klickar du på VM > **+Redundans**.
-1. Välj **Stäng datorn innan du påbörjar redundans** om du vill använda Site Recovery för att stänga av virtuella källdatorer innan du utlöser redundansväxlingen. Site Recovery kommer också att försöka synkronisera lokala data som ännu inte har skickats till den sekundära platsen innan du utlöser redundansväxlingen. Observera att redundansväxlingen fortsätter även om avstängningen misslyckas. Du kan följa redundansförloppet på sidan **Jobb**.
-2. Du bör nu kunna se den virtuella datorn i sekundär VMM-molnet.
-3. När du har kontrollerat den virtuella datorn, **genomför** växling vid fel. Detta tar bort alla tillgängliga återställningspunkter.
+1. Välj **Stäng datorn innan du påbörjar redundans** om du vill att Site Recovery försöker stänga av virtuella käll datorer innan du utlöser redundansväxlingen. Site Recovery kommer också att försöka synkronisera lokala data som ännu inte har skickats till den sekundära platsen, innan redundansväxlingen utlöses. Observera att redundansväxlingen fortsätter även om avstängningen Miss lyckas. Du kan följa redundansförloppet på sidan **Jobb**.
+2. Du bör nu kunna se den virtuella datorn i det sekundära VMM-molnet.
+3. När du har verifierat den virtuella datorn **genomför** du redundansväxlingen. Detta tar bort alla tillgängliga återställningspunkter.
 
 > [!WARNING]
 > **Avbryt inte en redundansväxling som pågår**: Innan redundans startas stoppas den virtuella datorreplikeringen. Om du avbryter en pågående redundans så stoppas redundansen, men den virtuella datorn kommer inte att replikeras igen.  
@@ -63,14 +63,14 @@ Du kan köra en vanlig eller planerad redundans för Hyper-V-datorer.
 
 ## <a name="reverse-replicate-and-failover"></a>Omvänd replikering och redundans
 
-Börja replikera från den sekundära platsen till primärt och växla tillbaka till den primära platsen. När virtuella datorer har körts på den primära platsen igen kan du replikera dem till den sekundära platsen.  
+Starta replikeringen från den sekundära platsen till den primära platsen och växla tillbaka till den primära platsen. När de virtuella datorerna körs på den primära platsen igen kan du replikera dem till den sekundära platsen.  
 
  
-1. Klicka på den virtuella datorn > Klicka på **omvänd replikera**.
-2. När jobbet har slutförts, klickar du på den virtuella datorn > i **redundans**kontrollerar redundansriktning (från sekundär VMM-moln) och välj käll- och målplatserna. 
+1. Klicka på den virtuella datorn > Klicka på **omvänd replikering**.
+2. När jobbet har slutförts klickar du på den virtuella datorn > i **redundansväxlingen**, kontrollerar redundansväxlingen (från sekundärt VMM-moln) och väljer käll-och mål platserna. 
 4. Starta redundansväxlingen. Du kan följa redundansförloppet på fliken **Jobb**.
-5. Kontrollera att den virtuella datorn är tillgänglig i det primära VMM-molnet.
-6. Om du vill börja replikera den primära virtuella datorn till den sekundära platsen igen, klickar du på **omvänd replikera**.
+5. I det primära VMM-molnet kontrollerar du att den virtuella datorn är tillgänglig.
+6. Om du vill påbörja replikeringen av den primära virtuella datorn till den sekundära platsen igen klickar du på **omvänd replikering**.
 
 ## <a name="next-steps"></a>Nästa steg
-[Granska steget](hyper-v-vmm-disaster-recovery.md) för att replikera Hyper-V-datorer till en sekundär plats.
+[Granska steget](hyper-v-vmm-disaster-recovery.md) för att replikera virtuella Hyper-V-datorer till en sekundär plats.

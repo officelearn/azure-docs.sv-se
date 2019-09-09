@@ -1,6 +1,6 @@
 ---
 title: Köra anpassade MapReduce-program – Azure HDInsight
-description: När och hur du kan köra anpassade MapReduce-program i HDInsight.
+description: När och hur du kör anpassade Apache MapReduce-program i Azure HDInsight-kluster.
 author: ashishthaps
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -8,71 +8,71 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 12/04/2017
 ms.author: ashishth
-ms.openlocfilehash: 5ed82fc21aedc9af394922059859f81cfba1867e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 305eefbaa674e414ab8134986e6cd526abe8208e
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64713102"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70810737"
 ---
 # <a name="run-custom-mapreduce-programs"></a>Köra anpassade MapReduce-program
 
-Apache Hadoop-baserade stordata system, till exempel HDInsight aktivera databearbetning med hjälp av en mängd olika verktyg och tekniker. I följande tabell beskrivs de huvudsakliga fördelar och överväganden för vart och ett.
+Apache Hadoop-baserade Big data system som HDInsight möjliggör data bearbetning med en mängd olika verktyg och tekniker. I följande tabell beskrivs de största fördelarna och övervägandena för var och en.
 
-| Mekanism för fråga | Fördelar | Överväganden |
+| Frågans mekanism | Fördelar | Överväganden |
 | --- | --- | --- |
-| **Apache Hive med HiveQL** | <ul><li>En utmärkt lösning för satsvis bearbetning och analys av stora mängder data som inte kan ändras för sammanfatta data, och på begäran frågor. Den använder en välbekant SQL-liknande syntax.</li><li>Den kan användas för att producera beständiga datatabeller som enkelt kan partitioneras och indexeras.</li><li>Du kan skapa flera externa tabeller och vyer över samma data.</li><li>Det stöder en enkel data warehouse-implementering med omfattande funktioner för skalbarhet och feltolerans för datalagring och bearbetning.</li></ul> | <ul><li>Det krävs källdata till ha åtminstone vissa identifierbar struktur.</li><li>Det är inte lämpligt för förfrågningar i realtid och uppdateringar för raden. Det är bäst för batch-jobb över stora mängder data.</li><li>Det kanske inte kan utföra vissa typer av komplexa uppgifter.</li></ul> |
-| **Apache Pig med Pig Latin** | <ul><li>En utmärkt lösning för att manipulera data som du anger, sammanslagning och filtrering datauppsättningar, tillämpar funktioner på poster eller grupper av poster, och för omstrukturering av data genom att definiera kolumner, gruppering värden eller genom att omvandla kolumner till rader.</li><li>Det kan använda en arbetsflödesbaserad metod som en sekvens med åtgärder på data.</li></ul> | <ul><li>SQL-användare kan hitta Pig Latin är mindre vanliga och svårare att använda än HiveQL.</li><li>Standardutdata är vanligtvis en textfil och det kan vara svårare att använda med visualiseringsverktyg, till exempel Excel. Du kommer vanligtvis lager med en Hive-tabell över utdata.</li></ul> |
-| **Anpassad karta/minska** | <ul><li>Det ger fullständig kontroll över kartan och minska faser och körning.</li><li>Det gör att frågor optimeras för att få maximala prestanda från klustret eller för att minimera belastningen på servrarna och nätverk.</li><li>Komponenterna kan skrivas i ett antal välkända språk.</li></ul> | <ul><li>Det är svårare än att använda Pig- eller Hive eftersom du måste skapa din egen karta och minska komponenter.</li><li>Det är svårare att implementera processer som behöver ansluta till datauppsättningar.</li><li>Även om det finns Testramverk, är felsökning kod mer komplex än en normal programmet eftersom koden körs som ett batchjobb kontrolleras av jobbschemat Hadoop.</li></ul> |
-| **Apache HCatalog** | <ul><li>Den avlägsnar sökvägsinformationen lagring, vilket gör administration och ta bort behovet av att veta var data lagras.</li><li>Det gör att meddelanden om händelser, till exempel datatillgänglighet, vilket gör att andra verktyg som Oozie att upptäcka när åtgärder har inträffat.</li><li>Den visar en relationell vy av data, inklusive partitionerade efter nyckel, och gör det enkelt att komma åt data.</li></ul> | <ul><li>Det stöder RCFile, CSV, text, JSON-text, SequenceFile och ORC-filformat som standard, men du kan behöva skriva en anpassad SerDe för andra format.</li><li>HCatalog är inte trådsäker.</li><li>Det finns vissa begränsningar för-datatyper för kolumner när du använder HCatalog-inläsaren i Pig-skript. Mer information finns i [HCatLoader datatyper](https://cwiki.apache.org/confluence/display/Hive/HCatalog%20LoadStore#HCatalogLoadStore-HCatLoaderDataTypes) i Apache HCatalog-dokumentationen.</li></ul> |
+| **Apache Hive med HiveQL** | <ul><li>En utmärkt lösning för batchbearbetning och analys av stora mängder oföränderliga data, för data Sammanfattning och för frågor på begäran. Den använder en välbekant SQL-liknande syntax.</li><li>Den kan användas för att skapa permanenta data tabeller som enkelt kan partitioneras och indexeras.</li><li>Flera externa tabeller och vyer kan skapas över samma data.</li><li>Den har stöd för en enkel data lager implementering som ger enorma skalbara och fel tolerans funktioner för data lagring och bearbetning.</li></ul> | <ul><li>Det kräver att källdata har minst viss identifierbar struktur.</li><li>Det är inte lämpligt för real tids frågor och uppdateringar på radnivå. Den används bäst för batch-jobb över stora data uppsättningar.</li><li>Det kanske inte går att utföra vissa typer av komplexa bearbetnings uppgifter.</li></ul> |
+| **Apache gris som använder gris Latin** | <ul><li>En utmärkt lösning för att manipulera data som uppsättningar, sammanslagning och filtrering av data uppsättningar, tillämpa funktioner på poster eller grupper med poster och för att omstrukturera data genom att definiera kolumner, gruppera värden eller konvertera kolumner till rader.</li><li>Den kan använda en arbets flödes-baserad metod som en sekvens med åtgärder för data.</li></ul> | <ul><li>SQL-användare kan hitta gris Latin är mindre välbekant och svårare att använda än HiveQL.</li><li>Standardutdata är vanligt vis en textfil och kan vara svårare att använda med visualiserings verktyg som Excel. Normalt kommer du att skikta en Hive-tabell över utdata.</li></ul> |
+| **Anpassad karta/minska** | <ul><li>Den ger fullständig kontroll över kartan och minskar fasen och körningen.</li><li>Den tillåter att frågor optimeras för att uppnå högsta prestanda från klustret, eller för att minimera belastningen på servrarna och nätverket.</li><li>Komponenterna kan skrivas i ett intervall med välkända språk.</li></ul> | <ul><li>Det är svårare än att använda gris eller Hive eftersom du måste skapa en egen karta och minska komponenterna.</li><li>Processer som kräver koppling av data uppsättningar är svårare att implementera.</li><li>Även om det finns tillgängliga test ramverk är fel söknings kod mer komplex än ett normalt program eftersom koden körs som ett batch-jobb för kontrollen av Hadoop-jobbschemaläggaren.</li></ul> |
+| **Apache HCatalog** | <ul><li>Den sammanfattar Sök vägs informationen för lagringen, underlättar administrationen och tar bort behovet av användare för att veta var data lagras.</li><li>Den aktiverar meddelanden om händelser som data tillgänglighet, vilket gör att andra verktyg som Oozie kan upptäcka när åtgärder har inträffat.</li><li>Den visar en relationell vy över data, inklusive partitionering efter nyckel och gör det lätt att komma åt data.</li></ul> | <ul><li>Det stöder RCFile-, CSV-text, JSON-text, SequenceFile och ORC fil format som standard, men du kan behöva skriva en anpassad SerDe för andra format.</li><li>HCatalog är inte tråd säker.</li><li>Det finns vissa begränsningar av data typerna för kolumner när du använder HCatalog-inläsaren i gris-skript. Mer information finns i [HCatLoader data types](https://cwiki.apache.org/confluence/display/Hive/HCatalog%20LoadStore#HCatalogLoadStore-HCatLoaderDataTypes) in the Apache HCatalog-dokumentationen.</li></ul> |
 
-Normalt använder du de enklaste metoderna som ger de resultat som du behöver. Exempelvis kan du nå dessa resultat med hjälp av bara Hive, men för mer komplicerade scenarier du kan behöva använda Pig, eller även skriva din egen kartan och minska komponenter. Du kan också bestämma när du experimentera med Hive och Pig, som anpassade mappar och minska komponenter kan ge bättre prestanda genom att du kan finjustera och optimera bearbetningen.
+Normalt använder du den enklaste av dessa metoder som kan ge de resultat du behöver. Till exempel kanske du kan få sådana resultat genom att använda bara Hive, men för mer komplexa scenarier kan du behöva använda gris eller till och med skriva din egen karta och minska komponenter. Du kan också bestämma att när du experimenterar med Hive eller gris, kan den anpassade kartan och minska komponenter ge bättre prestanda genom att göra det möjligt att finjustera och optimera bearbetningen.
 
 ## <a name="custom-mapreduce-components"></a>Anpassad karta/minska komponenter
 
-Kartan/minska kod består av två separata funktioner som implementerats som **kartan** och **minska** komponenter. Den **kartan** komponenten körs parallellt på flera klusternoder varje nod tillämpa mappningen på nodens egna delmängd av data. Den **minska** komponenten sorterar och sammanfattar resultaten från alla funktioner i kartan. Mer information om dessa två komponenter finns i [använda MapReduce i Hadoop på HDInsight](hdinsight-use-mapreduce.md).
+Kart/minska kod består av två separata funktioner som implementeras som en **karta** och **minskar** komponenter. **Kart** komponenten körs parallellt på flera klusternoder, varje nod som använder mappningen till nodens egna delmängd av data. Den **reducerande** komponenten sorterar och sammanfattar resultaten från alla kart funktioner. Mer information om dessa två komponenter finns i [använda MapReduce i Hadoop på HDInsight](hdinsight-use-mapreduce.md).
 
-I de flesta HDInsight transaktionsbearbetning är det enklare och mer effektivt att använda en högre nivå abstraktion, till exempel Pig- eller Hive. Du kan också skapa anpassade kartan och minska komponenter för användning i Hive-skript för att utföra mer avancerad bearbetning.
+I de flesta HDInsight-bearbetnings scenarier är det enklare och mer effektivt att använda en abstraktion på högre nivå, till exempel gris eller Hive. Du kan också skapa en anpassad mappning och minska komponenter för användning i Hive-skript för att utföra mer avancerad bearbetning.
 
-Anpassad karta/minska komponenter är vanligen skrivna i Java. Hadoop-tillhandahåller ett strömmande gränssnitt som gör också att komponenter som ska användas som har utvecklats på andra språk som C#, F#, Visual Basic, Python och JavaScript.
+Anpassad karta/reducera komponenter skrivs vanligt vis i Java. Hadoop tillhandahåller ett strömmande gränssnitt som även tillåter att komponenter används som har utvecklats på andra språk, till C#exempel F#, Visual Basic, python och Java Script.
 
-* En genomgång om hur du utvecklar anpassade Java MapReduce-program finns i [utveckla Java MapReduce-program för Hadoop på HDInsight](apache-hadoop-develop-deploy-java-mapreduce-linux.md).
+* En genom gång av hur du utvecklar anpassade Java MapReduce-program finns i [utveckla Java MapReduce-program för Hadoop på HDInsight](apache-hadoop-develop-deploy-java-mapreduce-linux.md).
 
-Överväg att skapa din egen kartan och minska komponenter för följande villkor:
+Överväg att skapa en egen karta och minska komponenterna för följande villkor:
 
-* Du måste behandla data som är helt Ostrukturerade genom att dela upp data och använder anpassad logik för att hämta strukturerad information från den.
-* Du vill utföra komplexa uppgifter som är svåra (eller omöjliga) att uttrycka i Pig- eller Hive-utan att behöva använda till att skapa en UDF. Du kan behöva använda en extern geokodningstjänst för att konvertera latitud och longitud koordinater eller IP-adresser i källdata till geografiska namn.
-* Du vill använda din befintliga .NET, Python och JavaScript-kod i kartan/minska komponenter med hjälp av den Hadoop-strömmande gränssnitt.
+* Du måste bearbeta data som är helt ostrukturerade genom att parsa data och använda anpassad logik för att få strukturerad information från den.
+* Du vill utföra komplexa uppgifter som är svåra (eller omöjliga) att uttrycka i gris eller Hive utan att behöva skapa en UDF. Du kan till exempel behöva använda en extern kod tjänst för att konvertera latitud-och longitud-koordinater eller IP-adresser i käll data till geografiska plats namn.
+* Du vill återanvända din befintliga .NET-, python-eller JavaScript-kod i mappa/minska komponenter med hjälp av Hadoop streaming Interface.
 
-## <a name="upload-and-run-your-custom-mapreduce-program"></a>Ladda upp och köra anpassade MapReduce-program
+## <a name="upload-and-run-your-custom-mapreduce-program"></a>Ladda upp och köra ditt anpassade MapReduce-program
 
-De vanligaste MapReduce-program skrivna i Java och kompileras till en jar-fil.
+De vanligaste MapReduce-programmen är skrivna i Java och kompileras till en jar-fil.
 
-1. När du har utvecklat, kompileras och testas MapReduce-program, använder du den `scp` kommando för att ladda upp din jar-filen till huvudnoden.
+1. När du har utvecklat, kompilerat och testat ditt MapReduce-program använder `scp` du kommandot för att ladda upp jar-filen till huvudnoden.
 
     ```bash
     scp mycustomprogram.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.net
     ```
 
-    Ersätt **användarnamn** med SSH-användarkontot för klustret. Ersätt **CLUSTERNAME** med klustrets namn. Om du använder ett lösenord för att skydda SSH-kontot, uppmanas du att ange lösenordet. Om du använder ett certifikat, kan du behöva använda den `-i` parametern för att ange filen för privat nyckel.
+    Ersätt **username** med SSH-användarkontot för klustret. Ersätt **kluster** namn med kluster namnet. Om du använder ett lösen ord för att skydda SSH-kontot uppmanas du att ange lösen ordet. Om du använde ett certifikat kan du behöva använda `-i` -parametern för att ange den privata nyckel filen.
 
-2. Ansluta till klustret med [SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
+2. Anslut till klustret med [SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
     ```bash
     ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net
     ```
 
-3. Köra MapReduce-program via YARN från SSH-sessionen.
+3. Kör ditt MapReduce-program via garn från SSH-sessionen.
 
     ```bash
     yarn jar mycustomprogram.jar mynamespace.myclass /example/data/sample.log /example/data/logoutput
     ```
 
-    Det här kommandot skickar MapReduce-jobbet till YARN. Indatafilen är `/example/data/sample.log`, och katalogen är `/example/data/logoutput`. Indatafilen och eventuella utdatafiler sparas till standardlagringen för klustret.
+    Det här kommandot skickar MapReduce-jobbet till garn. Indatafilen är `/example/data/sample.log`och utdata-katalogen är `/example/data/logoutput`. Indatafilen och eventuella utdatafiler lagras i standard lagrings utrymmet för klustret.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Använd C# med MapReduce, streaming på Apache Hadoop i HDInsight](apache-hadoop-dotnet-csharp-mapreduce-streaming.md)
-* [Utveckla Java MapReduce-program för Apache Hadoop på HDInsight](apache-hadoop-develop-deploy-java-mapreduce-linux.md)
-* [Använd Azure Toolkit för Eclipse för att skapa Apache Spark-program för ett HDInsight-kluster](../spark/apache-spark-eclipse-tool-plugin.md)
-* [Använd användardefinierade Python funktioner (UDF) med Apache Hive och Apache Pig i HDInsight](python-udf-hdinsight.md)
+* [Använd C# med MapReduce streaming på Apache Hadoop i HDInsight](apache-hadoop-dotnet-csharp-mapreduce-streaming.md)
+* [Utveckla Java MapReduce-program för Apache Hadoop i HDInsight](apache-hadoop-develop-deploy-java-mapreduce-linux.md)
+* [Använd Azure Toolkit for Eclipse för att skapa Apache Spark-program för ett HDInsight-kluster](../spark/apache-spark-eclipse-tool-plugin.md)
+* [Använda python-användardefinierade funktioner (UDF) med Apache Hive och Apache-gris i HDInsight](python-udf-hdinsight.md)

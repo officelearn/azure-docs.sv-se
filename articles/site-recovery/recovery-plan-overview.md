@@ -1,89 +1,89 @@
 ---
-title: Med hjälp av återställningsplaner för haveriberedskap med Azure Site Recovery | Microsoft Docs
-description: Lär dig mer om hur du använder återställningsplaner för haveriberedskap med Azure Site Recovery-tjänsten.
+title: Använda återställnings planer vid haveri beredskap med Azure Site Recovery
+description: Lär dig mer om att använda återställnings planer för haveri beredskap med Azure Site Recovery-tjänsten.
 author: rayne-wiselman
 manager: carmonm
 services: site-recovery
 ms.service: site-recovery
-ms.topic: article
-ms.date: 05/30/2019
+ms.topic: conceptual
+ms.date: 09/09/2019
 ms.author: raynew
-ms.openlocfilehash: 0df9e4b41ff89dd295fe644900b78640a083e985
-ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
+ms.openlocfilehash: 8502e08db48700aefe51a6e4f0e79d1b08f6ca79
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67514563"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70814441"
 ---
 # <a name="about-recovery-plans"></a>Om återställningsplaner
 
-Den här artikeln beskriver återställningsplaner i [Azure Site Recovery](site-recovery-overview.md).
+I den här artikeln beskrivs återställnings planer i [Azure Site Recovery](site-recovery-overview.md).
 
-En återställningsplan samlar datorer i grupper för återställning. Du kan anpassa en plan genom att lägga till order, instruktioner och uppgifter till den. När en plan har definierats kan köra du en redundans på den.  Datorer kan refereras i flera Återställningsplaner, där efterföljande planer hoppar över distribution/startas datorn om den redan har distribuerats via en annan återställningsplan.
+En återställnings plan samlar in datorer i återställnings grupper. Du kan anpassa en plan genom att lägga till order, instruktioner och uppgifter till den. När en plan har definierats kan du köra en redundansväxling på den.  Datorer kan refereras till i flera återställnings planer, där efterföljande planer kommer att hoppa över distributionen/starten av datorn om den tidigare har distribuerats via en annan återställnings plan.
 
 
-## <a name="why-use-a-recovery-plan"></a>Varför ska jag använda en återställningsplan?
+## <a name="why-use-a-recovery-plan"></a>Varför ska jag använda en återställnings plan?
 
-En återställningsplan hjälper dig att definiera en systematisk återställningsprocessen genom att skapa små oberoende enheter som du kan redundansväxla. En enhet motsvarar vanligtvis en app i din miljö. En återställningsplan definierar hur datorer växlas över och ordning som de startar efter en redundansväxling. Använd återställningsplaner för att:
+Med en återställnings plan kan du definiera en systematisk återställnings process genom att skapa små oberoende enheter som du kan redundansväxla. En enhet representerar vanligt vis en app i din miljö. En återställnings plan definierar hur datorer växlar över och i vilken ordning de startar efter redundansväxlingen. Använd återställnings planer för att:
 
 * Modellera en app runt dess beroenden.
-* Automatisera aktiviteter för återställning för att minska RTO.
-* Kontrollera att du är förberedd för migrering och haveriberedskap genom att säkerställa att dina appar är en del av en återställningsplan.
-* Kör redundanstestet på återställningsplaner, haveriberedskap och migrering fungerar som förväntat.
+* Automatisera återställnings uppgifter för att minska RTO.
+* Kontrol lera att du är för beredd för migrering eller haveri beredskap genom att se till att dina appar ingår i en återställnings plan.
+* Kör redundanstest på återställnings planer för att säkerställa att haveri beredskap eller migreringen fungerar som förväntat.
 
 
-## <a name="model-apps"></a>Modellappar
+## <a name="model-apps"></a>Modell program
 
-Du kan planera och skapa en grupp för dataåterställning för att samla in app-specifika egenskaper. Till exempel anta att du har ett typiskt trelagers-program med en SQLServer-serverdel, mellanprogram och en webbservergrupp. Normalt anpassa återställningsplanen så att datorerna i varje nivå börjar i rätt ordning efter en redundansväxling.
+Du kan planera och skapa en återställnings grupp för att avbilda appar-/regionsspecifika egenskaper. Vi kan till exempel tänka på ett typiskt program på tre nivåer med en SQL Server-Server del, mellanprogram och en webb klient del. Normalt anpassar du återställnings planen så att datorerna på varje nivå startar i rätt ordning efter redundansväxlingen.
 
-- SQL-serverdelen ska starta först mellanprogrammet nästa och slutligen webbservergrupp.
-- Den här startordningen säkerställer att appen fungerar när den sista datorn startar.
-- Den här ordningen säkerställer att när mellanprogrammet startar och försöker ansluta till SQL Server-nivå, SQL Server-nivå körs redan. 
-- Den här ordningen kan också se till att front-end-server börjar senaste, så att slutanvändare inte ansluta till den app-URL innan alla komponenter som är igång och körs och appen är redo att acceptera begäranden.
+- SQL-Dataservern ska starta först, mellanliggande nästa och slutligen webb klient delen.
+- Den här start ordningen säkerställer att appen fungerar när den senaste datorn startar.
+- Den här ordningen säkerställer att när mellanprogram startar och försöker ansluta till SQL Server nivå körs redan SQL Servers nivån. 
+- Den här ordningen hjälper också till att se till att frontend-servern börjar sist, så att slutanvändarna inte ansluter till appens URL innan alla komponenter är igång och appen är redo att ta emot begär Anden.
 
-Om du vill skapa den här ordningen, lägga till grupper i gruppen återställning och lägga till datorer i grupper.
-- Om ordning anges, används ordningsföljd. Åtgärder köras parallellt vid behov för att förbättra programåterställning RTO.
-- Datorer i en enda grupp växlas över parallellt.
-- Datorer i olika grupper växlas över i Gruppordning, så att Grupp2 datorer starta sina redundans endast när alla datorer i grupp 1 har redundansväxlats och igång.
+Om du vill skapa den här ordningen lägger du till grupper i återställnings gruppen och lägger till datorer i grupperna.
+- Om order anges används ordningsföljd. Åtgärder körs parallellt där det är lämpligt, för att förbättra program återställnings RTO.
+- Datorer i en enda grupp växlar över parallellt.
+- Datorer i olika grupper växlar över i grupp ordning, så att endast datorer i grupp 2 startar sin redundans när alla datorer i grupp 1 har redundansväxlats och startat.
 
-    ![Exempel återställningsplan](./media/recovery-plan-overview/rp.png)
+    ![Exempel på återställnings plan](./media/recovery-plan-overview/rp.png)
 
-Med den här anpassningen på plats är här vad som händer när du kör en redundansväxling i återställningsplanen: 
+Med den här anpassningen på plats händer följande när du kör en redundansväxling i återställnings planen: 
 
-1. Ett avstängning steg försöker stänga av lokala datorer. Undantaget är om du kör ett redundanstest, den primära platsen i så fall fortsätter att köras. 
-2. Avstängningen utlöser en parallell redundans för alla datorer i återställningsplanen.
-3. Redundansen förbereder virtuella diskar med hjälp av replikerade data.
-4. Start-grupper körs i ordningen och starta datorer i varje grupp. Först körs grupp 1 sedan Grupp2 och slutligen grupp 3. Om det finns fler än en dator i någon grupp, startar alla datorer parallellt.
+1. Ett avstängnings steg försöker stänga av de lokala datorerna. Undantaget är om du kör ett redundanstest, i vilket fall den primära platsen fortsätter att köras. 
+2. Avstängningen utlöser en parallell redundansväxling av alla datorer i återställnings planen.
+3. Redundansväxlingen förbereder virtuella dator diskar med replikerade data.
+4. Start grupper körs i ordning och startar datorerna i varje grupp. Först, grupp 1 körs, sedan grupp 2 och slutligen grupp 3. Om det finns fler än en dator i en grupp börjar alla datorer parallellt.
 
 
 ## <a name="automate-tasks"></a>Automatisera uppgifter
 
-Återställa stora program kan vara en komplicerad uppgift. Manuella steg gör processen felbenägna och den person som kör redundans kanske inte är medveten om alla app krångla. Du kan använda en återställningsplan för att införa ordning och automatisera de åtgärder som behövs i varje steg med hjälp av Azure Automation-runbooks för redundans till Azure eller skript. Du kan infoga pauser för manuella åtgärder i återställningsplaner för uppgifter som inte kan automatiseras. Det finns ett par olika typer av uppgifter som du kan konfigurera:
+Det kan vara en komplicerad uppgift att återskapa stora program. Manuella steg gör processen fel och den person som kör redundansväxlingen kanske inte är medveten om all app-erna. Du kan använda en återställnings plan för att införa order och automatisera de åtgärder som krävs i varje steg, använda Azure Automation runbooks för redundans till Azure eller skript. För uppgifter som inte kan automatiseras kan du infoga pauser för manuella åtgärder i återställnings planer. Det finns några typer av uppgifter som du kan konfigurera:
 
-* **Uppgifter för virtuella Azure-datorn efter redundans**: När du växlar över till Azure, vanligtvis måste du utföra åtgärder så att du kan ansluta till den virtuella datorn efter redundans. Exempel: 
-    * Skapa en offentlig IP-adress för virtuella Azure-datorn.
-    * Tilldela en nätverkssäkerhetsgrupp till nätverkskortet på den virtuella Azure-datorn.
-    * Lägg till en belastningsutjämnare i en tillgänglighetsuppsättning.
-* **Aktiviteter i virtuell dator efter redundans**: Dessa uppgifter konfigurera vanligtvis när appen körs på datorn, så att de fortsätter att fungera korrekt i den nya miljön. Exempel:
-    * Ändra anslutningssträngen för databasen på datorn.
-    * Ändra webbserverns konfiguration eller regler.
+* **Aktiviteter på den virtuella Azure-datorn efter redundansväxlingen**: När du växlar över till Azure behöver du vanligt vis utföra åtgärder så att du kan ansluta till den virtuella datorn efter redundansväxlingen. Exempel: 
+    * Skapa en offentlig IP-adress på den virtuella Azure-datorn.
+    * Tilldela en nätverks säkerhets grupp till nätverkskortet på den virtuella Azure-datorn.
+    * Lägg till en belastningsutjämnare i en tillgänglighets uppsättning.
+* **Aktiviteter i VM efter redundans**: Dessa uppgifter omkonfigurerar vanligt vis appen som körs på datorn, så att den fortsätter att fungera korrekt i den nya miljön. Exempel:
+    * Ändra databas anslutnings strängen i datorn.
+    * Ändra webb Server konfigurationen eller reglerna.
 
 
-## <a name="test-failover"></a>Redundanstest
+## <a name="test-failover"></a>Testa redundans
 
-Du kan använda en återställningsplan för att utlösa ett redundanstest. Använd följande metodtips:
+Du kan använda en återställnings plan för att utlösa redundanstest. Använd följande metod tips:
 
-- Alltid göra ett redundanstest på en app innan du kör en fullständig växling vid fel. Redundanstestning hjälper dig att kontrollera om appen kommer på återställningsplatsen.
-- Om du hittar du har missat något kan utlösa en ren in och kör sedan redundanstestningen. 
-- Köra ett redundanstest flera gånger, tills du är säker på att appen återställer smidigt.
-- Eftersom varje app som är unikt, måste du skapa återställningsplaner som är anpassade för varje program och kör ett redundanstest på var och en.
-- Appar och deras beroenden ändras ofta. Säkerställ är aktuella genom att köra ett redundanstest för varje app varje kvartal.
+- Slutför alltid ett redundanstest på en app innan du kör en fullständig redundansväxling. Med redundanstest kan du kontrol lera om appen kommer upp på återställnings platsen.
+- Om du tycker att du har missat något, Utlös en rensning och kör sedan redundanstest igen. 
+- Kör ett redundanstest flera gånger tills du är säker på att appen återställs smidigt.
+- Eftersom varje app är unik måste du skapa återställnings planer som anpassas för varje program och köra ett redundanstest på var och en.
+- Appar och deras beroenden ändras ofta. För att säkerställa att återställnings planer är uppdaterade kan du köra ett redundanstest för varje app varje kvartal.
 
-    ![Skärmbild av exempel testa återställningsplan i Site Recovery](./media/recovery-plan-overview/rptest.png)
+    ![Skärm bild av ett exempel på en test återställnings plan i Site Recovery](./media/recovery-plan-overview/rptest.png)
 
 ## <a name="watch-the-video"></a>Titta på videon
 
-Videon ett enkelt exempel som visar en på klick-redundans för en tvålagers-WordPress-app.
+Titta på en snabb exempel video som visar en klickning vid fel på en WordPress-app med två nivåer.
     
 > [!VIDEO https://channel9.msdn.com/Series/Azure-Site-Recovery/One-click-failover-of-a-2-tier-WordPress-application-using-Azure-Site-Recovery/player]
 
@@ -91,5 +91,5 @@ Videon ett enkelt exempel som visar en på klick-redundans för en tvålagers-Wo
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Skapa](site-recovery-create-recovery-plans.md) en återställningsplan.
-- Lär dig mer om [köra redundansväxlingar](site-recovery-failover.md).  
+- [Skapa](site-recovery-create-recovery-plans.md) en återställnings plan.
+- Lär dig mer om att [köra redundans](site-recovery-failover.md).  

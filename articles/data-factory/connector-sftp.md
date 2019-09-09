@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 09/04/2019
+ms.date: 09/09/2019
 ms.author: jingwang
-ms.openlocfilehash: f51e93ff164c0ec2352c1a57eb698a4374fbe5c9
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: 1bb9ec02fdba93d26b7060c080b68f05298dbd6b
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70276914"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70812996"
 ---
 # <a name="copy-data-from-sftp-server-using-azure-data-factory"></a>Kopiera data från SFTP-servern med Azure Data Factory
 > [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
@@ -177,12 +177,12 @@ Om du vill använda autentisering med offentlig SSH-nyckel anger du egenskapen "
 
 En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera datauppsättningar finns i den [datauppsättningar](concepts-datasets-linked-services.md) artikeln. 
 
-- För **Parquet, avgränsad text, Avro och binärt format**, se avsnittet [Parquet, delimited text, Avro och Binary format data uppsättning](#format-based-dataset) .
-- Andra format som **Orc/JSON-format**finns i avsnittet [annan format data uppsättning](#other-format-dataset) .
+- För **Parquet, avgränsade text-, JSON-, Avro-och binärformat**, se [Parquet, delimited text-, JSON-, Avro-och binära format-datauppsättning](#format-based-dataset) .
+- Information om andra format som **Orc-format**finns i avsnittet [annan format data uppsättning](#other-format-dataset) .
 
-### <a name="format-based-dataset"></a>Data uppsättning för Parquet, avgränsad text, Avro och binärt format
+### <a name="format-based-dataset"></a>Data uppsättning för Parquet, avgränsad text, JSON, Avro och binärt format
 
-Om du vill kopiera data till och från **Parquet, avgränsad text eller binärt format**, se [Parquet format](format-parquet.md), [avgränsat text format](format-delimited-text.md), [Avro format](format-avro.md) och [binära format](format-binary.md) -artikel i format-baserad data uppsättning och inställningar som stöds. Följande egenskaper stöds för SFTP under `location` inställningar i format-baserad data mängd:
+Om du vill kopiera data till och från **Parquet, avgränsade text-, JSON-, Avro-och binärformat**, se [Parquet format](format-parquet.md), [avgränsat text format](format-delimited-text.md), [Avro format](format-avro.md) och [binärt format](format-binary.md) artikel i format-baserad data uppsättning och inställningar som stöds . Följande egenskaper stöds för SFTP under `location` inställningar i format-baserad data mängd:
 
 | Egenskap   | Beskrivning                                                  | Krävs |
 | ---------- | ------------------------------------------------------------ | -------- |
@@ -221,7 +221,7 @@ Om du vill kopiera data till och från **Parquet, avgränsad text eller binärt 
 
 ### <a name="other-format-dataset"></a>Data uppsättning för andra format
 
-Följande egenskaper stöds för att kopiera data från SFTP i **Orc/JSON-format**:
+Följande egenskaper stöds för att kopiera data från SFTP i **Orc-format**:
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
@@ -276,12 +276,12 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 ### <a name="sftp-as-source"></a>SFTP som källa
 
-- Om du vill kopiera från **Parquet, avgränsad text, Avro och binärt format**, se avsnittet [Parquet, avgränsad text, Avro och binärt format](#format-based-source) .
-- Om du vill kopiera från andra format som **Orc/JSON-format**, se avsnittet [annan format källa](#other-format-source) .
+- Om du vill kopiera från **Parquet, avgränsade text-, JSON-, Avro-och binärformat**, se avsnittet [Parquet, avgränsad text, JSON, Avro och binärt format](#format-based-source) .
+- Om du vill kopiera från andra format som **Orc-format**, se avsnittet [annan format källa](#other-format-source) .
 
-#### <a name="format-based-source"></a>Parquet, avgränsad text, Avro och binär format källa
+#### <a name="format-based-source"></a>Parquet, avgränsad text, JSON, Avro och binär format källa
 
-Om du vill kopiera data från **Parquet, avgränsad text eller binärt format**, se [Parquet format](format-parquet.md), [avgränsat text format](format-delimited-text.md), [Avro format](format-avro.md) och [binära format](format-binary.md) -artikel om formatbaserade kopierings aktivitets källor och inställningar som stöds. Följande egenskaper stöds för SFTP under `storeSettings` inställningar i format-baserad kopierings Källa:
+Om du vill kopiera data från **Parquet, avgränsade text-, JSON-, Avro-och binärformat**, se [Parquet-format](format-parquet.md), [avgränsat text format](format-delimited-text.md), [Avro format](format-avro.md) och [binära format](format-binary.md) artikel för den formatbaserade kopierings aktivitets källan och stöds autentiseringsinställningar. Följande egenskaper stöds för SFTP under `storeSettings` inställningar i format-baserad kopierings Källa:
 
 | Egenskap                 | Beskrivning                                                  | Krävs                                      |
 | ------------------------ | ------------------------------------------------------------ | --------------------------------------------- |
@@ -339,7 +339,7 @@ Om du vill kopiera data från **Parquet, avgränsad text eller binärt format**,
 
 #### <a name="other-format-source"></a>Annan format källa
 
-Om du vill kopiera data från SFTP i **Orc/JSON-format**, stöds följande egenskaper i avsnittet Kopiera aktivitets **källa** :
+För att kopiera data från SFTP i **Orc-format**, stöds följande egenskaper i avsnittet Kopiera aktivitets **källa** :
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |

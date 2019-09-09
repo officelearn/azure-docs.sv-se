@@ -1,125 +1,125 @@
 ---
-title: Om haveriberedskap för virtuella VMware-datorer till Azure med Azure Site Recovery | Microsoft Docs
-description: Den här artikeln innehåller en översikt över haveriberedskap för virtuella VMware-datorer till Azure med Azure Site Recovery-tjänsten.
+title: Om haveri beredskap för virtuella VMware-datorer till Azure med Azure Site Recovery | Microsoft Docs
+description: Den här artikeln innehåller en översikt över haveri beredskap för virtuella VMware-datorer till Azure med hjälp av tjänsten Azure Site Recovery.
 author: raynew
 ms.service: site-recovery
 services: site-recovery
 ms.topic: conceptual
-ms.date: 5/30/2019
+ms.date: 9/09/2019
 ms.author: raynew
-ms.openlocfilehash: a00c129126886bd71c82940aa340a8db29cf7a0e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: dca8174caabf4799c338d780a78ba58f1af5a2f1
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66417790"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70814321"
 ---
-# <a name="about-disaster-recovery-of-vmware-vms-to-azure"></a>Om haveriberedskap för virtuella VMware-datorer till Azure
+# <a name="about-disaster-recovery-of-vmware-vms-to-azure"></a>Om haveri beredskap för virtuella VMware-datorer till Azure
 
-Den här artikeln innehåller en översikt över haveriberedskap för lokala virtuella VMware-datorer till Azure med den [Azure Site Recovery](site-recovery-overview.md) service.
+Den här artikeln innehåller en översikt över haveri beredskap för lokala virtuella VMware-datorer till Azure med hjälp av tjänsten [Azure Site Recovery](site-recovery-overview.md) .
 
 ## <a name="what-is-bcdr"></a>Vad är BCDR?
 
-En affärskontinuitet och haveriberedskap (BCDR) strategi hjälper till att hålla verksamheten igång. Under planerade driftstopp och oväntade avbrott BCDR för att hålla data säkra och tillgängliga och garanterar att appar ska fortsätta köras. Förutom plattformsfunktioner BCDR, till exempel regional länkning och lagring med hög tillgänglighet tillhandahåller Azure Recovery Services som en del av din BCDR-lösning. Recovery services omfattar: 
+En strategi för affärs kontinuitet och haveri beredskap (BCDR) hjälper dig att hålla verksamheten igång. Under planerat drift stopp och oväntade avbrott är BCDR säkra och tillgängliga och säkerställer att apparna fortsätter att köras. Förutom plattforms BCDR funktioner som regional länkning och lagring med hög tillgänglighet tillhandahåller Azure Recovery Services som en integrerad del av din BCDR-lösning. Återställnings tjänster är: 
 
-- [Azure Backup](https://docs.microsoft.com/azure/backup/backup-introduction-to-azure-backup) säkerhetskopierar dina lokala och Virtuella Azure-data. Du kan säkerhetskopiera en fil och mappar, specifika arbetsbelastningar eller en hel virtuell dator. 
-- [Azure Site Recovery](site-recovery-overview.md) tillhandahåller flexibilitet och katastrofåterställning för appar och arbetsbelastningar som körs på lokala datorer eller virtuella Azure IaaS-datorer. Site Recovery dirigerar replikering och hanterar redundans till Azure vid avbrott. Den hanterar också återställning från Azure till din primära plats. 
+- [Azure Backup](https://docs.microsoft.com/azure/backup/backup-introduction-to-azure-backup) säkerhetskopierar dina lokala och virtuella Azure-Datadata. Du kan säkerhetskopiera en fil och mappar, vissa arbets belastningar eller en hel virtuell dator. 
+- [Azure Site Recovery](site-recovery-overview.md) ger återhämtning och haveri beredskap för appar och arbets belastningar som körs på lokala datorer eller virtuella Azure IaaS-datorer. Site Recovery dirigerar replikeringen och hanterar redundansväxling till Azure när avbrott inträffar. Den hanterar också återställning från Azure till din primära plats. 
 
-## <a name="how-does-site-recovery-do-disaster-recovery"></a>Hur gör Site Recovery haveriberedskap?
+## <a name="how-does-site-recovery-do-disaster-recovery"></a>Hur gör Site Recovery haveri beredskap?
 
-1. När du har förberett Azure och lokala platser, konfigurera och aktivera replikering för dina lokala datorer.
-2. Site Recovery dirigerar den inledande replikeringen av datorn, i enlighet med dina inställningar.
-3. Efter den första replikeringen replikerar Site Recovery deltaändringar till Azure. 
-4. När allt replikeras som förväntat, kan du köra ett programåterställningstest.
-    - Detaljerade hjälper till att säkerställa att redundansväxlingen fungerar som förväntat när en verklig behovet uppstår.
-    - Detaljerade utför ett redundanstest utan att påverka produktionsmiljön.
-5. Om ett avbrott uppstår kan köra du en fullständig redundans till Azure. Du kan redundansväxla en enskild dator eller skapa en återställningsplan som växlar över flera datorer samtidigt.
-6. Vid redundans skapas virtuella Azure-datorer från VM-data i hanterade diskar eller storage-konton. Användarna kan fortsätta att få åtkomst till appar och arbetsbelastningar från Azure-VM
-7. När din lokala plats är tillgänglig igen, redundansväxla från Azure.
-8. När du inte återställa och arbetar från din primära plats en gång till kan börja du replikera lokala virtuella datorer till Azure igen.
-
-
-## <a name="how-do-i-know-if-my-environment-is-suitable-for-disaster-recovery-to-azure"></a>Hur vet jag om min miljö är lämplig för haveriberedskap till Azure?
-
-Site Recovery kan replikera alla arbetsbelastningar som körs på en stöds VMware VM eller fysiska server. Här är de saker som du behöver kontrollera i din miljö:
-
-- Om du replikerar virtuella VMware-datorer kör du rätt versioner av VMware virtualiseringsservrar? [Kontrollera här](vmware-physical-azure-support-matrix.md#on-premises-virtualization-servers).
-- Är de datorer som du vill replikera som kör ett operativsystem som stöds? [Kontrollera här](vmware-physical-azure-support-matrix.md#replicated-machines).
-- För Linux disaster recovery datorer kör en stöds fillagring för system/gäst? [Kontrollera här](vmware-physical-azure-support-matrix.md#linux-file-systemsguest-storage)
-- De datorer du vill replikera uppfyller kraven för Azure? [Kontrollera här](vmware-physical-azure-support-matrix.md#azure-vm-requirements).
-- Det finns stöd för din nätverkskonfiguration [Kontrollera här](vmware-physical-azure-support-matrix.md#network).
-- Det finns stöd för din konfiguration för lagring [Kontrollera här](vmware-physical-azure-support-matrix.md#storage).
+1. När du har bearbetat Azure och din lokala plats konfigurerar du och aktiverar replikering för dina lokala datorer.
+2. Site Recovery dirigerar den inledande replikeringen av datorn, i enlighet med dina princip inställningar.
+3. Efter den inledande replikeringen replikerar Site Recovery delta ändringar till Azure. 
+4. När allt replikeras som förväntat kör du en granskning av haveri beredskap.
+    - I detalj nivån ser du till att redundansväxlingen fungerar som förväntat när ett reellt behov uppstår.
+    - Detalj nivån utför ett redundanstest utan att påverka produktions miljön.
+5. Om ett avbrott inträffar kan du köra en fullständig redundans till Azure. Du kan redundansväxla en enskild dator, eller så kan du skapa en återställnings plan som växlar över flera datorer på samma gång.
+6. Vid redundans skapas virtuella Azure-datorer från VM-data i hanterade diskar eller lagrings konton. Användare kan fortsätta att komma åt appar och arbets belastningar från den virtuella Azure-datorn
+7. När din lokala plats är tillgänglig igen går du tillbaka från Azure.
+8. När du har växlat tillbaka och arbetar från din primära plats så kan du starta replikeringen av lokala virtuella datorer till Azure igen.
 
 
-## <a name="what-do-i-need-to-set-up-in-azure-before-i-start"></a>Vad behöver jag att ställa in i Azure innan jag börjar?
+## <a name="how-do-i-know-if-my-environment-is-suitable-for-disaster-recovery-to-azure"></a>Hur gör jag för att vet du om min miljö är lämplig för haveri beredskap till Azure?
+
+Site Recovery kan replikera alla arbets belastningar som körs på en virtuell VMware-dator eller fysisk server. Här är de saker du behöver för att kontrol lera din miljö:
+
+- Om du replikerar virtuella VMware-datorer kör du rätt versioner av VMware virtualization-servrar? [Sök här](vmware-physical-azure-support-matrix.md#on-premises-virtualization-servers).
+- Är de datorer som du vill replikera som kör ett operativ system som stöds? [Sök här](vmware-physical-azure-support-matrix.md#replicated-machines).
+- För Linux haveri beredskap, är datorer som kör ett fil system/gäst lagring som stöds? [Markera här](vmware-physical-azure-support-matrix.md#linux-file-systemsguest-storage)
+- Är de datorer som du vill replikera uppfylla kraven för Azure? [Sök här](vmware-physical-azure-support-matrix.md#azure-vm-requirements).
+- Stöds din nätverks konfiguration? [Sök här](vmware-physical-azure-support-matrix.md#network).
+- Stöds lagrings konfigurationen? [Sök här](vmware-physical-azure-support-matrix.md#storage).
+
+
+## <a name="what-do-i-need-to-set-up-in-azure-before-i-start"></a>Vad behöver jag för att konfigurera i Azure innan jag börjar?
 
 I Azure måste du förbereda följande:
 
-1. Kontrollera att ditt Azure-konto har behörighet att skapa virtuella datorer i Azure.
-2. Skapa ett Azure-nätverk som virtuella Azure-datorer ska ansluta till när de skapas från lagringskonton eller hanterade diskar efter en redundansväxling.
-3. Konfigurera ett Azure Recovery Services-valv för Site Recovery. Valvet finns i Azure-portalen och används för att distribuera, konfigurera, dirigera, övervaka och felsöka distributionen av Site Recovery.
+1. Kontrol lera att ditt Azure-konto har behörighet att skapa virtuella datorer i Azure.
+2. Skapa ett Azure-nätverk som virtuella Azure-datorer ska ansluta till när de skapas från lagrings konton eller hanterade diskar efter en redundansväxling.
+3. Konfigurera ett Azure Recovery Services-valv för Site Recovery. Valvet finns i Azure Portal och används för att distribuera, konfigurera, dirigera, övervaka och felsöka din Site Recovery-distribution.
 
 *Behöver du mer hjälp?*
 
-Lär dig hur du ställer in Azure av [verifiera ditt konto](tutorial-prepare-azure.md#verify-account-permissions), skapa en [nätverk](tutorial-prepare-azure.md#set-up-an-azure-network), och [ställa in ett valv](tutorial-prepare-azure.md#create-a-recovery-services-vault).
+Lär dig hur du konfigurerar Azure genom [att verifiera ditt konto](tutorial-prepare-azure.md#verify-account-permissions), skapa ett [nätverk](tutorial-prepare-azure.md#set-up-an-azure-network)och [Konfigurera ett valv](tutorial-prepare-azure.md#create-a-recovery-services-vault).
 
 
 
-## <a name="what-do-i-need-to-set-up-on-premises-before-i-start"></a>Vad behöver jag att ställa in lokalt innan jag börjar?
+## <a name="what-do-i-need-to-set-up-on-premises-before-i-start"></a>Vad behöver jag för att konfigurera lokalt innan jag börjar?
 
-Lokal här är vad du behöver göra:
+Det här behöver du göra på plats:
 
-1. Du behöver konfigurera några konton:
+1. Du måste konfigurera ett par konton:
 
-    - Om du replikerar virtuella VMware-datorer, krävs ett konto för Site Recovery för att få åtkomst till vCenter-servern eller vSphere ESXi-värdar att automatiskt identifiera virtuella datorer.
-    - Ett konto krävs för att installera Site Recovery-tjänsten mobilitetsagenten på varje fysisk eller virtuell dator som du vill replikera.
+    - Om du replikerar virtuella VMware-datorer behövs ett konto för Site Recovery för att få åtkomst till vCenter Server eller vSphere ESXi-värdar för att automatiskt identifiera virtuella datorer.
+    - Det krävs ett konto för att installera Site Recovery Mobility Service Agent på varje fysisk dator eller virtuell dator som du vill replikera.
 
-2. Du måste kontrollera kompatibiliteten för VMware-infrastrukturen om du inte tidigare som.
-3. Se till att du kan ansluta till virtuella Azure-datorer efter en redundansväxling. Du ställa in RDP på den lokala Windows-datorer eller SSH på Linux-datorer.
+2. Du måste kontrol lera kompatibiliteten för VMware-infrastrukturen om du inte redan har gjort det.
+3. Se till att du kan ansluta till virtuella Azure-datorer efter en redundansväxling. Du konfigurerar RDP på lokala Windows-datorer eller SSH på Linux-datorer.
 
 *Behöver du mer hjälp?*
-- Förbereda konton för [automatisk identifiering](vmware-azure-tutorial-prepare-on-premises.md#prepare-an-account-for-automatic-discovery) och för [installation av mobilitetstjänsten](vmware-azure-tutorial-prepare-on-premises.md#prepare-an-account-for-mobility-service-installation).
-- [Kontrollera](vmware-azure-tutorial-prepare-on-premises.md#check-vmware-requirements) att VMware-inställningarna är kompatibla.
-- [Förbereda](vmware-azure-tutorial-prepare-on-premises.md#prepare-to-connect-to-azure-vms-after-failover) så att du ansluter i Azure efter en redundansväxling.
-- Om du vill ha mer detaljerad hjälp om hur du konfigurerar IP-adresser för virtuella Azure-datorer efter redundansväxling, [den här artikeln](concepts-on-premises-to-azure-networking.md).
+- Förbered konton för [Automatisk identifiering](vmware-azure-tutorial-prepare-on-premises.md#prepare-an-account-for-automatic-discovery) och för [installation av mobilitets tjänsten](vmware-azure-tutorial-prepare-on-premises.md#prepare-an-account-for-mobility-service-installation).
+- [Kontrol lera](vmware-azure-tutorial-prepare-on-premises.md#check-vmware-requirements) att VMware-inställningarna är kompatibla.
+- [Förbered](vmware-azure-tutorial-prepare-on-premises.md#prepare-to-connect-to-azure-vms-after-failover) dig så att du ansluter i Azure efter en redundansväxling.
+- [Läs den här artikeln](concepts-on-premises-to-azure-networking.md)om du vill ha mer detaljerad information om hur du konfigurerar IP-adresser för virtuella Azure-datorer efter en redundansväxling.
 
-## <a name="how-do-i-set-up-disaster-recovery"></a>Hur konfigurerar jag haveriberedskap?
+## <a name="how-do-i-set-up-disaster-recovery"></a>Hur gör jag för att konfigurera katastrof återställning?
 
-När du har din Azure och lokala infrastruktur på plats kan konfigurera du haveriberedskap.
+När du har konfigurerat din Azure och lokala infrastruktur på plats kan du konfigurera haveri beredskap.
 
-1. För att förstå de komponenter som du kommer att behöva distribuera, granska de [VMware till Azure-arkitektur](vmware-azure-architecture.md), och [fysisk till Azure-arkitektur](physical-azure-architecture.md). Det finns ett antal komponenter, så det är viktigt att förstå hur de fungerar ihop.
-2. **Källmiljö**: Som ett första steg i distributionen, kan du ställa in din källmiljö för replikering. Du kan ange vad du vill replikera och var du vill att replikera till.
-3. **Konfigurationsservern**: Du måste ställa in en konfigurationsserver i din miljö för en lokal källa:
-    - Konfigurationsservern är en enda lokal dator. För VMware-haveriberedskap rekommenderar vi att du distribuerar det som en VMware-VM som kan distribueras från en nedladdningsbar OVF-mall.
-    - Konfigurationsservern samordnar kommunikationen mellan lokala och Azure
-    - Några andra komponenter som körs på configuration server-datorn.
-        - Processervern tar emot, optimerar och skickar replikeringsdata till cachelagringskontot i Azure. Den hanterar också automatisk installation av mobilitetstjänsten på datorer som du vill replikera, samt utför automatisk identifiering av virtuella datorer på VMware-servrar.
+1. Om du vill förstå de komponenter som du behöver distribuera, granskar du [VMware till Azure-arkitekturen](vmware-azure-architecture.md)och den [fysiska till Azure-arkitekturen](physical-azure-architecture.md). Det finns ett antal komponenter, så det är viktigt att förstå hur de passar ihop.
+2. **Käll miljö**: Som ett första steg i distributionen ställer du in din källa för replikeringskälla. Du anger vad du vill replikera och var du vill replikera till.
+3. **Konfigurations Server**: Du måste konfigurera en konfigurations server i din lokala käll miljö:
+    - Konfigurations servern är en lokal dator. För katastrof återställning i VMware rekommenderar vi att du distribuerar den som en virtuell VMware-dator som kan distribueras från en mall för nedladdnings bar OVF.
+    - Konfigurations servern samordnar kommunikationen mellan både lokalt och Azure
+    - Ett par andra komponenter som körs på konfigurations servern.
+        - Processervern tar emot, optimerar och skickar replikeringsdata till cache Storage-kontot i Azure. Den hanterar också automatisk installation av mobilitets tjänsten på datorer som du vill replikera och utför automatisk identifiering av virtuella datorer på VMware-servrar.
         - Huvudmålservern hanterar replikeringsdata vid återställning efter fel från Azure.
-    - Konfigurera innehåller registrera konfigurationsservern i valvet, ladda ned MySQL-Server och VMware PowerCLI och att ange konton som används för automatisk identifiering och installera Mobilitetstjänsten.
-4. **Målmiljö**: Du konfigurerar mål-Azure-miljön genom att ange dina Azure-prenumeration och nätverksinställningar.
-5. **Replikeringsprincip**: Du anger du hur replikering ska ske. Inställningarna omfattar hur ofta återställningspunkter skapas och lagras och om appkonsekventa ögonblicksbilder ska skapas.
-6. **Aktivera replikering**. Du aktiverar replikering för lokala datorer. Om du har skapat ett konto för att installera mobilitetstjänsten kommer sedan den att installeras när du aktiverar replikering för en dator. 
+    - Konfigurera inkluderar registrering av konfigurations servern i valvet, hämtar MySQL-server och VMware-PowerCLI och anger de konton som skapats för automatisk identifiering och mobilitets tjänst installation.
+4. **Mål miljö**: Du konfigurerar din Azure-miljö genom att ange din Azure-prenumeration och dina nätverks inställningar.
+5. **Replikeringsprincip**: Du anger hur replikering ska ske. Inställningarna omfattar hur ofta återställnings punkter skapas och lagras och om programkonsekventa ögonblicks bilder ska skapas.
+6. **Aktivera replikering**. Du aktiverar replikering för lokala datorer. Om du har skapat ett konto för att installera mobilitets tjänsten kommer det att installeras när du aktiverar replikering för en dator. 
 
 *Behöver du mer hjälp?*
 
-- En snabb genomgång av de här stegen, du kan prova vår [VMware självstudien](vmware-azure-tutorial.md), och [fysisk server genomgången](physical-azure-disaster-recovery.md).
-- [Läs mer](vmware-azure-set-up-source.md) om hur du konfigurerar din källmiljö.
-- [Lär dig mer om](vmware-azure-deploy-configuration-server.md) configuration server-krav och ställer in konfigurationsservern med en OVF-mall för VMware-replikering. Om du av någon anledning som du inte kan använda en mall, eller om du replikerar fysiska servrar [Följ dessa instruktioner](physical-azure-set-up-source.md#set-up-the-source-environment).
-- [Läs mer](vmware-azure-set-up-target.md) om Målinställningar.
+- För en snabb genom gång av de här stegen kan du prova vår [VMware-självstudie](vmware-azure-tutorial.md)och [genom gång av fysiska servrar](physical-azure-disaster-recovery.md).
+- [Läs mer](vmware-azure-set-up-source.md) om hur du konfigurerar din käll miljö.
+- [Lär dig mer om](vmware-azure-deploy-configuration-server.md) konfigurations Server krav och hur du konfigurerar konfigurations servern med en OVF-mall för VMware-replikering. Om du av någon anledning inte kan använda en mall, eller om du replikerar fysiska servrar, [använder du dessa instruktioner](physical-azure-set-up-source.md#set-up-the-source-environment).
+- [Läs mer](vmware-azure-set-up-target.md) om mål inställningar.
 - [Få mer information](vmware-azure-set-up-replication.md) om hur du konfigurerar en replikeringsprincip.
-- [Lär dig](vmware-azure-enable-replication.md) så här aktiverar du replikering och [undanta](vmware-azure-exclude-disk.md) diskar från replikering.
+- [Lär dig](vmware-azure-enable-replication.md) hur du aktiverar replikering och [exkluderar](vmware-azure-exclude-disk.md) diskar från replikering.
 
 
 ## <a name="something-went-wrong-how-do-i-troubleshoot"></a>Något gick fel, hur felsöker jag?
 
-- Som ett första steg bör försöka [övervakning distributionen](site-recovery-monitor-and-troubleshoot.md) att kontrollera status för replikerade objekt, jobb och infrastruktur problem och identifiera eventuella fel.
-- Om det inte går att slutföra den inledande replikeringen eller pågående replikering inte fungerar som förväntat, [läsa den här artikeln](vmware-azure-troubleshoot-replication.md) för vanliga fel och felsökningstips.
-- Om du har problem med automatisk installation av mobilitetstjänsten på datorer som du vill replikera kan du läsa vanliga fel i [i den här artikeln](vmware-azure-troubleshoot-push-install.md).
-- Om redundans inte fungerar som förväntat, kontrollera vanliga fel i [i den här artikeln](site-recovery-failover-to-azure-troubleshoot.md).
-- Om återställning efter fel inte fungerar kan du kontrollera om ditt problem visas i [i den här artikeln](vmware-azure-troubleshoot-failback-reprotect.md).
+- Som ett första steg kan du prova att [övervaka distributionen](site-recovery-monitor-and-troubleshoot.md) för att kontrol lera statusen för replikerade objekt, jobb och infrastruktur problem och identifiera eventuella fel.
+- Om du inte kan slutföra den inledande replikeringen, eller om pågående replikering inte fungerar som förväntat, kan du [läsa artikeln](vmware-azure-troubleshoot-replication.md) om vanliga fel och fel söknings tips.
+- Om du har problem med den automatiska installationen av mobilitets tjänsten på datorer som du vill replikera läser du vanliga fel i [den här artikeln](vmware-azure-troubleshoot-push-install.md).
+- Om redundansväxlingen inte fungerar som förväntat, kontrol lera vanliga fel i [den här artikeln](site-recovery-failover-to-azure-troubleshoot.md).
+- Om failback inte fungerar kontrollerar du om problemet visas i [den här artikeln](vmware-azure-troubleshoot-failback-reprotect.md).
 
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Med replikering nu på plats, bör du [kör ett programåterställningstest](tutorial-dr-drill-azure.md) så att redundansväxlingen fungerar som förväntat. 
+Med replikering nu på plats bör du [köra en granskning av haveri beredskap](tutorial-dr-drill-azure.md) för att säkerställa att redundansväxlingen fungerar som förväntat. 

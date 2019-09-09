@@ -10,14 +10,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 09/04/2019
+ms.date: 09/09/2019
 ms.author: jingwang
-ms.openlocfilehash: d64a8431cb0331b58afc635bf8cf9d0fe0f1f225
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: 4bb57190a310e1ea4b8e5c511f1acd90f53b8f09
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70276047"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70813457"
 ---
 # <a name="copy-data-to-or-from-azure-data-lake-storage-gen1-using-azure-data-factory"></a>Kopiera data till eller från Azure Data Lake Storage Gen1 med Azure Data Factory
 > [!div class="op_single_selector" title1="Välj den version av Azure Data Factory som du använder:"]
@@ -163,12 +163,12 @@ I Azure Data Factory behöver du inte ange några egenskaper förutom den allmä
 
 En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera datauppsättningar finns i den [datauppsättningar](concepts-datasets-linked-services.md) artikeln. 
 
-- För **Parquet, avgränsad text, Avro och binärt format**, se avsnittet [Parquet, delimited text, Avro och Binary format data uppsättning](#format-based-dataset) .
-- Andra format som **Orc/JSON-format**finns i avsnittet [annan format data uppsättning](#other-format-dataset) .
+- För **Parquet, avgränsade text-, JSON-, Avro-och binärformat**, se [Parquet, delimited text-, JSON-, Avro-och binära format-datauppsättning](#format-based-dataset) .
+- Information om andra format som **Orc-format**finns i avsnittet [annan format data uppsättning](#other-format-dataset) .
 
-### <a name="format-based-dataset"></a>Data uppsättning för Parquet, avgränsad text, Avro och binärt format
+### <a name="format-based-dataset"></a>Data uppsättning för Parquet, avgränsad text, JSON, Avro och binärt format
 
-Om du vill kopiera data till och från **Parquet, avgränsad text, Avro eller binärt format**, se [Parquet format](format-parquet.md), [avgränsat text format](format-delimited-text.md), [Avro format](format-avro.md) och [binära format](format-binary.md) -artikel på format-baserad data uppsättning och inställningar som stöds.
+Om du vill kopiera data till och från **Parquet, avgränsade text-, JSON-, Avro-och binärformat**, se [Parquet format](format-parquet.md), [avgränsat text format](format-delimited-text.md), [Avro format](format-avro.md) och [binärt format](format-binary.md) artikel i format-baserad data uppsättning och inställningar som stöds .
 Följande egenskaper stöds för Azure Data Lake Store gen1 under `location` inställningar i den formatbaserade data uppsättningen:
 
 | Egenskap   | Beskrivning                                                  | Krävs |
@@ -209,7 +209,7 @@ Följande egenskaper stöds för Azure Data Lake Store gen1 under `location` ins
 
 ### <a name="other-format-dataset"></a>Data uppsättning för andra format
 
-Följande egenskaper stöds för att kopiera data till och från Azure Data Lake Store gen1 i **Orc/JSON-format**:
+Följande egenskaper stöds för att kopiera data till och från Azure Data Lake Store gen1 i **Orc-format**:
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
@@ -261,12 +261,12 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 ### <a name="azure-data-lake-store-as-source"></a>Azure Data Lake Store som källa
 
-- Om du vill kopiera från **Parquet, avgränsad text, Avro och binärt format**, se avsnittet [Parquet, avgränsad text, Avro och binärt format](#format-based-source) .
-- Om du vill kopiera från andra format som **Orc/JSON-format**, se avsnittet [annan format källa](#other-format-source) .
+- Om du vill kopiera från **Parquet, avgränsade text-, JSON-, Avro-och binärformat**, se avsnittet [Parquet, avgränsad text, JSON, Avro och binärt format](#format-based-source) .
+- Om du vill kopiera från andra format som **Orc-format**, se avsnittet [annan format källa](#other-format-source) .
 
-#### <a name="format-based-source"></a>Parquet, avgränsad text, Avro och binär format källa
+#### <a name="format-based-source"></a>Parquet, avgränsad text, JSON, Avro och binär format källa
 
-Om du vill kopiera data från **Parquet, avgränsad text, Avro eller binärt format**, se [Parquet format](format-parquet.md), [avgränsat text format](format-delimited-text.md), [Avro format](format-avro.md) och [binärt format](format-binary.md) artikel med format-baserad kopierings aktivitets källa och inställningar som stöds .  Följande egenskaper stöds för Azure Data Lake Store gen1 under `storeSettings` inställningar i den formatbaserade kopierings källan:
+Om du vill kopiera data från **Parquet, avgränsade text-, JSON-, Avro-och binärformat**, se [Parquet-format](format-parquet.md), [avgränsat text format](format-delimited-text.md), [Avro format](format-avro.md) och [binära format](format-binary.md) artikel för den formatbaserade kopierings aktivitets källan och stöds autentiseringsinställningar.  Följande egenskaper stöds för Azure Data Lake Store gen1 under `storeSettings` inställningar i den formatbaserade kopierings källan:
 
 | Egenskap                 | Beskrivning                                                  | Krävs                                      |
 | ------------------------ | ------------------------------------------------------------ | --------------------------------------------- |
@@ -324,7 +324,7 @@ Om du vill kopiera data från **Parquet, avgränsad text, Avro eller binärt for
 
 #### <a name="other-format-source"></a>Annan format källa
 
-Om du vill kopiera data från Azure Data Lake Store gen1 i **Orc-eller JSON-format**, stöds följande egenskaper i avsnittet Kopiera aktivitets **källa** :
+Om du vill kopiera data från Azure Data Lake Store gen1 i **Orc-format**stöds följande egenskaper i avsnittet Kopiera aktivitets **källa** :
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
@@ -366,12 +366,12 @@ Om du vill kopiera data från Azure Data Lake Store gen1 i **Orc-eller JSON-form
 
 ### <a name="azure-data-lake-store-as-sink"></a>Azure Data Lake Store som mottagare
 
-- Om du vill kopiera till **Parquet, avgränsad text, Avro eller binärformat**, se avsnittet [Parquet, avgränsad text, Avro och binärt format](#format-based-sink) .
+- Om du vill kopiera till **Parquet, avgränsad text, JSON, Avro och binärt format**, se avsnittet [Parquet, avgränsad text, JSON, Avro och binärt format](#format-based-sink) .
 - Om du vill kopiera till andra format som **Orc/JSON-format**, se avsnittet [annat format mottagare](#other-format-sink) .
 
-#### <a name="format-based-sink"></a>Parquet, avgränsad text, Avro och binärt format mottagare
+#### <a name="format-based-sink"></a>Parquet, avgränsad text, JSON, Avro och binärt format mottagare
 
-Om du vill kopiera data till **Parquet, avgränsad text, Avro eller binärt format**, se [Parquet format](format-parquet.md), [avgränsat text format](format-delimited-text.md), [Avro format](format-avro.md) och [binära format](format-binary.md) -artikel i den formatbaserade kopierings aktivitets mottagare och inställningar som stöds.  Följande egenskaper stöds för Azure Data Lake Store gen1 under `storeSettings` inställningar i den formatbaserade kopierings mottagaren:
+Om du vill kopiera data till **Parquet, avgränsade text-, JSON-, Avro-och binärformat**, referera till [Parquet-format](format-parquet.md), [avgränsat text format](format-delimited-text.md), [Avro format](format-avro.md) och [binära format](format-binary.md) -artikel på formatbaserade kopierings aktivitets mottagare och stöd autentiseringsinställningar.  Följande egenskaper stöds för Azure Data Lake Store gen1 under `storeSettings` inställningar i den formatbaserade kopierings mottagaren:
 
 | Egenskap                 | Beskrivning                                                  | Krävs |
 | ------------------------ | ------------------------------------------------------------ | -------- |
@@ -419,7 +419,7 @@ Om du vill kopiera data till **Parquet, avgränsad text, Avro eller binärt form
 
 #### <a name="other-format-sink"></a>Övrigt format mottagare
 
-För att kopiera data till Azure Data Lake Store gen1 i **Orc-eller JSON-format**stöds följande egenskaper i avsnittet **mottagare** :
+För att kopiera data till Azure Data Lake Store gen1 i **Orc-format**, stöds följande egenskaper i avsnittet **mottagare** :
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |

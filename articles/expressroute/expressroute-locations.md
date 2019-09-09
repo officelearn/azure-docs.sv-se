@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/06/2019
+ms.date: 09/09/2019
 ms.author: cherylmc
-ms.openlocfilehash: 7df117dbb071081473a5651a953927cee8ddaa03
-ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
+ms.openlocfilehash: e758707511989cca64fdef45b1c673dd3d96d6d2
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/08/2019
-ms.locfileid: "70801500"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70812145"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>ExpressRoute-partners och peeringplatser
 
@@ -161,7 +161,7 @@ I följande tabell visas platser efter tjänstleverantör. Om du vill visa tillg
 | **[Vocus-grupp NZ](https://www.vocus.co.nz/business/cloud-data-centres)** | Stöds | Stöds | Auckland, Sydney |
 | **[Vodafone](https://www.vodafone.com/business/global-enterprise/global-connectivity/vodafone-ip-vpn-cloud-connect)** |Stöds |Stöds |Amsterdam2, London, Singapore |
 | **Vodafone Idea** | Stöds | Stöds | Mumbai, Mumbai2 |
-| **[Zayo](https://www.zayo.com/solutions/industries/cloud-connectivity/microsoft-expressroute)** |Stöds |Stöds |Amsterdam, Chicago, Dallas, Denver, London, Los Angeles, Montreal, New York, Paris, Seattle, Silicon Valley, Toronto, Washington DC |
+| **[Zayo](https://www.zayo.com/solutions/industries/cloud-connectivity/microsoft-expressroute)** |Stöds |Stöds |Amsterdam, Chicago, Borås, Denver, London, Los Angeles, Montrealprotokollet, New York, Paris, Seattle, Silicon dal, Toronto, Washington DC, Washington DC2 |
 
  **+** kommer snart
 
@@ -198,7 +198,7 @@ Läs mer i [ExpressRoute i Kina](http://www.windowsazure.cn/home/features/expres
 | **[Megaport](https://www.megaport.com/services/microsoft-expressroute/)** |Stöds  | Stöds inte | Berlin |
 | **T-Systems** |Stöds |Stöds inte |Berlin |
 
-## <a name="connectivity-through-exchange-providers"></a>Anslutningar via Exchange-leverantörer
+## <a name="connectivity-through-exchange-providers"></a>Anslutning via Exchange-leverantörer
 
 Om inte din anslutningsleverantör finns med i föregående avsnitt, kan du fortfarande skapa en anslutning.
 
@@ -216,7 +216,14 @@ Om inte din anslutningsleverantör finns med i föregående avsnitt, kan du fort
 * Beställ en ExpressRoute-krets med utbyte så att anslutningsleverantören kan ansluta till Microsoft.
   * Följ stegen i [Skapa en ExpressRoute-krets](expressroute-howto-circuit-classic.md) för att konfigurera anslutningen.
 
-## <a name="connectivity-through-additional-service-providers"></a>Anslutning med ytterligare leverantörer
+## <a name="connectivity-through-satellite-operators"></a>Anslutning via satellit operatörer
+Om du är fjärran sluten och inte har fiber anslutning eller om du vill utforska andra anslutnings alternativ kan du kontrol lera följande satellit operatörer. 
+
+* Intelsat
+* SES
+* Viasat
+
+## <a name="connectivity-through-additional-service-providers"></a>Anslutning via ytterligare tjänst leverantörer
 
 | **Anslutningsleverantör** | **Exchange** | **Platser** |
 | --- | --- | --- |
@@ -278,7 +285,7 @@ Om inte din anslutningsleverantör finns med i föregående avsnitt, kan du fort
 | **[Zertia](https://www.zertia.es)**| Level 3 | Madrid |
 | **[Zirro](https://zirro.com/services/)**| Cologix, Equinix | Montreal, Toronto |
 
-## <a name="connectivity-through-datacenter-providers"></a>Anslutningar via datacenterleverantörer
+## <a name="connectivity-through-datacenter-providers"></a>Anslutning via data Center leverantörer
 
 | **Leverantör** | **Exchange** |
 | --- | --- |
@@ -295,7 +302,7 @@ Om inte din anslutningsleverantör finns med i föregående avsnitt, kan du fort
 | **[vXchnge](https://www.vxchnge.com/colocation-services/interconnection)** | IX räckvidd, Megaport |
 | **[T5 Datacenters](https://t5datacenters.com/network-cloud-connect/)** | IX Reach |
 
-## <a name="connectivity-through-national-research-and-education-networks-nren"></a>Anslutning via NREN (National Research and Education Networks)
+## <a name="connectivity-through-national-research-and-education-networks-nren"></a>Anslutning via nationella forsknings-och utbildnings nätverk (NREN)
 
 | **Leverantör**|
 | --- |

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5559d30921ea44679b4ecd24c77e26be163c18fc
-ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
+ms.openlocfilehash: 53900bcade3f7a283309f5ee1c624c742a62ad3f
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70375900"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70812451"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>Instruktioner: Planera implementeringen av hybrid Azure Active Directorys anslutning
 
@@ -149,7 +149,7 @@ Tabellen nedan innehåller information om stöd för dessa lokala AD-UPN i Windo
 | ----- | ----- | ----- | ----- |
 | Dirigera | Federerad | Från 1703-version | Allmänt tillgänglig |
 | Ej dirigerbart | Federerad | Från 1803-version | Allmänt tillgänglig |
-| Dirigera | Hanterad | Stöds inte | |
+| Dirigera | Hanterad | Från 1803-version | Azure AD-SSPR på Windows-låsskärm som är allmänt tillgängligt stöds inte |
 | Ej dirigerbart | Hanterad | Stöds inte | |
 
 ## <a name="next-steps"></a>Nästa steg

@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/12/2019
+ms.date: 09/09/2019
 ms.author: jingwang
-ms.openlocfilehash: 136f7e290947066e6d4ea4e9bb89d06fe9b2cac7
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: 37e6a3ee9f793a475cf9d775e99da989e82957dc
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70274536"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70813482"
 ---
 # <a name="copy-data-to-and-from-sql-server-by-using-azure-data-factory"></a>Kopiera data till och från SQL Server med Azure Data Factory
 > [!div class="op_single_selector" title1="Välj den version av Azure Data Factory som du använder:"]
@@ -298,6 +298,7 @@ Om du vill kopiera data till SQL Server anger du mottagar typen i kopierings akt
 | storedProcedureTableTypeParameterName |Parameter namnet för den tabell typ som anges i den lagrade proceduren.  |Nej |
 | sqlWriterTableType |Det tabell typs namn som ska användas i den lagrade proceduren. Kopierings aktiviteten gör data som flyttas tillgängliga i en temporär tabell med den här tabell typen. Den lagrade procedur koden kan sedan sammanfoga de data som kopieras med befintliga data. |Nej |
 | storedProcedureParameters |Parametrar för den lagrade proceduren.<br/>Tillåtna värden är namn-och värdepar. Namn och versaler och gemener i parametrar måste matcha namn och versaler och gemener i parametrarna för lagrade procedurer. | Nej |
+| tableOption | Anger om mottagar tabellen ska skapas automatiskt om den inte finns, baserat på käll schemat. Det går inte att skapa en automatisk tabell när Sink anger lagrad procedur eller mellanlagrad kopia har kon figurer ATS i kopierings aktiviteten. Tillåtna värden är: `none` (standard), `autoCreate`. |Nej |
 
 **Exempel 1: Lägg till data**
 
@@ -324,7 +325,8 @@ Om du vill kopiera data till SQL Server anger du mottagar typen i kopierings akt
             },
             "sink": {
                 "type": "SqlSink",
-                "writeBatchSize": 100000
+                "writeBatchSize": 100000,
+                "tableOption": "autoCreate"
             }
         }
     }
@@ -525,7 +527,7 @@ När du kopierar data från och till SQL Server, används följande mappningar f
 >[!NOTE]
 > För data typer som mappas till en decimal-interimistisk-typ, stöds för närvarande Azure Data Factory precision upp till 28. Om du har data som kräver precision som är större än 28, bör du överväga att konvertera till en sträng i en SQL-fråga.
 
-## <a name="troubleshoot-connection-issues"></a>Felsöka anslutnings problem
+## <a name="troubleshoot-connection-issues"></a>Felsöka anslutningsproblem
 
 1. Konfigurera SQL Server-instansen så att den accepterar fjärr anslutningar. Starta **SQL Server Management Studio**, högerklicka på **Server**och välj **Egenskaper**. Välj **anslutningar** i listan och markera kryss rutan **Tillåt fjärr anslutningar till den här servern** .
 

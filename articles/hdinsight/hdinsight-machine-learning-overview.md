@@ -1,6 +1,6 @@
 ---
-title: Översikt över maskininlärning – Azure HDInsight
-description: Beskriver de machine learning-alternativ i HDInsight.
+title: Översikt över Machine Learning – Azure HDInsight
+description: Översikt över utbildnings alternativ för Big data Machine för kluster i Azure HDInsight.
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -8,60 +8,60 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: hrasheed
-ms.openlocfilehash: ca69424ecbddc068fdaf8bb5839a647701ee27fe
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 17615c0005a3cbc5b20cea697b4c75b5ed06ae0a
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64686595"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70812010"
 ---
-# <a name="machine-learning-on-hdinsight"></a>Maskininlärning på HDInsight
+# <a name="machine-learning-on-hdinsight"></a>Maskin inlärning på HDInsight
 
-HDInsight gör det möjligt för machine learning med big data, vilket ger möjlighet att få värdefulla insikter från stora mängder (petabyte eller även exabyte) strukturerade och Ostrukturerade, och snabbrörliga data. Det finns flera machine learning-alternativ i HDInsight:  SparkML och Apache Spark MLlib, R, Apache Hive och Microsoft Cognitive Toolkit.
+HDInsight möjliggör maskin inlärning med Big data, vilket ger möjlighet att få värdefulla insikter från stora mängder (petabyte, eller till och med exabyte) av strukturerade, ostrukturerade och snabbt föränderliga data. Det finns flera maskin inlärnings alternativ i HDInsight:  SparkML och Apache Spark MLlib, R, Apache Hive och Microsoft Cognitive Toolkit.
 
 ## <a name="sparkml-and-mllib"></a>SparkML och MLlib
 
-[HDInsight Spark](spark/apache-spark-overview.md) är ett erbjudande för Azure som värd för [Apache Spark](https://spark.apache.org/), en enhetlig öppen källkod, ett parallellt databearbetningsramverk som stöder intern bearbetning för att höja analyser av stordata. Bearbetningsmotorn i Spark är byggd för hastighet, enkel användning och avancerade analyser. Sparks InMemory-distribuerad beräkning funktioner blir det ett bra alternativ för iterativa algoritmer som används i machine learning och grafberäkningar. Det finns två skalbar machine learning-bibliotek som få algoritmiska modelleringsfunktioner till den här distribuerad miljö: MLlib och SparkML. MLlib innehåller den ursprungliga API som byggts ovanpå rdd-datauppsättningar. SparkML är ett nyare paket som innehåller en högre nivå API som bygger på dataramar för att konstruera ML pipelines. SparkML stöder ännu inte alla funktioner i MLlib, men ersätter MLlib som Spark's standard machine learning-biblioteket.
+[HDInsight Spark](spark/apache-spark-overview.md) är ett Azure-värd erbjudande för [Apache Spark](https://spark.apache.org/), en enhetlig, öppen källa, Parallel Data processing Framework som stöder minnes intern bearbetning för att förbättra stor data analys. Bearbetningsmotorn i Spark är byggd för hastighet, enkel användning och avancerade analyser. Sparks InMemory-distribuerad beräkning funktioner blir det ett bra alternativ för iterativa algoritmer som används i machine learning och grafberäkningar. Det finns två skalbara Machine Learning-bibliotek som ger algoritmiska modellerings funktioner till den här distribuerade miljön: MLlib och SparkML. MLlib innehåller det ursprungliga API som byggts ovanpå RDD. SparkML är ett nyare paket som ger ett API på högre nivå som bygger på DataFrames för att konstruera ML-pipeliner. SparkML har ännu inte stöd för alla funktioner i MLlib, men ersätter MLlib som Spark standard Machine Learning-bibliotek.
 
-Microsoft Machine Learning-biblioteket för Apache Spark [MMLSpark](https://github.com/Azure/mmlspark). Det här biblioteket är utformad för att göra dataexperter mer produktiva i Spark, öka frekvensen för experimentering och utnyttja banbrytande machine learning-tekniker, inklusive djupinlärning på mycket stora datauppsättningar. MMLSpark ger ett lager ovanpå Sparkmls på låg nivå API: er när du bygger skalbara ML-modeller, t.ex indexering strängar coercing data i en layout som förväntas av machine learning-algoritmer och montera funktionen vektorer. MMLSpark-bibliotek förenklar dessa och andra vanliga aktiviteter för att skapa modeller i PySpark.
+Microsoft Machine Learning-biblioteket för Apache Spark är [MMLSpark](https://github.com/Azure/mmlspark). Det här biblioteket är utformat för att göra data experter mer produktiva i Spark, öka frekvensen för experimentering och utnyttja de senaste teknikerna för maskin inlärning, inklusive djup inlärning, på mycket stora data uppsättningar. MMLSpark tillhandahåller ett lager ovanpå SparkMLs lågnivå-API: er när du skapar skalbara ML-modeller, t. ex. indexering av strängar, data som ska förväntas av Machine Learning-algoritmer och sammansättning av funktions vektorer. MMLSpark-biblioteket fören klar dessa och andra vanliga uppgifter för att skapa modeller i PySpark.
 
 ## <a name="r"></a>R
 
-[R](https://www.r-project.org/) för närvarande är det mest populära statistiska programmeringsspråket i världen. Det är en öppen källkod datavisualiseringsverktyg med grupper med över 2,5 miljoner användare och växer. R är ett troligt alternativ för många företag som behöver maskininlärning med dess blomstrande användarbas och över 8 000 överförda paket. Du kan skapa ett HDInsight-kluster med ML-tjänster som är redo att användas med enorma datauppsättningar och modeller. Den här funktionen ger dataexperter och statistiker med ett välbekanta R-gränssnitt som kan skalas på begäran via HDInsight, utan att behöva konfiguration och underhåll.
+[R](https://www.r-project.org/) är för närvarande det vanligaste statistiska programmeringsspråket i världen. Det är ett data visualiserings verktyg med öppen källkod med en community över 2 500 000 användare och växer. Med sin blomstrande-användar bas och över 8 000-paket är R ett sannolikt val för många företag som behöver maskin inlärning. Du kan skapa ett HDInsight-kluster med ML-tjänster som är klara att användas med enorma data uppsättningar och modeller. Den här funktionen ger data vetenskaps-och statistiker med ett välbekant R-gränssnitt som kan skalas på begäran via HDInsight, utan att det går att konfigurera och underhålla kluster.
 
-![Utbildning för förutsägelse med R server](./media/hdinsight-machine-learning-overview/r-training.png)
+![Utbildning för förutsägelse med R Server](./media/hdinsight-machine-learning-overview/r-training.png)
 
-Edge-nod i ett kluster är ett bra ställe att ansluta till klustret och köra R-skript.  Du har också möjlighet att köra R-skript för noder i klustret med hjälp av Scaler's Hadoop Map Reduce eller Spark compute-sammanhang.
+Edge-noden i ett kluster är en praktisk plats för att ansluta till klustret och köra R-skript.  Du kan också välja att köra R-skript över noderna i klustret med hjälp av skalnings programmets Hadoop-karta minska eller Spark Compute-kontexter.
 
-Med ML-tjänster på HDInsight med Spark, kan du parallellisera utbildning för noder i ett kluster med hjälp av ett Spark-beräkningskontexten. Du kan köra R-skript direkt på edge-nod med hjälp av alla tillgängliga kärnor samtidigt, efter behov. Du kan också köra din kod från gränsnoden av bearbetning som är fördelade på alla noder i klustret. ML-tjänster på HDInsight med Spark kan också parallellisera funktioner från R med öppen källkod-paket, om så önskas.
+Med ML-tjänster i HDInsight med Spark kan du parallellisera utbildning över noderna i ett kluster med hjälp av en spark Compute-kontext. Du kan köra R-skript direkt på Edge-noden med alla tillgängliga kärnor parallellt efter behov. Alternativt kan du köra din kod från Edge-noden för att starta bearbetningen som distribueras över alla noder i klustret. ML-tjänster i HDInsight med Spark möjliggör också parallellt av funktioner från R-paket med öppen källkod, om så önskas.
 
 ## <a name="azure-machine-learning-and-apache-hive"></a>Azure Machine Learning och Apache Hive
 
-Azure Machine Learning tillhandahåller verktyg för att modellen förutsägande analys, samt en helt hanterad tjänst som du kan använda för att distribuera förutsägelsemodeller som är klara att använda webbtjänster. Azure Machine Learning är en fullständig förutsägelseanalys i molnet som du kan använda för att skapa, testa, operationalisera och hantera förutsägelsemodeller. Välj från ett stort algoritmbibliotek, använda webbaserade verktyg för modellutveckling och enkelt distribuera din modell som en webbtjänst.
+Azure Machine Learning innehåller verktyg för att modellera förutsägelse analys, samt en fullständigt hanterad tjänst som du kan använda för att distribuera förutsägelse modeller som färdiga webb tjänster. Azure Machine Learning är en komplett lösning för förutsägelse analys i molnet som du kan använda för att skapa, testa, operationalisera och hantera förutsägelse modeller. Välj från ett bibliotek med stora algoritmer, Använd en webbaserad Studio för att skapa modeller och enkelt distribuera din modell som en webb tjänst.
 
-![Att göra avancerade analyser som är tillgänglig för Hadoop med Microsoft Azure Machine Learning](./media/hdinsight-machine-learning-overview/hadoop-azure-ml.png)
+![Göra avancerade analyser tillgängliga för Hadoop med Microsoft Azure Machine Learning](./media/hdinsight-machine-learning-overview/hadoop-azure-ml.png)
 
-Skapa funktioner för data i ett HDInsight Hadoop-kluster med hjälp av [Hive-frågor](../machine-learning/team-data-science-process/create-features-hive.md). *Funktionstekniker* försöker ökar förutsägande learning-algoritmer genom att skapa funktioner från rådata som underlättar learning processen. Du kan köra HiveQL frågor från Azure Machine Learning studio och komma åt data som bearbetas i Hive och lagras i blob storage med hjälp av den [importdata modulen](../machine-learning/studio/import-data.md).
+Skapa funktioner för data i ett HDInsight Hadoop-kluster med [Hive-frågor](../machine-learning/team-data-science-process/create-features-hive.md). *Funktions teknikerna* försöker öka förutsägelse kraften hos Learning-algoritmer genom att skapa funktioner från rå data som underlättar inlärnings processen. Du kan köra HiveQL-frågor från Azure Machine Learning Studio och komma åt data som bearbetas i Hive och lagras i Blob Storage med hjälp av [modulen importera data](../machine-learning/studio/import-data.md).
 
 ## <a name="microsoft-cognitive-toolkit"></a>Microsoft Cognitive Toolkit
 
-[Djupinlärning](https://www.microsoft.com/en-us/research/group/dltc/) är en gren av machine learning som använder neurala nätverk, bli INSPIRERAD av bioteknik processer i den mänskliga hjärnan. Djupinlärning finns som en lovande metod för att utöka AI många forskare. Exempel på djupinlärning är talat språk översättare, bild av system och datorn resonemang.
+[Djup inlärning](https://www.microsoft.com/en-us/research/group/dltc/) är en gren av Machine Learning som använder neurala-nätverk, som inspireras av de biologiska processerna för mänsklig hjärna. Många forskare ser djup inlärning som en löftes metod för att förbättra artificiell intelligens. Exempel på djup inlärning är talade språk översättare, image igenkännings system och maskin vara.
 
-Microsoft har utvecklat kostnadsfria, enkel att använda, öppen källkod på för att gå vidare sitt eget arbete i djupinlärning, [Microsoft Cognitive Toolkit](https://www.microsoft.com/en-us/cognitive-toolkit/). Dessa verktyg används av en mängd olika Microsoft-produkter, företag över hela världen med ett behov av att distribuera djupinlärnings i stor skala och studenter som är intresserade av senaste algoritmer och tekniker.
+För att få fram sitt eget arbete i djup inlärning har Microsoft utvecklat den kostnads fria, lättanvända [Microsoft Cognitive Toolkit](https://www.microsoft.com/en-us/cognitive-toolkit/)med öppen källkod. Det här verktyget används av en mängd olika Microsoft-produkter, av företag över hela världen med behov av att distribuera djup inlärning i stor skala och av studenter som är intresserade av de senaste algoritmerna och teknikerna.
 
 ## <a name="see-also"></a>Se också
 
 ### <a name="scenarios"></a>Scenarier
 
-* [Apache Spark med Machine Learning: Använda Spark i HDInsight för analys av byggnadstemperatur med HVAC-data](spark/apache-spark-ipython-notebook-machine-learning.md)
-* [Apache Spark med Machine Learning: Använda Spark i HDInsight för att förutse matinspektionsresultat](spark/apache-spark-machine-learning-mllib-ipython.md)
-* [Skapa filmrekommendationer med Apache Mahout](hadoop/apache-hadoop-mahout-linux-mac.md)
+* [Apache Spark med Machine Learning: Använda spark i HDInsight för analys av bygg temperatur med HVAC-data](spark/apache-spark-ipython-notebook-machine-learning.md)
+* [Apache Spark med Machine Learning: Använd spark i HDInsight för att förutsäga resultatet av livsmedels inspektionen](spark/apache-spark-machine-learning-mllib-ipython.md)
+* [Skapa film rekommendationer med Apache Mahout](hadoop/apache-hadoop-mahout-linux-mac.md)
 * [Apache Hive och Azure Machine Learning](../machine-learning/team-data-science-process/create-features-hive.md)
-* [Apache Hive och Azure Machine Learning slutpunkt till slutpunkt](../machine-learning/team-data-science-process/hive-walkthrough.md)
-* [Machine learning med Apache Spark i HDInsight](../machine-learning/team-data-science-process/spark-overview.md)
+* [Apache Hive och Azure Machine Learning slut punkt till slut punkt](../machine-learning/team-data-science-process/hive-walkthrough.md)
+* [Maskin inlärning med Apache Spark på HDInsight](../machine-learning/team-data-science-process/spark-overview.md)
 
-### <a name="deep-learning-resources"></a>Deep learning-resurser
+### <a name="deep-learning-resources"></a>Djup inlärnings resurser
 
-* [Använd Microsoft Cognitive Toolkit deep learning-modell med Azure HDInsight Spark-kluster](spark/apache-spark-microsoft-cognitive-toolkit.md)
-* [Använda Caffe på Azure HDInsight Spark för distribuerade djupinlärning](spark/apache-spark-deep-learning-caffe.md)
-* [Ramverk för Djupinlärning och AI på Data Science Virtual Machine (DSVM)](../machine-learning/data-science-virtual-machine/dsvm-deep-learning-ai-frameworks.md)
+* [Använd Microsoft Cognitive Toolkit djup inlärnings modell med Azure HDInsight Spark kluster](spark/apache-spark-microsoft-cognitive-toolkit.md)
+* [Använda Caffe på Azure HDInsight Spark för distribuerad djup inlärning](spark/apache-spark-deep-learning-caffe.md)
+* [Djup inlärning och AI-ramverk på Data Science Virtual Machine (DSVM)](../machine-learning/data-science-virtual-machine/dsvm-deep-learning-ai-frameworks.md)

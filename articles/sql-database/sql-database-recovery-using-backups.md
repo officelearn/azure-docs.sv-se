@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 08/27/2019
-ms.openlocfilehash: 00982ea837783a7e7a9dca257f04c77d48aceef2
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 6f1a0485dbae3234d476ba5df62126f05d52f435
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70103107"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70813338"
 ---
 # <a name="recover-an-azure-sql-database-using-automated-database-backups"></a>Återställa en Azure SQL-databas med hjälp av automatisk säkerhets kopiering av databasen
 
@@ -127,10 +127,7 @@ Det finns för närvarande inte stöd för återställning av tidpunkt på en ge
 
 ### <a name="geo-restore-using-the-azure-portal"></a>Geo-återställning med hjälp av Azure Portal
 
-Om du vill geo-återställa en databas med hjälp av Azure Portal öppnar du sidan SQL-databaser och klickar sedan på **Lägg till**. I text rutan **Välj källa** väljer du **säkerhets kopiering**. Ange den säkerhets kopia från vilken du vill utföra återställningen i regionen och på valfri server.
-
-> [!Note]
-> Geo-återställning med Azure Portal är inte tillgängligt i en hanterad instans. Använd PowerShell i stället.
+Om du vill geo-återställa en databas med hjälp av Azure Portal öppnar du sidan SQL-databaser och klickar sedan på **Lägg till**. I text rutan **Välj källa** väljer du **säkerhets kopiering**. Ange den säkerhets kopia från vilken du vill utföra återställningen i regionen och på valfri server. 
 
 ## <a name="programmatically-performing-recovery-using-automated-backups"></a>Utföra återställning via programmering med automatiska säkerhets kopieringar
 
@@ -142,7 +139,7 @@ Som tidigare diskuterats kan databas återställningen, förutom den Azure Porta
 > [!IMPORTANT]
 > PowerShell Azure Resource Manager-modulen stöds fortfarande av Azure SQL Database, men all framtida utveckling gäller AZ. SQL-modulen. De här cmdletarna finns i [AzureRM. SQL](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Argumenten för kommandona i AZ-modulen och i AzureRm-modulerna är i stort sett identiska.
 
-- Information om hur du återställer en fristående databas eller en databas finns i Restore [-AzSqlDatabase](/powershell/module/az.sql/restore-azsqldatabase).
+- Information om hur du återställer en fristående databas eller en databas finns i [restore-AzSqlDatabase](/powershell/module/az.sql/restore-azsqldatabase).
 
   | Cmdlet: | Beskrivning |
   | --- | --- |
@@ -154,7 +151,7 @@ Som tidigare diskuterats kan databas återställningen, förutom den Azure Porta
   > [!TIP]
   > Ett exempel på PowerShell-skript som visar hur du utför en tidpunkts återställning av en databas finns i [återställa en SQL-databas med hjälp av PowerShell](scripts/sql-database-restore-database-powershell.md).
 
-- Information om hur du återställer en hanterad instans databas finns i Restore [-AzSqlInstanceDatabase](/powershell/module/az.sql/restore-azsqlinstancedatabase).
+- Information om hur du återställer en hanterad instans databas finns i [restore-AzSqlInstanceDatabase](/powershell/module/az.sql/restore-azsqlinstancedatabase).
 
   | Cmdlet: | Beskrivning |
   | --- | --- |
@@ -173,8 +170,8 @@ Så här återställer du en databas med en eller flera databaser med hjälp av 
 
 ### <a name="azure-cli"></a>Azure CLI
 
-- Information om hur du återställer en enskild databas eller en pool med Azure CLI finns i [AZ SQL DB](/cli/azure/sql/db#az-sql-db-restore)Restore.
-- Information om hur du återställer en hanterad instans med hjälp av Azure CLI finns i [AZ SQL EXTEXTB](/cli/azure/sql/midb#az-sql-midb-restore) Restore
+- Information om hur du återställer en enskild databas eller en pool med Azure CLI finns i [AZ SQL DB Restore](/cli/azure/sql/db#az-sql-db-restore).
+- Information om hur du återställer en hanterad instans med hjälp av Azure CLI finns i [AZ SQL EXTEXTB Restore](/cli/azure/sql/midb#az-sql-midb-restore)
 
 ## <a name="summary"></a>Sammanfattning
 

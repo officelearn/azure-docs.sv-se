@@ -7,14 +7,14 @@ ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 09/04/2019
+ms.date: 09/09/2019
 ms.author: jingwang
-ms.openlocfilehash: c845c4bcc8dc57371304b5917ee09191b5256c51
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: 8925ea9da06ff718f08b7be73944c75d388bc01f
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70276340"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70814169"
 ---
 # <a name="copy-data-to-or-from-azure-blob-storage-by-using-azure-data-factory"></a>Kopiera data till och från Azure Blob storage med hjälp av Azure Data Factory
 > [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
@@ -315,10 +315,10 @@ De här egenskaperna har stöd för en Azure Blob storage-länkad tjänst:
 
 En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera datauppsättningar finns i den [datauppsättningar](concepts-datasets-linked-services.md) artikeln. 
 
-- För **Parquet, avgränsad text, Avro och binärt format**, se avsnittet [Parquet, delimited text data och binära format](#format-based-dataset) .
+- För **Parquet, avgränsade text-, JSON-, Avro-och binärformat**, se [Parquet, delimited text-, JSON-, Avro-och binära format-datauppsättning](#format-based-dataset) .
 - Andra format som **Orc/JSON-format**finns i avsnittet [annan format data uppsättning](#other-format-dataset) .
 
-### <a name="format-based-dataset"></a>Data uppsättning för Parquet, avgränsad text, Avro och binärt format
+### <a name="format-based-dataset"></a>Data uppsättning för Parquet, avgränsad text, JSON, Avro och binärt format
 
 Om du vill kopiera data till och från Blob Storage i Parquet, avgränsad text, Avro eller binärt format, se [Parquet format](format-parquet.md), [avgränsat text format](format-delimited-text.md), [Avro format](format-avro.md) och [binärt format](format-binary.md) artikel i format-baserad data uppsättning och inställningar som stöds. Följande egenskaper stöds för Azure-Blob under `location` inställningar i format-baserad data mängd:
 
@@ -413,12 +413,12 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 ### <a name="blob-storage-as-a-source-type"></a>BLOB storage som en typ av datakälla
 
-- Om du vill kopiera från **Parquet, avgränsad text, Avro och binärt format**, se avsnittet [Parquet, avgränsad text och binärt format](#format-based-source) .
-- Om du vill kopiera från andra format som **Orc/JSON-format**, se avsnittet [annan format källa](#other-format-source) .
+- Om du vill kopiera från **Parquet, avgränsade text-, JSON-, Avro-och binärformat**, se avsnittet [Parquet, avgränsad text, JSON, Avro och binärt format](#format-based-source) .
+- Om du vill kopiera från andra format som **Orc-format**, se avsnittet [annan format källa](#other-format-source) .
 
-#### <a name="format-based-source"></a>Parquet, avgränsad text, Avro och binär format källa
+#### <a name="format-based-source"></a>Parquet, avgränsad text, JSON, Avro och binär format källa
 
-Om du vill kopiera data till och från Blob Storage i **Parquet, avgränsad text, Avro eller binärt format**, se [Parquet format](format-parquet.md), [avgränsat text format](format-delimited-text.md), [Avro format](format-avro.md) och [binärt format](format-binary.md) artikel i format-baserad data uppsättning och stöd autentiseringsinställningar. Följande egenskaper stöds för Azure-Blob under `storeSettings` inställningar i format-baserad kopierings Källa:
+Om du vill kopiera data till och från Blob Storage i **Parquet, avgränsade text-, JSON-, Avro-och binärformat**, referera till [Parquet-format](format-parquet.md), [avgränsat text format](format-delimited-text.md), [Avro format](format-avro.md) och [binärt format](format-binary.md) -artikel i format-baserad data uppsättning och inställningar som stöds. Följande egenskaper stöds för Azure-Blob under `storeSettings` inställningar i format-baserad kopierings Källa:
 
 | Egenskap                 | Beskrivning                                                  | Krävs                                      |
 | ------------------------ | ------------------------------------------------------------ | --------------------------------------------- |
@@ -476,7 +476,7 @@ Om du vill kopiera data till och från Blob Storage i **Parquet, avgränsad text
 
 #### <a name="other-format-source"></a>Annan format källa
 
-Om du vill kopiera data från Blob Storage i **Orc-eller JSON-format**anger du käll typen i kopierings aktiviteten till **BlobSource**. Följande egenskaper stöds i kopieringsaktiviteten **källa** avsnittet.
+Om du vill kopiera data från Blob Storage i **Orc-format**anger du käll typen i kopierings aktiviteten till **BlobSource**. Följande egenskaper stöds i kopieringsaktiviteten **källa** avsnittet.
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
@@ -518,12 +518,12 @@ Om du vill kopiera data från Blob Storage i **Orc-eller JSON-format**anger du k
 
 ### <a name="blob-storage-as-a-sink-type"></a>BLOB storage som en Mottagartyp
 
-- Om du vill kopiera från **Parquet, avgränsad text, Avro och binärt format**, se avsnittet [Parquet, avgränsad text och binärt format](#format-based-source) .
-- Om du vill kopiera från andra format som **Orc/JSON-format**, se avsnittet [annan format källa](#other-format-source) .
+- Om du vill kopiera från **Parquet, avgränsade text-, JSON-, Avro-och binärformat**, se avsnittet [Parquet, avgränsad text, JSON, Avro och binärt format](#format-based-source) .
+- Om du vill kopiera från andra format som **Orc-format**, se avsnittet [annan format källa](#other-format-source) .
 
-#### <a name="format-based-source"></a>Parquet, avgränsad text, Avro och binär format källa
+#### <a name="format-based-source"></a>Parquet, avgränsad text, JSON, Avro och binär format källa
 
-Om du vill kopiera data från Blob Storage i **Parquet, avgränsad text, Avro eller binärt format**, se [Parquet format](format-parquet.md), [avgränsat text format](format-delimited-text.md), [Avro format](format-avro.md) och [binära format](format-binary.md) -artikel om formaterad kopierings aktivitet och inställningar som stöds. Följande egenskaper stöds för Azure-Blob under `storeSettings` inställningar i format-baserad kopierings mottagare:
+Om du vill kopiera data från Blob Storage i **Parquet, avgränsade text-, JSON-, Avro-och binärformat**, referera till [Parquet-format](format-parquet.md), [avgränsat text format](format-delimited-text.md), [Avro format](format-avro.md) och [binära format](format-binary.md) -artikel i den formatbaserade kopierings aktivitets källan och inställningar som stöds. Följande egenskaper stöds för Azure-Blob under `storeSettings` inställningar i format-baserad kopierings mottagare:
 
 | Egenskap                 | Beskrivning                                                  | Krävs |
 | ------------------------ | ------------------------------------------------------------ | -------- |
@@ -571,7 +571,7 @@ Om du vill kopiera data från Blob Storage i **Parquet, avgränsad text, Avro el
 
 #### <a name="other-format-sink"></a>Övrigt format mottagare
 
-Om du vill kopiera data till Blob Storage i **Orc/JSON-format**anger du mottagar typen i kopierings aktiviteten till **BlobSink**. Följande egenskaper stöds i den **mottagare** avsnittet.
+Om du vill kopiera data till Blob Storage i **Orc-format**anger du mottagar typen i kopierings aktiviteten till **BlobSink**. Följande egenskaper stöds i den **mottagare** avsnittet.
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |

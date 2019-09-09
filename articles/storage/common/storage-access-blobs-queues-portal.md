@@ -9,12 +9,12 @@ ms.date: 03/19/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: abbd436e5d1c88c53af95fd8ba9add20fa67c8e4
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: 8d19724883e6c2b3630de6100b1b4ca9fd9250a1
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69640882"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70813364"
 ---
 # <a name="use-the-azure-portal-to-access-blob-or-queue-data"></a>Använd Azure Portal för att få åtkomst till BLOB-eller Queue-data
 
@@ -35,7 +35,7 @@ Om du vill komma åt blob-och Queue-data med åtkomst nyckeln för kontot måste
 När du försöker komma åt BLOB-eller Queue-data i Azure Portal, kontrollerar portalen först om du har tilldelats en roll med **Microsoft. Storage/storageAccounts/listnycklar/Action**. Om du har tilldelats en roll med den här åtgärden använder portalen konto nyckeln för att komma åt blob-och Queue-data. Om du inte har tilldelats en roll med den här åtgärden försöker portalen komma åt data med ditt Azure AD-konto.
 
 > [!NOTE]
-> Administratör och medadministratör för rollen administratör i den klassiska prenumerationen är motsvarigheten till Azure Resource Manager [](../../role-based-access-control/built-in-roles.md#owner) -ägarens roll. **Ägar** rollen innehåller alla åtgärder, inklusive **Microsoft. Storage/storageAccounts/listnycklar/Action**, så en användare med någon av dessa administrativa roller kan också komma åt blob-och Queue-data med konto nyckeln. Mer information finns i [klassisk prenumerations administratörs roller](../../role-based-access-control/rbac-and-directory-admin-roles.md#classic-subscription-administrator-roles).
+> Administratör och medadministratör för rollen administratör i den klassiska prenumerationen är motsvarigheten till Azure Resource Manager- [ägarens](../../role-based-access-control/built-in-roles.md#owner) roll. **Ägar** rollen innehåller alla åtgärder, inklusive **Microsoft. Storage/storageAccounts/listnycklar/Action**, så en användare med någon av dessa administrativa roller kan också komma åt blob-och Queue-data med konto nyckeln. Mer information finns i [klassisk prenumerations administratörs roller](../../role-based-access-control/rbac-and-directory-admin-roles.md#classic-subscription-administrator-roles).
 
 ### <a name="azure-ad-account"></a>Azure AD-konto
 
@@ -44,7 +44,7 @@ För att få åtkomst till BLOB-eller Queue-data från Azure Portal med ditt Azu
 - Du har tilldelats rollen som Azure Resource Managers [läsare](../../role-based-access-control/built-in-roles.md#reader) , minst begränsat till lagrings kontots nivå eller högre. Rollen **läsare** ger mest begränsade behörigheter, men en annan Azure Resource Manager roll som beviljar åtkomst till lagrings kontots hanterings resurser är också acceptabel.
 - Du har tilldelats antingen en inbyggd eller anpassad roll som ger åtkomst till BLOB-eller Queue-data.
 
-Roll tilldelnings rollen eller en annan Azure Resource Manager roll tilldelning krävs så att användaren kan visa och navigera i lagrings kontots hanterings resurser i Azure Portal. RBAC-rollerna som beviljar åtkomst till BLOB-eller Queue data ger inte åtkomst till lagrings kontots hanterings resurser. För att få åtkomst till BLOB-eller Queue-data i portalen behöver användaren behörighet att navigera i lagrings konto resurser. Mer information om det här kravet finns i [tilldela rollen läsare för åtkomst till portalen](../common/storage-auth-aad-rbac-portal.md#assign-the-reader-role-for-portal-access).
+Roll **tilldelnings rollen eller** en annan Azure Resource Manager roll tilldelning krävs så att användaren kan visa och navigera i lagrings kontots hanterings resurser i Azure Portal. RBAC-rollerna som beviljar åtkomst till BLOB-eller Queue data ger inte åtkomst till lagrings kontots hanterings resurser. För att få åtkomst till BLOB-eller Queue-data i portalen behöver användaren behörighet att navigera i lagrings konto resurser. Mer information om det här kravet finns i [tilldela rollen läsare för åtkomst till portalen](../common/storage-auth-aad-rbac-portal.md#assign-the-reader-role-for-portal-access).
 
 De inbyggda rollerna som stöder åtkomst till BLOB-eller Queue-data är:
 
@@ -85,7 +85,7 @@ Observera att inga blobbar visas i listan om ditt Azure AD-konto saknar behörig
 
 ### <a name="azure-ad-account"></a>Azure AD-konto
 
-Om du autentiserar med hjälp av ditt Azure AD-konto visas **Azure AD** -användarkontot som autentiseringsmetod i portalen:
+Om du autentiserar med hjälp av ditt Azure AD-konto visas **Azure AD-användarkontot** som autentiseringsmetod i portalen:
 
 ![För närvarande åtkomst till behållar data med Azure AD-konto](media/storage-access-blobs-queues-portal/auth-method-azure-ad.png)
 

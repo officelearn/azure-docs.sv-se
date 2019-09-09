@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 05/30/2018
 ms.author: cynthn
-ms.openlocfilehash: 18e8f577a52ff36f5e6c4eb8f9697d301f056911
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 1189faf64dc3619d0e4581641c2c66d0b527754a
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70081407"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70813441"
 ---
 # <a name="install-and-configure-remote-desktop-to-connect-to-a-linux-vm-in-azure"></a>Installera och konfigurera fjärr skrivbord för att ansluta till en virtuell Linux-dator i Azure
 Virtuella Linux-datorer (VM: ar) i Azure hanteras vanligt vis från kommando raden med hjälp av en SSH-anslutning (Secure Shell). När du har använt New to Linux eller för snabb fel söknings scenarier kan det vara enklare att använda fjärr skrivbord. Den här artikeln beskriver hur du installerar och konfigurerar en Skriv bords miljö ([xfce](https://www.xfce.org)) och fjärr skrivbord ([xrdp](https://www.xrdp.org)) för din virtuella Linux-dator med hjälp av distributions modellen för Resource Manager.
@@ -55,7 +55,7 @@ sudo apt-get install xfce4
 Nu när du har installerat en Skriv bords miljö kan du konfigurera en fjärr skrivbords tjänst för att lyssna efter inkommande anslutningar. [xrdp](http://xrdp.org) är en RDP-server (open source Remote Desktop Protocol) som är tillgänglig på de flesta Linux-distributioner och fungerar bra med xfce. Installera xrdp på den virtuella Ubuntu-datorn enligt följande:
 
 ```bash
-sudo apt-get install xrdp=0.6.1-2
+sudo apt-get -y install xrdp
 sudo systemctl enable xrdp
 ```
 

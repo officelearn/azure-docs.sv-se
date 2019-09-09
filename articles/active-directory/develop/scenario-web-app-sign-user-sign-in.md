@@ -15,12 +15,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: be7801515355452306cd5e7afa709a0681c7c314
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 9766b530b4d795d0f35f097de20155cdd17687ca
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68562207"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70812391"
 ---
 # <a name="web-app-that-signs-in-users---sign-in"></a>Webbapp som loggar in användare – logga in
 
@@ -28,7 +28,8 @@ Lär dig hur du lägger till inloggning till koden för din webbapp som loggar i
 
 ## <a name="sign-in"></a>Logga in
 
-Koden som vi har i den föregående artikel [appens kod konfiguration](scenario-web-app-sign-user-app-configuration.md) är allt du behöver för att implementera utloggning. När användaren har loggat in till din app vill du förmodligen göra det möjligt att logga ut. ASP.NET Core hanterar utloggning åt dig.
+Koden som vi har granskat i föregående artikel [Apps kod konfiguration](scenario-web-app-sign-user-app-configuration.md) är allt du behöver för att implementera inloggning.
+När användaren har loggat in till din app vill du förmodligen göra det möjligt att logga ut. ASP.NET Core hanterar utloggning åt dig.
 
 ## <a name="what-sign-out-involves"></a>Vilken utloggning omfattar
 
@@ -74,7 +75,7 @@ Koden för `AccountController` är tillgänglig från ASP.net Core-lagringsplats
 - Anrop `Signout()`, som låter OpenIdConnect mellanprogram kontakta den Microsoft Identity Platform `logout` -slutpunkt som:
 
   - Tar bort sessions-cookien från webbläsaren och
-  - Anrop skickas slutligen tillbaka till utloggnings- **URL: en**, som standard, som standard visar sidan signerad vy som är [signerad. html](https://github.com/aspnet/AspNetCore/blob/master/src/Azure/AzureAD/Authentication.AzureAD.UI/src/Areas/AzureAD/Pages/Account/SignedOut.cshtml) ingår också som en del av ASP.net Core.
+  - Anrop skickas slutligen tillbaka till **utloggnings-URL: en**, som standard, som standard visar sidan signerad vy som är [signerad. html](https://github.com/aspnet/AspNetCore/blob/master/src/Azure/AzureAD/Authentication.AzureAD.UI/src/Areas/AzureAD/Pages/Account/SignedOut.cshtml) ingår också som en del av ASP.net Core.
 
 ### <a name="intercepting-the-call-to-the-logout-endpoint"></a>Spärr av anrop till `logout` slut punkten
 

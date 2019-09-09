@@ -1,9 +1,9 @@
 ---
-title: Granska åtkomst till Azure-resursroller i PIM - Azure Active Directory | Microsoft Docs
-description: Lär dig hur du granskar åtkomst till Azure-resursroller i Azure AD Privileged Identity Management (PIM).
+title: Granska åtkomst till Azure Resource roles i PIM – Azure Active Directory | Microsoft Docs
+description: Lär dig hur du granskar åtkomsten till Azure Resource roles i Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
-author: rolyon
+author: curtand
 manager: mtillman
 editor: markwahl-msft
 ms.service: active-directory
@@ -13,45 +13,45 @@ ms.devlang: na
 ms.topic: conceptual
 ms.subservice: pim
 ms.date: 03/30/2018
-ms.author: rolyon
+ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ede412292caf682c3078002d23e1956bd68d1378
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 22c0ce1a5eee4b8d4cc40c47dadd4bcdc74d03ba
+ms.sourcegitcommit: 95b180c92673507ccaa06f5d4afe9568b38a92fb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65602187"
+ms.lasthandoff: 09/08/2019
+ms.locfileid: "70804098"
 ---
-# <a name="review-access-to-azure-resource-roles-in-pim"></a>Granska åtkomst till Azure-resursroller i PIM
-Azure Active Directory (Azure AD) Privileged Identity Management (PIM) förenklar hur företag hantera privilegierad åtkomst till resurser i Azure. 
+# <a name="review-access-to-azure-resource-roles-in-pim"></a>Granska åtkomst till Azure Resource roles i PIM
+Azure Active Directory (Azure AD) Privileged Identity Management (PIM) gör det enklare för företag att hantera privilegie rad åtkomst till resurser i Azure. 
 
-Om du har tilldelats en administrativ roll kan privilegierad rolladministratör för din organisation be dig att regelbundet kontrollera att du fortfarande behöver rollen för jobbet. Du kan få ett e-postmeddelande som innehåller en länk eller du kan gå direkt till den [Azure-portalen](https://portal.azure.com). Följ stegen i den här artikeln för att utföra själv granska av dina tilldelade roller.
+Om du har tilldelats en administrativ roll kan din organisations administratör för privilegierade roller be dig att regelbundet bekräfta att du fortfarande behöver rollen för ditt jobb. Du kan få ett e-postmeddelande som innehåller en länk, eller så kan du gå direkt till [Azure Portal](https://portal.azure.com). Följ stegen i den här artikeln för att utföra en själv granskning av de tilldelade rollerna.
 
-Om du är en administratör av Privilegierade roller som är intresserade av åtkomstgranskningar kan få mer information finns på [så här startar du en åtkomstgranskning](pim-resource-roles-start-access-review.md).
+Om du är en privilegie rad roll administratör som är intresse rad av åtkomst granskningar kan du få mer information om [hur du startar en åtkomst granskning](pim-resource-roles-start-access-review.md).
 
 ## <a name="add-the-privileged-identity-management-application"></a>Lägga till programmet Privileged Identity Management
-Du kan använda PIM för Azure Active Directory (Azure AD)-program i den [Azure-portalen](https://portal.azure.com/) att utföra din granskning. Om du inte har programmet i din portal, följer du dessa steg för att komma igång.
+Du kan använda Azure Active Directory (Azure AD) PIM-programmet i [Azure Portal](https://portal.azure.com/) för att utföra din granskning. Om du inte har programmet i portalen följer du de här stegen för att komma igång.
 
 1. Logga in på [Azure Portal](https://portal.azure.com/).
-2. Välj användaren namn i det övre högra hörnet i Azure Portal och välj den katalog där du kommer du fungerar.
-3. Välj **alla tjänster**, och använda den **Filter** att söka efter *Azure AD Privileged Identity Management*.
-4. Kontrollera **fäst på instrumentpanelen**, och välj sedan **skapa**. PIM-program öppnas.
+2. Välj ditt användar namn i det övre högra hörnet av Azure Portal och välj den katalog där du kommer att arbeta.
+3. Välj **alla tjänster**och Använd rutan **filter** för att söka efter *Azure AD Privileged Identity Management*.
+4. Markera **Fäst på instrument panelen**och välj sedan **skapa**. PIM-programmet öppnas.
 
 ## <a name="approve-or-deny-access"></a>Godkänn eller neka åtkomst
-När du godkänner eller nekar åtkomst kan be du bara granskaren om du fortfarande använda den här rollen eller inte. Välj **Godkänn** om du vill stanna kvar i rollen eller **neka** om du inte längre behöver åtkomst. Din status ändras endast när granskaren gäller resultaten.
+När du godkänner eller nekar åtkomst visas bara granskaren om du fortfarande använder den här rollen eller inte. Välj **Godkänn** om du vill stanna kvar i rollen eller **neka** om du inte behöver åtkomst längre. Din status ändras bara när granskaren tillämpar resultatet.
 
-Följ dessa steg för att hitta och slutföra åtkomstgranskningen:
+Följ de här stegen för att hitta och slutföra åtkomst granskningen:
 1. Bläddra till Azure AD PIM-programmet.
-2. Välj den **granska åtkomst** bladet.
+2. Välj bladet **Granska åtkomst** .
 
-   ![Skärmbild av PIM-program med valt att bladet granska åtkomst](media/pim-resource-roles-perform-access-review/rbac-access-review-complete.png)
+   ![Skärm bild av PIM-program med bladet granska åtkomst valt](media/pim-resource-roles-perform-access-review/rbac-access-review-complete.png)
 
-3. Välj den granskningen som du vill slutföra. 
-4. Välj antingen **godkänna** eller **neka**. I den **ge en orsak ruta**, du kan behöva ta en orsak till ditt beslut.
+3. Välj den granskning som du vill slutföra. 
+4. Välj antingen **Godkänn** eller **neka**. I **rutan Ange en orsak**kan du behöva ta med en orsak till ditt beslut.
 
-   ![Skärmbild av granska informationssida](media/pim-resource-roles-perform-access-review/rbac-access-review-choice.png)
+   ![Skärm bild av sidan gransknings information](media/pim-resource-roles-perform-access-review/rbac-access-review-choice.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Utför en åtkomstgranskning av Mina Azure AD-roller i PIM](pim-how-to-perform-security-review.md)
+- [Utföra en åtkomst granskning av mina Azure AD-roller i PIM](pim-how-to-perform-security-review.md)

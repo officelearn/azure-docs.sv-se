@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 09/06/2019
+ms.date: 09/08/2019
 ms.author: diberry
-ms.openlocfilehash: bfd11254ffccd5085701071fcdb2116ca368bc82
-ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
+ms.openlocfilehash: ee185ca5d2e2cdda89945f0fc1e7aae32030c1be
+ms.sourcegitcommit: 95b180c92673507ccaa06f5d4afe9568b38a92fb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 09/08/2019
-ms.locfileid: "70801444"
+ms.locfileid: "70803892"
 ---
 # <a name="migrate-to-an-azure-resource-authoring-key"></a>Migrera till en Azure-resurs redigerings nyckel
 
@@ -91,7 +91,7 @@ Du kan välja att exportera en app som du är en medarbetare på och sedan impor
 
 ### <a name="after-the-app-is-migrated"></a>När appen har migrerats
 
-Efter migreringsprocessen måste du lägga till den i Azures redigerings resurs av appens ägare.  
+Om du behöver åtkomst till den ursprungliga appen efter migreringen måste du lägga till den i Azure Authoring-resursen som en medarbetare av appens ägare.  
 
 ## <a name="next-steps"></a>Nästa steg
 

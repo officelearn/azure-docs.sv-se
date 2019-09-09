@@ -6,15 +6,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 05/30/2019
+ms.date: 09/09/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: bb60fa216c10b11b6a47c029fbef3698c6f7bd6d
-ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
+ms.openlocfilehash: 15ce85385662ba186f8434285130099054e52c05
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68663499"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70814456"
 ---
 # <a name="migrate-amazon-web-services-aws-vms-to-azure"></a>Migrera virtuella AWS-datorer (Amazon Web Services) till Azure
 
@@ -30,6 +30,10 @@ I de här självstudien får du lära dig hur du migrerar virtuella Amazon Web S
 > * Kör en engångsredundans till Azure
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/) innan du börjar.
+
+
+> [!NOTE]
+    > Du kan nu använda Azure Migrate tjänsten för att migrera AWS-instanser till Azure. [Läs mer](../migrate/tutorial-migrate-physical-virtual-machines.md).
 
 ## <a name="prerequisites"></a>Förutsättningar
 - Kontrollera att de virtuella datorer du vill migrera körs på en OS-version som stöds. Versioner som stöds inkluderar: 

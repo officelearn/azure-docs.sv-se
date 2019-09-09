@@ -3,17 +3,17 @@ author: yashesvi
 ms.author: banders
 ms.service: virtual-machines-windows
 ms.topic: include
-ms.date: 08/02/2019
-ms.openlocfilehash: 5c300cb7d5416ada435811872e2cea8865e3c657
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.date: 08/29/2019
+ms.openlocfilehash: 99263b7c7efee54381c9a7f624429b343dba49d0
+ms.sourcegitcommit: b8578b14c8629c4e4dea4c2e90164e42393e8064
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68781274"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70806090"
 ---
-# <a name="prepay-for-virtual-machines-with-azure-reserved-vm-instances-ri"></a>Förskotts betalning för Virtual Machines med Azure Reserved VM Instances (RI)
+# <a name="save-costs-with-azure-reserved-vm-instances"></a>Spara kostnader med Azure Reserved VM Instances
 
-Förskottsbetal för virtuella datorer och spara pengar med reserverade instanser för virtuella Azure-datorer (VM). Reservations rabatten tillämpas automatiskt på antalet virtuella datorer som körs och som matchar reservations omfånget och attributen. Du behöver inte tilldela en reservation till en virtuell dator för att få rabatterna. En reserverad instans köps bara täcker beräknings delen av din virtuella dator användning. Användnings mätaren delas upp i två separata meter för virtuella Windows-datorer. Det finns en beräknings mätare, som är samma som Linux-mätaren och en Windows IP-mätare. De kostnader som du ser när du gör köpet är bara för beräknings kostnader. Avgifter omfattar inte kostnader för Windows-programvara. Mer information om program varu kostnader finns i [program varu kostnader som inte ingår i Azure Reserved VM instances](../articles/billing/billing-reserved-instance-windows-software-costs.md).
+När du genomför en virtuell Azure-instans kan du spara pengar. Reservations rabatten tillämpas automatiskt på antalet virtuella datorer som körs och som matchar reservations omfånget och attributen. Du behöver inte tilldela en reservation till en virtuell dator för att få rabatterna. En reserverad instans köps bara täcker beräknings delen av din virtuella dator användning. Användnings mätaren delas upp i två separata meter för virtuella Windows-datorer. Det finns en beräknings mätare, som är samma som Linux-mätaren och en Windows IP-mätare. De kostnader som du ser när du gör köpet är bara för beräknings kostnader. Avgifter omfattar inte kostnader för Windows-programvara. Mer information om program varu kostnader finns i [program varu kostnader som inte ingår i Azure Reserved VM instances](../articles/billing/billing-reserved-instance-windows-software-costs.md).
 
 ## <a name="determine-the-right-vm-size-before-you-buy"></a>Fastställ rätt VM-storlek innan du köper
 
@@ -80,7 +80,7 @@ Reserverade VM-instanser är tillgängliga för de flesta VM-storlekar med vissa
 
 ## <a name="buy-a-reserved-vm-instance"></a>Köp en reserverad VM-instans
 
-Du kan köpa en reserverad virtuell dator instans i [Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/documentation/filters/%7B%22reservedResourceType%22%3A%22VirtualMachines%22%7D).
+Du kan köpa en reserverad virtuell dator instans i [Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/documentation/filters/%7B%22reservedResourceType%22%3A%22VirtualMachines%22%7D). Betala för reservationen [fram eller med månads betalningar](../articles/billing/billing-monthly-payments-reservations.md).
 
 Dessa krav gäller för att köpa en reserverad VM-instans:
 
@@ -97,7 +97,7 @@ Så här köper du en instans:
 
 | Fält      | Beskrivning|
 |------------|--------------|
-|Subscription|Prenumerationen som används för att betala för reservationen. Betalnings metoden för prenumerationen debiteras för reservationens start kostnader. Prenumerations typen måste vara ett Enterprise-avtal (erbjudande nummer: MS-AZR-0017P eller MS-AZR-0148P) eller en enskild prenumeration med priser enligt principen betala per användning (erbjudande nummer: MS-AZR-0003P eller MS-AZR-0023P). För en företagsprenumeration dras avgifterna från registreringens återstående åtagandebelopp eller debiteras som överförbrukning. För en prenumeration med priser enligt principen betala per användning debiteras avgifterna till kredit kortet eller faktura betalnings metoden för prenumerationen.|    
+|Subscription|Prenumerationen som används för att betala för reservationen. Betalnings metoden för prenumerationen debiteras kostnaderna för reservationen. Prenumerations typen måste vara ett Enterprise-avtal (erbjudande nummer: MS-AZR-0017P eller MS-AZR-0148P) eller en enskild prenumeration med priser enligt principen betala per användning (erbjudande nummer: MS-AZR-0003P eller MS-AZR-0023P). För en företagsprenumeration dras avgifterna från registreringens återstående åtagandebelopp eller debiteras som överförbrukning. För en prenumeration med priser enligt principen betala per användning debiteras avgifterna till kredit kortet eller faktura betalnings metoden för prenumerationen.|    
 |Omfång       |Reservationens omfång kan omfatta en prenumeration eller flera prenumerationer (delad omfattning). Om du väljer: <ul><li>**Definitions område för enskild resurs grupp** – tillämpar reservations rabatten på de matchande resurserna enbart i den valda resurs gruppen.</li><li>**Enda prenumerations omfång** – tillämpar reservations rabatten på de matchande resurserna i den valda prenumerationen.</li><li>**Delat omfång** – tillämpar reservations rabatten på matchande resurser i berättigade prenumerationer som finns i fakturerings kontexten. För EA-kunder är fakturerings kontexten registreringen. För enskilda prenumerationer med priser enligt principen betala per användning är fakturerings omfånget alla berättigade prenumerationer som skapats av konto administratören.</li></ul>|
 |Region    |Den Azure-region som omfattas av reservationen.|    
 |Storlek på virtuell dator     |Storleken på de virtuella dator instanserna.|
@@ -134,7 +134,7 @@ Du kan dock *byta* ut en reservation om du vill göra ändringar.
 
 ## <a name="cancel-exchange-or-refund-reservations"></a>Avbryta, byta ut eller återbetala reservationer
 
-Du kan avbryta, byta ut eller återbetala reservationer med vissa begränsningar. Mer information finns i självbetjänings [utbyten och åter betalningar för Azure reservations](../articles/billing/billing-azure-reservations-self-service-exchange-and-refund.md).
+Du kan avbryta, byta ut eller återbetala reservationer med vissa begränsningar. Mer information finns i [självbetjänings utbyten och åter betalningar för Azure reservations](../articles/billing/billing-azure-reservations-self-service-exchange-and-refund.md).
 
 ## <a name="need-help-contact-us"></a>Behöver du hjälp? Kontakta oss.
 
@@ -148,6 +148,6 @@ Om du har frågor eller behöver hjälp, [skapa en supportbegäran](https://port
     - [Hantera reservationer i Azure](../articles/billing/billing-manage-reserved-vm-instance.md)
     - [Förstå hur reservations rabatten tillämpas](../articles/billing/billing-understand-vm-reservation-charges.md)
     - [Förstå reservations användningen för en prenumeration med priser för betala per användning](../articles/billing/billing-understand-reserved-instance-usage.md)
-    - [Förstå reservations användningen för företags registreringen](../articles/billing/billing-understand-reserved-instance-usage-ea.md)
+    - [Förstå reservationsanvändning för din Enterprise-registrering](../articles/billing/billing-understand-reserved-instance-usage-ea.md)
     - [Windows-programkostnader som inte ingår i reservationer](../articles/billing/billing-reserved-instance-windows-software-costs.md)
     - [Azure Reservations i programmet Partner Center Cloud Solution Provider (CSP)](https://docs.microsoft.com/partner-center/azure-reservations)

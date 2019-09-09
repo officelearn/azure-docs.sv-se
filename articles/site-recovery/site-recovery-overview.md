@@ -1,19 +1,18 @@
 ---
-title: Om Site Recovery i Azure | Microsoft Docs
+title: Om Azure Site Recovery
 description: Ger en översikt över Azure Site Recovery-tjänsten och sammanfattar distributionsscenarier för haveriberedskap och migrering.
-services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: overview
-ms.date: 05/30/2019
+ms.date: 09/09/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 907d12464156f551930098f6bd6a6a24596307cb
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: 3f38560c92e91925ab8a18924acdbb74f4b90e59
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66479917"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70814378"
 ---
 # <a name="about-site-recovery"></a>Om Site Recovery
 
@@ -41,7 +40,7 @@ Site Recovery kan hantera replikering för:
 **Replikering av virtuella Azure-datorer** | Du kan konfigurera återställning av virtuella Azure-datorer från en primär region till en sekundär region.
 **Lokal replikering av virtuella datorer** | Du kan replikera lokala virtuella datorer och fysiska servrar till Azure eller till ett sekundärt lokalt datacenter. Replikeringen till Azure besparar dig kostnaden och komplexiteten med att underhålla ett sekundärt datacenter.
 **Replikering av arbetsbelastning** | Du kan replikera alla typer av arbetsbelastningar som körs på virtuella Azure-datorer, lokala virtuella Hyper-V- och VMware-datorer och fysiska Windows- och Linux-servrar som stöds.
-**Dataåterhämtning** | Site Recovery dirigerar replikering utan att spärra programdata. När du replikerar till Azure lagras data flexibelt i Azure Storage. Vid redundans skapas virtuella Azure-datorer utifrån replikerade data.
+**Dataåterhämtning** | Site Recovery dirigerar replikering utan att spärra program data. När du replikerar till Azure lagras data flexibelt i Azure Storage. Vid redundans skapas virtuella Azure-datorer utifrån replikerade data.
 **Mål för återställningstid och återställningspunkter (RTO och RPO)** | Behåll mål för återställningstid (RTO) och återställningspunkt (RPO) inom organisationens gränser. Site Recovery ger ständig replikering för virtuella Azure-datorer och virtuella datorer med VMware med replikeringsfrekvenser så låga som 30 sekunder för Hyper-V. Du kan minska målet för återställningstiden (RTO) ytterligare genom att integrera med [Azure Traffic Manager](https://azure.microsoft.com/blog/reduce-rto-by-using-azure-traffic-manager-with-azure-site-recovery/).
 **Bevara appar vid redundansväxling** | Du kan replikera med hjälp av återställningspunkter med programkonsekventa skuggkopior. Dessa skuggkopior sparar hårddiskdata, alla data i minnet och alla pågående transaktioner.
 **Testa utan avbrott** | Du kan enkelt köra tester av haveriberedskap, utan att påverka pågående replikering.

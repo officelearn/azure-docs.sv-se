@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/08/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 11fc41374089c0ab7258dd191a255387713836eb
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.openlocfilehash: 55e4b04814daaaff5bc217a561e9045d313d9675
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69622306"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70811422"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-qq-account-using-azure-active-directory-b2c"></a>Konfigurera registrering och inloggning med ett QQ-konto med hjälp av Azure Active Directory B2C
 
@@ -28,7 +28,7 @@ Om du vill använda ett QQ-konto som identitets leverantör i Azure Active Direc
 ### <a name="register-for-the-qq-developer-program"></a>Registrera dig för QQ Developer-programmet
 
 1. Logga in på [QQ Developer-portalen](http://open.qq.com) med dina QQ-kontoautentiseringsuppgifter.
-1. När du har loggat in [http://open.qq.com/reg](http://open.qq.com/reg) går du till för att registrera dig som utvecklare.
+1. När du har loggat in [https://open.qq.com/reg](https://open.qq.com/reg) går du till för att registrera dig som utvecklare.
 1. Välj**个人**(enskild utvecklare).
 1. Ange den information som krävs och välj**下一步**(nästa steg).
 1. Slutför verifierings processen för e-post. Du måste vänta några dagar innan du har registrerat dig som utvecklare.

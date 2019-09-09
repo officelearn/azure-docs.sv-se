@@ -6,14 +6,14 @@ ms.topic: troubleshooting
 author: hrasheed-msft
 ms.author: hrasheed
 ms.date: 07/31/2019
-ms.openlocfilehash: 09fcb963ed036dd56c5f9b501b9daf929c12c2ea
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.openlocfilehash: 66796b2510e9d07ebfe78f6d083c935f498d7870
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70735759"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70810651"
 ---
-# <a name="scenario-converting-service-principal-certificate-contents-to-base-64-encoded-string-format-in-azure-hdinsight"></a>Scenario: Konvertera innehållet i tjänstens huvud namn till det Base64 64-kodade sträng formatet i Azure HDInsight
+# <a name="converting-service-principal-certificate-contents-to-base-64-encoded-string-format-in-hdinsight"></a>Konverterar innehåll för tjänstens huvud namn till formatet Base-64-kodat sträng format i HDInsight
 
 Den här artikeln beskriver fel söknings steg och möjliga lösningar för problem med att interagera med Azure HDInsight-kluster.
 

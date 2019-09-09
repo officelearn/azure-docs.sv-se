@@ -1,9 +1,9 @@
 ---
-title: Konfigurera inställningar för Azure AD-rollen i PIM - Azure Active Directory | Microsoft Docs
-description: Lär dig hur du konfigurerar inställningar för Azure AD-rollen i Azure AD Privileged Identity Management (PIM).
+title: Konfigurera inställningar för Azure AD-roller i PIM-Azure Active Directory | Microsoft Docs
+description: Lär dig hur du konfigurerar inställningar för Azure AD-roller i Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
-author: rolyon
+author: curtand
 manager: mtillman
 editor: ''
 ms.service: active-directory
@@ -11,23 +11,23 @@ ms.topic: conceptual
 ms.workload: identity
 ms.subservice: pim
 ms.date: 05/31/2019
-ms.author: rolyon
+ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2bc7d3ffcb56251825bf5f6d760de647938f1ead
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e9252e3bb8ccddb810074b485f6f073f1bda3f05
+ms.sourcegitcommit: 95b180c92673507ccaa06f5d4afe9568b38a92fb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66417872"
+ms.lasthandoff: 09/08/2019
+ms.locfileid: "70804433"
 ---
-# <a name="configure-azure-ad-role-settings-in-pim"></a>Konfigurera inställningar för Azure AD-rollen i PIM
+# <a name="configure-azure-ad-role-settings-in-pim"></a>Konfigurera inställningar för Azure AD-roller i PIM
 
-En administratör av Privilegierade roller kan anpassa Azure Active Directory (Azure AD) Privileged Identity Management (PIM) i deras organisation, inklusive ändra upplevelsen för en användare som är att aktivera en berättigad rolltilldelning.
+En privilegie rad roll administratör kan anpassa Azure Active Directory (Azure AD) Privileged Identity Management (PIM) i organisationen, inklusive att ändra upplevelsen för en användare som aktiverar en berättigad roll tilldelning.
 
-## <a name="open-role-settings"></a>Öppna rollinställningar
+## <a name="open-role-settings"></a>Öppna roll inställningar
 
-Följ stegen nedan för att öppna inställningarna för en Azure AD-roll.
+Följ de här stegen för att öppna inställningarna för en Azure AD-roll.
 
 1. Öppna **Azure AD Privileged Identity Management**.
 
@@ -39,78 +39,78 @@ Följ stegen nedan för att öppna inställningarna för en Azure AD-roll.
 
 1. Klicka på **roller**.
 
-1. Klicka på den roll som du vill konfigurera inställningarna.
+1. Klicka på den roll vars inställningar du vill konfigurera.
 
-    ![Azure AD-roller – inställningar för roller](./media/pim-how-to-change-default-settings/pim-directory-roles-settings-role.png)
+    ![Azure AD-roller – inställnings roller](./media/pim-how-to-change-default-settings/pim-directory-roles-settings-role.png)
 
-    Det finns flera inställningar som du kan konfigurera på inställningssidan för varje roll. De här inställningarna påverkar endast användare som är **berättigade** tilldelningar, inte **permanent** tilldelningar.
+    På sidan Inställningar för varje roll finns det flera inställningar som du kan konfigurera. De här inställningarna påverkar endast användare som är **berättigade** tilldelningar, inte **permanenta** tilldelningar.
 
 ## <a name="activations"></a>Aktiveringar
 
-Använd den **aktiveringar** skjutreglaget för att ange den maximala tiden, i timmar, att en roll förblir aktiv innan den upphör. Det här värdet kan vara mellan 1 och 72 timmar.
+Använd skjutreglaget **aktiveringar** för att ange den maximala tiden, i timmar, som en roll förblir aktiv innan den upphör att gälla. Värdet kan vara mellan 1 och 72 timmar.
 
-## <a name="notifications"></a>Meddelanden
+## <a name="notifications"></a>Aviseringar
 
-Använd den **meddelanden** växel för att ange om administratörer ska ta emot e-postaviseringar när roller är aktiverade. Detta kan vara användbart för identifiering av obehöriga eller otillåtna aktiveringar.
+Använd växeln **meddelanden** för att ange om administratörer ska få e-postaviseringar när roller aktive ras. Detta kan vara användbart för att upptäcka otillåtna eller illegitimatea aktiveringar.
 
-När värdet **aktivera**, skickas meddelanden till:
+När inställningen är **aktive**rad skickas meddelanden till:
 
-- Privilegierad Rolladministratör
+- Privilegierad rolladministratör
 - Säkerhetsadministratör
 - Global administratör
 
 Mer information finns i [e-postmeddelanden i PIM](pim-email-notifications.md).
 
-## <a name="incidentrequest-ticket"></a>Biljett för incident/begäran
+## <a name="incidentrequest-ticket"></a>Incident/begär biljett
 
-Använd den **biljett för Incident/begäran** växel för att ange om du vill kräva berättigade administratörer att inkludera en Biljettnummer när de aktiverar sina roller. Detta kan vara användbart när du utför rollen åtkomst granskningar.
+Använd växeln **incident/begär biljett** för att ange om du vill att berättigade administratörer ska inkludera ett biljett nummer när de aktiverar sin roll. Detta kan vara användbart när du utför granskning av roll åtkomst.
 
 ## <a name="multi-factor-authentication"></a>Multi-Factor Authentication
 
-Använd den **Multifaktorautentisering** växel för att ange om användarna ska verifiera sin identitet med MFA innan du kan aktivera sina roller. De behöver bara verifiera det här en gång per session, inte varje gång de aktivera en roll. Det finns två tips att tänka på när du aktiverar MFA:
+Använd växeln **Multi-Factor Authentication** för att ange om du vill kräva att användarna verifierar sin identitet med MFA innan de kan aktivera sina roller. De behöver bara verifiera denna gång per session, inte varje gång de aktiverar en roll. Det finns två tips att tänka på när du aktiverar MFA:
 
-* Användare som har Microsoft-konton för sina e-postadresser (vanligtvis @outlook.com, men inte alltid) det går inte att registrera dig för Azure MFA. Om du vill tilldela roller till användare med Microsoft-konton bör du göra dem permanenta administratörer eller inaktivera MFA för rollen.
-* Du kan inte inaktivera MFA för mycket Privilegierade roller för Azure AD och Office 365. Det här är en säkerhetsfunktion eftersom dessa roller noggrant ska skyddas:  
+* Användare som har Microsoft-konton för sina e-postadresser @outlook.com(vanligt vis, men inte alltid) kan inte registreras för Azure MFA. Om du vill tilldela roller till användare med Microsoft-konton bör du antingen göra dem permanenta administratörer eller inaktivera MFA för den rollen.
+* Du kan inte inaktivera MFA för privilegierade roller för Azure AD och Office365. Detta är en säkerhetsfunktion eftersom rollerna bör skyddas noggrant:  
   
-  * Azure Information Protection-administratör
+  * Azure Information Protection administratör
   * Faktureringsadministratör
   * Molnprogramadministratör
   * Efterlevnadsadministratör
   * Administratör för villkorsstyrd åtkomst
-  * CRM-tjänstadministratör
-  * Customer LockBox åtkomst godkännaren
+  * Tjänstadministratör för CRM
+  * Godkännare av åtkomst till Customer LockBox
   * Katalogskrivare
   * Exchange-administratör
   * Global administratör
   * Administratör för Intune-tjänsten
   * Power BI-tjänstadministratör
-  * Privilegierad Rolladministratör
+  * Privilegierad rolladministratör
   * Säkerhetsadministratör
-  * SharePoint Service Administrator
-  * Skype för Business Administrator
+  * SharePoint-tjänstadministratör
+  * Skype for Business-administratör
   * Användaradministratör
 
-Mer information finns i [multifaktorautentisering (MFA) och PIM](pim-how-to-require-mfa.md).
+Mer information finns i [Multi-Factor Authentication (MFA) och PIM](pim-how-to-require-mfa.md).
 
-## <a name="require-approval"></a>Kräv godkännande
+## <a name="require-approval"></a>Godkännande krävs
 
 Följ dessa steg om du vill kräva godkännande för att aktivera en roll.
 
-1. Ange den **kräver godkännande** växla till **aktiverad**. Fönstret expanderar med alternativ att välja godkännare.
+1. Ange växeln **Kräv godkännande** till **aktive rad**. Fönstret expanderar med alternativ för att välja god kännare.
 
-    ![Azure AD-roller - Settings - godkännande](./media/pim-how-to-change-default-settings/pim-directory-roles-settings-require-approval.png)
+    ![Azure AD-roller – inställningar – Kräv godkännande](./media/pim-how-to-change-default-settings/pim-directory-roles-settings-require-approval.png)
 
-    Om du **inte** anger alla godkännare, Privilegierade Rolladministratörer blir standard godkännare. Administratörer med privilegierad roll krävs för att godkänna **alla** aktiveringsbegäranden för den här rollen.
+    Om du **inte** anger några god kännare blir de privilegierade roll administratörerna som standard god kännare. Privilegierade roll administratörer måste godkänna **alla** aktiverings begär Anden för den här rollen.
 
-1. Om du vill ange godkännare, klickar du på **Välj godkännare**.
+1. Om du vill ange god kännare klickar du på **Välj god kännare**.
 
-    ![Azure AD-roller - Settings - godkännande](./media/pim-how-to-change-default-settings/pim-directory-roles-settings-require-approval-select-approvers.png)
+    ![Azure AD-roller – inställningar – Kräv godkännande](./media/pim-how-to-change-default-settings/pim-directory-roles-settings-require-approval-select-approvers.png)
 
-1. Välj en eller flera godkännare och klicka sedan på **Välj**. Du kan välja användare eller grupper. Minst 2 godkännare rekommenderas. Självgodkännande är inte tillåtet.
+1. Välj en eller flera god kännare och klicka sedan på **Välj**. Du kan välja användare eller grupper. Minst 2 god kännare rekommenderas. Själv godkännande är inte tillåtet.
 
-    Dina val visas i listan över valda godkännare.
+    Dina val kommer att visas i listan över valda god kännare.
 
-1. När du har angett alla dina rollinställningarna, klickar du på **spara** att spara dina ändringar.
+1. När du har angett alla dina roll inställningar klickar du på **Spara** för att spara ändringarna.
 
 
 <!--PLACEHOLDER: Need an explanation of what the temporary Global Administrator setting is for.-->
@@ -118,4 +118,4 @@ Följ dessa steg om du vill kräva godkännande för att aktivera en roll.
 ## <a name="next-steps"></a>Nästa steg
 
 - [Tilldela Azure AD-roller i PIM](pim-how-to-add-role-to-user.md)
-- [Konfigurera säkerhetsaviseringar för Azure AD-roller i PIM](pim-how-to-configure-security-alerts.md)
+- [Konfigurera säkerhets aviseringar för Azure AD-roller i PIM](pim-how-to-configure-security-alerts.md)

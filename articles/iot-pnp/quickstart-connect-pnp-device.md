@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
-ms.openlocfilehash: b233fcecfe80d1ce4464d2d02fdddb188f9265a7
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 4802c120f4722796fcad4ea99f25adad368451fd
+ms.sourcegitcommit: b8578b14c8629c4e4dea4c2e90164e42393e8064
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69878245"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70806537"
 ---
 # <a name="quickstart-connect-a-sample-iot-plug-and-play-preview-device-application-to-iot-hub"></a>Snabbstart: Anslut ett exempel på IoT Plug and Play för hands version av enhet till IoT Hub
 
@@ -36,6 +36,9 @@ Hämta och installera verktyget Azure IoT Explorer från den [senaste versions](
 ## <a name="prepare-an-iot-hub"></a>Förbered en IoT-hubb
 
 Du behöver också en Azure IoT-hubb i din Azure-prenumeration för att slutföra den här snabb starten. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+
+> [!NOTE]
+> Under den offentliga för hands versionen är IoT Plug and Play-funktioner bara tillgängliga på IoT-hubbar som skapats i regionerna **Central USA**, **Nord Europa**och **Östra Japan** .
 
 Lägg till Microsoft Azure IoT-tillägg för Azure CLI:
 

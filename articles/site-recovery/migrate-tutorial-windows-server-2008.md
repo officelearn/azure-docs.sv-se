@@ -5,15 +5,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 05/30/2019
+ms.date: 09/09/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: c449b74a9d6185b0616f62d31926feb6ff218cbb
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
+ms.openlocfilehash: d0d5c482e2faf5e4a2c2918a64bd56e4aa814323
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66400083"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70814496"
 ---
 # <a name="migrate-servers-running-windows-server-2008-to-azure"></a>Migrera servrar som kör Windows Server 2008 till Azure
 
@@ -29,6 +29,9 @@ Den här självstudiekursen visar hur du migrerar lokala servrar med Windows Ser
 
 Avsnittet med begränsningar och kända problem listar några begränsningar och lösningar som du kan stöta på när du migrerar Windows Server 2008-datorer till Azure. 
 
+> [!NOTE]
+> Du kan nu migrera från en lokal plats till Azure med hjälp av tjänsten Azure Migrate. [Läs mer](../migrate/migrate-services-overview.md).
+
 
 ## <a name="supported-operating-systems-and-environments"></a>Operativsystem och miljöer som stöds
 
@@ -43,7 +46,7 @@ Avsnittet med begränsningar och kända problem listar några begränsningar och
 > - Se till att du har senaste service pack och Windows-uppdateringar installerade innan du migrerar.
 
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar är det bra att granska Azure Site Recovery-arkitekturen för [migrering av VMware och fysisk server](vmware-azure-architecture.md) eller [migrering av virtuell Hyper-V-dator](hyper-v-azure-architecture.md) 
 
@@ -51,7 +54,7 @@ Om du vill migrera virtuella Hyper-V-datorer som kör Windows Server 2008 eller 
 
 Resten av den här självstudiekursen visar hur du kan migrera lokala virtuella VMware-datorer och fysiska servrar som kör Windows Server 2008 eller 2008 R2.
 > [!TIP]
-> Letar du efter en agentfri metod för att migrera virtuella VMware-datorer till Azure? [Klicka här](https://aka.ms/migrateVMs-signup)
+> Letar du efter ett agent effektivt sätt att migrera virtuella VMware-datorer till Azure? [Klicka här](https://aka.ms/migrateVMs-signup)
 
 
 ## <a name="limitations-and-known-issues"></a>Begränsningar och kända problem
@@ -144,7 +147,7 @@ Du kan utföra ett redundanstest för servrar som ska replikeras när den inleda
 
 Kör en [testredundansväxling](tutorial-dr-drill-azure.md) till Azure för att kontrollera att allt fungerar som förväntat.
 
-   ![Redundanstest](media/migrate-tutorial-windows-server-2008/testfailover.png)
+   ![Testa redundans](media/migrate-tutorial-windows-server-2008/testfailover.png)
 
 
 ## <a name="migrate-to-azure"></a>Migrera till Azure
@@ -160,7 +163,7 @@ Kör en redundansväxling för de datorer som du vill migrera.
     - Avslutar migreringsprocessen, stoppar replikeringen för servern och stoppar Site Recovery-debitering för servern.
     - Det här steget rensar replikeringsdata. Men det raderar inte de migrerade virtuella datorerna.
 
-   ![Slutföra migrering](media/migrate-tutorial-windows-server-2008/complete-migration.png)
+   ![Slutför migrering](media/migrate-tutorial-windows-server-2008/complete-migration.png)
 
 
 > [!WARNING]

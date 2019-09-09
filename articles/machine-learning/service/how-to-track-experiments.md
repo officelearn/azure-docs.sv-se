@@ -12,21 +12,21 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 07/11/2019
 ms.custom: seodec18
-ms.openlocfilehash: 7b14ed2c18c1106477e21062afaa4cc8f672c203
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: 0630ca28652b48b3632dbae94c5e16d6adb462c4
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68946389"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70812300"
 ---
-# <a name="log-metrics-during-training-runs"></a>Logga mått under utbildnings körningar
+# <a name="track-machine-learning-training-metrics-with-azure-machine-learning"></a>Spåra utbildnings mått för maskin inlärning med Azure Machine Learning
 
-Förbättra skapande processen för modeller genom att spåra dina experiment och övervaknings mått. I den här artikeln lär du dig hur du lägger till loggning i ditt utbildnings skript, skickar en experiment körning, övervakar körningen och visar resultatet av en körning i Azure Machine Learning-tjänsten.
+Förbättra skapande processen för modeller genom att spåra dina experiment och övervaknings mått. I den här artikeln lär du dig att lägga till loggnings kod i ditt utbildnings skript, skicka in en experiment körning, Övervakare som körs och granska resultaten i Azure Machine Learning-tjänsten.
 
 > [!NOTE]
-> Azure Machine Learning tjänsten kan också logga information från andra källor under utbildningen, till exempel AutoML eller Docker-behållaren som kör övnings jobbet. Dessa loggar är inte dokumenterade. Om du stöter på problem och kontaktar Microsoft-supporten kan det hända att de kan använda dessa loggar under fel sökning.
+> Azure Machine Learning tjänsten kan också logga information från andra källor under utbildningen, till exempel automatiserade maskin inlärnings körningar eller Docker-behållaren som kör övnings jobbet. Dessa loggar är inte dokumenterade. Om du stöter på problem och kontaktar Microsoft-supporten kan det hända att de kan använda dessa loggar under fel sökning.
 
-## <a name="list-of-training-metrics"></a>Lista över mått för utbildning 
+## <a name="available-metrics-to-track"></a>Tillgängliga mått som ska spåras
 
 Följande mått kan läggas till en körning vid utbildning ett experiment. Om du vill visa en mer detaljerad lista över vad som kan spåras på en körning, se den [kör klass referensdokumentation](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py).
 
@@ -43,7 +43,7 @@ Följande mått kan läggas till en körning vid utbildning ett experiment. Om d
 > [!NOTE]
 > Mått för skalärer, listor, rader och tabeller kan ha typen: flyttal, heltal eller string.
 
-## <a name="start-logging-metrics"></a>Starta loggning mått
+## <a name="choose-a-logging-option"></a>Välj ett loggnings alternativ
 
 Om du vill spåra och övervaka ditt experiment, måste du lägga till kod för att starta loggning när du skickar in körningen. Här följer några sätt att utlösa kör överföringen:
 * __Run.start_logging__ – Lägg till loggningsfunktioner i dina utbildningsskript och starta en interaktiv loggningssession i det angivna experimentet. **start_logging** skapar en interaktiv körning för användning i scenarier, till exempel bärbara datorer. Alla mått som är inloggad under sessionen har lagts till den kör posten i experimentet.

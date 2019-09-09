@@ -8,12 +8,12 @@ ms.author: jejiang
 ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 06/13/2019
-ms.openlocfilehash: 54adb2ec61d77ea429f7da1b88aa9347c1addfe0
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.openlocfilehash: 8e90be5a38ff40b748c11539e1d5c6558d198b62
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70736414"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70814231"
 ---
 # <a name="set-up-the-pyspark-interactive-environment-for-visual-studio-code"></a>Konfigurera den interaktiva PySpark-miljön för Visual Studio Code
 
@@ -24,13 +24,13 @@ Vi använder kommandot **python/pip** för att bygga en virtuell miljö i din St
 1. Installera [python](https://www.python.org/downloads/) och [pip](https://pip.pypa.io/en/stable/installing/).
    
    + Installera python från [https://www.python.org/downloads/](https://www.python.org/downloads/).
-   + Installera pip från [https://pip.pypa.io/en/stable/installing](https://pip.pypa.io/en/stable/installing/). (Om det inte har installerats från python-installationen)
-   + Verifiera att python och pip har installerats med följande kommandon. Valfritt
+   + Installera pip från [https://pip.pypa.io/en/stable/installing](https://pip.pypa.io/en/stable/installing/) (om det inte är installerat från python-installationen).
+   + Kontrol lera att python och pip har installerats med hjälp av följande kommandon. Valfritt
  
         ![Python pip-version](./media/set-up-pyspark-interactive-environment/check-python-pip-version.png)
 
      > [!NOTE]
-     > Vi rekommenderar att du installerar python manuellt i stället för att använda MacOS-standardversionen.
+     > Vi rekommenderar att du installerar python manuellt i stället för att använda macOS-standardversionen.
 
 
 2. Installera **virtuell miljö** genom att köra kommandot nedan.
@@ -39,19 +39,21 @@ Vi använder kommandot **python/pip** för att bygga en virtuell miljö i din St
    pip install virtualenv
    ```
 
-3. För Linux installerar du de nödvändiga paketen genom att köra kommandona nedan om du stöter på fel meddelandet.
-   
-    ![Python pip-version](./media/set-up-pyspark-interactive-environment/install-libkrb5-package.png)
-       
-   ```
-   sudo apt-get install libkrb5-dev 
-   ```
+## <a name="other-packages"></a>Andra paket
 
-   ```
-   sudo apt-get install python-dev
-   ```
+Om ett fel meddelande visas installerar du de nödvändiga paketen genom att köra följande kommandon:
 
-4. Starta om vs Code och gå sedan tillbaka till den skript redigerare som kör **HDInsight: PySpark Interactive**.
+   ![Python pip-version](./media/set-up-pyspark-interactive-environment/install-libkrb5-package.png)
+
+```
+sudo apt-get install libkrb5-dev
+```
+
+```
+sudo apt-get install python-dev
+```
+
+Starta om vs Code och gå sedan tillbaka till den skript redigerare som kör **HDInsight: PySpark Interactive**.
 
 ## <a name="next-steps"></a>Nästa steg
 

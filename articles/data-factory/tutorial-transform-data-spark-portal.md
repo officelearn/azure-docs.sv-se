@@ -11,12 +11,12 @@ ms.date: 01/10/2018
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: 34c8c49166ea13d67c1f3d51805671c63dbb352b
-ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
+ms.openlocfilehash: d13e0b95d57e3063292319961d5e1138f994076e
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67312348"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70812275"
 ---
 # <a name="transform-data-in-the-cloud-by-using-a-spark-activity-in-azure-data-factory"></a>Transformera data i molnet genom att använda Spark-aktivitet i Azure Data Factory
 I den här självstudien använder du Azure-portalen till att skapa Azure Data Factory-pipeline. Pipelinen transformerar data med en Spark-aktivitet och en länkad Azure HDInsight-tjänst på begäran. 
@@ -31,7 +31,7 @@ I den här självstudiekursen får du göra följande:
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -147,13 +147,13 @@ Du skapar två länkade tjänster i det här avsnittet:
    
    b. För **Typ** kontrollerar du att **HDInsight på begäran** är valt.
    
-   c. För **länkad Azure Storage-tjänst**väljer **AzureBlobStorage1**. Du skapade den här länkade tjänsten tidigare. Ange rätt namn här om du tidigare använde ett annat namn. 
+   c. För **Azure Storage länkad tjänst**väljer du **AzureBlobStorage1**. Du skapade den här länkade tjänsten tidigare. Ange rätt namn här om du tidigare använde ett annat namn. 
    
    d. För **Klustertyp** väljer du **spark**.
    
    e. För **ID för tjänstens huvudnamn** anger du det ID för tjänsten huvudman som har behörighet att skapa ett HDInsight-kluster. 
    
-      Tjänstens huvudnamn måste vara medlem i rollen Deltagare för prenumerationen eller resursgruppen som klustret har skapats i. Mer information finns i [Create an Azure Active Directory application and service principal](../active-directory/develop/howto-create-service-principal-portal.md) (Skapa ett Azure Active Directory-program och ett huvudnamn för tjänsten).
+      Tjänstens huvudnamn måste vara medlem i rollen Deltagare för prenumerationen eller resursgruppen som klustret har skapats i. Mer information finns i [Create an Azure Active Directory application and service principal](../active-directory/develop/howto-create-service-principal-portal.md) (Skapa ett Azure Active Directory-program och ett huvudnamn för tjänsten). **Tjänstens huvud namn-ID** motsvarar *program-ID: t*och en **huvud nyckel för tjänsten** motsvarar värdet för en *klient hemlighet*.
    
    f. Ange nyckeln i **Nyckel för tjänstens huvudnamn**. 
    
@@ -189,7 +189,7 @@ Du skapar två länkade tjänster i det här avsnittet:
    ![Ange den länkade HDInsight-tjänsten](./media/tutorial-transform-data-spark-portal/select-hdinsight-linked-service.png)
 1. Växla till fliken **Skript/Jar** och utför följande steg: 
 
-   a. För **länkad Jobbtjänst**väljer **AzureBlobStorage1**.
+   a. För **länkad jobb tjänst**väljer du **AzureBlobStorage1**.
    
    b. Välj **Bläddra i lagring**.
 
@@ -206,7 +206,7 @@ Du skapar två länkade tjänster i det här avsnittet:
 
 
 ## <a name="trigger-a-pipeline-run"></a>Utlös en pipelinekörning
-Välj **lägger du till utlösaren** i verktygsfältet och välj sedan **Utlös nu**. 
+Välj **Lägg till utlösare** i verktygsfältet och välj sedan **Utlös nu**. 
 
 ![knapparna Utlös och Utlös nu](./media/tutorial-transform-data-spark-portal/trigger-now-menu.png)
 
@@ -222,7 +222,7 @@ Välj **lägger du till utlösaren** i verktygsfältet och välj sedan **Utlös 
 
    ![Status för pipelinekörning](./media/tutorial-transform-data-spark-portal/pipeline-run-succeeded.png) 
 
-   Du kan gå tillbaka till vyn över pipelinekörningar genom att välja den **alla Pipelinekörningar** länken längst upp.
+   Du kan gå tillbaka till pipeline-körningarna genom att välja länken **alla pipeline-körningar** överst.
 
    ![vyn Aktivitetskörningar](./media/tutorial-transform-data-spark-portal/activity-runs.png)
 
@@ -253,7 +253,7 @@ Pipelinen i det här exemplet transformerar data med en Spark-aktivitet och en l
 Om du vill hur du transformerar data genom att köra ett Hive-skript i ett Azure HDInsight-kluster i ett virtuellt nätverk går du vidare till nästa självstudie: 
 
 > [!div class="nextstepaction"]
-> [Självstudie: Transformera data med Hive i Azure Virtual Network](tutorial-transform-data-hive-virtual-network-portal.md).
+> [Självstudier: Transformera data med Hive i Azure Virtual Network](tutorial-transform-data-hive-virtual-network-portal.md).
 
 
 

@@ -1,6 +1,6 @@
 ---
-title: Skapa högtillgängliga Spark Streaming jobb i YARN - Azure HDInsight
-description: Hur du ställer in Spark Streaming för ett scenario med hög tillgänglighet.
+title: Skapa jobb med hög tillgänglighet Spark-direktuppspelning i garn – Azure HDInsight
+description: Konfigurera Apache Spark strömning för ett scenario med hög tillgänglighet i Azure HDInsight
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
@@ -8,72 +8,72 @@ ms.reviewer: jasonh
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 01/26/2018
-ms.openlocfilehash: 79a36ad39284dc66467ba7c500a363668f78b893
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: dcd9095a1e5010a3d0dd5ea7ad884e36e24c7c1d
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64720653"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70814005"
 ---
-# <a name="create-high-availability-apache-spark-streaming-jobs-with-yarn"></a>Skapa hög tillgänglighet Apache Spark Streaming jobb med YARN
+# <a name="create-high-availability-apache-spark-streaming-jobs-with-yarn"></a>Skapa Apache Spark strömnings jobb med hög tillgänglighet med garn
 
-[Apache Spark](https://spark.apache.org/) strömning gör det möjligt att implementera skalbara, högt dataflöde, feltoleranta program för bearbetning av dataströmmar. Du kan ansluta Spark Streaming program på ett HDInsight Spark-kluster till en mängd olika datakällor, till exempel Azure Event Hubs, Azure IoT Hub [Apache Kafka](https://kafka.apache.org/), [Apache Flume](https://flume.apache.org/), Twitter, [ ZeroMQ](http://zeromq.org/), raw TCP sockets, eller genom att övervaka den [Apache Hadoop HDFS](https://hadoop.apache.org/docs/r1.2.1/hdfs_design.html) filsystem för ändringar. Spark Streaming har stöd för feltolerans med garanti att en given händelse bearbetas exakt en gång, även med ett nodfel.
+[Apache Spark](https://spark.apache.org/) Med direkt uppspelning kan du implementera skalbara, stora data flöden, feltoleranta program för bearbetning av data strömmar. Du kan ansluta Spark streaming-program till ett HDInsight Spark-kluster till en mängd olika data källor, till exempel Azure Event Hubs, Azure IoT Hub, [Apache Kafka](https://kafka.apache.org/), [Apache FLUME](https://flume.apache.org/), Twitter, [ZeroMQ](http://zeromq.org/), RAW TCP-Sockets eller genom att [övervaka Apache Hadoop HDFS](https://hadoop.apache.org/docs/r1.2.1/hdfs_design.html) -filsystem för ändringar. Spark-direktuppspelning har stöd för fel tolerans med garanti för att en specifik händelse bearbetas exakt en gång, även om ett nodfel uppstår.
 
-Spark Streaming skapar långvariga jobb som du kan använda omvandlingar för data och skicka sedan resultatet till filsystem, databaser, instrumentpaneler och i konsolen. Spark Streaming bearbetar micro-batchar av data, genom att första samla in en batch med händelser under en definierad tidsintervall. Därefter skickas den batch på för bearbetning och utdata. Batch tidsintervall definieras vanligen i bråkdelar av en sekund.
+Spark streaming skapar långvariga jobb där du kan tillämpa omvandlingar för data och sedan skicka ut resultatet till fil system, databaser, instrument paneler och konsolen. Spark streaming bearbetar mikrobatchar av data genom att först samla in en batch med händelser under ett definierat tidsintervall. Därefter skickas den batchen för bearbetning och utdata. Batch-tidsintervall definieras vanligt vis i bråk delar av en sekund.
 
-![Spark-strömning](./media/apache-spark-streaming-high-availability/spark-streaming.png)
+![Spark-direktuppspelning](./media/apache-spark-streaming-high-availability/spark-streaming.png)
 
 ## <a name="dstreams"></a>DStreams
 
-Spark Streaming representerar en ständig ström med data med hjälp av en *diskretiserade stream* (DStream). Den här DStream kan skapas från inmatningskällor som Event Hubs eller Kafka eller genom att använda omformningar på en annan DStream. När en händelse anländer till programmets Spark Streaming, lagras händelsen på ett tillförlitligt sätt. Det vill säga replikeras händelsedata så att flera noder har en kopia av den. Detta säkerställer att fel på någon nod inte resulterar i förlust av din händelse.
+Spark streaming representerar en kontinuerlig data ström med hjälp av en *diskretiserade-ström* (DStream). Den här DStream kan skapas från indatamängder som Event Hubs eller Kafka, eller genom att använda transformationer på en annan DStream. När en händelse anländer till ditt Spark streaming-program, lagras händelsen på ett tillförlitligt sätt. Det vill säga att händelse data replikeras så att flera noder har en kopia av den. Detta säkerställer att felet för en enskild nod inte leder till att händelsen går förlorad.
 
-Spark core använder *elastiska distribuerade datauppsättningar* (rdd-datauppsättningar). Rdd distribuera data över flera noder i klustret, där varje nod Allmänt underhåller data helt i minnet för bästa prestanda. Varje RDD representerar händelser som samlas in med ett batch-intervall. När det ska gå att batch-intervallet, genererar Spark Streaming en ny RDD som innehåller alla data i det här intervallet. Den här kontinuerlig uppsättning Rdd har samlats in i en DStream. Ett program med Spark Streaming bearbetar data som lagras i varje batch RDD.
+Spark-kärnan använder *elastiska distribuerade data uppsättningar* (RDD). RDD distribuerar data över flera noder i klustret, där varje nod i allmänhet behåller sina data helt i minnet för bästa prestanda. Varje RDD representerar händelser som samlas in över ett batch-intervall. När batch-intervallet förflyter skapar Spark streaming en ny RDD som innehåller alla data i intervallet. Den här kontinuerliga uppsättningen RDD samlas in i en DStream. Ett Spark streaming-program bearbetar de data som lagras i varje Batchs RDD.
 
-![Spark DStream](./media/apache-spark-streaming-high-availability/DStream.png)
+![Spark-DStream](./media/apache-spark-streaming-high-availability/DStream.png)
 
-## <a name="spark-structured-streaming-jobs"></a>Spark Structured Streaming jobb
+## <a name="spark-structured-streaming-jobs"></a>Spark-strukturerade strömmande jobb
 
-Spark Structured Streaming introducerades i Spark 2.0 som en analytisk motor för användning på strömmande strukturerade data. Spark Structured Streaming använder SparkSQL batchbearbetning motorn API: er. Precis som med Spark Streaming, körs Spark Structured Streaming dess beräkningar över kontinuerligt inkommer micro-batchar av data. Spark Structured Streaming representerar en dataström som en indata-tabell med ett obegränsat antal rader. Det vill säga fortsätter tabellen indata att växa när nya data tas emot. Den här indata-tabellen bearbetas kontinuerligt av en tidskrävande fråga och resultatet skrivs till en tabell.
+Spark-strukturerad strömning introducerades i Spark 2,0 som en analys motor för användning på strömmande strukturerade data. Spark-strukturerad direkt uppspelning använder API: erna för SparkSQL batching-motor. Som med Spark streaming kör Spark Structured streaming sina beräkningar för kontinuerliga mikrobatchar med data. Spark-strukturerad strömning representerar en data ström som en inmatnings tabell med obegränsade rader. Det vill säga att inmatnings tabellen fortsätter att växa när nya data tas emot. Den här inmatnings tabellen bearbetas kontinuerligt av en tids krävande fråga och resultatet skrivs ut till en utgående tabell.
 
-![Apache Spark Structured Streaming](./media/apache-spark-streaming-high-availability/structured-streaming.png)
+![Spark-strukturerad strömning](./media/apache-spark-streaming-high-availability/structured-streaming.png)
 
-I Structured Streaming data anländer till systemet och omedelbart matas in i tabellen indata. Du kan skriva frågor som utför åtgärder mot den här indata-tabellen. Frågeresultatet visas ger en annan tabell som heter resultattabellen. Resultattabellen innehåller resultatet av din fråga, från vilken du rita data som skickas till en extern datalager en relationsdatabas. Den *utlösaren intervall* ställer in tiderna för när data har bearbetats från indata-tabellen. Som standard bearbetar Structured Streaming data så fort de anländer. Du kan också konfigurera att utlösaren ska köras på ett längre intervall, så strömmande data bearbetas batchvis tidsbaserade. Data i tabellen resultaten kan vara helt uppdateras varje gång som det finns nya data så att det innehåller alla utdata som sedan strömmande frågan påbörjades (*fullständig läge*), eller det får bara innehålla bara de data som är nytt sedan senast tid som frågan bearbetades (*lägga till*).
+I strukturerad strömning tas data emot i systemet och matas direkt in i inmatnings tabellen. Du skriver frågor som utför åtgärder mot denna indataparameter. Frågeresultatet ger till gång till en annan tabell, som kallas resultat tabellen. Resultat tabellen innehåller resultat från din fråga, från vilken du ritar data som ska skickas till ett externt data lager som en Relations databas. *Utlösarens intervall* anger tids inställningen för när data bearbetas från inmatnings tabellen. Som standard bearbetar strukturerad strömning data så fort de anländer. Du kan dock också konfigurera utlösaren så att den körs vid ett längre intervall, så att strömmande data bearbetas i tidsbaserade batchar. Data i resultat tabellen kan uppdateras helt och hållet varje gång som det finns nya data så att de innehåller alla utdata sedan den strömmade frågan började (*slutfört läge*) eller bara innehåller bara de data som är nya sedan frågan senast var proc ssed (*tilläggs läge*).
 
-## <a name="create-fault-tolerant-spark-streaming-jobs"></a>Skapa feltolerant Spark Streaming jobb
+## <a name="create-fault-tolerant-spark-streaming-jobs"></a>Skapa feltoleranta Spark-strömmande jobb
 
-Börja med att koda dina enskilda jobb för återställning i händelse av fel om du vill skapa en miljö med hög tillgänglighet för dina jobb med Spark Streaming. Sådana lokal återställs jobben är feltolerant.
+Om du vill skapa en miljö med hög tillgänglighet för dina Spark streaming-jobb börjar du med att koda dina enskilda jobb för återställning i händelse av ett haveri. Sådana Självåterställande jobb är feltoleranta.
 
-Rdd har flera egenskaper som hjälper med hög tillgänglighet och feltolerant Spark Streaming jobb:
+RDD har flera egenskaper som hjälper hög tillgängliga och feltoleranta Spark-strömmande jobb:
 
-* Antal inkommande data som lagras i rdd-datauppsättningar som en DStream replikeras automatiskt i minnet för feltolerans.
-* Data som går förlorade på grund av worker-fel kan vara recomputed från replikerade inkommande data på olika arbetare så länge de arbetsnoderna som är tillgängliga.
-* Snabb återställning av fel inträffa inom en sekund när återställningen från fel / ”stragglers” sker via beräkning i minnet.
+* Batchar av indata som lagras i RDD som en DStream replikeras automatiskt i minnet för fel tolerans.
+* Data som förlorats på grund av arbets haveri kan beräknas om från replikerade indata på olika arbetare, så länge de är tillgängliga.
+* Snabb fel återställning kan ske inom en sekund, eftersom återställningen från fel-/stragglers sker via beräkning i minnet.
 
-### <a name="exactly-once-semantics-with-spark-streaming"></a>Exakt – en semantik med Spark Streaming
+### <a name="exactly-once-semantics-with-spark-streaming"></a>Exakt en semantik med Spark streaming
 
-Om du vill skapa ett program som bearbetar varje händelse en gång (och bara en gång), Överväg hur alla system i felpunkter starta om när du har ett problem och hur du kan undvika dataförlust. Exakt-när semantik kräver att ingen data går förlorad när som helst och den meddelandebehandling är kan startas om, oavsett där felet inträffade. Se [skapa Spark Streaming jobb med exakt-gång bearbetning av](apache-spark-streaming-exactly-once.md).
+Om du vill skapa ett program som bearbetar varje händelse en gång (och bara en gång) bör du fundera över hur alla system punkter av fel startar om efter ett problem och hur du kan undvika data förlust. Exakt en semantik kräver att inga data förloras när som helst och att meddelande bearbetningen kan startas om, oavsett var fel uppstår. Se [skapa Spark streaming-jobb med exakt en händelse bearbetning](apache-spark-streaming-exactly-once.md).
 
-## <a name="spark-streaming-and-apache-hadoop-yarn"></a>Spark-strömning och Apache Hadoop YARN
+## <a name="spark-streaming-and-apache-hadoop-yarn"></a>Spark-strömning och Apache Hadoop garn
 
-I HDInsight, kluster work koordinerar *ännu en annan Resource Negotiator* (YARN). Designa hög tillgänglighet för Spark Streaming innehåller metoder för Spark Streaming och även för YARN-komponenter.  Ett exempel på en konfiguration med YARN visas nedan. 
+I HDInsight samordnas kluster arbetet av *ännu en annan resurs Negotiator* (garn). Att designa hög tillgänglighet för Spark streaming innehåller tekniker för Spark streaming och även för garn komponenter.  En exempel konfiguration som använder garn visas nedan. 
 
-![YARN-arkitektur](./media/apache-spark-streaming-high-availability/yarn-arch.png)
+![GARN arkitektur](./media/apache-spark-streaming-high-availability/yarn-arch.png)
 
-I följande avsnitt beskrivs designöverväganden för den här konfigurationen.
+I följande avsnitt beskrivs design överväganden för den här konfigurationen.
 
-### <a name="plan-for-failures"></a>Planera för fel
+### <a name="plan-for-failures"></a>Planera för problem
 
-Om du vill skapa en YARN-konfiguration för hög tillgänglighet bör du planera för executor eller drivrutinen inte. Vissa Spark Streaming jobb kan även innehålla data garanti krav som behöver ytterligare konfiguration och installation. En strömmande programmet kan till exempel ha ett företagskrav för ett noll--dataförlust garanterar trots eventuella fel som uppstår i värdsystemet för direktuppspelning eller HDInsight-kluster.
+Om du vill skapa en garn konfiguration för hög tillgänglighet bör du planera för ett möjligt utförar eller driv rutins haveri. Vissa spark streaming-jobb omfattar även data garanti krav som behöver ytterligare konfiguration och installation. Ett strömmande program kan till exempel ha ett affärs krav för en noll-data förlust garanti trots eventuella fel som uppstår i värdbaserade strömmande system eller HDInsight-kluster.
 
-Om en **executor** misslyckas, dess uppgifter och mottagare har startats om av Spark automatiskt, så det finns ingen ändring behövs.
+Om ett **utförar** Miss lyckas startas dess uppgifter och mottagare om av Spark automatiskt, så det finns ingen konfigurations ändring som behövs.
 
-Men om en **drivrutinen** misslyckas alla dess associerade executors misslyckas och alla mottagna block och beräkning resultat går förlorade. Om du vill återställa från fel i en drivrutin, använda *DStream kontrollpunkter* enligt beskrivningen i [skapa Spark Streaming jobb med exakt-gång bearbetning av](apache-spark-streaming-exactly-once.md#use-checkpoints-for-drivers). DStream kontrollpunkter sparar regelbundet den *riktad Acyklisk graf* (DAG) av DStreams till feltolerant lagring till exempel Azure Storage.  Kontrollpunkter kan Spark Structured Streaming att starta om misslyckade drivrutinen från kontrollpunkt information.  Drivrutinen omstarten startar nya executors och startar också om mottagare.
+Men om en **driv rutin** Miss lyckas, Miss lyckas alla tillhör ande körningar och alla mottagna block och beräknings resultat går förlorade. Om du vill återställa från ett driv rutins fel använder du *DStream-kontrollpunktering* enligt beskrivningen i [skapa Spark streaming-jobb med exakt en händelse bearbetning](apache-spark-streaming-exactly-once.md#use-checkpoints-for-drivers). DStream för kontroll punkter sparar regelbundet det *riktade diagrammet* (dag) för DStreams till feltolerant lagring som Azure Storage.  Med kontroll punkter tillåts Spark-strukturerad strömning för att starta om den felande driv rutinen från kontroll punkts informationen.  Den här driv rutinen startar om nya körningar och startar även om mottagare.
 
-För att återställa drivrutiner med DStream kontrollpunkter:
+Återställa driv rutiner med DStream-kontroll punkter:
 
-* Konfigurera automatisk drivrutin omstart på YARN med Konfigurationsinställningen `yarn.resourcemanager.am.max-attempts`.
-* Ange en kontrollpunkt katalog i ett HDFS-kompatibla filsystem med `streamingContext.checkpoint(hdfsDirectory)`.
-* Omstrukturera källkoden för att använda kontrollpunkter för återställning, till exempel:
+* Konfigurera automatisk omstart av driv rutin på garn med konfigurations inställningen `yarn.resourcemanager.am.max-attempts`.
+* Ange en kontroll punkts katalog i ett HDFS-kompatibelt fil `streamingContext.checkpoint(hdfsDirectory)`system med.
+* Omstrukturera käll koden för att använda kontroll punkter för återställning, till exempel:
 
     ```scala
         def creatingFunc() : StreamingContext = {
@@ -88,29 +88,29 @@ För att återställa drivrutiner med DStream kontrollpunkter:
         context.start()
     ```
 
-* Konfigurera återställning av förlorade data genom att aktivera skrivning-ahead loggen (WAL) med `sparkConf.set("spark.streaming.receiver.writeAheadLog.enable","true")`, och inaktivera replikering i minnet för inkommande DStreams med `StorageLevel.MEMORY_AND_DISK_SER`.
+* Konfigurera förlorad återställning av data genom att aktivera loggen för Skriv åtgärder (Wal `sparkConf.set("spark.streaming.receiver.writeAheadLog.enable","true")`) med och inaktivera minnes intern replikering för indata- `StorageLevel.MEMORY_AND_DISK_SER`DStreams med.
 
-Sammanfattningsvis med hjälp av kontrollpunkter, WAL + tillförlitlig mottagare, du kommer att kunna leverera ”minst en gång” återställning av data:
+För att sammanfatta, med hjälp av kontroll punkter + WAL + Reliable receiver, kan du leverera "minst en gång" Data återställning:
 
-* Exakt när, så länge mottagna data förloras inte och utdata är antingen idempotenta eller Transaktionsreplikering.
-* Exakt en gång med den nya Kafka direkt metoden som använder Kafka som en replikerad logg, snarare än att använda mottagare eller WALs.
+* Exakt en gång, så länge mottagna data inte går förlorade och utmatningarna är antingen idempotenta eller transaktionell.
+* Exakt en gång, med den nya Kafka Direct-metoden som använder Kafka som en replikerad logg, i stället för att använda mottagare eller WALs.
 
-### <a name="typical-concerns-for-high-availability"></a>Vanliga frågor för hög tillgänglighet
+### <a name="typical-concerns-for-high-availability"></a>Vanliga problem för hög tillgänglighet
 
-* Det är svårare att övervaka direktuppspelningsjobb än batch-jobb. Spark Streaming jobben är vanligtvis tidskrävande och YARN sammanställa inte loggar tills ett jobb har slutförts.  Spark kontrollpunkter förloras under program- eller Spark-uppgraderingar och du måste ta bort kontrollpunkt-katalogen under en uppgradering.
+* Det är svårare att övervaka strömnings jobb än batch-jobb. Spark streaming-jobb är vanligt vis långvariga och garn sammanställer inte loggar förrän ett jobb har slutförts.  Spark-kontrollpunkter går förlorade vid program-eller Spark-uppgraderingar och du måste rensa kontroll punkts katalogen under en uppgradering.
 
-* Konfigurera din YARN klusterläge för att köra drivrutiner, även om en klient inte. Du ställer in automatisk omstart för drivrutiner:
+* Konfigurera ditt garn kluster läge så att driv rutiner körs, även om en klient slutar fungera. Konfigurera automatisk omstart för driv rutiner:
 
     ```
     spark.yarn.maxAppAttempts = 2
     spark.yarn.am.attemptFailuresValidityInterval=1h
     ```
 
-* Spark och Spark Streaming-Gränssnittet har ett konfigurerbart mått. Du kan också använda ytterligare bibliotek, till exempel grafit/Grafana för att ladda ned instrumentpanelen som num poster bearbetas, ' Minne/GC användning på drivrutinen & executors', 'total fördröjning', 'användning av klustret' och så vidare. Du kan använda i Structured Streaming version 2.1 eller större, `StreamingQueryListener` att samla in ytterligare mått.
+* Spark-och Spark streaming-gränssnittet har ett konfigurerbart mått system. Du kan också använda ytterligare bibliotek som graf-/Grafana för att hämta instrument panels mått som "antal poster bearbetade", "minnes/GC-användning på driv rutin & körningar", "total fördröjning", "användning av klustret" och så vidare. I strukturerad strömmande version 2,1 eller senare kan du använda `StreamingQueryListener` för att samla in ytterligare mått.
 
-* Du bör ändra långvariga jobb.  När ett program med Spark Streaming skickas till klustret måste ha definierats YARN kön där jobbet körs. Du kan använda en [YARN kapacitet Scheduler](https://hadoop.apache.org/docs/stable/hadoop-yarn/hadoop-yarn-site/CapacityScheduler.html) skicka långvariga jobb för att avgränsa köer.
+* Du bör segmentera tids krävande jobb.  När ett Spark streaming-program skickas till klustret måste den garn kö där jobbet körs måste definieras. Du kan använda en [plan för garn kapacitet](https://hadoop.apache.org/docs/stable/hadoop-yarn/hadoop-yarn-site/CapacityScheduler.html) för att skicka långvariga jobb till separata köer.
 
-* Stänga av programmets strömmande ett smidigt sätt. Om din förskjutningar är kända och alla programtillstånd lagras externt, kan du programmässigt stoppa strömning programmet på motsvarande ställe. En metod är att använda ”tråd hookar” i Spark sker genom att markera en extern flaggan varje *n* sekunder. Du kan också använda en *markörfil* som har skapats på HDFS när programmet startas och sedan tas bort när du vill stoppa. För en markör filen metod, använder du en separat tråd i ditt Spark-program som anropar koden ungefär så här:
+* Stäng av ditt strömnings program på ett smidigt sätt. Om dina förskjutningar är kända och alla program tillstånd lagras externt kan du program mässigt stoppa strömnings programmet på rätt plats. En teknik är att använda "tråd krokar" i Spark genom att söka efter en extern flagga var *n* : e sekund. Du kan också använda en *markör fil* som skapas på HDFS när du startar programmet och sedan tas bort när du vill stoppa. Använd en separat tråd i Spark-programmet som anropar kod som liknar detta för en markör fil metod:
 
     ```scala
     streamingContext.stop(stopSparkContext = true, stopGracefully = true)
@@ -119,8 +119,8 @@ Sammanfattningsvis med hjälp av kontrollpunkter, WAL + tillförlitlig mottagare
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Apache Spark-strömning översikt](apache-spark-streaming-overview.md)
-* [Skapa Apache Spark Streaming jobb med exakt-gång bearbetning](apache-spark-streaming-exactly-once.md)
-* [Långvariga Apache Spark-Direktuppspelningsjobb på YARN](https://mkuthan.github.io/blog/2016/09/30/spark-streaming-on-yarn/) 
-* [Strukturerad direktuppspelning: Fel feltoleranta semantik](https://spark.apache.org/docs/2.1.0/structured-streaming-programming-guide.html#fault-tolerance-semantics)
-* [Diskretiserade strömmar: En feltolerant modell för skalbar Stream bearbetning](https://www2.eecs.berkeley.edu/Pubs/TechRpts/2012/EECS-2012-259.pdf)
+* [Översikt över Apache Spark strömning](apache-spark-streaming-overview.md)
+* [Skapa Apache Spark strömmande jobb med exakt en händelse bearbetning](apache-spark-streaming-exactly-once.md)
+* [Tids krävande Apache Spark strömnings jobb på garn](https://mkuthan.github.io/blog/2016/09/30/spark-streaming-on-yarn/) 
+* [Strukturerad strömning: Feltolerant semantik](https://spark.apache.org/docs/2.1.0/structured-streaming-programming-guide.html#fault-tolerance-semantics)
+* [Diskretiserade strömmar: En feltolerant modell för bearbetning av skalbara data strömmar](https://www2.eecs.berkeley.edu/Pubs/TechRpts/2012/EECS-2012-259.pdf)

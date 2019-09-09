@@ -1,9 +1,9 @@
 ---
-title: Licensiera kraven för att använda PIM - Azure Active Directory | Microsoft Docs
-description: Beskriver licenskraven som använder Azure AD Privileged Identity Management (PIM).
+title: Licens krav för att använda PIM-Azure Active Directory | Microsoft Docs
+description: Beskriver licens kraven för att använda Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
-author: rolyon
+author: curtand
 manager: mtillman
 editor: markwahl-msft
 ms.assetid: 34367721-8b42-4fab-a443-a2e55cdbf33d
@@ -14,23 +14,23 @@ ms.devlang: na
 ms.topic: conceptual
 ms.subservice: pim
 ms.date: 01/16/2019
-ms.author: rolyon
+ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 40e16209a185623b6e15650f70141edd6394e337
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 83c31c2731a8e872dfd2750fced8b91d283d0892
+ms.sourcegitcommit: 95b180c92673507ccaa06f5d4afe9568b38a92fb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60437464"
+ms.lasthandoff: 09/08/2019
+ms.locfileid: "70804069"
 ---
-# <a name="license-requirements-to-use-pim"></a>Licenskrav gäller för att använda PIM
+# <a name="license-requirements-to-use-pim"></a>Licens krav för att använda PIM
 
-En katalog måste ha en giltig licens för att använda Azure Active Directory (Azure AD) Privileged Identity Management (PIM). Dessutom måste licenser tilldelas gruppen Administratörer och användare. Den här artikeln beskrivs licensieringskraven för att använda PIM.
+Om du vill använda Azure Active Directory (Azure AD) Privileged Identity Management (PIM) måste en katalog ha en giltig licens. Dessutom måste licenser tilldelas till administratörer och relevanta användare. I den här artikeln beskrivs licens kraven för att använda PIM.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
-Om du vill använda PIM måste din katalog ha ett av följande avgiftsbelagda eller utvärderingslicenser:
+Om du vill använda PIM måste katalogen ha någon av följande betalda eller utvärderings licenser:
 
 - Azure AD Premium P2
 - Enterprise Mobility + Security (EMS) E5
@@ -40,28 +40,28 @@ Mer information finns i [Vad är Azure Active Directory?](../fundamentals/active
 
 ## <a name="which-users-must-have-licenses"></a>Vilka användare måste ha licenser?
 
-Varje administratör eller användare som interagerar med eller tar emot en förmån från PIM måste ha en licens. Exempel:
+Varje administratör eller användare som interagerar med eller får en förmån från PIM måste ha en licens. Exempel:
 
-- Administratörer med Azure AD-roller som hanteras med hjälp av PIM
-- Administratörer med Azure-resursroller hanteras med hjälp av PIM
-- Administratörer som har tilldelats rollen privilegierad Rolladministratör
-- Användare som tilldelats som berättigad till Azure AD-roller som hanteras med hjälp av PIM
-- Användare kan godkänna/avvisa förfrågningar i PIM
-- Användare som är tilldelade till en Azure-resurs-roll med just-in-time eller direkt (tidsbaserade) tilldelningar  
-- Användare som är tilldelade till en åtkomstgranskning
-- Användare som utför åtkomstgranskningar
+- Administratörer med Azure AD-roller som hanteras med PIM
+- Administratörer med Azure-resurs roller som hanteras med PIM
+- Administratörer som har tilldelats rollen privilegie rad roll administratör
+- Användare som är behöriga för Azure AD-roller som hanteras med PIM
+- Användare som kan godkänna/avvisa begär anden i PIM
+- Användare som tilldelats en Azure-resurs roll med just-in-Time-eller Direct (tidsbaserad) tilldelningar  
+- Användare som tilldelats åtkomst granskning
+- Användare som utför åtkomst granskningar
 
-Information om hur du tilldelar licenser till din använder finns i [tilldela eller ta bort licenser med hjälp av Azure Active Directory-portalen](../fundamentals/license-users-groups.md).
+Information om hur du tilldelar licenser till dina användnings områden finns i [tilldela eller ta bort licenser med hjälp av Azure Active Directory portalen](../fundamentals/license-users-groups.md).
 
-## <a name="what-happens-when-a-license-expires"></a>Vad händer när en licens har gått ut?
+## <a name="what-happens-when-a-license-expires"></a>Vad händer när en licens upphör att gälla?
 
-Om en Azure AD Premium P2 eller EMS E5 utvärderingslicensen upphör att gälla PIM-funktioner inte längre att vara tillgängliga i din katalog:
+Om en Azure AD Premium P2-, EMS E5-eller utvärderings licens går ut kommer inte längre PIM-funktioner att vara tillgängliga i din katalog:
 
-- Permanent rolltilldelningar till Azure AD-roller påverkas.
-- PIM-tjänsten i Azure-portalen, som Graph API-cmdletar och PowerShell-gränssnitt i PIM, kommer inte längre vara tillgänglig för användare att aktivera Privilegierade roller, hantera privilegierad åtkomst eller utföra åtkomstgranskningar av Privilegierade roller.
-- Berättigade rolltilldelningar för Azure AD-roller tas bort, eftersom användarna kommer inte längre att kunna aktivera Privilegierade roller.
-- Alla pågående åtkomstgranskningar av Azure AD-roller kommer att avslutas och konfigurationsinställningar för PIM tas bort.
-- PIM kommer inte längre skicka e-postmeddelanden på ändringarna för tilldelningen av rollen.
+- Permanenta roll tilldelningar till Azure AD-roller kommer inte att påverkas.
+- PIM-tjänsten i Azure Portal, samt Graph API-cmdletar och PowerShell-gränssnitt i PIM, kommer inte längre att vara tillgängliga för användare att aktivera privilegierade roller, hantera privilegie rad åtkomst eller utföra åtkomst granskningar av privilegierade roller.
+- Kvalificerade roll tilldelningar för Azure AD-roller tas bort eftersom användarna inte längre kan aktivera privilegierade roller.
+- Pågående åtkomst granskningar av Azure AD-roller upphör och PIM-konfigurationsinställningar tas bort.
+- PIM kommer inte längre att skicka e-postmeddelanden om roll tilldelnings ändringar.
 
 ## <a name="next-steps"></a>Nästa steg
 

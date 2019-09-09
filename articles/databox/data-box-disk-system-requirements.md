@@ -1,54 +1,54 @@
 ---
-title: Microsoft Azure Data Box Disk System krav | Microsoft Docs
-description: Läs om program-och nätverks kraven för din Azure Data Box Disk
+title: Systemkrav för Microsoft Azure Data Box Disk | Microsoft Docs
+description: Lär dig mer om programvaran och nätverkskraven för din Azure Data Box Disk
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: article
-ms.date: 09/03/2019
+ms.date: 09/04/2019
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: f054d0665c49ee048451681a7cc34d2a648a6e9e
-ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
-ms.translationtype: MT
+ms.openlocfilehash: fb2fd89664517e44cf5128a5c82e583f03087061
+ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70240228"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70307684"
 ---
 ::: zone target="docs"
 
-# <a name="azure-data-box-disk-system-requirements"></a>Azure Data Box Disk System krav
+# <a name="azure-data-box-disk-system-requirements"></a>Systemkrav för Azure Data Box Disk
 
-I den här artikeln beskrivs viktiga system krav för din Microsoft Azure Data Box Disk-lösning och för klienter som ansluter till Data Box Disk. Vi rekommenderar att du läser informationen noggrant innan du distribuerar din Data Box Disk och sedan går tillbaka till den vid behov under distributionen och efterföljande åtgärder.
+I den här artikeln beskrivs viktiga systemkrav för din Microsoft Azure Data Box Disk-lösning och för klienter som ansluter till Data Box Disk. Vi rekommenderar att du läser informationen noggrant innan du distribuerar din Data Box Disk och går tillbaka till den vid behov under distributionen och efterföljande åtgärder.
 
-System kraven omfattar de plattformar som stöds för klienter som ansluter till diskar, lagrings konton som stöds och lagrings typer.
+Systemkraven anger vilka plattformar som stöds för klienter som ansluter till diskar, vilka lagringskonton som stöds samt lagringstyper.
 
 ::: zone-end
 
 ::: zone target="chromeless"
 
-# <a name="review-prerequisites"></a>Granska krav
+## <a name="review-prerequisites"></a>Gå igenom förhandskraven
 
-1. Du måste ha ordnat data Box disk med hjälp [av självstudierna: Beställ dina Azure Data Box Disk](data-box-disk-deploy-ordered.md). Du har fått diskarna och en anslutnings kabel per disk.
+1. Du måste ha beställt din Data Box Disk med hjälp [självstudien: Beställa en Azure Data Box Disk](data-box-disk-deploy-ordered.md). Du har fått diskarna och en anslutningskabel per disk.
 2. Du har en tillgänglig klientdator som du kan kopiera data från. Klientdatorn måste:
 
-    - Kör ett operativ system som stöds.
-    - Ha annan nödvändig program vara installerad.
+    - Köra ett operativsystem som stöds.
+    - Ha annan nödvändig programvara installerad.
 
 ::: zone-end
 
-## <a name="supported-operating-systems-for-clients"></a>Operativ system som stöds för klienter
+## <a name="supported-operating-systems-for-clients"></a>Operativsystem som stöds för klienter
 
-Här är en lista över de operativ system som stöds för disk upplåsningen och data kopierings åtgärden via klienterna som är anslutna till Data Box Disk.
+Här är en lista över de operativsystem som stöds för diskupplåsningen och datakopieringen via klienterna som är anslutna till Data Box Disk.
 
 | **Operativsystem** | **Testade versioner** |
 | --- | --- |
 | Windows Server |2008 R2 SP1 <br> 2012 <br> 2012 R2 <br> 2016 |
 | Windows (64-bitars) |7, 8, 10 |
-|Linux <br> <li> Ubuntu </li><li> Debian </li><li> Red Hat Enterprise Linux (RHEL) </li><li> CentOS| <br>14.04, 16.04, 18.04 <br> 8,11, 9 <br> 7.0 <br> 6,5, 6,9, 7,0, 7,5 |  
+|Linux <br> <li> Ubuntu </li><li> Debian </li><li> Red Hat Enterprise Linux (RHEL) </li><li> CentOS| <br>14.04, 16.04, 18.04 <br> 8.11, 9 <br> 7.0 <br> 6.5, 6.9, 7.0, 7.5 |  
 
-## <a name="other-required-software-for-windows-clients"></a>Annan nödvändig program vara för Windows-klienter
+## <a name="other-required-software-for-windows-clients"></a>Annan nödvändig programvara för Windows-klienter
 
 För Windows-klienten bör även följande vara installerat.
 
@@ -59,44 +59,43 @@ För Windows-klienten bör även följande vara installerat.
 | Windows Management Framework |5.0|
 | BitLocker| - |
 
-## <a name="other-required-software-for-linux-clients"></a>Annan nödvändig program vara för Linux-klienter
+## <a name="other-required-software-for-linux-clients"></a>Annan nödvändig programvara för Linux-klienter
 
-För Linux-klienten installerar Data Box Disk tools följande nödvändiga program vara:
+För Linux-klienten installerar Data Box Disk-verktygen följande nödvändiga programvara:
 
-- Lås upp
+- dislocker
 - OpenSSL
-
-::: zone target="docs"
 
 ## <a name="supported-connection"></a>Anslutning som stöds
 
-Klient datorn som innehåller data måste ha en USB-port på 3,0 eller senare. Diskarna ansluter till den här klienten med den angivna kabeln.
+Klientdatorn som innehåller data måste ha en USB 3.0-port eller senare. Diskarna ansluter till klienten med hjälp av den medföljande kabeln.
 
-## <a name="supported-storage-accounts"></a>Stöds storage-konton
+## <a name="supported-storage-accounts"></a>Lagringskonton som stöds
 
-Här är en lista över de lagrings typer som stöds för Data Box Disk.
+Här är en lista över de lagringstyper som stöds för Data Box Disk.
 
 | **Lagringskonto** | **Anteckningar** |
 | --- | --- |
 | Klassisk | Standard |
-| Generellt syfte  |Standard både v1 och v2 stöds. Både frekventa och låg frekventa nivåer stöds. |
-| Blob Storage-konto | |
+| Generell användning  |Standard; både v1 och v2 stöds. Både frekventa och lågfrekventa nivåer stöds. |
+| Bloblagringskonto | |
 
 >[!NOTE]
-> Konton för Azure Data Lake Storage gen 2 stöds inte.
+> Konton för Azure Data Lake Storage Gen 2 stöds inte.
 
 
-## <a name="supported-storage-types-for-upload"></a>Lagrings typer som stöds för uppladdning
+## <a name="supported-storage-types-for-upload"></a>Lagringstyper som stöds för uppladdning
 
-Här är en lista över de lagrings typer som stöds för uppladdning till Azure med hjälp av Data Box Disk.
+Här är en lista över de lagringstyper som stöds för uppladdning till Azure med hjälp av Data Box Disk.
 
-| **Fil format** | **Anteckningar** |
+| **Filformat** | **Anteckningar** |
 | --- | --- |
-| Azure Block-Blob | |
-| Azure Page BLOB  | |
+| Azure-blockblob | |
+| Azure-sidblob  | |
 | Azure Files  | |
 | Managed Disks | |
 
+::: zone target="docs"
 
 ## <a name="next-step"></a>Nästa steg
 

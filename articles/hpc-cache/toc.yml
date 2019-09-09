@@ -1,0 +1,34 @@
+- name: Dokumentation för Azure HPC Cache
+  href: index.yml
+- name: Översikt
+  items:
+    - name: Vad är Azure HPC Cache?
+      href: hpc-cache-overview.md
+- name: Begrepp
+  items:
+    - name: Använda det aggregerade namnområdet
+      href: hpc-cache-namespace.md
+    - name: Fylla i ny Blobblagring
+      href: hpc-cache-ingest.md
+    - name: Alternativa data inmatningsmetoder
+      items:
+        - name: Fylla i cachen med parallellkopia
+          href: hpc-cache-ingest-parallelcp.md
+        - name: Fylla i cachen med msrsync
+          href: hpc-cache-ingest-msrsync.md
+        - name: Fylla i cachen med manuell filkopia
+          href: hpc-cache-ingest-manual.md
+- name: Instruktionsguider
+  items:
+    - name: Nödvändiga komponenter
+      href: hpc-cache-prereqs.md
+    - name: Skapa cachen
+      href: hpc-cache-create.md
+    - name: Lägg till lagringsutrymme
+      href: hpc-cache-add-storage.md
+    - name: Ansluta till cachen
+      href: hpc-cache-mount.md
+- name: Resurser
+  items:
+    - name: Öppna en supportbegäran
+      href: hpc-cache-support-ticket.md

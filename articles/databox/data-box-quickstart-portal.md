@@ -10,10 +10,10 @@ ms.date: 09/03/2019
 ms.author: alkohli
 ms.localizationpriority: high
 ms.openlocfilehash: 47b8fdbe48514665f40114c9820fdc5def38c778
-ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
-ms.translationtype: MT
+ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2019
+ms.lasthandoff: 09/05/2019
 ms.locfileid: "70241370"
 ---
 ::: zone target="docs"
@@ -38,13 +38,13 @@ Detaljerade stegvisa distributions- och spårningsinstruktioner finns i [Självs
 
 ::: zone target="chromeless"
 
-I den här guiden beskrivs hur du distribuerar Azure Data Box med hjälp av Azure Portal. Stegen omfattar att granska kraven, kabeln och ansluta enheten och kopiera data till enheten så att de laddas upp till Azure.
+Den här guiden beskriver hur du distribuerar Azure Data Box med hjälp av Azure-portalen. Stegen beskriver förhandskraven, hur du kopplar in och ansluter enheten och hur du kopierar data till enheten så att de laddas upp till Azure.
 
 ::: zone-end
 
 ::: zone target="docs"
  
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Innan du börjar:
 
@@ -68,20 +68,20 @@ Innan du börjar:
 
 ::: zone target="chromeless"
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
-Innan du börjar ska du kontrol lera att du har:
+Kontrollera följande innan du börjar:
 
-1. [Slutför självstudien: Beställ Azure Data Box](data-box-deploy-ordered.md).
-2. Tog emot din Data Box-enhet och order statusen i portalen **levereras**. 
-3. Granskade [rikt linjerna för data Box-enhet säkerhet](data-box-safety.md).
-4. Tog emot en jordad ström sladd som ska användas med lagrings enheten 100 – TB.
-5. Åtkomst till en värddator som innehåller de data som du vill kopiera till Data Box-enhet. Värddatorn måste
+1. Du har gått [självstudien: Beställ Azure Data Box](data-box-deploy-ordered.md).
+2. Du har tagit emot Data Box-enheten och orderstatusen på portalen är **Levererad**. 
+3. Du har läst [säkerhetsriktlinjerna för Data Box](data-box-safety.md).
+4. Du har fått en jordad strömkabel som ska användas med 100 TB-lagringsenheten.
+5. Du har åtkomst till värddatorn där de data som ska kopieras till Data Box finns. Värddatorn måste
     - Köra ett [operativsystem som stöds](data-box-system-requirements.md).
     - Vara ansluten till höghastighetsnätverk. Vi rekommenderar starkt att du har en anslutning på minst 10 GbE. Om en 10 GbE anslutning inte är tillgänglig kan en 1 GbE datalänk användas, men då påverkas kopieringshastigheten. 
-6. Få till gång till en plan yta för att placera Data Box-enhet. Du måste ha en 7U-kortplats i racket för att kunna placera enheten platt eller upprättad i en standard rack hylla.
-7. Har införskaffat följande kablar för att ansluta dina Data Box-enhet till värddatorn.
-    - En eller flera 10-GbE SFP+ Twinax-kopparkablar eller SFP+-fiberoptikkablar (använd med DATA 1- och DATA 2-nätverksgränssnitt). Mer information finns i [listan över kablar som stöds och växlar från Mellanox](https://www.mellanox.com/pdf/firmware/ConnectX3-FW-2_42_5000-release_notes.pdf) som är kompatibla med Mellanox ConnectX®-3 Pro en dual-port 10Gbase-T-kort med dubbla portar och PCI Express 3,0-nätverkskort.
+6. Du har tillgång till en plan yta där du kan ställa Data Box-enheten. För att kunna placera enheten plant eller upprätt på en hylla i ett standardrack måste du ha en 7U-plats i racket.
+7. Du har skaffat följande kablar för att ansluta Data Box till värddatorn.
+    - En eller flera 10-GbE SFP+ Twinax-kopparkablar eller SFP+-fiberoptikkablar (använd med DATA 1- och DATA 2-nätverksgränssnitt). Mer information finns i [listan över kablar och växlar som stöds från Mellanox](https://www.mellanox.com/pdf/firmware/ConnectX3-FW-2_42_5000-release_notes.pdf) och som är kompatibla med Mellanox ConnectX®-3 Pro EN Dual-Port 10GBASE-T-kort med PCI Express 3.0-nätverkskort.
     - En RJ-45 CAT 6-nätverkskabel (använd med MGMT-nätverksgränssnitt)
     - En RJ-45 CAT 6A- eller en RJ-45 CAT 6-nätverkskabel (använd med DATA 3-nätverksgränssnitt konfigurerat som 10 Gbps respektive 1 Gbps)
 

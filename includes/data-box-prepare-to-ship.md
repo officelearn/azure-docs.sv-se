@@ -5,18 +5,18 @@ ms.topic: include
 ms.date: 04/25/2019
 ms.author: alkohli
 ms.openlocfilehash: 1d52117440028c75b249f469f2b3576c2ab1c5c5
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
-ms.translationtype: MT
+ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 09/05/2019
 ms.locfileid: "67188007"
 ---
 Det sista steget är att förbereda enheten för att skickas. I det här steget frånkopplas alla enhetsresurser. Det går inte att komma åt resurserna när du har startat den här processen.
 
 > [!IMPORTANT]
-> Förbered för att skicka krävs eftersom det flaggar data som inte följer Azure-namngivningskonventionerna. Hoppar över det här steget kan leda till potentiella data överföra fel som beror på data som inte uppfyller kraven.
+> Förbered för att skicka krävs eftersom det flaggar data som inte följer Azure-namngivningskonventionerna. Om det här steget hoppas över kan det leda till potentiella datauppladdningsfel på grund av data som inte uppfyller kraven.
 
-1. Gå till **Förbered för att skicka** och klicka på **Starta förberedelser**. Som standard beräknas kontrollsummor när data kopieras. Förbered för att skicka har slutförts beräkning av kontrollsumma och skapar listan med filer ( *- BOM filer*). Beräkningen av kontrollsumma kan ta några timmar till flera dagar beroende på storleken på data. 
+1. Gå till **Förbered för att skicka** och klicka på **Starta förberedelser**. Som standard beräknas kontrollsummor medan data kopieras. ”Förbered för att skicka” slutför beräkningen av kontrollsumman och skapar listan med filer (*BOM-filer*). Beräkningen av kontrollsumma kan ta några timmar till flera dagar beroende på storleken på data. 
    
     ![Förbered för att skicka 1](media/data-box-prepare-to-ship/prepare-to-ship1.png)
 
@@ -36,7 +36,7 @@ Det sista steget är att förbereda enheten för att skickas. I det här steget 
 
     Om det inträffar fel i det här steget behöver du ladda ned felloggen och åtgärda felen. När felen har åtgärdats kör du **Förbered för att skicka**.
 
-4. När Förbered för att skicka är klart (utan fel) laddar du ned listan över filer (som även kallas manifest) som kopierats i den här processen. Du kan senare använda den här listan för att verifiera filerna som har laddats upp till Azure. Mer information finns i [inspektera BOM filer under Förbered för att skicka](../articles/databox/data-box-logs.md#inspect-bom-during-prepare-to-ship).
+4. När Förbered för att skicka är klart (utan fel) laddar du ned listan över filer (som även kallas manifest) som kopierats i den här processen. Du kan senare använda den här listan för att verifiera filerna som har laddats upp till Azure. Mer information finns i [Inspektera BOM-filer under Förbered för att skicka](../articles/databox/data-box-logs.md#inspect-bom-during-prepare-to-ship).
         
     ![Förbered för att skicka 1](media/data-box-prepare-to-ship/prepare-to-ship4.png)
 

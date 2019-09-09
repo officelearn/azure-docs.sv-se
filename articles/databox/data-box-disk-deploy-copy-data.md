@@ -11,10 +11,10 @@ ms.author: alkohli
 ms.localizationpriority: high
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
 ms.openlocfilehash: c309a7cb18086526b23c875b41d9d4f4db4bc213
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
-ms.translationtype: MT
+ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/03/2019
+ms.lasthandoff: 09/05/2019
 ms.locfileid: "70231373"
 ---
 ::: zone target="docs"
@@ -25,9 +25,9 @@ ms.locfileid: "70231373"
 
 ::: zone target="chromeless"
 
-## <a name="copy-data-to-azure-data-box-disk-and-validate"></a>Kopiera data till Azure Data Box Disk och validera
+## <a name="copy-data-to-azure-data-box-disk-and-validate"></a>Kopiera data till Azure Data Box Disk och verifiera
 
-När diskarna är anslutna och olåsta kan du kopiera data från käll data servern till diskarna. När data kopieringen är klar bör du validera data för att säkerställa att de överförs till Azure.
+När diskarna har anslutits och låsts upp kan du kopiera data från källdataservern till diskarna. När datakopieringen är klar bör du verifiera dina data för att säkerställa att de kan laddas upp till Azure.
 
 ::: zone-end
 
@@ -41,60 +41,60 @@ I den här guiden får du lära dig att:
 > * Kopiera data till en Data Box-disk
 > * Verifiera data
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Innan du börjar ska du kontrollera att:
 - Du har slutfört självstudien [: Installera och konfigurera Azure Data Box Disk](data-box-disk-deploy-set-up.md).
 - Diskarna låses upp och ansluts till en klientdator.
 - Klientdatorn som används till att kopiera data till diskarna måste köra ett [operativsystem som stöds](data-box-disk-system-requirements.md##supported-operating-systems-for-clients).
 - Se till att rätt lagringstyp för dina data matchar [lagringstyper som stöds](data-box-disk-system-requirements.md#supported-storage-types-for-upload).
-- Granska [begränsningar för hanterade diskar i storleks gränser för Azure-objekt](data-box-disk-limits.md#azure-object-size-limits).
+- Kontrollera [gränserna för hanterade diskar i avsnittet om storleksgränser för Azure-objekt](data-box-disk-limits.md#azure-object-size-limits).
 
 
 ## <a name="copy-data-to-disks"></a>Kopiera data till diskar
 
-Granska följande överväganden innan du kopierar data till diskarna:
+Ha följande i åtanke när du kopierar data till diskarna:
 
 - Det är ditt ansvar att se till att du kopierar data till mappar som matchar lämpligt dataformat. Kopiera exempelvis blockblobdata till mappen för blockblobobjekt. Om dataformatet inte matchar mappen (lagringstyp) misslyckas datauppladdningen till Azure i ett senare skede.
 - När du kopierar data ser du till att datastorleken överensstämmer med storleksbegränsningarna som beskrivs i avsnittet om [Azure Storage- och Data Box Disk-gränser](data-box-disk-limits.md).
 - Om data som laddas upp av Data Box Disk samtidigt överförs av andra program utanför Data Box Disk, kan detta resultera i att uppladdningsjobbet misslyckas samt att data skadas.
 
    > [!IMPORTANT]
-   >  Om du har angett hanterade diskar som ett av lagrings målen när ordningen skapas, är följande avsnitt tillämpligt.
+   >  Läs detta avsnitt om du angav hanterade diskar som ett av lagringsmålen när ordern skapades.
 
-- Du kan bara ha en hanterad disk med ett angivet namn i en resurs grupp i alla förskapade mappar och över alla Data Box Disk. Detta innebär att de virtuella hård diskarna som laddats upp till de förskapade mapparna ska ha unika namn. Kontrol lera att namnet inte matchar en redan befintlig hanterad disk i en resurs grupp. Om de virtuella hård diskarna har samma namn, konverteras bara en virtuell hård disk till den hanterade disken med det namnet. De andra virtuella hård diskarna laddas upp som Page blobbar till mellanlagrings kontot.
-- Kopiera alltid de virtuella hård diskarna till en av de förskapade mapparna. Om du kopierar de virtuella hård diskarna utanför dessa mappar eller i en mapp som du har skapat, laddas de virtuella hård diskarna upp till Azure Storage konto som Page blobbar och inte hanterade diskar.
-- Endast fasta virtuella hård diskar kan laddas upp för att skapa hanterade diskar. Dynamiska virtuella hård diskar, differentierings-VHD-eller VHDX-filer stöds inte.
+- En hanterad disk i en resursgrupp måste ha ett unikt namn i de förskapade mapparna och på hela Data Box Disk. Det betyder att de virtuella hårddiskarna som laddats upp till de förskapade mapparna måste ha unika namn. Kontrollera att namnet inte matchar en redan befintlig hanterad disk i en resurs grupp. Om de virtuella hårddiskarna har samma namn, konverteras bara en virtuell hårddisk till den hanterade disken med det namnet. De andra virtuella hårddiskarna laddas upp som sidblobar till mellanlagringskontot.
+- Kopiera alltid de virtuella hårddiskarna till en av de förskapade mapparna. Om du kopierar de virtuella hårddiskarna utanför dessa mappar eller i en mapp som du har skapat, laddas de virtuella hårddiskarna upp till Azure Storage-kontot som sidblobar i stället för som hanterade diskar.
+- Endast fasta virtuella hårddiskar kan laddas upp för att skapa hanterade diskar. Dynamiska virtuella hårddiskar och differentierande VHD- eller VHDX-filer stöds inte.
 
 
 Utför stegen nedan för att ansluta och kopiera data från din dator till Data Box-disken.
 
-1. Visa innehållet på den upplåsta enheten. Listan över de förskapade mapparna och undermapparna i enheten varierar beroende på vilka alternativ som har valts när du placerar Data Box Disks ordningen.
+1. Visa innehållet på den upplåsta enheten. Listan över de förskapade mapparna och undermapparna på enheten varierar beroende på vilka alternativ du valde när du beställde Data Box Disk.
 
-    |Valt lagrings mål  |Typ av lagringskonto|Lagrings konto typ för mellanlagring |Mappar och undermappar  |
+    |Valt lagringsmål  |Storage Account-typ|Typ av mellanlagringskonto |Mappar och undermappar  |
     |---------|---------|---------|------------------|
     |Lagringskonto     |GPv1 eller GPv2                 | Ej tillämpligt | BlockBlob <br> PageBlob <br> AzureFile        |
-    |Lagringskonto     |Blob Storage-konto         | Ej tillämpligt | BlockBlob        |
+    |Lagringskonto     |Bloblagringskonto         | Ej tillämpligt | BlockBlob        |
     |Hanterade diskar     |Ej tillämpligt | GPv1 eller GPv2         | ManagedDisk<ul> <li>PremiumSSD</li><li>StandardSSD</li><li>StandardHDD</li></ul>        |
     |Lagringskonto <br> Hanterade diskar     |GPv1 eller GPv2 | GPv1 eller GPv2         |BlockBlob <br> PageBlob <br> AzureFile <br> ManagedDisk<ul> <li> PremiumSSD </li><li>StandardSSD</li><li>StandardHDD</li></ul>         |
-    |Lagringskonto <br> Hanterade diskar    |Blob Storage-konto | GPv1 eller GPv2         |BlockBlob <br> ManagedDisk<ul> <li>PremiumSSD</li><li>StandardSSD</li><li>StandardHDD</li></ul>         |
+    |Lagringskonto <br> Hanterade diskar    |Bloblagringskonto | GPv1 eller GPv2         |BlockBlob <br> ManagedDisk<ul> <li>PremiumSSD</li><li>StandardSSD</li><li>StandardHDD</li></ul>         |
 
-    Ett exempel på en skärm bild av en ordning där ett GPv2 lagrings konto har angetts visas nedan:
+    Ett exempel på en skärmbild av en beställning där ett GPv2-lagringskonto har angetts visas nedan:
 
-    ![Disk enhetens innehåll](media/data-box-disk-deploy-copy-data/data-box-disk-content.png)
+    ![Innehåll på diskenheten](media/data-box-disk-deploy-copy-data/data-box-disk-content.png)
  
-2. Kopiera de data som måste importeras som block-blobbar i till *BlockBlob* -mappen. På samma sätt kopierar du data som VHD/VHDX till *PageBlob* -mappen och data i mappen *AzureFile* .
+2. Kopiera de data som ska importeras som blockblobar till mappen *BlockBlob*. Kopiera data, t.ex. VHD/VHDX, till *PageBlob*-mappen och data till *AzureFile*-mappen.
 
     En container skapas i Azure Storage-kontot för varje undermapp under mapparna BlockBlob och PageBlob. Alla filer under mapparna BlockBlob och PageBlob kopieras till standardcontainern `$root` under Azure Storage-kontot. Filer i `$root`-containern laddas alltid upp som blockblobar.
 
-   Kopiera filer till en mapp i *AzureFile* -mappen. En undermapp i *AzureFile* -mappen skapar en fil resurs. Filer som kopierats direkt till *AzureFile* -mappen kraschar och överförs som block-blobar.
+   Kopiera filer till en mapp i *AzureFile*-mappen. En undermapp i *AzureFile*-mappen skapar en filresurs. Filer som kopieras direkt till *AzureFile*-mappen misslyckas och laddas upp som blockblobar.
 
     Om det finns filer och mappar i rotkatalogen måste du flytta dem till en annan mapp innan du börjar kopiera data.
 
     > [!IMPORTANT]
-    > Alla behållare, blobbar och fil namn bör följa namngivnings konventionerna för [Azure](data-box-disk-limits.md#azure-block-blob-page-blob-and-file-naming-conventions). Om dessa regler inte uppfylls misslyckas datauppladdningen till Azure.
+    > Alla containrar, blobar och filnamn måste följa [namngivningskonventionerna för Azure](data-box-disk-limits.md#azure-block-blob-page-blob-and-file-naming-conventions). Om dessa regler inte uppfylls misslyckas datauppladdningen till Azure.
 
-3. När du kopierar filer bör du se till att filerna inte överskrider ~ 4,7 TiB för block-blobar, ~ 8 TiB för Page blobs och ~ 1 TiB för Azure Files. 
+3. När du kopierar filer ser du till att filerna inte överskrider ~4,7 TiB för blockblobar, ~8 TiB för sidblobar och ~1 TiB för Azure Files. 
 4. Du kan använda ”dra och släpp” med Utforskaren för att kopiera data. Du kan också använda valfritt SMB-kompatibelt filkopieringsverktyg, till exempel Robocopy, för att kopiera data. Flera kopieringsjobb kan initieras med hjälp av följande Robocopy-kommando:
 
     `Robocopy <source> <destination>  * /MT:64 /E /R:1 /W:1 /NFL /NDL /FFT /Log:c:\RobocopyLog.txt` 
@@ -103,16 +103,16 @@ Utför stegen nedan för att ansluta och kopiera data från din dator till Data 
     
     |Parametrar/alternativ  |Beskrivning |
     |--------------------|------------|
-    |Source            | Anger sökvägen till källkatalogen.        |
+    |Källa            | Anger sökvägen till källkatalogen.        |
     |Mål       | Anger sökvägen till målkatalogen.        |
     |/E                  | Kopierar underkataloger, inklusive tomma kataloger. |
     |/MT[:N]             | Skapar flertrådiga kopior med N trådar, där N är ett heltal mellan 1 och 128. <br>Standardvärdet för N är 8.        |
-    |R \<N >             | Anger antalet återförsök vid misslyckade kopieringar. Standardvärdet för N är 1 000 000 (en miljon nya försök).        |
-    |A \<N >             | Anger väntetiden mellan återförsök i sekunder. Standardvärdet för N är 30 (väntetid på 30 sekunder).        |
+    |/R: \<N>             | Anger antalet återförsök vid misslyckade kopieringar. Standardvärdet för N är 1 000 000 (en miljon nya försök).        |
+    |/W: \<N>             | Anger väntetiden mellan återförsök i sekunder. Standardvärdet för N är 30 (väntetid på 30 sekunder).        |
     |/NFL                | Anger att filnamn inte ska loggas.        |
     |/NDL                | Anger att katalognamn inte ska loggas.        |
     |/FFT                | Förutsätter FAT-filtider (två sekunders precision).        |
-    |/Log:\<logg filen >     | Skriver statusutdata till loggfilen (skriver över den befintliga loggfilen).         |
+    |/Log:\<Loggfil>     | Skriver statusutdata till loggfilen (skriver över den befintliga loggfilen).         |
 
     Flera diskar kan användas parallellt med flera jobb som körs på varje disk.
 
@@ -203,7 +203,7 @@ Den här valfria proceduren kan användas när du använder flera diskar och har
 
 >[!IMPORTANT]
 > Verktyget Data Box Split Copy verifierar också dina data. Om du använder Data Box Split Copy för att kopiera data kan du hoppa över [verifieringssteget](#validate-data).
-> Verktyget för delad kopiering stöds inte med hanterade diskar.
+> Uppdelnings- och kopieringsverktyget stöds inte med hanterade diskar.
 
 1. Se till att verktyget Data Box Split Copy har laddats ned och extraherats i en lokal mapp. Verktyget laddades ned när du ladda ned Data Box Disk-verktygen för Windows.
 2. Öppna Utforskaren. Anteckna datakällans enhet och enhetsbokstäver som tilldelats till Data Box Disk. 
@@ -238,7 +238,7 @@ Den här valfria proceduren kan användas när du använder flera diskar och har
  
 7. Öppna ett kommandotolksfönster. 
 
-8. Kör `DataBoxDiskSplitCopy.exe`. type
+8. Kör `DataBoxDiskSplitCopy.exe`. Typ
 
     `DataBoxDiskSplitCopy.exe PrepImport /config:<Your-config-file-name.json>`
 
@@ -265,7 +265,7 @@ Den här valfria proceduren kan användas när du använder flera diskar och har
 
     `DataBoxDiskSplitCopy.exe PrepImport /config:<configFile.json> /ResumeSession`
 
-Om du ser fel med verktyget för delad kopiering går du till så här felsöker du problem med [delad kopierings verktyget](data-box-disk-troubleshoot-data-copy.md).
+Om uppdelnings- och kopieringsverktyget returnerar fel läser du avsnittet [Felsöka problem med uppdelnings- och kopieringsverktyget](data-box-disk-troubleshoot-data-copy.md).
 
 När datakopieringen är klar kan du fortsätta att verifiera dina data. Om du använde Split Copy-verktyget hoppar du över verifieringen (det här verktyget utför även en verifiering) och går vidare till nästa självstudie.
 
@@ -288,7 +288,7 @@ Om du inte använde Split Copy-verktyget för att kopiera data måste du verifie
 
 3. Om du använder flera diskar kör du kommandot för varje disk.
 
-Om du ser fel under verifieringen kan du läsa [Felsöka verifierings fel](data-box-disk-troubleshoot.md).
+Om verifieringen returnerar fel läser du avsnittet [Felsöka verifieringsfel](data-box-disk-troubleshoot.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -309,33 +309,33 @@ Gå vidare till nästa självstudie och lär dig hur du returnerar Data Box-disk
 
 ### <a name="copy-data-to-disks"></a>Kopiera data till diskar
 
-Utför följande steg för att ansluta och kopiera data från datorn till Data Box Disk.
+Utför stegen nedan för att ansluta och kopiera data från din dator till Data Box-disken.
 
-1. Visa innehållet på den upplåsta enheten. Listan över de förskapade mapparna och undermapparna i enheten varierar beroende på vilka alternativ som har valts när du placerar Data Box Disks ordningen.
-2. Kopiera data till mappar som motsvarar lämpligt data format. Kopiera till exempel ostrukturerade data till mappen för *BlockBlob* -mappen, VHD-eller VHDX-data till *PageBlob* -mappen och filer till *AzureFile*. Om data formatet inte matchar lämplig mapp (lagrings typ) i ett senare steg, går det inte att överföra data till Azure.
+1. Visa innehållet på den upplåsta enheten. Listan över de förskapade mapparna och undermapparna på enheten varierar beroende på vilka alternativ du valde när du beställde Data Box Disk.
+2. Kopiera data till mappar som har lämpligt dataformat. Kopiera till exempel ostrukturerade data till mappen för *BlockBlob*-mappen, VHD- eller VHDX-data till *PageBlob*-mappen och filer till *AzureFile*. Om dataformatet inte matchar mappen (lagringstyp) misslyckas datauppladdningen till Azure i ett senare skede.
 
-    - Se till att alla behållare, blobbar och filer följer namngivnings konventioner för [Azure](data-box-disk-limits.md#azure-block-blob-page-blob-and-file-naming-conventions) och storleks gränser för [Azure-objekt](data-box-disk-limits.md#azure-object-size-limits). Om dessa regler eller gränser inte följs, kommer data överföringen till Azure att Miss förfalla.     
-    - Om din beställning har Managed Disks som en av lagrings målen, se namngivnings konventionerna för [hanterade diskar](data-box-disk-limits.md#managed-disk-naming-conventions).
-    - En container skapas i Azure Storage-kontot för varje undermapp under mapparna BlockBlob och PageBlob. Alla filer under *BlockBlob* och *PageBlob* mappar kopieras till en standard behållare $root under Azure Storage kontot. Alla filer i $root container överförs alltid som block-blobbar.
-    - Skapa en underordnad mapp i *AzureFile* -mappen. Den här undermappen mappar till en fileshare i molnet. Kopiera filer till undermappen. Filer som kopierats direkt till *AzureFile* -mappen kraschar och överförs som block-blobar.
+    - Se till att alla containrar, blobar och filer följer [Azures namngivningskonventioner](data-box-disk-limits.md#azure-block-blob-page-blob-and-file-naming-conventions) och [storleksgränserna för Azure-objekt](data-box-disk-limits.md#azure-object-size-limits). Om dessa regler eller gränser inte uppfylls misslyckas datauppladdningen till Azure.     
+    - Om hanterade diskar är ett av lagringsmålen i din beställning kontrollerar du namngivningskonventionerna för [hanterade diskar](data-box-disk-limits.md#managed-disk-naming-conventions).
+    - En container skapas i Azure Storage-kontot för varje undermapp under mapparna BlockBlob och PageBlob. Alla filer under mapparna *BlockBlob* och *PageBlob* kopieras till en förvald $root-container under Azure Storage-kontot. Filer i $root-containern laddas alltid upp som blockblobar.
+    - Skapa en underordnad mapp i *AzureFile*-mappen. Den här undermappen mappar till en filresurs i molnet. Kopiera filer till undermappen. Filer som kopieras direkt till *AzureFile*-mappen misslyckas och laddas upp som blockblobar.
     - Om det finns filer och mappar i rotkatalogen måste du flytta dem till en annan mapp innan du börjar kopiera data.
 
-3. Använd dra och släpp med Utforskaren eller ett SMB-kompatibelt fil kopierings verktyg som Robocopy för att kopiera dina data. Flera kopierings jobb kan initieras med hjälp av följande kommando:
+3. Använd dra och släpp med Utforskaren eller ett SMB-kompatibelt filkopieringsverktyg som Robocopy för att kopiera dina data. Flera kopieringsjobb kan initieras med hjälp av följande kommando:
 
     ```
     Robocopy <source> <destination>  * /MT:64 /E /R:1 /W:1 /NFL /NDL /FFT /Log:c:\RobocopyLog.txt
     ```
 4. Öppna målmappen för att visa och verifiera de kopierade filerna. Om det uppstod fel under kopieringsprocessen laddar du ned loggfilerna för felsökning. Loggfilerna finns på den plats som anges i kommandot robocopy.
 
-Använd den valfria proceduren [dela och kopiera](data-box-disk-deploy-copy-data.md#split-and-copy-data-to-disks) när du använder flera diskar och har en stor data uppsättning som måste delas upp och kopieras på alla diskar.
+Använd den här valfria [uppdelnings- och kopieringsproceduren](data-box-disk-deploy-copy-data.md#split-and-copy-data-to-disks) när du använder flera diskar och har en stor mängd data som måste delas upp och kopieras på alla diskarna.
 
 ### <a name="validate-data"></a>Verifiera data
 
 Utför följande steg för att verifiera dina data.
 
 1. Kör `DataBoxDiskValidation.cmd` för validering av kontrollsumma i mappen *DataBoxDiskImport* för din enhet.
-2. Använd alternativ 2 för att validera dina filer och generera kontroll summor. Beroende på datastorleken kan det här steget ta en stund. Om det uppstår fel vid valideringen och genereringen av kontrollsumma meddelas du och du får även en länk till felloggarna.
+2. Använd alternativ 2 för att validera dina filer och generera kontrollsummor. Beroende på datastorleken kan det här steget ta en stund. Om det uppstår fel vid valideringen och genereringen av kontrollsumma meddelas du och du får även en länk till felloggarna.
 
-    Mer information om data verifiering finns i [Verifiera data](https://docs.microsoft.com/azure/databox/data-box-disk-deploy-copy-data#validate-data). Om det uppstår fel under verifieringen kan du läsa [Felsöka verifierings fel](data-box-disk-troubleshoot.md).
+    Mer information om dataverifiering finns i [Verifiera data](https://docs.microsoft.com/azure/databox/data-box-disk-deploy-copy-data#validate-data). Om det uppstår fel under verifieringen läser du [Felsöka verifieringsfel](data-box-disk-troubleshoot.md).
 
 ::: zone-end

@@ -73,9 +73,6 @@
       href: /azure/open-datasets/samples?context=azure/machine-learning/service/context/ml-context
 - name: Begrepp
   items:
-    - name: Deep learning
-      displayName: 'deep learning vs machine learning, deep learning, vs, versus'
-      href: concept-deep-learning-vs-machine-learning.md
     - name: Arbetsyta
       href: concept-workspace.md
     - name: Beräkningsmål
@@ -111,13 +108,18 @@
           href: how-to-secure-web-service.md
         - name: Återskapa åtkomstnycklar för lagring
           href: how-to-change-storage-access-key.md
+    - name: Deep learning
+      displayName: 'deep learning vs machine learning, deep learning, vs, versus'
+      href: concept-deep-learning-vs-machine-learning.md
 - name: Instruktionsguider
   items:
-    - name: Hantera arbetsytor
+    - name: Skapa och hantera arbetsytor
       items:
-        - name: Använda portalen för arbetsytor
+        - name: Använda Azure-portalen
           href: how-to-manage-workspace.md
-        - name: Använda en Resource Manager-mall
+        - name: Använda Azure CLI
+          href: how-to-manage-workspace-cli.md
+        - name: Använda Resource Manager-mallar
           displayName: arm
           href: how-to-create-workspace-template.md
     - name: "Konfigurera utvecklingsmiljön\_"

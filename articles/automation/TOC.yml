@@ -22,6 +22,11 @@
       href: how-to/move-account.md
     - name: Automatisera registrering för Automation Services
       href: /azure/architecture/cloud-adoption/operations/azure-server-management/onboarding-automation
+    - name: Regioner som stöds för mappningar för Log Analytics-arbetsyta
+      href: how-to/region-mappings.md
+    - name: Hantera Azure Automation-data
+      href: automation-managing-data.md
+      displayName: backup
 - name: Processautomatisering
   items:
     - name: Översikt över Hybrid Runbook Worker
@@ -39,16 +44,10 @@
       items:
         - name: Skapa en runbook
           href: automation-quickstart-create-runbook.md
-    - name: Publicering
-      items:
-        - name: Publicera flera virtuella datorer från portalen
-          href: automation-onboard-solutions-from-browse.md
-        - name: Publicera från en virtuell Azure-dator
-          href: automation-onboard-solutions-from-vm.md
-        - name: Publicera från ett Automation-konto
-          href: automation-onboard-solutions-from-automation-account.md
     - name: Instruktionsguider
       items:
+        - name: Starta/stoppa virtuella datorer utanför arbetstid
+          href: automation-solution-vm-management.md
         - name: Hantera runbook-flöden
           href: manage-runbooks.md
         - name: Skapa runbooks
@@ -86,8 +85,6 @@
               href: automation-child-runbooks.md
             - name: Skicka ett JSON-objekt till en Azure Automation-runbook
               href: automation-pass-json-string.md
-            - name: Starta/stoppa virtuella datorer utanför arbetstid
-              href: automation-solution-vm-management.md
         - name: Övervaka runbook-flöden
           items:
             - name: Utdata från Runbooks
@@ -98,15 +95,6 @@
               displayName: 'fair share, activity log'
             - name: Felhantering i grafiska Runbook-flöden
               href: automation-runbook-graphical-error-handling.md
-            - name: Källkontrollsintegrering
-              href: source-control-integration.md
-              displayName: 'github, vsts, azure devops, personal access token'
-            - name: Källkontrollsintegrering – föråldrad
-              href: automation-source-control-integration-legacy.md
-              displayname: github
-            - name: Hantera Azure Automation-data
-              href: automation-managing-data.md
-              displayName: backup
         - name: Hybrid Runbook Worker
           items:
             - name: Distribuera Windows Hybrid Runbook Worker
@@ -120,6 +108,19 @@
             - name: Spåra uppdaterade filer med bevakaruppgifter
               href: automation-watchers-tutorial.md
               displayName: 'hybrid runbook worker, hybrid worker, trigger'
+        - name: Källkontrollsintegrering
+          items:
+            - name: Källkontrollsintegrering
+              href: source-control-integration.md
+              displayName: 'github, vsts, azure devops, personal access token'
+            - name: Källkontrollsintegrering – föråldrad
+              href: automation-source-control-integration-legacy.md
+              displayname: github
+            - name: Källkontrollsintegrering med GitHub Enterprise
+              href: automation-scenario-source-control-integration-with-github-ent.md
+              displayName: 'CI, runbooks'
+            - name: Källkontrollsintegrering med Azure DevOps
+              href: automation-scenario-source-control-integration-with-VSTS.md
     - name: Felsöka
       items:
         - name: Felsöka Hybrid Runbook Worker
@@ -297,7 +298,7 @@
       href: automation-connections.md
     - name: Autentiseringsuppgifter
       href: automation-credentials.md
-    - name: Integreringsmoduler
+    - name: Moduler
       href: automation-integration-modules.md
     - name: Scheman
       href: automation-schedules.md
@@ -321,11 +322,6 @@
       displayName: 'Monitor, Azure Monitor'
     - name: Skapa virtuella Amazon Web Service-datorer
       href: automation-scenario-aws-deployment.md
-    - name: Källkontrollsintegrering med GitHub Enterprise
-      href: automation-scenario-source-control-integration-with-github-ent.md
-      displayName: 'CI, runbooks'
-    - name: Källkontrollsintegrering med Azure DevOps
-      href: automation-scenario-source-control-integration-with-VSTS.md
       displayName: 'VSTS, CI, runbooks'
     - name: Distribuera en Azure Resource Manager-mall i en Azure Automation PowerShell- runbook
       href: automation-deploy-template-runbook.md
@@ -348,14 +344,10 @@
   items:
     - name: Azure PowerShell
       href: /powershell/module/azurerm.automation
-    - name: Azure PowerShell (klassisk)
-      href: /powershell/module/azure/?view=azuresmps-3.7.0
     - name: .NET
       href: /dotnet/api/microsoft.azure.management.automation
     - name: REST
       href: /rest/api/automation
-    - name: REST (klassisk)
-      href: 'https://msdn.microsoft.com/library/azure/mt163781'
 - name: Resurser
   items:
     - name: Introduktionsvideo för Automation

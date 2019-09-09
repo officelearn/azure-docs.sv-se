@@ -455,6 +455,10 @@
           items:
             - name: 1– Frågedata
               href: tutorial-query-graph.md
+        - name: Referens
+          items:
+            - name: Svarsrubriker
+              href: gremlin-headers.md
         - name: Instruktionsguider
           items:
             - name: Diagramdatamodellering

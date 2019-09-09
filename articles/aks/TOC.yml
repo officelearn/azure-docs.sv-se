@@ -159,7 +159,7 @@
               href: configure-azure-cni.md
         - name: Skapa en intern lastbalanserare
           href: internal-lb.md
-        - name: Använda en Standard Load Balancer (förhandsversion)
+        - name: Använda en standardlastbalanserare
           href: load-balancer-standard.md
         - name: Använda en statisk IP-adress
           href: static-ip.md

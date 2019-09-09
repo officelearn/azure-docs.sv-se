@@ -1,5 +1,5 @@
 ---
-title: Självstudie för att leverera Azure Data Box | Microsoft Docs
+title: Självstudie för att skicka Azure Data Box | Microsoft Docs
 description: Lär dig hur du skickar Azure Data Box-enheten till Microsoft
 services: databox
 author: alkohli
@@ -10,10 +10,10 @@ ms.date: 8/27/2019
 ms.author: alkohli
 ms.localizationpriority: high
 ms.openlocfilehash: 5b78dc8b815802502cda5baf2bf5e9646922d671
-ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
-ms.translationtype: MT
+ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2019
+ms.lasthandoff: 09/05/2019
 ms.locfileid: "70241436"
 ---
 ::: zone target="docs"
@@ -24,7 +24,7 @@ ms.locfileid: "70241436"
 
 ::: zone target="chromeless"
 
-# <a name="return-data-box-and-verify-data-upload-to-azure"></a>Returnera Data Box-enhet och verifiera data uppladdning till Azure
+# <a name="return-data-box-and-verify-data-upload-to-azure"></a>Skicka tillbaka Data Box och verifiera datauppladdningen till Azure
 
 ::: zone-end
 
@@ -35,20 +35,20 @@ Den här självstudien beskriver hur du returnerar Azure Data Box och verifierar
 I den här självstudien får du lära dig om ämnen som:
 
 > [!div class="checklist"]
-> * Förutsättningar
-> * Förbered för att skicka
+> * Nödvändiga komponenter
+> * Förbereda för att skicka
 > * Skicka Data Box till Microsoft
 > * Kontrollera datauppladdning till Azure
 > * Radera data från Data Box
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Innan du börjar ska du kontrollera att:
 
 - Du har slutfört självstudien [: Kopiera data till Azure Data Box och verifiera](data-box-deploy-copy-data.md). 
 - Kopieringsjobben har slutförts. Förbered för att skicka kan inte köras om kopieringsjobb pågår.
 
-## <a name="prepare-to-ship"></a>Förbered för att skicka
+## <a name="prepare-to-ship"></a>Förbereda för att skicka
 
 [!INCLUDE [data-box-prepare-to-ship](../../includes/data-box-prepare-to-ship.md)]
 
@@ -56,16 +56,16 @@ Innan du börjar ska du kontrollera att:
 
 ::: zone target="chromeless"
 
-När data kopieringen är klar förbereder du och levererar enheten. När enheten når Azure-datacenter överförs data automatiskt till Azure.
+När datakopieringen är klar förbereder du och skickar enheten. När enheten kommer fram till Azures datacenter laddas dina data automatiskt upp till Azure.
 
-## <a name="prepare-to-ship"></a>Förbered för att skicka
+## <a name="prepare-to-ship"></a>Förbereda för att skicka
 
-Innan du förbereder att leverera ska du kontrol lera att kopierings jobben har slutförts.
+Innan du förbereder leveransen kontrollerar du att kopieringsjobben har slutförts.
 
 1. Gå till sidan **Prepare to ship** (Förbered för att skicka)i det lokala webbgränssnittet och börja förbereda frakten. 
 2. Stäng av enheten via det lokala webbgränssnittet. Ta bort kablarna för enheten. 
 
-Nästa steg bestäms av var du returnerar enheten.
+Nästa steg beror på var du returnerar enheten.
 
 ::: zone-end
 
@@ -73,37 +73,37 @@ Nästa steg bestäms av var du returnerar enheten.
 
 ## <a name="ship-data-box-back"></a>Skicka tillbaka Data Box
 
-Kontrol lera att data kopieringen till enheten är klar och att **Förbered för att skicka** körningen har slutförts. Proceduren skiljer sig från den region där du levererar enheten.
+Kontrollera att datakopieringen till enheten är klar och att **Förbered för att skicka** lyckades. Stegen skiljer sig beroende på i vilken region du skickar enheten.
 
 ::: zone-end
 
-## <a name="ship-in-us-canada-europe"></a>Leverera i USA, Kanada, Europa
+## <a name="ship-in-us-canada-europe"></a>Skicka i USA, Kanada eller Europa
 
 Utför följande steg om du returnerar enheten i USA, Kanada eller Europa.
 
-1. Kontrol lera att enheten är avstängd och att kablarna har tagits bort. 
+1. Kontrollera att enheten är avstängd och att kablarna har tagits bort. 
 2. Rulla upp strömkabeln som levererades med enheten och placera kabeln säkert på baksidan av enheten.
-3. Kontrollera att adressetiketten visas på E-ink-skärmen och boka hämtning hos ett transportföretag. Om etiketten är skadad, tappas bort eller inte visas på skärmen för E-ink kontaktar du Microsoft-supporten. Om support förslaget föreslår det kan du gå till **översikt > Ladda ned frakt etikett** i Azure Portal. Ladda ned en adressetikett och fäst den på enheten. 
+3. Kontrollera att adressetiketten visas på E-ink-skärmen och boka hämtning hos ett transportföretag. Om etiketten är skadad, tappas bort eller inte visas på skärmen för E-ink kontaktar du Microsoft-supporten. Om supporten föreslår det kan du gå till **Översikt > Ladda ned adressetikett** på Azure-portalen. Ladda ned en adressetikett och fäst den på enheten. 
 4. Om du returnerar enheten bokar du upphämtning med UPS. Så här schemalägger du en upphämtning:
 
-    - Ring den lokala UPS-enheten (lands-/regionsspecifika avgiftsfritt nummer).
-    - I ditt samtal offerterar du det omvända försändelse spårnings numret som visas i visningen av E-pennan teckningar eller den utskrivna etiketten.
-    - Om spårnings numret inte anges kräver UPS att du betalar ytterligare en kostnad under upphämtningen.
+    - Ring din lokala UPS (lands-/regionspecifikt avgiftsfritt nummer).
+    - Uppge spårningsnumret för returförsändelsen som visas på skärmen E-ink (E-bläck) eller på den utskrivna etiketten.
+    - Om du inte uppger spårningsnumret kräver UPS att du betalar en extra avgift vid upphämtningen.
 
-    I stället för att schemalägga upphämtningen kan du också ta bort Data Box-enhet på den närmaste List rutan.
+    I stället för att schemalägga upphämtningen kan du även lämna in Data Box-enheten på närmaste inlämningsställe.
 4. Nära Data Box-enheten hämtas och skannas av transportföretaget uppdateras orderstatusen i portalen till **hämtad**. Du får också ett spårnings-ID.
 
 
-## <a name="ship-in-australia"></a>Skeppa i Australien
+## <a name="ship-in-australia"></a>Leveranser i Australien
 
-Azure-datacenter i Australien har ytterligare en säkerhets avisering. Alla inkommande leveranser måste ha en avancerad avisering. Utför följande steg för att leverera i Australien.
+Azure-datacenter i Australien kräver ytterligare en säkerhetsavisering. För alla inkommande leveranser krävs en särskild avisering. Följ stegen nedan vid leveranser i Australien.
 
 
-1. Behåll den ursprungliga rutan som används för att leverera enheten för retur leverans.
-2. Kontrol lera att data kopieringen till enheten är klar och att **Förbered för att skicka körningen** har slutförts.
-3. Stäng av enheten och ta bort kablarna.
-4. Buffra och placera ström sladden på ett säkert sätt med enheten på enhetens bak enhet.
-5. Quantium-lösningar för att begära en upphämtning. Referera till det tjänst referens nummer som anges på Azure Portal. Använd följande e-postmall:- *begäran om omvänd leverans etikett med tau-kod*. Se till att ta med följande information i e-postmeddelandet: 
+1. Returnera enheten i originalkartongen.
+2. Kontrollera att datakopieringen till enheten är klar och att **Förbered för att skicka** lyckades.
+3. Stäng av enheten och avlägsna kablarna.
+4. Rulla ihop strömkabeln som levererades med enheten och placera kabeln säkert på baksidan av enheten.
+5. Skicka ett e-postmeddelande till Quantium Solutions och be om upphämtning. Uppge tjänstreferensnumret som anges på Azure-portalen. Använd följande e-postmall: *Request for reverse shipping label with TAU code* (Begäran om returfraktsedel med TAU-kod). Inkludera följande information i e-postmeddelandet: 
 
     ```
     To: Azure@quantiumsolutions.com
@@ -115,27 +115,27 @@ Azure-datacenter i Australien har ytterligare en säkerhets avisering. Alla inko
     - Contact number:
     - Requested pickup date: mm/dd
     ```
-6. Quantium-lösningar i Australien får du en e-postadress till en retur frakt etikett.
-7. Skriv ut retur etiketten och fäst den i leverans rutan.
-8. Handen över paketet till courier.
+6. Quantium Solutions Australia skickar en returfraktsedel via e-post.
+7. Skriv ut returfraktsedeln och fäst den på leveranskartongen.
+8. Lämna paketet till fraktföretaget.
 
-Om det behövs kan du e-Quantium lösnings Azure@quantiumsolutions.com support på eller via telefon.
+Om det behövs kan du kontakta Quantium Solutions support på e-postadressen Azure@quantiumsolutions.com eller via telefon.
 
-För fråga om din beställning via telefonen:
+För frågor om din beställning via telefonen:
 
-- Skicka ett e-postmeddelande för hämtning först.
-- Ange ditt beställnings namn på telefonen.
+- Skicka ett e-postmeddelande om upphämtning först.
+- Ange namnet på din order på telefonen.
 
-## <a name="ship-in-japan"></a>Leverera i Japan 
+## <a name="ship-in-japan"></a>Leveranser i Japan 
 
-1. Behåll den ursprungliga rutan som används för att leverera enheten för retur leverans.
-2. Stäng av enheten och ta bort kablarna.
-3. Buffra och placera ström sladden på ett säkert sätt med enheten på enhetens bak enhet.
-4. Skriv företagets namn och adress information på frakt sedeln som avsändar information.
-5. Quantium-lösning för e-post med hjälp av följande e-postmall.
+1. Returnera enheten i originalkartongen.
+2. Stäng av enheten och avlägsna kablarna.
+3. Rulla ihop strömkabeln som levererades med enheten och placera kabeln säkert på baksidan av enheten.
+4. Skriv företagets namn och adressuppgifter på fraktsedeln som din avsändarinformation.
+5. Skicka ett e-postmeddelande till Quantium Solutions baserat på följande e-postmall.
 
-    - Om Japan post Chakubarai frakt NOTE inte ingår eller saknas, Observera i det här e-postmeddelandet. Quantium-lösningar i Japan kommer att begära en japansk post för att ta frakt sedeln vid upphämtning.
-    - Om du har flera order, e-post för att se till att enskilda upphämtningar.
+    - Om Chakubarai-fraktsedeln från Japan Post inte inkluderades eller saknas, nämner du det i e-postmeddelandet. Quantium Solutions Japan ber Japan Post att ta med fraktsedeln vid upphämtningen.
+    - Om du har flera beställningar som ska hämtas upp separat meddelar du detta via e-post.
 
     ```
     To: Customerservice.JP@quantiumsolutions.com
@@ -149,12 +149,12 @@ För fråga om din beställning via telefonen:
     d. 17：00-19：00 
     ```
 
-3. Få en bekräftelse via e-post från Quantium-lösningar när du har bokat en hämtning. Bekräftelse av e-post innehåller också information om Chakubarai frakt Note.
+3. Se till att du får en e-postbekräftelse från Quantium Solutions när du har bokat en upphämtning. E-postbekräftelsen innehåller även information om Chakubarai-fraktsedeln.
 
-Vid behov kan du kontakta Quantium Solution support (japanska språk) med följande information: 
+Vid behov kan du kontakta Quantium Solutions support (på japanska) med följande information: 
 
-- ÅtkomstCustomerservice.JP@quantiumsolutions.com 
-- Telefon: 03-5755-0150 
+- E-postadress: Customerservice.JP@quantiumsolutions.com 
+- Telefon：03-5755-0150 
 
 ::: zone target="docs"
 
@@ -166,26 +166,26 @@ När kontrollen har slutförts ansluts Data Box till nätverket i Azure-datacent
 
 När kopieringen är slutförd uppdateras statusen till **slutförd**.
 
-Kontrol lera att dina data överförs till Azure innan du tar bort dem från källan. Dina data kan vara i:
+Försäkra dig om att dina data har överförts till Azure innan du tar bort dem från källan. Dina data kan finnas i:
 
-- Ditt Azure Storage konto (er). När du kopierar data till Data Box laddas data beroende på typ upp till någon av följande sökvägar i ditt Azure Storage-konto.
+- Ditt Azure Storage-konto. När du kopierar data till Data Box laddas data beroende på typ upp till någon av följande sökvägar i ditt Azure Storage-konto.
 
   - För blockblobar och sidblobar: `https://<storage_account_name>.blob.core.windows.net/<containername>/files/a.txt`
   - För Azure Files: `https://<storage_account_name>.file.core.windows.net/<sharename>/files/a.txt`
 
     Du kan också gå till ditt Azure-lagringskonto i Azure-portalen och navigera därifrån.
 
-- En eller flera av de hanterade disk resurs grupperna. När du skapar hanterade diskar laddas de virtuella hård diskarna som Page blobbar och konverteras sedan till hanterade diskar. De hanterade diskarna är anslutna till de resurs grupper som anges vid tidpunkten för skapande av order. 
+- Dina resursgrupper för hanterade diskar. När du skapar hanterade diskar laddas de virtuella hårddiskarna upp som sidblobar och konverteras sedan till hanterade diskar. De hanterade diskarna ansluts till de resursgrupper som anges när ordern skapas. 
 
-    - Om din kopia till hanterade diskar i Azure lyckades, kan du gå till **order informationen** i Azure Portal och anteckna de resurs grupper som har angetts för hanterade diskar.
+    - Om kopieringen till hanterade diskar i Azure lyckades kan du gå till **Beställningsinformation** på Azure-portalen och kontrollera vilka resursgrupper som har angetts för hanterade diskar.
 
-        ![Identifiera resurs grupper för hanterade diskar](media/data-box-deploy-copy-data-from-vhds/order-details-managed-disk-resource-groups.png)
+        ![Identifiera resursgrupper för hanterade diskar](media/data-box-deploy-copy-data-from-vhds/order-details-managed-disk-resource-groups.png)
 
-        Gå till den angivna resurs gruppen och leta upp dina hanterade diskar.
+        Gå till resursgruppen och leta upp dina hanterade diskar.
 
-        ![Hanterad disk ansluten till resurs grupper](media/data-box-deploy-copy-data-from-vhds/managed-disks-resource-group.png)
+        ![Hanterad disk ansluten till resursgrupper](media/data-box-deploy-copy-data-from-vhds/managed-disks-resource-group.png)
 
-    - Om du har kopierat en VHDX eller en dynamisk/differentierad virtuell hård disk överförs VHDX/VHD till lagrings kontot som en sid-BLOB, men konverteringen av en virtuell hård disk till hanterad disk Miss lyckas. Gå till ditt **lagrings konto > blobbar** och välj sedan lämplig container-Standard SSD, Standard HDD eller Premium SSD. De virtuella hård diskarna laddas upp som Page blobbar i ditt lagrings konto för lagring.
+    - Om du har kopierat en VHDX, eller en dynamisk/differentierad virtuell hårddisk, överförs VHDX/VHD till mellanlagringskontot som en sidblob, men konverteringen av de virtuella hårddiskarna till hanterade diskar misslyckas. Gå till ditt **mellanlagringskonto > Blobar** och välj sedan lämplig container – Standard SSD, Standard HDD eller Premium SSD. De virtuella hårddiskarna laddas upp som sidblobar i mellanlagringskontot.
 
 ::: zone-end
 
@@ -208,8 +208,8 @@ När uppladdningen till Azure är klar raderar Data Box-enheten data på diskarn
 I den här kursen har du lärt dig om Azure Data Box-ämnen som att:
 
 > [!div class="checklist"]
-> * Förutsättningar
-> * Förbered för att skicka
+> * Nödvändiga komponenter
+> * Förbereda för att skicka
 > * Skicka Data Box till Microsoft
 > * Kontrollera datauppladdning till Azure
 > * Radera data från Data Box

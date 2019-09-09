@@ -1,6 +1,6 @@
 ---
 title: Självstudie för att kopiera data via SMB på Azure Data Box Heavy | Microsoft Docs
-description: Lär dig hur du kopierar data till din Azure Data Box Heavy via SMB
+description: Lär dig hur du kopierar data till Azure Data Box Heavy via SMB
 services: databox
 author: alkohli
 ms.service: databox
@@ -10,10 +10,10 @@ ms.date: 08/29/2019
 ms.author: alkohli
 ms.localizationpriority: high
 ms.openlocfilehash: 4267b8299e13f1705b218e65b268c45bd5a658e2
-ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
-ms.translationtype: MT
+ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2019
+ms.lasthandoff: 09/05/2019
 ms.locfileid: "70240302"
 ---
 ::: zone target = "docs"
@@ -35,50 +35,50 @@ I den här självstudien beskrivs hur du ansluter till och kopierar data från v
 I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
-> * Anslut till Data Box Heavy
+> * Ansluta till Data Box Heavy
 > * Kopiera data till Data Box Heavy
 
 ::: zone-end
 
 ::: zone target = "chromeless"
 
-Du kan kopiera data från käll servern till din Data Box-enhet via SMB, NFS, REST, data kopierings tjänst eller till hanterade diskar.
+Du kan kopiera data från källservern till din Data Box-enhet via SMB, NFS, REST, datakopieringstjänsten eller till hanterade diskar.
 
-I varje fall kontrollerar du att resurs-och mappnamn och data storleken följer rikt linjerna som beskrivs i [Azure Storage och data Box Heavy tjänst begränsningar](data-box-heavy-limits.md).
+Kontrollera att resurs- och mappnamnen och datastorleken följer riktlinjerna som beskrivs i [tjänstbegränsningarna för Azure Storage och Data Box Heavy](data-box-heavy-limits.md).
 
 ::: zone-end
 
 ::: zone target = "docs"
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Innan du börjar ska du kontrollera att:
 
 1. Du har slutfört självstudien [: Konfigurera Azure Data Box Heavy](data-box-deploy-set-up.md).
-2. Du har fått din Data Box Heavy och order statusen i portalen har **levererats**.
-3. Du har en värddator som har de data som du vill kopiera till Data Box Heavy. Värddatorn måste
+2. Du har fått din Data Box Heavy-enhet och orderstatusen på portalen är **Levererad**.
+3. Du har en värddator som har de data som du vill kopiera över till Data Box Heavy. Värddatorn måste
     - Köra ett [operativsystem som stöds](data-box-system-requirements.md).
-    - Vara ansluten till en höghastighetsnätverk. För snabbaste kopierings hastigheter kan 2 40-GbE-anslutningar (en per nod) användas parallellt. Om du inte har 40-GbE-anslutning, rekommenderar vi att du har minst 2 10-GbE-anslutningar (en per nod).
+    - Vara ansluten till en höghastighetsnätverk. För snabbast kopieringshastighet kan två 40-GbE-anslutningar (en per nod) användas parallellt. Om du inte har någon tillgänglig 40-GbE-anslutning rekommenderar vi att du har minst två 10 GbE-anslutningar (en per nod).
    
 
-## <a name="connect-to-data-box-heavy-shares"></a>Anslut till Data Box Heavy resurser
+## <a name="connect-to-data-box-heavy-shares"></a>Ansluta till Data Box Heavy-resurser
 
-Utifrån det valda lagrings kontot skapar Data Box Heavy upp till:
+Baserat på det lagringskonto du valt skapar Data Box Heavy upp till:
 - Tre resurser för varje associerat lagringskonto för GPv1 och GPv2.
-- En resurs för Premium Storage.
-- En resurs för Blob Storage-konto.
+- En resurs för premiumlagring.
+- En resurs för bloblagringskonto.
 
-Dessa resurser skapas på båda noderna i enheten.
+Dessa resurser skapas på båda noderna på enheten.
 
-Under Block Blob-och Page BLOB-resurser:
-- Enheter på den första nivån är behållare.
-- Enheter på andra nivån är blobbar.
+Under blockblob- och sidblobsresurser:
+- Enheter på den första nivån är containrar.
+- Enheter på den andra nivån är blobar.
 
 Under resurser för Azure Files:
 - Enheter på den första nivån är resurser.
-- Enheter på andra nivån är filer.
+- Enheter på den andra nivån är filer.
 
-I följande tabell visas UNC-sökvägen till resurserna på din Data Box Heavy och Azure Storage Sök vägs-URL: en där data har laddats upp. URL:en till den sista Azure Storage-sökvägen kan härledas från sökvägen till UNC-resursen.
+I följande tabell visas UNC-sökvägen till filresurser på din Data Box Heavy och Azure Storage-sökvägens URL som data har överförts till. URL:en till den sista Azure Storage-sökvägen kan härledas från sökvägen till UNC-resursen.
  
 |                   |                                                            |
 |-------------------|--------------------------------------------------------------------------------|
@@ -86,14 +86,14 @@ I följande tabell visas UNC-sökvägen till resurserna på din Data Box Heavy o
 | Azure-sidblobar  | <li>UNC-sökväg till resurser: `\\<DeviceIPAddres>\<StorageAccountName_PageBlob>\<ContainerName>\files\a.txt`</li><li>URL för Azure Storage: `https://<StorageAccountName>.blob.core.windows.net/<ContainerName>/files/a.txt`</li>   |  
 | Azure Files       |<li>UNC-sökväg till resurser: `\\<DeviceIPAddres>\<StorageAccountName_AzFile>\<ShareName>\files\a.txt`</li><li>URL för Azure Storage: `https://<StorageAccountName>.file.core.windows.net/<ShareName>/files/a.txt`</li>        |      
 
-Stegen för att ansluta med en Windows-eller Linux-klient skiljer sig åt.
+Stegen för att ansluta med en Windows- eller Linux-klient skiljer sig åt.
 
 > [!NOTE]
-> Följ samma steg för att ansluta till båda noderna för enheten parallellt.
+> Följ samma steg för att ansluta till båda noderna på enheten parallellt.
 
-### <a name="connect-on-a-windows-system"></a>Anslut till ett Windows-system
+### <a name="connect-on-a-windows-system"></a>Ansluta i ett Windows-system
 
-Om du använder en Windows Server-värddator följer du dessa steg för att ansluta till Data Box Heavy.
+Om du använder en Windows Server-värddator följer du stegen nedan för att ansluta till Data Box Heavy.
 
 1. Det första steget är att autentisera och starta en session. Gå till **Anslut och kopiera**. Klicka på **Hämta autentiseringsuppgifter** för att få autentiseringsuppgifter för de resurser som är associerade med ditt lagringskonto.
 
@@ -103,7 +103,7 @@ Om du använder en Windows Server-värddator följer du dessa steg för att ansl
     
     ![Hämta resursautentiseringsuppgifter 1](media/data-box-heavy-deploy-copy-data/get-share-credentials-2.png)
 
-3. Öppna ett kommando fönster för att få åtkomst till de resurser som är kopplade till ditt lagrings konto (*databoxe2etest* i följande exempel) från värddatorn. Skriv följande i kommandotolken:
+3. För att komma åt resurser som är associerade med ditt lagringskonto (*databoxe2etest* i följande exempel) från värddatorn öppnar du ett kommandofönster. Skriv följande i kommandotolken:
 
     `net use \\<IP address of the device>\<share name>  /u:<user name for the share>`
 
@@ -130,7 +130,7 @@ Om du använder en Windows Server-värddator följer du dessa steg för att ansl
 
     **Skapa alltid en mapp för de filer som du vill kopiera under resursen och kopiera sedan filerna till den mappen**. Mappen som skapas under blockblob- och sidblobresurser representerar en container som data laddas upp som blobar till. Du kan inte kopiera filer direkt till *root*-mappen i lagringskontot.
     
-### <a name="connect-on-a-linux-system"></a>Ansluta till ett Linux-system
+### <a name="connect-on-a-linux-system"></a>Ansluta i ett Linux-system
 
 Om du använder en Linux-klient använder du följande kommando för att montera SMB-resursen.
 
@@ -138,23 +138,23 @@ Om du använder en Linux-klient använder du följande kommando för att montera
 sudo mount -t nfs -o vers=2.1 10.126.76.172:/databoxe2etest_BlockBlob /home/databoxubuntuhost/databox
 ```
 
-`vers` Parametern är den version av SMB som din Linux-värd stöder. Anslut rätt version i kommandot ovan.
+`vers`-parametern är den version av SMB som din Linux-värd stöder. Ange korrekt version i kommandot ovan.
 
-För versioner av SMB som Data Box Heavy stöder, se [fil system som stöds för Linux-klienter](data-box-heavy-system-requirements.md#supported-file-systems-for-linux-clients).
+Versioner av SMB som Data Box Heavy har stöd för finns i avsnittet om [filsystem som stöds för Linux-klienter](data-box-heavy-system-requirements.md#supported-file-systems-for-linux-clients).
 
 ## <a name="copy-data-to-data-box-heavy"></a>Kopiera data till Data Box Heavy
 
-När du är ansluten till Data Box Heavy resurserna är nästa steg att kopiera data.
+När du har anslutit till Data Box Heavy-resurserna är nästa steg att kopiera data.
 
-### <a name="copy-considerations"></a>Kopierings överväganden
+### <a name="copy-considerations"></a>Att tänka på när du kopierar
 
 Granska följande innan du kopierar data:
 
 - Se till att du kopierar data till resurser som motsvarar lämplig dataformat. Kopiera exempelvis blockblobdata till resursen för blockblobobjekt. Kopiera de virtuella hårddiskarna till en sidblob.
 
     Om dataformatet inte matchar lämplig resurstyp misslyckas datauppladdningen till Azure i ett senare skede.
--  När du kopierar data måste du se till att data storleken överensstämmer med storleks begränsningarna som beskrivs i [Azure Storage och data Box Heavy gränser](data-box-heavy-limits.md).
-- Om data som laddas upp av Data Box Heavy, samtidigt laddas upp av andra program utanför Data Box Heavy, kan detta leda till att det inte går att överföra jobb och skadade data.
+-  När du kopierar data ser du till att datastorleken överensstämmer med storleksbegränsningarna som beskrivs i avsnittet om [Azure Storage- och Data Box Heavy-gränser](data-box-heavy-limits.md).
+- Om data som laddas upp av Data Box Heavy samtidigt överförs av andra program utanför Data Box Heavy, kan detta resultera i att uppladdningsjobbet misslyckas samt att data skadas.
 - Vi rekommenderar att du:
     - Inte använder SMB och NFS samtidigt.
     - Kopierar samma data till samma mål på Azure.
@@ -186,10 +186,10 @@ När du har anslutit till SMB-resursen kan du påbörja en datakopiering.
     |/z      | Kopierar filer i omstartsläge, används om miljön är instabil. Det här alternativet minskar dataflödet på grund av ytterligare loggning.      |
     | /zb    | Använder omstartsläge. Om åtkomst nekas använder det här alternativet omstartsläge. Det här alternativet minskar dataflödet på grund av kontrollpunkter.         |
     |/efsraw | Kopierar alla krypterade filer i EFS RAW-läge. Används bara med krypterade filer.         |
-    |log +:\<loggfil >| Lägger till utdata till den befintliga loggfilen.|
+    |log+:\<LogFile>| Lägger till utdata till den befintliga loggfilen.|
     
  
-    I följande exempel visas utdata från kommandot Robocopy för att kopiera filer till Data Box Heavy.
+    Följande exempel visar utdata från robocopy-kommandot för filkopiering till Data Box Heavy.
 
     ```   
     C:\Users>Robocopy C:\Git\azure-docs-pr\contributor-guide \\10.100.10.100\devicemanagertest1_AzFile\templates /MT:24
@@ -229,9 +229,9 @@ När du har anslutit till SMB-resursen kan du påbörja en datakopiering.
     C:\Users>
     ```       
 
-2. Du kan optimera prestanda med hjälp av följande robocopy-parametrar när du kopierar data. (Siffrorna nedan representerar bästa fall-scenarier.)
+2. Du kan optimera prestanda med hjälp av följande robocopy-parametrar när du kopierar data. (Siffrorna nedan representerar ”bästa fall”-scenarier.)
 
-    | Plattform    | Främst små filer < 512 KB    | Huvudsakligen medium Files 512 KB-1 MB  | Främst stora filer > 1 MB                             |
+    | Plattform    | Främst små filer < 512 KB    | Främst medelstora filer 512 kB–1 MB  | Främst stora filer > 1 MB                             |
     |-------------|--------------------------------|----------------------------|----------------------------|
     | Data Box – tung | 6 Robocopy-sessioner <br> 24 trådar per session | 6 Robocopy-sessioner <br> 16 trådar per session | 6 Robocopy-sessioner <br> 16 trådar per session |
 
@@ -245,24 +245,24 @@ När du har anslutit till SMB-resursen kan du påbörja en datakopiering.
 
 4. När data kopieras:
 
-    - Fil namnen, storlekarna och formatet verifieras för att säkerställa att de uppfyller Azure-objekten och lagrings gränserna samt namngivnings konventionerna för Azure-filer och behållare.
-    - För att säkerställa data integriteten beräknas även kontroll summorna på samma nivå.
+    - Filnamnen, storlekarna och formatet verifieras för att säkerställa att de uppfyller objekt- och lagringsgränserna i Azure och namngivningskonventionerna för Azure-filer och -containrar.
+    - För att säkerställa dataintegriteten beräknas även kontrollsummorna på samma nivå.
 
-    Om det uppstod fel under kopieringsprocessen laddar du ned felfilerna för felsökning. Välj pilen för att ladda ned felfilerna.
+    Om det uppstod fel under kopieringsprocessen laddar du ned felfilerna för felsökning. Välj pilikonen för att ladda ned felfilerna.
 
-    ![Hämta felfiler](media/data-box-heavy-deploy-copy-data/download-error-files.png)
+    ![Ladda ned felfiler](media/data-box-heavy-deploy-copy-data/download-error-files.png)
 
-    Mer information finns i [Visa fel loggar under data kopiering till data Box Heavy](data-box-logs.md#view-error-log-during-data-copy). En detaljerad lista över fel under data kopiering finns i [felsöka data Box Heavy problem](data-box-troubleshoot.md).
+    Mer information finns i [Visa felloggar under datakopiering till Data Box Heavy](data-box-logs.md#view-error-log-during-data-copy). En detaljerad lista över fel i samband med datakopieringen finns i [Felsöka problem med Data Box Heavy](data-box-troubleshoot.md).
 
-5. Öppna fel filen i anteckningar. Följande felfil visar att data inte justeras korrekt.
+5. Öppna felfilen i Anteckningar. Följande felfil anger att data inte justeras korrekt.
 
     ![Öppna felfilen](media/data-box-heavy-deploy-copy-data/open-error-file.png)
     
-    För en Page BLOB måste data vara 512 byte justerade. När dessa data har tagits bort löses felet som visas i följande skärm bild.
+    För en sidblob måste data vara justerade för 512 byte. När dessa data har tagits bort åtgärdas felet, som du ser i följande skärmbild.
 
-    ![Fel löst](media/data-box-heavy-deploy-copy-data/error-resolved.png)
+    ![Åtgärdat fel](media/data-box-heavy-deploy-copy-data/error-resolved.png)
 
-6. När kopieringen är klar går du till **Visa instrument panels** sida. Kontrol lera det använda utrymmet och det lediga utrymmet på enheten.
+6. När kopieringen är klar går du till sidan **Visa instrumentpanel**. Kontrollera det använda utrymmet och det lediga utrymmet på enheten.
     
     ![Kontrollera ledigt och använt utrymme på instrumentpanelen](media/data-box-heavy-deploy-copy-data/verify-used-space-dashboard.png)
 
@@ -270,17 +270,17 @@ Upprepa stegen ovan för att kopiera data till den andra noden på enheten.
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudien har du lärt dig om Azure Data Box Heavy ämnen som:
+I den här självstudien om Azure Data Box Heavy har du bland annat lärt dig att:
 
 > [!div class="checklist"]
-> * Anslut till Data Box Heavy
+> * Ansluta till Data Box Heavy
 > * Kopiera data till Data Box Heavy
 
 
-Gå vidare till nästa självstudie och lär dig hur du skickar Data Box Heavy tillbaka till Microsoft.
+Gå vidare till nästa självstudie och lär dig hur du skickar tillbaka din Data Box Heavy till Microsoft.
 
 > [!div class="nextstepaction"]
-> [Leverera din Azure Data Box Heavy till Microsoft](./data-box-heavy-deploy-picked-up.md)
+> [Skicka Azure Data Box Heavy till Microsoft](./data-box-heavy-deploy-picked-up.md)
 
 ::: zone-end
 
@@ -294,7 +294,7 @@ Gå vidare till nästa självstudie och lär dig hur du skickar Data Box Heavy t
 
 2. Du kan hämta autentiseringsuppgifterna för åtkomst till resursen på sidan **Connect & copy** (Anslut och kopiera) i det lokala webbgränssnittet i Data Box.
 
-3. Använd ett SMB-kompatibelt fil kopierings verktyg som Robocopy för att kopiera data till resurser.
+3. Använd ett SMB-kompatibelt filkopieringsverktyg som Robocopy för att kopiera data till resurser.
 
 Stegvisa instruktioner finns i [Självstudier: Kopiera data till Azure Data Box via SMB](data-box-heavy-deploy-copy-data.md).
 
@@ -304,36 +304,36 @@ Stegvisa instruktioner finns i [Självstudier: Kopiera data till Azure Data Box 
 
     `sudo mount <Data Box device IP>:/<NFS share on Data Box device> <Path to the folder on local Linux computer>`
 
-2. För att få åtkomst till delnings behörigheter går du till **sidan anslut & kopia** i det lokala webb gränssnittet för data Box Heavy.
-3. Använd `cp` eller`rsync` kommandot för att kopiera dina data. 
-4. Upprepa de här stegen för att ansluta och kopiera data till den andra noden i Data Box Heavy.
+2. Du kan hämta autentiseringsuppgifterna för åtkomst till resursen på sidan **Connect & copy** (Anslut och kopiera) i det lokala webbgränssnittet i Data Box Heavy.
+3. Använd kommandot `cp` eller `rsync` för att kopiera dina data. 
+4. Upprepa de här stegen för att ansluta och kopiera data till den andra noden på Data Box Heavy-enheten.
 
 Stegvisa instruktioner finns i [Självstudier: Kopiera data till Azure Data Box via NFS](data-box-heavy-deploy-copy-data-via-nfs.md).
 
 ### <a name="copy-data-via-rest"></a>Kopiera data via REST
 
-1. Om du vill kopiera data med Data Box-enhet Blob Storage via REST-API: er kan du ansluta via *http* eller *https*.
-2. Om du vill kopiera data till Data Box-enhet Blob Storage kan du använda AzCopy.
-3. Upprepa de här stegen för att ansluta och kopiera data till den andra noden i Data Box Heavy.
+1. Om du vill kopiera data med Data Box-bloblagring via REST-API:er kan du ansluta via *http* eller *https*.
+2. Om du vill kopiera data till Data Box-blogglagring kan du använda AzCopy.
+3. Upprepa de här stegen för att ansluta och kopiera data till den andra noden på Data Box Heavy-enheten.
 
-Stegvisa instruktioner finns i [Självstudier: Kopiera data till Azure Data Box blob-lagring via REST](data-box-heavy-deploy-copy-data-via-rest.md)-API: er.
+Stegvisa instruktioner finns i [Självstudier: Kopiera data till Azure Data Box Blob-lagring via REST-API:er](data-box-heavy-deploy-copy-data-via-rest.md).
 
-### <a name="copy-data-via-data-copy-service"></a>Kopiera data via tjänsten för data kopiering
+### <a name="copy-data-via-data-copy-service"></a>Kopiera data via datakopieringstjänsten
 
-1. Om du vill kopiera data med hjälp av tjänsten data kopiering måste du skapa ett jobb. I det lokala webb gränssnittet för din Data Box Heavy går du till **hantera > Kopiera Data > skapa**.
+1. Om du ska kopiera data med hjälp av datakopieringstjänsten måste du skapa ett jobb. I det lokala webbgränssnittet på din Data Box Heavy går du till **Hantera > Kopiera data > Skapa**.
 2. Fyll i parametrarna och skapa ett jobb.
-3. Upprepa de här stegen för att ansluta och kopiera data till den andra noden i Data Box Heavy.
+3. Upprepa de här stegen för att ansluta och kopiera data till den andra noden på Data Box Heavy-enheten.
 
-Stegvisa instruktioner finns i [Självstudier: Använd data kopierings tjänsten för att kopiera data till](data-box-heavy-deploy-copy-data-via-copy-service.md)Azure Data Box Heavy.
+Stegvisa instruktioner finns i [Självstudier: Använd datakopieringstjänsten för att kopiera data till Azure Data Box Heavy](data-box-heavy-deploy-copy-data-via-copy-service.md).
 
-### <a name="copy-data-to-managed-disks"></a>Kopiera data till Managed disks
+### <a name="copy-data-to-managed-disks"></a>Kopiera data till hanterade diskar
 
-1. När du beställer Data Box Heavy enheten bör du ha valt hanterade diskar som lagrings mål.
-2. Du kan ansluta till Data Box Heavy via SMB-eller NFS-resurser.
-3. Du kan sedan kopiera data via SMB-eller NFS-verktyg.
-4. Upprepa de här stegen för att ansluta och kopiera data till den andra noden i Data Box Heavy.
+1. När du beställer Data Box Heavy bör du ha valt hanterade diskar som lagringsmål.
+2. Du kan ansluta till Data Box Heavy via SMB- eller NFS-resurser.
+3. Sedan kan du kopiera data via SMB- eller NFS-verktyg.
+4. Upprepa de här stegen för att ansluta och kopiera data till den andra noden på Data Box Heavy-enheten.
 
-Stegvisa instruktioner finns i [Självstudier: Använd Data Box-enhet för att tung importera data som Managed disks](data-box-heavy-deploy-copy-data-from-vhds.md)i Azure.
+Stegvisa instruktioner finns i [Självstudier: Använd Data Box Heavy för att importera data som hanterade diskar i Azure](data-box-heavy-deploy-copy-data-from-vhds.md).
 
 ::: zone-end
 

@@ -1,25 +1,25 @@
 ---
-title: Självstudie för att packa upp, ansluta till, låsa upp Azure Data Box Disk | Microsoft Docs
+title: Självstudie för att packa upp, ansluta till och låsa upp Azure Data Box Disk | Microsoft Docs
 description: I den här självstudiekursen lär du dig hur du konfigurerar Azure Data Box Disk
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 09/03/2019
+ms.date: 09/04/2019
 ms.author: alkohli
 ms.localizationpriority: high
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: d04bc444b6824f5ed041160f9901d8ef2cb8c384
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
-ms.translationtype: MT
+ms.openlocfilehash: 91baec55cb976a3bc64ac60b1759c80e64fd18a3
+ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70233006"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70375890"
 ---
 ::: zone target="docs"
 
-# <a name="tutorial-unpack-connect-and-unlock-azure-data-box-disk"></a>Självstudier: Packa upp, Anslut och lås upp Azure Data Box Disk
+# <a name="tutorial-unpack-connect-and-unlock-azure-data-box-disk"></a>Självstudier: Självstudie: Packa upp, ansluta och låsa upp Azure Data Box Disk
 
 Den här självstudien beskriver hur du packar upp, ansluter och låser upp en Azure Data Box-disk.
 
@@ -35,13 +35,13 @@ I den här guiden får du lära dig att:
 
 ::: zone target="chromeless"
 
-## <a name="unpack-connect-and-unlock-azure-data-box-disk"></a>Packa upp, Anslut och lås upp Azure Data Box Disk
+## <a name="unpack-connect-and-unlock-azure-data-box-disk"></a>Självstudie: Packa upp, ansluta och låsa upp Azure Data Box Disk
 
 ::: zone-end
 
 ::: zone target="docs"
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Innan du börjar ska du kontrollera att:
 
@@ -83,7 +83,7 @@ Beroende på om du är ansluten till en Windows- eller Linux-klient är skiljer 
 Anslut och lås upp diskarna genom att följa stegen nedan.
      
 1. Gå till **Allmänt > Enhetsinformation**. 
-2. Ladda ned de Data Box Disk-verktyg som motsvarar Windows-klienten. Den här verktygs uppsättningen innehåller 3 verktyg: Data Box Disk upplåsnings verktyget, Data Box Disk validerings verktyget och Data Box Disk verktyget för delad kopiering. 
+2. Ladda ned de Data Box Disk-verktyg som motsvarar Windows-klienten. Den här verktygsuppsättningen innehåller tre verktyg: Upplåsningsverktyget för Data Box Disk, verifieringsverktyget för Data Box Disk och uppdelnings- och kopieringsverktyget för Data Box Disk. 
 
     I den här proceduren använder du endast verktyget Data Box Disk Unlock. De andra två verktygen används senare.
 
@@ -138,7 +138,7 @@ Anslut och lås upp diskarna genom att följa stegen nedan.
 
     ![Data Box-diskinnehåll](media/data-box-disk-deploy-set-up/data-box-disk-content.png)
 
-Om du stöter på problem när du låser upp diskarna går du till [Felsöka problem](data-box-disk-troubleshoot-unlock.md)vid upplåsning. 
+Om du stöter på problem när du låser upp diskarna går du till [Felsöka upplåsningsproblem](data-box-disk-troubleshoot-unlock.md). 
 
 ## <a name="unlock-disks-on-linux-client"></a>Låsa upp diskar på Linux-klient
 
@@ -186,7 +186,7 @@ Om du stöter på problem när du låser upp diskarna går du till [Felsöka pro
  
 5. Skriv `y` för att fortsätta installationen. Paketen som skripten installerar är: 
    - **epel-release** – Datalager som innehåller följande tre paket. 
-   - **delocker och säkring –** delocker – dessa verktyg hjälper till att dekryptera BitLocker-krypterade diskar. 
+   - **dislocker och fuse-dislocker** – Dessa verktyg hjälper till att dekryptera BitLocker-krypterade diskar. 
    - **ntfs-3g** – Paket som hjälper till att montera NTFS-volymer. 
  
      När paketen har installerats visas ett meddelande om det i terminalen.     
@@ -221,7 +221,7 @@ Om du stöter på problem när du låser upp diskarna går du till [Felsöka pro
 
 6. Kör upplåsningsverktyget för Data Box Disk. Ange nyckeln från Azure-portalen som du hämtade i [Ansluta till diskar och hämta nyckeln](#connect-to-disks-and-get-the-passkey). Du kan också ange en lista med BitLocker-krypterade volymer som ska låsas upp. Nyckeln och volymlistan ska anges inom enkla citattecken. 
 
-    Skriv följande kommando.
+    Ange följande kommando.
  
     `sudo ./DataBoxDiskUnlock_x86_64 /PassKey:’<Your passkey from Azure portal>’          
 
@@ -270,14 +270,14 @@ Om du stöter på problem när du låser upp diskarna går du till [Felsöka pro
     ![Data Box-diskinnehåll](media/data-box-disk-deploy-set-up/data-box-disk-content-linux.png)
 
 
-Om du stöter på problem när du låser upp diskarna går du till [Felsöka problem](data-box-disk-troubleshoot-unlock.md)vid upplåsning. 
+Om du stöter på problem när du låser upp diskarna går du till [Felsöka upplåsningsproblem](data-box-disk-troubleshoot-unlock.md). 
 
 ::: zone-end
 
 ::: zone target="chromeless"
 
-1. Packa upp diskarna och Använd kabeln som ingår för att ansluta disken till klient datorn.
-2. Hämta och extrahera Data Box Disk verktyg på samma dator som du ska använda för att kopiera data.
+1. Packa upp diskarna och använd den medföljande kabeln för att ansluta disken till klientdatorn.
+2. Ladda ned och extrahera Data Box Disk-verktygsuppsättningen på samma dator som du ska använda för att kopiera data.
 
     > [!div class="nextstepaction"]
     > [Ladda ned Data Box Disk-verktyg för Windows](https://aka.ms/databoxdisktoolswin)
@@ -286,15 +286,15 @@ Om du stöter på problem när du låser upp diskarna går du till [Felsöka pro
     > [!div class="nextstepaction"]
     > [Ladda ned Data Box Disk-verktyg för Linux](https://aka.ms/databoxdisktoolslinux) 
 
-3. Om du vill låsa upp diskarna på en Windows-klient öppnar du ett kommando tolks fönster eller kör Windows PowerShell som administratör på samma dator:
+3. Om du låser upp diskarna på en Windows-klient öppnar du kommandotolkens fönster eller kör Windows PowerShell som administratör på samma dator:
 
-    - Skriv följande kommando i samma mapp som Data Box Disk Lås upp verktyg är installerat.
+    - Skriv följande kommando i samma mapp som upplåsningsverktyget för Data Box Disk är installerat i.
 
         ``` 
         .\DataBoxDiskUnlock.exe
         ```
-    -  Hämta nyckeln från **allmän > enhets information** i Azure Portal och ange den här. Diskens tilldelade enhetsbeteckning visas. 
-4. Öppna en Terminal om du vill låsa upp diskarna på en Linux-klient. Gå till mappen där du laddade ned program varan. Ange följande kommandon för att ändra fil behörigheter så att du kan köra de här filerna: 
+    -  Hämta nyckeln från **Allmänt > Enhetsinformation** på Azure-portalen och ange den här. Diskens tilldelade enhetsbeteckning visas. 
+4. Om du öppnar diskarna på en Linux-klient öppnar du en terminal. Gå till den mapp där du har laddat ned programvaran. Ange följande kommandon för att ändra filbehörigheterna så att du kan köra de här filerna: 
 
     ```
     chmod +x DataBoxDiskUnlock_x86_64
@@ -305,18 +305,16 @@ Om du stöter på problem när du låser upp diskarna går du till [Felsöka pro
     ```
     sudo ./DataBoxDiskUnlock_Prep.sh
     ```
-    Kör upplåsningsverktyget för Data Box Disk. Hämta nyckeln från **allmän > enhets information** i Azure Portal och ange den här. Alternativt kan du ange en lista över BitLocker-krypterade volymer inom enkla citat tecken som ska låsas upp.
+    Kör upplåsningsverktyget för Data Box Disk. Hämta nyckeln från **Allmänt > Enhetsinformation** på Azure-portalen och ange den här. Du kan också ange en lista över BitLocker-krypterade volymer (inom enkla citattecken) som ska låsas upp.
 
     ```
     sudo ./DataBoxDiskUnlock_x86_64 /PassKey:’<Your passkey from Azure portal>’
     ```      
 5. Upprepa upplåsningsstegen varje gång du sätter tillbaka diskar. Använd hjälpkommandot om du behöver hjälp med Data Box Disk-upplåsningsverktyget.
 
-När disken har låsts upp kan du visa innehållet på disken.
+Du kan visa innehållet på disken när disken har låsts upp.
 
-Mer information om hur du konfigurerar diskar finns i [packa upp data Box disk](data-box-disk-deploy-set-up.md#unpack-your-disks).
-
-Mer information om hur du låser upp diskar finns i [låsa upp data Box disk på Windows-klienten](data-box-disk-deploy-set-up.md#unlock-disks-on-windows-client).
+Mer information om hur du konfigurerar och låser upp diskar finns i [Konfigurera Data Box Disk](data-box-disk-deploy-set-up.md).
 
 ::: zone-end
 

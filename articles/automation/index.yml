@@ -1,61 +1,95 @@
-### YamlMime:YamlDocument
-documentType: LandingData
-title: Azure Automation användardokumentation
+### YamlMime:Landing
+title: Dokumentation om Azure Automation
 metadata:
-  document_id: null
-  title: 'Dokumentation om Azure Automation – Självstudier, API-referens'
-  description: Lär dig hur du använder Azure Automation
+  document_id: 
+  title: Dokumentation om Azure Automation
+  description: Lär dig hur du använder Automation för att konfigurera och automatisera åtgärdsuppgifter i en hybridmiljö.
   services: automation
-  author: georgewallace
+  author: bobbytreed
   manager: carmonm
   ms.service: automation
   ms.tgt_pltfrm: na
   ms.topic: landing-page
-  ms.date: 12/13/2017
-  ms.author: gwallace
-abstract:
-  description: 'Lär dig hur du använder Automation för att konfigurera och automatisera åtgärdsuppgifter i en hybridmiljö. Självstudier, API-referenser och annan dokumentation visar hur du kan automatisera processer, utföra uppdateringshantering, leverera önskad tillståndskonfiguration, spåra ändringar och samla inventering.'
-sections:
-  - title: Snabbstarter på 5 minuter
-    items:
-      - type: paragraph
-        text: 'Lär dig hur du kan automatisera och konfigurera Azure och hybrid-miljön med hjälp av Automation:'
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: /azure/automation/media/index/automation.svg
-            text: Skapa ett Automation-konto
-            href: /azure/automation/automation-quickstart-create-account
-          - image:
-              src: /azure/automation/media/index/runbook.svg
-            text: Skapa en runbook
-            href: /azure/automation/automation-quickstart-create-runbook
-          - image:
-              src: /azure/automation/media/index/dscconfig.svg
-            text: Skapa en DSC-konfiguration
-            href: /azure/automation/automation-quickstart-dsc-configuration
-  - title: Steg för steg-självstudier
-    items:
-      - type: paragraph
-        text: 'Lär dig mer om att integrera, distribuera och hantera dina Azure och hybrid-miljöer.'
-      - type: list
-        style: ordered
-        items:
-          - html: <a href="/azure/automation/automation-watchers-tutorial">Konfigurera bevakaruppgifter</a>
-          - html: <a href="/azure/automation/automation-tutorial-update-management">Hantera uppdateringar på din virtuella dator</a>
-          - html: <a href="/azure/automation/automation-onboard-solutions">Publicera i skala</a>
-          - html: <a href="/azure/automation/automation-tutorial-installed-software">Identifiera program installerade på en virtuell dator</a>
-          - html: <a href="/azure/automation/automation-tutorial-troubleshoot-changes">Felsök ändringar på en virtuell dator</a>
-  - title: Referens
-    items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: Kommandorad
-            html: <p><a href="/powershell/module/azurerm.automation">PowerShell</a></p>
-          - title: Språk
-            html: <p><a href="/dotnet/api/microsoft.azure.management.automation">NET</a></p>
-          - title: REST
-            html: <p><a href="/rest/api/automation">Automation REST API</a></p>
+  ms.date: 09/06/2019
+  ms.author: robreed
+  ms.openlocfilehash: 3242e2c699e0f99164d6c5ecd2cf61441648b8e8
+  ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 09/06/2019
+  ms.locfileid: "70743738"
+landingContent:
+- title: Kom igång med Azure Automation
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Vad är Automation?
+      url: automation-intro.md
+  - linkListType: get-started
+    links:
+    - text: Skapa ett Automation-konto
+      url: automation-quickstart-create-account.md
+  - linkListType: quickstart
+    links:
+    - text: Skapa en runbook
+      url: automation-quickstart-create-runbook.md
+- title: Hantera uppdateringar för virtuella datorer
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Översikt över Uppdateringshantering
+      url: automation-update-management.md
+  - linkListType: get-started
+    links:
+    - text: Hantera uppdateringar för flera virtuella datorer
+      url: manage-update-multi.md
+  - linkListType: deploy
+    links:
+    - text: Uppdatera, inventera och spåra ändringar på virtuella Azure-datorer
+      url: automation-onboard-solutions.md
+- title: Konfigurera dina virtuella datorer med Desired State Configuration
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Översikt över statuskonfiguration
+      url: automation-dsc-overview.md
+  - linkListType: concept
+    links:
+    - text: PowerShell DSC
+      url: /powershell/dsc/overview/overview
+  - linkListType: quickstart
+    links:
+    - text: Skapa en DSC-konfiguration från Grupprincip
+      url: /powershell/dsc/quickstarts/gpo-quickstart
+  - linkListType: tutorial
+    links:
+    - text: Konfigurera servrar och hantera avvikelse med State Configuration
+      url: tutorial-configure-servers-desired-state.md
+- title: Arbeta med hybridmiljöer
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Översikt över Hybrid Runbook Worker
+      url: automation-hybrid-runbook-worker.md
+  - linkListType: deploy
+    links:
+    - text: Distribuera Windows Hybrid Runbook Worker
+      url: automation-windows-hrw-install.md
+    - text: Distribuera Linux Hybrid Runbook Worker
+      url: automation-linux-hrw-install.md
+    - text: Köra runbook-flöden på en Hybrid Runbook Worker
+      url: automation-hrw-run-runbooks.md
+- title: Cross Service Automation
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Skicka ett e-postmeddelande från en runbook med SendGrid
+      url: automation-send-email.md
+  - linkListType: get-started
+    links:
+    - text: Starta ett runbook-flöde med Azure-aviseringar
+      url: automation-create-alert-triggered-runbook.md
+  - linkListType: deploy
+    links:
+    - text: Distribuera en Azure Resource Manager-mall i en Automation PowerShell- runbook
+      url: automation-deploy-template-runbook.md

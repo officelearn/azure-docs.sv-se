@@ -1,0 +1,49 @@
+### YamlMime:Landing
+title: Dokumentation för Azure HPC Cache – förhandsversion
+summary: Använd Azure HPC Cache för att påskynda filåtkomsten för avancerade HPC-arbetsbelastningar (databehandling med höga prestanda)
+metadata:
+  title: Microsoft Azure HPC Cache
+  description: Lär dig att skapa och använda Azure HPC Cache för att lösa svarstidsproblem mellan dina beräkningsresurser och din lagring. Azure HPC Cache är avsedd för filbaserade, läsningstunga arbetsbelastningar och kan skapa ett aggregerat virtuellt filsystem med Azure Blob Storage och lokala maskinvaruprofiler.
+  ms.service: hpc-cache
+  ms.topic: landing-page
+  ms.collection: collection
+  author: ekpgh
+  ms.author: v-erkell
+  ms.date: 08/30/2019
+  ms.openlocfilehash: 4d5935646c3266624395b3b29a34d9cf8d446de7
+  ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 09/06/2019
+  ms.locfileid: "70774563"
+landingContent:
+- title: Om Azure HPC Cache
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Vad är Azure HPC Cache?
+      url: hpc-cache-overview.md
+- title: Komma igång
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Konfigurera förutsättningar för Azure HPC Cache
+      url: hpc-cache-prereqs.md
+    - text: Skapa cachen
+      url: hpc-cache-create.md
+    - text: Lägg till lagringsutrymme
+      url: hpc-cache-add-storage.md
+    - text: Montera klienter
+      url: hpc-cache-mount.md
+  - linkListType: concept
+    links:
+    - text: Konfigurera ett aggregerat namnområde
+      url: hpc-cache-namespace.md
+    - text: Fylla i ny Blobblagring
+      url: hpc-cache-ingest.md
+- title: Felsöka
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Öppna en supportbegäran
+      url: hpc-cache-support-ticket.md

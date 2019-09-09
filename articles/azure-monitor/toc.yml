@@ -97,20 +97,12 @@
       items:
         - name: Översikt
           href: platform/alerts-overview.md
-        - name: Klassiska aviseringar
-          href: platform/alerts-classic.overview.md
         - name: Måttaviseringar
           href: platform/alerts-metric-overview.md
         - name: Loggaviseringar
           href: platform/alerts-unified-log.md
         - name: Aktivitetsloggaviseringar
           href: platform/activity-log-alerts.md
-        - name: Vanligt aviseringsschema
-          href: platform/alerts-common-schema.md
-        - name: Åtgärdsregler
-          href: platform/alerts-action-rules.md
-        - name: Smarta grupper
-          href: platform/alerts-smartgroups-overview.md
         - name: Ändra analys
           href: app/change-analysis.md
     - name: Visualisera data
@@ -516,11 +508,7 @@
                   href: insights/container-insights-troubleshoot.md
             - name: Övervakning av Docker- och Windows-containrar
               href: insights/containers.md
-        - name: Storage
-          items:
-            - name: Azure Monitor för lagring
-              href: insights/storage-insights-overview.md
-        - name: Virtuella datorer
+        - name: Operativsystem (virtuella datorer m.m.)
           items:
             - name: Agenter
               items:
@@ -530,26 +518,38 @@
                   items:
                     - name: Översikt
                       href: platform/diagnostics-extension-overview.md
-                    - name: Skicka till Azure Storage
-                      href: platform/diagnostics-extension-to-storage.md
-                    - name: Skicka till Application Insights
-                      href: platform/diagnostics-extension-to-application-insights.md
-                    - name: Skicka till Event Hubs
-                      href: platform/diagnostics-extension-stream-event-hubs.md
-                    - name: Felsökning
-                      href: platform/diagnostics-extension-troubleshooting.md
-                    - name: Förbered för JSON Lines-format för diagnostikloggar
-                      href: platform/diagnostic-logs-append-blobs.md
-                    - name: VM-gäst till mått
-                      href: platform/collect-custom-metrics-guestos-resource-manager-vm.md
-                    - name: GuestOS till mått – virtuell Linux-dator (Telegraf)
-                      href: platform/collect-custom-metrics-linux-telegraf.md
-                    - name: VM-skalningsuppsättningsgäst till mått
-                      href: platform/collect-custom-metrics-guestos-resource-manager-vmss.md
-                    - name: Klassisk VM-gäst till mått
-                      href: platform/collect-custom-metrics-guestos-vm-classic.md
-                    - name: Molntjänstgäst till mått
-                      href: platform/collect-custom-metrics-guestos-vm-cloud-service-classic.md
+                    - name: Windows
+                      items:
+                        - name: Versionshistorik
+                          href: platform/diagnostics-extension-schema.md
+                        - name: Schema
+                          href: platform/diagnostics-extension-schema-1dot3.md
+                        - name: Skicka till Azure Storage
+                          href: platform/diagnostics-extension-to-storage.md
+                        - name: Skicka till Application Insights
+                          href: platform/diagnostics-extension-to-application-insights.md
+                        - name: Skicka till Event Hubs
+                          href: platform/diagnostics-extension-stream-event-hubs.md
+                        - name: Skicka till Azure Monitor som anpassade mått
+                          items:
+                            - name: Virtuell dator
+                              href: platform/collect-custom-metrics-guestos-resource-manager-vm.md
+                            - name: VM-skalningsuppsättning
+                              href: platform/collect-custom-metrics-guestos-resource-manager-vmss.md
+                            - name: 'Virtuell dator, klassisk'
+                              href: platform/collect-custom-metrics-guestos-vm-classic.md
+                            - name: Molntjänst
+                              href: platform/collect-custom-metrics-guestos-vm-cloud-service-classic.md
+                        - name: JSON Lines-format för diagnostikloggar
+                          href: platform/diagnostic-logs-append-blobs.md
+                        - name: Felsökning
+                          href: platform/diagnostics-extension-troubleshooting.md
+                    - name: Linux
+                      items:
+                        - name: Använd med virtuella datorer
+                          href: ../virtual-machines/extensions/diagnostics-linux.md
+                        - name: Anpassade mått med Telegraf
+                          href: platform/collect-custom-metrics-linux-telegraf.md
                 - name: Log Analytics-agenter
                   items:
                     - name: Översikt
@@ -645,13 +645,21 @@
               href: platform/computer-groups.md
             - name: Configuration Manager
               href: platform/collect-sccm.md
-        - name: Databaser
-          items:
-            - name: Azure SQL
-              href: insights/azure-sql.md
-            - name: SQL Server
-              href: insights/sql-assessment.md
         - name: Azure-resurser
+          items:
+            - name: Diagnostikloggar
+              items:
+                - name: Översikt
+                  href: platform/diagnostic-logs-overview.md
+                - name: Samla in loggar
+                  href: platform/diagnostic-logs-stream-log-store.md
+                - name: Samla in från Azure Storage
+                  href: platform/azure-storage-iis-table.md
+                - name: Arkivera till lagring
+                  href: platform/archive-diagnostic-logs.md
+                - name: Aktivera med Resource Manager-mallar
+                  href: platform/diagnostic-logs-stream-template.md
+        - name: Azure-prenumeration
           items:
             - name: Aktivitetslogg
               items:
@@ -667,20 +675,6 @@
                   href: platform/activity-log-export.md
                 - name: Schema
                   href: platform/activity-log-schema.md
-            - name: Diagnostikloggar
-              items:
-                - name: Översikt
-                  href: platform/diagnostic-logs-overview.md
-                - name: Samla in loggar
-                  href: platform/diagnostic-logs-stream-log-store.md
-                - name: Samla in från Azure Storage
-                  href: platform/azure-storage-iis-table.md
-                - name: Arkivera till lagring
-                  href: platform/archive-diagnostic-logs.md
-                - name: Strömma data till Event Hubs
-                  href: platform/diagnostic-logs-stream-event-hubs.md
-                - name: Aktivera med Resource Manager-mallar
-                  href: platform/diagnostic-logs-stream-template.md
             - name: Strömma data till Event Hubs
               href: platform/stream-monitoring-data-event-hubs.md
             - name: Key Vault-analys
@@ -689,6 +683,16 @@
               href: ../service-fabric/service-fabric-diagnostics-oms-agent.md
             - name: Övervaka resursgrupper
               href: insights/resource-group-insights.md
+        - name: Storage
+          items:
+            - name: Azure Monitor för lagring
+              href: insights/storage-insights-overview.md
+        - name: Databaser
+          items:
+            - name: Azure SQL
+              href: insights/azure-sql.md
+            - name: SQL Server
+              href: insights/sql-assessment.md
         - name: Nätverk
           items:
             - name: Nätverksanalys
@@ -729,18 +733,20 @@
           items:
             - name: Anpassade mått
               href: platform/metrics-custom-overview.md
+            - name: REST-API för mått
+              href: platform/metrics-store-custom-rest-api.md
             - name: API för Log Analytics-datainsamlare
               href: platform/data-collector-api.md
             - name: Pipelineexempel för API för Log Analytics-datainsamlare
               href: platform/create-pipeline-datacollector-api.md
-            - name: REST-API för mått
-              href: platform/metrics-store-custom-rest-api.md
         - name: Använda System Center
           items:
             - name: Ansluta Operations Manager
               href: platform/om-agents.md
             - name: Utvärdera Operations Manager
               href: insights/scom-assessment.md
+        - name: Strömma data till Event Hubs
+          href: platform/diagnostic-logs-stream-event-hubs.md
     - name: Analysera data
       items:
         - name: Mått
@@ -873,7 +879,7 @@
               href: app/monitor-web-app-availability.md
             - name: Måttaviseringar
               href: app/alerts.md
-        - name: Aviseringsregler för plattformsmått
+        - name: Måttaviseringsregler
           items:
             - name: Hantera måttaviseringar
               href: platform/alerts-metric.md
@@ -899,28 +905,40 @@
               href: platform/alerts-activity-log.md
             - name: Migrera hanteringshändelser till aktivitetsloggaviseringar
               href: platform/migrate-management-alerts.md
-        - name: Åtgärdsgrupper
+        - name: Service Health-aviseringar i aktivitetsloggen
           items:
+            - name: Visa aviseringar
+              href: platform/service-notifications.md
+            - name: Konfigurera aviseringar i aviseringshändelser
+              href: platform/alerts-activity-log-service-notifications.md
+        - name: Aviseringar och rapporter
+          items:
+            - name: Åtgärdsregler (förhandsversion)
+              href: platform/alerts-action-rules.md
             - name: Skapa åtgärdsgrupp
               href: platform/action-groups.md
-            - name: Webhook-schema
-              href: platform/activity-log-alerts-webhook.md
+            - name: Vanligt aviseringsschema
+              href: platform/alerts-common-schema.md
             - name: Vanliga definitioner för aviseringsscheman
               href: platform/alerts-common-schema-definitions.md
+            - name: Integrera det gemensamma aviseringsschemat med Logic Apps
+              href: platform/alerts-common-schema-integrations.md
+            - name: Webhook-schema
+              href: platform/activity-log-alerts-webhook.md
             - name: Beteende för SMS-aviseringar
               href: platform/alerts-sms-behavior.md
-            - name: Begränsningar för aviseringsfrekvensen
+            - name: Begränsning av aviseringsfrekvens
               href: platform/alerts-rate-limiting.md
             - name: Skapa åtgärdsgrupper med Resource Manager
               href: platform/action-groups-create-resource-manager-template.md
             - name: Implementera en Logikapp-åtgärd
               href: platform/action-groups-logic-app.md
-            - name: Integrera det gemensamma aviseringsschemat med Logic Apps
-              href: platform/alerts-common-schema-integrations.md
         - name: Lösning för aviseringshantering
           href: platform/alert-management-solution.md
         - name: Avisera i användargränssnitt
           items:
+            - name: Om smarta grupper
+              href: platform/alerts-smartgroups-overview.md
             - name: Hantera aviseringsinstanser
               href: platform/alerts-managing-alert-instances.md
             - name: Hantera smarta grupper
@@ -931,6 +949,8 @@
               href: platform/alerts-managing-nagios-zabbix-scom.md
         - name: Migrera klassiska aviseringsregler
           items:
+            - name: Om klassiska aviseringar
+              href: platform/alerts-classic.overview.md
             - name: Förbereda för migrering
               href: platform/alerts-prepare-migration.md
             - name: Lär dig migreringsverktyget
@@ -945,12 +965,6 @@
               href: platform/alerts-enable-template.md
             - name: Anropa en webhook med en klassisk måttavisering
               href: platform/alerts-webhooks.md
-        - name: Service Health-aviseringar i aktivitetsloggen
-          items:
-            - name: Visa aviseringar
-              href: platform/service-notifications.md
-            - name: Konfigurera aviseringar i aviseringshändelser
-              href: platform/alerts-activity-log-service-notifications.md
         - name: Aviserings-API
           href: platform/api-alerts.md
         - name: IT Service Management
@@ -1057,6 +1071,18 @@
               href: app/data-model-metric-telemetry.md
             - name: Kontext
               href: app/data-model-context.md
+            - name: Integrering med Azure-funktioner
+              href: app/azure-functions-supported-features.md
+    - name: Mått
+      items:
+        - name: Mått som stöds
+          href: platform/metrics-supported.md
+        - name: Mått som stöds för nyare aviseringar
+          href: platform/alerts-metric-near-real-time.md
+    - name: Diagnostikloggar
+      items:
+        - name: 'Tjänster, kategorier och scheman för diagnostikloggar'
+          href: platform/diagnostic-logs-schema.md
     - name: Azure CLI
       href: /cli/azure/monitor?view=azure-cli-latest
     - name: Azure CLI – Application Insights (förhandsversion)
@@ -1081,25 +1107,6 @@
           href: /azure/templates/microsoft.insights/allversions
         - name: Loggar
           href: /azure/templates/microsoft.operationalinsights/allversions
-    - name: Mått
-      items:
-        - name: Mått som stöds
-          href: platform/metrics-supported.md
-        - name: Mått som stöds för nyare aviseringar
-          href: platform/alerts-metric-near-real-time.md
-    - name: Diagnostikloggar
-      items:
-        - name: 'Tjänster, kategorier och scheman för diagnostikloggar'
-          href: platform/diagnostic-logs-schema.md
-        - name: Schema för Azure Diagnostics-tillägg
-          href: platform/diagnostics-extension-schema.md
-          items:
-            - name: 1.3 och senare
-              href: platform/diagnostics-extension-schema-1dot3.md
-            - name: 1.2
-              href: platform/diagnostics-extension-schema-1dot2.md
-            - name: 1
-              href: platform/diagnostics-extension-schema-1dot0.md
     - name: 'Tillbakadragning av funktioner och API:er'
       items:
         - name: Klassiskt API för autoskalning och mått

@@ -1,168 +1,149 @@
-### YamlMime:YamlDocument
-documentType: LandingData
+### YamlMime:Landing
 title: Dokumentation om Azure Event Hubs
+summary: Läs om hur du använder Event Hubs för att samla in och hantera miljontals händelser per sekund från anslutna enheter och appar.
 metadata:
-  document_id: ''
-  title: 'Dokumentation om Azure Event Hubs – självstudier, snabbstarter, API-referens'
-  meta.description: Learn how to use Event Hubs to ingest millions of events per second from connected IoT devices and applications on a broad set of platforms.
+  title: Dokumentation om Azure Event Hubs
+  description: Läs om hur du använder Event Hubs för att samla in och hantera miljontals händelser per sekund från anslutna enheter och appar.
   services: event-hubs
-  author: spelluru
-  manager: timlt
   ms.service: event-hubs
+  ms.subservice: 
   ms.topic: landing-page
-  ms.date: 10/15/2018
+  ms.collection: collection
+  author: spelluru
   ms.author: spelluru
-abstract:
-  description: 'Azure Event Hubs är en strömningstjänst för stordata och händelseinmatningstjänst som kan ta emot och bearbeta flera miljoner händelser per sekund. Azure Event Hubs kan bearbeta och lagra händelser, data eller telemetri som produceras av distribuerade program och enheter. Data som skickas till en händelsehubb kan omvandlas och lagras med hjälp av valfri provider för realtidsanalys eller batchbearbetnings-/lagringsadaptrar. Med Event Hubs för Apache Kafka kan du använda interna Kafka-klienter, -verktyg och -program, till exempel Mirror Maker, Apache Flink och Akka Streams som fungerar sömlöst med Event Hubs med endast konfigurationsändringar.'
-  aside:
-    image:
-      alt: null
-      height: 110
-      src: /azure/event-hubs/media/index/stream-big-data-kafka-event-hubs.png
-      width: 250
-    title: 'Strömma stordata i Azure med Kafka och Event Hubs (1:20:13)'
-    href: 'https://azure.microsoft.com/resources/videos/streaming-big-data-in-azure-with-kafka-and-event-hubs/'
-    width: 250
-sections:
-  - title: Snabbstarter på 5 minuter
-    items:
-      - type: paragraph
-        text: 'Lär dig hur du <b>skapar</b> en händelsehubb:'
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: /azure/event-hubs/media/index/portal.svg
-            text: Azure Portal
-            href: /azure/event-hubs/event-hubs-quickstart-portal
-          - image:
-              src: /azure/event-hubs/media/index/cli.svg
-            text: Azure CLI
-            href: /azure/event-hubs/event-hubs-quickstart-cli
-          - image:
-              src: /azure/event-hubs/media/index/logo_powershell.svg
-            text: Azure PowerShell
-            href: /azure/event-hubs/event-hubs-quickstart-powershell
-          - image:
-              src: /azure/event-hubs/media/index/logo_arm.svg
-            text: Azure Resource Manager-mall
-            href: /azure/event-hubs/event-hubs-resource-manager-namespace-event-hub
-      - type: paragraph
-        text: 'Lär dig hur du <b>skickar händelser till</b> och <b>tar emot händelser från</b> en händelsehubb:'
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: /azure/event-hubs/media/index/logo_net.svg
-            text: .NET Framework
-            href: /azure/event-hubs/event-hubs-dotnet-framework-getstarted-send
-          - image:
-              src: /azure/event-hubs/media/index/logo_netcore.svg
-            text: .NET Standard
-            href: /azure/event-hubs/event-hubs-dotnet-standard-getstarted-send
-          - image:
-              src: /azure/event-hubs/media/index/logo_java.svg
-            text: Java
-            href: /azure/event-hubs/event-hubs-java-get-started-send
-          - image:
-              src: /azure/event-hubs/media/index/logo_python.svg
-            text: Python
-            href: /azure/event-hubs/event-hubs-python-get-started-send
-          - image:
-              src: /azure/event-hubs/media/index/logo_nodejs.svg
-            text: Node.js
-            href: /azure/event-hubs/event-hubs-node-get-started-send
-          - image:
-              src: /azure/event-hubs/media/index/logo_go.svg
-            text: Go
-            href: /azure/event-hubs/event-hubs-go-get-started-send
-          - image:
-              src: /azure/event-hubs/media/index/logo_c.svg
-            text: C
-            href: /azure/event-hubs/event-hubs-c-getstarted-send
-          - image:
-              src: /azure/event-hubs/media/index/storm_r.svg
-            text: Apache Storm
-            href: /azure/event-hubs/event-hubs-storm-getstarted-receive
-  - title: Steg för steg-självstudier
-    items:
-      - type: paragraph
-        text: 'Lär dig hur du skapar, hanterar och strömmar händelser med Azure Event Hubs'
-      - type: list
-        style: unordered
-        items:
-          - html: '<a href="https://docs.microsoft.com/azure/event-hubs/event-hubs-tutorial-visualize-anomalies">Läsa en Event Hubs-dataström med Azure Stream Analytics och visualisera avvikelserna</a>'
-          - html: '<a href="https://docs.microsoft.com/azure/event-hubs/store-captured-data-data-warehouse">Bearbeta och migrera insamlade Event Hubs-data till ett SQL Data Warehouse med Event Grid och Azure Functions</a>'
-          - html: '<a href="https://docs.microsoft.com/azure/azure-databricks/databricks-stream-from-eventhubs">Strömma data i Azure Databricks med Event Hubs</a>'
-          - html: '<a href="https://docs.microsoft.com/azure/event-hubs/event-hubs-kafka-mirror-maker-tutorial">Spegla en asynkron Kafka-meddelandekö i en Kafka-aktiverad händelsehubb</a>'
-          - html: '<a href="https://docs.microsoft.com/azure/event-hubs/event-hubs-kafka-flink-tutorial">Ansluta Apache Flink till Apache Kafka-aktiverade händelsehubbar</a>'
-          - html: '<a href="https://docs.microsoft.com/azure/event-hubs/event-hubs-kafka-akka-streams-tutorial">Ansluta Akka Streams till Apache Kafka-aktiverade händelsehubbar</a>'
-  - title: Utveckla dina färdigheter med Microsoft Learn
-    items:
-      - type: list
-        style: cards
-        className: cardsFTitle
-        items:
-          - title: Aktivera tillförlitlig meddelandefunktion för stordataprogram med Azure Event Hubs
-            href: /learn/modules/enable-reliable-messaging-for-big-data-apps-using-event-hubs/
-            image:
-              src: 'https://docs.microsoft.com/learn/achievements/enable-reliable-messaging-for-big-data-apps-using-azure-event-hubs.svg'
-              href: /learn/modules/enable-reliable-messaging-for-big-data-apps-using-event-hubs/
-      - type: paragraph
-        text: <a href="/learn/browse/?products=azure-event-hubs">Mer interaktiv inlärning...</a>
-  - title: Kostnadsfri videoutbildning för Pluralsight
-    items:
-      - type: list
-        style: cards
-        className: cardsFTitle
-        items:
-          - title: Azure Event Hubs för .NET-utvecklare – grunderna
-            href: 'https://www.pluralsight.com/courses/azure-event-hubs-dotnet-developers-fundamentals'
-            image:
-              src: 'https://docs.microsoft.com/media/logos/logo_pluralsight.svg'
-              href: 'https://www.pluralsight.com/courses/azure-event-hubs-dotnet-developers-fundamentals'
-  - title: Exempel
-    items:
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: /azure/event-hubs/media/index/logo_net.svg
-            text: .NET Framework
-            href: 'https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet'
-          - image:
-              src: /azure/event-hubs/media/index/logo_java.svg
-            text: Java
-            href: 'https://github.com/Azure/azure-event-hubs/tree/master/samples/Java'
-          - image:
-              src: /azure/event-hubs/media/index/logo_python.svg
-            text: Python
-            href: 'https://github.com/Azure/azure-event-hubs-python/tree/master/examples'
-          - image:
-              src: /azure/event-hubs/media/index/logo_nodejs.svg
-            text: Node.js
-            href: 'https://github.com/Azure/azure-event-hubs-node'
-          - image:
-              src: /azure/event-hubs/media/index/logo_go.svg
-            text: Go
-            href: 'https://github.com/Azure/azure-event-hubs-go/tree/master/_examples'
-          - image:
-              src: /azure/event-hubs/media/index/cli.svg
-            text: Azure CLI
-            href: 'https://github.com/Azure/azure-event-hubs/tree/master/samples/Management/CLI'
-          - image:
-              src: /azure/event-hubs/media/index/logo_powershell.svg
-            text: Azure PowerShell
-            href: 'https://github.com/Azure/azure-event-hubs/tree/master/samples/Management/PowerShell'
-  - title: Referens
-    items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: Kommandorad
-            html: <p><a href="/powershell/module/az.eventhub/">Azure PowerShell</a></p><p><a href="/cli/azure/eventhubs">Azure CLI</a></p>
-          - title: Språk
-            html: <p><a href="/dotnet/api/microsoft.servicebus.messaging">.NET Framework</a></p><p><a href="/dotnet/api/microsoft.azure.eventhubs">.NET-standard</a></p><p><a href="/java/api/overview/azure/eventhub">Java</a></p>
-          - title: REST
-            html: <p><a href="/rest/api/eventhub/">REST API-referens</a></p>
+  ms.date: 09/05/2019
+  ms.openlocfilehash: bd96fbc12285faa7c18f9fcd09638ec8816865c8
+  ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 09/06/2019
+  ms.locfileid: "70773194"
+landingContent:
+- title: Om Event Hubs
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Vad är Event Hubs?
+      url: event-hubs-about.md
+    - text: Vad är Event Hubs för Apache Kafka?
+      url: event-hubs-for-kafka-ecosystem-overview.md
+    - text: Vad är Event Hubs Capture?
+      url: event-hubs-capture-overview.md
+    - text: Vad är dedikerade händelsehubbar?
+      url: event-hubs-dedicated-overview.md
+- title: Skapa en händelsehubb
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Azure Portal
+      url: event-hubs-create.md
+    - text: Azure CLI
+      url: event-hubs-quickstart-cli.md
+    - text: Azure PowerShell
+      url: event-hubs-quickstart-powershell.md
+    - text: Azure Resource Manager-mall
+      url: event-hubs-resource-manager-namespace-event-hub.md
+- title: Skapa ett dedikerat kluster
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Vad är dedikerade händelsehubbar?
+      url: event-hubs-dedicated-overview.md
+  - linkListType: quickstart
+    links:
+    - text: Skapa ett dedikerat Event Hubs-kluster
+      url: event-hubs-dedicated-cluster-create-portal.md
+- title: Integrera med Apache Kafka
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Vad är Event Hubs för Apache Kafka?
+      url: event-hubs-for-kafka-ecosystem-overview.md
+  - linkListType: quickstart
+    links:
+    - text: Strömma till Event Hubs för Apache Kafka
+      url: event-hubs-quickstart-kafka-enabled-event-hubs.md
+  - linkListType: tutorial
+    links:
+    - text: Bearbeta händelser med Stream Analytics
+      url: event-hubs-kafka-stream-analytics.md
+  - linkListType: how-to-guide
+    links:
+    - text: Skapa en Apache Kafka-aktiverad händelsehubb
+      url: event-hubs-create-kafka-enabled.md
+    - text: Spegla en Kafka-broker i en händesehubb
+      url: event-hubs-kafka-mirror-maker-tutorial.md
+    - text: Ansluta Apache Spark till en händelsehubb
+      url: event-hubs-kafka-spark-tutorial.md
+    - text: Ansluta Apache Flink till en händelsehubb
+      url: event-hubs-kafka-flink-tutorial.md
+    - text: Integrera Apache Kafka Connect med en händelsehubb
+      url: event-hubs-kafka-connect-tutorial.md
+    - text: Ansluta Akka-dataströmmar till en händelsehubb
+      url: event-hubs-kafka-akka-streams-tutorial.md
+- title: Skicka och ta emot händelser
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: .NET Core
+      url: event-hubs-dotnet-standard-getstarted-send.md
+    - text: Java
+      url: event-hubs-java-get-started-send.md
+    - text: Python
+      url: event-hubs-python-get-started-send.md
+    - text: Node.js
+      url: event-hubs-node-get-started-send.md
+    - text: Apache Kafka
+      url: event-hubs-quickstart-kafka-enabled-event-hubs.md#send-and-receive-messages-with-kafka-in-event-hubs
+    - text: Apache Storm (tar endast emot)
+      url: event-hubs-storm-getstarted-receive.md
+    - text: Go
+      url: event-hubs-go-get-started-send.md
+- title: Samla in händelser
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Samla in händelser i Azure Blob Storage eller Azure Data Lake Storage
+      url: event-hubs-dedicated-overview.md
+  - linkListType: quickstart
+    links:
+    - text: Använda Azure-portalen för att aktivera händelseinsamling
+      url: event-hubs-capture-enable-through-portal.md
+    - text: Använda Resource Manager-mallar
+      url: event-hubs-resource-manager-namespace-event-hub-enable-capture.md
+    - text: Aktivera insamling från ett Python-program
+      url: event-hubs-capture-python.md
+- title: Bearbeta händelser
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Visualisera dataavvikelser på Event Hubs-dataströmmar
+      url: event-hubs-tutorial-visualize-anomalies.md
+    - text: Bearbeta händelsehubbar för Apache Kafka med Stream Analytics
+      url: event-hubs-kafka-stream-analytics.md
+    - text: Strömma data i Azure Databricks med Event Hubs
+      url: ../azure-databricks/databricks-stream-from-eventhubs.md
+- title: Övervaka och hantera
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Övervaka händelsehubbar med Azure Monitor
+      url: event-hubs-metrics-azure-monitor.md
+    - text: Konfigurera diagnostikloggar
+      url: event-hubs-diagnostic-logs.md
+    - text: Skala upp dataflödesenheter automatiskt
+      url: event-hubs-auto-inflate.md
+    - text: Felsöka undantag
+      url: event-hubs-messaging-exceptions.md
+- title: Skydda
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Använda brandväggsregler
+      url: event-hubs-ip-filtering.md
+    - text: Använda tjänstslutpunkter för virtuellt nätverk
+      url: event-hubs-service-endpoints.md
+    - text: Konfigurera kundhanterade nycklar för kryptering av vilande data
+      url: configure-customer-managed-key.md
+    - text: Aktivera integrering av virtuella nätverk och brandväggar
+      url: event-hubs-tutorial-virtual-networks-firewalls.md

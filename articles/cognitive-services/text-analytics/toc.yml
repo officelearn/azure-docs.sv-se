@@ -12,7 +12,7 @@
 - name: Snabbstarter
   expanded: true
   items:
-    - name: Client
+    - name: Klientbibliotek
       items:
         - name: 'C#'
           href: quickstarts/csharp.md
@@ -54,13 +54,13 @@
   items:
     - name: 'Anropa API:t för textanalys'
       href: How-tos/text-analytics-how-to-call-api.md
-    - name: Identifiera språk
+    - name: Språkidentifiering
       href: How-tos/text-analytics-how-to-language-detection.md
-    - name: Analysera sentiment
+    - name: Sentimentanalys
       href: How-tos/text-analytics-how-to-sentiment-analysis.md
-    - name: Extrahera nyckelfraser
+    - name: Extrahering av nyckelfraser
       href: How-tos/text-analytics-how-to-keyword-extraction.md
-    - name: Anropa igenkänning av teckenentitet
+    - name: Igenkänning av namngiven enhet
       href: How-tos/text-analytics-how-to-entity-linking.md
     - name: Använda containrar
       items:

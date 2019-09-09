@@ -1,21 +1,21 @@
 ---
-title: Självstudie för att leverera Azure Data Box Disk | Microsoft Docs
+title: Självstudie för att skicka Azure Data Box Disk| Microsoft Docs
 description: I den här självstudien förklarar vi hur du skickar tillbaka Azure Data Box-disken till Microsoft
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 09/03/2019
-ms.localizationpriority: high
+ms.date: 09/05/2019
 ms.author: alkohli
+ms.localizationpriority: high
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: aab97257ff2e917dc264017043d3ca11a2ced1fc
-ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
-ms.translationtype: MT
+ms.openlocfilehash: b982e0bcd87a60e29b11c7123fbe5d675ab017b3
+ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70240198"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70390410"
 ---
 ::: zone target="chromeless"
 
@@ -27,15 +27,15 @@ ms.locfileid: "70240198"
 
 # <a name="tutorial-return-azure-data-box-disk"></a>Självstudier: Returnera Azure Data Box Disk 
 
-I den här självstudien beskrivs hur du schemalägger en hämtning för att returnera din Azure Data Box Disk. Hämtnings anvisningarna beror på var du returnerar enheten. 
+Den här självstudien beskriver hur du schemalägger en upphämtning för att returnera din Azure Data Box-disk. Instruktionerna för upphämtning beror på var du returnerar enheten. 
 
 I den här självstudien får du lära dig hur man:
 
 > [!div class="checklist"]
 > * Skicka Data Box-disk till Microsoft
-> * Hämta Data Box Disk i olika regioner
+> * Upphämtning av Data Box Disk i olika regioner
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Innan du börjar bör du slutföra följande [självstudie: Kopiera data till en Azure Data Box-disk och verifiera](data-box-disk-deploy-copy-data.md).
 
@@ -47,59 +47,56 @@ Innan du börjar bör du slutföra följande [självstudie: Kopiera data till en
 1. När dataverifieringen har genomförts kan du koppla från diskarna. Ta bort anslutningskablarna.
 2. Slå in alla diskar och anslutningskablarna i bubbelplast och lägg dem i fraktlådan. Avgifter kan tillkomma om tillbehören saknas.
     - Återanvänd förpackningen från den första leveransen.  
-    - Vi rekommenderar att du packar diskar med en välsäkrad omslutning.
-    - Se till att anpassningen är Snug för att minska eventuella rörelser i rutan.
+    - Vi rekommenderar att du förpackar diskarna i ordentligt fäst cellplast.
+    - Packa tätt så att den förpackade enheten inte rör sig i kartongen.
 
-Nästa steg bestäms av var du returnerar enheten. Instruktionerna skiljer sig åt för USA/Kanada, Europeiska unionen (EU), Australien eller länder i Asien.
+Nästa steg beror på var du returnerar enheten. Instruktionerna skiljer sig för USA/Kanada, EU, Australien eller länder i Asien.
 
-### <a name="pick-up-in-us-canada"></a>Hämta i USA, Kanada
+### <a name="pick-up-in-us-canada"></a>Upphämtning i USA och Kanada
 
 Utför följande steg om du returnerar enheten i USA eller Kanada.
 
 1. Använd returetiketten i den genomskinliga plastficka som sitter på lådan. Om etiketten är skadad eller förlorad:
-    - Gå till **översikt > Ladda ned frakt etikett** och ladda ned en retur leverans etikett.
+    - Gå till **Översikt > Ladda ned adressetikett** och ladda ned en returetikett.
     - Fäst etiketten på enheten.
 
 2. Försegla fraktlådan och se till att adressetiketten är väl synlig.
-3. Schemalägg hämtning med UPS. Så här schemalägger du en upphämtning:
+3. Schemalägg en upphämtning med UPS. Så här schemalägger du en upphämtning:
 
-    - Ring den lokala UPS-enheten (lands-/regionsspecifika avgiftsfritt nummer).
-    - I ditt samtal offerterar du det omvända skeppnings numret som det visas i den utskrivna etiketten.
-    - Om spårnings numret inte anges kräver UPS att du betalar ytterligare en kostnad under upphämtningen.
-    - I stället för att schemalägga upphämtningen kan du också ta bort Data Box Disk på den närmaste List rutan.
+    - Ring din lokala UPS (lands-/regionspecifikt avgiftsfritt nummer).
+    - Uppge spårningsnumret för returförsändelsen som visas på den utskrivna etiketten.
+    - Om du inte uppger spårningsnumret kräver UPS att du betalar en extra avgift vid upphämtningen.
+    - I stället för att schemalägga upphämtningen kan du även lämna in Data Box Disk-enheten på närmaste inlämningsställe.
 
-### <a name="pick-up-in-europe"></a>Hämta i Europa
+### <a name="pick-up-in-europe"></a>Upphämtning i Europa
 
 Utför följande steg om du returnerar enheten i Europa.
 
 1. Använd returetiketten i den genomskinliga plastficka som sitter på lådan. Om etiketten är skadad eller förlorad:
-    - Gå till **översikt > Ladda ned frakt etikett** och ladda ned en retur leverans etikett.
+    - Gå till **Översikt > Ladda ned adressetikett** och ladda ned en returetikett.
     - Fäst etiketten på enheten.
 
 2. Försegla fraktlådan och se till att adressetiketten är väl synlig.
 3. Om du returnerar enheten i Europa via DHL bokar du upphämtning på DHL:s webbplats.
-4. Gå till webbplatsen för land/region DHL Express och välj **bok en courier-samling > eReturn-försändelse**.    
+4. Navigera till DHL-webbplatsen för ditt land/din region. Under Våra divisioner klickar du på DHL Express. Välj **Skicka > Skicka online**.    
 3. Identifiera ditt fraktsedelsnummer och klicka på **Boka upphämtning**.
 
-### <a name="pick-up-in-australia"></a>Hämta i Australien
+### <a name="pick-up-in-australia"></a>Upphämtning i Australien
 
-Azure-datacenter i Australien har ytterligare en säkerhets avisering. Alla inkommande leveranser måste ha en avancerad avisering. Utför följande steg för att hämta i Australien.
+Azure-datacenter i Australien kräver ytterligare en säkerhetsavisering. För alla inkommande leveranser krävs en särskild avisering. Följ stegen nedan vid upphämtning i Australien.
 
-1. E `adbops@microsoft.com` -postadress för att begära leverans etikett med unikt inkommande ID eller Tau-koden. Placera begäran minst tre dagar före det planerade leverans datumet för att hämta etiketten.
-2. E-postmeddelandets ämne bör vara *begäran om omvänt frakt sedel med tau-kod*. Se till att ta med följande information i e-postmeddelandet: 
+1. Använd den tillhandahållna returetiketten och kontrollera att TAU-koden (referensnummer) är skriven på den. Om den tillhandahållna adressetiketten saknas eller om du har något annat problem skickar du ett e-postmeddelande till [Data Box Asia Operations](mailto:adbo@microsoft.com). Ange beställningsnamnet i ämnesrubriken och information om problemet du har.
+3. Fäst etiketten på kartongen. 
+4. Boka en upphämtning online på länken https://mydhl.express.dhl/au/en/schedule-pickup.html#/schedule-pickup#label-reference. 
 
-    - Beställningens namn
-    - Adress
-    - Kontaktnamn
+### <a name="pick-up-in-asia"></a>Upphämtning i Asien
 
-### <a name="pick-up-in-asia"></a>Hämta i Asien
+Instruktionerna för upphämtning skiljer sig för Japan, Sydkorea och Singapore.
 
-Anvisningarna för hämtning skiljer sig för Japan, Korea och Singapore.
+#### <a name="pick-up-in-japan"></a>Upphämtning i Japan
 
-#### <a name="pick-up-in-japan"></a>Hämta i Japan
-
-1. Skriv företagets namn och adress information på frakt sedeln som avsändar information.
-2. Quantium-lösning för e-post med hjälp av följande e-postmall.
+1. Skriv företagets namn och adressuppgifter på fraktsedeln som din avsändarinformation.
+2. Skicka ett e-postmeddelande till Quantium Solutions baserat på följande e-postmall.
 
     ```
     To: Customerservice.JP@quantiumsolutions.com
@@ -112,43 +109,43 @@ Anvisningarna för hämtning skiljer sig för Japan, Korea och Singapore.
         c. 15：00-17：00 
         d. 17：00-19：00 
     ```
-    - **Om du**väljer att hämta i Osaka ändrar du ämnet i e-postmallen till: `Pickup request for Microsoft Azure OSA`.
-    - Om Japan post Chakubarai frakt NOTE inte ingår eller saknas, Observera i det här e-postmeddelandet. Quantium-lösningar i Japan kommer att begära en japansk post för att ta frakt sedeln vid upphämtning.
-    - Om du har flera order, e-post för att se till att enskilda upphämtningar.
+    - **Om du hämtar upp i Osaka** ändrar du ämnet i e-postmallen till: `Pickup request for Microsoft Azure OSA`.
+    - Om Chakubarai-fraktsedeln från Japan Post inte inkluderades eller saknas, nämner du det i e-postmeddelandet. Quantium Solutions Japan ber Japan Post att ta med fraktsedeln vid upphämtningen.
+    - Om du har flera beställningar som ska hämtas upp separat meddelar du detta via e-post.
 
-3. Få en bekräftelse via e-post från Quantium-lösningar när du har bokat en hämtning. Bekräftelse av e-post innehåller också information om Chakubarai frakt Note.
+3. Se till att du får en e-postbekräftelse från Quantium Solutions när du har bokat en upphämtning. E-postbekräftelsen innehåller även information om Chakubarai-fraktsedeln.
 
-Vid behov kan du kontakta Quantium Solution support (japanska språk) med följande information: 
+Vid behov kan du kontakta Quantium Solutions support (på japanska) med följande information: 
 
-- ÅtkomstCustomerservice.JP@quantiumsolutions.com 
-- Telefon: 03-5755-0150 
+- E-postadress: Customerservice.JP@quantiumsolutions.com 
+- Telefon：03-5755-0150 
 
-#### <a name="pick-up-in-korea"></a>Hämta i Korea
+#### <a name="pick-up-in-korea"></a>Upphämtning i Sydkorea
 
-1. Se till att inkludera retur frakt sedeln.
-2. Så här begär du hämtning av frakt sedel:
-    1. Ring *Quantium Solutions International* hotline vid 070-8231-1418 under kontors tid (10-till-5 PM, måndag till fredag). Offert *Microsoft Azure upphämtning* och service förfrågnings numret för att ordna för en samling.  
-    2. Om Hotline är upptagen, e- `microsoft@rocketparcel.com`post med e-postmeddelandets ämnesrad *Microsoft Azure upphämtningen* och service förfrågnings numret som referens.
-    3. Om courier inte tar emot insamling kan du anropa *Quantium Solutions International* Hotline för alternativa arrangemang. 
-    4. Du får en bekräftelse via e-post för upphämtnings schema.
-3. Utför bara det här steget om frakt sedeln inte finns. Så här begär du hämtning:
-    1. Ring *Quantium Solutions International* hotline vid 070-8231-1418 under kontors tid (10-till-5 PM, måndag till fredag). Offert *Microsoft Azure upphämtning* och service förfrågnings numret för att ordna för en samling. Ange att du behöver en ny frakt anteckning för att ordna för en samling. Ange avsändare (kund), mottagar information (Azure-datacenter) och referens nummer (service förfrågnings nummer). 
-    2. Om Hotline är upptagen, e- `microsoft@rocketparcel.com`post med e-postmeddelandets ämnesrad *Microsoft Azure upphämtningen* och service förfrågnings numret som referens.
-    3. Om courier inte tar emot insamling kan du anropa *Quantium Solutions International* Hotline för alternativa arrangemang. 
+1. Se till att inkludera returfraktsedeln.
+2. Så här begär du upphämtning när returfraktsedeln finns:
+    1. Ring journumret för *Quantium Solutions International* på 070-8231-1418 under kontorstider (10–17, måndag till fredag). Ange *Microsoft Azure pickup* och numret för tjänstbegäran för att anordna en upphämtning.  
+    2. Om journumret är upptaget skickar du ett e-postmeddelande till `microsoft@rocketparcel.com`, med e-postämnet *Microsoft Azure Pickup* och numret för tjänstbegäran som referens.
+    3. Om fraktföretaget inte anländer för upphämtning ringer du journumret för *Quantium Solutions International* för alternativa lösningar. 
+    4. Du får en bekräftelse via e-post för upphämtningsschemat.
+3. Utför det här steget bara om det inte finns någon fraktsedel. Så här begär du upphämtning:
+    1. Ring journumret för *Quantium Solutions International* på 070-8231-1418 under kontorstider (10–17, måndag till fredag). Ange *Microsoft Azure pickup* och numret för tjänstbegäran för att anordna en upphämtning. Ange att du behöver en ny fraktsedel för att anordna en upphämtning. Ange avsändare (kund), information om mottagare (Azure-datacenter) och referensnummer (nummer för tjänstbegäran). 
+    2. Om journumret är upptaget skickar du ett e-postmeddelande till `microsoft@rocketparcel.com`, med e-postämnet *Microsoft Azure Pickup* och numret för tjänstbegäran som referens.
+    3. Om fraktföretaget inte anländer för upphämtning ringer du journumret för *Quantium Solutions International* för alternativa lösningar. 
     4. Du får en muntlig bekräftelse om begäran görs via telefon.
 
-#### <a name="pick-up-in-singapore"></a>Hämta i Singapore
+#### <a name="pick-up-in-singapore"></a>Upphämtning i Singapore
 
-1. Skriv ut etiketten frakt och bifoga till rutan. Om etiketten är skadad eller förlorad:
-    - Gå till **översikt > Ladda ned frakt etikett** och hämta en etikett för retur leverans.
-    - Fäst etiketten på enheten. Kontrol lera att etiketten är synlig.
+1. Skriv ut adressetiketten och fäst den på kartongen. Om etiketten är skadad eller förlorad:
+    - Gå till **Översikt > Ladda ned adressetikett** och hämta en returetikett.
+    - Fäst etiketten på enheten. Se till att etiketten syns tydligt.
 
-2. Så här begär du hämtning:
-    - Ring **SingPost** hotline vid **6845 6485** under kontors tid (9 till 17, måndag till fredag).  
-    - Offert *Microsoft Azure upphämtning* och service förfrågnings nummer (spårnings nummer i etiketten retur leverans) för att ordna för en samling. 
-    - Du får en muntlig bekräftelse av upphämtnings schema. 
-    - Om courier inte tar emot insamlingen anropar du **SingPost** på **6845 6485** för alternativa arrangemang. 
-3. Handen till courier. 
+2. Så här begär du upphämtning:
+    - Ring journumret för **SingPost** på **6845 6485** under kontorstider (9–17, måndag till fredag).  
+    - Ange *Microsoft Azure pickup* och numret för tjänstbegäran (spårningsnummer på returetiketten) för att anordna en upphämtning. 
+    - Du får en muntlig bekräftelse för upphämtningsschemat. 
+    - Om fraktföretaget inte anländer för upphämtning ringer du **SingPost** på **6845 6485** för alternativa lösningar. 
+3. Lämna över till fraktföretaget. 
 
 
 ::: zone target="docs"
@@ -159,12 +156,12 @@ I den här självstudien om Azure Data Box Disk har du bland annat lärt dig att
 
 > [!div class="checklist"]
 > * Skicka Data Box-disk till Microsoft
-> * Hämta Data Box Disk i olika regioner
+> * Upphämtning av Data Box Disk i olika regioner
 
-Gå vidare till nästa anvisningar för att lära dig hur du verifierar data uppladdning från Data Box Disk till Azure Storage-kontot.
+Gå vidare till nästa anvisningar för att lära dig hur du verifierar datauppladdning från Data Box Disk till Azure Storage-kontot.
 
 > [!div class="nextstepaction"]
-> [Verifiera data uppladdning från Azure Data Box Disk](./data-box-disk-deploy-picked-up.md)
+> [Verifiera datauppladdning från Azure Data Box Disk](./data-box-disk-deploy-picked-up.md)
 
 ::: zone-end
 

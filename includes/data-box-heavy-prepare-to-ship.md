@@ -6,18 +6,18 @@ ms.topic: include
 ms.date: 05/28/2019
 ms.author: alkohli
 ms.openlocfilehash: f5b60d862be0d71f71f770c47d88ad39f2fc6ac7
-ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
-ms.translationtype: MT
+ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 09/05/2019
 ms.locfileid: "66419575"
 ---
 Det sista steget är att förbereda enheten för att skickas. I det här steget frånkopplas alla enhetsresurser. Det går inte att komma åt resurserna när du har startat den här processen.
 
 > [!IMPORTANT]
-> Förbered för att skicka krävs eftersom det flaggar data som inte följer Azure-namngivningskonventionerna. Hoppar över det här steget kan leda till potentiella data överföra fel som beror på data som inte uppfyller kraven.
+> Förbered för att skicka krävs eftersom det flaggar data som inte följer Azure-namngivningskonventionerna. Om det här steget hoppas över kan det leda till potentiella datauppladdningsfel på grund av data som inte uppfyller kraven.
 
-1. Gå till **Förbered för att skicka** och klicka på **Starta förberedelser**. Som standard beräknas kontrollsummor när data kopieras. Förbered för att skicka har slutförts beräkning av kontrollsumma och skapar listan med filer (även kallat *BOM filer* eller manifestet). Beräkningen av kontrollsumma kan ta några timmar till flera dagar beroende på storleken på data.
+1. Gå till **Förbered för att skicka** och klicka på **Starta förberedelser**. Som standard beräknas kontrollsummor medan data kopieras. ”Förbered för att skicka” slutför beräkningen av kontrollsumman och skapar listan med filer (även kallade *BOM-filer* eller manifestet). Beräkningen av kontrollsumma kan ta några timmar till flera dagar beroende på storleken på data.
    
     ![Förbered för att skicka 1](media/data-box-heavy-prepare-to-ship/prepare-to-ship1.png)
 
@@ -35,19 +35,19 @@ Det sista steget är att förbereda enheten för att skickas. I det här steget 
 
     Om du vill kopiera mer data till enheten kan du låsa upp enheten, kopiera mer data och köra Förbered för att skicka igen.
 
-    Om det uppstår fel i det här steget kan du hämta felloggen och åtgärda felen. När felen har åtgärdats kör du **Förbered för att skicka**.
+    Om det uppstår fel i det här steget laddar du ned felloggen och åtgärdar felen. När felen har åtgärdats kör du **Förbered för att skicka**.
 
-4. Efter Förbered för att skicka är slutförd (med några fel), ladda ned listan med filer (även kallat *BOM filer* eller manifestet) kopieras i den här processen. 
+4. När ”Förbered för att skicka” är klart (utan fel) laddar du ned listan med filer (även kallade *BOM-filer* eller manifestet) som kopierats i den här processen. 
 
-    ![Hämta lista över filer eller BOM filer](media/data-box-heavy-prepare-to-ship/download-list-of-files.png)
+    ![Hämta lista med filer eller BOM-filer](media/data-box-heavy-prepare-to-ship/download-list-of-files.png)
 
-   Du kan senare använda den här listan för att verifiera filerna som har laddats upp till Azure. Mer information finns i [inspektera BOM filer under Förbered för att skicka](../articles/databox/data-box-logs.md#inspect-bom-during-prepare-to-ship).
+   Du kan senare använda den här listan för att verifiera filerna som har laddats upp till Azure. Mer information finns i [Inspektera BOM-filer under Förbered för att skicka](../articles/databox/data-box-logs.md#inspect-bom-during-prepare-to-ship).
         
-    ![BOM exempelfil](media/data-box-heavy-prepare-to-ship/sample-bom-file.png)
+    ![Exempel på BOM-fil](media/data-box-heavy-prepare-to-ship/sample-bom-file.png)
 
 5. Stäng av enheten. Gå till sidan **Stäng av eller starta om** och klicka på **Stäng av**. När du uppmanas att bekräfta klickar du på **OK** för att fortsätta.
 
     ![Stäng av den första enhetsnoden](media/data-box-heavy-prepare-to-ship/shut-down-device-node.png)
 
-6. Upprepa ovanstående steg för den andra enhetsnoden.
-7. När enheten har helt stänga av skulle alla led: ar på baksidan av enheten ha inaktiverat. Nästa steg är att ta bort alla kablar och skicka till Microsoft.
+6. Upprepa alla stegen ovan för den andra enhetsnoden.
+7. När enheten har stängts av helt bör inga LED-lampor lysa på baksidan av enheten. Nästa steg är att ta bort alla kablar och skicka enheten till Microsoft.

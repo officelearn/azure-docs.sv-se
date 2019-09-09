@@ -1,18 +1,18 @@
 ---
-title: Skapa en Node.js-webbapp
-description: Node. js-distribution till Azure App tjänster
-author: KarlErickson
-ms.author: karler
-ms.date: 07/18/2019
+title: Skapa en Node. js-webbapp – Azure App Service
+description: Så här distribuerar du en Node. js-app till Azure App Service
+author: msangapu
+ms.author: msangapu
+ms.date: 08/12/2019
 ms.topic: quickstart
 ms.service: app-service
 ms.devlang: javascript
-ms.openlocfilehash: ced2977509f16f8dab2abe5546e19b7e05fb2a3d
-ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.openlocfilehash: 8d679a95cc89c2ae7774b7f7b51b9d0aadd89d12
+ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68975842"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70390980"
 ---
 # <a name="create-a-nodejs-app-in-azure"></a>Skapa en Node. js-app i Azure
 
@@ -57,7 +57,7 @@ I VS Code bör du se din Azure-e-postadress i statusfältet och din prenumeratio
 Skapa sedan ett Node. js-program som kan distribueras till molnet. Den här snabb starten använder en program generator för att snabbt Autogenerera ut programmet från en Terminal.
 
 > [!TIP]
-> Om du redan har slutfört självstudien om [Node. js](https://code.visualstudio.com/docs/nodejs/nodejs-tutorial)kan du gå vidare till [distribuera webbplatsen](#deploy-the-website).
+> Om du redan har slutfört [självstudien Om Node. js](https://code.visualstudio.com/docs/nodejs/nodejs-tutorial)kan du gå vidare till [distribuera webbplatsen](#deploy-the-website).
 
 ### <a name="install-the-express-generator"></a>Installera Express Generator
 

@@ -450,8 +450,6 @@
           href: control-flow-webhook-activity.md
     - name: Dataflödesomvandlingar
       items:
-        - name: Sparats med fast bredd
-          href: how-to-fixed-width.md
         - name: Aggregera
           href: data-flow-aggregate.md
         - name: Ändra rad
@@ -610,6 +608,10 @@
           href: data-migration-guidance-hdfs-azure-storage.md
         - name: Migrera data från lokal Netezza-server till Azure
           href: data-migration-guidance-netezza-azure-sqldw.md
+    - name: Omvandling med Mappa dataflöden
+      items:
+        - name: Bearbeta textfiler med fast bredd
+          href: how-to-fixed-width.md
 - name: Referens
   items:
     - name: .NET

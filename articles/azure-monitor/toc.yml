@@ -770,6 +770,8 @@
                   href: log-query/get-started-portal.md
                 - name: Självstudie om loggfrågor
                   href: log-query/get-started-queries.md
+                - name: Enkel loggupplevelse
+                  href: log-query/simple-logs.md
             - name: Loggdata
               items:
                 - name: Loggdatastruktur

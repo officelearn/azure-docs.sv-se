@@ -228,10 +228,14 @@
               href: Customize-application-attributes.md
             - name: Omfångsfilter
               href: define-conditional-rules-for-provisioning-user-accounts.md
+            - name: Hoppa över borttagning av användare utanför omfattningen
+              href: skip-out-of-scope-deletions.md
             - name: Kontrollera etableringsstatus
               href: application-provisioning-when-will-provisioning-finish-specific-user.md
             - name: Rapportera om automatisk användaretablering
               href: check-status-user-account-provisioning.md
+            - name: Exportera och importera konfigurationen
+              href: export-import-provisioning-configuration.md
         - name: Felsöka användaretablering
           items:
             - name: Felsöka användaretablering

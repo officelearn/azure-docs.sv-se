@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c2eff9c0edf6797c08d0ef9732c903a81a6c764a
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.openlocfilehash: 54e0648ff9aab12ad6a579fc7f6e45b98a9d6d03
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70733410"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70861169"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Administratörs roll behörigheter i Azure Active Directory
 
@@ -78,6 +78,12 @@ Rollen som administratör för autentisering är för närvarande en offentlig f
 * Säkerhets grupp och Office 365-grupp ägare, som kan hantera grupp medlemskap. Dessa grupper kan ge åtkomst till känslig eller privat information eller kritisk konfiguration i Azure AD och någon annan stans.
 * Administratörer i andra tjänster utanför Azure AD, till exempel Exchange Online, Office Security och Compliance Center och personal system.
 * Icke-administratörer som chefer, juridiska konsulter och personal anställda som kan ha till gång till känslig eller privat information.
+
+### <a name="azure-devops-administratorazure-devops-administrator-permissions"></a>[Azure DevOps-administratör](#azure-devops-administrator-permissions)
+
+Användare med den här rollen kan hantera Azure DevOps-principen för att begränsa skapandet av nya Azure DevOps-organisationer till en uppsättning konfigurerbara användare/AAD-grupper. Användare med den här rollen kan hantera den här principen via en Azure DevOps-organisation som har säkerhetskopierat företagets Azure AD.
+
+I framtiden kommer alla Enterprise Azure DevOps-principer att hanteras av användare i den här rollen.
 
 ### <a name="azure-information-protection-administratorazure-information-protection-administrator-permissions"></a>[Azure Information Protection administratör](#azure-information-protection-administrator-permissions)
 
@@ -491,6 +497,19 @@ Tillåts Visa, ange och återställa information om autentiseringsinformation f�
 | microsoft.office365.serviceHealth/allEntities/allTasks | Läs och konfigurera Office 365 Service Health. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Skapa och hantera Office 365-support biljetter. |
 | Microsoft. Directory/Users/Password/Update | Uppdatera lösen ord för alla användare i Office 365-organisationen. Mer information finns i onlinedokumentationen. |
+
+### <a name="azure-devops-administrator-permissions"></a>Administratörs behörighet för Azure-DevOps
+
+Kan hantera Azure DevOps-organisationens principer och inställningar.
+
+> [!NOTE]
+> Den här rollen har ytterligare behörigheter utanför Azure Active Directory. Mer information finns i [roll Beskrivning](#azure-devops-administrator) ovan.
+>
+>
+
+| **Åtgärder** | **Beskrivning** |
+| --- | --- |
+| Microsoft. Azure. devOps/upplånade/allTasks | Läsa och konfigurera Azure-DevOps. |
 
 ### <a name="azure-information-protection-administrator-permissions"></a>Azure Information Protection administratörs behörighet
 
@@ -1496,6 +1515,7 @@ Graph-displayName | Visnings namn för Azure Portal | directoryRoleTemplateId
 Programadministratör | Programadministratör | 9B895D92-2CD3-44C7-9D02-A6AC2D5EA5C3
 Programutvecklare | Programutvecklare | CF1C38E5-3621-4004-A7CB-879624DCED7C
 Autentiseringsadministratör | Autentiseringsadministratör | c4e39bd9-1100-46d3-8c65-fb160da0071f
+Azure DevOps-administratör | Azure DevOps-administratör | e3973bdf-4987-49ae-837a-ba8e231c7286
 Azure Information Protection administratör | Azure Information Protection administratör | 7495fdc4-34c4-4d15-a289-98788ce399fd
 B2C användar flödes administratör | B2C användar flödes administratör | 6e591065-9bad-43ed-90f3-e9424366d2f0
 B2C User Flow Attribute Administrator | B2C User Flow Attribute Administrator | 0f971eea-41eb-4569-a71e-57bb8a3eff1e

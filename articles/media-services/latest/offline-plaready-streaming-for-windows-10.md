@@ -1,8 +1,8 @@
 ---
-title: Konfigurera ditt konto för offline strömning av PlayReady skyddat innehåll – Azure
-description: Den här artikeln visar hur du konfigurerar ditt Azure Media Services-konto för direktuppspelning PlayReady för Windows 10 offline.
+title: Konfigurera ditt konto för offline-strömning av PlayReady-skyddat innehåll – Azure
+description: Den här artikeln visar hur du konfigurerar ditt Azure Media Services-konto för strömmande PlayReady för Windows 10 offline.
 services: media-services
-keywords: DASH, DRM, Widevine Offline Mode, ExoPlayer, Android
+keywords: BINDESTRECK, DRM, Widevine offline-läge, ExoPlayer, Android
 documentationcenter: ''
 author: willzhan
 manager: steveng
@@ -14,61 +14,61 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/01/2019
 ms.author: willzhan
-ms.openlocfilehash: ae5fdd51d9bc1a3e7e2521c6ca1ff64d884c96f8
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: 25559c7a6f66a1092007054c72f601b428fa4e7b
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67341766"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70845512"
 ---
-# <a name="offline-playready-streaming-for-windows-10"></a>PlayReady offline Streaming för Windows 10
+# <a name="offline-playready-streaming-for-windows-10"></a>Offline PlayReady-direktuppspelning för Windows 10
 
-Azure Media Services stöder offline download/uppspelning med DRM-skydd. Den här artikeln beskriver offline stöd för Azure Media Services för Windows 10/PlayReady-klienter. Du kan läsa om stöd för offline-läge för iOS/FairPlay- och Android/Widevine enheter i följande artiklar:
+Azure Media Services stöd för nedladdning/uppspelning av data offline med DRM-skydd. Den här artikeln beskriver offline-stöd för Azure Media Services för Windows 10/PlayReady-klienter. Du kan läsa om offline-läges stödet för iOS/FairPlay-och Android/Widevine-enheter i följande artiklar:
 
 - [FairPlay-direktuppspelning offline för iOS](offline-fairplay-for-ios.md)
-- [Offline Widevine för direktuppspelning för Android](offline-widevine-for-android.md)
+- [Offline-Widevine strömning för Android](offline-widevine-for-android.md)
 
 > [!NOTE]
-> Offline DRM debiteras endast för att göra en enskild begäran om en licens när du laddar ned innehållet. Eventuella fel faktureras inte.
+> Offline-DRM debiteras bara för att skapa en enskild begäran om en licens när du laddar ned innehållet. Eventuella fel faktureras inte.
 
 ## <a name="overview"></a>Översikt
 
-Det här avsnittet ger bakgrundsinformation om offline-läge utmatning särskilt varför:
+Det här avsnittet innehåller en bakgrund i uppspelning av offline-läge, särskilt varför:
 
-* I vissa länder/regioner är Internet tillgänglighet och/eller bandbredd fortfarande begränsad. Användare kan välja att hämta först om du vill kunna titta på innehållet i tillräckligt hög matchning för tillfredsställande tittarupplevelse. I det här fallet oftast brukar problemet är inte nätverkets tillgänglighet, i stället det nätverksbandbredden är begränsad. OTT/OVP providers ber för stöd för offline-läge.
-* Som visades på Netflix 2016 Q3 aktieägare konferensen, nedladdning av innehåll är en ”om begärda funktion” och ”vi är öppen för den” säger av Reed Hastings, Netflix VD.
-* Vissa innehållsleverantörer kan neka DRM-licensleverans utöver ett land/region kantlinje. Om en användare behöver reser utomlands och fortfarande vill titta på innehållet, krävs offline nedladdning.
+* I vissa länder/regioner är Internet tillgänglighet och/eller bandbredd fortfarande begränsad. Användarna kan välja att ladda ned för att kunna se innehållet i tillräckligt med hög upplösning för tillfredsställande visnings upplevelse. I det här fallet är problemet ofta inte nätverks tillgänglig, och den är begränsad nätverks bandbredd. OTT/OVP-providers ber om stöd för offline-läge.
+* Som anges i konferensen Netflix 2016, kvartals visare, är nedladdning av innehåll en "OFT-begärd funktion" och "Vi är öppna för IT", som kallas för Reed Hastings, Netflix VD.
+* En del innehålls leverantörer får inte tillåta leverans av DRM-licenser utöver ett land/regions gräns. Om en användare behöver resa utomlands och fortfarande vill titta på innehåll krävs offline-nedladdning.
  
-Den stora utmaningen vi möter implementera offline-läge är följande:
+Utmanings läget för att implementera offline-läge är följande:
 
-* MP4 stöds av många spelare, encoder verktyg, men det finns inga bindningar mellan MP4-behållare och DRM;
-* CFF med CENC är bättre att på lång sikt. Idag, är verktyg/player support-ekosystem dock inte det ännu. Vi behöver en lösning i dag.
+* MP4 stöds av många spelare, Encoder-verktyg, men det finns ingen bindning mellan MP4-behållaren och DRM.
+* På lång sikt är CFF med CENC ett sätt att gå. Men idag är support eko systemet för tools/Player inte det där. Vi behöver en lösning, idag.
  
-Tanken är: smooth streaming ([PIFF](https://go.microsoft.com/?linkid=9682897))-format med H264/AAC har en bindning med PlayReady (AES-128 CTR). Jämn direktuppspelning .ismv fil (förutsatt att ljud är muxed i videon) är i sig en fMP4 och kan användas för uppspelning. Om en smidig strömningsinnehåll går igenom PlayReady-kryptering, filernas .ismv blir en PlayReady skyddade fragmenterad MP4. Vi kan välja en .ismv-fil med önskad bithastighet och Byt namn på den som .mp4 för hämtning.
+Idén är: fil formatet för smidig strömning ([Piff](https://docs.microsoft.com/iis/media/smooth-streaming/protected-interoperable-file-format)) med H264,/AAC har en bindning med PLAYREADY (AES-128-/maskin). En enskild smidig strömmande. ISMV-fil (förutsatt att ljudet är Muxed i video) är en fMP4 och kan användas för uppspelning. Om ett smidigt strömmande innehåll går via PlayReady-kryptering blir varje. ISMV-fil en PlayReady-skyddad fragmenterad MP4. Vi kan välja en. ISMV-fil med önskad bit hastighet och byta namn på den som. mp4 för nedladdning.
 
-Det finns två alternativ för den som är värd för PlayReady skyddade MP4 för progressiv nedladdning:
+Det finns två alternativ för att vara värd för PlayReady Protected MP4 för progressiv nedladdning:
 
-* Placera den här MP4 i samma behållare/media service tillgång och utnyttja Azure Media Services strömningsslutpunkt för progressiv nedladdning;
-* En kan använda SAS-lokaliserare för progressiv nedladdning direkt från Azure Storage, vilket kringgår Azure Media Services.
+* En kan publicera denna MP4 i samma behållare/media service till gång och utnyttja Azure Media Services strömnings slut punkt för progressiv nedladdning.
+* En kan använda SAS-lokaliserare för progressiv nedladdning direkt från Azure Storage, förbi Azure Media Services.
  
-Du kan använda två typer av PlayReady-licensleverans:
+Du kan använda två typer av PlayReady-licens leverans:
 
-* Playreadys licensleveranstjänst i Azure Media Services;
-* PlayReady servrar för fjärrskrivbordslicenser finns på olika platser.
+* PlayReady licens leverans tjänst i Azure Media Services;
+* PlayReady licens servrar som finns var som helst.
 
-Nedan finns två typer av test-tillgångar, den första mallen med PlayReady-licensleverans i AMS samtidigt som den andra mallen med hjälp av Mina PlayReady-licensserver som finns på en Azure-dator:
+Nedan finns två typer av test till gångar, den första som använder PlayReady License Delivery i AMS medan den andra använder min PlayReady-licensserver som finns på en virtuell Azure-dator:
 
-Plats #1:
+Till gångs #1:
 
-* URL för progressiv nedladdning: [https://willzhanmswest.streaming.mediaservices.windows.net/8d078cf8-d621-406c-84ca-88e6b9454acc/20150807-bridges-2500_H264_1644kbps_AAC_und_ch2_256kbps.mp4](https://willzhanmswest.streaming.mediaservices.windows.net/8d078cf8-d621-406c-84ca-88e6b9454acc/20150807-bridges-2500_H264_1644kbps_AAC_und_ch2_256kbps.mp4")
-* PlayReady LA_URL (AMS): [https://willzhanmswest.keydelivery.mediaservices.windows.net/PlayReady/](https://willzhanmswest.keydelivery.mediaservices.windows.net/PlayReady/)
+* URL för progressiv nedladdning:[https://willzhanmswest.streaming.mediaservices.windows.net/8d078cf8-d621-406c-84ca-88e6b9454acc/20150807-bridges-2500_H264_1644kbps_AAC_und_ch2_256kbps.mp4](https://willzhanmswest.streaming.mediaservices.windows.net/8d078cf8-d621-406c-84ca-88e6b9454acc/20150807-bridges-2500_H264_1644kbps_AAC_und_ch2_256kbps.mp4")
+* PlayReady LA_URL (AMS):[https://willzhanmswest.keydelivery.mediaservices.windows.net/PlayReady/](https://willzhanmswest.keydelivery.mediaservices.windows.net/PlayReady/)
 
-Tillgången #2:
+Till gångs #2:
 
-* URL för progressiv nedladdning: [https://willzhanmswest.streaming.mediaservices.windows.net/7c085a59-ae9a-411e-842c-ef10f96c3f89/20150807-bridges-2500_H264_1644kbps_AAC_und_ch2_256kbps.mp4](https://willzhanmswest.streaming.mediaservices.windows.net/7c085a59-ae9a-411e-842c-ef10f96c3f89/20150807-bridges-2500_H264_1644kbps_AAC_und_ch2_256kbps.mp4)
-* PlayReady LA_URL (lokalt): [https://willzhan12.cloudapp.net/playready/rightsmanager.asmx](https://willzhan12.cloudapp.net/playready/rightsmanager.asmx)
+* URL för progressiv nedladdning:[https://willzhanmswest.streaming.mediaservices.windows.net/7c085a59-ae9a-411e-842c-ef10f96c3f89/20150807-bridges-2500_H264_1644kbps_AAC_und_ch2_256kbps.mp4](https://willzhanmswest.streaming.mediaservices.windows.net/7c085a59-ae9a-411e-842c-ef10f96c3f89/20150807-bridges-2500_H264_1644kbps_AAC_und_ch2_256kbps.mp4)
+* PlayReady LA_URL (lokalt):[https://willzhan12.cloudapp.net/playready/rightsmanager.asmx](https://willzhan12.cloudapp.net/playready/rightsmanager.asmx)
 
-För att spela upp testa använde vi ett universellt Windows-program på Windows 10. I [Windows 10 Universal-exempel](https://github.com/Microsoft/Windows-universal-samples), det är ett grundläggande player-exempel som kallas [anpassningsbar direktuppspelning exempel](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/AdaptiveStreaming). Allt vi behöver göra är att lägga till kod att välja hämtade video och använda den som källan, i stället för anpassningsbar strömning källa. Ändringarna visas i knappen klickar du på händelsehanteraren:
+För uppspelnings testning använde vi ett universellt Windows-program i Windows 10. I [universella Windows 10](https://github.com/Microsoft/Windows-universal-samples)-exempel finns ett Basic Player-exempel som kallas [anpassningsbart strömnings exempel](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/AdaptiveStreaming). Allt vi behöver göra är att lägga till koden för att vi ska kunna välja nedladdad video och använda den som källa, i stället för anpassningsbar direkt uppspelnings källa. Knappen ändringar är i klickar du på händelse hanteraren:
 
 ```csharp
 private async void LoadUri_Click(object sender, RoutedEventArgs e)
@@ -111,17 +111,17 @@ private async void LoadUri_Click(object sender, RoutedEventArgs e)
 }
 ```
 
-![Offline-läge uppspelning av PlayReady skyddade fMP4](./media/offline-playready-for-windows/offline-playready1.jpg)
+![Uppspelning av PlayReady-skyddade fMP4 i offlineläge](./media/offline-playready-for-windows/offline-playready1.jpg)
 
 
-Eftersom videon är under PlayReady-skydd, skärmbilden inte inkludera videon.
+Eftersom videon är under PlayReady-skydd kommer skärm bilden inte att kunna ta med videon.
 
-Sammanfattningsvis, har vi uppnått offline-läge på Azure Media Services:
+I sammanfattning har vi uppnått offline-läge på Azure Media Services:
 
-* Innehåll transkodning och PlayReady-kryptering kan göras i Azure Media Services eller andra verktyg.
-* Innehållet kan finnas i Azure Media Services eller Azure Storage för progressiv nedladdning;
-* PlayReady-licensleverans kan vara från Azure Media Services eller någon annanstans.
-* Förberedd jämn direktuppspelning innehållet fortfarande kan användas för online strömning via DASH eller smooth med PlayReady som DRM.
+* Innehålls kodning och PlayReady-kryptering kan göras i Azure Media Services eller andra verktyg.
+* Innehållet kan finnas i Azure Media Services eller Azure Storage för progressiv nedladdning.
+* PlayReady-licensens leverans kan vara från Azure Media Services eller någon annan stans.
+* Det för beredda strömmande innehållet kan fortfarande användas för direkt uppspelning via tank streck eller smidigt med PlayReady som DRM.
 
 ## <a name="next-steps"></a>Nästa steg
 

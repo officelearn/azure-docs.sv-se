@@ -1,412 +1,412 @@
 ---
-title: Databasvyer i Azure Blockchain Workbench
-description: Översikt över Azure Blockchain Workbench SQL DB databasvyer.
+title: Databasvyer i Azure blockchain Workbench Preview
+description: Översikt över Azure blockchain Workbench Preview SQL DB Database views.
 services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 05/28/2019
+ms.date: 09/05/2019
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: mmercuri
 manager: femila
-ms.openlocfilehash: 9071cf524a0f3d319d108cb5c961fa886cf8747f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7548d460d0d99642d11e4eb5755730400b509e94
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66399909"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70845039"
 ---
-# <a name="database-views-in-azure-blockchain-workbench"></a>Databasvyer i Azure Blockchain Workbench
+# <a name="database-views-in-azure-blockchain-workbench-preview"></a>Databasvyer i Azure blockchain Workbench Preview
 
-Azure Blockchain Workbench levererar data från distribuerade huvudböcker till en *annan* SQL DB-databas. Annan databasen gör det möjligt att använda SQL- och befintliga verktyg som [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017), för att interagera med blockchain-data.
+För hands versionen av Azure blockchain Workbench levererar data från distribuerade transaktioner till en SQL DB *-databas utanför kedjan* . Med hjälp av databasen från andra kedjan kan du använda SQL och befintliga verktyg, till exempel [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017), för att interagera med blockchain-data.
 
-Azure Blockchain Workbench tillhandahåller en uppsättning databasvyer som ger åtkomst till data som kommer att vara till hjälp när du utför dina frågor. Dessa vyer är kraftigt Avnormaliserade att göra det enkelt att snabbt komma igång med att skapa rapporter, analyser, och på annat sätt använda blockchain-data med befintliga verktyg och utan att behöva träna om databasen personal.
+Azure blockchain Workbench tillhandahåller en uppsättning databasvyer som ger åtkomst till data som kommer att vara till hjälp när du utför dina frågor. Dessa vyer är mycket denormaliserade för att göra det enkelt att snabbt komma igång med att skapa rapporter, analysera och på annat sätt använda blockchain-data med befintliga verktyg och utan att behöva träna databas personal.
 
-Det här avsnittet innehåller en översikt över databasvyer och den data de innehåller.
+Det här avsnittet innehåller en översikt över databasobjekten och de data som de innehåller.
 
 > [!NOTE]
-> Direkt för all användning av database-tabeller i databasen utanför dessa vyer, även om det går att hitta stöds inte.
+> All direkt användning av databas tabeller som finns i databasen utanför dessa vyer, medan det är möjligt, stöds inte.
 >
 
 ## <a name="vwapplication"></a>vwApplication
 
-Den här vyn innehåller information om **program** som har överförts till Azure Blockchain Workbench.
+Den här vyn innehåller information om **program** som har överförts till Azure blockchain Workbench.
 
-| Namn                             | Typ          | Kan vara Null | Beskrivning                                                                                                                                                                                                                                                   |
+| Name                             | type          | Kan vara null | Beskrivning                                                                                                                                                                                                                                                   |
 |----------------------------------|---------------|-------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | ApplicationId                    | int           | Nej          | En unik identifierare för programmet |
-| ApplicationName                  | nvarchar(50)  | Nej          | Namnet på programmet |
-| ApplicationDescription           | nvarchar(255) | Ja         | En beskrivning av programmet |
-| ApplicationDisplayName           | nvarchar(255) | Nej          | Namnet som ska visas i ett användargränssnitt |
-| ApplicationEnabled               | bit           | Nej          | Identifierar om programmet är aktiverat<br /> **Obs:** Även om ett program kan återspeglas som inaktiverade i databasen, tillhörande kontrakt finns kvar på blockchain och data om dessa kontrakt förblir i databasen. |
-| UploadedDtTm                     | datetime2(7)  | Nej          | Datum och tid som ett kontrakt har överförts |
-| UploadedByUserId                 | int           | Nej          | ID för den användare som laddats upp programmet |
-| UploadedByUserExternalId         | nvarchar(255) | Nej          | Den externa identifieraren för den användare som laddats upp programmet. Som standard är detta ID användare från Azure Active Directory för consortium.                                                                                                |
-| UploadedByUserProvisioningStatus | int           | Nej          | Identifierar den aktuella statusen för etableringsprocessen för användaren. Möjliga värden: <br />0 – användaren har skapats av API: et<br />1 – en nyckel har associerats med användare i databasen<br />2 – användaren är helt etablerad                         |
-| UploadedByUserFirstName          | nvarchar(50)  | Ja         | Det första namnet för den användare som har överförts kontraktet |
-| UploadedByUserLastName           | nvarchar(50)  | Ja         | Efternamn för den användare som har överförts kontraktet |
-| UploadedByUserEmailAddress       | nvarchar(255) | Ja         | E-postadressen för den användare som har överförts kontraktet |
+| ApplicationName                  | nvarchar (50)  | Nej          | Namnet på programmet |
+| ApplicationDescription           | nvarchar (255) | Ja         | En beskrivning av programmet |
+| applicationDisplayName           | nvarchar (255) | Nej          | Namnet som ska visas i ett användar gränssnitt |
+| ApplicationEnabled               | bit           | Nej          | Identifierar om programmet är aktiverat<br /> **Obs:** Även om ett program kan reflekteras som inaktiverat i databasen, finns associerade kontrakt kvar på blockchain och data om dessa avtal finns kvar i databasen. |
+| UploadedDtTm                     | datetime2 (7)  | Nej          | Datum och tid då ett kontrakt överfördes |
+| UploadedByUserId                 | int           | Nej          | ID för den användare som laddade upp programmet |
+| UploadedByUserExternalId         | nvarchar (255) | Nej          | Den externa identifieraren för den användare som laddade upp programmet. Som standard är detta ID användaren från Azure Active Directory för konsortiet.                                                                                                |
+| UploadedByUserProvisioningStatus | int           | Nej          | Identifierar den aktuella statusen för etablerings processen för användaren. Möjliga värden är: <br />0 – användaren har skapats av API: et<br />1 – en nyckel har associerats med användaren i databasen<br />2 – användaren är helt etablerad                         |
+| UploadedByUserFirstName          | nvarchar (50)  | Ja         | Förnamnet på den användare som laddade upp kontraktet |
+| UploadedByUserLastName           | nvarchar (50)  | Ja         | Det sista namnet på den användare som laddade upp kontraktet |
+| UploadedByUserEmailAddress       | nvarchar (255) | Ja         | E-postadressen till den användare som överförde kontraktet |
 
 ## <a name="vwapplicationrole"></a>vwApplicationRole
 
-Den här vyn innehåller information om de roller som har definierats i Azure Blockchain Workbench-program.
+Den här vyn innehåller information om de roller som har definierats i Azure blockchain Workbench-program.
 
-I en *tillgången överföra* program, till exempel roller, exempelvis *köparen* och *försäljning* roller kan definieras.
+I ett program för *till gångs överföring* kan exempelvis roller som *köpare* och *säljar* roller definieras.
 
-| Namn                   | Typ             | Kan vara Null | Beskrivning                                       |
+| Name                   | type             | Kan vara null | Beskrivning                                       |
 |------------------------|------------------|-------------|---------------------------------------------------|
 | ApplicationId          | int              | Nej          | En unik identifierare för programmet           |
-| ApplicationName        | nvarchar(50)     | Nej          | Namnet på programmet                       |
-| ApplicationDescription | nvarchar(255)    | Ja         | En beskrivning av programmet                  |
-| ApplicationDisplayName | nvarchar(255)    | Nej          | Namnet som ska visas i ett användargränssnitt      |
-| RoleId                 | int              | Nej          | En unik identifierare för en roll i programmet |
+| ApplicationName        | nvarchar (50)     | Nej          | Namnet på programmet                       |
+| ApplicationDescription | nvarchar (255)    | Ja         | En beskrivning av programmet                  |
+| applicationDisplayName | nvarchar (255)    | Nej          | Namnet som ska visas i ett användar gränssnitt      |
+| roleId                 | int              | Nej          | En unik identifierare för en roll i programmet |
 | RoleName               | nvarchar50)      | Nej          | Namnet på rollen                              |
-| RoleDescription        | description(255) | Ja         | En beskrivning av rollen                         |
+| RoleDescription        | Beskrivning (255) | Ja         | En beskrivning av rollen                         |
 
 ## <a name="vwapplicationroleuser"></a>vwApplicationRoleUser
 
-Den här vyn innehåller information om de roller som har definierats i Azure Blockchain Workbench-program och de användare som är kopplade till standardrisknivåer.
+Den här vyn innehåller information om de roller som har definierats i Azure blockchain Workbench-program och användare som är kopplade till dem.
 
-I en *tillgången överföra* program, till exempel *John Smith* kan associeras med den *köparen* roll.
+I en *till gångs överförings* applikation kan exempelvis *John Smith* vara associerat med *köpar* rollen.
 
-| Namn                       | Typ          | Kan vara Null | Beskrivning                                                                                                                                                                                                                           |
+| Name                       | type          | Kan vara null | Beskrivning                                                                                                                                                                                                                           |
 |----------------------------|---------------|-------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | ApplicationId              | int           | Nej          | En unik identifierare för programmet                                                                                                                                                                                               |
-| ApplicationName            | nvarchar(50)  | Nej          | Namnet på programmet                                                                                                                                                                                                           |
-| ApplicationDescription     | nvarchar(255) | Ja         | En beskrivning av programmet                                                                                                                                                                                                      |
-| ApplicationDisplayName     | nvarchar(255) | Nej          | Namnet som ska visas i ett användargränssnitt                                                                                                                                                                                          |
+| ApplicationName            | nvarchar (50)  | Nej          | Namnet på programmet                                                                                                                                                                                                           |
+| ApplicationDescription     | nvarchar (255) | Ja         | En beskrivning av programmet                                                                                                                                                                                                      |
+| applicationDisplayName     | nvarchar (255) | Nej          | Namnet som ska visas i ett användar gränssnitt                                                                                                                                                                                          |
 | ApplicationRoleId          | int           | Nej          | En unik identifierare för en roll i programmet                                                                                                                                                                                     |
 | ApplicationRoleName        | nvarchar50)   | Nej          | Namnet på rollen                                                                                                                                                                                                                  |
-| ApplicationRoleDescription | nvarchar(255) | Ja         | En beskrivning av rollen                                                                                                                                                                                                             |
-| Användar-ID                     | int           | Nej          | ID för användaren som är associerad med rollen |
-| UserExternalId             | nvarchar(255) | Nej          | Den externa identifieraren för den användare som är associerad med rollen. Som standard är detta ID användare från Azure Active Directory för consortium.                                                                     |
-| UserProvisioningStatus     | int           | Nej          | Identifierar den aktuella statusen för etableringsprocessen för användaren. Möjliga värden: <br />0 – användaren har skapats av API: et<br />1 – en nyckel har associerats med användare i databasen<br />2 – användaren är helt etablerad |
-| UserFirstName              | nvarchar(50)  | Ja         | Det första namnet för den användare som är associerad med rollen |
-| UserLastName               | nvarchar(255) | Ja         | Efternamn för den användare som är associerad med rollen |
-| UserEmailAddress           | nvarchar(255) | Ja         | E-postadressen för den användare som är associerad med rollen |
+| ApplicationRoleDescription | nvarchar (255) | Ja         | En beskrivning av rollen                                                                                                                                                                                                             |
+| UserId                     | int           | Nej          | ID för den användare som är associerad med rollen |
+| UserExternalId             | nvarchar (255) | Nej          | Den externa identifieraren för den användare som är associerad med rollen. Som standard är detta ID användaren från Azure Active Directory för konsortiet.                                                                     |
+| UserProvisioningStatus     | int           | Nej          | Identifierar den aktuella statusen för etablerings processen för användaren. Möjliga värden är: <br />0 – användaren har skapats av API: et<br />1 – en nyckel har associerats med användaren i databasen<br />2 – användaren är helt etablerad |
+| UserFirstName              | nvarchar (50)  | Ja         | Förnamnet på den användare som är associerad med rollen |
+| UserLastName               | nvarchar (255) | Ja         | Efter namnet på den användare som är associerad med rollen |
+| UserEmailAddress           | nvarchar (255) | Ja         | E-postadressen för den användare som är associerad med rollen |
 
 ## <a name="vwconnectionuser"></a>vwConnectionUser
 
-Den här vyn innehåller information om anslutningar i Azure Blockchain Workbench och de användare som är kopplade till standardrisknivåer. För varje anslutning innehåller den här vyn följande data:
+Den här vyn innehåller information om de anslutningar som definieras i Azure blockchain Workbench och de användare som är kopplade till dem. För varje anslutning innehåller den här vyn följande data:
 
--   Associerad redovisning information
--   Associerade användarinformation
+-   Associerad redovisnings information
+-   Associerad användar information
 
-| Namn                     | Typ          | Kan vara Null | Beskrivning                                                                                                                                                                                                                           |
+| Name                     | type          | Kan vara null | Beskrivning                                                                                                                                                                                                                           |
 |--------------------------|---------------|-------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| ConnectionId             | int           | Nej          | Den unika identifieraren för en anslutning i Azure Blockchain Workbench |
-| ConnectionEndpointUrl    | nvarchar(50)  | Nej          | Slutpunkts-url för en anslutning |
-| ConnectionFundingAccount | nvarchar(255) | Ja         | Finansierande kontot som är associerade med en anslutning, om tillämpligt |
-| LedgerId                 | int           | Nej          | Den unika identifieraren för en redovisning |
-| LedgerName               | nvarchar(50)  | Nej          | Namnet på transaktionsregister |
-| LedgerDisplayName        | nvarchar(255) | Nej          | Namnet på det Transaktionsregister ska visas i Användargränssnittet |
-| Användar-ID                   | int           | Nej          | ID för den användare som är associerad med anslutningen |
-| UserExternalId           | nvarchar(255) | Nej          | Den externa identifieraren för den användare som är associerad med anslutningen. Som standard är detta ID användare från Azure Active Directory för consortium. |
-| UserProvisioningStatus   | int           | Nej          |Identifierar den aktuella statusen för etableringsprocessen för användaren. Möjliga värden: <br />0 – användaren har skapats av API: et<br />1 – en nyckel har associerats med användare i databasen<br />2 – användaren är helt etablerad |
-| UserFirstName            | nvarchar(50)  | Ja         | Det första namnet för den användare som är associerad med anslutningen |
-| UserLastName             | nvarchar(255) | Ja         | Efternamn för den användare som är associerad med anslutningen |
-| UserEmailAddress         | nvarchar(255) | Ja         | E-postadressen för den användare som är associerad med anslutningen |
+| connectionId             | int           | Nej          | Den unika identifieraren för en anslutning i Azure blockchain Workbench |
+| ConnectionEndpointUrl    | nvarchar (50)  | Nej          | Slut punkts-URL för en anslutning |
+| ConnectionFundingAccount | nvarchar (255) | Ja         | Det finansierings konto som är associerat med en anslutning, om tillämpligt |
+| ledgerId                 | int           | Nej          | Den unika identifieraren för en redovisning |
+| LedgerName               | nvarchar (50)  | Nej          | Namnet på redovisningen |
+| LedgerDisplayName        | nvarchar (255) | Nej          | Namnet på redovisningen som ska visas i användar gränssnittet |
+| UserId                   | int           | Nej          | ID för den användare som är associerad med anslutningen |
+| UserExternalId           | nvarchar (255) | Nej          | Den externa identifieraren för den användare som är associerad med anslutningen. Som standard är detta ID användaren från Azure Active Directory för konsortiet. |
+| UserProvisioningStatus   | int           | Nej          |Identifierar den aktuella statusen för etablerings processen för användaren. Möjliga värden är: <br />0 – användaren har skapats av API: et<br />1 – en nyckel har associerats med användaren i databasen<br />2 – användaren är helt etablerad |
+| UserFirstName            | nvarchar (50)  | Ja         | Förnamnet på den användare som är associerad med anslutningen |
+| UserLastName             | nvarchar (255) | Ja         | Efter namnet på den användare som är associerad med anslutningen |
+| UserEmailAddress         | nvarchar (255) | Ja         | E-postadressen för den användare som är associerad med anslutningen |
 
 ## <a name="vwcontract"></a>vwContract
 
-Den här vyn innehåller information om distribuerade kontrakt. För varje kontraktet innehåller den här vyn följande data:
+Den här vyn innehåller information om distribuerade kontrakt. För varje kontrakt innehåller den här vyn följande data:
 
--   Associerade programdefinition
--   Associerade arbetsflödesdefinition
--   Associerad redovisning implementering för funktionen
--   Information om användaren som initierade åtgärden
--   Information om blockchain block och transaktioner
+-   Associerad program definition
+-   Associerad arbets flödes definition
+-   Associerad redovisnings implementering för funktionen
+-   Information för den användare som initierade åtgärden
+-   Information relaterad till blockchain-blocket och transaktionen
 
-| Namn                                     | Typ           | Kan vara Null | Beskrivning                                                                                                                                                                                                                                                   |
+| Name                                     | type           | Kan vara null | Beskrivning                                                                                                                                                                                                                                                   |
 |------------------------------------------|----------------|-------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| ConnectionId                             | int            | Nej          | Den unika identifieraren för en anslutning i Azure Blockchain Workbench.                                                                                                                                                                                         |
-| ConnectionEndpointUrl                    | nvarchar(50)   | Nej          | Slutpunkts-url för en anslutning |
-| ConnectionFundingAccount                 | nvarchar(255)  | Ja         | Finansierande kontot som är associerade med en anslutning, om tillämpligt |
-| LedgerId                                 | int            | Nej          | Den unika identifieraren för en redovisning |
-| LedgerName                               | nvarchar(50)   | Nej          | Namnet på transaktionsregister |
-| LedgerDisplayName                        | nvarchar(255)  | Nej          | Namnet på det Transaktionsregister ska visas i Användargränssnittet |
+| connectionId                             | int            | Nej          | Den unika identifieraren för en anslutning i Azure blockchain Workbench.                                                                                                                                                                                         |
+| ConnectionEndpointUrl                    | nvarchar (50)   | Nej          | Slut punkts-URL för en anslutning |
+| ConnectionFundingAccount                 | nvarchar (255)  | Ja         | Det finansierings konto som är associerat med en anslutning, om tillämpligt |
+| ledgerId                                 | int            | Nej          | Den unika identifieraren för en redovisning |
+| LedgerName                               | nvarchar (50)   | Nej          | Namnet på redovisningen |
+| LedgerDisplayName                        | nvarchar (255)  | Nej          | Namnet på redovisningen som ska visas i användar gränssnittet |
 | ApplicationId                            | int            | Nej          | En unik identifierare för programmet |
 | ApplicationName                          | nvarchar (50)  | Nej          | Namnet på programmet |
-| ApplicationDisplayName                   | nvarchar (255) | Nej          | Namnet som ska visas i ett användargränssnitt |
-| ApplicationEnabled                       | bit            | Nej          | Identifierar om programmet är aktiverat.<br /> **Obs:** Även om ett program kan återspeglas som inaktiverade i databasen, tillhörande kontrakt finns kvar på blockchain och data om dessa kontrakt förblir i databasen.  |
-| WorkflowId                               | int            | Nej          | En unik identifierare för arbetsflödet som är associerade med ett kontrakt |
-| WorkflowName                             | nvarchar(50)   | Nej          | Namnet på arbetsflödet som är associerade med ett kontrakt |
-| WorkflowDisplayName                      | nvarchar(255)  | Nej          | Namnet på arbetsflödet som är associerade med det kontrakt som visas i användargränssnittet |
-| WorkflowDescription                      | nvarchar(255)  | Ja         | Beskrivning av arbetsflödet som är associerade med ett kontrakt |
-| ContractCodeId                           | int            | Nej          | En unik identifierare för kontraktet koden som är associerade med kontraktet |
-| ContractFileName                         | int            | Nej          | Namnet på den fil som innehåller den smarta kontrakt-koden för det här arbetsflödet. |
-| ContractUploadedDtTm                     | int            | Nej          | Datum och tid som koden kontrakt har överförts |
-| ContractId                               | int            | Nej          | Den unika identifieraren för kontraktet |
-| ContractProvisioningStatus               | int            | Nej          | Identifierar den aktuella statusen för etableringsprocessen för kontraktet. Möjliga värden: <br />0 – kontraktet har skapats av API: et i databasen<br />1 – kontraktet har skickats till redovisningen<br />2 – kontraktet har distribuerats i redovisningen<br />3 eller 4 - kontraktet kunde inte distribueras till redovisningen<br />5 - kontraktet har distribuerats i redovisningen <br /><br />Från och med version 1.5, stöds värden 0 till 5. För bakåtkompatibilitet kompatibilitet i den aktuella versionen kan visa **vwContractV0** är tillgänglig som stöder endast värden 0 till 2. |
-| ContractLedgerIdentifier                 | nvarchar (255) |             | E-postadressen för den användare som distribuerats kontraktet |
-| ContractDeployedByUserId                 | int            | Nej          | En extern identifierare för den användare som distribuerats kontraktet. Som standard är detta ID guid som representerar Azure Active Directory ID för användaren.                                                                                                          |
-| ContractDeployedByUserExternalId         | nvarchar(255)  | Nej          | En extern identifierare för användaren som distribuerats kontraktet. Som standard är detta ID guid som representerar Azure Active Directory ID för användaren.                                                                                                         |
-| ContractDeployedByUserProvisioningStatus | int            | Nej          | Identifierar den aktuella statusen för etableringsprocessen för användaren. Möjliga värden: <br />0 – användaren har skapats av API: et<br />1 – en nyckel har associerats med användare i databasen <br />2 – användaren är helt etablerad                     |
-| ContractDeployedByUserFirstName          | nvarchar(50)   | Ja         | Det första namnet för den användare som distribuerats kontraktet |
-| ContractDeployedByUserLastName           | nvarchar(255)  | Ja         | Efternamn för den användare som distribuerats kontraktet |
-| ContractDeployedByUserEmailAddress       | nvarchar(255)  | Ja         | E-postadressen för den användare som distribuerats kontraktet |
+| applicationDisplayName                   | nvarchar (255) | Nej          | Namnet som ska visas i ett användar gränssnitt |
+| ApplicationEnabled                       | bit            | Nej          | Identifierar om programmet är aktiverat för tillfället.<br /> **Obs:** Även om ett program kan reflekteras som inaktiverat i databasen, finns associerade kontrakt kvar på blockchain och data om dessa avtal finns kvar i databasen.  |
+| WorkflowId                               | int            | Nej          | En unik identifierare för det arbets flöde som är associerat med ett kontrakt |
+| workflowName                             | nvarchar (50)   | Nej          | Namnet på det arbets flöde som är associerat med ett kontrakt |
+| WorkflowDisplayName                      | nvarchar (255)  | Nej          | Namnet på det arbets flöde som är associerat med kontraktet som visas i användar gränssnittet |
+| WorkflowDescription                      | nvarchar (255)  | Ja         | Beskrivning av det arbets flöde som är associerat med ett kontrakt |
+| ContractCodeId                           | int            | Nej          | En unik identifierare för kontrakt koden som är associerad med kontraktet |
+| ContractFileName                         | int            | Nej          | Namnet på filen som innehåller den smarta kontrakt koden för det här arbets flödet. |
+| ContractUploadedDtTm                     | int            | Nej          | Datum och tid då kontrakt koden överfördes |
+| contractId                               | int            | Nej          | Kontraktets unika identifierare |
+| ContractProvisioningStatus               | int            | Nej          | Identifierar den aktuella statusen för etablerings processen för kontraktet. Möjliga värden är: <br />0 – kontraktet har skapats av API: et i databasen<br />1 – kontraktet har skickats till redovisningen<br />2 – kontraktet har distribuerats till redovisningen<br />3 eller 4 – Det gick inte att distribuera kontraktet till redovisningen<br />5 – kontraktet har distribuerats till redovisningen <br /><br />Från och med version 1,5 stöds värdena 0 till 5. För bakåtkompatibilitet i den aktuella versionen är Visa **vwContractV0** tillgängligt som bara stöder värdena 0 till och med 2. |
+| contractLedgerIdentifier                 | nvarchar (255) |             | E-postadressen för den användare som distribuerade kontraktet |
+| ContractDeployedByUserId                 | int            | Nej          | En extern identifierare för den användare som distribuerade kontraktet. Som standard är detta ID det GUID som representerar Azure Active Directory-ID: t för användaren.                                                                                                          |
+| ContractDeployedByUserExternalId         | nvarchar (255)  | Nej          | En extern identifierare för den användare som distribuerade kontraktet. Som standard är detta ID det GUID som representerar Azure Active Directory-ID: t för användaren.                                                                                                         |
+| ContractDeployedByUserProvisioningStatus | int            | Nej          | Identifierar den aktuella statusen för etablerings processen för användaren. Möjliga värden är: <br />0 – användaren har skapats av API: et<br />1 – en nyckel har associerats med användaren i databasen <br />2 – användaren är helt etablerad                     |
+| ContractDeployedByUserFirstName          | nvarchar (50)   | Ja         | Förnamnet på den användare som distribuerade kontraktet |
+| ContractDeployedByUserLastName           | nvarchar (255)  | Ja         | Efter namnet på den användare som distribuerade kontraktet |
+| ContractDeployedByUserEmailAddress       | nvarchar (255)  | Ja         | E-postadressen för den användare som distribuerade kontraktet |
 
 ## <a name="vwcontractaction"></a>vwContractAction
 
-Den här vyn representerar en majoritet av information som rör åtgärder som vidtas på kontrakt och har utformats för att underlätta lätt vanliga rapporteringsscenarier. För varje åtgärd innehåller i den här vyn följande data:
+Den här vyn representerar merparten av information som rör åtgärder som vidtagits i kontrakt och är utformad för att enkelt under lätta vanliga rapporterings scenarier. För varje åtgärd som har vidtagits innehåller den här vyn följande data:
 
--   Associerade programdefinition
--   Associerade arbetsflödesdefinition
--   Associerade smarta kontrakt funktionen och parametern definition
--   Associerad redovisning implementering för funktionen
--   Specifika instansvärden för parametrar
--   Information om användaren som initierade åtgärden
--   Information om blockchain block och transaktioner
+-   Associerad program definition
+-   Associerad arbets flödes definition
+-   Associerad Smart kontrakts funktion och parameter definition
+-   Associerad redovisnings implementering för funktionen
+-   Angivna instans värden har angetts för parametrar
+-   Information för den användare som initierade åtgärden
+-   Information relaterad till blockchain-blocket och transaktionen
 
-| Namn                                     | Typ          | Kan vara Null | Beskrivning                                                                                                                                                                                                                                                                                                    |
+| Name                                     | type          | Kan vara null | Beskrivning                                                                                                                                                                                                                                                                                                    |
 |------------------------------------------|---------------|-------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | ApplicationId                            | int           | Nej          | En unik identifierare för programmet |
-| ApplicationName                          | nvarchar(50)  | Nej          | Namnet på programmet |
-| ApplicationDisplayName                   | nvarchar(255) | Nej          | Namnet som ska visas i ett användargränssnitt |
-| ApplicationEnabled                       | bit           | Nej          | Det här fältet identifierar om programmet är aktiverat. Observera – även om ett program kan återspeglas som inaktiverade i databasen, tillhörande kontrakt finns kvar på blockchain och data om dessa avtal finns kvar i databasen.                                                  |
-| WorkflowId                               | int           | Nej          | En unik identifierare för ett arbetsflöde |
-| WorkflowName                             | nvarchar(50)  | Nej          | Namnet på arbetsflödet |
-| WorkflowDisplayName                      | nvarchar(255) | Nej          | Namnet på arbetsflödet ska visas i ett användargränssnitt |
-| WorkflowDescription                      | nvarchar(255) | Ja         | Beskrivning av arbetsflödet |
-| ContractId                               | int           | Nej          | En unik identifierare för kontraktet |
-| ContractProvisioningStatus               | int           | Nej          | Identifierar den aktuella statusen för etableringsprocessen för kontraktet. Möjliga värden: <br />0 – kontraktet har skapats av API: et i databasen<br />1 – kontraktet har skickats till redovisningen<br />2 – kontraktet har distribuerats i redovisningen<br />3 eller 4 - kontraktet kunde inte distribueras till redovisningen<br />5 - kontraktet har distribuerats i redovisningen <br /><br />Från och med version 1.5, stöds värden 0 till 5. För bakåtkompatibilitet kompatibilitet i den aktuella versionen kan visa **vwContractActionV0** är tillgänglig som stöder endast värden 0 till 2. |
+| ApplicationName                          | nvarchar (50)  | Nej          | Namnet på programmet |
+| applicationDisplayName                   | nvarchar (255) | Nej          | Namnet som ska visas i ett användar gränssnitt |
+| ApplicationEnabled                       | bit           | Nej          | Det här fältet anger om programmet är aktiverat för tillfället. Obs! även om ett program kan reflekteras som inaktiverat i databasen, finns associerade kontrakt kvar på blockchain och data om dessa avtal finns kvar i-databasen.                                                  |
+| WorkflowId                               | int           | Nej          | En unik identifierare för ett arbets flöde |
+| workflowName                             | nvarchar (50)  | Nej          | Namnet på arbets flödet |
+| WorkflowDisplayName                      | nvarchar (255) | Nej          | Namnet på arbets flödet som ska visas i ett användar gränssnitt |
+| WorkflowDescription                      | nvarchar (255) | Ja         | Arbets flödets Beskrivning |
+| contractId                               | int           | Nej          | En unik identifierare för kontraktet |
+| ContractProvisioningStatus               | int           | Nej          | Identifierar den aktuella statusen för etablerings processen för kontraktet. Möjliga värden är: <br />0 – kontraktet har skapats av API: et i databasen<br />1 – kontraktet har skickats till redovisningen<br />2 – kontraktet har distribuerats till redovisningen<br />3 eller 4 – Det gick inte att distribuera kontraktet till redovisningen<br />5 – kontraktet har distribuerats till redovisningen <br /><br />Från och med version 1,5 stöds värdena 0 till 5. För bakåtkompatibilitet i den aktuella versionen är Visa **vwContractActionV0** tillgängligt som bara stöder värdena 0 till och med 2. |
 | ContractCodeId                           | int           | Nej          | En unik identifierare för kod implementeringen av kontraktet |
-| ContractLedgerIdentifier                 | nvarchar(255) | Ja         | En unik identifierare som är associerade med den distribuerade versionen av ett smarta kontrakt för en specifik distribuerad redovisning. Till exempel Ethereum. |
-| ContractDeployedByUserId                 | int           | Nej          | Den unika identifieraren för den användare som distribuerats kontraktet |
-| ContractDeployedByUserFirstName          | nvarchar(50)  | Ja         | Förnamnet på den användare som distribuerats kontraktet |
-| ContractDeployedByUserLastName           | nvarchar(255) | Ja         | Efternamn för den användare som distribuerats kontraktet |
-| ContractDeployedByUserExternalId         | nvarchar(255) | Nej          | Externa identifierare för den användare som distribuerats kontraktet. Som standard är detta ID guid som representerar sin identitet i consortium Azure Active Directory.                                                                                                                                                |
-| ContractDeployedByUserEmailAddress       | nvarchar(255) | Ja         | E-postadressen för den användare som distribuerats kontraktet |
-| WorkflowFunctionId                       | int           | Nej          | En unik identifierare för en arbetsflödesfunktion |
-| WorkflowFunctionName                     | nvarchar(50)  | Nej          | Namnet på funktionen |
-| WorkflowFunctionDisplayName              | nvarchar(255) | Nej          | Namnet på en funktion som ska visas i användargränssnittet |
-| WorkflowFunctionDescription              | nvarchar(255) | Nej          | Beskrivning av funktionen |
-| ContractActionId                         | int           | Nej          | Den unika identifieraren för en kontrakt-åtgärd |
-| ContractActionProvisioningStatus         | int           | Nej          | Identifierar den aktuella statusen för åtgärden kontrakt etableringen. Möjliga värden: <br />0 – kontrakt-åtgärd har skapats av API: et i databasen<br />1 – instruktionen kontrakt har skickats till redovisningen<br />2 – instruktionen kontrakt har distribuerats i redovisningen<br />3 eller 4 - kontraktet kunde inte distribueras till redovisningen<br />5 - kontraktet har distribuerats i redovisningen <br /><br />Från och med version 1.5, stöds värden 0 till 5. För bakåtkompatibilitet kompatibilitet i den aktuella versionen kan visa **vwContractActionV0** är tillgänglig som stöder endast värden 0 till 2. |
-| ContractActionTimestamp                  | datetime(2,7) | Nej          | Tidsstämpel för instruktionen kontrakt |
-| ContractActionExecutedByUserId           | int           | Nej          | Unik identifierare för den användare som har kört åtgärden kontrakt |
-| ContractActionExecutedByUserFirstName    | int           | Ja         | Förnamnet på den användare som har utfört kontrakt-åtgärd |
-| ContractActionExecutedByUserLastName     | nvarchar(50)  | Ja         | Efternamn för användaren som utförde åtgärden kontrakt |
-| ContractActionExecutedByUserExternalId   | nvarchar(255) | Ja         | Externt ID för användaren som utförde åtgärden kontrakt. Som standard är detta ID guid som representerar sin identitet i consortium Azure Active Directory. |
-| ContractActionExecutedByUserEmailAddress | nvarchar(255) | Ja         | E-postadressen för användaren som utförde åtgärden kontrakt |
-| WorkflowFunctionParameterId              | int           | Nej          | En unik identifierare för en parameter för funktionen |
-| WorkflowFunctionParameterName            | nvarchar(50)  | Nej          | Namnet på en parameter för funktionen |
-| WorkflowFunctionParameterDisplayName     | nvarchar(255) | Nej          | Namnet på en funktionsparameter som ska visas i användargränssnittet |
-| WorkflowFunctionParameterDataTypeId      | int           | Nej          | Den unika identifieraren för den datatyp som är associerade med en arbetsflödesparameter funktion |
-| WorkflowParameterDataTypeName            | nvarchar(50)  | Nej          | Namnet på en datatyp som är associerade med en arbetsflödesparameter funktion |
-| ContractActionParameterValue             | nvarchar(255) | Nej          | Värdet för parametern lagras i smarta kontrakt |
-| BlockHash                                | nvarchar(255) | Ja         | Hash-blockets |
-| BlockNumber                              | int           | Ja         | Antal block på redovisningen |
-| BlockTimestamp                           | datetime(2,7) | Ja         | Tidsstämpeln för blocket |
-| TransactionId                            | int           | Nej          | En unik identifierare för transaktion |
-| TransactionFrom                          | nvarchar(255) | Ja         | Den part som har sitt ursprung i transaktion |
-| TransactionTo                            | nvarchar(255) | Ja         | Den part som bearbetades med |
-| TransactionHash                          | nvarchar(255) | Ja         | Hash för en transaktion |
-| TransactionIsWorkbenchTransaction        | bit           | Ja         | Lite som identifierar om transaktionen är en Azure Blockchain Workbench-transaktion |
-| TransactionProvisioningStatus            | int           | Ja         | Identifierar den aktuella statusen för etableringsprocessen för transaktionen. Möjliga värden: <br />0 – transaktionen har skapats av API: et i databasen<br />1 – transaktionen har skickats till redovisningen<br />2 – transaktionen har distribuerats i redovisningen                 |
-| TransactionValue                         | decimal(32,2) | Ja         | Värdet för transaktionen |
+| contractLedgerIdentifier                 | nvarchar (255) | Ja         | En unik identifierare som är associerad med den distribuerade versionen av ett smart kontrakt för en enskild distribuerad redovisning. Till exempel Ethereum. |
+| ContractDeployedByUserId                 | int           | Nej          | Unikt ID för den användare som distribuerade kontraktet |
+| ContractDeployedByUserFirstName          | nvarchar (50)  | Ja         | Förnamn för den användare som distribuerade kontraktet |
+| ContractDeployedByUserLastName           | nvarchar (255) | Ja         | Efter namnet på den användare som distribuerade kontraktet |
+| ContractDeployedByUserExternalId         | nvarchar (255) | Nej          | Extern identifierare för den användare som distribuerade kontraktet. Som standard är det här ID: t det GUID som representerar identiteten i konsortiet Azure Active Directory.                                                                                                                                                |
+| ContractDeployedByUserEmailAddress       | nvarchar (255) | Ja         | E-postadressen för den användare som distribuerade kontraktet |
+| WorkflowFunctionId                       | int           | Nej          | En unik identifierare för en arbets flödes funktion |
+| workflowFunctionName                     | nvarchar (50)  | Nej          | Namnet på funktionen |
+| WorkflowFunctionDisplayName              | nvarchar (255) | Nej          | Namnet på en funktion som ska visas i användar gränssnittet |
+| WorkflowFunctionDescription              | nvarchar (255) | Nej          | Beskrivning av funktionen |
+| ContractActionId                         | int           | Nej          | Den unika identifieraren för en kontrakts åtgärd |
+| ContractActionProvisioningStatus         | int           | Nej          | Identifierar den aktuella statusen för etablerings processen för kontrakt åtgärden. Möjliga värden är: <br />0 – kontrakt åtgärden har skapats av API: et i databasen<br />1 – kontrakt åtgärden har skickats till redovisningen<br />2 – kontrakt åtgärden har distribuerats till redovisningen<br />3 eller 4 – Det gick inte att distribuera kontraktet till redovisningen<br />5 – kontraktet har distribuerats till redovisningen <br /><br />Från och med version 1,5 stöds värdena 0 till 5. För bakåtkompatibilitet i den aktuella versionen är Visa **vwContractActionV0** tillgängligt som bara stöder värdena 0 till och med 2. |
+| ContractActionTimestamp                  | datetime (2, 7) | Nej          | Tidsstämpeln för kontrakt åtgärden |
+| ContractActionExecutedByUserId           | int           | Nej          | Unikt ID för den användare som utförde kontrakt åtgärden |
+| ContractActionExecutedByUserFirstName    | int           | Ja         | Förnamn för den användare som körde kontrakt åtgärden |
+| ContractActionExecutedByUserLastName     | nvarchar (50)  | Ja         | Efter namnet på den användare som körde kontrakt åtgärden |
+| ContractActionExecutedByUserExternalId   | nvarchar (255) | Ja         | Extern identifierare för den användare som körde kontrakt åtgärden. Som standard är det här ID: t det GUID som representerar identiteten i konsortiet Azure Active Directory. |
+| ContractActionExecutedByUserEmailAddress | nvarchar (255) | Ja         | E-postadressen för den användare som körde kontrakt åtgärden |
+| WorkflowFunctionParameterId              | int           | Nej          | En unik identifierare för en parameter i funktionen |
+| WorkflowFunctionParameterName            | nvarchar (50)  | Nej          | Namnet på en parameter i funktionen |
+| WorkflowFunctionParameterDisplayName     | nvarchar (255) | Nej          | Namnet på en funktions parameter som ska visas i användar gränssnittet |
+| WorkflowFunctionParameterDataTypeId      | int           | Nej          | Den unika identifieraren för den datatyp som är associerad med en arbets flödes funktions parameter |
+| WorkflowParameterDataTypeName            | nvarchar (50)  | Nej          | Namnet på en datatyp som är associerad med en arbets flödes funktions parameter |
+| ContractActionParameterValue             | nvarchar (255) | Nej          | Värdet för den parameter som lagras i det smarta kontraktet |
+| blockHash                                | nvarchar (255) | Ja         | Hash för blocket |
+| blockNumber                              | int           | Ja         | Numret på blocket i redovisningen |
+| BlockTimestamp                           | datetime (2, 7) | Ja         | Tidsstämpeln för blocket |
+| transactionId                            | int           | Nej          | En unik identifierare för transaktionen |
+| TransactionFrom                          | nvarchar (255) | Ja         | Den part som har inhämtat transaktionen |
+| TransactionTo                            | nvarchar (255) | Ja         | Den part som överfördes med |
+| transactionHash                          | nvarchar (255) | Ja         | Hash för en transaktion |
+| TransactionIsWorkbenchTransaction        | bit           | Ja         | En bit som identifierar om transaktionen är en Azure blockchain Workbench-transaktion |
+| TransactionProvisioningStatus            | int           | Ja         | Identifierar den aktuella statusen för etablerings processen för transaktionen. Möjliga värden är: <br />0 – transaktionen har skapats av API: t i databasen<br />1 – transaktionen har skickats till redovisningen<br />2 – transaktionen har distribuerats till redovisningen                 |
+| TransactionValue                         | decimal (32, 2) | Ja         | Transaktionens värde |
 
 ## <a name="vwcontractproperty"></a>vwContractProperty
 
-Den här vyn representerar en majoritet av information som rör egenskaperna som är associerade med ett kontrakt och har utformats för att underlätta lätt vanliga rapporteringsscenarier. För varje egenskap som tas innehåller den här vyn följande data:
+Den här vyn representerar merparten av information som rör egenskaper som är associerade med ett kontrakt och som är utformade för att enkelt under lätta vanliga rapporterings scenarier. För varje egenskap som har tagits innehåller den här vyn följande data:
 
--   Associerade programdefinition
--   Associerade arbetsflödesdefinition
--   Information om den användare som distribuerats arbetsflödet
--   Associerade smarta kontrakt egenskapsdefinition
--   Specifika instansvärden för egenskaper
--   Information om egenskapen state för kontraktet
+-   Associerad program definition
+-   Associerad arbets flödes definition
+-   Information för den användare som distribuerade arbets flödet
+-   Associerad egenskaps definition för smart kontrakt
+-   Vissa instans värden för egenskaper
+-   Information om kontraktets tillstånds egenskap
 
-| Namn                               | Typ          | Kan vara Null | Beskrivning                                                                                                                                                                                                                                                                        |
+| Name                               | type          | Kan vara null | Beskrivning                                                                                                                                                                                                                                                                        |
 |------------------------------------|---------------|-------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | ApplicationId                      | int           | Nej          | En unik identifierare för programmet |
-| ApplicationName                    | nvarchar(50)  | Nej          | Namnet på programmet |
-| ApplicationDisplayName             | nvarchar(255) | Nej          | Namnet som ska visas i ett användargränssnitt |
-| ApplicationEnabled                 | bit           | Nej          | Identifierar om programmet är aktiverat.<br />**Obs:** Även om ett program kan återspeglas som inaktiverade i databasen, tillhörande kontrakt finns kvar på blockchain och data om dessa kontrakt förblir i databasen.                      |
-| WorkflowId                         | int           | Nej          | Den unika identifieraren för arbetsflödet |
-| WorkflowName                       | nvarchar(50)  | Nej          | Namnet på arbetsflödet |
-| WorkflowDisplayName                | nvarchar(255) | Nej          | Namnet på arbetsflödet som visas i användargränssnittet |
-| WorkflowDescription                | nvarchar(255) | Ja         | Beskrivning av arbetsflödet |
-| ContractId                         | int           | Nej          | Den unika identifieraren för kontraktet |
-| ContractProvisioningStatus         | int           | Nej          | Identifierar den aktuella statusen för etableringsprocessen för kontraktet. Möjliga värden: <br />0 – kontraktet har skapats av API: et i databasen<br />1 – kontraktet har skickats till redovisningen<br />2 – kontraktet har distribuerats i redovisningen<br />3 eller 4 - kontraktet kunde inte distribueras till redovisningen<br />5 - kontraktet har distribuerats i redovisningen <br /><br />Från och med version 1.5, stöds värden 0 till 5. För bakåtkompatibilitet kompatibilitet i den aktuella versionen kan visa **vwContractPropertyV0** är tillgänglig som stöder endast värden 0 till 2. |
+| ApplicationName                    | nvarchar (50)  | Nej          | Namnet på programmet |
+| applicationDisplayName             | nvarchar (255) | Nej          | Namnet som ska visas i ett användar gränssnitt |
+| ApplicationEnabled                 | bit           | Nej          | Identifierar om programmet är aktiverat för tillfället.<br />**Obs:** Även om ett program kan reflekteras som inaktiverat i databasen, finns associerade kontrakt kvar på blockchain och data om dessa avtal finns kvar i databasen.                      |
+| WorkflowId                         | int           | Nej          | Arbets flödets unika identifierare |
+| workflowName                       | nvarchar (50)  | Nej          | Namnet på arbets flödet |
+| WorkflowDisplayName                | nvarchar (255) | Nej          | Namnet på arbets flödet som visas i användar gränssnittet |
+| WorkflowDescription                | nvarchar (255) | Ja         | Arbets flödets Beskrivning |
+| contractId                         | int           | Nej          | Kontraktets unika identifierare |
+| ContractProvisioningStatus         | int           | Nej          | Identifierar den aktuella statusen för etablerings processen för kontraktet. Möjliga värden är: <br />0 – kontraktet har skapats av API: et i databasen<br />1 – kontraktet har skickats till redovisningen<br />2 – kontraktet har distribuerats till redovisningen<br />3 eller 4 – Det gick inte att distribuera kontraktet till redovisningen<br />5 – kontraktet har distribuerats till redovisningen <br /><br />Från och med version 1,5 stöds värdena 0 till 5. För bakåtkompatibilitet i den aktuella versionen är Visa **vwContractPropertyV0** tillgängligt som bara stöder värdena 0 till och med 2. |
 | ContractCodeId                     | int           | Nej          | En unik identifierare för kod implementeringen av kontraktet |
-| ContractLedgerIdentifier           | nvarchar(255) | Ja         | En unik identifierare som är associerade med den distribuerade versionen av ett smarta kontrakt för en specifik distribuerad redovisning. Till exempel Ethereum. |
-| ContractDeployedByUserId           | int           | Nej          | Den unika identifieraren för den användare som distribuerats kontraktet |
-| ContractDeployedByUserFirstName    | nvarchar(50)  | Ja         | Förnamnet på den användare som distribuerats kontraktet |
-| ContractDeployedByUserLastName     | nvarchar(255) | Ja         | Efternamn för den användare som distribuerats kontraktet |
-| ContractDeployedByUserExternalId   | nvarchar(255) | Nej          | Externa identifierare för den användare som distribuerats kontraktet. Som standard är detta ID guid som representerar sin identitet i consortium Azure Active Directory |
-| ContractDeployedByUserEmailAddress | nvarchar(255) | Ja         | E-postadressen för den användare som distribuerats kontraktet |
-| WorkflowPropertyId                 | int           |             | En unik identifierare för en egenskap för ett arbetsflöde |
-| WorkflowPropertyDataTypeId         | int           | Nej          | ID för datatypen för egenskapen |
-| WorkflowPropertyDataTypeName       | nvarchar(50)  | Nej          | Namnet på datatypen för egenskapen |
-| WorkflowPropertyName               | nvarchar(50)  | Nej          | Namnet på egenskapen arbetsflöde |
-| WorkflowPropertyDisplayName        | nvarchar(255) | Nej          | Visningsnamnet för egenskapen arbetsflöde |
-| WorkflowPropertyDescription        | nvarchar(255) | Ja         | En beskrivning av egenskapen |
-| ContractPropertyValue              | nvarchar(255) | Nej          | Värde för egenskapen avtal |
-| StateName                          | nvarchar(50)  | Ja         | Om den här egenskapen innehåller tillståndet för kontraktet, är visningsnamnet för tillståndet. Om det inte är associerad med tillståndet blir värdet null. |
-| StateDisplayName                   | nvarchar(255) | Nej          | Om den här egenskapen innehåller tillstånd, är visningsnamnet för tillståndet. Om det inte är associerad med tillståndet blir värdet null. |
-| StateValue                         | nvarchar(255) | Ja         | Om den här egenskapen innehåller tillstånd, är det statusvärdet. Om det inte är associerad med tillståndet blir värdet null. |
+| contractLedgerIdentifier           | nvarchar (255) | Ja         | En unik identifierare som är associerad med den distribuerade versionen av ett smart kontrakt för en enskild distribuerad redovisning. Till exempel Ethereum. |
+| ContractDeployedByUserId           | int           | Nej          | Unikt ID för den användare som distribuerade kontraktet |
+| ContractDeployedByUserFirstName    | nvarchar (50)  | Ja         | Förnamn för den användare som distribuerade kontraktet |
+| ContractDeployedByUserLastName     | nvarchar (255) | Ja         | Efter namnet på den användare som distribuerade kontraktet |
+| ContractDeployedByUserExternalId   | nvarchar (255) | Nej          | Extern identifierare för den användare som distribuerade kontraktet. Som standard är det här ID: t det GUID som representerar identiteten i konsortiet Azure Active Directory |
+| ContractDeployedByUserEmailAddress | nvarchar (255) | Ja         | E-postadressen för den användare som distribuerade kontraktet |
+| workflowPropertyId                 | int           |             | En unik identifierare för en egenskap för ett arbets flöde |
+| WorkflowPropertyDataTypeId         | int           | Nej          | ID för egenskapens datatyp |
+| WorkflowPropertyDataTypeName       | nvarchar (50)  | Nej          | Namnet på egenskapens datatyp |
+| WorkflowPropertyName               | nvarchar (50)  | Nej          | Namnet på arbets flödes egenskapen |
+| WorkflowPropertyDisplayName        | nvarchar (255) | Nej          | Visnings namnet för arbets flödes egenskapen |
+| WorkflowPropertyDescription        | nvarchar (255) | Ja         | En beskrivning av egenskapen |
+| ContractPropertyValue              | nvarchar (255) | Nej          | Värdet för en egenskap i kontraktet |
+| StateName                          | nvarchar (50)  | Ja         | Om den här egenskapen innehåller status för kontraktet är det visnings namnet för status. Om den inte är associerad med statusen kommer värdet vara null. |
+| StateDisplayName                   | nvarchar (255) | Nej          | Om den här egenskapen innehåller tillstånd är det visnings namnet för statusen. Om den inte är associerad med statusen kommer värdet vara null. |
+| StateValue                         | nvarchar (255) | Ja         | Om den här egenskapen innehåller statusen är det tillstånd svärdet. Om den inte är associerad med statusen kommer värdet vara null. |
 
 ## <a name="vwcontractstate"></a>vwContractState
 
-Den här vyn representerar en majoritet av information som rör tillståndet för en specifik kontrakt och har utformats för att underlätta lätt vanliga rapporteringsscenarier. Varje post i den här vyn innehåller följande data:
+Den här vyn representerar merparten av information som rör ett särskilt avtals tillstånd och som är utformad för att enkelt under lätta vanliga rapporterings scenarier. Varje post i den här vyn innehåller följande data:
 
--   Associerade programdefinition
--   Associerade arbetsflödesdefinition
--   Information om den användare som distribuerats arbetsflödet
--   Associerade smarta kontrakt egenskapsdefinition
--   Information om egenskapen state för kontraktet
+-   Associerad program definition
+-   Associerad arbets flödes definition
+-   Information för den användare som distribuerade arbets flödet
+-   Associerad egenskaps definition för smart kontrakt
+-   Information om kontraktets tillstånds egenskap
 
-| Namn                               | Typ          | Kan vara Null | Beskrivning                                                                                                                                                                                                                                                                        |
+| Name                               | type          | Kan vara null | Beskrivning                                                                                                                                                                                                                                                                        |
 |------------------------------------|---------------|-------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | ApplicationId                      | int           | Nej          | En unik identifierare för programmet |
-| ApplicationName                    | nvarchar(50)  | Nej          | Namnet på programmet |
-| ApplicationDisplayName             | nvarchar(255) | Nej          | Namnet som ska visas i ett användargränssnitt |
-| ApplicationEnabled                 | bit           | Nej          | Identifierar om programmet är aktiverat.<br />**Obs:** Även om ett program kan återspeglas som inaktiverade i databasen, tillhörande kontrakt finns kvar på blockchain och data om dessa kontrakt förblir i databasen. |
-| WorkflowId                         | int           | Nej          | En unik identifierare för arbetsflödet |
-| WorkflowName                       | nvarchar(50)  | Nej          | Namnet på arbetsflödet |
-| WorkflowDisplayName                | nvarchar(255) | Nej          | Namnet som visas i användargränssnittet |
-| WorkflowDescription                | nvarchar(255) | Ja         | Beskrivning av arbetsflödet |
-| ContractLedgerImplementationId     | nvarchar(255) | Ja         | En unik identifierare som är associerade med den distribuerade versionen av ett smarta kontrakt för en specifik distribuerad redovisning. Till exempel Ethereum. |
-| ContractId                         | int           | Nej          | En unik identifierare för kontraktet |
-| ContractProvisioningStatus         | int           | Nej          |Identifierar den aktuella statusen för etableringsprocessen för kontraktet. Möjliga värden: <br />0 – kontraktet har skapats av API: et i databasen<br />1 – kontraktet har skickats till redovisningen<br />2 – kontraktet har distribuerats i redovisningen<br />3 eller 4 - kontraktet kunde inte distribueras till redovisningen<br />5 - kontraktet har distribuerats i redovisningen <br /><br />Från och med version 1.5, stöds värden 0 till 5. För bakåtkompatibilitet kompatibilitet i den aktuella versionen kan visa **vwContractStateV0** är tillgänglig som stöder endast värden 0 till 2. |
-| ConnectionId                       | int           | Nej          | En unik identifierare för arbetsflödet har distribuerats till blockchain-instansen |
+| ApplicationName                    | nvarchar (50)  | Nej          | Namnet på programmet |
+| applicationDisplayName             | nvarchar (255) | Nej          | Namnet som ska visas i ett användar gränssnitt |
+| ApplicationEnabled                 | bit           | Nej          | Identifierar om programmet är aktiverat för tillfället.<br />**Obs:** Även om ett program kan reflekteras som inaktiverat i databasen, finns associerade kontrakt kvar på blockchain och data om dessa avtal finns kvar i databasen. |
+| WorkflowId                         | int           | Nej          | En unik identifierare för arbets flödet |
+| workflowName                       | nvarchar (50)  | Nej          | Namnet på arbets flödet |
+| WorkflowDisplayName                | nvarchar (255) | Nej          | Namnet som visas i användar gränssnittet |
+| WorkflowDescription                | nvarchar (255) | Ja         | Arbets flödets Beskrivning |
+| ContractLedgerImplementationId     | nvarchar (255) | Ja         | En unik identifierare som är associerad med den distribuerade versionen av ett smart kontrakt för en enskild distribuerad redovisning. Till exempel Ethereum. |
+| contractId                         | int           | Nej          | En unik identifierare för kontraktet |
+| ContractProvisioningStatus         | int           | Nej          |Identifierar den aktuella statusen för etablerings processen för kontraktet. Möjliga värden är: <br />0 – kontraktet har skapats av API: et i databasen<br />1 – kontraktet har skickats till redovisningen<br />2 – kontraktet har distribuerats till redovisningen<br />3 eller 4 – Det gick inte att distribuera kontraktet till redovisningen<br />5 – kontraktet har distribuerats till redovisningen <br /><br />Från och med version 1,5 stöds värdena 0 till 5. För bakåtkompatibilitet i den aktuella versionen är Visa **vwContractStateV0** tillgängligt som bara stöder värdena 0 till och med 2. |
+| connectionId                       | int           | Nej          | En unik identifierare för den blockchain-instans som arbets flödet distribueras till |
 | ContractCodeId                     | int           | Nej          | En unik identifierare för kod implementeringen av kontraktet |
-| ContractDeployedByUserId           | int           | Nej          | Unik identifierare för den användare som har distribuerats kontraktet |
-| ContractDeployedByUserExternalId   | nvarchar(255) | Nej          | Externa identifierare för den användare som distribuerats kontraktet. Som standard är detta ID guid som representerar sin identitet i consortium Azure Active Directory. |
-| ContractDeployedByUserFirstName    | nvarchar(50)  | Ja         | Förnamnet på den användare som distribuerats kontraktet |
-| ContractDeployedByUserLastName     | nvarchar(255) | Ja         | Efternamn för den användare som distribuerats kontraktet |
-| ContractDeployedByUserEmailAddress | nvarchar(255) | Ja         | E-postadressen för den användare som distribuerats kontraktet |
-| WorkflowPropertyId                 | int           | Nej          | En unik identifierare för en egenskap för arbetsflöde |
-| WorkflowPropertyDataTypeId         | int           | Nej          | ID för datatypen för egenskapen arbetsflöde |
-| WorkflowPropertyDataTypeName       | nvarchar(50)  | Nej          | Namnet på datatypen för egenskapen arbetsflöde |
-| WorkflowPropertyName               | nvarchar(50)  | Nej          | Namnet på egenskapen arbetsflöde |
-| WorkflowPropertyDisplayName        | nvarchar(255) | Nej          | Visningsnamn för egenskap ska visas i ett gränssnitt |
-| WorkflowPropertyDescription        | nvarchar(255) | Ja         | Beskrivning av egenskapen |
-| ContractPropertyValue              | nvarchar(255) | Nej          | Värdet för en egenskap som lagras i kontraktet |
-| StateName                          | nvarchar(50)  | Ja         | Om den här egenskapen innehåller tillståndet kan det den visningsnamn för tillståndet. Om det inte är associerad med tillståndet blir värdet null. |
-| StateDisplayName                   | nvarchar(255) | Nej          | Om den här egenskapen innehåller tillstånd, är visningsnamnet för tillståndet. Om det inte är associerad med tillståndet blir värdet null. |
-| StateValue                         | nvarchar(255) | Ja         | Om den här egenskapen innehåller tillstånd, är det statusvärdet. Om det inte är associerad med tillståndet blir värdet null. |
+| ContractDeployedByUserId           | int           | Nej          | Unikt ID för den användare som distribuerade kontraktet |
+| ContractDeployedByUserExternalId   | nvarchar (255) | Nej          | Extern identifierare för den användare som distribuerade kontraktet. Som standard är det här ID: t det GUID som representerar identiteten i konsortiet Azure Active Directory. |
+| ContractDeployedByUserFirstName    | nvarchar (50)  | Ja         | Förnamn för den användare som distribuerade kontraktet |
+| ContractDeployedByUserLastName     | nvarchar (255) | Ja         | Efter namnet på den användare som distribuerade kontraktet |
+| ContractDeployedByUserEmailAddress | nvarchar (255) | Ja         | E-postadressen för den användare som distribuerade kontraktet |
+| workflowPropertyId                 | int           | Nej          | En unik identifierare för en arbets flödes egenskap |
+| WorkflowPropertyDataTypeId         | int           | Nej          | ID för data typen för arbets flödes egenskapen |
+| WorkflowPropertyDataTypeName       | nvarchar (50)  | Nej          | Namnet på data typen för arbets flödes egenskapen |
+| WorkflowPropertyName               | nvarchar (50)  | Nej          | Namnet på arbets flödes egenskapen |
+| WorkflowPropertyDisplayName        | nvarchar (255) | Nej          | Visnings namnet för den egenskap som ska visas i ett användar gränssnitt |
+| WorkflowPropertyDescription        | nvarchar (255) | Ja         | Beskrivning av egenskapen |
+| ContractPropertyValue              | nvarchar (255) | Nej          | Värdet för en egenskap som lagras i kontraktet |
+| StateName                          | nvarchar (50)  | Ja         | Om den här egenskapen innehåller statusen visas visnings namnet för statusen. Om den inte är associerad med statusen kommer värdet vara null. |
+| StateDisplayName                   | nvarchar (255) | Nej          | Om den här egenskapen innehåller tillstånd är det visnings namnet för statusen. Om den inte är associerad med statusen kommer värdet vara null. |
+| StateValue                         | nvarchar (255) | Ja         | Om den här egenskapen innehåller statusen är det tillstånd svärdet. Om den inte är associerad med statusen kommer värdet vara null. |
 
 ## <a name="vwuser"></a>vwUser
 
-Den här vyn innehåller information om de consortium medlemmar som har etablerats för att använda Azure Blockchain Workbench. Som standard fylls data via den första etableringen av användaren.
+Den här vyn innehåller information om de konsortier-medlemmar som är etablerade att använda Azure blockchain Workbench. Som standard fylls data i genom den första etableringen av användaren.
 
-| Namn               | Typ          | Kan vara Null | Beskrivning                                                                                                                                                                                                                               |
+| Name               | type          | Kan vara null | Beskrivning                                                                                                                                                                                                                               |
 |--------------------|---------------|-------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| ID                 | int           | Nej          | En unik identifierare för en användare |
-| externalID         | nvarchar(255) | Nej          | En extern identifierare för en användare. Som standard är detta ID guid som representerar Azure Active Directory ID för användaren. |
-| ProvisioningStatus | int           | Nej          |Identifierar den aktuella statusen för etableringsprocessen för användaren. Möjliga värden: <br />0 – användaren har skapats av API: et<br />1 – en nyckel har associerats med användare i databasen<br />2 – användaren är helt etablerad |
-| FirstName          | nvarchar(50)  | Ja         | Det första namnet för användaren |
-| LastName           | nvarchar(50)  | Ja         | Efternamn för användaren |
-| EmailAddress       | nvarchar(255) | Ja         | E-postadressen för användaren |
+| id                 | int           | Nej          | En unik identifierare för en användare |
+| externalID         | nvarchar (255) | Nej          | En extern identifierare för en användare. Som standard är detta ID det GUID som representerar Azure Active Directory-ID: t för användaren. |
+| provisioningStatus | int           | Nej          |Identifierar den aktuella statusen för etablerings processen för användaren. Möjliga värden är: <br />0 – användaren har skapats av API: et<br />1 – en nyckel har associerats med användaren i databasen<br />2 – användaren är helt etablerad |
+| FirstName          | nvarchar (50)  | Ja         | Användarens förnamn |
+| LastName           | nvarchar (50)  | Ja         | Användarens efter namn |
+| EmailAddress       | nvarchar (255) | Ja         | Användarens e-postadress |
 
 ## <a name="vwworkflow"></a>vwWorkflow
 
-Den här vyn visar information kärnmetadata arbetsflöde och arbetsflödets funktioner och parametrar. Är utformad för rapportering och innehåller det även metadata om programmet som är associerad med arbetsflödet. Den här vyn innehåller data från flera underliggande tabeller för att underlätta rapportering om arbetsflöden. För varje arbetsflöde innehåller den här vyn följande data:
+Den här vyn visar information om de grundläggande metadata för arbets flöden samt arbets flödets funktioner och parametrar. Den innehåller även metadata om det program som är kopplat till arbets flödet. Den här vyn innehåller data från flera underliggande tabeller för att under lätta rapportering av arbets flöden. För varje arbets flöde innehåller den här vyn följande data:
 
--   Associerade programdefinition
--   Associerade arbetsflödesdefinition
--   Associerade arbetsflödesinformation start tillstånd
+-   Associerad program definition
+-   Associerad arbets flödes definition
+-   Information om start tillstånd för associerad arbets flöde
 
-| Namn                              | Typ          | Kan vara Null | Beskrivning                                                                                                                                |
+| Name                              | type          | Kan vara null | Beskrivning                                                                                                                                |
 |-----------------------------------|---------------|-------------|--------------------------------------------------------------------------------------------------------------------------------------------|
 | ApplicationId                     | int           | Nej          | En unik identifierare för programmet |
-| ApplicationName                   | nvarchar(50)  | Nej          | Namnet på programmet |
-| ApplicationDisplayName            | nvarchar(255) | Nej          | Namnet som ska visas i ett användargränssnitt |
+| ApplicationName                   | nvarchar (50)  | Nej          | Namnet på programmet |
+| applicationDisplayName            | nvarchar (255) | Nej          | Namnet som ska visas i ett användar gränssnitt |
 | ApplicationEnabled                | bit           | Nej          | Identifierar om programmet är aktiverat |
-| WorkflowId                        | int           | Ja         | En unik identifierare för ett arbetsflöde |
-| WorkflowName                      | nvarchar(50)  | Nej          | Namnet på arbetsflödet |
-| WorkflowDisplayName               | nvarchar(255) | Nej          | Namnet som visas i användargränssnittet |
-| WorkflowDescription               | nvarchar(255) | Ja         | Beskrivning av arbetsflödet. |
-| WorkflowConstructorFunctionId     | int           | Nej          | Identifierare för arbetsflödesfunktion som fungerar som konstruktorn för arbetsflödet |
+| WorkflowId                        | int           | Ja         | En unik identifierare för ett arbets flöde |
+| workflowName                      | nvarchar (50)  | Nej          | Namnet på arbets flödet |
+| WorkflowDisplayName               | nvarchar (255) | Nej          | Namnet som visas i användar gränssnittet |
+| WorkflowDescription               | nvarchar (255) | Ja         | Beskrivning av arbets flödet. |
+| WorkflowConstructorFunctionId     | int           | Nej          | Identifierare för arbets flödes funktionen som fungerar som konstruktorn för arbets flödet |
 | WorkflowStartStateId              | int           | Nej          | En unik identifierare för tillstånd |
-| WorkflowStartStateName            | nvarchar(50)  | Nej          | Namnet på tillståndet |
-| WorkflowStartStateDisplayName     | nvarchar(255) | Nej          | Namnet som ska visas i användargränssnittet för tillstånd |
-| WorkflowStartStateDescription     | nvarchar(255) | Ja         | En beskrivning av arbetsflödets tillstånd |
-| WorkflowStartStateStyle           | nvarchar(50)  | Ja         | Det här värdet identifierar procentandelen klar att arbetsflödet är i det här tillståndet |
-| WorkflowStartStateValue           | int           | Nej          | Värdet för tillståndet |
-| WorkflowStartStatePercentComplete | int           | Nej          | En textbeskrivning som ger en ledtråd till klienter på hur du kan visa det här tillståndet i Användargränssnittet. Tillstånd som stöds omfattar *lyckades* och *fel* |
+| WorkflowStartStateName            | nvarchar (50)  | Nej          | Namnet på tillstånd |
+| WorkflowStartStateDisplayName     | nvarchar (255) | Nej          | Namnet som ska visas i användar gränssnittet för status |
+| WorkflowStartStateDescription     | nvarchar (255) | Ja         | En beskrivning av arbets flödets tillstånd |
+| WorkflowStartStateStyle           | nvarchar (50)  | Ja         | Det här värdet anger procent andelen slutfört som arbets flödet är i det här läget |
+| WorkflowStartStateValue           | int           | Nej          | Värdet för tillstånd |
+| WorkflowStartStatePercentComplete | int           | Nej          | En text beskrivning som ger ett tips till klienter om hur det här läget återges i användar gränssnittet. Tillstånd som stöds är *lyckade* och *misslyckade* |
 
 ## <a name="vwworkflowfunction"></a>vwWorkflowFunction
 
-Den här vyn visar information kärnmetadata arbetsflöde och arbetsflödets funktioner och parametrar. Är utformad för rapportering och innehåller det även metadata om programmet som är associerad med arbetsflödet. Den här vyn innehåller data från flera underliggande tabeller för att underlätta rapportering om arbetsflöden. Den här vyn innehåller följande data för varje arbetsflödesfunktion:
+Den här vyn visar information om de grundläggande metadata för arbets flöden samt arbets flödets funktioner och parametrar. Den innehåller även metadata om det program som är kopplat till arbets flödet. Den här vyn innehåller data från flera underliggande tabeller för att under lätta rapportering av arbets flöden. För varje arbets flödes funktion innehåller den här vyn följande data:
 
--   Associerade programdefinition
--   Associerade arbetsflödesdefinition
--   Information om funktionen för arbetsflöde
+-   Associerad program definition
+-   Associerad arbets flödes definition
+-   Information om arbets flödes funktion
 
-| Namn                                 | Typ          | Kan vara Null | Beskrivning                                                                          |
+| Name                                 | type          | Kan vara null | Beskrivning                                                                          |
 |--------------------------------------|---------------|-------------|--------------------------------------------------------------------------------------|
 | ApplicationId                        | int           | Nej          | En unik identifierare för programmet |
-| ApplicationName                      | nvarchar(50)  | Nej          | Namnet på programmet |
-| ApplicationDisplayName               | nvarchar(255) | Nej          | Namnet som ska visas i ett användargränssnitt |
+| ApplicationName                      | nvarchar (50)  | Nej          | Namnet på programmet |
+| applicationDisplayName               | nvarchar (255) | Nej          | Namnet som ska visas i ett användar gränssnitt |
 | ApplicationEnabled                   | bit           | Nej          | Identifierar om programmet är aktiverat |
-| WorkflowId                           | int           | Nej          | En unik identifierare för ett arbetsflöde |
-| WorkflowName                         | nvarchar(50)  | Nej          | Namnet på arbetsflödet |
-| WorkflowDisplayName                  | nvarchar(255) | Nej          | Namnet på arbetsflödet som visas i användargränssnittet |
-| WorkflowDescription                  | nvarchar(255) | Ja         | Beskrivning av arbetsflödet |
+| WorkflowId                           | int           | Nej          | En unik identifierare för ett arbets flöde |
+| workflowName                         | nvarchar (50)  | Nej          | Namnet på arbets flödet |
+| WorkflowDisplayName                  | nvarchar (255) | Nej          | Namnet på arbets flödet som visas i användar gränssnittet |
+| WorkflowDescription                  | nvarchar (255) | Ja         | Arbets flödets Beskrivning |
 | WorkflowFunctionId                   | int           | Nej          | En unik identifierare för en funktion |
-| WorkflowFunctionName                 | nvarchar(50)  | Ja         | Namnet på funktionen |
-| WorkflowFunctionDisplayName          | nvarchar(255) | Nej          | Namnet på en funktion som ska visas i användargränssnittet |
-| WorkflowFunctionDescription          | nvarchar(255) | Ja         | Beskrivning av funktionen arbetsflöde |
-| WorkflowFunctionIsConstructor        | bit           | Nej          | Identifierar om funktionen arbetsflöde är konstruktorn för arbetsflödet |
+| workflowFunctionName                 | nvarchar (50)  | Ja         | Namnet på funktionen |
+| WorkflowFunctionDisplayName          | nvarchar (255) | Nej          | Namnet på en funktion som ska visas i användar gränssnittet |
+| WorkflowFunctionDescription          | nvarchar (255) | Ja         | Beskrivning av arbets flödes funktionen |
+| WorkflowFunctionIsConstructor        | bit           | Nej          | Identifierar om arbets flödes funktionen är konstruktorn för arbets flödet |
 | WorkflowFunctionParameterId          | int           | Nej          | En unik identifierare för en parameter för en funktion |
-| WorkflowFunctionParameterName        | nvarchar(50)  | Nej          | Namnet på en parameter för funktionen |
-| WorkflowFunctionParameterDisplayName | nvarchar(255) | Nej          | Namnet på en funktionsparameter som ska visas i användargränssnittet |
-| WorkflowFunctionParameterDataTypeId  | int           | Nej          | En unik identifierare för den datatyp som är associerade med en arbetsflödesparameter funktion |
-| WorkflowParameterDataTypeName        | nvarchar(50)  | Nej          | Namnet på en datatyp som är associerade med en arbetsflödesparameter funktion |
+| WorkflowFunctionParameterName        | nvarchar (50)  | Nej          | Namnet på en parameter i funktionen |
+| WorkflowFunctionParameterDisplayName | nvarchar (255) | Nej          | Namnet på en funktions parameter som ska visas i användar gränssnittet |
+| WorkflowFunctionParameterDataTypeId  | int           | Nej          | En unik identifierare för den datatyp som är associerad med en arbets flödes funktions parameter |
+| WorkflowParameterDataTypeName        | nvarchar (50)  | Nej          | Namnet på en datatyp som är associerad med en arbets flödes funktions parameter |
 
 ## <a name="vwworkflowproperty"></a>vwWorkflowProperty
 
-Den här vyn visar egenskaperna som definierats för ett arbetsflöde. Den här vyn innehåller följande data för varje egenskap:
+Den här vyn representerar de egenskaper som definierats för ett arbets flöde. För varje egenskap innehåller den här vyn följande data:
 
--   Associerade programdefinition
--   Associerade arbetsflödesdefinition
--   Information om arbetsflöde
+-   Associerad program definition
+-   Associerad arbets flödes definition
+-   Information om arbets flödes egenskaper
 
-| Namn                         | Typ          | Kan vara Null | Beskrivning                                                                                                                                                                                                                                                   |
+| Name                         | type          | Kan vara null | Beskrivning                                                                                                                                                                                                                                                   |
 |------------------------------|---------------|-------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | ApplicationId                | int           | Nej          | En unik identifierare för programmet |
-| ApplicationName              | nvarchar(50)  | Nej          | Namnet på programmet |
-| ApplicationDisplayName       | nvarchar(255) | Nej          | Namnet som ska visas i ett användargränssnitt |
-| ApplicationEnabled           | bit           | Nej          | Identifierar om programmet är aktiverat.<br />**Obs:** Även om ett program kan återspeglas som inaktiverade i databasen, tillhörande kontrakt finns kvar på blockchain och data om dessa kontrakt förblir i databasen. |
-| WorkflowId                   | int           | Nej          | En unik identifierare för arbetsflödet |
-| WorkflowName                 | nvarchar(50)  | Nej          | Namnet på arbetsflödet |
-| WorkflowDisplayName          | nvarchar(255) | Nej          | Namnet som ska visas för arbetsflödet i ett användargränssnitt |
-| WorkflowDescription          | nvarchar(255) | Ja         | En beskrivning av arbetsflödet |
-| WorkflowPropertyID           | int           | Nej          | En unik identifierare för en egenskap för ett arbetsflöde |
-| WorkflowPropertyName         | nvarchar(50)  | Nej          | Namnet på egenskapen |
-| WorkflowPropertyDescription  | nvarchar(255) | Ja         | En beskrivning av egenskapen |
-| WorkflowPropertyDisplayName  | nvarchar(255) | Nej          | Namnet som ska visas i ett användargränssnitt |
-| WorkflowPropertyWorkflowId   | int           | Nej          | ID för arbetsflödet som den här egenskapen är associerad |
+| ApplicationName              | nvarchar (50)  | Nej          | Namnet på programmet |
+| applicationDisplayName       | nvarchar (255) | Nej          | Namnet som ska visas i ett användar gränssnitt |
+| ApplicationEnabled           | bit           | Nej          | Identifierar om programmet är aktiverat för tillfället.<br />**Obs:** Även om ett program kan reflekteras som inaktiverat i databasen, finns associerade kontrakt kvar på blockchain och data om dessa avtal finns kvar i databasen. |
+| WorkflowId                   | int           | Nej          | En unik identifierare för arbets flödet |
+| workflowName                 | nvarchar (50)  | Nej          | Namnet på arbets flödet |
+| WorkflowDisplayName          | nvarchar (255) | Nej          | Namnet som ska visas för arbets flödet i ett användar gränssnitt |
+| WorkflowDescription          | nvarchar (255) | Ja         | En beskrivning av arbets flödet |
+| WorkflowPropertyID           | int           | Nej          | En unik identifierare för en egenskap för ett arbets flöde |
+| WorkflowPropertyName         | nvarchar (50)  | Nej          | Egenskapens namn |
+| WorkflowPropertyDescription  | nvarchar (255) | Ja         | En beskrivning av egenskapen |
+| WorkflowPropertyDisplayName  | nvarchar (255) | Nej          | Namnet som ska visas i ett användar gränssnitt |
+| WorkflowPropertyWorkflowId   | int           | Nej          | ID för det arbets flöde som egenskapen är kopplad till |
 | WorkflowPropertyDataTypeId   | int           | Nej          | ID för den datatyp som definierats för egenskapen |
-| WorkflowPropertyDataTypeName | nvarchar(50)  | Nej          | Namnet på den datatyp som definierats för egenskapen |
-| WorkflowPropertyIsState      | bit           | Nej          | Det här fältet identifierar om den här egenskapen för arbetsflödet innehåller tillståndet för arbetsflödet |
+| WorkflowPropertyDataTypeName | nvarchar (50)  | Nej          | Namnet på den datatyp som definierats för egenskapen |
+| WorkflowPropertyIsState      | bit           | Nej          | Det här fältet anger om den här arbets flödes egenskapen innehåller status för arbets flödet |
 
 ## <a name="vwworkflowstate"></a>vwWorkflowState
 
-Den här vyn representerar egenskaperna som är associerade med ett arbetsflöde. För varje kontraktet innehåller den här vyn följande data:
+Den här vyn representerar egenskaperna som är kopplade till ett arbets flöde. För varje kontrakt innehåller den här vyn följande data:
 
--   Associerade programdefinition
--   Associerade arbetsflödesdefinition
--   Information om arbetsflödets tillstånd
+-   Associerad program definition
+-   Associerad arbets flödes definition
+-   Information om arbets flödes tillstånd
 
-| Namn                         | Typ          | Kan vara Null | Beskrivning                                                                                                                                                                                                                                                   |
+| Name                         | type          | Kan vara null | Beskrivning                                                                                                                                                                                                                                                   |
 |------------------------------|---------------|-------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | ApplicationId                | int           | Nej          | En unik identifierare för programmet |
-| ApplicationName              | nvarchar(50)  | Nej          | Namnet på programmet |
-| ApplicationDisplayName       | nvarchar(255) | Nej          | En beskrivning av programmet |
-| ApplicationEnabled           | bit           | Nej          | Identifierar om programmet är aktiverat.<br />**Obs:** Även om ett program kan återspeglas som inaktiverade i databasen, tillhörande kontrakt finns kvar på blockchain och data om dessa kontrakt förblir i databasen. |
-| WorkflowId                   | int           | Nej          | Den unika identifieraren för arbetsflödet |
-| WorkflowName                 | nvarchar(50)  | Nej          | Namnet på arbetsflödet |
-| WorkflowDisplayName          | nvarchar(255) | Nej          | Namnet som visas i användargränssnittet för arbetsflödet |
-| WorkflowDescription          | nvarchar(255) | Ja         | Beskrivning av arbetsflödet |
+| ApplicationName              | nvarchar (50)  | Nej          | Namnet på programmet |
+| applicationDisplayName       | nvarchar (255) | Nej          | En beskrivning av programmet |
+| ApplicationEnabled           | bit           | Nej          | Identifierar om programmet är aktiverat för tillfället.<br />**Obs:** Även om ett program kan reflekteras som inaktiverat i databasen, finns associerade kontrakt kvar på blockchain och data om dessa avtal finns kvar i databasen. |
+| WorkflowId                   | int           | Nej          | Arbets flödets unika identifierare |
+| workflowName                 | nvarchar (50)  | Nej          | Namnet på arbets flödet |
+| WorkflowDisplayName          | nvarchar (255) | Nej          | Namnet som visas i användar gränssnittet för arbets flödet |
+| WorkflowDescription          | nvarchar (255) | Ja         | Arbets flödets Beskrivning |
 | WorkflowStateID              | int           | Nej          | Den unika identifieraren för tillstånd |
-| WorkflowStateName            | nvarchar(50)  | Nej          | Namnet på tillståndet |
-| WorkflowStateDisplayName     | nvarchar(255) | Nej          | Namnet som ska visas i användargränssnittet för tillstånd |
-| WorkflowStateDescription     | nvarchar(255) | Ja         | En beskrivning av arbetsflödets tillstånd |
-| WorkflowStatePercentComplete | int           | Nej          | Det här värdet identifierar procentandelen klar att arbetsflödet är i det här tillståndet |
-| WorkflowStateValue           | nvarchar(50)  | Nej          | Värdet för tillståndet |
-| WorkflowStateStyle           | nvarchar(50)  | Nej          | En textbeskrivning som ger en ledtråd till klienter på hur du kan visa det här tillståndet i Användargränssnittet. Tillstånd som stöds omfattar *lyckades* och *fel* |
+| WorkflowStateName            | nvarchar (50)  | Nej          | Namnet på tillstånd |
+| WorkflowStateDisplayName     | nvarchar (255) | Nej          | Namnet som ska visas i användar gränssnittet för status |
+| WorkflowStateDescription     | nvarchar (255) | Ja         | En beskrivning av arbets flödets tillstånd |
+| WorkflowStatePercentComplete | int           | Nej          | Det här värdet anger procent andelen slutfört som arbets flödet är i det här läget |
+| WorkflowStateValue           | nvarchar (50)  | Nej          | Värde för tillstånd |
+| WorkflowStateStyle           | nvarchar (50)  | Nej          | En text beskrivning som ger ett tips till klienter om hur det här läget återges i användar gränssnittet. Tillstånd som stöds är *lyckade* och *misslyckade* |

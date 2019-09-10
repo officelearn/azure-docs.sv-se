@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
 manager: philmea
-ms.openlocfilehash: baf694fbc3176732d43094c8d20ee112af927f16
-ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
+ms.openlocfilehash: b890fe1a9ef30e18a54ced9f48015bed39298807
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70186475"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70858881"
 ---
 # <a name="tutorial-create-and-test-a-device-capability-model-using-visual-studio-code"></a>Självstudier: Skapa och testa en enhets kapacitets modell med Visual Studio Code
 
@@ -35,10 +35,10 @@ I den här guiden får du lära dig att:
 Om du vill arbeta med enhets kapacitets modellen i den här självstudien behöver du:
 
 * [Visual Studio Code](https://code.visualstudio.com/download): VS Code är tillgängligt för flera plattformar
-* Azure IoT Device Workbench-tillägg i VS Code. Använd följande steg för att installera tillägget Azure IoT Device Workbench i VS Code:
+* [Azure IoT Tools för vs Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) Extension Pack. Använd följande steg för att installera tilläggs paketet i VS Code:
 
     1. I VS Code väljer du fliken **tillägg** .
-    1. Sök efter **Azure IoT Device Workbench**.
+    1. Sök efter **Azure IoT-verktyg**.
     1. Välj **Installera**.
 
 Om du vill skapa den genererade C-koden i Windows i den här självstudien behöver du:
@@ -61,7 +61,7 @@ Om du vill testa enhets koden i den här självstudien behöver du:
 
 ## <a name="model-your-device"></a>Modellera din enhet
 
-Du använder det _digitala, dubbla definitions språket_ för att skapa en enhets kapacitets modell. En modell består vanligt vis av flera gränssnitts definitions filer och en enda modell fil. **Tillägget Azure IoT Device Workbench för vs Code** innehåller verktyg som hjälper dig att skapa och redigera dessa JSON-filer.
+Du använder det _digitala, dubbla definitions språket_ för att skapa en enhets kapacitets modell. En modell består vanligt vis av flera _gränssnitts_ definitions filer och en enda modell fil. **Azure IoT Tools för vs Code** innehåller verktyg som hjälper dig att skapa och redigera dessa JSON-filer.
 
 ### <a name="create-the-interface-file"></a>Skapa gränssnitts filen
 
@@ -298,7 +298,7 @@ Filerna lagras nu på din företags lagrings plats.
 
 ## <a name="generate-code"></a>Generera kod
 
-Du kan använda **Azure IoT Device Workbench-tillägget för vs Code** för att skapa Skeleton C-kod från din modell. Så här genererar du Skeleton-koden i VS Code:
+Du kan använda **Azure IoT Tools för vs Code** för att skapa Skeleton C-kod från din modell. Så här genererar du Skeleton-koden i VS Code:
 
 1. Använd **CTRL + SKIFT + P** för att öppna kommando paletten.
 

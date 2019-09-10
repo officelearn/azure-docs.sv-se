@@ -5,14 +5,14 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: tutorial
-ms.date: 04/12/2019
+ms.date: 09/09/2019
 ms.author: helohr
-ms.openlocfilehash: 3e9ee3f5dd04ef838f78b9731885b7ea48e6c99d
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
-ms.translationtype: HT
+ms.openlocfilehash: a9b5eecd97b078c9446e28d971f900c4cf65130f
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70811317"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70845528"
 ---
 # <a name="tutorial-create-service-principals-and-role-assignments-by-using-powershell"></a>Självstudier: Skapa tjänstens huvudnamn och rolltilldelningar med PowerShell
 
@@ -38,9 +38,9 @@ Innan du kan skapa tjänstens huvud namn och roll tilldelningar måste du göra 
     Install-Module AzureAD
     ```
 
-2. [Hämta och importera Windows Virtual Desktop PowerShell-modulen](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview)
+2. [Hämta och importera Windows Virtual Desktop PowerShell-modulen](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview).
 
-3. Följ alla anvisningar i den här artikeln i samma PowerShell-session. Det kanske inte fungerar om du stänger fönstret och återgår till det senare.
+3. Följ alla anvisningar i den här artikeln i samma PowerShell-session. Processen kanske inte fungerar om du avbryter PowerShell-sessionen genom att stänga fönstret och öppna den igen senare.
 
 ## <a name="create-a-service-principal-in-azure-active-directory"></a>Skapa ett huvudnamn för tjänsten i Azure Active Directory
 
@@ -52,10 +52,9 @@ $aadContext = Connect-AzureAD
 $svcPrincipal = New-AzureADApplication -AvailableToOtherTenants $true -DisplayName "Windows Virtual Desktop Svc Principal"
 $svcPrincipalCreds = New-AzureADApplicationPasswordCredential -ObjectId $svcPrincipal.ObjectId
 ```
-
 ## <a name="view-your-credentials-in-powershell"></a>Visa dina autentiseringsuppgifter i PowerShell
 
-Innan du avslutar PowerShell-sessionen visar du dina autentiseringsuppgifter och skriver ned dem för framtida bruk. Lösen ordet är särskilt viktigt eftersom du inte kan hämta det när du har stängt PowerShell-sessionen.
+Innan du skapar roll tilldelningen för tjänstens huvud namn kan du Visa dina autentiseringsuppgifter och skriva ned dem för framtida bruk. Lösen ordet är särskilt viktigt eftersom du inte kan hämta det när du har stängt PowerShell-sessionen.
 
 Här följer de tre autentiseringsuppgifterna som du bör skriva ned och vilka cmdlets du måste köra för att hämta dem:
 
@@ -79,19 +78,21 @@ Här följer de tre autentiseringsuppgifterna som du bör skriva ned och vilka c
 
 ## <a name="create-a-role-assignment-in-windows-virtual-desktop-preview"></a>Skapa en roll tilldelning i för hands versionen av Windows Virtual Desktop
 
-Härnäst ska du skapa en RDS-roll tilldelning i Windows Virtual Desktop för tjänstens huvud namn, vilket gör att tjänstens huvud namn kan logga in på Windows Virtual Desktop. Se till att använda ett konto som har behörighet att skapa RDS-roll tilldelningar.
+Därefter måste du skapa en roll tilldelning så att tjänstens huvud namn kan logga in på det virtuella Windows-skrivbordet. Var noga med att logga in med ett konto som har behörighet att skapa roll tilldelningar.
 
-Kör följande PowerShell-cmdlets för att ansluta till Windows Virtual Desktop och Visa dina RDS-klienter.
+Börja med att [Hämta och importera Windows Virtual Desktop PowerShell-modulen](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview) som ska användas i PowerShell-sessionen om du inte redan gjort det.
+
+Kör följande PowerShell-cmdlets för att ansluta till det virtuella Windows-skrivbordet och Visa dina klienter.
 
 ```powershell
 Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
-Get-RdsTenant | FL
+Get-RdsTenant
 ```
 
-Använd TenantName för rätt klient och kör följande PowerShell-cmdletar för att skapa en roll tilldelning för tjänstens huvud namn i den angivna klient organisationen.
+När du hittar klient namnet för den klient som du vill skapa en roll tilldelning för, använder du namnet i följande cmdlet:
 
 ```powershell
-New-RdsRoleAssignment -RoleDefinitionName "RDS Owner" -ApplicationId $svcPrincipal.AppId -TenantName "<my-rds-tenantname>"
+New-RdsRoleAssignment -RoleDefinitionName "RDS Owner" -ApplicationId $svcPrincipal.AppId -TenantName $myTenantName
 ```
 
 ## <a name="sign-in-with-the-service-principal"></a>Logga in med tjänstens huvud namn

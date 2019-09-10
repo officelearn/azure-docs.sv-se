@@ -10,12 +10,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 07/08/2019
-ms.openlocfilehash: 7afa96c3c4d1a163e323aa0bb50ec361ff74aac3
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: 302fad84a2f0443fb639e57d7bb0cfddef4c3443
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70278696"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70858746"
 ---
 # <a name="deploy-a-model-to-an-azure-kubernetes-service-cluster"></a>Distribuera en modell till ett Azure Kubernetes service-kluster
 
@@ -30,7 +30,7 @@ Lär dig hur du använder tjänsten Azure Machine Learning för att distribuera 
 
 När du distribuerar till Azure Kubernetes-tjänsten distribuerar du till ett AKS-kluster som är __anslutet till din arbets yta__. Det finns två sätt att ansluta ett AKS-kluster till din arbets yta:
 
-* Skapa AKS-klustret med hjälp av Azure Machine Learning service SDK, Machine Learning CLI eller Azure Portal. Den här processen ansluter automatiskt klustret till arbets ytan.
+* Skapa AKS-klustret med hjälp av Azure Machine Learning service SDK, Machine Learning CLI, [Azure Portal](https://portal.azure.com) -eller [arbets ytans landnings sida (för hands version)](https://ml.azure.com). Den här processen ansluter automatiskt klustret till arbets ytan.
 * Koppla ett befintligt AKS-kluster till din Azure Machine Learning service-arbetsyta. Ett kluster kan kopplas med hjälp av Azure Machine Learning service SDK, Machine Learning CLI eller Azure Portal.
 
 > [!IMPORTANT]

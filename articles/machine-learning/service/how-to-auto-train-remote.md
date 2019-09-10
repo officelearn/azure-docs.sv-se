@@ -11,12 +11,12 @@ ms.subservice: core
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 7/12/2019
-ms.openlocfilehash: 3c3205b64803ac4ee67997ef546ffd64c89f23b4
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.openlocfilehash: 5918cc3835d00536845a96ed81ef663867291e29
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69624821"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70858806"
 ---
 # <a name="train-models-with-automated-machine-learning-in-the-cloud"></a>Träna modeller med automatiserade maskininlärning i molnet
 
@@ -213,7 +213,7 @@ Du ser utdata som liknar följande exempel:
 
 ## <a name="explore-results"></a>Utforska resultat
 
-Du kan använda samma [Jupyter-widget](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py) som visas i [övnings](tutorial-auto-train-models.md#explore-the-results) självstudien för att se ett diagram och en tabell med resultat.
+Du kan använda samma [Jupyter-widget](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py) som visas i [övnings självstudien](tutorial-auto-train-models.md#explore-the-results) för att se ett diagram och en tabell med resultat.
 
 ```python
 from azureml.widgets import RunDetails
@@ -278,7 +278,7 @@ Skriva ut den `best_run` förklaring sammanfattning variabler resulterar i följ
 
 ![Modellen explainability konsolens utdata](./media/how-to-auto-train-remote/expl-print.png)
 
-Du också visualisera funktionen vikten via widget Användargränssnittet, samt webbgränssnittet på Azure-portalen i din arbetsyta.
+Du kan också visualisera funktions prioritet via gränssnittet i gränssnittet, webb gränssnittet på Azure Portal eller din [arbets ytans landnings sida (för hands version)](https://ml.azure.com). 
 
 ![Modellen explainability UI](./media/how-to-auto-train-remote/model-exp.png)
 

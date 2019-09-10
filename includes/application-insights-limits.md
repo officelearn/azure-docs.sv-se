@@ -9,10 +9,10 @@ ms.date: 08/06/2019
 ms.author: mbullwin
 ms.custom: include file
 ms.openlocfilehash: 14e2bd4af2616e9dd33fe8267de132ab6c0f1cfe
-ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
+ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2019
+ms.lasthandoff: 09/10/2019
 ms.locfileid: "69982611"
 ---
 Det finns vissa begränsningar för antalet mått och händelser per program, det vill säga per Instrumentation-nyckel. Gränserna beror på vilken [prisplan](https://azure.microsoft.com/pricing/details/application-insights/) du väljer.
@@ -29,7 +29,7 @@ Det finns vissa begränsningar för antalet mått och händelser per program, de
 | Stränglängd för egenskapsvärde | 8 192  | Se [typ scheman](https://github.com/microsoft/ApplicationInsights-Home/tree/master/EndpointSpecs/Schemas/Bond).
 | Längd för spårnings- och undantagsmeddelande | 32 768  | Se [typ scheman](https://github.com/microsoft/ApplicationInsights-Home/tree/master/EndpointSpecs/Schemas/Bond).
 | [Tillgänglighetstester](../articles/azure-monitor/app/monitor-web-app-availability.md) (antal per app) | 100 |
-| [](../articles/azure-monitor/app/profiler.md) Data kvarhållning för profilering | 5 dagar |
-| [](../articles/azure-monitor/app/profiler.md) Profilerade data har skickats per dag | 10 GB |
+| [Data](../articles/azure-monitor/app/profiler.md) kvarhållning för profilering | 5 dagar |
+| [Profilerade](../articles/azure-monitor/app/profiler.md) data har skickats per dag | 10 GB |
 
 Mer information finns i [Om priser och kvoter i Application Insights](../articles/azure-monitor/app/pricing.md).

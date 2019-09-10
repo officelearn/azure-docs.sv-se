@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 074b9ec06818363a97253a587ac451a38999832f
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 56bfe92de24b9386252ee8719af66cc658948565
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68837937"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70844315"
 ---
 # <a name="configure-the-expiration-policy-for-office-365-groups"></a>Konfigurera princip för förfallo datum för Office 365-grupper
 
@@ -35,7 +35,7 @@ När du har angett att en grupp upphör att gälla:
 För närvarande kan endast en förfalloprincip konfigureras för Office 365-grupper i en klientorganisation.
 
 > [!NOTE]
-> Genom att konfigurera och använda principen för förfallo datum för Office 365-grupper måste du ha Azure AD Premium licenser för medlemmarna i alla grupper som förfallo principen tillämpas för.
+> Genom att konfigurera och använda principen för utgångs princip för Office 365-grupper måste du ha, men inte nödvändigt vis tilldela Azure AD Premium licenser för medlemmarna i alla grupper som utgångs principen tillämpas på.
 
 Information om hur du hämtar och installerar Azure AD PowerShell-cmdlets finns i [Azure Active Directory PowerShell för Graph 2.0.0.137](https://www.powershellgallery.com/packages/AzureADPreview/2.0.0.137).
 
@@ -69,8 +69,11 @@ Mer information om behörigheter för att återställa en borttagen grupp finns 
   - Spara inställningarna när du är klar genom att välja **Spara**.
 
 > [!NOTE]
-> När du först konfigurerar förfallo datum är alla grupper som är äldre än utgångs intervallet inställda på 30 dagar tills de upphör att gälla. Det första meddelandet om förnyad e-post skickas ut inom en dag. Till exempel har grupp A skapats för 400 dagar sedan och förfallo intervallet är inställt på 180 dagar. När du tillämpar princip för förfallo datum har grupp A 30 dagar innan den tas bort, om inte ägaren förnyar den.
+> När du först konfigurerar förfallo datum är alla grupper som är äldre än utgångs intervallet inställda på 30 dagar tills de upphör att gälla, om inte ägaren förnyar den. Det första meddelandet om förnyad e-post skickas ut inom en dag.
+>
 > När en dynamisk grupp tas bort och återställs, visas den som en ny grupp och fylls i igen enligt regeln. Den här processen kan ta upp till 24 timmar.
+>
+> Meddelanden om förfallo datum för grupper som används i team visas i team ägarens feed.
 
 ## <a name="email-notifications"></a>E-postmeddelanden
 

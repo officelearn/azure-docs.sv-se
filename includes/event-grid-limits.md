@@ -9,28 +9,28 @@ ms.date: 05/22/2019
 ms.author: tomfitz
 ms.custom: include file
 ms.openlocfilehash: 3f94481e6a8550479788d92c744327e1dc3b58c4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 09/10/2019
 ms.locfileid: "66376927"
 ---
-Följande begränsningar gäller för Azure Event Grid system ämnen och anpassade ämnen *inte* händelse domäner.
+Följande begränsningar gäller för Azure Event Grid Systems ämnen och anpassade ämnen, *inte* händelse domäner.
 
 | Resource | Gräns |
 | --- | --- |
 | Anpassade ämnen per Azure-prenumeration | 100 |
-| Händelseprenumerationer per ämne | 500 |
-| Publicera priset för ett anpassat ämne (inkommande) | 5 000 händelser per sekund per ämne |
-| Publicera begäranden | 250 per sekund |
-| Händelsestorlek | Stöd för 64 KB allmänt tillgänglig (GA). Stöd för 1 MB förhandsvisas just nu. |
+| Händelse prenumerationer per ämne | 500 |
+| Publicerings takt för ett anpassat ämne (ingress) | 5 000 händelser per sekund per ämne |
+| Publicera begär Anden | 250 per sekund |
+| Händelse storlek | Stöd för 64 KB i allmän tillgänglighet (GA). Stöd för 1 MB är för närvarande en för hands version. |
 
-Följande begränsningar gäller för händelse-domäner.
+Följande begränsningar gäller endast för händelse domäner.
 
 | Resource | Gräns |
 | --- | --- |
-| Ämnen per event domän | 1 000 allmänt tillgängliga förhandsversionen |
-| Händelseprenumerationer per avsnitt inom en domän | 50 allmänt tillgängliga förhandsversionen |
-| Händelseprenumerationer för domänen omfång | 50 allmänt tillgängliga förhandsversionen |
-| Publicera priset för en händelsedomän (inkommande) | 5 000 händelser per sekund under den allmänna förhandsvisningen |
-| Publicera begäranden | 250 per sekund |
+| Ämnen per händelse domän | 1 000 under offentlig för hands version |
+| Händelse prenumerationer per ämne i en domän | 50 under offentlig för hands version |
+| Händelse prenumerationer för domän omfattning | 50 under offentlig för hands version |
+| Publicerings takt för en händelse domän (ingress) | 5 000 händelser per sekund under offentlig för hands version |
+| Publicera begär Anden | 250 per sekund |

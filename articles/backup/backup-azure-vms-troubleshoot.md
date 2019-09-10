@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 08/30/2019
 ms.author: dacurwin
-ms.openlocfilehash: f053cc9bf6b08b9cf76b6e992c3d8cbdf5f759da
-ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
+ms.openlocfilehash: 1b3d02d5cfdae2f196f2f35f075dd8c250b5ece1
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70258985"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70860340"
 ---
 # <a name="troubleshooting-backup-failures-on-azure-virtual-machines"></a>Felsöka säkerhets kopierings fel på virtuella Azure-datorer
 
@@ -25,7 +25,7 @@ Det här avsnittet beskriver felet vid säkerhets kopiering av virtuella Azure-d
 
 ### <a name="basic-troubleshooting"></a>Grundläggande felsökning
 
-* Se till att VM-agenten (WA-agenten) är den [senaste versionen](https://docs.microsoft.com/azure/backup/backup-azure-arm-vms-prepare#install-the-vm-agent-on-the-virtual-machine).
+* Se till att VM-agenten (WA-agenten) är den [senaste versionen](https://docs.microsoft.com/azure/backup/backup-azure-arm-vms-prepare#install-the-vm-agent).
 * Se till att Windows eller Linux VM OS-versionen stöds, se [IaaS VM backup support Matrix](https://docs.microsoft.com/azure/backup/backup-support-matrix-iaas).
 * Kontrol lera att ingen annan säkerhets kopierings tjänst körs.
    * För att se till att det inte finns några ögonblicks bilds tillägg måste [du avinstallera tillägg för att framtvinga inläsning och sedan försöka säkerhetskopiera igen](https://docs.microsoft.com/azure/backup/backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout#the-backup-extension-fails-to-update-or-load).

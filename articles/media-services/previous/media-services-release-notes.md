@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/21/2019
 ms.author: juliako
-ms.openlocfilehash: ff85638a05855d0b755a7b1812ee7025274b559c
-ms.sourcegitcommit: 3f78a6ffee0b83788d554959db7efc5d00130376
+ms.openlocfilehash: 6fea7b7d3d3ef3b1a46aeeff0bab8fef2a9bf3ad
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70019300"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70860348"
 ---
 # <a name="azure-media-services-release-notes"></a>Viktig information om Azure Media Services
 
@@ -29,7 +29,7 @@ I den här versionen av Azure Media Services sammanfattas ändringar från tidig
 
 Vi vill höra från våra kunder så att vi kan fokusera på att åtgärda problem som påverkar dig. Om du vill rapportera ett problem eller ställa frågor kan du skicka in ett inlägg i [Azure Media Services MSDN-forum]. 
 
-## <a name="a-idissuescurrently-known-issues"></a><a id="issues"/>Aktuella kända problem
+## <a name="a-idissuesknown-issues"></a><a id="issues"/>Kända problem
 ### <a name="a-idgeneral_issuesmedia-services-general-issues"></a><a id="general_issues"/>Media Services allmänna problem
 
 | Problem | Beskrivning |
@@ -41,6 +41,7 @@ Vi vill höra från våra kunder så att vi kan fokusera på att åtgärda probl
 | När du frågar entiteter returneras en gräns på 1 000 entiteter vid en tidpunkt eftersom den offentliga REST-versionen 2 begränsar frågeresultat till 1 000-resultat. |Använd hoppa över och ta (.NET)/Top (REST) enligt beskrivningen i [det här .net-exemplet](media-services-dotnet-manage-entities.md#enumerating-through-large-collections-of-entities) och [det här REST API exemplet](media-services-rest-manage-entities.md#enumerating-through-large-collections-of-entities). |
 | Vissa klienter kan komma över ett problem med upprepad tagg i Smooth Streaming manifestet. |Mer information finns i [det här avsnittet](media-services-deliver-content-overview.md#known-issues). |
 | Media Services .NET SDK-objekt kan inte serialiseras och därför fungerar det inte med Azure cache för Redis. |Om du försöker serialisera SDK AssetCollection-objektet för att lägga till det i Azure cache för Redis genereras ett undantag. |
+|REST API svarar med ett fel meddelande om att "filtret inte kan nås av den här versionen av REST API" vid försök att hämta ett till gångs-eller konto nivå filter.|Filtret har skapats eller ändrats med en senare API-version än vad som används för att hämta filtret. Detta kan inträffa om två API-versioner används av kod eller verktyg som används av kunden.  Den bästa lösningen här är att uppgradera koden eller verktygen för att använda de nyare eller de två API-versionerna.|
 
 ## <a name="a-idrest_version_historyrest-api-version-history"></a><a id="rest_version_history"/>REST API versions historik
 Information om Media Services REST API versions historik finns i [Azure Media Services REST API referens].
@@ -201,11 +202,11 @@ Mer information finns i:
 
 * Följande [kod exempel](https://github.com/Azure/azure-sdk-for-php/tree/master/examples/MediaServices) hjälper dig att komma igång snabbt:
   * **vodworkflow_aes. php**: Den här PHP-filen visar hur du använder AES-128 dynamisk kryptering och Key Delivery Service. Det baseras på .NET-exemplet som beskrivs i [använda AES-128 dynamisk kryptering och Key Delivery Service](media-services-protect-with-aes128.md).
-  * **vodworkflow_aes. php**: Den här PHP-filen visar hur du använder PlayReady Dynamic Encryption och licens leverans tjänsten. Det baseras på .NET-exemplet som beskrivs i [använda PlayReady och/eller Widevine Dynamic common](media-services-protect-with-playready-widevine.md)Encryption.
+  * **vodworkflow_aes. php**: Den här PHP-filen visar hur du använder PlayReady Dynamic Encryption och licens leverans tjänsten. Det baseras på .NET-exemplet som beskrivs i [använda PlayReady och/eller Widevine Dynamic common Encryption](media-services-protect-with-playready-widevine.md).
   * **scale_encoding_units.php**: Den här PHP-filen visar hur du skalar kodade reserverade enheter.
 
 ## <a id="nov_changes_15"></a>Version november 2015
- Media Services erbjuder nu licens leverans tjänsten för Widevine i molnet. Mer information finns i [den här bloggen](https://azure.microsoft.com/blog/announcing-google-widevine-license-delivery-services-public-preview-in-azure-media-services/). Se även [den här](media-services-protect-with-playready-widevine.md) självstudien och [GitHub](https://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-drm)-lagringsplatsen. 
+ Media Services erbjuder nu licens leverans tjänsten för Widevine i molnet. Mer information finns i [den här bloggen](https://azure.microsoft.com/blog/announcing-google-widevine-license-delivery-services-public-preview-in-azure-media-services/). Se även [den här självstudien](media-services-protect-with-playready-widevine.md) och [GitHub-lagringsplatsen](https://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-drm). 
 
 Widevine licens leverans tjänster som tillhandahålls av Media Services är i för hands version. Mer information finns i [den här bloggen](https://azure.microsoft.com/blog/announcing-google-widevine-license-delivery-services-public-preview-in-azure-media-services/).
 
@@ -345,7 +346,7 @@ Media Services SDK för .NET är nu version 3.0.0.8. Följande uppdateringar har
 * Verifierings inställningarna lades till för när kanal-och direkt uppspelnings uppdateringen slutfördes.
 
 ### <a name="new-github-repository-to-host-media-services-samples"></a>Ny GitHub-lagringsplats till värd Media Services exempel
-Exempel finns i [Media Services-exempel GitHub](https://github.com/Azure/Azure-Media-Services-Samples)-lagringsplatsen.
+Exempel finns i [Media Services-exempel GitHub-lagringsplatsen](https://github.com/Azure/Azure-Media-Services-Samples).
 
 ## <a id="september_changes_14"></a>Version september 2014
 Media Services REST-metadata är nu version 2,7. Mer information om de senaste REST-uppdateringarna finns i [referens för Media Services REST API](https://docs.microsoft.com/rest/api/media/operations/azure-media-services-rest-api-reference).
@@ -380,7 +381,7 @@ Media Services SDK för .NET är nu version 3.0.0.7
 * Strömma Storage-krypterade till gångar. Mer information finns i [Stream Storage-krypterat innehåll](https://msdn.microsoft.com/library/azure/dn783451.aspx).
 
 ## <a id="august_changes_14"></a>Version augusti 2014
-När du kodar en till gång skapas en utmatnings till gång när kodnings jobbet är klart. Till och med den här versionen producerade Media Services Encoder metadata om utdata till gångar. Från och med den här versionen skapar kodaren även metadata om indata till gångar. Mer information finns i [Inkommande metadata] för indata och [Utgående metadata].
+När du kodar en till gång skapas en utmatnings till gång när kodnings jobbet är klart. Till och med den här versionen producerade Media Services Encoder metadata om utdata till gångar. Från och med den här versionen skapar kodaren även metadata om indata till gångar. Mer information finns i [Inkommande metadata] och [Utgående metadata].
 
 ## <a id="july_changes_14"></a>Version juli 2014
 Följande fel korrigeringar har gjorts för Azure Media Services Paketeraren och Krypteraren:

@@ -9,19 +9,19 @@ ms.date: 02/07/2019
 ms.author: robb
 ms.custom: include file
 ms.openlocfilehash: 2922a1fb92f3df07429d3463b8bf639f336776af
-ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
+ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2019
+ms.lasthandoff: 09/10/2019
 ms.locfileid: "67305337"
 ---
 | Resource | Standardgräns | Övre gräns |
 | --- | --- | --- |
-| Azure-app-push | 10 azure åtgärder per åtgärdsgruppen. | Kontakta supporten. |
-| E-post | 1 000 e poståtgärder i en åtgärdsgrupp.<br>Mer än 100 e-postmeddelanden på en timme.<br>Se även de [begränsar information frekvensbegränsningen](../articles/azure-monitor/platform/alerts-rate-limiting.md). | Kontakta supporten. |
-| ITSM | 10 ITSM-åtgärder i en åtgärdsgrupp. | Kontakta supporten. | 
-| Logikapp | 10 åtgärder för logikappar i en åtgärdsgrupp. | Kontakta supporten. |
-| Runbook | 10 runbook-åtgärder i en åtgärdsgrupp. | Kontakta supporten. |
-| SMS | 10 SMS-åtgärder i en åtgärdsgrupp.<br>Mer än 1 SMS-meddelande var femte minut.<br>Se även de [begränsar information frekvensbegränsningen](../articles/azure-monitor/platform/alerts-rate-limiting.md). | Kontakta supporten. |
-| Röst | 10 voice åtgärder i en åtgärdsgrupp.<br>Mer än 1 röstsamtal var femte minut.<br>Se även de [begränsar information frekvensbegränsningen](../articles/azure-monitor/platform/alerts-rate-limiting.md). | Kontakta supporten. |
-| Webhook | 10 webhook-åtgärder i en åtgärdsgrupp.  Maximala antalet webhook-anrop är 1500 per minut per prenumeration. Det finns andra begränsningar på [åtgärd-specifik information](../articles/azure-monitor/platform/action-groups.md#action-specific-information).  | Kontakta supporten. |
+| Push för Azure-app | 10 Azure App-åtgärder per åtgärds grupp. | Kontakta supporten. |
+| Email | 1 000 e-poståtgärder i en åtgärds grupp.<br>Högst 100 e-postmeddelanden på en timme.<br>Se även [frekvensen för att begränsa informationen](../articles/azure-monitor/platform/alerts-rate-limiting.md). | Kontakta supporten. |
+| ITSM | 10 ITSM-åtgärder i en åtgärds grupp. | Kontakta supporten. | 
+| Logikapp | 10 Logic app-åtgärder i en åtgärds grupp. | Kontakta supporten. |
+| Runbook | 10 Runbook-åtgärder i en åtgärds grupp. | Kontakta supporten. |
+| SMS | 10 SMS-åtgärder i en åtgärds grupp.<br>Högst ett SMS-meddelande var 5: e minut.<br>Se även [frekvensen för att begränsa informationen](../articles/azure-monitor/platform/alerts-rate-limiting.md). | Kontakta supporten. |
+| Röst | 10 röst åtgärder i en åtgärds grupp.<br>Högst 1 röst samtal var 5: e minut.<br>Se även [frekvensen för att begränsa informationen](../articles/azure-monitor/platform/alerts-rate-limiting.md). | Kontakta supporten. |
+| Webhook | 10 webhook-åtgärder i en åtgärds grupp.  Maximalt antal webhook-anrop är 1500 per minut per prenumeration. Andra gränser är tillgängliga med [Åtgärds-speciell information](../articles/azure-monitor/platform/action-groups.md#action-specific-information).  | Kontakta supporten. |

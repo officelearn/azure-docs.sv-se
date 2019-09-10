@@ -1,35 +1,30 @@
 ---
 title: Översikt över dirigering av URL-baserat innehåll med Azure Application Gateway
-description: Den här artikeln ger en översikt över den Application Gateway URL-baserade innehållsroutningen, UrlPathMap-konfigurationen och PathBasedRouting-regeln.
-documentationcenter: na
+description: Den här artikeln innehåller en översikt över den Azure Application Gateway-URL-baserad innehålls dirigering, UrlPathMap-konfiguration och PathBasedRouting-regel.
 services: application-gateway
 author: vhorne
-manager: jpconnock
 ms.service: application-gateway
-ms.devlang: na
-ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 4/23/2018
+ms.date: 09/10/2019
 ms.author: victorh
-ms.openlocfilehash: ee0267146140d095487b293331a7de493ba151c6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.topic: conceptual
+ms.openlocfilehash: 0dfeb6a80cbf227f20b24def7641882ad0444489
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61361963"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70844590"
 ---
-# <a name="azure-application-gateway-url-path-based-routing-overview"></a>Översikt över routning av URL-sökvägsbaserat innehåll med Azure Application Gateway
+# <a name="url-path-based-routing-overview"></a>Översikt över URL-sökvägsbaserad routning
 
 URL-sökvägsbaserad routning låter dig routa trafik till serverdels-serverpooler baserat på URL-sökvägen till begäranden. 
 
 Ett av scenarierna är att dirigerar begäranden för olika innehållstyper till olika serverdels-serverpooler.
 
-I följande exempel Application Gateway fungerar som värd för trafik åt contoso.com från tre serverdels serverpooler till exempel: VideoServerPool, ImageServerPool och DefaultServerPool.
+I följande exempel betjänar Application Gateway trafik för contoso.com från tre backend-server grupper, till exempel: VideoServerPool, ImageServerPool och DefaultServerPool.
 
-![imageURLroute](./media/url-route-overview/figure1.png)
+![imageURLroute](./media/application-gateway-url-route-overview/figure1.png)
 
-Begäranden om <http://contoso.com/video/*> dirigeras till VideoServerPool, och <http://contoso.com/images/*> dirigeras till ImageServerPool. DefaultServerPool väljs om inget av sökvägsmönstren matchar.
+Begär Anden för\:http//contoso.com/video/* dirigeras till VideoServerPool och http\://contoso.com/images/* dirigeras till ImageServerPool. DefaultServerPool väljs om inget av sökvägsmönstren matchar.
 
 > [!IMPORTANT]
 > Regler bearbetas i den ordning de visas i portalen. Vi rekommenderar starkt att konfigurera lyssnare för flera platser första innan du konfigurerar en grundläggande lyssnare.  Detta säkerställer att trafik dirigeras till rätt serverdel. Om en grundläggande lyssnare visas först och matchar en inkommande begäran kommer den att bearbetas av den lyssnaren.
@@ -67,8 +62,37 @@ UrlPathMap-elementet används för att ange sökvägsmönster till mappningar f�
 }]
 ```
 
-> [!NOTE]
-> PathPattern: Den här inställningen är en lista över sökvägsmönster att matcha. Vart och ett måste börja med / och ett * får bara förekomma på slutet följt av ett /. Strängen som skickats till sökvägsmatcharen saknar text efter det första? eller # och de tecknen tillåts inte här.
+### <a name="pathpattern"></a>PathPattern
+
+PathPattern är en lista över Sök vägs mönster som ska matchas. Vart och ett måste börja med / och ett * får bara förekomma på slutet följt av ett /. Strängen som matas till Sök vägs matcharen innehåller ingen text efter den första? eller #, och dessa tecken är inte tillåtna här. Annars tillåts alla tecken som tillåts i en URL i PathPattern.
+
+De mönster som stöds beror på om du distribuerar Application Gateway v1 eller v2:
+
+#### <a name="v1"></a>v1
+
+Sök vägs regler är Skift läges känsliga.
+
+|mönster för v1-sökväg  |Stöds?  |
+|---------|---------|
+|`/images/*`     |ja|
+|`/images*`     |nej|
+|`/images/*.jpg`     |nej|
+|`/*.jpg`     |nej|
+|`/Repos/*/Comments/*`     |nej|
+|`/CurrentUser/Comments/*`     |ja|
+
+#### <a name="v2"></a>v2
+
+Sök vägs regler är Skift läges känsliga.
+
+|sökväg till v2-sökväg  |Stöds?  |
+|---------|---------|
+|`/images/*`     |ja|
+|`/images*`     |ja|
+|`/images/*.jpg`     |nej|
+|`/*.jpg`     |nej|
+|`/Repos/*/Comments/*`     |nej|
+|`/CurrentUser/Comments/*`     |ja|
 
 Du kan kolla en [Resource Manager-mall med URL-baserad routning](https://azure.microsoft.com/documentation/templates/201-application-gateway-url-path-based-routing) för mer information.
 
@@ -99,4 +123,4 @@ Utdrag från PathBasedRouting-regeln:
 
 ## <a name="next-steps"></a>Nästa steg
 
-När du läst om URL-baserad innehållsroutning, kan du gå till [skapa en Application Gateway med URL-baserad routing](tutorial-url-route-powershell.md) för att skapa en Application Gateway med regler för URL-routning.
+När du läst om URL-baserad innehållsroutning, kan du gå till [skapa en Application Gateway med URL-baserad routing](create-url-route-portal.md) för att skapa en Application Gateway med regler för URL-routning.

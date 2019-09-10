@@ -5,19 +5,19 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: jroth
 ms.openlocfilehash: 0b24688b502a40e722d2fcc4436ff1824862f489
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 09/10/2019
 ms.locfileid: "67187717"
 ---
 | Resource | Standardgräns | Övre gräns |
 | --- | --- | --- |
-| [Webb- eller worker-roller per distribution](../articles/cloud-services/cloud-services-choose-me.md)<sup>1</sup> |25 |25 |
-| [Instans inkommande slutpunkter](/previous-versions/azure/reference/gg557552(v=azure.100)#instanceinputendpoint) per distribution |25 |25 |
-| [Ange slutpunkter](/previous-versions/azure/reference/gg557552(v=azure.100)#inputendpoint) per distribution |25 |25 |
-| [Interna slutpunkter](/previous-versions/azure/reference/gg557552(v=azure.100)#internalendpoint) per distribution |25 |25 |
-| [Värdbaserade tjänstcertifikat](../articles/cloud-services/cloud-services-certs-create.md#what-are-service-certificates) per distribution |199 |199 |
+| [Web-eller Worker-roller per distribution](../articles/cloud-services/cloud-services-choose-me.md) <sup>1</sup> |25 |25 |
+| [Slut punkter för instans ingång](/previous-versions/azure/reference/gg557552(v=azure.100)#instanceinputendpoint) per distribution |25 |25 |
+| [Slut punkter för ingångar](/previous-versions/azure/reference/gg557552(v=azure.100)#inputendpoint) per distribution |25 |25 |
+| [Interna slut punkter](/previous-versions/azure/reference/gg557552(v=azure.100)#internalendpoint) per distribution |25 |25 |
+| [Värdbaserade tjänst certifikat](../articles/cloud-services/cloud-services-certs-create.md#what-are-service-certificates) per distribution |199 |199 |
 
-<sup>1</sup>varje Azure-molntjänst med web- eller worker-roller kan ha två distributioner, en för produktion och en för mellanlagring. Den här gränsen syftar på hur många av olika roller, det vill säga konfiguration. Den här gränsen avser inte antalet instanser per roll, det vill säga skalning.
+<sup>1</sup> Varje Azure-Molntjänster med Web-eller Worker-roller kan ha två distributioner, en för produktion och en för mellanlagring. Den här gränsen avser antalet distinkta roller, det vill säga konfigurationen. Den här gränsen refererar inte till antalet instanser per roll, det vill säga skalning.
 

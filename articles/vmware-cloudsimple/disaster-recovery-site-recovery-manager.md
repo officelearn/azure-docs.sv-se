@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 7af6abefd132df7980bdc6e485734a996761653b
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.openlocfilehash: 151058f23bed674883da57e0b728dc1df4b698d9
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69972783"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70846142"
 ---
 # <a name="set-up-private-cloud-as-a-disaster-recovery-target-with-vmware-site-recovery-manager"></a>Konfigurera ett privat moln som ett haveri beredskaps mål med VMware Site Recovery Manager
 
@@ -33,6 +33,8 @@ CloudSimple-lösningen kräver att du gör följande:
 * Ange egna licenser för SRM när det privata molnet är den skyddade platsen. Du behöver inga ytterligare SRM-licenser för CloudSimple-platsen när den används som återställnings plats.
 
 Med den här lösningen har du fullständig kontroll över vSphere-replikering och SRM. De välkända gränssnitts-, API-och CLI-gränssnitten möjliggör användning av befintliga skript och verktyg.
+
+![Distribution av Site Recovery Manager](media/srm-deployment.png)
 
 Du kan använda alla versioner av vRA och SRM som är kompatibla med ditt privata moln och lokala miljöer. I exemplen i den här guiden används vRA 6,5 och SRM 6,5. Dessa versioner är kompatibla med vSphere 6,5, som stöds av CloudSimple.
 
@@ -204,7 +206,7 @@ När SRM har installerats i det privata molnet utför du följande uppgifter som
 
 #### <a name="cloudsimple-portal-de-escalate-privileges"></a>CloudSimple-Portal: Ta bort behörigheter för att eskalera
 
-För att ta bort privilegier, se aveskalerade [privilegier](escalate-private-cloud-privileges.md#de-escalate-privileges).
+För att ta bort privilegier, se [aveskalerade privilegier](escalate-private-cloud-privileges.md#de-escalate-privileges).
 
 ## <a name="ongoing-management-of-your-srm-solution"></a>Pågående hantering av din SRM-lösning
 

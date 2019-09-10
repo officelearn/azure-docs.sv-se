@@ -8,16 +8,16 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: c775f5352461dce6c63f5cc4a1c910c7f8df80ec
-ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
+ms.openlocfilehash: 9d261acf80f51a09cc4daa9182a87b0354cf8a3d
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69564100"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70845397"
 ---
 # <a name="view-the-list-of-cloudsimple-portal-users"></a>Visa listan över CloudSimple-Portal användare
 
-Användare läggs till i användar listan första gången de ansluter till CloudSimple-portalen. Om du vill visa en lista över användare som har åtkomst till CloudSimple-portalen via Azure går [du till CloudSimple-portalen](monitor-activity.md), väljer **konto** på sidan och väljer sedan **användare** på CloudSimple-portalen.
+Användare läggs till i användar listan första gången de ansluter till CloudSimple-portalen. Om du vill visa en lista över användare som har åtkomst till CloudSimple-portalen via Azure går [du till CloudSimple-portalen](access-cloudsimple-portal.md), väljer **konto** på sidan och väljer sedan **användare** på CloudSimple-portalen.
 
 * Om du vill visa användar informationen, inklusive Azure-prenumeration, klient och användar-ID, klickar du på en post på sidan **användare** .
 

@@ -2,24 +2,19 @@
 title: Hantera säkerhets incidenter i Azure Security Center | Microsoft Docs
 description: Det här dokumentet hjälper dig att använda Azure Security Center för att hantera säkerhets incidenter.
 services: security-center
-documentationcenter: na
-author: rkarlin
-manager: barbkess
+author: memildin
+manager: rkarlin
 editor: ''
-ms.assetid: e8feb669-8f30-49eb-ba38-046edf3f9656
 ms.service: security-center
 ms.topic: conceptual
-ms.devlang: na
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 8/27/2019
-ms.author: rkarlin
-ms.openlocfilehash: 9f757d5fb2c8d3a807e325068d386e16a7d6caa7
-ms.sourcegitcommit: b8578b14c8629c4e4dea4c2e90164e42393e8064
+ms.date: 09/09/2019
+ms.author: memildin
+ms.openlocfilehash: c492c4023df30eb51692aa4ae21fb938067c6ebb
+ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70806564"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70873381"
 ---
 # <a name="manage-security-incidents-in-azure-security-center"></a>Hantera säkerhets incidenter i Azure Security Center
 
@@ -29,7 +24,7 @@ I det här avsnittet beskrivs incidenter i Security Center och hur du använder 
 
 ## <a name="what-is-a-security-incident"></a>Vad är en säkerhetsincident?
 
-I Security Center är en säkerhetsincident en sammanställning av alla aviseringar för en resurs som överensstämmer med särskilda [händelsekedjemönster](https://blogs.technet.microsoft.com/office365security/addressing-your-cxos-top-five-cloud-security-concerns/). Incidenter visas i listan [säkerhets aviseringar](security-center-managing-and-responding-alerts.md) . Klicka på på en incident om du vill visa relaterade aviseringar så att du kan få mer information om varje förekomst.
+I Security Center är en säkerhetsincident en sammanställning av alla aviseringar för en resurs som överensstämmer med särskilda [händelsekedjemönster](https://blogs.technet.microsoft.com/office365security/addressing-your-cxos-top-five-cloud-security-concerns/). Incidenter visas i listan [säkerhets aviseringar](security-center-managing-and-responding-alerts.md) . Klicka på en incident om du vill visa de relaterade aviseringarna, vilket gör att du kan få mer information om varje förekomst.
 
 ## <a name="managing-security-incidents"></a>Hantera säkerhetsincidenter
 

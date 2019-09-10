@@ -1,84 +1,104 @@
 ---
-title: 'Azure Active Directory Domain Services: Aktivera Kerberos-begränsad delegering | Microsoft Docs'
-description: Aktivera Kerberos-begränsad delegering på Azure Active Directory Domain Services hanterade domäner
+title: Kerberos-begränsad delegering för Azure AD Domain Services | Microsoft Docs
+description: Lär dig hur du aktiverar resurs baserad Kerberos-begränsad delegering (KCD) i en Azure Active Directory Domain Services hanterad domän.
 services: active-directory-ds
-documentationcenter: ''
 author: iainfoulds
 manager: daveba
-editor: curtand
 ms.assetid: 938a5fbc-2dd1-4759-bcce-628a6e19ab9d
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/13/2019
+ms.date: 09/04/2019
 ms.author: iainfou
-ms.openlocfilehash: f234eaea0d4df3859ef9458ea334f1b7616add34
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 89bc690e5a8c8d24d7732dd4e12f70a9f1f368af
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69612940"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70842654"
 ---
-# <a name="configure-kerberos-constrained-delegation-kcd-on-a-managed-domain"></a>Konfigurera Kerberos-begränsad delegering (KCD) på en hanterad domän
-Många program behöver ha åtkomst till resurser i användarens kontext. Active Directory stöder en mekanism som kallas Kerberos-delegering, vilket möjliggör det här användnings fallet. Ytterligare kan du begränsa delegeringen så att endast vissa resurser kan nås i användarens kontext. Azure AD Domain Services hanterade domäner skiljer sig från traditionella Active Directory domäner eftersom de är säkrare att låsa upp.
+# <a name="configure-kerberos-constrained-delegation-kcd-in-azure-active-directory-domain-services"></a>Konfigurera Kerberos-begränsad delegering (KCD) i Azure Active Directory Domain Services
 
-Den här artikeln visar hur du konfigurerar Kerberos-begränsad delegering på en Azure AD Domain Services hanterad domän.
+När du kör program kan dessa program behöva åtkomst till resurser i kontexten för en annan användare. Active Directory Domain Services (AD DS) stöder en mekanism som kallas *Kerberos-delegering* som möjliggör det här användnings fallet. Kerberos- *begränsad* delegering (KCD) bygger på den här mekanismen för att definiera specifika resurser som kan nås i användarens kontext. Azure Active Directory Domain Services (Azure AD DS) hanterade domäner är säkrare att låsa upp de traditionella lokala AD DS-miljöerna, så Använd en säkrare *Resource-baserad* KCD.
 
-[!INCLUDE [active-directory-ds-prerequisites.md](../../includes/active-directory-ds-prerequisites.md)]
+Den här artikeln visar hur du konfigurerar BASD Kerberos-begränsad delegering i en Azure AD DS-hanterad domän.
 
-## <a name="kerberos-constrained-delegation-kcd"></a>Kerberos-begränsad delegering (KCD)
-Med Kerberos-delegering kan ett konto personifiera ett annat säkerhets objekt (till exempel en användare) för att få åtkomst till resurser. Överväg ett webb program som har åtkomst till ett Server dels webb-API i kontexten för en användare. I det här exemplet personifierar webb programmet (som körs i kontexten för ett tjänst konto eller ett dator-/dator konto) användaren vid åtkomst till resursen (Server dels webb-API). Kerberos-delegering är insäker eftersom den inte begränsar de resurser som kontot personifiera kan komma åt i användarens kontext.
+## <a name="prerequisites"></a>Förutsättningar
 
-Kerberos-begränsad delegering (KCD) begränsar de tjänster/resurser som den angivna servern kan agera för på uppdrag av en användare. Traditionella KCD kräver domän administratörs behörighet för att konfigurera ett domän konto för en tjänst och det begränsar kontot till en enda domän.
+För att slutföra den här artikeln behöver du följande resurser:
 
-Traditionella KCD har också några problem kopplade till sig. Om domän administratören har konfigurerat kontobaserade KCD för tjänsten i tidigare operativ system, hade tjänst administratören inte något användbart sätt att veta vilka frontend-tjänster som delegerats till de resurs tjänster som de äger. Alla frontend-tjänster som kan delegera till en resurs tjänst motsvarade en potentiell angrepps punkt. Om en server som är värd för en frontend-tjänst har komprometterats och den kon figurer ATS att delegera till resurs tjänster, kan resurs tjänsterna också komprometteras.
+* En aktiv Azure-prenumeration.
+    * [Skapa ett konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)om du inte har någon Azure-prenumeration.
+* En Azure Active Directory klient som är associerad med din prenumeration, antingen synkroniserad med en lokal katalog eller en katalog som endast är moln.
+    * Om det behövs kan du [skapa en Azure Active Directory klient][create-azure-ad-tenant] eller [associera en Azure-prenumeration med ditt konto][associate-azure-ad-tenant].
+* En Azure Active Directory Domain Services hanterad domän aktive rad och konfigurerad i Azure AD-klienten.
+    * Om det behövs kan du [skapa och konfigurera en Azure Active Directory Domain Services-instans][create-azure-ad-ds-instance].
+* En virtuell Windows Server Management-dator som är ansluten till den hanterade Azure AD DS-domänen.
+    * Om det behövs kan du slutföra självstudien för att [skapa en virtuell Windows Server-dator och ansluta den till en hanterad domän och][create-join-windows-vm] sedan [Installera hanterings verktygen för AD DS][tutorial-create-management-vm].
+* Ett användar konto som är medlem i *Administratörs gruppen för Azure AD DC* i din Azure AD-klient.
 
-> [!NOTE]
-> I en Azure AD Domain Services hanterad domän har du inte domän administratörs behörighet. Därför **kan inte traditionella kontobaserade KCD konfigureras på en hanterad domän**. Använd Resource based KCD enligt beskrivningen i den här artikeln. Den här mekanismen är också säkrare.
->
->
+## <a name="kerberos-constrained-delegation-overview"></a>Översikt över Kerberos-begränsad delegering
 
-## <a name="resource-based-kcd"></a>Resursbaserade KCD
-Från och med Windows Server 2012 får tjänst administratörer möjlighet att konfigurera begränsad delegering för tjänsten. I den här modellen kan Server administratören för Server delen tillåta eller neka särskilda klient dels tjänster från att använda KCD. Den här modellen kallas för **resursbaserade KCD**.
+Med Kerberos-delegering kan ett konto personifiera ett annat konto för åtkomst till resurser. Till exempel kan ett webb program som har åtkomst till en server dels webb komponent personifiera sig själv som ett annat användar konto när den gör backend-anslutningen. Kerberos-delegering är inte säkert eftersom det inte begränsar vilka resurser som kontot som personifierar har åtkomst till.
 
-Resource-baserad KCD har kon figurer ATS med PowerShell. Du använder `Set-ADComputer` cmdletarna `Set-ADUser` eller, beroende på om det Personifierande kontot är ett dator konto eller ett användar konto/tjänst konto.
+Kerberos-begränsad delegering (KCD) begränsar de tjänster eller resurser som en angiven server eller ett visst program kan ansluta vid personifiering av en annan identitet. Traditionella KCD kräver domän administratörs behörighet för att konfigurera ett domän konto för en tjänst och det begränsar kontot som ska köras på en enda domän. Traditionella KCD har också några problem. I tidigare operativ system hade tjänst administratören till exempel inget användbart sätt att veta vilka front-end-tjänster som delegerats till de resurs tjänster som de äger. Alla frontend-tjänster som kan delegera till en resurs tjänst var en potentiell angrepps punkt. Om en server som är värd för en frontend-tjänst som kon figurer ATS för att delegera till resurs tjänster komprometterades, kunde resurs tjänsterna också komprometteras.
 
-### <a name="configure-resource-based-kcd-for-a-computer-account-on-a-managed-domain"></a>Konfigurera resursbaserade KCD för ett dator konto i en hanterad domän
-Anta att du har en webbapp som körs på datorn ' contoso-webapp.contoso.com '. Den behöver åtkomst till resursen (ett webb-API som körs på ' contoso-api.contoso.com ') i kontexten för domän användare. Så här konfigurerar du resursbaserade KCD för det här scenariot:
+I en Azure AD DS-hanterad domän har du inte domän administratörs behörighet. Därför kan traditionella kontobaserade KCD inte konfigureras i en hanterad domän i Azure AD DS. Resursbaserade KCD kan i stället användas, vilket också är säkrare.
 
-1. [Skapa en anpassad Organisationsenhet](create-ou.md). Du kan delegera behörigheter för att hantera den här anpassade ORGANISATIONSENHETen till användare i den hanterade domänen.
-2. Anslut båda virtuella datorerna (den som kör webbappen och den som kör webb-API: et) till den hanterade domänen. Skapa dessa dator konton inom den anpassade ORGANISATIONSENHETen.
-3. Konfigurera sedan resursbaserade KCD med följande PowerShell-kommando:
+### <a name="resource-based-kcd"></a>Resursbaserade KCD
 
-```powershell
-$ImpersonatingAccount = Get-ADComputer -Identity contoso-webapp.contoso.com
-Set-ADComputer contoso-api.contoso.com -PrincipalsAllowedToDelegateToAccount $ImpersonatingAccount
-```
+Med Windows Server 2012 och senare får tjänst administratörer möjlighet att konfigurera begränsad delegering för deras tjänster. Den här modellen kallas för resursbaserade KCD. Med den här metoden kan Server administratören för Server delen tillåta eller neka särskilda klient dels tjänster från att använda KCD.
 
-> [!NOTE]
-> Dator kontona för webbappen och webb-API: et måste finnas i en anpassad ORGANISATIONSENHET där du har behörighet att konfigurera resursbaserade KCD. Det går inte att konfigurera resursbaserade KCD för ett dator konto i den inbyggda behållaren AAD DC-datorer.
->
+Resource-baserad KCD har kon figurer ATS med PowerShell. Du använder cmdletarna [set-ADComputer][Set-ADComputer] eller [set-ADUser][Set-ADUser] , beroende på om det Personifierande kontot är ett dator konto eller ett användar konto/tjänst konto.
 
-### <a name="configure-resource-based-kcd-for-a-user-account-on-a-managed-domain"></a>Konfigurera resursbaserade KCD för ett användar konto på en hanterad domän
-Anta att du har en webbapp som körs som ett tjänst konto ' appsvc ' och att den behöver åtkomst till resursen (ett webb-API som körs som ett tjänst konto-' backendsvc ') i kontexten för domän användare. Så här konfigurerar du Resource based KCD för det här scenariot.
+## <a name="configure-resource-based-kcd-for-a-computer-account"></a>Konfigurera resursbaserade KCD för ett dator konto
 
-1. [Skapa en anpassad Organisationsenhet](create-ou.md). Du kan delegera behörigheter för att hantera den här anpassade ORGANISATIONSENHETen till användare i den hanterade domänen.
-2. Anslut den virtuella datorn som kör Server dels webb-API: n/resursen till den hanterade domänen. Skapa sitt dator konto inom den anpassade ORGANISATIONSENHETen.
-3. Skapa tjänst kontot (till exempel ' appsvc ') som används för att köra webbappen i den anpassade ORGANISATIONSENHETen.
-4. Konfigurera sedan resursbaserade KCD med följande PowerShell-kommando:
+I det här scenariot antar vi att du har en webbapp som körs på datorn med namnet *contoso-webapp.contoso.com*. Webb programmet måste ha åtkomst till ett webb-API som körs på datorn med namnet *contoso-API.contoso.com* i kontexten för domän användare. Utför följande steg för att konfigurera det här scenariot:
 
-```powershell
-$ImpersonatingAccount = Get-ADUser -Identity appsvc
-Set-ADUser backendsvc -PrincipalsAllowedToDelegateToAccount $ImpersonatingAccount
-```
+1. [Skapa en anpassad Organisationsenhet](create-ou.md). Du kan delegera behörigheter för att hantera den här anpassade ORGANISATIONSENHETen till användare i den hanterade domänen i Azure AD DS.
+1. [Domän – Anslut de virtuella datorerna][create-join-windows-vm], både den som kör webbappen och den som kör webb-API: t till den hanterade domänen i Azure AD DS. Skapa dessa dator konton i den anpassade ORGANISATIONSENHETen från föregående steg.
 
-> [!NOTE]
-> Både dator kontot för webb-API för Server delen och tjänst kontot måste finnas i en anpassad ORGANISATIONSENHET där du har behörighet att konfigurera resursbaserade KCD. Du kan inte konfigurera resursbaserade KCD för ett dator konto i den inbyggda behållaren "AAD DC-datorer" eller för användar konton i den inbyggda behållaren "AAD DC Users". Det innebär att du inte kan använda användar konton som synkroniserats från Azure AD för att konfigurera resursbaserade KCD.
->
+    > [!NOTE]
+    > Dator kontona för webbappen och webb-API: et måste vara i en anpassad ORGANISATIONSENHET där du har behörighet att konfigurera resursbaserade KCD. Du kan inte konfigurera resursbaserade KCD för ett dator konto i den inbyggda behållaren för *AAD DC-datorer* .
 
-## <a name="related-content"></a>Relaterat innehåll
-* [Azure AD Domain Services-Komma igång guide](tutorial-create-instance.md)
-* [Översikt över Kerberos-begränsad delegering](https://technet.microsoft.com/library/jj553400.aspx)
+1. Konfigurera därefter resursbaserade KCD med PowerShell-cmdleten [set-ADComputer][Set-ADComputer] . Kör följande cmdlets från din domänanslutna hanterings-VM och inloggad som användar konto som är medlem i gruppen *Azure AD DC-administratörer* . Ange dina egna dator namn efter behov:
+    
+    ```powershell
+    $ImpersonatingAccount = Get-ADComputer -Identity contoso-webapp.contoso.com
+    Set-ADComputer contoso-api.contoso.com -PrincipalsAllowedToDelegateToAccount $ImpersonatingAccount
+    ```
+
+## <a name="configure-resource-based-kcd-for-a-user-account"></a>Konfigurera resursbaserade KCD för ett användar konto
+
+I det här scenariot antar vi att du har en webbapp som körs som ett tjänst konto med namnet *appsvc*. Webb programmet måste ha åtkomst till ett webb-API som körs som ett tjänst konto med namnet *backendsvc* i kontexten för domän användare. Utför följande steg för att konfigurera det här scenariot:
+
+1. [Skapa en anpassad Organisationsenhet](create-ou.md). Du kan delegera behörigheter för att hantera den här anpassade ORGANISATIONSENHETen till användare i den hanterade domänen i Azure AD DS.
+1. [Domän – Anslut de virtuella datorerna][create-join-windows-vm] som kör Server delens webb-API/resurs till den hanterade domänen i Azure AD DS. Skapa sitt dator konto inom den anpassade ORGANISATIONSENHETen.
+1. Skapa tjänst kontot (till exempel ' appsvc ') som används för att köra webbappen i den anpassade ORGANISATIONSENHETen.
+
+    > [!NOTE]
+    > På nytt måste dator kontot för den virtuella webb-API: n och tjänst kontot för webbappen vara i en anpassad ORGANISATIONSENHET där du har behörighet att konfigurera resursbaserade KCD. Du kan inte konfigurera resursbaserade KCD för konton på de inbyggda *AAD DC-datorerna* eller *AAD DC Users* -behållare. Det innebär också att du inte kan använda användar konton som synkroniseras från Azure AD för att konfigurera resursbaserade KCD. Du måste skapa och använda tjänst konton som skapats i Azure AD DS.
+
+1. Konfigurera därefter resursbaserade KCD med PowerShell-cmdleten [set-ADUser][Set-ADUser] . Kör följande cmdlets från din domänanslutna hanterings-VM och inloggad som användar konto som är medlem i gruppen *Azure AD DC-administratörer* . Ange dina egna tjänst namn efter behov:
+
+    ```powershell
+    $ImpersonatingAccount = Get-ADUser -Identity appsvc
+    Set-ADUser backendsvc -PrincipalsAllowedToDelegateToAccount $ImpersonatingAccount
+    ```
+
+## <a name="next-steps"></a>Nästa steg
+
+Mer information om hur delegering fungerar i Active Directory Domain Services finns i [Översikt över Kerberos-begränsad delegering][kcd-technet].
+
+<!-- INTERNAL LINKS -->
+[create-azure-ad-tenant]: ../active-directory/fundamentals/sign-up-organization.md
+[associate-azure-ad-tenant]: ../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md
+[create-azure-ad-ds-instance]: tutorial-create-instance.md
+[create-join-windows-vm]: join-windows-vm.md
+[tutorial-create-management-vm]: tutorial-create-management-vm.md
+[Set-ADComputer]: /powershell/module/addsadministration/set-adcomputer
+[Set-ADUser]: /powershell/module/addsadministration/set-aduser
+
+<!-- EXTERNAL LINKS -->
+[kcd-technet]: https://technet.microsoft.com/library/jj553400.aspx

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 08/06/2019
-ms.openlocfilehash: cb1fd8e98a5eba350774ff6ccb8f86dcd3e4d734
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: ef060c083109a7096b62ebb35f2b49bb37a371b8
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68856201"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70860512"
 ---
 # <a name="what-is-an-azure-machine-learning-service-workspace"></a>Vad är en Azure Machine Learning service-arbetsyta?
 
@@ -36,10 +36,10 @@ Diagrammet visar följande komponenter för en arbets yta:
 + När du skapar arbets ytan skapas även [tillhör ande resurser](#resources) .
 + [Experiment](concept-azure-machine-learning-architecture.md#experiments) är utbildningar som körs och som du kan använda för att bygga modeller.  Du kan skapa och köra experiment med
     + [Azure Machine Learning SDK för python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
-    + Avsnittet [automatiserade Machine Learning-experiment (för hands version)](how-to-create-portal-experiments.md) i Azure Portal.
+    + Avsnittet [automatiserade Machine Learning-experiment (för hands version)](how-to-create-portal-experiments.md) i Azure Portal eller din landnings sida för arbets ytan (för hands version).
     + [Visual Interface (för hands version)](ui-concept-visual-interface.md).
 + [Pipelines](concept-azure-machine-learning-architecture.md#ml-pipelines) är återanvändbara arbets flöden för utbildning och omträning av din modell.
-+ [](concept-azure-machine-learning-architecture.md#datasets-and-datastores) Data uppsättnings stöd vid hantering av de data du använder för modell utbildning och skapande av pipelines.
++ Data [uppsättnings](concept-azure-machine-learning-architecture.md#datasets-and-datastores) stöd vid hantering av de data du använder för modell utbildning och skapande av pipelines.
 + När du har en modell som du vill distribuera skapar du en registrerad modell.
 + Använd den registrerade modellen och ett bedömnings skript för att skapa en [distribution](concept-azure-machine-learning-architecture.md#deployment).
 
@@ -49,6 +49,7 @@ Du kan interagera med din arbets yta på följande sätt:
 
 + På webben:
     + [Azure Portal](https://portal.azure.com)
+    + [Landnings sidan för din arbets yta (för hands version)](https://ml.azure.com)
     + [Visual Interface (för hands version)](ui-concept-visual-interface.md)
 + I python med hjälp av Azure Machine Learning [SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)
 + På kommando raden med hjälp av Azure Machine Learning [CLI-tillägget](https://docs.microsoft.com/azure/machine-learning/service/reference-azure-machine-learning-cli)
@@ -94,7 +95,7 @@ När du skapar en ny arbetsyta skapas automatiskt flera Azure-resurser som anvä
 
 + [Azure Container Registry](https://azure.microsoft.com/services/container-registry/): Registrerar Docker-behållare som du använder under utbildningen och när du distribuerar en modell. För att minimera kostnaderna är ACR en **Lazy-inläst** tills distributions avbildningar skapas.
 + [Azure Storage konto](https://azure.microsoft.com/services/storage/): Används som standard data lager för arbets ytan.  Jupyter-anteckningsböcker som används med dina virtuella dator datorer lagras också här.
-+ [Azure Application](https://azure.microsoft.com/services/application-insights/)insikter: Lagrar övervaknings information om dina modeller.
++ [Azure Application insikter](https://azure.microsoft.com/services/application-insights/): Lagrar övervaknings information om dina modeller.
 + [Azure Key Vault](https://azure.microsoft.com/services/key-vault/): Lagrar hemligheter som används av beräknings mål och annan känslig information som behövs för arbets ytan.
 
 > [!NOTE]

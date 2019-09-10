@@ -1,31 +1,25 @@
 ---
 title: Felsökningsguide för Azure Security Center | Microsoft Docs
-description: Det här dokumentet hjälper dig att felsöka problem i Azure Security Center.
+description: Det här dokumentet hjälper till med fel sökning av problem i Azure Security Center.
 services: security-center
-documentationcenter: na
-author: rkarlin
-manager: barbkess
-editor: ''
-ms.assetid: 44462de6-2cc5-4672-b1d3-dbb4749a28cd
+author: memildin
+manager: rkarlin
 ms.service: security-center
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 3/20/2019
-ms.author: rkarlin
-ms.openlocfilehash: 93656578fac52e4ba5ff96e655ea51678f2292cd
-ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+ms.date: 09/10/2019
+ms.author: memildin
+ms.openlocfilehash: 26615819dc407e51281254c73076a1d721e6059f
+ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68609917"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70873384"
 ---
 # <a name="azure-security-center-troubleshooting-guide"></a>Felsökningsguide för Azure Security Center
 Den här guiden riktar sig till de som arbetar med IT, informationssäkerhetsanalytiker och molnadministratörer i organisationer som använder Azure Security Center och behöver felsöka Security Center-relaterade problem.
 
 >[!NOTE]
->Från och med början av juni 2017 använder Security Center Microsoft Monitoring Agent för att samla in och lagra data. Mer information finns under [plattformsmigrering i Azure Security Center](security-center-platform-migration.md). Informationen i den här artikeln representerar Security Centers funktionalitet efter övergången till Microsoft Monitoring Agent.
+>Security Center använder Microsoft Monitoring Agent för att samla in och lagra data. Mer information finns under [plattformsmigrering i Azure Security Center](security-center-platform-migration.md).
 >
 
 ## <a name="troubleshooting-guide"></a>Felsökningsguide
@@ -56,9 +50,9 @@ Om du vill se vilken version av agenten du har kan du öppna **Aktivitetshantera
 ## <a name="microsoft-monitoring-agent-installation-scenarios"></a>Scenarier för installation av Microsoft Monitoring Agent
 Det finns två installationsscenarier som kan ge olika resultat när du installerar Microsoft Monitoring Agent på datorn. Scenarier som stöds är:
 
-* **Agent som installeras automatiskt av Security Center**: i det här scenariot kommer du att kunna visa aviseringarna på båda platser, Security Center och Loggsökning. Du får e-postaviseringar till e-postadressen som konfigurerats i säkerhetsprincipen för prenumerationen som resursen hör till.
+* **Agent som installeras automatiskt av Security Center**: i det här scenariot kommer du att kunna visa aviseringarna på båda platser, Security Center och Loggsökning. Du får e-postaviseringar till den e-postadress som har kon figurer ATS i säkerhets principen för den prenumeration som resursen tillhör.
 .
-* **Agenten installeras manuellt på en virtuell dator i Azure**: i det här scenariot, om du använder agenter som har hämtats och installerats manuellt före februari 2017, kommer du endast att kunna visa aviseringarna i Security Center portal om du filtrerar i prenumerationen som arbetsytan tillhör. Om du filtrerar i prenumerationen som resursen tillhör kommer du inte att kunna se några aviseringar. Du får e-postaviseringar till e-postadressen som konfigurerats i säkerhetsprincipen för prenumerationen som arbetsytan hör till.
+* **Agent installeras manuellt på en virtuell dator som finns i Azure**: i det här scenariot kan du, om du använder agenter som har hämtats och installerats manuellt före februari 2017, Visa aviseringarna i Security Center portalen endast om du filtrerar på prenumerationen på arbets ytan tillhör. Om du filtrerar på prenumerationen som resursen tillhör visas inga aviseringar. Du får e-postaviseringar till den e-postadress som har kon figurer ATS i säkerhets principen för prenumerationen som arbets ytan tillhör.
 
 >[!NOTE]
 > Kontrollera att du laddar ned den senaste versionen av agenten för att undvika det andra scenariot.

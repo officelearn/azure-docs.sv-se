@@ -9,23 +9,23 @@ ms.date: 11/29/2018
 ms.author: jinzh
 ms.custom: include file
 ms.openlocfilehash: 2bf9f75442ccf57aa28e6a12f415fb6e4ede78ec
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 09/10/2019
 ms.locfileid: "67187737"
 ---
-I följande tabell visas användningsgränsen för Azure Maps S0-prisnivå. Begränsningen beror på prisnivå. 
+I följande tabell visas användnings gränsen för Azure Maps S0 pris nivå. Användnings gränsen är beroende av pris nivån. 
 
-| Resource                              | S0 prisnivå nivå gräns |
+| Resource                              | Pris nivå gräns för S0 |
 |---------------------------------------|:---------------------:|
 | Maximal förfrågningsfrekvens per prenumeration |   50 begäranden per sekund  |
 
 
-I följande tabell visas datastorleksgränsen för Azure Maps. Tjänsten Azure Maps-data finns endast på du prisnivån S1.
+I följande tabell visas data storleks gränsen för Azure Maps. Tjänsten Azure Maps data är endast tillgänglig på pris nivån S1.
 
 | Resource                              | Gräns |
 |---------------------------------------|:---------------------:|
-| Maximal storlek på data |   50 MB  |
+| Maximal data storlek |   50 MB  |
 
-Läs mer på Azure-Maps prisnivåer [priser för Azure Maps](https://azure.microsoft.com/pricing/details/azure-maps/).
+Mer information om Azure Maps pris nivåer finns i [Azure Maps prissättning](https://azure.microsoft.com/pricing/details/azure-maps/).

@@ -11,12 +11,12 @@ author: jpe316
 ms.author: jordane
 ms.date: 06/24/2019
 ms.custom: seodec18
-ms.openlocfilehash: 270ebb6247e812d42ac84698d0073b41c639cb9a
-ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.openlocfilehash: 2f3c3532637bef041ad1983b7573837dd0f29211
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70011595"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70860606"
 ---
 # <a name="mlops-manage-deploy-and-monitor-models-with-azure-machine-learning-service"></a>MLOps: Hantera, distribuera och övervaka modeller med Azure Machine Learning-tjänsten
 
@@ -140,7 +140,7 @@ Mer information finns i [så här aktiverar du modell data insamling](how-to-ena
 Azure ML ger dig möjlighet att spåra gransknings historiken från slut punkt till slut punkt för alla dina ML-tillgångar. Närmare bestämt:
 
 - Azure ML [integreras med git](how-to-set-up-training-targets.md#gitintegration) för att spåra information som lagrings plats/Branch/bekräfta din kod kommer från.
-- Med [Azure ml](how-to-create-register-datasets.md) -datauppsättningar kan du spåra och versions data.
+- Med [Azure ml-datauppsättningar](how-to-create-register-datasets.md) kan du spåra och versions data.
 - I Azure ML-körnings historik lagras en ögonblicks bild av koden, data och beräkning som används för att träna en modell.
 - Azure ML Model-registret fångar alla metadata som är associerade med din modell (vilket experiment tränade den, där den distribueras, om distributionerna är felfria).
 
@@ -153,12 +153,12 @@ Med [Azure Machine Learning-tillägget](https://marketplace.visualstudio.com/ite
 * Aktiverar val av arbets yta när du definierar en tjänst anslutning.
 * Gör att lanserings pipelines kan utlösas av utbildade modeller som skapats i en utbildnings pipeline.
 
-Mer information om hur du använder Azure-pipeliner med Azure Machine Learning finns i artikeln [kontinuerlig integrering och distribution av ml-modeller med Azure](/azure/devops/pipelines/targets/azure-machine-learning) -pipeliner och [Azure Machine Learning service MLOps-](https://aka.ms/mlops) lagringsplatsen.
+Mer information om hur du använder Azure-pipeliner med Azure Machine Learning finns i artikeln [kontinuerlig integrering och distribution av ml-modeller med Azure-pipeliner](/azure/devops/pipelines/targets/azure-machine-learning) och [Azure Machine Learning service MLOps-](https://aka.ms/mlops) lagringsplatsen.
 
 ## <a name="next-steps"></a>Nästa steg
 
 Läs mer om [hur och var du kan distribuera modeller](how-to-deploy-and-where.md) med Azure Machine Learning-tjänsten. Ett exempel på distribution finns i [Självstudier: Distribuera en modell för bild klassificering i](tutorial-deploy-models-with-aml.md)Azure Container instances.
 
-Lär dig hur du skapar [kontinuerlig integrering och distribution av ml-modeller med Azure](/azure/devops/pipelines/targets/azure-machine-learning)-pipelines. 
+Lär dig hur du skapar [kontinuerlig integrering och distribution av ml-modeller med Azure-pipelines](/azure/devops/pipelines/targets/azure-machine-learning). 
 
 Lär dig hur du skapar klient program och tjänster som [använder en modell som distribueras som en webb tjänst](how-to-consume-web-service.md).

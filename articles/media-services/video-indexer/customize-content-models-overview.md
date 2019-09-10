@@ -1,6 +1,6 @@
 ---
 title: Anpassa innehålls modeller i Azure Media Services Video Indexer
-titlesuffix: Azure Media Services
+titleSuffix: Azure Media Services
 description: Den här artikeln innehåller länkar till de konceptuella artiklarna som förklarar fördelarna med varje typ av anpassning. Den här artikeln innehåller också länkar till instruktions guider som visar hur du kan implementera anpassningen av varje modell.
 services: media-services
 author: anikaz
@@ -10,19 +10,23 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 06/26/2019
 ms.author: anzaman
-ms.openlocfilehash: 8499e816f60b9d6605bdbdc392f6d2b3e134b863
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 9abf9b791cc986bcce49bbd0cf8136a573a149a3
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68878820"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70860201"
 ---
 # <a name="customizing-content-models-in-video-indexer"></a>Anpassa innehålls modeller i Video Indexer
 
 Med Video Indexer kan du anpassa vissa modeller så att de anpassas efter ditt speciella användnings fall. Dessa modeller innehåller [varumärken](customize-brands-model-overview.md), [språk](customize-language-model-overview.md)och [person](customize-person-model-overview.md). Du kan enkelt anpassa dessa modeller med hjälp av Video Indexer webbplats eller API.
 
-Den här artikeln innehåller länkar till de konceptuella artiklarna som förklarar fördelarna med varje typ av anpassning. Den här artikeln innehåller också länkar till instruktions guider som visar hur du kan implementera anpassningen av varje modell.
- 
+Den här artikeln innehåller länkar till artiklar som förklarar fördelarna med varje typ av anpassning. Artikeln innehåller också länkar till instruktions guider som visar hur du kan implementera anpassningen av varje modell.
+
+## <a name="animated-characters"></a>Animerade tecken
+
+* [Animerat Character-identifiering](animated-characters-recognition.md)
+
 ## <a name="brands-model"></a>Märken modell
 
 * [Anpassa modell översikten för märken](customize-brands-model-overview.md)

@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 05/06/2019
-ms.openlocfilehash: d9d70444adee26eab77c0e3d256cd8f340a1b4c8
-ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
+ms.openlocfilehash: 1d70c5d86221213ae3f9a2d31fdf40857cb516be
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69981153"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70845634"
 ---
 # <a name="hyperscale-service-tier-for-up-to-100-tb"></a>Storskalig tjänste nivå för upp till 100 TB
 
@@ -186,7 +186,7 @@ För att begära möjlighet att skapa storskaliga databaser i regioner som inte 
 
 2. Klicka på [ **ny supportbegäran**](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)
 
-    ![Bladet hjälp och support för Azure](media/sql-database-service-tier-hyperscale/whitelist-request-screen-1.png)
+    ![Bladet hjälp och support för Azure](media/sql-database-service-tier-hyperscale/request-screen-1.png)
 
 3. För **typ av problem**väljer du **begränsningar för tjänsten och prenumerationen (kvoter)**
 
@@ -198,13 +198,13 @@ För att begära möjlighet att skapa storskaliga databaser i regioner som inte 
 
 1. Klicka på **Ange information**
 
-    ![Uppgifter om problem](media/sql-database-service-tier-hyperscale/whitelist-request-screen-2.png)
+    ![Uppgifter om problem](media/sql-database-service-tier-hyperscale/request-screen-2.png)
 
 8. Välj **SQL Database kvot typ**: **Annan kvot förfrågan**
 
 9. Fyll i följande mall:
 
-    ![Kvotinformation](media/sql-database-service-tier-hyperscale/whitelist-request-screen-3.png)
+    ![Kvotinformation](media/sql-database-service-tier-hyperscale/request-screen-3.png)
 
     Ange följande information i mallen
 

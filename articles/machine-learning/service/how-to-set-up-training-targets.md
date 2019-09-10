@@ -11,18 +11,18 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 06/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: 27361017241ba6529b93c24ce7fb95b2c1b22a62
-ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.openlocfilehash: 0a34ccf5201b81a2c74c2eccd0ec3f311a1158ab
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70389895"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70860536"
 ---
 # <a name="set-up-and-use-compute-targets-for-model-training"></a>Konfigurera och Använd Compute-mål för modell träning 
 
 Med Azure Machine Learning tjänsten kan du träna din modell på en mängd olika resurser eller miljöer, som sammankallas för [__beräknings mål__](concept-azure-machine-learning-architecture.md#compute-targets). Ett beräknings mål kan vara en lokal dator eller en moln resurs, till exempel en Azure Machine Learning beräkning, Azure HDInsight eller en virtuell dator för virtuella datorer.  Du kan också skapa beräknings mål för modell distribution enligt beskrivningen i ["var och hur du distribuerar dina modeller"](how-to-deploy-and-where.md).
 
-Du kan skapa och hantera ett beräknings mål med hjälp av Azure Machine Learning SDK, Azure Portal, Azure CLI eller Azure Machine Learning VS Code-tillägg. Om du har beräkningsmål som har skapats via en annan tjänst (till exempel ett HDInsight-kluster), kan du använda dem genom att koppla dem till din arbetsyta för Azure Machine Learning-tjänsten.
+Du kan skapa och hantera ett beräknings mål med hjälp av Azure Machine Learning SDK, Azure Portal, landnings sidan för arbets ytan (för hands version), Azure CLI eller Azure Machine Learning VS Code-tillägg. Om du har beräkningsmål som har skapats via en annan tjänst (till exempel ett HDInsight-kluster), kan du använda dem genom att koppla dem till din arbetsyta för Azure Machine Learning-tjänsten.
  
 I den här artikeln får du lära dig hur du använder olika beräknings mål för modell träning.  Stegen för alla beräknings mål följer samma arbets flöde:
 1. __Skapa__ ett beräknings mål om du inte redan har ett.
@@ -45,9 +45,9 @@ Azure Machine Learning tjänsten har varierande stöd för olika beräknings må
 
 ## <a name="whats-a-run-configuration"></a>Vad är en körnings konfiguration?
 
-När det gäller utbildning är det vanligt att starta på den lokala datorn och senare köra det utbildnings skriptet på ett annat Compute-mål. Med Azure Machine Learning tjänsten kan du köra skriptet på olika beräknings mål utan att behöva ändra ditt skript. 
+När det gäller utbildning är det vanligt att starta på den lokala datorn och senare köra det utbildnings skriptet på ett annat Compute-mål. Med Azure Machine Learning tjänsten kan du köra skriptet på olika beräknings mål utan att behöva ändra ditt skript.
 
-Allt du behöver göra är att definiera miljön för varje beräknings mål i en **körnings konfiguration**.  När du sedan vill köra ditt utbildnings experiment på ett annat beräknings mål anger du körnings konfigurationen för den beräkningen. Information om hur du anger en miljö och binder den till att köra konfigurationen finns i [skapa och hantera miljöer för utbildning och distribution](how-to-use-environments.md)
+Allt du behöver göra är att definiera miljön för varje beräknings mål i en **körnings konfiguration**.  När du sedan vill köra ditt utbildnings experiment på ett annat beräknings mål anger du körnings konfigurationen för den beräkningen. Information om hur du anger en miljö och binder den till att köra konfigurationen finns i [skapa och hantera miljöer för utbildning och distribution](how-to-use-environments.md).
 
 Läs mer om hur du [skickar experiment](#submit) i slutet av den här artikeln.
 
@@ -278,6 +278,7 @@ Du kan komma åt de beräknings mål som är associerade med din arbets yta i Az
 * [Skapa ett beräknings mål](#portal-create) på din arbets yta
 * [Bifoga ett beräknings mål](#portal-reuse) som har skapats utanför arbets ytan
 
+
 När ett mål har skapats och kopplats till din arbets yta, kommer du att använda det i din körnings konfiguration med ett `ComputeTarget` objekt: 
 
 ```python
@@ -290,7 +291,8 @@ myvm = ComputeTarget(workspace=ws, name='my-vm-name')
 
 Använd följande steg för att se beräknings målen för din arbets yta:
 
-1. Navigera till [Azure Portal](https://portal.azure.com) och öppna din arbets yta. 
+1. Navigera till [Azure Portal](https://portal.azure.com) och öppna din arbets yta. Du kan också komma åt samma steg på din [landnings sida för arbets ytan (för hands version)](https://ml.azure.com), men bilderna nedan visar Azure Portal.
+ 
 1. Under __program__väljer du __beräkning__.
 
     [![Visa fliken beräkning](./media/how-to-set-up-training-targets/azure-machine-learning-service-workspace.png)](./media/how-to-set-up-training-targets/azure-machine-learning-service-workspace-expanded.png)

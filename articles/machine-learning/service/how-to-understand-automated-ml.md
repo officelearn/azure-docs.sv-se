@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 07/22/2019
-ms.openlocfilehash: d626a7768e7070360a6f0249486bfa83407fe998
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: 60ecd71419bbf65cceab257cb97a96929d24ec08
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70192063"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70860558"
 ---
 # <a name="understand-automated-machine-learning-results"></a>Förstå automatiserade maskin inlärnings resultat
 
@@ -30,10 +30,10 @@ Läs mer om:
 
 * En Azure-prenumeration. Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnadsfria versionen eller betalversionen av Azure Machine Learning-tjänsten](https://aka.ms/AMLFree) i dag.
 
-* Skapa ett automatiskt maskin inlärnings experiment, antingen med SDK eller i Azure Portal.
+* Skapa ett automatiserat maskin inlärnings experiment, antingen med SDK, i Azure Portal eller i landnings sidan för arbets ytan (för hands version).
 
     * Använd SDK: n för att bygga en [klassificerings modell](how-to-auto-train-remote.md) eller [Regressions modell](tutorial-auto-train-models.md)
-    * Använd [Azure Portal](how-to-create-portal-experiments.md) för att skapa en klassificerings-eller Regressions modell genom att överföra relevanta data.
+    * Använd [Azure Portal eller din landnings sida för arbets ytan (för hands version)](how-to-create-portal-experiments.md) för att skapa en klassificerings-eller Regressions modell genom att ladda upp aktuella data.
 
 ## <a name="view-the-run"></a>Visa körningen
 
@@ -53,7 +53,7 @@ När du har kört ett automatiserat experiment med Machine Learning finns en his
 
    [ Experimentkörning![](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-experiment-run.png)](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-experiment-run-expanded.png))
 
-1. I upprepnings tabellen väljer du upprepnings **numret** för den modell som du vill utforska vidare.
+1. I upprepnings tabellen väljer du **upprepnings numret** för den modell som du vill utforska vidare.
 
    [![Experiment modell](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-experiment-model.png)](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-experiment-model-expanded.png)
 

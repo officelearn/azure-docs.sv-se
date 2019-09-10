@@ -1,5 +1,5 @@
 ---
-title: Så här använder du Queue Storage från Node. js – Azure Storage
+title: Använd Azure Queue Storage från Node. js – Azure Storage
 description: Lär dig hur du använder Azure-Kötjänst för att skapa och ta bort köer och infoga, hämta och ta bort meddelanden. Exempel som skrivits i Node. js.
 author: mhopkins-msft
 ms.service: storage
@@ -8,12 +8,13 @@ ms.date: 12/08/2016
 ms.subservice: queues
 ms.topic: conceptual
 ms.reviewer: cbrooks
-ms.openlocfilehash: 13da3adc1a3f95f9fdb29eb181eb9759e175cffe
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.custom: seo-javascript-september2019
+ms.openlocfilehash: 83aecc9c05fec5869a82930f2d687ac907981c00
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68721272"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70858678"
 ---
 # <a name="how-to-use-queue-storage-from-nodejs"></a>Använda Queue Storage från Node.js
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]

@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 08/07/2019
-ms.openlocfilehash: 81e8601ac83d43bde0767e38eb387f489d76125b
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: e1029ad34a05d342e5aed5bb30407dee7c914f3c
+ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70165249"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70873554"
 ---
 # <a name="enterprise-security-for-the-azure-machine-learning-service"></a>Företags säkerhet för tjänsten Azure Machine Learning
 
@@ -132,7 +132,7 @@ Mer information om hanterade identiteter finns i [hanterade identiteter för Azu
 
 Vi rekommenderar inte att administratörer återkallar åtkomsten av den hanterade identiteten till de resurser som anges i tabellen ovan. Du kan återställa åtkomsten med hjälp av åtgärden omsynkronisera nycklar.
 
-Azure Machine learnings tjänsten skapar ett ytterligare program (namnet börjar med `aml-`) med åtkomst på deltagar nivå i din prenumeration för varje region för arbets ytan. Om du till exempel har en arbets yta i östra USA och en annan arbets yta i Nord Europa i samma prenumeration, ser du två av dessa program. De här programmen gör det möjligt för Azure Machine Learnings tjänsten att hjälpa dig att hantera beräknings resurser.
+Azure Machine learnings tjänsten skapar ett ytterligare program (namnet börjar med `aml-` eller `Microsoft-AzureML-Support-App-`) med åtkomst på deltagar nivå i din prenumeration för varje region för arbets yta. Om du till exempel har en arbets yta i östra USA och en annan arbets yta i Nord Europa i samma prenumeration, ser du två av dessa program. De här programmen gör det möjligt för Azure Machine Learnings tjänsten att hjälpa dig att hantera beräknings resurser.
 
 ## <a name="network-security"></a>Nätverkssäkerhet
 
@@ -167,7 +167,7 @@ Alla behållar avbildningar i registret (Azure Container Registry) är krypterad
 OS-disken för varje Compute-nod som lagras i Azure Storage krypteras med Microsoft-hanterade nycklar i Azure Machine Learning tjänst lagrings konton. Detta beräknings mål är tillfälligt och kluster skalas vanligt vis ned när inga körningar placeras i kö. Den underliggande virtuella datorn är avetablerad och OS-disken tas bort. Azure Disk Encryption stöds inte för OS-disken.
 
 Varje virtuell dator har också en lokal temporär disk för OS-åtgärder. Om du vill kan du använda disken för att mellanlagra tränings data. Disken är inte krypterad.
-Mer information om hur kryptering i vila fungerar i Azure finns i [Azure Data](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest)Encryption i vila.
+Mer information om hur kryptering i vila fungerar i Azure finns i [Azure Data Encryption i vila](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest).
 
 ### <a name="encryption-in-transit"></a>Kryptering under överföring
 

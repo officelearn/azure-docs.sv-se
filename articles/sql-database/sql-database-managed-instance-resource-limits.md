@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp, sstein
 ms.date: 08/27/2019
-ms.openlocfilehash: c0bfbbd8b85f0b3eadf468cdd1261f52bff26abe
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
-ms.translationtype: HT
+ms.openlocfilehash: 33e21b54927280e2692a58c311e2de23e257f923
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70813382"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70845380"
 ---
 # <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>Översikt Azure SQL Database hanterade instans resurs gränser
 
@@ -65,9 +65,9 @@ Den hanterade instansen har två tjänst nivåer: Generell användning och Affä
 | Maximal tempDB-storlek | 192 – 1 920 GB (24 GB per vCore)<br/>Lägg till fler virtuella kärnor för att få mer TempDB-utrymme. | Begränsas av maximal instans lagrings storlek. TempDB-logg fils storleken är för närvarande begränsad till 24GB/vCore. |
 | Minnesintern OLTP | Stöds inte | Tillgängligt |
 | Maximalt antal sessioner | 30000 | 30000 |
-| Läsbara repliker | 0 | 1 (ingår i priset) |
-| Priser/fakturering | vCore, reserverad lagring  <br/> IOPS debiteras inte, lagring av säkerhets kopior debiteras inte ännu. | vCore, reserverad lagring  <br/> IOPS debiteras inte, lagring av säkerhets kopior debiteras inte ännu. | 
-| Rabatt modeller | [Reserverade instanser](sql-database-reserved-capacity.md)<br/>[Azure Hybrid-förmån](sql-database-service-tiers-vcore.md#azure-hybrid-benefit) (inte tillgängligt för utveckling/testning-prenumerationer) | [Reserverade instanser](sql-database-reserved-capacity.md)<br/>[Azure Hybrid-förmån](sql-database-service-tiers-vcore.md#azure-hybrid-benefit) (inte tillgängligt för utveckling/testning-prenumerationer)|
+| [Skrivskyddade repliker](sql-database-read-scale-out.md) | 0 | 1 (ingår i priset) |
+| Priser/fakturering | [vCore och reserverad lagring](https://azure.microsoft.com/pricing/details/sql-database/managed/) debiteras. <br/>IOPS debiteras inte.<br/>Lagring av säkerhets kopior debiteras inte ännu. | [vCore och reserverad lagring](https://azure.microsoft.com/pricing/details/sql-database/managed/) debiteras. <br/>IOPS debiteras inte.<br/>Lagring av säkerhets kopior debiteras inte ännu. | 
+| Rabatt modeller | [Reserverade instanser](sql-database-reserved-capacity.md)<br/>[Azure Hybrid-förmån](sql-database-service-tiers-vcore.md#azure-hybrid-benefit) (inte tillgängligt för utveckling/testning-prenumerationer)<br/>[Enterprise](https://azure.microsoft.com/offers/ms-azr-0148p/) och [betala](https://azure.microsoft.com/offers/ms-azr-0023p/) per användning-prenumerationer för utveckling och testning| [Reserverade instanser](sql-database-reserved-capacity.md)<br/>[Azure Hybrid-förmån](sql-database-service-tiers-vcore.md#azure-hybrid-benefit) (inte tillgängligt för utveckling/testning-prenumerationer)<br/>[Enterprise](https://azure.microsoft.com/offers/ms-azr-0148p/) och [betala](https://azure.microsoft.com/offers/ms-azr-0023p/) per användning-prenumerationer för utveckling och testning|
 
 > [!NOTE]
 > - Både data-och logg fils storleken i användar-och system databaserna ingår i instans lagrings storleken som jämförs med den maximala lagrings storleks gränsen. Använd <a href="https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-master-files-transact-sql">sys. master_files</a> system-vyn för att fastställa det totala använda utrymmet för databaser. Fel loggarna är inte bestående och ingår inte i storlek. Säkerhets kopieringar ingår inte i lagrings storleken.

@@ -11,12 +11,12 @@ ms.author: sanpil
 author: sanpil
 ms.date: 08/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: 7d7333a9316e4d39fd550872c3df04024a75d21d
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: c40fd4f776e0372d7368d182d30cfb2e01a4b0e2
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70128330"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70858816"
 ---
 # <a name="what-are-ml-pipelines-in-azure-machine-learning-service"></a>Vad är ML pipelines i Azure Machine Learning service?
 
@@ -54,7 +54,7 @@ Efter att pipelinen har utformats finns det ofta mer fin justering av pipelinens
 
 Med Azure Machine Learning kan du använda olika verktyg och ramverk, till exempel PyTorch eller TensorFlow, för varje steg i din pipeline. Azure-koordinater mellan de olika [beräknings målen](concept-azure-machine-learning-architecture.md) som du använder, så att dina mellanliggande data kan delas med de underordnade beräknings målen enkelt.
 
-Du kan [spåra mått för din pipeline-experiment](https://docs.microsoft.com/azure/machine-learning/service/how-to-track-experiments) direkt i Azure-portalen. När en pipeline har publicerats kan du konfigurera en REST-slutpunkt, vilket gör att du kan köra pipelinen igen från valfri plattform eller stack.
+Du kan [spåra måtten för dina pipelines experiment](https://docs.microsoft.com/azure/machine-learning/service/how-to-track-experiments) direkt i Azure Portal eller i [landnings sidan för din arbets yta (för hands version)](https://ml.azure.com). När en pipeline har publicerats kan du konfigurera en REST-slutpunkt, vilket gör att du kan köra pipelinen igen från valfri plattform eller stack.
 
 ## <a name="key-advantages"></a>Viktiga fördelar
 

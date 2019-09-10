@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/08/2019
 ms.author: v-mohabe
-ms.openlocfilehash: 4d3fc90a722b9f4043e891a14b542e6b90c94c55
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: a5cd0f88173abb65a120aa305206505af51d9f9e
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68881039"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70861368"
 ---
 # <a name="endpoint-protection-assessment-and-recommendations-in-azure-security-center"></a>Endpoint Protection-utvärdering och rekommendationer i Azure Security Center
 
-Endpoint Protection-utvärdering och rekommendationer i Azure Security Center identifierar och tillhandahåller hälso utvärdering av versioner av slut punkts skydds lösningar som [stöds](https://docs.microsoft.com/azure/security-center/security-center-os-coverage#supported-platforms-for-windows-computers-and-vms) . I det här avsnittet beskrivs scenarier som genererar följande två rekommendationer för Endpoint Protection-lösningar med Azure Security Center.
+Endpoint Protection-utvärdering och rekommendationer i Azure Security Center identifierar och tillhandahåller hälso utvärdering av versioner av slut punkts skydds lösningar som [stöds](https://docs.microsoft.com/azure/security-center/security-center-os-coverage) . I det här avsnittet beskrivs scenarier som genererar följande två rekommendationer för Endpoint Protection-lösningar med Azure Security Center.
 
 * **Installera Endpoint Protection-lösningar på den virtuella datorn**
 * **Lös problem med hälso tillstånd för slut punkts skydd på dina datorer**
@@ -85,7 +85,7 @@ Endpoint Protection-utvärdering och rekommendationer i Azure Security Center id
     * **HKLM: \ SOFTWARE\TrendMicro\Deep säkerhets agent** finns
     * **HKLM: \ SOFTWARE\TrendMicro\Deep Security Agent\InstallationFolder** finns
     * Filen **dsq_query. cmd** finns i installationsmappen
-    * Kör **dsa_query. cmd** -resultat med **komponent. am. mode: analys av Micro-djup säkerhets agent** har identifierats
+    * Kör **dsa_query. cmd** -resultat med **komponent. am. mode: analys av Micro-djup säkerhets agent har identifierats**
 
 ## <a name="symantec-endpoint-protection"></a>Symantec Endpoint Protection
 Rekommendationen **"Installera Endpoint Protection-lösningar på virtuell dator"** skapas om någon av följande kontroller inte är uppfyllda:

@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 08/31/2019
 ms.author: victorh
-ms.openlocfilehash: 3fa97c5738128907b0edad40cedf582e80c33443
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: fd4eef9771ae89e330c99b398ad6d473356213f5
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70194467"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70858540"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>Vanliga frågor och svar om Application Gateway
 
@@ -84,7 +84,7 @@ En Application Gateway stöder bara en offentlig IP-adress.
 
 ### <a name="how-large-should-i-make-my-subnet-for-application-gateway"></a>Hur stor ska jag göra mitt undernät för Application Gateway?
 
-Se [Application Gateway](https://docs.microsoft.com/azure/application-gateway/configuration-overview#size-of-the-subnet)-undernätets storleks överväganden.
+Se [Application Gateway-undernätets storleks överväganden](https://docs.microsoft.com/azure/application-gateway/configuration-overview#size-of-the-subnet).
 
 ### <a name="can-i-deploy-more-than-one-application-gateway-resource-to-a-single-subnet"></a>Kan jag distribuera fler än en Application Gateway resurs till ett enda undernät?
 
@@ -120,7 +120,7 @@ Använd Traffic Manager för att distribuera trafik över flera programgatewayer
 
 ### <a name="does-application-gateway-support-autoscaling"></a>Stöder Application Gateway automatisk skalning?
 
-Ja, Application Gateway v2-SKU: n stöder automatisk skalning. Mer information finns i autoskalning [och zon-redundant Application Gateway](application-gateway-autoscaling-zone-redundant.md).
+Ja, Application Gateway v2-SKU: n stöder automatisk skalning. Mer information finns i [autoskalning och zon-redundant Application Gateway](application-gateway-autoscaling-zone-redundant.md).
 
 ### <a name="does-manual-scale-up-or-scale-down-cause-downtime"></a>Går det att skala upp eller ned manuellt under drift stopp?
 
@@ -142,7 +142,7 @@ Ja. Application Gateway distribueras alltid i ett undernät för virtuellt nätv
 
 ### <a name="can-application-gateway-communicate-with-instances-outside-of-its-virtual-network-or-outside-of-its-subscription"></a>Kan Application Gateway kommunicera med instanser utanför det virtuella nätverket eller utanför prenumerationen?
 
-Så länge som du har IP-anslutning kan Application Gateway kommunicera med instanser utanför det virtuella nätverk där det finns. Application Gateway kan också kommunicera med instanser utanför prenumerationen som det finns i. Om du planerar att använda interna IP-adresser som medlemmar i backend-poolen använder du peering för [virtuella nätverk](../virtual-network/virtual-network-peering-overview.md) eller [Azure VPN gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md).
+Så länge som du har IP-anslutning kan Application Gateway kommunicera med instanser utanför det virtuella nätverk där det finns. Application Gateway kan också kommunicera med instanser utanför prenumerationen som det finns i. Om du planerar att använda interna IP-adresser som medlemmar i backend-poolen använder du [peering för virtuella nätverk](../virtual-network/virtual-network-peering-overview.md) eller [Azure VPN gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md).
 
 ### <a name="can-i-deploy-anything-else-in-the-application-gateway-subnet"></a>Kan jag distribuera något annat i Application Gateway-undernätet?
 
@@ -353,7 +353,7 @@ I portalen väljer du **aktivitets logg** för att få åtkomst till gransknings
 
 ### <a name="can-i-set-alerts-with-application-gateway"></a>Kan jag ange aviseringar med Application Gateway?
 
-Ja. I Application Gateway konfigureras aviseringar för mått. Mer information finns i [Application Gateway mått](https://docs.microsoft.com/azure/application-gateway/application-gateway-diagnostics#metrics) och [ta emot aviseringar](../monitoring-and-diagnostics/insights-receive-alert-notifications.md).
+Ja. I Application Gateway konfigureras aviseringar för mått. Mer information finns i [Application Gateway mått](https://docs.microsoft.com/azure/application-gateway/application-gateway-metrics) och [ta emot aviseringar](../monitoring-and-diagnostics/insights-receive-alert-notifications.md).
 
 ### <a name="how-do-i-analyze-traffic-statistics-for-application-gateway"></a>Hur gör jag för att analysera trafik statistik för Application Gateway?
 

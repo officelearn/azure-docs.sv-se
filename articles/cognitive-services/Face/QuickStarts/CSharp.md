@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 07/03/2019
+ms.date: 09/06/2019
 ms.author: pafarley
-ms.openlocfilehash: 349ae3450b5817b5cfe9c95c41d159e3daca7a39
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: f7e1507289d3c21d51a0ec8529598e5eeb089d37
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67603399"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70859006"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-face-rest-api-and-c"></a>Snabbstart: Identifiera ansikten i en bild med ansikts-REST API och C#
 
@@ -51,8 +51,9 @@ using System.Text;
 
 ### <a name="add-essential-fields"></a>Lägga till grundläggande fält
 
-Lägg till den **programmet** klass som innehåller följande fält. Dessa data anger hur du ansluter till ansiktsigenkänningstjänsten och var du hämtar indata. Du måste uppdatera fältet `subscriptionKey` med värdet för din prenumerationsnyckel, och du kan behöva ändra strängen `uriBase` så att den innehåller rätt regionsidentifierare (en lista över alla regionsslutpunkter finns i [dokument om Ansikts-API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)).
+Lägg till **program** klassen som innehåller följande fält. Dessa data anger hur du ansluter till ansiktsigenkänningstjänsten och var du hämtar indata. Du måste uppdatera `subscriptionKey` fältet med värdet för din prenumerations nyckel och du kan behöva `uriBase` ändra strängen så att den innehåller din resurs slut punkts sträng.
 
+[!INCLUDE [subdomains-note](../../../../includes/cognitive-services-custom-subdomains-note.md)]
 
 ```csharp
 namespace DetectFace
@@ -62,22 +63,15 @@ namespace DetectFace
 
         // Replace <Subscription Key> with your valid subscription key.
         const string subscriptionKey = "<Subscription Key>";
-
-        // NOTE: You must use the same region in your REST call as you used to
-        // obtain your subscription keys. For example, if you obtained your
-        // subscription keys from westus, replace "westcentralus" in the URL
-        // below with "westus".
-        //
-        // Free trial subscription keys are generated in the "westus" region.
-        // If you use a free trial subscription key, you shouldn't need to change
-        // this region.
+        
+        // replace <myresourcename> with the string found in your endpoint URL
         const string uriBase =
-            "https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect";
+            "https://<myresourcename>.cognitive.microsoft.com/face/v1.0/detect";
 ```
 
 ### <a name="receive-image-input"></a>Ta emot indata
 
-Lägg till följande kod i metoden **Main** i klassen **Program**. Den här koden skriver en fråga till konsolen som ber användaren att ange en bild-URL. Sedan anropas en annan metod, **MakeAnalysisRequest**, för att bearbeta bilden på den platsen.
+Lägg till följande kod i metoden **Main** i klassen **Program**. Den här koden skriver en prompt till-konsolen som ber användaren ange en bild-URL. Sedan anropas en annan metod, **MakeAnalysisRequest**, för att bearbeta bilden på den platsen.
 
 ```csharp
         static void Main(string[] args)
@@ -162,7 +156,7 @@ Du definierar hjälpmetoden i följande steg.
 
 ### <a name="process-the-input-image-data"></a>Bearbeta inmatade bilddata
 
-Lägg till följande metod i klassen **Program**. Den här metoden konverterar bilden på den angivna URL: en till en byte-matris.
+Lägg till följande metod i klassen **Program**. Den här metoden konverterar bilden på den angivna URL: en till en byte mat ris.
 
 ```csharp
         // Returns the contents of the specified file as a byte array.
@@ -179,7 +173,7 @@ Lägg till följande metod i klassen **Program**. Den här metoden konverterar b
 
 ### <a name="parse-the-json-response"></a>Tolka JSON-svaret
 
-Lägg till följande metod i klassen **Program**. Den här metoden formaterar JSON-indata ska vara mer lättläst. Appen skriver dessa strängdata till konsolen. Därefter kan du stänga den klass och namnområde.
+Lägg till följande metod i klassen **Program**. Den här metoden formaterar JSON-ingången så att den blir lättare att läsa. Appen skriver dessa strängdata till konsolen. Sedan kan du stänga klassen och namn området.
 
 ```csharp
         // Formats the given JSON string by adding line breaks and indents.

@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: a61e789bb40d8263d293c70a67567ea61d5d2652
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.openlocfilehash: a8b7e238333196381524d189904871fe5933c906
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69972610"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70845358"
 ---
 # <a name="set-up-vpn-gateways-on-cloudsimple-network"></a>Konfigurera VPN-gatewayer i CloudSimple-nätverk
 
@@ -56,7 +56,7 @@ Med en punkt-till-plats-VPN-gateway kan du definiera en princip för automatisk 
     > [!WARNING]
     > Att aktivera hög tillgänglighet kräver att din lokala VPN-enhet stöder anslutning till två IP-adresser. Det här alternativet kan inte inaktive ras när VPN-gatewayen har distribuerats.
 
-5. Skapa den första anslutningen från ditt lokala nätverk och klicka på **Nästa**
+5. Skapa den första anslutningen från ditt lokala nätverk och klicka på **Nästa**.
 
     * Ange ett namn för att identifiera anslutningen.
     * För peer-IP anger du din lokala VPN-gateways offentliga IP-adress.

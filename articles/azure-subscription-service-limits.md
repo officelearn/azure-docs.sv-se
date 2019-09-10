@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 05/30/2019
 ms.author: byvinyal
 ms.openlocfilehash: 7c4c80950e43f374b40085cb4e1c3e026e5f3abd
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2019
+ms.lasthandoff: 09/10/2019
 ms.locfileid: "68698292"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Azure-prenumeration och tjänstbegränsningar, kvoter och krav
@@ -31,7 +31,7 @@ Mer information om priser för Azure finns i [Översikt över Azure-priser](http
 ## <a name="limits-and-azure-resource-manager"></a>Gränser och Azure Resource Manager
 Nu är det möjligt att kombinera flera Azure-resurser till en enda Azure-resurs grupp. När du använder resurs grupper, begränsar det att en gång har global hantering på regional nivå med Azure Resource Manager. Mer information om Azures resurs grupper finns i [Azure Resource Manager översikt](azure-resource-manager/resource-group-overview.md).
 
-I följande lista över gränser visar en ny tabell eventuella skillnader i gränser när du använder Azure Resource Manager. Det finns till exempel en **prenumerations begränsnings** tabell och en prenumerations **gräns – Azure Resource Manager** tabell. När en gräns gäller för båda scenarierna visas den bara i den första tabellen. Om inget annat anges är gränserna globalt i alla regioner.
+I följande lista över gränser visar en ny tabell eventuella skillnader i gränser när du använder Azure Resource Manager. Det finns till exempel en **prenumerations begränsnings** tabell och en **prenumerations gräns – Azure Resource Manager** tabell. När en gräns gäller för båda scenarierna visas den bara i den första tabellen. Om inget annat anges är gränserna globalt i alla regioner.
 
 > [!NOTE]
 > Kvoter för resurser i Azure-resurs grupper är per region som är tillgängliga för din prenumeration, inte per prenumeration som tjänst hanterings kvoterna. Vi använder vCPU-kvoter som exempel. Om du vill begära en kvot ökning med stöd för virtuella processorer, måste du bestämma hur många virtuella processorer du vill använda i vilka regioner. Sedan gör du en speciell begäran för Azures resurs grupp vCPU kvoter för de mängder och regioner som du vill ha. Om du behöver använda 30 virtuella processorer i Västeuropa för Europa för att köra ditt program där, så kan du begära 30 virtuella processorer i Västeuropa. Din vCPU-kvot ökas inte i någon annan region – endast Västeuropa har 30-vCPU-kvoten.
@@ -53,7 +53,7 @@ I följande lista över gränser visar en ny tabell eventuella skillnader i grä
 * [Azure Database for MySQL](#azure-database-for-mysql)
 * [Azure Database for PostgreSQL](#azure-database-for-postgresql)
 * [Azure DNS](#azure-dns-limits)
-* [Azure-brandvägg](#azure-firewall-limits)
+* [Azure Firewall](#azure-firewall-limits)
 * [Azure Functions](#functions-limits)
 * [Azure Kubernetes Service](#azure-kubernetes-service-limits)
 * [Azure Machine Learning tjänst](#azure-machine-learning-service-limits)
@@ -85,8 +85,8 @@ I följande lista över gränser visar en ny tabell eventuella skillnader i grä
 * [Nätverk](#networking-limits)
   * [Application Gateway](#application-gateway-limits)
   * [Azure DNS](#azure-dns-limits)
-  * [Azure-tjänsten för front dörr](#azure-front-door-service-limits)
-  * [Azure-brandvägg](#azure-firewall-limits)
+  * [Azure Front Door Service](#azure-front-door-service-limits)
+  * [Azure Firewall](#azure-firewall-limits)
   * [ExpressRoute](#expressroute-limits)
   * [Lastbalanserare](#load-balancer)
   * [Offentlig IP-adress](#publicip-address)
@@ -106,7 +106,7 @@ I följande lista över gränser visar en ny tabell eventuella skillnader i grä
 * [Stream Analytics](#stream-analytics-limits)
 * [Prenumeration](#subscription-limits)
 * [Virtual Machines](#virtual-machines-limits)
-* [Skalnings uppsättningar för virtuella datorer](#virtual-machine-scale-sets-limits)
+* [Skaluppsättningar för virtuella datorer](#virtual-machine-scale-sets-limits)
 
 ### <a name="subscription-limits"></a>Prenumerationsgränser
 #### <a name="subscription-limits---azure-service-management-classic-deployment-model"></a>Prenumerations gränser – Azure Service Management (klassisk distributions modell)
@@ -372,7 +372,7 @@ Om du vill veta mer om begränsningar på en mer detaljerad nivå, till exempel 
 ### <a name="key-vault-limits"></a>Key Vault gränser
 [!INCLUDE [key-vault-limits](../includes/key-vault-limits.md)]
 
-### <a name="multi-factor-authentication-limits"></a>Multi-Factor Authentication-gränser
+### <a name="multi-factor-authentication-limits"></a>Multi-Factor Authentication gränser
 [!INCLUDE [azure-mfa-service-limits](../includes/azure-mfa-service-limits.md)]
 
 ### <a name="automation-limits"></a>Automation-begränsningar

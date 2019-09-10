@@ -8,14 +8,14 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 55401ca498f06aa0b959c3926f2a07f40e7fb638
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.openlocfilehash: 9e0afd26b46fc6249b697c38983b9c219c42b1a0
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69972625"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70845489"
 ---
-# <a name="migrate-workloads-using-layer-2-stretched-networks"></a>Migrera arbets belastningar med Layer 2 utsträckta nätverk
+# <a name="migrate-workloads-using-layer-2-stretched-networks"></a>Migrera arbetsbelastningar med hjälp av stretchade Layer 2-nätverk
 
 I den här guiden får du lära dig hur du använder Layer 2 VPN (L2VPN) för att sträcka ut ett nätverk på nivå 2 från din lokala miljö till ditt CloudSimple-privata moln. Med den här lösningen kan du migrera arbets belastningar som körs i din lokala VMware-miljö till det privata molnet i Azure inom samma adress utrymme för under nätet utan att behöva IP-adresser för arbets belastningen.
 
@@ -108,7 +108,7 @@ Mer information finns i [virtuella privata nätverk](https://docs.vmware.com/en/
 
 Följande steg visar hur du hämtar det logiska router-ID: t för Tier0 DR Logical router-instansen för IPsec-och L2VPN-tjänsterna. Det logiska router-ID: t krävs senare när du implementerar L2VPN.
 
-1. Logga in på NSX-T Manager (https://nsx-t-manager-ip-address) och >  >  Välj**Provider för nätverksprovider-LR** > **Översikt**. I **läget för hög tillgänglighet**väljer du **aktivt-standby**. Den här åtgärden öppnar ett popup-fönster som visar den virtuella Edge-dator där Tier0-routern för närvarande är aktiv.
+1. Logga in på NSX-t Manager https://*NSX-t-Manager-IP-Address* och Select **Network** > **routers** > **Provider-LR** > -**Översikt**. I **läget för hög tillgänglighet**väljer du **aktivt-standby**. Den här åtgärden öppnar ett popup-fönster som visar den virtuella Edge-dator där Tier0-routern för närvarande är aktiv.
 
     ![Välj Aktiv-standby](media/l2vpn-fetch01.png)
 
@@ -137,7 +137,7 @@ Följande steg visar hur du hämtar det logiska router-ID: t för Tier0 DR Logic
 ## <a name="fetch-the-logical-switch-id-needed-for-l2vpn"></a>Hämta det ID för logisk växel som krävs för L2VPN
 
 1. Logga in på [NSX-T-hanteraren](https://nsx-t-manager-ip-address).
-2. Välj **nätverks** > **växlings** > **växlar** > * * < \Logical-växel > \ * * > **Översikt**.
+2. Välj **nätverks** >  **växlings** > växlar > * * < \Logical-växel > \ * * > **Översikt**.
 3. Anteckna UUID för den utsträckta logiska växeln, vilket krävs när du konfigurerar L2VPN.
 
     ![Hämta utdata för logiska routrar](media/l2vpn-fetch-switch01.png)
@@ -158,7 +158,7 @@ För att upprätta en IPsec Route-baserad VPN mellan NSX-T Tier0-routern och den
 
     ![Lägg till statisk väg](media/l2vpn-routing-security01.png)
 
-2. Skapa en lista med IP-prefix. Logga in på NSX-T- > hanteraren och välj Provider för**routrar** > för **nätverks** > **routning** >  **– LR** > **IP-prefix**. Klicka på **Lägg till**. Ange ett namn för att identifiera listan. För **prefix**klickar du på **Lägg till** två gånger. På den första raden anger du ' 0.0.0.0/0 ' för **nätverk** och ' neka ' för **åtgärd**. På den andra raden väljer du **ett** för **nätverk** och åtgärds **tillstånd** .
+2. Skapa en lista med IP-prefix. Logga in på NSX-T- > hanteraren och välj Provider för**routrar** > för **nätverks** > **routning** >  **– LR** > **IP-prefix**. Klicka på **Lägg till**. Ange ett namn för att identifiera listan. För **prefix**klickar du på **Lägg till** två gånger. På den första raden anger du ' 0.0.0.0/0 ' för **nätverk** och ' neka ' för **åtgärd**. På den andra raden väljer du **ett** för **nätverk** och **Åtgärds** **tillstånd** .
 3. Koppla listan IP-prefix till både BGP-grannar (TOR). Om du kopplar listan IP-prefix till BGP-grannar förhindrar det att standard vägen annonseras i BGP till TOR-växlarna. En annan väg som inkluderar null-vägen annonserar dock IP-adressen för loopback-gränssnittet till TOR-växlarna.
 
     ![Skapa lista över IP-prefix](media/l2vpn-routing-security02.png)
@@ -455,7 +455,7 @@ Innan du distribuerar bör du kontrol lera att dina lokala brand Väggs regler t
     Expandera gränssnitt för överordnad länk:
 
     * **DNS-IP-adress**. Ange den lokala DNS-IP-adressen.
-    * Standardgateway.  Ange standardgateway för det VLAN som ska fungera som standard-gateway för den här klienten.
+    * **Standardgateway.**  Ange standardgateway för det VLAN som ska fungera som standard-gateway för den här klienten.
     * **IP-adress**. Ange den fristående klientens IP-adress för överordnad länk.
     * **Prefixlängd**. Ange prefixlängden för LAN/undernät för överordnad länk.
     * **CLI-administratör/aktivera/rot användar lösen ord**. Ange lösen ordet för administratörs kontot/Enable/root.

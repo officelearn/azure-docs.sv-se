@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 07/26/2019
-ms.openlocfilehash: 9e62dd25c3ff16e280eda1ad11053ef520a85e4d
-ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
+ms.openlocfilehash: 57e9cec16326068cc7de74b8f7266fbe47808fed
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68706514"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70845445"
 ---
 # <a name="create-azure-resource-manager-templates-to-automate-deployment-for-azure-logic-apps"></a>Skapa Azure Resource Manager mallar för att automatisera distributionen av Azure Logic Apps
 
@@ -83,10 +83,10 @@ När du kör `Get-LogicAppTemplate` kommandot med det här verktyget hämtar kom
 
 ### <a name="generate-template-with-powershell"></a>Skapa mall med PowerShell
 
-Kör följande PowerShell-kommando för att skapa en mall när du har installerat LogicAppTemplate-modulen:
+Om du vill skapa din mall efter att ha installerat LogicAppTemplate-modulen och [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)kör du följande PowerShell-kommando:
 
 ```text
-PS> Get-LogicAppTemplate
+PS> Get-LogicAppTemplate -Token (az account get-access-token | ConvertFrom-Json).accessToken -LogicApp <logic-app-name> -ResourceGroup <Azure-resource-group-name> -SubscriptionId $SubscriptionId -Verbose | Out-File C:\template.json
 ```
 
 Om du vill följa rekommendationen för rörledningar i en token från [Azure Resource Manager klient verktyget](https://github.com/projectkudu/ARMClient)kör du det `$SubscriptionId` här kommandot i stället för ditt Azure-prenumerations-ID:

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 06/25/2019
 ms.author: wesmc
-ms.openlocfilehash: d23d1881bb2d07d6287d648bb8ceb3e7930d547e
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: e4379c38d90f444102a9bbddbae64a8018defcf8
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70074475"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70844563"
 ---
 # <a name="connect-iot-devkit-az3166-to-azure-iot-hub"></a>Ansluta IoT DevKit-AZ3166 till Azure IoT Hub
 
@@ -29,7 +29,7 @@ Du kan använda [MXChip IoT-DevKit](https://microsoft.github.io/azure-iot-develo
 * Så här skickar du DevKit-sensorns telemetridata till IoT Hub.
 * Förbereda utvecklings miljön och utveckla program för IoT-DevKit.
 
-Har du inte någon DevKit än? Prova [DevKit](https://azure-samples.github.io/iot-devkit-web-simulator/) -simulatorn eller [Köp en DevKit](https://aka.ms/iot-devkit-purchase).
+Har du inte någon DevKit än? Prova [DevKit-simulatorn](https://azure-samples.github.io/iot-devkit-web-simulator/) eller [Köp en DevKit](https://aka.ms/iot-devkit-purchase).
 
 Du hittar käll koden för alla DevKit-självstudier i [IoTDevEnvExamples](https://github.com/IoTDevEnvExamples) -lagringsplatsen.
 
@@ -179,7 +179,7 @@ Följ de här stegen för att förbereda utvecklings miljön för DevKit:
 
 5. Konfigurera VS Code med Arduino-inställningar.
 
-    I Visual Studio Code klickar du på **fil > inställningar > inställningar**. Klicka sedan på **...** och **öppna Settings. JSON**.
+    I Visual Studio Code klickar du på **fil > inställningar > inställningar** (på MacOS, **kod > inställningar > Inställningar**). Klicka sedan på ikonen **Öppna inställningar (JSON)** i det övre högra hörnet på sidan *Inställningar* .
 
     ![Installera Azure IoT-verktyg](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/user-settings-arduino.png)
 

@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 08/30/2019
+ms.date: 09/10/2019
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b562ccf81a80219caa9f80bec82f64f7d2510626
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: 4b5f85aa99876ef6c3c9193612051085f3e0ffc0
+ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70194605"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70872184"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Regler för dynamiskt medlemskap för grupper i Azure Active Directory
 
@@ -96,7 +96,7 @@ Följande är de användar egenskaper som du kan använda för att skapa ett end
 | properties | Tillåtna värden | Användning |
 | --- | --- | --- |
 | city |Valfritt sträng värde eller *Null* |(User. City-EQ "värde") |
-| ursprungslandet |Valfritt sträng värde eller *Null* |(User. Country-EQ "värde") |
+| Ursprungslandet |Valfritt sträng värde eller *Null* |(User. Country-EQ "värde") |
 | companyName | Valfritt sträng värde eller *Null* | (User. företags namn – EQ "värde") |
 | Avdelning |Valfritt sträng värde eller *Null* |(User. Department-EQ "värde") |
 | displayName |Valfritt sträng värde |(User. displayName-EQ "value") |
@@ -358,6 +358,11 @@ Du hittar namnet på den anpassade egenskapen i katalogen genom att fråga en an
 ## <a name="rules-for-devices"></a>Regler för enheter
 
 Du kan också skapa en regel som väljer enhets objekt för medlemskap i en grupp. Du kan inte ha både användare och enheter som grupp medlemmar. Attributet **organizationalUnit** visas inte längre och ska inte användas. Den här strängen anges av Intune i vissa fall, men känns inte igen av Azure AD, så inga enheter läggs till i grupper baserat på det här attributet.
+
+> [!NOTE]
+> systemlabels är ett skrivskyddat attribut som inte kan anges med Intune.
+>
+> För Windows 10 är rätt format för deviceOSVersion-attributet följande: (Device. deviceOSVersion-EQ "10,0 (17763)"). Formateringen kan val IDE ras med PowerShell-cmdleten Get-MsolDevice.
 
 Följande enhets egenskaper kan användas.
 

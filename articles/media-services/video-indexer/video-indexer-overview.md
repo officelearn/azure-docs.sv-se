@@ -1,25 +1,25 @@
 ---
-title: Vad är Video Indexer?
-titlesuffix: Azure Media Services
-description: Det här avsnittet ger en översikt över tjänsten Video Indexer.
+title: Vad är Azure Media Services Video Indexer?
+titleSuffix: Azure Media Services
+description: Det här avsnittet ger en översikt över tjänsten Azure Media Services Video Indexer.
 services: media-services
 author: Juliako
 manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 07/22/2019
+ms.date: 09/06/2019
 ms.author: juliako
-ms.openlocfilehash: b0d0df5d113b1d75602022085b8bb17133f07333
-ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
+ms.openlocfilehash: e3f60b5fb0693e40c9db040f7b14f487fce8f68e
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68422977"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70860250"
 ---
 # <a name="what-is-video-indexer"></a>Vad är Video Indexer?
 
-Azure Video Indexer är ett molnprogram som bygger på Azure-medieanalys, Azure Search, Cognitive Services (som Ansikts-API, Microsoft Translator, API för visuellt innehåll och Custom Speech Service). Det gör att du kan extrahera insikter från dina videor med hjälp av Video Indexer video-och ljud modeller som beskrivs nedan:
+Azure Media Services Video Indexer är ett molnprogram som bygger på Azure-medieanalys, Azure Search, Cognitive Services (som API:et för ansiktsigenkänning, Microsoft Translator, API:et för visuellt innehåll och Custom Speech Service). Det gör att du kan extrahera insikter från dina videor med hjälp av Video Indexer video-och ljud modeller som beskrivs nedan:
   
 ## <a name="video-insights"></a>Video insikter
 
@@ -35,10 +35,13 @@ Azure Video Indexer är ett molnprogram som bygger på Azure-medieanalys, Azure 
 - **Identifiering av svart ram**: Identifierar svarta bild rutor som visas i videon.
 - **Extrahering av nyckel rutor**: Identifierar stabila nyckel rutor i en video.
 - **Rullande krediter**: identifiera början och slutet av de rullande eftertexterna i slutet av TV-program och filmer.
+- **Identifiera animerade tecken** (för hands version): identifiering, gruppering och igenkänning av tecken i animerat innehåll via integration med [Cognitive Services anpassad vision](https://azure.microsoft.com/services/cognitive-services/custom-vision-service/). Mer information finns i [animerat teckensnitts identifiering](animated-characters-recognition.md).
+- **Identifiering av redaktionell text typer**: Tagga bilder baserat på deras typ (t. ex. wide-bild, medie tagning, nära upp, extrema nära upp, två bilder, flera personer, utomhus och inomhus osv.). Mer information finns i [identifiering av redaktionella typer av tagningar](scenes-shots-keyframes.md#editorial-shot-type-detection).
 
 ## <a name="audio-insights"></a>Ljud insikter
 
 - **Automatisk språk identifiering**: Identifierar automatiskt det dominerande talade språket. Språk som stöds är engelska, spanska, franska, tyska, italienska, kinesiska (förenklad), japanska, ryska och brasiliansk portugisiska. Om språket inte kan identifieras med förtroende förutsätter Video Indexer att det talade språket är engelska. Mer information finns i [språk identifierings modell](language-identification-model.md).
+- **Tal identifiering och avskriftering på flera språk** (för hands version): Identifierar automatiskt det talade språket i olika segment från ljud, vilket innebär att varje segment i medie filen har tilldelats och kombinera avskriften till en enhetlig avskrift. Mer information finns i [identifiera och automatisk identifiering av innehåll på flera språk](multi-language-identification-transcription.md).
 - **Ljud avskrift**: Konverterar tal till text på 12 språk och tillåter tillägg. Språk som stöds är engelska, spanska, franska, tyska, italienska, kinesiska (förenklad), japanska, arabiska, ryska, portugisiska (Brasilien), hindi och koreanska.
 - **Dold textning**: Skapar dold textning i tre format: VTT, TTML, SRT.
 - **Två kanal bearbetning**: Automatisk identifierar, separera avskrift och sammanslagningar till en enda tids linje.
@@ -56,7 +59,7 @@ Azure Video Indexer är ett molnprogram som bygger på Azure-medieanalys, Azure 
 När indexering av en kanal del resultat för dessa modeller är tillgänglig
 
 - **Extrahering av nyckelord**: Extraherar nyckelord från tal och visuell text.
-- **Extrahering av varumärken**: Extraherar varumärken från tal och visuell text.
+- **Extrahering av namngivna enheter**: Extraherar varumärken, platser och personer från tal och visuell text via naturlig språk bearbetning (NLP).
 - **Avsnitts härledning**: Gör det enklare att utföra huvud ämnena i avskrifter. IPTC-taxonomi på den första nivån ingår.
 - **Artefakter**: Extraherar omfattande uppsättning "nästa nivå av information"-artefakter för varje modell.
 - **Sentiment-analys**: Identifierar positiva, negativa och neutrala sentiment från tal och visuell text.

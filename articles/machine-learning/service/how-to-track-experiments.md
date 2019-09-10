@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 07/11/2019
 ms.custom: seodec18
-ms.openlocfilehash: 0630ca28652b48b3632dbae94c5e16d6adb462c4
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: 0f295bf3a76d89e811fe9a022a3ccb68fbe7556a
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70812300"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70858715"
 ---
 # <a name="track-machine-learning-training-metrics-with-azure-machine-learning"></a>Spåra utbildnings mått för maskin inlärning med Azure Machine Learning
 
@@ -273,7 +273,7 @@ Modellen tränas och övervakning sker i bakgrunden så att du kan köra andra u
 Du kan visa mått för en tränade modellen med hjälp av ```run.get_metrics()```. Nu kan du få alla mått som loggats i exemplet ovan för att avgöra den bästa modellen.
 
 <a name="view-the-experiment-in-the-web-portal"></a>
-## <a name="view-the-experiment-in-the-azure-portal"></a>Visa experiment i Azure portal
+## <a name="view-the-experiment-in-the-azure-portal-or-your-workspace-landing-page-previewhttpsmlazurecom"></a>Visa experimentet i Azure Portal eller din [landnings sida för arbets ytan (för hands version)](https://ml.azure.com)
 
 När ett experiment har körts kan du bläddra till inspelade experimentet körningsposten. Du kan komma åt historiken på två sätt:
 

@@ -1,5 +1,5 @@
 ---
-title: Använd Azure CLI för att skapa en arbets yta
+title: Skapa arbets ytor med Azure CLI
 titleSuffix: Azure Machine Learning service
 description: Lär dig hur du använder Azure CLI för att skapa en ny Azure Machine Learning service-arbetsyta.
 services: machine-learning
@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.author: larryfr
 author: Blackmist
 ms.date: 08/30/2019
-ms.openlocfilehash: 1213e9bc3b27b8d5f6f6ef93b6eefa5a8c32be57
-ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.openlocfilehash: f398eb8124f45562ebc3c4238c641a6638811394
+ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70392680"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70873496"
 ---
-# <a name="use-an-azure-resource-manager-template-to-create-a-workspace-for-azure-machine-learning-service"></a>Använd en Azure Resource Manager mall för att skapa en arbets yta för Azure Machine Learning-tjänsten
+# <a name="create-a-workspace-for-azure-machine-learning-service-with-azure-cli"></a>Skapa en arbets yta för Azure Machine Learning tjänst med Azure CLI
 
 I den här artikeln får du lära dig hur du skapar en Azure Machine Learning service-arbetsyta med hjälp av Azure CLI. Azure CLI innehåller kommandon för att hantera Azure-resurser. Machine Learning-tillägget till CLI innehåller kommandon för att arbeta med Azure Machine Learning tjänst resurser.
 

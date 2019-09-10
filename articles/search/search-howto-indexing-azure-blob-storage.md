@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 902887c2a765fa50c7075cbdcb835f53e84f583f
-ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
+ms.openlocfilehash: 03f828be603720871672b9b5d90eb87dd283c002
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2019
-ms.locfileid: "70208266"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70842541"
 ---
 # <a name="indexing-documents-in-azure-blob-storage-with-azure-search"></a>Indexera dokument i Azure Blob Storage med Azure Search
 Den här artikeln visar hur du använder Azure Search för att indexera dokument (till exempel PDF-filer, Microsoft Office dokument och flera andra vanliga format) som lagras i Azure Blob Storage. Först förklarar det grunderna för att ställa in och konfigurera en BLOB-indexerare. Sedan ger den en djupare utforskning av beteenden och scenarier som du sannolikt kommer att stöta på.
@@ -120,7 +120,7 @@ Mer information om hur du definierar indexerare scheman finns i [så här schema
 
 ## <a name="how-azure-search-indexes-blobs"></a>Hur Azure Search indexerar blobbar
 
-Beroende på indexerings [konfigurationen](#PartsOfBlobToIndex)kan BLOB-indexeraren bara indexera lagrings-metadata (användbart när du bara bryr dig om metadata och behöver inte indexera innehållet i blobbar), lagrings-och innehålls metadata, eller både metadata och text innehåll. Som standard extraherar indexeraren både metadata och innehåll.
+Beroende på [indexerings konfigurationen](#PartsOfBlobToIndex)kan BLOB-indexeraren bara indexera lagrings-metadata (användbart när du bara bryr dig om metadata och behöver inte indexera innehållet i blobbar), lagrings-och innehålls metadata, eller både metadata och text innehåll. Som standard extraherar indexeraren både metadata och innehåll.
 
 > [!NOTE]
 > Som standard indexeras blobbar med strukturerat innehåll som JSON eller CSV som ett enda text segment. Om du vill indexera JSON-och CSV-blobbar på ett strukturerat sätt, se [INDEXERA JSON-blobbar](search-howto-index-json-blobs.md) och [Indexera CSV-blobbar](search-howto-index-csv-blobs.md) för mer information.
@@ -337,7 +337,7 @@ Indexering av blobbar kan vara en tids krävande process. I de fall där du har 
 
 Du kanske vill montera dokument från flera källor i ditt index. Du kanske till exempel vill koppla text från blobbar med andra metadata som lagras i Cosmos DB. Du kan även använda API för push-indexering tillsammans med olika indexerare för att skapa Sök dokument från flera delar. 
 
-För att detta ska fungera måste alla indexerare och andra komponenter godkänna dokument nyckeln. En detaljerad genom gång finns i den här externa artikeln: [Kombinera dokument med andra data i Azure Search](https://blog.lytzen.name/2017/01/combine-documents-with-other-data-in.html).
+För att detta ska fungera måste alla indexerare och andra komponenter godkänna dokument nyckeln. Mer information om det här ämnet finns i [index flera Azure-datakällor](https://docs.microsoft.com/azure/search/tutorial-multiple-data-sources). En detaljerad genom gång finns i den här externa artikeln: [Kombinera dokument med andra data i Azure Search](https://blog.lytzen.name/2017/01/combine-documents-with-other-data-in.html).
 
 <a name="IndexingPlainText"></a>
 ## <a name="indexing-plain-text"></a>Indexera oformaterad text 

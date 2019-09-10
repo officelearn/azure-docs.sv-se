@@ -10,12 +10,12 @@ ms.topic: conceptual
 description: Använd en anpassad NuGet-feed för att få åtkomst till och använda NuGet-paket i ett Azure dev-utrymme.
 keywords: Docker, Kubernetes, Azure, AKS, Azure Container Service, behållare
 manager: gwallace
-ms.openlocfilehash: 44a87491d276e09e1fa8fed3f5e6803648c3e4a2
-ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
+ms.openlocfilehash: 9df095011c1ff66ff0c85993c7c85dffe62623b8
+ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68305387"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70873249"
 ---
 #  <a name="use-a-custom-nuget-feed-in-an-azure-dev-space"></a>Använda en anpassad NuGet-feed i ett Azure dev-utrymme
 
@@ -33,7 +33,7 @@ Lägg till en [paket referens](https://docs.microsoft.com/nuget/consume-packages
 </ItemGroup>
 ```
 
-Skapa en [NuGet. config](https://docs.microsoft.com/nuget/reference/nuget-config-file) -fil i projektmappen och ange `packageSources` avsnitten och `packageSourceCredentials` för din NuGet-feed. `packageSources` Avsnittet innehåller din feed-URL, som måste vara offentligt tillgänglig. `packageSourceCredentials` Är autentiseringsuppgifterna för att komma åt feeden. Exempel:
+Skapa en [NuGet. config](https://docs.microsoft.com/nuget/reference/nuget-config-file) -fil i projektmappen och ange `packageSources` avsnitten och `packageSourceCredentials` för din NuGet-feed. `packageSources` Avsnittet innehåller din feed-URL, som måste vara tillgänglig från ditt AKS-kluster. `packageSourceCredentials` Är autentiseringsuppgifterna för att komma åt feeden. Exempel:
 
 ```xml
 <packageSources>

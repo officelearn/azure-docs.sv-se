@@ -11,12 +11,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab
 ms.date: 04/16/2019
-ms.openlocfilehash: aac328806e2570bd124626e916c250d481a11311
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: d539bd569eee613eb43947e5fd0e3b0614ca5d79
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68567591"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70858620"
 ---
 # <a name="connectivity-architecture-for-a-managed-instance-in-azure-sql-database"></a>Anslutnings arkitektur för en hanterad instans i Azure SQL Database
 
@@ -96,7 +96,7 @@ Distribuera en hanterad instans i ett dedikerat undernät i det virtuella nätve
 
 ### <a name="mandatory-inbound-security-rules"></a>Obligatoriska inkommande säkerhets regler
 
-| Namn       |Port                        |Protocol|Källa           |Mål|Action|
+| Name       |Port                        |Protocol|Källa           |Mål|Action|
 |------------|----------------------------|--------|-----------------|-----------|------|
 |hantering  |9000, 9003, 1438, 1440, 1452|TCP     |Any              |MI-UNDERNÄT  |Allow |
 |mi_subnet   |Any                         |Any     |MI-UNDERNÄT        |MI-UNDERNÄT  |Allow |
@@ -104,7 +104,7 @@ Distribuera en hanterad instans i ett dedikerat undernät i det virtuella nätve
 
 ### <a name="mandatory-outbound-security-rules"></a>Obligatoriska utgående säkerhets regler
 
-| Namn       |Port          |Protocol|Källa           |Mål|Action|
+| Name       |Port          |Protocol|Källa           |Mål|Action|
 |------------|--------------|--------|-----------------|-----------|------|
 |hantering  |80, 443, 12000|TCP     |MI-UNDERNÄT        |AzureCloud |Allow |
 |mi_subnet   |Any           |Any     |MI-UNDERNÄT        |MI-UNDERNÄT  |Allow |
@@ -121,7 +121,7 @@ Distribuera en hanterad instans i ett dedikerat undernät i det virtuella nätve
 
 ### <a name="user-defined-routes"></a>Användardefinierade vägar
 
-|Namn|Adressprefix|Nästa hopp|
+|Name|Adressprefix|Nästa hopp|
 |----|--------------|-------|
 |subnet_to_vnetlocal|MI-UNDERNÄT|Virtuellt nätverk|
 |mi-13-64-11-nexthop-internet|13.64.0.0/11|Internet|
@@ -238,4 +238,4 @@ Om det virtuella nätverket innehåller en anpassad DNS-server måste den anpass
   - Från [Azure Portal](sql-database-managed-instance-get-started.md).
   - Med hjälp av [PowerShell](scripts/sql-database-create-configure-managed-instance-powershell.md).
   - Med hjälp av [en Azure Resource Manager-mall](https://azure.microsoft.com/resources/templates/101-sqlmi-new-vnet/).
-  - Genom att använda [en Azure Resource Manager mall (med hjälp av hopp, med SSMS ingår)](https://portal.azure.com/). 
+  - Genom att använda [en Azure Resource Manager mall (med hjälp av hopp, med SSMS ingår)](https://azure.microsoft.com/en-us/resources/templates/201-sqlmi-new-vnet-w-jumpbox/). 

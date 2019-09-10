@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: tutorial
-ms.date: 07/03/2019
+ms.date: 09/06/2019
 ms.author: pafarley
-ms.openlocfilehash: 366c0c50cee521c5e70496403fd77211a875065f
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 740b3fae81521fec2cba31e3b8fd161f767c4380
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67606764"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70858982"
 ---
 # <a name="tutorial-create-an-android-app-to-detect-and-frame-faces-in-an-image"></a>Självstudier: Skapa en Android-app för att upptäcka och rama in ansikten i en bild
 
@@ -37,7 +37,8 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-- En ansikts-API-prenumerationsnyckel. Du kan hämta nycklar för en kostnadsfri utvärderingsprenumeration från [Testa Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=face-api). Följ instruktionerna i [Skapa ett konto för Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) för att prenumerera på tjänsten Ansikts-API och få din nyckel.
+- En ansikts-API-prenumerationsnyckel. Du kan hämta nycklar för en kostnadsfri utvärderingsprenumeration från [Testa Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=face-api). Följ instruktionerna i [Skapa ett konto för Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) för att prenumerera på tjänsten Ansikts-API och få din nyckel. Skapa sedan [miljövariabler](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) för nyckel-och tjänst slut punkts strängen, `FACE_SUBSCRIPTION_KEY` med `FACE_ENDPOINT`namnet respektive.
+- Valfri version av [Visual Studio 2015 eller 2017](https://www.visualstudio.com/downloads/).
 - [Android Studio](https://developer.android.com/studio/) med API-nivå 22 eller senare (krävs av klientbiblioteket för ansiktsigenkänning).
 
 ## <a name="create-the-android-studio-project"></a>Skapa Android Studio-projektet
@@ -56,17 +57,17 @@ Följ dessa steg för att skapa ett nytt Android-approjekt.
 
 Öppna *activity_main.xml*. Välj fliken **Text** i layoutredigeraren och ersätt innehållet med följande kod.
 
-[!code-xml[](~/cognitive-services-face-android-detect/FaceTutorial/app/src/main/res/layout/activity_main.xml?range=1-18)]
+[!code-xml[](~/cognitive-services-face-android-detect/FaceTutorial/app/src/main/res/layout/activity_main.xml?name=snippet_activitymain)]
 
 ### <a name="create-the-main-class"></a>Skapa klassen main
 
 Öppna *MainActivity.java* och ersätt de befintliga `import`-instruktionerna med följande kod.
 
-[!code-java[](~/cognitive-services-face-android-detect/FaceTutorial/app/src/main/java/com/contoso/facetutorial/MainActivity.java?range=3-11)]
+[!code-java[](~/cognitive-services-face-android-detect/FaceTutorial/app/src/main/java/com/contoso/facetutorial/MainActivity.java?name=snippet_imports)]
 
 Ersätt sedan innehållet i klassen **MainActivity** med följande kod. Det skapar en händelsehanterare på **knappen** som startar en ny aktivitet så att användaren kan välja en bild. Den visar bilden i **ImageView**.
 
-[!code-java[](~/cognitive-services-face-android-detect/FaceTutorial/app/src/main/java/com/contoso/facetutorial/MainActivity.java?range=29-68)]
+[!code-java[](~/cognitive-services-face-android-detect/FaceTutorial/app/src/main/java/com/contoso/facetutorial/MainActivity.java?name=snippet_mainactivity_methods)]
 
 ### <a name="try-the-app"></a>Prova appen
 
@@ -86,33 +87,31 @@ I fönsterrutan **Project** (Projekt) använder du listrutan för att välja **A
 
 Gå tillbaka till **MainActivity.java** och lägg till följande `import`-instruktioner:
 
-[!code-java[](~/cognitive-services-face-android-detect/FaceTutorial/app/src/main/java/com/contoso/facetutorial/MainActivity.java?range=13-14)]
+[!code-java[](~/cognitive-services-face-android-detect/FaceTutorial/app/src/main/java/com/contoso/facetutorial/MainActivity.java?name=snippet_face_imports)]
 
 Infoga sedan följande kod i klassen **MainActivity**, ovanför metoden **onCreate**:
 
-[!code-java[](~/cognitive-services-face-android-detect/FaceTutorial/app/src/main/java/com/contoso/facetutorial/MainActivity.java?range=17-27)]
-
-Du måste ersätta `<Subscription Key>` med din prenumerationsnyckel. Ersätt även `<API endpoint>` med din ansikts-API-slutpunkt med hjälp av lämplig regionsidentifierare för nyckeln (en lista över alla regionsslutpunkter finns i [dokument om Ansikts-API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)). Nycklar för kostnadsfri utvärderingsprenumeration genereras i regionen **westus** (USA, västra).
+[!code-java[](~/cognitive-services-face-android-detect/FaceTutorial/app/src/main/java/com/contoso/facetutorial/MainActivity.java?name=snippet_mainactivity_fields)]
 
 I fönsterrutan **Project** (Projekt) expanderar du **app** och sedan **manifests** (manifest) och öppnar *AndroidManifest.xml*. Infoga följande element som ett direkt underordnat element till `manifest`-elementet:
 
-[!code-xml[](~/cognitive-services-face-android-detect/FaceTutorial/app/src/main/AndroidManifest.xml?range=5)]
+[!code-xml[](~/cognitive-services-face-android-detect/FaceTutorial/app/src/main/AndroidManifest.xml?name=snippet_manifest_entry)]
 
 ## <a name="upload-image-and-detect-faces"></a>Ladda upp bilden och identifiera ansikten
 
-Din app identifierar ansikten genom att anropa den **faceClient.Face.DetectWithStreamAsync** metod som omsluter den [identifiera](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) REST API och returnerar en lista över **ansikte** instanser.
+Din app identifierar ansikten genom att anropa metoden **faceClient. Face. DetectWithStreamAsync** , som omsluter [identifierings](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) REST API och returnerar en lista över **Face** -instanser.
 
 Varje returnerat **ansikte** innehåller en rektangel för att ange dess plats samt en serie med valfria ansiktsattribut. I det här exemplet begärs bara ansiktsrektanglarna.
 
 Infoga följande två metoder i klassen **MainActivity**. Observera att när ansiktsigenkänningen slutförs anropar appen metoden **drawFaceRectanglesOnBitmap** för att ändra **ImageView**. Du definierar den metoden härnäst.
 
-[!code-java[](~/cognitive-services-face-android-detect/FaceTutorial/app/src/main/java/com/contoso/facetutorial/MainActivity.java?range=70-150)]
+[!code-java[](~/cognitive-services-face-android-detect/FaceTutorial/app/src/main/java/com/contoso/facetutorial/MainActivity.java?name=snippet_detection_methods)]
 
 ## <a name="draw-face-rectangles"></a>Rita ansiktsrektanglar
 
 Infoga följande hjälpmetod i klassen **MainActivity**. Den här metoden ritar en rektangel runt varje identifierat ansikte, med hjälp av rektangelkoordinater för varje **ansiktsförekomst**.
 
-[!code-java[](~/cognitive-services-face-android-detect/FaceTutorial/app/src/main/java/com/contoso/facetutorial/MainActivity.java?range=152-173)]
+[!code-java[](~/cognitive-services-face-android-detect/FaceTutorial/app/src/main/java/com/contoso/facetutorial/MainActivity.java?name=snippet_drawrectangles)]
 
 Slutligen tar du bort kommentaren för anropet till metoden **detectAndFrame** i **onActivityResult**.
 

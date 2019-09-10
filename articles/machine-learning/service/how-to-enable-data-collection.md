@@ -11,12 +11,12 @@ ms.author: marthalc
 author: marthalc
 ms.date: 07/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: 81ffe8618e07f2e49e4439ea57e254e5d37974f9
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: 16fac492fe4c193ecd7ffa7eeff1e884acb742ae
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68227949"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70860530"
 ---
 # <a name="collect-data-for-models-in-production"></a>Samla in data för modeller i produktion
 
@@ -109,7 +109,7 @@ För att göra det, måste du:
 
 Om du redan har en tjänst med beroenden som installerats i din **miljöfil** och **bedömningsfil**, aktivera insamling av data genom att:
 
-1. Gå till [Azure-portalen](https://portal.azure.com).
+1. Gå till [Azure Portal](https://portal.azure.com).
 
 1. Öppna din arbetsyta.
 
@@ -143,6 +143,8 @@ Du kan stoppa insamling av data som helst. Använda Python-kod eller Azure-porta
      [![Avmarkera datainsamling](media/how-to-enable-data-collection/UncheckDataCollection.png)](./media/how-to-enable-data-collection/UncheckDataCollection.png#lightbox)
 
   1. Välj **uppdatering** tillämpa ändringen.
+
+  Du kan också komma åt de här inställningarna i din [landnings sida för arbets ytor (för hands version)](https://ml.azure.com).
 
 + Alternativ 2 – använda Python för att inaktivera datainsamling:
 

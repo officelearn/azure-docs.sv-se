@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: tutorial
-ms.date: 07/03/2019
+ms.date: 09/06/2019
 ms.author: pafarley
-ms.openlocfilehash: 54069fbaa8ad06d257ab835ed3b170fecb76d800
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 93932fac9a5e5d4c21adc99bd31e9366a9709cc2
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67603346"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70859114"
 ---
 # <a name="tutorial-create-a-wpf-app-to-display-face-data-in-an-image"></a>Självstudier: Skapa en WPF-app för att visa ansiktsinformation i en bild
 
-I de här självstudierna lär du dig att använda Ansikts-API i Azure, via .NET-klient SDK, för att identifiera ansikten i en bild och sedan presentera dessa data i Användargränssnittet. Du ska skapa ett program för Windows Presentation Framework (WPF) som identifierar ansikten ritar en ram runt varje ansikte och visar en beskrivning av de står inför i statusfältet. 
+I den här självstudien får du lära dig hur du använder Azure-Ansikts-API via .NET-klient-SDK: n för att identifiera ansikten i en bild och sedan presentera dessa data i användar gränssnittet. Du ska skapa ett WPF-program (Windows Presentation Framework) som identifierar ansikten, ritar en ram runt varje ansikte och visar en beskrivning av FACET i statusfältet. 
 
 I den här självstudiekursen lär du dig att:
 
@@ -39,7 +39,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-- En ansikts-API-prenumerationsnyckel. Du kan hämta nycklar för en kostnadsfri utvärderingsprenumeration från [Testa Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=face-api). Följ instruktionerna i [Skapa ett konto för Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) för att prenumerera på tjänsten Ansikts-API och få din nyckel.
+- En ansikts-API-prenumerationsnyckel. Du kan hämta nycklar för en kostnadsfri utvärderingsprenumeration från [Testa Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=face-api). Följ instruktionerna i [Skapa ett konto för Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) för att prenumerera på tjänsten Ansikts-API och få din nyckel. Skapa sedan [miljövariabler](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) för nyckel-och tjänst slut punkts strängen, `FACE_SUBSCRIPTION_KEY` med `FACE_ENDPOINT`namnet respektive.
 - Valfri version av [Visual Studio 2015 eller 2017](https://www.visualstudio.com/downloads/).
 
 ## <a name="create-the-visual-studio-project"></a>Skapa Visual Studio-projektet
@@ -57,29 +57,33 @@ I det här avsnittet lägger du till appens grundläggande ramverk utan dess ans
 
 ### <a name="create-the-ui"></a>Skapa användargränssnittet
 
-Öppna *MainWindow.xaml* och Ersätt innehållet med följande kod&mdash;den här koden skapar fönstret Användargränssnittet. Den `FacePhoto_MouseMove` och `BrowseButton_Click` metoder är händelsehanterare som definierar du vid ett senare tillfälle.
+Öppna *MainWindow. XAML* och ersätt innehållet med följande kod&mdash;den här koden skapar användar gränssnitts fönstret. Metoderna `FacePhoto_MouseMove` och`BrowseButton_Click` är händelse hanterare som du senare ska definiera.
 
-[!code-xaml[](~/Cognitive-Face-CSharp-sample/FaceTutorialCS/FaceTutorialCS/MainWindow.xaml?range=1-18)]
+[!code-xaml[](~/Cognitive-Face-CSharp-sample/FaceTutorialCS/FaceTutorialCS/MainWindow.xaml?name=snippet_xaml)]
 
 ### <a name="create-the-main-class"></a>Skapa klassen main
 
 Öppna *MainWindow.xaml.cs* och lägg till klientbibliotekets namnområden, tillsammans med andra nödvändiga namnrymder. 
 
-[!code-csharp[](~/Cognitive-Face-CSharp-sample/FaceTutorialCS/FaceTutorialCS/MainWindow.xaml.cs?range=1-12)]
+[!code-csharp[](~/Cognitive-Face-CSharp-sample/FaceTutorialCS/FaceTutorialCS/MainWindow.xaml.cs?name=snippet_using)]
 
-Infoga därefter följande kod i klassen **MainWindow**. Den här koden skapar en **FaceClient** instans med prenumerationsnyckel som du måste ange dig själv. Du måste ange den region-strängen `faceEndpoint` till rätt region för din prenumeration (finns i den [Ansikts-API-dokumentation](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) en lista över alla slutpunkter i regionen).
+Infoga därefter följande kod i klassen **MainWindow**. Den här koden skapar en **FaceClient** -instans med hjälp av prenumerations nyckeln och slut punkten.
 
-[!code-csharp[](~/Cognitive-Face-CSharp-sample/FaceTutorialCS/FaceTutorialCS/MainWindow.xaml.cs?range=18-46)]
+[!code-csharp[](~/Cognitive-Face-CSharp-sample/FaceTutorialCS/FaceTutorialCS/MainWindow.xaml.cs?name=snippet_mainwindow_fields)]
 
-Klistra sedan in följande kod i metoden **MainWindow**.
+Lägg sedan till **MainWindow** -konstruktorn. Den kontrollerar slut punktens URL-sträng och kopplar den sedan till-klient-objektet.
 
-[!code-csharp[](~/Cognitive-Face-CSharp-sample/FaceTutorialCS/FaceTutorialCS/MainWindow.xaml.cs?range=50-61)]
+[!code-csharp[](~/Cognitive-Face-CSharp-sample/FaceTutorialCS/FaceTutorialCS/MainWindow.xaml.cs?name=snippet_mainwindow_constructor)]
 
-Lägg slutligen till metoderna **BrowseButton_Click** och **FacePhoto_MouseMove** i klassen. Dessa metoder som motsvarar de händelsehanterare som deklarerats i *MainWindow.xaml*. Metoden **BrowseButton_Click** skapar en **OpenFileDialog**, där användaren kan välja en .jpg-bild. Sedan visas bilden i huvudfönstret. Du infogar de återstående koden för **BrowseButton_Click** och **FacePhoto_MouseMove** i senare steg. Observera även `faceList`-referensen&mdash;en lista över **DetectedFace**-objekt. Den här referensen är där appen sparar och anropa faktiska ansikts-data.
+Lägg slutligen till metoderna **BrowseButton_Click** och **FacePhoto_MouseMove** i klassen. Dessa metoder motsvarar de händelse hanterare som deklareras i *MainWindow. XAML*. Metoden **BrowseButton_Click** skapar en **OpenFileDialog**, där användaren kan välja en .jpg-bild. Sedan visas bilden i huvudfönstret. Du infogar de återstående koden för **BrowseButton_Click** och **FacePhoto_MouseMove** i senare steg. Observera även `faceList`-referensen&mdash;en lista över **DetectedFace**-objekt. Den här referensen är platsen där din app lagrar och anropar faktiska ansikts data.
 
-[!code-csharp[](~/Cognitive-Face-CSharp-sample/FaceTutorialCS/FaceTutorialCS/MainWindow.xaml.cs?range=64-90,146)]
+[!code-csharp[](~/Cognitive-Face-CSharp-sample/FaceTutorialCS/FaceTutorialCS/MainWindow.xaml.cs?name=snippet_browsebuttonclick_start)]
 
-[!code-csharp[](~/Cognitive-Face-CSharp-sample/FaceTutorialCS/FaceTutorialCS/MainWindow.xaml.cs?range=148-150,187)]
+<!-- [!code-csharp[](~/Cognitive-Face-CSharp-sample/FaceTutorialCS/FaceTutorialCS/MainWindow.xaml.cs?name=snippet_browsebuttonclick_end)] -->
+
+[!code-csharp[](~/Cognitive-Face-CSharp-sample/FaceTutorialCS/FaceTutorialCS/MainWindow.xaml.cs?name=snippet_mousemove_start)]
+
+<!-- [!code-csharp[](~/Cognitive-Face-CSharp-sample/FaceTutorialCS/FaceTutorialCS/MainWindow.xaml.cs?name=snippet_mousemove_end)] -->
 
 ### <a name="try-the-app"></a>Prova appen
 
@@ -91,28 +95,27 @@ Tryck på **Start** (Starta) på menyn för att testa din app. När appfönstret
 
 Appen identifierar ansikten genom att anropa metoden **FaceClient.Face.DetectWithStreamAsync**, som omsluter REST API för [identifiering](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) för uppladdning av en lokal bild.
 
-Infoga följande metod i klassen **MainWindow**, under metoden **FacePhoto_MouseMove**. Den här metoden definierar en lista över ansiktsattribut att hämta och läser skickade image-filen till en **Stream**. Sedan skickar den båda objekten till metodanropet **DetectWithStreamAsync**.
+Infoga följande metod i klassen **MainWindow**, under metoden **FacePhoto_MouseMove**. Den här metoden definierar en lista över ansikts attribut som hämtar och läser den skickade avbildnings filen till en **data ström**. Sedan skickar den båda objekten till metodanropet **DetectWithStreamAsync**.
 
-[!code-csharp[](~/Cognitive-Face-CSharp-sample/FaceTutorialCS/FaceTutorialCS/MainWindow.xaml.cs?range=189-226)]
+[!code-csharp[](~/Cognitive-Face-CSharp-sample/FaceTutorialCS/FaceTutorialCS/MainWindow.xaml.cs?name=snippet_uploaddetect)]
 
 ## <a name="draw-rectangles-around-faces"></a>Rita rektanglar runt ansikten
 
-Därefter lägger du till koden för att rita en rektangel runt varje identifierat ansikte i bilden. I klassen **MainWindow** infogar du följande kod i slutet av metoden **BrowseButton_Click**, efter `FacePhoto.Source = bitmapSource`-raden. Den här koden lägger en lista över identifierade ansikten vid anrop till **UploadAndDetectFaces**. Sedan ritar den en rektangel runt varje ansikte och visar den ändrade bilden i huvudfönstret.
+Därefter lägger du till koden för att rita en rektangel runt varje identifierat ansikte i bilden. I klassen **MainWindow** infogar du följande kod i slutet av metoden **BrowseButton_Click**, efter `FacePhoto.Source = bitmapSource`-raden. Den här koden fyller i en lista över identifierade ansikten från anropet till **UploadAndDetectFaces**. Sedan ritar den en rektangel runt varje ansikte och visar den ändrade bilden i huvudfönstret.
 
-[!code-csharp[](~/Cognitive-Face-CSharp-sample/FaceTutorialCS/FaceTutorialCS/MainWindow.xaml.cs?range=92-145)]
+[!code-csharp[](~/Cognitive-Face-CSharp-sample/FaceTutorialCS/FaceTutorialCS/MainWindow.xaml.cs?name=snippet_browsebuttonclick_mid)]
 
 ## <a name="describe-the-faces"></a>Beskriv ansiktena
 
-Lägg till följande metod i klassen **MainWindow**, under metoden **UploadAndDetectFaces**. Den här metoden konverterar de hämtade ansiktsattribut till en sträng som beskriver de står inför.
+Lägg till följande metod i klassen **MainWindow**, under metoden **UploadAndDetectFaces**. Den här metoden konverterar de hämtade ansikts attributen till en sträng som beskriver FACET.
 
-[!code-csharp[](~/Cognitive-Face-CSharp-sample/FaceTutorialCS/FaceTutorialCS/MainWindow.xaml.cs?range=228-286)]
+[!code-csharp[](~/Cognitive-Face-CSharp-sample/FaceTutorialCS/FaceTutorialCS/MainWindow.xaml.cs?name=snippet_facedesc)]
 
 ## <a name="display-the-face-description"></a>Visa ansiktsbeskrivning
 
 Lägg till följande kod i metoden **FacePhoto_MouseMove**. Den här händelsehanteraren visar ansiktsbeskrivningssträngen i `faceDescriptionStatusBar` när markören hovrar över en identifierad ansiktsrektangel.
 
-[!code-csharp[](~/Cognitive-Face-CSharp-sample/FaceTutorialCS/FaceTutorialCS/MainWindow.xaml.cs?range=151-186)]
-
+[!code-csharp[](~/Cognitive-Face-CSharp-sample/FaceTutorialCS/FaceTutorialCS/MainWindow.xaml.cs?name=snippet_mousemove_mid)]
 
 ## <a name="run-the-app"></a>Kör appen
 

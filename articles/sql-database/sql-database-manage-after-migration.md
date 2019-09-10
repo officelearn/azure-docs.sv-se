@@ -11,12 +11,12 @@ author: joesackmsft
 ms.author: josack
 ms.reviewer: sstein
 ms.date: 02/13/2019
-ms.openlocfilehash: 2edd12435643f88a0923abf0927149993d49e424
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: dead041845c123672d881a8538644b56c34a58a2
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68567816"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70845597"
 ---
 # <a name="new-dba-in-the-cloud--managing-your-single-and-pooled-databases-in-azure-sql-database"></a>Ny DBA i molnet – hantera dina enkla databaser och databaser i Azure SQL Database
 
@@ -29,7 +29,7 @@ Att flytta från den traditionella självhanterade, självkontrollerade miljön 
 I den här artikeln beskrivs några av kärn egenskaperna för Azure SQL Database som en plattform som du lätt kan använda när du arbetar med enkla databaser och databaser i pooler i elastiska pooler. De är följande:
 
 - Övervaka databasen med hjälp av Azure Portal
-- Verksamhets kontinuitet och haveri beredskap (BCDR)
+- Affärskontinuitet och haveriberedskap (BCDR)
 - Säkerhet och efterlevnad
 - Övervakning och underhåll av intelligent databas
 - Dataflytt
@@ -56,7 +56,7 @@ Om du exempelvis förväntar dig att arbetsbelastningen på din databas kommer a
 
 Prestanda måtten kan också hjälpa dig att avgöra om du kan nedgradera till en lägre beräknings storlek. Anta att du använder en Standard S2-databas och alla prestandamått visar att databasen i snitt inte använder mer än 10 % vid något tillfälle. Det är då troligt att databasen skulle fungera bra i Standard S1. Du bör dock vara medveten om arbets belastningar som har högre eller fluktuerat innan du fattar beslut om att flytta till en lägre beräknings storlek.
 
-## <a name="business-continuity-and-disaster-recovery-bcdr"></a>Verksamhets kontinuitet och haveri beredskap (BCDR)
+## <a name="business-continuity-and-disaster-recovery-bcdr"></a>Affärskontinuitet och haveriberedskap (BCDR)
 
 Med affärs kontinuitet och haveri beredskap kan du fortsätta din verksamhet, som vanligt, i händelse av en katastrof. Haveriet kan vara en händelse på databas nivå (till exempel att någon av misstag släpper en viktig tabell) eller en data center nivå händelse (regional Catastrophe, till exempel en tsunami).
 
@@ -142,7 +142,7 @@ Med tjänst slut punkter (SE) kan du bara exponera dina kritiska Azure-resurser 
 
 #### <a name="reserved-ips"></a>Reserverade ip-adresser
 
-Ett annat alternativ är att etablera [reserverade IP](../virtual-network/virtual-networks-reserved-public-ip.md) -adresser för dina virtuella datorer och vitlista de angivna IP-adresserna för virtuella datorer i inställningarna för Server brand väggen. Genom att tilldela reserverade IP-adresser sparar du problem med att uppdatera brand Väggs reglerna med ändring av IP-adresser.
+Ett annat alternativ är att etablera [reserverade IP](../virtual-network/virtual-networks-reserved-public-ip.md) -adresser för dina virtuella datorer och lägga till de angivna IP-adresserna för virtuella datorer i inställningarna för Server brand väggen. Genom att tilldela reserverade IP-adresser sparar du problem med att uppdatera brand Väggs reglerna med ändring av IP-adresser.
 
 ### <a name="what-port-do-i-connect-to-sql-database-on"></a>Vilken port ansluter jag till SQL Database på
 
@@ -181,7 +181,7 @@ För att skydda känsliga data i flygning och i vila tillhandahåller SQL Databa
 
 Varje program har en viss bit av känsliga data i databasen som behöver skyddas från att vara synlig för alla. Vissa personer inom organisationen behöver se dessa data, men andra bör inte kunna visa dessa data. Ett exempel är löner för anställda. En chef behöver till gång till löne informationen för sina direkta rapporter men de enskilda grupp medlemmarna får inte till gång till löne informationen för sina kollegor. Ett annat scenario är data utvecklare som kan interagera med känsliga data under utvecklings stadier eller testning, till exempel SSNs av kunder. Den här informationen behöver inte exponeras för utvecklaren. I sådana fall måste känsliga data antingen maskeras eller inte visas alls. SQL Database erbjuder två sådana metoder för att förhindra att obehöriga användare kan visa känsliga data:
 
-[Dynamisk](sql-database-dynamic-data-masking-get-started.md) datamaskering är en data mask funktion som gör att du kan begränsa känslig data exponering genom att maskera den till icke-privilegierade användare i program lagret. Du definierar en masknings regel som kan skapa ett masknings mönster (till exempel för att bara visa de sista fyra siffrorna i ett nationellt ID SSN: XXX-XX-0000 och markera det mesta av det som XS) och identifiera vilka användare som ska uteslutas från masknings regeln. Maskeringen sker direkt och det finns olika masknings funktioner som är tillgängliga för olika data kategorier. Med dynamisk datamaskering kan du automatiskt identifiera känsliga data i databasen och koppla dem till den.
+[Dynamisk datamaskering](sql-database-dynamic-data-masking-get-started.md) är en data mask funktion som gör att du kan begränsa känslig data exponering genom att maskera den till icke-privilegierade användare i program lagret. Du definierar en masknings regel som kan skapa ett masknings mönster (till exempel för att bara visa de sista fyra siffrorna i ett nationellt ID SSN: XXX-XX-0000 och markera det mesta av det som XS) och identifiera vilka användare som ska uteslutas från masknings regeln. Maskeringen sker direkt och det finns olika masknings funktioner som är tillgängliga för olika data kategorier. Med dynamisk datamaskering kan du automatiskt identifiera känsliga data i databasen och koppla dem till den.
 
 [Säkerhet på radnivå](/sql/relational-databases/security/row-level-security) gör att du kan kontrol lera åtkomst på rad nivå. Detta innebär att vissa rader i en databas tabell baserat på den användare som kör frågan (grupp medlemskap eller körnings kontext) är dolda. Åtkomst begränsningen görs på databas nivån i stället för på en program nivå för att förenkla din program logik. Du börjar med att skapa ett filter-predikat, filtrera bort rader som inte visas och säkerhets principen nästa definierar vem som har åtkomst till dessa rader. Slutanvändaren kör sedan sin fråga och, beroende på användarens behörighet, visar de antingen de begränsade raderna eller kan inte se dem alls.
 
@@ -321,7 +321,7 @@ SQL Database använder vissa smarta tekniker som gör det möjligt för IT att h
 
 - **Exportera**: Du kan exportera din Azure SQL-databas som en BACPAC-fil från Azure Portal
 
-   ![databas export](./media/sql-database-export/database-export1.png)
+   ![Databas export](./media/sql-database-export/database-export1.png)
 
 - **Importera**: Du kan också importera data som en BACPAC-fil till databasen med hjälp av Azure Portal.
 

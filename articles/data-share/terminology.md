@@ -6,12 +6,12 @@ ms.service: data-share
 ms.topic: conceptual
 ms.date: 07/10/2019
 ms.author: joanpo
-ms.openlocfilehash: 01025acfa2fd939db8134a1e61c7902034a1d2c3
-ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
+ms.openlocfilehash: b78a1b250f46c2ddd2b36e19590c4a94ca3ab3fb
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68424228"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70844700"
 ---
 # <a name="azure-data-share-preview-concepts"></a>Förhands gransknings begrepp för Azure Data Share 
 
@@ -53,7 +53,9 @@ En data konsument har möjlighet att delta i ögonblicks bild scheman för att t
 
 En DataProvider kan bjuda in flera mottagare till sina data resurser. De kan göra det genom att lägga till mottagare i data resursen. Inbjudningar kan också läggas till efter att en data resurs har skapats. 
 
-En DataProvider kan ta bort en inbjudan när den har skickats. Observera att om en DataProvider tar bort en inbjudan när den har godkänts kan data konsumenten fortfarande ha en aktiv resurs prenumeration. Om dataprovidern tar bort en inbjudan och den ännu inte har accepterats kommer data konsumenten inte att kunna acceptera den. 
+En DataProvider kan ta bort en inbjudan när den har skickats om den inte har accepterats. Om dataprovidern tar bort en inbjudan och den ännu inte har accepterats kommer data konsumenten inte att kunna acceptera den. 
+
+Inbjudningar kan skickas upp till 5 gånger per dag. 
 
 ## <a name="recipient"></a>Mottagare
 

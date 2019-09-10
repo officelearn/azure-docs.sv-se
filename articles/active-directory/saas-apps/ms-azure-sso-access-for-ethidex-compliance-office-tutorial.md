@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 08/29/2019
+ms.date: 09/06/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fa0ec97683fe8597ced234fe4b7251a4daeed49f
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.openlocfilehash: 00cbb5ff4b9354d0d1702161460b2646669f34c2
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70173499"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70844363"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-ms-azure-sso-access-for-ethidex-compliance-office"></a>Självstudier: Azure Active Directory-integrering med enkel inloggning (SSO) med MS Azure SSO-åtkomst för Ethidex Compliance Office™
 
@@ -74,14 +74,20 @@ Om du vill konfigurera och testa Azure AD SSO med MS Azure SSO-åtkomst för Eth
 
 Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
-1. I [Azure Portal](https://portal.azure.com/)går du till sidan för program integration i **MS Azure SSO-åtkomst för Ethidex Compliance Office™** Application integration och väljer **enkel inloggning**.
+1. I [Azure Portal](https://portal.azure.com/) **går du till** sidan för program integration i **MS Azure SSO-åtkomst för Ethidex Compliance Office™** application integration och väljer **enkel inloggning**.
 1. På sidan **Välj metod för enkel inloggning** väljer du **SAML**.
 1. På sidan **Konfigurera enkel inloggning med SAML** klickar du på ikonen Redigera/penna för **grundläggande SAML-konfiguration** för att redigera inställningarna.
 
    ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
 
-1. I avsnittet **grundläggande SAML-konfiguration** är programmet förkonfigurerat och de nödvändiga URL: erna är redan ifyllda med Azure. Användaren måste spara konfigurationen genom att klicka på knappen **Spara** .
+1. I avsnittet **grundläggande SAML-konfiguration** anger du värden för följande fält:
 
+    a. I textrutan **Identifierare** skriver du en URL med följande mönster: `com.ethidex.prod.<CLIENTID>`
+
+    b. I textrutan **Svars-URL** skriver du en URL med följande mönster: `https://www.ethidex.com/saml2/sp/acs/<CLIENTID>`
+
+    > [!NOTE]
+    > Dessa värden är inte verkliga. Uppdatera dessa värden med den faktiska identifieraren och svars-URL. Kontakta [MS Azure SSO-åtkomst för Ethidex Compliance Office™ support team](mailto:support@ethidex.com) för att hämta dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
 1. MS Azure SSO-åtkomst för Ethidex Compliance Office™ Application Application förväntar sig SAML-intyg i ett särskilt format, vilket kräver att du lägger till anpassade mappningar till dina SAML token-konfigurationer. Följande skärmbild visar en lista över standardattribut, där **nameidentifier** mappas med **user.userprincipalname**. MS Azure SSO Access för Ethidex Compliance Office™-programmet förväntar sig att **NameIdentifier** mappas med **User. mail**, så du måste redigera mappningen för attributet genom att klicka på ikonen **Redigera** och ändra attributmappning.
 

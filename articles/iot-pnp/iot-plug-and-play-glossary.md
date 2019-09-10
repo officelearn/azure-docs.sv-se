@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
 manager: philmea
-ms.openlocfilehash: 79b57a9c9f12c6014b9002b0688beae334af3587
-ms.sourcegitcommit: b8578b14c8629c4e4dea4c2e90164e42393e8064
+ms.openlocfilehash: 7b37912c58312644059f3990b4776514e081a4bb
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70806514"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70858842"
 ---
 # <a name="glossary-of-terms-for-iot-plug-and-play-preview"></a>Ord lista med villkor för för hands versionen av IoT Plug and Play
 
@@ -46,9 +46,9 @@ Azure IoT Central är en fullständigt hanterad lösning för program vara som e
 
 Azure IoT-certifierings tjänsten kör en uppsättning certifierings test när du skickar en [IoT plug and Play-enhet](#iot-plug-and-play-device) för certifiering via [Azure-certifierad för IoT-portalen](#azure-certified-for-iot-portal). Innan du kan lägga till en enhet i [katalogen certifierad för IoT-enheter](#certified-for-iot-device-catalog)måste enheten vara godkänd.
 
-## <a name="azure-iot-device-workbench-extension"></a>Azure IoT Device Workbench-tillägg
+## <a name="azure-iot-tools-extension"></a>Tillägg för Azure IoT-verktyg
 
-Azure IoT Device Workbench är ett [Visual Studio Code](#visual-studio-code) -tillägg som tillhandahåller en integrerad miljö för att:
+Azure IoT-verktyg är en samling tillägg i [Visual Studio Code](#visual-studio-code) som hjälper dig att interagera med IoT Hub och utveckla IoT-enheter. För IoT Plug and Play enhets utveckling hjälper det dig att:
 
 - Redigera [enhets kapacitets modeller](#device-capability-model) och [gränssnitt](#interface).
 - Publicera på [modell databaser](#model-repository).
@@ -200,4 +200,4 @@ Telemetri fält som definierats i ett [gränssnitt](#interface) representerar m�
 
 ## <a name="visual-studio-code"></a>Visual Studio-kod
 
-Visual Studio Code är en modern kod redigerare som är tillgänglig för flera plattformar. Tillägg som [Azure IoT Device Workbench-tillägget](#azure-iot-device-workbench-extension) gör att du kan anpassa det så att det stöder en mängd olika utvecklings scenarier.
+Visual Studio Code är en modern kod redigerare som är tillgänglig för flera plattformar. Tillägg, till exempel de som finns i [Azure IoT tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) -paketet, gör att du kan anpassa redigeraren för att stödja ett brett utbud av utvecklings scenarier.

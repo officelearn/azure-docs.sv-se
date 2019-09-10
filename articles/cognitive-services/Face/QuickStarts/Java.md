@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 07/03/2019
+ms.date: 09/06/2019
 ms.author: pafarley
-ms.openlocfilehash: d014785a0e866301e228458fe3742b899bd1f192
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 30e4852668fc12c38cd7d1794c461041acd654db
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67606962"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70859190"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-java"></a>Snabbstart: Identifiera ansikten i en bild med REST API och Java
 
@@ -30,12 +30,12 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 ## <a name="create-the-java-project"></a>Skapa Java-projekt
 
-1. Skapa en ny kommandoradsverktyget Java-app i din IDE och Lägg till en **Main** med en **huvudsakliga** metod.
+1. Skapa en ny kommando rads java-app i IDE och Lägg till en **huvud** klass med en **main** -metod.
 1. Importera följande bibliotek till Java-projektet. Om du använder Maven så tillhandahålls Maven-koordinaterna för varje bibliotek.
-   - [Apache HTTP-klienten](https://hc.apache.org/downloads.cgi) (org.apache.httpcomponents:httpclient:4.5.6)
-   - [Apache HTTP-core](https://hc.apache.org/downloads.cgi) (org.apache.httpcomponents:httpcore:4.4.10)
+   - [Apache HTTP-klient](https://hc.apache.org/downloads.cgi) (org. apache. httpcomponents: httpclient: 4.5.6)
+   - [Apache HTTP Core](https://hc.apache.org/downloads.cgi) (org. apache. httpcomponents: httpcore: 4.4.10)
    - [JSON-biblioteket](https://github.com/stleary/JSON-java) (org.json:json:20180130)
-   - [Apache Commons loggning](https://commons.apache.org/proper/commons-logging/download_logging.cgi) (commons-loggning: commons-loggning: 1.1.2)
+   - [Apache Commons-loggning](https://commons.apache.org/proper/commons-logging/download_logging.cgi) (Commons-Logging: Commons-Logging: 1.1.2)
 
 ## <a name="add-face-detection-code"></a>Lägga till kod för ansiktsigenkänning
 
@@ -65,7 +65,9 @@ import org.json.JSONObject;
 
 ### <a name="add-essential-fields"></a>Lägga till grundläggande fält
 
-Ersätt den **Main** klassen med följande kod. Dessa data anger hur du ansluter till ansiktsigenkänningstjänsten och var du hämtar indata. Du måste uppdatera fältet `subscriptionKey` med värdet för din prenumerationsnyckel, och du kan behöva ändra strängen `uriBase` så att den innehåller rätt regionsidentifierare (en lista över alla regionsslutpunkter finns i [dokument om Ansikts-API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)). Du kan också ange värdet `imageWithFaces` till en sökväg som pekar på en annan bildfil.
+Ersätt **huvud** klassen med följande kod. Dessa data anger hur du ansluter till ansiktsigenkänningstjänsten och var du hämtar indata. Du måste uppdatera `subscriptionKey` fältet med värdet för din prenumerations nyckel och `uriBase` ändra strängen så att den innehåller rätt slut punkts sträng. Du kan också ange värdet `imageWithFaces` till en sökväg som pekar på en annan bildfil.
+
+[!INCLUDE [subdomains-note](../../../../includes/cognitive-services-custom-subdomains-note.md)]
 
 Fältet `faceAttributes` är en lista över vissa typer av attribut. Det anger vilken information som ska hämtas om de identifierade ansiktena.
 
@@ -74,15 +76,8 @@ public class Main {
     // Replace <Subscription Key> with your valid subscription key.
     private static final String subscriptionKey = "<Subscription Key>";
 
-    // NOTE: You must use the same region in your REST call as you used to
-    // obtain your subscription keys. For example, if you obtained your
-    // subscription keys from westus, replace "westcentralus" in the URL
-    // below with "westus".
-    //
-    // Free trial subscription keys are generated in the "westus" region. If you
-    // use a free trial subscription key, you shouldn't need to change this region.
     private static final String uriBase =
-        "https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect";
+        "https://<My Endpoint String>.com/face/v1.0/detect";
 
     private static final String imageWithFaces =
         "{\"url\":\"https://upload.wikimedia.org/wikipedia/commons/c/c3/RH_Louise_Lillian_Gish.jpg\"}";
@@ -93,7 +88,7 @@ public class Main {
 
 ### <a name="call-the-face-detection-rest-api"></a>Anropa REST API för ansiktsigenkänning
 
-Lägg till den **huvudsakliga** metoden med följande kod. Den skapar ett REST-anrop till Ansikts-API för att identifiera ansiktsinformation i fjärrbilden (`faceAttributes`-strängen anger vilka ansiktsattribut som ska hämtas). Sedan skriver den utdata till en JSON-sträng.
+Lägg till **main** -metoden med följande kod. Den skapar ett REST-anrop till Ansikts-API för att identifiera ansiktsinformation i fjärrbilden (`faceAttributes`-strängen anger vilka ansiktsattribut som ska hämtas). Sedan skriver den utdata till en JSON-sträng.
 
 ```Java
     public static void main(String[] args) {
@@ -127,7 +122,7 @@ Lägg till den **huvudsakliga** metoden med följande kod. Den skapar ett REST-a
 
 ### <a name="parse-the-json-response"></a>Tolka JSON-svar
 
-Direkt under föregående kod lägger du till följande block, som konverterar returnerade JSON-data till ett mer lättläst format innan du skriver ut dem till konsolen. Stäng ut försök-catch-blocket i **huvudsakliga** metoden och **Main** klass.
+Direkt under föregående kod lägger du till följande block, som konverterar returnerade JSON-data till ett mer lättläst format innan du skriver ut dem till konsolen. Slutligen avslutar du try-catch-block, **main** -metoden och **main** -klassen.
 
 ```Java
             if (entity != null)
@@ -256,4 +251,4 @@ Kompilera koden och kör den. Ett lyckat svar visar ansiktsinformation i lättl�
 I den här snabbstarten har du skapat ett enkelt Java-konsolprogram som använder REST-anrop med Ansikts-API i Azure för att identifiera ansikten i en bild och returnera deras attribut. Därefter lär dig hur du gör mer med den här funktionen i en Android-app.
 
 > [!div class="nextstepaction"]
-> [Självstudie: Skapa en Android-app för att upptäcka och rama in ansikten](../Tutorials/FaceAPIinJavaForAndroidTutorial.md)
+> [Självstudier: Skapa en Android-app för att upptäcka och rama in ansikten](../Tutorials/FaceAPIinJavaForAndroidTutorial.md)

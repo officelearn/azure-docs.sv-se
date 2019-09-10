@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 08/20/2019
+ms.date: 09/09/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ce0882be0419cbbbc7d94cb8d517e27bdb06a780
-ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.openlocfilehash: e7d0810c393cf9b6060f456c5ff01d03673b62a9
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70014141"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70861298"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-watch-by-colors"></a>Självstudier: Azure Active Directory enkel inloggning (SSO) med titta på färger
 
@@ -57,7 +57,6 @@ Du måste lägga till titta på färger från galleriet till listan över hanter
 1. I avsnittet **Lägg till från galleriet** , Skriv **titta efter färger** i sökrutan.
 1. Välj **titta efter färger** från panelen resultat och Lägg sedan till appen. Vänta några sekunder medan appen läggs till i din klient organisation.
 
-
 ## <a name="configure-and-test-azure-ad-single-sign-on-for-watch-by-colors"></a>Konfigurera och testa enkel inloggning med Azure AD för att se färger
 
 Konfigurera och testa Azure AD SSO med titta på färger med hjälp av en test användare som kallas **B. Simon**. För att SSO ska fungera måste du upprätta en länk relation mellan en Azure AD-användare och den relaterade användaren i titta efter färger.
@@ -87,7 +86,7 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
     I rutan **Inloggnings-URL** anger du en URL: `https://app.colorscorporation.com/login`
 
-1. På sidan **Konfigurera enkel inloggning med SAML** , i avsnittet **SAML-signeringscertifikat** , klickar du på Kopiera för att kopiera **URL: en** för appens Federations-metadata och spara den på din dator.
+1. På sidan **Konfigurera enkel inloggning med SAML** , i avsnittet **SAML-signeringscertifikat** , klickar du på Kopiera för att kopiera **URL: en för appens Federations-metadata** och spara den på din dator.
 
     ![Länk för hämtning av certifikat](common/copy-metadataurl.png)
 
@@ -123,13 +122,21 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 ## <a name="configure-watch-by-colors-sso"></a>Konfigurera bevakning av färger SSO
 
-1. Öppna ett nytt webbläsarfönster och logga in på din bevakning efter färger företags plats som administratör och utför följande steg:
+1. Om du vill automatisera konfigurationen inom bevakade färger måste du installera **Mina appar säker inloggnings webb läsar tillägg** genom att klicka på **installera tillägget**.
 
-1. Klicka på **profil** > **konto inställningar** > **SSO (enkel inloggning)** i det övre högra hörnet på sidan.
+    ![Mina Apps-tillägg](common/install-myappssecure-extension.png)
+
+2. När du har lagt till tillägg i webbläsaren, klickar du på **installations bevakning med färger** för att dirigera dig till programmet bevaka efter färger. Därifrån anger du administratörsautentiseringsuppgifter för att logga in på titta efter färger. Webb läsar tillägget kommer automatiskt att konfigurera programmet åt dig och automatisera steg 3-5.
+
+    ![Konfigurera konfiguration](common/setup-sso.png)
+
+3. Om du vill konfigurera bevakade färger manuellt öppnar du ett nytt webbläsarfönster och loggar in på din bevakare av företags plats som administratör och utför följande steg:
+
+4. Klicka på **profil** > **konto inställningar** > **SSO (enkel inloggning)** i det övre högra hörnet på sidan.
 
     ![Konfiguration av bevaka färger](./media/watch-by-colors-tutorial/config01.png)
 
-1. Utför följande steg på sidan **SSO (enkel inloggning)** :
+5. Utför följande steg på sidan **SSO (enkel inloggning)** :
 
     ![Konfiguration av bevaka färger](./media/watch-by-colors-tutorial/config02.png)
 
@@ -157,7 +164,7 @@ Om du vill att Azure AD-användare ska kunna logga in för att titta på färger
 
     ![Konfiguration av bevaka färger](./media/watch-by-colors-tutorial/config04.png)
 
-    a. I text rutan Förnamn anger du det första namnet på användaren, t. ex. **B**.
+    a. I text rutan **förnamn** anger du det första namnet på användaren, t. ex. **B**.
 
     b. I textrutan **Efternamn** anger du efternamnet på användaren som **Simon**.
 
@@ -183,5 +190,5 @@ När du klickar på panelen titta efter färger i åtkomst panelen, bör du logg
 
 - [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
-- [Prova slack med Azure AD](https://aad.portal.azure.com/)
+- [Prova att titta på färger med Azure AD](https://aad.portal.azure.com/)
 

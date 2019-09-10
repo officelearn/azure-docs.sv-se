@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 08/26/2019
 ms.author: apimpm
-ms.openlocfilehash: 8d7346bb61fad09e3f7c9098809463285ef57e93
-ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
+ms.openlocfilehash: 6e12a16b221a8f31d82a002fbc93b090d6f0c577
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70242486"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70861247"
 ---
 # <a name="ip-addresses-of-azure-api-management"></a>IP-adresser för Azure API Management
 
@@ -102,5 +102,6 @@ På nivåerna Developer, Basic, standard och Premium för API Management är de 
 * Tjänsten tas bort och återskapas sedan igen.
 * Tjänst prenumerationen [inaktive](https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/subscription-lifecycle-api-reference.md#subscription-states) ras eller [varnas](https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/subscription-lifecycle-api-reference.md#subscription-states) (till exempel för inbetalning) och återställs sedan.
 * Azure Virtual Network läggs till eller tas bort från tjänsten.
+* API Managements tjänsten växlas mellan externt och internt VNet-distributions läge.
 
 I [flera regionala distributioner](api-management-howto-deploy-multi-region.md)ändras den regionala IP-adressen om en region är vacated och sedan återställs.

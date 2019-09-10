@@ -1,6 +1,6 @@
 ---
-title: 'Webbapp som anropar webb-API: er (hämta en token för appen) – Microsoft identity-plattformen'
-description: 'Lär dig att skapa en webbapp som anropar webb-API: er (skaffa en token som appen)'
+title: 'Webbapp som anropar webb-API: er (hämtar en token för appen) – Microsoft Identity Platform'
+description: 'Lär dig hur du skapar en webbapp som anropar webb-API: er (hämtar en token för appen)'
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -11,27 +11,27 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/07/2019
+ms.date: 09/09/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 653db995000308bb3ef78a9183696cd9d8ed1056
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3aa144c76fb0a8e479658efdb5d43361fbbc085c
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65074807"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70860618"
 ---
 # <a name="web-app-that-calls-web-apis---acquire-a-token-for-the-app"></a>Webbapp som anropar webb-API: er – hämta en token för appen
 
-Nu du har skapat klienten programobjektet kan använder du den för att hämta en token som du sedan använder för att anropa ett webb-API: er. Anropa ett webb-API: et görs sedan i controller i ASP.NET eller ASP.NET Core. Det handlar om:
+Nu när du har skapat ett klient program objekt använder du det för att hämta en token för att anropa ett webb-API. Anropa ett webb-API i ASP.NET eller ASP.NET Core och sedan utföras i kontrollanten. Det är ungefär:
 
-- Få en token för webb-API med hjälp av token-cache. För att detta måste anropa du `AcquireTokenSilent`
-- Anropa skyddade API med åtkomsttoken
+- Hämta en token för webb-API: et med hjälp av token cache. Om du vill hämta den här token anropar `AcquireTokenSilent`du.
+- Anropar det skyddade API: t med åtkomsttoken.
 
 ## <a name="aspnet-core"></a>ASP.NET Core
 
-Kontrollantmetoder skyddas av en `[Authorize]` attribut som tvingar de användare som också autentiseras för att använda Web-App. Här är den kod som anropar Microsoft Graph
+Styrenhets metoderna skyddas av ett `[Authorize]` attribut som tvingar användare att autentiseras att använda webbappen. Här är den kod som anropar Microsoft Graph.
 
 ```CSharp
 [Authorize]
@@ -41,7 +41,7 @@ public class HomeController : Controller
 }
 ```
 
-Här är en förenklad åtgärden av HomeController som hämtar en token för att anropa Microsoft Graph-kod.
+Här är en förenklad kod för åtgärden för HomeController, som hämtar en token för att anropa Microsoft Graph.
 
 ```CSharp
 public async Task<IActionResult> Profile()
@@ -69,23 +69,23 @@ public async Task<IActionResult> Profile()
 }
 ```
 
-Om du vill förstå i informationen om summan av den kod som krävs för det här scenariot finns i fas 2 [2-1-Web App anropar Microsoft Graph](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/2-WebApp-graph-user/2-1-Call-MSGraph) steg i den [ms-identity-aspnetcore-webapp-tutorial](https://github.com/Azure-Samples/ms-identity-aspnetcore-webapp-tutorial) självstudien
+Information om den kod som krävs för det här scenariot finns i steg 2 ([2-1 – webapps-anrop Microsoft Graph](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/2-WebApp-graph-user/2-1-Call-MSGraph)) i själv studie kursen [MS-Identity-aspnetcore-webapp – självstudie](https://github.com/Azure-Samples/ms-identity-aspnetcore-webapp-tutorial) .
 
-Det finns ett antal ytterligare komplexitet som:
+Det finns många ytterligare komplicerade faktorer, till exempel:
 
-- implementera en token-cache för Webbappen (självstudien presentera flera implementeringar)
+- Implementera en token-cache för webbappen (självstudien visar flera implementeringar)
 - Ta bort kontot från cachen när användaren loggar ut
-- Anropa flera API: er, inklusive utan inkrementella samtycke
+- Anropa flera API: er, inklusive ett stegvist godkännande
 
 ## <a name="aspnet"></a>ASP.NET
 
 Saker liknar varandra i ASP.NET:
 
-- En åtgärd för domänkontrollant som skyddas av attributet [auktorisera] extraherar klient-ID och användar-ID för den `ClaimsPrincipal` medlem kontrollanten (ASP.NET använder `HttpContext.User`)
-- därifrån bygger den en MSAL.NET `IConfidentialClientApplication`
-- IT-anrop i `AcquireTokenSilent` -metoden för konfidentiell klientprogrammet 
+- En styrenhets åtgärd som skyddas av ett [auktorisera]-attribut extraherar klient-ID och `ClaimsPrincipal` användar-ID för kontrollantens medlem. (ASP.NET använder `HttpContext.User`.)
+- Därifrån skapar den en MSAL.NET `IConfidentialClientApplication`.
+- Slutligen anropar `AcquireTokenSilent` den metoden för det konfidentiella klient programmet.
 
-koden liknar koden som visas för ASP.NET Core
+Koden liknar den kod som visas för ASP.NET Core.
 
 ## <a name="next-steps"></a>Nästa steg
 

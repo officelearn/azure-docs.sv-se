@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/09/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 15ce85385662ba186f8434285130099054e52c05
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: 1f5f2dc6babbca219f0efbb1d7013d4e6e3270e6
+ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70814456"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70873304"
 ---
 # <a name="migrate-amazon-web-services-aws-vms-to-azure"></a>Migrera virtuella AWS-datorer (Amazon Web Services) till Azure
 
@@ -95,11 +95,11 @@ När de virtuella Azure-datorerna skapats efter migreringen (redundans) ansluts 
 1. I [Azure-portalen](https://portal.azure.com) väljer du **Skapa en resurs** > **Nätverk** >
    **Virtuellt nätverk**.
 3. För **Namn** anger du **myMigrationNetwork**.
-4. Ändra inte standardvärdet för **Adressutrymme**.
+4. Lämna standardvärdet för **adress utrymme** (måste ange värde).
 5. Som **Prenumeration** anger du den prenumeration som du vill använda.
 6. För **Resursgrupp** väljer du **Använd befintlig** och sedan **migrationRG**.
 7. För **Plats** väljer du **Europa, västra**.
-8. Under **undernät** lämnar du standardvärdena för **Namn** och **IP-intervall**.
+8. Under **undernät**lämnar du standardvärdena för **namn** och **IP-intervall (måste ange värde)** .
 9. Lägg till instruktioner för DDoS-skydds inställningar.
 10. Lämna alternativet **Tjänsteslutpunkter** inaktiverat.
 11. Lägg till instruktioner för brand Väggs inställningar.

@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 04/30/2019
 ms.author: sedusch
 ms.openlocfilehash: 534a3e349faaa3a6ef5b6e01082564eda51936c1
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
+ms.lasthandoff: 09/10/2019
 ms.locfileid: "70101037"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-suse-linux-enterprise-server-for-sap-applications"></a>Hög tillgänglighet för SAP NetWeaver på virtuella Azure-datorer på SUSE Linux Enterprise Server för SAP-program
@@ -53,7 +53,7 @@ ms.locfileid: "70101037"
 [nfs-ha]:high-availability-guide-suse-nfs.md
 
 Den här artikeln beskriver hur du distribuerar virtuella datorer, konfigurerar de virtuella datorerna, installerar kluster ramverket och installerar ett SAP NetWeaver 7,50-system med hög tillgänglighet.
-I exemplen konfigurationer, installations kommandon osv. ASCS instance Number 00, ERS instance Number 02 och SAP system-ID NW1 används. Namnen på resurserna (till exempel virtuella datorer, virtuella nätverk) i exemplet förutsätter att du har använt den konvergerade [mallen][template-converged] med SAP-system-ID NW1 för att skapa resurserna.
+I exemplen konfigurationer, installations kommandon osv. ASCS instance Number 00, ERS instance Number 02 och SAP system-ID NW1 används. Namnen på resurserna (till exempel virtuella datorer, virtuella nätverk) i exemplet förutsätter att du har använt den [konvergerade mallen][template-converged] med SAP-system-ID NW1 för att skapa resurserna.
 
 Läs följande SAP-anteckningar och dokument först
 
@@ -136,8 +136,8 @@ Azure Marketplace innehåller en avbildning för SUSE Linux Enterprise Server f�
 
 Du kan använda en av snabb starts mallarna på GitHub för att distribuera alla nödvändiga resurser. Mallen distribuerar de virtuella datorerna, belastningsutjämnaren, tillgänglighets uppsättningen osv. Följ de här stegen för att distribuera mallen:
 
-1. Öppna [mallen ASCS/SCS multi sid][template-multisid-xscs] eller konvergerad [mall][template-converged] på Azure Portal. 
-   ASCS/SCS-mallen skapar bara regler för belastnings utjämning för SAP NetWeaver-ASCS/SCS-och ERS-instanser (endast Linux) medan den konvergerade mallen skapar belastnings Utjämnings regler för en databas (till exempel Microsoft SQL Server eller SAP HANA). Om du planerar att installera ett SAP NetWeaver-baserat system och du även vill installera databasen på samma datorer använder du den konvergerade [mallen][template-converged].
+1. Öppna [mallen ASCS/SCS multi sid][template-multisid-xscs] eller [konvergerad mall][template-converged] på Azure Portal. 
+   ASCS/SCS-mallen skapar bara regler för belastnings utjämning för SAP NetWeaver-ASCS/SCS-och ERS-instanser (endast Linux) medan den konvergerade mallen skapar belastnings Utjämnings regler för en databas (till exempel Microsoft SQL Server eller SAP HANA). Om du planerar att installera ett SAP NetWeaver-baserat system och du även vill installera databasen på samma datorer använder du den [konvergerade mallen][template-converged].
 1. Ange följande parametrar
    1. Resource prefix (endast ASCS/SCS multi SID-mall)  
       Ange prefixet som du vill använda. Värdet används som prefix för de resurser som distribueras.
@@ -156,7 +156,7 @@ Du kan använda en av snabb starts mallarna på GitHub för att distribuera alla
    9. Administratörens användar namn och administratörs lösen ord  
       En ny användare skapas som kan användas för att logga in på datorn.
    10. Undernät-ID  
-   Om du vill distribuera den virtuella datorn till ett befintligt VNet där du har angett ett undernät som har definierats för den virtuella datorn ska du namnge ID: t för det aktuella under nätet. ID: t ser vanligt vis ut som/Subscriptions/ **&lt;prenumerations-ID&gt;** /resourceGroups/ **&lt;resurs grupp namn&gt;** /providers/Microsoft.Network/virtualNetworks/ **&lt; virtuellt nätverks namn&gt;** /subnets/ **&lt;under nät&gt; namn**
+   Om du vill distribuera den virtuella datorn till ett befintligt VNet där du har angett ett undernät som har definierats för den virtuella datorn ska du namnge ID: t för det aktuella under nätet. ID: t ser vanligt vis ut som/Subscriptions/ **&lt;prenumerations-&gt;ID**/resourceGroups/ **&lt;resurs grupp namn&gt;** /providers/Microsoft.Network/virtualNetworks/ **&lt; virtuellt nätverks namn&gt;** /subnets/ **&lt;under nät&gt; namn**
 
 ### <a name="deploy-linux-manually-via-azure-portal"></a>Distribuera Linux manuellt via Azure Portal
 
@@ -213,12 +213,12 @@ Du måste först skapa de virtuella datorerna för det här NFS-klustret. Däref
          1. **Se till att aktivera flytande IP**
          1. Klicka på OK
       1. Ytterligare portar för ASCS
-         * Upprepa stegen ovan för portarna 36**00**, 39**00**, 81**00**, 5**00**13, 500 14, 5**00**16 och TCP för ASCS
+         * Upprepa stegen ovan för portarna 36**00**, 39**00**, 81**00**, 5**00**13, 5**00 14,** 5**00**16 och TCP för ASCS
       1. Ytterligare portar för ASCS-ERS
          * Upprepa stegen ovan för portarna 33**02**, 5**02**13, 5**02**14, 5**02**16 och TCP för ASCS-ers
 
 > [!IMPORTANT]
-> Aktivera inte TCP-tidsstämplar på virtuella Azure-datorer som placerats bakom Azure Load Balancer. Om du aktiverar TCP-tidsstämplar kommer hälso avsökningarna att Miss skadas. Ange parametern **net. IPv4. TCP _timestamps** till **0**. Mer information finns i [Load Balancer hälso](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview)avsökningar.
+> Aktivera inte TCP-tidsstämplar på virtuella Azure-datorer som placerats bakom Azure Load Balancer. Om du aktiverar TCP-tidsstämplar kommer hälso avsökningarna att Miss skadas. Ange parametern **net. IPv4. TCP _timestamps** till **0**. Mer information finns i [Load Balancer hälso avsökningar](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview).
 
 ### <a name="create-pacemaker-cluster"></a>Skapa pacemaker-kluster
 
@@ -726,7 +726,7 @@ Följ dessa steg om du vill installera en SAP-Programserver.
 
 1. Förbered program Server
 
-   Följ stegen i kapitel [SAP NetWeaver Application Server](high-availability-guide-suse.md#2d6008b0-685d-426c-b59e-6cd281fd45d7) -förberedelsen ovan för att förbereda program servern.
+   Följ stegen i kapitel [SAP NetWeaver Application Server-förberedelsen](high-availability-guide-suse.md#2d6008b0-685d-426c-b59e-6cd281fd45d7) ovan för att förbereda program servern.
 
 1. Installera SAP NetWeaver program Server
 

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 07/03/2019
+ms.date: 09/06/2019
 ms.author: pafarley
-ms.openlocfilehash: 8e45c8924bbc5cf50877e6c7656dacd7971f59b2
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: a00ec77148433d64f2980b1bb47d753d70a5ec20
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67606787"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70859035"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-face-rest-api-and-python"></a>Snabbstart: Identifiera ansikten i en bild med ansikts-REST API och Python
 
@@ -38,12 +38,12 @@ Du kan köra den här snabbstarten som en Jupyter-anteckningsbok på [MyBinder](
 
 ## <a name="create-and-run-the-sample"></a>Skapa och köra exemplet
 
-Du kan också köra den här snabbstarten från kommandoraden med följande steg:
+Alternativt kan du köra den här snabb starten från kommando raden med följande steg:
 
 1. Kopiera följande kod till en textredigerare.
 1. Gör nedanstående ändringar i koden där det behövs:
     1. Ersätt värdet för `subscription_key` med din prenumerationsnyckel.
-    1. Ersätt värdet för `face_api_url` med slutpunkts-URL för Ansikts-API-resursen i Azure-region där du har fått dina prenumerationsnycklar om det behövs.
+    1. Redigera värdet för `face_api_url` om du vill inkludera slut punkts-URL: en för din ansikts-API-resurs.
     1. Du kan också ersätta värdet för `image_url` med webbadressen till en annan bild som du vill analysera.
 1. Spara koden som en fil med tillägget `.py`. Till exempel `detect-face.py`.
 1. Öppna ett kommandotolksfönster.
@@ -53,10 +53,12 @@ Du kan också köra den här snabbstarten från kommandoraden med följande steg
 import requests
 import json
 
+# set to your own subscription key value
 subscription_key = None
 assert subscription_key
 
-face_api_url = 'https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect'
+# replace <My Endpoint String> with the string from your endpoint URL
+face_api_url = 'https://<My Endpoint String>.com/face/v1.0/detect'
 
 image_url = 'https://upload.wikimedia.org/wikipedia/commons/3/37/Dagestani_man_and_woman.jpg'
 

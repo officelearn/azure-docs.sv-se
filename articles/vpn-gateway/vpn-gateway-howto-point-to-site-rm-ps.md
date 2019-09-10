@@ -1,20 +1,20 @@
 ---
-title: 'Ansluta en dator till en Azure-nätverk med punkt-till-plats och intern Azure-certifikatautentisering: PowerShell | Microsoft Docs'
+title: 'Ansluta till ett virtuellt Azure-nätverk från en dator med hjälp av punkt-till-plats-VPN och intern Azure-certifikatautentisering: PowerShell | Microsoft Docs'
 description: Ansluta Windows- och Mac OS X-klienter på ett säkert sätt till ett virtuellt Azure-nätverk med P2S och självsignerade certifikat eller certifikat som är utfärdade av certifikatutgivare. I den här artikeln används PowerShell.
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 05/21/2019
+ms.date: 09/09/2019
 ms.author: cherylmc
-ms.openlocfilehash: 822cbc7401de90d63f9079561ced0dfbb911fa2c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 17d07b508c7ecd8b5750bf5f4108cb789a419c42
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65989446"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70843545"
 ---
-# <a name="configure-a-point-to-site-connection-to-a-vnet-using-native-azure-certificate-authentication-powershell"></a>Konfigurera en punkt-till-plats-anslutning till ett virtuellt nätverk med intern Azure-certifikatautentisering: PowerShell
+# <a name="configure-a-point-to-site-vpn-connection-to-a-vnet-using-native-azure-certificate-authentication-powershell"></a>Konfigurera en punkt-till-plats-VPN-anslutning till ett VNet med intern Azure-certifikatautentisering: PowerShell
 
 Den här artikeln hjälper dig att på ett säkert sätt ansluta enskilda klienter som kör Windows, Linux eller Mac OS X till ett Azure VNet. Punkt-till-plats-VPN-anslutningar är användbara när du vill fjärransluta till ditt VNet, exempelvis när du distansarbetar från hemmet eller en konferens. Du kan också använda P2S i stället för en plats-till-plats-VPN-anslutning när du bara har ett fåtal klienter som behöver ansluta till ett VNet. Punkt-till-plats-anslutningar kräver inte någon VPN-enhet eller en offentlig IP-adress. P2S skapar VPN-anslutningen via SSTP (Secure Socket Tunneling Protocol) eller IKEv2. Mer information om punkt-till-plats-VPN finns i [About Point-to-Site VPN](point-to-site-about.md) (Om VPN för punkt-till-plats).
 
@@ -37,28 +37,28 @@ Kontrollera att du har en Azure-prenumeration. Om du inte har någon Azure-prenu
 
 [!INCLUDE [powershell](../../includes/vpn-gateway-cloud-shell-powershell-about.md)]
 
-De flesta av stegen i den här artikeln kan använda Cloud Shell. Men om du vill överföra den offentliga nyckeln för rot-certifikat, måste du antingen använda PowerShell lokalt eller Azure-portalen.
+De flesta av stegen i den här artikeln kan använda Cloud Shell. Men för att ladda upp rot certifikatets offentliga nyckel måste du antingen använda PowerShell lokalt eller Azure Portal.
 
 ### <a name="example"></a>Exempelvärden
 
 Du kan använda exempelvärdena för att skapa en testmiljö eller hänvisa till dem för att bättre förstå exemplen i den här artikeln. Variablerna anges i avsnitt [1](#declare) i artikeln. Du kan antingen se stegen som en genomgång och använda värdena utan att ändra dem, eller ändra dem så att de avspeglar din egen miljö.
 
 * **Namn: VNet1**
-* **Adressutrymme: 192.168.0.0/16** och **10.254.0.0/16**<br>Det här exemplet använder mer än ett adressutrymme för att illustrera att den här konfigurationen fungerar med flera adressutrymmen. Flera adressutrymmen krävs dock inte för den här konfigurationen.
-* **Namn på undernät: FrontEnd**
-  * **Adressintervall för undernätet: 192.168.1.0/24**
-* **Namn på undernät: BackEnd**
-  * **Adressintervall för undernätet: 10.254.1.0/24**
-* **Namn på undernät: GatewaySubnet**<br>Undernätsnamnet *GatewaySubnet* är obligatoriskt för att VPN-gatewayen ska fungera.
-  * **GatewaySubnet-adressintervallet: 192.168.200.0/24** 
-* **VPN-klientadresspool: 172.16.201.0/24**<br>VPN-klienter som ansluter till det virtuella nätverket med den här punkt-till-plats-anslutningen får en IP-adress från VPN-klientadresspoolen.
-* **Prenumeration:** Om du har mer än en prenumeration kan du kontrollera att du använder rätt.
-* **Resursgrupp: TestRG**
-* **Plats: USA, östra**
-* **DNS-Server: IP-adress** för DNS-servern som du vill använda för namnmatchning. (valfritt)
+* **Adress utrymme: 192.168.0.0/16** och **10.254.0.0/16**<br>Det här exemplet använder mer än ett adressutrymme för att illustrera att den här konfigurationen fungerar med flera adressutrymmen. Flera adressutrymmen krävs dock inte för den här konfigurationen.
+* **Under näts namn: Delen**
+  * **Adress intervall för under nätet: 192.168.1.0/24**
+* **Under näts namn: BackEnd**
+  * **Adress intervall för under nätet: 10.254.1.0/24**
+* **Under näts namn: GatewaySubnet**<br>Undernätsnamnet *GatewaySubnet* är obligatoriskt för att VPN-gatewayen ska fungera.
+  * **GatewaySubnet-adress intervall: 192.168.200.0/24** 
+* **VPN-klientens adresspool: 172.16.201.0/24**<br>VPN-klienter som ansluter till det virtuella nätverket med den här punkt-till-plats-anslutningen får en IP-adress från VPN-klientadresspoolen.
+* **Prenumeration:** Om du har mer än en prenumeration kontrollerar du att du använder rätt.
+* **Resurs grupp: TestRG**
+* **Sökvägen USA, östra**
+* **DNS-Server: IP-** adressen för den DNS-server som du vill använda för namn matchning. (valfritt)
 * **GW-namn: Vnet1GW**
-* **Namn på offentlig IP: VNet1GWPIP**
-* **VpnType: Routningsbaserad** 
+* **Offentligt IP-namn: VNet1GWPIP**
+* **VpnType Routningsbaserad** 
 
 ## <a name="declare"></a>1. Logga in och ange variabler
 
@@ -70,7 +70,7 @@ I det här avsnittet ska du logga in och deklarera de värden som används för 
 
 ### <a name="declare-variables"></a>Deklarera variabler
 
-Deklarera de variabler som du vill använda. Använd följande exempel och ersätt värdena med dina egna om det behövs. Om du stänger PowerShell/Cloud Shell-sessionen när som helst under den här övningen kan bara kopiera och klistra in värden igen för att deklarera variablerna igen.
+Deklarera de variabler som du vill använda. Använd följande exempel och ersätt värdena med dina egna om det behövs. Om du stänger PowerShell/Cloud Shell-sessionen när som helst under övningen ska du bara kopiera och klistra in värdena igen för att omdeklarera variablerna.
 
   ```azurepowershell-interactive
   $VNetName  = "VNet1"
@@ -131,8 +131,8 @@ Deklarera de variabler som du vill använda. Använd följande exempel och ersä
 Konfigurera och skapa VNet-gatewayen för ditt VNet.
 
 * -GatewayType måste vara **Vpn** och -VpnType måste vara **RouteBased**.
-* -VpnClientProtocol används för att ange vilka typer av tunnlar som ska aktiveras. Tunnelalternativen är **OpenVPN, SSTP** och **IKEv2**. Du kan välja att aktivera en av dem eller någon kombination som stöds. Om du vill aktivera flera typer, anger du namnen avgränsade med kommatecken. OpenVPN och SSTP kan inte aktiveras tillsammans. StrongSwan-klienten i Android och Linux och den inbyggda IKEv2 VPN-klienten i iOS och OSX använder endast IKEv2-tunnlar för att ansluta. Windows-klienter provar IKEv2 först, och går över till SSTP om det inte går att ansluta. Du kan använda OpenVPN-klienten för att ansluta till OpenVPN Tunneltyp.
-* Den virtuella nätverksgatewayen ”grundläggande” SKU: N stöder inte IKEv2, OpenVPN eller RADIUS-autentisering. Om du planerar att Mac-klienter ansluter till det virtuella nätverket, Använd inte en grundläggande SKU.
+* -VpnClientProtocol används för att ange vilka typer av tunnlar som ska aktiveras. Tunnel alternativen är **OpenVPN, SSTP** och **IKEv2**. Du kan välja att aktivera en av dem eller en kombination som stöds. Om du vill aktivera flera typer anger du namnen avgränsade med kommatecken. Det går inte att aktivera OpenVPN och SSTP tillsammans. StrongSwan-klienten i Android och Linux och den inbyggda IKEv2 VPN-klienten i iOS och OSX använder endast IKEv2-tunnlar för att ansluta. Windows-klienter provar IKEv2 först, och går över till SSTP om det inte går att ansluta. Du kan använda OpenVPN-klienten för att ansluta till OpenVPN-tunnel typen.
+* Den virtuella Nätverksgatewayen ' Basic '-SKU: n stöder inte IKEv2, OpenVPN eller RADIUS-autentisering. Om du planerar att låta Mac-klienter ansluta till ditt virtuella nätverk ska du inte använda den grundläggande SKU: n.
 * Det kan ta upp till 45 minuter innan en VPN-gateway är klar, beroende på vilken [gateway-sku](vpn-gateway-about-vpn-gateway-settings.md) du väljer. I det här exemplet används IKEv2.
 
 ```azurepowershell-interactive
@@ -169,7 +169,7 @@ Om du använder självsignerade certifikat, måste de skapas med specifika param
 
 Kontrollera att din VPN-gateway har skapats. När det är klart kan du ladda upp CER-filen (som innehåller informationen om den offentliga nyckeln) för ett betrott rotcertifikat till Azure. När en CER-fil har överförts kan Azure använda den för att autentisera klienter som har ett installerat klientcertifikat som har genererats från det betrodda rotcertifikatet. Du kan överföra ytterligare betrodda rotcertifikatfiler (upp till 20 stycken) senare om det behövs.
 
-Du kan inte överföra den här informationen med hjälp av Azure Cloud Shell. Du kan använda PowerShell lokalt på datorn, den [steg med Azure portal](vpn-gateway-howto-point-to-site-resource-manager-portal.md#uploadfile).
+Du kan inte ladda upp den här informationen med Azure Cloud Shell. Du kan antingen använda PowerShell lokalt på datorn, [Azure Portal stegen](vpn-gateway-howto-point-to-site-resource-manager-portal.md#uploadfile).
 
 1. Deklarera variabeln för certifikatnamnet och ersätt värdet med ditt eget.
 
@@ -184,7 +184,7 @@ Du kan inte överföra den här informationen med hjälp av Azure Cloud Shell. D
    $CertBase64 = [system.convert]::ToBase64String($cert.RawData)
    $p2srootcert = New-AzVpnClientRootCertificate -Name $P2SRootCertName -PublicCertData $CertBase64
    ```
-3. Ladda upp informationen om den offentliga nyckeln till Azure. När certifikatinformationen har laddats upp betraktar Azure det ska vara ett betrott rotcertifikat.
+3. Ladda upp informationen om den offentliga nyckeln till Azure. När certifikat informationen har laddats upp anser Azure att den är ett betrott rot certifikat.
 
    ```azurepowershell
    Add-AzVpnClientRootCertificate -VpnClientRootCertificateName $P2SRootCertName -VirtualNetworkGatewayname "VNet1GW" -ResourceGroupName "TestRG" -PublicCertData $CertBase64
@@ -226,7 +226,7 @@ VPN-klientkonfigurationsfilerna innehåller inställningar för att konfigurera 
 ### <a name="to-connect-from-a-mac-vpn-client"></a>Så här ansluter du från en Mac VPN-klient
 
 Från dialogrutan Nätverk letar du upp den klientprofil som du vill använda och klickar sedan på **Anslut**.
-Kontrollera [installera - Mac (OS X)](https://docs.microsoft.com/azure/vpn-gateway/point-to-site-vpn-client-configuration-azure-cert#installmac) detaljerade anvisningar. Om du har problem med att ansluta kan du kontrollera att den virtuella nätverksgatewayen inte använder en grundläggande SKU. Grundläggande SKU stöds inte för Mac-klienter.
+Mer information finns i [install-Mac (OS X)](https://docs.microsoft.com/azure/vpn-gateway/point-to-site-vpn-client-configuration-azure-cert#installmac) . Om du har problem med att ansluta kontrollerar du att den virtuella Nätverksgatewayen inte använder en grundläggande SKU. Basic SKU stöds inte för Mac-klienter.
 
   ![Mac-anslutning](./media/vpn-gateway-howto-point-to-site-rm-ps/applyconnect.png)
 
@@ -267,7 +267,7 @@ Du kan lägga till upp till 20 CER-filer för rotcertifikat i Azure. Följande s
 #### <a name="certmethod1"></a>Metod 1
 
 
-Den här metoden är det mest effektiva sättet att ladda upp ett rotcertifikat. Det kräver Azure PowerShell-cmdletar som installerats lokalt på din dator (inte Azure Cloud Shell).
+Den här metoden är det mest effektiva sättet att ladda upp ett rot certifikat. Den kräver att Azure PowerShell-cmdlets installeras lokalt på datorn (inte Azure Cloud Shell).
 
 1. Förbered CER-filen för uppladdning:
 
@@ -290,9 +290,9 @@ Den här metoden är det mest effektiva sättet att ladda upp ett rotcertifikat.
    -VirtualNetworkGatewayName "VNet1GW"
    ```
 
-#### <a name="certmethod2"></a>Metod 2 - Azure-portalen
+#### <a name="certmethod2"></a>Metod 2 – Azure Portal
 
-Den här metoden har fler steg än metod 1, men resultatet är samma. Den finns med om du behöver visa certifikatdata. Det kräver Azure PowerShell-cmdletar som installerats lokalt på din dator (inte Azure Cloud Shell).
+Den här metoden har fler steg än metod 1, men resultatet är samma. Den finns med om du behöver visa certifikatdata. Den kräver att Azure PowerShell-cmdlets installeras lokalt på datorn (inte Azure Cloud Shell).
 
 1. Skapa och förbered det nya rotcertifikatet som du ska lägga till i Azure. Exportera den offentliga nyckeln som en Base64-kodad X.509-fil (.CER) och öppna den i en textredigerare. Kopiera värdena, som du ser i följande exempel:
 
@@ -406,4 +406,4 @@ Du kan återställa ett klientcertifikat genom att ta bort tumavtrycket från li
 ## <a name="next-steps"></a>Nästa steg
 När anslutningen är klar kan du lägga till virtuella datorer till dina virtuella nätverk. Mer information finns i [Virtuella datorer](https://docs.microsoft.com/azure/). Mer information om virtuella datorer och nätverk finns i [Azure and Linux VM network overview](../virtual-machines/linux/azure-vm-network-overview.md) (Översikt över nätverk för virtuella Azure- och Linux-datorer).
 
-P2S felsökningsinformation [Felsökning: Problem med Azure punkt-till-plats-anslutning](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md).
+Fel söknings information för [P2s finns i: Problem](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md)med Azure punkt-till-plats-anslutning.

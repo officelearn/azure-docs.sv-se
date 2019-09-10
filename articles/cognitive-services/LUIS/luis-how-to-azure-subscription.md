@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 09/02/2019
+ms.date: 09/09/2019
 ms.author: diberry
-ms.openlocfilehash: 36d03e20c9a56d7b317b867f01c1c0b5767c802c
-ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
+ms.openlocfilehash: 5c2e81cd11826a0325cd78384a22ec7eefb3a565
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70257016"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70844862"
 ---
 # <a name="using-authoring-and-runtime-resource-keys"></a>Använda resurs nycklar för redigering och körning
 
@@ -72,6 +72,38 @@ När du är redo att publicera din förutsägelse slut punkt skapar du och tilld
     |Pris nivå för körning|Pris nivån avgör den högsta transaktionen per sekund och månad.|
 
     När båda resurserna har skapats tilldelar du resurserna i LUIS-portalen.
+
+## <a name="create-resources-in-azure-cli"></a>Skapa resurser i Azure CLI
+
+Använd [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) för att skapa varje resurs individuellt. 
+
+Resurs `kind`:
+
+* Redigerings`LUIS.Authoring`
+* Förutsägelse`LUIS` 
+
+1. Logga in på Azure CLI:
+
+    ```console
+    az login
+    ```
+
+    Då öppnas en webbläsare så att du kan välja rätt konto och tillhandahålla autentisering.
+
+1. Skapa en **Luis Authoring-resurs**, av `LUIS.Authoring`typen, `my-luis-authoring-resource` med namnet i `westus` den _befintliga_ resurs `my-resource-group` gruppen med namnet för regionen. 
+
+    ```console
+    az cognitiveservices account create -n my-luis-authoring-resource -g my-resource-group --kind LUIS.Authoring --sku F0 -l westus --yes
+    ```
+
+1. Skapa en **resurs**av `LUIS`typen Luis förutsägelse-slutpunkt med namnet `my-luis-prediction-resource` i `westus` den _befintliga_ resurs gruppen med `my-resource-group` namnet för regionen. Ändra `F0` till`S0`om du vill ha ett högre data flöde än den kostnads fria nivån. Läs mer om [pris nivåer och data flöde](luis-boundaries.md#key-limits).
+
+    ```console
+    az cognitiveservices account create -n my-luis-prediction-resource -g my-resource-group --kind LUIS --sku F0 -l westus --yes
+    ```
+
+    > [!Note] 
+    > De här nycklarna används **inte** av Luis-portalen förrän de har tilldelats i Luis-portalen på **Azure-resurserna för hanterings >** .
 
 ## <a name="assign-an-authoring-resource-in-the-luis-portal-for-all-apps"></a>Tilldela en Authoring-resurs i LUIS-portalen för alla appar
 
@@ -186,6 +218,6 @@ Lägg till en måttavisering för den **Totalt antal anrop** mått för en viss 
 ## <a name="next-steps"></a>Nästa steg
 
 * Lär dig [hur du använder versioner](luis-how-to-manage-versions.md) för att kontrol lera appens livs cykel.
-* Förstå begreppen, inklusive [redigering av resurser](/luis-concept-keys.md#authoring-key) och [deltagare](luis-concept-keys.md#contributions-from-other-authors) på den resursen.
+* Förstå begreppen, inklusive [redigering av resurser](luis-concept-keys.md#authoring-key) och [deltagare](luis-concept-keys.md#contributions-from-other-authors) på den resursen.
 * Lär dig [hur du skapar](luis-how-to-azure-subscription.md) redigerings-och körnings resurser
 * Migrera till den nya [redigerings resursen](luis-migration-authoring.md) 

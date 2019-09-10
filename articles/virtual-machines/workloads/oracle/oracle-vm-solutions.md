@@ -14,16 +14,16 @@ ms.workload: infrastructure-services
 ms.date: 05/23/2019
 ms.author: rogirdh
 ms.custom: seodec18
-ms.openlocfilehash: 3d3805fe5a574d3e6ecd9a6fa8f95dd28f308d25
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 4480819a08ef9a7a4ad7257f75a94c5d10a3d312
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70101396"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70858575"
 ---
 # <a name="oracle-vm-images-and-their-deployment-on-microsoft-azure"></a>VIRTUELLA Oracle-avbildningar och deras distribution på Microsoft Azure
 
-Den här artikeln beskriver information om Oracle-lösningar baserade på avbildningar av virtuella datorer som publicerats av Oracle på Azure Marketplace. Om du är intresse rad av program lösningar över molnet med Oracle Cloud Infrastructure, se Oracle-programlösningar som [integrerar Microsoft Azure och Oracle Cloud Infrastructure](oracle-oci-overview.md).
+Den här artikeln beskriver information om Oracle-lösningar baserade på avbildningar av virtuella datorer som publicerats av Oracle på Azure Marketplace. Om du är intresse rad av program lösningar över molnet med Oracle Cloud Infrastructure, se [Oracle-programlösningar som integrerar Microsoft Azure och Oracle Cloud Infrastructure](oracle-oci-overview.md).
 
 Om du vill hämta en lista över tillgängliga avbildningar kör du följande kommando:
 
@@ -58,11 +58,8 @@ De här avbildningarna betraktas som "ta med din egen licens" och så att du bar
 
 Individer kan också välja att basera sina lösningar på en anpassad avbildning som de skapar från grunden i Azure eller ladda upp en anpassad avbildning från sin lokala miljö.
 
-## <a name="support-for-jd-edwards"></a>Stöd för JD-Edwards
-Enligt Oracle support NOTE [dokument-ID 2178595,1](https://support.oracle.com/epmos/faces/DocumentDisplay?_afrLoop=573435677515785&id=2178595.1&_afrWindowMode=0&_adf.ctrl-state=o852dw7d_4), JD Edwards EnterpriseOne-versionerna 9,2 och senare, stöds i **alla offentliga moln** som uppfyller deras speciella `Minimum Technical Requirements` (MTR).  Du måste skapa anpassade avbildningar som uppfyller MTR-specifikationerna för operativ system-och program varu kompatibilitet. 
-
 ## <a name="oracle-database-vm-images"></a>VM-avbildningar för Oracle-databasen
-Oracle stöder körning av Oracle DB 12,1 standard-och Enterprise-versioner i Azure på avbildningar av virtuella datorer baserat på Oracle Linux.  För att få bästa möjliga prestanda för produktions arbets belastningar för Oracle DB på Azure måste du se till att du har rätt storlek på den virtuella dator avbildningen och använder Managed Disks som backas upp av Premium Storage. För instruktioner om hur du snabbt får en Oracle DB igång i Azure med hjälp av den virtuella Oracle-avbildningen, [provar du genom gången Oracle DB Snabb start](oracle-database-quick-create.md).
+Oracle stöder körning av Oracle DB 12,1 och högre standard-och Enterprise-versioner i Azure på avbildningar av virtuella datorer baserat på Oracle Linux.  För att få bästa möjliga prestanda för produktions arbets belastningar för Oracle DB på Azure, måste du se till att du har rätt storlek på den virtuella dator avbildningen och använder Premium SSD eller Ultra SSD Managed Disks. För instruktioner om hur du snabbt får en Oracle DB igång i Azure med hjälp av den virtuella Oracle-avbildningen, [provar du genom gången Oracle DB Snabb start](oracle-database-quick-create.md).
 
 ### <a name="attached-disk-configuration-options"></a>Konfigurations alternativ för anslutna diskar
 
@@ -80,6 +77,13 @@ Azure NetApp Files har utformats för att uppfylla kärn kraven för att köra a
 Dessa funktioner är möjliga eftersom Azure NetApp Files baseras på NetApp® ONTAP® alla Flash-system som körs i Azure Data Center-miljön, som en Azure Native-tjänst. Resultatet är en idealisk teknik för databas lagring som kan tillhandahållas och konsumeras precis som andra alternativ för Azure Storage. Mer information om hur du distribuerar och får åtkomst till Azure NetApp Files NFS-volymer finns i [Azure NetApp Files-dokumentationen](https://docs.microsoft.com/azure/azure-netapp-files/) . Se [metod tips för Oracle i Azure-distribution med hjälp av Azure NetApp Files](https://www.netapp.com/us/media/tr-4780.pdf) för bästa praxis för att distribuera en Oracle-databas på Azure NetApp Files.
 
 
+## <a name="licensing-oracle-database--software-on-azure"></a>Licensierings Oracle Database & program vara på Azure
+Microsoft Azure är en godkänd moln miljö för att köra Oracle Database. Tabellen för Oracle Core Factor kan inte användas när du licensierar Oracle-databaser i molnet. När du använder virtuella datorer med Hyper-Threading-teknik som är aktive rad för Enterprise Edition-databaser, kan du i stället räkna två virtuella processorer som likvärdiga med en Oracle processor licens om hyperthreading är aktiverat (enligt vad som anges i princip dokumentet). Du hittar information om principen [här](http://www.oracle.com/us/corporate/pricing/cloud-licensing-070579.pdf).
+Oracle-databaser kräver vanligt vis mer minne och IO. Därför rekommenderas [Minnesoptimerade virtuella datorer](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/sizes-memory) för dessa arbets belastningar. För att optimera dina arbets belastningar rekommenderas [begränsade kärn virtuella processorer](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/constrained-vcpu) för Oracle DB arbets belastningar som kräver hög minnes-, lagrings-och I/O-bandbredd, men inte med ett högt antal kärnor.
+
+När du migrerar Oracle-programvara och arbets belastningar från en lokal plats till Microsoft Azure tillhandahåller Oracle License Mobility såsom anges i [vanliga frågor och svar om Oracle på Azure](https://www.oracle.com/cloud/technologies/oracle-azure-faq.html)
+
+
 ## <a name="oracle-real-application-cluster-oracle-rac"></a>Verkligt Oracle-programkluster (Oracle RAC)
 Oracle RAC är utformat för att minimera fel i en enskild nod i en lokal kluster konfiguration med flera noder. Den förlitar sig på två lokala tekniker som inte är inbyggda för storskaliga offentliga moln miljöer: nätverks-multicast och delad disk. Om din databas lösning kräver Oracle RAC i Azure, behöver du en tredje = parts program vara för att aktivera dessa tekniker. Mer information om Oracle RAC finns på [sidan FlashGrid SkyCluster](https://www.flashgrid.io/oracle-rac-in-azure/).
 
@@ -95,6 +99,11 @@ Med Oracle data Guard kan hög tillgänglighet uppnås med en primär databas p�
 I själv studie kursen [implementeras Oracle GoldenGate i Azure](configure-oracle-golden-gate.md) med hjälp av den grundläggande installations proceduren i Azure.
 
 Förutom att ha en HA-och DR-lösning som är konstruerad i Azure bör du ha en säkerhets kopierings strategi på plats för att återställa databasen. I självstudien om [säkerhets kopiering och återställning av en Oracle Database](oracle-backup-recovery.md) går vi igenom den grundläggande proceduren för att upprätta en konsekvent säkerhets kopia.
+
+
+## <a name="support-for-jd-edwards"></a>Stöd för JD-Edwards
+Enligt Oracle support NOTE [dokument-ID 2178595,1](https://support.oracle.com/epmos/faces/DocumentDisplay?_afrLoop=573435677515785&id=2178595.1&_afrWindowMode=0&_adf.ctrl-state=o852dw7d_4), JD Edwards EnterpriseOne-versionerna 9,2 och senare, stöds i **alla offentliga moln** som uppfyller deras speciella `Minimum Technical Requirements` (MTR).  Du måste skapa anpassade avbildningar som uppfyller MTR-specifikationerna för operativ system-och program varu kompatibilitet. 
+
 
 ## <a name="oracle-weblogic-server-virtual-machine-images"></a>Avbildningar av virtuella datorer i Oracle WebLogic-Server
 

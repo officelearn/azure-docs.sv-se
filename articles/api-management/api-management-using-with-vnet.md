@@ -10,14 +10,14 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 03/01/2019
+ms.date: 09/09/2019
 ms.author: apimpm
-ms.openlocfilehash: b89f4d2264924983aac93fb266efd71e46bea6bf
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: 44fd3f0381c25f2fe0a3e9dc4cf5b8c685486ae0
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70305234"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70861153"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Använda Azure API Management med virtuella nätverk
 Med Azure Virtual Networks (virtuella nätverk) kan du placera någon av dina Azure-resurser i ett icke-Internet-dirigerbart nätverk som du styr åtkomsten till. Dessa nätverk kan sedan anslutas till dina lokala nätverk med hjälp av olika VPN-tekniker. Om du vill veta mer om virtuella Azure-nätverk börjar du med informationen här: [Översikt över Azure-Virtual Network](../virtual-network/virtual-networks-overview.md).
@@ -79,7 +79,7 @@ För att utföra stegen som beskrivs i den här artikeln måste du ha:
 >
 
 > [!IMPORTANT]
-> Om du tar bort API Management från ett VNET eller ändrar den som det distribueras i, kan det tidigare använda VNET förbli låst i upp till två timmar. Under den här perioden går det inte att ta bort det virtuella nätverket eller distribuera en ny resurs till den.
+> Om du tar bort API Management från ett VNET eller ändrar den som det distribueras i, kan det tidigare använda VNET förbli låst i upp till sex timmar. Under den här perioden går det inte att ta bort det virtuella nätverket eller distribuera en ny resurs till den. Det här beteendet gäller för klienter som använder API-version 2018-01-01 och tidigare. Klienter som använder API-version 2019-01-01 och senare frigörs det virtuella nätverket så fort den associerade API Managements tjänsten tas bort.
 
 ## <a name="enable-vnet-powershell"> </a>Aktivera VNET-anslutning med PowerShell-cmdletar
 Du kan också aktivera VNET-anslutning med hjälp av PowerShell-cmdletar

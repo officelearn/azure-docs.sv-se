@@ -13,12 +13,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 04/16/2018
 ms.author: glenga
-ms.openlocfilehash: 88d9ab0063b6cf2803332d7af50190c659b3e6fe
-ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
+ms.openlocfilehash: 7922f07cfe08d0bd58827b59337b86387c624778
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2019
-ms.locfileid: "70207202"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70844683"
 ---
 # <a name="azure-functions-python-developer-guide"></a>Guide för Azure Functions python-utvecklare
 
@@ -94,6 +94,7 @@ Mappstrukturen för ett python Functions-projekt ser ut som i följande exempel:
  | - MyFirstFunction
  | | - __init__.py
  | | - function.json
+ | | - example.py
  | - MySecondFunction
  | | - __init__.py
  | | - function.json
@@ -110,6 +111,12 @@ Delad kod ska sparas i en separat mapp. Om du vill referera till moduler i Share
 
 ```
 from __app__.SharedCode import myFirstHelperFunction
+```
+
+Om du vill referera till moduler lokalt i en funktion kan du använda den relativa import-syntaxen enligt följande:
+
+```
+from . import example
 ```
 
 När du distribuerar ett funktions projekt till din Function-app i Azure, ska hela innehållet i *FunctionApp* -mappen inkluderas i paketet, men inte själva mappen.
@@ -394,7 +401,7 @@ There was an error restoring dependencies.ERROR: cannot install <package name - 
 The terminal process terminated with exit code: 1
 ```
 
-Om du vill skapa ett lokalt och konfigurera de binärfiler som krävs [installerar](https://docs.docker.com/install/) du Docker på den lokala datorn och kör följande kommando för att publicera med hjälp av [Azure Functions Core tools](functions-run-local.md#v2) (Func). Kom ihåg att `<app name>` ersätta med namnet på din Function-app i Azure. 
+Om du vill skapa ett lokalt och konfigurera de binärfiler som krävs [installerar du Docker](https://docs.docker.com/install/) på den lokala datorn och kör följande kommando för att publicera med hjälp av [Azure Functions Core tools](functions-run-local.md#v2) (Func). Kom ihåg att `<app name>` ersätta med namnet på din Function-app i Azure. 
 
 ```bash
 func azure functionapp publish <app name> --build-native-deps

@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 07/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: a73d048a66c70eaf22caf6b33c4a495df6d730dd
-ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
+ms.openlocfilehash: 9a2b030185c821ec9bd577ecdabbc929766f2d14
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69997923"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70858897"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Konfigurera automatiserade ML-experiment i python
 
@@ -219,7 +219,7 @@ Lär dig mer om de olika definitionerna av dessa för att [förstå automatisera
 
 ### <a name="data-preprocessing--featurization"></a>Data förbehandling & funktionalisering
 
-I varje automatiserad maskin inlärnings experiment skalas dina data [automatiskt och normaliseras](concept-automated-ml.md#preprocess) för att hjälpa algoritmerna att fungera bra.  Du kan dock också aktivera ytterligare för bearbetning/funktionalisering, till exempel saknade värden Imputation, encoding och transformationer. [Läs mer om vad funktionalisering ingår](how-to-create-portal-experiments.md#preprocess).
+I varje automatiserad maskin inlärnings experiment [skalas dina data automatiskt och normaliseras](concept-automated-ml.md#preprocess) för att hjälpa algoritmerna att fungera bra.  Du kan dock också aktivera ytterligare för bearbetning/funktionalisering, till exempel saknade värden Imputation, encoding och transformationer. [Läs mer om vad funktionalisering ingår](how-to-create-portal-experiments.md#preprocess).
 
 Om du vill aktivera den här `"preprocess": True` funktionalisering anger du [ `AutoMLConfig` för klassen](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlconfig?view=azure-ml-py).
 
@@ -367,7 +367,7 @@ best_run, fitted_model = automl_run.get_output()
 
 ### <a name="automated-feature-engineering"></a>Automatiserad funktions teknik
 
-Se listan över förbehandling och automatiserad [funktions teknik](concept-automated-ml.md#preprocess) som inträffar när preprocess = True.
+Se listan över förbehandling och [automatiserad funktions teknik](concept-automated-ml.md#preprocess) som inträffar när preprocess = True.
 
 Tänk på det här exemplet:
 + Det finns 4 ingångs funktioner: A (numeriskt), B (numeriskt), C (numeriskt), D (DateTime)
@@ -553,13 +553,13 @@ Det finns två sätt att skapa funktionen prioritet.
     print(per_class_summary)
     ```
 
-Du kan visualisera funktionen vikten diagrammet på din arbetsyta i Azure-portalen. Visa URL: en med hjälp av objektet kör:
+Visa URL: en för att Visa funktions prioritet med hjälp av objektet kör:
 
 ```
 automl_run.get_portal_url()
 ```
 
-Du kan visualisera funktionen vikten diagrammet på din arbetsyta i Azure-portalen. Diagrammet visas också när du `RunDetails` använder Jupyter- [widgeten](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py) i en bärbar dator. Om du vill veta mer om diagrammen kan du läsa mer om att [förstå automatiserade maskin inlärnings resultat](how-to-understand-automated-ml.md).
+Du kan visualisera funktions prioritets diagrammet i din arbets yta i Azure Portal eller från [landnings sidan för din arbets yta (för hands version)](https://ml.azure.com). Diagrammet visas också när du `RunDetails` använder Jupyter- [widgeten](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py) i en bärbar dator. Om du vill veta mer om diagrammen kan du läsa mer om att [förstå automatiserade maskin inlärnings resultat](how-to-understand-automated-ml.md).
 
 ```Python
 from azureml.widgets import RunDetails

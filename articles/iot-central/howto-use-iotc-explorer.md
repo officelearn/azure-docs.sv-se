@@ -1,6 +1,6 @@
 ---
-title: Övervaka enhetsanslutning med Azure IoT Central Explorer
-description: Övervaka meddelanden från enheten och se device twin ändras via IoT Central Explorer CLI.
+title: Övervaka enhets anslutning med Azure IoT Central Explorer
+description: Övervaka enhets meddelanden och Observera att enhetens dubbla ändringar görs via IoT Central Explorer CLI.
 author: viv-liu
 ms.author: viviali
 ms.date: 06/17/2019
@@ -8,106 +8,106 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 4d17f0e5273c7397bd9c6a71d14b7992d8652768
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 38cbe43e9038a47c4e222fd4744f0b844f9ddb4e
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67165866"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70845681"
 ---
-# <a name="monitor-device-connectivity-using-the-azure-iot-central-explorer"></a>Övervaka enhetsanslutning med Azure IoT Central Explorer
+# <a name="monitor-device-connectivity-using-the-azure-iot-central-explorer"></a>Övervaka enhets anslutning med Azure IoT Central Explorer
 
-*Det här avsnittet gäller builders och administratörer.*
+*Det här avsnittet gäller för byggare och administratörer.*
 
-Använd IoT Central Explorer CLI för att se meddelanden enheterna skickar till IoT Central och notera ändringarna i IoT Hub-twin. Du kan använda det här verktyget med öppen källkod för att få bättre insikt i tillståndet för enhetsanslutning och diagnostisera problem med meddelanden som inte når molnet eller enheter som inte svarar på twin ändringar.
+Använd IoT Central Explorer CLI för att se meddelanden som dina enheter skickar till IoT Central och Observera att ändringarna i IoT Hub är dubbla. Du kan använda det här verktyget med öppen källkod för att få djupare insikt i status för enhets anslutning och diagnostisera problem med enhets meddelanden som inte når molnet eller enheter som inte svarar på dubbla ändringar.
 
-[Besök iotc-explorer-lagringsplatsen i GitHub.](https://aka.ms/iotciotcexplorercligithub)
+[Besök IOTC-Explorer-lagringsplatsen i GitHub.](https://aka.ms/iotciotcexplorercligithub)
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
-+ Node.js-version 8.x eller högre - https://nodejs.org
-+ En administratör för ditt program måste generera en åtkomsttoken som du kan använda i iotc explorer
++ Node. js version 8. x eller högre – https://nodejs.org
++ En administratör för ditt program måste generera en åtkomsttoken som du kan använda i IOTC-Explorer
 
-## <a name="install-iotc-explorer"></a>Installera iotc explorer
+## <a name="install-iotc-explorer"></a>Installera IOTC-Explorer
 
-Kör följande kommando från kommandoraden och installera:
+Kör följande kommando från kommando raden för att installera:
 
 ```cmd/sh
 npm install -g iotc-explorer
 ```
 
 > [!NOTE]
-> Vanligtvis måste du köra installationskommandot med `sudo` i Unix-liknande miljöer.
+> Du måste vanligt vis köra kommandot Install med `sudo` i UNIX-liknande miljöer.
 
-## <a name="run-iotc-explorer"></a>Kör iotc explorer
+## <a name="run-iotc-explorer"></a>Kör IOTC-Explorer
 
-I följande avsnitt beskrivs vanliga kommandon och alternativ som du kan använda när du kör `iotc-explorer`. Om du vill visa den fullständiga uppsättningen kommandon och alternativ, skicka `--help` till `iotc-explorer` eller någon av dess underkommandon.
+I följande avsnitt beskrivs vanliga kommandon och alternativ som du kan använda när du kör `iotc-explorer`. Om du vill visa en fullständig uppsättning kommandon och alternativ, `--help` skicka `iotc-explorer` till eller något av dess under kommandon.
 
-### <a name="login"></a>Inloggning
+### <a name="login"></a>Logga in
 
-Innan du startar måste du be en administratör för programmet IoT Central och få en åtkomsttoken som du kan använda. Administratören utför följande steg:
+Innan du börjar måste du ha en administratör av ditt IoT Central-program för att få en åtkomsttoken som du kan använda. Administratören utför följande steg:
 
-1. Gå till **Administration** sedan **åtkomsttoken**.
-1. Välj **generera Token**.
-    ![Skärmbild för åtkomst-token sidan](media/howto-use-iotc-explorer/accesstokenspage.png)
+1. Gå till **Administration** och **få åtkomst till tokens**.
+1. Välj **generera token**.
+    ![Skärm bild av sidan åtkomsttoken](media/howto-use-iotc-explorer/accesstokenspage.png)
 
-1. Ange ett Tokennamn, Välj **nästa**, och sedan **kopiera**.
+1. Ange ett namn på token, Välj **Nästa**och sedan **Kopiera**.
     > [!NOTE]
-    > Token-värde visas bara en gång, så det måste kopieras innan du stänger dialogrutan. När du har stängt dialogrutan visas den aldrig igen.
+    > Värdet för token visas bara en gång, så det måste kopieras innan dialog rutan stängs. När du har stängt dialog rutan visas den aldrig igen.
 
-    ![Kopiera åtkomst-token i dialogrutan skärmbild](media/howto-use-iotc-explorer/copyaccesstoken.png)
+    ![Skärm bild av dialog rutan Kopiera åtkomsttoken](media/howto-use-iotc-explorer/copyaccesstoken.png)
 
-Du kan använda token för att logga in CLI på följande sätt:
+Du kan använda token för att logga in på CLI enligt följande:
 
 ```cmd/sh
 iotc-explorer login "<Token value>"
 ```
 
-Om du föredrar att inte installera token som sparas i historiken shell, kan du lämna token ut och i stället tillhandahålla den när du uppmanas till detta:
+Om du inte vill att token sparas i din gränssnitts historik kan du lämna token och i stället ange den när du uppmanas till det:
 
 ```cmd/sh
 iotc-explorer login
 ```
 
-### <a name="monitor-device-messages"></a>Övervaka meddelanden från enhet
+### <a name="monitor-device-messages"></a>Övervaka enhets meddelanden
 
-Du kan se de meddelanden som skickas från en specifik enhet eller alla enheter i ditt program med hjälp av den `monitor-messages` kommando. Det här kommandot startar en Övervakare som visar kontinuerligt nya meddelanden när de tas emot:
+Du kan titta på meddelanden från en specifik enhet eller alla enheter i programmet med hjälp `monitor-messages` av kommandot. Det här kommandot startar en Övervakare som kontinuerligt matar ut nya meddelanden när de tas emot:
 
-Titta på alla enheter i ditt program, kör du följande kommando:
+Kör följande kommando för att se alla enheter i programmet:
 
 ```cmd/sh
 iotc-explorer monitor-messages
 ```
 
-Utdata:
+Resultat:
 
-![Övervakare-meddelanden kommandoutdata](media/howto-use-iotc-explorer/monitormessages.png)
+![övervaka-meddelanden kommandots utdata](media/howto-use-iotc-explorer/monitormessages.png)
 
-Om du vill se en specifik enhet kan du lägga till enhets-id till slutet av kommandot:
+Om du vill se en speciell enhet lägger du bara till enhets-ID i slutet av kommandot:
 
 ```cmd/sh
 iotc-explorer monitor-messages <your-device-id>
 ```
 
-Du kan också skickas ett mer dator-vänlig format genom att lägga till den `--raw` alternativ till kommandot:
+Du kan också skriva ut ett mer maskin vänligt format genom att `--raw` lägga till alternativet i kommandot:
 
-```
+```cmd/sh
 iotc-explorer monitor-messages --raw
 ```
 
-### <a name="get-device-twin"></a>Hämta enhetstvilling
+### <a name="get-device-twin"></a>Hämta enhetens dubbla
 
-Du kan använda den `get-twin` kommando för att hämta innehållet i läsningen för en enhet med IoT Central. Om du vill göra det kör du följande kommando:
+Du kan använda `get-twin` kommandot för att hämta innehållet i den dubbla för en IoT central-enhet. Det gör du genom att köra följande kommando:
 
 ```cmd/sh
 iotc-explorer get-twin <your-device-id>
 ```
 
-Utdata:
+Resultat:
 
-![Get-twin-kommandoutdata](media/howto-use-iotc-explorer/getdevicetwin.png)
+![Get-dubbel kommandoutdata](media/howto-use-iotc-explorer/getdevicetwin.png)
 
-Precis som med `monitor-messages`, du kan få en mer dator-vänlig utdata genom att skicka den `--raw` alternativet:
+Precis som `monitor-messages`med kan du få en mer maskin vänlig utmatning genom att `--raw` skicka alternativet:
 
 ```cmd/sh
 iotc-explorer get-twin <your-device-id> --raw
@@ -115,4 +115,4 @@ iotc-explorer get-twin <your-device-id> --raw
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu när du har lärt dig hur du använder IoT Central Explorer, föreslagna nästa steg är att utforska [hantering av enheter IoT Central](howto-manage-devices.md).
+Nu när du har lärt dig hur du använder IoT Central Explorer är det föreslagna nästa steg att utforska [hantering av enheter IoT Central](howto-manage-devices.md).

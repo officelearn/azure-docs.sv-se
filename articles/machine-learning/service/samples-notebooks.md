@@ -11,26 +11,25 @@ ms.author: sgilley
 ms.reviewer: sgilley
 ms.date: 07/31/2019
 ms.custom: seodec18
-ms.openlocfilehash: 2ea124ecf6786142ac1703dab1e267b225751079
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: 14962b936d1c09a6c50daa7bec460ce11dbefe5d
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70035946"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70860394"
 ---
 # <a name="explore-azure-machine-learning-service-with-jupyter-notebooks"></a>Utforska Azure Machine Learning-tjänsten med Jupyter-anteckningsböcker
 
-[Exemplet Azure Machine Learning Notebooks](https://github.com/azure/machinelearningnotebooks) -lagringsplatsen innehåller de senaste Azure Machine Learning python SDK-exemplen. Dessa Juypter-anteckningsböcker är utformade för att hjälpa dig att utforska SDK och fungerar som modeller för dina egna Machine Learning-projekt.
+[Exemplet Azure Machine Learning Notebooks-lagringsplatsen](https://github.com/azure/machinelearningnotebooks) innehåller de senaste Azure Machine Learning python SDK-exemplen. Dessa Juypter-anteckningsböcker är utformade för att hjälpa dig att utforska SDK och fungerar som modeller för dina egna Machine Learning-projekt.
 
 Den här artikeln visar hur du kommer åt databasen från följande miljöer:
 
 - [Azure Machine Learning Notebook VM](#notebookvm)
 - [Ta med din egen Notebook-Server](#byo)
 - [Data Science Virtual Machine](#dsvm)
-- [Azure Notebooks](#aznb)
 
 > [!NOTE]
-> När du har klonat lagrings platsen hittar du själv studie **kurser** i självstudierna och de funktionsbaserade antecknings böckerna i mappen **How-to-use-azureml** .
+> När du har klonat lagrings platsen hittar du själv studie **kurser i självstudierna** och de funktionsbaserade antecknings böckerna i mappen **How-to-use-azureml** .
 
 <a name="notebookvm"></a>
 ## <a name="get-samples-on-azure-machine-learning-notebook-vm"></a>Hämta exempel på Azure Machine Learning Notebook VM
@@ -53,13 +52,6 @@ De här anvisningarna installerar de grundläggande SDK-paket som krävs för de
 Data Science Virtual Machine (DSVM) är en anpassad VM-avbildning som skapats specifikt för data vetenskap. Om du [skapar en DSVM](how-to-configure-environment.md#dsvm)installeras och konfigureras SDK-och Notebook-servern för dig. Du måste dock fortfarande skapa en arbets yta och klona exempel lagrings platsen.
 
 [!INCLUDE [aml-dsvm-server](../../../includes/aml-dsvm-server.md)]
-
-<a name="aznb"></a>
-## <a name="get-samples-on-azure-notebooks"></a>Hämta exempel på Azure Notebooks
-
-På [Azure Notebooks](https://notebooks.azure.com/)installeras och konfigureras SDK: n och Notebook-servern för dig. Azure Notebooks ger en fullständigt hanterad, lätt bärbar miljö som du kan utforska.
-
-Du kommer åt exempel lagrings platsen på Azure Notebooks genom att gå till arbets ytan Azure Machine Learning via [Azure Portal](https://portal.azure.com). I avsnittet **Översikt** väljer du **kom igång i Azure Notebooks**.
 
 ## <a name="next-steps"></a>Nästa steg
 

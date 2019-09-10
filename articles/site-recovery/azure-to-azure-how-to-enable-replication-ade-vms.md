@@ -1,29 +1,26 @@
 ---
-title: Konfigurera replikering för Azure Disk Encryption-aktiverade virtuella datorer i Azure Site Recovery | Microsoft Docs
+title: Konfigurera replikering för Azure Disk Encryption-aktiverade virtuella datorer i Azure Site Recovery
 description: Den här artikeln beskriver hur du konfigurerar replikering för Azure Disk Encryption-aktiverade virtuella datorer från en Azure-region till en annan med hjälp av Site Recovery.
-services: site-recovery
 author: asgang
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
 ms.date: 08/08/2019
 ms.author: sutalasi
-ms.openlocfilehash: 1bb94b70510be30d676ad707ab2fbfbbcbf50833
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: bf0ee89bb091a13560a7a7d8d9e77c74827d94a2
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68884134"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70861329"
 ---
 # <a name="replicate-azure-disk-encryption-enabled-virtual-machines-to-another-azure-region"></a>Replikera Azure Disk Encryption-aktiverade virtuella datorer till en annan Azure-region
 
-Den här artikeln beskriver hur du replikerar Azure Disk Encryption-aktiverade virtuella datorer från en Azure-region till en annan.
+Den här artikeln beskriver hur du replikerar virtuella Azure-datorer med Azure Disk Encryption (ADE) aktiverat, från en Azure-region till en annan.
 
 >[!NOTE]
->Azure Site Recovery stöder för närvarande endast Azure Disk Encryption-aktiverade virtuella datorer som kör ett Windows-operativsystem. Azure Disk Encryption-aktiverade virtuella datorer utan Azure AD-app stöds endast om de använder hanterade diskar. Virtuella datorer med ohanterade diskar stöds inte.
+> Site Recovery stöder för närvarande ADE, med och utan Azure Active Directory (AAD) för virtuella datorer som kör Windows.  För datorer som kör ADE 1,1 (utan AAD) måste de virtuella Windows-datorerna använda hanterade diskar. Virtuella datorer med ohanterade diskar stöds inte. Om du växlar från ADE 0,1 (med AAD) till 1,1 måste du inaktivera replikering och aktivera replikering för en virtuell dator efter att ha aktiverat 1,1.
 
->[!NOTE]
->Om du växlar från ADE v1 (med Azure AD-App) till ADE v2 (utan Azure AD-App), måste du inaktivera replikering och aktivera replikering när du har aktiverat ADE v2.
 
 ## <a id="required-user-permissions"></a>Nödvändiga användar behörigheter
 Site Recovery kräver att användaren har behörighet att skapa nyckel valvet i mål regionen och kopiera nycklar från nyckel valvet för käll regionen till nyckel valvet för mål regionen.
@@ -67,7 +64,7 @@ Information om hur du felsöker behörigheter finns i [behörighets problem i Ke
 3. Öppna Windows PowerShell-programmet och gå till mappen där du sparade filen.
 4. Kör Copy-Keys. ps1.
 5. Ange Azure-autentiseringsuppgifter för att logga in.
-6. Välj **Azure** -prenumerationen för dina virtuella datorer.
+6. Välj **Azure-prenumerationen** för dina virtuella datorer.
 7. Vänta tills resurs grupperna har lästs in och välj sedan **resurs gruppen** för dina virtuella datorer.
 8. Välj de virtuella datorerna i listan som visas. Endast virtuella datorer som har Aktiver ATS för disk kryptering finns i listan.
 9. Välj **mål platsen**.

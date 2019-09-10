@@ -8,12 +8,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 07/31/2019
 ms.author: danlep
-ms.openlocfilehash: 12c1b5f9fa9620622b31f22c701d58ae237bcbf2
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: d652c511a3f54fd0b756a95fbe183b4678416a10
+ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69035151"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70873212"
 ---
 # <a name="delete-container-images-in-azure-container-registry-using-the-azure-cli"></a>Ta bort behållar avbildningar i Azure Container Registry med Azure CLI
 
@@ -227,7 +227,6 @@ then
     az acr repository show-manifests --name $REGISTRY --repository $REPOSITORY  --query "[?tags[0]==null].digest" -o tsv \
     | xargs -I% az acr repository delete --name $REGISTRY --image $REPOSITORY@% --yes
 else
-    else
     echo "No data deleted."
     echo "Set ENABLE_DELETE=true to enable image deletion of these images in $REPOSITORY:"
     az acr repository show-manifests --name $REGISTRY --repository $REPOSITORY --query "[?tags[0]==null]" -o tsv
@@ -260,7 +259,7 @@ if ($enableDelete) {
 }
 ```
 
-## <a name="automatically-purge-tags-and-manifests-preview"></a>Rensa Taggar och manifest automatiskt (för hands version)
+## <a name="automatically-purge-tags-and-manifests-preview"></a>Rensa automatiskt taggar och manifest (förhandsversion)
 
 Som ett alternativ till skript för Azure CLI-kommandon kör du en aktivitet på begäran eller en schemalagd ACR för att ta bort alla Taggar som är äldre än en viss varaktighet eller matchar ett angivet namn filter. Mer information finns i [Rensa avbildningar automatiskt från ett Azure Container Registry](container-registry-auto-purge.md).
 

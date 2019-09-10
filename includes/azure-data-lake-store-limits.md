@@ -9,16 +9,16 @@ ms.date: 06/22/2018
 ms.author: twooley
 ms.custom: include file
 ms.openlocfilehash: f328de00d206b58037fda800354e9634b1c374d6
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 09/10/2019
 ms.locfileid: "67187734"
 ---
-Azure Data Lake Storage Gen1 är en företagsomfattande storskalig lagringsplats för analytiska arbetsbelastningar för stordata. Du kan använda Data Lake Storage Gen1 för att samla in data av alla storlekar, typer och datainmatning i en enda plats för driftsanalyser och undersökande analyser. Det finns ingen gräns för mängden data som kan lagras i ett Data Lake Storage Gen1-konto.
+Azure Data Lake Storage Gen1 är en företagsomfattande storskalig lagrings plats för stora data analys arbets belastningar. Du kan använda Data Lake Storage Gen1 för att samla in data om storlek, typ och inmatnings hastighet på en enda plats för operativa och undersökande analyser. Det finns ingen gräns för mängden data som du kan lagra i ett Data Lake Storage Gen1 konto.
 
 | **Resurs** | **Standardgräns** | **kommentarer** |
 | --- | --- | --- |
-| Maximala antalet Data Lake Storage Gen1 konton per prenumeration per region |10 | Kontakta supporten om du vill begära en ökning av den här gränsen. |
-| Maximalt antal åtkomst-ACL: er är per fil eller mapp |32 | Det här är en hård gräns. Använda grupper för att hantera åtkomst med färre poster. |
-| Maximalt antal standard-ACL: er, per fil eller mapp |32 | Det här är en hård gräns. Använda grupper för att hantera åtkomst med färre poster. |
+| Maximalt antal Data Lake Storage Gen1-konton, per prenumeration, per region |10 | Kontakta supporten om du vill begära en ökning av den här gränsen. |
+| Maximalt antal åtkomst-ACL: er, per fil eller mapp |32 | Detta är en hård gräns. Använd grupper för att hantera åtkomst med färre poster. |
+| Maximalt antal standard-ACL: er, per fil eller mapp |32 | Detta är en hård gräns. Använd grupper för att hantera åtkomst med färre poster. |

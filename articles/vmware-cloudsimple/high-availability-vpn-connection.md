@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: ea8ad80d8d12ae9ecac88bd6a3d661ca895d67f4
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.openlocfilehash: 0b40c15956dc03209dcab49641af66bc8ae24187
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69972781"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70845336"
 ---
 # <a name="configure-a-high-availability-connection-from-on-premises-to-cloudsimple-vpn-gateway"></a>Konfigurera en anslutning med hög tillgänglighet från lokal plats till CloudSimple VPN-gateway
 
@@ -50,7 +50,7 @@ Som standard konfigureras CloudSimple VPN-gatewayer i IKEv1-läge tillsammans me
 
 Utför följande åtgärder innan du konfigurerar den lokala brand väggen.
 
-1. Kontrol lera att din organisation har [köpt](create-nodes.md) de nödvändiga noderna och skapat minst ett CloudSimple privat moln.
+1. Kontrol lera att din organisation har [allokerat](create-nodes.md) de nödvändiga noderna och skapat minst ett CloudSimple privat moln.
 2. [Konfigurera en plats-till-plats-VPN-gateway](vpn-gateway.md#set-up-a-site-to-site-vpn-gateway) mellan ditt lokala nätverk och ditt CloudSimple privata moln.
 
 ## <a name="configure-on-premises-cisco-asa-firewall"></a>Konfigurera lokal Cisco ASA-brandvägg
@@ -216,7 +216,7 @@ Välj **nätverk** > **expandera nätverks profiler** > **IKE-krypto** > **Lägg
 
 Definiera IKE-gatewayer för att upprätta kommunikation mellan peer-datorer i varje ände av VPN-tunneln.
 
-Välj **nätverk** >  > **expandera nätverks profiler** **IKE**-gatewayerLägg till, konfigurera följande fält och klicka på OK. > 
+Välj **nätverk** >  > **expandera nätverks profiler** **IKE-gatewayer**Lägg till, konfigurera följande fält och klicka på OK. > 
 
 Fliken Allmänt:
 

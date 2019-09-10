@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: conceptual
-ms.date: 02/01/2019
+ms.date: 09/06/2019
 ms.author: lewlu
-ms.openlocfilehash: 886e0ff353ab270bb823629d2068508531c14fc2
-ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
+ms.openlocfilehash: 49b92037fed6436d28f777761b18cf5f66e03025
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68516864"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70859155"
 ---
 # <a name="migrate-your-face-data-to-a-different-face-subscription"></a>Migrera dina ansikts data till en annan ansikts prenumeration
 
-Den här guiden visar hur du flyttar ansikts data, till exempel ett sparat PersonGroup-objekt med ansikten, till en annan Azure Cognitive Services Ansikts-API-prenumeration. Om du vill flytta data använder du ögonblicks bild funktionen. På så sätt undviker du att upprepade gånger skapa och träna ett PersonGroup-eller FaceList-objekt när du flyttar eller utökar dina åtgärder. Du kanske t. ex. har skapat ett PersonGroup-objekt med en kostnads fri utvärderings prenumeration och nu vill migrera den till din betalda prenumeration. Eller så kanske du behöver synkronisera ansikts data mellan regioner för en stor företags åtgärd.
+Den här guiden visar hur du flyttar ansikts data, till exempel ett sparat PersonGroup-objekt med ansikten, till en annan Azure Cognitive Services Ansikts-API-prenumeration. Om du vill flytta data använder du ögonblicks bild funktionen. På så sätt undviker du att upprepade gånger skapa och träna ett PersonGroup-eller FaceList-objekt när du flyttar eller utökar dina åtgärder. Du kanske t. ex. har skapat ett PersonGroup-objekt med en kostnads fri utvärderings prenumeration och nu vill migrera den till din betalda prenumeration. Eller så kanske du behöver synkronisera ansikts data mellan prenumerationer i olika regioner för en stor företags åtgärd.
 
 Samma migrations strategi gäller även för LargePersonGroup-och LargeFaceList-objekt. Om du inte är bekant med begreppen i den här hand boken kan du se deras definitioner i rikt linjer för [ansikts igenkänning](../concepts/face-recognition.md) . Den här guiden använder klient biblioteket för Ansikts-API .NET C#med.
 
@@ -41,7 +41,9 @@ I den här guiden används en enkel konsol app för att köra ansikts data-migre
 
 ## <a name="create-face-clients"></a>Skapa ansikts klienter
 
-I **main** -metoden i *program.cs*skapar du två [FaceClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceclient?view=azure-dotnet) -instanser för dina käll-och mål prenumerationer. I det här exemplet används en ansikts prenumeration i Asien, östra region som källa och en västra USA-prenumeration som mål. Det här exemplet visar hur du migrerar data från en Azure-region till en annan. Ändra `Endpoint` strängarna om dina prenumerationer finns i olika regioner.
+I **main** -metoden i *program.cs*skapar du två [FaceClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceclient?view=azure-dotnet) -instanser för dina käll-och mål prenumerationer. I det här exemplet används en ansikts prenumeration i Asien, östra region som källa och en västra USA-prenumeration som mål. Det här exemplet visar hur du migrerar data från en Azure-region till en annan. 
+
+[!INCLUDE [subdomains-note](../../../../includes/cognitive-services-custom-subdomains-note.md)]
 
 ```csharp
 var FaceClientEastAsia = new FaceClient(new ApiKeyServiceClientCredentials("<East Asia Subscription Key>"))

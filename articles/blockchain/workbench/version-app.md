@@ -1,65 +1,65 @@
 ---
-title: Versionshantering av Blockchain-program i Azure Blockchain Workbench
-description: Hur du använder programversioner i Azure Blockchain Workbench.
+title: Blockchain program versioner i Azure blockchain Workbench Preview
+description: Så här använder du program versioner i Azure blockchain Workbench Preview.
 services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 04/15/2019
+ms.date: 09/05/2019
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: brendal
 manager: femila
-ms.openlocfilehash: 63f18e3ee316b9791bb62bfcd20c07a30cbebb5e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 33ecb6dea48117edd876b90eda54768785f25c20
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60896885"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70843880"
 ---
-# <a name="azure-blockchain-workbench-application-versioning"></a>Versionshantering av Azure Blockchain Workbench-programmet
+# <a name="azure-blockchain-workbench-preview-application-versioning"></a>Versions hantering av Azure blockchain Workbench Preview-program
 
-Du kan skapa och använda flera versioner av en app med Azure Blockchain Workbench. Om flera versioner av samma program laddas en versionshistorik är tillgänglig och användarna kan välja vilken version som de vill använda.
+Du kan skapa och använda flera versioner av en Azure blockchain Workbench Preview-app. Om flera versioner av samma program laddas upp är en versions historik tillgänglig och användarna kan välja vilken version de vill använda.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 * En Blockchain Workbench-distribution. Mer information om distributioner finns i avsnittet om [Azure Blockchain Workbench-distributioner](deploy.md)
 * Ett distribuerat blockkedjeprogram i Blockchain Workbench. Mer information finns i avsnittet om hur du [skapar ett blockkedjeprogram i Azure Blockchain Workbench](create-app.md)
 
-## <a name="add-an-app-version"></a>Lägg till en appversion
+## <a name="add-an-app-version"></a>Lägg till en app-version
 
-Om du vill lägga till en ny version, överför du den nya konfigurationen och smarta kontraktsfiler till Blockchain Workbench.
+Om du vill lägga till en ny version laddar du upp den nya konfigurationen och smarta kontrakts filer till blockchain Workbench.
 
-1. I en webbläsare går du till webbadressen för Blockchain Workbench. Till exempel `https://{workbench URL}.azurewebsites.net/` information om hur du hittar webbadressen för Blockchain Workbench finns i [Blockchain Workbench-Webbadress](deploy.md#blockchain-workbench-web-url)
+1. I en webbläsare går du till webbadressen för Blockchain Workbench. Till exempel `https://{workbench URL}.azurewebsites.net/` information om hur du hittar din blockchain Workbench-webbadress, se [blockchain Workbench Web URL](deploy.md#blockchain-workbench-web-url)
 2. Logga in som [Blockchain Workbench-administratör](manage-users.md#manage-blockchain-workbench-administrators).
-3. Välj ett blockchain-program som du vill uppdatera med en annan version.
-4. Välj **Lägg till version**. Den **Lägg till version** egenskapsruta visas.
-5. Välj den nya version kontrakt konfigurationen och koda filer att ladda upp ett kontrakt. Konfigurationsfilen verifieras automatiskt. Åtgärda eventuella verifieringsfel innan du distribuerar programmet.
-6. Välj **Lägg till version** att lägga till den nya blockchain-programversionen.
+3. Välj det blockchain-program som du vill uppdatera med en annan version.
+4. Välj **Lägg till version**. Fönstret **Lägg till version** visas.
+5. Välj den nya version kontrakts konfigurationen och de kontrakt kod filer som ska laddas upp. Konfigurationsfilen verifieras automatiskt. Åtgärda eventuella verifierings fel innan du distribuerar programmet.
+6. Välj **Lägg till version** för att lägga till den nya versionen av blockchain-programmet.
 
     ![Lägga till en ny version](media/version-app/add-version.png)
 
-Distribution av blockchain-program kan ta några minuter. När distributionen är klar kan du uppdatera appen på sidan. Välja program och välja den **versionshistorik** knapp, visar tidigare versioner av programmet.
+Det kan ta några minuter att distribuera blockchain-programmet. Uppdatera program sidan när distributionen är färdig. Om du väljer programmet och väljer **versions historik** visas programmets versions historik.
 
 > [!IMPORTANT]
-> Tidigare versioner av programmet har inaktiverats. Du kan individuellt återaktivera tidigare versioner.
+> Tidigare versioner av programmet är inaktiverade. Du kan individuellt återaktivera tidigare versioner.
 >
-> Du kan behöva uppdatera lägga till medlemmar i programroller om ändringar har gjorts för programroller i den nya versionen.
+> Du kan behöva lägga till medlemmar i program roller igen om ändringar har gjorts i program rollerna i den nya versionen.
 
-## <a name="using-app-versions"></a>Med hjälp av appversioner
+## <a name="using-app-versions"></a>Använda app-versioner
 
-Som standard används den senaste aktiverad versionen av programmet i Blockchain Workbench. Om du vill använda en tidigare version av ett program måste du välja versionen från programsidan först.
+Som standard används den senaste aktiverade versionen av programmet i blockchain Workbench. Om du vill använda en tidigare version av ett program måste du först välja version på program sidan.
 
-1. Markera kryssrutan program som innehåller det kontrakt som du vill använda i Blockchain Workbench program i. Om tidigare versioner aktiveras är knappen tidigare version tillgänglig.
-2. Välj den **versionshistorik** knappen.
-3. I rutan version tidigare väljer du versionen av programmet genom att välja länken i den *ändrad* kolumn.
+1. I avsnittet blockchain Workbench-program markerar du kryss rutan program som innehåller det kontrakt som du vill använda. Om tidigare versioner är aktiverade är knappen versions historik tillgänglig.
+2. Välj knappen **versions historik** .
+3. I fönstret versions Historik väljer du versionen av programmet genom att välja länken i kolumnen *ändra datum* .
 
     ![Välj en tidigare version](media/version-app/use-version.png)
 
-    Du kan skapa nya kontrakt eller utföra åtgärder på den föregående versionen kontrakt. Versionen av programmet ska visas efter namnet på programmet och en varning visas om den äldre versionen.
+    Du kan skapa nya kontrakt eller vidta åtgärder för tidigare versions avtal. Versionen av programmet visas efter programmets namn och en varning visas om den äldre versionen.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Azure Blockchain Workbench felsökning](troubleshooting.md)
+* [Fel sökning av Azure blockchain Workbench](troubleshooting.md)

@@ -9,29 +9,29 @@ ms.date: 08/16/2016
 ms.author: deli
 ms.custom: include file
 ms.openlocfilehash: b3788ede23a423bebf96661ea88b227bfb5fdf4c
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 09/10/2019
 ms.locfileid: "67187719"
 ---
-I följande tabell beskrivs de större kvoter, gränser, standardinställningar och begränsningar i Azure Scheduler.
+I följande tabell beskrivs var och en av de viktigaste kvoterna, gränserna, standarderna och begränsningarna i Azure Scheduler.
 
-| Resource | Beskrivning av gränsen |
+| Resource | Gräns Beskrivning |
 | -------- | ----------------- |
-| **Jobbstorlekar** | Den maximala jobbstorlekar är 16 000. Om en PUT- eller en korrigeringsåtgärd resulterar i en jobbstorlek som är större än den här gränsen, returneras statuskod 400 Felaktig begäran. | 
-| **Jobbsamlingar** | Det maximala antalet jobbsamlingar per Azure-prenumeration är 200 000. | 
-| **Jobb per samling** | Som standard är det maximala antalet jobb fem jobb i en fri jobbsamling och 50 jobb i en standard jobbsamling. <p>Du kan ändra det maximala antalet jobb i en jobbsamling. Alla jobb i en jobbsamling är begränsade till det värde som anges i jobbsamlingen. Om du försöker skapa fler jobb än de maximala jobb kvoten, misslyckas denna begäran med statuskod 409 konflikt. | 
-| **Tid för starttid** | Det högsta antalet ”time till starttid” är 18 månader. |
-| **Återkommande intervall** | Största antal upprepningar span är 18 månader. | 
-| **Frekvens** | Som standard är maximala frekvens kvoten en timme i en fri jobbsamling och en minut i en standard jobbsamling. <p>Du kan göra den maximala frekvensen på en jobbsamling lägre än maximalt. Alla jobb i jobbsamlingen är begränsade till det värde som anges i jobbsamlingen. Om du försöker skapa ett jobb med en frekvens som är högre än den maximala frekvensen på jobbsamlingen, misslyckas denna begäran med statuskod 409 konflikt. | 
-| **Textstorleken** | Den maximala textstorleken för en begäran är 8 192 tecken. |
-| **Storleksförfrågningar med URL: en** | Den maximala storleken för en begärd URL är 2 048 tecken. |
-| **Huvud-antal** | Maximal huvud-antalet är 50 rubriker. | 
-| **Sammanställd huvudstorlek** | Den maximala sammanlagda huvudstorlek är 4 096 tecken. |
-| **Timeout** | Timeout för begäran är statiska, det vill säga inte konfigureras. och är 60 sekunder för HTTP-åtgärder. För längre åtgärder, följer du de asynkrona HTTP-protokoll. Till exempel returnera 202 omedelbart men fortsätta arbeta i bakgrunden. | 
-| **Jobbhistorik** | Maximal svarstexten lagras i jobbhistoriken är 2 048 byte. |
-| **Kvarhållning av jobb** | Jobbhistorik sparas i upp till två månader eller upp till den senaste 1 000 körningar. | 
-| **Kvarhållning av tillståndet Completed eller faulted jobb** | Tillståndet Completed eller faulted jobb hålls i 60 dagar. |
+| **Jobb storlek** | Den maximala jobb storleken är 16 000. Om en åtgärd för att införa eller en uppdatering resulterar i en jobb storlek som är större än den här gränsen returneras en status kod på 400 felaktig status. | 
+| **Jobb samlingar** | Det maximala antalet jobb samlingar per Azure-prenumeration är 200 000. | 
+| **Jobb per samling** | Som standard är det maximala antalet jobb fem jobb i en kostnads fri jobb samling och 50 jobb i en standard jobb samling. <p>Du kan ändra det maximala antalet jobb för en jobb samling. Alla jobb i en jobb samling är begränsade till värdet som angetts för jobb samlingen. Om du försöker skapa fler jobb än den maximala jobb kvoten Miss lyckas begäran med en status kod för 409-konflikt. | 
+| **Tid till start tid** | Max "tid för start tid" är 18 månader. |
+| **Upprepnings intervall** | Det maximala upprepnings intervallet är 18 månader. | 
+| **Frekvens** | Som standard är den maximala frekvens kvoten en timme i en kostnads fri jobb samling och en minut i en standard jobb samling. <p>Du kan göra den maximala frekvensen för en jobb samling lägre än max värdet. Alla jobb i jobb samlingen är begränsade till värdet som angetts för jobb samlingen. Om du försöker skapa ett jobb med en högre frekvens än den maximala frekvensen för jobb samlingen, Miss lyckas begäran med en status kod för 409-konflikt. | 
+| **Storlek på brödtext** | Den maximala text storleken för en begäran är 8 192 tecken. |
+| **URL-storlek för begäran** | Den maximala storleken för en fråge-URL är 2 048 tecken. |
+| **Antal huvuden** | Det maximala antalet huvuden är 50 sidhuvud. | 
+| **Sammanställd huvud storlek** | Den maximala sammanlagda huvud storleken är 4 096 tecken. |
+| **Standardvärde** | Timeout för begäran är statisk, det vill säga inte kan konfigureras. och är 60 sekunder för HTTP-åtgärder. För längre drift åtgärder följer du de HTTP-asynkrona protokollen. Returnera till exempel en 202 omedelbart men fortsätt arbeta i bakgrunden. | 
+| **Jobbhistorik** | Det maximala svars innehållet som lagras i jobb historiken är 2 048 byte. |
+| **Kvarhållning av jobb historik** | Jobb historiken bevaras i upp till två månader eller upp till de senaste 1 000-körningarna. | 
+| **Slutförd och felaktig kvarhållning av jobb** | Slutförda och felaktiga jobb sparas i 60 dagar. |
 ||| 
 

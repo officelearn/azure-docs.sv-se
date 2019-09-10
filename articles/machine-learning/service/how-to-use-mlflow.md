@@ -11,12 +11,12 @@ ms.reviewer: nibaccam
 ms.topic: conceptual
 ms.date: 08/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: d819479c5e4bdbf8287dc7408c0f7813f5e32b13
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: c7bed307373289c6a6f76117fa07ee2ee3242bfc
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69900182"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70860455"
 ---
 # <a name="track-metrics-and-deploy-models-with-mlflow-and-azure-machine-learning-service-preview"></a>Spåra mått och distribuera modeller med MLflow och Azure Machine Learning tjänsten (för hands version)
 
@@ -39,7 +39,7 @@ Följande diagram illustrerar att med MLflow spårning kan du ta alla experiment
  MLflow tracking erbjuder funktioner för mått loggning och artefakt lagring som endast är tillgängliga via [Azure Machine Learning python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
 
 
-| | MLflow spårning & distribution | Azure Machine Learning python SDK |  Azure Machine Learning CLI | Azure Portal|
+| | MLflow spårning & distribution | Azure Machine Learning python SDK |  Azure Machine Learning CLI | Azure Portal-eller arbets ytans landnings sida (för hands version)|
 |---|---|---|---|---|
 | Hantera arbets yta |   | ✓ | ✓ | ✓ |
 | Använda data lager  |   | ✓ | ✓ | |
@@ -203,7 +203,7 @@ mlflow.log_metric('epoch_loss', loss.item())
 
 ## <a name="view-metrics-and-artifacts-in-your-workspace"></a>Visa mått och artefakter i din arbets yta
 
-Måtten och artefakterna från MLflow-loggning behålls i din arbets yta. Om du vill visa dem när som helst, navigerar du till din arbets yta och hittar experimentet efter namn på [Azure Portal](https://portal.azure.com) eller genom att köra koden nedan. 
+Måtten och artefakterna från MLflow-loggning behålls i din arbets yta. Om du vill visa dem när som helst, navigerar du till din arbets yta och hittar experimentet efter namn på [Azure Portal](https://portal.azure.com) eller i [landnings sidan för arbets ytan (för hands version)](https://ml.azure.com).  Eller kör koden nedan. 
 
 ```python
 run.get_metrics()
@@ -299,7 +299,7 @@ webservice.wait_for_deployment(show_output=True)
 
 För att distribuera till AKS måste du skapa ett AKS-kluster och ta över Docker-avbildningen som du vill distribuera. I det här exemplet ska du ta över den tidigare skapade avbildningen från ACI-distributionen.
 
-Använd avbildnings klassen för att hämta avbildningen från den [](https://docs.microsoft.com/python/api/azureml-core/azureml.core.image.image.image?view=azure-ml-py) tidigare ACI-distributionen. 
+Använd [avbildnings](https://docs.microsoft.com/python/api/azureml-core/azureml.core.image.image.image?view=azure-ml-py) klassen för att hämta avbildningen från den tidigare ACI-distributionen. 
 
 ```python
 from azureml.core.image import Image

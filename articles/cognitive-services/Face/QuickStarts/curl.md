@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 07/03/2019
+ms.date: 09/06/2019
 ms.author: pafarley
-ms.openlocfilehash: 68cdd147977294954051735d70307305aa5dc0cb
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: da929744922f8653bc293b68dbbadb9347a447e9
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67603318"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70859152"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-face-rest-api-and-curl"></a>Snabbstart: Identifiera ansikten i en bild med ansikts-REST API och cURL
 
@@ -29,10 +29,10 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 ## <a name="write-the-command"></a>Skriva kommandot
  
-Du använder ett kommando som liknar följande för att anropa Ansikts-API och hämta ansikte attributdata från en avbildning. Kopiera först koden till ett redigeringsprogram&mdash;du måste göra ändringar av vissa delar av kommandot innan du kan köra den.
+Du ska använda ett kommando som följande för att anropa Ansikts-API och hämta attribut data från en avbildning. Kopiera först koden till ett redigeringsprogram&mdash;du måste göra ändringar av vissa delar av kommandot innan du kan köra den.
 
 ```shell
-curl -H "Ocp-Apim-Subscription-Key: <Subscription Key>" "https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect?returnFaceId=true&returnFaceLandmarks=false&returnFaceAttributes=age,gender,headPose,smile,facialHair,glasses,emotion,hair,makeup,occlusion,accessories,blur,exposure,noise" -H "Content-Type: application/json" --data-ascii "{\"url\":\"https://upload.wikimedia.org/wikipedia/commons/c/c3/RH_Louise_Lillian_Gish.jpg\"}"
+curl -H "Ocp-Apim-Subscription-Key: <Subscription Key>" "https://<My Endpoint String>.com/face/v1.0/detect?returnFaceId=true&returnFaceLandmarks=false&returnFaceAttributes=age,gender,headPose,smile,facialHair,glasses,emotion,hair,makeup,occlusion,accessories,blur,exposure,noise" -H "Content-Type: application/json" --data-ascii "{\"url\":\"https://upload.wikimedia.org/wikipedia/commons/c/c3/RH_Louise_Lillian_Gish.jpg\"}"
 ```
 
 ### <a name="subscription-key"></a>Prenumerationsnyckel
@@ -40,7 +40,9 @@ Ersätt `<Subscription Key>` med en giltig ansiktsprenumerationsnyckel.
 
 ### <a name="face-endpoint-url"></a>Ansiktsslutpunktens webbadress
 
-Webbadressen `https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect` anger Azure-ansiktsslutpunkten för att fråga. Du kan behöva ändra den första delen av URL: en så att den matchar den region som motsvarar din prenumerationsnyckel. Se den [Ansikts-API-dokumentation](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) en lista över alla region slutpunkter.
+Webbadressen `https://<My Endpoint String>.com/face/v1.0/detect` anger Azure-ansiktsslutpunkten för att fråga. Du kan behöva ändra den första delen av den här URL: en så att den matchar slut punkten som motsvarar din prenumerations nyckel.
+
+[!INCLUDE [subdomains-note](../../../../includes/cognitive-services-custom-subdomains-note.md)]
 
 ### <a name="url-query-string"></a>URL-frågesträng
 
@@ -51,7 +53,7 @@ Frågesträngen för ansiktsslutpunktens webbadress anger vilka ansiktsattribut 
 ```
 
 ### <a name="image-source-url"></a>URL för bildkälla
-URL:en för källa anger bilden som ska användas som indata. Du kan ändra detta så att den pekar till en avbildning som du vill analysera.
+URL:en för källa anger bilden som ska användas som indata. Du kan ändra det så att det pekar på en bild som du vill analysera.
 
 ```
 https://upload.wikimedia.org/wikipedia/commons/c/c3/RH_Louise_Lillian_Gish.jpg

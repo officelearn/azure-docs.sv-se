@@ -9,48 +9,48 @@ ms.date: 05/09/2019
 ms.author: sharadag
 ms.custom: include file
 ms.openlocfilehash: deca0034996f6c8ddcac71cd4f191c1a0659b655
-ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/22/2019
+ms.lasthandoff: 09/10/2019
 ms.locfileid: "67333394"
 ---
-| Resource | Standard-/ maxgräns |
+| Resource | Standard/högsta gräns |
 | --- | --- |
-| Azure ytterdörren Service-resurser per prenumeration | 100 |
-| Frontend-värdar som innehåller anpassade domäner per resurs | 100 |
-| Routningsregler per resurs | 100 |
-| Serverdelspooler per resurs | 50 |
-| Serverdelar per backend-poolen | 100 |
-| Sökvägsmönster att matcha för en regel för vidarebefordran | 25 |
-| Brandväggsregler för anpassade webb program per princip | 10 |
-| Web application brandväggsprincipen per resurs | 100 |
-| Web application firewall matchningsvillkor per anpassad regel | 10 |
-| Web application firewall IP-adressintervall per matchningsvillkor | 600 |
-| Web application firewall matchning strängvärden per matchningsvillkor | 10 |
-| Web application firewall sträng matchning värdets längd | 256 |
-| Brandvägg för webbaserade program efter brödtext parametern namnlängd | 256 |
-| Brandvägg för webbaserade program namnlängd för HTTP-huvud | 256 |
-| Namnlängd för Web application firewall cookie | 256 |
-| Web application firewall HTTP begäran textstorleken kontrolleras | 128 KB |
-| Web application firewall anpassade brödtext svarslängd | 2 KB |
+| Azure frontend service-resurser per prenumeration | 100 |
+| Klient dels värdar som innehåller anpassade domäner per resurs | 100 |
+| Regler för routning per resurs | 100 |
+| Server dels pooler per resurs | 50 |
+| Backend-ändar per backend-pool | 100 |
+| Sök vägs mönster som matchar en regel för routning | 25 |
+| Anpassade brand Väggs regler för webb program per princip | 10 |
+| Brand Väggs princip för webb program per resurs | 100 |
+| Villkor för brand vägg för webbaserade programs matchning per anpassad regel | 10 |
+| Webb program brand vägg IP-adressintervall per matchnings villkor | 600 |
+| Webb programmets brand vägg sträng matchnings värden per matchnings villkor | 10 |
+| Webb programmets brand vägg sträng matchnings värde längd | 256 |
+| Brand vägg för webbaserade program POST, parameter namn längd | 256 |
+| Webb program brand väggens HTTP-huvud namn längd | 256 |
+| Cookie-namn längd för webb program brand vägg | 256 |
+| Webb program brand vägg, HTTP-begärans text storlek har kontroller ATS | 128 KB |
+| Webb program brand väggens anpassade svars text längd | 2 KB |
 
 ### <a name="timeout-values"></a>Timeout-värden
-#### <a name="client-to-front-door"></a>Klient till ytterdörren
-- Dörren har en timeout för anslutning av inaktivitet TCP 61 sekunder.
+#### <a name="client-to-front-door"></a>Klient till front dörr
+- Front dörren har en inaktiv TCP-anslutningstimeout på 61 sekunder.
 
-#### <a name="front-door-to-application-back-end"></a>Åtkomsten till programmet serverdel
-- Om svaret är ett segmenterat svar, returneras 200 om eller när det första segmentet tas emot.
-- När HTTP-begäran vidarebefordras till backend-server, väntar ytterdörren i 30 sekunder för det första paketet från backend-servern. Sedan returnerar den ett 503-fel till klienten.
-- När det första paketet tas emot från backend-servern, väntar ytterdörren på 30 sekunder på en timeout för inaktivitet. Sedan returnerar den ett 503-fel till klienten.
-- Åtkomsten till backend-TCP-tidsgränsen för sessionen är 30 minuter.
+#### <a name="front-door-to-application-back-end"></a>Frontend-dörr till programmets Server del
+- Om svaret är ett segmenterat svar returneras en 200 om eller när det första segmentet tas emot.
+- När HTTP-begäran har vidarebefordrats till Server delen väntar front dörren i 30 sekunder för det första paketet från Server delen. Sedan returneras ett 503-fel till klienten.
+- När det första paketet tas emot från Server delen väntar front dörren i 30 sekunder i en tids gräns för inaktivitet. Sedan returneras ett 503-fel till klienten.
+- Den främre dörren till Server delens timeout för TCP-session är 30 minuter.
 
-### <a name="upload-and-download-data-limit"></a>Ladda upp och hämta datagräns
+### <a name="upload-and-download-data-limit"></a>Ladda upp och ladda ned data gräns
 
-|  | Med chunked-kodning (CTE) | Utan http-storlekar |
+|  | Med Chunked Transfer Encoding (common Table EXPRESSIONS) | Utan HTTP-segment |
 | ---- | ------- | ------- |
-| **Ladda ned** | Det finns ingen gräns för storleken. | Det finns ingen gräns för storleken. |
-| **Ladda upp** |  Det finns ingen gräns så länge varje CTE-överföring är mindre än 2 GB. | Storleken får inte vara större än 2 GB. |
+| **Ladda ned** | Det finns ingen gräns för nedladdnings storleken. | Det finns ingen gräns för nedladdnings storleken. |
+| **Upp** |  Det finns ingen gräns så länge som varje common Table EXPRESSIONS uppladdning är mindre än 2 GB. | Storleken får inte vara större än 2 GB. |
 
 ### <a name="other-limits"></a>Andra gränser
-- Maxstorleken till URL - 8 192 byte - anger maxlängden för raw-URL (schema + värdnamn + port + sökväg + frågesträng URL) - maximal frågesträng storlek – 4 096 byte - anger den maximala längden för frågesträngen, i byte.
+- Maximal URL-storlek – 8 192 byte-anger den högsta tillåtna längden för den råa URL: en (schema + värdnamn + port + sökväg + frågesträng för URL)-maximal Frågesträngs storlek-4 096 byte-anger den maximala längden på frågesträngen, i byte.

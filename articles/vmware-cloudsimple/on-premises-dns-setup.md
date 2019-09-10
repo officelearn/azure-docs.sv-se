@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: ed20dd9068ccdea1fb9cd04801eb0096fed2c922
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.openlocfilehash: 929c923fda8c1c2bddd96d0b4d4e4b6ce6d29de9
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69972434"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70845304"
 ---
 # <a name="configure-dns-for-name-resolution-for-private-cloud-vcenter-access-from-on-premises-workstations"></a>Konfigurera DNS för namn matchning för privat moln vCenter-åtkomst från lokala arbets stationer
 
@@ -56,18 +56,24 @@ zone “cloudsimple.io”
 
 ### <a name="create-a-zone-on-a-microsoft-windows-dns-server"></a>Skapa en zon på en Microsoft Windows DNS-Server
 
-1. Högerklicka på DNS-servern och välj **ny zon**.  
-![Ny zon](media/DNS01.png)
+1. Högerklicka på DNS-servern och välj **ny zon**. 
+  
+    ![Ny zon](media/DNS01.png)
 2. Välj **stub-zon** och klicka på **Nästa**.
-![Ny zon](media/DNS02.png)
+
+    ![Ny zon](media/DNS02.png)
 3. Välj lämpligt alternativ beroende på din miljö och klicka på **Nästa**.
-![Ny zon](media/DNS03.png)
+
+    ![Ny zon](media/DNS03.png)
 4. Välj **zon** för vanlig sökning och klicka på **Nästa**.
-![Ny zon](media/DNS01.png)
+
+    ![Ny zon](media/DNS01.png)
 5. Ange zon namnet och klicka på **Nästa**.
-![Ny zon](media/DNS05.png)
+
+    ![Ny zon](media/DNS05.png)
 6. Ange IP-adresserna för DNS-servrarna för ditt privata moln som du har fått från CloudSimple-portalen.
-![Ny zon](media/DNS06.png)
+
+    ![Ny zon](media/DNS06.png)
 7. Klicka på **Nästa** om du vill slutföra installationen av guiden.
 
 ## <a name="create-a-conditional-forwarder"></a>Skapa en villkorlig vidarebefordrare
@@ -91,5 +97,6 @@ zone “cloudsimple.io” {
 
 1. Öppna DNS-hanteraren på DNS-servern.
 2. Högerklicka på **villkorliga vidarebefordrare** och välj alternativet för att lägga till en ny villkorlig vidarebefordrare.
-![Villkorlig vidarebefordrare 1 Windows DNS](media/DNS08.png)
+
+    ![Villkorlig vidarebefordrare 1 Windows DNS](media/DNS08.png)
 3. Ange DNS-domänen och IP-adressen för DNS-servrarna i det privata molnet och klicka på **OK**.

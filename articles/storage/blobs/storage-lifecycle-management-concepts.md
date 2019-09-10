@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: yzheng
-ms.openlocfilehash: 77ed643afaf5e69f41224af68f5e9f8a93fcace5
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: ea896697c8f6986c4c77f3ce86a62947d9a3327e
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68722083"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70861407"
 ---
 # <a name="manage-the-azure-blob-storage-lifecycle"></a>Hantera Azure Blob Storage-livscykeln
 
@@ -54,7 +54,7 @@ Du kan lägga till, redigera eller ta bort en princip med någon av följande me
 Den här artikeln visar hur du hanterar principer med hjälp av Portal-och PowerShell-metoder.  
 
 > [!NOTE]
-> Om du aktiverar brand Väggs regler för ditt lagrings konto kan begäran om livs cykel hantering blockeras. Du kan avblockera dessa förfrågningar genom att tillhandahålla undantag. Obligatoriskt kringgående är: `Logging,  Metrics,  AzureServices`. Mer information finns i avsnittet undantag i [Konfigurera brand väggar och virtuella nätverk](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions).
+> Om du aktiverar brand Väggs regler för ditt lagrings konto kan begäran om livs cykel hantering blockeras. Du kan avblockera dessa förfrågningar genom att tillhandahålla undantag. Obligatoriskt kringgående är: `AzureServices`. Mer information finns i avsnittet undantag i [Konfigurera brand väggar och virtuella nätverk](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions).
 
 ### <a name="azure-portal"></a>Azure Portal
 
@@ -435,4 +435,4 @@ När en BLOB flyttas från en åtkomst nivå till en annan ändras inte den sena
 
 Lär dig hur du återställer data efter en oavsiktlig borttagning:
 
-- [Mjuk borttagning för Azure Storage blobbar](../blobs/storage-blob-soft-delete.md)
+- [Mjuk borttagning för Azure Storage-blobar](../blobs/storage-blob-soft-delete.md)

@@ -8,12 +8,12 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 05/09/2019
-ms.openlocfilehash: 8da50757182609402ecb035b6f3e92959758ef46
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.openlocfilehash: bb6a3cff46c975ae6b59f0c6f97e37037f638620
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68442299"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70845918"
 ---
 # <a name="create-and-configure-enterprise-security-package-clusters-in-azure-hdinsight"></a>Skapa och konfigurera Enterprise Security Package kluster i Azure HDInsight
 
@@ -25,7 +25,7 @@ Den här guiden är avsedd att komplettera [användnings Enterprise Security Pac
 
 Innan du använder den här processen i din egen miljö kan du konfigurera Active Directory och domän namns tjänster (DNS). Du kan också aktivera Azure Active Directory och synkronisera lokala användar konton till Azure Active Directory.
 
-![arkitektur diagram](./media/apache-domain-joined-create-configure-enterprise-security-cluster/image002.png)
+![Arkitektur diagram](./media/apache-domain-joined-create-configure-enterprise-security-cluster/image002.png)
 
 ## <a name="create-on-premises-environment"></a>Skapa en lokal miljö
 
@@ -73,21 +73,21 @@ Innan du använder den här processen i din egen miljö kan du konfigurera Activ
 
         ![Skapa ny Active Directory användare](./media/apache-domain-joined-create-configure-enterprise-security-cluster/create-new-user.png)
 
-    1. På skärmen **nytt objekt – användare** anger `HDIUser` du som användarens **inloggnings namn** och klickar på **Nästa**.
+    1. På skärmen **nytt objekt – användare** anger `HDIUser` du som **användarens inloggnings namn** och klickar på **Nästa**.
 
-        ![Skapa första administratörs användare](./media/apache-domain-joined-create-configure-enterprise-security-cluster/image020.png)
+        ![Skapa första administratörs användare](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0020.png)
 
     1. I popup-fönstret som visas anger du önskat lösen ord för det nya kontot. Markera kryss rutan som säger att **lösen ordet aldrig upphör att gälla**. HDIClick **OK**.
     1. Klicka på **Slutför** för att skapa det nya kontot.
     1. Skapa en annan `HDIAdmin`användare.
 
-        ![Skapa andra administratörs användare](./media/apache-domain-joined-create-configure-enterprise-security-cluster/image024.png)
+        ![Skapa andra administratörs användare](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0024.png)
 
 1. På skärmen **Active Directory användare och datorer** klickar du på **åtgärd** > **ny** > **grupp**. Skapa `HDIUserGroup` som en ny grupp.
 
     ![Skapa ny Active Directory grupp](./media/apache-domain-joined-create-configure-enterprise-security-cluster/create-new-group.png)
 
-    ![Skapa ny group2](./media/apache-domain-joined-create-configure-enterprise-security-cluster/image028.png)
+    ![Skapa ny group2](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0028.png)
 
 1. Lägg till **HDIUser** som skapades i föregående steg till **HDIUserGroup** som medlem.
 
@@ -133,11 +133,11 @@ Dessa användare kommer att synkroniseras med Azure AD.
 
     1. Klicka på avsnittet **grupper** , Sök efter **AAD DC-administratörer**och klicka på **Välj**.
 
-        ![Grupper](./media/apache-domain-joined-create-configure-enterprise-security-cluster/image038.png)
+        ![Grupper](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0038.png)
 
     1. Klicka på **katalog roll** avsnittet och välj **Global administratör** på den högra sidan. Klicka på **OK**.
 
-        ![Katalogroll](./media/apache-domain-joined-create-configure-enterprise-security-cluster/image040.png)
+        ![Katalogroll](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0040.png)
 
     1. Ange ett lösen ord för användaren. Klicka på **Skapa**.
 
@@ -152,7 +152,7 @@ Dessa användare kommer att synkroniseras med Azure AD.
 1. Installera Microsoft Azure Active Directory Anslut på domänkontrollanten.
     1. Öppna den körbara fil som du laddade ned i föregående steg och godkänn licens villkoren. Klicka på **Fortsätt**.
 
-        ![Azure AD Connect](./media/apache-domain-joined-create-configure-enterprise-security-cluster/image052.png)
+        ![Azure AD Connect](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0052.png)
 
     1. Klicka på **Använd Express inställningar** och slutför installationen.
 
@@ -161,16 +161,16 @@ Dessa användare kommer att synkroniseras med Azure AD.
 ### <a name="configure-sync-with-on-premises-domain-controller"></a>Konfigurera synkronisering med den lokala domänkontrollanten
 
 1. På skärmen **Anslut till Azure AD** anger du användar namn och lösen ord för den globala administratören för Azure AD. Klicka på **Nästa**. Detta är det användar `fabrikamazureadmin@hdifabrikam.com` namn som du skapade när du konfigurerade din AD-klient.
-    ![Anslut till Azure AD](./media/apache-domain-joined-create-configure-enterprise-security-cluster/image058.png)
+    ![Anslut till Azure AD](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0058.png)
 1. På skärmen **Anslut till Active Directory Domain Services** anger du användar namnet och lösen ordet för ett företags administratörs konto. Klicka på **Nästa**. Detta är användar namnet `HDIFabrikam\HDIFabrikamAdmin` och det matchande lösen ordet som du skapade tidigare.
 
-   ![Anslut till Active Directory Domain Services](./media/apache-domain-joined-create-configure-enterprise-security-cluster/image060.png)
+   ![Anslut till Active Directory Domain Services](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0060.png)
 1. Klicka på **Nästa**på sidan **konfiguration av Azure AD-inloggning** .
-    ![Inloggnings konfiguration för Azure AD](./media/apache-domain-joined-create-configure-enterprise-security-cluster/image062.png)
+    ![Inloggnings konfiguration för Azure AD](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0062.png)
 1. På skärmen redo att konfigurera klickar du på **Installera**.
     ![installationer](./media/apache-domain-joined-create-configure-enterprise-security-cluster/image064.png)
 1. När skärmen **konfiguration är klar** visas klickar du på **Avsluta**.
-    ![konfigurationen är klar](./media/apache-domain-joined-create-configure-enterprise-security-cluster/image078.png)
+    ![konfigurationen är klar](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0078.png)
 
 1. När synkroniseringen är klar bekräftar du om de användare som du skapade på IAAS-Active Directory synkroniseras till Azure Active Directory.
     1. Logga in på Azure Portal.
@@ -188,7 +188,7 @@ Skapa en användardefinierad hanterad identitet som ska användas för att konfi
 1. Välj **centrala USA** under **plats**.
 1. Klicka på **Skapa**.
 
-![skapa en ny användare som tilldelats en hanterad identitet](./media/apache-domain-joined-create-configure-enterprise-security-cluster/image082.png)
+![skapa en ny användare som tilldelats en hanterad identitet](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0082.png)
 
 ### <a name="enable-azure-active-directory-domain-services"></a>Aktivera Azure Active Directory Domain Services
 
@@ -217,11 +217,11 @@ Mer information finns i [aktivera Azure Active Directory Domain Services med hj�
 
 1. På skärmen **nätverk** slutfört väljer du nätverket (**HDIFabrikam-VNet**) och under nätet (**AADDS-Subnet**) som du skapade med det tidigare PowerShell-skriptet. Eller så kan du använda alternativet **Skapa nytt** för att skapa ett virtuellt nätverk nu.
 
-    ![Välj nätverk](./media/apache-domain-joined-create-configure-enterprise-security-cluster/image086.png)
+    ![Välj nätverk](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0086.png)
 
 1. På skärmen **Administratörs grupp** bör du se ett meddelande om att en grupp med namnet **AAD DC-administratörer** redan har skapats för att administrera den här gruppen. Du kan också ändra medlemskap i den här gruppen, men det är inte nödvändigt för stegen i den här artikeln. Klicka på **OK**.
 
-    ![Visa administratörs grupp](./media/apache-domain-joined-create-configure-enterprise-security-cluster/image088.png)
+    ![Visa administratörs grupp](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0088.png)
 
 1. På skärmen **synkronisering** aktiverar du slutför synkronisering genom att välja **alla** och klickar sedan på **OK**.
 
@@ -229,7 +229,7 @@ Mer information finns i [aktivera Azure Active Directory Domain Services med hj�
 
 1. På sidan **Sammanfattning** kontrollerar du informationen för Azure AD-DS och klickar på **OK**.
 
-    ![verifiera information](./media/apache-domain-joined-create-configure-enterprise-security-cluster/image092.png)
+    ![verifiera information](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0092.png)
 
 1. När du har aktiverat Azure AD-DS körs en lokal Domain Name Service (DNS)-server på AD-Virtual Machines (VM).
 
@@ -276,7 +276,7 @@ Kontrol lera att certifikatet är installerat i datorns\'personliga arkiv. Utfö
 1. Lägg till snapin-modulen certifikat som hanterar certifikat på den lokala datorn.
 1. Expandera **certifikat (lokal dator)** , expandera **personliga**och expandera sedan **certifikat**. Ett nytt certifikat bör finnas i det personliga arkivet. Certifikatet utfärdas till det fullständigt kvalificerade värd namnet.
 
-    ![verifiera att certifikatet skapas](./media/apache-domain-joined-create-configure-enterprise-security-cluster/image102.png)
+    ![verifiera att certifikatet skapas](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0102.png)
 
 1. Högerklicka på det certifikat som du skapade i föregående steg i den högra rutan, peka på **alla aktiviteter**och klicka sedan på **Exportera**.
 
@@ -295,7 +295,7 @@ Kontrol lera att certifikatet är installerat i datorns\'personliga arkiv. Utfö
     1. Bläddra efter. PFX-certifikat filen som du exporterade på datorn.
     1. Ange certifikatets lösen ord.
 
-    ![Aktivera säker LDAP](./media/apache-domain-joined-create-configure-enterprise-security-cluster/image113.png)
+    ![Aktivera säker LDAP](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0113.png)
 
 1. Nu när du har aktiverat säkert LDAP kontrollerar du att det går att komma åt genom att aktivera port 636.
     1. Klicka på nätverks säkerhets gruppen **AADDS-HDIFabrikam.com-NSG** i resurs gruppen **HDIFabrikam-centrala** .
@@ -311,13 +311,13 @@ Kontrol lera att certifikatet är installerat i datorns\'personliga arkiv. Utfö
         | Protocol | Any |
         | Action | Allow |
         | Priority | \<Desired Number\> |
-        | Namn | Port_LDAP_636 |
+        | Name | Port_LDAP_636 |
 
     ![inkommande säkerhets regel](./media/apache-domain-joined-create-configure-enterprise-security-cluster/add-inbound-security-rule.png)
 
 1. `HDIFabrikamManagedIdentity`är den användare som tilldelats hanterad identitet, rollen HDInsight Domain Services Contributor är aktive rad för den hanterade identitet som gör att den här identiteten kan läsa, skapa, ändra och ta bort Domain Services-åtgärder.
 
-    ![Skapa användare tilldelad hanterad identitet](./media/apache-domain-joined-create-configure-enterprise-security-cluster/image117.png)
+    ![Skapa användare tilldelad hanterad identitet](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0117.png)
 
 ## <a name="creating-enterprise-security-package-enabled-hdinsight-cluster"></a>Skapa Enterprise Security Package aktiverat HDInsight-kluster
 
@@ -347,7 +347,7 @@ Det här steget kräver följande krav:
     1. Välj **anpassad** och ange `10.0.0.4` och `10.0.0.5`.
     1. Klicka på **Spara**.
 
-        ![Spara anpassade DNS-inställningar](./media/apache-domain-joined-create-configure-enterprise-security-cluster/image123.png)
+        ![Spara anpassade DNS-inställningar](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0123.png)
 
 1. Skapa ett nytt ESP-aktiverat HDInsight Spark-kluster.
     1. Klicka på **Anpassad (storlek, inställningar, appar)** .
@@ -359,7 +359,7 @@ Det här steget kräver följande krav:
 
         1. Klicka på **kluster åtkomst grupp** och välj sedan **HDIUserGroup**. Alla användare som du lägger till i den här gruppen i framtiden kommer att kunna komma åt HDInsight-kluster.
 
-            ![Välj kluster åtkomst grupp](./media/apache-domain-joined-create-configure-enterprise-security-cluster/image129.jpg)
+            ![Välj kluster åtkomst grupp](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0129.jpg)
 
     1. Slutför de andra stegen i kluster konfigurationen och kontrol lera informationen i **kluster sammanfattningen**. Klicka på **Skapa**.
 
@@ -370,11 +370,11 @@ Det här steget kräver följande krav:
 1. Klicka på **roller** från kluster instrument panelen.
 1. På sidan **roller** anger du gruppen **hdiusergroup** för att tilldela den till rollen **kluster administratör** under **tilldela roller till dessa**.
 
-    ![tilldela rollen kluster administratör till hdiusergroup](./media/apache-domain-joined-create-configure-enterprise-security-cluster/image137.jpg)
+    ![tilldela rollen kluster administratör till hdiusergroup](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0137.jpg)
 
 1. Öppna SSH-klienten och logga in på klustret med hjälp av **hdiuser** som du skapade tidigare i den lokala Active Directory.
 
-    ![Logga in på kluster med SSH](./media/apache-domain-joined-create-configure-enterprise-security-cluster/image139.jpg)
+    ![Logga in på kluster med SSH](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0139.jpg)
 
 Om du kan logga in med det här kontot har du konfigurerat ditt ESP-kluster på ett korrekt sätt för att synkronisera med din lokala Active Directory.
 

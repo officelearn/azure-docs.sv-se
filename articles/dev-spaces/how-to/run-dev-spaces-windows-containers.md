@@ -9,12 +9,12 @@ ms.date: 07/25/2019
 ms.topic: conceptual
 description: Lär dig hur du kör Azure dev Spaces i ett befintligt kluster med Windows-behållare
 keywords: Azure dev Spaces, dev Spaces, Docker, Kubernetes, Azure, AKS, Azure Kubernetes-tjänsten, behållare, Windows-behållare
-ms.openlocfilehash: 2110636b331f0cf4e74c77f41726ead5bf80a64f
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: 6c15534d5d47ba384a0f368f5d212fb1350e5229
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68501525"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70858594"
 ---
 # <a name="use-azure-dev-spaces-to-interact-with-windows-containers"></a>Använd Azure dev Spaces för att interagera med Windows-behållare
 
@@ -49,6 +49,9 @@ Använd en- [smak][using-taints] på dina Windows-noder. Bismaken på dina Windo
 ```azurecli-interactive
 kubectl taint node aksnpwin987654 sku=win-node:NoSchedule
 ```
+
+> [!IMPORTANT]
+> När du använder en-smak på en nod måste du konfigurera ett matchande tolerera i tjänstens Distributionsmall för att köra tjänsten på noden. Exempel programmet har redan kon figurer ATS med en [matchande tolererae][sample-application-toleration-example] till den smak som du konfigurerade i föregående kommando.
 
 ## <a name="run-your-windows-service"></a>Kör din Windows-tjänst
 
@@ -165,7 +168,7 @@ Service 'webfrontend' port 'http' is available at http://dev.webfrontend.abcdef0
 Service 'webfrontend' port 80 (http) is available via port forwarding at http://localhost:57648
 ```
 
-Du kan se den tjänst som körs genom att öppna den offentliga URL: en, som visas i utdata från kommandot azds up. I det här exemplet är `http://dev.webfrontend.abcdef0123.eus.azds.io/`den offentliga URL: en. Navigera till tjänsten i en webbläsare och klicka på överst  . Kontrol lera att du ser ett meddelande från *mywebapi* -tjänsten som innehåller den version av Windows som behållaren använder.
+Du kan se den tjänst som körs genom att öppna den offentliga URL: en, som visas i utdata från kommandot azds up. I det här exemplet är `http://dev.webfrontend.abcdef0123.eus.azds.io/`den offentliga URL: en. Navigera till tjänsten i en webbläsare och *Klicka på överst* . Kontrol lera att du ser ett meddelande från *mywebapi* -tjänsten som innehåller den version av Windows som behållaren använder.
 
 ![Exempel program som visar Windows-version från mywebapi](../media/run-dev-spaces-windows-containers/sample-app.png)
 
@@ -180,8 +183,8 @@ Lär dig hur Azure dev Spaces hjälper dig att utveckla mer komplexa program öv
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 [helm-installed]: https://github.com/helm/helm/blob/master/docs/install.md
 [sample-application]: https://github.com/Azure/dev-spaces/tree/master/samples/existingWindowsBackend
+[sample-application-toleration-example]: https://github.com/Azure/dev-spaces/blob/master/samples/existingWindowsBackend/mywebapi-windows/charts/templates/deployment.yaml#L24-L27
 [team-development-qs]: ../quickstart-team-development.md
-
 [az-aks-get-credentials]: /cli/azure/aks?view=azure-cli-latest#az-aks-get-credentials
 [team-development]: ../team-development-netcore.md
 [using-taints]: ../../aks/use-multiple-node-pools.md#schedule-pods-using-taints-and-tolerations

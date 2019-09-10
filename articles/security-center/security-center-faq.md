@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/19/2019
 ms.author: v-mohabe
-ms.openlocfilehash: 6e41453a096f4812b9ba541a2693b9c9b975b7c9
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 33ce4c3c7f7cba8310ca75ffd0de3ecb24ad6d8d
+ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68779065"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70873402"
 ---
 # <a name="azure-security-center-frequently-asked-questions-faq"></a>Vanliga frågor och svar om Azure Security Center
 Den här vanliga frågor och svar innehåller frågor och svar om Azure Security Center, en tjänst som hjälper dig att förhindra, upptäcka och svara på hot med ökad insyn i och kontroll över säkerheten hos dina Microsoft Azure-resurser.
 
 > [!NOTE]
-> Från och med tidig juni 2017 använder Security Center Microsoft Monitoring Agent för att samla in och lagra data. Mer information finns i [Plattformsmigrering i Azure Security Center](security-center-platform-migration.md). Informationen i den här artikeln representerar Security Centers funktionalitet efter övergången till Microsoft Monitoring Agent.
+> Security Center använder Microsoft Monitoring Agent för att samla in och lagra data. Mer information finns i [Plattformsmigrering i Azure Security Center](security-center-platform-migration.md).
 >
 >
 
@@ -45,7 +45,7 @@ Den **kostnadsfria nivån** ger insyn i säkerhetsläget för din Azure-resurser
 Den **standardnivån** lägger till Avancerat funktioner, inklusive hot intelligens, beteendeanalys, avvikelseidentifiering, säkerhetsincidenter och hotidentifiering attribution rapporter. Du kan starta en kostnads fri utvärderings version på standard nivå. Om du vill uppgradera, Välj [prisnivå](https://docs.microsoft.com/azure/security-center/security-center-pricing) i säkerhetsprincipen. Mer information finns på [prissidan](https://azure.microsoft.com/pricing/details/security-center/).
 
 ### <a name="how-can-i-track-who-in-my-organization-performed-pricing-tier-changes-in-azure-security-center"></a>Hur kan jag spåra vem som i min organisation genomförde ändringar av pris nivån i Azure Security Center
-Eftersom en Azure-prenumeration kan ha flera administratörer som har behörighet att ändra pris nivån kan en användare vilja veta vem som utförde pris nivå ändringen. Om du vill använda det kan du använda Azure aktivitets logg. Läs ytterligare anvisningar [här](https://techcommunity.microsoft.com/t5/Security-Identity/Tracking-Changes-in-the-Pricing-Tier-for-Azure-Security-Center/td-p/390832)
+Eftersom en Azure-prenumeration kan ha flera administratörer som har behörighet att ändra pris nivån kan en användare vilja veta vem som utförde pris nivå ändringen. Om du vill använda det kan du använda Azure aktivitets logg. Mer information finns [här](https://techcommunity.microsoft.com/t5/Security-Identity/Tracking-Changes-in-the-Pricing-Tier-for-Azure-Security-Center/td-p/390832)
 
 ## <a name="permissions"></a>Behörigheter
 I Azure Security Center tillämpas [rollbaserad åtkomstkontroll](../role-based-access-control/role-assignments-portal.md), vilket innebär att det finns [förinställda roller](../role-based-access-control/built-in-roles.md) som kan ges till användare, grupper och tjänster i Azure.
@@ -63,7 +63,7 @@ Nej. Arbets ytor som skapats av Security Center, och som kon figurer ATS för Az
 - **Kostnadsfri nivå** – Security Center aktiveras 'SecurityCenterFree' lösningen på standardarbetsytan. Du debiteras inte för den kostnadsfria nivån.
 - **Standard-nivån** – Security Center aktiveras ”säkerhet” lösningen på standardarbetsytan.
 
-Mer information om priser finns i [Security Center-prissättning](https://azure.microsoft.com/pricing/details/security-center/). Sidan med priser adresser ändringar av lagring av säkerhetsdata och beräknad fakturering börjar i juni 2017.
+Mer information om priser finns i [Security Center-prissättning](https://azure.microsoft.com/pricing/details/security-center/).
 
 > [!NOTE]
 > Pris nivån för Log Analytics för arbets ytor som skapats av Security Center påverkar inte Security Center fakturering.
@@ -136,7 +136,7 @@ För befintliga datorer på prenumerationer som har registrerats på Security Ce
  Mer information finns i nästa avsnitt [vad händer om en SCOM eller OMS dirigera agenten är redan installerad på den virtuella datorn?](#scomomsinstalled)
 
 ### Vad händer om en System Center Operations Manager-agent (SCOM) redan är installerad på den virtuella datorn?<a name="scomomsinstalled"></a>
-Security Center kommer att installera Microsoft Monitoring Agent-tillägget sida vid sida till den befintliga System Center Operations Manager-agenten. Den befintliga SCOM-agenten fortsätter att rapportera till System Center Operations Manager servern på vanligt sätt. Observera att System Center Operations Manager agent och Microsoft Monitoring Agent delar gemensamma kör tids bibliotek, som kommer att uppdateras till den senaste versionen under den här bearbeta. OBS! om System Center Operations Manager agent version 2012 är installerad aktiverar du inte automatisk etablering på (hanterings funktioner kan gå förlorade när System Center Operations Manager-servern också är version 2012).
+Security Center kommer att installera Microsoft Monitoring Agent-tillägget sida vid sida till den befintliga System Center Operations Manager-agenten. Den befintliga SCOM-agenten fortsätter att rapportera till System Center Operations Manager servern på vanligt sätt. Observera att System Center Operations Manager agent och Microsoft Monitoring Agent delar gemensamma kör tids bibliotek, som kommer att uppdateras till den senaste versionen under den här processen. OBS! om System Center Operations Manager agent version 2012 är installerad aktiverar du inte automatisk etablering på (hanterings funktioner kan gå förlorade när System Center Operations Manager-servern också är version 2012).
 
 ### <a name="what-is-the-impact-of-removing-these-extensions"></a>Vad är effekt vid borttagning av dessa tillägg?
 Om du tar bort tillägget Microsoft Monitoring Security Center kan inte samla in säkerhetsdata från den virtuella datorn och vissa säkerhetsrekommendationer och aviseringar är inte tillgängliga. Security Center anger att den virtuella datorn saknar tillägget och installerar om tillägget inom 24 timmar.
@@ -161,7 +161,7 @@ Du kan inaktivera automatisk etablering för dina prenumerationer i säkerhetspr
 Du kanske vill välja bort automatisk etablering om följande gäller för dig:
 
 - Agenten för automatisk installation av Security Center gäller för hela prenumerationen.  Du kan inte använda automatisk installation till en delmängd av virtuella datorer. Om det finns kritiska virtuella datorer som inte kan installeras med Microsoft Monitoring Agent, bör du välja bort automatisk etablering.
-- Installationen av tillägget Microsoft Monitoring Agent (MMA) uppdaterar agentens version. Detta gäller för en direkt agent och en SCOM-agent (i den senare delar SCOM och MMA delar vanliga körnings bibliotek, som kommer att uppdateras i processen). Om den installerade SCOM-agenten är version 2012 och uppgraderas, att hanterbarhet funktioner gå förlorade när SCOM-servern är också version 2012. Bör du väljer bort automatisk etablering om den installerade SCOM-agenten är version 2012.
+- Installationen av tillägget Microsoft Monitoring Agent (MMA) uppdaterar agentens version. Detta gäller för en direkt agent och en SCOM-agent (i den senare delar SCOM och MMA delar vanliga körnings bibliotek, som kommer att uppdateras i processen). Om den installerade SCOM-agenten är version 2012 och uppgraderas, att hanterbarhet funktioner gå förlorade när SCOM-servern är också version 2012. Överväg väljer från automatisk etablering om den installerade SCOM-agenten är version 2012.
 - Om du har en anpassad arbetsyta som är externa för prenumerationen (en centraliserade arbetsytor) bör du välja bort automatisk etablering. Du kan manuellt installera Microsoft Monitoring Agent-tillägget och ansluta den arbetsytan utan att Security Center åsidosätta anslutningen.
 - Om du vill undvika att skapa flera arbetsytor per prenumeration och du har en egen anpassad arbetsyta inom prenumerationen, har du två alternativ:
 
@@ -220,7 +220,7 @@ När Security Center identifierar misstänkt aktivitet på den virtuella datorn,
 
 ### <a name="will-security-center-work-using-an-oms-gateway"></a>Kommer Security Center fungera med en OMS-Gateway?
 Ja. Azure Security Center utnyttjar Azure Monitor för att samla in data från virtuella Azure-datorer och-servrar med hjälp av Microsoft Monitoring Agent.
-För att samla in data måste varje virtuell dator och Server ansluta till Internet via HTTPS. Anslutningen kan dirigeras via en proxy eller via [OMS](../azure-monitor/platform/gateway.md)-gatewayen.
+För att samla in data måste varje virtuell dator och Server ansluta till Internet via HTTPS. Anslutningen kan dirigeras via en proxy eller via [OMS-gatewayen](../azure-monitor/platform/gateway.md).
 
 ### <a name="does-the-monitoring-agent-impact-the-performance-of-my-servers"></a>Påverkar Övervakningsagenttjänsten prestanda Mina servrar?
 Agenten använder en liten mängd systemresurser och bör ha liten inverkan på prestanda. Mer information om prestandapåverkan och agenten och tillägg finns i den [planerings- och bruksanvisning](security-center-planning-and-operations-guide.md#data-collection-and-storage).
@@ -329,7 +329,7 @@ Fördröjning i Security Center söker efter sårbarheter, uppdateringar, och pr
 Security Center kan du vanligtvis söker efter nya data varje timme, och uppdaterar rekommendationer i enlighet med detta. 
 
 > [!NOTE]
-> Från och med tidig juni 2017 använder Security Center Microsoft Monitoring Agent för att samla in och lagra data. Mer information finns i [Plattformsmigrering i Azure Security Center](security-center-platform-migration.md). Informationen i den här artikeln representerar Security Centers funktionalitet efter övergången till Microsoft Monitoring Agent.
+> Security Center använder Microsoft Monitoring Agent för att samla in och lagra data. Mer information finns i [Plattformsmigrering i Azure Security Center](security-center-platform-migration.md).
 >
 >
 

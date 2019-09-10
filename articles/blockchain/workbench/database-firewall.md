@@ -1,21 +1,21 @@
 ---
 title: Konfigurera SQL DB-brandväggen i Azure Blockchain Workbench
-description: Lär dig hur du konfigurerar SQL DB-brandväggen i Azure Blockchain Workbench.
+description: Lär dig hur du konfigurerar Azure blockchain Workbench Preview SQL DB-brandväggen.
 services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 05/09/2019
+ms.date: 09/09/2019
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: mmercuri
 manager: femila
-ms.openlocfilehash: d56e7f4750510dc7bb50dbb316dce320b8e8d12b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0153065ca0ccd6cf34456d630d7437d5ea7c5b48
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65510014"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70845229"
 ---
 # <a name="configure-the-azure-blockchain-workbench-database-firewall"></a>Konfigurera brandväggen för Azure Blockchain Workbench-databasen
 
@@ -25,7 +25,7 @@ Den här artikeln beskriver hur du konfigurerar en brandväggsregel via Azure Po
 
 Så här ansluter du till databasen där du vill konfigurera en regel:
 
-1. Logga in på Azure Portal med ett konto som har **ägarbehörigheter** för Azure Blockchain Workbench-resurser.
+1. Logga in på Azure Portal med ett konto som har **ägar** behörigheter för Azure blockchain Workbench-resurserna.
 2. Välj **Resursgrupper** i det vänstra navigeringsfönstret.
 3. Välj namnet på resursgruppen för din Blockchain Workbench-distribution.
 4. Sortera listan med resurser genom att välja **Typ** och välj sedan din **SQL-server**.

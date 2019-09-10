@@ -8,23 +8,23 @@ ms.topic: tutorial
 ms.date: 05/30/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: df4f89bd1b2e3c0423f5d758cfa637e4da9e04d0
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
+ms.openlocfilehash: 7534313a5862ececf4757be807e59b6df39f6430
+ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66396529"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70873355"
 ---
 # <a name="migrate-on-premises-machines-to-azure"></a>Migrera lokala datorer till Azure
 
 
-Den här artikeln beskriver hur du migrerar lokala datorer till Azure, med hjälp av den [Azure Site Recovery](site-recovery-overview.md). I allmänhet används Site Recovery för att hantera och samordna haveriberedskap på lokala datorer och virtuella Azure-datorer. Det kan dock också användas för migrering. Migreringen använder samma steg som katastrofåterställning med ett undantag. Vid en migrering är redundansväxla datorer från din lokala plats det sista steget. Till skillnad från haveriberedskap, kan du inte återställa till lokalt i ett Migreringsscenario.
+I den här artikeln beskrivs hur du migrerar lokala datorer till Azure med hjälp av [Azure Site Recovery](site-recovery-overview.md). I allmänhet används Site Recovery för att hantera och dirigera haveri beredskap för lokala datorer och virtuella Azure-datorer. Det kan dock också användas för migrering. Migreringen använder samma steg som haveri beredskap med ett undantag. I en migrering är det sista steget att redundansväxla datorer över från din lokala plats. Till skillnad från haveri beredskap kan du inte växla tillbaka till lokalt i ett scenario med migrering.
 
 
 Den här kursen visar hur du migrerar lokala virtuella datorer och fysiska servrar till Azure. Lär dig att:
 
 > [!div class="checklist"]
-> * Ställa in källa och mål-miljön för migrering
+> * Konfigurera käll-och mål miljön för migrering
 > * Konfigurerar en replikeringsprincip
 > * Aktivera replikering
 > * Kör en testmigrering för att kontrollera att allt fungerar som förväntat
@@ -32,21 +32,21 @@ Den här kursen visar hur du migrerar lokala virtuella datorer och fysiska servr
 
 
 > [!TIP]
-> Tjänsten Azure Migrate erbjuder nu en förhandsgranskning för en ny, utan Agent upplevelse för migrera virtuella VMware-datorer till Azure. [Lär dig mer](https://aka.ms/migrateVMs-signup).
+> Tjänsten Azure Migrate erbjuder nu en för hands version för en ny, agent lös upplevelse för migrering av virtuella VMware-datorer till Azure. [Ta reda på mer](https://aka.ms/migrateVMs-signup).
 
 
 ## <a name="before-you-start"></a>Innan du börjar
 
-Observera att enheter som exporteras av paravirtualiserade drivrutiner inte stöds.
+Observera att enheter som exporteras av paravirtualiserade-drivrutiner inte stöds.
 
 
-## <a name="prepare-azure-and-on-premises"></a>Förbereda Azure och lokalt
+## <a name="prepare-azure-and-on-premises"></a>Förbered Azure och lokalt
 
-1. Förbereda Azure enligt beskrivningen i [i den här artikeln](tutorial-prepare-azure.md). Även om den här artikeln beskriver steg för förberedelse för katastrofåterställning, kan stegen användas för migrering.
-2. Förbered lokala [VMware](vmware-azure-tutorial-prepare-on-premises.md)- eller [Hyper-V](hyper-v-prepare-on-premises-tutorial.md)-servrar. Om du migrerar fysiska datorer, behöver du inte förbereda något. Verifiera bara den [stödmatris](vmware-physical-azure-support-matrix.md).
+1. Förbered Azure enligt beskrivningen i [den här artikeln](tutorial-prepare-azure.md). Även om den här artikeln beskriver förberedelse steg för haveri beredskap, är stegen också giltiga för migrering.
+2. Förbered lokala [VMware](vmware-azure-tutorial-prepare-on-premises.md)- eller [Hyper-V](hyper-v-prepare-on-premises-tutorial.md)-servrar. Om du migrerar fysiska datorer behöver du inte förbereda något. Verifiera bara [support mat ris](vmware-physical-azure-support-matrix.md).
 
 
-## <a name="select-a-replication-goal"></a>Välj ett replikeringsmål
+## <a name="select-a-protection-goal"></a>Välj ett skyddsmål
 
 Välj vad och vart du vill replikera.
 1. Klicka på **Recovery Services-valv** > valv.
@@ -61,9 +61,9 @@ Välj vad och vart du vill replikera.
 
 **Scenario** | **Detaljer**
 --- | --- 
-VMware | Konfigurera den [källmiljö](vmware-azure-set-up-source.md), och Ställ in den [konfigurationsservern](vmware-azure-deploy-configuration-server.md).
-Fysisk dator | [Konfigurera](physical-azure-set-up-source.md) miljön och konfigurationen för källservern.
-Hyper-V | Konfigurera den [källmiljö](hyper-v-azure-tutorial.md#set-up-the-source-environment)<br/><br/> Konfigurera den [källmiljö](hyper-v-vmm-azure-tutorial.md#set-up-the-source-environment) för Hyper-V som distribuerats med System Center VMM.
+VMware | Konfigurera [käll miljön](vmware-azure-set-up-source.md)och konfigurera [konfigurations servern](vmware-azure-deploy-configuration-server.md).
+Fysisk dator | [Konfigurera](physical-azure-set-up-source.md) käll miljön och konfigurations servern.
+Hyper-V | Konfigurera [käll miljön](hyper-v-azure-tutorial.md#set-up-the-source-environment)<br/><br/> Konfigurera [käll miljön](hyper-v-vmm-azure-tutorial.md#set-up-the-source-environment) för Hyper-V distribuerad med System Center VMM.
 
 ## <a name="set-up-the-target-environment"></a>Konfigurera målmiljön
 
@@ -71,10 +71,10 @@ Välj och kontrollera målresurserna.
 
 1. Klicka på **Förbered infrastruktur** > **Mål** och välj den Azure-prenumeration som du vill använda.
 2. Ange Resource Manager-distributionsmodellen.
-3. Site Recovery kontrollerar Azure-resurser.
-    - Om du migrerar virtuella VMware-datorer eller fysiska servrar, kontrollerar Site Recovery du har ett Azure-nätverk som virtuella Azure-datorer kommer att finnas när de skapas efter en redundansväxling.
-    - Om du migrerar Hyper-V-datorer, kontrollerar Site Recovery du har en kompatibel Azure storage-konto och nätverk.
-4. Om du migrerar Hyper-V-datorer som hanteras av System Center VMM, ställa in [nätverksmappning](hyper-v-vmm-azure-tutorial.md#configure-network-mapping).
+3. Site Recovery kontrollerar Azure-resurserna.
+    - Om du migrerar virtuella VMware-datorer eller fysiska servrar, verifierar Site Recovery att du har ett Azure-nätverk där de virtuella Azure-datorerna ska finnas när de har skapats efter redundansväxlingen.
+    - Om du migrerar virtuella Hyper-V-datorer verifierar Site Recovery att du har ett kompatibelt Azure Storage-konto och-nätverk.
+4. Konfigurera [nätverks mappning](hyper-v-vmm-azure-tutorial.md#configure-network-mapping)om du migrerar virtuella Hyper-V-datorer som hanteras av System Center VMM.
 
 ## <a name="set-up-a-replication-policy"></a>Konfigurerar en replikeringsprincip
 
@@ -82,7 +82,7 @@ Välj och kontrollera målresurserna.
 --- | --- 
 VMware | Konfigurera en [replikeringsprincip](vmware-azure-set-up-replication.md) för virtuella VMware-datorer.
 Fysisk dator | Konfigurera en [replikeringsprincip](physical-azure-disaster-recovery.md#create-a-replication-policy) för fysiska datorer.
-Hyper-V | Konfigurera en [replikeringsprincip](hyper-v-azure-tutorial.md#set-up-a-replication-policy)<br/><br/> Konfigurera en [replikeringsprincip](hyper-v-vmm-azure-tutorial.md#set-up-a-replication-policy) för Hyper-V som distribuerats med System Center VMM.
+Hyper-V | Konfigurera en [replikeringsprincip](hyper-v-azure-tutorial.md#set-up-a-replication-policy)<br/><br/> Konfigurera en [replikeringsprincip](hyper-v-vmm-azure-tutorial.md#set-up-a-replication-policy) för Hyper-V distribuerad med System Center VMM.
 
 ## <a name="enable-replication"></a>Aktivera replikering
 
@@ -90,7 +90,7 @@ Hyper-V | Konfigurera en [replikeringsprincip](hyper-v-azure-tutorial.md#set-up-
 --- | --- 
 VMware | [Aktivera replikering](vmware-azure-enable-replication.md) för virtuella VMware-datorer.
 Fysisk dator | [Aktivera replikering](physical-azure-disaster-recovery.md#enable-replication) för fysiska datorer.
-Hyper-V | [Aktivera replikering](hyper-v-azure-tutorial.md#enable-replication)<br/><br/> [Aktivera replikering](hyper-v-vmm-azure-tutorial.md#enable-replication) för Hyper-V som distribuerats med System Center VMM.
+Hyper-V | [Aktivera replikering](hyper-v-azure-tutorial.md#enable-replication)<br/><br/> [Aktivera replikering](hyper-v-vmm-azure-tutorial.md#enable-replication) för Hyper-V distribuerad med System Center VMM.
 
 
 ## <a name="run-a-test-migration"></a>Kör en testmigrering
@@ -109,16 +109,16 @@ Kör en redundansväxling för de datorer som du vill migrera.
 5. Kontrollera att den virtuella Azure-datorn visas i Azure som förväntat.
 6. I **Replikerade objekt** högerklickar du på den virtuella datorn > **Slutför migrering**. Det här gör följande:
 
-   - Avslutar migreringsprocessen, stoppar replikeringen för den lokala virtuella datorn och stoppar Site Recovery-debitering för den virtuella datorn.
+   - Avslutar migreringsprocessen, stoppar replikeringen för den lokala virtuella datorn och stoppar Site Recovery debitering för den virtuella datorn.
    - Det här steget rensar replikeringsdata. Men det raderar inte de migrerade virtuella datorerna.
 
-     ![Slutföra migrering](./media/migrate-tutorial-on-premises-azure/complete-migration.png)
+     ![Slutför migrering](./media/migrate-tutorial-on-premises-azure/complete-migration.png)
 
 
 > [!WARNING]
 > **Avbryt inte en redundansväxling som pågår**: Innan redundans startas stoppas den virtuella datorreplikeringen. Om du avbryter en pågående redundans så stoppas redundansen, men den virtuella datorn kommer inte att replikeras igen.
 
-I vissa fall kräver redundans ytterligare bearbetning som tar cirka 8 till 10 minuter att slutföra. Du kanske märker längre redundanstiden för fysiska servrar, VMware Linux-datorer, virtuella VMware-datorer som inte har aktiverat DHCP-tjänsten och virtuella VMware-datorer som inte har följande startdrivrutiner: storvsc, vmbus, storflt, intelide, atapi.
+I vissa fall kräver redundans ytterligare bearbetning som tar cirka 8 till 10 minuter att slutföra. Du kan lägga märke till längre redundanstest för fysiska servrar, VMware Linux-datorer, virtuella VMware-datorer som inte har aktiverat DHCP-tjänsten och virtuella VMware-datorer som inte har följande start driv rutiner: storvsc, VMBus, storflt, intelide, ATAPI.
 
 ## <a name="after-migration"></a>Efter migrering
 
@@ -135,7 +135,7 @@ Vissa steg kan automatiseras som en del av migreringsprocessen med den inbyggda 
     - Om du migrerar VMware-datorer och fysiska servrar, installerar installationsprogrammet för Mobilitetstjänsten tillgängliga Azure VM-agenter på Windows-datorer. På virtuella Linux-datorer rekommenderar vi att du installerar agenten efter redundansväxling.
     - Om du migrerar virtuella Azure-datorer till en sekundär region, måste Azure VM-agenten etableras på den virtuella datorn före migreringen.
     - Om du migrerar virtuella Hyper-V-datorer till Azure, ska du installera Azure VM-agenten på den virtuella Azure-datorn efter migreringen.
-- Ta bort alla Site Recovery-providers/agenter manuellt från den virtuella datorn. Om du migrerar virtuella VMware-datorer eller fysiska servrar, avinstallera mobilitetstjänsten från den virtuella datorn.
+- Ta bort alla Site Recovery-providers/agenter manuellt från den virtuella datorn. Om du migrerar virtuella VMware-datorer eller fysiska servrar avinstallerar du mobilitets tjänsten från den virtuella datorn.
 - För ökat skydd:
     - Skydda data genom att säkerhetskopiera virtuella Azure-datorer med Azure Backup-tjänsten. [Läs mer]( https://docs.microsoft.com/azure/backup/quick-backup-vm-portal).
     - Håll arbetsbelastningar i körning och kontinuerligt tillgängliga genom att replikera virtuella Azure-datorer till en sekundär region med Site Recovery. [Läs mer](azure-to-azure-quickstart.md).
@@ -159,9 +159,9 @@ Vissa steg kan automatiseras som en del av migreringsprocessen med den inbyggda 
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudiekursen migrerade du lokala virtuella datorer till virtuella Azure-datorer. nu
+I den här självstudiekursen migrerade du lokala virtuella datorer till virtuella Azure-datorer. Nu
 
 > [!div class="nextstepaction"]
-> [Ställ in katastrofåterställning](azure-to-azure-replicate-after-migration.md) till en sekundär Azure-region för virtuella Azure-datorer.
+> [Konfigurera katastrof återställning](azure-to-azure-replicate-after-migration.md) till en sekundär Azure-region för virtuella Azure-datorer.
 
   

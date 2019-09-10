@@ -9,12 +9,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 07/11/2019
-ms.openlocfilehash: 1e30650f932d15d23d7ffe7bd9b9fe07e9872511
-ms.sourcegitcommit: a3a40ad60b8ecd8dbaf7f756091a419b1fe3208e
+ms.openlocfilehash: 64062aeab9a807d2aee7f4bca05d4019a3d9b736
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69891618"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70858628"
 ---
 # <a name="tutorial-deploy-a-machine-learning-model-with-the-visual-interface"></a>Självstudier: Distribuera en maskin inlärnings modell med det visuella gränssnittet
 
@@ -29,7 +29,7 @@ Om du vill ge andra möjlighet att använda den förutsägande modellen som utve
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Slutför [del ett av](ui-tutorial-automobile-price-train-score.md) självstudien och lär dig hur du tränar och poängs ätter en maskin inlärnings modell i det visuella gränssnittet.
+Slutför [del ett av självstudien](ui-tutorial-automobile-price-train-score.md) och lär dig hur du tränar och poängs ätter en maskin inlärnings modell i det visuella gränssnittet.
 
 ## <a name="prepare-for-deployment"></a>Förbereda för distribution
 
@@ -97,7 +97,7 @@ Användarna kan nu skicka API-begäranden till Azure-webbtjänsten och ta emot r
 
 **Begäran/svar** – användaren skickar en eller flera rader med mobila data till tjänsten med hjälp av ett HTTP-protokoll. Tjänsten svarar med en eller flera resultat uppsättningar.
 
-Du hittar exempel på REST-anrop på fliken förbrukare på sidan med webb tjänst information.
+Du hittar exempel på REST-anrop på fliken **förbrukare** på sidan med webb tjänst information.
 
    ![Skärm bild som visar ett exempel på REST-anrop som användare kan hitta på fliken förbrukare](./media/ui-tutorial-automobile-price-deploy/web-service-consume.png)
 
@@ -118,6 +118,8 @@ De modeller och webb tjänst distributioner som du skapar i det visuella gränss
 1. Välj **distributioner**, visar en lista över alla webb tjänster som använder modellen. Välj namnet på webb tjänsten. den kommer att gå till sidan för webb tjänst information. På den här sidan kan du få mer detaljerad information om webb tjänsten.
 
     [![Detaljerad rapport om skärm bilds körning](./media/ui-tutorial-automobile-price-deploy/deployment-details.png)](./media/ui-tutorial-automobile-price-deploy/deployment-details.png#lightbox)
+
+Du kan också hitta dessa modeller och distributioner i avsnitten **modeller** och **slut punkter** i [landnings sidan för din arbets yta (för hands version)](https://ml.azure.com).
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 

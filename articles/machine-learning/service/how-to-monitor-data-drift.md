@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 ms.author: copeters
 author: cody-dkdc
 ms.date: 07/08/2019
-ms.openlocfilehash: c6c4d1d4da3679eaefacb5aa0c91fcf64afc2a6b
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 7d47b74d4fef3676101f3f624dcacb832dcedc3a
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70128284"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70858704"
 ---
 # <a name="detect-data-drift-preview-on-models-deployed-to-azure-kubernetes-service-aks"></a>Identifiera data drift (för hands version) i modeller som distribuerats till Azure Kubernetes service (AKS)
 
@@ -27,7 +27,7 @@ Data avvikelser inträffar när data som hanteras i en modell i produktion skilj
 
 ## <a name="what-can-i-monitor"></a>Vad kan jag övervaka?
 
-Med Azure Machine Learning tjänsten kan du övervaka indata till en modell som distribueras på AKS och jämföra dessa data med data uppsättningen för inlärning för modellen. Med jämna mellanrum är det en ögonblicks [bild och](how-to-explore-prepare-data.md)profilerad, som sedan beräknas mot bas linje data uppsättningen för att skapa en data avvikelse analys som: 
+Med Azure Machine Learning tjänsten kan du övervaka indata till en modell som distribueras på AKS och jämföra dessa data med data uppsättningen för inlärning för modellen. Med jämna mellanrum är det en [ögonblicks bild och profilerad](how-to-explore-prepare-data.md), som sedan beräknas mot bas linje data uppsättningen för att skapa en data avvikelse analys som: 
 
 + Mäter omfattningen av data avvikelsen, som kallas för drift koefficienten.
 + Mäter data drifts bidraget efter funktion, som informerar vilka funktioner som orsakade data drift.
@@ -134,6 +134,7 @@ Det finns flera sätt att Visa avvikelse mått:
 * Använd widgeten [Jupyter.](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py) `RunDetails`
 * Använd funktionen på alla `datadrift` körnings objekt. [`get_metrics()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py#get-metrics-name-none--recursive-false--run-type-none--populate-false-)
 * Visa måtten i Azure Portal i din modell.
+* Visa måtten från avsnittet **modeller** i [landnings sidan för din arbets yta (för hands version)](https://ml.azure.com).
 
 Följande python-exempel visar hur du kan rita relevanta mått för data avvikelser. Du kan använda de returnerade måtten för att bygga anpassade visualiseringar:
 
@@ -158,7 +159,7 @@ datadrift.enable_schedule()
 datadrift.disable_schedule()
 ```
 
-Konfigurationen av data avvikelse detektorn visas på sidan modell information i Azure Portal.
+Konfigurationen av data behållar detektorn visas på sidan modell information i Azure Portal eller i landnings sidan för din arbets yta (för hands version).
 
 ![Azure Portal konfiguration av data riktning](media/how-to-monitor-data-drift/drift_config.png)
 
@@ -167,6 +168,8 @@ Konfigurationen av data avvikelse detektorn visas på sidan modell information i
 Om du vill visa resultat i din arbets yta i [Azure Portal](https://portal.azure.com)navigerar du till sidan modell. På fliken information i modellen visas konfigurationen för data riktning. En "data drivgarn (förhands granskning)"-fliken är nu tillgänglig visualisering av data drifts måtten. 
 
 ![Azure Portal data avvikelse](media/how-to-monitor-data-drift/drift_ui.png)
+
+Resultaten är också tillgängliga i modell informationen i din [arbets ytans landnings sida (för hands version)](https://ml.azure.com).
 
 ## <a name="receiving-drift-alerts"></a>Ta emot larm
 
@@ -188,6 +191,6 @@ När data påverkar negativ påverkan på den distribuerade modellens prestanda 
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Ett komplett exempel på hur du använder data drift finns i den [bärbara datorn för Azure ml data drivgarn](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/monitor-models/data-drift/azure-ml-datadrift.ipynb). Den här Jupyter Notebook visar hur du använder en [Azure Open](https://docs.microsoft.com/azure/open-datasets/overview-what-are-open-datasets) -datauppsättning för att träna en modell för att förutsäga väder, distribuera den till AKS och övervaka data driften. 
+* Ett komplett exempel på hur du använder data drift finns i den [bärbara datorn för Azure ml data drivgarn](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/monitor-models/data-drift/azure-ml-datadrift.ipynb). Den här Jupyter Notebook visar hur du använder en [Azure Open-datauppsättning](https://docs.microsoft.com/azure/open-datasets/overview-what-are-open-datasets) för att träna en modell för att förutsäga väder, distribuera den till AKS och övervaka data driften. 
 
 * Vi skulle kraftigt uppskatta dina frågor, kommentarer eller förslag när data driften flyttas mot allmän tillgänglighet. Använd knappen produkt feedback nedan! 

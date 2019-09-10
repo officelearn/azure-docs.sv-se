@@ -9,20 +9,20 @@ ms.date: 10/11/2018
 ms.author: danlep
 ms.custom: include file
 ms.openlocfilehash: a2729af6a689daa551fc01f585324d53a8770a9b
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 09/10/2019
 ms.locfileid: "67187706"
 ---
 | Resource | Standardgräns |
 | --- | :--- |
-| Maximal kluster per prenumeration | 100 |
-| Högsta antalet noder per kluster | 100 |
-| Maximal poddar per nod: [Grundläggande nätverk][basic-networking] med Kubenet | 110 |
-| Maximal poddar per nod: [Avancerat nätverk] [ advanced-networking] med Azure Container nätverkets gränssnitt | Azure CLI-distribution: 30<sup>1</sup><br />Azure Resource Manager-mall: 30<sup>1</sup><br />Portaldistribution: 30 |
+| Maximalt antal kluster per prenumeration | 100 |
+| Maximalt antal noder per kluster | 100 |
+| Maximalt antal poddar per nod: [Grundläggande nätverk][basic-networking] med Kubernetes | 110 |
+| Maximalt antal poddar per nod: [Avancerat nätverk][advanced-networking] med Azure Container Networking Interface | Azure CLI-distribution: 30<sup>1</sup><br />Azure Resource Manager mall: 30<sup>1</sup><br />Portaldistribution: 30 |
 
-<sup>1</sup>när du distribuerar ett Azure Kubernetes Service (AKS)-kluster med Azure CLI eller en Resource Manager-mall kan det här värdet kan konfigureras för upp till 250 poddar per nod. Du kan inte konfigurera maximal poddar per nod när du redan har distribuerat ett AKS-kluster, eller om du distribuerar ett kluster med hjälp av Azure portal.<br />
+<sup>1</sup> När du distribuerar ett Azure Kubernetes service-kluster (AKS) med Azure CLI eller en Resource Manager-mall, kan det här värdet konfigureras upp till 250 poddar per nod. Du kan inte konfigurera maximalt poddar per nod efter att du redan har distribuerat ett AKS-kluster, eller om du distribuerar ett kluster med hjälp av Azure Portal.<br />
 
 <!-- LINKS - Internal -->
 [basic-networking]: ../articles/aks/concepts-network.md#kubenet-basic-networking

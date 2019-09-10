@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: troubleshooting
 ms.date: 08/13/2018
 ms.author: saudas
-ms.openlocfilehash: 00fadd8a98ec4f58783ed8b407e2621a7c107149
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: 50bb26aa1a29dc8b1454fadec416aceea76405b2
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69533532"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70844259"
 ---
 # <a name="aks-troubleshooting"></a>AKS-felsökning
 
@@ -129,6 +129,15 @@ Kluster åtgärder är begränsade när en tidigare åtgärd fortfarande pågår
 
 Baserat på utdata från klustrets status:
 
-* Om klustret är i ett annat etablerings tillstånd än lyckat eller *misslyckat*väntar du tills åtgärden (*Uppgradera/uppdatera/skapa/skala/ta bort/migrera*) avslutas. Försök att utföra den senaste kluster åtgärden igen när den tidigare åtgärden har slutförts.
+* Om klustret är i ett annat etablerings tillstånd än *lyckat* eller *misslyckat*väntar du tills åtgärden (*Uppgradera/uppdatera/skapa/skala/ta bort/migrera*) avslutas. Försök att utföra den senaste kluster åtgärden igen när den tidigare åtgärden har slutförts.
 
 * Om det finns en misslyckad uppgradering av klustret följer du stegen som beskrivs [i avsnittet Jag får fel meddelanden om att mitt kluster är i ett felaktigt tillstånd och uppgradering eller skalning fungerar inte förrän det har åtgärd ATS](#im-receiving-errors-that-my-cluster-is-in-failed-state-and-upgrading-or-scaling-will-not-work-until-it-is-fixed).
+
+## <a name="im-receiving-errors-that-my-service-principal-was-not-found-when-i-try-to-create-a-new-cluster-without-passing-in-an-existing-one"></a>Jag får fel meddelanden om att det inte gick att hitta mitt huvud namn för tjänsten när jag försöker skapa ett nytt kluster utan att skicka något befintligt.
+
+När du skapar ett AKS-kluster kräver det ett huvud namn för tjänsten för att skapa resurser för din räkning. AKS ger möjlighet att ha en ny som skapats när klustret skapas, men det kräver Azure Active Directory att fullständigt sprida det nya tjänst huvud namnet på en rimlig tid för att klustret ska kunna skapas. När den här spridningen tar för lång tid kommer klustret inte att verifieras för att skapa eftersom det inte går att hitta ett tillgängligt huvud namn för tjänsten. 
+
+Använd följande lösningar för detta:
+1. Använd ett befintligt huvud namn för tjänsten som redan har spridits över regioner och som finns för att skicka in till AKS vid klustrets skapande tid.
+2. Om du använder Automation-skript kan du lägga till tids fördröjningar mellan skapande av tjänstens huvud namn och AKS-kluster.
+3. Om du använder Azure Portal återgår du till kluster inställningarna när du skapar och försöker sedan att köra verifierings sidan igen efter några minuter.

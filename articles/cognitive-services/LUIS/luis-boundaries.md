@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 09/9/2019
+ms.date: 09/09/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: ff267a524001802f8bcd0903fcb7119bab16ef11
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
-ms.translationtype: HT
+ms.openlocfilehash: afa6c5e40918906eb9fe0e40ed633715e3f2741d
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70813326"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70844799"
 ---
 # <a name="boundaries-for-your-luis-model-and-keys"></a>Gränser för din LUIS-modell och nycklar
 LUIS har flera gräns områden. Först är det [modellen gräns](#model-boundaries), som styr avsikter, entiteter och funktioner i LUIS. Det andra området är [kvotgränser](#key-limits) baserat på nyckeltyp. Ett tredje område av gränser är den [tangentbord kombination](#keyboard-controls) för att styra LUIS-webbplatsen. En fjärde området är den [världen regionsmappning](luis-reference-regions.md) mellan LUIS redigering av webbplatsen och LUIS [endpoint](luis-glossary.md#endpoint) API: er. 
@@ -29,7 +29,7 @@ Om din app överskrider LUIS-modellens gränser och gränser bör du överväga 
 |Område|Gräns|
 |--|:--|
 | [Appens namn][luis-get-started-create-app] | \* Standardvärdet max |
-| Program| 500 program per Azure-resurs |
+| Program| 500 program per Azure Authoring-resurs |
 | [Batch-testning][batch-testing]| 10 datauppsättningar, 1000 yttranden per datauppsättning|
 | Explicit lista | 50 per program|
 | Externa entiteter | inga gränser |
@@ -65,21 +65,24 @@ Använd inte följande tecken i följande namn.
 
 Språk förståelsen har separata nycklar, en typ för redigering och en typ för att skicka frågor till förutsägelse slut punkten. Mer information om skillnaderna mellan nyckel typer finns i [Redigera och köra slut punkts nycklar för förutsägelse i Luis](luis-concept-keys.md).
 
-## <a name="key-limits"></a>Viktiga begränsningar
+<a name="key-limits"></a>
 
-Redigering nyckel har olika begränsningar för redigering och slutpunkten. Slutpunktsnyckeln LUIS-tjänsten är endast giltig för slutpunkten frågor.
+## <a name="resource-key-limits"></a>Begränsningar för resurs nyckel
 
-* 500 program per Azure-resurs 
-* 100-versioner per program
+Resurs nycklarna har olika gränser för redigering och slut punkt. Slut punkts nyckeln för LUIS förutsägelse fråga är endast giltig för slut punkts frågor. 
+
+* 500 program per Azure Authoring-resurs 
 
 |Nyckel|Redigering|Slutpunkt|Syfte|
 |--|--|--|--|
-|Language Understanding redigering/starter|1 miljon/månad, 5/sekund|1 tusen/månad, 5/sekund|Redigera LUIS-appen|
-|Language Understanding [prenumeration][pricing] – F0-kostnads fri nivå |Ogiltig|10 tusen/månad, 5/sekund|Fråga din LUIS-slutpunkt|
-|Language Understanding [prenumeration][pricing] – S0 – Basic-nivå|Ogiltig|50 per sekund|Fråga din LUIS-slutpunkt|
-|Kognitiv tjänst [prenumeration][pricing] – S0 – standard nivå|Ogiltig|50 per sekund|Fråga din LUIS-slutpunkt|
-|[Sentiment analysis-integrering](luis-how-to-publish-app.md#enable-sentiment-analysis)|Ogiltig|utan kostnad|Att lägga till sentiment information, inklusive extrahering av diskussionsämne data |
-|[Tal integrering](../speech-service/how-to-recognize-intents-from-speech-csharp.md)|Ogiltig|5\.50 USD/1 tusen endpoint begäranden|Konvertera talat uttryck till text-uttryck och returnerar LUIS resultat|
+|Starter|1 miljon/månad, 5/sekund|1 tusen/månad, 5/sekund|Redigera LUIS-appen|
+|F0 – kostnads fri nivå |1 miljon/månad, 5/sekund|10 tusen/månad, 5/sekund|Fråga din LUIS-slutpunkt|
+|S0 – Basic-nivå|-|50 per sekund|Fråga din LUIS-slutpunkt|
+|S0 – standard nivå|-|50 per sekund|Fråga din LUIS-slutpunkt|
+|[Sentiment analysis-integrering](luis-how-to-publish-app.md#enable-sentiment-analysis)|-|-|Att lägga till sentiment-information, inklusive data extrahering för nyckel fraser, tillhandahålls utan att det krävs någon annan Azure-resurs. |
+|[Tal integrering](../speech-service/how-to-recognize-intents-from-speech-csharp.md)|-|1000 slut punkts begär Anden per enhets kostnad|Konvertera talat uttryck till text-uttryck och returnerar LUIS resultat|
+
+[Läs mer om priser.][pricing]
 
 ## <a name="keyboard-controls"></a>Keyboard kontroller
 

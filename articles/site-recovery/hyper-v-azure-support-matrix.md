@@ -1,19 +1,18 @@
 ---
-title: Stöd mat ris för haveri beredskap för lokala virtuella Hyper-V-datorer till Azure | Microsoft Docs
+title: Stöd mat ris för haveri beredskap för lokala virtuella Hyper-V-datorer till Azure
 description: Sammanfattar de komponenter och krav som stöds för haveri beredskap för virtuella Hyper-V-datorer till Azure med Azure Site Recovery
-services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 08/07/2019
+ms.date: 09/10/2019
 ms.author: raynew
-ms.openlocfilehash: b4f9c0ab3ca50b0ce8c9ba27d8773c58a72dcfa9
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: 5d7ac7cf00ee59a06a914d312fd58de00515a0b4
+ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70230962"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70873335"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>Stöd mat ris för haveri beredskap för lokala virtuella Hyper-V-datorer till Azure
 
@@ -25,7 +24,7 @@ Den här artikeln sammanfattar de komponenter och inställningar som stöds för
 
 **Scenario** | **Detaljer**
 --- | ---
-Hyper-V med Virtual Machine Manager | Du kan utföra haveri beredskap till Azure för virtuella datorer som körs på Hyper-V-värdar som hanteras i System Center Virtual Machine Manager-infrastrukturen.<br/><br/> Du kan distribuera det här scenariot i Azure Portal eller med hjälp av PowerShell.<br/><br/> När Hyper-V-värdar hanteras av Virtual Machine Manager kan du också utföra haveri beredskap på en sekundär lokal plats. Läs mer om det här scenariot i [den här](hyper-v-vmm-disaster-recovery.md)självstudien.
+Hyper-V med Virtual Machine Manager | Du kan utföra haveri beredskap till Azure för virtuella datorer som körs på Hyper-V-värdar som hanteras i System Center Virtual Machine Manager-infrastrukturen.<br/><br/> Du kan distribuera det här scenariot i Azure Portal eller med hjälp av PowerShell.<br/><br/> När Hyper-V-värdar hanteras av Virtual Machine Manager kan du också utföra haveri beredskap på en sekundär lokal plats. Läs mer om det här scenariot i [den här självstudien](hyper-v-vmm-disaster-recovery.md).
 Hyper-V utan Virtual Machine Manager | Du kan utföra haveri beredskap till Azure för virtuella datorer som körs på Hyper-V-värdar som inte hanteras av Virtual Machine Manager.<br/><br/> Du kan distribuera det här scenariot i Azure Portal eller med hjälp av PowerShell.
 
 
@@ -134,6 +133,7 @@ Kryptering i rest (SSE)| Ja | Ja
 Premium Storage | Ja | Ja
 Import/export-tjänst | Nej | Nej
 Azure Storage brand väggar för virtuella nätverk som har kon figurer ATS på mål lagring/cache lagrings konto (används för att lagra replikeringsdata) | Nej | Nej
+Ändra lagrings konto | Nej. Det går inte att ändra målets Azure Storage-konto när replikeringen har Aktiver ATS. Ändra genom att inaktivera och sedan återaktivera haveri beredskap. | Nej
 
 
 ## <a name="azure-compute-features"></a>Beräknings funktioner i Azure

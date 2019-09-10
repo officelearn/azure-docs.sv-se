@@ -1,43 +1,43 @@
 ---
 title: Självstudie – konfigurera ett kluster i Azure HDInsight med Ansible | Microsoft Docs
 description: Lär dig hur du använder Ansible för att skapa och ändra storlek på ett Azure HDInsight
-keywords: ansible, azure, devops, bash, playbook, apache hadoop kan hdinsight
+keywords: Ansible, Azure, DevOps, bash, Spelbok, Apache Hadoop, HDInsight
 ms.topic: tutorial
 ms.service: ansible
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.date: 04/30/2019
-ms.openlocfilehash: d6b6dd333d04457a68c3f2452d3cc538a32b61f6
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: ff135473443589650d90bfb7f3e5aa248f72e821
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65230274"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70861274"
 ---
 # <a name="tutorial-configure-a-cluster-in-azure-hdinsight-using-ansible"></a>Självstudier: Konfigurera ett kluster i Azure HDInsight med Ansible
 
 [!INCLUDE [ansible-28-note.md](../../includes/ansible-28-note.md)]
 
-[Azure HDInsight](/azure/hdinsight/) är en Hadoop-baserade analystjänst för bearbetning av data. HDInsight är ett verktyg för ETL (extract, transform, load) som används för att arbeta med stordata - strukturerade eller Ostrukturerade. HDInsight har stöd för flera [klustertyper](/azure/hdinsight/hadoop/apache-hadoop-introduction#cluster-types-in-hdinsight) där varje typ har stöd för olika komponenter. 
+[Azure HDInsight](/azure/hdinsight/) är en Hadoop-baserad analys tjänst för bearbetning av data. HDInsight är ett ETL-verktyg (Extract, Transform, Load) som används för att arbeta med Big data, antingen strukturerade eller ostrukturerade. HDInsight stöder flera [kluster typer](/azure/hdinsight/hadoop/apache-hadoop-introduction) där varje typ har stöd för en annan uppsättning komponenter. 
 
 [!INCLUDE [ansible-tutorial-goals.md](../../includes/ansible-tutorial-goals.md)]
 
 > [!div class="checklist"]
 >
-> * Skapa ett lagringskonto för HDInsight
-> * Konfigurera en [HDInsight Spark-kluster](/azure/hdinsight/spark/apache-spark-overview).
+> * Skapa ett lagrings konto för HDInsight
+> * Konfigurera ett [HDInsight Spark-kluster](/azure/hdinsight/spark/apache-spark-overview).
 > * Ändra storlek på ett kluster
 > * Ta bort ett kluster
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
 [!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-cloudshell-use-or-vm-creation2.md)] 
 
-## <a name="create-a-random-postfix"></a>Skapa en slumpmässig postfix
+## <a name="create-a-random-postfix"></a>Skapa ett slumpmässigt postfix
 
-Spelboken koden i det här avsnittet skapar en slumpmässig postfix ska användas som en del av Azure HDInsight-klusternamnet.
+Spelbok-koden i det här avsnittet skapar ett slumpmässigt postfix som ska användas som en del av namnet på Azure HDInsight-klustret.
 
 ```yml
 - hosts: localhost
@@ -50,11 +50,11 @@ Spelboken koden i det här avsnittet skapar en slumpmässig postfix ska använda
       run_once: yes
 ```
 
-## <a name="create-resource-group"></a>Skapa en resursgrupp
+## <a name="create-resource-group"></a>Skapa resursgrupp
 
-En Azure-resursgrupp är en logisk behållare där Azure resurser distribueras och hanteras.
+En Azure-resurs grupp är en logisk behållare där Azure-resurser distribueras och hanteras.
 
-Spelboken koden i det här avsnittet skapas en resursgrupp.
+Spelbok-koden i det här avsnittet skapar en resurs grupp.
 
 
 ```yml
@@ -65,11 +65,11 @@ Spelboken koden i det här avsnittet skapas en resursgrupp.
         location: "{{ location }}"
 ```
 
-## <a name="create-a-storage-account-and-retrieve-key"></a>Skapa ett storage-konto och hämta nyckel
+## <a name="create-a-storage-account-and-retrieve-key"></a>Skapa ett lagrings konto och hämta nyckel
 
-Ett Azure storage-konto används som standardlagringen för HDInsight-klustret. 
+Ett Azure Storage-konto används som standard lagring för HDInsight-klustret. 
 
-Spelboken koden i det här avsnittet hämtar den nyckel som används för att få åtkomst till lagringskontot.
+Spelbok-koden i det här avsnittet hämtar den nyckel som används för att komma åt lagrings kontot.
 
 ```yml
 - name: Create storage account
@@ -97,7 +97,7 @@ Spelboken koden i det här avsnittet hämtar den nyckel som används för att f�
 
 ## <a name="create-an-hdinsight-spark-cluster"></a>Skapa ett HDInsight Spark-kluster
 
-Spelboken koden i det här avsnittet skapar Azure HDInsight-kluster.
+Spelbok-koden i det här avsnittet skapar Azure HDInsight-klustret.
 
 ```yml
 - name: Create instance of Cluster
@@ -138,13 +138,13 @@ Spelboken koden i det här avsnittet skapar Azure HDInsight-kluster.
           password: MuABCPassword!!@123
 ```
 
-Skapa instans kan ta flera minuter att slutföra.
+Det kan ta flera minuter att slutföra instansen.
 
 ## <a name="resize-the-cluster"></a>Ändra storlek på klustret
 
-När klustret har skapats är den enda inställning som du kan ändra antalet arbetarnoder. 
+När klustret har skapats är den enda inställningen du kan ändra antalet arbetsnoder. 
 
-Spelboken koden i det här avsnittet ökar antalet arbetsnoder genom att uppdatera `target_instance_count` inom `workernode`.
+Spelbok-koden i det här avsnittet ökar antalet arbetsnoder genom att uppdatera `target_instance_count` i. `workernode`
 
 ```yml
 - name: Resize cluster
@@ -188,11 +188,11 @@ Spelboken koden i det här avsnittet ökar antalet arbetsnoder genom att uppdate
   register: output
 ```
 
-## <a name="delete-the-cluster-instance"></a>Ta bort instansen av ett kluster
+## <a name="delete-the-cluster-instance"></a>Ta bort kluster instansen
 
-Fakturering för HDInsight-kluster sker proportionerligt per minut. 
+Faktureringen för HDInsight-kluster beräknas proportionellt per minut. 
 
-Spelboken koden i det här avsnittet tar bort klustret.
+Spelbok-koden i det här avsnittet tar bort klustret.
 
 ```yml
 - name: Delete instance of Cluster
@@ -202,11 +202,11 @@ Spelboken koden i det här avsnittet tar bort klustret.
     state: absent
 ```
 
-## <a name="get-the-sample-playbook"></a>Hämta exemplet spelbok
+## <a name="get-the-sample-playbook"></a>Hämta exempel Spelbok
 
-Det finns två sätt att hämta hela exemplet spelboken:
-- [Ladda ned spelboken](https://github.com/Azure-Samples/ansible-playbooks/blob/master/hdinsight_create.yml) och spara den i `hdinsight_create.yml`.
-- Skapa en ny fil med namnet `hdinsight_create.yml` och kopiera in följande innehåll:
+Det finns två sätt att hämta det fullständiga exemplet Spelbok:
+- [Ladda ned Spelbok](https://github.com/Azure-Samples/ansible-playbooks/blob/master/hdinsight_create.yml) och spara den på `hdinsight_create.yml`.
+- Skapa en ny fil med `hdinsight_create.yml` namnet och kopiera den till följande innehåll:
 
 ```yml
 ---
@@ -348,14 +348,14 @@ Det finns två sätt att hämta hela exemplet spelboken:
         state: absent
 ```
 
-## <a name="run-the-sample-playbook"></a>Köra exemplet spelbok
+## <a name="run-the-sample-playbook"></a>Kör exemplet Spelbok
 
-I det här avsnittet kör du spelboken för att testa olika funktioner som visas i den här artikeln.
+I det här avsnittet kör du Spelbok för att testa olika funktioner som visas i den här artikeln.
 
-Innan du kör spelboken måste du göra följande ändringar:
-- I den `vars` avsnittet, ersätter den `{{ resource_group_name }}` platshållare med namnet på resursgruppen.
+Innan du kör Spelbok gör du följande ändringar:
+- I avsnittet ersätter du `{{ resource_group_name }}` plats hållaren med namnet på din resurs grupp. `vars`
 
-Kör en spelbok med hjälp av den `ansible-playbook` kommando:
+Kör Spelbok med `ansible-playbook` kommandot:
 
 ```bash
 ansible-playbook hdinsight.yml
@@ -363,7 +363,7 @@ ansible-playbook hdinsight.yml
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-När den inte längre behövs kan du ta bort de resurser som skapades i den här artikeln. 
+Ta bort de resurser som skapats i den här artikeln när de inte längre behövs. 
 
 Spara följande kod som `cleanup.yml`:
 
@@ -379,7 +379,7 @@ Spara följande kod som `cleanup.yml`:
         state: absent
 ```
 
-Kör en spelbok med hjälp av den `ansible-playbook` kommando:
+Kör Spelbok med `ansible-playbook` kommandot:
 
 ```bash
 ansible-playbook cleanup.yml

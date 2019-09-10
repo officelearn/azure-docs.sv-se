@@ -8,12 +8,12 @@ ms.author: dobett
 ms.date: 08/23/2019
 ms.topic: conceptual
 manager: philmea
-ms.openlocfilehash: 421d41f95eff0ba0fdbca02c588d4a9a0c461a84
-ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
+ms.openlocfilehash: 1ec83541c62d93eee91348531797ecdeb8c9fc6e
+ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70381060"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70873471"
 ---
 # <a name="manage-iot-central-from-azure-cli"></a>Hantera IoT Central från Azure CLI
 
@@ -53,9 +53,9 @@ Dessa kommandon skapar först en resurs grupp i regionen USA, östra för progra
 | Parameter         | Beskrivning |
 | ----------------- | ----------- |
 | resource-group    | Resurs gruppen som innehåller programmet. Den här resurs gruppen måste redan finnas i din prenumeration. |
-| location          | Som standard använder detta kommando platsen från resurs gruppen. För närvarande kan du skapa ett IoT Central program i regionerna **östra USA**, **västra USA**, **norra Europa** **eller Västeuropa.** |
+| location          | Som standard använder detta kommando platsen från resurs gruppen. För närvarande kan du skapa ett IoT Central-program i regionerna **östra USA**, **västra USA**, **Nord Europa**eller Västeuropa **, Västeuropa eller** **Australien** . |
 | name              | Namnet på programmet i Azure Portal. |
-| under domän         | Under domänen i programmets URL. I exemplet är https://mysubdomain.azureiotcentral.com programmets URL. |
+| Under domän         | Under domänen i programmets URL. I exemplet är https://mysubdomain.azureiotcentral.com programmets URL. |
 | sku               | För närvarande är det enda värdet **S1** (standard nivån). Se [priser för Azure IoT Central](https://azure.microsoft.com/pricing/details/iot-central/). |
 | mall          | Den program mal len som ska användas. Mer information finns i följande tabell: |
 | visnings namn      | Namnet på programmet som det visas i användar gränssnittet. |

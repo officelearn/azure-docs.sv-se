@@ -1,6 +1,6 @@
 ---
-title: Mappa style funktioner i Azure Maps | Microsoft Docs
-description: Lär dig mer om Azure Maps style relaterade funktioner för Android SDK.
+title: Kart stils funktioner i Azure Maps | Microsoft Docs
+description: Lär dig mer om att Azure Maps stil relaterade funktioner för Android SDK.
 author: walsehgal
 ms.author: v-musehg
 ms.date: 04/26/2019
@@ -8,26 +8,26 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 3c8c5d4bae16d8e15c8f2c5b1cc8e00eb14e4ce3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5bcc73c63e7c9d804d01df98551aa51b81d98d07
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64870979"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70844847"
 ---
-# <a name="set-map-style-using-azure-maps-android-sdk"></a>Ställ in kartan format med hjälp av Android SDK för Azure Maps
+# <a name="set-map-style-using-azure-maps-android-sdk"></a>Ange kart stil med Azure Maps Android SDK
 
-Den här artikeln beskrivs två sätt att koppla format med hjälp av Azure Maps Android SDK. Azure Maps har sex olika kartor format att välja bland. Mer information om stöds Koppla format finns i [Koppla format som stöds i Azure Maps](./supported-map-styles.md).
-
-
-## <a name="prerequisites"></a>Nödvändiga komponenter
-
-För att slutföra processen i den här artikeln, måste du installera [Android SDK för Azure Maps](https://docs.microsoft.com/azure/azure-maps/how-to-use-android-map-control-library) att läsa in en karta.
+Den här artikeln visar två sätt att ange kart stilar med hjälp av Azure Maps Android SDK. Azure Maps har sex olika typer av kartor att välja mellan. Mer information om mappnings format som stöds finns i [mappnings format som stöds i Azure Maps](./supported-map-styles.md).
 
 
-## <a name="set-map-style-in-the-layout"></a>Ange kartan stil i layouten
+## <a name="prerequisites"></a>Förutsättningar
 
-Du kan ange en formatmall för kartan i layoutfilen för din aktivitetsklassen. Redigera **res > layout > activity_main.xml**, så att det ser ut som i exemplet nedan:
+För att slutföra processen i den här artikeln måste du installera [Azure Maps Android SDK](https://docs.microsoft.com/azure/azure-maps/how-to-use-android-map-control-library) för att läsa in en karta.
+
+
+## <a name="set-map-style-in-the-layout"></a>Ange kart stil i layouten
+
+Du kan ange en kart stil i layout filen för din aktivitets klass. Redigera **res > layout > activity_main. XML**, så det ser ut ungefär så här:
 
 ```XML
 <?xml version="1.0" encoding="utf-8"?>
@@ -51,18 +51,18 @@ Du kan ange en formatmall för kartan i layoutfilen för din aktivitetsklassen. 
 </FrameLayout>
 ```
 
-Den `mapcontrol_style` attribut ovan anger formatmallen karta till **grayscale_dark**. 
+Attributet ovan anger kart formatet till grayscale_dark. `mapcontrol_style` 
 
 <center>
 
 ![style-grayscale_dark](./media/set-android-map-styles/grayscale-dark.png)</center>
 
-## <a name="set-map-style-in-the-activity-class"></a>Ange kartan stil i aktivitetsklassen
+## <a name="set-map-style-in-the-activity-class"></a>Ange kart stil i aktivitets klassen
 
-Kartan style kan ställas in i aktivitetsklassen. Kopiera följande kodavsnitt i den **onCreate()** -metoden för din `MainActivity.java` klass. Detta anger formatmallen karta till **satellite_road_labels**.
+Du kan ställa in kart stil i aktivitets klassen. Kopiera följande kodfragment till **onCreate ()-** metoden för din `MainActivity.java` klass. Detta anger kart formatet till **satellite_road_labels**.
 
 ```Java
-    mapControl.onReady(map -> {
+mapControl.onReady(map -> {
     //Set the camera of the map.
     map.setCamera(center(47.64, -122.33), zoom(14));
 

@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 5345bbf2514c8b06ab80d4563227725a398f9407
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: 7c3f72c3ce6acfb63e682b479519dba02a9900eb
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69898345"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70844910"
 ---
 # <a name="implement-iot-spatial-analytics-using-azure-maps"></a>Implementera IoT spatial Analytics med hjälp av Azure Maps
 
@@ -41,10 +41,10 @@ I vårt användnings fall är hyr bilar utrustade med IoT-enheter som skickar te
 ```JSON
 {
     "data": {
-         "properties": {
+        "properties": {
             "Engine": "ON"
-         },
-         "systemProperties": {
+        },
+        "systemProperties": {
             "iothub-content-type": "application/json",
             "iothub-content-encoding": "utf-8",
             "iothub-connection-device-id": "ContosoRentalDevice",
@@ -52,13 +52,13 @@ I vårt användnings fall är hyr bilar utrustade med IoT-enheter som skickar te
             "iothub-connection-auth-generation-id": "636959817064335548",
             "iothub-enqueuedtime": "2019-06-18T00:17:20.608Z",
             "iothub-message-source": "Telemetry"
-         },
-         "body": { 
-                    "location": { 
-                        "type": "Point",
-                        "coordinates": [ -77.025988698005662, 38.9015330523316 ]
-                     } 
-                 } 
+        },
+        "body": { 
+            "location": { 
+                "type": "Point",
+                "coordinates": [ -77.025988698005662, 38.9015330523316 ]
+            } 
+        } 
     }
 }
 ```
@@ -113,7 +113,7 @@ För att logga händelse data skapar vi ett **v2storage** -konto för generell a
 
 1. I ditt lagrings konto navigerar du till blobbar.
 
-    ![blobar](./media/tutorial-iot-hub-maps/blobs.png)
+    ![Blobar](./media/tutorial-iot-hub-maps/blobs.png)
 
 2. Klicka på knappen behållare längst upp till vänster och namnge behållaren "contoso-hyr-logs" och klicka på "OK".
 
@@ -151,7 +151,7 @@ För att kunna ansluta till den IoT Hub måste en enhet registreras. Följ stege
 
 ## <a name="upload-geofence"></a>Ladda upp gräns
 
-Vi använder Postman- [programmet](https://www.getpostman.com) för att [överföra den här gränsen](https://docs.microsoft.com/azure/azure-maps/geofence-geojson) till Azure Maps tjänsten med hjälp av Azure Maps data överförings-API: et. Alla händelser när bilen är utanför det här avgränsnings felet loggas.
+Vi använder [Postman-programmet](https://www.getpostman.com) för att [överföra den här gränsen](https://docs.microsoft.com/azure/azure-maps/geofence-geojson) till Azure Maps tjänsten med hjälp av Azure Maps data överförings-API: et. Alla händelser när bilen är utanför det här avgränsnings felet loggas.
 
 Öppna Postman-appen och följ stegen nedan för att ladda upp den här gränsen med hjälp av Azure Maps, API för data överföring.  
 
@@ -217,7 +217,7 @@ Azure Functions är en server lös beräknings tjänst som gör det möjligt fö
 
 4. Välj **Fler mallar** och klicka på **Slutför och Visa mallar**. 
 
-5. Välj mallen med en **Azure Event Grid**-utlösare. Installera tillägg om du uppmanas till det, ge funktionen namnet och tryck på **skapa**.
+5. Välj mallen med en **Azure Event Grid-utlösare**. Installera tillägg om du uppmanas till det, ge funktionen namnet och tryck på **skapa**.
 
     ![funktion-mall](./media/tutorial-iot-hub-maps/eventgrid-funct.png)
 
@@ -239,7 +239,7 @@ Azure Functions är en server lös beräknings tjänst som gör det möjligt fö
 
 ## <a name="filter-events-using-iot-hub-message-routing"></a>Filtrera händelser med IoT Hub meddelanderoutning
 
-När du har lagt till en Event Grid-prenumeration i Azure-funktionen kommer du nu att kunna se en standard meddelande väg för att Event Grid i IoT Hub meddelandets cirkulations blad. Med meddelanderoutning kan du dirigera olika data typer, t. ex. meddelanden om telemetri, enhetens livs cykel händelser och enhetens dubbla ändrings händelser till olika slut punkter. Mer information om IoT Hub-meddelanderoutning finns i [använda IoT Hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-d2c)meddelanderoutning.
+När du har lagt till en Event Grid-prenumeration i Azure-funktionen kommer du nu att kunna se en standard meddelande väg för att Event Grid i IoT Hub **meddelandets cirkulations** blad. Med meddelanderoutning kan du dirigera olika data typer, t. ex. meddelanden om telemetri, enhetens livs cykel händelser och enhetens dubbla ändrings händelser till olika slut punkter. Mer information om IoT Hub-meddelanderoutning finns i [använda IoT Hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-d2c)meddelanderoutning.
 
 ![hubb – tex-Route](./media/tutorial-iot-hub-maps/hub-route.png)
 

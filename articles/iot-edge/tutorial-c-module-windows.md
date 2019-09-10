@@ -375,7 +375,7 @@ Annars kan du ta bort de lokala konfigurationerna och de Azure-resurser som du a
 I den här självstudien skapade du en IoT Edge-modul med kod för att filtrera rådata som genereras av din IoT Edge-enhet. När du är redo att skapa dina egna moduler kan du lära dig mer om hur du [utvecklar egna IoT Edge moduler](module-development.md) eller hur du [utvecklar moduler med Visual Studio](how-to-visual-studio-develop-module.md). Du kan fortsätta till nästa självstudier för att lära dig hur Azure IoT Edge kan hjälpa dig att distribuera Azure Cloud Services för att bearbeta och analysera data i gränsen.
 
 > [!div class="nextstepaction"]
-> [Funktioner](tutorial-deploy-function.md)
-> [Stream Analytics](tutorial-deploy-stream-analytics.md)[](tutorial-deploy-custom-vision.md) [Machine Learning](tutorial-deploy-machine-learning.md)Custom vision service
-> 
-> 
+> [Functions](tutorial-deploy-function.md)
+> [Stream Analytics](tutorial-deploy-stream-analytics.md)
+> [Machine Learning](tutorial-deploy-machine-learning.md)
+> [Custom Vision Service](tutorial-deploy-custom-vision.md)

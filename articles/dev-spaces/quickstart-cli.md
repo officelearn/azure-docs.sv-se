@@ -10,12 +10,12 @@ ms.topic: quickstart
 description: Distribuera en mikrotjänst på AKS med Azure dev Spaces
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes service, Containers, Helm, service nät, service nät-routning, kubectl, K8s
 manager: gwallace
-ms.openlocfilehash: 6ce5338bd2b3d6153255fcdb67cb8afe10e8101c
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.openlocfilehash: b845a176497891f55990c560e719832c6eaebb73
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70772586"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70842517"
 ---
 # <a name="quickstart-develop-an-application-on-kubernetes-using-azure-dev-spaces"></a>Snabbstart: Utveckla ett program på Kubernetes med hjälp av Azure dev Spaces
 I den här guiden får du lära dig hur du:
@@ -109,6 +109,9 @@ Service 'webfrontend' port 80 (http) is available at http://localhost:54256
 ```
 
 Du kan se den tjänst som körs genom att öppna den offentliga URL: en, som visas i utdata `azds up` från kommandot. I det här exemplet är *http://webfrontend.1234567890abcdef1234.eus.azds.io/* den offentliga URL: en.
+
+> [!NOTE]
+> När du navigerar till tjänsten när du `azds up`kör, visas även spårningen `azds up` av HTTP-begäranden i kommandots utdata. De här spårningarna kan hjälpa dig att felsöka och felsöka tjänsten. Du kan inaktivera dessa spårningar `--disable-http-traces` med när `azds up`du kör.
 
 Om du avbryter `azds up` kommandot med *CTRL + c*fortsätter tjänsten att köras i AKS och den offentliga URL: en är tillgänglig.
 

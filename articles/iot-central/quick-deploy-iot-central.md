@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: corywink
-ms.openlocfilehash: 0d5f04d9c0cc6dcd8a784ae7a816d93e2aab30aa
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: eb6759d95ab0fb7afd3b6179babf052dfb029ff2
+ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70099475"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70873441"
 ---
 # <a name="create-an-azure-iot-central-application"></a>Skapa ett Azure IoT Central-program
 
@@ -37,7 +37,7 @@ Skapa ett nytt Azure IoT Central-program:
    - **Betala per användning**-program debiteras per enhet, och de fem första enheterna är kostnadsfria. Om du skapar ett program **enligt principen betala per** användning måste du välja din *katalog*, Azure- *prenumeration*och *region*:
       - *Directory* är Azure Active Directory (AD) för att skapa ditt program. Den innehåller användaridentiteter, autentiseringsuppgifter och övrig organisatorisk information. Om du inte har en Azure AD skapas en åt dig när du skapar en Azure-prenumeration.
       - Med en *Azure-prenumeration* kan du skapa instanser av Azure-tjänster. IoT Central etablerar resurser i din prenumeration. Om du inte har någon Azure-prenumeration kan du skapa en på [Azures registreringssida](https://aka.ms/createazuresubscription). När du har skapat Azure-prenumerationen kan du gå tillbaka till sidan **Skapa program**. Din nya prenumeration visas i listrutan **Azure-prenumeration**.
-      - *Region* är den fysiska platsen där du vill skapa ditt program. Normalt bör du välja den region som är fysiskt närmast dina enheter för att få bästa möjliga prestanda. Du kan se regionerna där Azure IoT Central är tillgängligt på sidan [Produkttillgänglighet per region](https://azure.microsoft.com/regions/services/). När du har valt en region kan du inte senare flytta programmet till en annan region.
+      - *Region* är den fysiska plats eller det [geografiskt](https://azure.microsoft.com/global-infrastructure/geographies/) område där du vill skapa ditt program. Normalt bör du välja den region som är fysiskt närmast dina enheter för att få optimala prestanda. Du kan se de regioner där Azure IoT Central är tillgängligt på sidan [produkter som är tillgängliga efter region](https://azure.microsoft.com/global-infrastructure/services/?products=iot-central) . När du har valt en region kan du inte senare flytta programmet till en annan region.
 
       Läs mer om prissättning på [sidan med prisinformation för Azure IoT Central.](https://azure.microsoft.com/pricing/details/iot-central/)
 

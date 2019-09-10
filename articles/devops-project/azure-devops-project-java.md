@@ -15,18 +15,18 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 07/09/2018
 ms.author: mlearned
-ms.custom: mvc, seo-java-july2019, seo-java-august2019
+ms.custom: mvc, seo-java-july2019, seo-java-august2019, seo-java-september2019
 monikerRange: vsts
-ms.openlocfilehash: 381af2989a7622501462e574d05b54eea8416518
-ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
+ms.openlocfilehash: a3b57fd7acba4d45b0bd519a21ae74f91291fd77
+ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69543436"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70873232"
 ---
 # <a name="quickstart-set-up-a-cicd-pipeline-for-a-java-app-with-azure-devops-projects"></a>Snabbstart: Konfigurera en CI/CD-pipeline för en Java-app med Azure DevOps Projects
 
-Azure DevOps Projects ger ett förenklat sätt att skapa Azure-resurser och konfigurerar en pipeline för kontinuerlig integrering (CI) och kontinuerlig leverans (CD) för din Java-app i Azure Pipelines.  
+I den här snabb starts artikeln använder du Azure DevOps Projects "förenklad erfarenhet" för att skapa en pipeline för kontinuerlig integrering (CI) och kontinuerlig leverans (CD) för din Java-app i Azure-pipelines. Du kan också använda Azure DevOps Projects för att skapa andra Azure-resurser.  
 
 Om du inte har en Azure-prenumeration kan du skaffa en kostnadsfritt via [Visual Studio Dev Essentials](https://visualstudio.microsoft.com/dev-essentials/).
 

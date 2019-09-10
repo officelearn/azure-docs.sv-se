@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
 manager: philmea
-ms.openlocfilehash: 56a73449c69010bc97122023f7dcbc9e3a9df154
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.openlocfilehash: 27063702729d8a61ab8919c2685fcfc6f743ce09
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70047999"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70858989"
 ---
 # <a name="what-is-iot-plug-and-play-preview"></a>Vad är IoT Plug and Play Preview?
 
@@ -63,7 +63,7 @@ Som enhets utvecklare kan du utveckla en IoT-maskin vara som stöder IoT Plug an
 
 1. Redigera enhets program varan eller den inbyggda program varan som implementerar de funktioner som deklareras i enhetens kapacitets modell och gränssnitt. Azure IoT SDK innehåller API: er för att implementera enhets kapacitets modeller.
 
-[IoT Device Workbench för vs Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.vscode-iot-workbench) -tillägget innehåller många funktioner som hjälper dig. Som enhets utvecklare kan du till exempel använda tillägget för att generera ett Skeleton C-projekt från en kapacitets modell. Du kan dock använda valfri IDE för att redigera och implementera enhets kapacitets modeller.
+[Azure IoT Tools för vs Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) Extension Pack innehåller många funktioner som hjälper dig. Som enhets utvecklare kan du till exempel använda ett tillägg för att generera ett Skeleton C-projekt från en kapacitets modell. Du kan dock använda valfri IDE för att redigera och implementera enhets kapacitets modeller.
 
 ## <a name="certify-an-iot-plug-and-play-device"></a>Certifiera en IoT Plug and Play-enhet
 
@@ -76,6 +76,7 @@ Som enhets utvecklare kan du skicka IoT-maskinvaruprodukter för certifiering. D
 - Publicera till den certifierade katalogen för IoT-enheter.
 
 ## <a name="regional-availability"></a>Regional tillgänglighet
+
 Under den offentliga för hands versionen är IoT Plug and Play tillgängligt i regionerna Nord Europa, centrala USA och Japan, östra. Se till att du skapar navet i någon av dessa regioner.
 
 ## <a name="message-quotas-in-iot-hub"></a>Meddelande kvoter i IoT Hub

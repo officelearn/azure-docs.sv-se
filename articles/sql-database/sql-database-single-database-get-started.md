@@ -10,13 +10,13 @@ ms.topic: quickstart
 author: sachinpMSFT
 ms.author: ninarn
 ms.reviewer: carlrab, sstein
-ms.date: 07/29/2019
-ms.openlocfilehash: f9c2ed77075affdfdf464dbf8a468629fc2e610d
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.date: 09/09/2019
+ms.openlocfilehash: 831ebbd3f85ffa9b78ac3e97a6ec68a8c41bceb5
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68640064"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70845289"
 ---
 # <a name="quickstart-create-a-single-database-in-azure-sql-database-using-the-azure-portal-powershell-and-azure-cli"></a>Snabbstart: Skapa en enskild databas i Azure SQL Database med hjälp av Azure Portal, PowerShell och Azure CLI
 
@@ -30,8 +30,8 @@ Logga in på [Azure Portal](https://portal.azure.com/) för alla steg i den här
 
 En enskild databas kan antingen skapas i beräknings nivån etablerade eller utan server (för hands version).
 
-- En enskild databas i den etablerade beräknings nivån har en definierad mängd förallokerade beräknings resurser plus en uppsättning minnes-och lagrings resurser som använder en av två [inköps modeller](sql-database-purchase-models.md).
-- En enkel databas i en server lös beräknings nivå har ett intervall med beräknings resurser som skalas automatiskt plus en viss mängd minne per kärna och en angiven mängd lagrings resurser och är bara tillgänglig i [vCore-baserade inköps modeller](sql-database-service-tiers-vcore.md).
+- En enda databas i den allokerade beräknings nivån är i förväg allokerad en fast mängd beräknings resurser, inklusive processor och minne, med hjälp av en av två [inköps modeller](sql-database-purchase-models.md).
+- En enkel databas i en server lös beräknings nivå har ett intervall med beräknings resurser, inklusive CPU och minne som skalas automatiskt och som endast är tillgängligt i [vCore-baserade inköps modeller](sql-database-service-tiers-vcore.md).
 
 När du skapar en enkel databas definierar du även en [SQL Database-server](sql-database-servers.md) för att hantera den och placera den i en [Azure-resursgrupp](../azure-resource-manager/resource-group-overview.md) i en specifik region.
 

@@ -9,12 +9,12 @@ author: j-martens
 ms.author: jmartens
 ms.date: 08/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 822bbd004035d9745535942c508cae6702e5b99b
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: 99514002f0a259b7e981c2db498e72865d4f1bd4
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70278116"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70858650"
 ---
 # <a name="what-is-azure-machine-learning-service"></a>Vad är tjänsten Azure Machine Learning?
 
@@ -32,7 +32,7 @@ Tjänsten Azure Machine Learning tillhandahåller en molnbaserad miljö som du k
 
 Utforska och Förbered data, träna och testa modeller och distribuera dem med hjälp av omfattande verktyg som:
 + Ett [visuellt gränssnitt](ui-tutorial-automobile-price-train-score.md) där du kan dra-n-släpp-moduler för att bygga experiment och sedan distribuera modeller
-+ [Jupyter-anteckningsböcker](https://jupyter.org) där du använder [SDK](https://docs.microsoft.com/azure/machine-learning/service/#reference) : er för att skriva din egen kod, till exempel [de här exempel antecknings böckerna](https://aka.ms/aml-notebooks)
++ [Jupyter-anteckningsböcker](https://jupyter.org) där du använder [SDK](https://docs.microsoft.com/azure/machine-learning) : er för att skriva din egen kod, till exempel [de här exempel antecknings böckerna](https://aka.ms/aml-notebooks)
 + [Visual Studio Code-tillägg](how-to-vscode-tools.md)
 
 
@@ -66,7 +66,7 @@ Prova följande för kod fri utbildning:
 
 När du har rätt modell kan du enkelt använda den i en webb tjänst, på en IoT-enhet eller från Power BI. Mer information finns i artikeln om [hur och var man distribuerar](how-to-deploy-and-where.md).
 
-Du kan sedan hantera dina distribuerade modeller med hjälp av [Azure Machine Learning SDK för Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) eller [Azure-portalen](https://portal.azure.com/).
+Sedan kan du hantera dina distribuerade modeller med hjälp av [Azure Machine Learning SDK för python](https://aka.ms/aml-sdk), [Azure Portal](https://portal.azure.com/) eller din [arbets ytans landnings sida (för hands version)](https://ml.azure.com).
 
 Dessa modeller kan förbrukas och returnera förutsägelser i [real tid](how-to-consume-web-service.md) eller [asynkront](how-to-run-batch-predictions.md) på stora mängder data.
 
@@ -93,7 +93,7 @@ Här är en snabb jämförelse.
 |Moduler för gränssnitt| Mycket | Inledande uppsättning populära moduler|
 |Inlärnings mål| Patentskyddat beräknings mål, endast CPU-stöd| Stöder Azure Machine Learning Compute, GPU eller CPU.<br/>(Andra beräkningar som stöds i SDK)|
 |Beräknings mål för distribution| Eget webb tjänst format, inte anpassningsbart | Företags säkerhets alternativ & Azure Kubernetes-tjänsten. <br/>([Andra beräkningar](how-to-deploy-and-where.md) som stöds i SDK) |
-|Automatisk modell inlärning och inställning för att justera dem | Nej | Ännu inte i Visual Interface. <br/> (Stöds i SDK och Azure Portal.) |
+|Automatisk modell inlärning och inställning för att justera dem | Nej | Ännu inte i Visual Interface. <br/> (Stöds på sidan SDK och Azure Portal/Workspace vilplan.) |
 
 Prova Visual Interface (för hands version) med [Självstudier: Förutsäg bil priset med det visuella gränssnittet](ui-tutorial-automobile-price-train-score.md).
 

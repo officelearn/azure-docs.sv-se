@@ -10,12 +10,12 @@ ms.topic: quickstart
 description: Team Kubernetes-utveckling med behållare och mikrotjänster på Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes service, Containers, Helm, service nät, service nät-routning, kubectl, K8s
 manager: gwallace
-ms.openlocfilehash: f4a0a4858c890c94e3983c3dc9b10d739dc1352d
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.openlocfilehash: 0abfe655e30b62829a7d353b6da85bb51e378f6d
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70772571"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70842598"
 ---
 # <a name="quickstart-team-development-on-kubernetes-using-azure-dev-spaces"></a>Snabbstart: Grupp utveckling på Kubernetes med hjälp av Azure dev Spaces
 
@@ -146,12 +146,12 @@ Använd kommandot för att lista alla dev Spaces och Confirm *dev/azureuser2* ä
 
 ```cmd
 $ azds space list
-Name            Selected
---------------  --------
-default         False
-dev             False
-dev/azureuser1  False
-dev/azureuser2  True
+   Name            DevSpacesEnabled
+-  --------------  ----------------
+   default         False
+   dev             True
+   dev/azureuser1  True
+*  dev/azureuser2  True
 ```
 
 Använd för att visa URL: erna för exempel programmet i det valda utrymmet som är *dev/azureuser2.* `azds list-uris`
@@ -201,6 +201,9 @@ Det här kommandot skapar och kör *bikesharingweb* -tjänsten i dev */azureuser
 Navigera till *bikesharingweb* -tjänsten för *dev/azureuser2* dev-utrymmet genom att öppna den offentliga URL: en som visas i `azds up` kommandots utdata. Välj *Aurelia Briggs (kund)* som användare. Kontrol lera att den uppdaterade texten finns i det övre högra hörnet. Du kan behöva uppdatera sidan eller rensa webbläsarens cacheminne om du inte omedelbart ser den här ändringen.
 
 ![Azure dev Spaces cykel delning exempel program uppdaterat](media/quickstart-team-development/bikeshare-update.png)
+
+> [!NOTE]
+> När du navigerar till tjänsten när du `azds up`kör, visas även spårningen `azds up` av HTTP-begäranden i kommandots utdata. De här spårningarna kan hjälpa dig att felsöka och felsöka tjänsten. Du kan inaktivera dessa spårningar `--disable-http-traces` med när `azds up`du kör.
 
 ## <a name="verify-other-dev-spaces-are-unchanged"></a>Kontrol lera att andra dev-rymder är oförändrade
 

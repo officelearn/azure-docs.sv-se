@@ -9,12 +9,12 @@ ms.service: azure-functions
 ms.custom: mvc
 ms.devlang: python
 manager: gwallace
-ms.openlocfilehash: 98cb6d8eb665121e5991508056aa2fd9edc0629d
-ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
+ms.openlocfilehash: 28169bfb8dead65c543a3752a709f33487854e60
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70376049"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70844740"
 ---
 # <a name="create-an-http-triggered-function-in-azure"></a>Skapa en HTTP-utlöst funktion i Azure
 
@@ -38,7 +38,13 @@ Innan du börjar måste du ha följande:
 
 ## <a name="create-and-activate-a-virtual-environment-optional"></a>Skapa och aktivera en virtuell miljö (valfritt)
 
-För att lokalt utveckla och testa python-funktioner rekommenderar vi att du använder en python 3,6-miljö. Kör följande kommandon för att skapa och aktivera en virtuell miljö med namnet `.venv`. Om du vill installera venv följer du kommandot: sudo apt-get install python3-venv
+För att lokalt utveckla och testa python-funktioner rekommenderar vi att du använder en python 3,6-miljö. Kör följande kommandon för att skapa och aktivera en virtuell miljö med namnet `.venv`. 
+
+> [!NOTE]
+> Om python inte har installerat venv på din Linux-distribution kan du installera det med hjälp av följande kommando:
+> ```command
+> sudo apt-get install python3-venv
+>
 
 ### <a name="bash"></a>Bash
 

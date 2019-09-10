@@ -6,14 +6,14 @@ ms.service: hpc-cache
 ms.topic: overview
 ms.date: 09/06/2019
 ms.author: v-erkell
-ms.openlocfilehash: da853cd92797c6ec778043ddc39c7854d8f5e832
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.openlocfilehash: d772f66d14e0c0ab5ac73603e8faeb7e31e9891f
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70774723"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70843774"
 ---
-# <a name="what-is-azure-hpc-cache"></a>Vad är Azure HPC-cache?
+# <a name="what-is-azure-hpc-cache"></a>Vad är Azure HPC Cache?
 
 Azure HPC cache ger åtkomst till dina data för HPC-uppgifter (data behandling med höga prestanda). Genom cachelagring av filer i Azure blir det skalbart för moln data behandling tillgängliga även för arbets flöden där dina data lagras i WAN-länkar, t. ex. i din lokala NAS-miljö (Network-Attached Storage).
 
@@ -56,10 +56,10 @@ Azure HPC-cache är tillgängligt i följande Azure-regioner:
 * Sydostasien
 * Västra USA 2
 
-På [produkt sidan för Azure HPC cache](<https://azure.microsoft.com/services/hpc-cache>) finns den senaste tillgängliga informationen.
+På [produkt sidan för Azure HPC cache](https://azure.microsoft.com/services/hpc-cache) finns den senaste tillgängliga informationen.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Läs mer om funktionerna i [produkt sidan för Azure HPC cache](<https://azure.microsoft.com/services/hpc-cache>)
+* Läs mer om funktionerna i [produkt sidan för Azure HPC cache](https://azure.microsoft.com/services/hpc-cache)
 * Läs om produkt [krav](hpc-cache-prereqs.md)
 * [Skapa en Azure HPC-cache](hpc-cache-create.md) från Azure Portal

@@ -4,13 +4,13 @@ title: Dokumentation om Key Vault
 metadata:
   title: 'Dokumentation om Azure Key Vault – Självstudier, API-referens | Microsoft Docs'
   meta.description: 'Learn how to use Key Vault to create and maintain keys that access and encrypt your cloud resources, apps, and solutions. Tutorials, API references, and more.'
-  author: barclayn
-  manager: barbkess
+  author: msmbaldwin
+  manager: rkarlin
   layout: LandingPage
   ms.service: key-vault
   ms.topic: landing-page
   ms.date: 09/14/2018
-  ms.author: barclayn
+  ms.author: mbaldwin
 abstract:
   description: 'Lär dig hur du använder Key Vault för att skydda och hantera krypteringsnycklar och hemligheter som används av molnprogram och molntjänster. Självstudier, API-referenser och annan dokumentation visar hur du skapar och underhåller nycklar och hemligheter som ger åtkomst till och krypterar dina resurser och lösningar.'
 sections:

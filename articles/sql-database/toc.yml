@@ -333,7 +333,7 @@
             - name: TDE med Bring Your Own Key
               href: transparent-data-encryption-byok-azure-sql.md
         - name: Säkerhetsattribut
-          href: sql-database-security-attributes.md
+          href: sql-database-security-controls.md
         - name: Funktionsbegränsningar
           href: sql-database-feature-restrictions.md
     - name: Skalbarhet
@@ -512,6 +512,8 @@
           href: sql-database-managed-instance-migrate.md
         - name: Migrera transparent datakrypteringscertifikat till hanterad instans
           href: sql-database-managed-instance-migrate-tde-certificate.md
+        - name: Återställning till tidpunkt
+          href: sql-database-managed-instance-point-in-time-restore.md
         - name: Avgöra storleken på undernätet för en hanterad instans
           href: sql-database-managed-instance-determine-size-vnet-subnet.md
         - name: Skapa ett nytt virtuellt nätverk och undernät för en hanterad instans
@@ -534,8 +536,6 @@
           href: sql-database-managed-instance-connect-app.md
     - name: Läs in och flytta data
       items:
-        - name: Återställning till tidpunkt
-          href: sql-database-managed-instance-point-in-time-restore.md
         - name: Flytta en resurs till en ny region
           href: sql-database-move-resources-across-regions.md
         - name: Kopiera en databas i Azure

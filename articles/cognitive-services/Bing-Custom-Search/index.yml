@@ -6,14 +6,14 @@ metadata:
   titleSuffix: Azure Cognitive Services
   description: 'Lär dig hur du använder portalen för anpassad Bing-sökning och API:et för att skapa anpassade sökupplevelser'
   services: cognitive-services
-  author: v-deken
+  author: aahill
   manager: nitinme
   layout: LandingPage
   ms.service: cognitive-services
   ms.subservice: bing-custom-search
   ms.topic: landing-page
   ms.date: 07/25/2019
-  ms.author: v-deken
+  ms.author: aahill
 abstract:
   description: 'Använd API:et för anpassad Bing-sökning för att skapa en sökinstans om ämnen som intresserar dig. Ange de domäner och webbsidor som ska genomsökas och justera sökrangordningen för att anpassa din sökning fullständigt.'
 sections:

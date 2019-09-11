@@ -8,13 +8,13 @@
     - name: 'Välja blobar, filer eller diskar'
       href: ./common/storage-decide-blobs-files-disks.md
 - name: Blobar
-  href: ./blobs/storage-blobs-overview.md
+  href: ./blobs/index.yml
 - name: Data Lake Storage Gen2
-  href: ./blobs/data-lake-storage-introduction.md
+  href: ./blobs/index.yml
 - name: Filer
-  href: ./files/storage-files-introduction.md
+  href: ./files/index.yml
 - name: Köer
-  href: ./queues/storage-queues-introduction.md
+  href: ./queues/index.yml
 - name: Tabeller
   href: ./tables/table-storage-overview.md
 - name: Diskar

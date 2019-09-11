@@ -1,31 +1,31 @@
 ---
-title: Distribuera och konfigurera Azure-brandväggen med hjälp av Azure CLI
+title: Distribuera och konfigurera Azure-brandväggen med Azure CLI
 description: I den här artikeln får du lära dig hur du distribuerar och konfigurerar Azure-brandväggen med hjälp av Azure CLI.
 services: firewall
 author: vhorne
 ms.service: firewall
-ms.date: 7/10/2019
+ms.date: 08/29/2019
 ms.author: victorh
 ms.topic: article
-ms.openlocfilehash: 24954eecde58c978fa3e14bb3a2d411d708687a3
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 94db17405457be91795d1588bee68a0deea68246
+ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67707152"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70114812"
 ---
-# <a name="deploy-and-configure-azure-firewall-using-azure-cli"></a>Distribuera och konfigurera Azure-brandväggen med hjälp av Azure CLI
+# <a name="deploy-and-configure-azure-firewall-using-azure-cli"></a>Distribuera och konfigurera Azure-brandväggen med Azure CLI
 
-En viktig del av en övergripande säkerhetsplan för nätverket är att kontrollera utgående nätverksåtkomst. Du kan till exempel vill begränsa åtkomsten till webbplatser. Eller du kanske vill begränsa de utgående IP-adresser och portar som kan nås.
+En viktig del av en övergripande säkerhetsplan för nätverket är att kontrollera utgående nätverksåtkomst. Du kanske till exempel vill begränsa åtkomsten till webbplatser. Eller så kanske du vill begränsa de utgående IP-adresserna och portarna som kan nås.
 
 Med Azure Firewall kan du kontrollera åtkomsten till utgående nätverk från ett Azure-undernät. Med Azure Firewall kan du konfigurera:
 
-* Programreglerna som definierar fullständigt kvalificerade domännamn (FQDN) kan nås från ett undernät. Det fullständiga Domännamnet kan också [omfattar SQL-instanser](sql-fqdn-filtering.md).
+* Programreglerna som definierar fullständigt kvalificerade domännamn (FQDN) kan nås från ett undernät. FQDN kan även [innehålla SQL-instanser](sql-fqdn-filtering.md).
 * Nätverksregler som definierar källadress, protokoll, målport och måladress.
 
 Nätverkstrafiken måste följa konfigurerade brandväggsregler när du vidarebefordrar den till brandväggen som standardgateway för undernätet.
 
-I den här artikeln skapar du en förenklad enskilt virtuellt nätverk med tre undernät för enkel distribution. Vid Produktionsdistribution måste en [NAV och ekrar modellen](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) rekommenderas. Brandväggen är i ett eget virtuellt nätverk. Arbetsbelastningen-servrar finns i peerkopplade virtuella nätverk i samma region med en eller flera undernät.
+I den här artikeln skapar du ett förenklat enda VNet med tre undernät för enkel distribution. För produktions distributioner rekommenderas en [nav-och ekrars modell](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) . Brand väggen finns i ett eget VNet. Arbets belastnings servrarna finns i peer-virtuella nätverk i samma region med ett eller flera undernät.
 
 * **AzureFirewallSubnet** – brandväggen ligger i det här undernätet.
 * **Workload-SN** – arbetsbelastningsservern ligger i det här undernätet. Det här undernätets nätverkstrafik går genom brandväggen.
@@ -39,11 +39,11 @@ I den här artikeln kan du se hur du:
 > * konfigurera en testnätverksmiljö
 > * distribuera en brandvägg
 > * Skapa en standardväg
-> * Konfigurera en regel för programmet för att tillåta åtkomst till www.google.com
+> * Konfigurera en program regel för att tillåta åtkomst till www.google.com
 > * Konfigurera en nätverksregel för att tillåta åtkomst till externa DNS-servrar
 > * Testa brandväggen
 
-Om du vill kan du slutföra den här proceduren med den [Azure-portalen](tutorial-firewall-deploy-portal.md) eller [Azure PowerShell](deploy-ps.md).
+Om du vill kan du slutföra den här proceduren med hjälp av [Azure Portal](tutorial-firewall-deploy-portal.md) eller [Azure PowerShell](deploy-ps.md).
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
@@ -55,7 +55,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 Om du väljer att installera och använda CLI lokalt kör du Azure CLI version 2.0.4 eller senare. Du kan ta reda på versionen genom att köra **az --version**. Information om att installera eller uppgradera finns i [Installera Azure CLI]( /cli/azure/install-azure-cli).
 
-Installera tillägget Azure brandvägg:
+Installera Azure Firewall-tillägget:
 
 ```azurecli-interactive
 az extension add -n azure-firewall
@@ -68,7 +68,7 @@ Skapa först en resursgrupp som ska innehålla de resurser som behövs till att 
 
 ### <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
-Resursgruppen innehåller alla resurser för distributionen.
+Resurs gruppen innehåller alla resurser för distributionen.
 
 ```azurecli-interactive
 az group create --name Test-FW-RG --location eastus
@@ -76,10 +76,10 @@ az group create --name Test-FW-RG --location eastus
 
 ### <a name="create-a-vnet"></a>Skapa ett virtuellt nätverk
 
-Den här virtuella nätverket har tre undernät.
+Det här virtuella nätverket har tre undernät.
 
 > [!NOTE]
-> Den minsta storleken på AzureFirewallSubnet-undernätet är /26.
+> Storleken på AzureFirewallSubnet-undernätet är/26. Mer information om under näts storleken finns i [vanliga frågor och svar om Azure Firewall](firewall-faq.md#why-does-azure-firewall-need-a-26-subnet-size).
 
 ```azurecli-interactive
 az network vnet create \
@@ -88,7 +88,7 @@ az network vnet create \
   --location eastus \
   --address-prefix 10.0.0.0/16 \
   --subnet-name AzureFirewallSubnet \
-  --subnet-prefix 10.0.1.0/24
+  --subnet-prefix 10.0.1.0/26
 az network vnet subnet create \
   --name Workload-SN \
   --resource-group Test-FW-RG \
@@ -104,9 +104,9 @@ az network vnet subnet create \
 ### <a name="create-virtual-machines"></a>Skapa virtuella datorer
 
 Skapa nu de virtuella hopp- och arbetsbelastningsdatorerna och placera dem i respektive undernät.
-När du uppmanas ange ett lösenord för den virtuella datorn.
+När du uppmanas till det anger du ett lösen ord för den virtuella datorn.
 
-Skapa Srv-Jump-dator.
+Skapa den virtuella datorn för SRV-hopp.
 
 ```azurecli-interactive
 az vm create \
@@ -122,7 +122,7 @@ az vm open-port --port 3389 --resource-group Test-FW-RG --name Srv-Jump
 
 
 
-Skapa ett nätverkskort för Srv-fungerar med specifika IP-adresser för DNS-servrar och ingen offentlig IP-adress för att testa med.
+Skapa ett nätverkskort för SRV-arbete med vissa DNS-Server-IP-adresser och ingen offentlig IP-adress att testa med.
 
 ```azurecli-interactive
 az network nic create \
@@ -134,8 +134,8 @@ az network nic create \
    --dns-servers 209.244.0.3 209.244.0.4
 ```
 
-Nu ska du skapa den virtuella datorn för arbetsbelastning.
-När du uppmanas ange ett lösenord för den virtuella datorn.
+Nu skapar du den virtuella arbets belastnings datorn.
+När du uppmanas till det anger du ett lösen ord för den virtuella datorn.
 
 ```azurecli-interactive
 az vm create \
@@ -149,7 +149,7 @@ az vm create \
 
 ## <a name="deploy-the-firewall"></a>Distribuera brandväggen
 
-Distribuera nu brandväggen i det virtuella nätverket.
+Distribuera nu brand väggen till det virtuella nätverket.
 
 ```azurecli-interactive
 az network firewall create \
@@ -181,7 +181,7 @@ Skriv ned den privata IP-adressen. Du kommer att använda den senare när du ska
 
 ## <a name="create-a-default-route"></a>Skapa en standardväg
 
-Skapa en tabell med BGP-spridning inaktiverad
+Skapa en tabell med avaktiverad BGP Route-spridning
 
 ```azurecli-interactive
 az network route-table create \
@@ -191,7 +191,7 @@ az network route-table create \
     --disable-bgp-route-propagation true
 ```
 
-Skapa flödet.
+Skapa vägen.
 
 ```azurecli-interactive
 az network route-table route create \
@@ -203,7 +203,7 @@ az network route-table route create \
   --next-hop-ip-address $fwprivaddr
 ```
 
-Associera routningstabellen till undernätet
+Koppla routningstabellen till under nätet
 
 ```azurecli-interactive
 az network vnet subnet update \
@@ -216,7 +216,7 @@ az network vnet subnet update \
 
 ## <a name="configure-an-application-rule"></a>Konfigurera en programregel
 
-Programmet regeln tillåter utgående åtkomst till www.google.com.
+Med program regeln tillåts utgående åtkomst till www.google.com.
 
 ```azurecli-interactive
 az network firewall application-rule create \
@@ -235,7 +235,7 @@ Azure Firewall innehåller en inbyggd regelsamling för fullständiga domännamn
 
 ## <a name="configure-a-network-rule"></a>Konfigurera en nätverksregel
 
-Nätverk regeln tillåter utgående åtkomst till två IP-adresser på port 53 (DNS).
+Nätverks regeln tillåter utgående åtkomst till två IP-adresser i port 53 (DNS).
 
 ```azurecli-interactive
 az network firewall network-rule create \
@@ -253,9 +253,9 @@ az network firewall network-rule create \
 
 ## <a name="test-the-firewall"></a>Testa brandväggen
 
-Testa nu brandväggen för att bekräfta att den fungerar som förväntat.
+Testa nu brand väggen för att bekräfta att den fungerar som förväntat.
 
-1. Observera den privata IP-adressen för den **Srv-arbete** virtuell dator:
+1. Observera den privata IP-adressen för den virtuella **SRV-Work-** datorn:
 
    ```azurecli-interactive
    az vm list-ip-addresses \
@@ -263,16 +263,16 @@ Testa nu brandväggen för att bekräfta att den fungerar som förväntat.
    -n Srv-Work
    ```
 
-1. Ansluta ett fjärrskrivbord till **Srv-Jump** virtuella datorn och logga in. Därifrån kan du öppna en fjärrskrivbordsanslutning till den **Srv-arbete** privata IP-adress och logga in.
+1. Anslut ett fjärr skrivbord till en virtuell dator med **SRV-hopp** och logga in. Därifrån öppnar du en fjärr skrivbords anslutning till den privata IP-adressen för **SRV-arbete** och loggar in.
 
-3. På **SRV-arbete**, öppna ett PowerShell-fönster och kör följande kommandon:
+3. Öppna ett PowerShell-fönster i **SRV-arbete**och kör följande kommandon:
 
    ```
    nslookup www.google.com
    nslookup www.microsoft.com
    ```
 
-   Bägge kommandona ska returnera svar, som visar att DNS-frågor får genom brandväggen.
+   Båda kommandona ska returnera svar, vilket visar att dina DNS-frågor går igenom brand väggen.
 
 1. Kör följande kommandon:
 
@@ -284,16 +284,16 @@ Testa nu brandväggen för att bekräfta att den fungerar som förväntat.
    Invoke-WebRequest -Uri https://www.microsoft.com
    ```
 
-   [www.google.com](www.google.com) begäranden ska lyckas och www.microsoft.com -begäranden ska misslyckas. Detta demonstrerar att brandväggsreglerna fungerar som förväntat.
+   [www.google.com](www.google.com) begäranden ska lyckas och www.microsoft.com -begäranden ska misslyckas. Detta visar att brand Väggs reglerna fungerar som förväntat.
 
-Nu har du kontrollera att brandväggsreglerna fungerar:
+Nu har du verifierat att brand Väggs reglerna fungerar:
 
 * Du kan omvandla DNS-namn med hjälp av den konfigurerade externa DNS-servern.
 * Du kan bläddra till en tillåten FQDN, men inte till andra.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Du kan behålla resurserna i brandväggen för nästa självstudie, eller om du inte längre behövs kan du ta bort den **Test-VB-RG** resursgrupp för att ta bort alla brandväggen-relaterade resurser:
+Du kan behålla dina brand Väggs resurser för nästa självstudie eller, om du inte längre behöver, ta bort resurs gruppen **test-VB-RG** för att ta bort alla brand Väggs resurser:
 
 ```azurecli-interactive
 az group delete \

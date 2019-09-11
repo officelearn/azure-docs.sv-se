@@ -205,6 +205,8 @@
                       href: msal-net-system-browser-android-considerations.md
                     - name: Xamarin iOS
                       href: msal-net-xamarin-ios-considerations.md
+                    - name: Använda asynkrona meddelandeköer med Xamarin iOS och Android-appar
+                      href: msal-net-use-brokers-with-xamarin-apps.md
                     - name: Universell Windows-plattform
                       href: msal-net-uwp-considerations.md
                 - name: Hämta en token för appen
@@ -225,6 +227,8 @@
                   href: msal-net-migration.md
                 - name: Migrera till MSAL.js
                   href: msal-compare-msal-js-and-adal-js.md
+                - name: Migrera Xamarin-appar med hjälp av asynkrona meddelandeköer från ADAL.NET till MSAL.NET
+                  href: msal-net-migration-ios-broker.md
             - name: Autentiseringsflöden som stöds
               href: msal-authentication-flows.md
             - name: Hämta och cachelagra token

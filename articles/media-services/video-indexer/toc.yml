@@ -27,6 +27,8 @@
       items:
         - name: Översikt
           href: customize-content-models-overview.md
+        - name: Animerade tecken
+          href: animated-characters-recognition.md
         - name: Varumärken
           href: customize-brands-model-overview.md
         - name: Språk
@@ -45,8 +47,10 @@
       href: video-indexer-output-json-v2.md
     - name: Hitta exakta ögonblick i videor
       href: video-indexer-search.md
-    - name: 'Scener, klipp och nyckelbilder'
+    - name: 'Hitta scener, klipp och nyckelbilder'
       href: scenes-shots-keyframes.md
+    - name: Identifiera och transkribera innehåll på flera språk
+      href: multi-language-identification-transcription.md
     - name: Visa och redigera Video Indexer-insikter
       href: video-indexer-view-edit.md
     - name: Skapa projekt med redigeringsprogram
@@ -57,6 +61,8 @@
       href: video-indexer-disaster-recovery.md
     - name: Anpassa innehållsmodeller
       items:
+        - name: Animerade tecken
+          href: animated-characters-recognition.md
         - name: Person
           items:
             - name: använda Video Indexer-webbplatsen

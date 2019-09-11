@@ -6,6 +6,8 @@
       href: sql-database-technical-overview.md
     - name: Vilket SQL-alternativ ska jag välja?
       href: sql-database-paas-vs-sql-server-iaas.md
+    - name: Jämför funktioner
+      href: sql-database-features.md
     - name: Viktig information
       href: sql-database-release-notes.md
     - name: Migreringsuppdateringar för gateway-IP
@@ -390,10 +392,8 @@
               href: sql-database-advisor.md
     - name: Databasfunktioner
       items:
-        - name: Dokumentation om SQL Database-funktion
+        - name: Översikt
           href: sql-database-features-index.yml
-        - name: Jämförelse av SQL-funktioner
-          href: sql-database-features.md
         - name: Funktioner för flera modeller
           href: sql-database-multi-model-features.md
         - name: Minnesintern
@@ -534,6 +534,8 @@
           href: sql-database-managed-instance-connect-app.md
     - name: Läs in och flytta data
       items:
+        - name: Återställning till tidpunkt
+          href: sql-database-managed-instance-point-in-time-restore.md
         - name: Flytta en resurs till en ny region
           href: sql-database-move-resources-across-regions.md
         - name: Kopiera en databas i Azure

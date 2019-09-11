@@ -11,12 +11,12 @@ author: nacharya1
 ms.author: nilesha
 ms.date: 06/20/2019
 ms.custom: seodec18
-ms.openlocfilehash: c654da71a0c060a9344ef7d7d42b30263a7fb2db
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
-ms.translationtype: MT
+ms.openlocfilehash: 319871280b94f54b99f7a9957f671ec50122ebf3
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70165210"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70860906"
 ---
 # <a name="what-is-automated-machine-learning"></a>Vad är automatisk maskininlärning?
 
@@ -47,7 +47,7 @@ Med hjälp av **Azure Machine Learning tjänsten**kan du utforma och köra dina 
 
 1. **Konfigurera beräknings målet för modell träning**, till exempel din [lokala dator, Azure Machine Learning beräkningar, fjärranslutna virtuella datorer eller Azure Databricks](how-to-set-up-training-targets.md).  Lär dig mer om automatisk utbildning [på en fjär resurs](how-to-auto-train-remote.md).
 
-1. **Konfigurera de automatiserade Machine Learning-parametrarna** som avgör hur många iterationer över olika modeller, inställningar för funktionalisering, avancerade förbearbetnings-/och vilka mått som ska visas när du bestämmer den bästa modellen.  Du kan konfigurera inställningarna för automatisk inlärnings experiment [i Azure Portal](how-to-create-portal-experiments.md) eller [med SDK](how-to-configure-auto-train.md).
+1. **Konfigurera de automatiserade Machine Learning-parametrarna** som avgör hur många iterationer över olika modeller, inställningar för funktionalisering, avancerade förbearbetnings-/och vilka mått som ska visas när du bestämmer den bästa modellen.  Du kan konfigurera inställningarna för automatiskt utbildnings experiment i [Azure Portal](how-to-create-portal-experiments.md), [landnings sidan för arbets ytan (för hands version)](https://ml.azure.com)eller [med SDK](how-to-configure-auto-train.md). 
 
 1. **Skicka in utbildnings körningen.**
 
@@ -107,13 +107,13 @@ Automatisk Machine Learning stöder Ensemble-modeller som är aktiverade som sta
 * **Röstning**: förutsäger baserat på viktat medelvärde för förutsebara klass sannolikheter (för klassificerings aktiviteter) eller förutsägande Regressions mål (för Regressions aktiviteter).
 * **Stackning**: stackning kombinerar heterogena modeller och tågen en meta-modell som baseras på utdata från de enskilda modellerna. De aktuella standard-meta-modellerna är LogisticRegression för klassificerings uppgifter och ElasticNet för Regressions-/prognos uppgifter.
 
-[Caruana Ensemble](http://www.niculescu-mizil.org/papers/shotgun.icml04.revised.rev2.pdf) -algoritmen med sorterad Ensemble-initiering används för att bestämma vilka modeller som ska användas i ensemblen. På hög nivå initierar den här algoritmen ensemblen med upp till fem modeller med de bästa enskilda poängen och kontrollerar att dessa modeller är inom tröskelvärdet på 5% av det bästa resultatet för att undvika en dåligt inledande ensemble. För varje Ensemble-iteration läggs en ny modell till i den befintliga ensemblen och den resulterande poängen beräknas. Om en ny modell förbättrar den befintliga Ensemble-poängen uppdateras ensemblen för att inkludera den nya modellen.
+[Caruana Ensemble-algoritmen](http://www.niculescu-mizil.org/papers/shotgun.icml04.revised.rev2.pdf) med sorterad Ensemble-initiering används för att bestämma vilka modeller som ska användas i ensemblen. På hög nivå initierar den här algoritmen ensemblen med upp till fem modeller med de bästa enskilda poängen och kontrollerar att dessa modeller är inom tröskelvärdet på 5% av det bästa resultatet för att undvika en dåligt inledande ensemble. För varje Ensemble-iteration läggs en ny modell till i den befintliga ensemblen och den resulterande poängen beräknas. Om en ny modell förbättrar den befintliga Ensemble-poängen uppdateras ensemblen för att inkludera den nya modellen.
 
 Se [hur du](how-to-configure-auto-train.md#ensemble) ändrar standardinställningar för ensemble i automatiserad maskin inlärning.
 
 ## <a name="use-with-onnx-in-c-apps"></a>Använda med ONNX i C# appar
 
-Med Azure Machine Learning kan du använda automatisk ML för att bygga en python-modell och konvertera den till ONNX-format. ONNX runtime stöder C#, så du kan använda modellen som skapats automatiskt i dina C# appar utan att behöva koda om eller någon av nätverks fördröjningarna som rest-slutpunkter introducerar. Prova ett exempel på det här flödet [i den här Jupyter](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-with-onnx/auto-ml-classification-with-onnx.ipynb)-anteckningsboken.
+Med Azure Machine Learning kan du använda automatisk ML för att bygga en python-modell och konvertera den till ONNX-format. ONNX runtime stöder C#, så du kan använda modellen som skapats automatiskt i dina C# appar utan att behöva koda om eller någon av nätverks fördröjningarna som rest-slutpunkter introducerar. Prova ett exempel på det här flödet [i den här Jupyter-anteckningsboken](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-with-onnx/auto-ml-classification-with-onnx.ipynb).
 
 ## <a name="automated-ml-across-microsoft"></a>Automatiserad ML över Microsoft
 
@@ -133,7 +133,7 @@ Se exempel och lär dig hur du skapar modeller med hjälp av automatisk maskin i
 + [Följ självstudien: Träna en Regressions modell automatiskt med Azures automatiserade Machine Learning](tutorial-auto-train-models.md)
 
 + Konfigurera inställningarna för automatiskt utbildnings experiment:
-  + [Använd de här stegen](how-to-create-portal-experiments.md)i Azure Portal gränssnitt.
+  + [Använd de här stegen](how-to-create-portal-experiments.md)i Azure Portal gränssnitt eller landnings sidan för arbets ytan (för hands version).
   + [Använd de här stegen](how-to-configure-auto-train.md)med python SDK.
 
 + Lär dig hur du automatiskt tränar använda Time Series-data med hjälp av [de här stegen](how-to-auto-train-forecast.md).

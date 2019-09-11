@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.date: 04/29/2019
 ms.topic: conceptual
 ms.author: asgang
-ms.openlocfilehash: d479a568ddeac29be88d0709b7544ba645274afa
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: cd1c6cf0ff5a963720df7420a5d983d24e7b4d3e
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67875666"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70861386"
 ---
 # <a name="common-questions-azure-to-azure-disaster-recovery"></a>Vanliga frågor: Azure till Azure-haveriberedskap
 
@@ -41,7 +41,15 @@ Site Recoverys teamet arbetar med Azure Capacity Management-teamet för att plan
 ## <a name="replication"></a>Replikering
 
 ### <a name="can-i-replicate-vms-enabled-through-azure-disk-encryption"></a>Kan jag replikera virtuella datorer som är aktiverade via Azure Disk Encryption?
-Ja, du kan replikera dem. Se artikeln [Replikera Azure Disk Encryption-aktiverade virtuella datorer till en annan Azure-region](azure-to-azure-how-to-enable-replication-ade-vms.md). För närvarande stöder Azure Site Recovery bara virtuella Azure-datorer som kör ett Windows-operativsystem och som är aktiverat för kryptering med Azure Active Directory (Azure AD)-appar.
+
+Ja, Site Recovery stöder haveri beredskap för virtuella datorer med aktive rad Azure Disk Encryption (ADE). När du aktiverar replikering kopieras alla nödvändiga disk krypterings nycklar och hemligheter från käll regionen till mål regionen i användar kontexten. Om du inte har rätt behörighet kan du använda ett färdigt skript för säkerhets administratören för att kopiera nycklar och hemligheter.
+
+- Site Recovery stöder ADE för virtuella Azure-datorer som kör Windows.
+- Site Recovery stöder ADE version 0,1, med ett schema som använder Azure Active Directory (AAD) och version 1,1, utan AAD. [Läs mer](../virtual-machines/extensions/azure-disk-enc-windows.md#extension-schemata).
+- ADE version 1,1, de virtuella Windows-datorerna måste användas med hanterade diskar.
+- [Läs mer](azure-to-azure-how-to-enable-replication-ade-vms.md) om hur du aktiverar replikering för krypterade virtuella datorer.
+
+
 
 ### <a name="can-i-replicate-vms-to-another-subscription"></a>Kan jag replikera virtuella datorer till en annan prenumeration?
 Ja, du kan replikera virtuella Azure-datorer till en annan prenumeration inom samma Azure AD-klient.
@@ -195,7 +203,7 @@ Du kan utlösa en redundansväxling efter avbrottet. Site Recovery behöver inte
 ### <a name="what-is-a-rto-of-a-vm-failover-"></a>Vad är en RTO för en VM-redundans?
 Site Recovery har ett [RTO-SLA på 2 timmar](https://azure.microsoft.com/support/legal/sla/site-recovery/v1_2/). Men det mesta av tiden Site Recovery redundansväxla virtuella datorer på några minuter. Du kan beräkna RTO genom att gå till jobben med redundans som visar hur lång tid det tog att ta upp den virtuella datorn. För återställnings planens RTO, se avsnittet nedan.
 
-## <a name="recovery-plans"></a>Återställnings planer
+## <a name="recovery-plans"></a>Återställningsplaner
 
 ### <a name="what-is-a-recovery-plan"></a>Vad är en återställnings plan?
 En återställnings plan i Site Recovery dirigerar redundansväxlingen av virtuella datorer. Det hjälper dig att göra återställningen konsekvent korrekt, upprepnings bar och automatiserad. En återställnings plan hanterar följande behov för användaren:

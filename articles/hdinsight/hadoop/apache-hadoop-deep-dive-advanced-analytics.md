@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/14/2017
 ms.author: ashishth
-ms.openlocfilehash: 973ac928900cc02f176931ffa3865c2997e552f2
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
-ms.translationtype: MT
+ms.openlocfilehash: 882c52995d788b0cd65c71a935ab795a7e7d2f53
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70810844"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70882396"
 ---
 # <a name="deep-dive---advanced-analytics"></a>Djupgående avancerad analys
 
@@ -23,7 +23,7 @@ HDInsight ger möjlighet att få värdefulla insikter från stora mängder struk
 
 ## <a name="advanced-analytics-process"></a>Avancerad analys process
 
-![Process](./media/apache-hadoop-deep-dive-advanced-analytics/process.png)
+![Process](./media/apache-hadoop-deep-dive-advanced-analytics/hdinsight-analytic-process.png)
 
 När du har identifierat affärs problemet och har börjat samla in och bearbeta dina data, måste du skapa en modell som representerar den fråga som du vill förutsäga. Din modell kommer att använda en eller flera Machine Learning-algoritmer för att göra den typ av förutsägelse som passar dina affärs behov bäst.  Majoriteten av dina data bör användas för att träna din modell, med resten som används för att testa eller utvärdera den. 
 

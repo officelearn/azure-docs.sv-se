@@ -10,12 +10,12 @@ ms.subservice: core
 ms.reviewer: trbye
 ms.topic: conceptual
 ms.date: 06/20/2019
-ms.openlocfilehash: 2a037a495a1e1ed211bd9a535891ccf75fdb140b
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: e75de16d0e16bc639a0439220a1c9dfe53e1689b
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70278186"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70879055"
 ---
 # <a name="auto-train-a-time-series-forecast-model"></a>Automatisk träna en tids serie prognos modell
 
@@ -138,8 +138,12 @@ local_run = experiment.submit(automl_config, show_output=True)
 best_run, fitted_model = local_run.get_output()
 ```
 
-> [!NOTE]
-> Vid Cross-Validation (ka)-proceduren kan Time Series-data kränka de grundläggande statistiska antaganden för den kanoniska körningen av kors validerings strategin, så automatiserad maskin inlärning implementerar en rullande ursprungs validerings procedur för att skapa kors validerings vikning för Time Series-data. Om du vill använda den här proceduren `n_cross_validations` anger du parametern `AutoMLConfig` i objektet. Du kan kringgå valideringen och använda dina egna verifierings uppsättningar `X_valid` med `y_valid` parametrarna och.
+Se [antecknings boken för energi förbrukning](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-energy-demand/auto-ml-forecasting-energy-demand.ipynb) för detaljerade kod exempel för avancerad prognos konfiguration, inklusive:
+
+* jul avkänning och funktionalisering
+* kors validering av rullande ursprung
+* konfigurerbar lags
+* mängd funktioner för rullande fönster
 
 ### <a name="view-feature-engineering-summary"></a>Visa sammanfattning av funktions teknik
 

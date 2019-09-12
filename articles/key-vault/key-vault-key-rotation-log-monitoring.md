@@ -1,44 +1,44 @@
 ---
-title: Konfigurera Azure Key Vault med nyckelgranskning för slutpunkt till slutpunkt och | Microsoft Docs
-description: Använd den här guiden hjälper dig att konfigurera nyckelrotation och övervaka loggarna för nyckelvalvet.
+title: Konfigurera Azure Key Vault med nyckel rotation från slut punkt till slut punkt och granskning | Microsoft Docs
+description: Använd den här guiden för att hjälpa dig att konfigurera nyckel rotation och övervaka Key Vault-loggar.
 services: key-vault
-author: barclayn
-manager: barbkess
+author: msmbaldwin
+manager: rkarlin
 tags: ''
 ms.service: key-vault
 ms.topic: conceptual
 ms.date: 01/07/2019
-ms.author: barclayn
-ms.openlocfilehash: 20a170963ff4a8ff9cb69d3397e66e12c1047d16
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: mbaldwin
+ms.openlocfilehash: 1f60ce3a23882a48e6008b76c0eedcab99e013b2
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65561195"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70883461"
 ---
-# <a name="set-up-azure-key-vault-with-key-rotation-and-auditing"></a>Konfigurera Azure Key Vault med nyckelgranskning och -
+# <a name="set-up-azure-key-vault-with-key-rotation-and-auditing"></a>Konfigurera Azure Key Vault med nyckel rotation och granskning
 
 ## <a name="introduction"></a>Introduktion
 
-När du har ett nyckelvalv kan börja du använda det för att lagra nycklar och hemligheter. Dina program behöver inte längre att bevara dina nycklar eller hemligheter, men kan begära dem från valvet efter behov. Key vault kan du uppdatera nycklar och hemligheter utan att påverka beteendet för ditt program, vilket öppnar en bred möjligheterna för din nyckel och hemlighetshantering.
+När du har ett nyckel valv kan du börja använda det för att lagra nycklar och hemligheter. Dina program behöver inte längre Spara dina nycklar eller hemligheter, men kan begära dem från valvet efter behov. Med ett nyckel valv kan du uppdatera nycklar och hemligheter utan att påverka programmets beteende, vilket innebär att du kan öppna en mängd olika möjligheter för din nyckel och hemliga hantering.
 
 >[!IMPORTANT]
-> Exemplen i den här artikeln tillhandahålls enbart i illustrationssyfte. De är inte avsedda för användning i produktion. 
+> Exemplen i den här artikeln är endast avsedda som illustration. De är inte avsedda att användas för produktion. 
 
-Den här artikeln beskriver:
+Den här artikeln vägleder dig genom:
 
-- Ett exempel på hur du använder Azure Key Vault för att lagra en hemlighet. Den hemlighet som lagras är Azure storage-kontonyckel som används av ett program i den här artikeln. 
-- Så här implementerar du en schemalagd rotation för den lagringskontonyckeln.
-- Så här övervakar du nyckeln valv granskningsloggar och genererar aviseringar när oväntade begäranden görs.
+- Ett exempel på att använda Azure Key Vault för att lagra en hemlighet. I den här artikeln är hemligheten som lagras den Azure Storage-konto nyckel som används av ett program. 
+- Hur du implementerar en schemalagd rotation av lagrings konto nyckeln.
+- Så här övervakar du gransknings loggarna i Key Vault och genererar aviseringar när oväntade begär Anden görs.
 
 > [!NOTE]
-> Den här artikeln beskriver inte i detalj installationen av ditt nyckelvalv. Den här information finns i [vad är Azure Key Vault?](key-vault-overview.md). Anvisningar för plattformsoberoende kommandoradsgränssnitt finns i [hantera Nyckelvalv med hjälp av Azure CLI](key-vault-manage-with-cli2.md).
+> Den här artikeln beskriver inte den första konfigurationen av ditt nyckel valv. Mer information finns i [Vad är Azure Key Vault?](key-vault-overview.md). Instruktioner för plattforms oberoende kommando rads gränssnitt finns i [hantera Key Vault med Azure CLI](key-vault-manage-with-cli2.md).
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="set-up-key-vault"></a>Konfigurera Key Vault
 
-Om du vill aktivera ett program att hämta en hemlighet från Key Vault måste du först skapa hemligheten och överföra den till valvet.
+Om du vill aktivera ett program för att hämta en hemlighet från Key Vault måste du först skapa hemligheten och överföra den till ditt valv.
 
 Starta en Azure PowerShell-session och logga in på ditt Azure-konto med följande kommando:
 
@@ -46,27 +46,27 @@ Starta en Azure PowerShell-session och logga in på ditt Azure-konto med följan
 Connect-AzAccount
 ```
 
-I popup-fönstret, anger du användarnamnet och lösenordet för ditt Azure-konto. PowerShell får alla prenumerationer som är associerade med det här kontot. PowerShell använder den första som standard.
+I fönstret popup-webbläsare anger du användar namn och lösen ord för ditt Azure-konto. PowerShell kommer att hämta alla prenumerationer som är associerade med det här kontot. PowerShell använder som standard den första.
 
-Om du har flera prenumerationer kan behöva du ange det som användes för att skapa ett nyckelvalv. Ange följande för att visa prenumerationerna för ditt konto:
+Om du har flera prenumerationer kan du behöva ange den som användes för att skapa ett nyckel valv. Ange följande för att se prenumerationerna för ditt konto:
 
 ```powershell
 Get-AzSubscription
 ```
 
-Ange om du vill ange den prenumeration som är associerad med nyckelvalvet som du ska logga:
+Om du vill ange den prenumeration som är associerad med nyckel valvet loggar du in:
 
 ```powershell
 Set-AzContext -SubscriptionId <subscriptionID>
 ```
 
-Eftersom den här artikeln visar att lagra en lagringskontonyckel som en hemlighet, måste du hämta den lagringskontonyckeln.
+Eftersom den här artikeln visar hur du lagrar en lagrings konto nyckel som en hemlighet måste du hämta lagrings konto nyckeln.
 
 ```powershell
 Get-AzStorageAccountKey -ResourceGroupName <resourceGroupName> -Name <storageAccountName>
 ```
 
-När du hämtar din hemlighet (i det här fallet din lagringskontonyckel), måste du konvertera nyckeln till en säker sträng och sedan skapa en hemlighet med värdet i ditt nyckelvalv.
+När du har hämtat din hemlighet (i det här fallet din lagrings konto nyckel) måste du konvertera nyckeln till en säker sträng och sedan skapa en hemlighet med det värdet i nyckel valvet.
 
 ```powershell
 $secretvalue = ConvertTo-SecureString <storageAccountKey> -AsPlainText -Force
@@ -74,7 +74,7 @@ $secretvalue = ConvertTo-SecureString <storageAccountKey> -AsPlainText -Force
 Set-AzKeyVaultSecret -VaultName <vaultName> -Name <secretName> -SecretValue $secretvalue
 ```
 
-Hämta sedan URI: N för den hemlighet som du skapade. Du behöver den här URI: N i ett senare steg att anropa nyckelvalvet och hämta din hemlighet. Kör följande PowerShell-kommando och anteckna ID-värde, som är hemlighetens URI:
+Hämta sedan URI för hemligheten som du skapade. Du behöver denna URI i ett senare steg för att anropa nyckel valvet och hämta din hemlighet. Kör följande PowerShell-kommando och anteckna ID-värdet, vilket är hemlighetens URI:
 
 ```powershell
 Get-AzKeyVaultSecret –VaultName <vaultName>
@@ -82,36 +82,36 @@ Get-AzKeyVaultSecret –VaultName <vaultName>
 
 ## <a name="set-up-the-application"></a>Konfigurera programmet
 
-Du kan använda kod för att hämta och använda den när du har utfört några fler steg nu när du har en hemlighet som lagras.
+Nu när du har lagrat en hemlighet kan du använda kod för att hämta och använda den när du har utfört några fler steg.
 
-Du måste först registrera ditt program med Azure Active Directory. Sedan berätta för Key Vault information om ditt program så att den tillåter förfrågningar från ditt program.
+Först måste du registrera ditt program med Azure Active Directory. Se sedan Key Vault din programinformation så att den kan tillåta förfrågningar från ditt program.
 
 > [!NOTE]
-> Programmet måste skapas på samma Azure Active Directory-klient som ditt nyckelvalv.
+> Ditt program måste skapas på samma Azure Active Directory-klient som nyckel valvet.
 
 1. Öppna **Azure Active Directory**.
 2. Välj **Appregistreringar**. 
-3. Välj **ny programregistrering** lägga till ett program till Azure Active Directory.
+3. Välj **ny program registrering** för att lägga till ett program i Azure Active Directory.
 
     ![Öppna program i Azure Active Directory](./media/keyvault-keyrotation/azure-ad-application.png)
 
-4. Under **skapa**, lämna programtyp som **webbapp / API** och namnge ditt program. Ge ditt program en **inloggnings-URL**. Den här URL: en kan vara allt du vill använda för den här demon.
+4. Under **skapa**, låt program typen vara **Web App/API** och ge programmet ett namn. Ge ditt program en **inloggnings-URL**. Den här URL: en kan vara vad du vill för den här demon.
 
-    ![Skapa programregistrering](./media/keyvault-keyrotation/create-app.png)
+    ![Skapa program registrering](./media/keyvault-keyrotation/create-app.png)
 
-5. När programmet har lagts till i Azure Active Directory, öppnas appen på sidan. Välj **inställningar**, och välj sedan **egenskaper**. Kopiera den **program-ID** värde. Du behöver det i senare steg.
+5. När programmet har lagts till i Azure Active Directory öppnas sidan program. Välj **Inställningar**och välj sedan **Egenskaper**. Kopiera **programmets ID-** värde. Du behöver den i senare steg.
 
-Nu ska du generera en nyckel för ditt program så att den kan interagera med Azure Active Directory. Om du vill skapa en nyckel, Välj **nycklar** under **inställningar**. Anteckna den nyligen skapade nyckeln för ditt Azure Active Directory-program. Du behöver den senare. Nyckeln inte tillgängliga när du har lämnat det här avsnittet. 
+Sedan genererar du en nyckel för programmet så att det kan interagera med Azure Active Directory. Om du vill skapa en nyckel väljer du **nycklar** under **Inställningar**. Anteckna den nyligen genererade nyckeln för ditt Azure Active Directory-program. Du behöver den senare. Nyckeln är inte tillgänglig när du har lämnat det här avsnittet. 
 
-![Azure Active Directory-appnycklar](./media/keyvault-keyrotation/create-key.png)
+![Azure Active Directory app-nycklar](./media/keyvault-keyrotation/create-key.png)
 
-Innan du upprättar alla anrop från ditt program till nyckelvalvet måste du se nyckelvalvet om ditt program och dess behörigheter. Följande kommando använder valvnamnet och program-ID från din app i Azure Active Directory för att bevilja programmet **hämta** åtkomst till ditt nyckelvalv.
+Innan du upprättar några anrop från ditt program till nyckel valvet måste du meddela nyckel valvet om ditt program och dess behörigheter. Följande kommando använder valv namnet och program-ID: t från din Azure Active Directory-app för att ge **programmet åtkomst till ditt** nyckel valv.
 
 ```powershell
 Set-AzKeyVaultAccessPolicy -VaultName <vaultName> -ServicePrincipalName <clientIDfromAzureAD> -PermissionsToSecrets Get
 ```
 
-Du är nu redo att börja bygga dina program-anrop. I ditt program måste du installera NuGet-paket som krävs för att interagera med Azure Key Vault och Azure Active Directory. Ange följande kommandon från Visual Studio Package Manager-konsolen. Den aktuella versionen av Azure Active Directory-paketet är 3.10.305231913 vid skrivning av den här artikeln, så kontrollera den senaste versionen och uppdatera efter behov.
+Nu är du redo att börja skapa dina program samtal. I ditt program måste du installera de NuGet-paket som krävs för att interagera med Azure Key Vault och Azure Active Directory. I Visual Studio Package Manager-konsolen anger du följande kommandon. Vid skrivning av den här artikeln är den aktuella versionen av det Azure Active Directory paketet 3.10.305231913, så bekräfta den senaste versionen och uppdatera efter behov.
 
 ```powershell
 Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -Version 3.10.305231913
@@ -119,13 +119,13 @@ Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -Version 3.10.30
 Install-Package Microsoft.Azure.KeyVault
 ```
 
-Skapa en klass för att lagra metoden för din Azure Active Directory-autentisering i din programkod. I det här exemplet kallas den klassen **Utils**. Lägg till följande `using` instruktionen:
+I din program kod skapar du en klass som innehåller metoden för din Azure Active Directory autentisering. I det här exemplet kallas klassen **utils**. Lägg till följande `using` -instruktion:
 
 ```csharp
 using Microsoft.IdentityModel.Clients.ActiveDirectory;
 ```
 
-Lägg sedan till följande metod för att hämta JWT-token från Azure Active Directory. Underhållsfunktioner, kanske du vill flytta hårdkodade strängvärden till din webb- eller konfiguration.
+Lägg sedan till följande metod för att hämta JWT-token från Azure Active Directory. Du kanske vill flytta de hårdkodade sträng värdena till din webb-eller program konfiguration.
 
 ```csharp
 public async static Task<string> GetToken(string authority, string resource, string scope)
@@ -144,13 +144,13 @@ public async static Task<string> GetToken(string authority, string resource, str
 }
 ```
 
-Lägga till nödvändig kod för att anropa Key Vault och hämta din hemligt värde. Först måste du lägga till följande `using` instruktionen:
+Lägg till den kod som krävs för att anropa Key Vault och hämta ditt hemliga värde. Först måste du lägga till följande `using` -instruktion:
 
 ```csharp
 using Microsoft.Azure.KeyVault;
 ```
 
-Lägg till metodanrop att anropa Key Vault och hämta din hemlighet. I den här metoden kan ange du hemlig-URI som du sparade i föregående steg. Observera användningen av den **GetToken** metod från den **Utils** klass som du skapade tidigare.
+Lägg till metod anrop för att anropa Key Vault och hämta din hemlighet. I den här metoden anger du den hemliga URI som du sparade i föregående steg. Observera användningen av **GetToken** -metoden från klassen **utils** som du skapade tidigare.
 
 ```csharp
 var kv = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(Utils.GetToken));
@@ -158,26 +158,26 @@ var kv = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(Utils.GetT
 var sec = kv.GetSecretAsync(<SecretID>).Result.Value;
 ```
 
-När du kör ditt program bör du nu att autentisera till Azure Active Directory och hämta sedan din hemligt värde från Azure Key Vault.
+När du kör programmet bör du nu autentisera till Azure Active Directory och sedan hämta ditt hemliga värde från Azure Key Vault.
 
-## <a name="key-rotation-using-azure-automation"></a>Rotation av med Azure Automation
+## <a name="key-rotation-using-azure-automation"></a>Nyckel rotation med Azure Automation
 
 > [!IMPORTANT]
-> Azure Automation-runbooks fortfarande kräver användning av den `AzureRM` modulen.
+> Azure Automation runbooks kräver fortfarande att `AzureRM` modulen används.
 
-Du är nu redo att konfigurera en strategi för rotation för de värden som du lagrar som Key Vault-hemligheter. Hemligheter kan roteras på flera olika sätt:
+Nu är du redo att konfigurera en rotations strategi för de värden som du lagrar som Key Vault hemligheter. Det går att rotera hemligheter på flera sätt:
 
 - Som en del av en manuell process
-- Via programmering med hjälp av API-anrop
-- Via en Azure Automation-skript
+- Programmering med API-anrop
+- Via ett Azure Automation-skript
 
-För den här artikeln, ska du ändra åtkomstnyckel för ett Azure storage-konto med hjälp av PowerShell i kombination med Azure Automation. Sedan ska du uppdatera en hemlighet i nyckelvalvet med den nya nyckeln.
+I den här artikeln använder du PowerShell kombinerat med Azure Automation för att ändra åtkomst nyckeln för ett Azure Storage-konto. Sedan uppdaterar du nyckel valv hemligheten med den nya nyckeln.
 
-Om du vill tillåta Azure Automation till att ange hemliga värden i ditt nyckelvalv måste du hämta klient-ID för anslutningen med namnet **AzureRunAsConnection**. Den här anslutningen skapades när du har skapat din instans av Azure Automation. För att hitta detta ID, Välj **tillgångar** från Azure Automation-instans. Därifrån väljer **anslutningar**, och välj sedan den **AzureRunAsConnection** tjänstens huvudnamn. Anteckna den **ApplicationId** värde.
+Om du vill tillåta Azure Automation att ange hemliga värden i ditt nyckel valv måste du hämta klient-ID för anslutningen med namnet **AzureRunAsConnection**. Den här anslutningen skapades när du etablerade Azure Automation-instansen. Om du vill hitta detta ID väljer du **till gångar** från Azure Automation-instansen. Därifrån väljer du **anslutningar**och väljer sedan **AzureRunAsConnection** -tjänstens huvud namn. Anteckna värdet för **ApplicationId** .
 
-![Azure Automation-klient-ID](./media/keyvault-keyrotation/Azure_Automation_ClientID.png)
+![Azure Automation klient-ID](./media/keyvault-keyrotation/Azure_Automation_ClientID.png)
 
-I **tillgångar**väljer **moduler**. Välj **galleriet**, och sök sedan efter och importera uppdaterade versioner av vart och ett av följande moduler:
+I **till gångar**väljer du **moduler**. Välj **Galleri**och Sök sedan efter och importera uppdaterade versioner av var och en av följande moduler:
 
     Azure
     Azure.Storage
@@ -187,19 +187,19 @@ I **tillgångar**väljer **moduler**. Välj **galleriet**, och sök sedan efter 
     AzureRM.Storage
 
 > [!NOTE]
-> Vid skrivning av den här artikeln behövs bara modulerna som vi nämnde tidigare som ska uppdateras i följande skript. Om ditt automation-jobb misslyckas kontrollerar du att du har importerat alla nödvändiga moduler och deras beroenden.
+> När den här artikeln skrevs är det bara de tidigare noterade modulerna som behövde uppdateras för följande skript. Om ditt Automation-jobb Miss lyckas bekräftar du att du har importerat alla nödvändiga moduler och deras beroenden.
 
-När du har hämtat det program-ID för Azure Automation-anslutningen kan se du ditt nyckelvalv för att att det här programmet har behörighet att uppdatera hemligheter i valvet. Använd följande PowerShell-kommando:
+När du har hämtat program-ID: t för din Azure Automation-anslutning måste du meddela ditt nyckel valv att det här programmet har behörighet att uppdatera hemligheter i ditt valv. Använd följande PowerShell-kommando:
 
 ```powershell
 Set-AzKeyVaultAccessPolicy -VaultName <vaultName> -ServicePrincipalName <applicationIDfromAzureAutomation> -PermissionsToSecrets Set
 ```
 
-Välj sedan **Runbooks** under ditt Azure Automation-instans och välj sedan **Lägg till Runbook**. Välj **Snabbregistrering**. Namnge din runbook och välj **PowerShell** som runbooktyp av. Du kan lägga till en beskrivning. Välj slutligen **skapa**.
+Välj sedan **Runbooks** under Azure Automation-instansen och välj sedan **Lägg till Runbook**. Välj **Snabbregistrering**. Namnge din Runbook och välj **PowerShell** som Runbook-typ. Du kan lägga till en beskrivning. Välj slutligen **skapa**.
 
 ![Skapa runbook](./media/keyvault-keyrotation/Create_Runbook.png)
 
-Klistra in följande PowerShell-skript i redigerarfönstret för din nya runbook:
+Klistra in följande PowerShell-skript i redigerings fönstret för din nya Runbook:
 
 ```powershell
 $connectionName = "AzureRunAsConnection"
@@ -242,13 +242,13 @@ $secretvalue = ConvertTo-SecureString $SAKeys[1].Value -AsPlainText -Force
 $secret = Set-AzureKeyVaultSecret -VaultName $VaultName -Name $SecretName -SecretValue $secretvalue
 ```
 
-I redigerarfönstret väljer **Testfönster** att testa ditt skript. När skriptet har körts utan problem, du kan välja **publicera**, och du kan koppla ett schema för runbooken i fönstret konfiguration för runbook.
+I redigerings fönstret väljer du **test fönster** för att testa skriptet. När skriptet har körts utan fel kan du välja **publicera**, så kan du använda ett schema för Runbook i fönstret konfiguration av Runbook.
 
-## <a name="key-vault-auditing-pipeline"></a>Key Vault granskning pipeline
+## <a name="key-vault-auditing-pipeline"></a>Key Vault gransknings pipeline
 
-När du konfigurerar ett nyckelvalv, kan du aktivera granskning för att samla in loggar vid åtkomstbegäranden som görs till nyckelvalvet. Dessa loggar lagras i en angiven Azure storage-konto och kan hämtas, övervakas och analyseras. Följande scenario använder Azure functions, Azure logic apps och key vault-granskningsloggar för att skapa en pipeline som skickar ett e-postmeddelande när en app som inte matchar app-ID för webbappen hämtar hemligheter från valvet.
+När du konfigurerar ett nyckel valv kan du aktivera granskning för att samla in loggar på åtkomst begär Anden som gjorts till nyckel valvet. Dessa loggar lagras i ett angivet Azure Storage-konto och kan hämtas, övervakas och analyseras. I följande scenario används Azure Functions, Azure Logic Apps och gransknings loggar för nyckel valvet för att skapa en pipeline som skickar ett e-postmeddelande när en app som inte matchar appens ID för webbappen hämtar hemligheter från valvet.
 
-Du måste först aktiverar loggning på ditt nyckelvalv. Använd följande PowerShell-kommandon. (Du kan se alla detaljer i [i den här artikeln om key-vault-loggning](key-vault-logging.md).)
+Först måste du aktivera loggning i nyckel valvet. Använd följande PowerShell-kommandon. (Du kan se den fullständiga informationen i [den här artikeln om nyckel valv loggning](key-vault-logging.md).)
 
 ```powershell
 $sa = New-AzStorageAccount -ResourceGroupName <resourceGroupName> -Name <storageAccountName> -Type Standard\_LRS -Location 'East US'
@@ -256,27 +256,27 @@ $kv = Get-AzKeyVault -VaultName '<vaultName>'
 Set-AzDiagnosticSetting -ResourceId $kv.ResourceId -StorageAccountId $sa.Id -Enabled $true -Category AuditEvent
 ```
 
-När loggning är aktiverat, starta granskningsloggar som lagras i det angivna lagringskontot. Dessa loggar innehålla händelser om hur och när nyckelvalven används och av vem.
+När loggning har Aktiver ATS börjar gransknings loggar att lagras på det angivna lagrings kontot. Dessa loggar innehåller händelser om hur och när dina nyckel valv används, och av vem.
 
 > [!NOTE]
-> Du kan komma åt loggningsinformationen 10 minuter efter nyckelvalv igen. Den blir ofta tillgänglig tidigare än så.
+> Du kan komma åt loggnings informationen 10 minuter efter nyckel valvs åtgärden. Den kommer ofta att vara tillgänglig tidigare än den.
 
-Nästa steg är att [skapa en Azure Service Bus-kö](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md). Den här kön är där key vault-granskningsloggar skickas. När granskningsloggen meddelanden finns i kön, hämtas de av logikappen och agerar på dem. Skapa en Service Bus-instans med följande steg:
+Nästa steg är att [skapa en Azure Service Bus kö](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md). I den här kön överförs nyckel valvs gransknings loggar. När Gransknings logg meddelanden finns i kön, använder Logic-appen dem och fungerar på dem. Skapa en Service Bus-instans med följande steg:
 
-1. Skapa ett Service Bus-namnområde (om du redan har en som du vill använda, gå vidare till steg 2).
-2. Bläddra till Service Bus-instans i Azure-portalen och välj det namnområde som du vill skapa kön i.
-3. Välj **skapa en resurs** > **Företagsintegrering** > **Service Bus**, och sedan ange informationen som krävs.
-4. Hitta information för Service Bus-anslutning genom att markera namnområdet och sedan välja **anslutningsinformation**. Du behöver den här informationen för nästa avsnitt.
+1. Skapa ett Service Bus namn område (om du redan har ett som du vill använda kan du gå vidare till steg 2).
+2. Bläddra till Service Bus-instansen i Azure Portal och välj det namn område som du vill skapa kön i.
+3. Välj **skapa en resurs** > **Enterprise-integration** > **Service Bus**och ange sedan den information som krävs.
+4. Hitta Service Bus anslutnings information genom att markera namn området och sedan välja **anslutnings information**. Du behöver den här informationen för nästa avsnitt.
 
-Nästa [skapa en Azure-funktion](../azure-functions/functions-create-first-azure-function.md) att avsöka nyckelvalvsloggarna i storage-konto och hämta nya händelser. Den här funktionen aktiveras enligt ett schema.
+Skapa sedan [en Azure-funktion](../azure-functions/functions-create-first-azure-function.md) för att söka i Key Vault-loggarna i lagrings kontot och hämta nya händelser. Den här funktionen aktive ras enligt ett schema.
 
-Om du vill skapa en funktionsapp i Azure, Välj **skapa en resurs**, Sök på marketplace efter **Funktionsapp**, och välj sedan **skapa**. Du kan använda en befintlig värd plan eller skapa en ny när du skapar. Du kan också välja dynamisk som är värd för. Mer information om värdalternativ för Azure Functions finns i [så här skalar du Azure Functions](../azure-functions/functions-scale.md).
+Om du vill skapa en Azure Function-app väljer du **skapa en resurs**, söker i marketplace efter **Funktionsapp**och väljer sedan **skapa**. När du har skapat kan du använda en befintlig värd plan eller skapa en ny. Du kan också välja dynamisk värd. Mer information om värd alternativen för Azure Functions finns i [skala Azure Functions](../azure-functions/functions-scale.md).
 
-När Azure function-app har skapats går du till den och väljer den **Timer** scenario och **C\#**  för språket. Välj sedan **skapa den här funktionen**.
+När du har skapat Azure Function-appen går du till den och väljer **tids** scenariot och **C\#**  för språket. Välj sedan **skapa den här funktionen**.
 
-![Azure Functions starta bladet](./media/keyvault-keyrotation/Azure_Functions_Start.png)
+![Azure Functions start bladet](./media/keyvault-keyrotation/Azure_Functions_Start.png)
 
-På den **utveckla** fliken, Byt ut koden run.csx med följande:
+På fliken **utveckla** ersätter du koden kör. CSX med följande:
 
 ```csharp
 #r "Newtonsoft.Json"
@@ -388,19 +388,19 @@ static string GetContainerSasUri(CloudBlockBlob blob)
 ```
 
 > [!NOTE]
-> Ändra variablerna i den föregående koden så att den pekar till lagringskontot där nyckelvalvsloggarna skrivs till Service Bus-instans som du skapade tidigare och att sökvägen till lagring för key vault-loggarna.
+> Ändra variablerna i föregående kod så att de pekar på ditt lagrings konto där Key Vault-loggarna skrivs, till Service Bus-instansen som du skapade tidigare och till den angivna sökvägen till lagrings loggarna Key Vault.
 
-Funktionen hämtar senaste loggfilen från lagringskontot där nyckelvalvsloggarna skrivs, hämtar de senaste händelserna från filen och skickar dem till en Service Bus-kö. 
+Funktionen hämtar den senaste logg filen från lagrings kontot där Key Vault-loggarna skrivs, hämtar de senaste händelserna från filen och skickar dem till en Service Bus kö. 
 
-Eftersom en enskild fil kan ha flera händelser, skapar du en sync.txt-fil som funktionen även hänsyn till att fastställa tidsstämpeln för den senaste händelse som hämtades. Med den här filen säkerställer att du inte skicka samma händelse flera gånger. 
+Eftersom en enskild fil kan ha flera händelser bör du skapa en Sync. txt-fil som funktionen också tittar på för att fastställa tidsstämpeln för den senaste händelsen som hämtades. Genom att använda den här filen ser du till att du inte pushar samma händelse flera gånger. 
 
-Sync.txt-filen innehåller en tidsstämpel för senaste påträffade händelsen. När loggarna har lästs in kan måste de sorteras utifrån deras tidsstämplar så att de är korrekt beställt.
+Filen Sync. txt innehåller en tidsstämpel för den senast påträffade händelsen. När loggarna läses in måste de sorteras baserat på deras tidsstämplar för att kontrol lera att de har beställts korrekt.
 
-För den här funktionen refererar vi till några ytterligare bibliotek som inte är tillgängliga direkt i Azure Functions. För att inkludera dessa bibliotek, måste vi Azure Functions för att hämta dem med hjälp av NuGet. Under den **kod** väljer **visa filer**.
+För den här funktionen refererar vi till ett par ytterligare bibliotek som inte är tillgängliga i rutan i Azure Functions. För att inkludera dessa bibliotek behöver vi Azure Functions för att hämta dem med hjälp av NuGet. Välj **Visa filer**under rutan **kod** .
 
-![Alternativet ”Visa filer”](./media/keyvault-keyrotation/Azure_Functions_ViewFiles.png)
+![Alternativet "Visa filer"](./media/keyvault-keyrotation/Azure_Functions_ViewFiles.png)
 
-Lägg till en fil med namnet project.json med följande innehåll:
+Lägg till en fil med namnet Project. JSON med följande innehåll:
 
 ```json
     {
@@ -415,38 +415,38 @@ Lägg till en fil med namnet project.json med följande innehåll:
     }
 ```
 
-När du har valt **spara**, Azure Functions hämtar nödvändiga binärfiler.
+När du har valt **Spara**kommer Azure Functions att ladda ned de binärfiler som krävs.
 
-Växla till den **integrera** fliken och ge parametern timer ett beskrivande namn att användas i funktionen. I den föregående koden förväntar sig att timern ska anropas *myTimer*. Ange en [CRON-uttryck](../app-service/webjobs-create.md#CreateScheduledCRON) för timern på följande sätt: `0 * * * * *`. Det här uttrycket gör att funktionen ska köras en gång i minuten.
+Växla till fliken **integrera** och ge parametern timer ett meningsfullt namn som ska användas i funktionen. I föregående kod förväntar sig funktionen att timern ska kallas min *tid*. Ange ett [cron-uttryck](../app-service/webjobs-create.md#CreateScheduledCRON) för timern enligt följande `0 * * * * *`:. Det här uttrycket gör att funktionen körs en gång i minuten.
 
-På samma **integrera** fliken, Lägg till indata av typen **Azure Blob storage**. Denna indata pekar till den sync.txt-fil som innehåller tidsstämpeln för den senaste händelsen har tittat på av funktionen. Denna indata ska användas i funktionen genom att använda parameternamnet. Azure Blob storage-indata i den föregående koden förväntar sig parameternamn måste vara *inputBlob*. Välj det lagringskonto där filen sync.txt kommer att finnas (det kan vara samma eller ett annat lagringskonto). I sökvägsfältet, ange sökvägen till filen i formatet `{container-name}/path/to/sync.txt`.
+På samma **integrera** -flik lägger du till en indata från typen **Azure Blob Storage**. Den här indatan pekar på filen Sync. txt som innehåller tidsstämpeln för den senaste händelsen som såg ut av funktionen. Den här indatamängden används i funktionen med hjälp av parameter namnet. I föregående kod förväntar Azure Blob Storage-indata parameter namnet som *inputBlob*. Välj det lagrings konto där filen Sync. txt ska placeras (det kan vara samma eller ett annat lagrings konto). I fältet sökväg anger du sökvägen till filen i formatet `{container-name}/path/to/sync.txt`.
 
-Lägg till utdata av typen **Azure Blob storage**. Dessa utdata ska peka på sync.txt-filen som du definierade i indata. Dessa utdata används av funktionen för att skriva tidsstämpeln för den senaste händelsen har tittat på. Den föregående koden förväntar sig den här parametern anropas *outputBlob*.
+Lägg till utdata av typen **Azure Blob Storage**. Utdata pekar på filen Sync. txt som du definierade i indata. Dessa utdata används av funktionen för att skriva tidsstämpeln för den senaste händelsen som tittat på. Föregående kod förväntar sig att den här parametern kallas *outputBlob*.
 
-Funktionen är nu klar. Se till att växla tillbaka till den **utveckla** fliken och spara koden. Kontrollera utdatafönstret för alla kompileringsfel och försök igen. Om koden kompilerar ska sedan koden nu kontrollerar nyckelvalvsloggarna varje minut och skicka alla nya händelser till definierade Service Bus-kön. Du bör se loggningsinformation skriva till loggfönstret varje gång som funktionen utlöses.
+Funktionen är nu klar. Se till att växla tillbaka till fliken **utveckla** och spara koden. Kontrol lera fönstret utdata för eventuella kompileringsfel och korrigera dem efter behov. Om koden kompileras bör nu koden kontrol lera nyckel valvets loggar varje minut och skicka nya händelser till den definierade Service Bus kön. Du bör se loggnings information som skrivs ut till logg fönstret varje gång funktionen utlöses.
 
-### <a name="azure-logic-app"></a>Azure logic app
+### <a name="azure-logic-app"></a>Azure Logic-app
 
-Därefter skapar du en Azure logic app som tar upp händelser att funktionen är push-överföring till Service Bus-kö, tolkar innehållet och skickar ett e-postmeddelande baserat på ett villkor som matchas.
+Därefter måste du skapa en Azure Logic-app som hämtar de händelser som funktionen skickar till Service Bus kön, tolkar innehållet och skickar ett e-postmeddelande baserat på ett villkor som matchas.
 
-[Skapa en logikapp](../logic-apps/quickstart-create-first-logic-app-workflow.md) genom att välja **skapa en resurs** > **integrering** > **Logikapp**.
+[Skapa en logisk app](../logic-apps/quickstart-create-first-logic-app-workflow.md) genom att välja **skapa en** > app för resurs**integrerings** > **logik**.
 
-När logikappen har skapats går du till den och väljer **redigera**. I redigeraren logic app väljer **Service Bus-kö** och ange dina autentiseringsuppgifter för Service Bus för att ansluta till kön.
+När du har skapat Logic-appen går du till den och väljer **Redigera**. I Logic app-redigeraren väljer du **Service Bus kö** och anger dina Service Bus autentiseringsuppgifter för att ansluta den till kön.
 
 ![Azure Logic App Service Bus](./media/keyvault-keyrotation/Azure_LogicApp_ServiceBus.png)
 
-Välj **Lägg till ett villkor**. Växla till Avancerad redigerare och ange följande kod i villkoret. Ersätt *APP_ID* med faktiska app-ID för din webbapp:
+Välj **Lägg till ett villkor**. I villkoret växlar du till avancerad redigerare och anger följande kod. Ersätt *APP_ID* med det faktiska app-ID: t för din webbapp:
 
 ```
 @equals('<APP_ID>', json(decodeBase64(triggerBody()['ContentData']))['identity']['claim']['appid'])
 ```
 
-Det här uttrycket returnerar i stort sett **FALSKT** om den *appid* från den inkommande händelsen (som är brödtexten i Service Bus-meddelande) är inte den *appid* av appen.
+Det här uttrycket returnerar i princip **falskt** om *AppID* från den inkommande händelsen (som är bröd texten i Service Bus meddelandet) inte är *AppID* för appen.
 
-Skapa nu en åtgärd under **om Nej, gör INGENTING**.
+Skapa nu en åtgärd under **om Nej, gör ingenting**.
 
-![Med Azure Logic Apps Välj åtgärd](./media/keyvault-keyrotation/Azure_LogicApp_Condition.png)
+![Azure Logic Apps Välj åtgärd](./media/keyvault-keyrotation/Azure_LogicApp_Condition.png)
 
-För åtgärden, väljer **Office 365 – skicka e-post**. Fyll i fälten för att skapa ett e-postmeddelande ska skickas när definierade villkoret returnerar **FALSKT**. Om du inte har Office 365, leta efter alternativ att uppnå samma resultat.
+För åtgärden väljer du **Office 365 – skicka e-post**. Fyll i fälten för att skapa ett e-postmeddelande som ska skickas när det definierade villkoret returnerar **false**. Om du inte har Office 365 kan du leta efter alternativ för att få samma resultat.
 
-Nu har du en pipeline för slutpunkt till slutpunkt som söker efter nya key vault-granskningsloggar en gång i minuten. Nya loggar som påträffas skickar den till en Service Bus-kö. Logikappen utlöses när ett nytt meddelande hamnar i kön. Om den *appid* i händelsen matchar inte app-ID för det anropande programmet, skickas ett e-postmeddelande.
+Nu har du en pipeline från slut punkt till slut punkt som söker efter nya gransknings loggar för nyckel valvet en gång i minuten. Nya loggar som hittas i en Service Bus-kö skickas. Logic app utlöses när ett nytt meddelande hamnar i kön. Om *AppID* i händelsen inte matchar app-ID: t för det anropande programmet, skickar det ett e-postmeddelande.

@@ -9,12 +9,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 04/24/2019
 ms.author: hrasheed
-ms.openlocfilehash: 1828efb410849677e859d341e4e16e4f5d4ca681
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 1bfc17d343f6e788d22cd158fcb849c5895b019f
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68405989"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70879747"
 ---
 # <a name="availability-and-reliability-of-apache-hadoop-clusters-in-hdinsight"></a>Tillgänglighet och tillförlitlighet för Apache Hadoop kluster i HDInsight
 
@@ -106,9 +106,9 @@ Ambari webb gränssnitt kan visas på `https://CLUSTERNAME.azurehdinsight.net`. 
 
 När du kommer till sidan Ambari visas de installerade tjänsterna till vänster på sidan.
 
-![Installerade tjänster](./media/hdinsight-high-availability-linux/services.png)
+![Installerade tjänster](./media/hdinsight-high-availability-linux/hdinsight-installed-services.png)
 
-Det finns en serie ikoner som kan visas bredvid en tjänst för att indikera status. Aviseringar som är relaterade till en tjänst kan visas med hjälp av länken Aviseringar överst på sidan.  Ambari erbjuder flera fördefinierade aviseringar.
+Det finns en serie ikoner som kan visas bredvid en tjänst för att indikera status. Aviseringar som är relaterade till en tjänst kan visas med hjälp av länken **aviseringar** överst på sidan.  Ambari erbjuder flera fördefinierade aviseringar.
 
 Följande aviseringar hjälper dig att övervaka tillgängligheten för ett kluster:
 
@@ -155,11 +155,11 @@ Du kan välja varje tjänst om du vill visa mer information om den.
 
 Även om tjänst sidan innehåller information om statusen och konfigurationen för varje tjänst ger den inte information om vilken Head-nod tjänsten körs på. Om du vill visa den här informationen använder du länken **värdar** överst på sidan. Den här sidan visar värdar i klustret, inklusive Head-noderna.
 
-![lista över värdar](./media/hdinsight-high-availability-linux/hosts.png)
+![lista över värdar](./media/hdinsight-high-availability-linux/hdinsight-hosts-list.png)
 
 Om du väljer länken för en av huvudnoderna visas tjänsterna och komponenterna som körs på noden.
 
-![Komponent status](./media/hdinsight-high-availability-linux/nodeservices.png)
+![Komponent status](./media/hdinsight-high-availability-linux/hdinsight-node-services.png)
 
 Mer information om hur du använder Ambari finns i [övervaka och hantera HDInsight med Apache Ambari Web UI](hdinsight-hadoop-manage-ambari.md).
 
@@ -175,7 +175,7 @@ Du kan använda följande kommando för att kontrol lera status för en tjänst 
 * Ersätt **CLUSTERNAME** med namnet på klustret.
 * Ersätt **SERVICENAME** med namnet på den tjänst som du vill kontrol lera status för.
 
-Om du till exempel vill kontrol lera status för **HDFS** -tjänsten på ett kluster med namnet ' IT **cluster**', med lösen ordet lösen **ord, använder**du följande kommando:
+Om du till exempel vill kontrol lera status för **HDFS** -tjänsten på ett kluster med namnet ' IT **cluster**', med lösen **ordet lösen ord, använder**du följande kommando:
 
     curl -u admin:password https://mycluster.azurehdinsight.net/api/v1/clusters/mycluster/services/HDFS?fields=ServiceInfo/state
 
@@ -237,11 +237,11 @@ Om du vill visa en lista över tillgängliga `help` kommandon anger `sftp>` du v
 ### <a name="ambari"></a>Ambari
 
 > [!NOTE]  
-> Om du vill komma åt loggfiler med Ambari måste du använda en SSH-tunnel. Webb gränssnitten för enskilda tjänster visas inte offentligt på Internet. Information om hur du använder en SSH-tunnel finns i [använda SSH](hdinsight-linux-ambari-ssh-tunnel.md) -tunnlar.
+> Om du vill komma åt loggfiler med Ambari måste du använda en SSH-tunnel. Webb gränssnitten för enskilda tjänster visas inte offentligt på Internet. Information om hur du använder en SSH-tunnel finns i [använda SSH-tunnlar](hdinsight-linux-ambari-ssh-tunnel.md) .
 
 Välj den tjänst som du vill visa loggar för i Ambari-webbgränssnittet (till exempel garn). Använd sedan **snabb länkar** för att välja vilken Head-nod som ska visa loggarna för.
 
-![Använda snabb Länkar för att visa loggar](./media/hdinsight-high-availability-linux/viewlogs.png)
+![Använda snabb Länkar för att visa loggar](./media/hdinsight-high-availability-linux/quick-links-view-logs.png)
 
 ## <a name="how-to-configure-the-node-size"></a>Så här konfigurerar du nodens storlek
 
@@ -251,7 +251,7 @@ När du skapar ett kluster kan du ange storleken på noderna. Följande informat
 
 * **Azure Portal**: När du skapar ett kluster kan du ange storleken på noderna som används av klustret:
 
-    ![Bild av guiden skapa kluster med val av Node-storlek](./media/hdinsight-high-availability-linux/headnodesize.png)
+    ![Bild av guiden skapa kluster med val av Node-storlek](./media/hdinsight-high-availability-linux/hdinsight-headnodesize.png)
 
 * **Azure CLI**: När du använder kommandot [AZ HDInsight Create](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-create) kan du ange storleken på noderna Head, Work och ZooKeeper med `--headnode-size`parametrarna, `--workernode-size`och `--zookeepernode-size` .
 

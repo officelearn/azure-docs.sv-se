@@ -2,19 +2,19 @@
 title: Så här genererar och överför du HSM-skyddade nycklar för Azure Key Vault-Azure Key Vault | Microsoft Docs
 description: Använd den här artikeln för att hjälpa dig att planera för, generera och överföra dina egna HSM-skyddade nycklar som ska användas med Azure Key Vault. Kallas även BYOK eller ta med din egen nyckel.
 services: key-vault
-author: barclayn
-manager: barbkess
+author: msmbaldwin
+manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
 ms.topic: conceptual
 ms.date: 02/12/2019
-ms.author: barclayn
-ms.openlocfilehash: 16aebf2bb2e0c4d495aa8e3a45d3398a9aa9b9ed
-ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
+ms.author: mbaldwin
+ms.openlocfilehash: 3cd8cd0b72f1b3ccea557ce0e12394081329dc5b
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69575047"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70883297"
 ---
 # <a name="how-to-generate-and-transfer-hsm-protected-keys-for-azure-key-vault"></a>Så här genererar och överför du HSM-skyddade nycklar för Azure Key Vault
 
@@ -283,7 +283,7 @@ Starta en kommando tolk och kör hjälp programmet nCipher-programmet New-World.
     new-world.exe --initialize --cipher-suite=DLf3072s256mRijndael --module=1 --acs-quorum=2/3
    ```
 
-Det här programmet skapar en **säkerhets världs** fil på%NFAST_KMDATA%\local\world, som motsvarar C:\ProgramData\nCipher\Key Management Data\local-mappen. Du kan använda olika värden för kvorumet, men i vårt exempel uppmanas du att ange tre tomma kort och PIN-koder för var och en. Sedan ger alla två kort fullständig åtkomst till säkerhets världen. Korten blir administratörs **kort uppsättningen** för den nya säkerhets världen.
+Det här programmet skapar en **säkerhets världs** fil på%NFAST_KMDATA%\local\world, som motsvarar C:\ProgramData\nCipher\Key Management Data\local-mappen. Du kan använda olika värden för kvorumet, men i vårt exempel uppmanas du att ange tre tomma kort och PIN-koder för var och en. Sedan ger alla två kort fullständig åtkomst till säkerhets världen. Korten blir **Administratörs kort uppsättningen** för den nya säkerhets världen.
 
 > [!NOTE]
 > Om din HSM inte stöder den nyare chiffer Suite-DLf3072s256mRijndael kan du ersätta--cipher-Suite = DLf3072s256mRijndael med--cipher-Suite = DLf1024s160mRijndael
@@ -387,7 +387,7 @@ Kör följande kommando för att generera nyckeln:
 Använd följande instruktioner när du kör det här kommandot:
 
 * Parametern *Protect* måste anges till Value- **modulen**, som visas. Detta skapar en modul-skyddad nyckel. BYOK-verktygen stöder inte OCS-skyddade nycklar.
-* Ersätt värdet för *contosokey* för identiteten och **plainname** med valfritt sträng värde. För att minimera de administrativa omkostnaderna och minska risken för fel rekommenderar vi att du använder samma värde för båda. Värdet för **identitet** får bara innehålla siffror, bindestreck och gemener.
+* Ersätt värdet för *contosokey* för **identiteten** och **plainname** med valfritt sträng värde. För att minimera de administrativa omkostnaderna och minska risken för fel rekommenderar vi att du använder samma värde för båda. Värdet för **identitet** får bara innehålla siffror, bindestreck och gemener.
 * Pubexp lämnas tomt (standard) i det här exemplet, men du kan ange vissa värden. Mer information finns i hjälp programmet nCipher- [dokumentationen.](https://www.ncipher.com/resources/solution-briefs/protect-sensitive-data-rest-and-use-across-premises-and-azure-based)
 
 Det här kommandot skapar en nyckel fil med nycklar i mappen%NFAST_KMDATA%\local med ett namn som börjar med **key_simple_** följt av den **identitet** som angavs i kommandot. Till exempel: **key_simple_contosokey**. Den här filen innehåller en krypterad nyckel.

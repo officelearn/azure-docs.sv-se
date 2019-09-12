@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 02/28/2019
 ms.author: zarhoads
-ms.openlocfilehash: c25bc316a345404c759b346b4fb877de42ee4d13
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 4fc34ed5cdd53977aa20bef84200ba2bf5386979
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68561557"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70899479"
 ---
 # <a name="scaling-options-for-applications-in-azure-kubernetes-service-aks"></a>Skalnings alternativ för program i Azure Kubernetes service (AKS)
 
@@ -39,7 +39,7 @@ Kubernetes använder den vågräta Pod autoskalning (HPA) för att övervaka res
 
 När du konfigurerar den horisontella Pod autoskalning för en specifik distribution definierar du det lägsta och högsta antalet repliker som kan köras. Du definierar också måttet för att övervaka och basera eventuella skalnings beslut, till exempel processor användning.
 
-För att komma igång med den vågräta Pod-autoskalning i AKS, se AutoScale- [poddar i AKS][aks-hpa].
+För att komma igång med den vågräta Pod-autoskalning i AKS, se [AutoScale-poddar i AKS][aks-hpa].
 
 ### <a name="cooldown-of-scaling-events"></a>Cooldown för skalnings händelser
 
@@ -51,7 +51,7 @@ För närvarande kan du inte finjustera dessa cooldown-värden från standardvä
 
 ## <a name="cluster-autoscaler"></a>Kluster autoskalning
 
-För att svara på ändring av Pod-krav har Kubernetes en kluster autoskalning (för närvarande i för hands version i AKS) som justerar antalet noder baserat på de begärda beräknings resurserna i Node-poolen. Som standard kontrollerar kluster autoskalning API-servern var 10: e sekund för alla nödvändiga ändringar i antalet noder. Om klustrets autoskalning avgör att en ändring krävs, ökar eller minskar du antalet noder i ditt AKS-kluster. Kluster autoskalning fungerar med RBAC-aktiverade AKS-kluster som kör Kubernetes 1.10. x eller senare.
+För att svara på ändring av Pod-krav har Kubernetes en kluster autoskalning (för närvarande i för hands version i AKS) som justerar antalet noder baserat på de begärda beräknings resurserna i Node-poolen. Som standard kontrollerar kluster autoskalning den metriska API-servern var 10: e sekund för alla nödvändiga ändringar i antalet noder. Om klustrets autoskalning avgör att en ändring krävs, ökar eller minskar du antalet noder i ditt AKS-kluster. Kluster autoskalning fungerar med RBAC-aktiverade AKS-kluster som kör Kubernetes 1.10. x eller senare.
 
 ![Kubernetes-kluster autoskalning](media/concepts-scale/cluster-autoscaler.png)
 
@@ -94,8 +94,8 @@ Virtuella noder distribueras till ett extra undernät i samma virtuella nätverk
 För att komma igång med skalnings program, följ först [snabb starten för att skapa ett AKS-kluster med Azure CLI][aks-quickstart]. Du kan sedan starta manuellt eller automatiskt skala program i ditt AKS-kluster:
 
 - Skala [poddar][aks-manually-scale-pods] eller [noder][aks-manually-scale-nodes] manuellt
-- Använd den [vågräta Pod][aks-hpa] autoskalning
-- Använd [kluster][aks-cluster-autoscaler] autoskalning
+- Använd den [vågräta Pod autoskalning][aks-hpa]
+- Använd [kluster autoskalning][aks-cluster-autoscaler]
 
 Mer information om kärn Kubernetes-och AKS-koncept finns i följande artiklar:
 

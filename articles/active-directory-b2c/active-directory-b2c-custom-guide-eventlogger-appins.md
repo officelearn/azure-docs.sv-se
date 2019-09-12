@@ -52,7 +52,7 @@ När du använder Application Insights med Azure AD B2C behöver du bara skapa e
 6. För **program typ**väljer du **ASP.NET-webbprogram**.
 7. För **resurs grupp**väljer du en befintlig grupp eller anger ett namn för en ny grupp.
 8. Klicka på **Skapa**.
-4. När du har skapat Application Insights-resursen öppnar du den, **** expanderar Essentials och kopierar Instrumentation-nyckeln.
+4. När du har skapat Application Insights-resursen öppnar du den,expanderar Essentials och kopierar Instrumentation-nyckeln.
 
 ![Application Insights översikt och Instrumentation-nyckel](./media/active-directory-b2c-custom-guide-eventlogger-appins/app-insights.png)
 
@@ -230,7 +230,7 @@ Spara och ladda upp filen *TrustFrameworkExtensions. XML* . Anropa sedan den fö
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lägg till anspråks typer och händelser till din användar resa för att passa dina behov. Du kan använda [](claim-resolver-overview.md) anspråks matchare eller valfri typ av sträng anspråk, lägga till anspråken genom att lägga till ett indatamängds element i Application Insights-händelsen eller till AzureInsights-vanliga tekniska profiler. **** 
+Lägg till anspråks typer och händelser till din användar resa för att passa dina behov. Du kan använda [](claim-resolver-overview.md) anspråks matchare eller valfri typ av sträng anspråk, lägga till anspråken genom att lägga till ett indatamängds element i Application Insights-händelsen eller till AzureInsights-vanliga tekniska profiler. 
 
 - **ClaimTypeReferenceId** är referensen till en anspråks typ.
 - **PartnerClaimType** är namnet på den egenskap som visas i Azure Insights. Använd syntaxen för `{property:NAME}`, där `NAME` är egenskapen som läggs till i händelsen. 

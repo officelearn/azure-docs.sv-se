@@ -6,23 +6,22 @@ ms.technology: devops-cicd
 services: azure-devops-project
 documentationcenter: vs-devops-build
 author: mlearned
-manager: douge
+manager: gwallace
 editor: ''
 ms.assetid: ''
 ms.workload: web
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: quickstart
 ms.date: 07/09/2018
 ms.author: mlearned
 ms.custom: mvc
 monikerRange: vsts
-ms.openlocfilehash: 387801f2ecb2f5fa1639005726218efb54d75dc8
-ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.openlocfilehash: 7d2ccdfa1fe553d0795a82856dd255f4a54138bf
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67331427"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70898027"
 ---
 # <a name="create-a-cicd-pipeline-for-net-with-azure-devops-projects"></a>Skapa en CI/CD-pipeline för .NET med Azure DevOps Projects
 
@@ -48,21 +47,21 @@ DevOps Projects skapar en CI/CD-pipeline i Azure DevOps. Du kan skapa en ny Azur
 
    ![.NET-ramverk](_img/azure-devops-project-aspnet-core/chooselanguagedotnet.png)
 
-2. Det här exemplet är ett ASP.NET Core MVC-program. Välj den **.NET Core** programramverk, välj sedan **nästa**.    
+2. Det här exemplet är ett ASP.NET Core MVC-program. Välj **.net Core** Application Framework och välj sedan **Nästa**.    
     
-3. Välj **Windows Web App** som ett distribution-mål, Välj **nästa**. Du kan alternativt välja andra Azure-tjänster för din distribution. Application framework, som du valde tidigare avser vilken typ av Azure-tjänsten distribution mål tillgänglig här.
+3. Välj **Windows-webbapp** som distributions mål och välj sedan **Nästa**. Du kan också välja andra Azure-tjänster för din distribution. Program ramverket som du valde tidigare avgör vilken typ av distributions mål för Azure-tjänsten som är tillgänglig här.
 
 ## <a name="configure-azure-devops-and-an-azure-subscription"></a>Konfigurera Azure DevOps och en Azure-prenumeration 
 
-1. Ange en **projektnamn**.
+1. Ange ett **projekt namn**.
 
-2. Skapa en ny kostnad **Azure DevOps-organisation** eller välj en befintlig organisation i listrutan.
+2. Skapa en ny kostnads fri **Azure DevOps-organisation** eller Välj en befintlig organisation i list rutan.
 
-3. Välj din **Azure-prenumeration**, ange ett namn för din **webbapp** eller ta standard och välj sedan **klar**. Efter ett par minuter visas distributionsöversikt för DevOps-projekt i Azure-portalen. 
+3. Välj din **Azure-prenumeration**, ange ett namn för din **webbapp** eller gör standardvärdet och välj sedan **slutfört**. Efter några minuter visas översikten över DevOps Projects distribution i Azure Portal. 
 
-4. Välj **gå till resurs** att visa instrumentpanelen för DevOps-projektet. I det övre högra hörnet, fästa den **projekt** på instrumentpanelen för snabb åtkomst. En exempelapp ställs in i en lagringsplats i din **Azure DevOps-organisation**. En version körs och din app distribueras till Azure.
+4. Välj **gå till resurs** om du vill visa DevOps-instrumentpanelen för projektet. I det övre högra hörnet fäster du **projektet** på instrument panelen för snabb åtkomst. En exempel app har kon figurer ATS i en lagrings platsen i din **Azure DevOps-organisation**. En version körs och din app distribueras till Azure.
 
-5. Instrumentpanelen ger insyn i kodlagringsplatsen, CI/CD-pipelinen och appen i Azure. Till höger under Azure-resurser, Välj **Bläddra** att visa din app som körs.
+5. Instrumentpanelen ger insyn i kodlagringsplatsen, CI/CD-pipelinen och appen i Azure. Välj **Bläddra** till höger under Azure-resurser för att Visa appen som körs.
 
    ![Instrumentpanelsvy](_img/azure-devops-project-aspnet-core/dashboardnopreview.png) 
 
@@ -72,9 +71,9 @@ DevOps Projects skapade en Git-lagringsplats i Azure Repos eller GitHub. Visa la
 
 1. Till vänster om DevOps Projects-instrumentpanelen väljer du länken för din **huvudgren**. Den här länken öppnar en vy till den nyligen skapade Git-lagringsplatsen.
 
-2. I nästa steg du kan använda webbläsaren att göra och spara ändringar i koden direkt till den **master** gren. Du kan också klona Git-lagringsplatsen i din favorit-IDE genom att välja **klona** längst upp höger på sidan för databasen. 
+2. I de följande stegen kan du använda webbläsaren för att göra och bekräfta kod ändringar direkt till **huvud** grenen. Du kan också klona git-lagringsplatsen i din favorit-IDE genom att välja **klona** från det övre högra hörnet på sidan databas. 
 
-3. Gå till vänster filstruktur program till **Application/aspnet-core-dotnet-core/Pages/Index.cshtml**.
+3. Till vänster navigerar du program fil strukturen till **Application/ASPNET-Core-dotNet-Core/pages/index. cshtml**.
 
 4. Välj **Redigera** och gör en ändring i h2-rubriken. Du kan till exempel skriva **Komma igång direkt med Azure DevOps Projects** eller göra någon annan ändring.
 
@@ -151,6 +150,6 @@ Se den här självstudien för att lära dig mer om att ändra dessa bygg- och v
 > [!div class="nextstepaction"]
 > [Anpassa CD-process](https://docs.microsoft.com/azure/devops/pipelines/release/define-multistage-release-process?view=vsts)
 
-## <a name="videos"></a>Videoklipp
+## <a name="videos"></a>Videor
 
 > [!VIDEO https://www.youtube.com/embed/itwqMf9aR0w]

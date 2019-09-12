@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/15/2019
 ms.author: hrasheed
-ms.openlocfilehash: c05e72cd28c78b26b7c23a123b133d10147a4421
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: 4e6825b40700fe3bd24631094a2a6060d94524cc
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70810780"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70882294"
 ---
 # <a name="use-c-user-defined-functions-with-apache-hive-and-apache-pig-on-apache-hadoop-in-hdinsight"></a>Använd C# användardefinierade funktioner med Apache Hive och Apache gris på Apache Hadoop i HDInsight
 
@@ -161,7 +161,7 @@ Mer information om den version av .NET Framework och mono som ingår i HDInsight
 
 4. Expandera det HDInsight-kluster som du vill distribuera programmet till. En post med texten __(standard lagrings kontot)__ visas.
 
-    ![Server Explorer som visar lagrings kontot för klustret](./media/apache-hadoop-hive-pig-udf-dotnet-csharp/storage.png)
+    ![Server Explorer som visar lagrings kontot för klustret](./media/apache-hadoop-hive-pig-udf-dotnet-csharp/hdinsight-storage-account.png)
 
     * Om du kan expandera den här posten använder du ett __Azure Storage konto__ som standard lagring för klustret. Om du vill visa filerna på standard lagrings utrymmet för klustret expanderar du posten och dubbelklickar sedan på __(standard container)__ .
 
@@ -171,7 +171,7 @@ Mer information om den version av .NET Framework och mono som ingår i HDInsight
 
    * Om du använder ett __Azure Storage konto__klickar du på ikonen Ladda upp och bläddrar sedan till mappen **bin\debug** för **HiveCSharp** -projektet. Välj slutligen filen **HiveCSharp. exe** och klicka på **OK**.
 
-       ![Ladda upp ikon](./media/apache-hadoop-hive-pig-udf-dotnet-csharp/upload.png)
+       ![Ladda upp ikon](./media/apache-hadoop-hive-pig-udf-dotnet-csharp/hdinsight-upload-icon.png)
     
    * Om du använder __Azure Data Lake Storage__högerklickar du på ett tomt utrymme i fil listan och väljer sedan __Ladda upp__. Välj slutligen filen **HiveCSharp. exe** och klicka på **Öppna**.
 

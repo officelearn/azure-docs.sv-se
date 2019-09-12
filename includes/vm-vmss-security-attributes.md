@@ -4,16 +4,16 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 07/10/2019
 ms.author: mbaldwin
-ms.openlocfilehash: c4c9476f4b29e004fba4bc5f754d6dbfa1f3a195
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.openlocfilehash: 520fd50b2b0864f43c08687f05de377679b36d84
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68444239"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70886948"
 ---
 ## <a name="preventative"></a>Förebyggande
 
-| Säkerhetsattribut | Ja/nej | Anteckningar |
+| Säkerhets kontroll | Ja/nej | Anteckningar |
 |---|---|--|
 | Kryptering i vila (t. ex. kryptering på Server sidan, kryptering på Server sidan med Kundhanterade nycklar och andra krypterings funktioner) | Ja | Se [så här krypterar du en virtuell Linux-dator i Azure](/azure/virtual-machines/linux/encrypt-disks) och [krypterar virtuella diskar på en virtuell Windows-dator](/azure/virtual-machines/windows/encrypt-disks). |
 | Kryptering under överföring (till exempel ExpressRoute-kryptering, i VNet-kryptering och VNet-VNet-kryptering)| Ja | Azure Virtual Machines stöder [ExpressRoute](/azure/expressroute) och VNET-kryptering. Se [kryptering under överföring i virtuella datorer](/azure/security/security-azure-encryption-overview#in-transit-encryption-in-vms). |
@@ -23,7 +23,7 @@ ms.locfileid: "68444239"
 
 ## <a name="network-segmentation"></a>Nätverks segmentering
 
-| Säkerhetsattribut | Ja/nej | Anteckningar |
+| Säkerhets kontroll | Ja/nej | Anteckningar |
 |---|---|--|
 | Stöd för tjänst slut punkt| Ja | |
 | Stöd för VNet-injektering| Ja | . |
@@ -32,13 +32,13 @@ ms.locfileid: "68444239"
 
 ## <a name="detection"></a>Identifiering
 
-| Säkerhetsattribut | Ja/nej | Anteckningar|
+| Säkerhets kontroll | Ja/nej | Anteckningar|
 |---|---|--|
 | Azure Monitoring support (Log Analytics, App Insights osv.)| Ja | Se [övervaka och uppdatera en virtuell Linux-dator i Azure](/azure/virtual-machines/linux/tutorial-monitoring) och [övervaka och uppdatera en virtuell Windows-dator i Azure](/azure/virtual-machines/windows/tutorial-monitoring). |
 
 ## <a name="identity-and-access-management"></a>Identitets- och åtkomsthantering
 
-| Säkerhetsattribut | Ja/nej | Anteckningar|
+| Säkerhets kontroll | Ja/nej | Anteckningar|
 |---|---|--|
 | Authentication| Ja |  |
 | Authorization| Ja |  |
@@ -46,13 +46,13 @@ ms.locfileid: "68444239"
 
 ## <a name="audit-trail"></a>Gransknings logg
 
-| Säkerhetsattribut | Ja/nej | Anteckningar|
+| Säkerhets kontroll | Ja/nej | Anteckningar|
 |---|---|--|
 | Loggning och granskning av kontroll-och hanterings plan| Ja |  |
 | Loggning och granskning av data planet | Nej |  |
 
 ## <a name="configuration-management"></a>Konfigurationshantering
 
-| Säkerhetsattribut | Ja/nej | Anteckningar|
+| Säkerhets kontroll | Ja/nej | Anteckningar|
 |---|---|--|
 | Konfigurations hanterings stöd (konfigurations version osv.)| Ja |  | 

@@ -10,12 +10,12 @@ author: vijetajo
 ms.author: vijetaj
 ms.topic: conceptual
 ms.date: 09/11/2017
-ms.openlocfilehash: aedaa194a9667f1b89a3370c39c74424f2d01734
-ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
+ms.openlocfilehash: 0cedc9ede43d18d0b94b8a516170db53e3a27910
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2019
-ms.locfileid: "70208069"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70885627"
 ---
 # <a name="languages-supported-on-the-data-science-virtual-machine"></a>Språk som stöds på den virtuella datorn för datavetenskap 
 
@@ -48,183 +48,189 @@ Data Science Virtual Machine (DSVM) innehåller flera färdiga språk och utveck
     # To run Python 3.6
     activate 
     python --version 
-* Use in an IDE:
+    ```
+    
+* Använd i en IDE:
 
-  Use Python Tools for Visual Studio (PTVS), installed in the Visual Studio Community edition. By default, the only environment that's set up automatically in PTVS is Python 3.6. 
+  Använd Python Tools for Visual Studio (PTVS), som installeras i Visual Studio Community Edition. Som standard är den enda miljö som ställs in automatiskt i PTVS python 3,6. 
 
     > [!NOTE]
-    > To point PTVS at Python 2.7, you must create a  custom environment in PTVS. To set this environment path in the Visual Studio  Community Edition, go to **Tools** -> **Python Tools** -> **Python Environments** and select **+ Custom**. Then, set the location to **c:\anaconda\envs\python2** and select **Auto Detect**.
+    > För att peka PTVS på python 2,7 måste du skapa en anpassad miljö i PTVS. Om du vill ange den här miljöns sökväg i Visual Studio Community Edition går du till **verktyg** -> **python tools** -> **python-miljöer** och väljer **+ anpassad**. Ange sedan platsen till **c:\anaconda\envs\python2** och välj **Automatisk identifiering**.
 
-* Use in Jupyter:
+* Använd i Jupyter:
 
-  Open Jupyter and select **New** to create a new notebook. You can set the kernel type as _Python [Conda Root]_ for Python 3.6 and _Python [Conda env:python2]_ for Python 2.7.
+  Öppna Jupyter och välj **ny** för att skapa en ny antecknings bok. Du kan ställa in kernel-typen som _python [Conda root]_ för python 3,6 och _python [Conda-miljö: Python2]_ för python 2,7.
 
-* Install Python packages:
+* Installera python-paket:
 
-  The default Python environments on the DSVM are global environments that are readable by all users. But only administrators can write and install global packages. To install packages to the global environment, activate to the root or python2 environment by using the `activate` command as an administrator. Then, you can use a package manager like `conda` or `pip` to install or update packages.
+  Standard-python-miljöerna på DSVM är globala miljöer som kan läsas av alla användare. Men endast administratörer kan skriva och installera globala paket. Om du vill installera paket i den globala miljön aktiverar du i rot-eller python2-miljön `activate` med hjälp av kommandot som administratör. Sedan kan du använda en paket hanterare som `conda` eller `pip` för att installera eller uppdatera paket.
 
-## Python (Linux and Windows Server 2012 edition)
+## <a name="python-linux-and-windows-server-2012-edition"></a>Python (Linux och Windows Server 2012 Edition)
 
 |    |           |
 | ------------- | ------------- |
-| Language versions supported | Python 2.7 and 3.5 |
-| Supported DSVM editions      | Linux, Windows Server 2012    |
-| How is it configured / installed on the DSVM?  | Two global `conda` environments are created: <br /> * `root` environment located at `/anaconda/` is Python 2.7. <br/> * `py35` environment located at `/anaconda/envs/py35`is Python 3.5.       |
-| Links to samples      | Sample Jupyter notebooks for Python are included.     |
-| Related tools on the DSVM      | PySpark, R, Julia      |
-### How to use and run it    
+| Språk versioner som stöds | Python 2,7 och 3,5 |
+| DSVM-versioner som stöds      | Linux, Windows Server 2012    |
+| Hur är det konfigurerade / installerad på DSVM?  | Två globala `conda` miljöer skapas: <br /> * `root`miljön finns på `/anaconda/` python 2,7. <br/> * `py35`miljön finns på `/anaconda/envs/py35`python 3,5.       |
+| Innehåller länkar till exempel      | Exempel på Jupyter-anteckningsböcker för python ingår.     |
+| Relaterade verktyg på DSVM      | PySpark, R, Julia      |
+### <a name="how-to-use-and-run-it"></a>Använda och köra den    
 
 **Linux**
-* Run in a terminal:
+* Kör i en Terminal:
 
-  Open the terminal and do one of the following, depending on the version of Python you want to run:
+  Öppna terminalen och gör något av följande, beroende på vilken version av python du vill köra:
 
     ```
-    # <a name="to-run-python-27"></a>Köra python 2,7
-    Källa aktivera python--version
+    # To run Python 2.7
+    source activate 
+    python --version
     
-    # <a name="to-run-python-35"></a>Köra python 3,5
-    Källa aktivera py35 python--version
+    # To run Python 3.5
+    source activate py35
+    python --version
     
     ```
-* Use in an IDE:
+* Använd i en IDE:
 
-  Use PyCharm, installed in the Visual Studio Community edition. 
+  Använd pycharm med, som är installerat i Visual Studio Community Edition. 
 
-* Use in Jupyter:
+* Använd i Jupyter:
 
-  Open Jupyter and select **New** to create a new notebook. You can set the kernel type as **Python [Conda Root]** for Python 2.7 and **Python [Conda env:py35]** for the Python 3.5 environment. 
+  Öppna Jupyter och välj **ny** för att skapa en ny antecknings bok. Du kan ställa in kernel-typen som **python [Conda root]** för python 2,7 och **python [Conda-miljö: Py35]** för python 3,5-miljön. 
 
-* Install Python packages:
+* Installera python-paket:
 
-  The default Python environments on the DSVM are global environments readable by all users. But only administrators can write and install global packages. To install packages to the global environment, activate to the root or py35 environment by using the `source activate` command as an administrator or as a user with sudo permissions. Then, you can use a package manager like `conda` or `pip` to install or update packages.
+  Standard Python-miljöer på DSVM är globala miljöer kan läsas av alla användare. Men endast administratörer kan skriva och installera globala paket. Om du vill installera paket i den globala miljön aktiverar du den i rot-eller py35- `source activate` miljön genom att använda kommandot som administratör eller som en användare med sudo-behörigheter. Sedan kan du använda en paket hanterare som `conda` eller `pip` för att installera eller uppdatera paket.
 
 **Windows 2012**
-* Run at a command prompt:
+* Kör i en kommando tolk:
 
-  Open a command prompt and do one of the following, depending on the version of Python you want to run:
+  Öppna en kommando tolk och gör något av följande, beroende på vilken version av python du vill köra:
 
      ```
-    # <a name="to-run-python-27"></a>Köra python 2,7
-    Aktivera python--version
+    # To run Python 2.7
+    activate 
+    python --version
     
-    # <a name="to-run-python-35"></a>Köra python 3,5
-    Aktivera py35 python--version
+    # To run Python 3.5
+    activate py35
+    python --version
     
     ```
-* Use in an IDE:
+* Använd i en IDE:
 
-  Use Python Tools for Visual Studio (PTVS) installed in the Visual Studio Community edition. The only environment that's set up automatically in PTVS is Python 2.7.
+  Använd Python Tools för Visual Studio (PTVS) installeras i Visual Studio Community-utgåvan. Den enda miljö som ställs in automatiskt i PTVS är python 2,7.
     > [!NOTE]
-    > To point PTVS at Python 3.5, you need to create a custom environment in PTVS. To set this environment path in the Visual Studio Community edition, go to **Tools** -> **Python Tools** -> **Python Environments** and select **+ Custom**. Then, set the location to `c:\anaconda\envs\py35` and select _Auto Detect_.
+    > För att peka PTVS på python 3,5 måste du skapa en anpassad miljö i PTVS. Om du vill ange den här miljöns sökväg i Visual Studio Community Edition går du till **verktyg** -> **python tools** -> **python-miljöer** och väljer **+ anpassad**. Ange sedan platsen till `c:\anaconda\envs\py35` och välj _identifiera automatiskt_.
 
-* Use in Jupyter:
+* Använd i Jupyter:
 
-  Open Jupyter and select **New** to create a new notebook. You can set the kernel type as **Python [Conda Root]** for Python 2.7 and **Python [Conda env:py35]** for Python 3.5. 
+  Öppna Jupyter och välj **ny** för att skapa en ny antecknings bok. Du kan ställa in kernel-typen som **python [Conda root]** för python 2,7 och **python [Conda-miljö: Py35]** för python 3,5. 
 
-* Install Python packages:
+* Installera python-paket:
 
-  The default Python environments on the DSVM are global environments that are readable by all users. But only administrators can write and install global packages. To install packages to the global environment, activate to the root or py35 environment by using the `activate` command as an administrator. Then, you can use a package manager like `conda` or `pip` to install or update packages.
+  Standard-python-miljöerna på DSVM är globala miljöer som kan läsas av alla användare. Men endast administratörer kan skriva och installera globala paket. Om du vill installera paket i den globala miljön aktiverar du i rot-eller py35-miljön `activate` med hjälp av kommandot som administratör. Sedan kan du använda en paket hanterare som `conda` eller `pip` för att installera eller uppdatera paket.
 
-## R
-
-|    |           |
-| ------------- | ------------- |
-| Language versions supported | Microsoft R Open 3.x (100% compatible with CRAN-R)<br /> Microsoft R Server 9.x Developer edition (a scalable enterprise-ready R platform)|
-| Supported DSVM editions      | Linux, Windows     |
-| How is it configured / installed on the DSVM?  | Windows: `C:\Program Files\Microsoft\ML Server\R_SERVER` <br />Linux: `/usr/lib64/microsoft-r/3.3/lib64/R`    |
-| Links to samples      | Sample Jupyter notebooks for R are included.     |
-| Related tools on the DSVM      | SparkR, Python, Julia      |
-### How to use and run it    
-
-**Windows**:
-
-* Run at a command prompt:
-
-  Open a command prompt and type `R`.
-
-* Use in an IDE:
-
-  Use RTools for Visual Studio (RTVS) installed in the Visual Studio Community edition or RStudio. These are available on the Start menu or as a desktop icon. 
-
-* Use in Jupyter
-
-  Open Jupyter and select **New** to create a new notebook. You can set the kernel type as **R** to use the Jupyter R kernel (IRKernel).
-
-* Install R packages:
-
-  R is installed on the DSVM in a global environment that's readable by all users. But only administrators can write and install global packages. To install packages to the global environment, run R by using one of the preceding methods. Then, you can run the R package manager `install.packages()` to install or update packages.
-
-**Linux**:
-
-* Run in terminal:
-
-  Open a terminal and run `R`.  
-
-* Use in an IDE:
-
-  Use RStudio, installed on the Linux DSVM.  
-
-* Use in Jupyter:
-
-  Open Jupyter and select **New** to create a new notebook. You can set the kernel type as **R** to use the Jupyter R kernel (IRKernel). 
-
-* Install R packages:
-
-  R is installed on the DSVM in a global environment that's readable by all users. But only administrators can write and install global packages. To install packages to the global environment, run R by using one of the preceding methods. Then, you can run the R package manager `install.packages()` to install or update packages.
-
-
-## Julia
+## <a name="r"></a>R
 
 |    |           |
 | ------------- | ------------- |
-| Language versions supported | 0.6 |
-| Supported DSVM editions      | Linux, Windows     |
-| How is it configured / installed on the DSVM?  | Windows: Installed at `C:\JuliaPro-VERSION`<br /> Linux: Installed at `/opt/JuliaPro-VERSION`    |
-| Links to samples      | Sample Jupyter notebooks for Julia are included.     |
-| Related tools on the DSVM      | Python, R      |
-### How to use and run it    
+| Språk versioner som stöds | Microsoft R Open 3. x (100% kompatibel med CRAN-R)<br /> Microsoft R Server 9. x Developer Edition (en skalbar Enterprise-Ready R-plattform)|
+| DSVM-versioner som stöds      | Linux, Windows     |
+| Hur är det konfigurerade / installerad på DSVM?  | Windows: `C:\Program Files\Microsoft\ML Server\R_SERVER` <br />Linux: `/usr/lib64/microsoft-r/3.3/lib64/R`    |
+| Innehåller länkar till exempel      | Exempel på Jupyter-anteckningsböcker för R ingår.     |
+| Relaterade verktyg på DSVM      | SparkR, Python, Julia      |
+### <a name="how-to-use-and-run-it"></a>Använda och köra den    
 
 **Windows**:
 
-* Run at a command prompt
+* Kör i en kommando tolk:
 
-  Open a command prompt and run `julia`.
-* Use in an IDE:
+  Öppna en kommando tolk och skriv `R`.
 
-  Use `Juno` with the Julia IDE installed on the DSVM and available as a desktop shortcut.
+* Använd i en IDE:
 
-* Use in Jupyter:
+  Använd RTools för Visual Studio (RTVS) installeras i Visual Studio Community edition eller RStudio. Dessa är tillgängliga på Start-menyn eller som en Skriv bords ikon. 
 
-  Open Jupyter and select **New** to create a new notebook. You can set the kernel type as **Julia VERSION**.
+* Använd i Jupyter
 
-* Install Julia packages:
+  Öppna Jupyter och välj **ny** för att skapa en ny antecknings bok. Du kan ange kernel-typ som **R** för att använda Jupyter R-kerneln (IRKernel).
 
-  The default Julia location is a global environment that's readable by all users. But only administrators can write and install global packages. To install packages to the global environment, run Julia by using one of the preceding methods. Then, you can run Julia package manager commands like `Pkg.add()` to install or update packages.
+* Installera R-paket:
+
+  R installeras på DSVM i en global miljö som kan läsas av alla användare. Men endast administratörer kan skriva och installera globala paket. Om du vill installera paket i den globala miljön kör du R genom att använda någon av föregående metoder. Sedan kan du köra R Package Manager `install.packages()` för att installera eller uppdatera paket.
+
+**Linux**:
+
+* Kör i terminaler:
+
+  Öppna en Terminal och kör `R`.  
+
+* Använd i en IDE:
+
+  Använd RStudio, som är installerat på Linux-DSVM.  
+
+* Använd i Jupyter:
+
+  Öppna Jupyter och välj **ny** för att skapa en ny antecknings bok. Du kan ange kernel-typ som **R** för att använda Jupyter R-kerneln (IRKernel). 
+
+* Installera R-paket:
+
+  R installeras på DSVM i en global miljö som kan läsas av alla användare. Men endast administratörer kan skriva och installera globala paket. Om du vill installera paket i den globala miljön kör du R genom att använda någon av föregående metoder. Sedan kan du köra R Package Manager `install.packages()` för att installera eller uppdatera paket.
+
+
+## <a name="julia"></a>Julia
+
+|    |           |
+| ------------- | ------------- |
+| Språk versioner som stöds | 0.6 |
+| DSVM-versioner som stöds      | Linux, Windows     |
+| Hur är det konfigurerade / installerad på DSVM?  | Windows: Installerad på`C:\JuliaPro-VERSION`<br /> Linux: Installerad på`/opt/JuliaPro-VERSION`    |
+| Innehåller länkar till exempel      | Exempel på Jupyter-anteckningsböcker för Julia ingår.     |
+| Relaterade verktyg på DSVM      | Python, R      |
+### <a name="how-to-use-and-run-it"></a>Använda och köra den    
+
+**Windows**:
+
+* Kör i kommando tolken
+
+  Öppna en kommando tolk och kör `julia`.
+* Använd i en IDE:
+
+  Använd `Juno` med Julia IDE installerat på DSVM och tillgänglig som en genväg på Skriv bordet.
+
+* Använd i Jupyter:
+
+  Öppna Jupyter och välj **ny** för att skapa en ny antecknings bok. Du kan ställa in kernel-typen som **Julia-version**.
+
+* Installera Julia-paket:
+
+  Standard platsen för Julia är en global miljö som kan läsas av alla användare. Men endast administratörer kan skriva och installera globala paket. Om du vill installera paket i den globala miljön kör du Julia genom att använda någon av föregående metoder. Sedan kan du köra Julia Package Manager-kommandon som `Pkg.add()` för att installera eller uppdatera paket.
 
 
 **Linux**:
-* Run in a terminal:
+* Kör i en Terminal:
 
-  Open a terminal and run `julia`.
-* Use in an IDE:
+  Öppna en Terminal och kör `julia`.
+* Använd i en IDE:
 
-  Use `Juno`, with the Julia IDE installed on the DSVM and available as an **Application** menu shortcut.
+  Använd `Juno`, med Julia IDE installerat på DSVM och tillgängligt som en genväg till en **program** meny.
 
-* Use in Jupyter:
+* Använd i Jupyter:
 
-  Open Jupyter and select **New** to create a new notebook. You can set the kernel type as **Julia VERSION**.
+  Öppna Jupyter och välj **ny** för att skapa en ny antecknings bok. Du kan ställa in kernel-typen som **Julia-version**.
 
-* Install Julia packages:
+* Installera Julia-paket:
 
-  The default Julia location is a global environment that's readable by all users. But only administrators can write and install global packages. To install packages to the global environment, run Julia by using one of the preceding methods. Then, you can run Julia package manager commands like `Pkg.add()` to install or update packages.
+  Standard platsen för Julia är en global miljö som kan läsas av alla användare. Men endast administratörer kan skriva och installera globala paket. Om du vill installera paket i den globala miljön kör du Julia genom att använda någon av föregående metoder. Sedan kan du köra Julia Package Manager-kommandon som `Pkg.add()` för att installera eller uppdatera paket.
 
-## Other languages
+## <a name="other-languages"></a>Andra språk
 
-**C#**: Available on Windows and accessible through the Visual Studio Community edition or at the `Developer Command Prompt for Visual Studio`, where you can run the `csc` command.
+**C#** : Tillgängligt i Windows och tillgängligt via Visual Studio Community Edition eller vid `Developer Command Prompt for Visual Studio`, där du kan `csc` köra kommandot.
 
-**Java**: OpenJDK is available on both the Linux and Windows editions of the DSVM and is set on the path. To use Java, type the `javac` or `java` command at a command prompt in Windows or on the bash shell in Linux.
+**Java**: OpenJDK finns i både Linux-och Windows-versionerna av DSVM och anges på sökvägen. Om du vill använda Java skriver `javac` du `java` kommandot eller i en kommando tolk i Windows eller i bash-gränssnittet i Linux.
 
-**Node.js**: Node.js is available on both the Linux and Windows editions of the DSVM and is set on the path. To access Node.js, type the `node` or `npm` command at a command prompt in Windows or on the bash shell in Linux. On Windows, the Visual Studio extension for the Node.js tools is installed to provide a graphical IDE to develop your Node.js application.
+**Node.js**: Node. js finns i både Linux-och Windows-versionerna av DSVM och anges på sökvägen. Om du vill ha åtkomst till Node. `node` JS `npm` skriver du kommandot eller i en kommando tolk i Windows eller i bash-gränssnittet i Linux. I Windows är Visual Studio-tillägget för Node. js-verktygen installerat för att tillhandahålla en grafisk IDE för att utveckla Node. js-programmet.
 
-**F#**: Available on Windows and accessible through the Visual Studio Community edition or at a `Developer Command Prompt for Visual Studio`, where you can run the `fsc` command.
+**F#** : Tillgängligt i Windows och tillgängligt via Visual Studio Community Edition eller vid en `Developer Command Prompt for Visual Studio`, där du kan `fsc` köra kommandot.

@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4b5f85aa99876ef6c3c9193612051085f3e0ffc0
-ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
+ms.openlocfilehash: 59450fc93052a1e169d13fab5b80cbc57c169e0f
+ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70872184"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70909773"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Regler för dynamiskt medlemskap för grupper i Azure Active Directory
 
@@ -99,8 +99,8 @@ Följande är de användar egenskaper som du kan använda för att skapa ett end
 | Ursprungslandet |Valfritt sträng värde eller *Null* |(User. Country-EQ "värde") |
 | companyName | Valfritt sträng värde eller *Null* | (User. företags namn – EQ "värde") |
 | Avdelning |Valfritt sträng värde eller *Null* |(User. Department-EQ "värde") |
-| displayName |Valfritt sträng värde |(User. displayName-EQ "value") |
-| Anställnings |Valfritt sträng värde |(User. Anställningsnr-EQ "value")<br>(User. Anställningsnr-Ne *Null*) |
+| displayName |valfritt sträng värde |(User. displayName-EQ "value") |
+| Anställnings |valfritt sträng värde |(User. Anställningsnr-EQ "value")<br>(User. Anställningsnr-Ne *Null*) |
 | facsimileTelephoneNumber |Valfritt sträng värde eller *Null* |(User. facsimileTelephoneNumber-EQ "value") |
 | givenName |Valfritt sträng värde eller *Null* |(User. givenName-EQ "value") |
 | jobTitle |Valfritt sträng värde eller *Null* |(User. befattning-EQ "value") |
@@ -119,14 +119,14 @@ Följande är de användar egenskaper som du kan använda för att skapa ett end
 | Efternamn |Valfritt sträng värde eller *Null* |(User. efter namn – EQ "värde") |
 | telephoneNumber |Valfritt sträng värde eller *Null* |(User. telephoneNumber-EQ "value") |
 | usageLocation |Två bokstäver för bokstavs kod |(User. usageLocation-EQ "US") |
-| userPrincipalName |Valfritt sträng värde |(user.userPrincipalName -eq "alias@domain") |
+| userPrincipalName |valfritt sträng värde |(user.userPrincipalName -eq "alias@domain") |
 | userType |medlems gäster *Null* |(User. userType-EQ "medlem") |
 
 ### <a name="properties-of-type-string-collection"></a>Egenskaper av typen sträng samling
 
 | properties | Tillåtna värden | Användning |
 | --- | --- | --- |
-| otherMails |Valfritt sträng värde |(User. otherMails-contains "alias@domain") |
+| otherMails |valfritt sträng värde |(User. otherMails-contains "alias@domain") |
 | proxyAddresses |SMTP: alias@domain SMTP:alias@domain |(User. proxyAddresses-contains "SMTP: alias@domain") |
 
 Information om egenskaper som används för enhets regler finns i [regler för enheter](#rules-for-devices).
@@ -376,7 +376,7 @@ Följande enhets egenskaper kan användas.
  deviceManufacturer | valfritt sträng värde | (Device. deviceManufacturer-EQ "Samsung")
  deviceModel | valfritt sträng värde | (device.deviceModel -eq "iPad Air")
  deviceOwnership | Personlig, företag, okänd | (Device. deviceOwnership-EQ "Company")
- enrollmentProfileName | Registrerings profil för Apple-enhet eller profil namn för Windows autopilot | (Device. enrollmentProfileName-EQ "DEP iPhone")
+ enrollmentProfileName | Registrerings profil för Apples enhet, enhets registrering-identifierare för företags enheter (Android-kiosk) eller Windows autopilot-profil namn | (Device. enrollmentProfileName-EQ "DEP iPhone")
  isRooted | Sant falskt | (Device. isRooted-EQ true)
  managementType | MDM (för mobila enheter)<br>PC (för datorer som hanteras av Intune PC-agenten) | (Device. managementType-EQ "MDM")
  deviceId | ett giltigt ID för Azure AD-enhet | (device.deviceId -eq "d4fe7726-5966-431c-b3b8-cddc8fdb717d")

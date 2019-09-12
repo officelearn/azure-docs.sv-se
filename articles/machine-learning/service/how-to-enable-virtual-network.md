@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 ms.author: aashishb
 author: aashishb
 ms.date: 08/05/2019
-ms.openlocfilehash: 6e5ae4966a62c24594ec6efa9454d5e03f75c25b
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.openlocfilehash: fcd47cdf3968e8c8a204cb15f10dd41c4eaab641
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69971525"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70885669"
 ---
 # <a name="secure-azure-ml-experimentation-and-inference-jobs-within-an-azure-virtual-network"></a>Skydda Azure ML-experimentering och härlednings jobb i en Azure-Virtual Network
 
@@ -39,9 +39,9 @@ Den här artikeln innehåller även detaljerad information om *avancerade säker
 
 Om du vill använda ett Azure Storage-konto för arbets ytan i ett virtuellt nätverk gör du följande:
 
-1. Skapa en beräknings instans av experiment (till exempel en Machine Learning-beräkning instans) bakom ett virtuellt nätverk eller koppla en beräknings instans av experimentet till arbets ytan (till exempel ett HDInsight-kluster eller en virtuell dator).
+1. Skapa en beräknings instans (till exempel en Machine Learning-beräkning instans) bakom ett virtuellt nätverk eller koppla en beräknings instans till arbets ytan (till exempel ett HDInsight-kluster, en virtuell dator eller ett Azure Kubernetes service-kluster). Compute-instansen kan vara till för experimentering eller modell distribution.
 
-   Mer information finns i avsnitten "använda en Machine Learning-beräkning instans" och "använda en virtuell dator eller HDInsight-kluster" i den här artikeln.
+   Mer information finns i avsnittet [använda en Machine Learning-beräkning-instans](#amlcompute), [använda en virtuell dator eller HDInsight-kluster](#vmorhdi)och [använda Azure Kubernetes service-](#aksvnet) avsnitten i den här artikeln.
 
 1. I Azure Portal går du till den lagring som är kopplad till din arbets yta.
 
@@ -53,7 +53,11 @@ Om du vill använda ett Azure Storage-konto för arbets ytan i ett virtuellt nä
 
 1. På sidan __brand väggar och virtuella nätverk__ gör du följande:
     - Välj __Valda nätverk__.
-    - Under __virtuella nätverk__väljer du länken __Lägg till befintligt virtuellt nätverk__ . Den här åtgärden lägger till det virtuella nätverk där din bearbetnings instans av experimentet finns (se steg 1).
+    - Under __virtuella nätverk__väljer du länken __Lägg till befintligt virtuellt nätverk__ . Den här åtgärden lägger till det virtuella nätverk där beräknings instansen finns (se steg 1).
+
+        > [!IMPORTANT]
+        > Lagrings kontot måste finnas i samma virtuella nätverk som de beräknings instanser som används för utbildning eller härledning.
+
     - Markera kryss rutan __Tillåt att betrodda Microsoft-tjänster har åtkomst till det här lagrings kontot__ .
 
     > [!IMPORTANT]
@@ -63,20 +67,18 @@ Om du vill använda ett Azure Storage-konto för arbets ytan i ett virtuellt nä
 
    [![Fönstret "brand väggar och virtuella nätverk" i Azure Portal](./media/how-to-enable-virtual-network/storage-firewalls-and-virtual-networks-page.png)](./media/how-to-enable-virtual-network/storage-firewalls-and-virtual-networks-page.png#lightbox)
 
-1. När du kör experimentet ändrar du kör konfigurationen till Använd Azure Blob Storage i experiment-koden:
+1. När __experiment körs__, ändra i din experiment kod körnings konfigurationen för att använda Azure Blob Storage:
 
     ```python
     run_config.source_directory_data_store = "workspaceblobstore"
     ```
 
 > [!IMPORTANT]
-> Du kan bara placera _standard lagrings kontot_ för Azure Machine Learning-tjänsten i ett virtuellt nätverk _för experimentering_. Standard lagrings kontot tillhandahålls automatiskt när du skapar en arbets yta.
+> Du kan placera både _standard lagrings kontot_ för Azure Machine learnings tjänsten eller _andra lagrings konton som inte är standard_ i ett virtuellt nätverk.
 >
-> Du kan endast placera _lagrings konton som inte är standard_ i ett virtuellt nätverk _för experimentering_. Med `storage_account` hjälp av parametern [ `Workspace.create()` i funktionen](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-) kan du ange ett anpassat lagrings konto per Azure-resurs-ID.
+> Standard lagrings kontot tillhandahålls automatiskt när du skapar en arbets yta.
 >
-> Både standard-och icke-standardlagrings konton som används för _härledning_ måste ha _obegränsad åtkomst till lagrings kontot_.
->
-> Om du inte är säker på om du har ändrat inställningarna läser du avsnittet "ändra standard regel för nätverks åtkomst regel" i [konfigurera Azure Storage brand väggar och virtuella nätverk](https://docs.microsoft.com/azure/storage/common/storage-network-security). Följ instruktionerna för att tillåta åtkomst från alla nätverk under härledningen eller modell poängen.
+> För lagrings konton `storage_account` som inte är standard kan du ange ett anpassat lagrings konto per Azure-resurs-ID [ `Workspace.create()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-) i-parametern i funktionen.
 
 ## <a name="use-a-key-vault-instance-with-your-workspace"></a>Använd en Key Vault-instans med din arbets yta
 
@@ -101,6 +103,8 @@ Om du vill använda Azure Machine Learning experiment funktioner med Azure Key V
 
    [![Avsnittet "brand väggar och virtuella nätverk" i fönstret Key Vault](./media/how-to-enable-virtual-network/key-vault-firewalls-and-virtual-networks-page.png)](./media/how-to-enable-virtual-network/key-vault-firewalls-and-virtual-networks-page.png#lightbox)
 
+<a id="amlcompute"></a>
+
 ## <a name="use-a-machine-learning-compute-instance"></a>Använd en Machine Learning-beräkning instans
 
 Om du vill använda en Azure Machine Learning beräknings instans i ett virtuellt nätverk måste följande nätverks krav uppfyllas:
@@ -110,6 +114,7 @@ Om du vill använda en Azure Machine Learning beräknings instans i ett virtuell
 > * Det undernät som anges för beräknings klustret måste ha tillräckligt många otilldelade IP-adresser för att rymma antalet virtuella datorer som är mål för klustret. Om under nätet inte har tillräckligt med otilldelade IP-adresser, kommer klustret att tilldelas delvis.
 > * Kontrol lera om dina säkerhets principer eller lås på det virtuella nätverkets prenumeration eller resurs grupp begränsar behörigheter för hantering av det virtuella nätverket. Om du planerar att skydda det virtuella nätverket genom att begränsa trafiken lämnar du vissa portar öppna för beräknings tjänsten. Mer information finns i avsnittet [nödvändiga portar](#mlcports) .
 > * Om du ska lagra flera beräknings kluster i ett virtuellt nätverk kan du behöva begära en kvot ökning för en eller flera av dina resurser.
+> * Om Azure Storage kontona för arbets ytan också är skyddade i ett virtuellt nätverk måste de finnas i samma virtuella nätverk som Azure Machine Learning beräknings instansen.
 
 Machine Learning-beräkning-instansen allokerar automatiskt ytterligare nätverks resurser i resurs gruppen som innehåller det virtuella nätverket. För varje beräknings kluster allokerar tjänsten följande resurser:
 
@@ -238,6 +243,8 @@ except ComputeTargetException:
 
 När du har skapat processen tränar du din modell genom att använda klustret i ett experiment. Mer information finns i [Välj och använda ett beräknings mål för utbildning](how-to-set-up-training-targets.md).
 
+<a id="vmorhdi"></a>
+
 ## <a name="use-a-virtual-machine-or-hdinsight-cluster"></a>Använda en virtuell dator eller HDInsight-kluster
 
 > [!IMPORTANT]
@@ -283,7 +290,7 @@ Gör så här om du vill lägga till AKS i ett virtuellt nätverk på din arbets
 > [!IMPORTANT]
 > Innan du påbörjar följande procedur följer du kraven i avsnittet [Konfigurera avancerade nätverksfunktioner i Azure Kubernetes service (AKS)](https://docs.microsoft.com/azure/aks/configure-advanced-networking#prerequisites) How-to och planera IP-adressering för klustret.
 >
-> AKS-instansen och det virtuella Azure-nätverket måste finnas i samma region.
+> AKS-instansen och det virtuella Azure-nätverket måste finnas i samma region. Om du skyddar de Azure Storage-konton som används av arbets ytan i ett virtuellt nätverk måste de finnas i samma virtuella nätverk som AKS-instansen.
 
 1. I [Azure Portal](https://portal.azure.com)kontrollerar du att den NSG som styr det virtuella nätverket har en regel för inkommande trafik som är aktive rad för tjänsten Azure Machine Learning genom att använda __AzureMachineLearning__ som **källa**.
 

@@ -3,18 +3,18 @@ title: Vägledning för Azure Key Vault-begränsning
 description: Key Vault-begränsning begränsar antalet samtidiga anrop för att förhindra felaktig användning av resurser.
 services: key-vault
 author: msmbaldwin
-manager: barbkess
+manager: rkarlin
 tags: ''
 ms.service: key-vault
 ms.topic: conceptual
 ms.date: 05/10/2018
 ms.author: mbaldwin
-ms.openlocfilehash: 06b96ac6ea0202b74638b9331d754c0e0cc28ad0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f10f40551701cafd94692afc0916972b1fd73aff
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64695236"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70883044"
 ---
 # <a name="azure-key-vault-throttling-guidance"></a>Vägledning för Azure Key Vault-begränsning
 
@@ -31,7 +31,7 @@ Om du har en giltig affärsfall för högre begränsningar kan du kontakta oss.
 
 ## <a name="how-to-throttle-your-app-in-response-to-service-limits"></a>Hur du ska begränsa din app som svar på tjänstbegränsningar
 
-Följande är **bästa praxis** bör du implementera när prestandan för din tjänst:
+Följande är **metod tips** som du bör implementera när din tjänst är begränsad:
 - Minska antalet åtgärder per begäran.
 - Minska frekvensen av begäranden.
 - Undvik att omedelbart återförsök. 
@@ -112,7 +112,7 @@ Kod som implementerar en exponentiell backoff visas nedan.
 ```
 
 
-Med den här koden i en klient C\# program är enkelt. I följande exempel visas hur du med hjälp av HttpClient-klassen.
+Det är enkelt att använda den här\# koden i ett klient C-program. I följande exempel visas hur du använder klassen HttpClient.
 
 ```csharp
 public async Task<Cart> GetCartItems(int page)
@@ -131,7 +131,7 @@ public async Task<Cart> GetCartItems(int page)
 }
 ```
 
-Kom ihåg att den här koden är lämplig endast som ett konceptbevis. 
+Kom ihåg att den här koden är lämplig för koncept bevis. 
 
 ### <a name="recommended-client-side-throttling-method"></a>Rekommenderade metoden för begränsning av klientsidan
 

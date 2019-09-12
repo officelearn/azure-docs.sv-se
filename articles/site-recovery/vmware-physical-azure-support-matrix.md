@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 07/23/2019
+ms.date: 09/11/2019
 ms.author: raynew
-ms.openlocfilehash: fd24d0d9f05855cf22da547f95b16da0a8d2c788
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 47914a635afe754cb4205a1e089622a69b706b51
+ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69617653"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70910444"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>Stöd mat ris för haveri beredskap för virtuella VMware-datorer och fysiska servrar till Azure
 
@@ -245,6 +245,10 @@ Delad virtuell hård disk | Stöds ej. | Kontrollen Miss lyckas om den inte stö
 FC-disk | Stöds ej. | Kontrollen Miss lyckas om den inte stöds.
 BitLocker | Stöds ej. | BitLocker måste inaktive ras innan du aktiverar replikering för en dator. |
 VM-namn | Mellan 1 och 63 tecken.<br/><br/> Begränsat till bokstäver, siffror och bindestreck.<br/><br/> Dator namnet måste börja och sluta med en bokstav eller en siffra. |  Uppdatera värdet i dator egenskaperna i Site Recovery.
+
+## <a name="resource-group-limits"></a>Resurs grupps gränser
+
+Information om hur många virtuella datorer som kan skyddas under en enda resurs grupp finns i artikeln om [prenumerations gränser och kvoter](https://docs.microsoft.com/azure/azure-subscription-service-limits#resource-group-limits)
 
 ## <a name="churn-limits"></a>Omsättnings gränser
 

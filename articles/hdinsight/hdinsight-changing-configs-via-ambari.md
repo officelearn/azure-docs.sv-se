@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: hrasheed
-ms.openlocfilehash: 57e5eef8563bca0e27024d6ff5a46b983273df07
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
-ms.translationtype: MT
+ms.openlocfilehash: 5c533c3b0005528eae646744e8e720e2c54436e1
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70810655"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70880256"
 ---
 # <a name="use-apache-ambari-to-optimize-hdinsight-cluster-configurations"></a>Använd Apache Ambari för att optimera HDInsight-klusterkonfigurationer
 
@@ -146,7 +146,7 @@ Som standard följer Hive en uppsättning regler för att hitta en optimal plan 
 
 Om du vill aktivera CBO navigerar du till fliken Hive- **konfiguration** och `parameter hive.cbo.enable`söker efter och byter sedan växlings knappen till **på**.
 
-![CBO-konfiguration](./media/hdinsight-changing-configs-via-ambari/cbo.png)
+![CBO-konfiguration](./media/hdinsight-changing-configs-via-ambari/hdinsight-cbo-config.png)
 
 Följande ytterligare konfigurations parametrar ökar prestanda för Hive-frågor när CBO är aktiverat:
 
@@ -269,7 +269,7 @@ I följande avsnitt beskrivs ytterligare Hive-relaterade optimeringar som du kan
 
 Standard kopplings typen i Hive är en *blandad koppling*. I Hive läser särskilda mappningar indata och genererar ett kopplings nyckel/värde-par till en mellanliggande fil. Hadoop sorterar och sammanfogar dessa par i en blandad fas. Den här blandade fasen är dyr. Om du väljer höger koppling baserat på dina data kan du förbättra prestanda avsevärt.
 
-| Anslutningstyp | När | Vilken | Hive-inställningar | Kommentar |
+| Anslutningstyp | När | vilken | Hive-inställningar | Kommentar |
 | -- | -- | -- | -- | -- |
 | Blanda koppling | <ul><li>Standard alternativ</li><li>Fungerar alltid</li></ul> | <ul><li>Läser från en del av en av tabellerna</li><li>Buckets och sorteras efter kopplings nyckel</li><li>Skickar en Bucket till varje minskning</li><li>Kopplingen görs på den minimerade Sidan</li></ul> | Ingen väsentlig registrerings inställning krävs | Fungerar varje gång |
 | Kart koppling | <ul><li>En tabell får plats i minnet</li></ul> | <ul><li>Läser liten tabell i hash-tabellen för minnet</li><li>Strömmar genom en del av den stora filen</li><li>Kopplar varje post från hash-tabellen</li><li>Kopplingar är endast av mapper</li></ul> | `hive.auto.confvert.join=true` | Mycket snabb, men begränsad |

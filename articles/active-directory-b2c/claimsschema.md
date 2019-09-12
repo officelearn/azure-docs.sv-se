@@ -157,7 +157,7 @@ I ramverket med identitets upplevelsen återges bara den första bokstaven i e-p
 
 ### <a name="enumeration"></a>Uppräkning
 
-Uppräknings elementet innehåller följande attribut: ****
+Uppräknings elementet innehåller följande attribut:
 
 | Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
@@ -253,7 +253,7 @@ Indatatypen för **text Rute** användaren används för att ange en text ruta m
 
 ### <a name="password"></a>lösenordsinställning
 
-Användarens Indatatyp används för att registrera ett lösen ord som anges av användaren. ****
+Användarens Indatatyp används för att registrera ett lösen ord som anges av användaren.
 
 ![Använda anspråks typ med lösen ord](./media/claimsschema/password.png)
 
@@ -375,4 +375,4 @@ Indatatypen **stycke** användare används för att tillhandahålla ett fält so
 </ClaimType>
 ```
 
-Om du vill visa ett **** av uppräknings värden i ett **responseMsg** - `GetMappedValueFromLocalizedCollection` anspråk `CreateStringClaim` använder eller anspråks omvandling. Mer information finns i [sträng anspråk omvandlingar](string-transformations.md)
+Om du vill visa ett av uppräknings värden i ett **responseMsg** - `GetMappedValueFromLocalizedCollection` anspråk `CreateStringClaim` använder eller anspråks omvandling. Mer information finns i [sträng anspråk omvandlingar](string-transformations.md)

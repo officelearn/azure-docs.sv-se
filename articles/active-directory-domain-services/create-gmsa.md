@@ -1,73 +1,108 @@
 ---
-title: 'Azure Active Directory Domain Services: Skapa ett grupphanterat tjänst konto | Microsoft Docs'
+title: Gruppera hanterade tjänst konton för Azure AD Domain Services | Microsoft Docs
 description: Lär dig hur du skapar ett grupphanterat tjänst konto (gMSA) för användning med Azure Active Directory Domain Services hanterade domäner
 services: active-directory-ds
-documentationcenter: ''
 author: iainfoulds
 manager: daveba
-editor: curtand
 ms.assetid: e6faeddd-ef9e-4e23-84d6-c9b3f7d16567
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/13/2019
+ms.date: 09/09/2019
 ms.author: iainfou
-ms.openlocfilehash: 3742aed7ff39e0a2f6bdf353fb9f261176027422
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 1cfddf14d60b7d73bae283a18732c7c99ae22b4d
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69612956"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70898235"
 ---
-# <a name="create-a-group-managed-service-account-gmsa-on-an-azure-ad-domain-services-managed-domain"></a>Skapa ett grupphanterat tjänst konto (gMSA) på en Azure AD Domain Services hanterad domän
-Den här artikeln visar hur du skapar hanterade tjänst konton på en Azure AD Domain Services hanterad domän.
+# <a name="create-a-group-managed-service-account-gmsa-in-azure-ad-domain-services"></a>Skapa ett grupphanterat tjänst konto (gMSA) i Azure AD Domain Services
 
-## <a name="managed-service-accounts"></a>Hanterade tjänst konton
-Ett fristående-hanterat tjänst konto (sMSA) är ett hanterat domän konto vars lösen ord hanteras automatiskt. Det fören klar hanteringen av tjänstens huvud namn (SPN) och möjliggör delegerad hantering till andra administratörer. Den här typen av hanterade tjänst konton (MSA) introducerades i Windows Server 2008 R2 och Windows 7.
+Program och tjänster behöver ofta en identitet för att autentisera sig med andra resurser. En webb tjänst kan till exempel behöva autentisera med en databas tjänst. Om ett program eller en tjänst har flera instanser, till exempel en webb Server grupp, får du tids krävande att skapa och konfigurera identiteterna för dessa resurser. I stället kan ett grupphanterat tjänst konto (gMSA) skapas i den Azure Active Directory Domain Services (Azure AD DS)-hanterade domänen. Windows OS hanterar automatiskt autentiseringsuppgifterna för en gMSA, vilket fören klar hanteringen av stora grupper av resurser.
 
-Grupphanterade tjänst konton (gMSA) ger samma fördelar för många servrar i domänen. Alla instanser av en tjänst som finns i en Server grupp måste använda samma tjänst huvud namn för att ömsesidiga autentiseringsprotokoll ska fungera. När en gMSA används som tjänstens huvud namn, hanterar Windows-operativsystemet kontots lösen ord i stället för att förlita dig på administratören.
+Den här artikeln visar hur du skapar en gMSA i en Azure AD DS-hanterad domän.
 
-**Mer information:**
-- [Översikt över grupphanterade tjänst konton](https://docs.microsoft.com/windows-server/security/group-managed-service-accounts/group-managed-service-accounts-overview)
-- [Komma igång med grupphanterade tjänst konton](https://docs.microsoft.com/windows-server/security/group-managed-service-accounts/getting-started-with-group-managed-service-accounts)
+## <a name="before-you-begin"></a>Innan du börjar
 
+För att slutföra den här artikeln behöver du följande resurser och behörigheter:
 
-## <a name="using-service-accounts-in-azure-ad-domain-services"></a>Använda tjänst konton i Azure AD Domain Services
-Azure AD Domain Services hanterade domäner är låsta och hanteras av Microsoft. Det finns ett par viktiga överväganden när du använder tjänst konton med Azure AD Domain Services.
+* En aktiv Azure-prenumeration.
+    * [Skapa ett konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)om du inte har någon Azure-prenumeration.
+* En Azure Active Directory klient som är associerad med din prenumeration, antingen synkroniserad med en lokal katalog eller en katalog som endast är moln.
+    * Om det behövs kan du [skapa en Azure Active Directory klient][create-azure-ad-tenant] eller [associera en Azure-prenumeration med ditt konto][associate-azure-ad-tenant].
+* En Azure Active Directory Domain Services hanterad domän aktive rad och konfigurerad i Azure AD-klienten.
+    * Om det behövs, slutför du själv studie kursen för att [skapa och konfigurera en Azure Active Directory Domain Services-instans][create-azure-ad-ds-instance].
+* En virtuell Windows Server Management-dator som är ansluten till den hanterade Azure AD DS-domänen.
+    * Om det behövs kan du slutföra självstudien för att [skapa en virtuell hanterings dator][tutorial-create-management-vm].
 
-### <a name="create-service-accounts-within-custom-organizational-units-ou-on-the-managed-domain"></a>Skapa tjänst konton inom anpassade organisationsenheter (OU) på den hanterade domänen
-Det går inte att skapa ett tjänst konto i de inbyggda organisationsenheterna "AADDC Users" eller "AADDC Computers". [Skapa en anpassad Organisationsenhet](create-ou.md) på din hanterade domän och skapa sedan tjänst konton inom den anpassade organisationsenheten.
+## <a name="managed-service-accounts-overview"></a>Översikt över hanterade tjänst konton
 
-### <a name="the-key-distribution-services-kds-root-key-is-already-pre-created"></a>Rot nyckeln Key Distribution Services (KDS) har redan skapats i förväg
-Rot nyckeln Key Distribution Services (KDS) skapas i förväg på en Azure AD Domain Services hanterad domän. Du behöver inte skapa en KDS-rot nyckel och har inte behörighet att göra det. Du kan inte Visa rot nyckeln KDS på den hanterade domänen.
+Ett fristående hanterat tjänst konto (sMSA) är ett domän konto vars lösen ord hanteras automatiskt. Den här metoden fören klar hanteringen av tjänstens huvud namn (SPN) och möjliggör delegerad hantering till andra administratörer. Du behöver inte skapa och rotera autentiseringsuppgifter manuellt för kontot.
 
-## <a name="sample---create-a-gmsa-using-powershell"></a>Exempel – skapa en gMSA med hjälp av PowerShell
-I följande exempel visas hur du skapar en anpassad ORGANISATIONSENHET med hjälp av PowerShell. Du kan sedan skapa en gMSA i den organisationsenheten med hjälp ```-Path``` av parametern för att ange organisationsenheten.
+Ett grupphanterat tjänst konto (gMSA) har samma hanterings förenkling, men för flera servrar i domänen. Med en gMSA kan alla instanser av en tjänst som finns i en Server grupp använda samma tjänst huvud namn för ömsesidiga autentiseringsprotokoll som fungerar. När en gMSA används som tjänstens huvud namn, hanterar Windows-operativsystemet igen kontots lösen ord i stället för att förlita dig på administratören.
+
+Mer information finns i [Översikt över grupphanterade tjänst konton (gMSA)][gmsa-overview].
+
+## <a name="using-service-accounts-in-azure-ad-ds"></a>Använda tjänst konton i Azure AD DS
+
+Eftersom Azure AD DS-hanterade domäner är låsta och hanteras av Microsoft, finns det några saker att tänka på när du använder tjänst konton:
+
+* Skapa tjänst konton i anpassade organisationsenheter (OU) på den hanterade domänen.
+    * Du kan inte skapa ett tjänst konto i de inbyggda *AADDC-användarna* eller *AADDC-datorernas* organisationsenheter.
+    * Skapa i stället [en anpassad Organisationsenhet][create-custom-ou] i den hanterade domänen i Azure AD DS och skapa sedan tjänst konton i den anpassade organisationsenheten.
+* Rot nyckeln för Key Distribution Services (KDS) har skapats i förväg.
+    * Rot nyckeln KDS används för att generera och hämta lösen ord för gMSAs. I Azure AD DS skapas KDS-roten åt dig.
+    * Du har inte behörighet att skapa en annan, eller så kan du Visa standard rot nyckeln KDS.
+
+## <a name="create-a-gmsa"></a>Skapa en gMSA
+
+Skapa först en anpassad ORGANISATIONSENHET med cmdleten [New-ADOrganizationalUnit][New-AdOrganizationalUnit] . Mer information om hur du skapar och hanterar anpassade organisationsenheter finns [i anpassade organisationsenheter i Azure AD DS][create-custom-ou].
+
+I följande exempel skapas en anpassad ORGANISATIONSENHET med namnet *myNewOU* i den hanterade Azure AD DS-domänen med namnet *contoso.com*. Använd din egen ORGANISATIONSENHET och ditt hanterade domän namn:
 
 ```powershell
-# Create a new custom OU on the managed domain
-New-ADOrganizationalUnit -Name "MyNewOU" -Path "DC=contoso,DC=COM"
-
-# Create a service account 'WebFarmSvc' within the custom OU.
-New-ADServiceAccount -Name WebFarmSvc  `
--DNSHostName ` WebFarmSvc.contoso.com  `
--Path "OU=MYNEWOU,DC=contoso,DC=com"  `
--KerberosEncryptionType AES128, AES256  ` -ManagedPasswordIntervalInDays 30  `
--ServicePrincipalNames http/WebFarmSvc.contoso.com/contoso.com, `
-http/WebFarmSvc.contoso.com/contoso,  `
-http/WebFarmSvc/contoso.com, http/WebFarmSvc/contoso  `
--PrincipalsAllowedToRetrieveManagedPassword CONTOSO-SERVER$
+New-ADOrganizationalUnit -Name "myNewOU" -Path "DC=contoso,DC=COM"
 ```
 
-**PowerShell-cmdlet-dokumentation:**
-- [New-ADOrganizationalUnit-cmdlet](https://docs.microsoft.com/powershell/module/addsadministration/new-adorganizationalunit)
-- [New-ADServiceAccount-cmdlet](https://docs.microsoft.com/powershell/module/addsadministration/New-ADServiceAccount)
+Skapa nu en gMSA med cmdleten [New-ADServiceAccount][New-ADServiceAccount] . Följande exempel parametrar definieras:
 
+* **-Name** är inställt på *WebFarmSvc*
+* Parametern **-Path** anger den anpassade organisationsenheten för den gMSA som skapades i föregående steg.
+* DNS-poster och tjänst huvud namn har angetts för *WebFarmSvc.contoso.com*
+* Huvud konton i *contoso-Server $* får hämta lösen ordet Använd identiteten.
+
+Ange egna namn och domän namn.
+
+```powershell
+New-ADServiceAccount -Name WebFarmSvc `
+    -DNSHostName WebFarmSvc.contoso.com `
+    -Path "OU=MYNEWOU,DC=contoso,DC=com" `
+    -KerberosEncryptionType AES128, AES256 `
+    -ManagedPasswordIntervalInDays 30 `
+    -ServicePrincipalNames http/WebFarmSvc.contoso.com/contoso.com, `
+        http/WebFarmSvc.contoso.com/contoso, `
+        http/WebFarmSvc/contoso.com, `
+        http/WebFarmSvc/contoso `
+    -PrincipalsAllowedToRetrieveManagedPassword CONTOSO-SERVER$
+```
+
+Program och tjänster kan nu konfigureras för att använda gMSA vid behov.
 
 ## <a name="next-steps"></a>Nästa steg
-- [Skapa en anpassad ORGANISATIONSENHET på en hanterad domän](create-ou.md)
-- [Översikt över grupphanterade tjänst konton](https://docs.microsoft.com/windows-server/security/group-managed-service-accounts/group-managed-service-accounts-overview)
-- [Komma igång med grupphanterade tjänst konton](https://docs.microsoft.com/windows-server/security/group-managed-service-accounts/getting-started-with-group-managed-service-accounts)
+
+Mer information om gMSAs finns i [komma igång med grupphanterade tjänst konton][gmsa-start].
+
+<!-- INTERNAL LINKS -->
+[create-azure-ad-tenant]: ../active-directory/fundamentals/sign-up-organization.md
+[associate-azure-ad-tenant]: ../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md
+[create-azure-ad-ds-instance]: tutorial-create-instance.md
+[tutorial-create-management-vm]: tutorial-create-management-vm.md
+[create-custom-ou]: create-ou.md
+
+<!-- EXTERNAL LINKS -->
+[New-ADOrganizationalUnit]: /powershell/module/addsadministration/New-AdOrganizationalUnit
+[New-ADServiceAccount]: /powershell/module/addsadministration/New-AdServiceAccount
+[gmsa-overview]: /windows-server/security/group-managed-service-accounts/group-managed-service-accounts-overview
+[gmsa-start]: /windows-server/security/group-managed-service-accounts/getting-started-with-group-managed-service-accounts

@@ -8,12 +8,12 @@ ms.author: xshi
 ms.date: 08/07/2019
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: b63b68b7721dd848e6a72b3b7d9cfa38bf031b23
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: b451e501b216b02ecb052ee159d0e26343af7901
+ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69035089"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70910236"
 ---
 # <a name="use-visual-studio-code-to-develop-and-debug-modules-for-azure-iot-edge"></a>Använd Visual Studio Code för att utveckla och felsöka moduler för Azure IoT Edge
 
@@ -89,7 +89,7 @@ Följande steg visar hur du skapar en IoT Edge-modul på det föredragna utveckl
 
 1. Ange ett namn för modulen. Välj ett namn som är unikt i behållar registret.
 
-1. Ange namnet på modulens avbildnings lagrings plats. Visual Studio Code fyller automatiskt i modulnamnet med **localhost: 5000/< namnet\>på din modul**. Ersätt den med din egen information i registret. Om du använder ett lokalt Docker-register för testning är **localhost** bra. Om du använder Azure Container Registry kan du sedan använda inloggningsserver från din registerinställningar. Inloggnings servern ser ut som * **\<register\>namn *. azurecr.io**. Ersätt endast **localhost: 5000** del av strängen så att det slutliga resultatet ser ut som * *\<* register namn *\>. azurecr.io/* \<för ditt Modulnamn\>* * *.
+1. Ange namnet på modulens avbildnings lagrings plats. Visual Studio Code fyller automatiskt i modulnamnet med **localhost: 5000/< namnet\>på din modul**. Ersätt den med din egen information i registret. Om du använder ett lokalt Docker-register för testning är **localhost** bra. Om du använder Azure Container Registry kan du sedan använda inloggningsserver från din registerinställningar. Inloggnings servern ser ut som   **_\<register\>namn_. azurecr.io**. Ersätt endast **localhost: 5000** del av strängen så att det slutliga resultatet ser ut som  **\< *register*\> _\<\>_ namn. azurecr.io/ditt Modulnamn**.
 
    ![Ange lagringsplatsen för Docker-avbildningen](./media/how-to-develop-csharp-module/repository.png)
 

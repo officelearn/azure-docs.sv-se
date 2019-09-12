@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 06/30/2017
 ms.reviewer: sergkanz
 ms.author: mbullwin
-ms.openlocfilehash: 45eebe5bce819fa59f2ed6779e845afa6b3efaa5
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: 34658fb1db84ff09a4c3d22ea95f5bfc7384721d
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70276847"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70883635"
 ---
 # <a name="track-custom-operations-with-application-insights-net-sdk"></a>Spåra anpassade åtgärder med Application Insights .NET SDK
 
@@ -125,7 +125,10 @@ public class ApplicationInsightsMiddleware : OwinMiddleware
 HTTP-protokollet för korrelation deklarerar `Correlation-Context` också rubriken. Detta är dock utelämnat här för enkelhetens skull.
 
 ## <a name="queue-instrumentation"></a>Queue Instruments
-Även om det finns ett [http-protokoll för korrelation](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md) för att skicka korrelations information med http-begäran, måste varje Queue-protokoll definiera hur samma information skickas tillsammans med Queue meddelandet. Vissa Queue-protokoll (t. ex. AMQP) tillåter att ytterligare metadata skickas och andra (Azure Storage kö) kräver att kontexten kodas i meddelande nytto lasten.
+Även om det finns [W3C-spårnings kontext](https://www.w3.org/TR/trace-context/) och [http-protokoll för korrelation](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md) för att skicka KORRELATIONS information med http-begäran, måste varje Queue-protokoll definiera hur samma information skickas ihop i Queue-meddelandet. Vissa Queue-protokoll (t. ex. AMQP) tillåter att ytterligare metadata skickas och andra (Azure Storage kö) kräver att kontexten kodas i meddelande nytto lasten.
+
+> [!NOTE]
+> * **Spårning mellan komponenter stöds inte för köer än** Med HTTP, om din producent och konsument skickar telemetri till olika Application Insightss resurser, visar transaktions diagnos och program karta transaktioner och mappar från slut punkt till slut punkt. Om köer inte stöds ännu. 
 
 ### <a name="service-bus-queue"></a>Service Bus-kö
 Application Insights spårar Service Bus meddelande anrop med den nya [Microsoft Azure Service Bus-klienten för .net](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus/) version 3.0.0 och högre.
@@ -142,7 +145,8 @@ public async Task Enqueue(string payload)
     // StartOperation is a helper method that initializes the telemetry item
     // and allows correlation of this operation with its parent and children.
     var operation = telemetryClient.StartOperation<DependencyTelemetry>("enqueue " + queueName);
-    operation.Telemetry.Type = "Queue";
+    
+    operation.Telemetry.Type = "Azure Service Bus";
     operation.Telemetry.Data = "Enqueue " + queueName;
 
     var message = new BrokeredMessage(payload);
@@ -179,7 +183,7 @@ public async Task Process(BrokeredMessage message)
 {
     // After the message is taken from the queue, create RequestTelemetry to track its processing.
     // It might also make sense to get the name from the message.
-    RequestTelemetry requestTelemetry = new RequestTelemetry { Name = "Dequeue " + queueName };
+    RequestTelemetry requestTelemetry = new RequestTelemetry { Name = "process " + queueName };
 
     var rootId = message.Properties["RootId"].ToString();
     var parentId = message.Properties["ParentId"].ToString();
@@ -228,7 +232,7 @@ Det här exemplet visar hur du spårar `Enqueue` åtgärden. Du kan:
 public async Task Enqueue(CloudQueue queue, string message)
 {
     var operation = telemetryClient.StartOperation<DependencyTelemetry>("enqueue " + queue.Name);
-    operation.Telemetry.Type = "Queue";
+    operation.Telemetry.Type = "Azure queue";
     operation.Telemetry.Data = "Enqueue " + queue.Name;
 
     // MessagePayload represents your custom message and also serializes correlation identifiers into payload.
@@ -274,38 +278,18 @@ Om du vill minska mängden telemetri för dina program rapporter eller om du int
 #### <a name="dequeue"></a>Ta bort
 På samma sätt `Enqueue`som en faktisk http-begäran till lagrings kön spåras automatiskt med Application Insights. `Enqueue` Åtgärden sker dock i det överordnade sammanhanget, till exempel en inkommande kontext för begäran. Application Insights SDK: er automatiskt korrelera en sådan åtgärd (och dess HTTP-del) med den överordnade begäran och annan telemetri som rapporteras i samma omfång.
 
-`Dequeue` Åtgärden är knepig. Application Insights SDK spårar automatiskt HTTP-begäranden. Den känner dock inte till korrelations kontexten förrän meddelandet har tolkats. Det går inte att korrelera HTTP-begäran för att hämta meddelandet med resten av Telemetrin.
-
-I många fall kan det vara praktiskt att korrelera HTTP-begäran till kön med andra spår. Följande exempel visar hur du gör det:
+`Dequeue` Åtgärden är knepig. Application Insights SDK spårar automatiskt HTTP-begäranden. Den känner dock inte till korrelations kontexten förrän meddelandet har tolkats. Det går inte att korrelera HTTP-begäran för att hämta meddelandet med resten av Telemetrin, särskilt när fler än ett meddelande tas emot.
 
 ```csharp
 public async Task<MessagePayload> Dequeue(CloudQueue queue)
 {
-    var telemetry = new DependencyTelemetry
-    {
-        Type = "Queue",
-        Name = "Dequeue " + queue.Name
-    };
-
-    telemetry.Start();
-
+    var operation = telemetryClient.StartOperation<DependencyTelemetry>("dequeue " + queue.Name);
+    operation.Telemetry.Type = "Azure queue";
+    operation.Telemetry.Data = "Dequeue " + queue.Name;
+    
     try
     {
         var message = await queue.GetMessageAsync();
-
-        if (message != null)
-        {
-            var payload = JsonConvert.DeserializeObject<MessagePayload>(message.AsString);
-
-            // If there is a message, we want to correlate the Dequeue operation with processing.
-            // However, we will only know what correlation ID to use after we get it from the message,
-            // so we will report telemetry after we know the IDs.
-            telemetry.Context.Operation.Id = payload.RootId;
-            telemetry.Context.Operation.ParentId = payload.ParentId;
-
-            // Delete the message.
-            return payload;
-        }
     }
     catch (StorageException e)
     {
@@ -317,8 +301,7 @@ public async Task<MessagePayload> Dequeue(CloudQueue queue)
     finally
     {
         // Update status code and success as appropriate.
-        telemetry.Stop();
-        telemetryClient.TrackDependency(telemetry);
+        telemetryClient.StopOperation(operation);
     }
 
     return null;
@@ -333,7 +316,8 @@ I följande exempel spåras ett inkommande meddelande på ett sätt som liknar i
 public async Task Process(MessagePayload message)
 {
     // After the message is dequeued from the queue, create RequestTelemetry to track its processing.
-    RequestTelemetry requestTelemetry = new RequestTelemetry { Name = "Dequeue " + queueName };
+    RequestTelemetry requestTelemetry = new RequestTelemetry { Name = "process " + queueName };
+    
     // It might also make sense to get the name from the message.
     requestTelemetry.Context.Operation.Id = message.RootId;
     requestTelemetry.Context.Operation.ParentId = message.ParentId;
@@ -368,8 +352,15 @@ Se till att du ställer in operation (korrelation)-identifierarna när du tar bo
 - `Activity`Stoppa.
 - Använd `Start/StopOperation`eller anropa `Track` telemetri manuellt.
 
+### <a name="dependency-types"></a>Beroende typer
+
+Application Insights använder beroende typen för att cusomize UI-upplevelser. För köer identifieras följande typer av `DependencyTelemetry` som förbättrar [upplevelsen för transaktions diagnostik](/azure-monitor/app/transaction-diagnostics):
+- `Azure queue`för Azure Storage köer
+- `Azure Event Hubs`för Azure Event Hubs
+- `Azure Service Bus`för Azure Service Bus
+
 ### <a name="batch-processing"></a>Batchbearbetning
-Med vissa köer kan du ta bort flera meddelanden med en begäran i kö. Att bearbeta sådana meddelanden är förmodligen oberoende och tillhör olika logiska åtgärder. I det här fallet är det inte möjligt att korrelera `Dequeue` åtgärden för viss meddelande bearbetning.
+Med vissa köer kan du ta bort flera meddelanden med en begäran i kö. Att bearbeta sådana meddelanden är förmodligen oberoende och tillhör olika logiska åtgärder. Det går inte att korrelera `Dequeue` åtgärden till ett visst meddelande som bearbetas.
 
 Varje meddelande ska bearbetas i ett eget asynkront kontroll flöde. Mer information finns i avsnittet om [spårning av utgående beroenden](#outgoing-dependencies-tracking) .
 
@@ -495,6 +486,7 @@ Varje Application Insights-åtgärd (Request eller Dependency) omfattar `Activit
 ## <a name="next-steps"></a>Nästa steg
 
 - Lär dig grunderna för [telemetri-korrelation](correlation.md) i Application Insights.
+- Ta reda på hur korrelerade data potenser för [transaktions diagnostik](/azure-monitor/app/transaction-diagnostics) och [program översikt](/azure-monitor/app/app-map).
 - Se [data modellen](../../azure-monitor/app/data-model.md) för Application Insights typer och data modeller.
 - Rapportera anpassade [händelser och mått](../../azure-monitor/app/api-custom-events-metrics.md) till Application Insights.
 - Ta en titt på standard [konfigurationen](configuration-with-applicationinsights-config.md#telemetry-initializers-aspnet) för samling med kontext egenskaper.

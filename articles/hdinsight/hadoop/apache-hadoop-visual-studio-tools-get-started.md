@@ -10,12 +10,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017,seodec18
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: 7a243dd0eca179317309438c31c114c94f94bf00
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.openlocfilehash: 706bcbed39ca2a3fe0a38eba864edb863c31b4ec
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70736422"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70884124"
 ---
 # <a name="use-data-lake-tools-for-visual-studio-to-connect-to-azure-hdinsight-and-run-apache-hive-queries"></a>Använd Data Lake verktyg för Visual Studio för att ansluta till Azure HDInsight och köra Apache Hive frågor
 
@@ -46,7 +46,7 @@ För att kunna slutföra den här artikeln och använda Data Lake verktyg för V
 
   För befintliga installationer går du till meny raden och navigerar till **verktyg** > **Hämta verktyg och funktioner...** för att öppna Visual Studio Installer.  Välj sedan minst arbets belastningar för **Azure-utveckling** eller **data lagring och bearbetning**.
 
-  ![Skärm bild av Visual Studio Installer](./media/apache-hadoop-visual-studio-tools-get-started/vs2017_installation.png)
+  ![Skärm bild av Visual Studio Installer](./media/apache-hadoop-visual-studio-tools-get-started/vs-2017-installation.png)
 
 * Visual Studio 2013 och 2015  
   [Ladda ned data Lake verktyg](https://www.microsoft.com/download/details.aspx?id=49504). Välj den version av Data Lake Tools som matchar din version av Visual Studio.  
@@ -195,13 +195,13 @@ Skapa och kör ad hoc-frågor:
 
       Se till att **interaktiv** är markerat och välj sedan **Kör**.
 
-      ![Skärm bild av fråga och köra](./media/apache-hadoop-visual-studio-tools-get-started/execute.png)  
+      ![Skärm bild av fråga och köra](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight-query-execute.png)  
 
     * **Batch**  
 
       Se till att **batch** är markerat och välj sedan **Skicka**.  Om du väljer alternativet Avancerad överföring konfigurerar du **jobbnamn**, **argument**, **ytterligare konfigurationer**och **status katalog** för skriptet.
 
-      ![Skärm bild av fråga och batch](./media/apache-hadoop-visual-studio-tools-get-started/batch.png)  
+      ![Skärm bild av fråga och batch](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight-query-batch.png)  
 
       ![Skärmbild av HDInsight Hadoop Hive-fråga](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight-visual-studio-tools-submit-jobs-advanced.png "Skicka frågor")
 
@@ -224,7 +224,7 @@ Så här skapar och kör du en Hive-lösning:
 
 Jobb sammanfattningen varierar något mellan **batch** -och **interaktivt** läge.
 
-![Jobb Sammanfattning](./media/apache-hadoop-visual-studio-tools-get-started/jobSummary.png "Sammanfattning av Hive-jobb")
+![Jobb Sammanfattning](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight-job-summary.png "Sammanfattning av Hive-jobb")
 
 Använd knappen **Uppdatera** för att uppdatera statusen tills jobbets status ändras till **slutförd**.  
 
@@ -232,7 +232,7 @@ Använd knappen **Uppdatera** för att uppdatera statusen tills jobbets status �
 
 * Jobb information från **interaktivt** läge finns i flikar **utdata** och **HiveServer2 utdata**.
 
-  ![jobb information](./media/apache-hadoop-visual-studio-tools-get-started/tabs.png "Information om Hive-jobb")
+  ![jobb information](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight-job-details.png "Information om Hive-jobb")
 
 ### <a name="view-job-graph"></a>Visa jobb diagram
 

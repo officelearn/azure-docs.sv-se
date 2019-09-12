@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: 4a0c9d16474ddf032ff88382bc240713bc734ff8
-ms.sourcegitcommit: 8fea78b4521921af36e240c8a92f16159294e10a
+ms.openlocfilehash: 82996db232fde0424ccc8e3e478a70a5892231e6
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2019
-ms.locfileid: "70211899"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70884823"
 ---
 # <a name="take-a-tour-of-the-azure-iot-central-ui-preview-features"></a>Ta en rundtur i Azure IoT Central UI (för hands versions funktioner)
 
@@ -44,24 +44,23 @@ Använd den vänstra navigerings menyn för att få åtkomst till olika delar av
       ![Left navigation menu](media/overview-iot-central-tour-pnp/navigationbar.png)
   :::column-end:::
   :::column span="2":::
+     **Instrument** panelen visar din program instrument panel. Som ett verktyg kan du anpassa instrument panelen för dina operatörer. Användare kan också skapa egna instrument paneler.
+     
+     **Enheter** visar de simulerade och riktiga enheter som är kopplade till varje enhets mall i programmet. Som operatör kan du använda **Device Explorer** till att hantera dina anslutna enheter.
 
-      **Dashboard** displays your application dashboard. As a builder, you can customize the dashboard for your operators. Users can also create their own  dashboards.
-    
-      **Devices** lists the simulated and real devices associated with each device template in the application. As an operator, you use the **Device Explorer** to manage your connected devices.
-    
-      **Device groups** lets you view and create device groups. As an operator, you can create device groups as a logical collections of devices specified by a query.
+     Med **enhets grupper** kan du Visa och skapa enhets grupper. Som operatör kan du skapa enhets grupper som logiska samlingar med enheter som anges i en fråga.
 
-      **Rules** lets you edit rules that fire based on device telemetry and trigger customizable actions.
-    
-      **Analytics** shows analytics derived from device telemetry for devices and device groups. As an operator, you can create custom views on top of device data to derive insights from your application.
-    
-      **Jobs** enables bulk device management by having you create and run jobs to update your devices at scale.
-    
-      **Device templates** shows the tools a builder uses to create and manage device templates.
-    
-      **Data export** enables an administrator to configure a continuous export to other Azure services such as storage and queues.
-    
-      **Administration** shows the application administration pages where an administrator can manage application settings, users, and roles.
+     Med **regler** kan du redigera regler som utlöses utifrån enhets telemetri och utlösa anpassningsbara åtgärder.
+
+     **Analytics** visar analys som härletts från enhets telemetri för enheter och enhets grupper. Som operatör kan du skapa anpassade vyer ovanpå enhetsdata för att kunna härleda insikter från ditt program.
+
+     **Jobb** möjliggör hantering av Mass enheter genom att du har skapat och kört jobb för att uppdatera dina enheter i stor skala.
+
+     **Enhets mallar** visar de verktyg som en Builder använder för att skapa och hantera mallar för enheter.
+
+     Med **data export** kan en administratör konfigurera en kontinuerlig export till andra Azure-tjänster, till exempel lagring och köer.
+
+     **Administration** visar de program administrations sidor där en administratör kan hantera program inställningar, användare och roller.
    :::column-end:::
 :::row-end:::
 
@@ -71,7 +70,7 @@ Den översta menyn visas på varje sida:
 
 ![Verktygsfält](media/overview-iot-central-tour-pnp/toolbar.png)
 
-* Ange ett sökvärde om du vill söka efter enhets mallar och enheter.
+* Ange **ett** sökvärde om du vill söka efter enhets mallar och enheter.
 * Om du vill ändra språket eller temat för användar gränssnittet väljer du ikonen **Inställningar** .
 * Om du vill logga ut från programmet väljer du **konto** ikonen.
 * Om du behöver hjälp och support väljer du listrutan **Hjälp** för att visa en lista med resurser. I ett utvärderings program inkluderar support resurserna åtkomst till [Live Chat](howto-show-hide-chat.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json).

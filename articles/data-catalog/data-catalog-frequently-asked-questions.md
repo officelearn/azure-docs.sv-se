@@ -6,12 +6,12 @@ ms.author: jasonh
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 08/01/2019
-ms.openlocfilehash: 754e967a1be0b00f7ce7448744ec90690fd9f0c3
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.openlocfilehash: 2e286854b9a38c1189ff85307f3e29454be46fb9
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68736431"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70898722"
 ---
 # <a name="azure-data-catalog-frequently-asked-questions"></a>Vanliga frågor och svar om Azure Data Catalog
 Den här artikeln innehåller svar på vanliga frågor som rör tjänsten Azure Data Catalog.
@@ -53,12 +53,21 @@ En lista över data källor som stöds för närvarande finns i [Data Catalog DS
 ## <a name="how-do-i-request-support-for-another-data-source"></a>Hur gör jag för att begär support för en annan data Källa?
 Om du vill skicka funktions förfrågningar och annan feedback går du till [Data Catalog i Azure feedback-forumet](https://feedback.azure.com/forums/906052-data-catalog/category/320788-data-sources).
 
+## <a name="why-do-i-get-an-error-catalog-already-exists-when-i-try-to-create-a-new-catalog"></a>Varför finns det redan en fel *katalog* när jag försöker skapa en ny katalog?
+
+När du köper Office 365 E5 med Power BI Pro licens skapar Microsoft en standard katalog i prenumerationens region automatiskt. Den här katalogen använder den kostnads fria SKU: n. Användar licensen för Office 365/Power BI hanteras på administrations sidan för Office 365. 
+
+Den här typen av data katalog har dock inget **Administratörs alternativ** och visas inte i **Azure Portal**. Du kan inte ta bort den här typen av data katalog. På samma sätt har du inte behörighet att byta namn på data katalogen och du kan inte flytta den till en annan region. 
+
+Användar konton som tilldelas en Power BI Pro licens automatiskt har åtkomst till Data Catalog på grund av licens avtal när de registrerade sig för Office 365 E5 med Power BI Pro-licensen. Den här typen av användare har fullständig åtkomst till data katalog till gångar utan administratörs behörighet. Den typen av användare ingår *inte* i **katalogens användar** roll i Azure Data Catalog.
+
+
 ## <a name="how-do-i-get-started-with-data-catalog"></a>Hur gör jag för att kom igång med Data Catalog?
 Det bästa sättet att komma igång med är att gå till [komma igång med Data Catalog](data-catalog-get-started.md). Den här artikeln är en slut punkt till slut punkt – en översikt över funktionerna i tjänsten.
 
 ## <a name="how-do-i-register-my-data"></a>Hur gör jag för att registrera mina data?
 Så här registrerar du data i Data Catalog:
-1. I Azure Data Catalog Portal, i publicerings avsnittet, startar du Azure Data Catalog registrerings verktyget. 
+1. I Azure Data Catalog Portal, i **publicerings** avsnittet, startar du Azure Data Catalog registrerings verktyget. 
 2. Logga in med samma autentiseringsuppgifter som du använder för att få åtkomst till Data Catalog portalen i Data Catalog registrerings verktyget för data källor.
 3. Välj data källan och de speciella till gångar som du vill registrera.
 
@@ -78,7 +87,7 @@ De angivna egenskaperna skiljer sig från data källan till data källan, men i 
 >
 
 > [!NOTE]
-> För data källor som SQL Server Analysis Services som har en första klass beskrivnings egenskap, extraherar verktyget för registrering Data Catalog av data källor det egenskap svärdet. För SQL Server Relations databaser, som saknar en första klass **beskrivnings** egenskap, extraherar verktyget Data Catalog data källans registrerings verktyg värdet från den utökade egenskapen **ms_description** för objekt och kolumner. Mer information finns i [använda utökade egenskaper på databas objekt](https://technet.microsoft.com/library/ms190243%28v=sql.105%29.aspx).
+> För data källor som SQL Server Analysis Services som har en första klass **beskrivnings** egenskap, extraherar verktyget för registrering Data Catalog av data källor det egenskap svärdet. För SQL Server Relations databaser, som saknar en första klass **beskrivnings** egenskap, extraherar verktyget Data Catalog data källans registrerings verktyg värdet från den utökade egenskapen **ms_description** för objekt och kolumner. Mer information finns i [använda utökade egenskaper på databas objekt](https://technet.microsoft.com/library/ms190243%28v=sql.105%29.aspx).
 >
 >
 

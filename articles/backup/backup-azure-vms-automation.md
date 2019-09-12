@@ -5,14 +5,14 @@ author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 07/31/2019
+ms.date: 09/11/2019
 ms.author: dacurwin
-ms.openlocfilehash: 5176fc36b62fc1e970bd51f6386191ea34c5170c
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: d624f6a1711bf2c2bad5ebc252d00c299ebca225
+ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69872680"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70909835"
 ---
 # <a name="back-up-and-restore-azure-vms-with-powershell"></a>Säkerhetskopiera och återställa virtuella Azure-datorer med PowerShell
 
@@ -38,7 +38,7 @@ Objektets hierarki sammanfattas i följande diagram.
 
 ![Recovery Services objektets hierarki](./media/backup-azure-vms-arm-automation/recovery-services-object-hierarchy.png)
 
-Granska [referens](https://docs.microsoft.com/powershell/module/Az.RecoveryServices/?view=azps-1.4.0) referensen för cmdleten **AZ. RecoveryServices** i Azure-biblioteket.
+Granska referens referensen för [cmdleten](https://docs.microsoft.com/powershell/module/Az.RecoveryServices/?view=azps-1.4.0) **AZ. RecoveryServices** i Azure-biblioteket.
 
 ## <a name="set-up-and-register"></a>Konfigurera och registrera
 
@@ -450,7 +450,7 @@ BackupManagementType        : AzureVM
 
 ### <a name="restore-the-disks"></a>Återställa diskarna
 
-Använd cmdleten Restore [-AzRecoveryServicesBackupItem](https://docs.microsoft.com/powershell/module/az.recoveryservices/restore-azrecoveryservicesbackupitem) för att återställa ett säkerhets kopierings objekts data och konfiguration till en återställnings punkt. När du har identifierat en återställnings punkt använder du den som värde för parametern **-RecoveryPoint** . I exemplet ovan var **$RP [0]** den återställnings punkt som ska användas. I följande exempel kod är **$RP [0]** den återställnings punkt som används för att återställa disken.
+Använd cmdleten [restore-AzRecoveryServicesBackupItem](https://docs.microsoft.com/powershell/module/az.recoveryservices/restore-azrecoveryservicesbackupitem) för att återställa ett säkerhets kopierings objekts data och konfiguration till en återställnings punkt. När du har identifierat en återställnings punkt använder du den som värde för parametern **-RecoveryPoint** . I exemplet ovan var **$RP [0]** den återställnings punkt som ska användas. I följande exempel kod är **$RP [0]** den återställnings punkt som används för att återställa disken.
 
 Så här återställer du diskar och konfigurations information:
 
@@ -716,6 +716,7 @@ I följande avsnitt beskrivs de steg som krävs för att skapa en virtuell dator
     ```
 
 7. Push-ADE-tillägg.
+   Om ADE-tilläggen inte skickas markeras data diskarna som okrypterade, så det är obligatoriskt att utföra stegen nedan:
 
    * **För virtuell dator med Azure AD** – Använd följande kommando för att manuellt aktivera kryptering för data diskarna  
 
@@ -746,6 +747,8 @@ I följande avsnitt beskrivs de steg som krävs för att skapa en virtuell dator
       ```powershell  
       Set-AzVMDiskEncryptionExtension -ResourceGroupName $RG -VMName $vm -DiskEncryptionKeyVaultUrl $dekUrl -DiskEncryptionKeyVaultId $keyVaultId -KeyEncryptionKeyUrl $kekUrl -KeyEncryptionKeyVaultId $keyVaultId -SkipVmBackup -VolumeType "All"
       ```
+> [!NOTE]
+> Se till att ta bort JASON-filerna som skapats som en del av disk processen för återställning av krypterade virtuella datorer manuellt.
 
 
 ## <a name="restore-files-from-an-azure-vm-backup"></a>Återställa filer från en virtuell Azure-säkerhetskopiering

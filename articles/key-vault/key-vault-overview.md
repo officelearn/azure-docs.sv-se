@@ -2,20 +2,20 @@
 title: Översikt över Azure Key Vault – Azure Key Vault | Microsoft Docs
 description: Azure Key Vault är en molntjänst som fungerar som säkert lager för hemligheter.
 services: key-vault
-author: barclayn
-manager: barbkess
+author: msmbaldwin
+manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
 ms.topic: overview
 ms.custom: mvc
 ms.date: 01/07/2019
-ms.author: barclayn
-ms.openlocfilehash: 456f828f09a710009d30e1c0a669cde658318ae0
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.author: mbaldwin
+ms.openlocfilehash: e814c9f7859fb18280c3a9ffd72bd4053a4895ad
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65789377"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70883214"
 ---
 # <a name="what-is-azure-key-vault"></a>Vad är Azure Key Vault?
 
@@ -42,7 +42,7 @@ För åtkomst till ett nyckelvalv krävs en korrekt autentisering och auktoriser
 
 Autentiseringen görs via Azure Active Directory. Auktoriseringen kan göras via rollbaserad åtkomstkontroll (RBAC) eller med åtkomstprinciper för Key Vault. RBAC används vid hanteringen av valv och åtkomstprinciper för nyckelvalv används vid försök att komma åt data som lagras i ett valv.
 
-Skyddet för Azure Key Vaults kan vara antingen program - eller maskinvarubaserat (HSM). I situationer där du vill öka säkerheten ytterligare kan du importera och generera nycklar i maskinvarubaserade säkerhetsmoduler (HSM:er) som aldrig lämnar HSM-gränsen. Microsoft använder hjälpprogrammet maskinvarubaserade säkerhetsmoduler. Du kan använda hjälpprogrammet verktyg för att flytta en nyckel från din HSM till Azure Key Vault.
+Skyddet för Azure Key Vaults kan vara antingen program - eller maskinvarubaserat (HSM). I situationer där du vill öka säkerheten ytterligare kan du importera och generera nycklar i maskinvarubaserade säkerhetsmoduler (HSM:er) som aldrig lämnar HSM-gränsen. Microsoft använder hjälp programmet nCipher Hardware Security-moduler. Du kan använda hjälp programmet nCipher-verktyg för att flytta en nyckel från HSM till Azure Key Vault.
 
 Azure Key Vault är dessutom utformat så att Microsoft inte kan se eller extrahera dina data.
 
@@ -52,7 +52,7 @@ När du väl har skapat några nyckelvalv vill du förmodligen övervaka hur och
 
 - arkivera till ett lagringskonto
 - strömma till en händelsehubb
-- Skicka dem till Azure Monitor-loggar.
+- Skicka loggarna till Azure Monitor loggar.
 
 Du har kontroll över dina loggar, du kan skydda dem genom att begränsa åtkomsten och du kan ta bort loggar du inte längre behöver.
 

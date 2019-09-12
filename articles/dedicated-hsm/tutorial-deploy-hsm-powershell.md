@@ -3,8 +3,8 @@ title: Självstudie om att distribuera till ett befintligt virtuellt nätverk me
 description: Självstudie som visar hur du distribuerar en dedikerad HSM med hjälp av PowerShell till ett befintligt virtuellt nätverk
 services: dedicated-hsm
 documentationcenter: na
-author: barclayn
-manager: barbkess
+author: msmbaldwin
+manager: rkarlin
 editor: ''
 ms.service: key-vault
 ms.topic: tutorial
@@ -12,13 +12,13 @@ ms.custom: mvc, seodec18
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/07/2018
-ms.author: barclayn
-ms.openlocfilehash: 581ce6d75df8f42bb72bbfc93e85684d97620e3a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: mbaldwin
+ms.openlocfilehash: 53fb4fa344839957a3f98275d174bbb787fa5e38
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66158981"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70881002"
 ---
 # <a name="tutorial--deploying-hsms-into-an-existing-virtual-network-using-powershell"></a>Självstudie – Distribuera HSM:er till ett befintligt virtuellt nätverk med hjälp av PowerShell
 
@@ -38,7 +38,7 @@ Den här självstudien fokuserar på integreringen av ett par HSM:er och den nö
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Dedikerad HSM i Azure är inte tillgängligt i Azure-portalen. Därför sker all interaktion med tjänsten via kommandoraden eller PowerShell. Den här självstudien använder PowerShell i Azure Cloud Shell. Om PowerShell är nytt för dig följer du instruktionerna för att komma igång här: [Komma igång med Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
 
@@ -217,7 +217,7 @@ SSH-verktyget används för att ansluta till den virtuella datorn. Kommandot lik
 `ssh adminuser@hsmlinuxvm.westus.cloudapp.azure.com`
 
 Lösenordet är det som kommer från parameterfilen.
-När loggade in på Linux VM du kan logga in till HSM med hjälp av privata IP-adress som finns i portalen för resursen \<prefix > hsm_vnic.
+När du är inloggad på den virtuella Linux-datorn kan du logga in på HSM med hjälp av den privata IP-adress \<som finns i portalen för hsm_vnic >.
 
 ```powershell
 

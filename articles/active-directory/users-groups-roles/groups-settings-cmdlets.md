@@ -10,17 +10,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 02/26/2019
+ms.date: 09/10/2019
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 73784afd9577d66850596056df1974accd62e4b4
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: 1bd79b9a6fa8aedd45f41b64f8f81a908feab71f
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70844463"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70882993"
 ---
 # <a name="azure-active-directory-cmdlets-for-configuring-group-settings"></a>Azure Active Directory-cmdletar för att konfigurera gruppinställningar
 Den här artikeln innehåller instruktioner för att använda PowerShell-cmdlets för Azure Active Directory (Azure AD) för att skapa och uppdatera grupper. Det här innehållet gäller endast för Office 365-grupper (kallas ibland enhetliga grupper). 
@@ -34,13 +34,31 @@ Inställningarna för Office 365-grupper konfigureras med ett inställnings obje
 
 Cmdletarna är en del av modulen Azure Active Directory PowerShell V2. Instruktioner för hur du hämtar och installerar modulen på datorn finns i artikeln [Azure Active Directory PowerShell version 2](https://docs.microsoft.com/powershell/azuread/). Du kan installera version 2 av modulen från [PowerShell-galleriet](https://www.powershellgallery.com/packages/AzureAD/).
 
-## <a name="create-settings-at-the-directory-level"></a>Skapa inställningar på katalog nivå
-De här stegen skapar inställningar på katalog nivå, som gäller för alla Office 365-grupper i katalogen. Cmdlet: en get-AzureADDirectorySettingTemplate är bara tillgänglig i [för hands versionen av Azure AD PowerShell för Graph](https://www.powershellgallery.com/packages/AzureADPreview/2.0.0.137).
+## <a name="install-powershell-cmdlets"></a>Installera PowerShell-cmdletar
 
-1. I DirectorySettings-cmdletar måste du ange ID: t för den SettingsTemplate som du vill använda. Om du inte känner till det här ID: t returnerar denna cmdlet listan över alla mallar för inställningar:
+Se till att avinstallera äldre versioner av Azure Active Directory PowerShell för Graph-modulen för Module for Windows PowerShell och installera [Azure Active Directory PowerShell för Graph – offentlig förhandsversion 2.0.0.137](https://www.powershellgallery.com/packages/AzureADPreview/2.0.0.137) innan du kör PowerShell-kommandon.
+
+1. Öppna Windows PowerShell-appen som administratör.
+2. Avinstallera en eventuell tidigare version av AzureADPreview.
+  
+   ``` PowerShell
+   Uninstall-Module AzureADPreview
+   Uninstall-Module azuread
+   ```
+
+3. Installera den senaste versionen av AzureADPreview.
+  
+   ``` PowerShell
+   Install-Module AzureADPreview
+
+## Create settings at the directory level
+These steps create settings at directory level, which apply to all Office 365 groups in the directory. The Get-AzureADDirectorySettingTemplate cmdlet is available only in the [Azure AD PowerShell Preview module for Graph](https://www.powershellgallery.com/packages/AzureADPreview/2.0.0.137).
+
+1. In the DirectorySettings cmdlets, you must specify the ID of the SettingsTemplate you want to use. If you do not know this ID, this cmdlet returns the list of all settings templates:
   
    ```powershell
    Get-AzureADDirectorySettingTemplate
+
    ```
    Detta cmdlet-anrop returnerar alla tillgängliga mallar:
   

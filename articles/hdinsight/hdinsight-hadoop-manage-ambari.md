@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: hrasheed
-ms.openlocfilehash: d0641a1c058db59acd5e9a64b10bb57b334f82bd
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.openlocfilehash: 3ca9c12caa7fa9b54cd63c2655166d95477dffa2
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68442060"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70885321"
 ---
 # <a name="manage-hdinsight-clusters-by-using-the-apache-ambari-web-ui"></a>Hantera HDInsight-kluster med hjälp av webbgränssnittet Apache Ambari
 
@@ -76,7 +76,7 @@ Andra aviseringar än **OK** leder till posten **# Alerts** överst på sidan f�
 
 Aviseringar organiseras i flera standard grupper som kan visas från sidan **aviseringar** .
 
-![Sidan aviseringar](./media/hdinsight-hadoop-manage-ambari/alerts.png)
+![Sidan aviseringar](./media/hdinsight-hadoop-manage-ambari/hdinsight-alerts-page.png)
 
 Du kan hantera grupper med hjälp av **åtgärder** -menyn och välja **Hantera aviserings grupper**.
 
@@ -92,15 +92,15 @@ Slutligen kan du välja __Hantera aviserings inställningar__ på menyn __åtgä
 
 Fliken **mått** på instrument panelen innehåller en serie med widgetar som gör det enkelt att snabbt övervaka status för klustret. Flera widgetar, till exempel **processor användning**, ger ytterligare information när du klickar på den.
 
-![instrument panel med mått](./media/hdinsight-hadoop-manage-ambari/metrics.png)
+![instrument panel med mått](./media/hdinsight-hadoop-manage-ambari/hdi-metrics-dashboard.png)
 
 Fliken **termiska kartor** visar mått som färgad termiska kartor, från grönt till rött.
 
-![instrument panel med termiska kartor](./media/hdinsight-hadoop-manage-ambari/heatmap.png)
+![instrument panel med termiska kartor](./media/hdinsight-hadoop-manage-ambari/hdi-heatmap-dashboard.png)
 
 Om du vill ha mer information om noderna i klustret väljer du **värdar**. Välj sedan den angivna noden som du är intresse rad av.
 
-![värd information](./media/hdinsight-hadoop-manage-ambari/host-details.png)
+![Värd information](./media/hdinsight-hadoop-manage-ambari/host-details.png)
 
 ### <a name="services"></a>Tjänster
 
@@ -142,7 +142,7 @@ Att arbeta med användare, grupper och behörigheter stöds när du [använder e
 
 Sidan **värdar** visar alla värdar i klustret. Följ dessa steg om du vill hantera värdar.
 
-![Sidan värdar](./media/hdinsight-hadoop-manage-ambari/hosts.png)
+![Sidan värdar](./media/hdinsight-hadoop-manage-ambari/hdinsight-hosts-page.png)
 
 > [!NOTE]  
 > Det ska inte användas med HDInsight-kluster för att lägga till, ta bort och ställa av en värd.
@@ -201,7 +201,7 @@ Använd följande steg för att konfigurera en tjänst:
 
 ## <a name="ambari-views"></a>Ambari-vyer
 
-Med Ambari vyer kan utvecklare koppla GRÄNSSNITTs element till Ambari-webbgränssnittet med [Apache Ambari views](https://cwiki.apache.org/confluence/display/AMBARI/Views)-ramverket. HDInsight tillhandahåller följande vyer med Hadoop-kluster typer:
+Med Ambari vyer kan utvecklare koppla GRÄNSSNITTs element till Ambari-webbgränssnittet med [Apache Ambari views-ramverket](https://cwiki.apache.org/confluence/display/AMBARI/Views). HDInsight tillhandahåller följande vyer med Hadoop-kluster typer:
 
 * Hive-vy: I Hive-vyn kan du köra Hive-frågor direkt från webbläsaren. Du kan spara frågor, Visa resultat, Spara resultat i kluster lagringen eller ladda ned resultat till det lokala systemet. Mer information om hur du använder Hive-vyer finns i [använda Apache Hive vyer med HDInsight](hadoop/apache-hadoop-use-hive-ambari-view.md).
 
@@ -211,7 +211,7 @@ Med Ambari vyer kan utvecklare koppla GRÄNSSNITTs element till Ambari-webbgrän
 
 Följande Ambari-åtgärder stöds inte i HDInsight:
 
-* __Flyttar mått insamlings tjänsten__. När du visar information på mått insamlings tjänsten, flyttas en av de åtgärder som är tillgängliga från menyn tjänst åtgärder till __mått__insamlaren. Detta stöds inte med HDInsight.
+* __Flyttar mått insamlings tjänsten__. När du visar information på mått insamlings tjänsten, flyttas en av de åtgärder som är tillgängliga från menyn tjänst åtgärder till __mått insamlaren__. Detta stöds inte med HDInsight.
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -8,12 +8,12 @@ ms.service: log-analytics
 ms.topic: conceptual
 ms.date: 07/19/2019
 ms.author: bwren
-ms.openlocfilehash: cf2aee475f5d3933421de45fa5b2ade687bed62f
-ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
+ms.openlocfilehash: 18e6e162764ce190a1953a4126e4f9ef2eb717f5
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68348083"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70899520"
 ---
 # <a name="get-started-with-log-analytics-in-azure-monitor"></a>Kom igång med Log Analytics i Azure Monitor
 
@@ -162,7 +162,7 @@ Om det finns en plötslig insamling eller ett steg i dina data på en timechart 
 ![Smart diagnostik](media/get-started-portal/smart-diagnostics.png)
 
 ## <a name="pin-to-dashboard"></a>Fäst vid instrumentpanelen
-Om du vill fästa ett diagram eller en tabell till någon av dina delade Azure-instrumentpaneler klickar du på ikonen fäst.
+Om du vill fästa ett diagram eller en tabell till någon av dina delade Azure-instrumentpaneler klickar du på ikonen fäst. Observera att den här ikonen har flyttats överst i Log Analytics-fönstret, som skiljer sig från skärm bilden nedan.
 
 ![Fäst vid instrumentpanelen](media/get-started-portal/pin-dashboard.png)
 

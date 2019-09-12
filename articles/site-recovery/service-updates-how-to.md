@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 07/31/2019
 ms.author: rajanaki
-ms.openlocfilehash: e06cd77a1d46208fe0f7aa166be3ccd3b9b7dbb4
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: 3489f7f812798504d0c57a265a04e57344105419
+ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68828608"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70910481"
 ---
 # <a name="service-updates-in-site-recovery"></a>Tjänst uppdateringar i Site Recovery
 
@@ -43,7 +43,7 @@ Vi rekommenderar att du alltid uppgraderar till de senaste komponent versionerna
 
 Site Recovery meddelar dig om utgångna komponenter (eller snart upphör ande) via e-post (om du prenumererar på e-postmeddelanden) eller på instrument panelen för valvet i portalen.
 
-- När uppdateringar är tillgängliga i vyn infrastruktur för ditt scenario i portalen, visas dessutom en uppdaterings knapp bredvid komponenten. Med den här knappen omdirigeras du till en länk för att ladda ned den senaste komponent versionen.
+- När uppdateringar är tillgängliga i vyn infrastruktur för ditt scenario i portalen, visas dessutom en **uppdaterings** knapp bredvid komponenten. Med den här knappen omdirigeras du till en länk för att ladda ned den senaste komponent versionen.
 -  Instrument panels meddelanden för valv är inte tillgängliga om du replikerar virtuella Hyper-V-datorer. 
 
 E-postmeddelanden skickas på följande sätt.
@@ -103,8 +103,7 @@ Om du vill hantera uppdateringar manuellt gör du följande:
 
 1. Baserat på din aktuella version och [support instruktionen](#support-statement-for-azure-site-recovery)installerar du först uppdateringen på den lokala konfigurations servern med hjälp av [dessa instruktioner](vmware-azure-deploy-configuration-server.md#upgrade-the-configuration-server). 
 2. Om du har skalbara process servrar uppdaterar du dem sedan med hjälp av [de här anvisningarna](vmware-azure-manage-process-server.md#upgrade-a-process-server).
-3. Om du vill uppdatera mobilitets agenten på varje skyddad dator öppnar du **skyddade objekt** > **replikerade objekt**.
-4. Välj den virtuella datorn och välj knappen **Uppdatera agent** som visas längst ned på sidan för varje virtuell dator. Detta uppdaterar mobilitets tjänst agenten på alla skyddade virtuella datorer.
+3. Information om hur du uppdaterar mobilitets agenten på varje skyddad dator finns i [den här](vmware-physical-manage-mobility-service.md#update-mobility-service-from-azure-portal) artikeln.
 
 ### <a name="reboot-after-mobility-service-upgrade"></a>Starta om efter uppgradering av mobilitets tjänsten
 

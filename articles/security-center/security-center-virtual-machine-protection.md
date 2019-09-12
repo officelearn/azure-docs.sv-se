@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 3/20/2019
+ms.date: 03/20/2019
 ms.author: v-mohabe
-ms.openlocfilehash: cb6025b47aec50121a0f96f7b6cba7ad726db291
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.openlocfilehash: c8f381a3440d742cca880f44b73cbc22bde92ecc
+ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69907961"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70910567"
 ---
 # <a name="protecting-your-machines-and-applications-in-azure-security-center"></a>Skydda dina datorer och program i Azure Security Center
 Azure Security Center analyserar säkerhets status för dina Azure-resurser, icke-Azure-servrar och virtuella datorer. När Security Center identifierar potentiella säkerhetsproblem skapas rekommendationer som guidar dig genom processen med att konfigurera kontrollfunktioner som behövs. Rekommendationer gäller för Azure-resurstyper: virtuella datorer (VM) och datorer, program, nätverk, SQL, och identitet och åtkomst.
@@ -108,7 +108,6 @@ Det finns fyra typer av ikoner i den här listan:
 Genom ikonerna under de olika rekommendationerna hjälper dig att snabbt identifiera den virtuella datorn och datorn som behöver åtgärdas och typ av rekommendation. Du kan också använda filtren för att söka i listan efter **resurs typ** och efter **allvarlighets grad**.
 
 Om du vill öka detalj nivån för säkerhets rekommendationerna för varje virtuell dator klickar du på den virtuella datorn.
-Här kan du visa säkerhetsinformation för den virtuella datorn eller datorn. Längst ned ser du den rekommenderade åtgärden och allvarlighetsgraden på de olika problemen.
 ![Molntjänster](./media/security-center-virtual-machine-recommendations/recommendation-list.png)
 
 ### <a name="cloud-services"></a>Molntjänster
@@ -125,7 +124,7 @@ Om du vill få en mer ingående förklaring av den här rekommendationen klickar
 ![Uppdatera OS-versionen](./media/security-center-virtual-machine-recommendations/security-center-monitoring-fig8-new4.png)
 
 ### <a name="app-services"></a>App Services
-Du måste aktivera App Service i din prenumeration för att kunna visa App Service information. Instruktioner för hur du aktiverar den här funktionen finns i [skydda app service med Azure Security Center](security-center-app-services.md).
+Om du vill visa App Service information måste du aktivera App Service i din prenumeration. Anvisningar om hur du aktiverar den här funktionen finns i [skydda app service med Azure Security Center](security-center-app-services.md).
 [!NOTE]
 > Övervakning av App Service finns i förhandsversion och bara tillgängliga på standardnivån i Security Center.
 
@@ -170,7 +169,7 @@ Installera Microsoft Monitoring Agent:
 
    ![Installera MMS](./media/security-center-virtual-machine-recommendations/install-mms.png)
 
-Om du vill ange nya skalnings uppsättningar för att automatiskt installera Microsoft Monitoring Agent:
+Ange nya skalnings uppsättningar för att automatiskt installera Microsoft Monitoring Agent:
 1. Gå till Azure Policy och klicka på **definitioner**.
 2. Sök efter principen **distribuera Log Analytics agent för skalnings uppsättningar för virtuella Windows-datorer** och klicka på den.
 3. Klicka på **Tilldela**.

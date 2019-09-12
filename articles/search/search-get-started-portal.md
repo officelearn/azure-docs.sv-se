@@ -1,5 +1,5 @@
 ---
-title: 'Snabbstart: Skapa, Läs in och fråga ett index med Azure Portal-Azure Search'
+title: 'Snabbstart: Skapa ett Sök index med Azure Portal-Azure Search'
 description: Använd guiden Importera data i Azure Portal för att skapa, läsa in och fråga ditt första index i Azure Search.
 author: lobrien
 manager: nitinme
@@ -7,14 +7,14 @@ tags: azure-portal
 services: search
 ms.service: search
 ms.topic: quickstart
-ms.date: 07/01/2019
+ms.date: 09/10/2019
 ms.author: laobri
-ms.openlocfilehash: c2950b35f207f772f1190a2f8f104098eeb43375
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: 44f370829b972840ac4266a760fefb4aa317be30
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69656353"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70884558"
 ---
 # <a name="quickstart-create-an-azure-search-index-using-the-azure-portal"></a>Snabbstart: Skapa ett Azure Search-index med hjälp av Azure Portal
 > [!div class="op_single_selector"]
@@ -33,7 +33,7 @@ Om du vill få en snabb start med Azure Search-koncept så kan du testa de inbyg
 > * Visa ett befintligt index och alternativ för att ändra det
 > * Utforska fulltextsökning, filter, fasetter, fuzzy-sökning och geosearch med **Sökutforskaren**
 
-Om verktygen är för begränsade kan du överväga en [kod baserad introduktion till programmerings Azure Search i .net](search-howto-dotnet-sdk.md) eller använda Postman [för att göra REST API samtal](search-get-started-postman.md). Du kan också titta på en sex minuter lång demonstration av stegen i den här självstudiekursen. Demonstrationen finns cirka tre minuter in i den här [översiktsvideon över Azure Search](https://channel9.msdn.com/Events/Connect/2016/138).
+Om verktygen är för begränsade kan du överväga en [kod baserad introduktion till programmerings Azure Search i .net](search-howto-dotnet-sdk.md) eller använda [Postman för att göra REST API samtal](search-get-started-postman.md). Du kan också titta på en sex minuter lång demonstration av stegen i den här självstudiekursen. Demonstrationen finns cirka tre minuter in i den här [översiktsvideon över Azure Search](https://channel9.msdn.com/Events/Connect/2016/138).
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar. 
 

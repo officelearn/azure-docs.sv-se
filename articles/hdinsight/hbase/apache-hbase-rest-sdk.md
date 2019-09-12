@@ -1,6 +1,6 @@
 ---
-title: Använd SDK för HBase - Azure HDInsight
-description: Använd SDK för HBase för att skapa och ta bort tabeller, och för att läsa och skriva data.
+title: Använda HBase .NET SDK – Azure HDInsight
+description: Använd HBase .NET SDK för att skapa och ta bort tabeller och för att läsa och skriva data.
 author: ashishthaps
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -8,43 +8,43 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 12/13/2017
 ms.author: ashishth
-ms.openlocfilehash: 707869880c5df619def2d707264b59e22e03c521
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f833d045f297679ae3629f8e0afe20b3ca834821
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64720297"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70885590"
 ---
-# <a name="use-the-net-sdk-for-apache-hbase"></a>Använda .NET SDK för Apache HBase
+# <a name="use-the-net-sdk-for-apache-hbase"></a>Använd .NET SDK för Apache HBase
 
-[Apache HBase](apache-hbase-overview.md) tillhandahåller två primära sätt att arbeta med dina data: [Apache Hive-frågor och Hbase's RESTful API-anrop](apache-hbase-tutorial-get-started-linux.md). Du kan arbeta direkt med en REST-API med hjälp av den `curl` kommando eller ett liknande verktyg.
+[Apache HBase](apache-hbase-overview.md) erbjuder två primära alternativ för att arbeta med dina data: [Apache Hive frågor och anropar RESTful-API: et för HBase](apache-hbase-tutorial-get-started-linux.md). Du kan arbeta direkt med REST API med hjälp `curl` av kommandot eller ett liknande verktyg.
 
-För C# och .NET-program, den [Microsoft HBase REST-klientbiblioteket för .NET](https://www.nuget.org/packages/Microsoft.HBase.Client/) ger ett klientbibliotek utöver HBase REST-API.
+För C# -och .NET-program tillhandahåller [Microsoft HBase rest-klient biblioteket för .net](https://www.nuget.org/packages/Microsoft.HBase.Client/) ett klient bibliotek ovanpå HBase-REST API.
 
 ## <a name="install-the-sdk"></a>Installera SDK:n
 
-SDK för HBase tillhandahålls som ett NuGet-paket som kan installeras från Visual Studio **NuGet Package Manager Console** med följande kommando:
+HBase .NET SDK tillhandahålls som ett NuGet-paket, som kan installeras från Visual Studio **NuGet Package Manager-konsolen** med följande kommando:
 
     Install-Package Microsoft.HBase.Client
 
-## <a name="instantiate-a-new-hbaseclient-object"></a>Skapa en instans av ett nytt HBaseClient-objekt
+## <a name="instantiate-a-new-hbaseclient-object"></a>Instansiera ett nytt HBaseClient-objekt
 
-Om du vill använda SDK: N, skapa en instans av en ny `HBaseClient` objekt som passerar i `ClusterCredentials` består av den `Uri` till ditt kluster och Hadoop-användarnamn och lösenord.
+Om du vill använda SDK instansierar du `HBaseClient` ett nytt objekt, `ClusterCredentials` skickar i består `Uri` av till klustret och Hadoop-användarnamnet och lösen ordet.
 
 ```csharp
 var credentials = new ClusterCredentials(new Uri("https://CLUSTERNAME.azurehdinsight.net"), "USERNAME", "PASSWORD");
 client = new HBaseClient(credentials);
 ```
 
-Ersätt KLUSTERNAMN med ditt HDInsight HBase klustrets namn och användarnamn och lösenord med Apache Hadoop-autentiseringsuppgifterna som angetts för klustret skapas. Hadoop-Standardanvändarnamnet är **admin**.
+Ersätt kluster namn med ditt HDInsight HBase-kluster namn och användar namn och lösen ord med de Apache Hadoop autentiseringsuppgifter som angavs när klustret skapades. Standard användar namnet för Hadoop är **admin**.
 
 ## <a name="create-a-new-table"></a>Skapa en ny tabell
 
-HBase lagrar data i tabeller. En tabell består av en *Rowkey*, den primära nyckeln och en eller flera grupper med kolumner som heter *kolumnserier*. Data i varje tabell distribueras vågrätt med flera Rowkey till *regioner*. Varje region har en start- och slutdatum. En tabell kan ha en eller flera regioner. När data i tabellen växer delar HBase stora regioner i mindre regioner. Regioner lagras i *regionservrar*, där en regionsserver kan lagra flera regioner.
+HBase lagrar data i tabeller. En tabell består av en *Rowkey*, den primära nyckeln och en eller flera grupper av kolumner som kallas *kolumn serier*. Data i varje tabell fördelas vågrätt med ett Rowkey intervall i *regioner*. Varje region har en start-och slut nyckel. En tabell kan ha en eller flera regioner. När data i tabellen växer, delar HBase upp stora regioner i mindre regioner. Regioner lagras i *region servrar*där en region Server kan lagra flera regioner.
 
-Data lagras fysiskt i *HFiles*. En enda HFile innehåller data för en tabell, en region och en kolumnserie. Rader i HFile lagras sorteras baserat på Rowkey. Varje HFile har en *B +-träd* index för snabb hämtning av rader.
+Data lagras fysiskt i *HFiles*. En enda HFile innehåller data för en tabell, en region och en kolumn serie. Rader i HFile lagras sorterade på Rowkey. Varje HFile har ett *B + träd* -index för att hämta rader snabbare.
 
-Om du vill skapa en ny tabell, ange en `TableSchema` och kolumner. Följande kod kontrollerar om tabellen 'RestSDKTable' finns redan - om inte tabellen har skapats.
+Om du vill skapa en ny tabell anger `TableSchema` du en kolumn och. Följande kod kontrollerar om tabellen "RestSDKTable" redan finns, om inte tabellen skapas.
 
 ```csharp
 if (!client.ListTablesAsync().Result.name.Contains("RestSDKTable"))
@@ -58,7 +58,7 @@ if (!client.ListTablesAsync().Result.name.Contains("RestSDKTable"))
 }
 ```
 
-Den här nya tabellen har två kolumnserier, t1 och t2. Eftersom kolumnserier lagras separat i olika HFiles kan bra det att ha en separat kolumnfamilj för ofta efterfrågade data. I följande [infoga data](#insert-data) exempelvis kolumner läggs till i kolumnen t1-familjen.
+Den här nya tabellen har två kolumn familjer, T1 och T2. Eftersom kolumn familjer lagras separat i olika HFiles, är det klokt att ha en separat kolumn serie för data som används ofta. I följande exempel på [infoga data](#insert-data) läggs kolumner till i T1 Column-serien.
 
 ## <a name="delete-a-table"></a>Ta bort en tabell
 
@@ -70,7 +70,7 @@ await client.DeleteTableAsync("RestSDKTable");
 
 ## <a name="insert-data"></a>Infoga data
 
-Om du vill infoga data, ange en unik radnyckel som rad-ID. Alla data lagras i en `byte[]` matris. Följande kod definierar och lägger till den `title`, `director`, och `release_date` kolumner till kolumnserie t1 som dessa kolumner är oftast används. Den `description` och `tagline` kolumner läggs till t2 kolumnserie. Du kan partitionera data i kolumnserier efter behov.
+Om du vill infoga data anger du en unik rad nyckel som rad-ID. Alla data lagras i en `byte[]` matris. I följande kod definieras och läggs `title`kolumnerna, `director`, `release_date` och till i T1 Column-serien, eftersom de här kolumnerna används ofta. Kolumnerna `tagline` och läggs till i kolumn familjen T2. `description` Du kan partitionera dina data i kolumn familjer efter behov.
 
 ```csharp
 var key = "fifth_element";
@@ -112,13 +112,13 @@ set.rows.Add(row);
 await client.StoreCellsAsync("RestSDKTable", set);
 ```
 
-HBase implementerar [molnet BigTable](https://cloud.google.com/bigtable/), så dataformatet ser ut som följande:
+HBase implementerar [Cloud BigTable](https://cloud.google.com/bigtable/), så data formatet ser ut så här:
 
-![Användare med rollen kluster](./media/apache-hbase-rest-sdk/table.png)
+![Användare med användar rollen kluster](./media/apache-hbase-rest-sdk/hdinsight-table-roles.png)
 
 ## <a name="select-data"></a>Välj data
 
-Om du vill läsa data från en HBase-tabell, skickar du på tabellen namn och en rad för att den `GetCellsAsync` metod för att returnera den `CellSet`.
+Om du vill läsa data från en HBase-tabell skickar du tabell namnet och rad nyckeln `GetCellsAsync` till-metoden för `CellSet`att returnera.
 
 ```csharp
 var key = "fifth_element";
@@ -132,7 +132,7 @@ Console.WriteLine(Encoding.UTF8.GetString(cells.rows[0].values
 // With the previous insert, it should yield: "The Fifth Element"
 ```
 
-I det här fallet returnerar koden bara den första matchande rad, som det ska bara finnas en rad för en unik nyckel. Det returnerade värdet ändras till `string` formateras från den `byte[]` matris. Du kan också konvertera värdet till andra typer, till exempel ett heltal för filmens lanseringsdatum:
+I det här fallet returnerar koden bara den första matchande raden, eftersom det bara ska finnas en rad för en unik nyckel. Det returnerade värdet ändras till `string` format `byte[]` från matrisen. Du kan också konvertera värdet till andra typer, till exempel ett heltal för filmens utgivnings datum:
 
 ```csharp
 var releaseDateField = cells.rows[0].values
@@ -149,7 +149,7 @@ Console.WriteLine(releaseDate);
 
 ## <a name="scan-over-rows"></a>Skanna över rader
 
-HBase använder `scan` att hämta en eller flera rader. Det här exemplet begär flera rader i batchar med 10 och hämtar data vars viktiga värden är mellan 25 och 35. Ta bort skannern att rensa resurser när du hämtar alla rader.
+HBase använder `scan` för att hämta en eller flera rader. Det här exemplet begär flera rader i batchar med 10 och hämtar data vars nyckel värden är mellan 25 och 35. När du har hämtat alla rader tar du bort skannern för att rensa resurserna.
 
 ```csharp
 var tableName = "mytablename";
@@ -187,5 +187,5 @@ finally
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Kom igång med Apache HBase-exempel i HDInsight](apache-hbase-tutorial-get-started-linux.md)
-* Skapa ett program för slutpunkt till slutpunkt med [analysera Twitter-åsikter i realtid med Apache HBase](../hdinsight-hbase-analyze-twitter-sentiment.md)
+* [Kom igång med ett Apache HBase-exempel i HDInsight](apache-hbase-tutorial-get-started-linux.md)
+* Bygg ett program från slut punkt till slut punkt med [Analysera Twitter-sentiment i real tid med Apache HBase](../hdinsight-hbase-analyze-twitter-sentiment.md)

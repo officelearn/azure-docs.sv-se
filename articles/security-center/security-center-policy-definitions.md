@@ -2,24 +2,18 @@
 title: Azure policy definitionerna övervakas i Azure Security Center | Microsoft Docs
 description: Azure policy definitionerna övervakas i Azure Security Center.
 services: security-center
-documentationcenter: na
 author: monhaber
 manager: barbkess
-editor: ''
-ms.assetid: c89cb1aa-74e8-4ed1-980a-02a7a25c1a2f
 ms.service: security-center
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 8/22/2019
 ms.author: v-mohabe
-ms.openlocfilehash: 56e6285501529f26e3622e2f773dbd373c169c10
-ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
+ms.openlocfilehash: 37c29a40596a0ea7989b91d1ffcbabf930e5ed93
+ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69990491"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70910360"
 ---
 # <a name="azure-security-policies-monitored-by-security-center"></a>Azure säkerhets principer övervakas av Security Center
 Den här artikeln innehåller en lista över Azure Policy definitioner som du kan övervaka i Azure Security Center. Mer information om säkerhets principer finns i [arbeta med säkerhets principer](tutorial-security-policy.md).
@@ -50,7 +44,7 @@ Mer information om de inbyggda principer som övervakas av Security Center finns
 |Diagnostikloggar i Azure Data Lake Store ska vara aktive rad|Granska aktivering av loggar och se till att de är upp till ett år. Detta skapar aktivitets spårningar för undersökning när en säkerhets incident inträffar eller nätverket komprometteras.|
 |Diagnostikloggar i Data Lake Analytics ska vara aktive rad|Granska aktivering av loggar och behåll dem i upp till ett år. Detta skapar aktivitets spårningar för undersökning när en säkerhets incident inträffar eller nätverket komprometteras.|
 |Lagrings konton ska migreras till nya AzureRM-resurser|Använd Azure Resource Manager för dina lagrings konton för att tillhandahålla säkerhets förbättringar. Exempel på dessa är: <br>– Starkare åtkomst kontroll (RBAC)<br>– Bättre granskning<br>– Azure Resource Manager-baserad distribution och styrning<br>-Åtkomst till hanterade identiteter<br>– Åtkomst till Azure Key Vault för hemligheter<br>– Azure AD-baserad autentisering<br>– Stöd för taggar och resurs grupper för enklare säkerhets hantering|
-|Virtuella datorer ska migreras till nya AzureRM-resurser|Använd Azure Resource Manager för dina virtuella datorer för att förbättra säkerheten.  Exempel på dessa är: <br>– Starkare åtkomst kontroll (RBAC)<br>– Bättre granskning<br>– Azure Resource Manager-baserad distribution och styrning<br>-Åtkomst till hanterade identiteter<br>– Åtkomst till Azure Key Vault för hemligheter<br>– Azure AD-baserad autentisering<br>– Stöd för taggar och resurs grupper för enklare säkerhets hantering|
+|Virtuella datorer ska migreras till nya AzureRM-resurser|Använd Azure Resource Manager för dina virtuella datorer för att förbättra säkerheten. Exempel på dessa är: <br>– Starkare åtkomst kontroll (RBAC)<br>– Bättre granskning<br>– Azure Resource Manager-baserad distribution och styrning<br>-Åtkomst till hanterade identiteter<br>– Åtkomst till Azure Key Vault för hemligheter<br>– Azure AD-baserad autentisering<br>– Stöd för taggar och resurs grupper för enklare säkerhets hantering|
 |Mått varnings regler ska konfigureras för batch-konton|Granska konfigurationen av mått varnings regler på Azure Batch konton för att aktivera det nödvändiga måttet.|
 |Diagnostikloggar i batch-konton måste vara aktiverade|Granska aktivering av loggar och behåll dem i upp till ett år. Detta skapar aktivitets spårningar för undersökning när en säkerhets incident inträffar eller nätverket komprometteras.|
 |Kryptering måste vara aktiverat på variabler för Automation-konto|Det är viktigt att aktivera kryptering av Azure Automation konto variabel till gångar när du lagrar känsliga data.|

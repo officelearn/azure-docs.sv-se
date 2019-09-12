@@ -80,8 +80,8 @@
       href: backup-azure-backup-server-import-export-.md
     - name: Ersätt ditt bandbibliotek
       href: backup-azure-backup-cloud-as-tape.md
-    - name: Vanliga säkerhetsattribut i Azure
-      href: backup-security-attributes.md
+    - name: Inbyggda säkerhetskontroller
+      href: backup-security-controls.md
 - name: Gör så här för att
   items:
     - name: Azure Backup Server

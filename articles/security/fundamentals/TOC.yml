@@ -321,8 +321,8 @@
   href: best-practices-and-patterns.md
 - name: Resurser
   items:
-    - name: Vanliga säkerhetsattribut
-      href: common-security-attributes.md
+    - name: Inbyggda säkerhetskontroller
+      href: security-controls.md
     - name: Azure-säkerhet MVP-program
       href: mvp.md
     - name: Cybersäkerhetsrådgivning

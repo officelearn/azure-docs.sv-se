@@ -76,8 +76,8 @@
           href: deployment-manager-health-check.md
     - name: Resource Manager och klassisk distribution
       href: resource-manager-deployment-model.md
-    - name: Vanliga säkerhetsattribut i Azure
-      href: azure-resource-manager-security-attributes.md
+    - name: Inbyggda säkerhetskontroller
+      href: azure-resource-manager-security-controls.md
 - name: Gör så här för att
   items:
     - name: Skapa mallar

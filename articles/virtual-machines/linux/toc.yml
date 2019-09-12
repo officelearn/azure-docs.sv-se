@@ -145,8 +145,8 @@
       href: backup-recovery.md
     - name: Riktlinjer för infrastruktur
       href: infrastructure-example.md
-    - name: Säkerhetsattribut
-      href: virtual-machines-linux-security-attributes.md
+    - name: Inbyggda säkerhetskontroller
+      href: virtual-machines-linux-security-controls.md
 - name: Instruktionsguider
   items:
     - name: 'Skapa VM:ar'

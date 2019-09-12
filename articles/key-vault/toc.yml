@@ -62,8 +62,8 @@
       items:
         - name: Säkerhetsöversikt
           href: overview-security.md
-        - name: Vanliga säkerhetsattribut
-          href: key-vault-security-attributes.md
+        - name: Inbyggda säkerhetskontroller
+          href: key-vault-security-controls.md
         - name: Säkerhetsvärldar
           href: key-vault-ovw-security-worlds.md
         - name: Säkra ditt nyckelvalv
@@ -90,8 +90,6 @@
           href: create-certificate.md
         - name: Övervaka och hantera processen för att skapa certifikat
           href: create-certificate-scenarios.md
-    - name: Vanliga säkerhetsattribut i Azure
-      href: key-vault-security-attributes.md
 - name: Instruktionsguider
   items:
     - name: Azure Key Vault-loggning

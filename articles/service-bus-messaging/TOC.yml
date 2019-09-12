@@ -108,8 +108,8 @@
                   href: service-bus-managed-service-identity.md
                 - name: Autentisera från ett program
                   href: authenticate-application.md
-        - name: Vanliga säkerhetsattribut i Azure
-          href: service-bus-messaging-security-attributes.md
+        - name: Inbyggda säkerhetskontroller
+          href: service-bus-messaging-security-controls.md
 - name: Instruktionsguider
   items:
     - name: Skapa ett namnområde

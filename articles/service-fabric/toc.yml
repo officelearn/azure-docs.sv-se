@@ -131,8 +131,8 @@
           href: service-fabric-application-and-service-security.md
         - name: Service Fabric-klustersäkerhet
           href: service-fabric-cluster-security.md
-        - name: Vanliga säkerhetsattribut i Azure
-          href: service-fabric-security-attributes.md
+        - name: Inbyggda säkerhetskontroller
+          href: service-fabric-security-controls.md
     - name: Terminologi
       href: service-fabric-technical-overview.md
     - name: Bygga program

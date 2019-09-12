@@ -77,8 +77,8 @@
           href: overview-authentication-authorization.md
         - name: Uppdatering av operativsystem och körning
           href: overview-patch-os-runtime.md
-        - name: Säkerhetsattribut
-          href: app-service-security-attributes.md
+        - name: Inbyggda säkerhetskontroller
+          href: app-service-security-controls.md
         - name: Säkerhetsöversikt
           href: overview-security.md
     - name: Nätverksfunktioner

@@ -123,8 +123,6 @@
       href: billing-how-to-change-azure-account-profile.md
     - name: Bevilja åtkomst till fakturering
       href: billing-manage-access.md
-    - name: EA-roller i Azure
-      href: billing-understand-ea-roles.md
     - name: Roller i Microsoft-kundavtal i Azure
       href: billing-understand-mca-roles.md
     - name: Länka partner-ID
@@ -133,8 +131,26 @@
       href: billing-view-all-accounts.md
     - name: Ordna kostnader med fakturaavsnitt
       href: billing-mca-section-invoice.md
-    - name: EA-uppgifter i Microsoft-kundavtal
-      href: billing-mca-enterprise-operations.md
+    - name: EA-hantering
+      items:
+        - name: Kom igång i Azure EA-portalen
+          href: billing-ea-portal-get-started.md
+        - name: EA-roller i Azure
+          href: billing-understand-ea-roles.md
+        - name: Azure EA-portaladministration
+          href: billing-ea-portal-administration.md
+        - name: Azure EA-avtal och ändringar
+          href: billing-ea-portal-agreements.md
+        - name: Fakturor för Enterprise-registrering
+          href: billing-ea-portal-enrollment-invoices.md
+        - name: 'REST-API:er för Azure Enterprise'
+          href: billing-ea-portal-rest-apis.md
+        - name: Reserverade instanser för virtuella Azure EA-datorer
+          href: billing-ea-portal-vm-reservations.md
+        - name: Felsöka åtkomst till Azure EA-portalen
+          href: billing-ea-portal-troubleshoot.md
+        - name: EA-uppgifter i Microsoft-kundavtal
+          href: billing-mca-enterprise-operations.md
     - name: Lös passerat betalningsdatum
       href: billing-azure-subscription-past-due-balance.md
     - name: Konfigurera ett faktureringskonto för Microsoft-kundavtal

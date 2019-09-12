@@ -7,12 +7,12 @@ ms.date: 08/21/2019
 ms.topic: quickstart
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: bfd2d1215e7673f7ff73a0c875973e45362ce6b0
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: d2069819203e821b42ea2f70e38f27b49053639e
+ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70231901"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70910043"
 ---
 # <a name="quickstart-define-and-assign-an-azure-blueprint-with-powershell"></a>Snabbstart: Definiera och tilldela en Azure Blueprint med PowerShell
 
@@ -27,6 +27,10 @@ När du skapar och tilldelar skisser kan definitionen av vanliga mönster utveck
 > - Ta bort en skiss som en prenumeration har tilldelats
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free) innan du börjar.
+
+## <a name="prerequisites"></a>Förutsättningar
+
+Om den inte redan är installerad följer du anvisningarna i [Lägg till modulen AZ. skiss](./how-to/manage-assignments-ps.md#add-the-azblueprint-module) för att installera och validera modulen **AZ. skiss** från PowerShell-galleriet.
 
 ## <a name="create-a-blueprint"></a>Skapa en skiss
 
@@ -397,7 +401,7 @@ Remove-AzBlueprintAssignment -Name 'assignMyBlueprint'
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Lär dig mer om [skiss livs cykeln](./concepts/lifecycle.md).
+- Mer information om [livscykeln för en skiss](./concepts/lifecycle.md).
 - Förstå hur du använder [statiska och dynamiska parametrar](./concepts/parameters.md).
 - Lär dig hur du anpassar [sekvensordningen för en skiss](./concepts/sequencing-order.md).
 - Lär dig hur du använder [resurslåsning för en skiss](./concepts/resource-locking.md).

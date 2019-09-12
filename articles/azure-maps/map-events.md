@@ -1,22 +1,22 @@
 ---
-title: Hantera mus händelser med Azure Maps | Microsoft Docs
+title: Hantera händelser med Azure Maps | Microsoft Docs
 description: Så här skapar du en interaktiv Web SDK-mappning med kart händelser
 author: jingjing-z
 ms.author: jinzh
-ms.date: 07/29/2019
+ms.date: 09/10/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 37a3fc3178fe5caeacedfd355a6065ee189a5890
-ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.openlocfilehash: c5b4ed73d7bc4d89a67280a0bb183f374ae093d8
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68976532"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70899435"
 ---
-# <a name="interact-with-the-map---mouse-events"></a>Interagera med kart mus händelser
+# <a name="interact-with-the-map"></a>Interagera med kartan
 
 Den här artikeln visar hur du använder egenskapen [Mappa klass händelser](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?#events) för att markera händelser på kartan och på olika lager i kartan. Det visar också hur du använder egenskapen mappa klass händelser för att markera händelser när du interagerar med en HTML-markör.
 
@@ -26,7 +26,7 @@ Spela upp med kartan nedan och se motsvarande mus händelser markerade till hög
 
 <br/>
 
-<iframe height='600' scrolling='no' title='Interagera med kartan – mus händelser' src='//codepen.io/azuremaps/embed/bLZEWd/?height=600&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Se pennan interagerar <a href='https://codepen.io/azuremaps/pen/bLZEWd/'>med kartan – mus händelser</a> genom Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) på <a href='https://codepen.io'>CodePen</a>.
+<iframe height='600' scrolling='no' title='Interagera med kartan – mus händelser' src='//codepen.io/azuremaps/embed/bLZEWd/?height=600&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Se pennan <a href='https://codepen.io/azuremaps/pen/bLZEWd/'>interagerar med kartan – mus händelser</a> genom Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) på <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 ## <a name="interact-with-map-layers"></a>Interagera med kart skikt
@@ -46,6 +46,61 @@ Följande kod lägger till Java Script Map-händelser till en HTML-markör. Den 
 
 <iframe height='500' scrolling='no' title='Interagera med händelser för kart-HTML-markör' src='//codepen.io/azuremaps/embed/VVzKJY/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Se pennan som <a href='https://codepen.io/azuremaps/pen/VVzKJY/'>samverkar med kart-HTML-markörens händelser</a> genom Azure Maps<a href='https://codepen.io/azuremaps'>@azuremaps</a>() på <a href='https://codepen.io'>CodePen</a>.
 </iframe>
+
+I följande tabell visas alla de mappnings klass händelser som stöds.
+
+| Händelse             | Beskrivning |
+|-------------------|-------------|
+| boxzoomend        | Utlöses när interaktionen "box zoom" upphör.|
+| boxzoomstart      | Utlöses när en "box zoom"-interaktion startar.|
+| Markera             | Utlöses när en pekande enhet trycks ned och släpps på samma plats på kartan.|
+| stäng             | Utlöses när popup-fönstret stängs manuellt eller program mässigt.|
+| ContextMenu       | Utlöses när användaren klickar på höger musknapp.|
+| dataadded         | Utlöses när former läggs till i data källan.|
+| dataremoved       | Utlöses när former tas bort från data källan.|
+| datasourceupdated | Utlöses när DataSource-objektet uppdateras.|
+| förekomsten          | Utlöses när en pekande enhet klickas två gånger på samma plats på kartan.|
+| Dra              | Utlöses upprepade gånger under en "dra för att panorera"-interaktion på kartan, popup-eller HTML-markören.|
+| dragend           | Utlöses när en "dra för att panorera"-interaktionen slutar på kartan, popup-eller HTML-markören.|
+| dragstart         | Utlöses när en "dra för att panorera"-interaktion startar på kartan, popup-eller HTML-markören.|
+| error             | Utlöses när ett fel inträffar.|
+| NEDPIL           | Utlöses när en tangent trycks ned.|
+| tolkas tangent Ryckningen          | Utlöses när en nyckel som producerar ett typable-tecknet (en ANSI-nyckel) trycks ned.|
+| upp             | Utlöses när en nyckel släpps.|
+| layeradded        | Utlöses när ett lager läggs till i kartan.|
+| load              | Utlöses omedelbart efter att alla nödvändiga resurser har hämtats och den första visuella åter givningen av kartan har inträffat.|
+| händelsen         | Utlöses när en pekande enhet trycks på kartan.|
+| flyttning         | Utlöses när en pekande enhet flyttas inom kartan.|
+| mus          | Utlöses när en punkt enhet lämnar kartans arbets yta.|
+| mouseover         | Utlöses när en pekande enhet flyttas inom kartan.|
+| händelsen           | Utlöses när en pekande enhet släpps i kartan.|
+| Fart              | Utlöses upprepade gånger under en animerad över gång från en vy till en annan, som ett resultat av en användar interaktion eller metoder.|
+| moveend           | Utlöses strax efter att kartan har slutfört en över gång från en vy till en annan, som ett resultat av användar interaktion eller metoder.|
+| movestart         | Utlöses precis innan kartan påbörjar en över gång från en vy till en annan, som ett resultat av en användar interaktion eller metoder.|
+| open (öppen)              | Utlöses när popup-fönstret öppnas manuellt eller program mässigt.|
+| röst             | Utlöses när kartans höjd vinkel (lutning) ändras till följd av användar interaktion eller metoder.|
+| pitchend          | Aktive ras omedelbart efter det att kartans bredd steg (lutning) har slutförts, som ett resultat av användar interaktion eller metoder.|
+| pitchstart        | Utlöses när kartans bredd steg (lutning) börjar ändras till följd av användar interaktion eller metoder.|
+| klar             | Utlöses när de lägsta obligatoriska mappnings resurserna läses in innan kartan är klar att program mässigt interagera med.|
+| återge            | <p> Utlöses när kartan ritas till skärmen, till följd av:<ul><li>En ändring av kartans position, zoomning, färgdjup eller förhöjd.</li><li>En ändring av kartans format.</li><li>En ändring i en DataSource-källa.</li><li>Inläsningen av en vektor panel, en multijson-fil, ett specialtecken eller en sprite.</li></ul></p>|
+| Ändra storlek på            | Utlöses omedelbart efter att kart storleken har ändrats.|
+| automatisk            | Utlöses upprepade gånger under en "dra för att rotera"-interaktion.|
+| rotateend         | Utlöses när interaktionen "dra för att rotera" upphör.|
+| rotatestart       | Utlöses när interaktionen "dra och rotera" startar.|
+| shapechanged      | Utlöses när en form objekt egenskap ändras.|
+| sourceadded       | Utlöses när en DataSource eller VectorTileSource läggs till i kartan.|
+| sourceremoved     | Utlöses när en DataSource eller VectorTileSource tas bort från kartan.|
+| styledata         | Utlöses när kartans format läses in eller ändras.|
+| tokenacquired     | Utlöses när en AAD-åtkomsttoken hämtas.|
+| touchcancel       | Utlöses när en touchcancel-händelse inträffar inom kartan.|
+| touchend          | Utlöses när en touchEnd-händelse inträffar inom kartan.|
+| touchmove         | Utlöses när en touchMove-händelse inträffar inom kartan.|
+| touchstart        | Utlöses när en touchstart-händelse inträffar inom kartan.|
+| rullhjul             | Utlöses när en mus hjuls händelse inträffar i kartan.|
+| Förhindra              | Utlöses upprepade gånger under en animerad över gång från en zoomnings nivå till en annan, som ett resultat av användar interaktion eller metoder.|
+| zoomend           | Utlöses strax efter att kartan har slutfört en över gång från en zoomnivå till en annan, som ett resultat av användar interaktion eller metoder.|
+| zoomstart         | Utlöses precis innan kartan påbörjar en över gång från en zoomnings nivå till en annan, som ett resultat av användar interaktion eller metoder.|
+
 
 ## <a name="next-steps"></a>Nästa steg
 

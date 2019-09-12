@@ -7,12 +7,12 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: tutorial
 ms.date: 09/04/2019
-ms.openlocfilehash: 39b87347212aef36bcced1a5b297f2f9e89bcc47
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.openlocfilehash: 72e268628560618fb6fa47843f5125d9126a9f3e
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70734921"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70885154"
 ---
 # <a name="tutorial-configure-apache-hbase-policies-in-hdinsight-with-enterprise-security-package"></a>Självstudier: Konfigurera Apache HBase-principer i HDInsight med Enterprise Security Package
 
@@ -100,7 +100,7 @@ Skapa en Ranger-princip för **sales_user1** och **marketing_user1**.
 
 2. Skärmen **Lista över principer** visar alla Ranger-principer som skapats för det här klustret. En förkonfigurerad princip kan visas. Klicka på **Lägg till ny princip**.
 
-    ![Skapa en princip i Apache Ranger-administratörsanvändargränssnittet](./media/apache-domain-joined-run-hbase/apache-ranger-hbase-policies-list.png)
+    ![Lista över Apache Ranger HBase-principer](./media/apache-domain-joined-run-hbase/apache-ranger-hbase-policies-list.png)
 
 3. På skärmen **Skapa princip** anger du följande värden:
 
@@ -119,7 +119,7 @@ Skapa en Ranger-princip för **sales_user1** och **marketing_user1**.
    * `*` anger noll eller flera förekomster av tecken.
    * `?` anger ett enskilt tecken.
 
-   ![Skapa en princip i Apache Ranger-administratörsanvändargränssnittet](./media/apache-domain-joined-run-hbase/apache-ranger-hbase-policy-create-sales.png)
+   ![Apache Ranger-princip skapa försäljning](./media/apache-domain-joined-run-hbase/apache-ranger-hbase-policy-create-sales.png)
 
    >[!NOTE]
    >Vänta en stund medan Ranger synkroniserar med Azure AD om en domänanvändare inte automatiskt har fyllts i för **Välj användare**.
@@ -138,7 +138,7 @@ Skapa en Ranger-princip för **sales_user1** och **marketing_user1**.
    |Välj användare  | marketing_user1 |
    |Behörigheter  | Läsa |
 
-   ![Skapa en princip i Apache Ranger-administratörsanvändargränssnittet](./media/apache-domain-joined-run-hbase/apache-ranger-hbase-policy-create-marketing.png)  
+   ![Apache Ranger policy skapa marknadsföring](./media/apache-domain-joined-run-hbase/apache-ranger-hbase-policy-create-marketing.png)  
 
 6. Klicka på **Lägg till** för att spara principen.
 

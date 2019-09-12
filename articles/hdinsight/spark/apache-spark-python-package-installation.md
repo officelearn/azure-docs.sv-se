@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/22/2019
-ms.openlocfilehash: da871a1fed0663c5654ebcfd61f4189bf2267026
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: ce5dc7e17020e1e4564ebe1f531645f7329718dc
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70814060"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70900699"
 ---
 # <a name="script-action-to-install-external-python-packages-for-jupyter-notebooks-in-apache-spark-on-hdinsight"></a>Skript åtgärd för att installera externa python-paket för Jupyter-anteckningsböcker i Apache Spark på HDInsight
 
@@ -97,7 +97,7 @@ Det finns två typer av komponenter med öppen källkod som är tillgängliga i 
 
     Resultatet ser ut så här:
     
-    ![Körning av TensorFlow-kod](./media/apache-spark-python-package-installation/execution.png "Kör TensorFlow-kod")
+    ![Körning av TensorFlow-kod](./media/apache-spark-python-package-installation/tensorflow-execution.png "Kör TensorFlow-kod")
 
 > [!NOTE]  
 > Det finns två python-installationer i klustret. Spark kommer att använda den Anaconda python-installation `/usr/bin/anaconda/bin` som finns på och kommer att användas som standard i python 2,7-miljön. Om du vill använda python 3. x och installera paket i PySpark3-kärnan, använder du sökvägen `conda` till den körbara filen för miljön `-n` och använder parametern för att ange miljön. Exempelvis `/usr/bin/anaconda/envs/py35/bin/conda install -c conda-forge ggplot -n py35` `conda-forge` installerar kommandot paketet i python 3,5-miljön med hjälp av kanalen. `ggplot`

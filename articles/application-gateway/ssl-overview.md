@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 3/19/2019
 ms.author: victorh
-ms.openlocfilehash: 199fcdf2ebf10852906b842f09fe7beafd2acdb5
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: e52a32c1897a7add939880fbe27d6b4b7fbee0bd
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68326613"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70883589"
 ---
 # <a name="overview-of-ssl-termination-and-end-to-end-ssl-with-application-gateway"></a>Översikt över SSL-terminering och slut punkt till slut punkt SSL med Application Gateway
 
@@ -72,7 +72,7 @@ Om certifikaten för medlemmarna i backend-poolen inte har signerats av välkän
 
 > [!NOTE] 
 >
-> Certifikatet som har lagts till i **Server delens HTTP-inställning** för att autentisera backend-servrarna kan vara samma som  det certifikat som lagts till i lyssnaren för SSL-avslutning på Application Gateway eller annat för förbättrad säkerhet.
+> Certifikatet som har lagts till i **Server delens HTTP-inställning** för att autentisera backend-servrarna kan vara samma som det certifikat som lagts till i lyssnaren för SSL-avslutning på Application Gateway eller annat för förbättrad säkerhet.
 
 ![slutpunkt till slutpunkt ssl-scenario][1]
 
@@ -95,7 +95,7 @@ Certifikat för autentisering har ersatts och ersatts av betrodda rot certifikat
    
 > [!NOTE] 
 >
-> För att ett SSL-certifikat ska vara betrott måste certifikatet på backend-servern ha utfärdats av en certifikat utfärdare som ingår i det betrodda arkivet i applicatin-gatewayen. om certifikatet inte har utfärdats av en betrodd certifikat utfärdare, kommer Application Gateway att kontrol lera att Se om certifikatet för den utfärdande certifikat utfärdaren utfärdades av en betrodd certifikat utfärdare, och så vidare tills antingen en betrodd certifikat utfärdare hittas (där en betrodd, säker anslutning upprättas) eller så kan ingen betrodd certifikat utfärdare hittas (då kommer applicatin-gatewayen att markera backend-unhe althy). Därför rekommenderas backend-servercertifikatet att innehålla både rot-och Intermidiate-CAs.
+> För att ett SSL-certifikat ska vara betrott måste certifikatet på backend-servern ha utfärdats av en certifikat utfärdare som ingår i det betrodda lagrings platsen för Application Gateway. om certifikatet inte har utfärdats av en betrodd certifikat utfärdare, kommer Application Gateway sedan att kontrol lera för att se om certifikatet för den utfärdande certifikat utfärdaren utfärdades av en betrodd certifikat utfärdare, och så vidare tills antingen en betrodd certifikat utfärdare hittas (där en betrodd, säker anslutning upprättas) eller om ingen betrodd certifikat utfärdare hittas (där Application Gateway kommer att markera Server delen ej felfri). Därför rekommenderas backend-servercertifikatet att innehålla både rot-och Intermidiate-CAs.
 
 - Om certifikatet är självsignerat eller signerat av okända mellanhänder måste du definiera ett betrott rot certifikat för att kunna aktivera slut punkt till slut punkt SSL i v2-SKU: n. Application Gateway kommunicerar bara med Server certifikat vars rot certifikat matchar en av listan över betrodda rot certifikat i Server delens http-inställning som är associerad med poolen.
 

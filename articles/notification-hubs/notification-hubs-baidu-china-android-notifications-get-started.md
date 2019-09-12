@@ -5,8 +5,6 @@ services: notification-hubs
 documentationcenter: android
 author: jwargo
 manager: patniko
-editor: spelluru
-ms.assetid: 23bde1ea-f978-43b2-9eeb-bfd7b9edc4c1
 ms.service: notification-hubs
 ms.devlang: java
 ms.topic: conceptual
@@ -14,25 +12,25 @@ ms.tgt_pltfrm: mobile-baidu
 ms.workload: mobile
 ms.date: 06/19/2019
 ms.author: jowargo
-ms.openlocfilehash: f6a6bc9b1d4826796299d073e0edfbfcede948e7
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 7a3a9affc0fd5e83c7f6046e70d198cce08cb3e1
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67274906"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70886040"
 ---
-# <a name="get-started-with-notification-hubs-using-baidu"></a>Kom igång med Notification Hub genom att använda Baidu
+# <a name="deprecated-get-started-with-notification-hubs-using-baidu"></a>Föråldrad Kom igång med Notification Hub genom att använda Baidu
 
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
 
 > [!IMPORTANT]
-> Den här självstudien är inaktuell. 
+> Den här självstudien är föråldrad. 
 
 Baidu Cloud Push är en kinesisk molntjänst som du kan använda för att skicka push-meddelanden till mobila enheter.
 
 Eftersom Google Play och FCM (Firebase Cloud Messaging) inte är tillgängliga i Kina, är det nödvändigt att använda andra appbutiker och push-tjänster. Baidu är en av dem och den som för tillfället används av Notification Hub.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 För den här kursen behöver du:
 

@@ -3,18 +3,18 @@ title: Metoder för att skapa certifikat
 description: Sätt att skapa ett certifikat i Key Vault.
 services: key-vault
 author: msmbaldwin
-manager: barbkess
+manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 63768b83baafe00348a28c5c9c99e5f16619ac99
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: 908f02807d5a3f7c2c1391c3c59a54fc88bbd831
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68815918"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70884157"
 ---
 # <a name="certificate-creation-methods"></a>Metoder för att skapa certifikat
 
@@ -53,7 +53,7 @@ När en begäran om att skapa ett KV-certifikat har slutförts ändras statusen 
 
 ## <a name="first-creation"></a>Första skapande
  När ett KV-certifikat skapas för första gången skapas även en adresserad nyckel och hemlighet med samma namn som certifikatet. Om namnet redan används kan åtgärden inte utföras med HTTP-statuskod 409 (konflikt).
-Den adresser bara nyckeln och hemligheten hämtar attributen från attributen för KV-certifikat. Den adresser bara nyckeln och hemligheten som skapas på det här sättet har marker ATS som hanterade nycklar och hemligheter, vars livs längd hanteras av Key Vault. Hanterade nycklar och hemligheter är skrivskyddade. Anteckning: Om ett KV-certifikat går ut eller inaktive ras, kommer motsvarande nyckel och hemlighet att sluta fungera.  
+Den adresser bara nyckeln och hemligheten hämtar attributen från attributen för KV-certifikat. Den adresser bara nyckeln och hemligheten som skapas på det här sättet har marker ATS som hanterade nycklar och hemligheter, vars livs längd hanteras av Key Vault. Hanterade nycklar och hemligheter är skrivskyddade. Obs! Om ett KV-certifikat går ut eller inaktive ras, kommer motsvarande nyckel och hemlighet att sluta fungera.  
 
  Om det här är den första åtgärden för att skapa ett KV-certifikat krävs en princip.  En princip kan också tillhandahållas med efterföljande skapande åtgärder för att ersätta princip resursen. Om ingen princip anges används princip resursen på tjänsten för att skapa en nästa version av KV-certifikatet. Observera att när en begäran om att skapa en nästa version pågår, är det aktuella KV-certifikatet och motsvarande adresser bara nyckel och hemlighet oförändrat.  
 

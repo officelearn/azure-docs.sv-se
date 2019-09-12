@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: hrasheed
-ms.openlocfilehash: 546dd094614a72cada2aff60704c4fc191301ad2
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
-ms.translationtype: MT
+ms.openlocfilehash: b95af36ed8f8b6c9749711e2ebbf6ef8aa88f001
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70734941"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70885893"
 ---
 # <a name="use-apache-spark-structured-streaming-with-apache-kafka-and-azure-cosmos-db"></a>Använd Apache Spark strukturerad strömning med Apache Kafka och Azure Cosmos DB
 
@@ -44,7 +44,7 @@ Apache Kafka på HDInsight ger inte tillgång till asynkrona meddelandeköer i K
 1. Använd följande knapp för att logga in på Azure och öppna mallen i Azure Portal.
     
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fhdinsight-spark-scala-kafka-cosmosdb%2Fmaster%2Fazuredeploy.json" target="_blank">
-    <img src="https://azuredeploy.net/deploybutton.png" alt="Deploy to Azure"/>
+    <img src="./media/apache-kafka-spark-structured-streaming-cosmosdb/resource-manager-deploy.png" alt="Deploy to Azure"/>
     </a>
 
     Azure Resource Manager-mallen finns i GitHub-lagringsplatsen för det här projektet[https://github.com/Azure-Samples/hdinsight-spark-scala-kafka-cosmosdb](https://github.com/Azure-Samples/hdinsight-spark-scala-kafka-cosmosdb)().
@@ -67,7 +67,7 @@ Apache Kafka på HDInsight ger inte tillgång till asynkrona meddelandeköer i K
 
 2. Använd följande information för att fylla i posterna i avsnittet **Anpassad distribution** :
    
-    ![Anpassad HDInsight-distribution](./media/apache-kafka-spark-structured-streaming-cosmosdb/parameters.png)
+    ![Anpassad HDInsight-distribution](./media/apache-kafka-spark-structured-streaming-cosmosdb/hdi-custom-parameters.png)
 
     * **Prenumeration**: Välj din Azure-prenumeration.
    

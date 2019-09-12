@@ -7,12 +7,12 @@ ms.author: v-chjen
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.openlocfilehash: 77cb18a858ca87acbb8182bf708e403010251365
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: ec2a174c365e31520fe99ca0b505bbb62faad8c6
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70191775"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70883399"
 ---
 # <a name="check-the-publishing-status-of-your-commercial-marketplace-offer"></a>Kontrol lera publicerings statusen för ditt kommersiella Marketplace-erbjudande
 
@@ -98,6 +98,9 @@ Den här rapporten innehåller beskrivningar av eventuella principer som misslyc
 ## <a name="preview-creation"></a>Skapa för hands version
 
 Under steget för att skapa för **hands** versioner skapar vi en version av ditt erbjudande som är tillgängligt för den mål grupp som du angav i förhands gransknings avsnittet i ditt erbjudande.
+
+>[!Note]
+> Använd inte det här steget för att ge personer utanför organisationen insyn i ett erbjudande. Använd alternativet för **privat erbjudande** i stället. I det här läget har ditt erbjudande inte testats fullständigt och godkänts och är inte redo för distribution utanför företaget.
 
 ## <a name="publisher-approval"></a>Utgivarens godkännande
 

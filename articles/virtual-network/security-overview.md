@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 07/26/2018
 ms.author: malop
 ms.reviewer: kumud
-ms.openlocfilehash: 25c732d1311e2bcffe0fda0d5e427d5df5f99da6
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 1d9fc022a0b0d5ba96517b4ed06b4a2576245a26
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70065933"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70886022"
 ---
 # <a name="security-groups"></a>Säkerhetsgrupper
 <a name="network-security-groups"></a>
@@ -87,7 +87,7 @@ Följande service märken är tillgängliga för användning i [regler för nät
 * **SQL*** (endast Resource Manager): Den här taggen anger de adressprefix som finns för Azure SQL Database, Azure Database for MySQL, Azure Database for PostgreSQL och Azure SQL Data Warehouse tjänster. Om du anger *Sql* som värde tillåts eller nekas trafik till Sql. Om du bara vill tillåta åtkomst till SQL i en angiven [region](https://azure.microsoft.com/regions)kan du ange regionen i följande format SQL. [region namn]. Taggen representerar tjänsten, men inte specifika instanser av tjänsten. Taggen kan till exempel representera tjänsten Azure SQL Database, men inte en specifik SQL-databas eller -server. Den här taggen rekommenderas för utgående säkerhets regel. 
 * **SqlManagement*** (endast Resource Manager): Den här taggen anger adressprefix för hanterings trafiken för dedikerade SQL-distributioner. Om du anger *SqlManagement* för värdet tillåts eller nekas trafik till SqlManagement. Den här taggen rekommenderas för inkommande/utgående säkerhets regel. 
 * **Lagring*** (endast Resource Manager): Den här taggen anger IP-adressutrymmet för tjänsten Azure Storage. Om du anger *Storage* som värde tillåts eller nekas trafik till lagringen. Om du bara vill tillåta åtkomst till lagring i en angiven [region](https://azure.microsoft.com/regions)kan du ange regionen i följande format lagring. [regions namn]. Taggen representerar tjänsten, men inte specifika instanser av tjänsten. Taggen kan till exempel representera tjänsten Azure Storage, men inte ett specifikt Azure Storage-konto. Den här taggen rekommenderas för utgående säkerhets regel. 
-* **VirtualNetwork** (Resource Manager) (**VIRTUAL_NETWORK** för klassisk): Den här taggen innehåller adress utrymmet för det virtuella nätverket (alla CIDR-intervall som definierats för det virtuella nätverket), alla anslutna lokala adress utrymmen, [peer](virtual-network-peering-overview.md) -kopplade virtuella nätverk eller virtuella nätverk som är anslutna till en [virtuell](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%3ftoc.json) nätverksgateway och adress prefix som används för [användardefinierade vägar](virtual-networks-udr-overview.md). Tänk på att den här taggen kan innehålla standard väg. 
+* **VirtualNetwork** (Resource Manager) (**VIRTUAL_NETWORK** för klassisk): Den här taggen innehåller adress utrymmet för det virtuella nätverket (alla CIDR-intervall som definierats för det virtuella nätverket), alla anslutna lokala adress utrymmen, [peer](virtual-network-peering-overview.md) -kopplade virtuella nätverk eller virtuella nätverk som är anslutna till en [virtuell nätverksgateway](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%3ftoc.json), [ virtuell IP-adress för värden](security-overview.md#azure-platform-considerations) och adressprefix som används för användardefinierade [vägar](virtual-networks-udr-overview.md). Tänk på att den här taggen kan innehålla standard väg. 
 
 > [!NOTE]
 > Servicetaggar för Azure-tjänster anger adressprefix från det specifika molnet som används. 
@@ -101,7 +101,7 @@ Du kan ladda ned och integrera med en lokal brand vägg som visar en lista över
 Du kan också hämta den här informationen via programmering med hjälp av **service tag Discovery API** (offentlig för hands version) – [rest](https://aka.ms/discoveryapi_rest), [Azure PowerShell](https://aka.ms/discoveryapi_powershell)och [Azure CLI](https://aka.ms/discoveryapi_cli). 
 
 > [!NOTE]
-> Följande veckovis publikationer (tidigare version) för Azures moln-, [Kina](https://www.microsoft.com/en-us/download/details.aspx?id=42064)-och [Germany](https://www.microsoft.com/en-us/download/details.aspx?id=54770) -moln kommer att föråldras senast den 30 juni 2020. [](https://www.microsoft.com/en-us/download/details.aspx?id=41653) Börja använda de uppdaterade publikationerna enligt beskrivningen ovan. 
+> Följande veckovis publikationer (tidigare version) [för Azures](https://www.microsoft.com/en-us/download/details.aspx?id=41653)moln-, [Kina](https://www.microsoft.com/en-us/download/details.aspx?id=42064)-och [Germany](https://www.microsoft.com/en-us/download/details.aspx?id=54770) -moln kommer att föråldras senast den 30 juni 2020. Börja använda de uppdaterade publikationerna enligt beskrivningen ovan. 
 
 ## <a name="default-security-rules"></a>Standardsäkerhetsregler
 

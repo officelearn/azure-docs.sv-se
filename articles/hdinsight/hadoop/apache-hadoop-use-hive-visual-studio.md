@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/14/2019
 ms.author: hrasheed
-ms.openlocfilehash: bded3ac97732a7cd18411cc9f4ef1707dbdf68e3
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
-ms.translationtype: MT
+ms.openlocfilehash: d53468ae544b02798d7fcd74370d1d3dbdcbd5e0
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70735822"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70882087"
 ---
 # <a name="run-apache-hive-queries-using-the-data-lake-tools-for-visual-studio"></a>Kör Apache Hive frågor med hjälp av Data Lake verktyg för Visual Studio
 
@@ -71,7 +71,7 @@ Ad hoc-frågor kan köras i antingen **batch** -eller **interaktivt** läge.
 
    Om du väljer det avancerade alternativet för att skicka konfigurerar du **Jobbnamn**, **Argument**, **Ytterligare konfigurationer** och **Statuskatalog** för skriptet:
 
-    ![Skärmbild av HDInsight Hadoop Hive-fråga](./media/apache-hadoop-use-hive-visual-studio/hdinsight.visual.studio.tools.submit.jobs.advanced.png "Skicka frågor")
+    ![Skärmbild av HDInsight Hadoop Hive-fråga](./media/apache-hadoop-use-hive-visual-studio/vs-tools-submit-jobs-advanced.png "Skicka frågor")
 
 ### <a name="hive-application"></a>Hive-program
 
@@ -115,11 +115,11 @@ Ad hoc-frågor kan köras i antingen **batch** -eller **interaktivt** läge.
 
 6. I verktygsfältet väljer du det **HDInsight-kluster** som du vill använda för den här frågan. Välj **Skicka** för att köra uttrycken som ett Hive-jobb.
 
-   ![Skicka fält](./media/apache-hadoop-use-hive-visual-studio/toolbar.png)
+   ![Skicka fält](./media/apache-hadoop-use-hive-visual-studio/hdinsight-toolbar-submit.png)
 
 7. **Sammanfattningen av Hive-jobbet** visas och visar information om det jobb som körs. Använd länken **Uppdatera** för att uppdatera jobb informationen tills **jobbets status** ändras till **slutförd**.
 
-   ![jobb sammanfattning som visar ett slutfört jobb](./media/apache-hadoop-use-hive-visual-studio/jobsummary.png)
+   ![jobb sammanfattning som visar ett slutfört jobb](./media/apache-hadoop-use-hive-visual-studio/hdinsight-job-summary.png)
 
 8. Använd länken **jobbets utdata** om du vill visa utdata för jobbet. Den visas `[ERROR] 3`, vilket är det värde som returneras av den här frågan.
 

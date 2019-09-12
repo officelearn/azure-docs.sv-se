@@ -1,5 +1,5 @@
 ---
-title: 'Snabbstart: Bygg ett AI-berikat index i Azure Portal-Azure Search'
+title: 'Snabbstart: Lär dig mer om kognitiv search AI-anrikning i Azure Portal-Azure Search'
 description: Data extrahering, naturliga språk och bild bearbetnings kunskaper i en Azure Search indexerings Portal med hjälp av Azure Portal-och exempel data.
 manager: nitinme
 author: HeidiSteen
@@ -7,16 +7,16 @@ services: search
 ms.service: search
 ms.subservice: cognitive-search
 ms.topic: quickstart
-ms.date: 07/09/2019
+ms.date: 09/10/2019
 ms.author: heidist
-ms.openlocfilehash: 72546e6327fc3286455482943dcaedbd5a8e2943
-ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
+ms.openlocfilehash: ff32be5410876d1ba61b3bce2fd5f57868745e50
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70744737"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70881102"
 ---
-# <a name="quickstart-create-an-ai-indexing-pipeline-using-cognitive-skills-in-azure-search"></a>Snabbstart: Skapa en AI-indexerings pipeline med kognitiva kunskaper i Azure Search
+# <a name="quickstart-create-an-ai-enrichment-pipeline-using-cognitive-skills-in-azure-search"></a>Snabbstart: Skapa en pipeline för AI-anrikning med kognitiva kunskaper i Azure Search
 
 Azure Search integreras med [Cognitive Services](https://azure.microsoft.com/services/cognitive-services/), lägga till extrahering av innehåll, NLP (Natural Language Processing) och bild bearbetnings kunskaper till en Azure Search indexerings pipeline, vilket gör att det inte går att söka efter eller ostrukturerat innehåll mer sökbar. 
 

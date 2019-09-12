@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 7/18/2019
 ms.author: v-mohabe
-ms.openlocfilehash: 4550532d36753d9b8ed472193bc833855ddd34c9
-ms.sourcegitcommit: da0a8676b3c5283fddcd94cdd9044c3b99815046
+ms.openlocfilehash: 1820c31053c13a0f3039812b31df415bc9fa4fdc
+ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68314925"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70910380"
 ---
 # <a name="working-with-security-policies"></a>Arbeta med säkerhetsprinciper
 
@@ -131,7 +131,7 @@ Viktiga begrepp i Azure Policy:
 
 - En **tilldelning** är ett program för ett initiativ eller en princip för en specifik omfattning (hanterings grupp, prenumeration osv.) 
 
-Security Center har ett inbyggt initiativ som innehåller alla säkerhets principer. För att kunna utvärdera Security Centers principer på dina Azure-resurser, bör du skapa en tilldelning i hanterings gruppen eller prenumerationen som du vill utvärdera.  
+Security Center har ett inbyggt initiativ som innehåller alla säkerhets principer. För att kunna utvärdera Security Centers principer på dina Azure-resurser, bör du skapa en tilldelning i hanterings gruppen eller prenumerationen som du vill utvärdera.
 
 Det inbyggda initiativet har alla Security Centers principer som är aktiverade som standard. Du kan välja att inaktivera vissa principer från det inbyggda initiativet, till exempel om du vill använda alla Security Centers principer utom **brand vägg för webbaserade program**, genom att ändra värdet för principens gällande parameter till **inaktive rad**. 
 
@@ -234,7 +234,7 @@ Det här exemplet visar hur du tar bort en tilldelning:
 |Slutpunktsskydd |Övervaka saknade Endpoint Protection i Azure Security Center |endpointProtectionMonitoringEffect |
 |Diskkryptering |Övervaka okrypterade VM-diskar i Azure Security Center |diskEncryptionMonitoringEffect|
 |Sårbarhetsbedömning |Övervaka säkerhets risker i virtuella datorer i Azure Security Center |vulnerabilityAssessmentMonitoringEffect|
-|Brandvägg för webbaserade program |Övervaka oskyddat webb program i Azure Security Center |webApplicationFirewallMonitoringEffect |
+|Brandvägg för webbappar |Övervaka oskyddat webb program i Azure Security Center |webApplicationFirewallMonitoringEffect |
 |Nästa generations brandvägg |Övervaka oskyddade nätverks slut punkter i Azure Security Center| |
 
 

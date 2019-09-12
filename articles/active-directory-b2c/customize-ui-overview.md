@@ -7,19 +7,19 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 02/07/2019
+ms.date: 09/11/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: bbce41271914df4bb8a75804bc66ae538fe766fa
-ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
+ms.openlocfilehash: 5ae12742c2ad50d5bf1caaf14ae2f6d34bd6d3a2
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68716753"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70880780"
 ---
 # <a name="about-user-interface-customization-in-azure-active-directory-b2c"></a>Om anpassning av användar gränssnitt i Azure Active Directory B2C
 
-Möjligheten att anpassa användar gränssnittet (UI) som Azure Active Directory (Azure AD) B2C till dina program är viktigt för att ge kunden en sömlös upplevelse. Dessa upplevelser omfattar registrering, inloggning, profil redigering och återställning av lösen ord. Den här artikeln innehåller information som hjälper dig att anpassa användar gränssnittet för dina program.
+Möjligheten att varumärke och anpassa användar gränssnittet (UI) som Azure Active Directory B2C (Azure AD B2C) är till för dina program är viktigt för att ge kunden en sömlös upplevelse. Dessa upplevelser omfattar registrering, inloggning, profil redigering och återställning av lösen ord. Den här artikeln innehåller information som hjälper dig att anpassa användar gränssnittet för dina program.
 
 Beroende på dina behov när det kommer till dessa upplevelser anpassar du användar gränssnittet för ditt program på olika sätt. Exempel:
 
@@ -118,7 +118,7 @@ I följande tabell visas de HTML-fragment som Azure AD B2C sammanfogas i det `<d
 | Registrera lokalt konto | Innehåller ett formulär för registrering av lokalt konto baserat på en e-postadress eller ett användar namn. Formuläret kan innehålla olika inmatnings kontroller, till exempel text inmatnings ruta, rutan lösen ords post, alternativ knapp, list rutor med flera val och kryss rutor med flera val. |
 | Registrering av socialt konto | Kan visas när du registrerar dig med ett befintligt konto från en social identitetsprovider som Facebook eller Google. Den används när ytterligare information måste samlas in från kunden med hjälp av ett registrerings formulär. |
 | Enhetlig registrering eller inloggning | Hanterar både registrering och inloggning av kunder som kan använda sociala identitets leverantörer som Facebook, Google eller lokala konton. |
-| Multifaktorautentisering | Kunder kan verifiera sina telefonnummer (med text eller röst) under registreringen eller inloggningen. |
+| Multi-Factor Authentication | Kunder kan verifiera sina telefonnummer (med text eller röst) under registreringen eller inloggningen. |
 | Fel | Tillhandahåller fel information till kunden. |
 
 
@@ -134,6 +134,9 @@ För anpassnings exempel hämtar och granskar du dessa [exempel mallfiler](https
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Om du använder användar flöden kan du börja anpassa ditt användar gränssnitt med själv studie kursen: [Anpassa användar gränssnittet för dina program i Azure Active Directory B2C](tutorial-customize-ui.md).
-- Om du använder anpassade principer kan du börja anpassa användar gränssnittet med artikeln: [Anpassa ditt programs användar gränssnitt med hjälp av en anpassad princip i Azure Active Directory B2C](active-directory-b2c-ui-customization-custom.md).
+- Om du använder **användar flöden**kan du börja anpassa ditt användar gränssnitt med själv studie kursen:
 
+    [Anpassa användar gränssnittet för dina program i Azure Active Directory B2C](tutorial-customize-ui.md).
+- Om du använder **anpassade principer**kan du börja anpassa användar gränssnittet med artikeln:
+
+    [Anpassa ditt programs användar gränssnitt med hjälp av en anpassad princip i Azure Active Directory B2C](active-directory-b2c-ui-customization-custom.md).

@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: hrasheed
-ms.openlocfilehash: 580712c4d1815b1c994fd62be78e8d7f3f1c9a01
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: 9fba32c9c21faa6e02c8b48b3907ab67e47036d5
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70809425"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70885511"
 ---
 # <a name="use-the-azure-data-lake-tools-for-visual-studio-with-the-hortonworks-sandbox"></a>Använd Azure Data Lake verktyg för Visual Studio med sandbox-Hortonworks
 
@@ -185,7 +185,7 @@ Med Data Lake verktyg kan du också enkelt visa information om jobb som har kör
 
 Du kan visa egenskaperna för en databas eller tabell. Om du väljer **Egenskaper** visas information om det markerade objektet i fönstret Egenskaper. Se till exempel informationen som visas på följande skärm bild:
 
-![Skärm bild av Fönstret Egenskaper](./media/hdinsight-hadoop-emulator-visual-studio/properties.png)
+![Skärm bild av Fönstret Egenskaper](./media/hdinsight-hadoop-emulator-visual-studio/hdi-properties-window.png)
 
 ### <a name="create-a-table"></a>Skapa en tabell
 

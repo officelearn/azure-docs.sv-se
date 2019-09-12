@@ -1,101 +1,101 @@
 ---
-title: Azure Key Vault-säkerhet | Microsoft Docs
-description: Hantera åtkomstbehörigheter för Nyckelvalv, nycklar och hemligheter. Beskriver modellen för autentisering och auktorisering för Key Vault och hur du säkrar ditt nyckelvalv.
+title: Azure Key Vault säkerhet | Microsoft Docs
+description: Hantera åtkomst behörigheter för Azure Key Vault, nycklar och hemligheter. Beskriver autentiserings-och auktoriserings modellen för Key Vault och hur du skyddar nyckel valvet.
 services: key-vault
-author: barclayn
-manager: barbkess
+author: msmbaldwin
+manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
 ms.topic: conceptual
 ms.date: 04/18/2019
-ms.author: barclayn
+ms.author: mbaldwin
 Customer intent: As a key vault administrator, I want to learn the options available to secure my vaults
-ms.openlocfilehash: 5b32e4897e718e0e411caf9ba76b036f1352bde0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 728398aeec4715d15ebe44ae6d4e4bfa5f295df8
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64715266"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70884784"
 ---
-# <a name="azure-key-vault-security"></a>Azure Key Vault-säkerhet
+# <a name="azure-key-vault-security"></a>Azure Key Vault säkerhet
 
-Du måste skydda krypteringsnycklar och hemligheter som certifikat, anslutningssträngar och lösenord i molnet så att du använder Azure Key Vault. Eftersom du lagrar känsliga och affärskritiska data, som du behöver vidta åtgärder för att maximera säkerheten för ditt valv och de data som lagras i dem. Den här artikeln beskriver några av de begrepp som du bör tänka på när du utformar din säkerhet i Azure Key Vault.
+Du måste skydda krypterings nycklar och hemligheter som certifikat, anslutnings strängar och lösen ord i molnet så att du använder Azure Key Vault. Eftersom du lagrar känsliga och affärs kritiska data måste du vidta åtgärder för att maximera säkerheten för dina valv och de data som lagras i dem. Den här artikeln beskriver några av de begrepp som du bör tänka på när du utformar din Azure Key Vault säkerhet.
 
 ## <a name="identity-and-access-management"></a>Identitets- och åtkomsthantering
 
-När du skapar ett nyckelvalv i en Azure-prenumeration associeras den automatiskt med Azure AD-klient för prenumerationen. Vem som helst att hantera eller hämta innehåll från ett valv måste autentiseras av Azure AD.
+När du skapar ett nyckel valv i en Azure-prenumeration associeras det automatiskt med Azure AD-klienten för prenumerationen. Alla som försöker hantera eller hämta innehåll från ett valv måste autentiseras av Azure AD.
 
-- Autentisering etablerar identiteten hos anroparen.
-- Auktoriseringen avgör vilka åtgärder som anroparen kan utföra. Auktorisering i Key Vault använder en kombination av [rollbaserad åtkomstkontroll](../role-based-access-control/overview.md) (RBAC) och principer för Azure Key Vault.
+- Autentisering upprättar identiteten för anroparen.
+- Auktorisering avgör vilka åtgärder som anroparen kan utföra. Auktorisering i Key Vault använder sig av en kombination av [rollbaserad åtkomst kontroll](../role-based-access-control/overview.md) (RBAC) och Azure Key Vault åtkomst principer.
 
-### <a name="access-model-overview"></a>Översikt över åtkomst
+### <a name="access-model-overview"></a>Översikt över åtkomst modell
 
-Åtkomst till valv sker via två gränssnitt eller plan. Dessa plan är Hanteringsplanet och dataplanet.
+Åtkomst till valv äger rum genom två gränssnitt eller plan. Dessa plan är hanterings planet och data planet.
 
-- Den *Hanteringsplanet* är där du hanterar Key Vault själva och det är det gränssnitt som används för att skapa och ta bort valv. Du kan också läsa egenskaper för nyckelvalvet och hantera principer för åtkomst.
-- Den *dataplanet* kan du arbeta med data som lagras i ett nyckelvalv. Du kan lägga till, ta bort och ändra nycklar, hemligheter och certifikat.
+- *Hanterings planet* är den plats där du hanterar Key Vault och är det gränssnitt som används för att skapa och ta bort valv. Du kan också läsa Key Vault-egenskaper och hantera åtkomst principer.
+- Med *data planet* kan du arbeta med data som lagras i ett nyckel valv. Du kan lägga till, ta bort och ändra nycklar, hemligheter och certifikat.
 
-Alla anropare (användare eller program) måste autentiseras och auktoriseras för att komma åt ett nyckelvalv i antingen plan. Båda planen använder Azure Active Directory (Azure AD) för autentisering. För auktorisering använder rollbaserad åtkomstkontroll (RBAC) för Hanteringsplanet och dataplanet använder en åtkomstprincip för Nyckelvalvet.
+För att få åtkomst till ett nyckel valv i något av planerna måste alla anropare (användare eller program) autentiseras och auktoriseras. Båda planerna använder Azure Active Directory (Azure AD) för autentisering. För auktorisering använder hanterings planet rollbaserad åtkomst kontroll (RBAC) och data planet använder en Key Vault åtkomst princip.
 
-Modell för en enda mekanism för autentisering på båda planen har flera fördelar:
+Modellen för en enda mekanism för autentisering till båda planerna har flera fördelar:
 
-- Organisationer kan styra åtkomsten centralt till alla nyckelvalv i organisationen.
-- Om en användare lämnar förlorar de omedelbart åtkomst till alla nyckelvalv i organisationen.
-- Organisationer kan anpassa autentisering via alternativen i Azure AD, som att aktivera Multi-Factor authentication för extra säkerhet
+- Organisationer kan styra åtkomsten centralt till alla nyckel valv i organisationen.
+- Om en användare lämnar, förlorar de direkt åtkomst till alla nyckel valv i organisationen.
+- Organisationer kan anpassa autentiseringen med hjälp av alternativen i Azure AD, till exempel för att aktivera Multi-Factor Authentication för extra säkerhet
 
 ### <a name="managing-administrative-access-to-key-vault"></a>Hantera administrativ åtkomst till Key Vault
 
-När du skapar ett nyckelvalv i en resursgrupp kan hantera du åtkomst med hjälp av Azure AD. Du ger användare eller grupper möjligheten att hantera nyckelvalv i en resursgrupp. Du kan ge åtkomst på en specifik omfattning genom att tilldela lämpliga RBAC-roller. Om du vill bevilja åtkomst till en användare att hantera nyckelvalven, tilldelar du en fördefinierad `key vault Contributor` roll till användare i ett visst omfång. Följande omfattningar nivåer kan tilldelas till RBAC-roll:
+När du skapar ett nyckel valv i en resurs grupp hanterar du åtkomst med hjälp av Azure AD. Du beviljar användare eller grupper möjligheten att hantera nyckel valv i en resurs grupp. Du kan bevilja åtkomst på en bestämd omfattnings nivå genom att tilldela lämpliga RBAC-roller. Om du vill bevilja åtkomst till en användare för att hantera nyckel valv tilldelar du en `key vault Contributor` fördefinierad roll till användaren vid en bestämd omfattning. Följande omfattnings nivåer kan tilldelas en RBAC-roll:
 
-- **Prenumeration**: En RBAC-roll som tilldelats på prenumerationsnivå gäller för alla resursgrupper och resurser inom den prenumerationen.
-- **Resursgrupp**: En RBAC-roll som tilldelats på resursgruppsnivå gäller för alla resurser i resursgruppen.
-- **Specifik resurs**: En RBAC-roll som tilldelats för en specifik resurs gäller till den resursen. Resursen är i det här fallet ett visst nyckelvalv.
+- **Prenumeration**: En RBAC-roll som tilldelas på prenumerations nivå gäller för alla resurs grupper och resurser i prenumerationen.
+- **Resursgrupp**: En RBAC-roll som tilldelas på resurs grupps nivå gäller för alla resurser i den resurs gruppen.
+- **Speciell resurs**: En RBAC-roll som är tilldelad för en speciell resurs gäller för resursen. I det här fallet är resursen ett särskilt nyckel valv.
 
-Det finns flera fördefinierade roller. Om den fördefinierade rollen inte passar dina behov, kan du definiera en egen roll. Mer information finns i [RBAC: inbyggda roller](../role-based-access-control/built-in-roles.md).
+Det finns flera fördefinierade roller. Om en fördefinierad roll inte passar dina behov kan du definiera en egen roll. Mer information finns i [RBAC: inbyggda roller](../role-based-access-control/built-in-roles.md).
 
 > [!IMPORTANT]
-> Om en användare har `Contributor` behörigheter till ett nyckelvalv Hanteringsplanet användaren kan ge sig själva åtkomst till dataplanet genom att ange en åtkomstprincip för Nyckelvalvet. Du bör begränsa vem som har `Contributor` platssystemrollens åtkomst till dina nyckelvalv. Se till att endast auktoriserade personer kan komma åt och hantera dina nyckelvalv, nycklar, hemligheter och certifikat.
+> Om en användare har `Contributor` behörighet till ett nyckel valv hanterings plan kan användaren ge sig själva åtkomst till data planet genom att ange en Key Vault åtkomst princip. Du bör noggrant kontrol lera vem som `Contributor` har roll åtkomst till dina nyckel valv. Se till att endast behöriga personer kan komma åt och hantera nyckel valv, nycklar, hemligheter och certifikat.
 
 <a id="data-plane-access-control"></a>
-### <a name="controlling-access-to-key-vault-data"></a>Kontrollera åtkomst till Key Vault-data
+### <a name="controlling-access-to-key-vault-data"></a>Kontrol lera åtkomsten till Key Vault data
 
-Åtkomstprinciper för Nyckelvalvet ger separata behörigheter separat till nycklar, hemligheter eller certifikat. Du kan ge en användaråtkomst endast till nycklar och inte till hemligheter. Åtkomstbehörighet för nycklar, hemligheter och certifikat hanteras på valvnivå.
+Key Vault åtkomst principer beviljar behörigheter separat till nycklar, hemligheter eller certifikat. Du kan endast ge en användare åtkomst till nycklar och inte till hemligheter. Åtkomst behörigheter för nycklar, hemligheter och certifikat hanteras på valv nivån.
 
 > [!IMPORTANT]
-> Åtkomstprinciper för Key Vault stöder inte detaljerade, på objektnivå behörigheter som en viss nyckel eller hemlighet certifikat. När en användare beviljas behörighet att skapa och ta bort nycklar, kan de utföra de åtgärderna på alla nycklar i nyckelvalvet.
+> Key Vault åtkomst principer stöder inte detaljerade behörigheter på objekt nivå som en speciell nyckel, hemlighet eller certifikat. När en användare beviljas behörighet att skapa och ta bort nycklar kan de utföra dessa åtgärder på alla nycklar i nyckel valvet.
 
-Om du vill ställa in åtkomstprinciper för ett nyckelvalv, använda den [Azure-portalen](https://portal.azure.com/), [Azure CLI](../cli-install-nodejs.md), [Azure PowerShell](/powershell/azureps-cmdlets-docs), eller [Key Vault Management REST API: er](https://msdn.microsoft.com/library/azure/mt620024.aspx).
+Om du vill ange åtkomst principer för ett nyckel valv använder du [Azure Portal](https://portal.azure.com/), [Azure CLI](../cli-install-nodejs.md), [Azure PowerShell](/powershell/azureps-cmdlets-docs)eller [Key Vault hantering REST-API: er](https://msdn.microsoft.com/library/azure/mt620024.aspx).
 
-Du kan begränsa åtkomst till dataplanet genom att använda [tjänstslutpunkter i virtuella nätverk för Azure Key Vault](key-vault-overview-vnet-service-endpoints.md). Du kan konfigurera [brandväggar och virtuella Nätverksregler](key-vault-network-security.md) för ett extra säkerhetslager.
+Du kan begränsa åtkomsten till data planet genom att använda [slut punkter för virtuella nätverks tjänster för Azure Key Vault](key-vault-overview-vnet-service-endpoints.md). Du kan konfigurera [brand väggar och virtuella nätverks regler](key-vault-network-security.md) för ett extra säkerhets lager.
 
 ## <a name="network-access"></a>Nätverksåtkomst
 
-Du kan minska exponering av dina valv genom att ange vilka IP-adresser som har åtkomst till dem. Tjänstslutpunkter för virtuellt nätverk för Azure Key Vault kan du begränsa åtkomsten till ett angivet virtuellt nätverk. Slutpunkter kan du begränsa åtkomsten till en lista över adressintervall för IPv4 (internet protocol version 4). Alla användare som ansluter till ditt nyckelvalv från utanför dessa källor nekas åtkomst.
+Du kan minska exponeringen för dina valv genom att ange vilka IP-adresser som har åtkomst till dem. Med tjänst slut punkter för virtuella nätverk för Azure Key Vault kan du begränsa åtkomsten till ett angivet virtuellt nätverk. Med slut punkterna kan du också begränsa åtkomsten till en lista över IPv4-adress intervall (Internet Protocol version 4). Alla användare som ansluter till nyckel valvet utanför dessa källor nekas åtkomst.
 
-När brandväggen är regler i praktiken användare kan endast läsa data från Key Vault när deras begäranden som kommer från tillåtna virtuella nätverk eller IPv4-adressintervall. Detta gäller även för åtkomst till Nyckelvalv från Azure-portalen. Även om användarna kan bläddra till ett nyckelvalv i Azure Portal, kanske de inte att lista nycklar, hemligheter eller certifikat om klientdatorn inte är i listan över tillåtna. Detta påverkar även väljaren för Key Vault med andra Azure-tjänster. Användare kanske kan se listan över nyckelvalv, men inte att lista nycklar, om brandväggsregler förhindra klientdatorn.
+När brand Väggs reglerna är aktiva kan användarna bara läsa data från Key Vault när deras begär Anden kommer från tillåtna virtuella nätverk eller IPv4-adress intervall. Detta gäller även för att komma åt Key Vault från Azure Portal. Även om användarna kan bläddra till ett nyckel valv från Azure Portal, kanske de inte kan lista nycklar, hemligheter eller certifikat om deras klient dator inte finns i listan över tillåtna. Detta påverkar också Key Vault väljare från andra Azure-tjänster. Användarna kanske kan se en lista över nyckel valv, men inte lista nycklar, om brand Väggs reglerna förhindrar sin klient dator.
 
-Mer information om Azure Key Vault network adress granska [tjänstslutpunkter i virtuella nätverk för Azure Key Vault](key-vault-overview-vnet-service-endpoints.md)
+Mer information om Azure Key Vault nätverks adress granska [slut punkter för virtuella nätverks tjänster för Azure Key Vault](key-vault-overview-vnet-service-endpoints.md)
 
 ## <a name="monitoring"></a>Övervakning
 
-Key Vault-loggning sparar information om aktiviteter som utförs i valvet. Key Vault-loggar:
+Key Vault loggning sparar information om de aktiviteter som utförts i valvet. Key Vault loggar:
 
-- Alla autentiserade REST API-begäranden, inklusive misslyckade förfrågningar
-  - Åtgärder i valvet själva. Dessa åtgärder omfattar skapande, borttagning, inställning av åtkomstprinciper och uppdatera nyckelvärdesattribut som taggar.
-  - Åtgärder för nycklar och hemligheter i nyckelvalvet, inklusive:
+- Alla autentiserade REST API begär Anden, inklusive misslyckade förfrågningar
+  - Åtgärder i själva nyckel valvet. Dessa åtgärder omfattar att skapa, ta bort, ställa in åtkomst principer och uppdatera Key Vault-attribut som taggar.
+  - Åtgärder för nycklar och hemligheter i nyckel valvet, inklusive:
     - Skapa, ändra eller ta bort nycklar eller hemligheter.
-    - Signering, verifiera, kryptera, dekryptera, omsluta och borttagning av nycklar, hämta hemligheter, och lista nycklar och hemligheter (och deras versioner).
-- Oautentiserade förfrågningar som resulterar i ett 401-svar. Exempel är begäranden som inte har någon ägartoken, som är felaktiga eller har upphört att gälla eller som har en ogiltig token.
+    - Signering, verifiering, kryptering, dekryptering, wrapping och unwrap-nycklar, Hämta hemligheter och Visa nycklar och hemligheter (och deras versioner).
+- Oautentiserade förfrågningar som resulterar i ett 401-svar. Exempel är begär Anden som inte har en Bearer-token, som har fel format eller som har upphört att gälla eller som har en ogiltig token.
 
-Loggningsinformationen kan nås inom 10 minuter efter åtgärden nyckelvalv. Det är upp till dig att hantera loggarna i ditt storage-konto. 
+Loggnings information kan nås inom 10 minuter efter nyckel valvs åtgärden. Det är upp till dig att hantera dina loggar i ditt lagrings konto. 
 
 - Använd standardåtkomstmetoder i Azure för att skydda loggarna genom att begränsa vem som kan komma åt dem.
 - Ta bort loggar som du inte vill behålla i ditt lagringskonto.
 
-Rekommendation för att på ett säkert sätt hantera lagring konton hittar den [säkerhetsguiden för Azure Storage](../storage/common/storage-security-guide.md)
+Rekommendationer för att hantera lagrings konton på ett säkert sätt finns i [Azure Storage säkerhets guide](../storage/common/storage-security-guide.md)
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Tjänstslutpunkter i virtuella nätverk för Azure Key Vault](key-vault-overview-vnet-service-endpoints.md)
-- [RBAC: Inbyggda roller](../role-based-access-control/built-in-roles.md)
-- [Tjänstslutpunkter i virtuella nätverk för Azure Key Vault](key-vault-overview-vnet-service-endpoints.md)
+- [Tjänst slut punkter för virtuella nätverk för Azure Key Vault](key-vault-overview-vnet-service-endpoints.md)
+- [RBAC Inbyggda roller](../role-based-access-control/built-in-roles.md)
+- [tjänst slut punkter för virtuella nätverk för Azure Key Vault](key-vault-overview-vnet-service-endpoints.md)

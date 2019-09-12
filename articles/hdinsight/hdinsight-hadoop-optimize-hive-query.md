@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/21/2019
-ms.openlocfilehash: 60c725e084a18326cc4bc9cc05d02d103261f5a4
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: d545cd997b35cfa5e7fec58b17507ce63097fd20
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70809252"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70898773"
 ---
 # <a name="optimize-apache-hive-queries-in-azure-hdinsight"></a>Optimera Apache Hive frågor i Azure HDInsight
 
@@ -29,11 +29,11 @@ Genom att öka antalet arbetsnoder i ett HDInsight-kluster kan arbetet använda 
 
 * När du skapar ett kluster kan du ange antalet arbetsnoder med hjälp av Azure Portal, Azure PowerShell eller kommando rads gränssnittet.  Mer information finns i [Skapa HDInsight-kluster](hdinsight-hadoop-provision-linux-clusters.md). Följande skärm bild visar konfigurationen för arbetsnoden på Azure Portal:
   
-    ![scaleout_1](./media/hdinsight-hadoop-optimize-hive-query/scaleout_1.png "scaleout_1")
+    ![scaleout_1](./media/hdinsight-hadoop-optimize-hive-query/hdinsight-scaleout-1.png "scaleout_1")
     
 * När du har skapat kan du också redigera antalet arbetsnoder för att skala ut ett kluster ytterligare utan att skapa ett nytt:
 
-    ![scaleout_2](./media/hdinsight-hadoop-optimize-hive-query/scaleout_2.png "scaleout_2")
+    ![scaleout_2](./media/hdinsight-hadoop-optimize-hive-query/hdinsight-scaleout-2.png "scaleout_2")
 
 Mer information om hur du skalar HDInsight finns i [skala HDInsight-kluster](hdinsight-scaling-best-practices.md)
 
@@ -41,7 +41,7 @@ Mer information om hur du skalar HDInsight finns i [skala HDInsight-kluster](hdi
 
 [Apache Tez](https://tez.apache.org/) är en alternativ körnings motor till MapReduce-motorn. Linux-baserade HDInsight-kluster har Tez aktiverat som standard.
 
-![tez_1][image-hdi-optimize-hive-tez_1]
+![tez_1](./media/hdinsight-hadoop-optimize-hive-query/hdinsight-tez-engine.png)
 
 Tez är snabbare eftersom:
 
@@ -65,7 +65,7 @@ I/O-åtgärder är den stora prestanda Flask halsen för att köra Hive-frågor.
 
 Hive-partitionering implementeras genom att organisera om rå data i nya kataloger. Varje partition har en egen fil katalog. Partitioneringen definieras av användaren. Följande diagram illustrerar partitionering av en Hive-tabell efter kolumn *året*. En ny katalog skapas för varje år.
 
-![Hive-partitionering][image-hdi-optimize-hive-partitioning_1]
+![Hive-partitionering](./media/hdinsight-hadoop-optimize-hive-query/hdinsight-partitioning.png)
 
 Några partitionering överväganden:
 
@@ -197,7 +197,3 @@ I den här artikeln har du lärt dig flera vanliga optimerings metoder för Hive
 * [Använda Apache Hive i HDInsight](hadoop/hdinsight-use-hive.md)
 * [Analysera flyg fördröjnings data med hjälp av interaktiv fråga i HDInsight](/azure/hdinsight/interactive-query/interactive-query-tutorial-analyze-flight-data)
 * [Analysera Twitter-data med Apache Hive i HDInsight](hdinsight-analyze-twitter-data-linux.md)
-
-
-[image-hdi-optimize-hive-tez_1]: ./media/hdinsight-hadoop-optimize-hive-query/tez_1.png
-[image-hdi-optimize-hive-partitioning_1]: ./media/hdinsight-hadoop-optimize-hive-query/partitioning_1.png

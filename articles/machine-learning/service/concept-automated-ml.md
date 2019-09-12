@@ -11,12 +11,12 @@ author: nacharya1
 ms.author: nilesha
 ms.date: 06/20/2019
 ms.custom: seodec18
-ms.openlocfilehash: 319871280b94f54b99f7a9957f671ec50122ebf3
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
-ms.translationtype: HT
+ms.openlocfilehash: b7347be086cd9e85dda7b8271548ccb44e8114ff
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70860906"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70882029"
 ---
 # <a name="what-is-automated-machine-learning"></a>Vad är automatisk maskininlärning?
 
@@ -98,7 +98,12 @@ Att skapa prognoser är en viktig del av alla verksamheter, vare sig det gäller
 
 Ett automatiserat experiment med tids serier behandlas som ett multivarierad Regressions problem. Tidigare tids serie värden är "pivoterade" för att bli ytterligare dimensioner för modellerings regressor tillsammans med andra förutsägelser. Den här metoden, till skillnad från klassiska Time Series-metoder, har en fördel med att använda flera sammanhangsbaserade variabler och deras relation till varandra under utbildningen. Med automatisk ML får du en enda, men ofta ingrenad modell för alla objekt i data uppsättningen och förutsägelserna. Mer data är därför tillgängliga för att uppskatta modell parametrar och generalisering till osett-serien blir möjlig.
 
-Läs mer och se ett exempel på [automatiserad maskin inlärning för tids serie prognoser](how-to-auto-train-forecast.md).
+Läs mer och se ett exempel på [automatiserad maskin inlärning för tids serie prognoser](how-to-auto-train-forecast.md). Eller, se [antecknings boken för energi förbrukning](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-energy-demand/auto-ml-forecasting-energy-demand.ipynb) för detaljerade kod exempel på avancerad prognos konfiguration, inklusive:
+
+* jul avkänning och funktionalisering
+* kors validering av rullande ursprung
+* konfigurerbar lags
+* mängd funktioner för rullande fönster
 
 ## <a name="ensemble"></a>Ensemble-modeller
 

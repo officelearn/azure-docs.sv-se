@@ -2,8 +2,8 @@
 title: Vad är Dedikerad HSM? – Dedikerad HSM i Azure| Microsoft Docs
 description: Översikten över dedikerad HSM i Azure tillhandahåller funktioner för lagring av nycklar i Azure som uppfyller FIPS 140-2 Level 3-certifiering
 services: dedicated-hsm
-author: barclayn
-manager: barbkess
+author: msmbaldwin
+manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
 ms.workload: identity
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: overview
 ms.custom: mvc, seodec18
 ms.date: 12/07/2018
-ms.author: barclayn
-ms.openlocfilehash: 88a49c9c124c5399749d2b60595d7f5c7ec77b20
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.author: mbaldwin
+ms.openlocfilehash: dd5ce117645ef2b368bbf8f0e441770d6e746b5b
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "62118000"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70881072"
 ---
 # <a name="what-is-azure-dedicated-hsm"></a>Vad är Dedikerad HSM i Azure?
 
@@ -46,7 +46,7 @@ Många kunder behöver fullständig administrativ kontroll och enskild åtkomst 
  
  Det står kunden fritt att inaktivera den här övervakningen vid behov. Om de inaktiverar den så kommer de dock inte att få proaktiva hälsovarningar från Microsoft.
 
-### <a name="high-performance"></a>Höga prestanda
+### <a name="high-performance"></a>Hög kapacitet
 
 Gemalto-enheten har valts för den här tjänsten av många olika skäl. Den har ett brett stöd för krypteringsalgoritmer, en mängd olika operativsystem och ett brett API-stöd. Den specifika modell som distribueras erbjuder utmärkta prestanda med 10 000 åtgärder per sekund för RSA-2048. Den har stöd för 10 partitioner som kan användas för unika programinstanser. Det här är en enhet med låg svarstid, hög kapacitet och högt dataflöde.
 

@@ -10,12 +10,12 @@ ms.assetid: 04b05dea-c066-44a0-9751-0774eb84c689
 ms.service: sql-data-warehouse
 ms.topic: article
 ms.date: 07/22/2019
-ms.openlocfilehash: cd55e078e14ec34006df05096f161e7bdef39a03
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: ac478a7b75bbac0c5e7f59cbe565ec2bbcd643ce
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68827220"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70900326"
 ---
 # <a name="upgrade-your-data-warehouse-to-gen2"></a>Uppgradera ditt informations lager till Gen2
 
@@ -63,7 +63,7 @@ I följande tabell sammanfattas efter region när den nedre Gen2 beräknings niv
 | Förenade Arabemiraten, norra |20 juli 2019 |Slutfört |
 | Storbritannien, södra |Tillgängligt |Pågår |
 | Storbritannien, västra |Tillgängligt |Pågår |
-| Västra centrala USA |1 september 2019 |1 oktober 2019|
+| Västra centrala USA |1 november 2019 |Den 1 december 2019|
 | Västra Europa |Tillgängligt |Slutfört |
 | Västra USA |Tillgängligt |Slutfört |
 | Västra USA 2 |Tillgängligt |Slutfört |

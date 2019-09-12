@@ -2,31 +2,25 @@
 title: Just-in-Time-åtkomst för virtuella datorer i Azure Security Center | Microsoft Docs
 description: Det här dokumentet visar hur just-in-Time VM Access i Azure Security Center hjälper dig att kontrol lera åtkomsten till dina virtuella Azure-datorer.
 services: security-center
-documentationcenter: na
-author: monhaber
-manager: barbkess
-editor: ''
-ms.assetid: 671930b1-fc84-4ae2-bf7c-d34ea37ec5c7
+author: memildin
+manager: rkarlin
 ms.service: security-center
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 8/20/2019
-ms.author: v-mohabe
-ms.openlocfilehash: f3e6cc0464c8f395db7cac0ebf8a16230f5ebcbe
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.date: 09/10/2019
+ms.author: memildin
+ms.openlocfilehash: 9948f4d9e6287530004b073adf10bb723899e96d
+ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69872914"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70910610"
 ---
 # <a name="manage-virtual-machine-access-using-just-in-time"></a>Hantera åtkomst till virtuella datorer med just-in-Time
 
 Just-in-Time (JIT)-åtkomst till virtuell dator (VM) kan användas för att låsa inkommande trafik till dina virtuella Azure-datorer, vilket minskar exponeringen för attacker och ger enkel åtkomst till att ansluta till virtuella datorer när det behövs.
 
 > [!NOTE]
-> Just-in-Time-funktionen finns på standard nivån för Security Center.  Mer information om prisalternativen för Security Center finns i [Priser](security-center-pricing.md).
+> Just-in-Time-funktionen finns på standard nivån för Security Center. Mer information om prisalternativen för Security Center finns i [Priser](security-center-pricing.md).
 
 
 > [!NOTE]
@@ -36,7 +30,7 @@ Just-in-Time (JIT)-åtkomst till virtuell dator (VM) kan användas för att lås
 
 Brute force-attacker brukar rikta hanterings portar som ett sätt att få åtkomst till en virtuell dator. Om det lyckas kan en angripare ta kontroll över den virtuella datorn och upprätta en fäste i din miljö.
 
-Ett sätt att minska exponeringen för en brute force-attack är att begränsa hur lång tid en port är öppen. Hanteringsportar behöver inte vara öppna hela tiden. De behöver endast vara öppna medan du är ansluten till den virtuella datorn för att exempelvis utföra hantering eller underhåll. När just-in-Time är aktiverat använder Security Center [nätverks säkerhets gruppen](../virtual-network/security-overview.md#security-rules) (NSG) och Azure brand Väggs regler som begränsar åtkomsten till hanterings portar så att de inte kan nås av angripare.
+Ett sätt att minska exponeringen för en brute force-attack är att begränsa hur lång tid en port är öppen. Hanterings portar behöver inte vara öppna hela tiden. De behöver bara vara öppna när du är ansluten till den virtuella datorn, till exempel för att utföra hanterings-eller underhålls uppgifter. När just-in-Time är aktiverat använder Security Center [nätverks säkerhets gruppen](../virtual-network/security-overview.md#security-rules) (NSG) och Azure brand Väggs regler som begränsar åtkomsten till hanterings portar så att de inte kan nås av angripare.
 
 ![Just-in-Time-scenario](./media/security-center-just-in-time/just-in-time-scenario.png)
 
@@ -87,7 +81,7 @@ Från ASC kan du konfigurera en JIT-princip och begära åtkomst till en virtuel
     **Just-in-Time VM-åtkomst** innehåller information om status för dina virtuella datorer:
 
     - **Konfigurerade** – virtuella datorer som har kon figurer ATS för att stödja just-in-Time VM-åtkomst. De data som visas är den senaste veckan och omfattar för varje virtuell dator antalet godkända begär Anden, senaste åtkomst datum och tid och senaste användare.
-    - **Rekommenderade** – virtuella datorer som har stöd för just-in-Time VM-åtkomst men som inte har kon figurer ATS för. Vi rekommenderar att du aktiverar just-in-Time-åtkomst kontroll för de här virtuella DATORerna. 
+    - **Rekommenderade** -virtuella datorer som har stöd för just-in-Time VM-åtkomst men inte har kon figurer ATS för. Vi rekommenderar att du aktiverar just-in-Time-åtkomst kontroll för de här virtuella DATORerna.
     - **Ingen rekommendation** – Orsaker som kan orsaka att en virtuell dator inte rekommenderas är:
       - Saknar NSG – just-in-Time-lösningen kräver att en NSG är på plats.
       - Klassisk VM-Security Center just-in-Time-åtkomst för virtuella datorer stöder för närvarande endast virtuella datorer som distribueras via Azure Resource Manager. En klassisk distribution stöds inte av just-in-Time-lösningen. 
@@ -131,7 +125,7 @@ Så här begär du åtkomst till en virtuell dator via ASC:
 
     - Ikonen i kolumnen **anslutnings information** visar om JIT är aktiverat på NSG eller VB. Om det är aktiverat på båda visas bara brand Väggs ikonen.
 
-    - Kolumnen **anslutnings information** innehåller rätt information som krävs för att ansluta den virtuella datorn, samt visar de öppna portarna.
+    - Kolumnen **anslutnings information** innehåller den information som krävs för att ansluta den virtuella datorn och dess öppna portar.
 
       ![Begära just-in-time-åtkomst](./media/security-center-just-in-time/request-just-in-time-access.png)
 
@@ -191,11 +185,11 @@ Detta möjliggör just-in-Time-åtkomst för den virtuella datorn med följande 
 
 - Windows-servrar:
     - RDP-port 3389
-    - 3 timmar med högsta tillåtna åtkomst
+    - Tre timmar med högsta tillåtna åtkomst
     - Tillåtna käll-IP-adresser har angetts till valfri
 - Linux-servrar:
     - SSH-port 22
-    - 3 timmar med högsta tillåtna åtkomst
+    - Tre timmar med högsta tillåtna åtkomst
     - Tillåtna käll-IP-adresser har angetts till valfri
      
 Om en virtuell dator redan har aktiverat just-in-Time, kan du se att just-in-Time är aktiverat när du går till konfigurations sidan och du kan använda länken för att öppna principen i Azure Security Center för att visa och ändra inställningarna.
@@ -213,7 +207,7 @@ När du försöker ansluta till en virtuell dator i Azure Portal, kontrollerar A
   Åtkomsten begärs med följande standard parametrar:
 
   - **käll-IP**: Valfritt (*) (kan inte ändras)
-  - **tidsintervall**: 3 timmar (kan inte ändras)  <!--Isn't this set in the policy-->
+  - **tidsintervall**: Tre timmar (kan inte ändras) <!--Isn't this set in the policy-->
   - **port nummer** RDP-port 3389 för Windows/port 22 för Linux (kan ändras)
 
     > [!NOTE]

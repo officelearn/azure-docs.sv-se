@@ -8,12 +8,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 06/03/2019
 ms.author: hrasheed
-ms.openlocfilehash: 36233dc986752ded409389a0a8e267c92a40b5a5
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 689926d0dbaebaaf56c8238e8fed7a691e8cacf4
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68562594"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70882463"
 ---
 # <a name="query-apache-hive-through-the-jdbc-driver-in-hdinsight"></a>Fråga Apache Hive genom JDBC-drivrutinen i HDInsight
 
@@ -63,11 +63,11 @@ SQuirreL SQL är en JDBC-klient som kan användas för att fjärrköra Hive-frå
 
 3. Starta SQuirreL SQL-programmet. Välj **driv rutiner**från vänster i fönstret.
 
-    ![Fliken driv rutiner till vänster i fönstret](./media/apache-hadoop-connect-hive-jdbc-driver/squirreldrivers.png)
+    ![Fliken driv rutiner till vänster i fönstret](./media/apache-hadoop-connect-hive-jdbc-driver/hdinsight-squirreldrivers.png)
 
 4. Från ikonerna överst i dialog rutan **driv rutiner** väljer du **+** ikonen för att skapa en driv rutin.
 
-    ![Driv rutins ikoner](./media/apache-hadoop-connect-hive-jdbc-driver/driversicons.png)
+    ![Driv rutins ikoner](./media/apache-hadoop-connect-hive-jdbc-driver/hdinsight-driversicons.png)
 
 5. I dialog rutan Lägg till driv rutin lägger du till följande information:
 
@@ -76,13 +76,13 @@ SQuirreL SQL är en JDBC-klient som kan användas för att fjärrköra Hive-frå
     * **Extra klass Sök väg**: Använd knappen **Lägg** till för att lägga till alla jar-filer som hämtats tidigare
     * **Klass namn**: org. apache. Hive. JDBC. HiveDriver
 
-   ![dialog rutan Lägg till driv rutin](./media/apache-hadoop-connect-hive-jdbc-driver/adddriver.png)
+   ![dialog rutan Lägg till driv rutin](./media/apache-hadoop-connect-hive-jdbc-driver/hdinsight-add-driver.png)
 
    Välj **OK** för att spara inställningarna.
 
 6. Till vänster om SQL-fönstret SQuirreL väljer du **alias**. Välj **+** sedan ikonen för att skapa ett alias för anslutning.
 
-    ![Lägg till nytt alias](./media/apache-hadoop-connect-hive-jdbc-driver/aliases.png)
+    ![Lägg till nytt alias](./media/apache-hadoop-connect-hive-jdbc-driver/hdinsight-new-aliases.png)
 
 7. Använd följande värden för dialog rutan **Lägg till alias** .
 
@@ -98,7 +98,7 @@ SQuirreL SQL är en JDBC-klient som kan användas för att fjärrköra Hive-frå
 
     * **Lösenord**: Lösen ordet för klustrets inloggnings konto.
 
-   ![dialog rutan Lägg till alias](./media/apache-hadoop-connect-hive-jdbc-driver/addalias.png)
+   ![dialog rutan Lägg till alias](./media/apache-hadoop-connect-hive-jdbc-driver/hdinsight-addalias-dialog.png)
 
     > [!IMPORTANT] 
     > Använd **test** knappen för att kontrol lera att anslutningen fungerar. Vid **anslutning till: Dialog rutan Hive** i HDInsight visas väljer du **Anslut** för att utföra testet. Om testet lyckas visas en dialog ruta med en **anslutning** . Om ett fel inträffar, se [fel sökning](#troubleshooting).
@@ -107,7 +107,7 @@ SQuirreL SQL är en JDBC-klient som kan användas för att fjärrköra Hive-frå
 
 8. I list rutan **Anslut till** överst i SQuirreL SQL väljer du **Hive i HDInsight**. När du uppmanas, väljer **Connect**.
 
-    ![dialog rutan anslutning](./media/apache-hadoop-connect-hive-jdbc-driver/connect.png)
+    ![dialog rutan anslutning](./media/apache-hadoop-connect-hive-jdbc-driver/hdinsight-connect-dialog.png)
 
 9. När du är ansluten, ange följande fråga i dialog rutan SQL-fråga och välj sedan ikonen **Kör** (en person som körs). Resultat ytan bör visa resultatet av frågan.
 
@@ -115,7 +115,7 @@ SQuirreL SQL är en JDBC-klient som kan användas för att fjärrköra Hive-frå
     select * from hivesampletable limit 10;
     ```
 
-    ![dialog rutan SQL-fråga, inklusive resultat](./media/apache-hadoop-connect-hive-jdbc-driver/sqlquery.png)
+    ![dialog rutan SQL-fråga, inklusive resultat](./media/apache-hadoop-connect-hive-jdbc-driver/hdinsight-sqlquery-dialog.png)
 
 ## <a name="connect-from-an-example-java-application"></a>Ansluta från ett Java-exempel till ett Java-program
 

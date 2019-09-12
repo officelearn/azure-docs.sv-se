@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: mbullwin
-ms.openlocfilehash: 9bedb74f4e882ac6e4206ee7fef676c94dc2422d
-ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
+ms.openlocfilehash: cdc16c2ea01d14edc236d0d6a0897e0dd9578924
+ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "68717457"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70909804"
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>Application Insights-API för anpassade händelser och mått
 
@@ -584,7 +584,7 @@ Logga en diagnostisk händelse som att ange eller lämna en metod.
 ---|---
 `message` | Diagnostikdata. Kan vara mycket längre än ett namn.
 `properties` | Mappning av sträng till sträng: Ytterligare data som används för att [filtrera undantag](https://azure.microsoft.com/documentation/articles/app-insights-api-custom-events-metrics/#properties) i portalen. Standardvärdet är tomt.
-`severityLevel` | Värden som stöds: [SeverityLevel. TS](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/JavaScript/JavaScriptSDK.Interfaces/Contracts/Generated/SeverityLevel.ts)
+`severityLevel` | Värden som stöds: [SeverityLevel. TS](https://github.com/microsoft/ApplicationInsights-JS/blob/17ef50442f73fd02a758fbd74134933d92607ecf/shared/AppInsightsCommon/src/Interfaces/Contracts/Generated/SeverityLevel.ts)
 
 Du kan söka efter meddelande innehåll, men (till skillnad från egenskaps värden) Det går inte att filtrera på det.
 

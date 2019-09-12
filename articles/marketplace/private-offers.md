@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 11/1/2018
 ms.author: pabutler
-ms.openlocfilehash: 35134d828098af0cff3d585dee600ee1808b00c4
-ms.sourcegitcommit: fe50db9c686d14eec75819f52a8e8d30d8ea725b
+ms.openlocfilehash: 3d97fd167f0f946239d4de24bb180796ebb498d3
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69013623"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70885871"
 ---
 # <a name="private-offers"></a>Privata erbjudanden
 
@@ -29,11 +29,11 @@ Företags kunder kan använda marknads platser online för att hitta, prova och 
 
 Privata erbjudanden gör att utgivare kan dra nytta av skalbarheten och den globala tillgängligheten för en offentlig marknads plats, med flexibilitet och kontroll som behövs för att förhandla fram och leverera anpassade erbjudanden och konfigurationer. Tillsammans öppnar dessa funktioner dörren till starkt företags införande av moln marknads platser.  Företag kan nu köpa och sälja på det sätt de förväntar sig och efter frågan.
 
-Privata erbjudanden är nu tillgängliga för virtuell dator, Azure Application (implementeras som lösningsfiler eller hanterade program) och SaaS-appar erbjuder. Som offentliga erbjudanden kan privata erbjudanden skapas och hanteras via [Cloud Partner Portal](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-azure-private-skus).  Kunder kan beviljas eller återkalla åtkomst till privata erbjudanden på några minuter.
+Privata erbjudanden är nu tillgängliga för virtuell dator, Azure Application (implementeras som lösningsfiler eller hanterade program) och SaaS-appar erbjuder. Som offentliga erbjudanden kan privata erbjudanden skapas och hanteras via [Cloud Partner Portal](./cloud-partner-portal-orig/cloud-partner-portal-azure-private-skus.md).  Kunder kan beviljas eller återkalla åtkomst till privata erbjudanden på några minuter.
 
 ## <a name="creating-private-offers-using-skus-and-plans"></a>Skapa privata erbjudanden med SKU: er och planer
 
-För *nya eller befintliga erbjudanden med offentliga SKU: er eller planer*kan utgivare enkelt skapa nya, privata variationer genom att skapa nya SKU: er eller planer och markera dem som privata.  [Privata SKU: er](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-azure-private-skus) och planer är komponenter i ett erbjudande och är bara synliga och köpbara av de riktade kunderna. Privata SKU: er och planer kan återanvända bas avbildningar och/eller erbjudande-metadata som redan har publicerats för en offentlig SKU eller plan. Med det här alternativet kan utgivare skapa flera privata varianter av ett offentligt erbjudande utan att behöva publicera flera versioner av samma bas avbildning och erbjuda metadata. När en privat SKU delar en bas avbildning med en offentlig SKU för Virtual Machine och Azure-program, kommer eventuella ändringar i bas avbildningen av erbjudandet att spridas över alla offentliga och privata SKU: er som använder den bas avbildningen.
+För *nya eller befintliga erbjudanden med offentliga SKU: er eller planer*kan utgivare enkelt skapa nya, privata variationer genom att skapa nya SKU: er eller planer och markera dem som privata.  [Privata SKU: er](./cloud-partner-portal-orig/cloud-partner-portal-azure-private-skus.md) och planer är komponenter i ett erbjudande och är bara synliga och köpbara av de riktade kunderna. Privata SKU: er och planer kan återanvända bas avbildningar och/eller erbjudande-metadata som redan har publicerats för en offentlig SKU eller plan. Med det här alternativet kan utgivare skapa flera privata varianter av ett offentligt erbjudande utan att behöva publicera flera versioner av samma bas avbildning och erbjuda metadata. När en privat SKU delar en bas avbildning med en offentlig SKU för Virtual Machine och Azure-program, kommer eventuella ändringar i bas avbildningen av erbjudandet att spridas över alla offentliga och privata SKU: er som använder den bas avbildningen.
 
 För *nya erbjudanden som bara innehåller privata SKU: er eller planer*kan utgivare skapa sina erbjudanden som ett annat erbjudande och sedan markera SKU: er eller planer som privata. Erbjudanden som bara har privata SKU: er eller planer kommer inte att kunna identifieras eller nås via [Azure Marketplace](https://azuremarketplace.microsoft.com) eller [Azure Portal](https://azure.microsoft.com/features/azure-portal/) av kunder som inte är associerade med erbjudandet.
 
@@ -52,4 +52,4 @@ Privata erbjudanden visas också i Sök resultaten. Titta bara efter "privat"-m�
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om du vill dra nytta av de här nya funktionerna kan du komma igång med att sälja på [Azure Marketplace](https://azuremarketplace.microsoft.com/sell).
+Om du vill börja använda privata erbjudanden följer du stegen i Guide för [privata SKU: er och planer](./cloud-partner-portal-orig/cloud-partner-portal-azure-private-skus.md) .

@@ -1,46 +1,46 @@
 ---
-title: Bästa praxis att använda Key Vault - Azure Key Vault | Microsoft Docs
-description: Det här dokumentet beskriver några av metodtipsen för att använda Key Vault
+title: Metod tips för att använda Key Vault-Azure Key Vault | Microsoft Docs
+description: I det här dokumentet beskrivs några av de rekommenderade metoderna för att använda Key Vault
 services: key-vault
 author: msmbaldwin
-manager: barbkess
+manager: rkarlin
 tags: azure-key-vault
 ms.service: key-vault
 ms.topic: conceptual
 ms.date: 03/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: eb7150d0b1c3a4a312b0c05ba7612960aaf640f6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 654a9bb772c8a7426a335c98dfeca69515b9ce67
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65227930"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70881630"
 ---
-# <a name="best-practices-to-use-key-vault"></a>Bästa praxis att använda Key Vault
+# <a name="best-practices-to-use-key-vault"></a>Metod tips för att använda Key Vault
 
-## <a name="control-access-to-your-vault"></a>Kontrollera åtkomsten till ditt valv
+## <a name="control-access-to-your-vault"></a>Kontrol lera åtkomsten till ditt valv
 
-Azure Key Vault är en molnbaserad tjänst som skyddar krypteringsnycklar och hemligheter som certifikat, anslutningssträngar och lösenord. Eftersom dessa data är känsliga och verksamhetskritiska, som du behöver för att skydda åtkomst till dina nyckelvalv genom att tillåta att endast auktoriserade program och användare. Detta [artikeln](key-vault-secure-your-key-vault.md) innehåller en översikt över åtkomstmodellen för Nyckelvalvet. Det förklarar autentisering och auktorisering och beskriver hur du skyddar åtkomsten till dina nyckelvalv.
+Azure Key Vault är en moln tjänst som skyddar krypterings nycklar och hemligheter som certifikat, anslutnings strängar och lösen ord. Eftersom dessa data är känsliga och affärs kritiska måste du skydda åtkomsten till dina nyckel valv genom att bara tillåta behöriga program och användare. Den här [artikeln](key-vault-secure-your-key-vault.md) ger en översikt över Key Vault åtkomst modell. Den förklarar autentisering och auktorisering och beskriver hur du skyddar åtkomsten till dina nyckel valv.
 
-Förslag när du styr åtkomst till ditt valv är följande:
-1. Låsa åtkomsten till din prenumeration, resursgrupp och valv nyckel (RBAC)
-2. Skapa principer för åtkomst för varje valv
-3. Använda minsta privilegium åtkomst huvudnamn för att bevilja åtkomst
-4. Aktivera brandväggen och [tjänstslutpunkter för virtuellt nätverk](key-vault-overview-vnet-service-endpoints.md)
+Förslag när du styr åtkomsten till ditt valv är följande:
+1. Lås åtkomst till din prenumeration, resurs grupp och nyckel valv (RBAC)
+2. Skapa åtkomst principer för varje valv
+3. Använd minsta behörighets åtkomst objekt för att bevilja åtkomst
+4. Aktivera brand väggar och [VNet-tjänstens slut punkter](key-vault-overview-vnet-service-endpoints.md)
 
-## <a name="use-separate-key-vault"></a>Använda separata Key Vault
+## <a name="use-separate-key-vault"></a>Använd separata Key Vault
 
-Vår rekommendation är att använda ett valv per program per miljö (utveckling, Förproduktion och produktion). Det ger dig inte dela hemligheter mellan miljöer och minskar också hotet om ett intrång.
+Vår rekommendation är att använda ett valv per program per miljö (utveckling, för produktion och produktion). Detta hjälper dig att inte dela hemligheter mellan miljöer och minskar också risken för intrång.
 
-## <a name="backup"></a>Backup
+## <a name="backup"></a>Säkerhetskopiera
 
-Kontrollera att du regelbundet ta tillbaka in av din [vault](https://blogs.technet.microsoft.com/kv/2018/07/20/announcing-backup-and-restore-of-keys-secrets-and-certificates/) update/delete/skapar för objekt inom ett valv.
+Se till att du utför regelbundna säkerhets kopieringar av ditt [valv](https://blogs.technet.microsoft.com/kv/2018/07/20/announcing-backup-and-restore-of-keys-secrets-and-certificates/) när du uppdaterar/tar bort/skapar objekt i ett valv.
 
 ## <a name="turn-on-logging"></a>Aktivera loggning
 
-[Aktivera loggning](key-vault-logging.md) för ditt valv. Också ställa in aviseringar.
+[Aktivera loggning](key-vault-logging.md) för ditt valv. Konfigurera även aviseringar.
 
-## <a name="turn-on-recovery-options"></a>Aktivera återställningsalternativ
+## <a name="turn-on-recovery-options"></a>Aktivera återställnings alternativ
 
 1. Aktivera [mjuk borttagning](key-vault-ovw-soft-delete.md).
-2. Aktivera Rensa skydd om du vill skydda mot Framtvinga borttagning av hemligheten / valv även när mjuk borttagning har aktiverats.
+2. Aktivera rensnings skyddet om du vill skydda mot Force borttagning av hemligheten/valvet även efter att mjuk borttagning har Aktiver ATS.

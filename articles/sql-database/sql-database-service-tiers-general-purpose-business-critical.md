@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
 ms.date: 02/23/2019
-ms.openlocfilehash: decb4428321d5083d6ba7af134e223eb2fa5a912
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
-ms.translationtype: MT
+ms.openlocfilehash: 809abcf1046a5fe2c351ec56f4efd5bb0a737427
+ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68566706"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70910510"
 ---
 # <a name="azure-sql-database-service-tiers"></a>Azure SQL Database tjänst nivåer
 
@@ -26,7 +26,34 @@ Azure SQL Database baseras på SQL Server databas motor arkitektur som har juste
 - [Affärs kritisk](sql-database-service-tier-business-critical.md), som är utformad för arbets belastningar med låg latens med en läsbar replik.
 - [Storskalig](sql-database-service-tier-hyperscale.md), som är utformad för mycket stora databaser (upp till 100 TB) med flera läsbara repliker.
 
-Den här artikeln beskriver lagrings-och säkerhets kopierings överväganden för tjänst nivåerna allmänt och affärs kritisk i den vCore-baserade inköps modellen.
+I den här artikeln beskrivs skillnaderna är · att interpolera tjänst nivåerna, lagrings-och säkerhets kopierings överväganden för de allmänna och affärs kritiska tjänst nivåerna i den vCore-baserade inköps modellen.
+
+## <a name="service-tier-comparison"></a>Jämförelse av service nivå
+
+I följande tabell beskrivs viktiga skillnader mellan tjänst nivåer för den senaste generationen (Gen5). Observera att tjänst nivå egenskaperna kan vara annorlunda i Enkel databas och hanterad instans.
+
+| | Resurstyp | Generellt syfte |  Storskalig | Verksamhetskritisk |
+|:---:|:---:|:---:|:---:|:---:|
+| **Bäst för** | |  De flesta företags arbets belastningar. Erbjuder budget orienterade balanserade beräknings-och lagrings alternativ. | Data program med krav på stor data kapacitet och möjlighet att skala lagrings utrymme och skala automatiskt. | OLTP-program med hög transaktions hastighet och lägsta latens i/o. Ger högsta möjliga återhämtning till problem med flera isolerade repliker.|
+|  **Tillgängligt i resurs typ:** ||Enkel databas/elastisk pool/hanterad instans | Enskild databas | Enkel databas/elastisk pool/hanterad instans |
+| **Beräknings storlek**|Enkel databas/elastisk pool | 1 till 80 virtuella kärnor | 1 till 80 virtuella kärnor | 1 till 80 virtuella kärnor |
+| | Hanterad instans | 4, 8, 16, 24, 32, 40, 64, 80 virtuella kärnor | Gäller inte | 4, 8, 16, 24, 32, 40, 64, 80 virtuella kärnor |
+| | Hanterade instanser av pooler | 2, 4, 8, 16, 24, 32, 40, 64, 80 virtuella kärnor | Gäller inte | Gäller inte |
+| **Lagringstyp** | Alla | Premium-Fjärrlagring (per instans) | Fristående lagring med lokal SSD-cache (per instans) | Super-fast lokal SSD-lagring (per instans) |
+| **Databas storlek** | Enkel databas/elastisk pool | 5 GB – 4 TB | Upp till 100 TB | 5 GB – 4 TB |
+| | Hanterad instans  | 32 GB – 8 TB | Gäller inte | 32 GB – 4 TB |
+| **Lagrings storlek** | Enkel databas/elastisk pool | 5 GB – 4 TB | Upp till 100 TB | 5 GB – 4 TB |
+| | Hanterad instans  | 32 GB – 8 TB | Gäller inte | 32 GB – 4 TB |
+| **TempDB-storlek** | Enkel databas/elastisk pool | [32 GB per vCore](sql-database-vcore-resource-limits-single-databases.md#general-purpose-service-tier-for-provisioned-compute) | [32 GB per vCore](sql-database-vcore-resource-limits-single-databases.md#hyperscale-service-tier-for-provisioned-compute) | [32 GB per vCore](sql-database-vcore-resource-limits-single-databases.md#business-critical-service-tier-for-provisioned-compute) |
+| | Hanterad instans  | [24 GB per vCore](sql-database-managed-instance-resource-limits.md#service-tier-characteristics) | Gäller inte | Upp till 4 TB – [begränsas av lagrings storlek](sql-database-managed-instance-resource-limits.md#service-tier-characteristics) |
+| **IO-dataflöde** | Enskild databas | [500 IOPS per vCore](sql-database-vcore-resource-limits-single-databases.md#general-purpose-service-tier-for-provisioned-compute) | Effektiv IOPs är beroende av arbets belastningen. | [4000 IOPS per vCore](sql-database-vcore-resource-limits-single-databases.md#business-critical-service-tier-for-provisioned-compute)|
+| | Hanterad instans | [100 – 250 MB/s och 500-7500 IOPS per fil](sql-database-managed-instance-resource-limits.md#service-tier-characteristics) | Gäller inte | [1375 IOPS per vCore](sql-database-managed-instance-resource-limits.md#service-tier-characteristics) |
+| **Skriv data flöde** | Enskild databas | [1,875 MB/s per vCore (max 30 MB/s](sql-database-vcore-resource-limits-single-databases.md#general-purpose-service-tier-for-provisioned-compute) | Hög skalning är en arkitektur med flera nivåer med cachelagring på flera nivåer. Effektiv IOPs är beroende av arbets belastningen. | [6 MB/s per vCore (max 96 MB/s)](sql-database-vcore-resource-limits-single-databases.md#business-critical-service-tier-for-provisioned-compute) |
+| | Hanterad instans | [3 MB/s per vCore (högst 22 MB/s)](sql-database-managed-instance-resource-limits.md#service-tier-characteristics) | Gäller inte | [4 MB/s per vCore (max 48 MB/s)](sql-database-managed-instance-resource-limits.md#service-tier-characteristics) |
+|**Tillgänglighet**|Alla| 99,99 % |  [99,95% med en sekundär replik, 99,99% med fler repliker](sql-database-service-tier-hyperscale-faq.md#what-slas-are-provided-for-a-hyperscale-database) | 99,99 % <br/> 99,995% (redundant zon i en enskild databas) |
+|**Regelbundet**|Alla|RA-GRS, 7-35 dagar (7 dagar som standard)| RA-GRS, 7 dagar, konstant tidpunkts återställning (PITR) | RA-GRS, 7-35 dagar (7 dagar som standard) |
+|**Minnes intern OLTP** | | Gäller inte | Tillgängligt | Gäller inte |
+|**Inbyggda skrivskyddade repliker**| | 0 | 1 | 0 - 4 |
 
 > [!NOTE]
 > Information om den storskaliga tjänst nivån i den vCore-baserade inköps modellen finns i [storskalig Service Tier](sql-database-service-tier-hyperscale.md). En jämförelse av den vCore-baserade inköps modellen med den DTU-baserade inköps modellen finns i [Azure SQL Database köpa modeller och resurser](sql-database-purchase-models.md).

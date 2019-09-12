@@ -36,7 +36,7 @@ Här följer stegvisa instruktioner om hur du ansluter vart och ett av de möjli
 
 **Marketo**Klicka här för att få anvisningar om hur du konfigurerar Marketo-ledar konfiguration för att hämta leads.[](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-marketo)  - 
 
-**** Salesforce - [Klicka här](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-salesforce) för att få anvisningar om hur du konfigurerar din Salesforce-instans för att hämta leads.
+Salesforce - [Klicka här](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-salesforce) för att få anvisningar om hur du konfigurerar din Salesforce-instans för att hämta leads.
 
 **Azure-tabell** – [Klicka här](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-azure-table) för att få anvisningar om hur du konfigurerar ditt Azure Storage-konto för att hämta leads i en Azure-tabell.
 

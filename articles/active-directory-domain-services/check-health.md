@@ -1,84 +1,89 @@
 ---
-title: Azure AD Domain Services-kontrol lera den hanterade domänens hälso tillstånd | Microsoft Docs
-description: Kontrol lera hälso tillståndet för din hanterade domän med hjälp av sidan hälso tillstånd i Azure Portal.
+title: Kontrol lera hälso tillståndet för Azure Active Directory Domain Services | Microsoft Docs
+description: Lär dig hur du kontrollerar hälsan för en Azure Active Directory Domain Services (Azure AD DS)-hanterad domän och förstå status meddelanden med hjälp av Azure Portal.
 services: active-directory-ds
-documentationcenter: ''
 author: iainfoulds
 manager: daveba
-editor: curtand
 ms.assetid: 8999eec3-f9da-40b3-997a-7a2587911e96
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/20/2019
+ms.date: 09/10/2019
 ms.author: iainfou
-ms.openlocfilehash: 6b808126fe4366d3ca3cc19c674b489ec3055665
-ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
+ms.openlocfilehash: 50b142acb457d16abeb24f22d56b653a38aca76d
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68234163"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70898249"
 ---
-# <a name="check-the-health-of-an-azure-ad-domain-services-managed-domain"></a>Kontrol lera hälso tillståndet för en Azure AD Domain Services hanterad domän
+# <a name="check-the-health-of-an-azure-active-directory-domain-services-managed-domain"></a>Kontrol lera hälso tillståndet för en Azure Active Directory Domain Services hanterad domän
 
-## <a name="overview-of-the-health-page"></a>Översikt över sidan hälsa
-Med hjälp av sidan hälso tillstånd i Azure Portal kan du hålla dig uppdaterad om vad som händer i din hanterade domän. Den här artikeln går igenom elementen på sidan hälso tillstånd.
+Azure Active Directory Domain Services (Azure AD DS) kör vissa bakgrunds aktiviteter för att hålla den hanterade domänen felfri och uppdaterad. I dessa uppgifter ingår säkerhets kopiering, säkerhets uppdateringar och synkronisering av data från Azure AD. Om det finns problem med den hanterade domänen i Azure AD DS kanske de här aktiviteterna inte kan köras. Om du vill granska och lösa eventuella problem kan du kontrol lera hälso statusen för en hanterad Azure AD DS-domän med hjälp av Azure Portal.
 
-### <a name="how-to-view-the-health-of-your-managed-domain"></a>Så här visar du hälsan för din hanterade domän
-1. Gå till [sidan Azure AD Domain Services](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.AAD%2FdomainServices) i Azure Portal.
-2. Klicka på den domän som du vill visa hälso tillståndet för.
-3. I det vänstra navigerings fönstret klickar du på **hälsa**.
+Den här artikeln visar hur du visar hälso status för Azure AD DS och förstår den information eller de aviseringar som visas.
 
-Följande bild illustrerar ett exempel på en hälso sida: ![Exempel på hälso Sidan](./media/active-directory-domain-services-alerts/health-page.png)
+## <a name="view-the-health-status"></a>Visa hälso status
 
->[!NOTE]
-> Din hanterade domän hälsa utvärderas varje timme. När du har gjort ändringar i din hanterade domän väntar du tills nästa utvärderings cykel visar den hanterade domänens uppdaterade hälsa. Tidsstämpeln "Senast utvärderad" i det övre högra hörnet visar när den hanterade domänens hälso tillstånd senast utvärderades.
->
+Hälso tillståndet för en hanterad Azure AD DS-domän visas med hjälp av Azure Portal. Information om den senaste säkerhets kopierings tiden och synkroniseringen med Azure AD kan ses, tillsammans med eventuella aviseringar som indikerar ett problem med den hanterade domänens hälsa. Slutför följande steg för att Visa hälso status för en Azure AD DS-hanterad domän:
 
-### <a name="status-of-your-managed-domain"></a>Status för din hanterade domän
-Statusen överst till höger på hälso sidan visar den övergripande hälsan för din hanterade domän. Status faktorerna i alla befintliga aviseringar på din domän. Du kan också visa status för din domän på sidan Översikt för Azure AD Domain Services.
+1. I Azure Portal söker du efter och väljer **Azure AD Domain Services**.
+1. Välj din Azure AD DS-hanterade domän, till exempel *contoso.com*.
+1. På vänster sida av fönstret Azure AD DS-resurs väljer du **hälso tillstånd**. Följande exempel skärm bild visar en felfria Azure AD DS-hanterad domän och status för den senaste säkerhets kopieringen och Azure AD-synkronisering:
 
-| Status | Ikon | Förklaring |
+    ![Översikt över hälso sidan i Azure Portal som visar Azure Active Directory Domain Services status](./media/check-health/health-page.png)
+
+Den *senaste utvärderade* tidsstämpeln för hälso sidan visar när den hanterade Azure AD DS-domänen senast kontrollerades. Hälso tillståndet för en hanterad Azure AD DS-domän utvärderas varje timme. Om du gör ändringar i en Azure AD DS-hanterad domän väntar du tills nästa utvärderings cykel visar den uppdaterade hälso statusen.
+
+Statusen längst upp till höger visar den övergripande hälso tillståndet för den hanterade domänen i Azure AD DS. Status faktorerna är alla befintliga aviseringar på din domän. Följande tabell innehåller information om tillgängliga status indikatorer:
+
+| State | Ikon | Förklaring |
 | --- | :----: | --- |
-| Körs | <img src= "./media/active-directory-domain-services-alerts/running-icon.png" width = "15" alt="Green check mark for running"> | Din hanterade domän körs smidigt och saknar kritiska eller varnings aviseringar. Den här domänen kan innehålla informations aviseringar. |
-| Kräver åtgärd (varning) | <img src= "./media/active-directory-domain-services-alerts/warning-icon.png" width = "15" alt="Yellow exclamation mark for warning"> | Det finns inga kritiska aviseringar på den hanterade domänen, men det finns en eller flera varnings aviseringar som måste åtgärdas. |
-| Behöver åtgärdas (kritisk) | <img src= "./media/active-directory-domain-services-alerts/critical-icon.png" width = "15" alt="Red exclamation mark for critical"> | Det finns en eller flera kritiska aviseringar på din hanterade domän. Du kan också ha varnings-och/eller informations aviseringar. |
-| Deploy | <img src= "./media/active-directory-domain-services-alerts/deploying-icon.png" width = "15" alt="Blue circular arrows for deploying"> | Din domän håller på att distribueras. |
+| Körs | <img src= "./media/active-directory-domain-services-alerts/running-icon.png" width = "15" alt="Green check mark for running"> | Den hanterade Azure AD DS-domänen körs korrekt och saknar kritiska eller varnings aviseringar. Domänen kan innehålla informations aviseringar. |
+| Kräver åtgärd (varning) | <img src= "./media/active-directory-domain-services-alerts/warning-icon.png" width = "15" alt="Yellow exclamation mark for warning"> | Det finns inga kritiska aviseringar för den hanterade domänen i Azure AD DS, men det finns en eller flera varnings aviseringar som ska åtgärdas. |
+| Behöver åtgärdas (kritisk) | <img src= "./media/active-directory-domain-services-alerts/critical-icon.png" width = "15" alt="Red exclamation mark for critical"> | Det finns en eller flera kritiska aviseringar i den hanterade Azure AD DS-domänen som måste åtgärdas. Du kan också ha varnings-och/eller informations aviseringar. |
+| Distribuerar | <img src= "./media/active-directory-domain-services-alerts/deploying-icon.png" width = "15" alt="Blue circular arrows for deploying"> | Azure AD DS-domänen distribueras. |
 
-## <a name="monitors"></a>Övervakare
-Övervakare är aspekter av din hanterade domän som Azure AD Domain Services övervakas regelbundet. Det bästa sättet att hålla dina övervakare i felfritt tillstånd är att lösa eventuella aktiva aviseringar för din hanterade domän.
+## <a name="understand-monitors-and-alerts"></a>Förstå övervakare och aviseringar
 
-Azure AD Domain Services övervakar för närvarande följande:
- - Backup
- - Synkronisering med Azure AD
+Hälso tillståndet för en hanterad Azure AD DS-domän visar två typer av information – övervakare och aviseringar. Övervakare visar den tid som grundläggande bakgrunds aktiviteter har slutförts. Aviseringar ger information eller förslag för att förbättra stabiliteten i den hanterade domänen.
 
-### <a name="the-backup-monitor"></a>Övervakaren "säkerhets kopiering"
-Detta övervakar om regelbundna säkerhets kopieringar av din hanterade domän utförs. I följande tabell förklaras hur du förväntar dig i kolumnen information i Övervakaren för säkerhets kopiering:
+### <a name="monitors"></a>Övervakare
+
+Övervakare är områden i en Azure AD DS-hanterad domän som kontrol leras regelbundet. Om det finns aktiva aviseringar för den hanterade Azure AD DS-domänen kan det leda till att en av övervakarna rapporterar ett problem. Azure AD Domain Services övervakar för närvarande följande områden:
+
+* Säkerhetskopiera
+* Synkronisering med Azure AD
+
+#### <a name="backup-monitor"></a>Övervakare för säkerhets kopiering
+
+Säkerhets kopierings övervakaren kontrollerar att automatiserade regelbundna säkerhets kopieringar av den hanterade Azure AD DS-domänen har körts. Följande tabell innehåller information om den tillgängliga statusen för säkerhets kopierings övervakaren:
 
 | Detalj värde | Förklaring |
 | --- | --- |
-|"Aldrig säkerhets kopie ras" | Det här läget är normalt för en nyligen skapad hanterad domän. I allmänhet skapas den första säkerhets kopieringen 24 timmar efter att din hanterade domän har tillhandahållits. [Kontakta supporten](contact-us.md)om din hanterade domän inte har skapats nyligen eller om du ser det här läget under en onormal tid. |
-| Den senaste säkerhets kopieringen tog 1 till 14 dagar sedan | I allmänhet förväntas detta värde för säkerhets kopierings övervakaren. |
-| Den senaste säkerhets kopieringen vidtogs över 14 dagar sedan. | Tiden längre än två veckor är en ovanligt lång tid sedan den senaste säkerhets kopieringen. Aktiva kritiska aviseringar kan förhindra att den hanterade domänen säkerhets kopie ras regelbundet. Lös först alla aktiva aviseringar för din hanterade domän och [kontakta supporten](contact-us.md)om problemet kvarstår. |
+| Aldrig säkerhets kopie rad | Det här läget är normalt för nya Azure AD DS-hanterade domäner. Den första säkerhets kopieringen ska skapas 24 timmar efter att den hanterade Azure AD DS-domänen har distribuerats. Om den här statusen kvarstår [öppnar du en support förfrågan för Azure][azure-support]. |
+| Den senaste säkerhets kopieringen tog 1 till 14 dagar sedan | Det här tidsintervallet är förväntad status för säkerhets kopierings övervakaren. Automatiserade regelbundna säkerhets kopieringar ska ske under den här perioden. |
+| Den senaste säkerhets kopieringen vidtogs över 14 dagar sedan. | Ett TimeSpan som är längre än två veckor indikerar att det är problem med de automatiserade regelbundna säkerhets kopieringarna. Aktiva kritiska aviseringar kan förhindra att den hanterade Azure AD DS-domänen säkerhets kopie ras. Lös eventuella aktiva aviseringar för den hanterade domänen i Azure AD DS. Om säkerhets kopierings övervakaren inte uppdaterar statusen för att rapportera en ny säkerhets kopia [öppnar du en support förfrågan för Azure][azure-support]. |
 
+#### <a name="synchronization-with-azure-ad-monitor"></a>Synkronisering med Azure AD Monitor
 
-### <a name="the-synchronization-with-azure-ad-monitor"></a>Övervakaren "synkronisering med Azure AD"
-Microsoft övervakar hur ofta din hanterade domän ska synkroniseras med Azure Active Directory. Antalet objekt (användare & grupper) och antalet ändringar som gjorts i Azure AD-katalogen sedan den senaste synkroniseringen kan båda påverka hur lång tid en synkronisering kan ta. [Kontakta supporten](contact-us.md)om din hanterade domän senast synkroniserades över tre dagar sedan.
+En Azure AD DS-hanterad domän synkroniseras regelbundet med Azure Active Directory. Antalet användare och grupp objekt och antalet ändringar som gjorts i Azure AD-katalogen sedan den senaste synkroniseringen, påverkar hur lång tid det tar att synkronisera. Om den hanterade Azure AD DS-domänen senast synkroniserades över tre dagar sedan, kontrollerar du och löser eventuella aktiva aviseringar. Om övervakaren för synkronisering inte uppdaterar statusen för att visa en ny synkronisering öppnar du [en support förfrågan för Azure][azure-support].
 
-## <a name="alerts"></a>Aviseringar
-Aviseringar genereras för problem i din hanterade domän som måste åtgärdas för att Azure AD Domain Services ska kunna köras. Varje avisering förklarar problemet och ger en lösnings-URL som beskriver specifika steg för att lösa problemet. Om du vill visa alla aviseringar och deras resolutioner går du till artikeln [felsök aviseringar](troubleshoot-alerts.md) .
+### <a name="alerts"></a>Aviseringar
 
-### <a name="alert-severity"></a>Allvarlighets grad för avisering
-Aviseringar kategoriseras i tre olika nivåer av allvarlighets grad: kritisk, varning och information.
+Aviseringar genereras för problem i en Azure AD DS-hanterad domän som måste åtgärdas för att tjänsten ska kunna köras korrekt. Varje avisering förklarar problemet och ger en URL som beskriver specifika steg för att lösa problemet. Mer information om möjliga aviseringar och deras resolutioner finns i [fel söknings aviseringar](troubleshoot-alerts.md).
 
- * **Kritiska aviseringar** är problem som påverkar din hanterade domän allvarligt. Dessa aviseringar bör åtgärdas omedelbart, eftersom Microsoft inte kan övervaka, hantera, korrigera och synkronisera din hanterade domän. 
- * **Varnings aviseringar** meddelar dig om problem som kan påverka din hanterade domän i framtiden. De här aviseringarna ger rekommendationer för att skydda din hanterade domän.
- * **Informations aviseringar** är aviseringar som inte påverkar din domän negativt. Informations aviseringar är utformade för att du ska kunna se vad som händer i din domän och Azure AD Domain Services.
+Aviseringar om hälso status kategoriseras i följande nivåer av allvarlighets grad:
+
+ * **Kritiska varningar** är problem som kraftigt påverkar den hanterade domänen i Azure AD DS. Dessa aviseringar bör åtgärdas omedelbart. Azure-plattformen kan inte övervaka, hantera, korrigera och synkronisera den hanterade domänen förrän problemen är lösta.
+ * **Varnings aviseringar** meddelar dig om problem som kan påverka Azure AD DS-hanterade domän åtgärder om problemet kvarstår. De här aviseringarna ger även rekommendationer för att skydda den hanterade domänen.
+ * **Informations aviseringar** är aviseringar som inte påverkar den hanterade Azure AD DS-domänen negativt. Informations aviseringar ger viss insikt om vad som händer i den hanterade domänen.
 
 ## <a name="next-steps"></a>Nästa steg
-- [Lösa aviseringar på din hanterade domän](troubleshoot-alerts.md)
-- [Läs mer om Azure AD Domain Services](overview.md)
-- [Kontakta produkt teamet](contact-us.md)
+
+Mer information om aviseringar som visas på sidan hälso status finns i [lösa aviseringar på din hanterade domän][troubleshoot-alerts]
+
+<!-- INTERNAL LINKS -->
+[azure-support]: ../active-directory/fundamentals/active-directory-troubleshooting-support-howto.md
+[troubleshoot-alerts]: troubleshoot-alerts.md

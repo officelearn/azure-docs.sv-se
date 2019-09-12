@@ -136,7 +136,7 @@ Du måste aktivera [CORS](https://docs.microsoft.com/aspnet/core/security/cors) 
     ```
 
 1. (Endast Visual Studio) Under **Egenskaper** i Solution Explorer öppnar du filen *launchSettings. JSON* och letar `iisExpress` sedan upp blocket.
-1. (Endast Visual Studio) Uppdatera värdet med det port nummer du angav när du registrerade webapi1-programmet i ett tidigare steg.  `applicationURL` Exempel:
+1. (Endast Visual Studio) Uppdatera värdet med det port nummer du angav när du registrerade webapi1-programmet i ett tidigare steg. `applicationURL` Exempel:
 
     ```json
     "iisExpress": {

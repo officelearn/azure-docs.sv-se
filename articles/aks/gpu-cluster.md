@@ -8,19 +8,19 @@ ms.service: container-service
 ms.topic: article
 ms.date: 05/16/2019
 ms.author: zarhoads
-ms.openlocfilehash: 4eef31a050072c0413421a5490b35b765cb9557d
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: e805ca87a34a6b50e9f799909efe8fcbe859883c
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68381827"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70899471"
 ---
 # <a name="use-gpus-for-compute-intensive-workloads-on-azure-kubernetes-service-aks"></a>Använd GPU: er för beräknings intensiva arbets belastningar i Azure Kubernetes service (AKS)
 
 Grafiska bearbetnings enheter (GPU: er) används ofta för beräknings intensiva arbets belastningar som grafik och visualiserings arbets belastningar. AKS stöder skapande av GPU-aktiverade nodkonfigurationer för att köra dessa beräknings intensiva arbets belastningar i Kubernetes. Mer information om tillgängliga GPU-aktiverade virtuella datorer finns i [GPU-optimerade VM-storlekar i Azure][gpu-skus]. För AKS-noder rekommenderar vi en minsta storlek på *Standard_NC6*.
 
 > [!NOTE]
-> GPU-aktiverade virtuella datorer innehåller specialiserad maskin vara som omfattas av högre priser och region tillgänglighet. Mer information finns i [pris][azure-pricing] verktyget och regions [tillgänglighet][azure-availability].
+> GPU-aktiverade virtuella datorer innehåller specialiserad maskin vara som omfattas av högre priser och region tillgänglighet. Mer information finns i [pris][azure-pricing] verktyget och [regions tillgänglighet][azure-availability].
 
 För närvarande är användningen av GPU-aktiverade noder bara tillgänglig för Linux-adresspooler.
 
@@ -73,7 +73,7 @@ apiVersion: extensions/v1beta1
 kind: DaemonSet
 metadata:
   name: nvidia-device-plugin-daemonset
-  namespace: kube-system
+  namespace: gpu-resources
 spec:
   updateStrategy:
     type: RollingUpdate
@@ -184,7 +184,7 @@ Non-terminated Pods:         (9 in total)
 
 ## <a name="run-a-gpu-enabled-workload"></a>Köra en GPU-aktiverad arbets belastning
 
-Om du vill se hur GPU fungerar schemalägger du en GPU-aktiverad arbets belastning med lämplig resurs förfrågan. I det här exemplet ska vi köra ett [Tensorflow](https://www.tensorflow.org/) -jobb mot [MNIST](http://yann.lecun.com/exdb/mnist/)-datauppsättningen.
+Om du vill se hur GPU fungerar schemalägger du en GPU-aktiverad arbets belastning med lämplig resurs förfrågan. I det här exemplet ska vi köra ett [Tensorflow](https://www.tensorflow.org/) -jobb mot [MNIST-datauppsättningen](http://yann.lecun.com/exdb/mnist/).
 
 Skapa en fil med namnet *samples-TF-mnist-demo. yaml* och klistra in följande yaml-manifest. Följande jobb manifest innehåller en resurs gräns på `nvidia.com/gpu: 1`:
 

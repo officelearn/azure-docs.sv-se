@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 09/03/2019
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 47b8fdbe48514665f40114c9820fdc5def38c778
-ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
+ms.openlocfilehash: 26578e277a9f6747063ee377e72845b599a0301b
+ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70241370"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70772753"
 ---
 ::: zone target="docs"
 
@@ -80,10 +80,6 @@ Kontrollera följande innan du börjar:
     - Köra ett [operativsystem som stöds](data-box-system-requirements.md).
     - Vara ansluten till höghastighetsnätverk. Vi rekommenderar starkt att du har en anslutning på minst 10 GbE. Om en 10 GbE anslutning inte är tillgänglig kan en 1 GbE datalänk användas, men då påverkas kopieringshastigheten. 
 6. Du har tillgång till en plan yta där du kan ställa Data Box-enheten. För att kunna placera enheten plant eller upprätt på en hylla i ett standardrack måste du ha en 7U-plats i racket.
-7. Du har skaffat följande kablar för att ansluta Data Box till värddatorn.
-    - En eller flera 10-GbE SFP+ Twinax-kopparkablar eller SFP+-fiberoptikkablar (använd med DATA 1- och DATA 2-nätverksgränssnitt). Mer information finns i [listan över kablar och växlar som stöds från Mellanox](https://www.mellanox.com/pdf/firmware/ConnectX3-FW-2_42_5000-release_notes.pdf) och som är kompatibla med Mellanox ConnectX®-3 Pro EN Dual-Port 10GBASE-T-kort med PCI Express 3.0-nätverkskort.
-    - En RJ-45 CAT 6-nätverkskabel (använd med MGMT-nätverksgränssnitt)
-    - En RJ-45 CAT 6A- eller en RJ-45 CAT 6-nätverkskabel (använd med DATA 3-nätverksgränssnitt konfigurerat som 10 Gbps respektive 1 Gbps)
 
 ::: zone-end
 

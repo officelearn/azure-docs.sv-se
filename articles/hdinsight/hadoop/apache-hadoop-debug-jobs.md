@@ -8,14 +8,14 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/14/2017
 ms.author: ashishth
-ms.openlocfilehash: e5ae05b2ad1dc03bad210b1f67834865afd49df3
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: 751d5b47006f5c99a747503ad4f052b3e03a043c
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70810889"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70882443"
 ---
-# <a name="analyze-apache-hadoop-logs"></a>Analysera Apache Hadoop-loggar
+# <a name="analyze-apache-hadoop-logs-in-azure-hdinsight"></a>Analysera Apache Hadoop loggar i Azure HDInsight
 
 Varje Apache Hadoop kluster i Azure HDInsight har ett Azure Storage-konto som används som standard fil system. Lagrings kontot kallas för standard lagrings kontot. Klustret använder Azure Table Storage och Blob Storage på standard lagrings kontot för att lagra loggfilerna.  Information om hur du hittar ett standard lagrings konto för klustret finns i [hantera Apache Hadoop kluster i HDInsight](../hdinsight-administer-use-portal-linux.md#find-the-storage-accounts). Loggarna sparas i lagrings kontot även efter att klustret har tagits bort.
 

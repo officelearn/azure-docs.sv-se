@@ -14,18 +14,17 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/01/2018
 ms.author: suhuruli
-ms.custom: mvc, seo-java-july2019, seo-java-august2019
-ms.openlocfilehash: 56a68f852e9eee3303540d6ebd180608935c6135
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.custom: mvc, seo-java-july2019, seo-java-august2019, seo-java-september2019
+ms.openlocfilehash: 57c9bd8caf6e8762ed07ac5e6f4ff16171569723
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70172068"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70900674"
 ---
 # <a name="tutorial-create-an-application-with-a-java-api-front-end-service-and-a-stateful-back-end-service-on-azure-service-fabric"></a>Självstudier: Skapa ett program med en Java API-frontend-tjänst och en tillstånds känslig Server dels tjänst på Azure Service Fabric
 
-Den här självstudien ingår i en serie. När du är klar har du ett röstningsprogram med en Java-webbklientdel som sparar röstningsresultaten i en tillståndskänslig serverdelstjänst i klustret. För den här självstudien måste du ha en fungerande dator för Mac OSX eller Linux-utvecklare. Om du inte vill skapa röstningsprogrammet manuellt kan du [ladda ned källkoden för det färdiga programmet](https://github.com/Azure-Samples/service-fabric-java-quickstart) och gå vidare till [Gå igenom exempelprogrammet för röstning](service-fabric-tutorial-create-java-app.md#walk-through-the-voting-sample-application). Överväg även att följa [snabbstarten för Java-tillförlitliga tjänster.](service-fabric-quickstart-java-reliable-services.md)
-
+Den här självstudien ingår i en serie. När du är klar har du ett röstnings program med en Java-webbklient som sparar röstnings resultat i en tillstånds känslig Server dels tjänst på Azure Service Fabric. För den här självstudien måste du ha en fungerande dator för Mac OSX eller Linux-utvecklare. Om du inte vill skapa röstningsprogrammet manuellt kan du [ladda ned källkoden för det färdiga programmet](https://github.com/Azure-Samples/service-fabric-java-quickstart) och gå vidare till [Gå igenom exempelprogrammet för röstning](service-fabric-tutorial-create-java-app.md#walk-through-the-voting-sample-application). Överväg också att följa [snabb starten för Java Reliable Services.](service-fabric-quickstart-java-reliable-services.md).
 
 ![Lokal röstningsapp](./media/service-fabric-tutorial-create-java-app/votingjavalocal.png)
 
@@ -556,7 +555,7 @@ Stommen för den tillståndslösa tjänsten i klientdelen och serverdelstjänste
 
  Nästa steg är att ansluta den tillståndslösa tjänsten i klientdelen och serverdelstjänsten. Både tjänsterna använder ett gränssnitt som kallas VotingRPC, som definierar åtgärder för röstningsprogrammet. Det här gränssnittet implementeras av både klientdels- och serverdelstjänsterna för att aktivera RPC (Remote Procedure Calls) mellan de två tjänsterna. Tyvärr har Eclipse inte stöd för tillägg av Gradle-delprojekt, så det paket som innehåller gränssnittet måste läggas till manuellt.
 
-1. Högerklicka på röstnings projektet i Package Explorer och välj **ny** > **mapp**. Ge mappen namnet **VotingRPC/src/rpcmethods**.
+1. Högerklicka på **röstnings** projektet i Package Explorer och välj **ny** > **mapp**. Ge mappen namnet **VotingRPC/src/rpcmethods**.
 
     ![Skapa VotingRPC-paket](./media/service-fabric-tutorial-create-java-app/createvotingrpcpackage.png)
 
@@ -892,7 +891,7 @@ I det här avsnittet konfigureras Gradle-skripten för projektet.
 
 Programmet är nu redo att distribueras till ett lokalt Service Fabric-kluster.
 
-1. Högerklicka på röstnings projektet i Package Explorer och välj **Service Fabric** > **build-program** för att bygga ditt program.
+1. Högerklicka på **röstnings** projektet i Package Explorer och välj **Service Fabric** > **build-program** för att bygga ditt program.
 
 2. Kör det lokala Service Fabric-klustret. Det här steget beror på vilken utvecklingsmiljö du har (Mac eller Linux).
 
@@ -910,7 +909,7 @@ Programmet är nu redo att distribueras till ett lokalt Service Fabric-kluster.
     ```
     Mer detaljerad information finns i [installationsguiden för Linux.](service-fabric-get-started-linux.md)
 
-4. I paket Utforskaren för Sol förmörkelse högerklickar du på röstnings projektet och väljer **Service Fabric** > **Publicera program** 
+4. I paket Utforskaren för Sol förmörkelse högerklickar du på **röstnings** projektet och väljer **Service Fabric** > **Publicera program** 
 5. I fönstret **Publicera program** väljer du **lokal. JSON** i list rutan och väljer **publicera**.
 6. Gå till webbläsaren och få åtkomst till http:\//localhost: 8080 för att visa det program som körs på det lokala Service Fabric klustret. 
 

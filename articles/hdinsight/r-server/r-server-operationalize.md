@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.openlocfilehash: 91407fc76d0a7555a87a8a3dcd1b3ad04ee2af80
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.openlocfilehash: f9dbddcba1545e0a110faa9fbf8e3de9ff189525
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70736226"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70879505"
 ---
 # <a name="operationalize-ml-services-cluster-on-azure-hdinsight"></a>Operationalisera ML Services-kluster på Azure HDInsight
 
@@ -50,31 +50,31 @@ När du har använt ML Services-kluster i HDInsight för att slutföra din data 
 
 1. Du visas med alternativen för att välja bland. Välj det första alternativet, som du ser i följande skärm bild, för att **konfigurera ml Server för driftsättning**.
 
-    ![en enda driftsättning](./media/r-server-operationalize/admin-util-one-box-1.png)
+    ![OP1 för en ruta](./media/r-server-operationalize/admin-util-one-box-1.png)
 
 1. Du visas nu med alternativet att välja hur du vill operationalisera ML Server. Från de visade alternativen väljer du det första genom att ange **en**.
 
-    ![en enda driftsättning](./media/r-server-operationalize/admin-util-one-box-2.png)
+    ![OP2 för en ruta](./media/r-server-operationalize/admin-util-one-box-2.png)
 
 1. När du uppmanas till det anger du och anger lösen ordet för en lokal administratörs användare.
 
 1. Du bör se utdata som föreslår att åtgärden lyckades. Du uppmanas också att välja ett annat alternativ på menyn. Välj E för att gå tillbaka till huvud menyn.
 
-    ![en enda driftsättning](./media/r-server-operationalize/admin-util-one-box-3.png)
+    ![op3 för en ruta](./media/r-server-operationalize/admin-util-one-box-3.png)
 
 1. Du kan också utföra diagnostiska kontroller genom att köra ett diagnostiskt test på följande sätt:
 
     a. Från huvud menyn väljer du **6** för att köra diagnostiska tester.
 
-    ![en enda driftsättning](./media/r-server-operationalize/diagnostic-1.png)
+    ![diagnostic1](./media/r-server-operationalize/diagnostic-1.png)
 
     b. Välj **en**på menyn diagnostiska test. När du uppmanas till det anger du det lösen ord som du har angett för den lokala administratörs användaren.
 
-    ![en enda driftsättning](./media/r-server-operationalize/diagnostic-2.png)
+    ![diagnostic2](./media/r-server-operationalize/diagnostic-2.png)
 
     c. Kontrol lera att resultatet visar att den övergripande hälsan är ett pass.
 
-    ![en enda driftsättning](./media/r-server-operationalize/diagnostic-3.png)
+    ![diagnostic3](./media/r-server-operationalize/diagnostic-3.png)
 
     d. Från meny alternativen anger du **E** för att återgå till huvud menyn och anger sedan **8** för att avsluta administrations verktyget.
 

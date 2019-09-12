@@ -9,12 +9,12 @@ ms.date: 06/01/2019
 ms.author: tamram
 ms.reviewer: hux
 ms.subservice: blobs
-ms.openlocfilehash: 06e1d881a14367c579bd58ffae04dc0970eb041a
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: a3f9768043c9acef9640b8e286611de94e44a7ff
+ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68941939"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70910496"
 ---
 # <a name="store-business-critical-data-in-azure-blob-storage"></a>Lagra affärs kritiska data i Azure Blob Storage
 
@@ -53,7 +53,7 @@ Borttagning av behållare och konton tillåts inte heller om det finns blobbar s
 ### <a name="time-based-retention"></a>Tidsbaserad kvarhållning
 
 > [!IMPORTANT]
-> En tidsbaserad bevarande princip måste vara *låst* för att blobben ska vara i ett inkompatibelt läge (Write and delete Protected) för SEC 17a-4 (f) och annan myndighets efterlevnad. Vi rekommenderar att du låser principen inom rimlig tid, vanligt vis mindre än 24 timmar. Det ursprungliga läget för en tillämpad tidsbaserad bevarande princip *låses upp*, så att du kan testa funktionen och göra ändringar i principen innan du låser den. Även om det upplåsta läget ger oföränderlighets skydd rekommenderar vi inte att du använder det upplåsta läget för något annat ändamål än kortsiktiga funktions försök. 
+> En tidsbaserad bevarande princip måste vara *låst* för att blobben ska vara i ett inkompatibelt läge (Write and delete Protected) för SEC 17a-4 (f) och annan myndighets efterlevnad. Vi rekommenderar att du låser principen inom rimlig tid, vanligt vis mindre än 24 timmar. Det ursprungliga läget för en tillämpad tidsbaserad bevarande princip *låses upp*, så att du kan testa funktionen och göra ändringar i principen innan du låser den. Även om det *upplåsta* läget ger oföränderlighets skydd rekommenderar vi inte att du använder det *upplåsta* läget för något annat ändamål än kortsiktiga funktions försök. 
 
 När en tidsbaserad bevarande princip tillämpas på en behållare kommer alla blobar i behållaren att stanna kvar i det oföränderliga läget under den *gällande* kvarhållningsperioden. Den effektiva kvarhållningsperioden för befintliga blobbar är lika med skillnaden mellan tidpunkten för ändring av BLOB och det användardefinierade kvarhållningsintervallet.
 
@@ -189,7 +189,7 @@ Ja, en behållare kan ha både ett juridiskt undantag och en tidsbaserad bevaran
 
 Nej, juridiskt bevarande är bara den allmänna termen som används för en icke-baserad bevarande princip. Den behöver inte bara användas för tvister som rör åtgärder. Principer för juridiskt bevarande är användbara för att inaktivera Skriv över och ta bort för att skydda viktiga Enterprise WORM-data, där kvarhållningsperioden är okänt. Du kan använda den som en företags princip för att skydda dina verksamhets kritiska mask arbets belastningar eller använda den som en princip för en mellanlagrings princip innan en anpassad händelse utlösare kräver att en tidsbaserad bevarande princip används. 
 
-**Kan jag ta bort en *låst* tidsbaserad bevarande princip eller ett juridiskt undantag?**
+**Kan jag ta bort en _låst_ tidsbaserad bevarande princip eller ett juridiskt undantag?**
 
 Endast upplåsta tidsbaserade bevarande principer kan tas bort från en behållare. När en tidsbaserad bevarande princip är låst kan den inte tas bort. endast tillägg för gällande kvarhållningsperiod är tillåtna. Juridiska undantags taggar kan tas bort. När alla juridiska taggar tas bort tas det juridiska undantaget bort.
 
@@ -211,7 +211,7 @@ Vid utebliven betalning tillämpas normala data bevarande principer enligt vad s
 
 **Finns det en utvärderingsversion eller en respitperiod för att bara testa funktionen?**
 
-Ja. När en tidsbaserad bevarande princip först skapas är den i ett *låst* läge. I det här läget kan du göra önskade ändringar i kvarhållningsintervallet, till exempel ökning eller minskning och till och med ta bort principen. När principen är låst förblir den låst tills kvarhållningsintervallet upphör att gälla. Den här låsta principen förhindrar borttagning och ändring av kvarhållningsintervallet. Vi rekommenderar starkt att du bara använder det upplåsta läget för utvärderings syfte och låser principen inom en 24-timmarsperiod. Dessa metoder hjälper dig att följa s 17a-4 (f) och andra bestämmelser.
+Ja. När en tidsbaserad bevarande princip först skapas är den i ett *låst* läge. I det här läget kan du göra önskade ändringar i kvarhållningsintervallet, till exempel ökning eller minskning och till och med ta bort principen. När principen är låst förblir den låst tills kvarhållningsintervallet upphör att gälla. Den här låsta principen förhindrar borttagning och ändring av kvarhållningsintervallet. Vi rekommenderar starkt att du bara använder det *upplåsta* läget för utvärderings syfte och låser principen inom en 24-timmarsperiod. Dessa metoder hjälper dig att följa s 17a-4 (f) och andra bestämmelser.
 
 **Kan jag använda mjuk borttagning tillsammans med oföränderliga BLOB-principer?**
 

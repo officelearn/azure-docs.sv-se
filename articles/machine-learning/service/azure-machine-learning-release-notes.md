@@ -10,12 +10,12 @@ ms.author: jmartens
 author: j-martens
 ms.date: 08/19/2019
 ms.custom: seodec18
-ms.openlocfilehash: 6aca340994f10bd546a25e577258d90d7b7b1368
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: 48da5e27184076676edb3f3b89b478bcf2fe347f
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70860943"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70900456"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Viktig information för Azure Machine Learning-tjänsten
 
@@ -34,7 +34,7 @@ Med den nya webb upplevelsen kan data experter och data tekniker slutföra sin s
 
 Med det här nya Azure Machine Learning-gränssnittet kan du nu:
 + Hantera dina antecknings böcker eller länka ut till Jupyter
-+ Köra automatiserade ML-experiment
++ [Köra automatiserade ML-experiment](tutorial-first-experiment-automated-ml.md)
 + [Skapa data uppsättningar från lokala filer, data lager &-webbfiler](how-to-create-register-datasets.md)
 + Utforska & förbereda data uppsättningar för skapande av modell
 + Övervaka data driften för dina modeller 

@@ -178,7 +178,7 @@ Result
 aci-tutorial-app
 ```
 
-Om du vill ** se taggarna för en bestämd bild använder du kommandot [AZ ACR-lagringsplatsen show-Tags][az-acr-repository-show-tags] .
+Om du vill se taggarna för en bestämd bild använder du kommandot [AZ ACR-lagringsplatsen show-Tags][az-acr-repository-show-tags] .
 
 ```azurecli
 az acr repository show-tags --name <acrName> --repository aci-tutorial-app --output table

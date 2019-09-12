@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 04/02/2019
+ms.date: 09/10/2019
 ms.author: bwren
-ms.openlocfilehash: a34faeb42fce0a1ee7960f71ffce176492495f9c
-ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
+ms.openlocfilehash: 746166713a6d7d90afb77fb03cf86b311178c5f5
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70744515"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70899652"
 ---
 # <a name="send-log-data-to-azure-monitor-with-the-http-data-collector-api-public-preview"></a>Skicka loggdata till Azure Monitor med API: t för HTTP-datainsamling (offentlig för hands version)
 Den här artikeln visar hur du använder API: t för HTTP-datainsamling för att skicka logg data till Azure Monitor från en REST API-klient.  Här beskrivs hur du formaterar data som samlats in av ditt skript eller program, inkluderar dem i en begäran och har den begäran som auktoriserats av Azure Monitor.  Exempel finns för PowerShell, C#och python.
@@ -145,7 +145,7 @@ Azure Monitor lägger till ett suffix till egenskaps namnet för att identifiera
 | Boolesk |_b |
 | Double |_d |
 | Datum/tid |_t |
-| GUID |_g |
+| GUID (lagras som en sträng) |_g |
 
 Vilken datatyp som Azure Monitor används för varje egenskap beror på om post typen för den nya posten redan finns.
 
@@ -477,7 +477,7 @@ post_data(customer_id, shared_key, body, log_type)
 | Andra | Beskrivning | Passar bäst för |
 |---|---|---|
 | [Anpassade händelser](https://docs.microsoft.com/azure/azure-monitor/app/api-custom-events-metrics?toc=%2Fazure%2Fazure-monitor%2Ftoc.json#properties): Inbyggd SDK-baserad inmatning i Application Insights | Application Insights, vanligt vis genom ett SDK i ditt program, ger dig möjlighet att skicka anpassade data via anpassade händelser. | <ul><li> Data som genereras i programmet, men som inte hämtats av SDK via någon av standard data typerna (begär Anden, beroenden, undantag och så vidare).</li><li> Data som ofta korreleras med andra program data i Application Insights </li></ul> |
-| [API för data insamling](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-collector-api) i Azure Monitor loggar | API för data insamling i Azure Monitor loggar är ett helt öppet sätt att mata in data. Alla data som är formaterade i ett JSON-objekt kan skickas hit. När den har skickats bearbetas den och är tillgänglig i loggarna för att korreleras med andra data i loggarna eller mot andra Application Insights data. <br/><br/> Det är ganska enkelt att överföra data som filer till en Azure blob-blob, från var de här filerna ska bearbetas och överföras till Log Analytics. I [den här](https://docs.microsoft.com/azure/log-analytics/log-analytics-create-pipeline-datacollector-api) artikeln hittar du en exempel implementering av en sådan pipeline. | <ul><li> Data som inte nödvändigt vis genereras inom ett program som är instrumenterade i Application Insights.</li><li> Exempel är lookup-och fakta tabeller, referens data, församlad statistik och så vidare. </li><li> Avsedd för data som ska refereras till i andra Azure Monitor data (Application Insights, andra loggar data typer, Security Center, Azure Monitor för behållare/VM: ar). </li></ul> |
+| API för data insamling i Azure Monitor loggar | API för data insamling i Azure Monitor loggar är ett helt öppet sätt att mata in data. Alla data som är formaterade i ett JSON-objekt kan skickas hit. När den har skickats bearbetas den och är tillgänglig i loggarna för att korreleras med andra data i loggarna eller mot andra Application Insights data. <br/><br/> Det är ganska enkelt att överföra data som filer till en Azure blob-blob, från var de här filerna ska bearbetas och överföras till Log Analytics. I [den här](https://docs.microsoft.com/azure/log-analytics/log-analytics-create-pipeline-datacollector-api) artikeln hittar du en exempel implementering av en sådan pipeline. | <ul><li> Data som inte nödvändigt vis genereras inom ett program som är instrumenterade i Application Insights.</li><li> Exempel är lookup-och fakta tabeller, referens data, församlad statistik och så vidare. </li><li> Avsedd för data som ska refereras till i andra Azure Monitor data (Application Insights, andra loggar data typer, Security Center, Azure Monitor för behållare/VM: ar). </li></ul> |
 | [Azure-Datautforskaren](https://docs.microsoft.com/azure/data-explorer/ingest-data-overview) | Azure Datautforskaren (ADX) är den data plattform som ger Application Insights analys-och Azure Monitors loggar. Nu är det allmänt tillgängligt ("GA"), med hjälp av data plattformen i sin RAW-form, och ger dig fullständig flexibilitet (men kräver hanterings kostnader) över klustret (RBAC, bevarande frekvens, schema och så vidare). ADX tillhandahåller många [](https://docs.microsoft.com/azure/data-explorer/ingest-data-overview#ingestion-methods) inmatnings alternativ [, till exempel CSV-, TSV-och JSON-](https://docs.microsoft.com/azure/kusto/management/mappings?branch=master) filer. | <ul><li> Data som inte kommer att korreleras till andra data under Application Insights eller loggar. </li><li> Data som kräver avancerade inmatnings-eller bearbetnings funktioner som inte redan finns i Azure Monitor loggar. </li></ul> |
 
 

@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/12/2019
+ms.date: 09/09/2019
 ms.author: jingwang
-ms.openlocfilehash: c25a1deb08c816088e9d5811a73bb19890657a43
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: 0a695f08f00b99fcd0bc634d12e30c0f3cfbd312
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68966519"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70813089"
 ---
 # <a name="copy-data-from-hdfs-using-azure-data-factory"></a>Kopiera data från HDFS med Azure Data Factory
 > [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
@@ -113,12 +113,12 @@ Följande egenskaper stöds för den länkade tjänsten HDFS:
 
 En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera datauppsättningar finns i den [datauppsättningar](concepts-datasets-linked-services.md) artikeln. 
 
-- För **Parquet, avgränsad text och binärt format**, se avsnittet [Parquet, avgränsad text och binära format](#format-based-dataset) .
-- Andra format som **Orc/Avro/JSON-format**finns i avsnittet [annan format data uppsättning](#other-format-dataset) .
+- För **Parquet, avgränsade text-, JSON-, Avro-och binärformat**, se [Parquet, delimited text-, JSON-, Avro-och binära format-datauppsättning](#format-based-dataset) .
+- Information om andra format som **Orc-format**finns i avsnittet [annan format data uppsättning](#other-format-dataset) .
 
-### <a name="format-based-dataset"></a>Parquet, avgränsad text och binärt format data uppsättning
+### <a name="format-based-dataset"></a>Data uppsättning för Parquet, avgränsad text, JSON, Avro och binärt format
 
-Om du vill kopiera data från **Parquet, avgränsade text-eller binärformat**, kan du läsa mer i [Parquet format](format-parquet.md), avgränsat [text format](format-delimited-text.md) och binära [format](format-binary.md) -artikel på formatbaserade data uppsättningar och inställningar som stöds. Följande egenskaper stöds för HDFS under `location` inställningar i format-baserad data mängd:
+Om du vill kopiera data från **Parquet, avgränsade text-, JSON-, Avro-och binärformat**, se [Parquet format](format-parquet.md), [avgränsat text format](format-delimited-text.md), [Avro format](format-avro.md) och [binära format](format-binary.md) -artikel i format-baserad data uppsättning och inställningar som stöds. Följande egenskaper stöds för HDFS under `location` inställningar i format-baserad data mängd:
 
 | Egenskap   | Beskrivning                                                  | Krävs |
 | ---------- | ------------------------------------------------------------ | -------- |
@@ -157,7 +157,7 @@ Om du vill kopiera data från **Parquet, avgränsade text-eller binärformat**, 
 
 ### <a name="other-format-dataset"></a>Data uppsättning för andra format
 
-Följande egenskaper stöds för att kopiera data från HDFS i **Orc/Avro/JSON-format**:
+Följande egenskaper stöds för att kopiera data från HDFS i **Orc-format**:
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
@@ -167,7 +167,7 @@ Följande egenskaper stöds för att kopiera data från HDFS i **Orc/Avro/JSON-f
 | modifiedDatetimeStart | Filter för filer baserat på attributet: Senast ändrad. Filerna markerade om deras tid för senaste ändring är inom tidsintervallet mellan `modifiedDatetimeStart` och `modifiedDatetimeEnd`. Tid som tillämpas på UTC-tidszonen i formatet ”2018-12-01T05:00:00Z”. <br/><br/> Tänk på att den övergripande prestandan för data förflyttning påverkas genom att aktivera den här inställningen när du vill göra fil filter från enorma mängder filer. <br/><br/> Egenskaperna kan vara NULL, vilket innebär att inget filter för filattribut används för data uppsättningen.  När `modifiedDatetimeStart` har datetime-värde men `modifiedDatetimeEnd` är NULL, innebär det att filer vars senaste ändrade attribut är större än eller lika med datum/tid-värde väljs.  När `modifiedDatetimeEnd` har datetime-värde men `modifiedDatetimeStart` är NULL, innebär det att filer vars senaste ändrade attributet är mindre än det markerade datetime-värde.| Nej |
 | modifiedDatetimeEnd | Filter för filer baserat på attributet: Senast ändrad. Filerna markerade om deras tid för senaste ändring är inom tidsintervallet mellan `modifiedDatetimeStart` och `modifiedDatetimeEnd`. Tid som tillämpas på UTC-tidszonen i formatet ”2018-12-01T05:00:00Z”. <br/><br/> Tänk på att den övergripande prestandan för data förflyttning påverkas genom att aktivera den här inställningen när du vill göra fil filter från enorma mängder filer. <br/><br/> Egenskaperna kan vara NULL, vilket innebär att inget filter för filattribut används för data uppsättningen.  När `modifiedDatetimeStart` har datetime-värde men `modifiedDatetimeEnd` är NULL, innebär det att filer vars senaste ändrade attribut är större än eller lika med datum/tid-värde väljs.  När `modifiedDatetimeEnd` har datetime-värde men `modifiedDatetimeStart` är NULL, innebär det att filer vars senaste ändrade attributet är mindre än det markerade datetime-värde.| Nej |
 | format | Om du vill **kopiera filer som – är** hoppa över avsnittet format i både inkommande och utgående datamängd definitioner mellan filbaserade (binär kopia).<br/><br/>Om du vill parsa filer med ett speciellt format stöds följande fil format typer: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Ange den **typ** egenskapen under format till ett av dessa värden. Mer information finns i [textformat](supported-file-formats-and-compression-codecs.md#text-format), [Json-Format](supported-file-formats-and-compression-codecs.md#json-format), [Avro-formatet](supported-file-formats-and-compression-codecs.md#avro-format), [Orc-Format](supported-file-formats-and-compression-codecs.md#orc-format), och [Parquet-Format](supported-file-formats-and-compression-codecs.md#parquet-format) avsnitt. |Nej (endast för binär kopia scenario) |
-| compression | Ange typ och komprimeringsnivå för data. Mer information finns i [stöds filformat och komprimering codec](supported-file-formats-and-compression-codecs.md#compression-support).<br/>Typer som stöds: **Gzip**,DEFLATE, **BZip2**och **ZipDeflate**.<br/>Nivåer som stöds är: **Optimal** och **snabbast**. |Nej |
+| compression | Ange typ och komprimeringsnivå för data. Mer information finns i [stöds filformat och komprimering codec](supported-file-formats-and-compression-codecs.md#compression-support).<br/>Typer som stöds: **Gzip**, **DEFLATE**, **BZip2**och **ZipDeflate**.<br/>Nivåer som stöds är: **Optimal** och **snabbast**. |Nej |
 
 >[!TIP]
 >Kopiera alla filer i en mapp genom att ange **folderPath** endast.<br>Om du vill kopiera en enstaka fil med ett givet namn, ange **folderPath** med mappdelen och **fileName** med filnamnet.<br>Om du vill kopiera en delmängd av filerna under en mapp, anger **folderPath** med mappdelen och **fileName** med jokertecken-filtret.
@@ -208,12 +208,12 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 ### <a name="hdfs-as-source"></a>HDFS som källa
 
-- Om du vill kopiera från **Parquet, avgränsad text och binärt format**, se avsnittet [Parquet, avgränsad text och binärt format](#format-based-source) .
-- Om du vill kopiera från andra format som **Orc/Avro/JSON-format**, se avsnittet [annan format källa](#other-format-source) .
+- Om du vill kopiera från **Parquet, avgränsade text-, JSON-, Avro-och binärformat**, se avsnittet [Parquet, avgränsad text, JSON, Avro och binärt format](#format-based-source) .
+- Om du vill kopiera från andra format som **Orc-format**, se avsnittet [annan format källa](#other-format-source) .
 
-#### <a name="format-based-source"></a>Parquet, avgränsad text-och binär format källa
+#### <a name="format-based-source"></a>Parquet, avgränsad text, JSON, Avro och binär format källa
 
-Om du vill kopiera data från **Parquet, avgränsad text eller binärt format**, referera till [Parquet-format](format-parquet.md), avgränsat [text format](format-delimited-text.md) och binära [format](format-binary.md) -artikel med formatbaserade kopierings aktivitets källor och inställningar som stöds. Följande egenskaper stöds för HDFS under `storeSettings` inställningar i format-baserad kopierings Källa:
+Om du vill kopiera data från **Parquet, avgränsade text-, JSON-, Avro-och binärformat**, se [Parquet-format](format-parquet.md), [avgränsat text format](format-delimited-text.md), [Avro format](format-avro.md) och [binära format](format-binary.md) artikel för den formatbaserade kopierings aktivitets källan och stöds autentiseringsinställningar. Följande egenskaper stöds för HDFS under `storeSettings` inställningar i format-baserad kopierings Källa:
 
 | Egenskap                 | Beskrivning                                                  | Krävs                                      |
 | ------------------------ | ------------------------------------------------------------ | --------------------------------------------- |
@@ -278,7 +278,7 @@ Om du vill kopiera data från **Parquet, avgränsad text eller binärt format**,
 
 #### <a name="other-format-source"></a>Annan format källa
 
-För att kopiera data från HDFS i **Orc/Avro/JSON-format**, stöds följande egenskaper i avsnittet Kopiera aktivitets **källa** :
+För att kopiera data från HDFS i **Orc-format**, stöds följande egenskaper i avsnittet Kopiera aktivitets **källa** :
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
@@ -320,7 +320,7 @@ I det här avsnittet beskrivs det resulterande beteendet hos mappsökvägen och 
 
 [DistCp](https://hadoop.apache.org/docs/current3/hadoop-distcp/DistCp.html) är ett internt Hadoop-kommando rads verktyg som gör distribuerad kopia i ett Hadoop-kluster. När du kör ett Distcp-kommando, visar den först alla filer som ska kopieras, skapar flera kart jobb i Hadoop-klustret och varje kart jobb kommer att göra binär kopia från källa till mottagare.
 
-Kopiera aktivitets stöd med DistCp för att kopiera filer som-är i Azure Blob (inklusive mellanlagrad [kopia](copy-activity-performance.md)) eller Azure Data Lake Store, och i så fall kan den utnyttja klustrets ström i stället för att köras på den lokala integration Runtime. Det ger bättre kopiering av data genom att i synnerhet om klustret är mycket kraftfullt. Baserat på din konfiguration i Azure Data Factory konstruerar kopierings aktiviteten automatiskt ett Distcp-kommando, skickar till ditt Hadoop-kluster och övervakar kopierings statusen.
+Kopiera aktivitets stöd med DistCp för att kopiera filer som-är i Azure Blob (inklusive [mellanlagrad kopia](copy-activity-performance.md)) eller Azure Data Lake Store, och i så fall kan den utnyttja klustrets ström i stället för att köras på den lokala integration Runtime. Det ger bättre kopiering av data genom att i synnerhet om klustret är mycket kraftfullt. Baserat på din konfiguration i Azure Data Factory konstruerar kopierings aktiviteten automatiskt ett Distcp-kommando, skickar till ditt Hadoop-kluster och övervakar kopierings statusen.
 
 ### <a name="prerequisites"></a>Förutsättningar
 
@@ -331,7 +331,7 @@ Om du vill använda DistCp för att kopiera filer från HDFS till Azure Blob (in
 3. HDFS-servern är integrerad med mål data lagret – Azure Blob eller Azure Data Lake Store:
 
     - Azure Blob-filsystem stöds internt sedan Hadoop 2,7. Du behöver bara ange jar-sökväg i Hadoop-kuvert config.
-    - Azure Data Lake Store FileSystem paketeras från Hadoop 3.0.0-alpha1. Om ditt Hadoop-kluster är lägre än den versionen måste du manuellt importera ADLS-relaterade jar-paket (Azure-datalake-Store. jar) till klustret [](https://hadoop.apache.org/releases.html)härifrån och ange jar-sökväg i Hadoop-kuvert config.
+    - Azure Data Lake Store FileSystem paketeras från Hadoop 3.0.0-alpha1. Om ditt Hadoop-kluster är lägre än den versionen måste du manuellt importera ADLS-relaterade jar-paket (Azure-datalake-Store. jar) till klustret [härifrån och ange jar-sökväg](https://hadoop.apache.org/releases.html)i Hadoop-kuvert config.
 
 4. Förbered en Temp-mapp i HDFS. Den här Temp-mappen används för att lagra DistCp Shell-skript, så den kommer att uppta utrymme på KB-nivå.
 5. Se till att det användar konto som anges i den länkade tjänsten HDFS har behörighet att skicka ett program i garn, b) har behörighet att skapa undermappar, läsa/skriva filer under ovan Temp-mappen.

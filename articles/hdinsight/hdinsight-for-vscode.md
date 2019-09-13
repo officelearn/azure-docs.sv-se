@@ -307,7 +307,7 @@ Skicka en fil och Lägg märke till att mappen. VSCode automatiskt läggs till i
     | archives | Arkiv som ska användas i den här sessionen | lista över strängar |
     | queue | Namnet på den garn kö som ska skickas till| Sträng |
     | name | Namnet på den här sessionen | Sträng |
-    | medför | Konfigurations egenskaper för Spark | Karta över nyckel = val |
+    | conf | Konfigurations egenskaper för Spark | Karta över nyckel = val |
 
     Svars text   
     Det skapade batch-objektet.

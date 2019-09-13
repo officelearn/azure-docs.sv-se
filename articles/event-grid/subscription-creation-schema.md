@@ -50,9 +50,9 @@ Händelsen prenumerationens namn måste vara 3 – 64 tecken långt och får bar
 | Egenskap | Type | Beskrivning |
 | -------- | ---- | ----------- |
 | includedEventTypes | matris | Matchningen när händelsetyp i händelsemeddelandet är en exakt matchning till någon av dessa namn för typen av händelse. Genererar ett fel när händelsenamn inte matchar de registrerade händelsen typnamn för händelsekällan. Standard matchar alla händelsetyper. |
-| subjectBeginsWith | sträng | En prefixmatchning filtrera till ämnesfältet i meddelandet. Matchar alla standard- eller tom sträng. | 
-| subjectEndsWith | sträng | Ett suffix-match filtrera till ämnesfältet i meddelandet. Matchar alla standard- eller tom sträng. |
-| isSubjectCaseSensitive | sträng | Kontroller är skiftlägeskänslig matchning för filter. |
+| subjectBeginsWith | string | En prefixmatchning filtrera till ämnesfältet i meddelandet. Matchar alla standard- eller tom sträng. | 
+| subjectEndsWith | string | Ett suffix-match filtrera till ämnesfältet i meddelandet. Matchar alla standard- eller tom sträng. |
+| isSubjectCaseSensitive | string | Kontroller är skiftlägeskänslig matchning för filter. |
 
 
 ## <a name="example-subscription-schema"></a>Exempel prenumerationsschema

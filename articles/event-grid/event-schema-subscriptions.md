@@ -249,10 +249,10 @@ Dataobjektet har följande egenskaper:
 
 | Egenskap | Typ | Beskrivning |
 | -------- | ---- | ----------- |
-| authorization | objekt | Den begärda auktoriseringen för åtgärden. |
-| claims | objekt | Egenskaper för anspråken. Mer information finns i [JWT-specifikationen](https://self-issued.info/docs/draft-ietf-oauth-json-web-token.html). |
+| authorization | object | Den begärda auktoriseringen för åtgärden. |
+| claims | object | Egenskaper för anspråken. Mer information finns i [JWT-specifikationen](https://self-issued.info/docs/draft-ietf-oauth-json-web-token.html). |
 | correlationId | string | En Operations-ID för felsökning. |
-| httpRequest | objekt | Information om åtgärden. Det här objektet är endast ingår när du uppdaterar en befintlig resurs eller ta bort en resurs. |
+| httpRequest | object | Information om åtgärden. Det här objektet är endast ingår när du uppdaterar en befintlig resurs eller ta bort en resurs. |
 | resourceProvider | string | Resource provider för åtgärden. |
 | resourceUri | string | URI för resursen i åtgärden. |
 | operationName | string | Åtgärden som utfördes. |

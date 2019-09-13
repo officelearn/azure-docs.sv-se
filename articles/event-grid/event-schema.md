@@ -86,7 +86,7 @@ Alla händelser har samma följande översta data:
 | Egenskap | Type | Beskrivning |
 | -------- | ---- | ----------- |
 | topic | string | Fullständig resurssökväg till händelsekällan. Det här fältet är inte skrivbar. Event Grid ger det här värdet. |
-| subject | string | Publisher-definierade sökvägen till ämne för händelsen. |
+| topic | string | Publisher-definierade sökvägen till ämne för händelsen. |
 | eventType | string | En av typerna som registrerade händelsen för den här händelsekällan. |
 | eventTime | string | Den tid som händelsen genereras baserat på leverantörens UTC-tid. |
 | id | string | Unik identifierare för händelsen. |

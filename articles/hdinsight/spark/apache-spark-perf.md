@@ -8,14 +8,14 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/03/2019
-ms.openlocfilehash: 8d058c55eab3d161e625d7d4ca3ef53b36497e00
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: cda974a71c0d24bda9422fb8444fbf4dec0088f9
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70814072"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70885101"
 ---
-# <a name="optimize-apache-spark-jobs"></a>Optimera Apache Spark-jobb
+# <a name="optimize-apache-spark-jobs-in-hdinsight"></a>Optimera Apache Spark jobb i HDInsight
 
 Lär dig hur du optimerar [Apache Spark](https://spark.apache.org/) kluster konfiguration för din specifika arbets belastning.  Den vanligaste utmaningen är minnes belastning, på grund av felaktiga konfigurationer (särskilt fel storleks körningar), långvariga åtgärder och uppgifter som resulterar i kartesiska-åtgärder. Du kan påskynda jobben med lämplig cachelagring och genom att tillåta [data skevning](#optimize-joins-and-shuffles). För bästa prestanda kan du övervaka och granska långvarig körning av Spark-jobb och köra resurs krävande jobb.
 

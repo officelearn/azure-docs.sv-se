@@ -1,6 +1,6 @@
 ---
 title: Optimera din Active Directory-miljö med Azure Monitor | Microsoft Docs
-description: Du kan använda Active Directory Health Check-lösningen för att utvärdera risker och bedöm hälsotillståndet i dina miljöer med regelbundna intervall.
+description: Du kan använda en lösning för Active Directory hälso kontroll för att utvärdera miljö risker och hälso tillstånd med jämna mellanrum.
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -11,182 +11,204 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 10/27/2017
+ms.date: 09/10/2019
 ms.author: magoedte
-ms.openlocfilehash: 3b5da6c9046fc694bd5eb0f55cf031b82b6d0103
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a0ffe7b8726ee78ca81751687bebd3c435365576
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60919830"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70883079"
 ---
-# <a name="optimize-your-active-directory-environment-with-the-active-directory-health-check-solution-in-azure-monitor"></a>Optimera din Active Directory-miljö med lösningen för kontroll av Active Directory Health i Azure Monitor
+# <a name="optimize-your-active-directory-environment-with-the-active-directory-health-check-solution-in-azure-monitor"></a>Optimera din Active Directory miljö med lösningen för Active Directory hälso kontroll i Azure Monitor
 
-![AD-hälsokontroll symbol](./media/ad-assessment/ad-assessment-symbol.png)
+![Kontroll Symbol för AD-hälsa](./media/ad-assessment/ad-assessment-symbol.png)
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-Du kan använda Active Directory Health Check-lösningen för att utvärdera risker och bedöm hälsotillståndet i servermiljöer med regelbundna intervall. Den här artikeln hjälper dig att installera och använda lösningen så att du kan vidta åtgärder för potentiella problem.
+Du kan använda lösningen Active Directory hälso kontroll för att bedöma Server miljöernas risker och hälsa med jämna mellanrum. Den här artikeln hjälper dig att installera och använda lösningen så att du kan vidta nödvändiga åtgärder för eventuella problem.
 
-Den här lösningen ger en prioriterad lista över rekommendationer som är specifika för din distribuerade serverinfrastruktur. Rekommendationerna kategoriseras i fyra fokusområden som hjälper dig att snabbt förstå risken och vidta åtgärder.
+Den här lösningen ger en prioriterad lista med rekommendationer som är speciella för din distribuerade Server infrastruktur. Rekommendationerna kategoriseras över fyra fokus områden, vilket hjälper dig att snabbt förstå risken och vidta åtgärder.
 
-Rekommendationerna baseras på kunskap och erfarenhet av Microsoft-tekniker från tusentals kunder besök. Varje rekommendation ger vägledning om varför ett problem kan är viktiga för dig och hur du implementerar de föreslagna ändringarna.
+Rekommendationerna baseras på den kunskap och erfarenhet som Microsoft-tekniker har fått från tusentals kund besök. Varje rekommendation ger vägledning om varför ett problem kan vara viktigt för dig och hur du implementerar de föreslagna ändringarna.
 
-Du kan välja fokusområden som är viktigast för din organisation och spåra förloppet mot att köra en risk kostnadsfria och hälsosam miljö.
+Du kan välja fokus områden som är viktigast för din organisation och följa förloppet för att köra en risk fri och felfri miljö.
 
-När du har lagt till lösningen och en kontroll är slutförd, sammanfattande informationen för fokusområden visas på den **AD-hälsokontroll** instrumentpanel för infrastrukturen i din miljö. I följande avsnitt beskrivs hur du använder informationen på den **AD-hälsokontroll** instrumentpanelen där du kan visa och sedan vidta rekommenderade åtgärder för din serverinfrastruktur för Active Directory.  
+När du har lagt till lösningen och en kontroll har slutförts visas sammanfattnings information för fokus områden på instrument panelen för **AD Health-kontroll** för infrastrukturen i din miljö. I följande avsnitt beskrivs hur du använder informationen på instrument panelen för **AD Health-kontroll** , där du kan visa och sedan vidta rekommenderade åtgärder för din Active Directory Server infrastruktur.  
 
-![Bild av AD-hälsokontroll panel](./media/ad-assessment/ad-healthcheck-summary-tile.png)
+![bild av kontroll panelen för AD-hälsokontroll](./media/ad-assessment/ad-healthcheck-summary-tile.png)
 
-![Bild av AD-hälsokontroll instrumentpanelen](./media/ad-assessment/ad-healthcheck-dashboard-01.png)
+![bild av kontroll panelen för AD Health-kontroll](./media/ad-assessment/ad-healthcheck-dashboard-01.png)
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
-* Kontroll av Active Directory Health-lösning kräver en version som stöds av .NET Framework 4.5.2 eller ovan som installerats på alla datorer som har den Microsoft Monitoring Agent (MMA) installerat.  MMA-agenten används av System Center 2016 – Operations Manager och Operations Manager 2012 R2 och Azure Monitor.
-* Lösningen har stöd för domänkontrollanter som kör Windows Server 2008 och 2008 R2, Windows Server 2012 och 2012 R2 och Windows Server 2016.
-* En Log Analytics-arbetsyta för att lägga till Active Directory Health Check-lösningen från Azure marketplace i Azure-portalen.  Det krävs ingen ytterligare konfiguration.
+* Active Directory Health Check-lösningen kräver en version av .NET Framework 4.5.2 som stöds och som är installerad på varje dator som har Log Analytics agent för Windows (kallas även Microsoft Monitoring Agent (MMA)) installerad.  Agenten används av System Center 2016-Operations Manager, Operations Manager 2012 R2 och Azure Monitor.
+* Lösningen stöder domänkontrollanter som kör Windows Server 2008 och 2008 R2, Windows Server 2012 och 2012 R2 och Windows Server 2016.
+* En Log Analytics arbets yta där du kan lägga till Active Directory hälso kontroll från Azure Marketplace i Azure Portal. Ingen ytterligare konfiguration krävs.
 
   > [!NOTE]
-  > När du har lagt till lösningen, läggs filen AdvisorAssessment.exe till servrar med agenter. Konfigurationsdata läsa och sedan skickas till Azure Monitor i molnet för bearbetning. Logiken tillämpas på den mottagna data och Molntjänsten innehåller data.
+  > När du har lagt till lösningen läggs filen AdvisorAssessment. exe till i servrar med agenter. Konfigurations data läses och skickas sedan till Azure Monitor i molnet för bearbetning. Logiken tillämpas på den mottagna data och Molntjänsten innehåller data.
   >
   >
 
-Om du vill utföra hälsokontroll mot domänkontrollanter som är medlemmar i domänen som ska utvärderas kräver de en agent och en anslutning till Azure Monitor med någon av följande metoder:
+För att utföra hälso kontrollen mot domän kontrol Lanterna som är medlemmar i domänen som ska utvärderas måste varje domänkontrollant i domänen ha en agent och anslutning för att kunna Azure Monitor med någon av följande metoder som stöds:
 
-1. Installera den [Microsoft Monitoring Agent (MMA)](../../azure-monitor/platform/agent-windows.md) om domänkontrollanten inte redan övervakas av System Center 2016 – Operations Manager eller Operations Manager 2012 R2.
-2. Om den är övervakad med System Center 2016 – Operations Manager eller Operations Manager 2012 R2 och hanteringsgruppen är inte integrerat med Azure Monitor, kan domänkontrollanten ha flera värdar med Azure Monitor för att samla in data och vidarebefordra till tjänsten och fortfarande övervakas av Operations Manager.  
-3. I annat fall om Operations Manager-hanteringsgrupp är integrerad med tjänsten, du måste lägga till domänkontrollanterna för insamling av tjänsten anvisningarna under [lägga till datorer som hanteras med agent](../../azure-monitor/platform/om-agents.md#connecting-operations-manager-to-azure-monitor) när du har aktiverat lösningen i din arbetsyta.  
+1. Installera [Log Analytics agent för Windows](../../azure-monitor/platform/agent-windows.md) om domänkontrollanten inte redan övervakas av System Center 2016-Operations Manager eller Operations Manager 2012 R2.
+2. Om den övervakas med System Center 2016-Operations Manager eller Operations Manager 2012 R2 och hanterings gruppen inte är integrerad med Azure Monitor, kan domänkontrollanten vara i flera hem med Azure Monitor för att samla in data och vidarebefordra till tjänsten och fortfarande övervakas av Operations Manager.  
+3. Annars, om din Operations Manager hanterings grupp är integrerad med tjänsten, måste du lägga till domän kontrol Lanterna för data insamling av tjänsten genom att följa stegen under [Lägg till agent-hanterade datorer](../../azure-monitor/platform/om-agents.md#connecting-operations-manager-to-azure-monitor) när du har aktiverat lösningen i platsen.  
 
-Agenten på domänkontrollanten vilka rapporter till en Operations Manager-hanteringsgrupp, samlar in data, vidarebefordrar till dess tilldelade hanteringsserver och sedan skickas direkt från en hanteringsserver till Azure Monitor.  Data skrivs inte till Operations Manager-databaserna.  
+Agenten på domänkontrollanten som rapporterar till en Operations Manager hanterings grupp samlar in data, vidarebefordrar till den tilldelade hanterings servern och sedan skickas direkt från en hanterings server till Azure Monitor.  Data skrivs inte till Operations Manager-databaser.  
 
-## <a name="active-directory-health-check-data-collection-details"></a>Active Directory-hälsokontroll data samling information
+## <a name="active-directory-health-check-data-collection-details"></a>Information om data insamling för Active Directory hälso kontroll
 
-Kontroll av Active Directory hälsotillstånd samlar in data från följande källor med hjälp av agent som du har aktiverat:
+Active Directory hälso kontroll samlar in data från följande källor med hjälp av den agent som du har aktiverat:
 
-- Registret
+- Register
 - LDAP
 - .NET Framework
-- Händelseloggen
-- Active Directory Service interfaces (ADSI)
+- Händelse logg
+- ADSI (Active Directory Service Interfaces)
 - Windows PowerShell
 - Fildata
 - Windows Management Instrumentation (WMI)
-- DCDIAG verktyget API
-- File Replication Service (NTFRS) API: et
-- Anpassad C#-kod
+- API för DCDIAG-verktyg
+- API för tjänsten File Replication (NTFRS)
+- Anpassad C# kod
 
-Data som samlas in på domänkontrollanten och vidarebefordras till Azure Monitor var sjunde dag.  
+Data samlas in på domänkontrollanten och vidarebefordras till Azure Monitor var sjunde dag.  
 
-## <a name="understanding-how-recommendations-are-prioritized"></a>Förstå hur rekommendationer är prioriterade
-Varje rekommendation ges ett värde-värde som identifierar den relativa prioriteten för rekommendationen. Endast de 10 viktigaste rekommendationerna visas.
+## <a name="understanding-how-recommendations-are-prioritized"></a>Förstå hur rekommendationer prioriteras
 
-### <a name="how-weights-are-calculated"></a>Hur vikterna beräknas
+Varje rekommendation ges ett vikt värde som identifierar rekommendationens relativa betydelse. Endast de 10 viktigaste rekommendationerna visas.
+
+### <a name="how-weights-are-calculated"></a>Hur vikter beräknas
+
 Viktningar är aggregerade värden baserat på tre viktiga faktorer:
 
-* Den *sannolikheten* att ett problem som identifieras orsakar problem. En högre sannolikhet motsvarar en större övergripande poäng för rekommendationen.
-* Den *inverkan* av problemet i din organisation om det uppstår ett problem. En högre inverkan motsvarar en större övergripande poäng för rekommendationen.
-* Den *arbete* krävs för att implementera rekommendationen. En högre ansträngning motsvarar en mindre övergripande poäng för rekommendationen.
+* *Sannolikheten* att ett problem har identifierats orsakar problem. En högre sannolikhet motsvarar en större total poäng för rekommendationen.
+* *Effekten* av problemet i din organisation om det uppstår problem. En högre påverkan motsvarar en större total poäng för rekommendationen.
+* Den *insats* som krävs för att implementera rekommendationen. En högre ansträngning motsvarar en mindre övergripande Poäng för rekommendationen.
 
-Värde för varje rekommendation uttrycks som en procentandel av den sammanlagda poängen för varje fokusområde. Till exempel ökar implementera den här rekommendationen om en rekommendation i Fokusområde säkerhets- och har ett resultat på 5%, din övergripande poäng av 5% för säkerhet och efterlevnad.
+Viktningen för varje rekommendation uttrycks som en procent andel av det totala antalet poäng som är tillgängliga för varje fokus-sektion. Till exempel, om en rekommendation i fokus för säkerhet och efterlevnad har en poäng på 5%, ökar implementeringen av den här rekommendationen din övergripande Poäng för säkerhet och efterlevnad med 5%.
 
-### <a name="focus-areas"></a>Fokusområden
-**Säkerhet och efterlevnad** – den här Fokusområde visar rekommendationer för potentiella säkerhetshot och överträdelser företagets principer och krav på teknisk, juridisk och regelmässig efterlevnad.
+### <a name="focus-areas"></a>Fokus områden
 
-**Tillgänglighet och affärskontinuitet** – den här Fokusområde visar rekommendationer för tjänstens tillgänglighet, återhämtning för din infrastruktur och verksamhetsskydd.
+**Säkerhet och efterlevnad** – i det här fokus avsnittet visas rekommendationer för potentiella säkerhetshot och överträdelser, företags principer och tekniska, juridiska och regler för efterlevnad.
 
-**Prestanda och skalbarhet** – den här Fokusområde visar rekommendationer för att din organisations IT-infrastruktur växa, se till att din IT-miljö uppfyller aktuella prestandakrav och kan svara på förändrade infrastruktur behov.
+**Tillgänglighet och affärs kontinuitet** – det här fokus avsnittet visar rekommendationer för tjänst tillgänglighet, återhämtning av din infrastruktur och affärs skydd.
 
-**Uppgradering, migrering och distribution** – den här Fokusområde visar rekommendationer som hjälper dig att uppgradera, migrera och distribuera Active Directory till din befintliga infrastruktur.
+**Prestanda och skalbarhet** – i fokus avsnittet visas rekommendationer som hjälper organisationens IT-infrastruktur att växa, se till att din IT-miljö uppfyller aktuella prestanda krav och kan svara på föränderliga infrastruktur behov.
 
-### <a name="should-you-aim-to-score-100-in-every-focus-area"></a>Bör du försöka poäng 100% i varje Fokusområde?
-Inte nödvändigtvis. Rekommendationerna baseras på de kunskaper och erfarenheter som gjorts av Microsofts tekniker till tusentals kunder besök. Men ingen två server-infrastrukturer är desamma och specifika rekommendationer kan vara mer eller mindre relevant för dig. Exempelvis kanske vissa säkerhetsrekommendationer mindre relevant om dina virtuella datorer inte exponeras för Internet. Vissa rekommendationer för tillgänglighet kan vara mindre användbart för tjänster som erbjuder låg prioritet ad hoc-insamling och rapportering. Problem som är viktiga för en mogen affärsverksamhet som kan vara mindre viktiga för en startfil. Du kanske vill identifiera vilka fokusområden som är dina prioriteringar och titta på hur ditt resultat ändras med tiden.
+**Uppgradering, migrering och distribution** – det här fokus avsnittet visar rekommendationer för att hjälpa dig att uppgradera, migrera och distribuera Active Directory till din befintliga infrastruktur.
 
-Varje rekommendation innehåller information om varför det är viktigt. Du bör använda den här vägledningen för att utvärdera om implementerar rekommendationen är lämplig för dig, baserat på typen av dina IT-tjänster och affärsbehoven för din organisation.
+### <a name="should-you-aim-to-score-100-in-every-focus-area"></a>Bör du 100% i varje fokus områden?
 
-## <a name="use-health-check-focus-area-recommendations"></a>Använd hälsokontrollen fokus området rekommendationer
-När den har installerats kan du visa sammanfattning av rekommendationer med hjälp av panelen hälsokontroll på sidan lösning i Azure-portalen.
+Inte nödvändigtvis. Rekommendationerna baseras på den kunskap och de erfarenheter som Microsoft-tekniker har fått på tusentals kund besök. Dock är inte två server infrastrukturer identiska, och vissa rekommendationer kan vara mer eller mindre relevanta för dig. Vissa säkerhets rekommendationer kan till exempel vara mindre relevanta om dina virtuella datorer inte är exponerade för Internet. Vissa tillgänglighets rekommendationer kan vara mindre relevanta för tjänster som tillhandahåller låg prioritet för insamling och rapportering av ad hoc-data. Problem som är viktiga för en vuxen verksamhet kan vara mindre viktiga för en start. Du kanske vill identifiera vilka fokus områden som är dina prioriteringar och titta sedan på hur dina resultat förändras över tid.
 
-Visa de sammanfattade efterlevnad utvärderingarna för din infrastruktur och sedan gå till rekommendationer.
+Varje rekommendation innehåller vägledning om varför det är viktigt. Du bör använda den här vägledningen för att utvärdera om implementering av rekommendationen passar dig, baserat på dina IT-tjänsters beskaffenhet och organisationens affärs behov.
 
-### <a name="to-view-recommendations-for-a-focus-area-and-take-corrective-action"></a>Visa rekommendationer för en Fokusområde och vidta åtgärder
+## <a name="use-health-check-focus-area-recommendations"></a>Använd rekommendationer för fokus området för hälso kontroll
+
+När den har installerats kan du Visa en sammanfattning av rekommendationerna med hjälp av hälso kontroll panelen på lösnings sidan i Azure Portal.
+
+Visa de sammanfattade efterlevnadarna för din infrastruktur och gå sedan till rekommendationer.
+
+### <a name="to-view-recommendations-for-a-focus-area-and-take-corrective-action"></a>Så här visar du rekommendationer för ett fokus fält och vidtar lämpliga åtgärder
+
 [!INCLUDE [azure-monitor-solutions-overview-page](../../../includes/azure-monitor-solutions-overview-page.md)]
 
-1. På den **översikt** klickar du på den **kontroll av Active Directory hälsotillstånd** panelen.
-1. På den **hälsokontrollen** granskar den sammanfattande informationen i något av bladen fokus område och klicka sedan på ett om du vill visa rekommendationer för den fokusområde.
-1. På någon av sidorna fokus området, kan du visa prioriterade rekommendationer för din miljö. Klicka på en rekommendation under **påverkade objekt** att visa information om varför rekommendationen görs.<br><br> ![Bild av hälsokontroll rekommendationer](./media/ad-assessment/ad-healthcheck-dashboard-02.png)
-1. Du kan vidta korrigerande åtgärder som föreslås i **föreslagna åtgärder**. När objektet har utförts, senare utvärderingar poster som rekommenderade åtgärder som utförts och din kompatibilitetspoäng ökar. Korrigerad objekt visas som **skickas objekt**.
+1. På sidan **Översikt** klickar du på panelen **Active Directory hälso kontroll** .
+
+2. På sidan **hälso kontroll** granskar du sammanfattnings informationen på ett av bladet för fokus området och klickar sedan på en för att Visa rekommendationer för det fokus området.
+
+3. På någon av sidorna för fokus områden kan du se prioritets rekommendationer som gjorts för din miljö. Klicka på en rekommendation under **berörda objekt** om du vill visa information om varför rekommendationen görs.
+
+    ![bild av hälso kontroll rekommendationer](./media/ad-assessment/ad-healthcheck-dashboard-02.png)
+
+4. Du kan vidta lämpliga åtgärder som föreslås i **föreslagna åtgärder**. När objektet har åtgärd ATS kommer senare att bedöma poster som rekommenderade åtgärder vidtogs och poängen ökar. Korrigerade objekt visas som **överförda objekt**.
 
 ## <a name="ignore-recommendations"></a>Ignorera rekommendationer
-Om du har synpunkter som du vill ignorera kan du skapa en textfil som Azure Monitor använder för att förhindra rekommendationer visas i din utvärdering av resultaten.
 
-### <a name="to-identify-recommendations-that-you-will-ignore"></a>Att identifiera rekommendationer som kommer att ignoreras
+Om du har rekommendationer som du vill ignorera kan du skapa en textfil som Azure Monitor använda för att förhindra att rekommendationer visas i utvärderings resultatet.
+
+### <a name="to-identify-recommendations-that-you-will-ignore"></a>Identifiera rekommendationer som du kommer att ignorera
+
 [!INCLUDE [azure-monitor-log-queries](../../../includes/azure-monitor-log-queries.md)]
 
-Använd följande fråga för att lista över rekommendationer som har misslyckats för datorer i din miljö.
+Använd följande fråga för att lista rekommendationer som har misslyckats för datorer i din miljö.
 
 ```
 ADAssessmentRecommendation | where RecommendationResult == "Failed" | sort by Computer asc | project Computer, RecommendationId, Recommendation
 ```
 
-Här är en skärmbild som visar log-frågan:<br><br> ![misslyckade rekommendationer](media/ad-assessment/ad-failed-recommendations.png)
+Här är en skärm bild som visar logg frågan: <
+
+![misslyckade rekommendationer](media/ad-assessment/ad-failed-recommendations.png)
 
 Välj rekommendationer som du vill ignorera. Du använder värdena för RecommendationId i nästa procedur.
 
-### <a name="to-create-and-use-an-ignorerecommendationstxt-text-file"></a>Du skapar och använder en IgnoreRecommendations.txt textfil
-1. Skapa en fil med namnet IgnoreRecommendations.txt.
-2. Klistra in eller ange varje RecommendationId för varje rekommendation som du vill att Azure Monitor för att ignorera på separata rader och sedan spara och stäng filen.
-3. Placera filen i följande mapp på varje dator där du vill att Azure Monitor för att ignorera rekommendationer.
-   * På datorer med Microsoft Monitoring Agent (anslutet direkt eller via Operations Manager) - *SystemDrive*: \Program\Microsoft Monitoring Agent\Agent
-   * På hanteringsservern för Operations Manager 2012 R2 - *SystemDrive*: \Program\Microsoft System Center 2012 R2\Operations Manager\Server
-   * På hanteringsservern för Operations Manager 2016 - *SystemDrive*: \Program\Microsoft System Center 2016\Operations Manager\Server
+### <a name="to-create-and-use-an-ignorerecommendationstxt-text-file"></a>Skapa och använda en textfil av typen IgnoreRecommendations. txt
 
-### <a name="to-verify-that-recommendations-are-ignored"></a>Kontrollera att rekommendationer ignoreras
-I nästa schemalagda hälsotillstånd kontroll körs som standard var sjunde dag, de angivna rekommendationerna markeras *ignoreras* och kommer inte att visas på instrumentpanelen.
+1. Skapa en fil med namnet IgnoreRecommendations. txt.
 
-1. Du kan använda följande loggfrågor för att lista alla ignorerade rekommendationer.
+2. Klistra in eller Skriv varje RecommendationId för varje rekommendation som du vill Azure Monitor ignorera på en separat rad och spara och stäng sedan filen.
+
+3. Placera filen i följande mapp på varje dator där du vill Azure Monitor ignorera rekommendationer.
+
+   * På datorer med Microsoft Monitoring Agent (ansluten direkt eller via Operations Manager)- *systemen het*: \Program Files\Microsoft Monitoring Agent\Agent
+   * På Operations Manager 2012 R2-hanterings Server – *systemen het*: \Program Files\Microsoft System Center 2012 R2\Operations Manager\Server
+   * På Operations Manager 2016-hanterings Server- *systemen het*: \Program Files\Microsoft System Center 2016 \ Operations Manager\Server
+
+### <a name="to-verify-that-recommendations-are-ignored"></a>Så här kontrollerar du att rekommendationer ignoreras
+
+Efter nästa schemalagda hälso kontroll körs som standard var sjunde dag, och de angivna rekommendationerna markeras som *ignorerade* och visas inte på instrument panelen.
+
+1. Du kan använda följande logg frågor för att lista alla ignorerade rekommendationer.
 
     ```
     ADAssessmentRecommendation | where RecommendationResult == "Ignored" | sort by Computer asc | project Computer, RecommendationId, Recommendation
     ```
 
-2. Om du senare bestämmer att du vill ta bort IgnoreRecommendations.txt filer om du vill visa ignorerade rekommendationer, eller du kan ta bort RecommendationIDs från dem.
+2. Om du senare bestämmer dig för att du vill se ignorerade rekommendationer tar du bort alla IgnoreRecommendations. txt-filer, eller så kan du ta bort RecommendationIDs från dem.
 
-## <a name="ad-health-check-solutions-faq"></a>AD Health Kontrollera lösningar för vanliga frågor och svar
-*Hur ofta körs en hälsokontroll?*
+## <a name="ad-health-check-solutions-faq"></a>Vanliga frågor och svar om AD Health Check Solutions
+
+*Hur ofta körs en hälso kontroll?*
 
 * Kontrollen körs var sjunde dag.
 
-*Finns det ett sätt att konfigurera hur ofta hälsokontrollen körs?*
+*Finns det något sätt att konfigurera hur ofta hälso kontrollen körs?*
 
 * Inte just nu.
 
-*Om en annan server för identifieras när jag har lagt till en lösning för health kontroll ska kontrolleras*
+*Om en annan server för identifieras efter att jag har lagt till en hälso kontroll lösning, kontrol leras den*
 
-* Ja, när den identifieras de kontrolleras från sedan, var sjunde dag.
+* Ja, när den har identifierats kontrol leras den från och med, var sjunde dag.
 
-*Om en server är inaktiverad, när den tas bort från hälsokontrollen?*
+*Om en server inaktive ras kommer den att tas bort från hälso kontrollen?*
 
-* Om en server inte lämnar data för tre veckor, tas den bort.
+* Om en server inte skickar data i 3 veckor tas den bort.
 
-*Vad är namnet på processen som gör datainsamlingen?*
+*Vad är namnet på processen som utför data insamlingen?*
 
 * AdvisorAssessment.exe
 
-*Hur lång tid tar det för de data som samlas in?*
+*Hur lång tid tar det för data att samlas in?*
 
-* Den faktiska datainsamlingen på servern tar ungefär 1 timme. Det kan ta längre tid på servrar som har ett stort antal Active Directory-servrar.
+* Den faktiska data insamlingen på servern tar cirka 1 timme. Det kan ta längre tid på servrar som har ett stort antal Active Directory-servrar.
 
-*Finns det ett sätt att konfigurera när data har samlats in?*
+*Finns det något sätt att konfigurera när data samlas in?*
 
 * Inte just nu.
 
-*Varför visas endast de översta 10 rekommendationerna?*
+*Varför ska du bara visa de 10 viktigaste rekommendationerna?*
 
-* Istället för att ge dig en fullständig överväldigande förteckning av uppgifter, rekommenderar vi att du kan fokusera på adressering prioriterade rekommendationer först. När du har gått dem blir ytterligare rekommendationer tillgängliga. Om du vill se en detaljerad lista kan du visa alla rekommendationer med hjälp av en loggfråga.
+* I stället för att ge dig en omfattande lista över aktiviteter, rekommenderar vi att du fokuserar på att adressera prioritets rekommendationerna först. När du har adresserat dem blir ytterligare rekommendationer tillgängliga. Om du vill se den detaljerade listan kan du Visa alla rekommendationer med hjälp av en logg fråga.
 
-*Finns det ett sätt att ignorera en rekommendation?*
+*Finns det något sätt att ignorera en rekommendation?*
 
-* Ja, se [Ignorera rekommendationer](#ignore-recommendations) ovan.
+* Ja, se avsnittet om att [Ignorera rekommendationer](#ignore-recommendations) ovan.
 
 ## <a name="next-steps"></a>Nästa steg
-* Använd [loggfrågor i Azure Monitor](../log-query/log-query-overview.md) och lär dig att analysera detaljerad AD-hälsokontroll data och rekommendationer.
+
+Använd [Azure Monitor logg frågor](../log-query/log-query-overview.md) för att lära dig hur du analyserar detaljerade hälso kontroll data och rekommendationer för AD.

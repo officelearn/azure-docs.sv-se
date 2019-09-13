@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/11/2019
 ms.author: tvoellm
 ms.reviewer: sngun
-ms.openlocfilehash: 9d06cf334f08ba6ec9c47450d21d33733900ebe5
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: 594367db838266a6d11f4fbf3b763b024f8e14d4
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68356569"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70882841"
 ---
 # <a name="certificate-based-authentication-for-an-azure-ad-identity-to-access-keys-from-an-azure-cosmos-db-account"></a>Certifikatbaserad autentisering för en Azure AD-identitet för åtkomst till nycklar från ett Azure Cosmos DB konto
 
@@ -38,7 +38,7 @@ I det här steget ska du registrera ett exempel webb program i ditt Azure AD-kon
 
    * **Namn** – ange ett namn för ditt program, det kan vara vilket namn som helst, till exempel "fråga".
    * **Konto typer som stöds** – Välj **konton endast i den här organisations katalogen (standard katalog)** om du vill tillåta att resurser i din aktuella katalog får åtkomst till det här programmet. 
-   * Omdirigerings- **URL** – Välj program av typen **webb** och ange en URL där ditt program finns, det kan vara vilken URL som helst. I det här exemplet kan du ange en test-URL, `https://sampleApp.com` till exempel att den är OK även om appen inte finns.
+   * **Omdirigerings-URL** – Välj program av typen **webb** och ange en URL där ditt program finns, det kan vara vilken URL som helst. I det här exemplet kan du ange en test-URL, `https://sampleApp.com` till exempel att den är OK även om appen inte finns.
 
    ![Registrera ett exempel webb program](./media/certificate-based-authentication/register-sample-web-app.png)
 
@@ -231,6 +231,6 @@ Precis som i föregående avsnitt kan du Visa aktivitets loggen för ditt Azure 
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Skydda Azure Cosmos-nycklar med hjälp av Azure Key Vault](access-secrets-from-keyvault.md)
+* [Skydda Azure Cosmos-nycklar med Azure Key Vault](access-secrets-from-keyvault.md)
 
-* [Säkerhetsattribut för Azure Cosmos DB](cosmos-db-security-attributes.md)
+* [Säkerhets kontroller för Azure Cosmos DB](cosmos-db-security-controls.md)

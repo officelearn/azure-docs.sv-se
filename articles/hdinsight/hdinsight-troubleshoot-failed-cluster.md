@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: troubleshooting
 ms.date: 08/15/2019
-ms.openlocfilehash: 8c50068914c1519a5522372310bd0f5863a94b39
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.openlocfilehash: 4e589e694c728cfbd2237a138ad9a2f2bf2342dd
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70735778"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70900160"
 ---
 # <a name="troubleshoot-a-slow-or-failing-job-on-a-hdinsight-cluster"></a>Felsöka ett jobb som är långsamt eller som inte fungerar i ett HDInsight-kluster
 
@@ -54,7 +54,7 @@ Viktig kluster information innehåller:
 
 Azure Portal kan ange den här informationen:
 
-![HDInsight Azure Portal information](./media/hdinsight-troubleshoot-failed-cluster/portal.png)
+![HDInsight Azure Portal information](./media/hdinsight-troubleshoot-failed-cluster/hdi-azure-portal-info.png)
 
 Du kan också använda [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest):
 

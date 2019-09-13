@@ -1375,7 +1375,7 @@ Fasta problem representerar valda problem som tidigare har loggats via Hortonwor
     
   Till exempel, villkors taggarna.\[attributen\]Type = ABC konverteras till följande när principen har sparats.
     
-  Taggar. attds\[&x27;DSDS &\#x27;\] \# x27; cssdfs&\#x27; =& \#
+  Taggar. attds\[&\#x27;dsds&\#x27;\]=&\#x27;cssdfs&\#x27;
     
   Du kan se princip villkoret med dessa tecken genom att öppna principen i redigerings läge.
     

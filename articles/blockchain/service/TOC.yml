@@ -13,6 +13,8 @@
       href: create-member-cli.md
     - name: Ansluta till transaktionsnod
       items:
+        - name: Använda VS Code
+          href: connect-vscode.md
         - name: Med MetaMask
           href: connect-metamask.md
         - name: Med Geth

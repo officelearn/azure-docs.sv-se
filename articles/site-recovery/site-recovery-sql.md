@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 08/02/2019
 ms.author: sutalasi
-ms.openlocfilehash: 14fbca6dea735ed1ee13fca20f19379cc2c4d0a9
-ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
+ms.openlocfilehash: 79428520eed95e6e79f29e1676e2711e6ee24087
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68742328"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70934839"
 ---
 # <a name="set-up-disaster-recovery-for-sql-server"></a>Konfigurera katastrof återställning för SQL Server
 
@@ -111,7 +111,7 @@ Vissa BCDR-tekniker, som SQL Always on, stöder inte redundanstest. Vi rekommend
 
     ![Skärm bild av fönster med etiketten Content_AG som visar Server namn och status](./media/site-recovery-sql/bring-listener-online.png)
 
-1. Skapa en belastningsutjämnare. Skapa en IP-adress från klient delens IP-pool för varje lyssnare för tillgänglighets grupp. Lägg också till SQL Server VM i backend-poolen.
+1. Se till att belastningsutjämnaren i redundansklustret har en IP-adress, från den frontend-IP-adresspool som motsvarar varje tillgänglighets grupps lyssnare och med SQL Server VM i backend-poolen.
 
      ![Skärm bild av fönstret med rubriken "SQL-AlwaysOn-LB-frontend-IP-pool](./media/site-recovery-sql/create-load-balancer1.png)
 

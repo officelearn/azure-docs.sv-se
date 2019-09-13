@@ -1,106 +1,120 @@
-### YamlMime:YamlDocument
-documentType: LandingData
-title: Dokumentation om visuellt API-innehåll
+### YamlMime:Landing
+title: Dokumentation om visuellt innehåll
+summary: Det molnbaserade API:et för visuellt innehåll ger utvecklare åtkomst till avancerade algoritmer för bearbetning av bilder och returnering av information. Genom att ladda upp en bild eller ange en bilds webbadress kan Microsofts algoritmer för visuellt innehåll analysera visuellt innehåll på olika sätt beroende på indata och användarens val. Lär dig hur du analyserar visuellt innehåll på olika sätt med snabbstarter, självstudier och exempel.
 metadata:
-  title: API-dokumentation – Visuellt innehåll
-  titleSuffix: Azure Cognitive Services
-  description: 'Lär dig hur du använder visuellt innehåll för att bearbeta bilder och returnera information. Självstudier visar hur du skapar appar som använder API:et.'
+  title: Dokumentation om visuellt innehåll
+  description: Det molnbaserade API:et för visuellt innehåll ger utvecklare åtkomst till avancerade algoritmer för bearbetning av bilder och returnering av information. Genom att ladda upp en bild eller ange en bilds webbadress kan Microsofts algoritmer för visuellt innehåll analysera visuellt innehåll på olika sätt beroende på indata och användarens val. Lär dig hur du analyserar visuellt innehåll på olika sätt med snabbstarter, självstudier och exempel.
   services: cognitive-services
-  author: nitinme
-  manager: nitinme
   ms.service: cognitive-services
   ms.subservice: computer-vision
   ms.topic: landing-page
-  ms.date: 02/26/2019
-  ms.author: nitinme
-ms.custom: seodec18
-abstract:
-  description: 'Det molnbaserade API:et för visuellt innehåll ger utvecklare åtkomst till avancerade algoritmer för bearbetning av bilder och returnering av information. Genom att ladda upp en bild eller ange en bilds webbadress kan Microsofts algoritmer för visuellt innehåll analysera visuellt innehåll på olika sätt beroende på indata och användarens val. Lär dig hur du analyserar visuellt innehåll på olika sätt med snabbstarter, självstudier och exempel.'
-  aside:
-    image:
-      alt: null
-      height: 110
-      src: ../media/index/computer-vision-landing-page-video.png
-      width: 250
-    title: 'Integrera intelligens enkelt i dina appar med Vision API:er (05:41)'
-    href: 'https://azure.microsoft.com/resources/videos/connect-2017-microsoft-cognitive-services-put-intelligence-into-your-business-apps/'
-    width: 250
-sections:
-  - items:
-      - type: list
-        style: cards
-        className: cardsM
-        columns: 3
-        items:
-          - href: /azure/cognitive-services/computer-vision/home
-            html: '<p>Lär dig om API:et för visuellt innehåll</p>'
-            image:
-              src: ../media/index/i_overview.svg
-              alt: översiktsikon
-            title: Vad är visuellt innehåll?
-          - href: /azure/cognitive-services/computer-vision/concept-recognizing-text
-            html: <p>Läs mer om textigenkänningsbegrepp.</p>
-            image:
-              src: ../media/index/i_tasks.svg
-              alt: ikon för uppgiftslista
-            title: Känna igen tryckt och handskriven text
-          - href: /azure/cognitive-services/computer-vision/vision-api-how-to-topics/howtocallvisionapi
-            html: <p>Lär dig grunderna om anrop med ett API för visuellt innehåll.</p>
-            image:
-              src: ../media/index/i_tasks.svg
-              alt: ikon för uppgiftslista
-            title: 'Anropa API:et för visuellt innehåll'
-  - title: Snabbstarter på 5 minuter
-    items:
-      - type: paragraph
-        text: 'Analysera bilder, generera miniatyrbilder och extrahera text från en bild med hjälp av:'
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: media/index/logo_Csharp.svg
-            text: 'C&#35;'
-            alt: C Sharp-logotyp
-            href: quickstarts-sdk/csharp-analyze-sdk
-          - image:
-              src: media/index/logo_java.svg
-            text: Java
-            alt: Java-logotyp
-            href: QuickStarts/java-analyze
-          - image:
-              src: media/index/logo_nodejs.svg
-            text: Node.js
-            alt: Node.js-logotyp
-            href: QuickStarts/node-analyze
-          - image:
-              src: media/index/logo_python.svg
-            text: Python
-            alt: C Python-logotyp
-            href: quickstarts-sdk/python-sdk
-          - image:
-              src: media/index/logo_go.svg
-            text: Go
-            alt: Go-logotyp
-            href: QuickStarts/go-analyze
-  - title: Steg för steg-självstudier
-    items:
-      - type: paragraph
-        text: 'Lär dig utveckla program med hjälp av visuellt innehåll:'
-      - type: list
-        style: unordered
-        items:
-          - html: '<a href="Tutorials/CSharpTutorial.md">Skapa en app för visuellt innehåll med C#</a>'
-  - title: Referens
-    items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: 'API:er'
-            html: '<p><a href="https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44">API v2.0 för visuellt innehåll</a></p> <p><a href="https://westus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739">API v1.0 för visuellt innehåll</a></p>'
-          - title: 'SDK:er'
-            html: '<p><a href="https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/computervision?view=azure-dotnet">NET</a></p> <p><a href="https://docs.microsoft.com/javascript/api/azure-cognitiveservices-computervision?view=azure-node-latest">Node.js</a></p> <p><a href="https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/computervision?view=azure-python">Python</a></p> <p><a href="https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.0/computervision">Go</a></p> <p><a href="https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/computervision?view=azure-java-stable">Android (Java)</a></p>'
-          - title: PowerShell
-            html: '<p><a href="https://docs.microsoft.com/powershell/module/az.cognitiveservices/#cognitive_services">Azure PowerShell</a></p>'
-          - title: CLI
-            html: '<p><a href="https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest#az-cognitiveservices-list">Azure CLI</a></p>'
+  author: PatrickFarley
+  ms.author: pafarley
+  ms.date: 09/04/2019
+  ms.openlocfilehash: 83286e559211d0b7066a23f925f3d9d27afbe87e
+  ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 09/12/2019
+  ms.locfileid: "70934025"
+landingContent:
+- title: Om visuellt innehåll
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Vad är visuellt innehåll?
+      url: Home.md
+  - linkListType: video
+    links:
+    - text: Integrera intelligens i dina appar med Vision-API:er
+      url: https://azure.microsoft.com/resources/videos/connect-2017-microsoft-cognitive-services-put-intelligence-into-your-business-apps/
+- title: Känna igen tryckt och handskriven text
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Igenkänning av utskrifter och handskriven text
+      url: concept-recognizing-text.md
+  - linkListType: quickstart
+    links:
+    - text: Använda .NET SDK
+      url: quickstarts-sdk/csharp-hand-text-sdk.md
+    - text: Använda Python SDK
+      url: quickstarts-sdk/python-sdk.md
+- title: Identifiera objekt i bilder
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Objektidentifiering
+      url: concept-object-detection.md
+  - linkListType: quickstart
+    links:
+    - text: Använda .NET SDK
+      url: quickstarts-sdk/csharp-analyze-sdk.md
+    - text: Använda Python SDK
+      url: quickstarts-sdk/python-sdk.md
+    - text: Använda Java SDK
+      url: quickstarts-sdk/java-sdk.md
+- title: Applicera innehållstaggar på bilder
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Innehållstaggar
+      url: concept-tagging-images.md
+  - linkListType: quickstart
+    links:
+    - text: Använda .NET SDK
+      url: quickstarts-sdk/csharp-analyze-sdk.md
+    - text: Använda Python SDK
+      url: quickstarts-sdk/python-sdk.md
+    - text: Använda Java SDK
+      url: quickstarts-sdk/java-sdk.md
+- title: Använda containrar
+  linkLists:
+  - linkListType: get-started
+    links:
+    - text: Installera och köra containrar
+      url: computer-vision-how-to-install-containers.md
+  - linkListType: how-to-guide
+    links:
+    - text: Konfigurera containrar
+      url: computer-vision-resource-container-config.md
+  - linkListType: deploy
+    links:
+    - text: Använda containerinstanser
+      url: deploy-computer-vision-on-container-instances.md
+    - text: Använda med Kubernetes och Helm
+      url: deploy-computer-vision-on-premises.md
+- title: Identifiera ansikten i en bild
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Ansiktsspårning
+      url: concept-detecting-faces.md
+  - linkListType: quickstart
+    links:
+    - text: Använda Python SDK
+      url: quickstarts-sdk/python-sdk.md
+    - text: Använda Java SDK
+      url: quickstarts-sdk/java-sdk.md
+- title: Referens
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: API v2.0 för visuellt innehåll
+      url: https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44
+    - text: API v1.0 för visuellt innehåll
+      url: https://westus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739
+    - text: .NET SDK
+      url: https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/computervision?view=azure-dotnet
+    - text: Python SDK
+      url: https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/computervision?view=azure-python
+    - text: Java SDK
+      url: https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/computervision?view=azure-java-stable
+    - text: Node.js SDK
+      url: https://docs.microsoft.com/javascript/api/azure-cognitiveservices-computervision?view=azure-node-latest
+    - text: Go SDK
+      url: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.0/computervision
+    - text: Azure PowerShell
+      url: https://docs.microsoft.com/powershell/module/az.cognitiveservices/#cognitive_services
+    - text: Kommandoradsgränssnitt för Azure (CLI)
+      url: https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest#az-cognitiveservices-list

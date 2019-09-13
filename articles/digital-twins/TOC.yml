@@ -19,7 +19,7 @@
           href: tutorial-facilities-udf.md
         - name: Meddela med Logic Apps
           href: tutorial-facilities-events.md
-        - name: Visualisera händelser med TSI
+        - name: Visualisera händelser med Time Series Insights
           href: tutorial-facilities-analyze.md
 - name: Begrepp
   items:

@@ -2,19 +2,19 @@
 title: Diagnostik i Durable Functions – Azure
 description: Lär dig hur du diagnostiserar problem med Durable Functions-tillägget för Azure Functions.
 services: functions
-author: ggailey777
+author: cgillum
 manager: jeconnoc
 keywords: ''
 ms.service: azure-functions
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 09/04/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 7c02d4dfde7869da7985817b06f6de398bbef38d
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.openlocfilehash: d2badee3eaa5a9af48e89adc1b59beacc1571792
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70734496"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70933510"
 ---
 # <a name="diagnostics-in-durable-functions-in-azure"></a>Diagnostik i Durable Functions i Azure
 
@@ -32,7 +32,7 @@ Varje livs cykel händelse i en Orchestration-instans gör att en spårnings hä
 
 * **hubName**: Namnet på den aktivitets hubb där dirigeringarna körs.
 * **APPNAME**: Namnet på Function-appen. Detta är användbart när du har flera Function-appar som delar samma Application Insights-instans.
-* **slotName**: [Distributions platsen](https://blogs.msdn.microsoft.com/appserviceteam/2017/06/13/deployment-slots-preview-for-azure-functions/) där den aktuella Function-appen körs. Detta är användbart när du använder distributions platser för att få en version av dina dirigeringar.
+* **slotName**: [Distributions platsen](../functions-deployment-slots.md) där den aktuella Function-appen körs. Detta är användbart när du använder distributions platser för att få en version av dina dirigeringar.
 * **functionname**: Namnet på Orchestrator-eller Activity-funktionen.
 * **functionType**: Typ av funktion, till exempel **Orchestrator** eller **Activity**.
 * **InstanceID**: Det unika ID: t för Orchestration-instansen.
@@ -349,12 +349,13 @@ Klienterna får följande svar:
 
 Azure Functions stöder fel söknings funktions kod direkt och samma stöd vidarebefordrar till Durable Functions, oavsett om de körs i Azure eller lokalt. Det finns dock några beteenden som kan vara medvetna om vid fel sökning:
 
-* **Spela upp**igen: Orchestrator-funktioner spelas regelbundet upp när nya indata tas emot. Det innebär att en enda *logisk* körning av en Orchestrator-funktion kan resultera i att samma Bryt punkt används flera gånger, särskilt om den har ställts in tidigt i funktions koden.
-* **Väntar**: När ett `await` påträffas, ger den kontrollen tillbaka till Dispatchern för den varaktiga aktivitets ramverket. Om det här är första gången ett visst `await` har påträffats, återupptas *aldrig* den associerade aktiviteten. Eftersom aktiviteten aldrig återupptas är det inte möjligt att stega *över* await (F10 i Visual Studio). Att stega över fungerar bara när en uppgift spelas upp.
-* **Timeout för meddelande meddelande**: Durable Functions används internt i kö för att köra både Orchestrator-funktioner och aktivitets funktioner. I en miljö med flera virtuella datorer kan en annan virtuell dator Hämta meddelandet, vilket resulterar i dubbla körningar om du bryter mot fel sökningen under längre tids perioder. Det här beteendet finns även för vanliga funktioner för kö-utlösare, men det är viktigt att du pekar på den här kontexten eftersom köerna är en implementerings detalj.
+* **Spela upp**igen: Orchestrator-funktioner [spelas regelbundet upp](durable-functions-orchestrations.md#reliability) när nya indata tas emot. Det innebär att en enda *logisk* körning av en Orchestrator-funktion kan resultera i att samma Bryt punkt används flera gånger, särskilt om den har ställts in tidigt i funktions koden.
+* **Väntar**: När ett `await` inträffar i en Orchestrator-funktion, ger den kontrollen tillbaka till Dispatchern för den varaktiga aktivitets ramverket. Om det här är första gången ett visst `await` har påträffats, återupptas *aldrig* den associerade aktiviteten. Eftersom aktiviteten aldrig återupptas är det inte möjligt att stega *över* await (F10 i Visual Studio). Att stega över fungerar bara när en uppgift spelas upp.
+* **Timeout för meddelande meddelande**: Durable Functions används internt i kö för att köra funktioner för Orchestrator, aktivitet och entitet. I en miljö med flera virtuella datorer kan en annan virtuell dator Hämta meddelandet, vilket resulterar i dubbla körningar om du bryter mot fel sökningen under längre tids perioder. Det här beteendet finns även för vanliga funktioner för kö-utlösare, men det är viktigt att du pekar på den här kontexten eftersom köerna är en implementerings detalj.
+* **Stoppa och starta**: Meddelanden i varaktiga funktioner kvarstår mellan fel söknings sessioner. Om du slutar felsöka och avslutar den lokala värd processen medan en varaktig funktion körs, kan den funktionen köras igen automatiskt i en framtida felsökningssession. Detta kan vara förvirrande när det inte förväntas. Att rensa alla meddelanden från [interna lagrings köer](durable-functions-perf-and-scale.md#internal-queue-triggers) mellan fel söknings sessioner är en teknik för att undvika det här beteendet.
 
 > [!TIP]
-> Om du ställer in Bryt punkter, om du bara vill bryta vid icke-omuppspelnings körning, kan du ange en villkorlig Bryt punkt som `IsReplaying` bara `false`bryts om är.
+> Om du ställer in Bryt punkter i Orchestrator-funktioner, om du bara vill bryta vid icke-omuppspelningar, kan du ange en villkorlig Bryt punkt som `IsReplaying` bara `false`delar om är.
 
 ## <a name="storage"></a>Storage
 
@@ -370,4 +371,4 @@ Detta är användbart för fel sökning eftersom du ser exakt vilket tillstånd 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Lär dig hur du använder varaktiga timers](durable-functions-timers.md)
+> [Läs mer om övervakning i Azure Functions](../functions-monitoring.md)

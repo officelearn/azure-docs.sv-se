@@ -1,78 +1,78 @@
-### YamlMime:YamlDocument
-documentType: LandingData
-title: Dokumentation om formigenkänning
+### YamlMime:Landing
+title: Dokumentation om Formigenkänning
+summary: Formigenkänning i Azure är en kognitiv tjänst som använder maskininlärningsteknik för att identifiera och extrahera nyckel/värde-par och tabelldata från formulärdokument. Sedan returnerar tjänsten strukturerade data som innehåller relationerna i den ursprungliga filen. Med oövervakad inlärning kan modellen att förstå layout och relationer mellan fält och poster utan data för manuell märkning eller intensiv kodning och underhåll.
 metadata:
-  title: API-dokumentation – formigenkänning
-  titleSuffix: Azure Cognitive Services
-  description: Lär dig hur du använder formigenkänning för att extrahera nyckel/värde-data från dina dokument i formuläret på ett intelligent sätt.
-  services: cognitive-services
-  author: PatrickFarley
-  manager: nitinme
-  ms.service: cognitive-services
-  ms.subservice: forms-recognizer
-  ms.topic: landing-page
-  ms.date: 04/16/2019
-  ms.author: pafarley
-ms.custom: seodec18
-abstract:
+  title: Dokumentation om Formigenkänning
   description: Formigenkänning i Azure är en kognitiv tjänst som använder maskininlärningsteknik för att identifiera och extrahera nyckel/värde-par och tabelldata från formulärdokument. Sedan returnerar tjänsten strukturerade data som innehåller relationerna i den ursprungliga filen. Med oövervakad inlärning kan modellen att förstå layout och relationer mellan fält och poster utan data för manuell märkning eller intensiv kodning och underhåll.
-  aside:
-    image:
-      alt: null
-      height: 110
-      src: ../media/index/form-recognizer-landing-page-video.png
-      width: 250
-    title: 'AI-driven processautomatisering med Formigenkänning (2:15)'
-    href: 'https://channel9.msdn.com/Shows/AI-Show/Learn-about-AI-powered-robotic-process-automation-with-Form-Recognizer'
-    width: 250
-sections:
-  - items:
-      - type: list
-        style: cards
-        className: cardsM
-        columns: 3
-        items:
-          - href: /azure/cognitive-services/form-recognizer/overview
-            html: <p>Ta reda på mer om formigenkänning.</p>
-            image:
-              src: ../media/index/i_overview.svg
-            title: Vad är formigenkänning?
-          - href: /azure/cognitive-services/form-recognizer/form-recognizer-container-howto
-            html: <p>Lär dig hur du använder formigenkänningscontainern för att parsa formulär- och tabelldata.</p>
-            image:
-              src: ../media/index/i_get-started.svg
-            title: Installera och köra containrar
-          - href: /azure/cognitive-services/form-recognizer/build-training-data-set
-            html: <p>Skapa en datauppsättning som är optimerad för att träna en anpassad modell.</p>
-            image:
-              src: ../media/index/i_overview.svg
-            title: Skapa en träningsdatauppsättning
-  - title: Snabbstarter på 5 minuter
-    items:
-      - type: paragraph
-        text: 'Träna en modell för formigenkänning och extrahera data från formulär med hjälp av:'
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: ./media/logos/logo-curl.svg
-            text: cURL
-            href: quickstarts/curl-train-extract.md
-          - image:
-              src: ./media/logos/logo-python.svg
-            text: Python
-            href: quickstarts/python-train-extract.md
-  - title: Referens
-    items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: 'API:er'
-            html: '<p><a href="https://aka.ms/form-recognizer/api">API för formigenkänning</a></p>'
-          - title: 'SDK:er'
-            html: '<p><a href="https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/formrecognizer?view=azure-dotnet-preview">NET</a></p>'
-          - title: PowerShell
-            html: '<p><a href="https://docs.microsoft.com/powershell/module/az.cognitiveservices/#cognitive_services">Azure PowerShell</a></p>'
-          - title: CLI
-            html: '<p><a href="https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest#az-cognitiveservices-list">Azure CLI</a></p>'
+  services: cognitive-services
+  ms.service: cognitive-services
+  ms.subservice: form-recognizer
+  ms.topic: landing-page
+  author: PatrickFarley
+  ms.author: pafarley
+  ms.date: 09/05/2019
+  ms.openlocfilehash: 0c450a79c0dbdd19732488af927c3c29df263a23
+  ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 09/12/2019
+  ms.locfileid: "70931829"
+landingContent:
+- title: Om Formigenkänning
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Vad är formigenkänning?
+      url: overview.md
+  - linkListType: video
+    links:
+    - text: AI-driven processautomation med Formigenkänning
+      url: https://channel9.msdn.com/Shows/AI-Show/Learn-about-AI-powered-robotic-process-automation-with-Form-Recognizer
+- title: Träna en anpassad modell och extrahera data
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Använda .NET SDK
+      url: quickstarts/dotnet-sdk.md
+    - text: Använda REST API (Python)
+      url: quickstarts/python-train-extract.md
+    - text: Använda REST API (cURL)
+      url: quickstarts/curl-train-extract.md
+- title: Extrahera data från kvitton
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Använda .NET SDK
+      url: quickstarts/dotnet-sdk.md
+- title: Skapa en träningsdatauppsättning
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Skapa en träningsdatauppsättning
+      url: build-training-data-set.md
+- title: Använda containrar
+  linkLists:
+  - linkListType: get-started
+    links:
+    - text: Installera och köra containrar
+      url: form-recognizer-container-howto.md
+  - linkListType: how-to-guide
+    links:
+    - text: Konfigurera containrar
+      url: form-recognizer-container-configuration.md
+  - linkListType: deploy
+    links:
+    - text: Använda containerinstanser
+      url: deploy-form-recognizer-on-container-instances.md
+- title: Referens
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: API för formigenkänning
+      url: https://aka.ms/form-recognizer/api
+    - text: .NET SDK
+      url: https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/formrecognizer?view=azure-dotnet-preview
+    - text: Azure PowerShell
+      url: https://docs.microsoft.com/powershell/module/az.cognitiveservices/#cognitive_services
+    - text: Kommandoradsgränssnitt för Azure (CLI)
+      url: https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest#az-cognitiveservices-list

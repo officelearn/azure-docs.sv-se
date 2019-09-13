@@ -7,14 +7,14 @@ manager: jeconnoc
 keywords: ''
 ms.service: azure-functions
 ms.topic: article
-ms.date: 07/08/2019
+ms.date: 09/04/2019
 ms.author: azfuncdf
-ms.openlocfilehash: a64276de3e535c8b7724927ce2e257542cc9e01a
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: 8f2560141eac4e7d9fed267d347990e65bfe9c26
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70164414"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70933248"
 ---
 # <a name="durable-functions-20-preview-azure-functions"></a>Durable Functions 2,0 för hands version (Azure Functions)
 
@@ -91,257 +91,36 @@ Följande tabell representerar huvud ändringarna:
 | DurableOrchestrationClientBase | IDurableOrchestrationClient |
 | DurableOrchestrationContextBase | IDurableOrchestrationContext |
 | DurableActivityContextBase | IDurableActivityContext |
+| OrchestrationClientAttribute | DurableClientAttribute |
 
 Om en abstrakt basklass innehåller virtuella metoder har de här virtuella metoderna ersatts av tilläggs metoder som definierats i `DurableContextExtensions`.
 
 ## <a name="entity-functions"></a>Enhets funktioner
 
+Från och med Durable Functions v 2.0.0-alpha har vi introducerat en ny [entitet Functions](durable-functions-entities.md) -koncept.
+
 Entitets funktioner definierar åtgärder för att läsa och uppdatera små delar av tillstånd,så kallade varaktiga entiteter. Precis som med Orchestrator Functions är enhets funktionerna funktioner med en särskildutlösnings typ, enhets utlösare. Till skillnad från Orchestrator-funktioner har enhets funktioner inga speciella kod begränsningar. Enhets funktionerna hanterar också tillstånd explicit snarare än implicit som representerar tillstånd via kontroll flödet.
 
-### <a name="net-programing-models"></a>.NET-program modeller
+Baserat på feedback från första användare lade vi senare till stöd för en klass-baserad programmerings modell för entiteter i Durable Functions v-2.0.0-beta1.
 
-Det finns två valfria programmerings modeller för att redigera varaktiga entiteter. Följande kod är ett exempel på en enkel *Counter* -entitet som implementeras som en standard funktion. Den här funktionen definierartre åtgärder `add`, `reset`, och `get`, som körs på ett heltals tillstånds värde `currentValue`.
+Mer information finns i artikeln [entitet Functions](durable-functions-entities.md) .
 
-```csharp
-[FunctionName("Counter")]
-public static void Counter([EntityTrigger] IDurableEntityContext ctx)
-{
-    int currentValue = ctx.GetState<int>();
+## <a name="durable-http"></a>Varaktig HTTP
 
-    switch (ctx.OperationName.ToLowerInvariant())
-    {
-        case "add":
-            int amount = ctx.GetInput<int>();
-            currentValue += operand;
-            break;
-        case "reset":
-            currentValue = 0;
-            break;
-        case "get":
-            ctx.Return(currentValue);
-            break;
-    }
+Från och med Durable Functions v 2.0.0-beta2 har vi introducerat en ny [BESTÄNDIG http](durable-functions-http-features.md) -funktion som gör att du kan:
 
-    ctx.SetState(currentValue);
-}
-```
+* Anropa HTTP-API: er direkt från Orchestration-funktioner (med vissa dokumenterade begränsningar)
+* Implementerar automatisk status avsökning för HTTP 202 på klient Sidan
+* Inbyggt stöd för [Azure Managed Identities](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)
 
-Den här modellen fungerar bäst för enkla enhets implementeringar eller implementeringar som har en dynamisk uppsättning åtgärder. Det finns dock en klass-baserad programmerings modell som är användbar för entiteter som är statiska men har mer komplexa implementeringar. Följande exempel är en motsvarande implementering av `Counter` entiteten med hjälp av .NET-klasser och-metoder.
-
-```csharp
-public class Counter
-{
-    [JsonProperty("value")]
-    public int CurrentValue { get; set; }
-
-    public void Add(int amount) => this.CurrentValue += amount;
-    
-    public void Reset() => this.CurrentValue = 0;
-    
-    public int Get() => this.CurrentValue;
-
-    [FunctionName(nameof(Counter))]
-    public static Task Run([EntityTrigger] IDurableEntityContext ctx)
-        => ctx.DispatchAsync<Counter>();
-}
-```
-
-Den klassbaserade modellen liknar programmerings modellen som är populär av [Orleans](https://www.microsoft.com/research/project/orleans-virtual-actors/). I den här modellen definieras en entitetstyp som en .NET-klass. Varje metod i klassen är en åtgärd som kan anropas av en extern klient. Till skillnad från Orleans är .NET-gränssnitt valfria. I föregående *räknar* exempel används inget gränssnitt, men det kan fortfarande anropas via andra funktioner eller via HTTP API-anrop.
-
-Enhets *instanser* nås via en unik identifierare, ENTITETS *-ID*. Ett entitets-ID är bara ett par med strängar som unikt identifierar en enhets instans. Det består av:
-
-* Ett **entitetsnamn**: ett namn som identifierar entitetens typ (till exempel "Counter").
-* En **enhets nyckel**: en sträng som unikt identifierar entiteten bland alla andra entiteter av samma namn (till exempel ett GUID).
-
-En *Counter* -enhets funktion kan till exempel användas för att hålla poängen i ett onlinespel. Varje instans av spelet har ett unikt entitets-ID, t. `@Counter@Game1`ex `@Counter@Game2`., och så vidare.
-
-### <a name="comparison-with-virtual-actors"></a>Jämförelse med virtuella aktörer
-
-Designen av varaktiga enheter påverkas kraftigt av aktörs [modellen](https://en.wikipedia.org/wiki/Actor_model). Om du redan är bekant med aktörerna, bör begreppen bakom varaktiga entiteter vara bekanta med dig. I synnerhet är varaktiga entiteter snarlika [virtuella aktörer](https://research.microsoft.com/projects/orleans/) på många sätt:
-
-* Varaktiga entiteter kan adresseras via ett *entitets-ID*.
-* Varaktiga enhets åtgärder körs seriellt, en i taget, för att förhindra tävlings förhållanden.
-* Varaktiga entiteter skapas automatiskt när de anropas eller signaleras.
-* När åtgärder inte körs inaktive ras varaktiga entiteter tyst från minnet.
-
-Det finns dock några viktiga skillnader, men det är värt att notera:
-
-* Varaktiga enheter prioriterar *hållbarhet* över *svars tider*och kan därför vara lämpligt för program med strikt latens krav.
-* Meddelanden som skickas mellan entiteter levereras på ett tillförlitligt sätt och i rätt ordning.
-* Varaktiga entiteter kan användas tillsammans med varaktiga dirigeringar och kan fungera som distribuerade lås, som beskrivs längre fram i den här artikeln.
-* Mönster för begäran/svar i entiteter är begränsade till dirigering. För kommunikation mellan enheter och entiteter tillåts endast enkelriktade meddelanden (även kallade "signalering"), som i den ursprungliga aktörs modellen. Det här beteendet förhindrar distribuerade död lägen.
-
-### <a name="durable-entity-net-apis"></a>.NET API: er för varaktig entitet
-
-Support för entiteter omfattar flera API: er. Det finns ett nytt API för att definiera enhets funktioner, som du ser ovan, som anger vad som ska hända när en åtgärd anropas på en entitet. Dessutom har befintliga API: er för klienter och dirigering uppdaterats med nya funktioner för interaktion med entiteter.
-
-#### <a name="implementing-entity-operations"></a>Implementera entitets-åtgärder
-
-Körningen av en åtgärd på en entitet kan anropa dessa medlemmar på objektet context (`IDurableEntityContext` i .net):
-
-* **OperationName**: hämtar namnet på åtgärden.
-* **GetInput\<TInput >** : hämtar InInformationen för åtgärden.
-* **GetState\<TState >** : hämtar entitetens aktuella status.
-* **SetState**: uppdaterar enhetens status.
-* **SignalEntity**: skickar ett enkelriktat meddelande till en entitet.
-* **Self**: hämtar ID för entiteten.
-* **Return**: returnerar ett värde till klienten eller dirigeringen som anropade åtgärden.
-* **IsNewlyConstructed**: returnerar `true` om entiteten inte fanns före åtgärden.
-* **DestructOnExit**: tar bort entiteten när åtgärden har slutförts.
-
-Åtgärder är mindre begränsade än Orchestration:
-
-* Åtgärder kan anropa externa I/O med hjälp av synkrona eller asynkrona API: er (vi rekommenderar att endast använda asynkrona).
-* Åtgärder kan vara icke-deterministiska. Det kan till exempel vara säkert att anropa `DateTime.UtcNow` `Guid.NewGuid()` eller `new Random()`.
-
-#### <a name="accessing-entities-from-clients"></a>Åtkomst till entiteter från klienter
-
-Varaktiga entiteter kan anropas från vanliga funktioner via `orchestrationClient` bindningen`IDurableOrchestrationClient` (i .net). Följande metoder stöds:
-
-* **ReadEntityStateAsync\<T >** : läser status för en entitet.
-* **SignalEntityAsync**: skickar ett envägs meddelande till en entitet och väntar på att det ska placeras i kö.
-* **SignalEntityAsync\<T >** : samma som `SignalEntityAsync` men använder ett genererat proxyobjekt av typen `T`.
-
-Det tidigare `SignalEntityAsync` anropet kräver att du anger namnet på enhets åtgärden `string` som en och nytto lasten för åtgärden `object`som en. Följande exempel kod är ett exempel på det här mönstret:
-
-```csharp
-EntityId id = // ...
-object amount = 5;
-context.SignalEntityAsync(id, "Add", amount);
-```
-
-Det är också möjligt att generera ett proxyobjekt för typ säker åtkomst. Om du vill generera en typ säker proxy måste entitetstypen implementera ett gränssnitt. Anta till exempel att `Counter` entiteten ovan implementerade ett `ICounter` gränssnitt, som definieras enligt följande:
-
-```csharp
-public interface ICounter
-{
-    void Add(int amount);
-    void Reset();
-    int Get();
-}
-
-public class Counter : ICounter
-{
-    // ...
-}
-```
-
-Klient koden kan sedan använda `SignalEntityAsync<T>` och `ICounter` ange gränssnittet som typ parameter för att generera en typ säker proxy. Användningen av typ säkra proxyservrar visas i följande kod exempel:
-
-```csharp
-[FunctionName("UserDeleteAvailable")]
-public static async Task AddValueClient(
-    [QueueTrigger("my-queue")] string message,
-    [OrchestrationClient] IDurableOrchestrationClient client)
-{
-    int amount = int.Parse(message);
-    var target = new EntityId(nameof(Counter), "MyCounter");
-    await client.SignalEntityAsync<ICounter>(target, proxy => proxy.Add(amount));
-}
-```
-
-I föregående exempel `proxy` är parametern en dynamiskt genererad instans av `ICounter`, som internt översätter anropet till `Add` till motsvarande (inte avskrivit) anrop till `SignalEntityAsync`.
-
-Typ parametern för `SignalEntityAsync<T>` har följande begränsningar:
-
-* Typ parametern måste vara ett gränssnitt.
-* Det går bara att definiera metoder i gränssnittet. Egenskaper stöds inte.
-* Varje metod måste definiera antingen en eller inga parametrar.
-* Varje metod måste returnera antingen `void`, `Task`eller `Task<T>` där `T` är en JSON-serializeable typ.
-* Gränssnittet måste implementeras av exakt en typ inom gränssnittets sammansättning.
-
-I de flesta fall leder gränssnitt som inte uppfyller dessa krav på ett körnings undantag.
-
-> [!NOTE]
-> Det är viktigt att notera att metoderna `ReadEntityStateAsync` och `SignalEntityAsync` för `IDurableOrchestrationClient` att prioritera prestanda över konsekvens. `ReadEntityStateAsync`kan returnera ett inaktuellt värde `SignalEntityAsync` och kan returneras innan åtgärden har slutförts.
-
-#### <a name="accessing-entities-from-orchestrations"></a>Åtkomst till entiteter från dirigering
-
-Dirigeringar har åtkomst till entiteter `IDurableOrchestrationContext` med hjälp av objektet. De kan välja mellan enkelriktad kommunikation (eld och glömma) och tvåvägs kommunikation (begäran och svar). Respektive metod är:
-
-* **SignalEntity**: skickar ett enkelriktat meddelande till en entitet.
-* **CallEntityAsync**: skickar ett meddelande till en entitet och väntar på ett svar som anger att åtgärden har slutförts.
-* **CallEntityAsync\<T >** : skickar ett meddelande till en entitet och väntar på ett svar som innehåller ett resultat av typen T.
-
-När du använder tvåvägs kommunikation överförs eventuella undantag som har utlösts under körningen av åtgärden tillbaka till den anropande dirigeringen och återkastas. Undantag observeras dock inte när du använder Fire-och-glömma.
-
-För typ säker åtkomst kan Orchestration-funktioner generera proxyservrar baserat på ett gränssnitt. `CreateEntityProxy` Tilläggs metoden kan användas för detta ändamål:
-
-```csharp
-public interface IAsyncCounter
-{
-    Task AddAsync(int amount);
-    Task ResetAsync();
-    Task<int> GetAsync();
-}
-
-[FunctionName("CounterOrchestration")]
-public static async Task Run(
-    [OrchestrationTrigger] IDurableOrchestrationContext context)
-{
-    // ...
-    IAsyncCounter proxy = context.CreateEntityProxy<IAsyncCounter>("MyCounter");
-    await proxy.AddAsync(5);
-    int newValue = await proxy.GetAsync();
-    // ...
-}
-```
-
-I det tidigare exemplet antogs en "Counter"-entitet som implementerade `IAsyncCounter` gränssnittet. Dirigeringen kunde sedan använda `IAsyncCounter` typ definitionen för att generera en proxytyp för synkron interaktion med entiteten.
-
-### <a name="locking-entities-from-orchestrations"></a>Låsa entiteter från Orchestrations
-
-Dirigeringar kan låsa entiteter. Den här funktionen är ett enkelt sätt att förhindra oönskade races med hjälp av *kritiska avsnitt*.
-
-Objektet context innehåller följande metoder:
-
-* **LockAsync**: hämtar lås på en eller flera entiteter.
-* **IsLocked**: returnerar true om det finns i ett kritiskt avsnitt, annars FALSE.
-
-Det kritiska avsnittet slutar och alla Lås släpps när dirigeringen upphör. I .net `LockAsync` returnerar ett `IDisposable` som avslutar det kritiska avsnittet när det tas bort, som kan användas tillsammans med en `using` sats för att få en syntaktisk representation av det kritiska avsnittet.
-
-Anta till exempel att du måste testa om två spelare är tillgängliga och sedan tilldela dem till ett spel. Den här uppgiften kan implementeras med hjälp av ett kritiskt avsnitt enligt följande:
-
-```csharp
-[FunctionName("Orchestrator")]
-public static async Task RunOrchestrator(
-    [OrchestrationTrigger] IDurableOrchestrationContext ctx)
-{
-    EntityId player1 = /* ... */;
-    EntityId player2 = /* ... */;
-
-    using (await ctx.LockAsync(player1, player2))
-    {
-        bool available1 = await ctx.CallEntityAsync<bool>(player1, "is-available");
-        bool available2 = await ctx.CallEntityAsync<bool>(player2, "is-available");
-
-        if (available1 && available2)
-        {
-            Guid gameId = ctx.NewGuid();
-
-            await ctx.CallEntityAsync(player1, "assign-game", gameId);
-            await ctx.CallEntityAsync(player2, "assign-game", gameId);
-        }
-    }
-}
-```
-
-I det kritiska avsnittet är båda spelarens entiteter låsta, vilket innebär att de inte kör andra åtgärder än de som anropas från det kritiska avsnittet). Det här beteendet förhindrar races med motstridiga åtgärder, till exempel att spelare tilldelas till ett annat spel eller att de loggar ut.
-
-Vi tillämpar flera begränsningar för hur viktiga avsnitt kan användas. Dessa begränsningar är till för att förhindra död lägen och återinträde.
-
-* Det går inte att kapsla kritiska avsnitt.
-* Det går inte att skapa under dirigering med kritiska avsnitt.
-* Kritiska avsnitt kan bara anropa entiteter som de har låst.
-* Kritiska avsnitt kan inte anropa samma entitet med flera parallella anrop.
-* Kritiska avsnitt kan endast signalera entiteter som de inte har låst.
+Mer information finns i artikeln om [http-funktioner](durable-functions-http-features.md#consuming-http-apis) .
 
 ## <a name="alternate-storage-providers"></a>Alternativa lagringsprovider
 
 Det tåliga aktivitets ramverket har stöd för flera lagringsprovider idag, inklusive [Azure Storage](https://github.com/Azure/durabletask/tree/master/src/DurableTask.AzureStorage), [Azure Service Bus](https://github.com/Azure/durabletask/tree/master/src/DurableTask.ServiceBus), en [intern emulator](https://github.com/Azure/durabletask/tree/master/src/DurableTask.Emulator)och en experimentell [Redis](https://github.com/Azure/durabletask/tree/redis/src/DurableTask.Redis) -Provider. Men fram till nu stöds den varaktiga åtgärds utökningen för Azure Functions endast Azure Storage-providern. Från och med Durable Functions 2,0 läggs stöd för alternativa lagringsprovider till, från och med Redis-providern.
 
 > [!NOTE]
-> Durable Functions 2,0 stöder endast .NET standard 2,0-kompatibla providers. Vid tidpunkten för skrivning stöder Azure Service Bus-providern inte .NET standard 2,0 och är därför inte tillgänglig som en alternativ lagringsprovider.
+> Durable Functions 2,0 stöder endast .NET standard 2,0-kompatibla providers.
 
 ### <a name="emulator"></a>Torn
 

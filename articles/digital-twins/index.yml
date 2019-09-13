@@ -1,31 +1,75 @@
-### YamlMime:YamlDocument
-documentType: LandingData
+### YamlMime:Landing
 title: Dokumentation om förhandsversionen av Azure Digital Twins
+summary: Lär dig hur du använder Azure Digital Twins för att ansluta personer, platser och saker och för att skapa IoT-lösningar med spatial intelligens. Gå igenom snabbstarten och självstudierna för att övervaka en tänkt smart byggnad, lär dig mer djupgående begrepp och skapa en nästa generations IoT-lösning som bygger på din fysiska miljö.
 metadata:
-  title: 'Dokumentation om förhandsversionen av Azure Digital Twins – självstudier, API-referens | Microsoft Docs'
+  title: Dokumentation om förhandsversionen av Azure Digital Twins – självstudier, API-referens | Microsoft Docs
   description: Använd Azure Digital Twins för att skapa smarta rumsliga lösningar.
-  author: dsk-2015
-  manager: timlt
-  ms.service: digital-twins
   services: digital-twins
+  ms.service: digital-twins
+  ms.subservice: digital-twins
   ms.topic: landing-page
-  ms.date: 10/15/2018
-  ms.author: dkshir
-abstract:
-  description: 'Lär dig hur du använder Azure Digital Twins för att ansluta personer, platser och saker och för att skapa IoT-lösningar med spatial intelligens. Gå igenom snabbstarten och självstudierna för att övervaka en tänkt smart byggnad, lär dig mer djupgående begrepp och skapa en nästa generations IoT-lösning som bygger på din fysiska miljö.'
-sections:
-  - title: Snabbstart på fem minuter
-    items:
-      - type: paragraph
-        text: Lär dig hur du <a href="quickstart-view-occupancy-dotnet">hittar tillgängliga rum med god luftkvalitet genom att använda Azure Digital Twins .NET-exempel</a>.
-  - title: Steg för steg-självstudier
-    items:
-      - type: paragraph
-        text: Lär dig hur du anpassar och använder din Azure Digital Twins-lösning för att övervaka dina anläggningar.
-      - type: list
-        style: ordered
-        items:
-          - html: <a href="/azure/digital-twins/tutorial-facilities-setup">Etablera en exempelbyggnad</a>
-          - html: <a href="/azure/digital-twins/tutorial-facilities-udf">Övervaka byggnadens tillstånd</a>
-          - html: <a href="/azure/digital-twins/tutorial-facilities-events">Ta emot aviseringar från byggnaden</a>
-          - html: <a href="/azure/digital-twins/tutorial-facilities-analyze">Analysera händelser från din byggnad</a>
+  ms.collection: collection
+  author: KingdomOfEnds
+  ms.author: v-adgera
+  ms.date: 09/03/2019
+  ms.openlocfilehash: 090a18b77de3ca89ecd054ce28ec9e8b0a17dd1f
+  ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 09/12/2019
+  ms.locfileid: "70930707"
+landingContent:
+- title: Om Azure Digital Twins
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Vad är Azure Digital Twins?
+      url: about-digital-twins.md
+  - linkListType: concept
+    links:
+    - text: Förstå Digital Twins-objektmodellen och diagram för rumslig intelligens
+      url: concepts-objectmodel-spatialgraph.md
+  - linkListType: video
+    links:
+    - text: Introduktion till Azure Digital Twins
+      url: https://channel9.msdn.com/Shows/Internet-of-Things-Show/Azure-Digital-Twins-Introduction
+- title: Komma igång
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Hitta tillgängliga rum
+      url: quickstart-view-occupancy-dotnet.md
+  - linkListType: tutorial
+    links:
+    - text: Distribuera och konfigurera
+      url: tutorial-facilities-setup.md
+    - text: Etablera och övervaka villkor
+      url: tutorial-facilities-udf.md
+    - text: Meddela med Logic Apps
+      url: tutorial-facilities-events.md
+    - text: Visualisera händelser med TSI
+      url: tutorial-facilities-analyze.md
+- title: Utveckla med Azure Digital Twins
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Enhetsanslutning och inkommande telemetri
+      url: concepts-device-ingress.md
+    - text: Databearbetning och användardefinierade funktioner
+      url: concepts-user-defined-functions.md
+  - linkListType: how-to-guide
+    links:
+    - text: Konfigurera Postman
+      url: how-to-configure-postman.md
+    - text: Skapa användardefinierade funktioner
+      url: how-to-user-defined-functions.md
+- title: API-referens
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: Användardefinierade funktioner – klientbibliotek
+      url: reference-user-defined-functions-client-library.md
+  - linkListType: how-to-guide
+    links:
+    - text: Använda Digital Twins Swagger
+      url: how-to-use-swagger.md

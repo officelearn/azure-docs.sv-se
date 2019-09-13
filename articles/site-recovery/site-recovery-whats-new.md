@@ -1,18 +1,18 @@
 ---
-title: Vad är nytt i Azure Site Recovery | Microsoft Docs
+title: Vad är nytt i Azure Site Recovery
 description: Innehåller en sammanfattning av nya funktioner som introducerats i Azure Site Recovery
 services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 08/29/2019
+ms.date: 09/12/2019
 ms.author: raynew
-ms.openlocfilehash: 5cd4b86c9c70f713a207f7feea9fa8efc06b6247
-ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
+ms.openlocfilehash: 2d40e6fef215219035720ee64492a91fcdafb472
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70146906"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70933941"
 ---
 # <a name="whats-new-in-site-recovery"></a>Nyheter i Site Recovery
 
@@ -24,16 +24,56 @@ Du kan följa och prenumerera på Site Recovery uppdaterings meddelanden i [Azur
 
 För Site Recovery-komponenter stöder vi N-4-versioner, där N är den senaste utgivna versionen. Dessa sammanfattas i följande tabell.
 
-**Uppdatering** |  **Enhetlig installation** | **Konfigurations Server för ägg** | **Mobilitets tjänst agent** | **Site Recovery Provider** | **Recovery Services agent** 
---- | --- | --- | --- | ---
+**Uppdatering** |  **Enhetlig installation** | **Konfigurations Server för ägg** | **Mobilitets tjänst agent** | **Site Recovery Provider** | **Recovery Services agent**
+--- | --- | --- | --- | --- | ---
+[Samlad uppdatering 40](https://support.microsoft.com/help/4517283/) | 9.28.5345.1 | 5.1.4800.0 | 9.28.5345.1 | 5.1.4800.0 | 2.0.9165.0
 [Samlad uppdatering 39](https://support.microsoft.com/help/4517283/) | 9.27.5308.1 | 5.1.4600.0 | 9.27.5308.1 | 5.1.4600.0 | 2.0.9165.0
 [Samlad uppdatering 38](https://support.microsoft.com/help/4513507/) | 9.26.5269.1 | 5.1.4500.0 | 9.26.5269.1 | 5.1.4500.0 | 2.0.9165.0
 [Samlad uppdatering 37](https://support.microsoft.com/help/4508614/) | 9.25.5241.1 | 5.1.4300.0 | 9.25.5241.1 | 5.1.4300.0 | 2.0.9163.0
 [Samlad uppdatering 36](https://support.microsoft.com/help/4503156/) | 9.24.5211.1 | 5.1.4150.0 | 9.24.5211.1 | 5.1.4150.0 | 2.0.9160.0 
-[Samlad uppdatering 35](https://support.microsoft.com/help/4494485/) | 9.23.5163.1 | 5.1.4000.0 | 9.23.5163.1 | 5.1.4000.0 | 2.0.9156.0 
         
 
 [Läs mer](service-updates-how-to.md) om installation och stöd för uppdateringar.
+
+
+## <a name="updates-september-2019"></a>Uppdateringar (september 2019)
+
+### <a name="update-rollup-40"></a>Samlad uppdatering 40
+
+Samlad [uppdatering 40](h https://support.microsoft.com/help/4521530/update-rollup-40-for-azure-site-recovery) innehåller följande uppdateringar.
+
+**Uppdatering** | **Detaljer**
+--- | ---
+**Leverantörer och agenter** | Uppdateringar av Site Recovery agenter och providers (enligt beskrivningen i den samlade uppdateringen)
+**Problem korrigeringar/förbättringar** | Ett antal korrigeringar och förbättringar (enligt beskrivningen i den samlade uppdateringen)
+
+
+
+
+### <a name="azure-vm-disaster-recovery"></a>Haveri beredskap för Azure VM
+
+Nya funktioner för haveri beredskap för virtuella Azure-datorer sammanfattas i tabellen.
+
+**Funktion** | **Detaljer**
+--- | ---
+**Rensa efter återställning efter fel** | Efter att ha växlat till den sekundära Azure, och sedan växlar tillbaka till den primära regionen, rensar Site Recovery automatiskt datorer i den sekundära regionen. Det finns inget behov av att manuellt ta bort virtuella datorer och nätverkskort.
+**Redundanstest behåller IP-adressen** | Du kan nu behålla IP-adressen för den virtuella käll datorn under en haveri beredskap-granskning och välja en statisk IP-adress för ett redundanstest.
+
+## <a name="vmwarephysical-server-disaster-recovery"></a>Katastrof återställning av VMware/fysisk server
+
+Funktioner som läggs till den här månaden sammanfattas i tabellen.
+
+**Funktion** | **Detaljer**
+--- | ---
+Nya process Server varningar | Vi har lagt till nya aviseringar för process servern. [Läs mer](vmware-physical-azure-monitor-process-server.md). 
+
+## <a name="hyper-v-disaster-recovery"></a>Katastrof återställning för Hyper-V
+
+Funktioner som läggs till den här månaden sammanfattas i tabellen.
+
+**Funktion** | **Detaljer**
+--- | ---
+Lagringskonto | Site Recovery stöder nu användning av ett lagrings konto med RBAC-baserad åtkomst kontroll (RBAC) aktiverat. [Läs mer](../storage/common/storage-account-manage.md#access-control) om åtkomst kontroll för lagrings konton. 
 
 
 ## <a name="updates-august-2019"></a>Uppdateringar (augusti 2019)

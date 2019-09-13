@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/09/2019
-ms.openlocfilehash: 292fe858b85faef69b9df2dbdf54e7061ed56fa2
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: a3499637fb5320afe80bf4eefa634173db31f1b6
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70142512"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70931854"
 ---
 # <a name="azure-function-activity-in-azure-data-factory"></a>Azure Function-aktivitet i Azure Data Factory
 
@@ -28,7 +28,7 @@ I en åtta minuters introduktion och demonstration av den här funktionen kan du
 
 ## <a name="azure-function-linked-service"></a>Länkad Azure Function-tjänst
 
-Retur typen för Azure-funktionen måste vara giltig `JObject`. (Tänk på att [JArray](https://www.newtonsoft.com/json/help/html/T_Newtonsoft_Json_Linq_JArray.htm) *inte* är en `JObject`.) Andra retur typer än `JObject` Miss lyckas och det går inte att skicka användar fel svars *innehållet är inte ett giltigt JObject*.
+Retur typen för Azure-funktionen måste vara giltig `JObject`. (Tänk på att [JArray](https://www.newtonsoft.com/json/help/html/T_Newtonsoft_Json_Linq_JArray.htm) *inte* är en `JObject`.) Andra retur typer än `JObject` Miss lyckas och det går inte att skicka användar fel *svars innehållet är inte ett giltigt JObject*.
 
 | **Egenskap** | **Beskrivning** | **Kunna** |
 | --- | --- | --- |
@@ -44,7 +44,7 @@ Retur typen för Azure-funktionen måste vara giltig `JObject`. (Tänk på att [
 | name  | Namn på aktiviteten i pipelinen  | Sträng | ja |
 | type  | Typ av aktivitet är ' AzureFunctionActivity ' | Sträng | ja |
 | länkad tjänst | Den länkade Azure Function-tjänsten för motsvarande Azure-Funktionsapp  | Länkad tjänst referens | ja |
-| funktions namn  | Namnet på funktionen i Azure-Funktionsapp som den här aktiviteten anropar | Sträng | ja |
+| Funktions namn  | Namnet på funktionen i Azure-Funktionsapp som den här aktiviteten anropar | Sträng | ja |
 | method  | REST API metod för funktions anropet | Sträng typer som stöds: "GET", "POST", "PLACERA"   | ja |
 | sidhuvud  | Huvuden som skickas till begäran. Om du till exempel vill ange språk och typ på en begäran: "huvuden": {"Accept-language": "en-US", "innehålls typ": "Application/JSON"} | Sträng (eller uttryck med resultType för sträng) | Nej |
 | brödtext  | brödtext som skickas tillsammans med begäran till API-metoden för funktioner  | Sträng (eller uttryck med resultType för sträng) eller objekt.   | Krävs för metoder för att skicka/publicera |
@@ -62,7 +62,7 @@ Azure Function-aktiviteten stöder också **frågor**. En fråga måste inkluder
 
 Azure Functions nådde tids gränsen efter 230 sekunder oavsett vilken `functionTimeout` inställning du har konfigurerat i inställningarna. Mer information finns i [den här artikeln](../azure-functions/functions-versions.md#timeout). Undvik det här problemet genom att följa ett asynkront mönster eller använda Durable Functions. Fördelen med Durable Functions är att de erbjuder sin egen tillstånds spårnings funktion så att du inte behöver implementera din egen.
 
-Läs mer om Durable Functions i [den här artikeln](../azure-functions/durable/durable-functions-overview.md). Du kan konfigurera en Azure Function-aktivitet för att anropa en varaktig funktion som returnerar ett svar med en annan URI, till exempel [det här exemplet](../azure-functions/durable/durable-functions-http-api.md#http-api-url-discovery). Eftersom `statusQueryGetUri` returnerar HTTP-status 202 när funktionen körs, kan du avsöka funktionens status med hjälp av en webb aktivitet. Skapa helt enkelt en webb aktivitet med `url` fältet inställt på. `@activity('<AzureFunctionActivityName>').output.statusQueryGetUri` När den varaktiga funktionen har slutförts blir utdata från funktionen resultatet av webb aktiviteten.
+Läs mer om Durable Functions i [den här artikeln](../azure-functions/durable/durable-functions-overview.md). Du kan konfigurera en Azure Function-aktivitet för att anropa en varaktig funktion som returnerar ett svar med en annan URI, till exempel [det här exemplet](../azure-functions/durable/durable-functions-http-features.md#http-api-url-discovery). Eftersom `statusQueryGetUri` returnerar HTTP-status 202 när funktionen körs, kan du avsöka funktionens status med hjälp av en webb aktivitet. Skapa helt enkelt en webb aktivitet med `url` fältet inställt på. `@activity('<AzureFunctionActivityName>').output.statusQueryGetUri` När den varaktiga funktionen har slutförts blir utdata från funktionen resultatet av webb aktiviteten.
 
 
 ## <a name="sample"></a>Exempel

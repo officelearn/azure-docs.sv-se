@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 7/20/2018
 ms.author: atsenthi
-ms.openlocfilehash: 94b2b807eb68d628165ca8fa4011b8f3e41d3c6d
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 123e63fb79ba966e4e17b0c55440049a79add905
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68599641"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70931176"
 ---
 # <a name="dns-service-in-azure-service-fabric"></a>DNS-tjänst i Azure Service Fabric
 DNS-tjänsten är en valfri system tjänst som du kan aktivera i klustret för att identifiera andra tjänster som använder DNS-protokollet. 
@@ -28,7 +28,7 @@ Många tjänster, särskilt behållar tjänster, kan adresseras via en redan bef
 
 DNS-tjänsten mappar DNS-namn till tjänst namn, som i sin tur löses av Naming Service för att returnera tjänst slut punkten. DNS-namnet för tjänsten tillhandahålls vid tidpunkten för skapandet. Följande diagram visar hur DNS-tjänsten fungerar för tillstånds lösa tjänster.
 
-![tjänst slut punkter](./media/service-fabric-dnsservice/stateless-dns.png)
+![Tjänst slut punkter](./media/service-fabric-dnsservice/stateless-dns.png)
 
 Från och med Service Fabric version 6,3 har Service Fabric DNS-protokollet utökats till att omfatta ett schema för att adressera partitionerade tillstånds känsliga tjänster. Dessa tillägg gör det möjligt att lösa vissa partitions-IP-adresser med en kombination av tillstånds känsliga DNS-namn och partitionens namn. Alla tre partitionerings scheman stöds:
 
@@ -52,7 +52,7 @@ När du skapar ett kluster med hjälp av portalen aktive ras DNS-tjänsten som s
 
 Om du inte använder portalen för att skapa klustret eller om du uppdaterar ett befintligt kluster måste du aktivera DNS-tjänsten i en mall:
 
-- Om du vill distribuera ett nytt kluster kan du antingen använda [exempel](https://github.com/Azure/azure-quickstart-templates/tree/master/service-fabric-secure-cluster-5-node-1-nodetype) -mallarna eller skapa en egen Resource Manager-mall. 
+- Om du vill distribuera ett nytt kluster kan du antingen använda [exempel-mallarna](https://github.com/Azure/azure-quickstart-templates/tree/master/service-fabric-secure-cluster-5-node-1-nodetype) eller skapa en egen Resource Manager-mall. 
 - Om du vill uppdatera ett befintligt kluster kan du gå till klustrets resurs grupp på portalen och klicka på **Automation-skript** för att arbeta med en mall som motsvarar klustrets aktuella tillstånd och andra resurser i gruppen. Mer information finns i [Exportera mallen från resurs gruppen](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-export-template).
 
 När du har en mall kan du aktivera DNS-tjänsten med följande steg:
@@ -133,7 +133,7 @@ Vi rekommenderar starkt att du använder ett namngivnings schema `<ServiceDnsNam
 ```
 När programmet har distribuerats visar tjänst instansen i Service Fabric Explorer DNS-namnet för den här instansen, som visas i följande figur: 
 
-![tjänst slut punkter](./media/service-fabric-dnsservice/service-fabric-explorer-dns.png)
+![Tjänst slut punkter](./media/service-fabric-dnsservice/service-fabric-explorer-dns.png)
 
 I följande exempel anges DNS-namnet för en tillstånds känslig tjänst `statefulsvc.app`till. Tjänsten använder ett namngivet partitionerings schema. Observera att partitionsnamnet är gemener. Detta är ett krav för partitioner som kommer att vara riktade till DNS-frågor. Mer information finns i [göra DNS-frågor på en tillstånds känslig tjänst partition](https://docs.microsoft.com/azure/service-fabric/service-fabric-dnsservice#preview-making-dns-queries-on-a-stateful-service-partition).
 
@@ -179,7 +179,7 @@ DNS-frågor som riktar sig mot en partition formateras enligt följande:
 Där:
 
 - Den första delen av *partitioned-service-DNSName* är den första delen av TJÄNSTens DNS-namn.
-- *PartitionPrefix* är ett värde som kan anges i avsnittet DNS service i kluster manifestet eller via klustrets Resource Manager-mall. Standardvärdet är "-". Mer information finns i [Inställningar för DNS-tjänsten](./service-fabric-cluster-fabric-settings.md#dnsservice).
+- *PartitionPrefix* är ett värde som kan anges i avsnittet DNS service i kluster manifestet eller via klustrets Resource Manager-mall. Standardvärdet är "--". Mer information finns i [Inställningar för DNS-tjänsten](./service-fabric-cluster-fabric-settings.md#dnsservice).
 - *Target-partition-Name* är namnet på partitionen. 
 - *PartitionSuffix* är ett värde som kan anges i avsnittet DNS service i kluster manifestet eller via klustrets Resource Manager-mall. Standardvärdet är en tom sträng. Mer information finns i [Inställningar för DNS-tjänsten](./service-fabric-cluster-fabric-settings.md#dnsservice).
 - *Återstående partitionerade service-DNSName* är den återstående delen av tjänstens DNS-namn.

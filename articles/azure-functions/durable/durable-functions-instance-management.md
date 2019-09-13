@@ -9,12 +9,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 3db0cd3dd01e3f5f6af6b4b668d1ccac094624a2
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.openlocfilehash: 0df6f5f9728a8e48a3257e56ddf8ad23906dc92c
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70735176"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70933323"
 ---
 # <a name="manage-instances-in-durable-functions-in-azure"></a>Hantera instanser i Durable Functions i Azure
 
@@ -31,9 +31,6 @@ Det är viktigt att kunna starta en instans av Orchestration. Detta görs vanlig
 Metoden [StartNewAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_StartNewAsync_) på [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) (.net) `startNew` `DurableOrchestrationClient` eller (Java Script) startar en ny instans. Du hämtar instanser av den här klassen med hjälp `orchestrationClient` av bindningen. Internt kommer den här metoden att köa ett meddelande i kontroll kön, som sedan utlöser början av en funktion med det angivna namnet som använder `orchestrationTrigger` utlösarens bindning.
 
 Den här asynkrona åtgärden slutförs när Orchestration-processen har schemalagts. Orchestration-processen bör inledas inom 30 sekunder. Om det tar längre tid visas en `TimeoutException`.
-
-> [!WARNING]
-> När du utvecklar lokalt i Java Script ställer du in `WEBSITE_HOSTNAME` miljövariabeln på `localhost:<port>` ( `localhost:7071`till exempel) för att `DurableOrchestrationClient`använda metoder på. Mer information om det här kravet finns i [GitHub-problemet](https://github.com/Azure/azure-functions-durable-js/issues/28).
 
 ### <a name="net"></a>.NET
 
@@ -361,7 +358,7 @@ func durable terminate --id 0ab8c55a66644d68a3a8b220b12d209c --reason "It was ti
 
 ## <a name="send-events-to-instances"></a>Skicka händelser till instanser
 
-I vissa fall är det viktigt att dina Orchestrator-funktioner kan vänta och lyssna efter externa händelser. Detta omfattar [övervaknings funktioner](durable-functions-concepts.md#monitoring) och funktioner som väntar på [mänsklig interaktion](durable-functions-concepts.md#human).
+I vissa fall är det viktigt att dina Orchestrator-funktioner kan vänta och lyssna efter externa händelser. Detta omfattar [övervaknings funktioner](durable-functions-overview.md#monitoring) och funktioner som väntar på [mänsklig interaktion](durable-functions-overview.md#human).
 
 Skicka händelse meddelanden till att köra instanser med [RaiseEventAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_RaiseEventAsync_) -metoden för [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) -klassen (.net `raiseEvent` ) eller metoden för `DurableOrchestrationClient` klassen (Java Script). Instanser som kan hantera dessa händelser är de som väntar på ett anrop till [WaitForExternalEvent](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_WaitForExternalEvent_) (.net) eller `waitForExternalEvent` (Java Script).
 
@@ -541,7 +538,7 @@ Om du har ett Dirigerings fel av oväntad anledning kan du *spola tillbaka* inst
 
 Använd API: et för [RewindAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_RewindAsync_System_String_System_String_) ( `rewindAsync` .net) eller (Java Script) för att försätta dirigeringen i *körnings* läge igen. Kör körnings felen för aktiviteten eller under dirigeringen som orsakade ett Orchestration-haveri.
 
-Anta till exempel att du har ett arbets flöde som innehåller en serie med [mänsklig godkännande](durable-functions-concepts.md#human). Anta att det finns en serie aktivitets funktioner som meddelar någon att deras godkännande krävs och väntar på svar i real tid. När alla godkännande aktiviteter har fått svar eller nått tids gränsen, antar vi att en annan aktivitet Miss lyckas på grund av en fel konfiguration i programmet, t. ex. en ogiltig databas anslutnings sträng. Resultatet är ett djupgående problem i arbets flödet. Med API: et `rewindAsync` (.net)eller(JavaScript)kanenprogramadministratöråtgärdakonfigurationsfeletochspolatillbakadenmisslyckadedirigeringentillstatusenomedelbartförefelet.`RewindAsync` Ingen av de mänskliga interaktions stegen måste godkännas igen och dirigeringen kan nu slutföras.
+Anta till exempel att du har ett arbets flöde som innehåller en serie med [mänsklig godkännande](durable-functions-overview.md#human). Anta att det finns en serie aktivitets funktioner som meddelar någon att deras godkännande krävs och väntar på svar i real tid. När alla godkännande aktiviteter har fått svar eller nått tids gränsen, antar vi att en annan aktivitet Miss lyckas på grund av en fel konfiguration i programmet, t. ex. en ogiltig databas anslutnings sträng. Resultatet är ett djupgående problem i arbets flödet. Med API: et `rewindAsync` (.net)eller(JavaScript)kanenprogramadministratöråtgärdakonfigurationsfeletochspolatillbakadenmisslyckadedirigeringentillstatusenomedelbartförefelet.`RewindAsync` Ingen av de mänskliga interaktions stegen måste godkännas igen och dirigeringen kan nu slutföras.
 
 > [!NOTE]
 > Funktionen *spola tillbaka* stöder inte omspolning av Orchestration-instanser som använder varaktiga timers.
@@ -661,4 +658,7 @@ func durable delete-task-hub --task-hub-name UserTest
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Lär dig hur du använder HTTP API: er för instans hantering](durable-functions-http-api.md)
+> [Lär dig hur du hanterar versions hantering](durable-functions-versioning.md)
+
+> [!div class="nextstepaction"]
+> [Inbyggd HTTP API-referens för instans hantering](durable-functions-http-api.md)

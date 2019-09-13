@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 45c802fb42088be1eecd7c711c6693d325252c91
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 29a771b93e1d686f7972e7dc4d9e78e5858644d6
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68985790"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70899414"
 ---
 # <a name="prepare-to-deploy-your-iot-edge-solution-in-production"></a>Förbereda för distribution av din IoT Edge-lösning i produktion
 
@@ -93,7 +93,7 @@ Ett exempel på den här processen finns i [konfigurera en IoT Edge-enhet kan ko
 
 IoT Edge hubb och agent-moduler använder lokal lagring för att underhålla tillstånd och aktivera meddelanden mellan moduler, enheter och molnet. För bättre tillförlitlighet och prestanda konfigurerar du systemmodulerna för att använda lagring på värd fil systemet.
 
-Mer information finns i [värd lagring för](offline-capabilities.md#host-storage-for-system-modules)systemmoduler.
+Mer information finns i [värd lagring för systemmoduler](offline-capabilities.md#host-storage-for-system-modules).
 
 ### <a name="reduce-memory-space-used-by-iot-edge-hub"></a>Minska minnes utrymmet som används av IoT Edge hubb
 
@@ -101,7 +101,7 @@ Om du distribuerar begränsade enheter med begränsat minne tillgängligt kan du
 
 #### <a name="dont-optimize-for-performance-on-constrained-devices"></a>Inte optimera prestanda på begränsad enheter
 
-IoT Edge hubben är optimerad för prestanda som standard och försöker allokera stora mängder minne. Den här konfigurationen orsaka instabilitet i mindre enheter som Raspberry Pi. Om du distribuerar enheter med begränsade resurser kanske du vill ange **OptimizeForPerformance** -miljövariabeln till false på IoT Edge Hub. 
+IoT Edge hubben är optimerad för prestanda som standard och försöker allokera stora mängder minne. Den här konfigurationen orsaka instabilitet i mindre enheter som Raspberry Pi. Om du distribuerar enheter med begränsade resurser kanske du vill ange **OptimizeForPerformance** -miljövariabeln till **false** på IoT Edge Hub. 
 
 Mer information finns i [stabilitetsproblem på resursen begränsad enheter](troubleshoot.md#stability-issues-on-resource-constrained-devices).
 
@@ -127,7 +127,7 @@ Standardvärdet för parametern timeToLiveSecs är 7200 sekunder, vilket är tv�
 
 När du flyttar från testscenarier till produktionsscenarier, Kom ihåg att ta bort debug konfigurationer från distribution manifest. Kontrollera att ingen av modulen bilder i manifesten distribution har den  **\.felsöka** suffix. Om du har lagt till skapa alternativ för att exponera portar i moduler för felsökning, ta bort de skapa samt alternativ. 
 
-## <a name="container-management"></a>Containerhantering
+## <a name="container-management"></a>Behållarhantering
 
 * **Viktigt**
     * Hantera åtkomst till ditt behållarregister
@@ -209,13 +209,15 @@ Som standard anger Moby container Engine inte storleks gränser för behållar l
 
 Du kan begränsa storleken på alla behållar logg fils loggar i behållar Motorns logg alternativ. I följande exempel anges logg driv rutinen `json-file` till (rekommenderas) med gränser för storlek och antal filer:
 
-    {
-        "log-driver": "json-file",
-        "log-opts": {
-            "max-size": "10m",
-            "max-file": "3"
-        }
+```JSON
+{
+    "log-driver": "json-file",
+    "log-opts": {
+        "max-size": "10m",
+        "max-file": "3"
     }
+}
+```
 
 Lägg till (eller Lägg till) den här informationen i `daemon.json` en fil med namnet och placera den rätt plats för din enhets plattform.
 
@@ -230,22 +232,23 @@ Behållar motorn måste startas om för att ändringarna ska börja gälla.
 
 Du kan göra det i **createOptions** för varje modul. Exempel:
 
-    "createOptions": {
-        "HostConfig": {
-            "LogConfig": {
-                "Type": "json-file",
-                "Config": {
-                    "max-size": "10m",
-                    "max-file": "3"
-                }
+```yml
+"createOptions": {
+    "HostConfig": {
+        "LogConfig": {
+            "Type": "json-file",
+            "Config": {
+                "max-size": "10m",
+                "max-file": "3"
             }
         }
     }
-
+}
+```
 
 **Ytterligare alternativ för Linux-system**
 
-* Konfigurera behållar motorn att skicka loggar `systemd` till journalen `journald` genom att ange som standard driv rutin för loggning. [](https://docs.docker.com/config/containers/logging/journald/) 
+* Konfigurera behållar motorn att skicka loggar `systemd` till [journalen](https://docs.docker.com/config/containers/logging/journald/) genom att ange `journald` som standard driv rutin för loggning. 
 
 * Ta regelbundet bort gamla loggar från enheten genom att installera ett logrotate-verktyg. Använd följande filspecifikationen: 
 

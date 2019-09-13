@@ -7,21 +7,21 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 12/18/2018
+ms.date: 09/11/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: e79d7a4b97f010b035f5c864682b4d3882a21393
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.openlocfilehash: a2189b2012f598542725acd2d5ebe3a7586bafd9
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70171924"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70880822"
 ---
 # <a name="customize-the-user-interface-of-your-application-using-a-custom-policy-in-azure-active-directory-b2c"></a>Anpassa ditt programs användar gränssnitt med hjälp av en anpassad princip i Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-När du har slutfört den här artikeln kommer du att ha en anpassad princip för registrering och inloggning med ditt varumärke och utseende. Med Azure Active Directory B2C (Azure AD B2C) får du nästan fullständig kontroll över HTML-och CSS-innehållet som presenteras för användarna. När du använder en anpassad princip kan du konfigurera UI-anpassning i XML i stället för att använda kontroller i Azure Portal. 
+När du har slutfört den här artikeln har du en anpassad princip för registrering och inloggning med ditt varumärke och utseende. Med Azure Active Directory B2C (Azure AD B2C) får du nästan fullständig kontroll över HTML-och CSS-innehållet som presenteras för användarna. När du använder en anpassad princip kan du konfigurera UI-anpassning i XML i stället för att använda kontroller i Azure Portal.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -51,7 +51,7 @@ Skapa HTML-innehåll med produktens varumärke namn i rubriken.
    </html>
    ```
 
-2. Klistra in det kopierade kodfragmentet i en text redigerare och spara sedan filen som *Customize-UI. html*.
+1. Klistra in det kopierade kodfragmentet i en text redigerare och spara sedan filen som *Customize-UI. html*.
 
 > [!NOTE]
 > HTML-formulärets element tas bort på grund av säkerhets begränsningar om du använder login.microsoftonline.com. Använd b2clogin.com om du vill använda HTML-formulär element i ditt anpassade HTML-innehåll. Se [använda b2clogin.com](b2clogin.md) för andra förmåner.
@@ -61,71 +61,71 @@ Skapa HTML-innehåll med produktens varumärke namn i rubriken.
 >[!NOTE]
 > I den här artikeln använder vi Azure Blob Storage för att vara värd för vårt innehåll. Du kan välja att vara värd för ditt innehåll på en webb server, men du måste [Aktivera CORS på din webb server](https://enable-cors.org/server.html).
 
-För att vara värd för detta HTML-innehåll i Blob Storage gör du följande:
+Utför följande steg för att vara värd för detta HTML-innehåll i Blob Storage:
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
-2. På menyn **hubb** väljer du **nytt** > **lagrings** > **lagrings konto**.
-3. Välj en **prenumeration** för ditt lagrings konto.
-4. Skapa en **resurs grupp** eller Välj en befintlig.
-5. Ange ett unikt **namn** för ditt lagrings konto.
-6. Välj den **geografiska platsen** för ditt lagrings konto. 
-7. **Distributions modellen** kan vara **Resource Manager**.
-8. **Prestanda** kan vara **standard**.
-9. Ändra **konto typ** till **Blob Storage**.
-10. **Replikeringen** kan förbli **RA-GRS**.
-11. **Åtkomst nivån** kan vara **aktiv**. 
-12. Klicka på **Granska + skapa** för att skapa lagrings kontot.  
-    När distributionen är klar öppnas bladet **lagrings konto** automatiskt.
+1. På menyn **hubb** väljer du **nytt** > **lagrings** > **lagrings konto**.
+1. Välj en **prenumeration** för ditt lagrings konto.
+1. Skapa en **resurs grupp** eller Välj en befintlig.
+1. Ange ett unikt **namn** för ditt lagrings konto.
+1. Välj den **geografiska platsen** för ditt lagrings konto.
+1. **Distributions modellen** kan vara **Resource Manager**.
+1. **Prestanda** kan vara **standard**.
+1. Ändra **konto typ** till **Blob Storage**.
+1. **Replikeringen** kan förbli **RA-GRS**.
+1. **Åtkomst nivån** kan vara **aktiv**.
+1. Klicka på **Granska + skapa** för att skapa lagrings kontot.
+    När distributionen är klar öppnas sidan **lagrings konto** automatiskt.
 
 ## <a name="create-a-container"></a>Skapa en container
 
-Om du vill skapa en offentlig behållare i Blob Storage gör du följande:
+Utför följande steg för att skapa en offentlig behållare i Blob Storage:
 
 1. Under **BLOB service** på menyn till vänster väljer du **blobbar**.
-2. Klicka på **+ container**.
-3. I **namn**anger du *root*. Detta kan vara ett namn som du väljer, till exempel *wingtiptoys*, men vi använder *roten* i det här exemplet för enkelhetens skull.
-4. För **offentlig åtkomst nivå**väljer du **BLOB**och sedan **OK**.
-5. Klicka på **rot** för att öppna den nya behållaren.
-6. Klicka på **Överför**.
-7. Klicka på mappikonen bredvid **Välj en fil**.
-8. Navigera till och välj **Customize-UI. html** som du skapade tidigare i avsnittet sid UI anpassning.
-9. Om du vill överföra till en undermapp expanderar du **Avancerat** och anger ett mappnamn i **mappen överför till**.
-10. Välj **Överför**.
-11. Välj den **Customize-UI. html-** blob som du laddade upp.
-12. Till höger om text rutan **URL** väljer du ikonen **Kopiera till Urklipp** för att kopiera webb adressen till Urklipp.
-13. I webbläsaren navigerar du till den URL som du kopierade för att verifiera att blobben du överförde är tillgänglig. Om det inte går att komma åt, till exempel om du `ResourceNotFound` stöter på ett fel, se till att behållarens åtkomst typ är inställd på **BLOB**.
+1. Klicka på **+ container**.
+1. I **namn**anger du *root*. Detta kan vara ett namn som du väljer, till exempel *wingtiptoys*, men vi använder *roten* i det här exemplet för enkelhetens skull.
+1. För **offentlig åtkomst nivå**väljer du **BLOB**och sedan **OK**.
+1. Klicka på **rot** för att öppna den nya behållaren.
+1. Klicka på **Överför**.
+1. Klicka på mappikonen bredvid **Välj en fil**.
+1. Navigera till och välj **Customize-UI. html** som du skapade tidigare i avsnittet sid UI anpassning.
+1. Om du vill överföra till en undermapp expanderar du **Avancerat** och anger ett mappnamn i **mappen överför till**.
+1. Välj **Överför**.
+1. Välj den **Customize-UI. html-** blob som du laddade upp.
+1. Till höger om text rutan **URL** väljer du ikonen **Kopiera till Urklipp** för att kopiera webb adressen till Urklipp.
+1. I webbläsaren navigerar du till den URL som du kopierade för att verifiera att blobben du överförde är tillgänglig. Om det inte går att komma åt, till exempel om du `ResourceNotFound` stöter på ett fel, se till att behållarens åtkomst typ är inställd på **BLOB**.
 
 ## <a name="configure-cors"></a>Konfigurera CORS
 
-Konfigurera Blob Storage för resurs delning mellan ursprung genom att göra följande:
+Konfigurera Blob Storage för resurs delning mellan ursprung genom att utföra följande steg:
 
 1. I menyn väljer du **CORS**.
-2. För **tillåtna ursprung**anger `https://your-tenant-name.b2clogin.com`du. Ersätt `your-tenant-name` med namnet på din Azure AD B2C-klient. Till exempel `https://fabrikam.b2clogin.com`. Du måste använda små bokstäver när du anger ditt klient namn.
-3. För **tillåtna metoder**väljer du både `GET` och `OPTIONS`.
-4. För **tillåtna huvuden**anger du en asterisk (*).
-5. För **exponerade rubriker**anger du en asterisk (*).
-6. Ange 200 för **högsta ålder**.
-7. Klicka på **Spara**.
+1. För **tillåtna ursprung**anger `https://your-tenant-name.b2clogin.com`du. Ersätt `your-tenant-name` med namnet på din Azure AD B2C-klient. Till exempel `https://fabrikam.b2clogin.com`. Du måste använda små bokstäver när du anger ditt klient namn.
+1. För **tillåtna metoder**väljer du både `GET` och `OPTIONS`.
+1. För **tillåtna huvuden**anger du en asterisk (*).
+1. För **exponerade rubriker**anger du en asterisk (*).
+1. Ange 200 för **högsta ålder**.
+1. Klicka på **Spara**.
 
 ## <a name="test-cors"></a>Testa CORS
 
-Verifiera att du är redo genom att göra följande:
+Verifiera att du är redo genom att utföra följande steg:
 
-1. Gå till [www.test-CORS.org](https://www.test-cors.org/) -webbplatsen och klistra in webb adressen i rutan Fjärradress.
-2. Klicka på **skicka begäran**.  
+1. Gå till [www.test-CORS.org](https://www.test-cors.org/) -webbplatsen och klistra in webb adressen i rutan **Fjärradress** .
+1. Klicka på **skicka begäran**.
     Kontrol lera att [CORS-inställningarna](#configure-cors) är korrekta om du får ett fel meddelande. Du kan också behöva rensa webbläsarens cacheminne eller öppna en privat webbläsarsession genom att trycka på CTRL + SKIFT + P.
 
 ## <a name="modify-the-extensions-file"></a>Ändra tilläggs filen
 
 Om du vill konfigurera UI-anpassning kopierar du **ContentDefinition** och dess underordnade element från bas filen till tilläggs filen.
 
-1. Öppna bas filen för din princip. Till exempel *TrustFrameworkBase. XML*.
-2. Sök efter och kopiera hela innehållet i **ContentDefinitions** -elementet.
-3. Öppna tilläggs filen. Till exempel *TrustFrameworkExtensions. XML*. Sök efter **BuildingBlocks** -elementet. Om elementet inte finns lägger du till det.
-4. Klistra in hela innehållet i **ContentDefinitions** -elementet som du kopierade som ett underordnat objekt till **BuildingBlocks** -elementet. 
-5. Sök efter det **ContentDefinition** -element som `Id="api.signuporsignin"` innehåller i XML-filen som du kopierade.
-6. Ändra värdet för **LoadUri** till URL: en för HTML-filen som du laddade upp till lagringen. Till exempel `https://your-storage-account.blob.core.windows.net/your-container/customize-ui.html`.
-    
+1. Öppna bas filen för din princip. Till exempel *`SocialAndLocalAccounts/`*****`TrustFrameworkBase.xml`. Detta är en av de principfiler som ingår i Start paketet för den anpassade principen, som du bör ha fått i förutsättningen, [Kom igång med anpassade principer](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-get-started-custom).
+1. Sök efter och kopiera hela innehållet i **ContentDefinitions** -elementet.
+1. Öppna tilläggs filen. Till exempel *TrustFrameworkExtensions. XML*. Sök efter **BuildingBlocks** -elementet. Om elementet inte finns lägger du till det.
+1. Klistra in hela innehållet i **ContentDefinitions** -elementet som du kopierade som ett underordnat objekt till **BuildingBlocks** -elementet.
+1. Sök efter det **ContentDefinition** -element som `Id="api.signuporsignin"` innehåller i XML-filen som du kopierade.
+1. Ändra värdet för **LoadUri** till URL: en för HTML-filen som du laddade upp till lagringen. Till exempel `https://your-storage-account.blob.core.windows.net/your-container/customize-ui.html`.
+
     Den anpassade principen bör se ut så här:
 
     ```xml
@@ -143,22 +143,22 @@ Om du vill konfigurera UI-anpassning kopierar du **ContentDefinition** och dess 
     </BuildingBlocks>
     ```
 
-7. Spara tilläggs filen.
+1. Spara tilläggs filen.
 
 ## <a name="upload-your-updated-custom-policy"></a>Ladda upp en uppdaterad anpassad princip
 
 1. Kontrollera att du använder den katalog som innehåller din Azure AD B2C-klient genom att klicka på den **katalog- och prenumerationsfilter** i den översta menyn och välja den katalog som innehåller din klient.
-3. Välj **Alla tjänster** på menyn uppe till vänster i Azure Portal. Sök sedan efter och välj **Azure AD B2C**.
-4. Välj **ramverk för identitets upplevelse**.
-2. Klicka på **alla principer**.
-3. Klicka på **Ladda upp princip**.
-4. Ladda upp tilläggs filen som du har ändrat tidigare.
+1. Välj **Alla tjänster** på menyn uppe till vänster i Azure Portal. Sök sedan efter och välj **Azure AD B2C**.
+1. Välj **ramverk för identitets upplevelse**.
+1. Klicka på **alla principer**.
+1. Klicka på **Ladda upp princip**.
+1. Ladda upp tilläggs filen som du har ändrat tidigare.
 
 ## <a name="test-the-custom-policy-by-using-run-now"></a>Testa den anpassade principen med hjälp av **Kör nu**
 
-1. På bladet **Azure AD B2C** går du till **alla principer**.
-2. Välj den anpassade princip som du överförde och klicka på knappen **Kör nu** .
-3. Du bör kunna registrera dig med hjälp av en e-postadress.
+1. På sidan **Azure AD B2C** går du till **alla principer**.
+1. Välj den anpassade princip som du överförde och klicka på knappen **Kör nu** .
+1. Du bör kunna registrera dig med hjälp av en e-postadress.
 
 ## <a name="reference"></a>Referens
 
@@ -179,19 +179,20 @@ Sample_templates/Wingtip-mappen innehåller följande HTML-filer:
 | *Unified. html* | Använd den här filen som mall för en enhetlig registrerings-eller inloggnings sida. |
 | *updateprofile.html* | Använd den här filen som mall för en profil uppdaterings sida. |
 
-Här följer några steg om hur du använder exemplet. 
-1. Klona lagrings platsen på den lokala datorn. Välj en mall-mapp under sample_templates. Du kan använda `wingtip` eller `contoso`.
-2. Ladda upp alla filer under `css`mapparna, `fonts`och `images` till Blob Storage enligt beskrivningen i föregående avsnitt. 
-3. Öppna sedan varje \*. html-fil i roten för antingen `wingtip` eller `contoso` (det du valde i det första steget) och Ersätt alla instanser av "http://localhost" med URL: erna för de CSS-, bilder-och fonts-filer som du laddade upp i steg 2.
-4. \*Spara HTML-filerna och överför dem till Blob Storage.
-5. Ändra nu tilläggs filen som nämnts tidigare i [ändra tilläggs filen](#modify-the-extensions-file).
-6. Om du ser saknade teckensnitt, bilder eller CSS, kontrol lera dina referenser i tillägg-principen och \*HTML-filerna.
+Här följer stegen för att använda exemplet:
 
-### <a name="content-defintion-ids"></a>Definition-ID för innehåll
+1. Klona lagrings platsen på den lokala datorn. Välj en mall-mapp under sample_templates. Du kan använda `wingtip` eller `contoso`.
+1. Ladda upp alla filer under `css`mapparna, `fonts`och `images` till Blob Storage enligt beskrivningen i föregående avsnitt.
+1. Öppna sedan varje \*. html-fil i roten för antingen `wingtip` eller `contoso` (det du valde i det första steget) och Ersätt alla instanser av "http://localhost" med URL: erna för de CSS-, bilder-och fonts-filer som du laddade upp i steg 2.
+1. \*Spara HTML-filerna och överför dem till Blob Storage.
+1. Ändra nu tilläggs filen som nämnts tidigare i [ändra tilläggs filen](#modify-the-extensions-file).
+1. Om du ser saknade teckensnitt, avbildningar eller CSS, kontrollerar du dina referenser i tillägg-principen och \*HTML-filerna.
+
+### <a name="content-definition-ids"></a>ID för innehålls definition
 
 I avsnittet Ändra din registrerings-eller inloggnings princip konfigurerar du innehålls definitionen för `api.idpselections`. En fullständig uppsättning innehålls Definitions-ID: n som identifieras av Azure AD B2C Identity Experience Framework och deras beskrivningar finns i följande tabell:
 
-| ID för innehålls definition | Beskrivning | 
+| ID för innehålls definition | Beskrivning |
 |-----------------------|-------------|
 | *api.error* | **Felsida**. Den här sidan visas när ett undantag eller ett fel påträffas. |
 | *API. idpselections* | **Sidan Val av identitets leverantör**. Den här sidan innehåller en lista över identitets leverantörer som användaren kan välja från vid inloggning. Dessa alternativ är antingen företags identitets leverantörer, sociala identitets leverantörer som Facebook och Google + eller lokala konton. |

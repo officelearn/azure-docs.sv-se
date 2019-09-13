@@ -3,18 +3,18 @@ title: Kom igång med Key Vault certifikat
 description: I följande scenarier beskrivs flera av de primära användningarna av Key Vaults hanterings tjänst för certifikat, inklusive de ytterligare steg som krävs för att skapa ditt första certifikat i ditt nyckel valv.
 services: key-vault
 author: msmbaldwin
-manager: barbkess
+manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 0c2581106466f7d84cc694cd47d4ba02e40bf60b
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: 338619a13ec3f5fcd0d4fd62cf387f955c556a7c
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68815753"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70879302"
 ---
 # <a name="get-started-with-key-vault-certificates"></a>Kom igång med Key Vault certifikat
 I följande scenarier beskrivs flera av de primära användningarna av Key Vaults hanterings tjänst för certifikat, inklusive de ytterligare steg som krävs för att skapa ditt första certifikat i ditt nyckel valv.
@@ -45,7 +45,7 @@ Certifikat består av tre relaterade resurser som är länkade tillsammans som e
 
 **Steg 3** – en Contoso-administratör, tillsammans med en Contoso-anställd (Key Vault användare) som äger certifikat, beroende på certifikat utfärdaren, kan hämta ett certifikat från administratören eller direkt från kontot med certifikat utfärdaren.  
 
-- Påbörja åtgärden Lägg till autentiseringsuppgift till ett nyckel valv genom att [Ange en](/rest/api/keyvault/setcertificateissuer/setcertificateissuer) resurs för certifikat utfärdare. En certifikat utfärdare är en entitet som representeras i Azure Key Vault (KV) som en CertificateIssuer-resurs. Den används för att tillhandahålla information om källan till ett KV-certifikat; utfärdarens namn, Provider, autentiseringsuppgifter och annan administrativ information.
+- Påbörja åtgärden Lägg till autentiseringsuppgift till ett nyckel valv genom att [Ange en resurs för certifikat utfärdare](/rest/api/keyvault/setcertificateissuer/setcertificateissuer) . En certifikat utfärdare är en entitet som representeras i Azure Key Vault (KV) som en CertificateIssuer-resurs. Den används för att tillhandahålla information om källan till ett KV-certifikat; utfärdarens namn, Provider, autentiseringsuppgifter och annan administrativ information.
   - t.ex. MyDigiCertIssuer  
     -   Leverantör  
     -   Autentiseringsuppgifter – autentiseringsuppgifter för CA-konto. Varje certifikat utfärdare har sina egna specifika data.  

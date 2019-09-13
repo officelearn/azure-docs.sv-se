@@ -3,17 +3,17 @@ title: Anslut en Raspberry Pi till ditt Azure IoT Central-programC#() | Microsof
 description: Som enhets utvecklare kan du ansluta en Raspberry Pi till ditt Azure IoT Central-program med C#hjälp av.
 author: viv-liu
 ms.author: viviali
-ms.date: 04/15/2019
+ms.date: 09/09/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 9395fa5ba5ae8dfa6ff03aabd1a27942ca4fa60a
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: 7a66925dceee4bf90bc6a5cd155f99347bbd124e
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70195184"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70886013"
 ---
 # <a name="connect-a-raspberry-pi-to-your-azure-iot-central-application-c"></a>Anslut en Raspberry Pi till ditt Azure IoT Central-programC#()
 
@@ -54,7 +54,7 @@ Fullständig information om hur du konfigurerar enhets mal len finns i [Raspberr
 
 ## <a name="add-a-real-device"></a>Lägga till en riktig enhet
 
-I ditt Azure IoT Central-program lägger du till en riktig enhet från enhets mal len **Raspberry Pi** . Anteckna enhetens anslutnings information (**scope-ID**, enhets **-ID**och **primär nyckel**). Mer information finns i [lägga till en riktig enhet till ditt Azure IoT Central-program](tutorial-add-device.md).
+I ditt Azure IoT Central-program lägger du till en riktig enhet från enhets mal len **Raspberry Pi** . Anteckna enhetens anslutnings information (**scope-ID**, **enhets-ID**och **primär nyckel**). Mer information finns i [lägga till en riktig enhet till ditt Azure IoT Central-program](tutorial-add-device.md).
 
 ### <a name="create-your-net-application"></a>Skapa ditt .NET-program
 
@@ -271,7 +271,7 @@ Du kan använda Visual Studio Code för att utföra följande steg. Mer informat
 
 ## <a name="run-your-net-application"></a>Kör ditt .NET-program
 
-Lägg till din enhets-/regionsspecifika anslutnings sträng till koden för enheten för att autentisera med Azure IoT Central. Följ dessa anvisningar för att [generera enhets anslutnings strängen](howto-generate-connection-string.md) med hjälp av omfångs **-ID**, **enhets-ID**och **primär nyckel** som du antecknade tidigare.
+Lägg till din enhets-/regionsspecifika anslutnings sträng till koden för enheten för att autentisera med Azure IoT Central. Följ dessa anvisningar för att [generera enhets anslutnings strängen](howto-generate-connection-string.md) med hjälp av **omfångs-ID**, **enhets-ID**och **primär nyckel** som du antecknade tidigare.
 
 1. Ersätt `{your device connection string}` i **program.cs** -filen med den anslutnings sträng som du skapade.
 

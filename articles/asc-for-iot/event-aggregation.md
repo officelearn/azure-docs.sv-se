@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/21/2019
 ms.author: mlottner
-ms.openlocfilehash: a8f751d0a40a8d8e1555549c200a9a7ca8ef0661
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: b8100fc78eced9aa26fe185a8d68244d8f665ff2
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68600623"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70933907"
 ---
 # <a name="security-agent-event-aggregation"></a>Händelse agg regering för säkerhets agent
 
@@ -28,7 +28,7 @@ Azure Security Center för IoT-säkerhetsagenter samla in data-och system hände
 
 För att minska den ytterligare kvoten och kostnaderna samtidigt som dina enheter skyddas kan Azure Security Center för IoT-agenter samla dessa typer av händelser.
 
-Händelse agg regering är **aktiverat** som standard och även om det inte rekommenderas, kan stängas av **manuellt när som** helst.
+Händelse agg regering är **aktiverat** som standard och även om det inte rekommenderas, **kan stängas av manuellt när som** helst.
 
 Aggregator är för närvarande tillgängligt för följande typer av händelser:
 * ProcessCreate
@@ -45,7 +45,7 @@ När agenten samlar in en identisk händelse till en som redan finns i minnet, �
 Händelser anses vara identiska endast när följande villkor uppfylls: 
 
 * ProcessCreate-händelser – när **kommando raden**, **körbara filer**och **användar** - **ID** är identiska
-* ConnectionCreate-händelser – när **kommandorad**, **userId**, **Direction**, **lokal adress**, Fjärradress, **protokoll** och **mål Port** är identiska
+* ConnectionCreate-händelser – **när kommandorad**, **userId**, **Direction**, **lokal adress**, **Fjärradress**, **protokoll** och **mål Port** är identiska
 * ProcessTerminate-händelser – när den **körbara filen** och **avslutnings statusen** är identiska
 
 ### <a name="working-with-aggregated-events"></a>Arbeta med sammanställda händelser
@@ -59,6 +59,7 @@ Efter analysen skapar Azure Security Center för IoT säkerhets aviseringar för
 
 Samlingens start tid, slut tid och antal träffar för varje händelse loggas i fältet Event **ExtraDetails** i Log Analytics för användning under undersökningar. 
 
+Varje sammanställd händelse representerar en 24-timmarsperiod med insamlade aviseringar. Med hjälp av menyn händelse alternativ längst upp till vänster i varje händelse kan du **stänga** av varje enskild sammanställd händelse.    
 
 ## <a name="event-aggregation-twin-configuration"></a>Dubbel konfiguration av händelse sammansättning
 Ändra konfigurationen av Azure Security Center för IoT Event-aggregering i [agent konfigurations objekt](how-to-agent-configuration.md) för modulens dubbla identitet för **azureiotsecurity** -modulen.

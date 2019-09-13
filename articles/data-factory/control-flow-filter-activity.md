@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 05/04/2018
-ms.openlocfilehash: 5416a603fdf2cc5e21444e16560d662c9603f9d8
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: c0f5d3264d953498af61c6e8d36dadee7dd61931
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70859091"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70915518"
 ---
 # <a name="filter-activity-in-azure-data-factory"></a>Filtrera aktivitet i Azure Data Factory
 Du kan använda en filter aktivitet i en pipeline för att tillämpa ett filter uttryck på en indatakälla. 
@@ -101,7 +101,6 @@ I det här exemplet har pipelinen två aktiviteter: **Filtrera** och. Filter akt
                 "defaultValue": [1, 2, 3, 4, 5, 6]
             }
         },
-
         "variables": {
             "test": {
                 "type": "String"

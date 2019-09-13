@@ -8,14 +8,14 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 07/22/2019
+ms.date: 09/12/2019
 ms.author: ellbe
-ms.openlocfilehash: ea7d2c451127283f2af204de2c961747880e1bfe
-ms.sourcegitcommit: 5604661655840c428045eb837fb8704dca811da0
+ms.openlocfilehash: 843b92d3fe34d592b39cd86ece447fef2ff9af67
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68494905"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70931113"
 ---
 # <a name="automatically-identify-the-spoken-language-with-language-identification-model"></a>Identifiera det talade språket automatiskt med språk identifierings modellen
 
@@ -23,7 +23,7 @@ Video Indexer stöder automatisk språk identifiering (lock), vilket är en proc
 
 ## <a name="choosing-auto-language-identification-on-indexing"></a>Välja automatisk språk identifiering vid indexering
 
-När du ska indexera eller indexera [om en video](https://api-portal.videoindexer.ai/docs/services/operations/operations/Re-Index-Video?) med hjälp av API: et väljer `auto detect` du alternativet i `sourceLanguage` parametern.
+När du ska indexera [eller indexera om en video](https://api-portal.videoindexer.ai/docs/services/operations/operations/Re-Index-Video?) med hjälp av API: et väljer `auto detect` du alternativet i `sourceLanguage` parametern.
 
 När du använder portalen går du till dina **konto videor** på Start sidan för [video Indexer](https://www.videoindexer.ai/) och hovrar över namnet på videon som du vill indexera om. Klicka på knappen index igen i det högra hörnet. I dialog rutan **Indexera om video** väljer du *Automatisk identifiering* från List rutan för **video källans språk** .
 
@@ -59,4 +59,5 @@ Modellens dominerande språk är tillgängligt i insikts-JSON som `sourceLanguag
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Översikt](video-indexer-overview.md)
+* [Översikt](video-indexer-overview.md)
+* [Identifiera och automatisk identifiering av innehåll i flera språk](multi-language-identification-transcription.md)

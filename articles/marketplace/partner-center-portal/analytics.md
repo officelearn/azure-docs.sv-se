@@ -1,287 +1,323 @@
 ---
-title: Analytics för kommersiella Marketplace i Partnercenter
-description: Lär dig hur du kommer åt analytiska rapporter för att övervaka försäljning, utvärdera prestanda och optimera dina marketplace-erbjudanden.
-author: mattwojo
+title: Analys för den kommersiella marknads platsen i Partner Center
+description: Lär dig hur du får åtkomst till analys rapporter för att övervaka försäljning, utvärdera prestanda och optimera dina Marketplace-erbjudanden.
+author: chjenk
 manager: evansma
 ms.author: shthota
 ms.service: marketplace
 ms.topic: conceptual
-ms.date: 05/31/2019
-ms.openlocfilehash: e467def33eb2980e58611d50c314a1206877e3b0
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
-ms.translationtype: MT
+ms.date: 09/09/2019
+ms.openlocfilehash: be1da90ef089da412545ac8af6fabb04198d821c
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67619690"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70880174"
 ---
-# <a name="analytics-for-the-commercial-marketplace-in-partner-center"></a>Analytics för kommersiella Marketplace i Partnercenter
+# <a name="analytics-for-the-commercial-marketplace-in-partner-center"></a>Analys för den kommersiella marknads platsen i Partner Center
 
-Lär dig hur du kommer åt analysrapporter i Microsoft Partner Center för att övervaka försäljning, utvärdera prestanda och optimera dina erbjudanden i marketplace. Som partner kan du övervaka din erbjudanderegistreringar med hjälp av datavisualisering och insight-diagram som stöds av Partner Center och hitta sätt att maximera din försäljning. Förbättrad analytics-verktyg kan du agera på prestandaresultat och underhålla relationerna med dina kunder och återförsäljare. 
+Lär dig hur du får åtkomst till analys rapporter i Microsoft Partner Center för att övervaka försäljning, utvärdera prestanda och optimera dina erbjudanden på Marketplace. Som partner kan du övervaka dina erbjudande listor med hjälp av diagrammet data visualisering och insikter som stöds av Partner Center och hitta sätt att maximera din försäljning. Med de förbättrade analys verktygen kan du arbeta med prestanda resultat och upprätthålla bättre relationer med dina kunder och åter försäljare. 
 
-Om du vill få åtkomst till Partner Center analytics-verktyg, öppna den **[analysera](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** instrumentpanelen under kommersiella Marketplace.
+Om du vill komma åt Partner Center Analytics-verktyg öppnar du **[analys](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** instrument panelen under kommersiell marknads plats.
 
-|**Instrumentpanel**|**Visade innehåll**|
+|**Instrumentpanel**|**Visat innehåll**|
 |:---|:---|
-|[Sammanfattning](#summary-dashboard)|Diagram, trender och värdena för aggregerade data som sammanfattar marknadsplatsaktivitet för dina erbjudanden|
-|[Order](#orders-dashboard)|Information om dina order på ett grafiskt och nedladdningsbara format|
-|[Kunder](#customer-dashboard)|Information om dina kunder, inklusive tillväxt trender, visas i en grafisk och nedladdningsbara format|
-|[Nedladdningar](#downloads-dashboard)|En lista över dina hämtningsbegäranden under de senaste 30 dagarna|
+|[Sammanfattning](#summary-dashboard)|Diagram, trender och värden för sammanställda data som sammanfattar Marketplace-aktivitet för dina erbjudanden|
+|[Ordna](#orders-dashboard)|Information om dina beställningar i ett grafiskt och nedladdnings Bart format|
+|[Kunden](#customer-dashboard)|Information om dina kunder, inklusive tillväxt trender, som presenteras i ett grafiskt och nedladdnings Bart format|
+|[–](#downloads-dashboard)|En lista över dina nedladdnings begär Anden under de senaste 30 dagarna|
+|[Klassificeringar och recensioner](#ratings-and-reviews)| Information om klassificering och recensioner som kunderna lämnar för de erbjudanden som de har köpt.
 
-## <a name="summary-dashboard"></a>Instrumentpanel för sammanfattningar
+## <a name="summary-dashboard"></a>Sammanfattnings instrument panel
 
-Den **sammanfattning** instrumentpanelen visar en översikt baserat på varje typ av erbjudande. **Insikter** visar viktig information på ett ögonblick och ger en bred vy över försäljningsaktivitet av dina erbjudanden. Du kan visualisera dessa rapporter med hjälp av den **sammanfattning** instrumentpanelen:
+På instrument panelen **Sammanfattning** presenteras en översikt baserad på varje erbjudande typ. **Insikter** visar viktig information snabbt och ger en bred överblick över Sälj aktiviteten för dina erbjudanden. Du kan visualisera dessa rapporter med **sammanfattnings** instrument panelen:
 
 - [Totalt antal beställningar](#totals)
 - [Totalt antal kunder](#totals)
 - [Geografisk plats för dina kunder](#customers-by-geography)
-- [Kommande trender baserat på informationen kunden och ordning](#growth-trend-chart)
-- [Kunden rankningslista med högsta order](#customer-leaderboard)
-- [Antal beställningar ordnade efter erbjudandenamn](#offers-by-orders)
+- [Trender som är nya baserat på din kund och beställnings information](#growth-trend-chart)
+- [Kund ranknings lista med högst order](#customer-leaderboard)
+- [Antal beställningar sorterade efter namn på erbjudande](#offers-by-orders)
 
 ### <a name="date-range"></a>Datumintervall
 
-Du hittar en val av datum tidsintervall i det övre högra hörnet på varje sida. Utdata från den **sammanfattning** sidan diagram kan anpassas genom att välja ett datumintervall baserat på senaste 3, 6 eller 12 månader eller genom att välja ett eget datumintervall med en maximal varaktighet för 12 månader. Standardvärden är sex månader.
+Du kan hitta ett datum intervall i det övre högra hörnet på varje sida. Utdata från **sammanfattnings** sidans diagram kan anpassas genom att välja ett datum intervall baserat på de senaste 3, 6 eller 12 månaderna, eller genom att välja ett anpassat datum intervall med en maximal varaktighet på 12 månader. Standard datum intervallet är sex månader.
 
-![Partner Center analysera instrumentpanel](./media/analyze-dashboard.png)
+![Partner Center analys instrument panel](./media/analyze-dashboard.png)
 
-### <a name="totals"></a>Summor
+### <a name="totals"></a>Totalt belopp
 
-Den **summor** avsnittet visas en uppräkning av alla order som skapas eller kunder som har köpt under det valda datumintervallet. 
+Avsnittet **summor** visar antalet order som skapats, eller kunder som har köpts, under det valda datum intervallet. 
 
-- Procentvärdet bredvid **Totalt antal beställningar** och **totala kunder** representerar det tillväxten jämfört med föregående månad. 
-- En grön triangel som pekar anger uppåt ett positivt Tillväxttrend. En röd triangel som pekar anger nedåt en negativ Tillväxttrend i förhållande till föregående månad. 
-- Ordning och kundernas tillväxt trender representeras av diagram och visar värdet för varje månad genom att hovra över kolumner i diagrammet.
+- Procentvärdet bredvid **Totalt antal beställningar** och **Totalt antal kunder** representerar tillväxten jämfört med föregående månad. 
+- En grön triangel som pekar uppåt anger en positiv tillväxt trend. En röd triangel som pekar nedåt visar en negativ tillväxt trend i förhållande till föregående månad. 
+- Trender för order och kund tillväxt representeras av Stolp diagram och visar värdet för varje månad genom att hovra över kolumnerna i diagrammet.
 
-![Partner Center analysera summor](./media/analyze-totals.png)
+![Total summor för partner Center](./media/analyze-totals.png)
 
 ### <a name="customers-by-geography"></a>Kunder efter geografi
 
-Den **kunder efter geografi** termisk karta visar antalet kunder på en världskarta. 
+Termisk karta **kunder per geografi** visar ett kund antal på en världs karta.
 
-- Du kan flytta kartan för att visa den exakta platsen. 
-- Du kan zooma in en viss plats. 
-- Den termiska kartan har ett rutnät som aviserar om ytterligare för att visa information om antalet kunder (eller [order antal](#orders-by-geography)) på specifik plats. 
-- Du kan söka efter och välj ett land i rutnätet för att zooma till plats på kartan. Återgå till den ursprungliga vyn genom att trycka på den **Start** knappen på kartan.
-- En **nya** kunden har köpt en av dina erbjudanden för första gången under månaden i det valda datumintervallet.
+- Du kan flytta kartan för att visa den exakta platsen.
+- Du kan zooma in på en bestämd plats.
+- Termisk karta har ett extra rutnät för att visa information om antalet kunder (eller [antalet order](#orders-by-geography)) på den specifika platsen.
+- Du kan söka efter och välja ett land i rutnätet för att zooma till platsen i kartan. Återgå till den ursprungliga vyn genom att trycka på knappen **Start** på kartan.
+- En **ny** kund har köpt ett av dina erbjudanden för första gången under månaden inom det valda datum intervallet.
 
-![Partner Center analysera kundgeografi](./media/analyze-customer-geography.png)
+![Partner Center, analysera kund geografi](./media/analyze-customer-geography.png)
 
-### <a name="growth-trend-chart"></a>Trenddiagram för tillväxt
+### <a name="growth-trend-chart"></a>Diagram över tillväxt trend
 
-Du kan visa trender baserat på tillväxten av dina **order som skapas** eller **kunder som har köpt**, visas per månad enligt det valda datumintervallet. Du kan ytterligare analysera dessa trender genom att välja länkarna nedan diagrammet, som går du till respektive **ordning** eller **kunden** sidor.
+Du kan visa trender baserat på tillväxten av dina **beställningar som skapats** eller kunder som har **köpts**, med månads Visa månad enligt det valda datum intervallet. Du kan analysera trender ytterligare genom att välja länkar under diagrammet, som går till respektive **order** -eller **kund** sidor.
 
-![Partner Center analysera tillväxten trender](./media/analyze-growth-trends.png)
+![Partner Center analys av tillväxt trender](./media/analyze-growth-trends.png)
 
-### <a name="customer-leaderboard"></a>Kunden rankningslista
+### <a name="customer-leaderboard"></a>Kund ranknings lista
 
-Upp 50 kunder med det högsta antalet beställningar visas på en *ledartavla*, sorterade efter högst antal i ordning och i procent för ordern. 
+De 50 främsta kunderna med högst antal beställningar visas på en *ledare*, sorterat efter högsta antal beställningar och order procent. 
 
-- Välj en kund att visa deras profilinformation, order ordnade efter erbjudandet eller beställningar ordnade efter Azure licens typ och priser kanal. 
-- Den **erbjuder med order** ringdiagram presenterar de översta fyra erbjudandena (efter ordning antal) och de återstående erbjuder grupperade i som Rest alla.
-
-> [!NOTE]
-> Kunders personliga information visas bara om kunden har gett ditt medgivande. Du kan visa den här informationen om du har loggat in med ett **ägare** behörigheter rollnivå. Användare med den **deltagare** rollen kommer inte att kunna visa den här informationen. [Mer information om roller och behörigheter](./manage-account.md#define-user-roles-and-permissions).
-
-![Partner Center analysera tillväxten trender](./media/analyze-growth-trends.png)
-
-### <a name="offers-by-orders"></a>Erbjudanden med order
-
-Den **erbjuder med order** diagrammet ordnar dina aktiva order enligt erbjudandenamn. 
-
-- Du kan dra över sektorer från vänster ringdiagrammet till rätt ringdiagram för att visa mer information om erbjudandet som du har dragit. De här två diagrammen kan du jämföra ett specifikt erbjudande med prestanda hos alla dina erbjudanden som (”Rest alla”). 
-
-![Partner Center analysera erbjudanden med order](./media/analyze-offer-by-order.png)
-
-## <a name="orders-dashboard"></a>Order-instrumentpanel
-
-Den **order** instrumentpanelen för den **analysera** menyn visar aktuella order för alla dina SaaS-erbjudanden. Du kan visa grafiska representationer av:
-
-- [Ordning summor](#order-totals)
-- [Order efter geografi](#orders-by-geography)
-- [Trender för aktiva och avbrutna order](#trends-for-active-and-canceled-orders)
-- [Order ordnade efter marketplace licenstyp](#orders-by-marketplace-license-type)
-- [Order ordnade efter nya och befintliga kunder](#orders-by-customer-type)
-- [Information om sorteringstabellen](#order-details-table)
+- Välj en kund om du vill visa profil information, beställningar som organiserats efter erbjudande eller beställningar som organiseras av Azures licens typ och prissättnings kanal. 
+- Ring diagrammet för **erbjudanden per order** innehåller de fyra främsta erbjudandena (per antal order) och återstående erbjudanden grupperade i som "rest all".
 
 > [!NOTE]
-> Det finns skillnader mellan hur analysrapporter visas i Cloud Partner Portal (CPP) och det nya kommersiella Marketplace-programmet i Partnercenter. Ett visst sätt är att den **försäljning Insights** i CPP har en **beställningar och användning** fliken som visar data för användningsbaserade erbjudanden och icke-användningsbaserade erbjudanden. Partner Center den **order** sidan har en separat flik för SaaS-erbjudanden.
+> Kundens personliga information visas bara om kunden har gett sitt medgivande. Du kan visa den här informationen om du har loggat in med behörighets nivån för **ägar** rollen. Användare med rollen **deltagare** kommer inte att kunna visa den här informationen. [Läs mer om användar roller och behörigheter](./manage-account.md#define-user-roles-and-permissions).
 
-### <a name="order-totals"></a>Ordning summor
+![Partner Center analys av tillväxt trender](./media/analyze-growth-trends.png)
 
-Den **Order summor** avsnittet visas en uppräkning av alla order som skapas, inklusive både **Active** och **har avbrutits** beställningar under den valda [datumintervall ](#date-range). 
+### <a name="offers-by-orders"></a>Erbjudanden per order
 
-- Procentvärdet bredvid **Totalt antal beställningar** representerar det tillväxten jämfört med föregående månad. 
-- En grön triangel som pekar anger uppåt ett positivt Tillväxttrend. En röd triangel som pekar anger nedåt en negativ Tillväxttrend i förhållande till föregående månad. 
-- Tillväxt trender representeras av diagram och visar värdet för varje månad genom att hovra över kolumner i diagrammet.
+Diagrammet **erbjudanden per order** ordnar dina aktiva beställningar enligt namnet på erbjudandet. 
 
-### <a name="orders-by-geography"></a>Order efter geografi
+- Du kan dra över segment från det vänstra ring diagrammet till höger ring diagram för att visa mer information om erbjudandet som du har dragit. Med de här två diagrammen kan du jämföra ett speciellt erbjudande med prestanda för alla andra erbjudanden ("rest all"). 
 
-Den **order efter geografi** termisk karta som visar antalet dina order på en världskarta i hela och fungerar på samma sätt som den  **[kunder efter geografi termisk karta](#customers-by-geography)** .
+![Partner Center, analysera erbjudanden per order](./media/analyze-offer-by-order.png)
 
-### <a name="trends-for-active-and-canceled-orders"></a>Trender för aktiva och avbrutna order
+## <a name="orders-dashboard"></a>Order instrument panel
 
-Den **aktiv beställningar av erbjudanden** ringdiagram graph organiserar alla dina aktiva order enligt deras namn för erbjudandet.
+På instrument panelen för **order** i menyn **analysera** visas aktuella beställningar för alla dina SaaS-erbjudanden. Du kan visa grafiska representationer av:
 
-- Främsta 4 erbjudanden visas i diagrammet och grupperas resten av dina erbjudanden som Rest alla.
-- Du kan välja specifika erbjudanden i förklaringen för att visa endast de erbjudandena i diagrammet. 
-- Hovra över en sektor i diagrammet visar antalet order och procentandel av erbjudandet jämfört med det totala antalet beställningar över alla erbjudanden.
-- **Beställningar av erbjudanden trend** visar per månad tillväxt trender. Kolumnen månad representerar antalet order av erbjudandenamn. Linjediagrammet visar Tillväxttrend för procent ritas på en z-axel.
-- Du kan använda skjutreglaget överst i diagrammet Rulla höger och vänster längs x-axeln och fokusera på specifika datapunkter.
-- Du kan visa trend diagrammet genom att välja ett specifikt objekt i förklaringen.
-- Du kan också välja att visa trender och data för **har avbrutits orders**. Diagrammet kommer att fungera på samma sätt som aktiva order.
+- [Order summor](#order-totals)
+- [Beställningar efter geografi](#orders-by-geography)
+- [Trender för aktiva och annullerade beställningar](#trends-for-active-and-canceled-orders)
+- [Beställningar ordnade efter Marketplace-licens typ](#orders-by-marketplace-license-type)
+- [Beställningar som organiseras av nya och befintliga kunder](#orders-by-customer-type)
+- [Order detalj tabell](#order-details-table)
 
-![Partner Center analysera aktiva order](./media/analyze-active-orders.png)
+> [!NOTE]
+> Det finns skillnader mellan hur analys rapporter visas i Cloud Partner Portal (CPP) och det nya kommersiella Marketplace-programmet i Partner Center. Ett särskilt sätt är att **säljar insikter** i cpp har en **order & fliken användning** , som visar data för användnings erbjudanden och icke-användnings erbjudanden. Sidan **beställningar** i Partner Center har en separat flik för SaaS-erbjudanden.
 
-### <a name="orders-by-marketplace-license-type"></a>Order per marketplace licenstyp
+### <a name="order-totals"></a>Order summor
+
+I avsnittet **order summor** visas antalet order som skapats, inklusive både **aktiva** och **annullerade** order, under det valda [datum intervallet](#date-range). 
+
+- Procentvärdet bredvid **Totalt antal beställningar** representerar tillväxten jämfört med föregående månad. 
+- En grön triangel som pekar uppåt anger en positiv tillväxt trend. En röd triangel som pekar nedåt visar en negativ tillväxt trend i förhållande till föregående månad. 
+- Tillväxt trender representeras av Stolp diagram och visar värdet för varje månad genom att hovra över kolumnerna i diagrammet.
+
+### <a name="orders-by-geography"></a>Beställningar efter geografi
+
+Termisk karta för **beställningar per geografi** visar antalet beställningar på en världs karta och fungerar på samma sätt som **[kunderna efter geografi termisk karta](#customers-by-geography)** .
+
+### <a name="trends-for-active-and-canceled-orders"></a>Trender för aktiva och annullerade beställningar
+
+Med ring diagram över **aktiva beställningar per** erbjudande kan du ordna alla dina aktiva beställningar enligt deras namn.
+
+- De fyra främsta erbjudandena visas i diagrammet och resten av erbjudandena grupperas som "rest all".
+- Du kan välja vissa erbjudanden i förklaringen om du bara vill visa de erbjudanden som finns i diagrammet. 
+- Om du hovrar över en sektor i diagrammet visas antalet order och procent andel av erbjudandet jämfört med det totala antalet beställningar i alla erbjudanden.
+- **I order by** -trender visas trender i månads tillväxt. Kolumnen månad representerar antalet order efter namnet på erbjudandet. Linje diagrammet visar trenden för tillväxt i procent som ritats på en z-axel.
+- Du kan använda skjutreglaget överst i diagrammet för att rulla åt höger och vänster längs x-axeln och fokusera på vissa data punkter.
+- Du kan visa trend diagrammet genom att välja ett speciellt objekt i förklaringen.
+- Du kan också välja att visa trender och data för **annullerade order**. Grafen fungerar på samma sätt som aktiva beställningar.
+
+![Partner Center analysera aktiva beställningar](./media/analyze-active-orders.png)
+
+### <a name="orders-by-marketplace-license-type"></a>Order efter Marketplace-licens typ
 <!-- Section needs review and clarification!  -->
-Den **order per marketplace licenstyp** diagrammet visar antalet per månad ordning baserat på licenstyp och fakturera i marketplace-erbjudandet. Licenstyper är:
+I diagrammet **beställningar efter Marketplace licens typ** visas månads Visa antal per månad baserat på licens typen och fakturerings metoden för Marketplace-erbjudandet. Licens typer är:
 
-- **Fakturerade via Azure**: Microsoft debiterar kunder för din räkning när du väljer att [sälja ditt erbjudande via Microsoft](./create-new-saas-offer.md#sell-through-microsoft) med en sådan licens. Betalningstyper är betala per användning via kreditkort eller Enterprise fakturering.
-- **Använd din egen licens**: Microsoft debiterar inte kunder för deras användning av den här typen av marketplace-erbjudandet. Visas som **[blir nu (kostnadsfritt)](./create-new-saas-offer.md#get-it-now-free)** i marketplace.
-- **Kostnadsfria**: Microsoft debiterar inte kunder för deras användning av den här typen av marketplace-erbjudandet. Visas som **[kostnadsfri utvärderingsversion](./create-new-saas-offer.md##free-trial-listing)** i marketplace.
-- **Microsoft som återförsäljare**: Representerar erbjudanden som säljs av Microsoft-återförsäljare som en del av den  **[Cloud Solution Provider (CSP) program](./create-new-saas-offer.md#csp-program-opt-in)** .
+- **Faktureras via Azure**: Microsoft fakturerar kunder åt dig när du väljer att [sälja ditt erbjudande via Microsoft](./create-new-saas-offer.md#sell-through-microsoft) med den här licens typen. Betalnings typerna omfattar betala per användning via kredit kort eller företags fakturering.
+- **Bring Your Own License**: Microsoft debiterar inte kunder för deras användning av den här typen av Marketplace-erbjudande. Anges som **[Hämta nu (kostnads fritt)](./create-new-saas-offer.md#get-it-now-free)** i Marketplace.
+- **Kostnads fri**: Microsoft debiterar inte kunder för deras användning av den här typen av Marketplace-erbjudande. Visas som **[kostnads fri utvärderings version](./create-new-saas-offer.md##free-trial-listing)** i Marketplace.
+- **Microsoft as åter försäljare**: Representerar erbjudanden som säljs av Microsoft-återförsäljare som en del av **[CSP-programmet (Cloud Solution Provider)](./create-new-saas-offer.md#csp-program-opt-in)** .
 
-![Partner Center analysera order per licenstyp](./media/analyze-license-type.png)
+![Partner Center, analysera beställningar efter licens typ](./media/analyze-license-type.png)
 
-### <a name="orders-by-customer-type"></a>Order per kundtyp
+### <a name="orders-by-customer-type"></a>Beställningar efter kundtyp
 
-Den **order per kundtyp** liggande diagram visar antalet order fördelade mellan **nya kunder** och **befintliga kunder**. 
+I diagrammet **order efter kund typ** stapeldiagram visas antalet beställningar som delas mellan **nya kunder** och **befintliga kunder**. 
 
-- En **ny kund** har fått en eller flera av dina erbjudanden för första gången inom samma kalendermånad (y-axeln). En **befintliga kund** tidigare skaffat ett erbjudande från dig innan per kalendermånad rapporterade (på y-axeln). 
-- En ytterligare cirkeldiagram representerar alla order som skapas av ny eller befintlig kunden för det valda datumintervallet.
-- I båda diagrammen kan du välja att visa endast nya eller bara befintliga kunder genom att välja respektive förklaringen.
+- En **ny kund** har skaffat ett eller flera av dina erbjudanden för första gången inom samma kalender månad (y-axeln). En **befintlig kund** har tidigare förvärvat ett erbjudande från dig före den kalender månad som rapporter ATS (på y-axeln). 
+- Ett ytterligare cirkel diagram representerar alla beställningar som skapats av den nya eller befintliga kunden för det valda datum intervallet.
+- I båda diagrammen kan du välja att bara visa nya eller bara befintliga kunder genom att välja respektive förklaring.
 
-![Partner Center analysera order per kundtyp](./media/analyze-order-by-customer.png)
+![Partner Center analyserar beställningar efter kundtyp](./media/analyze-order-by-customer.png)
 
-### <a name="order-details-table"></a>Information om sorteringstabellen
+### <a name="order-details-table"></a>Order detalj tabell
 
-Den **ordning informationstabellen** visar en numrerad lista över 1000 översta beställningar sorteras efter datumet för inköp.
+**Tabellen Order information** visar en numrerad lista över de 1000 främsta order som sorteras efter förvärvs datum.
 
-- Varje kolumn i rutnätet är kan sorteras.
-- Du kan extrahera data till en TSV-fil om antalet poster är mindre än 1 000.
-- Om antalet poster 1000, exporteras placeras data asynkront i en hämtningssidan för de nästa 30 dagarna.
-- Filter kan tillämpas på den **ordning informationstabellen** att visa endast de data som du är intresserad av. Data kan filtreras efter land, Azure licenstyp, licenstyp för Marketplace, typ av erbjudande, beställningsstatus, kostnadsfria spår, Marketplace-ID, kund-ID och företag prenumerationsnamn.
+- Varje kolumn i rutnätet är sorterbar.
+- Data kan extraheras till en TSV-fil om antalet poster är mindre än 1000.
+- Om poster nummer över 1000 placeras exporterade data asynkront på sidan nedladdningar under de närmaste 30 dagarna.
+- Filter kan tillämpas på **tabellen Order information** för att visa endast de data som du är intresse rad av. Data kan filtreras efter land, Azure-licensserver, Marketplace-licens typ, erbjudande typ, order status, kostnads fria historik, prenumerations-ID för Marketplace, kund-ID och företags namn.
 
-![Partner Center analysera beställningsinformation](./media/analyze-order-details.png)
+![Information om hur du analyserar Partner Center](./media/analyze-order-details.png)
 
-## <a name="customer-dashboard"></a>Kund-instrumentpanel
+## <a name="customer-dashboard"></a>Kund instrument panel
 
-Den **kunden** instrumentpanelen för den **analysera** menyn visar data för kunder som har hämtat dina erbjudanden. Du kan visa grafiska representationer av:
+På **instrument panelen för kunder i** **analys** menyn visas data för kunder som har köpt dina erbjudanden. Du kan visa grafiska representationer av:
 
-- [Kunden summor](#customer-totals)
+- [Kund summor](#customer-totals)
 - [Kunder efter geografi](#customers-by-geography)
-- [Kundernas trender](#customer-trends)
-- [Kunder med order](#customers-by-orders)
-- [Information om kundtabell](#customer-details-table)
+- [Kund trender](#customer-trends)
+- [Kunder per order](#customers-by-orders)
+- [Tabellen Kund information](#customer-details-table)
 
-### <a name="customer-totals"></a>Kunden summor
+### <a name="customer-totals"></a>Kund summor
 
-Den **kunden summor** avsnittet visas en uppräkning av alla kunder, inklusive nya, befintliga och churned, under den valda [datumintervall](#date-range).
+I avsnittet **kund summor** visas antalet kunder, inklusive nya, befintliga och omsättnings bara under det valda [datum intervallet](#date-range).
 
-- Kunder procentandelen tillväxten jämfört med föregående månad visas med antalet och uppåtgående indikatorn i gröna eller nedåtgående indikatorn i rött.
-- Tillväxt trender representeras av diagram och visar värdet för varje månad genom att hovra över kolumner i diagrammet.
+- Kundernas procentuella tillväxt jämfört med föregående månad anges av talet och uppåt i den gröna eller nedåtriktade indikatorn i rött.
+- Tillväxt trender representeras av Stolp diagram och visar värdet för varje månad genom att hovra över kolumnerna i diagrammet.
 
-#### <a name="customer-types"></a>Kundtyper
+#### <a name="customer-types"></a>Kund typer
 
-Det finns tre kundtyper: nya, befintliga och churned. 
+Det finns tre kund typer: nya, befintliga och uppdelade. 
 
-- En ny kund har fått en eller flera av dina erbjudanden för första gången inom den valda månaden.
-- En kund har fått en eller flera av dina erbjudanden innan den månad som valts.
-- En churned kund har avbrutit alla erbjudanden som redan har köpt.
+- En ny kund har skaffat ett eller flera av dina erbjudanden för första gången inom den valda månaden.
+- En befintlig kund har köpt ett eller flera av dina erbjudanden före den månad som valts.
+- En upprättad kund har avbrutit alla erbjudanden som tidigare har köpts.
 
-### <a name="customer-trends"></a>Kundernas trender
+### <a name="customer-trends"></a>Kund trender
 
-Den **kundernas trender** diagrammet visar en uppräkning av alla kunder, inklusive nya, befintliga och churned med en Tillväxttrend för per månad.
+I tabellen med **kund trender** visas antalet kunder, inklusive nya, befintliga och uppkopplade, med en tillväxt trend per månad.
 
-- Linjediagrammet representerar de övergripande kunden tillväxt procenttal. 
-- Kolumnen månad representerar antalet kunder liggande av nya, befintliga och churned kunder.
-- Antalet churned kunden visas på Y-axeln negativ riktning.
-- Du kan välja specifika förklaring objekt som ska visas mer detaljerade vyer. Välj till exempel nya kunder i förklaringen att endast visa nya kunder.
-- Du kan använda skjutreglaget överst i diagrammet Rulla höger och vänster på x-axeln och fokusera på specifika datapunkter och visa i detalj.
-- Hovra över en kolumn i diagrammet visas information för endast den månaden.
+- Linje diagrammet representerar de övergripande procent andelen av kundens tillväxt. 
+- Kolumnen månad representerar antalet kunder som är staplade efter nya, befintliga och uppdelade kunder.
+- Antalet uppräknade kunder visas i Y-axelns negativa riktning.
+- Du kan välja särskilda förklarings objekt för att visa mer detaljerade vyer. Välj till exempel nya kunder från förklaringen för att endast visa nya kunder.
+- Du kan använda skjutreglaget överst i diagrammet för att rulla åt höger och vänster på x-axeln och fokusera på vissa data punkter för att visa mer information.
+- Om du hovrar över en kolumn i diagrammet visas endast information för den månaden.
 
-![Partner Center analysera kundernas trender](./media/analyze-customer-trends.png)
+![Partner Center analysera kund trender](./media/analyze-customer-trends.png)
 
-### <a name="customers-by-orders"></a>Kunder med order
+### <a name="customers-by-orders"></a>Kunder per order
 
-Den **kunder med order** diagram visar den **upp kund: e percentilen** längs x-axeln, i enlighet med deras antalet beställningar. Y-axeln visar kundens orderantal. Z-axeln (linjediagram) visar den ackumulerade procenten av det totala antalet beställningar. Du kan visa information genom att hovra över punkter längs linjediagrammet.
+I diagrammet **kunder per order** visas den **främsta kund percentilen** längs x-axeln, vilket bestäms av antalet beställningar. Y-axeln visar kundens order antal. Z-axeln (linje diagrammet) visar den ackumulerade procent andelen av det totala antalet beställningar. Du kan visa information genom att hovra över punkter längs linje diagrammet.
 
-Exempelvis kan du lära dig från den här kundinformation ordning som de översta 30% av dina kunder bidrar till 83% order, lika med 2,130 order.
+Som exempel kan du lära dig från de här kund order data som de översta 30% av kunderna bidrar till 83% av orderna, lika med 2 130 order.
 
-![Partner Center analysera kundorder](./media/analyze-customer-orders.png)
+![Partner Center analysera kund beställningar](./media/analyze-customer-orders.png)
 
-### <a name="customer-details-table"></a>Information om kundtabell
+### <a name="customer-details-table"></a>Tabellen Kund information
 
-Den **information kundtabell** visar en numrerad lista över de översta 1000 kunder sorterade efter det datum som de förvärvade en av dina erbjudanden.
+**Tabellen Kund information** visar en numrerad lista över de 1000 främsta kunderna sorterat efter det datum då de först köpte ett av dina erbjudanden.
 
-- Kunders personliga information är endast tillgängligt om kunden har gett ditt medgivande. Du kan bara visa den här informationen om du har loggat in med ett **ägare** rollen behörighetsnivå. [Mer information om roller och behörigheter](./manage-account.md#define-user-roles-and-permissions).
-- Varje kolumn i rutnätet är kan sorteras.
-- Du kan extrahera data till en TSV-fil om antalet poster är mindre än 1 000.
-- Om antalet poster 1000, exporteras placeras data asynkront i en hämtningssidan för de nästa 30 dagarna.
-- Filter kan tillämpas på tabellen för att visa endast de data som du är intresserad av. Data kan vara filtreras efter företagets namn, kund-ID, Marketplace prenumerations-ID, licenstyp för Azure, Date förvärvat, datum tappas bort, kundernas e-, kund land/tillstånd/stad/Zip, kunden språk, osv.
+- Kundens personliga information kommer bara att vara tillgänglig om kunden har gett sitt medgivande. Du kan bara se den här informationen om du har loggat in med behörighets nivån **ägare** av rollen. [Läs mer om användar roller och behörigheter](./manage-account.md#define-user-roles-and-permissions).
+- Varje kolumn i rutnätet är sorterbar.
+- Data kan extraheras till en TSV-fil om antalet poster är mindre än 1000.
+- Om poster nummer över 1000 placeras exporterade data asynkront på sidan nedladdningar under de närmaste 30 dagarna.
+- Filter kan tillämpas på tabellen för att visa endast de data som du är intresse rad av. Data kan filtreras efter företags namn, kund-ID, marknads plats prenumerations-ID, typ av Azure-licens, datum för inhämtat, datum förlorat, kund-e-post, kund land/delstat/ort/post, kund språk osv.
 
-![Partner Center analysera kundinformation](./media/analyze-customer-table.png)
+![Partner Center, analysera kund information](./media/analyze-customer-table.png)
 
-## <a name="downloads-dashboard"></a>Hämtar instrumentpanel
+## <a name="downloads-dashboard"></a>Hämta instrument panel
 
-Den **hämtar** instrumentpanelen för den **analysera** menyn visar begäranden för alla nedladdningar som innehåller över 1 000 rader med data för kunden eller ordning.
+Instrument panelen för **nedladdningar** i **analys** menyn visar begär Anden om hämtningar som innehåller över 1000 rader med kund-eller order data.
 
-Du får ett popup-meddelande och e-postmeddelande med en länk till den **hämtar** instrumentpanelen när du försöker hämta en fil med över 1 000 rader med data. Hämtningar data blir tillgängliga för en period på 30 dagar och tas sedan bort.
+Du får ett popup-meddelande och ett e-postmeddelande som innehåller en länk till instrument panelen för **nedladdningar** när du begär en nedladdning med över 1000 rader med data. Dessa data hämtningar är tillgängliga under en 30-dagarsperiod och tas sedan bort.
 
-![Partner Center analysera nedladdningar](./media/analyze-downloads.png)
+![Hämtnings bara filer för partner Center](./media/analyze-downloads.png)
 
-### <a name="dictionary-of-data-terms"></a>Data termordlista
+### <a name="dictionary-of-data-terms"></a>Ord lista med data termer
 
 | Attributnamn | Rapporter | Definition|
 |---|---|---|
-| Azure licenstyp | Kund-, Order | Typ av licensavtal som används av kunder för att köpa Azure. Även känt som kanal |
-| Azure licenstyp: Cloud Solution Provider | Kund-, Order | Slutkunden procures Azure och ditt Marketplace-erbjudande via sin Molnlösningsleverantör som fungerar som en återförsäljare.|
-| Azure licenstyp: Företag | Kund-, Order | Slutkunden procures Azure och din Marketplace-erbjudande via ett Enterprise Agreement, signerade direkt med Microsoft.|
-| Azure licenstyp: Enterprise via återförsäljare  | Kund-, Order | Slutkunden procures Azure och ditt Marketplace-erbjudande genom en återförsäljare som underlättar Enterprise-avtal med Microsoft.|  |
-| Azure licenstyp: Betala| Kund-, Order | Slutkunden procures Azure och din Marketplace-erbjudande via en ”betala”-avtal som undertecknas direkt med Microsoft.||
-| Instansnamn för molnet| Beställa| Microsoft Cloud som en VM-distribution inträffade.||
-| Cloud-instansnamn: Azure Global| Beställa| Offentliga global Microsoft-molnet.|| |
-| Cloud-instansnamn: Azure Government | Beställa| Myndighetsspecifika Microsoft-molnet för en av följande myndigheter: Kina, Tyskland eller i USA.| |
-| Kunden stad| Kunden| Ortnamn som tillhandahålls av kunden. Stad kan skilja sig från ort i en kunds Azure-prenumeration.||
-| Kunden Kommunikationsspråk  | Kunden| Det språk som föredras av kunden för kommunikation.||
-| Kundföretaget namn | Kund-, Order | Företagsnamnet som tillhandahålls av kunden. Namnet kan vara annorlunda än ort i en kunds Azure-prenumeration.|  |
-| Kundens land | Kund-, Order | Landsnamn som tillhandahålls av kunden. Land kan skilja sig från landet i en kunds Azure-prenumeration.|  |
-| Kunden e-post| Kunden| E-postadress som tillhandahålls av slutkunden. E-post kan skilja sig från den e-postadressen i en kunds Azure-prenumeration.||
-| Kundens förnamn| Kunden| Namnet som tillhandahålls av kunden. Namnet kan vara annorlunda än det namn som i en kunds Azure-prenumeration.| |
-| Kund-ID | Kund-, Order | Den unika identifieraren som tilldelats till en kund. En kund kan ha noll eller flera Azure Marketplace-prenumerationer.|  |
-| Kunden postnummer  | Kunden| Postnummer som tillhandahålls av kunden. Koden kan vara annorlunda än postnumret i en kunds Azure-prenumeration.| |
-| Kund-tillstånd| Kunden| Status (adress) tillhandahålls av kunden. Tillstånd kan skilja sig från det senaste namn i en kunds Azure-prenumeration.| |
-| Inköpsdatum| Kunden| Det första datumet som kunden har köpt ett erbjudande som publicerats av dig.| |
-| Datum förlorat| Kunden| Det sista datumet kunden har avbrutits sist för alla erbjudanden som redan har köpt.||
-| Är ny kund  | Beställa| Värdet identifierar en ny kund som hämtar en eller flera av dina erbjudanden för första gången (eller inte). Värdet ska vara ”Ja” om inom samma kalendermånad för ”Date förvärvat”. Värdet kommer att ”Nej” om kunden har köpt någon av dina erbjudanden innan rapporteras per kalendermånad. |
-| Är förhandsversionen av SKU| Beställa| Värdet meddelar dig om du har taggat SKU: N som ”förhandsversion”. Värdet ska vara ”Ja” om SKU: N har taggats i enlighet med detta och endast Azure-prenumerationer som du har godkänt kan distribuera och använda den här avbildningen. Värdet kommer att ”Nej” om SKU: N inte har identifierats som ”förhandsversion”.  |
-| Priset kontakta är anmäla| Kunden| Värdet meddelar dig om kunden proaktivt har valt för erbjudanden kontakt från utgivare. Just nu, vi inte förmedla alternativet till kunder, så vi har angett ”Nej” för tavlan. När den här funktionen har distribuerats, börjar vi uppdaterar därefter.|
-| Marketplace-licenstyp| Beställa| Fakturera i Marketplace-erbjudandet.||
-| Marketplace-licenstyp: Fakturerade via Azure| Beställa| Microsoft är ditt ombud för det här erbjudandet i Marketplace och fakturerar kunder för din räkning. (PAYG kreditkort eller faktura Enterprise)||
-| Marketplace-licenstyp: Använd din egen licens | Beställa| Den virtuella datorn kräver en licensnyckel som tillhandahålls av kunden att distribuera. Microsoft debiterar inte kunder för att lista över erbjudanden på så vis via marketplace.||
-| Marketplace-licenstyp: Lediga| Beställa| Erbjudandet är konfigurerad för att vara kostnadsfritt för alla användare. Microsoft debiterar inte kunder för deras användning av erbjudandet.||
-| Marketplace-licenstyp: Microsoft som din återförsäljare  | Beställa| Microsoft är din återförsäljare för det här erbjudandet i Marketplace.|  |
-| Marketplace prenumerations-ID | Kund-, Order | Den unika identifieraren som är associerade med Azure-prenumeration kunden använde för att köpa Marketplace-erbjudande. ID var tidigare GUID för Azure-prenumeration.||
-| Erbjudandets namn  | Beställa| Namnet på Marketplace-erbjudande.|| |
-| Erbjudandetyp  | Beställa| Typ av Microsoft Marketplace-erbjudande.|||
-| Typ av erbjudande: Hanterat program  | Ordning, | Använda Azure-appen: hanterade erbjudande apptyp när följande villkor krävs: Du distribuerar antingen en prenumeration-baserad lösning för din kund som använder en virtuell dator eller en hel IaaS-baserad lösning. Du eller dina kunder kräver att lösningen hanteras av en partner. |
-| Typ av erbjudande: Azure Application| Ordning, | Använd Azure-program lösning malltyp erbjudandet när din lösning kräver ytterligare distribution och konfiguration av automation utöver en enkel virtuell dator.||
-| Typ av erbjudande: Konsulttjänst| Beställa| Konsulttjänster på Azure Marketplace hjälpa till att ansluta kunder med stöd för och utöka deras användning av Azure-tjänster.| |
-| Typ av erbjudande: Container | Beställa| Använd typ av erbjudande behållaren när din lösning är en Docker-behållaravbildning som tillhandahålls som en Kubernetes-baserade Azure-behållartjänst.||
-| Typ av erbjudande: Dynamics 365 Business Central| Beställa| Använd den här erbjudandetypen när lösningen är integrerad med Dynamics 365 för finans och åtgärder| |
-| Typ av erbjudande: Dynamics 365 för Customer Engagement | Beställa| Använd den här erbjudandetypen när lösningen är integrerad med Dynamics 365 för kundengagemang.||
-| Typ av erbjudande: IoT Edge-modul | Beställa| Azure IoT Edge-moduler är de minsta beräkning enheter som hanteras av IoT Edge och kan innehålla Microsoft-tjänster (till exempel Azure Stream Analytics), tjänster 3 part eller din egen Lösningsspecifika kod. |
-| Typ av erbjudande: Power BI-program | Beställa| Använd typ av erbjudande för Power BI-program när du distribuerar ett program som är integrerad med Power BI.|  |
-| Typ av erbjudande: SaaS-program| Beställa| Aktivera kunden att köpa din SaaS-baserade, teknisk lösning som en prenumeration med hjälp av erbjudandetypen för SaaS-app.||
-| Typ av erbjudande: Virtuell dator | Beställa| Använd typ av erbjudande för virtuell dator när du distribuerar en virtuell installation till den prenumeration som är associerad med kunden.||
-| Typ av erbjudande: Visual Studio Marketplace-tillägg  | Beställa| Erbjudandetyp tidigare var tillgängliga för utvecklare för Azure DevOps-tillägget. Gå framåt Azure DevOps sälja tillägget utvecklare sina tillägget direkt till kunder. Tillägget erbjudanden kan konfigureras som Betal eller inklusive en utvärderingsversion. |
-| Avbryt beställningsdatum| Beställa| Det datum som Marketplace-order avbröts.||
-| Order-ID| Beställa| Den unika identifieraren för kund för din Marketplace-tjänst. Användningsbaserade erbjudanden för virtuell dator är inte kopplade till en order.| |
-| Köp beställningsdatum| Beställa| Det datum då Marketplace-Order skapades.|||
-| Beställningsstatus| Beställa| Status för en Marketplace-order när data uppdaterades senast.|     |
-| Beställningsstatus: Aktiv  | Beställa| Kunden har köpt en order och inte har avbrutit deras inbördes ordning.|         |
-| Orderstatus: har avbrutits | Beställa| Kunden redan har köpt en order och därefter har avbrutits deras inbördes ordning.||
-| Leverantör e-post| Kunden| E-postadress som ingår i relationen mellan Microsoft och slutkunden providern. Om kunden är ett företag via din återförsäljare, kommer detta att återförsäljaren. Om en Cloud Solution Provider (CSP) ingår, kommer detta att CSP: N.|
-| Providernamn| Kunden| Namnet på providern som ingår i relationen mellan Microsoft och end-kund. Om kunden är ett företag via din återförsäljare, kommer detta att återförsäljaren. Om en Cloud Solution Provider (CSP) ingår, kommer detta att CSP: N.|
-| SKU| Beställa| SKU-namnet som definierats under publiceringen. Ett erbjudande kan ha många SKU: er, men en SKU kan bara associeras med ett erbjudande.||
-| Slutdatum för utvärdering| Beställa| Datum utvärderingsperioden för den här ordningen avslutas eller har avslutats.||
+| Typ av Azure-licens | Kund, order | Den typ av licens avtal som kunder använder för att köpa Azure. Kallas även för kanal |
+| Azure-licens typ: Cloud Solution Provider | Kund, order | Slutanvändaren kan köpa Azure och ditt Marketplace-erbjudande via moln lösnings leverantören, som agerar som åter försäljare.|
+| Azure-licens typ: Företag | Kund, order | Slutanvändaren kan köpa Azure och ditt Marketplace-erbjudande via en Enterprise-avtal, som loggas direkt med Microsoft.|
+| Azure-licens typ: Företag via åter försäljare  | Kund, order | Slutanvändaren säljer Azure och Marketplace-erbjudandet via en åter försäljare som fören klar sina Enterprise-avtal med Microsoft.|  |
+| Azure-licens typ: Betala per användning| Kund, order | Slutanvändaren debiterar Azure och Marketplace-erbjudandet genom ett "betala per användning"-avtal, undertecknat direkt med Microsoft.||
+| Moln instans namn| Beställa| Den Microsoft Cloud där en VM-distribution ägdes.||
+| Moln instans namn: Azure Global| Beställa| Det offentliga globala Microsoft-molnet.|| |
+| Moln instans namn: Azure Government | Beställa| Myndighets-/regionsspecifika Microsoft-moln för någon av följande myndigheter: Kina, Tyskland eller USA av Amerika.| |
+| Kund ort| Kunden| Orts namnet som tillhandahålls av kunden. Staden kan skilja sig från staden i en kunds Azure-prenumeration.||
+| Kundens kommunikations språk  | Kunden| Det språk som kunden föredrar för kommunikation.||
+| Kund företags namn | Kund, order | Företags namnet som tillhandahålls av kunden. Namnet får inte vara detsamma som staden i en kunds Azure-prenumeration.|  |
+| Kund land | Kund, order | Landets namn som tillhandahålls av kunden. Landet kan skilja sig från landet i en kunds Azure-prenumeration.|  |
+| Kund-e-post| Kunden| E-postadressen som tillhandahålls av slut kunden. E-postadressen kan skilja sig från e-postadressen i en kunds Azure-prenumeration.||
+| Förnamn för kund| Kunden| Det namn som tillhandahålls av kunden. Namnet får inte vara detsamma som det namn som anges i en kunds Azure-prenumeration.| |
+| Kund-ID | Kund, order | Den unika identifierare som tilldelats till en kund. En kund kan ha noll eller flera prenumerationer på Azure Marketplace.|  |
+| Kund post nummer  | Kunden| Post numret från kunden. Koden får inte vara samma som post numret i en kunds Azure-prenumeration.| |
+| Kund tillstånd| Kunden| Den stat (adress) som tillhandahålls av kunden. Tillstånd kan skilja sig från det sista namnet som angavs i en kunds Azure-prenumeration.| |
+| Inköps datum| Kunden| Det första datumet då kunden köpte ett erbjudande som publicerats av dig.| |
+| Datum förlorat| Kunden| Det senaste datumet då kunden avbröt den sista av alla erbjudanden som tidigare har köpts.||
+| Är ny kund  | Beställa| Värdet identifierar en ny kund som förvärvar ett eller flera av dina erbjudanden för första gången (eller inte). Värdet blir "Ja" om det är inom samma kalender månad för "inköps datum". Värdet blir "nej" om kunden har köpt något av dina erbjudanden före den kalender månad som rapporter ATS. |
+| Är för hands version av SKU| Beställa| Värdet meddelar dig om du har taggat SKU som "Preview". Värdet är "Ja" om SKU: n har taggats enligt detta och bara Azure-prenumerationer som har auktoriserats av dig kan distribuera och använda den här avbildningen. Värdet är "nej" om SKU: n inte har identifierats som "för hands version".  |
+| Är kampanj kontakt deltagande| Kunden| Värdet gör att du vet om kunden proaktivt har valt reklam kontakt från utgivare. För tillfället visar vi inte alternativet för kunder, så vi har angett "nej" på tavlan. När den här funktionen har distribuerats kommer vi att börja uppdatera enligt detta.|
+| Marketplace-licens typ| Beställa| Fakturerings metoden för Marketplace-erbjudandet.||
+| Marketplace-licens typ: Debiteras via Azure| Beställa| Microsoft är din agent för det här Marketplace-erbjudandet och fakturerar kunder åt dig. (Antingen PAYG kredit kort eller företags faktura)||
+| Marketplace-licens typ: Ta med din egen licens | Beställa| Den virtuella datorn kräver en licens nyckel från kunden som ska distribueras. Microsoft fakturerar inte kunder för att lista sina erbjudanden på det här sättet via Marketplace.||
+| Marketplace-licens typ: Lediga| Beställa| Erbjudandet är konfigurerat att vara kostnads fritt för alla användare. Microsoft fakturerar inte kunder för användningen av det här erbjudandet.||
+| Marketplace-licens typ: Microsoft as åter försäljare  | Beställa| Microsoft är din åter försäljare för det här Marketplace-erbjudandet.|  |
+| Prenumerations-ID för Marketplace | Kund, order | Den unika identifierare som är kopplad till Azure-prenumerationen som kunden använde för att köpa Marketplace-erbjudandet. ID var tidigare GUID för Azure-prenumerationen.||
+| Erbjudande  | Beställa| Namnet på Marketplace-erbjudandet.|| |
+| Erbjudandetyp  | Beställa| Typ av Microsoft Marketplace erbjudande.|||
+| Erbjudande typ: Hanterat program  | För | Använd Azure app: den hanterade appens erbjudande typ när följande villkor är uppfyllda: Du distribuerar antingen en prenumeration baserad lösning för din kund med antingen en virtuell dator eller en hel IaaS lösning. Du eller din kund kräver att lösningen hanteras av en partner. |
+| Erbjudande typ: Azure Application| För | Använd mallen för Azure Application lösnings erbjudande när din lösning kräver ytterligare distribution och konfigurations automatisering utöver en enkel virtuell dator.||
+| Erbjudande typ: Konsulttjänst| Beställa| Konsult tjänster i Azure Marketplace hjälper till att ansluta kunder med tjänster som stöder och utökar användningen av Azure.| |
+| Erbjudande typ: Container | Beställa| Använd containerns erbjudande typ när din lösning är en Docker-behållar avbildning som tillhandahålls som en Kubernetes-baserad Azure Container Service.||
+| Erbjudande typ: Dynamics 365 Business Central| Beställa| Använd den här erbjudande typen när din lösning är integrerad med Dynamics 365 för finanser och åtgärder| |
+| Erbjudande typ: Dynamics 365 för Customer Engagement | Beställa| Använd den här erbjudande typen när din lösning är integrerad med Dynamics 365 för kund engagemang.||
+| Erbjudande typ: IoT Edge-modul | Beställa| Azure IoT Edge moduler är de minsta beräknings enheter som hanteras av IoT Edge och kan innehålla Microsoft-tjänster (till exempel Azure Stream Analytics), tjänster från tredje part eller din egen lösnings-specifika kod. |
+| Erbjudande typ: Power BI program | Beställa| Använd typen Power BI program erbjudande när du distribuerar ett program som är integrerat med Power BI.|  |
+| Erbjudande typ: SaaS-program| Beställa| Använd SaaS-appens erbjudande typ för att göra det möjligt för kunden att köpa din SaaS-baserade, tekniska lösning som en prenumeration.||
+| Erbjudande typ: Virtuell dator | Beställa| Använd den virtuella datorns erbjudande typ när du distribuerar en virtuell installation till prenumerationen som är kopplad till din kund.||
+| Erbjudande typ: Tillägg för Visual Studio Marketplace  | Beställa| Erbjudande typ som tidigare var tillgänglig för Azure DevOps Extension-utvecklare. Att gå vidare med Azure DevOps Extension-utvecklare kan sälja sitt tillägg direkt till kunderna. Tilläggs erbjudanden kan konfigureras som betalda eller inklusive en utvärderings version. |
+| Annullera datum för beställning| Beställa| Datumet då Marketplace-ordern annullerades.||
+| Order-ID| Beställa| Den unika identifieraren för kund ordern för din Marketplace-tjänst. Användnings erbjudanden för virtuella datorer är inte kopplade till någon order.| |
+| Inköps datum för beställning| Beställa| Datumet då Marketplace-ordern skapades.|||
+| Order status| Beställa| Status för en Marketplace-order vid den tidpunkt då data senast uppdaterades.|     |
+| Order status: Aktiv  | Beställa| Kunden har köpt en order och har inte annullerat sin beställning.|         |
+| Order status: avbruten | Beställa| Kunden köpte tidigare en order och annullerade sedan sin beställning.||
+| Providerns e-postadress| Kunden| E-postadressen till leverantören som är involverad i relationen mellan Microsoft och slut kunden. Om kunden är ett företag genom åter försäljaren blir detta åter försäljaren. Om en moln lösnings leverantör (CSP) är involverad är detta CSP.|
+| Namn på leverantör| Kunden| Namnet på leverantören som är involverad i relationen mellan Microsoft och slut kunden. Om kunden är ett företag genom åter försäljaren blir detta åter försäljaren. Om en moln lösnings leverantör (CSP) är involverad är detta CSP.|
+| SKU| Beställa| SKU-namn som definieras under publiceringen. Ett erbjudande kan ha många SKU: er, men en SKU kan bara associeras med ett enda erbjudande.||
+| Slutdatum för utvärdering| Beställa| Det datum då utvärderings perioden för den här ordern upphör eller har avslut ATS.||
+
+## <a name="ratings-and-reviews"></a>Klassificeringar och recensioner
+
+När kunder bläddrar, söker efter och köper erbjudanden på båda marknads platser kan de lämna betyg och recensioner om de erbjudanden de har köpt. De kan skicka in nya klassificeringar eller recensioner och uppdatera eller ta bort klassificeringar eller recensioner som redan har skickats. Granskningar publiceras i Azure Marketplace eller AppSource på fliken recensioner på sidan för erbjudandets produkt visning. Kunder kan inkludera sina namn för klassificeringar eller recensioner, eller så kan de publicera anonymt.  
+
+> [!NOTE]
+> Kunder kan bara göra ändringar i de klassificeringar och recensioner de äger.
+
+På **instrument panelen klassificering & granska** visas trender och insikter om kund aktiviteter. Den ger grafiska representationer av:
+
+- Klassificering & granskningar  
+- Granska kommentarer
+
+### <a name="marketplace-storefront-tabs"></a>Marketplace butik-flikar
+
+Utgivare kan visa sina erbjudande mått separat på AppSource-& Azure Marketplace-flikarna. Om du vill visa vissa erbjudande mått väljer du **erbjudandet** i list rutan:
+
+![List rutan för att analysera erbjudande i partner centret](./media/analyze-offer-dropdown.png)
+
+### <a name="ratings-and-reviews-summary"></a>Sammanfattning av klassificering och recensioner
+
+I sammanfattnings avsnittet klassificerings & recensioner visas måtten nedan för det valda datum intervallet:
+
+- **Genomsnittligt omdöme:** Viktad genomsnittlig stjärn klassificering av alla klassificeringar som skickats av kunder för det valda erbjudandet.
+- **Klassificering av klassificering:** Nedbrytning av stjärn klassificeringen med antalet kunder som har skickat betyg. Stapeldiagrammet staplas med faktiska och ändrade klassificeringar (uppdaterat betygs antal).
+- **Total betyg:** Totalt antal inskickade klassificeringar. Det här antalet inkluderar även klassificeringar med och utan recensioner.
+- **Klassificering med recensioner:** Antal granskningar som har skickats.
+
+![Översikt över analys och granskning i Partner Center](./media/analyze-ratings-summary.png)
+
+### <a name="review-comments"></a>Granska kommentarer
+
+Granskningar visas i kronologisk ordning för när de publicerades. I standardvyn visas alla granskningar. Du kan filtrera igenom granskningarna efter stjärn klassificering med **filtret** i list menyn. Du kan också söka efter nyckelord som visas i granskningen.  
+
+![Partner Center, analysera gransknings kommentarer](./media/analyze-reviews.png)

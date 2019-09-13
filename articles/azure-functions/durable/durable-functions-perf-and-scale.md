@@ -9,12 +9,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: azfuncdf
-ms.openlocfilehash: ed0fe22903412d4164fb3a85dbd9afafdc7023e6
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 53f561283d4d07d58bd03b59a24a30d8010caaf0
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70098005"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70933278"
 ---
 # <a name="performance-and-scale-in-durable-functions-azure-functions"></a>Prestanda och skalning i Durable Functions (Azure Functions)
 
@@ -127,7 +127,7 @@ I allmänhet är Orchestrator-funktioner avsedda att vara lätta att vara lätta
 
 ## <a name="auto-scale"></a>Autoskala
 
-Precis som med alla Azure Functions som körs i förbruknings planen stöder Durable Functions automatisk skalning via [Azure Functions skalnings styrenheten](../functions-scale.md#runtime-scaling). Skalnings kontrollen övervakar svars tiden för alla köer genom att regelbundet skicka gransknings kommandon. Baserat på fördröjningen hos de granskade meddelandena bestämmer skalnings styrenheten om du vill lägga till eller ta bort virtuella datorer.
+Precis som med alla Azure Functions som körs i förbruknings planen stöder Durable Functions automatisk skalning via [Azure Functions skalnings styrenheten](../functions-scale.md#runtime-scaling). Skalnings kontrollen övervakar svars tiden för alla köer genom att regelbundet skicka _gransknings_ kommandon. Baserat på fördröjningen hos de granskade meddelandena bestämmer skalnings styrenheten om du vill lägga till eller ta bort virtuella datorer.
 
 Om skalnings styrenheten bestämmer att meddelande fördröjningarna för kontroll kön är för höga, lägger den till virtuella dator instanser tills svars tiden minskas till en acceptabel nivå eller når gränsen för kontroll köns partition. På samma sätt kommer skalnings styrenheten att kontinuerligt lägga till virtuella dator instanser om svars tiden för arbets objekt i kö är hög, oavsett antalet partitioner.
 
@@ -220,11 +220,11 @@ När du planerar att använda Durable Functions för ett produktions program är
 
 * **Körning av sekventiell aktivitet**: I det här scenariot beskrivs en Orchestrator-funktion som kör en serie aktivitets funktioner en efter den andra. Det liknar närmast [funktionen kedje](durable-functions-sequence.md) exempel.
 * **Körning av parallell aktivitet**: I det här scenariot beskrivs en Orchestrator-funktion som kör många aktivitets funktioner parallellt med [fläkt-och fläkt](durable-functions-cloud-backup.md) mönster.
-* **Bearbetning av parallella svar**: Det här scenariot är den andra halvan [](durable-functions-cloud-backup.md) av det nya mönstret för fläktning. Den fokuserar på prestandan hos fläkten. Det är viktigt att tänka på att till skillnad från fläkt, som görs av en enda Orchestrator Function-instans och därför bara kan köras på en enda virtuell dator.
+* **Bearbetning av parallella svar**: Det här scenariot är den andra halvan av det nya mönstret för [fläktning](durable-functions-cloud-backup.md) . Den fokuserar på prestandan hos fläkten. Det är viktigt att tänka på att till skillnad från fläkt, som görs av en enda Orchestrator Function-instans och därför bara kan köras på en enda virtuell dator.
 * **Extern händelse bearbetning**: Det här scenariot representerar en enda Orchestrator Function-instans som väntar på [externa händelser](durable-functions-external-events.md), en i taget.
 
 > [!TIP]
-> Till skillnad från bläddra ut-åtgärder, så är bläddra in-åtgärder begränsade till en enda virtuell dator. Om ditt program använder fläkten, fläkten och du är bekymrad om fläkt prestanda bör du överväga att dela upp aktivitetens fläkt över flera underordningar. [](durable-functions-sub-orchestrations.md)
+> Till skillnad från bläddra ut-åtgärder, så är bläddra in-åtgärder begränsade till en enda virtuell dator. Om ditt program använder fläkten, fläkten och du är bekymrad om fläkt prestanda bör du överväga att dela upp aktivitetens fläkt [över flera](durable-functions-sub-orchestrations.md)underordningar.
 
 I följande tabell visas de förväntade *högsta* data flödes numren för de scenarier som beskrivs ovan. "Instance" syftar på en enda instans av en Orchestrator-funktion som körs på en enskild liten ([a1](../../virtual-machines/windows/sizes-previous-gen.md#a-series)) virtuell dator i Azure App Service. I samtliga fall förutsätts att [utökade sessioner](#orchestrator-function-replay) är aktiverade. De faktiska resultaten kan variera beroende på processor-eller I/O-arbete som utförs av funktions koden.
 
@@ -243,4 +243,4 @@ Om du inte ser de data flödes nummer du förväntar dig och din CPU-och minnes 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Skapa din första beständiga funktion i C#](durable-functions-create-first-csharp.md)
+> [Lär dig mer om haveri beredskap och geo-distribution](durable-functions-disaster-recovery-geo-distribution.md)

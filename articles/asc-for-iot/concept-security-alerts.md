@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/28/2019
 ms.author: mlottner
-ms.openlocfilehash: 99ffa49a8e379f6c3a2139c082cd23f95c126e50
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 1ccf1c912dbf982fde1eb5cde4cde6556fc88bc1
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68597240"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70933917"
 ---
 # <a name="azure-security-center-for-iot-security-alerts"></a>Azure Security Center för IoT-säkerhetsaviseringar
 
@@ -34,7 +34,7 @@ Mer information finns i [skapa anpassade aviseringar](quickstart-create-custom-a
 
 ## <a name="built-in-alerts-for-iot-devices"></a>Inbyggda aviseringar för IoT-enheter
 
-| severity | Namn | Datakälla | Beskrivning | Föreslagna reparations steg|                  
+| severity | Name | Datakälla | Beskrivning | Föreslagna reparations steg|                  
 |----------|---------------|-------------|-----------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Hög     | Lokal inloggning har slutförts                                 | agent       | Lyckad lokal inloggning på enheten upptäcktes | Se till att den inloggade användaren är en auktoriserad part.  |
 | Hög     | Lyckade bruteforce-försök  | agent       | Flera misslyckade inloggnings försök identifierades, följt av en lyckad inloggning. Försök till bruteforce-attack kan ha lyckats på enheten. | Granska SSH bruteforce-aviseringen och aktiviteten på enheterna. <br>Om aktiviteten var skadlig:<br> Distribuera lösen ords återställning för komprometterade konton.<br> Undersök och åtgärda (om det finns några) enheter för skadlig kod.  |
@@ -79,14 +79,14 @@ Mer information finns i [skapa anpassade aviseringar](quickstart-create-custom-a
 
 ## <a name="built-in-alerts-for-iot-hub"></a>Inbyggda aviseringar för IoT Hub
 
-| severity | Namn                                                                         | Beskrivning | Rekommenderad reparation|
+| severity | Name                                                                         | Beskrivning | Rekommenderad reparation|
 |----------|------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|
 | Medel   | Nytt certifikat har lagts till i en IoT Hub                                    |Ett certifikat med \'namnet% {DescCertificateName\' } har lagts till \'i IoT Hub% {\'DescIoTHubName}. Om den här åtgärden har gjorts av en obehörig part kan det indikera skadlig aktivitet.| 1. Kontrol lera att certifikatet har lagts till av en auktoriserad part. <br> 2. Om den inte har lagts till av en auktoriserad part tar du bort certifikatet och eskalerar aviseringen till organisationens säkerhets team.  |
 | Medel   | Certifikatet har tagits bort från en IoT Hub                                    | Ett certifikat med \'namnet% {DescCertificateName\' } togs bort från \'IoT Hub% {DescIoTHubName\'}. Om den här åtgärden har gjorts av en obehörig part kan det tyda på en skadlig aktivitet.| 1. Kontrol lera att certifikatet har tagits bort av en auktoriserad part. <br> 2. Om certifikatet inte har tagits bort av en auktoriserad part, Lägg till certifikatet igen och eskalera aviseringen till organisationens säkerhets team. |
 | Medel   | Ett misslyckat försök har upptäckts för att lägga till ett certifikat i en IoT Hub     | Ett misslyckat försök \'att lägga till certifikatet% {DescCertificateName}\' har gjorts till IoT Hub \'% {DescIoTHubName}\'. Om den här åtgärden har gjorts av en obehörig part kan det indikera skadlig aktivitet.|   Se till att behörigheter för att ändra certifikat endast beviljas till behöriga parter.  |
 | Medel   | Ett misslyckat försök har upptäckts för att ta bort ett certifikat från en IoT Hub | Det gick inte att ta bort \'certifikatet% {DescCertificateName}\' från IoT Hub \'% {DescIoTHubName}\'. Om den här åtgärden har gjorts av en obehörig part kan det indikera skadlig aktivitet. |Se till att behörigheter för att ändra certifikat endast beviljas till en auktoriserad part.
-| Låg      | Försök att lägga till eller redigera en diagnostisk inställning för en IoT Hub identifieras    | Försök att lägga till eller redigera diagnostikinställningar för en IoT Hub har identifierats. Med diagnostikinställningar kan du återskapa aktivitets spårningar i utrednings syfte när en säkerhets incident inträffar eller nätverket komprometteras. Om den här åtgärden inte har gjorts av en auktoriserad part kan det indikera skadlig aktivitet.  |
-| Låg      | Försök att ta bort en diagnostisk inställning från en IoT Hub upptäcktes       | \' % {DescAttemptStatusMessage} försökte lägga till eller redigera \'diagnostikinställningar% {DescDiagnosticSettingName}\' i IoT Hub \'% {DescIoTHubName}\'. Med diagnostisk inställning kan du återskapa aktivitets spårningar för utrednings ändamål när en säkerhets incident inträffar eller nätverket komprometteras. Om den här åtgärden inte har gjorts av en auktoriserad part kan det tyda på en skadlig aktivitet. |1. Kontrol lera att certifikatet har tagits bort av en auktoriserad part.<br> 2. Om certifikatet inte har tagits bort av en auktoriserad part lägger du till certifikatet igen och eskalerar aviseringen till informations säkerhets teamet.
+| Låg      | Försök att lägga till eller redigera en diagnostisk inställning för en IoT Hub identifieras    | Försök att lägga till eller redigera diagnostikinställningar för en IoT Hub har identifierats. Med diagnostikinställningar kan du återskapa aktivitets spårningar i utrednings syfte när en säkerhets incident inträffar eller nätverket komprometteras. Om den här åtgärden inte har gjorts av en auktoriserad part kan det indikera skadlig aktivitet.  |1. Kontrol lera att certifikatet har tagits bort av en auktoriserad part.<br> 2. Om certifikatet inte har tagits bort av en auktoriserad part lägger du till certifikatet igen och eskalerar aviseringen till informations säkerhets teamet.
+| Låg      | Försök att ta bort en diagnostisk inställning från en IoT Hub upptäcktes       | \' % {DescAttemptStatusMessage} försökte lägga till eller redigera \'diagnostikinställningar% {DescDiagnosticSettingName}\' i IoT Hub \'% {DescIoTHubName}\'. Med diagnostisk inställning kan du återskapa aktivitets spårningar för utrednings ändamål när en säkerhets incident inträffar eller nätverket komprometteras. Om den här åtgärden inte har gjorts av en auktoriserad part kan det tyda på en skadlig aktivitet. |Se till att behörigheter för att ändra diagnostikinställningar endast beviljas till en auktoriserad part.
 |
 
 ## <a name="next-steps"></a>Nästa steg

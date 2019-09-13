@@ -11,22 +11,23 @@ ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.topic: article
-ms.date: 05/23/2019
+ms.date: 09/10/2019
 ms.author: lahugh
-ms.openlocfilehash: 9d94c4be90b408da7635f47567aa8f713f14de86
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 5dbd13775bd91a2bab3a7a4989cb14f4d7b44fa8
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70083193"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70900722"
 ---
 # <a name="support-for-generation-2-vms-preview-on-azure"></a>Stöd för virtuella datorer i generation 2 (för hands version) på Azure
 
 > [!IMPORTANT]
-> Azure-stöd för virtuella datorer i generation 2 är för närvarande en för hands version. Den här för hands versionen tillhandahålls utan service nivå avtal och rekommenderas inte för produktions arbets belastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade.
-> Mer information finns i kompletterande användnings [villkor för Microsoft Azure för hands](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)versionerna. 
+> Azure-stöd för virtuella datorer i generation 2 är för närvarande en för hands version.
+> Den här för hands versionen tillhandahålls utan service nivå avtal och rekommenderas inte för produktions arbets belastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade.
+> Mer information finns i kompletterande användnings [villkor för Microsoft Azure för hands](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)versionerna.
 
-Stöd för virtuella datorer i generation 2 (VM) är nu tillgängligt i för hands versionen i Azure. Du kan inte ändra en virtuell dators generation när du har skapat den, så Läs igenom övervägandena på den här sidan innan du väljer en generation. 
+Stöd för virtuella datorer i generation 2 (VM) är nu tillgängligt i för hands versionen i Azure. Du kan inte ändra en virtuell dators generation när du har skapat den, så Läs igenom övervägandena på den här sidan innan du väljer en generation.
 
 Virtuella datorer i generation 2 stöder viktiga funktioner som inte stöds i virtuella datorer i generation 1. Dessa funktioner omfattar ökat minne, Intel Software Guard-tillägg (Intel SGX) och virtualiserat beständigt minne (vPMEM). Virtuella datorer i generation 2 har också vissa funktioner som inte stöds i Azure ännu. Mer information finns i avsnittet [funktioner och funktioner](#features-and-capabilities) .
 
@@ -37,14 +38,18 @@ Virtuella datorer i generation 2 använder den nya UEFI-baserade start arkitektu
 Virtuella datorer i generation 1 stöds av alla VM-storlekar i Azure. Azure erbjuder nu för hands version 2-stöd för följande valda VM-serien:
 
 * [B-serien](https://docs.microsoft.com/azure/virtual-machines/linux/b-series-burstable)
+* [DC-serien](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-general#dc-series)
 * [Dsv2-serien](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-general#dsv2-series) och [Dsv3-serien](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-general#dsv3-series-1)
 * [Esv3-serien](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-memory#esv3-series)
 * [Fsv2-serien](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-compute#fsv2-series-1)
 * [GS-serien](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-previous-gen#gs-series)
+* [HB-serien](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-hpc#hb-series)
+* [HC-serien](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-hpc#hc-series)
 * [Ls-serien](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-previous-gen#ls-series) och [Lsv2-serien](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-storage#lsv2-series)
 * [Mv2-serien](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-memory#mv2-series)
 * [NCv2-serien](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-gpu#ncv2-series) och [NCv3-serien](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-gpu#ncv3-series)
 * [ND-serien](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-gpu#nd-series)
+* [NVv2-serien](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-gpu#nvv3-series--1)
 
 ## <a name="generation-2-vm-images-in-azure-marketplace"></a>Generation 2 VM-avbildningar på Azure Marketplace
 
@@ -54,6 +59,8 @@ Virtuella datorer i generation 2 stöder följande Marketplace-avbildningar:
 * Windows Server 2016 Datacenter
 * Windows Server 2012 R2 Datacenter
 * Windows Server 2012 Datacenter
+* SUSE Linux Enterprise Server 15 SP1
+* SUSE Linux Enterprise Server 12 SP4
 
 ## <a name="on-premises-vs-azure-generation-2-vms"></a>Lokalt eller Virtuella Azure-datorer i generation 2
 
@@ -94,7 +101,7 @@ Azure stöder för närvarande inte några av de funktioner som lokala Hyper-V s
 
 I Azure Portal eller Azure CLI kan du skapa virtuella datorer i generation 2 från en Marketplace-avbildning som stöder UEFI-start.
 
-`windowsserver-gen2preview` Erbjudandet innehåller endast Windows generation 2-avbildningar. Den här förpackningen förhindrar förvirring mellan generation 1 och generation 2-avbildningar. Om du vill skapa en virtuell dator i generation 2 väljer du avbildningar från det här erbjudandet och följer standard processen för att skapa den virtuella datorn.
+`windowsserver-gen2preview` Erbjudandet innehåller endast Windows generation 2-avbildningar. Den här förpackningen förhindrar förvirring mellan generation 1 och generation 2-avbildningar. Om du vill skapa en virtuell dator i generation 2 väljer du **avbildningar** från det här erbjudandet och följer standard processen för att skapa den virtuella datorn.
 
 Marketplace erbjuder för närvarande följande Windows generation 2-avbildningar:
 
@@ -120,6 +127,21 @@ Du kan också skapa virtuella datorer i generation 2 med hjälp av skalnings upp
 
 * **Finns det en pris skillnad mellan virtuella datorer i generation 1 och generation 2?**  
     Nej.
+
+* **Jag har en. VHD-fil från min lokala generation 2 VM. Kan jag använda den. VHD-filen för att skapa en generation 2 VM i Azure?**
+  Ja, du kan ta din generations 2. VHD-fil till Azure och använda den för att skapa en virtuell dator i generation 2. Använd följande steg för att göra det:
+    1. Överför. VHD till ett lagrings konto i samma region där du vill skapa den virtuella datorn.
+    1. Skapa en hanterad disk från VHD-filen. Ange egenskapen HyperV generation till v2. Följande PowerShell-kommandon anger egenskapen HyperV generation när du skapar en hanterad disk.
+
+        ```powershell
+        $sourceUri = 'https://xyzstorage.blob.core.windows.net/vhd/abcd.vhd'. #<Provide location to your uploaded .vhd file>
+        $osDiskName = 'gen2Diskfrmgenvhd'  #<Provide a name for your disk>
+        $diskconfig = New-AzDiskConfig -Location '<location>' -DiskSizeGB 127 -AccountType Standard_LRS -OsType Windows -HyperVGeneration "V2" -SourceUri $sourceUri -CreateOption 'Import'
+        New-AzDisk -DiskName $osDiskName -ResourceGroupName '<Your Resource Group>' -Disk $diskconfig
+        ```
+
+    1. När disken är tillgänglig skapar du en virtuell dator genom att koppla den här disken. Den virtuella datorn som skapas är en virtuell dator i generation 2.
+    När generation 2 VM skapas kan du välja att generalisera avbildningen av den virtuella datorn. Genom att generalisera avbildningen kan du använda den för att skapa flera virtuella datorer.
 
 * **Hur gör jag för att du öka storleken på operativ system disken?**  
   OS-diskar som är större än 2 TB är nya för virtuella datorer i generation 2. Som standard är OS-diskar mindre än 2 TB för virtuella datorer i generation 2. Du kan öka disk storleken upp till ett rekommenderat maximum på 4 TB. Använd Azure CLI eller Azure Portal för att öka storleken på operativ system disken. Information om hur du expanderar diskar program mässigt finns i [ändra storlek på en disk](expand-disks.md).

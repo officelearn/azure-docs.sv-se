@@ -4,87 +4,87 @@ ms.service: key-vault
 ms.topic: conceptual
 author: msmbaldwin
 ms.author: mbaldwin
-manager: barbkess
+manager: rkarlin
 ms.date: 03/19/2019
-ms.openlocfilehash: 330337620f1732b9ccecfb2c95a0b4495476f97b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 89b7dc639a3140f17a62087c5ba0d05fb6df4d7f
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64720524"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70883130"
 ---
-# <a name="azure-key-vault-soft-delete-overview"></a>Översikt över mjuk borttagning i Azure Key Vault
+# <a name="azure-key-vault-soft-delete-overview"></a>Översikt över Azure Key Vault mjuk borttagning
 
-Key Vault mjuk borttagning med funktionen kan återställning av borttagna valv och valv objekt, kallas mjuk borttagning. Mer specifikt bemöter vi följande scenarier:
+Key Vault med funktionen för mjuk borttagning kan återställa de borttagna valven och valv objekt, som kallas mjuk borttagning. Mer specifikt åtgärdar vi följande scenarier:
 
-- Stöd för återställa borttagningen av ett nyckelvalv
-- Stöd för återställa borttagningen av nyckelvalvobjekt (ex.) nycklar, hemligheter, certifikat)
+- Stöd för rekonstruerbar borttagning av ett nyckel valv
+- Stöd för rekonstruerbar borttagning av Key Vault-objekt (t. ex. nycklar, hemligheter, certifikat)
 
 ## <a name="supporting-interfaces"></a>Stöd för gränssnitt
 
-Funktionen för mjuk borttagning är tillgängliga via den [REST](/rest/api/keyvault/), [CLI](key-vault-soft-delete-cli.md), [PowerShell](key-vault-soft-delete-powershell.md) och [.NET /C# ](/dotnet/api/microsoft.azure.keyvault?view=azure-dotnet) gränssnitt.
+Funktionen mjuk borttagning är inlednings vis tillgänglig via [rest](/rest/api/keyvault/), [CLI](key-vault-soft-delete-cli.md), [PowerShell](key-vault-soft-delete-powershell.md) och [.net/C# ](/dotnet/api/microsoft.azure.keyvault?view=azure-dotnet) gränssnitt.
 
 ## <a name="scenarios"></a>Scenarier
 
-Azure Key Vaults är spårade resurser som hanteras av Azure Resource Manager. Azure Resource Manager anger också ett väldefinierade beteende för borttagning, vilket kräver att en lyckad borttagningsåtgärd måste resultera i den här resursen inte är tillgänglig längre. Funktionen för mjuk borttagning adresser återställning av borttagna objekt om borttagningen har oavsiktligt eller avsiktligt.
+Azure Key Vaults är spårade resurser som hanteras av Azure Resource Manager. Azure Resource Manager anger också ett väldefinierat beteende för borttagning, vilket kräver att en lyckad BORTTAGNINGs åtgärd innebär att resursen inte är tillgänglig längre. Funktionen för mjuk borttagning tar bort återställningen av det borttagna objektet, oavsett om borttagningen var oavsiktlig eller avsiktlig.
 
-1. Vanliga scenariot kan en användare ha oavsiktligt bort ett nyckelvalv eller ett nyckelvalv-objekt. Om nyckeln som vault eller key vault-objekt skulle gå att återställa under ett förinställt, du kan ångra borttagningen och återställa sina data.
+1. I ett typiskt scenario kan en användare oavsiktligt ha tagit bort ett nyckel valv eller ett nyckel valvs objekt. om det nyckel valvet eller Key Vault-objektet skulle återställas till en fördefinierad period, kan användaren ångra borttagningen och återställa sina data.
 
-2. I ett annat scenario kan en obehörig användare försöka ta bort ett nyckelvalv eller ett nyckelvalv-objekt, till exempel en nyckel i ett valv kan orsaka ett verksamhetsavbrott. Att separera borttagningen av key vault eller key vault-objektet från den faktiska borttagningen av underliggande data kan användas som en säkerhetsåtgärd av, till exempel att begränsa behörigheter för borttagning av data till en annan betrodd roll. Den här metoden kräver effektivt kvorum för en åtgärd som annars kan leda till en omedelbar dataförlust.
+2. I ett annat scenario kan en falsk användare försöka ta bort ett nyckel valv eller ett nyckel valvs objekt, till exempel en nyckel i ett valv, för att orsaka ett verksamhets avbrott. Att separera borttagningen av nyckel valvet eller Key Vault-objektet från den faktiska borttagningen av underliggande data kan användas som ett säkerhets mått av, t. ex. begränsa behörigheter för data borttagning till en annan, betrodd roll. Den här metoden kräver ett effektivt kvorum för en åtgärd som annars kan resultera i en omedelbar data förlust.
 
-### <a name="soft-delete-behavior"></a>Beteende för mjuk borttagning
+### <a name="soft-delete-behavior"></a>Beteende vid mjuk borttagning
 
-Med den här funktionen är åtgärden ta bort på ett nyckelvalv eller nyckelvalv objekt en mjuk borttagning effektivt innehåller resurserna under en viss period (90 dagar), samtidigt som det utseendet att objektet tas bort. Tjänsten ytterligare är en mekanism för att återställa det borttagna objektet, i stort sett ångra borttagningen. 
+Med den här funktionen är BORTTAGNINGs åtgärden för ett Key Vault-eller Key Vault-objekt en mjuk borttagning, vilket effektivt ger resurserna för en viss kvarhållningsperiod (90 dagar), samtidigt som du får det utseende som objektet tas bort. Tjänsten tillhandahåller ytterligare en mekanism för att återställa det borttagna objektet, i princip ångra borttagningen. 
 
-Mjuk borttagning är ett valfritt beteende för Key Vault och är **inte aktiverad som standard** i den här versionen. Den kan aktiveras [CLI](key-vault-soft-delete-cli.md) eller [Powershell](key-vault-soft-delete-powershell.md).
+Mjuk borttagning är ett valfritt Key Vault beteende och är **inte aktiverat som standard** i den här versionen. Den kan aktive ras via [CLI](key-vault-soft-delete-cli.md) eller [PowerShell](key-vault-soft-delete-powershell.md).
 
-### <a name="purge-protection"></a>Ta bort skydd 
+### <a name="purge-protection"></a>Rensa skydd 
 
-Rensa när skydd är på ett valv eller ett objekt i tillståndet deleted går inte att tömma tills kvarhållningsperiod på 90 dagar har passerat. Dessa valv och objekt kan fortfarande återställas, avveckla kunder att bevarandeprincipen följs. 
+När rensnings skyddet är på går det inte att rensa ett valv eller ett objekt i Deleted-tillstånd förrän kvarhållningsperioden på 90 dagar har passerat. Dessa valv och objekt kan fortfarande återställas, vilket gör det möjligt för kunderna att följa bevarande principen. 
 
-Rensa skydd är ett valfritt Key Vault-beteende och **inte aktiverad som standard**. Den kan aktiveras [CLI](key-vault-soft-delete-cli.md#enabling-purge-protection) eller [Powershell](key-vault-soft-delete-powershell.md#enabling-purge-protection).
+Rensnings skyddet är ett valfritt Key Vault beteende och är **inte aktiverat som standard**. Den kan aktive ras via [CLI](key-vault-soft-delete-cli.md#enabling-purge-protection) eller [PowerShell](key-vault-soft-delete-powershell.md#enabling-purge-protection).
 
-### <a name="permitted-purge"></a>Tillåtna Rensa
+### <a name="permitted-purge"></a>Tillåten rensning
 
-Permanent borttagning, rensning, key vault går via en POST-åtgärd på resursen för proxy och kräver särskilda behörigheter. I allmänhet kan Prenumerationens ägare ta bort ett nyckelvalv. POST-åtgärd utlöser omedelbar och oåterkalleligt borttagningen av det valvet. 
+Det går att ta bort, rensa och ta bort ett nyckel valv via en POST-åtgärd på proxy-resursen och kräver särskilda privilegier. I allmänhet kommer bara prenumerations ägaren att kunna rensa ett nyckel valv. POST-åtgärden utlöser omedelbar och oåterkalleligt borttagning av det valvet. 
 
-Undantagen är:
-- När Azure-prenumerationen har markerats som *permanent*. I det här fallet bara tjänsten kan sedan att utföra den faktiska borttagningen och sker detta som en schemalagd process. 
-- När--enable-Rensa-skydd är aktiverad på själva valvet. I så fall väntar Key Vault i 90 dagar från när det ursprungliga hemliga objektet har markerats för borttagning att permanent ta bort objektet.
+Undantag är:
+- När Azure-prenumerationen har marker ATS som *borttagnings*bar. I det här fallet kan endast tjänsten utföra den faktiska borttagningen och göra det som en schemalagd process. 
+- När flaggan--Enable-Töm-Protection är aktive rad i själva valvet. I det här fallet kommer Key Vault att vänta i 90 dagar från när det ursprungliga hemliga objektet markerades för borttagning för att ta bort objektet permanent.
 
-### <a name="key-vault-recovery"></a>Nyckelvalv-återställning
+### <a name="key-vault-recovery"></a>Återställning av nyckel valv
 
-När du tar bort ett nyckelvalv, skapar tjänsten en proxy-resurs under prenumerationen, lägga till tillräckligt med metadata för återställning. Proxy-resurs är ett lagrade objekt tillgängliga på samma plats som har tagits bort nyckelvalvet. 
+När du tar bort ett nyckel valv skapar tjänsten en proxy-resurs under prenumerationen och lägger till tillräckligt många metadata för återställning. Proxykonfigurationen är ett lagrat objekt som är tillgängligt på samma plats som det borttagna nyckel valvet. 
 
-### <a name="key-vault-object-recovery"></a>Objektåterställning för nyckelvalvet
+### <a name="key-vault-object-recovery"></a>Nyckel valvs objekt återställning
 
-När du tar bort ett nyckelvalv-objekt, till exempel en nyckel placerar tjänsten objektet i ett borttaget tillstånd, vilket gör det otillgängligt för hämtning av åtgärder. I det här tillståndet kan objektet nyckelvalvet bara visas, återställda eller kernelpaketet/har tagits bort permanent. 
+När du tar bort ett nyckel valv objekt, till exempel en nyckel, kommer tjänsten att placera objektet i ett borttaget tillstånd, vilket gör att det inte går att komma åt några hämtnings åtgärder. I det här läget kan Key Vault-objektet bara visas, återställas eller framtvingas/tas bort permanent. 
 
-På samma gång schemalägger Key Vault borttagningen av underliggande data för den borttagna nyckelvalvet eller det nyckelvalv objekt för körning när du har ett förbestämt Kvarhållningsintervall. DNS-posten för valvet sparas även under Kvarhållningsintervall.
+Samtidigt schemalägger Key Vault borttagningen av underliggande data som motsvarar det borttagna nyckel valvet eller Key Vault-objektet som ska köras efter ett förutbestämt kvarhållningsintervall. DNS-posten som motsvarar valvet behålls också under lagrings periodens varaktighet.
 
 ### <a name="soft-delete-retention-period"></a>Kvarhållningsperiod för mjuk borttagning
 
-Ej permanent borttagna resurser behålls under en angiven tidsperiod, 90 dagar. Under det mjuk borttagning Kvarhållningsintervall, följande gäller:
+Mjuka, borttagna resurser behålls under en angiven tids period, 90 dagar. Under det mjuka borttagnings intervallet gäller följande:
 
-- Du kan visa alla viktiga valv och nyckelvalvobjekt tillståndet mjuk borttagning för din prenumeration, samt komma åt information om borttagning och återställning om dem.
-    - Endast användare med särskilda behörigheter kan visa borttagna valv. Vi rekommenderar att våra användare skapar en anpassad roll med dessa särskilda behörigheter för hantering av bort valv.
-- Att går inte skapa ett nyckelvalv med samma namn på samma plats; på motsvarande sätt kan ett nyckelvalv-objekt inte skapas i ett visst valv om nyckelvalvet innehåller ett objekt med samma namn och som är i ett borttaget tillstånd 
-- Endast en specifikt privilegierad användare kan återställa en nyckelvalvet eller ett nyckelvalv objekt genom att utfärda ett kommando för återställning på motsvarande proxy-resurs.
-    - Användaren, medlem i den anpassade rollen som har behörighet att skapa ett nyckelvalv under resursgrupp kan återställa valvet.
-- Endast en specifikt privilegierad användare kan tvång ta bort ett nyckelvalv eller nyckelvalv objekt genom att utfärda ett borttagningskommando på motsvarande proxy-resurs.
+- Du kan visa alla nyckel valv och Key Vault-objekt i läget för mjuk borttagning för din prenumeration samt åtkomst borttagning och återställnings information om dem.
+    - Endast användare med särskilda behörigheter kan lista borttagna valv. Vi rekommenderar att användarna skapar en anpassad roll med dessa särskilda behörigheter för att hantera borttagna valv.
+- Det går inte att skapa ett nyckel valv med samma namn på samma plats. Det går inte att skapa ett Key Vault-objekt i ett angivet valv om det nyckel valvet innehåller ett objekt med samma namn och som är i ett borttaget tillstånd 
+- Endast en särskilt privilegie rad användare kan återställa ett Key Vault-eller Key Vault-objekt genom att utfärda ett Restore-kommando på motsvarande proxy-resurs.
+    - Användaren, som är medlem i den anpassade rollen, som har behörighet att skapa ett nyckel valv under resurs gruppen kan återställa valvet.
+- Endast en särskilt privilegie rad användare kan tvinga bort ett nyckel valv eller ett nyckel valvs objekt genom att utfärda ett DELETE-kommando på motsvarande proxyvärd.
 
-Om inte en nyckelvalvet eller ett nyckelvalv objekt återställs, utför tjänsten i slutet av Kvarhållningsintervall som en rensning av ej permanent borttagna nyckelvalvet eller nyckelvalv objekt och dess innehåll. Ta bort resursen kan inte planeras.
+Om inte ett nyckel valv eller Key Vault-objekt återställs i slutet av kvarhållningsintervallet, utför tjänsten en rensning av det mjuka borttagna nyckel valvet eller Key Vault-objektet och dess innehåll. Det går inte att ändra schemat för resurs borttagning.
 
-### <a name="billing-implications"></a>Fakturering effekter
+### <a name="billing-implications"></a>Debiterings konsekvenser
 
-I allmänhet när ett objekt (key vault eller en nyckel eller en hemlighet) är i tillståndet deleted, finns bara två åtgärder möjligt: ”rensa” och ”återställa”. Alla andra åtgärder misslyckas. Därför även om objektet finns inga åtgärder kan utföras och därför ingen användning sker, så ingen faktura. Men det följande undantag:
+I allmänhet finns det bara två åtgärder som är tillgängliga när ett objekt (ett nyckel valv eller en nyckel eller en hemlighet) är i Borttaget läge: "Rensa" och "Återställ". Det går inte att utföra alla andra åtgärder. Därför kan inga åtgärder utföras, även om objektet finns, men ingen användning görs, så ingen faktura. Det finns dock följande undantag:
 
-- ”Rensa” och ”återställa” åtgärder räknas in i normala nyckelvalvsåtgärder och kommer att debiteras.
-- Om objektet är en HSM-nyckel, gäller HSM-skyddad nyckel kostnad per nyckelversionen per månad kan kostnader om en nyckelversionen har använts under de senaste 30 dagarna. Efter det, eftersom objektet är i tillståndet deleted inga åtgärder kan utföras mot det, så ingen avgift gäller.
+- åtgärderna "Rensa" och "Återställ" räknas mot normala nyckel valvs åtgärder och debiteras.
+- Om objektet är en HSM-nyckel gäller värdet "HSM Protected Key" per nyckel version per månad om en nyckel version har använts under de senaste 30 dagarna. Efter det, eftersom objektet är i Borttaget läge kan inga åtgärder utföras mot det, så ingen avgift kommer att gälla.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Följande två guider erbjuder primära Användningsscenarier för att använda mjuk borttagning.
+Följande två guider ger de vanligaste användnings scenarierna för att använda mjuk borttagning.
 
 - [Så här använder du Key Vault mjuk borttagning med PowerShell](key-vault-soft-delete-powershell.md) 
 - [Så här använder du Key Vault mjuk borttagning med CLI](key-vault-soft-delete-cli.md)

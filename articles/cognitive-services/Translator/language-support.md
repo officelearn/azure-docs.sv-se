@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 06/04/2019
 ms.author: swmachan
-ms.openlocfilehash: be69f18f30b796e7401ef68aa5088153e07f14f5
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: cb0552612d95500e01edd91aff36406d4c2282bd
+ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70127890"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70909983"
 ---
 # <a name="language-and-region-support-for-the-translator-text-api"></a>Språk-och region stöd för Translator Text API
 
@@ -229,6 +229,7 @@ Följande språk är tillgängliga för anpassning till eller från engelska med
 | Ungerska      | `hu`          |
 | Isländska | `is` |
 | Indonesiska|   `id`    |
+| Iriska | `ga`  |
 | Italienska      | `it`          |
 | Japanska      | `ja`          |
 |Kiswahili| `sw`    |

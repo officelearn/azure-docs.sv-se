@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/04/2019
-ms.openlocfilehash: ced0655d2e8ff012b3043dd123a8483674b4c472
-ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
+ms.openlocfilehash: 1ed722ad68280226387b98b3fefb77647f5cd825
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68404540"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70918547"
 ---
 # <a name="connect-hdinsight-to-your-on-premises-network"></a>Ansluta HDInsight till det lokala nätverket
 
@@ -67,7 +67,7 @@ De här stegen använder [Azure Portal](https://portal.azure.com) för att skapa
   
 2. Gå till menyn till vänster och navigera till **+ skapa en resurs** > **Compute** > **Ubuntu Server 18,04 LTS**.
 
-    ![Skapa en virtuell Ubuntu-dator](./media/connect-on-premises-network/create-ubuntu-vm.png)
+    ![Skapa en virtuell Ubuntu-dator](./media/connect-on-premises-network/create-ubuntu-virtual-machine.png)
 
 3. På fliken __grundläggande__ anger du följande information:  
   
@@ -84,13 +84,13 @@ De här stegen använder [Azure Portal](https://portal.azure.com) för att skapa
     |Lösen ord eller offentlig SSH-nyckel | Det tillgängliga fältet avgörs av ditt val av **Autentiseringstyp**.  Ange lämpligt värde.|
     |Offentliga inkommande portar|Välj **Tillåt valda portar**. Välj sedan **SSH (22)** i list rutan **Välj inkommande portar** .|
 
-    ![Grundläggande konfiguration av virtuell dator](./media/connect-on-premises-network/vm-basics.png)
+    ![Grundläggande konfiguration av virtuell dator](./media/connect-on-premises-network/virtual-machine-basics.png)
 
     Lämna andra poster med standardvärdena och välj sedan fliken **nätverk** .
 
 4. Ange följande information på fliken **nätverk** :
 
-    | Fält | Värde |
+    | Fält | Value |
     | --- | --- |
     |Virtuellt nätverk | Välj det virtuella nätverk som du skapade tidigare.|
     |Subnet | Välj standard under nätet för det virtuella nätverk som du skapade tidigare. Välj __inte__ det undernät som används av VPN-gatewayen.|
@@ -103,13 +103,13 @@ De här stegen använder [Azure Portal](https://portal.azure.com) för att skapa
 5. På fliken **Granska och skapa** väljer du **skapa** för att skapa den virtuella datorn.
 
 ### <a name="review-ip-addresses"></a>Granska IP-adresser
-När den virtuella datorn har skapats visas ett meddelande om att **distributionen** har slutförts med knappen **gå till resurs** .  Välj **gå till resurs** för att gå till den nya virtuella datorn.  Följ de här stegen för att identifiera associerade IP-adresser från standardvyn för den nya virtuella datorn:
+När den virtuella datorn har skapats visas ett meddelande om att **distributionen har slutförts** med knappen **gå till resurs** .  Välj **gå till resurs** för att gå till den nya virtuella datorn.  Följ de här stegen för att identifiera associerade IP-adresser från standardvyn för den nya virtuella datorn:
 
 1. Från **Inställningar**väljer du **Egenskaper**.
 
 2. Observera värdena för **offentlig IP-adress/DNS-namn** och **privat IP-adress** för senare användning.
 
-   ![Offentliga och privata IP-adresser](./media/connect-on-premises-network/vm-ip-addresses.png)
+   ![Offentliga och privata IP-adresser](./media/connect-on-premises-network/virtual-machine-ip-addresses.png)
 
 ### <a name="install-and-configure-bind-dns-software"></a>Installera och konfigurera BIND (DNS-programvara)
 
@@ -325,7 +325,7 @@ Använd följande steg för att ansluta direkt till HDInsight via det virtuella 
     az network nic list --resource-group <resourcegroupname> --output table --query "[?contains(name,'node')].{NICname:name,InternalIP:ipConfigurations[0].privateIpAddress,InternalFQDN:dnsSettings.internalFqdn}"
     ```
 
-2. Information om vilka portar som en tjänst är tillgänglig på finns i portarna som [används av Apache Hadoop Services i HDInsight](./hdinsight-hadoop-port-settings-for-services.md) -dokument.
+2. Information om vilka portar som en tjänst är tillgänglig på finns i [portarna som används av Apache Hadoop Services i HDInsight](./hdinsight-hadoop-port-settings-for-services.md) -dokument.
 
     > [!IMPORTANT]  
     > Vissa tjänster som finns på huvudnoderna är bara aktiva på en nod i taget. Om du försöker komma åt en tjänst på en huvudnod och den Miss lyckas växlar du till den andra Head-noden.

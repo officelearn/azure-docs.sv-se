@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 996a084fd653b2100d94313e8801d915b4bf2cf3
-ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
+ms.openlocfilehash: 25615ae8bc9bc8cadbe973f3a1859c2d43b067a9
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68348172"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70915566"
 ---
 # <a name="best-practices-to-use-azure-maps-search-service"></a>Metod tips för att använda Azure Maps Search Service
 
@@ -27,10 +27,10 @@ Azure Maps [search service](https://docs.microsoft.com/rest/api/maps/search) inn
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Om du vill göra anrop till Maps-tjänstens API: er behöver du ett Maps-konto och nyckel. Information om hur du skapar ett konto och hämtar en nyckel finns i [Hantera ditt Azure Maps konto och nycklar](how-to-manage-account-keys.md).
+Om du vill göra anrop till Maps-tjänstens API: er behöver du ett Maps-konto och nyckel. Om du vill ha information om hur du skapar ett konto följer du anvisningarna i [Hantera konto](https://docs.microsoft.com/azure/azure-maps/how-to-manage-account-keys#create-a-new-account) och följer stegen i [Hämta primär nyckel](./tutorial-search-location.md#getkey) för att hämta en primär prenumerations nyckel för ditt konto.
 
 > [!Tip]
-> Om du vill fråga Sök tjänsten kan du använda Postman- [appen](https://www.getpostman.com/apps) för att bygga rest-anrop eller så kan du använda valfri API utvecklings miljö som du föredrar.
+> Om du vill fråga Sök tjänsten kan du använda [Postman-appen](https://www.getpostman.com/apps) för att bygga rest-anrop eller så kan du använda valfri API utvecklings miljö som du föredrar.
 
 
 ## <a name="best-practices-for-geocoding"></a>Metod tips för kodning
@@ -689,7 +689,7 @@ Nu ska vi titta på svars strukturen nedan. Resultat typerna för resultat objek
 När svars typen är **geometri**, kan den innehålla det geometri-ID som returneras i **DataSources** -objektet under "Geometry" och "ID". Med hjälp av funktionen för att [Hämta polygon](https://docs.microsoft.com/rest/api/maps/search/getsearchpolygon) kan du till exempel begära geometri data i det geometriska JSON-formatet, till exempel en stad eller en flyg platss disposition för en uppsättning entiteter. Du kan använda dessa avgränsnings data för [polystaket](https://docs.microsoft.com/azure/azure-maps/tutorial-geofence) eller [Sök POI: er i geometrin](https://docs.microsoft.com/rest/api/maps/search/postsearchinsidegeometry).
 
 
-[Sök adressen](https://docs.microsoft.com/rest/api/maps/search/getsearchaddress) eller [Sök](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy) i fuzzy API-svar kan innehålla det **geometri-ID** som returneras i DataSource-objektet under "Geometry" och "ID".
+[Sök adressen](https://docs.microsoft.com/rest/api/maps/search/getsearchaddress) eller [Sök i fuzzy](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy) API-svar kan innehålla det **geometri-ID** som returneras i DataSource-objektet under "Geometry" och "ID".
 
 
 ```JSON 

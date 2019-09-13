@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/22/2019
 ms.author: curtand
 ms.custom: include file
-ms.openlocfilehash: e6e1014ac20ef70f21344ec6ece5627eccb7ba66
-ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
+ms.openlocfilehash: 421e88374a4ca03311fa77a6568a676aa9ffafa5
+ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "67148467"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70919745"
 ---
 Här följer användningsbegränsningarna och andra tjänstbegränsningar för Azure Active Directory-tjänsten (Azure AD).
 
@@ -26,7 +26,7 @@ Här följer användningsbegränsningarna och andra tjänstbegränsningar för A
 | Program |Som mest kan 100 användare vara ägare av ett enda program. |
 | Grupper |<ul><li>Som mest kan 100 användare vara ägare av en enda grupp.</li><li>Ett valfritt antal objekt kan vara medlemmar i en enskild grupp.</li><li>En användare kan tillhöra ett valfritt antal grupper.</li><li>Antalet medlemmar i en grupp som du kan synkronisera från din lokala Active Directory till Azure Active Directory med Azure AD Connect är begränsat till 50 000 medlemmar.</li></ul> |
 | Programproxy | <ul><li>Högst 500 transaktioner per sekund per app proxy-program</li><li>Högst 750 transaktioner per sekund för klient organisationen</li></ul><br/>En transaktion definieras som en enskild http-begäran och ett svar för en unik resurs. Vid begränsning får klienterna ett 429-svar (för många begär Anden). |
-| Åtkomstpanel |<ul><li>Det finns ingen gräns för hur många program som kan visas på åtkomstpanelen per användare. Detta gäller för licenser som tilldelats av användare för Azure AD Premium eller Enterprise Mobility Suite.</li><li>Som mest kan 10 appaneler visas på åtkomstpanelen för varje användare. Den här gränsen gäller för användare som har tilldelats licenser för en kostnadsfri version eller Azure AD Basic-versionen av Azure Active Directory. Exempel på appaneler är Box, Salesforce och Dropbox. Den här begränsningen gäller inte för administratörskonton.</li></ul> |
+| Åtkomstpanel |<ul><li>Det finns ingen gräns för hur många program som kan visas på åtkomstpanelen per användare. Detta gäller för licenser som tilldelats av användare för Azure AD Premium eller Enterprise Mobility Suite.</li><li>Som mest kan 10 appaneler visas på åtkomstpanelen för varje användare. Den här gränsen gäller för användare som har tilldelats licenser för Azure AD Free licens plan. Exempel på appaneler är Box, Salesforce och Dropbox. Den här begränsningen gäller inte för administratörskonton.</li></ul> |
 | Rapporter | Högst 1 000 rader kan visas eller hämtas i rapporter. Eventuella ytterligare data trunkeras. |
 | Administrativa enheter | Ett objekt kan ingå i högst 30 administrativa enheter. |
 | Administratörsroller och behörigheter | <ul><li>Det går inte att lägga till en grupp som [ägare](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions?context=azure/active-directory/users-groups-roles/context/ugr-context#object-ownership).</li><li>En grupp kan inte tilldelas till en [roll](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles).</li><li>Användares möjlighet att läsa andra användares katalog information kan inte begränsas utanför växeln för hela klient organisationen för att inaktivera alla användare som inte är administratörers åtkomst till all katalog information (rekommenderas inte). Mer information om standard behörigheter [här](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions?context=azure/active-directory/users-groups-roles/context/ugr-context#to-restrict-the-default-permissions-for-member-users).</li><li>Det kan ta upp till 15 minuter eller att logga ut/logga in innan tillägg för administratörs roll medlemskap och återkallning börjar gälla.</li></ul> |

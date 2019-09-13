@@ -1,20 +1,20 @@
 ---
-title: Autentisera med hanterade identiteter – Azure Logic Apps | Microsoft Docs
+title: Autentisera med hanterade identiteter – Azure Logic Apps
 description: Om du vill autentisera utan att logga in kan du skapa en hanterad identitet (tidigare kallat Hanterad tjänstidentitet eller MSI) så att din Logi Kap par kan komma åt resurser i andra Azure Active Directory (Azure AD) utan autentiseringsuppgifter eller hemligheter
-author: kevinlam1
-ms.author: klam
-ms.reviewer: estfan, LADocs
+author: ecfan
+ms.author: estfan
+ms.reviewer: klam, LADocs
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
 ms.topic: article
 ms.date: 03/29/2019
-ms.openlocfilehash: b157db5032bd62ab443209f201b4ceded6e44cb5
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
-ms.translationtype: MT
+ms.openlocfilehash: bb1443afa14f2a23b807af52ab8fef6ac41ea200
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68385565"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70934039"
 ---
 # <a name="authenticate-and-access-resources-with-managed-identities-in-azure-logic-apps"></a>Autentisera och få åtkomst till resurser med hanterade identiteter i Azure Logic Apps
 
@@ -27,7 +27,7 @@ För att få åtkomst till resurser i andra Azure Active Directory (Azure AD)-kl
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-* En Azure-prenumeration eller om du inte har en prenumeration kan du <a href="https://azure.microsoft.com/free/" target="_blank">Registrera dig för ett kostnads fritt Azure-konto</a>.
+* En Azure-prenumeration eller om du inte har en prenumeration kan du [Registrera dig för ett kostnads fritt Azure-konto](https://azure.microsoft.com/free/).
 
 * Den Logic app där du vill använda den systemtilldelade hanterade identiteten. Om du inte har en Logic-app kan du läsa [skapa ditt första Logic app-arbetsflöde](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
@@ -45,13 +45,13 @@ För systemtilldelade hanterade identiteter behöver du inte skapa den identitet
 
 ### <a name="azure-portal"></a>Azure Portal
 
-Om du vill aktivera en systemtilldelad hanterad identitet för din Logic app via Azure Portal aktiverar du  inställningen systemtilldelad i din Logic Apps identitets inställningar.
+Om du vill aktivera en systemtilldelad hanterad identitet för din Logic app via Azure Portal aktiverar du inställningen **systemtilldelad** i din Logic Apps identitets inställningar.
 
 1. I [Azure Portal](https://portal.azure.com)öppnar du din Logic app i Logic App Designer.
 
-1. På menyn Logic app, under **Inställningar**, väljer du **identitet**. 
+1. På menyn Logic app, under **Inställningar**, väljer du **identitet**.
 
-1. Under  > systemtilldelad**status**väljer du **på**. Välj sedan **Spara** > **Ja**.
+1. Under **systemtilldelad** > **status**väljer du **på**. Välj sedan **Spara** > **Ja**.
 
    ![Aktivera hanterad identitets inställning](./media/create-managed-service-identity/turn-on-managed-service-identity.png)
 
@@ -59,10 +59,10 @@ Om du vill aktivera en systemtilldelad hanterad identitet för din Logic app via
 
    ![GUID för objekt-ID](./media/create-managed-service-identity/object-id.png)
 
-   | Egenskap | Value | Beskrivning | 
-   |----------|-------|-------------| 
-   | **Objekt-ID** | <*identity-resource-ID*> | En globalt unik identifierare (GUID) som representerar den systemtilldelade hanterade identiteten för din Logic app i en Azure AD-klient | 
-   ||| 
+   | Egenskap | Value | Beskrivning |
+   |----------|-------|-------------|
+   | **Objekt-ID** | <*identity-resource-ID*> | En globalt unik identifierare (GUID) som representerar den systemtilldelade hanterade identiteten för din Logic app i en Azure AD-klient |
+   ||||
 
 <a name="template"></a>
 
@@ -111,11 +111,11 @@ När Azure skapar din Logic app innehåller den logiska appens arbets flödes de
 }
 ```
 
-| Egenskap | Value | Beskrivning | 
+| Egenskap | Value | Beskrivning |
 |----------|-------|-------------|
-| **principalId** | <*principal-ID*> | En globalt unik identifierare (GUID) som representerar Logic-appen i Azure AD-klienten och som ibland visas som "objekt-ID" eller`objectID` | 
-| **tenantId** | <*Azure-AD-tenant-ID*> | En globalt unik identifierare (GUID) som representerar Azure AD-klienten där Logic app nu är medlem. I Azure AD-klienten har tjänstens huvud namn samma namn som Logic App-instansen. | 
-||| 
+| **principalId** | <*principal-ID*> | En globalt unik identifierare (GUID) som representerar Logic-appen i Azure AD-klienten och som ibland visas som "objekt-ID" eller`objectID` |
+| **tenantId** | <*Azure-AD-tenant-ID*> | En globalt unik identifierare (GUID) som representerar Azure AD-klienten där Logic app nu är medlem. I Azure AD-klienten har tjänstens huvud namn samma namn som Logic App-instansen. |
+||||
 
 <a name="access-other-resources"></a>
 
@@ -130,13 +130,13 @@ När du har skapat en systemtilldelad hanterad identitet för din Logic app kan 
 
 Följ dessa steg om du vill ge åtkomst till en annan Azure-resurs för din Logic Apps systemtilldelade hanterade identitet:
 
-1. I Azure Portal går du till den Azure-resurs där du vill tilldela åtkomst till din hanterade identitet. 
+1. I Azure Portal går du till den Azure-resurs där du vill tilldela åtkomst till din hanterade identitet.
 
 1. På resurs menyn väljer du **åtkomst kontroll (IAM)** . Välj **Lägg** > till**Lägg till roll tilldelning**i verktygsfältet.
 
    ![Lägg till rolltilldelning](./media/create-managed-service-identity/add-permissions-logic-app.png)
 
-1. Under **Lägg till roll tilldelning**väljer du den **roll** som du vill använda för identiteten. 
+1. Under **Lägg till roll tilldelning**väljer du den **roll** som du vill använda för identiteten.
 
 1. I egenskapen **tilldela åtkomst till väljer du** **Azure AD-användare, grupp eller tjänstens huvud namn**, om det inte redan har valts.
 
@@ -154,9 +154,7 @@ När du har konfigurerat din Logic-app med en systemtilldelad hanterad identitet
 
 1. Ange nödvändig information för åtgärden, till exempel **metoden** för begäran och **URI** -platsen för den resurs som du vill anropa.
 
-   Anta till exempel att du använder autentisering med Azure Active Directory (Azure AD) med [någon av dessa Azure-tjänster som stöder Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication). 
-   I rutan **URI** anger du slut punkts-URL: en för Azure-tjänsten. 
-   Om du använder Azure Resource Manager anger du det här värdet i **URI** -egenskapen:
+   Anta till exempel att du använder autentisering med Azure Active Directory (Azure AD) med [någon av dessa Azure-tjänster som stöder Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication). I rutan **URI** anger du slut punkts-URL: en för Azure-tjänsten. Om du använder Azure Resource Manager anger du det här värdet i **URI** -egenskapen:
 
    `https://management.azure.com/subscriptions/<Azure-subscription-ID>?api-version=2016-06-01`
 
@@ -184,13 +182,13 @@ När du tar bort din Logic-app tar Azure automatiskt bort din Logic Apps system-
 
 ### <a name="azure-portal"></a>Azure Portal
 
-Om du vill ta bort en systemtilldelad hanterad identitet för din Logic app via Azure Portal inaktiverar  du inställningen systemtilldelad i din Logic Apps identitets inställningar.
+Om du vill ta bort en systemtilldelad hanterad identitet för din Logic app via Azure Portal inaktiverar du inställningen **systemtilldelad** i din Logic Apps identitets inställningar.
 
 1. I [Azure Portal](https://portal.azure.com)öppnar du din Logic app i Logic App Designer.
 
-1. På menyn Logic app, under **Inställningar**, väljer du **identitet**. 
+1. På menyn Logic app, under **Inställningar**, väljer du **identitet**.
 
-1. Under  > systemtilldelad**status**väljer du **av**. Välj sedan **Spara** > **Ja**.
+1. Under **systemtilldelad** > **status**väljer du **av**. Välj sedan **Spara** > **Ja**.
 
    ![Inaktivera inställningar för hanterad identitet](./media/create-managed-service-identity/turn-off-managed-service-identity.png)
 
@@ -204,7 +202,6 @@ Om du har skapat den logiska appens systemtilldelade identitet med en mall för 
 }
 ```
 
-## <a name="get-support"></a>Få support
+## <a name="next-steps"></a>Nästa steg
 
-* Om du har frågor kan du besöka [forumet för Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
-* Om du vill skicka in eller rösta på förslag på funktioner besöker du [webbplatsen för Logic Apps-användarfeedback](https://aka.ms/logicapps-wish).
+* [Säker åtkomst och data i Azure Logic Apps](../logic-apps/logic-apps-securing-a-logic-app.md)

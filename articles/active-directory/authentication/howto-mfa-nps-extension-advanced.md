@@ -1,6 +1,6 @@
 ---
-title: Konfigurera Azure MFA NPS-tillägget - Azure Active Directory
-description: När du installerar NPS-tillägget, Följ dessa steg för avancerad konfiguration som IP-vitlistning och UPN ersättning.
+title: Konfigurera Azure MFA NPS-tillägget – Azure Active Directory
+description: När du har installerat NPS-tillägget använder du de här stegen för Avancerad konfiguration som IP-vit listning och UPN-ersättning.
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
@@ -11,44 +11,47 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b8ac0497b13dad6795e8dc7ffaf761fe887a9953
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2e156585ba063515bd8be573b5d99b41e7ce35d1
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65988631"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70932493"
 ---
-# <a name="advanced-configuration-options-for-the-nps-extension-for-multi-factor-authentication"></a>Avancerade konfigurationsalternativ för NPS-tillägget för Multifaktorautentisering
+# <a name="advanced-configuration-options-for-the-nps-extension-for-multi-factor-authentication"></a>Avancerade konfigurations alternativ för NPS-tillägget för Multi-Factor Authentication
 
-Tillägget nätverksprincipserver (NPS) utökar din molnbaserade Azure Multi-Factor Authentication-funktioner till din lokala infrastruktur. Den här artikeln förutsätter att du redan har installerat tillägget och nu vill du veta hur du anpassar tillägget för dina behov. 
+Nätverks princip Server tillägget (NPS) utökar dina molnbaserade Azure Multi-Factor Authentication-funktioner till din lokala infrastruktur. Den här artikeln förutsätter att du redan har installerat tillägget och nu vill veta hur du anpassar tillägget efter behov. 
 
-## <a name="alternate-login-id"></a>Alternativa inloggnings-ID
+## <a name="alternate-login-id"></a>Alternativt inloggnings-ID
 
-Eftersom NPS-tillägget som ansluter till både lokalt och molnet kataloger, du kan stöta på ett problem där din lokala användarhuvudnamn (UPN) inte matchar namnen i molnet. Lös problemet genom att använda alternativa inloggnings-ID: N. 
+Eftersom NPS-tillägget ansluter till både dina lokala och molnbaserade kataloger kan du stöta på ett problem där dina lokala UPN-namn (User Principal Names) inte matchar namnen i molnet. Lös problemet genom att använda alternativa inloggnings-ID: n. 
 
-Du kan ange ett Active Directory-attribut som ska användas i stället för UPN för Azure Multi-Factor Authentication i NPS-tillägget. På så sätt kan du skydda dina lokala resurser med tvåstegsverifiering utan att ändra din lokala UPN-namn. 
+I NPS-tillägget kan du ange ett Active Directory-attribut som ska användas i stället för UPN för Azure Multi-Factor Authentication. På så sätt kan du skydda dina lokala resurser med tvåstegsverifiering utan att ändra dina lokala UPN-ändringar. 
 
-Om du vill konfigurera alternativa inloggnings-ID: N, gå till `HKLM\SOFTWARE\Microsoft\AzureMfa` och redigera följande registervärden:
+Om du vill konfigurera alternativa inloggnings- `HKLM\SOFTWARE\Microsoft\AzureMfa` ID: n går du till och redigerar följande register värden:
 
-| Namn | Typ | Standardvärde | Beskrivning |
+| Name | type | Standardvärde | Beskrivning |
 | ---- | ---- | ------------- | ----------- |
-| LDAP_ALTERNATE_LOGINID_ATTRIBUTE | string | Tom | Ange namnet på Active Directory-attribut som du vill använda i stället för UPN. Det här attributet används som AlternateLoginId-attribut. Om det här registervärdet anges till en [giltigt Active Directory-attributet](https://msdn.microsoft.com/library/ms675090.aspx) (till exempel e-post eller displayName), sedan attributets värde används i stället för användarens UPN för autentisering. Om det här registervärdet är tom eller inte konfigurerad, sedan AlternateLoginId inaktiveras och användarens UPN används för autentisering. |
-| LDAP_FORCE_GLOBAL_CATALOG | boolesk | False | Använd den här flaggan för att framtvinga användningen av den globala katalogen för LDAP-sökningar när den slår upp AlternateLoginId. Konfigurera en domänkontrollant som en Global katalog, lägga till attributet AlternateLoginId i den globala katalogen och sedan aktivera den här flaggan. <br><br> Om LDAP_LOOKUP_FORESTS konfigureras (inte tomt), **den här flaggan upprätthålls som SANT**, oavsett värdet för registerinställningen. NPS-tillägget kräver i så fall den globala katalogen som ska konfigureras med attributet AlternateLoginId för varje skog. |
-| LDAP_LOOKUP_FORESTS | string | Tom | Ange en semikolonavgränsad lista över skogar för att söka. Till exempel *contoso.com;foobar.com*. Om det här registervärdet är konfigurerad, söker NPS-tillägget iterativt alla skogar i den ordning som de visades och returnerar det första lyckade AlternateLoginId värdet. Om det här registervärdet inte är konfigurerad, är AlternateLoginId sökning begränsat till den aktuella domänen.|
+| LDAP_ALTERNATE_LOGINID_ATTRIBUTE | sträng | Tomt | Ange namnet på Active Directory attributet som du vill använda i stället för UPN. Det här attributet används som AlternateLoginId-attribut. Om registervärdet är inställt på ett [giltigt Active Directory-attribut](https://msdn.microsoft.com/library/ms675090.aspx) (till exempel e-post eller DisplayName) används attributets värde i stället för användarens UPN för autentisering. Om registervärdet är tomt eller inte har kon figurer ATS så inaktive ras AlternateLoginId och användarens UPN används för autentisering. |
+| LDAP_FORCE_GLOBAL_CATALOG | boolean | False | Använd den här flaggan om du vill framtvinga användning av global katalog för LDAP-sökningar när du söker efter AlternateLoginId. Konfigurera en domänkontrollant som global katalog, Lägg till attributet AlternateLoginId i den globala katalogen och aktivera sedan den här flaggan. <br><br> Om LDAP_LOOKUP_FORESTS har kon figurer ATS (inte tom) **tillämpas den här flaggan som sant**, oavsett värdet för register inställningen. I det här fallet kräver NPS-tillägget att den globala katalogen konfigureras med attributet AlternateLoginId för varje skog. |
+| LDAP_LOOKUP_FORESTS | sträng | Tomt | Ange en semikolonavgränsad lista över skogar att söka i. Till exempel *contoso. com; foobar. com*. Om registervärdet har kon figurer ATS söker NPS-tillägget iterativt i alla skogar i den ordning som de listades och returnerar det första lyckade AlternateLoginId-värdet. Om registervärdet inte har kon figurer ATS begränsas AlternateLoginId-sökningen till den aktuella domänen.|
 
-Använd rekommenderade åtgärder för felsökning av problem med alternativa inloggnings-ID: N [alternativa ID inloggningsfel](howto-mfa-nps-extension-errors.md#alternate-login-id-errors).
+Använd de rekommenderade stegen för [alternativa inloggnings-ID-fel](howto-mfa-nps-extension-errors.md#alternate-login-id-errors)för att felsöka problem med alternativa inloggnings-ID.
 
 ## <a name="ip-exceptions"></a>IP-undantag
 
-Om du vill övervaka servertillgänglighet, t.ex. Om belastningsutjämnare kontrollera vilka servrar som körs innan du skickar arbetsbelastningar, vill du inte de här kontrollerna blockeras av begäranden. I stället skapa en lista med IP-adresser som du vet som används av tjänstkonton och inaktivera multifaktorautentiseringskrav för listan.
+Om du behöver övervaka Server tillgänglighet, t. ex. om belastnings utjämning verifierar vilka servrar som körs innan du skickar arbets belastningar, vill du inte att dessa kontroller ska blockeras av verifierings begär Anden. Skapa i stället en lista med IP-adresser som du vet används av tjänst konton och inaktivera Multi-Factor Authentication krav för listan.
 
-Om du vill konfigurera en lista över tillåtna IP-adress, gå till `HKLM\SOFTWARE\Microsoft\AzureMfa` och konfigurera följande registervärde:
+Om du vill konfigurera en lista över tillåtna IP `HKLM\SOFTWARE\Microsoft\AzureMfa` -adresser går du till och konfigurerar följande register värde:
 
-| Namn | Typ | Standardvärde | Beskrivning |
+| Name | type | Standardvärde | Beskrivning |
 | ---- | ---- | ------------- | ----------- |
-| IP_WHITELIST | string | Tom | Ange en semikolonavgränsad lista med IP-adresser. Inkludera IP-adresser för datorer där tjänstbegäranden kommer t.ex NAS/VPN-servern. IP-intervall och undernät stöds inte. <br><br> Till exempel *10.0.0.1;10.0.0.2;10.0.0.3*.
+| IP_WHITELIST | sträng | Tomt | Ange en semikolonavgränsad lista med IP-adresser. Inkludera IP-adresserna för datorer där tjänst begär Anden kommer, som NAS/VPN-servern. IP-intervall och undernät stöds inte. <br><br> Till exempel *10.0.0.1; 10.0.0.2; 10.0.0.3*.
 
-När en begäran kommer från en IP-adress som finns i den `IP_WHITELIST`, tvåstegsverifiering hoppas över. IP-listan jämförs IP-adressen som har angetts i den *ratNASIPAddress* attribut för RADIUS-begäran. Om en RADIUS-begäran kommer utan attributet ratNASIPAddress, loggas följande varning: ”P_WHITE_LIST_WARNING::IP vitlista ignoreras eftersom käll-IP saknas i RADIUS-begäran i NasIpAddress attribut”.
+> [!NOTE]
+> Den här register nyckeln skapas inte som standard av installations programmet och ett fel meddelande visas i AuthZOptCh-loggen när tjänsten startas om. Felet i loggen kan ignoreras, men om register nyckeln skapas och lämnas tom om den inte behövs returneras inte fel meddelandet.
+
+När en begäran kommer från en IP-adress som finns i `IP_WHITELIST`, hoppas tvåstegsverifiering. IP-listan jämförs med den IP-adress som anges i attributet *ratNASIPAddress* för RADIUS-begäran. Om en RADIUS-begäran kommer in utan attributet ratNASIPAddress loggas följande varning: "P_WHITE_LIST_WARNING:: IP-vitlista ignoreras eftersom käll-IP saknas i RADIUS-begäran i NasIpAddress-attribut."
 
 ## <a name="next-steps"></a>Nästa steg
 

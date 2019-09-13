@@ -1,28 +1,27 @@
 ---
-title: Använda smarta kontrakt i Azure blockchain-tjänsten
-description: Själv studie kurs om hur du använder Azure blockchain-tjänsten för att distribuera ett smart kontrakt och köra en funktion via en transaktion.
+title: Använd Visual Studio Code för att skapa, bygga och distribuera smarta kontrakt med Azure blockchain-tjänsten
+description: Självstudie om hur du använder Azure blockchain Development Kit för Ethereum-tillägget i Visual Studio Code för att skapa, bygga och distribuera ett smart kontrakt på Azure blockchain-tjänsten.
 services: azure-blockchain
 author: PatAltimore
 ms.author: patricka
-ms.date: 07/31/2019
+ms.date: 09/10/2019
 ms.topic: tutorial
 ms.service: azure-blockchain
 ms.reviewer: chrisseg
-ms.openlocfilehash: 1843bd66e11a6686c9ae81fb8e30c7b030e889b7
-ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
+ms.openlocfilehash: 96fe4d77efdd1fda309d7da021bcc208edd2dfe9
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68705120"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70935054"
 ---
-# <a name="tutorial-use-smart-contracts-on-azure-blockchain-service"></a>Självstudier: Använda smarta kontrakt i Azure blockchain-tjänsten
+# <a name="tutorial-usevisual-studio-code-to-create-buildanddeploysmartcontracts"></a>Självstudier: Använd Visual Studio Code för att skapa, bygga och distribuera smarta kontrakt
 
-I den här självstudien använder du Azure blockchain Development Kit för Ethereum för att skapa och distribuera ett smart kontrakt och kör sedan en smart kontrakts funktion via en transaktion i ett konsortium blockchain-nätverk.
+I den här självstudien använder du tillägget Azure blockchain Development Kit for Ethereum i Visual Studio Code för att skapa, bygga och distribuera ett smart kontrakt på Azure blockchain-tjänsten. Du kan också använda Truffle för att köra en smart kontrakts funktion via en transaktion.
 
 Du använder Azure blockchain Development Kit för att Ethereum:
 
 > [!div class="checklist"]
-> * Ansluta till Azure blockchain service Consortium blockchain member
 > * Skapa ett smart kontrakt
 > * Distribuera ett smart kontrakt
 > * Köra en smart kontrakts funktion via en transaktion
@@ -32,52 +31,11 @@ Du använder Azure blockchain Development Kit för att Ethereum:
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-* Slutför [snabb start: Skapa en blockchain-medlem med hjälp](create-member.md) av [Azure Portal eller snabb start: Skapa en Azure blockchain-tjänst blockchain-medlem med Azure CLI](create-member-cli.md)
-* [Visual Studio Code](https://code.visualstudio.com/Download)
-* [Azure blockchain Development Kit för Ethereum-tillägg](https://marketplace.visualstudio.com/items?itemName=AzBlockchain.azure-blockchain)
-* [Node.js](https://nodejs.org)
-* [Git](https://git-scm.com)
-* [Python](https://www.python.org/downloads/release/python-2715/). Lägg till python. exe i sökvägen. Python i din sökväg krävs för Azure blockchain Development Kit.
-* [Truffle](https://www.trufflesuite.com/docs/truffle/getting-started/installation)
-* [Ganache CLI](https://github.com/trufflesuite/ganache-cli)
-
-### <a name="verify-azure-blockchain-development-kit-environment"></a>Kontrol lera Azure blockchain Development Kit-miljön
-
-Azure blockchain Development Kit verifierar att utvecklings miljö kraven är uppfyllda. För att verifiera utvecklings miljön:
-
-Från kommando paletten vs Code väljer **du Azure blockchain: Visa välkomst sida**.
-
-Azure blockchain Development Kit kör ett verifierings skript som tar ungefär en minut att slutföra. Du kan visa utdata genom att välja **Terminal > ny terminal**. I meny raden i terminalen väljer du fliken **utdata** och **Azure-blockchain** i list rutan. Lyckad verifiering ser ut som på följande bild:
-
-![Giltig utvecklings miljö](./media/send-transaction/valid-environment.png)
-
- Om du saknar ett nödvändigt verktyg, en ny flik som heter **Azure blockchain Development Kit** , visar en lista över de appar som krävs för att installera och länkar för att hämta verktygen.
-
-![Appar som krävs av dev kit](./media/send-transaction/required-apps.png)
-
-## <a name="connect-to-consortium-member"></a>Anslut till konsortiet medlem
-
-Du kan ansluta till medlemmar i konsortiet med hjälp av tillägget Azure blockchain Development Kit VS Code. När du har anslutit till ett konsortium kan du kompilera, bygga och distribuera smarta kontrakt till en Azure blockchain service Consortium-medlem.
-
-Om du inte har åtkomst till en Azure blockchain service Consortium-medlem, slutför du den [nödvändiga snabb starten: Skapa en blockchain-medlem med hjälp](create-member.md) av [Azure Portal eller snabb start: Skapa en Azure blockchain-tjänst blockchain-medlem med](create-member-cli.md)Azure CLI.
-
-1. I Explorer-fönstret Visual Studio Code (VS Code) expanderar du tillägget **Azure blockchain** .
-1. Välj **Anslut till konsortiet**.
-
-   ![Anslut till konsortiet](./media/send-transaction/connect-consortium.png)
-
-    Om du uppmanas att ange Azure-autentisering följer du anvisningarna för att autentisera med hjälp av en webbläsare.
-1. Välj **Anslut till Azure blockchain service Consortium** i list rutan kommando för palett.
-1. Välj den prenumeration och resurs grupp som är kopplad till din Azure blockchain service Consortium-medlem.
-1. Välj konsortiet i listan.
-
-Konsortiet och blockchain-medlemmarna visas i Visual Studio Explorer-sido fältet.
-
-![Konsortiet som visas i Utforskaren](./media/send-transaction/consortium-node.png)
+* Slutför [snabb start: Använd Visual Studio Code för att ansluta till ett Azure blockchain service Consortium-nätverk](connect-vscode.md)
 
 ## <a name="create-a-smart-contract"></a>Skapa ett smart kontrakt
 
-Azure blockchain Development Kit för Ethereum använder Project-mallar och Truffle-verktyg för att hjälpa Autogenerera, bygga och distribuera kontrakt.
+Azure blockchain Development Kit för Ethereum använder Project-mallar och Truffle-verktyg för att hjälpa Autogenerera, bygga och distribuera kontrakt. Innan du börjar måste du slutföra den nödvändiga [snabb starten: Använd Visual Studio Code för att ansluta till ett Azure blockchain service Consortium](connect-vscode.md)-nätverk. Snabb starten guidar dig genom installationen och konfigurationen av Azure blockchain Development Kit för Ethereum.
 
 1. Från kommando paletten vs Code väljer **du Azure blockchain: Nytt projekt**för massivity.
 1. Välj **skapa Basic-projekt**.
@@ -91,7 +49,7 @@ Projekt strukturen ser ut som i följande exempel:
 
 ## <a name="build-a-smart-contract"></a>Bygg ett smart kontrakt
 
-Smarta kontrakt finns i projektets kontrakts katalog. Du kompilerar smarta kontrakt innan du distribuerar dem till en blockchain. Använd kommandot **Bygg kontrakt** för att kompilera alla smarta kontrakt i projektet.
+Smarta kontrakt finns i projektets **kontrakts** katalog. Du kompilerar smarta kontrakt innan du distribuerar dem till en blockchain. Använd kommandot **Bygg kontrakt** för att kompilera alla smarta kontrakt i projektet.
 
 1. I sido rutan i VS Code-Utforskaren expanderar du mappen **kontrakt** i projektet.
 1. Högerklicka på **HelloBlockchain. sol** och välj **Bygg kontrakt** på menyn.
@@ -107,7 +65,7 @@ Azure blockchain Development Kit använder Truffle för att kompilera smarta kon
 Truffle använder migrations skript för att distribuera dina kontrakt till ett Ethereum-nätverk. Migreringar är JavaScript-filer som finns i projektets **migrerings** katalog.
 
 1. Du distribuerar ditt smarta kontrakt genom att högerklicka på **HelloBlockchain. sol** och välja **distribuera kontrakt** på menyn.
-1. Välj ditt Azure blockchain Consortium-nätverk under **från Truffle-config. js**. Konsortiet blockchain-nätverk har lagts till i projektets Truffle-konfigurationsfil när du skapade projektet.
+1. Välj ditt Azure blockchain Consortium-nätverk i kommando paletten. Konsortiet blockchain-nätverk har lagts till i projektets Truffle-konfigurationsfil när du skapade projektet.
 1. Välj **skapa**åtgärds kort. Välj ett fil namn och spara filen i projektmappen i projektmappen. Till exempel `myblockchainmember.env`. Den här filen används för att generera en privat Ethereum-nyckel för din blockchain-medlem.
 
 Azure blockchain Development Kit använder Truffle för att köra migrations skriptet för att distribuera kontrakten till blockchain.
@@ -173,7 +131,7 @@ Smarta kontrakt funktioner kan returnera det aktuella värdet för State-variabl
     Funktionen returnerar meddelandet som lagras i en tillstånds variabel baserat på kontraktets aktuella status.
 
 1. Högerklicka på **HelloBlockchain. sol** och välj **Bygg kontrakt** på menyn för att kompilera ändringarna i det smarta kontraktet.
-1. Du distribuerar genom att högerklicka på **HelloBlockchain. sol** och välja **distribuera kontrakt** på menyn.
+1. Du distribuerar genom att högerklicka på **HelloBlockchain. sol** och välja **distribuera kontrakt** på menyn. När du uppmanas väljer du ditt Azure blockchain Consortium-nätverk i kommando paletten.
 1. Skapa sedan ett skript som använder för att anropa funktionen **GetMessage** . Skapa en ny fil i roten av Truffle-projektet och ge den `getmessage.js`namnet. Lägg till följande Web3 JavaScript-kod i filen.
 
     ```javascript

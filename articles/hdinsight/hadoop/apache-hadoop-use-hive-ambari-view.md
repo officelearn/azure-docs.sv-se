@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: hrasheed
-ms.openlocfilehash: 4d314c033df70cf0ea9a6d248b73aaed42aa4020
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
-ms.translationtype: HT
+ms.openlocfilehash: 3ab2bf0334b58f3a5ac8ad4abacfcc45e0366240
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 09/11/2019
-ms.locfileid: "70882123"
+ms.locfileid: "70917760"
 ---
 # <a name="use-apache-ambari-hive-view-with-apache-hadoop-in-hdinsight"></a>Använda Apache Ambari Hive-vy med Apache Hadoop i HDInsight
 
@@ -34,11 +34,11 @@ Lär dig hur du kör Hive-frågor med hjälp av Apache Ambari Hive-vyn. I Hive-v
 
 3. I listan med vyer väljer du __Hive-vy__.
 
-    ![Den valda Hive-vyn](./media/apache-hadoop-use-hive-ambari-view/select-hive-view.png)
+    ![Den valda Hive-vyn](./media/apache-hadoop-use-hive-ambari-view/select-apache-hive-view.png)
 
     Sidan Hive-vy liknar följande bild:
 
-    ![Bild av fråge kalkyl bladet för Hive-vyn](./media/apache-hadoop-use-hive-ambari-view/ambari-hive-view.png)
+    ![Bild av fråge kalkyl bladet för Hive-vyn](./media/apache-hadoop-use-hive-ambari-view/ambari-worksheet-view.png)
 
 4. Från fliken __fråga__ klistrar du in följande HiveQL-instruktioner i kalkyl bladet:
 
@@ -104,7 +104,7 @@ Om du vill visa Tez-gränssnittet för frågan väljer du fliken **Tez-gränssni
 
 På fliken __jobb__ visas en historik över Hive-frågor.
 
-![Bild av jobb historik](./media/apache-hadoop-use-hive-ambari-view/job-history.png)
+![Bild av jobb historik](./media/apache-hadoop-use-hive-ambari-view/apache-hive-job-history.png)
 
 ## <a name="database-tables"></a>Databas tabeller
 
@@ -116,7 +116,7 @@ Du kan använda fliken __tabeller__ för att arbeta med tabeller i en Hive-datab
 
 På fliken **fråga** kan du välja att spara frågor. När du har sparat en fråga kan du återanvända den från fliken __sparade frågor__ .
 
-![Bild av fliken sparade frågor](./media/apache-hadoop-use-hive-ambari-view/saved-queries.png)
+![Bild av fliken sparade frågor](./media/apache-hadoop-use-hive-ambari-view/ambari-saved-queries.png)
 
 > [!TIP]  
 > Sparade frågor lagras i standard kluster lagringen. Du kan hitta de sparade frågorna under sökvägen `/user/<username>/hive/scripts`. Dessa lagras som oformaterade text `.hql` filer.

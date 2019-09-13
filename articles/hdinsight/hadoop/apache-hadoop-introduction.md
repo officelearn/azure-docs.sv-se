@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017,mvc,seodec18
 ms.topic: overview
 ms.date: 08/15/2019
-ms.openlocfilehash: d6127d4fba3d2255dee28cd41179f16394545328
-ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
+ms.openlocfilehash: 859e830483ac959f6f55ba27b5657779ac16d2fb
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2019
-ms.locfileid: "70207224"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70934146"
 ---
 # <a name="what-is-apache-hadoop-in-azure-hdinsight"></a>Vad är Apache Hadoop i Azure HDInsight?
 
@@ -31,9 +31,9 @@ Apache Hadoop MapReduce är ett ramverk för program vara som används för att 
 
 * **Minskning**: Använder tupel som genereras av mappningen och utför en sammanfattnings åtgärd som skapar ett mindre kombinerat resultat från Mapper-data
 
-Ett exempel på en grundläggande ord räkning för MapReduce-jobb illustreras i följande diagram:
+Ett exempel på en grundläggande ord räkning för MapReduce-jobb illustreras i följande diagram:   
 
-![HDI.WordCountDiagram][image-hdi-wordcountdiagram]
+ ![HDI.WordCountDiagram](./media/apache-hadoop-introduction/hdi-word-count-diagram.gif)
 
 Utdata för det här jobbet är antalet hur många gånger varje ord har inträffat i texten.
 
@@ -59,5 +59,3 @@ Exempel på användning av Hadoop streaming med HDInsight finns i följande doku
 ## <a name="next-steps"></a>Nästa steg
 
 * [Skapa Apache Hadoop-kluster i HDInsight](apache-hadoop-linux-create-cluster-get-started-portal.md)
-
-[image-hdi-wordcountdiagram]: ./media/hdinsight-use-mapreduce/HDI.WordCountDiagram.gif

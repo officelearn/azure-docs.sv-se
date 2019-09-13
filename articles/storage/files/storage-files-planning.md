@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 4dfcde96957bb8fce3731e38eee62554795d795f
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: 30842c787e2009b4919fef916f3c5e1f73a79bf2
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70844893"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70918822"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planera för distribution av Azure Files
 
@@ -211,13 +211,16 @@ Standard fil resurser är tillgängliga i alla regioner upp till 5 TiB. I vissa 
 |Östra Australien |LRS     |Nej    |Ja|
 |Sydöstra Australien|LRS     |Nej    |Inte ännu|
 |Indien, centrala  |LRS     |Nej    |Inte ännu|
+|East US        |LRS     |Nej    |Inte ännu|
 |Frankrike, centrala |LRS, ZRS|Nej    |LRS – Ja, ZRS – inte ännu|
 |Frankrike, södra   |LRS     |Nej    |Ja|
 |Indien, södra    |LRS     |Nej    |Inte ännu|
 |Sydostasien |LRS, ZRS|Nej    |Ja|
 |Västra centrala USA|LRS     |Nej    |Inte ännu|
 |Västra Europa    |LRS, ZRS|Nej    |Ja|
+|Västra USA        |LRS     |Nej    |Inte ännu|
 |Västra USA 2      |LRS, ZRS|Nej    |Ja|
+
 
 \* För regioner utan Portal stöd kan du fortfarande använda PowerShell eller Azure Command Line Interface (CLI) för att skapa större än 5 TiB-resurser. Du kan också skapa en ny resurs via portalen utan att ange kvot. Då skapas en resurs med standard storleken 100 TiB, som kan uppdateras senare via PowerShell eller Azure CLI.
 

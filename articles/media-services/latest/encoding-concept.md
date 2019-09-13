@@ -9,15 +9,15 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 06/08/2019
+ms.date: 09/10/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 590b84acd57199b291aa44f7120507023ffd026a
-ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.openlocfilehash: e1fc58db8f933ae122801f492fbbafdb905c7dda
+ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70389743"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70910412"
 ---
 # <a name="encoding-with-media-services"></a>Encoding med Media Services
 
@@ -30,7 +30,7 @@ Videor levereras vanligt vis till enheter och program genom [progressiv nedladdn
 
 Följande diagram visar arbets flödet för kodning på begäran med dynamisk paketering.
 
-![Dynamisk paketering](./media/dynamic-packaging-overview/media-services-dynamic-packaging.png)
+![Dynamisk paketering](./media/dynamic-packaging-overview/media-services-dynamic-packaging.svg)
 
 Det här avsnittet ger vägledning om att koda ditt innehåll med Media Services v3.
 
@@ -68,7 +68,7 @@ Indataporten kan lagras som en medie tjänst till gång, i vilket fall du skapar
 
 ### <a name="creating-job-input-with-subclipping"></a>Skapa jobb ingångar med under Urklipp
 
-När du kodar en video kan du ange att även trimma eller klippa ut käll filen och skapa utdata som bara har en önskad del av indata-videon. Den här funktionen fungerar med alla [transformeringar](https://docs.microsoft.com/rest/api/media/transforms) som har skapats med antingen [BuiltInStandardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#builtinstandardencoderpreset) för inställningar eller [StandardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#standardencoderpreset) för inställningar. 
+När du kodar en video kan du ange att även trimma eller klippa ut käll filen och skapa utdata som bara har en önskad del av indata-videon. Den här funktionen fungerar med [](https://docs.microsoft.com/rest/api/media/transforms) alla transformeringar som har skapats med antingen [BuiltInStandardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#builtinstandardencoderpreset) för inställningar eller [StandardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#standardencoderpreset) för inställningar. 
 
 Du kan ange att du vill skapa ett [jobb](https://docs.microsoft.com/rest/api/media/jobs/create) med ett enda klipp av en video på begäran eller Live Archive (en inspelad händelse). Jobbets inmatare kan vara en till gång eller en HTTPS-URL.
 

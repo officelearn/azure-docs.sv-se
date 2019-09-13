@@ -9,12 +9,12 @@ ms.reviewer: klam, LADocs
 ms.suite: integration
 ms.topic: reference
 ms.date: 06/19/2019
-ms.openlocfilehash: c109627d2a2e9190afb2c27b9fb202e93baa68cb
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: df1b03d5fbb5b8ef8cda9407e4a595bc2de8ce54
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68689658"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70918957"
 ---
 # <a name="reference-for-trigger-and-action-types-in-workflow-definition-language-for-azure-logic-apps"></a>Referens för utlösare och åtgärds typer i språk för arbets flödes definition för Azure Logic Apps
 
@@ -50,7 +50,7 @@ Utlösare har dessa toppnivå element, även om några är valfria:
 
 *Kunna*
 
-| Värde | type | Beskrivning | 
+| Value | type | Beskrivning | 
 |-------|------|-------------| 
 | <*trigger-name*> | Sträng | Namnet på utlösaren | 
 | <*trigger-type*> | Sträng | Utlösarens typ, till exempel "http" eller "ApiConnection" | 
@@ -61,7 +61,7 @@ Utlösare har dessa toppnivå element, även om några är valfria:
 
 *Valfritt*
 
-| Värde | type | Beskrivning | 
+| Value | type | Beskrivning | 
 |-------|------|-------------| 
 | <*array-with-conditions*> | Array | En matris som innehåller ett eller flera [villkor](#trigger-conditions) som avgör om arbets flödet ska köras. Endast tillgängligt för utlösare. | 
 | <*runtime-Config-Options*> | JSON-objekt | Du kan ändra utlösarens körnings beteende `runtimeConfiguration` genom att ange egenskaper. Mer information finns i [konfigurations inställningar för körning](#runtime-config-options). | 
@@ -156,9 +156,9 @@ Den här utlösaren kontrollerar eller *avsöker* en slut punkt med hjälp av [M
  
 | Element | type | Beskrivning |
 |---------|------|-------------|
-| sidhuvud | JSON-objekt | Rubrikerna från svaret |
+| Sidhuvud | JSON-objekt | Rubrikerna från svaret |
 | brödtext | JSON-objekt | Texten från svaret |
-| status kod | Integer | Status koden från svaret |
+| Status kod | Integer | Status koden från svaret |
 |||| 
 
 *Exempel*
@@ -329,9 +329,9 @@ Den här utlösaren kontrollerar eller avsöker den angivna slut punkten baserat
 
 | Element | type | Beskrivning |
 |---------|------|-------------| 
-| sidhuvud | JSON-objekt | Rubrikerna från svaret | 
+| Sidhuvud | JSON-objekt | Rubrikerna från svaret | 
 | brödtext | JSON-objekt | Texten från svaret | 
-| status kod | Integer | Status koden från svaret | 
+| Status kod | Integer | Status koden från svaret | 
 |||| 
 
 *Krav för inkommande begär Anden*
@@ -424,9 +424,9 @@ Vissa värden, till exempel <*metod-typ*>, är tillgängliga för både `"subscr
 
 | Element | type | Beskrivning |
 |---------|------|-------------| 
-| sidhuvud | JSON-objekt | Rubrikerna från svaret | 
+| Sidhuvud | JSON-objekt | Rubrikerna från svaret | 
 | brödtext | JSON-objekt | Texten från svaret | 
-| status kod | Integer | Status koden från svaret | 
+| Status kod | Integer | Status koden från svaret | 
 |||| 
 
 *Exempel*
@@ -504,7 +504,7 @@ Den här utlösaren körs baserat på det angivna upprepnings schemat och ger et
 
 | Value | type | Beskrivning | 
 |-------|------|-------------| 
-| <*Start-Date-Time-with-format-ÅÅÅÅ-MM-DDThh: mm: SS*> | Sträng | Start datum och-tid i det här formatet: <p>ÅÅÅÅ-MM-DDThh: mm: SS om du anger en tidszon <p>ELLER <p>ÅÅÅÅ-MM-DDThh: mm: ssZ om du inte anger en tidszon <p>Om du till exempel vill ha 18 september 2017 på 2:00 PM anger du "2017-09-18T14:00:00" och anger en tidszon som t. ex. "Pacific Standard Time" eller anger "2017-09-18T14:00:00Z" utan en tidszon. <p>**Obs:** Den här start tiden måste följa [ISO 8601-datum/tid](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) -specifikationen i [UTC-datum format](https://en.wikipedia.org/wiki/Coordinated_Universal_Time), men utan en [UTC-förskjutning](https://en.wikipedia.org/wiki/UTC_offset). Om du inte anger en tidszon måste du lägga till bokstaven "Z" i slutet utan blank steg. Detta "Z" avser motsvarande nautiska [tid](https://en.wikipedia.org/wiki/Nautical_time). <p>För enkla scheman är start tiden den första förekomsten, medan utlösaren i komplexa scheman inte utlöses tidigare än start tiden. Mer information om start datum och tider finns i [skapa och schemalägga uppgifter som körs regelbundet](../connectors/connectors-native-recurrence.md). | 
+| <*Start-Date-Time-with-format-ÅÅÅÅ-MM-DDThh: mm: SS*> | Sträng | Start datum och-tid i det här formatet: <p>ÅÅÅÅ-MM-DDThh: mm: SS om du anger en tidszon <p>ELLER <p>ÅÅÅÅ-MM-DDThh: mm: ssZ om du inte anger en tidszon <p>Om du till exempel vill ha 18 september 2017 på 2:00 PM anger du "2017-09-18T14:00:00" och anger en tidszon som t. ex. "Pacific Standard Time" eller anger "2017-09-18T14:00:00Z" utan en tidszon. <p>**Obs:** Den här start tiden har högst 49 år i framtiden och måste följa [8601 ISO-tiden för datum/tid](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) i [UTC-datum format](https://en.wikipedia.org/wiki/Coordinated_Universal_Time), men utan en [UTC-förskjutning](https://en.wikipedia.org/wiki/UTC_offset). Om du inte anger en tidszon måste du lägga till bokstaven "Z" i slutet utan blank steg. Detta "Z" avser motsvarande nautiska [tid](https://en.wikipedia.org/wiki/Nautical_time). <p>För enkla scheman är start tiden den första förekomsten, medan utlösaren i komplexa scheman inte utlöses tidigare än start tiden. Mer information om start datum och tider finns i [skapa och schemalägga uppgifter som körs regelbundet](../connectors/connectors-native-recurrence.md). | 
 | <*time-zone*> | Sträng | Gäller endast när du anger en start tid eftersom den här utlösaren inte accepterar [UTC-förskjutning](https://en.wikipedia.org/wiki/UTC_offset). Ange den tidszon som du vill använda. | 
 | <*en-eller-fler-timmarsformat*> | Heltals-eller heltals mat ris | Om du anger "dag" eller "vecka" för `frequency`kan du ange ett eller flera heltal från 0 till 23, avgränsade med kommatecken, som de timmar på dagen då du vill köra arbets flödet. <p>Om du till exempel anger "10", "12" och "14" får du 10 AM, 12 PM och 2 PM som timvärdet. | 
 | <*en eller flera minuter-märken*> | Heltals-eller heltals mat ris | Om du anger "dag" eller "vecka" för `frequency`kan du ange ett eller flera heltal från 0 till 59, avgränsade med kommatecken, som minuter i timmen när du vill köra arbets flödet. <p>Du kan till exempel ange "30" som minut märke och använda föregående exempel för timmar på dagen, du får 10:30 AM, 12:30 PM och 2:30 PM. | 
@@ -776,7 +776,7 @@ Azure Logic Apps innehåller olika åtgärds typer – var och en med olika inda
 
 *Kunna*
 
-| Värde | type | Beskrivning | 
+| Value | type | Beskrivning | 
 |-------|------|-------------|
 | <*åtgärds namn*> | Sträng | Åtgärdens namn | 
 | <*åtgärds typ*> | Sträng | Åtgärds typ, till exempel "http" eller "ApiConnection"| 
@@ -892,7 +892,7 @@ Den här åtgärden skickar en HTTP-begäran till ett [Microsoft-hanterat API](.
 
 *Kunna*
 
-| Värde | type | Beskrivning | 
+| Value | type | Beskrivning | 
 |-------|------|-------------| 
 | <*åtgärds namn*> | Sträng | Namnet på åtgärden som tillhandahålls av kopplingen | 
 | <*API-namn*> | Sträng | Namnet på det Microsoft-hanterade API som används för anslutningen | 
@@ -902,7 +902,7 @@ Den här åtgärden skickar en HTTP-begäran till ett [Microsoft-hanterat API](.
 
 *Valfritt*
 
-| Värde | type | Beskrivning | 
+| Value | type | Beskrivning | 
 |-------|------|-------------| 
 | <*andra-åtgärds-Specific-in-Properties*> | JSON-objekt | Alla andra ingångs egenskaper som gäller för den aktuella åtgärden | 
 | <*återförsök-beteende*> | JSON-objekt | Anpassar återförsök för tillfälliga fel som har status koden 408, 429 och 5XX och eventuella anslutnings undantag. Mer information finns i [principer](../logic-apps/logic-apps-exception-handling.md#retry-policies)för återförsök. | 
@@ -1158,7 +1158,7 @@ Den här åtgärden anropar en [Azure-funktion](../azure-functions/functions-cre
 
 *Valfritt*
 
-| Värde | type | Beskrivning | 
+| Value | type | Beskrivning | 
 |-------|------|-------------|  
 | <*rubrik – innehåll*> | JSON-objekt | Alla rubriker som ska skickas med anropet <p>Om du till exempel vill ange språk och typ på en begäran: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` |
 | <*body-content*> | JSON-objekt | Alla meddelande innehåll som ska skickas i begäran | 
@@ -1221,7 +1221,7 @@ Den här åtgärden skickar en begäran till den angivna slut punkten och kontro
 
 *Kunna*
 
-| Värde | type | Beskrivning | 
+| Value | type | Beskrivning | 
 |-------|------|-------------| 
 | <*metod-typ*> | Sträng | Den metod som ska användas för att skicka begäran: "GET", "placera", "POST", "PATCH" eller "DELETE" | 
 | <*HTTP-or-HTTPS-endpoint-URL*> | Sträng | HTTP-eller HTTPS-slutpunkt som ska anropas. Maximal sträng storlek: 2 KB | 
@@ -1899,7 +1899,7 @@ Logic Appss motorn kontrollerar åtkomsten till den utlösare som du vill anropa
 
 *Valfritt*
 
-| Värde | type | Beskrivning | 
+| Value | type | Beskrivning | 
 |-------|------|-------------|  
 | <*rubrik – innehåll*> | JSON-objekt | Alla rubriker som ska skickas med anropet | 
 | <*body-content*> | JSON-objekt | Meddelande innehåll som ska skickas med anropet | 
@@ -1965,7 +1965,7 @@ Den här upprepnings åtgärden upprepas genom en matris och utför åtgärder p
 
 *Kunna* 
 
-| Värde | type | Beskrivning | 
+| Value | type | Beskrivning | 
 |-------|------|-------------| 
 | <*åtgärd-1... m*> | Sträng | Namnen på de åtgärder som körs på varje mat ris objekt | 
 | <*action-definition-1...n*> | JSON-objekt | Definitionerna för de åtgärder som körs | 
@@ -1974,7 +1974,7 @@ Den här upprepnings åtgärden upprepas genom en matris och utför åtgärder p
 
 *Valfritt*
 
-| Värde | type | Beskrivning | 
+| Value | type | Beskrivning | 
 |-------|------|-------------| 
 | <*reparationer*> | Integer | Som standard körs loopen för varje upprepning vid samma tidpunkt, eller parallellt med [standard gränsen](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Om du vill ändra den här gränsen genom att ange ett nytt <*antal*>s värde, se [ändra "för varje" loop-samtidighets](#change-for-each-concurrency). | 
 | <*operation-option*> | Sträng | Om du vill köra en "for each"-loop i tur och ordning i stället för parallellt anger du antingen < `Sequential` *Åtgärds alternativ*> till `1`eller <*antal*> till, men inte båda. Mer information finns i [Kör "för varje" slingor i turordning](#sequential-for-each). | 
@@ -2128,7 +2128,7 @@ Med den här åtgärden grupperas åtgärder logiskt i *omfattningar*, vilket ge
 
 *Kunna*
 
-| Värde | type | Beskrivning | 
+| Value | type | Beskrivning | 
 |-------|------|-------------|  
 | <*inner-action-1...n*> | JSON-objekt | En eller flera åtgärder som körs inom omfånget |
 | <*åtgärds-input*> | JSON-objekt | Indata för varje åtgärd |
@@ -2169,7 +2169,7 @@ Den här åtgärden, som även kallas en *switch-instruktion*, ordnar andra åtg
 
 *Kunna*
 
-| Värde | type | Beskrivning | 
+| Value | type | Beskrivning | 
 |-------|------|-------------| 
 | <*uttryck – objekt-eller-token*> | Varierar | Uttrycket, JSON-objektet eller token som ska utvärderas | 
 | <*åtgärds namn*> | Sträng | Namnet på åtgärden som ska köras för matchnings ärendet | 
@@ -2179,7 +2179,7 @@ Den här åtgärden, som även kallas en *switch-instruktion*, ordnar andra åtg
 
 *Valfritt*
 
-| Värde | type | Beskrivning | 
+| Value | type | Beskrivning | 
 |-------|------|-------------| 
 | <*standard-åtgärds namn*> | Sträng | Namnet på standard åtgärden som ska köras när det inte finns något matchande fall | 
 | <*default-action-definition*> | JSON-objekt | Definitionen för åtgärden som ska köras när det inte finns något matchande fall | 
@@ -2295,7 +2295,7 @@ Den här slingan-åtgärden innehåller åtgärder som körs tills det angivna v
 }
 ```
 
-| Värde | type | Beskrivning | 
+| Value | type | Beskrivning | 
 |-------|------|-------------| 
 | <*åtgärds namn*> | Sträng | Namnet på den åtgärd som du vill köra inuti slingan | 
 | <*åtgärds typ*> | Sträng | Den åtgärds typ som du vill köra | 

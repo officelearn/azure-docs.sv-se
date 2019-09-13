@@ -13,12 +13,12 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 72f7776fde4558a49830ecbf14c77fa50e80bf36
-ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
-ms.translationtype: HT
+ms.openlocfilehash: b1d0f94e9cf9b91bc365586dafc147dc73b17876
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 09/11/2019
-ms.locfileid: "70910880"
+ms.locfileid: "70914761"
 ---
 # <a name="bulk-download-a-list-of-groups-preview-in-azure-active-directory"></a>Hämta en lista över grupper (förhands granskning) i Azure Active Directory
 
@@ -29,7 +29,7 @@ Med hjälp av Azure Active Directory-portalen (Azure AD) kan du hämta en lista 
 
 ## <a name="bulk-download-service-limits"></a>Begränsningar för Mass nedladdnings tjänst
 
-Varje Mass aktivitet för att skapa en lista över grupper kan köras i upp till en timme. På så sätt kan du skapa och hämta en lista med minst 300 000 grupper.
+Varje Mass aktivitet för att hämta en grupp lista kan köras i upp till en timme. På så sätt kan du ladda ned en lista med minst 300 000 grupper.
 
 ## <a name="to-download-a-list-of-groups"></a>Hämta en lista över grupper
 

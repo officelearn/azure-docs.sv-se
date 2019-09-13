@@ -9,16 +9,16 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 1168963c0698c6bdafe20babe2e5143585bf90a8
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: ee5b18ddc734335ddac2a7d3352de0e4388f445d
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70087107"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70933260"
 ---
 # <a name="function-chaining-in-durable-functions---hello-sequence-sample"></a>Funktions länkning i Durable Functions-Hello Sequence-exempel
 
-Funktions länkning syftar på mönstret för att köra en sekvens med funktioner i en viss ordning. Ofta måste utdata från en funktion tillämpas på indata för en annan funktion. I den här artikeln beskrivs den länknings ordning som du skapar när du slutför Durable Functions snabb[C#](durable-functions-create-first-csharp.md) start (eller [Java Script](quickstart-js-vscode.md)). Mer information om Durable Functions finns i [Durable Functions mönster och tekniska begrepp](durable-functions-concepts.md).
+Funktions länkning syftar på mönstret för att köra en sekvens med funktioner i en viss ordning. Ofta måste utdata från en funktion tillämpas på indata för en annan funktion. I den här artikeln beskrivs den länknings ordning som du skapar när du slutför Durable Functions snabb[C#](durable-functions-create-first-csharp.md) start (eller [Java Script](quickstart-js-vscode.md)). Mer information om Durable Functions finns i [Durable Functions översikt](durable-functions-overview.md).
 
 [!INCLUDE [durable-functions-prerequisites](../../../includes/durable-functions-prerequisites.md)]
 
@@ -136,12 +136,12 @@ Content-Type: application/json; charset=utf-8
 {"runtimeStatus":"Completed","input":null,"output":["Hello Tokyo!","Hello Seattle!","Hello London!"],"createdTime":"2017-06-29T05:24:57Z","lastUpdatedTime":"2017-06-29T05:24:59Z"}
 ```
 
-Som du kan se `runtimeStatus` `output` slutförs instansen och innehåller det JSON-serialiserade resultatet av Orchestrator Function-körningen.
+Som du kan se `runtimeStatus` `output` *slutförs* instansen och innehåller det JSON-serialiserade resultatet av Orchestrator Function-körningen.
 
 > [!NOTE]
 > Den HTTP POST-slutpunkt som startade Orchestrator-funktionen implementeras i exempel programmet som en HTTP-utlösare med namnet "HttpStart". Du kan implementera liknande start logik för andra utlösare, `queueTrigger`t `eventHubTrigger`. ex `timerTrigger`., eller.
 
-Titta på funktions körnings loggarna. Funktionen startade och slutfördes flera gånger på grund av uppspelnings beteendet som beskrivs i översikten. [](durable-functions-concepts.md) `E1_HelloSequence` Å andra sidan fanns det bara tre körningar `E1_SayHello` eftersom dessa funktion körningar inte spelas upp.
+Titta på funktions körnings loggarna. Funktionen startade och slutfördes flera gånger på grund av uppspelnings beteendet som beskrivs i avsnittet om [Dirigerings tillförlitlighet.](durable-functions-orchestrations.md#reliability) `E1_HelloSequence` Å andra sidan fanns det bara tre körningar `E1_SayHello` eftersom dessa funktion körningar inte spelas upp.
 
 ## <a name="visual-studio-sample-code"></a>Visual Studio-exempel kod
 

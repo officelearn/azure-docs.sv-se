@@ -5,15 +5,15 @@ services: notification-hubs
 author: spelluru
 ms.service: notification-hubs
 ms.topic: include
-ms.date: 03/22/2019
+ms.date: 09/11/2019
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: 590ba4b7a61fa437767d99ac6b9ae3e0fa94edc3
-ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
+ms.openlocfilehash: 60d5d8efb10cce54743038599238cc6f61922369
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68227772"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70934109"
 ---
 ## <a name="create-the-webapi-project"></a>Skapa ett WebAPI-projekt
 
@@ -59,7 +59,7 @@ Skapa en ny ASP.NET-WebAPI-serverdel genom att göra följande:
 
     ![Konfigurera Microsoft Azure Web App-fönstret][B5]
 
-    Om du inte ser den här sidan för Konfigurera app service-plan kan du gå vidare med självstudiekursen. Du kan konfigurera det när du publicerar appen senare. 
+    Om du inte ser den här sidan för att konfigurera App Service-plan fortsätter du med självstudien. Du kan konfigurera den när du publicerar appen senare. 
 
 ## <a name="authenticate-clients-to-the-webapi-backend"></a>Autentisera klienter mot WebAPI-serverdelen
 
@@ -185,6 +185,9 @@ I det här avsnittet lägger du till en ny kontrollant till WebAPI-serverdelen s
         }
     }
     ```
+    > [!IMPORTANT]
+    > Ange **namn** och **DefaultFullSharedAccessSignature** för navet innan du fortsätter. 
+    
 7. Skapa nu en ny kontrollant med namnet **RegisterController**. I Solution Explorer högerklickar du på mappen **Styrenheter**. Välj sedan **Lägg till** och sedan **Styrenhet**.
 
 8. Välj **Web API 2-styrenhet – tom** och välj sedan **Lägg till**.

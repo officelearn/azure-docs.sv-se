@@ -7,14 +7,14 @@ manager: jeconnoc
 keywords: ''
 ms.service: azure-functions
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 09/07/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 868efad58e14fd817729f0aa9ac785bc0f960867
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 74f33a1ce1026424a6cdb97699223aeb5ff8277f
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70087021"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70933136"
 ---
 # <a name="sub-orchestrations-in-durable-functions-azure-functions"></a>Under dirigering i Durable Functions (Azure Functions)
 
@@ -118,7 +118,10 @@ module.exports = df.orchestrator(function*(context) {
 });
 ```
 
+> [!NOTE]
+> Under dirigering måste definieras i samma Function-app som den överordnade samordningen. Om du behöver anropa och vänta på dirigeringar i en annan Function-app, bör du överväga att använda det inbyggda stödet för HTTP API: er och HTTP 202-avsökningens konsument mönster. Mer information finns i avsnittet om [http-funktioner](durable-functions-http-features.md) .
+
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Lär dig vilka aktivitets nav som är och hur du konfigurerar dem](durable-functions-task-hubs.md)
+> [Lär dig hur du anger en anpassad Dirigerings status](durable-functions-custom-orchestration-status.md)

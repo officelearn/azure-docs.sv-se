@@ -2,19 +2,19 @@
 title: Vad är Azure Key Vault? | Microsoft Docs
 description: Lär dig hur Azure Key Vault skyddar de kryptografiska nycklar och hemligheter som används av moln program och tjänster.
 services: key-vault
-author: barclayn
-manager: barbkess
+author: msmbaldwin
+manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
 ms.topic: conceptual
 ms.date: 01/18/2019
-ms.author: barclayn
-ms.openlocfilehash: 2786ec387d528e1593e2687d906060f8a2673a8c
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.author: mbaldwin
+ms.openlocfilehash: cf8101923f898c4ce190f3eaf2f3a9b2430cc723
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68934466"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70885128"
 ---
 # <a name="what-is-azure-key-vault"></a>Vad är Azure Key Vault?
 

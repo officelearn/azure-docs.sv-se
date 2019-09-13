@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/02/2019
-ms.openlocfilehash: c6f55b40b3ee077b81a3cdd6f3add7a2cad23f95
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: 226a3b0ffa4b770d1738e69fd04592476b9f4075
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70809919"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70935315"
 ---
 # <a name="customize-azure-hdinsight-clusters-by-using-script-actions"></a>Anpassa Azure HDInsight-kluster med hjälp av skript åtgärder
 
@@ -165,11 +165,11 @@ I det här avsnittet beskrivs de olika sätten att använda skript åtgärder n�
 
 3. I avsnittet __Avancerade inställningar__ väljer du __skript åtgärder__. I avsnittet __skript åtgärder__ väljer du __+ Skicka ny__.
 
-    ![Skicka en ny skript åtgärd](./media/hdinsight-hadoop-customize-cluster-linux/add-script-action.png)
+    ![Skicka en ny skript åtgärd](./media/hdinsight-hadoop-customize-cluster-linux/add-new-script-action.png)
 
 4. Använd posten __Välj en skript__ för att välja ett förtillverkade skript. Välj __anpassad__om du vill använda ett anpassat skript. Ange sedan __namnet__ och __bash skript-URI__ för skriptet.
 
-    ![Lägg till ett skript i formuläret Välj skript](./media/hdinsight-hadoop-customize-cluster-linux/select-script.png)
+    ![Lägg till ett skript i formuläret Välj skript](./media/hdinsight-hadoop-customize-cluster-linux/hdinsight-select-script.png)
 
     I följande tabell beskrivs elementen i formuläret:
 
@@ -185,7 +185,7 @@ I det här avsnittet beskrivs de olika sätten att använda skript åtgärder n�
 
 5. Välj __skapa__ för att spara skriptet. Sedan kan du använda __+ Skicka ny__ för att lägga till ett annat skript.
 
-    ![Flera skript åtgärder](./media/hdinsight-hadoop-customize-cluster-linux/multiple-scripts.png)
+    ![Flera skript åtgärder](./media/hdinsight-hadoop-customize-cluster-linux/multiple-scripts-actions.png)
 
     När du är klar med att lägga till skript väljer du knappen __Välj__ och klickar sedan på __Nästa__ för att återgå till avsnittet __kluster Sammanfattning__ .
 
@@ -251,7 +251,7 @@ Gå till [Azure Portal](https://portal.azure.com):
 
 4. Använd posten __Välj en skript__ för att välja ett förtillverkade skript. Välj __anpassad__om du vill använda ett anpassat skript. Ange sedan __namnet__ och __bash skript-URI__ för skriptet.
 
-    ![Lägg till ett skript i formuläret Välj skript](./media/hdinsight-hadoop-customize-cluster-linux/select-script.png)
+    ![Lägg till ett skript i formuläret Välj skript](./media/hdinsight-hadoop-customize-cluster-linux/hdinsight-select-script.png)
 
     I följande tabell beskrivs elementen i formuläret:
 
@@ -356,11 +356,11 @@ Ett exempel på hur du använder .NET SDK för att tillämpa skript i ett kluste
 
 6. Du kan också välja ellipsen ( **...** ) till höger om poster i avsnittet skript åtgärder för att utföra åtgärder.
 
-    ![Skript åtgärder, ellips](./media/hdinsight-hadoop-customize-cluster-linux/deletepromoted.png)
+    ![Skript åtgärder, ellips](./media/hdinsight-hadoop-customize-cluster-linux/hdi-delete-promoted-sa.png)
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 
-| kommandon | Funktion |
+| Kommandon | Funktion |
 | --- | --- |
 | `Get-AzHDInsightPersistedScriptAction` |Hämta information om beständiga skript åtgärder. |
 | `Get-AzHDInsightScriptActionHistory` |Hämta en historik över skript åtgärder som tillämpas på klustret eller information för ett speciellt skript. |
@@ -376,7 +376,7 @@ Följande exempel skript visar hur du använder cmdlet: ar för att befordra och
 
 ### <a name="the-azure-classic-cli"></a>Den klassiska Azure CLI
 
-| kommandon | Funktion |
+| Kommandon | Funktion |
 | --- | --- |
 | `azure hdinsight script-action persisted list <clustername>` |Hämta en lista över beständiga skript åtgärder. |
 | `azure hdinsight script-action persisted show <clustername> <scriptname>` |Hämta information om en speciell bestående skript åtgärd. |
@@ -438,11 +438,11 @@ Du kan använda Ambari-webbgränssnittet för att visa information som loggats a
 
 2. Välj **Ops** -posten från fältet överst på sidan. En lista visar aktuella och tidigare åtgärder som utförs på klustret via Ambari.
 
-    ![Ambari Web UI-fältet med OPS valt](./media/hdinsight-hadoop-customize-cluster-linux/ambari-nav.png)
+    ![Ambari Web UI-fältet med OPS valt](./media/hdinsight-hadoop-customize-cluster-linux/hdi-apache-ambari-nav.png)
 
 3. Hitta de poster som har **kört\_customscriptaction** i kolumnen **åtgärder** . Dessa poster skapas när skript åtgärderna körs.
 
-    ![Skärm bild av åtgärder](./media/hdinsight-hadoop-customize-cluster-linux/ambariscriptaction.png)
+    ![Skärm bild av åtgärder](./media/hdinsight-hadoop-customize-cluster-linux/ambari-script-action.png)
 
     Om du vill visa **STDOUT** -och **stderr** -utdata väljer du posten **run\customscriptaction** och ökar detalj nivån genom länkarna. Dessa utdata skapas när skriptet körs och kan ha användbar information.
 
@@ -452,7 +452,7 @@ Om det inte går att skapa ett kluster på grund av ett skript fel sparas loggar
 
 * Lagrings loggarna är tillgängliga `\STORAGE_ACCOUNT_NAME\DEFAULT_CONTAINER_NAME\custom-scriptaction-logs\CLUSTER_NAME\DATE`på.
 
-    ![Skript åtgärds loggar](./media/hdinsight-hadoop-customize-cluster-linux/script_action_logs_in_storage.png)
+    ![Skript åtgärds loggar](./media/hdinsight-hadoop-customize-cluster-linux/script-action-logs-in-storage.png)
 
     Under den här katalogen ordnas loggarna separat för **huvudnoden**, **arbetsnoden**och **Zookeeper-noden**. Se följande exempel:
 
@@ -520,4 +520,4 @@ Det finns två undantag:
 * [Installera och använda Apache Giraph i HDInsight-kluster](hdinsight-hadoop-giraph-install-linux.md)
 * [Lägg till ytterligare lagrings utrymme i ett HDInsight-kluster](hdinsight-hadoop-add-storage.md)
 
-[img-hdi-cluster-states]: ./media/hdinsight-hadoop-customize-cluster-linux/HDI-Cluster-state.png "Steg när klustret skapas"
+[img-hdi-cluster-states]: ./media/hdinsight-hadoop-customize-cluster-linux/cluster-provisioning-states.png "Steg när klustret skapas"

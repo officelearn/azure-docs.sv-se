@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: overview
-ms.date: 03/26/2019
+ms.date: 09/05/2019
 ms.author: aahi
-ms.openlocfilehash: 70cb4a008391ad55562bc55fb45d877988e68643
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 3bd60ff1e732940bbb13c2e224084cf7e331266b
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68854781"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70934866"
 ---
 # <a name="what-is-the-anomaly-detector-api"></a>Vad är API:et för avvikelseidentifiering?
 
@@ -43,7 +43,7 @@ Om du vill köra demonstrationen måste du skapa en avvikelse identifierings res
 
 ## <a name="notebook"></a>Notebook-fil
 
-Om du vill veta hur du anropar API: t för avvikelse detektor kan du prova den här [Azure](https://aka.ms/adNotebook)-anteckningsboken. Den här webb värd Jupyter Notebook visar hur du skickar en API-begäran och visualiserar resultatet.
+Om du vill veta hur du anropar API: t för avvikelse detektor kan du prova den här [Azure-anteckningsboken](https://aka.ms/adNotebook). Den här webb värd Jupyter Notebook visar hur du skickar en API-begäran och visualiserar resultatet.
 
 Utför följande steg för att köra antecknings boken:
 
@@ -76,6 +76,11 @@ Efter registreringen:
 * Se den här pappers [seriens avvikelse identifierings tjänst på Microsoft](https://arxiv.org/abs/1906.03821) (godkänd av KDD 2019) för de CNN-algoritmer som utvecklats av Microsoft.
 
 > [!VIDEO https://www.youtube.com/embed/ERTaAnwCarM]
+
+## <a name="join-the-anomaly-detector-community"></a>Delta i communityn för avvikelse identifiering
+
+* Gå med i [gruppen avvikelser detektorer i Microsoft Teams](https://aka.ms/AdAdvisorsJoin)
+* Se valt [innehåll som skapats av användare](user-generated-content.md)
 
 ## <a name="next-steps"></a>Nästa steg
 

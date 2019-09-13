@@ -9,12 +9,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: d9c546064589e82cfef367978ebea98c2c202307
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: e38f118e10c9d0e2347edb7cbaa5d7b68a0e63f2
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70087293"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70933402"
 ---
 # <a name="handling-external-events-in-durable-functions-azure-functions"></a>Hantera externa händelser i Durable Functions (Azure Functions)
 
@@ -113,7 +113,7 @@ module.exports = df.orchestrator(function*(context) {
 });
 ```
 
-Föregående exempel lyssnar efter flera händelser . Det är också möjligt att vänta på *alla* händelser.
+Föregående exempel *lyssnar efter flera* händelser. Det är också möjligt att vänta på *alla* händelser.
 
 #### <a name="c"></a>C#
 
@@ -201,10 +201,7 @@ Internt, `RaiseEventAsync` (.net) eller `raiseEvent` (Java Script), köas ett me
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Lär dig hur du konfigurerar Eternal-dirigeringar](durable-functions-eternal-orchestrations.md)
-
-> [!div class="nextstepaction"]
-> [Köra ett exempel som väntar på externa händelser](durable-functions-phone-verification.md)
+> [Lär dig hur du implementerar fel hantering](durable-functions-error-handling.md)
 
 > [!div class="nextstepaction"]
 > [Kör ett exempel som väntar på mänsklig interaktion](durable-functions-phone-verification.md)

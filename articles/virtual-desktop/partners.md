@@ -7,27 +7,16 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 07/10/2019
 ms.author: helohr
-ms.openlocfilehash: bd5ec1e75fa1669b0ca33e4cb4629793b09a9bad
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: ddfe5c855b6cd0171494f1af20dc5eb4ae571a6e
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70036130"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70918984"
 ---
 # <a name="windows-virtual-desktop-partner-integrations"></a>Integration av Windows-partner för virtuella skriv bord
 
 Den här artikeln innehåller en lista över de virtuella Windows-skrivbordets partners i alfabetisk ordning.
-
-## <a name="active-cypher"></a>Aktiva chiffer
-
-![Active chiffer-logotyp](./media/partners/active-cypher.png)
-
-Active chiffer är en Windows-Provider för mervärdes tjänster för virtuella datorer som förser den med krypterings teknik för att skydda företaget mot överträdelser och data förlust. Med aktiva chiffer stöder innovativ krypterings teknik den övergripande strategin för fil skydd för att köra virtuella Windows-datorer i Azure.
-
-När det används med Windows Virtual Desktop tillhandahåller Active chiffer ytterligare funktioner för att möjliggöra tillgänglighet och rörlighet för användar data samtidigt som oavsiktlig data förlust förhindras. Med aktiva chiffer kan befintliga grup säkerhets principer och behörigheter i Azure Information Protection utnyttjas för att kryptera användarfiler när du använder Windows Virtual Desktop.
-
-- [Se den gemensamma lösningen i korthet.](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3oNLu)
-- [Gå till partner webbplatsen.](https://activecypher.com/)
 
 ## <a name="cloudjumper"></a>CloudJumper
 

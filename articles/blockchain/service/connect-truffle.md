@@ -10,14 +10,14 @@ ms.topic: quickstart
 ms.service: azure-blockchain
 ms.reviewer: jackyhsu
 manager: femila
-ms.openlocfilehash: 822402f548fe0fc866051a9c77adef6e37c3fa75
-ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
+ms.openlocfilehash: ea64e3fe4789ac0558463ded81c8179db83469d5
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70240894"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70932583"
 ---
-# <a name="quickstart-use-truffle-to-connect-to-a-transaction-node"></a>Snabbstart: Använd Truffle för att ansluta till en Transaction-nod
+# <a name="quickstart-use-truffle-to-connect-to-a-transaction-node"></a>Snabbstart: Använda Truffle för att ansluta till en transaktionsnod
 
 Truffle är en blockchain utvecklings miljö som du kan använda för att ansluta till en Azure blockchain service Transaction-nod.
 
@@ -25,7 +25,7 @@ Truffle är en blockchain utvecklings miljö som du kan använda för att anslut
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-* [Skapa en Azure blockchain-medlem](create-member.md)
+* Slutför [snabb start: Skapa en blockchain-medlem med hjälp](create-member.md) av [Azure Portal eller snabb start: Skapa en Azure blockchain-tjänst blockchain-medlem med Azure CLI](create-member-cli.md)
 * Installera [Truffle](https://github.com/trufflesuite/truffle). Truffle kräver att flera verktyg installeras, inklusive [Node. js](https://nodejs.org), [git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
 * Installera [python-2.7.15](https://www.python.org/downloads/release/python-2715/). Python krävs för web3.
 
@@ -124,7 +124,7 @@ Använd *Web3* för att ansluta till Transaction-noden.
 
 I den här snabb starten skapade du ett Truffle-projekt för att ansluta till din Azure blockchain-tjänst som standard transaktions nod.
 
-Testa nästa självstudie för att använda Azure blockchain Development Kit för Ethereum och Truffle för att köra en smart kontrakts funktion via en transaktion i ett konsortium blockchain-nätverk.
+Testa nästa självstudie för att använda Azure blockchain Development Kit för Ethereum och Truffle för att skapa, bygga, distribuera och köra en smart kontrakts funktion via en transaktion.
 
 > [!div class="nextstepaction"]
-> [Använda smarta kontrakt i Azure blockchain-tjänsten](send-transaction.md)
+> [Använd Visual Studio Code för att skapa, bygga och distribuera smarta kontrakt](send-transaction.md)

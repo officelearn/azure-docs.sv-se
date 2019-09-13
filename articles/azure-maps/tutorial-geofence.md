@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 112d0bd4b6802179692d0d177775027e552d1170
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a020ef91e52a5d801557399df827d3641bfb974e
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60795691"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70934190"
 ---
 # <a name="set-up-a-geofence-by-using-azure-maps"></a>Konfigurera en geofence med hjälp av Azure Maps
 
@@ -32,11 +32,11 @@ I den här självstudien lär du dig att:
 > *   Använda Azure Maps geofence-tjänst-API:er för att spåra huruvida en byggsresurs befinner sig på byggarbetsplatsen.
 
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 ### <a name="create-an-azure-maps-account"></a>Skapa ett Azure Maps-konto 
 
-För att slutföra stegen i den här självstudien behöver du först läsa [hantera konton och nycklar](how-to-manage-account-keys.md) för att skapar och hantera kontoprenumerationen med prisnivån S1.
+För att slutföra stegen i den här självstudien följer du anvisningarna i [Hantera konto](https://docs.microsoft.com/azure/azure-maps/how-to-manage-account-keys#create-a-new-account) för att skapa en Azure Maps konto prenumeration med pris nivån S1 och följer stegen i [Hämta primär nyckel](./tutorial-search-location.md#getkey) för att hämta den primära prenumerations nyckeln för ditt konto.
 
 ## <a name="upload-geofences"></a>Ladda upp geofences
 
@@ -56,7 +56,7 @@ Vi använder postman-programmet för att ladda upp geofence för byggarbetsplats
     
     GEOJSON-parametern i URL-sökvägen representerar dataformatet för data som laddas upp.
 
-3. Klicka på **Params** och ange följande nyckel/värde-par som ska användas för POST-begäran-URL. Ersätt värdet för prenumerationsnyckel med din Azure Maps-prenumerationsnyckel.
+3. Klicka på **Params** och ange följande nyckel/värde-par som ska användas för POST-begäran-URL. Ersätt prenumerations nyckel värde med din Azure Maps primära prenumerations nyckel.
    
     ![Key-Value-parametrar för Postman](./media/tutorial-geofence/postman-key-vals.png)
 

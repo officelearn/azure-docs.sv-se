@@ -1,6 +1,6 @@
 ---
-title: Skapa rekommendationer med hjälp av Apache Mahout och HDInsight (SSH) - Azure
-description: Lär dig hur du använder Apache Mahout-machine learning-biblioteket för att skapa filmrekommendationer med HDInsight (Hadoop).
+title: Skapa rekommendationer med Apache Mahout och HDInsight (SSH) – Azure
+description: Lär dig hur du använder Apache Mahout Machine Learning-biblioteket för att skapa film rekommendationer med HDInsight (Hadoop).
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -8,50 +8,50 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/24/2019
-ms.openlocfilehash: d566b57ae12520b9eee26334a67d2e10c05f8040
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a3919cf84714b69776222fa35d3163e0915869f7
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64709078"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70881975"
 ---
-# <a name="generate-movie-recommendations-by-using-apache-mahout-with-linux-based-apache-hadoop-in-hdinsight-ssh"></a>Skapa filmrekommendationer med hjälp av Apache Mahout med Linux-baserade Apache Hadoop i HDInsight (SSH)
+# <a name="generate-movie-recommendations-using-apache-mahout-with-apache-hadoop-in-hdinsight-ssh"></a>Skapa film rekommendationer med Apache Mahout med Apache Hadoop i HDInsight (SSH)
 
 [!INCLUDE [mahout-selector](../../../includes/hdinsight-selector-mahout.md)]
 
-Lär dig hur du använder den [Apache Mahout](https://mahout.apache.org) machine learning-biblioteket med Azure HDInsight för att generera filmrekommendationer.
+Lär dig hur du använder [Apache Mahout](https://mahout.apache.org) Machine Learning-biblioteket med Azure HDInsight för att skapa film rekommendationer.
 
-Mahout är ett [maskininlärning](https://en.wikipedia.org/wiki/Machine_learning) -biblioteket för Apache Hadoop. Mahout innehåller algoritmer för databehandling, t.ex filtrering, klassificering och klustring. I den här artikeln använder du en rekommendationsmotor för att generera filmrekommendationer som baseras på dina vänner har sett filmer.
+Mahout är ett [maskin inlärnings](https://en.wikipedia.org/wiki/Machine_learning) bibliotek för Apache Hadoop. Mahout innehåller algoritmer för bearbetning av data, till exempel filtrering, klassificering och klustring. I den här artikeln använder du en rekommendations motor för att skapa film rekommendationer som baseras på filmer som dina vänner har sett.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
-* Ett Apache Hadoop-kluster på HDInsight. Se [Kom igång med HDInsight på Linux](./apache-hadoop-linux-tutorial-get-started.md).
+* Ett Apache Hadoop kluster i HDInsight. Se [Kom igång med HDInsight på Linux](./apache-hadoop-linux-tutorial-get-started.md).
 
 * En SSH-klient. Mer information finns i [Ansluta till HDInsight (Apache Hadoop) med hjälp av SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
-## <a name="apache-mahout-versioning"></a>Apache Mahout versionshantering
+## <a name="apache-mahout-versioning"></a>Apache Mahout-versioner
 
-Mer information om versionen av Mahout på HDInsight finns i [HDInsight-versioner och Apache Hadoop-komponenter](../hdinsight-component-versioning.md).
+Mer information om versionen av Mahout i HDInsight finns i HDInsight- [versioner och Apache Hadoop-komponenter](../hdinsight-component-versioning.md).
 
 ## <a name="recommendations"></a>Förstå rekommendationer
 
-En av de funktioner som tillhandahålls av Mahout är en rekommendationsmotor. Den här motorn accepterar data i formatet `userID`, `itemId`, och `prefValue` (preferens för objektet). Mahout utföra delad förekomsten analysen för att avgöra: *användare som har en inställning för ett objekt har också en inställning för dessa andra objekt*. Mahout avgör sedan användare med liknande objekt inställningar som kan användas för att göra rekommendationer.
+En av de funktioner som tillhandahålls av Mahout är en rekommendations motor. Den här motorn accepterar data i formatet `userID`, `itemId`, och `prefValue` (inställningen för objektet). Mahout kan sedan utföra analys av samförekomster för att fastställa: *användare som har en inställning för ett objekt har även prioritet för dessa andra objekt*. Mahout avgör sedan användare med liknande objekt inställningar som kan användas för att göra rekommendationer.
 
-Följande arbetsflöde är ett förenklat exempel som använder filmdata:
+Följande arbets flöde är ett förenklat exempel som använder film data:
 
-* **delad förekomsten**: Joe Alice och Bob alla gillade *Star Wars*, *The Empire under katastrofsituationer tillbaka*, och *avkastningen på Jedi*. Mahout anger att användare som gillar något av dessa filmer också som de andra två.
+* **Co-förekomst**: Joe, Alice och Bob *alla gillade,* Empire går *tillbaka*och *returnerar Jedi*. Mahout avgör att användare som gillar någon av dessa filmer också är de andra två.
 
-* **delad förekomsten**: Bob och Alice också tyckte *The Phantom hot*, *Attack av klonerna*, och *Revenge av Sith*. Mahout anger att användare som gillade föregående tre filmer också som dessa tre filmer.
+* **Co-förekomst**: Bob och Alice gillade även *den fiktiva Menace*, *angrepp av kloner*och *Revenge för Sith*. Mahout avgör att användare som gillade de föregående tre filmerna även liknar dessa tre filmer.
 
-* **Likhet rekommendation**: Eftersom Joe gillade tre första filmer, Mahout tittar på filmer den andra med liknande inställningar som gillade, men Josef har inte sett (gillade/klassificerad). I det här fallet Mahout rekommenderar *The Phantom hot*, *Attack av klonerna*, och *Revenge av Sith*.
+* **Rekommendation för likhet**: Eftersom Johan gillade de tre första filmerna, tittar Mahout på filmer som andra med liknande inställningar gillade, men Joe har inte tittat på (gilla/klassificerat). I det här fallet rekommenderar Mahout *den fiktiva Menace*, *angrepp av kloner*och *Revenge i Sith*.
 
 ### <a name="understanding-the-data"></a>Förstå data
 
-Jag behöver [GroupLens Research](https://grouplens.org/datasets/movielens/) tillhandahåller data för klassificering för filmer i ett format som är kompatibel med Mahout. Informationen är tillgänglig på ditt kluster standardlagring på `/HdiSamples/HdiSamples/MahoutMovieData`.
+[GroupLens Research](https://grouplens.org/datasets/movielens/) ger enkelt klassificerings data för filmer i ett format som är kompatibelt med Mahout. Dessa data är tillgängliga på klustrets standard lagrings utrymme `/HdiSamples/HdiSamples/MahoutMovieData`på.
 
-Det finns två filer, `moviedb.txt` och `user-ratings.txt`. Den `user-ratings.txt` filen ska användas vid analys. Den `moviedb.txt` används för att ange användarvänliga textinformation när du visar resultaten.
+Det finns två filer `moviedb.txt` och. `user-ratings.txt` `user-ratings.txt` Filen används under analysen. `moviedb.txt` Används för att ge användarvänlig textinformation när resultatet visas.
 
-Data i användaren ratings.txt har en struktur för `userID`, `movieID`, `userRating`, och `timestamp`, vilket anger hur varje användare väl en film. Här är ett exempel på data:
+De data som finns i User-Ratings. txt har en struktur `userID`av `movieID`, `userRating`, och `timestamp`, som anger hur mycket varje användare bedömer en film. Här är ett exempel på data:
 
     196    242    3    881250949
     186    302    3    891717742
@@ -59,20 +59,20 @@ Data i användaren ratings.txt har en struktur för `userID`, `movieID`, `userRa
     244    51     2    880606923
     166    346    1    886397596
 
-## <a name="run-the-analysis"></a>Analys körs
+## <a name="run-the-analysis"></a>Kör analysen
 
-Använd kommandot rekommendation jobbet ska köras från en SSH-anslutning till klustret:
+Använd följande kommando för att köra rekommendations jobbet från en SSH-anslutning till klustret:
 
 ```bash
 mahout recommenditembased -s SIMILARITY_COOCCURRENCE -i /HdiSamples/HdiSamples/MahoutMovieData/user-ratings.txt -o /example/data/mahoutout --tempDir /temp/mahouttemp
 ```
 
 > [!NOTE]  
-> Jobbet kan ta flera minuter att slutföra, och kan köra flera MapReduce-jobb.
+> Jobbet kan ta flera minuter att slutföra och kan köra flera MapReduce-jobb.
 
 ## <a name="view-the-output"></a>Visa utdata
 
-1. När jobbet har slutförts, använder du följande kommando för att visa genererade utdata:
+1. När jobbet har slutförts använder du följande kommando för att visa genererade utdata:
 
     ```bash
     hdfs dfs -text /example/data/mahoutout/part-r-00000
@@ -85,24 +85,24 @@ mahout recommenditembased -s SIMILARITY_COOCCURRENCE -i /HdiSamples/HdiSamples/M
         3    [284:5.0,285:4.828125,508:4.7543354,845:4.75,319:4.705128,124:4.7045455,150:4.6938777,311:4.6769233,248:4.65625,272:4.649266]
         4    [690:5.0,12:5.0,234:5.0,275:5.0,121:5.0,255:5.0,237:5.0,895:5.0,282:5.0,117:5.0]
 
-    Den första kolumnen är den `userID`. De värden som finns i ' [' och ']' är `movieId`:`recommendationScore`.
+    Den första kolumnen är `userID`. Värdena i [och] är `movieId`:.`recommendationScore`
 
-2. Du kan använda utdata, tillsammans med moviedb.txt, för att ge mer information om rekommendationerna. Först kopiera filerna lokalt med hjälp av följande kommandon:
+2. Du kan använda utdata tillsammans med MovieDB. txt för att få mer information om rekommendationerna. Kopiera först filerna lokalt med följande kommandon:
 
     ```bash
     hdfs dfs -get /example/data/mahoutout/part-r-00000 recommendations.txt
     hdfs dfs -get /HdiSamples/HdiSamples/MahoutMovieData/* .
     ```
 
-    Det här kommandot kopierar utdata till en fil med namnet **recommendations.txt** i den aktuella katalogen, tillsammans med film datafiler.
+    Detta kommando kopierar utdata till en fil med namnet **rekommendationer. txt** i den aktuella katalogen, tillsammans med film-datafilerna.
 
-3. Använd följande kommando för att skapa ett pythonskript som hämtar film namn för data i rekommendationer-utdata:
+3. Använd följande kommando för att skapa ett Python-skript som söker efter film namn för data i resultatet av rekommendationerna:
 
     ```bash
     nano show_recommendations.py
     ```
 
-    När redigeringsprogrammet öppnas kan du använda följande text som innehållet i filen:
+    När redigeraren öppnas använder du följande text som filens innehåll:
 
    ```python
    #!/usr/bin/env python
@@ -156,44 +156,44 @@ mahout recommenditembased -s SIMILARITY_COOCCURRENCE -i /HdiSamples/HdiSamples/M
    print "------------------------"
    ```
 
-    Tryck på **Ctrl + X**, **Y**, och slutligen **RETUR** att spara data.
+    Tryck på **CTRL-X**, **Y**och slutligen **RETUR** för att spara data.
 
-4. Köra Python-skriptet. Följande kommando förutsätter att du är i katalogen där alla filer som hämtades:
+4. Kör python-skriptet. Följande kommando förutsätter att du är i katalogen där alla filer hämtades:
 
     ```bash
     python show_recommendations.py 4 user-ratings.txt moviedb.txt recommendations.txt
     ```
 
-    Det här kommandot tittar på de rekommendationer som genererats för användaren ID 4.
+    Det här kommandot kontrollerar rekommendationerna som genereras för användar-ID 4.
 
-   * Den **användaren ratings.txt** används för att hämta filmer som har klassificerats.
+   * Filen **User-Ratings. txt** används för att hämta filmer som har klassificerats.
 
-   * Den **moviedb.txt** används för att hämta namnen på filmerna.
+   * Filen **MovieDB. txt** används för att hämta namnen på filmerna.
 
-   * Den **recommendations.txt** används för att hämta filmrekommendationer för den här användaren.
+   * **Rekommendationerna. txt** används för att hämta film rekommendationer för den här användaren.
 
      Utdata från det här kommandot liknar följande text:
 
-       Sju år i Tibet (1997), bedöma = 5.0 Indiana Jones och den senaste Crusade (1989), bedöma = 5.0 Jaws (1975), poäng = 5.0 förnuft och känseln (1995) poäng = 5.0 oberoende dag (ID4) (1996), poäng = 5.0 mitt bästa vän Wedding (1997) poäng = 5.0 Jerry Maguire (1996) poäng = 5.0 Scream 2 (1997), poäng = 5.0 tid att Kill, (1996), poäng = 5.0
+       Sju år i Tibet (1997), score = 5.0 Indiana Jones och senaste Crusade (1989), score = 5.0 JAWS (1975), score = 5.0 Sense och sensibility (1995), score = 5,0 självständighets dag (ID4) (1996), score = 5.0 min bästa vän: s bröllop (1997), score = 5.0 Jerry Maguire (1996). Score = 5.0 Scream 2 (1997), poängen = 5.0 Time to Kill, A (1996), score = 5.0
 
-## <a name="delete-temporary-data"></a>Ta bort tillfälliga data
+## <a name="delete-temporary-data"></a>Ta bort temporära data
 
-Mahout jobb ta inte bort tillfälliga data som skapas vid bearbetning av jobbet. Den `--tempDir` parameter har angetts i exempel-jobbet för att isolera de temporära filerna i en specifik sökväg för enkelt borttagning. Ta bort tillfälliga filer med följande kommando:
+Mahout-jobb tar inte bort temporära data som skapas när jobbet bearbetas. `--tempDir` Parametern anges i exempel jobbet för att isolera de temporära filerna till en specifik sökväg för enkel borttagning. Använd följande kommando för att ta bort temporära filer:
 
 ```bash
 hdfs dfs -rm -f -r /temp/mahouttemp
 ```
 
 > [!WARNING]  
-> Om du vill köra kommandot igen måste du också ta bort katalogen. Använd följande för att ta bort den här katalogen:
+> Om du vill köra kommandot igen måste du också ta bort utdata-katalogen. Använd följande för att ta bort den här katalogen:
 >
 > `hdfs dfs -rm -f -r /example/data/mahoutout`
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu när du har lärt dig hur du använder Mahout kan upptäcka andra sätt att arbeta med data i HDInsight:
+Nu när du har lärt dig hur du använder Mahout kan du upptäcka andra sätt att arbeta med data i HDInsight:
 
 * [Apache Hive med HDInsight](hdinsight-use-hive.md)
-* [Apache Pig med HDInsight](hdinsight-use-pig.md)
+* [Apache-gris med HDInsight](hdinsight-use-pig.md)
 * [MapReduce med HDInsight](hdinsight-use-mapreduce.md)

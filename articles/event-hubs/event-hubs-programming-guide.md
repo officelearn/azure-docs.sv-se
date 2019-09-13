@@ -9,12 +9,12 @@ ms.custom: seodec18
 ms.topic: article
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: d9a1dff9c44403ad14e58b3fc3cda880cf65a29c
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: 28b5c2db0f347b27beb31d427c7f189d74903dff
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68679114"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70913983"
 ---
 # <a name="programming-guide-for-azure-event-hubs"></a>Programmeringsguide för Händelsehubbar i Azure
 Den här artikeln beskriver några vanliga scenarier i skriva kod med Azure Event Hubs. Den förutsätter att du har en grundläggande förståelse av händelsehubbar. En konceptuell översikt av händelsehubbar finns på [Översikt av händelsehubbar](event-hubs-what-is-event-hubs.md).
@@ -140,7 +140,10 @@ Klassen [EventProcessorHost][] implementerar också en mekanism för Azure stora
 
 ## <a name="publisher-revocation"></a>Återkallande av utgivare
 
-Förutom de avancerade funktionerna för körning av [EventProcessorHost][], Event Hubs möjligt att återkalla utgivare för att hindra specifika utgivare från att skicka händelser till en händelsehubb. Dessa funktioner är användbara om en utgivartoken har komprometterats, eller en programuppdatering får dem att bete sig på ett olämpligt sätt. I sådana situationer kan utgivarens identitet, vilken är en del av deras SAS-token, blockeras från att publicera händelser.
+Utöver de avancerade körnings funktionerna i händelse bearbetnings värden, aktiverar Event Hubs tjänsten [återkallning av utgivare](/rest/api/eventhub/revoke-publisher) för att blockera vissa utgivare från att skicka händelser till en Event Hub. Dessa funktioner är användbara om en utgivartoken har komprometterats, eller en programuppdatering får dem att bete sig på ett olämpligt sätt. I sådana situationer kan utgivarens identitet, vilken är en del av deras SAS-token, blockeras från att publicera händelser.
+
+> [!NOTE]
+> För närvarande stöds endast REST API som stöder den här funktionen ([återkallning av utgivare](/rest/api/eventhub/revoke-publisher)).
 
 Mer information om att återkalla utgivare och om hur du skickar till Event Hubs som utgivare finns i exemplet [Service Bus Event Hubs säker publicering i stor skala](https://code.msdn.microsoft.com/Service-Bus-Event-Hub-99ce67ab).
 

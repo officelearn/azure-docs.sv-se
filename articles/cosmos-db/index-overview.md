@@ -4,14 +4,14 @@ description: Förstå hur indexering fungerar i Azure Cosmos DB.
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 07/22/2019
+ms.date: 09/10/2019
 ms.author: thweiss
-ms.openlocfilehash: c8e21ea89f3e23709d636ab8af4716bff76d7217
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.openlocfilehash: 4d961f8635a52a09011543b793ce8a87eaa4ea9e
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68479278"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70914200"
 ---
 # <a name="indexing-in-azure-cosmos-db---overview"></a>Indexering i Azure Cosmos DB – översikt
 
@@ -25,6 +25,7 @@ Varje gång ett objekt lagras i en behållare projiceras innehållet som ett JSO
 
 Anta till exempel följande objekt:
 
+```json
     {
         "locations": [
             { "country": "Germany", "city": "Berlin" },
@@ -36,6 +37,7 @@ Anta till exempel följande objekt:
             { "city": "Athens" }
         ]
     }
+```
 
 Den representeras av följande träd:
 
@@ -70,13 +72,13 @@ Azure Cosmos DB stöder för närvarande tre typer av index:
 
     ```sql
    SELECT * FROM container c WHERE c.property = 'value'
-    ```
+   ```
 
 - Intervall frågor:
 
    ```sql
    SELECT * FROM container c WHERE c.property > 'value'
-   ``` 
+   ```
   (fungerar för `>`, `<`, `>=` ,`<=`, )`!=`
 
 - `ORDER BY`skickar
@@ -107,15 +109,27 @@ Typ av **rums** index används för:
    SELECT * FROM container c WHERE ST_WITHIN(c.property, {"type": "Point", "coordinates": [0.0, 10.0] } })
    ```
 
-Rums index kan användas på korrekt formaterade geospatiala [JSON](geospatial.md) -objekt. Punkter, lin Est rings och polygoner stöds för närvarande.
+Rums index kan användas på korrekt formaterade geospatiala [JSON](geospatial.md) -objekt. Punkter, lin Est rings, polygoner och multipolygoner stöds för närvarande.
 
-Den  sammansatta index typen används för:
+Den **sammansatta** index typen används för:
 
-- `ORDER BY`frågor om flera egenskaper: 
+- `ORDER BY`frågor om flera egenskaper:
 
-   ```sql
-   SELECT * FROM container c ORDER BY c.firstName, c.lastName
-   ```
+```sql
+ SELECT * FROM container c ORDER BY c.property1, c.property2
+```
+
+- Frågor med ett filter och `ORDER BY`. Dessa frågor kan använda ett sammansatt index om filter egenskapen har lagts till `ORDER BY` i-satsen.
+
+```sql
+ SELECT * FROM container c WHERE c.property1 = 'value' ORDER BY c.property1, c.property2
+```
+
+- Frågor med ett filter på två eller flera egenskaper där minst en egenskap är ett likhets filter
+
+```sql
+ SELECT * FROM container c WHERE c.property1 = 'value' AND c.property2 > 'value'
+```
 
 ## <a name="querying-with-indexes"></a>Fråga med index
 
@@ -126,7 +140,7 @@ De sökvägar som extraherades vid indexering av data gör det enkelt att söka 
 ![Matcha en angiven sökväg inom ett träd](./media/index-overview/matching-path.png)
 
 > [!NOTE]
-> En `ORDER BY` sats som sorteras efter en enskild egenskap behöver *alltid* ett intervall index och kommer att Miss betes om sökvägen den refererar till inte har en. På samma sätt behöver en `ORDER BY` Multi-fråga *alltid* ett sammansatt index.
+> En `ORDER BY` sats som sorteras efter en enskild egenskap behöver *alltid* ett intervall index och kommer att Miss betes om sökvägen den refererar till inte har en. På samma sätt behöver `ORDER BY` en fråga som order by flera egenskaper *alltid* ett sammansatt index.
 
 ## <a name="next-steps"></a>Nästa steg
 

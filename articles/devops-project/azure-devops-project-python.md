@@ -6,23 +6,22 @@ ms.technology: devops-cicd
 services: vsts
 documentationcenter: vs-devops-build
 author: mlearned
-manager: douge
+manager: gwallace
 editor: ''
 ms.assetid: ''
 ms.workload: web
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: quickstart
 ms.date: 07/09/2018
 ms.author: mlearned
 ms.custom: mvc
 monikerRange: vsts
-ms.openlocfilehash: 695056be67294c6a0787bad61bf5ee00378275b0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: cb4e27aeada4f1b5f9e06279382327dcc51cc7dc
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60555127"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70899609"
 ---
 # <a name="create-a-cicd-pipeline-for-python-with-azure-devops-projects"></a>Skapa en CI/CD-pipeline för Python med Azure DevOps Projects
 

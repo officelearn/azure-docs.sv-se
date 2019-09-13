@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 66fa7c2f61af250e4b63b67f6941bed768bd94c4
-ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
+ms.openlocfilehash: 03b279e6193c55141b80a5fadc9d39c7c1681006
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69541926"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70915135"
 ---
 # <a name="tutorial-develop-iot-edge-modules-for-windows-devices"></a>Självstudier: Utveckla IoT Edge-moduler för Windows-tjänster
 
@@ -39,7 +39,7 @@ I den här guiden får du lära dig att:
 
 Den här självstudien vägleder dig genom utvecklingen av en IoT Edge modul. En *IoT Edge modul*, eller ibland bara *modul* för kort, är en behållare som innehåller körbar kod. Du kan distribuera en eller flera moduler till en IoT Edge enhet. Moduler utför vissa uppgifter som att mata in data från sensorer, utföra data analyser eller åtgärder för data rensning eller skicka meddelanden till en IoT-hubb. Mer information finns i [förstå Azure IoT Edge moduler](iot-edge-modules.md).
 
-När du utvecklar IoT Edge moduler är det viktigt att förstå skillnaden mellan utvecklings datorn och mål IoT Edges enheten där modulen slutligen kommer att distribueras. Den behållare som du skapar för att hålla din modul kod måste matcha *mål enhetens*operativ system (OS). För utveckling av Windows-behållare är det här konceptet enklare eftersom Windows-behållare bara körs på Windows-operativsystem. Men du kan till exempel använda Windows Development-datorn för att bygga moduler för Linux IoT Edge-enheter. I det scenariot måste du kontrol lera att din utvecklings dator körde Linux-behållare. När du går igenom den här självstudien bör du tänka på skillnaden mellan *utvecklings datorns operativ system* och behållar *operativ systemet*.
+När du utvecklar IoT Edge moduler är det viktigt att förstå skillnaden mellan utvecklings datorn och mål IoT Edges enheten där modulen slutligen kommer att distribueras. Den behållare som du skapar för att hålla din modul kod måste matcha *mål enhetens*operativ system (OS). För utveckling av Windows-behållare är det här konceptet enklare eftersom Windows-behållare bara körs på Windows-operativsystem. Men du kan till exempel använda Windows Development-datorn för att bygga moduler för Linux IoT Edge-enheter. I det scenariot måste du kontrol lera att din utvecklings dator körde Linux-behållare. När du går igenom den här självstudien bör du tänka på skillnaden mellan *utvecklings datorns operativ system* och *behållar operativ systemet*.
 
 Den här kursen riktar sig till Windows-enheter som kör IoT Edge. Windows IoT Edge-enheter använder Windows-behållare. Vi rekommenderar att du använder Visual Studio för att utveckla för Windows-enheter, så att den här självstudien kommer att använda. Du kan även använda Visual Studio Code även om det finns skillnader i stödet mellan de två verktygen.
 
@@ -174,7 +174,7 @@ Den IoT Edge körningen behöver dina autentiseringsuppgifter för att hämta be
 
 I lösnings mal len som du skapade ingår exempel kod för en IoT Edge-modul. Den här exempel modulen tar bara emot meddelanden och skickar dem vidare. Pipeline-funktionen visar ett viktigt begrepp i IoT Edge, vilket är hur moduler kommunicerar med varandra.
 
-Varje modul kan ha flera *indata* -och utmatnings köer som deklareras i koden. IoT Edge hubben som körs på enheten dirigerar meddelanden från utdata från en modul till indata för en eller flera moduler. Det specifika språket för att deklarera indata och utdata varierar mellan olika språk, men begreppet är detsamma i alla moduler. Mer information om routning mellan moduler finns i [deklarera vägar](module-composition.md#declare-routes).
+Varje modul kan ha flera *indata* -och *utmatnings* köer som deklareras i koden. IoT Edge hubben som körs på enheten dirigerar meddelanden från utdata från en modul till indata för en eller flera moduler. Det specifika språket för att deklarera indata och utdata varierar mellan olika språk, men begreppet är detsamma i alla moduler. Mer information om routning mellan moduler finns i [deklarera vägar](module-composition.md#declare-routes).
 
 Exempel C# koden som medföljer projekt mal len använder [klassen MODULECLIENT](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.moduleclient?view=azure-dotnet) från IoT Hub SDK för .net. 
 
@@ -194,13 +194,13 @@ Exempel C# koden som medföljer projekt mal len använder [klassen MODULECLIENT]
 
 6. Hitta egenskapen **modules** för de $edgeAgent önskade egenskaperna. 
 
-   Det bör finnas två moduler som visas här. Den första är **tempSensor**, som ingår i alla mallar som standard för att tillhandahålla simulerade temperatur data som du kan använda för att testa dina moduler. Den andra är **IotEdgeModule1** -modulen som du skapade som en del av det här projektet.
+   Det bör finnas två moduler som visas här. Den första är **SimulatedTemperatureSensor**, som ingår i alla mallar som standard för att tillhandahålla simulerade temperatur data som du kan använda för att testa dina moduler. Den andra är **IotEdgeModule1** -modulen som du skapade som en del av det här projektet.
 
    Med den här modulen deklaras vilka moduler som ska ingå i distributionen till enheten eller enheterna. 
 
 7. Hitta egenskapen **vägar** för de $edgeHub önskade egenskaperna. 
 
-   En av funktionerna om modulen IoT Edge Hub är att dirigera meddelanden mellan alla moduler i en distribution. Granska värdena i egenskapen routes. Den första vägen, **IotEdgeModule1ToIoTHub**, använder ett jokertecken ( **\*** ) för att inkludera alla meddelanden som kommer från en utgående kö i IotEdgeModule1-modulen. Dessa meddelanden hamnar i *$upstream*, vilket är ett reserverat namn som anger IoT Hub. Den andra vägen, **sensorToIotEdgeModule1**, tar meddelanden från tempSensor-modulen och dirigerar dem till *INPUT1* -indatakö i IotEdgeModule1-modulen. 
+   En av funktionerna om modulen IoT Edge Hub är att dirigera meddelanden mellan alla moduler i en distribution. Granska värdena i egenskapen routes. Den första vägen, **IotEdgeModule1ToIoTHub**, använder ett jokertecken ( **\*** ) för att inkludera alla meddelanden som kommer från en utgående kö i IotEdgeModule1-modulen. Dessa meddelanden hamnar i *$upstream*, vilket är ett reserverat namn som anger IoT Hub. Den andra vägen, **sensorToIotEdgeModule1**, tar meddelanden från SimulatedTemperatureSensor-modulen och dirigerar dem till *INPUT1* -indatakö i IotEdgeModule1-modulen. 
 
    ![Granska vägar i distributionen. template. JSON](./media/tutorial-develop-for-windows/deployment-routes.png)
 
@@ -284,14 +284,14 @@ Du verifierade att de inbyggda behållar avbildningarna lagras i behållar regis
 
 4. Expandera informationen för din IoT Edge-enhet i Cloud Explorer för att se modulerna på enheten.
 
-5. Använd knappen **Uppdatera** för att uppdatera enhetens status för att se att tempSensor-och IotEdgeModule1-modulerna har distribuerats till enheten. 
+5. Använd knappen **Uppdatera** för att uppdatera enhetens status för att se att SimulatedTemperatureSensor-och IotEdgeModule1-modulerna har distribuerats till enheten. 
 
 
    ![Visa moduler som körs på din IoT Edge-enhet](./media/tutorial-develop-for-windows/view-running-modules.png)
 
 ## <a name="view-messages-from-device"></a>Visa meddelanden från enheten
 
-IotEdgeModule1-koden tar emot meddelanden via sin indatakö och skickar dem tillsammans med dess utgående kö. Distributions manifestet deklarerade vägar som skickade meddelanden från tempSensor till IotEdgeModule1 och vidarebefordrade sedan meddelanden från IotEdgeModule1 till IoT Hub. Med Azure IoT Edge verktyg för Visual Studio kan du se meddelanden när de tas emot på IoT Hub från dina enskilda enheter. 
+IotEdgeModule1-koden tar emot meddelanden via sin indatakö och skickar dem tillsammans med dess utgående kö. Distributions manifestet deklarerade vägar som skickade meddelanden från SimulatedTemperatureSensor till IotEdgeModule1 och vidarebefordrade sedan meddelanden från IotEdgeModule1 till IoT Hub. Med Azure IoT Edge verktyg för Visual Studio kan du se meddelanden när de tas emot på IoT Hub från dina enskilda enheter. 
 
 1. I Visual Studio Cloud Explorer väljer du namnet på den IoT Edge enhet som du har distribuerat till. 
 
@@ -315,7 +315,7 @@ Kommandona i det här avsnittet gäller för din IoT Edge-enhet, inte din utveck
    iotedge list
    ```
 
-   Du bör se fyra moduler: de två IoT Edge runtime-modulerna, tempSensor och IotEdgeModule1. Alla fyra ska visas som körs.
+   Du bör se fyra moduler: de två IoT Edge runtime-modulerna, SimulatedTemperatureSensor och IotEdgeModule1. Alla fyra ska visas som körs.
 
 * Granska loggarna för en speciell modul:
 
@@ -325,7 +325,7 @@ Kommandona i det här avsnittet gäller för din IoT Edge-enhet, inte din utveck
 
    IoT Edge moduler är Skift läges känsliga. 
 
-   TempSensor-och IotEdgeModule1-loggarna bör visa de meddelanden som bearbetas. EdgeAgent-modulen ansvarar för att starta de andra modulerna, så dess loggar har information om att implementera distributions manifestet. Om någon modul inte finns med i listan eller inte körs, kommer edgeAgent-loggarna förmodligen att ha felen. EdgeHub-modulen ansvarar för kommunikation mellan modulerna och IoT Hub. Om modulerna är igång, men meddelandena inte kommer till din IoT-hubb, kommer edgeHub-loggarna förmodligen att ha felen. 
+   SimulatedTemperatureSensor-och IotEdgeModule1-loggarna bör visa de meddelanden som bearbetas. EdgeAgent-modulen ansvarar för att starta de andra modulerna, så dess loggar har information om att implementera distributions manifestet. Om någon modul inte finns med i listan eller inte körs, kommer edgeAgent-loggarna förmodligen att ha felen. EdgeHub-modulen ansvarar för kommunikation mellan modulerna och IoT Hub. Om modulerna är igång, men meddelandena inte kommer till din IoT-hubb, kommer edgeHub-loggarna förmodligen att ha felen. 
 
 ## <a name="next-steps"></a>Nästa steg
 

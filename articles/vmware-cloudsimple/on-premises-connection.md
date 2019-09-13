@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: c06cd53e408ebcae24de487fe1d4d25e14aae11b
-ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
+ms.openlocfilehash: 0dd5ede110255b6e53bbc397e683e66b3beffc65
+ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70240713"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70910535"
 ---
 # <a name="connect-from-on-premises-to-cloudsimple-using-expressroute"></a>Ansluta från den lokala platsen till CloudSimple med ExpressRoute
 
@@ -23,7 +23,7 @@ Om du redan har en Azure ExpressRoute-anslutning från en extern plats (till exe
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
-Ett **/29** nätverks adress block krävs för att upprätta Global Reach anslutning lokalt.  Adress utrymmet/29 används för överförings nätverk mellan ExpressRoute-kretsar.  Överförings nätverket bör inte överlappa någon av dina virtuella Azure-nätverk, lokala nätverk eller CloudSimple privata moln nätverk.
+Ett **/29** nätverks adress block krävs för att upprätta Global Reach anslutning lokalt.  Adress utrymmet/29 används för överförings nätverk mellan ExpressRoute-kretsar.  Överförings nätverket bör inte överlappa något av dina virtuella Azure-nätverk, lokala nätverk eller CloudSimple privata moln nätverk.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -32,7 +32,7 @@ Ett **/29** nätverks adress block krävs för att upprätta Global Reach anslut
 
 ## <a name="scenarios"></a>Scenarier
 
-Genom att ansluta ditt lokala nätverk till ditt privata moln nätverk kan du använda det privata molnet på olika sätt, inklusive följande:
+Genom att ansluta ditt lokala nätverk till ditt privata moln nätverk kan du använda det privata molnet på olika sätt, inklusive följande scenarier:
 
 * Få åtkomst till ditt privata moln nätverk utan att skapa en plats-till-plats-VPN-anslutning.
 * Använd din lokala Active Directory som identitets källa i ditt privata moln.
@@ -43,6 +43,7 @@ Genom att ansluta ditt lokala nätverk till ditt privata moln nätverk kan du an
 ## <a name="connecting-expressroute-circuits"></a>Ansluta ExpressRoute-kretsar
 
 För att upprätta ExpressRoute-anslutningen måste du skapa en auktorisering på din ExpressRoute-krets och ange auktoriseringsinformation till CloudSimple.
+
 
 ### <a name="create-expressroute-authorization"></a>Skapa ExpressRoute-auktorisering
 
@@ -70,6 +71,11 @@ För att upprätta ExpressRoute-anslutningen måste du skapa en auktorisering p�
     * Undergrupp av problem: **Skapa ExpressRoute-anslutning till lokalt**
     * Ange resurs-ID och den auktoriseringskod som du kopierade och sparade i informations fönstret.
     * Ange ett/29 nätverks adress utrymme för överförings nätverket.
+    * Skickar du standard väg via ExpressRoute?
+    * Ska trafiken i det privata molnet använda standard vägen som skickas via ExpressRoute?
+
+    > [!IMPORTANT]
+    > Genom att skicka standard väg kan du skicka all Internet trafik från det privata molnet med hjälp av din lokala Internet anslutning.  Om du vill inaktivera standard vägen som kon figurer ATS i det privata molnet och använda den lokala anslutningens standard väg anger du informationen i support ärendet.
 
 ## <a name="next-steps"></a>Nästa steg
 

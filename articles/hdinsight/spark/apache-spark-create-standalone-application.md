@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
 ms.date: 06/26/2019
-ms.openlocfilehash: 3b9001b9c7fa81b86c70d5c07a33a54bae539add
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.openlocfilehash: 3ffb28ba6c2e6170198a0a360315b7d71f059c34
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70736453"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70899903"
 ---
 # <a name="tutorial-create-a-scala-maven-application-for-apache-spark-in-hdinsight-using-intellij"></a>Självstudier: Skapa ett Scala Maven-program för Apache Spark i HDInsight med hjälp av IntelliJ
 
@@ -177,27 +177,27 @@ Installera Scala-plugin-programmet via följande steg:
 
     2. I fönstret **Projektstruktur** går du till **Artefakter** > **plustecknet +**  > **JAR** > **From modules with dependencies...** (Från moduler med beroenden...).
 
-        ![Skapa JAR-fil](./media/apache-spark-create-standalone-application/create-jar-1.png)
+        ![Skapa JAR1](./media/apache-spark-create-standalone-application/create-jar-1.png)
 
     3. I fönstret **Skapa JAR från moduler** väljer du mappikonen i textrutan **Main Class** (Main-klass).
 
     4. I fönstret **Select Main Class** (Välj Main-klass) väljer du den klass som visas som standard och sedan **OK**.
 
-        ![Skapa JAR-fil](./media/apache-spark-create-standalone-application/create-jar-2.png)
+        ![Skapa JAR2](./media/apache-spark-create-standalone-application/create-jar-2.png)
 
     5. I fönstret **Create JAR from Modules** (Skapa JAR-fil från moduler) kontrollerar du att alternativet **Extract to the target JAR** (Extrahera till mål-JAR) är markerat. Välj sedan **OK**.  Den här inställningen skapar en enda JAR-fil med alla beroenden.
 
-        ![Skapa JAR-fil](./media/apache-spark-create-standalone-application/create-jar-3.png)
+        ![Skapa JAR3](./media/apache-spark-create-standalone-application/create-jar-3.png)
 
     6. Fliken **Output Layout** (Utdatalayout) visar alla jar-filer som ingår i Maven-projektet. Du kan markera och ta bort sådana som Scala-programmet inte har något direkt beroende till. För programmet som du skapar här kan du ta bort alla utom den sista (**SparkSimpleApp compile output**). Välj de jar-filer som ska tas bort och välj sedan minustecknet **-** .
 
-        ![Skapa JAR-fil](./media/apache-spark-create-standalone-application/delete-output-jars.png)
+        ![Skapa JAR4](./media/apache-spark-create-standalone-application/delete-output-jars.png)
 
         Kontrollera att kryssrutan **Include in project build** (Inkludera i projektversionen) är markerad, vilket säkerställer att jar-filen skapas varje gång projektet skapas eller uppdateras. Välj **Applicera** och sedan **OK**.
 
     7. Skapa jar-filen genom att gå till **Skapa** > **Build Artifacts (Skapa artefakter)**  > **Skapa**. Projektet kompileras inom cirka 30 sekunder.  Utdatans jar-fil skapas under **\out\artifacts**.
 
-        ![Skapa JAR-fil](./media/apache-spark-create-standalone-application/output.png)
+        ![utdata](./media/apache-spark-create-standalone-application/hdi-artifact-output-jar.png)
 
 ## <a name="run-the-application-on-the-apache-spark-cluster"></a>Köra programmet på Apache Spark-klustret
 

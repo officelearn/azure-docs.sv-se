@@ -2,8 +2,8 @@
 title: Distributionsarkitektur – Azure dedikerad HSM | Microsoft Docs
 description: Grundläggande designaspekter när du använder Azure dedikerad HSM som en del av en programarkitektur
 services: dedicated-hsm
-author: barclayn
-manager: barbkess
+author: msmbaldwin
+manager: rkarlin
 ms.custom: mvc, seodec18
 ms.service: key-vault
 ms.workload: identity
@@ -11,15 +11,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/27/2019
-ms.author: barclayn
-ms.openlocfilehash: f078df7677e771d131f15056ac4a54a58a3134bd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: mbaldwin
+ms.openlocfilehash: 93755ded8f9db27cf8e78079f32e90cccfac2831
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60912302"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70883828"
 ---
-# <a name="azure-dedicated-hsm-deployment-architecture"></a>Azure dedikerad HSM distribution-arkitektur
+# <a name="azure-dedicated-hsm-deployment-architecture"></a>Azure dedikerad HSM-distributions arkitektur
 
 Azure dedikerad HSM tillhandahåller lagring av kryptografiska nycklar i Azure. Den uppfyller stränga säkerhetskrav. Kunderna kommer ha nytta av Azure dedikerad HSM om de:
 

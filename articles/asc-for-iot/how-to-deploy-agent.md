@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/23/2019
 ms.author: mlottner
-ms.openlocfilehash: ffc6ea447ae90649be0455abbed6245c078e518d
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 18031400155b92f243877ae8c8d7a56e1d5295a0
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68596354"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70933651"
 ---
 # <a name="select-and-deploy-a-security-agent-on-your-iot-device"></a>Välj och distribuera en säkerhets agent på din IoT-enhet
 
@@ -44,7 +44,7 @@ Den C-baserade säkerhets agenten har ett mindre minnes utrymme och är det idea
 |     | C-baserad säkerhets agent | C#-baserad säkerhets agent |
 | --- | ----------- | --------- |
 | Öppen källkod | Tillgängligt under [MIT-licens](https://en.wikipedia.org/wiki/MIT_License) i [GitHub](https://aka.ms/iot-security-github-cs) | Tillgängligt under [MIT-licens](https://en.wikipedia.org/wiki/MIT_License) i [GitHub](https://aka.ms/iot-security-github-c) |
-| Utvecklings språk    | C | C# |
+| Utvecklingsspråk    | C | C# |
 | Windows-plattformar som stöds? | Nej | Ja |
 | Windows-krav | --- | [TJÄNST](https://docs.microsoft.com/windows/desktop/wmisdk/) |
 | Linux-plattformar som stöds? | Ja, x64 och x86 | Ja, endast x64 |
@@ -78,7 +78,7 @@ Besvara följande frågor om dina IoT-enheter för att välja rätt agent:
 
 - Använder du en Linux-distribution med x64-arkitekturen?
 
-    Du kan använda vilken agent smak som möjligt. <br>
+    Båda agent varianter kan användas. <br>
     [Distribuera en C-baserad säkerhets agent för Linux](how-to-deploy-linux-c.md) och/eller [distribuera en C#-baserad säkerhets agent för Linux](how-to-deploy-linux-cs.md).
 
 Båda agent varianter erbjuder samma uppsättning funktioner och stöder liknande konfigurations alternativ.
@@ -97,7 +97,7 @@ Följande lista innehåller alla plattformar som stöds för närvarande.
 |C#|Ubuntu 18.04    |x64|
 |C#|Debian 9    |x64|
 |C#|Windows Server 2016|    X64|
-|C#|Windows 10 IoT Core build 17763 |x64|
+|C#|Windows 10 IoT Core, build 17763    |x64|
 |
 
 ## <a name="next-steps"></a>Nästa steg

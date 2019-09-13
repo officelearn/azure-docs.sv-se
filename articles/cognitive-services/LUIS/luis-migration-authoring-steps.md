@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 09/10/2019
+ms.date: 09/12/2019
 ms.author: diberry
-ms.openlocfilehash: 7a6091ac1a0d54d997c40fe284d58426ecadf765
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
-ms.translationtype: HT
+ms.openlocfilehash: 7e79d3119f5d2d0fe1894de0ab9535dd988706f8
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70898862"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70935206"
 ---
 # <a name="steps-to-migrate-to-the-azure-authoring-resource"></a>Steg för att migrera till Azure Authoring-resursen
 
@@ -94,6 +94,13 @@ Migreringsprocessen är tillgänglig om du äger LUIS-appar.
 1. Innan du får åtkomst till dina appar väljer du resursen prenumeration och LUIS Authoring för att se apparna som kan redige ras.
 
     ![Välj prenumerations-och LUIS som skapar resurs för att se vilka appar som kan redigera.](./media/migrate-authoring-key/app-list-by-subscription-and-resource.png)
+
+
+## <a name="app-contributor-begins-the-migration-process"></a>App Contributor påbörjar migreringsprocessen
+
+Följ samma steg som för program ägaren för migrering. Processen skapar en ny redigerings resurs av typen `LUIS.Authoring`. 
+
+Du måste migrera ditt konto för att kunna läggas till som deltagare i migrerade appar som ägs av andra.  
 
 ## <a name="after-the-migration-process-add-contributors-to-your-authoring-resource"></a>Efter migreringsprocessen lägger du till deltagare i din redigerings resurs
 

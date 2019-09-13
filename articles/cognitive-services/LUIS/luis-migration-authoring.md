@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 09/08/2019
+ms.date: 09/12/2019
 ms.author: diberry
-ms.openlocfilehash: 5828d4f453afeccfaac206195f064e43a20d1ba0
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: 8e732496c4523646f02ef461b7d3c52314c28dae
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70844765"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70932832"
 ---
 # <a name="migrate-to-an-azure-resource-authoring-key"></a>Migrera till en Azure-resurs redigerings nyckel
 
@@ -35,7 +35,8 @@ Om du till exempel har två typer av LUIS-appar som du redigerar, med olika medl
 
 Migreringen omfattar:
 
-* **Alla** ägarens appar.
+* Alla användare av LUIS, ägare och deltagare.
+* **Alla** appar.
 * En **enkelriktad migrering.**
 
 Ägaren kan inte välja en delmängd av appar som ska migreras och processen inte kan ångras. 
@@ -87,13 +88,17 @@ Du kan lägga till deltagare till redigerings resursen från _Azure Portal_på s
 
 ## <a name="migration-for-the-app-contributor"></a>Migrering av appens deltagare
 
+Varje användare av LUIS måste migreras, inklusive medarbetare/deltagare. 
+
 ### <a name="before-the-app-is-migrated"></a>Innan appen migreras
 
 Du kan välja att exportera en app som du är en medarbetare på och sedan importera appen tillbaka till LUIS. Import processen skapar en ny app med ett nytt app-ID som du är ägare till.
 
 ### <a name="after-the-app-is-migrated"></a>När appen har migrerats
 
-Om du behöver åtkomst till den ursprungliga appen efter migreringen måste du lägga till den i Azure Authoring-resursen som en medarbetare av appens ägare.  
+Appens ägare måste [lägga till ditt e-postmeddelande till Azure Authoring-resursen som en medarbetare](luis-how-to-collaborate.md#add-contributor-to-azure-authoring-resource). 
+
+Efter migreringen är alla appar som du äger tillgängliga på sidan **Mina appar** i Luis-portalen.  
 
 ## <a name="next-steps"></a>Nästa steg
 

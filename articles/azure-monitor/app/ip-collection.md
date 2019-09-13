@@ -8,14 +8,14 @@ ms.assetid: 0e3b103c-6e2a-4634-9e8c-8b85cf5e9c84
 ms.service: application-insights
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 07/31/2019
+ms.date: 09/11/2019
 ms.author: mbullwin
-ms.openlocfilehash: 3a504fe4475cee8e2949ee121c632b792f349758
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 49534cbce7bb0bbf540416785e31b451509d5bf6
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68694289"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70916167"
 ---
 # <a name="geolocation-and-ip-address-handling"></a>Hantering av geolokalisering och IP-adresser
 
@@ -36,10 +36,9 @@ Det här beteendet är avsiktligt för att undvika onödig insamling av personli
 
 Även om standard beteendet är att minimera insamling av personliga data, erbjuder vi fortfarande flexibiliteten att samla in och lagra IP-Datadata. Innan du väljer att lagra personliga data, t. ex. IP-adresser, rekommenderar vi starkt att du verifierar att detta inte bryter mot eventuella krav på efterlevnad eller lokala regler som du kan omfattas av. Mer information om personlig data hantering i Application Insights finns i [rikt linjerna för person uppgifter](https://docs.microsoft.com/azure/azure-monitor/platform/personal-data-mgmt).
 
-## <a name="storing-partial-ip-address-data"></a>Delar IP-Datadata
+## <a name="storing-ip-address-data"></a>Lagra IP-Datadata
 
-För att kunna aktivera partiell IP-samling och lagring måste `DisableIpMasking` egenskapen för Application Insights-komponenten anges till. `true` Den här egenskapen kan anges antingen via Azure Resource Manager mallar eller genom att anropa REST API. IP-adresser registreras med den sista oktetten nollställt.
-
+För att aktivera IP-insamling och lagring `DisableIpMasking` måste egenskapen för Application Insights-komponenten anges till. `true` Den här egenskapen kan anges antingen via Azure Resource Manager mallar eller genom att anropa REST API. 
 
 ### <a name="azure-resource-manager-template"></a>Azure Resource Manager-mall
 
@@ -92,7 +91,7 @@ Om du bara behöver ändra beteendet för en enskild Application Insights resurs
 
     I det här fallet köps inget nytt, men vi uppdaterar bara konfigurationen av den befintliga Application Insights-resursen.
 
-6. När distributionen är klar registreras nya telemetridata med de första tre oktetterna som är ifyllda med IP-adressen och den sista oktetten har nollställts.
+6. När distributionen är klar kommer nya telemetridata att registreras.
 
     Om du valde och redigera mallen igen skulle du bara se standardmallen och inte se den nyligen tillagda egenskapen och det associerade värdet. Om du inte ser IP-Datadata och vill bekräfta att `"DisableIpMasking": true` har angetts. Kör följande PowerShell: (Ersätt `Fabrikam-dev` med lämpligt resurs-och resurs grupps namn.)
     
@@ -128,7 +127,7 @@ Content-Length: 54
 
 ## <a name="telemetry-initializer"></a>Telemetri-initierare
 
-Om du behöver registrera hela IP-adressen i stället för bara de tre första oktetterna kan du använda en [telemetri](https://docs.microsoft.com/azure/azure-monitor/app/api-filtering-sampling#add-properties-itelemetryinitializer) -initierare för att kopiera IP-adressen till ett anpassat fält som inte kommer att maskeras.
+Om du behöver ett mer flexibelt alternativ `DisableIpMasking` än att registrera hela eller delar av IP-adresser kan du använda en [telemetri-initierare](https://docs.microsoft.com/azure/azure-monitor/app/api-filtering-sampling#add-properties-itelemetryinitializer) för att kopiera hela eller delar av IP-adressen till ett anpassat fält. 
 
 ### <a name="aspnet--aspnet-core"></a>ASP.NET/ASP.NET Core
 
@@ -205,7 +204,7 @@ appInsights.defaultClient.addTelemetryProcessor((envelope) => {
 });
 ```
 
-### <a name="client-side-javascript"></a>Java Script på klient Sidan
+### <a name="client-side-javascript"></a>JavaScript för klientsidan
 
 Till skillnad från SDK: er för Server sidan beräknar inte Java Script SDK på klient sidan IP-adress. Som standard utförs IP-adress beräkning för telemetri på klient sidan vid inmatnings slut punkten i Azure när telemetri anländer. Det innebär att om du skickar data på klient sidan till en proxy och sedan vidarebefordrar till inmatnings slut punkten, kan IP-adress beräkningen Visa IP-adressen för proxyservern och inte klienten. Om ingen proxy används bör detta inte vara ett problem.
 

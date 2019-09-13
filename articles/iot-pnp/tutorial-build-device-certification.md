@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
 manager: philmea
-ms.openlocfilehash: 019b2ba0fd87610195ca9e6c7cb749be9542bd72
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: 524bc3b2650ad7b435cba6b6b9d4084ffa5cf96c
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70858854"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70932684"
 ---
 # <a name="build-an-iot-plug-and-play-preview-device-thats-ready-for-certification"></a>Bygg en IoT Plug and Play förhands gransknings enhet som är klar för certifiering
 
@@ -84,6 +84,18 @@ Visa **enhets informations** gränssnittet i vs Code:
 1. I lagrings platsen för den offentliga modellen väljer du fliken **gränssnitt** , väljer filter ikonen och anger **enhets information** i fältet filter.
 
 1. Om du vill skapa en lokal kopia av **enhets informations** gränssnittet väljer du det i den filtrerade listan och väljer sedan **Ladda ned**. VS Code visar gränssnitts filen.
+
+Visa **enhets informations** gränssnittet med hjälp av Azure CLI:
+
+1. [Installera Azure IoT CLI-tillägget](howto-install-pnp-cli.md).
+
+1. Använd följande Azure CLI-kommando för att visa ett gränssnitt med enhets informationens gränssnitts-ID:
+
+    ```cmd/sh
+    az iot pnp interface show --interface urn:azureiot:DeviceManagement:DeviceInformation:1
+    ```
+
+Mer information finns i [Installera och använda Azure IoT-tillägget för Azure CLI](howto-install-pnp-cli.md).
 
 ## <a name="update-device-code"></a>Uppdatera enhets kod
 

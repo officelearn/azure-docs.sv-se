@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/05/2019
 ms.author: v-mohabe
-ms.openlocfilehash: 3683550045699a24c27a3226fba2e90a671f80e1
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 536e2e3732a0b196801e37c51dfb6c746e070441
+ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70101015"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70910463"
 ---
 # <a name="protect-your-network-resources-in-azure-security-center"></a>Skydda nätverks resurserna i Azure Security Center
 Azure Security Center fort löp ande analyserar säkerhets läget för dina Azure-resurser för metod tips för nätverks säkerhet. När Security Center identifierar potentiella säkerhets risker skapar den rekommendationer som vägleder dig genom processen att konfigurera de nödvändiga kontrollerna för att skärp och skydda dina resurser.
@@ -128,7 +128,7 @@ Avsnittet **nätverk sto pol Ogin** innehåller en hierarkisk vy över resursern
 
 Den här tabellen är sorterad (virtuella datorer och undernät) efter allvarlighets grad.
 
-I den här Topology-vyn visar den första nivån virtuella nätverk. Den andra visas har undernät och den tredje nivån visar de virtuella datorer som tillhör dessa undernät. I den högra kolumnen visas den aktuella statusen för nätverks säkerhets gruppens rekommendationer för dessa resurser.
+I den här Topology-vyn visar den första nivån virtuella nätverk. Den andra visar undernät och den tredje nivån visar de virtuella datorer som tillhör dessa undernät. I den högra kolumnen visas den aktuella statusen för nätverks säkerhets gruppens rekommendationer för dessa resurser.
 
 På den tredje nivån visas virtuella datorer, vilket liknar det som beskrivs ovan. Du kan klicka på en resurs för att lära dig mer eller använda den säkerhets kontroll eller konfiguration som krävs.
 
@@ -143,7 +143,7 @@ På den tredje nivån visas virtuella datorer, vilket liknar det som beskrivs ov
 |Åtkomst till App Services bör vara begränsad|Begränsa åtkomsten till din App Services genom att ändra nätverks konfigurationen för att neka inkommande trafik från intervall som är för breda.|Hög|10|Apptjänst|
 |Hanterings portar bör stängas på dina virtuella datorer|Skärp nätverks säkerhets gruppen för dina virtuella datorer för att begränsa åtkomsten till hanterings portar.|Hög|10|Virtuell dator|
 DDoS Protection standard ska vara aktive rad|Skydda virtuella nätverk som innehåller program med offentliga IP-adresser genom att aktivera DDoS Protection Service standard. DDoS Protection möjliggör minskning av nätverks-och protokoll attacker.|Hög|10|Virtuellt nätverk|
-|IP-vidarebefordran på den virtuella datorn bör inaktive ras|Inaktivera IP-vidarebefordring. När IP-vidarebefordring är aktiverat på en virtuell dators nätverkskort kan datorn ta emot trafik som är adresserad till andra mål. IP-vidarebefordran krävs sällan (t. ex. när den virtuella datorn används som en virtuell nätverks installation) och bör därför granskas av nätverks säkerhets teamet.|Medel|10|Virtuell dator|
+|IP-vidarebefordran på den virtuella datorn bör inaktive ras|Inaktivera IP-vidarebefordring. När IP-vidarebefordring är aktiverat på en virtuell dators nätverkskort kan datorn ta emot trafik som är adresserad till andra mål. IP-vidarebefordran krävs sällan (till exempel när du använder den virtuella datorn som en virtuell nätverks installation) och därför bör detta granskas av nätverks säkerhets teamet.|Medel|10|Virtuell dator|
 |Webbprogram bör enbart vara åtkomliga via HTTPS|Aktivera "endast HTTPS"-åtkomst för webb program. Användning av HTTPS garanterar serverautentisering och skyddar data i överföring från angrepp på nätverks nivå.|Medel|20|Webbprogram|
 |Just-in-Time-kontroll för nätverks åtkomst ska tillämpas på virtuella datorer|Använd just-in-Time (JIT)-åtkomst kontroll för att permanent låsa åtkomsten till valda portar och aktivera behöriga användare för att öppna dem via JIT, under en begränsad tid.|Hög|20|Virtuell dator|
 |Function-appar bör endast vara tillgängliga via HTTPS|Aktivera "endast HTTPS"-åtkomst för Function Apps. Användning av HTTPS garanterar serverautentisering och skyddar data i överföring från angrepp på nätverks nivå.|Medel|20|Funktionsapp|

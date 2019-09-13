@@ -1,5 +1,5 @@
 ---
-title: 'Snabb start för Node. js: Skapa, läsa in och fråga index med Azure Search REST-API: er – Azure Search'
+title: 'Snabbstart: Skapa ett Sök index i Node. js med REST API: er – Azure Search'
 description: Node. js-exempel för Azure Search som demonstrerar hur du skapar, läser in data i och frågar från Java Script.
 author: lobrien
 manager: nitinme
@@ -8,16 +8,16 @@ services: search
 ms.service: search
 ms.devlang: nodejs
 ms.topic: quickstart
-ms.date: 07/30/2019
+ms.date: 09/10/2019
 ms.author: laobri
-ms.openlocfilehash: b22a6371522674895465afac88e68f556ab09bcb
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: 4e17247ea412b5472a0c23fd74ff7e53f375710d
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69656308"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70881496"
 ---
-# <a name="quickstart-create-an-azure-search-index-in-nodejs"></a>Snabbstart: Skapa ett Azure Search-index i Node. js
+# <a name="quickstart-create-an-azure-search-index-in-nodejs-using-rest-apis"></a>Snabbstart: Skapa ett Azure Search-index i Node. js med hjälp av REST API: er
 > [!div class="op_single_selector"]
 > * [JavaScript](search-get-started-nodejs.md)
 > * [C#](search-get-started-dotnet.md)
@@ -39,7 +39,7 @@ Följande tjänster, verktyg och data används i den här snabb starten.
 + En exempel index struktur och matchande dokument finns i den här artikeln, eller från [ **snabb starts** katalogen i lagrings platsen](https://github.com/Azure-Samples/azure-search-javascript-samples/).
 + [Skapa en Azure Search tjänst](search-create-service-portal.md) eller [hitta en befintlig tjänst](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under din aktuella prenumeration. Du kan använda en kostnads fri tjänst för den här snabb starten.
 
-Rekommenderas
+Rekommenderat:
 
 * [Visual Studio Code](https://code.visualstudio.com).
 * [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) -och [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) -tillägg för VSCode.
@@ -453,7 +453,7 @@ Glöm inte att det sista anropet till `run()`! Det är ingångs punkten för pro
 
 Observera att `AzureSearchClient.indexExistsAsync()` och `AzureSearchClient.deleteIndexAsync()` inte tar parametrar. Dessa funktioner anropar `AzureSearchClient.request()` `bodyJson` utan argument. Inom `AzureSearchClient.request()`, eftersom `bodyJson === null` `indexExistsAsync()` `deleteIndexAsync()`är, är strukturen inställd på att bara vara HTTP-verbet ("Get" för och "Delete" för) och rubrikerna som anger nyckel för begäran. `init` `true`  
 
-`AzureSearchClient.createIndexAsync(indexDefinition)` Metoden kan däremot ta en parameter. Funktionen i `index.js`skickar innehållet i filen **hotels_quickstart_index. JSON** till `AzureSearchClient.createIndexAsync(indexDefinition)` -metoden. `run` Metoden skickar denna definition till `AzureSearchClient.request()`. `createIndexAsync()` I `AzureSearchClient.request()`, eftersom `bodyJson === null` är nu `false`, `init` innehåller strukturen inte bara HTTP-verbet ( `body` "placering") och rubrikerna, utan anger till index definitions data.
+`AzureSearchClient.createIndexAsync(indexDefinition)` _Metoden kan_ däremot ta en parameter. Funktionen i `index.js`skickar innehållet i filen **hotels_quickstart_index. JSON** till `AzureSearchClient.createIndexAsync(indexDefinition)` -metoden. `run` Metoden skickar denna definition till `AzureSearchClient.request()`. `createIndexAsync()` I `AzureSearchClient.request()`, eftersom `bodyJson === null` är nu `false`, `init` innehåller strukturen inte bara HTTP-verbet ( `body` "placering") och rubrikerna, utan anger till index definitions data.
 
 ### <a name="prepare-and-run-the-sample"></a>Förbereda och köra exemplet
 
@@ -600,11 +600,11 @@ const run = async () => {
 }
 ```
 
-Kör programmet igen med `node index.js`. Du bör se en något annorlunda uppsättning meddelanden från de som du såg i steg 1. Den här gången finns indexet och du bör se ett meddelande om att ta bort det innan appen skapar det nya indexet och publicerar data till den. 
+Kör programmet igen med `node index.js`. Du bör se en något annorlunda uppsättning meddelanden från de som du såg i steg 1. Den här gången _finns indexet_ och du bör se ett meddelande om att ta bort det innan appen skapar det nya indexet och publicerar data till den. 
 
 ## <a name="3---search-an-index"></a>3 – Söka i ett index
 
-Gå tillbaka till fliken **index** i översikten för din Sök tjänst på Azure Portal. Ditt index innehåller nu fyra dokument och använder en del lagrings utrymme (det kan ta några minuter innan gränssnittet återger det underliggande indexets tillstånd korrekt). Klicka på index namnet som ska hämtas till **Sök Utforskaren**. På den här sidan kan du experimentera med data frågor. Försök att söka efter en frågesträng av `*&$count=true` och du bör få tillbaka alla dokument och antalet resultat. Försök med frågesträngen `historic&highlight=Description&$filter=Rating gt 4` och du bör komma tillbaka till ett enda dokument, med ordet "historiskt" inkapslat `<em></em>` i taggar. Läs mer om [hur du skapar en fråga i Azure Search](https://docs.microsoft.com/azure/search/search-query-overview). 
+Gå tillbaka till fliken **index** i **översikten** för din Sök tjänst på Azure Portal. Ditt index innehåller nu fyra dokument och använder en del lagrings utrymme (det kan ta några minuter innan gränssnittet återger det underliggande indexets tillstånd korrekt). Klicka på index namnet som ska hämtas till **Sök Utforskaren**. På den här sidan kan du experimentera med data frågor. Försök att söka efter en frågesträng av `*&$count=true` och du bör få tillbaka alla dokument och antalet resultat. Försök med frågesträngen `historic&highlight=Description&$filter=Rating gt 4` och du bör komma tillbaka till ett enda dokument, med ordet "historiskt" inkapslat `<em></em>` i taggar. Läs mer om [hur du skapar en fråga i Azure Search](https://docs.microsoft.com/azure/search/search-query-overview). 
 
 Återskapa dessa frågor i kod genom att öppna **index. js** och lägga till den här koden längst upp:
 

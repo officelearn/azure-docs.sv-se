@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 04/08/2019
-ms.openlocfilehash: f7fc5b32fb18da60816056c72dde8c53d439befe
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: d7cb473c54dc9cf735e43c65bc079fb4f21e4c97
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70812190"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70913997"
 ---
 # <a name="what-is-azure-sql-database-service"></a>Vad är Azure SQL Database tjänst
 
@@ -26,6 +26,8 @@ Med Microsofts moln-först-strategi släpps de senaste funktionerna för SQL Ser
 
 > [!NOTE]
 > En ord lista med termer i Azure SQL Database finns i [ord lista för SQL Database termer](sql-database-glossary-terms.md)
+
+## <a name="deployment-models"></a>Distributionsmodeller
 
 Azure SQL Database innehåller följande distributionsalternativ för en Azure SQL-databas:
 
@@ -51,11 +53,19 @@ Du kan bygga din första app på en liten, enkel databas till en låg kostnad pe
 
 Dynamisk skalbarhet skiljer sig från autoskalning. Med Autoskala avses när en tjänst skalar automatiskt utifrån olika kriterier, medan dynamisk skalbarhet möjliggör manuell skalning utan avbrott. En enkel databas stöder manuell dynamisk skalbarhet, men inte autoskalning. Om du vill ha en mer *automatisk* upplevelse bör du använda elastiska pooler, vilka tillåter databaser att dela resurser i en pool utifrån enskilda databasbehov. Det finns dock skript som kan hjälpa dig att automatisera skalbarheten för en enskild databas. Ett exempel finns i [använda PowerShell för att övervaka och skala en enskild databas](scripts/sql-database-monitor-and-scale-database-powershell.md).
 
-### <a name="purchasing-models-service-tiers-compute-sizes-and-storage-amounts"></a>Inköps modeller, tjänst nivåer, beräknings storlek och lagrings belopp
+### <a name="purchasing-models"></a>Köpmodeller
 
 SQL Database erbjuder två inköps modeller:
-- Med den [vCore-baserade inköps modellen](sql-database-service-tiers-vcore.md) kan du välja antalet virtuella kärnor, mängden minne och lagrings hastigheten. Med den vCore-baserade inköps modellen kan du också använda [Azure Hybrid-förmån för SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/) för att få kostnads besparingar. Mer information om Azure Hybrid-förmån finns i [vanliga frågor och svar](#sql-database-frequently-asked-questions-faq).
+- Med den [vCore-baserade inköps modellen](sql-database-service-tiers-vcore.md) kan du välja antalet virtuella kärnor, mängden minne och lagrings hastigheten. Med den vCore-baserade inköps modellen kan du också använda **[Azure Hybrid-förmån för SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/)** för att få kostnads besparingar. Mer information om Azure Hybrid-förmån finns i [vanliga frågor och svar](#sql-database-frequently-asked-questions-faq).
 - Den [DTU-baserade inköps modellen](sql-database-service-tiers-dtu.md) erbjuder en blandning av beräknings-, minnes-och IO-resurser i tre tjänst nivåer för att stödja lätta till tunga databas arbets belastningar. Beräknings storlekar inom varje nivå ger en annan blandning av dessa resurser, där du kan lägga till ytterligare lagrings resurser.
+- Den [serverbaserade modellen](sql-database-serverless.md) som automatiskt skalar beräkning baserat på arbets belastnings behov och räkningar för mängden data bearbetning som används per sekund. Server lös beräknings nivån pausar också automatiskt databaser under inaktiva perioder när endast lagring faktureras och återupptar automatiskt databaser när aktiviteten returnerar.
+
+### <a name="service-tiers"></a>Tjänstnivåer
+
+Azure SQL Database erbjuder tre tjänst nivåer som är utformade för olika typer av program:
+- [Generell användning/standard](sql-database-service-tier-general-purpose.md) service nivå som är avsedd för vanliga arbets belastningar. Erbjuder budget orienterade balanserade beräknings-och lagrings alternativ.
+- [Affärskritisk/Premium](sql-database-service-tier-business-critical.md) -tjänstnivå utformad för OLTP-program med hög transaktions hastighet och lägsta latens i/o. Ger högsta möjliga återhämtning till problem med flera isolerade repliker.
+- [Storskalig](sql-database-service-tier-hyperscale.md) Service Tier som är utformad för mycket stor OLTP-databas och möjlighet att skala lagrings utrymme och skala automatiskt. 
 
 ### <a name="elastic-pools-to-maximize-resource-utilization"></a>Elastiska pooler som maximerar resursutnyttjandet
 
@@ -169,7 +179,7 @@ Avancerad data säkerhet är ett enhetligt paket för avancerade SQL-säkerhetsf
 
 ### <a name="data-encryption"></a>Datakryptering
 
-SQL Database skyddar dina data genom att tillhandahålla kryptering för data i rörelse med [säkerhet på transport nivå](https://support.microsoft.com/kb/3135244), för data i vila med [transparent data kryptering](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)och för data som används med [Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine).
+SQL Database skyddar dina data genom att tillhandahålla kryptering för data i rörelse med [säkerhet på transport nivå](https://support.microsoft.com/kb/3135244), för data i vila med [transparent data kryptering](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)och för data som används med [Always](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine)Encrypted.
 
 ### <a name="azure-active-directory-integration-and-multi-factor-authentication"></a>Azure Active Directory-integrering och multifaktorautentisering
 
@@ -208,7 +218,7 @@ Den aktuella versionen av SQL Database är V12. Version V11 har dragits tillbaka
 
 ### <a name="can-i-control-when-patching-downtime-occurs"></a>Kan jag styra när uppdaterings stopp inträffar
 
-Nej. Effekten av korrigeringen är vanligt vis inte märkbart om du [använder logik för omprövning](sql-database-develop-overview.md#resiliency) i din app. Mer information om hur du förbereder för planerade underhålls händelser på din Azure SQL-databas finns i [Planera för underhålls händelser i Azure i Azure SQL Database](sql-database-planned-maintenance.md).
+Nej. Effekten av korrigeringen är vanligt vis inte märkbart om du [använder logik](sql-database-develop-overview.md#resiliency) för omprövning i din app. Mer information om hur du förbereder för planerade underhålls händelser på din Azure SQL-databas finns i [Planera för underhålls händelser i Azure i Azure SQL Database](sql-database-planned-maintenance.md).
 
 ### <a name="azure-hybrid-benefit-questions"></a>Azure Hybrid-förmån frågor
 

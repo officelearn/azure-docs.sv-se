@@ -8,15 +8,15 @@ ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
 author: stevestein
-ms.author: sstein
+ms.author: sashan
 ms.reviewer: carlrab
-ms.date: 08/29/2019
-ms.openlocfilehash: cdbc79ca6764dd49f427b395dbaf8502c58bf63a
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.date: 09/04/2019
+ms.openlocfilehash: de56e66046bb61ac31c1842ae6ce7a9c6720760d
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70173437"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70934207"
 ---
 # <a name="copy-a-transactionally-consistent-copy-of-an-azure-sql-database"></a>Kopiera en transaktions konsekvent kopia av en Azure SQL-databas
 
@@ -72,7 +72,8 @@ Om du vill skapa en databas kopia måste du ha följande roller
 - SQL Server deltagar roll eller
 - Anpassad roll för käll-och mål databaserna med följande behörighet:
 
-   Microsoft. SQL/Servers/databaser/läsa Microsoft. SQL/Servers/databaser/skriva
+   Microsoft.Sql/servers/databases/read   
+   Microsoft.Sql/servers/databases/write   
 
 Om du vill avbryta en databas kopia måste du ha följande roller
 
@@ -80,7 +81,23 @@ Om du vill avbryta en databas kopia måste du ha följande roller
 - SQL Server deltagar roll eller
 - Anpassad roll för käll-och mål databaserna med följande behörighet:
 
-   Microsoft. SQL/Servers/databaser/läsa Microsoft. SQL/Servers/databaser/skriva
+   Microsoft.Sql/servers/databases/read   
+   Microsoft.Sql/servers/databases/write   
+   
+Om du vill hantera databas kopiering med Azure Portal måste du också ha följande behörigheter:
+
+&nbsp;&nbsp; Microsoft.Resources/Subscriptions&nbsp; /resurser/Read   
+&nbsp;&nbsp; Microsoft.Resources/Subscriptions/&nbsp; Resources/Write   
+&nbsp;&nbsp; Microsoft.Resources&nbsp; /Deployments/Read   
+&nbsp;&nbsp; Microsoft.Resources&nbsp; /Deployments/Write   
+&nbsp;&nbsp; Microsoft.Resources/Deployments&nbsp; /operationstatuses/Read    
+
+Om du vill se åtgärder under distributioner i resurs gruppen på portalen, så behöver du flera olika resurs leverantörer, inklusive SQL-åtgärder, du behöver dessa ytterligare RBAC-roller: 
+
+&nbsp;&nbsp; Microsoft.Resources/Subscriptions/ResourceGroups/Deployments&nbsp; /Operations/Read   
+&nbsp;&nbsp; Microsoft.Resources/Subscriptions/ResourceGroups/distributioner&nbsp; /operationstatuses/Read
+
+
 
 ## <a name="copy-a-database-by-using-transact-sql"></a>Kopiera en databas med hjälp av Transact-SQL
 

@@ -12,18 +12,18 @@ ms.topic: conceptual
 ms.date: 10/16/2017
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 19e088eee878695d24678d1df17b2848a4be1e01
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 2782781fdfd560c0c8f322e362fcf74c796664bd
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70097546"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70933044"
 ---
 # <a name="optimize-the-performance-and-reliability-of-azure-functions"></a>Optimera prestanda och tillförlitlighet för Azure Functions
 
 Den här artikeln innehåller rikt linjer för att förbättra prestanda och tillförlitlighet för dina program utan [Server](https://azure.microsoft.com/solutions/serverless/) funktioner. 
 
-## <a name="general-best-practices"></a>Allmänna metod tips
+## <a name="general-best-practices"></a>Allmän bästa praxis
 
 Följande är metod tips för hur du skapar och utvecklar lösningar utan server med hjälp av Azure Functions.
 
@@ -36,7 +36,7 @@ När det är möjligt kan åter förfalla stora funktioner till mindre funktions
 
 ### <a name="cross-function-communication"></a>Kors funktions kommunikation
 
-[Durable Functions](durable/durable-functions-concepts.md) och [Azure Logic Apps](../logic-apps/logic-apps-overview.md) är utformade för att hantera tillstånds över gångar och kommunikation mellan flera funktioner.
+[Durable Functions](durable/durable-functions-overview.md) och [Azure Logic Apps](../logic-apps/logic-apps-overview.md) är utformade för att hantera tillstånds över gångar och kommunikation mellan flera funktioner.
 
 Om du inte använder Durable Functions eller Logic Apps för att integrera med flera funktioner är det vanligt vis bästa praxis att använda lagrings köer för kors funktions kommunikation.  Huvud orsaken är att lagrings köer är billigare och mycket enklare att etablera. 
 

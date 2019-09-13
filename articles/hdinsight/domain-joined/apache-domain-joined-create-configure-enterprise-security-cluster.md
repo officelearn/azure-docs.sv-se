@@ -8,12 +8,12 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 05/09/2019
-ms.openlocfilehash: bb6a3cff46c975ae6b59f0c6f97e37037f638620
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: 24c00d8d5db7c36746d68ad10edc4db4f76e0aac
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70845918"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70918734"
 ---
 # <a name="create-and-configure-enterprise-security-package-clusters-in-azure-hdinsight"></a>Skapa och konfigurera Enterprise Security Package kluster i Azure HDInsight
 
@@ -25,7 +25,7 @@ Den här guiden är avsedd att komplettera [användnings Enterprise Security Pac
 
 Innan du använder den här processen i din egen miljö kan du konfigurera Active Directory och domän namns tjänster (DNS). Du kan också aktivera Azure Active Directory och synkronisera lokala användar konton till Azure Active Directory.
 
-![Arkitektur diagram](./media/apache-domain-joined-create-configure-enterprise-security-cluster/image002.png)
+![Arkitekturdiagram](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0002.png)
 
 ## <a name="create-on-premises-environment"></a>Skapa en lokal miljö
 
@@ -71,7 +71,7 @@ Innan du använder den här processen i din egen miljö kan du konfigurera Activ
 
     1. På skärmen **Active Directory användare och datorer** klickar du på **åtgärd** > **ny** > **användare**.
 
-        ![Skapa ny Active Directory användare](./media/apache-domain-joined-create-configure-enterprise-security-cluster/create-new-user.png)
+        ![Skapa ny Active Directory användare](./media/apache-domain-joined-create-configure-enterprise-security-cluster/create-active-directory-user.png)
 
     1. På skärmen **nytt objekt – användare** anger `HDIUser` du som **användarens inloggnings namn** och klickar på **Nästa**.
 
@@ -85,7 +85,7 @@ Innan du använder den här processen i din egen miljö kan du konfigurera Activ
 
 1. På skärmen **Active Directory användare och datorer** klickar du på **åtgärd** > **ny** > **grupp**. Skapa `HDIUserGroup` som en ny grupp.
 
-    ![Skapa ny Active Directory grupp](./media/apache-domain-joined-create-configure-enterprise-security-cluster/create-new-group.png)
+    ![Skapa ny Active Directory grupp](./media/apache-domain-joined-create-configure-enterprise-security-cluster/create-active-directory-group.png)
 
     ![Skapa ny group2](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0028.png)
 
@@ -156,7 +156,7 @@ Dessa användare kommer att synkroniseras med Azure AD.
 
     1. Klicka på **Använd Express inställningar** och slutför installationen.
 
-        ![Använd standardinställningar](./media/apache-domain-joined-create-configure-enterprise-security-cluster/image054.png)
+        ![Använd standardinställningar](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0054.png)
 
 ### <a name="configure-sync-with-on-premises-domain-controller"></a>Konfigurera synkronisering med den lokala domänkontrollanten
 
@@ -168,9 +168,9 @@ Dessa användare kommer att synkroniseras med Azure AD.
 1. Klicka på **Nästa**på sidan **konfiguration av Azure AD-inloggning** .
     ![Inloggnings konfiguration för Azure AD](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0062.png)
 1. På skärmen redo att konfigurera klickar du på **Installera**.
-    ![installationer](./media/apache-domain-joined-create-configure-enterprise-security-cluster/image064.png)
+    ![Installera](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0064.png)
 1. När skärmen **konfiguration är klar** visas klickar du på **Avsluta**.
-    ![konfigurationen är klar](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0078.png)
+    ![Konfigurationen är klar](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0078.png)
 
 1. När synkroniseringen är klar bekräftar du om de användare som du skapade på IAAS-Active Directory synkroniseras till Azure Active Directory.
     1. Logga in på Azure Portal.
@@ -213,7 +213,7 @@ Mer information finns i [aktivera Azure Active Directory Domain Services med hj�
     1. Välj din prenumeration.
     1. Ange resurs gruppen **HDIFabrikam-Central** och **platsen** för **centrala USA**.
 
-        ![grundläggande information om Azure AD DS](./media/apache-domain-joined-create-configure-enterprise-security-cluster/image084.png)
+        ![Grundläggande information om Azure AD-DS](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0084.png)
 
 1. På skärmen **nätverk** slutfört väljer du nätverket (**HDIFabrikam-VNet**) och under nätet (**AADDS-Subnet**) som du skapade med det tidigare PowerShell-skriptet. Eller så kan du använda alternativet **Skapa nytt** för att skapa ett virtuellt nätverk nu.
 
@@ -225,7 +225,7 @@ Mer information finns i [aktivera Azure Active Directory Domain Services med hj�
 
 1. På skärmen **synkronisering** aktiverar du slutför synkronisering genom att välja **alla** och klickar sedan på **OK**.
 
-    ![Aktivera synkronisering](./media/apache-domain-joined-create-configure-enterprise-security-cluster/image090.png)
+    ![Aktivera synkronisering](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0090.png)
 
 1. På sidan **Sammanfattning** kontrollerar du informationen för Azure AD-DS och klickar på **OK**.
 
@@ -239,7 +239,7 @@ Stegen i det här avsnittet hjälper dig att konfigurera Azure AD-DS Virtual Net
 
 1. Leta upp IP-adresserna för dina anpassade DNS-servrar. Klicka på **HDIFabrikam.com** AD-DS-resursen, klicka på **Egenskaper** under **Hantera**   och titta på IP-adresserna som visas under **IP-adress på Virtual Network**.
 
-    ![Hitta anpassade DNS IP-adresser för Azure AD-DS](./media/apache-domain-joined-create-configure-enterprise-security-cluster/image096.png)
+    ![Hitta anpassade DNS IP-adresser för Azure AD-DS](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0096.png)
 
 1. Konfigurera **HDIFabrikam-AADDSVNET** till anpassade IP `10.0.0.4` - `10.0.0.5`adresser och.
 
@@ -248,7 +248,7 @@ Stegen i det här avsnittet hjälper dig att konfigurera Azure AD-DS Virtual Net
 
 1. I vårt scenario har Azure AD-DS kon figurer ATS för att använda IP-adresser 10.0.0.4 och 10.0.0.5, ange samma IP-adress på AADDS VNet som visas i bilden nedan.
 
-    ![Visa anpassade DNS-servrar](./media/apache-domain-joined-create-configure-enterprise-security-cluster/image098.png)
+    ![Visa anpassade DNS-servrar](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0098.png)
 
 ## <a name="securing-ldap-traffic"></a>Skydda LDAP-trafik
 
@@ -282,7 +282,7 @@ Kontrol lera att certifikatet är installerat i datorns\'personliga arkiv. Utfö
 
 1. På sidan **Exportera privat nyckel** klickar du på **Ja, exportera den privata nyckeln**. Den privata nyckeln krävs för att de krypterade meddelandena ska kunna läsas från den dator där nyckeln ska importeras.
 
-    ![Exportera privat nyckel](./media/apache-domain-joined-create-configure-enterprise-security-cluster/image103.png)
+    ![Exportera privat nyckel](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0103.png)
 
 1. På sidan **fil format** för export lämnar du standardinställningarna och klickar sedan på **Nästa**. 
 1. På sidan **lösen ord** skriver du ett lösen ord för den privata nyckeln, väljer **TripleDES-SHA1** för **kryptering** och klickar på **Nästa**.
@@ -313,11 +313,11 @@ Kontrol lera att certifikatet är installerat i datorns\'personliga arkiv. Utfö
         | Priority | \<Desired Number\> |
         | Name | Port_LDAP_636 |
 
-    ![inkommande säkerhets regel](./media/apache-domain-joined-create-configure-enterprise-security-cluster/add-inbound-security-rule.png)
+    ![Ingående säkerhetsregel](./media/apache-domain-joined-create-configure-enterprise-security-cluster/add-inbound-security-rule.png)
 
 1. `HDIFabrikamManagedIdentity`är den användare som tilldelats hanterad identitet, rollen HDInsight Domain Services Contributor är aktive rad för den hanterade identitet som gör att den här identiteten kan läsa, skapa, ändra och ta bort Domain Services-åtgärder.
 
-    ![Skapa användare tilldelad hanterad identitet](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0117.png)
+    ![Skapa användartilldelad hanterad identitet](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0117.png)
 
 ## <a name="creating-enterprise-security-package-enabled-hdinsight-cluster"></a>Skapa Enterprise Security Package aktiverat HDInsight-kluster
 
@@ -365,12 +365,12 @@ Det här steget kräver följande krav:
 
 1. Logga in på Ambari-användargränssnittet för det nyskapade klustret `https://CLUSTERNAME.azurehdinsight.net` med hjälp av administratörs användar `hdiadmin@hdifabrikam.com` namn och lösen ord.
 
-    ![Logga in på Ambari](./media/apache-domain-joined-create-configure-enterprise-security-cluster/image135.jpg)
+    ![Logga in på Ambari](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0135.jpg)
 
 1. Klicka på **roller** från kluster instrument panelen.
 1. På sidan **roller** anger du gruppen **hdiusergroup** för att tilldela den till rollen **kluster administratör** under **tilldela roller till dessa**.
 
-    ![tilldela rollen kluster administratör till hdiusergroup](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0137.jpg)
+    ![Tilldela rollen kluster administratör till hdiusergroup](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0137.jpg)
 
 1. Öppna SSH-klienten och logga in på klustret med hjälp av **hdiuser** som du skapade tidigare i den lokala Active Directory.
 

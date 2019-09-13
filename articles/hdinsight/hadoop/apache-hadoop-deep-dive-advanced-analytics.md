@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/14/2017
 ms.author: ashishth
-ms.openlocfilehash: 882c52995d788b0cd65c71a935ab795a7e7d2f53
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
-ms.translationtype: HT
+ms.openlocfilehash: 4bec14cd3aa88d885f83142143c7a901ca82057b
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 09/11/2019
-ms.locfileid: "70882396"
+ms.locfileid: "70918200"
 ---
 # <a name="deep-dive---advanced-analytics"></a>Djupgående avancerad analys
 
@@ -33,7 +33,7 @@ När du har skapat, läst in, testat och utvärderat din modell är nästa steg 
 
 Avancerade analys lösningar tillhandahåller en uppsättning Machine Learning-algoritmer. Här är en sammanfattning av olika kategorier av algoritmer och associerade vanliga företags användnings fall.
 
-![Machine Learning användnings fall](./media/apache-hadoop-deep-dive-advanced-analytics/ml-use-cases.png)
+![Machine Learning användnings fall](./media/apache-hadoop-deep-dive-advanced-analytics/machine-learning-use-cases.png)
 
 Tillsammans med att välja de bästa passnings algoritmerna måste du fundera över om du behöver ange data för träning. Machine Learning-algoritmer kategoriseras på följande sätt:
 
@@ -98,7 +98,7 @@ Det finns tre viktiga uppgifter i det här scenariot för avancerad analys:
 
 I det här exemplet används CIFAR-10-bilduppsättningen som kompileras och distribueras av Alex Krizhevsky, Nair och Geoffrey Hinton. CIFAR-10-datauppsättningen innehåller 60 000 32 × 32 färg bilder som tillhör 10 ömsesidigt uteslutande klasser:
 
-![Avbildningar](./media/apache-hadoop-deep-dive-advanced-analytics/ml-images.png)
+![Avbildningar](./media/apache-hadoop-deep-dive-advanced-analytics/machine-learning-images.png)
 
 Mer information om data uppsättningen finns i Alex Krizhevsky s [Learning flera nivåer av funktioner från små bilder](https://www.cs.toronto.edu/~kriz/learning-features-2009-TR.pdf).
 
@@ -111,7 +111,7 @@ Data uppsättningen har partitionerats i en tränings uppsättning på 50 000 av
 
 Hela förbearbetningen/poängen för 10 000-avbildningarna tar mindre än en minut på ett kluster med fyra arbetsnoder. Modellen förutsäger korrekt etiketter på ~ 9 100 (91%) avbildningar. En förvirring mat ris illustrerar de vanligaste klassificerings felen. Matrisen visar till exempel att fel märkning av hundar som katter och vice versa inträffar oftare än för andra etikett par.
 
-![Resultat](./media/apache-hadoop-deep-dive-advanced-analytics/ml-results.png)
+![Resultat](./media/apache-hadoop-deep-dive-advanced-analytics/machine-learning-results.png)
 
 ### <a name="try-it-out"></a>Prova!
 

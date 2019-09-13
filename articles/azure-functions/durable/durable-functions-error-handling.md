@@ -9,20 +9,20 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 7b357189a9ce67f27952985b78dd3134517ffba5
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.openlocfilehash: 5a3cfb78fe97b52abb1406dff64132fc1b3fb985
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70734311"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70933417"
 ---
 # <a name="handling-errors-in-durable-functions-azure-functions"></a>Hantera fel i Durable Functions (Azure Functions)
 
-Varaktiga funktions dirigering implementeras i kod och kan använda fel hanterings funktionerna i programmeringsspråket. Med detta i åtanke är det egentligen inga nya koncept som du behöver lära dig om att införliva fel hantering och kompensation i dina samordningar. Det finns dock några beteenden som du bör vara medveten om.
+Varaktiga funktions dirigering implementeras i kod och kan använda programmeringsspråkets inbyggda fel hanterings funktioner. Det finns egentligen inga nya koncept som du behöver lära dig för att lägga till fel hantering och kompensation till dina dirigeringar. Det finns dock några beteenden som du bör vara medveten om.
 
 ## <a name="errors-in-activity-functions"></a>Fel i aktivitets funktioner
 
-Alla undantag som genereras i en aktivitets funktion ordnas tillbaka till Orchestrator-funktionen och genereras som en `FunctionFailedException`. Du kan skriva fel hantering och kompensations kod som passar dina behov i Orchestrator-funktionen.
+Alla undantag som genereras i en aktivitets funktion konverteras tillbaka till Orchestrator-funktionen och utlöstes som `FunctionFailedException`. Du kan skriva fel hantering och kompensations kod som passar dina behov i Orchestrator-funktionen.
 
 Anta till exempel följande Orchestrator-funktion som överför fonder från ett konto till ett annat:
 
@@ -139,7 +139,7 @@ module.exports = df.orchestrator(function*(context) {
 });
 ```
 
-Om anropet till funktionen **CreditAccount** Miss lyckas för mål kontot kompenserar Orchestrator-funktionen för detta genom att kreditera pengarna tillbaka till käll kontot.
+Om det första funktions anropet för **CreditAccount** Miss lyckas kompenserar Orchestrator-funktionen genom att kreditera pengarna tillbaka till käll kontot.
 
 ## <a name="automatic-retry-on-failure"></a>Automatiskt försök vid fel
 
@@ -192,14 +192,14 @@ module.exports = df.orchestrator(function*(context) {
 
 API: et `callActivityWithRetry` `RetryOptions` (.net) eller (Java Script) tar en parameter. `CallActivityWithRetryAsync` Under Dirigerings anrop med hjälp `CallSubOrchestratorWithRetryAsync` av (.net) `callSubOrchestratorWithRetry` eller (Java Script) API: et kan använda samma principer för återförsök.
 
-Det finns flera alternativ för att anpassa principen för automatiskt återförsök. Dessa inkluderar:
+Det finns flera alternativ för att anpassa principen för automatiskt återförsök:
 
 * **Maximalt antal försök**: Maximalt antal nya försök.
 * **Första återförsöksintervall**: Vänte tiden innan det första försöket.
 * **Backoff-koefficient**: Den koefficient som används för att fastställa frekvensen av ökningen av backoff. Standardvärdet är 1.
 * **Max återförsöksintervall**: Maximal vänte tid för att vänta på mellan återförsök.
 * **Timeout för återförsök**: Maximal tid det tar att spendera nya försök. Standard beteendet är att försöka på obestämd tid.
-* **Referens**: Du kan ange ett användardefinierat motanrop som avgör om ett funktions anrop ska göras eller inte.
+* **Referens**: Du kan ange ett användardefinierat motanrop för att avgöra om en funktion ska göras om.
 
 ## <a name="function-timeouts"></a>Funktions tids gränser
 
@@ -296,6 +296,9 @@ module.exports = df.orchestrator(function*(context) {
 Om en Orchestrator-funktion Miss lyckas med ett ohanterat undantag loggas detaljerna för undantaget och instansen slutförs med en `Failed` status.
 
 ## <a name="next-steps"></a>Nästa steg
+
+> [!div class="nextstepaction"]
+> [Lär dig mer om Eternal-dirigeringar](durable-functions-eternal-orchestrations.md)
 
 > [!div class="nextstepaction"]
 > [Lär dig hur du diagnostiserar problem](durable-functions-diagnostics.md)

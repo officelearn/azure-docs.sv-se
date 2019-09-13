@@ -10,22 +10,22 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 10d76bc1dd52f04cceb9f0952a755c55d90c6896
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 9bb654f37ecc4fda46171e859adac0236b51e4b2
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68562801"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70881493"
 ---
 # <a name="get-started-with-custom-voice"></a>Komma igång med Custom Voice
 
-Anpassad röst är en uppsättning online-verktyg som du kan använda för att skapa en igenkännings bara röst för ditt varumärke. Allt det krävs för att komma igång är en fåtal av ljudfiler och tillhör ande avskrifter. Följ länkarna nedan för att börja skapa en anpassad text till tal-upplevelse.
+[Anpassad röst](https://aka.ms/customvoice) är en uppsättning online-verktyg som du kan använda för att skapa en igenkännings bara röst för ditt varumärke. Allt det krävs för att komma igång är en fåtal av ljudfiler och tillhör ande avskrifter. Följ länkarna nedan för att börja skapa en anpassad text till tal-upplevelse.
 
 ## <a name="whats-in-custom-voice"></a>Vad är en anpassad röst?
 
 Innan du börjar med anpassad röst behöver du ett Azure-konto och en prenumeration på tal tjänster. När du har skapat ett konto kan du förbereda dina data, träna och testa dina modeller, utvärdera röst kvalitet och slutligen distribuera din anpassade röst modell.
 
-Diagrammet nedan visar stegen för att skapa en anpassad röst modell med hjälp av den anpassade röst portalen. Använd länkarna för att lära dig mer.
+Diagrammet nedan visar stegen för att skapa en anpassad röst modell med hjälp av den [anpassade röst portalen](https://aka.ms/customvoice). Använd länkarna för att lära dig mer.
 
 ![Diagram över anpassad röst arkitektur](media/custom-voice/custom-voice-diagram.png)
 

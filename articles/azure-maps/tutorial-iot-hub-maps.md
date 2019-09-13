@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 7c3f72c3ce6acfb63e682b479519dba02a9900eb
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: 618931c3a45fcb25b2a9221ea3f6069e9ff11de5
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70844910"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70933209"
 ---
 # <a name="implement-iot-spatial-analytics-using-azure-maps"></a>Implementera IoT spatial Analytics med hjälp av Azure Maps
 
@@ -104,7 +104,7 @@ För att slutföra stegen i den här självstudien måste du först skapa en res
 
 ### <a name="create-an-azure-maps-account"></a>Skapa ett Azure Maps-konto 
 
-För att kunna implementera affärs logik baserat på Azure Maps spatial analys måste vi skapa ett Azure Maps-konto i resurs gruppen som vi skapade. Följ instruktionerna i [Hantera konto](https://docs.microsoft.com/azure/azure-maps/how-to-manage-account-keys) om du vill skapa en Azure Maps konto prenumeration med pris nivån S1 och se [autentiseringsinformation](https://docs.microsoft.com/azure/azure-maps/how-to-manage-authentication#view-authentication-details) för att lära dig hur du hämtar din prenumerations nyckel.
+För att kunna implementera affärs logik baserat på Azure Maps spatial analys måste vi skapa ett Azure Maps-konto i resurs gruppen som vi skapade. Följ anvisningarna i [Hantera konto](https://docs.microsoft.com/azure/azure-maps/how-to-manage-account-keys#create-a-new-account) om du vill skapa en Azure Maps konto prenumeration med pris nivån S1 och följ stegen i [Hämta primär nyckel](./tutorial-search-location.md#getkey) för att hämta den primära prenumerations nyckeln för ditt konto.
 
 
 ### <a name="create-a-storage-account"></a>skapar ett lagringskonto
@@ -167,7 +167,7 @@ Vi använder [Postman-programmet](https://www.getpostman.com) för att [överfö
     
     Värdet "interjson" mot `dataFormat` parametern i URL-sökvägen representerar formatet för de data som laddas upp.
 
-3. Klicka på **Params** och ange följande nyckel/värde-par som ska användas för POST-begäran-URL. Ersätt värdet för prenumerationsnyckel med din Azure Maps-prenumerationsnyckel.
+3. Klicka på **Params** och ange följande nyckel/värde-par som ska användas för POST-begäran-URL. Ersätt prenumerations nyckel värde med din Azure Maps primära prenumerations nyckel.
    
     ![Key-Value-parametrar för Postman](./media/tutorial-iot-hub-maps/postman-key-vals.png)
 
@@ -224,7 +224,7 @@ Azure Functions är en server lös beräknings tjänst som gör det möjligt fö
 6. Kopiera [c#-koden](https://github.com/Azure-Samples/iothub-to-azure-maps-geofencing/blob/master/src/Azure%20Function/run.csx) till din funktion och klicka på **Spara**.
  
 7. Ersätt följande parametrar i c#-skriptet:
-    * Ersätt **SUBSCRIPTION_KEY** med ditt Azure Maps konto prenumerations nyckel.
+    * Ersätt **SUBSCRIPTION_KEY** med din primära prenumerations nyckel för Azure Maps-kontot.
     * Ersätt **UDID** med UDID för den avgränsning som du laddade upp, 
     * Funktionen **CreateBlobAsync** i skriptet skapar en BLOB per händelse i data lagrings kontot. Ersätt **ACCESS_KEY**, **ACCOUNT_NAME** och **STORAGE_CONTAINER_NAME** med lagrings kontots åtkomst nyckel och konto namn och data lagrings behållare.
 

@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: hrasheed
-ms.openlocfilehash: 608d097f1ebad9e4e1092c7ec54a573ccb58ad81
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.openlocfilehash: 64de4078fb529140859f1d4ff2e973fd081a5400
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70734667"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70916564"
 ---
 # <a name="capacity-planning-for-hdinsight-clusters"></a>Kapacitets planering för HDInsight-kluster
 
@@ -96,9 +96,6 @@ Du debiteras för ett klusters livstid. Om det bara finns vissa gånger som du b
 
 Ibland kan fel uppstå på grund av parallell körningen av flera Maps och minska komponenter i ett kluster med flera noder. För att hjälpa till att isolera problemet kan du testa distribuerade tester genom att köra samtidiga flera jobb på ett enda arbets nods kluster och sedan utöka den här metoden för att köra flera jobb samtidigt i kluster som innehåller mer än en nod. Om du vill skapa ett HDInsight-kluster med en nod i Azure använder du alternativet *Anpassad (storlek, inställningar, appar)* och använder värdet 1 för *antalet arbetsnoder* i **kluster storleken** när du konfigurerar ett nytt kluster i portalen.
 
-Du kan också installera en utvecklings miljö för en nod på den lokala datorn och testa lösningen där. Hortonworks tillhandahåller en lokal utvecklings miljö med en nod för Hadoop-baserade lösningar som är användbar för inledande utveckling, bevis på koncept och testning. Mer information finns i [sandbox för Hortonworks](https://hortonworks.com/products/hortonworks-sandbox/).
-
-För att identifiera problemet på ett lokalt kluster med en nod kan du köra om misslyckade jobb och justera indata eller använda mindre data uppsättningar. Hur du kör dessa jobb beror på plattform och typ av program.
 
 ## <a name="quotas"></a>Kvoter
 

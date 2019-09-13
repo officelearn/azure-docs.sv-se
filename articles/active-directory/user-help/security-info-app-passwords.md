@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 02/13/2018
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d599607da6653d088f53490ea4d4b5f7f6d0f236
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 9638893c707757cb520acdf18e8e89a6cdf13f08
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68382941"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70915979"
 ---
 # <a name="manage-app-passwords-from-your-security-info-preview-page"></a>Hantera applösenord från sidan säkerhets information (förhands granskning)
 
@@ -30,11 +30,9 @@ Vissa appar, till exempel Outlook 2010, stöder inte tvåstegsverifiering. Detta
 
 När du använder applösenord är det viktigt att komma ihåg:
 
-- Applösenord genereras automatiskt och anges bara en gång per app.
+- Applösenord genereras automatiskt och bör skapas och anges en gång per app.
 
 - Det finns en gräns på 40 lösen ord per användare. Om du försöker skapa en efter den gränsen uppmanas du att ta bort ett befintligt lösen ord innan du får skapa det nya.
-
-- Använd ett applösenord per enhet, inte per app. Du kan till exempel skapa ett enda lösen ord för alla appar på din bärbara dator och sedan ett nytt lösen ord för alla appar på Skriv bordet.
 
     >[!Note]
     >Office 2013-klienter (inklusive Outlook) har stöd för nya autentiseringsprotokoll och kan användas med tvåstegsverifiering. Det här stödet innebär att när tvåstegsverifiering har Aktiver ATS behöver du inte längre applösenord för Office 2013-klienter. Mer information finns i artikeln [så här fungerar modern autentisering för office 2013 och office 2016-klient program](https://support.office.com/article/how-modern-authentication-works-for-office-2013-and-office-2016-client-apps-e4c45989-4b1a-462e-a81b-2a13191cf517) .

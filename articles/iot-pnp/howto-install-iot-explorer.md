@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
-ms.openlocfilehash: c7d8b946fc587d58f13e16c1d7d806390e712104
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 4e23a440f46b52633a88d0212e08c7b584f61a38
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69879557"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70932480"
 ---
 # <a name="install-and-use-azure-iot-explorer"></a>Installera och använda Azure IoT Explorer
 
@@ -91,7 +91,7 @@ Det här avsnittet innehåller flikarna **enhets identitet**, **telemetri**och *
 
 ### <a name="digital-twin"></a>Digital, dubbel
 
-Du kan använda verktyget för att visa en digital, delad instans av enheten. För en IoT Plug and Play-enhet visas alla gränssnitt som är kopplade till enhets kapacitets modellen i den här artikeln. Välj ett gränssnitt för att expandera motsvarande [IoT plug and Play](https://github.com/Azure/IoTPlugandPlay/tree/master/DTDL)-primitiver.
+Du kan använda verktyget för att visa en digital, delad instans av enheten. För en IoT Plug and Play-enhet visas alla gränssnitt som är kopplade till enhets kapacitets modellen i den här artikeln. Välj ett gränssnitt för att expandera motsvarande [IoT plug and Play-primitiver](https://github.com/Azure/IoTPlugandPlay/tree/master/DTDL).
 
 #### <a name="properties"></a>properties
 
@@ -120,4 +120,4 @@ Om du vill visa telemetri för det valda gränssnittet går du till sidan **tele
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här instruktions artikeln har du lärt dig hur du installerar och använder Azure IoT Explorer för att interagera med IoT Plug and Play-enheter. Ett förslag till nästa steg är att lära dig hur du [hanterar modeller](./howto-manage-models.md).
+I den här instruktions artikeln har du lärt dig hur du installerar och använder Azure IoT Explorer för att interagera med IoT Plug and Play-enheter. Ett förslag till nästa steg är att lära dig hur du [installerar och använder Azure CLI-tillägg](./howto-install-pnp-cli.md).

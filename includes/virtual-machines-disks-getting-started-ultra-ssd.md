@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/15/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: db8147717e825d9cc48b7f0704dc5eea0be223a9
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.openlocfilehash: 3f910a3d0466153bd60fe23ef2f9f656cac292ee
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69510318"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70919749"
 ---
 # <a name="using-azure-ultra-disks"></a>Använda Azure Ultra disks
 
@@ -42,7 +42,7 @@ Om din prenumeration är aktive rad bör utdata se ut ungefär så här:
 
 ## <a name="determine-your-availability-zone"></a>Fastställ din tillgänglighets zon
 
-När du har godkänt måste du bestämma vilken tillgänglighets zon du befinner dig i, för att kunna använda Ultra disks. Kör något av följande kommandon för att avgöra vilken zon som ska användas för att distribuera Ultra disk till, se tillatt ersätta regions-, **vmSize**-och **prenumerations** värden först:
+När du har godkänt måste du bestämma vilken tillgänglighets zon du befinner dig i, för att kunna använda Ultra disks. Kör något av följande kommandon för att avgöra vilken zon som ska användas för att distribuera Ultra disk till, se till att ersätta **regions**-, **vmSize**-och **prenumerations** värden först:
 
 CLI
 
@@ -64,7 +64,7 @@ $vmSize = "Standard_E64s_v3"
 
 Svaret liknar det formulär som visas nedan, där X är den zon som ska användas för att distribuera i den valda regionen. X kan vara antingen 1, 2 eller 3. För närvarande stöder endast tre regioner Ultra disks: USA, östra 2, Sydostasien och Europa, norra.
 
-Behåll zonens värde, det motsvarar din tillgänglighets zon och du behöver den för att kunna distribuera en Ultra-disk.
+Behåll **zonens värde,** det motsvarar din tillgänglighets zon och du behöver den för att kunna distribuera en Ultra-disk.
 
 |Resurstyp  |Name  |Location  |Zoner  |Begränsning  |Funktion  |Value  |
 |---------|---------|---------|---------|---------|---------|---------|
@@ -79,7 +79,7 @@ Nu när du vet vilken zon du ska distribuera till, följer du distributions steg
 
 Ta först reda på vilken VM-storlek som ska distribueras. För närvarande stöder endast DsV3 och EsV3 VM-familjer Ultra disks. Se den andra tabellen i den här [bloggen](https://azure.microsoft.com/blog/introducing-the-new-dv3-and-ev3-vm-sizes/) om du vill ha mer information om de här VM-storlekarna.
 
-Om du vill skapa en virtuell dator med flera Ultra disks, se exemplet [skapa en virtuell dator med flera Ultra-diskar](https://aka.ms/UltraSSDTemplate).
+Om du vill skapa en virtuell dator med flera Ultra disks, se exemplet [skapa en virtuell dator med flera Ultra-diskar](https://aka.ms/ultradiskArmTemplate).
 
 Om du avser att använda din egen mall kontrollerar du att **API version** `Microsoft.Compute/virtualMachines` för och `Microsoft.Compute/Disks` har angetts som `2018-06-01` (eller senare).
 

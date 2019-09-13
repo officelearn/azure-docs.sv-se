@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 08/07/2019
 ms.author: snehaa
-ms.openlocfilehash: 46c6ac52e1afb6c1619b814580a1059fd3dfedda
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: ec4cb58692cd98a799f1dc58f60b11a0552829c8
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70279506"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70934924"
 ---
 # <a name="azure-migrate-frequently-asked-questions-faq"></a>Azure Migrate: Vanliga frågor och svar (FAQ)
 
@@ -26,6 +26,37 @@ Se [listan för VMware](https://docs.microsoft.com/azure/migrate/migrate-support
 ### <a name="whats-the-difference-between-azure-migrate-and-azure-site-recovery"></a>Vad är skillnaden mellan Azure Migrate och Azure Site Recovery?
 
 Azure Migrate tillhandahåller en central hubb för att starta migreringen, köra och spåra identifiering och utvärdering av datorer och arbets belastningar, samt utföra och spåra migrering av datorer och arbets belastningar till Azure. [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/migrate-tutorial-on-premises-azure) är en katastrof återställnings lösning. Azure Migrate Server-migreringen använder Azure Site Recovery på Server delen för att aktivera migrering för att migrera lokala datorer.
+
+### <a name="how-do-i-delete-an-azure-migrate-project"></a>Hur gör jag för att ta bort ett Azure Migrate-projekt
+
+Om du vill ta bort ett Azure Migrate-projekt och dess associerade resurser, inklusive platser, Recovery Services-valv, migrera valv, nyckel valv, bedömnings projekt, gå till sidan "resurs grupper" på Azure Portal väljer du den resurs grupp där det migrerade projektet har skapats och valt Visa dolda typer. Välj sedan migrera projektet och dess tillhör ande resurser nedan och ta bort dem. Om resurs gruppen uteslutande används av det migrerande projektet och dess associerade resurser kan du ta bort hela resurs gruppen. Observera att den här listan är en fullständig lista över alla resurs typer som skapats för alla scenarier (identifiering, utvärdering och migrering). Du kommer bara att hitta de resurser som har skapats för ditt scenario i resurs gruppen.
+
+#### <a name="resources-created-for-discovered-assessed-or-migrated-servers-on-vmware-or-physical-servers-resource-type"></a>Resurser som skapats för identifierade, utvärderade eller migrerade servrar på VMware eller fysiska servrar [resurs (typ)]:
+
+- "Appliancename" KV (Key Vault)
+- "Appliancename"-webbplats (Microsoft. OffAzure/VMwareSites)
+- "ProjectName" (Microsoft. Migrate/migrateprojects)
+- "ProjectName"-projekt (Microsoft. Migrate/assessmentProjects)
+- "ProjectName" rsvault (Recovery Services Vault)
+- "ProjectName"-MigrateVault-* (Recovery Services valv)
+- migrateappligwsa * (lagrings konto)
+- migrateapplilsa * (lagrings konto)
+- migrateapplicsa * (lagrings konto)
+- migrateapplikv * (Key Vault)
+- migrateapplisbns16041 (Service Bus namnrymd)
+
+Obs! Ta bort lagrings konton och nyckel valv med försiktighet eftersom de kan innehålla program data och säkerhets nycklar.
+
+#### <a name="resources-created-for-discovered-assessed-or-migrated-servers-on-hyper-v-resource-type"></a>Resurser som skapats för identifierade, utvärderade eller migrerade servrar på Hyper-V [resurs (typ)]:
+
+- "ProjectName" (Microsoft. Migrate/migrateprojects)
+- "ProjectName"-projekt (Microsoft. Migrate/assessmentProjects)
+- HyperV * KV (Key Vault)
+- HyperV *-webbplats (Microsoft. OffAzure/HyperVSites)
+- "ProjectName"-MigrateVault-* (Recovery Services valv) 
+
+Obs! Ta bort nyckel valvet med försiktighet eftersom det kan innehålla säkerhets nycklar.
+
 
 ## <a name="azure-migrate-appliance"></a>Azure Migrate-installation
 

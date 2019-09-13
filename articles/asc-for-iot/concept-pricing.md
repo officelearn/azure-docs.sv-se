@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/26/2019
 ms.author: mlottner
-ms.openlocfilehash: 603df1def011232ad2120c37ad1ba256f2a30526
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: e742848df56e4e2be1b9edf42586e642f0c938cb
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68596512"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70933793"
 ---
 # <a name="pricing-and-associated-costs"></a>Prissättning och associerade kostnader
 
@@ -66,9 +66,10 @@ Följande tabell innehåller en sammanfattning av de associerade kostnaderna och
 | **Log Analytics lagring** |  |
 | Enhets rekommendation och aviseringar| Säkerhets rekommendationer och aviseringar som genererats av tjänsten | Inte valfritt |
 | Rå säkerhets data| Rå säkerhets data från IoT-enheter som samlas in av säkerhets agenter | Inaktivera _säkerhets händelser för lagring av rå enheter_ |
+|
 
 >[!Important]
-> Väljer out har allvarliga konsekvenser för tillgängliga säkerhetsfunktioner.
+> Väljer out har allvarliga följder för att Azure Security Center för tillgänglighet för IoT-säkerhetsfunktioner. 
   
 | Avanmäl | Effekter |
 | --- | --- |

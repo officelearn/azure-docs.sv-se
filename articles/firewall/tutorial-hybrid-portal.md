@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 08/29/2019
 ms.author: victorh
 customer intent: As an administrator, I want to control network access from an on-premises network to an Azure virtual network.
-ms.openlocfilehash: f7dce448b01c211441fd1e0fd530ff6ad062c303
-ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
+ms.openlocfilehash: 08c1a8940bedb1093f618c8de53abc78f81c10dd
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70114878"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70918792"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-in-a-hybrid-network-using-the-azure-portal"></a>Självstudier: Distribuera och konfigurera Azure-brandväggen i ett hybrid nätverk med hjälp av Azure Portal
 
@@ -102,7 +102,7 @@ Skapa nu VNet:
 4. För **namn**skriver du **VNet-eker**.
 5. Skriv **10.6.0.0/16**för **adress utrymme**.
 6. I fältet **Prenumeration** väljer du din prenumeration.
-7. För **resurs grupp**väljer du **test-VB-RG**.
+7. För **resurs grupp**väljer du **VB-hybrid-test**.
 8. Välj samma plats som tidigare i fältet **Plats**.
 9. Under **Undernät**, i fältet **Namn** anger du **SN-Workload**.
 10. För **adress intervall**skriver du **10.6.0.0/24**.
@@ -276,7 +276,7 @@ Efter ungefär fem minuter bör statusen för båda anslutningarna vara **anslut
 Peera nu de virtuella hubb- och ekernätverken.
 
 1. Öppna resurs gruppen **VB-hybrid-test** och välj det virtuella nätverk för **VNet-hubb** .
-2. Välj peering i den vänstrakolumnen.
+2. Välj **peering**i den vänstra kolumnen.
 3. Välj **Lägg till**.
 4. I **namn**skriver du **HubtoSpoke**.
 5. För det **virtuella nätverket**väljer du **VNet-eker**
@@ -289,7 +289,7 @@ Peera nu de virtuella hubb- och ekernätverken.
 Du måste aktivera den **Tillåt vidarebefordrade trafiken** på SpoketoHub-peering.
 
 1. Öppna resurs gruppen **VB-hybrid-test** och välj det virtuella nätverket för **VNet-ekrar** .
-2. Välj peering i den vänstrakolumnen.
+2. Välj **peering**i den vänstra kolumnen.
 3. Välj **SpoketoHub** -peering.
 4. Under **Tillåt vidarebefordrad trafik från VNet-hubb till VNet-eker**väljer du **aktive rad**.
 5. Välj **Spara**.
@@ -336,7 +336,7 @@ Skapa nu standard vägen från eker-undernätet.
 6. Skriv **UDR-GD**som namn.
 7. Välj mappen **VB-hybrid-test** för resurs gruppen.
 8. Välj samma plats som tidigare i fältet **Plats**.
-4. För **väg spridning för virtuell nätverksgateway**väljer du inaktive **rad**.
+4. För **väg spridning för virtuell nätverksgateway**väljer du **inaktive rad**.
 1. Välj **Skapa**.
 2. När du har skapat routningstabellen väljer du den för att öppna sidan väg tabell.
 3. Välj **vägar** i den vänstra kolumnen.

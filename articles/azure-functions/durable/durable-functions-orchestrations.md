@@ -1,0 +1,288 @@
+---
+title: Varaktiga Orchestrationer – Azure Functions
+description: Introduktion till Orchestration-funktionen för Azure Durable Functions.
+services: functions
+author: cgillum
+manager: jeconnoc
+keywords: ''
+ms.service: azure-functions
+ms.topic: overview
+ms.date: 09/08/2019
+ms.author: azfuncdf
+ms.openlocfilehash: 82c4a27ac2491e668c1d99e2a14b870e82ec5665
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70935861"
+---
+# <a name="durable-orchestrations"></a>Varaktiga dirigeringar
+
+Durable Functions är en utökning av [Azure Functions](../functions-overview.md). Du kan använda en *Orchestrator-funktion* för att dirigera körningen av andra varaktiga funktioner i en Function-app. Orchestrator-funktioner har följande egenskaper:
+
+* Orchestrator Functions definierar funktions arbets flöden med procedur koden. Inga deklarativ scheman eller designers behövs.
+* Orchestrator-funktioner kan anropa andra varaktiga funktioner synkront och asynkront. Utdata från anropade funktioner kan sparas på ett tillförlitligt sätt till lokala variabler.
+* Orchestrator-funktioner är tåliga och tillförlitliga. Körnings förloppet markeras automatiskt när funktionen "väntar" eller "ger". Det lokala tillståndet förloras aldrig när processen återanvänds eller den virtuella datorn startas om.
+* Orchestrator-funktioner kan vara tids krävande. Den totala livs längd för en *Dirigerings instans* kan vara sekunder, dagar, månader eller aldrig slut.
+
+Den här artikeln ger en översikt över Orchestrator-funktionerna och hur de kan hjälpa dig att lösa olika utmaningar med att utveckla appar. Om du inte redan är bekant med de typer av funktioner som är tillgängliga i en Durable Functions app kan du läsa artikeln [varaktiga funktions typer](durable-functions-types-features-overview.md) först.
+
+## <a name="orchestration-identity"></a>Orchestration-identitet
+
+Varje *instans* av en dirigering har en instans identifierare (kallas även ett *instans-ID*). Som standard är varje instans-ID ett automatiskt genererat GUID. Instans-ID: n kan dock också vara valfritt sträng värde som skapats av användare. Varje Dirigerings instans-ID måste vara unikt inom en [aktivitets nav](durable-functions-task-hubs.md).
+
+Följande är några regler om instans-ID: n:
+
+* Instans-ID: n måste vara mellan 1 och 256 tecken.
+* Instans-ID: n får `@`inte börja med.
+* `/`Instans- `\`ID: n får inte innehålla tecknen `?` ,, `#`eller.
+* Instans-ID: n får inte innehålla kontroll tecken.
+
+> [!NOTE]
+> Vi rekommenderar vanligt vis att använda automatiskt genererade instans-ID när det är möjligt. Användardefinierade instans-ID: n är avsedda för scenarier där det finns en en-till-en-mappning mellan en Dirigerings instans och en extern programspecifik entitet, t. ex. en inköps order eller ett dokument.
+
+En Dirigerings instans-ID är en obligatorisk parameter för de flesta [instans hanterings åtgärder](durable-functions-instance-management.md). De är också viktiga för diagnostik, som att [söka igenom Orchestration-spårnings data](durable-functions-diagnostics.md#application-insights) i Application Insights för fel sökning eller analys. Därför rekommenderar vi att du sparar genererade instans-ID: n till en extern plats (till exempel en databas eller i program loggar) där de lätt kan refereras senare.
+
+## <a name="reliability"></a>Tillförlitlighet
+
+Orchestrator-funktioner upprätthåller sin körnings status på ett tillförlitligt sätt med hjälp av design mönstret för [händelse källor](https://docs.microsoft.com/azure/architecture/patterns/event-sourcing) . I stället för att direkt lagra det aktuella läget för en dirigering använder det varaktiga aktivitets ramverket en skrivskyddad lagrings plats för att registrera en fullständig serie åtgärder som funktionen dirigerar. En skrivskyddad lagrings plats har många fördelar jämfört med "dumpning", fullständig körnings status. Fördelarna är ökad prestanda, skalbarhet och svars tider. Du får också eventuell konsekvens för transaktions data och fullständig gransknings historik och historik. Gransknings historiken har stöd för pålitliga kompenserande åtgärder.
+
+Durable Functions använder händelse källa transparent. I bakgrunden, `await` ger operatornC#() `yield` eller (Java Script) i en Orchestrator-funktion kontrollen av Orchestrator-tråden tillbaka till den varaktiga aktivitets Ramverks hanteraren. Dispatchern genomför sedan alla nya åtgärder som Orchestrator-funktionen schemalägger (till exempel anropa en eller flera underordnade funktioner eller schemalägga en varaktig timer) till lagringen. Åtgärden för att utföra transparent tillägg i körnings historiken för Orchestration-instansen. Historiken lagras i en lagrings tabell. Inchecknings åtgärden lägger sedan till meddelanden i en kö för att schemalägga det faktiska arbetet. I det här läget kan Orchestrator-funktionen tas bort från minnet.
+
+När en Orchestration-funktion får mer arbete (till exempel om ett svarsmeddelande tas emot eller om en varaktig timer upphör att gälla), aktiverar Orchestrator och kör om hela funktionen från början för att återskapa det lokala läget. Om koden försöker anropa en funktion (eller något annat asynkront arbete) under uppspelningen kan du se körnings historiken för den aktuella dirigeringen. Om den finner att [aktivitets funktionen](durable-functions-types-features-overview.md#activity-functions) redan har körts och ger ett resultat spelas den upp i resultatet och Orchestrator-koden fortsätter att köras. Repetitionen fortsätter tills funktions koden är avslutad eller tills den har schemalagt nytt asynkront arbete.
+
+> [!NOTE]
+> För att uppspelnings mönstret ska fungera korrekt och tillförlitligt måste Orchestrator-funktions koden vara *deterministisk*. Mer information om kod begränsningar för Orchestrator Functions finns i artikeln om [begränsningar för Orchestrator-funktions kod](durable-functions-code-constraints.md) .
+
+> [!NOTE]
+> Om en Orchestrator-funktion genererar logg meddelanden kan uppspelnings beteendet orsaka att dubbla logg meddelanden genereras. I avsnittet om [loggning](durable-functions-diagnostics.md#logging) kan du läsa mer om varför det här problemet uppstår och hur du kan kringgå det.
+
+## <a name="orchestration-history"></a>Orchestration-historik
+
+Beteendet för händelse-källa i det ständiga aktivitets ramverket är nära kopplad till den Orchestrator-funktions kod som du skriver. Anta att du har en funktion för aktivitets länkning i Orchestrator, som följande C# Orchestrator-funktion:
+
+```csharp
+[FunctionName("E1_HelloSequence")]
+public static async Task<List<string>> Run(
+    [OrchestrationTrigger] DurableOrchestrationContext context)
+{
+    var outputs = new List<string>();
+
+    outputs.Add(await context.CallActivityAsync<string>("E1_SayHello", "Tokyo"));
+    outputs.Add(await context.CallActivityAsync<string>("E1_SayHello", "Seattle"));
+    outputs.Add(await context.CallActivityAsync<string>("E1_SayHello", "London"));
+
+    // returns ["Hello Tokyo!", "Hello Seattle!", "Hello London!"]
+    return outputs;
+}
+```
+
+Om du kodar i Java Script kan Orchestrator-funktionen för aktivitets länkning se ut som i följande exempel kod:
+
+```javascript
+const df = require("durable-functions");
+
+module.exports = df.orchestrator(function*(context) {
+    const output = [];
+    output.push(yield context.df.callActivity("E1_SayHello", "Tokyo"));
+    output.push(yield context.df.callActivity("E1_SayHello", "Seattle"));
+    output.push(yield context.df.callActivity("E1_SayHello", "London"));
+
+    // returns ["Hello Tokyo!", "Hello Seattle!", "Hello London!"]
+    return output;
+});
+```
+
+I varje `await` (C#)- `yield` eller (JavaScript)-instruktion, Checkpoint The varaktig Task Framework körnings status för funktionen i en viss varaktig lagrings Server del (vanligt vis Azure Table Storage). Det här är det tillstånd som kallas för *Orchestration-historiken*.
+
+### <a name="history-table"></a>Historik tabell
+
+I allmänhet är det ständiga aktivitets ramverket följande vid varje kontroll punkt:
+
+1. Sparar körnings historik i Azure Storage tabeller.
+2. Köa meddelanden för funktioner som Orchestrator vill anropa.
+3. Köa meddelanden för själva &mdash; Orchestrator till exempel meddelanden med varaktig timer.
+
+När kontroll punkten har slutförts är Orchestrator-funktionen kostnads fri att tas bort från minnet tills det finns mer arbete att göra.
+
+> [!NOTE]
+> Azure Storage tillhandahåller inte några transaktions garantier mellan att spara data i tabell lagring och köer. För att hantera fel använder Durable Functions lagringsprovider de *slutliga konsekvens* mönstren. Dessa mönster ser till att inga data går förlorade om anslutningen bryts eller bryts i mitten av en kontroll punkt.
+
+Vid slut för ande ser historiken för funktionen som visas tidigare ut ungefär så här: följande tabell i Azure Table Storage (förkortat för illustration):
+
+| PartitionKey (InstanceId)                     | Händelsetyp             | Timestamp               | Indata | Name             | Resultat                                                    | State |
+|----------------------------------|-----------------------|----------|--------------------------|-------|------------------|-----------------------------------------------------------|
+| eaee885b | OrchestratorStarted   | 2017-05-05T18:45:32.362Z |       |                  |                                                           |                     |
+| eaee885b | ExecutionStarted      | 2017-05-05T18:45:28.852 Z | null  | E1_HelloSequence |                                                           |                     |
+| eaee885b | TaskScheduled         | 2017-05-05T18:45:32.670 Z |       | E1_SayHello      |                                                           |                     |
+| eaee885b | OrchestratorCompleted | 2017-05-05T18:45:32.670 Z |       |                  |                                                           |                     |
+| eaee885b | OrchestratorStarted   | 2017-05-05T18:45:34.232Z |       |                  |                                                           |                     |
+| eaee885b | TaskCompleted         | 2017-05-05T18:45:34.201Z |       |                  | """Hello Tokyo!"""                                        |                     |
+| eaee885b | TaskScheduled         | 2017-05-05T18:45:34.435Z |       | E1_SayHello      |                                                           |                     |
+| eaee885b | OrchestratorCompleted | 2017-05-05T18:45:34.435Z |       |                  |                                                           |                     |
+| eaee885b | OrchestratorStarted   | 2017-05-05T18:45:34.857Z |       |                  |                                                           |                     |
+| eaee885b | TaskCompleted         | 2017-05-05T18:45:34.763Z |       |                  | """Hello Seattle!"""                                      |                     |
+| eaee885b | TaskScheduled         | 2017-05-05T18:45:34.857Z |       | E1_SayHello      |                                                           |                     |
+| eaee885b | OrchestratorCompleted | 2017-05-05T18:45:34.857Z |       |                  |                                                           |                     |
+| eaee885b | OrchestratorStarted   | 2017-05-05T18:45:35.032Z |       |                  |                                                           |                     |
+| eaee885b | TaskCompleted         | 2017-05-05T18:45:34.919Z |       |                  | """Hello London!"""                                       |                     |
+| eaee885b | ExecutionCompleted    | 2017-05-05T18:45:35.044Z |       |                  | "[""Hello Tokyo!"",""Hello Seattle!"",""Hello London!""]" | Slutfört           |
+| eaee885b | OrchestratorCompleted | 2017-05-05T18:45:35.044Z |       |                  |                                                           |                     |
+
+Några anmärkningar om kolumn värden:
+
+* **PartitionKey**: Innehåller dirigeringens instans-ID.
+* **EventType**: Representerar händelsens typ. Kan vara en av följande typer:
+  * **OrchestrationStarted**: Orchestrator-funktionen återupptogs från en await eller körs för första gången. Kolumnen används för att fylla på det deterministiska värdet för CurrentUtcDateTime-API: et. [](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CurrentUtcDateTime) `Timestamp`
+  * **ExecutionStarted**: Orchestrator-funktionen startade körning för första gången. Den här händelsen innehåller också funktions ingången `Input` i kolumnen.
+  * **TaskScheduled**: En aktivitets funktion har schemalagts. Namnet på aktivitets funktionen samlas in i `Name` kolumnen.
+  * **TaskCompleted**: En aktivitets funktion har slutförts. Resultatet av funktionen finns i `Result` kolumnen.
+  * **TimerCreated**: En varaktig timer skapades. `FireAt` Kolumnen innehåller den schemalagda UTC-tid då timern upphör att gälla.
+  * **TimerFired**: En varaktig timer har utlösts.
+  * **Händelse aktive rad**: En extern händelse skickades till Orchestration-instansen. Kolumnen samlar in namnet på händelsen `Input` och kolumnen fångar in händelsens nytto Last. `Name`
+  * **OrchestratorCompleted**: Orchestrator-funktionen förväntades.
+  * **ContinueAsNew**: Orchestrator-funktionen har slutförts och startats om automatiskt med det nya läget. `Result` Kolumnen innehåller värdet, som används som indatamängden i den omstartade instansen.
+  * **ExecutionCompleted**: Orchestrator-funktionen kördes (eller misslyckades). Utdata från funktionen eller fel informationen lagras i `Result` kolumnen.
+* **Tidsstämpel**: UTC-tidsstämpeln för historik händelsen.
+* **Namn på**: Namnet på den funktion som anropades.
+* **Inmatade**: Den JSON-formaterade indatamängden för funktionen.
+* **Resultat**: Resultatet av funktionen. det vill säga dess retur värde.
+
+> [!WARNING]
+> Även om det är användbart som ett fel söknings verktyg ska du inte göra något beroende av den här tabellen. Den kan ändras när Durable Functions tillägget utvecklas.
+
+Varje gång funktionen återupptas från en `await` (C#) eller `yield` (Java Script), kör det ständiga aktivitets ramverket om Orchestrator-funktionen från grunden. Vid varje omkörning kontaktas körnings historiken för att avgöra om den aktuella asynkrona åtgärden har ägt rum.  Om åtgärden utfördes, spelar ramverket om resultatet av åtgärden direkt och fortsätter med nästa `await` (C#) eller `yield` (Java Script). Den här processen fortsätter tills hela historiken har spelats upp. När den aktuella historiken har spelats upp, kommer de lokala variablerna att återställas till sina tidigare värden.
+
+## <a name="features-and-patterns"></a>Funktioner och mönster
+
+I nästa avsnitt beskrivs funktionerna och mönstren i Orchestrator functions.
+
+### <a name="sub-orchestrations"></a>Sub-orkestreringar
+
+Orchestrator-funktioner kan anropa aktivitets funktioner, men även andra Orchestrator-funktioner. Du kan till exempel bygga ett större dirigering från ett bibliotek med Orchestrator-funktioner. Du kan också köra flera instanser av en Orchestrator-funktion parallellt.
+
+Mer information och exempel finns i artikeln [underordnad](durable-functions-sub-orchestrations.md) .
+
+### <a name="durable-timers"></a>Varaktiga timers
+
+Orchestration kan schemalägga *varaktiga timers* för att implementera fördröjningar eller konfigurera tids gräns hantering för asynkrona åtgärder. Använd varaktiga timers i Orchestrator-funktioner `Thread.Sleep` i `Task.Delay` ställetC#för och `setTimeout()` ( `setInterval()` ) eller och (Java Script).
+
+Mer information och exempel finns i artikeln [varaktiga timers](durable-functions-timers.md) .
+
+### <a name="external-events"></a>Externa händelser
+
+Orchestrator-funktioner kan vänta på att externa händelser uppdaterar en Orchestration-instans. Den här Durable Functions funktionen är ofta användbar för att hantera en mänsklig interaktion eller andra externa återanrop.
+
+Mer information och exempel finns i artikeln [externa händelser](durable-functions-external-events.md) .
+
+### <a name="error-handling"></a>Felhantering
+
+Orchestrator-funktioner kan använda fel hanterings funktionerna i programmeringsspråket. Befintliga mönster som `try` /stödsiOrchestration -kod`catch` .
+
+Orchestrator-funktioner kan också lägga till principer för återförsök för de aktiviteter eller under-Orchestrator-funktioner som de anropar. Om en aktivitet eller en underordnad Orchestrator-funktion Miss lyckas med ett undantag, kan den angivna återförsöks principen automatiskt fördröja och försöka köra igen till ett visst antal gånger.
+
+> [!NOTE]
+> Om det finns ett ohanterat undantag i en Orchestrator-funktion, kommer Orchestration-instansen att slutföras i ett `Failed` tillstånd. Det går inte att göra ett nytt Dirigerings instans försök när det har misslyckats.
+
+Mer information och exempel finns i artikeln [fel hantering](durable-functions-error-handling.md) .
+
+### <a name="critical-sections"></a>Kritiska avsnitt
+
+Orchestration-instanser är entrådade, så det är inte nödvändigt att bekymra dig om tävlings villkor *i* ett Orchestration. Dock är det möjligt att dirigera villkor när dirigeringar interagerar med externa system. För att minska tävlings förhållandena när du interagerar med externa system kan Orchestrator-funktioner definiera `LockAsync` *kritiska avsnitt* med hjälp av en metod i .net.
+
+Följande exempel kod visar en Orchestrator-funktion som definierar ett kritiskt avsnitt. Den anger det kritiska avsnittet med hjälp `LockAsync` av metoden. Den här metoden kräver att en eller flera referenser till en [varaktig entitet](durable-functions-entities.md)skickas, vilket varaktigt hanterar lås status. Endast en enda instans av den här dirigeringen kan köra koden i det kritiska avsnittet i taget.
+
+```csharp
+[FunctionName("Synchronize")]
+public static async Task Synchronize(
+    [OrchestrationTrigger] IDurableOrchestrationContext context)
+{
+    var lockId = new EntityId("LockEntity", "MyLockIdentifier");
+    using (await context.LockAsync(lockId))
+    {
+        // critical section - only one orchestration can enter at a time
+    }
+}
+```
+
+Erhåller det varaktiga låset (s) och returnerar ett `IDisposable` som avslutar det kritiska avsnittet när det tas bort. `LockAsync` Det `IDisposable` här resultatet kan användas tillsammans med ett `using` block för att få en syntaktisk representation av det kritiska avsnittet. När en Orchestrator-funktion anger ett kritiskt avsnitt, kan endast en instans köra det här blocket. Andra instanser som försöker att ange det kritiska avsnittet kommer att blockeras tills den föregående instansen avslutar det kritiska avsnittet.
+
+Funktionen kritiskt avsnitt är också användbar för samordning av ändringar i varaktiga entiteter. Mer information om viktiga avsnitt finns i avsnittet [beständiga entiteter "entity Coordination"](durable-functions-entities.md#entity-coordination) .
+
+> [!NOTE]
+> Kritiska avsnitt är tillgängliga i Durable Functions 2,0 och senare. För närvarande implementerar endast .NET-dirigeringar den här funktionen.
+
+### <a name="calling-http-endpoints"></a>Anropar HTTP-slutpunkter
+
+Orchestrator-funktioner tillåts inte i/O, enligt beskrivningen i [Orchestrator-funktionens kod begränsningar](durable-functions-code-constraints.md). Den typiska lösningen för den här begränsningen är att omsluta all kod som behöver göra I/O i en aktivitets funktion. Dirigering som interagerar med externa system använder ofta aktivitets funktioner för att göra HTTP-anrop och returnera resultatet till dirigeringen.
+
+För att förenkla detta vanliga mönster kan Orchestrator-funktioner använda `CallHttpAsync` metoden i .net för att anropa http-API: er direkt. Förutom stöd för grundläggande fråge-/svars mönster `CallHttpAsync` , stöder automatisk hantering av vanliga asynkrona http 202-avsöknings mönster och stöder även autentisering med externa tjänster med [hanterade identiteter](../../active-directory/managed-identities-azure-resources/overview.md).
+
+```csharp
+[FunctionName("CheckSiteAvailable")]
+public static async Task CheckSiteAvailable(
+    [OrchestrationTrigger] IDurableOrchestrationContext context)
+{
+    Uri url = context.GetInput<Uri>();
+
+    // Makes an HTTP GET request to the specified endpoint
+    DurableHttpResponse response = 
+        await context.CallHttpAsync(HttpMethod.Get, url);
+
+    if (response.StatusCode >= 400)
+    {
+        // handling of error codes goes here
+    }
+}
+```
+
+Mer information och detaljerade exempel finns i artikeln om [http-funktioner](durable-functions-http-features.md) .
+
+> [!NOTE]
+> Anrop av HTTP-slutpunkter direkt från Orchestrator-funktioner är tillgängligt i Durable Functions 2,0 och senare. För närvarande implementerar endast .NET-dirigeringar den här funktionen.
+
+### <a name="passing-multiple-parameters"></a>Skicka flera parametrar
+
+Det går inte att skicka flera parametrar till en aktivitets funktion direkt. Rekommendationen är att skicka i en matris med objekt eller att använda [ValueTuples](https://docs.microsoft.com/dotnet/csharp/tuples) -objekt i .net.
+
+Följande exempel använder nya funktioner i [ValueTuples](https://docs.microsoft.com/dotnet/csharp/tuples) som lagts till med [ C# 7](https://docs.microsoft.com/dotnet/csharp/whats-new/csharp-7#tuples):
+
+```csharp
+[FunctionName("GetCourseRecommendations")]
+public static async Task<object> RunOrchestrator(
+    [OrchestrationTrigger] DurableOrchestrationContext context)
+{
+    string major = "ComputerScience";
+    int universityYear = context.GetInput<int>();
+
+    object courseRecommendations = await context.CallActivityAsync<object>(
+        "CourseRecommendations",
+        (major, universityYear));
+    return courseRecommendations;
+}
+
+[FunctionName("CourseRecommendations")]
+public static async Task<object> Mapper([ActivityTrigger] DurableActivityContext inputs)
+{
+    // parse input for student's major and year in university
+    (string Major, int UniversityYear) studentInfo = inputs.GetInput<(string, int)>();
+
+    // retrieve and return course recommendations by major and university year
+    return new
+    {
+        major = studentInfo.Major,
+        universityYear = studentInfo.UniversityYear,
+        recommendedCourses = new []
+        {
+            "Introduction to .NET Programming",
+            "Introduction to Linux",
+            "Becoming an Entrepreneur"
+        }
+    };
+}
+```
+
+## <a name="next-steps"></a>Nästa steg
+
+> [!div class="nextstepaction"]
+> [Begränsningar för Orchestrator-kod](durable-functions-code-constraints.md)

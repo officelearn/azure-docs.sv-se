@@ -1,5 +1,5 @@
 ---
-title: Snabbstart – Konfigurera inloggning för en ensidesapp med Azure Active Directory B2C | Microsoft Docs
+title: Snabb start – konfigurera inloggning för en app med en enda sida med hjälp av Azure Active Directory B2C
 description: Kör ett ensidesprogram som använder Azure Active Directory B2C för användarinloggningen.
 services: active-directory-b2c
 author: mmacy
@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: quickstart
-ms.date: 10/24/2018
+ms.date: 09/12/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 47df2cbdf0b083cf672353471d1ef51e03507475
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: 353cbae59a26f6e1efd566b99a04318321740590
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67835339"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70914437"
 ---
 # <a name="quickstart-set-up-sign-in-for-a-single-page-app-using-azure-active-directory-b2c"></a>Snabbstart: Konfigurera inloggning för en ensidesapp med hjälp av Azure Active Directory B2C
 
@@ -25,9 +25,9 @@ Azure Active Directory (AD Azure) B2C tillhandahåller identitetshantering i mol
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-- [Visual Studio-2019](https://www.visualstudio.com/downloads/) med den **ASP.NET och webbutveckling** arbetsbelastning.
+- [Visual Studio 2019](https://www.visualstudio.com/downloads/) med arbets belastningen **ASP.net och webb utveckling** .
 - Installera [Node.js](https://nodejs.org/en/download/)
-- Ett konto från ett socialt medium, till exempel Facebook, Google, Microsoft eller Twitter.
+- Ett socialt konto från Facebook, Google eller Microsoft.
 - [Ladda ned en zip-fil](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp/archive/master.zip) eller klona exempelwebbappen från GitHub.
 
     ```
@@ -56,15 +56,15 @@ Azure Active Directory (AD Azure) B2C tillhandahåller identitetshantering i mol
 
 1. Klicka på **Inloggning** för att starta arbetsflödet.
 
-    ![Ensidesapplikation exempelappen visas i webbläsare](media/active-directory-b2c-quickstarts-spa/sample-app-spa.png)
+    ![Exempel program för en enda sida som visas i webbläsare](media/active-directory-b2c-quickstarts-spa/sample-app-spa.png)
 
-    Exemplet stöder flera registreringsalternativ, till exempel att använda en social identitetsprovider eller att skapa ett lokalt konto med en e-postadress. För den här snabbstarten använder du ett konto från ett socialt medium, till exempel Facebook, Google, Microsoft eller Twitter.
+    Exemplet stöder flera registreringsalternativ, till exempel att använda en social identitetsprovider eller att skapa ett lokalt konto med en e-postadress. I den här snabb starten ska du använda ett konto för sociala identitets leverantörer från Facebook, Google eller Microsoft.
 
-2. Azure AD B2C visar en anpassad inloggningssida för ett fiktivt varumärke som kallas Wingtip Toys för exempelwebbappen. Klicka på knappen för den identitetsprovider som du vill använda för att registrera dig med en social identitetsprovider.
+2. Azure AD B2C visar en inloggnings sida för ett fiktivt företag som kallas Fabrikam för exempel webb programmet. Klicka på knappen för den identitetsprovider som du vill använda för att registrera dig med en social identitetsprovider.
 
-    ![Logga In eller registrera dig sidan som visar identitet providern knappar](media/active-directory-b2c-quickstarts-spa/sign-in-or-sign-up-spa.png)
+    ![Sidan logga in eller registrera dig med identitets leverantörs knappar](media/active-directory-b2c-quickstarts-spa/sign-in-or-sign-up-spa.png)
 
-    Du kan autentisera (logga in) med ditt sociala konto autentiseringsuppgifter och godkänna att programmet att läsa information från det sociala kontot. När du beviljar åtkomst kan programmet hämta profilinformation från det sociala kontot, till exempel ditt namn och din ort.
+    Du autentiserar (loggar in) med dina autentiseringsuppgifter för ditt sociala konto och godkänner att programmet läser information från ditt sociala konto. När du beviljar åtkomst kan programmet hämta profilinformation från det sociala kontot, till exempel ditt namn och din ort.
 
 3. Avsluta inloggningsprocessen för identitetsprovidern.
 
@@ -72,7 +72,7 @@ Azure Active Directory (AD Azure) B2C tillhandahåller identitetshantering i mol
 
 Klicka på **Anropa webb-API** för att returnera ditt visningsnamn från Web API-anropet som ett JSON-objekt.
 
-![Exempelprogram i webbläsare som visar web API-svar](media/active-directory-b2c-quickstarts-spa/call-api-spa.png)
+![Exempel program i webbläsare som visar svaret på webb-API](media/active-directory-b2c-quickstarts-spa/call-api-spa.png)
 
 Det enkelsidiga exempelprogrammet innehåller en åtkomsttoken i begäran till den skyddade webb-API-resursen.
 
@@ -82,11 +82,11 @@ Du kan använda Azure AD B2C-klientorganisationen om du vill prova andra snabbst
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabbstarten använde du en enda sida-exempelprogram till:
+I den här snabb starten använde du ett exempel på en Enkels Ides applikation för att:
 
-* Logga in med en anpassad inloggningssida
+* Logga in med en anpassad inloggnings sida
 * Logga in med en social identitetsprovider
-* Skapa ett Azure AD B2C-konto
+* Skapa ett Azure AD B2C konto
 * Anropa ett webb-API som skyddas av Azure AD B2C
 
 Kom igång med att skapa en egen Azure AD B2C-klientorganisation.

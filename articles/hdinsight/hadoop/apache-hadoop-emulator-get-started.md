@@ -1,7 +1,7 @@
 ---
-title: Lär dig med hjälp av en Apache Hadoop-sandbox - emulatorn – Azure HDInsight
-description: 'Om du vill börja lära dig om hur du använder Apache Hadoop-ekosystemet, kan du ställa in en Hadoop-sandbox från Hortonworks på virtuella Azure-datorer. '
-keywords: hadoop-emulatorn, begränsat hadoop-läge
+title: Lär dig hur du använder en Apache Hadoop sandbox-emulator – Azure HDInsight
+description: 'Om du vill börja lära dig att använda Apache Hadoop eko systemet kan du konfigurera en Hadoop-sandbox från Hortonworks på en virtuell Azure-dator. '
+keywords: Hadoop-emulator, Hadoop sandbox
 ms.reviewer: jasonh
 author: hrasheed-msft
 ms.service: hdinsight
@@ -9,70 +9,74 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 05/29/2019
 ms.author: hrasheed
-ms.openlocfilehash: 2cb99cfe765e1d3444f362e591812f5088c78c0e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a1d31eb3fa6e37302e1afa5ebd36d04f75830dea
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66393137"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70918179"
 ---
-# <a name="get-started-with-an-apache-hadoop-sandbox-an-emulator-on-a-virtual-machine"></a>Kom igång med en Apache Hadoop-sandbox, ett emuleringsprogram på en virtuell dator
+# <a name="get-started-with-an-apache-hadoop-sandbox-an-emulator-on-a-virtual-machine"></a>Kom igång med en Apache Hadoop sandbox, en emulator på en virtuell dator
 
-Lär dig hur du installerar Apache Hadoop-sandbox från Hortonworks på en virtuell dator för att lära dig om Hadoop-ekosystemet. Sandbox-miljön tillhandahåller en lokal utvecklingsmiljö för att lära dig om Hadoop, Hadoop Distributed File System (HDFS) och jobböverföring. När du är bekant med Hadoop kan börja du använda Hadoop på Azure genom att skapa ett HDInsight-kluster. Mer information om hur du kommer igång finns i [Kom igång med Hadoop i HDInsight](apache-hadoop-linux-tutorial-get-started.md).
+Lär dig hur du installerar Apache Hadoop sandbox från Hortonworks på en virtuell dator och lär dig mer om Hadoop-eko systemet. Sand boxen tillhandahåller en lokal utvecklings miljö för att lära sig om Hadoop, Hadoop Distributed File System (HDFS) och jobb överföring. När du är bekant med Hadoop kan du börja använda Hadoop på Azure genom att skapa ett HDInsight-kluster. Mer information om hur du kommer igång finns i [Kom igång med Hadoop på HDInsight](apache-hadoop-linux-tutorial-get-started.md).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
-* [Oracle VirtualBox](https://www.virtualbox.org/). Hämta och installera det från [här](https://www.virtualbox.org/wiki/Downloads).
+## <a name="prerequisites"></a>Förutsättningar
 
+* [Oracle-VirtualBox](https://www.virtualbox.org/). Hämta och installera den [här](https://www.virtualbox.org/wiki/Downloads).
 
-## <a name="download-and-install-the-virtual-machine"></a>Ladda ned och installera den virtuella datorn
-1. Bläddra till den [Cloudera hämtar](https://www.cloudera.com/downloads/hortonworks-sandbox/hdp.html).
+## <a name="download-and-install-the-virtual-machine"></a>Hämta och installera den virtuella datorn
 
-2. Klicka på **VIRTUALBOX** under **Välj installationstyp** att ladda ned Hortonworks sandbox-miljön på en virtuell dator. Logga in eller Slutför produktformuläret.
+1. Bläddra till [Cloudera-filerna](https://www.cloudera.com/downloads/hortonworks-sandbox/hdp.html).
 
-1. Klicka på knappen **HDP SANDBOX (senaste)** att påbörja hämtningen.
+1. Klicka på **VIRTUALBOX** under **Välj Installations typ** för att ladda ned den senaste Hortonworks-sandbox: en på en virtuell dator. Logga in eller Slutför formuläret produkt intresse.
 
-Anvisningar om hur du konfigurerar sandbox-miljön finns i [Sandbox-distribution och installerar guiden](https://hortonworks.com/tutorial/sandbox-deployment-and-install-guide/section/1/).
+1. Klicka på knappen **HDP SANDBOX (senaste)** för att starta nedladdningen.
 
-Om du vill hämta en äldre version sandbox-miljön för HDP finns i länkarna under **äldre versioner**.
+Instruktioner för hur du konfigurerar sandbox finns i [sandbox distribution och installations guide](https://hortonworks.com/tutorial/sandbox-deployment-and-install-guide/section/1/).
+
+Om du vill ladda ned en äldre version sandbox av HDP, se länkarna under **äldre versioner**.
 
 ## <a name="start-the-virtual-machine"></a>Starta den virtuella datorn
 
-1. Öppna Oracle VM VirtualBox.
-2. Från den **filen** -menyn klickar du på **Import installation**, och sedan ange avbildningen som begränsat Hortonworks-läge.
-1. Välj Hortonworks sandbox-miljön, klicka på **starta**, och sedan **Normal Start**. När den virtuella datorn har slutförts startprocessen visar instruktioner för inloggning.
+1. Öppna Oracle VM-VirtualBox.
+1. I menyn **Arkiv** klickar du på **Importera**installation och anger sedan Hortonworks sandbox-avbildningen.
+1. Välj sandbox-Hortonworks, klicka på **Start**och sedan på **Normal start**. När den virtuella datorn har avslutat start processen visas inloggnings anvisningar.
 
-    ![Normal start](./media/apache-hadoop-emulator-get-started/normal-start.png)
-2. Öppna en webbläsare och gå till den URL som visas (vanligtvis `http://127.0.0.1:8888`).
+    ![Normal start](./media/apache-hadoop-emulator-get-started/virtualbox-normal-start.png)
 
-## <a name="set-sandbox-passwords"></a>Ange Sandbox-lösenord
+1. Öppna en webbläsare och gå till den URL som visas (vanligt `http://127.0.0.1:8888`vis).
 
-1. Från den **börjar** steg i Hortonworks Sandbox-sida väljer **visa avancerade alternativ**. Använd informationen på den här sidan för att logga in på sandbox-miljön med hjälp av SSH. Använd namnet och lösenordet som angavs.
+## <a name="set-sandbox-passwords"></a>Ange lösen ord för sandbox
+
+1. Från steget **Kom igång** på sidan för Hortonworks-sandbox väljer du **Visa avancerade alternativ**. Använd informationen på den här sidan för att logga in på sand boxen med SSH. Använd det namn och lösen ord som angetts.
 
    > [!NOTE]
-   > Om du inte har en SSH-klient installerad kan du kan använda den webbaserade SSH som anges i av den virtuella datorn på **http://localhost:4200/** .
+   > Om du inte har en SSH-klient installerad kan du använda den webbaserade SSH som tillhandahölls av den virtuella datorn på **http://localhost:4200/** .
 
-    Första gången du ansluter med hjälp av SSH uppmanas du att ändra lösenordet för rotkontot. Ange ett nytt lösenord som du använder när du loggar in med SSH.
+    Första gången du ansluter med SSH uppmanas du att ändra lösen ordet för rot kontot. Ange ett nytt lösen ord som du använder när du loggar in med SSH.
 
-2. När du loggat in kan du ange följande kommando:
+2. När du har loggat in anger du följande kommando:
 
         ambari-admin-password-reset
 
-    När du uppmanas ange ett lösenord för administratörskonto Ambari. Det här används när du har åtkomst till Ambari-Webbgränssnittet.
+    Ange ett lösen ord för administratörs kontot för Ambari när du uppmanas till det. Detta används när du öppnar Ambari-webbgränssnittet.
 
 ## <a name="use-hive-commands"></a>Använda Hive-kommandon
 
-1. Använd följande kommando för att starta Hive-gränssnittet från en SSH-anslutning till sandbox:
+1. Använd följande kommando för att starta Hive-gränssnittet från en SSH-anslutning till sand boxen:
 
         hive
-2. När gränssnittet har startats kan du använda följande för att visa vilka tabeller som tillhandahålls med sandbox-miljön:
+2. När gränssnittet har startats använder du följande för att visa de tabeller som ingår i sand boxen:
 
         show tables;
-3. Använd följande för att hämta 10 raderna från den `sample_07` tabell:
+3. Använd följande för att hämta 10 rader från `sample_07` tabellen:
 
         select * from sample_07 limit 10;
 
 ## <a name="next-steps"></a>Nästa steg
-* [Lär dig hur du använder Visual Studio med begränsat Hortonworks-läge](../hdinsight-hadoop-emulator-visual-studio.md)
-* [Lära dig grunderna för Hortonworks sandbox-miljön](https://hortonworks.com/hadoop-tutorial/learning-the-ropes-of-the-hortonworks-sandbox/)
-* [Hadoop-självstudiekurs – komma igång med HDP](https://hortonworks.com/hadoop-tutorial/hello-world-an-introduction-to-hadoop-hcatalog-hive-and-pig/)
 
+* [Lär dig hur du använder Visual Studio med Hortonworks sandbox](../hdinsight-hadoop-emulator-visual-studio.md)
+
+* [Lär dig mer om Hortonworks sand Box](https://hortonworks.com/hadoop-tutorial/learning-the-ropes-of-the-hortonworks-sandbox/)
+
+* [Hadoop-självstudie – komma igång med HDP](https://hortonworks.com/hadoop-tutorial/hello-world-an-introduction-to-hadoop-hcatalog-hive-and-pig/)

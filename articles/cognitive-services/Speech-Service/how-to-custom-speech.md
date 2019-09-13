@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: erhopf
-ms.openlocfilehash: 6d697cd49363139cfeae2753a4f1ae40fca6e6b2
-ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
+ms.openlocfilehash: 0f3b7826fdcc16d3094785507ec8263da39d6284
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/08/2019
-ms.locfileid: "70802503"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70881522"
 ---
 # <a name="what-is-custom-speech"></a>Vad är Custom Speech?
 
@@ -25,7 +25,7 @@ ms.locfileid: "70802503"
 
 Innan du kan göra något med Custom Speech behöver du ett Azure-konto och en prenumeration på tal tjänster. När du har ett konto kan du Förbered dina data, träna och testa dina modeller, granska igenkännings kvalitet, utvärdera precision och slutligen distribuera och använda den anpassade tal-till-text-modellen.
 
-Det här diagrammet visar de delar som utgör den [Custom Speech portalen](https://speech.microsoft.com/customspeech). Använd länkarna nedan för att lära dig mer om varje steg.
+Det här diagrammet visar de delar som utgör den [Custom Speech portalen](https://aka.ms/customspeech). Använd länkarna nedan för att lära dig mer om varje steg.
 
 ![Markerar de olika komponenterna som utgör Custom Speechs portalen.](./media/custom-speech/custom-speech-overview.png)
 

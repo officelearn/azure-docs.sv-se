@@ -7,12 +7,12 @@ ms.service: firewall
 ms.topic: conceptual
 ms.date: 08/29/2019
 ms.author: victorh
-ms.openlocfilehash: 119f28bcc4f88f0b4dc0ce65584dbce326087eba
-ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
+ms.openlocfilehash: da5880d27e5dd51d3a5f90b7cd6cf2e7dec50f89
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70114767"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70932750"
 ---
 # <a name="azure-firewall-faq"></a>Vanliga frågor och svar om Azure-brandvägg
 
@@ -149,7 +149,10 @@ Om du konfigurerar * **. contoso.com**tillåts *anyvalue*. contoso.com, men inte
 
 ## <a name="what-does-provisioning-state-failed-mean"></a>Vad innebär *etablerings status: Misslyckades* betyder?
 
-När en konfigurations ändring används försöker Azure-brandväggen uppdatera alla underliggande Server dels instanser. I sällsynta fall kan en av dessa Server dels instanser Miss lyckas med att uppdatera med den nya konfigurationen och uppdaterings processen stoppas med ett misslyckat etablerings tillstånd. Din Azure-brandvägg fungerar fortfarande, men den tillämpade konfigurationen kan vara i ett inkonsekvent tillstånd, där vissa instanser har den tidigare konfigurationen där andra har den uppdaterade regel uppsättningen. Om detta inträffar kan du försöka att uppdatera konfigurationen en gång tills åtgärden lyckas och brand väggen har statusen slutförd etablering .
+När en konfigurations ändring används försöker Azure-brandväggen uppdatera alla underliggande Server dels instanser. I sällsynta fall kan en av dessa Server dels instanser Miss lyckas med att uppdatera med den nya konfigurationen och uppdaterings processen stoppas med ett misslyckat etablerings tillstånd. Din Azure-brandvägg fungerar fortfarande, men den tillämpade konfigurationen kan vara i ett inkonsekvent tillstånd, där vissa instanser har den tidigare konfigurationen där andra har den uppdaterade regel uppsättningen. Om detta inträffar kan du försöka att uppdatera konfigurationen en gång tills åtgärden lyckas och brand väggen har statusen *slutförd* etablering.
+
+### <a name="how-does-azure-firewall-handle-planned-maintenance-and-unplanned-failures"></a>Hur hanterar Azure Firewall planerat underhåll och oplanerade fel?
+Azure-brandväggen består av flera backend-noder i en aktiv-aktiv-konfiguration.  För ett planerat underhåll har vi anslutning som tömmer logik för att på ett smidigt sätt uppdatera noder.  Uppdateringar planeras under icke kontors tid för var och en av Azure-regionerna för att ytterligare begränsa risken för avbrott.  Vid oplanerade problem instansierar vi en ny nod för att ersätta den felaktiga noden.  Anslutning till den nya noden återupprättas vanligt vis inom 10 sekunder från tidpunkten för det här problemet.
 
 ## <a name="is-there-a-character-limit-for-a-firewall-name"></a>Finns det en tecken gräns för ett brand Väggs namn?
 

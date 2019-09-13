@@ -1,6 +1,6 @@
 ---
-title: Skapa schemabaserade automatiserade arbetsflöden – Azure Logic Apps | Microsoft Docs
-description: Självstudiekurs – Hur du skapar ett återkommande, automatiserad arbetsflöde enligt ett schema med Azure Logic Apps
+title: Bygg schemabaserade automatiserade arbets flöden – Azure Logic Apps
+description: Självstudie – Skapa ett schema baserat, återkommande, automatiserat arbets flöde med hjälp av Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -10,39 +10,39 @@ ms.manager: carmonm
 ms.reviewer: klam, LADocs
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 01/12/2018
-ms.openlocfilehash: ec29eef7e733155b205d4feda844883bbc4496c9
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.date: 09/12/2019
+ms.openlocfilehash: 9392cfc9c789a757c3ad533a3dbd4719f5292be5
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70051746"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70931570"
 ---
-# <a name="check-traffic-on-a-schedule-with-azure-logic-apps"></a>Kontrollera trafik enligt ett schema med Azure Logic Apps
+# <a name="tutorial-create-automated-schedule-based-recurring-workflows-by-using-azure-logic-apps"></a>Självstudier: Skapa automatiserade, schemabaserade, återkommande arbets flöden med hjälp av Azure Logic Apps
 
-Med Azure Logic Apps kan du automatisera arbetsflöden som körs enligt ett schema. Den här kursen visar hur du kan skapa en [logikapp](../logic-apps/logic-apps-overview.md) med en utlösare som körs varje morgon på vardagar och kontrollerar restiden, inklusive trafik, mellan två platser. Om tiden överskrider en viss gräns, skickar logikappen ett e-postmeddelande med restiden och den extra tid som krävs för att nå ditt mål.
+I den här självstudien visas hur du skapar en [Logic app](../logic-apps/logic-apps-overview.md) och automatiserar ett återkommande arbets flöde som körs enligt ett schema. Mer specifikt körs den här exempel logiks appen varje vardags morgon och kontrollerar res tiden, inklusive trafik, mellan två platser. Om tiden överskrider en viss gräns, skickar logikappen ett e-postmeddelande med restiden och den extra tid som krävs för att nå ditt mål.
 
 I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
-> * Skapa en tom logikapp. 
-> * Lägger till en utlösare som fungerar som en schemaläggare för din logikapp.
-> * Lägger till en åtgärd som hämtar restiden för en resväg.
-> * Lägger till en åtgärd som skapar en variabel, omvandlar restiden från sekunder till minuter och sparar resultatet i variabeln.
+> * Skapa en tom logikapp.
+> * Lägg till en upprepnings utlösare som anger schemat för din Logic app.
+> * Lägg till en Bing Maps-åtgärd som hämtar res tiden för en väg.
+> * Lägg till en åtgärd som skapar en variabel, konverterar res tiden från sekunder till minuter och lagrar resultatet i variabeln.
 > * Lägger till ett villkor som jämför restiden med en angiven tidsgräns.
-> * Lägger till en åtgärd som skickar ett e-postmeddelande om restiden överskrider tidsgränsen.
+> * Lägg till en åtgärd som skickar e-post om res tiden överskrider gränsen.
 
 När du är klar ser logikappen ut som det här arbetsflödet på en hög nivå:
 
 ![Logikapp på hög nivå](./media/tutorial-build-scheduled-recurring-logic-app-workflow/check-travel-time-overview.png)
 
-Om du inte har någon Azure-prenumeration kan du [registrera ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/) innan du börjar.
-
 ## <a name="prerequisites"></a>Förutsättningar
 
-* Ett e-postkonto från en e-postleverantör som stöds av Logic Apps, som Office 365 Outlook, Outlook.com eller Gmail. För andra providrar [läser du listan med anslutningsappar här](https://docs.microsoft.com/connectors/). I den här snabbstarten används ett Outlook.com-konto. Om du använder ett annat e-postkonto är stegen desamma, men användargränssnittet kan vara lite annorlunda.
+* En Azure-prenumeration. Om du inte har någon prenumeration kan du [Registrera dig för ett kostnads fritt Azure-konto](https://azure.microsoft.com/free/) innan du börjar.
 
-* För att kunna hämta restiden för en resväg behöver du en åtkomstnyckel för Bing Maps-API:t. Hämta nyckeln genom att följa anvisningarna för [hur du hämtar en Bing Maps-nyckel](https://msdn.microsoft.com/library/ff428642.aspx). 
+* Ett e-postkonto från en e-postleverantör som stöds av Logic Apps, till exempel Office 365 Outlook, Outlook.com eller Gmail. För andra providrar [läser du listan med anslutningsappar här](https://docs.microsoft.com/connectors/). I den här snabb starten används ett Office 365 Outlook-konto. Om du använder ett annat e-postkonto förblir de allmänna stegen desamma, men användar gränssnittet kan skilja sig något.
+
+* För att kunna hämta restiden för en resväg behöver du en åtkomstnyckel för Bing Maps-API:t. Hämta nyckeln genom att följa anvisningarna för [hur du hämtar en Bing Maps-nyckel](https://docs.microsoft.com/bingmaps/getting-started/bing-maps-dev-center-help/getting-a-bing-maps-key).
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
@@ -50,65 +50,81 @@ Logga in på [Azure Portal](https://portal.azure.com) med autentiseringsuppgifte
 
 ## <a name="create-your-logic-app"></a>Skapa en logikapp
 
-1. Välj **Skapa en resurs** > **Enterprise-integration** > **Logikapp** på Azure-huvudmenyn.
+1. Från huvud menyn i Azure väljer du **skapa en** > app för resurs**integrerings** > **logik**.
 
    ![Skapa en logikapp](./media/tutorial-build-scheduled-recurring-logic-app-workflow/create-logic-app.png)
 
-2. Under **Skapa en logikapp** anger du informationen om din logikapp så som det visas här. När du är klar väljer du **Fäst på instrumentpanelen** > **Skapa**.
+1. Under **Skapa en logikapp** anger du informationen om din logikapp så som det visas här. När du är klar väljer du **Skapa**.
 
    ![Ange information om din logikapp](./media/tutorial-build-scheduled-recurring-logic-app-workflow/create-logic-app-settings.png)
 
-   | Inställning | Värde | Beskrivning | 
-   | ------- | ----- | ----------- | 
-   | **Namn** | LA-TravelTime | Logikappens namn | 
-   | **Prenumeration** | <*your-Azure-subscription-name*> | Azure-prenumerationens namn | 
-   | **Resursgrupp** | LA-TravelTime-RG | Namnet på den [Azure-resursgrupp](../azure-resource-manager/resource-group-overview.md) som används för att organisera relaterade resurser | 
-   | **Location** | USA, östra 2 | Regionen där informationen om logikappen ska lagras | 
-   | **Log Analytics** | Av | Behåll inställningen **Av** för diagnostisk loggning. | 
-   |||| 
+   | Egenskap | Value | Beskrivning |
+   |----------|-------|-------------|
+   | **Namn** | LA-TravelTime | Din Logic Apps namn, som endast får innehålla bokstäver,`-`siffror, bindestreck (), under streck (`_`), parenteser (`(`, `)`) och punkter (`.`). I det här exemplet används "LA-TravelTime". |
+   | **Prenumeration** | <*your-Azure-subscription-name*> | Ditt Azure-prenumerations namn |
+   | **Resursgrupp** | LA-TravelTime-RG | Namnet på Azure- [resurs gruppen](../azure-resource-manager/resource-group-overview.md)som används för att organisera relaterade resurser. I det här exemplet används "LA-TravelTime-RG". |
+   | **Location** | Västra USA | Tdet region där du kan lagra information om din Logic Apps. I det här exemplet används "västra USA". |
+   | **Log Analytics** | Av | Behåll inställningen **Av** för diagnostisk loggning. |
+   ||||
 
-3. När Azure har distribuerat din app öppnas Logic Apps Designer och en sida med en introduktionsvideo och mallar för vanliga logikappar visas. Under **Mallar** väljer du **Tom logikapp**.
+1. När Azure har distribuerat din app går du till Azure-verktygsfältet och väljer **aviseringar** > **gå till resurs** för din distribuerade Logic-app.
 
-   ![Välja tom mall för logikapp](./media/tutorial-build-scheduled-recurring-logic-app-workflow/choose-logic-app-template.png)
+   ![Gå till resurs](./media/tutorial-build-scheduled-recurring-logic-app-workflow/go-to-logic-app.png)
 
-Sedan lägger du till en [utlösare](../logic-apps/logic-apps-overview.md#logic-app-concepts) som utlöses enligt ett angivet schema. Varje logikapp måste börja med en utlösare som utlöses när en specifik händelse sker eller när nya data uppfyller ett särskilt villkor. Mer information finns i [Skapa din första logikapp](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+   Eller så kan du hitta och välja din Logic-app genom att skriva namnet i sökrutan.
 
-## <a name="add-scheduler-trigger"></a>Lägg till en utlösare
+   Logic Apps designer öppnas och visar en sida med en introduktions video och ofta använda utlösare och Logic app-mönster. Under **Mallar** väljer du **Tom logikapp**.
 
-1. På designern anger du ”återkommande” i sökrutan. Välj den här utlösaren: **Schema – återkommande**
+   ![Välj Tom Logic app-mall](./media/tutorial-build-scheduled-recurring-logic-app-workflow/select-logic-app-template.png)
 
-   ![Söka efter och lägga till utlösaren ”Schema – återkommande”](./media/tutorial-build-scheduled-recurring-logic-app-workflow/add-schedule-recurrence-trigger.png)
+Lägg sedan till upprepnings [utlösaren, som aktive](../logic-apps/logic-apps-overview.md#logic-app-concepts)ras baserat på ett angivet schema. Varje logikapp måste börja med en utlösare som utlöses när en specifik händelse sker eller när nya data uppfyller ett särskilt villkor. Mer information finns i [Skapa din första logikapp](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
-2. I formen för **återkommande** väljer du knappen med **punkter** ( **...** ) och sedan **Byt namn**. Byt namn på utlösaren med den här beskrivningen: ```Check travel time every weekday morning```
+## <a name="add-the-recurrence-trigger"></a>Lägg till upprepnings utlösaren
+
+1. Skriv "upprepning" som filter i rutan Sök i Logic App Designer. I listan **utlösare** väljer du **upprepnings** utlösaren.
+
+   ![Lägg till utlösare för upprepning](./media/tutorial-build-scheduled-recurring-logic-app-workflow/add-schedule-recurrence-trigger.png)
+
+1. Välj knappen med **tre punkter** ( **...** ) i formen **upprepning** och välj sedan **Byt namn**. Byt namn på utlösaren med den här beskrivningen: `Check travel time every weekday morning`
 
    ![Byta namn på utlösare](./media/tutorial-build-scheduled-recurring-logic-app-workflow/rename-recurrence-schedule-trigger.png)
 
-3. I utlösaren väljer du **Visa avancerade alternativ**.
+1. I utlösaren ändrar du dessa egenskaper.
 
-4. Ange schema- och upprepningsinformation för din utlösare enligt bilden och beskrivningen:
+   ![Ändra intervall och frekvens](./media/tutorial-build-scheduled-recurring-logic-app-workflow/change-interval-frequency.png)
 
-   ![Ange schema- och upprepningsinformation](./media/tutorial-build-scheduled-recurring-logic-app-workflow/schedule-recurrence-trigger-settings.png)
+   | Egenskap | Obligatorisk | Value | Beskrivning |
+   |----------|----------|-------|-------------|
+   | **Intervall** | Ja | 1 | Antalet intervaller som ska förflyta mellan kontrollerna |
+   | **Frekvens** | Ja | Vecka | Den tidsenhet som används för upprepningen |
+   |||||
 
-   | Inställning | Värde | Beskrivning | 
-   | ------- | ----- | ----------- | 
-   | **Intervall** | 1 | Antalet intervaller som ska förflyta mellan kontrollerna | 
-   | **Frekvens** | Vecka | Den tidsenhet som används för upprepningen | 
-   | **Tidszon** | Inga | Gäller bara när du anger en starttid. Det här är användbart när du anger en tidszon som inte är lokal. | 
-   | **Starttid** | Inga | Skjut upp upprepningen till en viss tidpunkt. Mer information finns i [Schemalägga aktiviteter och arbetsflöden som körs regelbundet](../connectors/connectors-native-recurrence.md). | 
-   | **Dessa dagar** | Måndag,Tisdag,Onsdag,Torsdag,Fredag | Endast tillgängligt när Vecka har valts i fältet **Frekvens** | 
-   | **Vid dessa timmar** | 7,8,9 | Endast tillgängligt när Vecka eller Dag har valts i fältet **Frekvens**. Välj vid vilka timmar på dagen den här upprepningen ska köras. Det här exemplet körs vid 7, 8 och 9. | 
-   | **Vid dessa minuter** | 0,15,30,45 | Endast tillgängligt när Vecka eller Dag har valts i fältet **Frekvens**. Välj vid vilka minuter på dagen den här upprepningen ska köras. Det här exemplet körs varje kvart och börjar vid noll minuter. | 
+1. Under **intervall** och **frekvens**, öppna listan **Lägg till ny parameter** och välj de egenskaper som ska läggas till i utlösaren.
+
+   * **Dessa dagar**
+   * **Vid dessa timmar**
+   * **Vid dessa minuter**
+
+   ![Lägg till utlösarens egenskaper](./media/tutorial-build-scheduled-recurring-logic-app-workflow/add-trigger-properties.png)
+
+1. Ange värdena för de ytterligare egenskaperna enligt vad som visas och beskrivs här.
+
+   ![Ange schema- och upprepningsinformation](./media/tutorial-build-scheduled-recurring-logic-app-workflow/recurrence-trigger-property-values.png)
+
+   | Egenskap | Value | Beskrivning |
+   |----------|-------|-------------|
+   | **Dessa dagar** | Måndag,Tisdag,Onsdag,Torsdag,Fredag | Endast tillgängligt när Vecka har valts i fältet **Frekvens** |
+   | **Vid dessa timmar** | 7,8,9 | Endast tillgängligt när Vecka eller Dag har valts i fältet **Frekvens**. Välj vid vilka timmar på dagen den här upprepningen ska köras. Det här exemplet körs vid 7, 8 och 9. |
+   | **Vid dessa minuter** | 0,15,30,45 | Endast tillgängligt när Vecka eller Dag har valts i fältet **Frekvens**. Välj vid vilka minuter på dagen den här upprepningen ska köras. Det här exemplet körs varje kvart och börjar vid noll minuter. |
    ||||
 
-   Den här utlösaren utlöses varje kvart under vardagar med start kl. 7:00 och slut kl. 9:45. 
-   Upprepningsschemat visas i rutan **Förhandsgranskning**. 
-   Mer information finns i [Schemalägga aktiviteter och arbetsflöden](../connectors/connectors-native-recurrence.md) och [Arbetsflödesåtgärder och utlösare](../logic-apps/logic-apps-workflow-actions-triggers.md#recurrence-trigger).
+   Den här utlösaren utlöses varje kvart under vardagar med start kl. 7:00 och slut kl. 9:45. Upprepningsschemat visas i rutan **Förhandsgranskning**. Mer information finns i [Schemalägga aktiviteter och arbetsflöden](../connectors/connectors-native-recurrence.md) och [Arbetsflödesåtgärder och utlösare](../logic-apps/logic-apps-workflow-actions-triggers.md#recurrence-trigger).
 
-5. Om du vill dölja utlösarens information för tillfället klickar du på formens namnlist.
+1. Om du vill dölja utlösarens information för tillfället klickar du på formens namnlist.
 
    ![Minimera form för att dölja information](./media/tutorial-build-scheduled-recurring-logic-app-workflow/collapse-trigger-shape.png)
 
-6. Spara din logikapp. Välj **Spara** i designerverktygsfältet. 
+1. Spara din logikapp. I verktygsfältet designer väljer du **Spara**.
 
 Logikappen har nu publicerats men gör inget annat än att upprepas. Därför ska vi lägga till en åtgärd som svarar när utlösaren utlöses.
 
@@ -116,191 +132,201 @@ Logikappen har nu publicerats men gör inget annat än att upprepas. Därför sk
 
 Nu när du har en utlösare lägger du till en [åtgärd](../logic-apps/logic-apps-overview.md#logic-app-concepts) som hämtar restiden mellan två platser. Logic Apps tillhandahåller en anslutningsapp för Bing Maps-API:t så att du lätt kan hämta den här informationen. Innan du börjar kontrollerar du att du har en Bing Maps API-nyckel (beskrivs i förutsättningarna för den här kursen).
 
-1. I Logic Apps Designer går du till utlösaren och väljer **+ Nytt steg** > **Lägg till en åtgärd**.
+1. Välj **nytt steg**under utlösaren i Logic App Designer.
 
-2. Sök efter "Maps" och välj den här åtgärden: **Bing Maps – Hämta väg**
+1. Under **Välj en åtgärd**väljer du **standard**. Skriv "Bing Maps" som filter i sökrutan och Välj åtgärden **Hämta väg** .
 
-3. Om du inte har en Bing Maps-anslutning uppmanas du att skapa en anslutning. Ange den här anslutningsinformationen och välj **Skapa**.
+   ![Välj åtgärden Hämta väg](./media/tutorial-build-scheduled-recurring-logic-app-workflow/select-get-route-action.png)
 
-   ![Välj åtgärden ”Bing Maps - Get route” (Hämta resväg)](./media/tutorial-build-scheduled-recurring-logic-app-workflow/create-maps-connection.png)
+1. Om du inte har en Bing Maps-anslutning uppmanas du att skapa en anslutning. Ange anslutnings informationen och välj **skapa**.
 
-   | Inställning | Värde | Beskrivning |
-   | ------- | ----- | ----------- |
-   | **Anslutningsnamn** | BingMapsConnection | Ange ett namn på anslutningen. | 
-   | **API-nyckel** | <*your-Bing-Maps-key*> | Ange Bing Maps-nyckeln som du fick tidigare. Om du inte har en Bing Maps-nyckel tar du reda på [hur du hämtar en nyckel](https://msdn.microsoft.com/library/ff428642.aspx). | 
-   | | | |  
+   ![Skapa Bing Maps-anslutning](./media/tutorial-build-scheduled-recurring-logic-app-workflow/create-maps-connection.png)
 
-4. Byt namn på åtgärden med den här beskrivningen: ```Get route and travel time with traffic```
+   | Egenskap | Obligatorisk | Value | Beskrivning |
+   |----------|----------|-------|-------------|
+   | **Anslutningsnamn** | Ja | BingMapsConnection | Ange ett namn på anslutningen. I det här exemplet används "BingMapsConnection". |
+   | **API-nyckel** | Ja | <*your-Bing-Maps-key*> | Ange Bing Maps-nyckeln som du fick tidigare. Om du inte har en Bing Maps-nyckel tar du reda på [hur du hämtar en nyckel](https://msdn.microsoft.com/library/ff428642.aspx). |
+   |||||
 
-5. Ange information för åtgärden **Get route** (Hämta resväg) som visas och beskrivs här, till exempel:
+1. Byt namn på åtgärden med den här beskrivningen: `Get route and travel time with traffic`
 
-   ![Ange information för åtgärden ”Bing Maps - Get route” (Hämta resväg)](./media/tutorial-build-scheduled-recurring-logic-app-workflow/get-route-action-settings.png) 
+1. I åtgärden öppnar du **listan Lägg till ny parameter**och väljer de här egenskaperna som du vill lägga till i åtgärden.
 
-   | Inställning | Värde | Beskrivning |
-   | ------- | ----- | ----------- |
-   | **Waypoint 1** (Platsmarkör 1) | <*start-location*> | Startpunkt för resvägen | 
-   | **Waypoint 2** (Platsmarkör 2) | <*end-location*> | Slutpunkten för resvägen | 
-   | **Avoid** (Undvik) | Inga | Alla objekt som ska undvikas längs vägen, till exempel motorvägar, vägtullar och så vidare | 
-   | **Optimize** (Optimera) | timeWithTraffic | En parameter för att optimera färdvägen, till exempel avstånd, restid med aktuell trafik med mera. Välj den här parametern: ”timeWithTraffic” | 
-   | **Avståndsenhet** | <*your-preference*> | Avståndsenhet för din resväg. Den här artikeln använder den här enheten: Sträcka  | 
-   | **Travel mode** (Färdsätt) | Driving (Bil) | Färdsättet för din resväg. Välj det här läget: Körfel | 
-   | **Transit Date-Time** (Tid/datum för kollektivtrafik) | Inga | Gäller endast ”transit mode” (kollektivtrafik) | 
-   | **Date-Time Type** (Typ av datum/tid) | Inga | Gäller endast ”transit mode” (kollektivtrafik) | 
-   |||| 
+   * **Optimize** (Optimera)
+   * **Avståndsenhet**
+   * **Travel mode** (Färdsätt)
 
-   Mer information om dessa parametrar finns [Calculate a route](https://msdn.microsoft.com/library/ff701717.aspx) (Beräkna en resväg).
+   ![Lägg till egenskaper till åtgärden Hämta väg](./media/tutorial-build-scheduled-recurring-logic-app-workflow/add-bing-maps-action-properties.png) 
 
-6. Spara din logikapp.
+1. Ange värdena för åtgärdens egenskaper enligt vad som visas och beskrivs här.
+
+   ![Ange information för åtgärden "Hämta väg"](./media/tutorial-build-scheduled-recurring-logic-app-workflow/get-route-action-settings.png) 
+
+   | Egenskap | Obligatorisk | Value | Beskrivning |
+   |----------|----------|-------|-------------|
+   | **Waypoint 1** (Platsmarkör 1) | Ja | <*start-location*> | Startpunkt för resvägen |
+   | **Waypoint 2** (Platsmarkör 2) | Ja | <*end-location*> | Slutpunkten för resvägen |
+   | **Optimize** (Optimera) | Nej | timeWithTraffic | En parameter för att optimera färdvägen, till exempel avstånd, restid med aktuell trafik med mera. Välj parametern "timeWithTraffic". |
+   | **Avståndsenhet** | Nej | <*your-preference*> | Avståndsenhet för din resväg. I det här exemplet används "mil" som enhet. |
+   | **Travel mode** (Färdsätt) | Nej | Driving (Bil) | Färdsättet för din resväg. Välj "kör"-läge. |
+   ||||
+
+   Mer information om dessa parametrar finns [Calculate a route](https://docs.microsoft.com/bingmaps/rest-services/routes/calculate-a-route) (Beräkna en resväg).
+
+1. Spara din logikapp.
 
 Skapa sedan en variabel så att du kan omvandla och lagra den aktuella restiden i minuter i stället för sekunder. På så sätt behöver du inte upprepa omvandlingen och det blir enklare att använda värdet i senare steg. 
 
-## <a name="create-variable-to-store-travel-time"></a>Skapa en variabel för att lagra restiden
+## <a name="create-a-variable-to-store-travel-time"></a>Skapa en variabel för att lagra res tiden
 
-Ibland kanske du vill utföra åtgärder för data i arbetsflödet och använda resultatet för senare åtgärder. Du kan skapa variabler för att spara resultaten efter att de har bearbetats så att du enkelt kan återanvända dem eller referera till dem. Du kan skapa variabler endast på den översta nivån i din logikapp.
+Ibland kanske du vill köra åtgärder på data i arbets flödet och sedan använda resultatet i senare åtgärder. Du kan skapa variabler för att spara resultaten efter att de har bearbetats så att du enkelt kan återanvända dem eller referera till dem. Du kan skapa variabler endast på den översta nivån i din logikapp.
 
-Den tidigare åtgärden **Get route** (Hämta resväg) returnerar aktuell restid med trafik i sekunder via fältet **Travel Duration Traffic** (Restid med aktuell trafik). Genom att omvandla och lagra det här värdet i minuter i stället för sekunder blir det enklare att använda värdet senare utan att du behöver omvandla det på nytt.
+Som standard returnerar den föregående åtgärden **Hämta väg** den aktuella res tiden med trafik i sekunder från egenskapen **res varaktighets trafik** . Genom att omvandla och lagra det här värdet i minuter i stället för sekunder blir det enklare att använda värdet senare utan att du behöver omvandla det på nytt.
 
-1. Under åtgärden **Get route** (Hämta resväg) väljer du **+Nytt steg**  > **Lägg till en åtgärd**.
+1. Under åtgärden **Hämta väg** väljer du **nytt steg**.
 
-2. Sök efter "variabler" och välj den här åtgärden: **Variabler-Initialize-variabel**
+1. Under **Välj en åtgärd**väljer du **inbyggt**. I rutan Sök anger du "variabler" och väljer åtgärden **initiera variabel** .
 
-   ![Välj åtgärden ”Variables - Initialize variable” (Variabler – Initiera variabel)](./media/tutorial-build-scheduled-recurring-logic-app-workflow/select-initialize-variable-action.png)
+   ![Välj åtgärden initiera variabel](./media/tutorial-build-scheduled-recurring-logic-app-workflow/select-initialize-variable-action.png)
 
-3. Byt namn på åtgärden med den här beskrivningen: ```Create variable to store travel time```
+1. Byt namn på åtgärden med den här beskrivningen: `Create variable to store travel time`
 
-4. Ange detaljer för variabeln enligt beskrivningen nedan:
+1. Ange detaljer för variabeln enligt beskrivningen nedan:
 
-   | Inställning | Värde | Beskrivning | 
-   | ------- | ----- | ----------- | 
-   | **Namn** | travelTime | Namnet på variabeln | 
-   | **Typ** | Integer | Datatypen för variabeln | 
-   | **Värde** | Ett uttryck som omvandlar den aktuella restiden från sekunder till minuter (se stegen under den här tabellen). | Det inledande värdet för variabeln | 
-   |||| 
+   | Egenskap | Obligatorisk | Value | Beskrivning |
+   |----------|----------|-------|-------------|
+   | **Namn** | Ja | travelTime | Namnet på variabeln. I det här exemplet används "travelTime". |
+   | **Typ** | Ja | Integer | Datatypen för variabeln |
+   | **Värde** | Nej| Ett uttryck som omvandlar den aktuella restiden från sekunder till minuter (se stegen under den här tabellen). | Det inledande värdet för variabeln |
+   ||||
 
-   1. Du skapar uttrycket för fältet **Value** (Värde) genom att klicka i fältet så att listan för dynamiskt innehåll visas. 
-   Du kan behöva öka webbläsarens bredd för att kunna se listan. 
-   Välj **Expression** (Uttryck) i listan med dynamiskt innehåll. 
+   1. Skapa uttrycket för egenskapen **Value** genom att klicka i rutan så att listan med dynamiskt innehåll visas. Du kan behöva öka webbläsarens bredd för att kunna se listan. I listan med dynamiskt innehåll väljer du **uttryck**.
 
-      ![Ange information för åtgärden ”Variables - Initialize variable” (Variabler –  Initiera variabel)](./media/tutorial-build-scheduled-recurring-logic-app-workflow/initialize-variable-action-settings.png)
+      ![Ange information för åtgärden initiera variabel](./media/tutorial-build-scheduled-recurring-logic-app-workflow/initialize-variable-action-settings.png)
 
-      När du klickar i vissa rutor visas en lista med dynamiskt innehåll eller en infogad parameterlista. I listan visas alla parametrar från tidigare åtgärder som du kan använda som indata i ditt arbetsflöde. 
-      Listan med dynamiskt innehåll har en uttrycksredigerare som gör att du kan välja funktioner för att utföra åtgärder. 
-      Uttrycksredigeraren visas bara i listan med dynamiskt innehåll.
+      När du klickar i vissa redigerings rutor visas listan med dynamiskt innehåll. I den här listan visas egenskaper från tidigare åtgärder som du kan använda som indata i arbets flödet. Listan med dynamiskt innehåll har en uttrycks redigerare där du kan välja funktioner för att köra åtgärder. Uttrycksredigeraren visas bara i listan med dynamiskt innehåll.
 
-      Webbläsarens bredd bestämmer vilken lista som visas. 
-      Om webbläsaren är bred visas listan med dynamiskt innehåll. 
-      Om webbläsaren är smal visas en parameterlista infogad under den ruta som för närvarande har fokus.
-
-   2. Ange det här uttrycket i uttrycksredigeraren: ```div(,60)```
+   1. Ange det här uttrycket i uttrycksredigeraren: `div(,60)`
 
       ![Ange det här uttrycket: ”div(,60)”](./media/tutorial-build-scheduled-recurring-logic-app-workflow/initialize-variable-action-settings-2.png)
 
-   3. Placera markören i uttrycket mellan vänsterparentesen ( **(** ) och kommatecknet ( **,** ). 
-   Välj **Dynamic content** (Dynamiskt innehåll).
+   1. Placera markören i uttrycket mellan vänsterparentesen ( **(** ) och kommatecknet ( **,** ). 
+   Välj **dynamiskt innehåll**.
 
-      ![Placera markören och välj Dynamic content (Dynamiskt innehåll)](./media/tutorial-build-scheduled-recurring-logic-app-workflow/initialize-variable-action-settings-3.png)
+      ![Positions markör, välj "dynamiskt innehåll"](./media/tutorial-build-scheduled-recurring-logic-app-workflow/initialize-variable-action-settings-3.png)
 
-   4. I listan med dynamiskt innehåll väljer du **Travel Duration Traffic** (Restid med aktuell trafik).
+   1. I listan med dynamiskt innehåll väljer du **Travel Duration Traffic** (Restid med aktuell trafik).
 
-      ![Välj fältet Travel Duration Traffic (Restid med aktuell trafik)](./media/tutorial-build-scheduled-recurring-logic-app-workflow/initialize-variable-action-settings-4.png)
+      ![Välj egenskaps trafik för rese varaktighet](./media/tutorial-build-scheduled-recurring-logic-app-workflow/initialize-variable-action-settings-4.png)
 
-   5. Välj **OK** när fältet matchar uttrycket.
+   1. När egenskap svärdet har matchats inuti uttrycket väljer du **OK**.
 
       ![Välj OK](./media/tutorial-build-scheduled-recurring-logic-app-workflow/initialize-variable-action-settings-5.png)
 
-      Fältet **Value** (Värde) ser nu ut så här:
+      Egenskapen **Value** visas nu som visas här:
 
-      ![Fältet Value (Värde) med matchande uttryck](./media/tutorial-build-scheduled-recurring-logic-app-workflow/initialize-variable-action-settings-6.png)
+      ![Egenskapen "värde" med matchat uttryck](./media/tutorial-build-scheduled-recurring-logic-app-workflow/initialize-variable-action-settings-6.png)
 
-5. Spara din logikapp.
+1. Spara din logikapp.
 
 Lägg sedan till ett villkor som kontrollerar om den aktuella restiden är större än en specifik gräns.
 
-## <a name="compare-travel-time-with-limit"></a>Jämför restiden med en tidsgräns
+## <a name="compare-the-travel-time-with-limit"></a>Jämför res tiden med gränsen
 
-1. Under den föregående åtgärden väljer du **+ Nytt steg** > **Lägg till ett villkor**. 
+1. Under den föregående åtgärden väljer du **nytt steg**.
 
-2. Byt namn på villkoret med den här beskrivningen: ```If travel time exceeds limit```
+1. Under **Välj en åtgärd**väljer du **inbyggd**och söker efter "villkor" och väljer **villkors** åtgärden.
 
-3. Skapa ett villkor som kontrollerar om **travelTime** (Restid) överskrider den angivna gränsen:
+   ![Välj "villkor"-åtgärd](./media/tutorial-build-scheduled-recurring-logic-app-workflow/select-condition-action.png)
 
-   1. I villkoret klickar du i rutan **Choose a value** (Välj ett värde) till vänster (bred webbläsarvy) eller längst upp (smal webbläsarvy).
+1. Byt namn på villkoret med den här beskrivningen: `If travel time exceeds limit`
 
-   2. Välj fältet **travelTime** (Restid) under **Variables** (Variabler) i listan med dynamiskt innehåll eller i parameterlistan.
+1. Bygg ett villkor som kontrollerar om egenskap svärdet **travelTime** överskrider din angivna gräns enligt beskrivningen och visas här:
 
-   3. I jämförelserutan väljer du operatorn **is greater than** (är större än)
+   1. Inuti villkoret klickar du i rutan **Välj ett värde** på villkorets vänstra sida.
 
-   4. I rutan **Choose a value** (Välj ett värde) till höger (bred vy) eller längst ned (smal vy) anger du följande gräns: ```15```
+   1. När listan med dynamiskt innehåll visas under **variabler**väljer du egenskapen **travelTime** .
 
-   Om du till exempel arbetar i en smal vy skapar du villkoret på följande sätt:
+      ![Bygg villkor vänster](./media/tutorial-build-scheduled-recurring-logic-app-workflow/build-condition-left-side.png)
 
-   ![Skapa villkor i den smala vyn](./media/tutorial-build-scheduled-recurring-logic-app-workflow/build-condition-check-travel-time-narrow.png)
+   1. I jämförelserutan väljer du operatorn **is greater than** (är större än)
 
-4. Spara din logikapp.
+   1. I rutan **Välj ett värde** på villkorets högra sida anger du den här gränsen:`15`
 
-Lägg sedan till åtgärden som ska utföras när restiden överskrider din gräns.
+      När du är klar ser villkoret ut som i det här exemplet:
+
+      ![Skapa villkor](./media/tutorial-build-scheduled-recurring-logic-app-workflow/build-condition-check-travel-time.png)
+
+1. Spara din logikapp.
+
+Lägg sedan till åtgärden som ska köras när res tiden överskrider din gräns.
 
 ## <a name="send-email-when-limit-exceeded"></a>Skicka ett e-postmeddelande när gränsen överskrids
 
-Nu lägger du till en åtgärd som skickar ett e-postmeddelande när restiden överskrider din gräns. E-postmeddelandet innehåller den aktuella restiden och den extra restid som krävs för den angivna resvägen. 
+Nu lägger du till en åtgärd som skickar ett e-postmeddelande när restiden överskrider din gräns. E-postmeddelandet innehåller den aktuella restiden och den extra restid som krävs för den angivna resvägen.
 
-1. I grenen **If true** (Om sant) för villkoret väljer du **Add an action** (Lägg till en åtgärd).
+1. Välj **Lägg till en åtgärd**i villkoret **om sant** i slutet.
 
-2. Sök efter ”skicka e-post” och välj en anslutningsapp för e-post och den e-poståtgärd som du vill använda.
+1. Under **Välj en åtgärd**väljer du **standard**. Skriv "skicka e-post" i rutan Sök. Listan returnerar många resultat, så först väljer du den e-postanslutning som du vill ha, till exempel:
 
-   ![Sök efter och välj åtgärden ”skicka e-post”](./media/tutorial-build-scheduled-recurring-logic-app-workflow/add-action-send-email.png)
+   ![Välj e-postkoppling](./media/tutorial-build-scheduled-recurring-logic-app-workflow/add-action-send-email.png)
 
-   * För personliga Microsoft-konton väljer du **Outlook.com**. 
    * För Azure arbets- eller skolkonto väljer du **Office 365 Outlook**.
+   * För personliga Microsoft-konton väljer du **Outlook.com**.
 
-3. Om du inte har någon anslutning ombeds du logga in på ditt e-postkonto.
+1. När kopplingens åtgärder visas väljer du "skicka e-post åtgärd" som du vill använda, till exempel:
+
+   ![Välj åtgärden ”send email” (skicka e-post)](./media/tutorial-build-scheduled-recurring-logic-app-workflow/select-send-email-action.png)
+
+1. Om du inte har någon anslutning ombeds du logga in på ditt e-postkonto.
 
    Logic Apps skapar en anslutning till ditt e-postkonto.
 
-4. Byt namn på åtgärden med den här beskrivningen: ```Send email with travel time```
+1. Byt namn på åtgärden med den här beskrivningen: `Send email with travel time`
 
-5. Ange mottagarens e-postadress i fältet **Till**. I testsyfte använder du din egen e-postadress.
+1. Ange mottagarens e-postadress i fältet **Till**. I testsyfte använder du din egen e-postadress.
 
-6. I rutan **Ämne** anger du ämnet för e-postmeddelandet och tar med variabeln **travelTime** (Restid).
+1. I rutan **Ämne** anger du ämnet för e-postmeddelandet och tar med variabeln **travelTime** (Restid).
 
-   1. Ange texten ```Current travel time (minutes):``` med ett avslutande blanksteg. 
-   
-   2. Välj fältet **travelTime** (Restid) under **Variables** (Variabler) i parameterlistan eller i listan med dynamiskt innehåll. 
-   
-      Om webbläsaren till exempel visas i en smal vy:
+   1. Ange texten `Current travel time (minutes):` med ett avslutande blanksteg. 
 
-      ![Ange ämnestext och uttryck som returnerar restiden](./media/tutorial-build-scheduled-recurring-logic-app-workflow/send-email-subject-settings.png)
+   1. I listan med dynamiskt innehåll under **variabler**väljer du **Se fler**.
 
-7. Ange innehållet för e-postmeddelandet i rutan **Brödtext**. 
+      ![Hitta variabeln "travelTime"](./media/tutorial-build-scheduled-recurring-logic-app-workflow/find-travelTime-variable.png)
 
-   1. Ange texten ```Add extra travel time (minutes):``` med ett avslutande blanksteg. 
-   
-   2. Du kan behöva öka webbläsarens bredd för att kunna se listan med dynamiskt innehåll. 
-   Välj **Expression** (Uttryck) i listan med dynamiskt innehåll.
+   1. När **travelTime** visas under **variabler**väljer du **travelTime**.
+
+      ![Ange ämnestext och uttryck som returnerar restiden](./media/tutorial-build-scheduled-recurring-logic-app-workflow/select-travelTime-variable.png)
+
+1. Ange innehållet för e-postmeddelandet i rutan **Brödtext**.
+
+   1. Ange texten `Add extra travel time (minutes):` med ett avslutande blanksteg.
+
+   1. I listan med dynamiskt innehåll väljer du **uttryck**.
 
       ![Skapa uttryck för e-postmeddelandets brödtext](./media/tutorial-build-scheduled-recurring-logic-app-workflow/send-email-body-settings.png)
 
-   3. I uttrycksredigeraren anger du det här uttrycket för att beräkna hur många minuter som överskrider gränsen: ```sub(,15)```
+   1. I uttrycksredigeraren anger du det här uttrycket för att beräkna hur många minuter som överskrider gränsen: ```sub(,15)```
 
       ![Ange ett uttryck för att beräkna den extra restiden i minuter](./media/tutorial-build-scheduled-recurring-logic-app-workflow/send-email-body-settings-2.png)
 
-   4. Placera markören i uttrycket mellan vänsterparentesen ( **(** ) och kommatecknet ( **,** ). Välj **Dynamic content** (Dynamiskt innehåll).
+   1. Placera markören i uttrycket mellan vänsterparentesen ( **(** ) och kommatecknet ( **,** ). Välj **dynamiskt innehåll**.
 
       ![Fortsätt att skapa uttrycket för att beräkna den extra restiden i minuter](./media/tutorial-build-scheduled-recurring-logic-app-workflow/send-email-body-settings-3.png)
 
-   5. Välj **travelTime** (Restid) under **Variables** (Variabler).
+   1. Välj **travelTime** (Restid) under **Variables** (Variabler).
 
-      ![Välj fältet ”travelTime” som ska användas i uttrycket](./media/tutorial-build-scheduled-recurring-logic-app-workflow/send-email-body-settings-4.png)
+      ![Välj egenskapen "travelTime" som ska användas i uttrycket](./media/tutorial-build-scheduled-recurring-logic-app-workflow/send-email-body-settings-4.png)
 
-   6. Välj **OK** när fältet matchar uttrycket.
+   1. När egenskapen har matchats inuti uttrycket väljer du **OK**.
 
-      ![Fältet Body (Brödtext) med matchande uttryck](./media/tutorial-build-scheduled-recurring-logic-app-workflow/send-email-body-settings-5.png)
+      ![Egenskapen Body med matchat uttryck](./media/tutorial-build-scheduled-recurring-logic-app-workflow/send-email-body-settings-5.png)
 
-      Fältet **Body** (Brödtext) ser nu ut så här:
+      Egenskapen **Body** visas nu som visas här:
 
-      ![Fältet Body (Brödtext) med matchande uttryck](./media/tutorial-build-scheduled-recurring-logic-app-workflow/send-email-body-settings-6.png)
+      ![Egenskapen Body med matchat uttryck](./media/tutorial-build-scheduled-recurring-logic-app-workflow/send-email-body-settings-6.png)
 
-8. Spara din logikapp.
+1. Spara din logikapp.
 
 Nu testar du logikappen, som ser ut som i det här exemplet:
 
@@ -308,8 +334,11 @@ Nu testar du logikappen, som ser ut som i det här exemplet:
 
 ## <a name="run-your-logic-app"></a>Kör logikappen
 
-Om du vill starta logikappen manuellt väljer du **Kör** i Designer-verktygsfältet. Om den aktuella restiden håller sig under ditt gränsvärde gör logikappen ingenting. Den väntar bara till nästa intervall då den gör en ny kontroll.
-Men om den aktuella restiden överskrider din gräns får du ett e-postmeddelande med den aktuella restiden och antalet minuter som överstiger din gräns. Här är ett exempel på ett e-postmeddelande som logikappen skickar:
+Om du vill starta din Logic app manuellt går du till verktygsfältet i designern och väljer **Kör**.
+
+* Om den aktuella res tiden ligger under gränsen, gör din Logic app inget annat och väntar eller nästa intervall innan du kontrollerar igen. 
+
+* Om den aktuella res tiden överskrider din gräns får du ett e-postmeddelande med den aktuella res tiden och antalet minuter över din gräns. Här är ett exempel på ett e-postmeddelande som logikappen skickar:
 
 ![Skickat e-postmeddelande med restid](./media/tutorial-build-scheduled-recurring-logic-app-workflow/email-notification.png)
 
@@ -317,7 +346,7 @@ Om du inte får e-post kan du titta i mappen Skräppost. Ditt skräppostfilter k
 
 Gratulerar! Du har nu skapat och kört en logikapp med en återkommande åtgärd enligt ett schema. 
 
-Om du vill skapa andra logikappar som använder utlösaren **Schema – återkommande** kan du ta en titt på dessa mallar som är tillgängliga efter att du har skapat en logikapp:
+Om du vill skapa andra Logi Kap par som använder **upprepnings** utlösaren kan du kolla in de här mallarna som är tillgängliga när du har skapat en Logic app:
 
 * Få dagliga påminnelser skickade till dig.
 * Ta bort gamla Azure-blobar.
@@ -325,14 +354,15 @@ Om du vill skapa andra logikappar som använder utlösaren **Schema – återkom
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Ta bort resursgruppen som innehåller logikappen och alla relaterade resurser när de inte längre behövs. På Azures huvudmeny går du till **Resursgrupper** och väljer resursgruppen för logikappen. Välj **Ta bort resursgrupp**. Ange resursgruppens namn som bekräftelse och välj **Ta bort**.
+När du inte längre behöver appen exempel logik tar du bort resurs gruppen som innehåller din Logic app och relaterade resurser. 
 
-![”Översikt” > ”Ta bort resursgrupp”](./media/tutorial-build-scheduled-recurring-logic-app-workflow/delete-resource-group.png)
+1. På Azures huvudmeny går du till **Resursgrupper** och väljer resursgruppen för logikappen.
 
-## <a name="get-support"></a>Få support
+1. Välj **Översikt** > **ta bort resurs grupp**på menyn resurs grupp. 
 
-* Om du har frågor kan du besöka [forumet för Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
-* Om du vill skicka in eller rösta på förslag på funktioner besöker du [webbplatsen för Logic Apps-användarfeedback](https://aka.ms/logicapps-wish).
+   ![”Översikt” > ”Ta bort resursgrupp”](./media/tutorial-build-scheduled-recurring-logic-app-workflow/delete-resource-group.png)
+
+1. Ange resurs gruppens namn som bekräftelse och välj **ta bort**.
 
 ## <a name="next-steps"></a>Nästa steg
 

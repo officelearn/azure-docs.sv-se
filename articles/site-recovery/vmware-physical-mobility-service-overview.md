@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: ramamill
-ms.openlocfilehash: c692b1c5b77b95e5487a847b46473906135c3d86
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: aeb00b84ac254232e0d68fd9631fb539a928e67d
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68261138"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70931895"
 ---
 # <a name="about-the-mobility-service-for-vmware-vms-and-physical-servers"></a>Om mobilitets tjänsten för virtuella VMware-datorer och fysiska servrar
 
@@ -119,8 +119,8 @@ Användning | UnifiedAgent. exe/Role \<MS/MT >/InstallLocation \<installation lo
 Installations loggar | Under%ProgramData%\ASRSetupLogs\ASRUnifiedAgentInstaller.log.
 /Role | Obligatorisk installations parameter. Anger om mobilitets tjänsten (MS) eller huvud målet (MT) ska installeras.
 /InstallLocation| Valfri parameter. Anger mobilitets tjänstens installations plats (valfri mapp).
-/Platform | Obligatorisk. Anger den plattform där mobilitets tjänsten är installerad. **VMware** för virtuella VMware-datorer/fysiska servrar; Virtuella **Azure** -datorer i Azure.
-/Silent| Valfri. Anger om installations programmet ska köras i tyst läge.
+/Platform | Obligatorisk. Anger den plattform där mobilitets tjänsten är installerad. **VMware** för virtuella VMware-datorer/fysiska servrar; Virtuella **Azure** -datorer i Azure.<br/><br/> Om du hanterar virtuella Azure-datorer som fysiska datorer anger du **VMware**.
+/Silent| Valfritt. Anger om installations programmet ska köras i tyst läge.
 
 #### <a name="registration-settings"></a>Registrerings inställningar
 **Inställning** | **Detaljer**
@@ -158,7 +158,7 @@ Användning | ./install-d \<installations plats >-r \<MS/MT >-v VMware-q
 -r | Obligatorisk installations parameter. Anger om mobilitets tjänsten (MS) eller huvud målet (MT) ska installeras.
 d, DDD | Valfri parameter. Anger mobilitets tjänstens installations plats:/usr/local/ASR.
 -v | Obligatorisk. Anger den plattform där mobilitets tjänsten är installerad. **VMware** för virtuella VMware-datorer/fysiska servrar; Virtuella **Azure** -datorer i Azure.
--q | Valfri. Anger om installations programmet ska köras i tyst läge.
+-q | Valfritt. Anger om installations programmet ska köras i tyst läge.
 
 #### <a name="registration-settings"></a>Registrerings inställningar
 **Inställning** | **Detaljer**

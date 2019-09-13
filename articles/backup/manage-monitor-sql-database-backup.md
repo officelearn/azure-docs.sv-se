@@ -5,14 +5,14 @@ author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 03/14/2018
+ms.date: 09/11/2019
 ms.author: dacurwin
-ms.openlocfilehash: 1d50f239a0ef4de02c9f0c87a28b0f5092d9c529
-ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
+ms.openlocfilehash: 5ef4ca3f6cbf45ac67bad6531926a7de54cd2012
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69019041"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70934768"
 ---
 # <a name="manage-and-monitor-backed-up-sql-server-databases"></a>Hantera och övervaka säkerhetskopierade SQL Server-databaser
 
@@ -137,9 +137,35 @@ Avregistrera en SQL Server instans när du har inaktiverat skyddet, men innan du
 
 3. I **skyddade servrar**väljer du den server som ska avregistreras. Om du vill ta bort valvet måste du avregistrera alla servrar.
 
-4. Högerklicka på den skyddade servern och välj avregistrera.
+4. Högerklicka på den skyddade servern och välj **avregistrera**.
 
    ![Välja Ta bort](./media/backup-azure-sql-database/delete-protected-server.jpg)
+
+
+## <a name="modify-policy"></a>Ändra princip
+Ändra princip för att ändra säkerhets kopierings frekvens eller kvarhållningsintervall.
+
+> [!NOTE]
+> Eventuella ändringar i kvarhållningsperioden tillämpas retroaktivt för alla äldre återställnings punkter förutom de nya.
+
+I valv instrument panelen, gå till **Hantera** > **säkerhets kopierings principer** och välj den princip som du vill redigera.
+
+  ![Hantera säkerhets kopierings princip](./media/backup-azure-sql-database/modify-backup-policy.png)
+
+  ![Ändra säkerhets kopierings princip](./media/backup-azure-sql-database/modify-backup-policy-impact.png)
+
+Princip ändringen påverkar alla tillhör ande säkerhets kopierings objekt och utlöser motsvarande **Konfigurera skydds** jobb. 
+
+#### <a name="inconsistent-policy"></a>Inkonsekvent princip 
+
+Ibland kan en åtgärd för att ändra en princip leda till en **inkonsekvent** princip version för vissa säkerhets kopierings objekt. Detta inträffar när motsvarande **konfigurations skydds** jobb Miss lyckas för säkerhets kopierings objektet när en åtgärd för att ändra princip har utlösts. Den visas på följande sätt i vyn säkerhets kopierings objekt:
+ 
+  ![Inkonsekvent princip](./media/backup-azure-sql-database/inconsistent-policy.png)
+
+Du kan åtgärda princip versionen för alla påverkade objekt i ett klick:
+
+  ![Åtgärda inkonsekvent princip](./media/backup-azure-sql-database/fix-inconsistent-policy.png)
+ 
 
 ## <a name="re-register-extension-on-the-sql-server-vm"></a>Registrera tillägget på nytt på SQL Server VM
 

@@ -1,6 +1,6 @@
 ---
-title: Utvärdera dina frågor med hjälp av funktionen för körning av profil för Azure Cosmos DB Gremlin-API
-description: Lär dig hur du felsöker och förbättra dina Gremlin-frågor med hjälp av körningssteg för profilen.
+title: Utvärdera dina frågor med körnings profil funktionen för Azure Cosmos DB Gremlin-API
+description: Lär dig hur du felsöker och förbättrar dina Gremlin-frågor med hjälp av steget kör profil.
 services: cosmos-db
 author: luisbosquez
 manager: kfile
@@ -9,18 +9,18 @@ ms.subservice: cosmosdb-graph
 ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: lbosq
-ms.openlocfilehash: 4964f485f5e781b7fe0a0f09486512fe6a5b9035
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: ab5c55105eeb912281f35e3d6094c0c43a76f89a
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67592484"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70915888"
 ---
-# <a name="how-to-use-the-execution-profile-step-to-evaluate-your-gremlin-queries"></a>Hur du använder profilen körningssteg för att utvärdera Gremlin-frågor
+# <a name="how-to-use-the-execution-profile-step-to-evaluate-your-gremlin-queries"></a>Använda steget körnings profil för att utvärdera dina Gremlin-frågor
 
-Den här artikeln innehåller en översikt över hur du använder profilen körningssteg för Gremlin-API för Azure Cosmos DB graph-databaser. Det här steget innehåller relevant information för felsökning och fråga optimeringar och den är kompatibel med alla Gremlin-frågor som kan utföras mot ett Gremlin-API för Cosmos DB-konto.
+Den här artikeln innehåller en översikt över hur du använder steget körnings profil för Azure Cosmos DB Gremlin API Graph-databaser. Det här steget ger relevant information för fel sökning och frågekörning, och den är kompatibel med alla Gremlin-frågor som kan utföras mot ett Cosmos DB Gremlin API-konto.
 
-Om du vill använda det här steget, Lägg bara till den `executionProfile()` funktionsanropet i slutet av Gremlin-fråga. **Gremlin-fråga körs** och resultatet av åtgärden returnerar ett JSON-svarsobjekt med frågan körning profilen.
+Om du vill använda det här steget lägger `executionProfile()` du bara till funktions anropet i slutet av din Gremlin-fråga. **Din Gremlin-fråga körs** och resultatet av åtgärden returnerar ett JSON-svars objekt med frågans körnings profil.
 
 Exempel:
 
@@ -32,18 +32,18 @@ Exempel:
     g.V('mary').out().executionProfile()
 ```
 
-När du anropar den `executionProfile()` steget svaret ska ha ett JSON-objekt som innehåller utförda Gremlin-steg och den totala tid det tog en matris med Cosmos DB runtime operatorer som instruktionen resulterade i.
+När du har `executionProfile()` anropat steget blir svaret ett JSON-objekt som innehåller det utförda Gremlin-steget, den totala tiden det tog och en matris av de Cosmos DB runtime-operatörer som instruktionen resulterade i.
 
 > [!NOTE]
-> Den här implementeringen för körning profilen har inte definierats i Apache Tinkerpop-specifikationen. Det är specifika för Azure Cosmos DB Gremlin API: er implementering.
+> Den här implementeringen av körnings profilen har inte definierats i Apache Tinkerpop-specifikationen. Den är unik för implementering av Azure Cosmos DB Gremlin-API.
 
 
-## <a name="response-example"></a>Svar-exempel
+## <a name="response-example"></a>Svars exempel
 
-Följande är ett kommenterat exempel på de utdata som returneras:
+Följande är ett kommenterat exempel på utdata som kommer att returneras:
 
 > [!NOTE]
-> Det här exemplet markeras med kommentarer som förklarar den allmänna strukturen för svaret. Ett faktiska executionProfile svar innehåller inte några kommentarer.
+> Det här exemplet är kommenterat med kommentarer som förklarar svarets allmänna struktur. Ett faktiskt executionProfile-svar innehåller inte några kommentarer.
 
 ```json
 [
@@ -54,12 +54,14 @@ Följande är ett kommenterat exempel på de utdata som returneras:
     // Amount of time in milliseconds that the entire operation took.
     "totalTime": 28,
 
-    // An array containing metrics for each of the steps that were executed. Each Gremlin step will translate to one or more of these steps.
+    // An array containing metrics for each of the steps that were executed. 
+    // Each Gremlin step will translate to one or more of these steps.
     // This list is sorted in order of execution.
     "metrics": [
       {
         // This operation obtains a set of Vertex objects.
-        // The metrics include: time, percentTime of total execution time, resultCount, fanoutFactor, count, size (in bytes) and time.
+        // The metrics include: time, percentTime of total execution time, resultCount, 
+        // fanoutFactor, count, size (in bytes) and time.
         "name": "GetVertices",
         "time": 24,
         "annotations": {
@@ -78,8 +80,12 @@ Följande är ett kommenterat exempel på de utdata som returneras:
         ]
       },
       {
-        // This operation obtains a set of Edge objects. Depending on the query, these might be directly adjacent to a set of vertices, or separate, in the case of an E() query.
-        // The metrics include: time, percentTime of total execution time, resultCount, fanoutFactor, count, size (in bytes) and time.
+        // This operation obtains a set of Edge objects. 
+        // Depending on the query, these might be directly adjacent to a set of vertices, 
+        // or separate, in the case of an E() query.
+        //
+        // The metrics include: time, percentTime of total execution time, resultCount, 
+        // fanoutFactor, count, size (in bytes) and time.
         "name": "GetEdges",
         "time": 4,
         "annotations": {
@@ -110,8 +116,9 @@ Följande är ett kommenterat exempel på de utdata som returneras:
         }
       },
       {
-        // This operation represents the serialization and preparation for a result from the preceding graph operations.
-        // The metrics include: time, percentTime of total execution time and resultCount.
+        // This operation represents the serialization and preparation for a result from 
+        // the preceding graph operations. The metrics include: time, percentTime of total 
+        // execution time and resultCount.
         "name": "ProjectOperator",
         "time": 0,
         "annotations": {
@@ -127,50 +134,50 @@ Följande är ett kommenterat exempel på de utdata som returneras:
 ```
 
 > [!NOTE]
-> ExecutionProfile-steget körs Gremlin-fråga. Detta inkluderar den `addV` eller `addE`steg, vilket resulterar i att skapa och genomför ändringarna som angavs i frågan. Programbegäran som genererats av Gremlin-fråga kommer därför också att debiteras.
+> ExecutionProfile-steget kommer att köra frågan Gremlin. Detta omfattar `addV` eller `addE`-stegen, vilket leder till att de skapas och kommer att verkställa de ändringar som anges i frågan. Därför kommer de enheter för programbegäran som genereras av Gremlin-frågan också att debiteras.
 
-## <a name="execution-profile-response-objects"></a>Svarsobjekt för körning av profil
+## <a name="execution-profile-response-objects"></a>Svars objekt för körnings profil
 
-Svaret på en funktion för executionProfile() resulterar i en hierarki av JSON-objekt med följande struktur:
-  - **Gremlin-åtgärdsobjektet**: Representerar hela Gremlin-åtgärden som utfördes. Innehåller följande egenskaper.
-    - `gremlin`: Den explicita Gremlin-instruktion som har utförts.
-    - `totalTime`: Tiden, i millisekunder, som i samband med körningen av steget. 
-    - `metrics`: En matris som innehåller var och en av Cosmos DB runtime-operatörer har körts för att slutföra frågan. Den här listan är sorterad i ordningen för körningen.
+Svaret på en executionProfile ()-funktion kommer att ge en hierarki med JSON-objekt med följande struktur:
+  - **Gremlin-åtgärds objekt**: Representerar hela den Gremlin-åtgärd som kördes. Innehåller följande egenskaper.
+    - `gremlin`: Explicit Gremlin-instruktion som kördes.
+    - `totalTime`: Tiden, i millisekunder, som körningen av steget i. 
+    - `metrics`: En matris som innehåller var och en av de Cosmos DB runtime-operatörer som kördes för att uppfylla frågan. Den här listan sorteras i körnings ordning.
     
-  - **Cosmos DB runtime operatörer**: Representerar var och en av komponenterna i hela Gremlin-åtgärden. Den här listan är sorterad i ordningen för körningen. Varje objekt innehåller följande egenskaper:
-    - `name`: Namnet på operatorn. Det här är typ av steg som utvärderas och körs. Läs mer i tabellen nedan.
-    - `time`: Mängden tid i millisekunder, som en viss operator tog.
-    - `annotations`: Innehåller ytterligare information, som är specifika för den operator som har utförts.
-    - `annotations.percentTime`: Den procentandel av den totala tiden som det tog för att utföra specifika operatorn.
-    - `counts`: Antal objekt som returnerades från storage-skiktet av den här operatorn. Detta finns i den `counts.resultCount` skalärt värde inom.
-    - `storeOps`: Representerar en lagringsåtgärd som kan spänna över en eller flera partitioner.
-    - `storeOps.fanoutFactor`: Representerar antalet partitioner som används av den här åtgärden för specifika lagringsutrymmen.
-    - `storeOps.count`: Representerar antalet resultat som returneras av den här Lagringsåtgärden.
-    - `storeOps.size`: Representerar storlek i byte på resultatet av en viss lagringsåtgärd.
+  - **Cosmos DB runtime-operatörer**: Representerar var och en av komponenterna i hela Gremlin-åtgärden. Den här listan sorteras i körnings ordning. Varje-objekt innehåller följande egenskaper:
+    - `name`: Namn på operatorn. Detta är den typ av steg som utvärderades och kördes. Läs mer i tabellen nedan.
+    - `time`: Hur lång tid i millisekunder som en specifik operatör vidtog.
+    - `annotations`: Innehåller ytterligare information, som är speciell för den operator som kördes.
+    - `annotations.percentTime`: Procent andel av den totala tiden som det tog att utföra den angivna operatorn.
+    - `counts`: Antal objekt som har returnerats från lagrings skiktet av den här operatorn. Detta finns i det `counts.resultCount` skalära värdet i.
+    - `storeOps`: Representerar en lagrings åtgärd som kan omfatta en eller flera partitioner.
+    - `storeOps.fanoutFactor`: Representerar antalet partitioner som den här angivna lagrings åtgärden har åtkomst till.
+    - `storeOps.count`: Representerar antalet resultat som den här lagrings åtgärden returnerade.
+    - `storeOps.size`: Representerar storleken i byte för resultatet av en specifik lagrings åtgärd.
 
-Cosmos DB Gremlin Runtime Operator|Beskrivning
+Cosmos DB Gremlin runtime-operator|Beskrivning
 ---|---
-`GetVertices`| Det här steget hämtar en predicated uppsättning objekt från lager för datapersistens. 
-`GetEdges`| Det här steget hämtar kanterna gränsar till en uppsättning hörn. Det här steget kan resultera i en eller flera lagringsåtgärder.
-`GetNeighborVertices`| Det här steget hämtar de hörn som är anslutna till en uppsättning kanter. Kanterna innehåller partitionen nycklar och ID: n med sin källa och mål hörn.
-`Coalesce`| Det här steget konton för utvärderingen av två åtgärder när den `coalesce()` Gremlin-steg utförs.
-`CartesianProductOperator`| Det här steget beräknar en kartesiansk produkt mellan två datauppsättningar. Vanligtvis körs varje gång predikat `to()` eller `from()` används.
-`ConstantSourceOperator`| Det här steget beräknar ett uttryck för att skapa ett konstantvärde som ett resultat.
-`ProjectOperator`| Det här steget förbereder och Serialiserar ett svar som använder resultatet av föregående åtgärder.
-`ProjectAggregation`| Det här steget förbereder och Serialiserar ett svar för en sammanställd åtgärd.
+`GetVertices`| Det här steget hämtar en predikat uppsättning objekt från beständiga skiktet. 
+`GetEdges`| Det här steget hämtar de kanter som gränsar till en uppsättning formhörn. Det här steget kan resultera i en eller flera lagrings åtgärder.
+`GetNeighborVertices`| Det här steget hämtar de hörn som är anslutna till en uppsättning kanter. Kanterna innehåller partitionerings nycklar och ID: n för både käll-och mål hörn.
+`Coalesce`| I det här steget visas en utvärdering av två åtgärder när `coalesce()` Gremlin-steget körs.
+`CartesianProductOperator`| Det här steget beräknar en kartesiska-produkt mellan två data uppsättningar. Utförs vanligt vis när predikat `to()` eller `from()` används.
+`ConstantSourceOperator`| Det här steget beräknar ett uttryck för att skapa ett konstant värde som ett resultat.
+`ProjectOperator`| Det här steget förbereder och serialiserar ett svar med hjälp av resultatet från föregående åtgärder.
+`ProjectAggregation`| I det här steget förbereds och serialiseras ett svar för en agg regerings åtgärd.
 
 > [!NOTE]
-> Den här listan fortsätter att uppdateras när nya operatorer läggs till.
+> Den här listan fortsätter att uppdateras när nya operatörer läggs till.
 
-## <a name="examples-on-how-to-analyze-an-execution-profile-response"></a>Exempel på hur du analyserar ett svar på körning av profil
+## <a name="examples-on-how-to-analyze-an-execution-profile-response"></a>Exempel på hur du analyserar ett svar på körnings profilen
 
-Här följer några exempel på vanliga optimeringar som spotted med körning profil svaret:
-  - Hemlig förgreningsfråga.
-  - Ofiltrerade fråga.
+Följande är exempel på vanliga optimeringar som kan Spotted med hjälp av körnings profil svaret:
+  - Blind fläkt-out-fråga.
+  - Ofiltrerad fråga.
 
-### <a name="blind-fan-out-query-patterns"></a>Hemlig fan-out frågemönster
+### <a name="blind-fan-out-query-patterns"></a>Fråga mönster för blinda fläktar
 
-Anta att följande körning profil svar från en **partitionerade graph**:
+Antag följande körnings profil svar från en **partitionerad graf**:
 
 ```json
 [
@@ -211,18 +218,18 @@ Anta att följande körning profil svar från en **partitionerade graph**:
 ]
 ```
 
-Följande slutsatser kan göras från den:
-- Frågan är en enkel ID-sökning, eftersom instruktionen Gremlin följer mönstret `g.V('id')`.
-- Bedömning från den `time` svarstiden för den här frågan verkar vara hög eftersom det är mått, [mer än 10 MS för en enda punkt läsning åtgärd](https://docs.microsoft.com/azure/cosmos-db/introduction#guaranteed-low-latency-at-99th-percentile-worldwide).
-- Om vi titta på den `storeOps` objekt kan vi se att den `fanoutFactor` är `5`, vilket innebär att [5 partitioner](https://docs.microsoft.com/azure/cosmos-db/partition-data) användes av den här åtgärden.
+Följande slut satser kan göras från den:
+- Frågan är en enskild ID-sökning, eftersom Gremlin-instruktionen följer mönstret `g.V('id')`.
+- Bedömnings från `time` måttet, verkar svars tiden för den här frågan vara hög eftersom det är [mer än 10ms för en enda punkt-Läs åtgärd](https://docs.microsoft.com/azure/cosmos-db/introduction#guaranteed-low-latency-at-99th-percentile-worldwide).
+- Om vi tittar `storeOps` på objektet kan vi se `fanoutFactor` att är `5`, vilket innebär att [5 partitioner](https://docs.microsoft.com/azure/cosmos-db/partition-data) har öppnats av den här åtgärden.
 
-Som en ingående av den här analysen kan vi fastställer att den första frågan har åtkomst till fler partitioner än nödvändigt. Det kan åtgärdas genom att ange partitionsnyckel i frågan som ett predikat. Detta leder till mindre fördröjning och mindre kostnad per fråga. Läs mer om [grafpartitionering](graph-partitioning.md). En mer optimala frågeprestanda skulle vara `g.V('tt0093640').has('partitionKey', 't1001')`.
+I slutet av den här analysen kan vi fastställa att den första frågan har åtkomst till fler partitioner än vad som behövs. Detta kan åtgärdas genom att ange partitionerings nyckeln i frågan som ett predikat. Detta leder till mindre latens och mindre kostnad per fråga. Lär dig mer om [diagram partitionering](graph-partitioning.md). En mer optimal fråga är `g.V('tt0093640').has('partitionKey', 't1001')`.
 
-### <a name="unfiltered-query-patterns"></a>Ofiltrerade frågemönster
+### <a name="unfiltered-query-patterns"></a>Ofiltrerad fråga mönster
 
-Jämför följande två körning profil svar. För enkelhetens skull används i dessa exempel en enda partitionerade graf.
+Jämför följande två svar på körnings profilen. För enkelhetens skull använder dessa exempel ett enda partitionerat diagram.
 
-Den här första fråga hämtar alla hörn med etiketten `tweet` och hämtar sedan sina Närliggande hörn:
+Den här första frågan hämtar alla formhörn med etiketten `tweet` och hämtar sedan sina grann hörn:
 
 ```json
 [
@@ -299,7 +306,7 @@ Den här första fråga hämtar alla hörn med etiketten `tweet` och hämtar sed
 ]
 ```
 
-Lägg märke till profilen för samma fråga, men nu med ett ytterligare filter `has('lang', 'en')`, innan du börjar utforska intilliggande hörn:
+Lägg märke till profilen för samma fråga, men nu med ett ytterligare filter `has('lang', 'en')`, innan du utforskar de intilliggande hörnen:
 
 ```json
 [
@@ -376,10 +383,10 @@ Lägg märke till profilen för samma fråga, men nu med ett ytterligare filter 
 ]
 ```
 
-Dessa två frågor har nåtts samma resultat, men den första som kräver mer programbegäran eftersom som krävdes för att iterera en större inledande datauppsättning innan fråga intilliggande objekt. Vi kan se indikatorer för det här beteendet när du jämför följande parametrar från båda svar:
-- Den `metrics[0].time` värdet är högre upp i det första svaret som anger att den här enda steg tog längre tid att lösa.
-- Den `metrics[0].counts.resultsCount` värdet är högre samt i det första svaret som anger att den initiala datauppsättningen arbeta var större.
+De här två frågorna har uppnått samma resultat, men den första måste dock kräva fler enheter för programbegäran eftersom den behövde upprepa en större inledande data uppsättning innan den frågar efter intilliggande objekt. Vi kan se indikatorer för det här beteendet när du jämför följande parametrar från båda svaren:
+- `metrics[0].time` Värdet är högre i det första svaret, vilket indikerar att det här enskilda steget tog längre tid att lösa.
+- `metrics[0].counts.resultsCount` Värdet är högre och det första svaret, som anger att den första arbets data uppsättningen var större.
 
 ## <a name="next-steps"></a>Nästa steg
-* Lär dig mer om den [Gremlin-funktioner som stöds](gremlin-support.md) i Azure Cosmos DB. 
-* Läs mer om den [Gremlin-API i Azure Cosmos DB](graph-introduction.md).
+* Lär dig mer om de [Gremlin-funktioner som stöds](gremlin-support.md) i Azure Cosmos dB. 
+* Läs mer om [Gremlin-API: et i Azure Cosmos DB](graph-introduction.md).

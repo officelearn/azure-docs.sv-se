@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/10/2019
 ms.author: barclayn
-ms.openlocfilehash: f3cacdad2986de257ae345f4baa9d14ea6c894b2
-ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
+ms.openlocfilehash: 78062dd92d20da365bb4f3d9c21cc4d576bae01f
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70873183"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70918872"
 ---
 # <a name="azure-data-encryption-at-rest"></a>Azure Data Encryption – i vila
 
@@ -39,7 +39,7 @@ Kryptering i vila är kodningen (kryptering) av data när den är beständig. Kr
 - En symmetrisk krypterings nyckel används för att kryptera data när de skrivs till lagringen.
 - Samma krypterings nyckel används för att dekryptera dessa data som de är lätta att använda i minnet.
 - Data kan vara partitionerade och olika nycklar kan användas för varje partition.
-- Nycklar måste lagras på en säker plats med identitetsbaserade åtkomst kontroll och gransknings principer. Data krypterings nycklar krypteras ofta med asymmetrisk kryptering för att ytterligare begränsa åtkomsten.
+- Nycklar måste lagras på en säker plats med identitetsbaserade åtkomst kontroll och gransknings principer. Data krypterings nycklar krypteras ofta med en nyckel krypterings nyckel i Azure Key Vault för att ytterligare begränsa åtkomsten.
 
 I praktiken kräver nyckel hanterings-och kontroll scenarier, samt skalnings-och tillgänglighets garantier, ytterligare konstruktioner. Microsoft Azure kryptering i rest-koncept och-komponenter beskrivs nedan.
 
@@ -71,12 +71,12 @@ Behörigheter för att använda nycklarna som lagras i Azure Key Vault, antingen
 
 ### <a name="key-hierarchy"></a>Nyckel-hierarki
 
-Mer än en krypterings nyckel används i en kryptering vid rest-implementering. Asymmetrisk kryptering är användbart för att upprätta det förtroende och den autentisering som krävs för nyckel åtkomst och hantering. Symmetrisk kryptering är mer effektivt för Mass kryptering och dekryptering, vilket möjliggör starkare kryptering och bättre prestanda. Att begränsa användningen av en enskild krypterings nyckel minskar risken för att nyckeln komprometteras och kostnaden för omkryptering när en nyckel måste bytas ut. Azure-krypteringar i rest-modeller använder en nyckel-hierarki som består av följande typer av nycklar:
+Mer än en krypterings nyckel används i en kryptering vid rest-implementering. Lagring av en krypterings nyckel i Azure Key Vault garanterar säker nyckel åtkomst och central hantering av nycklar. Tjänst lokal åtkomst till krypterings nycklar är dock mer effektiv för Mass kryptering och dekryptering än att interagera med Key Vault för varje data åtgärd, vilket ger bättre kryptering och bättre prestanda. Att begränsa användningen av en enskild krypterings nyckel minskar risken för att nyckeln komprometteras och kostnaden för omkryptering när en nyckel måste bytas ut. Azure-kryptering i rest-modeller använder en nyckel-hierarki som består av följande typer av nycklar för att hantera alla dessa behov:
 
 - **Data krypterings nyckel (DEK)** – en symmetrisk AES256-nyckel som används för att kryptera en partition eller data block.  En enskild resurs kan ha många partitioner och många data krypterings nycklar. Kryptering av varje data block med en annan nyckel gör det svårare att analysera krypteringen. Åtkomst till DEKs krävs av resurs leverantören eller program instansen som krypterar och dekrypterar ett särskilt block. När en DEK ersätts med en ny nyckel måste endast data i det associerade blocket krypteras igen med den nya nyckeln.
-- **Nyckel krypterings nyckel (KEK)** – en asymmetrisk krypterings nyckel som används för att kryptera data krypterings nycklarna. Användningen av en nyckel krypterings nyckel gör att data krypterings nycklarna själva krypteras och kontrol leras. Entiteten som har åtkomst till KEK kan skilja sig från den entitet som kräver DEK. En entitet kan Broker-åtkomst till DEK för att begränsa åtkomsten för varje DEK till en speciell partition. Eftersom KEK krävs för att dekryptera DEKs är KEK en enda punkt med vilken DEKs kan tas bort effektivt genom borttagning av KEK.
+- **Nyckel krypterings nyckel (KEK)** – en krypterings nyckel som används för att kryptera data krypterings nycklarna. Användning av en nyckel krypterings nyckel som aldrig lämnar Key Vault tillåter att data krypterings nycklarna krypteras och kontrol leras. Entiteten som har åtkomst till KEK kan skilja sig från den entitet som kräver DEK. En entitet kan Broker-åtkomst till DEK för att begränsa åtkomsten för varje DEK till en speciell partition. Eftersom KEK krävs för att dekryptera DEKs är KEK en enda punkt med vilken DEKs kan tas bort effektivt genom borttagning av KEK.
 
-Data krypterings nycklarna som krypteras med nyckel krypterings nycklarna lagras separat och endast en entitet med åtkomst till nyckel krypterings nyckeln kan få alla data krypterings nycklar som är krypterade med den nyckeln. Olika modeller av nyckel lagring stöds. Vi kommer att diskutera varje modell i detalj senare i nästa avsnitt.
+Data krypterings nycklarna som krypteras med nyckel krypterings nycklarna lagras separat och endast en entitet med åtkomst till nyckel krypterings nyckeln kan dekryptera dessa data krypterings nycklar. Olika modeller av nyckel lagring stöds. Vi kommer att diskutera varje modell i detalj senare i nästa avsnitt.
 
 ## <a name="data-encryption-models"></a>Data krypterings modeller
 
@@ -150,7 +150,9 @@ När Server sidans kryptering med hanterade nycklar används, hanteras nyckeln, 
 
 #### <a name="server-side-encryption-using-customer-managed-keys-in-azure-key-vault"></a>Kryptering på Server sidan med Kundhanterade nycklar i Azure Key Vault
 
-För scenarier där kravet är att kryptera data i vila och kontrol lera krypterings nycklarna kan kunder använda kryptering på Server sidan med Kundhanterade nycklar i Key Vault. Vissa tjänster kan bara lagra rot nyckelns krypterings nyckel i Azure Key Vault och lagra krypterings nyckeln för krypterade data på en intern plats närmare data. I det scenariot kan kunder ta med sina egna nycklar för att Key Vault (BYOK – Bring Your Own Key) eller generera nya och använda dem för att kryptera de önskade resurserna. Medan resurs leverantören utför krypterings-och dekrypterings åtgärder använder den den konfigurerade nyckeln som rot nyckel för alla krypterings åtgärder.
+För scenarier där kravet är att kryptera data i vila och kontrol lera krypterings nycklarna kan kunder använda kryptering på Server sidan med Kundhanterade nycklar i Key Vault. Vissa tjänster kan bara lagra rot nyckelns krypterings nyckel i Azure Key Vault och lagra krypterings nyckeln för krypterade data på en intern plats närmare data. I det scenariot kan kunder ta med sina egna nycklar för att Key Vault (BYOK – Bring Your Own Key) eller generera nya och använda dem för att kryptera de önskade resurserna. Medan resurs leverantören utför krypterings-och dekrypterings åtgärder, använder den den konfigurerade nyckel krypterings nyckeln som rot nyckel för alla krypterings åtgärder.
+
+Förlust av nyckel krypterings nycklar innebär förlust av data. Därför bör nycklarna inte tas bort. Nycklar ska säkerhets kopie ras när de skapas eller roteras. [Mjuk borttagning](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete) ska vara aktiverat på alla valv som lagrar nyckel krypterings nycklar. I stället för att ta bort en nyckel ställer du in på falskt eller anger förfallo datum.
 
 ##### <a name="key-access"></a>Nyckel åtkomst
 

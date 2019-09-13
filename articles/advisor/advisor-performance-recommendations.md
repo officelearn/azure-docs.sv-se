@@ -1,6 +1,6 @@
 ---
 title: Förbättra prestanda för Azure-program med Azure Advisor | Microsoft Docs
-description: Använd Advisor för att optimera prestandan för dina Azure-distributioner.
+description: Använd Advisor för att optimera prestanda för dina Azure-distributioner.
 services: advisor
 documentationcenter: NA
 author: kasparks
@@ -8,120 +8,120 @@ ms.service: advisor
 ms.topic: article
 ms.date: 01/29/2019
 ms.author: kasparks
-ms.openlocfilehash: 8fdae1e12e56dcbcb56941726b0c089ad59b8fc8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c8647e316cc77e7e1eed5108fafccd6d70d181cf
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66254654"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70898185"
 ---
 # <a name="improve-performance-of-azure-applications-with-azure-advisor"></a>Förbättra prestanda för Azure-program med Azure Advisor
 
-Azure Advisor-rekommendationer att förbättra hastighet och tillgänglighet för dina verksamhetskritiska program. Du kan hämta prestandarekommendationer från Advisor den **prestanda** fliken Advisor-instrumentpanelen.
+Azure Advisor prestanda rekommendationer hjälper till att förbättra hastighet och svars tider för affärs kritiska program. Du kan få prestanda rekommendationer från Advisor på fliken **prestanda** på instrument panelen för Advisor.
 
-## <a name="reduce-dns-time-to-live-on-your-traffic-manager-profile-to-fail-over-to-healthy-endpoints-faster"></a>Minska tiden för DNS-TTL-värde på Traffic Manager-profilen att växla över till felfria slutpunkter snabbare
+## <a name="reduce-dns-time-to-live-on-your-traffic-manager-profile-to-fail-over-to-healthy-endpoints-faster"></a>Minska DNS-tiden till att leva i Traffic Managers profilen för att växla över till felfria slut punkter snabbare
 
-[Tid till Live (TTL) inställningar](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-performance-considerations) på din Traffic Manager-profil kan du ange hur snabbt växla slutpunkter om en viss slutpunkt slutar svara på frågor. Minska TTL-värden innebär att klienter kommer att dirigeras till fungerande slutpunkter snabbare.
+Med [Inställningar för Time to Live (TTL)](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-performance-considerations) i din Traffic Manager-profil kan du ange hur snabbt ska byta slut punkter om en specifik slut punkt slutar svara på frågor. Att minska TTL-värdena innebär att klienter dirigeras till fungerande slut punkter snabbare.
 
-Azure Advisor identifierar Traffic Manager-profiler med ett längre TTL-värde som har konfigurerats och rekommenderar konfigurera TTL-värdet till 20 sekunder eller 60 sekunder beroende på om profilen som har konfigurerats för [snabb redundans](https://azure.microsoft.com/roadmap/fast-failover-and-tcp-probing-in-azure-traffic-manager/).
+Azure Advisor identifierar Traffic Manager profiler med ett längre TTL-värde konfigurerat och rekommenderar att du konfigurerar TTL till antingen 20 sekunder eller 60 sekunder beroende på om profilen har kon figurer ATS för [snabb redundans](https://azure.microsoft.com/roadmap/fast-failover-and-tcp-probing-in-azure-traffic-manager/).
 
 ## <a name="improve-database-performance-with-sql-db-advisor"></a>Förbättra databasens prestanda med SQL DB Advisor
 
-Advisor ger dig en konsekvent konsoliderad vy över rekommendationer för alla dina Azure-resurser. Det integreras med SQL Database Advisor för att ge dig rekommendationer för att förbättra prestandan för din SQL Azure-databas. SQL Database Advisor utvärderar prestanda för dina SQL Azure-databaser genom att analysera din användningshistorik. Den erbjuder sedan rekommendationer som passar bäst för att köra databasens normal belastning.
+Advisor ger dig en enhetlig, sammanslagen översikt över rekommendationer för alla dina Azure-resurser. Den integreras med SQL Database Advisor för att få rekommendationer för att förbättra prestandan för din SQL Azure-databas. SQL Database Advisor bedömer prestanda för dina SQL Azure databaser genom att analysera användnings historiken. Den erbjuder sedan rekommendationer som passar bäst för att köra databasens typiska arbets belastning.
 
 > [!NOTE]
-> För att få rekommendationer, en databas måste ha om en veckas användning och inom den veckan måste det finnas viss konsekvent aktivitet. SQL Database Advisor kan optimera enklare för konsekvent frågemönster än för slumpmässiga ökningar av aktivitet.
+> För att få rekommendationer måste en databas ha ungefär en vecka med användning och inom den veckan måste det finnas en viss konsekvent aktivitet. SQL Database Advisor kan optimeras enklare för konsekventa fråge mönster än för slumpmässiga aktiviteter.
 
-Läs mer om SQL Database Advisor [SQL Database Advisor](https://azure.microsoft.com/documentation/articles/sql-database-advisor/).
+Mer information om SQL Database Advisor finns i [SQL Database Advisor](https://azure.microsoft.com/documentation/articles/sql-database-advisor/).
 
-## <a name="improve-app-service-performance-and-reliability"></a>Förbättra App Service-prestanda och tillförlitlighet
+## <a name="improve-app-service-performance-and-reliability"></a>Förbättra App Service prestanda och tillförlitlighet
 
-Azure Advisor integrerar rekommendationer om bästa praxis för att förbättra din upplevelse för App Services och identifiera relevanta plattformsfunktioner. Exempel på rekommendationer för App Services är:
-* Identifiering av instanser där minne eller CPU-resurser är slut genom appen körningar med alternativ för lösning.
-* Identifiering av instanser där collocating resurser som webbappar och databaser kan förbättra prestanda och lägre kostnader.
+Azure Advisor integrerar rekommendationer för bästa praxis för att förbättra din App Services upplevelse och identifiera relevanta plattforms funktioner. Exempel på App Services rekommendationer är:
+* Identifiering av instanser där minnes-eller processor resurser förbrukas av app-körtid med alternativ för att minska.
+* Identifiering av instanser där collocating-resurser som webbappar och databaser kan förbättra prestanda och sänka kostnaderna.
 
-Läs mer om rekommendationer för App Services, [Metodtips för Azure App Service](https://azure.microsoft.com/documentation/articles/app-service-best-practices/).
+Mer information om App Services rekommendationer finns i [metod tips för Azure App Service](https://azure.microsoft.com/documentation/articles/app-service-best-practices/).
 
-## <a name="use-managed-disks-to-prevent-disk-io-throttling"></a>Använd Managed Disks för att förhindra diskbegränsning i/o
+## <a name="use-managed-disks-to-prevent-disk-io-throttling"></a>Använd Managed Disks för att förhindra disk-I/O-begränsning
 
-Advisor identifierar virtuella datorer som tillhör ett lagringskonto som når skalbarhetsmålet. Det här tillståndet gör att de virtuella datorerna mottagliga för i/o-begränsning. Advisor rekommenderar att de använder Managed Disks för att förhindra att prestanda försämras.
+Advisor identifierar virtuella datorer som tillhör ett lagrings konto som når sitt skalbarhets mål. Det här tillståndet gör att de virtuella datorerna är utsatta för I/O-begränsning. Advisor rekommenderar att de använder Managed Disks för att förhindra försämrade prestanda.
 
-## <a name="improve-the-performance-and-reliability-of-virtual-machine-disks-by-using-premium-storage"></a>Förbättra säkerheten och tillförlitligheten för virtuella diskar med Premium Storage
+## <a name="improve-the-performance-and-reliability-of-virtual-machine-disks-by-using-premium-storage"></a>Förbättra prestanda och tillförlitlighet för virtuella dator diskar med hjälp av Premium Storage
 
-Advisor identifierar virtuella datorer med standarddiskar som har en stor mängd transaktioner på ditt lagringskonto och rekommenderar att du uppgraderar till premium-diskar. 
+Advisor identifierar virtuella datorer med standard diskar som har en stor mängd transaktioner på ditt lagrings konto och rekommenderar att du uppgraderar till Premium-diskar. 
 
-Azure Premium Storage tillhandahåller högpresterande och låg latens disksupport för virtuella datorer som kör I/O-intensiva arbetsbelastningar. Virtuella diskar som använder premium storage-konton kan du lagra data på SSD (solid-state drive). För bästa prestanda för ditt program rekommenderar vi att du har migrerat alla virtuella diskar som kräver hög IOPS till premium storage.
+Azure Premium Storage levererar stöd för hög prestanda, låg latens disk för virtuella datorer som kör I/O-intensiva arbets belastningar. Virtuella dator diskar som använder Premium Storage-konton lagrar data i solid state-hårddiskar (SSD). För bästa prestanda för ditt program rekommenderar vi att du migrerade alla virtuella dator diskar som kräver höga IOPS till Premium Storage.
 
-## <a name="remove-data-skew-on-your-sql-data-warehouse-table-to-increase-query-performance"></a>Ta bort datasnedställning på SQL data warehouse-tabell att öka prestanda för frågor
+## <a name="remove-data-skew-on-your-sql-data-warehouse-table-to-increase-query-performance"></a>Ta bort data skevningen i SQL Data Warehouse-tabellen för att öka prestandan för frågor
 
-Datasnedställning kan orsaka onödiga data movement eller resurs flaskhalsar när du kör din arbetsbelastning. Advisor identifierar distributionsdata förskjuta större än 15% och rekommenderar att du distribuera om dina data och gå tillbaka till dina viktiga val för tabell-distribution. Läs mer om identifiera och ta bort skeva i [felsökning skeva](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-distribute#how-to-tell-if-your-distribution-column-is-a-good-choice).
+Data snedheten kan orsaka onödig data flytt eller resurs Flask halsar när du kör arbets belastningen. Advisor identifierar fördelnings data som är större än 15% och rekommenderar att du distribuerar om dina data och går tillbaka till dina val av tabell distributions nyckel. Mer information om hur du identifierar och tar bort skevning finns i [Felsöka skevning](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-distribute#how-to-tell-if-your-distribution-column-is-a-good-choice).
 
-## <a name="create-or-update-outdated-table-statistics-on-your-sql-data-warehouse-table-to-increase-query-performance"></a>Skapa eller uppdatera inaktuella tabellstatistik på SQL data warehouse-tabell att öka prestanda för frågor
+## <a name="create-or-update-outdated-table-statistics-on-your-sql-data-warehouse-table-to-increase-query-performance"></a>Skapa eller uppdatera gammal tabell statistik i SQL Data Warehouse-tabellen för att öka prestandan för frågor
 
-Advisor identifierar tabeller som inte har uppdaterat [tabellstatistik](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-statistics) och rekommenderar att skapa eller uppdatera tabellstatistik. SQL data warehouse-fråga optimering använder uppdaterade statiska värden för att beräkna kardinalitet eller antalet rader i frågeresultatet som möjliggör frågeoptimerare att skapa en frågeplan med hög kvalitet för bästa prestanda.
+Advisor identifierar tabeller som inte har aktuell [tabell statistik](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-statistics) och rekommenderar att du skapar eller uppdaterar tabell statistik. SQL Data Warehouse Query-Optimering använder uppdaterade statics för att beräkna kardinalitet eller antal rader i frågeresultatet som möjliggör optimering av frågor för att skapa en plan med hög kvalitet för snabbast prestanda.
 
-## <a name="scale-up-to-optimize-cache-utilization-on-your-sql-data-warehouse-tables-to-increase-query-performance"></a>Skala upp för att optimera användningen av cache för din SQL Data Warehouse-tabeller för att öka prestanda för frågor
+## <a name="scale-up-to-optimize-cache-utilization-on-your-sql-data-warehouse-tables-to-increase-query-performance"></a>Skala upp för att optimera användningen av cachen på dina SQL Data Warehouse tabeller för att öka prestanda för frågor
 
-Azure Advisor identifierar om SQL Data Warehouse har hög cache används procent och låg når procent. Det här tillståndet anger borttagning har hög cache, vilket kan påverka prestandan för SQL Data Warehouse. Advisor föreslår att du skalar upp din SQL Data Warehouse så du kan allokera tillräckligt med kapacitet för cache för din arbetsbelastning.
+Azure Advisor identifierar om din SQL Data Warehouse har hög cache som använder procent och en låg procent andel. Det här villkoret indikerar hög cache-avlägsnande, vilket kan påverka prestanda för SQL Data Warehouse. Advisor föreslår att du skalar upp SQL Data Warehouse för att se till att du allokerar tillräckligt med cache-kapacitet för din arbets belastning.
 
-## <a name="convert-sql-data-warehouse-tables-to-replicated-tables-to-increase-query-performance"></a>Konvertera SQL Data Warehouse-tabeller i replikerade tabeller för att öka prestanda för frågor
+## <a name="convert-sql-data-warehouse-tables-to-replicated-tables-to-increase-query-performance"></a>Konvertera SQL Data Warehouse tabeller till replikerade tabeller för att öka prestanda för frågor
 
-Advisor identifierar tabeller som inte är replikerade tabeller men skulle ha nytta av konvertering och föreslår att du konverterar dessa tabeller. Rekommendationerna baseras på replikerad tabellstorlek, antal kolumner, tabelltyp för distribution och antalet partitioner i SQL Data Warehouse-tabell. Ytterligare heuristik kan anges i rekommendationen för kontext. Mer information om hur den här rekommendationen bestäms finns [rekommendationer för SQL Data Warehouse](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-concept-recommendations#replicate-tables). 
+Advisor identifierar tabeller som inte är replikerade tabeller, men som drar nytta av att konvertera och föreslå att du konverterar dessa tabeller. Rekommendationerna baseras på den replikerade tabell storleken, antalet kolumner, tabell distributions typen och antalet partitioner i SQL Data Warehouses tabellen. Ytterligare heuristik kan ges i rekommendationen för Context. Mer information om hur den här rekommendationen fastställs finns [SQL Data Warehouse rekommendationer](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-concept-recommendations#replicate-tables). 
 
-## <a name="migrate-your-storage-account-to-azure-resource-manager-to-get-all-of-the-latest-azure-features"></a>Migrera ditt Storage-konto till Azure Resource Manager för att få alla de senaste Azure-funktionerna
+## <a name="migrate-your-storage-account-to-azure-resource-manager-to-get-all-of-the-latest-azure-features"></a>Migrera ditt lagrings konto till Azure Resource Manager för att få alla de senaste Azure-funktionerna
 
-Migrera din modell för distribution av Storage-konto till Azure Resource Manager (Resource Manager) att dra nytta av malldistributioner, ytterligare säkerhetsalternativ och möjlighet att uppgradera till ett GPv2-konto för användning av Azure Storage senaste funktionerna. Advisor identifierar eventuella fristående lagringskonton som använder den klassiska distributionsmodellen och rekommenderar att du migrerar till Resource Manager-distributionsmodellen.
+Migrera lagrings kontots distributions modell till Azure Resource Manager (Resource Manager) för att dra nytta av mallar distributioner, ytterligare säkerhets alternativ och möjligheten att uppgradera till ett GPv2-konto för användning av Azure Storages senaste funktioner. Advisor identifierar alla fristående lagrings konton som använder den klassiska distributions modellen och rekommenderar att du migrerar till distributions modellen för Resource Manager.
 
 > [!NOTE]
-> Klassiska aviseringar i Azure Monitor är schemalagda att dra tillbaka i juni 2019. Vi rekommenderar att du uppgraderar ditt klassiska storage-konto om du vill använda Resource Manager till behåller aviseringsdata funktioner med den nya plattformen. Mer information finns i [klassiska aviseringar tillbakadragande](https://azure.microsoft.com/updates/classic-alerting-monitoring-retirement/).
+> Klassiska aviseringar i Azure Monitor har dragits tillbaka i augusti 2019. Vi rekommenderar att du uppgraderar det klassiska lagrings kontot så att du kan använda Resource Manager för att behålla aviserings funktionen med den nya plattformen. Mer information finns i [indragningen av klassiska aviseringar](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/monitoring-classic-retirement#retirement-of-classic-monitoring-and-alerting-platform).
 
-## <a name="design-your-storage-accounts-to-prevent-hitting-the-maximum-subscription-limit"></a>Utforma dina lagringskonton för att förhindra nått prenumerationsgränsen för högsta
+## <a name="design-your-storage-accounts-to-prevent-hitting-the-maximum-subscription-limit"></a>Utforma dina lagrings konton för att förhindra att den maximala prenumerations gränsen överskrids
 
-En Azure-region har stöd för upp till 250 lagringskonton per prenumeration. När gränsen har nåtts, kan du inte skapa några fler storage-konton i den region eller prenumeration på kombinationen. Advisor kontrollerar dina prenumerationer och surface rekommendationer att designa för färre storage-konton för alla som ligger nära når maxgränsen.
+En Azure-region kan stödja högst 250 lagrings konton per prenumeration. När gränsen har nåtts kan du inte skapa fler lagrings konton i samma region/prenumerations kombination. Advisor kontrollerar dina prenumerations-och ytbehandlings rekommendationer för att du ska kunna utforma färre lagrings konton för alla som är nära att nå Max gränsen.
 
-## <a name="optimize-the-performance-of-your-azure-mysql-azure-postgresql-and-azure-mariadb-servers"></a>Optimera prestandan för dina Azure MySQL och Azure PostgreSQL Azure MariaDB-servrar 
+## <a name="optimize-the-performance-of-your-azure-mysql-azure-postgresql-and-azure-mariadb-servers"></a>Optimera prestanda för dina Azure MySQL-, Azure PostgreSQL-och Azure MariaDB-servrar 
 
-### <a name="fix-the-cpu-pressure-of-your-azure-mysql-azure-postgresql-and-azure-mariadb-servers-with-cpu-bottlenecks"></a>Åtgärda CPU-belastning servrarnas Azure MySQL och Azure PostgreSQL Azure MariaDB med processorflaskhalsar
-Mycket hög användning av Processorn under en längre period kan orsaka långsam frågeprestanda för din arbetsbelastning. Öka storleken på CPU hjälpa på att optimera körningen för databasfrågorna och förbättra prestandan. Azure Advisor identifierar servrar med en hög processoranvändning som körs troligen begränsad processorarbetsbelastningar och rekommenderar att skala din databearbetning.
+### <a name="fix-the-cpu-pressure-of-your-azure-mysql-azure-postgresql-and-azure-mariadb-servers-with-cpu-bottlenecks"></a>Åtgärda CPU-belastningen på dina Azure MySQL-, Azure PostgreSQL-och Azure MariaDB-servrar med processor Flask halsar
+Mycket hög användning av processorn under en längre period kan orsaka långsamma prestanda för frågor för din arbets belastning. Att öka processor storleken bidrar till att optimera körningen av databas frågorna och förbättra den övergripande prestandan. Azure Advisor identifierar servrar med hög processor användning som troligen kör CPU-begränsade arbets belastningar och rekommenderar att du skalar beräkningen.
 
-### <a name="reduce-memory-constraints-on-your-azure-mysql-azure-postgresql-and-azure-mariadb-servers-or-move-to-a-memory-optimized-sku"></a>Minska minnesbegränsningar på din Azure MySQL och Azure PostgreSQL Azure MariaDB-servrar eller flytta till ett minne optimerade SKU
-Ett låga cache träffar förhållande kan medföra långsammare prestanda för frågor och ökad IOPS. Detta kan bero på en felaktig frågeplan eller kör en minne-intensiv arbetsbelastning. Åtgärda frågeplanen eller [ökar minnet](https://docs.microsoft.com/azure/postgresql/concepts-pricing-tiers) i Azure Database för PostgreSQL-databasserver, Azure MySQL database-server eller Azure MariaDB server kommer att optimera körningen av databas-arbetsbelastning. Azure Advisor identifierar servrar påverkas på grund av hög bufferten pool dataomsättningen och rekommenderar åtgärda frågeplanen, flyttar till en högre SKU med mer minne eller öka lagringsstorleken för att få fler IOPS.
+### <a name="reduce-memory-constraints-on-your-azure-mysql-azure-postgresql-and-azure-mariadb-servers-or-move-to-a-memory-optimized-sku"></a>Minska minnes begränsningar på dina Azure MySQL-, Azure PostgreSQL-och Azure MariaDB-servrar eller flytta till en minnesoptimerade SKU
+Ett lågt cacheträffar kan resultera i sämre prestanda för frågor och ökad IOPS. Detta kan bero på en felaktig frågeplan eller körning av en minnes intensiv arbets belastning. Genom att åtgärda frågeuttrycket eller [öka minnet](https://docs.microsoft.com/azure/postgresql/concepts-pricing-tiers) för Azure Database for PostgreSQL databas server, Azure MySQL Database Server eller Azure MariaDB Server kan du optimera körningen av databasens arbets belastning. Azure Advisor identifierar servrar som påverkas på grund av den här omsättningen för den höga bufferten och rekommenderar att du reparerar frågeplan, flyttar till en högre SKU med mer minne eller ökar lagrings storleken för att få mer IOPS.
 
-### <a name="use-a-azure-mysql-or-azure-postgresql-read-replica-to-scale-out-reads-for-read-intensive-workloads"></a>Använd en Azure MySQL- eller Azure PostgreSQL Läs replik för att skala ut läsningar för Läs-intensiva arbetsbelastningar
-Azure Advisor utnyttjar arbetsbelastning-baserade heuristik, till exempel antalet läsåtgärder och skrivåtgärder på servern under de senaste sju dagarna att identifiera läsintensiva arbetsbelastningar. Din Azure database för PostgreSQL-resurs eller en Azure database för MySQL-resursen med mycket hög läsning/skrivning förhållandet kan resultera i processor och/eller minne contentions leda till långsamma prestanda för frågor. Att lägga till en [repliken](https://docs.microsoft.com/azure/postgresql/howto-read-replicas-portal) gör det lättare att skala ut läsningar till replikservern, förhindrar begränsningar för CPU och/eller minne på den primära servern. Advisor ska identifiera servrar med sådan hög läsintensiva arbetsbelastningar och rekommenderar att du lägger en [Läs replik](https://docs.microsoft.com/azure/postgresql/concepts-read-replicas) att omfördela några av de skrivskyddade arbetsbelastningarna.
+### <a name="use-a-azure-mysql-or-azure-postgresql-read-replica-to-scale-out-reads-for-read-intensive-workloads"></a>Använd en Azure MySQL-eller Azure PostgreSQL-Läs replik för att skala upp läsningar för Läs intensiva arbets belastningar
+Azure Advisor använder sig av arbets belastnings Heuristiker som förhållandet mellan läsningar och skrivningar på servern under de senaste sju dagarna för att identifiera Läs intensiva arbets belastningar. Azure-databasen för PostgreSQL-resurs eller Azure-databas för MySQL-resurs med mycket höga Läs/skriv-förhållande kan leda till processor-och/eller minnes innehåll som leder till långsam frågans prestanda. Om du lägger till en [replik](https://docs.microsoft.com/azure/postgresql/howto-read-replicas-portal) kan du skala ut läsningar till replik servern, vilket förhindrar CPU-och/eller minnes begränsningar på den primära servern. Advisor identifierar servrar med sådana höga Läs intensiva arbets belastningar och rekommenderar att du lägger till en [Läs replik](https://docs.microsoft.com/azure/postgresql/concepts-read-replicas) för att avlasta några av de Läs arbets belastningarna.
 
 
-### <a name="scale-your-azure-mysql-azure-postgresql-or-azure-mariadb-server-to-a-higher-sku-to-prevent-connection-constraints"></a>Skala din Azure MySQL, Azure PostgreSQL eller Azure MariaDB-server till en högre SKU för att förhindra att anslutningsbegränsningar
-Varje ny anslutning till din databasserver upptar minne. Databas-serverns prestanda försämras om anslutningar till servern misslyckas grund av ett [övre gräns för](https://docs.microsoft.com/azure/postgresql/concepts-limits) i minnet. Azure Advisor ska identifiera servrar som kör med många anslutningsfel och rekommenderar att du uppgraderar din server anslutningar gränser för att ge mer minne till servern genom att skala upp beräkning eller använda minne Beräkningsoptimerade SKU: er, som har mer databearbetning per kärna.
+### <a name="scale-your-azure-mysql-azure-postgresql-or-azure-mariadb-server-to-a-higher-sku-to-prevent-connection-constraints"></a>Skala din Azure MySQL-, Azure PostgreSQL-eller Azure MariaDB-server till en högre SKU för att förhindra anslutnings begränsningar
+Varje ny anslutning till din databas server upptar lite minne. Databas serverns prestanda försämras om anslutningar till servern inte kan utföras på grund av en [övre gräns](https://docs.microsoft.com/azure/postgresql/concepts-limits) i minnet. Azure Advisor identifierar servrar som kör med många anslutnings problem och rekommenderar att du uppgraderar serverns anslutnings gränser för att ge mer minne till servern genom att skala upp beräkning eller använda Minnesoptimerade SKU: er, som har mer data bearbetning per kärna.
 
-## <a name="scale-your-cache-to-a-different-size-or-sku-to-improve-cache-and-application-performance"></a>Skala ditt cacheminne till en annan storlek eller SKU: N för att förbättra Cache- och programprestanda
+## <a name="scale-your-cache-to-a-different-size-or-sku-to-improve-cache-and-application-performance"></a>Skala cacheminnet till en annan storlek eller SKU för att förbättra cache-och program prestanda
 
-Cache-instanser gör bäst ifrån sig när det inte körs under hög minnesbelastning, hög serverbelastningen eller hög nätverksbandbredden som kan orsaka att sluta att svara, uppleva dataförlust eller blir otillgänglig. Advisor ska identifiera Cache-instanser i dessa villkor och rekommenderar antingen tillämpa rekommenderade metoder för att minska minnesbelastning, belastningen på servern eller nätverksbandbredd eller skalning till en annan storlek eller SKU: N med högre kapacitet.
+Cache-instanser fungerar bäst när de inte körs under hög minnes belastning, hög server belastning eller hög nätverks bandbredd, vilket kan göra att de inte svarar, få data förlust eller bli otillgängliga. Advisor identifierar cache-instanser under dessa villkor och rekommenderar att du antingen använder bästa praxis för att minska minnes belastningen, Server belastningen eller nätverks bandbredden eller skala till en annan storlek eller SKU med mer kapacitet.
 
-## <a name="add-regions-with-traffic-to-your-azure-cosmos-db-account"></a>Lägga till regioner med trafik till ditt Azure Cosmos DB-konto
+## <a name="add-regions-with-traffic-to-your-azure-cosmos-db-account"></a>Lägg till regioner med trafik till ditt Azure Cosmos DB-konto
 
-Advisor identifierar Azure Cosmos DB-konton som har trafik från en region som inte ännu har konfigurerats och rekommenderar att lägga till den regionen. Detta förbättrar svarstiden för begäranden som kommer från den regionen och säkerställer tillgänglighet vid avbrott i regionen. [Mer information om globala data-distribution med Azure Cosmos DB](https://aka.ms/cosmos/globaldistribution)
+Advisor identifierar Azure Cosmos DB konton som har trafik från en region som inte är konfigurerad för tillfället och som rekommenderar att du lägger till den regionen. Detta förbättrar svars tiden för begär Anden som kommer från den regionen och garanterar tillgängligheten i händelse av region avbrott. [Läs mer om global data distribution med Azure Cosmos DB](https://aka.ms/cosmos/globaldistribution)
 
-## <a name="configure-your-azure-cosmos-db-indexing-policy-with-customer-included-or-excluded-paths"></a>Konfigurera Azure Cosmos DB indexeringspolicy med kunden inkluderas och uteslutas sökvägar
+## <a name="configure-your-azure-cosmos-db-indexing-policy-with-customer-included-or-excluded-paths"></a>Konfigurera Azure Cosmos DB indexerings princip med kund inkluderade eller undantagna sökvägar
 
-Azure Advisor identifierar Cosmos DB-behållare som använder standard indexeringspolicy men kan dra nytta av en anpassad indexeringsprincip baserat på mönster för arbetsbelastningen. Standard indexeringspolicy indexerar alla egenskaper, men med en anpassad indexeringsprincip med explicita inkluderade eller exkluderade sökvägar som används i frågefilter kan minska ru: er och lagringsutrymme för indexering. [Läs mer om hur du ändrar index principer](https://aka.ms/cosmosdb/modify-index-policy)
+Azure Advisor identifierar Cosmos DB behållare som använder standard indexerings principen, men kan dra nytta av en anpassad indexerings princip som baseras på arbets belastnings mönstret. Standard indexerings principen indexerar alla egenskaper, men om du använder en anpassad indexerings princip med explicit inkluderade eller undantagna sökvägar som används i Frågefilter kan du minska ru: er och lagrings utrymme som förbrukas för indexering. [Läs mer om hur du ändrar index principer](https://aka.ms/cosmosdb/modify-index-policy)
 
 ## <a name="configure-your-azure-cosmos-db-query-page-size-maxitemcount-to--1"></a>Ställ in Azure Cosmos DB-frågesidstorleken (MaxItemCount) på -1 
 
-Azure Advisor identifierar Azure Cosmos DB-behållare som använder sidstorlek för fråga om 100 och rekommenderar att du använder en sidstorlek-1 för snabbare sökningar. [Mer information om antal för maximalt antal objekt](https://aka.ms/cosmosdb/sql-api-query-metrics-max-item-count)
+Azure Advisor identifierar Azure Cosmos DB behållare som använder sid storleken för frågan på 100 och rekommenderar att du använder en sid storlek på-1 för snabbare genomsökningar. [Läs mer om maximalt antal objekt](https://aka.ms/cosmosdb/sql-api-query-metrics-max-item-count)
 
-## <a name="how-to-access-performance-recommendations-in-advisor"></a>Hur du kommer åt prestandarekommendationer i Advisor
+## <a name="how-to-access-performance-recommendations-in-advisor"></a>Få åtkomst till prestanda rekommendationer i Advisor
 
-1. Logga in på den [Azure-portalen](https://portal.azure.com), och öppna sedan [Advisor](https://aka.ms/azureadvisordashboard).
+1. Logga in på [Azure Portal](https://portal.azure.com)och öppna [Advisor](https://aka.ms/azureadvisordashboard).
 
-2.  På Advisor-instrumentpanelen klickar du på den **prestanda** fliken.
+2.  På Advisor-instrumentpanelen klickar du på fliken **prestanda** .
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om Advisor-rekommendationer finns:
+Mer information om Advisor-rekommendationer finns i:
 
 * [Introduktion till Advisor](advisor-overview.md)
 * [Kom igång med Advisor](advisor-get-started.md)
-* [Advisor kostnadsrekommendationer](advisor-performance-recommendations.md)
-* [Advisor-rekommendationer för hög tillgänglighet](advisor-high-availability-recommendations.md)
-* [Advisor säkerhetsrekommendationer](advisor-security-recommendations.md)
+* [Rekommendationer om Advisor-kostnader](advisor-performance-recommendations.md)
+* [Rekommendationer om rekommendationer för hög tillgänglighet](advisor-high-availability-recommendations.md)
+* [Rekommendationer för Advisor-säkerhet](advisor-security-recommendations.md)

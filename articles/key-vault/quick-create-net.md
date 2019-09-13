@@ -6,12 +6,12 @@ ms.author: mbaldwin
 ms.date: 05/20/2019
 ms.service: key-vault
 ms.topic: quickstart
-ms.openlocfilehash: c67b24d57117a248559424497939a04ce347658c
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: e57b5a49ac0c99fa81e54134e74964bf38418e4d
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70308946"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70934896"
 ---
 # <a name="quickstart-azure-key-vault-client-library-for-net"></a>Snabbstart: Azure Key Vault klient bibliotek för .NET
 
@@ -118,7 +118,7 @@ Den här åtgärden returnerar en serie med nyckel/värde-par.
 }
 ```
 
-Anteckna clientId, clientSecret, subscriptionId och tenantId, eftersom vi kommer att använda dem i steget [autentisera till ditt nyckel valv](#authenticate-to-your-key-vault) nedan.
+Anteckna clientId och clientSecret, eftersom vi kommer att använda dem i steget [autentisera till ditt nyckel valv](#authenticate-to-your-key-vault) nedan.
 
 Du kommer också att behöva appID för tjänstens huvud namn. Du hittar den genom att köra [AZ AD SP-lista](https://docs.microsoft.com/en-us/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-list) med `--show-mine` parametern:
 
@@ -156,7 +156,7 @@ Lägg till följande direktiv överst i koden:
 
 ### <a name="authenticate-to-your-key-vault"></a>Autentisera till ditt nyckel valv
 
-Den här .NET-snabb starten förlitar sig på miljövariabler för att lagra autentiseringsuppgifter som inte bör placeras i kod. 
+Den här .NET-snabb starten använder miljövariabler för att lagra autentiseringsuppgifter som inte ska placeras i kod. 
 
 Innan du skapar och kör din app använder `setx` du kommandot för att `akvClientId`ställa in variablerna `akvTenantId`, `akvClientSecret`, `akvSubscriptionId` , och för miljövariablerna i de värden som du antecknade ovan.
 
@@ -164,10 +164,6 @@ Innan du skapar och kör din app använder `setx` du kommandot för att `akvClie
 setx akvClientId <your-clientID>
 
 setx akvClientSecret <your-clientSecret>
-
-setx akvTenantId <your-tentantId>
-
-setx akvSubscriptionId <your-subscriptionId>
 ````
 
 Varje gång du ringer `setx`får du svaret "lyckades: Det angivna värdet sparades. "
@@ -178,7 +174,7 @@ Tilldela de här miljövariablerna till strängar i din kod och autentisera seda
 
 ### <a name="save-a-secret"></a>Spara en hemlighet
 
-Nu när ditt program är autentiserat kan du ange en hemlighet i ditt nyckel valv med SetSecretAsync- [metoden](/dotnet/api/microsoft.azure.keyvault.keyvaultclientextensions.setsecretasync) detta kräver URL: en för nyckel valvet, som är i formatet `https://<your-unique-keyvault-name>.vault.azure.net/secrets/`. Det kräver också ett namn för hemligheten – vi använder "hemlig hemlighet".  Du kanske vill tilldela de här strängarna till variabler för resue.
+Nu när ditt program är autentiserat kan du ange en hemlighet i ditt nyckel valv med SetSecretAsync- [metoden](/dotnet/api/microsoft.azure.keyvault.keyvaultclientextensions.setsecretasync) detta kräver URL: en för nyckel valvet, som är i formatet `https://<your-unique-keyvault-name>.vault.azure.net/secrets/`. Det kräver också ett namn för hemligheten – vi använder "hemlig hemlighet".  Du kanske vill tilldela dessa strängar till en variabel för åter användning.
 
 [!code-csharp[Set secret](~/samples-key-vault-dotnet-quickstart/akvdotnet/Program.cs?name=setsecret)]
 

@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 06/28/2019
 ms.author: dacurwin
-ms.openlocfilehash: 078c8763a08df339b9291807102e2d187d2a882f
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: 26d07ac0b09655e170b53af91f890f21d15afb1b
+ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68827584"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70909788"
 ---
 # <a name="frequently-asked-questions-back-up-azure-vms"></a>Vanliga frågor och svar – säkerhetskopiera virtuella Azure-datorer
 
@@ -119,7 +119,13 @@ Ja. Även om du tar bort den virtuella datorn kan du gå till motsvarande säker
 För hanterad virtuell Azure-dator är återställning till tillgänglighets uppsättningarna aktive rad genom att tillhandahålla ett alternativ i mallen när de återställs som hanterade diskar. Den här mallen har Indataparametern inheter **tillgänglighets uppsättningar**.
 
 ### <a name="how-do-we-get-faster-restore-performances"></a>Hur får vi snabbare återställning av prestanda?
-[Omedelbar](backup-instant-restore-capability.md) återställnings funktion hjälper till snabbare säkerhets kopieringar och återställningar direkt från ögonblicks bilderna.
+[Omedelbar återställnings](backup-instant-restore-capability.md) funktion hjälper till snabbare säkerhets kopieringar och återställningar direkt från ögonblicks bilderna.
+
+### <a name="what-happens-when-we-change-the-key-vault-settings-for-the-encrypted-vm"></a>Vad händer när vi ändrar nyckel valvs inställningarna för den krypterade virtuella datorn?
+
+När du har ändrat inställningarna för nyckel valvet för den krypterade virtuella datorn fortsätter säkerhets kopieringarna att fungera med den nya uppsättningen information, men efter återställningen från en återställnings punkt innan ändringen måste du återställa hemligheterna i ett nyckel valv innan du kan skapa den virtuella datorn från  företaget. Mer information hittar du i den här [artikeln](https://docs.microsoft.com/azure/backup/backup-azure-restore-key-secret)
+
+Åtgärder som hemliga/viktiga överanvändning kräver inte det här steget och samma nyckel valv kan användas efter återställningen.
 
 ## <a name="manage-vm-backups"></a>Hantera säkerhetskopior av virtuella datorer
 

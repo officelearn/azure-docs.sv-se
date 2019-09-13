@@ -1,6 +1,6 @@
 ---
-title: Snabbstart – Konfigurera inloggning för en skrivbordsapp med Azure Active Directory B2C | Microsoft Docs
-description: Kör en ASP.NET-exempelskrivbordsapp som använder Azure Active Directory B2C för användarinloggningen.
+title: Snabb start – konfigurera inloggning för en desktop-app med hjälp av Azure Active Directory B2C
+description: Kör ett exempel på ett WPF Desktop-program som använder Azure Active Directory B2C för att tillhandahålla konto inloggning.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.workload: identity
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 11/30/2018
+ms.date: 09/12/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 636e47c1d0c689dd9660f8bf01ada571d3824961
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: 98d312dbafd399cc8b92e2c4fb70499853c214b5
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67835466"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70914272"
 ---
 # <a name="quickstart-set-up-sign-in-for-a-desktop-app-using-azure-active-directory-b2c"></a>Snabbstart: Konfigurera inloggning för en skrivbordsapp med hjälp av Azure Active Directory B2C
 
@@ -26,8 +26,8 @@ Azure Active Directory (AD Azure) B2C tillhandahåller identitetshantering i mol
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-- [Visual Studio-2019](https://www.visualstudio.com/downloads/) med den **ASP.NET och webbutveckling** arbetsbelastning.
-- Ett konto från ett socialt medium, till exempel Facebook, Google, Microsoft eller Twitter.
+- [Visual Studio 2019](https://www.visualstudio.com/downloads/) med arbets belastningen **ASP.net och webb utveckling** .
+- Ett socialt konto från Facebook, Google eller Microsoft.
 - [Ladda ned en zip-fil](https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop/archive/master.zip) eller klona exempelwebbappen från GitHub.
 
     ```
@@ -43,16 +43,16 @@ Azure Active Directory (AD Azure) B2C tillhandahåller identitetshantering i mol
 
 1. Klicka på **Logga in** för att starta arbetsflödet **Registrera sig eller logga in**.
 
-    ![Skärmbild av WPF-exempelprogram](media/active-directory-b2c-quickstarts-desktop-app/wpf-sample-application.png)
+    ![Skärm bild av exempel-WPF-programmet](media/active-directory-b2c-quickstarts-desktop-app/wpf-sample-application.png)
 
-    Exemplet stöder flera registreringsalternativ. Dessa alternativ inkluderar med en social identitetsprovider eller att skapa ett lokalt konto med en e-postadress. För den här snabbstarten använder du ett konto från ett socialt medium, till exempel Facebook, Google, Microsoft eller Twitter.
+    Exemplet stöder flera registrerings alternativ. Dessa alternativ omfattar att använda en social identitetsprovider eller att skapa ett lokalt konto med en e-postadress. I den här snabb starten ska du använda ett konto för sociala identitets leverantörer från Facebook, Google eller Microsoft.
 
 
-2. Azure AD B2C visar en anpassad inloggningssida för ett fiktivt varumärke som kallas Wingtip Toys för exempelwebbappen. Klicka på knappen för den identitetsprovider som du vill använda för att registrera dig med en social identitetsprovider.
+2. Azure AD B2C visar en inloggnings sida för ett fiktivt företag som kallas Fabrikam för exempel webb programmet. Klicka på knappen för den identitetsprovider som du vill använda för att registrera dig med en social identitetsprovider.
 
-    ![Logga In eller registrera dig sidan som visar identitetsprovidrar](media/active-directory-b2c-quickstarts-desktop-app/sign-in-or-sign-up-wpf.png)
+    ![Sidan logga in eller registrera med identitets leverantörer](media/active-directory-b2c-quickstarts-desktop-app/sign-in-or-sign-up-wpf.png)
 
-    Du kan autentisera (logga in) med ditt sociala konto autentiseringsuppgifter och godkänna att programmet att läsa information från det sociala kontot. När du beviljar åtkomst kan programmet hämta profilinformation från det sociala kontot, till exempel ditt namn och din ort.
+    Du autentiserar (loggar in) med dina autentiseringsuppgifter för ditt sociala konto och godkänner att programmet läser information från ditt sociala konto. När du beviljar åtkomst kan programmet hämta profilinformation från det sociala kontot, till exempel ditt namn och din ort.
 
 2. Avsluta inloggningsprocessen för identitetsprovidern.
 
@@ -64,9 +64,9 @@ Azure AD B2C tillhandahåller funktioner som gör det möjligt för användare a
 
 1. På programmets menyrad klickar du på **Redigera profil** för att redigera den profil som du skapade.
 
-    ![Redigera profil knappen är markerad i WPF-exempelapp](media/active-directory-b2c-quickstarts-desktop-app/edit-profile-wpf.png)
+    ![Knappen Redigera profil som marker ATS i WPF-exempelprogrammet](media/active-directory-b2c-quickstarts-desktop-app/edit-profile-wpf.png)
 
-2. Välj den identitetsprovider som är associerad med kontot som du skapade. Om du exempelvis använde Twitter som identitetsprovider när du skapade ditt konto, väljer du Twitter om du vill ändra den tillhörande profilinformationen.
+2. Välj den identitetsprovider som är associerad med kontot som du skapade. Om du till exempel använde Facebook som identitetsprovider när du skapade ditt konto väljer du Facebook för att ändra den tillhör ande profil informationen.
 
 3. Ändra ditt **Visningsnamn** eller **Stad** och klicka sedan på **Fortsätt**.
 
@@ -88,11 +88,11 @@ Du kan använda Azure AD B2C-klientorganisationen om du vill prova andra snabbst
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabbstarten använde du en stationär exempelprogrammet för att:
+I den här snabb starten använde du ett exempel på ett Skriv bords program för att:
 
-* Logga in med en anpassad inloggningssida
+* Logga in med en anpassad inloggnings sida
 * Logga in med en social identitetsprovider
-* Skapa ett Azure AD B2C-konto
+* Skapa ett Azure AD B2C konto
 * Anropa ett webb-API som skyddas av Azure AD B2C
 
 Kom igång med att skapa en egen Azure AD B2C-klientorganisation.

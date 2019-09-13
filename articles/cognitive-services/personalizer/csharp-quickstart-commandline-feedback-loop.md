@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: quickstart
-ms.date: 08/30/2019
+ms.date: 09/06/2019
 ms.author: diberry
-ms.openlocfilehash: e9dd01a58309a6b65538b19b25df70e3d18866a9
-ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
-ms.translationtype: MT
+ms.openlocfilehash: 2940073d18cfee5a2313c03a5e9de6c00782edff
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2019
-ms.locfileid: "70207353"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70882935"
 ---
 # <a name="quickstart-personalize-client-library-for-net"></a>Snabbstart: Anpassa klient bibliotek för .NET
 
@@ -48,9 +48,11 @@ När du har skaffat en nyckel från din utvärderings prenumeration eller resurs
 * `PERSONALIZER_RESOURCE_KEY`för resurs nyckeln.
 * `PERSONALIZER_RESOURCE_ENDPOINT`för resurs slut punkten.
 
+I Azure Portal är både nyckel-och slut punkts värden tillgängliga på sidan **snabb start** .
+
 ### <a name="change-the-model-update-frequency"></a>Ändra modell uppdaterings frekvensen
 
-Ändra uppdaterings frekvensen för **modellen** till 10 sekunder i den personliga resursen i Azure Portal. Detta kommer att träna tjänsten snabbt, så att du kan se hur de viktigaste åtgärderna ändras för varje iteration.
+Ändra **uppdaterings frekvensen för modellen** till 10 sekunder i den personliga resursen i Azure Portal. Detta kommer att träna tjänsten snabbt, så att du kan se hur de viktigaste åtgärderna ändras för varje iteration.
 
 ![Ändra modell uppdaterings frekvens](./media/settings/configure-model-update-frequency-settings.png)
 
@@ -236,7 +238,7 @@ Den här snabb starten har enkla Sammanhangs funktioner i tid på dygnet och anv
 
 För att slutföra belönings förfrågan hämtar programmet användarens val från kommando raden, tilldelar ett numeriskt värde till varje val och skickar sedan det unika ID: t för rangordning och det numeriska värdet till belönings metoden.
 
-Den här snabb starten tilldelar ett enkelt tal som en belöning, antingen noll eller 1. I produktions system kan du fastställa när och vad som ska skickas [](concept-rewards.md) till belönings anropet som en icke-trivial fråga, beroende på dina behov. 
+Den här snabb starten tilldelar ett enkelt tal som en belöning, antingen noll eller 1. I produktions system kan du fastställa när och vad som ska skickas till [belönings](concept-rewards.md) anropet som en icke-trivial fråga, beroende på dina behov. 
 
 [!code-csharp[The Personalizer learning loop ranks the request.](~/samples-personalizer/quickstarts/csharp/PersonalizerExample/Program.cs?name=reward)]
 

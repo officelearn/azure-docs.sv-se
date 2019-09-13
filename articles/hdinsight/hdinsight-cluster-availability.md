@@ -1,7 +1,7 @@
 ---
-title: Så här övervakar du klustret med Ambari och Azure Monitor-loggar
-description: Lär dig mer om att använda Ambari och Azure Monitor-loggar att övervaka hälsotillstånd hos kluster och tillgänglighet.
-keywords: övervakning, ambari, övervaka, logganalys, varning, tillgänglighet, hälsa
+title: Övervaka kluster tillgänglighet med Ambari och Azure Monitor loggar
+description: Lär dig hur du använder Ambari och Azure Monitor loggar för att övervaka kluster hälsa och tillgänglighet.
+keywords: övervakning, Ambari, övervakning, logg analys, avisering, tillgänglighet, hälsa
 ms.reviewer: jasonh
 author: tylerfox
 ms.service: hdinsight
@@ -9,188 +9,188 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/28/2019
 ms.author: tyfox
-ms.openlocfilehash: 195999ba685828042fc958e8aed7e67bad694657
-ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
+ms.openlocfilehash: 07b82f475074f5b55a2a5a93f7a59008476233c8
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67786565"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70934323"
 ---
-# <a name="how-to-monitor-cluster-availability-with-ambari-and-azure-monitor-logs"></a>Så här övervakar du klustret med Ambari och Azure Monitor-loggar
+# <a name="how-to-monitor-cluster-availability-with-ambari-and-azure-monitor-logs"></a>Övervaka kluster tillgänglighet med Ambari och Azure Monitor loggar
 
-HDInsight-kluster är både Apache Ambari, som ger hälsoinformation på ett ögonblick och fördefinierade aviseringar, samt Azure Monitor-loggar integration, som tillhandahåller frågningsbart mått och loggar, samt konfigurerbara aviseringar.
+HDInsight-kluster omfattar både Apache Ambari, som ger hälso information på en överskådlig och fördefinierad avisering, samt Azure Monitor loggar integrering, som tillhandahåller frågor som kan ha frågor och loggar, samt konfigurerbara aviseringar.
 
-Det här dokumentet visar hur du använder dessa verktyg för att övervaka ditt kluster och går igenom några exempel för att konfigurera en Ambari-avisering, övervakning noden ordinarie taxan och skapa en Azure Monitor-avisering utlöses när ett pulsslag har tagits emot från en eller flera noder i fem timmar.
+Det här dokumentet visar hur du använder dessa verktyg för att övervaka klustret och går igenom några exempel på hur du konfigurerar en Ambari avisering, övervakar tillgänglighets takten för noden och skapar en Azure Monitor avisering som utlöses när ett pulsslag inte har tagits emot från en eller flera noder på fem timmar.
 
 ## <a name="ambari"></a>Ambari
 
 ### <a name="dashboard"></a>Instrumentpanel
 
-Ambari-instrumentpanelen kan nås genom att klicka på den **Ambari home** länken i den **Klusterinstrumentpaneler** på HDInsight översikt bladet i Azure-portalen som visas nedan. Du kan också den kan nås genom att ange följande URL i en webbläsare [https://\<clustername\>. azurehdinsight.net](https://clustername.azurehdinsight.net/)
+Ambari-instrumentpanelen kan nås genom att klicka på **Start länken Ambari** i avsnittet **kluster instrument paneler** i bladet HDInsight-översikt i Azure Portal som visas nedan. Du kan också komma åt den genom att ange följande URL i en webbläsare [https://\<kluster\>namn. azurehdinsight.net](https://clustername.azurehdinsight.net/)
 
-![HDInsight resource portal-vy](media/hdinsight-cluster-availability/portal-overview.png)
+![Vyn HDInsight-resurs Portal](media/hdinsight-cluster-availability/portal-oms-overview1.png)
 
-Du uppmanas sedan användarnamnet för klusterinloggning och lösenord. Ange autentiseringsuppgifterna du angav när du skapade klustret.
+Du uppmanas sedan att ange ett användar namn och lösen ord för kluster inloggning. Ange de autentiseringsuppgifter som du valde när du skapade klustret.
 
-Du kommer sedan att tas till Ambari-instrumentpanelen, som innehåller widgetar som visar en handfull mått för att ge dig en snabb översikt över HDInsight-klustrets hälsotillstånd. Dessa widgetar visa mått, till exempel antalet live DataNodes (arbetsnoder) och JournalNodes (zookeeper-nod), NameNodes (huvudnoderna) drifttid som och mått som är specifika för vissa typer av klustret, t.ex. YARN ResourceManager drifttid för Spark och Hadoop-kluster.
+Du kommer sedan till Ambari-instrumentpanelen som innehåller widgetar som visar en fåtal med mått för att ge dig en snabb överblick över ditt HDInsight-klusters hälsa. Dessa widgetar visar mått som antalet Live-DataNodes (arbetsnoder) och Journalnodes available (Zookeeper Node), NameNodes (huvudnoder) drift tid, samt mått som är specifika för vissa kluster typer, t. ex. garn-ResourceManager drift tid för Spark-och Hadoop-kluster.
 
-![Ambari-instrumentpanel](media/hdinsight-cluster-availability/ambari-dashboard.png)
+![Ambari-instrumentpanel](media/hdinsight-cluster-availability/apache-ambari-dashboard.png)
 
-### <a name="hosts--view-individual-node-status"></a>-Värdar – visa status för enskild nod
+### <a name="hosts--view-individual-node-status"></a>Värdar – Visa status för enskilda noder
 
-Du kan också visa statusinformation för enskilda noder. Klicka på den **värdar** flik för att visa en lista över alla noder i klustret och visa grundläggande information om varje nod. Grön bock till vänster om varje nodnamnet anger alla komponenter som är igång på noden. Om en komponent inte är tillgänglig i en nod, visas en röd avisering triangel i stället för grön bock.
+Du kan också visa statusinformation för enskilda noder. Klicka på fliken **värdar** om du vill visa en lista över alla noder i klustret och se grundläggande information om varje nod. Den gröna kontrollen till vänster om varje nodnamn visar att alla komponenter är upp på noden. Om en komponent finns i en nod visas en röd aviserings triangel i stället för den gröna kontrollen.
 
-![Visa Ambari-värdar](media/hdinsight-cluster-availability/ambari-hosts.png)
+![Vy över Ambari-värdar](media/hdinsight-cluster-availability/apache-ambari-hosts1.png)
 
-Du kan klicka på den **namn** för en nod för att visa mer detaljerad värdmått för just den noden. Den här vyn visar status/tillgängligheten av varje komponent.
+Sedan kan du klicka på **namnet** på en nod om du vill visa mer detaljerade värd mått för just den noden. I den här vyn visas status/tillgänglighet för varje enskild komponent.
 
-![Ambari värdar enkel nodvy](media/hdinsight-cluster-availability/ambari-hosts-node.png)
+![Ambari är värd för vyn enskild nod](media/hdinsight-cluster-availability/apache-ambari-hosts-node.png)
 
-### <a name="ambari-alerts"></a>Ambari-aviseringar
+### <a name="ambari-alerts"></a>Ambari aviseringar
 
-Ambari erbjuder även flera konfigurerbara aviseringar som kan upplyser om vissa händelser. När aviseringarna utlöses visas de i det övre vänstra hörnet av Ambari i en röd Aktivitetsikon som innehåller antalet aviseringar. Klicka på den här skylten visar en lista över aktuella aviseringar.
+Ambari erbjuder också flera konfigurerbara aviseringar som kan ge meddelanden om vissa händelser. När aviseringar utlöses visas de i det övre vänstra hörnet av Ambari i en röd skylt som innehåller antalet aviseringar. Om du klickar på den här skylten visas en lista över aktuella aviseringar.
 
-![Ambari varningsräkning](media/hdinsight-cluster-availability/ambari-alerts.png)
+![Antal aviseringar för Ambari](media/hdinsight-cluster-availability/apache-ambari-alerts.png)
 
-Om du vill visa en lista över varningsdefinitioner och deras status, klickar du på den **aviseringar** fliken enligt nedan.
+Om du vill visa en lista över aviserings definitioner och deras status klickar du på fliken **aviseringar** , som visas nedan.
 
-![Ambari Aviseringsvy definitioner](media/hdinsight-cluster-availability/ambari-alerts-definitions.png)
+![Vy över Ambari aviserings definitioner](media/hdinsight-cluster-availability/ambari-alerts-definitions.png)
 
-Ambari erbjuder många fördefinierade aviseringar som rör tillgängliga, inklusive:
+Ambari erbjuder många fördefinierade aviseringar relaterade till tillgänglighet, inklusive:
 
 | Aviseringsnamn                        | Beskrivning                                                                                                                                                                           |
 |-----------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Sammanfattning av DataNode hälsotillstånd           | Den här tjänstnivå aviseringen utlöses om det finns felaktiga DataNodes                                                                                                                |
-| NameNode High Availability Health | Den här tjänstnivå aviseringen utlöses om den aktiva NameNode eller vänteläge NameNode inte körs.                                                                              |
-| Procent JournalNodes som är tillgängliga    | Den här aviseringen utlöses om antalet ned JournalNodes i klustret är större än det konfigurera kritiska tröskelvärdet. Det aggregerar resultaten av JournalNode processen kontroller. |
-| Procent DataNodes som är tillgängliga       | Den här aviseringen utlöses om antalet ned DataNodes i klustret är större än det konfigurera kritiska tröskelvärdet. Det aggregerar resultaten av DataNode processen kontroller.       |
+| DataNode hälso översikt           | Den här aviseringen på tjänst nivå utlöses om det finns DataNodes som inte är felfria                                                                                                                |
+| NameNode-hälsa för hög tillgänglighet | Den här aviseringen på tjänst nivå utlöses om antingen den aktiva NameNode eller vänte läges NameNode inte körs.                                                                              |
+| Procent Journalnodes available tillgängliga    | Den här aviseringen utlöses om antalet Journalnodes available i klustret är större än det konfigurerade kritiska tröskelvärdet. Den sammanställer resultaten av JournalNode process-kontroller. |
+| Procent DataNodes tillgängliga       | Den här aviseringen utlöses om antalet DataNodes i klustret är större än det konfigurerade kritiska tröskelvärdet. Den sammanställer resultaten av DataNode process-kontroller.       |
 
-En fullständig lista över Ambari aviseringar som hjälp med att övervaka tillgängligheten för ett kluster finns [här](https://docs.microsoft.com/azure/hdinsight/hdinsight-high-availability-linux#ambari-web-ui),
+En fullständig lista över Ambari-aviseringar som hjälper dig att övervaka tillgängligheten för ett kluster finns [här](https://docs.microsoft.com/azure/hdinsight/hdinsight-high-availability-linux#ambari-web-ui),
 
-Om du vill visa information om en avisering eller ändra kriterier, klickar du på den **namn** för aviseringen. Ta **sammanfattning av hälsotillstånd för DataNode** som exempel. Du kan se en beskrivning av aviseringen, samt specifika villkor som utlöser en avisering om ”varning” eller ”kritisk” och kontrollera intervallet för villkoret. Om du vill redigera konfigurationen klickar du på den **redigera** knappen i övre högra hörnet av rutan konfiguration.
+Om du vill visa information om en avisering eller ändra villkor klickar du på **namnet** på aviseringen. Ta **DataNode Health Summary** som ett exempel. Du kan se en beskrivning av aviseringen samt de villkor som utlöser en varnings avisering eller kritisk avisering och kontroll intervallet för kriterierna. Redigera konfigurationen genom att klicka på knappen **Redigera** i det övre högra hörnet i rutan konfiguration.
 
-![Ambari Aviseringskonfiguration](media/hdinsight-cluster-availability/ambari-alert-configuration.png)
+![Aviserings konfiguration för Ambari](media/hdinsight-cluster-availability/ambari-alert-configuration.png)
 
-Här kan du kan redigera beskrivningen och viktigast av allt, kontrollen intervall och tröskelvärden för varningar eller kritiska varningar.
+Här kan du redigera beskrivningen och, viktigare, kontroll intervall och tröskelvärden för varningar eller kritiska aviseringar.
 
-![Ambari varningskonfigurationen redigeringsvyn](media/hdinsight-cluster-availability/ambari-alert-configuration-edit.png)
+![Ambari aviserings konfiguration redigera vy](media/hdinsight-cluster-availability/ambari-alert-configuration-edit.png)
 
-I det här exemplet kan du göra 2 feltillstånd DataNodes utlösa en kritisk varning och 1 feltillstånd DataNode endast utlösa en varning. Klicka på **spara** när du är klar redigering.
+I det här exemplet kan du göra 2 DataNodes som utlöser en kritisk varning och 1 DataNode som endast utlöser en varning. Klicka på **Spara** när du är klar med redigeringen.
 
 ### <a name="email-notifications"></a>E-postmeddelanden
 
-Du kan även konfigurera e-postaviseringar Ambari. Att göra det, när på den **aviseringar** klickar du på den **åtgärder** knappen i det övre vänstra, sedan **hantera meddelanden.**
+Du kan också välja att konfigurera e-postaviseringar för Ambari-aviseringar. Det gör du genom att klicka på knappen **åtgärder** längst upp till vänster i fliken **aviseringar** och sedan **Hantera meddelanden.**
 
-![Ambari hantera meddelanden åtgärd](media/hdinsight-cluster-availability/ambari-manage-notifications.png)
+![Ambari-åtgärd för att hantera meddelanden](media/hdinsight-cluster-availability/ambari-manage-notifications.png)
 
-En dialogruta för att hantera aviseringar öppnas. Klicka på den **+** längst ned i dialogrutan och Fyll i de obligatoriska fälten att tillhandahålla Ambari med e-postadress serverinformation som skickar e-post.
+En dialog ruta för att hantera aviseringar öppnas. **+** Klicka på längst ned i dialog rutan och fyll i de obligatoriska fälten för att tillhandahålla Ambari med information om e-postservern som e-postmeddelanden ska skickas från.
 
 > [!TIP]
-> Konfigurera Ambari kan e-postmeddelanden vara ett bra sätt att få aviseringar på en plats när du hanterar många HDInsight-kluster.
+> Att ställa in Ambari e-postaviseringar kan vara ett bra sätt att få aviseringar på en plats när du hanterar många HDInsight-kluster.
 
-## <a name="azure-monitor-logs-integration"></a>Integrering med Azure Monitor-loggar
+## <a name="azure-monitor-logs-integration"></a>Azure Monitor loggar integrering
 
-Azure Monitor loggar aktiverar data som genereras av flera resurser, till exempel HDInsight-kluster som samlas in och aggregeras i en plats för att uppnå en enhetlig upplevelse för övervakning.
+Azure Monitor loggar aktiverar data som genereras av flera resurser, till exempel HDInsight-kluster, som ska samlas in och aggregeras på ett och samma ställe för att uppnå en enhetlig övervaknings upplevelse.
 
-Som ett krav behöver du en Log Analytics-arbetsyta för att lagra insamlade data. Om du inte redan har skapat en kan du följa instruktionerna här: [Skapa en Log Analytics-arbetsyta](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace).
+Som en förutsättning behöver du en Log Analytics arbets yta för att lagra insamlade data. Om du inte redan har skapat en, kan du följa anvisningarna här: [Skapa en Log Analytics-arbetsyta](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace).
 
 ### <a name="enable-hdinsight-azure-monitor-logs-integration"></a>Aktivera integrering av HDInsight Azure Monitor-loggar
 
-HDInsight-kluster resource sidan i portalen klickar du på den **Operations Management Suite** bladet. Klicka sedan på **aktivera** och välj Log Analytics-arbetsytan i listrutan.
+Klicka på bladet **Operations Management Suite** på sidan HDInsight-kluster resurs i portalen. Klicka sedan på **Aktivera** och välj din Log Analytics arbets yta i list rutan.
 
-![HDInsight Operations Management Suite-bladet](media/hdinsight-cluster-availability/portal-enable-oms.png)
+![Bladet HDInsight Operations Management Suite](media/hdinsight-cluster-availability/hdi-portal-oms-enable.png)
 
-### <a name="query-metrics-and-logs-tables-in-the-logs-blade"></a>Fråga mått och loggar tabeller i bladet loggar
+### <a name="query-metrics-and-logs-tables-in-the-logs-blade"></a>Fråga mått och logga tabeller i bladet loggar
 
-När Azure Monitor log-integrering aktiverat (Detta kan ta några minuter), navigera till din **Log Analytics-arbetsytan** resursen och klicka på den **loggar** bladet
+När Azure Monitor logg integrering har Aktiver ATS (det här kan ta några minuter) navigerar du till din **Log Analytics arbets ytans** resurs och klickar på bladet **loggar**
 
-![Log Analytics-arbetsytebladet loggar](media/hdinsight-cluster-availability/portal-logs.png)
+![Bladet för Log Analytics arbets ytans loggar](media/hdinsight-cluster-availability/hdinsight-portal-logs.png)
 
-Den **loggar** bladet innehåller ett antal exempelfrågor, till exempel:
+På bladet **loggar** visas ett antal exempel frågor, till exempel:
 
-| Frågans namn                      | Beskrivning                                                               |
+| Frågenamn                      | Beskrivning                                                               |
 |---------------------------------|---------------------------------------------------------------------------|
-| Datorer tillgänglighet idag    | Skapa diagram över hur många datorer som skickar loggar, varje timme                     |
-| Lista pulsslag                 | Lista över alla datorn pulsslag från den senaste timmen                           |
-| Sista pulsslaget för varje dator | Visa det sista pulsslaget som skickas av varje dator                             |
-| Otillgängliga datorerna           | Lista över alla kända datorer som inte skickar ett pulsslag under de senaste 5 timmarna |
-| Ordinarie taxan               | Beräkna ordinarie taxan för varje dator som är anslutna                |
+| Tillgänglighet för datorer idag    | Rita ett diagram över antalet datorer som skickar loggar, varje timme                     |
+| Visa pulsslag                 | Visa en lista över alla dator pulsslag från den senaste timmen                           |
+| Senaste pulsslag för varje dator | Visa det sista pulsslaget som skickats av varje dator                             |
+| Ej tillgängliga datorer           | Visa en lista med alla kända datorer som inte skickade några pulsslag under de senaste 5 timmarna |
+| Tillgänglighets hastighet               | Beräkna tillgänglighets frekvensen för varje ansluten dator                |
 
-Till exempel kör den **ordinarie taxan** exempelfråga genom att klicka på **kör** på den frågan, som visas i skärmbilden ovan. Detta visar ordinarie taxan för varje nod i klustret som en procentandel. Om du har aktiverat flera HDInsight-kluster att skicka mått till samma Log Analytics-arbetsyta, visas den ordinarie taxan för alla noder i dessa kluster visas.
+Du kan till exempel köra frågan **tillgänglighets frekvens** genom att klicka på **Kör** på den frågan, som visas i skärm bilden ovan. Då visas tillgänglighets takten för varje nod i klustret i procent. Om du har aktiverat flera HDInsight-kluster för att skicka mått till samma Log Analytics arbets yta, visas tillgänglighets takten för alla noder i de kluster som visas.
 
-![Logga Analytics-arbetsyta loggar bladet ”ordinarie taxan' exempelfråga](media/hdinsight-cluster-availability/portal-availability-rate.png)
+![Exempel fråga för bladet tillgänglighets frekvens i bladet Log Analytics arbets yta](media/hdinsight-cluster-availability/portal-availability-rate.png)
 
 > [!NOTE] 
-> Ordinarie taxan är mätt under en 24-timmarsperiod så att klustret måste köra minst 24 timmar innan du se priser för korrekt tillgänglighet.
+> Tillgänglighets takten mäts under en 24-timmarsperiod, så klustret måste köras i minst 24 timmar innan du kan se korrekt tillgänglighets taxa.
 
-Du kan fästa den här tabellen till en delad instrumentpanel genom att klicka på **PIN-kod** i det övre högra hörnet. Om du inte har någon skrivbar delade instrumentpaneler, kan du se hur du skapar ett här: [Skapa och dela instrumentpaneler i Azure-portalen](https://docs.microsoft.com/azure/azure-portal/azure-portal-dashboards#publish-and-share-a-dashboard).
+Du kan fästa den här tabellen på en delad instrument panel genom att klicka på **Fäst** i det övre högra hörnet. Om du inte har några skrivbara, delade instrument paneler kan du se hur du skapar en här: [Skapa och dela instrument paneler i Azure Portal](https://docs.microsoft.com/azure/azure-portal/azure-portal-dashboards#publish-and-share-a-dashboard).
 
-### <a name="azure-monitor-alerts"></a>Azure Monitor-aviseringar
+### <a name="azure-monitor-alerts"></a>Azure Monitor aviseringar
 
-Du kan också ställa in Azure Monitor-aviseringar som utlöses när värdet för ett mått eller en frågas resultat uppfyller vissa villkor. Exempelvis kan vi skapa en avisering om att skicka ett e-postmeddelande när en eller flera noder som inte har skickat ett pulsslag under 5 timmar (d.v.s. anses vara ej tillgänglig).
+Du kan också ställa in Azure Monitor aviseringar som ska utlösas när värdet för ett mått eller resultatet av en fråga uppfyller vissa villkor. Vi kan till exempel skapa en avisering för att skicka ett e-postmeddelande när en eller flera noder inte har skickat ett pulsslag på 5 timmar (dvs. förmodas vara otillgänglig).
 
-Från den **loggar** bladet kör den **otillgängliga datorerna** exempelfråga genom att klicka på **kör** på den frågan, enligt nedan.
+Från bladet **loggar** kör du exempel frågan **otillgängliga datorer** genom att klicka på **Kör** på den frågan, som visas nedan.
 
-![Logga exempelfråga i Analytics-arbetsyta loggar bladet ”otillgänglig datorer”](media/hdinsight-cluster-availability/portal-unavailable-computers.png)
+![Exempel frågan för bladet "ej tillgängliga datorer" på arbets ytan Log Analytics](media/hdinsight-cluster-availability/portal-unavailable-computers.png)
 
-Om alla noder är tillgängliga, bör den här frågan returnerar 0 resultat för tillfället. Klicka på **ny aviseringsregel** att börja konfigurera aviseringen för den här frågan.
+Om alla noder är tillgängliga ska den här frågan returnera 0 resultat för tillfället. Klicka på **ny varnings regel** för att börja konfigurera aviseringen för den här frågan.
 
-![Log Analytics-arbetsyta ny aviseringsregel](media/hdinsight-cluster-availability/portal-logs-new-alert-rule.png)
+![Log Analytics arbets ytans nya aviserings regel](media/hdinsight-cluster-availability/portal-logs-new-alert-rule.png)
 
-Det finns tre komponenter på en avisering: den *resource* som du vill skapa regeln (Log Analytics-arbetsytan i det här fallet), den *villkor* att utlösa aviseringen och *åtgärdsgrupper*  som fastställer vad som händer när en avisering utlöses.
+Det finns tre komponenter i en avisering: den *resurs* för vilken du vill skapa regeln (Log Analytics arbets ytan i det här fallet), *villkoret* för att utlösa aviseringen och de *Åtgärds grupper* som avgör vad som ska hända när aviseringen är utlöses.
 
-Klicka på den **villkoret rubrik**, som visas nedan, för att slutföra konfigurationen av signallogiken.
+Klicka på **villkors rubriken**som visas nedan för att slutföra konfigurationen av signal logiken.
 
-![Varningsregeln villkor](media/hdinsight-cluster-availability/portal-condition-title.png)
+![Villkor för varnings regel](media/hdinsight-cluster-availability/portal-condition-title.png)
 
-Då öppnas det **konfigurera signallogiken** bladet.
+Då öppnas bladet **Konfigurera signal logik** .
 
-Ange den **Avisera logic** avsnittet på följande sätt:
+Ange **aviserings logik** avsnittet enligt följande:
 
-*Baserat på: Antal resultat, villkor: Över tröskeln: 0.*
+*Baserat på: Antal resultat, villkor: Större än, tröskel: 0,0.*
 
-Eftersom den här frågan returnerar endast otillgänglig noder som resultat, om antalet resultat är allt större än 0, ska aviseringen utlösas.
+Eftersom den här frågan bara returnerar otillgängliga noder som resultat, bör aviseringen utlösas om antalet resultat någonsin är större än 0.
 
-I den **Evaluated utifrån** anger den **period** och **frekvens** baserat på hur ofta du vill söka efter tillgängliga noder.
+I avsnittet **utvärdera baserat på** anger du **period** och **frekvens** baserat på hur ofta du vill söka efter otillgängliga noder.
 
-Observera att i den här aviseringen du vill kontrollera **Period = frekvens.** Mer information om period, frekvens och andra aviseringsparametrar finns [här](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-unified-log#log-search-alert-rule---definition-and-types).
+Observera att för den här aviseringen ska du se till att **period = frekvens.** Mer information om period, frekvens och andra aviserings parametrar hittar du [här](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-unified-log#log-search-alert-rule---definition-and-types).
 
-Klicka på **klar** när du har konfigurerat signallogiken.
+Klicka på **klart** när du är färdig med konfigurationen av signal logiken.
 
-![Varningsregeln konfigurera signallogiken](media/hdinsight-cluster-availability/portal-configure-signal-logic.png)
+![Varnings regel konfigurera signal logik](media/hdinsight-cluster-availability/portal-configure-signal-logic.png)
 
-Om du inte redan har en befintlig åtgärdsgrupp, klickar du på **Skapa ny** under den **åtgärdsgrupper** avsnittet.
+Om du inte redan har en befintlig åtgärds grupp klickar du på **Skapa ny** under avsnittet **Åtgärds grupper** .
 
-![Varningsregeln ny åtgärdsgrupp](media/hdinsight-cluster-availability/portal-create-new-action-group.png)
+![Ny åtgärds grupp för aviserings regel](media/hdinsight-cluster-availability/portal-create-new-action-group.png)
 
-Då öppnas det **Lägg till åtgärdsgrupp** bladet. Välj en **namn på åtgärdsgrupp**, **kortnamnet**, **prenumeration**, och **resursgrupp.** Under den **åtgärder** väljer en **åtgärdsnamn** och välj **e-post/SMS/Push/röst** som den **åtgärdstyp.**
+Då öppnas bladet **Lägg till åtgärds grupp** . Välj ett **Åtgärds grupp namn**, **kort namn**, **prenumeration**och **resurs grupp.** Under avsnittet **åtgärder** väljer du ett **Åtgärds namn** och väljer **e-post/SMS/push/röst** som **Åtgärds typ.**
 
 > [!NOTE]
-> Det finns flera andra åtgärder som en avisering kan utlösa förutom en e-post/SMS/Push/röst, till exempel en Azure-funktion, LogicApp, Webhook, ITSM och Automation-Runbook. [Lära sig mer.](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups#action-specific-information)
+> Det finns flera andra åtgärder som en avisering kan utlösa förutom e-post/SMS/push/Voice, till exempel en Azure Function-, LogicApp-, webhook-, ITSM-och Automation-Runbook. [Lära sig mer.](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups#action-specific-information)
 
-Då öppnas det **e-post/SMS/Push/röst** bladet. Välj en **namn** till mottagaren, **Kontrollera** den **e-post** rutan och Skriv en e-postadress som du vill att aviseringen ska skickas. Klicka på **OK** i den **e-post/SMS/Push/röst** bladet i den **Lägg till åtgärdsgrupp** bladet för att slutföra konfigurationen av din åtgärdsgruppen.
+Då öppnas bladet **e-post/SMS/push/röst** . Välj ett **namn** för mottagaren, **Markera** rutan **e-** postadress och skriv en e-postadress som du vill att aviseringen ska skickas till. Klicka på **OK** i bladet **e-post/SMS/push/Voice** och Slutför konfigurationen av din åtgärds grupp i bladet **Lägg till åtgärds grupp** .
 
-![Varningsregeln Lägg till åtgärdsgrupp](media/hdinsight-cluster-availability/portal-add-action-group.png)
+![Åtgärds grupp för att lägga till aviserings regel](media/hdinsight-cluster-availability/portal-add-action-group.png)
 
-När dessa blad stänger du bör se din åtgärdsgrupp som visas under den **åtgärdsgrupper** avsnittet. Slutför den **Aviseringsinformationen** avsnittet genom att skriva en **avisering Regelnamn** och **beskrivning** och välja en **allvarlighetsgrad**.
-Klicka på **skapa varningsregel** ska slutföras.
+När bladen stängs bör du se din åtgärds grupp i avsnittet **Åtgärds grupper** . Slutligen fyller du i avsnittet **aviserings information** genom att ange ett namn och en **Beskrivning** för **varnings regeln** och välja en **allvarlighets grad**.
+Klicka på **skapa aviserings regel** för att slutföra.
 
-![Skapa aviseringsregel Slutför](media/hdinsight-cluster-availability/portal-create-alert-rule-finish.png)
+![Skapa varnings regel slutförd](media/hdinsight-cluster-availability/portal-create-alert-rule-finish.png)
 
 > [!TIP]
-> Möjligheten att ange **allvarlighetsgrad** är ett kraftfullt verktyg som kan användas när du skapar flera aviseringar. Exempel: du kan skapa en avisering om du vill generera en varning (allvarlighetsgrad 1) om bara en huvudnod går ned och en ny avisering som genererar en kritisk (Sev 0) i det osannolika skulle att båda huvudnoder gå.
+> Möjligheten att ange **allvarlighets grad** är ett kraftfullt verktyg som kan användas när du skapar flera aviseringar. Du kan till exempel skapa en avisering för att utlösa en varning (allvarlighets grad 1) om en enda Head-nod går ned och en annan avisering som aktiverar kritisk (allvarlighets grad 0) i förmodad händelse att båda huvudnoderna går ned.
 
-När villkoret för aviseringen är uppfyllt, aviseringen utlöses och du får ett e-postmeddelande med aviseringsinformation så här:
+När villkoret för den här aviseringen uppfylls, utlöses aviseringen och du får ett e-postmeddelande med aviserings informationen så här:
 
-![Azure Monitor e-postavisering](media/hdinsight-cluster-availability/alert-email.png)
+![Azure Monitor e-postavisering](media/hdinsight-cluster-availability/portal-oms-alert-email.png)
 
-Du kan också visa alla aviseringar som har aktiverats, grupperade efter allvarlighetsgrad, genom att gå till den **aviseringar** -bladet i din **Log Analytics-arbetsytan**.
+Du kan också Visa alla aviseringar som har utlösts, grupperade efter allvarlighets grad, genom att gå till bladet **aviseringar** i **arbets ytan Log Analytics**.
 
-![Log Analytics-arbetsytan aviseringar](media/hdinsight-cluster-availability/portal-alerts.png)
+![Aviseringar för Log Analytics arbets ytan](media/hdinsight-cluster-availability/hdi-portal-oms-alerts.png)
 
-När du klickar på en allvarlighetsgrad gruppering (d.v.s. **allvarlighetsgrad 1,** som markerade ovan) visar poster för alla aviseringar för den allvarlighetsgrad som har aktiverats som nedan:
+Om du klickar på en allvarlighets grad gruppering (t. ex. **allvarlighets grad 1 som är** markerad ovan) visas poster för alla aviseringar med den allvarlighets grad som har utlösts som nedan:
 
-![Log Analytics-arbetsyta sev 1-aviseringar](media/hdinsight-cluster-availability/portal-alerts-sev-1.png)
+![Allvarlighets grad 1-aviseringar för arbets ytan Log Analytics](media/hdinsight-cluster-availability/portal-oms-alerts-sev1.png)
 
 ## <a name="next-steps"></a>Nästa steg
-- [Tillgänglighet och tillförlitlighet för Apache Hadoop-kluster i HDInsight](hdinsight-high-availability-linux.md)
+- [Tillgänglighet och tillförlitlighet för Apache Hadoop kluster i HDInsight](hdinsight-high-availability-linux.md)

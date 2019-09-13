@@ -4,16 +4,16 @@ description: Lär dig hur du hanterar Azure HDInsight-kluster med Enterprise Sec
 ms.service: hdinsight
 author: omidm1
 ms.author: omidm
-ms.reviewer: mamccrea
+ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 08/24/2018
-ms.openlocfilehash: acf11b8107855c6f087f63f592cdbbad3766795e
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: e5062ce27e1e9367a262d263070ab01f899dfc54
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70811017"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70918929"
 ---
 # <a name="manage-hdinsight-clusters-with-enterprise-security-package"></a>Hantera HDInsight-kluster med Enterprise Security Package
 Lär dig mer om användare och roller i HDInsight Enterprise Security Package (ESP) och hur du hanterar ESP-kluster.
@@ -34,7 +34,7 @@ Du kan länka ett vanligt kluster med hjälp av Apache Ambari-hanterat användar
    
 3. Du kan se ett länkat kluster med kommando **list kluster**. Nu kan du skicka ett skript till det här länkade klustret.
 
-   ![länkat kluster](./media/apache-domain-joined-manage/linked-cluster.png "länkat kluster")
+   ![länkat kluster](./media/apache-domain-joined-manage/hdinsight-linked-cluster.png "länkat kluster")
 
 4. Du kan också ta bort länken mellan ett kluster genom **att mata in HDInsight: Ta bort länken mellan** ett kluster och kommando paletten.
 
@@ -60,7 +60,7 @@ Du kan länka ett vanligt kluster genom att använda Ambari-hanterat användar n
 
 4. Du kan också ta bort länken mellan ett kluster och **Azure Explorer**.
    
-   ![olänkade kluster IntelliJ](./media/apache-domain-joined-manage/unlink.png)
+   ![olänkade kluster IntelliJ](./media/apache-domain-joined-manage/hdinsight-unlink-cluster.png)
 
 ## <a name="use-eclipse-to-link-to-domain-joined-cluster"></a>Använda Eclipse för att länka till domänanslutna kluster
 
@@ -71,7 +71,7 @@ Du kan länka ett vanligt kluster genom att använda Ambari-hanterat användar n
 
 2. Ange **kluster namn**, **användar namn** och **lösen ord**och klicka sedan på OK för att länka klustret. Du kan också ange lagrings konto, lagrings nyckel och välja lagrings behållare för lagrings Utforskaren som ska fungera i den vänstra trädvyn
    
-   ![dialog rutor för länk kluster dialog ruta](./media/apache-domain-joined-manage/link-cluster-dialog.png)
+   ![dialog rutor för länk kluster dialog ruta](./media/apache-domain-joined-manage/link-cluster-dialog1.png)
    
    > [!NOTE]  
    > Vi använder den länkade lagrings nyckeln, användar namnet och lösen ordet om klustret både är inloggat i Azure-prenumerationen och länkade ett kluster.
@@ -83,7 +83,7 @@ Du kan länka ett vanligt kluster genom att använda Ambari-hanterat användar n
 
 4. Du kan också ta bort länken mellan ett kluster och **Azure Explorer**.
    
-   ![olänkade kluster med Sol förmörkelse](./media/apache-domain-joined-manage/unlink.png)
+   ![olänkade kluster med Sol förmörkelse](./media/apache-domain-joined-manage/hdinsight-unlink-cluster.png)
 
 ## <a name="access-the-clusters-with-enterprise-security-package"></a>Få åtkomst till kluster med Enterprise Security Package.
 

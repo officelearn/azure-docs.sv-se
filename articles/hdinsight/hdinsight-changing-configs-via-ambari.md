@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: hrasheed
-ms.openlocfilehash: 5c533c3b0005528eae646744e8e720e2c54436e1
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
-ms.translationtype: HT
+ms.openlocfilehash: d34cb7b8bfae14c25950cc4d77c6625c675e813b
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70880256"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70934651"
 ---
 # <a name="use-apache-ambari-to-optimize-hdinsight-cluster-configurations"></a>Använd Apache Ambari för att optimera HDInsight-klusterkonfigurationer
 
@@ -23,7 +23,7 @@ En introduktion till att använda Ambari-webbgränssnittet finns i [Hantera HDIn
 
 Logga in på Ambari på `https://CLUSTERNAME.azurehdidnsight.net` med dina autentiseringsuppgifter för klustret. Den första skärmen visar en översikts instrument panel.
 
-![Ambari-instrumentpanel](./media/hdinsight-changing-configs-via-ambari/ambari-dashboard.png)
+![Ambari-instrumentpanel](./media/hdinsight-changing-configs-via-ambari/apache-ambari-dashboard.png)
 
 Ambari-webbgränssnittet kan användas för att hantera värdar, tjänster, aviseringar, konfigurationer och vyer. Ambari kan inte användas för att skapa ett HDInsight-kluster, uppgradera tjänster, hantera stackar och versioner, inaktivera eller reprovision-värdar eller lägga till tjänster i klustret.
 
@@ -31,7 +31,7 @@ Ambari-webbgränssnittet kan användas för att hantera värdar, tjänster, avis
 
 Konfigurations inställningar hjälper dig att finjustera en viss tjänst. Om du vill ändra konfigurations inställningar för en tjänst väljer du tjänsten på sid panelen **tjänster** (till vänster) och navigera sedan till fliken **konfigurationer** på sidan tjänst information.
 
-![Services-sidofält](./media/hdinsight-changing-configs-via-ambari/services-sidebar.png)
+![Services-sidofält](./media/hdinsight-changing-configs-via-ambari/ambari-services-sidebar.png)
 
 ### <a name="modify-namenode-java-heap-size"></a>Ändra NameNode Java-Heap-storlek
 
@@ -41,15 +41,15 @@ NameNode Java-heap-storleken beror på många faktorer, till exempel belastninge
 
 1. Välj **HDFS** från panelen tjänster och navigera till fliken **konfigurationer** .
 
-    ![HDFS-konfiguration](./media/hdinsight-changing-configs-via-ambari/hdfs-config.png)
+    ![HDFS-konfiguration](./media/hdinsight-changing-configs-via-ambari/ambari-apache-hdfs-config.png)
 
 1. Hitta inställningen **NameNode Java-Heap-storlek**. Du kan också använda text rutan **filter** för att skriva och söka efter en viss inställning. Välj **Penn** ikonen bredvid inställnings namnet.
 
-    ![NameNode Java-Heap-storlek](./media/hdinsight-changing-configs-via-ambari/java-heap-size.png)
+    ![NameNode Java-Heap-storlek](./media/hdinsight-changing-configs-via-ambari/ambari-java-heap-size.png)
 
 1. Skriv det nya värdet i text rutan och tryck sedan på **RETUR** för att spara ändringen.
 
-    ![Redigera NameNode Java heap size1](./media/hdinsight-changing-configs-via-ambari/java-heap-size-edit.png)
+    ![Redigera NameNode Java heap size1](./media/hdinsight-changing-configs-via-ambari/java-heap-size-edit1.png)
 
 1. Storleken på NameNode Java-heap ändras till 1 GB från 2 GB.
 
@@ -57,7 +57,7 @@ NameNode Java-heap-storleken beror på många faktorer, till exempel belastninge
 
 1. Spara ändringarna genom att klicka på den gröna knappen **Spara** överst på konfigurations skärmen.
 
-    ![Spara ändringar](./media/hdinsight-changing-configs-via-ambari/save-changes.png)
+    ![Spara ändringar](./media/hdinsight-changing-configs-via-ambari/ambari-save-changes1.png)
 
 ## <a name="apache-hive-optimization"></a>Apache Hive optimering
 
@@ -72,11 +72,11 @@ Hive innehåller två körnings motorer: [Apache Hadoop MapReduce](https://hadoo
 
 1. Skriv **körnings motor** i rutan filter på fliken Hive- **konfigurationer** .
 
-    ![Motor för Sök körning](./media/hdinsight-changing-configs-via-ambari/search-execution.png)
+    ![Motor för Sök körning](./media/hdinsight-changing-configs-via-ambari/ambari-search-execution.png)
 
 1. Standardvärdet för egenskapen **Optimization** är **Tez**.
 
-    ![Optimering – Tez](./media/hdinsight-changing-configs-via-ambari/optimization-tez.png)
+    ![Optimering – Tez](./media/hdinsight-changing-configs-via-ambari/optimization-apache-tez.png)
 
 ### <a name="tune-mappers"></a>Finjustera mappningar
 
@@ -93,7 +93,7 @@ Om du till exempel vill ange fyra Mapper-uppgifter för en data storlek på 128 
 
 1. Ange båda parametrarna till **33 554 432** byte (32 MB).
 
-    ![Tez-grupperingsnivåer](./media/hdinsight-changing-configs-via-ambari/tez-grouping-size.png)
+    ![Tez-grupperingsnivåer](./media/hdinsight-changing-configs-via-ambari/apache-tez-grouping-size.png)
  
 Dessa ändringar påverkar alla Tez-jobb på servern. Om du vill få ett optimalt resultat väljer du lämpliga parameter värden.
 
@@ -109,7 +109,7 @@ Med standardinställningarna är det här exemplet 4-dämpare.
 
 1. Om du vill ändra parametern navigerar du till fliken Hive- **konfiguration** och letar upp **data per minsknings** parameter på sidan Inställningar.
 
-    ![Data per minskning](./media/hdinsight-changing-configs-via-ambari/data-per-reducer.png)
+    ![Data per minskning](./media/hdinsight-changing-configs-via-ambari/ambari-data-per-reducer.png)
  
 1. Välj **Redigera** för att ändra värdet till 128 MB (134 217 728 byte) och tryck sedan på **RETUR** för att spara.
 
@@ -127,7 +127,7 @@ En Hive-fråga körs i en eller flera steg. Om de oberoende faserna kan köras p
  
 1.  Om du vill begränsa antalet jobb som ska köras parallellt ändrar du `hive.exec.parallel.thread.number` egenskapen. Standardvärdet är 8.
 
-    ![Hive exec parallell](./media/hdinsight-changing-configs-via-ambari/hive-exec-parallel.png)
+    ![Hive exec parallell](./media/hdinsight-changing-configs-via-ambari/apache-hive-exec-parallel.png)
 
 
 ### <a name="enable-vectorization"></a>Aktivera vectorization
@@ -373,7 +373,7 @@ HBase-heap-storleken anger den maximala mängd heap som ska användas i megabyte
 
 1. Ändra standardvärdet till 5 000 MB.
 
-    ![HBASE_HEAPSIZE](./media/hdinsight-changing-configs-via-ambari/hbase-heapsize.png)
+    ![HBASE_HEAPSIZE](./media/hdinsight-changing-configs-via-ambari/ambari-hbase-heapsize.png)
 
 
 ### <a name="optimize-read-heavy-workloads"></a>Optimera Läs frekventa arbets belastningar

@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/24/2019
+ms.date: 09/12/2019
 ms.author: magoedte
-ms.openlocfilehash: 311db544a119d4b9bee7d31cfdfac33aa3c4ed79
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: b9b4a33e5aee92a4e8caa7a1128538cb2f1a8a7e
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70233222"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70933124"
 ---
 # <a name="understand-the-health-of-your-azure-virtual-machines"></a>Förstå hälso tillståndet för dina virtuella Azure-datorer
 
@@ -36,49 +36,52 @@ Information om hur du konfigurerar Azure Monitor for VMs finns i [aktivera Azure
 
 Det här avsnittet beskriver standard hälso villkoren för att övervaka virtuella datorer i Azure Windows och Linux. Alla hälso kriterier är förkonfigurerade för att skicka en avisering när de identifierar ett ohälsosamt tillstånd.
 
-### <a name="windows-vms"></a>Virtuella Windows-datorer
+| Övervakarens namn | Frekvens (min) | Lookback varaktighet (min) | Operator | Tröskelvärde | Avisering om tillstånd | severity | Arbets belastnings kategori | 
+|--------------|-----------|----------|----------|-----------|----------------|----------|-------------------|
+| Logisk disk online | 5 | 15 | <> | 1 (sant) | Kritiskt | Sev1 | Linux | 
+| Ledigt utrymme på logisk disk | 5 | 15 | < | 200 MB (varning)<br> 100 MB (kritiskt) | Varning | Sev1<br> Sev2 | Linux | 
+| Ledig noder i procent för logisk disk | 5 | 15 | < | 5 % | Kritiskt | Sev1 | Linux | 
+| Ledigt utrymme i procent för logisk disk | 5 | 15 | < | 5 % | Kritiskt | Sev1 | Linux | 
+| Status för nätverkskort | 5 | 15 | <> | 1 (sant) | Varning | Sev2 | Linux | 
+| Tillgängligt minne i megabyte för operativ system | 5 | 10 | < | 2,5 MB | Kritiskt | Sev1 | Linux | 
+| Disk medel. S/diskläsning | 5 | 25 | > | 0,05 s | Kritiskt | Sev1 | Linux | 
+| Disk medel. S/disköverföring | 5 | 25 | > | 0,05 s | Kritiskt | Sev1 | Linux | 
+| Disk medel. S/diskskrivning | 5 | 25 | > | 0,05 s | Kritiskt | Sev1 | Linux | 
+| Disk status | 5 | 25 | <> | 1 (sant) | Kritiskt | Sev1 | Linux | 
+| Total processor tid i procent för operativ system | 5 | 10 | >= | 95% | Kritiskt | Sev1 | Linux | 
+| Total processor användning i procent | 5 | 10 | >= | 95% | Kritiskt | Sev1 | Windows | 
+| Fel eller fel i fil systemet | 60 | 60 | <> | 4 | Kritiskt | Sev1 | Windows | 
+| Genomsnittligt antal sekunder per läsning för logiska diskar | 1 | 15 | > | 0.04 s | Varning | Sev2 | Windows | 
+| Genomsnittligt antal sekunder per överföring för logiska diskar | 1 | 15 | > | 0.04 s | Varning | Sev2 | Windows | 
+| Genomsnittligt antal sekunder per skrivning (logisk disk) för logiska diskar | 1 | 15 | > | 0.04 s | Varning | Sev2 | Windows | 
+| Aktuell diskkölängd (logisk disk) | 5 | 60 | >= | 32 | Varning | Sev2 | Windows | 
+| Ledigt utrymme på logisk disk (MB) | 15 | 60 | > | varning om 500 MB<br> 300 MB kritiskt | Kritiskt | Sev1<br> Sev2 | Windows | 
+| Ledigt utrymme på logisk disk (%) | 15 | 60 | > | 10% varning<br> 5% kritiskt | Kritiskt | Sev1<br> Sev2 | Windows |
+| Ledig tid i procent för logisk disk | 15 | 360 | <= | 20 % | Varning | Sev2 | Windows | 
+| Procent läst Använd bandbredd | 5 | 60 | >= | 60% | Varning | Sev2 | Windows | 
+| Total mängd bandbredd som används | 5 | 60 | >= | 75% | Varning | Sev2 | Windows | 
+| Procent Använd bandbredds skrivning | 5 | 60 | >= | 60% | Varning | Sev2 | Windows | 
+| DHCP-klient Service Health | 5 | 12 | <> | 4 (körs) | Kritiskt | Sev1 | Windows | 
+| DNS-klient Service Health | 5 | 12 | <> | 4 (körs) | Kritiskt | Sev1 | Windows | 
+| Windows händelse logg Service Health | 5 | 12 | <> | 4 (körs) | Kritiskt | Sev1 | Windows | 
+| Service Health för Windows-brandväggen | 5 | 12 | <> | 4 (körs) | Kritiskt | Sev1 | Windows | 
+| RPC-Service Health | 5 | 12 | <> | 4 (körs) | Kritiskt | Sev1 | Windows | 
+| Server Service Health | 5 | 12 | <> | 4 (körs) | Kritiskt | Sev1 | Windows | 
+| Windows Remote Management-Service Health | 5 | 12 | <> | 4 (körs) | Kritiskt | Sev1 | Windows | 
+| Tillgängligt minne i MB | 5 | 10 | < | 100 MB | Kritiskt | Sev1 | Windows | 
+| Kostnads fria system sid tabell poster | 5 | 10 | <= | 5000 | Kritiskt | Sev1 | Windows | 
+| Minnes sidor per sekund | 5 | 10 | >= | 5000/s | Varning | Sev1 | Windows | 
+| Procent andelen allokerat minne som används | 5 | 10 | > | 80 % | Kritiskt | Sev1 | Windows | 
+| Genomsnittligt antal sekunder per överföring | 1 | 15 | > | 0.04 s | Varning | Sev2 | Windows | 
+| Genomsnittligt antal sekunder per skrivning | 1 | 15 | > | 0.04 s | Varning | Sev2 | Windows | 
+| Aktuell diskkölängd | 5 | 60 | >= | 32 | Varning | Sev2 | Windows | 
+| Ledig tid i procent för disk | 5 | 60 | >= | 20 % | Varning | Sev2 | Windows | 
 
-- Tillgängligt minne i MB
-- Genomsnittligt antal sekunder per skrivning (logisk disk)
-- Genomsnittligt antal sekunder per skrivning (disk)
-- Genomsnittligt antal sekunder per läsning för logiska diskar
-- Genomsnittligt antal sekunder per överföring för logiska diskar
-- Genomsnittligt antal sekunder per läsning
-- Genomsnittligt antal sekunder per överföring
-- Aktuell diskkölängd (logisk disk)
-- Aktuell diskkölängd (disk)
-- Ledig tid i procent för disk
-- Fel eller fel i fil systemet
-- Ledigt utrymme på logisk disk (%) Börjar
-- Låg ledigt utrymme på logisk disk (MB)
-- Ledig tid i procent för logisk disk
-- Minnes sidor per sekund
-- Procent läst Använd bandbredd
-- Total mängd bandbredd som används
-- Procent Använd bandbredds skrivning
-- Procent andelen allokerat minne som används
-- Ledig tid i procent för disk
-- DHCP-klient Service Health
-- DNS-klient Service Health
-- RPC-Service Health
-- Server Service Health
-- Total processor användning i procent
-- Windows händelse logg Service Health
-- Service Health för Windows-brandväggen
-- Windows Remote Management-Service Health
+>[!NOTE]
+>Lookback varaktighet anger hur ofta fönstret gå tillbaka kontrollerar värdena, till exempel under de senaste fem minuterna.  
 
-### <a name="linux-vms"></a>Virtuella Linux-datorer
-
-- Disk medel. S/disköverföring
-- Disk medel. S/diskläsning
-- Disk medel. S/diskskrivning
-- Disk hälsa
-- Ledigt utrymme på logisk disk
-- Ledigt utrymme i procent för logisk disk
-- Ledig noder i procent för logisk disk
-- Hälso tillstånd för nätverkskort
-- Total processor tid i procent
-- Tillgängligt minne i megabyte för operativ systemet
+>[!NOTE]
+>Frekvensen anger hur ofta mått aviseringen ska kontrol lera om villkoren är uppfyllda, till exempel en gång i minuten.  Det är den hastighet som hälso kriteriet körs, och lookback är den tid under vilken hälso kriteriet utvärderas. Till exempel utvärderas hälso kriteriet om **processor användningen** i villkoret är större än 95 procent med en frekvens på 5 minuter och förblir större än 95% i 15 minuter (3 efterföljande utvärderings cykler), så uppdateras tillståndet till kritiskt allvarlighets grad om den inte redan fanns.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
@@ -90,7 +93,7 @@ Innan du använder funktionen för hälso tillstånd för en enskild virtuell da
 
 ### <a name="view-health-directly-from-a-vm"></a>Visa hälso tillståndet direkt från en virtuell dator
 
-Om du vill visa hälso tillståndet för en virtuell Azure-dator väljer du insikter **(för hands version)** i den vänstra rutan i den virtuella datorn. Fliken **hälsa** är öppen som standard på sidan VM Insights och visar hälso tillståndet för den virtuella datorn.
+Om du vill visa hälso tillståndet för en virtuell Azure-dator väljer du **insikter (för hands version)** i den vänstra rutan i den virtuella datorn. Fliken **hälsa** är öppen som standard på sidan VM Insights och visar hälso tillståndet för den virtuella datorn.
 
 ![Översikt över Azure Monitor for VMs hälsa för en vald virtuell Azure-dator](./media/vminsights-health/vminsights-directvm-health-01.png)
 
@@ -117,7 +120,7 @@ Ett okänt hälso tillstånd kan orsakas av följande problem:
 - Lösningens beroenden har tagits bort. Om du vill återaktivera ServiceMap-och InfrastructureInsights-lösningarna på arbets ytan Log Analytics installerar du om dessa lösningar med hjälp av [Azure Resource Manager-mallen](vminsights-enable-at-scale-powershell.md#install-the-servicemap-and-infrastructureinsights-solutions). Du kan också använda alternativet Konfigurera arbets yta som finns på fliken kom igång.
 - Den virtuella datorn stängdes av.
 - Tjänsten Azure VM är inte tillgänglig eller underhåll utförs.
-- Dagliga data för arbets ytan [eller gränsen](../platform/manage-cost-storage.md) för kvarhållning uppfylldes.
+- Dagliga data för arbets ytan [eller gränsen för kvarhållning](../platform/manage-cost-storage.md) uppfylldes.
 
 Välj **Visa hälsodiagnostik** för att öppna en sida som visar alla komponenter i en virtuell dator, associerade hälso kriterier, tillstånds ändringar och andra problem som identifieras av övervaknings komponenter som är relaterade till den virtuella datorn.
 
@@ -154,7 +157,7 @@ I listan **VM-distribution per operativ system** visas de virtuella datorer som 
 
 Välj valfri kolumn, inklusive **antal virtuella datorer**, **kritisk**, **Varning**, **felfri**eller **okänd**. Visa listan över filtrerade resultat på **Virtual Machines** sidan som matchar den valda kolumnen.
 
-Om du till exempel vill granska alla virtuella datorer som kör Red Hat Enterprise Linux version 7,5 väljer du värdet **antal virtuella** datorer för det operativ systemet och visar en lista över de virtuella datorerna som matchar filtret och deras aktuella hälso tillstånd.
+Om du till exempel vill granska alla virtuella datorer som kör Red Hat Enterprise Linux version 7,5 väljer du värdet antal virtuella datorer för det operativ systemet och visar en lista över de virtuella **datorerna** som matchar filtret och deras aktuella hälso tillstånd.
 
 ![Exempel på sammanslagning av virtuella Red Hat Linux-datorer](./media/vminsights-health/vminsights-rollup-vm-rehl-01.png)
 
@@ -166,7 +169,7 @@ För något av objekten i listan kan du klicka på motsvarande hälso tillstånd
 
 Om du väljer namnet på en virtuell dator under kolumnen **VM-namn**på sidan **Virtual Machines** dirigeras du till sidan **VM-instans** . Den här sidan innehåller mer information om de aviseringar och hälso villkors problem som påverkar den valda virtuella datorn. Filtrera hälso tillstånds informationen genom att välja **hälso tillstånds** ikonen i det övre vänstra hörnet på sidan för att se vilka komponenter som inte är felfria. Du kan också Visa hälso aviseringar för virtuella datorer som har Aktiver ATS av en komponent som inte är felfri Kategoriserad efter allvarlighets grad för avisering.
 
-Från vyn **VM-lista** väljer du namnet på en virtuell dator för att öppna sidan **hälso tillstånd** för den virtuella datorn, på samma sätt som om du har valt insikter **(för hands version)** från den virtuella datorn direkt.
+Från vyn **VM-lista** väljer du namnet på en virtuell dator för att öppna sidan **hälso tillstånd** för den virtuella datorn, på samma sätt som om du har valt **insikter (för hands version)** från den virtuella datorn direkt.
 
 ![VM Insights för en vald virtuell Azure-dator](./media/vminsights-health/vminsights-directvm-health.png)
 
@@ -189,7 +192,7 @@ Om du vill se vilka instanser som inte är felfria väljer du ett värde under k
 
 ## <a name="health-diagnostics"></a>Hälso diagnos
 
-På sidan hälsodiagnostik kan du visualisera hälso modellen för en virtuell dator. Den här sidan listar alla VM-komponenter, associerade hälso kriterier, tillstånds ändringar och andra viktiga problem som identifieras av övervakade komponenter som är relaterade till den virtuella datorn.
+På sidan **hälsodiagnostik** kan du visualisera hälso modellen för en virtuell dator. Den här sidan listar alla VM-komponenter, associerade hälso kriterier, tillstånds ändringar och andra viktiga problem som identifieras av övervakade komponenter som är relaterade till den virtuella datorn.
 
 ![Exempel på sidan hälso diagnos för en virtuell dator](./media/vminsights-health/health-diagnostics-page-01.png)
 
@@ -197,7 +200,7 @@ Starta hälso diagnosen med följande metoder:
 
 * Efter samlat hälso tillstånd för alla virtuella datorer från den sammanställda VM-perspektivet i Azure Monitor:
 
-    1. På sidan **hälsa** väljer du ikonen för kritiskt, **varnings**, **felfri**eller **Okänt** hälso tillstånd under avsnittet **gäst hälsa för virtuella datorer**.
+    1. På sidan **hälsa** väljer du ikonen för **kritiskt**, **varnings**, **felfri**eller **Okänt** hälso tillstånd under avsnittet **gäst hälsa för virtuella datorer**.
     2. Gå till sidan med en lista över alla virtuella datorer som matchar den filtrerade kategorin.
     3. Välj värdet i kolumnen **hälso tillstånd** för att öppna hälsodiagnostiken som är begränsad till den virtuella datorn.
 
@@ -211,7 +214,7 @@ Alla hälso kriterier som har definierats för en komponent, till exempel logisk
 
 Villkors kategorin kan också visas bredvid kolumnen **hälso villkor** . Om villkoret inte matchar den valda kategorin visas ett meddelande om att **inga hälso kriterier som är tillgängliga för den valda kategorin** visas i kolumnen **hälso kriterier** .
 
-Tillståndet för ett hälso villkor definieras av en av fyra typer: **Kritisk**, **Varning**, **felfri**och **okänd**. De första tre kan konfigureras, vilket innebär att du kan ändra tröskelvärdena för övervakarna direkt i konfigurations fönstret för **hälso kriterier** . Detta är också möjligt med hjälp av åtgärden Azure Monitor Övervakare för REST API [uppdatering](https://docs.microsoft.com/rest/api/monitor/microsoft.workloadmonitor/monitors/update). **Okänd** kan inte konfigureras och är reserverat för vissa scenarier.
+Tillståndet för ett hälso villkor definieras av en av fyra typer: **Kritisk**, **Varning**, **felfri**och **okänd**. De första tre kan konfigureras, vilket innebär att du kan ändra tröskelvärdena för övervakarna direkt i konfigurations fönstret för **hälso kriterier** . Detta är också möjligt med hjälp av åtgärden Azure Monitor [övervakare](https://docs.microsoft.com/rest/api/monitor/microsoft.workloadmonitor/monitors/update)för REST API uppdatering. **Okänd** kan inte konfigureras och är reserverat för vissa scenarier.
 
 Sidan **hälsodiagnostik** har tre huvud avsnitt:
 
@@ -223,7 +226,7 @@ Sidan **hälsodiagnostik** har tre huvud avsnitt:
 
 ### <a name="component-model"></a>Komponent modell
 
-Kolumnen längst till vänster på sidan hälsodiagnostik är **komponent modell**. Alla komponenter som är associerade med den virtuella datorn visas i den här kolumnen tillsammans med deras aktuella hälso tillstånd.
+Kolumnen längst till vänster på sidan **hälsodiagnostik** är **komponent modell**. Alla komponenter som är associerade med den virtuella datorn visas i den här kolumnen tillsammans med deras aktuella hälso tillstånd.
 
 I följande exempel är de identifierade komponenterna **disk**, **logisk disk**, **processor**, **minne**och **operativ system**. Flera instanser av dessa komponenter identifieras och visas i den här kolumnen.
 
@@ -239,17 +242,17 @@ Kolumnen Center på sidan hälsodiagnostik är **hälso kriterier**. Den hälso 
 
 Ett hälso kriterium mäter hälsan hos en övervakad instans, som kan vara ett tröskelvärde, en enhets tillstånd och så vidare. Ett hälso kriterium har antingen två eller tre konfigurerbara tröskelvärden för hälso tillstånd, enligt beskrivningen ovan. Hälso kriteriet kan när som helst finnas i endast ett av de potentiella staterna.
 
-Hälso modellen definierar kriterier som avgör hälsan för målets övergripande mål och komponenter. Hierarkin av villkor visas i avsnittet **hälso kriterier** på sidan hälsodiagnostik .
+Hälso modellen definierar kriterier som avgör hälsan för målets övergripande mål och komponenter. Hierarkin av villkor visas i avsnittet **hälso kriterier** på sidan **hälsodiagnostik** .
 
 Hälso insamlings principen är en del av konfigurationen av de samlade hälso kriterierna (Standardinställningen är inställd på **sämsta**). Du kan hitta en standard uppsättning hälso kriterier som körs som en del av den här funktionen i avsnittet [övervaknings konfigurations information](#monitoring-configuration-details) i den här artikeln.
 
 Du kan också använda listan Azure Monitor REST API [övervaka instanser per resurs](https://docs.microsoft.com/rest/api/monitor/microsoft.workloadmonitor/monitorinstances/listbyresource) för att hämta en lista över alla hälso kriterier. Det här villkoret innehåller konfigurations information som körs mot Azure VM-resursen.
 
-Den här typen av enhets hälso kriterier kan ändra konfigurationen genom att välja ellips-länken till höger sida. Välj **Visa information** för att öppna konfigurations fönstret.
+Den här typen av **enhets** hälso kriterier kan ändra konfigurationen genom att välja ellips-länken till höger sida. Välj **Visa information** för att öppna konfigurations fönstret.
 
 ![Konfigurera ett hälso villkors exempel](./media/vminsights-health/health-diagnostics-vm-example-02.png)
 
-Om du använder exemplet **Genomsnittligt antal sekunder per skrivning**i konfigurations fönstret för det valda hälso villkoret, kan tröskelvärdet konfigureras med ett annat numeriskt värde. Det är en övervakare med två tillstånd, vilket innebär att den endast kan ändras från felfria till **varningar**.
+Om du använder exemplet **Genomsnittligt antal sekunder per skrivning**i konfigurations fönstret för det valda hälso villkoret, kan tröskelvärdet konfigureras med ett annat numeriskt värde. Det är en övervakare med två tillstånd, vilket innebär att den endast kan ändras från **felfria** till **varningar**.
 
 Andra hälso kriterier använder ibland tre tillstånd, där du kan konfigurera värdet för varning och kritisk hälso tillstånds tröskel. Du kan också ändra ett tröskelvärde genom att använda Azure Monitor REST API [övervaka konfiguration](https://docs.microsoft.com/rest/api/monitor/microsoft.workloadmonitor/monitors/update).
 
@@ -277,17 +280,17 @@ De tre kolumnerna är sammanlänkade med varandra. När du väljer en instans i 
 
 ![Exempel på att välja övervakad instans och resultat](./media/vminsights-health/health-diagnostics-vm-example-01.png)
 
-Om du till exempel väljer *disk-1 D:* från listan under **komponent modell**filter filter till *disk-1d:* och **tillstånds ändringar** , visar tillstånds ändringen baserat på tillgängligheten för *disk-1 D:* .
+Om du till exempel väljer *disk-1 D:* från listan under **komponent modell** **filter filter** till *disk-1d:* och **tillstånds ändringar** , visar tillstånds ändringen baserat på tillgängligheten för *disk-1 D:* .
 
 Om du vill se ett uppdaterat hälso tillstånd kan du uppdatera sidan hälso diagnos genom att välja länken **Uppdatera** . Om det finns en uppdatering av hälso kriteriets hälso tillstånd baserat på det fördefinierade avsöknings intervallet kan du undvika att vänta och återspegla det senaste hälso tillståndet. **Tillståndet för hälso** tillstånd är ett filter som du kan använda för att begränsa resultatet baserat på det valda hälso tillståndet: Felfri, varning, kritisk, okänd och allt. **Senast uppdaterad** tid i det övre högra hörnet motsvarar den senaste gången sidan för hälsodiagnostik uppdaterades.
 
 ## <a name="alerts"></a>Aviseringar
 
-Azure Monitor for VMs hälsa integreras med [Azure](../../azure-monitor/platform/alerts-overview.md)-aviseringar. Den genererar en avisering när fördefinierade villkor, vid identifiering, ändras från ett felfritt tillstånd till ett ohälsosamt tillstånd. Aviseringar kategoriseras efter allvarlighets grad, från allvarlighets grad 0 till allvarlighets grad 4, med allvarlighets grad 0 som den högsta nivån.
+Azure Monitor for VMs hälsa integreras med [Azure-aviseringar](../../azure-monitor/platform/alerts-overview.md). Den genererar en avisering när fördefinierade villkor, vid identifiering, ändras från ett felfritt tillstånd till ett ohälsosamt tillstånd. Aviseringar kategoriseras efter allvarlighets grad, från allvarlighets grad 0 till allvarlighets grad 4, med allvarlighets grad 0 som den högsta nivån.
 
 Aviseringar är inte associerade med en åtgärds grupp för att meddela dig när aviseringen har utlösts. En användare med ägar rollen i prenumerations omfånget måste konfigurera meddelanden genom att följa stegen i avsnittet [Konfigurera aviseringar](#configure-alerts) .
 
-Det totala antalet aviseringar om virtuella hälso tillstånd kategoriserade efter allvarlighets grad finns på **hälso** instrument panelen i avsnittet **aviseringar** . När du väljer antingen det totala antalet aviseringar eller numret som motsvarar allvarlighets graden öppnas sidan aviseringar och alla aviseringar som matchar ditt val visas.
+Det totala antalet aviseringar om virtuella hälso tillstånd kategoriserade efter allvarlighets grad finns på **hälso** instrument panelen i avsnittet **aviseringar** . När du väljer antingen det totala antalet aviseringar eller numret som motsvarar allvarlighets graden öppnas sidan **aviseringar** och alla aviseringar som matchar ditt val visas.
 
 Om du till exempel väljer raden som motsvarar allvarlighets grad- **nivå 1**visas följande vy:
 
@@ -333,7 +336,7 @@ I varje exempel används [ARMClient](https://github.com/projectkudu/armclient) p
 
 #### <a name="enable-or-disable-an-alert-rule"></a>Aktivera eller inaktivera en varnings regel
 
-Om du vill aktivera eller inaktivera en avisering för vissa hälso kriterier måste egenskapen **alertGeneration** ändras med värdet inaktiverat eller **aktiverat**.
+Om du vill aktivera eller inaktivera en avisering för vissa hälso kriterier måste egenskapen **alertGeneration** ändras med värdet **inaktiverat** eller **aktiverat**.
 
 Följande exempel visar hur du frågar efter värdet för villkoret **LogicalDisk\Avg disk sekunder per överföring**för att identifiera *monitorId* för specifika hälso kriterier:
 
@@ -390,7 +393,7 @@ Följande exempel visar hur du frågar efter värdet för villkoret **LogicalDis
     armclient patch subscriptions/subscriptionId/resourceGroups/resourcegroupName/providers/Microsoft.Compute/virtualMachines/vmName/providers/Microsoft.WorkloadMonitor/monitors/Microsoft_LogicalDisk_AvgDiskSecPerTransfer?api-version=2018-08-31-preview "{'properties':{'alertGeneration':'Disabled'}}"
     ```   
 
-4. Ange kommandot GET som används i steg 2 för att kontrol lera att egenskap svärdet är inaktiverat.
+4. Ange kommandot GET som används i steg 2 för att kontrol lera att egenskap svärdet är **inaktiverat**.
 
 #### <a name="associate-an-action-group-with-health-criteria"></a>Associera en åtgärds grupp med hälso villkor
 

@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a756f0d9fe3669ab9d0f2b4576a35be5d2112a87
-ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
+ms.openlocfilehash: c05e1dc720f49eb190ccdbe1826a1a347fba7fa1
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70872209"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70914781"
 ---
 # <a name="take-over-an-unmanaged-directory-as-administrator-in-azure-active-directory"></a>Ta över en ohanterad katalog som administratör i Azure Active Directory
 
@@ -43,7 +43,7 @@ Vissa produkter som innehåller SharePoint och OneDrive, till exempel Office 365
 
 3. I bekräftelse meddelandet från Power BI väljer du **Ja, det är jag**.
 
-4. Logga in på [Microsoft 365 administrations Center](https://admin.microsoft.com) med Power BI användar kontot. Du får ett meddelande som uppmanar dig att **bli administratör** för domän namnet som redan har verifierats i den ohanterade klienten. Välj **Ja, jag vill vara administratör**.
+4. Logga in på [Microsoft 365 administrations Center](https://portal.office.com/admintakeover) med Power BI användar kontot. Du får ett meddelande som uppmanar dig att **bli administratör** för domän namnet som redan har verifierats i den ohanterade klienten. Välj **Ja, jag vill vara administratör**.
   
    ![första skärm bilden för att bli administratör](./media/domains-admin-takeover/become-admin-first.png)
   

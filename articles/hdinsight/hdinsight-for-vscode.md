@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.openlocfilehash: 226862c51417e311bc39feefa9f5e860d55b7dc1
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: 51f0e223abd7103663fddd8c06dcdf0be549c671
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70034110"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70930829"
 ---
 # <a name="use-spark--hive-tools-for-visual-studio-code"></a>Använda Spark & Hive-verktyg för Visual Studio Code
 
@@ -52,11 +52,11 @@ När du uppfyller kraven kan du installera Spark & Hive-verktyg för Visual Stud
 
 Följ dessa steg om du vill öppna en arbetsmapp och skapa en fil i Visual Studio Code:
 
-1. I meny raden går du till **filen** > **Öppna mappen** > **C:\HD\HDexample**och väljer sedan knappen **Välj mapp** . Mappen visas i trädvyn till vänster.
+1. I meny raden går du till **filen** > **Öppna mappen** > **C:\HD\HDexample**och väljer sedan knappen **Välj mapp** . Mappen visas **i trädvyn till** vänster.
 
 2. I **Utforskarvyn** väljer du mappen **HDexample** och väljer sedan ikonen **ny fil** bredvid arbetsmappen:
 
-   ![Ny fil](./media/hdinsight-for-vscode/new-file.png)
+   ![Ny fil](./media/hdinsight-for-vscode/visual-studio-code-new-file.png)
 
 3. Namnge den nya filen genom att antingen `.hql` använda fil namns tillägget (Hive-frågor) `.py` eller (Spark-skript). I det här exemplet används **HelloWorld. HQL**.
 
@@ -131,7 +131,7 @@ Du kan länka ett vanligt kluster genom att använda ett [Apache Ambari](https:/
 
 3. Granska vyn **utdata** . I den här vyn visas de länkade klustren (eller klustren) och alla kluster i din Azure-prenumeration:
 
-    ![Ange en standard kluster konfiguration](./media/hdinsight-for-vscode/list-cluster-result.png)
+    ![Ange en standard kluster konfiguration](./media/hdinsight-for-vscode/list-cluster-result1.png)
 
 ## <a name="set-the-default-cluster"></a>Ange standard kluster
 
@@ -280,7 +280,7 @@ Skicka en fil och Lägg märke till att mappen. VSCode automatiskt läggs till i
 
 + Projekt inställningarna:
 
-    ![Livy-konfiguration](./media/hdinsight-for-vscode/hdi-livyconfig.png)
+    ![Livy-konfiguration](./media/hdinsight-for-vscode/hdi-apache-livy-config.png)
 
     >[!NOTE]
     >Ange värdet och enheten för inställningarna **driverMemory** och **executorMemory** . Exempel: 1G eller 1 024.
@@ -292,19 +292,19 @@ Skicka en fil och Lägg märke till att mappen. VSCode automatiskt läggs till i
 
     | name | description | type | 
     | :- | :- | :- | 
-    | file | Fil som innehåller det program som ska köras | Sökväg (obligatoriskt) |
+    | file | Fil som innehåller det program som ska köras | sökväg (obligatoriskt) |
     | proxyUser | Användare som ska personifieras när jobbet körs | Sträng |
     | className | Program java/Spark, huvud klass | Sträng |
-    | args | Kommando rads argument för programmet | Lista över strängar |
-    | jars | Jar v7 som ska användas i den här sessionen | Lista över strängar | 
-    | pyFiles | Python-filer som ska användas i den här sessionen | Lista över strängar |
-    | files | Filer som ska användas i den här sessionen | Lista över strängar |
+    | args | Kommando rads argument för programmet | lista över strängar |
+    | jars | jar v7 som ska användas i den här sessionen | lista över strängar | 
+    | pyFiles | Python-filer som ska användas i den här sessionen | lista över strängar |
+    | files | filer som ska användas i den här sessionen | lista över strängar |
     | driverMemory | Mängd minne som ska användas för driv rutins processen | Sträng |
     | driverCores | Antal kärnor som ska användas för driv rutins processen | Int |
     | executorMemory | Mängden minne som ska användas per utförar-process | Sträng |
     | executorCores | Antal kärnor som ska användas för varje utförar | Int |
     | numExecutors | Antal körningar som ska startas för den här sessionen | Int |
-    | archives | Arkiv som ska användas i den här sessionen | Lista över strängar |
+    | archives | Arkiv som ska användas i den här sessionen | lista över strängar |
     | queue | Namnet på den garn kö som ska skickas till| Sträng |
     | name | Namnet på den här sessionen | Sträng |
     | medför | Konfigurations egenskaper för Spark | Karta över nyckel = val |
@@ -317,7 +317,7 @@ Skicka en fil och Lägg märke till att mappen. VSCode automatiskt läggs till i
     | id | Sessions-ID | Int | 
     | appId | Programmets ID för den här sessionen | Sträng |
     | appInfo | Detaljerad programinformation | Karta över nyckel = val |
-    | log | Logg rader | Lista över strängar |
+    | log | Logg rader | lista över strängar |
     | state |Batch-tillstånd | Sträng |
 
     >[!NOTE]
@@ -354,7 +354,7 @@ Du kan förhandsgranska Hive-tabellen i klustren direkt via **Azure HDInsight** 
 
    ![Spark & Hive för Visual Studio Code för hands version av Hive-tabell](./media/hdinsight-for-vscode/hdinsight-for-vscode-preview-hive-table.png)
 
-6. Fönstret för förhands **gransknings resultat** öppnas:
+6. Fönstret för **förhands gransknings resultat** öppnas:
 
    ![Spark & Hive för resultat fönstret för Visual Studio Code Preview](./media/hdinsight-for-vscode/hdinsight-for-vscode-preview-results-window.png)
    
@@ -409,7 +409,7 @@ När du skickar jobb till ett HDInsight-kluster uppmanas du att länka klustret 
   >
   >Du kan använda `Spark / Hive: List Cluster` för att kontrol lera det länkade klustret:
   >
-  >![Spark & Hive-verktyg för Visual Studio Code Reader](./media/hdinsight-for-vscode/list-cluster-result.png)
+  >![Spark & Hive-verktyg för Visual Studio Code Reader](./media/hdinsight-for-vscode/list-cluster-result1.png)
 
 ## <a name="azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2
 

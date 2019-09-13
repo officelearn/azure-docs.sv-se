@@ -13,12 +13,12 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 34f00a2c7425ec15ec29a5d3b40c7e2b41750e05
-ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
-ms.translationtype: HT
+ms.openlocfilehash: 120b5606dd6b6f4451b563843f112bd614341eac
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 09/11/2019
-ms.locfileid: "70910912"
+ms.locfileid: "70914799"
 ---
 # <a name="bulk-download-members-of-a-group-preview-in-azure-active-directory"></a>Mass nedladdning av medlemmar i en grupp (för hands version) i Azure Active Directory
 
@@ -29,7 +29,7 @@ Med hjälp av Azure Active Directory (Azure AD)-portalen kan du hämta medlemmar
 
 ## <a name="bulk-download-service-limits"></a>Begränsningar för Mass nedladdnings tjänst
 
-Varje Mass aktivitet för att skapa en lista över grupp medlemmar kan köras i upp till en timme. På så sätt kan du skapa och hämta en lista över minst 500 000 medlemmar.
+Varje Mass aktivitet för att ladda ned en lista över grupp medlemmar kan köras i upp till en timme. På så sätt kan du hämta en lista med minst 500 000 medlemmar.
 
 ## <a name="to-bulk-download-group-membership"></a>Till grupp medlemskap för grupp hämtning
 

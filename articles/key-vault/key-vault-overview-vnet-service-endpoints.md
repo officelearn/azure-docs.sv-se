@@ -1,86 +1,86 @@
 ---
-title: Tjänstslutpunkter i virtuella nätverk för Azure Key Vault - Azure Key Vault | Microsoft Docs
-description: Översikt över tjänstslutpunkter i virtuella nätverk för Key Vault
+title: Tjänst slut punkter för virtuella nätverk för Azure Key Vault-Azure Key Vault | Microsoft Docs
+description: Översikt över tjänst slut punkter för virtuella nätverk för Key Vault
 services: key-vault
 author: amitbapat
 ms.author: ambapat
-manager: barbkess
+manager: rkarlin
 ms.date: 01/02/2019
 ms.service: key-vault
 ms.topic: conceptual
-ms.openlocfilehash: 45499dac3cc50e2b6e79f9ebcb1bc3e7b4330beb
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 2617ae7bd1c761ae7977eac518c2e40ca55da00c
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67165855"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70883234"
 ---
-# <a name="virtual-network-service-endpoints-for-azure-key-vault"></a>Tjänstslutpunkter i virtuella nätverk för Azure Key Vault
+# <a name="virtual-network-service-endpoints-for-azure-key-vault"></a>Tjänst slut punkter för virtuella nätverk för Azure Key Vault
 
-Tjänstslutpunkter för virtuellt nätverk för Azure Key Vault kan du begränsa åtkomsten till ett angivet virtuellt nätverk. Slutpunkter kan du begränsa åtkomsten till en lista över adressintervall för IPv4 (internet protocol version 4). Alla användare som ansluter till ditt nyckelvalv från utanför dessa källor nekas åtkomst.
+Med tjänst slut punkter för virtuella nätverk för Azure Key Vault kan du begränsa åtkomsten till ett angivet virtuellt nätverk. Med slut punkterna kan du också begränsa åtkomsten till en lista över IPv4-adress intervall (Internet Protocol version 4). Alla användare som ansluter till nyckel valvet utanför dessa källor nekas åtkomst.
 
-Det finns ett viktigt undantag till den här begränsningen. Om en användare har valt in så att betrodda Microsoft-tjänster, kan anslutningar från dessa tjänster via brandväggen. Till exempel dessa tjänster omfattar Office 365 Exchange Online, Office 365 SharePoint Online, Azure compute, Azure Resource Manager och Azure Backup. Dessa användare fortfarande måste uppvisa en giltig Azure Active Directory-token och måste ha behörigheter (konfigurerat som åtkomstprinciper) till den begärda åtgärden. Mer information finns i [tjänstslutpunkter i virtuella nätverk](../virtual-network/virtual-network-service-endpoints-overview.md).
+Det finns ett viktigt undantag för den här begränsningen. Om en användare har valt att tillåta betrodda Microsoft-tjänster, kan anslutningar från dessa tjänster göra genom brand väggen. Dessa tjänster omfattar till exempel Office 365 Exchange Online, Office 365 SharePoint Online, Azure Compute, Azure Resource Manager och Azure Backup. Sådana användare måste ändå presentera en giltig Azure Active Directory-token och måste ha behörigheter (konfigurerade som åtkomst principer) för att utföra den begärda åtgärden. Mer information finns i [tjänst slut punkter för virtuella nätverk](../virtual-network/virtual-network-service-endpoints-overview.md).
 
 ## <a name="usage-scenarios"></a>Användningsscenarier
 
-Du kan konfigurera [Key Vault-brandväggar och virtuella nätverk](key-vault-network-security.md) att neka åtkomst för trafik från alla nätverk (inklusive internet-trafik) som standard. Du kan ge åtkomst till trafik från specifika Azure-nätverk och offentliga internet, IP-adress-intervall, så att du kan skapa en säker nätverksgräns för dina program.
+Du kan konfigurera [Key Vault brand väggar och virtuella nätverk](key-vault-network-security.md) för att neka åtkomst till trafik från alla nätverk (inklusive Internet trafik) som standard. Du kan bevilja åtkomst till trafik från specifika virtuella Azure-nätverk och offentliga Internet IP-adressintervall, så att du kan bygga en säker nätverks gränser för dina program.
 
 > [!NOTE]
-> Key Vault-brandväggar och virtuella Nätverksregler gäller endast för den [dataplanet](../key-vault/key-vault-secure-your-key-vault.md#data-plane-access-control) av Key Vault. Key Vault-kontrollplanåtgärder (som att skapar, ta bort och ändra åtgärder, inställning av åtkomstprinciper, inställningen brandväggar och virtuella Nätverksregler) påverkas inte av brandväggar och virtuella Nätverksregler.
+> Key Vault brand väggar och regler för virtuella nätverk gäller endast för Key Vaultens [data plan](../key-vault/key-vault-secure-your-key-vault.md#data-plane-access-control) . Key Vault kontroll Plans åtgärder (t. ex. skapa, ta bort och ändra åtgärder, inställning av åtkomst principer, inställning av brand väggar och virtuella nätverks regler) påverkas inte av brand väggar och virtuella nätverks regler.
 
-Här följer några exempel på hur du kan använda tjänstslutpunkter:
+Här följer några exempel på hur du kan använda tjänst slut punkter:
 
-* Du använder Key Vault för att lagra krypteringsnycklar, hemligheter och certifikat, och du vill blockera åtkomst till ditt nyckelvalv från det offentliga internet.
-* Vill du låsa åtkomsten till ditt nyckelvalv så att bara ditt program eller en kort lista med avsedda värdar kan ansluta till ditt nyckelvalv.
-* Du har ett program som körs i Azure-nätverk och det här virtuella nätverket är låsta för all inkommande och utgående trafik. Programmet måste fortfarande ansluta till Key Vault för att hämta hemligheter eller certifikat eller använda kryptografiska nycklar.
+* Du använder Key Vault för att lagra krypterings nycklar, program hemligheter och certifikat, och du vill blockera åtkomst till ditt nyckel valv från det offentliga Internet.
+* Du vill låsa åtkomsten till ditt nyckel valv så att endast ditt program eller en kort lista med angivna värdar kan ansluta till ditt nyckel valv.
+* Du har ett program som körs i det virtuella Azure-nätverket och det här virtuella nätverket är låst för all inkommande och utgående trafik. Programmet måste fortfarande ansluta till Key Vault för att hämta hemligheter eller certifikat, eller använda kryptografiska nycklar.
 
-## <a name="configure-key-vault-firewalls-and-virtual-networks"></a>Konfigurera Key Vault-brandväggar och virtuella nätverk
+## <a name="configure-key-vault-firewalls-and-virtual-networks"></a>Konfigurera Key Vault brand väggar och virtuella nätverk
 
-Här är de steg som krävs för att konfigurera brandväggar och virtuella nätverk. De här stegen gäller oavsett om du använder PowerShell, Azure CLI eller Azure-portalen.
+Här är de steg som krävs för att konfigurera brand väggar och virtuella nätverk. De här stegen gäller oavsett om du använder PowerShell, Azure CLI eller Azure Portal.
 
-1. Aktivera [Key Vault-loggning](key-vault-logging.md) kan se loggar för avancerad åtkomst. Det underlättar vid diagnostik, när brandväggar och virtuella Nätverksregler förhindra åtkomst till ett nyckelvalv. (Det här steget är valfritt men rekommenderas.)
-2. Aktivera **tjänstens slutpunkter för key vault** för målets virtuella nätverk och undernät.
-3. Ange brandväggar och virtuella Nätverksregler för ett nyckelvalv att begränsa åtkomst till nyckelvalvet från specifika virtuella nätverk, undernät och IPv4-adressintervall.
-4. Om det här nyckelvalvet måste vara tillgängliga för alla betrodda Microsoft-tjänster, aktivera alternativet för att tillåta **betrodda Azure-tjänster** att ansluta till Key Vault.
+1. Aktivera [Key Vault loggning](key-vault-logging.md) för att se detaljerade åtkomst loggar. Detta hjälper i diagnostik, när brand väggar och virtuella nätverks regler förhindrar åtkomst till ett nyckel valv. (Det här steget är valfritt, men rekommenderas.)
+2. Aktivera **tjänst slut punkter för nyckel valv** för virtuella mål nätverk och undernät.
+3. Ange brand väggar och virtuella nätverks regler för ett nyckel valv för att begränsa åtkomsten till nyckel valvet från vissa virtuella nätverk, undernät och IPv4-adress intervall.
+4. Om det här nyckel valvet måste vara tillgängligt för alla betrodda Microsoft-tjänster aktiverar du alternativet för att tillåta att **betrodda Azure-tjänster** ansluter till Key Vault.
 
-Mer information finns i [konfigurera Azure Key Vault-brandväggar och virtuella nätverk](key-vault-network-security.md).
+Mer information finns i [konfigurera Azure Key Vault brand väggar och virtuella nätverk](key-vault-network-security.md).
 
 > [!IMPORTANT]
-> När brandväggsregler är aktiverat kan användarna kan bara utföra Key Vault [dataplanet](../key-vault/key-vault-secure-your-key-vault.md#data-plane-access-control) åtgärder när deras begäranden som kommer från tillåtna virtuella nätverk eller IPv4-adressintervall. Detta gäller även för åtkomst till Nyckelvalv från Azure-portalen. Även om användarna kan bläddra till ett nyckelvalv i Azure Portal, kanske de inte att lista nycklar, hemligheter eller certifikat om klientdatorn inte är i listan över tillåtna. Detta påverkar även väljaren för Key Vault med andra Azure-tjänster. Användare kanske kan se listan över nyckelvalv, men inte att lista nycklar, om brandväggsregler förhindra klientdatorn.
+> När brand Väggs reglerna är aktiva kan användarna bara utföra Key Vault [data Plans](../key-vault/key-vault-secure-your-key-vault.md#data-plane-access-control) åtgärder när deras begär Anden härstammar från tillåtna virtuella nätverk eller IPv4-adress intervall. Detta gäller även för att komma åt Key Vault från Azure Portal. Även om användarna kan bläddra till ett nyckel valv från Azure Portal, kanske de inte kan lista nycklar, hemligheter eller certifikat om deras klient dator inte finns i listan över tillåtna. Detta påverkar också Key Vault väljare från andra Azure-tjänster. Användarna kanske kan se en lista över nyckel valv, men inte lista nycklar, om brand Väggs reglerna förhindrar sin klient dator.
 
 
 > [!NOTE]
-> Tänk på följande konfigurationsbegränsningar:
-> * Högst 127 virtuella Nätverksregler och 127 IPv4-regler är tillåtna. 
-> * Små-adressintervall som använder det ”/ 31” eller ”/ 32” prefix storlekar inte stöds. Konfigurera i stället dessa intervall genom att använda enskilda regler för IP-adress.
-> * IP-Nätverksregler tillåts endast för offentliga IP-adresser. IP-adressintervall som reserverats för privata nätverk (som definieras i RFC 1918) är inte tillåtna i IP-regler. Privata nätverk innehåller adresser som börjar med **10.** , **172.16-31**, och **192.168.** . 
-> * Endast IPv4-adresser stöds just nu.
+> Tänk på följande konfigurations begränsningar:
+> * Högst 127 virtuella nätverks regler och 127 IPv4-regler är tillåtna. 
+> * Små adress intervall som använder prefixlängden "/31" eller "/32" stöds inte. Konfigurera i stället dessa intervall med hjälp av enskilda IP-adressintervall.
+> * IP-nätverksadresser tillåts endast för offentliga IP-adresser. IP-adressintervall som är reserverade för privata nätverk (enligt definitionen i RFC 1918) tillåts inte i IP-regler. Privata nätverk innehåller adresser som börjar med **10.** , **172.16-31**och **192,168.** .. 
+> * Endast IPv4-adresser stöds för tillfället.
 
 ## <a name="trusted-services"></a>Betrodda tjänster
 
-Här är en lista över betrodda tjänster som får åtkomst till key vault om den **Tillåt att betrodda tjänster** är aktiverat.
+Här är en lista över betrodda tjänster som har behörighet att komma åt ett nyckel valv om alternativet **Tillåt betrodda tjänster** är aktiverat.
 
 |Betrodd tjänst|Användningsscenarier|
 | --- | --- |
-|Distributionstjänst för Azure virtuella datorer|[Distribuera certifikat till virtuella datorer från kundhanterad Key Vault](https://blogs.technet.microsoft.com/kv/2016/09/14/updated-deploy-certificates-to-vms-from-customer-managed-key-vault/).|
-|Distributionstjänst för Azure Resource Manager-mall|[Skicka säkra värden under distributionen](../azure-resource-manager/resource-manager-keyvault-parameter.md).|
-|Azure Disk Encryption-volymkrypteringstjänst|Tillåt åtkomst till BitLocker Key (Windows-VM) eller DM lösenfras (Linux VM) och krypteringsnyckel, under distributionen av virtuella datorer. På så sätt kan [Azure Disk Encryption](../security/azure-security-disk-encryption.md).|
-|Azure Backup|Tillåt säkerhetskopiering och återställning av relevanta nycklar och hemligheter under säkerhetskopieringen av virtuella datorer i Azure, med hjälp av [Azure Backup](../backup/backup-introduction-to-azure-backup.md).|
-|Exchange Online och SharePoint Online|Tillåt åtkomst till kunden nyckel för Azure Storage Service Encryption med [nyckel kund](https://support.office.com/article/Controlling-your-data-in-Office-365-using-Customer-Key-f2cd475a-e592-46cf-80a3-1bfb0fa17697).|
-|Azure Information Protection|Tillåt åtkomst till klientnyckel för [Azure Information Protection.](https://docs.microsoft.com/azure/information-protection/what-is-information-protection)|
+|Distributionstjänst för Azure Virtual Machines|[Distribuera certifikat till virtuella datorer från kund hanterade Key Vault](https://blogs.technet.microsoft.com/kv/2016/09/14/updated-deploy-certificates-to-vms-from-customer-managed-key-vault/).|
+|Azure Resource Manager mall distributions tjänst|[Skicka säkra värden under distributionen](../azure-resource-manager/resource-manager-keyvault-parameter.md).|
+|Azure Disk Encryption volym krypterings tjänst|Tillåt åtkomst till BitLocker Key (Windows VM) eller DM-lösen fras (Linux VM) och nyckel krypterings nyckel under distributionen av virtuella datorer. Detta gör att [Azure Disk Encryption](../security/azure-security-disk-encryption.md).|
+|Azure Backup|Tillåt säkerhets kopiering och återställning av relevanta nycklar och hemligheter under Azure Virtual Machines säkerhets kopiering med [Azure Backup](../backup/backup-introduction-to-azure-backup.md).|
+|Exchange Online & SharePoint Online|Tillåt åtkomst till kund nyckel för Azure Storage tjänst kryptering med [kund nyckel](https://support.office.com/article/Controlling-your-data-in-Office-365-using-Customer-Key-f2cd475a-e592-46cf-80a3-1bfb0fa17697).|
+|Azure Information Protection|Tillåt åtkomst till klient nyckeln för [Azure information Protection.](https://docs.microsoft.com/azure/information-protection/what-is-information-protection)|
 |Azure App Service|[Distribuera Azure Web App-certifikat via Key Vault](https://azure.github.io/AppService/2016/05/24/Deploying-Azure-Web-App-Certificate-through-Key-Vault.html).|
-|Azure SQL Database|[Transparent datakryptering med Bring Your Own Key-stöd för Azure SQL Database och Data Warehouse](../sql-database/transparent-data-encryption-byok-azure-sql.md?view=sql-server-2017&viewFallbackFrom=azuresqldb-current).|
-|Azure Storage|[Kryptering av lagringstjänst med Kundhanterade nycklar i Azure Key Vault](../storage/common/storage-service-encryption-customer-managed-keys.md).|
+|Azure SQL Database|[Transparent datakryptering med Bring Your Own Key stöd för Azure SQL Database och informations lager](../sql-database/transparent-data-encryption-byok-azure-sql.md?view=sql-server-2017&viewFallbackFrom=azuresqldb-current).|
+|Azure Storage|[Kryptering för lagringstjänst att använda Kundhanterade nycklar i Azure Key Vault](../storage/common/storage-service-encryption-customer-managed-keys.md).|
 |Azure Data Lake Store|[Kryptering av data i Azure Data Lake Store](../data-lake-store/data-lake-store-encryption.md) med en kundhanterad nyckel.|
-|Azure databricks|[Snabba, enkla och samarbetsfunktioner Apache Spark-baserad analytics-tjänsten](../azure-databricks/what-is-azure-databricks.md)|
+|Azure-databricks|[Snabb, enkel och gemensam Apache Spark-baserad analys tjänst](../azure-databricks/what-is-azure-databricks.md)|
 |Azure API Management|[Distribuera certifikat för anpassad domän från Key Vault med MSI](../api-management/api-management-howto-use-managed-service-identity.md#use-the-managed-service-identity-to-access-other-resources)|
 
 
 
 > [!NOTE]
-> Du måste konfigurera relevanta åtkomstprinciper för Key Vault så att de motsvarande tjänsterna för att få åtkomst till Key Vault.
+> Du måste ställa in relevanta Key Vault åtkomst principer så att motsvarande tjänster får åtkomst till Key Vault.
 
 ## <a name="next-steps"></a>Nästa steg
 
 * [Säkra ditt nyckelvalv](key-vault-secure-your-key-vault.md)
-* [Konfigurera Azure Key Vault-brandväggar och virtuella nätverk](key-vault-network-security.md)
+* [Konfigurera Azure Key Vault brand väggar och virtuella nätverk](key-vault-network-security.md)

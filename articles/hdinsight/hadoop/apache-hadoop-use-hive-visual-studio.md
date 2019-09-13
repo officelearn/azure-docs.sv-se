@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/14/2019
 ms.author: hrasheed
-ms.openlocfilehash: d53468ae544b02798d7fcd74370d1d3dbdcbd5e0
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
-ms.translationtype: HT
+ms.openlocfilehash: 129f200bc9f61d70f4403b1154978d57e09fee26
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 09/11/2019
-ms.locfileid: "70882087"
+ms.locfileid: "70917486"
 ---
 # <a name="run-apache-hive-queries-using-the-data-lake-tools-for-visual-studio"></a>Kör Apache Hive frågor med hjälp av Data Lake verktyg för Visual Studio
 
@@ -59,7 +59,7 @@ Ad hoc-frågor kan köras i antingen **batch** -eller **interaktivt** läge.
 
 6. Om du vill köra samma fråga i **batchläge** växlar du den nedrullningsbara listan från **interaktiv** till **batch**. Observera att körnings knappen ändras från att **köras** till att **skickas**.
 
-    ![Skärmbild av att skicka en hive-fråga](./media/apache-hadoop-use-hive-visual-studio/vs-batch-query.png)
+    ![Skärmbild av att skicka en hive-fråga](./media/apache-hadoop-use-hive-visual-studio/visual-studio-batch-query.png)
 
     Hive-redigeraren stöder IntelliSense. Data Lake Tools för Visual Studio stöder inläsning av fjärrmetadata när du redigerar Hive-skript. Om du till exempel skriver `SELECT * FROM`visas alla föreslagna tabell namn i IntelliSense. När du anger ett tabellnamn visar IntelliSense en lista över kolumnnamnen. Verktygen stöder de flesta Hive DML-instruktioner, underfrågor och inbyggda UDF. IntelliSense föreslår endast metadata för kluster som valts i verktygsfältet för HDInsight.
 

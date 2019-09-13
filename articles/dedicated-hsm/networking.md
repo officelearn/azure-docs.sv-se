@@ -2,8 +2,8 @@
 title: Nätverksöverväganden – Azure dedikerad HSM | Microsoft Docs
 description: Översikt över Nätverksöverväganden som är tillämpliga för distributioner som Azure dedikerad HSM
 services: dedicated-hsm
-author: barclayn
-manager: barbkess
+author: msmbaldwin
+manager: rkarlin
 ms.custom: mvc, seodec18
 ms.service: key-vault
 ms.workload: identity
@@ -11,13 +11,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/06/2018
-ms.author: barclayn
-ms.openlocfilehash: 042ecabe38969a6a26c27622b8c3d25193b3e7c2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: mbaldwin
+ms.openlocfilehash: 044930c9df7b54515b9b66426a6b05aa9517a3a1
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62118053"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70881286"
 ---
 # <a name="azure-dedicated-hsm-networking"></a>Azure dedikerad HSM-nätverk
 
@@ -39,7 +39,7 @@ Innan du etablerar en dedikerad HSM-enhet, måste kunder först skapa ett virtue
 
 ### <a name="subnets"></a>Undernät
 
-Undernät segmentera det virtuella nätverket i separata adressutrymmen som kan användas av Azure-resurserna du placerar i dem. Dedikerade HSM: er har distribuerats till ett undernät i det virtuella nätverket. Varje dedikerad HSM-enhet som har distribuerats i kundens undernät får en privat IP-adress från det här undernätet. Undernätet där HSM-enheten distribueras måste uttryckligen delegeras till tjänsten: Microsoft.HardwareSecurityModules/dedicatedHSMs. Detta ger vissa behörigheter för HSM-tjänst för distribution till undernätet. Delegering till dedikerade HSM: er begränsningar princip i undernätet. Nätverkssäkerhetsgrupper (NSG) och användardefinierade vägar (Udr) stöds för närvarande inte i delegerade undernät. Därför när ett undernät har delegerats till dedikerade HSM: er kan kan det bara användas för att distribuera HSM-resurser. Misslyckas distributionen av andra kundresurser i undernätet.
+Undernät segmentera det virtuella nätverket i separata adressutrymmen som kan användas av Azure-resurserna du placerar i dem. Dedikerade HSM: er har distribuerats till ett undernät i det virtuella nätverket. Varje dedikerad HSM-enhet som har distribuerats i kundens undernät får en privat IP-adress från det här undernätet. Under nätet där HSM-enheten distribueras måste vara uttryckligen delegerad till tjänsten: Microsoft.HardwareSecurityModules/dedicatedHSMs. Detta ger vissa behörigheter för HSM-tjänst för distribution till undernätet. Delegering till dedikerade HSM: er begränsningar princip i undernätet. Nätverkssäkerhetsgrupper (NSG) och användardefinierade vägar (Udr) stöds för närvarande inte i delegerade undernät. Därför när ett undernät har delegerats till dedikerade HSM: er kan kan det bara användas för att distribuera HSM-resurser. Misslyckas distributionen av andra kundresurser i undernätet.
 
 
 ### <a name="expressroute-gateway"></a>ExpressRoute-gateway
@@ -60,7 +60,7 @@ Ett virtuellt privat nätverk för punkt-till-plats är den enklaste formen av s
 
 ### <a name="site-to-site-vpn"></a>Plats-till-plats-VPN
 
-En plats-till-plats virtuellt privat nätverk möjliggör säker kommunikation mellan Azure-baserade dedikerade HSM: er och din lokala IT. En orsak till att göra detta är att ha en säkerhetskopiering anläggning för HSM på plats och behöver en anslutning mellan två för att köra säkerhetskopieringen.
+En plats-till-plats virtuellt privat nätverk möjliggör säker kommunikation mellan Azure-baserade dedikerade HSM: er och din lokala IT. En anledning till att göra detta är att ha en säkerhets kopierings funktion för HSM: s lokala och behöver en anslutning mellan de två för att köra säkerhets kopieringen.
 
 ## <a name="connecting-virtual-networks"></a>Ansluta virtuella nätverk
 

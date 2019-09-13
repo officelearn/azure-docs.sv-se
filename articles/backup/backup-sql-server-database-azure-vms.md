@@ -6,14 +6,14 @@ author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 06/18/2019
+ms.date: 09/11/2019
 ms.author: dacurwin
-ms.openlocfilehash: 3c16d8b5f1611c6c05e60d65551f73eb2d395668
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 847a4ec7da3c9b00753e5d07baf2952b31d2b5bb
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69872897"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70934853"
 ---
 # <a name="back-up-sql-server-databases-in-azure-vms"></a>Säkerhetskopiera SQL Server-databaser i virtuella Azure-datorer
 
@@ -36,8 +36,7 @@ Innan du säkerhetskopierar en SQL Server databas kontrollerar du följande krit
 1. Identifiera eller skapa ett [Recovery Services valv](backup-sql-server-database-azure-vms.md#create-a-recovery-services-vault) i samma region eller nationella inställningar som den virtuella datorn som är värd för SQL Server-instansen.
 2. Kontrol lera att den virtuella datorn är [ansluten till nätverket](backup-sql-server-database-azure-vms.md#establish-network-connectivity).
 3. Se till att SQL Server-databaser följer [rikt linjerna för namngivning av databasen för Azure Backup](#database-naming-guidelines-for-azure-backup).
-4. Specifikt för SQL 2008 och 2008 R2 [lägger du till register nyckel](#add-registry-key-to-enable-registration) för att aktivera Server registrering. Det här steget kommer inte att krävas när funktionen är allmänt tillgänglig.
-5. Kontrol lera att inga andra säkerhets kopierings lösningar har Aktiver ATS för databasen. Inaktivera alla andra SQL Server säkerhets kopieringar innan du säkerhetskopierar databasen.
+4. Kontrol lera att inga andra säkerhets kopierings lösningar har Aktiver ATS för databasen. Inaktivera alla andra SQL Server säkerhets kopieringar innan du säkerhetskopierar databasen.
 
 > [!NOTE]
 > Du kan aktivera Azure Backup för en virtuell Azure-dator och även för en SQL Server databas som körs på den virtuella datorn utan konflikter.
@@ -98,22 +97,6 @@ Undvik att använda följande element i databas namn:
 
 Alias är tillgängligt för tecken som inte stöds, men vi rekommenderar att du undviker dem. Mer information finns i [Understanding the Table Service Data Model](https://docs.microsoft.com/rest/api/storageservices/Understanding-the-Table-Service-Data-Model?redirectedfrom=MSDN) (Så här fungerar datamodellen för Table Storage).
 
-### <a name="add-registry-key-to-enable-registration"></a>Lägg till register nyckel för att aktivera registrering
-
-1. Öppna regedit
-2. Skapa sökvägen till register katalogen: HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\WorkloadBackup\TestHook (du måste skapa nyckeln ' key ' TestHook under WorkloadBackup som i sin tur måste skapas under Microsoft).
-3. Under sökvägen till register katalogen skapar du ett nytt sträng värde med sträng namnet **AzureBackupEnableWin2K8R2SP1** och värde: **Värdet**
-
-    ![RegEdit för att aktivera registrering](media/backup-azure-sql-database/reg-edit-sqleos-bkp.png)
-
-Du kan också automatisera det här steget genom att köra. reg-filen med följande kommando:
-
-```csharp
-Windows Registry Editor Version 5.00
-
-[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\WorkloadBackup\TestHook]
-"AzureBackupEnableWin2K8R2SP1"="True"
-```
 
 [!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
 
@@ -175,7 +158,7 @@ Identifiera databaser som körs på en virtuell dator:
    För att optimera säkerhetskopieringsbelastningar anger Azure Backup ett maximalt antal databaser i ett säkerhetskopieringsjobb till 50.
 
      * Om du vill skydda fler än 50 databaser konfigurerar du flera säkerhetskopieringar.
-     * Om du vill [Aktivera](#enable-auto-protection) hela instansen eller den Always on-tillgänglighetsgruppen väljer du **på**i list rutan autoskydd och väljer sedan **OK**.
+     * Om du vill [Aktivera](#enable-auto-protection) hela instansen eller den Always on-tillgänglighetsgruppen väljer du **på**i list rutan **autoskydd** och väljer sedan **OK**.
 
     > [!NOTE]
     > Funktionen för [automatiskt skydd](#enable-auto-protection) aktiverar inte bara skydd på alla befintliga databaser samtidigt, men skyddar också automatiskt nya databaser som läggs till i den instansen eller tillgänglighets gruppen.  
@@ -261,18 +244,6 @@ Så här skapar du en säkerhetskopieringspolicy:
     - På serverdelen använder Azure Backup SQL-specifik säkerhetskopieringskomprimering.
 
 14. När du har slutfört redigeringarna i säkerhetskopieringspolicyn väljer du **OK**.
-
-
-### <a name="modify-policy"></a>Ändra princip
-Ändra princip för att ändra säkerhets kopierings frekvens eller kvarhållningsintervall.
-
-> [!NOTE]
-> Eventuella ändringar i kvarhållningsperioden tillämpas retroaktivt för alla äldre återställnings punkter förutom de nya.
-
-I valv instrument panelen, gå till **Hantera** > **säkerhets kopierings principer** och välj den princip som du vill redigera.
-
-  ![Hantera säkerhets kopierings princip](./media/backup-azure-sql-database/modify-backup-policy.png)
-
 
 ## <a name="enable-auto-protection"></a>Aktivera automatiskt skydd  
 

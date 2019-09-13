@@ -1,77 +1,86 @@
 ---
-title: Lägg till en utvärdering/Migreringsverktyget för första gången i Azure Migrate | Microsoft Docs
-description: Beskriver hur du skapar ett Azure Migrate-projekt och lägger till en utvärdering/Migreringsverktyg.
+title: Lägg till ett verktyg för bedömning/migrering för första gången i Azure Migrate | Microsoft Docs
+description: Beskriver hur du skapar ett Azure Migrate-projekt och lägger till ett verktyg för bedömning/migrering.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: article
 ms.date: 07/09/2019
 ms.author: raynew
-ms.openlocfilehash: b226f7c5879673b573133cde45db78d8d1f2fffa
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: bd119956ced79b73b0376fe4530c9eafaf870238
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67812030"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70934165"
 ---
-# <a name="add-an-assessmentmigration-tool-for-the-first-time"></a>Lägg till en utvärdering/Migreringsverktyget för första gången
+# <a name="add-an-assessmentmigration-tool-for-the-first-time"></a>Lägga till ett utvärderings-/migreringsverktyg för första gången
 
-Den här artikeln beskrivs hur du lägger till ett verktyg för utvärdering eller migrering till ett [Azure Migrate](migrate-overview.md) projekt för första gången.  
-Azure Migrate ger en central knutpunkt för att spåra identifiering, bedömning och migrering av dina lokala appar och arbetsbelastningar och privata/offentliga virtuella datorer till Azure. Hubben innehåller Azure Migrate verktyg för bedömning och migrering, samt från tredje part, oberoende programvaruleverantör (ISV) [erbjudanden](migrate-services-overview.md#isv-integration) . 
+Den här artikeln beskriver hur du lägger till ett utvärderings-eller Migreringsverktyg till ett [Azure Migrate](migrate-overview.md) projekt för första gången.  
+Azure Migrate tillhandahåller en central hubb för att spåra identifiering, utvärdering och migrering av dina lokala appar och arbets belastningar och privata/offentliga virtuella moln datorer till Azure. Hubben ger Azure Migrate verktyg för utvärdering och migrering, samt oberoende program varu leverantörer ( [ISV) för](migrate-services-overview.md#isv-integration) tredje part. 
 
 ## <a name="create-a-project-and-add-a-tool"></a>Skapa ett projekt och lägga till ett verktyg
 
-Ställ in ett nytt Azure Migrate-projekt i en Azure-prenumeration och lägga till ett verktyg.
+Skapa ett nytt Azure Migrate-projekt i en Azure-prenumeration och Lägg till ett verktyg.
 
-- Ett Azure Migrate-projekt används för att lagra identifiering, bedömning och migrering metadata som samlas in från miljön du bedöma eller migrerar. 
-- I ett projekt kan du spåra identifierade tillgångar och dirigera bedömning och migrering.
+- Ett Azure Migrate-projekt används för att lagra identifierings-, utvärderings-och migrerings-metadata som samlas in från den miljö som du bedömer eller migrerar. 
+- I ett projekt kan du spåra identifierade till gångar och dirigera utvärdering och migrering.
 
-1. I Azure portal > **alla tjänster**, Sök efter **Azure Migrate**.
-2. Under **Services**väljer **Azure Migrate**.
+1. I Azure-portalen > **Alla tjänster** söker du efter **Azure Migrate**.
+2. Under **Tjänster** väljer du **Azure Migrate**.
 
     ![Konfigurera Azure Migrate](./media/how-to-add-tool-first-time/azure-migrate-search.png)
 
-3. I **översikt**, klickar du på **utvärdera och migrera servrar för**.
-4. Under **Upptäck, utvärdera och migrera servrar för**, klickar du på **utvärdera och migrera servrar för**.
+3. I **översikten** klickar du på **Utvärdera och migrera servrar**.
+4. Under **identifiera, utvärdera och migrera servrar**klickar du på **utvärdera och migrera servrar**.
 
     ![Identifiera och utvärdera servrar](./media/how-to-add-tool-first-time/assess-migrate.png)
 
-1. I **Upptäck, utvärdera och migrera servrar för**, klickar du på **lägga till verktyg**.
-2. I **migrera projektet**, Välj din Azure-prenumeration och skapa en resursgrupp om du inte har något.
-3. I **projektinformation**, ange projektnamn och geografisk plats där du vill skapa projektet. 
+1. I **Discover, assess and migrate servers** (Identifiera, utvärdera och migrera servrar) klickar du på **Lägg till verktyg**.
+2. I **Migrera projekt** väljer du din Azure-prenumeration och skapar en resursgrupp om du inte har någon.
+3. I **projekt information**anger du det projekt namn och geografi som du vill skapa projektet i. 
 
     ![Skapa ett Azure Migrate-projekt](./media/how-to-add-tool-first-time/migrate-project.png)
 
-    Du kan skapa ett Azure Migrate-projekt i någon av dessa områden.
+    Du kan skapa ett Azure Migrate-projekt i någon av dessa geografiska områden.
 
-    **Geografi** | **Storage plats region**
+   **Geografi** | **Lagrings plats region**
     --- | ---
-    Asien | Sydostasien eller Östasien
-    Europa | Södra Europa eller Europa, västra
-    Storbritannien | Storbritannien, södra eller Storbritannien, västra
-    USA | USA, centrala eller USA, västra 2
+    Asien   | Sydostasien eller Asien, östra
+    Europa | Europa, norra eller Europa, västra
+    Japan  | Japan, östra eller Japan, väst
+    Storbritannien och Nordirland | Storbritannien, södra eller Storbritannien, västra
+    USA | USA, centrala eller västra USA 2
+    Kanada | Centrala Kanada
+    Indien  | Indien, centrala eller Indien, södra
+    Australien | Australien, sydöstra
 
-    Den angivna geografiska platsen för projektet används bara för att lagra de metadata som samlats in från lokala virtuella datorer. Du kan välja en målregion för den faktiska migreringen.
+    Den angivna geografiska platsen för projektet används bara för att lagra de metadata som samlats in från lokala virtuella datorer. Du kan välja valfri mål region för den faktiska migreringen.
 
-4. Klicka på **nästa**, och Lägg till ett verktyg med bedömning och migrering.
+    Om du vill ange en speciell region inom ett geografiskt område för att distribuera det migrerande projektet och dess associerade resurser (princip begränsningar i din prenumeration kan endast tillåta distribution av Azure-resurser till en angiven Azure-region), kan du använda nedanstående API för att skapa ett migrera projekt. Ange prenumerations-ID, resurs grupp namn, migrera projekt namn tillsammans med platsen (vilken Azure-region som anges i tabellen där Azure Migrate distribueras.)
+
+    `PUT /subscriptions/<subid>/resourceGroups/<rg>/providers/Microsoft.Migrate/MigrateProjects/<mymigrateprojectname>?api-version=2018-09-01-preview "{location: 'centralus', properties: {}}"`   
+
+
+4. Klicka på **Nästa**och Lägg till ett verktyg för bedömning eller migrering.
 
     > [!NOTE]
-    > Du måste lägga till minst en bedömning och migrering verktyget när du skapar ett projekt.
+    > När du skapar ett projekt måste du lägga till minst ett verktyg för bedömning eller migrering.
 
-5. I **väljer utvärderingsvertyget**, lägga till ett verktyg för utvärdering. Om du inte behöver ett verktyg för utvärdering, Välj **hoppa över att lägga till en utvärderingsvertyget för tillfället** > **nästa**. 
-2. I **väljer Migreringsverktyget**, lägga till ett migrationsverktyg efter behov. Om du inte behöver ett migrationsverktyg just nu, Välj **hoppa över att lägga till en Migreringsverktyget för tillfället** > **nästa**.
-3. I **granska + Lägg till verktyg**, granskar du inställningarna och klickar på **lägga till verktyg**.
+5. I **Välj bedömnings verktyg**lägger du till ett utvärderings verktyg. Om du inte behöver ett bedömnings verktyg väljer du **hoppa över Lägg till ett bedömnings verktyg för** > **Nästa**gång. 
+2. I **Välj Migreringsverktyg**lägger du till ett Migreringsverktyg efter behov. Om du inte behöver ett Migreringsverktyg just nu väljer du **hoppa över Lägg till ett Migreringsverktyg för** > **Nästa**gång.
+3. I **Granska + Lägg till verktyg**granskar du inställningarna och klickar på **Lägg till verktyg**.
 
-När du har skapat projektet kan du välja ytterligare verktyg för bedömning och migrering av servrar och arbetsbelastningar, databaser och webbappar.
+När du har skapat projektet kan du välja ytterligare verktyg för utvärdering och migrering av servrar och arbets belastningar, databaser och webbappar.
 
 ## <a name="create-additional-projects"></a>Skapa ytterligare projekt
 
-I vissa fall kan du behöva skapa ytterligare Azure Migrate-projekt. Till exempel om du har datacenter i olika geografiska områden eller du behöver att lagra metadata i ett annat geografiskt område. Skapa ytterligare ett projekt på följande sätt:
+I vissa fall kan du behöva skapa ytterligare Azure Migrate projekt. Om du till exempel har data Center i olika geografiska områden eller om du behöver lagra metadata i en annan geografi. Skapa ett ytterligare projekt enligt följande:
 
 1. I det aktuella Azure Migrate-projektet klickar du på **servrar** eller **databaser**.
-2. I det övre högra hörnet, klickar du på **ändra** bredvid projektnamnet på aktuella.
-3. I **inställningar**väljer **Klicka här för att skapa ett nytt projekt**.
-4. Skapa ett nytt projekt och Lägg till ett nytt verktyg som beskrivs i föregående procedur.
+2. Klicka på **ändra** bredvid det aktuella projekt namnet i det övre högra hörnet.
+3. I **Inställningar**väljer **du klicka här för att skapa ett nytt projekt**.
+4. Skapa ett nytt projekt och Lägg till ett nytt verktyg enligt beskrivningen i föregående procedur.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig hur du lägger till ytterligare [utvärdering](how-to-assess.md) och [migrering](how-to-migrate.md) verktyg. 
+Lär dig hur du lägger till ytterligare verktyg för [bedömning](how-to-assess.md) och [migrering](how-to-migrate.md) . 

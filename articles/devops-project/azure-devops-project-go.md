@@ -1,28 +1,27 @@
 ---
-title: 'Snabbstart: Skapa en CI/CD-pipeline för programmeringsspråket Go med hjälp av Azure DevOps-projekt'
+title: 'Snabbstart: Skapa en CI/CD-pipeline för go-programmeringsspråket genom att använda Azure DevOps Projects'
 description: DevOps Projects gör det enkelt att komma igång med Azure. Det hjälper dig att starta en webbapp med programmeringsspråket Go på en Azure-tjänst med några enkla steg.
 ms.prod: devops
 ms.technology: devops-cicd
 services: vsts
 documentationcenter: vs-devops-build
 author: mlearned
-manager: douge
+manager: gwallace
 editor: ''
 ms.assetid: ''
 ms.workload: web
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: quickstart
 ms.date: 07/09/2018
 ms.author: mlearned
 ms.custom: mvc
 monikerRange: vsts
-ms.openlocfilehash: ca068b39c222a210e261234a132a0506f6b023bb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f7429a6de05a301b579354d722ad354b78ce6cbf
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60554985"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70899673"
 ---
 # <a name="create-a-cicd-pipeline-for-go-by-using-azure-devops-projects"></a>Skapa en CI/CD-pipeline för Go med hjälp av Azure DevOps Projects
 

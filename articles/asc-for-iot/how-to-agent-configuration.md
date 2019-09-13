@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/25/2019
 ms.author: mlottner
-ms.openlocfilehash: 8b4764d855663325b2445f7b588b795c15f4edde
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 095c8fa080d96c9dc6d40261ee5afc559e9ca06b
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68596334"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70933888"
 ---
 # <a name="tutorial-configure-security-agents"></a>Självstudier: Konfigurera säkerhetsagenter
 
@@ -87,28 +87,28 @@ Om du vill använda ett standard egenskaps värde tar du bort egenskapen från k
 
 1. Leta upp och välj den enhet som du vill ändra i IoT Hub.
 
-2. Klicka på enheten och sedan på **azureiotsecurity** -modulen.
+1. Klicka på enheten och sedan på **azureiotsecurity** -modulen.
 
-3. Klicka på **modulens identitet, delad**.
+1. Klicka på **modulens identitet, delad**.
 
-4. Redigera egenskaperna som du vill ändra i säkerhetsmodulen.
+1. Redigera egenskaperna som du vill ändra i säkerhetsmodulen.
    
    Om du till exempel vill konfigurera anslutnings händelser som hög prioritet och samla in händelser med hög prioritet var 7: e minut, använder du följande konfiguration.
    
-   ```json
+    ```json
     "desired": {
-      "ms_iotn:urn_azureiot_Security_SecurityAgentConfiguration": {
-        "highPriorityMessageFrequency": {
-          "value" : "PT7M"
-        },    
-        "eventPriorityConnectionCreate": {
-          "value" : "High" 
+        "ms_iotn:urn_azureiot_Security_SecurityAgentConfiguration": {
+            "highPriorityMessageFrequency": {
+                "value": "PT7M"
+            },
+            "eventPriorityConnectionCreate": {
+                "value": "High"
+            }
         }
-      } 
-    }, 
+    }
     ```
 
-5. Klicka på **Spara**.
+1. Klicka på **Spara**.
 
 ### <a name="using-a-default-value"></a>Använda ett standardvärde
 
@@ -120,7 +120,7 @@ Följande tabell innehåller de kontrollerbara egenskaperna för Azure Security 
 
 Standardvärden är tillgängliga i rätt schema i [GitHub](https\://aka.ms/iot-security-module-default).
 
-| Namn| Status | Giltiga värden| Standardvärden| Beskrivning |
+| Name| State | Giltiga värden| Standardvärden| Beskrivning |
 |----------|------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------|---------------|
 |highPriorityMessageFrequency|Krävs: falskt |Giltiga värden: Varaktighet i ISO 8601-format |Standardvärde: PT7M |Max tidsintervall innan meddelanden med hög prioritet skickas.|
 |lowPriorityMessageFrequency |Krävs: falskt|Giltiga värden: Varaktighet i ISO 8601-format |Standardvärde: PT5H |Max tid innan meddelanden med låg prioritet skickas.| 

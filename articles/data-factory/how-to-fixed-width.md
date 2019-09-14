@@ -8,85 +8,85 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 8/18/2019
 ms.author: makromer
-ms.openlocfilehash: e1ba09f459152616941071c23f7a6545ec2a8b73
-ms.sourcegitcommit: d470d4e295bf29a4acf7836ece2f10dabe8e6db2
+ms.openlocfilehash: 9964aaf060c43cc3e9992f515bf272011e795043
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2019
-ms.locfileid: "70210681"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70962117"
 ---
-# <a name="process-fixed-length-text-files-using-data-factory-mapping-data-flows"></a>Bearbeta textfiler med fast längd med Data Factory mappnings data flöden
+# <a name="process-fixed-length-text-files-by-using-data-factory-mapping-data-flows"></a>Bearbeta textfiler med fast längd genom att använda Data Factory mappa data flöden
 
-Data Factory mappning av data flöden stöder omvandlings data från textfiler med fast bredd. Du definierar en data uppsättning för en textfil utan avgränsare och konfigurerar sedan del Strängs delningar baserat på ordnings position.
+Genom att använda mappnings data flöden i Microsoft Azure Data Factory kan du omvandla data från textfiler med fast bredd. I följande uppgift definierar vi en data uppsättning för en textfil utan en avgränsare och konfigurerar sedan del Strängs delningar baserat på ordnings position.
 
 ## <a name="create-a-pipeline"></a>Skapa en pipeline
 
-1. Gå till **+ ny pipeline** för att starta en ny pipeline
+1. Välj **+ ny pipeline** för att skapa en ny pipeline.
 
-2. Lägg till en data flödes aktivitet som används för att bearbeta filer med fast bredd
+2. Lägg till en data flödes aktivitet som används för att bearbeta filer med fast bredd:
 
-  ![Pipeline för fast bredd](media/data-flow/fwpipe.png)
+    ![Pipeline för fast bredd](media/data-flow/fwpipe.png)
 
-3. I data flödes aktiviteten väljer du nytt data flöde för mappning
+3. I data flödes aktiviteten väljer du **nytt data flöde för mappning**.
 
-4. Lägg till en omvandling för käll omvandling, härledd kolumn, markering och mottagare
+4. Lägg till en omvandling av källa, härledd kolumn, urval och mottagare:
 
-  ![Data flöde med fast bredd](media/data-flow/fw2.png)
+    ![Data flöde med fast bredd](media/data-flow/fw2.png)
 
-5. Konfigurera käll omvandlingen så att den använder en ny data uppsättning som är av typen avgränsad text
+5. Konfigurera käll omvandlingen så att den använder en ny data uppsättning, vilket kommer att vara av typen avgränsad text.
 
-6. Ange ingen kolumn avgränsare och inga rubriker
+6. Ange inte någon kolumn avgränsare eller rubriker.
 
-Vi håller helt enkelt att ange start punkter och längd för fältet för fil innehållet:
+   Nu ska vi ange start punkter och längd för fältet för filens innehåll:
 
-```
-1234567813572468
-1234567813572468
-1234567813572468
-1234567813572468
-1234567813572468
-1234567813572468
-1234567813572468
-1234567813572468
-1234567813572468
-1234567813572468
-1234567813572468
-1234567813572468
-1234567813572468
-```
+    ```
+    1234567813572468
+    1234567813572468
+    1234567813572468
+    1234567813572468
+    1234567813572468
+    1234567813572468
+    1234567813572468
+    1234567813572468
+    1234567813572468
+    1234567813572468
+    1234567813572468
+    1234567813572468
+    1234567813572468
+    ```
 
-7. På fliken projektion i käll omvandlingen bör du se en sträng kolumn med namnet "Column_1"
+7. På fliken **projektion** i käll omvandlingen bör du se en sträng kolumn med namnet *Column_1*.
 
-8. Skapa en ny kolumn nu i den härledda kolumnen
+8. Skapa en ny kolumn i den härledda kolumnen.
 
-9. Vi ger kolumnerna enkla namn som col1
+9. Vi ger kolumnerna enkla namn som *col1*.
 
-10. I uttrycks verktyget skriver du sedan:
+10. Skriv följande i uttrycks verktyget:
 
-  ```substring(Column_1,1,4)```
+    ```substring(Column_1,1,4)```
 
-  ![härledd kolumn](media/data-flow/fwderivedcol1.png)
+    ![Härledd kolumn](media/data-flow/fwderivedcol1.png)
 
-10. Upprepa detta för alla kolumner du behöver parsa
+11. Upprepa steg 10 för alla kolumner som du behöver parsa.
 
-12. Klicka på fliken Granska för att se de nya kolumner som ska skapas
+12. Välj fliken **Granska** för att se de nya kolumner som ska genereras:
 
-  ![allmänt](media/data-flow/fwinspect.png)
+    ![allmänt](media/data-flow/fwinspect.png)
 
-13. Använd Välj transformering för att ta bort alla kolumner som du inte behöver för omvandling
+13. Använd Välj transformering för att ta bort alla kolumner som du inte behöver för omvandling:
 
-  ![Välj omvandling](media/data-flow/fwselect.png)
+    ![Välj omvandling](media/data-flow/fwselect.png)
 
-14. Använd slutligen Sink för att mata ut data till en mapp:
+14. Använd Sink för att mata ut data till en mapp:
 
-  ![mottagare med fast bredd](media/data-flow/fwsink.png)
+    ![mottagare med fast bredd](media/data-flow/fwsink.png)
 
-  Så här kommer resultatet att se ut:
+    Så här ser utdata ut:
 
-  ![utdata med fast bredd](media/data-flow/fxdoutput.png)
+    ![utdata med fast bredd](media/data-flow/fxdoutput.png)
 
-  Data med fast bredd delas nu med fyra tecken och tilldelas till Col1, Col2, Col3, Col4,... Baserat på ovanstående exempel är det att dela data i 4 kolumner
+  Data med fast bredd delas nu med fyra tecken och tilldelas till Col1, Col2, Col3, Col4 och så vidare. Data delas upp i fyra kolumner baserat på föregående exempel.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Skapa resten av data flödes logiken med hjälp av [omvandling](concepts-data-flow-overview.md) av data flödes omvandlingar
+* Skapa resten av data flödes logiken med hjälp av [omvandlingar](concepts-data-flow-overview.md)av data flöden.

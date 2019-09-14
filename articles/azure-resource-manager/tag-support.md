@@ -4,14 +4,14 @@ description: Visar vilka typer av Azure-resurs typer som stöder taggar. Innehå
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 08/05/2019
+ms.date: 09/12/2019
 ms.author: tomfitz
-ms.openlocfilehash: bf10274e8c492363cb54c5610ff8d912ab308d1c
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: 8bcbd7b14de497cb6a8bb5cf12de4ec8c555b97b
+ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70194731"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70983907"
 ---
 # <a name="tag-support-for-azure-resources"></a>Tagga stöd för Azure-resurser
 I den här artikeln beskrivs om en resurs typ stöder [taggar](resource-group-using-tags.md). Den kolumn som har etiketten **stöder Taggar** anger om resurs typen har en egenskap för taggen. Kolumnen med etiketten **tagg i Cost** visar om den resurs typen skickar taggen till kostnads rapporten.
@@ -21,7 +21,6 @@ Hämta samma data som en fil med kommaavgränsade värden genom att ladda ned [t
 Hoppa till ett namn område för en resurs leverantör:
 > [!div class="op_single_selector"]
 > - [Microsoft.AAD](#microsoftaad)
-> - [Microsoft. AADDomainServices](#microsoftaaddomainservices)
 > - [Microsoft. addons](#microsoftaddons)
 > - [Microsoft. ADHybridHealthService](#microsoftadhybridhealthservice)
 > - [Microsoft. Advisor](#microsoftadvisor)
@@ -29,6 +28,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > - [Microsoft.AnalysisServices](#microsoftanalysisservices)
 > - [Microsoft.ApiManagement](#microsoftapimanagement)
 > - [Microsoft. AppConfiguration](#microsoftappconfiguration)
+> - [Microsoft. AppPlatform](#microsoftappplatform)
 > - [Microsoft. attestering](#microsoftattestation)
 > - [Microsoft.Authorization](#microsoftauthorization)
 > - [Microsoft.Automation](#microsoftautomation)
@@ -62,14 +62,12 @@ Hoppa till ett namn område för en resurs leverantör:
 > - [Microsoft.ContentModerator](#microsoftcontentmoderator)
 > - [Microsoft.CortanaAnalytics](#microsoftcortanaanalytics)
 > - [Microsoft.CostManagement](#microsoftcostmanagement)
-> - [Microsoft.CustomerInsights](#microsoftcustomerinsights)
 > - [Microsoft. CustomerLockbox](#microsoftcustomerlockbox)
 > - [Microsoft. CustomProviders](#microsoftcustomproviders)
 > - [Microsoft.DataBox](#microsoftdatabox)
 > - [Microsoft.DataBoxEdge](#microsoftdataboxedge)
 > - [Microsoft. Databricks](#microsoftdatabricks)
 > - [Microsoft.DataCatalog](#microsoftdatacatalog)
-> - [Microsoft.DataConnect](#microsoftdataconnect)
 > - [Microsoft.DataFactory](#microsoftdatafactory)
 > - [Microsoft.DataLakeAnalytics](#microsoftdatalakeanalytics)
 > - [Microsoft.DataLakeStore](#microsoftdatalakestore)
@@ -112,7 +110,6 @@ Hoppa till ett namn område för en resurs leverantör:
 > - [Microsoft.MachineLearning](#microsoftmachinelearning)
 > - [Microsoft.MachineLearningServices](#microsoftmachinelearningservices)
 > - [Microsoft.ManagedIdentity](#microsoftmanagedidentity)
-> - [Microsoft. ManagedLab](#microsoftmanagedlab)
 > - [Microsoft. ManagedServices](#microsoftmanagedservices)
 > - [Microsoft. Management](#microsoftmanagement)
 > - [Microsoft.Maps](#microsoftmaps)
@@ -180,13 +177,6 @@ Hoppa till ett namn område för en resurs leverantör:
 > | DomainServices/oucontainer | Nej |Nej |
 > | DomainServices/ReplicaSets | Ja |Ja |
 
-## <a name="microsoftaaddomainservices"></a>Microsoft. AADDomainServices
-
-> [!div class="mx-tableFixed"]
-> | Resurstyp | Stöder Taggar | Tagga i kostnads rapport |
-> | ------------- | ----------- | ----------- |
-> | domäner | Nej |Nej |
-
 ## <a name="microsoftaddons"></a>Microsoft. addons
 
 > [!div class="mx-tableFixed"]
@@ -201,7 +191,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > | ------------- | ----------- | ----------- |
 > | aadsupportcases | Nej |Nej |
 > | addsservices | Nej |Nej |
-> | aktörer | Nej |Nej |
+> | Aktörer | Nej |Nej |
 > | anonymousapiusers | Nej |Nej |
 > | konfiguration | Nej |Nej |
 > | logs | Nej |Nej |
@@ -231,8 +221,8 @@ Hoppa till ett namn område för en resurs leverantör:
 > | alertsMetaData | Nej |Nej |
 > | alertsSummary | Nej |Nej |
 > | alertsSummaryList | Nej |Nej |
-> | oss | Nej |Nej |
-> | smartDetectorAlertRules | Nej |Nej |
+> | Oss | Nej |Nej |
+> | smartDetectorAlertRules | Ja |Ja |
 > | smartDetectorRuntimeEnvironments | Nej |Nej |
 > | smartGroups | Nej |Nej |
 
@@ -259,6 +249,13 @@ Hoppa till ett namn område för en resurs leverantör:
 > | ------------- | ----------- | ----------- |
 > | configurationStores | Ja |Ja |
 > | configurationStores/eventGridFilters | Nej |Nej |
+
+## <a name="microsoftappplatform"></a>Microsoft. AppPlatform
+
+> [!div class="mx-tableFixed"]
+> | Resurstyp | Stöder Taggar | Tagga i kostnads rapport |
+> | ------------- | ----------- | ----------- |
+> | Fjäder | Ja |Ja |
 
 ## <a name="microsoftattestation"></a>Microsoft.Attestation
 
@@ -290,7 +287,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Stöder Taggar | Tagga i kostnads rapport |
 > | ------------- | ----------- | ----------- |
-> | automationAccounts | Ja |Ja |
+> | AutomationAccounts | Ja |Ja |
 > | automationAccounts/konfigurationer | Ja |Ja |
 > | automationAccounts/jobb | Nej |Nej |
 > | automationAccounts/Runbooks | Ja |Ja |
@@ -328,6 +325,10 @@ Hoppa till ett namn område för en resurs leverantör:
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Stöder Taggar | Tagga i kostnads rapport |
 > | ------------- | ----------- | ----------- |
+> | hybridDataManagers | Ja |Ja |
+> | postgresInstances | Ja |Ja |
+> | sqlBigDataClusters | Ja |Ja |
+> | sqlInstances | Ja |Ja |
 > | sqlServerRegistrations | Ja |Ja |
 > | sqlServerRegistrations/sqlServer | Nej |Nej |
 
@@ -354,11 +355,28 @@ Hoppa till ett namn område för en resurs leverantör:
 > | ------------- | ----------- | ----------- |
 > | billingAccounts | Nej |Nej |
 > | billingAccounts/avtal | Nej |Nej |
+> | billingAccounts/billingPermissions | Nej |Nej |
 > | billingAccounts/billingProfiles | Nej |Nej |
+> | billingAccounts/billingProfiles/billingPermissions | Nej |Nej |
+> | billingAccounts/billingProfiles/billingRoleAssignments | Nej |Nej |
+> | billingAccounts/billingProfiles/billingRoleDefinitions | Nej |Nej |
 > | billingAccounts/billingProfiles/billingSubscriptions | Nej |Nej |
+> | billingAccounts/billingProfiles/createBillingRoleAssignment | Nej |Nej |
+> | billingAccounts/billingProfiles/kunder | Nej |Nej |
 > | billingAccounts/billingProfiles/fakturor | Nej |Nej |
 > | billingAccounts/billingProfiles/fakturor/pris dokument | Nej |Nej |
 > | billingAccounts/billingProfiles/invoiceSections | Nej |Nej |
+> | billingAccounts/billingProfiles/invoiceSections/billingPermissions | Nej |Nej |
+> | billingAccounts/billingProfiles/invoiceSections/billingRoleAssignments | Nej |Nej |
+> | billingAccounts/billingProfiles/invoiceSections/billingRoleDefinitions | Nej |Nej |
+> | billingAccounts/billingProfiles/invoiceSections/billingSubscriptions | Nej |Nej |
+> | billingAccounts/billingProfiles/invoiceSections/createBillingRoleAssignment | Nej |Nej |
+> | billingAccounts/billingProfiles/invoiceSections/initiateTransfer | Nej |Nej |
+> | billingAccounts/billingProfiles/invoiceSections/Products | Nej |Nej |
+> | billingAccounts/billingProfiles/invoiceSections/Products/transfer | Nej |Nej |
+> | billingAccounts/billingProfiles/invoiceSections/Products/updateAutoRenew | Nej |Nej |
+> | billingAccounts/billingProfiles/invoiceSections/transaktioner | Nej |Nej |
+> | billingAccounts/billingProfiles/invoiceSections/transfers | Nej |Nej |
 > | billingAccounts/BillingProfiles/patchOperations | Nej |Nej |
 > | billingAccounts/billingProfiles/paymentMethods | Nej |Nej |
 > | billingAccounts/billingProfiles/policys | Nej |Nej |
@@ -366,10 +384,17 @@ Hoppa till ett namn område för en resurs leverantör:
 > | billingAccounts/billingProfiles/pricesheetDownloadOperations | Nej |Nej |
 > | billingAccounts/billingProfiles/Products | Nej |Nej |
 > | billingAccounts/billingProfiles/transaktioner | Nej |Nej |
+> | billingAccounts/billingRoleAssignments | Nej |Nej |
+> | billingAccounts/billingRoleDefinitions | Nej |Nej |
 > | billingAccounts/billingSubscriptions | Nej |Nej |
+> | billingAccounts/createBillingRoleAssignment | Nej |Nej |
 > | billingAccounts/createInvoiceSectionOperations | Nej |Nej |
 > | billingAccounts/kunder | Nej |Nej |
 > | billingAccounts/kunder/billingSubscriptions | Nej |Nej |
+> | billingAccounts/kunder/initiateTransfer | Nej |Nej |
+> | billingAccounts/kunder/produkter | Nej |Nej |
+> | billingAccounts/kunder/transaktioner | Nej |Nej |
+> | billingAccounts/kunder/överföringar | Nej |Nej |
 > | billingAccounts/avdelningar | Nej |Nej |
 > | billingAccounts/enrollmentAccounts | Nej |Nej |
 > | billingAccounts/fakturor | Nej |Nej |
@@ -392,11 +417,11 @@ Hoppa till ett namn område för en resurs leverantör:
 > | billingAccounts/produkter | Nej |Nej |
 > | billingAccounts/transaktioner | Nej |Nej |
 > | billingPeriods | Nej |Nej |
-> | billingPermissions | Nej |Nej |
+> | BillingPermissions | Nej |Nej |
 > | billingProperty | Nej |Nej |
-> | billingRoleAssignments | Nej |Nej |
-> | billingRoleDefinitions | Nej |Nej |
-> | createBillingRoleAssignment | Nej |Nej |
+> | BillingRoleAssignments | Nej |Nej |
+> | BillingRoleDefinitions | Nej |Nej |
+> | CreateBillingRoleAssignment | Nej |Nej |
 > | enheten | Nej |Nej |
 > | enrollmentAccounts | Nej |Nej |
 > | fakturor | Nej |Nej |
@@ -404,6 +429,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > | överföringar/acceptTransfer | Nej |Nej |
 > | överföringar/declineTransfer | Nej |Nej |
 > | överföringar/operationStatus | Nej |Nej |
+> | överföringar/validateTransfer | Nej |Nej |
 > | validateAddress | Nej |Nej |
 
 ## <a name="microsoftbingmaps"></a>Microsoft.BingMaps
@@ -450,7 +476,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > | botServices | Ja |Ja |
 > | botServices/channels | Nej |Nej |
 > | botServices/anslutningar | Nej |Nej |
-> | användning | Nej |Nej |
+> | Användning | Nej |Nej |
 > | mallar | Nej |Nej |
 
 ## <a name="microsoftcache"></a>Microsoft.Cache
@@ -570,12 +596,16 @@ Hoppa till ett namn område för en resurs leverantör:
 > | publicImages | Nej |Nej |
 > | quotas | Nej |Nej |
 > | storageAccounts | Ja |Ja |
+> | storageAccounts/blobServices | Nej |Nej |
+> | storageAccounts/fileServices | Nej |Nej |
 > | storageAccounts/metricDefinitions | Nej |Nej |
 > | storageAccounts/mått | Nej |Nej |
+> | storageAccounts/queueServices | Nej |Nej |
 > | storageAccounts/tjänster | Nej |Nej |
 > | storageAccounts/services/diagnosticSettings | Nej |Nej |
 > | storageAccounts/tjänster/metricDefinitions | Nej |Nej |
 > | storageAccounts/tjänster/mått | Nej |Nej |
+> | storageAccounts/tableServices | Nej |Nej |
 > | storageAccounts/vmImages | Nej |Nej |
 > | vmImages | Nej |Nej |
 
@@ -720,13 +750,13 @@ Hoppa till ett namn område för en resurs leverantör:
 > | Resurstyp | Stöder Taggar | Tagga i kostnads rapport |
 > | ------------- | ----------- | ----------- |
 > | Aviseringar | Nej |Nej |
-> | BillingAccounts | Nej |Nej |
+> | billingAccounts | Nej |Nej |
 > | Budgetar | Nej |Nej |
 > | CloudConnectors | Nej |Nej |
 > | Anslutningar | Ja |Ja |
 > | Avdelningar | Nej |Nej |
 > | Dimensioner | Nej |Nej |
-> | EnrollmentAccounts | Nej |Nej |
+> | enrollmentAccounts | Nej |Nej |
 > | Exporter | Nej |Nej |
 > | ExternalBillingAccounts | Nej |Nej |
 > | ExternalBillingAccounts/aviseringar | Nej |Nej |
@@ -746,25 +776,6 @@ Hoppa till ett namn område för en resurs leverantör:
 > | Inställningar | Nej |Nej |
 > | showbackRules | Nej |Nej |
 > | Vyer | Nej |Nej |
-
-## <a name="microsoftcustomerinsights"></a>Microsoft.CustomerInsights
-
-> [!div class="mx-tableFixed"]
-> | Resurstyp | Stöder Taggar | Tagga i kostnads rapport |
-> | ------------- | ----------- | ----------- |
-> | NAV | Ja |Ja |
-> | hubbar/authorizationPolicies | Nej |Nej |
-> | hubbar/anslutningar | Nej |Nej |
-> | hubbar/anslutningar/mappningar | Nej |Nej |
-> | hubbar/interaktioner | Nej |Nej |
-> | hubbar/KPI | Nej |Nej |
-> | hubbar/länkar | Nej |Nej |
-> | hubbar/profiler | Nej |Nej |
-> | hubbar/roleAssignments | Nej |Nej |
-> | hubbar/roller | Nej |Nej |
-> | hubbar/suggestTypeSchema | Nej |Nej |
-> | hubbar/vyer | Nej |Nej |
-> | hubbar/widgetTypes | Nej |Nej |
 
 ## <a name="microsoftcustomerlockbox"></a>Microsoft. CustomerLockbox
 
@@ -810,15 +821,12 @@ Hoppa till ett namn område för en resurs leverantör:
 > | ------------- | ----------- | ----------- |
 > | kataloger | Ja |Ja |
 > | datacatalogs | Ja |Ja |
+> | datacatalogs/data källor | Nej |Nej |
+> | datacatalogs/data källor/-genomsökningar | Nej |Nej |
+> | datacatalogs/data källor/genomsökningar/data uppsättningar | Nej |Nej |
+> | datacatalogs/data källor/genomsökningar/utlösare | Nej |Nej |
 > | datacatalogs/scantargets | Nej |Nej |
 > | datacatalogs/scantargets/data uppsättningar | Nej |Nej |
-
-## <a name="microsoftdataconnect"></a>Microsoft.DataConnect
-
-> [!div class="mx-tableFixed"]
-> | Resurstyp | Stöder Taggar | Tagga i kostnads rapport |
-> | ------------- | ----------- | ----------- |
-> | connectionManagers | Ja |Ja |
 
 ## <a name="microsoftdatafactory"></a>Microsoft.DataFactory
 
@@ -936,7 +944,6 @@ Hoppa till ett namn område för en resurs leverantör:
 > | ------------- | ----------- | ----------- |
 > | applicationgroups | Ja |Ja |
 > | applicationgroups/program | Nej |Nej |
-> | applicationgroups/assignedusers | Nej |Nej |
 > | applicationgroups/startmenuitems | Nej |Nej |
 > | hostpools | Ja |Ja |
 > | hostpools/sessionhosts | Nej |Nej |
@@ -949,7 +956,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Stöder Taggar | Tagga i kostnads rapport |
 > | ------------- | ----------- | ----------- |
-> | ElasticPools | Ja |Ja |
+> | elasticPools | Ja |Ja |
 > | ElasticPools/IotHubTenants | Ja |Ja |
 > | IotHubs | Ja |Ja |
 > | IotHubs/eventGridFilters | Nej |Nej |
@@ -968,7 +975,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Stöder Taggar | Tagga i kostnads rapport |
 > | ------------- | ----------- | ----------- |
-> | domänkontrollanter | Ja |Ja |
+> | Domänkontrollanter | Ja |Ja |
 
 ## <a name="microsoftdevtestlab"></a>Microsoft.DevTestLab
 
@@ -1026,7 +1033,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > | domäner/ämnen | Nej |Nej |
 > | eventSubscriptions | Nej |Nej |
 > | extensionTopics | Nej |Nej |
-> | avsnitt | Ja |Ja |
+> | Avsnitt | Ja |Ja |
 > | topicTypes | Nej |Nej |
 
 ## <a name="microsofteventhub"></a>Microsoft.EventHub
@@ -1081,6 +1088,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Stöder Taggar | Tagga i kostnads rapport |
 > | ------------- | ----------- | ----------- |
+> | autoManagedVmConfigurationProfiles | Ja |Ja |
 > | guestConfigurationAssignments | Nej |Nej |
 > | IntelliPoint | Nej |Nej |
 > | softwareUpdateProfile | Nej |Nej |
@@ -1135,7 +1143,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Stöder Taggar | Tagga i kostnads rapport |
 > | ------------- | ----------- | ----------- |
-> | delarna | Ja |Ja |
+> | Delarna | Ja |Ja |
 > | networkScopes | Ja |Ja |
 
 ## <a name="microsoftimportexport"></a>Microsoft.ImportExport
@@ -1207,6 +1215,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > | hostingEnvironments | Ja |Ja |
 > | integrationAccounts | Ja |Ja |
 > | integrationServiceEnvironments | Ja |Ja |
+> | integrationServiceEnvironments/managedApis | Ja |Ja |
 > | isolatedEnvironments | Ja |Ja |
 > | arbetsflöden | Ja |Ja |
 
@@ -1234,13 +1243,6 @@ Hoppa till ett namn område för en resurs leverantör:
 > | ------------- | ----------- | ----------- |
 > | Identiteter | Nej |Nej |
 > | userAssignedIdentities | Ja |Ja |
-
-## <a name="microsoftmanagedlab"></a>Microsoft.ManagedLab
-
-> [!div class="mx-tableFixed"]
-> | Resurstyp | Stöder Taggar | Tagga i kostnads rapport |
-> | ------------- | ----------- | ----------- |
-> | labaccounts | Ja |Ja |
 
 ## <a name="microsoftmanagedservices"></a>Microsoft. ManagedServices
 
@@ -1348,8 +1350,11 @@ Hoppa till ett namn område för en resurs leverantör:
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Stöder Taggar | Tagga i kostnads rapport |
 > | ------------- | ----------- | ----------- |
+> | holographicsBroadcastAccounts | Ja |Ja |
+> | objectUnderstandingAccounts | Ja |Ja |
 > | remoteRenderingAccounts | Ja |Ja |
 > | spatialAnchorsAccounts | Ja |Ja |
+> | surfaceReconstructionAccounts | Ja |Ja |
 
 ## <a name="microsoftnetapp"></a>Microsoft.NetApp
 
@@ -1475,6 +1480,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Stöder Taggar | Tagga i kostnads rapport |
 > | ------------- | ----------- | ----------- |
+> | kluster | Ja |Ja |
 > | enheter | Nej |Nej |
 > | linkTargets | Nej |Nej |
 > | storageInsightConfigs | Nej |Nej |
@@ -1501,6 +1507,8 @@ Hoppa till ett namn område för en resurs leverantör:
 > | legacyPeerings | Nej |Nej |
 > | peerAsns | Nej |Nej |
 > | peeringar | Ja |Ja |
+> | peeringServiceProviders | Nej |Nej |
+> | peeringServices | Ja |Ja |
 
 ## <a name="microsoftpolicyinsights"></a>Microsoft.PolicyInsights
 
@@ -1518,7 +1526,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > | Resurstyp | Stöder Taggar | Tagga i kostnads rapport |
 > | ------------- | ----------- | ----------- |
 > | konsoler | Nej |Nej |
-> | instrument paneler | Ja |Ja |
+> | Instrument paneler | Ja |Ja |
 > | userSettings | Nej |Nej |
 
 ## <a name="microsoftpowerbi"></a>Microsoft.PowerBI
@@ -1596,21 +1604,18 @@ Hoppa till ett namn område för en resurs leverantör:
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Stöder Taggar | Tagga i kostnads rapport |
 > | ------------- | ----------- | ----------- |
-> | distributioner | Nej |Nej |
+> | distributioner | Ja |Nej |
 > | distributioner/åtgärder | Nej |Nej |
 > | Länkar | Nej |Nej |
 > | notifyResourceJobs | Nej |Nej |
 > | Providers | Nej |Nej |
-> | resourceGroups | Nej |Nej |
+> | resourceGroups | Ja |Nej |
 > | resurser | Nej |Nej |
 > | prenumerationer | Nej |Nej |
 > | prenumerationer/providers | Nej |Nej |
-> | prenumerationer/resourceGroups | Nej |Nej |
-> | prenumerationer/ResourceGroups/resurser | Nej |Nej |
 > | prenumerationer/resurser | Nej |Nej |
 > | prenumerationer/tagNames | Nej |Nej |
 > | prenumerationer/tagNames/tagValues | Nej |Nej |
-> | taggar | Nej |Nej |
 > | klienter | Nej |Nej |
 
 ## <a name="microsoftsaas"></a>Microsoft.SaaS
@@ -1626,7 +1631,6 @@ Hoppa till ett namn område för en resurs leverantör:
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Stöder Taggar | Tagga i kostnads rapport |
 > | ------------- | ----------- | ----------- |
-> | flöden | Ja |Ja |
 > | förfrågningsåtgärder | Ja |Ja |
 
 ## <a name="microsoftsearch"></a>Microsoft.Search
@@ -1661,6 +1665,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > | iotSecuritySolutions/analyticsModels/aggregatedAlerts | Nej |Nej |
 > | iotSecuritySolutions/analyticsModels/aggregatedRecommendations | Nej |Nej |
 > | jitNetworkAccessPolicies | Nej |Nej |
+> | networkData | Nej |Nej |
 > | playbookConfigurations | Ja |Ja |
 > | principer | Nej |Nej |
 > | prissättningar | Nej |Nej |
@@ -1693,7 +1698,8 @@ Hoppa till ett namn område för en resurs leverantör:
 > | ------------- | ----------- | ----------- |
 > | sammanställningar | Nej |Nej |
 > | alertRules | Nej |Nej |
-> | dina | Nej |Nej |
+> | alertRuleTemplates | Nej |Nej |
+> | Dina | Nej |Nej |
 > | fall | Nej |Nej |
 > | dataConnectors | Nej |Nej |
 > | entiteter | Nej |Nej |
@@ -1919,6 +1925,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > | ------------- | ----------- | ----------- |
 > | avbryt | Nej |Nej |
 > | CreateSubscription | Nej |Nej |
+> | aktivera | Nej |Nej |
 > | byt namn | Nej |Nej |
 > | SubscriptionDefinitions | Nej |Nej |
 > | SubscriptionOperations | Nej |Nej |
@@ -2007,7 +2014,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Stöder Taggar | Tagga i kostnads rapport |
 > | ------------- | ----------- | ----------- |
-> | delarna | Nej |Nej |
+> | Delarna | Nej |Nej |
 > | componentsSummary | Nej |Nej |
 > | monitorInstances | Nej |Nej |
 > | monitorInstancesSummary | Nej |Nej |

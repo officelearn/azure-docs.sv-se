@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 04/19/2018
 ms.author: mahender
 ms.custom: seodec18
-ms.openlocfilehash: d49b8bf9c62813023c1a1e06e0f8fc0d7809f48d
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: f7154da76b41198c208d02b8c563ba26ff8101a1
+ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70232048"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70983601"
 ---
 # <a name="how-to-configure-your-app-service-application-to-use-twitter-login"></a>Så här konfigurerar du ditt App Service program så att Twitter-inloggning används
 [!INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]
@@ -31,7 +31,7 @@ För att slutföra proceduren i det här avsnittet måste du ha ett Twitter-kont
 ## <a name="register"> </a>Registrera ditt program med Twitter
 1. Logga in på [Azure Portal]och navigera till ditt program. Kopiera din **URL**. Du kommer att använda den för att konfigurera din Twitter-app.
 2. Gå till webbplatsen för [Twitter-utvecklare] och logga in med dina Twitter-konto uppgifter och klicka på **Skapa ny app**.
-3. Ange **namnet** och en **Beskrivning** för den nya appen. Klistra in programmets **URL** för **webbplats** svärdet. Ange sedan URL:en för din app service-app och Lägg till sökvägen `/.auth/login/aad/callback`för återanrops-URL: en. Till exempel `https://contoso.azurewebsites.net/.auth/login/twitter/callback`. Kontrol lera att du använder HTTPS-schemat.
+3. Ange **namnet** och en **Beskrivning** för den nya appen. Klistra in programmets **URL** för **webbplats** svärdet. Ange sedan URL: en för din App Service-app och Lägg till sökvägen `/.auth/login/twitter/callback`för **ÅTERanrops-URL**: en. Till exempel `https://contoso.azurewebsites.net/.auth/login/twitter/callback`. Kontrol lera att du använder HTTPS-schemat.
 4. Läs och godkänn villkoren längst ned på sidan. Klicka sedan på **skapa ditt Twitter-program**. Programinformationen visas.
 5. Klicka på fliken **Inställningar** , markera **Tillåt att det här programmet används för att logga in med Twitter**och klicka sedan på **Uppdatera inställningar**.
 6. Välj fliken **nycklar och åtkomst** -token. Anteckna värdena för **konsument nyckel (API-nyckel)** och **konsument hemlighet (API-hemlighet)** .

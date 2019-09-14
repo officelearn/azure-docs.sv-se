@@ -12,14 +12,14 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 03/30/2018
+ms.date: 09/12/2019
 ms.author: roiyz
-ms.openlocfilehash: 8c63df2d9a7e398fb9b67edd3b57a3ba06cbe7a1
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 200a5e93c24f6aa4ecf9d76cffac261d83498d02
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70084328"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70958839"
 ---
 # <a name="azure-virtual-machine-extensions-and-features"></a>Tillägg och funktioner för virtuella Azure-datorer
 Tillägg för virtuella Azure-datorer (VM) är små program som tillhandahåller konfigurations-och automatiserings åtgärder efter distributionen på virtuella Azure-datorer. du kan använda befintliga avbildningar och sedan anpassa dem som en del av dina distributioner, så att du får ut så mycket som möjligt av egna Skapa bild.
@@ -49,6 +49,30 @@ Du behöver inte ansluta till en virtuell dator direkt för att installera eller
 
 ## <a name="anything-else-i-should-be-thinking-about-for-extensions"></a>Allt annat jag bör tänka på vid tillägg?
 Tillägg installerar program, som alla program det finns vissa krav för tillägg finns det en lista över Windows-och Linux-operativ system som stöds och du måste ha installerat Azure VM-agenter. Vissa enskilda program för VM-tillägg kan ha sina egna miljö krav, till exempel åtkomst till en slut punkt.
+
+## <a name="troubleshoot-extensions"></a>Felsökning av tillägg
+
+Felsöknings information för varje tillägg finns i avsnittet **fel sökning och support** i översikten för tillägget. Här är en lista över den felsöknings information som är tillgänglig:
+
+| Namnrymd | Felsökning |
+|-----------|-----------------|
+| Microsoft. Azure. Monitoring. dependencyagent. dependencyagentlinux | [Azure Monitor beroende för Linux](agent-dependency-linux.md#troubleshoot-and-support) |
+| Microsoft. Azure. Monitoring. dependencyagent. dependencyagentwindows | [Azure Monitor beroende för Windows](agent-dependency-windows.md#troubleshoot-and-support) |
+| Microsoft. Azure. Security. azurediskencryptionforlinux | [Azure Disk Encryption för Linux](azure-disk-enc-linux.md#troubleshoot-and-support) |
+| Microsoft. Azure. Security. azurediskencryption | [Azure Disk Encryption för Windows](azure-disk-enc-windows.md#troubleshoot-and-support) |
+| Microsoft. Compute. CustomScriptExtension | [Anpassat skript för Windows](custom-script-windows.md#troubleshoot-and-support) |
+| Microsoft. ostcextensions. customscriptforlinux | [Önskad tillstånds konfiguration för Linux](dsc-linux.md#troubleshoot-and-support) |
+| Microsoft. PowerShell. DSC | [Önskad tillstånds konfiguration för Windows](dsc-windows.md#troubleshoot-and-support) |
+| Microsoft. hpccompute. nvidiagpudriverlinux | [NVIDIA GPU-drivrutins tillägg för Linux](hpccompute-gpu-linux.md#troubleshoot-and-support) |
+| Microsoft. hpccompute. nvidiagpudriverwindows | [NVIDIA GPU-drivrutins tillägg för Windows](hpccompute-gpu-windows.md#troubleshoot-and-support) |
+| Microsoft. Azure. Security. iaasantimalware | [Tillägg för program mot skadlig kod för Windows](iaas-antimalware-windows.md#troubleshoot-and-support) |
+| Microsoft. enterprisecloud. Monitoring. omsagentforlinux | [Azure Monitor för Linux](oms-linux.md#troubleshoot-and-support)
+| Microsoft. enterprisecloud. Monitoring. microsoftmonitoringagent | [Azure Monitor för Windows](oms-windows.md#troubleshoot-and-support) |
+| Stackify. linuxagent. extension. stackifylinuxagentextension | [Stackify-omspårning för Linux](stackify-retrace-linux.md#troubleshoot-and-support) |
+| tillägget vmaccessforlinux. Microsoft. ostcextensions | [Återställ lösen ord (VMAccess) för Linux](vmaccess.md#troubleshoot-and-support) |
+| Microsoft. recoveryservices. VMSnapshot | [Ögonblicks bild för Linux](vmsnapshot-linux.md#troubleshoot-and-support) |
+| Microsoft. recoveryservices. VMSnapshot | [Ögonblicks bild för Windows](vmsnapshot-windows.md#troubleshoot-and-support) |
+
 
 ## <a name="next-steps"></a>Nästa steg
 * Mer information om hur Linux-agenten och-tillägg fungerar finns i [tillägg och funktioner för Azure VM i Linux](features-linux.md).

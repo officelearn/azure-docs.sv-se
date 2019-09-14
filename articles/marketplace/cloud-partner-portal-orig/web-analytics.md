@@ -1,5 +1,5 @@
 ---
-title: Webbanalys
+title: Webb analys
 description: .
 services: Azure, Marketplace, Cloud Partner Portal,
 author: pbutlerm
@@ -8,97 +8,97 @@ ms.service: marketplace
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pabutler
-ms.openlocfilehash: 4b75b2cbd629204e7edbf1196eec9b03cb7a6736
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a6b2a7981452b47a3992b6c0efee286878e143fb
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64943162"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70962889"
 ---
-<a name="web-analytics"></a>Webbanalys
+<a name="web-analytics"></a>Webb analys
 =============
 
-Den här artikeln innehåller med instruktioner om hur du lär dig och använder Webbanalyser till bästa verksamheten växer. Den här fliken för insikter är för närvarande tillgänglig för alla AppSource-erbjudanden.
+Den här artikeln innehåller anvisningar om hur du kan lära dig och använda Web Analytics för att utveckla din verksamhet bäst. Den här fliken insikter är för närvarande tillgänglig för alla AppSource-erbjudanden.
 
-Nu när du har skapat och publicerat ditt erbjudande, nästa del av din resa är att spåra och mäter dess\' lyckades. Med **Webbanalyser**, har vi lagt till möjligheten att se exakt hur väl gör var och en av dina erbjudanden på marketplace. Starta din resa genom gå du till sidan insikter på vänster sida av Cloud Partner Portal för att se den nya Analytics-fliken.
+Nu när du har skapat och publicerat ditt erbjudande är nästa del av resan att spåra och mäta dess\' framgång. Med **Web Analytics**har vi lagt till möjligheten att se exakt hur väl var och en av dina erbjudanden på Marketplace. Starta resan genom att gå till sidan insikter till vänster i Cloud Partner Portal för att se fliken ny analys.
 
-![WebAnalytics sida](./media/si-getting-started/WebAnalytics1.png)
+![Sidan webb analys](./media/si-getting-started/WebAnalytics1.png)
 
-Du ser en omfattande instrumentpanel för Publisher-ID som har skapats med Microsoft Power BI och gör det möjligt att se var och en av dina erbjudanden\' data som uppdateras dagligen.
+Du ser en omfattande instrument panel för ditt utgivar-ID som har skapats med Microsoft Power BI och gör att du kan se var och\' en av dina erbjudanden, som uppdateras dagligen.
 
 <a name="microsoft-campaigns"></a>**Microsoft Campaigns**
 -----------------------
 
-För att utöka dina erbjudanden och spåra tillväxten av dina erbjudanden, har vi aktiverat möjligheten att använda **Microsoft kampanjer** på partnerportalen i molnet. Kampanjer är en funktion som nyligen stöds för marketplace som gör det möjligt för dig att spåra olika kanaler som skickar kunder till din appinformationssida.
+Vi har aktiverat möjligheten att använda **Microsoft-kampanjer** på Cloud Partner Portal för att utöka dina erbjudanden och spåra tillväxten för dina erbjudanden. Kampanjer är en funktion som stöds nyligen för Marketplace som gör att du kan spåra de olika kanaler som skickar kunder till din apps-information.
 
-### <a name="how-to-make-a-campaign"></a>**Hur du gör en kampanj**
+### <a name="how-to-make-a-campaign"></a>**Så här gör du en kampanj**
 
-Det enklaste sättet att beskriva kampanjer är att du lägger till en anpassad word/term till din URL som hamnar på sidan med information om appen i marketplace. Google, Bing, LinkedIn och många andra webbplatser uppmanar dig att skapa en annons, länka från sin plats till din önskade plats.
+Det enklaste sättet att beskriva kampanjer är att du lägger till ett anpassat ord/term till din URL som finns på din app-informations sida på Marketplace. Google, Bing, LinkedIn och många andra webbplatser uppmanar dig att bygga en annons, länka från sin webbplats till önskad plats.
 
-I allmänhet dessa åtgärder är att nya kunder för enheten i din produkt och det är viktigt att mäta framgången för hur var och en av dina kanaler fungerar. Det är där kampanjer kommer in.
+I allmänhet är dessa ansträngningar att hjälpa till att driva nya kunder i din produkt och det är viktigt att mäta framgången för hur var och en av dina kanaler fungerar. Det är här som kampanjer kommer i.
 
-Det finns två sätt att skapa din egen kampanj.
+Det finns två sätt att skapa en egen kampanj.
 
-1. Lägga till i din URL Frågeparametern **mktcmpid** som beskriver vad kampanjen är och vilka händelsen/sida dessa kunder kommer från.
+1. Lägg till URL: en **mktcmpid** som beskriver vad kampanjen är och vilken sida/händelse dessa kunder kommer från.
 
-Du kan till exempel använda: <https://appsource.microsoft.com/product/dynamics-365/contoso.offername?mktcmpid=NewCampaign>
+Du kan till exempel använda:<https://appsource.microsoft.com/product/dynamics-365/contoso.offername?mktcmpid=NewCampaign>
 
-1. (Avancerat): Använd någon av våra stöds, allmän kampanj ID i URL: en. Vi vill vara minnesalternativ med ytterligare ref-taggar som du vill använda, så vi har stöd för partitioner för att automatiskt identifiera dessa ytterligare taggar:
+1. (Avancerat): Använd något av våra generiska ID: n som stöds i URL: en. Vi vill kunna ta emot ytterligare ref-taggar som du behöver använda, så vi har stöd för konventionen för att automatiskt identifiera dessa ytterligare Taggar:
     
     1. **utm\_campaign**
-    2. **UTM\_källa**
+    2. **UTM\_-källa**
     3. **ref**
     4. **src**
 
-Du kan till exempel använda: <https://appsource.microsoft.com/product/dynamics-365/contoso.offername?utm_campaign=NewCampaign>
+Du kan till exempel använda:<https://appsource.microsoft.com/product/dynamics-365/contoso.offername?utm_campaign=NewCampaign>
 
-Du kan välja att ha en kombination av flera av dessa kampanj-ID: N att ytterligare identifiera flera källor som driver trafik för kampanjen, till exempel där kunden kommer ifrån (e-post, blogg, sociala mediekällor, osv.).
+Du kan välja att kombinera flera av dessa kampanj-ID: n för att ytterligare identifiera flera källor som driver trafik för kampanjen, till exempel var kunden kom från (e-post, blogg, sociala medie källa osv.).
 
 Exempel:
 
-1. Nyhetsbrev referent:  <https://appsource.microsoft.com/product/dynamics-365/contoso.offername?mktcmpid=NewCampaign&src=newsletter>
-2. LinkedIn referent:  <https://appsource.microsoft.com/product/dynamics-365/contoso.offername?mktcmpid=NewCampaign&src=LinkedIn>
+1. Referent-nyhets brev:<https://appsource.microsoft.com/product/dynamics-365/contoso.offername?mktcmpid=NewCampaign&src=newsletter>
+2. LinkedIn referent:<https://appsource.microsoft.com/product/dynamics-365/contoso.offername?mktcmpid=NewCampaign&src=LinkedIn>
 
-### <a name="ensuring-campaigns-pass-through-all-your-pages"></a>**Säkerställa kampanjer passera alla sidor**
+### <a name="ensuring-campaigns-pass-through-all-your-pages"></a>**Se till att kampanjer passerar alla dina sidor**
 
-Det kan finnas ett scenario där dina kampanjer har en mellanliggande sida som du som styr trafiken till som sedan fortsätter att skicka kunderna till marketplace. Det är viktigt att gå igenom din första kampanj-ID: N till den slutliga URL: en som du skickar till marketplace.
+Det kan finnas ett scenario där dina kampanjer har en mellanliggande sida som du kör trafik till och sedan fortsätter att skicka kunderna till Marketplace. Det är viktigt att passera dina första kampanj-ID: n till den sista URL: en som du skickar till Marketplace.
 
 Här är ett exempel:
 
-1. Marknadsföring medarbetare köper annonser från Google drive-trafik till företaget\'s landningssida <https://contoso.com>. Den här landningssida har en \"försök min produkt\" länkar som leder till <https://appsource.com>.
-2. En användare klickar på ad och landar på företaget\'s landningssida.
-    1.  URL: en för hänvisning = google.com
-    2.  Webbadress för informationssida = <https://contoso.com/?utm_campaign=MyCampaignAdName&utm_source=MySourceAdName>
-3. Användaren klickar på den \"försök min produkt\" länka och hamnar i AppSource.
-    1. URL: en för hänvisning =  <https://contoso.com/?utm_campaign=MyCampaignAdName&utm_source=MySourceAdName>
-    2. Webbadress för informationssida (**se till att den här URL: en har utm\_kampanj- och utm\_källor du lägger till denna URL**) = [ https://appsource.microsoft.com/en-us/product/dynamics-365/contoso.offername? **utm\_ kampanj = MyCampaignAdName & utm\_ källa = MySourceAdName**](https://appsource.microsoft.com/en-us/product/dynamics-365/contoso.offername?utm_campaign=MyCampaignAdName&utm_source=MySourceAdName)
+1. Marknadsförings personal köper annonser från Google för att driva trafik till\'företagets landnings <https://contoso.com>sida. Den här landnings sidan \"har ett försök\" med min produkt länk <https://appsource.com>som går till.
+2. En användare klickar på annonsen och hamnar på företagets\'landnings sida.
+    1.  Hänvisnings-URL = google.com
+    2.  Landnings sidans URL =<https://contoso.com/?utm_campaign=MyCampaignAdName&utm_source=MySourceAdName>
+3. Användaren klickar på \"länken prova min produkt\" och hamnar i AppSource.
+    1. Hänvisnings-URL =<https://contoso.com/?utm_campaign=MyCampaignAdName&utm_source=MySourceAdName>
+    2. Landnings sidans URL (**Se till att den\_här URL:\_en har UTM-kampanj och UTM-källa tillagd till denna URL**) = [ https://appsource.microsoft.com/product/dynamics-365/contoso.offername? **UTM\_ kampanj = MyCampaignAdName & UTM\_ source = MySourceAdName** ](https://appsource.microsoft.com/product/dynamics-365/contoso.offername?utm_campaign=MyCampaignAdName&utm_source=MySourceAdName)
 
-<a name="how-to-evaluate-the-success-of-a-campaign"></a>Så här utvärderar framgången för en kampanj
+<a name="how-to-evaluate-the-success-of-a-campaign"></a>Så här utvärderar du en kampanjs framgång
 -----------------------------------------
 
-### <a name="page-visits-by-campaign"></a>**Sidan Visits efter kampanj**
+### <a name="page-visits-by-campaign"></a>**Sid besök per kampanj**
 
 ![WebAnalytics2](./media/si-getting-started/WebAnalytics2.png)
 
-Detta är uppdelning av var och en av dina dagliga besök efter kampanj som de kom från.
+Detta är en uppdelning av de dagliga sid besöken för kampanjen de kom från.
 
-### <a name="conversion-rate-by-campaign"></a>**Konverteringsgrad efter kampanj**
+### <a name="conversion-rate-by-campaign"></a>**Konverterings takt per kampanj**
 
 ![WebAnalytics3](./media/si-getting-started/WebAnalytics3.png)
 
-Ett liknande sätt hur vi visar konverteringstakt för erbjudandet hela i det här diagrammet som du ser fördelningen av hur kampanjerna olika gör. Det här diagrammet ska hjälpa dig att identifiera var kampanjerna hastighet högre konvertering kommer från.
+På samma sätt som vi visar konverterings takten för hela erbjudandet kan du se hur dina olika kampanjer fungerar i det här diagrammet. Det här diagrammet ska hjälpa dig att identifiera var dina högre konverterings takts kampanjer kommer från.
 
 ### <a name="distribution-by-campaign"></a>**Distribution efter kampanj**
 
 ![WebAnalytics4](./media/si-getting-started/WebAnalytics4.png)
 
-Precis som för hur vi tittar på domäner för dina kunder finns det här diagrammet kan du se fördelningen av dina data per kampanj som användarna kommer att marketplace under. \_NoCampaign innebär att kunden inte hade en kampanj-ID i URL: en när de har navigerat till marketplace.
+På liknande sätt som vi tittar på domänernas domäner kan du med det här diagrammet se distributionen av dina data per kampanj som användarna kommer till Marketplace under. \_Nocampaign innebär att kunden inte har något kampanj-ID i URL: en när de navigerade till Marketplace.
 
 <a name="next-steps"></a>**Nästa steg**
 --------------
 
-Nu när du har möjlighet att spåra dina erbjudanden lyckades, vill vi uppmuntrar dig att skapa dina egna kampanjer.
+Nu när du har möjlighet att spåra dina erbjudanden, vill vi gärna att du ska kunna skapa dina egna kampanjer.
 
-Om du har frågor/funktionsförfrågningar kan du dela dem via Feedback, finns i det övre högra hörnet.
+Om du har frågor/funktions begär Anden kan du dela dem via feedback, som finns i det övre högra hörnet.
 
-![Feedback i partnerportalen i molnet](./media/si-getting-started/WebAnalytics5.png)
+![Feedback i Cloud Partner Portal](./media/si-getting-started/WebAnalytics5.png)

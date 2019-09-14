@@ -1,7 +1,7 @@
 ---
-title: Logga mått under utbildnings körningar
+title: Log ML-experiment & mått
 titleSuffix: Azure Machine Learning service
-description: Du kan spåra experiment och övervaka mått för att förbättra skapande processen för modeller. Lär dig hur du lägger till loggning i ditt utbildnings skript, hur du skickar experimentet, hur du kontrollerar förloppet för ett pågående jobb och hur du visar de loggade resultaten för en körning.
+description: Övervaka dina Azure ML-experiment och övervaka körnings mått för att förbättra skapande processen för modeller. Lägg till loggning i ditt utbildnings skript och Visa de loggade resultaten för en körning.  Använd kör. log, kör. start_logging eller ScriptRunConfig.
 services: machine-learning
 author: heatherbshapiro
 ms.author: hshapiro
@@ -10,18 +10,18 @@ ms.service: machine-learning
 ms.subservice: core
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 07/11/2019
+ms.date: 09/11/2019
 ms.custom: seodec18
-ms.openlocfilehash: 0f295bf3a76d89e811fe9a022a3ccb68fbe7556a
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: 1c2747c8eaac0323ac32f67afb27ac854a3a5ce9
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70858715"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70959949"
 ---
-# <a name="track-machine-learning-training-metrics-with-azure-machine-learning"></a>Spåra utbildnings mått för maskin inlärning med Azure Machine Learning
+# <a name="monitor-azure-ml-experiment-runs-and-metrics"></a>Övervaka körningar och mått för Azure ML-experiment
 
-Förbättra skapande processen för modeller genom att spåra dina experiment och övervaknings mått. I den här artikeln lär du dig att lägga till loggnings kod i ditt utbildnings skript, skicka in en experiment körning, Övervakare som körs och granska resultaten i Azure Machine Learning-tjänsten.
+Förbättra skapande processen för modeller genom att spåra experiment och övervaka körnings mått. I den här artikeln lär du dig att lägga till loggnings kod i ditt utbildnings skript, skicka in en experiment körning, Övervakare som körs och granska resultaten i Azure Machine Learning-tjänsten.
 
 > [!NOTE]
 > Azure Machine Learning tjänsten kan också logga information från andra källor under utbildningen, till exempel automatiserade maskin inlärnings körningar eller Docker-behållaren som kör övnings jobbet. Dessa loggar är inte dokumenterade. Om du stöter på problem och kontaktar Microsoft-supporten kan det hända att de kan använda dessa loggar under fel sökning.

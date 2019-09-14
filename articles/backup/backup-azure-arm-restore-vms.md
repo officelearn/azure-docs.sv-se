@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 05/08/2019
 ms.author: dacurwin
-ms.openlocfilehash: 41e01531535fe41fa894f8de3181a56885ab3bcf
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 3d7497b7afd44a05f3691d3e3094e84c3dd73747
+ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68955075"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70983923"
 ---
 # <a name="how-to-restore-azure-vm-data-in-azure-portal"></a>Så här återställer du Azure VM-data i Azure Portal
 
@@ -28,9 +28,9 @@ Azure Backup erbjuder ett antal olika sätt att återställa en virtuell dator.
 
 **Återställnings alternativ** | **Detaljer**
 --- | ---
-**Skapa en ny virtuell dator** | Skapar och hämtar snabbt en grundläggande virtuell dator som körs från en återställnings punkt.<br/><br/> Du kan ange ett namn på den virtuella datorn, välja resurs gruppen och det virtuella nätverk (VNet) där det ska placeras och ange ett lagrings konto för den återställda virtuella datorn.
+**Skapa en ny virtuell dator** | Skapar och hämtar snabbt en grundläggande virtuell dator som körs från en återställnings punkt.<br/><br/> Du kan ange ett namn på den virtuella datorn, välja resurs gruppen och det virtuella nätverk (VNet) där det ska placeras och ange ett lagrings konto för den återställda virtuella datorn. Den nya virtuella datorn måste skapas i samma region som den virtuella käll datorn.
 **Återställ disk** | Återställer en virtuell dator disk, som sedan kan användas för att skapa en ny virtuell dator.<br/><br/> Azure Backup innehåller en mall som hjälper dig att anpassa och skapa en virtuell dator. <br/><br> Återställnings jobbet genererar en mall som du kan hämta och använda för att ange anpassade VM-inställningar och skapa en virtuell dator.<br/><br/> Diskarna kopieras till det lagrings konto som du anger.<br/><br/> Alternativt kan du koppla disken till en befintlig virtuell dator eller skapa en ny virtuell dator med hjälp av PowerShell.<br/><br/> Det här alternativet är användbart om du vill anpassa den virtuella datorn, lägga till konfigurations inställningar som inte fanns vid tidpunkten för säkerhets kopieringen eller lägga till inställningar som måste konfigureras med mallen eller PowerShell.
-**Ersätt befintlig** | Du kan återställa en disk och använda den för att ersätta en disk på den befintliga virtuella datorn.<br/><br/> Den aktuella virtuella datorn måste finnas. Det här alternativet kan inte användas om det har tagits bort.<br/><br/> Azure Backup tar en ögonblicks bild av den befintliga virtuella datorn innan disken ersätts och lagrar den på den mellanlagringsplats som du anger. Befintliga diskar som är anslutna till den virtuella datorn ersätts med den valda återställnings punkten.<br/><br/> Ögonblicks bilden kopieras till valvet och bevaras i enlighet med bevarande principen. <br/><br/> Ersätt befintlig stöds för okrypterade hanterade virtuella datorer. Den stöds inte för ohanterade diskar, generaliserade [virtuella datorer](https://docs.microsoft.com/azure/virtual-machines/windows/capture-image-resource)eller för virtuella datorer som [skapats med anpassade avbildningar](https://azure.microsoft.com/resources/videos/create-a-custom-virtual-machine-image-in-azure-resource-manager-with-powershell/).<br/><br/> Om återställnings punkten har fler eller färre diskar än den aktuella virtuella datorn kommer antalet diskar i återställnings punkten bara att avspegla konfigurationen för den virtuella datorn.<br/><br/>
+**Ersätt befintlig** | Du kan återställa en disk och använda den för att ersätta en disk på den befintliga virtuella datorn.<br/><br/> Den aktuella virtuella datorn måste finnas. Det här alternativet kan inte användas om det har tagits bort.<br/><br/> Azure Backup tar en ögonblicks bild av den befintliga virtuella datorn innan disken ersätts och lagrar den på den mellanlagringsplats som du anger. Befintliga diskar som är anslutna till den virtuella datorn ersätts med den valda återställnings punkten.<br/><br/> Ögonblicks bilden kopieras till valvet och bevaras i enlighet med bevarande principen. <br/><br/> Ersätt befintlig stöds för okrypterade hanterade virtuella datorer. Den stöds inte för ohanterade diskar, [generaliserade virtuella datorer](https://docs.microsoft.com/azure/virtual-machines/windows/capture-image-resource)eller för virtuella datorer som [skapats med anpassade avbildningar](https://azure.microsoft.com/resources/videos/create-a-custom-virtual-machine-image-in-azure-resource-manager-with-powershell/).<br/><br/> Om återställnings punkten har fler eller färre diskar än den aktuella virtuella datorn kommer antalet diskar i återställnings punkten bara att avspegla konfigurationen för den virtuella datorn.<br/><br/>
 
 
 > [!NOTE]
@@ -83,9 +83,9 @@ Om du inte har behörighet kan du [återställa en disk](#restore-disks)och seda
 
 ## <a name="create-a-vm"></a>Skapa en virtuell dator
 
-Som en av återställnings [alternativen](#restore-options)kan du snabbt skapa en virtuell dator med grundläggande inställningar från en återställnings punkt.
+Som en av [återställnings alternativen](#restore-options)kan du snabbt skapa en virtuell dator med grundläggande inställningar från en återställnings punkt.
 
-1. I **Återställ konfiguration** > **Skapa ny** > återställnings**typ**väljer du **skapa en virtuell dator**.
+1. I **Återställ konfiguration** > **Skapa ny** > **återställnings typ**väljer du **skapa en virtuell dator**.
 2. I **namn på virtuell dator**anger du en virtuell dator som inte finns i prenumerationen.
 3. I **resurs grupp**väljer du en befintlig resurs grupp för den nya virtuella datorn eller skapar en ny med ett globalt unikt namn. Om du tilldelar ett namn som redan finns tilldelar Azure gruppen samma namn som den virtuella datorn.
 4. I **virtuellt nätverk**väljer du det VNet som den virtuella datorn ska placeras i. Alla virtuella nätverk som är associerade med prenumerationen visas. Välj under nätet. Det första under nätet är valt som standard.
@@ -98,13 +98,13 @@ Som en av återställnings [alternativen](#restore-options)kan du snabbt skapa e
 
 ## <a name="restore-disks"></a>Återställa diskar
 
-Som ett av återställnings [alternativen](#restore-options)kan du skapa en disk från en återställnings punkt. Med disken kan du sedan göra något av följande:
+Som ett av [återställnings alternativen](#restore-options)kan du skapa en disk från en återställnings punkt. Med disken kan du sedan göra något av följande:
 
 - Använd mallen som genereras under återställnings åtgärden för att anpassa inställningarna och utlösa VM-distribution. Du redigerar standardinställningarna för mallar och skickar mallen för distribution av virtuella datorer.
 - [Koppla återställda diskar](https://docs.microsoft.com/azure/virtual-machines/windows/attach-managed-disk-portal) till en befintlig virtuell dator.
 - [Skapa en ny virtuell dator](https://docs.microsoft.com/azure/backup/backup-azure-vms-automation#create-a-vm-from-restored-disks) från de återställda diskarna med PowerShell.
 
-1. I **Återställ konfiguration** > **Skapa ny** > återställnings**typ**väljer du **Återställ diskar**.
+1. I **Återställ konfiguration** > **Skapa ny** > **återställnings typ**väljer du **Återställ diskar**.
 2. I **resurs grupp**väljer du en befintlig resurs grupp för de återställda diskarna eller skapar en ny med ett globalt unikt namn.
 3. I **lagrings konto**anger du det konto som de virtuella hård diskarna ska kopieras till. [Läs mer](#storage-accounts).
 
@@ -138,11 +138,11 @@ När disken har återställts använder du den mall som har genererats som en de
 
 ## <a name="replace-existing-disks"></a>Ersätt befintliga diskar
 
-Som en av återställnings [alternativen](#restore-options)kan du ersätta en befintlig virtuell dator disk med den valda återställnings punkten. [Granska](#restore-options) alla återställnings alternativ.
+Som en av [återställnings alternativen](#restore-options)kan du ersätta en befintlig virtuell dator disk med den valda återställnings punkten. [Granska](#restore-options) alla återställnings alternativ.
 
 1. I **Återställ konfiguration**klickar du på **Ersätt befintlig**.
 2. I **återställnings typ**väljer du **Ersätt disk/s**. Detta är den återställnings punkt som ska användas för att ersätta befintliga VM-diskar.
-3. Påmellanlagringsplatsen anger du var ögonblicks bilder av de aktuella hanterade diskarna ska sparas under återställnings processen. [Läs mer](#storage-accounts).
+3. På **mellanlagringsplatsen**anger du var ögonblicks bilder av de aktuella hanterade diskarna ska sparas under återställnings processen. [Läs mer](#storage-accounts).
 
    ![Återställ konfigurations guiden Ersätt befintlig](./media/backup-azure-arm-restore-vms/restore-configuration-replace-existing.png)
 
@@ -177,7 +177,7 @@ När du har utlöst återställnings åtgärden skapar säkerhets kopierings tj�
 2. Om du vill övervaka återställnings förloppet klickar du på återställnings jobb med statusen **pågår**. Förlopps indikatorn visas, som visar information om återställnings förloppet:
 
     - **Beräknad återställnings tid**: I början tillhandahåller den tid som krävs för att slutföra återställnings åtgärden. När åtgärden fortskrider, minskar den tid det tar att minska och når noll när återställnings åtgärden slutförts.
-    - **Procent andel av**återställningen. Visar procent andelen återställnings åtgärd som är klar.
+    - **Procent andel av återställningen**. Visar procent andelen återställnings åtgärd som är klar.
     - **Antal överförda byte**: Om du återställer genom att skapa en ny virtuell dator visas de byte som överfördes mot det totala antalet byte som ska överföras.
 
 ## <a name="post-restore-steps"></a>Steg efter återställning

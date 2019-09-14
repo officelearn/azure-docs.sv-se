@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/19/2019
-ms.openlocfilehash: 0ae717487f1538536601c8578e744d976798bf76
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: 2d53f1bfc6eade535bfb1b3bb07d5115ffe5fc80
+ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70899944"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70967877"
 ---
 # <a name="submit-jobs-from-r-tools-for-visual-studio"></a>Skicka jobb från R Tools för Visual Studio
 
@@ -55,7 +55,8 @@ RTVS förbättrar ditt R-arbetsflöde genom att erbjuda verktyg som t. ex. [R In
 5. `1-Getting Started with R.R` Öppna filen`A first look at R` i Solution-mappen.
 6. Börja överst i filen och tryck på CTRL + RETUR för att skicka varje rad, en i taget, till det interaktiva R-fönstret. Det kan ta en stund att installera några rader medan paketen installeras.
     * Alternativt kan du markera alla rader i R-filen (Ctrl + A), sedan antingen köra alla (CTRL + RETUR) eller välja ikonen kör interaktiv i verktygsfältet.
-        ![Kör interaktiva](./media/r-server-submit-jobs-r-tools-vs/execute-interactive.png)
+
+        ![Kör interaktiva](./media/r-server-submit-jobs-r-tools-vs/execute-interactive1.png)
 
 7. När du har kört alla rader i skriptet bör du se utdata som liknar detta:
 
@@ -82,20 +83,20 @@ Med hjälp av en Microsoft ml Server/Microsoft R-klient från en Windows-dator s
     # Create the Spark Cluster compute context
     mySparkCluster <- RxSpark(
           sshUsername = mySshUsername,
-      sshHostname = mySshHostname,
-      sshSwitches = mySshSwitches,
-      sshProfileScript = mySshProfileScript,
-      consoleOutput = TRUE,
-      hdfsShareDir = myHdfsShareDir,
-      shareDir = myShareDir,
-      sshClientDir = mySshClientDir
+          sshHostname = mySshHostname,
+          sshSwitches = mySshSwitches,
+          sshProfileScript = mySshProfileScript,
+          consoleOutput = TRUE,
+          hdfsShareDir = myHdfsShareDir,
+          shareDir = myShareDir,
+          sshClientDir = mySshClientDir
     )
-    
+
     # Set the current compute context as the Spark compute context defined above
     rxSetComputeContext(mySparkCluster)
     ```
-    
-    ![Ställer in Spark-kontexten](./media/r-server-submit-jobs-r-tools-vs/spark-context.png)
+
+   ![Ställer in Spark-kontexten](./media/r-server-submit-jobs-r-tools-vs/apache-spark-context.png)
 
 1. Kör följande kommandon i det interaktiva R-fönstret:
 
@@ -107,13 +108,12 @@ Med hjälp av en Microsoft ml Server/Microsoft R-klient från en Windows-dator s
 
     Du bör se utdata som liknar följande:
 
-    ![Lyckad kommando körning av RX](./media/r-server-submit-jobs-r-tools-vs/rx-commands.png)
-
+    ![Lyckade mottagnings kommando](./media/r-server-submit-jobs-r-tools-vs/successful-rx-commands.png) körningar a
 1. Kontrol lera att `rxHadoopCopy` `people.json` filen har kopierats från `/user/RevoShare/newUser` mappen exempel data till den nya mappen:
 
     1. Från ditt kluster i HDInsight ML-tjänster i Azure väljer du **lagrings konton** i den vänstra menyn.
 
-        ![Lagringskonton](./media/r-server-submit-jobs-r-tools-vs/storage-accounts.png)
+        ![Lagringskonton](./media/r-server-submit-jobs-r-tools-vs/hdinsight-storage-accounts.png)
 
     2. Välj standard lagrings konto för klustret och Anteckna namnet på behållaren/katalogen.
 
@@ -123,7 +123,7 @@ Med hjälp av en Microsoft ml Server/Microsoft R-klient från en Windows-dator s
 
     4. Välj klustrets behållar namn, bläddra till mappen **användare** (du kanske måste klicka på *Läs in mer* längst ned i listan) och välj sedan *RevoShare*, sedan **newUser**. Filen ska visas `newUser` i mappen. `people.json`
 
-        ![Kopierad fil](./media/r-server-submit-jobs-r-tools-vs/copied-file.png)
+        ![Kopierad fil](./media/r-server-submit-jobs-r-tools-vs/hdinsight-copied-file.png)
 
 1. När du är färdig med den aktuella Apache Sparks kontexten måste du stoppa den. Det går inte att köra flera kontexter samtidigt.
 

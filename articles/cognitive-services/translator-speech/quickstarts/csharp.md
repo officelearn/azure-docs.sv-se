@@ -3,20 +3,20 @@ title: 'Snabbstart: Translator Speech API C#'
 titlesuffix: Azure Cognitive Services
 description: Hämta information och kodexempel som hjälper dig att snabbt komma igång med Translator Speech API.
 services: cognitive-services
-author: swmachan
+author: nitinme
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-speech
 ms.topic: quickstart
 ms.date: 04/26/2019
-ms.author: swmachan
+ms.author: nitinme
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 5cca3d5d02f9618e99f122bf3fc2a7d2874e1cdf
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 359d962db8b7d8cfdc17c230351bc5556604ebbe
+ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67444512"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70965426"
 ---
 # <a name="quickstart-translator-speech-api-with-c"></a>Snabbstart: Translator Speech API med C#
 <a name="HOLTop"></a>
@@ -27,7 +27,7 @@ Den här artikeln visar hur du använder Translator Speech API för att översä
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Du behöver [Visual Studio 2019](https://www.visualstudio.com/downloads/) att köra den här koden på Windows. (Den kostnadsfria Community Edition fungerar.) Om du använder Mac OS eller Linux kan du även använda textredigeraren [Visual Studio Code](https://code.visualstudio.com/Download) som ett alternativ.
+Du behöver [Visual Studio 2019](https://www.visualstudio.com/downloads/) för att köra den här koden i Windows. (Den kostnadsfria Community Edition fungerar.) Om du använder Mac OS eller Linux kan du även använda textredigeraren [Visual Studio Code](https://code.visualstudio.com/Download) som ett alternativ.
 
 Du behöver en WAV-fil med namnet ”speak.wav” i samma mapp som den körbara filen som du kompilerar från koden nedan. Den här .wav-filen ska vara i 16-bitars, 16 kHz PCM-standardformat.
 

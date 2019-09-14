@@ -7,12 +7,12 @@ ms.author: hrasheed
 ms.reviewer: hrasheed
 ms.topic: conceptual
 ms.date: 05/06/2019
-ms.openlocfilehash: f619a0179849e2ca17a0528d97ef13f0788a4838
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: 09cca0eda9a82b1605323678d7442700dc1a2292
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70811539"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70960504"
 ---
 # <a name="bring-your-own-key-for-apache-kafka-on-azure-hdinsight"></a>Ta med din egen nyckel för Apache Kafka på Azure HDInsight
 
@@ -58,7 +58,7 @@ Vi kommer att gå igenom följande steg för att skapa ett BYOK-aktiverat Kafka-
 
         b. Ange **alternativ** för att **generera** och ge nyckeln ett namn.
 
-        ![Generera nyckel namn](./media/apache-kafka-byok/kafka-create-a-key.png "Generera nyckel namn")
+        ![Generera nyckel namn](./media/apache-kafka-byok/apache-kafka-create-key.png "Generera nyckel namn")
 
         c. Välj den nyckel som du skapade i listan över nycklar.
 
@@ -103,7 +103,7 @@ Vi kommer att gå igenom följande steg för att skapa ett BYOK-aktiverat Kafka-
 
    Om du vill rotera nyckeln måste du ha den fullständiga URL: en för den nya nyckeln (se steg 3 i [konfigurera Key Vault och nycklar](#setup-the-key-vault-and-keys)). När du har gjort det går du till avsnittet Kafka-kluster egenskaper i portalen och klickar på **ändra nyckel** under **URL för disk krypterings nyckel**. Ange den nya nyckel-URL: en och skicka för att rotera nyckeln.
 
-   ![Kafka rotera disk krypterings nyckel](./media/apache-kafka-byok/kafka-change-key.png)
+   ![Kafka rotera disk krypterings nyckel](./media/apache-kafka-byok/apache-kafka-change-key.png)
 
 ## <a name="faq-for-byok-to-apache-kafka"></a>Vanliga frågor och svar om BYOK till Apache Kafka
 

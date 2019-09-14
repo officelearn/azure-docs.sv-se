@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/28/2019
-ms.openlocfilehash: 395bb01247efde82dbb39733c1915bc989b1729d
-ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
+ms.openlocfilehash: ab5f8c35334b6b6c56b0ebe8714d04ad5c7c8084
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68402777"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70960390"
 ---
 # <a name="connect-to-apache-kafka-on-hdinsight-through-an-azure-virtual-network"></a>Ansluta till Apache Kafka i HDInsight via en Azure-Virtual Network
 
@@ -252,7 +252,7 @@ Som standard returnerar Apache Zookeeper domän namnet för Kafka-utjämnarna ti
 
 3. Om du vill visa Kafka-konfiguration väljer du __konfiguration__ från det översta mitten.
 
-    ![Konfigurations Länkar för Kafka](./media/apache-kafka-connect-vpn-gateway/select-kafka-config.png)
+    ![Konfigurations Länkar för Kafka](./media/apache-kafka-connect-vpn-gateway/select-kafka-config1.png)
 
 4. Du hittar __Kafka-kuvert-__ konfigurationen genom att `kafka-env` ange i fältet __filter__ längst upp till höger.
 
@@ -270,11 +270,11 @@ Som standard returnerar Apache Zookeeper domän namnet för Kafka-utjämnarna ti
 
 6. Om du vill konfigurera gränssnittet som Kafka lyssnar på anger `listeners` du i fältet __filter__ längst upp till höger.
 
-7. Om du vill konfigurera Kafka för att lyssna på alla nätverks gränssnitt ändrar du värdet  i fältet Listeners `PLAINTEXT://0.0.0.0:9092`till.
+7. Om du vill konfigurera Kafka för att lyssna på alla nätverks gränssnitt ändrar du värdet i fältet __Listeners__ till `PLAINTEXT://0.0.0.0:9092`.
 
 8. Använd knappen __Spara__ om du vill spara konfigurations ändringarna. Ange ett textmeddelande som beskriver ändringarna. Välj __OK__ när ändringarna har sparats.
 
-    ![Knappen Spara konfiguration](./media/apache-kafka-connect-vpn-gateway/save-button.png)
+    ![Knappen Spara konfiguration](./media/apache-kafka-connect-vpn-gateway/save-configuration-button.png)
 
 9. Om du vill förhindra fel när du startar om Kafka använder du knappen __service åtgärder__ och väljer __Aktivera underhålls läge__. Klicka på OK för att slutföra åtgärden.
 
@@ -282,7 +282,7 @@ Som standard returnerar Apache Zookeeper domän namnet för Kafka-utjämnarna ti
 
 10. Om du vill starta om Kafka använder du knappen __starta om__ och väljer __starta om alla berörda__. Bekräfta omstarten och Använd sedan __OK__ -knappen när åtgärden har slutförts.
 
-    ![Knappen starta om med starta om alla berörda markerade](./media/apache-kafka-connect-vpn-gateway/restart-button.png)
+    ![Knappen starta om med starta om alla berörda markerade](./media/apache-kafka-connect-vpn-gateway/restart-required-button.png)
 
 11. Om du vill inaktivera underhålls läget använder du knappen __service åtgärder__ och väljer __inaktivera underhålls läge__. Klicka på **OK** för att slutföra åtgärden.
 

@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 01/14/2016
 ms.author: aelnably
 ms.custom: seodec18
-ms.openlocfilehash: 0f4915add76ce21064b7a79ae110f608592263bd
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 47efcfc4bf2b0268d6720b659786300e751e861d
+ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70067149"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70983698"
 ---
 # <a name="azure-app-service-app-cloning-using-powershell"></a>Azure App Service kloning av appar med hjälp av PowerShell
 
@@ -50,7 +50,7 @@ Med hjälp av kommandot kan du skapa den nya appen i regionen Norra centrala USA
 $destapp = New-AzWebApp -ResourceGroupName DestinationAzureResourceGroup -Name dest-webapp -Location "North Central US" -AppServicePlan DestinationAppServicePlan -SourceWebApp $srcapp
 ```
 
-Om du vill klona en befintlig app, inklusive alla tillhör ande distributions platser `IncludeSourceWebAppSlots` , måste du använda-parametern. Följande PowerShell-kommando visar hur parametern används med `New-AzWebApp` kommandot:
+Om du vill klona en befintlig app, inklusive alla tillhör ande distributions platser `IncludeSourceWebAppSlots` , måste du använda-parametern.  Observera att `IncludeSourceWebAppSlots` parametern endast stöds för kloning av en hel app, inklusive alla dess fack. Följande PowerShell-kommando visar hur parametern används med `New-AzWebApp` kommandot:
 
 ```powershell
 $destapp = New-AzWebApp -ResourceGroupName DestinationAzureResourceGroup -Name dest-webapp -Location "North Central US" -AppServicePlan DestinationAppServicePlan -SourceWebApp $srcapp -IncludeSourceWebAppSlots

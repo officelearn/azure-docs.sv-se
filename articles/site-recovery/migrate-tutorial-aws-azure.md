@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/09/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 1f5f2dc6babbca219f0efbb1d7013d4e6e3270e6
-ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
+ms.openlocfilehash: 1533ceebcda15c45a71c04580c35432de4125ccd
+ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70873304"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70984988"
 ---
 # <a name="migrate-amazon-web-services-aws-vms-to-azure"></a>Migrera virtuella AWS-datorer (Amazon Web Services) till Azure
 
@@ -117,6 +117,7 @@ Välj följande värden på sidan **Skyddsmål**:
 |---------|-----------|
 | Var finns dina datorer? |Välj **Lokalt**.|
 | Till vilken plats ska dina datorer replikeras? |Välj **till Azure**.|
+| Utför du en migrering? | Välj **Ja**och markera kryss rutan bredvid **i underdstand, men jag vill fortsätta med Azure Site Recovery.**
 | Är dina datorer virtualiserade? |Välj **Inte virtualiserad/övrigt**.|
 
 När du är klar, väljerr du **OK** för att fortsätta till nästa avsnitt.

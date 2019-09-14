@@ -1,7 +1,7 @@
 ---
 title: Filtrera nätverkstrafik – självstudie – Azure-portalen
 titlesuffix: Azure Virtual Network
-description: I den här självstudien får du lära dig hur du filtrerar nätverkstrafik till ett undernät med en nätverkssäkerhetsgrupp med Azure portal.
+description: I den här självstudien får du lära dig hur du filtrerar nätverks trafik till ett undernät, med en nätverks säkerhets grupp, med hjälp av Azure Portal.
 services: virtual-network
 documentationcenter: virtual-network
 author: KumudD
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 12/13/2018
 ms.author: kumud
-ms.openlocfilehash: 4097d4fc46aac88cd44d21a4cdcf0d7d5093feea
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 2d0519abdf25a6fc8373f9d1a3a7232a9783d316
+ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66242721"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70984911"
 ---
-# <a name="tutorial-filter-network-traffic-with-a-network-security-group-using-the-azure-portal"></a>Självstudier: Filtrera nätverkstrafik med en nätverkssäkerhetsgrupp med Azure portal
+# <a name="tutorial-filter-network-traffic-with-a-network-security-group-using-the-azure-portal"></a>Självstudier: Filtrera nätverks trafik med en nätverks säkerhets grupp med hjälp av Azure Portal
 
 Du kan filtrera inkommande och utgående nätverkstrafik till och från ett undernät i ett virtuellt nätverk med en nätverkssäkerhetsgrupp. Nätverkssäkerhetsgrupper innehåller säkerhetsregler som filtrerar nätverkstrafik efter IP-adress, port och protokoll. Säkerhetsregler tillämpas på resurser som har distribuerats i ett undernät. I den här guiden får du lära dig att:
 
@@ -47,10 +47,10 @@ Logga in på Azure Portal på https://portal.azure.com.
 
     | Inställning                 | Värde                                              |
     | ---                     | ---                                                |
-    | Namn                    | myVirtualNetwork                                   |
+    | Name                    | myVirtualNetwork                                   |
     | Adressutrymme           | 10.0.0.0/16                                        |
-    | Prenumeration            | Välj din prenumeration.                          |
-    | Resursgrupp          | Välj **Skapa ny** och ange *myResourceGroup*. |
+    | Subscription            | Välj din prenumeration.                          |
+    | Resource group          | Välj **Skapa ny** och ange *myResourceGroup*. |
     | Location                | Välj **USA, östra**.                                |
     | Undernät – namn            | mySubnet                                           |
     | Undernät – adressintervall  | 10.0.0.0/24                                        |
@@ -65,19 +65,19 @@ En programsäkerhetsgrupp gör att du kan gruppera ihop servrar med liknande fun
 
     | Inställning        | Värde                                                         |
     | ---            | ---                                                           |
-    | Namn           | myAsgWebServers                                               |
-    | Prenumeration   | Välj din prenumeration.                                     |
-    | Resursgrupp | Välj **Använd befintlig** och sedan **myResourceGroup**. |
-    | Location       | Östra USA                                                       |
+    | Name           | myAsgWebServers                                               |
+    | Subscription   | Välj din prenumeration.                                     |
+    | Resource group | Välj **Använd befintlig** och sedan **myResourceGroup**. |
+    | Location       | East US                                                       |
 
 4. Slutför steg 3 igen och ange följande värden:
 
     | Inställning        | Värde                                                         |
     | ---            | ---                                                           |
-    | Namn           | myAsgMgmtServers                                              |
-    | Prenumeration   | Välj din prenumeration.                                     |
-    | Resursgrupp | Välj **Använd befintlig** och sedan **myResourceGroup**. |
-    | Location       | Östra USA                                                       |
+    | Name           | myAsgMgmtServers                                              |
+    | Subscription   | Välj din prenumeration.                                     |
+    | Resource group | Välj **Använd befintlig** och sedan **myResourceGroup**. |
+    | Location       | East US                                                       |
 
 ## <a name="create-a-network-security-group"></a>Skapa en nätverkssäkerhetsgrupp
 
@@ -87,10 +87,10 @@ En programsäkerhetsgrupp gör att du kan gruppera ihop servrar med liknande fun
 
     |Inställning|Värde|
     |---|---|
-    |Namn|myNsg|
-    |Prenumeration| Välj din prenumeration.|
-    |Resursgrupp | Välj **Använd befintlig** och sedan *myResourceGroup*.|
-    |Location|Östra USA|
+    |Name|myNsg|
+    |Subscription| Välj din prenumeration.|
+    |Resource group | Välj **Använd befintlig** och sedan *myResourceGroup*.|
+    |Location|East US|
 
 ## <a name="associate-network-security-group-to-subnet"></a>Associera nätverkssäkerhetsgrupp till undernät
 
@@ -109,22 +109,22 @@ En programsäkerhetsgrupp gör att du kan gruppera ihop servrar med liknande fun
 
 2. Skapa en säkerhetsregel som tillåter portarna 80 och 443 till programsäkerhetsgruppen **myAsgWebServers**. Under **Lägg till ingående säkerhetsregel** anger eller väljer du följande värden, accepterar standardvärdena för resten av inställningarna och väljer sedan **Lägg till**:
 
-    | Inställning                 | Värde                                                                                                           |
+    | Inställning                 | Value                                                                                                           |
     | ---------               | ---------                                                                                                       |
     | Mål             | Välj **Programsäkerhetsgrupp** och välj sedan **myAsgWebServers** för **Programsäkerhetsgrupp**.  |
     | Målportsintervall | Ange 80,443                                                                                                    |
     | Protocol                | Välj TCP                                                                                                      |
-    | Namn                    | Allow-Web-All                                                                                                   |
+    | Name                    | Allow-Web-All                                                                                                   |
 
 3. Slutför steg 2 igen med följande värden:
 
-    | Inställning                 | Värde                                                                                                           |
+    | Inställning                 | Value                                                                                                           |
     | ---------               | ---------                                                                                                       |
     | Mål             | Välj **Programsäkerhetsgrupp** och välj sedan **myAsgMgmtServers** för **Programsäkerhetsgrupp**. |
     | Målportsintervall | Ange 3389                                                                                                      |
     | Protocol                | Välj TCP                                                                                                      |
-    | Prioritet                | Ange 110                                                                                                       |
-    | Namn                    | Allow-RDP-All                                                                                                   |
+    | Priority                | Ange 110                                                                                                       |
+    | Name                    | Allow-RDP-All                                                                                                   |
 
     I den här självstudien exponeras RDP (port 3389) till internet för den virtuella dator som är tilldelad till programsäkerhetsgruppen *myAsgMgmtServers*. För produktionsmiljöer rekommenderas att du i stället för att exponera port 3389 mot Internet ansluter till Azure-resurser som du vill hantera med hjälp av en VPN-anslutning eller privat nätverksanslutning.
 
@@ -140,27 +140,29 @@ Skapa två virtuella datorer i det virtuella nätverket.
 
 1. Klicka på **+ Skapa en resurs** längst upp till vänster på Azure Portal.
 2. Välj **Compute**, och välj sedan **Windows Server 2016 Datacenter**.
-3. Ange eller välj följande information, acceptera standardinställningarna för återstående inställningar och välj sedan **OK**:
+3. Ange eller Välj följande information och godkänn standardinställningarna för de återstående inställningarna:
 
-    |Inställning|Värde|
+    |Inställning|Value|
     |---|---|
-    |Namn|myVmWeb|
+    |Subscription| Välj din prenumeration.|
+    |Resource group| Välj **Använd befintlig** och sedan **myResourceGroup**.|
+    |Name|myVmWeb|
+    |Location| Välj **USA, östra**.|
     |Användarnamn| Ange ett valfritt användarnamn.|
-    |Lösenord| Ange ett valfritt lösenord. Lösenordet måste vara minst 12 tecken långt och uppfylla [de definierade kraven på komplexitet](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
-    |Prenumeration| Välj din prenumeration.|
-    |Resursgrupp| Välj **Använd befintlig** och sedan **myResourceGroup**.|
-    |Location| Välj **USA, östra**|
+    |lösenordsinställning| Ange ett valfritt lösenord. Lösenordet måste vara minst 12 tecken långt och uppfylla [de definierade kraven på komplexitet](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
+
+   
 
 4. Välj en storlek för den virtuella datorn och sedan **Välj**.
-5. Under **Inställningar** anger eller väljer du följande värden, accepterar standardvärdena för resten av inställningarna och väljer sedan **OK**:
+5. Under **nätverk**väljer du följande värden och godkänner de återstående standardvärdena:
 
-    |Inställning|Värde|
+    |Inställning|Value|
     |---|---|
-    |Virtuellt nätverk |Välj **myVirtualNetwork**|
-    |Nätverkssäkerhetsgrupp | Välj **Avancerat**.|
-    |Nätverkssäkerhetsgrupp (brandvägg)| Välj **(ny) myVmWeb-nsg** och sedan under **Välj nätverkssäkerhetsgrupp** väljer du **Ingen**. |
+    |Virtuellt nätverk |Välj **myVirtualNetwork**.|
+    |Nätverks säkerhets grupp för nätverkskort |Välj **Avancerat**.|
+    |Offentliga inkommande portar|Välj **Ingen**. |
 
-6. Under **Skapa** i **sammanfattningen** väljer du **Skapa** för att starta VM-distributionen.
+6. Välj **Granska + skapa** längst ned i det vänstra hörnet och välj **skapa** för att starta distributionen av virtuella datorer.
 
 ### <a name="create-the-second-vm"></a>Skapa den andra virtuella datorn
 

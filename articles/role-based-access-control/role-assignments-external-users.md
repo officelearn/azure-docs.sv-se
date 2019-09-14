@@ -1,6 +1,6 @@
 ---
-title: Hantera åtkomst till Azure-resurser för externa användare med RBAC | Microsoft Docs
-description: Lär dig mer om att hantera åtkomst till Azure-resurser för användare utanför en organisation som använder rollbaserad åtkomstkontroll (RBAC).
+title: Hantera åtkomst till Azure-resurser för externa gäst användare med RBAC | Microsoft Docs
+description: Lär dig hur du hanterar åtkomst till Azure-resurser för användare utanför en organisation med rollbaserad åtkomst kontroll (RBAC).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -12,123 +12,197 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 03/20/2018
+ms.date: 09/12/2019
 ms.author: rolyon
 ms.reviewer: skwan
 ms.custom: it-pro
-ms.openlocfilehash: d919453816436366c00dde506210a2ed38cc69b7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 12f4b0276074b6732cf57443f51ef5d867f205a6
+ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65952205"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70967359"
 ---
-# <a name="manage-access-to-azure-resources-for-external-users-using-rbac"></a>Hantera åtkomst till Azure-resurser för externa användare med RBAC
+# <a name="manage-access-to-azure-resources-for-external-guest-users-using-rbac"></a>Hantera åtkomst till Azure-resurser för externa gäst användare som använder RBAC
 
-Rollbaserad åtkomstkontroll (RBAC) gör bättre säkerhetshantering för stora organisationer och för små och medelstora företag att arbeta med externa samarbetspartner, leverantörer eller freelancers som behöver åtkomst till specifika resurser i din miljö, men inte nödvändigtvis för hela infrastruktur eller eventuella faktureringsrelaterade scope. RBAC kan flexibiliteten i ägande en Azure-prenumeration som hanteras av administratörskontot (administratörsrollen för tjänsten på en prenumerationsnivå) och har flera användare bjuds in för att arbeta i samma prenumeration, men utan några administrativa rättigheter för den .
+Rollbaserad åtkomst kontroll (RBAC) ger bättre säkerhets hantering för stora organisationer och för små och medel stora företag som arbetar med externa medarbetare, leverantörer eller Freelancer som behöver åtkomst till vissa resurser i din miljö, men inte nödvändigt vis till hela infrastrukturen eller någon fakturerings besläktad omfattning. Du kan använda funktionerna i [Azure Active Directory B2B](../active-directory/b2b/what-is-b2b.md) för att samar beta med externa gäst användare och du kan använda RBAC för att endast bevilja de behörigheter som gäst användare behöver i din miljö.
 
-> [!NOTE]
-> Office 365-prenumerationer eller Azure Active Directory-licenser (till exempel: Åtkomst till Azure Active Directory) som etablerats från Microsoft 365 Administrationscenter är inte kvalificerade för att använda RBAC.
+## <a name="when-would-you-invite-guest-users"></a>När bjuder du in gäst användare?
 
-## <a name="assign-rbac-roles-at-the-subscription-scope"></a>Tilldela RBAC-roller prenumerationsområde
+Här följer några exempel scenarier när du kan bjuda in gäst användare till din organisation och bevilja behörigheter:
 
-Det finns två vanliga exempel när RBAC används (men inte begränsat till):
+- Tillåt en extern självgående leverantör som bara har ett e-postkonto för att få åtkomst till dina Azure-resurser för ett projekt.
+- Tillåt en extern partner att hantera vissa resurser eller en hel prenumeration.
+- Tillåt support tekniker som inte tillhör din organisation (till exempel Microsoft Support) att tillfälligt komma åt din Azure-resurs för att felsöka problem.
 
-* Med externa användare från organisationer (inte del av administratören användarens Azure Active Directory-klient) bjuds in för att hantera vissa resurser eller hela prenumerationen
-* Arbeta med användare i organisationen (de är en del av användarens Azure Active Directory-klient) men en del av olika team eller grupper som behöver detaljerad åtkomst till hela prenumerationen eller att vissa resursgrupper eller resurs scope i miljön
+## <a name="permission-differences-between-member-users-and-guest-users"></a>Behörighets skillnader mellan medlems användare och gäst användare
 
-## <a name="grant-access-at-a-subscription-level-for-a-user-outside-of-azure-active-directory"></a>Bevilja åtkomst på prenumerationsnivå för en användare utanför Azure Active Directory
+Interna medlemmar i en katalog (medlems användare) har olika behörigheter än användare som har bjudits in från en annan katalog som ett B2B-samarbets gäst (gäst användare). Medlemmar som användare kan till exempel läsa nästan all katalog information medan gäst användare har begränsad katalog behörighet. Mer information om medlems användare och gäst användare finns i [Vad är standard användar behörigheter i Azure Active Directory?](../active-directory/fundamentals/users-default-permissions.md).
 
-RBAC-roller som kan beviljas endast av **ägare** för prenumerationen. Därför kan måste administratören vara inloggad som en användare som har den här rollen tilldelas i förväg eller har skapats i Azure-prenumeration.
+## <a name="add-a-guest-user-to-your-directory"></a>Lägga till en gästanvändare i din katalog
 
-Azure-portalen när du har loggat in som administratör, Välj ”prenumerationer” och välj den du vill använda.
-![prenumerationsbladet i Azure-portalen](./media/role-assignments-external-users/0.png) som standard om administratören har köpt Azure-prenumerationen för användaren visas som **kontoadministratören**, detta är rollen prenumeration. Läs mer om Azure-prenumeration roller [Lägg till eller ändra Azure-prenumerationsadministratörer](../billing/billing-add-change-azure-subscription-administrator.md).
+Följ dessa steg om du vill lägga till en gäst användare till din katalog med hjälp av Azure Active Directory sidan.
 
-I det här exemplet är användaren ”alflanigan@outlook.com” är den **ägare** av ”kostnadsfri utvärdering” prenumerationen i AAD-klient ”standard klient Azure”. Eftersom den här användaren är skapare av Azure-prenumeration med inledande Account ”Outlook” (Account = Outlook, Live osv) standarddomännamnet för alla andra användare som har lagts till i den här klienten kommer att **”\@ alflaniganuoutlook.onmicrosoft.com ”** . Avsiktligt bildas syntaxen för den nya domänen genom att sätta ihop användarnamn och namnet på användaren som skapade klienten och att lägga till tillägget **”. onmicrosoft.com”** .
-Dessutom kan användare logga in med ett anpassat domännamn i klienten efter att lägga till och verifierar den för den nya innehavaren. Mer information om hur du verifierar ett anpassat domännamn i Azure Active Directory-klient finns i [lägga till ett anpassat domännamn i katalogen](../active-directory/fundamentals/add-custom-domain.md).
+1. Kontrol lera att organisationens inställningar för externt samarbete är konfigurerade så att du får bjuda in gäster. Mer information finns i [Aktivera externt samarbete i B2B och hantera vem som kan bjuda in gäster](../active-directory/b2b/delegate-invitations.md).
 
-I det här exemplet innehåller katalogen ”standard-klientorganisation Azure” endast användare med domännamnet ”\@alflanigan.onmicrosoft.com”.
+1. Klicka på **Azure Active Directory** > **användare** > **nya gäst användare**i Azure Portal.
 
-När du har valt prenumerationen administratörsanvändaren måste klicka på **åtkomstkontroll (IAM)** och sedan **lägga till en ny roll**.
+    ![Ny gäst användar funktion i Azure Portal](./media/role-assignments-external-users/invite-guest-user.png)
 
-![IAM åtkomstfunktion i Azure-portalen](./media/role-assignments-external-users/1.png)
+1. Följ stegen för att lägga till en ny gäst användare. Mer information finns i [Lägg till Azure Active Directory B2B-samarbets användare i Azure Portal](../active-directory/b2b/add-users-administrator.md#add-guest-users-to-the-directory).
 
-![Lägg till ny användare i IAM åtkomstfunktion i Azure-portalen](./media/role-assignments-external-users/2.png)
+När du har lagt till en gäst användare i katalogen kan du antingen skicka gäst användaren en direkt länk till en delad app, eller gäst användaren kan klicka på inlösnings-URL: en i inbjudan via e-post.
 
-Nästa steg är att välja rollen tilldelas och användaren som ska tilldelas den RBAC-rollen. I den **rollen** listrutan admin-användare ser bara de inbyggda RBAC-roller som är tillgängliga i Azure. Mer detaljerade förklaringar av varje roll och deras tilldelningsbara scope finns i [inbyggda roller för Azure-resurser](built-in-roles.md).
+![E-postinbjudan till gäst användare](./media/role-assignments-external-users/invite-email.png)
 
-Administratören måste sedan lägga till den externa användaren e-postadress. Det är förväntat beteende för den externa användaren inte visas i den befintliga klienten. När den externa användaren har bjudits in, kommer de att visas under **prenumerationer > åtkomstkontroll (IAM)** med de aktuella användarna som är tilldelade en RBAC-roll prenumerationsområde.
+För att gäst användaren ska kunna komma åt din katalog måste de slutföra Inbjudnings processen.
 
-![lägga till behörigheter till nya RBAC-roll](./media/role-assignments-external-users/3.png)
+![Gäst användar inbjudan granska behörigheter](./media/role-assignments-external-users/invite-review-permissions.png)
 
-![lista över RBAC-roller på prenumerationsnivån](./media/role-assignments-external-users/4.png)
+Mer information om Inbjudnings processen finns i [Azure Active Directory B2B-samverkan med inbjudan](../active-directory/b2b/redemption-experience.md).
 
-Användaren ”chessercarlton@gmail.com” har blivit inbjuden att vara en **ägare** för prenumerationen ”kostnadsfri utvärdering”. När du har skickat inbjudan, får den externa användaren en e-postbekräftelse med en aktiveringslänk.
-![e-postinbjudan för RBAC-roll](./media/role-assignments-external-users/5.png)
+## <a name="grant-access-to-a-guest-user"></a>Bevilja åtkomst till en gäst användare
 
-Är utanför organisationen, har den nya användaren inte några befintliga attribut i katalogen ”standard-klientorganisation Azure”. De kommer att skapas efter den externa användaren har gett ditt medgivande till att läggas till i den katalog som är associerade med prenumerationen de har tilldelats en roll.
+I RBAC för att bevilja åtkomst tilldelar du en roll. Om du vill bevilja åtkomst till en gäst användare följer du [samma steg](role-assignments-portal.md#add-a-role-assignment) som för en medlems användare, grupp, tjänstens huvud namn eller hanterad identitet. Följ dessa steg om du vill bevilja åtkomst till en gäst användare i olika omfång.
 
-![e-postinbjudan meddelande för RBAC-roll](./media/role-assignments-external-users/6.png)
+1. Klicka på **Alla tjänster** på Azure Portal.
 
-Den externa användare visas som i Azure Active Directory-klient hädanefter som externa användare och detta kan visas i Azure-portalen.
+1.  Välj den uppsättning resurser som åtkomsten gäller för, även kallat omfånget. Du kan till exempel välja **hanterings grupper**, **prenumerationer**, **resurs grupper**eller en resurs.
 
-![användare bladet azure active directory Azure-portalen](./media/role-assignments-external-users/7.png)
+1. Klicka på den aktuella resursen.
 
-I den **användare** vyn, externa användare kan erkännas av typen annan ikon i Azure-portalen.
+1. Klicka på **åtkomstkontroll (IAM)** .
 
-Beviljar dock **ägare** eller **deltagare** åtkomst till en extern användare i den **prenumeration** omfång, tillåter inte åtkomst till admin-användarens katalog, såvida inte den **Global administratör** innebär att det. I användare-proprieties den **användartyp**, som har två parametrarna **medlem** och **gäst** kan identifieras. Medlem är en användare som har registrerats i katalogen gäst är en användare som bjuds in till katalogen från en extern källa. Mer information finns i [hur lägger Azure Active Directory-administratörer till B2B-samarbetare](../active-directory/active-directory-b2b-admin-add-users.md).
+    Följande skärm bild visar ett exempel på bladet åtkomst kontroll (IAM) för en resurs grupp. Om du gör ändringar i åtkomst kontrollen gäller de bara för resurs gruppen.
 
-> [!NOTE]
-> Kontrollera att den externa användaren väljer att logga in på rätt katalog när du har angett autentiseringsuppgifterna i portalen. Samma användare kan ha åtkomst till flera kataloger och kan välja någon av dem genom att klicka på användarnamnet i överst till höger i Azure-portalen och välj sedan den aktuella katalogen i listrutan.
+    ![Åtkomst kontroll (IAM) bladet för en resurs grupp](./media/role-assignments-external-users/access-control-resource-group.png)
 
-När du är en gäst i katalogen, den externa användaren kan hantera alla resurser för Azure-prenumeration, men kan inte komma åt katalogen.
+1. Klicka på fliken **roll tilldelningar** för att visa alla roll tilldelningar i det här omfånget.
 
-![åtkomst begränsad till azure active directory Azure-portalen](./media/role-assignments-external-users/9.png)
+1. Klicka på **Lägg till** > **Lägg till rolltilldelning** för att öppna fönsterrutan Lägg till rolltilldelning.
 
-Azure Active Directory och en Azure-prenumeration inte har en underordnad-överordnad relation som andra Azure-resurser (till exempel: virtuella datorer, virtuella nätverk, webbappar, lagring osv) har med en Azure-prenumeration. Alla dessa skapas, hanteras och debiteras enligt en Azure-prenumeration medan en Azure-prenumeration används för att hantera åtkomst till en Azure-katalog. Mer information finns i [hur en Azure-prenumeration är kopplad till Azure AD](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
+    Om du inte har behörighet att tilldela roller är alternativet Lägg till rolltilldelning inaktiverat.
 
-Från alla de inbyggda RBAC-rollerna, **ägare** och **deltagare** ger fullständig åtkomst till alla resurser i miljön, skillnaden är att deltagare inte kan skapa eller ta bort nya RBAC-roller . De inbyggda rollerna som **virtuell Datordeltagare** erbjuder fullständig hantering endast åtkomst till de resurser som anges av namnet, oavsett den **resursgrupp** de som skapas i.
+    ![Menyn Lägg till](./media/role-assignments-external-users/add-menu.png)
 
-Tilldela den inbyggda RBAC-rollen för **virtuell Datordeltagare** innebär att användaren tilldelas rollen på en prenumerationsnivå:
+1. I listrutan **Roll** väljer du en roll, till exempel **Virtuell datordeltagare**.
 
-* Kan visa alla virtuella datorer oavsett deras distributionsdatum och de ingår i resursgrupper
-* Har fullständig åtkomst till de virtuella datorerna i prenumerationen
-* Det går inte att visa alla andra typer av resurser i prenumerationen
-* Det går inte att fungera ändringar från ett
+1. I listan **Välj** väljer du gäst användaren. Om du inte ser användaren i listan kan du skriva i rutan **Välj** för att söka i katalogen efter visnings namn, e-postadresser och objekt identifierare.
 
-## <a name="assign-a-built-in-rbac-role-to-an-external-user"></a>Tilldela en inbyggd RBAC-roll till en extern användare
+   ![Fönsterrutan Lägg till rolltilldelning](./media/role-assignments-external-users/add-role-assignment.png)
 
-För ett annat scenario i det här testet, den externa användaren ”alflanigan@gmail.com” har lagts till som en **virtuell Datordeltagare**.
+1. Klicka på **Spara** för att tilldela rollen vid det valda omfånget.
 
-![inbyggda deltagarrollen virtuell dator](./media/role-assignments-external-users/11.png)
+    ![Roll tilldelning för virtuell dator deltagare](./media/role-assignments-external-users/access-control-role-assignments.png)
 
-Det normala beteendet för den här externa användaren med det här inbyggd roll är att se och hantera endast virtuella datorer och deras intilliggande Resource Manager endast resurser som krävs för när du distribuerar. Enligt design erbjuder rollerna begränsad endast åtkomst till sina motsvarande resurser som skapats i Azure-portalen.
+## <a name="grant-access-to-a-guest-user-not-yet-in-your-directory"></a>Bevilja åtkomst till en gäst användare som ännu inte är i din katalog
 
-![deltagare rollen översikt över virtuella datorer i Azure-portalen](./media/role-assignments-external-users/12.png)
+I RBAC för att bevilja åtkomst tilldelar du en roll. Om du vill bevilja åtkomst till en gäst användare följer du [samma steg](role-assignments-portal.md#add-a-role-assignment) som för en medlems användare, grupp, tjänstens huvud namn eller hanterad identitet.
 
-## <a name="grant-access-at-a-subscription-level-for-a-user-in-the-same-directory"></a>Bevilja åtkomst på prenumerationsnivå för en användare i samma katalog
+Om gäst användaren inte finns i din katalog än kan du bjuda in användaren direkt från fönstret Lägg till roll tilldelning.
 
-Processflödet är identisk med att lägga till en extern användare, både ur administratör bevilja RBAC-roll som användaren beviljas åtkomst till rollen. Skillnaden är att inbjuden användare inte får någon e-postinbjudningar som alla resurs scope inom prenumerationen kommer att finns på instrumentpanelen när du loggar in.
+1. Klicka på **Alla tjänster** på Azure Portal.
 
-## <a name="assign-rbac-roles-at-the-resource-group-scope"></a>Tilldela RBAC-roller i resursgruppomfånget
+1.  Välj den uppsättning resurser som åtkomsten gäller för, även kallat omfånget. Du kan till exempel välja **hanterings grupper**, **prenumerationer**, **resurs grupper**eller en resurs.
 
-Tilldela en RBAC-rollen på en **resursgrupp** omfång har en identisk process för att tilldela rollen på prenumerationsnivå för båda typerna av användare – extern eller intern (ingår i samma katalog). De användare som har tilldelats rollen RBAC är att se i sina miljöer endast resursgruppen de har tilldelats åtkomst från den **resursgrupper** ikonen i Azure-portalen.
+1. Klicka på den aktuella resursen.
 
-## <a name="assign-rbac-roles-at-the-resource-scope"></a>Tilldela RBAC-roller i resurs-omfånget
+1. Klicka på **åtkomstkontroll (IAM)** .
 
-Tilldela en RBAC-roller i ett resurs-omfång i Azure har en identisk process för att tilldela rollen på prenumerationsnivån eller på resursgruppsnivå, följa samma arbetsflöde för båda scenarierna. Igen, de användare som har tilldelats rollen RBAC ser bara de objekt som de har tilldelats åtkomst till, antingen i den **alla resurser** fliken eller direkt i sin instrumentpanel.
+1. Klicka på fliken **roll tilldelningar** för att visa alla roll tilldelningar i det här omfånget.
 
-Det är en viktig aspekt för RBAC både på resursen Gruppomfång eller resurs omfång för användare att se till att logga in på rätt katalog.
+1. Klicka på **Lägg till** > **Lägg till rolltilldelning** för att öppna fönsterrutan Lägg till rolltilldelning.
 
-![Directory-inloggning i Azure-portalen](./media/role-assignments-external-users/13.png)
+    ![Menyn Lägg till](./media/role-assignments-external-users/add-menu.png)
 
-## <a name="assign-rbac-roles-for-an-azure-active-directory-group"></a>Tilldela RBAC-roller för en Azure Active Directory-grupp
+1. I listrutan **Roll** väljer du en roll, till exempel **Virtuell datordeltagare**.
 
-Alla scenarier med RBAC i tre olika omfång i Azure erbjuder privilegiet hantera, distribuera och administrera olika resurser som en tilldelad användare utan att behöva hantera en personlig prenumeration. Oavsett RBAC-roll tilldelas för en prenumeration, resursgrupp eller resurs omfång, alla resurser som skapas ytterligare på av tilldelade användare, faktureras i en Azure-prenumeration där användarna har åtkomst till. På så sätt kan användare som har fakturering administratörsbehörighet för att hela Azure-prenumeration har en fullständig översikt på förbrukning, oavsett vem som hanterar resurserna.
+1. I listan **Välj** anger du e-postadressen till den person som du vill bjuda in och väljer personen.
 
-För stora organisationer kan RBAC-roller tillämpas på samma sätt för Azure Active Directory-grupper som överväger att administratören vill ge detaljerad åtkomst för team eller hela avdelningar, inte individuellt för varje användare måste därför överväger perspektiv det som ett mycket tid och hantering av effektiv alternativ. För att illustrera det här exemplet är den **deltagare** roll har lagts till någon av grupperna i klienten på prenumerationsnivån.
+   ![Bjud in gäst användare i fönstret Lägg till roll tilldelning](./media/role-assignments-external-users/add-role-assignment-new-guest.png)
 
-![Lägg till RBAC-roll för AAD-grupper](./media/role-assignments-external-users/14.png)
+1. Klicka på **Spara** för att lägga till gäst användaren i din katalog, tilldela rollen och skicka en inbjudan.
 
-Dessa grupper är säkerhetsgrupper, det vill säga etableras och hanteras endast i Azure Active Directory.
+    Efter en liten stund visas ett meddelande om roll tilldelningen och information om inbjudan.
 
+    ![Roll tilldelning och meddelande om inbjudna användare](./media/role-assignments-external-users/invited-user-notification.png)
+
+1. Om du vill bjuda in gäst användaren manuellt högerklickar du på länken inbjudan i meddelandet. Klicka inte på länken inbjudan eftersom den startar processen för inbjudan.
+
+    Länken för inbjudan har följande format:
+
+    `https://invitations.microsoft.com/redeem/...`
+
+1. Slutför Inbjudnings processen genom att skicka inbjudan till gäst användaren.
+
+    Mer information om Inbjudnings processen finns i [Azure Active Directory B2B-samverkan med inbjudan](../active-directory/b2b/redemption-experience.md).
+
+## <a name="remove-a-guest-user-from-your-directory"></a>Ta bort en gäst användare från din katalog
+
+Innan du tar bort en gäst användare från en katalog bör du först ta bort alla roll tilldelningar för gäst användaren. Följ dessa steg om du vill ta bort en gäst användare från en katalog.
+
+1. Öppna **åtkomst kontroll (IAM)** i ett omfång, till exempel hanterings grupp, prenumeration, resurs grupp eller resurs, där gäst användaren har en roll tilldelning.
+
+1. Klicka på fliken **roll tilldelningar** för att visa alla roll tilldelningar.
+
+1. Lägg till en bock bredvid gäst användaren med den roll tilldelning som du vill ta bort i listan över roll tilldelningar.
+
+   ![Ta bort roll tilldelning](./media/role-assignments-external-users/remove-role-assignment-select.png)
+
+1. Klicka på **Ta bort**.
+
+   ![Ta bort rolltilldelningsmeddelande](./media/role-assignments-external-users/remove-role-assignment.png)
+
+1. I meddelandet om att ta bort rolltilldelningen klickar du på **Ja**.
+
+1. Klicka på **Azure Active Directory** > **användare**i det vänstra navigerings fältet.
+
+1. Klicka på den gäst användare som du vill ta bort.
+
+1. Klicka på **Ta bort**.
+
+   ![Ta bort gäst användare](./media/role-assignments-external-users/delete-guest-user.png)
+
+1. Klicka på **Ja**i det borttagnings meddelande som visas.
+
+## <a name="troubleshoot"></a>Felsöka
+
+### <a name="guest-user-cannot-browse-the-directory"></a>Gäst användare kan inte bläddra i katalogen
+
+Gäst användare har begränsad katalog behörighet. Gäst användare kan till exempel inte bläddra i katalogen och kan inte söka efter grupper eller program. Mer information finns i [Vad är standard användar behörigheter i Azure Active Directory?](../active-directory/fundamentals/users-default-permissions.md).
+
+![Gäst användare kan inte bläddra i användare i en katalog](./media/role-assignments-external-users/directory-no-users.png)
+
+Om en gäst användare behöver ytterligare behörighet i katalogen kan du tilldela gäst användaren en katalog roll. Om du verkligen vill att en gäst användare ska ha fullständig Läs behörighet till din katalog kan du lägga till gäst användaren i rollen [katalog läsare](../active-directory/users-groups-roles/directory-assign-admin-roles.md) i Azure AD. Mer information finns i [bevilja behörigheter till användare från partner organisationer i din Azure Active Directory klient](../active-directory/b2b/add-guest-to-role.md).
+
+![Tilldela rollen katalog läsare](./media/role-assignments-external-users/directory-roles.png)
+
+### <a name="guest-user-cannot-browse-users-groups-or-service-principals-to-assign-roles"></a>Gäst användare kan inte bläddra användare, grupper eller tjänstens huvud namn för att tilldela roller
+
+Gäst användare har begränsad katalog behörighet. Även om en gäst användare är en [ägare](built-in-roles.md#owner) vid ett omfång, och de försöker skapa en roll tilldelning för att ge någon annan åtkomst, kan de inte bläddra i listan över användare, grupper eller tjänstens huvud namn.
+
+![Gäst användare kan inte bläddra i säkerhets objekt för att tilldela roller](./media/role-assignments-external-users/directory-no-browse.png)
+
+Om gäst användaren känner till någons exakta inloggnings namn i katalogen kan de bevilja åtkomst. Om du verkligen vill att en gäst användare ska ha fullständig Läs behörighet till din katalog kan du lägga till gäst användaren i rollen [katalog läsare](../active-directory/users-groups-roles/directory-assign-admin-roles.md) i Azure AD. Mer information finns i [bevilja behörigheter till användare från partner organisationer i din Azure Active Directory klient](../active-directory/b2b/add-guest-to-role.md).
+
+### <a name="guest-user-cannot-register-applications-or-create-service-principals"></a>Gäst användare kan inte registrera program eller skapa tjänstens huvud namn
+
+Gäst användare har begränsad katalog behörighet. Om en gäst användare behöver kunna registrera program eller skapa tjänstens huvud namn kan du lägga till gäst användaren i rollen [programutvecklare](../active-directory/users-groups-roles/directory-assign-admin-roles.md) i Azure AD. Mer information finns i [bevilja behörigheter till användare från partner organisationer i din Azure Active Directory klient](../active-directory/b2b/add-guest-to-role.md).
+
+![Gäst användare kan inte registrera program](./media/role-assignments-external-users/directory-access-denied.png)
+
+### <a name="guest-user-does-not-see-the-new-directory"></a>Gäst användare ser inte den nya katalogen
+
+Om en gäst användare har beviljats åtkomst till en katalog, men de inte ser den nya katalogen som listas i Azure Portal när de försöker växla i katalog-och **prenumerations** fönstret, se till att gäst användaren har slutfört inbjudan. Mer information om Inbjudnings processen finns i [Azure Active Directory B2B-samverkan med inbjudan](../active-directory/b2b/redemption-experience.md).
+
+### <a name="guest-user-does-not-see-resources"></a>Gäst användare ser inte resurser
+
+Om en gäst användare har beviljats åtkomst till en katalog, men de inte ser de resurser som de har beviljats åtkomst till i Azure Portal, se till att gäst användaren har valt rätt katalog. En gäst användare kan ha åtkomst till flera kataloger. För att växla kataloger, i det övre vänstra hörnet, klickar du på **katalog + prenumeration**och sedan på lämplig katalog.
+
+![Fönstret kataloger + prenumerationer i Azure Portal](./media/role-assignments-external-users/directory-subscription.png)
+
+## <a name="next-steps"></a>Nästa steg
+
+- [Lägg till användare i Azure Active Directory B2B-samarbetet i Azure portal](../active-directory/b2b/add-users-administrator.md)
+- [Egenskaper för en Azure Active Directory B2B-samarbets användare](../active-directory/b2b/user-properties.md)
+- [Elementen i e-postinbjudanen B2B – Azure Active Directory](../active-directory/b2b/invitation-email-elements.md)

@@ -1,5 +1,5 @@
 ---
-title: Start fel för virtuell Azure-dator
+title: Startfel i virtuella Azure-datorer
 description: Det gick inte att starta den virtuella datorn eftersom den virtuella datorn angav en räddnings konsol
 services: virtual-machines-windows
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/28/2019
 ms.author: tiag
-ms.openlocfilehash: 14bf7b289f3d03dd1437a18b0b5bd35fdec567ea
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 9995b9049378a0ab4f3450ec577d034598d171e9
+ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70143315"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70984827"
 ---
 # <a name="vm-boot-error"></a>Fel vid start av virtuell dator
 
@@ -48,7 +48,7 @@ Följ stegen nedan beroende på vilket fel du får:
 
     2. Kör sedan följande kommando för att återskapa konfigurationen:`grub2-mkconfig -o /boot/grub2/grub.cfg`
 
-   * `/boot/grub/menu.lst`Om den saknade filen är är det här felet för äldre OS-versioner (**RHEL 6. x**, **CentOS 6. x** och **Ubuntu 14,04**) så att kommandona kan skjuta upp. Du måste sätta igång en gammal Server och testa för att se till att rätt kommandon tillhandahålls.
+   * `/boot/grub/menu.lst`Om filen saknas är det här felet för äldre OS-versioner (**RHEL 6. x**, **CentOS 6. x** och **Ubuntu 14,04**) så att kommandona kan skilja sig. Du måste sätta igång en gammal Server och testa för att se till att rätt kommandon tillhandahålls.
 
 ### <a name="error---no-such-partition"></a>Fel-ingen sådan partition
 

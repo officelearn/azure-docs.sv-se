@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 615eedc66d1c4ac931067ffccdace5d161b18384
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 81d0469645281f63527db5cf600f157d8d6b29d7
+ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68699888"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70968366"
 ---
 # <a name="attach-a-data-disk-to-a-windows-vm-with-powershell"></a>Koppla en datadisk till en virtuell Windows-dator med PowerShell
 
@@ -119,4 +119,4 @@ Update-AzVM -VM $vm -ResourceGroupName $rgName
 
 ## <a name="next-steps"></a>Nästa steg
 
-Skapa en [ögonblicks bild](snapshot-copy-managed-disk.md).
+Du kan också distribuera hanterade diskar med hjälp av mallar. Mer information finns i [använda Managed disks i Azure Resource Manager mallar](using-managed-disks-template-deployments.md) eller [snabb starts mall](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-multiple-data-disk) för att distribuera flera data diskar.

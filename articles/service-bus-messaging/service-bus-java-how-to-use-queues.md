@@ -14,23 +14,23 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 04/10/2019
 ms.author: aschhab
-ms.custom: seo-java-july2019, seo-java-august2019
-ms.openlocfilehash: 84f035a55256ab22c823b2aaed9c9c2400eebf5b
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019
+ms.openlocfilehash: b85099605d7f660b792186f7e17b0ed4ea43ef04
+ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70173412"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70967859"
 ---
 # <a name="use-azure-service-bus-queues-with-java-to-send-and-receive-messages"></a>Använda Azure Service Bus köer med Java för att skicka och ta emot meddelanden
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
-I den här självstudien får du lära dig hur du skapar Java-program för att skicka meddelanden till och ta emot meddelanden från en Service Bus kö. 
+I den här självstudien får du lära dig hur du skapar Java-program för att skicka meddelanden till och ta emot meddelanden från en Azure Service Bus kö. 
 
 > [!NOTE]
 > Du hittar Java-exempel på GitHub i [Azure-Service-Bus-lagringsplatsen](https://github.com/Azure/azure-service-bus/tree/master/samples/Java).
 
 ## <a name="prerequisites"></a>Förutsättningar
-1. En Azure-prenumeration. Du behöver ett Azure-konto för att slutföra den här självstudien. Du kan aktivera dina [förmåner för MSDN](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) -prenumeranter eller registrera dig för ett [kostnads fritt konto](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
+1. En Azure-prenumeration. Du behöver ett Azure-konto för att slutföra den här självstudien. Du kan aktivera dina [förmåner för MSDN-prenumeranter](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) eller registrera dig för ett [kostnads fritt konto](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
 2. Om du inte har en kö att arbeta med följer du stegen i artikeln [använd Azure Portal för att Service Bus skapa](service-bus-quickstart-portal.md) en kö.
     1. Läs snabb **översikten** över Service Bus **köer**. 
     2. Skapa ett Service Bus- **namnområde**. 

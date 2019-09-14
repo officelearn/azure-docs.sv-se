@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/09/2019
+ms.date: 09/12/2019
 ms.author: cherylmc
-ms.openlocfilehash: b7672ff83dac31968dff7ef7a66ff40b36b69d59
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: 502975df94fb61371dfa688806dfe1e1cc5aac70
+ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70845185"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70967130"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>ExpressRoute-partners och peeringplatser
 
@@ -157,7 +157,7 @@ I följande tabell visas platser efter tjänstleverantör. Om du vill visa tillg
 | **[Transtelco](https://transtelco.net/enterprise-services/)** |Stöds |Stöds |Borås, + Los Angeles|
 | **[UOLDIVEO](https://www.uoldiveo.com.br/)** |Stöds |Stöds |Sao Paulo |
 | **[Verizon](https://enterprise.verizon.com/products/network/application-enablement/secure-cloud-interconnect/)** |Stöds |Stöds |Amsterdam, Norrköping, Borås, Hongkong SAR, London, Mumbai, Silicon dal, Singapore, Sydney, Tokyo, Toronto, Washington DC |
-| **Viasat** | Stöds | Stöds | Washington DC2 |
+| **[Viasat](http://www.directcloud.viasatbusiness.com/)** | Stöds | Stöds | Washington DC2 |
 | **[Vocus-grupp NZ](https://www.vocus.co.nz/business/cloud-data-centres)** | Stöds | Stöds | Auckland, Sydney |
 | **[Vodafone](https://www.vodafone.com/business/global-enterprise/global-connectivity/vodafone-ip-vpn-cloud-connect)** |Stöds |Stöds |Amsterdam2, London, Singapore |
 | **Vodafone Idea** | Stöds | Stöds | Mumbai, Mumbai2 |
@@ -221,7 +221,7 @@ Om du är fjärran sluten och inte har fiber anslutning eller om du vill utforsk
 
 * Intelsat
 * [SES](https://www.ses.com/networks/signature-solutions/signature-cloud/ses-and-azure-expressroute)
-* Viasat
+* [Viasat](http://www.directcloud.viasatbusiness.com/)
 
 ## <a name="connectivity-through-additional-service-providers"></a>Anslutning via ytterligare tjänst leverantörer
 

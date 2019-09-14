@@ -7,12 +7,12 @@ ms.service: virtual-machines
 ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: delhan
-ms.openlocfilehash: 69631b39403dedab56ed75cb145d464c0e1f747c
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
-ms.translationtype: HT
+ms.openlocfilehash: 3a95d52f2a0aa07094f91b0653fcb94ff1f88d44
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 09/12/2019
-ms.locfileid: "70935345"
+ms.locfileid: "70959004"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Azure Storage Explorer fel söknings guide
 
@@ -264,6 +264,7 @@ Hantering av lokala autentiseringsuppgifter varierar beroende på Linux-distribu
 1. Öppna det lokala hanterings verktyget för autentiseringsuppgifter och hitta dina sparade autentiseringsuppgifter.
 2. Leta efter poster med nyckel `<connection_type_key>/<corrupted_connection_name>` ( `StorageExplorer_CustomConnections_Accounts_v1/account1`till exempel).
 3. Ta bort dessa poster och Lägg till anslutningarna igen.
+---
 
 Om du fortfarande stöter på det här felet när du har utfört de här stegen, eller om du vill dela med dig av vad du tycker är skadat anslutningarna, [öppnar du ett ärende](https://github.com/microsoft/AzureStorageExplorer/issues) på vår GitHub-sida.
 

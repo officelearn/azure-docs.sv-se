@@ -1,71 +1,71 @@
 ---
-title: Azure Marketplace och AppSource publiceringsguide
-description: En översikt över Azure Marketplace och Microsoft AppSource för appen och tjänsten utgivare.
+title: Publicerings guide för Azure Marketplace och AppSource
+description: En översikt över Azure Marketplace och Microsoft AppSource för app-och tjänst utgivare.
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 author: ellacroi
 ms.service: marketplace
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: 58591302280c67dbd0f69ebe0bc47cf95c8bfc18
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: cd6b09a1130e50fae7bd83579a0f176af0b5b9cd
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65956741"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70962610"
 ---
-# <a name="azure-marketplace-and-appsource-publishing-guide"></a>Azure Marketplace och AppSource publiceringsguide
+# <a name="azure-marketplace-and-appsource-publishing-guide"></a>Publicerings guide för Azure Marketplace och AppSource
 
-Publiceringsguide för Marketplace är utformat för att hjälpa nya och befintliga utgivare Lär dig hur du använder butiker i den [Azure Marketplace](https://azuremarketplace.microsoft.com) och [Microsoft AppSource](https://appsource.microsoft.com) att öka sin verksamhet i samarbete med Microsoft genom att ange program och tjänster.
+Publicerings guiden för Marketplace är utformad för att hjälpa nya och befintliga utgivare att lära sig hur man använder butiker på [Azure Marketplace](https://azuremarketplace.microsoft.com) och [Microsoft AppSource](https://appsource.microsoft.com) för att utveckla sitt företag i samarbete med Microsoft genom att visa program och Terminal.
 
 >[!Note]
->Marknaden här refererar till både Azure Marketplace och AppSource.  Se [en Marketplace, två butikerna gör](https://docs.microsoft.com/azure/marketplace/comparing-appsource-azure-marketplace) för mer information.
+>Marketplace här hänvisar till både Azure Marketplace och AppSource.  Se [en Marketplace, två butiker](https://docs.microsoft.com/azure/marketplace/comparing-appsource-azure-marketplace) för mer information.
 
-Den här guiden innehåller följande avsnitt: 
+Den här guiden omfattar följande ämnen: 
 *   Vad Marketplace är och hur det fungerar 
 *   Skillnaden mellan Azure Marketplace och AppSource butiker 
-*   Fördelar med att delta i Marketplace 
-*   Hur du blir utgivare och listar programmet eller tjänsten 
-*   Att utveckla din verksamhet 
+*   Fördelarna med att delta på Marketplace 
+*   Att bli utgivare och lista ditt program eller din tjänst 
+*   Så här växer företaget 
 
-Den här guiden innehåller både tekniska och information om steg du måste utföra innan du lista dina program och tjänster. Använda innehållsförteckningen att gå till olika avsnitt av guiden och gå direkt till viktiga ämnen.
+Den här guiden innehåller både teknisk och affärs information om de steg som du måste vidta innan du kan lista dina program och tjänster. Använd innehålls förteckningen för att gå till olika avsnitt i guiden och gå direkt till viktiga ämnen.
 
-Frågor om Azure Marketplace och AppSource kan skicka oss ett meddelande under **problemtyp** > **Marketplace Onboarding**.  Vår Marketplace Publisher Onboarding-teamet kommer att vara hjälper gärna till! 
+Om du har frågor om Azure Marketplace och AppSource kan du skicka oss ett meddelande under**Marketplace**-insändning av **problem typ** > .  Vårt onboarding-team för Marketplace kommer att vara glad att hjälpa dig! 
 
-## <a name="benefits-of-participating-in-the-marketplace"></a>Fördelar med att delta i Marketplace 
+## <a name="benefits-of-participating-in-the-marketplace"></a>Förmåner för deltagande i Marketplace 
 
-Marketplace är startmenyn för gemensamma go-to-market-aktiviteter med Microsoft som kan hjälpa dig att påskynda din verksamhet att växa. Genom att använda starta befordran, skapande av efterfrågan och gemensamma försäljnings- och marknadsföringsresurser kan kan dina Marketplace-erbjudanden mittpunkten i din molnverksamhet. Det finns inga avgifter för att du deltar i Marketplace.
+Marketplace är start-pad för att få en gemensam go-to-Marketing-aktivitet med Microsoft som kan hjälpa din verksamhet att öka. Med hjälp av starta befordran, efter frågan och gemensam försäljning och marknadsföring kan dina Marketplace vara centerpiece av din moln verksamhets motor. Det finns inga avgifter för deltagande i Marketplace.
 
-Vårt mål är att ansluta Microsoft-kunder med de bästa lösningarna som vårt partnerekosystem erbjuder. Om du vill göra det, hjälper vi dig genom hela din vägen, från registrering för publicering och tillväxt. 
+Vårt mål är att ansluta Microsoft-kunder till de bästa lösningarna som våra partner eko system erbjuder. För att göra det stöder vi dig genom hela resan från onboarding till publicering och tillväxt. 
 
-Dra nytta av funktionerna i Marketplace för att få din verksamhet att växa.
+Dra nytta av funktionerna i Marketplace för att utveckla din verksamhet.
 
-### <a name="expand-to-new-markets-and-segments-and-generate-new-sales-opportunities"></a>Expandera till nya marknader och segment och generera nya affärsmöjligheter
+### <a name="expand-to-new-markets-and-segments-and-generate-new-sales-opportunities"></a>Utöka till nya marknader och segment och skapa nya affärs möjligheter
 
-Använda Marketplace som en kanal för att få åtkomst till nya marknader, segment och användare med Microsoft-molnet med din portfölj med lösningar. Generera nya leads för marknadsföring och säljflödet nya leads till potentiella kunder. Dra nytta av gemensam marknadsföring och försäljning aktiviteter för att få fler kunder.
+Använd Marketplace som en kanal för att komma åt nya marknader, segment och Microsoft Cloud-användare med din portfölj med lösningar. Generera nya marknadsförings leads och Nurture nya leads till affärs möjligheter. Dra nytta av gemensamma marknadsförings-och försäljnings aktiviteter för att få fler kunder.
 
-### <a name="enhance-business-value-and-increase-deal-size-with-existing-and-new-customers"></a>Förbättra verksamheten mervärde och gör större affärer med befintliga och nya kunder 
+### <a name="enhance-business-value-and-increase-deal-size-with-existing-and-new-customers"></a>Förbättra affärs värde och öka avtals storleken med befintliga och nya kunder 
 
-Merförsäljning och korsförsäljning dina lösningar genom att lösa kundernas problem när du flyttar arbetsbelastningar till molnet. Om du säljer eller distribuerar via Marketplace, kan du minska försäljningscykel påskynda projekt och öka lönsamheten på avtalet genom att sälja kompletta lösningar som mål specifika arbetsbelastningar och branschen scenarier. 
+Merförsäljning och korsa dina lösningar genom att åtgärda kund problem när du har flyttat arbets belastningar till molnet. Om du säljer eller distribuerar via Marketplace kan du minska försäljningscykler, påskynda projekt och öka lönsamheten genom att sälja kompletta lösningar som riktar sig mot specifika arbets belastningar och bransch scenarier. 
 
 ### <a name="get-actionable-insights"></a>Få användbara insikter 
 
-Få insikter om prestanda för dina listor med insikter och analyser som är tillgängliga via Marketplace. Få mer information om Kampanjresultat, order och payouts och hur du kan maximera kampanjaktiviteterna för din lösning.
+Få insikter om prestandan hos dina listor genom insikter och analyser som är tillgängliga via Marketplace. Få mer information om kampanj prestanda, beställningar och utbetalningar och hur du maximerar kampanj aktiviteter för din lösning.
 
-### <a name="marketplace-go-to-market-benefits"></a>Marketplace go-to-market-fördelar 
+### <a name="commercial-marketplace-benefits"></a>Förmåner vid kommersiell marknads plats 
 
-Nya listor i Marketplace är berättigade till ett brett utbud av kostnadsfria förmåner för att hjälpa partner att öka sin verksamhet i Marketplace. Dessa fördelar är indelade i följande kategorier: 
+Nya listor på Marketplace är berättigade till en mängd kostnads fria fördelar för att hjälpa partners att utöka sin verksamhet på Marketplace. Dessa förmåner ingår i följande kategorier: 
 
-*   Teknisk: Allt du behöver att förbereda programmet för start. Från teknisk support, programmets design och, arkitekturdesign, Azure-kredit för utveckling och testning. 
+*   Produkt Allt du behöver för att förbereda programmet för start. Från teknisk support, program design och arkitektur design till Azure-krediter för utveckling och testning. 
 
-*   Gemensam marknadsföring: Allt du behöver att starta ditt erbjudande. Få åtkomst till kostnadsfria Microsoft Go-To-Market starta grunderna för att starta och flytta upp din lösning. Du kan också vara berättigade till ytterligare Microsoft marketing campaign inkluderings- och möjligheter att att synas i Marketplace.
+*   Sammarknadsföring: Allt du behöver för att starta erbjudandet. Få till gång till kostnads fria Microsoft go-to-Marketing-starter, grundläggande information som hjälper dig att lansera och marknadsföra din lösning. Du kan också vara berättigad till ytterligare Microsoft marknadsförings kampanj erbjudanden och möjligheter att bli tillgängliga på Marketplace.
 
-*   Samarbetsmöjligheter: Börja eller gör din resa till sälja med Microsoft via Marketplace. Åtkomst till program och gemensamma ökar försäljningen med Microsoft teams-supporten.
+*   Samförsäljning: Påbörja eller påskynda resan att sälja med Microsoft via Marketplace. Få åtkomst till program och support för att driva gemensam försäljning med Microsoft Teams.
 
-När du [skicka din lösning](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/azureisv) på Marketplace kontaktar vårt registreringsteam dig för att stödja din publiceringsupplevelse.  Se [så här skapar du ett Partnercenter-konto](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) för mer information.
+När du har [skickat din lösning](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/azureisv) till Marketplace kontaktar vårt onboarding-team dig för att stödja publicerings upplevelsen.  Mer information finns i [så här skapar du ett partner Center-konto](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) .
 
-Läs mer om Microsoft Go-To-Market-fördelar och sätt att utöka verksamheten på Marketplace, [Microsoft Go-To-Market Services](https://partner.microsoft.com/reach-customers/gtm).
+Lär dig mer om dina [kommersiella marknads förmåner](https://docs.microsoft.com//azure/marketplace/gtm-your-marketplace-benefits).
 
 ## <a name="next-steps"></a>Nästa steg
 
-Granska detaljerad information om molnämnen marketplace genom att utforska innehållsförteckningen till vänster. 
+Granska detaljerad information om Cloud Marketplace-ämnen genom att utforska innehålls förteckningen till vänster. 

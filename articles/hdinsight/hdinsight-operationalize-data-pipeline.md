@@ -1,6 +1,6 @@
 ---
-title: Operationalisera en pipeline för dataanalys – Azure
-description: Konfigurera och kör en exempel-datapipeline som utlöses av nya data och ger kortfattade resultat.
+title: Operationalisera en pipeline för data analys – Azure
+description: Konfigurera och kör en exempel data pipeline som utlöses av nya data och ger kortfattade resultat.
 ms.service: hdinsight
 author: ashishthaps
 ms.author: ashishth
@@ -8,68 +8,68 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/11/2018
-ms.openlocfilehash: 524386c046534b0ef0050e15d326118b84822822
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: dec3cdd63f3e3ff303bfd60ca1ae77a4c4641190
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64718041"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70961346"
 ---
 # <a name="operationalize-a-data-analytics-pipeline"></a>Operationalisera en pipeline för dataanalys
 
-*Datapipelines* underly många lösningar för dataanalys. Som namnet antyder en datapipeline tar in rådata, rensar omformas den efter behov och sedan vanligtvis utför beräkningar eller aggregeringar innan du lagrar bearbetade data. Bearbetade data används av klienter, rapporter eller API: er. En datapipeline måste ange repeterbara resultat om enligt ett schema eller när det aktiveras av nya data.
+*Datapipelines* med många lösningar för data analys. Som namnet antyder tar en datapipeline i rå data, rengörs och omformerar den efter behov och utför vanligt vis beräkningar eller agg regeringar innan de bearbetade data lagras. Bearbetade data används av klienter, rapporter eller API: er. En datapipeline måste ge upprepnings bara resultat, oavsett om ett schema eller när den utlöses av nya data.
 
-Den här artikeln beskriver hur du operationaliserar dina datapipelines för repeterbarhet, med hjälp av Oozie som körs på HDInsight Hadoop-kluster. I exempelscenariot får du via en datapipeline som förbereder och bearbeta flygbolag flygning time series-data.
+Den här artikeln beskriver hur du operationalisera data pipelines för repeterbarhet med Oozie som körs på HDInsight Hadoop-kluster. Exempel scenariot vägleder dig genom en datapipeline som förbereder och bearbetar data i flyg planens flyg tid.
 
-I följande scenario är indata en platt fil som innehåller en batch med flygning data i en månad. Den här flygning data omfattar information som flygplatsen original och beskrivning, miles leds, avgång och ankomst gånger och så vidare. Målet med denna pipeline är att sammanfatta dagliga flygbolag prestanda, där varje flygbolag har en rad för varje dag med de genomsnittliga avgång och ankomst fördröjningar i minuter och totala miles leds den dagen.
+I följande scenario är indata en platt fil som innehåller en grupp med flyg data i en månad. Dessa flyg data innehåller information som till exempel platsens ursprung och målplats, mil flödet, avresa och ankomst tider, och så vidare. Målet med den här pipelinen är att sammanfatta dagliga flyg bolags prestanda, där varje flyg bolag har en rad för varje dag med genomsnittlig avvikelse och ankomst fördröjningar på några minuter, och det totala antalet mil i km som den dagen.
 
-| YEAR | MONTH | DAY_OF_MONTH | OPERATÖR |AVG_DEP_DELAY | AVG_ARR_DELAY |TOTAL_DISTANCE |
+| ÅR | MÅNAD | DAY_OF_MONTH | BÄRVÅG |AVG_DEP_DELAY | AVG_ARR_DELAY |TOTAL_DISTANCE |
 | --- | --- | --- | --- | --- | --- | --- |
-| 2017 | 1 | 3 | AA | 10.142229 | 7.862926 | 2644539 |
-| 2017 | 1 | 3 | AS | 9.435449 | 5.482143 | 572289 |
-| 2017 | 1 | 3 | DL | 6.935409 | -2.1893024 | 1909696 |
+| 2017 | 1 | 3 | AA | 10,142229 | 7,862926 | 2644539 |
+| 2017 | 1 | 3 | AS | 9,435449 | 5,482143 | 572289 |
+| 2017 | 1 | 3 | DL | 6,935409 | – 2,1893024 | 1909696 |
 
-Exempel-pipeline väntar tills en ny tidsperiod flygning data tas emot och lagrar den detaljerade flyginformation i Apache Hive data warehouse för långsiktig analyser. Pipelinen skapar även en mycket mindre datauppsättning som sammanfattar bara den dagliga datavolymen flygning. Den här dagliga flygning sammanfattningsdata skickas till en SQL-databas och tillhandahåller rapporter, till exempel för en webbplats.
+Exempel pipelinen väntar tills en ny tids period har inkommer och lagrar sedan den detaljerade flyg informationen i Apache Hive data lagret för långsiktiga analyser. Pipelinen skapar också en mycket mindre data uppsättning som sammanfattar bara de dagliga flyg uppgifterna. Den här dagliga informationen om flyg sammanfattningen skickas till en SQL-databas för att tillhandahålla rapporter, till exempel för en webbplats.
 
-Följande diagram illustrerar arbetsflödet i exemplet.
+Följande diagram illustrerar exempel pipelinen.
 
-![Flight Datapipeline](./media/hdinsight-operationalize-data-pipeline/pipeline-overview.png)
+![Pipeline för flyg data](./media/hdinsight-operationalize-data-pipeline/flight-pipeline-overview.png)
 
 ## <a name="apache-oozie-solution-overview"></a>Översikt över Apache Oozie-lösning
 
-Denna pipeline använder Apache Oozie som körs på ett HDInsight Hadoop-kluster.
+Den här pipelinen använder Apache Oozie som körs på ett HDInsight Hadoop-kluster.
 
-Oozie beskriver dess pipelines i *åtgärder*, *arbetsflöden*, och *koordinatorer*. Åtgärder avgör det faktiska arbetet att utföra, till exempel köra en Hive-fråga. Sekvens med åtgärder definierar arbetsflöden. Koordinatorer definiera schemat för när arbetsflödet körs. Koordinatorer kan också vänta på tillgängligheten för nya data innan du startar en instans av arbetsflödet.
+Oozie beskriver sina pipeliner vad gäller *åtgärder*, *arbets flöden*och *koordinatorer*. Åtgärder fastställer det faktiska arbetet som ska utföras, till exempel köra en Hive-fråga. Arbets flöden definierar ordningen på åtgärder. Koordinatorer definierar schemat för när arbets flödet ska köras. Koordinatorer kan också vänta på tillgängligheten för nya data innan du startar en instans av arbets flödet.
 
-Följande diagram visar den övergripande designen av det här exemplet Oozie-pipeline.
+Följande diagram visar den övergripande designen av det här exemplet Oozie pipeline.
 
-![Oozie flygning Datapipeline](./media/hdinsight-operationalize-data-pipeline/pipeline-overview-oozie.png)
+![Oozie flyg data pipeline](./media/hdinsight-operationalize-data-pipeline/pipeline-overview-oozie.png)
 
 ### <a name="provision-azure-resources"></a>Etablera Azure-resurser
 
-Den här pipelinen kräver en Azure SQL-databas och ett HDInsight Hadoop-kluster på samma plats. Azure SQL Database lagrar både de sammanfattning av data som produceras av pipelinen och arkivet Oozie-metadata.
+Den här pipelinen kräver ett Azure SQL Database och ett HDInsight Hadoop-kluster på samma plats. Azure SQL Database lagrar både sammanfattnings data som skapats av pipelinen och Oozie metadata.
 
-#### <a name="provision-azure-sql-database"></a>Etablera Azure SQL-databas
+#### <a name="provision-azure-sql-database"></a>Etablera Azure SQL Database
 
-1. Med Azure portal, skapa en ny resursgrupp med namnet `oozie` som innehåller alla resurser som används av det här exemplet.
-2. I den `oozie` resursgrupp, etablera en Azure SQL Server och databas. Du behöver inte en databas större än prisnivån S1 Standard.
-3. Med Azure-portalen, gå till fönstret för nyligen distribuerade SQL-databasen och välj **verktyg**.
+1. Skapa en ny resurs grupp `oozie` med hjälp av Azure Portal som innehåller alla resurser som används i det här exemplet.
+2. Etablera en Azure-SQL Server och databas i resursgruppen.`oozie` Du behöver inte en databas som är större än standard pris nivån för S1.
+3. Använd Azure Portal, navigera till fönstret för ditt nyligen distribuerade SQL Database och välj **verktyg**.
 
-    ![Verktyg](./media/hdinsight-operationalize-data-pipeline/sql-db-tools.png)
+    ![Knappen Verktyg](./media/hdinsight-operationalize-data-pipeline/hdi-sql-db-tools-button.png)
 
-4. Välj **frågeredigeraren**.
+4. Välj **Frågeredigeraren**.
 
-    ![Query Editor-knappen](./media/hdinsight-operationalize-data-pipeline/sql-db-query-editor.png)
+    ![Knappen Frågeredigeraren](./media/hdinsight-operationalize-data-pipeline/sql-db-query-editor1.png)
 
-5. I den **frågeredigeraren** väljer **inloggning**.
+5. I fönstret **Frågeredigeraren** väljer du **Logga in**.
 
-    ![Inloggningsknappen](./media/hdinsight-operationalize-data-pipeline/sql-db-login1.png)
+    ![Inloggnings knapp](./media/hdinsight-operationalize-data-pipeline/sql-db-login-window1.png)
 
-6. Ange dina autentiseringsuppgifter för SQL-databas och välj **OK**.
+6. Ange dina SQL Database autentiseringsuppgifter och välj **OK**.
 
-   ![Inloggningsformulär](./media/hdinsight-operationalize-data-pipeline/sql-db-login2.png)
+   ![Inloggnings formulär](./media/hdinsight-operationalize-data-pipeline/sql-db-login-window2.png)
 
-7. I textområdet frågeredigeraren, anger du följande SQL-uttryck för att skapa den `dailyflights` tabellen som lagrar sammanfattade data från varje körning av pipelinen.
+7. I text rutan Frågeredigeraren anger du följande SQL-uttryck för att skapa den `dailyflights` tabell som ska lagra de sammanfattade data från varje körning av pipelinen.
 
     ```
     CREATE TABLE dailyflights
@@ -88,103 +88,103 @@ Den här pipelinen kräver en Azure SQL-databas och ett HDInsight Hadoop-kluster
     GO
     ```
 
-8. Välj **kör** att köra SQL-uttryck.
+8. Välj **Kör** för att köra SQL-instruktionerna.
 
-    ![Köra knappen](./media/hdinsight-operationalize-data-pipeline/sql-db-run.png)
+    ![Knappen Kör](./media/hdinsight-operationalize-data-pipeline/hdi-sql-db-run-button.png)
 
 Din Azure SQL Database är nu klar.
 
 #### <a name="provision-an-hdinsight-hadoop-cluster"></a>Etablera ett HDInsight Hadoop-kluster
 
-1. I Azure-portalen väljer du **+ ny** och Sök efter HDInsight.
+1. I Azure Portal väljer du **+ ny** och söker efter HDInsight.
 2. Välj **Skapa**.
-3. Ange ett unikt namn för klustret och välj din Azure-prenumeration i fönstret grunder.
+3. Ange ett unikt namn för klustret i fönstret grundläggande och välj din Azure-prenumeration.
 
-    ![HDInsight-klusternamnet och prenumeration](./media/hdinsight-operationalize-data-pipeline/hdi-name-sub.png)
+    ![HDInsight-kluster namn och prenumeration](./media/hdinsight-operationalize-data-pipeline/cluster-name-subscription.png)
 
-4. I den **Klustertyp** väljer den **Hadoop** klustertyp, **Linux** operativsystemet och den senaste versionen av HDInsight-klustret. Lämna den **kluster nivån** på **Standard**.
+4. I fönstret **kluster typ** väljer du typ av **Hadoop** -kluster, **Linux** -operativsystem och den senaste versionen av HDInsight-klustret. Lämna **kluster nivån** på **standard**.
 
-    ![Typ av HDInsight-kluster](./media/hdinsight-operationalize-data-pipeline/hdi-cluster-type.png)
+    ![Typ av HDInsight-kluster](./media/hdinsight-operationalize-data-pipeline/hdinsight-cluster-type.png)
 
-5. Välj **Välj** att tillämpa dina val av klustret.
-6. Slutför den **grunderna** genom att ange ett inloggningslösenord och välja din `oozie` resource gruppen i listan och välj sedan **nästa**.
+5. Välj **Välj** om du vill använda ditt kluster typ val.
+6. Slutför fönstret **grundläggande** genom att ange ett inloggnings lösen ord och `oozie` välja din resurs grupp i listan. Välj sedan **Nästa**.
 
-    ![Grunderna i HDInsight-fönstret](./media/hdinsight-operationalize-data-pipeline/hdi-basics.png)
+    ![Fönstret grundläggande för HDInsight](./media/hdinsight-operationalize-data-pipeline/hdinsight-basics-pane.png)
 
-7. I den **Storage** fönstret kan du låta den primära lagringen skriver inställt **Azure Storage**väljer **Skapa nytt**, och ange ett namn för det nya kontot.
+7. I rutan **lagring** lämnar du den primära lagrings typen inställd på **Azure Storage**, väljer **Skapa ny**och anger ett namn för det nya kontot.
 
-    ![Inställningar för Lagringskonto för HDInsight](./media/hdinsight-operationalize-data-pipeline/hdi-storage.png)
+    ![HDInsight Storage konto inställningar](./media/hdinsight-operationalize-data-pipeline/storage-account-settings.png)
 
-8. För den **Metaarkivsinställningar**under **Välj en SQL-databas för Hive**, väljer du den databas som du skapade tidigare.
+8. För **inställningarna för metaarkiv**, under **Välj en SQL-databas för Hive**, väljer du den databas som du skapade tidigare.
 
-    ![Inställningar för HDInsight Hive-Metaarkiv](./media/hdinsight-operationalize-data-pipeline/hdi-metastore-hive.png)
+    ![Inställningar för HDInsight Hive-Metaarkiv](./media/hdinsight-operationalize-data-pipeline/hive-metastore-settings.png)
 
 9. Välj **autentisera SQL Database**.
 
-    ![Autentisera för HDInsight Hive-Metaarkiv](./media/hdinsight-operationalize-data-pipeline/hdi-authenticate-sql.png)
+    ![HDInsight Hive-Metaarkiv autentisera](./media/hdinsight-operationalize-data-pipeline/hdi-authenticate-sql.png)
 
-10. Ange ditt SQL database-användarnamn och lösenord och välj **Välj**. 
+10. Ange ditt användar namn och lösen ord för SQL Database och välj **Välj**. 
 
-       ![HDInsight Hive-Metaarkiv autentisera inloggningen](./media/hdinsight-operationalize-data-pipeline/hdi-authenticate-sql-login.png)
+       ![HDInsight Hive Metaarkiv autentisera inloggning](./media/hdinsight-operationalize-data-pipeline/hdi-authenticate-sql-login.png)
 
-11. Gå tillbaka till den **Metaarkivsinställningar** panelen, väljer din databas för Oozie-metadata lagra och autentisera som du gjorde tidigare. 
+11. I fönstret **Inställningar för metaarkiv** väljer du din databas för Oozie-metadatalagret och autentiserar dig på samma sätt som tidigare. 
 
-       ![HDInsight Metaarkivsinställningar](./media/hdinsight-operationalize-data-pipeline/hdi-metastore-settings.png)
+       ![Inställningar för HDInsight-Metaarkiv](./media/hdinsight-operationalize-data-pipeline/hdi-metastore-settings.png)
 
 12. Välj **Nästa**.
-13. På den **sammanfattning** väljer **skapa** att distribuera klustret.
+13. I fönstret **Sammanfattning** väljer du **skapa** för att distribuera klustret.
 
-### <a name="verify-ssh-tunneling-setup"></a>Kontrollera SSH tunneling installationen
+### <a name="verify-ssh-tunneling-setup"></a>Verifiera installationen av SSH-tunnlar
 
-Om du vill använda Oozie Web Console för att visa status för dina coordinator och arbetsflödesinstanser, ställer du in en SSH-tunnel till ditt HDInsight-kluster. Mer information finns i [SSH-Tunnel](hdinsight-linux-ambari-ssh-tunnel.md).
+Om du vill använda Oozie-webbkonsolen för att visa status för koordinatorn och arbets flödes instanser konfigurerar du en SSH-tunnel till HDInsight-klustret. Mer information finns i [SSH-tunnel](hdinsight-linux-ambari-ssh-tunnel.md).
 
 > [!NOTE]  
-> Du kan också använda Chrome med den [Foxy Proxy](https://getfoxyproxy.org/) tillägget Bläddra web klusterresurser via SSH-tunnel. Konfigurera den att proxy alla begäranden via värden `localhost` på den tunnel-port 9876. Den här metoden är kompatibelt med Windows-undersystem för Linux, även känt som Bash i Windows 10.
+> Du kan också använda Chrome med [Foxy proxy](https://getfoxyproxy.org/) -tillägget för att söka i klustrets webb resurser i SSH-tunneln. Konfigurera den så att den proxy all begäran skickas `localhost` via värden i tunnelns port 9876. Den här metoden är kompatibel med Windows-undersystemet för Linux, även kallat bash i Windows 10.
 
-1. Kör följande kommando för att öppna en SSH-tunnel till ditt kluster:
+1. Kör följande kommando för att öppna en SSH-tunnel till klustret:
 
     ```
     ssh -C2qTnNf -D 9876 sshuser@[CLUSTERNAME]-ssh.azurehdinsight.net
     ```
 
-2. Kontrollera tunneln fungerar genom att gå till Ambari på din huvudnoden genom att bläddra till:
+2. Kontrol lera att tunneln fungerar genom att gå till Ambari på Head-noden genom att bläddra till:
 
-    http:\//headnodehost:8080
+    http:\//headnodehost: 8080
 
-3. Åtkomst till den **Oozie webbkonsolen** från Ambari, väljer **Oozie**, **snabblänkar**, och välj sedan **Oozie webbkonsolen**.
+3. Om du vill komma åt **Oozie-webbkonsolen** inifrån Ambari väljer du **Oozie**, **snabb länkar**och väljer sedan **Oozie-webbkonsol**.
 
 ### <a name="configure-hive"></a>Konfigurera Hive
 
-1. Hämta en CSV-exempelfil som innehåller data som rör sig i en månad. Ladda ned en ZIP-fil `2017-01-FlightData.zip` från den [HDInsight GitHub-lagringsplatsen](https://github.com/hdinsight/hdinsight-dev-guide) och packa upp den till CSV-filen `2017-01-FlightData.csv`. 
+1. Hämta en exempel-CSV-fil som innehåller Flight-data för en månad. Hämta zip-filen `2017-01-FlightData.zip` från [HDInsight GitHub-lagringsplatsen](https://github.com/hdinsight/hdinsight-dev-guide) och zippa upp den till CSV `2017-01-FlightData.csv`-filen. 
 
-2. Kopiera den här CSV-filen upp till Azure Storage-konto som är kopplat till ditt HDInsight-kluster och placera den i den `/example/data/flights` mapp.
+2. Kopiera CSV-filen till det Azure Storage konto som är kopplat till ditt HDInsight-kluster och placera det `/example/data/flights` i mappen.
 
-Du kan kopiera filen med SCP i din `bash` shell session.
+Du kan kopiera filen med hjälp av SCP i `bash` din Shell-session.
 
-1. Använd SCP för att kopiera filer från din lokala dator till den lokala lagringen av huvudnod ditt HDInsight-kluster.
+1. Använd SCP för att kopiera filerna från den lokala datorn till den lokala lagringen av din HDInsight-klusters huvud nod.
 
     ```bash
     scp ./2017-01-FlightData.csv sshuser@[CLUSTERNAME]-ssh.azurehdinsight.net:2017-01-FlightData.csv
     ```
 
-2. Använd HDFS-kommando för att kopiera filen från din lokala lagring huvudnoden till Azure Storage.
+2. Använd HDFS-kommandot för att kopiera filen från Head-nodens lokala lagring till Azure Storage.
 
     ```bash
     hdfs dfs -put ./2017-01-FlightData.csv /example/data/flights/2017-01-FlightData.csv
     ```
 
-Exempeldata är nu tillgänglig. Pipelinen kräver dock två Hive-tabeller för bearbetning, en för inkommande (`rawFlights`) och en för sammanfattningsdata (`flights`). Skapa tabellerna i Ambari på följande sätt.
+Exempel data är nu tillgängliga. Pipelinen kräver dock två Hive-tabeller för bearbetning, en för inkommande data (`rawFlights`) och en för sammanfattade data (`flights`). Skapa tabellerna i Ambari på följande sätt.
 
-1. Logga in på Ambari genom att gå till http:\//headnodehost:8080.
-2. Välj i listan över tjänster **Hive**.
+1. Logga in på Ambari genom att gå till http:\//headnodehost: 8080.
+2. I listan över tjänster väljer du **Hive**.
 
-    ![Att välja Hive i Ambari](./media/hdinsight-operationalize-data-pipeline/hdi-ambari-services-hive.png)
+    ![Välja Hive i Ambari](./media/hdinsight-operationalize-data-pipeline/hdi-ambari-services-hive.png)
 
-3. Välj **går du till vyn** bredvid etiketten Hive visa 2.0.
+3. Välj **gå till vy** bredvid Hive-vyns 2,0-etikett.
 
-    ![Att välja Hive-vyn i Ambari](./media/hdinsight-operationalize-data-pipeline/hdi-ambari-services-hive-summary.png)
+    ![Välja Hive-vy i Ambari](./media/hdinsight-operationalize-data-pipeline/hdi-ambari-services-hive-summary.png)
 
-4. I området fråga text, klistrar du in följande instruktioner att skapa den `rawFlights` tabell. Den `rawFlights` tabell innehåller ett schema vid läsning för CSV-filer i den `/example/data/flights` mapp i Azure Storage. 
+4. Klistra in följande instruktioner i fråge text avsnittet för att skapa `rawFlights` tabellen. Tabellen innehåller en schema för läsning av CSV-filer `/example/data/flights` i mappen i Azure Storage. `rawFlights` 
 
     ```
     CREATE EXTERNAL TABLE IF NOT EXISTS rawflights (
@@ -209,11 +209,11 @@ Exempeldata är nu tillgänglig. Pipelinen kräver dock två Hive-tabeller för 
     LOCATION '/example/data/flights'
     ```
 
-5. Välj **kör** till att skapa tabellen.
+5. Välj **Kör** för att skapa tabellen.
 
     ![Hive-fråga i Ambari](./media/hdinsight-operationalize-data-pipeline/hdi-ambari-services-hive-query.png)
 
-6. Att skapa den `flights` tabellen, Ersätt texten inom textområde frågan med följande satser. Den `flights` tabellen är en hanterad Hive-tabell som partitionerar data har lästs in av år, månad och dagen i månaden. Den här tabellen innehåller alla historiska flygning data med den lägsta Granulariteten finns i datakällan för en rad per flygning.
+6. Om du vill `flights` skapa tabellen ersätter du texten i fråge textområdet med följande instruktioner. `flights` Tabellen är en Hive-hanterad tabell som partitionerar data som läses in i den efter år, månad och dag i månaden. Den här tabellen innehåller alla historiska flyg data, med den lägsta kornig het som finns i käll informationen för en rad per flygning.
 
     ```
     SET hive.exec.dynamic.partition.mode=nonstrict;
@@ -239,19 +239,19 @@ Exempeldata är nu tillgänglig. Pipelinen kräver dock två Hive-tabeller för 
     );
     ```
 
-7. Välj **kör** till att skapa tabellen.
+7. Välj **Kör** för att skapa tabellen.
 
-### <a name="create-the-oozie-workflow"></a>Skapa Oozie-arbetsflöde
+### <a name="create-the-oozie-workflow"></a>Skapa Oozie-arbetsflödet
 
-Pipelines bearbeta normalt data i batchar med ett angivet tidsintervall. I det här fallet bearbetar pipelinen flygning data varje dag. Den här metoden kan CSV indatafilerna tas emot varje dag, varje vecka, varje månad eller år.
+Pipelines bearbetar vanligt vis data i batchar med ett angivet tidsintervall. I det här fallet bearbetar pipelinen flyg data varje dag. Den här metoden gör att CSV-filerna för indatafiler tas emot varje dag, varje vecka, varje månad eller varje år.
 
-Exempelarbetsflöde bearbetar det rör sig data dag för dag, i tre steg:
+Exempel arbets flödet bearbetar flyg data dag för dag i tre viktiga steg:
 
-1. Kör en Hive-fråga för att extrahera data för den dagen datumintervall från käll-CSV-filen som representeras av den `rawFlights` tabellen och infoga data i den `flights` tabell.
-2. Kör en Hive-fråga för att dynamiskt skapa en mellanlagringstabellen i Hive för den dagen, som innehåller en kopia av det rör sig data sammanställt efter dag och operatör.
-3. Använd Apache Sqoop för att kopiera alla data från den dagliga mellanlagringstabellen i Hive till målet `dailyflights` tabell i Azure SQL Database. Sqoop läser källraderna från data bakom Hive-tabell som finns i Azure Storage och läser in dem i SQL-databas med en JDBC-anslutning.
+1. Kör en Hive-fråga för att extrahera data för datum intervallet för den dagen från käll-CSV-filen som `rawFlights` representeras av tabellen och infoga `flights` data i tabellen.
+2. Kör en Hive-fråga för att dynamiskt skapa en mellanlagringsplats i Hive för dagen, som innehåller en kopia av flyg data som sammanfattas per dag och operatör.
+3. Använd Apache Sqoop för att kopiera alla data från den dagliga mellanlagrings tabellen i Hive till `dailyflights` mål tabellen i Azure SQL Database. Sqoop läser käll raderna från data bakom Hive-tabellen som finns i Azure Storage och läser in dem i SQL Database med hjälp av en JDBC-anslutning.
 
-De här tre stegen koordineras av ett Oozie-arbetsflöde. 
+Dessa tre steg koordineras av ett Oozie-arbetsflöde. 
 
 1. Skapa en fråga i filen `hive-load-flights-partition.hql`.
 
@@ -277,7 +277,7 @@ De här tre stegen koordineras av ett Oozie-arbetsflöde.
     WHERE year = ${year} AND month = ${month} AND day_of_month = ${day};
     ```
 
-    Använd syntax för Oozie variabler `${variableName}`. De här variablerna anges i den `job.properties` filen enligt beskrivningen i ett senare skede. Oozie ersätter de faktiska värdena vid körning.
+    Oozie variabler använder syntaxen `${variableName}`. Dessa variabler anges i `job.properties` filen enligt beskrivningen i ett senare steg. Oozie ersätter de faktiska värdena vid körning.
 
 2. Skapa en fråga i filen `hive-create-daily-summary-table.hql`.
 
@@ -303,15 +303,15 @@ De här tre stegen koordineras av ett Oozie-arbetsflöde.
     HAVING year = ${year} AND month = ${month} AND day_of_month = ${day};
     ```
 
-    Den här frågan skapar en mellanlagringstabellen som ska lagra endast sammanfattade data under en dag, anteckna SELECT-instruktion som beräknar genomsnittliga fördröjningar och totalt avståndet som leds av operatör per dag. De data som infogats i den här tabellen som lagras på en känd plats (sökväg som anges med variabeln hiveDataFolder) så att den kan användas som källa för Sqoop i nästa steg.
+    Den här frågan skapar en mellanlagringsplats som endast lagrar de summerade data i en dag, och noterar den SELECT-instruktion som beräknar genomsnitts fördröjningar och totalt avstånds flöde per dag. De data som infogas i den här tabellen lagras på en känd plats (den sökväg som anges av variabeln hiveDataFolder) så att den kan användas som källa för Sqoop i nästa steg.
 
-3. Kör följande kommando för Sqoop.
+3. Kör följande Sqoop-kommando.
 
     ```
     sqoop export --connect ${sqlDatabaseConnectionString} --table ${sqlDatabaseTableName} --export-dir ${hiveDataFolder} -m 1 --input-fields-terminated-by "\t"
     ```
 
-De här tre stegen uttrycks i tre separata åtgärder i följande Oozie-arbetsflödesfil med namnet `workflow.xml`.
+Dessa tre steg uttrycks som tre separata åtgärder i följande Oozie-arbetsflödesmall, med `workflow.xml`namnet.
 
 ```
 <workflow-app name="loadflightstable" xmlns="uri:oozie:workflow:0.5">
@@ -389,7 +389,7 @@ De här tre stegen uttrycks i tre separata åtgärder i följande Oozie-arbetsfl
 </workflow-app>
 ```
 
-Två Hive-frågor som används av deras sökvägen i Azure Storage och de återstående variabelvärdena tillhandahålls av följande `job.properties` fil. Den här filen konfigurerar arbetsflödet ska köras för datumet som den 3 januari 2017.
+De två Hive-frågorna används av sökvägen i Azure Storage och de återstående variabel värdena anges i följande `job.properties` fil. Den här filen konfigurerar det arbets flöde som ska köras för det tredje datumet januari 2017.
 
 ```
 nameNode=wasbs://[CONTAINERNAME]@[ACCOUNTNAME].blob.core.windows.net
@@ -409,71 +409,71 @@ month=01
 day=03
 ```
 
-I följande tabell sammanfattas var och en av egenskaperna och anger var du hittar värden för din egen miljö.
+I följande tabell sammanfattas alla egenskaper och det visar var du kan hitta värdena för din egen miljö.
 
-| Egenskap | Värdekälla |
+| Egenskap | Värde källa |
 | --- | --- |
-| nameNode | Den fullständiga sökvägen till Azure Storage-behållare som är kopplad till ditt HDInsight-kluster. |
-| jobTracker | För interna värdnamnet till din aktiva klustret YARN gå noden. På startsidan Ambari Välj YARN från listan över tjänster och välj sedan aktiv Resource Manager. Värdnamnet URI visas överst på sidan. Lägga till porten 8050. |
-| queueName | Namnet på den YARN-kö som används när du schemalägger Hive-åtgärder. Lämna som standard. |
-| oozie.use.system.libpath | Lämna som true. |
-| programbasen | Sökvägen till undermappen i Azure Storage där du distribuerar Oozie-arbetsflöde och stödfiler. |
-| oozie.wf.application.path | Platsen för Oozie-arbetsflöde `workflow.xml` ska köras. |
-| hiveScriptLoadPartition | Sökvägen i Azure Storage till Hive-fråga filen `hive-load-flights-partition.hql`. |
-| hiveScriptCreateDailyTable | Sökvägen i Azure Storage till Hive-fråga filen `hive-create-daily-summary-table.hql`. |
-| hiveDailyTableName | Det dynamiskt genererade namnet för mellanlagringstabellen. |
-| hiveDataFolder | Sökvägen i Azure Storage till data i mellanlagringstabellen. |
-| sqlDatabaseConnectionString | JDBC syntax anslutningssträngen till din Azure SQL Database. |
-| sqlDatabaseTableName | Namnet på tabellen i Azure SQL Database där sammanfattning raderna infogas. Lämna som `dailyflights`. |
-| år | Årskomponenten för den dagen för vilka flygning sammanfattningar beräknas. Lämna skick. |
-| månad | Månadskomponenten för den dagen för vilka flygning sammanfattningar beräknas. Lämna skick. |
-| dag | Dagen i månadskomponenten för den dagen för vilka flygning sammanfattningar beräknas. Lämna skick. |
+| NameNode | Den fullständiga sökvägen till den Azure Storage behållare som är kopplad till ditt HDInsight-kluster. |
+| jobTracker | Det interna värd namnet för det aktiva klustrets garn huvud-nod. På Start sidan för Ambari väljer du garn i listan över tjänster och väljer sedan aktiv Resource Manager. Hostname-URI: n visas överst på sidan. Lägg till porten 8050. |
+| queueName | Namnet på den garn kö som används vid schemaläggning av Hive-åtgärder. Lämna som standard. |
+| oozie.use.system.libpath | Lämna som sant. |
+| Program bas | Sökvägen till undermappen i Azure Storage där du distribuerar arbets flödet för Oozie och stödfiler. |
+| oozie.wf.application.path | Platsen för det Oozie-arbetsflöde `workflow.xml` som ska köras. |
+| hiveScriptLoadPartition | Sökvägen i Azure Storage till Hive-mallfilen `hive-load-flights-partition.hql`. |
+| hiveScriptCreateDailyTable | Sökvägen i Azure Storage till Hive-mallfilen `hive-create-daily-summary-table.hql`. |
+| hiveDailyTableName | Det dynamiskt genererade namnet som ska användas för mellanlagrings tabellen. |
+| hiveDataFolder | Sökvägen i Azure Storage till de data som finns i mellanlagrings tabellen. |
+| sqlDatabaseConnectionString | Anslutnings strängen för JDBC-syntax till din Azure SQL Database. |
+| sqlDatabaseTableName | Namnet på tabellen i Azure SQL Database som sammanfattnings raderna infogas i. Lämna som `dailyflights`. |
+| år | Års komponenten för den dag då flyg sammanfattningar beräknas. Lämna det som är. |
+| månad | Månads komponenten på den dag för vilken flyg sammanfattningar beräknas. Lämna det som är. |
+| dag | Dag i månads komponenten på den dag för vilken flyg sammanfattningar beräknas. Lämna det som är. |
 
 > [!NOTE]  
-> Se till att uppdatera din kopia av den `job.properties` filen med värdena som är specifika för din miljö innan du kan distribuera och kör din Oozie-arbetsflöde.
+> Se till att uppdatera din kopia av `job.properties` filen med värden som är speciella för din miljö, innan du kan distribuera och köra ditt Oozie-arbetsflöde.
 
-### <a name="deploy-and-run-the-oozie-workflow"></a>Distribuera och köra Oozie-arbetsflöde
+### <a name="deploy-and-run-the-oozie-workflow"></a>Distribuera och köra Oozie-arbetsflödet
 
-Använd SCP från bash-session för att distribuera din Oozie-arbetsflöde (`workflow.xml`), Hive-frågor (`hive-load-flights-partition.hql` och `hive-create-daily-summary-table.hql`) och jobbkonfigurationen (`job.properties`).  I Oozie endast den `job.properties` filen kan finnas på den lokala lagringen för huvudnoden. Alla övriga filer måste lagras i HDFS, i det här fallet Azure Storage. Åtgärden Sqoop som används av arbetsflödet är beroende av en JDBC-drivrutin för att kommunicera med din SQL-databas, som kopieras från huvudnoden till HDFS.
+Använd SCP från bash-sessionen för att distribuera Oozie-arbetsflödet`workflow.xml`(), Hive-frågorna`hive-load-flights-partition.hql` ( `hive-create-daily-summary-table.hql`och) och jobb konfigurationen (`job.properties`).  I Oozie kan bara `job.properties` filen finnas i den lokala lagringen av huvudnoden. Alla andra filer måste lagras i HDFS, i det här fallet Azure Storage. Sqoop-åtgärden som används av arbets flödet beror på en JDBC-drivrutin för kommunikation med din SQL Database, som måste kopieras från Head-noden till HDFS.
 
-1. Skapa den `load_flights_by_day` undermapp under användarens sökväg i den lokala lagringen för huvudnoden.
+1. `load_flights_by_day` Skapa undermappen under användarens sökväg i den lokala lagringen av Head-noden.
 
         ssh sshuser@[CLUSTERNAME]-ssh.azurehdinsight.net 'mkdir load_flights_by_day'
 
-2. Kopiera alla filer i den aktuella katalogen (den `workflow.xml` och `job.properties` filer) upp till den `load_flights_by_day` undermappen.
+2. Kopiera alla filer i den aktuella katalogen ( `workflow.xml` `load_flights_by_day` filerna och `job.properties` ) upp till undermappen.
 
         scp ./* sshuser@[CLUSTERNAME]-ssh.azurehdinsight.net:load_flights_by_day
 
-3. SSH till din huvudnod och navigera till den `load_flights_by_day` mapp.
+3. SSH till Head-noden och navigera till `load_flights_by_day` mappen.
 
         ssh sshuser@[CLUSTERNAME]-ssh.azurehdinsight.net
         cd load_flights_by_day
 
-4. Kopiera Arbetsflödesfilerna till HDFS.
+4. Kopiera arbets flödes filen till HDFS.
 
         hdfs dfs -put ./* /oozie/load_flights_by_day
 
-5. Kopiera `sqljdbc41.jar` från den lokala huvudnoden till mappen arbetsflöde i HDFS:
+5. Kopiera `sqljdbc41.jar` från den lokala Head-noden till arbets flödes mappen i HDFS:
 
         hdfs dfs -put /usr/share/java/sqljdbc_4.1/enu/sqljdbc*.jar /oozie/load_flights_by_day
 
-6. Köra arbetsflödet.
+6. Kör arbets flödet.
 
         oozie job -config job.properties -run
 
-7. Notera att status med Oozie-webbkonsolen. Från Ambari, väljer **Oozie**, **snabblänkar**, och sedan **Oozie webbkonsolen**. Under den **arbetsflödesjobb** fliken **alla jobb**.
+7. Observera statusen med hjälp av webb konsolen för Oozie. I Ambari väljer du **Oozie**, **snabb länkar**och **Oozie webb konsol**. Under fliken **arbets flödes jobb** väljer du **alla jobb**.
 
-    ![Oozie Web Console arbetsflöden](./media/hdinsight-operationalize-data-pipeline/hdi-oozie-web-console-workflows.png)
+    ![Oozie webb konsol arbets flöden](./media/hdinsight-operationalize-data-pipeline/hdi-oozie-web-console-workflows.png)
 
-8. När statusen är SLUTFÖRT, fråga SQL-databastabell om du vill visa de Infoga raderna. Med Azure-portalen, gå till fönstret för SQL-databasen, Välj **verktyg**, och öppna den **frågeredigeraren**.
+8. När statusen är klar kan du fråga SQL Database-tabellen om du vill visa de infogade raderna. Använd Azure Portal, navigera till fönstret för din SQL Database, Välj **verktyg**och öppna **Frågeredigeraren**.
 
         SELECT * FROM dailyflights
 
-Nu när arbetsflödet körs för test av enkel-dag, kan du omsluta det här arbetsflödet med en koordinator som schemalägger arbetsflödet så att det körs varje dag.
+Nu när arbets flödet körs för den enskilda test dagen kan du omsluta det här arbets flödet med en koordinator som schemalägger arbets flödet så att det körs dagligen.
 
-### <a name="run-the-workflow-with-a-coordinator"></a>Kör arbetsflödet med en koordinator
+### <a name="run-the-workflow-with-a-coordinator"></a>Kör arbets flödet med en koordinator
 
-Om du vill schemalägga det här arbetsflödet så att det körs varje dag (eller alla dagar i ett visst datumintervall), kan du använda en koordinator. En koordinator definieras av en XML-fil, till exempel `coordinator.xml`:
+Om du vill schemalägga det här arbets flödet så att det körs dagligen (eller alla dagar i ett datum intervall) kan du använda en koordinator. En koordinator definieras av en XML-fil, till exempel `coordinator.xml`:
 
 ```
 <coordinator-app name="daily_export" start="2017-01-01T00:00Z" end="2017-01-05T00:00Z" frequency="${coord:days(1)}" timezone="UTC" xmlns="uri:oozie:coordinator:0.4">
@@ -542,17 +542,17 @@ Om du vill schemalägga det här arbetsflödet så att det körs varje dag (elle
 </coordinator-app>
 ```
 
-Som du ser är majoriteten av koordinatorn bara skicka konfigurationsinformation till arbetsflödesinstansen. Det finns dock några viktiga saker att lyfta fram.
+Som du kan se skickar majoriteten av koordinatorn bara konfigurations information till arbets flödes instansen. Det finns dock några viktiga objekt att anropa.
 
-* Punkt 1: Den `start` och `end` attribut på den `coordinator-app` elementet i sig själv styr det tidsintervall som koordinatorn körs.
+* Punkt 1: Attributen `end` ochi`coordinator-app` själva elementet styr tidsintervallet som koordinatorn kör. `start`
 
     ```
     <coordinator-app ... start="2017-01-01T00:00Z" end="2017-01-05T00:00Z" frequency="${coord:days(1)}" ...>
     ```
 
-    En koordinator ansvarar för schemaläggning av åtgärder inom den `start` och `end` datumintervall, enligt det intervall som anges av den `frequency` attribut. Varje schemalagd åtgärd körs i sin tur arbetsflödet som konfigurerats. I coordinator definitionen ovan konfigureras koordinatorn för att köra åtgärder från den 1 januari 2017 till den 5 januari 2017. Frekvensen är inställd på 1 dag av den [Oozie Uttrycksspråk](https://oozie.apache.org/docs/4.2.0/CoordinatorFunctionalSpec.html#a4.4._Frequency_and_Time-Period_Representation) frekvens uttryck `${coord:days(1)}`. Detta resulterar i koordinatorn schemaläggning av en åtgärd (och därför arbetsflödet) en gång per dag. Åtgärden kommer att schemaläggas att köras utan fördröjning för datumintervall som är tidigare, som i följande exempel. Början av det datum som en åtgärd är schemalagd att köras kallas den *nominell tid*. Till exempel för att bearbeta data för den 1 januari 2017 koordinatorn schemalägger åtgärden med en nominell 2017-01-01T00:00:00 GMT.
+    En koordinator ansvarar för schemaläggnings åtgärder inom `start` och `end` datum intervallet, enligt intervallet som anges av `frequency` attributet. Varje schemalagd åtgärd i Turn kör arbets flödet enligt konfigurationen. I koordinator definitionen ovan är koordinatorn konfigurerad att köra åtgärder från 1 januari 2017 till femte januari 2017. Frekvensen anges till 1 dag i uttryck `${coord:days(1)}`för [Oozie-uttryckets språk](https://oozie.apache.org/docs/4.2.0/CoordinatorFunctionalSpec.html#a4.4._Frequency_and_Time-Period_Representation) frekvens. Detta resulterar i att koordinatorn schemalägger en åtgärd (och därmed arbets flödet) en gång per dag. För datum intervall som redan har passerat, som i det här exemplet, kommer åtgärden att schemaläggas att köras utan fördröjning. Början på det datum då en åtgärd är schemalagd att köras kallas den *nominella tiden*. Om du till exempel vill bearbeta data i 1 januari 2017 schemalägger koordinator åtgärden med en nominell tid på 2017-01-01T00:00:00 GMT.
 
-* Punkt 2: Inom det angivna datumintervallet av arbetsflödet, den `dataset` elementet anger var att leta efter i HDFS data för ett visst datumintervall och konfigurerar hur Oozie anger om aktuella data är tillgängliga för bearbetning.
+* Punkt 2: Inom arbets flödets `dataset` datum intervall anger elementet var du ska titta på HDFS för data för ett visst datum intervall och konfigurerar hur Oozie avgör om data är tillgängliga ännu för bearbetning.
 
     ```
     <dataset name="ds_input1" frequency="${coord:days(1)}" initial-instance="2016-12-31T00:00Z" timezone="UTC">
@@ -561,11 +561,11 @@ Som du ser är majoriteten av koordinatorn bara skicka konfigurationsinformation
     </dataset>
     ```
 
-    Sökväg till data i HDFS skapas dynamiskt enligt de uttryck som anges i den `uri-template` element. I den här coordinator används också en frekvens på en dag med datauppsättningen. Medan start- och slutdatumen i coordinator elementet kontroll när åtgärderna som är schemalagda (och definierar sina nominell tid), den `initial-instance` och `frequency` på datauppsättningen styra beräkning av det datum som används i konstruera `uri-template`. I så fall, ange den första instansen till en dag före koordinatorn så att den hämtar den första dagen är (1/1/2017) tillhandahåller data. Datauppsättningens beräkning samlar framåt från värdet för `initial-instance` (2016/12/31) Avancera i steg om datauppsättningsfrekvensen (1 dag) tills den hittar det senaste datumet som inte klarar nominell tiden som koordinatorn (2017-01-01T00:00:00 GMT för den första åtgärden).
+    Sökvägen till data i HDFS skapas dynamiskt enligt uttrycket som anges i `uri-template` elementet. I den här koordinatorn används även en frekvens på en dag med data uppsättningen. Start-och slutdatumen för koordinator elementet styr när åtgärderna schemaläggs (och definierar deras nominella tider), `initial-instance` och `frequency` på data uppsättningen styr beräkningen av det datum som används för att skapa `uri-template`. I det här fallet ställer du in den första instansen på en dag innan koordinatorn börjar med att se till att den första dagen är data källa (1/1/2017). Datum beräkningen för data uppsättningen rullar framåt från värdet för `initial-instance` (12/31/2016) i steg om data uppsättnings frekvens (1 dag) tills den hittar det senaste datumet som inte klarar den nominella tid som angetts av koordinatorn (2017-01-01T00:00:00 GMT för den första åtgärden).
 
-    Tomt `done-flag` elementet anger att när Oozie söker efter indata vid tidpunkt, Oozie avgör data om tillgängliga av förekomsten av en katalog eller fil. I det här fallet är det förekomsten av en csv-fil. Om en csv-fil finns förutsätter Oozie data är klar och startar en arbetsflödesinstans för att bearbeta filen. Om det finns ingen csv-fil som finns, förutsätter Oozie data är ännu inte är klara och som kör arbetsflödets hamnar i väntande läge.
+    Det tomma `done-flag` elementet anger att när Oozie söker efter indata vid den angivna tiden, identifierar Oozie data om de är tillgängliga i närvaro av en katalog eller fil. I det här fallet är det förekomst av en CSV-fil. Om det finns en CSV-fil antar Oozie att data är klara och startar en arbets flödes instans för att bearbeta filen. Om det inte finns någon CSV-fil, förutsätter Oozie att data ännu inte är klara och att körningen av arbets flödet hamnar i ett vänte läge.
 
-* Punkt 3: Den `data-in` elementet anger viss tidsstämpeln ska användas som nominellt när du ersätter värdena i `uri-template` för den associerade datauppsättningen.
+* Punkt 3: Elementet anger den specifika tidstämpeln som ska användas som den nominella tiden när värdena i `uri-template` för den associerade data mängden ersätts. `data-in`
 
     ```
     <data-in name="event_input1" dataset="ds_input1">
@@ -573,17 +573,17 @@ Som du ser är majoriteten av koordinatorn bara skicka konfigurationsinformation
     </data-in>
     ```
 
-    I det här fallet skalningsuppsättningsinstans uttryck `${coord:current(0)}`, vilket innebär att med hjälp av nominell tiden för åtgärden som det ursprungligen schemalagda med koordinatorn. Med andra ord, när koordinatorn schemalägger åtgärden som ska köras med en nominell 2017-01-01, är 01/01/2017 används för att ersätta år (2017) och månad (01) variabler i URI-mall. När mallen URI beräknas för den här instansen, kontrollerar Oozie om förväntade katalogen eller filen är tillgänglig och schemalägger nästa körning av arbetsflödet på lämpligt sätt.
+    I det här fallet ställer du in instansen `${coord:current(0)}`till uttrycket, som översätts till att använda den nominella tiden för åtgärden som ursprungligen schemalagts av koordinatorn. Med andra ord, när koordinatorn schemalägger åtgärden att köras med en nominell tid på 01/01/2017, så är 01/01/2017 det som används för att ersätta år (2017) och månad (01) variabler i URI-mallen. När URI-mallen har beräknats för den här instansen kontrollerar Oozie om den förväntade katalogen eller filen är tillgänglig och schemalägger nästa körning av arbets flödet.
 
-De tre föregående punkterna kombineras för att ge en situation där koordinatorn schemalägger bearbetning av data på en dag för dag-sätt. 
+De tre föregående punkterna kombinerar för att ge en situation där koordinatorn schemalägger bearbetningen av data källan på en dag per dag. 
 
-* Punkt 1: Koordinatorn börjar med en nominell dagen för 2017-01-01.
+* Punkt 1: Koordinatorn börjar med ett nominellt datum på 2017-01-01.
 
-* Punkt 2: Oozie söker efter data som är tillgängliga i `sourceDataFolder/2017-01-FlightData.csv`.
+* Punkt 2: Oozie letar efter tillgängliga data i `sourceDataFolder/2017-01-FlightData.csv`.
 
-* Punkt 3: När Oozie hittar filen, schemalägger en instans av arbetsflödet som bearbetar data för 2017-01-01. Oozie sedan vidare bearbetning för 2017-01-02. Den här utvärderingsversionen upprepas fram till men inte inklusive 05-01-2017.
+* Punkt 3: När Oozie hittar filen schemaläggs en instans av arbets flödet som bearbetar data för 2017-01-01. Oozie fortsätter sedan att bearbeta för 2017-01-02. Den här utvärderingen upprepas till men inte inklusive 2017-01-05.
 
-Som med arbetsflöden, konfigurationen av en koordinator har definierats i en `job.properties` -fil som har en överordnad uppsättning av inställningarna som används av arbetsflödet.
+Precis som med arbets flöden definieras konfigurationen för en koordinator i en `job.properties` fil som har en supermängd av de inställningar som används av arbets flödet.
 
 ```
 nameNode=wasbs://[CONTAINERNAME]@[ACCOUNTNAME].blob.core.windows.net
@@ -602,31 +602,31 @@ sqlDatabaseTableName=dailyflights
 
 ```
 
-Endast nya egenskaper som presenteras i det här `job.properties` filen är:
+De enda nya egenskaperna som introduceras `job.properties` i den här filen är:
 
-| Egenskap | Värdekälla |
+| Egenskap | Värde källa |
 | --- | --- |
-| oozie.coord.application.path | Platsen för den `coordinator.xml` -fil som innehåller Oozie-koordinator för att köra. |
-| hiveDailyTableNamePrefix | Prefixet som används för att dynamiskt skapa tabellnamnet på mellanlagringstabellen. |
-| hiveDataFolderPrefix | Prefix för sökvägen där alla mellanlagringstabeller kommer att lagras. |
+| Oozie. Coord. Application. Path | Anger platsen för den `coordinator.xml` fil som innehåller Oozie-koordinatorn som ska köras. |
+| hiveDailyTableNamePrefix | Det prefix som används när tabell namnet för mellanlagrings tabellen skapas dynamiskt. |
+| hiveDataFolderPrefix | Prefixet för den sökväg där alla mellanlagrings tabeller kommer att lagras. |
 
-### <a name="deploy-and-run-the-oozie-coordinator"></a>Distribuera och köra Oozie-koordinator
+### <a name="deploy-and-run-the-oozie-coordinator"></a>Distribuera och köra Oozie-koordinatorn
 
-Om du vill köra en pipeline med en koordinator fortsätta på liknande sätt som för arbetsflödet, förutom att du arbetar från en mapp med en nivå ovanför den mapp som innehåller ditt arbetsflöde. Den här mappen konventionen skiljer koordinatorer från arbetsflöden på disk, så att du kan associera en koordinator med olika underordnade arbetsflöden.
+Om du vill köra pipelinen med en koordinator fortsätter du på liknande sätt som för arbets flödet, förutom att du arbetar från en mapp på en nivå ovanför mappen som innehåller ditt arbets flöde. Denna mappsökväg separerar koordinatorerna från arbets flöden på disk, så att du kan associera en koordinator med olika underordnade arbets flöden.
 
-1. Använd SCP från din lokala dator för att kopiera coordinator-filer till den lokala lagringen på huvudnoden för ditt kluster.
+1. Använd SCP från den lokala datorn för att kopiera koordinator filerna upp till den lokala lagringen av Head-noden i klustret.
 
     ```bash
     scp ./* sshuser@[CLUSTERNAME]-ssh.azurehdinsight.net:~
     ```
 
-2. SSH till din huvudnoden.
+2. SSH till Head-noden.
 
     ```bash
     ssh sshuser@[CLUSTERNAME]-ssh.azurehdinsight.net 
     ```
 
-3. Kopiera coordinator-filer till HDFS.
+3. Kopiera koordinator-filerna till HDFS.
 
     ```bash
     hdfs dfs -put ./* /oozie/
@@ -638,18 +638,18 @@ Om du vill köra en pipeline med en koordinator fortsätta på liknande sätt so
     oozie job -config job.properties -run
     ```
 
-5. Kontrollera statusen med webbkonsolen Oozie den här tiden att välja den **Coordinator jobb** fliken och sedan **alla jobb**.
+5. Kontrol lera statusen med Oozie-webbkonsolen, den här gången väljer du fliken **koordinator jobb** och sedan **alla jobb**.
 
-    ![Oozie konsolen Coordinator Webbjobb](./media/hdinsight-operationalize-data-pipeline/hdi-oozie-web-console-coordinator-jobs.png)
+    ![Oozie-webbkonsolens koordinator jobb](./media/hdinsight-operationalize-data-pipeline/hdi-oozie-web-console-coordinator-jobs.png)
 
-6. Välj en koordinator instans att visa listan över schemalagda åtgärder. I det här fallet bör du se fyra åtgärder med nominell gånger mellan 2017-1-1 och 1/4/2017.
+6. Välj en koordinator instans för att visa listan över schemalagda åtgärder. I så fall bör du se fyra åtgärder med nominella tider i intervallet från 1/1/2017 till 1/4/2017.
 
-    ![Oozie konsolen Coordinator Webbjobb](./media/hdinsight-operationalize-data-pipeline/hdi-oozie-web-console-coordinator-instance.png)
+    ![Oozie-webbkonsol koordinator jobb](./media/hdinsight-operationalize-data-pipeline/hdi-oozie-web-console-coordinator-instance.png)
 
-    Varje åtgärd i den här listan motsvarar en instans av arbetsflödet som bearbetar en dags data, om den dagsstart anges med nominell tiden.
+    Varje åtgärd i den här listan motsvarar en instans av arbets flödet som bearbetar en dags värde, där början av dagen anges av den nominella tiden.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Apache Oozie-dokumentationen](https://oozie.apache.org/docs/4.2.0/index.html)
+* [Apache Oozie-dokumentation](https://oozie.apache.org/docs/4.2.0/index.html)
 
 <!-- * Build the same pipeline [using Azure Data Factory](tbd.md).  -->

@@ -7,12 +7,12 @@ ms.service: service-fabric
 ms.topic: conceptual
 ms.date: 07/25/2019
 ms.author: atsenthi
-ms.openlocfilehash: 3e95412675100043eb21f50c8f93aa0ec0b6b7e6
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: d63fd3d1b778c691d053f13fbf0fbb2ed5ccb3e3
+ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68963987"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70968271"
 ---
 # <a name="managed-identity-for-service-fabric-application-preview"></a>Hanterad identitet för Service Fabric program (förhands granskning)
 
@@ -62,9 +62,8 @@ Listan över scenarier som stöds för för hands versionen är följande:
 
 Följande scenarier stöds inte eller rekommenderas inte. Observera att de här åtgärderna inte blockeras, men kan leda till avbrott i dina program:
 
-   - Ta bort eller ändra identiteter som har tilldelats ett program. om du måste göra ändringar måste du skicka separata distributioner till första gången lägga till en ny identitets tilldelning och sedan ta bort en tidigare tilldelad. Borttagning av en identitet från ett befintligt program kan ha oönskade effekter, inklusive att lämna programmet i ett tillstånd som inte kan uppgraderas. Det är säkert att ta bort programmet helt om det är nödvändigt att ta bort en identitet. OBS! detta tar bort den systemtilldelade identiteten (om den har definierats) som är associerad med programmet och tar bort alla associationer med de användardefinierade identiteter som tilldelats programmet.
+   - Ta bort eller ändra identiteter som har tilldelats till ett program. Om du måste göra ändringar måste du skicka in separata distributioner för att först lägga till en ny identitets tilldelning och sedan ta bort en tidigare tilldelad. Borttagning av en identitet från ett befintligt program kan ha oönskade effekter, inklusive att lämna programmet i ett tillstånd som inte kan uppgraderas. Det är säkert att ta bort programmet helt om det är nödvändigt att ta bort en identitet. OBS! detta tar bort den systemtilldelade identiteten (om den har definierats) som är associerad med programmet och tar bort alla associationer med de användardefinierade identiteter som tilldelats programmet.
 
-   - Vi rekommenderar inte att du blandar tilldelade och användardefinierade identiteter i samma program.
 >
 > [!NOTE]
 >

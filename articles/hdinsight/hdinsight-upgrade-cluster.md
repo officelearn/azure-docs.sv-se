@@ -4,15 +4,16 @@ description: Läs rikt linjerna för att uppgradera ditt Azure HDInsight-kluster
 ms.service: hdinsight
 author: omidm1
 ms.author: omidm
+ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/04/2017
-ms.openlocfilehash: f4458b33edb9d55c30de8c5168668743abb33161
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: a62da0d27d21589f7b75a89cc184ce9f456f1fed
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70811638"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70960711"
 ---
 # <a name="upgrade-hdinsight-cluster-to-a-newer-version"></a>Uppgradera HDInsight-kluster till en nyare version
 För att kunna dra nytta av de senaste HDInsight-funktionerna rekommenderar vi att HDInsight-kluster uppgraderas till den senaste versionen. Följ rikt linjerna nedan för att uppgradera dina HDInsight-kluster versioner.
@@ -23,7 +24,7 @@ För att kunna dra nytta av de senaste HDInsight-funktionerna rekommenderar vi a
 ## <a name="upgrade-tasks"></a>Uppgraderings uppgifter
 Arbets flödet för att uppgradera HDInsight-kluster är följande.
 
-![Uppgradera arbets flödes diagram](./media/hdinsight-upgrade-cluster/upgrade-workflow.png)
+![Uppgradera arbets flödes diagram](./media/hdinsight-upgrade-cluster/upgrade-workflow-diagram.png)
 
 1. Läs varje avsnitt av det här dokumentet om du vill veta vilka ändringar som kan krävas när du uppgraderar ditt HDInsight-kluster.
 2. Skapa ett kluster som test/kvalitets säkrings miljö. Mer information om hur du skapar ett kluster finns i [Lär dig hur du skapar Linux-baserade HDInsight-kluster](hdinsight-hadoop-provision-linux-clusters.md)

@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 11/17/2018
 ms.author: pabutler
-ms.openlocfilehash: 98d33dd1aad726d4da8499006166dfd2c043378f
-ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.openlocfilehash: 40170540458b7bc7ddb30f88117d472858937e8c
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68977153"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70962941"
 ---
 # <a name="azure-partner-customer-usage-attribution"></a>Spårning av kundanvändning för Azure-partner
 
@@ -247,7 +247,7 @@ foreach ($deployment in $deployments){
 
 ## <a name="report"></a>Rapport
 
-Du hittar rapporten för kund användnings behörighet i din partner Center analys instrument panel. ([https://partner.microsoft.com/en-us/dashboard/mpn/analytics/CPP/MicrosoftAzure](https://partner.microsoft.com/dashboard/mpn/analytics/CPP/MicrosoftAzure)). För att kunna se rapporten måste du använda dina partner Center-autentiseringsuppgifter för att logga in. Om du stöter på problem med rapporten eller inloggningen skapar du en supportbegäran enligt anvisningarna i avsnittet få support.
+Du hittar rapporten för kund användnings behörighet i din partner Center analys instrument panel. ([https://partner.microsoft.com/dashboard/mpn/analytics/CPP/MicrosoftAzure](https://partner.microsoft.com/dashboard/mpn/analytics/CPP/MicrosoftAzure)). För att kunna se rapporten måste du använda dina partner Center-autentiseringsuppgifter för att logga in. Om du stöter på problem med rapporten eller inloggningen skapar du en supportbegäran enligt anvisningarna i avsnittet få support.
 
 Välj spårad mall i list rutan över partner associerings typ för att visa rapporten.
 
@@ -269,7 +269,7 @@ När du distribuerar \<partner >-programvara kan Microsoft identifiera installat
 
 Det finns två Support kanaler beroende på de problem som du är riktad mot.
 
-Om du stöter på problem i partner centret, t. ex. genom att se rapport om kund användning eller logga in, kan du skapa en support förfrågan med support teamet för partner Center här:[https://partner.microsoft.com/en-US/support](https://partner.microsoft.com/support)
+Om du stöter på problem i partner centret, t. ex. genom att se rapport om kund användning eller logga in, kan du skapa en support förfrågan med support teamet för partner Center här:[https://partner.microsoft.com/support](https://partner.microsoft.com/support)
 
 ![](./media/marketplace-publishers-guide/partner-center-log-in-support.png)
 

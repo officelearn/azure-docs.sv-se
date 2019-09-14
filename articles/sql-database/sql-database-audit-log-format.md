@@ -7,16 +7,16 @@ ms.subservice: security
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: vainolo
-ms.author: arib
+author: barmichal
+ms.author: mibar
 ms.reviewer: vanto
 ms.date: 01/03/2019
-ms.openlocfilehash: 334d277370bb8d6678679c887f6a2b89d65652c3
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 19795d5dc3998f601de8121176e52ef9dc83ee47
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68569472"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70958446"
 ---
 # <a name="sql-database-audit-log-format"></a>SQL Database Gransknings logg format
 
@@ -78,7 +78,7 @@ Gransknings händelser skrivs till Log Analytics arbets yta som definierats unde
 | session_id | session_id_d | ID för den session där händelsen inträffade | smallint | int |
 | session_server_principal_name | session_server_principal_name_s | Server huvud namn för session | sysname | sträng |
 | Sekretesspolicy | statement_s | T-SQL-instruktion som kördes (om det finns) | nvarchar (4000) | sträng |
-| brutit | succeeded_s | Anger om den åtgärd som utlöste händelsen lyckades. För andra händelser än inloggning och batch rapporteras endast om behörighets kontrollen lyckades eller misslyckades, inte åtgärden. 1 = lyckades, 0 = misslyckades | bit | sträng |
+| Brutit | succeeded_s | Anger om den åtgärd som utlöste händelsen lyckades. För andra händelser än inloggning och batch rapporteras endast om behörighets kontrollen lyckades eller misslyckades, inte åtgärden. 1 = lyckades, 0 = misslyckades | bit | sträng |
 | target_database_principal_id | target_database_principal_id_d | Databasens huvud konto som åtgärden bevilja/neka/återkalla utförs på. 0 om inte tillämpligt | int | int |
 | target_database_principal_name | target_database_principal_name_s | Mål användare av åtgärd. NULL om ej tillämpligt | sträng | sträng |
 | target_server_principal_id | target_server_principal_id_d | Server huvud konto som åtgärden bevilja/neka/återkalla utförs på. Returnerar 0 om det inte är tillämpligt | int | int |

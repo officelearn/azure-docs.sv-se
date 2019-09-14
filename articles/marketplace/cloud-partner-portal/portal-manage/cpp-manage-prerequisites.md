@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: pabutler
-ms.openlocfilehash: 62269490355414a6b75759361cd574ac7e90e162
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: d98a5f04f60cb7d933ea91e0657f6067fb1c59a8
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68598680"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70962807"
 ---
 # <a name="prerequisites-for-managing-accounts-on-the-cloud-partner-portal"></a>Krav för att hantera konton på Cloud Partner Portal 
 
@@ -21,7 +21,7 @@ Innan du kan använda [Cloud Partner Portal](https://cloudpartner.azure.com/) f�
 
 ## <a name="account-terms-and-guidelines"></a>Konto villkor och rikt linjer
 
-Läs noggrant igenom dina rättigheter och ansvar under [villkor för Microsoft-tjänster](https://www.microsoft.com/servicesagreement) och [Microsofts användnings villkor](https://www.microsoft.com/en-us/legal/intellectualproperty/copyright/default.aspx) innan du skapar ett konto.  
+Läs noggrant igenom dina rättigheter och ansvar under [villkor för Microsoft-tjänster](https://www.microsoft.com/servicesagreement) och [Microsofts användnings villkor](https://www.microsoft.com/us-en/legal/intellectualproperty/copyright/default.aspx) innan du skapar ett konto.  
 
 Välj ditt konto namn noggrant.  Den representerar din organisation, så den bör inte innehålla upphovsrättsskyddade eller Contentious ord.  Microsoft tillåter till exempel inte att dess upphovsrättsskyddade villkor används, till exempel "Azure" och "Microsoft", i konto namn.  Mer information finns i [rikt linjer för Azure Marketplace](https://docs.microsoft.com/azure/marketplace/guidelines)
 

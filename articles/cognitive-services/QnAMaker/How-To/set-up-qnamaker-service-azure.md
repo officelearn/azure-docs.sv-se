@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 08/30/2019
+ms.date: 09/13/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 28ec42f1634e0546d75f81ed76b1ecbac51f6c3f
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: a2b467eed010edbb842d536bd8f6e3f4107fcea8
+ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70277595"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70984368"
 ---
 # <a name="manage-qna-maker-resources"></a>Hantera QnA Maker resurser
 
@@ -87,6 +87,8 @@ Du kan visa och återställa dina prenumerations nycklar från Azure Portal, dä
 
 ## <a name="find-endpoint-keys-in-the-qna-maker-portal"></a>Hitta slut punkts nycklar i QnA Maker Portal
 
+Slut punkten finns i samma region som resursen eftersom slut punkts nycklarna används för att anropa kunskaps basen.
+
 Slutpunkt-nycklar kan hanteras från den [QnA Maker portal](https://qnamaker.ai).
 
 1. Logga in på [QNA Maker Portal](https://qnamaker.ai), gå till din profil och välj sedan **tjänst inställningar**:
@@ -111,6 +113,8 @@ QnA Maker skapar flera Azure-resurser. Använd följande tabell för att ta reda
 |App Service|X|Inte möjlig enligt design|
 |Application Insights|✔|Kan delas|
 |Söktjänst|✔|1. `testkb` är ett reserverat namn för QnAMaker-tjänsten. det kan inte användas av andra.<br>2. Synonym mappning med namnet `synonym-map` är reserverat för QnAMaker-tjänsten.<br>3. Antalet publicerade kunskaps baser begränsas av Sök tjänst nivån. Om det finns lediga index är andra tjänster som kan använda dem.|
+
+Läs mer om [App Service](../../../app-service/index.yml) och [search service](../../../search/index.yml).
 
 ### <a name="using-a-single-search-service"></a>Använda en enda Sök tjänst
 
@@ -202,6 +206,8 @@ Du kan kontrol lera din aktuella version https://www.qnamaker.ai/UserSettings p�
 Hanterings tjänsten för QnA Maker används endast för QnA Maker-portalen och för inledande data bearbetning. Den här tjänsten är endast tillgänglig i regionen USA, västra. Ingen kund information lagras i den här västra USA-tjänsten.
 
 ## <a name="next-steps"></a>Nästa steg
+
+Läs mer om [App Service](../../../app-service/index.yml) och [search service](../../../search/index.yml).
 
 > [!div class="nextstepaction"]
 > [Skapa och publicera en kunskapsbas](../Quickstarts/create-publish-knowledge-base.md)

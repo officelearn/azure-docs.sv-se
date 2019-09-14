@@ -5,17 +5,17 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 05/02/2019
+ms.date: 09/12/2019
 ms.topic: quickstart
 ms.service: azure-blockchain
 ms.reviewer: jackyhsu
 manager: femila
-ms.openlocfilehash: 5b46c5b2e8f613d351442fdf3c8ae5ee2198f2da
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: b89e75d406a738fb685bb3294dca8d79a2b9170c
+ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70933991"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70966541"
 ---
 # <a name="quickstart-use-metamask-to-connect-and-deploy-a-smart-contract"></a>Snabbstart: Använda MetaMask för att ansluta och distribuera ett smart kontrakt
 
@@ -62,20 +62,13 @@ Du behöver Azure blockchain-tjänstens slut punkts adress för att ansluta till
 Remix är en webbläsarbaserad utvecklings miljö. Med MetaMask och Remix tillsammans kan du distribuera och vidta åtgärder för smarta kontrakt.
 
 1. Öppna webbläsaren och navigera till `https://remix.ethereum.org`.
-1. Välj **Kör**. 
-
-    MetaMask ställer in din **miljö** för att **mata in Web3** och **konto** i nätverket.
-
-    ![Fliken kör](./media/connect-metamask/injected-web3.png)
-
-1. Välj **Skapa ny fil**.
+1. Välj **ny fil** på fliken **Start** under **fil**.
 
     Ge den nya filen `simple.sol`ett namn.
 
     ![Skapa fil](./media/connect-metamask/create-file.png)
 
     Välj **OK**.
-
 1. I Remix-redigeraren klistrar du in följande **enkla smarta kontrakt** kod.
 
     ```solidity
@@ -99,14 +92,18 @@ Remix är en webbläsarbaserad utvecklings miljö. Med MetaMask och Remix tillsa
     ```
 
     Det **enkla kontraktet** deklarerar en tillstånds variabel med namnet **Saldo**. Två funktioner har definierats. Funktionen **Add** lägger till ett tal att **balansera**. Funktionen **Get** returnerar värdet för **saldot**.
-
-1. Om du vill kompilera kontraktet väljer du **kompilera > börjar kompilera**. Om det lyckas visas en grön ruta med kontrakt namn.
+1. För att kompilera kontraktet väljer du först fönstret halvledare compiler och väljer sedan **compile Simple. sol**. 
 
     ![Kompileringsfel](./media/connect-metamask/compile.png)
 
-1. Om du vill köra kontraktet väljer du fliken **Kör** . Välj det **enkla** kontraktet och **distribuera**.
+1. Välj rutan **distribuera & körning** och ange sedan att **miljön** ska **injicera Web3** för att ansluta via MetaMask till din blockchain-medlem.
 
-    ![Anpassat RPC](./media/connect-metamask/deploy.png)
+    ![Fliken kör](./media/connect-metamask/injected-web3.png)
+
+1. Välj det **enkla** kontraktet och **distribuera**.
+
+    ![Distribuera](./media/connect-metamask/deploy.png)
+
 
 1. Ett MetaMask-meddelande visas som varnar dig om otillräckliga medel för att utföra transaktionen.
 
@@ -125,13 +122,13 @@ Remix är en webbläsarbaserad utvecklings miljö. Med MetaMask och Remix tillsa
 
     Det finns två åtgärder för att **lägga till** och **Hämta** kartan till de funktioner som definierats i kontraktet.
 
-1. Om du vill utföra en **Lägg till** transaktion på blockchain anger du ett nummer som du vill lägga till och väljer **Lägg till**.
+1. Om du vill utföra en **Lägg till** transaktion på blockchain anger du ett nummer som du vill lägga till och väljer **Lägg till**. Du kan få ett fel meddelande om gas uppskattning från Remix. Du skickar transaktionen till en privat blockchain som inte kräver gas. Välj **Skicka transaktion** för att framtvinga transaktionen.
 1. Precis som när du distribuerade kontraktet visas ett MetaMask-meddelande som varnar dig om otillräckliga medel för att genomföra transaktionen.
 
     Eftersom det här är ett privat nätverk i ett konsortium kan vi ställa in gas priset på noll.
 
 1.  Välj **gas avgift > redigera > Avancerat**, ange **gas priset** till 0 och välj **Spara**.
-1. Välj **Bekräfta** för att utföra transaktionen på blockchain.
+1. Välj **Bekräfta** för att skicka transaktionen till blockchain.
 1. Välj **Hämta** åtgärd. Detta är ett anrop för att fråga Node-data. En transaktion behövs inte.
 1. I fel söknings fönstret för Remix kan du se information om transaktionerna på blockchain.
 

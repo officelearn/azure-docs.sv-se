@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 07/26/2019
+ms.date: 09/12/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 5431dd74629b9ed76a6a072d8ada286ce71a7633
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 7c7aaf911930f83775f66c47377bc68edb059519
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68596078"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70958974"
 ---
 # <a name="monitor-server-metrics"></a>Övervaka servermått
 
@@ -55,14 +55,18 @@ Använd den här tabellen för att avgöra vilka mått som passar bäst för dit
 |MemoryLimitLow|Minne: Låg minnes gräns|Byte|Average|Låg minnes gräns, från konfigurations filen.|
 |MemoryLimitVertiPaq|Minne: Minnes gräns VertiPaq|Byte|Average|Minnes intern gräns, från konfigurations filen.|
 |MemoryUsage|Minne: Minnesanvändning|Byte|Average|Minnes användningen för Server processen som används för att beräkna rengörings minnes priset. Lika med Counter Process\PrivateBytes plus storleken på minnesmappade data, vilket ignorerar vilket minne som har mappats eller allokerats av en minnes intern analys motor (VertiPaq) utöver motorns minnes gräns.|
+|private_bytes_metric|Privata byte |Byte|Average|Den totala mängden minne som processerna för Analysis Services motor processen och kombinations programmet har allokerat, inklusive minne som delas med andra processer.|
+|virtual_bytes_metric|Virtuella byte |Byte|Average|Den aktuella storleken för det virtuella adress utrymmet som Analysis Services motor process-och kombinations programmets process processer använder.|
+|mashup_engine_private_bytes_metric|M motor privata byte |Byte|Average|Den totala mängden minnes kombinations programmets behållar processer har allokerats, inte inklusive minne som delas med andra processer.|
+|mashup_engine_virtual_bytes_metric|Virtuella byte i M-motor |Byte|Average|Den aktuella storleken för processerna för kombinations behållare för virtuella adress utrymmen använder.|
 |Kvot|Minne: Kvot|Byte|Average|Aktuell minnes kvot, i byte. Minnes kvot kallas även för minnes tilldelning eller minnes reservation.|
 |QuotaBlocked|Minne: Blockerad kvot|Count|Average|Det aktuella antalet kvot begär Anden som blockeras tills andra minnes kvoter frigjorts.|
 |VertiPaqNonpaged|Minne: VertiPaq är inte växlat|Byte|Average|Byte av minne som är låst i arbets minnet för användning av minnes intern motorn.|
 |VertiPaqPaged|Minne: VertiPaq-växlat|Byte|Average|Byte av växlings Bart minne som används för minnes intern data.|
 |ProcessingPoolJobQueueLength|Bearbetar Kölängd för poolen|Count|Average|Antal icke-I/O-jobb i kön för bearbetning av trådpoolen.|
-|RowsConvertedPerSec|Bearbetar: Konverterade rader per sekund|CountPerSecond|Average|Antal rader som konverterats under bearbetning.|
-|RowsReadPerSec|Bearbetar: Lästa rader per sekund|CountPerSecond|Average|Antalet rader som läses från alla Relations databaser.|
-|RowsWrittenPerSec|Bearbetar: Skrivna rader per sekund|CountPerSecond|Average|Antal rader som skrivs under bearbetningen.|
+|RowsConvertedPerSec|Bearbetning Konverterade rader per sekund|CountPerSecond|Average|Antal rader som konverterats under bearbetning.|
+|RowsReadPerSec|Bearbetning Lästa rader per sekund|CountPerSecond|Average|Antalet rader som läses från alla Relations databaser.|
+|RowsWrittenPerSec|Bearbetning Skrivna rader per sekund|CountPerSecond|Average|Antal rader som skrivs under bearbetningen.|
 |qpu_metric|QPU|Count|Average|QPU. Intervallet 0-100 för S1, 0-200 för S2 och 0-400 för S4|
 |QueryPoolBusyThreads|Upptagna trådar för frågeprocessorn|Count|Average|Antalet upptagna trådar i trådpoolen.|
 |SuccessfullConnectionsPerSec|Lyckade anslutningar per sekund|CountPerSecond|Average|Antal slutförda slut för ande av anslutningar.|

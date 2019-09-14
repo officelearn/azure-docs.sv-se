@@ -9,12 +9,12 @@ ms.service: azure-functions
 ms.topic: overview
 ms.date: 08/31/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 419505404214d60a2c928770a34384f80c8446cb
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
-ms.translationtype: HT
+ms.openlocfilehash: 99e61cef55bd97704063e4d2da90909d0376c327
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 09/12/2019
-ms.locfileid: "70935875"
+ms.locfileid: "70961453"
 ---
 # <a name="entity-functions-preview"></a>Enhets funktioner (förhands granskning)
 
@@ -32,7 +32,7 @@ Entiteter (kallas ibland enhets *instanser*) nås via en unik identifierare, *en
 
 En *Counter* -enhets funktion kan till exempel användas för att hålla poängen i ett onlinespel. Varje instans av spelet har ett unikt entitets-ID, t. `@Counter@Game1`ex `@Counter@Game2`., och så vidare. Alla åtgärder som är riktade till en viss entitet kräver att du anger ett entitets-ID som en parameter.
 
-## <a name="programing-models"></a>Program modeller
+## <a name="programming-models"></a>Programmerings modeller
 
 Varaktiga entiteter har stöd för två olika programmerings modeller. Den första modellen är en dynamisk "funktionell"-modell där entiteten definieras av en enda funktion. Den andra modellen är en objektorienterad modell där entiteten definieras av en klass och metoder. Dessa modeller och programmerings modeller för att interagera med entiteter beskrivs i nästa avsnitt.
 

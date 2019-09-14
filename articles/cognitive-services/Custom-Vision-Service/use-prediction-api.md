@@ -10,23 +10,23 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 04/02/2019
 ms.author: anroth
-ms.openlocfilehash: 22955ba4b885b264210dc8788f2a410b785b28b4
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 50325b75280160a3fefa5b5487df29a25e53bddd
+ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68883965"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70966954"
 ---
 # <a name="use-your-model-with-the-prediction-api"></a>Använd din modell med förutsägelse-API: et
 
 När du har tränat din modell kan du testa bilderna program mässigt genom att skicka dem till förutsägelse-API-slutpunkten.
 
 > [!NOTE]
-> Det här dokumentet visar hur du använder C# för att skicka en bild till förutsägelse-API:et. Mer information och exempel finns i [förutsägelse API](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Prediction_3.0/operations/5c82db60bf6a2b11a8247c15)-referensen.
+> Det här dokumentet visar hur du använder C# för att skicka en bild till förutsägelse-API:et. Mer information och exempel finns i [förutsägelse API-referensen](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Prediction_3.0/operations/5c82db60bf6a2b11a8247c15).
 
 ## <a name="publish-your-trained-iteration"></a>Publicera din utbildade iteration
 
-Från [Custom Vision-webbsidan](https://customvision.ai), markera projektet och välj sedan fliken __prestanda__ .
+Från [Custom Vision-webbsidan](https://customvision.ai), markera projektet och välj sedan fliken __prestanda__.
 
 Om du vill skicka avbildningar till förutsägelse-API: t måste du först publicera din iteration för förutsägelse, som du kan göra genom att välja __publicera__ och ange ett namn för den publicerade iterationen. Detta gör din modell tillgänglig för förutsägelse-API: t för din Custom Vision Azure-resurs.
 
@@ -38,14 +38,12 @@ När din modell har publicerats visas en "Publicerad" etikett bredvid iteratione
 
 ## <a name="get-the-url-and-prediction-key"></a>Hämta URL och förutsägelsenyckel
 
-När din modell har publicerats kan du hämta den information som krävs genom att välja __förutsägelse-URL__ . Då öppnas en dialog ruta med information om hur du använder förutsägelse-API, inklusive __förutsägelse-URL__ och __förutsägelse nyckel__ .
+När din modell har publicerats kan du hämta den information som krävs genom att välja __förutsägelse-URL__. Då öppnas en dialog ruta med information om hur du använder förutsägelse-API, inklusive __förutsägelse-URL__ och __förutsägelse nyckel__.
 
 ![Fliken prestanda visas med en röd rektangel som omger URL-knappen för förutsägelse.](./media/use-prediction-api/published-iteration-prediction-url.png)
 
 ![Fliken prestanda visas med en röd rektangel som omger värdet för förutsägelse-URL: en för att använda en bildfil och värdet för förutsägelse nyckeln.](./media/use-prediction-api/prediction-api-info.png)
 
-> [!TIP]
-> Du kan också hitta din __förutsägelse nyckel__ på sidan [Azure Portal](https://portal.azure.com) för den Custom vision Azure-resurs som är kopplad till projektet, under bladet __nycklar__ .
 
 I den här guiden ska du använda en lokal avbildning, så kopiera URL: en under **om du har en avbildnings fil** till en tillfällig plats. Kopiera även motsvarande __förutsägelse-nyckel__ värde.
 
@@ -53,7 +51,7 @@ I den här guiden ska du använda en lokal avbildning, så kopiera URL: en under
 
 1. Skapa ett nytt C# konsol program i Visual Studio.
 
-1. Använd följande kod som brödtext i filen __Program.cs__ .
+1. Använd följande kod som brödtext i filen __Program.cs__.
 
     ```csharp
     using System;

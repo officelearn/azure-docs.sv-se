@@ -4,14 +4,14 @@ description: Visar hur resurs typer hanterar fullständig borttagning av läge i
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 08/04/2019
+ms.date: 09/12/2019
 ms.author: tomfitz
-ms.openlocfilehash: d783ab9c12952393f0a74b245109dda58bff3927
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: 268f6b7f3e7462986e6289088a0716794dc832f1
+ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70194392"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70983970"
 ---
 # <a name="deletion-of-azure-resources-for-complete-mode-deployments"></a>Borttagning av Azure-resurser för komplett läges distributioner
 
@@ -24,7 +24,6 @@ Resurs typerna som marker ATS med **Nej** tas inte bort automatiskt när de inte
 Hoppa till ett namn område för en resurs leverantör:
 > [!div class="op_single_selector"]
 > - [Microsoft.AAD](#microsoftaad)
-> - [Microsoft. AADDomainServices](#microsoftaaddomainservices)
 > - [Microsoft. addons](#microsoftaddons)
 > - [Microsoft. ADHybridHealthService](#microsoftadhybridhealthservice)
 > - [Microsoft. Advisor](#microsoftadvisor)
@@ -32,6 +31,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > - [Microsoft.AnalysisServices](#microsoftanalysisservices)
 > - [Microsoft.ApiManagement](#microsoftapimanagement)
 > - [Microsoft. AppConfiguration](#microsoftappconfiguration)
+> - [Microsoft. AppPlatform](#microsoftappplatform)
 > - [Microsoft. attestering](#microsoftattestation)
 > - [Microsoft.Authorization](#microsoftauthorization)
 > - [Microsoft.Automation](#microsoftautomation)
@@ -65,14 +65,12 @@ Hoppa till ett namn område för en resurs leverantör:
 > - [Microsoft.ContentModerator](#microsoftcontentmoderator)
 > - [Microsoft.CortanaAnalytics](#microsoftcortanaanalytics)
 > - [Microsoft.CostManagement](#microsoftcostmanagement)
-> - [Microsoft.CustomerInsights](#microsoftcustomerinsights)
 > - [Microsoft. CustomerLockbox](#microsoftcustomerlockbox)
 > - [Microsoft. CustomProviders](#microsoftcustomproviders)
 > - [Microsoft.DataBox](#microsoftdatabox)
 > - [Microsoft.DataBoxEdge](#microsoftdataboxedge)
 > - [Microsoft. Databricks](#microsoftdatabricks)
 > - [Microsoft.DataCatalog](#microsoftdatacatalog)
-> - [Microsoft.DataConnect](#microsoftdataconnect)
 > - [Microsoft.DataFactory](#microsoftdatafactory)
 > - [Microsoft.DataLakeAnalytics](#microsoftdatalakeanalytics)
 > - [Microsoft.DataLakeStore](#microsoftdatalakestore)
@@ -115,7 +113,6 @@ Hoppa till ett namn område för en resurs leverantör:
 > - [Microsoft.MachineLearning](#microsoftmachinelearning)
 > - [Microsoft.MachineLearningServices](#microsoftmachinelearningservices)
 > - [Microsoft.ManagedIdentity](#microsoftmanagedidentity)
-> - [Microsoft. ManagedLab](#microsoftmanagedlab)
 > - [Microsoft. ManagedServices](#microsoftmanagedservices)
 > - [Microsoft. Management](#microsoftmanagement)
 > - [Microsoft.Maps](#microsoftmaps)
@@ -183,13 +180,6 @@ Hoppa till ett namn område för en resurs leverantör:
 > | DomainServices/oucontainer | Nej |
 > | DomainServices/ReplicaSets | Ja |
 
-## <a name="microsoftaaddomainservices"></a>Microsoft. AADDomainServices
-
-> [!div class="mx-tableFixed"]
-> | Resurstyp | Borttagning i complete-läget |
-> | ------------- | ----------- |
-> | domäner | Nej |
-
 ## <a name="microsoftaddons"></a>Microsoft. addons
 
 > [!div class="mx-tableFixed"]
@@ -204,7 +194,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > | ------------- | ----------- |
 > | aadsupportcases | Nej |
 > | addsservices | Nej |
-> | aktörer | Nej |
+> | Aktörer | Nej |
 > | anonymousapiusers | Nej |
 > | konfiguration | Nej |
 > | logs | Nej |
@@ -234,8 +224,8 @@ Hoppa till ett namn område för en resurs leverantör:
 > | alertsMetaData | Nej |
 > | alertsSummary | Nej |
 > | alertsSummaryList | Nej |
-> | oss | Nej |
-> | smartDetectorAlertRules | Nej |
+> | Oss | Nej |
+> | smartDetectorAlertRules | Ja |
 > | smartDetectorRuntimeEnvironments | Nej |
 > | smartGroups | Nej |
 
@@ -262,6 +252,13 @@ Hoppa till ett namn område för en resurs leverantör:
 > | ------------- | ----------- |
 > | configurationStores | Ja |
 > | configurationStores/eventGridFilters | Nej |
+
+## <a name="microsoftappplatform"></a>Microsoft. AppPlatform
+
+> [!div class="mx-tableFixed"]
+> | Resurstyp | Borttagning i complete-läget |
+> | ------------- | ----------- |
+> | Fjäder | Ja |
 
 ## <a name="microsoftattestation"></a>Microsoft.Attestation
 
@@ -293,7 +290,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
 > | ------------- | ----------- |
-> | automationAccounts | Ja |
+> | AutomationAccounts | Ja |
 > | automationAccounts/konfigurationer | Ja |
 > | automationAccounts/jobb | Nej |
 > | automationAccounts/Runbooks | Ja |
@@ -331,6 +328,10 @@ Hoppa till ett namn område för en resurs leverantör:
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
 > | ------------- | ----------- |
+> | hybridDataManagers | Ja |
+> | postgresInstances | Ja |
+> | sqlBigDataClusters | Ja |
+> | sqlInstances | Ja |
 > | sqlServerRegistrations | Ja |
 > | sqlServerRegistrations/sqlServer | Nej |
 
@@ -357,11 +358,28 @@ Hoppa till ett namn område för en resurs leverantör:
 > | ------------- | ----------- |
 > | billingAccounts | Nej |
 > | billingAccounts/avtal | Nej |
+> | billingAccounts/billingPermissions | Nej |
 > | billingAccounts/billingProfiles | Nej |
+> | billingAccounts/billingProfiles/billingPermissions | Nej |
+> | billingAccounts/billingProfiles/billingRoleAssignments | Nej |
+> | billingAccounts/billingProfiles/billingRoleDefinitions | Nej |
 > | billingAccounts/billingProfiles/billingSubscriptions | Nej |
+> | billingAccounts/billingProfiles/createBillingRoleAssignment | Nej |
+> | billingAccounts/billingProfiles/kunder | Nej |
 > | billingAccounts/billingProfiles/fakturor | Nej |
 > | billingAccounts/billingProfiles/fakturor/pris dokument | Nej |
 > | billingAccounts/billingProfiles/invoiceSections | Nej |
+> | billingAccounts/billingProfiles/invoiceSections/billingPermissions | Nej |
+> | billingAccounts/billingProfiles/invoiceSections/billingRoleAssignments | Nej |
+> | billingAccounts/billingProfiles/invoiceSections/billingRoleDefinitions | Nej |
+> | billingAccounts/billingProfiles/invoiceSections/billingSubscriptions | Nej |
+> | billingAccounts/billingProfiles/invoiceSections/createBillingRoleAssignment | Nej |
+> | billingAccounts/billingProfiles/invoiceSections/initiateTransfer | Nej |
+> | billingAccounts/billingProfiles/invoiceSections/Products | Nej |
+> | billingAccounts/billingProfiles/invoiceSections/Products/transfer | Nej |
+> | billingAccounts/billingProfiles/invoiceSections/Products/updateAutoRenew | Nej |
+> | billingAccounts/billingProfiles/invoiceSections/transaktioner | Nej |
+> | billingAccounts/billingProfiles/invoiceSections/transfers | Nej |
 > | billingAccounts/BillingProfiles/patchOperations | Nej |
 > | billingAccounts/billingProfiles/paymentMethods | Nej |
 > | billingAccounts/billingProfiles/policys | Nej |
@@ -369,10 +387,17 @@ Hoppa till ett namn område för en resurs leverantör:
 > | billingAccounts/billingProfiles/pricesheetDownloadOperations | Nej |
 > | billingAccounts/billingProfiles/Products | Nej |
 > | billingAccounts/billingProfiles/transaktioner | Nej |
+> | billingAccounts/billingRoleAssignments | Nej |
+> | billingAccounts/billingRoleDefinitions | Nej |
 > | billingAccounts/billingSubscriptions | Nej |
+> | billingAccounts/createBillingRoleAssignment | Nej |
 > | billingAccounts/createInvoiceSectionOperations | Nej |
 > | billingAccounts/kunder | Nej |
 > | billingAccounts/kunder/billingSubscriptions | Nej |
+> | billingAccounts/kunder/initiateTransfer | Nej |
+> | billingAccounts/kunder/produkter | Nej |
+> | billingAccounts/kunder/transaktioner | Nej |
+> | billingAccounts/kunder/överföringar | Nej |
 > | billingAccounts/avdelningar | Nej |
 > | billingAccounts/enrollmentAccounts | Nej |
 > | billingAccounts/fakturor | Nej |
@@ -395,11 +420,11 @@ Hoppa till ett namn område för en resurs leverantör:
 > | billingAccounts/produkter | Nej |
 > | billingAccounts/transaktioner | Nej |
 > | billingPeriods | Nej |
-> | billingPermissions | Nej |
+> | BillingPermissions | Nej |
 > | billingProperty | Nej |
-> | billingRoleAssignments | Nej |
-> | billingRoleDefinitions | Nej |
-> | createBillingRoleAssignment | Nej |
+> | BillingRoleAssignments | Nej |
+> | BillingRoleDefinitions | Nej |
+> | CreateBillingRoleAssignment | Nej |
 > | enheten | Nej |
 > | enrollmentAccounts | Nej |
 > | fakturor | Nej |
@@ -407,6 +432,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > | överföringar/acceptTransfer | Nej |
 > | överföringar/declineTransfer | Nej |
 > | överföringar/operationStatus | Nej |
+> | överföringar/validateTransfer | Nej |
 > | validateAddress | Nej |
 
 ## <a name="microsoftbingmaps"></a>Microsoft.BingMaps
@@ -453,7 +479,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > | botServices | Ja |
 > | botServices/channels | Nej |
 > | botServices/anslutningar | Nej |
-> | användning | Nej |
+> | Användning | Nej |
 > | mallar | Nej |
 
 ## <a name="microsoftcache"></a>Microsoft.Cache
@@ -573,12 +599,16 @@ Hoppa till ett namn område för en resurs leverantör:
 > | publicImages | Nej |
 > | quotas | Nej |
 > | storageAccounts | Ja |
+> | storageAccounts/blobServices | Nej |
+> | storageAccounts/fileServices | Nej |
 > | storageAccounts/metricDefinitions | Nej |
 > | storageAccounts/mått | Nej |
+> | storageAccounts/queueServices | Nej |
 > | storageAccounts/tjänster | Nej |
 > | storageAccounts/services/diagnosticSettings | Nej |
 > | storageAccounts/tjänster/metricDefinitions | Nej |
 > | storageAccounts/tjänster/mått | Nej |
+> | storageAccounts/tableServices | Nej |
 > | storageAccounts/vmImages | Nej |
 > | vmImages | Nej |
 
@@ -723,13 +753,13 @@ Hoppa till ett namn område för en resurs leverantör:
 > | Resurstyp | Borttagning i complete-läget |
 > | ------------- | ----------- |
 > | Aviseringar | Nej |
-> | BillingAccounts | Nej |
+> | billingAccounts | Nej |
 > | Budgetar | Nej |
 > | CloudConnectors | Nej |
 > | Anslutningar | Ja |
 > | Avdelningar | Nej |
 > | Dimensioner | Nej |
-> | EnrollmentAccounts | Nej |
+> | enrollmentAccounts | Nej |
 > | Exporter | Nej |
 > | ExternalBillingAccounts | Nej |
 > | ExternalBillingAccounts/aviseringar | Nej |
@@ -749,25 +779,6 @@ Hoppa till ett namn område för en resurs leverantör:
 > | Inställningar | Nej |
 > | showbackRules | Nej |
 > | Vyer | Nej |
-
-## <a name="microsoftcustomerinsights"></a>Microsoft.CustomerInsights
-
-> [!div class="mx-tableFixed"]
-> | Resurstyp | Borttagning i complete-läget |
-> | ------------- | ----------- |
-> | NAV | Ja |
-> | hubbar/authorizationPolicies | Nej |
-> | hubbar/anslutningar | Nej |
-> | hubbar/anslutningar/mappningar | Nej |
-> | hubbar/interaktioner | Nej |
-> | hubbar/KPI | Nej |
-> | hubbar/länkar | Nej |
-> | hubbar/profiler | Nej |
-> | hubbar/roleAssignments | Nej |
-> | hubbar/roller | Nej |
-> | hubbar/suggestTypeSchema | Nej |
-> | hubbar/vyer | Nej |
-> | hubbar/widgetTypes | Nej |
 
 ## <a name="microsoftcustomerlockbox"></a>Microsoft. CustomerLockbox
 
@@ -813,15 +824,12 @@ Hoppa till ett namn område för en resurs leverantör:
 > | ------------- | ----------- |
 > | kataloger | Ja |
 > | datacatalogs | Ja |
+> | datacatalogs/data källor | Nej |
+> | datacatalogs/data källor/-genomsökningar | Nej |
+> | datacatalogs/data källor/genomsökningar/data uppsättningar | Nej |
+> | datacatalogs/data källor/genomsökningar/utlösare | Nej |
 > | datacatalogs/scantargets | Nej |
 > | datacatalogs/scantargets/data uppsättningar | Nej |
-
-## <a name="microsoftdataconnect"></a>Microsoft.DataConnect
-
-> [!div class="mx-tableFixed"]
-> | Resurstyp | Borttagning i complete-läget |
-> | ------------- | ----------- |
-> | connectionManagers | Ja |
 
 ## <a name="microsoftdatafactory"></a>Microsoft.DataFactory
 
@@ -940,7 +948,6 @@ Hoppa till ett namn område för en resurs leverantör:
 > | ------------- | ----------- |
 > | applicationgroups | Ja |
 > | applicationgroups/program | Nej |
-> | applicationgroups/assignedusers | Nej |
 > | applicationgroups/startmenuitems | Nej |
 > | hostpools | Ja |
 > | hostpools/sessionhosts | Nej |
@@ -953,7 +960,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
 > | ------------- | ----------- |
-> | ElasticPools | Ja |
+> | elasticPools | Ja |
 > | ElasticPools/IotHubTenants | Ja |
 > | IotHubs | Ja |
 > | IotHubs/eventGridFilters | Nej |
@@ -972,7 +979,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
 > | ------------- | ----------- |
-> | domänkontrollanter | Ja |
+> | Domänkontrollanter | Ja |
 
 ## <a name="microsoftdevtestlab"></a>Microsoft.DevTestLab
 
@@ -1030,7 +1037,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > | domäner/ämnen | Nej |
 > | eventSubscriptions | Nej |
 > | extensionTopics | Nej |
-> | avsnitt | Ja |
+> | Avsnitt | Ja |
 > | topicTypes | Nej |
 
 ## <a name="microsofteventhub"></a>Microsoft.EventHub
@@ -1085,6 +1092,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
 > | ------------- | ----------- |
+> | autoManagedVmConfigurationProfiles | Ja |
 > | guestConfigurationAssignments | Nej |
 > | IntelliPoint | Nej |
 > | softwareUpdateProfile | Nej |
@@ -1139,7 +1147,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
 > | ------------- | ----------- |
-> | delarna | Ja |
+> | Delarna | Ja |
 > | networkScopes | Ja |
 
 ## <a name="microsoftimportexport"></a>Microsoft.ImportExport
@@ -1211,6 +1219,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > | hostingEnvironments | Ja |
 > | integrationAccounts | Ja |
 > | integrationServiceEnvironments | Ja |
+> | integrationServiceEnvironments/managedApis | Ja |
 > | isolatedEnvironments | Ja |
 > | arbetsflöden | Ja |
 
@@ -1238,13 +1247,6 @@ Hoppa till ett namn område för en resurs leverantör:
 > | ------------- | ----------- |
 > | Identiteter | Nej |
 > | userAssignedIdentities | Ja |
-
-## <a name="microsoftmanagedlab"></a>Microsoft.ManagedLab
-
-> [!div class="mx-tableFixed"]
-> | Resurstyp | Borttagning i complete-läget |
-> | ------------- | ----------- |
-> | labaccounts | Ja |
 
 ## <a name="microsoftmanagedservices"></a>Microsoft. ManagedServices
 
@@ -1352,8 +1354,11 @@ Hoppa till ett namn område för en resurs leverantör:
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
 > | ------------- | ----------- |
+> | holographicsBroadcastAccounts | Ja |
+> | objectUnderstandingAccounts | Ja |
 > | remoteRenderingAccounts | Ja |
 > | spatialAnchorsAccounts | Ja |
+> | surfaceReconstructionAccounts | Ja |
 
 ## <a name="microsoftnetapp"></a>Microsoft.NetApp
 
@@ -1474,6 +1479,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
 > | ------------- | ----------- |
+> | kluster | Ja |
 > | enheter | Nej |
 > | linkTargets | Nej |
 > | storageInsightConfigs | Nej |
@@ -1500,6 +1506,8 @@ Hoppa till ett namn område för en resurs leverantör:
 > | legacyPeerings | Nej |
 > | peerAsns | Nej |
 > | peeringar | Ja |
+> | peeringServiceProviders | Nej |
+> | peeringServices | Ja |
 
 ## <a name="microsoftpolicyinsights"></a>Microsoft.PolicyInsights
 
@@ -1517,7 +1525,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > | Resurstyp | Borttagning i complete-läget |
 > | ------------- | ----------- |
 > | konsoler | Nej |
-> | instrument paneler | Ja |
+> | Instrument paneler | Ja |
 > | userSettings | Nej |
 
 ## <a name="microsoftpowerbi"></a>Microsoft.PowerBI
@@ -1625,7 +1633,6 @@ Hoppa till ett namn område för en resurs leverantör:
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
 > | ------------- | ----------- |
-> | flöden | Ja |
 > | förfrågningsåtgärder | Ja |
 
 ## <a name="microsoftsearch"></a>Microsoft.Search
@@ -1660,6 +1667,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > | iotSecuritySolutions/analyticsModels/aggregatedAlerts | Nej |
 > | iotSecuritySolutions/analyticsModels/aggregatedRecommendations | Nej |
 > | jitNetworkAccessPolicies | Nej |
+> | networkData | Nej |
 > | playbookConfigurations | Ja |
 > | principer | Nej |
 > | prissättningar | Nej |
@@ -1692,7 +1700,8 @@ Hoppa till ett namn område för en resurs leverantör:
 > | ------------- | ----------- |
 > | sammanställningar | Nej |
 > | alertRules | Nej |
-> | dina | Nej |
+> | alertRuleTemplates | Nej |
+> | Dina | Nej |
 > | fall | Nej |
 > | dataConnectors | Nej |
 > | entiteter | Nej |
@@ -1910,6 +1919,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > | ------------- | ----------- |
 > | avbryt | Nej |
 > | CreateSubscription | Nej |
+> | aktivera | Nej |
 > | byt namn | Nej |
 > | SubscriptionDefinitions | Nej |
 > | SubscriptionOperations | Nej |
@@ -1998,7 +2008,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
 > | ------------- | ----------- |
-> | delarna | Nej |
+> | Delarna | Nej |
 > | componentsSummary | Nej |
 > | monitorInstances | Nej |
 > | monitorInstancesSummary | Nej |

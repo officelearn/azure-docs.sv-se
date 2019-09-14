@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: overview
 ms.date: 06/13/2019
-ms.openlocfilehash: e500f08de414a5907a0f1aeeca90d8c2090adcdd
-ms.sourcegitcommit: e5dcf12763af358f24e73b9f89ff4088ac63c6cb
+ms.openlocfilehash: 7cf83af52d5bedee5b4d57ee1b4dda2fb34d1b3f
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67137065"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70960089"
 ---
 # <a name="what-is-apache-kafka-in-azure-hdinsight"></a>Vad är Apache Kafka i Azure HDInsight
 
@@ -45,7 +45,7 @@ Följande är kännetecknen för Kafka på HDInsight:
 
 Följande diagram visar en typisk Kafka-konfiguration som använder konsumentgrupper, partitionering och replikering för att erbjuda parallell läsning av händelser med feltolerans:
 
-![Diagram över Kafka-klusterkonfiguration](./media/apache-kafka-introduction/kafka-cluster.png)
+![Diagram över Kafka-klusterkonfiguration](./media/apache-kafka-introduction/kafka-cluster-diagram.png)
 
 Apache ZooKeeper hanterar Kafka-klustrets status. Zookeeper är utformat för samtidiga och flexibla transaktioner med kort svarstid. 
 
@@ -95,6 +95,6 @@ Använd följande länkar om du vill veta om hur du använder Apache Kafka på H
 
 * [Snabbstart: Skapa Apache Kafka i HDInsight](apache-kafka-get-started.md)
 
-* [Självstudie: Använda Apache Spark med Apache Kafka i HDInsight](../hdinsight-apache-spark-with-kafka.md)
+* [Självstudier: Använda Apache Spark med Apache Kafka i HDInsight](../hdinsight-apache-spark-with-kafka.md)
 
-* [Självstudie: Använda Apache Storm med Apache Kafka i HDInsight](../hdinsight-apache-storm-with-kafka.md)
+* [Självstudier: Använda Apache Storm med Apache Kafka i HDInsight](../hdinsight-apache-storm-with-kafka.md)

@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/19/2019
-ms.openlocfilehash: 3ff9cfbd312e672fb89afb4838ad9f8aa6574370
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: d31eb9ccb5df9137bebb877cce169cf657113d30
+ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70900016"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70967723"
 ---
 # <a name="manage-ml-services-cluster-on-azure-hdinsight"></a>Hantera ML Services-kluster i Azure HDInsight
 
@@ -31,7 +31,7 @@ I den här artikeln får du lära dig hur du hanterar ett befintligt ML-kluster 
 
 Du kan aktivera flera samtidiga användare för ML-tjänst kluster i HDInsight genom att lägga till fler användare för Edge-noden som RStudio community-versionen körs på. När du skapar ett HDInsight-kluster måste du ange två användare, en HTTP-användare och en SSH-användare:
 
-![Samtidig användare 1](./media/r-server-hdinsight-manage/concurrent-users-1.png)
+![Samtidig användare 1](./media/r-server-hdinsight-manage/hdi-concurrent-users1.png)
 
 - **Användarnamn för klusterinloggning**: en HTTP-användare för autentisering via HDInsight-gatewayen som används till att skydda HDInsight-klustret du skapade. Den här HTTP-användaren används för att få åtkomst till Apache Ambari-ANVÄNDARGRÄNSSNITTET, Apache Hadoop garn användar gränssnitt, samt andra GRÄNSSNITTs komponenter.
 - **Secure Shell (SSH)-användarnamn**: en SSH-användare för åtkomst till klustret via SSH. Den här användaren är en användare i Linux-systemet för alla huvudnoder, arbetsnoder och kantnoder. Du kan därmed använda SSH för åtkomst till alla noder i ett fjärrkluster.
@@ -66,7 +66,7 @@ Kör följande kommandon när du ska lägga till en användare vid kantnoden:
 
 På följande skärm bild visas utdata.
 
-![Samtidig användare 3](./media/r-server-hdinsight-manage/concurrent-users-2.png)
+![Samtidig användare 3](./media/r-server-hdinsight-manage/hdi-concurrent-users2.png)
 
 När du uppmanas att ange "nuvarande Kerberos-lösenord:" trycker du bara på **RETUR** för att ignorera det. Alternativet `-m` i kommandot `useradd` innebär att systemet skapar en arbetsmapp för användaren, vilket krävs för RStudio Comunity-versionen.
 

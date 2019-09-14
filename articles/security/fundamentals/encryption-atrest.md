@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/10/2019
 ms.author: barclayn
-ms.openlocfilehash: 78062dd92d20da365bb4f3d9c21cc4d576bae01f
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: 3e745d5f38d5623aab17ef7a3e3fbfa2c616e6d4
+ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70918872"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70984859"
 ---
 # <a name="azure-data-encryption-at-rest"></a>Azure Data Encryption – i vila
 
@@ -272,6 +272,7 @@ Kryptering på klient sidan av Azure SQL Database data stöds via funktionen [Al
 | Azure Analysis Services          | Ja                | -                  | -                  |
 | Azure Data Catalog               | Ja                | -                  | -                  |
 | Apache Kafka på Azure HDInsight  | Ja                | Alla RSA-längder.   | -                  |
+| Azure-datautforskaren              | Ja                | -                  | -                  |
 | Azure Data Factory               | Ja                | -                  | -                  |
 | Azure Data Lake Store            | Ja                | Ja, RSA 2048-bitars  | -                  |
 | **Containrar**                   |                    |                    |                    |

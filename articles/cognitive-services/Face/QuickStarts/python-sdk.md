@@ -9,12 +9,12 @@ ms.subservice: face-api
 ms.topic: quickstart
 ms.date: 07/26/2019
 ms.author: pafarley
-ms.openlocfilehash: 2a74dbe9c306c1bf2420fdaac78a9b9183cacab1
-ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
+ms.openlocfilehash: f237af58bb98f667d4481a88bbb4daa77657468c
+ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70376142"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70966915"
 ---
 # <a name="quickstart-face-client-library-for-python"></a>Snabbstart: Ansikts klient bibliotek för python
 
@@ -285,7 +285,7 @@ Om du har migrerat data med hjälp av ögonblicks bild funktionen i den här sna
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabb starten har du lärt dig hur du använder ansikts biblioteket för Java för att utföra grundläggande uppgifter. Sedan kan du utforska referens dokumentationen och läsa mer om biblioteket.
+I den här snabb starten har du lärt dig hur du använder ansikts biblioteket för python för att utföra grundläggande uppgifter. Sedan kan du utforska referens dokumentationen och läsa mer om biblioteket.
 
 > [!div class="nextstepaction"]
 > [Ansikts-API referens (python)](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-face/?view=azure-python)

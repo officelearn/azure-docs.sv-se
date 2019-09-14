@@ -1,22 +1,17 @@
 ---
 title: Metod tips för Azure Resource Manager mallar
 description: Beskriver rekommenderade metoder för att redigera Azure Resource Manager mallar. Innehåller förslag på hur du undviker vanliga problem när du använder mallar.
-services: azure-resource-manager
-documentationcenter: na
 author: tfitzmac
 ms.service: azure-resource-manager
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 08/16/2019
+ms.date: 09/12/2019
 ms.author: tomfitz
-ms.openlocfilehash: 361fcc6b60e863ee43d348cedd6b1571f3f563a2
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: bd3167b7f0daf7ebd595b2c33b1147140415c3de
+ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70812899"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70983833"
 ---
 # <a name="azure-resource-manager-template-best-practices"></a>Metod tips för Azure Resource Manager mall
 
@@ -47,7 +42,8 @@ När du distribuerar resurser till en resurs grupp lagrar resurs gruppen metadat
 Om resurs gruppens region är tillfälligt otillgänglig, kan du inte uppdatera resurser i resurs gruppen eftersom metadata inte är tillgängliga. Resurserna i andra regioner fungerar fortfarande som förväntat, men du kan inte uppdatera dem. Du kan minimera risken genom att leta upp resurs gruppen och resurserna i samma region.
 
 ## <a name="parameters"></a>Parametrar
-Informationen i det här avsnittet kan vara till hjälp när du arbetar med [parametrar](resource-group-authoring-templates.md#parameters).
+
+Informationen i det här avsnittet kan vara till hjälp när du arbetar med [parametrar](template-parameters.md).
 
 ### <a name="general-recommendations-for-parameters"></a>Allmänna rekommendationer för parametrar
 
@@ -149,7 +145,7 @@ Informationen i det här avsnittet kan vara till hjälp när du arbetar med [par
 
 ## <a name="variables"></a>Variabler
 
-Följande information kan vara till hjälp när du arbetar med [variabler](resource-group-authoring-templates.md#variables):
+Följande information kan vara till hjälp när du arbetar med [variabler](template-variables.md):
 
 * Använd kamel notation-fall för variabel namn.
 
@@ -169,7 +165,7 @@ Följande information kan vara till hjälp när du arbetar med [variabler](resou
 
 ## <a name="resource-dependencies"></a>Resursberoenden
 
-När du bestämmer vilka [beroenden](resource-group-define-dependencies.md) som ska anges använder du följande rikt linjer:
+När du bestämmer [](resource-group-define-dependencies.md) vilka beroenden som ska anges använder du följande rikt linjer:
 
 * Använd funktionen **Reference** och skicka in resurs namnet för att ange ett implicit beroende mellan resurser som behöver dela en egenskap. Lägg inte till ett `dependsOn` explicit element när du redan har definierat ett implicit beroende. Den här metoden minskar risken för onödiga beroenden.
 
@@ -286,7 +282,7 @@ Följande information kan vara till hjälp när du arbetar med [resurser](resour
 
 ## <a name="outputs"></a>outputs
 
-Om du använder en mall för att skapa offentliga IP-adresser inkluderar du [avsnittet utdata](resource-group-authoring-templates.md#outputs) som returnerar information om IP-adressen och det fullständigt kvalificerade domän namnet (FQDN). Du kan använda utdatavärden för att enkelt hämta information om offentliga IP-adresser och FQDN efter distributionen.
+Om du använder en mall för att skapa offentliga IP-adresser inkluderar du [avsnittet utdata](template-outputs.md) som returnerar information om IP-adressen och det fullständigt kvalificerade domän namnet (FQDN). Du kan använda utdatavärden för att enkelt hämta information om offentliga IP-adresser och FQDN efter distributionen.
 
 ```json
 "outputs": {

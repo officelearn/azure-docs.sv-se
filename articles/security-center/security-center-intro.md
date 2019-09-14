@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 6/06/2019
 ms.author: v-mohabe
-ms.openlocfilehash: 2ef207a14582e6ba0d9f8a25c0314c5ec639c7cb
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 762ab2800193aa084b771b7d000b383a7004097e
+ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68882852"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70984920"
 ---
 # <a name="what-is-azure-security-center"></a>Vad är Azure Security Center?
 
@@ -38,7 +38,7 @@ Azure Security Center adresserar de tre mest brådskande säkerhetsutmaningarna:
 
 Som en hjälp i skyddet mot dessa utmaningar erbjuder Security Center dig verktyg för att:
 
--   **Förbättra säkerheten**: Security Center utvärderar din miljö och hjälper dig att förstå dina resursers status. Är de säkra eller inte?
+-   **Förbättra säkerheten**: Security Center utvärderar din miljö och gör det möjligt att förstå statusen för dina resurser och om de är säkra.
 
 -   **Skydda dig mot hot**: Security Center utvärderar dina arbetsbelastningar och genererar rekommendationer för förebyggande av hot och hotidentifieringsaviseringar.
 
@@ -64,7 +64,7 @@ Det tillhör grunderna i säkerhetsarbetet att känna till och skydda sina arbet
 
 ![Instrumentpanelen i Security Center](media/security-center-intro/sc-dashboard.png)
 
-Security Center hjälper dig att **identifiera SKUGG IT**-prenumerationer. Genom att titta på prenumerationer märkta **omfattas inte** på instrumentpanelen kan du se direkt när det har skapats nya prenumerationer och se till att de omfattas av dina principer och skyddas av Azure Security Center.
+Security Center hjälper dig att **identifiera SKUGG IT-prenumerationer**. Genom att titta på prenumerationer märkta **omfattas inte** på instrumentpanelen kan du se direkt när det har skapats nya prenumerationer och se till att de omfattas av dina principer och skyddas av Azure Security Center.
 
 ![Principinstrumentpanelen i Security Center](media/security-center-intro/sc-policy-dashboard.png)
 

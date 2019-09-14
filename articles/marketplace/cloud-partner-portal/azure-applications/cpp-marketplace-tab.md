@@ -1,134 +1,134 @@
 ---
-title: Azure-program erbjudandet Marketplace-fliken
-description: Använd fliken Marketplace för att identifiera marknadsföring tillgångar för ett erbjudande för Azure-program.
+title: Fliken Marketplace för Azure-program
+description: Använd fliken Marketplace för att identifiera marknadsförings till gångar för ett erbjudande för Azure-program.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: dan-wesley
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: pabutler
-ms.openlocfilehash: 7ea6e6be0597a114b02fad8c41e37d21ce1f6028
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b5d54e4c6744675da0dea5b095590b71df6d2641
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64942976"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70962866"
 ---
-# <a name="azure-application-marketplace-tab"></a>Azure Marketplace programfliken
+# <a name="azure-application-marketplace-tab"></a>Fliken Azure Application Marketplace
 
-Använd fliken Marketplace för att beskriva ditt Azure-program och ange marknadsföring tillgångar. Den här fliken innehåller följande sätt: Översikt över, marknadsföring artefakter, Lead hantering och juridiska krav.
+Använd fliken Marketplace för att beskriva ditt Azure-program och tillhandahålla marknadsförings till gångar. Den här fliken innehåller följande formulär: Översikt, marknadsförings artefakter, ledar hantering och juridisk information.
 
-## <a name="overview-form"></a>Översiktsformulär
+## <a name="overview-form"></a>Översikts formulär
 
-Översikt över formuläret har obligatoriska och valfria fält som visas i nästa skärmdump. Required fields are indicted by an asterisk (*).
+Formuläret översikt innehåller de obligatoriska och valfria fälten som visas i nästa skärmdump. Obligatoriska fält förutsägs av en asterisk (*).
 
-![Översiktsformulär](./media/azureapp-marketplace-overview.png)
+![Översikts formulär](./media/azureapp-marketplace-overview.png)
 
-I följande tabell beskrivs inställningarna som ska användas för att skapa en butik för erbjudandet.   Fält läggas till med en asterisk är obligatoriska.
-
-|      Fält         |    Beskrivning    |
-|  ---------------   |  ---------------  |
-| **Rubrik\***        | Rubrik för erbjudandet. Det ska visas på en framträdande plats i marketplace. Den maximala längden är 50 tecken. |
-| **Sammanfattning\***      | Kort sammanfattning av erbjudandet. Den maximala längden är 100 tecken.           |
-| **Lång sammanfattning\*** | Längre sammanfattning av erbjudandet (även om det kan vara samma som sammanfattningen). Den maximala längden är 256 tecken.           |
-| **Beskrivning\***  | Beskrivning av erbjudandet. Den maximala längden är 3000 tecken. Enkel HTML-formatering tillåts, inklusive &lt;p&gt;, &lt;em&gt;, &lt;ul&gt;, &lt;li&gt;, &lt;ol&gt; och huvud-taggar.  |
-| **Identifierare för marknadsföring\*** | En unik URL att koppla till det här erbjudandet innehåller normalt sett din organisation och lösningsnamn, maximal längd 50 tecken. Välj en kort, eget marknadsföring identifierare för din tjänst. Detta ska användas i marketplace URL: er för det här erbjudandet. Till exempel om Publicerings-ID är ”contoso” och din marknadsföring ID är ”exempelapp för”, blir URL: en för ditt erbjudande i Azure Marketplace https://azuremarketplace.microsoft.com/en-us/marketplace/apps/contoso.sampleApp  
-| **Förhandsversion av prenumerations-ID: N\*** | Lägg till en till 100 prenumeration identifierarna för förhandsgranskningar. Dessa white visas prenumerationer har åtkomst till ditt erbjudande även om det är tillgängligt i förhandsversionen när det publiceras innan det lanseras.          |
-| **Användbara länkar**    | Du kan också ange länkar till olika resurser för användare av ditt erbjudande, support, dokumentation, forum, t.ex.  Vi rekommenderar att du lägger till minst en länk till dokumentationen.            |
-| **Föreslås kategorier (Max 5)\*** | Välj en till fem kategorier. De valda kategorierna används för att mappa ditt erbjudande till produktkategorier som är tillgängliga i Azure Marketplace och Azure-portalen. De kommer att visas på Bläddra sidor och på din produktsidan för information. |
-|  |  |
-
-
-## <a name="marketing-artifacts"></a>Marknadsföring artefakter
-
-Obligatoriska och valfria fält som visas i nästa skärmdumpen har formuläret marknadsföring artefakter. Required fields are indicted by an asterisk (*).
-
-![Marknadsföring artefakter formulär](./media/azureapp-marketplace-artifacts.png)
-
-I följande tabell beskrivs marknadsföring artefakter.
+I följande tabell beskrivs de inställningar som används för att skapa en butik för erbjudandet.   Fälten som läggs till med en asterisk måste anges.
 
 |      Fält         |    Beskrivning    |
 |  ---------------   |  ---------------  |
-| **Liten\***        | Liten logotyp: 40 x 40 bildpunkter i PNG-format     |
-| **Medel\***       | Medelhög logotyp: 90 x 90 bildpunkter i PNG-format    |
-| **Stora\***        | Stor logotyp: 115 x 115 bildpunkter i PNG-format   |
-| **Wide\***         | Brett logotyp: 255 x 115 bildpunkter i PNG-format    |
-| **Hero**           | Valfritt hero logotyp: 815 x 290 bildpunkter i PNG-format. **Obs:** Ikonen hero-komponenten kan inte tas bort när paketet har överförts. |
-| **Skärmbilder (Max 5)** |        Skärmbilder visas på din produktsidan för information. Det är ett bra sätt att förmedla visuellt vad appen gör och hur det fungerar. Du kan till exempel visa Arkitekturdiagram eller använda fallet illustrationer. Skärmbilderna är valfria, och du begränsad till 5 per SKU. Lägga till en skärmbild:<ul><li>Välj **+ Lägg till skärmbild** att öppna fönstret skärmbild</li><li>**Namn på** -ange ett namn/rubrik (maximal längd på 100 tecken).</li><li>**Ladda upp** – ladda upp avbildningen. Det måste vara i PNG-format och storleken är 533 x 324 bildpunkter.</li></ul>           |
-| **Lägg till video**      | Valfritt, videor visas på din produktsidan för information. Det är ett bra sätt att förmedla visuellt vad ditt program gör och hur det fungerar. Lägga till en video: <ul><li>Välj **+ Lägg till video** att öppna fönstret Video</li><li>**Namn på** -ange ett namn/rubrik (maximal längd på 100 tecken).</li><li>**Länken** – ange Webbadressen för den plats som är värd för video (YouTube eller Vimeo)</li><li>**Miniatyr** – ladda upp en miniatyrbild. Det måste vara i PNG-format och storleken är 533 x 324 bildpunkter.</li></ul>          |
+| **Avdelning\***        | Rubriken på erbjudandet. Den visas på ett framträdande sätt i Marketplace. Den maximala längden är 50 tecken. |
+| **Drag\***      | Kort sammanfattning av erbjudandet. Den maximala längden är 100 tecken.           |
+| **Lång Sammanfattning\*** | Längre sammanfattning av erbjudandet (även om det kan vara samma som i sammanfattningen). Den maximala längden är 256 tecken.           |
+| **Beteckning\***  | Beskrivning av erbjudandet. Den maximala längden är 3000 tecken. Enkel HTML-formatering tillåts, inklusive &lt;p&gt;- &lt;,&gt;EM &lt;-&gt;, &lt;UL&gt;-,&gt; Li-, OL- &lt;och Head-taggar.  |
+| **Marknadsförings-ID\*** | En unik URL som associeras med det här erbjudandet, och innehåller vanligt vis organisations-och lösnings namn, högst 50 tecken. Välj ett kort, eget marknadsförings-ID för din tjänst. Detta kommer att användas i Marketplace-URL: er för det här erbjudandet. Om ditt utgivar-ID t. ex. är "contoso" och marknadsförings identifieraren är "fråga" kommer URL: en för ditt erbjudande i Azure Marketplace att vara https://azuremarketplace.microsoft.com/marketplace/apps/contoso.sampleApp  
+| **Förhandsgranska prenumerations-ID: n\*** | Lägg till från en till 100 prenumerations-ID för för hands visare. De här vita prenumerationerna kommer att ha åtkomst till ditt erbjudande när det är tillgängligt i för hands versionen när det har publicerats, innan det går live.          |
+| **Användbara länkar**    | Du kan också ange länkar till olika resurser för användare av ditt erbjudande, till exempel support, dokumentation, forum osv.  Vi rekommenderar att du lägger till minst en länk till din dokumentation.            |
+| **Föreslagna kategorier (max 5)\*** | Välj en till fem kategorier. De valda kategorierna används för att mappa ditt erbjudande till produkt kategorierna som är tillgängliga i Azure Marketplace och Azure Portal. De visas på sidan Sök efter sidor och på produkt informations sidan. |
 |  |  |
 
 
-### <a name="artifact-examples-in-azure-marketplace"></a>Artefakten exemplen i Azure Marketplace
+## <a name="marketing-artifacts"></a>Marknadsförings artefakter
 
-Nästa skärmdump visar ett exempel på ett Marketplace-sökresultat.
+Formuläret marknadsförings artefakter har de obligatoriska och valfria fälten som visas i nästa skärmdump. Obligatoriska fält förutsägs av en asterisk (*).
 
-![Sökresultat för Marketplace-erbjudande](./media/azureapp-marketplace-example-browse.png)
+![Formuläret marknadsförings artefakter](./media/azureapp-marketplace-artifacts.png)
 
-Följande bild visar hur erbjudandet visas i Marketplace efter en kund klickar på erbjudandets panel i sökresultatet.
+I följande tabell beskrivs marknadsförings artefakterna.
 
-![Information om Marketplace-erbjudande search resultat](./media/azureapp-marketplace-example-details.png)
+|      Fält         |    Beskrivning    |
+|  ---------------   |  ---------------  |
+| **Små\***        | Liten logo typ: 40x40 bild punkter i PNG-format     |
+| **Säker\***       | Medelhög logo typ: 90x90 bild punkter i PNG-format    |
+| **Förstoring\***        | Stor logo typ: 115x115 bild punkter i PNG-format   |
+| **Täcka\***         | Bred logo typ: 255x115 bild punkter i PNG-format    |
+| **Hjälte**           | Valfri hjälte logo typ: 815x290 bild punkter i PNG-format. **Obs:** Det går inte att ta bort hjälte ikonen när den har laddats upp. |
+| **Skärm bilder (max 5)** |        Skärm dum par visas på produkt informations sidan. De är ett bra sätt att visuellt förmedla vad din app gör och hur det fungerar. Du kan till exempel Visa arkitektur diagram eller användnings Falls bilder. Skärm dum par är valfria och du kan begränsa till 5 per SKU. Så här lägger du till en skärm bild:<ul><li>Välj **+ Lägg till skärm bild** för att öppna skärm bilds fönstret</li><li>**Namn** – ange ett namn/en rubrik (högst 100 tecken.)</li><li>**Ladda upp** – Ladda upp avbildningen. Det måste vara i PNG-format och storleken är 533 x 324 bild punkter.</li></ul>           |
+| **Lägg till video**      | Som tillval visas videor på din produkt informations sida. De är ett bra sätt att visuellt förmedla vad ditt program gör och hur det fungerar. Så här lägger du till en video: <ul><li>Öppna video fönstret genom att välja **+ Lägg till video**</li><li>**Namn** – ange ett namn/en rubrik (högst 100 tecken.)</li><li>**Länk** – ange URL: en för den webbplats som är värd för videon (YouTube eller Vimeo)</li><li>**Miniatyr** – Ladda upp en miniatyr bild. Det måste vara i PNG-format och storleken är 533 x 324 bild punkter.</li></ul>          |
+|  |  |
 
 
-### <a name="artifact-examples-in-azure-portal"></a>Artefakten exemplen i Azure Portal
+### <a name="artifact-examples-in-azure-marketplace"></a>Artefakt exempel i Azure Marketplace
 
-Följande skärmdumpar visar hur ett erbjudande visas i Azure Portal. Program-erbjudandet i det här exemplet hittas genom att bläddra till **Marketplace > allt > UTV + Test > Jenkins**. Jenkins-erbjudandet visar en logotyp, titel och visningsnamn för utgivare.
+I nästa skärm bild visas ett exempel på ett Sök resultat i Marketplace.
 
-![Bläddra erbjudanden i Azure-portalen](./media/azureapp-portalbrowse-artifacts-jenkins.png)
+![Sök Resultat för Marketplace-erbjudandet](./media/azureapp-marketplace-example-browse.png)
 
-Nästa skärmdump visar detaljerad information om programmet när en användare väljer Jenkins.
+Följande bild visar hur erbjudandet visas på Marketplace när en kund klickar på erbjudandet i Sök resultatet.
 
-![Information om erbjudandet i Azure-portalen](./media/azureapp-portal-artifacts-jenkins-details.png)
+![Sök Resultat information för Marketplace-erbjudandet](./media/azureapp-marketplace-example-details.png)
+
+
+### <a name="artifact-examples-in-azure-portal"></a>Artefakt exempel i Azure Portal
+
+Följande skärm dum par visar hur ett erbjudande visas i Azure Portal. Program erbjudandet i det här exemplet hittas genom att bläddra till **Marketplace > allt > dev + Test > Jenkins**. Jenkins-erbjudandet visar en logo typ, rubrik och visnings namn för utgivare.
+
+![Sök efter erbjudanden i Azure Portal](./media/azureapp-portalbrowse-artifacts-jenkins.png)
+
+Nästa skärm bild visar detaljerad information om programmet när en användare väljer Jenkins.
+
+![Information om erbjudandet i Azure Portal](./media/azureapp-portal-artifacts-jenkins-details.png)
 
 
 ### <a name="logo-guidelines"></a>Riktlinjer för logotyp
 
-Alla logotyper som överförts till Cloud Partner Portal bör följa riktlinjerna:
+Alla logo typer som laddats upp till Cloud Partner Portal bör följa rikt linjerna:
 
-- Azure-designen har en enkel färgpalett. Håll nere antalet primära och sekundära färger på din logotyp.
-- Temafärger i Azure-portalen är vit och svart. Undvik att använda dessa färger som bakgrundsfärg för din logotyper. Använd en färg som gör din logotyper framstående i Azure-portalen. Vi rekommenderar enkla primärfärger. Om du använder en genomskinlig bakgrund, se till att logotyper/text inte är vit, svart eller blå.
-- Använd inte en toning bakgrund på din logotyp.
-- Undvik att placera text, även företaget eller varumärke namn på logotypen. Utseendet och känslan av din logotyp måste vara ”fast” och Undvik toningar.
-- Inte sträcka ut logotypen.
+- Azure-designen har en enkel färgpalett. Behåll antalet primära och sekundära färger på din logo typ låg.
+- Tema färgerna i Azure-portalen är vita och svarta. Undvik att använda dessa färger som bakgrunds färg för dina logo typer. Använd en färg som gör logo typerna framträdande i Azure Portal. Vi rekommenderar enkla primärfärger. Om du använder en genomskinlig bakgrund ser du till att logo typerna/texten inte är vita, svarta eller blå.
+- Använd inte en tonings bakgrund på din logo typ.
+- Undvik att placera text, till och med ditt företags-eller märkes namn på logo typen. Utseendet på logo typen bör vara "flat" och undvika toningar.
+- Sträck inte ut logo typen.
 
 
 #### <a name="hero-logo"></a>Hero-logotyp
 
-Hero-logotypen är valfritt.
+Hjältens logo typ är valfri.
 
 >[!IMPORTANT]
->Du kan inte ta bort Hero-logotypen när paketet har överförts.
+>Du kan inte ta bort hjälte logo typen när den har laddats upp.
 
-Använd följande riktlinjer för en Hero-logotyp:
+Använd följande rikt linjer för en hjälte logo typ:
 
-- Svart, vit och transparent bakgrund är inte tillåtna.
-- Undvik att använda alla ljusare som bakgrund för logotypen. Utgivaren visningsnamn, plan rubrik och erbjudandet lång sammanfattning visas i vit teckenfärg och måste skilja mot bakgrunden.
-- Undvik att använda de flesta text när du utformar logotypen. Utgivarens namn, plan rubrik, lång sammanfattning av erbjudandet och en knappen Skapa bäddas programmässigt inuti logotypen när erbjudandets visas.
-- Inkludera en rektangulär outnyttjat utrymme till höger logotypens hero. Det här tomt utrymme är 415 × 100 bildpunkter och förskjutning från vänster med 370 bildpunkter.
+- Svarta, vita och transparenta bakgrunder är inte tillåtna.
+- Undvik att använda en ljus färg som bakgrund för logo typen. Visnings namnet för utgivaren, plan rubriken och den långa sammanfattningen av erbjudandet visas i vit tecken färg och måste synas mot bakgrunden.
+- Undvik att använda den mesta texten när du utformar logo typen. Utgivar namnet, plan rubriken, erbjudandet lång Sammanfattning och en knappen Skapa bäddas in program mässigt inuti logo typen när erbjudandet visas.
+- Ta med ett oanvänt rektangulärt utrymme på den högra sidan av din hjälte logo typ. Det tomma utrymmet är 415x100 bild punkter och förskjutning från vänster med 370 bild punkter.
 
 
-## <a name="lead-management"></a>Lead-hantering
+## <a name="lead-management"></a>Hantering av lead
 
-Formuläret leda Management har ett valfritt fält att konfigurera lead-hantering. Välj Lead-målet i listrutan om du vill konfigurera lead-hantering. Nästa skärmdump visar tillgängliga mål.
+Formuläret lead management har ett valfritt fält för att konfigurera hantering av leads. Om du vill konfigurera hantering av lead väljer du målet för leadet i list rutan. I nästa skärm bild visas tillgängliga destinationer.
 
-![Välj lead management mål](./media/azureapp-marketplace-leadmgmt.png)
+![Välj mål för lead-hantering](./media/azureapp-marketplace-leadmgmt.png)
 
 >[!TIP]
->Välj informationsikonen ska kunna se meddelandet: ”Välj systemet där dina leads ska lagras. Lär dig hur du ansluter till CRM-systemet [här](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-get-customer-leads) ”.
+>Välj informations ikonen för att se det här meddelandet: "Välj det system där dina leads ska lagras. Lär dig hur du ansluter till ditt CRM-system [här](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-get-customer-leads) . "
 
-Mer information finns i [konfigurera kundleads](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-get-customer-leads).
+Mer information finns i [Konfigurera kund leads](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-get-customer-leads).
 
 
 ## <a name="legal"></a>Juridisk information
 
-Använda juridiska formuläret för att tillhandahålla juridisk dokumentation som krävs för varje erbjudande.
+Använd juridisk form för att tillhandahålla juridisk dokumentation som krävs för varje erbjudande.
 
 Ange följande information:
 
-- **Sekretesswebbadress för principen\***  – ange en länk till din Apps sekretesspolicy.
-- **Användningsvillkor\***  – ange villkor för användning av din app. Kunder måste acceptera villkoren innan de kan testa din app.
+- **URL\* för sekretess policy** – ange en länk till appens sekretess policy.
+- **Användningsvillkor\***  – ange användnings villkoren för din app. Kunder måste acceptera dessa villkor innan de kan testa din app.
 
-![Juridiska formulär](./media/azureapp-marketplace-legal.png)
+![Juridisk form](./media/azureapp-marketplace-legal.png)
 
 
 ## <a name="next-steps"></a>Nästa steg

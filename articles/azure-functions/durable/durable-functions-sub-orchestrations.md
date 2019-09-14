@@ -9,12 +9,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 09/07/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 74f33a1ce1026424a6cdb97699223aeb5ff8277f
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: 7b5e811daecbb7687abe7a37b75e2730d7830c2c
+ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70933136"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70983621"
 ---
 # <a name="sub-orchestrations-in-durable-functions-azure-functions"></a>Under dirigering i Durable Functions (Azure Functions)
 
@@ -22,7 +22,10 @@ Förutom att anropa aktivitets funktioner kan Orchestrator-funktioner anropa and
 
 En Orchestrator-funktion kan anropa en annan Orchestrator-funktion genom att anropa [](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CallSubOrchestratorWithRetryAsync_) `callSubOrchestrator` [CallSubOrchestratorAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CallSubOrchestratorAsync_) -eller CallSubOrchestratorWithRetryAsync-metoderna i .net `callSubOrchestratorWithRetry` , eller eller-metoderna i Java Script. Artikeln [fel hantering &s kompensation](durable-functions-error-handling.md#automatic-retry-on-failure) innehåller mer information om automatiskt återförsök.
 
-Under Orchestrator-funktioner fungerar precis som aktivitets funktioner från anroparens perspektiv. De kan returnera ett värde, utlösa ett undantag och kan förväntas av den överordnade Orchestrator-funktionen.
+Under Orchestrator-funktioner fungerar precis som aktivitets funktioner från anroparens perspektiv. De kan returnera ett värde, utlösa ett undantag och kan förväntas av den överordnade Orchestrator-funktionen. 
+
+> [!NOTE]
+> För närvarande är det nödvändigt att ange ett `instanceId` argument värde för under Dirigerings-API: et i Java Script.
 
 ## <a name="example"></a>Exempel
 
@@ -107,9 +110,12 @@ module.exports = df.orchestrator(function*(context) {
 
     // Run multiple device provisioning flows in parallel
     const provisioningTasks = [];
+    var id = 0;
     for (const deviceId of deviceIds) {
-        const provisionTask = context.df.callSubOrchestrator("DeviceProvisioningOrchestration", deviceId);
+        const child_id = context.df.instanceId+`:${id}`;
+        const provisionTask = context.df.callSubOrchestrator("DeviceProvisioningOrchestration", deviceId, child_id);
         provisioningTasks.push(provisionTask);
+        id++;
     }
 
     yield context.df.Task.all(provisioningTasks);

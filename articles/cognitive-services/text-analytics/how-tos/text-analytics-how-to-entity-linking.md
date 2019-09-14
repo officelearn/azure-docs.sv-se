@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: article
 ms.date: 07/30/2019
 ms.author: aahi
-ms.openlocfilehash: 93d5b3de47ec0b3c0494589da0baf87f91a0233a
-ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.openlocfilehash: 642b21624ce3ffc993d5f29a413845044d703fd7
+ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70390261"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70984270"
 ---
 # <a name="how-to-use-named-entity-recognition-in-text-analytics"></a>Använda namngiven enhets igenkänning i Textanalys
 
@@ -47,7 +47,6 @@ Om du använder enhets länkning på olika språk måste du använda en motsvara
 | Antal      | Tal        | "6", "six"     |
 | Antal      | Procent    | ”50 %”, ”femtio procent”|
 | Antal      | Ordningstal       | ”2:a”, ”andra”     |
-| Antal      | NumberRange   | ”4 till 8”     |
 | Antal      | Ålder           | "90 dag gammal", "30 år gammal"    |
 | Antal      | Currency      | ”10,99 USD”     |
 | Antal      | Dimension     | ”10 miles”, ”40 cm”     |
@@ -59,7 +58,6 @@ Om du använder enhets länkning på olika språk måste du använda en motsvara
 | DateTime      | TimeRange     | ”18 till 19”     |
 | DateTime      | Duration      | ”1 minut och 45 sekunder”   |
 | DateTime      | Ange           | ”varje tisdag”     |
-| DateTime      | Tidszon      |    |
 | URL           | EJ TILLÄMPLIGT\*         | "https:\//www.Bing.com"    |
 | Email         | EJ TILLÄMPLIGT\*         | "support@contoso.com" |
 

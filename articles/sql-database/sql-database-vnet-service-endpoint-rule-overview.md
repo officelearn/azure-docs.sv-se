@@ -11,12 +11,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto, genemi
 ms.date: 08/27/2019
-ms.openlocfilehash: d924f0eb89984fbe77f94eff553d00a25b4b7a3a
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: 485c79bab90295cf9af9ef1dbbc209d46931a485
+ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70309623"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70984945"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-database-servers"></a>Använd tjänst slut punkter och regler för virtuella nätverk för databas servrar
 
@@ -244,7 +244,7 @@ Du måste redan ha ett undernät som är taggat med det specifika Virtual Networ
 3. Ange alternativet **Tillåt åtkomst till Azure-tjänster** till av.
 
     > [!IMPORTANT]
-    > Om du lämnar kontrollen inställd till på, accepterar Azure SQL Database servern kommunikation från vilket undernät som helst. Om du lämnar kontrollen till på aktive rad kan det vara för hög åtkomst från en säkerhets punkt. Den Microsoft Azure Virtual Network tjänstens slut punkts funktion, i samordning med funktionen för regel för virtuella nätverk i SQL Database, kan minska området för säkerhets ytan.
+    > Om du lämnar kontrollen inställt på på, godkänner Azure SQL Database servern kommunikation från ett undernät inom Azure-gränser, d.v.s. från en av de IP-adresser som identifieras som de inom intervall som definierats för Azure Data Center. Om du lämnar kontrollen till på aktive rad kan det vara för hög åtkomst från en säkerhets punkt. Den Microsoft Azure Virtual Network tjänstens slut punkts funktion, i samordning med funktionen för regel för virtuella nätverk i SQL Database, kan minska området för säkerhets ytan.
 
 4. Klicka på **+ Lägg till befintlig** kontroll i avsnittet **virtuella nätverk** .
 

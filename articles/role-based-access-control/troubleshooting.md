@@ -15,12 +15,12 @@ ms.date: 08/22/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: seohack1
-ms.openlocfilehash: c3ca873cb4dd49d77ba818b3d05c3aa41e89276f
-ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
+ms.openlocfilehash: eb7c2cb4a20c89f3a54f23e354d56e5dc3711ef0
+ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69982726"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70967109"
 ---
 # <a name="troubleshoot-rbac-for-azure-resources"></a>Felsöka RBAC för Azure-resurser
 
@@ -179,9 +179,11 @@ Vissa funktioner i [Azure Functions](../azure-functions/functions-overview.md) k
 
 ![Function-appar ingen åtkomst](./media/troubleshooting/functionapps-noaccess.png)
 
-En läsare kan klicka på fliken **plattforms funktioner** och sedan klicka på **alla inställningar** för att visa vissa inställningar som är relaterade till en Function-app (liknar en webbapp), men de kan inte ändra någon av dessa inställningar. Du behöver deltagar rollen för att få åtkomst [](built-in-roles.md#contributor) till dessa funktioner.
+En läsare kan klicka på fliken **plattforms funktioner** och sedan klicka på **alla inställningar** för att visa vissa inställningar som är relaterade till en Function-app (liknar en webbapp), men de kan inte ändra någon av dessa inställningar. Du behöver [deltagar](built-in-roles.md#contributor) rollen för att få åtkomst till dessa funktioner.
 
 ## <a name="next-steps"></a>Nästa steg
-* [Hantera åtkomst till Azure-resurser med hjälp av RBAC och Azure-portalen](role-assignments-portal.md)
-* [Visa aktivitets loggar för RBAC-ändringar till Azure-resurser](change-history-report.md)
+
+- [Felsöka för gäst användare](role-assignments-external-users.md#troubleshoot)
+- [Hantera åtkomst till Azure-resurser med hjälp av RBAC och Azure-portalen](role-assignments-portal.md)
+- [Visa aktivitets loggar för RBAC-ändringar till Azure-resurser](change-history-report.md)
 

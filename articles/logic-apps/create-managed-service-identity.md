@@ -9,12 +9,12 @@ ms.service: logic-apps
 ms.suite: integration
 ms.topic: article
 ms.date: 03/29/2019
-ms.openlocfilehash: bb1443afa14f2a23b807af52ab8fef6ac41ea200
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
-ms.translationtype: HT
+ms.openlocfilehash: d6cf19a07829afea924d3d799b1309cfc5f6329f
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 09/12/2019
-ms.locfileid: "70934039"
+ms.locfileid: "70959958"
 ---
 # <a name="authenticate-and-access-resources-with-managed-identities-in-azure-logic-apps"></a>Autentisera och få åtkomst till resurser med hanterade identiteter i Azure Logic Apps
 
@@ -23,7 +23,7 @@ För att få åtkomst till resurser i andra Azure Active Directory (Azure AD)-kl
 > [!NOTE]
 > Din Logi Kap par kan endast använda hanterade identiteter med kopplingar som har stöd för hanterade identiteter. För närvarande stöder bara HTTP-anslutningen hanterade identiteter.
 >
-> För närvarande kan du ha upp till tio Logic app-arbetsflöden med systemtilldelade hanterade identiteter i varje Azure-prenumeration.
+> Du kan för närvarande ha upp till 100 Logic app-arbetsflöden med systemtilldelade hanterade identiteter i varje Azure-prenumeration.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -168,7 +168,7 @@ När du har konfigurerat din Logic-app med en systemtilldelad hanterad identitet
    > 
    > I egenskapen **Audience** måste resurs-ID-värdet exakt matcha vad Azure AD förväntar sig, inklusive eventuella avslutande snedstreck. 
    > Du kan hitta dessa resurs-ID-värden i den här [tabellen som beskriver Azure-tjänster som stöder Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication). 
-   > Om du till exempel använder resurs-ID för Azure resurs Manager ser du till att URI: n har ett avslutande snedstreck.
+   > Om du till exempel använder Azure Resource Manager resurs-ID kontrollerar du att URI: n har ett avslutande snedstreck.
 
 1. Fortsätt att skapa Logic-appen på det sätt som du vill.
 

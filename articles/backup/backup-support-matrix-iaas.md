@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 07/02/2019
 ms.author: dacurwin
-ms.openlocfilehash: da987b5e841824dc62f3b740cae2961de9d7b293
-ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
+ms.openlocfilehash: 62f633b617abb52e1be4003f65cc537cc9ff2a25
+ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70872907"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70983780"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Support mat ris för säkerhets kopiering av virtuella Azure-datorer
 Du kan använda [tjänsten Azure Backup](backup-overview.md) för att säkerhetskopiera lokala datorer och arbets belastningar och virtuella datorer i Azure. Den här artikeln sammanfattar support inställningar och begränsningar när du säkerhetskopierar virtuella Azure-datorer med Azure Backup.
@@ -180,7 +180,7 @@ Flera reserverade IP-adresser |    Stöds. <br/><br/> [Lär dig mer](backup-azur
 Virtuella datorer med flera nätverkskort  | Stöds. <br/><br/> [Lär dig mer](backup-azure-arm-restore-vms.md#restore-vms-with-special-configurations) om att återställa virtuella datorer med särskilda nätverks inställningar.
 Virtuella datorer med offentliga IP-adresser    | Stöds.<br/><br/> Koppla en befintlig offentlig IP-adress till NÄTVERKSKORTet eller skapa en adress och koppla den till NÄTVERKSKORTet när återställningen är färdig.
 Nätverks säkerhets grupp (NSG) på NIC/undernät. |   Stöds.
-Reserverad IP adress (statisk) | Stöds ej.<br/><br/> Du kan inte säkerhetskopiera en virtuell dator med en reserverad IP-adress och ingen definierad slut punkt.
+Statisk IP-adress | Stöds ej.<br/><br/> En ny virtuell dator som skapas från en återställnings punkt tilldelas en dynamisk IP-adress.<br/><br/> För klassiska virtuella datorer kan du inte säkerhetskopiera en virtuell dator med en reserverad IP-adress och ingen definierad slut punkt.
 Dynamisk IP-adress |    Stöds.<br/><br/> Om NÄTVERKSKORTet på den virtuella käll datorn använder dynamisk IP-adressering, kommer NÄTVERKSKORTet på den återställda virtuella datorn också att använda den.
 Azure Traffic Manager   | Stöds.<br/><br/>Om den säkerhetskopierade virtuella datorn finns i Traffic Manager lägger du manuellt till den återställda virtuella datorn i samma Traffic Manager instans.
 Azure DNS | Stöds.

@@ -14,20 +14,20 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 03/05/2019
 ms.author: aschhab
-ms.custom: seo-java-july2019, seo-java-august2019
-ms.openlocfilehash: 3639eef1e95b354298b718af24217a8fbefb3a74
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019
+ms.openlocfilehash: 9dff2cc11b71f314de81fd99ed3b72c6337d977f
+ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70173375"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70967969"
 ---
 # <a name="use-the-java-message-service-jms-with-azure-service-bus-and-amqp-10"></a>Använda Java Message Service (JMS) med Azure Service Bus och AMQP 1,0
+Den här artikeln förklarar hur du använder Azure Service Bus meddelande funktioner (köer och publicera/prenumerera ämnen) från Java-program med hjälp av den populära API-standarden Java Message Service (JMS). Det finns en [medföljande artikel](service-bus-amqp-dotnet.md) som förklarar hur du gör detta med hjälp av Azure Service Bus .NET API. Du kan använda dessa två guider tillsammans för att lära dig mer om plattforms oberoende meddelanden med AMQP 1,0.
+
 Advanced Message Queueing Protocol (AMQP) 1,0 är ett effektivt, tillförlitligt meddelande protokoll på trådnivå som du kan använda för att bygga robusta program för meddelanden mellan plattformar.
 
-Stöd för AMQP 1,0 i Service Bus innebär att du kan använda funktionerna för kö-och publicerings-och prenumerations tjänster från en uppsättning plattformar med hjälp av ett effektivt binärt protokoll. Dessutom kan du skapa program som består av komponenter som skapats med en blandning av språk, ramverk och operativ system.
-
-Den här artikeln förklarar hur du använder Service Bus meddelande funktioner (köer och publicera/prenumerera ämnen) från Java-program med hjälp av den populära API-standarden Java Message Service (JMS). Det finns en [medföljande artikel](service-bus-amqp-dotnet.md) som förklarar hur du gör detta med hjälp av Service Bus .NET API. Du kan använda dessa två guider tillsammans för att lära dig mer om plattforms oberoende meddelanden med AMQP 1,0.
+Stöd för AMQP 1,0 i Azure Service Bus innebär att du kan använda funktionerna för kö-och publicerings-och prenumerations tjänster från en uppsättning plattformar med hjälp av ett effektivt binärt protokoll. Dessutom kan du skapa program som består av komponenter som skapats med en blandning av språk, ramverk och operativ system.
 
 ## <a name="get-started-with-service-bus"></a>Kom igång med Service Bus
 Den här guiden förutsätter att du redan har ett Service Bus namnrum som innehåller en kö med namnet **basicqueue**. Om du inte gör det kan du [skapa namn området och kön](service-bus-create-namespace-portal.md) med hjälp av [Azure Portal](https://portal.azure.com). Mer information om hur du skapar Service Bus namnrymder och köer finns i [komma igång med Service Bus köer](service-bus-dotnet-get-started-with-queues.md).
@@ -372,7 +372,7 @@ Dessutom, Azure Service Bus delar kontroll planet från data planet och stöder 
 | createTemporaryTopic        | skapa ett ämne via hanterings-API/verktyg/Portal med *AutoDeleteOnIdle* inställd på en förfallo period |
 | createTopic                 | skapa ett ämne via hanterings-API/verktyg/Portal                                           |
 | avbryta prenumerationen                 | ta bort API/verktyg/Portal för ämnes hantering                                             |
-| createBrowser               | som inte stöds. Använd funktionerna Peek () i Service Bus-API: et                         |
+| createBrowser               | Som inte stöds. Använd funktionerna Peek () i Service Bus-API: et                         |
 | createQueue                 | skapa en kö via hanterings-API/verktyg/Portal                                           | 
 | createTemporaryQueue        | skapa en kö via hanterings-API/verktyg/Portal med *AutoDeleteOnIdle* inställd på en förfallo period |
 | receiveNoWait               | Använd metoden receive () som tillhandahålls av Service Bus SDK och ange en väldigt låg eller noll tids gräns |

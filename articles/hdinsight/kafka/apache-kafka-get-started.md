@@ -4,15 +4,16 @@ description: I den här snabbstarten lär du dig hur du skapar ett Apache Kafka-
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
+ms.reviewer: jasonh
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 06/12/2019
-ms.openlocfilehash: 9fa6ad3c52e9b01fe9a62a2de52f62b1b1a95aa8
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.openlocfilehash: e0a2eecaa4b2f03fa12353854e75b9fda097675d
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68779530"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70960249"
 ---
 # <a name="quickstart-create-apache-kafka-cluster-in-azure-hdinsight-using-azure-portal"></a>Snabbstart: Skapa Apache Kafka kluster i Azure HDInsight med Azure Portal
 
@@ -38,7 +39,7 @@ Använd följande steg om du vill skapa ett Apache Kafka i HDInsight-kluster:
 
 2. På den vänstra menyn navigerar du till **+ skapa en resurs** > **analys** > **HDInsight**.
    
-    ![Skapa ett HDInsight-kluster](./media/apache-kafka-get-started/create-hdinsight.png)
+    ![Skapa ett HDInsight-kluster](./media/apache-kafka-get-started/create-hdinsight-cluster.png)
 
 3. Från **Grundläggande**, ange eller välj följande information:
 
@@ -49,22 +50,22 @@ Använd följande steg om du vill skapa ett Apache Kafka i HDInsight-kluster:
     
    Välj __Klustertyp__ för att visa **Klusterkonfiguration**.
    
-   ![Grundläggande konfiguration för Apache Kafka-kluster i HDInsight](./media/apache-kafka-get-started/custom-basics-kafka.png)
+   ![Grundläggande konfiguration för Apache Kafka-kluster i HDInsight](./media/apache-kafka-get-started/custom-basics-kafka1.png)
 
 4. Välj följande värden från __kluster konfiguration__:
 
-    | Inställning | Värde |
+    | Inställning | Value |
     | --- | --- |
     | Klustertyp | Kafka |
     | Version | Kafka 1.1.0 (HDI 3.6) |
 
     Välj **Välj** för att spara inställningarna för kluster typ och gå tillbaka till __grunderna__.
 
-    ![Välj klustertyp](./media/apache-kafka-get-started/kafka-cluster-type.png)
+    ![Välj klustertyp](./media/apache-kafka-get-started/apache-kafka-cluster-type.png)
 
 5. Från __Grundläggande__, ange eller välj följande information:
 
-    | Inställning | Värde |
+    | Inställning | Value |
     | --- | --- |
     | Användarnamn för klusterinloggning | Inloggningsnamnet vid åtkomst till webbtjänster eller REST API:er som hanteras i klustret. Behåll standardvärdet (admin). |
     | Lösenord för klusterinloggning | Inloggningslösenordet vid åtkomst till webbtjänster eller REST API:er som hanteras i klustret. |
@@ -98,7 +99,7 @@ Använd följande steg om du vill skapa ett Apache Kafka i HDInsight-kluster:
 
     Antalet **diskar per arbetsnod** konfigurerar hur skalbart Apache Kafka i HDInsight är. Apache Kafka på HDInsight använder de virtuella datorernas lokala diskar i klustret för att lagra data. Apache Kafka är I/O-tungt, och därför används [Azure Managed Disks](../../virtual-machines/windows/managed-disks-overview.md) för att tillhandahålla hög genomströmning och mer lagringsutrymme per nod. Typen av hanterade diskar kan vara antingen __Standard__ (HDD) eller __Premium__ (SSD). Vilken typ av disk som används beror på vilken VM-storlek arbetsnoderna (Apache Kafka-broker) använder. Premiumdiskar används automatiskt med virtuella datorer i DS- och GS-serien. Alla andra typer av virtuella dator använder standard.
 
-   ![Ange storleken på Apache Kafka-klustret](./media/apache-kafka-get-started/kafka-cluster-size.png)
+   ![Ange storleken på Apache Kafka-klustret](./media/apache-kafka-get-started/apace-kafka-cluster-size.png)
 
 10. Från __Avancerade inställningar__ väljer du __Nästa__ för att fortsätta med standardinställningarna.
 

@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 10/18/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 7d7618d2542b1c1d83ed7328c8a32d80f2d0e66a
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: b7665caad60a5135da5780da242772af3c0a05a4
+ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68699533"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70984886"
 ---
 # <a name="quickstart-create-and-manage-azure-file-shares-with-the-azure-portal"></a>Snabbstart: Skapa och hantera Azure-filresurser med Azure-portalen 
 [Azure Files](storage-files-introduction.md) är Microsofts lättanvända filsystem i molnet. Azure-filresurser kan monteras i Windows, Linux och macOS. Den här guiden vägleder dig igenom grunderna i att arbeta med Azure-filresurser med [Azure Portal](https://portal.azure.com/).
@@ -44,9 +44,9 @@ Om du vill montera en filresurs med SMB läser du följande dokument baserat på
 - [macOS](storage-how-to-use-files-mac.md)
 
 ### <a name="using-an-azure-file-share-from-the-azure-portal"></a>Använda en Azure-filresurs via Azure-portalen
-Alla begäranden som görs via Azure Portal görs med REST API-filen så att du kan skapa, ändra och ta bort filer och kataloger på klienter utan SMB-åtkomst. Det är möjligt att arbeta direkt med fil-REST-protokollet (dvs. att själv skapa REST HTTP-anrop manuellt) men det vanligaste sättet (förutom att använda Azure-portalen) att använda fil-REST-protokollet är att använda [Azure PowerShell-modulen](storage-how-to-use-files-powershell.md), [Azure CLI](storage-how-to-use-files-cli.md) eller ett Azure Storage-SDK. Alla ger en bra omslutning runt fil-REST-protokollet i valfritt skript-/programmeringsspråk. 
+Alla begäranden som görs via Azure Portal görs med REST API-filen så att du kan skapa, ändra och ta bort filer och kataloger på klienter utan SMB-åtkomst. Det är möjligt att arbeta direkt med fil REST-protokollet (det vill säga handcrafting REST HTTP-anrop själv), men det vanligaste sättet (utöver att använda Azure Portal) för att använda fil REST-protokollet är att använda [modulen Azure PowerShell](storage-how-to-use-files-powershell.md), [Azure CLI](storage-how-to-use-files-cli.md), eller en Azure Storage-SDK, som innehåller en bra omslutning runt fil REST-protokollet i det skript/programmeringsspråk som du väljer. 
 
-Vi förväntar att de flesta som använder Azure Files vill arbeta med sin Azure-filresurs via SMB-protokollet, eftersom det gör att de kan använda de befintliga programmen och verktygen som de förväntar sig att kunna använda. Men det finns flera anledningar till varför det är fördelaktigt att använda fil-REST-API:et istället för SMB, till exempel:
+Vi förväntar oss att de flesta användare av Azure Files vill arbeta med sin Azure-filresurs via SMB-protokollet, eftersom det gör det möjligt för dem att använda befintliga program och verktyg som de förväntar sig kunna använda, men det finns flera skäl till varför det är fördelaktigt att använda filen REST-AP I stället för SMB, till exempel:
 
 - Du måste göra en snabb ändring av Azure-filresursen i farten, till exempel via en bärbar dator utan SMB-åtkomst, en surfplatta eller en mobil enhet.
 - Du måste köra ett skript eller program från en klient som inte kan montera en SMB-resurs, till exempel lokala klienter, som inte har port 445 avblockerad.

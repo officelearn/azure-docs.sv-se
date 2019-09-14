@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: bahariri
-ms.openlocfilehash: a7271eb6b8cbc8a117b5a8e75edfe02985ec3452
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 43a32177280361bb0c2a433af0cb5dd3cfc6b9d3
+ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60821538"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70967591"
 ---
 # <a name="use-kafka-mirrormaker-with-event-hubs-for-apache-kafka"></a>Använd MirrorMaker för Kafka med Event Hubs för Apache Kafka
 
@@ -85,7 +85,7 @@ Uppdatera konfigurationsfilen för konsument `source-kafka.config`, som anger Mi
 
 ##### <a name="source-kafkaconfig"></a>käll-kafka.config
 
-```xml
+```
 bootstrap.servers={SOURCE.KAFKA.IP.ADDRESS1}:{SOURCE.KAFKA.PORT1},{SOURCE.KAFKA.IP.ADDRESS2}:{SOURCE.KAFKA.PORT2},etc
 group.id=example-mirrormaker-group
 exclude.internal.topics=true
@@ -98,7 +98,7 @@ Nu uppdatera konfigurationsfilen producent `mirror-eventhub.config`, som anger M
 
 ##### <a name="mirror-eventhubconfig"></a>spegling eventhub.config
 
-```xml
+```
 bootstrap.servers={YOUR.EVENTHUBS.FQDN}:9093
 client.id=mirror_maker_producer
 
@@ -123,8 +123,8 @@ Eventuella händelser som skickats till källan Kafka-kluster tas emot av både 
 ## <a name="samples"></a>Exempel
 Se följande exempel på GitHub:
 
-- [Exempelkod för den här självstudiekursen på GitHub](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/mirror-maker)
-- [Hubs Kafka av Azure Event-MirrorMaker som körs på en Azure Container Instance](https://github.com/djrosanova/EventHubsMirrorMaker)
+- [Exempel kod för den här självstudien på GitHub](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/mirror-maker)
+- [Azure Event Hubs Kafka-MirrorMaker som körs på en Azure Container instance](https://github.com/djrosanova/EventHubsMirrorMaker)
 
 ## <a name="next-steps"></a>Nästa steg
 

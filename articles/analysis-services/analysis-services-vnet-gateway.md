@@ -1,41 +1,43 @@
 ---
-title: Använd lokal datagateway för datakällor för Azure Virtual Network | Microsoft Docs
-description: Lär dig hur du konfigurerar en server för att använda en gateway för datakällor på virtuella nätverk.
+title: Använd lokal datagateway för Azure Virtual Network data källor | Microsoft Docs
+description: Lär dig hur du konfigurerar en server att använda en gateway för data källor i VNet.
 author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 01/09/2019
+ms.date: 09/12/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 7e97bd50e3d37218e0f88f722387fd1a53167e27
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 675d8ecd3d6a3310a9b102df37df18bed02df3de
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60534167"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70958813"
 ---
-# <a name="use-gateway-for-data-sources-on-an-azure-virtual-network-vnet"></a>Använda gateway för datakällor på Azure Virtual Network (VNet)
+# <a name="use-gateway-for-data-sources-on-an-azure-virtual-network-vnet"></a>Använda Gateway för data källor på en Azure-Virtual Network (VNet)
 
-Den här artikeln beskriver den **AlwaysUseGateway** serveregenskap för användning när datakällor finns på en [Azure Virtual Network (VNet)](../virtual-network/virtual-networks-overview.md).
+Den här artikeln beskriver **AlwaysUseGateway** -Server-egenskapen som används när data källor finns på ett [Azure-Virtual Network (VNet)](../virtual-network/virtual-networks-overview.md).
 
-## <a name="server-access-to-vnet-data-sources"></a>Åtkomst till datakällor för virtuellt nätverk
+## <a name="server-access-to-vnet-data-sources"></a>Server åtkomst till VNet-datakällor
 
-Om dina datakällor kan nås via ett virtuellt nätverk, måste Azure Analysis Services-servern ansluta till dessa datakällor som om de är på plats, i din egen miljö. Du kan konfigurera den **AlwaysUseGateway** serveregenskap ange server för att komma åt alla data som datakällan via en [lokal gateway](analysis-services-gateway.md). 
+Om dina data källor nås via ett VNet måste Azure Analysis Services servern ansluta till dessa data källor som om de är lokala, i din egen miljö. Du kan konfigurera egenskapen **AlwaysUseGateway** Server för att ange att servern ska få åtkomst till alla data källor via en [lokal gateway](analysis-services-gateway.md). 
+
+Azure SQL Database hanterade instans data källor körs i Azure VNet med en privat IP-adress. Om den offentliga slut punkten är aktive rad på instansen krävs ingen gateway. Om den offentliga slut punkten inte är aktive rad krävs en lokal datagateway och egenskapen AlwaysUseGateway måste ha värdet true.
 
 > [!NOTE]
-> Den här egenskapen är effektivt endast när en [lokal datagateway](analysis-services-gateway.md) har installerats och konfigurerats. Det kan vara på det virtuella nätverket.
+> Den här egenskapen gäller bara när en [lokal datagateway](analysis-services-gateway.md) har installerats och kon figurer ATS. Gatewayen kan finnas i det virtuella nätverket.
 
-## <a name="configure-alwaysusegateway-property"></a>Konfigurera AlwaysUseGateway egenskap
+## <a name="configure-alwaysusegateway-property"></a>Konfigurera egenskapen AlwaysUseGateway
 
-1. I SSMS > server > **egenskaper** > **Allmänt**väljer **visa avancerade (alla) egenskaper**.
-2. I den **ASPaaS\AlwaysUseGateway**väljer **SANT**.
+1. I SSMS > Server > **Egenskaper** > **Allmänt**väljer du **Visa avancerade egenskaper (alla)** .
+2. I **ASPaaS\AlwaysUseGateway**väljer du **Sant**.
 
-    ![Använd alltid gateway-egenskapen](media/analysis-services-vnet-gateway/aas-ssms-always-property.png)
+    ![Använd alltid Gateway-egenskap](media/analysis-services-vnet-gateway/aas-ssms-always-property.png)
 
 
 ## <a name="see-also"></a>Se också
-[Ansluta till lokala datakällor](analysis-services-gateway.md)   
+[Ansluta till lokala data källor](analysis-services-gateway.md)   
 [Installera och konfigurera en lokal datagateway](analysis-services-gateway-install.md)   
 [Azure Virtual Network (VNET)](../virtual-network/virtual-networks-overview.md)   
 

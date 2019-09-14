@@ -3,7 +3,7 @@ title: Rikt linjer för Azure NetApp Files nätverks planering | Microsoft Docs
 description: Beskriver rikt linjer som kan hjälpa dig att utforma en effektiv nätverks arkitektur med hjälp av Azure NetApp Files.
 services: azure-netapp-files
 documentationcenter: ''
-author: b-juche
+author: ram-kakani
 manager: ''
 editor: ''
 ms.assetid: ''
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/08/2019
 ms.author: b-juche
-ms.openlocfilehash: 087ecee053069a02e4d4dd6f636d05ea15269e2e
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 02852b325a22f274b4aa6e793b03c733c38bb9aa
+ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68383501"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70984123"
 ---
 # <a name="guidelines-for-azure-netapp-files-network-planning"></a>Riktlinjer för Azure NetApp Files-nätverksplanering
 
@@ -36,13 +36,13 @@ Du bör förstå några saker som du bör tänka på när du planerar för Azure
 Funktionerna nedan stöds för närvarande inte för Azure NetApp Files: 
 
 * Nätverks säkerhets grupper (NSG: er) som tillämpas på det delegerade under nätet
-* Användardefinierade vägar (UDR) med nästa hopp som Azure NetApp Files-undernät
+* Användardefinierade vägar (UDR) med adressprefix som Azure NetApp-undernät för filer
 * Azure-principer (till exempel anpassade namngivnings principer) i Azure NetApp Files-gränssnittet
 * Belastnings utjämning för Azure NetApp Files trafik
 
 Följande nätverks begränsningar gäller för Azure NetApp Files:
 
-* Antalet IP-adresser som används i ett VNet med Azure NetApp Files (inklusive peer-virtuella nätverk) får inte överskrida 1000.
+* Antalet IP-adresser som används i ett VNet med Azure NetApp Files (inklusive peer-virtuella nätverk) får inte överskrida 1000. Vi arbetar för att öka den här gränsen för att uppfylla behoven för kund skalning. Om du behöver fler IP-adresser kontaktar du vårt support team med ditt användnings fall och den nödvändiga gränsen.
 * Endast ett undernät kan delegeras till Azure NetApp Files i varje Azure Virtual Network (VNet).
 
 
@@ -103,7 +103,7 @@ Betrakta VNet 2 och VNet 3 i diagrammet ovan. Om VM 2 måste ansluta till den vi
 
 Tänk också på ett scenario där VNet 1 peer-kopplas med VNet 2 och VNet 2 peer-kopplas med VNet 3 i samma region. Resurserna från VNet 1 kan ansluta till resurser i VNet 2, men det går inte att ansluta till resurser i VNet 3, om inte VNet 1 och VNet 3 är peer-kopplade. 
 
-I diagrammet ovan, även om VM 3 kan ansluta till volym 1, kan inte VM 4 ansluta till volym 2.  Orsaken till detta är att eker-virtuella nätverk inte är peer-kopplat och att _transit routning inte stöds över VNet_-peering.
+I diagrammet ovan, även om VM 3 kan ansluta till volym 1, kan inte VM 4 ansluta till volym 2.  Orsaken till detta är att eker-virtuella nätverk inte är peer-kopplat och att _transit routning inte stöds över VNet-peering_.
 
 ## <a name="hybrid-environments"></a>Hybrid miljöer
 
@@ -124,7 +124,7 @@ I topologin som illustreras ovan är det lokala nätverket anslutet till ett hub
 * VM 3 i hubbens VNet kan ansluta till volym 2 i eker VNet 1 och volym 3 i eker VNet 2.
 * VM 4 från eker VNet 1 och VM 5 från eker VNet 2 kan ansluta till volym 1 i hubbens VNet.
 
-VM 4 i eker VNet 1 kan inte ansluta till volym 3 i eker VNet 2. VM 5 i eker-VNet2 kan heller inte ansluta till volym 2 i eker VNet 1. Detta beror på att eker-virtuella nätverk inte är peer-och _överförings vägar inte stöds över VNet_-peering.
+VM 4 i eker VNet 1 kan inte ansluta till volym 3 i eker VNet 2. VM 5 i eker-VNet2 kan heller inte ansluta till volym 2 i eker VNet 1. Detta beror på att eker-virtuella nätverk inte är peer-och _överförings vägar inte stöds över VNet-peering_.
 
 ## <a name="next-steps"></a>Nästa steg
 

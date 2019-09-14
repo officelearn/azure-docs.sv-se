@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/31/2019
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 951b1f3749807ac6aee78a96ae7eb38877ca6acc
-ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
+ms.openlocfilehash: fb333db693c0f42b66e9fd45f5eb3c879787875d
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69991811"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70959115"
 ---
 # <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Kända problem med Azure Data Lake Storage Gen2
 
@@ -100,7 +100,7 @@ I följande tabell visas alla andra funktioner och verktyg som inte stöds eller
 | **Blobfuse** |Stöds inte ännu|
 | **Anpassade domäner** |Stöds inte ännu|
 | **Fil system Utforskaren** | Begränsat stöd |
-| **Diagnostikloggning** |Diagnostikloggar stöds bara om du registrerar dig i [multi-Protocol-åtkomst på data Lake Storage för](data-lake-storage-multi-protocol-access.md) hands version. <br><br>Aktivering av loggar i Azure Portal stöds inte för närvarande. Här är ett exempel på hur du aktiverar loggarna med hjälp av PowerShell. <br><br>`$storageAccount = Get-AzStorageAccount -ResourceGroupName <resourceGroup> -Name <storageAccountName>`<br><br>`Set-AzStorageServiceLoggingProperty -Context $storageAccount.Context -ServiceType Blob -LoggingOperations read,write,delete -RetentionDays <days>`. <br><br>Se till att ange `Blob` värdet `-ServiceType` för parametern som det visas i det här exemplet. 
+| **Diagnostikloggning** |Diagnostikloggar stöds bara om du registrerar dig i [multi-Protocol-åtkomst på data Lake Storage för](data-lake-storage-multi-protocol-access.md) hands version. <br><br>Aktivering av loggar i Azure Portal stöds inte för närvarande. Här är ett exempel på hur du aktiverar loggarna med hjälp av PowerShell. <br><br>`$storageAccount = Get-AzStorageAccount -ResourceGroupName <resourceGroup> -Name <storageAccountName>`<br><br>`Set-AzStorageServiceLoggingProperty -Context $storageAccount.Context -ServiceType Blob -LoggingOperations read,write,delete -RetentionDays <days>`. <br><br>Se till att ange `Blob` värdet `-ServiceType` för parametern som det visas i det här exemplet. <br><br>Azure Storage Explorer kan för närvarande inte användas för att Visa diagnostikloggar. Om du vill visa loggar använder du AzCopy eller SDK: er.
 | **Oåterkalleligt lagrings utrymme** |Stöds inte ännu <br><br>Oföränderlig lagring ger möjlighet att lagra data i en [mask (Skriv en gång, läsa många)](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutable-storage) .|
 | **Objekt nivå nivåer** |Låg frekvent lagrings nivå och Arkiv lag ring stöds bara om du registrerar dig i [multi-Protocol-åtkomst på data Lake Storage för](data-lake-storage-multi-protocol-access.md) hands version. <br><br> Alla andra åtkomst nivåer stöds inte ännu.|
 | **Stöd för PowerShell och CLI** | Begränsade funktioner <br><br>Hanterings åtgärder som att skapa ett konto stöds. Data Plans åtgärder som att ladda upp och ladda ned filer finns i offentlig för hands version som en del av åtkomsten till [flera protokoll på data Lake Storage](data-lake-storage-multi-protocol-access.md). Att arbeta med kataloger och ange åtkomst kontrol listor (ACL) stöds inte ännu. |

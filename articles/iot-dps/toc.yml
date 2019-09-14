@@ -141,6 +141,8 @@
       href: how-to-legacy-device-symm-key.md
     - name: Använda SDK-verktyg för utveckling
       href: how-to-use-sdk-tools.md
+    - name: Felsökning
+      href: how-to-troubleshoot-dps.md
 - name: Referens
   items:
     - name: REST-API

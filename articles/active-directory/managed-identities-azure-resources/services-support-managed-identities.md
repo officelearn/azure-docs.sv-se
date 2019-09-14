@@ -10,12 +10,12 @@ ms.service: active-directory
 ms.subservice: msi
 manager: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a9464b408f43f55cb75a57798b098be6335328e3
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: d5f271f75a4faa7067f8a52d63a34772780c6448
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70136538"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70959919"
 ---
 # <a name="services-that-support-managed-identities-for-azure-resources"></a>Tjänster som stöder hanterade identiteter för Azure-resurser
 
@@ -33,7 +33,7 @@ Följande Azure-tjänster har stöd för hanterade identiteter för Azure-resurs
 | Hanterad identitets typ | Alla allmänt tillgängliga<br>Globala Azure-regioner | Azure Government | Azure Tyskland | Azure Kina 21Vianet |
 | --- | --- | --- | --- | --- |
 | Systemtilldelad | Tillgängligt | Förhandsversion | Förhandsversion | Förhandsversion | 
-| Användartilldelad | Förhandsversion | Förhandsversion | Förhandsversion | Förhandsversion |
+| Användartilldelad | Tillgängligt | Förhandsversion | Förhandsversion | Förhandsversion |
 
 I följande lista kan du konfigurera hanterad identitet för Azure Virtual Machines (i regioner där det är tillgängligt):
 
@@ -48,7 +48,7 @@ I följande lista kan du konfigurera hanterad identitet för Azure Virtual Machi
 |Hanterad identitets typ | Alla allmänt tillgängliga<br>Globala Azure-regioner | Azure Government | Azure Tyskland | Azure Kina 21Vianet |
 | --- | --- | --- | --- | --- |
 | Systemtilldelad | Tillgängligt | Förhandsversion | Förhandsversion | Förhandsversion |
-| Användartilldelad | Förhandsversion | Förhandsversion | Förhandsversion | Förhandsversion |
+| Användartilldelad | Tillgängligt | Förhandsversion | Förhandsversion | Förhandsversion |
 
 I följande lista kan du konfigurera hanterad identitet för Azure Virtual Machine Scale Sets (i regioner där det är tillgängligt):
 
@@ -210,7 +210,7 @@ Se följande lista för att konfigurera åtkomst till Azure Resource Manager:
 
 | Molnet | Resurs-ID | State |
 |--------|------------|--------|
-| Azure Global | `https://eventhubs.azure.net` | Förhandsversion |
+| Azure Global | `https://eventhubs.azure.net` | Tillgängligt |
 | Azure Government |  | Ej tillgänglig |
 | Azure Tyskland |   | Ej tillgänglig |
 | Azure Kina 21Vianet |  | Ej tillgänglig |
@@ -219,7 +219,7 @@ Se följande lista för att konfigurera åtkomst till Azure Resource Manager:
 
 | Molnet | Resurs-ID | State |
 |--------|------------|--------|
-| Azure Global | `https://servicebus.azure.net`  | Förhandsversion |
+| Azure Global | `https://servicebus.azure.net`  | Tillgängligt |
 | Azure Government |  | Ej tillgänglig |
 | Azure Tyskland |   | Ej tillgänglig |
 | Azure Kina 21Vianet |  | Ej tillgänglig |

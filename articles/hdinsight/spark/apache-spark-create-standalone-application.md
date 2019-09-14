@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
 ms.date: 06/26/2019
-ms.openlocfilehash: 3ffb28ba6c2e6170198a0a360315b7d71f059c34
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: c4c6348c0af478ae3df160c4c50cb344456177b0
+ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70899903"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70984576"
 ---
 # <a name="tutorial-create-a-scala-maven-application-for-apache-spark-in-hdinsight-using-intellij"></a>Självstudier: Skapa ett Scala Maven-program för Apache Spark i HDInsight med hjälp av IntelliJ
 
@@ -49,7 +49,7 @@ Installera Scala-plugin-programmet via följande steg:
 
 2. På välkomstskärmen går du till **Konfigurera** > **Plugin-program** för att öppna fönstret **Plugin-program**.
 
-    ![Aktivera plugin-programmet Scala](./media/apache-spark-create-standalone-application/enable-scala-plugin.png)
+    ![Aktivera plugin-programmet Scala](./media/apache-spark-create-standalone-application/enable-scala-plugin1.png)
 
 3. Välj **Installera** för det Scala-plugin-program som visas i det nya fönstret.  
 
@@ -82,7 +82,7 @@ Installera Scala-plugin-programmet via följande steg:
   	|Projekt-SDK| Det här är tomt första gången du använder IDEA.  Välj **Nytt...**  och navigera till din JDK.|
   	|Spark-version|Skapandeguiden integrerar rätt version för Spark SDK och Scala SDK. Om Sparks klusterversion är äldre än 2.0 väljer du **Spark 1.x**. Annars väljer du **Spark 2.x**. I det här exemplet används **Spark 2.3.0 (Scala 2.11.8)** .|
 
-    ![Välj Spark SDK](./media/apache-spark-create-standalone-application/hdi-new-project.png)
+    ![Välj Spark SDK](./media/apache-spark-create-standalone-application/hdi-scala-new-project.png)
 
 7. Välj **Slutför**.
 
@@ -125,7 +125,7 @@ Installera Scala-plugin-programmet via följande steg:
 
 16. Tryck på **Tillämpa** och välj sedan **OK**.  Du kommer sedan tillbaka till projektfönstret.
 
-    ![Konfigurera Maven för automatisk nedladdning](./media/apache-spark-create-standalone-application/configure-maven.png)
+    ![Konfigurera Maven för automatisk nedladdning](./media/apache-spark-create-standalone-application/configure-maven-download.png)
 
 
 17. I den vänstra rutan går du till **src** > **main** > **scala** > **com.microsoft.spark.example** och dubbelklickar på **App** för att öppna App.scala.
@@ -177,21 +177,21 @@ Installera Scala-plugin-programmet via följande steg:
 
     2. I fönstret **Projektstruktur** går du till **Artefakter** > **plustecknet +**  > **JAR** > **From modules with dependencies...** (Från moduler med beroenden...).
 
-        ![Skapa JAR1](./media/apache-spark-create-standalone-application/create-jar-1.png)
+        ![Skapa JAR1](./media/apache-spark-create-standalone-application/hdinsight-create-jar1.png)
 
     3. I fönstret **Skapa JAR från moduler** väljer du mappikonen i textrutan **Main Class** (Main-klass).
 
     4. I fönstret **Select Main Class** (Välj Main-klass) väljer du den klass som visas som standard och sedan **OK**.
 
-        ![Skapa JAR2](./media/apache-spark-create-standalone-application/create-jar-2.png)
+        ![Skapa JAR2](./media/apache-spark-create-standalone-application/hdinsight-create-jar2.png)
 
     5. I fönstret **Create JAR from Modules** (Skapa JAR-fil från moduler) kontrollerar du att alternativet **Extract to the target JAR** (Extrahera till mål-JAR) är markerat. Välj sedan **OK**.  Den här inställningen skapar en enda JAR-fil med alla beroenden.
 
-        ![Skapa JAR3](./media/apache-spark-create-standalone-application/create-jar-3.png)
+        ![Skapa JAR3](./media/apache-spark-create-standalone-application/hdinsight-create-jar3.png)
 
     6. Fliken **Output Layout** (Utdatalayout) visar alla jar-filer som ingår i Maven-projektet. Du kan markera och ta bort sådana som Scala-programmet inte har något direkt beroende till. För programmet som du skapar här kan du ta bort alla utom den sista (**SparkSimpleApp compile output**). Välj de jar-filer som ska tas bort och välj sedan minustecknet **-** .
 
-        ![Skapa JAR4](./media/apache-spark-create-standalone-application/delete-output-jars.png)
+        ![Skapa JAR4](./media/apache-spark-create-standalone-application/hdi-delete-output-jars.png)
 
         Kontrollera att kryssrutan **Include in project build** (Inkludera i projektversionen) är markerad, vilket säkerställer att jar-filen skapas varje gång projektet skapas eller uppdateras. Välj **Applicera** och sedan **OK**.
 

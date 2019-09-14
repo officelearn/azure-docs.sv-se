@@ -7,6 +7,14 @@
       href: Home.md
 - name: Snabbstarter
   items:
+    - name: Använda klient-SDK
+      items:
+        - name: .NET SDK
+          href: quickstarts-sdk/csharp-sdk.md
+        - name: Python SDK
+          href: quickstarts-sdk/python-sdk.md
+        - name: Java SDK
+          href: quickstarts-sdk/java-sdk.md
     - name: Använda REST API
       items:
         - name: Analysera en fjärrbild
@@ -75,18 +83,6 @@
           items:
             - name: Python
               href: QuickStarts/python-domain.md
-    - name: Använda .NET SDK
-      items:
-        - name: Analysera en bild
-          href: quickstarts-sdk/csharp-analyze-sdk.md
-        - name: Skapa en miniatyrbild
-          href: quickstarts-sdk/csharp-thumb-sdk.md
-        - name: Extrahera text
-          href: quickstarts-sdk/csharp-hand-text-sdk.md
-    - name: Använda Python SDK
-      href: quickstarts-sdk/python-sdk.md
-    - name: Använda Java SDK
-      href: quickstarts-sdk/java-sdk.md
 - name: Självstudier
   items:
     - name: Generera metadata för avbildningar

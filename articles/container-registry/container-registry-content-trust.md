@@ -6,14 +6,14 @@ author: dlepow
 manager: gwallace
 ms.service: container-registry
 ms.topic: article
-ms.date: 05/06/2019
+ms.date: 09/06/2019
 ms.author: danlep
-ms.openlocfilehash: 6cf5efb33340844d782dc4481f5834d7590e745a
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.openlocfilehash: c0d4bd397c68fe3ed2d36404af9230e2316f3362
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70172311"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70959191"
 ---
 # <a name="content-trust-in-azure-container-registry"></a>Innehållsförtroende i Azure Container Registry
 
@@ -43,7 +43,7 @@ Innehållsförtroende hanteras genom användning av en uppsättning kryptografis
 
 Första steget är att aktivera innehållsförtroende på registernivån. När du har aktiverat innehållsförtroende kan klienter (användare eller tjänster) överföra signerade avbildningar till ditt register. Aktivering av innehållsförtroende i ditt register begränsar inte registeranvändning till endast konsumenter med innehållsförtroende aktiverat. Konsumenter utan innehållsförtroende aktiverat kan fortsätta att använda ditt register som vanligt. Konsumenter som har aktiverat innehållsförtroende i sina klienter kan dock *endast* se signerade avbildningar i ditt register.
 
-Om du vill aktivera innehållsförtroende för ditt register navigerar du först till registret i Azure-portalen. Under **principer**väljer du **innehålls förtroende** > **aktiverat** > **Spara**.
+Om du vill aktivera innehållsförtroende för ditt register navigerar du först till registret i Azure-portalen. Under **principer**väljer du **innehålls förtroende** > **aktiverat** > **Spara**. Du kan också använda kommandot [AZ ACR config Content-Trust Update][az-acr-config-content-trust-update] i Azure CLI.
 
 ![Aktivera innehållsförtroende för ett register i Azure-portalen][content-trust-01-portal]
 
@@ -75,6 +75,9 @@ docker build --disable-content-trust -t myacr.azurecr.io/myimage:v1 .
 ## <a name="grant-image-signing-permissions"></a>Bevilja behörigheter för signering av avbildningar
 
 Endast de användare eller system som du har beviljat behörighet kan skicka betrodda avbildningar till registret. Om du vill ge användare behörighet att skicka betrodda avbildningar (eller ett system som använder ett tjänsthuvudnamn) ger du deras Azure Active Directory-identiteter rollen `AcrImageSigner`. Detta är utöver den `AcrPush` (eller motsvarande) roll som krävs för att överföra avbildningar till registret. Mer information finns i [Azure Container Registry roller och behörigheter](container-registry-roles.md).
+
+> [!NOTE]
+> Du kan inte bevilja en betrodd avbildnings-push-behörighet till [Administratörs kontot](container-registry-authentication.md#admin-account) för ett Azure Container Registry.
 
 Information om att bevilja rollen `AcrImageSigner` i Azure-portalen och Azure CLI följer nedan.
 
@@ -113,7 +116,8 @@ az role assignment create --scope $REGISTRY_ID --role AcrImageSigner --assignee 
 
 `<service principal ID>` kan vara tjänsthuvudnamnets **appId**, **objectId**, eller något av dess **servicePrincipalNames**. Mer information om hur du arbetar med tjänsthuvudnamn och Azure Container Registry finns i avsnittet om [Azure Container Registry-autentisering med tjänsthuvudnamn](container-registry-auth-service-principal.md).
 
-När rollerna har ändrats kör `az acr login` du för att uppdatera den lokala identitets-token för Azure CLI så att de nya rollerna kan börja gälla.
+> [!IMPORTANT]
+> När rollerna har ändrats kör `az acr login` du för att uppdatera den lokala identitets-token för Azure CLI så att de nya rollerna kan börja gälla. Information om hur du verifierar roller för en identitet finns i [Hantera åtkomst till Azure-resurser med RBAC och Azure CLI](../role-based-access-control/role-assignments-cli.md) och [Felsöka RBAC för Azure-resurser](../role-based-access-control/troubleshooting.md).
 
 ## <a name="push-a-trusted-image"></a>Överföra en betrodd avbildning
 
@@ -197,7 +201,7 @@ Om du vill inaktivera innehållsförtroende för ditt register navigerar du till
 
 * Se [innehålls förtroende i Docker][docker-content-trust] för mer information om förtroende för innehåll. Den här artikeln berör flera viktiga punkter, men innehållsförtroende är ett omfattande ämne och beskrivs mer ingående i Docker-dokumentationen.
 
-* I dokumentationen för [Azure](/azure/devops/pipelines/build/content-trust) -pipelinen finns ett exempel på hur du använder innehålls förtroende när du skapar och push-överför en Docker-avbildning.
+* I dokumentationen för [Azure-pipelinen](/azure/devops/pipelines/build/content-trust) finns ett exempel på hur du använder innehålls förtroende när du skapar och push-överför en Docker-avbildning.
 
 <!-- IMAGES> -->
 [content-trust-01-portal]: ./media/container-registry-content-trust/content-trust-01-portal.png
@@ -214,3 +218,4 @@ Om du vill inaktivera innehållsförtroende för ditt register navigerar du till
 
 <!-- LINKS - internal -->
 [azure-cli]: /cli/azure/install-azure-cli
+[az-acr-config-content-trust-update]: /cli/azure/acr/config/content-trust#az-acr-config-content-trust-update

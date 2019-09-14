@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 06/10/2019
-ms.openlocfilehash: 2e79f38fb6495d75e0438fa3622cc226886c0773
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
-ms.translationtype: HT
+ms.openlocfilehash: aabcf7ac6c7bf14264178831bb3e4f6670d29984
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70885543"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70960933"
 ---
 # <a name="scale-azure-hdinsight-clusters"></a>Skala Azure HDInsight-kluster
 
@@ -37,7 +37,7 @@ Microsoft tillhandahåller följande verktyg för att skala kluster:
 |[Azure CLI](hdinsight-administer-use-command-line.md)|Azure HDInsight-kluster ändra \<storlek på \<kluster kluster > mål instans antal > |
 |[Azure Portal](https://portal.azure.com)|Öppna fönstret HDInsight-kluster, Välj **kluster storlek** på den vänstra menyn och skriv sedan antalet arbetsnoder i rutan kluster storlek och välj Spara.|  
 
-![Skala kluster](./media/hdinsight-scaling-best-practices/scale-cluster-blade.png)
+![Skala kluster](./media/hdinsight-scaling-best-practices/scale-cluster-blade1.png)
 
 Med någon av dessa metoder kan du skala ditt HDInsight-kluster upp eller ned på några minuter.
 
@@ -112,7 +112,7 @@ Om du vill se en lista över väntande och pågående jobb kan du använda garn 
 3. Välj **garn** i listan över tjänster på den vänstra menyn i AMBARI-användargränssnittet.  
 4. På sidan garn väljer du **snabb länkar** och hovring över den aktiva Head-noden och väljer sedan **ResourceManager-gränssnitt**.
 
-    ![Användar gränssnitt för ResourceManager](./media/hdinsight-scaling-best-practices/resourcemanager-ui.png)
+    ![Användar gränssnitt för ResourceManager](./media/hdinsight-scaling-best-practices/resource-manager-ui1.png)
 
 Du kan komma åt användar gränssnittet för ResourceManager `https://<HDInsightClusterName>.azurehdinsight.net/yarnui/hn/cluster`direkt med.
 

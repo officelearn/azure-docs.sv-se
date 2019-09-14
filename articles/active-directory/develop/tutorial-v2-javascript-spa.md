@@ -16,19 +16,19 @@ ms.date: 03/20/2019
 ms.author: nacanuma
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2c11fc43098346d8afa9557f0de9df1c0a739bcc
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.openlocfilehash: 61790954393923bbf330ad3a534d1d33d1a44bbc
+ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70172024"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70983479"
 ---
 # <a name="sign-in-users-and-call-the-microsoft-graph-api-from-a-javascript-single-page-application-spa"></a>Logga in användare och anropa Microsoft Graph-API: et från ett Java Script (Single-Side Application)
 
 Den här guiden visar hur ett Java Script (Single-Side Application) kan:
 - Logga in personliga konton, samt arbets-och skol konton 
 - Hämta en åtkomsttoken
-- Anropa API: et för Microsoft Graph eller andra API: er som kräver åtkomsttoken från *Microsoft Identity Platform* -slutpunkten
+- Anropa API: et för Microsoft Graph eller andra API: er som kräver åtkomsttoken från *Microsoft Identity Platform-slutpunkten*
 
 ## <a name="how-the-sample-app-generated-by-this-guide-works"></a>Hur exempel appen som genereras av den här hand boken fungerar
 
@@ -118,49 +118,49 @@ I den här guiden används följande bibliotek:
 
 Lägg till följande kod i `index.html` filen `<script></script>` i taggarna:
 
-    ```javascript
-    var msalConfig = {
-        auth: {
-            clientId: "Enter_the_Application_Id_here"
-            authority: "https://login.microsoftonline.com/Enter_the_Tenant_Info_Here"
-        },
-        cache: {
-            cacheLocation: "localStorage",
-            storeAuthStateInCookie: true
-        }
-    };
+   ```JavaScript
+   var msalConfig = {
+       auth: {
+           clientId: "Enter_the_Application_Id_here",
+           authority: "https://login.microsoftonline.com/Enter_the_Tenant_Info_Here"
+       },
+       cache: {
+           cacheLocation: "localStorage",
+           storeAuthStateInCookie: true
+       }
+   };
 
-    var graphConfig = {
-        graphMeEndpoint: "https://graph.microsoft.com/v1.0/me"
-    };
+   var graphConfig = {
+       graphMeEndpoint: "https://graph.microsoft.com/v1.0/me"
+   };
 
-    // this can be used for login or token request, however in more complex situations
-    // this can have diverging options
-    var requestObj = {
+   // this can be used for login or token request, however in more complex situations
+   // this can have diverging options
+   var requestObj = {
         scopes: ["user.read"]
-    };
+   };
 
-    var myMSALObj = new Msal.UserAgentApplication(msalConfig);
-    // Register Callbacks for redirect flow
-    myMSALObj.handleRedirectCallback(authRedirectCallBack);
+   var myMSALObj = new Msal.UserAgentApplication(msalConfig);
+   // Register Callbacks for redirect flow
+   myMSALObj.handleRedirectCallback(authRedirectCallBack);
 
 
-    function signIn() {
+   function signIn() {
 
-        myMSALObj.loginPopup(requestObj).then(function (loginResponse) {
-            //Login Success
-            showWelcomeMessage();
-            acquireTokenPopupAndCallMSGraph();
-        }).catch(function (error) {
-            console.log(error);
-        });
-    }
+       myMSALObj.loginPopup(requestObj).then(function (loginResponse) {
+           //Login Success
+           showWelcomeMessage();
+           acquireTokenPopupAndCallMSGraph();
+       }).catch(function (error) {
+           console.log(error);
+       });
+   }
 
-    function acquireTokenPopupAndCallMSGraph() {
-        //Always start with acquireTokenSilent to obtain a token in the signed in user from cache
-        myMSALObj.acquireTokenSilent(requestObj).then(function (tokenResponse) {
+   function acquireTokenPopupAndCallMSGraph() {
+       //Always start with acquireTokenSilent to obtain a token in the signed in user from cache
+       myMSALObj.acquireTokenSilent(requestObj).then(function (tokenResponse) {
             callMSGraph(graphConfig.graphMeEndpoint, tokenResponse.accessToken, graphAPICallback);
-        }).catch(function (error) {
+       }).catch(function (error) {
             console.log(error);
             // Upon acquireTokenSilent failure (due to consent or interaction or login required ONLY)
             // Call acquireTokenPopup(popup window)
@@ -171,99 +171,99 @@ Lägg till följande kod i `index.html` filen `<script></script>` i taggarna:
                     console.log(error);
                 });
             }
-        });
-    }
+       });
+   }
 
 
-    function graphAPICallback(data) {
-        document.getElementById("json").innerHTML = JSON.stringify(data, null, 2);
-    }
+   function graphAPICallback(data) {
+       document.getElementById("json").innerHTML = JSON.stringify(data, null, 2);
+   }
 
 
-    function showWelcomeMessage() {
-        var divWelcome = document.getElementById('WelcomeMessage');
-        divWelcome.innerHTML = 'Welcome ' + myMSALObj.getAccount().userName + "to Microsoft Graph API";
-        var loginbutton = document.getElementById('SignIn');
-        loginbutton.innerHTML = 'Sign Out';
-        loginbutton.setAttribute('onclick', 'signOut();');
-    }
+   function showWelcomeMessage() {
+       var divWelcome = document.getElementById('WelcomeMessage');
+       divWelcome.innerHTML = 'Welcome ' + myMSALObj.getAccount().userName + "to Microsoft Graph API";
+       var loginbutton = document.getElementById('SignIn');
+       loginbutton.innerHTML = 'Sign Out';
+       loginbutton.setAttribute('onclick', 'signOut();');
+   }
 
 
-    //This function can be removed if you do not need to support IE
-    function acquireTokenRedirectAndCallMSGraph() {
-         //Always start with acquireTokenSilent to obtain a token in the signed in user from cache
-         myMSALObj.acquireTokenSilent(requestObj).then(function (tokenResponse) {
-             callMSGraph(graphConfig.graphMeEndpoint, tokenResponse.accessToken, graphAPICallback);
-         }).catch(function (error) {
-             console.log(error);
-             // Upon acquireTokenSilent failure (due to consent or interaction or login required ONLY)
-             // Call acquireTokenRedirect
-             if (requiresInteraction(error.errorCode)) {
-                 myMSALObj.acquireTokenRedirect(requestObj);
-             }
-         });
-     }
-
-
-    function authRedirectCallBack(error, response) {
-        if (error) {
+   //This function can be removed if you do not need to support IE
+   function acquireTokenRedirectAndCallMSGraph() {
+        //Always start with acquireTokenSilent to obtain a token in the signed in user from cache
+        myMSALObj.acquireTokenSilent(requestObj).then(function (tokenResponse) {
+            callMSGraph(graphConfig.graphMeEndpoint, tokenResponse.accessToken, graphAPICallback);
+        }).catch(function (error) {
             console.log(error);
-        }
-        else {
-            if (response.tokenType === "access_token") {
-                callMSGraph(graphConfig.graphEndpoint, response.accessToken, graphAPICallback);
-            } else {
-                console.log("token type is:" + response.tokenType);
+            // Upon acquireTokenSilent failure (due to consent or interaction or login required ONLY)
+            // Call acquireTokenRedirect
+            if (requiresInteraction(error.errorCode)) {
+                myMSALObj.acquireTokenRedirect(requestObj);
             }
-        }
-    }
+        });
+   }
 
-    function requiresInteraction(errorCode) {
-        if (!errorCode || !errorCode.length) {
-            return false;
-        }
-        return errorCode === "consent_required" ||
-            errorCode === "interaction_required" ||
-            errorCode === "login_required";
-    }
 
-    // Browser check variables
-    var ua = window.navigator.userAgent;
-    var msie = ua.indexOf('MSIE ');
-    var msie11 = ua.indexOf('Trident/');
-    var msedge = ua.indexOf('Edge/');
-    var isIE = msie > 0 || msie11 > 0;
-    var isEdge = msedge > 0;
-    //If you support IE, our recommendation is that you sign-in using Redirect APIs
-    //If you as a developer are testing using Edge InPrivate mode, please add "isEdge" to the if check
-    // can change this to default an experience outside browser use
-    var loginType = isIE ? "REDIRECT" : "POPUP";
+   function authRedirectCallBack(error, response) {
+       if (error) {
+           console.log(error);
+       }
+       else {
+           if (response.tokenType === "access_token") {
+               callMSGraph(graphConfig.graphEndpoint, response.accessToken, graphAPICallback);
+           } else {
+               console.log("token type is:" + response.tokenType);
+           }
+       }
+   }
 
-    if (loginType === 'POPUP') {
+   function requiresInteraction(errorCode) {
+       if (!errorCode || !errorCode.length) {
+           return false;
+       }
+       return errorCode === "consent_required" ||
+           errorCode === "interaction_required" ||
+           errorCode === "login_required";
+   }
+
+   // Browser check variables
+   var ua = window.navigator.userAgent;
+   var msie = ua.indexOf('MSIE ');
+   var msie11 = ua.indexOf('Trident/');
+   var msedge = ua.indexOf('Edge/');
+   var isIE = msie > 0 || msie11 > 0;
+   var isEdge = msedge > 0;
+   //If you support IE, our recommendation is that you sign-in using Redirect APIs
+   //If you as a developer are testing using Edge InPrivate mode, please add "isEdge" to the if check
+   // can change this to default an experience outside browser use
+   var loginType = isIE ? "REDIRECT" : "POPUP";
+
+   if (loginType === 'POPUP') {
         if (myMSALObj.getAccount()) {// avoid duplicate code execution on page load in case of iframe and popup window.
             showWelcomeMessage();
             acquireTokenPopupAndCallMSGraph();
         }
-    }
-    else if (loginType === 'REDIRECT') {
-        document.getElementById("SignIn").onclick = function () {
+   }
+   else if (loginType === 'REDIRECT') {
+       document.getElementById("SignIn").onclick = function () {
             myMSALObj.loginRedirect(requestObj);
-        };
-        if (myMSALObj.getAccount() && !myMSALObj.isCallback(window.location.hash)) {// avoid duplicate code execution on page load in case of iframe and popup window.
+       };
+       if (myMSALObj.getAccount() && !myMSALObj.isCallback(window.location.hash)) {// avoid duplicate code execution on page load in case of iframe and popup window.
             showWelcomeMessage();
             acquireTokenRedirectAndCallMSGraph();
         }
-    } else {
-        console.error('Please set a valid login type');
-    }
-    ```
+   } else {
+       console.error('Please set a valid login type');
+   }
+   ```
 
 <!--start-collapse-->
 ### <a name="more-information"></a>Mer information
 
-När en användare väljer knappen **Logga in** för första gången, `signIn` anropar `loginPopup` metoden för att logga in användaren. Den här metoden öppnar ett popup-fönster med *Microsoft Identity Platform* -slutpunkten för att fråga och verifiera användarens autentiseringsuppgifter. Efter en lyckad inloggning omdirigeras användaren tillbaka till den ursprungliga *index. html-* sidan. En token tas emot, bearbetas av `msal.js`och den information som finns i token cachelagras. Denna token kallas *ID-token* och innehåller grundläggande information om användaren, t. ex. användarens visnings namn. Om du planerar att använda data som tillhandahålls av denna token i något syfte, måste du se till att denna token verifieras av backend-servern för att garantera att token har utfärdats till en giltig användare för ditt program.
+När en användare väljer knappen **Logga in** för första gången, `signIn` anropar `loginPopup` metoden för att logga in användaren. Den här metoden öppnar ett popup-fönster med *Microsoft Identity Platform-slutpunkten* för att fråga och verifiera användarens autentiseringsuppgifter. Efter en lyckad inloggning omdirigeras användaren tillbaka till den ursprungliga *index. html-* sidan. En token tas emot, bearbetas av `msal.js`och den information som finns i token cachelagras. Denna token kallas *ID-token* och innehåller grundläggande information om användaren, t. ex. användarens visnings namn. Om du planerar att använda data som tillhandahålls av denna token i något syfte, måste du se till att denna token verifieras av backend-servern för att garantera att token har utfärdats till en giltig användare för ditt program.
 
-Det Spa som genereras av den här `acquireTokenSilent` guiden anropar `acquireTokenPopup` och/eller hämtar en åtkomsttoken som används för att fråga Microsoft Graph-API: t för användar profil information. Om du behöver ett exempel som validerar ID-token ska du titta på [det här](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi-v2 "GitHub Active-Directory-Java Script-singlepageapp-dotNet-WebAPI-v2 exempel") program i GitHub. Exemplet använder ett ASP.NET webb-API för verifiering av token.
+Det Spa som genereras av den här `acquireTokenSilent` guiden anropar `acquireTokenPopup` och/eller *hämtar en åtkomsttoken som används* för att fråga Microsoft Graph-API: t för användar profil information. Om du behöver ett exempel som validerar ID-token ska du titta på [det här](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi-v2 "GitHub Active-Directory-Java Script-singlepageapp-dotNet-WebAPI-v2 exempel") program i GitHub. Exemplet använder ett ASP.NET webb-API för verifiering av token.
 
 #### <a name="getting-a-user-token-interactively"></a>Hämta en användartoken interaktivt
 
@@ -332,14 +332,14 @@ Lägg till följande kod i `index.html` filen `<script></script>` i taggarna:
 1. Gå till sidan Microsoft Identity Platform för utvecklare [Appregistreringar](https://go.microsoft.com/fwlink/?linkid=2083908) .
 1. När sidan **Registrera ett program** visas anger du ett namn för programmet.
 1. Under **Kontotyper som stöds** väljer du **Accounts in any organizational directory and personal Microsoft accounts** (Konton i alla organisationskataloger och personliga Microsoft-konton).
-1. I avsnittet omdirigerings- **URI** väljer du **webb** plattformen i list rutan och anger sedan värdet till den program-URL som är baserad på din webb server.
+1. I avsnittet **omdirigerings-URI** väljer du **webb** plattformen i list rutan och anger sedan värdet till den program-URL som är baserad på din webb server.
 
    Information om hur du ställer in och hämtar omdirigerings-URL: en för Node. js och Visual Studio finns i avsnittet "Ange en omdirigerings-URL för Node. js" och [Ange en omdirigerings-URL för Visual Studio](#set-a-redirect-url-for-visual-studio).
 
 1. Välj **Registrera**.
 1. På sidan **Översikt över** appar noterar du **programmets (klient) ID-** värde för senare användning.
 1. Den här snabbstarten kräver att [flödet för implicit beviljande](v2-oauth2-implicit-grant-flow.md) aktiveras. I det vänstra fönstret i det registrerade programmet väljer du **autentisering**.
-1. I **Avancerade inställningar**, under **implicit tilldelning**, markerar du kryss rutorna **ID-token** och **åtkomst** -token. ID-token och åtkomsttoken krävs eftersom den här appen måste logga in användare och anropa ett API.
+1. I **Avancerade inställningar**, under **implicit tilldelning**, markerar du kryss rutorna **ID-token** och **åtkomst-token** . ID-token och åtkomsttoken krävs eftersom den här appen måste logga in användare och anropa ett API.
 1. Välj **Spara**.
 
 > #### <a name="set-a-redirect-url-for-nodejs"></a>Ange en omdirigerings-URL för Node. js
@@ -347,7 +347,7 @@ Lägg till följande kod i `index.html` filen `<script></script>` i taggarna:
 >
 > Om du vill konfigurera en omdirigerings-URL i program registrerings informationen växlar du tillbaka till fönstret för **program registrering** och gör något av följande:
 >
-> - Ange *`http://localhost:30662/`* som omdirigerings- **URL**.
+> - Ange *`http://localhost:30662/`* som **omdirigerings-URL**.
 > - Om du använder en anpassad TCP-port använder *`http://localhost:<port>/`* du (där  *\<port >* är det anpassade TCP-portnumret).
 >
 > #### <a name="set-a-redirect-url-for-visual-studio"></a>Ange en omdirigerings-URL för Visual Studio
@@ -359,7 +359,7 @@ Lägg till följande kod i `index.html` filen `<script></script>` i taggarna:
 >    ![JavaScriptSPA-projektet Fönstret Egenskaper](media/active-directory-develop-guidedsetup-javascriptspa-configure/vs-project-properties-screenshot.png)
 >
 > 1. Kopiera **URL** -värdet.
-> 1. Växla tillbaka till fönstret **program registrering** och klistra in det kopierade värdet som omdirigerings- **URL**.
+> 1. Växla tillbaka till fönstret **program registrering** och klistra in det kopierade värdet som **omdirigerings-URL**.
 
 #### <a name="configure-your-javascript-spa"></a>Konfigurera ditt Java Script SPA
 

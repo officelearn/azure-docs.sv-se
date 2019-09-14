@@ -1,110 +1,110 @@
 ---
-title: Kom igång med Bing-Taligenkänning för taligenkänning med hjälp av C# skrivbord biblioteket | Microsoft Docs
+title: Kom igång med Taligenkänning i Bing igenkännings-API med hjälp C# av Skriv bords biblioteket | Microsoft Docs
 titlesuffix: Azure Cognitive Services
-description: Utveckla grundläggande Windows-program som använder Bing-Taligenkänning för taligenkänning för att omvandla talat ljud till text.
+description: 'Utveckla grundläggande Windows-program som använder Taligenkänning i Bing igenkännings-API: et för att konvertera talade ljud till text.'
 services: cognitive-services
-author: zhouwangzw
-manager: wolfma
+author: nitinme
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
-ms.author: zhouwang
+ms.author: nitinme
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 5f3b70a2dd9816210ed61280be38504a3980d205
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 3160ccc1c8741d87fcee94a6face48551a79052d
+ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60515356"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70966908"
 ---
-# <a name="quickstart-use-the-bing-speech-recognition-api-in-c35-for-net-on-windows"></a>Snabbstart: Använd Bing-taligenkänning API i C&#35; för .NET i Windows
+# <a name="quickstart-use-the-bing-speech-recognition-api-in-c35-for-net-on-windows"></a>Snabbstart: Använd Taligenkänning i Bing igenkännings-API i&#35; C för .net i Windows
 
 [!INCLUDE [Deprecation note](../../../../includes/cognitive-services-bing-speech-api-deprecation-note.md)]
 
-Den här sidan visar hur du utvecklar ett grundläggande Windows-program som använder den tal-API: T för att omvandla talat ljud till text. Använder klientbiblioteket får strömning i realtid, vilket innebär att när klientprogrammet skickar ljud till tjänsten, den samtidigt och asynkront får tillbaka delvisa igenkänningsresultat.
+Den här sidan visar hur du utvecklar ett grundläggande Windows-program som använder API: et för tal igenkänning för att konvertera talade ljud till text. Med hjälp av klient biblioteket kan du strömma i real tid, vilket innebär att när klient programmet skickar ljud till tjänsten samtidigt och tar emot delvis igenkännings resultat asynkront.
 
-Utvecklare som vill använda Speech Service från appar som körs på valfri enhet kan använda Fjärrskrivbord biblioteket C#. För att använda biblioteket, installera den [NuGet-paketet Microsoft.ProjectOxford.SpeechRecognition x86](https://www.nuget.org/packages/Microsoft.ProjectOxford.SpeechRecognition-x86/) för en 32-bitars plattform och [NuGet-paketet Microsoft.ProjectOxford.SpeechRecognition x64](https://www.nuget.org/packages/Microsoft.ProjectOxford.SpeechRecognition-x64/) för en 64-bitars plattform. API-referens för klientbiblioteket finns [Microsoft Speech C# skrivbord biblioteket](https://cdn.rawgit.com/Microsoft/Cognitive-Speech-STT-Windows/master/docs/SpeechSDK/index.html).
+Utvecklare som vill använda tal tjänsten från appar som körs på en enhet kan använda C# Skriv bords biblioteket. Om du vill använda biblioteket installerar du [NuGet-paketet Microsoft. ProjectOxford. SpeechRecognition-x86](https://www.nuget.org/packages/Microsoft.ProjectOxford.SpeechRecognition-x86/) för en 32-bitars plattform och [NuGet-paketet Microsoft. ProjectOxford. SpeechRecognition-x64](https://www.nuget.org/packages/Microsoft.ProjectOxford.SpeechRecognition-x64/) för en 64-bitars plattform. Information om API-referens för klient bibliotek finns i [Microsoft Speech C# Desktop Library](https://cdn.rawgit.com/Microsoft/Cognitive-Speech-STT-Windows/master/docs/SpeechSDK/index.html).
 
-I följande avsnitt beskrivs hur du installerar, bygga och köra C#-exempelprogram med hjälp av C# skrivbord biblioteket.
+I följande avsnitt beskrivs hur du installerar, skapar och kör C# exempel programmet med hjälp av C# Skriv bords biblioteket.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 ### <a name="platform-requirements"></a>Plattformskrav
 
-I följande exempel har utvecklats specifikt för Windows 8 + och .NET Framework 4.5 + med hjälp av [Visual Studio 2015, Community Edition](https://www.visualstudio.com/products/visual-studio-community-vs).
+Följande exempel har utvecklats för Windows 8 + och .NET Framework 4.5 + med hjälp av [Visual Studio 2015, Community Edition](https://www.visualstudio.com/products/visual-studio-community-vs).
 
-### <a name="get-the-sample-application"></a>Hämta exempelprogrammet
+### <a name="get-the-sample-application"></a>Hämta exempel programmet
 
-Klona exemplet från den [tal C#-skrivbord biblioteket exempel](https://github.com/microsoft/cognitive-speech-stt-windows) lagringsplats.
+Klona exemplet från exempel lagrings platsen för [tal C# Skriv bords bibliotek](https://github.com/microsoft/cognitive-speech-stt-windows) .
 
-### <a name="subscribe-to-the-speech-recognition-api-and-get-a-free-trial-subscription-key"></a>Prenumerera på det tal-API: T och få en kostnadsfri utvärderingsprenumeration-nyckel
+### <a name="subscribe-to-the-speech-recognition-api-and-get-a-free-trial-subscription-key"></a>Prenumerera på API för tal igenkänning och få en prenumerations nyckel för kostnads fri utvärdering
 
-API för taligenkänning är en del av Cognitive Services (tidigare projekt Oxford). Du kan få kostnadsfri utvärderingsprenumeration nycklar från den [Cognitive Services-prenumeration](https://azure.microsoft.com/try/cognitive-services/) sidan. När du har valt API för taligenkänning, Välj **hämta API-nyckel** att hämta nyckeln. Returnerar den primära och sekundära nyckeln. Båda nycklarna är knutna till samma kvot, så du kan använda någon av nycklarna.
+Speech API är en del av Cognitive Services (tidigare Project-Oxford). Du kan få kostnads fria utvärderings prenumerations nycklar från sidan [Cognitive Services prenumeration](https://azure.microsoft.com/try/cognitive-services/) . När du har valt Speech API väljer du **Hämta API-nyckel** för att hämta nyckeln. Den returnerar en primär och sekundär nyckel. Båda nycklarna är knutna till samma kvot, så du kan använda båda nycklarna.
 
 > [!IMPORTANT]
-> * Få en prenumerationsnyckel. Innan du använder tal-klientbiblioteken, måste du ha en [prenumerationsnyckel](https://azure.microsoft.com/try/cognitive-services/).
+> * Hämta en prenumerations nyckel. Innan du använder klient biblioteken för tal måste du ha en [prenumerations nyckel](https://azure.microsoft.com/try/cognitive-services/).
 >
-> * Använd din prenumerationsnyckel. Med den angivna C# skrivbord exempelprogrammet klistrar du in din prenumerationsnyckel i textrutan när du kör exemplet. Mer information finns i [kör exempelprogrammet](#step-3-run-the-sample-application).
+> * Använd din prenumerations nyckel. Med det tillhandahållna C# Skriv bords exempel programmet klistrar du in prenumerations nyckeln i text rutan när du kör exemplet. Mer information finns i [Kör exempel programmet](#step-3-run-the-sample-application).
 
-## <a name="step-1-install-the-sample-application"></a>Steg 1: Installera exempelprogrammet
+## <a name="step-1-install-the-sample-application"></a>Steg 1: Installera exempel programmet
 
-1. Starta Visual Studio 2015 och välj **filen** > **öppna** > **projekt/lösning**.
+1. Starta Visual Studio 2015 och välj **fil** > **Öppna** > **projekt/lösning**.
 
-2. Bläddra till mappen där du sparade de hämtade filerna för tal-API: T. Välj **tal** > **Windows**, och välj sedan exempel WP-mapp.
+2. Bläddra till mappen där du sparade de hämtade API-filerna för tal igenkänning. Välj **tal** > **fönster**och välj sedan mappen Sample-wp.
 
-3. Dubbelklicka för att öppna filen Visual Studio 2015-lösning (.sln) med namnet SpeechToText-WPF-Samples.sln. Lösningen öppnas i Visual Studio.
+3. Öppna Visual Studio 2015-lösningen (. SLN) med namnet SpeechToText-WPF-Samples. SLN genom att dubbelklicka på den. Lösningen öppnas i Visual Studio.
 
-## <a name="step-2-build-the-sample-application"></a>Steg 2: Skapa exempelprogrammet
+## <a name="step-2-build-the-sample-application"></a>Steg 2: Bygg exempel programmet
 
-1. Om du vill använda *erkännande med avsikt*, måste du först registrera dig för den [Language Understanding Intelligent Service (LUIS)](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/). Använd slutpunkts-URL för LUIS-appen för att ange värdet för nyckeln `LuisEndpointUrl` i app.config-fil i mappen samples/SpeechRecognitionServiceExample. Mer information om slutpunkts-URL för LUIS-app finns i [publicera din app](../../luis/luis-get-started-create-app.md#publish-your-app).
+1. Om du vill använda *igenkänning med avsikten*måste du först registrera dig för [language Understanding intelligent service (Luis)](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/). Använd sedan slut punkts-URL: en för Luis-appen för att ange `LuisEndpointUrl` värdet för nyckeln i filen app. config i mappen Samples/SpeechRecognitionServiceExample. Mer information om slut punkts-URL: en för LUIS-appen finns i [publicera din app](../../luis/luis-get-started-create-app.md#publish-your-app).
 
    > [!TIP]
-   > Ersätt den `&` tecknet i LUIS slutpunkts-URL med `&amp;` så att URL: en tolkas korrekt av XML-parsern.
+   > Ersätt tecknen i slut punkts-URL: `&amp;` en för Luis med för att säkerställa att URL-adressen tolkas korrekt av XML-parsern. `&`
 
-2. Tryck på Ctrl + Skift + B eller välj **skapa** på menyn i menyfliksområdet. Välj sedan **skapa lösning**.
+2. Tryck på CTRL + SKIFT + B eller Välj **build** på menyn i menyfliksområdet. Välj sedan **build-lösning**.
 
 ## <a name="step-3-run-the-sample-application"></a>Steg 3: Köra exempelprogrammet
 
-1. När bygget har slutförts, tryck på F5 eller välj **starta** på menyn menyfliksområdet för att köra exemplet.
+1. När bygget är klart trycker du på F5 eller väljer **Start** på menyn i menyfliksområdet för att köra exemplet.
 
-2. Gå till den **projekt Oxford tal till textexempel** fönster. Klistra in din prenumerationsnyckel till den **klistra in din prenumerationsnyckel för att starta** textrutan som visas. För att bevara din prenumerationsnyckel på din dator eller bärbar dator, Välj **Spara nyckel**. Om du vill ta bort prenumerationsnyckeln från systemet, Välj **ta bort nyckeln** ta bort den från din dator eller bärbar dator.
+2. Gå till **exempel fönstret Project Oxford Speech to text** . Klistra in din prenumerations nyckel i text rutan **Klistra in prenumerations nyckeln här för att starta** text rutan som visas. Om du vill behålla prenumerations nyckeln på din dator eller bärbara dator väljer du **Spara nyckel**. Om du vill ta bort prenumerations nyckeln från systemet väljer du **ta bort nyckel** för att ta bort den från din dator eller bärbara dator.
 
-   ![Tal erkännande klistra in nyckeln](../Images/SpeechRecog_paste_key.PNG)
+   ![Klistra in nyckel för tal igenkänning](../Images/SpeechRecog_paste_key.PNG)
 
-3. Under **tal igenkänning av källa**, väljer du något av sex tal källor, dessa kan delas in i två huvudkategorier för indata:
+3. Under **tal igenkännings källa**väljer du en av de sex tal källorna, som finns i två huvudsakliga ingångs kategorier:
 
-   * Använd datorns mikrofon eller en anslutna mikrofon för att avbilda tal.
+   * Använd datorns mikrofon eller en ansluten mikrofon för att avbilda tal.
    * Spela upp en ljudfil.
 
-   Varje kategori har tre lägen för igenkänning av:
+   Varje kategori har tre igenkännings lägen:
 
-    * **ShortPhrase läge**: Ett uttryck upp till 15 sekunder långa. När data skickas till servern, klienten tar emot flera delresultat och ett slutresultat med flera n bästa val.
-    * **LongDictation läge**: Ett uttryck upp till två minuter lång. När data skickas till servern, tar klienten emot flera delresultat och flera slutresultat baserat på var servern indikerar paus i meningen.
-    * **Avsiktshantering identifiering**: Servern returnerar mer strukturerad information om tal som indata. Om du vill använda avsikt identifiering, måste du först tränar en modell med hjälp av [LUIS](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/).
+    * **ShortPhrase-läge**: En uttryck upp till 15 sekunder lång. När data skickas till servern får klienten flera delar av resultaten och ett slut resultat med flera n-bästa alternativ.
+    * **LongDictation-läge**: En uttryck upp till två minuter lång. När data skickas till servern får klienten flera partiella resultat och flera slut resultat baserat på var servern anger att meningen ska pausas.
+    * **Identifiering av avsikter**: Servern returnerar ytterligare strukturerad information om tal indata. Om du vill använda identifiering av identifierings metoder måste du först träna en modell med hjälp av [Luis](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/).
 
-Använd exemplet ljudfiler med det här exempelprogrammet. Hitta filerna i databasen som du laddade ned med det här exemplet under mappen samples/SpeechRecognitionServiceExample. Dessa exempel ljudfiler körs automatiskt om inga andra filer du väljer när du väljer **Använd wav-fil för Shortphrase läge** eller **Använd wav-fil för Longdictation läge** som ditt tal som indata. För närvarande stöds endast WAV ljudformat.
+Använd exempel på ljudfiler med det här exempel programmet. Hitta filerna i lagrings platsen som du laddade ned med det här exemplet under mappen Samples/SpeechRecognitionServiceExample. De här exempelfilerna körs automatiskt om inga andra filer väljs när du väljer **Använd WAV-fil för Shortphrase läge** eller **Använd WAV-fil för Longdictation-läge** som indata för tal. För närvarande stöds endast formatet WAV-ljud.
 
-![Tal till Text-gränssnitt](../Images/HelloJones.PNG)
+![Tal till text gränssnitt](../Images/HelloJones.PNG)
 
-## <a name="samples-explained"></a>Exempel beskrivs
+## <a name="samples-explained"></a>Exempel på förklaring
 
-### <a name="recognition-events"></a>Igenkänning av händelser
+### <a name="recognition-events"></a>Igenkännings händelser
 
-* **Partiell resultat händelser**: Den här händelsen anropas varje gång Speech Service förutsäger vad du kan säger, även innan du slutför talar (om du använder `MicrophoneRecognitionClient`) eller har skickat data (om du använder `DataRecognitionClient`).
-* **Felhändelser**: Anropas när tjänsten upptäcker ett fel.
-* **Avsiktshantering händelser**: Namnet på ”WithIntent” klienter (endast i ShortPhrase läge) när slutgiltiga resultatet parsas till en strukturerade JSON-avsikt.
-* **Resultera händelser**:
-  * I `ShortPhrase` läge, den här händelsen kallas och returnerar n-best-resultat när du har slutfört talar.
-  * I `LongDictation` läge, händelsehanteraren anropas flera gånger, baserat på där tjänsten identifierar paus i meningen.
-  * **För var och en av de n bästa val**, returneras ett förtroende-värde och ett par olika former av den tolkade texten. Mer information finns i [utdataformat](../Concepts.md#output-format).
+* **Partiella resultat händelser**: Den här händelsen anropas varje gång tal tjänsten förutsäger vad du kan säga, till och med innan du har slutfört tal ( `MicrophoneRecognitionClient`om du använder) eller Slutför sändningen av `DataRecognitionClient`data (om du använder).
+* **Fel händelser**: Anropas när tjänsten identifierar ett fel.
+* **Avsikts händelser**: Anropas på "WithIntent"-klienter (endast i ShortPhrase-läge) efter det slutliga igenkännings resultatet parsas till en strukturerad JSON-avsikt.
+* **Resultat händelser**:
+  * I `ShortPhrase` läget anropas den här händelsen och returnerar de n bästa resultaten när du har slutfört inläsningen.
+  * I `LongDictation` läget anropas händelse hanteraren flera gånger, baserat på var tjänsten identifierar mening pausar.
+  * **För var och en av de n bästa alternativen**returneras ett konfidens värde och några olika former av den tolkade texten. Mer information finns i [utdataformat](../Concepts.md#output-format).
 
-Händelsehanterare är redan nämnts i kod i form av kodkommentarer.
+Händelse hanterare har redan pekat i koden i form av kod kommentarer.
 
 ## <a name="related-topics"></a>Relaterade ämnen
 
-* [Microsoft Speech skrivbord biblioteksreferens](https://cdn.rawgit.com/Microsoft/Cognitive-Speech-STT-Windows/master/docs/SpeechSDK/index.html)
-* [Kom igång med API för taligenkänning igenkänning av Microsoft i Java på Android](GetStartedJavaAndroid.md)
-* [Kom igång med API för taligenkänning igenkänning av Microsoft i Objective-C på iOS](Get-Started-ObjectiveC-iOS.md)
-* [Kom igång med API för taligenkänning igenkänning av Microsoft i JavaScript](GetStartedJSWebsockets.md)
-* [Kom igång med API för taligenkänning igenkänning av Microsoft via REST](GetStartedREST.md)
+* [Referens för Microsoft Speech Desktop Library](https://cdn.rawgit.com/Microsoft/Cognitive-Speech-STT-Windows/master/docs/SpeechSDK/index.html)
+* [Kom igång med API: t Microsoft Speech igenkänning i Java på Android](GetStartedJavaAndroid.md)
+* [Kom igång med API: t Microsoft Speech igenkänning i mål-C på iOS](Get-Started-ObjectiveC-iOS.md)
+* [Kom igång med API: t Microsoft Speech igenkänning i Java Script](GetStartedJSWebsockets.md)
+* [Kom igång med API: t Microsoft Speech igenkänning via REST](GetStartedREST.md)

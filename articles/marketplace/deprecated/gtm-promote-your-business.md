@@ -1,40 +1,40 @@
 ---
-title: Go-To-Market Services – marknadsföra ditt företag med Microsoft | Azure
-description: Go-To-Market Services - utgivare kan lära dig hur du uppgraderar din verksamhet med Microsoft i det här avsnittet.
+title: Go-to-Marketing-tjänster – marknadsför ditt företag med Microsoft | Azure
+description: Go-to-Marketing-tjänster – utgivare kan lära sig att marknadsföra ditt företag med Microsoft i det här avsnittet.
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 author: qianw211
 ms.service: marketplace
 ms.topic: article
 ms.date: 01/12/2019
 ms.author: ellacroi
-ms.openlocfilehash: 8bb064deae87e6545d003ffb1fa85058926f5dee
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9549e40ea3b79c356867c2fe36dc336e69795c8b
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66688963"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70962844"
 ---
 # <a name="promote-your-business-with-microsoft"></a>Marknadsför din verksamhet med Microsoft
 
-Marketplace-partner måste vara en del av Microsoft Partner Network (MPN). Du kan komma åt ytterligare affärsfokuserad förmåner som en MPN-medlem. Besök [partner.microsoft.com](https://partner.microsoft.com) att se hur du kan använda nätverket för att få åtkomst till:
+Marketplace-partner måste vara en del av Microsoft Partner Network (MPN). Som MPN-medlem har du åtkomst till ytterligare affärs fokuserade förmåner. Besök [partner.Microsoft.com](https://partner.microsoft.com) och se hur du kan använda nätverket för att komma åt:
 
-* Nya affärsmöjligheter.
-* Ansluta med team eller partner.
-* Lösningar och utbildning som hjälper dig att utöka din kompetens.
+* Nya affärs möjligheter.
+* Ansluta till team eller partners.
+* Lösningar och utbildning för att öka din färdigheter.
 
-## <a name="benefits-and-resources"></a>Förmåner och resurser
+## <a name="benefits-and-resources"></a>Fördelar och resurser
 
-Att marknadsföra ditt erbjudande eller en app och för att komma åt fler förmåner och resurser, Använd följande tabell:
+Använd följande tabell för att marknadsföra ditt erbjudande eller din app och få till gång till fler förmåner och resurser:
 
 | Fördelar | Resurser |
 |:--- |:--- |
-| Använd dina förmåner för kärnor | Som en del av Microsoft Partner Network får du en uppsättning viktiga fördelar med kan du spara tid och pengar. Fördelarna kan hjälpa dig <ul> <li> Stärk din funktioner </li> <li> bättre kundservice, och </li> <li> skapa anslutningar för att nå verksamheten fullständig potentiella. </li> </ul> Mer information om viktiga fördelar finns [viktiga fördelar och krav](https://partner.microsoft.com/en-US/membership/core-benefits#tab-content-1). |
-| Tjäna din Molnplattformskompetens | Tjäna kompetens hjälper dig att <ul> <li> Särskilj dig bland andra Microsoft-partner. </li> <li> Visa teknisk expertis och kunden lyckades på marknaden. </li> </ul> Molnplattformskompetens är en förutsättning för många viktiga partnerprogram, till exempel Medförsäljning. Se [silvernivå](https://partner.microsoft.com/reach-customers/selling-with-microsoft) för mer information. |
-| Bli redo för IP-Medförsäljning | Du kan vara kvalificerade för IP-Medförsäljning redo programmet.  Det här programmet kan du: <ul> <li> Samarbeta direkt med Microsoft-säljare och andra partners på målet kundtillfällen och planera för kontot. </li> <li> Gör din lösning synligt för Microsoft-säljare i försäljning lösning katalogen. </li> <li> Microsoft-säljare är belönad samarbeta och vinna med dig. </li> </ul> Se [Medförsäljning klara program och befordra verksamheten](https://partner.microsoft.com/reach-customers/selling-with-microsoft) mer information, inklusive krav för berättigande. |
+| Använd dina kärn förmåner | Som en del av Microsoft Partner Network får du en uppsättning Core-fördelar som kan hjälpa dig att spara tid och pengar. Fördelarna kan hjälpa dig <ul> <li> förbättra dina funktioner, </li> <li> bättre betjäna kunder och </li> <li> Bygg anslutningarna för att uppnå din fulla affärs potential. </li> </ul> Mer information om kärn förmåner finns i [grundläggande fördelar och krav](https://partner.microsoft.com/membership/core-benefits#tab-content-1). |
+| Skaffa din moln plattforms kompetens | Genom att skaffa en kompetens får du hjälp att <ul> <li> Skilj dig åt bland andra Microsoft-partner. </li> <li> Demonstrera teknisk expertis och kund framgång på marknaden. </li> </ul> Kompetens är ett krav för många viktiga partner program, till exempel co-försäljning. Se [Cloud Platform-kompetens](https://partner.microsoft.com/reach-customers/selling-with-microsoft) för mer information. |
+| Bli IP-samförsäljnings klar | Du kanske är berättigad till det färdiga programmet för IP-Co-försäljning.  Med det här programmet kan du: <ul> <li> Samar beta direkt med Microsoft-säljare och andra partner som riktar sig mot kund möjligheter och konto planeringen. </li> <li> Gör din lösning synlig för Microsoft-säljare i säljarens lösnings katalog. </li> <li> Microsoft-säljare belönas för att samar beta och vinna med dig. </li> </ul> Se [det färdiga programmet medförsäljning och marknadsför ditt företag](https://partner.microsoft.com/reach-customers/selling-with-microsoft) för mer information, inklusive berättigande krav. |
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om du vill veta mer om marketplace GTM services kan du gå till [Go-to-market services](https://partner.microsoft.com/reach-customers/gtm).
+Om du vill veta mer om Marketplace GTM-tjänster går du till [Go-to-Marketing-tjänster](https://partner.microsoft.com/reach-customers/gtm).
 
 Logga in på den [Cloud Partner Portal](https://cloudpartner.azure.com) du skapar och konfigurerar ditt erbjudande.
 

@@ -7,12 +7,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 07/23/2019
-ms.openlocfilehash: 135855ee33f783e85b398c7f9716c2c897633de9
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.openlocfilehash: a0c9c729081da9f6c7b8f549a4906d432af6ecb2
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68779542"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70961643"
 ---
 # <a name="plan-a-virtual-network-for-azure-hdinsight"></a>Planera ett virtuellt nätverk för Azure HDInsight
 
@@ -97,7 +97,7 @@ Använd stegen i det här avsnittet för att upptäcka hur du lägger till en ny
         az network route-table list --resource-group RESOURCEGROUP
         ```
 
-        Mer information finns i [fel sökning](../virtual-network/diagnose-network-routing-problem.md) av cirkulations dokument.
+        Mer information finns i [fel sökning av cirkulations](../virtual-network/diagnose-network-routing-problem.md) dokument.
 
 3. Skapa ett HDInsight-kluster och välj Azure-Virtual Network under konfigurationen. Använd stegen i följande dokument för att förstå processen för att skapa kluster:
 
@@ -198,7 +198,7 @@ Använd följande steg för att ansluta till Apache Ambari och andra webb sidor 
     > [!IMPORTANT]  
     > Vissa tjänster som finns på huvudnoderna är bara aktiva på en nod i taget. Om du försöker komma åt en tjänst på en head-nod och den returnerar ett 404-fel växlar du till den andra Head-noden.
 
-2. Information om vilka noder och portar som en tjänst är tillgänglig på finns i portarna som [används av Hadoop-tjänster i HDInsight](./hdinsight-hadoop-port-settings-for-services.md) -dokument.
+2. Information om vilka noder och portar som en tjänst är tillgänglig på finns i [portarna som används av Hadoop-tjänster i HDInsight](./hdinsight-hadoop-port-settings-for-services.md) -dokument.
 
 ## <a id="networktraffic"></a>Kontrol lera nätverks trafik
 
@@ -212,7 +212,7 @@ Nätverks trafik i virtuella Azure-nätverk kan kontrol leras med hjälp av föl
 
 Som en hanterad tjänst kräver HDInsight obegränsad åtkomst till HDInsight-hälso-och hanterings tjänsterna både för inkommande och utgående trafik från det virtuella nätverket. När du använder NSG: er måste du se till att dessa tjänster fortfarande kan kommunicera med HDInsight-kluster.
 
-![Diagram över HDInsight-entiteter som skapats i Azure anpassat VNET](./media/hdinsight-virtual-network-architecture/vnet-diagram.png)
+![Diagram över HDInsight-entiteter som skapats i Azure anpassat VNET](./media/hdinsight-plan-virtual-network-deployment/hdinsight-vnet-diagram.png)
 
 ### <a name="hdinsight-with-network-security-groups"></a>HDInsight med nätverks säkerhets grupper
 
@@ -220,7 +220,7 @@ Om du planerar att använda **nätverks säkerhets grupper** för att kontrol le
 
 1. Identifiera den Azure-region som du planerar att använda för HDInsight.
 
-2. Identifiera de IP-adresser som krävs av HDInsight. Mer information finns i avsnittet om [hantering av HDInsight-IP-adresser](hdinsight-management-ip-addresses.md).
+2. Identifiera de IP-adresser som krävs av HDInsight. Mer information finns i avsnittet om [IP-adresser för HDInsight-hantering](hdinsight-management-ip-addresses.md).
 
 3. Skapa eller ändra nätverks säkerhets grupper för det undernät som du planerar att installera HDInsight i.
 
@@ -244,7 +244,7 @@ Om du använder nätverks säkerhets grupper eller användardefinierade vägar f
 
 Om du planerar att använda en **brand vägg** och komma åt klustret utifrån vissa portar kan du behöva tillåta trafik på de portar som behövs för ditt scenario. Som standard behövs ingen särskild vit listning för portar så länge som den Azure-hanteringsserver som beskrivs i föregående avsnitt kan komma åt klustret på port 443.
 
-En lista över portar för vissa tjänster finns i portarna som [används av Apache Hadoop Services i HDInsight](hdinsight-hadoop-port-settings-for-services.md) -dokument.
+En lista över portar för vissa tjänster finns i [portarna som används av Apache Hadoop Services i HDInsight](hdinsight-hadoop-port-settings-for-services.md) -dokument.
 
 Mer information om brand Väggs regler för virtuella enheter finns i [scenario](../virtual-network/virtual-network-scenario-udr-gw-nva.md) dokumentet för Virtual-installation.
 

@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 02/14/2019
+ms.date: 09/12/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 357e7975b1c4fe44d86b7e29e96a9abb6ab63c35
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 6b311135832e1ec861cf6e14e5ad7e82574294bf
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68932256"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70959071"
 ---
 # <a name="setup-diagnostic-logging"></a>Konfigurera Diagnostisk loggning
 
@@ -67,7 +67,7 @@ Att välja **motorn** loggar alla [xEvents](https://docs.microsoft.com/analysis-
 
 ### <a name="all-metrics"></a>Alla mått
 
-Mått-kategorin loggar samma [serverstatistik](analysis-services-monitor.md#server-metrics) visas i mått.
+Mått kategorin loggar samma [Server mått](analysis-services-monitor.md#server-metrics) för AzureMetrics-tabellen. Om du använder funktionen för att [skala ut](analysis-services-scale-out.md) och behöver separera mått för varje Läs replik, använder du tabellen AzureDiagnostics i stället där **OperationName** är lika med **LogMetric**.
 
 ## <a name="setup-diagnostics-logging"></a>Konfigurera diagnostikloggning
 
@@ -161,27 +161,53 @@ Om du vill visa dina diagnostikdata går du till Log Analytics arbets yta och ö
 
 I Frågeverktyget expanderar du **LogManagement** > **AzureDiagnostics**. AzureDiagnostics innehåller motor och tjänsthändelser. Lägg märke till att en fråga skapas direkt. EventClass\_s fältet innehåller xEvent-namn, som kan se bekant ut om du har använt xEvents för lokal loggning. Klicka **på\_EventClass s** eller något av händelse namnen och Log Analytics arbets ytan fortsätter att konstruera en fråga. Glöm inte att spara dina frågor att återanvända senare.
 
-### <a name="example-query"></a>Exempel fråga
-Den här frågan beräknar och returnerar CPU för varje fråga slut-/uppdaterings slut händelse för en modell databas och Server:
+### <a name="example-queries"></a>Exempelfrågor
+
+#### <a name="example-1"></a>Exempel 1
+
+Följande fråga returnerar varaktigheter för varje frågas slut-/uppdaterings slut händelse för en modell databas och server. Om den skalas ut, delas resultatet ut av repliken eftersom replik numret ingår i ServerName_s. Gruppering efter RootActivityId_g minskar antalet rader som hämtats från Azure-diagnostik REST API och hjälper till att hålla sig inom gränserna enligt beskrivningen i [Log Analytics hastighets begränsningar](https://dev.loganalytics.io/documentation/Using-the-API/Limits).
 
 ```Kusto
-let window =  AzureDiagnostics
-   | where ResourceProvider == "MICROSOFT.ANALYSISSERVICES" and ServerName_s =~"MyServerName" and DatabaseName_s == "Adventure Works Localhost" ;
+let window = AzureDiagnostics
+   | where ResourceProvider == "MICROSOFT.ANALYSISSERVICES" and Resource =~ "MyServerName" and DatabaseName_s =~ "MyDatabaseName" ;
 window
 | where OperationName has "QueryEnd" or (OperationName has "CommandEnd" and EventSubclass_s == 38)
 | where extract(@"([^,]*)", 1,Duration_s, typeof(long)) > 0
 | extend DurationMs=extract(@"([^,]*)", 1,Duration_s, typeof(long))
-| extend Engine_CPUTime=extract(@"([^,]*)", 1,CPUTime_s, typeof(long))
-| project  StartTime_t,EndTime_t,ServerName_s,OperationName,RootActivityId_g ,TextData_s,DatabaseName_s,ApplicationName_s,Duration_s,EffectiveUsername_s,User_s,EventSubclass_s,DurationMs,Engine_CPUTime
-| join kind=leftouter (
-window
-    | where OperationName == "ProgressReportEnd" or (OperationName == "VertiPaqSEQueryEnd" and EventSubclass_s  != 10) or OperationName == "DiscoverEnd" or (OperationName has "CommandEnd" and EventSubclass_s != 38)
-    | summarize sum_Engine_CPUTime = sum(extract(@"([^,]*)", 1,CPUTime_s, typeof(long))) by RootActivityId_g
-    ) on RootActivityId_g
-| extend totalCPU = sum_Engine_CPUTime + Engine_CPUTime
-
+| project  StartTime_t,EndTime_t,ServerName_s,OperationName,RootActivityId_g,TextData_s,DatabaseName_s,ApplicationName_s,Duration_s,EffectiveUsername_s,User_s,EventSubclass_s,DurationMs
+| order by StartTime_t asc
 ```
 
+#### <a name="example-2"></a>Exempel 2
+
+Följande fråga returnerar minnes-och QPU-förbrukningen för en server. Om den skalas ut, delas resultatet ut av repliken eftersom replik numret ingår i ServerName_s.
+
+```Kusto
+let window = AzureDiagnostics
+   | where ResourceProvider == "MICROSOFT.ANALYSISSERVICES" and Resource =~ "MyServerName";
+window
+| where OperationName == "LogMetric" 
+| where name_s == "memory_metric" or name_s == "qpu_metric"
+| project ServerName_s, TimeGenerated, name_s, value_s
+| summarize avg(todecimal(value_s)) by ServerName_s, name_s, bin(TimeGenerated, 1m)
+| order by TimeGenerated asc 
+```
+
+#### <a name="example-3"></a>Exempel 3
+
+Följande fråga returnerar Analysis Services-motorns prestanda räknare för en server.
+
+```Kusto
+let window =  AzureDiagnostics
+   | where ResourceProvider == "MICROSOFT.ANALYSISSERVICES" and Resource =~ "MyServerName";
+window
+| where OperationName == "LogMetric" 
+| where parse_json(tostring(parse_json(perfobject_s).counters))[0].name == "Rows read/sec" 
+| extend Value = tostring(parse_json(tostring(parse_json(perfobject_s).counters))[0].value) 
+| project ServerName_s, TimeGenerated, Value
+| summarize avg(todecimal(Value)) by ServerName_s, bin(TimeGenerated, 1m)
+| order by TimeGenerated asc 
+```
 
 Det finns hundratals frågor som du kan använda. Mer information om frågor finns i [Kom igång med Azure Monitor logg frågor](../azure-monitor/log-query/get-started-queries.md).
 

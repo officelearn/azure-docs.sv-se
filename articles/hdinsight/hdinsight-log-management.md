@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/19/2019
 ms.author: hrasheed
-ms.openlocfilehash: 5264491220a4b0756a2a9f0a96aae4ed67809618
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
-ms.translationtype: HT
+ms.openlocfilehash: 4e9a6a9ca435971d64ec8f59203a518287e6db4e
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70879465"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70960992"
 ---
 # <a name="manage-logs-for-an-hdinsight-cluster"></a>Hantera loggar för ett HDInsight-kluster
 
@@ -79,11 +79,11 @@ Apache Ambari fören klar hanteringen, konfigurationen och övervakningen av ett
 
 Öppna en lista över tjänstevyer genom att välja fönstret **Ambari vyer** på sidan Azure Portal för HDInsight.  Den här listan varierar beroende på vilka bibliotek som du har installerat.  Du kan till exempel se garn Queue Manager, Hive och Tez vy.  Välj en tjänst länk om du vill visa information om konfigurationen och tjänsten.  Sidan Ambari UI **stack och version** innehåller information om konfigurations historiken för kluster tjänster och tjänster. Om du vill navigera till det här avsnittet i Ambari-ANVÄNDARGRÄNSSNITTET väljer du **Administratörs** menyn och sedan **stackar och versioner**.  Välj fliken **versioner** för att se information om tjänst version.
 
-![Stack och versioner](./media/hdinsight-log-management/stack-versions.png)
+![Stack och versioner](./media/hdinsight-log-management/ambari-stack-versions.png)
 
-Med hjälp av användar gränssnittet för Ambari kan du ladda ned konfigurationen för alla (eller alla) tjänster som körs på en viss värd (eller nod) i klustret.  Välj menyn **värdar** och sedan länken för värden av intresse. På värddatorns sida väljer du knappen **värd åtgärder** och **laddar ned klient konfigurationerna**. 
+Med hjälp av användar gränssnittet för Ambari kan du ladda ned konfigurationen för alla (eller alla) tjänster som körs på en viss värd (eller nod) i klustret.  Välj menyn **värdar** och sedan länken för värden av intresse. På värddatorns sida väljer du knappen **värd åtgärder** och **laddar ned klient konfigurationerna**.
 
-![Konfiguration av värd klient](./media/hdinsight-log-management/client-configs.png)
+![Konfiguration av värd klient](./media/hdinsight-log-management/download-client-configs.png)
 
 ### <a name="view-the-script-action-logs"></a>Visa skript åtgärds loggar
 

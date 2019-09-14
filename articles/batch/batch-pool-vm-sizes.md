@@ -11,15 +11,15 @@ ms.service: batch
 ms.workload: ''
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 07/01/2019
+ms.date: 09/12/2019
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: f894a7438c56c3830eb62c516447195f10fc3b76
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: e3d96ad7783c43dba6b69f6b11acccf790d0d6c9
+ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70094675"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70983754"
 ---
 # <a name="choose-a-vm-size-for-compute-nodes-in-an-azure-batch-pool"></a>Välj en VM-storlek för Compute-noder i en Azure Batch pool
 
@@ -45,16 +45,18 @@ Alla kampanjer och för hands versioner av virtuella datorer som inte listas är
 | Av2-serien | Alla storlekar | Any |
 | B-serien | Inga | Saknas |
 | DC-serien | Inga | Saknas |
-| Dv2, Dsv2-serien | Alla storlekar | Any |
+| Dv2, DSv2-serien | Alla storlekar | Any |
 | Dv3, Dsv3-series | Alla storlekar | Any |
-| [Minnesoptimerade storlekar](../virtual-machines/linux/sizes-memory.md) | Inga | Saknas |
+| Ev3, Esv3-serien | Alla storlekar | Any |
 | Fsv2-serien | Alla storlekar | Any |
 | H-serien | Alla storlekar | Any |
 | HB-serie<sup>2</sup> | Alla storlekar | Any |
 | HC-serie<sup>2</sup> | Alla storlekar | Any |
 | Ls-serien | Alla storlekar | Any |
 | Lsv2-serien | Inga | Saknas |
-| M-serien | Standard_M64ms (endast låg prioritet), Standard_M128s (endast låg prioritet) | Any |  
+| M-serien | Standard_M64ms (endast låg prioritet), Standard_M128s (endast låg prioritet) | Any |
+| Mv2-serien | Inga | Saknas |
+| NC-serien | Alla storlekar | Any |
 | NCv2-serie<sup>2</sup> | Alla storlekar | Any |
 | NCv3-serie<sup>2</sup> | Alla storlekar | Any |
 | ND-serien<sup>2</sup> | Alla storlekar | Any |

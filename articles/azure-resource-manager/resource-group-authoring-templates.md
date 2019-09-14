@@ -4,14 +4,14 @@ description: Beskriver strukturen och egenskaperna för Azure Resource Manager m
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 08/29/2019
+ms.date: 09/13/2019
 ms.author: tomfitz
-ms.openlocfilehash: d396b6b48687e451396849cc256c25f847a219cf
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: 4a5c1a99911c31f539d4f55adefb2c5f06243dd0
+ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70306843"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70984102"
 ---
 # <a name="understand-the-structure-and-syntax-of-azure-resource-manager-templates"></a>Förstå strukturen och syntaxen för Azure Resource Manager mallar
 
@@ -84,6 +84,8 @@ Tillgängliga egenskaper för en parameter är:
 | maxLength |Nej |Den maximala längden för parametrar av typen sträng, säker sträng och mat ris typ, detta värde är inkluderat. |
 | description |Nej |Beskrivning av den parameter som visas för användarna via portalen. Mer information finns i [kommentarer i mallar](#comments). |
 
+Exempel på hur du använder parametrar finns [i parametrar i Azure Resource Manager mallar](template-parameters.md).
+
 ## <a name="variables"></a>Variabler
 
 I avsnittet variabler skapar du värden som kan användas i hela mallen. Du behöver inte definiera variabler, men de fören klar ofta mallen genom att minska komplexa uttryck.
@@ -116,6 +118,8 @@ I följande exempel visas tillgängliga alternativ för att definiera en variabe
 ```
 
 Information om hur du `copy` använder för att skapa flera värden för en variabel finns i [variabel iteration](resource-group-create-multiple.md#variable-iteration).
+
+Exempel på hur du använder variabler finns [i variabler i Azure Resource Manager mall](template-variables.md).
 
 ## <a name="functions"></a>Funktioner
 
@@ -159,6 +163,8 @@ När du definierar en användar funktion finns det vissa begränsningar:
 | parameter-värde |Nej |Typ av parameter värde. De tillåtna typerna och värdena är **String**, **SecureString**, **int**, **bool**, **Object**, **secureObject**och **array**. |
 | typ av utdata |Ja |Typ av utdatavärde. Utmatnings värden har stöd för samma typer som indataparametrarna för funktionen. |
 | utmatnings värde |Ja |Mallens språk uttryck som utvärderas och returneras från funktionen. |
+
+Exempel på hur du använder anpassade funktioner finns i [användardefinierade funktioner i Azure Resource Manager mall](template-user-defined-functions.md).
 
 ## <a name="resources"></a>Resurser
 
@@ -234,7 +240,7 @@ Du definierar resurser med följande struktur:
 | properties |Nej |Resurs-/regionsspecifika konfigurations inställningar. Värdena för egenskaperna är desamma som de värden som du anger i begär ande texten för åtgärden REST API (metoden sätt) för att skapa resursen. Du kan också ange en kopierad matris för att skapa flera instanser av en egenskap. Information om vilka värden som är tillgängliga finns i [referens för mallar](/azure/templates/). |
 | sku | Nej | Vissa resurser tillåter värden som definierar SKU: n som ska distribueras. Du kan till exempel ange typen av redundans för ett lagrings konto. |
 | type | Nej | Vissa resurser tillåter ett värde som definierar vilken typ av resurs du distribuerar. Du kan till exempel ange vilken typ av Cosmos DB som ska skapas. |
-| projektplan | Nej | Vissa resurser tillåter värden som definierar den plan som ska distribueras. Du kan till exempel ange Marketplace-avbildningen för en virtuell dator. | 
+| Projektplan | Nej | Vissa resurser tillåter värden som definierar den plan som ska distribueras. Du kan till exempel ange Marketplace-avbildningen för en virtuell dator. | 
 | resurser |Nej |Underordnade resurser som är beroende av den resurs som definieras. Ange endast resurs typer som tillåts av schemat för den överordnade resursen. Beroendet av den överordnade resursen är inte underförstådd. Du måste uttryckligen definiera det beroendet. Se [Ange namn och typ för underordnade resurser](child-resource-name-type.md). |
 
 ## <a name="outputs"></a>outputs
@@ -259,6 +265,8 @@ I följande exempel visar strukturen för en utdata-definition:
 | condition |Nej | Booleskt värde som anger om det här värdet returneras. När `true`är värdet inkluderat i utdata för distributionen. När `false`ignoreras värdet för utdata för den här distributionen. Om inget värde anges är `true`standardvärdet. |
 | type |Ja |Typ av utdatavärde. Utdatavärden stöder samma datatyper som mall indataparametrar. Om du anger **SecureString** för utdatatypen visas inte värdet i distributions historiken och kan inte hämtas från en annan mall. Om du vill använda ett hemligt värde i fler än en mall lagrar du hemligheten i en Key Vault och refererar till hemligheten i parameter filen. Mer information finns i [använda Azure Key Vault för att skicka ett säkert parameter värde under distributionen](resource-manager-keyvault-parameter.md). |
 | value |Ja |Mallspråksuttrycket som utvärderas och returneras som utdatavärde. |
+
+Exempel på hur du använder utdata finns [i utdata i Azure Resource Manager mall](template-outputs.md).
 
 <a id="comments" />
 

@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 03/15/2019
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: ce44be5bae5aaa8f86d04068cce1c4bc919b0893
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: f895aa9aa4bc66c32f10d290b7ee708345be8c9b
+ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70126959"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70983772"
 ---
 # <a name="application-map-triage-distributed-applications"></a>Program karta: Prioritering distribuerade program
 
@@ -272,6 +272,6 @@ Använd feedback-alternativet för att ge feedback.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Mer information om hur korrelation fungerar i Application Insights finns i [telemetri korrelations artikel] (https://docs.microsoft.com/azure/application-insights/application-insights-correlation).
+* Om du vill veta mer om hur korrelation fungerar i Application Insights kan du läsa [artikeln telemetri korrelation](https://docs.microsoft.com/azure/application-insights/application-insights-correlation).
 * Den [diagnostiska transaktionen från slut punkt till slut punkt](transaction-diagnostics.md) motsvarar telemetri från Server sidan från alla dina Application Insights övervakade komponenter till en enda vy.
 * Avancerade korrelations scenarier i ASP.NET Core och ASP.NET finns i artikeln [spåra anpassade åtgärder](custom-operations-tracking.md) .

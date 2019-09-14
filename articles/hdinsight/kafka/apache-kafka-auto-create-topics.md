@@ -3,16 +3,17 @@ title: Aktivera automatisk generering av ämnen i Apache Kafka – Azure HDInsig
 description: Lär dig hur du konfigurerar Apache Kafka på HDInsight för att automatiskt skapa ämnen. Du kan konfigurera Kafka genom att ställa in Auto. Create. topics. Aktivera sant via Ambari eller skapa kluster via PowerShell eller Resource Manager-mallar.
 author: hrasheed-msft
 ms.author: hrasheed
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/18/2018
-ms.openlocfilehash: 4f40a625b10243ca13163e549a51a760cf105917
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: 5d990a1c39495090fed1c78f1ddf5e879490e6c4
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70900426"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70960669"
 ---
 # <a name="how-to-configure-apache-kafka-on-hdinsight-to-automatically-create-topics"></a>Så här konfigurerar du Apache Kafka på HDInsight för att automatiskt skapa ämnen
 
@@ -34,11 +35,11 @@ Gör så här om du vill aktivera automatisk generering av ämnen i ett befintli
 
 3. Välj Kafka-tjänsten i listan till vänster på sidan.
 
-    ![Tjänst lista](./media/apache-kafka-auto-create-topics/service-list.png)
+    ![Tjänst lista](./media/apache-kafka-auto-create-topics/hdinsight-service-list.png)
 
 4. Välj config i mitten av sidan.
 
-    ![Fliken tjänst konfiguration](./media/apache-kafka-auto-create-topics/service-config.png)
+    ![Fliken tjänst konfiguration](./media/apache-kafka-auto-create-topics/hdinsight-service-config.png)
 
 5. Ange ett värde `auto.create`i fältet filter. 
 

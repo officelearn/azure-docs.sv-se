@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 08/09/2019
-ms.openlocfilehash: 28d635dc5042799790d032ef4b46bf28118cb326
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.date: 09/12/2019
+ms.openlocfilehash: 25251b617522840412a4868331e155285f64a18c
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68947158"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70962589"
 ---
 # <a name="supported-azure-database-for-mysql-server-versions"></a>Azure Database for MySQL Server versioner som stöds
 
@@ -20,21 +20,21 @@ Azure Database for MySQL har utvecklats från [MySQL Community Edition](https://
 MySQL använder namngivnings schemat X. Y. Z. X är huvud versionen, Y är den lägre versionen och Z är den version av fel korrigeringen. Mer information om schemat finns i [MySQL-dokumentationen](https://dev.mysql.com/doc/refman/5.7/en/which-version.html).
 
 > [!NOTE]
-> I tjänsten används en gateway för att omdirigera anslutningarna till Server instanser. När anslutningen har upprättats visar MySQL-klienten versionen av MySQL-uppsättningen i gatewayen, inte den faktiska versionen som körs på MySQL-serverinstansen. Ta reda på versionen för MySQL Server-instansen genom `SELECT VERSION();` att använda kommandot i MySQL-prompten.
+> I tjänsten används en gateway för att omdirigera anslutningarna till serverinstanser. När anslutningen har upprättats visar MySQL-klienten den version av MySQL som har angetts i gatewayen, inte den faktiska versionen som körs på MySQL-serverinstansen. Du kan ta reda på vilken version MySQL-serverinstansen har med hjälp av kommandot `SELECT VERSION();` i MySQL-prompten.
 
 Azure Database for MySQL stöder för närvarande följande versioner:
 
 ## <a name="mysql-version-56"></a>MySQL version 5,6
 
-Versions korrigerings version: 5.6.42
+Versions korrigerings version: 5.6.44
 
-Se [versions anteckningar](https://dev.mysql.com/doc/relnotes/mysql/5.6/en/news-5-6-42.html) för MySQL om du vill veta mer om förbättringar och korrigeringar i MySQL 5.6.42.
+Se versions [anteckningar](https://dev.mysql.com/doc/relnotes/mysql/5.6/en/news-5-6-44.html) för MySQL för att lära dig mer om förbättringar och korrigeringar i den här versionen.
 
 ## <a name="mysql-version-57"></a>MySQL version 5,7
 
-Versions korrigerings version: 5.7.24
+Versions korrigerings version: 5.7.26
 
-Se [versions anteckningar](https://dev.mysql.com/doc/relnotes/mysql/5.7/en/news-5-7-24.html) för MySQL om du vill veta mer om förbättringar och korrigeringar i MySQL 5.7.24.
+Se versions [anteckningar](https://dev.mysql.com/doc/relnotes/mysql/5.7/en/news-5-7-26.html) för MySQL för att lära dig mer om förbättringar och korrigeringar i den här versionen.
 
 ## <a name="mysql-version-80"></a>MySQL version 8,0
 
@@ -43,7 +43,7 @@ Se [versions anteckningar](https://dev.mysql.com/doc/relnotes/mysql/5.7/en/news-
 
 Versions korrigerings version: 8.0.15
 
-Se [versions anteckningar](https://dev.mysql.com/doc/relnotes/mysql/8.0/en/news-8-0-15.html) för MySQL om du vill veta mer om förbättringar och korrigeringar i MySQL 8.0.15.
+Se versions [anteckningar](https://dev.mysql.com/doc/relnotes/mysql/8.0/en/news-8-0-15.html) för MySQL för att lära dig mer om förbättringar och korrigeringar i den här versionen.
 
 ## <a name="managing-updates-and-upgrades"></a>Hantera uppdateringar och uppgraderingar
 Tjänsten hanterar automatiskt korrigeringar för fel korrigering av versions uppdateringar. Till exempel 5.7.20 till 5.7.21.  

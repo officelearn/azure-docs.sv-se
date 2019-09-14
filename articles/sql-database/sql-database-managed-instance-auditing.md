@@ -9,16 +9,16 @@ ms.devlang: ''
 ms.topic: conceptual
 f1_keywords:
 - mi.azure.sqlaudit.general.f1
-author: vainolo
-ms.author: arib
+author: barmichal
+ms.author: mibar
 ms.reviewer: vanto
 ms.date: 04/08/2019
-ms.openlocfilehash: 5a613a2eb6499538199306872f2e415019552686
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: a4941038288b90bcbfd61660458c564ce64add9e
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68567726"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70958506"
 ---
 # <a name="get-started-with-azure-sql-database-managed-instance-auditing"></a>Kom igång med Azure SQL Database Hanterad instans granskning
 
@@ -63,7 +63,7 @@ I följande avsnitt beskrivs konfigurationen av granskning på din hanterade ins
 
         ![URL för kopia av BLOB-behållare](./media/sql-managed-instance-auditing/5_container_copy_name.png)
 
-     1. Generera en Azure Storage **SAS** -token för att bevilja gransknings behörighet för hanterade instanser till lagrings kontot:
+     1. Generera en Azure Storage **SAS-token** för att bevilja gransknings behörighet för hanterade instanser till lagrings kontot:
 
         - Gå till det Azure Storage konto där du skapade behållaren i föregående steg.
 
@@ -120,7 +120,7 @@ I följande avsnitt beskrivs konfigurationen av granskning på din hanterade ins
 
      1. Expandera Object Explorerens rot anteckning.
 
-     1. Expandera noden **säkerhet** , högerklicka på noden granskningar och Klicka på "ny granskning":
+     1. Expandera noden **säkerhet** , högerklicka på noden **granskningar** och klicka på "ny granskning":
 
         ![Expandera noden säkerhet och granskning](./media/sql-managed-instance-auditing/10_mi_SSMS_new_audit.png)
 
@@ -204,7 +204,7 @@ Det finns flera metoder som du kan använda för att Visa BLOB gransknings logga
 
 - Använd system funktionen `sys.fn_get_audit_file` (T-SQL) för att returnera Gransknings logg data i tabell format. Mer information om hur du använder den här funktionen finns i [sys. fn_get_audit_file-dokumentationen](https://docs.microsoft.com/sql/relational-databases/system-functions/sys-fn-get-audit-file-transact-sql).
 
-- Du kan utforska gransknings loggar med hjälp av ett verktyg som [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/). I Azure Storage sparas gransknings loggar som en samling BLOB-filer i en behållare som definierats för att lagra gransknings loggarna. Mer information om hierarkin för lagringsmappen, namngivnings konventioner och logg format finns i referensen för [logg format för BLOB-granskning](https://go.microsoft.com/fwlink/?linkid=829599).
+- Du kan utforska gransknings loggar med hjälp av ett verktyg som [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/). I Azure Storage sparas gransknings loggar som en samling BLOB-filer i en behållare som definierats för att lagra gransknings loggarna. Mer information om hierarkin för lagringsmappen, namngivnings konventioner och logg format finns i [referensen för logg format för BLOB-granskning](https://go.microsoft.com/fwlink/?linkid=829599).
 
 - En fullständig lista över användnings metoder för gransknings loggen finns i [komma igång med SQL Database-granskning](sql-database-auditing.md).
 

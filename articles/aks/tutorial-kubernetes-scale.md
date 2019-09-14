@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 12/19/2018
 ms.author: mlearned
 ms.custom: mvc
-ms.openlocfilehash: 9bccd826a37b66f7f89e70c57260a0db08342421
-ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
+ms.openlocfilehash: 4e36362fd42a147ee900005d84b0af1b4839aae1
+ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69019193"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70965134"
 ---
 # <a name="tutorial-scale-applications-in-azure-kubernetes-service-aks"></a>Självstudier: Skala program i Azure Kubernetes Service (AKS)
 
@@ -28,7 +28,7 @@ I ytterligare självstudier uppdateras Azure Vote-programmet till en ny version.
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
-I tidigare självstudier paketerades en app i en containeravbildning. Den här avbildningen laddades upp till Azure Container Registry, och du skapade ett AKS-kluster. Programmet distribuerades sedan till AKS-klustret. Om du inte har utfört dessa steg och vill följa med, börjar du med [självstudie 1 – Skapa][aks-tutorial-prepare-app]behållar avbildningar.
+I tidigare självstudier paketerades en app i en containeravbildning. Den här avbildningen laddades upp till Azure Container Registry, och du skapade ett AKS-kluster. Programmet distribuerades sedan till AKS-klustret. Om du inte har utfört dessa steg och vill följa med, börjar du med [självstudie 1 – Skapa behållar avbildningar][aks-tutorial-prepare-app].
 
 Den här självstudien kräver att du kör Azure CLI version 2.0.53 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI][azure-cli-install].
 
@@ -94,7 +94,7 @@ resources:
      cpu: 500m
 ```
 
-I följande exempel används kommandot [kubectl AutoScale][kubectl-autoscale] för att Autoskala antalet poddar i *Azure-röstning-frontend-* distributionen. Om processoranvändningen överskrider 50 % ökar autoskalningen antalet poddar till högst *10* instanser. Minst *3* instanser definieras sedan för distributionen:
+I följande exempel används kommandot [kubectl AutoScale][kubectl-autoscale] för att Autoskala antalet poddar i *Azure-röstning-frontend-* distributionen. Om Genomsnittlig CPU-belastning över alla poddar överskrider 50% av den begärda användningen, ökar autoskalning poddar upp till högst *10* instanser. Minst *3* instanser definieras sedan för distributionen:
 
 ```console
 kubectl autoscale deployment azure-vote-front --cpu-percent=50 --min=3 --max=10

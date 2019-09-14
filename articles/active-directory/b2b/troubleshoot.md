@@ -1,6 +1,6 @@
 ---
-title: Felsökning av B2B - samarbete i Azure Active Directory | Microsoft Docs
-description: Friskrivning från ansvar för vanliga problem med Azure Active Directory B2B-samarbete
+title: Felsöka B2B-samarbete – Azure Active Directory | Microsoft Docs
+description: Lösningar på vanliga problem med Azure Active Directory B2B-samarbete
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
@@ -12,86 +12,86 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4185d29ff1770ed9549b4b63a2e5da579bcf054f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f91ddee8668316df69c98ed14fbcabcb06b6da82
+ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65767161"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70983402"
 ---
-# <a name="troubleshooting-azure-active-directory-b2b-collaboration"></a>Felsökning av Azure Active Directory B2B-samarbete
+# <a name="troubleshooting-azure-active-directory-b2b-collaboration"></a>Felsöka Azure Active Directory B2B-samarbete
 
-Här finns några lösningar för vanliga problem med Azure Active Directory (Azure AD) B2B-samarbete.
+Här följer några lösningar på vanliga problem med Azure Active Directory (Azure AD) B2B-samarbete.
 
-## <a name="ive-added-an-external-user-but-do-not-see-them-in-my-global-address-book-or-in-the-people-picker"></a>Jag har lagt till en extern användare men ser inte dem i den globala adressboken eller i Personväljaren
+## <a name="ive-added-an-external-user-but-do-not-see-them-in-my-global-address-book-or-in-the-people-picker"></a>Jag har lagt till en extern användare men ser inte dem i den globala adress boken eller i person väljaren
 
-Objektet kan ta några minuter att replikera i fall där externa användare inte fylls i listan.
+I de fall där externa användare inte är ifyllda i listan kan det ta några minuter att replikera objektet.
 
-## <a name="a-b2b-guest-user-is-not-showing-up-in-sharepoint-onlineonedrive-people-picker"></a>En B2B-gästanvändare inte visas i SharePoint Online/OneDrive Personväljaren
+## <a name="a-b2b-guest-user-is-not-showing-up-in-sharepoint-onlineonedrive-people-picker"></a>En B2B-gäst användare visas inte i SharePoint Online/OneDrive People-väljare
 
-Möjligheten att söka efter befintliga gästanvändare i Personväljaren SharePoint Online (SPO) har värdet OFF som standard så att de matchar äldre beteende.
+Möjligheten att söka efter befintliga gäst användare i användar väljaren för SharePoint Online (SPO) är inaktive rad som standard för att matcha äldre beteende.
 
-Du kan aktivera den här funktionen med hjälp av inställningen ”ShowPeoplePickerSuggestionsForGuestUsers” på samlingsnivå klient- och plats. Du kan ange funktionen med hjälp av Set-SPOTenant och Set-SPOSite cmdletar som ger möjlighet att söka efter alla befintliga gästanvändare i katalogen. Ändringar i klientorganisationsområdet påverkar inte redan etablerade SPO-webbplatser.
+Du kan aktivera den här funktionen genom att använda inställningen "ShowPeoplePickerSuggestionsForGuestUsers" på klient-och webbplats samlings nivå. Du kan ställa in funktionen med cmdletarna Set-SPOTenant och set-SPOSite, vilket gör det möjligt för medlemmar att söka igenom alla befintliga gäst användare i katalogen. Ändringar i klient omfånget påverkar inte redan etablerade SPO-webbplatser.
 
-## <a name="invitations-have-been-disabled-for-directory"></a>Inbjudningar har inaktiverats för katalog
+## <a name="invitations-have-been-disabled-for-directory"></a>Inbjudningar har inaktiverats för katalogen
 
-Om du får ett meddelande om att du inte har behörighet att bjuda in användare, verifiera att ditt användarkonto har behörighet att bjuda in extern användare under användarinställningar:
+Om du får ett meddelande om att du inte har behörighet att bjuda in användare, verifiera att ditt användar konto har behörighet att bjuda in externa användare under Azure Active Directory > användar inställningar > externa användare > Hantera inställningar för externt samarbete:
 
-![Skärmbild som visar inställningar för externa användare](media/troubleshoot/external-user-settings.png)
+![Skärm bild som visar inställningarna för externa användare](media/troubleshoot/external-user-settings.png)
 
-Om du nyligen har ändrat dessa inställningar eller tilldelat rollen Gästinbjudare till en användare kan det finnas en fördröjning på 15 – 60 minuter innan ändringarna träder i kraft.
+Om du nyligen har ändrat de här inställningarna eller tilldelat rollen gäst deltagare till en användare kan det uppstå en fördröjning på 15-60 minuter innan ändringarna börjar gälla.
 
-## <a name="the-user-that-i-invited-is-receiving-an-error-during-redemption"></a>Användaren som jag får ett fel under inlösning
+## <a name="the-user-that-i-invited-is-receiving-an-error-during-redemption"></a>Användaren som jag har bjudit in får ett fel under inlösen
 
 Vanliga fel är:
 
-### <a name="invitees-admin-has-disallowed-emailverified-users-from-being-created-in-their-tenant"></a>När en användare administratör inte tillåter EmailVerified användare skapas i deras klienter
+### <a name="invitees-admin-has-disallowed-emailverified-users-from-being-created-in-their-tenant"></a>Inbjudans administratör har inte tillåtet EmailVerified-användare från att skapas i sin klient organisation
 
-När du bjuder in användare vars organisation använder Azure Active Directory, men där användarens konto inte finns (till exempel användaren finns inte i Azure AD-contoso.com). Administratören för contoso.com kan ha en princip på plats som förhindrar att användare håller på att skapas. Du måste kontrollera med administratören för att bestämma om externa användare. Den externa användaren administratör kan behöva tillåta e-verifierad användare inom sin domän (finns i den här [artikeln](/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0) på e-verifierat användarna).
+När du bjuder in användare vars organisation använder Azure Active Directory, men där den särskilda användarens konto inte finns (till exempel om användaren inte finns i Azure AD contoso.com). Administratören för contoso.com kan ha en princip på plats som hindrar användare från att skapas. Användaren måste kontakta administratören för att avgöra om externa användare tillåts. Den externa användarens administratör kan behöva tillåta e-postverifierade användare i sin domän (se den här [artikeln](/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0) om att tillåta e-postverifierade användare).
 
-![Felmeddelande om klienten inte att e-postverifierade användare](media/troubleshoot/allow-email-verified-users.png)
+![Fel som anger att klienten inte tillåter e-postverifierade användare](media/troubleshoot/allow-email-verified-users.png)
 
 ### <a name="external-user-does-not-exist-already-in-a-federated-domain"></a>Extern användare finns inte redan i en federerad domän
 
-Om du använder federation-autentisering och användaren inte redan finns i Azure Active Directory, kan användaren inte bjudas in.
+Om du använder Federations autentisering och användaren inte redan finns i Azure Active Directory kan användaren inte bjudas in.
 
-Den externa användaren administratören måste synkronisera användarens konto till Azure Active Directory för att lösa problemet.
+För att lösa det här problemet måste den externa användarens administratör synkronisera användarens konto för att Azure Active Directory.
 
-## <a name="how-does--which-is-not-normally-a-valid-character-sync-with-azure-ad"></a>Hur gör\#”, vilket är vanligtvis inte ett giltigt tecken synkronisering med Azure AD?
+## <a name="how-does--which-is-not-normally-a-valid-character-sync-with-azure-ad"></a>Hur fungerar\#, vilket inte normalt är ett giltigt Character, synkronisera med Azure AD?
 
-”\#” är ett reserverat tecken i UPN-namn för Azure AD B2B-samarbete eller externa användare, eftersom det inbjudna kontot user@contoso.com blir user_contoso.com#EXT#@fabrikam.onmicrosoft.com. Därför \# i UPN-namn som kommer från en lokal tillåts inte att logga in på Azure-portalen. 
+"\#" är ett reserverat Character i UPN för Azure AD B2B-samarbete eller externa användare eftersom det user@contoso.com inbjudna kontot blir user_contoso. com #@fabrikam.onmicrosoft.comext #. Därför går det inte att logga in på Azure Portal iUPN:ersomkommerfrånlokalaplatser.\# 
 
-## <a name="i-receive-an-error-when-adding-external-users-to-a-synchronized-group"></a>Jag får ett felmeddelande när du lägger till externa användare till en synkroniserad grupp
+## <a name="i-receive-an-error-when-adding-external-users-to-a-synchronized-group"></a>Jag får ett fel meddelande när jag lägger till externa användare i en synkroniserad grupp
 
-Externa användare kan läggas endast till ”tilldelats” eller ”säkerhetsgrupper” och inte till grupper som är hanterad lokalt.
+Externa användare kan bara läggas till i "tilldelade" eller "säkerhets" grupper och inte till grupper som är hanterade lokalt.
 
-## <a name="my-external-user-did-not-receive-an-email-to-redeem"></a>Min extern användare tog inte emot ett e-postmeddelande för att lösa in
+## <a name="my-external-user-did-not-receive-an-email-to-redeem"></a>Min externa användare fick inget e-postmeddelande för att lösa in
 
-När en användare bör kontrollera med sina ISP: N eller skräppost filtret så att du får följande adress: Invites@microsoft.com
+Inbjudan bör kontrol lera med Internet leverantören eller skräp post filtret för att säkerställa att följande adress tillåts:Invites@microsoft.com
 
-## <a name="i-notice-that-the-custom-message-does-not-get-included-with-invitation-messages-at-times"></a>Jag har sett att det anpassade meddelandet inte får ingår i inbjudan meddelanden ibland
+## <a name="i-notice-that-the-custom-message-does-not-get-included-with-invitation-messages-at-times"></a>Jag märker att det anpassade meddelandet inte inkluderas med Inbjudnings meddelanden vid tillfällen
 
-För att uppfylla sekretesslagar våra API: er inte inkluderar anpassade meddelanden i din e-postinbjudan när:
+För att efterleva sekretess lagarna innehåller API: erna inte anpassade meddelanden i e-postinbjudan när:
 
-- Avsändaren har inte en e-postadress i bjuder in klienten
-- När ett huvudnamn för appservice skickar inbjudan
+- Inbjudan har ingen e-postadress i den bjudande klienten
+- När ett AppService-objekt skickar inbjudan
 
-Om det här scenariot är viktiga för dig kan du utelämna e-postinbjudan vårt API och skicka den via den e-postmekanism. Kontakta din organisations är jurist att kontrollera att alla e-postmeddelanden som du skickar detta sätt uppfyller gällande sekretesslagstiftning.
+Om det här scenariot är viktigt för dig kan du utelämna e-postmeddelandet för API-inbjudan och skicka det via e-postmekanismen som du väljer. Kontakta organisationens juridiska rådgivning för att se till att e-post som du skickar på det här sättet också uppfyller sekretess lagar.
 
-## <a name="you-receive-an-aadsts65005-error-when-you-try-to-log-in-to-an-azure-resource"></a>Du får felmeddelandet ”AADSTS65005” när du försöker logga in på en Azure-resurs
+## <a name="you-receive-an-aadsts65005-error-when-you-try-to-log-in-to-an-azure-resource"></a>Du får ett "AADSTS65005"-fel när du försöker logga in på en Azure-resurs
 
-En användare med ett gästkonto kan inte logga in och får följande felmeddelande visas:
+En användare som har ett gäst konto kan inte logga in och får följande fel meddelande:
 
     AADSTS65005: Using application 'AppName' is currently not supported for your organization contoso.com because it is in an unmanaged state. An administrator needs to claim ownership of the company by DNS validation of contoso.com before the application AppName can be provisioned.
 
-Användaren har en Azure-konto och är en av viral klientorganisation som har avbrutit eller ohanterade. Dessutom finns inte global eller det företag administratörer i klienten.
+Användaren har ett Azure-användarkonto och är en viral-klient som har övergivits eller inte hanteras. Det finns dessutom inga globala administratörer eller företags administratörer i klient organisationen.
 
-För att lösa problemet måste du ta över övergivna klienten. Referera till [ta över en ohanterad katalog som administratör i Azure Active Directory](https://docs.microsoft.com/azure/active-directory/users-groups-roles/domains-admin-takeover). Du måste också komma åt mot internet-DNS för domänsuffix i fråga för att tillhandahålla direkt bevis på att du har kontroll över namnområdet. När klienten har returnerats till ett hanterat tillstånd diskutera med kunden om lämnar användarna och verifierat domännamn är det bästa alternativet för organisationen.
+För att lösa det här problemet måste du ta över den övergivna klienten. Se [ta över en ohanterad katalog som administratör i Azure Active Directory](https://docs.microsoft.com/azure/active-directory/users-groups-roles/domains-admin-takeover). Du måste också ha åtkomst till Internet-riktad DNS för domänsuffix i fråga för att kunna tillhandahålla direkt bevis som du styr av namn området. När klienten har returnerats till ett hanterat tillstånd kan du diskutera med kunden om du lämnar användarna och det verifierade domän namnet är det bästa alternativet för deras organisation.
 
-## <a name="a-guest-user-with-a-just-in-time-or-viral-tenant-is-unable-to-reset-their-password"></a>En gästanvändare med en just-in-time- eller ”viral”-klienten är inte kan återställa sina lösenord
+## <a name="a-guest-user-with-a-just-in-time-or-viral-tenant-is-unable-to-reset-their-password"></a>En gäst användare med en just-in-Time-eller "viral"-klient kan inte återställa sina lösen ord
 
-Om klienten identitet är en just-in-time (JIT) eller av viral klientorganisation kan (dvs. det är en separat, ohanterad Azure-klient), bara gästanvändaren återställa sina lösenord. Ibland en organisation kommer [tar över hanteringen av viral klienter](https://docs.microsoft.com/azure/active-directory/users-groups-roles/domains-admin-takeover) som skapas när anställda använda sina e-postadresser för att registrera dig för tjänster. När organisationen tar över en av viral klientorganisation kan kan bara en administratör i organisationen återställa användarens lösenord eller aktivera SSPR. Om det behövs, som organisationen som bjuder in kan du ta bort användarkontot från din katalog och skicka om inbjudan.
+Om identitets klienten är en just-in-Time (JIT) eller virus klient (vilket innebär att det är en separat, ohanterad Azure-klient) kan bara gäst användaren återställa sina lösen ord. Ibland tar en organisation [över hanteringen av viral-klienter](https://docs.microsoft.com/azure/active-directory/users-groups-roles/domains-admin-takeover) som skapas när anställda använder sina arbets-e-postadresser för att registrera sig för tjänster. När organisationen har tagit över en virus klient kan bara en administratör i organisationen återställa användarens lösen ord eller aktivera SSPR. Vid behov kan du, som bjuda in organisationen, ta bort gäst användar kontot från katalogen och skicka en inbjudan igen.
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Få support för B2B-samarbete](get-support.md)
+[Få stöd för B2B-samarbete](get-support.md)

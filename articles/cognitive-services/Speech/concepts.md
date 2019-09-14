@@ -1,272 +1,272 @@
 ---
-title: Bing Speech begrepp | Microsoft Docs
+title: Taligenkänning i Bing koncept | Microsoft Docs
 titlesuffix: Azure Cognitive Services
-description: Grundläggande begrepp som används i Microsoft Speech Service.
+description: Grundläggande begrepp som används i Microsoft Speech service.
 services: cognitive-services
-author: zhouwangzw
-manager: wolfma
+author: nitinme
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
-ms.author: zhouwang
+ms.author: nitinme
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 1cbf1514ac5eba4e288ecb78944878217fc5ba3e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fba1bbdeaf68bdd45524b336011627a27cd024da
+ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65954517"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70965719"
 ---
 # <a name="basic-concepts"></a>Grundläggande begrepp
 
 [!INCLUDE [Deprecation note](../../../includes/cognitive-services-bing-speech-api-deprecation-note.md)]
 
-Den här sidan beskriver några grundläggande begrepp i Microsoft speech igenkänning av tjänsten. Vi rekommenderar att du kan läsa den här sidan innan du använder Microsoft API för taligenkänning i ditt program.
+På den här sidan beskrivs några grundläggande begrepp i Microsoft tal igenkännings tjänsten. Vi rekommenderar att du läser den här sidan innan du använder Microsoft tal igenkännings-API i programmet.
 
-## <a name="understanding-speech-recognition"></a>Förstå taligenkänning
+## <a name="understanding-speech-recognition"></a>Förstå tal igenkänning
 
-Om det här är första gången du skapar ett tal-aktiverat program, eller om det är första gången du lägger till talfunktioner för till ett befintligt program, hjälper i det här avsnittet dig att komma igång. Om du redan har viss erfarenhet med program kan du bara skumma igenom det här avsnittet eller du kan hoppa över det helt och hållet om du är en gammal hand på tal och du vill hämta rätt protokoll detaljinformation.
+Om det är första gången du skapar ett tal aktiverat program, eller om det är första gången du lägger till tal funktioner i ett befintligt program, hjälper det här avsnittet dig att komma igång. Om du redan har en viss upplevelse med tal aktiverade program kan du välja att bara Skim det här avsnittet, eller så kan du hoppa över det helt om du är en gammal hand på tal och du vill komma åt protokoll informationen.
 
-### <a name="audio-streams"></a>Ljudströmmar
+### <a name="audio-streams"></a>Ljud strömmar
 
-Främsta bland de grundläggande principerna för tal är den *ljudström*. Till skillnad från en tangenttryckning som uppstår på en enda punkt i tiden och innehåller en enda typ av information, en talat begäran är utspridd på hundratals millisekunder och innehåller många kilobyte information. Varaktigheten för talat yttranden anger vissa problem för utvecklare som vill tillhandahålla en smidig och elegant tal-upplevelse för sina program. Dagens datorer och algoritmer utför du taltranskription i cirka hälften av varaktigheten för uttryck, så att ett uttryck i 2 sekunder kan vara transkriberas i ungefär 1 sekund, men alla program som inträffar i en 1 sekund fördröjning av bearbetningen användaren är varken effektiviserad eller elegant.
+Alla grundläggande koncept för tal är *ljud strömmen*. Till skillnad från en tangenttryckning, som inträffar vid en enskild tidpunkt och innehåller en enda information, sprids en talad begäran över hundratals millisekunder och innehåller många kilobyte information. Tiden för att talas yttranden är några svårigheter för utvecklare som vill ha en smidig och elegant tal upplevelse för sitt program. Dagens datorer och algoritmer utför tal avskrifter inom cirka hälften av varaktigheten för uttryck, så en 2-sekunders uttryck kan skrivas om i ungefär 1 sekund, men alla program som upplever en 1 sekunds fördröjning vid bearbetning av användare är varken strömlinjeformade eller eleganta.
 
-Som tur är kan det finns sätt att ”dölja” avskrift tid genom att utföra avskrift på en del av uttryck medan användaren pratar en annan del. Är till exempel genom att dela upp en 1 sekund uttryck i 10 segment på 100 millisekunder och genom att utföra avskrift på varje segment i sin tur över 450 totala 500 millisekunder som krävs för avskrift kan vara ”dolda” så att användaren är inte medveten om avskrift som utförs när de talar. När tänker på hur det här exemplet kan du komma ihåg att tjänsten fungerar avskrift på föregående 100 millisekunder för ljud medan användaren pratar nästa 100, så när användaren slutar sett tjänsten behöver bara transkribera ungefär 100 millisekunder för ljud för att producera ett resultat.
+Lyckligt vis finns det olika sätt att "dölja" avskrifts tiden genom att utföra avskrifter på en del av uttryck medan användaren pratar en annan del. Genom att t. ex. dela upp en 1-sekund-uttryck till 10 segment om 100 millisekunder och genom att göra en avskriftering av varje segment i tur och upp till 450 av de totala 500 millisekunder som krävs för avskrifter kan vara "dolda", så att användaren inte är medveten om avskrifter utförs när de talar. När du funderar på det här exemplet måste du komma ihåg att tjänsten utför avskriften på föregående 100 millisekunder av ljud medan användaren pratar nästa 100, så när användaren slutar att tala, behöver tjänsten bara skriva av ungefär 100 millisekunder av ljud för att skapa ett resultat.
 
-För att uppnå den här användarupplevelse, talat ljud information samlas in i segment och transkriberas som användaren upp. Dessa ljud segment sammantaget från den *ljudström*, och skicka dessa ljud segment till tjänsten kallas *strömning av ljud.* Direktuppspelning av ljud är en viktig del av något tal-aktiverade program. Anpassa segmentstorleken och optimera strömning implementeringen är några av mest kraftfulla metoder för att förbättra användarupplevelsen för ditt program.
+För att uppnå den här användar upplevelsen samlas talad ljud information in i segment och omsättas när användaren pratar. De här ljud segmenten sammantaget från *ljud strömmen*och processen för att skicka dessa ljud segment till tjänsten kallas för *ljud strömning.* Direkt uppspelning av ljud är en viktig del av alla tal aktiverade program. justering av segment storlek och optimering av strömnings implementeringen är några av de mest utnyttjade sätten att förbättra programmets användar upplevelse.
 
 ### <a name="microphones"></a>Mikrofoner
 
-Personer bearbeta talat ljud med hjälp av deras öronen, men rörelse i orörliga maskinvara använder mikrofoner. Om du vill aktivera tal i alla program, måste du integrera med mikrofonen att tillhandahålla ljudströmmen för ditt program.
+Människor behandlar talade ljud med sin öron, men inanimerad maskin vara använder mikrofoner. Om du vill aktivera tal i alla program måste du integrera med mikrofonen som tillhandahåller ljud strömmen för ditt program.
 
-API: er för din mikrofon måste kan du starta och stoppa mottagningen för ljud från mikrofonen. Du måste du bestämma vad användaråtgärder utlöser mikrofonen påbörja avlyssning för tal. Du kan välja att låta en knapptryckning utlösa början av lyssnar eller du kan välja att låta en *nyckel ord* eller *wake word* spotter lyssnar alltid mikrofonen och kan använda utdata från modulen till Utlös skicka ljud till tjänsten Microsoft tal.
+API: erna för mikrofonen måste tillåta att du startar och slutar att ta emot ljud byte från mikrofonen. Du måste bestämma vilka användar åtgärder som ska utlösa mikrofonen för att börja lyssna efter tal. Du kan välja att låta en knapp trycka utlösa starten av lyssningen, eller så kan du välja att ha ett *nyckel ord* eller ett *aktiverings ord* spotter alltid lyssnar på mikrofonen och att använda utdata från den modulen för att utlösa sändning av ljud till Microsoft Speech Telefonitjänstprovider.
 
 ### <a name="end-of-speech"></a>Slutet av tal
 
-Identifiera *när* föredragshållare har *stoppats* talar verkar tillräckligt enkla för människor men är utanför laboratoriemiljön i stället svåra problem. Det räcker inte att helt enkelt leta efter ren tystnad efter ett uttryck eftersom det är ofta mycket omgivande ljuden att göra det svårare att saker. Microsoft Speech-tjänsten har ett tydligt sätt att snabbt identifiera när en användare har stoppats sett och tjänsten kan informera din tillämpning av detta, men den här ordningen innebär att ditt program är sist veta när användaren slutar talar. Här är på alla andra former av indata där ditt program är den *första* veta när startar användarens indata *och* slutar.
+Att upptäcka *när* en talare har *slutat* att talan verkar vara tillräckligt lätt för människor, men är ett snarare svårt problem utanför laboratorie förhållanden. Det räcker inte att bara söka efter ren tystnad efter en uttryck, eftersom det ofta finns en mängd omgivande brus för att kunna ta sig till att komplicera saker. Microsoft Speech service är ett utmärkt jobb för att snabbt upptäcka när en användare har slutat prata, och tjänsten kan informera ditt program om detta, men den här ordningen innebär att ditt program är det sista du vet när användaren slutar att tala. Detta är inte på samma sätt som andra former av indata där ditt program är det *första* att veta när användarens indata startar *och* slutar.
 
-### <a name="asynchronous-service-responses"></a>Asynkrona service svar
+### <a name="asynchronous-service-responses"></a>Svar på asynkron tjänst
 
-Det faktum att programmet behöver för att få information om när användarindata är klar inte införa några prestandaförsämringar eller programming problem i programmet, men det kräver att du tycker om talade förfrågningar annorlunda än indataförfrågan / mönster för svar som du har kunskaper om. Eftersom du inte känner till ditt program när användaren slutar talar, måste ditt program fortsätta att strömma ljud till tjänsten under samtidigt och asynkront väntan på svar från tjänsten. Det här mönstret är till skillnad från andra begäran/svar-web-protokoll som HTTP. I dessa protokoll, måste du slutföra en begäran innan du tar emot svar; i Microsoft Speech Service-protokollet, du får svar *medan du fortfarande direktuppspelning av ljud för begäran*.
+Det faktum att ditt program måste informeras om när användarindata är slutförd ger inte några prestanda straff eller programmerings problem i ditt program, men det kräver att du funderar på tal förfrågningar på ett annat sätt än med begäran om indata svars mönster som du är van vid. Eftersom programmet inte vet när användaren slutar att tala, måste programmet fortsätta att strömma ljud till tjänsten samtidigt som det asynkront väntar på ett svar från tjänsten. Det här mönstret är till skillnad från andra webb protokoll för begäran/svar som HTTP. I dessa protokoll måste du slutföra en begäran innan du får svar. i Microsoft Speech service-protokollet får du svar *när du fortfarande strömma ljud för begäran*.
 
 > [!NOTE]
-> Den här funktionen stöds inte när du använder tal HTTP REST API.
+> Den här funktionen stöds inte när tal-HTTP-REST API används.
 
 ### <a name="turns"></a>Aktiverar
 
-Tal är en operatör av information. När du talar försöker du förmedla information som är i din ägo till någon som lyssnar efter den här informationen. Förmedla information också du vanligtvis stänga när talar och lyssnar. På samma sätt kan interagerar programmet talbaserade med användarna genom alternativt lyssna och svara, även om ditt program vanligtvis sker det mesta av den lyssnar. Talat användaren och tjänstsvaret på den här indata kallas en *aktivera*. En *aktivera* startar när du talar och slutar när ditt program har slutförts hantering av tjänstsvaret tal.
+Tal är ett informations bärare. När du pratar försöker du förmedla information som är i besittning till någon som lyssnar på den informationen. När du förmedlar information tar du vanligt vis till att tala och lyssna. Ditt tal aktiverade program interagerar med användare genom att växla och svara på olika sätt, även om programmet vanligt vis gör det mesta av lyssningen. Användarens talade indata och tjänst svaret till denna indata kallas för en *turn*. En *turn* startar när användaren pratar och slutar när programmet har slutfört hanteringen av tal tjänst svaret.
 
 ### <a name="telemetry"></a>Telemetri
 
-Skapa en tal-aktiverad enhet eller ett program kan vara en utmaning, även för erfarna utvecklare. Stream-baserade protokoll verka ofta överväldigande vid en första titt och viktig information som identifiering av tystnad kan vara helt nya. Med så många meddelanden behöva har skickats och tagits emot att slutföra en enskild begäran/svar-par, är det *mycket* viktigt att samla in fullständig och korrekt information om dessa meddelanden. Microsoft Speech Service-protokollet ger för insamling av data. Du bör göra allt för att ange nödvändiga data korrekt som möjligt. genom att tillhandahålla fullständig och korrekt data, du kommer att hjälpa dig själv – om du skulle behöva hjälp från Microsoft Speech Service-teamet felsöka klientimplementeringen av, kommer kvaliteten på telemetridata som du har samlat in vara viktig för problem analys.
+Att skapa en tal aktive rad enhet eller ett program kan vara utmanande, även för erfarna utvecklare. Stream-baserade protokoll verkar ofta avskräckande vid första uppblicken och viktig information som till exempel tyst identifiering kan vara helt ny. Eftersom många meddelanden behöver skickas och tas emot för att slutföra ett enda begär ande-/svar-par, är det *mycket* viktigt att samla in fullständiga och korrekta data om dessa meddelanden. Microsoft Speech service Protocol tillhandahåller för insamling av dessa data. Du bör göra allt för att tillhandahålla nödvändiga data så korrekt som möjligt. genom att tillhandahålla fullständig och korrekt data hjälper du dig själv – om du skulle behöva hjälp från Microsoft Speech Service-teamet vid fel sökning av klient implementeringen kommer kvaliteten på de telemetridata som du har samlat in vara avgörande för problem analys.
 
 > [!NOTE]
-> Den här funktionen stöds inte när du använder REST API för taligenkänning.
+> Den här funktionen stöds inte när du använder REST API för tal igenkänning.
 
-### <a name="speech-application-states"></a>Tal programtillstånd
+### <a name="speech-application-states"></a>Program tillstånd för tal
 
-Vilka steg du utför för att aktivera taligenkänning indata i ditt program är lite annorlunda än stegen för andra former av indata som musen trycker finger. Du måste hålla reda på när programmet lyssnar på mikrofonen och skicka data till speech-tjänsten när den väntar på svar från tjänsten och när den är inaktiv. Relationen mellan dessa tillstånd visas i diagrammet nedan.
+De steg som du vidtar för att aktivera tal inskrivning i programmet är lite annorlunda än stegen för andra former av inläsningar, till exempel mus klickningar eller finger knackning. Du måste hålla reda på när ditt program lyssnar på mikrofonen och skickar data till tal tjänsten när det väntar på svar från tjänsten och när det är i inaktivt läge. Relationen mellan dessa tillstånd visas i diagrammet nedan.
 
-![Tal programtillstånd Diagram](Images/speech-application-state-diagram.png)
+![Diagram över program status för tal](Images/speech-application-state-diagram.png)
 
-Eftersom Microsoft Speech Service deltar i vissa av tillstånd, definierar protokollet som tjänsten meddelanden som hjälper program övergången emellan. Programmet behöver för att tolka och agera på dessa protokollmeddelanden att spåra och hantera programtillstånd tal.
+Eftersom Microsoft Speech service deltar i några av de olika tillstånden definierar tjänst protokollet meddelanden som hjälper din programs över gång mellan tillstånd. Ditt program måste tolka och agera på dessa protokoll meddelanden för att spåra och hantera program tillstånden för tal.
 
-## <a name="using-the-speech-recognition-service-from-your-apps"></a>Med hjälp av tjänsten för taligenkänning från dina appar
+## <a name="using-the-speech-recognition-service-from-your-apps"></a>Använda tjänsten för tal igenkänning från dina appar
 
-Microsoft speech igenkänning av tjänsten ger dig två sätt för utvecklare att lägga till tal i sina appar.
+Microsoft tal igenkännings tjänsten erbjuder två sätt för utvecklare att lägga till tal i sina appar.
 
-- [REST API: er](GetStarted/GetStartedREST.md): Utvecklare kan använda HTTP-anrop från sina appar till tjänsten för taligenkänning.
-- [Klientbibliotek](GetStarted/GetStartedClientLibraries.md): För avancerade funktioner, kan utvecklare hämta Microsoft Speech-klientbibliotek och länka till sina appar.  Klientbiblioteken är tillgängliga på olika plattformar (Windows, Android, iOS) med olika språk (C#, Java, JavaScript, ObjectiveC).
+- [REST-API: er](GetStarted/GetStartedREST.md): Utvecklare kan använda HTTP-anrop från sina appar till tjänsten för tal igenkänning.
+- [Klient bibliotek](GetStarted/GetStartedClientLibraries.md): För avancerade funktioner kan utvecklare Hämta Microsofts tal klient bibliotek och länka till sina appar.  Klient biblioteken är tillgängliga på olika plattformar (Windows, Android, iOS) med olika språk (C#, Java, Java Script, ObjectiveC).
 
-| Användningsfall | [REST API:er](GetStarted/GetStartedREST.md) | [Klientbibliotek](GetStarted/GetStartedClientLibraries.md) |
+| Användningsfall | [REST API:er](GetStarted/GetStartedREST.md) | [Klient bibliotek](GetStarted/GetStartedClientLibraries.md) |
 |-----|-----|-----|
-| Konvertera en kort sagt talat ljud till exempel kommandon (ljud längd < 15 s) utan mellanliggande resultat | Ja | Ja |
-| Omvandla en lång (> 15 s) | Nej | Ja |
-| Stream ljud med mellanliggande resultat som önskas | Nej | Ja |
-| Förstå den text som konverterats från ljud med LUIS | Nej | Ja |
+| Konvertera ett kort talade ljud, till exempel kommandon (ljud längd < 15 s) utan interimistiska resultat | Ja | Ja |
+| Konvertera ett långt ljud (> 15 s) | Nej | Ja |
+| Strömma ljud med önskade interimistiska resultat | Nej | Ja |
+| Förstå texten som konverteras från ljud med LUIS | Nej | Ja |
 
- Om ditt språk eller plattform ännu inte har en SDK, kan du skapa en egen implementering baserat på den [protokollet dokumentation](API-Reference-REST/websocketprotocol.md).
+ Om ditt språk eller din plattform ännu inte har ett SDK kan du skapa en egen implementering baserat på [protokoll dokumentationen](API-Reference-REST/websocketprotocol.md).
 
-## <a name="recognition-modes"></a>Igenkänning av lägen
+## <a name="recognition-modes"></a>Igenkännings lägen
 
-Det finns tre lägen för taligenkänning: `interactive`, `conversation`, och `dictation`. Igenkänning av läge justerar taligenkänning baserat på hur användarna är sannolikt att tala. Välj lämplig erkännande läge för ditt program.
+Det finns tre lägen för igenkänning: `interactive`, `conversation`och `dictation`. Igenkännings läget justerar tal igenkänningen baserat på hur användarna kan tala. Välj lämpligt igenkännings läge för ditt program.
 
 > [!NOTE]
-> Igenkänning av lägen kan ha olika beteenden i REST-protokoll än i WebSocket-protokoll. REST API stöder till exempel inte kontinuerlig erkännande, även i konversationen eller diktering läge.
+> Igenkännings lägena kan ha olika beteenden i REST-protokollet än i WebSocket-protokollet. REST API stöder till exempel inte kontinuerlig igenkänning, även i konversations-eller dikteringsläge.
 > [!NOTE]
-> Dessa lägen gäller när du använder REST- eller WebSocket-protokollet direkt. Den [klientbibliotek](GetStarted/GetStartedClientLibraries.md) använda olika parametrar för att ange erkännande läge. Mer information finns i klientbiblioteket för ditt val.
+> Dessa lägen gäller när du använder REST-eller WebSocket-protokollet direkt. [Klient biblioteken](GetStarted/GetStartedClientLibraries.md) använder olika parametrar för att ange tolknings läge. Mer information finns i det klient bibliotek som du väljer.
 
-Microsoft Speech Service returnerar endast en fras igenkänningsresultatet för alla erkännande lägen. Det finns en gräns på 15 sekunder för en enda uttryck.
+Microsoft Speech service returnerar bara ett igenkännings fras resultat för alla igenkännings lägen. Det finns en gräns på 15 sekunder för alla enskilda uttryck.
 
 ### <a name="interactive-mode"></a>Interaktivt läge
 
-I `interactive` läge, en användare gör kort begäranden och förväntar sig programmet att utföra en åtgärd som svar.
+I `interactive` läget gör en användare korta begär Anden och förväntar sig att programmet ska utföra en åtgärd som svar.
 
-Följande egenskaper är typiska för interaktivt läge program:
+Följande egenskaper är typiska för program i interaktivt läge:
 
-- Användarna vet de talar till en dator och inte till en annan personal.
-- Programanvändare redan i förväg vet vad de vill säga baserat på vad de vill att programmet utför.
-- Vanligtvis räcker yttranden om 2-3 sekunder.
+- Användare vet att de talar på en dator och inte till en annan mänsklig.
+- Program användare vet i förväg vad de vill säga, baserat på vad de vill att programmet ska göra.
+- Yttranden senast 2-3 sekunder.
 
-### <a name="conversation-mode"></a>Konversationen läge
+### <a name="conversation-mode"></a>Konversations läge
 
-I `conversation` läge, användare bedriver en mänskliga människor konversation.
+I `conversation` läget är användarna engagerade i en mänsklig konversation.
 
-Följande egenskaper är typiska för konversationen läge program:
+Följande egenskaper är typiska för program i konversations läge:
 
-- Användarna vet att de pratar till en annan person.
-- Taligenkänning förbättrar mänskliga konversationer genom att låta en eller båda deltagarna ser talade texten.
-- Användare planerar alltid inte att säga.
-- Användare har ofta använder för att hitta slang och andra informell tal.
+- Användare vet att de pratar med en annan person.
+- Tal igenkänning förbättrar de mänskliga konversationerna genom att låta en eller båda deltagarna se den talade texten.
+- Användarna planerar inte alltid vad de vill säga.
+- Användare använder ofta slang och annat informellt tal.
 
-### <a name="dictation-mode"></a>Dikteringsläge
+### <a name="dictation-mode"></a>Diktamensläge
 
-I `dictation` läge, användare kunna räkna upp längre yttranden till programmet för vidare bearbetning.
+I `dictation` läget omciterar användare längre yttranden till programmet för ytterligare bearbetning.
 
-Följande egenskaper är typiska för diktering läge program:
+Följande egenskaper är typiska för program för dikterings-läge:
 
-- Användarna vet att de pratar till en dator.
-- Text för tal igenkänningsresultat visas för användarna.
-- Användare har ofta planerar vad de vill säga och mer formella språk.
-- Användare utsträckning fullständiga meningar som senaste 5 – 8 sekunder.
+- Användare vet att de kommunicerar med en dator.
+- Användarna visas text resultat för tal igenkänning.
+- Användare planerar ofta vad de vill säga och använder mer formella språk.
+- Användarna använder fullständiga meningar som de senaste 5-8 sekunderna.
 
 > [!NOTE]
-> Microsoft Speech Service returnerar inte ofullständiga resultat i lägena diktering och konversationen. I stället returnerar tjänsten stabil frasen resultaten efter tystnad gränser i ljudströmmen. Microsoft kan förbättra tal-protokollet för att förbättra användarupplevelsen i dessa lägen för kontinuerlig erkännande.
+> I läget Dictation och konversationer returnerar inte Microsoft Speech service ofullständiga resultat. I stället returnerar tjänsten stabila fras resultat efter tystnads gränser i ljud strömmen. Microsoft kan förbättra tal protokollet för att förbättra användar upplevelsen i de här kontinuerliga igenkännings lägena.
 
-## <a name="recognition-languages"></a>Igenkänning av språk
+## <a name="recognition-languages"></a>Igenkännings språk
 
-Den *språk för* anger det språk som dina programanvändare talar. Ange den *språk för* med den *språk* URL: en frågeparameter för anslutningen. Värdet för den *språk* fråga parametern använder IETF språktaggen [BCP-47](https://en.wikipedia.org/wiki/IETF_language_tag), och **måste** vara något av de språk som stöds av API för taligenkänning. Den fullständiga listan över språk som stöds av Speech-tjänsten finns på sidan [språk som stöds av](API-Reference-REST/supportedlanguages.md).
+*Tolknings språket* anger det språk som program användaren pratar med. Ange *tolknings språk* med frågesträngparametern för *språk* -URL i anslutningen. Värdet för *språkets* FRÅGEPARAMETER använder IETF-språktaggen [BCP 47](https://en.wikipedia.org/wiki/IETF_language_tag)och **måste** vara ett av de språk som stöds av API: t för tal igenkänning. Den fullständiga listan över språk som stöds av tal tjänsten finns på sidan [språk som stöds](API-Reference-REST/supportedlanguages.md).
 
-Microsoft Speech Service avvisar ogiltig anslutningsbegäranden genom att visa en `HTTP 400 Bad Request` svar. En ogiltig begäran är en som:
+Microsoft Speech service avvisar ogiltiga anslutnings begär Anden genom att `HTTP 400 Bad Request` Visa ett svar. En ogiltig begäran är en som:
 
-- Innehåller inte en *språk* fråga om parametervärde.
-- Innehåller en *språk* frågeparameter som är felaktigt formaterad.
-- Innehåller en *språk* frågeparameter som inte är något av språk som stöd.
+- Innehåller inget värde för parameter värde för *språk* .
+- Innehåller en språkfrågeparameter som är felaktigt formaterad.
+- Innehåller en språkfrågeparameter som inte *är ett av* support språken.
 
-Du kan välja att skapa ett program som stöder en eller alla språk som stöds av tjänsten.
+Du kan välja att bygga ett program som stöder ett eller flera av de språk som stöds av tjänsten.
 
 ### <a name="example"></a>Exempel
 
-I följande exempel visas ett program använder *konversationen* tal erkännande läge för föredragshållare amerikansk engelska.
+I följande exempel använder ett program *samtals* tal igenkännings läge för en amerikansk engelsk högtalare.
 
 ```HTTP
 https://speech.platform.bing.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US
 ```
 
-## <a name="transcription-responses"></a>Transkription svar
+## <a name="transcription-responses"></a>Avskrifts svar
 
-Svaren avskrift returnera den konvertera texten från ljud till klienter. En avskrift svaret innehåller följande fält:
+Avskrifts Svaren returnerar den konverterade texten från ljud till klienter. Ett avskrifts svar innehåller följande fält:
 
-- `RecognitionStatus` Anger status för erkännande. De möjliga värdena anges i tabellen nedan.
+- `RecognitionStatus`anger status för igenkänningen. De möjliga värdena anges i tabellen nedan.
 
-| Status | Beskrivning |
+| State | Beskrivning |
 | ------------- | ---------------- |
-| Klart | Erkännande lyckades och fältet text finns |
-| NoMatch | Tal påträffades i ljudströmmen, men inga ord från målspråket som kunde matchas. Se [NoMatch erkännande Status(#nomatch-recognition-status) för mer information  |
-| InitialSilenceTimeout | Början av ljudströmmen ingår endast tystnad och tjänsten tidsgränsen för tal |
-| BabbleTimeout | Början av ljudströmmen ingår endast bruset och tjänsten tidsgränsen för tal |
-| Fel | Igenkänning av tjänsten påträffade ett internt fel och kunde inte fortsätta |
+| Klart | Igenkänningen lyckades och visnings fältet finns |
+| Omatcha | Tal påträffades i ljudströmmen, men inga ord från målspråket som kunde matchas. Mer information finns i identifierings status för [nomatchion (#nomatch-igenkänning-status).  |
+| InitialSilenceTimeout | Starten av ljud strömmen innehöll bara tystnad, och tids gränsen för tjänsten nåddes i väntan på tal |
+| BabbleTimeout | Starten av ljud strömmen innehöll bara brus, och tids gränsen för tjänsten nåddes i väntan på tal |
+| Fel | Ett internt fel inträffade i igenkännings tjänsten och det gick inte att fortsätta |
 
-- `DisplayText` representerar frasen när versaler, interpunktion och inverterade-text-normalisering har tillämpats och svordomar har varit maskeras med en asterisk. Visa text fältet finns *endast* om den `RecognitionStatus` fältet har värdet `Success`.
+- `DisplayText`representerar den identifierade frasen efter versaler, interpunktion och invertering av text-normalisering som har tillämpats och svordomar har maskerats med asterisker. Fältet visnings text är *bara* tillgängligt om `RecognitionStatus` fältet innehåller värdet. `Success`
 
-- `Offset` Anger förskjutningen (i 100 nanosekunder enheter) som frasen identifierades i förhållande till början av ljudströmmen.
+- `Offset`anger förskjutningen (i 100 – nanosekunder) då frasen identifierades, i förhållande till starten av ljud strömmen.
 
-- `Duration`Anger tiden (i 100 nanosekunder enheter) för tal frasen.
+- `Duration`anger varaktigheten (i 100 – nanosekunder) för den här tal frasen.
 
-Svaret avskrift returnerar mer information om så önskas. Se [utdataformat](#output-format) att returnera mer detaljerad utdata.
+Ett avskrifts svar returnerar mer information om du vill. Se [utdataformat](#output-format) för att returnera mer detaljerade utdata.
 
-Microsoft Speech Service stöder ytterligare avskrift processen med att lägga till versaler och skiljetecken, maskera svordomar och normaliserar text till vanliga formulär. Till exempel om en användare talar en fras som representeras av orden ”Påminn mig att köpa sex iPhone”, Microsofts Speech Services returnerar den transkriberade texten ”Påminn mig att köpa 6 iPhone”. Hur du konverterar ordet ”sex” till tal ”6” kallas *inverterade Text normalisering* (*ITN* för kort).
+Microsoft Speech service stöder ytterligare avskrifts processer som omfattar att lägga till versaler och interpunktion, maskera svordomar och normalisera text till vanliga formulär. Om en användare till exempel pratar i en fras som representeras av orden "Påminn mig att köpa sex iPhone", returnerar Microsofts tal tjänster texten "Påminn mig att köpa 6 iPhone". Processen som konverterar ordet "sex" till siffran "6" kallas *inverterad text normalisering* (*redundansväxlingar* för kort).
 
-### <a name="nomatch-recognition-status"></a>NoMatch erkännandestatus
+### <a name="nomatch-recognition-status"></a>Omatcha matchning, igenkännings status
 
-Transkription svaret returnerar `NoMatch` i `RecognitionStatus` när Microsoft Speech Service identifierar tal i ljudströmmen men kan inte matcha det tal till grammatik språk som används för begäran. Till exempel en *NoMatch* kan inträffa om en användare säger något på tyska när Igenkännande förväntar engelska (USA) som talat språk. Wave mönstret för uttryck skulle indikera förekomst av tal, men ingen av de ord som sägs matchar den amerikansk engelska lexikon används reguljära.
+Avskrifts svaret returneras `NoMatch` i `RecognitionStatus` när Microsoft Speech service identifierar tal i ljud strömmen men inte kan matcha det talet mot språkgrammatiken som används för begäran. Till exempel kan ett *nomatch* -villkor inträffa om en användare anger något på tyska när tolken förväntar oss på engelska som det talade språket. Våg mönstret i uttryck skulle tyda på förekomsten av mänskligt tal, men inget av orden som talas skulle matcha amerikansk engelska lexikon som används av tolken.
 
-En annan *NoMatch* tillståndet inträffar när igenkänning av algoritmen kan inte hitta en exakt matchning för ljud som ingår i ljudströmmen. Om det här tillståndet inträffar kan Microsoft Speech Service kan ge *speech.hypothesis* meddelanden som innehåller *hypotetiska text* men skapas en *speech.phrase*meddelande där den *RecognitionStatus* är *NoMatch*. Det här villkoret är normalt; Du måste inte göra några antaganden om noggrannhet eller kvalitet på texten i den *speech.hypothesis* meddelande. Dessutom du måste inte förutsätts att eftersom Microsoft Speech Service ger *speech.hypothesis* meddelanden som tjänsten är producera en *speech.phrase* med  *RecognitionStatus* *lyckades*.
+Ett annat *Nomatch* -villkor inträffar när igenkännings algoritmen inte kan hitta en korrekt matchning för de ljud som finns i ljud strömmen. När det här tillståndet inträffar kan Microsoft Speech service producera *tal. hypotes* meddelanden som innehåller en *hypotetisk text* men som skapar ett *tal. fras* meddelande där *RecognitionStatus* är *nomatch* . Det här tillståndet är normalt; du får inte göra några antaganden om precisionen eller åter givningen av texten i *tal. hypotes* -meddelandet. Dessutom måste du inte anta att eftersom Microsoft Speech service skapar *tal. hypotes* meddelanden som tjänsten kan skapa ett *tal. fras* meddelande med *RecognitionStatus* *lyckades*.
 
 ## <a name="output-format"></a>Utdataformat
 
-Microsoft Speech Service kan returnera olika nyttolastformat i avskrift svar. Alla nyttolaster är JSON-strukturer.
+Microsoft Speech service kan returnera olika nytto Last format i avskrifts svar. Alla nytto laster är JSON-strukturer.
 
-Du kan styra resultatformatet frasen genom att ange den `format` URL: en frågeparameter. Som standard tjänsten returnerar `simple` resultat.
+Du kan kontrol lera frasernas resultat format genom att `format` ange URL-Frågeparametern. Som standard returnerar `simple` tjänsten resultat.
 
 | Format | Beskrivning |
 |-----|-----|
-| `simple` | En förenklad frasen resultat som innehåller igenkänning av status och den tolkade texten i Visningsformulär. |
-| `detailed` | Ett erkännandestatus och N-best resultatlista frasen där varje frasen resultatet innehåller alla fyra igenkänning av formulär och ett förtroenderesultat. |
+| `simple` | Ett förenklat fras resultat som innehåller igenkännings status och den identifierade texten i visnings formuläret. |
+| `detailed` | En igenkännings status och en N-bästa lista över fras resultat där varje fras resultat innehåller alla fyra igenkännings formulär och en förtroende poäng. |
 
-Den `detailed` formatet innehåller [N-best värden](#n-best-values), förutom `RecognitionStatus`, `Offset`, och `duration`, i svaret.
+`duration` `RecognitionStatus` `Offset` [](#n-best-values)Formatet innehåller N-bästa värden, förutom, och, i svaret. `detailed`
 
-### <a name="n-best-values"></a>N-best-värden
+### <a name="n-best-values"></a>N-bästa värden
 
-Lyssnare, om maskin- eller, kan aldrig vara säker på att de hört *exakt* vad var sägs. En lyssnare kan tilldela en *sannolikheten* endast för en viss tolkning av ett uttryck.
+Lyssnare, oavsett om det är mänsklig eller dator, kan aldrig vara säker på att de hörde *exakt* vad som talas. En lyssnare kan bara tilldela en *sannolikhet* till en viss tolkning av en uttryck.
 
-Under normala förhållanden, när du talar till andra som de ofta interagerar, har personer en hög sannolikhet för att identifiera de ord som har talat. Datorbaserade tal lyssnare strävar efter att uppnå liknande Precision och villkor rätt [de uppnå paritet med människor](https://blogs.microsoft.com/next/2016/10/18/historic-achievement-microsoft-researchers-reach-human-parity-conversational-speech-recognition/#sm.001ykosqs14zte8qyxj2k9o28oz5v).
+I normala fall har människor en hög sannolikhet för att känna igen de ord som har talat om de ofta interagerar. Datorbaserade tal lyssnare strävar efter att uppnå liknande noggrannhets nivåer och, under de rätta villkoren, kan [de få paritet med människor](https://blogs.microsoft.com/next/2016/10/18/historic-achievement-microsoft-researchers-reach-human-parity-conversational-speech-recognition/#sm.001ykosqs14zte8qyxj2k9o28oz5v).
 
-Algoritmer som används för taligenkänning utforska alternativ tolkningar av ett uttryck som en del av den normala bearbetningen. Vanligtvis ignoreras dessa alternativ som information och ersatts med en enkel tolkning blir överväldigande. I mindre än optimala förhållanden, men taligenkänningens är klar med en lista över alternativ möjliga tolkningar. Upp *N* alternativ i den här listan kallas den *N-best lista*. Varje alternativ har tilldelats en [förtroendepoäng](#confidence). Förtroende poäng mellan 0 och 1. Ett resultat på 1 representerar den högsta nivån av förtroende. Ett resultat på 0 representerar den lägsta nivån tillförlitlighet.
-
-> [!NOTE]
-> Antalet poster i listan med N-best varierar mycket mellan flera yttranden. Antalet poster kan variera över flera igenkänningar av den *samma* uttryck. Detta är en naturlig och förväntade resultatet av avsnittet om sannolikhetsbunden natur tal igenkänning av algoritmen.
-
-Varje post som returneras i N-best-listan innehåller
-
-- `Confidence`, vilket motsvarar den [förtroende poäng](#confidence) för den här posten.
-- `Lexical`, vilket är den [lexikal formuläret](#lexical-form) av den tolkade texten.
-- `ITN`, vilket är den [ITN formuläret](#itn-form) av den tolkade texten.
-- `MaskedITN`, vilket är den [maskeras ITN formuläret](#masked-itn-form) av den tolkade texten.
-- `Display`, vilket är den [Visningsformulär](#display-form) av den tolkade texten.
-
-### Förtroende-poäng <a id="confidence"></a>
-
-Förtroende är väsentlig tal igenkänning av system. Microsoft Speech Service hämtar förtroende resultat från en *förtroende klassificerare*. Microsoft träna förtroende klassificeraren över en uppsättning funktioner som är utformade för att skilja högst rätt och fel. Förtroende poäng utvärderas för enskilda ord och hela yttranden.
-
-Om du väljer att använda säker poängen som returnerats av tjänsten, Tänk på följande:
-
-- Förtroende poäng kan jämföras endast inom samma erkännande läge och språk. Jämför inte resultat mellan olika språk eller annan erkännande lägen. Ett förtroenderesultat i interaktiva erkännande läge har exempelvis *inga* korrelation med ett förtroenderesultat i dikteringsläge.
-- Förtroende poäng är bäst på en begränsad uppsättning yttranden. Det är naturligt en bra grad av variationer i poängen för en stor mängd yttranden.
-
-Om du väljer att använda ett förtroende poäng värde som en *tröskelvärdet* på som ditt program fungerar, använder du taligenkänning för att upprätta tröskelvärdena.
-
-- Köra taligenkänning på ett representativt urval av yttranden för ditt program.
-- Samla in förtroende poängen för varje taligenkänning i exemplet uppsättningen.
-- Basera din tröskelvärdet på vissa: e percentilen för förtroende för det exemplet.
-
-Ingen enskild tröskelvärdet är lämplig för alla program. En godtagbar förtroendepoäng för ett program kan vara oacceptabla för ett annat program.
-
-### <a name="lexical-form"></a>lexikal formulär
-
-Formuläret lexikal är den tolkade texten exakt hur det skedde i uttryck och utan interpunktion och små bokstäver. Till exempel lexikal form av adress ”1020 Enterprise sätt” skulle vara *tio tjugo enterprise sätt*, förutsatt att den har talat sätt. Lexikal form av meningen ”Påminn mig att köpa 5 pennor” är *Påminn mig att köpa fem pennor*.
-
-Formuläret lexikal passar bäst för program som behöver utföra andra portar än standardtext normalisering. Formuläret lexikal passar också för program som behöver obearbetade igenkänning av orden.
-
-Svordomar maskeras aldrig i formuläret lexikal.
-
-### <a name="itn-form"></a>ITN formulär
-
-Text normalisering är att konvertera text från ett formulär till en annan ”canonical” form. Till exempel telefonnummer ”555-1212” kan konverteras till den kanoniska formen *fem fem fem en två en två*. *Inverterade* text normalisering (ITN) kastar den här processen, konvertering av orden ”fem fem fem en två en två” till den omvända kanoniska formen *555-1212*. ITN form av en igenkänningsresultatet omfattar inte skiljetecken eller versaler.
-
-Formuläret ITN passar bäst för program som fungerar på den tolkade texten. Ett program som låter en användare att tala söktermer och använder sedan dessa villkor på en webbfråga skulle till exempel använda ITN formuläret. Svordomar maskeras aldrig i formuläret ITN. Använd för att maskera svordomar den *maskerade ITN formuläret*.
-
-### <a name="masked-itn-form"></a>Maskerade ITN formulär
-
-Eftersom svordomar är naturligt en del av talat språk, identifierar Microsoft Speech Service sådana ord och fraser när de läses. Svordomar kanske, men inte lämplig för alla program, särskilt program med en begränsad, icke-vuxen målgrupp.
-
-Formuläret maskerade ITN gäller svordomar maskera för formuläret normalisering inverterade text. Att maskera svordomar, ange värdet för det svordomar parametervärdet `masked`. När svordomar maskeras ersättas orden som känns igen som en del av det språket svordomar lexikon med en asterisk. Till exempel: *Påminn mig att köpa 5 *** pennor*. Maskerade ITN form av en igenkänningsresultatet omfattar inte skiljetecken eller versaler.
+Algoritmerna som används i tal igenkänning utforskar alternativa tolkningar av en uttryck som en del av normal bearbetning. De här alternativen förkastas vanligt vis som bevis för att en enda tolkning blir överbelastad. I mindre än optimala villkor slutförs tal igenkänningen med en lista över alternativa möjliga tolkningar. De översta *n* alternativen i den här listan kallas den *N-bästa listan*. Varje alternativ tilldelas en [förtroende poäng](#confidence). Förtroendet sträcker sig från 0 till 1. Poängen på 1 representerar den högsta nivån av förtroende. Poängen 0 representerar den lägsta nivån av förtroende.
 
 > [!NOTE]
-> Om frågeparametervärdet för svordomar anges till `raw`, formuläret maskerade ITN är samma som formuläret ITN. Svordomar är *inte* maskeras.
+> Antalet poster i den N-bästa listan varierar mellan flera yttranden. Antalet poster kan variera mellan flera igenkänningar av *samma* uttryck. Den här variationen är ett naturligt och förväntat resultat av tal igenkännings algoritmens Probabilistic-karaktär.
+
+Varje post som returneras i den N-bästa listan innehåller
+
+- `Confidence`, som representerar [förtroende poängen](#confidence) för den här posten.
+- `Lexical`, det vill säga den tolkade textens [lexikala form](#lexical-form) .
+- `ITN`, som är [redundansväxlingar-formuläret](#itn-form) för den tolkade texten.
+- `MaskedITN`, som är det [maskerade redundansväxlingar-formuläret](#masked-itn-form) för den tolkade texten.
+- `Display`, som är [visnings formatet](#display-form) för den tolkade texten.
+
+### Förtroende Poäng<a id="confidence"></a>
+
+Förtroende poängen är integrerade för tal igenkännings system. Microsoft Speech service erhåller förtroende Poäng från en *förtroende klassificerare*. Microsoft tränar en förtroende klassificering över en uppsättning funktioner som är utformade för att maximally diskriminera mellan korrekt och felaktig igenkänning. Förtroende poängen utvärderas för enskilda ord och hela yttranden.
+
+Om du väljer att använda förtroende poängen som returneras av tjänsten bör du vara medveten om följande beteende:
+
+- Konfidens resultat kan bara jämföras inom samma tolknings läge och språk. Jämför inte poängen mellan olika språk eller olika tolknings lägen. Till exempel har en förtroende poäng i interaktivt igenkännings läge *ingen* korrelation till en förtroende poäng i diktamensläge.
+- Förtroende poängen används bäst på en begränsad uppsättning yttranden. Det finns naturlig variation i poängen för en stor uppsättning yttranden.
+
+Om du väljer att använda ett förtroende poäng värde som ett *tröskelvärde* som programmet agerar i använder du tal igenkänning för att fastställa tröskelvärdena.
+
+- Kör tal igenkänning på ett representativt exempel på yttranden för ditt program.
+- Samla in förtroende poängen för varje igenkänning i exempel uppsättningen.
+- Basera ditt tröskelvärde på en viss percentil av förtroende för det exemplet.
+
+Inget enskilt tröskelvärde är lämpligt för alla program. Ett acceptabelt förtroende poäng för ett program kan vara oacceptabelt för ett annat program.
+
+### <a name="lexical-form"></a>lexikal form
+
+Det lexikala formuläret är den tolkade texten, exakt hur det har inträffat i uttryck och utan skiljetecken eller Skift läge. Den lexikala formen för adressen "1020 Enterprise Way" skulle till exempel vara *10 20 på företags vägen*, förutsatt att det har talas på det sättet. Den lexikala formen av meningen "Påminn mig att köpa fem blyertspennas" är en *påminnelse om att köpa fem pennor*.
+
+Lexikalisk form är lämplig för program som behöver utföra text normalisering som inte är standard. Lexikalisk form är också lämplig för program som behöver obearbetade igenkännings ord.
+
+Svordomar maskeras aldrig i det lexikala formuläret.
+
+### <a name="itn-form"></a>REDUNDANSVÄXLINGAR-formulär
+
+Text normalisering är en process för att konvertera text från ett formulär till ett annat "kanoniskt" format. Telefonnumret "555-1212" kan till exempel konverteras till kanoniskt format *5 5 5 1 2 1 2*. *Unverse* text normalisering (redundansväxlingar) återför den här processen och konverterar orden "5 5 5 1 2 1 2" till den inverterade kanoniska formen *555-1212*. REDUNDANSVÄXLINGAR form av ett igenkännings resultat omfattar inte versaler eller skiljetecken.
+
+REDUNDANSVÄXLINGAR-formuläret passar bäst för program som agerar på den tolkade texten. Ett program som gör det möjligt för en användare att tala om Sök villkor och som sedan använder dessa villkor i en webbfråga använder formuläret REDUNDANSVÄXLINGAR. Svordomar maskeras aldrig i REDUNDANSVÄXLINGAR-formuläret. Om du vill maskera svordomar använder du *formuläret maskerad redundansväxlingar*.
+
+### <a name="masked-itn-form"></a>Maskerat REDUNDANSVÄXLINGAR-formulär
+
+Eftersom svordomar naturligt är en del av det talade språket känner Microsoft Speech service igen sådana ord och fraser när de talas. Svordomar kanske inte är lämpliga för alla program, särskilt de program som har en begränsad, icke-vuxen användar mottagare.
+
+Det maskerade REDUNDANSVÄXLINGAR-formuläret använder svordomar som maskning i formuläret för invertering av text. Om du vill maskera svordomar ställer du in värdet för parameter värde för svordomar till `masked`. När svordomar maskeras ersätts ord som identifieras som en del av ord listan för språkets svordomar med asterisker. Exempel: *Påminn mig att köpa 5 * * * * blyertspennas*. Det maskerade REDUNDANSVÄXLINGAR-formuläret för ett igenkännings resultat omfattar inte versaler eller skiljetecken.
+
+> [!NOTE]
+> Om värdet för parametern svordomar är inställt `raw`på, är det maskerade redundansväxlingar-formuläret detsamma som redundansväxlingar-formuläret. Svordomar maskeras *inte* .
 
 ### <a name="display-form"></a>Visa formulär
 
-Skiljetecken och skiftläge signalera var du prioritera var du vill pausa och så vidare, vilket gör det lättare att förstå texten. Visa formulär lägger till interpunktion och skiftläge resultat, vilket gör det till den lämpligaste formen för program som visar talade texten.
+Skiljetecken och Skift läges signal där du får betoning, var du ska pausa och så vidare, vilket gör texten lättare att förstå. Visnings formuläret lägger till interpunktion och kapitalisering för att få igenkännings resultat, vilket gör det lämpligast för program som visar den talade texten.
 
-Eftersom Visa formulär utökar formuläret maskerade ITN, du kan ange värdet för parametern svordomar `masked` eller `raw`. Om värdet anges till `raw`, igenkänning av resultatet innehålla några svordomar talas av användaren. Om värdet anges till `masked`, känns igen som en del av det språket svordomar lexikon ersättas med en asterisk.
+Eftersom visnings formuläret utökar det maskerade redundansväxlingar-formuläret kan du ange värdet eller `masked` `raw`för parametern svordomar. Om värdet är inställt `raw`på, innehåller igenkännings resultatet eventuella svordomar som talas av användaren. Om värdet är inställt `masked`på, ersätts ord som identifieras som en del av ord listan för språkets svordomar med asterisker.
 
 ### <a name="sample-responses"></a>Exempel-svar
 
-Alla nyttolaster är JSON-strukturer.
+Alla nytto laster är JSON-strukturer.
 
-Nyttolastformatet för den `simple` fras resultat:
+Nytto Last formatet för `simple` fras resultatet:
 
 ```json
 {
@@ -277,7 +277,7 @@ Nyttolastformatet för den `simple` fras resultat:
 }
 ```
 
-Nyttolastformatet för den `detailed` fras resultat:
+Nytto Last formatet för `detailed` fras resultatet:
 
 ```json
 {
@@ -303,28 +303,28 @@ Nyttolastformatet för den `detailed` fras resultat:
 }
 ```
 
-## <a name="profanity-handling-in-speech-recognition"></a>Svordomar-hantering för taligenkänning
+## <a name="profanity-handling-in-speech-recognition"></a>Svordomar – hantering i tal igenkänning
 
-Microsoft Speech Service kan du identifiera alla former av mänskliga tal, inklusive ord och fraser som många skulle klassificera som ”svordomar”. Du kan styra hur tjänsten hanterar olämpligt språk med hjälp av den *svordomar* frågeparameter. Som standard tjänsten döljer svordomar i *speech.phrase* resulterar och returnerar inte *speech.hypothesis* meddelanden som innehåller olämpligt språk.
+Microsoft Speech service känner igen alla former av mänskligt tal, inklusive ord och fraser som många personer skulle klassificera som "svordomar". Du kan styra hur tjänsten hanterar svordomar med hjälp av Frågeparametern för *svordomar* . Som standard maskas svordomar i *tal. fras* resultatet och returnerar inte tal-och *hypotes* -meddelanden som innehåller svordomar.
 
-| *Svordomar* värde | Beskrivning |
+| *Svordomar* -värde | Beskrivning |
 | - | - |
-| `masked` | Döljer olämpligt språk med en asterisk. Det här beteendet är standard. |
+| `masked` | Maskar svordomar med asterisker. Det här är standardinställningen. |
 | `removed` | Tar bort svordomar från alla resultat. |
 | `raw` | Identifierar och returnerar svordomar i alla resultat. |
 
-### <a name="profanity-value-masked"></a>Svordomar värde `Masked`
+### <a name="profanity-value-masked"></a>Svordomar-värde`Masked`
 
-Att maskera svordomar genom att ange den *svordomar* frågeparameter till värdet *maskeras*. När den *svordomar* frågeparameter har detta värde eller inte har angetts för en begäran, tjänsten *masker* olämpligt språk. Tjänsten utför maskning genom att ersätta svordomar i igenkänning av resultaten med en asterisk. När du anger svordomar maskning hantering av tjänsten returnerar inte *speech.hypothesis* meddelanden som innehåller olämpligt språk.
+Om du vill maskera svordomar ställer du in parametern *svordomar* på värdet *maskerad*. När Frågeparametern för *svordomar* har detta värde eller inte har angetts för en begäran, *maskerar* den svordomen. Tjänsten utför maskning genom att ersätta svordomar i igenkännings resultatet med asterisker. När du anger svordomar för svordomar returnerar tjänsten inte tal-och *hypotes* -meddelanden som innehåller svordomar.
 
-### <a name="profanity-value-removed"></a>Svordomar värde `Removed`
+### <a name="profanity-value-removed"></a>Svordomar-värde`Removed`
 
-När den *svordomar* fråga parametern har värdet *bort*, tjänsten avlägsnar svordomar från både *speech.phrase* och *speech.hypothesis* meddelanden. Resultatet är samma *som om svordomar ord inte har sägs*.
+När Frågeparametern har värdet *Borttaget*, tar tjänsten *bort en svordom* från både *tal. fras* -och *tal-. hypotes* -meddelanden. Resultatet är detsamma *som om svordoms-orden inte talas*.
 
-#### <a name="profanity-only-utterances"></a>Endast svordomar yttranden
+#### <a name="profanity-only-utterances"></a>Yttranden – endast svordomar
 
-En användare kan tala *endast* svordomar när ett program har konfigurerade tjänsten för att ta bort olämpligt språk. Det här scenariot om erkännande läget är *diktering* eller *konversationen*, tjänsten returnerar inte en *speech.result*. Om läget för är *interaktiva*, tjänsten returnerar en *speech.result* med statuskod *NoMatch*.
+En användare kan *bara* tala om svordomar när ett program har konfigurerat tjänsten för att ta bort svordomar. I det här scenariot returnerar tjänsten inte ett *tal. result*om igenkännings läget är *Diktering* eller *konversation*. Om igenkännings läget är *interaktivt*, returnerar tjänsten ett *tal. resultat* med status koden *nomatch*.
 
-### <a name="profanity-value-raw"></a>Svordomar värde `Raw`
+### <a name="profanity-value-raw"></a>Svordomar-värde`Raw`
 
-När den *svordomar* fråga parametern har värdet *raw*, tjänsten inte ta bort eller maskera svordomar antingen den *speech.phrase* eller  *Speech.hypothesis* meddelanden.
+När Frågeparametern *har* värdet *RAW*, tar tjänsten inte bort eller maskar svordomar i antingen *tal. fras* eller *tal. hypotes* -meddelanden.

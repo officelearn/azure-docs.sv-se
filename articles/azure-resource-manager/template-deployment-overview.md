@@ -4,14 +4,14 @@ description: Beskriver hur du använder Azure Resource Manager mallar för att d
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 09/07/2019
+ms.date: 09/13/2019
 ms.author: tomfitz
-ms.openlocfilehash: 61e9bbabee969280c07521edb05d67ba68c0c58e
-ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
+ms.openlocfilehash: 6d0d162f0f6f3024f6b4b63b8df1df9fd413afc8
+ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/08/2019
-ms.locfileid: "70802013"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70965299"
 ---
 # <a name="azure-resource-manager-templates"></a>Azure Resource Manager-mallar
 
@@ -21,43 +21,35 @@ För att möta dessa utmaningar kan du automatisera distributioner och använda 
 
 Använd Azure Resource Manager mallar om du vill implementera infrastruktur som kod för dina Azure-lösningar. Mallen är en JavaScript Object Notation-fil (JSON) som definierar infrastrukturen och konfigurationen för ditt projekt. Mallen använder deklarativ syntax, som låter dig ange vad du vill distribuera utan att du behöver skriva sekvensen med programmerings kommandon för att skapa den. I mallen anger du de resurser som ska distribueras och egenskaperna för dessa resurser.
 
-## <a name="benefits-of-resource-manager-templates"></a>Fördelar med Resource Manager-mallar
+## <a name="why-choose-resource-manager-templates"></a>Varför ska du välja Resource Manager-mallar?
 
-Resource Manager-mallar ger följande fördelar:
+Om du försöker bestämma mellan att använda Resource Manager-mallar och en annan infrastruktur som kod tjänster, bör du tänka på följande fördelar med att använda mallar:
 
-* Distribuera, hantera och övervaka alla resurser för din lösning som en grupp, i stället för att hantera resurserna individuellt.
+* **Deklarativ syntax**: Med Resource Manager-mallar kan du skapa och distribuera en hel Azure-infrastruktur i deklarativ miljö. Du kan till exempel distribuera inte bara virtuella datorer, utan även nätverks infrastrukturen, lagrings system och andra resurser som du kan behöva.
 
-* Distribuera din lösning flera gånger under utvecklings livs cykeln och få förtroende för att dina resurser distribueras i ett konsekvent tillstånd.
+* **Upprepnings bara resultat**: Distribuera infrastrukturen flera gånger under utvecklings livs cykeln och få förtroende för att dina resurser distribueras på ett konsekvent sätt. Mallarna är idempotenta, vilket innebär att du kan distribuera samma mall flera gånger och få samma resurs typer i samma tillstånd. Du kan utveckla en mall som representerar det önskade läget, i stället för att utveckla många separata mallar som representerar uppdateringar.
 
-* Hantera din infrastruktur genom deklarativ mallar i stället för skript.
-
-Om du försöker bestämma mellan att använda Resource Manager-mallar eller någon annan infrastruktur som kod tjänster, bör du tänka på följande fördelar mallar har över dessa tjänster:
-
-* Nya Azure-tjänster och-funktioner är omedelbart tillgängliga i mallar. Så snart en resurs leverantör inför nya resurser kan du distribuera dessa resurser via mallar. Med annan infrastruktur som kod tjänster måste du vänta på att tredje part implementerar gränssnitt för de nya resurserna.
-
-* Mall distributioner hanteras genom en enda sändning av mallen, i stället för via flera tvingande kommandon. Resource Manager dirigerar distributionen av beroende resurser så att de skapas i rätt ordning. Den tolkar mallen och fastställer rätt distributions ordning baserat på referenser mellan resurser.
+* **Dirigering**: Du behöver inte bekymra dig om hanteringen av beställningar. Resource Manager dirigerar distributionen av beroende resurser så att de skapas i rätt ordning. När så är möjligt distribuerar Resource Manager resurserna parallellt så att distributionerna slutar snabbare än seriella distributioner. Du distribuerar mallen via ett kommando i stället för att använda flera tvingande kommandon.
 
    ![Malldistribution jämförelse](./media/template-deployment-overview/template-processing.png)
 
-* Mall distributioner spåras i Azure Portal. Du kan granska distributions historiken och få information om mall distributionen. Du kan se den mall som har distribuerats, de parameter värden som angavs i och eventuella värden. Annan infrastruktur som kod tjänster spåras inte via portalen.
+* **Inbyggd verifiering**: Mallen distribueras bara efter att du har överfört verifieringen. Resource Manager kontrollerar mallen innan du påbörjar distributionen för att kontrol lera att distributionen kommer att lyckas. Distributionen är mindre troligt att stoppas i ett halv klart tillstånd.
+
+* **Modulära filer**: Du kan dela upp mallarna i mindre, återanvändbara komponenter och länka dem tillsammans vid distributions tiden. Du kan också kapsla en mall inuti en annan mall.
+
+* **Skapa en Azure-resurs**: Du kan använda nya Azure-tjänster och-funktioner direkt i mallar. Så snart en resurs leverantör inför nya resurser kan du distribuera dessa resurser via mallar. Du behöver inte vänta på att verktyg eller moduler uppdateras innan du använder de nya tjänsterna.
+
+* **Spårade distributioner**: I Azure Portal kan du granska distributions historiken och få information om mall distributionen. Du kan se den mall som har distribuerats, de parameter värden som angavs i och eventuella värden. Annan infrastruktur som kod tjänster spåras inte via portalen.
 
    ![Distributionshistorik](./media/template-deployment-overview/deployment-history.png)
 
-* Mall distributioner genomgår kontroll före flygning. Resource Manager kontrollerar mallen innan du påbörjar distributionen för att kontrol lera att distributionen kommer att lyckas. Distributionen är mindre troligt att stoppas i ett halv klart tillstånd.
+* **Princip som kod**: [Azure policy](../governance/policy/overview.md) är en princip som kod ramverk för att automatisera styrningen. Om du använder Azure-principer görs princip reparationer på icke-kompatibla resurser när de distribueras med hjälp av mallar.
 
-* Om du använder [Azure-principer](../governance/policy/overview.md)görs princip reparationer på icke-kompatibla resurser när de distribueras med hjälp av mallar.
+* **Distributions ritningar**: Du kan dra nytta av [skisser](../governance/blueprints/overview.md) som tillhandahålls av Microsoft för att uppfylla regler och efterlevnad. Dessa ritningar innehåller färdiga mallar för olika arkitekturer.
 
-* Microsoft tillhandahåller distributions [ritningar](../governance/blueprints/overview.md) för att uppfylla regler och efterlevnad. Dessa ritningar innehåller färdiga mallar för olika arkitekturer.
+* **Kod**som kan exporteras: Du kan hämta en mall för en befintlig resurs grupp genom att antingen exportera det aktuella läget för resurs gruppen eller Visa den mall som används för en viss distribution. Att granska den [exporterade mallen](export-template-portal.md) är ett bra sätt att lära sig mer om mallsyntaxen.
 
-## <a name="idempotent"></a>Idempotenta
-
-Idempotenta innebär bara att du kan köra samma åtgärder flera gånger och få samma resultat. Distribution av en Resource Manager-mall är idempotenta. Du kan distribuera samma mall flera gånger och få samma resurs typ i samma tillstånd. Det här konceptet är viktigt eftersom det innebär att du får konsekventa resultat om du omdistribuerar en mall till en befintlig resurs grupp eller distribuerar en mall till en ny resurs grupp.
-
-Låt oss anta att du har distribuerat tre resurser till en resurs grupp och sedan bestämmer dig för att lägga till en fjärde resurs. I stället för att skapa en ny mall som bara innehåller den nya resursen kan du lägga till den fjärde resursen i din befintliga mall. När du distribuerar den nya mallen till resurs gruppen som redan har tre resurser, så tar Resource Manager upp vilka åtgärder som ska vidtas.
-
-Om resursen finns i resurs gruppen och begäran inte innehåller några uppdateringar av egenskaperna vidtas ingen åtgärd. Om resursen finns men egenskaperna har ändrats, uppdateras den befintliga resursen. Om resursen inte finns skapas den nya resursen.
-
-Du är säker på att när distributionen är färdig är resurserna alltid i förväntat tillstånd.
+* **Redigerings verktyg**: Du kan skapa mallar med [Visual Studio Code](resource-manager-tools-vs-code.md) och verktyget Mallguiden. Du får IntelliSense, syntaxkontroll, direkt hjälp och många andra språk funktioner.
 
 ## <a name="template-file"></a>Mallfil
 
@@ -74,20 +66,6 @@ Mallen innehåller följande avsnitt:
 * [Resurser](resource-group-authoring-templates.md#resources) – ange vilka resurser som ska distribueras.
 
 * [Utdata](template-outputs.md) – returnera värden från de distribuerade resurserna.
-
-## <a name="template-features"></a>Mall funktioner
-
-Resource Manager analyserar beroenden för att säkerställa att resurser skapas i rätt ordning. De flesta beroenden fastställs implicit. Du kan dock uttryckligen ange ett beroende för att se till att en resurs distribueras före en annan resurs. Mer information finns i [Definiera beroenden i Azure Resource Manager-mallar](resource-group-define-dependencies.md).
-
-Du kan lägga till en resurs i mallen och även distribuera den. Normalt skickar du ett parameter värde som anger om resursen måste distribueras. Mer information finns i [villkorlig distribution i Resource Manager-mallar](conditional-resource-deployment.md).
-
-I stället för att upprepa block med JSON många gånger i mallen kan du använda ett kopierings element för att ange mer än en instans av en variabel, egenskap eller resurs. Mer information finns i [resurs, egenskap eller variabel iteration i Azure Resource Manager mallar](resource-group-create-multiple.md).
-
-## <a name="export-templates"></a>Exportera mallar
-
-Du kan hämta en mall för en befintlig resurs grupp genom att antingen exportera det aktuella läget för resurs gruppen eller Visa den mall som används för en viss distribution. Att granska den [exporterade mallen](export-template-portal.md) är ett bra sätt att lära sig mer om mallsyntaxen.
-
-När du skapar en lösning från portalen innehåller den automatiskt en distributionsmall. Du behöver inte skapa mallen från scratch. I stället kan du börja med mallen för din lösning och anpassa den efter dina specifika behov. Ett exempel finns i [Snabbstart: Skapa och distribuera Azure Resource Manager-mallar med hjälp av Azure-portalen](./resource-manager-quickstart-create-templates-use-the-portal.md).
 
 ## <a name="template-deployment-process"></a>Malldistribution process
 
@@ -146,6 +124,7 @@ Mer information om kapslade mallar finns i [Använda länkade mallar med Azure R
 ## <a name="next-steps"></a>Nästa steg
 
 * Information om egenskaperna i mallfiler finns i [förstå strukturen och syntaxen för Azure Resource Manager mallar](resource-group-authoring-templates.md).
-* Om du vill komma igång med att utveckla mallar kan [du skapa Azure Resource Manager mallar i använda Visual Studio Code](resource-manager-tools-vs-code.md).
-* En introduktion till Resource Manager-tjänsten, inklusive dess hanterings funktioner, finns i [Azure Resource Manager översikt](resource-group-overview.md).
-
+* Om du uttryckligen vill ange beroenden så att en resurs distribueras före en annan resurs, se [definiera beroenden i Azure Resource Manager mallar](resource-group-define-dependencies.md).
+* Du kan lägga till en resurs i mallen och även distribuera den. Mer information finns i [villkorlig distribution i Resource Manager-mallar](conditional-resource-deployment.md).
+* I stället för upprepade block med JSON många gånger i din mall, kan du ange mer än en instans av en variabel, egenskap eller resurs. Mer information finns i [resurs, egenskap eller variabel iteration i Azure Resource Manager mallar](resource-group-create-multiple.md).
+* Information om hur du exporterar mallar finns [i snabb start: Skapa och distribuera Azure Resource Manager-mallar med hjälp av Azure-portalen](./resource-manager-quickstart-create-templates-use-the-portal.md).

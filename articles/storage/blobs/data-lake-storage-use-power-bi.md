@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/18/2019
 ms.author: normesta
 ms.reviewer: bensack
-ms.openlocfilehash: 59574f0a07f4ecc145f2b0efd430e65cbdebcc65
-ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
+ms.openlocfilehash: d76ea317271ae0e8eb0d54fcfee5dc005d836fc1
+ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69991566"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70984948"
 ---
 # <a name="analyze-data-in-azure-data-lake-storage-gen2-by-using-power-bi"></a>Analysera data i Azure Data Lake Storage Gen2 med Power BI
 
@@ -28,7 +28,7 @@ Innan du påbörjar de här självstudierna måste du ha:
 > * Ett lagrings konto som har ett hierarkiskt namn område. Följ [de här](data-lake-storage-quickstart-create-account.md) anvisningarna för att skapa en.
 > Den här artikeln förutsätter att du har skapat ett `myadlsg2`konto med namnet.
 > * En exempel data fil med `Drivers.txt` namnet som finns i ditt lagrings konto.
-> Du kan hämta det här exemplet från [Azure Data Lake git](https://github.com/Azure/usql/tree/master/Examples/Samples/Data/AmbulanceDataDrivers.txt)-lagringsplatsen och sedan överföra filen till ditt lagrings konto.
+> Du kan hämta det här exemplet från [Azure Data Lake git-lagringsplatsen](https://github.com/Azure/usql/tree/master/Examples/Samples/Data/AmbulanceData/Drivers.txt)och sedan överföra filen till ditt lagrings konto.
 > * **Power BI Desktop**. Du kan ladda ned det från [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=45331). 
 
 ## <a name="create-a-report-in-power-bi-desktop"></a>Skapa en rapport i Power BI Desktop

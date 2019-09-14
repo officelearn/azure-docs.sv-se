@@ -17,12 +17,12 @@ ms.date: 07/29/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 74b2d80d21822758991ad8b3bc1d3bb44e2257f4
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 3d48aa3ead28ab0b0a22478a0c4183995483058a
+ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70129814"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70983505"
 ---
 # <a name="provisioning-reports-in-the-azure-active-directory-portal-preview"></a>Etablering av rapporter i Azure Active Directory portal (för hands version)
 
@@ -50,7 +50,7 @@ I det här avsnittet får du en översikt över etablerings rapporten.
 
 Din klient organisation måste ha en Azure AD Premium licens kopplad till sig för att se rapporten all etablerings aktivitet. Se [Kom igång med Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) för att uppgradera din Azure Active Directory-version. 
 
-## <a name="provisioning-logs"></a>Etablerings loggar
+## <a name="provisioning-logs"></a>Etableringsloggar
 
 Etablerings loggarna ger svar på följande frågor:
 
@@ -85,7 +85,7 @@ På så sätt kan du visa ytterligare fält eller ta bort fält som redan visas.
 
 Välj ett objekt i listvyn om du vill ha mer detaljerad information.
 
-![Detaljerad information](./media/concept-provisioning-logs/detailed-information.png "Detaljerad information")
+![Detaljerad information](./media/concept-provisioning-logs/steps.png "Filtrera")
 
 
 ## <a name="filter-provisioning-activities"></a>Filtrera etablerings aktiviteter

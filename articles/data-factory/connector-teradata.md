@@ -1,6 +1,6 @@
 ---
-title: Kopiera data från Teradata med Azure Data Factory | Microsoft Docs
-description: Med Teradata-anslutaren i Data Factory-tjänsten kan du kopiera data från en Teradata-databas till data lager som stöds av Data Factory som mottagare.
+title: Kopiera data från Teradata-Vantage med hjälp av Azure Data Factory | Microsoft Docs
+description: Med Teradata-anslutaren i Data Factory-tjänsten kan du kopiera data från en Teradata-Vantage till data lager som stöds av Data Factory som mottagare.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -10,26 +10,26 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/23/2019
+ms.date: 09/13/2019
 ms.author: jingwang
-ms.openlocfilehash: bec1c0c3523e6d9cfb0b2fdbc7a093ffe0637743
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: f17a7ef2131662cdb9ef4d138303556215810fba
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70232491"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70959016"
 ---
-# <a name="copy-data-from-teradata-by-using-azure-data-factory"></a>Kopiera data från Teradata med hjälp av Azure Data Factory
+# <a name="copy-data-from-teradata-vantage-by-using-azure-data-factory"></a>Kopiera data från Teradata-Vantage med hjälp av Azure Data Factory
 > [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
 >
 > * [Version 1](v1/data-factory-onprem-teradata-connector.md)
 > * [Aktuell version](connector-teradata.md)
 
-Den här artikeln beskriver hur du använder kopierings aktiviteten i Azure Data Factory för att kopiera data från en Teradata-databas. Den bygger på [Översikt över kopierings aktiviteten](copy-activity-overview.md).
+Den här artikeln beskriver hur du använder kopierings aktiviteten i Azure Data Factory för att kopiera data från Teradata-Vantage. Den bygger på [Översikt över kopierings aktiviteten](copy-activity-overview.md).
 
 ## <a name="supported-capabilities"></a>Funktioner som stöds
 
-Du kan kopiera data från en Teradata-databas till alla mottagar data lager som stöds. En lista över datalager som stöds som källor/mottagare av Kopieringsaktivitet finns i den [datalager som stöds](copy-activity-overview.md#supported-data-stores-and-formats) tabell.
+Du kan kopiera data från Teradata-Vantage till alla mottagar data lager som stöds. En lista över datalager som stöds som källor/mottagare av Kopieringsaktivitet finns i den [datalager som stöds](copy-activity-overview.md#supported-data-stores-and-formats) tabell.
 
 Mer specifikt stöder den här Teradata-anslutaren:
 
@@ -62,8 +62,8 @@ Den länkade tjänsten Teradata stöder följande egenskaper:
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | type | Egenskapen Type måste anges till **Teradata**. | Ja |
-| connectionString | Anger den information som krävs för att ansluta till Teradata-databasens instans. Se följande exempel.<br/>Du kan också ange ett lösen ord i Azure Key Vault och hämta `password` konfigurationen från anslutnings strängen. Mer information finns [i lagra autentiseringsuppgifter i Azure Key Vault](store-credentials-in-key-vault.md) . | Ja |
-| username | Ange ett användar namn för att ansluta till Teradata-databasen. Gäller när du använder Windows-autentisering. | Nej |
+| connectionString | Anger den information som krävs för att ansluta till Teradata-instansen. Se följande exempel.<br/>Du kan också ange ett lösen ord i Azure Key Vault och hämta `password` konfigurationen från anslutnings strängen. Mer information finns [i lagra autentiseringsuppgifter i Azure Key Vault](store-credentials-in-key-vault.md) . | Ja |
+| username | Ange ett användar namn för att ansluta till Teradata. Gäller när du använder Windows-autentisering. | Nej |
 | password | Ange ett lösen ord för det användar konto som du har angett som användar namn. Du kan också välja att [referera till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). <br>Gäller när du använder Windows-autentisering eller refererar till ett lösen ord i Key Vault för grundläggande autentisering. | Nej |
 | connectVia | Den [Integration Runtime](concepts-integration-runtime.md) som används för att ansluta till datalagret. Läs mer från avsnittet [krav](#prerequisites) . Om den inte anges används standard Azure Integration Runtime. |Ja |
 
@@ -142,8 +142,8 @@ Följande egenskaper stöds för att kopiera data från Teradata:
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | type | Egenskapen Type för data mängden måste anges till `TeradataTable`. | Ja |
-| database | Namnet på Teradata-databasen. | Nej (om ”query” i aktivitetskälla har angetts) |
-| table | Namnet på table i Teradata-databasen. | Nej (om ”query” i aktivitetskälla har angetts) |
+| database | Namnet på Teradata-instansen. | Nej (om ”query” i aktivitetskälla har angetts) |
+| table | Namnet på tabellen i Teradata-instansen. | Nej (om ”query” i aktivitetskälla har angetts) |
 
 **Exempel:**
 
@@ -184,7 +184,7 @@ Följande egenskaper stöds för att kopiera data från Teradata:
 
 ## <a name="copy-activity-properties"></a>Kopiera egenskaper för aktivitet
 
-Det här avsnittet innehåller en lista över egenskaper som stöds av Teradata-källan. En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera aktiviteter [](concepts-pipelines-activities.md)finns i pipelines. 
+Det här avsnittet innehåller en lista över egenskaper som stöds av Teradata-källan. En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera aktiviteter finns i [pipelines](concepts-pipelines-activities.md). 
 
 ### <a name="teradata-as-source"></a>Teradata som källa
 
@@ -197,7 +197,7 @@ Följande egenskaper stöds i avsnittet Kopiera aktivitets **källa** för att k
 |:--- |:--- |:--- |
 | type | Typ egenskapen för kopierings aktivitets källan måste vara inställd på `TeradataSource`. | Ja |
 | query | Använda anpassade SQL-frågan för att läsa data. Ett exempel är `"SELECT * FROM MyTable"`.<br>När du aktiverar partitionerad belastning måste du koppla alla motsvarande inbyggda partitionsalternativ i frågan. Exempel finns i avsnittet [Parallel Copy från Teradata](#parallel-copy-from-teradata) . | Nej (om tabellen i data uppsättningen har angetts) |
-| partitionOptions | Anger de data partitionerings alternativ som används för att läsa in data från Teradata. <br>Tillåtna värden är: **Ingen** (standard), **hash** -och **DynamicRange**.<br>När ett partitions alternativ är aktiverat (dvs. inte `None`), styrs graden av parallellitet för data från en Teradata-databas [`parallelCopies`](copy-activity-performance.md#parallel-copy) av inställningen på kopierings aktiviteten. | Nej |
+| partitionOptions | Anger de data partitionerings alternativ som används för att läsa in data från Teradata. <br>Tillåtna värden är: **Ingen** (standard), **hash** -och **DynamicRange**.<br>När ett partitions alternativ är aktiverat (dvs. inte `None`), kontrol leras graden av parallellitet för att data ska läsas in från Teradata [`parallelCopies`](copy-activity-performance.md#parallel-copy) av inställningen på kopierings aktiviteten. | Nej |
 | partitionSettings | Ange gruppen med inställningar för data partitionering. <br>Använd när partition alternativet inte `None`är. | Nej |
 | partitionColumnName | Ange namnet på den käll kolumn som ska användas av intervall partition eller hash-partition för parallell kopiering. Om inget anges identifieras primärt index för tabellen automatiskt och används som partition-kolumn. <br>Använd när alternativet partition är `Hash` eller. `DynamicRange` Om du använder en fråga för att hämta källdata, Hook `?AdfHashPartitionCondition` eller `?AdfRangePartitionColumnName` i WHERE-satsen. Se exempel i [Parallel Copy från Teradata](#parallel-copy-from-teradata) -avsnittet. | Nej |
 | partitionUpperBound | Det maximala värdet för partition-kolumnen för att kopiera data. <br>Använd när partition alternativet är `DynamicRange`. Om du använder Query för att hämta källdata, Hook `?AdfRangePartitionUpbound` i WHERE-satsen. Ett exempel finns i avsnittet [Parallel Copy från Teradata](#parallel-copy-from-teradata) . | Nej |
@@ -245,9 +245,9 @@ Data Factory Teradata-anslutaren tillhandahåller inbyggd data partitionering f�
 
 ![Skärm bild av partitionsalternativ](./media/connector-teradata/connector-teradata-partition-options.png)
 
-När du aktiverar partitionerad kopiering körs Data Factory parallella frågor mot din Teradata-källa för att läsa in data med partitioner. Den parallella graden styrs av [`parallelCopies`](copy-activity-performance.md#parallel-copy) inställningen på kopierings aktiviteten. Om du till exempel anger `parallelCopies` fyra Data Factory samtidigt genererar och kör fyra frågor baserat på ditt angivna partitionsalternativ och inställningar, och varje fråga hämtar en del av data från Teradata-databasen.
+När du aktiverar partitionerad kopiering körs Data Factory parallella frågor mot din Teradata-källa för att läsa in data med partitioner. Den parallella graden styrs av [`parallelCopies`](copy-activity-performance.md#parallel-copy) inställningen på kopierings aktiviteten. Om du till exempel anger `parallelCopies` fyra Data Factory samtidigt genererar och kör fyra frågor baserat på ditt angivna partitionsalternativ och inställningar, och varje fråga hämtar en del av data från din Teradata.
 
-Du rekommenderas att aktivera parallell kopiering med data partitionering, särskilt när du läser in stora mängder data från Teradata-databasen. Följande är föreslagna konfigurationer för olika scenarier. När du kopierar data till filbaserat data lager, skrivs de om för att skriva till en mapp som flera filer (ange bara mappnamn), i vilket fall prestandan är bättre än att skriva till en enda fil.
+Du rekommenderas att aktivera parallell kopiering med data partitionering, särskilt när du läser in stora mängder data från din Teradata. Följande är föreslagna konfigurationer för olika scenarier. När du kopierar data till filbaserat data lager, skrivs de om för att skriva till en mapp som flera filer (ange bara mappnamn), i vilket fall prestandan är bättre än att skriva till en enda fil.
 
 | Scenario                                                     | Föreslagna inställningar                                           |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |

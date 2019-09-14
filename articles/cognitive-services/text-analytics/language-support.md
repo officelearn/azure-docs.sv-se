@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 06/18/2019
 ms.author: aahi
-ms.openlocfilehash: 558ce8950a1848f0cddc247f60dd4e75dd20ccf0
-ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
+ms.openlocfilehash: e14cb56db6e45fe86ecd5e73766c47d29dd23fa1
+ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68305481"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70984230"
 ---
 # <a name="language-and-region-support-for-the-text-analytics-api"></a>Språk-och region stöd för API för textanalys
 
@@ -48,7 +48,7 @@ Språk stöd är inlednings vis insamlat i för hands version, som är i allmän
 |:----------- |:-------------:|:---------:|:-----------:|:-----------:|:-----------:
 | Arabiska      | `ar`          |           |             | ✔\*                     | |
 | Tjeckiska       | `cs`          |           |             | ✔\*                     | |
-| Kinesiska – Förenklad | `zh-CN`|           |             | ✔         |    |
+| Kinesiska – Förenklad | `zh-CN`| ✔\***     |             | ✔         |    |
 | Danska      | `da`          | ✔\*     | ✔           | ✔\*            |     |
 | Nederländska       | `nl`          | ✔\*     | ✔          |  ✔\*           |     |
 | Svenska     | `en`          | ✔        | ✔           |  ✔\*\*     |      |
@@ -58,7 +58,7 @@ Språk stöd är inlednings vis insamlat i för hands version, som är i allmän
 | Grekiska       | `el`          | ✔\*     |             |            |     |
 | Ungerska   | `hu`          |           |             |  ✔\*          |     | 
 | Italienska     | `it`          | ✔\*     | ✔           |  ✔\*           |     |
-| Japanska    | `ja`          |          | ✔           |  ✔\*          |     |
+| Japanska    | `ja`          | ✔\***         | ✔           |  ✔\*          |     |
 | Koreanska      | `ko`          |          | ✔           |  ✔\*          |     |
 | Norska (bokmål) | `no`  | ✔\*     |  ✔          | ✔\*            |     |
 | Polska      | `pl`          | ✔\*     |  ✔          |  ✔\*           |     |
@@ -71,7 +71,9 @@ Språk stöd är inlednings vis insamlat i för hands version, som är i allmän
 
 \*Språk stöd finns i för hands version
 
-\*\*Den [namngivna enhets igenkänningen](how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-ner) och [entitets länkning](how-tos/text-analytics-how-to-entity-linking.md#entity-linking) är båda tillgängliga för det här språket.    
+\*\*Den [namngivna enhets igenkänningen](how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-ner) och [entitets länkning](how-tos/text-analytics-how-to-entity-linking.md#entity-linking) är båda tillgängliga för det här språket.  
+
+\** * Tillgängligt i [Attitydanalys v3 offentlig för hands version](https://docs.microsoft.com/en-us/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-sentiment-analysis#sentiment-analysis-v3-public-preview)
 
 ## <a name="see-also"></a>Se också
 

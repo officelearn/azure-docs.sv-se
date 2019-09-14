@@ -1,7 +1,7 @@
 ---
-title: Objektidentifiering - visuellt innehåll
+title: Objekt identifiering-Visuellt innehåll
 titleSuffix: Azure Cognitive Services
-description: Lär dig begrepp relaterade till funktionen för identifiering av objekt av den API för visuellt innehåll – användning och gränser.
+description: Lär dig begrepp som rör funktionen för objekt identifiering i API för visuellt innehåll användning och begränsningar.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -11,24 +11,24 @@ ms.topic: conceptual
 ms.date: 04/17/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 012ab849c926de332da55361c79c76c5a1311169
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 0625d8371b9ecaaadd05e302413054948fd4b27b
+ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60368055"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70967044"
 ---
-# <a name="detect-common-objects-in-images"></a>Identifiera vanliga objekt i bilder
+# <a name="detect-common-objects-in-images"></a>Identifiera gemensamma objekt i avbildningar
 
-Objektidentifiering liknar [taggning](concept-tagging-images.md), men API: et returnerar de omgivande koordinaterna för avgränsningsfält (i bildpunkter) för varje objekt hittades. Om en bild exempelvis innehåller en hund, en katt och en person, kommer identifieringsåtgärden visa en lista över dessa objekt tillsammans med deras koordinater i bilden. Du kan använda den här funktionen för att bearbeta relationerna mellan objekt i en bild. Du kan också kontrollera om det finns flera instanser av samma tagg i en bild.
+Objekt identifiering liknar [taggning](concept-tagging-images.md), men API: et returnerar koordinaterna för avgränsnings rutan (i bild punkter) för varje objekt som hittas. Om en bild exempelvis innehåller en hund, en katt och en person, kommer identifieringsåtgärden visa en lista över dessa objekt tillsammans med deras koordinater i bilden. Du kan använda den här funktionen för att bearbeta relationerna mellan objekten i en bild. Du kan också avgöra om det finns flera instanser av samma tagg i en bild.
 
-Identifiera API: et gäller taggar baserat på antalet objekt eller en levande saker som identifierats i avbildningen. Det finns för närvarande ingen formella relation mellan de taggning taxonomin och taxonomi för objekt-identifiering. På en konceptuell nivå hittar API: et identifiera endast objekt och levande saker, medan tagg-API kan även inkludera sammanhangsberoende termer som ”inom”, som inte går att lokalisera med avgränsar rutorna.
+Identifierings-API: et använder taggar baserat på objekt eller levnads saker som identifieras i avbildningen. Det finns för närvarande ingen formell relation mellan taggarna taxonomi och objekt identifiering. Identifierings-API: et söker bara efter objekt och levnads saker, medan tagg-API: et även kan innehålla sammanhangsbaserade termer som "inomhus", som inte kan lokaliseras med markerings rutor.
 
-## <a name="object-detection-example"></a>Exempel för identifiering av objekt
+## <a name="object-detection-example"></a>Exempel på objekt identifiering
 
-Följande JSON-svar visar vad för visuellt innehåll returnerar när du söker efter objekt i exempelbild.
+Följande JSON-svar illustrerar vad Visuellt innehåll returnerar när objekt identifieras i exempel bilden.
 
-![En kvinna som använder en Microsoft Surface-enhet i en se](./Images/windows-kitchen.jpg)
+![En kvinna som använder en Microsoft-funktionsyta i en kök](./Images/windows-kitchen.jpg)
 
 ```json
 {
@@ -89,15 +89,15 @@ Följande JSON-svar visar vad för visuellt innehåll returnerar när du söker 
 
 ## <a name="limitations"></a>Begränsningar
 
-Det är viktigt att notera begränsningarna i objektidentifiering så att du kan undvika eller minimera effekterna av FALSKT negativ (missade objekt) och begränsad information.
+Det är viktigt att notera begränsningarna för objekt identifiering så att du kan undvika eller minimera effekterna av falska negativa objekt (missade objekt) och begränsad information.
 
-* Objekt identifieras vanligtvis inte om de är liten (mindre än 5% av bilden).
-* Objekt identifieras vanligtvis inte om de är placerade nära tillsammans (en stack med nivåer, till exempel).
-* Objekt särskiljs inte med hjälp av varumärke eller produkt-namn (olika typer av sodavatten på en store-hylla, till exempel). Men du kan få varumärke information från en avbildning med hjälp av den [varumärken identifiering](concept-brand-detection.md) funktionen.
+* Objekt identifieras normalt inte om de är små (mindre än 5% av bilden).
+* Objekt identifieras vanligt vis inte om de ordnas nära varandra (en trave med plåtar, till exempel).
+* Objekt särskiljs inte av varumärke-eller produkt namn (olika typer av sodas på en butiks hylla, till exempel). Du kan dock få varumärkes information från en avbildning med hjälp av funktionen [varumärkes identifiering](concept-brand-detection.md) .
 
 ## <a name="use-the-api"></a>Använda API:et
 
-Funktionen för identifiering av objekt är en del av den [analysera bild](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) API. Du kan anropa detta API via en intern SDK eller REST-anrop. Inkludera `Objects` i den **visualFeatures** frågeparameter. Sedan, när du får det fullständiga JSON-svaret helt enkelt parsa strängen för innehållet i den `"objects"` avsnittet.
+Funktionen objekt identifiering är en del av API: et [analys av avbildning](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) . Du kan anropa API: et via en inbyggd SDK eller via REST-anrop. Inkludera `Objects` i **visualFeatures** -Frågeparametern. När du sedan får det fullständiga JSON-svaret ska du bara parsa strängen för innehållet i `"objects"` avsnittet.
 
-* [Snabbstart: Analysera en bild (.NET SDK)](./quickstarts-sdk/csharp-analyze-sdk.md)
+* [Snabbstart: Visuellt innehåll .NET SDK)](./quickstarts-sdk/csharp-sdk.md)
 * [Snabbstart: Analysera en bild (REST API)](./quickstarts/csharp-analyze.md)

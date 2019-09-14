@@ -14,23 +14,23 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 04/15/2019
 ms.author: aschhab
-ms.custom: seo-java-july2019, seo-java-august2019
-ms.openlocfilehash: 2e64f996a346e0241fd5feefb11a38a0c8605b27
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019
+ms.openlocfilehash: 7cd7bcd4bd10152ecd2fa60e4e8418f17db16b61
+ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70173389"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70967836"
 ---
 # <a name="use-service-bus-topics-and-subscriptions-with-java"></a>Använda Service Bus ämnen och prenumerationer med Java
 
 [!INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
 
-I den här snabb starten skriver du Java-kod för att skicka meddelanden till ett Service Bus ämne och sedan ta emot meddelanden från prenumerationer på det avsnittet. 
+I den här snabb starten skriver du Java-kod för att skicka meddelanden till ett Azure Service Bus ämne och sedan ta emot meddelanden från prenumerationer på det avsnittet. 
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-1. En Azure-prenumeration. Du behöver ett Azure-konto för att slutföra den här självstudien. Du kan aktivera dina [förmåner för Visual Studio eller MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) -prenumeranter eller registrera dig för ett [kostnads fritt konto](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
+1. En Azure-prenumeration. Du behöver ett Azure-konto för att slutföra den här självstudien. Du kan aktivera dina [förmåner för Visual Studio eller MSDN-prenumeranter](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) eller registrera dig för ett [kostnads fritt konto](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
 2. Följ stegen i [snabb starten: Använd Azure Portal för att skapa ett Service Bus ämne och prenumerationer på avsnittet](service-bus-quickstart-topics-subscriptions-portal.md) för att utföra följande uppgifter:
     1. Skapa ett Service Bus- **namnområde**.
     2. Hämta **anslutnings strängen**.

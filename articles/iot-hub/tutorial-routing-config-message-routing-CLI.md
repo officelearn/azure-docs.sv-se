@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: robinsh
 ms.custom: mvc
-ms.openlocfilehash: defb47f49549bf8ca308aec9862c1bcc08f1ff4e
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: 103a18389a2b956f20b61ce45d045fb9a11c4356
+ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69535017"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70984718"
 ---
 # <a name="tutorial-use-the-azure-cli-to-configure-iot-hub-message-routing"></a>Självstudier: Använd Azure CLI för att konfigurera IoT Hub meddelanderoutning
 
@@ -26,7 +26,7 @@ ms.locfileid: "69535017"
 
 För den andra delen av den här självstudien kan du hämta och köra ett Visual Studio-program för att skicka meddelanden till IoT Hub. Det finns en mapp i nedladdningen som innehåller Azure Resource Manager mall och parameter filen, samt Azure CLI-och PowerShell-skript.
 
-Om du vill visa det färdiga skriptet laddar du ned [Azure IoT C# ](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip)-exemplen. Zippa upp Master. zip-filen. Azure CLI-skriptet är i/iot-hub/Tutorials/Routing/SimulatedDevice/resources/som **iothub_routing_cli. azcli**.
+Om du vill visa det färdiga skriptet laddar du ned [Azure C# IoT-exemplen](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip). Zippa upp Master. zip-filen. Azure CLI-skriptet är i/iot-hub/Tutorials/Routing/SimulatedDevice/resources/som **iothub_routing_cli. azcli**.
 
 ## <a name="use-the-azure-cli-to-create-your-resources"></a>Använd Azure CLI för att skapa resurser
 
@@ -45,7 +45,7 @@ Kopiera och klistra in skriptet nedan i Cloud Shell och tryck på RETUR. Den kö
 ```azurecli-interactive
 # This command retrieves the subscription id of the current Azure account. 
 # This field is used when setting up the routing queries.
-subscriptionID=$(az account show --query id)
+subscriptionID=$(az account show --query id -o tsv)
 
 # Concatenate this number onto the resources that have to be globally unique.
 # You can set this to "" or to a specific value if you don't want it to be random.

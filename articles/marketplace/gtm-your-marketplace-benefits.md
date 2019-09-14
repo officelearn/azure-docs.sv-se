@@ -5,14 +5,14 @@ services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 author: qianw211
 ms.service: marketplace
 ms.topic: article
-ms.date: 09/04/2019
+ms.date: 09/10/2019
 ms.author: v-qiwe
-ms.openlocfilehash: d1a0f3ea46922b8a684c269c13df068e0c879cbd
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: c09e685d10764470d328e7c66293551287b5b1b2
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70309056"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70962704"
 ---
 # <a name="your-commercial-marketplace-benefits"></a>Dina kommersiella marknads förmåner
 
@@ -74,7 +74,7 @@ Alla partner som har ett Live-erbjudande får arbeta med en engagerad engagemang
 
 Detaljerade beskrivningar för alla dessa förmåner finns i [program däcken för Marketplace](https://aka.ms/marketplacerewards)-förmåner.
 
-Förutom förmåns förmånerna har företags program partner med Dynamics-erbjudanden publicerat till Microsoft AppSource har en extra programmering som är tillgänglig för dem via [ISV Connect](https://partner.microsoft.com/en-us/solutions/business-applications/isv-overview). Detta inkluderar teknisk, marknadsförings-och försäljnings support som är specialiserad för affärs program partner behov.
+Förutom förmåns förmånerna har företags program partner med Dynamics-erbjudanden publicerat till Microsoft AppSource har en extra programmering som är tillgänglig för dem via [ISV Connect](https://partner.microsoft.com/solutions/business-applications/isv-overview). Detta inkluderar teknisk, marknadsförings-och försäljnings support som är specialiserad för affärs program partner behov.
 
 ## <a name="marketplace-rewards-requirements-and-restrictions"></a>Krav och begränsningar för Marketplace-förmåner
 
@@ -101,9 +101,9 @@ Transaktioner som är beprövade att vara bedrägliga räknas inte över till en
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om du har skapat ditt erbjudande i Cloud Partner Portal loggar du in för att skapa eller konfigurera ditt erbjudande.
+Om du har skapat ditt erbjudande i [Cloud Partner Portal](https://cloudpartner.azure.com)loggar du in för att skapa eller konfigurera ditt erbjudande.
 
-Om du har skapat erbjudandet i Partner Center loggar du in för att skapa eller konfigurera ditt erbjudande.
+Om du har skapat erbjudandet i [partner Center](https://partner.microsoft.com/en-us/dashboard/commercial-marketplace/overview)loggar du in för att skapa eller konfigurera ditt erbjudande.
 
 Granska de [självbetjänings resurser som är tillgängliga för dig](https://partner.microsoft.com/asset/collection/azure-marketplace-and-appsource-publisher-toolkit#/).
 

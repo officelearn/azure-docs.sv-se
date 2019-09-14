@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 06/07/2019
-ms.openlocfilehash: 6877595f191c326ed73b347d46cb1aeb404702b5
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: 8bcb6caa418f7bd5c5241d06dbda69ccba360f2c
+ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70232225"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70984457"
 ---
 # <a name="what-are-the-apache-hadoop-components-and-versions-available-with-hdinsight"></a>Vilka Apache Hadoops komponenter och versioner är tillgängliga med HDInsight?
 
@@ -31,7 +31,6 @@ Komponent versioner som är associerade med HDInsight-kluster versioner visas i 
 
 | Komponent | HDInsight 4.0 | HDInsight 3,6 (standard) | HDInsight 3,5 | HDInsight 3,4 | HDInsight 3,3 | HDInsight 3,2 |
 |---------------------------|---------------|-----------------------------|---------------|---------------|---------------|----------------------|
-| Hortonworks Data Platform | 3.0 | 2.6 | 2.5 | 2.4 | 2.3 | 2.2 |
 | Apache Hadoop och garn | 3.1.1 | 2.7.3 | 2.7.3 | 2.7.1 | 2.7.1 | 2.6.0 |
 | Apache Tez | 0.9.1 | 0.7.0 | 0.7.0 | 0.7.0 | 0.7.0 | 0.5.2 |
 | Apache Pig | 0.16.0 | 0.16.0 | 0.16.0 | 0.15.0 | 0.15.0 | 0.14.0 |
@@ -150,7 +149,7 @@ Service nivå avtalet (SLA) definieras i ett _support fönster_. Support fönstr
 * Formel 1: Lägg till 180 dagar till det datum då HDInsight-klustrets version X släpptes.
 * Formel 2: Lägg till 90 dagar till det datum då HDInsight-klustrets version X + 1 görs tillgänglig i Azure Portal.
 
-_Datumet_ för indragningen är det datum då kluster versionen inte kan skapas i HDInsight. Från och med den 31 juli 2017 kan du inte ändra storlek på ett HDInsight-kluster efter indragnings datumet. 
+_Datumet för indragningen_ är det datum då kluster versionen inte kan skapas i HDInsight. Från och med den 31 juli 2017 kan du inte ändra storlek på ett HDInsight-kluster efter indragnings datumet. 
 
 > [!NOTE]  
 > HDInsight Windows-kluster (inklusive version 2,1, 3,0, 3,1, 3,2 och 3,3) körs på Azure gäst operativ system familj version 4, som använder 64-bitars versionen av Windows Server 2012 R2. Azure gäst operativ system familj version 4 stöder .NET Framework versionerna 4,0, 4,5, 4.5.1 och 4.5.2.

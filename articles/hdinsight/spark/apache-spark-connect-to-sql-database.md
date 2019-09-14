@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/21/2019
-ms.openlocfilehash: 20c4571ee795c280e6c916e3080279a6d13fecce
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: c262d3841acd3497667c00a9deee04b304ddae76
+ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70814208"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70984814"
 ---
 # <a name="use-hdinsight-spark-cluster-to-read-and-write-data-to-azure-sql-database"></a>Använd HDInsight Spark-kluster för att läsa och skriva data till Azure SQL Database
 
@@ -182,7 +182,7 @@ I det här avsnittet strömmar vi data till **hvactable** som du redan har skapa
 
 1. Utdata visar schemat för **HVAC. csv**. **Hvactable** har också samma schema. Utdata visar kolumnerna i tabellen.
 
-    ![Schema för tabell](./media/apache-spark-connect-to-sql-database/schema-of-table.png "Schema för tabell")
+    ![Schema för tabell](./media/apache-spark-connect-to-sql-database/hdinsight-schema-table.png "Schema för tabell")
 
 1. Använd slutligen följande kodfragment för att läsa data från HVAC. csv och strömma dem till **hvactable** i Azure SQL Database. Klistra in kodfragmentet i en kod cell, Ersätt plats hållarnas värden med värdena för din Azure SQL-databas och tryck sedan på **SKIFT + RETUR** för att köra.
 

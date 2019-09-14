@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
-ms.date: 05/07/2019
+ms.date: 09/12/2019
 ms.author: diberry
-ms.openlocfilehash: cd67f435ff390267e01acd99594b9063db4c4ee1
-ms.sourcegitcommit: a6888fba33fc20cc6a850e436f8f1d300d03771f
+ms.openlocfilehash: 376c2efbf3269092d0534870108ef6d753f8743e
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69559087"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70962531"
 ---
 # <a name="personalizer-settings"></a>Inställningar för personanpassa
 
@@ -53,7 +53,7 @@ När du har ändrat de här inställningarna ska du se till att välja **Spara**
 
 ### <a name="exploration-setting"></a>Utforsknings inställning 
 
-Anpassningar kan identifiera nya mönster och anpassa sig till användar beteende förändringar över tid genom att utforska alternativ. Inställningen för att avgöra hur stor procent andel rang samtal besvaras med utforskning. 
+Anpassningar kan identifiera nya mönster och anpassa sig till användar beteende förändringar över tid genom att utforska alternativ. Inställningen **för att avgöra** hur stor procent andel rang samtal besvaras med utforskning. 
 
 Ändringar av den här inställningen återställer den aktuella personanpassa modellen och tränar den med de senaste två dagarnas data.
 
@@ -63,17 +63,17 @@ När du har ändrat den här inställningen, se till att välja **Spara**.
 
 ### <a name="model-update-frequency"></a>Uppdaterings frekvens för modell
 
-Den senaste modellen, som tränas från belönings-API-anrop från varje aktiv händelse, används inte automatiskt av ett personligt rang anrop. Uppdaterings frekvensen för **modellen** anger hur ofta modellen som används av ranknings anropet uppdateras. 
+Den senaste modellen, som tränas från belönings-API-anrop från varje aktiv händelse, används inte automatiskt av ett personligt rang anrop. **Uppdaterings frekvensen för modellen** anger hur ofta modellen som används av ranknings anropet uppdateras. 
 
 Hög modell uppdaterings frekvens är användbart i situationer där du vill spåra ändringar i användar beteenden. Exempel på detta är webbplatser som körs på direktsända nyheter, virus innehåll eller Live Product-budgivning. Du kan använda en frekvens på 15 minuter i dessa scenarier. För de flesta användnings fall är en lägre uppdaterings frekvens effektiv. Uppdaterings frekvensen på en minut är användbar när du felsöker ett programs kod med hjälp av personanpassa, gör demonstrationer eller interaktivt testar maskin inlärnings aspekter.
 
-![Modell uppdaterings frekvens anger hur ofta en ny personanpassa modell ska omtränas.](media/settings/configure-model-update-frequency-settings.png)
+![Modell uppdaterings frekvens anger hur ofta en ny personanpassa modell ska omtränas.](media/settings/configure-model-update-frequency-settings-15-minutes.png)
 
 När du har ändrat den här inställningen, se till att välja **Spara**.
 
 ### <a name="data-retention"></a>Datakvarhållning
 
-**Data lagrings period** anger hur många dagars personanpassare som ska behålla data loggar. Tidigare data loggar krävs för att utföra [offline](concepts-offline-evaluation.md)-utvärderingar som används för att mäta effektiviteten hos personanpassare och optimera inlärnings policyn.
+**Data lagrings period** anger hur många dagars personanpassare som ska behålla data loggar. Tidigare data loggar krävs för att utföra [offline-utvärderingar](concepts-offline-evaluation.md)som används för att mäta effektiviteten hos personanpassare och optimera inlärnings policyn.
 
 När du har ändrat den här inställningen, se till att välja **Spara**.
 

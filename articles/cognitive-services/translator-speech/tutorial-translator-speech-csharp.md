@@ -3,20 +3,20 @@ title: 'Självstudier: Translator Speech API C#'
 titleSuffix: Azure Cognitive Services
 description: Använda Translator Speech API för att översätta text i realtid.
 services: cognitive-services
-author: swmachan
+author: nitinme
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-speech
 ms.topic: tutorial
 ms.date: 3/5/2018
-ms.author: swmachan
+ms.author: nitinme
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: a3853dd810182948e12b578c33b8cb91bef4b1cf
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 669322aefb152729cc120abc0d7a52ce9d1151da
+ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67445590"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70965288"
 ---
 # <a name="tutorial-translator-speech-application-in-c"></a>Självstudier: Translator Speech-program i C#
 
@@ -34,13 +34,13 @@ En Visual Studio-lösningsfil för det här programmet [finns på GitHub](https:
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Den här självstudien behöver du en utgåva av Visual Studio-2019, inklusive Community-utgåvan av.
+I den här självstudien behöver du en version av Visual Studio 2019, inklusive community-versionen.
 
 Visual Studio-lösningen skapar också ett installationsprogram för programmet. Du behöver [WiX Toolset](http://wixtoolset.org/) och [WiX Toolset Visual Studio Extension](https://marketplace.visualstudio.com/items?itemName=RobMensching.WixToolsetVisualStudio2017Extension) för att kunna använda den här funktionen.
 
 Du behöver också en prenumerationsnyckel för Translator Speech-tjänsten. Du kan hämta den via Microsoft Azure-instrumentpanelen. Det finns en kostnadsfri prisnivå. Med den kan du översätta upp till 10 timmars tal per månad utan kostnad. Den nivån räcker för den här kursen.
 
-Tredje parts [JSON.NET biblioteket](https://www.newtonsoft.com/json) (från Newtonsoft) krävs också. Den här sammansättningen installeras automatiskt av NuGet om båda kryssrutorna för Package Restore (paketåterställning) är markerade i Visual Studio-alternativen.
+[JSON.net-biblioteket](https://www.newtonsoft.com/json) från tredje part (från Newtonsoft) krävs också. Den här sammansättningen installeras automatiskt av NuGet om båda kryssrutorna för Package Restore (paketåterställning) är markerade i Visual Studio-alternativen.
 
 ## <a name="trying-the-translation-app"></a>Prova översättningsappen
 

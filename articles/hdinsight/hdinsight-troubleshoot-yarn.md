@@ -6,12 +6,12 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.topic: troubleshooting
 ms.date: 08/15/2019
-ms.openlocfilehash: 8bfe249b0295bc860cf17a006c3787ff8afa676b
-ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
+ms.openlocfilehash: 15ef18663a42153c11a55d4c5963d47f0e2514d6
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69573704"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70961722"
 ---
 # <a name="troubleshoot-apache-hadoop-yarn-by-using-azure-hdinsight"></a>Felsöka Apache Hadoop garn med hjälp av Azure HDInsight
 
@@ -33,27 +33,27 @@ I det här exemplet, två befintliga köer (**standard** och **thriftsvr**) båd
 
 1. Välj den **Ambari-vyer** ikonen och välj sedan mönstret rutnätet. Välj sedan **YARN köhanteraren**.
 
-    ![Välj ikonen Ambari-vyer](media/hdinsight-troubleshoot-yarn/create-queue-1.png)
+    ![Välj ikonen Ambari-vyer](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-1.png)
 2. Välj den **standard** kö.
 
-    ![Välj standardkö](media/hdinsight-troubleshoot-yarn/create-queue-2.png)
+    ![Välj standardkö](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-2.png)
 3. För den **standard** kö, ändra den **kapacitet** från 50% till 25%. För den **thriftsvr** kö, ändra den **kapacitet** till 25%.
 
-    ![Ändra kapaciteten till 25% för standard och thriftsvr köer](media/hdinsight-troubleshoot-yarn/create-queue-3.png)
+    ![Ändra kapaciteten till 25% för standard och thriftsvr köer](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-3.png)
 4. Om du vill skapa en ny kö, Välj **Lägg till kö**.
 
-    ![Välj Lägg till kö](media/hdinsight-troubleshoot-yarn/create-queue-4.png)
+    ![Välj Lägg till kö](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-4.png)
 
 5. Namnge den nya kön.
 
-    ![Namn på kön Spark](media/hdinsight-troubleshoot-yarn/create-queue-5.png)  
+    ![Namn på kön Spark](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-5.png)  
 
 6. Lämna den **kapacitet** värden på 50% och välj sedan den **åtgärder** knappen.
 
-    ![Välj knappen åtgärder](media/hdinsight-troubleshoot-yarn/create-queue-6.png)  
+    ![Välj knappen åtgärder](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-6.png)  
 7. Välj **spara och uppdatera köer**.
 
-    ![Välj Spara och uppdatera köer](media/hdinsight-troubleshoot-yarn/create-queue-7.png)  
+    ![Välj Spara och uppdatera köer](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-7.png)  
 
 Dessa ändringar visas direkt på Scheduler YARN-Användargränssnittet.
 

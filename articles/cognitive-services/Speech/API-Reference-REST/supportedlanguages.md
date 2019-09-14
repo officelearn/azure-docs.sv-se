@@ -1,30 +1,30 @@
 ---
-title: Språk som stöds av Bing-taligenkänning | Microsoft Docs
+title: Taligenkänning i Bing språk som stöds | Microsoft Docs
 titlesuffix: Azure Cognitive Services
-description: En lista över talat språk som stöds av Bing-taligenkänning.
+description: En lista med talade språk som stöds av Taligenkänning i Bing.
 services: cognitive-services
-author: zhouwangzw
-manager: wolfma
+author: nitinme
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
-ms.author: zhouwang
+ms.author: nitinme
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 2cce7203d23d5de77200fdf75ab31042d9608352
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e53980482a2d355c0fb024658f8012d65354c7a5
+ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64866379"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70965942"
 ---
 # <a name="supported-languages"></a>Språk som stöds
 
 [!INCLUDE [Deprecation note](../../../../includes/cognitive-services-bing-speech-api-deprecation-note.md)]
 
-## <a name="interactive-and-dictation-mode"></a>Interaktiv och diktering läge
+## <a name="interactive-and-dictation-mode"></a>Interaktivt läge och diktamensläge
 
-Microsoft taligenkänningens API stöder följande språk i `interactive` och `dictation` lägen.
+API: t för tal igenkänning i Microsoft stöder följande `interactive` språk `dictation` i och-lägen.
 
 |Kod | Språk | Kod | Språk |
 |-----|-----|-----|-----|
@@ -41,16 +41,16 @@ Microsoft taligenkänningens API stöder följande språk i `interactive` och `d
 | es-ES | Spanska (Spanien) | SV-SE | Svenska (Sverige) |
 | es-MX | Spanska (Mexiko) |zh-CN | Kinesiska (Mandarin, förenklad)  |
 | fi-FI | Finska (Finland) |zh-HK | Kinesiska (Hongkong SAR) |
-| fr-CA | Franska (Kanada) | zh-TW | Kinesiska (Mandarin, Taiwanesiska)|
+| fr-CA | Franska (Kanada) | zh-TW | Kinesiska (mandariner, Taiwan)|
 | fr-FR | Franska (Frankrike) | ||
 
-## <a name="conversation-mode"></a>Konversationen läge
+## <a name="conversation-mode"></a>Konversations läge
 
-Microsoft taligenkänningens API stöder följande språk i `conversation` lägen.
+API: t för tal igenkänning i Microsoft stöder följande `conversation` språk i lägen.
 
 | Kod | Språk | Kod | Språk |
 |-----|-----|-----|-----|
-| ar-t.ex. | Arabiska (Egypten), moderna standard | IT-IT | Italienska (Italien) |
+| ar-t.ex. | Arabiska (Egypten), moderna standard | det – IT | Italienska (Italien) |
 | de-DE | Tyska (Tyskland) | ja-JP | Japanska (Japan) |
 | en-US | Engelska (USA) | pt-BR | Portugisiska (Brasilien) |
 | es-ES | Spanska (Spanien) | ru-RU | Ryska (Ryssland) |

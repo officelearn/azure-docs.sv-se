@@ -8,17 +8,17 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: conceptual
-ms.date: 07/26/2019
-ms.openlocfilehash: df43b52514eebc3216dbec01cff0d8a3b14e7940
-ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
+ms.date: 08/01/2019
+ms.openlocfilehash: 8e2e9d30fa24e56711a0d6800a8ca9a34e53c12e
+ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68517662"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70967237"
 ---
 # <a name="add-artifacts-to-your-integration-service-environment-ise-in-azure-logic-apps"></a>Lägga till artefakter i integrerings tjänst miljön (ISE) i Azure Logic Apps
 
-När du har skapat en [integrerings tjänst miljö (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)lägger du till artefakter som Logi Kap par, integrations konton och anpassade anslutningar så att de kan komma åt resurserna i ditt virtuella Azure-nätverk.
+När du har skapat en [integrerings tjänst miljö (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)lägger du till artefakter som Logi Kap par, integrations konton och anslutningar så att de kan komma åt resurserna i ditt virtuella Azure-nätverk.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -28,7 +28,7 @@ När du har skapat en [integrerings tjänst miljö (ISE)](../logic-apps/connect-
 
 <a name="create-logic-apps-environment"></a>
 
-## <a name="create-logic-apps-in-an-ise"></a>Skapa Logic Apps i en ISE
+## <a name="create-logic-apps"></a>Skapa Logic Apps
 
 Följ dessa steg om du vill skapa Logi Kap par som körs i integrerings tjänst miljön (ISE):
 
@@ -57,7 +57,7 @@ Följ dessa steg om du vill skapa Logi Kap par som körs i integrerings tjänst 
 
 <a name="create-integration-account-environment"></a>
 
-## <a name="create-integration-accounts-in-an-ise"></a>Skapa integrations konton i en ISE
+## <a name="create-integration-accounts"></a>Skapa integrations konton
 
 Utifrån den [ISE-SKU](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level) som valts vid skapandet, innehåller din ISE en viss integrerings konto användning utan extra kostnad. Logi Kap par som finns i en integrerings tjänst miljö (ISE) kan endast referera till integrations konton som finns i samma ISE. För att ett integrations konto ska fungera med logi Kap par i en ISE måste både integrations kontot och Logic Apps använda *samma miljö* som platsen. Mer information om integrations konton och ISEs finns i [integrations konton med](connect-virtual-network-vnet-isolated-environment-overview.md#create-integration-account-environment
 )ISE.
@@ -74,7 +74,7 @@ Följ dessa steg om du vill skapa ett integrations konto som använder en ISE:
 
 1. Ange namn, Azure-prenumeration, Azure-resurs grupp (ny eller befintlig) och pris nivå som ska användas för ditt integrations konto.
 
-1. I listan **plats** i avsnittet integrerings **tjänst miljöer** väljer du samma ISE som din Logi Kap par använder, till exempel:
+1. I listan **plats** i avsnittet **integrerings tjänst miljöer** väljer du samma ISE som din Logi Kap par använder, till exempel:
 
    ![Välj integrerings tjänst miljö](./media/add-artifacts-integration-service-environment-ise/create-integration-account-with-integration-service-environment.png)
 
@@ -84,9 +84,25 @@ Följ dessa steg om du vill skapa ett integrations konto som använder en ISE:
 
 1. Information om hur du hanterar integrations konton i din ISE finns i [Hantera integrerings tjänst miljön](../logic-apps/ise-manage-integration-service-environment.md).
 
+<a name="add-ise-connectors-environment"></a>
+
+## <a name="add-ise-connectors"></a>Lägg till ISE-anslutningar
+
+Du kan lägga till Microsoft-hanterade anslutningar som är tillgängliga för användning i din ISE men som inte distribueras i din ISE.
+
+1. På menyn ISE väljer du **hanterade anslutningar**under **Inställningar**. Välj **Lägg till**i verktygsfältet.
+
+   ![Visa hanterade anslutningar](./media/add-artifacts-integration-service-environment-ise/ise-view-managed-connectors.png)
+
+1. Öppna listan **Sök koppling** i fönstret **Lägg till en ny hanterad koppling** . Om den koppling som du vill använda är tillgänglig väljer du den kopplingen och väljer sedan **skapa**.
+
+   Listan visar bara de anslutningar som är berättigade men som inte distribueras i din ISE. Anslutningar som redan har distribuerats i din ISE visas inte tillgängliga för markering.
+
+   ![Välj kvalificerad koppling](./media/add-artifacts-integration-service-environment-ise/add-managed-connector.png)
+
 <a name="create-custom-connectors-environment"></a>
 
-## <a name="create-custom-connectors-in-an-ise"></a>Skapa anpassade anslutningar i en ISE
+## <a name="create-custom-connectors"></a>Skapa anpassade anslutningar
 
 Om du vill använda anpassade anslutningar i ISE skapar du de anpassade anslutningarna direkt inuti din ISE.
 
@@ -96,7 +112,7 @@ Om du vill använda anpassade anslutningar i ISE skapar du de anpassade anslutni
 
 1. Ange namnet, Azure-prenumerationen och Azure-resurs gruppen (ny eller befintlig) som ska användas för din anpassade anslutning.
 
-1. I listan **plats** i avsnittet integrerings **tjänst miljöer** väljer du samma ISE som din Logi Kap par använder och väljer **skapa**, till exempel:
+1. I listan **plats** i avsnittet **integrerings tjänst miljöer** väljer du samma ISE som din Logi Kap par använder och väljer **skapa**, till exempel:
 
    ![Välj integrerings tjänst miljö](./media/add-artifacts-integration-service-environment-ise/create-custom-connector-with-integration-service-environment.png)
 

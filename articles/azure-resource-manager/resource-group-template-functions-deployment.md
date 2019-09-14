@@ -4,14 +4,14 @@ description: Beskriver de funktioner som används i en Azure Resource Manager-ma
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 01/03/2019
+ms.date: 09/13/2019
 ms.author: tomfitz
-ms.openlocfilehash: 236fbb9e4ed3283ecf9147e6eb5033fb906a127b
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: 12698d1655c414b1ee3b9866cc975dc53e4ef095
+ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70194350"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70983980"
 ---
 # <a name="deployment-functions-for-azure-resource-manager-templates"></a>Distributions funktioner för Azure Resource Manager mallar 
 
@@ -24,8 +24,6 @@ Resource Manager innehåller följande funktioner för att hämta värden från 
 För att hämta värden från resurser, resurs grupper eller prenumerationer, se [resurs funktioner](resource-group-template-functions-resource.md).
 
 <a id="deployment" />
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="deployment"></a>deployment
 `deployment()`
@@ -136,18 +134,6 @@ Föregående exempel returnerar följande objekt:
 }
 ```
 
-Om du vill distribuera den här exempel-mallen med Azure CLI, använder du:
-
-```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/deployment.json
-```
-
-Om du vill distribuera den här exempelmall med PowerShell använder du:
-
-```powershell
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/deployment.json
-```
-
 En mall för en prenumerations nivå som använder distributions funktionen finns i [funktionen för prenumerations distribution](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/deploymentsubscription.json). Den distribueras med antingen `az deployment create` eller `New-AzDeployment` -kommandona.
 
 <a id="parameters" />
@@ -248,23 +234,13 @@ Utdata från föregående exempel med standardvärdena är:
 
 | Namn | Typ | Value |
 | ---- | ---- | ----- |
-| stringOutput | Sträng | alternativ 1 |
+| stringOutput | Sträng | Alternativ 1 |
 | intOutput | Int | 1 |
 | objectOutput | Object | {"One": "a", "två": "b"} |
 | arrayOutput | Array | [1, 2, 3] |
-| crossOutput | Sträng | alternativ 1 |
+| crossOutput | Sträng | Alternativ 1 |
 
-Om du vill distribuera den här exempel-mallen med Azure CLI, använder du:
-
-```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/parameters.json
-```
-
-Om du vill distribuera den här exempelmall med PowerShell använder du:
-
-```powershell
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/parameters.json
-```
+Mer information om hur du använder parametrar finns [i parametrar i Azure Resource Manager mall](template-parameters.md).
 
 <a id="variables" />
 
@@ -356,17 +332,7 @@ Utdata från föregående exempel med standardvärdena är:
 | exampleOutput3 | Sträng | Variabel |
 | exampleOutput4 |  Object | {"Egenskap1": "värde1", "Egenskap2": "värde2"} |
 
-Om du vill distribuera den här exempel-mallen med Azure CLI, använder du:
-
-```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/variables.json
-```
-
-Om du vill distribuera den här exempelmall med PowerShell använder du:
-
-```powershell
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/variables.json
-```
+Mer information om hur du använder variabler finns [i variabler i Azure Resource Manager mall](template-variables.md).
 
 ## <a name="next-steps"></a>Nästa steg
 * En beskrivning av avsnitt i en Azure Resource Manager-mall finns i [redigera Azure Resource Manager-mallar](resource-group-authoring-templates.md).

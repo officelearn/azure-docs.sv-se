@@ -7,12 +7,12 @@ ms.author: shthota
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 09/09/2019
-ms.openlocfilehash: be1da90ef089da412545ac8af6fabb04198d821c
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
-ms.translationtype: HT
+ms.openlocfilehash: 535dae4226f7db9cbc7240f9a92642f0e206cd3b
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70880174"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70962739"
 ---
 # <a name="analytics-for-the-commercial-marketplace-in-partner-center"></a>Analys för den kommersiella marknads platsen i Partner Center
 
@@ -26,7 +26,6 @@ Om du vill komma åt Partner Center Analytics-verktyg öppnar du **[analys](http
 |[Ordna](#orders-dashboard)|Information om dina beställningar i ett grafiskt och nedladdnings Bart format|
 |[Kunden](#customer-dashboard)|Information om dina kunder, inklusive tillväxt trender, som presenteras i ett grafiskt och nedladdnings Bart format|
 |[–](#downloads-dashboard)|En lista över dina nedladdnings begär Anden under de senaste 30 dagarna|
-|[Klassificeringar och recensioner](#ratings-and-reviews)| Information om klassificering och recensioner som kunderna lämnar för de erbjudanden som de har köpt.
 
 ## <a name="summary-dashboard"></a>Sammanfattnings instrument panel
 
@@ -286,38 +285,3 @@ Du får ett popup-meddelande och ett e-postmeddelande som innehåller en länk t
 | Namn på leverantör| Kunden| Namnet på leverantören som är involverad i relationen mellan Microsoft och slut kunden. Om kunden är ett företag genom åter försäljaren blir detta åter försäljaren. Om en moln lösnings leverantör (CSP) är involverad är detta CSP.|
 | SKU| Beställa| SKU-namn som definieras under publiceringen. Ett erbjudande kan ha många SKU: er, men en SKU kan bara associeras med ett enda erbjudande.||
 | Slutdatum för utvärdering| Beställa| Det datum då utvärderings perioden för den här ordern upphör eller har avslut ATS.||
-
-## <a name="ratings-and-reviews"></a>Klassificeringar och recensioner
-
-När kunder bläddrar, söker efter och köper erbjudanden på båda marknads platser kan de lämna betyg och recensioner om de erbjudanden de har köpt. De kan skicka in nya klassificeringar eller recensioner och uppdatera eller ta bort klassificeringar eller recensioner som redan har skickats. Granskningar publiceras i Azure Marketplace eller AppSource på fliken recensioner på sidan för erbjudandets produkt visning. Kunder kan inkludera sina namn för klassificeringar eller recensioner, eller så kan de publicera anonymt.  
-
-> [!NOTE]
-> Kunder kan bara göra ändringar i de klassificeringar och recensioner de äger.
-
-På **instrument panelen klassificering & granska** visas trender och insikter om kund aktiviteter. Den ger grafiska representationer av:
-
-- Klassificering & granskningar  
-- Granska kommentarer
-
-### <a name="marketplace-storefront-tabs"></a>Marketplace butik-flikar
-
-Utgivare kan visa sina erbjudande mått separat på AppSource-& Azure Marketplace-flikarna. Om du vill visa vissa erbjudande mått väljer du **erbjudandet** i list rutan:
-
-![List rutan för att analysera erbjudande i partner centret](./media/analyze-offer-dropdown.png)
-
-### <a name="ratings-and-reviews-summary"></a>Sammanfattning av klassificering och recensioner
-
-I sammanfattnings avsnittet klassificerings & recensioner visas måtten nedan för det valda datum intervallet:
-
-- **Genomsnittligt omdöme:** Viktad genomsnittlig stjärn klassificering av alla klassificeringar som skickats av kunder för det valda erbjudandet.
-- **Klassificering av klassificering:** Nedbrytning av stjärn klassificeringen med antalet kunder som har skickat betyg. Stapeldiagrammet staplas med faktiska och ändrade klassificeringar (uppdaterat betygs antal).
-- **Total betyg:** Totalt antal inskickade klassificeringar. Det här antalet inkluderar även klassificeringar med och utan recensioner.
-- **Klassificering med recensioner:** Antal granskningar som har skickats.
-
-![Översikt över analys och granskning i Partner Center](./media/analyze-ratings-summary.png)
-
-### <a name="review-comments"></a>Granska kommentarer
-
-Granskningar visas i kronologisk ordning för när de publicerades. I standardvyn visas alla granskningar. Du kan filtrera igenom granskningarna efter stjärn klassificering med **filtret** i list menyn. Du kan också söka efter nyckelord som visas i granskningen.  
-
-![Partner Center, analysera gransknings kommentarer](./media/analyze-reviews.png)

@@ -3,16 +3,16 @@ title: Exempel på federal PBMM skiss-Control-mappning
 description: Styr mappningen av det federala PBMM skiss-exemplet till Azure Policy.
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 08/21/2019
+ms.date: 09/04/2019
 ms.topic: sample
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: 068e3253dbcb7ef8d0a5c0191ac1a0b75bd8c0e9
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: 18c098263a4760c8b4b48f6799bcb263aa9709a9
+ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70918772"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70968291"
 ---
 # <a name="control-mapping-of-the-canada-federal-pbmm-blueprint-sample"></a>Kontroll av kart provet i Kanadas federala PBMM-utkast
 
@@ -310,6 +310,12 @@ Den här skissen hjälper dig att övervaka systemet genom att granska och framt
 > Tillgängligheten för vissa Azure Policy definitioner kan variera i Azure Government och andra nationella moln. 
 
 ## <a name="next-steps"></a>Nästa steg
+
+Du har granskat kontroll mappningen av det federala PBMM skiss-exemplet. Gå sedan till följande artiklar för att lära dig mer om översikten och hur du distribuerar det här exemplet:
+
+> [!div class="nextstepaction"]
+> [Kanadas federala PBMM skiss – översikt](./control-mapping.md)
+> [Kanadas Federal PBMM skiss – distribuera steg](./deploy.md)
 
 Ytterligare artiklar om skisser och hur de används:
 

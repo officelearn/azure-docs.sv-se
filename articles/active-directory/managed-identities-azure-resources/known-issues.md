@@ -1,5 +1,5 @@
 ---
-title: Vanliga frågor och kända problem med hanterade identiteter för Azure-resurser
+title: Vanliga frågor och svar med hanterade identiteter för Azure-resurser
 description: Kända problem med hanterade identiteter för Azure-resurser.
 services: active-directory
 documentationcenter: ''
@@ -16,14 +16,14 @@ ms.workload: identity
 ms.date: 12/12/2017
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1eb5600a9793963a722967e1bbe702cf3b2f670e
-ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
+ms.openlocfilehash: 8d882b34bc4f057035a16b7916249cfe8f0b8d0b
+ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67147118"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70983438"
 ---
-# <a name="faqs-and-known-issues-with-managed-identities-for-azure-resources"></a>Vanliga frågor och kända problem med hanterade identiteter för Azure-resurser
+# <a name="faqs-and-known-issues-with-managed-identities-for-azure-resources"></a>Vanliga frågor och svar med hanterade identiteter för Azure-resurser
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
@@ -34,97 +34,97 @@ ms.locfileid: "67147118"
 
 ### <a name="does-managed-identities-for-azure-resources-work-with-azure-cloud-services"></a>Fungerar hanterade identiteter för Azure-resurser med Azure Cloud Services?
 
-Nej, det finns inga planer på att stöd för hanterade identiteter för Azure-resurser i Azure Cloud Services.
+Nej, det finns inga planer på att stödja hanterade identiteter för Azure-resurser i Azure Cloud Services.
 
-### <a name="does-managed-identities-for-azure-resources-work-with-the-active-directory-authentication-library-adal-or-the-microsoft-authentication-library-msal"></a>Fungerar hanterade identiteter för Azure-resurser med Active Directory Authentication Library (ADAL) eller Microsoft Authentication Library (MSAL)?
+### <a name="does-managed-identities-for-azure-resources-work-with-the-active-directory-authentication-library-adal-or-the-microsoft-authentication-library-msal"></a>Fungerar hanterade identiteter för Azure-resurser med Active Directory-autentiseringsbibliotek (ADAL) eller Microsoft Authentication Library (MSAL)?
 
-Nej, hanterade identiteter för Azure-resurser ännu inte är integrerad med ADAL eller MSAL. Mer information om skaffa en token som hanterade identiteter för Azure-resurser med hjälp av REST-slutpunkt finns [hur du använder hanterade identiteter för Azure-resurser på en Azure virtuell dator för att hämta en åtkomsttoken](how-to-use-vm-token.md).
+Nej, hanterade identiteter för Azure-resurser är ännu inte integrerade med ADAL eller MSAL. Information om hur du hämtar en token för hanterade identiteter för Azure-resurser med hjälp av REST-slutpunkten finns i [så här använder du hanterade identiteter för Azure-resurser på en virtuell Azure-dator för att få en](how-to-use-vm-token.md)åtkomsttoken.
 
-### <a name="what-is-the-security-boundary-of-managed-identities-for-azure-resources"></a>Vad är säkerhetsgränsen hanterade identiteter för Azure-resurser?
+### <a name="what-is-the-security-boundary-of-managed-identities-for-azure-resources"></a>Vad är säkerhets gränserna för hanterade identiteter för Azure-resurser?
 
-Säkerhetsgräns identitetsinformationen är den resurs som den är ansluten till. Till exempel säkerhetsgräns för en virtuell dator med hanterade identiteter för Azure-resurser aktiverad, är den virtuella datorn. Kod som körs på den virtuella datorn kan anropa hanterade identiteter för Azure-resurser token för slutpunkt och begäran. Det är samma möjligheter med andra resurser som stöder hanterade identiteter för Azure-resurser.
+Säkerhets gränserna för identiteten är den resurs som den är kopplad till. Till exempel är säkerhets gränserna för en virtuell dator med hanterade identiteter för Azure-resurser aktiverade den virtuella datorn. All kod som körs på den virtuella datorn kan anropa de hanterade identiteterna för Azure-resursernas slut punkt och begära token. Det är samma erfarenhet av andra resurser som har stöd för hanterade identiteter för Azure-resurser.
 
-### <a name="what-identity-will-imds-default-to-if-dont-specify-the-identity-in-the-request"></a>Vilka identity kommer IMDS standard om inte anger identiteten i begäran?
+### <a name="what-identity-will-imds-default-to-if-dont-specify-the-identity-in-the-request"></a>Vilken identitet kommer att IMDS standardvärdet om du inte anger identiteten i begäran?
 
-- Om systemtilldelad hanterad identitet är aktiverad och ingen identitet har angetts i begäran, som IMDS standard i systemet som tilldelats hanterad identitet.
-- Om systemtilldelad hanterad identitet inte har aktiverats och finns bara en användare som tilldelats hanterad identitet, som IMDS standard till den enda användaren som tilldelats hanterad identitet. 
-- Om systemtilldelad hanterad identitet inte har aktiverats, och flera användare som tilldelats hanterade identiteter finns, sedan ange en hanterad identitet i begäran måste anges.
+- Om systemtilldelad hanterad identitet är aktive rad och ingen identitet anges i begäran, kommer IMDS att använda den hanterade identiteten som standard.
+- Om systemtilldelad hanterad identitet inte är aktive rad och det bara finns en tilldelad hanterad identitet, kommer IMDS att använda den enskilda användaren som tilldelats den hanterade identiteten. 
+- Om systemtilldelad hanterad identitet inte är aktive rad och det finns flera tilldelade hanterade identiteter, måste du ange en hanterad identitet i begäran.
 
-### <a name="should-i-use-the-managed-identities-for-azure-resources-imds-endpoint-or-the-vm-extension-endpoint"></a>Ska jag använda de hanterade identiteterna för Azure-resurser IMDS slutpunkt eller VM-tillägget slutpunkten?
+### <a name="should-i-use-the-managed-identities-for-azure-resources-imds-endpoint-or-the-vm-extension-endpoint"></a>Bör jag använda hanterade identiteter för Azure Resources IMDS-slutpunkten eller slut punkten för VM-tillägget?
 
-När du använder hanterade identiteter för Azure-resurser med virtuella datorer, bör du använda IMDS-slutpunkten. Azure Instance Metadata Service är en REST-slutpunkt som är tillgängliga för alla virtuella IaaS-datorer skapas via Azure Resource Manager. 
+När du använder hanterade identiteter för Azure-resurser med virtuella datorer rekommenderar vi att du använder IMDS-slutpunkten. Azure Instance Metadata Service är en REST-slutpunkt som är tillgänglig för alla IaaS-VM: ar som skapats via Azure Resource Manager. 
 
 Några av fördelarna med att använda hanterade identiteter för Azure-resurser över IMDS är:
-- Alla operativsystem för Azure IaaS som stöds kan använda hanterade identiteter för Azure-resurser via IMDS.
-- Inte längre behöver du installera ett tillägg på den virtuella datorn att aktivera hanterade identiteter för Azure-resurser. 
-- Certifikat som används av hanterade identiteter för Azure-resurser finns inte längre i den virtuella datorn.
-- IMDS slutpunkten är en välkänd icke-dirigerbara IP-adress som endast tillgängliga i den virtuella datorn.
-- 1000 användartilldelade hanterade identiteter kan tilldelas till en enskild virtuell dator. 
+- Alla operativ system som stöds av Azure IaaS kan använda hanterade identiteter för Azure-resurser över IMDS.
+- Du behöver inte längre installera ett tillägg på den virtuella datorn för att aktivera hanterade identiteter för Azure-resurser. 
+- De certifikat som används av hanterade identiteter för Azure-resurser finns inte längre på den virtuella datorn.
+- IMDS-slutpunkten är en välkänd icke-flyttbar IP-adress som bara är tillgänglig från den virtuella datorn.
+- 1000 användare tilldelade hanterade identiteter kan tilldelas till en enda virtuell dator. 
 
-Hanterade identiteter för VM-tillägg för Azure-resurser är fortfarande tillgänglig. Vi är dock inte längre att utveckla nya funktioner på den. Vi rekommenderar att du väljer att använda IMDS-slutpunkten. 
+Hanterade identiteter för VM-tillägget för Azure-resurser är fortfarande tillgängligt. Vi utvecklar dock inte längre nya funktioner på den. Vi rekommenderar att du växlar till att använda IMDS-slutpunkten. 
 
-Vissa begränsningar med att använda VM-tillägg-slutpunkten är:
-- Begränsat stöd för Linux-distributioner: CoreOS stabila, CentOS 7.1, 7.2 för Red Hat, Ubuntu 15.04, Ubuntu 16.04
-- Endast 32 användartilldelade hanterade identiteter kan tilldelas till den virtuella datorn.
+Några av begränsningarna med att använda slut punkten för VM-tillägg är:
+- Begränsat stöd för Linux-distributioner: Kärnor stabilt, CentOS 7,1, Red Hat 7,2, Ubuntu 15,04, Ubuntu 16,04
+- Endast 32 användare tilldelade hanterade identiteter kan tilldelas den virtuella datorn.
 
 
-Obs! Hanterade identiteter för Azure-resurser VM-tillägget kommer att januari 2019 support upphör. 
+Obs! De hanterade identiteterna för VM-tillägget för Azure-resurser upphör att fungera i januari 2019. 
 
-Läs mer på Azure Instance Metadata Service [IMDS dokumentation](https://docs.microsoft.com/azure/virtual-machines/windows/instance-metadata-service)
+Mer information om Azure Instance Metadata Service finns i [IMDS-dokumentation](https://docs.microsoft.com/azure/virtual-machines/windows/instance-metadata-service)
 
-### <a name="will-managed-identities-be-recreated-automatically-if-i-move-a-subscription-to-another-directory"></a>Hanterade identiteter återskapas automatiskt om jag flyttar en prenumeration till en annan katalog?
+### <a name="will-managed-identities-be-recreated-automatically-if-i-move-a-subscription-to-another-directory"></a>Kommer Managed identiteter att återskapas automatiskt om jag flyttar en prenumeration till en annan katalog?
 
-Nej. Om du flyttar en prenumeration till en annan katalog, måste du manuellt återskapa dem och ge Azure RBAC-rolltilldelningar igen.
-- För system tilldelade hanterade identiteter: inaktivera och återaktivera. 
-- För användare tilldelade hanterade identiteter: ta bort, skapa och koppla dem till resurser (t.ex. virtuella datorer)
+Nej. Om du flyttar en prenumeration till en annan katalog måste du manuellt återskapa dem och ge Azure RBAC-roll tilldelningar igen.
+- För systemtilldelade hanterade identiteter: inaktivera och återaktivera. 
+- För användare som tilldelats hanterade identiteter: ta bort, återskapa och koppla dem igen till nödvändiga resurser (t. ex. virtuella datorer)
 
-### <a name="can-i-use-a-managed-identity-to-access-a-resource-in-a-different-directorytenant"></a>Kan jag använda en hanterad identitet för att komma åt en resurs i en annan katalog/klient?
+### <a name="can-i-use-a-managed-identity-to-access-a-resource-in-a-different-directorytenant"></a>Kan jag använda en hanterad identitet för att få åtkomst till en resurs i en annan katalog/klient organisation?
 
-Nej. Hanterade identiteter stöder för närvarande inte mellan directory scenarier. 
+Nej. Hanterade identiteter stöder för närvarande inte scenarier mellan kataloger. 
 
-### <a name="what-azure-rbac-permissions-are-required-to-managed-identity-on-a-resource"></a>Vilka Azure RBAC-behörigheter krävs för att hanterade identiteter på en resurs? 
+### <a name="what-azure-rbac-permissions-are-required-to-managed-identity-on-a-resource"></a>Vilka Azure RBAC-behörigheter krävs för hanterade identiteter på en resurs? 
 
-- Systemtilldelade hanterad identitet: Du måste skriva över resursen. För exampl måste Microsoft.Compute/virtualMachines/write för virtuella datorer. Den här åtgärden ingår i resursen specifika inbyggda roller som [virtuell Datordeltagare](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#virtual-machine-contributor).
-- Användartilldelade hanterad identitet: Du måste skriva över resursen. Du kan till exempel behöver Microsoft.Compute/virtualMachines/write för virtuella datorer. Förutom [hanterade Identitetsoperatör](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#managed-identity-operator) rolltilldelning över hanterad identitet.
+- Systemtilldelad hanterad identitet: Du behöver Skriv behörighet över resursen. För virtuella datorer behöver du till exempel Microsoft. Compute/virtualMachines/Write. Den här åtgärden ingår i de resursbaserade inbyggda rollerna som [virtuell dator deltagare](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#virtual-machine-contributor).
+- Användardefinierad hanterad identitet: Du behöver Skriv behörighet över resursen. För virtuella datorer behöver du till exempel Microsoft. Compute/virtualMachines/Write. Förutom roll tilldelningen [hanterad identitets operatör](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#managed-identity-operator) över den hanterade identiteten.
 
-### <a name="how-do-you-restart-the-managed-identities-for-azure-resources-extension"></a>Hur du starta om de hanterade identiteterna för tillägget för Azure-resurser
-På Windows och vissa versioner av Linux om tillägget slutar kan följande cmdlet användas för att starta om den manuellt:
+### <a name="how-do-you-restart-the-managed-identities-for-azure-resources-extension"></a>Hur startar du om hanterade identiteter för Azure-resurser?
+Om tillägget stoppas i Windows och vissa versioner av Linux kan följande cmdlet användas för att starta om den manuellt:
 
 ```powershell
 Set-AzVMExtension -Name <extension name>  -Type <extension Type>  -Location <location> -Publisher Microsoft.ManagedIdentity -VMName <vm name> -ResourceGroupName <resource group name> -ForceRerun <Any string different from any last value used>
 ```
 
 Där: 
-- Namn på tillägg och typ för Windows är: ManagedIdentityExtensionForWindows
-- Tilläggsnamn och typ för Linux är: ManagedIdentityExtensionForLinux
+- Tilläggs namn och typ för Windows är: ManagedIdentityExtensionForWindows
+- Tilläggs namn och-typ för Linux är: ManagedIdentityExtensionForLinux
 
 ## <a name="known-issues"></a>Kända problem
 
-### <a name="automation-script-fails-when-attempting-schema-export-for-managed-identities-for-azure-resources-extension"></a>”Automationsskript” misslyckas vid försök schemat exporten av hanterade identiteter för tillägget för Azure-resurser
+### <a name="automation-script-fails-when-attempting-schema-export-for-managed-identities-for-azure-resources-extension"></a>"Automation-skript" Miss lyckas vid försök att exportera schema för hanterade identiteter för Azure-resursers tillägg
 
-När hanterade identiteter för Azure-resurser är aktiverat på en virtuell dator, visas följande felmeddelande när du försöker använda funktionen ”automationsskript” för den virtuella datorn eller en resursgrupp:
+När hanterade identiteter för Azure-resurser är aktiverade på en virtuell dator visas följande fel vid försök att använda funktionen "Automation-skript" för den virtuella datorn eller resurs gruppen:
 
-![Hanterade identiteter för Azure-resurser automationsskript exportfel](./media/msi-known-issues/automation-script-export-error.png)
+![Hanterade identiteter för Azure-resurser Automation skript export fel](./media/msi-known-issues/automation-script-export-error.png)
 
-Hanterade identiteter för Azure-resurser VM-tillägg (planerad för utfasning i januari 2019) har för närvarande inte stöd för möjligheten att exportera dess schema till en resursgruppmall. Därför visas inte den genererade mallen konfigurationsparametrar för att aktivera hanterade identiteter för Azure-resurser på resursen. Dessa avsnitt kan läggas till manuellt genom att följa exemplen i [konfigurera hanterade identiteter för Azure-resurser på en Azure-dator med hjälp av en mallar](qs-configure-template-windows-vm.md).
+Hanterade identiteter för VM-tillägget för Azure-resurser (planerat för utfasning i januari 2019) stöder för närvarande inte möjligheten att exportera sitt schema till en mall för en resurs grupp. Det innebär att den genererade mallen inte visar konfigurations parametrar för att aktivera hanterade identiteter för Azure-resurser på resursen. Dessa avsnitt kan läggas till manuellt genom att följa exemplen i [Konfigurera hanterade identiteter för Azure-resurser på en virtuell Azure-dator med hjälp av mallar](qs-configure-template-windows-vm.md).
 
-När schemat exportfunktionen blir tillgängliga för hanterade identiteter för VM-tillägg för Azure-resurser (planerad för utfasning i januari 2019), kommer den att listas i [exportera resursgrupper som innehåller VM-tillägg](../../virtual-machines/extensions/export-templates.md#supported-virtual-machine-extensions).
+När schema export funktionen blir tillgänglig för hanterade identiteter för VM-tillägget för Azure-resurser (planerat för utfasning i januari 2019) visas den i [Exportera resurs grupper som innehåller VM-tillägg](../../virtual-machines/extensions/export-templates.md#supported-virtual-machine-extensions).
 
-### <a name="vm-fails-to-start-after-being-moved-from-resource-group-or-subscription"></a>Virtuell dator inte kan startas efter flyttas från resursgrupp eller prenumeration
+### <a name="vm-fails-to-start-after-being-moved-from-resource-group-or-subscription"></a>Den virtuella datorn kan inte startas efter att ha flyttats från resurs gruppen eller prenumerationen
 
-Om du flyttar en virtuell dator i körläge fortsätter det att köras under förflyttningen. Men efter överflyttningen att om den virtuella datorn stoppas och startas om, den kunna starta. Det här problemet inträffar eftersom den virtuella datorn uppdateras inte referensen till de hanterade identiteterna för Azure-resurser identitet och fortsätter att peka till den i den gamla resursgruppen.
+Om du flyttar en virtuell dator i körnings läge fortsätter den att köras under flytten. Om den virtuella datorn stoppas och startas om när den har flyttats, kommer den dock inte att starta. Det här problemet uppstår eftersom den virtuella datorn inte uppdaterar referensen till de hanterade identiteterna för Azure-resursers identitet och fortsätter att peka på den i den gamla resurs gruppen.
 
 **Lösning** 
  
-Utlösa en uppdatering på den virtuella datorn så att den kan hämta rätt värden för de hanterade identiteterna för Azure-resurser. Du kan göra en virtuell dator Egenskapsändring för att uppdatera referensen till de hanterade identiteterna för Azure-resurser identitet. Du kan till exempel ange en ny tagg-värde på den virtuella datorn med följande kommando:
+Utlös en uppdatering på den virtuella datorn så att den kan hämta korrekta värden för hanterade identiteter för Azure-resurser. Du kan göra en ändring av en VM-egenskap för att uppdatera referensen till de hanterade identiteterna för Azures resurs identitet. Du kan till exempel ange ett nytt tagg värde på den virtuella datorn med följande kommando:
 
 ```azurecli-interactive
  az  vm update -n <VM Name> -g <Resource Group> --set tags.fixVM=1
 ```
  
-Det här kommandot anger en ny tagg ”fixVM” med värdet 1 för den virtuella datorn. 
+Det här kommandot anger en ny tagg "fixVM" med värdet 1 på den virtuella datorn. 
  
-Den virtuella datorn uppdaterar med rätt hanterade identiteter för Azure-resurser resurs-URI genom att ange den här egenskapen och sedan du ska kunna starta den virtuella datorn. 
+Genom att ange den här egenskapen uppdateras VM med rätt hanterade identiteter för resurs-URI för Azure-resurser och sedan bör du kunna starta den virtuella datorn. 
  
 När den virtuella datorn har startats kan taggen tas bort med hjälp av följande kommando:
 
@@ -132,22 +132,22 @@ När den virtuella datorn har startats kan taggen tas bort med hjälp av följan
 az vm update -n <VM Name> -g <Resource Group> --remove tags.fixVM
 ```
 
-### <a name="vm-extension-provisioning-fails"></a>VM-tillägget etablering misslyckas
+### <a name="vm-extension-provisioning-fails"></a>Etablering av VM-tillägg Miss lyckas
 
-Etablering av VM-tillägget kan misslyckas på grund av DNS-sökning fel. Starta om den virtuella datorn och försök igen.
+Etableringen av VM-tillägget kan Miss lyckas på grund av misslyckade DNS-sökningar. Starta om den virtuella datorn och försök igen.
  
 > [!NOTE]
-> VM-tillägget är planerat för utfasning av januari 2019. Vi rekommenderar att du flyttar till med hjälp av IMDS-slutpunkt.
+> VM-tillägget planeras för utfasning senast januari 2019. Vi rekommenderar att du flyttar till med IMDS-slutpunkten.
 
 ### <a name="transferring-a-subscription-between-azure-ad-directories"></a>Överföra en prenumeration mellan Azure AD-kataloger
 
-Hanterade identiteter inte uppdateras när en prenumeration har flyttats/överförs till en annan katalog. Alla existerande systemtilldelade eller användartilldelade hanterade identiteter kommer därför att brytas. 
+Hanterade identiteter uppdateras inte när en prenumeration flyttas/överförs till en annan katalog. Det innebär att alla befintliga systemtilldelade eller användarspecifika hanterade identiteter bryts. 
 
 Lösning för hanterade identiteter i en prenumeration som har flyttats till en annan katalog:
 
- - För system tilldelade hanterade identiteter: inaktivera och återaktivera. 
- - För användare tilldelade hanterade identiteter: ta bort, skapa och koppla dem till resurser (t.ex. virtuella datorer)
+ - För systemtilldelade hanterade identiteter: inaktivera och återaktivera. 
+ - För användare som tilldelats hanterade identiteter: ta bort, återskapa och koppla dem igen till nödvändiga resurser (t. ex. virtuella datorer)
 
-### <a name="moving-a-user-assigned-managed-identity-to-a-different-resource-groupsubscription"></a>Flytta en hanterad Användartilldelad identitet till en annan resursgrupp/prenumeration
+### <a name="moving-a-user-assigned-managed-identity-to-a-different-resource-groupsubscription"></a>Flytta en användardefinierad hanterad identitet till en annan resurs grupp/prenumeration
 
-Om du flyttar en hanterad Användartilldelad identitet till en annan resursgrupp kommer identiteten att avbryta. Resurser (t.ex. VM) med hjälp av den identiteten kommer därför inte att kunna begära token för den. 
+Om du flyttar en användardefinierad hanterad identitet till en annan resurs grupp kommer identiteten att brytas. Resurser (t. ex. VM) som använder den identiteten kommer därför inte att kunna begära token för den. 

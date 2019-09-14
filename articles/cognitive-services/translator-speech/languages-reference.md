@@ -1,46 +1,46 @@
 ---
-title: Translator Speech API språk metod
+title: Metod för Translator Speech API språk
 titleSuffix: Azure Cognitive Services
 description: Använd metoden Translator Speech API språk.
 services: cognitive-services
-author: swmachan
+author: nitinme
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-speech
 ms.topic: conceptual
 ms.date: 05/18/2018
-ms.author: swmachan
+ms.author: nitinme
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 4abe6330d0359f7d7c922facecaaf1a8b1fc7174
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 46ac3928238382f56db5a799226bd3d9243b7ca2
+ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67446958"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70966401"
 ---
-# <a name="translator-speech-api-languages"></a>API för Talöversättning: Språk
+# <a name="translator-speech-api-languages"></a>Translator Speech API: Languages
 
 [!INCLUDE [Deprecation note](../../../includes/cognitive-services-translator-speech-deprecation-note.md)]
 
-Translator för Talöversättning utökar kontinuerligt listan över språk som stöds av dess tjänster. Använd detta API för att identifiera uppsättningen språk som är för närvarande tillgängliga för användning med Translator Speech-tjänsten.
+Translator Speech utvidgar kontinuerligt listan över språk som stöds av tjänsterna. Använd det här API: et för att identifiera de språk som för närvarande är tillgängliga för användning med tjänsten Translator Speech.
 
-Kodexempel som demonstrerar användningen av API för att hämta tillgängliga språk är tillgängliga från den [Microsoft Translator GitHub-webbplatsen](https://github.com/MicrosoftTranslator).
+Kod exempel som demonstrerar användningen av API: et för att hämta tillgängliga språk är tillgängliga på [webbplatsen Microsoft Translator GitHub](https://github.com/MicrosoftTranslator).
 
-## <a name="implementation-notes"></a>Implementeringsanteckningar
+## <a name="implementation-notes"></a>Implementerings anteckningar
 
-### <a name="get-languages"></a>Hämta /languages
+### <a name="get-languages"></a>Hämta/languages
 
-Det finns en bred uppsättning språk att transkribera tal, Översätt den transkriberade texten och producera syntetiskt tal översättningens.
+Ett stort antal språk är tillgängligt för att skriva tal, för att översätta den översatta texten och för att skapa syntetiskt tal för översättningen.
 
-En klient använder de `scope` frågeparameter för att definiera vilka uppsättningar med språk som den är intresserad av.
+En klient använder `scope` Frågeparametern för att definiera vilka uppsättningar språk som den är intresse rad av.
 
-* **Tal till text:** Använd Frågeparametern `scope=speech` att hämta de språk som är tillgängliga att transkribera tal till text.
-* **Textöversättning:** Använd Frågeparametern `scope=text` att hämta de språk som är tillgängliga att översätta transkriberade texten.
-* **Text till tal:**  Använd Frågeparametern `scope=tts` att hämta uppsättning språk och röster som är tillgängliga för att syntetisera översatt text till tal.
+* **Tal till text:** Använd Frågeparametern `scope=speech` för att hämta den uppsättning språk som är tillgängliga för att skriva om tal till text.
+* **Text översättning:** Använd Frågeparametern `scope=text` för att hämta den uppsättning språk som är tillgängliga för översättning av text.
+* **Text till tal:**  Använd Frågeparametern `scope=tts` för att hämta den uppsättning språk och röster som är tillgängliga för att syntetisera översatt text tillbaka till tal.
 
-En klient kan hämta flera uppsättningar samtidigt genom att ange en kommaavgränsad lista med alternativ. Till exempel `scope=speech,text,tts`.
+En klient kan hämta flera mängder samtidigt genom att ange en kommaavgränsad lista med alternativ. Till exempel `scope=speech,text,tts`.
 
-Ett lyckat svar är ett JSON-objekt med en egenskap för var och en begärt set.
+Ett lyckat svar är ett JSON-objekt med en egenskap för varje begärd uppsättning.
 
 ```
 {
@@ -56,16 +56,16 @@ Ett lyckat svar är ett JSON-objekt med en egenskap för var och en begärt set.
 }
 ```
 
-Eftersom en klient kan använda den `scope` frågeparameter för att välja vilka språk som stöds ska returneras, ett faktiska svar får bara innehålla en delmängd av alla egenskaper som anges ovan.
+Eftersom en klient kan använda `scope` Frågeparametern för att välja vilka uppsättningar av språk som stöds ska returneras kan ett faktiskt svar bara innehålla en delmängd av alla egenskaper som visas ovan.
 
-Det värde som tillhandahölls med varje egenskap är som följer.
+Värdet som anges med varje egenskap är följande.
 
 ### <a name="speech-to-text-speech"></a>Tal till text (tal)
 
-Värdet som är associerade med tal till text-egenskapen `speech`, är en dictionary med (nyckel, värde) par. Varje nyckel identifierar ett språk som stöds för tal till text. Nyckeln är identifieraren som klienten skickar till API: et. Värdet kopplat till nyckeln är ett objekt med följande egenskaper:
+Värdet som är kopplat till egenskapen tal-till-text, `speech`är en ord lista med (nyckel, värde) par. Varje nyckel identifierar ett språk som stöds för tal till text. Nyckeln är den identifierare som klienten skickar till API: et. Värdet som är kopplat till nyckeln är ett objekt med följande egenskaper:
 
-* `name`: Visningsnamn för språket.
-* `language`: Språktaggen för den associerade skrivna språk. Se ”Text-transaktion” nedan.
+* `name`: Språkets visnings namn.
+* `language`: Språk tag gen för det kopplade, skrivna språket. Se "text transaktion" nedan.
 Ett exempel är:
 
 ```
@@ -76,12 +76,12 @@ Ett exempel är:
 }
 ```
 
-### <a name="text-translation-text"></a>Textöversättning (text)
+### <a name="text-translation-text"></a>Text översättning (text)
 
-Värdet som är associerade med den `text` egenskapen är också en ordlista där varje nyckel identifierar ett språk som stöds för textöversättning. Värdet kopplat till nyckeln beskrivs språk:
+Värdet som är associerat `text` med egenskapen är också en ord lista där varje nyckel identifierar ett språk som stöds för text översättning. Värdet som är kopplat till nyckeln beskriver språket:
 
-* `name`: Visningsnamn för språket.
-* `dir`: Riktningen som är `rtl` för höger-till-vänster-språk eller `ltr` för vänster till höger språk.
+* `name`: Språkets visnings namn.
+* `dir`: Riktning som är `rtl` för höger-till-vänster-språk eller `ltr` för vänster-till-höger-språk.
 
 Ett exempel är:
 
@@ -93,16 +93,16 @@ Ett exempel är:
 }
 ```
 
-### <a name="text-to-speech-tts"></a>Tal
+### <a name="text-to-speech-tts"></a>Text till tal (TTS)
 
-Värdet som är associerade med egenskapen text till tal text till tal, är också en ordlista där varje nyckel identifierar en röst som stöds. Attribut för en röst-objekt är:
+Värdet som är kopplat till text till tal-egenskapen, TTS, är också en ord lista där varje nyckel identifierar en röst som stöds. Attribut för ett röst objekt är:
 
-* `displayName`: Visningsnamn för röst.
-* `gender`: Kön röst (manliga eller kvinnliga).
-* `locale`: Språktaggen för röst med primära språket undertagg och region undertagg.
-* `language`: Språktaggen för den associerade skrivna språk.
-* `languageName`: Visningsnamn för språket.
-* `regionName`: Visningsnamnet för regionen för det här språket.
+* `displayName`: Visnings namn för rösten.
+* `gender`: Röstens kön (hane eller hona).
+* `locale`: Språk tag gen för rösten med primärt språk Subtag och region Subtag.
+* `language`: Språk tag gen för det kopplade, skrivna språket.
+* `languageName`: Språkets visnings namn.
+* `regionName`: Visnings namn för regionen för det här språket.
 
 Ett exempel är:
 
@@ -121,35 +121,35 @@ Ett exempel är:
 ```
 
 ### <a name="localization"></a>Lokalisering
-Tjänsten returnerar alla namn på rubriken Accept-Language för alla språk som stöds i textöversättning språk.
+Tjänsten returnerar alla namn på språket för rubriken accept-language, för alla språk som stöds i text översättning.
 
-### <a name="response-class-status-200"></a>Svaret klass (Status 200)
-Objekt som beskriver uppsättningen språk som stöds.
+### <a name="response-class-status-200"></a>Svars klass (status 200)
+Objekt som beskriver de språk som stöds.
 
 ModelExample värde:
 
-Langagues {tal (object, valfritt), text (object, valfritt), text till tal (object, valfritt)}
+Langagues {Speech (objekt, valfritt), text (objekt, valfritt), TTS (objekt, valfritt)}
 
-### <a name="headers"></a>Rubriker
+### <a name="headers"></a>Huvuden
 
-|Huvud|Beskrivning|Typ|
+|Huvud|Beskrivning|type|
 :--|:--|:--|
-X-RequestId|Värde som genereras av server för att identifiera begäran och används för felsökning.|string|
+X-RequestId|Värde som genereras av servern för att identifiera begäran och användas i fel söknings syfte.|sträng|
 
 ### <a name="parameters"></a>Parametrar
 
 |Parameter|Beskrivning|Parametertyp|Datatyp|
 |:--|:--|:--|:--|
-|API-versionen    |Versionen av API: et som begärs av klienten. Tillåtna värden är: `1.0`.|query|string|
-|scope  |Uppsättningar med språk som stöds eller röster för att återgå till klienten. Den här parametern har angetts som en kommaavgränsad lista över nyckelord. Följande nyckelord är tillgängliga:<ul><li>`speech`: Innehåller en uppsättning språk som stöds för att transkribera tal.</li><li>`tts`: Innehåller antal röster som stöds för text till tal-konvertering.</li><li>`text`: Innehåller en uppsättning språk som stöds för att översätta text.</li></ul>Om ett värde inte anges värdet för `scope` som standard `text`.|query|string|
-|X-ClientTraceId    |En klientgenererade GUID som används för att spåra en begäran. För att underlätta felsökning av problem bör klienter ange ett nytt värde med varje begäran och logga den.|sidhuvud|string|
-|Accept-Language    |Vissa av fälten i svaret är namnen på språk eller regioner. Använd den här parametern för att ange språket där namnen som returneras. Språket har angetts genom att tillhandahålla en korrekt strukturerad BCP-47 som språktagg. Välj en tagg i listan över språkidentifierare som returneras med den `text` omfång. Språk som stöds inte tillhandahålls namnen på engelska.<br/>Till exempel använda värdet `fr` att begära namnen på franska eller använda värdet `zh-Hant` i begäran namn i traditionell kinesiska.|sidhuvud|string|
+|API-versionen    |Den version av API: t som klienten begär. Tillåtna värden är: `1.0`.|query|sträng|
+|scope  |Uppsättningar av språk eller röster som stöds för att återgå till klienten. Den här parametern anges som en kommaavgränsad lista med nyckelord. Följande nyckelord är tillgängliga:<ul><li>`speech`: Tillhandahåller en uppsättning språk som stöds för att skriva om tal.</li><li>`tts`: Tillhandahåller en uppsättning röster som stöds för text-tal omvandling.</li><li>`text`: Tillhandahåller den uppsättning språk som stöds för översättning av text.</li></ul>Om inget värde anges används värdet `scope` som `text`standard.|query|sträng|
+|X-ClientTraceId    |Ett GUID som skapats av klienten som används för att spåra en begäran. För att under lätta fel sökning av problem bör klienterna ange ett nytt värde för varje begäran och logga det.|sidhuvud|sträng|
+|Acceptera-språk    |Några av fälten i svaret är namn på språk eller regioner. Använd den här parametern för att definiera språket som namnen returneras i. Språket anges genom att tillhandahålla en välformulerad BCP 47-språktagg. Välj en tagg i listan över språk identifierare som returneras med `text` omfånget. För språk som inte stöds finns namnen på det engelska språket.<br/>Använd exempelvis värdet `fr` för att begära namn på franska eller Använd värdet `zh-Hant` för att begära namn på traditionell kinesiska.|sidhuvud|sträng|
 
 ### <a name="response-messages"></a>Svarsmeddelanden
 
 |HTTP-statuskod|Reason|
 |:--|:--|
-|400|Felaktig begäran. Kontrollera indataparametrarna för att säkerställa att de är giltiga. Objektet response innehåller en detaljerad beskrivning av felet.|
-|429|För många förfrågningar.|
-|500|Ett fel uppstod. Om felet kvarstår, rapportera det med klient-ID för spårning (X-ClientTraceId) eller begäranidentifierare (X-RequestId).|
-|503|Servern är inte tillgänglig för tillfället. Försök med förfrågan. Om felet kvarstår, rapportera det med klient-ID för spårning (X-ClientTraceId) eller begäranidentifierare (X-RequestId).|
+|400|Felaktig begäran. Kontrol lera indataparametrarna för att säkerställa att de är giltiga. Objektet Response innehåller en mer detaljerad beskrivning av felet.|
+|429|För många begär Anden.|
+|500|Ett fel uppstod. Om felet kvarstår kan du rapportera det med klient spårnings-ID: n (X-ClientTraceId) eller begärande-ID (X-RequestId).|
+|503|Servern är inte tillgänglig för tillfället. Försök att utföra begäran igen. Om felet kvarstår kan du rapportera det med klient spårnings-ID: n (X-ClientTraceId) eller begärande-ID (X-RequestId).|

@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 07/03/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 4f823b62237e8018f092d7a94fb479f7fbdd38da
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 915388b850b1b046dae91a20540881480694a944
+ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68565766"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70967046"
 ---
 # <a name="what-is-computer-vision"></a>Vad är visuellt innehåll?
 
@@ -75,6 +75,6 @@ Som med alla Cognitive Services bör utvecklare som använder tjänsten Visuellt
 
 Kom igång med Visuellt innehåll genom att följa en snabbstartsguide:
 
-- [Snabbstart: Analysera en bild](quickstarts-sdk/csharp-analyze-sdk.md)
-- [Snabbstart: Extrahera handskriven text](quickstarts-sdk/csharp-hand-text-sdk.md)
-- [Snabbstart: Skapa en miniatyrbild](quickstarts-sdk/csharp-thumb-sdk.md)
+- [Snabbstart: Visuellt innehåll .NET SDK](quickstarts-sdk/csharp-sdk.md)
+- [Snabbstart: Visuellt innehåll python SDK](quickstarts-sdk/python-sdk.md)
+- [Snabbstart: Visuellt innehåll Java SDK](quickstarts-sdk/java-sdk.md)

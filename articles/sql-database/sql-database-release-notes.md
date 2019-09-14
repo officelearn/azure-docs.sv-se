@@ -9,18 +9,20 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 05/15/2019
 ms.author: sstein
-ms.openlocfilehash: 55e8121152aa281ab1025f1e8ded53c4b00c3d44
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: ef19d22b5c47c51f5ee3f74a4d7ab06725f7ed41
+ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68566944"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70968336"
 ---
 # <a name="sql-database-release-notes"></a>Viktig information om SQL Database
 
 Den här artikeln innehåller SQL Database funktioner som för närvarande finns i en offentlig för hands version. SQL Database uppdateringar och förbättringar finns i [SQL Database service updates](https://azure.microsoft.com/updates/?product=sql-database). Uppdateringar och förbättringar av andra Azure-tjänster finns i [tjänste uppdateringar](https://azure.microsoft.com/updates).
 
 ## <a name="features-in-public-preview"></a>Funktioner i offentlig för hands version
+
+### <a name="single-databasetabsingle-database"></a>[Enkel databas](#tab/single-database)
 
 | Funktion | Information |
 | ---| --- |
@@ -42,6 +44,19 @@ Den här artikeln innehåller SQL Database funktioner som för närvarande finns
 | Hot identifiering med hanterade instanser |Mer information finns i [Konfigurera hot identifiering i Azure SQL Database Hanterad instans](sql-database-managed-instance-threat-detection.md).|
 | Transparent data kryptering (TDE) med Bring Your Own Key (BYOK) med hanterade instanser |Mer information finns [i Azure SQL Transparent datakryptering med Kundhanterade nycklar i Azure Key Vault: Bring Your Own Key support](transparent-data-encryption-byok-azure-sql.md).|
 | &nbsp; |
+
+### <a name="managed-instancetabmanaged-instance"></a>[Hanterad instans](#tab/managed-instance)
+
+| Funktion | Information |
+| ---| --- |
+| <a href="/azure/sql-database/sql-database-instance-pools">Instans-pooler</a> | Ett bekvämt och kostnads effektivt sätt att migrera mindre SQL-instanser till molnet. |
+| <a href="https://aka.ms/managed-instance-tde-byok">Ta med dina egna krypterings nycklar</a> | Migrera databasen från den lokala platsen som redan har aktiverat transparent datakryptering (TDE) med befintliga TDE-nycklar. |
+| <a href="https://aka.ms/managed-instance-failover-groups">Geo-distribuerade failover-grupper</a> | Behåll en kopia av instansen i en annan region och se till att dina data blir tillgängliga även i det regionala katastrof scenariot. |
+| <a href="https://aka.ms/managed-instance-aadlogins">Azure AD server-huvudobjekt på instans nivå (inloggningar)</a> | Skapa inloggningar på server nivå med hjälp av instruktionen <a href="https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">Skapa inloggning från extern provider</a> . |
+| [Transaktionsreplikering](sql-database-managed-instance-transactional-replication.md) | Replikera ändringarna från dina tabeller till andra databaser som har placerats på hanterade instanser, enskilda databaser eller SQL Server instanser eller uppdatera tabeller när vissa rader ändras i andra hanterade instanser eller SQL Server instans. |
+| &nbsp; |
+
+---
 
 ## <a name="updates"></a>Uppdateringar
 

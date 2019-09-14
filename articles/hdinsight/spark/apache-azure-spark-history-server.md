@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 09/04/2019
-ms.openlocfilehash: 9ba03f6b1e658e08c3d07d7ccb5e2a99e96fe69c
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.openlocfilehash: fad2c83138f211e83e9462182d33f6169cbdb833
+ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70736459"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70968196"
 ---
 # <a name="use-extended-apache-spark-history-server-to-debug-and-diagnose-apache-spark-applications"></a>Använd utökad Apache Spark historik Server för att felsöka och diagnostisera Apache Spark program
 
@@ -47,23 +47,23 @@ Välj jobb-ID och klicka sedan på **data** på verktygs menyn för att hämta d
 
 + Kontrol lera **indata**-, **utdata**-och **tabell åtgärder** genom att välja flikarna separat.
 
-    ![Dataflikar](./media/apache-azure-spark-history-server/sparkui-data-tabs.png)
+    ![Dataflikar](./media/apache-azure-spark-history-server/apache-spark-data-tabs.png)
 
 + Kopiera alla rader genom att klicka på knappen **Kopiera**.
 
-    ![Datakopiering](./media/apache-azure-spark-history-server/sparkui-data-copy.png)
+    ![Datakopiering](./media/apache-azure-spark-history-server/apache-spark-data-copy.png)
 
 + Spara alla data som CSV-fil genom att klicka på knappen **CSV**.
 
-    ![Spara data](./media/apache-azure-spark-history-server/sparkui-data-save.png)
+    ![Spara data](./media/apache-azure-spark-history-server/apache-spark-data-save.png)
 
 + Sök genom att ange nyckelord i fälts **ökningen**visas Sök resultatet omedelbart.
 
-    ![Datas ökning](./media/apache-azure-spark-history-server/sparkui-data-search.png)
+    ![Datas ökning](./media/apache-azure-spark-history-server/apache-spark-data-search.png)
 
 + Klicka på kolumn rubriken för att sortera tabellen, klicka på plus tecknet för att expandera en rad för att visa mer information eller klicka på minus tecknet för att komprimera en rad.
 
-    ![Data tabell](./media/apache-azure-spark-history-server/sparkui-data-table.png)
+    ![Data tabell](./media/apache-azure-spark-history-server/apache-spark-data-table.png)
 
 + Hämta en enskild fil genom att klicka på knappen del av fil **hämtningen** som placeras till höger. sedan laddas den valda filen ned till lokalt, om filen inte finns längre, öppnas en ny flik där fel meddelandena visas.
 
@@ -75,7 +75,7 @@ Välj jobb-ID och klicka sedan på **data** på verktygs menyn för att hämta d
 
 + Klicka på siffran under tabellen för att navigera sidor när för många rader ska visas på en sida. 
 
-    ![Data sida](./media/apache-azure-spark-history-server/sparkui-data-page.png)
+    ![Data sida](./media/apache-azure-spark-history-server/apache-spark-data-page.png)
 
 + Hovra över frågetecknet bredvid data för att Visa knapp beskrivningen eller klicka på frågetecknet för att få mer information.
 
@@ -93,7 +93,7 @@ Välj jobb-ID och klicka sedan på **Graph** på menyn verktyg för att hämta j
 
 + Som standard visas alla jobb och det kan filtreras efter **jobb-ID**.
 
-    ![Graf-jobb-ID](./media/apache-azure-spark-history-server/sparkui-graph-jobid.png)
+    ![Graf-jobb-ID](./media/apache-azure-spark-history-server/apache-spark-graph-jobid.png)
 
 + Som standard väljs **förlopp** , användaren kan kontrol lera data flödet genom att välja **Läs/skriv** i list rutan med **visning**.
 
@@ -211,15 +211,15 @@ Gör så här om du vill återgå till community-versionen:
 5. Egenskapen anges till **false** nu.
 6. Klicka på **Spara** för att spara konfigurationen.
 
-    ![funktionen stängs av](./media/apache-azure-spark-history-server/sparkui-turn-off.png)
+    ![funktionen stängs av](./media/apache-azure-spark-history-server/apache-spark-turn-off.png)
 
 7. Klicka på **Spark2** i den vänstra panelen, under fliken **Sammanfattning** , klicka på **Spark2 historik Server**.
 
-    ![Starta om server1](./media/apache-azure-spark-history-server/sparkui-restart-1.png) 
+    ![Starta om server1](./media/apache-azure-spark-history-server/apache-spark-restart1.png) 
 
 8. Starta om historik Server genom att klicka på **starta om** från **Spark2 historik Server**.
 
-    ![Starta om server2](./media/apache-azure-spark-history-server/sparkui-restart-2.png)  
+    ![Starta om server2](./media/apache-azure-spark-history-server/apache-spark-restart2.png)  
 
 9. Uppdatera Spark historik serverns webb gränssnitt. det kommer att återställas till community-versionen.
 
@@ -236,7 +236,7 @@ Om du kör till historik Server fel följer du stegen för att tillhandahålla h
 
 3. Ange rubriken och beskrivningen av felet, dra zip-filen till redigerings fältet och klicka sedan på **Skicka nytt ärende**.
 
-    ![fil problem](./media/apache-azure-spark-history-server/sparkui-file-issue.png)
+    ![fil problem](./media/apache-azure-spark-history-server/apache-spark-file-issue.png)
 
 
 ### <a name="3-upgrade-jar-file-for-hotfix-scenario"></a>3. Uppgradera jar-fil för snabb korrigerings scenario
@@ -314,7 +314,7 @@ Om du vill uppgradera med Hotfix använder du skriptet nedan som kommer att uppg
    + Kontrol lera **huvud** och **arbetare**.
    + **Parametrar**: ange parametrarna följer bash-användningen.
 
-     ![Ladda upp snabb korrigering för logg eller uppgradering](./media/apache-azure-spark-history-server/sparkui-upload2.png)
+     ![Ladda upp snabb korrigering för logg eller uppgradering](./media/apache-azure-spark-history-server/apache-spark-upload1.png)
 
 
 ## <a name="known-issues"></a>Kända problem

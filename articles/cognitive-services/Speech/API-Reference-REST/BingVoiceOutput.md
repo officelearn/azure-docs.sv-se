@@ -1,84 +1,84 @@
 ---
-title: Text till tal-API för Microsoft Speech-tjänsten | Microsoft Docs
+title: Text till tal-API av Microsoft Speech service | Microsoft Docs
 titlesuffix: Azure Cognitive Services
-description: Använda text till tal-API för att tillhandahålla i realtid text till tal-konvertering på en mängd olika röster och språk
+description: Använd text till tal-API för att tillhandahålla text till tal-konvertering i real tid i en rad olika röster och språk
 services: cognitive-services
-author: priyaravi20
-manager: yanbo
+author: nitinme
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
-ms.author: priyar
+ms.author: nitinme
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: a046bec5d81d828d88716d31c84e9cbcdcea1a08
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: ee9b0b47fb88cba948bc06db6eb83fe9c076fe40
+ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60515429"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70966859"
 ---
-# <a name="bing-text-to-speech-api"></a>Bing text till tal-API
+# <a name="bing-text-to-speech-api"></a>Bing-text till tal-API
 
 [!INCLUDE [Deprecation note](../../../../includes/cognitive-services-bing-speech-api-deprecation-note.md)]
 
 ## <a name="Introduction"></a>Introduktion
 
-Med den Bing text till tal-API, kan programmet skicka HTTP-begäranden till en server för molnet, där texten är omedelbart syntetiskt till mänskliga standardrösttyper tal och returneras som en ljudfil. Detta API kan användas i många olika kontexter för att tillhandahålla i realtid text till tal-konvertering i en mängd olika och språk.
+Med Bing-text till tal-API kan ditt program skicka HTTP-förfrågningar till en moln server, där text är direkt syntetisk till mänskligt tal och returneras som en ljudfil. Detta API kan användas i många olika kontexter för att tillhandahålla text till tal-konvertering i real tid i en rad olika röster och språk.
 
-## <a name="VoiceSynReq"></a>Röst syntes begäran
+## <a name="VoiceSynReq"></a>Röst syntes förfrågan
 
 ### <a name="Subscription"></a>Autentiseringstoken
 
-Varje röst syntes begäran kräver en åtkomsttoken för JSON Web Token (JWT). JWT-åtkomsttoken skickas i rubriken tal. Token har en förfallotid på 10 minuter. Läs om hur prenumerera och för att hämta API-nycklar som används för att hämta giltiga JWT-åtkomsttoken [Cognitive Services-prenumeration](https://azure.microsoft.com/try/cognitive-services/).
+Varje röst syntes förfrågan kräver en JSON Web Token-åtkomsttoken (JWT). JWT-åtkomsttoken skickas genom i rubriken för taldata. Token har en förfallo tid på 10 minuter. Information om att prenumerera på och hämta API-nycklar som används för att hämta giltiga JWT-åtkomsttoken finns i [Cognitive Services prenumeration](https://azure.microsoft.com/try/cognitive-services/).
 
-API-nyckel skickas till tjänsten token. Exempel:
+API-nyckeln skickas till token-tjänsten. Exempel:
 
 ```HTTP
 POST https://api.cognitive.microsoft.com/sts/v1.0/issueToken
 Content-Length: 0
 ```
 
-Obligatorisk huvudinformationen för tokenåtkomst är som följer.
+Nödvändig huvud information för token-åtkomst är följande.
 
-Namn| Format | Beskrivning
+Name| Format | Beskrivning
 ----|----|----
 OCP-Apim-Subscription-Key | ASCII | Din prenumerationsnyckel
 
-Tokentjänsten som returnerar JWT-åtkomsttoken som `text/plain`. Sedan JWT skickas som en `Base64 access_token` till tal-slutpunkt som ingen auktoriseringsrubrik föregås av strängen `Bearer`. Exempel:
+Token-tjänsten returnerar JWT-åtkomsttoken som `text/plain`. Därefter skickas JWT som en `Base64 access_token` till tal slut punkten som ett Authorization-huvud med strängen. `Bearer` Exempel:
 
 `Authorization: Bearer [Base64 access_token]`
 
-Klienter måste använda följande slutpunkt för att komma åt tjänsten text till tal:
+Klienterna måste använda följande slut punkt för att få åtkomst till tjänsten text till tal:
 
 `https://speech.platform.bing.com/synthesize`
 
 >[!NOTE]
->Tills du har köpt en åtkomst-token med din prenumerationsnyckel som tidigare beskrivits kan den här länken genererar en `403 Forbidden` svarsfel.
+>Innan du har skaffat en åtkomsttoken med prenumerations nyckeln enligt beskrivningen ovan, genererar den här länken `403 Forbidden` ett svars fel.
 
-### <a name="Http"></a>HTTP-huvuden
+### <a name="Http"></a>HTTP-rubriker
 
-I följande tabell visas de HTTP-huvuden som används för syntes röstförfrågningar.
+I följande tabell visas de HTTP-huvuden som används för röst syntes förfrågningar.
 
-Huvud |Värde |Kommentar
+Huvud |Value |Kommentar
 ----|----|----
-Content-Type | program/ssml + xml | Inkommande innehållstyp.
-X-Microsoft-OutputFormat | **1.** ssml-16 khz-16-bitars-mono-text till tal <br> **2.** raw-16 khz-16-bitars-mono-pcm <br>**3.** ljud-16 khz – 16 kbit/s-mono-siren <br> **4.** riff-16 khz – 16 kbit/s-mono-siren <br> **5.** riff-16 khz-16-bitars-mono-pcm <br> **6.** ljud-16 khz-128kbitrate-mono-mp3 <br> **7.** ljud-16 khz-64kbitrate-mono-mp3 <br> **8.** ljud-16 khz-32kbitrate-mono-mp3 | Ljudformatet utdata.
-X-Search-AppId | En GUID (hex endast, inga streck) | Ett ID som unikt identifierar klientprogrammet. Detta kan vara lagrings-ID för appar. Om det inte finns, kan ID: T vara användargenererade för ett program.
-X-Search-ClientID | En GUID (hex endast, inga streck) | Ett ID som unikt identifierar en programinstans för varje installation.
-User-Agent | Programnamn | Programnamnet är obligatoriskt och måste vara färre än 255 tecken.
-Authorization | Autentiseringstoken |  Se den <a href="#Subscription">auktoriseringstoken</a> avsnittet.
+Content-Type | Application/SSML + XML | Typ av indatamängds innehåll.
+X-Microsoft-OutputFormat | **1.** SSML-16khz-bitarsläge-mono-TTS <br> **2.** RAW-16khz-bitarsläge-mono-PCM <br>**3.** Audio-16khz-16kbps-mono-siren <br> **4.** riff-16khz-16kbps-mono-siren <br> **5.** riff-16khz-bitarsläge-mono-PCM <br> **6.** Audio-16khz-128kbitrate-mono-MP3 <br> **7.** Audio-16khz-64kbitrate-mono-MP3 <br> **8.** Audio-16khz-32kbitrate-mono-MP3 | Ljud formatet för utdata.
+X-Search-AppId | Ett GUID (endast hex, inga bindestreck) | Ett ID som unikt identifierar klient programmet. Detta kan vara butiks-ID: t för appar. Om ett inte är tillgängligt kan ID genereras av användaren för ett program.
+X-Search-ClientID | Ett GUID (endast hex, inga bindestreck) | Ett ID som unikt identifierar en program instans för varje installation.
+User-Agent | Programnamn | Program namnet måste anges och måste innehålla färre än 255 tecken.
+Authorization | Autentiseringstoken |  Se avsnittet <a href="#Subscription">Authorization token</a> .
 
 ### <a name="InputParam"></a>Indataparametrar
 
-Begäranden till den Bing text till tal-API som görs med hjälp av HTTP POST-anrop. Rubrikerna som anges i föregående avsnitt. Texten innehåller tal syntes Markup Language (SSML) indata som representerar texten som ska syntetiseras. En beskrivning av koden som används för att styra aspekter av tal, till exempel språket och kön talaren finns i den [SSML W3C-specifikationen](https://www.w3.org/TR/speech-synthesis/).
+Begär anden till Bing-text till tal-API görs med HTTP POST-anrop. Rubrikerna anges i föregående avsnitt. Texten innehåller SSML-inmatare (Speech syntes Markup Language) som representerar den text som ska syntetiseras. En beskrivning av den markering som används för att styra aspekter av tal, till exempel språk och kön för högtalaren finns i [SSML W3C-specifikationen](https://www.w3.org/TR/speech-synthesis/).
 
 >[!NOTE]
->Den maximala storleken för SSML indata som stöds är 1 024 tecken, inklusive alla taggar.
+>Den maximala storleken på SSML-indatamängden som stöds är 1 024 tecken, inklusive alla Taggar.
 
-###  <a name="SampleVoiceOR"></a>Exempel: röst utdatabegäran
+###  <a name="SampleVoiceOR"></a>Exempel: begäran om röst utdata
 
-Ett exempel på en begäran för röst-utdata är följande:
+Ett exempel på en begäran om röst utdata är följande:
 
 ```HTTP
 POST /synthesize
@@ -94,13 +94,13 @@ Authorization: Bearer [Base64 access_token]
 <speak version='1.0' xml:lang='en-US'><voice xml:lang='en-US' xml:gender='Female' name='Microsoft Server Speech Text to Speech Voice (en-US, ZiraRUS)'>Microsoft Bing Voice Output API</voice></speak>
 ```
 
-## <a name="VoiceOutResponse"></a>Röst utdata svar
+## <a name="VoiceOutResponse"></a>Svar på röst utdata
 
-Den Bing text till tal-API använder HTTP POST för att skicka ljud tillbaka till klienten. API-svaret innehåller ljudströmmen och codec-enheten och den matchar det begärda utdataformatet. Ljud som returneras för en viss begäran får inte överskrida 15 sekunder.
+Bing-text till tal-API använder HTTP POST för att skicka tillbaka ljud till klienten. API-svaret innehåller ljud strömmen och codecen och matchar det begärda utdataformatet. Ljudet som returnerades för en specifik begäran får inte överstiga 15 sekunder.
 
-### <a name="SuccessfulRecResponse"></a>Exempel: lyckad syntes svar
+### <a name="SuccessfulRecResponse"></a>Exempel: lyckad syntes-svar
 
-Följande kod är ett exempel på ett JSON-svar på en lyckad röst syntes begäran. Kommentarer och formatering av koden är för det här exemplet bara och har utelämnats från faktiska svaret.
+Följande kod är ett exempel på ett JSON-svar på en lyckad röst syntes förfrågan. Kommentaren och formateringen av koden gäller endast för det här exemplet och utelämnas av det faktiska svaret.
 
 ```HTTP
 HTTP/1.1 200 OK
@@ -110,9 +110,9 @@ Content-Type: audio/x-wav
 Response audio payload
 ```
 
-### <a name="RecFailure"></a>Exempel: syntes fel
+### <a name="RecFailure"></a>Exempel: syntes haverie
 
-Följande exempelkod visar ett JSON-svar på en röst-syntes frågefel:
+Följande exempel kod visar ett JSON-svar på ett röst syntes fråga-problem:
 
 ```HTTP
 HTTP/1.1 400 XML parser error
@@ -120,16 +120,16 @@ Content-Type: text/xml
 Content-Length: 0
 ```
 
-### <a name="ErrorResponse"></a>Felsvar
+### <a name="ErrorResponse"></a>Fel svar
 
 Fel | Beskrivning
 ----|----
-HTTP/400 Felaktig begäran | En obligatorisk parameter är saknas, tom eller null eller värdet som skickas till antingen en obligatorisk eller valfri parameter är ogiltig. En anledning för att hämta ”ogiltig” svaret passerar ett strängvärde som är längre än den tillåtna längden. En kort beskrivning av parametern problematiska ingår.
-HTTP/401 Ej behörig | Begäran har inte behörighet.
-HTTP/413 RequestEntityTooLarge  | SSML-indata är större än vad som stöds.
-HTTP/502 BadGateway | Det finns ett nätverksrelaterade problem eller ett problem på serversidan.
+Felaktig HTTP/400-begäran | En obligatorisk parameter saknas, är tom eller null, eller värdet som skickas till en obligatorisk eller valfri parameter är ogiltigt. En orsak till att hämta "ogiltigt" svar är att skicka ett sträng värde som är längre än den tillåtna längden. En kort beskrivning av den problematiska parametern ingår.
+HTTP/401 ej auktoriserad | Begäran har inte behörighet.
+HTTP/413 RequestEntityTooLarge  | SSML-indatamängden är större än vad som stöds.
+HTTP/502 BadGateway | Det finns ett problem med nätverket eller ett problem på Server sidan.
 
-Ett exempel på ett felsvar är följande:
+Ett exempel på ett fel svar är följande:
 
 ```HTTP
 HTTP/1.0 400 Bad Request
@@ -141,9 +141,9 @@ Voice name not supported
 
 ## <a name="ChangeSSML"></a>Ändra röst utdata via SSML
 
-SSML 1.0 har stöd för Microsoft text till tal-API som definierats i W3C [tal syntes Markup Language (SSML) Version 1.0](https://www.w3.org/TR/2009/REC-speech-synthesis-20090303/). Det här avsnittet visas exempel på vissa egenskaper för genererade röst utdata som liknar talar Betygsätt uttal osv med hjälp av SSML taggar.
+Microsoft text-till-Speech API stöder SSML 1,0 enligt vad som anges i W3C:S [SSML (Speech syntes Markup Language) 1,0](https://www.w3.org/TR/2009/REC-speech-synthesis-20090303/). I det här avsnittet visas exempel på hur du kan ändra vissa egenskaper för genererade röst utdata som tal frekvens, uttal osv. genom att använda SSML-taggar.
 
-1. Att lägga till break
+1. Lägger till rast
 
    ```
    <speak version='1.0' xmlns="https://www.w3.org/2001/10/synthesis" xml:lang='en-US'><voice  name='Microsoft Server Speech Text to Speech Voice (en-US, BenjaminRUS)'> Welcome to use Microsoft Cognitive Services <break time="100ms" /> Text-to-Speech API.</voice> </speak>
@@ -173,26 +173,26 @@ SSML 1.0 har stöd för Microsoft text till tal-API som definierats i W3C [tal s
    <speak version='1.0' xmlns="https://www.w3.org/2001/10/synthesis" xml:lang='en-US'><voice  name='Microsoft Server Speech Text to Speech Voice (en-US, JessaRUS)'>Welcome to use <prosody pitch="high">Microsoft Cognitive Services Text-to-Speech API.</prosody></voice> </speak>
    ```
 
-6. Ändra prosody profil
+6. Ändra prosody-kontur
 
    ```
    <speak version='1.0' xmlns="https://www.w3.org/2001/10/synthesis" xml:lang='en-US'><voice  name='Microsoft Server Speech Text to Speech Voice (en-US, JessaRUS)'><prosody contour="(80%,+20%) (90%,+30%)" >Good morning.</prosody></voice> </speak>
    ```
 
 > [!NOTE]
-> Obs ljuddata måste vara 8 kB eller 16 k wav som anges i följande format: **CRC kod** (CRC-32): 4 byte (DWORD) med giltiga intervallet 0x00000000 ~ 0xFFFFFFFF; **Ljud format flaggan**: 4 byte (DWORD) med giltiga intervallet 0x00000000 ~ 0xFFFFFFFF; **Antal prov**: 4 byte (DWORD) med giltiga intervallet 0x00000000 ~ 0x7FFFFFFF; **Storleken på binär brödtext**: 4 byte (DWORD) med giltiga intervallet 0x00000000 ~ 0x7FFFFFFF; **Binära brödtext**: n byte.
+> Observera att ljud data måste vara 8k eller 16k WAV i följande format: **CRC-kod** (CRC-32): 4 byte (DWORD) med giltigt intervall 0x00000000 ~ 0xFFFFFFFF; **Ljud format flagga**: 4 byte (DWORD) med giltigt intervall 0x00000000 ~ 0xFFFFFFFF; **Antal prov**: 4 byte (DWORD) med giltigt intervall 0x00000000 ~ 0x7FFFFFFF; **Storlek på binär brödtext**: 4 byte (DWORD) med giltigt intervall 0x00000000 ~ 0x7FFFFFFF; **Binär text**: n byte.
 
-## <a name="SampleApp"></a>Exempelprogram
+## <a name="SampleApp"></a>Exempel program
 
-Mer information om implementering finns i den [Visual C# .NET text till tal-exempelprogrammet](https://github.com/Microsoft/Cognitive-Speech-TTS/blob/master/Samples-Http/CSharp/TTSProgram.cs).
+Information om implementering finns i [Visual C#.net-exempel programmet för text till tal](https://github.com/Microsoft/Cognitive-Speech-TTS/blob/master/Samples-Http/CSharp/TTSProgram.cs).
 
-## <a name="SupLocales"></a>Nationella inställningar som stöds och rösttyper
+## <a name="SupLocales"></a>Nationella inställningar och röst teckensnitt som stöds
 
-I följande tabell visas några av de nationella inställningar som stöds och relaterade rösttyper.
+I följande tabell visas några av de språk som stöds och relaterade röst teckensnitt.
 
 Nationell inställning | Kön | Tjänsten Namnmappningen
 ---------|--------|------------
-ar-EG* | Kvinna | ”Microsoft Server tal Text till tal-röst (ar-t.ex., Hoda)”
+ar-tex * | Kvinna | ”Microsoft Server tal Text till tal-röst (ar-t.ex., Hoda)”
 ar-SA | Man | ”Microsoft Server tal Text till tal-röst (ar-SA, Naayf)”
 BG-BG | Man | ”Microsoft Server tal Text till tal röst (bg-BG, Ivan)”
 CA-ES | Kvinna | ”Microsoft Server tal Text till tal röst (ca-ES, HerenaRUS)”
@@ -200,11 +200,11 @@ CS-CZ | Man | ”Microsoft Server tal Text till tal-röst (cs-CZ, Jakub)”
 da-DK | Kvinna | ”Microsoft Server tal Text till tal-röst (da-DK, HelleRUS)”
 Tyskland-AT | Man | ”Microsoft Server tal Text till tal-röst (Tyskland-AT, Michael)”
 Tyskland – CH | Man | ”Microsoft Server tal Text till tal-röst (Tyskland-CH, Karsten)”
-de-DE | Kvinna | ”Microsoft Server tal Text till tal-röst (de-DE, Hedda)”
+de-DE | Kvinna | "Microsoft Server Speech Text till tal Voice (de-DE, Hedda)"
 de-DE | Kvinna | ”Microsoft Server tal Text till tal-röst (de-DE, HeddaRUS)”
-de-DE | Man | ”Microsoft Server tal Text till tal-röst (de-DE, Stefan, Apollo)”
+de-DE | Man | "Microsoft Server Speech Text till tal Voice (de-DE, Stefan, Apollo)"
 el GR | Man | ”Microsoft Server tal Text till tal-röst (el-GR, Stefanos)”
-SV-Australien | Kvinna | ”Microsoft Server tal Text till tal-röst (en AU, Catherine)”
+SV-Australien | Kvinna | "Microsoft Server Speech Text till tal Voice (en-AU, Catherine)"
 SV-Australien | Kvinna | ”Microsoft Server tal Text till tal-röst (en AU, HayleyRUS)”
 en CA: N | Kvinna | ”Microsoft Server tal Text till tal-röst (en CA, Johan)”
 en CA: N | Kvinna | ”Microsoft Server tal Text till tal-röst (en CA, HeatherRUS)”
@@ -271,15 +271,15 @@ zh-TW | Kvinna | ”Microsoft Server tal Text till tal-röst (zh-TW, Yating, Apo
 zh-TW | Kvinna | ”Microsoft Server tal Text till tal-röst (zh-TW, HanHanRUS)”
 zh-TW | Man | ”Microsoft Server tal Text till tal-röst (zh-TW, Zhiwei, Apollo)”
 
- \* ar-t.ex har stöd för Modern Standard arabiska (MSA).
+ \* ar-tex stöder modern standard arabiska (MSA).
 
 > [!NOTE]
-> Observera att tidigare tjänstnamn **Microsoft Server tal Text till tal-röst (cs-CZ, Vit)** och **Microsoft Server tal Text till tal-röst (en IE, Shaun)** upphör att gälla efter 3/31 januari 2018 i för att optimera funktioner för Bing-Taligenkänning. Uppdatera din kod med uppdaterade namn.
+> Observera att de tidigare tjänst namnen **Microsoft Server speech text till tal Voice (CS-CZ, vit)** och **Microsoft Server Speech text till tal Voice (en-IE, Shaun)** är föråldrade efter 3/31/2018, för att optimera API för Bing-taligenkänning trådlösa. Uppdatera koden med de uppdaterade namnen.
 
-## <a name="TrouNSupport"></a>Felsökning och support
+## <a name="TrouNSupport"></a>Fel sökning och support
 
-Publicera alla frågor och problem med till den [Bing Speech Service](https://social.msdn.microsoft.com/Forums/en-US/home?forum=SpeechService) MSDN-forum. Innehåller fullständig information, till exempel:
+Publicera alla frågor och problem i MSDN [-forumet för taligenkänning i Bing service](https://social.msdn.microsoft.com/Forums/en-US/home?forum=SpeechService) . Inkludera fullständig information, till exempel:
 
-* Ett exempel på fullständiga begäran-sträng.
-* Om så är tillämpligt, logga fullständiga utdata för en misslyckad begäran som innehåller ID: N.
-* Procentandelen av förfrågningar som misslyckas.
+* Ett exempel på en fullständig sträng för begäran.
+* Om så är tillämpligt, är det fullständiga resultatet av en misslyckad begäran, som innehåller logg-ID.
+* Procent andelen begär Anden som har misslyckats.

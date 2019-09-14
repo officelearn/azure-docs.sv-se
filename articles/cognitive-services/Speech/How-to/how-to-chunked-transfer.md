@@ -1,35 +1,35 @@
 ---
-title: Hur du med chunked-ljud Stream | Microsoft Docs
+title: Så här segmenterar du överföring av ljud strömmen | Microsoft Docs
 titlesuffix: Azure Cognitive Services
-description: Hur du använder segmenterat trasfer för att skicka ljudström till tjänsten för Bing-tal
+description: Använda segmenterade Trasfer för att skicka ljud strömmar till den Taligenkänning i Bing tjänsten
 services: cognitive-services
-author: zhouwangzw
-manager: wolfma
+author: nitinme
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
-ms.author: zhouwang
+ms.author: nitinme
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: d9796cf60e2695c21d781131c935d24891401efa
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 60428a7a5e28b7c9d6cd76f31374f24df48423a6
+ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60514994"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70966494"
 ---
-# <a name="chunked-transfer-encoding"></a>Chunked-kodning
+# <a name="chunked-transfer-encoding"></a>Kodning av segmenterad överföring
 
 [!INCLUDE [Deprecation note](../../../../includes/cognitive-services-bing-speech-api-deprecation-note.md)]
 
-För att transkribera tal till text, kan Microsoft API för taligenkänning du skicka ljudet som en hela segment eller beskära ljudet i små segment. För att effektivt strömma ljud och avskrift svarstiden, vi rekommenderar att du använder [Chunked-kodning](https://en.wikipedia.org/wiki/Chunked_transfer_encoding) att strömma ljud till tjänsten. Andra-implementeringar kan leda till användaren som uppfattade svarstider. Mer information finns i den [ljud strömmar](../concepts.md#audio-streams) sidan.
+För att kunna skriva tal till text kan du använda API: et för tal igenkänning i Microsoft för att skicka ljudet som ett helt segment eller för att Chop ljudet i små segment. För effektiv ljud strömning och minskning av avskrifts svars tiden rekommenderar vi att du använder [Chunked Transfer Encoding](https://en.wikipedia.org/wiki/Chunked_transfer_encoding) för att strömma ljudet till tjänsten. Andra implementeringar kan resultera i högre svars tid för användaren. Mer information finns på sidan [ljud strömmar](../concepts.md#audio-streams) .
 
 > [!NOTE]
-> Du kan inte överföra mer än 10 sekunder ljud varje en begäran och varaktigheten för totalt antal begäran får inte överskrida 14 sekunder.
+> Du får inte överföra mer än 10 sekunders ljud i en begäran och den totala varaktigheten för begäran får inte överstiga 14 sekunder.
 > [!NOTE]
-> Du måste ange den Chunked-kodning bara om du använder den [REST API: er](../GetStarted/GetStartedREST.md) att anropa speech-tjänsten. Program som använder [klientbibliotek](../GetStarted/GetStartedClientLibraries.md) behöver inte konfigurera den Chunked-kodning.
+> Du behöver bara ange den segmenterade överförings kodningen om du använder [REST-API: er](../GetStarted/GetStartedREST.md) för att anropa tal tjänsten. Program som använder [klient bibliotek](../GetStarted/GetStartedClientLibraries.md) behöver inte konfigurera den segmenterade överförings kodningen.
 
-Följande kod visar hur du anger den Chunked-kodning och skicka en ljudfil som chunked i 1024 byte-segment.
+Följande kod visar hur du ställer in den segmenterade överförings kodningen och skickar en ljudfil som delas upp i 1024 byte-segment.
 
 ```cs
 

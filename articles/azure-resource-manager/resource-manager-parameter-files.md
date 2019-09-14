@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 08/21/2019
 ms.author: tomfitz
-ms.openlocfilehash: 694bd3b5f14ac37229763b33fb97c17bd4e573d4
-ms.sourcegitcommit: a3a40ad60b8ecd8dbaf7f756091a419b1fe3208e
+ms.openlocfilehash: 4305213d272172cb89bfdd207b6c8106af3f4939
+ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69893807"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70983939"
 ---
 # <a name="create-resource-manager-parameter-file"></a>Skapa parameter fil för Resource Manager
 
@@ -204,6 +204,6 @@ Om din mall innehåller en parameter med samma namn som en av parametrarna i Pow
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Information om hur du definierar parametrar i din mall finns i [förstå strukturen och syntaxen för Azure Resource Manager mallar](resource-group-authoring-templates.md).
+- Information om hur du definierar parametrar i din mall finns i [parametrar i Azure Resource Manager mallar](template-parameters.md).
 - Mer information om hur du använder värden från ett nyckel valv finns i [använda Azure Key Vault för att skicka ett säkert parameter värde under distributionen](resource-manager-keyvault-parameter.md).
-
+- Mer information om parametrar finns [i parametrar i Azure Resource Manager mallar](template-parameters.md).

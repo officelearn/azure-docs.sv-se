@@ -1,68 +1,68 @@
 ---
-title: Kom igång med Bing-Taligenkänning för taligenkänning med hjälp av REST | Microsoft Docs
+title: Kom igång med Taligenkänning i Bing igenkännings-API med hjälp av REST | Microsoft Docs
 titlesuffix: Azure Cognitive Services
-description: 'Använd REST för att komma åt den tal-API: T i Microsoft Cognitive Services för att omvandla talat ljud till text.'
+description: 'Använd REST för att komma åt API: t för tal igenkänning i Microsoft Cognitive Services att konvertera talade ljud till text.'
 services: cognitive-services
-author: zhouwangzw
-manager: wolfma
+author: nitinme
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
-ms.author: zhouwang
+ms.author: nitinme
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: ead4026ecec4878c69bc21a9ebc989eaf3d69a13
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: e962a12c6c27737f95e78e80036e51bac41147d5
+ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60515141"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70965771"
 ---
-# <a name="quickstart-use-the-bing-speech-recognition-rest-api"></a>Snabbstart: Använd Bing-taligenkänning REST API
+# <a name="quickstart-use-the-bing-speech-recognition-rest-api"></a>Snabbstart: Använd Taligenkänning i Bing igenkännings REST API
 
 [!INCLUDE [Deprecation note](../../../../includes/cognitive-services-bing-speech-api-deprecation-note.md)]
 
-Med molnbaserad Bing Speech-tjänsten, kan du utveckla program med hjälp av REST-API för att omvandla talat ljud till text.
+Med den molnbaserade Taligenkänning i Bings tjänsten kan du utveckla program med hjälp av REST API för att konvertera talade ljud till text.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
-### <a name="subscribe-to-the-speech-api-and-get-a-free-trial-subscription-key"></a>Prenumerera på API för taligenkänning och få en kostnadsfri utvärderingsprenumeration-nyckel
+### <a name="subscribe-to-the-speech-api-and-get-a-free-trial-subscription-key"></a>Prenumerera på Speech API och få en prenumerations nyckel för kostnads fri utvärdering
 
-API för taligenkänning är en del av Cognitive Services (tidigare projekt Oxford). Du kan få kostnadsfri utvärderingsprenumeration nycklar från den [Cognitive Services-prenumeration](https://azure.microsoft.com/try/cognitive-services/) sidan. När du har valt API för taligenkänning, Välj **hämta API-nyckel** att hämta nyckeln. Returnerar den primära och sekundära nyckeln. Båda nycklarna är knutna till samma kvot, så du kan använda någon av nycklarna.
+Speech API är en del av Cognitive Services (tidigare Project-Oxford). Du kan få kostnads fria utvärderings prenumerations nycklar från sidan [Cognitive Services prenumeration](https://azure.microsoft.com/try/cognitive-services/) . När du har valt Speech API väljer du **Hämta API-nyckel** för att hämta nyckeln. Den returnerar en primär och sekundär nyckel. Båda nycklarna är knutna till samma kvot, så du kan använda båda nycklarna.
 
 > [!IMPORTANT]
->* Få en prenumerationsnyckel. Innan du kan komma åt REST API, måste du ha en [prenumerationsnyckel](https://azure.microsoft.com/try/cognitive-services/).
+>* Hämta en prenumerations nyckel. Innan du kan komma åt REST API måste du ha en [prenumerations nyckel](https://azure.microsoft.com/try/cognitive-services/).
 >
->* Använd din prenumerationsnyckel. Ersätt YOUR_SUBSCRIPTION_KEY med din egen prenumerationsnyckel i följande REST-exempel.
+>* Använd din prenumerations nyckel. I följande REST-exempel ersätter du YOUR_SUBSCRIPTION_KEY med din egen prenumerations nyckel.
 >
->* Referera till den [autentisering](../how-to/how-to-authentication.md) för hur du hämtar en prenumerationsnyckel.
+>* På sidan [autentisering](../how-to/how-to-authentication.md) hittar du information om hur du hämtar en prenumerations nyckel.
 
-### <a name="prerecorded-audio-file"></a>Inspelade ljudfil
+### <a name="prerecorded-audio-file"></a>Förregistrerad ljudfil
 
-I det här exemplet använder vi en ljudfil för att visa hur du använder REST-API. Registrera en ljudfil för dig själv om en kort mening. Anta till exempel ”vad är vädret som idag”? eller ”hitta roliga filmer kan du titta på”. API för taligenkänning har även stöd för extern mikrofon indata.
+I det här exemplet använder vi en inspelad ljud fil för att illustrera hur du använder REST API. Spela in en ljudfil på egen hand som säger en kort fras. Säg t. ex. säga "Vad är den väder som idag?" eller "hitta roliga filmer att titta på". Tal igenkännings-API: t stöder även extern mikrofon-inläsning.
 
 > [!NOTE]
-> I exemplet krävs att ljud registreras som en WAV-filer med **PCM-kanal (mono), 16 KHz**.
+> Exemplet kräver att ljud spelas in som en WAV-fil med en **enkel kanal (mono) med PCM, 16 kHz**.
 
-## <a name="build-a-recognition-request-and-send-it-to-the-speech-recognition-service"></a>Skapa en för begäran och skicka den till tjänsten för taligenkänning
+## <a name="build-a-recognition-request-and-send-it-to-the-speech-recognition-service"></a>Bygg en begäran om godkännande och skicka den till tjänsten för tal igenkänning
 
-Nästa steg för taligenkänning är att skicka en POST-begäran till tal HTTP-slutpunkter med rätt begärande sidhuvud och brödtext.
+Nästa steg för tal igenkänning är att skicka en POST-begäran till tal-HTTP-slutpunkter med rätt rubrik och brödtext för begäran.
 
 ### <a name="service-uri"></a>Tjänstens URI
 
-Tjänsten för taligenkänning URI definieras baserat på [erkännande lägen](../concepts.md#recognition-modes) och [språk](../concepts.md#recognition-languages):
+Tjänst-URI: n för tal igenkänning definieras baserat på [tolknings lägen](../concepts.md#recognition-modes) och [tolknings språk](../concepts.md#recognition-languages):
 
 ```HTTP
 https://speech.platform.bing.com/speech/recognition/<RECOGNITION_MODE>/cognitiveservices/v1?language=<LANGUAGE_TAG>&format=<OUTPUT_FORMAT>
 ```
 
-`<RECOGNITION_MODE>` Anger läge för taligenkänning och måste vara något av följande värden: `interactive`, `conversation`, eller `dictation`. Det är en nödvändig resurssökväg i URI: N. Mer information finns i [erkännande lägen](../concepts.md#recognition-modes).
+`<RECOGNITION_MODE>`anger tolknings läget och måste vara något av följande värden: `interactive`, `conversation`, eller `dictation`. Det är en obligatorisk resurs Sök väg i URI: n. Mer information finns i [igenkännings lägen](../concepts.md#recognition-modes).
 
-`<LANGUAGE_TAG>` är en obligatorisk parameter i frågesträngen. Den definierar målspråk för ljud konvertering: till exempel `en-US` för engelska (USA). Mer information finns i [språk](../concepts.md#recognition-languages).
+`<LANGUAGE_TAG>`är en obligatorisk parameter i frågesträngen. Den definierar mål språket för ljud konvertering: till exempel `en-US` för engelska (USA). Mer information finns i [tolknings språk](../concepts.md#recognition-languages).
 
-`<OUTPUT_FORMAT>` är en valfri parameter i frågesträngen. De tillåtna värdena är `simple` och `detailed`. Som standard tjänsten returnerar resultat i `simple` format. Mer information finns i [utdataformat](../concepts.md#output-format).
+`<OUTPUT_FORMAT>`är en valfri parameter i frågesträngen. De tillåtna värdena är `simple` och `detailed`. Som standard returnerar tjänsten resultatet i `simple` formatet. Mer information finns i [utdataformat](../concepts.md#output-format).
 
-I följande tabell visas några exempel på service URI: er.
+Några exempel på tjänst-URI: er visas i följande tabell.
 
 | Igenkänningsläge  | Språk | Utdataformat | Tjänstens URI |
 |---|---|---|---|
@@ -71,18 +71,18 @@ I följande tabell visas några exempel på service URI: er.
 | `dictation` | fr-FR | Enkel | https:\//speech.platform.bing.com/speech/recognition/dictation/cognitiveservices/v1?language=fr-FR&format=simple |
 
 > [!NOTE]
-> Tjänstens URI krävs endast när ditt program använder REST API: er för att anropa tjänsten för taligenkänning. Om du använder en av de [klientbibliotek](GetStartedClientLibraries.md), du vanligtvis inte behöver veta vilka URI: N används. Klientbiblioteken kan använda olika service URI: er, som gäller bara för en viss klient-biblioteket. Mer information finns i klientbiblioteket för ditt val.
+> Tjänste-URI behövs bara när programmet använder REST API: er för att anropa tjänsten för tal igenkänning. Om du använder ett av [klient biblioteken](GetStartedClientLibraries.md)behöver du vanligt vis inte veta vilken URI som används. Klient biblioteken kan använda olika tjänst-URI: er som endast gäller för ett särskilt klient bibliotek. Mer information finns i det klient bibliotek som du väljer.
 
 ### <a name="request-headers"></a>Begärandehuvud
 
-Följande fält måste anges i huvudet för begäran:
+Följande fält måste anges i begär ande huvudet:
 
-- `Ocp-Apim-Subscription-Key`: Varje gång som du anropa tjänsten, måste du ange din prenumerationsnyckel i den `Ocp-Apim-Subscription-Key` rubrik. Taltjänsten stöder också skicka auktorisering token i stället för prenumerationsnycklar. Mer information finns i [Autentisering](../How-to/how-to-authentication.md).
-- `Content-type`: Den `Content-type` fältet beskriver format och codec för ljud dataström. För närvarande endast WAV-fil och PCM Mono 16000 kodning stöds. Content-type-värdet för det här formatet är `audio/wav; codec=audio/pcm; samplerate=16000`.
+- `Ocp-Apim-Subscription-Key`: Varje gång du anropar tjänsten måste du skicka prenumerations nyckeln i `Ocp-Apim-Subscription-Key` rubriken. Speech service stöder också att du skickar autentiseringstoken i stället för prenumerations nycklar. Mer information finns i [Autentisering](../How-to/how-to-authentication.md).
+- `Content-type`: I `Content-type` fältet beskrivs formatet och codecen för ljud strömmen. För närvarande stöds endast WAV-filer och PCM mono 16000-kodning. Content-Type-värdet för det här formatet `audio/wav; codec=audio/pcm; samplerate=16000`är.
 
-Fältet `Transfer-Encoding` är valfritt. Om du anger det här fältet till `chunked`, kan du beskära ljudet i små segment. Mer information finns i [Segmentvis överföring](../How-to/how-to-chunked-transfer.md).
+Fältet `Transfer-Encoding` är valfritt. Om du anger det här fältet `chunked`till kan du Chop ljudet i små segment. Mer information finns i [segment överföring](../How-to/how-to-chunked-transfer.md).
 
-Följande är ett exempel förfrågnings-huvud:
+Följande är ett exempel på en begäran-rubrik:
 
 ```HTTP
 POST https://speech.platform.bing.com/speech/recognition/interactive/cognitiveservices/v1?language=en-US&format=detailed HTTP/1.1
@@ -96,10 +96,10 @@ Expect: 100-continue
 
 ### <a name="send-a-request-to-the-service"></a>Skicka en begäran till tjänsten
 
-I följande exempel visas hur du skickar en begäran för igenkänning av tal till tal REST-slutpunkter. Den använder den `interactive` erkännande läge.
+I följande exempel visas hur du skickar en begäran om tal igenkänning till tal REST-slutpunkter. Den använder `interactive` igenkännings läget.
 
 > [!NOTE]
-> Ersätt `YOUR_AUDIO_FILE` med sökvägen till din inspelade ljudfil. Ersätt `YOUR_SUBSCRIPTION_KEY` med din egen prenumerationsnyckel.
+> Ersätt `YOUR_AUDIO_FILE` med sökvägen till din inspelade ljudfil. Ersätt `YOUR_SUBSCRIPTION_KEY` med din egen prenumerations nyckel.
 
 # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -125,12 +125,12 @@ $RecoResponse
 
 ```
 
-# <a name="curltabcurl"></a>[curl](#tab/curl)
+# <a name="curltabcurl"></a>[klammerparentes](#tab/curl)
 
-Exemplet använder curl på Linux med bash. Om det inte är tillgänglig på din plattform, kan du behöva installera curl. Exemplet fungerar även på Cygwin på Windows, Git Bash, zsh och andra gränssnitt.
+Exemplet använder sväng i Linux med bash. Om den inte är tillgänglig på din plattform kan du behöva installera en sväng. Exemplet fungerar även på Cygwin i Windows, git bash, zsh och andra gränssnitt.
 
 > [!NOTE]
-> Behåll den `@` före namnet på ljudfil när `YOUR_AUDIO_FILE` med sökvägen till din inspelade ljudfil, eftersom det anger att värdet för `--data-binary` är ett filnamn i stället för data.
+> Behåll före namnet på ljud filen när du ersätter `YOUR_AUDIO_FILE` med sökvägen till den förregistrerade ljud filen, eftersom det indikerar att värdet för `--data-binary` är ett fil namn i stället för data. `@`
 
 ```
 curl -v -X POST "https://speech.platform.bing.com/speech/recognition/interactive/cognitiveservices/v1?language=en-us&format=detailed" -H "Transfer-Encoding: chunked" -H "Ocp-Apim-Subscription-Key: YOUR_SUBSCRIPTION_KEY" -H "Content-type: audio/wav; codec=audio/pcm; samplerate=16000" --data-binary @YOUR_AUDIO_FILE
@@ -176,14 +176,14 @@ using (FileStream fs = new FileStream(YOUR_AUDIO_FILE, FileMode.Open, FileAccess
 
 ---
 
-## <a name="process-the-speech-recognition-response"></a>Bearbeta tal igenkänning av svaret
+## <a name="process-the-speech-recognition-response"></a>Behandla tal igenkännings svaret
 
-När begäran bearbetades, returnerar Speech Service resultaten i ett svar som JSON-format.
+När begäran har bearbetats returnerar tal tjänsten resultatet i ett svar som JSON-format.
 
 > [!NOTE]
-> Om den tidigare koden returnerar ett fel, se [felsökning](../troubleshooting.md) att hitta orsaken.
+> Om föregående kod returnerar ett fel, se [fel sökning](../troubleshooting.md) för att hitta den möjliga orsaken.
 
-Följande kodavsnitt visar ett exempel på hur du kan läsa svaret från strömmen.
+Följande kodfragment visar ett exempel på hur du kan läsa svaret från data strömmen.
 
 # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -192,9 +192,9 @@ Följande kodavsnitt visar ett exempel på hur du kan läsa svaret från strömm
 ConvertTo-Json $RecoResponse
 ```
 
-# <a name="curltabcurl"></a>[curl](#tab/curl)
+# <a name="curltabcurl"></a>[klammerparentes](#tab/curl)
 
-I det här exemplet returnerar curl direkt svarsmeddelandet i en sträng. Om du vill visa den i JSON-format kan du använda fler verktyg, till exempel jq.
+I det här exemplet returnerar spiralen direkt svarsmeddelandet i en sträng. Om du vill visa det i JSON-format kan du använda ytterligare verktyg, till exempel JQ.
 
 ```
 curl -X POST "https://speech.platform.bing.com/speech/recognition/interactive/cognitiveservices/v1?language=en-us&format=detailed" -H "Transfer-Encoding: chunked" -H "Ocp-Apim-Subscription-Key: YOUR_SUBSCRIPTION_KEY" -H "Content-type: audio/wav; codec=audio/pcm; samplerate=16000" --data-binary @YOUR_AUDIO_FILE | jq
@@ -223,7 +223,7 @@ using (WebResponse response = request.GetResponse())
 
 ---
 
-I följande exempel är ett JSON-svar:
+Följande exempel är ett JSON-svar:
 
 ```json
 OK
@@ -245,17 +245,17 @@ OK
 
 REST API har vissa begränsningar:
 
-- Det stöder ljudström bara upp till 15 sekunder.
-- Det stöder inte mellanresultat under erkännande. Användarna får den slutliga igenkänningsresultatet.
+- Den stöder bara ljud strömmen upp till 15 sekunder.
+- Den har inte stöd för mellanliggande resultat under igenkänning. Användare får bara det slutliga igenkännings resultatet.
 
-Ta bort dessa begränsningar med tal [klientbibliotek](GetStartedClientLibraries.md). Eller du kan arbeta direkt med den [tal WebSocket-protokoll](../API-Reference-REST/websocketprotocol.md).
+Använd tal [klient bibliotek](GetStartedClientLibraries.md)för att ta bort dessa begränsningar. Eller så kan du arbeta direkt med [tal-WebSocket-protokollet](../API-Reference-REST/websocketprotocol.md).
 
 ## <a name="whats-next"></a>Nästa steg
 
-- Om du vill se hur du använder REST-API i C#, Java, etc. kan se dessa [programexempel](../samples.md).
-- För att hitta och åtgärda fel, se [felsökning](../troubleshooting.md).
-- Om du vill använda mer avancerade funktioner, se hur du kommer igång med hjälp av tal [klientbibliotek](GetStartedClientLibraries.md).
+- Om du vill se hur du använder REST API C#i, Java osv., se dessa [exempel program](../samples.md).
+- Information om hur du hittar och korrigerar fel finns i [fel sökning](../troubleshooting.md).
+- Om du vill använda mer avancerade funktioner går du till hur du kommer igång med att använda tal [klient bibliotek](GetStartedClientLibraries.md).
 
 ### <a name="license"></a>Licens
 
-Alla kognitiva tjänster SDK: er och exempel har en licens för MIT-licensen. Mer information finns i [licens](https://github.com/Microsoft/Cognitive-Speech-STT-JavaScript/blob/master/LICENSE.md).
+Alla Cognitive Services SDK: er och exempel licensieras med MIT-licensen. Mer information finns i [License](https://github.com/Microsoft/Cognitive-Speech-STT-JavaScript/blob/master/LICENSE.md).

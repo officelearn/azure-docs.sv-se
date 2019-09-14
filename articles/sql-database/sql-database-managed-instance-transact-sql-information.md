@@ -11,12 +11,12 @@ ms.author: jovanpop
 ms.reviewer: sstein, carlrab, bonova
 ms.date: 08/12/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: cad04df9ba76ce483a308411949e6f98bab23bf9
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: 29fd82eb0253f2f7f6b9bc8b6a84882e2372124c
+ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70858552"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70984973"
 ---
 # <a name="managed-instance-t-sql-differences-limitations-and-known-issues"></a>Hanterade instans T-SQL-skillnader, begränsningar och kända problem
 
@@ -339,7 +339,7 @@ En hanterad instans kan inte komma åt fil resurser och Windows-mappar, så föl
 - `ALTER ASSEMBLY`Det går inte att referera till filer. Se [Alter Assembly](https://docs.microsoft.com/sql/t-sql/statements/alter-assembly-transact-sql).
 
 ### <a name="database-mail-db_mail"></a>Database Mail (db_mail)
- - `sp_send_dbmail`Det går inte att @file_attachments skicka bilagor med hjälp av parametern. Lokala fil system och lagrings resurser eller Azure Blob Storage är inte tillgängliga i den här proceduren.
+ - `sp_send_dbmail`Det går inte att @file_attachments skicka bilagor med hjälp av parametern. Det går inte att komma åt lokala fil system och Extertal-resurser eller Azure Blob Storage i den här proceduren.
  - Se kända problem som `@query` rör parametrar och autentisering.
  
 ### <a name="dbcc"></a>DBCC
@@ -479,9 +479,12 @@ Begränsningar:
 - Återställning av `.BAK` filen för en databas som innehåller en begränsning som beskrivs i det här dokumentet ( `FILESTREAM` till exempel `FILETABLE` eller objekt) kan inte återställas på den hanterade instansen.
 - `.BAK`Det går inte att återställa filer som innehåller flera säkerhets kopierings uppsättningar. 
 - `.BAK`filer som innehåller flera loggfiler kan inte återställas.
-- Säkerhets kopior som innehåller databaser som är större än 8TB, aktiva InMemory OLTP-objekt eller mer än 280 filer kan inte återställas på en Generell användning instans. 
+- Säkerhets kopior som innehåller databaser som är större än 8TB, aktiva InMemory OLTP-objekt eller antal filer som skulle överskrida 280 filer per instans kan inte återställas på en Generell användning instans. 
 - Säkerhets kopieringar som innehåller databaser som är större än 4 TB-eller in-memory OLTP-objekt med den totala storlek som är större än den storlek som beskrivs i [resurs gränser](sql-database-managed-instance-resource-limits.md) kan inte återställas på affärskritisk instans.
 Information om Restore-instruktioner [](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-transact-sql)finns i Restore Statements.
+
+ > [!IMPORTANT]
+ > Samma begränsningar gäller för inbyggd återställnings åtgärd för tidpunkter. Generell användning databas som är större än 4 TB kan till exempel inte återställas på Affärskritisk instansen. Affärskritisk databas med InMemory OLTP-filer eller mer än 280 filer kan inte återställas på Generell användning instansen.
 
 ### <a name="service-broker"></a>Service Broker
 

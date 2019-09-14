@@ -8,17 +8,17 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: conceptual
-ms.date: 07/26/2019
-ms.openlocfilehash: 8f10e3d3fd7c67d1e803e8f85c9918c91bb81d59
-ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
+ms.date: 08/01/2019
+ms.openlocfilehash: 6a6b096911ac8596fe29aeb4596f1da6d5266794
+ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68517467"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70967816"
 ---
 # <a name="manage-your-integration-service-environment-ise-in-azure-logic-apps"></a>Hantera integrerings tjänst miljön (ISE) i Azure Logic Apps
 
-Följ stegen i det här avsnittet om du vill kontrol lera nätverks hälsan för [integrerings tjänst miljön (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) och hantera Logi Kap par, anslutningar, integrations konton och anpassade anslutningar som finns i din ISE.
+Följ stegen i det här avsnittet för att kontrol lera nätverks hälsan för [integrerings tjänst miljön (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) och hantera Logi Kap par, anslutningar, integrations konton och anslutningar som finns i din ISE. Information om hur du lägger till dessa artefakter i ISE finns i [lägga till artefakter i integrerings tjänst miljön](../logic-apps/add-artifacts-integration-service-environment-ise.md).
 
 ## <a name="view-your-ise"></a>Visa din ISE
 
@@ -46,31 +46,49 @@ På menyn ISE väljer du **nätverks hälsa**under **Inställningar**. I det hä
 
 ## <a name="manage-your-logic-apps"></a>Hantera dina Logic Apps
 
+Du kan visa och hantera de Logic Apps som finns i din ISE.
+
 1. I menyn ISE väljer du Logi Kap par under **Inställningar**.
 
-   ![Hitta Logic Apps](./media/ise-manage-integration-service-environment/ise-find-logic-apps.png)
+   ![Visa Logic Apps](./media/ise-manage-integration-service-environment/ise-find-logic-apps.png)
 
-1. Om du vill ta bort Logi Kap par från din ISE när de inte längre behövs, väljer du dessa Logic Apps och väljer sedan **ta bort**.
+1. Om du vill ta bort Logi Kap par som du inte längre behöver i din ISE väljer du dessa Logic Apps och väljer sedan **ta bort**. Bekräfta att du vill ta bort genom att välja **Ja**.
 
 <a name="find-api-connections"></a>
 
 ## <a name="manage-api-connections"></a>Hantera API-anslutningar
 
-1. Om du vill visa de API-anslutningar som har skapats av logi Kap par som körs i din ISE går du till menyn ISE och väljer **API-anslutningar**under **Inställningar**.
+Du kan visa och hantera de anslutningar som har skapats av Logic Apps som körs i din ISE.
 
-   ![Hitta API-anslutningar](./media/ise-manage-integration-service-environment/ise-find-api-connections.png)
+1. I menyn ISE väljer du **API-anslutningar**under **Inställningar**.
 
-1. Om du vill ta bort anslutningar från din ISE när de inte längre behövs väljer du dessa anslutningar och väljer sedan **ta bort**.
+   ![Visa API-anslutningar](./media/ise-manage-integration-service-environment/ise-find-api-connections.png)
+
+1. Om du vill ta bort anslutningar som du inte längre behöver i din ISE väljer du dessa anslutningar och väljer sedan **ta bort**. Bekräfta att du vill ta bort genom att välja **Ja**.
+
+<a name="manage-api-connectors"></a>
+
+## <a name="manage-ise-connectors"></a>Hantera ISE-anslutningar
+
+Du kan visa och hantera API-kopplingar som distribueras till din ISE.
+
+1. På menyn ISE väljer du **hanterade anslutningar**under **Inställningar**.
+
+   ![Visa hanterade anslutningar](./media/ise-manage-integration-service-environment/ise-view-managed-connectors.png)
+
+1. Om du vill ta bort anslutningar som du inte vill ska vara tillgängliga i din ISE väljer du de kopplingarna och väljer sedan **ta bort**. Bekräfta att du vill ta bort genom att välja **Ja**.
 
 <a name="find-custom-connectors"></a>
 
 ## <a name="manage-custom-connectors"></a>Hantera anpassade anslutningar
 
-1. Om du vill visa anpassade anslutningar som har skapats i din ISE väljer du **anpassade anslutningar**under **Inställningar**på menyn ISE.
+Du kan visa och hantera de anpassade anslutnings program som du har distribuerat till din ISE.
+
+1. På menyn ISE väljer du **anpassade anslutningar**under **Inställningar**.
 
    ![Hitta anpassade anslutningsappar](./media/ise-manage-integration-service-environment/ise-find-custom-connectors.png)
 
-1. Om du vill ta bort anpassade anslutningar från din ISE när de inte längre behövs väljer du dessa kopplingar och väljer sedan **ta bort**.
+1. Om du vill ta bort anpassade anslutningar som du inte längre behöver i din ISE väljer du de kopplingarna och väljer sedan **ta bort**. Bekräfta att du vill ta bort genom att välja **Ja**.
 
 <a name="find-integration-accounts"></a>
 

@@ -10,12 +10,12 @@ ms.subservice: ''
 ms.topic: quickstart
 ms.date: 07/25/2019
 ms.author: pafarley
-ms.openlocfilehash: fd8abf81589f3338f9e45c6c1d23681269ccc654
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: 16a487dc007526f685edb52726f5797303a30c11
+ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70164843"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70966989"
 ---
 # <a name="quickstart-computer-vision-client-library-for-java"></a>Snabbstart: Visuellt innehåll klient bibliotek för Java
 
@@ -25,7 +25,7 @@ Använd Visuellt innehåll klient bibliotek för Java för att:
 
 * Analysera en bild för taggar, text beskrivning, ansikten, vuxen innehåll med mera.
 
-[](https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/computervision?view=azure-java-stable) | [Exempel](https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=vision&sort=0) på referens dokumentations[artefakt (maven)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.ComputerVision/) | 
+[Exempel på referens dokumentations](https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/computervision?view=azure-java-stable) | [](https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=vision&sort=0) [artefakt (maven)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.ComputerVision/) | 
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -89,7 +89,7 @@ Lägg sedan till en klass definition för **ComputerVisionQuickstarts**.
 
 ### <a name="install-the-client-library"></a>Installera klient biblioteket
 
-I den här snabb starten används Gradle-beroende hanteraren. Du hittar klient biblioteket och information för andra beroende hanterare på den [centrala maven](https://search.maven.org/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-textanalytics/)-lagringsplatsen.
+I den här snabb starten används Gradle-beroende hanteraren. Du hittar klient biblioteket och information för andra beroende hanterare på den [centrala maven-lagringsplatsen](https://search.maven.org/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-textanalytics/).
 
 I projektets *build. gradle. KTS* -fil inkluderar du visuellt innehåll klient biblioteket som ett beroende.
 
@@ -106,7 +106,7 @@ Följande klasser och gränssnitt hanterar några av de viktigaste funktionerna 
 |Name|Beskrivning|
 |---|---|
 | [ComputerVisionClient](https://docs.microsoft.com/java/api/com.microsoft.azure.cognitiveservices.vision.computervision.computervisionclient?view=azure-java-stable) | Den här klassen krävs för alla Visuellt innehåll-funktioner. Du instansierar det med din prenumerations information och använder den för att skapa instanser av andra klasser.|
-|[ComputerVision](https://docs.microsoft.com/java/api/com.microsoft.azure.cognitiveservices.vision.computervision.computervision?view=azure-java-stable)| Den här klassen kommer från klient objekt och hanterar direkt alla avbildnings åtgärder, till exempel bild analys, text identifiering och generering av miniatyrer.
+|[ComputerVision](https://docs.microsoft.com/java/api/com.microsoft.azure.cognitiveservices.vision.computervision.computervision?view=azure-java-stable)| Den här klassen kommer från klient objekt och hanterar direkt alla avbildnings åtgärder, till exempel bild analys, text identifiering och generering av miniatyrer.|
 |[VisualFeatureTypes](https://docs.microsoft.com/java/api/com.microsoft.azure.cognitiveservices.vision.computervision.models.visualfeaturetypes?view=azure-java-stable)| Den här uppräkningen definierar de olika typerna av bild analys som kan göras i en standard analys åtgärd. Du anger en uppsättning VisualFeatureTypes-värden beroende på dina behov. |
 
 ## <a name="code-examples"></a>Kod exempel
@@ -121,7 +121,7 @@ De här kodfragmenten visar hur du gör följande uppgifter med Visuellt innehå
 > [!NOTE]
 > Den här snabb starten förutsätter att du har [skapat en miljö variabel](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) för din `COMPUTER_VISION_SUBSCRIPTION_KEY`visuellt innehåll nyckel, med namnet.
 
-Följande kod lägger till en `main` metod i klassen och skapar variabler för resursens Azure-slutpunkt och nyckel. Du måste ange din egen slut punkts sträng, som du hittar i översikts avsnittet av Azure Portal. 
+Följande kod lägger till en `main` metod i klassen och skapar variabler för resursens Azure-slutpunkt och nyckel. Du måste ange din egen slut punkts sträng, som du hittar i **översikts** avsnittet av Azure Portal. 
 
 [!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/ComputerVisionQuickstart.java?name=snippet_mainvars)]
 
@@ -172,17 +172,17 @@ Följande kod hämtar den identifierade kategorin för avbildningen. Se [kategor
 
 ### <a name="get-image-tags"></a>Hämta bild etiketter
 
-Följande kod hämtar en uppsättning identifierade Taggar i avbildningen. Se [innehålls etiketter](../concept-tagging-images.md) för mer information
+Följande kod hämtar en uppsättning identifierade Taggar i avbildningen. Se [innehålls etiketter](../concept-tagging-images.md) för mer information.
 
 [!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/ComputerVisionQuickstart.java?name=snippet_analyzelocal_tags)]
 
-### <a name="get-faces"></a>Hämta ansikten
+### <a name="detect-faces"></a>Identifiera ansikten
 
 Följande kod returnerar identifierade ansikten i bilden med deras Rectangle-koordinater och välj ansikts attribut. Mer information finns i [ansikts igenkänning](../concept-detecting-faces.md) .
 
 [!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/ComputerVisionQuickstart.java?name=snippet_analyzelocal_faces)]
 
-### <a name="get-adult-or-racy-content"></a>Hämta vuxen eller vågat innehåll
+### <a name="detect-adult-or-racy-content"></a>Identifiera vuxen eller vågat innehåll
 
 Följande kod skriver ut den identifierade förekomsten av vuxen eller vågat innehåll i avbildningen. Se [vuxen och vågatt innehåll](../concept-detecting-adult-content.md) för mer information.
 
@@ -205,6 +205,12 @@ Följande kod tolkar data om identifierade kändisar i avbildningen.
 Följande kod tolkar data om identifierade landmärken i bilden.
 
 [!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/ComputerVisionQuickstart.java?name=snippet_analyzelocal_landmarks)]
+
+### <a name="get-the-image-type"></a>Hämta avbildnings typen
+
+Följande kod skriver ut information om typen av bild&mdash;oavsett om den är en ClipArt-eller linje ritning.
+
+[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/ComputerVisionQuickstart.java?name=snippet_imagetype)]
 
 ## <a name="run-the-application"></a>Köra programmet
 

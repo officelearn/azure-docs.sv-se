@@ -8,12 +8,12 @@ services: site-recovery
 ms.date: 06/27/2019
 ms.topic: conceptual
 ms.author: raynew
-ms.openlocfilehash: 27e5323e2c9fed3886b2ddf175a2c67718ad52d0
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.openlocfilehash: c1897b73164b05dfd881729147e6d082be547530
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70959152"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71002279"
 ---
 # <a name="common-questions-about-vmware-to-azure-replication"></a>Vanliga frågor om VMware till Azure-replikering
 
@@ -231,7 +231,7 @@ Granska [kraven](vmware-azure-deploy-configuration-server.md#prerequisites).
 
 ### <a name="can-i-manually-set-up-the-configuration-server-instead-of-using-a-template"></a>Kan jag konfigurera konfigurations servern manuellt i stället för att använda en mall?
 
-Vi rekommenderar att du [skapar den virtuella datorns konfigurations Server](vmware-azure-deploy-configuration-server.md) med den senaste versionen av OVF-mallen (Open Virtual Machine format). Om du inte kan använda mallen (till exempel om du inte har åtkomst till VMware-servern) laddar du [ned](physical-azure-set-up-source.md) installations filen från portalen och konfigurerar konfigurations servern.
+Vi rekommenderar att du [skapar den virtuella datorns konfigurations Server](vmware-azure-deploy-configuration-server.md) med den senaste versionen av Open Virtualization format-mallen (OVF). Om du inte kan använda mallen (till exempel om du inte har åtkomst till VMware-servern) laddar du [ned](physical-azure-set-up-source.md) installations filen från portalen och konfigurerar konfigurations servern.
 
 ### <a name="can-a-configuration-server-replicate-to-more-than-one-region"></a>Kan en konfigurations Server replikera till fler än en region?
 

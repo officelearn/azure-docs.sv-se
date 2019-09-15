@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/10/2019
 ms.author: thweiss
-ms.openlocfilehash: 60b323c12e5c548c974a7d660d08861637ac2381
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: 944c05a28eb33c659bf4aaa600985530122f8d3e
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70996673"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71000331"
 ---
 # <a name="indexing-policies-in-azure-cosmos-db"></a>Indexerings principer i Azure Cosmos DB
 
@@ -26,8 +26,11 @@ I vissa fall kanske du vill åsidosätta det automatiska beteendet så att det p
 
 Azure Cosmos DB stöder två indexerings lägen:
 
-- **Konsekvent**: Om en behållares indexerings princip är inställd på konsekvent uppdateras indexet synkront när du skapar, uppdaterar eller tar bort objekt. Det innebär att konsekvensen för dina Läs frågor är den [konsekvens som kon figurer ATS för kontot](consistency-levels.md).
-- **Ingen**: Om en behållares indexerings princip är inställd på ingen, inaktive ras indexeringen i den behållaren. Detta används vanligt vis när en behållare används som ett rent nyckel värdes lager utan behov av sekundära index. Det kan också hjälpa till att påskynda Mass infognings åtgärder.
+- **Konsekvent**: Indexet uppdateras synkront när du skapar, uppdaterar eller tar bort objekt. Det innebär att konsekvensen för dina Läs frågor är den [konsekvens som kon figurer ATS för kontot](consistency-levels.md).
+- **Ingen**: Indexering har inaktiverats för behållaren. Detta används vanligt vis när en behållare används som ett rent nyckel värdes lager utan behov av sekundära index. Det kan också användas för att förbättra prestandan för Mass åtgärder. När Mass åtgärderna har slutförts kan index läget anges till konsekvent och övervakas med hjälp av [IndexTransformationProgress](how-to-manage-indexing-policy.md#use-the-net-sdk-v2) tills det är klart.
+
+> [!NOTE]
+> Cosmos DB stöder också ett Lazy-indexerings läge. Lazywrite-indexering utför uppdateringar av indexet på en mycket lägre prioritets nivå när motorn inte utför något annat arbete. Detta kan resultera i **inkonsekventa eller ofullständiga** frågeresultat. Att använda Lazy-indexering i stället för "ingen" för Mass åtgärder ger dessutom ingen förmån eftersom någon ändring i index läget kommer att göra att indexet släpps och återskapas. Av dessa skäl rekommenderar vi att kunderna använder den. För att förbättra prestanda för Mass åtgärder ställer du in index läge till ingen och återgår sedan till konsekvent läge `IndexTransformationProgress` och övervakar egenskapen i behållaren tills den är klar.
 
 Indexerings principen är som standard inställd på `automatic`. Den uppnås genom att ställa `automatic` in egenskapen i indexerings principen på `true`. Genom att `true` ange den här egenskapen kan Azure-CosmosDB automatiskt indexera dokument när de skrivs.
 

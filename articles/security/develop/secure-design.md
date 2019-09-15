@@ -13,12 +13,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 87acc6e8c561349b734bd9cd98300b65e730abe7
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 316ed596cfa49987e229004c388267286ff50927
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68928074"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71000970"
 ---
 # <a name="design-secure-applications-on-azure"></a>Utforma säkra program på Azure
 I den här artikeln presenterar vi säkerhets aktiviteter och kontroller som du bör tänka på när du utformar program för molnet. Utbildnings resurser tillsammans med säkerhets frågor och koncept som du bör tänka på under krav och design faser i Microsoft [Security Development Lifecycle (SDL)](https://msdn.microsoft.com/library/windows/desktop/84aed186-1d75-4366-8e61-8d258746bopq.aspx) omfattas. Målet är att hjälpa dig att definiera aktiviteter och Azure-tjänster som du kan använda för att utforma ett säkrare program.
@@ -155,7 +155,7 @@ Att utforma program designen och räkna upp [kliv](https://docs.google.com/viewe
 | ---------------------- | --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | Förfalskning               | Authentication        | [KRÄV HTTPS-anslutningar](https://docs.microsoft.com/aspnet/core/security/enforcing-ssl?view=aspnetcore-2.1&tabs=visual-studio). |
 | Manipulation              | Integritet             | Verifiera SSL/TLS-certifikat. Program som använder SSL/TLS måste fullständigt verifiera X. 509-certifikaten för de entiteter som de ansluter till. Använd Azure Key Vault certifikat för att [Hantera dina x509-certifikat](../../key-vault/about-keys-secrets-and-certificates.md#key-vault-certificates). |
-| Avvislighet            | Oavvislighet       | Aktivera [övervakning och diagnostik](https://docs.microsoft.com/azure/architecture/best-practices/monitoring)i Azure.|
+| Avvislighet            | Oavvislig het       | Aktivera [övervakning och diagnostik](https://docs.microsoft.com/azure/architecture/best-practices/monitoring)i Azure.|
 | Avslöjande av information | Sekretess       | Kryptera känsliga data i [vila](../fundamentals/encryption-atrest.md) och [under överföring](../fundamentals/data-encryption-best-practices.md#protect-data-in-transit). |
 | Denial of Service-attack      | Tillgänglighet          | Övervaka prestanda mått för potentiella denial of service-villkor. Implementera anslutnings filter. [Azure DDoS Protection](../../virtual-network/ddos-protection-overview.md#next-steps), kombinerat med bästa praxis för program design, ger skydd mot DDoS-attacker.|
 | Upphöjning av rättigheter | Authorization         | Använd Azure Active Directory <span class="underline"></span> [Privileged Identity Management](../../active-directory/privileged-identity-management/pim-configure.md).|
@@ -203,7 +203,7 @@ Saker du kan göra för att utveckla en identitets inriktad metod för att utvec
 
 #### <a name="enforce-multi-factor-authentication-for-users"></a>Tvinga Multi-Factor Authentication för användare
 
-Använd tvåfaktorautentisering. Tvåfaktorautentisering är den aktuella standarden för autentisering och auktorisering eftersom den undviker de säkerhets svagheter som finns i användar namn och lösen ords typer för autentisering. Åtkomst till Azures hanterings gränssnitt (Azure Portal/fjärr-PowerShell) och till kund tjänster bör utformas och konfigureras för användning av [Azure Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md).
+Använd tvåfaktorautentisering. Tvåfaktorautentisering är den aktuella standarden för autentisering och auktorisering eftersom den undviker de säkerhets svagheter som finns i användar namn och lösen ords typer för autentisering. Åtkomst till Azures hanterings gränssnitt (Azure Portal/fjärr-PowerShell) och till kundinriktade tjänster bör utformas och konfigureras för användning av [azure Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md).
 
 #### <a name="use-strong-authentication-and-authorization-platforms"></a>Använd kraftfulla plattformar för autentisering och auktorisering
 
@@ -242,7 +242,7 @@ Det bästa sättet att skydda mot den här typen av angrepp är att fråga anvä
 
 Att förlora nycklar och autentiseringsuppgifter är ett vanligt problem. Det enda som är sämre än att förlora nycklar och autentiseringsuppgifter är att en obehörig part får till gång till dem. Angripare kan dra nytta av automatiserade och manuella tekniker för att hitta nycklar och hemligheter som lagras i kod databaser som GitHub. Lägg inte till nycklar och hemligheter i dessa offentliga kod databaser eller på någon annan server.
 
-Lägg alltid till nycklar, certifikat, hemligheter och anslutnings strängar i en nyckel hanterings lösning. Du kan använda en centraliserad lösning där nycklar och hemligheter lagras i HSM: er (Hardware Security modules). Azure ger dig en HSM i molnet med [Azure Key Vault](../../key-vault/key-vault-whatis.md).
+Lägg alltid till nycklar, certifikat, hemligheter och anslutnings strängar i en nyckel hanterings lösning. Du kan använda en centraliserad lösning där nycklar och hemligheter lagras i HSM: er (Hardware Security modules). Azure ger dig en HSM i molnet med [Azure Key Vault](../../key-vault/key-vault-overview.md).
 
 Key Vault är ett *hemligt Arkiv*: det är en centraliserad moln tjänst för att lagra program hemligheter. Key Vault skyddar dina konfidentiella data genom att spara program hemligheter på en enda, central plats och tillhandahålla säker åtkomst, behörighets kontroll och åtkomst loggning.
 
@@ -277,7 +277,7 @@ När du infogar kommentarer i din kod, se till att du inte sparar känslig infor
 
 I princip förutsätter vi att allt innehåll i ditt utvecklings projekt är offentlig information när det distribueras. Undvik att inkludera känsliga data av någon typ i projektet.
 
-Tidigare diskuterade vi [Azure Key Vault](../../key-vault/key-vault-whatis.md). Du kan använda Key Vault för att lagra hemligheter som nycklar och lösen ord i stället för att hårdkoda dem. När du använder Key Vault i kombination med hanterade identiteter för Azure-resurser, kan Azure-webbappen komma åt hemliga konfigurations värden enkelt och säkert utan att lagra några hemligheter i din käll kontroll eller konfiguration. Mer information finns i [Hantera hemligheter i dina Server appar med Azure Key Vault](https://docs.microsoft.com/learn/modules/manage-secrets-with-azure-key-vault/).
+Tidigare diskuterade vi [Azure Key Vault](../../key-vault/key-vault-overview.md). Du kan använda Key Vault för att lagra hemligheter som nycklar och lösen ord i stället för att hårdkoda dem. När du använder Key Vault i kombination med hanterade identiteter för Azure-resurser, kan Azure-webbappen komma åt hemliga konfigurations värden enkelt och säkert utan att lagra några hemligheter i din käll kontroll eller konfiguration. Mer information finns i [Hantera hemligheter i dina Server appar med Azure Key Vault](https://docs.microsoft.com/learn/modules/manage-secrets-with-azure-key-vault/).
 
 ### <a name="implement-fail-safe-measures"></a>Implementera fel säkert mått
 

@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/12/2018
 ms.author: robinsh
-ms.openlocfilehash: 9a6b3a538304f2d09941650e3087130c21422dc0
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: 6a43b721b70858d82083538638853c5bbdf1531d
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68946351"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71004140"
 ---
 # <a name="communicate-with-your-iot-hub-using-the-mqtt-protocol"></a>Kommunicera med IoT-hubben med MQTT-protokollet
 
@@ -48,17 +48,19 @@ Följande tabell innehåller länkar till kod exempel för varje språk som stö
 | [Java](https://github.com/Azure/azure-iot-sdk-java/blob/master/device/iot-device-samples/send-receive-sample/src/main/java/samples/com/microsoft/azure/sdk/iot/SendReceive.java) |IotHubClientProtocol.MQTT |
 | [C](https://github.com/Azure/azure-iot-sdk-c/tree/master/iothub_client/samples/iothub_client_sample_mqtt_dm) |MQTT_Protocol |
 | [C#](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/iothub/device/samples) |TransportType.Mqtt |
-| [Python](https://github.com/Azure/azure-iot-sdk-python/tree/master/device/samples) |IoTHubTransportProvider.MQTT |
+| [Python](https://github.com/Azure/azure-iot-sdk-python/tree/master/azure-iot-device/samples) |Stöder alltid MQTT som standard |
 
 ### <a name="migrating-a-device-app-from-amqp-to-mqtt"></a>Migrera en enhets app från AMQP till MQTT
 
-Om du använder enhets- [SDK: erna](https://github.com/Azure/azure-iot-sdks)måste du växla från att använda AMQP till MQTT för att ändra protokoll parametern i klient initieringen som du angav tidigare.
+Om du använder [enhets-SDK: erna](https://github.com/Azure/azure-iot-sdks)måste du växla från att använda AMQP till MQTT för att ändra protokoll parametern i klient initieringen som du angav tidigare.
 
 När du gör det, se till att kontrol lera följande objekt:
 
 * AMQP returnerar fel för många villkor, medan MQTT avslutar anslutningen. Som ett resultat kan din strategi för undantags hantering kräva vissa ändringar.
 
-* MQTT stöder inte avvisnings åtgärder vid mottagning av [meddelanden från molnet till enheten](iot-hub-devguide-messaging.md). Om din backend-app måste ta emot ett svar från Device-appen bör du överväga att använda [direkta metoder](iot-hub-devguide-direct-methods.md).
+* MQTT stöder inte *avvisnings* åtgärder vid mottagning av [meddelanden från molnet till enheten](iot-hub-devguide-messaging.md). Om din backend-app måste ta emot ett svar från Device-appen bör du överväga att använda [direkta metoder](iot-hub-devguide-direct-methods.md).
+
+* AMQP stöds inte i python SDK
 
 ## <a name="using-the-mqtt-protocol-directly-as-a-device"></a>Använda MQTT-protokollet direkt (som en enhet)
 
@@ -97,7 +99,7 @@ Om en enhet inte kan använda enhets-SDK: erna kan den fortfarande ansluta till 
 
 1. Gå till fliken **hantering** i **Device Explorer**.
 
-2. Klicka på **SAS** -token (längst upp till höger).
+2. Klicka på **SAS-token** (längst upp till höger).
 
 3. På **SASTokenForm**väljer du din enhet i list rutan **DeviceID** . Ange din **TTL**.
 
@@ -113,7 +115,7 @@ Om en enhet inte kan använda enhets-SDK: erna kan den fortfarande ansluta till 
 
 För att MQTT ska kunna ansluta och koppla från paket utfärdar IoT Hub en händelse på **drift övervaknings** kanalen. Den här händelsen innehåller ytterligare information som kan hjälpa dig att felsöka anslutnings problem.
 
-Device-appen kan ange ett meddelande i **Connect** -paketet. Device-appen bör använda `devices/{device_id}/messages/events/` eller `devices/{device_id}/messages/events/{property_bag}` som ämnes namn för att definiera **kommer** meddelanden som ska vidarebefordras som ett telemetri-meddelande. I så fall, om nätverks anslutningen är stängd, men ett **från kopplings** paket inte tidigare togs emot från enheten, IoT Hub skickar meddelandet som anges i **Connect** -paketet till telemetri-kanalen. Telemetri-kanalen kan vara antingen standard slut punkt för **händelser** eller en anpassad slut punkt som definieras av IoT Hub routning. Meddelandet har egenskapen **iothub-MessageType** med värdet som tilldelas.
+Device-appen kan ange ett **meddelande i** **Connect** -paketet. Device-appen bör använda `devices/{device_id}/messages/events/` eller `devices/{device_id}/messages/events/{property_bag}` **som ämnes namn för att definiera** **kommer** meddelanden som ska vidarebefordras som ett telemetri-meddelande. I så fall, om nätverks anslutningen är stängd, men ett **från kopplings** paket inte tidigare togs emot från enheten, IoT Hub **skickar meddelandet som** anges i **Connect** -paketet till telemetri-kanalen. Telemetri-kanalen kan vara antingen standard slut punkt för **händelser** eller en anpassad slut punkt som definieras av IoT Hub routning. Meddelandet har egenskapen **iothub-MessageType** med värdet **som tilldelas.**
 
 ## <a name="using-the-mqtt-protocol-directly-as-a-module"></a>Använda MQTT-protokollet direkt (som en modul)
 
@@ -275,7 +277,7 @@ Svars texten innehåller avsnittet Egenskaper för enheten, som du ser i följan
 
 Möjliga status koder är:
 
-|Status | Beskrivning |
+|State | Beskrivning |
 | ----- | ----------- |
 | 204 | Lyckades (inget innehåll returneras) |
 | 429 | För många begär Anden (begränsas) enligt [IoT Hub begränsning](iot-hub-devguide-quotas-throttling.md) |
@@ -306,7 +308,7 @@ Meddelande texten innehåller ett JSON-dokument som innehåller nya värden för
 
 Möjliga status koder är:
 
-|Status | Beskrivning |
+|State | Beskrivning |
 | ----- | ----------- |
 | 200 | Klart |
 | 400 | Felaktig begäran. Felaktig JSON |

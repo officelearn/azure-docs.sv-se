@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: cdb1b49af5d3a85dc1853e5964c1cdfdd5c3a7cd
-ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
+ms.openlocfilehash: 679de2d3a5519e57978239ddd75a4b9fa2ffef3c
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68716672"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "70998761"
 ---
 # <a name="about-technical-profiles-in-azure-active-directory-b2c-custom-policies"></a>Om tekniska profiler i Azure Active Directory B2C anpassade principer
 
@@ -37,7 +37,6 @@ En teknisk profil möjliggör följande typer av scenarier:
 - [RESTful-Provider](restful-technical-profile.md) – anrop till REST API tjänster, till exempel verifiera användarindata, utöka användar data eller integrera med branschspecifika program.
 - [SAML2](saml-technical-profile.md) -Federation med valfri SAML-protokoll identitets leverantör.
 - [](self-asserted-technical-profile.md) Självkontrollerad – interagera med användaren. Du kan till exempel samla in användarens autentiseringsuppgifter för att logga in, återge registrerings sidan eller lösen ords återställning.
-- **WsFed** -Federation med valfri WsFed-protokoll identitets leverantör.
 - [Sessionshantering](active-directory-b2c-reference-sso-custom.md) – hantera olika typer av sessioner.
 - **Application Insights**
 

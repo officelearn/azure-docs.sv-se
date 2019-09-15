@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/31/2019
 ms.author: tisande
-ms.openlocfilehash: ed337c8330eb8b3e4ad97c92cca1d0c5977f9588
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: 41cafeb76b7b9481a78ffcff179676d0aa7bf6fd
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67342575"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71002033"
 ---
-# <a name="azure-cosmos-db-sql-query-constants"></a>Azure Cosmos DB SQL-fråga konstanter  
+# <a name="azure-cosmos-db-sql-query-constants"></a>Azure Cosmos DB SQL Query-konstanter  
 
  En konstant, även kallat en literal eller ett skalärt värde är en symbol som representerar ett värde för specifika data. Formatet för en konstant beror på datatypen för det värde som representerar.  
   
@@ -26,7 +26,7 @@ ms.locfileid: "67342575"
 |**Boolesk**|Värden: **FALSKT**, **SANT**.|  
 |**Nummer**|Ett dubbel precision Flyttalsnummer, IEEE-754 som standard.|  
 |**Sträng**|En sekvens med noll eller flera Unicode-tecken. Strängar måste stå inom enkla eller dubbla citattecken.|  
-|**Matris**|En sekvens med noll eller flera element. Varje element kan vara ett värde av olika skalära datatyper, utom **Undefined**.|  
+|**Matris**|En sekvens med noll eller flera element. Varje-element kan vara ett värde av vilken skalär datatyp som helst, förutom **Odefinierad**.|  
 |**Objekt**|En osorterad uppsättning noll eller flera namn/värde-par. Namnet är en Unicode-sträng, värdet kan vara av olika skalära datatyper, utom **Undefined**.|  
   
 ## <a name="bk_syntax"></a>Syntax
@@ -59,7 +59,7 @@ ms.locfileid: "67342575"
   
 ```  
   
-##  <a name="bk_arguments"></a> argument
+##  <a name="bk_arguments"></a>Ogiltiga
   
 * `<undefined_constant>; Undefined`  
   
@@ -107,7 +107,7 @@ ms.locfileid: "67342575"
 |-|-|-|  
 |\\'|apostrof (')|U+0027|  
 |\\"|citattecken (”)|U+0022|  
-|\\\ |omvänd solidus (\\)|U + 005C|  
+|\\\ |omvänt snedstreck (\\)|U + 005C|  
 |\\/|solidus (/)|U + 002F|  
 |\b|BACKSTEG|U + 0008|  
 |\f|formuläret feed|U + 000C|  
@@ -118,5 +118,5 @@ ms.locfileid: "67342575"
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Azure Cosmos DB .NET-exempel](https://github.com/Azure/azure-cosmosdb-dotnet)
-- [Modelldokumentdata](modeling-data.md)
+- [Azure Cosmos DB .NET-exempel](https://github.com/Azure/azure-cosmos-dotnet-v3)
+- [Modell dokument data](modeling-data.md)

@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
-ms.date: 06/07/2019
+ms.date: 09/13/2019
 ms.author: diberry
-ms.openlocfilehash: c258799b1305c4204d08d66aa36a0be7c71a4944
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: 7c163dacae24749dbe309bca33bac016a3be7aa5
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70034378"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71002897"
 ---
 # <a name="how-personalizer-works"></a>Så här fungerar Personanpassning
 
@@ -89,31 +89,6 @@ Personanpassan är baserad på vetenskaps-och forsknings verksamhet i området f
 * Bot-traiter & tonen: för robotar som kan variera ton, utförlighet och skriv stil, bör du överväga att variera dessa egenskaper på ett personligt sätt.
 * Aviserings & aviserings innehåll: Bestäm vilken text som ska användas för aviseringar för att engagera användare.
 * Aviserings & tids inställning för aviseringar: har anpassad inlärning av när du ska skicka meddelanden till användare för att kunna engagera dem.
-
-## <a name="checklist-for-applying-personalizer"></a>Check lista för att använda Personanpassare
-
-Du kan använda Personanpassare i situationer där:
-
-* Du har ett affärs-eller användbarhets mål för ditt program.
-* Du har en plats i ditt program där du får ett Sammanhangs beroende beslut av vad som ska visas för användarna att förbättra det målet.
-* Det bästa valet kan och bör registreras från kollektivt användar beteende och total belönings poäng.
-* Användningen av Machine Learning för anpassning följer de [rikt linjer](ethics-responsible-use.md) och alternativ som gäller för ditt team.
-* Beslutet kan uttryckas som rangordning av det bästa alternativet ([åtgärd](concepts-features.md#actions-represent-a-list-of-options) från en begränsad uppsättning alternativ.
-* Hur väl du kan använda det här valet kan beräknas av din affärs logik genom att mäta viss aspekt av användar beteendet och uttrycka den i ett tal mellan-1 och 1.
-* Belönings poängen tar inte upp för många eller externa faktorer, särskilt experimentets varaktighet är låg nog att belönings poängen kan beräknas samtidigt som det fortfarande är relevant.
-* Du kan uttrycka kontexten för rang som en ord lista med minst 5 funktioner som du tror kan hjälpa dig att välja rätt och som inte innehåller personligt identifierbar information.
-* Du har information om varje åtgärd som en ord lista med minst 5 attribut eller funktioner som du tror att du kan göra rätt val.
-* Du kan spara data tillräckligt länge för att samla en historik på minst 100 000 interaktioner.
-
-## <a name="machine-learning-considerations-for-applying-personalizer"></a>Maskin inlärnings överväganden för att använda Personanpassare
-
-Personanpassa är baserad på utlösnings inlärning, en metod för maskin inlärning som lär sig genom feedback som du ger dem. 
-
-Personanpassare kommer att lära sig bäst i situationer där:
-* Det finns tillräckligt många händelser för att få bästa möjliga anpassning om problemet uppstår över tid (t. ex. inställningar i nyheter eller mode). Personanpassaren anpassas efter kontinuerliga förändringar i verkligheten, men resultatet blir inte optimalt om det inte finns tillräckligt med händelser och data för att lära sig att identifiera och lösa nya mönster. Du bör välja ett användnings fall som ofta är tillräckligt. Överväg att söka efter användnings fall som inträffar minst 500 gånger per dag.
-* Kontext och åtgärder har tillräckligt med funktioner för att under lätta inlärningen.
-* Det finns mindre än 50 åtgärder för rang per anrop.
-* Med dina inställningar för datakvarhållning kan du samla in tillräckligt med data för att utföra offline-utvärdering och optimering av principer. Detta är vanligt vis minst 50 000 data punkter.
 
 ## <a name="how-to-use-personalizer-in-a-web-application"></a>Så här använder du Personanpassare i ett webb program
 

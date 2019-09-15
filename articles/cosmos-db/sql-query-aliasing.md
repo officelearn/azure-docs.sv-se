@@ -1,25 +1,25 @@
 ---
 title: Alias i Azure Cosmos DB
-description: Lär dig mer om alias värdena i Azure Cosmos DB SQL-frågor
+description: Lär dig mer om aliasing-värden i Azure Cosmos DB SQL-frågor
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 06/20/2019
 ms.author: mjbrown
-ms.openlocfilehash: e532fb7180af8a21de6ae9a2e4d798abd9e93e7b
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: 3b17cbc7710647b1e1875025a1db1849034ec1dc
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67342647"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71002075"
 ---
 # <a name="aliasing-in-azure-cosmos-db"></a>Alias i Azure Cosmos DB
 
-Du kan uttryckligen alias värden i frågor. Om en fråga har två egenskaper med samma namn, kan du använda alias för att byta namn på en eller båda egenskaperna så att de är skiljas åt i det beräknade resultatet.
+Du kan uttryckligen Ali Aset värden i frågor. Om en fråga har två egenskaper med samma namn, använder du alias för att byta namn på en eller båda av egenskaperna så att de är disambiguated i det planerade resultatet.
 
 ## <a name="examples"></a>Exempel
 
-As-nyckelord som används för alias är valfritt, som visas i följande exempel när du projicerar det andra värdet som `NameInfo`:
+AS-nyckelordet som används för alias är valfritt, som du ser i följande exempel när du projicerar det andra `NameInfo`värdet som:
 
 ```sql
     SELECT 
@@ -29,7 +29,7 @@ As-nyckelord som används för alias är valfritt, som visas i följande exempel
     WHERE f.id = "AndersenFamily"
 ```
 
-Resultatet är:
+Resultaten är:
 
 ```json
     [{
@@ -45,6 +45,6 @@ Resultatet är:
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Azure Cosmos DB .NET-exempel](https://github.com/Azure/azure-cosmosdb-dotnet)
+- [Azure Cosmos DB .NET-exempel](https://github.com/Azure/azure-cosmos-dotnet-v3)
 - [SELECT-satsen](sql-query-select.md)
 - [FROM-satsen](sql-query-from.md)

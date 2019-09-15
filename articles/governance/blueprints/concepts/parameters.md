@@ -7,12 +7,12 @@ ms.date: 03/12/2019
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: 9670433284ae963783b655322c4b18f748df52c5
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: ee44d744c580dd9fbf20e7186b6e76fdc74cc5d0
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70231951"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71004082"
 ---
 # <a name="creating-dynamic-blueprints-through-parameters"></a>Skapa dynamiska modeller via parametrar
 
@@ -39,12 +39,12 @@ Det här säkerhets måttet förhindrar den osäkra metoden att lagra hemlighete
 - Key Vault hemligt namn
 - Key Vault hemlig version
 
-Om en tilldelad **hanterad identitet**används för skiss tilldelningen _måste_ den refererade Key Vault finnas i samma prenumeration som skiss definitionen är tilldelad.
+Om en **tilldelad hanterad identitet**används för skiss tilldelningen _måste_ den refererade Key Vault finnas i samma prenumeration som skiss definitionen är tilldelad.
 
 Om en **användardefinierad hanterad identitet**används för skiss tilldelningen _kan_ det finnas referenser till Key Vault i en centraliserad prenumeration. Den hanterade identiteten måste beviljas lämpliga rättigheter på Key Vault innan skiss tilldelningen.
 
 > [!IMPORTANT]
-> I båda fallen måste Key Vault ha **åtkomst till Azure Resource Manager för att mallar ska** kunna distribueras på sidan **åtkomst principer** . Instruktioner för hur du aktiverar den här funktionen finns i [Key Vault-aktivera mall distribution](../../../managed-applications/key-vault-access.md#enable-template-deployment).
+> I båda fallen måste Key Vault ha **åtkomst till Azure Resource Manager för att mallar ska kunna distribueras** på sidan **åtkomst principer** . Instruktioner för hur du aktiverar den här funktionen finns i [Key Vault-aktivera mall distribution](../../../managed-applications/key-vault-access.md#enable-template-deployment).
 
 Mer information om Azure Key Vault finns i [Key Vault översikt](../../../key-vault/key-vault-overview.md).
 
@@ -239,7 +239,7 @@ Att ange **dynamiska parametrar** under tilldelningen görs genom att ange värd
 ## <a name="next-steps"></a>Nästa steg
 
 - Se listan över [skiss funktioner](../reference/blueprint-functions.md).
-- Lär dig mer om [skiss livs cykeln](lifecycle.md).
+- Mer information om [livscykeln för en skiss](lifecycle.md).
 - Lär dig hur du anpassar [sekvensordningen för en skiss](sequencing-order.md).
 - Lär dig hur du använder [resurslåsning för en skiss](resource-locking.md).
 - Lär dig hur du [uppdaterar befintliga tilldelningar](../how-to/update-existing-assignments.md).

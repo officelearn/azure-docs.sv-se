@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: vikurpad
 ms.subservice: cognitive-search
-ms.openlocfilehash: 2dd61a4511d406fefec5aacd0702fa732f79de92
-ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
+ms.openlocfilehash: 85376bddbfbf8249438c9027eaf4dc63b83fe2fe
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70186230"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71004021"
 ---
 # <a name="working-with-projections-in-a-knowledge-store-in-azure-search"></a>Arbeta med projektioner i ett kunskaps lager i Azure Search
 
@@ -34,7 +34,7 @@ Kunskaps lagret stöder två typer av projektioner:
 
 + **Objekt**: När du behöver en JSON-representation av dina data och hur de ska berikas, sparas objekt projektion som blobbar.
 
-Om du vill se projektioner som definierats i sammanhanget steg [för steg hur du kommer igång med kunskaps lager](knowledge-store-howto.md)
+Om du vill se projektioner som definierats i sammanhanget steg [för steg hur du kommer igång med kunskaps lager](knowledge-store-howto.md).
 
 ## <a name="projection-groups"></a>Projektions grupper
 
@@ -53,7 +53,7 @@ Allt innehåll som projiceras inom en enskild projektions grupp bevarar relation
 ## <a name="input-shaping"></a>Inmatad form
 Att hämta data i rätt form eller struktur är nyckeln till effektiv användning, vara en tabell eller objekt. Möjligheten att forma eller strukturera dina data baserat på hur du planerar åtkomst till och använder det är en viktig funktion som visas som **formaren** -kompetensen i färdigheter.  
 
-Projektioner är enklare att definiera när du har ett objekt i det berikande trädet som matchar projektionens schema. Med den uppdaterade [formaren](cognitive-search-skill-shaper.md) -kunskapen kan du skapa ett objekt från olika noder i ditt anriknings träd och överordnade dem under en ny nod. Med **formaren** -kompetensen kan du definiera komplexa typer med kapslade objekt.
+Projektioner är enklare att definiera när du har ett objekt i det berikande trädet som matchar projektionens schema. Med den uppdaterade [formaren-kunskapen](cognitive-search-skill-shaper.md) kan du skapa ett objekt från olika noder i ditt anriknings träd och överordnade dem under en ny nod. Med **formaren** -kompetensen kan du definiera komplexa typer med kapslade objekt.
 
 När du har definierat en ny form som innehåller alla element som du behöver för att projicera, kan du nu använda den här formen som källa för dina projektioner eller som inmatade i en annan färdighet.
 
@@ -67,13 +67,16 @@ Du kan projicera ett enskilt dokument i ditt index i flera tabeller och bevara r
 
 När du definierar en tabell projektion i `knowledgeStore` färdigheter-elementet, börjar du med att mappa en nod i berikande träd till tabell källan. Den här noden är vanligt vis resultatet av en **formaren** -färdighet som du har lagt till i listan med kunskaper för att skapa en speciell form som du behöver i projektet i tabeller. Den nod du väljer till projekt kan segmenteras till projekt i flera tabeller. Tabell definitionen är en lista över tabeller som du vill projicera. 
 
+#### <a name="projection-slicing"></a>Segmentering av projektion
+När du definierar en tabell projektions grupp kan en enda nod i ett berikande träd segmenteras i flera relaterade tabeller. Om du lägger till en tabell med en käll Sök väg som är underordnad en befintlig tabell projektion kommer den underordnade noden att bli segmenterad från den överordnade noden och projiceras i den nya ännu relaterade tabellen. På så sätt kan du definiera en enskild nod i en formaren-färdighet som kan vara källa för alla tabell projektioner.
+
 Varje tabell kräver tre egenskaper:
 
 + TableName Namnet på tabellen i Azure Storage.
 
 + generatedKeyName: Kolumn namnet för den nyckel som unikt identifierar den här raden.
 
-+ källicensservern Noden från det anriknings träd du kan använda för att du ska kunna använda. Detta är vanligt vis resultatet av en formaren, men det kan vara utdata från någon av färdigheterna.
++ Källicensservern Noden från det anriknings träd du kan använda för att du ska kunna använda. Detta är vanligt vis resultatet av en formaren, men det kan vara utdata från någon av färdigheterna.
 
 Här är ett exempel på tabell projektioner.
 
@@ -153,8 +156,8 @@ Objekt projektioner är JSON-representationer av det berikande trädet som kan h
 Att skapa en objekt projektion kräver några objektattribut:
 
 + storageContainer: Den behållare där objekten ska sparas
-+ källicensservern Sökvägen till noden i det berikande trädet som är roten för projektionen
-+ knapp En sökväg som representerar en unik nyckel för det objekt som ska lagras. Den kommer att användas för att skapa namnet på blobben i behållaren.
++ Källicensservern Sökvägen till noden i det berikande trädet som är roten för projektionen
++ Knapp En sökväg som representerar en unik nyckel för det objekt som ska lagras. Den kommer att användas för att skapa namnet på blobben i behållaren.
 
 ## <a name="projection-lifecycle"></a>Projekt livs cykel
 

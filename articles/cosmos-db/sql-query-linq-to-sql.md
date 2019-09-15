@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/30/2019
 ms.author: tisande
-ms.openlocfilehash: ce9d96a90a2463d1ab8e1a9774a019e38ca681f4
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: ad6dcf7307955300a781a7a649b6ac76b3c69589
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69036036"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71003562"
 ---
 # <a name="linq-to-sql-translation"></a>LINQ to SQL-översättning
 
@@ -32,7 +32,7 @@ Frågans provider stöder följande skalära uttryck:
     family.children[n].grade; //n is an int variable
   ```
   
-- Aritmetiska uttryck, inklusive vanliga aritmetiska uttryck för numeriska och booleska värden. En fullständig lista finns i [Azure Cosmos DB SQL](https://go.microsoft.com/fwlink/p/?LinkID=510612)-specifikationen.
+- Aritmetiska uttryck, inklusive vanliga aritmetiska uttryck för numeriska och booleska värden. En fullständig lista finns i [Azure Cosmos DB SQL-specifikationen](https://go.microsoft.com/fwlink/p/?LinkID=510612).
   
   ```
     2 * family.children[0].grade;
@@ -324,5 +324,5 @@ En kapslad fråga använder den inre frågan för varje element i den yttre beh�
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Azure Cosmos DB .NET-exempel](https://github.com/Azure/azure-cosmosdb-dotnet)
+- [Azure Cosmos DB .NET-exempel](https://github.com/Azure/azure-cosmos-dotnet-v3)
 - [Modell dokument data](modeling-data.md)

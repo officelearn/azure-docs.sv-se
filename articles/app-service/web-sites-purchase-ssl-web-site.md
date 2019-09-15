@@ -15,16 +15,16 @@ ms.date: 10/16/2018
 ms.author: cephalin
 ms.reviewer: apurvajo
 ms.custom: seodec18
-ms.openlocfilehash: d6d3e91bef6c4f837b068d755994b2f3268600da
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 7c899bae6cf36e68664a3ce60939f72a4b5bd1ab
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70074044"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71001211"
 ---
 # <a name="buy-and-configure-an-ssl-certificate-for-azure-app-service"></a>Köp och konfigurera ett SSL-certifikat för Azure App Service
 
-Den här självstudien visar hur du skyddar din [App Service app](https://docs.microsoft.com/azure/app-service/) -eller [Function-app](https://docs.microsoft.com/azure/azure-functions/) genom att skapa (köpa) ett app service certifikat i [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-whatis) och sedan binda det till en app service app.
+Den här självstudien visar hur du skyddar din [App Service app](https://docs.microsoft.com/azure/app-service/) -eller [Function-app](https://docs.microsoft.com/azure/azure-functions/) genom att skapa (köpa) ett app service certifikat i [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview) och sedan binda det till en app service app.
 
 > [!TIP]
 > App Service certifikat kan användas för alla Azure-och icke-Azure-tjänster och är inte begränsade till App Services. För att göra det måste du skapa en lokal PFX-kopia av ett App Service-certifikat som du kan använda det var du vill. Mer information finns i [skapa en lokal PFX-kopia av en app service Certificate](https://blogs.msdn.microsoft.com/benjaminperkins/2017/04/12/export-an-azure-app-service-certificate-pfx-powershell/).
@@ -53,7 +53,7 @@ Använd följande tabell som hjälp för att konfigurera certifikatet. Klicka p�
 | Värdnamnets domän utan www | Ange rot domänen här. Det utfärdade certifikatet skyddar *både* rot domänen och under `www` domänen. I det utfärdade certifikatet innehåller fältet eget namn rot domänen och fältet Alternativt namn på certifikat mottagare innehåller `www` domänen. Om du bara vill skydda en under domän anger du det fullständigt kvalificerade domän namnet för under domänen här (till exempel `mysubdomain.contoso.com`).|
 | Subscription | Datacenter som är värd för webbappen. |
 | Resource group | Den resurs grupp som innehåller certifikatet. Du kan använda en ny resurs grupp eller välja samma resurs grupp som App Service-appen, till exempel. |
-| Certifikat-SKU | Bestämmer vilken typ av certifikat som ska skapas, om ett standard certifikat eller [](https://wikipedia.org/wiki/Wildcard_certificate)ett jokertecken. |
+| Certifikat-SKU | Bestämmer vilken typ av certifikat som ska skapas, om ett standard certifikat eller ett [jokertecken](https://wikipedia.org/wiki/Wildcard_certificate). |
 | Juridiska villkor | Klicka för att bekräfta att du godkänner de juridiska villkoren. Certifikaten hämtas från GoDaddy. |
 
 ## <a name="store-in-azure-key-vault"></a>Lagra i Azure Key Vault
@@ -64,7 +64,7 @@ Välj certifikatet på sidan [app service certifikat](https://portal.azure.com/#
 
 ![Infoga bild av redo att lagra i KV](./media/app-service-web-purchase-ssl-web-site/ReadyKV.png)
 
-[Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-whatis) är en Azure-tjänst som hjälper till att skydda kryptografiska nycklar och hemligheter som används av moln program och-tjänster. Det är det lagrings utrymme som du väljer för App Service certifikat.
+[Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview) är en Azure-tjänst som hjälper till att skydda kryptografiska nycklar och hemligheter som används av moln program och-tjänster. Det är det lagrings utrymme som du väljer för App Service certifikat.
 
 På sidan **Key Vault status** klickar du på **Key Vault lagrings plats** för att skapa ett nytt valv eller välja ett befintligt valv. Om du väljer att skapa ett nytt valv använder du följande tabell som hjälp för att konfigurera valvet och klicka på Skapa. Se för att skapa nya Key Vault i samma prenumeration och resurs grupp.
 
@@ -109,7 +109,7 @@ Nu när certifikatet har importer ATS måste du binda det till ett mappat domän
 
 ![Infoga avbildning av import certifikat](./media/app-service-web-purchase-ssl-web-site/AddBinding.png)
 
-Använd följande tabell som hjälp för att konfigurera bindningen i dialog rutan **SSL** -bindningar och klicka sedan på **Lägg till bindning**.
+Använd följande tabell som hjälp för att konfigurera bindningen i dialog rutan **SSL-bindningar** och klicka sedan på **Lägg till bindning**.
 
 | Inställning | Beskrivning |
 |-|-|

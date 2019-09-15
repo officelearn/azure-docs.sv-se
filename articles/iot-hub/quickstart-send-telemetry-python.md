@@ -10,12 +10,12 @@ ms.devlang: python
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 02/28/2019
-ms.openlocfilehash: c92b019e15c6a9ee5b2d38e240ae4f9891621f72
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: a08719d322f044bbf1ced8103af5e4e23ed948c9
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68360194"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "70998465"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-it-with-a-back-end-application-python"></a>Snabbstart: Skicka telemetri från en enhet till en IoT-hubb och läs den med ett serverdelsprogram (Python)
 
@@ -30,22 +30,6 @@ Snabbstarten använder ett färdigt Python-program för att skicka telemetrin oc
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 ## <a name="prerequisites"></a>Förutsättningar
-
-Det exempel program som du kör i den här snabb starten skrivs med python. För närvarande stöder Microsoft Azure IoT SDK: er för python bara vissa versioner av python för varje plattform. Mer information finns i [filen python SDK README](https://github.com/Azure/azure-iot-sdk-python#important-installation-notes---dealing-with-importerror-issues).
-
-Den här snabb starten förutsätter att du använder en Windows-utvecklings dator. För Windows-system stöds endast [python 3.6. x](https://www.python.org/downloads/release/python-368/) . Python-installationsprogrammet som du väljer ska baseras på arkitekturen i systemet som du arbetar med. Om systemets CPU-arkitektur är 32 bitar laddar du ned x86-installations programmet. för 64-bitars arkitekturen laddar du ned x86-64-installationsprogrammet. Se dessutom till att [Microsoft Visual C++ Redistributable för Visual Studio 2019](https://support.microsoft.com/en-us/help/2977003/the-latest-supported-visual-c-downloads) har installerats för din arkitektur (x86 eller x64).
-
-Du kan ladda ned python för andra plattformar från [python.org](https://www.python.org/downloads/).
-
-Du kan kontrollera den aktuella versionen av Python på utvecklingsdatorn med någon av följande kommandon:
-
-```python
-python - -version
-```
-
-```python
-python3 - -version
-```
 
 Kör följande kommando för att lägga till Microsoft Azure IoT-tillägget för Azure CLI till Cloud Shell-instansen. IOT-tillägget lägger till IoT Hub-, IoT Edge-och IoT Device Provisioning-tjänst (DPS)-kommandon i Azure CLI.
 
@@ -100,7 +84,7 @@ Det simulerade enhetsprogrammet ansluter till en enhetsspecifik slutpunkt på di
 1. Installera de bibliotek som krävs för det simulerade enhetsprogrammet genom att köra följande kommandon i det lokala terminalfönstret:
 
     ```cmd/sh
-    pip install azure-iothub-device-client
+    pip install azure-iot-device
     ```
 
 1. Kör det simulerade enhetsprogrammet genom att köra följande kommandon i det lokala terminalfönstret:
@@ -112,13 +96,7 @@ Det simulerade enhetsprogrammet ansluter till en enhetsspecifik slutpunkt på di
     Följande skärmbild visar utdata när det simulerade enhetsprogrammet skickar telemetri till din IoT-hubb:
 
     ![Kör den simulerade enheten](media/quickstart-send-telemetry-python/SimulatedDevice.png)
-    
-### <a name="to-avoid-the-import-iothubclient-error"></a>Undvik att importera iothub_client-fel
-Den aktuella versionen av Azure IoT SDK för python är en omslutning via [vår C SDK](https://github.com/azure/azure-iot-sdk-c). Den genereras med förstärknings [](https://www.boost.org/) biblioteket. Därför ingår det flera viktiga begränsningar. Se mer information [här](https://github.com/Azure/azure-iot-sdk-python#important-installation-notes---dealing-with-importerror-issues)
 
-1. Kontrol lera att du har rätt version av [python](https://github.com/Azure/azure-iot-sdk-python#important-installation-notes---dealing-with-importerror-issues). Tänk på att endast vissa versioner fungerar bra för det här exemplet. 
-2. Kontrol lera att du har rätt version av C++ runtime [Microsoft Visual C++ Redistributable för Visual Studio 2019](https://support.microsoft.com/en-us/help/2977003/the-latest-supported-visual-c-downloads). (Vi rekommenderar det senaste).
-3. Kontrol lera att du har installerat iothub-klienten `pip install azure-iothub-device-client`:.
 
 ## <a name="read-the-telemetry-from-your-hub"></a>Läsa telemetrin från din hubb
 

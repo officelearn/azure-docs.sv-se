@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
-ms.date: 05/07/2019
+ms.date: 09/13/2019
 ms.author: diberry
-ms.openlocfilehash: 465fba3a466aceaf9ef7b71e4b1957bfdbcad766
-ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
+ms.openlocfilehash: 87065709b16a5a0c7076584e8fc33c3830319e4f
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68663646"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "70999652"
 ---
 # <a name="where-can-you-use-personalizer"></a>Var kan du använda Personanpassning?
 
@@ -52,13 +52,13 @@ Personanpassare kommer att lära sig bäst i situationer där:
 
 ## <a name="monitor-effectiveness-of-personalizer"></a>Övervaka effektiviteten hos Personanpassare
 
-Du kan övervaka effektiviteten för Personanpassare regelbundet genom att utföra [offline](concepts-offline-evaluation.md)-utvärderingar.
+Du kan övervaka effektiviteten för Personanpassare regelbundet genom att utföra [offline-utvärderingar](concepts-offline-evaluation.md).
 
 ## <a name="use-personalizer-with-recommendation-engines"></a>Använda Personanpassare med rekommendations motorer
 
 Många företag använder rekommendations motorer, marknadsförings-och kampanj verktyg, mål grupp segmentering och klustring, samordnad filtrering och andra metoder för att rekommendera produkter från en stor katalog till kunder.
 
-[Microsoft-rekommendationerna GitHub](https://github.com/Microsoft/Recommenders) -lagringsplatsen innehåller exempel och bästa metoder för att skapa rekommendations system, som tillhandahålls som Jupyter notebook-datorer. Den innehåller exempel på hur du förbereder data, bygger modeller, utvärderar, justerar och genomför rekommendationer för att använda rekommendationer för många vanliga metoder, inklusive xDeepFM, SAR, sensorn, RINGPÄRMSMEKANISMER, DKN.
+[Microsoft-rekommendationerna GitHub-lagringsplatsen](https://github.com/Microsoft/Recommenders) innehåller exempel och bästa metoder för att skapa rekommendations system, som tillhandahålls som Jupyter notebook-datorer. Den innehåller exempel på hur du förbereder data, bygger modeller, utvärderar, justerar och genomför rekommendationer för att använda rekommendationer för många vanliga metoder, inklusive xDeepFM, SAR, sensorn, RINGPÄRMSMEKANISMER, DKN.
 
 Personanpassaren kan arbeta med en rekommendations motor när den är närvarande.
 

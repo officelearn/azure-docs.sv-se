@@ -7,12 +7,12 @@ ms.author: hrasheed
 ms.reviewer: hrasheed
 ms.topic: conceptual
 ms.date: 05/06/2019
-ms.openlocfilehash: 09cca0eda9a82b1605323678d7442700dc1a2292
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.openlocfilehash: 15638d90fe24938a45f6d4cce156e998f1f9afc2
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70960504"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71000104"
 ---
 # <a name="bring-your-own-key-for-apache-kafka-on-azure-hdinsight"></a>Ta med din egen nyckel för Apache Kafka på Azure HDInsight
 
@@ -146,5 +146,5 @@ Om klustret förlorar åtkomst till nyckeln, visas varningar i Apache Ambari-por
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Mer information om Azure Key Vault finns i [Vad är Azure Key Vault](../../key-vault/key-vault-whatis.md)?
+* Mer information om Azure Key Vault finns i [Vad är Azure Key Vault](../../key-vault/key-vault-overview.md)?
 * För att komma igång med Azure Key Vault, se [komma igång med Azure Key Vault](../../key-vault/key-vault-overview.md).

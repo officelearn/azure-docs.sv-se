@@ -1,7 +1,7 @@
 ---
 title: Exportera eller ta bort data i arbetsytan
-titleSuffix: Azure Machine Learning service
-description: 'Lär dig mer om att exportera eller ta bort din arbetsyta med Azure-portalen, CLI, SDK och autentiserade REST API: er.'
+titleSuffix: Azure Machine Learning
+description: 'Lär dig hur du exporterar eller tar bort din arbets yta med de Azure Portal-, CLI-, SDK-och autentiserade REST-API: erna.'
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,12 +11,12 @@ author: ph-com
 ms.author: pahusban
 ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3b55282adf56bedb0724eca578b8eaea00c26074
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 18e2ab18dac214e73eaf6ad7dfcb9dbbab0b5cf5
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65023983"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71002847"
 ---
 # <a name="export-or-delete-your-machine-learning-service-workspace-data"></a>Exportera eller ta bort arbetsyta för Machine Learning tjänstdata 
 
@@ -27,9 +27,9 @@ Du kan exportera eller ta bort dina data i arbetsytan med autentiserade REST-API
 [!INCLUDE [GDPR-related guidance](../../../includes/gdpr-intro-sentence.md)]
 
 ## <a name="control-your-workspace-data"></a>Kontrollera dina arbetsytedata
-I produkten data som lagras av Azure Machine Learning Services är tillgängliga för export eller tas bort via Azure portal, CLI, SDK och autentiserade REST API: er. Dessa data kan nås via sekretess för Azure-portalen. 
+Produkt data som lagras av Azure Machine Learning kan exporteras och tas bort via Azure Portal, CLI, SDK och autentiserade REST-API: er. Dessa data kan nås via sekretess för Azure-portalen. 
 
-I Azure Machine Learning Services består personliga data med användarinformation i körningshistoriken dokument och telemetri poster i vissa användarinteraktioner med tjänsten.
+I Azure Machine Learning består personliga data av användar information i historik dokument och telemetri poster för vissa användar interaktioner med tjänsten.
 
 ## <a name="delete-workspace-data-with-the-rest-api"></a>Ta bort arbetsytedata med REST API 
 
@@ -232,28 +232,28 @@ Datakällor kan erhållas genom:
 
     https://{location}.aether.ms/api/v1.0/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}/DataSources/{id}
 
-## <a name="delete-visual-interface-assets"></a>Ta bort visuella gränssnittet tillgångar
+## <a name="delete-visual-interface-assets"></a>Ta bort Visual Interface-till gångar
 
-Ta bort enskilda tillgångar i det visuella gränssnittet där du skapade ditt experiment:
+Ta bort enskilda till gångar i det visuella gränssnittet där du skapade experimentet:
 
-1. Välj typ av tillgång som du vill ta bort till vänster.
+1. Välj den typ av till gång som du vill ta bort till vänster.
 
     ![Ta bort tillgångar](media/how-to-export-delete-data.md/delete-experiment.png)
 
-1. Välj att ta bort enskilda tillgångar i listan.
+1. I listan väljer du de enskilda till gångar som ska tas bort.
 
-1. Längst ned i Välj **ta bort**.
+1. Klicka på **ta bort**längst ned.
 
-## <a name="export-visual-interface-data"></a>Exportera visuella gränssnittet data
+## <a name="export-visual-interface-data"></a>Exportera Visual Interface-data
 
-I det visuella gränssnittet där du skapade ditt experiment, exporterar du data som du har lagt till:
+Exportera data som du har lagt till i det visuella gränssnittet där du skapade experimentet:
 
-1. Till vänster, Välj **Data**.
+1. Välj **data**till vänster.
 
-1. Överst, Välj **Mina datauppsättningar** eller **exempel** att hitta de data som du vill exportera.
+1. Välj **mina data uppsättningar** eller **exempel** på översta sidan för att hitta de data som du vill exportera.
 
     ![Hämta data](media/how-to-export-delete-data.md/download-data.png)
 
-1. I listan väljer du de enskilda datauppsättningarna att exportera.
+1. I listan väljer du de enskilda data uppsättningar som ska exporteras.
 
-1. Längst ned i Välj **hämta**.
+1. Välj **Ladda ned**på slutet.

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/04/2017
 ms.author: tomsh
-ms.openlocfilehash: ca2f346950d84fda736437f439efc5d35e342799
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 5329323122d8470b19055040b6f00b6db7c0e75f
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68934574"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "70998955"
 ---
 # <a name="azure-service-fabric-security-overview"></a>Översikt över Azure Service Fabric-säkerhet
 [Azure Service Fabric](../../service-fabric/service-fabric-overview.md) är en distribuerad system plattform som gör det enkelt att paketera, distribuera och hantera skalbara och pålitliga mikrotjänster. Service Fabric åtgärdar utmaningarna med att utveckla och hantera moln program. Utvecklare och administratörer kan undvika komplexa infrastruktur problem och fokusera på att implementera verksamhets kritiska, krävande arbets belastningar som är skalbara och tillförlitliga.
@@ -88,7 +88,7 @@ Arbets flödet för övervakning och diagnostik består av tre steg:
 
 2.  **Händelse agg regering**: Genererade händelser måste samlas in och aggregeras innan de kan visas. Vi rekommenderar vanligt vis att använda [Azure-diagnostik](../../service-fabric/service-fabric-diagnostics-event-aggregation-wad.md) (liknar agent-baserad logg insamling) eller [EventFlow](../../service-fabric/service-fabric-diagnostics-event-aggregation-eventflow.md) (bearbetning av loggar).
 
-3.  **Analys**: Händelser behöver visualiseras och vara tillgängliga i viss form för att tillåta analys och visning. Det finns flera plattformar för analys och visualisering av övervaknings-och diagnostikdata. Vi rekommenderar [Azure Monitor loggar](../../service-fabric/service-fabric-diagnostics-event-analysis-oms.md) och [Azure Application](../../service-fabric/service-fabric-diagnostics-event-analysis-appinsights.md) insikter eftersom de integreras bra med Service Fabric.
+3.  **Analys**: Händelser behöver visualiseras och vara tillgängliga i viss form för att tillåta analys och visning. Det finns flera plattformar för analys och visualisering av övervaknings-och diagnostikdata. Vi rekommenderar [Azure Monitor loggar](../../service-fabric/service-fabric-diagnostics-event-analysis-oms.md) och [Azure Application insikter](../../service-fabric/service-fabric-diagnostics-event-analysis-appinsights.md) eftersom de integreras bra med Service Fabric.
 
 Du kan också använda [Azure Monitor](../../azure-monitor/overview.md) för att övervaka många av de Azure-resurser där ett Service Fabric-kluster har skapats.
 
@@ -109,7 +109,7 @@ I följande tabell visas de certifikat som du behöver i kluster konfigurationen
 |ServerCertificate| Det här certifikatet presenteras för klienten när det försöker ansluta till det här klustret. Du kan använda två server certifikat: ett primärt certifikat och en sekundär för uppgradering.|
 |ClientCertificateThumbprints|  Detta är en uppsättning certifikat som ska installeras på de autentiserade klienterna.|
 |ClientCertificateCommonNames|  Detta är nätverks namnet för det första klient certifikatet för CertificateCommonName. CertificateIssuerThumbprint är tumavtrycket för utfärdaren av det här certifikatet.|
-|ReverseProxyCertificate|   Det här är ett valfritt certifikat som du kan ange för att [](../../service-fabric/service-fabric-reverseproxy.md)skydda den omvända proxyn.|
+|ReverseProxyCertificate|   Det här är ett valfritt certifikat som du kan ange för att skydda den [omvända proxyn](../../service-fabric/service-fabric-reverseproxy.md).|
 
 Mer information om hur du skyddar certifikat finns i [skydda ett fristående kluster i Windows med hjälp av X. 509-certifikat](../../service-fabric/service-fabric-windows-cluster-x509-security.md).
 
@@ -132,7 +132,7 @@ Du konfigurerar säkerhet från klient till nod med hjälp av ClientIdentities. 
 ### <a name="manage-secrets-in-service-fabric-applications"></a>Hantera hemligheter i Service Fabric program
 Hemligheter kan vara vilken känslig information som helst, till exempel lagrings anslutnings strängar, lösen ord eller andra värden som inte ska hanteras i oformaterad text.
 
-Du kan använda [Azure Key Vault](../../key-vault/key-vault-whatis.md) för att hantera nycklar och hemligheter. Användningen av hemligheter i ett program är dock inte beroende av en specifik moln plattform. Du kan distribuera program till ett kluster som finns var som helst. Det finns fyra huvudsakliga steg i det här flödet:
+Du kan använda [Azure Key Vault](../../key-vault/key-vault-overview.md) för att hantera nycklar och hemligheter. Användningen av hemligheter i ett program är dock inte beroende av en specifik moln plattform. Du kan distribuera program till ett kluster som finns var som helst. Det finns fyra huvudsakliga steg i det här flödet:
 
 1.  Hämta ett certifikat för data kryptering.
 2.  Installera certifikatet på klustret.

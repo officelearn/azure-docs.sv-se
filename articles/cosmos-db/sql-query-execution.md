@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/31/2019
 ms.author: tisande
-ms.openlocfilehash: 0eca458c344e5c44ad62121db14e6b286dc19a86
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: c42732df1bcfa8649c89899febc364bb1f5f9b5a
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69614434"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "70999914"
 ---
 # <a name="azure-cosmos-db-sql-query-execution"></a>Azure Cosmos DB SQL-frågekörningen
 
@@ -245,7 +245,7 @@ I nästa exempel visas kopplingar, som uttrycks `SelectMany`via LINQ.
 
 Du kan också uttryckligen styra växling genom att `IDocumentQueryable` `IQueryable` skapa med hjälp av objektet och sedan läsa `ResponseContinuationToken` värdena och skicka tillbaka dem som `RequestContinuationToken` i `FeedOptions`. Du kan ställa `EnableScanInQuery` in för att aktivera genomsökningar när frågan inte stöds av den konfigurerade indexerings principen. För partitionerade behållare kan du använda `PartitionKey` för att köra frågan mot en enda partition, även om Azure Cosmos DB kan extrahera detta automatiskt från frågetexten. Du kan använda `EnableCrossPartitionQuery` för att köra frågor mot flera partitioner.
 
-Fler .NET-exempel med frågor finns i [Azure Cosmos dB .net-exempel](https://github.com/Azure/azure-cosmosdb-dotnet) i GitHub.
+Fler .NET-exempel med frågor finns i [Azure Cosmos dB .net-exempel](https://github.com/Azure/azure-cosmos-dotnet-v3) i GitHub.
 
 ## <a id="JavaScript-server-side-API"></a>JavaScript-API på serversidan
 
@@ -288,5 +288,5 @@ I följande exempel visas hur du använder `queryDocuments` i Java Script Server
 ## <a name="next-steps"></a>Nästa steg
 
 - [Introduktion till Azure Cosmos DB](introduction.md)
-- [Azure Cosmos DB .NET-exempel](https://github.com/Azure/azure-cosmosdb-dotnet)
+- [Azure Cosmos DB .NET-exempel](https://github.com/Azure/azure-cosmos-dotnet-v3)
 - [Azure Cosmos DB konsekvens nivåer](consistency-levels.md)

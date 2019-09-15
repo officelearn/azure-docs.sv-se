@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/20/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: be6d54886f23b0fa219b1e4b8948b4a4c51f5864
-ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
+ms.openlocfilehash: a3ded11ac6a68e82fba76e7551699f29f3cb6075
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68716828"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "70998419"
 ---
 # <a name="custom-policies-in-azure-active-directory-b2c"></a>Anpassade principer i Azure Active Directory B2C
 
@@ -55,7 +55,7 @@ Tjänsten för kund identitets-och åtkomst hantering (CIAM) i Azure innehåller
 
 Azure AD B2C interagerar med identitets leverantörer, användare, andra system och med den lokala användar katalogen i turordning för att få en identitets uppgift. Du kan till exempel Logga in en användare, registrera en ny användare eller återställa ett lösen ord. I ramverket med identitets upplevelsen och en princip (kallas även för en användar resa eller en princip för förtroende ramverk) fastställs flera parter och det uttryckligen definierar aktörerna, åtgärderna, protokollen och hur många steg som ska utföras.
 
-Identitets miljö ramverket är en helt konfigurerbar, molnbaserad, molnbaserad, molnbaserad Azure-plattform som dirigerar förtroende mellan entiteter i standard protokoll format, till exempel OpenID Connect, OAuth, SAML, WSFed och några icke-standarder, till exempel REST API-baserade system-till-system-anspråk. Ramverket skapar användarvänliga, vita och märkta upplevelser som stöder HTML och CSS.
+Identitets Miljös ramverket är en helt konfigurerbar, molnbaserad, molnbaserad, molnbaserad Azure-plattform som dirigerar förtroende mellan entiteter i standard protokoll format, till exempel OpenID Connect, OAuth, SAML och några icke-standarder, till exempel REST API-baserade system-till-system-anspråk. Ramverket skapar användarvänliga, vita och märkta upplevelser som stöder HTML och CSS.
 
 En anpassad princip representeras som en eller flera XML-formaterade filer som refererar till varandra i en hierarkisk kedja. XML-elementen definierar anspråks schema, anspråks omvandlingar, innehålls definitioner, anspråks leverantörer, tekniska profiler och användnings steg för användar resan bland andra element. En anpassad princip är tillgänglig som en eller flera XML-filer som körs av identitets miljö ramverket när den anropas av en förlitande part. Utvecklare som konfigurerar anpassade principer måste definiera de betrodda relationerna i noggrann detalj för att inkludera slut punkter för metadata, exakta definitioner för anspråk och konfigurera hemligheter, nycklar och certifikat efter behov av varje identitets leverantör.
 

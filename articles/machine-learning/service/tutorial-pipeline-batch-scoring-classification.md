@@ -1,6 +1,6 @@
 ---
 title: 'Självstudier: Azure ML-pipelines för batch-Poäng'
-titleSuffix: Azure Machine Learning service
+titleSuffix: Azure Machine Learning
 description: Bygg en ML-pipeline för att köra batch-Poäng i en bild klassificerings modell. Maskin inlärnings pipeliner optimerar arbets flödet med hastighet, portabilitet och åter användning så att du kan fokusera på din expertis, maskin inlärning i stället för infrastruktur och automatisering.
 services: machine-learning
 ms.service: machine-learning
@@ -10,16 +10,16 @@ author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
 ms.date: 09/05/2019
-ms.openlocfilehash: 039dbc435cbffed9fe2a9e9be0053d5eb663e9bb
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: aa280ea71735ce7c4000951e5c11de2913aaebe8
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70997357"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71001621"
 ---
 # <a name="use-azure-machine-learning-pipelines-for-batch-scoring"></a>Använd Azure Machine Learning pipelines för batch-Poäng
 
-I den här självstudien använder du Azure Machine Learning tjänst pipelines för att köra en batch-poäng eller en härledning, jobb. I det här exempel jobbet används den förtränade InDesign [-v3-](https://arxiv.org/abs/1512.00567) (convolutional neurala Network Tensorflow Model för att klassificera bilder som inte har etiketter. När du har skapat och publicerat en pipeline konfigurerar du en REST-slutpunkt så att du kan utlösa pipelinen från alla HTTP-bibliotek på vilken plattform som helst.
+I den här självstudien använder du Azure Machine Learning pipelines för att köra en batch-poäng eller en härlednings uppgift. I det här exempel jobbet används den förtränade InDesign [-v3-](https://arxiv.org/abs/1512.00567) (convolutional neurala Network Tensorflow Model för att klassificera bilder som inte har etiketter. När du har skapat och publicerat en pipeline konfigurerar du en REST-slutpunkt så att du kan utlösa pipelinen från alla HTTP-bibliotek på vilken plattform som helst.
 
 Maskin inlärnings pipeliner optimerar arbets flödet med hastighet, portabilitet och åter användning så att du kan fokusera på din expertis, maskin inlärning i stället för infrastruktur och automatisering. [Läs mer om ml-pipelines](concept-ml-pipelines.md).
 
@@ -33,11 +33,11 @@ I den här självstudien får du lära dig följande uppgifter:
 > * Skapa, köra och publicera en pipeline
 > * Aktivera en REST-slutpunkt för pipelinen
 
-Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnadsfria versionen eller betalversionen av Azure Machine Learning-tjänsten](https://aka.ms/AMLFree) i dag.
+Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree) idag.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-* Slutför [del 1 av installations självstudien](tutorial-1st-experiment-sdk-setup.md) om du inte redan har en Azure Machine Learning tjänst arbets yta eller en virtuell dator.
+* Slutför [del 1 av installations självstudien](tutorial-1st-experiment-sdk-setup.md) om du inte redan har en Azure Machine Learning arbets yta eller en virtuell dator.
 * När du har slutfört installations guiden öppnar du **självstudierna/tutorial-pipeline-batch-scoring-Classification. ipynb** Notebook med samma Notebook-Server.
 
 Den här själv studie kursen finns också på [GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/tutorials) om du vill köra den i din egen [lokala miljö](how-to-configure-environment.md#local). Kör `pip install azureml-sdk[notebooks] azureml-pipeline-core azureml-pipeline-steps pandas requests` för att hämta de nödvändiga paketen.
@@ -512,7 +512,7 @@ RunDetails(published_pipeline_run).show()
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Slutför inte det här avsnittet om du planerar att köra andra Azure Machine Learning service-självstudier.
+Slutför inte det här avsnittet om du tänker köra andra Azure Machine Learning själv studie kurser.
 
 ### <a name="stop-the-notebook-vm"></a>Stoppa den virtuella Notebook-datorn
 

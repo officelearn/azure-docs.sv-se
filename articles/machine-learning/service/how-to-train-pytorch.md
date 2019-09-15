@@ -1,6 +1,6 @@
 ---
 title: Träna djup inlärning neurala Network med PyTorch
-titleSuffix: Azure Machine Learning service
+titleSuffix: Azure Machine Learning
 description: Lär dig hur du kör dina PyTorch-utbildnings skript i företags skala med hjälp av Azure Machine Learning PyTorch uppskattnings klass.  Exempel skripten klassificerar kyckling-och kalkon bilder för att bygga ett djup inlärnings neurala nätverk baserat på PyTorch i guiden för överförings inlärning.
 services: machine-learning
 ms.service: machine-learning
@@ -11,18 +11,18 @@ author: maxluk
 ms.reviewer: peterlu
 ms.date: 08/01/2019
 ms.custom: seodec18
-ms.openlocfilehash: d7ac3675ec9d90fc51bc9e3c72b76d8fb80312a8
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: c688f5a59a9a6d980f50a726f9da4dc4379ce073
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68966776"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71002576"
 ---
 # <a name="train-pytorch-deep-learning-models-at-scale-with-azure-machine-learning"></a>Utbilda Pytorch djup inlärnings modeller i stor skala med Azure Machine Learning
 
 I den här artikeln får du lära dig hur du kör dina [PyTorch](https://pytorch.org/) -utbildnings skript i företags skala med hjälp av Azure Machine Learning [PyTorchs uppskattnings](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.pytorch?view=azure-ml-py) klass.  
 
-Exempel skripten i den här artikeln används för att klassificera kyckling-och kalkon bilder för att bygga ett djup inlärnings neurala nätverk baserat på [](https://pytorch.org/tutorials/beginner/transfer_learning_tutorial.html)PyTorch för överförings inlärning. 
+Exempel skripten i den här artikeln används för att klassificera kyckling-och kalkon bilder för att bygga ett djup inlärnings neurala nätverk baserat på PyTorch för överförings [inlärning.](https://pytorch.org/tutorials/beginner/transfer_learning_tutorial.html) 
 
 Oavsett om du tränar en djup inlärnings PyTorch-modell från grunden eller om du använder en befintlig modell i molnet kan du använda Azure Machine Learning för att skala ut utbildnings jobb för öppen källkod med elastiska moln beräknings resurser. Du kan bygga, distribuera, hantera och övervaka modeller av produktions klass med Azure Machine Learning. 
 
@@ -67,7 +67,7 @@ from azureml.train.dnn import PyTorch
 
 ### <a name="initialize-a-workspace"></a>Initiera en arbets yta
 
-Den [Azure Machine Learning service-arbetsytan](concept-workspace.md) är resursen på den översta nivån för tjänsten. Det ger dig en central plats för att arbeta med alla artefakter som du skapar. I python SDK har du åtkomst till arbets ytans artefakter genom att skapa [`workspace`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py) ett objekt.
+[Azure Machine Learning-arbetsytan](concept-workspace.md) är resursen på den översta nivån för tjänsten. Det ger dig en central plats för att arbeta med alla artefakter som du skapar. I python SDK har du åtkomst till arbets ytans artefakter genom att skapa [`workspace`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py) ett objekt.
 
 Skapa ett objekt för arbets ytan `config.json` från filen som skapats i [avsnittet krav](#prerequisites).
 
@@ -93,7 +93,7 @@ Data uppsättningen består av ungefär 120 utbildnings avbildningar för kalkon
 
 ### <a name="prepare-training-scripts"></a>Förbereda utbildnings skript
 
-I den här självstudien har övnings skriptet `pytorch_train.py`redan angetts. I praktiken kan du använda valfritt anpassat utbildnings skript, precis som det är och köra det med Azure Machine Learning-tjänsten.
+I den här självstudien har övnings skriptet `pytorch_train.py`redan angetts. I praktiken kan du ta med ett anpassat utbildnings skript, som det är och köra det med Azure Machine Learning.
 
 Ladda upp utbildnings skriptet `pytorch_train.py`Pytorch.
 
@@ -101,7 +101,7 @@ Ladda upp utbildnings skriptet `pytorch_train.py`Pytorch.
 shutil.copy('pytorch_train.py', project_folder)
 ```
 
-Men om du vill använda funktioner för Azure Machine Learning tjänst spårning och mått måste du lägga till en liten pris kod i ditt utbildnings skript. Exempel på mått spårning hittar du i `pytorch_train.py`.
+Men om du vill använda funktioner för Azure Machine Learning spårning och mått måste du lägga till en liten pris kod i ditt utbildnings skript. Exempel på mått spårning hittar du i `pytorch_train.py`.
 
 ## <a name="create-a-compute-target"></a>Skapa ett beräkningsmål
 
@@ -127,7 +127,7 @@ Mer information om beräknings mål finns i artikeln [Vad är en Compute Target]
 
 ## <a name="create-a-pytorch-estimator"></a>Skapa en PyTorch-uppskattning
 
-[PyTorch](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.pytorch?view=azure-ml-py) -uppskattningen ger ett enkelt sätt att starta ett PyTorch utbildnings jobb på ett beräknings mål.
+[PyTorch-uppskattningen](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.pytorch?view=azure-ml-py) ger ett enkelt sätt att starta ett PyTorch utbildnings jobb på ett beräknings mål.
 
 PyTorch-uppskattningen implementeras via den generiska [`estimator`](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator.estimator?view=azure-ml-py) klassen, som kan användas för att stödja eventuella ramverk. Mer information om tränings modeller med hjälp av den generiska uppskattningen finns i [träna modeller med Azure Machine Learning med hjälp av uppskattning](how-to-train-ml-models.md)
 
@@ -189,7 +189,7 @@ for f in run.get_file_names():
 
 ## <a name="distributed-training"></a>Distribuerad utbildning
 
-[`PyTorch`](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.pytorch?view=azure-ml-py) Uppskattningen stöder också distribuerad utbildning mellan processor-och GPU-kluster. Du kan enkelt köra distribuerade PyTorch-jobb och Azure Machine Learning tjänsten hanterar dirigeringen åt dig.
+[`PyTorch`](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.pytorch?view=azure-ml-py) Uppskattningen stöder också distribuerad utbildning mellan processor-och GPU-kluster. Du kan enkelt köra distribuerade PyTorch-jobb och Azure Machine Learning hanterar dirigeringen åt dig.
 
 ### <a name="horovod"></a>Horovod
 [Horovod](https://github.com/uber/horovod) är en öppen källkod som alla reducerar ramverk för distribuerad utbildning som utvecklas av Uber. Den erbjuder en enkel väg till distribuerade GPU PyTorch-jobb.
@@ -218,11 +218,11 @@ import horovod
 ```
 ## <a name="export-to-onnx"></a>Exportera till ONNX
 
-Du kan optimera härledningen med [ONNX](concept-onnx.md)-körningen genom att konvertera din tränade PyTorch-modell till ONNX-formatet. Härlednings-eller modell poängsättning är den fas där den distribuerade modellen används för förutsägelse, oftast på produktions data. Se självstudien för ett exempel. [](https://github.com/onnx/tutorials/blob/master/tutorials/PytorchOnnxExport.ipynb)
+Du kan optimera härledningen med [ONNX-körningen](concept-onnx.md)genom att konvertera din tränade PyTorch-modell till ONNX-formatet. Härlednings-eller modell poängsättning är den fas där den distribuerade modellen används för förutsägelse, oftast på produktions data. Se [självstudien](https://github.com/onnx/tutorials/blob/master/tutorials/PytorchOnnxExport.ipynb) för ett exempel.
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här artikeln har du tränat och registrerat en djup inlärning, neurala Network med PyTorch på Azure Machine Learning-tjänsten. Om du vill lära dig hur du distribuerar en modell fortsätter du till vår modell distributions artikel.
+I den här artikeln har du tränat och registrerat en djup inlärning, neurala Network med PyTorch på Azure Machine Learning. Om du vill lära dig hur du distribuerar en modell fortsätter du till vår modell distributions artikel.
 
 > [!div class="nextstepaction"]
 > [Hur och var modeller ska distribueras](how-to-deploy-and-where.md)

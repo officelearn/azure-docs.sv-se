@@ -1,6 +1,6 @@
 ---
 title: Skapa ditt första automatiserade maskin inlärnings experiment
-titleSuffix: Azure Machine Learning service
+titleSuffix: Azure Machine Learning
 description: Lär dig hur du tränar och distribuerar en klassificerings modell med automatiserad maskin inlärning i Azure Machine Learnings landnings sida för arbets ytan (för hands version).
 services: machine-learning
 ms.service: machine-learning
@@ -10,12 +10,12 @@ ms.author: tzvikei
 author: tsikiksr
 ms.reviewer: nibaccam
 ms.date: 09/09/2019
-ms.openlocfilehash: e831b94099a8bdf96710fc8ae8915938bbe997c4
-ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
+ms.openlocfilehash: f8b9876680899a5d8e87f8a49a0b4ed6c113fb45
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70984516"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71001857"
 ---
 # <a name="tutorial-create-your-first-classification-model-with-automated-machine-learning"></a>Självstudier: Skapa din första klassificerings modell med automatisk maskin inlärning
 
@@ -26,7 +26,7 @@ Med automatisk maskin inlärning kan du automatisera tids krävande uppgifter. A
 I den här självstudien får du lära dig hur du utför följande uppgifter:
 
 > [!div class="checklist"]
-> * Skapa en Azure Machine Learning service-arbetsyta.
+> * Skapa en Azure Machine Learning-arbetsyta.
 > * Kör ett automatiserat maskin inlärnings experiment.
 > * Visa experiment information.
 > * Distribuera modellen.

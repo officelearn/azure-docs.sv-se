@@ -1,6 +1,6 @@
 ---
-title: Vad är Azure Machine Learning tjänst
-description: Översikt över Azure Machine Learning-tjänsten – en integrerad lösning från slutpunkt till slutpunkt som gör att dataforskare kan utveckla, experimentera och distribuera avancerade analysprogram i molnskala.
+title: Vad är Azure Machine Learning
+description: Översikt över Azure Machine Learning – en integrerad lösning från slut punkt till slut punkt för data vetenskaps tekniker som utvecklar, experimenterar och distribuerar avancerade analys program i moln skala.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,16 +9,16 @@ author: j-martens
 ms.author: jmartens
 ms.date: 08/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 99514002f0a259b7e981c2db498e72865d4f1bd4
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: 0a70b1c9d3ac888f0f77cf0f6e9ca37bc6cd4324
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70858650"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "70999926"
 ---
-# <a name="what-is-azure-machine-learning-service"></a>Vad är tjänsten Azure Machine Learning?
+# <a name="what-is-azure-machine-learning"></a>Vad är Azure Machine Learning?
 
-Azure Machine Learning-tjänsten är en molntjänst som du använder för att träna, distribuera, automatisera och hantera maskininlärningsmodeller i den omfattande skala som molnet ger.
+Azure Machine Learning är en moln tjänst som du använder för att träna, distribuera, automatisera och hantera maskin inlärnings modeller, allt i den breda skala som molnet erbjuder.
 
 ## <a name="what-is-machine-learning"></a>Vad är maskininlärning?
 
@@ -26,9 +26,9 @@ Maskininlärning är en datavetenskapsteknik som gör att datorer kan använda b
 
 Prognoser eller förutsägelser från maskininlärning kan göra appar och enheter smartare. När du handlar på nätet kan maskininlärning till exempel användas för att rekommendera andra produkter som du kanske gillar baserat på vad du har köpt. När ditt kreditkort dras används maskininlärning för att jämföra transaktionen med en transaktionsdatabas, vilket gör det lättare att upptäcka bedrägerier. När din robotdammsugare dammsuger ett rum tar den hjälp av maskininlärning för att avgöra om jobbet är klart.
 
-## <a name="what-is-azure-machine-learning-service"></a>Vad är tjänsten Azure Machine Learning?
+## <a name="what-is-azure-machine-learning"></a>Vad är Azure Machine Learning?
 
-Tjänsten Azure Machine Learning tillhandahåller en molnbaserad miljö som du kan använda för att förbereda data och träna, testa, distribuera, hantera och spåra maskininlärningsmodeller. Starta utbildningen på den lokala datorn och skala sedan ut till molnet. Tjänsten har fullt stöd för tekniker med öppen källkod som PyTorch, TensorFlow och scikit – lära sig och kan användas för alla typer av maskin inlärning, från klassisk ml till djup inlärning, övervakad och oövervakad inlärning.
+Azure Machine Learning tillhandahåller en molnbaserad miljö som du kan använda för att prepa data, träna, testa, distribuera, hantera och spåra maskin inlärnings modeller. Starta utbildningen på den lokala datorn och skala sedan ut till molnet. Tjänsten har fullt stöd för tekniker med öppen källkod som PyTorch, TensorFlow och scikit – lära sig och kan användas för alla typer av maskin inlärning, från klassisk ml till djup inlärning, övervakad och oövervakad inlärning.
 
 Utforska och Förbered data, träna och testa modeller och distribuera dem med hjälp av omfattande verktyg som:
 + Ett [visuellt gränssnitt](ui-tutorial-automobile-price-train-score.md) där du kan dra-n-släpp-moduler för att bygga experiment och sedan distribuera modeller
@@ -38,9 +38,9 @@ Utforska och Förbered data, träna och testa modeller och distribuera dem med h
 
 > [!VIDEO https://channel9.msdn.com/Events/Connect/Microsoft-Connect--2018/D240/player]
 
-## <a name="what-can-i-do-with-azure-machine-learning-service"></a>Vad kan jag göra med tjänsten Azure Machine Learning?
+## <a name="what-can-i-do-with-azure-machine-learning"></a>Vad kan jag göra med Azure Machine Learning?
 
-Använd <a href="https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py" target="_blank">Azure Machine Learning python SDK</a> med python-paket med öppen källkod, eller Använd [Visual Interface (för hands version)](ui-tutorial-automobile-price-train-score.md) för att skapa och träna bättre maskin inlärnings-och djup inlärnings modeller själv i en Azure Machine Learning tjänst Platsen.
+Använd <a href="https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py" target="_blank">Azure Machine Learning python SDK</a> med python-paket med öppen källkod eller Använd [Visual Interface (för hands version)](ui-tutorial-automobile-price-train-score.md) för att skapa och träna bättre maskin inlärnings-och djup inlärnings modeller själv i en Azure Machine Learning-arbetsyta.
 
 Du kan välja bland flera Machine Learning-komponenter som är tillgängliga i python-paket med öppen källkod, till exempel <a href="https://scikit-learn.org/stable/" target="_blank">Scikit – lära</a>, <a href="https://www.tensorflow.org" target="_blank">Tensorflow</a>, <a href="https://pytorch.org" target="_blank">PyTorch</a>och <a href="https://mxnet.io" target="_blank">MXNet</a>.
 
@@ -58,7 +58,7 @@ Prova följande för kod fri utbildning:
 
 + Skapa [automatiserade ml-experiment](tutorial-first-experiment-automated-ml.md) i det lättanvända gränssnittet.
 + [Testet-n-drop-experimentet i det visuella gränssnittet](ui-tutorial-automobile-price-train-score.md).
-  ![Visuellt gränssnitt för Azure Machine Learning tjänst](media/overview-what-is-azure-ml/visual-interface.png)
+  ![Visuellt gränssnitt för Azure Machine Learning](media/overview-what-is-azure-ml/visual-interface.png)
 
 
 
@@ -77,17 +77,17 @@ Och med avancerade [maskin inlärnings pipeliner](concept-ml-pipelines.md)kan du
 * Använd olika beräknings resurser i varje steg
 * Köra batch-bedömnings uppgifter
 
-Kom igång med tjänsten Azure Machine Learning genom att gå till [Nästa steg](#next-steps).
+Information om hur du kommer igång med Azure Machine Learning finns i [Nästa steg](#next-steps).
 
-## <a name="how-does-azure-machine-learning-service-differ-from-studio"></a>Hur skiljer sig Azure Machine Learning tjänsten från Studio?
+## <a name="how-does-azure-machine-learning-differ-from-studio"></a>Hur skiljer sig Azure Machine Learning från Studio?
 
 [Machine Learning Studio](../studio/what-is-ml-studio.md) är en gemensam, dra och släpp visuell arbets yta där du kan bygga, testa och distribuera maskin inlärnings lösningar utan att behöva skriva kod. Den använder förinställda och förkonfigurerade Machine Learning-algoritmer och data hanterings moduler samt en patentskyddad beräknings plattform.
 
-Azure Machine Learning-tjänsten tillhandahåller både SDK **-och-** ett visuellt gränssnitt (för hands version) för att snabbt kunna utveckla data, träna och distribuera maskin inlärnings modeller. Det här visuella gränssnittet (för hands version) innehåller en liknande dra-och-släpp-upplevelse till Studio. Till skillnad från den patentskyddade beräknings plattformen i Studio använder Visual-gränssnittet dock dina egna beräknings resurser och är helt integrerade i Azure Machine Learning-tjänsten.
+Azure Machine Learning tillhandahåller både SDK **-och-** ett visuellt gränssnitt (för hands version) för att snabbt kunna prepa data, träna och distribuera maskin inlärnings modeller. Det här visuella gränssnittet (för hands version) innehåller en liknande dra-och-släpp-upplevelse till Studio. Till skillnad från den patentskyddade beräknings plattformen i Studio använder Visual-gränssnittet dock dina egna beräknings resurser och är helt integrerade i Azure Machine Learning.
 
 Här är en snabb jämförelse.
 
-|| Machine Learning Studio | Azure Machine Learning tjänst:<br/>Visuellt gränssnitt|
+|| Machine Learning Studio | Azure Machine Learning:<br/>Visuellt gränssnitt|
 |---| --- | --- |
 || Allmänt tillgänglig (GA) | Förhandsversion|
 |Moduler för gränssnitt| Mycket | Inledande uppsättning populära moduler|
@@ -98,11 +98,11 @@ Här är en snabb jämförelse.
 Prova Visual Interface (för hands version) med [Självstudier: Förutsäg bil priset med det visuella gränssnittet](ui-tutorial-automobile-price-train-score.md).
 
 > [!NOTE]
-> Modeller som skapats i Studio kan inte distribueras eller hanteras av Azure Machine Learning tjänsten. Modeller som skapas och distribueras i tjänstens visuella gränssnitt kan dock hanteras via Azure Machine Learning-tjänstens arbets yta.
+> Modeller som skapats i Studio kan inte distribueras eller hanteras av Azure Machine Learning. Modeller som skapas och distribueras i tjänstens visuella gränssnitt kan dock hanteras via Azure Machine Learning-arbetsytan.
 
 ## <a name="free-trial"></a>Kostnadsfri utvärderingsversion
 
-Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnadsfria eller betalversionen av Azure Machine Learning-tjänsten](https://aka.ms/AMLFree) i dag.
+Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree) idag.
 
 Du får krediter som du kan använda för att köpa Azure-tjänster. När de är slut kan du behålla kontot och använda [kostnadsfria Azure-tjänster](https://azure.microsoft.com/free/). Ditt kreditkort debiteras aldrig om du inte specifikt ändrar dina inställningar och ber om debitering. Du kan även [aktivera MSDN-prenumerantförmåner](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F), vilket ger dig krediter varje månad som du kan använda för Azure-betaltjänster.
 
@@ -112,11 +112,11 @@ Du får krediter som du kan använda för att köpa Azure-tjänster. När de är
 
 - Följ de fullständiga självstudierna:
   + [Skapa en arbets yta och träna din första ML-modell](tutorial-1st-experiment-sdk-setup.md)
-  + [Träna en modell för bildklassificering med Azure Machine Learning-tjänsten](tutorial-train-models-with-aml.md)
+  + [Träna en bild klassificerings modell med Azure Machine Learning](tutorial-train-models-with-aml.md)
 
 
 - Lär dig mer om [pipelines för maskininlärning](/azure/machine-learning/service/concept-ml-pipelines) för att skapa, optimera och hantera dina maskininlärningsscenarier.
 
-- Läs den ingående artikeln om [arkitekturen och begrepp för Azure Machine Learning-tjänsten](concept-azure-machine-learning-architecture.md).
+- Läs artikeln djupgående [Azure Machine Learning arkitektur och begrepp](concept-azure-machine-learning-architecture.md) .
 
 - Mer information finns i [andra produkter för maskininlärning från Microsoft](/azure/architecture/data-guide/technology-choices/data-science-and-machine-learning).

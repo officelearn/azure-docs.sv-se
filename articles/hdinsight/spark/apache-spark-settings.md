@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/17/2019
-ms.openlocfilehash: 2d369af7c11473d811677f33f9112d41260fcecf
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.openlocfilehash: 48f19e5da8c7703cc597518246c2f62ebce3ae17
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70736026"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71003192"
 ---
 # <a name="configure-apache-spark-settings"></a>Konfigurera Apache Spark-inställningar
 
@@ -44,11 +44,11 @@ Apache Spark har tre platser för system konfiguration:
 När du väljer en viss version av Spark innehåller klustret standard konfigurations inställningarna.  Du kan ändra standard konfigurations värden för Spark genom att använda en anpassad Spark-konfigurationsfil.  Ett exempel visas nedan.
 
 ```
-    spark.hadoop.io.compression.codecs org.apache.hadoop.io.compress.GzipCodec
-    spark.hadoop.mapreduce.input.fileinputformat.split.minsize 1099511627776
-    spark.hadoop.parquet.block.size 1099511627776
-    spark.sql.files.maxPartitionBytes 1099511627776
-    spark.sql.files.openCostInBytes 1099511627776
+spark.hadoop.io.compression.codecs org.apache.hadoop.io.compress.GzipCodec
+spark.hadoop.mapreduce.input.fileinputformat.split.minsize 1099511627776
+spark.hadoop.parquet.block.size 1099511627776
+spark.sql.files.maxPartitionBytes 1099511627776
+spark.sql.files.openCostInBytes 1099511627776
 ```
 
 Exemplet som visas ovan åsidosätter flera standardvärden för fem Spark-konfigurationsparametrar.  Detta är komprimerings-codecen, Apache Hadoop MapReduce delade minimi storlek och Parquet block storlekar, samt standardvärden för Spara SQL-partitionen och Open File-storlek.  De här konfigurations ändringarna väljs eftersom tillhör ande data och jobb (i det här exemplet genomiks data) har särskilda egenskaper, som kommer att fungera bättre med hjälp av dessa anpassade konfigurations inställningar.
@@ -63,7 +63,7 @@ Apache Ambari Web UI visas med en instrument panel med användnings mått för n
 
 Om du vill se konfigurations värden för Apache Spark väljer du **konfigurations historik**och väljer sedan **Spark2**.  Välj fliken **konfigurationer** och välj `Spark` sedan länken (eller `Spark2`, beroende på din version) i tjänst listan.  Du ser en lista över konfigurations värden för klustret:
 
-![Spark-konfigurationer](./media/apache-spark-settings/spark-config.png)
+![Spark-konfigurationer](./media/apache-spark-settings/spark-configurations.png)
 
 Om du vill se och ändra enskilda konfigurations värden för Spark väljer du en länk med ordet "Spark" i länk rubriken.  Konfigurationer för Spark inkluderar både anpassade och avancerade konfigurations värden i följande kategorier:
 
@@ -82,7 +82,7 @@ Om du skapar en uppsättning konfigurations värden som inte är standard kan du
 
 Följande diagram visar viktiga Spark-objekt: driv rutins programmet och dess tillhör ande Spark-kontext samt kluster hanteraren och dess *n* Worker-noder.  Varje arbetsnoden innehåller ett utförar, ett cache-och *n* -aktivitets instanser.
 
-![Kluster objekt](./media/apache-spark-settings/spark-arch.png)
+![Kluster objekt](./media/apache-spark-settings/hdi-spark-architecture.png)
 
 Spark-jobb använder arbets resurser, särskilt minne, så det är vanligt att justera Spark-konfigurationsinställningar för körning av arbetsnoder.
 
@@ -93,7 +93,7 @@ Tre nyckel parametrar som ofta justeras för att justera Spark-konfigurationer f
 
 En annan källa till information om de resurser som används av Spark-utförarna är Spark-programgränssnittet.  I Spark-ANVÄNDARGRÄNSSNITTET väljer du fliken **körningar** för att Visa sammanfattnings-och detalj visningar av konfigurationen och resurserna som används av körningarna.  Dessa vyer kan hjälpa dig att avgöra huruvida du vill ändra standardvärdena för Spark-utförare för hela klustret eller en viss uppsättning jobbkörningar.
 
-![Spark-körningar](./media/apache-spark-settings/spark-executors.png)
+![Spark-körningar](./media/apache-spark-settings/apache-spark-executors.png)
 
 Du kan också använda Ambari-REST API för att program mässigt verifiera HDInsight-och Spark-klusterresursernas kluster konfigurations inställningar.  Mer information finns på [Apache AMBARI API Reference på GitHub](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md).
 
@@ -105,7 +105,7 @@ Beroende på din Spark-arbetsbelastning kan du bestämma att en icke-standardmä
 
 Här är ett exempel på två arbetsnoder med olika konfigurations värden:
 
-![Två nodkonfigurationer](./media/apache-spark-settings/executor-config.png)
+![Två nodkonfigurationer](./media/apache-spark-settings/executor-configuration.png)
 
 I följande lista visas minnes parametrarna för utförar i Key Spark.
 
@@ -116,7 +116,7 @@ I följande lista visas minnes parametrarna för utförar i Key Spark.
 
 GARN styr den maximala mängd minne som används av behållarna på varje spark-nod. Följande diagram visar relationer per nod mellan garn konfigurations objekt och Spark-objekt.
 
-![GARN Spark minnes hantering](./media/apache-spark-settings/yarn-spark-memory.png)
+![GARN Spark minnes hantering](./media/apache-spark-settings/hdi-yarn-spark-memory.png)
 
 ## <a name="change-parameters-for-an-application-running-in-jupyter-notebook"></a>Ändra parametrar för ett program som körs i Jupyter Notebook
 
@@ -136,8 +136,8 @@ För program som körs i Jupyter Notebook använder `%%configure` du kommandot f
 Koden nedan visar hur du ändrar konfigurationen för ett program som körs i en Jupyter Notebook.
 
 ```
-    %%configure
-    {"executorMemory": "3072M", "executorCores": 4, "numExecutors":10}
+%%configure
+{"executorMemory": "3072M", "executorCores": 4, "numExecutors":10}
 ```
 
 ## <a name="conclusion"></a>Sammanfattning

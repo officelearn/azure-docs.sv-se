@@ -1,7 +1,7 @@
 ---
 title: 'Självstudie om bildklassificering: Distribuera modeller'
-titleSuffix: Azure Machine Learning service
-description: Den här självstudien visar hur du använder Azure Machine Learning-tjänsten till att distribuera en bildklassificeringsmodell med scikit-learn i en Python Jupyter Notebook. Den här självstudien är den andra delen i en serie med två delar.
+titleSuffix: Azure Machine Learning
+description: Den här självstudien visar hur du använder Azure Machine Learning för att distribuera en bild klassificerings modell med scikit – lära dig i en python Jupyter Notebook. Den här självstudien är den andra delen i en serie med två delar.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,12 +10,12 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 08/26/2019
 ms.custom: seodec18
-ms.openlocfilehash: 57d34bb170c0ff86f3d3c42a25184d8af71c0270
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: 6e5ab17a04c994f09bccc0f51f11749ee8590b1d
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70036208"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71003060"
 ---
 # <a name="tutorial-deploy-an-image-classification-model-in-azure-container-instances"></a>Självstudier: Distribuera en bildklassificeringsmodell i Azure Container Instances
 
@@ -23,7 +23,7 @@ Självstudien är **del två i en självstudieserie i två delar**. I den [före
 
 Nu är du redo att distribuera modellen som en webbtjänst i [Azure Container Instances](https://docs.microsoft.com/azure/container-instances/). En webbtjänst är en avbildning, i det här fallet en Docker-avbildning. Den kapslar in bedömningslogiken och själva modellen. 
 
-I den här delen av självstudien använder du Azure Machine Learning Service för följande uppgifter:
+I den här delen av självstudien använder du Azure Machine Learning för följande uppgifter:
 
 > [!div class="checklist"]
 > * Konfigurera din testmiljö.
@@ -39,7 +39,7 @@ Container Instances är en bra lösning för testning och för att förstå arbe
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Om du vill köra anteckningsboken slutför du först modellträningen i [Självstudie (del 1): Träna en bild klassificerings](tutorial-train-models-with-aml.md)modell.   Öppna sedan självstudierna **/img-Classification-part2-Deploy. ipynb** Notebook med samma Notebook-Server.
+Om du vill köra anteckningsboken slutför du först modellträningen i [Självstudie (del 1): Träna en bild klassificerings](tutorial-train-models-with-aml.md)modell.   Öppna sedan **självstudierna/img-Classification-part2-Deploy. ipynb** Notebook med samma Notebook-Server.
 
 Den här själv studie kursen finns också på [GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/tutorials) om du vill använda den i din egen [lokala miljö](how-to-configure-environment.md#local).  Kontrol lera att du har `matplotlib` installerat `scikit-learn` och i din miljö. 
 
@@ -378,7 +378,7 @@ service.delete()
 
 ## <a name="next-steps"></a>Nästa steg
 
-+ Läs mer om alla [distributionsalternativ för Azure Machine Learning Service](how-to-deploy-and-where.md).
++ Lär dig mer om alla [distributions alternativ för Azure Machine Learning](how-to-deploy-and-where.md).
 + Lär dig att [skapa klienter för webbtjänsten](how-to-consume-web-service.md).
 +  [Göra förutsägelser kring stora mängder data](how-to-run-batch-predictions.md) asynkront.
 + Övervaka dina Azure Machine Learning-modeller med [Application Insights](how-to-enable-app-insights.md).

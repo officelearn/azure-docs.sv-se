@@ -1,6 +1,6 @@
 ---
 title: Använda MLflow med
-titleSuffix: Azure Machine Learning service
+titleSuffix: Azure Machine Learning
 description: Konfigurera MLflow med Azure Machine Learning för att logga mått & artefakter och distribuera modeller från Databricks, din lokala miljö eller VM-miljö.
 services: machine-learning
 author: rastala
@@ -11,18 +11,18 @@ ms.reviewer: nibaccam
 ms.topic: conceptual
 ms.date: 08/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: c7bed307373289c6a6f76117fa07ee2ee3242bfc
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: b1b2255b4e0f5aa34e3c7159b00156aee5224928
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70860455"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "70999293"
 ---
-# <a name="track-metrics-and-deploy-models-with-mlflow-and-azure-machine-learning-service-preview"></a>Spåra mått och distribuera modeller med MLflow och Azure Machine Learning tjänsten (för hands version)
+# <a name="track-metrics-and-deploy-models-with-mlflow-and-azure-machine-learning-preview"></a>Spåra mått och distribuera modeller med MLflow och Azure Machine Learning (för hands version)
 
-Den här artikeln visar hur du aktiverar MLflow för spårnings-och loggnings-API: n, gemensamt känt som [MLflow-spårning](https://mlflow.org/docs/latest/quickstart.html#using-the-tracking-api), med Azure Machine Learning-tjänst. På så sätt kan du:
+Den här artikeln visar hur du aktiverar MLflows spårnings-URI och loggnings-API: t gemensamt kallat [MLflow-spårning](https://mlflow.org/docs/latest/quickstart.html#using-the-tracking-api)med Azure Machine Learning. På så sätt kan du:
 
-+ Spåra och logga dina experiment Mät värden och artefakter i din [Azure Machine Learning service-arbetsyta](https://docs.microsoft.com/azure/machine-learning/service/concept-azure-machine-learning-architecture#workspaces). Om du redan använder MLflow spårning för dina experiment, tillhandahåller arbets ytan en centraliserad, säker och skalbar plats för att lagra utbildnings mått och-modeller.
++ Spåra och logga dina experiment Mät värden och artefakter i din [Azure Machine Learning-arbetsyta](https://docs.microsoft.com/azure/machine-learning/service/concept-azure-machine-learning-architecture#workspaces). Om du redan använder MLflow spårning för dina experiment, tillhandahåller arbets ytan en centraliserad, säker och skalbar plats för att lagra utbildnings mått och-modeller.
 
 + Distribuera dina MLflow-experiment som en Azure Machine Learning-webbtjänst. Genom att distribuera som en webb tjänst kan du använda funktionerna för att identifiera Azure Machine Learning övervakning och data avkänning i dina produktions modeller. 
 
@@ -34,7 +34,7 @@ Följande diagram illustrerar att med MLflow spårning kan du ta alla experiment
 
 ## <a name="compare-mlflow-and-azure-machine-learning-clients"></a>Jämför MLflow och Azure Machine Learning klienter
 
- I tabellen nedan sammanfattas de olika klienter som kan använda Azure Machine Learning-tjänsten och deras respektive funktioner.
+ I tabellen nedan sammanfattas olika klienter som kan använda Azure Machine Learning och deras respektive funktions funktioner.
 
  MLflow tracking erbjuder funktioner för mått loggning och artefakt lagring som endast är tillgängliga via [Azure Machine Learning python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
 
@@ -59,7 +59,7 @@ Följande diagram illustrerar att med MLflow spårning kan du ta alla experiment
 
 ## <a name="track-local-runs"></a>Spåra lokala körningar
 
-Genom MLflow-spårning med Azure Machine Learning-tjänsten kan du lagra de inloggade måtten och artefakterna från dina lokala körningar i Azure Machine Learning arbets ytan.
+Genom MLflow spårning med Azure Machine Learning kan du lagra de inloggade måtten och artefakterna från dina lokala körningar i Azure Machine Learning arbets ytan.
 
 `azureml-contrib-run` Installera paketet om du vill använda MLflow spårning med Azure Machine Learning på dina experiment lokalt i en Jupyter Notebook eller kod redigerare.
 
@@ -98,7 +98,7 @@ with mlflow.start_run():
 
 ## <a name="track-remote-runs"></a>Spåra fjärrkörningar
 
-Genom MLflow-spårning med Azure Machine Learning-tjänsten kan du lagra de inloggade måtten och artefakterna från fjärrdatorn som körs i Azure Machine Learning arbets ytan.
+Med MLflow spårning med Azure Machine Learning kan du lagra de inloggade måtten och artefakterna från fjärrdatorn som körs i Azure Machine Learning arbets ytan.
 
 Med fjärrkörningar kan du träna dina modeller på mer kraftfulla beräkningar, till exempel GPU-aktiverade virtuella datorer eller Machine Learning-beräkning kluster. Se [Konfigurera beräknings mål för modell utbildning](how-to-set-up-training-targets.md) för att lära dig mer om olika beräknings alternativ.
 
@@ -141,7 +141,7 @@ run = exp.submit(src)
 
 ## <a name="track-azure-databricks-runs"></a>Spåra Azure Databricks körningar
 
-Genom MLflow-spårning med Azure Machine Learning service kan du lagra de inloggade måtten och artefakterna från dina Databricks-körningar i Azure Machine Learning-arbetsytan.
+Med MLflow spårning med Azure Machine Learning kan du lagra de inloggade måtten och artefakterna från dina Databricks-körningar i Azure Machine Learning arbets ytan.
 
 Om du vill köra dina Mlflow-experiment med Azure Databricks måste du först skapa en [Azure Databricks arbets yta och ett kluster](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal)
 

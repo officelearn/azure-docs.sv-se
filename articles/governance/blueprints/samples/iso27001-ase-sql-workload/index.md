@@ -7,12 +7,12 @@ ms.date: 03/14/2019
 ms.topic: sample
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: 8877c29341c95d5cd0fe8e35887c44594e0b6d41
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: cee3867449aea1cb1c59ac5a7c3be57291d1aebc
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70231763"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71000144"
 ---
 # <a name="overview-of-the-iso-27001-app-service-environmentsql-database-workload-blueprint-sample"></a>Översikt över skissexemplet ISO 27001 App Service-miljön/SQL Database-arbetsbelastning
 
@@ -36,7 +36,7 @@ Den här miljön består av flera Azure-tjänster ger en säker, fullständigt �
 - [Azure-principer](../../../policy/overview.md) för att låsa vilka tjänster som ska kunna distribueras till miljön och avvisa skapande av offentliga IP-adressresurser (PIP)
 - Ett virtuellt nätverk som innehåller ett enskilt undernät som är peerkopplat tillbaka till en redan befintlig miljö för [delade tjänster](../iso27001-shared/index.md) och som tvingar all trafik att gå via brandväggen för [delade tjänster](../iso27001-shared/index.md). Det virtuella nätverket är värd för följande resurser:
   - En [Azure App Service-miljön](../../../../app-service/environment/intro.md) som kan användas som värd för en eller flera webbappar, webb-API:er eller funktioner
-  - En [Azure Key Vault](../../../../key-vault/key-vault-whatis.md)-instans med en tjänstslutpunkt för virtuellt nätverk för att lagra hemligheter som används av appar som körs i arbetsbelastningsmiljön
+  - En [Azure Key Vault](../../../../key-vault/key-vault-overview.md)-instans med en tjänstslutpunkt för virtuellt nätverk för att lagra hemligheter som används av appar som körs i arbetsbelastningsmiljön
   - En [Azure SQL Database](../../../../sql-database/sql-database-technical-overview.md)-serverinstans med en tjänstslutpunkt för virtuellt nätverk för att lagra databaser som används för appar i arbetsbelastningsmiljön
 
 ## <a name="next-steps"></a>Nästa steg

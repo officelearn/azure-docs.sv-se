@@ -1,6 +1,6 @@
 ---
-title: Självstudiekurs – använda en Linux-dator och en ASP.NET-konsolen program för att lagra hemligheter i Azure Key Vault | Microsoft Docs
-description: I den här självstudien får du lära dig hur du konfigurerar en ASP.NET Core-program att läsa en hemlighet från Azure Key vault.
+title: Självstudie – Använd en virtuell Linux-dator och ett ASP.NET-konsol program för att lagra hemligheter i Azure Key Vault | Microsoft Docs
+description: I den här självstudien får du lära dig hur du konfigurerar ett ASP.NET Core program för att läsa en hemlighet från Azure Key Vault.
 services: key-vault
 author: msmbaldwin
 manager: rajvijan
@@ -9,42 +9,42 @@ ms.topic: tutorial
 ms.date: 12/21/2018
 ms.author: mbaldwin
 ms.custom: mvc
-ms.openlocfilehash: 8c142b4c1663a7ccd462836e9aac4ee80accaae4
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: 65c59ba299490ee2bbef849b6f7354abc05ad885
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67874823"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71003344"
 ---
-# <a name="tutorial-use-a-linux-vm-and-a-net-app-to-store-secrets-in-azure-key-vault"></a>Självstudier: Använd en Linux-VM och en .NET-app för att lagra hemligheter i Azure Key Vault
+# <a name="tutorial-use-a-linux-vm-and-a-net-app-to-store-secrets-in-azure-key-vault"></a>Självstudier: Använd en virtuell Linux-dator och en .NET-app för att lagra hemligheter i Azure Key Vault
 
-Azure Key Vault hjälper dig att skydda hemligheter, till exempel API-nycklar och databasanslutningssträngar som behövs för att komma åt dina program, tjänster och IT-resurser.
+Azure Key Vault hjälper dig att skydda hemligheter som API-nycklar och databas anslutnings strängar som behövs för att få åtkomst till dina program, tjänster och IT-resurser.
 
-I den här självstudien konfigurerar du en .NET-konsolprogram för att läsa information från Azure Key Vault med hjälp av hanterade identiteter för Azure-resurser. Lär dig att:
+I den här självstudien skapar du ett .NET-konsol program för att läsa information från Azure Key Vault med hjälp av hanterade identiteter för Azure-resurser. Lär dig att:
 
 > [!div class="checklist"]
 > * Skapa ett nyckelvalv
-> * Store en hemlighet i Key Vault
+> * Lagra en hemlighet i Key Vault
 > * Skapa en virtuell Azure Linux-dator
 > * Aktivera en [hanterad identitet](../active-directory/managed-identities-azure-resources/overview.md) för den virtuella datorn
-> * Bevilja behörigheterna som krävs för konsolprogram för att läsa data från Key Vault
+> * Ge nödvändiga behörigheter för konsol programmet för att läsa data från Key Vault
 > * Hämta en hemlighet från Key Vault
 
-Innan vi går vidare, Läs om [nyckelbegrepp vault grundläggande](key-vault-whatis.md#basic-concepts).
+Innan vi går vidare kan du läsa om [grundläggande koncept för Key Vault](basic-concepts.md).
 
 ## <a name="prerequisites"></a>Förutsättningar
 
 * [Git](https://git-scm.com/downloads).
 * En Azure-prenumeration. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
-* [Azure CLI 2.0 eller senare](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) eller Azure Cloud Shell.
+* [Azure CLI 2,0 eller senare](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) eller Azure Cloud Shell.
 
 [!INCLUDE [Azure Cloud Shell](../../includes/cloud-shell-try-it.md)]
 
 ## <a name="understand-managed-service-identity"></a>Förstå Hanterad tjänstidentitet
 
-Azure Key Vault kan lagra autentiseringsuppgifter på ett säkert sätt så att de inte ingår i din kod, men för att hämta dem behöver du autentisera till Azure Key Vault. För att autentisera till Key Vault behöver du dock autentiseringsuppgifter. Det är ett klassiskt bootstrap-problem. Hanterad tjänstidentitet (MSI) kan ge en bootstrap identitet som gör det mycket enklare att allt kommer igång med Azure och Azure Active Directory (AD Azure).
+Azure Key Vault kan lagra autentiseringsuppgifter på ett säkert sätt så att de inte ingår i din kod, men för att hämta dem behöver du autentisera till Azure Key Vault. För att autentisera till Key Vault behöver du dock autentiseringsuppgifter. Det är ett klassiskt bootstrap-problem. Med Azure och Azure Active Directory (Azure AD) kan Hanterad tjänstidentitet (MSI) tillhandahålla en start identitet som gör det mycket enklare att få saker igång.
 
-När du aktiverar MSI för en Azure-tjänst som virtuella datorer, App Service och Functions skapar Azure en tjänst huvudnamn för tjänsten i Azure Active Directory. Det lägger in autentiseringsuppgifterna för tjänstens huvudnamn i instansen av tjänsten.
+När du aktiverar MSI för en Azure-tjänst som Virtual Machines, App Service eller functions, skapar Azure ett huvud namn för tjänsten för instansen av tjänsten i Azure Active Directory. Det lägger in autentiseringsuppgifterna för tjänstens huvudnamn i instansen av tjänsten.
 
 ![MSI](media/MSI.png)
 
@@ -61,9 +61,9 @@ az login
 
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
-Skapa en resursgrupp med hjälp av den `az group create` kommando. En Azure-resursgrupp är en logisk container där Azure-resurser distribueras och hanteras.
+Skapa en resurs grupp med hjälp `az group create` av kommandot. En Azure-resursgrupp är en logisk container där Azure-resurser distribueras och hanteras.
 
-Skapa en resursgrupp i USA, västra. Välj ett namn för resursgruppen och Ersätt `YourResourceGroupName` i följande exempel:
+Skapa en resurs grupp på platsen USA, västra. Välj ett namn för resurs gruppen och Ersätt `YourResourceGroupName` i följande exempel:
 
 ```azurecli-interactive
 # To list locations: az account list-locations --output table
@@ -74,23 +74,23 @@ Du använder den här resursgruppen i hela självstudien.
 
 ## <a name="create-a-key-vault"></a>Skapa ett nyckelvalv
 
-Därefter skapar du ett nyckelvalv i resursgruppen. Ange följande information:
+Skapa sedan ett nyckel valv i resurs gruppen. Ange följande information:
 
-* Namn på Key vault: en sträng på 3 till 24 tecken som kan innehålla endast siffror, bokstäver och bindestreck (0-9, a – z, A – Z, och \- ).
-* Namn på resursgrupp
+* Nyckel valvets namn: en sträng på 3 till 24 tecken som bara får innehålla siffror, bokstäver och bindestreck (0-9, a-z, A-Z och \- ).
+* Resursgruppsnamn
 * Plats: **USA, västra**
 
 ```azurecli-interactive
 az keyvault create --name "<YourKeyVaultName>" --resource-group "<YourResourceGroupName>" --location "West US"
 ```
 
-Nu kan har endast ditt Azure-konto behörighet att utföra åtgärder i valvet.
+Nu är det bara ditt Azure-konto som har behörighet att utföra åtgärder på det nya valvet.
 
 ## <a name="add-a-secret-to-the-key-vault"></a>Lägga till en hemlighet i nyckelvalvet
 
-Nu kan du lägga till en hemlighet. I ett verkligt scenario kan du lagra en SQL-anslutningssträng eller annan information som du vill behålla på ett säkert sätt, men det gör tillgängliga för ditt program.
+Nu ska du lägga till en hemlighet. I ett verkligt scenario kan du lagra en SQL-anslutningssträng eller annan information som du behöver för att skydda dig, men göra den tillgänglig för ditt program.
 
-Den här självstudien anger du följande kommandon för att skapa en hemlighet i nyckelvalvet. Hemligheten kallas **AppSecret** och dess värde är **MinHemlighet**.
+I den här självstudien skriver du följande kommandon för att skapa en hemlighet i nyckel valvet. Hemligheten kallas **AppSecret** och dess värde är **hemligt**.
 
 ```azurecli
 az keyvault secret set --vault-name "<YourKeyVaultName>" --name "AppSecret" --value "MySecret"
@@ -98,9 +98,9 @@ az keyvault secret set --vault-name "<YourKeyVaultName>" --name "AppSecret" --va
 
 ## <a name="create-a-linux-virtual-machine"></a>Skapa en virtuell Linux-dator
 
-Skapa en virtuell dator med den `az vm create` kommando.
+Skapa en virtuell dator med `az vm create` kommandot.
 
-Följande exempel skapar virtuell dator med namnet **myVM** och lägger till ett användarkonto med namnet **azureuser**. Den `--generate-ssh-keys` parametern oss används för att automatiskt generera en SSH-nyckeln och placerar dem på standardplatsen för nycklar ( **~/.ssh**). Om du i stället vill använda en specifik uppsättning nycklar använder du alternativet `--ssh-key-value`.
+Följande exempel skapar virtuell dator med namnet **myVM** och lägger till ett användarkonto med namnet **azureuser**. Parametern vi använde för att automatiskt generera en SSH-nyckel och ange den på standard platsen för nycklar ( **~/.ssh**). `--generate-ssh-keys` Om du i stället vill använda en specifik uppsättning nycklar använder du alternativet `--ssh-key-value`.
 
 ```azurecli-interactive
 az vm create \
@@ -111,7 +111,7 @@ az vm create \
   --generate-ssh-keys
 ```
 
-Det tar några minuter att skapa den virtuella datorn och stödresurser. I följande exempel utdata visas att den virtuella datorn för att skapa lyckades.
+Det tar några minuter att skapa den virtuella datorn och stödresurser. Följande exempel på utdata visar att åtgärden för att skapa virtuella datorer lyckades.
 
 ```azurecli
 {
@@ -126,7 +126,7 @@ Det tar några minuter att skapa den virtuella datorn och stödresurser. I följ
 }
 ```
 
-Anteckna din `publicIpAddress` i utdata från den virtuella datorn. Du använder den här adressen för att komma åt den virtuella datorn i senare steg.
+Anteckna `publicIpAddress` i utdata från den virtuella datorn. Du använder den här adressen för att komma åt den virtuella datorn i senare steg.
 
 ## <a name="assign-an-identity-to-the-vm"></a>Tilldela en identitet till den virtuella datorn
 
@@ -136,7 +136,7 @@ Skapa en systemtilldelad identitet till den virtuella datorn genom att köra fö
 az vm identity assign --name <NameOfYourVirtualMachine> --resource-group <YourResourceGroupName>
 ```
 
-Resultatet av kommandot ska se ut:
+Utdata från kommandot ska vara:
 
 ```azurecli
 {
@@ -145,7 +145,7 @@ Resultatet av kommandot ska se ut:
 }
 ```
 
-Anteckna `systemAssignedIdentity`. Du kan använda den i nästa steg.
+Anteckna `systemAssignedIdentity`. Du använder det i nästa steg.
 
 ## <a name="give-the-vm-identity-permission-to-key-vault"></a>Ge den virtuella datorns identitet behörighet till Key Vault
 
@@ -165,16 +165,16 @@ ssh azureuser@<PublicIpAddress>
 
 ## <a name="install-net-core-on-linux"></a>Installera .NET Core på Linux
 
-På Linux-dator:
+På din virtuella Linux-dator:
 
-Registrera Microsoft-produktnyckeln som tillförlitliga genom att köra följande kommandon:
+Registrera Microsofts produkt nyckel som betrodd genom att köra följande kommandon:
 
    ```console
    curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
    sudo mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
    ```
 
-Konfigurera önskade versionen värd paketet feed baserat på operativsystem:
+Ställ in det önskade paket flödet för versions värden baserat på operativ system:
 
 ```console
    # Ubuntu 17.10
@@ -194,16 +194,16 @@ Konfigurera önskade versionen värd paketet feed baserat på operativsystem:
    sudo apt-get update
 ```
 
-Installera .NET och kontrollera vilken version:
+Installera .NET och kontrol lera versionen:
 
    ```console
    sudo apt-get install dotnet-sdk-2.1.4
    dotnet --version
    ```
 
-## <a name="create-and-run-a-sample-net-app"></a>Skapa och köra en .NET-exempelapp
+## <a name="create-and-run-a-sample-net-app"></a>Skapa och kör en exempel-.NET-app
 
-Kör följande kommandon. Du bör se ”Hello World” ut till konsolen.
+Kör följande kommandon. Du bör se "Hello World" som skrivs ut till-konsolen.
 
 ```console
 dotnet new console -o helloworldapp
@@ -211,9 +211,9 @@ cd helloworldapp
 dotnet run
 ```
 
-## <a name="edit-the-console-app-to-fetch-your-secret"></a>Redigera konsolapp för att hämta din hemlighet
+## <a name="edit-the-console-app-to-fetch-your-secret"></a>Redigera-konsol programmet för att hämta din hemlighet
 
-Öppna filen Program.cs och Lägg till dessa paket:
+Öppna Program.cs-filen och Lägg till följande paket:
 
    ```csharp
    using System;
@@ -224,12 +224,12 @@ dotnet run
    using Newtonsoft.Json.Linq;
    ```
 
-Det är en process för att ändra filen klass för att aktivera appen åtkomst till hemlighet i nyckelvalvet.
+Det är en två stegs process att ändra klass filen för att tillåta att appen får åtkomst till hemligheten i nyckel valvet.
 
 1. Hämta en token från den lokala MSI-slutpunkten på den virtuella datorn som i sin tur hämtar en token från Azure Active Directory.
 1. Skicka token till Key Vault och hämta din hemlighet.
 
-   Redigera filen klass så att den innehåller följande kod:
+   Redigera klass filen så att den innehåller följande kod:
 
    ```csharp
     class Program

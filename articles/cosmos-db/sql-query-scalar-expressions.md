@@ -1,21 +1,21 @@
 ---
 title: Skalära uttryck i Azure Cosmos DB SQL-frågor
-description: Läs mer om skalärt uttryck som SQL-syntax för Azure Cosmos DB.
+description: Läs om SQL-syntax för skalära uttryck för Azure Cosmos DB.
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/17/2019
 ms.author: mjbrown
-ms.openlocfilehash: 4464c39a45c47c680a13f3ebc34841b47ee0d7c6
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: c35ad65a584f8ee95142e9bc85a58b5b6cd99744
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67342745"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71003530"
 ---
 # <a name="scalar-expressions-in-azure-cosmos-db-sql-queries"></a>Skalära uttryck i Azure Cosmos DB SQL-frågor
 
-Den [SELECT-satsen](sql-query-select.md) har stöd för skalära uttryck. Ett skalärt uttryck som är en kombination av symboler och operatörer som kan utvärderas för att få ett enskilt värde. Exempel på skaläruttryck är: konstanter, egenskapen referenser, matris referenser, alias referenser eller funktionsanrop. Skalärt uttryck kan kombineras till komplexa uttryck med hjälp av operatörer.
+[SELECT-satsen](sql-query-select.md) stöder skalära uttryck. Ett skalärt uttryck som är en kombination av symboler och operatörer som kan utvärderas för att få ett enskilt värde. Exempel på skalära uttryck är: konstanter, egenskaps referenser, mat ris element referenser, alias referenser eller funktions anrop. Skalära uttryck kan kombineras i komplexa uttryck med hjälp av operatorer.
 
 ## <a name="syntax"></a>Syntax
   
@@ -59,11 +59,11 @@ Den [SELECT-satsen](sql-query-select.md) har stöd för skalära uttryck. Ett sk
   
 - `<scalar_expression>.property_name`  
   
-   Representerar ett värde för egenskapen för ett objekt. Om egenskapen inte finns eller egenskapen refererar till ett värde som inte är ett objekt, så uttrycket som utvärderas till **odefinierat** värde.  
+   Representerar ett värde för egenskapen för ett objekt. Om egenskapen inte finns eller om det refereras till en egenskap för ett värde, som inte är ett objekt, utvärderas uttrycket till **odefinierat** värde.  
   
 - `<scalar_expression>'['"property_name"|array_index']'`  
   
-   Representerar ett värde för egenskapen med namnet `property_name` eller matriselementet med index `array_index` i en matris. Om egenskapen/matrisindex finns inte eller egenskapen/matrisindex refereras på ett värde som är inte en objektmatris sedan uttrycket utvärderas till ett odefinierat värde.  
+   Representerar ett värde för egenskapen med namnet `property_name` eller mat ris elementet med index `array_index` för en matris. Om egenskapen/matrisindex finns inte eller egenskapen/matrisindex refereras på ett värde som är inte en objektmatris sedan uttrycket utvärderas till ett odefinierat värde.  
   
 - `unary_operator <scalar_expression>`  
   
@@ -99,7 +99,7 @@ Den [SELECT-satsen](sql-query-select.md) har stöd för skalära uttryck. Ett sk
   
 ## <a name="remarks"></a>Kommentarer
   
-  När du anropar en inbyggda eller användardefinierade skalärfunktion måste alla argument definieras. Om något av argumenten är odefinierad kommer inte att anropa funktionen och resultatet blir odefinierad.  
+  När du anropar en inbyggd eller användardefinierad skalär funktion måste alla argument definieras. Om något av argumenten är odefinierad kommer inte att anropa funktionen och resultatet blir odefinierad.  
   
   När du skapar ett objekt ska hoppas över egenskaper som är tilldelad odefinierat värde och inte ingår i det skapade objektet.  
   
@@ -111,7 +111,7 @@ Den [SELECT-satsen](sql-query-select.md) har stöd för skalära uttryck. Ett sk
     SELECT ((2 + 11 % 7)-2)/3
 ```
 
-Resultatet är:
+Resultaten är:
 
 ```json
     [{
@@ -119,14 +119,14 @@ Resultatet är:
     }]
 ```
 
-Resultatet av det skalära uttrycket är ett booleskt värde i följande fråga:
+I följande fråga är resultatet av det skalära uttrycket boolesk:
 
 ```sql
     SELECT f.address.city = f.address.state AS AreFromSameCityState
     FROM Families f
 ```
 
-Resultatet är:
+Resultaten är:
 
 ```json
     [
@@ -142,5 +142,5 @@ Resultatet är:
 ## <a name="next-steps"></a>Nästa steg
 
 - [Introduktion till Azure Cosmos DB](introduction.md)
-- [Azure Cosmos DB .NET-exempel](https://github.com/Azure/azure-cosmosdb-dotnet)
-- [Underfrågor](sql-query-subquery.md)
+- [Azure Cosmos DB .NET-exempel](https://github.com/Azure/azure-cosmos-dotnet-v3)
+- [Under frågor](sql-query-subquery.md)

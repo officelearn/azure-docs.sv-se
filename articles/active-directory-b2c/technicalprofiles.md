@@ -1,6 +1,6 @@
 ---
 title: TechnicalProfiles | Microsoft Docs
-description: Ange det TechnicalProfiles elementet i en anpassad princip i Azure Active Directory B2C.
+description: Ange TechnicalProfiles-elementet för en anpassad princip i Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -10,18 +10,18 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: f712634c83fa290ab24d5e8437a82d5f93af0b7f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e1192c8d0057d77306a1ffb06dd9bae12b7634ca
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66512284"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "70998744"
 ---
 # <a name="technicalprofiles"></a>TechnicalProfiles
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-En **TechnicalProfiles** elementet innehåller en uppsättning tekniska profiler som stöds av anspråk providern. Varje anspråksprovidern måste ha en eller flera tekniska profiler som bestämmer slutpunkterna och protokoll som behövs för att kommunicera med anspråksprovidern. En anspråksprovider kan ha flera tekniska profiler.
+Ett **TechnicalProfiles** -element innehåller en uppsättning tekniska profiler som stöds av anspråks leverantören. Varje anspråks leverantör måste ha en eller flera tekniska profiler som avgör slut punkterna och de protokoll som behövs för att kommunicera med anspråks leverantören. En anspråks leverantör kan ha flera tekniska profiler.
 
 ```XML
 <ClaimsProvider>
@@ -72,217 +72,217 @@ En **TechnicalProfiles** elementet innehåller en uppsättning tekniska profiler
 </ClaimsProvider>
 ```
 
-Den **TechnicalProfile** elementet innehåller följande attribut:
+**TechnicalProfile** -elementet innehåller följande attribut:
 
-| Attribut | Obligatoriskt | Beskrivning |
+| Attribut | Obligatorisk | Beskrivning |
 |---------|---------|---------|
-| Id | Ja | En unik identifierare för den tekniska profilen. Den tekniska profilen kan refereras med följande identifierare från andra element i policyfilen. Till exempel **OrchestrationSteps** och **ValidationTechnicalProfile**. |
+| ID | Ja | En unik identifierare för den tekniska profilen. Den tekniska profilen kan refereras till med hjälp av den här identifieraren från andra element i princip filen. Till exempel **OrchestrationSteps** och **ValidationTechnicalProfile**. |
 
-Den **TechnicalProfile** innehåller följande element:
+**TechnicalProfile** innehåller följande element:
 
 | Element | Förekomster | Beskrivning |
 | ------- | ----------- | ----------- |
-| Domain | 0:1 | Domännamnet för den tekniska profilen. Om dina tekniska profilen anger identitetsprovider Facebook, är domännamnet Facebook.com. |
-| displayName | 0:1 | Namnet på den tekniska profilen som kan visas för användarna. |
-| Beskrivning | 0:1 | Beskrivning av den tekniska profilen som kan visas för användarna. |
-| Protocol | 0:1 | Det protokoll som används för kommunikation med den andra parten. |
-| Metadata | 0:1 | En samling nyckel/värde-par som används av protokollet för att kommunicera med slutpunkten under en transaktion. |
-| InputTokenFormat | 0:1 | Formatet för den inkommande token. Möjliga värden: `JSON`, `JWT`, `SAML11`, eller `SAML2`. Den `JWT` värde representerar en JSON Web Token enligt IETF-specifikationen. Den `SAML11` värde representerar en säkerhetstoken för SAML 1.1 enligt OASIS-specifikationen.  Den `SAML2` värde representerar en SAML 2.0-säkerhetstoken enligt OASIS-specifikationen. |
-| OutputTokenFormat | 0:1 | Formatet för utdata-token. Möjliga värden: `JSON`, `JWT`, `SAML11`, eller `SAML2`. |
+| Domain | 0:1 | Domän namnet för den tekniska profilen. Om din tekniska profil exempelvis anger Facebook Identity Provider, är domän namnet Facebook.com. |
+| DisplayName | 0:1 | Namnet på den tekniska profil som kan visas för användarna. |
+| Beskrivning | 0:1 | Beskrivningen av den tekniska profil som kan visas för användarna. |
+| Protocol | 0:1 | Protokollet som används för kommunikation med den andra parten. |
+| Metadata | 0:1 | En samling nyckel/värde-par som används av protokollet för att kommunicera med slut punkten i en transaktions kurs. |
+| InputTokenFormat | 0:1 | Formatet för Indataporten. Möjliga värden: `JSON`, `JWT`, `SAML11`eller. `SAML2` `JWT` Värdet representerar ett JSON Web token enligt IETF-specifikationen. `SAML11` Värdet representerar en SAML 1,1-säkerhetstoken som per Oasis-specifikation.  `SAML2` Värdet representerar en SAML 2,0-säkerhetstoken som per Oasis-specifikation. |
+| OutputTokenFormat | 0:1 | Formatet för utdatabufferten. Möjliga värden: `JSON`, `JWT`, `SAML11`eller. `SAML2` |
 | CryptographicKeys | 0:1 | En lista över kryptografiska nycklar som används i den tekniska profilen. |
-| InputClaimsTransformations | 0:1 | En lista över tidigare definierad referenser till anspråksomvandlingar som ska köras innan några anspråk skickas till anspråksleverantören eller den förlitande parten. |
-| InputClaims | 0:1 | En lista över tidigare definierad referenser till anspråkstyper som används som indata i den tekniska profilen. |
-| PersistedClaims | 0:1 | En lista över tidigare definierad referenser till anspråkstyper som sparas av anspråksleverantören som är kopplat till den tekniska profilen. |
-| OutputClaims | 0:1 | En lista över tidigare definierad referenser till anspråkstyper som vidtas som utdata i den tekniska profilen. |
-| OutputClaimsTransformations | 0:1 | En lista över tidigare definierad referenser till anspråksomvandlingar som ska köras när anspråk som tas emot från anspråksleverantören. |
-| ValidationTechnicalProfiles | 0: n | En lista över referenser till andra tekniska profiler som den tekniska profilen används för verifiering. Mer information finns i [tekniska profil](validation-technical-profile.md)|
-| SubjectNamingInfo | 0:1 | Styr produktionen av ämnesnamnet i tokens där ämnesnamnet anges separat från anspråk. Till exempel OAuth eller SAML.  |
-| IncludeClaimsFromTechnicalProfile | 0:1 | En identifierare för en tekniska profilen som du vill att alla inkommande och utgående anspråk som ska läggas till den här tekniska profilen. Den refererade tekniska profilen måste definieras i samma principfil. |
-| IncludeTechnicalProfile |0:1 | En identifierare för en tekniska profilen som du vill att alla data som ska läggas till den här tekniska profilen. Den refererade tekniska profilen måste finnas i samma principfil. |
-| UseTechnicalProfileForSessionManagement | 0:1 | En annan tekniska profil som ska användas för sessionshantering. |
-|EnabledForUserJourneys| 0:1 |Kontroller om den tekniska profilen körs i en användarresa.  |
+| InputClaimsTransformations | 0:1 | En lista med tidigare definierade referenser till anspråks omvandlingar som ska utföras innan anspråk skickas till anspråks leverantören eller den förlitande parten. |
+| InputClaims | 0:1 | En lista med tidigare definierade referenser till anspråks typer som tas in i den tekniska profilen. |
+| PersistedClaims | 0:1 | En lista med tidigare definierade referenser till anspråks typer som är beständiga av anspråks leverantören som relaterar till den tekniska profilen. |
+| OutputClaims | 0:1 | En lista med tidigare definierade referenser till anspråks typer som tas ut i den tekniska profilen. |
+| OutputClaimsTransformations | 0:1 | En lista med tidigare definierade referenser till anspråks omvandlingar som ska utföras när anspråken tas emot från anspråks leverantören. |
+| ValidationTechnicalProfiles | 0: n | En lista med referenser till andra tekniska profiler som den tekniska profilen använder i validerings syfte. Mer information finns i [verifiering teknisk profil](validation-technical-profile.md)|
+| SubjectNamingInfo | 0:1 | Styr produktionen av ämnes namnet i tokens där ämnes namnet anges separat från anspråk. Till exempel OAuth eller SAML.  |
+| IncludeClaimsFromTechnicalProfile | 0:1 | En identifierare för en teknisk profil från vilken du vill att alla indata-och utgående anspråk ska läggas till i den här tekniska profilen. Den tekniska profilen som refereras till måste definieras i samma princip fil. |
+| IncludeTechnicalProfile |0:1 | En identifierare för en teknisk profil från vilken du vill att alla data ska läggas till i den här tekniska profilen. Den tekniska profilen som refereras måste finnas i samma princip fil. |
+| UseTechnicalProfileForSessionManagement | 0:1 | En annan teknisk profil som ska användas för hantering av sessioner. |
+|EnabledForUserJourneys| 0:1 |Kontrollerar om den tekniska profilen körs i en användar resa.  |
 
 ### <a name="protocol"></a>Protocol
 
-Den **protokollet** elementet innehåller följande attribut:
+**Protokoll** elementet innehåller följande attribut:
 
-| Attribut | Obligatoriskt | Beskrivning |
+| Attribut | Obligatorisk | Beskrivning |
 | --------- | -------- | ----------- |
-| Name | Ja | Namnet på ett giltigt protokoll som stöds av Azure AD B2C som används som en del av den tekniska profilen. Möjliga värden: `OAuth1`, `OAuth2`, `SAML2`, `OpenIdConnect`, `WsFed`, `WsTrust`, `Proprietary`, `session management`, `self-asserted`, eller `None`. |
-| Hanterare | Nej | När protokollnamnet är inställd på `Proprietary`, ange det fullständigt kvalificerade namnet på sammansättningen som används av Azure AD B2C för att fastställa protokollhanteraren. |
+| Name | Ja | Namnet på ett giltigt protokoll som stöds av Azure AD B2C som används som en del av den tekniska profilen. Möjliga värden: `OAuth1` `OAuth2` ,`SAML2` `OpenIdConnect` ,,`None`,,, eller. `Proprietary` `session management` `self-asserted` |
+| protokollhanteraren | Nej | När protokoll namnet är inställt `Proprietary`på anger du det fullständigt kvalificerade namnet för den sammansättning som används av Azure AD B2C för att fastställa protokoll hanteraren. |
 
 ### <a name="metadata"></a>Metadata
 
-En **Metadata** elementet innehåller följande element:
+Ett **metadataelement** innehåller följande element:
 
 | Element | Förekomster | Beskrivning |
 | ------- | ----------- | ----------- |
-| Objekt | 0: n | De metadata som relaterar till den tekniska profilen. Varje typ av tekniska profilen har en annan uppsättning metadata-objekt. Se avsnittet tekniska profil-typer för mer information. |
+| Objekt | 0: n | Metadata som relaterar till den tekniska profilen. Varje typ av teknisk profil har en annan uppsättning metadata-objekt. Mer information finns i avsnittet tekniska profil typer. |
 
 #### <a name="item"></a>Objekt
 
-Den **objekt** elementet i den **Metadata** elementet innehåller följande attribut:
+**Objekt** elementet i **metadata** -elementet innehåller följande attribut:
 
-| Attribut | Obligatoriskt | Beskrivning |
+| Attribut | Obligatorisk | Beskrivning |
 | --------- | -------- | ----------- |
-| Nyckel | Ja | Metadatanyckel. Se varje typ av tekniska profilen måste lista över metadata. |
+| Nyckel | Ja | Nyckeln metadata. Se varje teknisk profil typ för listan med metadataobjekt. |
 
 ### <a name="cryptographickeys"></a>CryptographicKeys
 
-Den **CryptographicKeys** elementet innehåller följande element:
+**CryptographicKeys** -elementet innehåller följande element:
 
 | Element | Förekomster | Beskrivning |
 | ------- | ----------- | ----------- |
-| Nyckel | 1:n | En kryptografisk nyckel som används i den här tekniska profilen. |
+| Nyckel | 1: n | En kryptografisk nyckel som används i den här tekniska profilen. |
 
 #### <a name="key"></a>Nyckel
 
-Den **nyckel** elementet innehåller följande attribut:
+**Nyckel** elementet innehåller följande attribut:
 
-| Attribut | Obligatoriskt | Beskrivning |
+| Attribut | Obligatorisk | Beskrivning |
 | --------- | -------- | ----------- |
-| Id | Nej | En unik identifierare för en viss nyckel som refereras till från andra element i policyfilen. |
-| StorageReferenceId | Ja | En identifierare för en behållare för lagring som refereras till från andra element i policyfilen. |
+| ID | Nej | En unik identifierare för ett visst nyckel par som refereras från andra element i princip filen. |
+| StorageReferenceId | Ja | En identifierare för lagrings nyckel behållare som refereras från andra element i princip filen. |
 
 ### <a name="inputclaimstransformations"></a>InputClaimsTransformations
 
-Den **InputClaimsTransformations** elementet innehåller följande element:
+**InputClaimsTransformations** -elementet innehåller följande element:
 
 | Element | Förekomster | Beskrivning |
 | ------- | ----------- | ----------- |
-| InputClaimsTransformation | 1:n | Identifierare för en omvandling av anspråk som ska köras innan några anspråk skickas till anspråksleverantören eller den förlitande parten. En anspråkstransformering kan användas för att ändra befintliga ClaimsSchema anspråk eller skapa nya. |
+| InputClaimsTransformation | 1: n | Identifieraren för en anspråks omvandling som ska köras innan anspråk skickas till anspråksprovidern eller den förlitande parten. En anspråks omvandling kan användas för att ändra befintliga ClaimsSchema-anspråk eller skapa nya. |
 
 #### <a name="inputclaimstransformation"></a>InputClaimsTransformation
 
-Den **InputClaimsTransformation** elementet innehåller följande attribut:
+**InputClaimsTransformation** -elementet innehåller följande attribut:
 
-| Attribut | Obligatoriskt | Beskrivning |
+| Attribut | Obligatorisk | Beskrivning |
 | --------- | -------- | ----------- |
-| Tjänsten | Ja | En identifierare för en anspråkstransformering som redan har definierats i principfil eller överordnade principfil. |
+| referenceId | Ja | En identifierare för en anspråks omvandling som redan har definierats i princip filen eller den överordnade princip filen. |
 
 ### <a name="inputclaims"></a>InputClaims
 
-Den **InputClaims** elementet innehåller följande element:
+**InputClaims** -elementet innehåller följande element:
 
 | Element | Förekomster | Beskrivning |
 | ------- | ----------- | ----------- |
-| InputClaim | 1:n | Förväntade indata Anspråkstypen. |
+| InputClaim | 1: n | En förväntad typ av Indatatyp. |
 
 #### <a name="inputclaim"></a>InputClaim
 
-Den **InputClaim** elementet innehåller följande attribut:
+**InputClaim** -elementet innehåller följande attribut:
 
-| Attribut | Obligatoriskt | Beskrivning |
+| Attribut | Obligatorisk | Beskrivning |
 | --------- | -------- | ----------- |
-| ClaimTypeReferenceId | Ja | Identifierare för en Anspråkstyp som redan har definierats i avsnittet ClaimsSchema i principfil eller överordnade principfil. |
-| Standardvärde | Nej | Ett standardvärde för att skapa ett anspråk om anspråket indikeras av ClaimTypeReferenceId finns inte, så att det resulterande anspråket kan användas som en InputClaim av den tekniska profilen. |
-| PartnerClaimType | Nej | Identifierare för den externa partner att den angivna principen Anspråkstypen Anspråkstypen mappas till. Om attributet PartnerClaimType inte anges är den angivna typen av anspråk mappad till Anspråkstypen partner med samma namn. Använd den här egenskapen när din anspråk namn skiljer sig från den andra parten. Det första anspråkets namnet är till exempel givenName, medan partnern som använder ett anspråk med namnet ”förnamn”. |
+| ClaimTypeReferenceId | Ja | Identifieraren för en anspråks typ som redan har definierats i avsnittet ClaimsSchema i princip filen eller den överordnade princip filen. |
+| Standar | Nej | Ett standardvärde som ska användas för att skapa ett anspråk om det anspråk som anges av ClaimTypeReferenceId inte finns så att det resulterande anspråket kan användas som en InputClaim av den tekniska profilen. |
+| PartnerClaimType | Nej | Identifieraren för anspråks typen för den externa partner som den angivna princip anspråks typen mappar till. Om attributet PartnerClaimType inte anges mappas den angivna typen av princip anspråk till partner anspråks typen med samma namn. Använd den här egenskapen när anspråks typ namnet skiljer sig från den andra parten. Till exempel är det första anspråks namnet ' givenName ', medan partnern använder ett anspråk med namnet ' first_name '. |
 
 ### <a name="persistedclaims"></a>PersistedClaims
 
-Den **PersistedClaims** elementet innehåller följande element:
+**PersistedClaims** -elementet innehåller följande element:
 
 | Element | Förekomster | Beskrivning |
 | ------- | ----------- | ----------- |
-| PersistedClaim | 1:n | Anspråkstyp ska sparas. |
+| PersistedClaim | 1: n | Anspråks typen som ska sparas. |
 
 #### <a name="persistedclaim"></a>PersistedClaim
 
-Den **PersistedClaim** elementet innehåller följande attribut:
+**PersistedClaim** -elementet innehåller följande attribut:
 
-| Attribut | Obligatoriskt | Beskrivning |
+| Attribut | Obligatorisk | Beskrivning |
 | --------- | -------- | ----------- |
-| ClaimTypeReferenceId | Ja | Identifierare för en Anspråkstyp som redan har definierats i avsnittet ClaimsSchema i principfil eller överordnade principfil. |
-| Standardvärde | Nej | Ett standardvärde för att skapa ett anspråk om anspråket indikeras av ClaimTypeReferenceId finns inte, så att det resulterande anspråket kan användas som en InputClaim av den tekniska profilen. |
-| PartnerClaimType | Nej | Identifierare för den externa partner att den angivna principen Anspråkstypen Anspråkstypen mappas till. Om attributet PartnerClaimType inte anges är den angivna typen av anspråk mappad till Anspråkstypen partner med samma namn. Använd den här egenskapen när din anspråk namn skiljer sig från den andra parten. Det första anspråkets namnet är till exempel givenName, medan partnern som använder ett anspråk med namnet ”förnamn”. |
+| ClaimTypeReferenceId | Ja | Identifieraren för en anspråks typ som redan har definierats i avsnittet ClaimsSchema i princip filen eller den överordnade princip filen. |
+| Standar | Nej | Ett standardvärde som ska användas för att skapa ett anspråk om det anspråk som anges av ClaimTypeReferenceId inte finns så att det resulterande anspråket kan användas som en InputClaim av den tekniska profilen. |
+| PartnerClaimType | Nej | Identifieraren för anspråks typen för den externa partner som den angivna princip anspråks typen mappar till. Om attributet PartnerClaimType inte anges mappas den angivna typen av princip anspråk till partner anspråks typen med samma namn. Använd den här egenskapen när anspråks typ namnet skiljer sig från den andra parten. Till exempel är det första anspråks namnet ' givenName ', medan partnern använder ett anspråk med namnet ' first_name '. |
 
 ### <a name="outputclaims"></a>OutputClaims
 
-Den **OutputClaims** elementet innehåller följande element:
+**OutputClaims** -elementet innehåller följande element:
 
 | Element | Förekomster | Beskrivning |
 | ------- | ----------- | ----------- |
-| OutputClaim | 1:n | Förväntad utdata Anspråkstypen. |
+| OutputClaim | 1: n | En förväntad typ av utgående anspråk. |
 
 #### <a name="outputclaim"></a>OutputClaim
 
-Den **OutputClaim** elementet innehåller följande attribut:
+**OutputClaim** -elementet innehåller följande attribut:
 
-| Attribut | Obligatoriskt | Beskrivning |
+| Attribut | Obligatorisk | Beskrivning |
 | --------- | -------- | ----------- |
-| ClaimTypeReferenceId | Ja | Identifierare för en Anspråkstyp som redan har definierats i avsnittet ClaimsSchema i principfil eller överordnade principfil. |
-| Standardvärde | Nej | Ett standardvärde för att skapa ett anspråk om anspråket indikeras av ClaimTypeReferenceId finns inte, så att det resulterande anspråket kan användas som en InputClaim av den tekniska profilen. |
-|AlwaysUseDefaultValue |Nej |Framtvinga användningen av standardvärdet.  |
-| PartnerClaimType | Nej | Identifierare för den externa partner att den angivna principen Anspråkstypen Anspråkstypen mappas till. Om attributet PartnerClaimType inte anges är den angivna typen av anspråk mappad till Anspråkstypen partner med samma namn. Använd den här egenskapen när din anspråk namn skiljer sig från den andra parten. Det första anspråkets namnet är till exempel givenName, medan partnern som använder ett anspråk med namnet ”förnamn”. |
+| ClaimTypeReferenceId | Ja | Identifieraren för en anspråks typ som redan har definierats i avsnittet ClaimsSchema i princip filen eller den överordnade princip filen. |
+| Standar | Nej | Ett standardvärde som ska användas för att skapa ett anspråk om det anspråk som anges av ClaimTypeReferenceId inte finns så att det resulterande anspråket kan användas som en InputClaim av den tekniska profilen. |
+|AlwaysUseDefaultValue |Nej |Tvinga användningen av standardvärdet.  |
+| PartnerClaimType | Nej | Identifieraren för anspråks typen för den externa partner som den angivna princip anspråks typen mappar till. Om attributet PartnerClaimType inte anges mappas den angivna typen av princip anspråk till partner anspråks typen med samma namn. Använd den här egenskapen när anspråks typ namnet skiljer sig från den andra parten. Till exempel är det första anspråks namnet ' givenName ', medan partnern använder ett anspråk med namnet ' first_name '. |
 
 ### <a name="outputclaimstransformations"></a>OutputClaimsTransformations
 
-Den **OutputClaimsTransformations** elementet innehåller följande element:
+**OutputClaimsTransformations** -elementet innehåller följande element:
 
 | Element | Förekomster | Beskrivning |
 | ------- | ----------- | ----------- |
-| OutputClaimsTransformation | 1:n | Identifierare för anspråksomvandlingar som ska köras innan några anspråk skickas till anspråksleverantören eller den förlitande parten. En anspråkstransformering kan användas för att ändra befintliga ClaimsSchema anspråk eller skapa nya. |
+| OutputClaimsTransformation | 1: n | Identifierare för anspråks omvandlingar som ska köras innan anspråk skickas till anspråksprovidern eller den förlitande parten. En anspråks omvandling kan användas för att ändra befintliga ClaimsSchema-anspråk eller skapa nya. |
 
 #### <a name="outputclaimstransformation"></a>OutputClaimsTransformation
 
-Den **OutputClaimsTransformation** elementet innehåller följande attribut:
+**OutputClaimsTransformation** -elementet innehåller följande attribut:
 
-| Attribut | Obligatoriskt | Beskrivning |
+| Attribut | Obligatorisk | Beskrivning |
 | --------- | -------- | ----------- |
-| Tjänsten | Ja | En identifierare för en anspråkstransformering som redan har definierats i principfil eller överordnade principfil. |
+| referenceId | Ja | En identifierare för en anspråks omvandling som redan har definierats i princip filen eller den överordnade princip filen. |
 
 ### <a name="validationtechnicalprofiles"></a>ValidationTechnicalProfiles
 
-Den **ValidationTechnicalProfiles** elementet innehåller följande element:
+**ValidationTechnicalProfiles** -elementet innehåller följande element:
 
 | Element | Förekomster | Beskrivning |
 | ------- | ----------- | ----------- |
-| ValidationTechnicalProfile | 1:n | Identifierare för tekniska profiler som används för att verifiera några eller alla utgående anspråk på den refererande tekniska profilen. Alla inkommande anspråk för den refererade tekniska profilen måste visas i utdataanspråk för den refererande tekniska profilen. |
+| ValidationTechnicalProfile | 1: n | Identifierarna för de tekniska profiler som används validerar några eller alla utgående anspråk för den refererande tekniska profilen. Alla indata-anspråk för den refererade tekniska profilen måste visas i de utgående anspråken för den refererande tekniska profilen. |
 
 #### <a name="validationtechnicalprofile"></a>ValidationTechnicalProfile
 
-Den **ValidationTechnicalProfile** elementet innehåller följande attribut:
+**ValidationTechnicalProfile** -elementet innehåller följande attribut:
 
-| Attribut | Obligatoriskt | Beskrivning |
+| Attribut | Obligatorisk | Beskrivning |
 | --------- | -------- | ----------- |
-| Tjänsten | Ja | En identifierare för en tekniska profilen som redan har definierats i principfil eller överordnade principfil. |
+| referenceId | Ja | En identifierare för en teknisk profil som redan har definierats i princip filen eller överordnad princip fil. |
 
 ###  <a name="subjectnaminginfo"></a>SubjectNamingInfo
 
-Den **SubjectNamingInfo** innehåller följande attribut:
+**SubjectNamingInfo** innehåller följande attribut:
 
-| Attribut | Obligatoriskt | Beskrivning |
+| Attribut | Obligatorisk | Beskrivning |
 | --------- | -------- | ----------- |
-| ClaimType | Ja | En identifierare för en Anspråkstyp som redan har definierats i ClaimsSchema-avsnittet i principen. |
+| ClaimType | Ja | En identifierare för en anspråks typ som redan har definierats i avsnittet ClaimsSchema i princip filen. |
 
 ### <a name="includetechnicalprofile"></a>IncludeTechnicalProfile
 
-Den **IncludeTechnicalProfile** elementet innehåller följande attribut:
+**IncludeTechnicalProfile** -elementet innehåller följande attribut:
 
-| Attribut | Obligatoriskt | Beskrivning |
+| Attribut | Obligatorisk | Beskrivning |
 | --------- | -------- | ----------- |
-| Tjänsten | Ja | En identifierare för en tekniska profilen som redan har definierats i principfil eller överordnade principfil. |
+| referenceId | Ja | En identifierare för en teknisk profil som redan har definierats i princip filen eller överordnad princip fil. |
 
 ### <a name="usetechnicalprofileforsessionmanagement"></a>UseTechnicalProfileForSessionManagement
 
-Den **UseTechnicalProfileForSessionManagement** elementet innehåller följande attribut:
+**UseTechnicalProfileForSessionManagement** -elementet innehåller följande attribut:
 
-| Attribut | Obligatoriskt | Beskrivning |
+| Attribut | Obligatorisk | Beskrivning |
 | --------- | -------- | ----------- |
-| Tjänsten | Ja | En identifierare för en tekniska profilen som redan har definierats i principfil eller överordnade principfil. |
+| referenceId | Ja | En identifierare för en teknisk profil som redan har definierats i princip filen eller överordnad princip fil. |
 
 ### <a name="enabledforuserjourneys"></a>EnabledForUserJourneys
-Den **ClaimsProviderSelections** i en användare resa definierar en lista med alternativ för val av anspråk providern och deras inbördes ordning. Med den **EnabledForUserJourneys** element som du filtrera vilka anspråksprovidern är tillgängligt för användaren. Den **EnabledForUserJourneys** elementet innehåller något av följande värden:
+**ClaimsProviderSelections** i en användar resa definierar listan över val alternativ för anspråks leverantör och deras ordning. Med det **EnabledForUserJourneys** -element som du filtrerar, vilken anspråks leverantör som är tillgänglig för användaren. **EnabledForUserJourneys** -elementet innehåller ett av följande värden:
 
-- **Alltid**, köra den tekniska profilen.
-- **Aldrig**, hoppa över den tekniska profilen.
-- **OnClaimsExistence** köra endast när ett visst krav som anges i den tekniska profilen finns.
-- **OnItemExistenceInStringCollectionClaim**, köra endast när det finns ett objekt i ett anspråk för insamling av strängen.
-- **OnItemAbsenceInStringCollectionClaim** köra endast när ett objekt finns inte i ett anspråk för insamling av strängen.
+- Kör **alltid**den tekniska profilen.
+- Hoppa **aldrig**över den tekniska profilen.
+- **OnClaimsExistence** körs bara när ett visst anspråk som anges i den tekniska profilen finns.
+- **OnItemExistenceInStringCollectionClaim**, kör bara när ett objekt finns i ett anspråk för en sträng samling.
+- **OnItemAbsenceInStringCollectionClaim** körs bara när det inte finns något objekt i ett anspråks krav för en sträng samling.
 
-Med hjälp av **OnClaimsExistence**, **OnItemExistenceInStringCollectionClaim** eller **OnItemAbsenceInStringCollectionClaim**, måste du ange följande metadata: **ClaimTypeOnWhichToEnable** anger Anspråkstyp som ska utvärderas, **ClaimValueOnWhichToEnable** anger det värde som ska jämföras.
+Om du använder **OnClaimsExistence**, **OnItemExistenceInStringCollectionClaim** eller **OnItemAbsenceInStringCollectionClaim**måste du ange följande metadata: **ClaimTypeOnWhichToEnable** anger det anspråks typ som ska utvärderas, **ClaimValueOnWhichToEnable** anger det värde som ska jämföras.
 
-Följande tekniska profil körs bara om den **identityProviders** sträng samlingen innehåller värdet för `facebook.com`:
+Följande tekniska profil körs endast om **identityprovider** -sträng samlingen innehåller värdet för `facebook.com`:
 
 ```XML
 <TechnicalProfile Id="UnLink-Facebook-OAUTH">

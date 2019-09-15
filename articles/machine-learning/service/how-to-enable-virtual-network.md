@@ -1,6 +1,6 @@
 ---
 title: Skydda experiment och härledning i ett virtuellt nätverk
-titleSuffix: Azure Machine Learning service
+titleSuffix: Azure Machine Learning
 description: Lär dig att säkra experimentering/utbildnings jobb och jobb för jobbering och jobb för jobb utveckling i Azure Machine Learning i en Azure-Virtual Network.
 services: machine-learning
 ms.service: machine-learning
@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 ms.author: aashishb
 author: aashishb
 ms.date: 08/05/2019
-ms.openlocfilehash: fcd47cdf3968e8c8a204cb15f10dd41c4eaab641
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: f12c77a25bad9781d5f23b9563f6684997a2a6c4
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70885669"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71002793"
 ---
 # <a name="secure-azure-ml-experimentation-and-inference-jobs-within-an-azure-virtual-network"></a>Skydda Azure ML-experimentering och härlednings jobb i en Azure-Virtual Network
 
@@ -23,13 +23,13 @@ I den här artikeln får du lära dig att säkra experimentering/utbildnings job
 
 Ett **virtuellt nätverk** fungerar som en säkerhets gränser som isolerar dina Azure-resurser från det offentliga Internet. Du kan också ansluta ett virtuellt Azure-nätverk till ditt lokala nätverk. Genom att ansluta till nätverk kan du på ett säkert sätt träna dina modeller och komma åt dina distribuerade modeller för att få en mer härledning.
 
-Tjänsten Azure Machine Learning använder andra Azure-tjänster för beräknings resurser. Beräknings resurser, eller [beräknings mål](concept-compute-target.md), används för att träna och distribuera modeller. Målen kan skapas i ett virtuellt nätverk. Du kan till exempel använda Microsoft Data Science Virtual Machine för att träna en modell och sedan distribuera modellen till Azure Kubernetes service (AKS). Mer information om virtuella nätverk finns i [Översikt över Azure Virtual Network](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview).
+Azure Machine Learning använder andra Azure-tjänster för beräknings resurser. Beräknings resurser, eller [beräknings mål](concept-compute-target.md), används för att träna och distribuera modeller. Målen kan skapas i ett virtuellt nätverk. Du kan till exempel använda Microsoft Data Science Virtual Machine för att träna en modell och sedan distribuera modellen till Azure Kubernetes service (AKS). Mer information om virtuella nätverk finns i [Översikt över Azure Virtual Network](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview).
 
 Den här artikeln innehåller även detaljerad information om *avancerade säkerhets inställningar*, information som inte behövs för grundläggande eller experiment användnings fall. Vissa delar av den här artikeln innehåller konfigurations information för olika scenarier. Du behöver inte slutföra instruktionerna i ordning eller i sin helhet.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-+ En Azure Machine Learning service- [arbetsyta](how-to-manage-workspace.md).
++ En Azure Machine Learning- [arbetsyta](how-to-manage-workspace.md).
 
 + Allmänt fungerande kunskap om både [Azure Virtual Network-tjänsten](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) och [IP-nätverk](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm).
 
@@ -45,7 +45,7 @@ Om du vill använda ett Azure Storage-konto för arbets ytan i ett virtuellt nä
 
 1. I Azure Portal går du till den lagring som är kopplad till din arbets yta.
 
-   [![Lagrings utrymmet som är kopplat till Azure Machine Learning service-arbetsytan](./media/how-to-enable-virtual-network/workspace-storage.png)](./media/how-to-enable-virtual-network/workspace-storage.png#lightbox)
+   [![Lagrings utrymmet som är kopplat till arbets ytan Azure Machine Learning](./media/how-to-enable-virtual-network/workspace-storage.png)](./media/how-to-enable-virtual-network/workspace-storage.png#lightbox)
 
 1. På sidan **Azure Storage** väljer du __brand väggar och virtuella nätverk__.
 
@@ -74,7 +74,7 @@ Om du vill använda ett Azure Storage-konto för arbets ytan i ett virtuellt nä
     ```
 
 > [!IMPORTANT]
-> Du kan placera både _standard lagrings kontot_ för Azure Machine learnings tjänsten eller _andra lagrings konton som inte är standard_ i ett virtuellt nätverk.
+> Du kan placera både _standard lagrings kontot_ för Azure Machine Learning eller _andra lagrings konton som inte är standard_ i ett virtuellt nätverk.
 >
 > Standard lagrings kontot tillhandahålls automatiskt när du skapar en arbets yta.
 >
@@ -82,7 +82,7 @@ Om du vill använda ett Azure Storage-konto för arbets ytan i ett virtuellt nä
 
 ## <a name="use-a-key-vault-instance-with-your-workspace"></a>Använd en Key Vault-instans med din arbets yta
 
-Nyckel valvs instansen som är kopplad till arbets ytan används av Azure Machine Learning tjänsten för att lagra följande autentiseringsuppgifter:
+Nyckel valvs instansen som är kopplad till arbets ytan används av Azure Machine Learning för att lagra följande autentiseringsuppgifter:
 * Den associerade anslutnings strängen för lagrings kontot
 * Lösen ord till Azure Container databas instanser
 * Anslutnings strängar till data lager
@@ -90,7 +90,7 @@ Nyckel valvs instansen som är kopplad till arbets ytan används av Azure Machin
 Om du vill använda Azure Machine Learning experiment funktioner med Azure Key Vault bakom ett virtuellt nätverk gör du följande:
 1. Gå till nyckel valvet som är kopplat till arbets ytan.
 
-   [![Nyckel valvet som är associerat med Azure Machine Learning service-arbetsytan](./media/how-to-enable-virtual-network/workspace-key-vault.png)](./media/how-to-enable-virtual-network/workspace-key-vault.png#lightbox)
+   [![Nyckel valvet som är associerat med Azure Machine Learning-arbetsytan](./media/how-to-enable-virtual-network/workspace-key-vault.png)](./media/how-to-enable-virtual-network/workspace-key-vault.png#lightbox)
 
 1. På sidan **Key Vault** i det vänstra fönstret väljer du __brand väggar och virtuella nätverk__.
 
@@ -110,7 +110,7 @@ Om du vill använda Azure Machine Learning experiment funktioner med Azure Key V
 Om du vill använda en Azure Machine Learning beräknings instans i ett virtuellt nätverk måste följande nätverks krav uppfyllas:
 
 > [!div class="checklist"]
-> * Det virtuella nätverket måste finnas i samma prenumeration och region som Azure Machine Learning service-arbetsytan.
+> * Det virtuella nätverket måste finnas i samma prenumeration och region som Azure Machine Learning-arbetsytan.
 > * Det undernät som anges för beräknings klustret måste ha tillräckligt många otilldelade IP-adresser för att rymma antalet virtuella datorer som är mål för klustret. Om under nätet inte har tillräckligt med otilldelade IP-adresser, kommer klustret att tilldelas delvis.
 > * Kontrol lera om dina säkerhets principer eller lås på det virtuella nätverkets prenumeration eller resurs grupp begränsar behörigheter för hantering av det virtuella nätverket. Om du planerar att skydda det virtuella nätverket genom att begränsa trafiken lämnar du vissa portar öppna för beräknings tjänsten. Mer information finns i avsnittet [nödvändiga portar](#mlcports) .
 > * Om du ska lagra flera beräknings kluster i ett virtuellt nätverk kan du behöva begära en kvot ökning för en eller flera av dina resurser.
@@ -157,7 +157,7 @@ Om du inte vill använda de utgående standard reglerna och du vill begränsa de
 - Begränsa utgående trafik till följande:
    - Azure Storage med hjälp av __tjänst tag gen__ för __Storage. Region_Name__ (till exempel Storage. öster)
    - Azure Container Registry med hjälp av __service tag gen__ för __AzureContainerRegistry. Region_Name__ (till exempel AzureContainerRegistry. öster)
-   - Azure Machine Learning tjänst, genom att använda __tjänst tag gen__ för __AzureMachineLearning__
+   - Azure Machine Learning med hjälp av __service tag gen__ för __AzureMachineLearning__
 
 Regel konfigurationen för NSG i Azure Portal visas i följande bild:
 
@@ -189,7 +189,7 @@ Mer information finns i [skapa en Azure Batch pool i ett virtuellt nätverk](../
 
 Gör så här om du vill skapa ett Machine Learning-beräkning kluster:
 
-1. I [Azure Portal](https://portal.azure.com)väljer du Azure Machine Learning service-arbetsytan.
+1. I [Azure Portal](https://portal.azure.com)väljer du Azure Machine Learning arbets ytan.
 
 1. Välj __Compute__i __program__ avsnittet och välj sedan __Lägg till beräkning__.
 
@@ -248,7 +248,7 @@ När du har skapat processen tränar du din modell genom att använda klustret i
 ## <a name="use-a-virtual-machine-or-hdinsight-cluster"></a>Använda en virtuell dator eller HDInsight-kluster
 
 > [!IMPORTANT]
-> Tjänsten Azure Machine Learning stöder bara virtuella datorer som kör Ubuntu.
+> Azure Machine Learning stöder bara virtuella datorer som kör Ubuntu.
 
 Gör så här om du vill använda en virtuell dator eller ett Azure HDInsight-kluster i ett virtuellt nätverk med din arbets yta:
 
@@ -257,7 +257,7 @@ Gör så här om du vill använda en virtuell dator eller ett Azure HDInsight-kl
 
     * [Utöka HDInsight med ett virtuellt Azure-nätverk](https://docs.microsoft.com/azure/hdinsight/hdinsight-extend-hadoop-virtual-network)
 
-1. Om du vill tillåta att Azure Machine Learning tjänsten kommunicerar med SSH-porten på den virtuella datorn eller klustret konfigurerar du en käll post för nätverks säkerhets gruppen. SSH-porten är vanligt vis port 22. Gör så här om du vill tillåta trafik från den här källan:
+1. Om du vill tillåta Azure Machine Learning att kommunicera med SSH-porten på den virtuella datorn eller klustret konfigurerar du en käll post för nätverks säkerhets gruppen. SSH-porten är vanligt vis port 22. Gör så här om du vill tillåta trafik från den här källan:
 
     * I list rutan __källa__ väljer du __service tag__.
 
@@ -279,7 +279,7 @@ Gör så här om du vill använda en virtuell dator eller ett Azure HDInsight-kl
 
     Om du inte vill använda de utgående standard reglerna och du vill begränsa den utgående åtkomsten för ditt virtuella nätverk kan du läsa avsnittet [begränsa utgående anslutningar från det virtuella nätverket](#limiting-outbound-from-vnet) .
 
-1. Anslut den virtuella datorn eller HDInsight-klustret till din Azure Machine Learning service-arbetsyta. Mer information finns i [Konfigurera beräknings mål för modell träning](how-to-set-up-training-targets.md).
+1. Anslut den virtuella datorn eller HDInsight-klustret till din Azure Machine Learning-arbetsyta. Mer information finns i [Konfigurera beräknings mål för modell träning](how-to-set-up-training-targets.md).
 
 <a id="aksvnet"></a>
 
@@ -292,11 +292,11 @@ Gör så här om du vill lägga till AKS i ett virtuellt nätverk på din arbets
 >
 > AKS-instansen och det virtuella Azure-nätverket måste finnas i samma region. Om du skyddar de Azure Storage-konton som används av arbets ytan i ett virtuellt nätverk måste de finnas i samma virtuella nätverk som AKS-instansen.
 
-1. I [Azure Portal](https://portal.azure.com)kontrollerar du att den NSG som styr det virtuella nätverket har en regel för inkommande trafik som är aktive rad för tjänsten Azure Machine Learning genom att använda __AzureMachineLearning__ som **källa**.
+1. I [Azure Portal](https://portal.azure.com)ser du till att den NSG som styr det virtuella nätverket har en regel för inkommande trafik som är aktive rad för Azure Machine Learning med __AzureMachineLearning__ som **källa**.
 
-    [![Fönstret Azure Machine Learning tjänst Lägg till beräkning](./media/how-to-enable-virtual-network/aks-vnet-inbound-nsg-aml.png)](./media/how-to-enable-virtual-network/aks-vnet-inbound-nsg-aml.png#lightbox)
+    [![Azure Machine Learning Lägg till beräknings fönster](./media/how-to-enable-virtual-network/aks-vnet-inbound-nsg-aml.png)](./media/how-to-enable-virtual-network/aks-vnet-inbound-nsg-aml.png#lightbox)
 
-1. Välj din Azure Machine Learning service-arbetsyta.
+1. Välj din Azure Machine Learning-arbetsyta.
 
 1. Välj __Compute__i __program__ avsnittet och välj sedan __Lägg till beräkning__.
 
@@ -316,7 +316,7 @@ Gör så här om du vill lägga till AKS i ett virtuellt nätverk på din arbets
 
     - I rutan __Docker Bridge-adress__ anger du Docker-bryggans adress. Den här IP-adressen är tilldelad Docker-bryggan. Det får inte finnas i några IP-adressintervall för undernät eller Kubernetes-tjänstens adress intervall (till exempel 172.17.0.1/16).
 
-   ![Azure Machine Learning tjänst: Machine Learning-beräkning inställningar för virtuellt nätverk](./media/how-to-enable-virtual-network/aks-virtual-network-screen.png)
+   ![Azure Machine Learning: Machine Learning-beräkning inställningar för virtuellt nätverk](./media/how-to-enable-virtual-network/aks-virtual-network-screen.png)
 
 1. Kontrol lera att NSG-gruppen som styr det virtuella nätverket har en inkommande säkerhets regel aktive rad för poäng slut punkten så att den kan anropas utanför det virtuella nätverket.
    > [!IMPORTANT]

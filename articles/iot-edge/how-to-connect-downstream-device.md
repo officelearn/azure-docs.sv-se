@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: f739bdbd295662006a964f890147ad67c373d7b5
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 41039d148e0aae7303dbc95c832bed842acdcc90
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68698619"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "70999407"
 ---
 # <a name="connect-a-downstream-device-to-an-azure-iot-edge-gateway"></a>En underordnad ansluts till en Azure IoT Edge-gateway
 
@@ -39,7 +39,7 @@ I den här artikeln villkoren *gateway* och *IoT Edge-gateway* referera till en 
 En underordnad enhet kan vara valfritt program eller en plattform som har en identitet som skapats med den [Azure IoT Hub](https://docs.microsoft.com/azure/iot-hub) molntjänst. I många fall kan dessa program använda den [Azure IoT-enhetens SDK](../iot-hub/iot-hub-devguide-sdks.md). En underordnad enhet kan även vara ett program som körs på själva IoT Edge gateway-enheten. En annan IoT Edge enhet kan dock inte underordnas IoT Edge Gateway. 
 
 >[!NOTE]
->IoT-enheter som har registrerade identiteter i IoT Hub kan [](../iot-hub/iot-hub-devguide-module-twins.md) använda modulerna för att isolera olika processer, maskin vara eller funktioner på en enskild enhet. IoT Edge gateways stöder underordnad modul anslutningar med hjälp av symmetrisk nyckel autentisering men inte X. 509-certifikatautentisering. 
+>IoT-enheter som har registrerade identiteter i IoT Hub kan använda [modulerna](../iot-hub/iot-hub-devguide-module-twins.md) för att isolera olika processer, maskin vara eller funktioner på en enskild enhet. IoT Edge gateways stöder underordnad modul anslutningar med hjälp av symmetrisk nyckel autentisering men inte X. 509-certifikatautentisering. 
 
 Om du vill ansluta en underordnad enhet till en IoT Edge-gateway, behöver du två saker:
 
@@ -170,10 +170,9 @@ Det här avsnittet introducerar ett exempelprogram som du ansluter en enhet Azur
 
 Det här avsnittet introducerar ett exempelprogram för att ansluta en Azure IoT Python-klienten för enheter till en IoT Edge-gateway. 
 
-1. Hämta det här exemplet för **edge_downstream_client** från den [Azure IoT-enhetens SDK för Python-exempel](https://github.com/Azure/azure-iot-sdk-python/tree/master/device/samples). 
-2. Se till att du har alla förutsättningar för att köra exemplet genom att granska den **readme.md** fil. 
-3. I filen edge_downstream_client.py uppdatera den **anslutningssträng** och **TRUSTED_ROOT_CA_CERTIFICATE_PATH** variabler. 
-4. I SDK-dokumentationen för instruktioner om hur du kör exemplet på din enhet. 
+1. Hämta exemplet för **send_message** från [Azure IoT-enhetens SDK för python-exempel](https://github.com/Azure/azure-iot-sdk-python/tree/master/azure-iot-device/samples/advanced-edge-scenarios). 
+2. Se till att du antingen kör i en gräns behållare eller i ett fel söknings scenario `EdgeHubConnectionString` och att du har angett miljövariablerna och. `EdgeModuleCACertificateFile`
+3. I SDK-dokumentationen för instruktioner om hur du kör exemplet på din enhet. 
 
 
 ## <a name="test-the-gateway-connection"></a>Testa gateway-anslutning

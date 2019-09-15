@@ -1,6 +1,6 @@
 ---
 title: Samla in data på dina produktions modeller
-titleSuffix: Azure Machine Learning service
+titleSuffix: Azure Machine Learning
 description: Lär dig mer om att samla in Azure Machine Learning indatamodellen data i Azure Blob storage.
 services: machine-learning
 ms.service: machine-learning
@@ -11,16 +11,16 @@ ms.author: marthalc
 author: marthalc
 ms.date: 07/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: 16fac492fe4c193ecd7ffa7eeff1e884acb742ae
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: d836b600a39b73f60c0847c5a9642f396fb70d17
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70860530"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71002863"
 ---
 # <a name="collect-data-for-models-in-production"></a>Samla in data för modeller i produktion
 
-I den här artikeln får du lära dig att samla in indatamodellen data från Azure Machine Learning-tjänster som du har distribuerat i Azure Kubernetes kluster (AKS) i Azure Blob storage. 
+I den här artikeln får du lära dig hur du samlar in indata från Azure Machine Learning som du har distribuerat till Azure Kubernetes-kluster (AKS) i Azure Blob Storage. 
 
 När du har aktiverat, hjälper den här informationen som samlas in dig att:
 * [Övervaka data](how-to-monitor-data-drift.md) drift som produktions data går in i din modell
@@ -50,9 +50,9 @@ Sökvägen till utdata i blob följande följande syntax:
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-- Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnadsfria versionen eller betalversionen av Azure Machine Learning-tjänsten](https://aka.ms/AMLFree) i dag.
+- Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree) idag.
 
-- En Azure Machine Learning-tjänsten arbetsyta, en lokal katalog som innehåller dina skript och Azure Machine Learning-SDK för Python installerat. Lär dig hur du hämtar dessa krav med hjälp av den [så här konfigurerar du en utvecklingsmiljö](how-to-configure-environment.md) dokumentet.
+- En Azure Machine Learning arbets yta, en lokal katalog som innehåller dina skript och Azure Machine Learning SDK för python installerat. Lär dig hur du hämtar dessa krav med hjälp av den [så här konfigurerar du en utvecklingsmiljö](how-to-configure-environment.md) dokumentet.
 
 - En tränad modell för maskininlärning som ska distribueras till Azure Kubernetes Service (AKS). Om du inte har någon kan se den [träna bild klassificeringsmodellen](tutorial-train-models-with-aml.md) självstudien.
 
@@ -61,7 +61,7 @@ Sökvägen till utdata i blob följande följande syntax:
 - [Konfigurera din miljö](how-to-configure-environment.md) och installera den [övervakning SDK](https://aka.ms/aml-monitoring-sdk).
 
 ## <a name="enable-data-collection"></a>Aktivera datainsamling
-Insamling av data kan aktiveras oavsett modellen som distribueras via Azure Machine Learning-tjänsten eller andra verktyg. 
+Data insamling kan aktive ras oavsett vilken modell som distribueras via Azure Machine Learning eller andra verktyg. 
 
 För att göra det, måste du:
 

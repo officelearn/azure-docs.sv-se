@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 07/25/2019
 ms.author: alkohli
-ms.openlocfilehash: b5ffc16a7c9dacef3036ca5ce225265252dcdf5d
-ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
+ms.openlocfilehash: a8aed646f03b777722518152354cfe80cea043a0
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68516764"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71002809"
 ---
 # <a name="storsimple-virtual-array-best-practices"></a>Metod tips för virtuella StorSimple-matriser
 
@@ -137,7 +137,7 @@ När du distribuerar den virtuella matrisen rekommenderar vi att du följer dess
   * Konfigurera statiska IP-adresser. Du måste konfigurera en primär och en sekundär DNS-server.
   * Om du definierar flera nätverks gränssnitt på den virtuella matrisen, kan endast det första nätverks gränssnittet (som standard är **Ethernet**) komma åt molnet. Du kan styra typen av trafik genom att skapa flera virtuella nätverks gränssnitt på din virtuella matris (konfigurerad som en iSCSI-server) och ansluta dessa gränssnitt till olika undernät.
 * Om du vill begränsa moln bandbredden (används av den virtuella matrisen) konfigurerar du begränsning på routern eller brand väggen. Om du definierar begränsning i hypervisor-programmet kommer det att begränsa alla protokoll inklusive iSCSI och SMB i stället för bara moln bandbredden.
-* Kontrol lera att tidssynkroniseringen för hypervisorer är aktive rad. Om du använder Hyper-v väljer du din virtuella matris i Hyper-v Manager, går till **inställningar &gt; integrerings tjänster**och kontrollerar att tidssynkroniseringen är markerad.
+* Kontrol lera att tidssynkroniseringen för hypervisorer är aktive rad. Om du använder Hyper-v väljer du din virtuella matris i Hyper-v Manager, går till **inställningar &gt; integrerings tjänster**och kontrollerar att **tidssynkroniseringen** är markerad.
 
 ### <a name="storage-accounts"></a>Lagringskonton
 StorSimple virtuella matris kan associeras med ett enda lagrings konto. Det här lagrings kontot kan vara ett automatiskt genererat lagrings konto, ett konto i samma prenumeration som tjänsten eller ett lagrings konto som är kopplat till en annan prenumeration. Mer information finns i [Hantera lagrings konton för den virtuella matrisen](storsimple-virtual-array-manage-storage-accounts.md).
@@ -199,7 +199,7 @@ Använd följande metod tips när du konfigurerar ACR: er för StorSimple-volyme
 ### <a name="data-security-and-encryption"></a>Datasäkerhet och kryptering
 Din virtuella StorSimple-matris har data säkerhets-och krypterings funktioner som garanterar konfidentialitet och integritet för dina data. När du använder dessa funktioner rekommenderar vi att du följer dessa rekommendationer: 
 
-* Definiera en krypterings nyckel för moln lagring för att generera AES-256-kryptering innan data skickas från den virtuella matrisen till molnet. Den här nyckeln krävs inte om dina data är krypterade att börja med. Nyckeln kan genereras och hållas säker med ett nyckel hanterings system, till exempel [Azure Key Vault](../key-vault/key-vault-whatis.md).
+* Definiera en krypterings nyckel för moln lagring för att generera AES-256-kryptering innan data skickas från den virtuella matrisen till molnet. Den här nyckeln krävs inte om dina data är krypterade att börja med. Nyckeln kan genereras och hållas säker med ett nyckel hanterings system, till exempel [Azure Key Vault](../key-vault/key-vault-overview.md).
 * När du konfigurerar lagrings kontot via StorSimple Manager tjänsten ska du se till att aktivera SSL-läget för att skapa en säker kanal för nätverkskommunikation mellan din StorSimple-enhet och molnet.
 * Återskapa nycklar för dina lagrings konton (genom att komma åt Azure Storage tjänsten) med jämna mellanrum för att få åtkomst till eventuella ändringar av åtkomst baserat på den ändrade listan över administratörer.
 * Data på den virtuella matrisen komprimeras och dedupliceras innan de skickas till Azure. Vi rekommenderar inte att du använder roll tjänsten datadeduplicering på Windows Server-värden.
@@ -226,7 +226,7 @@ När du utför en återställning bör du tänka på följande rikt linjer:
 * När du försöker återställa en volym eller en resurs från en säkerhets kopia kan en mål volym eller resurs fortfarande skapas i portalen om återställnings jobbet Miss lyckas. Det är viktigt att du tar bort den oanvända mål volymen eller resursen i portalen för att minimera eventuella framtida problem som uppstår på grund av det här elementet.
 
 ### <a name="failover-and-disaster-recovery"></a>Redundansväxling och haveri beredskap
-Med en enhets växling kan du migrera data från en *käll* enhet i data centret till en annan målenhet på samma eller en annan geografisk plats. Redundansväxlingen för hela enheten. Under redundansväxlingen ändrar käll enhetens moln data ägande till den på mål enheten.
+Med en enhets växling kan du migrera data från en *käll* enhet i data centret till en annan *målenhet* på samma eller en annan geografisk plats. Redundansväxlingen för hela enheten. Under redundansväxlingen ändrar käll enhetens moln data ägande till den på mål enheten.
 
 För din virtuella StorSimple-matris kan du bara redundansväxla till en annan virtuell matris som hanteras av samma StorSimple Manager tjänst. En redundansväxling till en enhet på 8000-serien eller en matris som hanteras av en annan StorSimple Manager tjänst (än den som används för käll enheten) är inte tillåten. Om du vill veta mer om redundansväxlingen går du till [krav för enhetens redundans](storsimple-virtual-array-failover-dr.md).
 

@@ -1,6 +1,6 @@
 ---
 title: Modelltolkning
-titleSuffix: Azure Machine Learning service
+titleSuffix: Azure Machine Learning
 description: Lär dig hur du förklarar varför din modell gör förutsägelser med hjälp av Azure Machine Learning SDK. Den kan användas under utbildning och härledning för att förstå hur din modell gör förutsägelser.
 services: machine-learning
 ms.service: machine-learning
@@ -10,14 +10,14 @@ ms.author: mesameki
 author: mesameki
 ms.reviewer: larryfr
 ms.date: 06/21/2019
-ms.openlocfilehash: 2e8eb79c4baebebb1974a977394215545ef944db
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 6b825e61542dabc92baf482ede6c93edc486e059
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69872394"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71002349"
 ---
-# <a name="model-interpretability-with-azure-machine-learning-service"></a>Modell tolkning med Azure Machine Learning tjänst
+# <a name="model-interpretability-with-azure-machine-learning"></a>Modell tolkning med Azure Machine Learning
 
 I den här artikeln får du lära dig hur du förklarar varför din modell gjorde förutsägelserna i de olika tolknings paketen för Azure Machine Learning python SDK.
 
@@ -66,7 +66,7 @@ __Direkta förklaringar__ kommer från integrerade bibliotek. SDK: n omsluter al
 * **Imitera förklaring**: Härma förklarar vad som är baserat på idén med globala surrogat modeller. En global surrogat modell är en modell med en inbyggd tolkning som är tränad att approximera förutsägelserna av en svart Box-modell så fort som möjligt. Data expert kan tolka surrogat modellen för att rita slut satser om den svarta Box-modellen. Du kan använda någon av följande tolknings bara modeller som surrogat modell: LightGBM (LinearExplainableModel), linjär regression (LinearExplainableModel), Stochastic gradient brantaste-förklarande modell (SGDExplainableModel) och besluts träd (DecisionTreeExplainableModel).
 
 
-* **Förklaring till Viktighets funktion**för permutationer: Permutations funktionens betydelse är en teknik som används för att förklara klassificerings-och Regressions modeller som inspireras av Breiman-bladet för [slumpmässiga skogar](https://www.stat.berkeley.edu/%7Ebreiman/randomforest2001.pdf) (se avsnitt 10). På en hög nivå är det sättet som det fungerar genom att slumpmässigt blandning data en funktion i taget för hela data uppsättningen och att beräkna hur mycket prestanda måttet för räntan minskar. Ju större ändringen är, desto viktigare är funktionen.
+* **Förklaring till Viktighets funktion för permutationer**: Permutations funktionens betydelse är en teknik som används för att förklara klassificerings-och Regressions modeller som inspireras av [Breiman-bladet för slumpmässiga skogar](https://www.stat.berkeley.edu/%7Ebreiman/randomforest2001.pdf) (se avsnitt 10). På en hög nivå är det sättet som det fungerar genom att slumpmässigt blandning data en funktion i taget för hela data uppsättningen och att beräkna hur mycket prestanda måttet för räntan minskar. Ju större ändringen är, desto viktigare är funktionen.
 
 * **Lime-förklaring** (`contrib`): Baserat på LIME används den avancerade oberoende förklaringar (kalk) för att skapa lokala surrogat modeller med hjälp av lime-algoritmen. Till skillnad från globala surrogat modeller fokuserar kalk på att träna lokala surrogat modeller för att förklara enskilda förutsägelser.
 * **Text förklaring för han** (`contrib`): Text förklaring för HAN använder ett hierarkiskt Attention-nätverk för att få modell förklaringar från text data för en specifik text modell i svart ruta. Vi tränar den HAN surrogat-modellen på en viss lärares modells förväntade utdata. Efter att ha tränat över texten sökkorpus har vi lagt till ett fin justerings steg för ett särskilt dokument för att förbättra noggrannheten i förklaringarna. HAN använder en dubbelriktad RNN med två åtgärds lager, för mening och ord uppmärksamhet. När DNN har tränats i lärarens modell och finjusteras för ett specifikt dokument kan vi extrahera ordets betydelse från Attention-lagren. Vi har funnit att HAN är mer exakt än kalk eller SHAP för text data, men mer kostsamma vad gäller inlärnings tiden. Vi har dock gjort förbättringar i utbildnings tiden genom att ge användaren möjlighet att initiera nätverket med assisterad Word-inbäddningar, även om det fortfarande är långsamt. Inlärnings tiden kan förbättras avsevärt genom att köra HAN på en virtuell dator med Azure GPU. Implementeringen av HAN beskrivs i ["hierarkiska Attention-nätverk för dokument klassificering (Yang et al., 2016)"](https://www.researchgate.net/publication/305334401_Hierarchical_Attention_Networks_for_Document_Classification).
@@ -219,7 +219,7 @@ Förklarings funktionerna accepterar både modeller och pipeliner som inmatade. 
 
 ### <a name="train-and-explain-remotely"></a>Utbilda och förklara fjärran slutet
 
-Även om du kan träna på de olika beräknings målen som stöds av Azure Machine Learning-tjänsten, visar exemplet i det här avsnittet hur du gör detta med ett Azure Machine Learning Compute-mål.
+Även om du kan träna på de olika beräknings målen som stöds av Azure Machine Learning, visar exemplet i det här avsnittet hur du gör detta med ett Azure Machine Learning Compute-mål.
 
 1. Skapa ett utbildnings skript i en lokal Jupyter Notebook (till exempel run_explainer. py).
 
@@ -474,7 +474,7 @@ Förklaringen kan distribueras tillsammans med den ursprungliga modellen och kan
 
 1. Distribuera avbildningen till ett beräknings mål:
 
-   1. Skapa en bedömnings fil (innan det här steget följer du stegen i [Distribuera modeller med Azure Machine Learning-tjänsten](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-and-where) för att registrera din ursprungliga förutsägelse modell)
+   1. Skapa en bedömnings fil (innan det här steget följer du stegen i [Distribuera modeller med Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-and-where) för att registrera din ursprungliga förutsägelse modell)
 
         ```python
         %%writefile score.py

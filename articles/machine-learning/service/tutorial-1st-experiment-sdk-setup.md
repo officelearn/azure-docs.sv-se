@@ -1,6 +1,6 @@
 ---
 title: 'Självstudier: Skapa ditt första ML-experiment: Konfiguration'
-titleSuffix: Azure Machine Learning service
+titleSuffix: Azure Machine Learning
 description: I den här själv studie serien slutför du stegen från slut punkt till slut punkt för att komma igång med Azure Machine Learning python SDK som körs i Jupyter Notebooks.  Del ett omfattar att skapa en bärbar Server miljö för molnet och att skapa en arbets yta för att hantera experiment-och maskin inlärnings modeller.
 services: machine-learning
 ms.service: machine-learning
@@ -10,12 +10,12 @@ author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
 ms.date: 08/28/2019
-ms.openlocfilehash: d968d6e799b75940d1fb73aa31c22eb84068df7d
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: 9bc5b9688a8cd568b47fe2dad88d6d007ceca0c4
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70860418"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71004064"
 ---
 # <a name="tutorial-get-started-creating-your-first-ml-experiment-with-the-python-sdk"></a>Självstudier: Kom igång med att skapa ditt första ML-experiment med python SDK
 
@@ -27,11 +27,11 @@ I den här kursen för du göra följande:
 > * Skapa en [Azure Machine Learning-arbetsyta](concept-workspace.md) som ska användas i nästa självstudie.
 > * Skapa en molnbaserad Jupyter Notebook-baserad virtuell dator med Azure Machine Learning python SDK installerat och förkonfigurerat.
 
-Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnadsfria eller betalversionen av Azure Machine Learning-tjänsten](https://aka.ms/AMLFree) idag.
+Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree) idag.
 
 ## <a name="create-a-workspace"></a>Skapa en arbetsyta
 
-En Azure Machine Learning arbets yta är en grundläggande resurs i molnet som du använder för att experimentera, träna och distribuera maskin inlärnings modeller. Den binder din Azure-prenumeration och resurs grupp till ett enkelt förbrukat objekt i SDK: n. Om du redan har en Azure Machine Learning service-arbetsyta går du vidare till [Nästa avsnitt](#azure). Annars skapar du en nu.
+En Azure Machine Learning arbets yta är en grundläggande resurs i molnet som du använder för att experimentera, träna och distribuera maskin inlärnings modeller. Den binder din Azure-prenumeration och resurs grupp till ett enkelt förbrukat objekt i SDK: n. Om du redan har en Azure Machine Learning arbets yta kan du gå vidare till [Nästa avsnitt](#azure). Annars skapar du en nu.
 
 [!INCLUDE [aml-create-portal](../../../includes/aml-create-in-portal.md)]
 
@@ -39,7 +39,7 @@ En Azure Machine Learning arbets yta är en grundläggande resurs i molnet som d
 
 I det här exemplet används en moln antecknings server i din arbets yta för en installation utan kostnad och förkonfigurerad upplevelse. Använd [din egen miljö](how-to-configure-environment.md#local) om du vill ha kontroll över din miljö, dina paket och beroenden.
 
-Från din arbets yta skapar du en moln resurs för att komma igång med Jupyter-anteckningsböcker. Den här resursen är en molnbaserad virtuell Linux-dator som är förkonfigurerad med allt du behöver för att köra Azure Machine Learning-tjänsten.
+Från din arbets yta skapar du en moln resurs för att komma igång med Jupyter-anteckningsböcker. Den här resursen är en molnbaserad virtuell Linux-dator som är förkonfigurerad med allt du behöver för att köra Azure Machine Learning.
 
 1. Öppna din arbets yta i [Azure Portal](https://portal.azure.com/).  Om du inte är säker på hur du hittar din arbets yta i portalen kan du läsa om hur du [hittar din arbets yta](how-to-manage-workspace.md#view).
 
@@ -69,7 +69,7 @@ Från din arbets yta skapar du en moln resurs för att komma igång med Jupyter-
 
 I den här självstudien har du slutfört följande uppgifter:
 
-* Skapade en Azure Machine Learning service-arbetsyta.
+* En Azure Machine Learning-arbetsyta har skapats.
 * Skapat och konfigurerat en molnbaserad Notebook-server i din arbets yta.
 
 I **del två** av självstudien kör du koden i `tutorial-1st-experiment-sdk-train.ipynb` för att träna en maskin inlärnings modell. 

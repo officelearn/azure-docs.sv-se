@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/06/2019
 ms.author: terrylan
-ms.openlocfilehash: d20ea4a6e86bb889615d3ab9bfcac5aedf838ceb
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 67a34b2b0a997a118cb2fe1b99de04bd58063307
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70098628"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "70999048"
 ---
 # <a name="securing-paas-deployments"></a>Skydda PaaS-distributioner
 
@@ -88,13 +88,13 @@ Principer och mönster för nätverks perimetern har varit tillgängliga i årti
 Följande är metod tips för att hantera identitets omkretsen.
 
 **Bästa praxis**: Skydda dina nycklar och autentiseringsuppgifter för att skydda din PaaS-distribution.   
-**Information**: Att förlora nycklar och autentiseringsuppgifter är ett vanligt problem. Du kan använda en centraliserad lösning där nycklar och hemligheter kan lagras i HSM: er (Hardware Security modules). [Azure Key Vault](../../key-vault/key-vault-whatis.md) skyddar dina nycklar och hemligheter genom att kryptera autentiseringsnyckel, lagrings konto nycklar, data krypterings nycklar, PFX-filer och lösen ord med hjälp av nycklar som skyddas av HSM: er.
+**Information**: Att förlora nycklar och autentiseringsuppgifter är ett vanligt problem. Du kan använda en centraliserad lösning där nycklar och hemligheter kan lagras i HSM: er (Hardware Security modules). [Azure Key Vault](../../key-vault/key-vault-overview.md) skyddar dina nycklar och hemligheter genom att kryptera autentiseringsnyckel, lagrings konto nycklar, data krypterings nycklar, PFX-filer och lösen ord med hjälp av nycklar som skyddas av HSM: er.
 
 **Bästa praxis**: Lägg inte till autentiseringsuppgifter och andra hemligheter i käll koden eller GitHub.   
 **Information**: Det enda som är sämre än att förlora nycklar och autentiseringsuppgifter är att en obehörig part får till gång till dem. Angripare kan dra nytta av bot-teknikerna för att hitta nycklar och hemligheter som lagras i kod databaser, till exempel GitHub. Lägg inte till nyckel och hemligheter i dessa offentliga kod databaser.
 
 **Bästa praxis**: Skydda dina hanterings gränssnitt för virtuella datorer på Hybrid PaaS-och IaaS-tjänster med hjälp av ett hanterings gränssnitt som gör att du kan fjärrhantera de virtuella datorerna direkt.   
-**Information**: Fjärrhanterings protokoll som [SSH](https://en.wikipedia.org/wiki/Secure_Shell)-, [RDP](https://support.microsoft.com/kb/186607)-och [PowerShell](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.core/enable-psremoting) -fjärrkommunikation kan användas. I allmänhet rekommenderar vi att du inte aktiverar direkt fjärråtkomst till virtuella datorer från Internet.
+**Information**: Fjärrhanterings protokoll som [SSH](https://en.wikipedia.org/wiki/Secure_Shell)-, [RDP](https://support.microsoft.com/kb/186607)-och [PowerShell-fjärrkommunikation](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.core/enable-psremoting) kan användas. I allmänhet rekommenderar vi att du inte aktiverar direkt fjärråtkomst till virtuella datorer från Internet.
 
 Använd om möjligt alternativa metoder som att använda virtuella privata nätverk i ett virtuellt Azure-nätverk. Om alternativa metoder inte är tillgängliga kontrollerar du att du använder komplexa lösen fraser och tvåfaktorautentisering (till exempel [Azure Multi-Factor Authentication](/azure/active-directory/authentication/multi-factor-authentication)).
 
@@ -133,7 +133,7 @@ Nedan följer metod tips för hur du använder App Service.
 **Information**: Det är absolut nödvändigt att begränsa åtkomsten för organisationer som vill tillämpa säkerhets principer för data åtkomst. Du kan använda RBAC för att tilldela behörigheter till användare, grupper och program i ett visst omfång. Mer information om hur du beviljar användare åtkomst till program finns i [Kom igång med åtkomst hantering](/azure/role-based-access-control/overview).
 
 **Bästa praxis**: Skydda dina nycklar.   
-**Information**: Azure Key Vault hjälper till att skydda kryptografiska nycklar och hemligheter som används av moln program och tjänster. Med Key Vault kan du kryptera nycklar och hemligheter (till exempel autentiseringsnyckel, lagrings konto nycklar, data krypterings nycklar). PFX-filer och lösen ord) med hjälp av nycklar som skyddas av HSM: er (Hardware Security modules). För ytterligare säkerhet kan du importera eller generera nycklar i HSM-moduler. Mer information finns i [Azure Key Vault](/azure/key-vault/key-vault-whatis) . Du kan också använda Key Vault för att hantera dina TLS-certifikat med automatisk förnyelse.
+**Information**: Azure Key Vault hjälper till att skydda kryptografiska nycklar och hemligheter som används av moln program och tjänster. Med Key Vault kan du kryptera nycklar och hemligheter (till exempel autentiseringsnyckel, lagrings konto nycklar, data krypterings nycklar). PFX-filer och lösen ord) med hjälp av nycklar som skyddas av HSM: er (Hardware Security modules). För ytterligare säkerhet kan du importera eller generera nycklar i HSM-moduler. Mer information finns i [Azure Key Vault](/azure/key-vault/key-vault-overview) . Du kan också använda Key Vault för att hantera dina TLS-certifikat med automatisk förnyelse.
 
 **Bästa praxis**: Begränsa inkommande käll-IP-adresser.   
 **Information**: [App Service-miljön](/azure/app-service/environment/intro) har en funktion för integrering av virtuella nätverk som hjälper dig att begränsa inkommande käll-IP-adresser via nätverks säkerhets grupper. Med virtuella nätverk kan du placera Azure-resurser i ett nätverk som inte är Internet och som du styr åtkomsten till. Mer information finns i [integrera din app med ett virtuellt Azure-nätverk](/azure/app-service/web-sites-integrate-with-vnet).
@@ -154,12 +154,12 @@ Webbprogram blir i allt större utsträckning föremål för attacker där känd
 ## <a name="monitor-the-performance-of-your-applications"></a>Övervaka program prestanda
 Övervakning handlar om att samla in och analysera data för att fastställa programmets prestanda, hälsa och tillgänglighet. En effektiv övervakningsstrategi hjälper dig att förstå den detaljerade driften av komponenterna i ditt program. Det hjälper dig att öka din drift tid genom att meddela dig om kritiska problem så att du kan lösa dem innan de blir problem. Det hjälper dig också att identifiera avvikelser som kan vara säkerhetsrelaterade.
 
-Använd [Azure Application](https://azure.microsoft.com/documentation/services/application-insights) insikter för att övervaka tillgänglighet, prestanda och användning av ditt program, oavsett om det finns i molnet eller lokalt. Genom att använda Application Insights kan du snabbt identifiera och diagnostisera fel i programmet utan att vänta på att användaren rapporterar dem. Du kan göra välgrundade val om underhåll och förbättringar för ditt program med den information som du samlar in.
+Använd [Azure Application insikter](https://azure.microsoft.com/documentation/services/application-insights) för att övervaka tillgänglighet, prestanda och användning av ditt program, oavsett om det finns i molnet eller lokalt. Genom att använda Application Insights kan du snabbt identifiera och diagnostisera fel i programmet utan att vänta på att användaren rapporterar dem. Du kan göra välgrundade val om underhåll och förbättringar för ditt program med den information som du samlar in.
 
 Application Insights har omfattande verktyg för att interagera med de data som samlas in. Application Insights lagrar data i en gemensam databas. Det kan dra nytta av delade funktioner som aviseringar, instrument paneler och djup analys med Kusto-frågespråket.
 
 ## <a name="perform-security-penetration-testing"></a>Utför testning av säkerhets inträngning
-Att verifiera säkerhets försvar är lika viktigt som att testa alla andra funktioner. Gör inträngande och [testa](pen-testing.md) en standard del av bygg-och distributions processen. Schemalägga vanliga säkerhetstester och sårbarhets sökning på distribuerade program och övervaka för öppna portar, slut punkter och attacker.
+Att verifiera säkerhets försvar är lika viktigt som att testa alla andra funktioner. Gör [inträngande och testa](pen-testing.md) en standard del av bygg-och distributions processen. Schemalägga vanliga säkerhetstester och sårbarhets sökning på distribuerade program och övervaka för öppna portar, slut punkter och attacker.
 
 Fuzz-test är en metod för att hitta program fel (kod fel) genom att tillhandahålla felformaterade indata till program gränssnitt (start punkter) som tolkar och använder dessa data. [Microsofts säkerhets risk identifiering](https://www.microsoft.com/en-us/security-risk-detection/) är ett molnbaserad verktyg som du kan använda för att söka efter buggar och andra säkerhets problem i program varan innan du distribuerar det till Azure. Verktyget är utformat för att fånga sårbarheter innan du distribuerar program vara så att du inte behöver korrigera en bugg, hantera krascher eller svara på ett angrepp när program varan har släppts.
 

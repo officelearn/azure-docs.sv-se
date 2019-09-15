@@ -1,7 +1,7 @@
 ---
 title: OData geo-spatial funktions referens – Azure Search
 description: OData geo-spatiala funktioner, geo. Distance och geo. korsar, i Azure Search frågor.
-ms.date: 06/13/2019
+ms.date: 09/13/2019
 services: search
 ms.service: search
 ms.topic: conceptual
@@ -19,18 +19,21 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 9585a9a7ea976ed32ccb8eed1e69877339196f87
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: 03220786c65ab510a632252b20d593cd96a90494
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69647565"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71003456"
 ---
 # <a name="odata-geo-spatial-functions-in-azure-search---geodistance-and-geointersects"></a>OData geo-spatial-funktioner i Azure Search `geo.distance` -och`geo.intersects`
 
 Azure Search stöder geo-spatiala frågor i [OData filter](query-odata-filter-orderby-syntax.md) -uttryck `geo.distance` via `geo.intersects` -och-funktionerna. `geo.distance` Funktionen returnerar avståndet i kilo meter mellan två punkter, ett fält eller en intervall variabel, och en är en konstant som ska skickas som en del av filtret. `geo.intersects` Funktionen returnerar`true` om en viss punkt är inom en viss polygon, där punkten är en fält-eller intervall variabel och polygonen anges som en konstant som skickas som en del av filtret.
 
 Funktionen kan också användas i [ **$OrderBy** -parametern](search-query-odata-orderby.md) för att sortera Sök Resultat efter avstånd från en viss punkt. `geo.distance` Syntaxen för `geo.distance` i **$OrderBy** är samma som i **$filter**. När du `geo.distance` använder i **$OrderBy**måste det fält som det gäller för vara av typen `Edm.GeographyPoint` och det måste också vara **sorterbart**.
+
+> [!NOTE]
+> När du `geo.distance` använder i **$OrderBy** -parametern får fältet som du skickar till funktionen bara innehålla en enda geo-punkt. Med andra ord måste den vara av typen `Edm.GeographyPoint` och inte. `Collection(Edm.GeographyPoint)` Det går inte att sortera i samlings fält i Azure Search.
 
 ## <a name="syntax"></a>Syntax
 

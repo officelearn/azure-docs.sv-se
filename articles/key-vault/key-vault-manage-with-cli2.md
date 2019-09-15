@@ -8,12 +8,12 @@ ms.service: key-vault
 ms.topic: tutorial
 ms.date: 08/12/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 952126b76b00ff472181c72b1fd7b1a0e1b14e40
-ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.openlocfilehash: 51e5c654da95732409c3bbb7acae088d8935a59d
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68976352"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71000629"
 ---
 # <a name="manage-key-vault-using-the-azure-cli"></a>Hantera Key Vault med Azure CLI 
 
@@ -35,7 +35,7 @@ Azure Key Vault är tillgängligt i de flesta regioner. Mer information finns p�
 > Den här artikeln innehåller inte instruktioner för hur du skriver Azure-programmet som ett av stegen innehåller, som visar hur du auktoriserar ett program att använda en nyckel eller hemlighet i nyckel valvet.
 >
 
-En översikt över Azure Key Vault finns [Azure Key Vault?](key-vault-whatis.md)
+En översikt över Azure Key Vault finns [Azure Key Vault?](key-vault-overview.md)
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 ## <a name="prerequisites"></a>Förutsättningar

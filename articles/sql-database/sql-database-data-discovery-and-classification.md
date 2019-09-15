@@ -11,12 +11,12 @@ author: barmichal
 ms.author: mibar
 ms.reviewer: vanto
 ms.date: 08/22/2019
-ms.openlocfilehash: 5aaad8c44328e1cc2aeb7729e3e221665823a467
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 0bba755ec5683e988bb8ae3f2308a1c298b228b0
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70073008"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71000563"
 ---
 # <a name="azure-sql-database-and-sql-data-warehouse-data-discovery--classification"></a>& Klassificering för Azure SQL Database och SQL Data Warehouse data identifiering
 
@@ -137,6 +137,8 @@ Du kan använda T-SQL för att lägga till/ta bort kolumn klassificeringar, samt
 - Lägg till/uppdatera klassificeringen för en eller flera kolumner: [LÄGG TILL KÄNSLIGHETS KLASSIFICERING](https://docs.microsoft.com/sql/t-sql/statements/add-sensitivity-classification-transact-sql)
 - Ta bort klassificeringen från en eller flera kolumner: [SLÄPP KÄNSLIGHETS KLASSIFICERING](https://docs.microsoft.com/sql/t-sql/statements/drop-sensitivity-classification-transact-sql)
 - Visa alla klassificeringar för databasen: [sys. sensitivity_classifications](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-sensitivity-classifications-transact-sql)
+
+### <a name="manage-classifications-using-rest-apis"></a>Hantera klassificeringar med REST API: er
 
 Du kan också använda REST-API: er för att hantera klassificeringar program mässigt. De publicerade REST API: erna har stöd för följande åtgärder:
 

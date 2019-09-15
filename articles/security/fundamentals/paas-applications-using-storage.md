@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/28/2018
 ms.author: tomsh
-ms.openlocfilehash: 9d88b8101f37fde5d1ab8ac11253884b6534e3b5
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 675e10101d01d831aad7652c70cbfcf320085a3c
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68726768"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "70999172"
 ---
 # <a name="best-practices-for-securing-paas-web-and-mobile-applications-using-azure-storage"></a>Metod tips för att skydda PaaS-webb program och mobilappar med hjälp av Azure Storage
 I den här artikeln diskuterar vi en samling Azure Storage säkerhets metod tips för att skydda dina webb-och mobil program för PaaS-tjänster (Platform-as-a-Service). Dessa bästa metoder härleds från vår erfarenhet av Azure och våra kunders upplevelser som du själv har.
@@ -71,7 +71,7 @@ Läs mer om RBAC i:
 ## <a name="use-client-side-encryption-for-high-value-data"></a>Använd kryptering på klient sidan för data med hög värde
 Kryptering på klient sidan gör att du kan kryptera data via programmering innan du överför till Azure Storage och program mässigt dekryptera data när de hämtas. Detta ger kryptering av data under överföring, men ger även kryptering av data i vila. Kryptering på klient sidan är den säkraste metoden för att kryptera dina data, men det kräver att du gör program ändringar i programmet och lägger till nyckel hanterings processer på plats.
 
-Med kryptering på klient sidan kan du också ha en enda kontroll över dina krypterings nycklar. Du kan skapa och hantera dina egna krypterings nycklar. Den använder en kuvert teknik där klient biblioteket för Azure Storage genererar en innehålls krypterings nyckel (CEK) som sedan omsluts (krypteras) med nyckel krypterings nyckeln (KEK). KEK identifieras av en nyckel identifierare och kan vara ett asymmetriskt nyckel par eller en symmetrisk nyckel och kan hanteras lokalt eller lagras i [Azure Key Vault](/azure/key-vault/key-vault-whatis).
+Med kryptering på klient sidan kan du också ha en enda kontroll över dina krypterings nycklar. Du kan skapa och hantera dina egna krypterings nycklar. Den använder en kuvert teknik där klient biblioteket för Azure Storage genererar en innehålls krypterings nyckel (CEK) som sedan omsluts (krypteras) med nyckel krypterings nyckeln (KEK). KEK identifieras av en nyckel identifierare och kan vara ett asymmetriskt nyckel par eller en symmetrisk nyckel och kan hanteras lokalt eller lagras i [Azure Key Vault](/azure/key-vault/key-vault-overview).
 
 Kryptering på klient sidan är inbyggd i Java-och .NET-lagrings klient biblioteken. Se [kryptering på klient sidan och Azure Key Vault för Microsoft Azure Storage](/azure/storage/common/storage-client-side-encryption) för information om hur du krypterar data i klient program och genererar och hanterar dina egna krypterings nycklar.
 

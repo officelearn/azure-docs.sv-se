@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 923859fdb0b398d04e710810a96c33fb1c3cd9da
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 9d983dc4a2623e7f2a272ea2a320d2658d784dee
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68698566"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71003582"
 ---
 # <a name="develop-your-own-iot-edge-modules"></a>Utveckla dina egna IoT Edge-moduler
 
@@ -42,9 +42,9 @@ För att möjliggöra komplex bearbetning av meddelanden från enheten till moln
 
 En IoT Edge-modul, till skillnad från en normal IoT Hub device program, kan ta emot meddelanden från enheten till molnet som körs via en proxy av sin lokala IoT Edge hub för att bearbeta dem på.
 
-IoT Edge Hub sprider meddelandena till modulen baserat på deklarativ vägar som beskrivs i distributions [manifestet](module-composition.md). När du utvecklar en IoT Edge-modul, kan du ta emot dessa meddelanden genom att ange meddelandehanterare.
+IoT Edge Hub sprider meddelandena till modulen baserat på deklarativ vägar som beskrivs i [distributions manifestet](module-composition.md). När du utvecklar en IoT Edge-modul, kan du ta emot dessa meddelanden genom att ange meddelandehanterare.
 
-För att förenkla skapandet av vägar IoT Edge lägger till konceptet indata och *utdata* -slutpunkter för moduler. En modul kan ta emot alla meddelanden från enheten till molnet dirigeras till den utan att ange några indata och kan skicka meddelanden från enheten till molnet utan att ange några utdata. Med hjälp av explicita indata och utdata, men gör routningsregler enklare att förstå. 
+För att förenkla skapandet av vägar IoT Edge lägger till konceptet *indata* och *utdata* -slutpunkter för moduler. En modul kan ta emot alla meddelanden från enheten till molnet dirigeras till den utan att ange några indata och kan skicka meddelanden från enheten till molnet utan att ange några utdata. Med hjälp av explicita indata och utdata, men gör routningsregler enklare att förstå. 
 
 Slutligen är enhet-till-moln-meddelanden som hanteras av Edge hub stämplad med följande Systemegenskaper för:
 
@@ -60,7 +60,7 @@ Ansluter till lokala IoT Edge hub från en modul omfattar två steg:
 1. Skapa en ModuleClient-instans i ditt program.
 2. Kontrollera att ditt program godkänner certifikatet som presenteras av IoT Edge-hubben på den enheten.
 
-Skapa en ModuleClient-instans för att ansluta modulen till IoT Edge Hub som körs på enheten, på liknande sätt som DeviceClient-instanser ansluter IoT-enheter till IoT Hub. Mer information om klassen ModuleClient och dess kommunikations metoder finns i API-referensen för ditt prioriterade SDK-språk: [C#](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.moduleclient?view=azure-dotnet), [C och python](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/iothub-module-client-h), [Java](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.device.moduleclient?view=azure-java-stable)eller [Node. js](https://docs.microsoft.com/javascript/api/azure-iot-device/moduleclient?view=azure-node-latest).
+Skapa en ModuleClient-instans för att ansluta modulen till IoT Edge Hub som körs på enheten, på liknande sätt som DeviceClient-instanser ansluter IoT-enheter till IoT Hub. Mer information om klassen ModuleClient och dess kommunikations metoder finns i API-referensen för ditt prioriterade SDK-språk: [C#](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.moduleclient?view=azure-dotnet), [C](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/iothub-module-client-h), [python](https://docs.microsoft.com/python/api/azure-iot-device/azure.iot.device.iothubmoduleclient?view=azure-python), [Java](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.device.moduleclient?view=azure-java-stable)eller [Node. js](https://docs.microsoft.com/javascript/api/azure-iot-device/moduleclient?view=azure-node-latest).
 
 ## <a name="language-and-architecture-support"></a>Stöd för språk och arkitektur
 
@@ -70,7 +70,7 @@ IoT Edge stöder flera operativ system, enhets arkitekturer och utvecklings spr�
 
 För alla språk i följande tabell IoT Edge stöder utveckling för AMD64-och ARM32 Linux-enheter. 
 
-| Utvecklings språk | Utvecklingsverktyg |
+| Utvecklingsspråk | Utvecklingsverktyg |
 | -------------------- | ----------------- |
 | C | Visual Studio-koden<br>Visual Studio 2017/2019 |
 | C# | Visual Studio-koden<br>Visual Studio 2017/2019 |
@@ -85,7 +85,7 @@ För alla språk i följande tabell IoT Edge stöder utveckling för AMD64-och A
 
 För alla språk i följande tabell IoT Edge stöder utveckling för AMD64 Windows-enheter.
 
-| Utvecklings språk | Utvecklingsverktyg |
+| Utvecklingsspråk | Utvecklingsverktyg |
 | -------------------- | ----------------- |
 | C | Visual Studio 2017/2019 |
 | C# | Visual Studio Code (inga fel söknings funktioner)<br>Visual Studio 2017/2019 |

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/18/2019
 ms.author: terrylan
-ms.openlocfilehash: dd47f4b7e0e9e27714be3862494bfdabf122d458
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 4967f6f7831f1f09a502b935342fcd752af72fce
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68726800"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "70999150"
 ---
 # <a name="best-practices-for-securing-paas-web-and-mobile-applications-using-azure-app-service"></a>Metod tips för att skydda PaaS-webb program och mobilappar med hjälp av Azure App Service
 
@@ -35,7 +35,7 @@ App Service tillhandahåller en OAuth 2,0-tjänst för din identitets leverantö
 Det är absolut nödvändigt att begränsa åtkomsten för organisationer som vill tillämpa säkerhets principer för data åtkomst. Du kan använda rollbaserad åtkomst kontroll (RBAC) för att tilldela behörigheter till användare, grupper och program i ett visst omfång, till exempel behovet av att känna till och minsta behörighets säkerhets principer. Mer information om hur du beviljar användare åtkomst till program finns i [Vad är rollbaserad åtkomst kontroll](/azure/role-based-access-control/overview).
 
 ## <a name="protect-your-keys"></a>Skydda dina nycklar
-Det spelar ingen roll om du förlorar dina prenumerations nycklar. Azure Key Vault hjälper dig att skydda krypteringsnycklar och hemligheter som används av molnprogram och molntjänster. Med Key Vault kan du kryptera nycklar och hemligheter (till exempel autentiseringsnyckel, lagrings konto nycklar, data krypterings nycklar). PFX-filer och lösen ord) med hjälp av nycklar som skyddas av HSM: er (Hardware Security modules). För ytterligare säkerhet kan du importera eller generera nycklar i HSM-moduler. Du kan också använda Key Vault för att hantera dina TLS-certifikat med automatisk förnyelse. Se [vad som är Azure Key Vault](../../key-vault/key-vault-whatis.md) om du vill veta mer.
+Det spelar ingen roll om du förlorar dina prenumerations nycklar. Azure Key Vault hjälper dig att skydda krypteringsnycklar och hemligheter som används av molnprogram och molntjänster. Med Key Vault kan du kryptera nycklar och hemligheter (till exempel autentiseringsnyckel, lagrings konto nycklar, data krypterings nycklar). PFX-filer och lösen ord) med hjälp av nycklar som skyddas av HSM: er (Hardware Security modules). För ytterligare säkerhet kan du importera eller generera nycklar i HSM-moduler. Du kan också använda Key Vault för att hantera dina TLS-certifikat med automatisk förnyelse. Se [vad som är Azure Key Vault](../../key-vault/key-vault-overview.md) om du vill veta mer.
 
 ## <a name="restrict-incoming-source-ip-addresses"></a>Begränsa inkommande käll-IP-adresser
 [App Service miljöer](../../app-service/environment/intro.md) har en funktion för integrering av virtuella nätverk som hjälper dig att begränsa inkommande käll-IP-adresser via nätverks säkerhets grupper (NSG: er). Om du inte är bekant med Azure Virtual Networks (virtuella nätverk), är det här en funktion som gör att du kan placera många av dina Azure-resurser i ett nätverk som inte är Internet och som du styr åtkomsten till. Mer information finns i [integrera din app med en Azure-Virtual Network](../../app-service/web-sites-integrate-with-vnet.md).

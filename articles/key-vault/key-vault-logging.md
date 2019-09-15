@@ -9,12 +9,12 @@ ms.service: key-vault
 ms.topic: tutorial
 ms.date: 08/12/2019
 ms.author: mbaldwin
-ms.openlocfilehash: fc0f259a4866f7eb2438938c7a10989db9200aa4
-ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.openlocfilehash: 997651887c3c378e4791553d5ff05f585ad169ea
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68976962"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71000672"
 ---
 # <a name="azure-key-vault-logging"></a>Azure Key Vault-loggning
 
@@ -30,12 +30,12 @@ Du kan komma åt loggnings informationen 10 minuter (högst) efter nyckel valvs 
 Den här kursen hjälper dig att komma igång med Azure Key Vault-loggning. Du skapar ett lagrings konto, aktiverar loggning och tolkar insamlad logg information.  
 
 > [!NOTE]
-> Självstudiekursen innehåller inte instruktioner för hur du skapar nyckelvalv, nycklar eller hemligheter. Mer information finns i [Vad är Azure Key Vault?](key-vault-overview.md). Eller, för plattforms oberoende Azure CLI-instruktioner, se [den här](key-vault-manage-with-cli2.md)självstudien.
+> Självstudiekursen innehåller inte instruktioner för hur du skapar nyckelvalv, nycklar eller hemligheter. Mer information finns i [Vad är Azure Key Vault?](key-vault-overview.md). Eller, för plattforms oberoende Azure CLI-instruktioner, se [den här självstudien](key-vault-manage-with-cli2.md).
 >
 > Den här artikeln innehåller Azure PowerShell instruktioner för uppdatering av diagnostisk loggning. Du kan också uppdatera diagnostikloggning genom att använda Azure Monitor i avsnittet **diagnostiska loggar** i Azure Portal. 
 >
 
-Översiktlig information om Key Vault finns i [Vad är Azure Key Vault?](key-vault-whatis.md). Information om var Key Vault finns på [sidan med priser](https://azure.microsoft.com/pricing/details/key-vault/).
+Översiktlig information om Key Vault finns i [Vad är Azure Key Vault?](key-vault-overview.md). Information om var Key Vault finns på [sidan med priser](https://azure.microsoft.com/pricing/details/key-vault/).
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -75,7 +75,7 @@ Att peka PowerShell till rätt prenumeration är ett viktigt steg, särskilt om 
 
 Även om du kan använda ett befintligt lagrings konto för dina loggar, kommer vi att skapa ett lagrings konto som ska användas för Key Vault loggar. För att du ska kunna ange detta senare kommer vi att lagra informationen i en variabel med namnet **sa**.
 
-För ytterligare enkel hantering kommer vi också att använda samma resurs grupp som den som innehåller nyckel valvet. I självstudien [komma igång](key-vault-get-started.md)heter den här resurs gruppen **ContosoResourceGroup**och vi fortsätter att använda den Asien, östra platsen. Ersätt värdena med dina egna, i tillämpliga fall:
+För ytterligare enkel hantering kommer vi också att använda samma resurs grupp som den som innehåller nyckel valvet. I [självstudien komma igång](key-vault-get-started.md)heter den här resurs gruppen **ContosoResourceGroup**och vi fortsätter att använda den Asien, östra platsen. Ersätt värdena med dina egna, i tillämpliga fall:
 
 ```powershell
  $sa = New-AzStorageAccount -ResourceGroupName ContosoResourceGroup -Name contosokeyvaultlogs -Type Standard_LRS -Location 'East Asia'
@@ -88,7 +88,7 @@ För ytterligare enkel hantering kommer vi också att använda samma resurs grup
 
 ## <a id="identify"></a>Identifiera nyckelvalvet för dina loggar
 
-I självstudien [komma igång](key-vault-get-started.md)var nyckel valv namnet **ContosoKeyVault**. Vi kommer att fortsätta använda det namnet och lagra informationen i en variabel med namnet **kv**:
+I [självstudien komma igång](key-vault-get-started.md)var nyckel valv namnet **ContosoKeyVault**. Vi kommer att fortsätta använda det namnet och lagra informationen i en variabel med namnet **kv**:
 
 ```powershell
 $kv = Get-AzKeyVault -VaultName 'ContosoKeyVault'
@@ -314,6 +314,6 @@ En själv studie kurs som använder Azure Key Vault i ett .NET-webb program finn
 
 Programmeringsreferenser finns i [utvecklarguiden för Azure Key Vault](key-vault-developers-guide.md).
 
-En lista över Azure PowerShell 1,0-cmdletar för Azure Key Vault finns i [Azure Key Vault](/powershell/module/az.keyvault/?view=azps-1.2.0#key_vault)-cmdletar.
+En lista över Azure PowerShell 1,0-cmdletar för Azure Key Vault finns i [Azure Key Vault-cmdletar](/powershell/module/az.keyvault/?view=azps-1.2.0#key_vault).
 
 En själv studie kurs om nyckel rotation och logg granskning med Azure Key Vault finns i [konfigurera Key Vault med nyckel rotation och granskning från slut punkt till slut punkt](key-vault-key-rotation-log-monitoring.md).

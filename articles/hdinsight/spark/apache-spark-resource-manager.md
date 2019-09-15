@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/23/2018
 ms.author: hrasheed
-ms.openlocfilehash: 0d97ca91466516b8722ecca77d19078399a258f7
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: ac0109ff8c5dd7f6013acefbe5ee08a13494cb77
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70814090"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71001689"
 ---
 # <a name="manage-resources-for-apache-spark-cluster-on-azure-hdinsight"></a>Hantera resurser för Apache Spark kluster i Azure HDInsight 
 
@@ -51,17 +51,19 @@ Spark historik serverns webb gränssnitt ser ut så här:
 ![HDInsight Spark historik Server](./media/apache-spark-resource-manager/hdinsight-spark-history-server.png)
 
 ## <a name="open-the-yarn-ui"></a>Öppna garn gränssnittet
+
 Du kan använda garn gränssnittet för att övervaka program som för närvarande körs i Spark-klustret.
 
 1. Öppna Spark-klustret från [Azure Portal](https://portal.azure.com/). Mer information finns i [lista och Visa kluster](../hdinsight-administer-use-portal-linux.md#showClusters).
 2. Från **snabb länkar**klickar du på **kluster instrument panel**och sedan på **garn**.
 
-    ![Starta garn gränssnitt](./media/apache-spark-resource-manager/launch-yarn-ui.png)
+    ![Starta garn gränssnitt](./media/apache-spark-resource-manager/hdi-launch-apache-yarn.png)
 
    > [!TIP]  
    > Du kan också starta garn gränssnittet från Ambari-ANVÄNDARGRÄNSSNITTET. Starta Ambari-ANVÄNDARGRÄNSSNITTET genom att klicka på **kluster instrument panel**och sedan på **HDInsight-klustrets instrument panel**. Klicka på **garn**i AMBARI-användargränssnittet, klicka på **snabb länkar**, klicka på den aktiva Resource Manager och klicka sedan på **Resource Manager-användargränssnitt**.
 
 ## <a name="optimize-clusters-for-spark-applications"></a>Optimera kluster för Spark-program
+
 De tre nyckel parametrarna som kan användas för Spark-konfiguration `spark.executor.instances`, beroende på program krav, `spark.executor.cores`, och `spark.executor.memory`. En utförar är en process som startas för ett Spark-program. Den körs på Worker-noden och ansvarar för att utföra uppgifterna för programmet. Standard antalet körningar och utförar storlekarna för varje kluster beräknas baserat på antalet arbetsnoder och storleken på arbets noden. Den här informationen lagras i `spark-defaults.conf` kluster huvudnoderna.
 
 De tre konfigurations parametrarna kan konfigureras på kluster nivå (för alla program som körs i klustret) eller också kan de anges för varje enskilt program.
@@ -76,7 +78,7 @@ De tre konfigurations parametrarna kan konfigureras på kluster nivå (för alla
 
 3. Klicka på **Spara** för att spara konfigurations ändringarna. Längst upp på sidan uppmanas du att starta om alla berörda tjänster. Klicka på **Starta om**.
 
-    ![Starta om tjänster](./media/apache-spark-resource-manager/restart-services.png)
+    ![Starta om tjänster](./media/apache-spark-resource-manager/apache-ambari-restart-services.png)
 
 ### <a name="change-the-parameters-for-an-application-running-in-jupyter-notebook"></a>Ändra parametrarna för ett program som körs i Jupyter Notebook
 För program som körs i Jupyter Notebook kan du använda `%%configure` Magic för att göra konfigurationen ändringar. Vi rekommenderar att du gör sådana ändringar i början av programmet innan du kör den första kod cellen. Detta säkerställer att konfigurationen tillämpas på livy-sessionen när den skapas. Om du vill ändra konfigurationen i ett senare skede i programmet måste du använda `-f` -parametern. Men genom att göra detta går all status i programmet förlorade.
@@ -135,21 +137,21 @@ På grund av Spark Dynamic Allocation är de enda resurserna som används av Thr
 ## <a name="restart-the-jupyter-service"></a>Starta om Jupyter-tjänsten
 Starta Ambari-webbgränssnittet som visas i början av artikeln. Klicka på **Jupyter**i det vänstra navigerings fönstret, klicka på **service åtgärder**och klicka sedan på **starta om alla**. Detta startar Jupyter-tjänsten på alla huvudnoderna.
 
-![Starta om Jupyter](./media/apache-spark-resource-manager/restart-jupyter.png "Starta om Jupyter")
+![Starta om Jupyter](./media/apache-spark-resource-manager/apache-ambari-restart-jupyter.png "Starta om Jupyter")
 
 ## <a name="monitor-resources"></a>Övervaka resurser
 Starta det garn användar gränssnitt som visas i början av artikeln. I tabellen kluster mått överst på skärmen, kontrol lera värdena för **använt minne** och kolumner i **Total** mängd minne. Om de två värdena stängs kanske det inte finns tillräckligt med resurser för att starta nästa program. Detsamma gäller för de **virtuella kärnor som används** och **virtuella kärnor totala** kolumner. I huvudvyn kan det också vara en indikation på att det inte finns tillräckligt med resurser för att starta, om ett program finns i ett **godkänt** tillstånd och inte går över till att **köras** eller inte är i **fel** tillstånd.
 
-![Resurs gräns](./media/apache-spark-resource-manager/resource-limit.png "Resurs gräns")
+![Resurs gräns](./media/apache-spark-resource-manager/apache-ambari-resource-limit.png "Resurs gräns")
 
 ## <a name="kill-running-applications"></a>Avsluta program som körs
 1. I garn gränssnittet klickar du på **Kör**i den vänstra panelen. I listan över program som körs anger du vilket program som ska avlivas och klickar på **ID: t**.
 
-    ![Kill-APP1](./media/apache-spark-resource-manager/kill-app1.png "Kill-APP1")
+    ![Kill-APP1](./media/apache-spark-resource-manager/apache-ambari-kill-app1.png "Kill-APP1")
 
 2. Klicka på **Kill Application (avsluta program** ) i det övre högra hörnet och klicka sedan på **OK**.
 
-    ![Kill-APP2](./media/apache-spark-resource-manager/kill-app2.png "Kill-APP2")
+    ![Kill-APP2](./media/apache-spark-resource-manager/apache-ambari-kill-app2.png "Kill-APP2")
 
 ## <a name="see-also"></a>Se också
 * [Följa och felsöka jobb som körs i ett Apache Spark-kluster i HDInsight](apache-spark-job-debugging.md)

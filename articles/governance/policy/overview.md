@@ -7,16 +7,16 @@ ms.date: 12/06/2018
 ms.topic: overview
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: da045a561fba81bf9a5e412a6f2bf0a6160acfa7
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: b0c2d8060756c23cc69325ab88803d0423ba45b9
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67807439"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71002295"
 ---
-# <a name="overview-of-the-azure-policy-service"></a>Översikt över tjänsten Azure Policy
+# <a name="overview-of-the-azure-policy-service"></a>Översikt över Azure Policy tjänsten
 
-Styrning verifierar att din organisation kan uppnå sina mål via och effektiva användningen av IT. Detta sker genom att tydlighet skapas mellan affärsmålen och IT-projekten.
+Styrningen validerar att organisationen kan uppnå sina mål genom effektiv och effektiv användning av IT. Detta sker genom att tydlighet skapas mellan affärsmålen och IT-projekten.
 
 Har ditt företag ett stort antal IT-problem som aldrig verkar bli lösta?
 God IT-styrning omfattar att planera dina initiativ och ange prioritet på en strategisk nivå för att underlätta hantering och förebyggande av problem. Det är för det här strategiska behovet som Azure Policy kommer in i bilden.
@@ -30,7 +30,7 @@ Azure Policy är en tjänst i Azure som används till att skapa, tilldela och ha
 
 ## <a name="how-is-it-different-from-rbac"></a>Vad är skillnaden jämfört med RBAC?
 
-Det finns några viktiga skillnader mellan Azure Policy och rollbaserad åtkomstkontroll (RBAC). RBAC fokuserar på användaråtgärder i olika omfång. Du kan läggas till deltagarrollen för en resursgrupp, så att du kan göra ändringar i den resursgruppen. Azure Policy fokuserar på resursegenskaper under distributionen och för redan befintliga resurser. Azure Policy styr egenskaper, till exempel typer eller platserna för resurser. Till skillnad från RBAC, Azure Policy är en standard Tillåt och explicit neka system.
+Det finns några viktiga skillnader mellan Azure Policy och rollbaserad åtkomst kontroll (RBAC). RBAC fokuserar på användaråtgärder i olika omfång. Du kan läggas till deltagarrollen för en resursgrupp, så att du kan göra ändringar i den resursgruppen. Azure Policy fokuserar på resurs egenskaper under distributionen och för redan befintliga resurser. Azure Policy kontrollerar egenskaper som resursernas typer eller platser. Till skillnad från RBAC är Azure Policy en standard för att tillåta och explicit neka system.
 
 ### <a name="rbac-permissions-in-azure-policy"></a>RBAC-behörigheter i Azure Policy
 
@@ -39,7 +39,7 @@ Azure Policy har flera behörigheter, som kallas åtgärder, i två olika resurs
 - [Microsoft.Authorization](../../role-based-access-control/resource-provider-operations.md#microsoftauthorization)
 - [Microsoft.PolicyInsights](../../role-based-access-control/resource-provider-operations.md#microsoftpolicyinsights)
 
-Många inbyggda roller beviljar behörighet till Azure Policy-resurser. Den **resursprincip (förhandsversion)** innefattar de flesta Azure Policy-åtgärder. **Ägare** har fullständiga behörigheter. Båda **deltagare** och **läsare** kan använda alla Azure Policy läsåtgärder, men **deltagare** kan även utlösa reparation.
+Många inbyggda roller beviljar behörighet till Azure Policy-resurser. Rollen **resurs princip deltagare (förhands granskning)** inkluderar de flesta Azure policy åtgärder. **Ägare** har fullständiga behörigheter. Både **deltagare** och **läsare** kan använda alla Läs Azure policy-åtgärder, men **deltagare** kan även utlösa reparationer.
 
 Om ingen av de inbyggda rollerna har de behörigheter som krävs skapar du en [anpassad roll](../../role-based-access-control/custom-roles.md).
 
@@ -70,7 +70,7 @@ En principtilldelning är en principdefinition som tilldelas att äga rum inom e
 
 Du kan till exempel tilldela en princip som förhindrar skapande av nätverksresurser i ett prenumerationsområde. Du kan undanta en resursgrupp i prenumerationen som är avsedd för nätverksinfrastruktur. Du beviljar därefter åtkomst till den här nätverksresursgruppen för användare som du litar på för att skapa nätverksresurser.
 
-Ett annat exempel kanske du vill tilldela en resurs typ för att tillåta lista principen på gruppnivå management. Och sedan tilldela en mer tillåtande princip (som tillåter fler resurstyper) för en underordnad hanteringsgrupp eller till och med direkt för prenumerationer. Det här exemplet fungerar dock inte eftersom principen är ett system för uttryckligt nekande. Du måste i stället utesluta den underordnade hanteringsgruppen eller prenumerationen från principtilldelningen på hanteringsgruppsnivån. Tilldela sedan den mer tillåtande principen på nivån för den underordnade hanteringsgruppen eller prenumerationen. Om en princip leder till att en resurs nekas är det enda sättet att tillåta resursen att ändra den nekande principen.
+I ett annat exempel kanske du vill tilldela en lista över tillåtna grup principer för resurs typer på hanterings grupps nivå. Och sedan tilldela en mer tillåtande princip (som tillåter fler resurstyper) för en underordnad hanteringsgrupp eller till och med direkt för prenumerationer. Det här exemplet fungerar dock inte eftersom principen är ett system för uttryckligt nekande. Du måste i stället utesluta den underordnade hanteringsgruppen eller prenumerationen från principtilldelningen på hanteringsgruppsnivån. Tilldela sedan den mer tillåtande principen på nivån för den underordnade hanteringsgruppen eller prenumerationen. Om en princip leder till att en resurs nekas är det enda sättet att tillåta resursen att ändra den nekande principen.
 
 Mer information om att ange principdefinitioner och tilldelningar via portalen finns i [Skapa en principtilldelning för att identifiera icke-kompatibla resurser i Azure-miljön](assign-policy-portal.md). Steg för [PowerShell](assign-policy-powershell.md) och [Azure CLI](assign-policy-azurecli.md) är också tillgängliga.
 
@@ -112,12 +112,12 @@ Ta till exempel scenariot där du har en initiativdefinition, **initiativeC**, m
 I det här scenariot, när du definierar initiativparametrar för **initiativC**, har du tre alternativ:
 
 - Använd parametrarna för principdefinitionerna i det här initiativet: I det här exemplet blir *allowedLocations* och *allowedSingleLocation* initiativparametrar för **initiativeC**.
-- Ange värden för parametrarna för principdefinitionerna i den här initiativdefinitionen. I det här exemplet kan du ange en lista över platser för **principA-parametern allowedLocations** och **principB-parametern allowedSingleLocation**. Du kan också ange värden när du tilldelar det här initiativet.
+- Ange värden för parametrarna för principdefinitionerna i den här initiativdefinitionen. I det här exemplet kan du ange en lista över platser som ska användas för att ställa in **parameter-allowedLocations** och **Principb parameter – allowedSingleLocation**. Du kan också ange värden när du tilldelar det här initiativet.
 - Ange en lista med alternativ *värden* som kan användas när du tilldelar det här initiativet. När du tilldelar det här initiativet kan ärvda parametrarna från principdefinitionerna inom initiativet endast ha värden från den här listan.
 
 När du skapar värdealternativ i en initiativdefinition kan du inte ange ett annat värde under initiativtilldelningen eftersom det inte ingår i listan.
 
-## <a name="maximum-count-of-azure-policy-objects"></a>Maximalt antal objekt som Azure Policy
+## <a name="maximum-count-of-azure-policy-objects"></a>Maximalt antal Azure Policy objekt
 
 [!INCLUDE [policy-limits](../../../includes/azure-policy-limits.md)]
 
@@ -146,8 +146,8 @@ Följande översikt över Azure Policy är från Build 2018. För nedladdning av
 
 Nu när du har en översikt över Azure Policy och några av de centrala begreppen föreslår vi följande som nästa steg:
 
-- [Tilldela en principdefinition med hjälp av portalen](assign-policy-portal.md).
-- [Tilldela en principdefinition med Azure CLI](assign-policy-azurecli.md).
-- [Tilldela en principdefinition med hjälp av PowerShell](assign-policy-powershell.md).
-- Granska vilka en hanteringsgrupp är med [organisera dina resurser med Azure-hanteringsgrupper](..//management-groups/overview.md).
-- Visa [styr Azure-miljön via Azure Policy](https://channel9.msdn.com/events/Build/2018/THR2030) på Channel 9.
+- [Tilldela en princip definition med hjälp av portalen](assign-policy-portal.md).
+- [Tilldela en princip definition med hjälp av Azure CLI](assign-policy-azurecli.md).
+- [Tilldela en princip definition med hjälp av PowerShell](assign-policy-powershell.md).
+- Granska en hanterings grupp med [organisera dina resurser med Azures hanterings grupper](..//management-groups/overview.md).
+- Visa [styr din Azure-miljö via Azure policy](https://channel9.msdn.com/events/Build/2018/THR2030) på Channel 9.

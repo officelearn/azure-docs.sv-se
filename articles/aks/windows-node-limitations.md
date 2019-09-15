@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 05/31/2019
 ms.author: mlearned
-ms.openlocfilehash: ca5d857e4d473c7f76b7fac62e8a8bab39769b25
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: a0fe65428a3329d4843ec913e934fb7a91b13759
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70233123"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71000222"
 ---
 # <a name="current-limitations-for-windows-server-node-pools-and-application-workloads-in-azure-kubernetes-service-aks"></a>Aktuella begränsningar för Windows Server-nodkonfigurationer och program arbets belastningar i Azure Kubernetes service (AKS)
 
@@ -32,11 +32,11 @@ AKS använder Windows Server 2019 som värd-OS-version och stöder bara process 
 
 ## <a name="is-kubernetes-different-on-windows-and-linux"></a>Är Kubernetes annorlunda för Windows och Linux?
 
-Window Server Node pool support innehåller vissa begränsningar som ingår i den överordnade Windows Server i Kubernetes-projektet. Dessa begränsningar är inte begränsade till AKS. Mer information om det här överordnade stödet för Windows Server i Kubernetes finns i avsnittet [funktioner som stöds och begränsningar][upstream-limitations] i introduktionen [till Windows-stöd i Kubernetes][intro-windows] -dokument, från Kubernetes-projektet.
+Window Server Node pool support innehåller vissa begränsningar som ingår i den överordnade Windows Server i Kubernetes-projektet. Dessa begränsningar är inte begränsade till AKS. Mer information om det här överordnade stödet för Windows Server i Kubernetes finns i avsnittet [funktioner som stöds och begränsningar][upstream-limitations] i [introduktionen till Windows-stöd i Kubernetes][intro-windows] -dokument, från Kubernetes-projektet.
 
 Kubernetes är historiskt Linux-fokuserad. Många exempel som används i den överordnade [Kubernetes.io][kubernetes] -webbplatsen är avsedda att användas på Linux-noder. När du skapar distributioner som använder Windows Server-behållare gäller följande vid OS-nivå:
 
-- **Identitet** – Linux använder UserID (UID) och ID (GID) som visas som heltals typer. Användar-och grupp namn är inte kanoniska – de är bara ett alias i */etc/Groups* eller */etc/passwd* tillbaka till UID + GID.
+- **Identitet** – Linux identifierar en användare med en heltals användar IDENTIFIERARE (UID). En användare har också ett alfanumeriskt användar namn för inloggning, vilket innebär att Linux översätts till användarens UID. Linux identifierar på samma sätt en användar grupp med en heltals grupp identifierare (GID) och översätter ett grupp namn till motsvarande GID.
     - Windows Server använder en större säkerhets identifierare för binärfiler (SID) som lagras i Windows Security Access Manager-databasen (SAM). Den här databasen delas inte mellan värden och behållare, eller mellan behållare.
 - **Fil behörigheter** – Windows Server använder en åtkomst kontrol lista baserat på sid, i stället för en bitmask med behörigheter och UID + GID
 - **Fil Sök vägar** – konvention på Windows Server är att använda \ i stället för/.

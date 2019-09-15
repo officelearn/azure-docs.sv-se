@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/22/2019
 ms.author: sngun
 ms.reviewer: sngun
-ms.openlocfilehash: 31273105c2f4de6950eae6a66c50264803197642
-ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
+ms.openlocfilehash: 39427ac12dc6214630d6c3e5ace62692b1ea30b6
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69981880"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71003072"
 ---
 # <a name="migrate-data-to-azure-cosmos-db-cassandra-api-account-using-striim"></a>Migrera data till Azure Cosmos DB API för Cassandra konto med Striims
 
@@ -125,7 +125,7 @@ I det här avsnittet ska du konfigurera Azure Cosmos DB API för Cassandra-konto
 
    ![Kopiera Striims VM IP-adress](./media/cosmosdb-sql-api-migrate-data-striim/copy-public-ip-address.png)
 
-1. Om du vill navigera till Striims-webbgränssnittet öppnar du en ny flik i en webbläsare och kopierar den offentliga IP-adressen följt av: 9080. Logga in med administratörs användar namnet, tillsammans med administratörs lösen ordet som du angav i Azure Portal.
+1. Om du vill navigera till Striims-webbgränssnittet öppnar du en ny flik i en webbläsare och kopierar den offentliga IP-adressen följt av: 9080. Logga in med **Administratörs** användar namnet, tillsammans med administratörs lösen ordet som du angav i Azure Portal.
 
    ![Logga in på Striims](./media/cosmosdb-sql-api-migrate-data-striim/striim-login-ui.png)
 
@@ -155,7 +155,17 @@ I det här avsnittet ska du konfigurera Azure Cosmos DB API för Cassandra-konto
 
    ![Anslut till mål](./media/cosmosdb-cassandra-api-migrate-data-striim/connect-to-target.png)
 
-1. Ange i konfigurations egenskaperna för mål Azure Cosmos DBs instansen och välj **Spara** för att fortsätta.
+1. Innan du konfigurerar målet måste du kontrol lera att du har lagt till ett [Baltimore rot certifikat i Striims Java-miljö](/java/java-sdk-add-certificate-ca-store?view=azure-java-stable#to-add-a-root-certificate-to-the-cacerts-store).
+
+1. Ange konfigurations egenskaperna för mål Azure Cosmos DBs instansen och välj **Spara** för att fortsätta. Följande är de viktigaste parametrarna för att Observera:
+
+   * **Adapter** -Använd **DatabaseWriter**. När du skriver till Azure Cosmos DB API för Cassandra krävs DatabaseWriter. Cassandra driv rutin 3.6.0 paketeras med Striims. Om DatabaseWriter överskrider antalet ru: er som har allokerats på din Azure Cosmos-behållare kraschar programmet.
+
+   * **Användar namn** – ange namnet på ditt Azure Cosmos-konto.
+   
+   * **Password** – ange primär nyckeln för ditt Azure Cosmos-konto.
+
+   * **Tabeller** -mål tabeller måste ha primär nycklar och primär nycklar kan inte uppdateras.
 
    ![Konfigurera mål egenskaper](./media/cosmosdb-cassandra-api-migrate-data-striim/configure-target-parameters1.png)
 
@@ -178,8 +188,7 @@ I det här avsnittet ska du konfigurera Azure Cosmos DB API för Cassandra-konto
 
 1. Slutligen ska vi logga in på Azure och navigera till ditt Azure Cosmos-konto. Uppdatera Datautforskaren och du kan se att data har anlänt. 
 
-Genom att använda Striims-lösningen i Azure kan du kontinuerligt migrera data till Azure Cosmos DB från olika källor som Oracle, Cassandra, MongoDB och flera andra att Azure Cosmos DB. Om du har problem med att ställa in migrations Sök vägen med Striims kan du skicka en supportbegäran till [striims-webbplatsen](https://go2.striim.com/request-support-striim).
-
+Genom att använda Striims-lösningen i Azure kan du kontinuerligt migrera data till Azure Cosmos DB från olika källor som Oracle, Cassandra, MongoDB och flera andra att Azure Cosmos DB. Om du vill veta mer går du till [striims-webbplatsen](https://www.striim.com/), [laddar ned en kostnads fri 30-dagars utvärderings version av striims](https://go2.striim.com/download-free-trial)och för eventuella problem när du konfigurerar sökvägen för migrering med striims, så skicka en supportbegäran till en [support förfrågan.](https://go2.striim.com/request-support-striim)
 
 ## <a name="next-steps"></a>Nästa steg
 

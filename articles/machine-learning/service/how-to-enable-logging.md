@@ -1,7 +1,7 @@
 ---
-title: Aktivera loggning i Azure Machine Learnings tjänsten
-titleSuffix: Azure Machine Learning service
-description: Lär dig hur du aktiverar loggning i Azure Machine Learning-tjänsten med hjälp av både standard-python-loggnings paketet, samt hur du använder SDK-/regionsspecifika funktioner.
+title: Aktivera loggning i Azure Machine Learning
+titleSuffix: Azure Machine Learning
+description: Lär dig hur du aktiverar loggning i Azure Machine Learning att använda både standard-python-loggnings paketet, samt att använda SDK-/regionsspecifika funktioner.
 ms.author: trbye
 author: trevorbye
 services: machine-learning
@@ -10,14 +10,14 @@ ms.subservice: core
 ms.topic: conceptual
 ms.reviewer: trbye
 ms.date: 07/12/2019
-ms.openlocfilehash: 9deb369dc812616cd7256bbab4101531ca08f127
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 80508a31db8d86569c52df98697ceb62520059d2
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68847933"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71002760"
 ---
-# <a name="enable-logging-in-azure-machine-learning-service"></a>Aktivera loggning i Azure Machine Learnings tjänsten
+# <a name="enable-logging-in-azure-machine-learning"></a>Aktivera loggning i Azure Machine Learning
 
 Med Azure Machine Learning python SDK kan du aktivera loggning med hjälp av både standard-python-loggningsdatabasen, samt använda SDK-/regionsspecifika funktioner både för lokal loggning och loggning till din arbets yta i portalen. Loggar ger utvecklare information om programmets tillstånd i real tid och kan hjälpa till att diagnostisera fel eller varningar. I den här artikeln får du lära dig olika sätt att aktivera loggning i följande områden:
 
@@ -27,7 +27,7 @@ Med Azure Machine Learning python SDK kan du aktivera loggning med hjälp av bå
 > * Distribuerade modeller
 > * Python `logging` -inställningar
 
-[Skapa en Azure Machine Learning service-arbetsyta](how-to-manage-workspace.md). Använd [guiden](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py) för mer information SDK.
+[Skapa en Azure Machine Learning-arbetsyta](how-to-manage-workspace.md). Använd [guiden](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py) för mer information SDK.
 
 ## <a name="training-models-and-compute-target-logging"></a>Tränings modeller och loggning av beräknings mål
 

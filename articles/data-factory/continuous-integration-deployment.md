@@ -10,13 +10,13 @@ ms.author: daperlov
 ms.reviewer: maghan
 manager: jroth
 ms.topic: conceptual
-ms.date: 01/17/2019
-ms.openlocfilehash: 4d4fe32b5f457e2b223132006afd20bfe3161bbd
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.date: 08/14/2019
+ms.openlocfilehash: e522cba88eaf9cb63ef7ef2f20e3b72691261073
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70142609"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71002408"
 ---
 # <a name="continuous-integration-and-delivery-cicd-in-azure-data-factory"></a>Kontinuerlig integrering och leverans (CI/CD) i Azure Data Factory
 
@@ -90,7 +90,7 @@ Nedan finns en guide för att konfigurera en Azure pipelines-lansering som autom
 
 1.  Öppna det projekt som kon figurer ATS med din Data Factory i [användar upplevelsen för Azure-DevOps](https://dev.azure.com/).
 
-1.  Klicka på pipelines på vänster sida av sidan och välj sedan **versioner**.
+1.  Klicka på **pipelines** på vänster sida av sidan och välj sedan **versioner**.
 
     ![](media/continuous-integration-deployment/continuous-integration-image6.png)
 
@@ -426,7 +426,7 @@ Nedan visas en förklaring av hur ovanstående mall är konstruerad, uppdelad ef
 * Under `typeProperties`, har två egenskaper parametriserade. Det första är `maxConcurrency`, som har angetts att ha ett standardvärde och är av typen`string`. Den har standard parameter namnet `<entityName>_properties_typeProperties_maxConcurrency`.
 * `recurrence` Egenskapen är också parametriserad. Under den här nivån anges alla egenskaper på den nivån som parameterstyrda som strängar, med standardvärden och parameter namn. Ett undantag är `interval` egenskapen, som är parameterstyrda som en siffer typ och med parameter namnet suffixet med `<entityName>_properties_typeProperties_recurrence_triggerSuffix`. På samma sätt är egenskapenensträngochärparameterstyrdasomensträng.`freq` `freq` Egenskapen är dock parameterstyrda utan ett standardvärde. Namnet är kortare och suffixet. Till exempel `<entityName>_freq`.
 
-#### <a name="linkedservices"></a>LinkedServices
+#### <a name="linkedservices"></a>linkedServices
 
 * Länkade tjänster är unika. Eftersom länkade tjänster och data uppsättningar har en mängd olika typer, kan du ange en typ bestämd anpassning. I det här exemplet tillämpas alla länkade tjänster av `AzureDataLakeStore`typen, en särskild mall och för alla andra (via \*) en annan mall tillämpas.
 * Egenskapen är parameterstyrda som ett `securestring` värde, den har inget standardvärde och har ett förkortat parameter namn `connectionString`som har suffixet. `connectionString`
@@ -697,7 +697,7 @@ Om du använder git-integrering med din data fabrik och du har en CI/CD-pipeline
 
 -   **Git-integrering**. Du behöver bara konfigurera din utvecklings data fabrik med git-integrering. Ändringar av test och produktion distribueras via CI/CD och behöver inte git-integrering.
 
--   **Data Factory CI/CD-skript**. Före distributions steget i Resource Manager i CI/CD krävs vissa uppgifter som att stoppa/starta utlösare och rensa. Vi rekommenderar att du använder PowerShell-skript före och efter distributionen. Mer information finns i [Uppdatera aktiva](#update-active-triggers)utlösare. 
+-   **Data Factory CI/CD-skript**. Före distributions steget i Resource Manager i CI/CD krävs vissa uppgifter som att stoppa/starta utlösare och rensa. Vi rekommenderar att du använder PowerShell-skript före och efter distributionen. Mer information finns i [Uppdatera aktiva utlösare](#update-active-triggers). 
 
 -   **Integrerings körningar och delning**. Integrerings körningar ändras inte ofta och liknar varandra i alla steg i CI/CD. Därför förväntar Data Factory att du har samma namn och samma typ av integrerings körningar i alla stadier av CI/CD. Om du vill dela integrerings körningar i alla stadier bör du överväga att använda en ternär fabrik precis för att innehålla de delade integrerings körningarna. Du kan använda den här delade fabriken i alla dina miljöer som en länkad integration runtime-typ.
 

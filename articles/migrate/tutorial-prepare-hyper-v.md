@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 07/24/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 87df37cc6baa863bb0b068bdfeb9cde873e38836
-ms.sourcegitcommit: acffa72239413c62662febd4e39ebcb6c6c0dd00
+ms.openlocfilehash: 87a585f821f7b41c689899818627d863394fe844
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68952089"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71003099"
 ---
 # <a name="prepare-for-assessment-and-migration-of-hyper-v-vms-to-azure"></a>Förbered för utvärdering och migrering av virtuella Hyper-V-datorer till Azure
 
@@ -99,7 +99,7 @@ Gör så här för att förbereda för Hyper-V-utvärdering:
 1. Verifiera inställningarna för Hyper-V-värden.
 2. Konfigurera PowerShell-fjärrkommunikation på varje värd, så att Azure Migrate-installationen kan köra PowerShell-kommandon på värden via en WinRM-anslutning.
 3. Om VM-diskar finns i fjärr-SMB-lagring krävs delegering av autentiseringsuppgifter. 
-    - Aktivera CredSSP-delegering så att Azure Migrate-installationen kan fungera som klienten och delegera autentiseringsuppgifter till en värd. t
+    - Aktivera CredSSP-delegering så att Azure Migrate-installationen kan fungera som klienten och delegera autentiseringsuppgifter till en värd.
     - Du gör det möjligt för varje värd att fungera som ett ombud för enheten, enligt beskrivningen nedan.
     - När du senare konfigurerar installationen aktiverar du delegering på enheten.
 4. Granska kraven på installationen och den URL/port-åtkomst som krävs för installationen av enheten.
@@ -194,7 +194,7 @@ Innan du konfigurerar Azure Migrate-installationen och påbörjar utvärderingen
 1. [Kontrol lera](migrate-support-matrix-hyper-v.md#assessment-appliance-requirements) krav för produkten.
 2. [Granska](migrate-support-matrix-hyper-v.md#assessment-appliance-url-access) de Azure-URL: er som krävs för att komma åt installations programmet.
 3. Granska de data som installeras av enheten under identifiering och utvärdering.
-4. [](migrate-support-matrix-hyper-v.md#assessment-port-requirements) Antecknings portens åtkomst krav för produkten.
+4. [Antecknings](migrate-support-matrix-hyper-v.md#assessment-port-requirements) portens åtkomst krav för produkten.
 
 
 ### <a name="set-up-an-account-for-vm-discovery"></a>Konfigurera ett konto för VM-identifiering

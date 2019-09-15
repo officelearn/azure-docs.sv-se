@@ -16,12 +16,12 @@ ms.date: 05/07/2019
 ms.author: ryanwi
 ms.reviewer: lenalepa, sureshja, jesakowi
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 33128cbece3b217778182b3831b02e2f3f654f3b
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: c01f695210ebbd69a26b957e846ff645b1dea5bb
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68853220"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "70999017"
 ---
 # <a name="microsoft-identity-platform-integration-checklist"></a>Check lista för Microsoft Identity Platform-integrering
 
@@ -66,8 +66,8 @@ Använd följande check lista för att se till att programmet är effektivt inte
 | ![Rute](./media/active-directory-integration-checklist/checkbox-two.svg) | Om din app är registrerad i en katalog minimerar du och övervakar sedan listan över program registrerings ägare manuellt. |
 | ![Rute](./media/active-directory-integration-checklist/checkbox-two.svg) | Aktivera inte stöd för det [OAuth2 implicita beviljade flödet](v2-oauth2-implicit-grant-flow.md) om det inte uttryckligen krävs. Lär dig mer om det giltiga scenariot [här](v1-oauth2-implicit-grant-flow.md#suitable-scenarios-for-the-oauth2-implicit-grant). |
 | ![Rute](./media/active-directory-integration-checklist/checkbox-two.svg) | Använd inte [ROPC (Resource Owner Password Credential Flow)](v2-oauth-ropc.md)som direkt hanterar användarnas lösen ord. Det här flödet kräver en hög grad av förtroende och användar exponering och bör endast användas när andra, säkrare flöden inte kan användas. |
-| ![Rute](./media/active-directory-integration-checklist/checkbox-two.svg) | Skydda och hantera dina autentiseringsuppgifter för appen. Använd [autentiseringsuppgifter för certifikat](active-directory-certificate-credentials.md), inte autentiseringsuppgifter för lösen ord (klient hemligheter). Om du måste använda autentiseringsuppgifter för lösen ord ska du inte ange det manuellt. Lagra inte autentiseringsuppgifter i koden eller config och Tillåt aldrig att de hanteras av människa. Använd om möjligt [hanterade identiteter för Azure-resurser](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) eller [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-whatis) för att lagra och regelbundet Rotera dina autentiseringsuppgifter. |
-| ![Rute](./media/active-directory-integration-checklist/checkbox-two.svg) | Kontrol lera att ditt program begär minsta behörighet för behörighet. Fråga bara efter behörigheter som programmet absolut behöver, och endast när du behöver dem. Förstå de olika [typerna av behörigheter](v1-permissions-and-consent.md#types-of-permissions). Använd endast program behörigheter om det behövs. Använd delegerade behörigheter där det är möjligt. En fullständig lista över Microsoft Graph behörigheter finns i referensen för [behörighet](https://docs.microsoft.com/graph/permissions-reference). |
+| ![Rute](./media/active-directory-integration-checklist/checkbox-two.svg) | Skydda och hantera dina autentiseringsuppgifter för appen. Använd [autentiseringsuppgifter för certifikat](active-directory-certificate-credentials.md), inte autentiseringsuppgifter för lösen ord (klient hemligheter). Om du måste använda autentiseringsuppgifter för lösen ord ska du inte ange det manuellt. Lagra inte autentiseringsuppgifter i koden eller config och Tillåt aldrig att de hanteras av människa. Använd om möjligt [hanterade identiteter för Azure-resurser](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) eller [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview) för att lagra och regelbundet Rotera dina autentiseringsuppgifter. |
+| ![Rute](./media/active-directory-integration-checklist/checkbox-two.svg) | Kontrol lera att ditt program begär minsta behörighet för behörighet. Fråga bara efter behörigheter som programmet absolut behöver, och endast när du behöver dem. Förstå de olika [typerna av behörigheter](v1-permissions-and-consent.md#types-of-permissions). Använd endast program behörigheter om det behövs. Använd delegerade behörigheter där det är möjligt. En fullständig lista över Microsoft Graph behörigheter finns i [referensen för behörighet](https://docs.microsoft.com/graph/permissions-reference). |
 | ![Rute](./media/active-directory-integration-checklist/checkbox-two.svg) | Om du skyddar ett API med hjälp av Microsoft Identity Platform kan du noga tänka igenom de behörigheter som den ska visa. Överväg vad som är rätt kornig het för din lösning och vilka behörigheter som kräver administratörs medgivande. Sök efter förväntade behörigheter i inkommande token innan du fattar auktoriseringsbeslut. |
 
 ### <a name="implementation"></a>Implementering

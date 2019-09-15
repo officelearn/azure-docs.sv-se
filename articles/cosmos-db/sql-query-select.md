@@ -1,21 +1,21 @@
 ---
-title: SELECT-satsen i Azure Cosmos DB
-description: Läs mer om SQL SELECT-satsen för Azure Cosmos DB. Använd SQL som ett Azure Cosmos DB JSON-frågespråket.
+title: SELECT-sats i Azure Cosmos DB
+description: Läs om SQL SELECT-satsen för Azure Cosmos DB. Använd SQL som Azure Cosmos DB JSON-frågespråk.
 author: ginarobinson
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 06/10/2019
 ms.author: girobins
-ms.openlocfilehash: 84d0212f7f212b4554b506726e027fe51f795eea
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: d34b1c39d9789409dc365cd4cf07fdc3d5a780fd
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67342626"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71003519"
 ---
-# <a name="select-clause"></a>SELECT-satsen
+# <a name="select-clause"></a>SELECT-sats
 
-Varje fråga består av en SELECT-sats och en valfri [FROM](sql-query-from.md) och [där](sql-query-where.md) satser per ANSI SQL-standarder. Normalt källan i FROM-satsen räknas och WHERE-satsen används ett filter på källan för att hämta en delmängd av JSON-objekt. SELECT-satsen genererar sedan de begärda JSON-värden i select-listan.
+Varje fråga består av en SELECT-sats och [valfria from](sql-query-from.md) -och [WHERE](sql-query-where.md) -satser, enligt ANSI SQL-standarder. Normalt räknas källan i from-satsen och WHERE-satsen använder ett filter på källan för att hämta en delmängd av JSON-objekt. SELECT-satsen projekterar sedan de begärda JSON-värdena i SELECT-listan.
 
 ## <a name="syntax"></a>Syntax
 
@@ -52,7 +52,7 @@ SELECT <select_specification>
  
 - `DISTINCT`
   
-  Anger att dubbletter av beräknade egenskaper bör tas bort.  
+  Anger att dubbletter av projekterade egenskaper ska tas bort.  
 
 - `<scalar_expression>`  
 
@@ -78,7 +78,7 @@ Båda `SELECT <select_list>` och `SELECT *` är ”syntaktiska socker” och du 
   
 ## <a name="examples"></a>Exempel
 
-Välj följande fråga exempel returnerar `address` från `Families` vars `id` matchar `AndersenFamily`:
+Följande exempel på en urvals `address` fråga `Families` returnerar `id` från `AndersenFamily`vars matchningar:
 
 ```sql
     SELECT f.address
@@ -86,7 +86,7 @@ Välj följande fråga exempel returnerar `address` från `Families` vars `id` m
     WHERE f.id = "AndersenFamily"
 ```
 
-Resultatet är:
+Resultaten är:
 
 ```json
     [{
@@ -98,8 +98,8 @@ Resultatet är:
     }]
 ```
 
-### <a name="quoted-property-accessor"></a>Citerade Egenskapsåtkomst
-Du kan komma åt egenskaper med hjälp av citerade egenskapen operatorn []. Till exempel är `SELECT c.grade` och `SELECT c["grade"]` likvärdiga. Den här syntaxen är användbart för att undvika en egenskap som innehåller blanksteg, specialtecken, eller har samma namn som en SQL-nyckelord eller reserverat ord.
+### <a name="quoted-property-accessor"></a>Accessor för citerad egenskap
+Du kan komma åt egenskaper med operatorn för citerad egenskap []. Till exempel är `SELECT c.grade` och `SELECT c["grade"]` likvärdiga. Den här syntaxen är användbar för att undvika en egenskap som innehåller blank steg, specialtecken eller har samma namn som ett SQL-nyckelord eller reserverat ord.
 
 ```sql
     SELECT f["lastName"]
@@ -109,7 +109,7 @@ Du kan komma åt egenskaper med hjälp av citerade egenskapen operatorn []. Till
 
 ### <a name="nested-properties"></a>Kapslade egenskaper
 
-I följande exempel projekt två kapslade egenskaper `f.address.state` och `f.address.city`.
+I följande exempel projekterar två kapslade `f.address.state` egenskaper `f.address.city`och.
 
 ```sql
     SELECT f.address.state, f.address.city
@@ -117,7 +117,7 @@ I följande exempel projekt två kapslade egenskaper `f.address.state` och `f.ad
     WHERE f.id = "AndersenFamily"
 ```
 
-Resultatet är:
+Resultaten är:
 
 ```json
     [{
@@ -127,7 +127,7 @@ Resultatet är:
 ```
 ### <a name="json-expressions"></a>JSON-uttryck
 
-Projektion stöder också JSON-uttryck, som visas i följande exempel:
+Projektion stöder även JSON-uttryck, som du ser i följande exempel:
 
 ```sql
     SELECT { "state": f.address.state, "city": f.address.city, "name": f.id }
@@ -135,7 +135,7 @@ Projektion stöder också JSON-uttryck, som visas i följande exempel:
     WHERE f.id = "AndersenFamily"
 ```
 
-Resultatet är:
+Resultaten är:
 
 ```json
     [{
@@ -147,7 +147,7 @@ Resultatet är:
     }]
 ```
 
-SELECT-satsen i föregående exempel, som behövs för att skapa en JSON-objekt och eftersom det innehåller ingen nyckel, i satsen använder implicit argumentet variabelnamnet `$1`. Följande fråga returnerar två argumentvariabler som implicit: `$1` och `$2`.
+I föregående exempel måste SELECT-satsen skapa ett JSON-objekt och eftersom exemplet inte innehåller någon nyckel använder-satsen det implicita argumentet variabel namn `$1`. Följande fråga returnerar två implicita argument-variabler `$1` : `$2`och.
 
 ```sql
     SELECT { "state": f.address.state, "city": f.address.city },
@@ -156,7 +156,7 @@ SELECT-satsen i föregående exempel, som behövs för att skapa en JSON-objekt 
     WHERE f.id = "AndersenFamily"
 ```
 
-Resultatet är:
+Resultaten är:
 
 ```json
     [{
@@ -173,5 +173,5 @@ Resultatet är:
 ## <a name="next-steps"></a>Nästa steg
 
 - [Komma igång](sql-query-getting-started.md)
-- [Azure Cosmos DB .NET-exempel](https://github.com/Azure/azure-cosmosdb-dotnet)
+- [Azure Cosmos DB .NET-exempel](https://github.com/Azure/azure-cosmos-dotnet-v3)
 - [WHERE-satsen](sql-query-where.md)

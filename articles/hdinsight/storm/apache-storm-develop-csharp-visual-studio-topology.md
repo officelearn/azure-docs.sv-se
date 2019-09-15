@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 11/27/2017
 ROBOTS: NOINDEX
-ms.openlocfilehash: e6f6ba131a4fb5dd31f113afd2b6de2d65aeaea0
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: 828ec2b925535df3f925093466556447e703cd76
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70915170"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71003815"
 ---
 # <a name="develop-c-topologies-for-apache-storm-by-using-the-data-lake-tools-for-visual-studio"></a>Utveckla C# topologier för Apache Storm med hjälp av data Lake verktyg för Visual Studio
 
@@ -135,7 +135,7 @@ Ett exempel på en topologi som använder den här komponenten och fungerar med 
 
 2. I fönstret **nytt projekt** expanderar du **installerade** > **mallar**och väljer **Azure Data Lake**. Välj **Storm-program**i listan med mallar. Längst ned på skärmen anger du **WORDCOUNT** som namnet på programmet.
 
-    ![Skärm bild av nytt projekt fönster](./media/apache-storm-develop-csharp-visual-studio-topology/new-project.png)
+    ![Skärm bild av nytt projekt fönster](./media/apache-storm-develop-csharp-visual-studio-topology/apache-storm-new-project.png)
 
 3. När du har skapat projektet bör du ha följande filer:
 
@@ -338,7 +338,7 @@ Ett exempel på en topologi som använder den här komponenten och fungerar med 
 
 Kanaler och bultar är ordnade i ett diagram, vilket definierar hur data flödar mellan komponenter. I den här topologin är grafen följande:
 
-![Diagram över hur komponenter ordnas](./media/apache-storm-develop-csharp-visual-studio-topology/wordcount-topology.png)
+![Diagram över hur komponenter ordnas](./media/apache-storm-develop-csharp-visual-studio-topology/word-count-topology1.png)
 
 Meningar genereras från kanalen och distribueras till instanser av delnings blixten. Delnings bulten delar upp meningarna i ord som distribueras till räknar bulten.
 
@@ -461,7 +461,6 @@ Ett exempel på en hybrid topologi är att skapa ett projekt och välja **Storm 
   > [!NOTE]  
   > Den här versionen visar också hur du använder clojure-kod från en textfil som en Java-komponent.
 
-
 Om du vill byta topologi som används när projektet skickas flyttar `[Active(true)]` du instruktionen till den topologi du vill använda innan du skickar den till klustret.
 
 > [!NOTE]  
@@ -571,15 +570,15 @@ För Linux-baserade HDInsight-kluster ser du till att ditt projekt använder bin
    > [!NOTE]
    > Kom ihåg att ändra **utdatatypen tillbaka till** **klass biblioteket** innan du distribuerar topologin till ett kluster.
 
-2. I **Solution Explorer**högerklickar du på projektet och väljer sedan **Lägg till** > **nytt objekt**. Välj **klass**och ange **LocalTest.cs** som klass namn. Klicka slutligen på **Lägg till**.
+1. I **Solution Explorer**högerklickar du på projektet och väljer sedan **Lägg till** > **nytt objekt**. Välj **klass**och ange **LocalTest.cs** som klass namn. Klicka slutligen på **Lägg till**.
 
-3. Öppna **LocalTest.cs**och Lägg till följande **using** -uttryck högst upp:
+1. Öppna **LocalTest.cs**och Lägg till följande **using** -uttryck högst upp:
 
     ```csharp
     using Microsoft.SCP;
     ```
 
-4. Använd följande kod som innehållet i klassen **LocalTest** :
+1. Använd följande kod som innehållet i klassen **LocalTest** :
 
     ```csharp
     // Drives the topology components
@@ -681,9 +680,9 @@ För Linux-baserade HDInsight-kluster ser du till att ditt projekt använder bin
     Console.ReadKey();
     ```
 
-2. Spara ändringarna och klicka sedan på **F5** eller Välj **Felsök** > **Starta fel sökning** för att starta projektet. Ett konsol fönster bör visas och logg status visas som test förlopp. När **testerna är klara** trycker du på valfri tangent för att stänga fönstret.
+1. Spara ändringarna och klicka sedan på **F5** eller Välj **Felsök** > **Starta fel sökning** för att starta projektet. Ett konsol fönster bör visas och logg status visas som test förlopp. När **testerna är klara** trycker du på valfri tangent för att stänga fönstret.
 
-3. Använd **Utforskaren** för att hitta den katalog som innehåller ditt projekt. Exempel: **C:\Users\<your_user_name>\Documents\Visual Studio 2013\Projects\WordCount\WordCount**. I den här katalogen öppnar du **bin**och klickar sedan på **Felsök**. Du bör se de textfiler som skapades när testerna kördes: menings. txt, Counter. txt och delare. txt. Öppna varje textfil och granska data.
+1. Använd **Utforskaren** för att hitta den katalog som innehåller ditt projekt. Exempel: **C:\Users\<your_user_name>\Documents\Visual Studio 2013\Projects\WordCount\WordCount**. I den här katalogen öppnar du **bin**och klickar sedan på **Felsök**. Du bör se de textfiler som skapades när testerna kördes: menings. txt, Counter. txt och delare. txt. Öppna varje textfil och granska data.
 
    > [!NOTE]  
    > Sträng data sparas som en matris med decimal värden i de här filerna. Till exempel \[är [97 103 111]] i **delare. txt** -filen ordet *och*.

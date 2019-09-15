@@ -1,60 +1,60 @@
 ---
-title: SSL-avslutning med Azure Key Vault-certifikat
-description: Lär dig hur du kan integrera Azure Application Gateway med Key Vault för servercertifikat som är kopplade till HTTPS-aktiverad lyssnare.
+title: SSL-avslutning med Azure Key Vault certifikat
+description: Lär dig hur du kan integrera Azure Application Gateway med Key Vault för Server certifikat som är anslutna till HTTPS-aktiverade lyssnare.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
 ms.date: 4/25/2019
 ms.author: victorh
-ms.openlocfilehash: 18af315c58c838a7237acfbcc32f622a0edbd3b3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 725a9d67e6a6412fc48a4278b5a8a163272e5133
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65827631"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71000989"
 ---
-# <a name="ssl-termination-with-key-vault-certificates"></a>SSL-avslutning med Key Vault-certifikat
+# <a name="ssl-termination-with-key-vault-certificates"></a>SSL-avslutning med Key Vault certifikat
 
-[Azure Key Vault](../key-vault/key-vault-whatis.md) är en plattform-hanterad hemlighet lagra som du kan använda för att skydda hemligheter, nycklar och SSL-certifikat. Azure Application Gateway stöder integration med Key Vault (i allmänt tillgänglig förhandsversion) för servercertifikat som är kopplade till HTTPS-aktiverad lyssnare. Det här stödet är begränsat till v2-SKU för Application Gateway.
+[Azure Key Vault](../key-vault/key-vault-overview.md) är ett plattforms hanterat hemligt arkiv som du kan använda för att skydda hemligheter, nycklar och SSL-certifikat. Azure Application Gateway stöder integrering med Key Vault (i offentlig för hands version) för Server certifikat som är anslutna till HTTPS-aktiverade lyssnare. Detta stöd är begränsat till v2-SKU: n för Application Gateway.
 
 > [!IMPORTANT]
-> Integrering av Application Gateway med Key Vault finns för närvarande i offentlig förhandsversion. Den här förhandsversionen tillhandahålls utan ett servicenivåavtal (SLA) och rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Integrering av Application Gateway med Key Vault finns för närvarande i offentlig för hands version. Den här för hands versionen tillhandahålls utan service avtal (SLA) och rekommenderas inte för produktions arbets belastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Den här förhandsversionen finns i två modeller för SSL-avslutning:
+Den här offentliga för hands versionen innehåller två modeller för SSL-avslutning:
 
-- Du kan uttryckligen ange SSL-certifikat som är kopplade till lyssnaren. Den här modellen är det traditionella sättet att skicka SSL-certifikat till Application Gateway för SSL-avslutning.
-- Du kan också bifoga en referens till en befintlig Key Vault-certifikat eller en hemlighet när du skapar en lyssnare för HTTPS-aktiverad.
+- Du kan uttryckligen tillhandahålla SSL-certifikat som är kopplade till lyssnaren. Den här modellen är det traditionella sättet att skicka SSL-certifikat till Application Gateway för SSL-avslutning.
+- Du kan också ange en referens till ett befintligt Key Vault certifikat eller hemlighet när du skapar en HTTPS-aktiverad lyssnare.
 
-Application Gateway-integration med Key Vault erbjuder många fördelar, inklusive:
+Application Gateway integration med Key Vault erbjuder många fördelar, inklusive:
 
-- Bättre säkerhet, eftersom SSL-certifikat inte är direkt hanteras av programmet Utvecklingsteamet. Integrering ger en separat säkerhetsteam för att:
-  * Ställ in programgatewayer.
-  * Styra programlivscykler för gateway.
-  * Beviljar behörigheter till valda programgatewayer att komma åt certifikat som lagras i ditt nyckelvalv.
-- Stöd för att importera befintliga certifikat till ditt nyckelvalv. Eller Använd Key Vault-API: er för att skapa och hantera nya certifikat med någon av de betrodda Key Vault-partner.
-- Stöd för automatisk förnyelse av certifikat som lagras i ditt nyckelvalv.
+- Starkare säkerhet, eftersom SSL-certifikat inte hanteras direkt av program utvecklings teamet. Integrationen gör att ett separat säkerhets team kan:
+  * Konfigurera programgatewayer.
+  * Kontrol lera Application Gateway-livscykler.
+  * Bevilja behörighet till valda programgatewayer för att komma åt certifikat som lagras i ditt nyckel valv.
+- Stöd för import av befintliga certifikat i nyckel valvet. Eller Använd Key Vault API: er för att skapa och hantera nya certifikat med någon av de betrodda Key Vault partnerna.
+- Stöd för automatisk förnyelse av certifikat som lagras i ditt nyckel valv.
 
-Application Gateway stöder för närvarande endast programvara-verifierade certifikat. Modul för maskinvarusäkerhet (HSM)-validerade certifikat stöds inte. När Application Gateway har konfigurerats för att använda Key Vault-certifikat kan hämta certifikatet från Key Vault dess instanser och installera dem lokalt för SSL-avslutning. Instanserna avsöka också Key Vault med 24 timmars intervall för att hämta en förnyade version av certifikat, om den finns. Om ett uppdaterat certifikat hittas, roteras automatiskt SSL-certifikatet som är kopplade till HTTPS-lyssnaren.
+Application Gateway stöder för närvarande endast program varu validerade certifikat. HSM (Hardware Security Module) – verifierade certifikat stöds inte. När Application Gateway har kon figurer ATS för att använda Key Vault certifikat, hämtar dess instanser certifikatet från Key Vault och installerar dem lokalt för SSL-avslutning. Instanserna avsöker också Key Vault med 24 timmar för att hämta en förnyad version av certifikatet, om det finns. Om ett uppdaterat certifikat hittas, roteras det SSL-certifikat som för närvarande är associerat med HTTPS-lyssnaren automatiskt.
 
 ## <a name="how-integration-works"></a>Så här fungerar integrering
 
-Application Gateway-integration med Key Vault kräver en konfigurationsprocessen för tre steg:
+Application Gateway-integrering med Key Vault kräver en konfigurations process i tre steg:
 
-1. **Skapa en hanterad Användartilldelad identitet**
+1. **Skapa en användardefinierad hanterad identitet**
 
-   Du skapar eller återanvända en befintlig användartilldelade hanterad identitet, som Application Gateway använder för att hämta certifikat från Key Vault för din räkning. Mer information finns i [Vad är hanterade identiteter för Azure-resurser?](../active-directory/managed-identities-azure-resources/overview.md). Det här steget skapar en ny identitet i Azure Active Directory-klient. Identiteten är betrodd av den prenumeration som används för att skapa identiteten.
+   Du skapar eller återanvänder en befintlig användare som tilldelats en hanterad identitet, som Application Gateway använder för att hämta certifikat från Key Vault åt dig. Mer information finns i [Vad är hanterade identiteter för Azure-resurser?](../active-directory/managed-identities-azure-resources/overview.md). I det här steget skapas en ny identitet i Azure Active Directory-klienten. Identiteten är betrodd av den prenumeration som används för att skapa identiteten.
 
-1. **Konfigurera ditt nyckelvalv**
+1. **Konfigurera nyckel valvet**
 
-   Sedan antingen importera ett befintligt certifikat eller skapa en ny i ditt nyckelvalv. Certifikatet ska användas av program som körs via application gateway. I det här steget kan du också använda en hemlighet i nyckelvalvet som lagras som en lösenord utan, base 64-kodad PFX-fil. Vi rekommenderar att du använder en certifikattyp på grund av funktionen för automatisk förnyelse som är tillgängliga med certifikat typobjekt i nyckelvalvet. När du har skapat ett certifikat eller en hemlighet kan du definiera åtkomstprinciper i key vault så att identitet som beviljas *hämta* åtkomst till hemligheten.
+   Du kan antingen importera ett befintligt certifikat eller skapa ett nytt i ditt nyckel valv. Certifikatet kommer att användas av program som körs via programgatewayen. I det här steget kan du också använda en nyckel valvs hemlighet som lagras som en lösen ords fri, Base 64-kodad PFX-fil. Vi rekommenderar att du använder en certifikat typ på grund av den funktion för förnyad förnyelse som är tillgänglig med certifikat typs objekt i nyckel valvet. När du har skapat ett certifikat eller en hemlighet definierar du åtkomst principer i nyckel valvet för att ge identiteten behörighet att *få* åtkomst till hemligheten.
 
-1. **Konfigurera application gateway**
+1. **Konfigurera Application Gateway**
 
-   När du har slutfört de två föregående stegen kan du ställa in eller ändra en befintlig Programgateway för att använda den hanterade Användartilldelad identitet. Du kan också konfigurera HTTP-lyssnaren SSL-certifikat så att den pekar till den fullständiga URI för Key Vault-certifikat eller Hemlig-ID.
+   När du har slutfört de två föregående stegen kan du konfigurera eller ändra en befintlig Programgateway för att använda den tilldelade hanterade identiteten. Du kan också konfigurera HTTP-lyssnarens SSL-certifikat så att det pekar på hela URI: n för Key Vault certifikat eller hemligt ID.
 
-   ![Key vault-certifikat](media/key-vault-certs/ag-kv.png)
+   ![Key Vault-certifikat](media/key-vault-certs/ag-kv.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Konfigurera SSL-avslutning med Key Vault-certifikat med hjälp av Azure PowerShell](configure-keyvault-ps.md)
+[Konfigurera SSL-avslutning med Key Vault certifikat med hjälp av Azure PowerShell](configure-keyvault-ps.md)

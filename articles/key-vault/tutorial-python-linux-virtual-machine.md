@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/05/2018
 ms.author: mbaldwin
 ms.custom: mvc
-ms.openlocfilehash: f002a4d67ee782b11cd8f39784eb48b136328c89
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: 48095a2d446c8f85bab9d9268e924e29fe9a9f21
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67876713"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71003894"
 ---
 # <a name="tutorial-use-a-linux-vm-and-a-python-app-to-store-secrets-in-azure-key-vault"></a>Självstudier: Använda en virtuell Linux-dator och en Python-app för att lagra hemligheter i Azure Key Vault
 
@@ -30,7 +30,7 @@ I den här självstudien konfigurerar du en Azure-webbapp till att läsa informa
 > * Bevilja de behörigheter som krävs för att konsolprogrammet ska kunna läsa data från nyckelvalvet
 > * Hämta en hemlighet från nyckelvalvet
 
-Innan du fortsätter behöver du känna till [grundbegreppen om nyckelvalv](key-vault-whatis.md#basic-concepts).
+Innan du fortsätter behöver du känna till [grundbegreppen om nyckelvalv](basic-concepts.md).
 
 ## <a name="prerequisites"></a>Förutsättningar
 

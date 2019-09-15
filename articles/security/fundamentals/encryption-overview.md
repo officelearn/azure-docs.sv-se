@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/20/2018
 ms.author: barclayn
-ms.openlocfilehash: 62fcc19f3cfe9109097d1f2a70d785060b5bdc53
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 408c9fb58b428c1671794c6e4e5cc890a153813f
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68727358"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71003952"
 ---
 # <a name="azure-encryption-overview"></a>Översikt över Azure-kryptering
 
@@ -59,9 +59,9 @@ De tre krypterings modellerna på Server sidan ger olika egenskaper för nyckel 
 
 ### <a name="azure-disk-encryption"></a>Azure Disk Encryption
 
-Du kan skydda virtuella Windows-och Linux-datorer med hjälp av [Azure disk](/azure/security/azure-security-disk-encryption)Encryption, som använder [Windows BitLocker](https://technet.microsoft.com/library/cc766295(v=ws.10).aspx) -teknik och Linux [dm-crypt](https://en.wikipedia.org/wiki/Dm-crypt) för att skydda både operativ system diskar och data diskar med fullständig volym kryptering.
+Du kan skydda virtuella Windows-och Linux-datorer med hjälp av [Azure Disk Encryption](/azure/security/azure-security-disk-encryption), som använder [Windows BitLocker](https://technet.microsoft.com/library/cc766295(v=ws.10).aspx) -teknik och Linux [dm-crypt](https://en.wikipedia.org/wiki/Dm-crypt) för att skydda både operativ system diskar och data diskar med fullständig volym kryptering.
 
-Krypterings nycklar och hemligheter skyddas i [Azure Key Vault prenumerationen](../../key-vault/key-vault-whatis.md). Genom att använda Azure Backup tjänsten kan du säkerhetskopiera och återställa krypterade virtuella datorer som använder KEK-konfiguration (Key Encryption Key).
+Krypterings nycklar och hemligheter skyddas i [Azure Key Vault prenumerationen](../../key-vault/key-vault-overview.md). Genom att använda Azure Backup tjänsten kan du säkerhetskopiera och återställa krypterade virtuella datorer som använder KEK-konfiguration (Key Encryption Key).
 
 ### <a name="azure-storage-service-encryption"></a>Kryptering av Azure-lagringstjänst
 

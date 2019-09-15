@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 09/03/2010
 ms.author: mbaldwin
 ms.custom: mvc
-ms.openlocfilehash: 4bea46e62f90a41b566781457a39718849ee0e15
-ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
+ms.openlocfilehash: 02b9c439a932a4b35700871e68bdad7f03451110
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70259232"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71003496"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-by-using-a-node-web-app"></a>Snabbstart: Ange och hämta en hemlighet från Azure Key Vault med hjälp av en Node-webbapp 
 
@@ -27,7 +27,7 @@ Den här snabb starten visar hur du lagrar en hemlighet i Azure Key Vault och hu
 * Aktivera en [hanterad identitet](../active-directory/managed-service-identity/overview.md) för webbappen.
 * Bevilja de behörigheter som krävs för att webbprogrammet ska kunna läsa data från nyckelvalvet.
 
-Innan du fortsätter bör du kontrol lera att du är bekant med de [grundläggande begreppen för Key Vault](key-vault-whatis.md#basic-concepts).
+Innan du fortsätter bör du kontrol lera att du är bekant med de [grundläggande begreppen för Key Vault](basic-concepts.md).
 
 > [!NOTE]
 > Key Vault är en central lagringsplats för programmeringsbaserad lagring av hemligheter. Det här kräver att program och användare först autentiseras mot Key Vault, dvs. presenterar en hemlighet. Den här första hemligheten måste roteras med jämna mellanrum för att uppfylla de rekommenderade säkerhetsmetoderna. 

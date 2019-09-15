@@ -1,27 +1,27 @@
 ---
-title: Nyckelvalvshemligheten med Azure Resource Manager-mall | Microsoft Docs
-description: Visar hur du skickar en hemlighet från key vault som en parameter under distributionen.
+title: Key Vault hemlighet med Azure Resource Manager-mall | Microsoft Docs
+description: Visar hur du skickar en hemlighet från ett nyckel valv som en parameter under distributionen.
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 05/09/2019
 ms.author: tomfitz
-ms.openlocfilehash: de52dbb10d515a2255b5886df5bf0a0faa454f6b
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: 489b09d2523393ae67668ed13c651c9b7b0217b4
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67672761"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "70998896"
 ---
-# <a name="use-azure-key-vault-to-pass-secure-parameter-value-during-deployment"></a>Använda Azure Key Vault för att skicka säkra parametervärdet under distributionen
+# <a name="use-azure-key-vault-to-pass-secure-parameter-value-during-deployment"></a>Använd Azure Key Vault för att skicka ett säkert parameter värde under distributionen
 
-Istället för att sätta ett säkert värde (t.ex. ett lösenord) direkt i din mall eller parametern-fil, kan du hämta värdet från en [Azure Key Vault](../key-vault/key-vault-whatis.md) under en distribution. Du kan hämta värdet genom att referera till nyckelvalvet och hemligheten i parameterfilen. Värdet exponeras aldrig eftersom du bara refererar till dess nyckelvalvs-ID. Nyckelvalvet kan finnas i en annan prenumeration än den resursgrupp som du distribuerar till.
+I stället för att ange ett säkert värde (till exempel ett lösen ord) direkt i din mall eller parameter fil kan du hämta värdet från en [Azure Key Vault](../key-vault/key-vault-overview.md) under en distribution. Du hämtar värdet genom att referera till nyckel valvet och hemligheten i parameter filen. Värdet exponeras aldrig eftersom du bara refererar till dess nyckelvalvs-ID. Nyckel valvet kan finnas i en annan prenumeration än den resurs grupp som du distribuerar till.
 
-## <a name="deploy-key-vaults-and-secrets"></a>Distribuera nyckelvalv och hemligheter
+## <a name="deploy-key-vaults-and-secrets"></a>Distribuera nyckel valv och hemligheter
 
-Om du vill komma åt ett nyckelvalv när mallen distribueras, ange `enabledForTemplateDeployment` i nyckelvalvet till `true`.
+Om du vill få åtkomst till ett nyckel valv under `enabledForTemplateDeployment` mal Lav distributionen anger du `true`nyckel valvet till.
 
-Följande Azure CLI och Azure PowerShell-exemplen visar hur du skapar nyckelvalvet och lägga till en hemlighet.
+Följande exempel på Azure CLI och Azure PowerShell visar hur du skapar nyckel valvet och lägger till en hemlighet.
 
 ```azurecli
 az group create --name $resourceGroupName --location $location
@@ -44,7 +44,7 @@ $secretvalue = ConvertTo-SecureString 'hVFkk965BuUv' -AsPlainText -Force
 $secret = Set-AzKeyVaultSecret -VaultName $keyVaultName -Name 'ExamplePassword' -SecretValue $secretvalue
 ```
 
-Som ägare av key vault kan har du automatiskt tillgång till skapa hemligheter. Om användare som arbetar med hemligheter inte är ägare av key vault kan du bevilja åtkomst med:
+Som ägare till nyckel valvet har du automatiskt åtkomst till att skapa hemligheter. Om användaren som arbetar med hemligheter inte är ägare till nyckel valvet ger du till gång till:
 
 ```azurecli
 az keyvault set-policy \
@@ -62,21 +62,21 @@ Set-AzKeyVaultAccessPolicy `
   -PermissionsToSecrets set,delete,get,list
 ```
 
-Mer information om att skapa nyckelvalv och lägger till hemligheter finns:
+Mer information om hur du skapar nyckel valv och lägger till hemligheter finns i:
 
 - [Ange och hämta en hemlighet med hjälp av CLI](../key-vault/quick-create-cli.md)
-- [Ange och hämta en hemlighet med hjälp av Powershell](../key-vault/quick-create-powershell.md)
+- [Ange och hämta en hemlighet med hjälp av PowerShell](../key-vault/quick-create-powershell.md)
 - [Ange och hämta en hemlighet med hjälp av portalen](../key-vault/quick-create-portal.md)
-- [Ange och hämta en hemlighet med hjälp av .NET](../key-vault/quick-create-net.md)
-- [Ange och hämta en hemlighet med hjälp av Node.js](../key-vault/quick-create-node.md)
+- [Ange och hämta en hemlighet med .NET](../key-vault/quick-create-net.md)
+- [Ange och hämta en hemlighet med Node. js](../key-vault/quick-create-node.md)
 
 ## <a name="grant-access-to-the-secrets"></a>Bevilja åtkomst till hemligheterna
 
-Den användare som distribuerar mallen måste ha den `Microsoft.KeyVault/vaults/deploy/action` behörighet för detta scope för resursgruppen och nyckelvalvet. Den [ägare](../role-based-access-control/built-in-roles.md#owner) och [deltagare](../role-based-access-control/built-in-roles.md#contributor) båda bevilja åtkomst. Om du skapade nyckelvalvet är ägare så att du har behörighet.
+Den användare som distribuerar mallen måste ha `Microsoft.KeyVault/vaults/deploy/action` behörighet för omfånget för resurs gruppen och nyckel valvet. [Ägare](../role-based-access-control/built-in-roles.md#owner) och [deltagar](../role-based-access-control/built-in-roles.md#contributor) roller beviljar den här åtkomsten. Om du har skapat nyckel valvet är du ägare så att du har behörigheten.
 
-Följande procedur visar hur du skapar en roll med den minsta behörigheten och tilldela användaren
+Följande procedur visar hur du skapar en roll med minsta behörighet och hur du tilldelar användaren
 
-1. Skapa en anpassad roll definition JSON-fil:
+1. Skapa en JSON-fil för anpassad roll definition:
 
     ```json
     {
@@ -94,7 +94,7 @@ Följande procedur visar hur du skapar en roll med den minsta behörigheten och 
       ]
     }
     ```
-    Ersätt ”00000000-0000-0000-0000-000000000000” med prenumerations-ID.
+    Ersätt "00000000-0000-0000-0000-000000000000" med prenumerations-ID: t.
 
 2. Skapa den nya rollen med hjälp av JSON-filen:
 
@@ -114,19 +114,19 @@ Följande procedur visar hur du skapar en roll med den minsta behörigheten och 
       -SignInName $userPrincipalName
     ```
 
-    Exemplen tilldela den anpassade rollen till användaren på resursgruppsnivå.  
+    Exemplen tilldelar användaren den anpassade rollen på resurs grupps nivå.  
 
-När du använder ett Nyckelvalv med hjälp av mallen för en [Managed Application](../managed-applications/overview.md), måste du bevilja åtkomst till den **installation Resource Provider** tjänstens huvudnamn. Mer information finns i [åtkomst till Key Vault-hemlighet när du distribuerar Azure Managed Applications](../managed-applications/key-vault-access.md).
+När du använder en Key Vault med mallen för ett [hanterat program](../managed-applications/overview.md)måste du bevilja åtkomst till tjänstens huvud namn för enhets **resurs leverantören** . Mer information finns i [åtkomst Key Vault hemlighet när du distribuerar Azure Managed Applications](../managed-applications/key-vault-access.md).
 
-## <a name="reference-secrets-with-static-id"></a>Referens för hemligheter med statiska ID
+## <a name="reference-secrets-with-static-id"></a>Referens hemligheter med statiskt ID
 
-Med den här metoden kan referera du till key vault i parameterfilen, inte i mallen. Följande bild visar hur parameterfilen refererar till hemligheten och skickar det värdet i mallen.
+Med den här metoden refererar du till nyckel valvet i parameter filen, inte mallen. Följande bild visar hur parameter filen refererar till hemligheten och skickar värdet till mallen.
 
-![Resource Manager key vault-integrering Static ID diagram](./media/resource-manager-keyvault-parameter/statickeyvault.png)
+![Statiskt ID-diagram för Key Vault-integrering i Resource Manager](./media/resource-manager-keyvault-parameter/statickeyvault.png)
 
-[Självstudier: Integrera Azure Key Vault i Resource Manager-mall distribution](./resource-manager-tutorial-use-key-vault.md) använder den här metoden.
+[Självstudier: Integrera Azure Key Vault i Resource Manager malldistribution](./resource-manager-tutorial-use-key-vault.md) använder den här metoden.
 
-Följande mallen distribuerar en SQLServer som innehåller ett administratörslösenord. Lösenordsparametern har angetts till en säker sträng. Men mallen ange inte där värdet kommer från.
+Följande mall distribuerar en SQL-Server som innehåller ett administratörs lösen ord. Lösen ords parametern är inställd på en säker sträng. Men mallen anger inte var värdet kommer från.
 
 ```json
 {
@@ -162,9 +162,9 @@ Följande mallen distribuerar en SQLServer som innehåller ett administratörsl�
 }
 ```
 
-Nu skapa en parameterfil för föregående mall. Ange en parameter som matchar namnet på parametern i mallen i parameterfilen. För parametern, referera till hemligheten från nyckelvalvet. Du kan referera hemligheten genom att skicka resurs-ID för nyckelvalvet och namnet på hemligheten:
+Skapa nu en parameter fil för föregående mall. I parameter filen anger du en parameter som matchar namnet på parametern i mallen. Som parameter värde refererar du till hemligheten från nyckel valvet. Du refererar till hemligheten genom att skicka resurs identifieraren för nyckel valvet och namnet på hemligheten:
 
-I följande parameterfilen, key vault-hemlighet måste redan finnas och du kan ange ett statiskt värde för dess resurs-ID.
+I följande parameter fil måste nyckel valvets hemlighet redan finnas och du anger ett statiskt värde för resurs-ID: t.
 
 ```json
 {
@@ -189,14 +189,14 @@ I följande parameterfilen, key vault-hemlighet måste redan finnas och du kan a
 }
 ```
 
-Om du vill använda en version av hemligheten än den aktuella versionen kan du använda den `secretVersion` egenskapen.
+Om du behöver använda en annan version av hemligheten än den aktuella versionen använder `secretVersion` du egenskapen.
 
 ```json
 "secretName": "ExamplePassword",
 "secretVersion": "cd91b2b7e10e492ebb870a6ee0591b68"
 ```
 
-Distribuera mallen och ange parameterfilen:
+Distribuera mallen och skicka den till parameter filen:
 
 Om du använder Azure CLI använder du:
 
@@ -218,17 +218,17 @@ New-AzResourceGroupDeployment `
   -TemplateParameterFile <The Parameter File>
 ```
 
-## <a name="reference-secrets-with-dynamic-id"></a>Referens för hemligheter med dynamiska ID
+## <a name="reference-secrets-with-dynamic-id"></a>Referens hemligheter med dynamiskt ID
 
-Föregående avsnitt visade hur du skickar en statisk resurs-ID för key vault-hemlighet från parametern. Men i vissa fall kan behöva du referera till en key vault-hemlighet som varierar baserat på den aktuella distributionen. Eller så kan du ange parametervärden för mallen i stället för att skapa en referens-parameter i parameterfilen. I båda fallen kan du dynamiskt generera resurs-ID för en hemlighet i nyckelvalvet genom att använda en länkad mall.
+Föregående avsnitt visade hur du skickar ett statiskt resurs-ID för nyckel valvets hemlighet från parametern. I vissa fall måste du dock referera till en nyckel valvs hemlighet som varierar beroende på den aktuella distributionen. Eller så kanske du vill skicka parameter värden till mallen i stället för att skapa en referens parameter i parameter filen. I båda fallen kan du dynamiskt generera resurs-ID för en nyckel valv hemlighet genom att använda en länkad mall.
 
-Du kan inte dynamiskt generera resurs-ID i parameterfilen eftersom malluttryck inte tillåts i parameterfilen. 
+Du kan inte dynamiskt generera resurs-ID: t i parameter filen eftersom det inte går att använda Template-uttryck i parameter filen. 
 
-I den överordnade mallen, du lägger till länkad mall och skicka in en parameter som innehåller dynamiskt skapade resurs-ID. Följande bild visar hur en parameter i mallen länkade refererar till hemligheten.
+I den överordnade mallen lägger du till den länkade mallen och skickar den till en parameter som innehåller det dynamiskt genererade resurs-ID: t. Följande bild visar hur en parameter i den länkade mallen refererar till hemligheten.
 
-![Dynamic ID](./media/resource-manager-keyvault-parameter/dynamickeyvault.png)
+![Dynamiskt ID](./media/resource-manager-keyvault-parameter/dynamickeyvault.png)
 
-Den [följande mall](https://github.com/Azure/azure-quickstart-templates/tree/master/201-key-vault-use-dynamic-id) dynamiskt skapar nyckelvalvs-ID och skickar det som en parameter.
+[Följande mall](https://github.com/Azure/azure-quickstart-templates/tree/master/201-key-vault-use-dynamic-id) skapar dynamiskt Key Vault-ID och skickar det som en parameter.
 
 ```json
 {
@@ -321,7 +321,7 @@ Den [följande mall](https://github.com/Azure/azure-quickstart-templates/tree/ma
 }
 ```
 
-Distribuera föregående mall och ange värden för parametrarna. Du kan använda mallen exempel från GitHub, men du måste ange parametervärden för din miljö.
+Distribuera föregående mall och ange värden för parametrarna. Du kan använda exempel mal len från GitHub, men du måste ange parameter värden för din miljö.
 
 Om du använder Azure CLI använder du:
 
@@ -345,5 +345,5 @@ New-AzResourceGroupDeployment `
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Allmän information om viktiga valv finns i [vad är Azure Key Vault?](../key-vault/key-vault-overview.md).
-- Komplett exempel på refererar till viktiga hemligheter finns [Key Vault exempel](https://github.com/rjmax/ArmExamples/tree/master/keyvaultexamples).
+- Allmän information om nyckel valv finns i [Azure Key Vault?](../key-vault/key-vault-overview.md).
+- Fullständiga exempel på referenser till nyckel hemligheter finns [Key Vault exempel](https://github.com/rjmax/ArmExamples/tree/master/keyvaultexamples).

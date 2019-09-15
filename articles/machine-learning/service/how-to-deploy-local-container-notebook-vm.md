@@ -1,7 +1,7 @@
 ---
 title: Så här distribuerar du modeller till Notebook VM
-titleSuffix: Azure Machine Learning service
-description: Lär dig hur du distribuerar dina Azure Machine Learning-tjänst modeller som en webb tjänst med virtuella notebook-datorer.
+titleSuffix: Azure Machine Learning
+description: Lär dig hur du distribuerar dina Azure Machine Learning-modeller som en webb tjänst med virtuella notebook-datorer.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,26 +10,26 @@ ms.author: mnark
 author: MrudulaN
 ms.reviewer: larryfr
 ms.date: 08/08/2019
-ms.openlocfilehash: d6b26dfe1eb8ea65dd7c751a148c599123b0f6db
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: 046f998038c47a48a8528bf36d87ac836395eec2
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68947765"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71002816"
 ---
 # <a name="deploy-a-model-to-notebook-vms"></a>Distribuera en modell till virtuella notebook-datorer
 
-Lär dig hur du använder tjänsten Azure Machine Learning för att distribuera en modell som en webb tjänst på din bärbara dator. Använd Notebook-VM: ar om något av följande villkor är uppfyllt:
+Lär dig hur du använder Azure Machine Learning för att distribuera en modell som en webb tjänst på din bärbara dator. Använd Notebook-VM: ar om något av följande villkor är uppfyllt:
 
 - Du behöver att snabbt distribuera och verifiera din modell.
 - Du testar en modell som är under utveckling.
 
 > [!TIP]
-> Distribution av en modell från en Jupyter Notebook på en virtuell dator med en virtuell dator, till en webb tjänst på samma virtuella dator är en _lokal distribution_. I det här fallet är den lokala datorn den virtuella Notebook-datorn. Mer information om distributioner finns i [Distribuera modeller med Azure Machine Learning-tjänsten](how-to-deploy-and-where.md).
+> Distribution av en modell från en Jupyter Notebook på en virtuell dator med en virtuell dator, till en webb tjänst på samma virtuella dator är en _lokal distribution_. I det här fallet är den lokala datorn den virtuella Notebook-datorn. Mer information om distributioner finns i [Distribuera modeller med Azure Machine Learning](how-to-deploy-and-where.md).
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-- En Azure Machine Learning service-arbetsyta med en virtuell dator med Notebook som körs. Mer information finns i [installations miljö och arbets yta](tutorial-1st-experiment-sdk-setup.md).
+- En Azure Machine Learning arbets yta med en VM-dator som körs. Mer information finns i [installations miljö och arbets yta](tutorial-1st-experiment-sdk-setup.md).
 
 ## <a name="deploy-to-the-notebook-vms"></a>Distribuera till de virtuella datorerna för bärbara datorer
 

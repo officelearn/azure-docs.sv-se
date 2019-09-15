@@ -7,12 +7,12 @@ ms.date: 03/14/2019
 ms.topic: sample
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: b590eeb86972a8e769fc240b1935c6c8ed32530a
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: e723fab12c6ba88ec5698a697ba1ddd774eed7e2
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70231733"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71000516"
 ---
 # <a name="overview-of-the-iso-27001-shared-services-blueprint-sample"></a>Översikt över skissexemplet ISO 27001 Delade tjänster
 
@@ -38,7 +38,7 @@ Den här miljön består av flera Azure-tjänster ger en säker, fullständigt �
   - En jumpbox eller bastionvärd som används för hantering, som endast kan nås via en [Azure Firewall](../../../../firewall/overview.md) som är distribuerad i undernätet för den inkommande stacken
   - Två virtuella datorer som kör Active Directory Domain Services (ADDS) och DNS som endast kan nås via jumpboxen, och som kan konfigureras för att endast replikera AD över en VPN- eller [ExpressRoute](../../../../expressroute/expressroute-introduction.md)-anslutning (distribueras inte av skissen)
   - Användning av [Azure Net Watcher](../../../../network-watcher/network-watcher-monitoring-overview.md) och DDoS-skydd (standard)
-- En [Azure Key Vault](../../../../key-vault/key-vault-whatis.md)-instans som används som värd för hemligheter används för de virtuella datorerna som är distribuerade i miljön för delade tjänster
+- En [Azure Key Vault](../../../../key-vault/key-vault-overview.md)-instans som används som värd för hemligheter används för de virtuella datorerna som är distribuerade i miljön för delade tjänster
 
 Alla dessa element följer beprövade metoder som finns publicerade i [Referensarkitekturer i Azure Architecture Center](/azure/architecture/reference-architectures/).
 

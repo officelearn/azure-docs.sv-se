@@ -1,34 +1,34 @@
 ---
-title: Konfigurera SSL-avslutning med Key Vault-certifikat med hjälp av Azure PowerShell
-description: Lär dig hur du kan integrera Azure Application Gateway med Key Vault för servercertifikat som är kopplade till HTTPS-aktiverad lyssnare.
+title: Konfigurera SSL-avslutning med Key Vault certifikat med hjälp av Azure PowerShell
+description: Lär dig hur du kan integrera Azure Application Gateway med Key Vault för Server certifikat som är anslutna till HTTPS-aktiverade lyssnare.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
 ms.date: 4/22/2019
 ms.author: victorh
-ms.openlocfilehash: e011caa8c7a0c7383d16c81f4bff29d3c1c99f99
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b7408d6169e1cf42bcda8855a19076c739d086dd
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65827615"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71000997"
 ---
-# <a name="configure-ssl-termination-with-key-vault-certificates-by-using-azure-powershell"></a>Konfigurera SSL-avslutning med Key Vault-certifikat med hjälp av Azure PowerShell
+# <a name="configure-ssl-termination-with-key-vault-certificates-by-using-azure-powershell"></a>Konfigurera SSL-avslutning med Key Vault certifikat med hjälp av Azure PowerShell
 
-[Azure Key Vault](../key-vault/key-vault-whatis.md) är en plattform-hanterad hemlighet lagra som du kan använda för att skydda hemligheter, nycklar och SSL-certifikat. Azure Application Gateway stöder integration med Key Vault (i allmänt tillgänglig förhandsversion) för servercertifikat som är kopplade till HTTPS-aktiverad lyssnare. Det här stödet är begränsat till v2-SKU för Application Gateway.
+[Azure Key Vault](../key-vault/key-vault-overview.md) är ett plattforms hanterat hemligt arkiv som du kan använda för att skydda hemligheter, nycklar och SSL-certifikat. Azure Application Gateway stöder integrering med Key Vault (i offentlig för hands version) för Server certifikat som är anslutna till HTTPS-aktiverade lyssnare. Detta stöd är begränsat till v2-SKU: n för Application Gateway.
 
-Mer information finns i [SSL-avslutning med Key Vault-certifikat](key-vault-certs.md).
+Mer information finns i [SSL-avslutning med Key Vault certifikat](key-vault-certs.md).
 
-Den här artikeln visar hur du använder Azure PowerShell-skript för att integrera ditt nyckelvalv med din Programgateway för SSL-avslutning-certifikat.
+Den här artikeln visar hur du använder ett Azure PowerShell-skript för att integrera ditt nyckel valv med Application Gateway för SSL-avslutnings certifikat.
 
-Den här artikeln kräver Azure PowerShell-Modulversion 1.0.0 eller senare. Kör `Get-Module -ListAvailable Az` för att hitta versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-az-ps) (Installera Azure PowerShell-modul). Om du vill köra kommandon i den här artikeln, du måste också skapa en anslutning till Azure genom att köra `Connect-AzAccount`.
+Den här artikeln kräver Azure PowerShell module version 1.0.0 eller senare. Kör `Get-Module -ListAvailable Az` för att hitta versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-az-ps) (Installera Azure PowerShell-modul). Om du vill köra kommandona i den här artikeln måste du också skapa en anslutning till Azure genom `Connect-AzAccount`att köra.
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
-Innan du börjar måste du ha ManagedServiceIdentity modulen:
+Innan du börjar måste du ha installerat ManagedServiceIdentity-modulen:
 
 ```azurepowershell
 Install-Module -Name Az.ManagedServiceIdentity
@@ -38,7 +38,7 @@ Select-AzSubscription -Subscription <your subscription>
 
 ## <a name="example-script"></a>Exempelskript
 
-### <a name="set-up-variables"></a>Ställ in variabler
+### <a name="set-up-variables"></a>Konfigurera variabler
 
 ```azurepowershell
 $rgname = "KeyVaultTest"
@@ -47,7 +47,7 @@ $kv = "TestKeyVaultAppGw"
 $appgwName = "AppGwKVIntegration"
 ```
 
-### <a name="create-a-resource-group-and-a-user-managed-identity"></a>Skapa en resursgrupp och en användare-hanterad identitet
+### <a name="create-a-resource-group-and-a-user-managed-identity"></a>Skapa en resurs grupp och en användar hanterad identitet
 
 ```azurepowershell
 $resourceGroup = New-AzResourceGroup -Name $rgname -Location $location
@@ -55,7 +55,7 @@ $identity = New-AzUserAssignedIdentity -Name "appgwKeyVaultIdentity" `
   -Location $location -ResourceGroupName $rgname
 ```
 
-### <a name="create-a-key-vault-policy-and-certificate-to-be-used-by-the-application-gateway"></a>Skapa ett nyckelvalv, principer och certifikat som ska användas av programgatewayen
+### <a name="create-a-key-vault-policy-and-certificate-to-be-used-by-the-application-gateway"></a>Skapa ett nyckel valv, en princip och ett certifikat som ska användas av Application Gateway
 
 ```azurepowershell
 $keyVault = New-AzKeyVault -Name $kv -ResourceGroupName $rgname -Location $location -EnableSoftDelete 
@@ -85,7 +85,7 @@ $publicip = New-AzPublicIpAddress -ResourceGroupName $rgname -name "AppGwIP" `
   -location $location -AllocationMethod Static -Sku Standard
 ```
 
-### <a name="create-pool-and-front-end-ports"></a>Skapa poolen och portar på klientsidan
+### <a name="create-pool-and-front-end-ports"></a>Skapa pool och klient dels portar
 
 ```azurepowershell
 $gwSubnet = Get-AzVirtualNetworkSubnetConfig -Name "appgwSubnet" -VirtualNetwork $vnet
@@ -98,13 +98,13 @@ $fp01 = New-AzApplicationGatewayFrontendPort -Name "port1" -Port 443
 $fp02 = New-AzApplicationGatewayFrontendPort -Name "port2" -Port 80
 ```
 
-### <a name="point-the-ssl-certificate-to-your-key-vault"></a>Peka SSL-certifikatet till ditt nyckelvalv
+### <a name="point-the-ssl-certificate-to-your-key-vault"></a>Peka SSL-certifikatet till ditt nyckel valv
 
 ```azurepowershell
 $sslCert01 = New-AzApplicationGatewaySslCertificate -Name "SSLCert1" -KeyVaultSecretId $secretId
 ```
 
-### <a name="create-listeners-rules-and-autoscale"></a>Skapa lyssnare, regler och automatisk skalning
+### <a name="create-listeners-rules-and-autoscale"></a>Skapa lyssnare, regler och autoskalning
 
 ```azurepowershell
 $listener01 = New-AzApplicationGatewayHttpListener -Name "listener1" -Protocol Https `
@@ -121,7 +121,7 @@ $autoscaleConfig = New-AzApplicationGatewayAutoscaleConfiguration -MinCapacity 3
 $sku = New-AzApplicationGatewaySku -Name Standard_v2 -Tier Standard_v2
 ```
 
-### <a name="assign-the-user-managed-identity-to-the-application-gateway"></a>Tilldela användare-hanterade identiteten till application gateway
+### <a name="assign-the-user-managed-identity-to-the-application-gateway"></a>Tilldela den användar hanterade identiteten till Application Gateway
 
 ```azurepowershell
 $appgwIdentity = New-AzApplicationGatewayIdentity -UserAssignedIdentityId $identity.Id
@@ -140,4 +140,4 @@ $appgw = New-AzApplicationGateway -Name $appgwName -Identity $appgwIdentity -Res
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Mer information om SSL-avslutning](ssl-overview.md)
+[Läs mer om SSL-avslutning](ssl-overview.md)

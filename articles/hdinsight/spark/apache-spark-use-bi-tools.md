@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
 ms.date: 05/16/2019
-ms.openlocfilehash: 319668ac81b390f9a8bf70da36dd3cf1508f5c37
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: bb803861fa64beb0b4afe2202230209493f42a1d
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70885174"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71003680"
 ---
 # <a name="tutorial-analyze-apache-spark-data-using-power-bi-in-hdinsight"></a>Självstudier: Analysera Apache Spark-data med Power BI i HDInsight
 
@@ -46,7 +46,7 @@ Den [Jupyter Notebook](https://jupyter.org/)-anteckningsbok som du skapade i [f�
 
     De utdata som returneras ser ut så här:
 
-    ![Visa tabellerna i Spark](./media/apache-spark-use-bi-tools/show-tables.png)
+    ![Visa tabellerna i Spark](./media/apache-spark-use-bi-tools/apache-spark-show-tables.png)
 
     Om du har stängt anteckningsboken innan du startar självstudien så har `hvactemptable` rensats, så den ingår inte i utdatan.  Endast Hive-tabeller som lagras i metaarkivet (anges med **False** under kolumnen **isTemporary**) kan nås från BI-verktygen. I den här självstudien kommer du ansluta till **hvac**-tabellen som du skapade.
 
@@ -59,7 +59,7 @@ Den [Jupyter Notebook](https://jupyter.org/)-anteckningsbok som du skapade i [f�
 
     De utdata som returneras ser ut så här:
 
-    ![Visa rader från hvac-tabellen i Spark](./media/apache-spark-use-bi-tools/select-limit.png)
+    ![Visa rader från hvac-tabellen i Spark](./media/apache-spark-use-bi-tools/apache-spark-select-limit.png)
 
 3. Välj **Stäng och stoppa** på anteckningsbokens **Arkiv**-meny. Stäng anteckningsboken för att frigöra resurserna.
 
@@ -127,31 +127,32 @@ De första stegen i att arbeta med Spark är att ansluta till klustret i Power B
 Med Power BI-tjänsten kan du dela rapporter och instrumentpaneler i din organisation. I det här avsnittet publicerar du först datamängden och rapporten. Sedan fäster du rapporten på en instrumentpanel. Instrumentpaneler används vanligtvis för att fokusera på en delmängd data i en rapport. Det finns bara en enda visualisering i rapporten, men det är ändå bra att gå igenom stegen.
 
 1. Öppna Power BI Desktop.
-2. På fliken **Start** klickar du på **Publicera**.
+
+1. På fliken **Start** klickar du på **Publicera**.
 
     ![Publicera från Power BI Desktop](./media/apache-spark-use-bi-tools/apache-spark-bi-publish.png "Publicera från Power BI Desktop")
 
-2. Välj den arbetsyta där du ska publicera datamängden och rapporten. Klicka sedan på **Välj**. I följande bild är standardinställningen **Min arbetsyta** markerad.
+1. Välj den arbetsyta där du ska publicera datamängden och rapporten. Klicka sedan på **Välj**. I följande bild är standardinställningen **Min arbetsyta** markerad.
 
     ![Välj arbetsyta där datamängden och rapporten ska publiceras](./media/apache-spark-use-bi-tools/apache-spark-bi-select-workspace.png "Välj arbetsyta där datamängden och rapporten ska publiceras") 
 
-3. När publiceringen är klar klickar du på **Öppna ”BuildingTemperature.pbix” i Power BI**.
+1. När publiceringen är klar klickar du på **Öppna ”BuildingTemperature.pbix” i Power BI**.
 
     ![Publiceringen är klar, klicka för att ange autentiseringsuppgifter](./media/apache-spark-use-bi-tools/apache-spark-bi-publish-success.png "Publiceringen är klar, klicka för att ange autentiseringsuppgifter") 
 
-4. I Power BI-tjänsten klickar du på **Ange autentiseringsuppgifter**.
+1. I Power BI-tjänsten klickar du på **Ange autentiseringsuppgifter**.
 
     ![Ange autentiseringsuppgifter i Power BI-tjänsten](./media/apache-spark-use-bi-tools/apache-spark-bi-enter-credentials.png "Ange autentiseringsuppgifter i Power BI-tjänsten")
 
-5. Klicka på **Redigera autentiseringsuppgifter**.
+1. Klicka på **Redigera autentiseringsuppgifter**.
 
     ![Redigera autentiseringsuppgifterna i Power BI-tjänsten](./media/apache-spark-use-bi-tools/apache-spark-bi-edit-credentials.png "Redigera autentiseringsuppgifterna i Power BI-tjänsten")
 
-6. Ange kontoinformationen för HDInsight-inloggningen och klicka sedan på **Logga in**. Standardkontonamnet är *admin*.
+1. Ange kontoinformationen för HDInsight-inloggningen och klicka sedan på **Logga in**. Standardkontonamnet är *admin*.
 
     ![Logga in på Spark-kluster](./media/apache-spark-use-bi-tools/apache-spark-bi-sign-in.png "Logga in på Spark-kluster")
 
-7. I den vänstra rutan går du till **Arbetsytor** > **Min arbetsyta** > **RAPPORTER**. Klicka sedan på **BuildingTemperature**.
+1. I den vänstra rutan går du till **Arbetsytor** > **Min arbetsyta** > **RAPPORTER**. Klicka sedan på **BuildingTemperature**.
 
     ![Rapport som listas under rapporter i den vänstra rutan](./media/apache-spark-use-bi-tools/apache-spark-bi-service-left-pane.png "Rapport som listas under rapporter i den vänstra rutan")
 
@@ -159,15 +160,15 @@ Med Power BI-tjänsten kan du dela rapporter och instrumentpaneler i din organis
 
     Det visuella objektet som du skapade i Power BI Desktop är nu tillgängligt i Power BI-tjänsten. 
 
-8. Hovra markören över visualiseringen och klicka sedan på stiftikonen i det övre högra hörnet.
+1. Hovra markören över visualiseringen och klicka sedan på stiftikonen i det övre högra hörnet.
 
     ![Rapport i Power BI-tjänsten](./media/apache-spark-use-bi-tools/apache-spark-bi-service-report.png "Rapport i Power BI-tjänsten")
 
-9. Välj ”Ny instrumentpanel”, ange namnet `Building temperature` och klicka sedan på **Fäst**.
+1. Välj ”Ny instrumentpanel”, ange namnet `Building temperature` och klicka sedan på **Fäst**.
 
     ![Fäst på ny instrumentpanel](./media/apache-spark-use-bi-tools/apache-spark-bi-pin-dashboard.png "Fäst på ny instrumentpanel")
 
-10. I rapporten klickar du på **Gå till instrumentpanelen**. 
+1. I rapporten klickar du på **Gå till instrumentpanelen**.
 
 Ditt visuella objekt är fastsatt på instrumentpanelen. Du kan lägga till fler visuella objekt i rapporten och fästa dem på samma instrumentpanel. Mer information om rapporter och instrumentpaneler finns i [Rapporter i Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-reports/) och [Instrumentpaneler i Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-dashboards/).
 

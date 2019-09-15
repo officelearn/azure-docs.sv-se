@@ -1,83 +1,72 @@
 ---
-title: Azure Data Factory mappning av data flödets schema avvikelse
+title: Schema avvikelse i mappnings data flödet | Azure Data Factory
 description: Bygg elastiska data flöden i Azure Data Factory med schema avvikelse
 author: kromerm
 ms.author: makromer
+ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 10/04/2018
-ms.openlocfilehash: b5777300f5033569caf3868218e747df3ff83a76
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.date: 09/12/2019
+ms.openlocfilehash: 68c0da5a7fe2b02c6115a8c1bbc24feb95e12adb
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68640225"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71003737"
 ---
-# <a name="mapping-data-flow-schema-drift"></a>Mappa data flöde schema avvikelse
+# <a name="schema-drift-in-mapping-data-flow"></a>Schema avvikelse i mappnings data flödet
 
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
-Begreppet schema avvikelse är det fall där dina källor ofta ändrar metadata. Fält, kolumner, typer osv. kan läggas till, tas bort eller ändras i farten. Utan hantering av schema avvikelser blir ditt data flöde sårbart för ändringar i överordnade data käll ändringar. Vanliga ETL-mönster fungerar inte när inkommande kolumner och fält ändras, eftersom de tenderar att vara knutna till dessa käll namn.
+Schema avvikelse är det fall där dina källor ofta ändrar metadata. Fält, kolumner och, typer kan läggas till, tas bort eller ändras i farten. Utan hantering av schema avvikelser blir ditt data flöde sårbart för överordnade data käll ändringar. Vanliga ETL-mönster fungerar inte när inkommande kolumner och fält ändras eftersom de tenderar att vara knutna till dessa käll namn.
 
-För att skydda mot schema drift är det viktigt att du har funktioner i ett data flödes verktyg som gör det möjligt för dig som en data tekniker att:
+För att skydda mot schema drift är det viktigt att du har funktioner i ett data flödes verktyg som gör det möjligt för dig, som en data tekniker, att:
 
 * Definiera källor som har föränderligt fält namn, data typer, värden och storlekar
 * Definiera omvandlings parametrar som kan användas med data mönster i stället för hårdkodade fält och värden
 * Definiera uttryck som förstår mönster för att matcha inkommande fält, i stället för att använda namngivna fält
 
-## <a name="how-to-implement-schema-drift-in-adf-mapping-data-flows"></a>Implementera schema avvikelse i data flöden för ADF-mappning
-ADF har inbyggt stöd för flexibla scheman som ändras från körning till körning så att du kan bygga Generic data Transformation Logic utan att behöva kompilera om dina data flöden.
+Azure Data Factory inbyggt stöder flexibla scheman som ändras från körning till körning så att du kan bygga Generic data Transformation Logic utan att behöva kompilera om dina data flöden.
 
-* Välj "Tillåt schema avvikelse" i din käll omvandling
+Du måste fatta ett arkitektur beslut i ditt data flöde för att acceptera schema avvikelser i flödet. När du gör detta kan du skydda dig mot schema ändringar från källorna. Du förlorar dock tidigt bindningen för dina kolumner och typer i ditt data flöde. Azure Data Factory behandlar schema avvikelse flöden som sena bindnings flöden, så när du skapar dina omvandlingar är de nedstaplade kolumn namnen inte tillgängliga i schema vyerna i hela flödet.
 
-<img src="media/data-flow/schemadrift001.png" width="400">
+## <a name="schema-drift-in-source"></a>Schema avvikelse i källa
 
-* När du har valt det här alternativet kommer alla inkommande fält att läsas från källan vid varje data flödes körning och skickas genom hela flödet till mottagaren.
+I en käll omvandling definieras schema avvikelsen som att läsa kolumner som inte har definierats i data uppsättnings schemat. Om du vill aktivera schema avvikelse kontrollerar du **Tillåt schema avvikelse** i din käll omvandling.
 
-* Alla nyligen identifierade kolumner (invisade kolumner) kommer att tas som standard som sträng data typ. I din käll omvandling väljer du härledda kolumn typer om du vill att ADF automatiskt ska härleda data typer från källan.
+![Schema avvikelse källa](media/data-flow/schemadrift001.png "Schema avvikelse källa")
 
-* Se till att använda "Auto-Map" för att mappa alla nya fält i Sink-omvandlingen så att alla nya fält hämtas och landas på ditt mål och ange "Tillåt schema avvikelse" på mottagaren.
+När schema avvikelsen är aktive rad läses alla inkommande fält från din källa under körningen och skickas genom hela flödet till mottagaren. Som standard tas alla nyligen identifierade kolumner, som kallas för inkommande *kolumner*, emot som en sträng data typ. Om du vill att data flödet automatiskt ska härleda data typer av inaktuella kolumner kontrollerar du **härledda kolumn typer** i dina käll inställningar.
 
-<img src="media/data-flow/automap.png" width="400">
+## <a name="schema-drift-in-sink"></a>Schema avvikelse i mottagare
 
-* Allt fungerar när nya fält introduceras i det scenariot med en enkel mappning för källa-> mottagare (kopia).
+I en Sink-omvandling är schema avvikelse när du skriver ytterligare kolumner ovanpå vad som definieras i data inmatnings schema. Om du vill aktivera schema avvikelse kontrollerar du **Tillåt schema avvikelse** i din Sink-omvandling.
 
-* Om du vill lägga till omvandlingar i det arbets flödet som hanterar schema avvikelser kan du använda mönster matchning för att matcha kolumner efter namn, typ och värde.
+![Schema avvikelse mottagare](media/data-flow/schemadrift002.png "Schema avvikelse mottagare")
 
-* Klicka på Lägg till kolumn mönster i den härledda kolumnen eller mängd omvandlingen om du vill skapa en omvandling som förstår "schema avvikelse".
+Om schema avvikelse är aktiverat kontrollerar du att skjutreglaget för **automatisk mappning** på fliken mappning är aktiverat. Med det här skjutreglaget på, skrivs alla inkommande kolumner till ditt mål. Annars måste du använda regelbaserade mappningar för att skriva förbrukade kolumner.
 
-<img src="media/data-flow/columnpattern.png" width="400">
+![Automatisk mappning av mottagare](media/data-flow/automap.png "Automatisk mappning av mottagare")
 
-> [!NOTE]
-> Du måste fatta ett arkitektur beslut i ditt data flöde för att acceptera schema avvikelser i flödet. När du gör detta kan du skydda dig mot schema ändringar från källorna. Du kommer dock att förlora tidig bindning av dina kolumner och typer i ditt data flöde. Azure Data Factory behandlar schema avvikelse flöden som sena bindnings flöden, så när du skapar dina omvandlingar är kolumn namnen inte tillgängliga i schema vyerna i hela flödet.
+## <a name="transforming-drifted-columns"></a>Omvandla informerade kolumner
 
-<img src="media/data-flow/taxidrift1.png" width="400">
+När ditt data flöde har förfallna kolumner, kan du komma åt dem i dina omvandlingar med följande metoder:
 
-I data flödet för taxi demonstrations exemplet finns det ett exempel på schema i det nedre data flödet med TripFare-källan. I den sammanställda omvandlingen ser vi att vi använder designen "kolumn mönster" för agg regerings fälten. I stället för att namnge vissa kolumner eller leta efter kolumner efter position antar vi att data kan ändras och att de inte visas i samma ordning mellan körningarna.
+* Använd uttryck `byName` och för att explicit referera till en kolumn efter namn eller positions nummer. `byPosition`
+* Lägg till ett kolumn mönster i en härledd kolumn eller aggregerad omvandling så att den matchar valfri kombination av namn, ström, position eller typ
+* Lägg till regelbaserade mappningar i en urvals-eller Sink-omvandling för att matcha nedsänkta kolumner till kolumnalias i kolumner via ett mönster
 
-I det här exemplet Azure Data Factory hantering av data flödes schema, har vi skapat och agg regering som söker efter kolumner av typen Double, och vet att data domänen innehåller priser för varje resa. Vi kan sedan utföra en sammanställd matematik beräkning i alla dubbla fält i källan, oavsett var kolumnen finns och oavsett kolumnens namn.
+Mer information om hur du implementerar kolumn mönster finns [i kolumn mönster i mappa data flöde](concepts-data-flow-column-pattern.md).
 
-I syntaxen för Azure Data Factory-dataflöde används $ $ för att representera varje matchad kolumn från matchnings mönstret. Du kan också matcha i kolumn namn med hjälp av komplexa Strängs ökningar och reguljära uttrycks funktioner. I det här fallet ska vi skapa ett nytt sammanställt fält namn baserat på varje matchning av en kolumn av typen "dubbel" och lägga till texten ```_total``` i vart och ett av de matchade namnen: 
+### <a name="map-drifted-columns-quick-action"></a>Snabb åtgärd för att mappa förstaplade kolumner
 
-```concat($$, '_total')```
+Om du vill referera till påpekade kolumner kan du snabbt skapa mappningar för dessa kolumner via snabb åtgärden för förhands granskning av data. När [fel söknings läget](concepts-data-flow-debug-mode.md) är på går du till fliken Data förhands granskning och klickar på **Uppdatera** för att hämta en data för hands version. Om Data Factory upptäcker att det finns inaktuella kolumner kan du klicka på **Mappa** och generera en härledd kolumn som gör att du kan referera till alla nedstaplade kolumner i schema vyerna.
 
-Sedan kommer vi att avrunda och summera värdena för var och en av de matchade kolumnerna:
+![Kartning](media/data-flow/mapdrifted1.png "Kartning")
 
-```round(sum ($$))```
+I den genererade härledda kolumn-omvandlingen mappas varje nedstaplad kolumn till dess identifierade namn och datatyp. I data förhands granskningen ovan identifieras kolumnen ' movieId ' som ett heltal. När du har klickat på **kartan** definieras movieId i den härledda kolumnen som `toInteger(byName('movieId'))` och tas med i schema vyerna i efterföljande transformeringar.
 
-Du kan se den här schema funktionen i arbetet med Azure Data Factory data flödes exempel "taxi demonstration". Växla till felsökningssessionen med fel söknings funktionen och växla längst upp i design ytan för data flödet så att du kan se dina resultat interaktivt:
-
-<img src="media/data-flow/taxidrift2.png" width="800">
-
-## <a name="access-new-columns-downstream"></a>Komma åt nya kolumner, underordnade
-När du genererar nya kolumner med kolumn mönster, kan du komma åt dessa nya kolumner senare i dina data flödes omvandlingar med följande metoder:
-
-* Använd "byPosition" för att identifiera de nya kolumnerna efter positions nummer.
-* Använd "byName" för att identifiera de nya kolumnerna efter deras namn.
-* I kolumn mönster använder du "name", "Stream", "position" eller "Type" eller någon kombination av dem för att matcha nya kolumner.
-
-## <a name="rule-based-mapping"></a>Regel baserad mappning
-Stöd mönster matchning för Select and Sink-omvandling via regel baserad mappning. Detta gör att du kan bygga regler som kan mappa nedsatta kolumner till kolumnalias och för att dela upp dessa kolumner till ditt mål.
+![Kartning](media/data-flow/mapdrifted2.png "Kartning")
 
 ## <a name="next-steps"></a>Nästa steg
-I [språket Data Flow-uttryck](data-flow-expression-functions.md) hittar du ytterligare funktioner för kolumn mönster och schema avvikelser, inklusive "byName" och "byPosition".
+I [data flödets uttrycks språk](data-flow-expression-functions.md)hittar du ytterligare funktioner för kolumn mönster och schema avvikelser, inklusive "byName" och "byPosition".

@@ -8,12 +8,12 @@ ms.service: key-vault
 ms.topic: conceptual
 ms.date: 02/11/2019
 ms.author: mbaldwin
-ms.openlocfilehash: ca640b058a1d91d15c5accb9367936368511a3ef
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: a2749ca35e6137d42a09b79da9315c8f7b242c31
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70881607"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71000802"
 ---
 # <a name="azure-key-vault-developers-guide"></a>Guide för Azure Key Vault utvecklare
 
@@ -24,7 +24,7 @@ Med Key Vault kan du på ett säkert sätt komma åt känslig information i dina
 - Ditt program kan använda nycklar för signering och kryptering, men behåller nyckel hanteringen externt från ditt program, vilket gör att din lösning kan användas som en geografiskt distribuerad app.
 - Från och med september 2016-versionen av Key Vault kan dina program nu hantera Key Vault certifikat. Mer information finns i [om nycklar, hemligheter och certifikat](/rest/api/keyvault/about-keys--secrets-and-certificates).
 
-Mer allmän information om Azure Key Vault finns i [Vad är Key Vault](key-vault-whatis.md).
+Mer allmän information om Azure Key Vault finns i [Vad är Key Vault](key-vault-overview.md).
 
 ## <a name="public-previews"></a>Offentliga för hands versionerna
 

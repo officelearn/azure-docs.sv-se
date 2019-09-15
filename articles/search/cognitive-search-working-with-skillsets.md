@@ -1,0 +1,305 @@
+---
+title: Arbeta med färdighetsuppsättningar-Azure Search
+description: Färdighetsuppsättningar är den plats där du skapar en AI-pipeline i kognitiv sökning, som förstår några begrepp och hur färdighetsuppsättningar fungerar gör att du kan skapa enkla eller komplexa färdighetsuppsättningar
+manager: eladz
+author: vkurpad
+services: search
+ms.service: search
+ms.subservice: cognitive-search
+ms.topic: conceptual
+ms.date: 09/05/2019
+ms.author: vikurpad
+ms.openlocfilehash: df2c469ef825863f958c8c263253c7d1c6f6c732
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71004415"
+---
+# <a name="working-with-skillsets"></a>Arbeta med färdighetsuppsättningar
+Den här artikeln är för utvecklare som behöver en djupare förståelse för hur anriknings pipelinen fungerar och förutsätter att du har en konceptuell förståelse för kognitiv Sök processen. Om du är nybörjare på kognitiv sökning börjar du med:
++ [Vad är "kognitiv sökning" i Azure Search?](cognitive-search-concept-intro.md)
++ [Vad är kunskaps lager i Azure Search?](knowledge-store-concept-intro.md)
+
+## <a name="specify-the-skillset"></a>Ange färdigheter
+En färdigheter är en återanvändbart resurs i Azure Search som anger en samling kognitiva kunskaper som används för att analysera, transformera och berika text-eller bild innehåll under indexeringen. Genom att skapa en färdigheter kan du koppla text-och avbildnings berikare i data inmatnings fasen, extrahera och skapa ny information och strukturer från RAW-innehåll.
+
+En färdigheter har tre egenskaper:
+
++   ```skills```, en osorterad samling kunskaper för vilka plattformen fastställer körnings ordningen baserat på de indata som krävs för varje färdighet
++   ```cognitiveServices```är den kognitiva tjänst nyckeln som krävs för att fakturera de kognitiva färdigheter som anropas
++   ```knowledgeStore```, lagrings kontot där dina berikade dokument kommer att projiceras
+
+
+
+Färdighetsuppsättningar har skapats i JSON. Du kan bygga komplexa färdighetsuppsättningar med slingor och [förgreningar](https://docs.microsoft.com/en-us/azure/search/cognitive-search-skill-conditional) med hjälp av [uttrycks språket](https://docs.microsoft.com/azure/search/cognitive-search-skill-conditional). Uttrycks språkets sökvägar använder [JSON-pekaren](https://tools.ietf.org/html/rfc6901) med några ändringar för att identifiera noder i ett berikande träd. En ```"/"``` korsar en nivå som är lägre i trädet ```"*"``` och fungerar som en for-each-operator i kontexten. Dessa begrepp beskrivs bäst med ett exempel. För att illustrera några av begreppen och funktionerna går vi igenom exempel färdigheter för [hotell granskning](knowledge-store-connect-powerbi.md) . Om du vill visa färdigheter när du har följt arbets flödet för att importera data, måste du använda en REST API-klient för att [Hämta färdigheter](https://docs.microsoft.com/en-us/rest/api/searchservice/get-skillset).
+
+### <a name="enrichment-tree"></a>Anriknings träd
+
+För att Envision hur en färdigheter progressivt berikar ditt dokument, så börjar vi med vad dokumentet ser ut innan en berikning. Utmatningen av dokument sprickor är beroende av data källan och det angivna tolknings läget har valts. Detta är även läget för det dokument som [fält mappningar](search-indexer-field-mappings.md) kan käll innehåll från när data läggs till i sökindexet.
+![Kunskaps lager i Pipeline-diagram](./media/knowledge-store-concept-intro/annotationstore_sans_internalcache.png "Kunskaps lager i Pipeline-diagram")
+
+När ett dokument har berikats pipelinen visas det som ett träd med innehåll och tillhör ande berikare. Trädet instansieras som utdata från dokument sprickor. Formatet för anriknings träd möjliggör anriknings pipelinen för att bifoga metadata till till och med primitiva data typer, men det är inte ett giltigt JSON-objekt, men kan projiceras i ett giltigt JSON-format. I följande tabell visas en status för ett dokument som anges i pipelinen:
+
+|Data Source\Parsing läge|Standard|JSON, JSON-linjer & CSV|
+|---|---|---|
+|Blobblagring|/document/content<br>/document/normalized_images/*<br>…|/document/{key1}<br>/document/{key2}<br>…|
+|SQL|/document/{column1}<br>/document/{column2}<br>…|Gäller inte |
+|Cosmos DB|/document/{key1}<br>/document/{key2}<br>…|Gäller inte|
+
+ När färdigheter körs lägger de till nya noder i det berikande trädet. Dessa nya noder kan sedan användas som indata för underordnade kunskaper, projicera till kunskaps lagret eller mappa till index fält. Berikningar är inte föränderligt: när de har skapats går det inte att redigera noder. När din färdighetsuppsättningar får mer komplexa, så kommer ditt anriknings träd, men inte alla noder i anriknings trädet behöver göra det till indexet eller kunskaps lagret. Du kan selektivt bevara endast en delmängd av anrikningerna i indexet eller kunskaps lagret.
+
+Du kan selektivt bevara endast en delmängd av anrikningerna i indexet eller kunskaps lagret.
+För resten av det här dokumentet kommer vi att anta att vi arbetar med [hotell gransknings exempel](https://docs.microsoft.com/en-us/azure/search/knowledge-store-connect-powerbi), men samma koncept gäller för att ge dokument från alla andra data källor.
+
+### <a name="context"></a>Kontext
+Varje färdighet kräver en kontext. En kontext fastställer:
++   Antalet gånger som kompetensen körs, baserat på de valda noderna. Om du lägger till en i slutet av Sammanhangs värden av typen samling leder det till att en ```/*``` färdighet anropas en gång för varje instans i samlingen. 
++   Var i anriknings trädet läggs färdighets utmatningarna till. Utdata läggs alltid till i trädet som underordnade noder till kontextnoden. 
++   Figuren för indata. För samlingar med flera nivåer påverkar inställningen för att ange kontexten till den överordnade samlingen formen på indata för kunskapen. Om du till exempel har ett berikande träd med en lista över länder, var och en med en lista över stater som innehåller en lista över ZipCodes.
+
+|Kontext|Indata|Inmatad form|Kompetens anrop|
+|---|---|---|---|
+|```/document/countries/*``` |```/document/countries/*/states/*/zipcodes/*``` |En lista över alla ZipCodes i landet |En gång per land |
+|```/document/countries/*/states/*``` |```/document/countries/*/states/*/zipcodes/*``` |En lista över ZipCodes i status | En gång per kombination av land och delstat|
+
+### <a name="sourcecontext"></a>SourceContext
+
+Används endast i formaren- [kunskaper](cognitive-search-skill-shaper.md) och [projektioner.](knowledge-store-projection-overview.md) `sourceContext` Den används för att skapa kapslade objekt på flera nivåer. Med `sourceContext` kan du skapa ett hierarkiskt, anonymt typ objekt, vilket kräver flera kunskaper om du bara använde kontexten. Med `sourceContext` visas i nästa avsnitt.
+
+### <a name="projections"></a>Projektioner
+
+Projektion är processen att välja noderna från det berikande trädet som ska sparas i kunskaps lagret. Projektioner är anpassade former i dokumentet (innehåll och anrikninger) som kan matas ut antingen som tabell-eller objekt projektioner. Mer information om hur du arbetar med projektioner finns i [arbeta med projektioner](knowledge-store-projection-overview.md).
+
+![Alternativ för fält mappning](./media/cognitive-search-working-with-skillsets/field-mapping-options.png "Fält mappnings alternativ för anriknings pipeline")
+
+Diagrammet ovan beskriver väljaren som du arbetar med, baserat på var du befinner dig i pipelinen för anrikning.
+
+## <a name="generate-enriched-data"></a>Generera utförliga data 
+
+Nu ska vi gå igenom färdigheter för hotell granskningar, du kan följa [självstudien](knowledge-store-connect-powerbi.md) för att skapa färdigheter eller [Visa](https://github.com/Azure-Samples/azure-search-postman-samples/blob/master/samples/skillset.json) färdigheter. Vi ska titta på:
+
+* Hur anriknings trädet utvecklas med körningen av varje färdighet 
+* så här fungerar kontext och indata för att avgöra hur många gånger en färdighet körs 
+* Hur indatatypen är baserat på kontexten. 
+
+Eftersom vi använder avgränsat text tolknings läge för indexeraren representerar ett dokument i beriknings processen en enda rad i CSV-filen.
+
+### <a name="skill-1-split-skill"></a>Kunskaps #1: Dela kompetens 
+
+![anriknings träd efter dokument sprickor](media/cognitive-search-working-with-skillsets/enrichment-tree-doc-cracking.png "Anriknings träd efter dokument sprickor och innan kompetens körning")
+
+Med kunskaps kontexten ```"/document/reviews_text"```för kommer den här kunskapen att köras `reviews_text`en gång för. Kunskaps resultatet är en lista där `reviews_text` är segmenterad i 5000-Character-segment. Resultatet från den delade kunskapen namnges `pages` och läggs till i berikande trädet. Med `targetName` funktionen kan du byta namn på en färdighets utmatning innan du lägger till den i berikande trädet.
+
+Ditt anriknings träd har nu en ny nod som placerats under kunskaps kontexten. Den här noden är tillgänglig för alla kunskaper, projektioner och fält mappningar.
+
+
+Rotnoden för alla-berikningar är `"/document"`. När du `"/document"` arbetar med BLOB-indexerare, kommer noden att ha underordnade noder `"/document/normalized_images"`till `"/document/content"` och. När du arbetar med CSV-data, som vi är i det här exemplet, kommer kolumn namnen att mappas till noderna under `"/document"`. För att få åtkomst till någon av de omfattande tillägg som läggs till i en nod av en färdighet behövs den fullständiga sökvägen för berikning. Om du till exempel vill använda texten från ```pages``` noden som inmatad till en annan färdighet måste du ange den som. ```"/document/reviews_text/pages/*"```
+ 
+ ![anriknings träd efter färdighets #1](media/cognitive-search-working-with-skillsets/enrichment-tree-skill1.png "Anriknings träd efter att kunskaps #1 körts")
+
+### <a name="skill-2-language-detection"></a>Identifiering av kunskaps #2 språk
+ Även om språket för språk identifiering är den tredje kunskaps #3s kompetensen som definierats i färdigheter, är det nästa färdighet att köra. Eftersom den inte blockeras genom att kräva några indata körs den parallellt med den tidigare kunskapen. Precis som den delade kunskapen som föregår den, anropas även språk identifierings kunskapen en gång för varje dokument. Ditt anriknings träd har nu en ny nod för språk.
+ ![anriknings träd efter färdighets #2](media/cognitive-search-working-with-skillsets/enrichment-tree-skill2.png "Anriknings träd efter att kunskaps #2 körts")
+ 
+ ### <a name="skill-3-key-phrases-skill"></a>Kunskaps #3: Viktiga fraser, kunskaper 
+
+Med tanke på att nyckel frasernas färdighet anropas en gång för varje objekt `pages` i samlingen. ```/document/reviews_text/pages/*``` Utdata från färdigheten är en nod under det associerade sid elementet. 
+
+ Nu bör du kunna titta på resten av färdigheterna i färdigheter och visualisera hur trädet i berikarna kommer att fortsätta att växa med körningen av varje färdighet. Vissa kunskaper, till exempel sammanfognings kunskaper och formaren-kunskaper, skapar också nya noder, men använder bara data från befintliga noder och skapar inte nya, nya-anrikninger.
+
+![anriknings träd efter alla kunskaper](media/cognitive-search-working-with-skillsets/enrichment-tree-final.png "Anriknings träd efter alla kunskaper")
+
+Färgerna på kopplingarna i trädet ovan anger att berikarna har skapats av olika kunskaper och att noderna måste adresseras individuellt och kommer inte att ingå i det objekt som returneras när den överordnade noden väljs.
+
+## <a name="save-enrichments-in-a-knowledge-store"></a>Spara berikningar i ett kunskaps lager 
+
+Färdighetsuppsättningar definierar också ett kunskaps lager där dina berikade dokument kan projiceras som tabeller eller objekt. Om du vill spara dina berikade data i kunskaps lagret definierar du en uppsättning projektioner för ditt berikade dokument. Mer information om kunskaps lagret finns [i vad är kunskaps lager i Azure Search?](knowledge-store-concept-intro.md)
+
+### <a name="slicing-projections"></a>Projektion av segmentering
+
+När du definierar en tabell projektions grupp kan en enda nod i ett berikande träd segmenteras i flera relaterade tabeller. Om du lägger till en tabell med en käll Sök väg som är underordnad en befintlig tabell projektion, kommer den resulterande underordnade noden inte att vara underordnad den befintliga Table-projektionen, utan kommer i stället att projiceras i den nya, relaterade tabellen. Med den här segmenterings metoden kan du definiera en enskild nod i en formaren-färdighet som kan vara källa för alla tabell projektioner. 
+
+### <a name="shaping-projections"></a>Utformning av projektioner
+
+Det finns två sätt att definiera en projektion. Du kan använda en formaren-färdighet för att skapa en ny nod som är rotnoden för alla berikade projekt. I dina projektioner refererar du sedan bara till utdata från formaren-kompetensen. Du kan också infoga en projektion i själva projektions definitionen.
+
+Formaren-metoden är mer utförlig än infogad form men säkerställer att alla Mutations träd finns i kunskaperna och att utdata är ett objekt som kan återanvändas. Med infogad form givning kan du skapa den form du behöver, men är ett anonymt objekt och är bara tillgängligt för projektionen som den har definierats för. Metoderna kan användas tillsammans eller separat. Färdigheter som skapas åt dig i Portal arbets flödet innehåller båda. Den använder en formaren-färdighet för tabell projektioner, men använder infogad form för att projicera nyckel fraserna.
+
+Om du vill utöka exemplet kan du välja att ta bort infogad form och använda en formaren-färdighet för att skapa en ny nod för nyckel fraserna. För att skapa en form projicerad i tre tabeller, nämligen `hotelReviewsDocument` `hotelReviewsPages`,, och `hotelReviewsKeyPhrases`, beskrivs de två alternativen i följande avsnitt.
+
+
+#### <a name="shaper-skill-and-projection"></a>Formaren-kunskaper och projektion 
+
+> [!Note]
+> Några av kolumnerna från dokument tabellen har tagits bort från det här exemplet för det kortfattat.
+>
+```json
+{
+    "@odata.type": "#Microsoft.Skills.Util.ShaperSkill",
+    "name": "#5",
+    "description": null,
+    "context": "/document",
+    "inputs": [        
+        {
+            "name": "reviews_text",
+            "source": "/document/reviews_text",
+            "sourceContext": null,
+            "inputs": []
+        },
+        {
+            "name": "reviews_title",
+            "source": "/document/reviews_title",
+            "sourceContext": null,
+            "inputs": []
+        },
+        {
+            "name": "AzureSearch_DocumentKey",
+            "source": "/document/AzureSearch_DocumentKey",
+            "sourceContext": null,
+            "inputs": []
+        },  
+        {
+            "name": "pages",
+            "source": null,
+            "sourceContext": "/document/reviews_text/pages/*",
+            "inputs": [
+                {
+                    "name": "SentimentScore",
+                    "source": "/document/reviews_text/pages/*/Sentiment",
+                    "sourceContext": null,
+                    "inputs": []
+                },
+                {
+                    "name": "LanguageCode",
+                    "source": "/document/Language",
+                    "sourceContext": null,
+                    "inputs": []
+                },
+                {
+                    "name": "Page",
+                    "source": "/document/reviews_text/pages/*",
+                    "sourceContext": null,
+                    "inputs": []
+                },
+                {
+                    "name": "keyphrase",
+                    "sourceContext": "/document/reviews_text/pages/*/Keyphrases/*",
+                    "inputs": [
+                        {
+                            "source": "/document/reviews_text/pages/*/Keyphrases/*",
+                            "name": "Keyphrases"
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "outputs": [
+        {
+            "name": "output",
+            "targetName": "tableprojection"
+        }
+    ]
+}
+```
+
+Med noden som definieras `outputs` i avsnittet ovan kan vi nu använda segmenterings funktionen `tableprojection` för att projicera delar av noden i olika tabeller: `tableprojection`
+
+> [!Note]
+> Detta är bara ett kodfragment av projektionen i kunskaps lager konfigurationen.
+>
+```json
+"projections": [
+    {
+        "tables": [
+            {
+                "tableName": "hotelReviewsDocument",
+                "generatedKeyName": "Documentid",
+                "source": "/document/tableprojection"
+            },
+            {
+                "tableName": "hotelReviewsPages",
+                "generatedKeyName": "Pagesid",
+                "source": "/document/tableprojection/pages/*"
+            },
+            {
+                "tableName": "hotelReviewsKeyPhrases",
+                "generatedKeyName": "KeyPhrasesid",
+                "source": "/document/tableprojection/pages/*/keyphrase/*"
+            }
+        ]
+    }
+]
+```
+
+#### <a name="inline-shaping-projections"></a>Inline Forming-projektioner
+
+Den infogade form metoden kräver ingen formaren-kompetens eftersom alla former som behövs för projektionerna skapas vid den tidpunkt då de behövs. För att projicera samma data som i föregående exempel skulle alternativet infogad projektion se ut så här:
+
+```json
+"projections": [
+    {
+        "tables": [
+            {
+                "tableName": "hotelReviewsInlineDocument",
+                "generatedKeyName": "Documentid",
+                "sourceContext": "/document",     
+                "inputs": [
+                    {
+                        "name": "reviews_text",
+                        "source": "/document/reviews_text"
+                    },
+                    {
+                        "name": "reviews_title",
+                        "source": "/document/reviews_title"
+                    },
+                    {
+                        "name": "AzureSearch_DocumentKey",
+                        "source": "/document/AzureSearch_DocumentKey"
+                    }                             
+                ]
+            },
+            {
+                "tableName": "hotelReviewsInlinePages",
+                "generatedKeyName": "Pagesid",
+                "sourceContext": "/document/reviews_text/pages/*",
+                "inputs": [
+                        {
+                    "name": "SentimentScore",
+                    "source": "/document/reviews_text/pages/*/Sentiment"
+                    },
+                    {
+                        "name": "LanguageCode",
+                        "source": "/document/Language"
+                    },
+                    {
+                        "name": "Page",
+                        "source": "/document/reviews_text/pages/*"
+                    }
+                ]
+            },
+            {
+                "tableName": "hotelReviewsInlineKeyPhrases",
+                "generatedKeyName": "KeyPhraseId",
+                "sourceContext": "/document/reviews_text/pages/*/Keyphrases/*",
+                "inputs": [
+                    {
+                        "name": "Keyphrases",
+                        "source": "/document/reviews_text/pages/*/Keyphrases/*"
+                    }
+                ]
+            }
+        ]
+    }
+]
+```
+  
+En observation från båda metoderna är hur värdena i `"Keyphrases"` projiceras `"sourceContext"`med hjälp av. `"Keyphrases"` Noden, som innehåller en samling med strängar, är en underordnad sid text. Men eftersom projektioner kräver ett JSON-objekt och sidan är primitiv (sträng) används den `"sourceContext"` för att omsluta nyckel frasen till ett objekt med en namngiven egenskap. Den här tekniken gör att även primitiver kan projiceras oberoende av varandra.
+
+## <a name="next-steps"></a>Nästa steg
+
+I nästa steg ska du skapa din första färdigheter med kognitiva kunskaper.
+
+> [!div class="nextstepaction"]
+> [Skapa din första färdigheter](cognitive-search-defining-skillset.md).

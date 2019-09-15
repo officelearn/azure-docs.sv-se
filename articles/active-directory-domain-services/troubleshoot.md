@@ -1,84 +1,78 @@
 ---
-title: 'Azure Active Directory Domain Services: Fel söknings guide | Microsoft Docs'
-description: Fel söknings guide för Azure AD Domain Services
+title: Azure Active Directory Domain Services fel sökning | Microsoft Docs
+description: Lär dig hur du felsöker vanliga fel när du skapar eller hanterar Azure Active Directory Domain Services
 services: active-directory-ds
-documentationcenter: ''
 author: iainfoulds
 manager: daveba
-editor: curtand
 ms.assetid: 4bc8c604-f57c-4f28-9dac-8b9164a0cf0b
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/22/2019
+ms.date: 09/13/2019
 ms.author: iainfou
-ms.openlocfilehash: c5ec80e81381423bdfdee07b1c020343d14ed559
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 5c2a8c8cfa2425985a22b93d4ade509320c48564
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69617074"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "70998720"
 ---
-# <a name="azure-ad-domain-services---troubleshooting-guide"></a>Azure AD Domain Services – fel söknings guide
-Den här artikeln innehåller fel söknings tips för problem som kan uppstå när du konfigurerar eller administrerar Azure Active Directory (AD) Domain Services.
+# <a name="common-errors-and-troubleshooting-steps-for-azure-active-directory-domain-services"></a>Vanliga fel och fel söknings steg för Azure Active Directory Domain Services
+
+Som en central del av identitet och autentisering för program har Azure Active Directory Domain Services (Azure AD DS) ibland problem. Om du stöter på problem finns det några vanliga fel meddelanden och associerade fel söknings steg som hjälper dig att komma igång igen. Du kan när som helst [öppna en support förfrågan för Azure][azure-support] om du behöver ytterligare fel sökning.
+
+Den här artikeln innehåller fel söknings steg för vanliga problem i Azure AD DS.
 
 ## <a name="you-cannot-enable-azure-ad-domain-services-for-your-azure-ad-directory"></a>Du kan inte aktivera Azure AD Domain Services för din Azure AD-katalog
-Det här avsnittet hjälper dig att felsöka fel när du försöker aktivera Azure AD Domain Services för din katalog.
 
-Välj de fel söknings steg som motsvarar det fel meddelande som du stöter på.
+Om du har problem med att aktivera Azure AD DS kan du läsa följande vanliga fel och steg för att lösa dem:
 
-| **Fel meddelande** | **Lösning** |
+| **Exempel på fel meddelande** | **Lösning** |
 | --- |:--- |
 | *Namnet contoso.com används redan i det här nätverket. Ange ett namn som inte används.* |[Domän namns konflikt i det virtuella nätverket](troubleshoot.md#domain-name-conflict) |
 | *Det gick inte att aktivera Domain Services i den här Azure AD-klienten. Tjänsten har inte tillräcklig behörighet för programmet ”Azure AD Domain Services Sync”. Ta bort programmet ”Azure AD Domain Services Sync” och försök sedan aktivera Domain Services för din Azure AD-klient.* |[Domän tjänster har inte tillräcklig behörighet för Azure AD Domain Services Sync-programmet](troubleshoot.md#inadequate-permissions) |
-| *Det gick inte att aktivera Domain Services i den här Azure AD-klienten. Programmet Domain Services i din Azure AD-klient har inte tillräcklig behörighet för att aktivera Domain Services. Ta bort programmet med programidentifieraren d87dcbc6-a371-462e-88e3-28ad15ec4e64 och försök sedan aktivera Domain Services för din Azure AD-klient.* |[Domän tjänst programmet har inte kon figurer ATS korrekt i din klient organisation](troubleshoot.md#invalid-configuration) |
+| *Det gick inte att aktivera Domain Services i den här Azure AD-klienten. Programmet Domain Services i din Azure AD-klient har inte tillräcklig behörighet för att aktivera Domain Services. Ta bort programmet med programidentifieraren d87dcbc6-a371-462e-88e3-28ad15ec4e64 och försök sedan aktivera Domain Services för din Azure AD-klient.* |[Domän tjänst programmet har inte kon figurer ATS korrekt i din Azure AD-klient](troubleshoot.md#invalid-configuration) |
 | *Det gick inte att aktivera Domain Services i den här Azure AD-klienten. Programmet Microsoft Azure AD är inaktiverat i din Azure AD-klient. Aktivera programmet med programidentifieraren 00000002-0000-0000-c000-000000000000 och försök aktivera Domain Services för din Azure AD-klient.* |[Microsoft Graph programmet är inaktiverat i din Azure AD-klient](troubleshoot.md#microsoft-graph-disabled) |
 
 ### <a name="domain-name-conflict"></a>Domän namns konflikt
-**Fel meddelande:**
+
+**Fel meddelande**
 
 *Namnet contoso.com används redan i det här nätverket. Ange ett namn som inte används.*
 
-**Reparation**
+**Lösning**
 
-Se till att du inte har en befintlig domän med samma domän namn tillgängligt i det virtuella nätverket. Anta exempelvis att det redan finns en domän som heter ”contoso.com” i det valda virtuella nätverket. Senare kan du försöka aktivera en Azure AD Domain Services hanterad domän med samma domän namn (det vill säga "contoso.com") på det virtuella nätverket. Det uppstår ett problem när du försöker aktivera Azure AD Domain Services.
+Kontrol lera att du inte har en befintlig AD DS-miljö med samma domän namn i det virtuella nätverket. Du kan till exempel ha en AD DS-domän med namnet *contoso.com* som körs på virtuella Azure-datorer. När du försöker aktivera en Azure AD DS-hanterad domän med samma domän namn *contoso.com* i det virtuella nätverket, Miss lyckas den begärda åtgärden.
 
-Det här felet beror på namn konflikter för domän namnet på det virtuella nätverket. I den här situationen måste du använda ett annat namn för att ställa in din Azure AD Domain Services-hanterade domän. Du kan också avetablera den befintliga domänen och sedan aktivera Azure AD Domain Services.
+Det här felet beror på namn konflikter för domän namnet i det virtuella nätverket. En DNS-sökning kontrollerar om en befintlig AD DS-miljö svarar på det begärda domän namnet. Lös problemet genom att använda ett annat namn för att konfigurera din Azure AD DS-hanterade domän eller avetablera den befintliga AD DS-domänen och försök sedan igen för att aktivera Azure AD DS.
 
 ### <a name="inadequate-permissions"></a>Otillräckliga behörigheter
-**Fel meddelande:**
+
+**Fel meddelande**
 
 *Det gick inte att aktivera Domain Services i den här Azure AD-klienten. Tjänsten har inte tillräcklig behörighet för programmet ”Azure AD Domain Services Sync”. Ta bort programmet ”Azure AD Domain Services Sync” och försök sedan aktivera Domain Services för din Azure AD-klient.*
 
-**Reparation**
+**Lösning**
 
-Kontrol lera om det finns ett program med namnet "Azure AD Domain Services Sync" i Azure AD-katalogen. Om det här programmet finns tar du bort det och aktiverar Azure AD Domain Services igen.
+Kontrol lera om det finns ett program med namnet *Azure AD Domain Services Sync* i Azure AD-katalogen. Om det här programmet finns tar du bort det och försöker sedan igen för att aktivera Azure AD DS. För att söka efter ett befintligt program och ta bort det vid behov, utför följande steg:
 
-Utför följande steg för att söka efter närvaron av programmet och ta bort det om programmet finns:
-
-1. Gå till avsnittet **program** i Azure AD-katalogen i [Azure Portal](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps/menuId/).
-2. Välj **alla program** i list rutan **Visa** . Välj **valfri** i list rutan **program status** . Välj **valfri** i list rutan **synlighet för program** .
-3. Skriv **Azure AD Domain Services Sync** i sökrutan. Om programmet finns klickar du på det och klickar på knappen **ta bort** i verktygsfältet för att ta bort det.
-4. När du har tagit bort programmet försöker du aktivera Azure AD Domain Services en gång till.
+1. I Azure Portal väljer du **Azure Active Directory** i navigerings menyn till vänster.
+1. Välj **företags program**. Välj *alla program* på list menyn **program typ** och välj sedan **Använd**.
+1. I rutan Sök anger *Azure AD Domain Services Sync*. Om programmet finns markerar du det och väljer **ta bort**.
+1. När du har tagit bort programmet försöker du aktivera Azure AD DS igen.
 
 ### <a name="invalid-configuration"></a>Ogiltig konfiguration
-**Fel meddelande:**
+
+**Fel meddelande**
 
 *Det gick inte att aktivera Domain Services i den här Azure AD-klienten. Programmet Domain Services i din Azure AD-klient har inte tillräcklig behörighet för att aktivera Domain Services. Ta bort programmet med programidentifieraren d87dcbc6-a371-462e-88e3-28ad15ec4e64 och försök sedan aktivera Domain Services för din Azure AD-klient.*
 
-**Reparation**
+**Lösning**
 
-Kontrol lera om du har ett program med namnet "AzureActiveDirectoryDomainControllerServices" (med program identifieraren d87dcbc6-a371-462e-88e3-28ad15ec4e64) i Azure AD-katalogen. Om det här programmet finns måste du ta bort det och sedan återaktivera Azure AD Domain Services.
+Kontrol lera att du har ett befintligt program med namnet *AzureActiveDirectoryDomainControllerServices* med ett program-ID för *D87DCBC6-A371-462E-88E3-28AD15EC4E64* i Azure AD-katalogen. Om det här programmet finns tar du bort det och försöker sedan igen för att aktivera Azure AD DS.
 
-Använd följande PowerShell-skript för att hitta programmet och ta bort det.
-
-> [!NOTE]
-> Det här skriptet använder **Azure AD PowerShell version 2** -cmdletar. En fullständig lista över alla tillgängliga cmdlets och för att hämta modulen finns i [referens dokumentationen för AzureAD PowerShell](https://msdn.microsoft.com/library/azure/mt757189.aspx).
->
->
+Använd följande PowerShell-skript för att söka efter en befintlig program instans och ta bort den om det behövs.
 
 ```powershell
 $InformationPreference = "Continue"
@@ -111,57 +105,78 @@ if ($sp -ne $null)
     Write-Information "Deleted the Azure AD Domain Services Sync service principal."
 }
 ```
-<br>
 
 ### <a name="microsoft-graph-disabled"></a>Microsoft Graph inaktiverat
-**Fel meddelande:**
 
-Det gick inte att aktivera Domain Services i den här Azure AD-klienten. Programmet Microsoft Azure AD är inaktiverat i din Azure AD-klient. Aktivera programmet med program identifieraren 00000002-0000-0000-C000-000000000000 och försök sedan aktivera Domain Services för din Azure AD-klient.
+**Fel meddelande**
 
-**Reparation**
+*Det gick inte att aktivera Domain Services i den här Azure AD-klienten. Programmet Microsoft Azure AD är inaktiverat i din Azure AD-klient. Aktivera programmet med programidentifieraren 00000002-0000-0000-c000-000000000000 och försök aktivera Domain Services för din Azure AD-klient.*
 
-Kontrol lera om du har inaktiverat ett program med identifieraren 00000002-0000-0000-C000-000000000000. Det här programmet är Microsoft Azure AD programmet och ger Graph API åtkomst till din Azure AD-klient. Azure AD Domain Services behöver det här programmet vara aktiverat för att synkronisera din Azure AD-klient med din hanterade domän.
+**Lösning**
 
-Du kan lösa det här felet genom att aktivera det här programmet och sedan försöka aktivera Domain Services för din Azure AD-klient.
+Kontrol lera om du har inaktiverat ett program med identifieraren *00000002-0000-0000-C000-000000000000*. Det här programmet är Microsoft Azure AD programmet och ger Graph API åtkomst till din Azure AD-klient. Detta program måste vara aktiverat för att du ska kunna synkronisera din Azure AD-klient.
 
+För att kontrol lera status för det här programmet och aktivera det vid behov, utför följande steg:
+
+1. I Azure Portal väljer du **Azure Active Directory** i navigerings menyn till vänster.
+1. Välj **företags program**. Välj *alla program* på list menyn **program typ** och välj sedan **Använd**.
+1. I rutan Sök anger du *00000002-0000-0000-C000-00000000000*. Välj programmet och välj sedan **Egenskaper**.
+1. Om **aktive rad för användare till inloggning** har värdet *Nej*anger du värdet *Ja*och väljer sedan **Spara**.
+1. När du har aktiverat programmet försöker du aktivera Azure AD DS igen.
 
 ## <a name="users-are-unable-to-sign-in-to-the-azure-ad-domain-services-managed-domain"></a>Användarna kan inte logga in på den hanterade domänen för Azure AD Domain Services
-Om en eller flera användare i din Azure AD-klient inte kan logga in på den nyligen skapade hanterade domänen utför du följande fel söknings steg:
 
-* **Logga in med UPN-format:** Försök logga in med UPN-formatet (till exempel ”joeuser@contoso.com”) istället för formatet SAMAccountName format (”CONTOSO\joeuser”). SAMAccountName kan genereras automatiskt för användare vars UPN-prefix är över långt eller samma som en annan användare på den hanterade domänen. UPN-formatet garanterar att det är unikt i en Azure AD-klient.
+Om en eller flera användare i din Azure AD-klient inte kan logga in på den hanterade domänen i Azure AD DS, slutför du följande fel söknings steg:
 
-> [!NOTE]
-> Vi rekommenderar att du använder UPN-formatet för att logga in på den Azure AD Domain Services hanterade domänen.
->
->
+* **Format för autentiseringsuppgifter** – försök använda UPN-formatet för att ange autentiseringsuppgifter, `dee@contoso.onmicrosoft.com`till exempel. UPN-formatet är det rekommenderade sättet att ange autentiseringsuppgifter i Azure AD DS. Kontrol lera att detta UPN är korrekt konfigurerat i Azure AD.
 
-* Kontrollera att du har [aktiverat lösenordssynkronisering](tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds) i enlighet med anvisningarna i guiden Komma igång.
-* **Externa konton:** Kontrollera att det användarkonto som påverkas inte är ett externt konto i Azure AD-klienten. Exempel på externa konton är Microsoft-konton (till exempel 'joe@live.com') eller användar konton från en extern Azure AD-katalog. Eftersom Azure AD Domain Services saknar autentiseringsuppgifter för sådana användar konton kan de här användarna inte logga in på den hanterade domänen.
-* **Synkroniserade konton:** Om de berörda användar kontona synkroniseras från en lokal katalog kontrollerar du att:
+    *SAMAccountName* för ditt konto, till exempel *CONTOSO\driley* , kan skapas automatiskt om det finns flera användare med samma UPN-prefix i din klient organisation eller om ditt UPN-prefix är för långt. Därför kan *sAMAccountName* -formatet för ditt konto skilja sig från vad du förväntar dig eller använder i din lokala domän.
 
-  * Du har distribuerat eller uppdaterat till den [senaste rekommenderade versionen av Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594).
-  * Du har konfigurerat Azure AD Connect att [utföra en fullständig synkronisering](tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds).
-  * Beroende på katalogens storlek kan det ta en stund innan användar konton och inloggnings-hashar är tillgängliga i Azure AD Domain Services. Se till att du väntar tillräckligt länge innan du försöker autentisera igen.
-  * Om problemet kvarstår när du har verifierat föregående steg kan du försöka starta om tjänsten Microsoft Azure AD Sync. Starta en kommando tolk från den synkroniserade datorn och kör följande kommandon:
+* **Lösenordssynkronisering – kontrol** lera att du har aktiverat Lösenordssynkronisering för [enbart moln användare][cloud-only-passwords] eller för [hybrid miljöer som använder Azure AD Connect][hybrid-phs].
+    * **Hybrid-synkroniserade konton:** Om de berörda användar kontona synkroniseras från en lokal katalog kontrollerar du följande områden:
+    
+      * Du har distribuerat eller uppdaterat till den [senaste rekommenderade versionen av Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594).
+      * Du har konfigurerat Azure AD Connect att [utföra en fullständig synkronisering][hybrid-phs].
+      * Beroende på katalogens storlek kan det ta en stund innan användar konton och inloggnings-hashar är tillgängliga i Azure AD DS. Se till att du väntar tillräckligt länge innan du försöker autentisera mot den hanterade domänen.
+      * Om problemet kvarstår när du har verifierat föregående steg kan du försöka starta om *tjänsten Microsoft Azure AD Sync*. Från din [virtuella hanterings dator][management-vm]öppnar du en kommando tolk och kör följande kommandon:
+    
+        ```console
+        net stop 'Microsoft Azure AD Sync'
+        net start 'Microsoft Azure AD Sync'
+        ```
 
-    1. net stop "Microsoft Azure AD Sync"
-    2. net start Microsoft Azure AD Sync
-* **Endast moln konton**: Om det berörda användar kontot är ett moln användar konto, se till att användaren har ändrat sitt lösen ord när du har aktiverat Azure AD Domain Services. Det här steget gör att de autentiseringshashvärden som krävs för Azure AD Domain Services genereras.
-* **Kontrol lera att användar kontot är aktivt**: Om ett användar konto är utelåst kan de inte logga in förrän deras konto är aktivt igen. Fem ogiltiga lösen ords försök inom 2 minuter på den hanterade domänen gör att ett användar konto blir utelåst i 30 minuter. Efter 30 minuter låses användar kontot automatiskt upp.
-  * Ogiltiga lösen ords försök i den hanterade domänen låser inte användar kontot i Azure AD. Användar kontot är bara utelåst i din Azure AD Domain Services hanterade domän. Kontrol lera status för användar kontot med hjälp av Active Directory administrations konsolen (ADAC) för den hanterade Azure AD DS-domänen, inte i Azure AD.
-  * Du kan också [Konfigurera detaljerade lösen ords principer som ändrar standard utelåsnings tröskeln och varaktighet](https://docs.microsoft.com/azure/active-directory-domain-services/password-policy).
+    * **Endast moln konton**: Om det berörda användar kontot är ett moln användar konto, se till att [användaren har ändrat sitt lösen ord när du har aktiverat Azure AD DS][cloud-only-passwords]. Den här lösen ords återställningen gör att hashar av autentiseringsuppgifter som krävs för Azure AD Domain Services genereras.
+
+* **Kontrol lera att användar kontot är aktivt**: Som standard kan fem ogiltiga lösen ords försök inom 2 minuter på den hanterade domänen leda till att ett användar konto blir utelåst i 30 minuter. Användaren kan inte logga in när kontot är utelåst. Efter 30 minuter låses användar kontot automatiskt upp.
+  * Ogiltiga lösen ords försök på den hanterade Azure AD DS-domänen låser inte användar kontot i Azure AD. Användar kontot är bara utelåst i den hanterade domänen. Kontrol lera status för användar kontot i *Active Directory administrations konsolen (ADAC)* med den [virtuella hanterings datorn][management-vm], inte i Azure AD.
+  * Du kan också [Konfigurera detaljerade lösen ords principer][password-policy] för att ändra standard utelåsnings tröskeln och varaktighet.
+
+* **Externa konton** – kontrol lera att det berörda användar kontot inte är ett externt konto i Azure AD-klienten. Exempel på externa konton är Microsoft-konton `dee@live.com` som eller användar konton från en extern Azure AD-katalog. Azure AD DS lagrar inte autentiseringsuppgifter för externa användar konton så att de inte kan logga in på den hanterade domänen.
 
 ## <a name="there-are-one-or-more-alerts-on-your-managed-domain"></a>Det finns en eller flera aviseringar på din hanterade domän
 
-Se hur du löser aviseringar på din hanterade domän genom att gå till artikeln [felsök aviseringar](troubleshoot-alerts.md) .
+Om det finns aktiva aviseringar på den hanterade domänen i Azure AD DS kan det leda till att autentiseringsprocessen fungerar som den ska.
+
+Om du vill se om det finns några aktiva aviseringar [kontrollerar du hälso tillståndet för en hanterad Azure AD DS-domän][check-health]. Om några aviseringar visas kan du [Felsöka och lösa dem][troubleshoot-alerts].
 
 ## <a name="users-removed-from-your-azure-ad-tenant-are-not-removed-from-your-managed-domain"></a>Användare som tas bort från din Azure AD-klient tas inte bort från din hanterade domän
-Azure AD skyddar dig mot oavsiktlig borttagning av användarobjekt. När du tar bort ett användarkonto från Azure AD-klienten flyttas motsvarande användarobjekt till papperskorgen. När den här borttagnings åtgärden synkroniseras till din hanterade domän, gör det att motsvarande användar konto markeras som inaktiverat. Den här funktionen hjälper dig att återställa eller ångra borttagning av användar kontot senare.
 
-Användar kontot förblir i inaktiverat tillstånd i din hanterade domän, även om du återskapar ett användar konto med samma UPN i Azure AD-katalogen. Om du vill ta bort användar kontot från din hanterade domän måste du framtvinga borttagning av det från din Azure AD-klient.
+Azure AD skyddar mot oavsiktlig borttagning av användar objekt. När du tar bort ett användar konto från en Azure AD-klient flyttas motsvarande användar objekt till pappers korgen. När den här borttagnings åtgärden synkroniseras med din Azure AD DS-hanterade domän markeras motsvarande användar konto som inaktiverat. Med den här funktionen kan du återställa eller ångra borttagning av användar kontot.
 
-Om du vill ta bort användar kontot fullständigt från din hanterade domän, tar du bort användaren permanent från din Azure AD-klient. Använd PowerShell-cmdleten `-RemoveFromRecycleBin` med alternativet, enligt beskrivningen i den här [MSDN-artikeln](/previous-versions/azure/dn194132(v=azure.100)). `Remove-MsolUser`
+Användar kontot förblir i inaktiverat tillstånd i den hanterade domänen i Azure AD DS, även om du återskapar ett användar konto med samma UPN i Azure AD-katalogen. Om du vill ta bort användar kontot från den hanterade domänen i Azure AD DS måste du framtvinga borttagning av den från Azure AD-klienten.
 
+Om du vill ta bort ett användar konto fullständigt från en Azure AD DS-hanterad domän, tar du bort användaren permanent från din Azure AD-klient med hjälp `-RemoveFromRecycleBin` av cmdleten [Remove-MsolUser][Remove-MsolUser] med parametern.
 
-## <a name="contact-us"></a>Kontakta oss
-Kontakta Azure Active Directory Domain Services produkt teamet för att [dela feedback eller för support](contact-us.md).
+## <a name="next-steps"></a>Nästa steg
+
+Om du fortfarande har problem [öppnar du en support förfrågan för Azure][azure-support] om du behöver ytterligare fel sökning.
+
+<!-- INTERNAL LINKS -->
+[cloud-only-passwords]: tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds
+[hybrid-phs]: tutorial-configure-password-hash-sync.md
+[management-vm]: tutorial-create-management-vm.md
+[password-policy]: password-policy.md
+[check-health]: check-health.md
+[troubleshoot-alerts]: troubleshoot-alerts.md
+[Remove-MsolUser]: /powershell/module/MSOnline/Remove-MsolUser
+[azure-support]: ../active-directory/fundamentals/active-directory-troubleshooting-support-howto.md

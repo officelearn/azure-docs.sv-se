@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 06/28/2019
 ms.author: wesmc
-ms.openlocfilehash: 9be0b93335cef919db4efa2fce361bda1f9b934e
-ms.sourcegitcommit: a3a40ad60b8ecd8dbaf7f756091a419b1fe3208e
+ms.openlocfilehash: 18864a662464f77d799e54d583092a371bc2d137
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69891983"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "70999970"
 ---
 # <a name="choose-the-right-iot-hub-tier-for-your-solution"></a>Välj rätt IoT Hub nivå för din lösning
 
@@ -33,7 +33,7 @@ Varje IoT Hub nivå är tillgänglig i tre storlekar, baserat på hur mycket dat
 
 Standard nivån för IoT Hub aktiverar alla funktioner och krävs för alla IoT-lösningar som vill använda funktionerna i dubbelriktad kommunikation. Basic-nivån möjliggör en delmängd av funktionerna och är avsedd för IoT-lösningar som bara behöver enkelriktad kommunikation från enheter till molnet. Båda nivåerna ger samma funktioner för säkerhet och autentisering.
 
-Det går bara att välja en typ av [utgåva](https://azure.microsoft.com/pricing/details/iot-hub/) inom en nivå per IoT Hub. Du kan till exempel skapa en IoT Hub med flera enheter S1, men inte med en blandning av enheter från olika versioner, till exempel S1 och B3, eller S1 och S2.
+Det går bara att välja en typ av [utgåva](https://azure.microsoft.com/pricing/details/iot-hub/) inom en nivå per IoT Hub. Du kan till exempel skapa en IoT Hub med flera enheter S1, men inte med en blandning av enheter från olika versioner, till exempel S1 och S2.
 
 | Funktion | Basnivå | Kostnads fri/standard-nivå |
 | ---------- | ---------- | ------------- |
@@ -44,7 +44,7 @@ Det går bara att välja en typ av [utgåva](https://azure.microsoft.com/pricing
 | [Enhets etablerings tjänst](../iot-dps/about-iot-dps.md) | Ja | Ja |
 | [Övervakning och diagnostik](iot-hub-monitor-resource-health.md) | Ja | Ja |
 | [Meddelanden från moln till enhet](iot-hub-devguide-c2d-guidance.md) |   | Ja |
-| [Enhets](iot-hub-devguide-device-twins.md)uppflätade, modulens sammanflätade och [enhets hantering](iot-hub-device-management-overview.md) [](iot-hub-devguide-module-twins.md) |   | Ja |
+| [Enhets uppflätade](iot-hub-devguide-device-twins.md), [modulens sammanflätade](iot-hub-devguide-module-twins.md)och [enhets hantering](iot-hub-device-management-overview.md) |   | Ja |
 | [Enhets strömmar (förhands granskning)](iot-hub-device-streams-overview.md) |   | Ja |
 | [Azure IoT Edge](../iot-edge/about-iot-edge.md) |   | Ja |
 
@@ -86,6 +86,10 @@ Skillnaden mellan de funktioner som stöds mellan nivåerna Basic och standard i
 | Händelse för att skicka modul | Endast AMQP och MQTT | Endast AMQP och MQTT |
 | [Uppdatera fil överförings status](https://docs.microsoft.com/rest/api/iothub/device/updatefileuploadstatus) | Ja | Ja |
 | [Åtgärd för Mass enhet](https://docs.microsoft.com/rest/api/iothub/service/bulkcreateorupdatedevices) | Ja, förutom IoT Edge funktioner | Ja |
+| [Avbryt import av export jobb](https://docs.microsoft.com/rest/api/iothub/service/cancelimportexportjob) | Ja | Ja |
+| [Skapa import export jobb](https://docs.microsoft.com/rest/api/iothub/service/createimportexportjob) | Ja | Ja |
+| [Hämta import export jobb](https://docs.microsoft.com/rest/api/iothub/service/getimportexportjob) | Ja | Ja |
+| [Hämta import export jobb](https://docs.microsoft.com/rest/api/iothub/service/getimportexportjobs) | Ja | Ja |
 | [Rensa kommando kön](https://docs.microsoft.com/rest/api/iothub/service/purgecommandqueue) |   | Ja |
 | [Hämta enhetens dubbla](https://docs.microsoft.com/rest/api/iothub/service/gettwin) |   | Ja |
 | [Hämta modul, dubbla](https://docs.microsoft.com/rest/api/iothub/service/getmoduletwin) |   | Ja |
@@ -107,17 +111,17 @@ Det bästa sättet att ändra storlek på en IoT Hub lösning är att utvärdera
 * Meddelanden från moln till enhet
 * Identitetsregisteråtgärder
 
-Trafiken mäts per enhet, inte per hubb. En IoT Hub instans på nivå 1 eller 2 kan ha så många 200 enheter som är kopplade till den. En nivå 3-IoT Hub instans kan ha upp till 10 enheter. När du har skapat din IoT-hubb kan du ändra antalet enheter eller flytta mellan 1, 2 och 3 storlekar inom en bestämd nivå utan att avbryta dina befintliga åtgärder. Mer information finns i [så här uppgraderar du IoT Hub](iot-hub-upgrade.md).
+Trafiken mäts för din IoT-hubb per enhet. När du skapar en IoT-hubb väljer du dess nivå och utgåva och anger antalet tillgängliga enheter. Du kan köpa upp till 200 enheter för B1, B2, S1 eller S2 Edition, eller upp till 10 enheter för B3-eller S3-versionen. När din IoT Hub har skapats kan du ändra antalet enheter som är tillgängliga i dess utgåva, uppgradera eller nedgradera mellan versioner inom dess nivå (B1 till B2) eller uppgradera från Basic till standard-nivån (B1 till S1) utan att avbryta dina befintliga åtgärder. Mer information finns i [så här uppgraderar du IoT Hub](iot-hub-upgrade.md).  
 
 Som exempel på varje nivås trafik egenskaper följer enhets-till-moln-meddelanden dessa rikt linjer för data flöde:
 
-| Nivå | Varaktigt data flöde | Varaktig överförings takt |
+| Nivå utgåva | Varaktigt data flöde | Varaktig överförings takt |
 | --- | --- | --- |
 | B1, S1 |Upp till 1111 KB/minut per enhet<br/>(1,5 GB/dag/enhet) |Medelvärde för 278 meddelanden/minut per enhet<br/>(400 000 meddelanden/dag per enhet) |
 | B2, S2 |Upp till 16 MB/minut per enhet<br/>(22,8 GB/dag/enhet) |Medelvärde för 4 167 meddelanden/minut per enhet<br/>(6 000 000 meddelanden/dag per enhet) |
 | B3, S3 |Upp till 814 MB/minut per enhet<br/>(1144,4 GB/dag/enhet) |Medelvärde för 208 333 meddelanden/minut per enhet<br/>(300 000 000 meddelanden/dag per enhet) |
 
-Förutom den här data flödes informationen kan du läsa mer i [IoT Hub kvoter och begränsningar](iot-hub-devguide-quotas-throttling.md) och utforma din lösning på lämpligt sätt.
+Data flöde från enhet till moln är bara ett av de mått du behöver tänka på när du skapar en IoT-lösning. Mer utförlig information finns i [IoT Hub kvoter och begränsningar](iot-hub-devguide-quotas-throttling.md).
 
 ### <a name="identity-registry-operation-throughput"></a>Data flöde för identitets register åtgärd
 
@@ -127,7 +131,7 @@ För vissa prestanda siffror i burst, se [IoT Hub kvoter och begränsningar](iot
 
 ## <a name="auto-scale"></a>Autoskala
 
-Om du närmar dig den tillåtna meddelande gränsen på IoT Hub kan du använda de här [stegen för att automatiskt skala](https://azure.microsoft.com/resources/samples/iot-hub-dotnet-autoscale/) för att öka en IoT Hub enhet på samma IoT Hub nivå.
+Om du närmar dig den tillåtna meddelande gränsen på din IoT-hubb kan du använda de här [stegen för att automatiskt skala](https://azure.microsoft.com/resources/samples/iot-hub-dotnet-autoscale/) för att öka en IoT Hub enhet på samma IoT Hub nivå.
 
 ## <a name="next-steps"></a>Nästa steg
 

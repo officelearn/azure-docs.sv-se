@@ -11,16 +11,16 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: jingwang
-ms.openlocfilehash: 735013046f65a9dba345c52db883df0b114ba7f2
-ms.sourcegitcommit: a3a40ad60b8ecd8dbaf7f756091a419b1fe3208e
+ms.openlocfilehash: 3f46c54edff2bc765e75742848f83d30e7aa7c09
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69892056"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71003394"
 ---
 # <a name="store-credential-in-azure-key-vault"></a>Lagra autentiseringsuppgifter i Azure Key Vault
 
-Du kan lagra autentiseringsuppgifter för data lager och beräkningar i en [Azure Key Vault](../key-vault/key-vault-whatis.md). Azure Data Factory hämtar autentiseringsuppgifterna när en aktivitet som använder data lagret/data bearbetningen körs.
+Du kan lagra autentiseringsuppgifter för data lager och beräkningar i en [Azure Key Vault](../key-vault/key-vault-overview.md). Azure Data Factory hämtar autentiseringsuppgifterna när en aktivitet som använder data lagret/data bearbetningen körs.
 
 För närvarande har alla aktivitets typer förutom anpassad aktivitet stöd för den här funktionen. För kopplings konfiguration är det specifikt att se avsnittet "egenskaper för länkad tjänst" i [varje anslutnings avsnitt](copy-activity-overview.md#supported-data-stores-and-formats) för mer information.
 
@@ -44,7 +44,7 @@ Följande egenskaper stöds för Azure Key Vault länkade tjänsten:
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | type | Egenskapen Type måste anges till: **AzureKeyVault**. | Ja |
-| baseUrl | Ange Azure Key Vault-URL. | Ja |
+| BaseUrl | Ange Azure Key Vault-URL. | Ja |
 
 **Använda redigerings gränssnittet:**
 
@@ -77,7 +77,7 @@ Följande egenskaper stöds när du konfigurerar ett fält i en länkad tjänst 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | type | Egenskapen Type för fältet måste anges till: **AzureKeyVaultSecret**. | Ja |
-| secretName | Namnet på hemligheten i Azure Key Vault. | Ja |
+| SecretName | Namnet på hemligheten i Azure Key Vault. | Ja |
 | secretVersion | Den hemliga versionen i Azure Key Vault.<br/>Om detta inte anges används alltid den senaste versionen av hemligheten.<br/>Om detta anges, kommer det att göras till den angivna versionen.| Nej |
 | store | Refererar till en Azure Key Vault länkad tjänst som du använder för att lagra autentiseringsuppgifterna. | Ja |
 

@@ -1,7 +1,7 @@
 ---
 title: 'Självstudie om regressionsmodell: Automatisk ML'
-titleSuffix: Azure Machine Learning service
-description: Lär dig att skapa en maskininlärningsmodell med automatiserad maskininlärning. Azure Machine Learning kan förbearbeta data, välja algoritm och hyperparameter på ett automatiserat sätt åt dig. Den slutliga modellen distribueras sedan med Azure Machine Learning-tjänsten.
+titleSuffix: Azure Machine Learning
+description: Lär dig att skapa en maskininlärningsmodell med automatiserad maskininlärning. Azure Machine Learning kan förbearbeta data, välja algoritm och hyperparameter på ett automatiserat sätt åt dig. Sedan distribueras den slutliga modellen med Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,16 +10,16 @@ author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
 ms.date: 08/21/2019
-ms.openlocfilehash: 990755b247190f689a90d5cdf3d60d6eff9f4ae7
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: f08f2f07137e518925ee4dbe9b128e100be870c9
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70036250"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71003984"
 ---
 # <a name="tutorial-use-automated-machine-learning-to-predict-taxi-fares"></a>Självstudier: Använd automatisk maskin inlärning för att förutse taxi-priser
 
-I den här självstudien använder du Automatisk maskin inlärning i Azure Machine Learning-tjänsten för att skapa en Regressions modell för att förutsäga priserna för NYC Taxi pris. Den här processen godkänner inlärnings data och konfigurations inställningar och upprepas automatiskt genom kombinationer av olika metoder, modeller och inställningar för en funktion för funktioner, modeller och kompatibilitetsinställningar för att komma till den bästa modellen.
+I den här självstudien använder du Automatisk maskin inlärning i Azure Machine Learning för att skapa en Regressions modell för att förutsäga priserna för NYC Taxi pris. Den här processen godkänner inlärnings data och konfigurations inställningar och upprepas automatiskt genom kombinationer av olika metoder, modeller och inställningar för en funktion för funktioner, modeller och kompatibilitetsinställningar för att komma till den bästa modellen.
 
 ![Flödesdiagram](./media/tutorial-auto-train-models/flow2.png)
 
@@ -30,11 +30,11 @@ I den här självstudien får du lära dig följande uppgifter:
 > * Träna en automatisk maskin inlärnings Regressions modell
 > * Beräkna modell precision
 
-Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnads fria eller betalda versionen](https://aka.ms/AMLFree) av Azure Machine Learning-tjänsten idag.
+Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnads fria eller betalda versionen](https://aka.ms/AMLFree) av Azure Machine Learning idag.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-* Slutför [installations guiden](tutorial-1st-experiment-sdk-setup.md) om du inte redan har en Azure Machine Learning tjänst arbets yta eller en virtuell dator för bärbara datorer.
+* Slutför [installations självstudien](tutorial-1st-experiment-sdk-setup.md) om du inte redan har en Azure Machine Learning arbets yta eller en virtuell dator.
 * När du har slutfört installations guiden öppnar du **självstudierna/regression-Automated-ml. ipynb** Notebook med samma Notebook-Server.
 
 Den här själv studie kursen finns också på [GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/tutorials) om du vill köra den i din egen [lokala miljö](how-to-configure-environment.md#local). Kör `pip install azureml-sdk[automl] azureml-opendatasets azureml-widgets` för att hämta de nödvändiga paketen.
@@ -1057,7 +1057,7 @@ De traditionella machine learning-modell utvecklingsprocessen är mycket resursk
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Slutför inte det här avsnittet om du planerar att köra andra Azure Machine Learning service-självstudier.
+Slutför inte det här avsnittet om du tänker köra andra Azure Machine Learning själv studie kurser.
 
 ### <a name="stop-the-notebook-vm"></a>Stoppa den virtuella Notebook-datorn
 
@@ -1088,4 +1088,4 @@ I den här automatiserade självstudiekursen om maskininlärning har du gjort f�
 > * Tränat med hjälp av en automatiserad regressionsmodell lokalt med anpassade parametrar.
 > * Utforskat och granskat träningsresultat.
 
-[Distribuera din modell](tutorial-deploy-models-with-aml.md) med Azure Machine Learning-tjänsten.
+[Distribuera modellen](tutorial-deploy-models-with-aml.md) med Azure Machine Learning.

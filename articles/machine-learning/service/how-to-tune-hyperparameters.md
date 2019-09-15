@@ -1,7 +1,7 @@
 ---
 title: Justera hyperparametrar för din modell
-titleSuffix: Azure Machine Learning service
-description: Effektivt justera hyperparametrar för din deep learning / machine learning-modellen med hjälp av Azure Machine Learning-tjänsten. Du får lära dig hur du definierar parameter Sök utrymmet, anger ett primärt mått som ska optimeras och tidigt avslutar dåligt utförande av körningar.
+titleSuffix: Azure Machine Learning
+description: Justera de flesta parametrar för din djup inlärnings-och maskin inlärnings modell med hjälp av Azure Machine Learning. Du får lära dig hur du definierar parameter Sök utrymmet, anger ett primärt mått som ska optimeras och tidigt avslutar dåligt utförande av körningar.
 ms.author: swatig
 author: swatig007
 ms.reviewer: sgilley
@@ -11,16 +11,16 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 07/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: 5a6f7c6de005112578cc29865574e5e255c99a8e
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: cb4023be41377846ed209b3d6702188f5d79ba00
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69873070"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "70999391"
 ---
-# <a name="tune-hyperparameters-for-your-model-with-azure-machine-learning-service"></a>Justera hyperparametrar för din modell med Azure Machine Learning-tjänsten
+# <a name="tune-hyperparameters-for-your-model-with-azure-machine-learning"></a>Justera dina modellers egenskaper med Azure Machine Learning
 
-Effektivt justera hyperparametrar för din modell med hjälp av Azure Machine Learning-tjänsten.  Finjustering av hyperparametrar omfattar följande steg:
+Justera dina modeller på ett effektivt sätt med hjälp av Azure Machine Learning.  Finjustering av hyperparametrar omfattar följande steg:
 
 * Definiera parametern search utrymme
 * Ange ett primära mått för att optimera  
@@ -94,7 +94,7 @@ Den här koden definierar search kan med två parametrar – `learning_rate` och
 
 ### <a name="sampling-the-hyperparameter-space"></a>Sampling finjustering utrymme
 
-Du kan även ange parametern-samplingsmetoden för att använda via finjustering utrymme definition. Azure Machine Learning-tjänsten stöder stickprov och rutnät sampling Bayesian sampling.
+Du kan även ange parametern-samplingsmetoden för att använda via finjustering utrymme definition. Azure Machine Learning stöder slumpmässig provtagning, rutnäts sampling och Bayesian-sampling.
 
 #### <a name="random-sampling"></a>Stickprov
 
@@ -186,7 +186,7 @@ När du använder en tidig uppsägning princip kan konfigurera du följande para
 * `evaluation_interval`: frekvensen för att tillämpa principen. Varje gång utbildning skriptet loggar den primära måtten räknas som ett intervall. Därför en `evaluation_interval` 1 gäller principen varje gång utbildning skriptet rapporterar primära mått. En `evaluation_interval` 2 ska tillämpa principen för varje gång som utbildning skriptet rapporterar primära mått. Om inte anges `evaluation_interval` anges till 1 som standard.
 * `delay_evaluation`: fördröjer första principutvärdering för ett angivet antal intervall. Det är en valfri parameter som gör att alla konfigurationer att köra för en inledande minsta antalet intervall, undvika för tidig uppsägning av utbildning körs. Om principen gäller alla multipel av evaluation_interval som är större än eller lika med delay_evaluation.
 
-Azure Machine Learning-tjänsten har stöd för följande principer för tidig uppsägning.
+Azure Machine Learning stöder följande tidiga avslutnings principer.
 
 ### <a name="bandit-policy"></a>Bandit princip
 
@@ -304,7 +304,7 @@ experiment = Experiment(workspace, experiment_name)
 hyperdrive_run = experiment.submit(hyperdrive_run_config)
 ```
 
-`experiment_name` är namnet som du tilldelar till din finjustering justering experiment, och `workspace` är arbetsytan där du vill skapa experimentet (Mer information om experiment finns i [hur fungerar Azure Machine Learning-tjänsten?](concept-azure-machine-learning-architecture.md))
+`experiment_name`är det namn som du tilldelar till ditt för inställnings experiment med `workspace` din parameter och är den arbets yta där du vill skapa experimentet (mer information om experiment finns i [Hur fungerar Azure Machine Learning?](concept-azure-machine-learning-architecture.md))
 
 ## <a name="visualize-experiment"></a>Visualisera experiment
 

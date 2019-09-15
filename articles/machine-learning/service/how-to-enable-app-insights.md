@@ -1,7 +1,7 @@
 ---
 title: Konfigurera Azure Application Insights för att övervaka ML-modeller
-titleSuffix: Azure Machine Learning service
-description: Övervaka webb tjänster som distribueras med Azure Machine Learning-tjänsten med hjälp av Azure Application Insights
+titleSuffix: Azure Machine Learning
+description: Övervaka webb tjänster som distribueras med Azure Machine Learning med hjälp av Azure Application Insights
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,16 +11,16 @@ ms.author: marthalc
 author: marthalc
 ms.date: 07/12/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: ff9261e2720ed80fc96131cea69d2985c8e0883e
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: 785507e9ae12d8da564a223c8cdf544a98b8de61
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70858753"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71002874"
 ---
 # <a name="monitor-your-azure-machine-learning-models-with-application-insights"></a>Övervaka dina Azure Machine Learning-modeller med Application Insights
 
-I den här artikeln får du lära dig hur du ställer in Azure Application Insights för Azure Machine Learning-tjänsten. Application Insights ger dig möjlighet att övervaka:
+I den här artikeln får du lära dig hur du ställer in Azure Application insikter för Azure Machine Learning. Application Insights ger dig möjlighet att övervaka:
 * Begära frekvens, svarstider och Felfrekvens.
 * Beroendefrekvens, svarstider och Felfrekvens.
 * Undantag.
@@ -30,7 +30,7 @@ I den här artikeln får du lära dig hur du ställer in Azure Application Insig
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-* Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnadsfria versionen eller betalversionen av Azure Machine Learning-tjänsten](https://aka.ms/AMLFree) i dag.
+* Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree) idag.
 
 * En lokal katalog som innehåller dina skript och Azure Machine Learning-SDK för Python installerat en Azure Machine Learning-arbetsyta. Information om hur du hämtar dessa krav finns i [så här konfigurerar du en utvecklingsmiljö](how-to-configure-environment.md).
 * En tränad modell för maskininlärning för distribution till Azure Kubernetes Service (AKS) eller Azure Container-instans (ACI). Om du inte har någon kan se den [träningsmodell bild klassificering](tutorial-train-models-with-aml.md) självstudien.
@@ -111,7 +111,7 @@ Du kan aktivera och inaktivera Application Insights i Azure-portalen.
  
 
 ## <a name="evaluate-data"></a>Utvärdera data
-Din tjänsts data lagras i ditt Application Insights-konto, inom samma resursgrupp som din Azure Machine Learning-tjänsten.
+Din tjänsts data lagras i ditt Application Insights konto i samma resurs grupp som Azure Machine Learning.
 Visa den:
 1. Gå till din Machine Learning-tjänsten arbetsyta i den [Azure-portalen](https://portal.azure.com) och klicka på länken för Application Insights.
 

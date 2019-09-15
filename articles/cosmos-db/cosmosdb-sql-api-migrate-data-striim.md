@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/22/2019
 ms.author: sngun
 ms.reviewer: sngun
-ms.openlocfilehash: 27961413d0dddc165f90ebde1c5e1aee6b8d9fd3
-ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
+ms.openlocfilehash: 36ba9e2d3385184f32876a6d067b58f7c21a90bd
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69981839"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71003286"
 ---
 # <a name="migrate-data-to-azure-cosmos-db-sql-api-account-using-striim"></a>Migrera data till Azure Cosmos DB SQL API-konto med Striims
  
@@ -124,7 +124,7 @@ I det här avsnittet ska du konfigurera Azure Cosmos DB SQL API-konto som mål f
 
    ![Kopiera Striims VM IP-adress](./media/cosmosdb-sql-api-migrate-data-striim/copy-public-ip-address.png)
 
-1. Om du vill navigera till Striims-webbgränssnittet öppnar du en ny flik i en webbläsare och kopierar den offentliga IP-adressen följt av: 9080. Logga in med administratörs användar namnet, tillsammans med administratörs lösen ordet som du angav i Azure Portal.
+1. Om du vill navigera till Striims-webbgränssnittet öppnar du en ny flik i en webbläsare och kopierar den offentliga IP-adressen följt av: 9080. Logga in med **Administratörs** användar namnet, tillsammans med administratörs lösen ordet som du angav i Azure Portal.
 
    ![Logga in på Striims](./media/cosmosdb-sql-api-migrate-data-striim/striim-login-ui.png)
 
@@ -193,7 +193,7 @@ I det här avsnittet ska du konfigurera Azure Cosmos DB SQL API-konto som mål f
 
    ![Verifiera migrerade data i Azure](./media/cosmosdb-sql-api-migrate-data-striim/portal-validate-results.png)
 
-Genom att använda Striims-lösningen i Azure kan du kontinuerligt migrera data till Azure Cosmos DB från olika källor som Oracle, Cassandra, MongoDB och flera andra att Azure Cosmos DB. Om du har problem med att ställa in migrations Sök vägen med Striims kan du skicka en supportbegäran till [striims-webbplatsen](https://go2.striim.com/request-support-striim).
+Genom att använda Striims-lösningen i Azure kan du kontinuerligt migrera data till Azure Cosmos DB från olika källor som Oracle, Cassandra, MongoDB och flera andra att Azure Cosmos DB. Om du vill veta mer går du till [striims-webbplatsen](https://www.striim.com/), [laddar ned en kostnads fri 30-dagars utvärderings version av striims](https://go2.striim.com/download-free-trial)och för eventuella problem när du konfigurerar sökvägen för migrering med striims, så skicka en supportbegäran till en [support förfrågan.](https://go2.striim.com/request-support-striim)
 
 ## <a name="next-steps"></a>Nästa steg
 

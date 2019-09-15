@@ -1,10 +1,10 @@
 - name: Dokumentation om Data Lake Analytics
-  href: index.md
+  href: index.yml
 - name: Översikt
   items:
     - name: Vad är Data Lake Analytics?
       href: data-lake-analytics-overview.md
-- name: Kom igång
+- name: Komma igång
   items:
     - name: Azure Portal
       href: data-lake-analytics-get-started-portal.md

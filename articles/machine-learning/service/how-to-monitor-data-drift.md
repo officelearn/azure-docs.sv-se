@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: copeters
 author: cody-dkdc
-ms.date: 07/08/2019
-ms.openlocfilehash: 7d47b74d4fef3676101f3f624dcacb832dcedc3a
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.date: 09/13/2019
+ms.openlocfilehash: 80c5ad26150547263469c9f59366e270bf660335
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70858704"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70993166"
 ---
 # <a name="detect-data-drift-preview-on-models-deployed-to-azure-kubernetes-service-aks"></a>Identifiera data drift (för hands version) i modeller som distribuerats till Azure Kubernetes service (AKS)
 
@@ -133,7 +133,6 @@ Det finns flera sätt att Visa avvikelse mått:
 
 * Använd widgeten [Jupyter.](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py) `RunDetails`
 * Använd funktionen på alla `datadrift` körnings objekt. [`get_metrics()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py#get-metrics-name-none--recursive-false--run-type-none--populate-false-)
-* Visa måtten i Azure Portal i din modell.
 * Visa måtten från avsnittet **modeller** i [landnings sidan för din arbets yta (för hands version)](https://ml.azure.com).
 
 Följande python-exempel visar hur du kan rita relevanta mått för data avvikelser. Du kan använda de returnerade måtten för att bygga anpassade visualiseringar:
@@ -159,17 +158,16 @@ datadrift.enable_schedule()
 datadrift.disable_schedule()
 ```
 
-Konfigurationen av data behållar detektorn visas på sidan modell information i Azure Portal eller i landnings sidan för din arbets yta (för hands version).
+Konfigurationen av data behållar detektorn visas under **modeller** på fliken **information** på [sidan landnings sida för arbets ytan (för hands version)](https://ml.azure.com).
 
-![Azure Portal konfiguration av data riktning](media/how-to-monitor-data-drift/drift_config.png)
+![Azure Portal data avvikelse](media/how-to-monitor-data-drift/drift-config.png)
 
-## <a name="view-results-in-azure-portal"></a>Visa resultat i Azure Portal
+## <a name="view-results-in-your-workspace-landing-page"></a>Visa resultat i landnings sidan för din arbets yta
 
-Om du vill visa resultat i din arbets yta i [Azure Portal](https://portal.azure.com)navigerar du till sidan modell. På fliken information i modellen visas konfigurationen för data riktning. En "data drivgarn (förhands granskning)"-fliken är nu tillgänglig visualisering av data drifts måtten. 
+Om du vill visa resultat i din arbets yta i [landnings sidan för arbets ytan (för hands version)](https://ml.azure.com)går du till sidan modell. På fliken information i modellen visas konfigurationen för data riktning. En **datadrivgarn** -flik är nu tillgänglig för visualisering av data drifts måtten. 
 
-![Azure Portal data avvikelse](media/how-to-monitor-data-drift/drift_ui.png)
+[![vilplan för arbets ytans landnings sida](media/how-to-monitor-data-drift/drift-ui.png)](media/how-to-monitor-data-drift/drift-ui-expanded.png)
 
-Resultaten är också tillgängliga i modell informationen i din [arbets ytans landnings sida (för hands version)](https://ml.azure.com).
 
 ## <a name="receiving-drift-alerts"></a>Ta emot larm
 

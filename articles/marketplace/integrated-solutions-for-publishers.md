@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 08/15/2019
 ms.author: v-qiwe
-ms.openlocfilehash: 2d23b2b39844d48c6414d269f8d69d7b96fff272
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: 13a7769e310bcd0cb28eddbf9dded3fe1d62eec7
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70860301"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70993687"
 ---
 # <a name="publishing-integrated-solutions"></a>Publicera integrerade lösningar
 
@@ -89,5 +89,9 @@ När den tekniska integrationen är klar och marknadsförings säkerheten är kl
 ## <a name="going-to-market-with-your-integrated-solution"></a>Gå till marknaden med din integrerade lösning 
 
 När din lösning är aktiv i Azure Marketplace eller AppSource vill du öka medvetenheten och efter frågan genom marknadsförings aktiviteter. Granska de aktiviteter som anges i [projektplanen och tids linjen](https://aka.ms/AA5qiuc), inklusive aktiviteter som partners kan driva i sina egna team och med varandra. Sedan får du till gång till [marknads förmåner](https://docs.microsoft.com/azure/marketplace/gtm-your-marketplace-benefits#list-trial-and-consulting-benefits) som tillhandahålls till partner som har publicerat i Marketplace. Alla integrerade lösnings erbjudanden är berättigade till förmåner på utvärderings nivå.
+
+## <a name="next-steps"></a>Nästa steg
+
+Se [integrerade lösningar](https://docs.microsoft.com/azure/marketplace/integrated-solutions) för information om att köpa en integrerad lösning på Marketplace.
 
 ---

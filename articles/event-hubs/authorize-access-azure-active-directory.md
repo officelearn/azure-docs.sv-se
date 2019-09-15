@@ -8,12 +8,12 @@ author: spelluru
 ms.topic: conceptual
 ms.date: 08/22/2019
 ms.author: spelluru
-ms.openlocfilehash: cc94f2705f044c3674432f31b63d630be8afbf7d
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: 0d8d1b37e7f5ebb6eef1c76e4324041c48ab8986
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70035882"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70995732"
 ---
 # <a name="authorize-access-to-event-hubs-resources-using-azure-active-directory"></a>Ge åtkomst till Event Hubs resurser med Azure Active Directory
 Azure Event Hubs stöder användning av Azure Active Directory (Azure AD) för att godkänna begär anden till Event Hubs resurser. Med Azure AD kan du använda rollbaserad åtkomst kontroll (RBAC) för att bevilja behörighet till ett säkerhets objekt, som kan vara en användare eller ett huvud namn för en program tjänst. Mer information om roller och roll tilldelningar finns i [förstå de olika rollerna](../role-based-access-control/overview.md).
@@ -21,7 +21,7 @@ Azure Event Hubs stöder användning av Azure Active Directory (Azure AD) för a
 ## <a name="overview"></a>Översikt
 När ett säkerhets objekt (en användare eller ett program) försöker få åtkomst till en Event Hubs-resurs måste begäran vara auktoriserad. Med Azure AD är åtkomst till en resurs en två stegs process. 
 
- 1. Först autentiseras säkerhets objektets identitet och en OAuth 2,0-token returneras. 
+ 1. Först autentiseras säkerhets objektets identitet och en OAuth 2,0-token returneras. Resurs namnet för att begära en token `https://eventhubs.azure.net/`är.
  1. Därefter skickas token som en del av en begäran till tjänsten Event Hubs för att ge åtkomst till den angivna resursen.
 
 Autentiserings steget kräver att en programbegäran innehåller en OAuth 2,0-åtkomsttoken vid körning. Om ett program körs i en Azure-entitet, till exempel en virtuell Azure-dator, en skalnings uppsättning för virtuella datorer eller en Azure Function-app, kan den använda en hanterad identitet för att få åtkomst till resurserna. Information om hur du autentiserar begär Anden som görs av en hanterad identitet i Event Hubs-tjänsten finns i [autentisera åtkomst till azure Event Hubs-resurser med Azure Active Directory och hanterade identiteter för Azure-resurser](authenticate-managed-identity.md). 
@@ -39,7 +39,7 @@ När en RBAC-roll tilldelas till ett säkerhets objekt i Azure AD ger Azure åtk
 Azure tillhandahåller följande inbyggda RBAC-roller för att auktorisera åtkomst till Event Hubs data med hjälp av Azure AD och OAuth:
 
 - [Azure Event Hubs data ägare](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-owner): Använd den här rollen för att ge fullständig åtkomst till Event Hubs resurser.
-- [Azure Event Hubs data](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-receiver)avsändare: Använd den här rollen för att ge åtkomst till Event Hubs-resurser.
+- [Azure Event Hubs data avsändare](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-receiver): Använd den här rollen för att ge åtkomst till Event Hubs-resurser.
 - [Azure Event Hubs data mottagare](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-sender): Använd den här rollen för att ge den förbrukar/får åtkomst till Event Hubs resurser.
 
 ## <a name="resource-scope"></a>Resurs omfång 

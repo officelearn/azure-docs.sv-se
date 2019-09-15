@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/18/2019
+ms.date: 09/11/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: ''
-ms.openlocfilehash: 4bf2e057f4c5dad650834f9b42c75be3aedec46e
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 1cd5325be7def4bc631d994f8811734e6c3cf545
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70142847"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70996439"
 ---
 # <a name="understand-role-definitions-for-azure-resources"></a>Förstå roll definitioner för Azure-resurser
 
@@ -213,16 +213,18 @@ Behörigheten anger de data åtgärder som undantas från tillåten `DataActions
 
 ## <a name="assignablescopes"></a>AssignableScopes
 
-`AssignableScopes` Egenskapen anger de omfattningar (prenumerationer, resurs grupper eller resurser) som har den här roll definitionen tillgänglig. Du kan göra rollen tillgänglig för tilldelning i endast de prenumerationer eller resurs grupper som kräver det, och inte lägga användar upplevelsen i resten av prenumerationerna eller resurs grupperna. Du måste använda minst en prenumeration, resurs grupp eller resurs-ID.
+`AssignableScopes` Egenskapen anger omfattningarna (hanterings grupper, prenumerationer, resurs grupper eller resurser) som har den här roll definitionen tillgänglig. Du kan bara göra rollen tillgänglig för tilldelning i de hanterings grupper, prenumerationer eller resurs grupper som kräver det. Du måste använda minst en hanterings grupp, en prenumeration, en resurs grupp eller ett resurs-ID.
 
 Inbyggda roller har `AssignableScopes` angetts till rot omfånget (`"/"`). Rot omfånget indikerar att rollen är tillgänglig för tilldelning i alla omfattningar. Exempel på giltiga tilldelnings bara omfång är:
 
-| Scenario | Exempel |
+| Rollen är tillgänglig för tilldelning | Exempel |
 |----------|---------|
-| Rollen är tillgänglig för tilldelning i en enskild prenumeration | `"/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e"` |
-| Rollen är tillgänglig för tilldelning i två prenumerationer | `"/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e", "/subscriptions/e91d47c4-76f3-4271-a796-21b4ecfe3624"` |
-| Rollen är endast tillgänglig för tilldelning i nätverks resurs gruppen | `"/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e/resourceGroups/Network"` |
-| Rollen är tillgänglig för tilldelning i alla omfattningar (gäller endast inbyggda roller) | `"/"` |
+| En prenumeration | `"/subscriptions/{subscriptionId1}"` |
+| Två prenumerationer | `"/subscriptions/{subscriptionId1}", "/subscriptions/{subscriptionId2}"` |
+| Nätverks resurs grupp | `"/subscriptions/{subscriptionId1}/resourceGroups/Network"` |
+| En hanterings grupp | `"/providers/Microsoft.Management/managementGroups/{groupId1}"` |
+| Hanterings grupp och en prenumeration | `"/providers/Microsoft.Management/managementGroups/{groupId1}", /subscriptions/{subscriptionId1}",` |
+| Alla omfattningar (gäller endast inbyggda roller) | `"/"` |
 
 Information om `AssignableScopes` anpassade roller finns i [anpassade roller för Azure-resurser](custom-roles.md).
 

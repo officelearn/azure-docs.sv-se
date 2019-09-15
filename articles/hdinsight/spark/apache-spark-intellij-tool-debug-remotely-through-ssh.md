@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 11/25/2017
-ms.openlocfilehash: 9690e114f9ae01c4aee71145525fdda2eff4701c
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: 844901d9c689d5a04312b52101572854f4d7fe6b
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70814180"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70994005"
 ---
 # <a name="debug-apache-spark-applications-on-an-hdinsight-cluster-with-azure-toolkit-for-intellij-through-ssh"></a>Felsöka Apache Spark program i ett HDInsight-kluster med Azure Toolkit for IntelliJ via SSH
 
@@ -77,7 +77,7 @@ Lös problemet genom att [Ladda ned den körbara filen](https://public-repo-1.ho
 1. Öppna **SparkCore_wasbloTest** -skriptet, högerklicka på skript redigeraren och välj sedan alternativet **kör [Spark Job] XXX** för att utföra lokal körning.
 1. När den lokala körningen är klar kan du se utdatafilen Spara till din aktuella **__standard__** för Project Explorer- **data** > .
 
-    ![Lokalt körnings resultat](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/local-run-result.png)
+    ![Lokalt körnings resultat](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/spark-local-run-result.png)
 1. Våra verktyg har ställt in standard konfigurationen för lokal körning automatiskt när du utför den lokala körningen och lokal fel sökning. Öppna konfigurationen **[Spark på HDInsight] XXX** i det övre högra hörnet, så kan du se **[Spark på HDInsight] XXX** redan har skapats under **Apache Spark i HDInsight**. Växla till fliken **lokalt körning** .
 
     ![Lokal körnings konfiguration](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/local-run-configuration.png)
@@ -102,11 +102,11 @@ Lös problemet genom att [Ladda ned den körbara filen](https://public-repo-1.ho
 1. I dialog rutan **Kör/Felsök konfigurationer** väljer du plus tecknet ( **+** ). Välj sedan alternativet **Apache Spark på HDInsight** .
 
    ![Lägg till ny konfiguration](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-add-new-Configuration.png)
-1. Växla till **fjärran sluten på kluster** -fliken. Ange information om **namn**, **Spark-kluster**och **huvud klass namn**. Klicka sedan på **Avancerad konfiguration (fjärrfelsökning)** . Våra verktyg stöder fel sökning med **körningar**. Standardvärdet är 5 i **numExectors**. Du är bättre på att inte ange högre än 3.
+1. Växla till **fjärran sluten på kluster** -fliken. Ange information om **namn**, **Spark-kluster**och **huvud klass namn**. Klicka sedan på **Avancerad konfiguration (fjärrfelsökning)** . Våra verktyg stöder fel sökningmed körningar. Standardvärdet är 5 i **numExectors**. Du är bättre på att inte ange högre än 3.
 
    ![Kör fel söknings konfigurationer](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-run-debug-configurations.png)
 
-1. I delen **Avancerad konfiguration (Remote-felsökning)** väljer du **Aktivera Spark-fjärrfelsökning**. Ange SSH-användarnamnet och ange ett lösen ord eller Använd en privat nyckel fil. Om du vill utföra fjärrfelsökning måste du ange den. Du behöver inte ange det om du bara vill använda fjärran sluten.
+1. I delen **Avancerad konfiguration (Remote-felsökning)** väljer du **Aktivera Spark**-fjärrfelsökning. Ange SSH-användarnamnet och ange ett lösen ord eller Använd en privat nyckel fil. Om du vill utföra fjärrfelsökning måste du ange den. Du behöver inte ange det om du bara vill använda fjärran sluten.
 
    ![Aktivera fjärrfelsökning med Spark](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-enable-spark-remote-debug.png)
 
@@ -114,13 +114,11 @@ Lös problemet genom att [Ladda ned den körbara filen](https://public-repo-1.ho
 
 1. När du har slutfört konfigurations inställningarna kan du köra projektet mot fjärrklusteret eller utföra fjärrfelsökning.
    
-   ![Fjärrkörning (knapp)](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/perform-remote-run.png)
+   ![Fjärrkörning (knapp)](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/perform-remote-run-button.png)
 
 1. Klicka på knappen **Koppla från** om du inte vill att sändnings loggarna ska visas i den vänstra panelen. Den körs dock fortfarande på Server delen.
 
-   ![Fjärrkörnings resultat](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/remote-run-result.png)
-
-
+   ![Fjärrkörnings resultat](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/spark-remote-run-result.png)
 
 ### <a name="scenario-2-perform-remote-debugging"></a>Scenario 2: Utför fjärrfelsökning
 1. Konfigurera Bryt punkter och klicka sedan på ikonen **fjärrfelsökning** . Skillnaden med fjärrsändning är att SSH username/Password måste konfigureras.
@@ -148,9 +146,9 @@ Lös problemet genom att [Ladda ned den körbara filen](https://public-repo-1.ho
 
 1. Högerklicka på målet på fliken **Felsök** och välj sedan **Ange värde**. Ange sedan ett nytt värde för variabeln. Spara värdet genom att välja **RETUR** . 
 
-   ![Ange värde](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-set-value.png) 
+   ![Ange värde](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-set-value1.png)
 
-1. Välj ikonen för att fortsätta **köra programmet.** Den här gången har inget undantag påträffats. Du kan se att projektet har körts utan undantag.
+1. Välj ikonen **för** att fortsätta köra programmet. Den här gången har inget undantag påträffats. Du kan se att projektet har körts utan undantag.
 
    ![Felsök utan undantag](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-debug-without-exception.png)
 

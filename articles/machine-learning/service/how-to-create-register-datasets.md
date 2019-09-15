@@ -11,12 +11,12 @@ author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 08/22/2019
-ms.openlocfilehash: 215660b0f0b8748461849f20e65a3585f939085e
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: 8f684a9c0c40774c8c17a08801997c569be74c8d
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70858792"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70993348"
 ---
 # <a name="create-and-access-datasets-preview-in-azure-machine-learning"></a>Skapa och få åtkomst till data uppsättningar (för hands version) i Azure Machine Learning
 
@@ -76,7 +76,12 @@ workspace = Workspace.from_config()
 # retrieve an existing datastore in the workspace by name
 datastore = Datastore.get(workspace, datastore_name)
 ```
+
 ### <a name="create-tabulardatasets"></a>Skapa TabularDatasets
+
+TabularDatasets kan skapas via SDK eller med hjälp av landnings sidan för arbets ytan (för hands version).
+
+#### <a name="sdk"></a>SDK 
 
 Använd metoden i `TabularDatasetFactory` klassen för att läsa filer i CSV-eller TSV-format och skapa en oregistrerad TabularDataset. `from_delimited_files()` Om du läser från flera filer aggregeras resultaten i en tabell representation.
 
@@ -103,7 +108,18 @@ titanic_ds.take(3).to_pandas_dataframe()
 1|2|1|1|Cumings, fru. John Bradley (Florence Briggs to...|kvinna|38,0|1|0|PC 17599|71,2833|C85|C
 2|3|1|3|Heikkinen, saknar. Laina|kvinna|26,0|0|0|STON/O2. 3101282|7,9250||s
 
+#### <a name="workspace-landing-page"></a>Landnings sida för arbets yta 
+
+Logga in på [sidan med landnings sidan för arbets ytan](https://ml.azure.com) för att skapa en data uppsättning via webb upplevelsen. För närvarande har sidan landnings sidan för arbets ytan bara stöd för att skapa TabularDatasets.
+
+Följande animering visar hur du skapar en data uppsättning i landnings sidan för arbets ytan. 
+
+Först väljer du **data uppsättningar** i avsnittet **till gångar** i det vänstra fönstret. Välj sedan **+ skapa data uppsättning** för att välja källa för din data uppsättning. Detta kan antingen vara från lokala filer, data lager eller offentliga webb adresser. **Inställningarna och för hands versionen** och **schema** formulären fylls i intelligent baserat på filtypen. Välj **Nästa** för att granska dem eller om du vill konfigurera data uppsättningen ytterligare innan du skapar den. Välj **klar** för att skapa data uppsättningen. 
+
+![Skapa en data uppsättning med användar gränssnittet](media/how-to-create-register-datasets/create-dataset-ui.gif)
+
 ### <a name="create-filedatasets"></a>Skapa FileDatasets
+
 Använd metoden i `FileDatasetFactory` klassen för att läsa in filer i valfritt format och skapa en oregistrerad FileDataset. `from_files()`
 
 ```Python
@@ -134,6 +150,9 @@ titanic_ds = titanic_ds.register(workspace = workspace,
                                  description = 'titanic training data')
 ```
 
+>[!Note]
+> Data uppsättningar som skapas via sidan med landnings sidan för arbets ytan registreras automatiskt på arbets ytan. 
+
 ## <a name="version-datasets"></a>Versions data uppsättningar
 
 Du kan registrera en ny data uppsättning med samma namn genom att skapa en ny version. Data uppsättnings version är ett sätt att lägga till data i data uppsättningen, så att du kan använda en speciell version av data uppsättningen för experimentering eller framtida åter givning. Typiska scenarier för att överväga versions hantering: 
@@ -141,7 +160,7 @@ Du kan registrera en ny data uppsättning med samma namn genom att skapa en ny v
 * När du använder olika metoder för data förberedelse eller funktions teknik.
 
 ```Python
-# create a TabularDataset from new Titanic training data
+# create a TabularDataset from Titanic training data
 web_paths = [
             'https://dprepdata.blob.core.windows.net/demo/Titanic.csv',
             'https://dprepdata.blob.core.windows.net/demo/Titanic2.csv'

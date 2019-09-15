@@ -8,12 +8,12 @@ ms.custom: hdinsightactive,mvc
 ms.topic: overview
 ms.date: 05/28/2019
 ms.author: hrasheed
-ms.openlocfilehash: 284c9bb1b9032d2f9caf0ce62c45ffa7cd8bf9d4
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.openlocfilehash: e325618ed1cdec6149ac31771c8bd67ecea7d559
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68476855"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70993817"
 ---
 # <a name="what-is-apache-spark-in-azure-hdinsight"></a>Vad är Apache Spark i Azure HDInsight
 
@@ -25,7 +25,7 @@ Apache Spark är ett ramverk för parallellbearbetning som stöder minnesintern 
 
 Spark tillhandahåller primitiver för klusterbearbetning i minnet. Ett Spark-jobb kan läsa in och cachelagra data i minnet samt köra frågor på dessa data upprepade gånger. Minnesintern beräkning är mycket snabbare än diskbaserade program, till exempel Hadoop, som delar data med hjälp av ett Hadoop-distribuerat filsystem (HDFS, Hadoop Distributed File System). Spark är integrerat i programmeringsspråket Scala. På så sätt kan du bearbeta distribuerade datauppsättningar på samma sätt som lokala samlingar. Det finns inget behov av att strukturera det hela i mappnings- och reduceringsåtgärder.
 
-![Traditionella MapReduce jämfört med Spark](./media/apache-spark-overview/mapreduce-vs-spark.png)
+![Traditionella MapReduce jämfört med Spark](./media/apache-spark-overview/map-reduce-vs-spark1.png)
 
 Med Spark-kluster HDInsight får du tillgång till en helt hanterad Spark-tjänst. Fördelarna med att skapa ett Spark-kluster i HDInsight visas här.
 
@@ -57,7 +57,7 @@ Spark-kluster i HDInsight tillhandahåller även en [ODBC-drivrutin](https://go.
 
 ## <a name="spark-cluster-architecture"></a>Spark-klusterarkitektur
 
-![HDInsight Sparks arkitektur](./media/apache-spark-overview/spark-architecture.png)
+![HDInsight Sparks arkitektur](./media/apache-spark-overview/hdi-spark-architecture.png)
 
 Det är enkelt att förstå komponenterna i Spark om man förstår hur Spark körs på HDInsight-kluster.
 

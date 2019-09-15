@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 09/06/2019
-ms.openlocfilehash: 6c1104ba340f23a76d5b9b4167f895f5a115152c
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.openlocfilehash: 8faa6338179eb1540eb4f9a375bf3bc696c745f3
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70773294"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70995376"
 ---
 # <a name="read-replicas-in-azure-database-for-mariadb"></a>Läs repliker i Azure Database for MariaDB
 
@@ -75,7 +75,7 @@ När du skapar en replik ärver den inte brand Väggs reglerna eller slut punkte
 
 Repliken ärver administratörs kontot från huvud servern. Alla användar konton på huvud servern replikeras till läsa repliker. Du kan bara ansluta till en Läs replik med hjälp av de användar konton som är tillgängliga på huvud servern.
 
-Du kan ansluta till repliken med hjälp av dess värdnamn och ett giltigt användar konto, precis som på en vanlig Azure Database for MariaDB Server. För en server med namnet **unreplica** med administratörs **användar namnet administratör kan**du ansluta till repliken med hjälp av MySQL CLI:
+Du kan ansluta till repliken med hjälp av dess värdnamn och ett giltigt användar konto, precis som på en vanlig Azure Database for MariaDB Server. För en server med namnet unreplica med administratörs **användar namnet**administratör kan du ansluta till repliken med hjälp av MySQL CLI:
 
 ```bash
 mysql -h myreplica.mariadb.database.azure.com -u myadmin@myreplica -p
@@ -155,4 +155,4 @@ Följande Server parametrar är låsta på både huvud-och replik servern:
 ## <a name="next-steps"></a>Nästa steg
 
 - Lär dig hur du [skapar och hanterar Läs repliker med hjälp av Azure Portal](howto-read-replicas-portal.md)
-- Lär dig hur du [skapar och hanterar Läs repliker med Azure CLI](howto-read-replicas-cli.md)
+- Lär dig hur du [skapar och hanterar Läs repliker med hjälp av Azure CLI och REST API](howto-read-replicas-cli.md)

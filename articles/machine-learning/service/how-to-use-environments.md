@@ -1,6 +1,6 @@
 ---
 title: Skapa, använda och hantera miljöer för modell utbildning och distribution
-titleSuffix: Azure Machine Learning service
+titleSuffix: Azure Machine Learning
 description: Skapa och hantera miljöer för modell utbildning och distribution. Hantera python-paket och andra inställningar för miljön.
 services: machine-learning
 author: rastala
@@ -11,18 +11,18 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 08/16/2019
 ms.custom: seodec18
-ms.openlocfilehash: e506259b980c0aaf0300c0bb0a1aa0803171643a
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 242f3cec0ac766e537bd0483725ba51685bb7ced
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70098959"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70996623"
 ---
 # <a name="create-and-manage-environments-for-training-and-deployment"></a>Skapa och hantera miljöer för utbildning och distribution
 
 I den här artikeln lär du dig att skapa och hantera Azure Machine Learning [miljöer](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py) så att du kan spåra och återskapa dina projekts program varu beroenden när de utvecklas.
 
-Program beroende hantering är en vanlig uppgift för utvecklare. Du vill kunna se till att build-versioner återproduceras utan mycket manuell program varu konfiguration. Med lösningar för lokal utveckling, till exempel PIP och Conda i åtanke, tillhandahåller klassen Azure Machine Learning service Environment en lösning för både lokal och distribuerad moln utveckling.
+Program beroende hantering är en vanlig uppgift för utvecklare. Du vill kunna se till att build-versioner återproduceras utan mycket manuell program varu konfiguration. Med lösningar för lokal utveckling, till exempel PIP och Conda i åtanke, tillhandahåller klassen Azure Machine Learning miljöer en lösning för både lokal och distribuerad moln utveckling.
 
 I exemplen i den här artikeln visas hur du:
 
@@ -43,7 +43,7 @@ Följande illustrerar att samma miljö objekt kan användas i både din körning
 
 ### <a name="types-of-environments"></a>Typer av miljöer
 
-Miljöer kan i stort sett delas upp i två kategorier: **användar-hanterade** och systemhanterade.
+Miljöer kan i stort sett delas upp i två kategorier: **användar-hanterade** och **systemhanterade**.
 
 För en användar hanterad miljö ansvarar du för att konfigurera din miljö och installera varje paket som utbildnings skriptet behöver på beräknings målet. Conda kommer inte att kontrol lera din miljö eller installera något åt dig. 
 
@@ -52,7 +52,7 @@ System-hanterade miljöer används när du vill att [Conda](https://conda.io/doc
 ## <a name="prerequisites"></a>Förutsättningar
 
 * Azure Machine Learning SDK för python har [installerats](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).
-* En [Azure Machine Learning service-arbetsyta](how-to-manage-workspace.md).
+* En [Azure Machine Learning-arbetsyta](how-to-manage-workspace.md).
 
 ## <a name="create-an-environment"></a>Skapa en miljö
 

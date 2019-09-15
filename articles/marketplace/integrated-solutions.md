@@ -7,38 +7,40 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 02/27/2019
 ms.author: ellacroi
-ms.openlocfilehash: 363cd9319db0477e9b5ba2d2dd03a7e995a26fef
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b6015ce2d52c140a966636b887d021e76e92990d
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66515620"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70993630"
 ---
 # <a name="integrated-solutions-in-azure-marketplace-and-appsource"></a>Integrerade lösningar i Azure Marketplace och AppSource
 
-En integrerad lösning sammanför bästa möjliga tekniker från Microsoft-partners, tillsammans med samråd, distribution och stöder som tillhandahålls av expert system integrerare (SI).
+En integrerad lösning ger tillsammans de bästa teknikerna från Microsoft-partners, tillsammans med konsultation, distribution och support från Expert Systems integrators (SI).
 
-Dessa lösningar är inbyggda adress måste en viss kund eller scenario, som börjar med en förståelse av branschen utmaning eller enkelt punkter. En SI att ge en enhetlig och repeterbar resursdistribution upplevelse för kunderna att få dem och köra snabbt integreras sedan två eller flera tekniker för bästa möjliga. De system som integrator ger också en enda plats för kontakta för kunden, vilket ger relevanta anpassning och rådgivning, och stöder kring lösningen.  Resultatet är en integrerad lösning, inklusive tekniken och tjänsterna.
+De här lösningarna är byggda för att tillgodose ett bestämt kund behov eller scenario, som börjar med förståelse av branschens utmaning eller smärta. Två eller fler bästa tekniker integreras med en SI-funktion för att skapa en enhetlig och upprepnings bar distributions upplevelse för kunder, så att de snabbt och enkelt kan köras. System integreraren tillhandahåller också en enda kontakt punkt för kunden, vilket ger relevant anpassning och rådgivning och stöd kring lösningen.  Resultatet är en integrerad lösning, inklusive teknik och tjänster.
 
 ## <a name="advantages"></a>Fördelar
 
-Fördelarna med en integrerad lösning är:
+Fördelarna med en integrerad metod är:
 
-* *Expertkunskaper inom branschen*: Systemintegrerare som ger branschspecifika lösningar och kunskaper
-* *Tid till värde*: Integrerad distributionsmetoden kan du utnyttja omedelbar fördelar
-* *Bästa möjliga lösningar*: Identifiera en integrerad upplevelse för köpa och implementeringen enkel
+* *Bransch expert kunskaper*: System integrerare som tillhandahåller branschspecifika lösningar och kunskaper
+* *Tid till värde*: Integrerad distributions metod för att hjälpa dig att realisera omedelbara förmåner
+* *Bästa-för-ras-lösningar*: Upptäck den enkla versionen av en integrerad implementering av köp och implementering
 
 ## <a name="next-steps"></a>Nästa steg
 
-Du kan identifiera integrerade lösningar och ansluta med dessa partner genom att gå till sina listor här:
+Du kan identifiera integrerade lösningar och ansluta till dessa värdefulla partner genom att gå till följande listor:
 
-* [Customer 360 som drivs av Zero2Hero](https://azuremarketplace.microsoft.com/marketplace/consulting-services/bardess.customer-360-powered-by-zero2hero)
+* [Kund 360 drivs av Zero2Hero](https://azuremarketplace.microsoft.com/marketplace/consulting-services/bardess.customer-360-powered-by-zero2hero)
 * [Snabb handel](https://azuremarketplace.microsoft.com/marketplace/consulting-services/publicis-sapient.rapid_commerce)
-* [Kredit Analytics](https://azuremarketplace.microsoft.com/marketplace/consulting-services/rcg-us.rcg-enable-credit-analytics)
+* [Kredit analys](https://azuremarketplace.microsoft.com/marketplace/consulting-services/rcg-us.rcg-enable-credit-analytics)
 * [Healthcare Cloud Security Stack](https://azuremarketplace.microsoft.com/marketplace/consulting-services/xentit.azure-xentit-trendmicro-qualys-hcss-12months)
-* [DevOps Acceleration Engine](https://azuremarketplace.microsoft.com/marketplace/consulting-services/sirrus7.sirrus7-devops-acceleration-engine?search=devops%20acceleration%20engine&page=1)
-* [Windows Server-Support upphör](https://azuremarketplace.microsoft.com/marketplace/consulting-services/new-signature.eos_appfactory)
+* [DevOps accelerations motor](https://azuremarketplace.microsoft.com/marketplace/consulting-services/sirrus7.sirrus7-devops-acceleration-engine?search=devops%20acceleration%20engine&page=1)
+* [Support för Windows Server-Support](https://azuremarketplace.microsoft.com/marketplace/consulting-services/new-signature.eos_appfactory)
 
-och genom att även gå till avsnittet konsulttjänster i [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/consulting-services).
+och genom att även besöka avsnittet konsult tjänster i [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/consulting-services).
+
+Mer information finns i avsnittet om att [publicera integrerade lösningar](https://docs.microsoft.com/azure/marketplace/integrated-solutions-for-publishers) .
 
 ---

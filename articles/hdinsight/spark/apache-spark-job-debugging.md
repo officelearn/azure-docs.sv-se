@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 12/05/2018
 ms.author: hrasheed
-ms.openlocfilehash: d6a8ac97aa3896eaf98651f5f1120fcc6bf25516
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: c71bf9be94799c2b109d57393e70e99a0710e252
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70814110"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70995525"
 ---
 # <a name="debug-apache-spark-jobs-running-on-azure-hdinsight"></a>Felsöka Apache Spark jobb som körs på Azure HDInsight
 
@@ -29,14 +29,14 @@ Du måste ha följande:
 ## <a name="track-an-application-in-the-yarn-ui"></a>Spåra ett program i garn gränssnittet
 1. Starta garn gränssnittet. Klicka på **garn** under **kluster instrument paneler**.
    
-    ![Starta garn gränssnitt](./media/apache-spark-job-debugging/launch-yarn-ui.png)
+    ![Starta garn gränssnitt](./media/apache-spark-job-debugging/launch-apache-yarn-ui.png)
    
    > [!TIP]  
    > Du kan också starta garn gränssnittet från Ambari-ANVÄNDARGRÄNSSNITTET. Starta Ambari-ANVÄNDARGRÄNSSNITTET genom att klicka på **Ambari start** under **kluster instrument paneler**. Klicka på **garn**i AMBARI-användargränssnittet, klicka på **snabb länkar**, klicka på den aktiva Resource Manager och klicka sedan på **Resource Manager-användargränssnitt**. 
 
 2. Eftersom du startade Spark-jobbet med Jupyter-anteckningsböcker har programmet namnet **remotesparkmagics** (detta är namnet på alla program som startas från antecknings böckerna). Klicka på program-ID: t mot program namnet om du vill ha mer information om jobbet. Detta startar programvisningen.
    
-    ![Hitta Spark-programmets ID](./media/apache-spark-job-debugging/find-application-id.png)
+    ![Hitta Spark-programmets ID](./media/apache-spark-job-debugging/find-application-id1.png)
    
     För sådana program som startas från Jupyter Notebooks **körs** alltid statusen tills du avslutar antecknings boken.
 3. Från programvyn kan du öka detalj nivån ytterligare för att ta reda på de behållare som är kopplade till programmet och loggarna (STDOUT/STDERR). Du kan också starta Spark-ANVÄNDARGRÄNSSNITTET genom att klicka på länken som motsvarar **spårnings-URL: en**, som visas nedan. 
@@ -48,13 +48,13 @@ I Spark-ANVÄNDARGRÄNSSNITTET kan du öka detalj nivån i Spark-jobben som har 
 
 1. Starta Spark-ANVÄNDARGRÄNSSNITTET från vyn program genom att klicka på länken mot **spårnings-URL: en**, som visas i skärmdumpen ovan. Du kan se alla Spark-jobb som startas av programmet som körs i Jupyter Notebook.
    
-    ![Visa Spark-jobb](./media/apache-spark-job-debugging/view-spark-jobs.png)
+    ![Visa Spark-jobb](./media/apache-spark-job-debugging/view-apache-spark-jobs.png)
 2. Klicka på fliken **körningar** om du vill se bearbetnings-och lagrings information för varje utförar. Du kan också hämta anrops stacken genom att klicka på länken **tråd dum par** .
    
     ![Visa Spark-körningar](./media/apache-spark-job-debugging/view-spark-executors.png)
 3. Klicka på fliken **steg** för att se de steg som är kopplade till programmet.
    
-    ![Visa Spark-faser](./media/apache-spark-job-debugging/view-spark-stages.png "Visa Spark-faser")
+    ![Visa Spark-faser](./media/apache-spark-job-debugging/view-apache-spark-stages.png "Visa Spark-faser")
    
     Varje steg kan ha flera aktiviteter som du kan använda för att Visa körnings statistik, som du ser nedan.
    

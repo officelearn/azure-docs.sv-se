@@ -1,6 +1,6 @@
 ---
 title: Använda Visual Studio Code för Machine Learning
-titleSuffix: Azure Machine Learning service
+titleSuffix: Azure Machine Learning
 description: Lär dig hur du installerar Azure Machine Learning för Visual Studio Code och skapar ett enkelt experiment i Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
@@ -10,24 +10,24 @@ ms.author: ronglu
 author: ronglums
 ms.date: 7/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: b1d18006e6ec3ff1659f8fb80f8cf6766797d76b
-ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
+ms.openlocfilehash: 0507080a390a4bb9f981b0d911961337e9b2c62a
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70114419"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70997184"
 ---
 # <a name="get-started-with-azure-machine-learning-for-visual-studio-code"></a>Kom igång med Azure Machine Learning för Visual Studio Code
 
 I den här artikeln får du lära dig hur du använder tillägget för Azure Machine Learning för Visual Studio Code för att träna och distribuera maskin inlärnings-och djup inlärnings modeller.
 
-[Tjänsten Azure Machine Learning](overview-what-is-azure-ml.md) tillhandahåller stöd för experiment som du kör lokalt och på fjärrdatorer. För varje experiment, du kan hålla reda på flera körningar som du behöver ofta upprepade gånger försöka olika tekniker och hyperparametrar. Du kan använda Azure Machine Learning för att spåra anpassade mått och experimentera körningar, aktiverar data science reproducerbarhet och revision.
+[Azure Machine Learning](overview-what-is-azure-ml.md) ger stöd för experiment som du kör lokalt och på fjärranslutna beräknings mål. För varje experiment, du kan hålla reda på flera körningar som du behöver ofta upprepade gånger försöka olika tekniker och hyperparametrar. Du kan använda Azure Machine Learning för att spåra anpassade mått och experimentera körningar, aktiverar data science reproducerbarhet och revision.
 
 Du kan också distribuera dessa modeller för testnings-och produktions behoven.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-+ Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnads fria eller betalda versionen av Azure Machine learnings tjänsten](https://aka.ms/AMLFree).
++ Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree).
 
 + Visual Studio Code måste vara installerat. Visual Studio Code är en lätt men kraftfull käll kods redigerare som körs på Skriv bordet. Det innehåller inbyggt stöd för python och andra programmeringsspråk. Ta reda på [hur](https://code.visualstudio.com/docs/setup/setup-overview)om du inte redan har installerat Visual Studio Code.
 
@@ -69,13 +69,13 @@ Så här installerar du Azure Machine Learning-tillägget:
 
    ![Välj tolken](./media/vscode-tools-for-ai/python.png)
 
-1. I det nedre högra hörnet i fönstret visas ett meddelande som anger att [SDK för Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) installeras automatiskt. Den nyskapade python-miljön är lokal och privat och har Visual Studio Code-krav för att arbeta med tjänsten Azure Machine Learning.
+1. I det nedre högra hörnet i fönstret visas ett meddelande som anger att [SDK för Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) installeras automatiskt. Den nyskapade python-miljön är lokal och privat och har Visual Studio Code-krav för att arbeta med Azure Machine Learning.
 
    ![Installera Azure Machine Learning SDK för python](./media/vscode-tools-for-ai/runtimedependencies.png)
 
 ## <a name="get-started-with-azure-machine-learning"></a>Kom igång med Azure Machine Learning
 
-Innan du börjar träna och distribuerar maskin inlärnings modeller i Visual Studio Code, måste du skapa en [Azure Machine Learning service-arbetsyta](concept-workspace.md) i molnet. Den här arbets ytan kommer att innehålla dina modeller och resurser. 
+Innan du börjar träna och distribuerar maskin inlärnings modeller i Visual Studio Code, måste du skapa en [Azure Machine Learning arbets yta](concept-workspace.md) i molnet. Den här arbets ytan kommer att innehålla dina modeller och resurser. 
 
 Så här skapar du en arbets yta och lägger till ditt första experiment:
 
@@ -117,7 +117,7 @@ Så här skapar du ett beräknings mål:
 
 1. Välj Azure-ikonen i aktivitets fältet i Visual Studio Code. Sid panelen för Azure Machine Learning visas.
 
-2. Expandera din Azure-prenumeration och Azure Machine Learning-tjänstens arbetsyta i trädvyn. I följande exempel bild är prenumerations namnet **kostnads fri utvärderings version**och arbets ytan är **TeamWorkspace**. 
+2. I trädvyn expanderar du din Azure-prenumeration och Azure Machine Learning arbets ytan. I följande exempel bild är prenumerations namnet **kostnads fri utvärderings version**och arbets ytan är **TeamWorkspace**. 
 
 3. Under noden arbetsyta högerklickar du på den **Compute** noden och välj **skapa Compute**.
 
@@ -147,7 +147,7 @@ Köra experimentet lokalt genom att använda Azure Machine Learning:
 
 1. Välj Azure-ikonen i aktivitets fältet i Visual Studio Code. Sid panelen för Azure Machine Learning visas.
 
-1. Expandera din Azure-prenumeration och Azure Machine Learning-tjänstens arbetsyta i trädvyn. 
+1. I trädvyn expanderar du din Azure-prenumeration och Azure Machine Learning arbets ytan. 
 
 1. Under noden arbets yta expanderar du **Compute** -noden och högerklickar på **körnings konfigurationen** för den beräkning som du vill använda. 
 
@@ -196,7 +196,7 @@ Så här kör du experimentet med Azure Machine Learning på ett fjärran slutet
 
 1. Välj Azure-ikonen i aktivitets fältet i Visual Studio Code. Sid panelen för Azure Machine Learning visas.
 
-1. Expandera din Azure-prenumeration och Azure Machine Learning-tjänstens arbetsyta i trädvyn. 
+1. I trädvyn expanderar du din Azure-prenumeration och Azure Machine Learning arbets ytan. 
 
 1. I redigerings fönstret högerklickar du på python-skriptet och väljer **AML: Kör som experiment i Azure**. 
 
@@ -224,7 +224,7 @@ Så här registrerar du din modell:
 
 1. Välj Azure-ikonen i aktivitets fältet i Visual Studio Code. Sid panelen för Azure Machine Learning visas.
 
-1. Expandera din Azure-prenumeration och Azure Machine Learning-tjänstens arbetsyta i trädvyn.
+1. I trädvyn expanderar du din Azure-prenumeration och Azure Machine Learning arbets ytan.
 
 1. Under noden arbetsyta högerklickar du på **modeller** och välj **registrera modellen**.
 
@@ -247,13 +247,13 @@ I Visual Studio Code kan du distribuera din webb tjänst till:
 + Azure Container Instances (ACI) för testning.
 + Azure Kubernetes service (AKS) för produktion.
 
-Du behöver inte skapa en ACI-behållare för att testa i förväg eftersom ACI-behållare skapas i farten. Du måste dock konfigurera AKS-kluster i förväg. Mer information finns i [Distribuera modeller med Azure Machine Learning-tjänsten](how-to-deploy-and-where.md).
+Du behöver inte skapa en ACI-behållare för att testa i förväg eftersom ACI-behållare skapas i farten. Du måste dock konfigurera AKS-kluster i förväg. Mer information finns i [Distribuera modeller med Azure Machine Learning](how-to-deploy-and-where.md).
 
 Så här distribuerar du en webb tjänst:
 
 1. Välj Azure-ikonen i aktivitets fältet i Visual Studio Code. Sid panelen för Azure Machine Learning visas.
 
-1. Expandera din Azure-prenumeration och din arbetsyta för Azure Machine Learning-tjänsten i trädvyn.
+1. I trädvyn expanderar du din Azure-prenumeration och din Azure Machine Learning-arbetsyta.
 
 1. Under noden arbetsytan Expandera den **modeller** noden.
 

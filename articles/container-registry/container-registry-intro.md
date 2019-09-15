@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 06/28/2019
 ms.author: stevelas
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 8b20c54d2151afae227a085dd66a0d31f2b85305
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.openlocfilehash: 2262948a8368f9448d876166b712ebaf670b5a56
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68310659"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70994361"
 ---
 # <a name="introduction-to-private-docker-container-registries-in-azure"></a>Introduktion till privata Docker-containerregister i Azure
 
@@ -31,7 +31,7 @@ Hämta avbildningar från ett Azure-containerregister till olika distributionsm�
 * **Skalbart dirigeringssystem** som hanterar program i containrar över kluster med värdar, inklusive [Kubernetes](https://kubernetes.io/docs/), [DC/OS](https://docs.mesosphere.com/) och [Docker Swarm](https://docs.docker.com/swarm/).
 * **Azure-tjänster** som stöder att skapa och köra program i skala, inkluderar [Azure Kubernetes Service (AKS)](../aks/index.yml), [App Service](../app-service/index.yml), [Batch](../batch/index.yml), [ Service Fabric](/azure/service-fabric/), med mera.
 
-Utvecklare kan även skicka till ett behållarregister som en del av ett arbetsflöde för utveckling av container. Du kan till exempel rikta in ett behållar register från ett kontinuerligt integrerings-och leverans verktyg, till exempel [Azure](/azure/devops/pipelines/get-started/what-is-azure-pipelines) -pipeliner eller [Jenkins](https://jenkins.io/).
+Utvecklare kan även skicka till ett behållarregister som en del av ett arbetsflöde för utveckling av container. Du kan till exempel rikta in ett behållar register från ett kontinuerligt integrerings-och leverans verktyg, till exempel [Azure](/azure/devops/pipelines/ecosystems/containers/acr-template) -pipeliner eller [Jenkins](https://jenkins.io/).
 
 Konfigurera ACR-aktiviteter för att automatiskt återskapa program avbildningar när deras bas avbildningar uppdateras, eller automatisera avbildningar när ditt team gör en kod till en git-lagringsplats. Skapa aktiviteter i flera steg för att automatisera skapandet, testning och korrigering av flera behållar avbildningar parallellt i molnet.
 

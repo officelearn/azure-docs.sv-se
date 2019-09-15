@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 09/05/2019
 ms.author: zarhoads
-ms.openlocfilehash: 9cfced0860b206e41b3e9f82f1ed2b92867e6b39
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: 42323af40ee18a965363321196a04aa75c00aa40
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70914827"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70996946"
 ---
 # <a name="use-a-standard-sku-load-balancer-in-azure-kubernetes-service-aks"></a>Använda en standard-SKU-belastningsutjämnare i Azure Kubernetes service (AKS)
 
@@ -277,6 +277,8 @@ Navigera till den offentliga IP-adressen i en webbläsare och kontrol lera att d
 
 När du använder en *standard* -SKU för belastningsutjämnare med hanterade utgående offentliga IP-adresser, som skapas som standard, kan du skala antalet hanterade utgående offentliga IP-adresser med hjälp av parametern *Load-Balancer-Managed-IP-Count* .
 
+Kör följande kommando för att uppdatera ett befintligt kluster. Den här parametern kan också ställas in i klustret Create-Time för att ha flera hanterade utgående offentliga IP-adresser.
+
 ```azurecli-interactive
 az aks update \
     --resource-group myResourceGroup \
@@ -284,11 +286,15 @@ az aks update \
     --load-balancer-managed-outbound-ip-count 2
 ```
 
-Exemplet ovan anger antalet hanterade utgående offentliga IP-adresser till *2* för *myAKSCluster* -klustret i *myResourceGroup*. Du kan också använda parametern *belastningsutjämnare-hanterade-IP-antal* för att ange det ursprungliga antalet hanterade utgående offentliga IP-adresser när du skapar klustret. Standardvärdet för hanterade utgående offentliga IP-adresser är 1.
+Exemplet ovan anger antalet hanterade utgående offentliga IP-adresser till *2* för *myAKSCluster* -klustret i *myResourceGroup*. 
+
+Du kan också använda parametern *belastningsutjämnare-hanterade-IP-antal* för att ange det ursprungliga antalet hanterade, offentliga IP-adresser när du skapar klustret genom att lägga till `--load-balancer-managed-outbound-ip-count` parametern och ställa in den på önskat värde. Standardvärdet för hanterade utgående offentliga IP-adresser är 1.
 
 ## <a name="optional---provide-your-own-public-ips-or-prefixes-for-egress"></a>Valfritt – ange egna offentliga IP-adresser eller prefix för utgående trafik
 
-När du använder en *standard* -SKU-BELASTNINGSUTJÄMNARE skapar AKS-klustret automatiskt en offentlig IP-adress i samma resurs grupp som skapats för AKS-klustret och tilldelar den offentliga IP-adressen till *standard* -SKU-belastningsutjämnaren. Alternativt kan du tilldela din egen offentliga IP-adress.
+När du använder en *standard* -SKU-BELASTNINGSUTJÄMNARE skapar AKS-klustret automatiskt en offentlig IP-adress i samma resurs grupp som skapats för AKS-klustret och tilldelar den offentliga IP-adressen till *standard* -SKU-belastningsutjämnaren. Alternativt kan du tilldela din egen offentliga IP-adress när klustret skapas, eller så kan du uppdatera ett befintligt klusters egenskaper för belastningsutjämnare.
+
+Genom att ta med flera IP-adresser eller prefix kan du definiera flera tjänster för säkerhets kopiering när du definierar IP-adressen bakom ett enda belastnings Utjämnings objekt. Den utgående slut punkten för vissa noder beror på vilken tjänst de är associerade med.
 
 > [!IMPORTANT]
 > Du måste använda *standard* SKU offentliga IP: er för utgående med din *standard* -SKU. Du kan kontrol lera SKU: er för dina offentliga IP-adresser med hjälp av kommandot [AZ Network Public-IP show][az-network-public-ip-show] :
@@ -324,8 +330,6 @@ az network public-ip prefix show --resource-group myResourceGroup --name myPubli
 
 Kommandot ovan visar ID: t för det offentliga IP-prefixet *myPublicIPPrefix* i resurs gruppen *myResourceGroup* .
 
-Använd kommandot *AZ AKS Update* med parametern *Load-Balancer-utgående-IP-prefix* med ID: n från föregående kommando.
-
 I följande exempel används parametern *Load-Balancer-utgående-IP-prefix* med ID: n från föregående kommando.
 
 ```azurecli-interactive
@@ -337,6 +341,36 @@ az aks update \
 
 > [!IMPORTANT]
 > De offentliga IP-adresserna och IP-prefixen måste finnas i samma region och ingå i samma prenumeration som ditt AKS-kluster.
+
+### <a name="define-your-own-public-ip-or-prefixes-at-cluster-create-time"></a>Definiera en egen offentlig IP-adress eller prefix i klustrets skapande tid
+
+Du kanske vill ta med dina egna IP-adresser eller IP-prefix för utgående trafik när klustret skapas för att ge stöd för scenarier som vit listning utgående slut punkter. Lägg till samma parametrar som visas ovan i steget Skapa kluster för att definiera egna offentliga IP-adresser och IP-prefix i början av ett klusters livs cykel.
+
+Använd kommandot *AZ AKS Create* med parametern *Load-Balancer-utgående-IP* för att skapa ett nytt kluster med dina offentliga IP-adresser vid start.
+
+```
+az aks create \
+    --resource-group myResourceGroup \
+    --name myAKSCluster \
+    --vm-set-type VirtualMachineScaleSets \
+    --node-count 1 \
+    --load-balancer-sku standard \
+    --generate-ssh-keys \
+    --load-balancer-outbound-ips <publicIpId1>,<publicIpId2>
+```
+
+Använd kommandot *AZ AKS Create* med parametern *Load-Balancer-utgående-IP-prefix* för att skapa ett nytt kluster med dina offentliga IP-prefix vid starten.
+
+```
+az aks create \
+    --resource-group myResourceGroup \
+    --name myAKSCluster \
+    --vm-set-type VirtualMachineScaleSets \
+    --node-count 1 \
+    --load-balancer-sku standard \
+    --generate-ssh-keys \
+    --load-balancer-outbound-ip-prefixes <publicIpPrefixId1>,<publicIpPrefixId2>
+```
 
 ## <a name="clean-up-the-standard-sku-load-balancer-configuration"></a>Rensa standard konfigurationen för SKU-belastnings utjämning
 

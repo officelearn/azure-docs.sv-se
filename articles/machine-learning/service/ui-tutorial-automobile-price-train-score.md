@@ -1,6 +1,6 @@
 ---
 title: 'Självstudier: Förutsäg bil pris med Visual Interface'
-titleSuffix: Azure Machine Learning service
+titleSuffix: Azure Machine Learning
 description: Lär dig hur du tränar, poängs ätter och distribuerar en maskin inlärnings modell med hjälp av ett dra och släpp-visuellt gränssnitt. Den här självstudien är en del av en serie i två delar om förutsägelse av bil priser med linjär regression.
 author: peterclu
 ms.author: peterlu
@@ -9,16 +9,16 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 08/16/2019
-ms.openlocfilehash: a2134853c48ca09faa150f038be2d9327af75eee
-ms.sourcegitcommit: a3a40ad60b8ecd8dbaf7f756091a419b1fe3208e
+ms.openlocfilehash: 11c65c217ef6c150c47f387f7f80070488a8df89
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69891685"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70996783"
 ---
 # <a name="tutorial-predict-automobile-price-with-the-visual-interface"></a>Självstudier: Förutsäg bil pris med Visual Interface
 
-I den här självstudien får du lära dig hur du använder det visuella gränssnittet Azure Machine Learning tjänsten för att utveckla och distribuera en förutsägelse analys lösning som förutsäger priset på en bil. 
+I den här självstudien får du lära dig hur du använder Azure Machine Learnings visuella gränssnitt för att utveckla och distribuera en förutsägelse analys lösning som förutsäger priset på en bil. 
 
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE2X1GY]
 
@@ -41,11 +41,11 @@ Du hittar det genom att välja **Lägg till ny**på  ****sidan experiment**och s
 
 ## <a name="create-a-new-experiment"></a>Skapa ett nytt experiment
 
-Om du vill skapa ett visuellt gränssnitts experiment måste du först ha en Azure Machine-tjänst arbets yta. I det här avsnittet får du lära dig hur du skapar båda dessa resurser.
+Om du vill skapa ett visuellt gränssnitts experiment behöver du först en Azure Machine Learning service-arbetsyta. I det här avsnittet får du lära dig hur du skapar båda dessa resurser.
 
 ### <a name="create-a-new-workspace"></a>Skapa en ny arbetsyta
 
-Om du har en Azure Machine Learning service-arbetsyta går du vidare till nästa avsnitt.
+Om du har en Azure Machine Learning arbets yta kan du gå vidare till nästa avsnitt.
 
 [!INCLUDE [aml-create-portal](../../../includes/aml-create-in-portal.md)]
 

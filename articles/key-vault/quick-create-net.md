@@ -6,12 +6,12 @@ ms.author: mbaldwin
 ms.date: 05/20/2019
 ms.service: key-vault
 ms.topic: quickstart
-ms.openlocfilehash: e57b5a49ac0c99fa81e54134e74964bf38418e4d
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: d24323996e222caf6456372cbc65681d2055c3db
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70934896"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70996645"
 ---
 # <a name="quickstart-azure-key-vault-client-library-for-net"></a>Snabbstart: Azure Key Vault klient bibliotek för .NET
 
@@ -26,7 +26,6 @@ Azure Key Vault hjälper dig att skydda krypteringsnycklar och hemligheter som a
 - Använd FIPS 140-2 nivå 2-verifierade HSM: er.
 
 [API Reference dokumentation](/dotnet/api/overview/azure/key-vault?view=azure-dotnet) | [bibliotek käll kods](https://github.com/Azure/azure-sdk-for-net/tree/AutoRest/src/KeyVault) | [paket (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.KeyVault/)
-
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -120,24 +119,12 @@ Den här åtgärden returnerar en serie med nyckel/värde-par.
 
 Anteckna clientId och clientSecret, eftersom vi kommer att använda dem i steget [autentisera till ditt nyckel valv](#authenticate-to-your-key-vault) nedan.
 
-Du kommer också att behöva appID för tjänstens huvud namn. Du hittar den genom att köra [AZ AD SP-lista](https://docs.microsoft.com/en-us/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-list) med `--show-mine` parametern:
-
-```azurecli
-az ad sp list --show-mine
-```
-
-`appID` Visas i den returnerade JSON-filen:
-
-```json
-    "appId": "2cf5aa18-0100-445a-9438-0b93e577a3ed",
-```
-
 #### <a name="give-the-service-principal-access-to-your-key-vault"></a>Ge tjänstens huvud namn åtkomst till ditt nyckel valv
 
-Skapa en åtkomst princip för nyckel valvet som ger behörighet till tjänstens huvud namn. Det gör du med kommandot [AZ-nyckel valv set-princip](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-set-policy) . Vi ska ge tjänstens huvud namn get-, list-och set-behörigheter för både nycklar och hemligheter.
+Skapa en åtkomst princip för nyckel valvet som ger behörighet till tjänstens huvud namn genom att skicka clientId till [AZ-kommandot Set-policy](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-set-policy) . Ge tjänstens huvud namn get-, list-och set-behörigheter för både nycklar och hemligheter.
 
 ```azurecli
-az keyvault set-policy -n <your-unique-keyvault-name> --spn <appid-of-your-service-principal> --secret-permissions delete get list set --key-permissions create decrypt delete encrypt get list unwrapKey wrapKey
+az keyvault set-policy -n <your-unique-keyvault-name> --spn <clientId-of-your-service-principal> --secret-permissions delete get list set --key-permissions create decrypt delete encrypt get list unwrapKey wrapKey
 ```
 
 ## <a name="object-model"></a>Objekt modell

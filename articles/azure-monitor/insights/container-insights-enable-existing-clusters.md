@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/19/2019
+ms.date: 09/12/2019
 ms.author: magoedte
-ms.openlocfilehash: 650729269370bfcd6608b82fc14c3306da1ed222
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.openlocfilehash: 0153d39e1307458baa920d8e9107c8931242014e
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69624439"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70996270"
 ---
 # <a name="enable-monitoring-of-azure-kubernetes-service-aks-cluster-already-deployed"></a>Aktivera övervakning av AKS-kluster (Azure Kubernetes service) redan distribuerat
 
@@ -49,17 +49,51 @@ Utdata ska likna följande:
 provisioningState       : Succeeded
 ```
 
-Om du skulle hellre integrerar med en befintlig arbetsyta, kan du använda följande kommando för att ange den arbetsytan.
+### <a name="integrate-with-an-existing-workspace"></a>Integrera med en befintlig arbets yta
 
-```azurecli
-az aks enable-addons -a monitoring -n MyExistingManagedCluster -g MyExistingManagedClusterRG --workspace-resource-id <ExistingWorkspaceResourceID> 
-```
+Om du hellre vill integrera med en befintlig arbets yta utför du följande steg för att först identifiera det fullständiga resurs-ID: t för din Log Analytics `--workspace-resource-id` arbets yta som krävs för parametern och kör sedan kommandot för att aktivera övervaknings tillägget mot den angivna arbets ytan.  
 
-Utdata ska likna följande:
+1. Lista alla prenumerationer som du har åtkomst till med hjälp av följande kommando:
 
-```azurecli
-provisioningState       : Succeeded
-```
+    ```azurecli
+    az account list --all -o table
+    ```
+
+    Utdata ska likna följande:
+
+    ```azurecli
+    Name                                  CloudName    SubscriptionId                        State    IsDefault
+    ------------------------------------  -----------  ------------------------------------  -------  -----------
+    Microsoft Azure                       AzureCloud   68627f8c-91fO-4905-z48q-b032a81f8vy0  Enabled  True
+    ```
+
+    Kopiera värdet för **SubscriptionId**.
+
+2. Växla till den prenumeration som är värd för Log Analytics arbets ytan med hjälp av följande kommando:
+
+    ```azurecli
+    az account set -s <subscriptionId of the workspace>
+    ```
+
+3. I följande exempel visas listan över arbets ytor i dina prenumerationer i standardformatet JSON. 
+
+    ```
+    az resource list --resource-type Microsoft.OperationalInsights/workspaces -o json
+    ```
+
+    I utdata letar du reda på arbets ytans namn och kopierar sedan det fullständiga resurs-ID: t för den Log Analytics arbets ytan under fält **-ID: t**.
+ 
+4. Kör följande kommando för att aktivera övervaknings tillägget, och Ersätt värdet för `--workspace-resource-id` parametern. Strängvärdet måste vara inom dubbla citat tecken:
+
+    ```azurecli
+    az aks enable-addons -a monitoring -n ExistingManagedCluster -g ExistingManagedClusterRG --workspace-resource-id  “/subscriptions/<SubscriptionId>/resourceGroups/<ResourceGroupName>/providers/Microsoft.OperationalInsights/workspaces/<WorkspaceName>”
+    ```
+
+    Utdata ska likna följande:
+
+    ```azurecli
+    provisioningState       : Succeeded
+    ```
 
 ## <a name="enable-using-terraform"></a>Aktivera med hjälp av Terraform
 

@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 9ec8f8f1c6e1d1b806c5d965d3c2287027885c44
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 56d41d92b77ea6ef536f1e371a825b775a780bef
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60369731"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70993893"
 ---
 # <a name="create-and-provision-a-simulated-tpm-device-using-c-device-sdk-for-iot-hub-device-provisioning-service"></a>Skapa och etablera en simulerad TPM-enhet med C#-enhets-SDK för IoT Hub Device Provisioning-tjänsten
 
@@ -27,6 +27,7 @@ Exempelkoden använder Windows TPM-simulatorn som enhetens [maskinvarusäkerhets
 Om du inte känner till processen för automatisk etablering, bör du även gå igenom [Begrepp inom automatisk etablering](concepts-auto-provisioning.md). Se också till att slutföra stegen i [Set up IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md) (Konfigurera IoT Hub Device Provisioning-tjänsten med Azure Portal) innan du fortsätter. 
 
 Azure IoT Device Provisioning Service stöder två typer av registreringar:
+
 - [Registreringsgrupper](concepts-service.md#enrollment-group): Används för att registrera flera relaterade enheter.
 - [Enskilda registreringar](concepts-service.md#individual-enrollment): Används för att registrera en enskild enhet.
 
@@ -37,23 +38,21 @@ Den här artikeln visar enskilda registreringar.
 <a id="setupdevbox"></a>
 ## <a name="prepare-the-development-environment"></a>Förbereda utvecklingsmiljön 
 
-1. Kontrollera att du har den [SDK för .NET Core 2.1 eller senare](https://www.microsoft.com/net/download/windows) installerat på datorn. 
+1. Kontrol lera att du har [.net Core 2,1 SDK eller senare](https://www.microsoft.com/net/download/windows) installerad på datorn. 
 
 1. Kontrollera att `git` är installerat på datorn och har lagts till i de miljövariabler som är tillgängliga för kommandofönstret. Se [Git-klientverktyg för Software Freedom Conservancy](https://git-scm.com/download/) för att få den senaste versionen av `git`-verktyg att installera, vilket omfattar **Git Bash**, kommandoradsappen som du kan använda för att interagera med det lokala Git-lagret. 
 
 1. Öppna en kommandotolk eller Git Bash. Klona Azure IoT-exempel för C# GitHub-lagringsplatsen:
-    
+
     ```cmd
     git clone https://github.com/Azure-Samples/azure-iot-samples-csharp.git
     ```
 
 ## <a name="provision-the-simulated-device"></a>Etablera den simulerade enheten
 
-
-1. Logga in på Azure Portal. Klicka på knappen **Alla resurser** i menyn till vänster och öppna Device Provisioning-tjänsten. Från bladet **Översikt** antecknar du **_ID-omfång_**-värde.
+1. Logga in på Azure Portal. Klicka på knappen **Alla resurser** i menyn till vänster och öppna Device Provisioning-tjänsten. Från bladet **Översikt** antecknar du **_ID-omfång_** -värde.
 
     ![Kopiera omfångs-ID för etableringstjänsten från portalbladet](./media/quick-create-simulated-device-tpm-csharp/copy-scope.png) 
-
 
 2. I en kommandotolk ändrar du kataloger till projektkatalogen för TPM-enhetsetableringsexemplet.
 
@@ -67,9 +66,9 @@ Den här artikeln visar enskilda registreringar.
     dotnet run <IDScope>
     ```
 
-    Det här kommandot startar simulatorn för TPM-chip i en separat kommandotolk.  
+    Det här kommandot startar simulatorn för TPM-chip i en separat kommandotolk. I Windows kan du stöta på en Windows-säkerhetsavisering som frågar om du vill tillåta att Simulator. exe kommunicerar i offentliga nätverk. I det här exemplet kan du avbryta begäran.
 
-1. Kommandofönstret visar **_bekräftelsenyckeln_**, **_registrerings-ID_** och ett föreslaget **_enhets-ID_** som behövs för enhetsregistreringen. Anteckna värdena. Du använder dessa värden för att skapa en enskild registrering i din instans av enhetsetableringstjänsten. 
+1. Kommandofönstret visar **_bekräftelsenyckeln_** , **_registrerings-ID_** och ett föreslaget **_enhets-ID_** som behövs för enhetsregistreringen. Anteckna värdena. Du använder dessa värden för att skapa en enskild registrering i din instans av enhetsetableringstjänsten. 
    > [!NOTE]
    > Blanda inte ihop fönstret som innehåller utdata från kommandot med fönstret som innehåller utdata från TPM-simulatorn. Du kanske måste klicka på kommandofönstret för att placera det längst fram.
 
@@ -89,14 +88,13 @@ Den här artikeln visar enskilda registreringar.
 
    Vid lyckad registrering visas *Registrerings-ID* för enheten i listan under fliken *Individual Enrollments* (Enskilda registreringar). 
 
-6. Registrera den simulerade enheten genom att trycka på Retur i kommandofönstret (som visade **_bekräftelsenyckeln_**, **_registrerings-ID_** och ett föreslaget **_enhets-ID_**). Lägg märke till de meddelanden som simulerar enhetsstart och anslutning till Device Provisioning-tjänsten för att hämta IoT-hubinformationen. 
+6. Registrera den simulerade enheten genom att trycka på Retur i kommandofönstret (som visade **_bekräftelsenyckeln_** , **_registrerings-ID_** och ett föreslaget **_enhets-ID_** ). Lägg märke till de meddelanden som simulerar enhetsstart och anslutning till Device Provisioning-tjänsten för att hämta IoT-hubinformationen. 
 
 1. Kontrollera att enheten har etablerats. Vid lyckad etablering av den simulerade enheten på IoT-hubben som är kopplad till etableringstjänsten visas enhets-ID på hubbens blad **IoT-enheter**. 
 
     ![Enheten är registrerad på IoT-hubben](./media/quick-create-simulated-device-tpm-csharp/hub_registration.png) 
 
     Om du ändrade din *inledande enhetstvillingstatus* från standardvärdet i registreringsposten för din enhet kan den hämta önskad tvillingstatus från hubben och agera utifrån det. Mer information finns i [Understand and use device twins in IoT Hub](../iot-hub/iot-hub-devguide-device-twins.md) (Förstå och använda enhetstvillingar i IoT Hub)
-
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 

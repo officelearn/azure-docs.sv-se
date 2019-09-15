@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 5/1/2019
 ms.author: alsin
-ms.openlocfilehash: 6b62bee2a6159cfd1aa1d7278f0b1ffa744f3a87
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: ebf7b712dda19b396b044235bf194a5dd402ffac
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70124012"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70996425"
 ---
 # <a name="azure-serial-console-for-windows"></a>Azures serie konsol för Windows
 
@@ -36,7 +36,7 @@ Dokumentation om Azure-konsolen för Linux finns i [Azures serie konsol för Lin
 
 * Den virtuella datorn eller den virtuella datorns skalnings uppsättnings instans måste använda distributions modellen för resurs hantering. Klassiska distributioner stöds inte.
 
-- Ditt konto som använder en serie konsol måste ha [rollen virtuell dator deltagare](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) för den virtuella datorn och [](boot-diagnostics.md) lagrings kontot för startdiagnostik
+- Ditt konto som använder en serie konsol måste ha [rollen virtuell dator deltagare](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) för den virtuella datorn och lagrings kontot för [startdiagnostik](boot-diagnostics.md)
 
 - Den virtuella datorn eller den virtuella datorns skalnings uppsättnings instans måste ha en lösenordsbaserad användare. Du kan skapa en med den [Återställ lösenord](https://docs.microsoft.com/azure/virtual-machines/extensions/vmaccess#reset-password) funktion av access-tillägg för virtuell dator. Välj **Återställ lösenord** från den **Support och felsökning** avsnittet.
 
@@ -50,7 +50,7 @@ Dokumentation om Azure-konsolen för Linux finns i [Azures serie konsol för Lin
 > Om du inte ser något i serie konsolen ser du till att startdiagnostik är aktiverat på den virtuella datorn eller skalnings uppsättningen för den virtuella datorn.
 
 ### <a name="enable-the-serial-console-in-custom-or-older-images"></a>Aktivera seriekonsolen i anpassade eller äldre bilder
-Nyare Windows Server-avbildningar på Azure har [särskilda administrationskonsolen](https://technet.microsoft.com/library/cc787940(v=ws.10).aspx) (SAC) aktiverad som standard. SAC stöds på server-versioner av Windows men är inte tillgängligt i klientversioner (till exempel Windows 10, Windows 8 eller Windows 7).
+Nya Windows Server-avbildningar på Azure har SAC ( [Special administrations konsol](https://technet.microsoft.com/library/cc787940(v=ws.10).aspx) ) aktiverat som standard. SAC stöds på server-versioner av Windows men är inte tillgängligt i klientversioner (till exempel Windows 10, Windows 8 eller Windows 7).
 
 För äldre Windows Server-avbildningar (som skapats före februari 2018), kan du automatiskt aktivera seriekonsolen via Azure portal körningskommandot funktionen. I Azure Portal väljer du **Kör kommando**och väljer sedan kommandot med namnet **EnableEMS** i listan.
 
@@ -184,7 +184,7 @@ Vi är medvetna om några problem med seriell konsol. Här är en lista över de
 Problem                             |   Åtgärd
 :---------------------------------|:--------------------------------------------|
 Att trycka på **RETUR** när anslutningen popup-meddelandet inte orsakar en uppmaning som ska visas. | Mer information finns i [Hitting ange ingenting](https://github.com/Microsoft/azserialconsole/blob/master/Known_Issues/Hitting_enter_does_nothing.md). Det här felet kan inträffa om du kör en anpassad virtuell dator, förstärkt installation eller Start-config som medför att Windows inte kan ansluta ordentligt till den seriella porten. Det här felet uppstår också om du kör en virtuell Windows 10-dator, eftersom endast virtuella Windows Server-datorer har kon figurer ATS för att ha EMS aktiverat.
-Endast hälsoinformation visas när du ansluter till en virtuell Windows-dator| Det här felet uppstår om särskilda administrationskonsolen inte har aktiverats för din Windows-avbildning. Se [aktivera seriekonsolen i anpassade eller äldre bilder](#enable-the-serial-console-in-custom-or-older-images) för instruktioner om hur du manuellt Aktivera SAC på din virtuella Windows-dator. Mer information finns i [Windows hälsotillstånd signaler](https://github.com/Microsoft/azserialconsole/blob/master/Known_Issues/Windows_Health_Info.md).
+Endast hälsoinformation visas när du ansluter till en virtuell Windows-dator| Det här felet uppstår om den särskilda administrations konsolen inte har Aktiver ATS för Windows-avbildningen. Se [aktivera seriekonsolen i anpassade eller äldre bilder](#enable-the-serial-console-in-custom-or-older-images) för instruktioner om hur du manuellt Aktivera SAC på din virtuella Windows-dator. Mer information finns i [Windows hälsotillstånd signaler](https://github.com/Microsoft/azserialconsole/blob/master/Known_Issues/Windows_Health_Info.md).
 Det går inte att skriva på SAC fråga om kernel-felsökning är aktiverad. | RDP till den virtuella datorn och köra `bcdedit /debug {current} off` från en upphöjd kommandotolk. Om du kan inte använda RDP du i stället kan koppla OS-disken till en annan virtuell Azure-dator och ändra den när ansluten som en datadisk genom att köra `bcdedit /store <drive letter of data disk>:\boot\bcd /debug <identifier> off`, växlar tillbaka disken.
 Klistra in i PowerShell i SAC resulterar i ett tredje tecken om det ursprungliga innehållet hade ett upprepade tecken. | En lösning kan köra `Remove-Module PSReadLine` att ta bort modulen PSReadLine från den aktuella sessionen. Den här åtgärden kommer inte att ta bort eller avinstallera modulen.
 Vissa tangentbord indata producerar utdata som onormalt SAC (till exempel **[A**, **[3 ~** ). | [VT100](https://aka.ms/vtsequences) escape-sekvenser stöds inte av SAC-prompten.

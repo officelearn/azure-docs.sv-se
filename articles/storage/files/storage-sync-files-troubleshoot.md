@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/29/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: c6b9c0a8615960772ccac824c293b5f4ea6cfe55
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 78e113f881d1f62c9848ba40f039fa19eeb09055
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70129200"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70996455"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Felsök Azure File Sync
 Använd Azure File Sync för att centralisera organisationens fil resurser i Azure Files, samtidigt som du behåller flexibilitet, prestanda och kompatibilitet för en lokal fil server. Windows Server omvandlas av Azure File Sync till ett snabbt cacheminne för Azure-filresursen. Du kan använda alla protokoll som är tillgängliga på Windows Server för att komma åt dina data lokalt, inklusive SMB, NFS och FTPS. Du kan ha så många cacheminnen som du behöver över hela världen.
@@ -395,6 +395,18 @@ Det här felet beror på att Azure File Sync-agenten inte kan komma åt Azure-fi
     ```
 2. [Kontrol lera att lagrings kontot finns.](#troubleshoot-storage-account)
 3. [Kontrol lera att inställningarna för brand vägg och virtuellt nätverk på lagrings kontot är korrekt konfigurerade (om de är aktiverade)](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide?tabs=azure-portal#configure-firewall-and-virtual-network-settings)
+
+<a id="-2134364022"></a><a id="storage-unknown-error"></a>**Ett okänt fel uppstod vid åtkomst till lagrings kontot.**  
+
+| | |
+|-|-|
+| **HRESULT** | 0x80c8308a |
+| **HRESULT (decimal)** | – 2134364022 |
+| **Fel sträng** | ECS_E_STORAGE_ACCOUNT_UNKNOWN_ERROR |
+| **Reparation krävs** | Ja |
+
+1. [Kontrol lera att lagrings kontot finns.](#troubleshoot-storage-account)
+2. [Kontrol lera att inställningarna för brand vägg och virtuellt nätverk på lagrings kontot är korrekt konfigurerade (om de är aktiverade)](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide?tabs=azure-portal#configure-firewall-and-virtual-network-settings)
 
 <a id="-1906441138"></a>**Synkroniseringen misslyckades på grund av ett problem med Sync-databasen.**  
 

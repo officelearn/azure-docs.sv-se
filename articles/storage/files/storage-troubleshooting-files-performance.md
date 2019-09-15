@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: gunjanj
 ms.subservice: files
-ms.openlocfilehash: 240b2110db66af0982e4e1bf95d3715cbe733a60
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: 0e11949804e0c3de52db315424f83905516b4da8
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68816515"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70996607"
 ---
 # <a name="troubleshoot-azure-files-performance-issues"></a>Felsöka Azure Files prestanda problem
 
@@ -85,6 +85,7 @@ En möjlig orsak till detta är ett saknat SMB-stöd för flera kanaler. Azure-f
 
 - Att hämta en virtuell dator med en större kärna kan hjälpa till att förbättra data flödet.
 - Genom att köra klient programmet från flera virtuella datorer ökar du data flödet.
+
 - Använd REST-API: er där det är möjligt.
 
 ## <a name="throughput-on-linux-clients-is-significantly-lower-when-compared-to-windows-clients"></a>Data flödet på Linux-klienter är betydligt lägre jämfört med Windows-klienter.
@@ -95,8 +96,9 @@ Detta är ett känt problem med implementeringen av SMB-klienten på Linux.
 
 ### <a name="workaround"></a>Lösning:
 
-- Sprida belastningen över flera virtuella datorer
+- Sprida belastningen över flera virtuella datorer.
 - Använd flera monterings punkter med alternativet **nosharesock** på samma virtuella dator och sprid belastningen över dessa monterings punkter.
+- På Linux kan du prova att montera med alternativet **nostrictsync** för att undvika att framtvinga SMB-tömning på varje fsync-anrop. För Azure Files stör inte det här alternativet data consistentcy, men kan resultera i inaktuella fil-metadata på katalog listan (**ls-l-** kommando). Om du direkt frågar efter metadata för filen (**stat** -kommandot) returneras de senaste metadata som är aktuella för filen.
 
 ## <a name="high-latencies-for-metadata-heavy-workloads-involving-extensive-openclose-operations"></a>Hög latens för Metadatas tungt arbets belastningar som involverar omfattande öppna/stäng-åtgärder.
 

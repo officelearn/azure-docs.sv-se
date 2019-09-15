@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 02/01/2019
-ms.openlocfilehash: 889c2e75e9eee0586c709b032dbb6d1c58d45102
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.date: 09/13/2019
+ms.openlocfilehash: 5ef11e86b85a537a809352325d56ac3ff983c2c1
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70142040"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70993053"
 ---
 # <a name="replicate-data-into-azure-database-for-mysql"></a>Replikera data till Azure Database for MySQL
 
@@ -22,6 +22,8 @@ Huvud scenarierna för att överväga att använda Datareplikering är:
 
 - **Synkronisering av hybrid data:** Med Datareplikering kan du synkronisera data mellan dina lokala servrar och Azure Database for MySQL. Den här synkroniseringen är användbar för att skapa hybrid program. Den här metoden kan överklaga när du har en befintlig lokal databas server men vill flytta data till en region närmare slutanvändarna.
 - **Synkronisering med flera moln:** För komplexa moln lösningar använder du Datareplikering för att synkronisera data mellan Azure Database for MySQL och olika moln leverantörer, inklusive virtuella datorer och databas tjänster som finns i molnet.
+ 
+Använd [Azure Database migration service](https://azure.microsoft.com/services/database-migration/)(DMS) för migrerings scenarier.
 
 ## <a name="limitations-and-considerations"></a>Begränsningar och överväganden
 
@@ -37,7 +39,7 @@ Huvud scenarierna för att överväga att använda Datareplikering är:
 - Om huvud servern har SSL aktiverat kontrollerar du att det SSL-CA-certifikat som har angetts för domänen har inkluderats i den `mysql.az_replication_change_master` lagrade proceduren. Se följande [exempel](https://docs.microsoft.com/azure/mysql/howto-data-in-replication#link-master-and-replica-servers-to-start-data-in-replication) och `master_ssl_ca` parametern.
 - Se till att huvudserverns IP-adress har lagts till i Azure Database for MySQL-replikserverns brandväggsregler. Uppdatera brandväggsregler med hjälp av [Azure-portalen](https://docs.microsoft.com/azure/mysql/howto-manage-firewall-using-portal) eller [Azure CLI](https://docs.microsoft.com/azure/mysql/howto-manage-firewall-using-cli).
 - Se till att datorn som är värd för huvudservern tillåter både inkommande och utgående trafik på port 3306.
-- Se till att huvud servern har en **offentlig IP-adress** eller att DNS är offentligt tillgänglig.
+- Se till att huvud servern har en **offentlig IP-adress**, att DNS är offentligt tillgängligt eller har ett fullständigt kvalificerat domän namn (FQDN).
 
 ### <a name="other"></a>Annat
 - Datareplikering stöds bara i Generell användning och minnesoptimerade pris nivåer.
@@ -46,3 +48,4 @@ Huvud scenarierna för att överväga att använda Datareplikering är:
 ## <a name="next-steps"></a>Nästa steg
 - Lär dig hur du [konfigurerar replikering av data](howto-data-in-replication.md)
 - Lär dig mer om att [Replikera i Azure med Läs repliker](concepts-read-replicas.md)
+- Lär dig mer om hur du [migrerar data med minimal stillestånds tid med DMS](howto-migrate-online.md)

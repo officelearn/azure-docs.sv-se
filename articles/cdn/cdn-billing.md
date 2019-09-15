@@ -1,6 +1,6 @@
 ---
-title: Så här fungerar fakturering för Azure CDN | Microsoft Docs
-description: Här beskrivs hur fungerar fakturering för Azure CDN.
+title: Förstå Azure CDN fakturering | Microsoft Docs
+description: Detta vanliga frågor beskriver hur Azure CDN faktureringen fungerar.
 services: cdn
 documentationcenter: ''
 author: mdgattuso
@@ -12,21 +12,21 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/20/2018
+ms.date: 09/13/2019
 ms.author: magattus
-ms.openlocfilehash: 2fd3d2f8fbc98d8c7b19cbcc365748cc088d76fd
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: 8704d715a20b94dc170f232b07a0acd54bb1e6f1
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67594081"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70996812"
 ---
 # <a name="understanding-azure-cdn-billing"></a>Så här fungerar fakturering för Azure CDN
 
-Här beskrivs fakturering strukturen för innehåll på med Azure CDN Content Delivery Network ().
+Detta vanliga frågor beskriver fakturerings strukturen för innehåll som finns i Azure Content Delivery Network (CDN).
 
-## <a name="what-is-a-billing-region"></a>Vad är en Faktureringsregion?
-En Faktureringsregion är ett geografiskt område som används för att avgöra vilket pris debiteras för leverans av objekt från Azure CDN. Aktuella fakturering zonerna och deras regioner är följande:
+## <a name="what-is-a-billing-region"></a>Vad är en fakturerings region?
+En fakturerings region är ett geografiskt område som används för att avgöra vilken taxa som debiteras för leverans av objekt från Azure CDN. De aktuella fakturerings zonerna och deras regioner är följande:
 
 - Zon 1: Nordamerika, Europa, Mellanöstern och Afrika
 
@@ -38,51 +38,84 @@ En Faktureringsregion är ett geografiskt område som används för att avgöra 
 
 - Zon 5: Indien
 
-Information om point of presence (POP) regioner finns i [Azure CDN POP-platser efter region](https://docs.microsoft.com/azure/cdn/cdn-pop-locations). Till exempel en POP i Mexiko är i regionen Nordamerika och ingår därför i zon 1. 
+Information om hur du använder POP-regioner finns [Azure CDN pop-platser efter region](https://docs.microsoft.com/azure/cdn/cdn-pop-locations). En POP som finns i Mexiko är till exempel i Nordamerika region och ingår därför i zon 1. 
 
-Information om priser för Azure CDN finns i [prissättningen för CDN](https://azure.microsoft.com/pricing/details/cdn/).
+Information om Azure CDN priser finns i [Content Delivery Network prissättning](https://azure.microsoft.com/pricing/details/cdn/).
 
-## <a name="how-are-delivery-charges-calculated-by-region"></a>Hur beräknas leverans avgifter per region?
-Azure CDN Faktureringsregion baseras på platsen för källservern som levererar innehåll till slutanvändaren. Faktureringsregion anses inte vara målet (fysiska plats) av klienten.
+## <a name="how-are-delivery-charges-calculated-by-region"></a>Hur beräknas leverans kostnader per region?
+Azure CDN fakturerings region baseras på platsen för käll servern som levererar innehållet till slutanvändaren. Klientens mål (fysiska plats) betraktas inte som fakturerings region.
 
-Till exempel om en användare finns i Mexiko skickar en begäran och den här begäran besvaras av en server i en USA-POP bero på peering eller trafik, debiteras Faktureringsregion USA.
+Exempel: om en användare som finns i Mexiko utfärdar en begäran och denna begäran betjänas av en server som finns i ett USA POP på grund av peering-eller trafik förhållanden, är fakturerings regionen USA.
 
-## <a name="what-is-a-billable-azure-cdn-transaction"></a>Vad är en fakturerbar Azure CDN-transaktioner?
-Varje HTTP (S)-begäran som avbryts vid CDN är en fakturerbar händelse som omfattar alla svarstyper av: lyckades, misslyckades eller annan. Dock generera olika svar olika trafik belopp. Till exempel *304 ändras inte* och andra endast svar generera lite trafik eftersom de är en liten huvudsvar, på samma sätt felsvar (till exempel *404 hittades inte*) är faktureringsbara men resultera i en liten kostnader på grund av mycket liten svarets nyttolast.
+## <a name="what-is-a-billable-azure-cdn-transaction"></a>Vad är en fakturerbar Azure CDN transaktion?
+Alla HTTP (S)-förfrågningar som avslutas vid CDN är en fakturerbar händelse som innehåller alla svars typer: lyckades, misslyckades eller annat. Olika svar kan dock generera olika trafik mängder. Till exempel, *304 har inte ändrats* och andra skrivskyddade svar genererar lite trafik eftersom de är ett litet huvud svar. på samma sätt är fel svar (till exempel *404 som inte hittas*) fakturerbara men kostar en låg kostnad på grund av den stora nytto lasten.
 
-## <a name="what-other-azure-costs-are-associated-with-azure-cdn-use"></a>Vilka andra Azure-kostnader är associerade med Azure CDN-användning?
-Använda Azure CDN även medför vissa kostnader för tjänsterna som används som ursprung för ditt objekt. Dessa kostnader är vanligtvis en liten del av den totala kostnaden för CDN-användning.
+## <a name="what-other-azure-costs-are-associated-with-azure-cdn-use"></a>Vilka andra Azure-kostnader är associerade med Azure CDN använda?
+Om du använder Azure CDN uppstår även några användnings kostnader för de tjänster som används som ursprung för dina objekt. Dessa kostnader är vanligt vis en liten del av den totala förbruknings kostnaden för CDN.
 
-Om du använder Azure Blob storage som ursprung för ditt innehåll kan medföra du också på följande lagringskostnaderna för cache färger:
+Om du använder Azure Blob Storage som ursprung för ditt innehåll, kommer du även att debiteras följande lagrings avgifter för cache-fyllningar:
 
-- Faktiska GB används: Det faktiska lagringsutrymmet för källobjekt.
+- Faktiskt använt GB: Det faktiska lagrings utrymmet för dina käll objekt.
 
-- Överföringar i GB: Mängden data som överförs till Fyll CDN-cacheminnen.
+- Transaktioner Vid behov för att fylla cacheminnet.
 
-- Transaktioner: Som behövs för att fylla i cachen.
+- Överföringar i GB: Mängden data som överförs för att fylla CDN-cacheminnen.
 
-Mer information om fakturering för Azure Storage finns i [förstå Azure Storage-fakturering – bandbredd, transaktioner och kapacitet](https://blogs.msdn.microsoft.com/windowsazurestorage/2010/07/08/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity/).
+> [!NOTE]
+> Från och med den 2019 oktober, om du använder Azure CDN från Microsoft, är kostnaden för data överföring från ursprung som finns i Azure till CDN pop kostnads fri. Azure CDN från Verizon och Azure CDN från Akamai omfattas de priser som beskrivs nedan.
 
-Om du använder *finns serviceleverans*, debiteras du enligt följande:
+Mer information om Azure Storage fakturering finns i [förstå Azure Storage fakturering – bandbredd, transaktioner och kapacitet](https://blogs.msdn.microsoft.com/windowsazurestorage/2010/07/08/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity/).
 
-- Azure-beräkningstid: De beräkningsinstanser som fungerar som ursprung.
+Om du använder *värdbaserad tjänst leverans*debiteras du följande:
 
-- Azure-beräkning överföring: Data som överförs från de beräkningsinstanser för att fylla det Azure CDN-cacheminnet.
+- Beräknings tid i Azure: De beräknings instanser som fungerar som ursprung.
 
-Om klienten använder byte-intervall begäranden (oavsett ursprung service), gäller följande:
+- Azure-beräknings överföring: Data överförs från beräknings instanserna för att fylla Azure CDN cacheminnen.
 
-- En *byte-intervall begäran* är en fakturerbar transaktion på CDN. När en klient skickar en begäran om byte-intervall, är den här begäran för en delmängd (intervall) av objektet. CDN svarar med bara en partiell del av det innehåll som begärs. Den här partiellt svar är en fakturerbar transaktion och det överföring är begränsad till storleken på intervallet svar (plus rubriker).
+Om klienten använder byte intervall begär Anden (oavsett ursprungs tjänst) gäller följande aspekter:
 
-- När en begäran tas emot för endast en del av ett objekt (genom att ange en rubrik för byte-intervall), kan CDN hämta hela objektet till sin cache. Även om den faktureringsbara transaktionen från CDN avser ett partiellt svar, kan därför fakturerbara transaktionen från ursprunget omfatta i full storlek i objektet.
+- En *byte Range-begäran* är en fakturerbar transaktion vid CDN. När en klient utfärdar en byte Range-begäran gäller den här begäran för en delmängd av objektet. CDN svarar bara med en del av det begärda innehållet. Detta partiella svar är en fakturerbar transaktion och överförings beloppet begränsas till storleken på intervallets svar (plus rubriker).
 
-## <a name="how-much-transfer-activity-occurs-to-support-the-cache"></a>Hur mycket överföringsaktivitet utförs för att stödja cachen?
-Varje gång en CDN POP behöver för att fylla sin cache, skickar den en begäran till ursprunget för objektet att cachelagras. Därför medför ursprunget en fakturerbar transaktion på varje cachemiss. Antalet cachemissar beror på ett antal faktorer:
+- När en begäran bara anländer till en del av ett objekt (genom att ange ett byte intervall-huvud) kan CDN hämta hela objektet till dess cacheminne. Det innebär att även om den fakturerbara transaktionen från CDN är för partiellt svar kan den fakturerbara transaktionen från ursprunget omfatta objektets fulla storlek.
 
-- Hur komma innehållet är: Om innehållet har hög TTL (time-to-live) / giltighetstid standardvärden och är hanteras används ofta så förblir den populära i cacheminnet och det stora flertalet belastningen av CDN. Ett typiskt bra Cacheträff förhållande är väl över 90%, vilket innebär att mindre än 10% av klientbegäranden behöver gå tillbaka till ursprung, antingen för en cachemiss eller ett objekt uppdatera.
+## <a name="how-much-transfer-activity-occurs-to-support-the-cache"></a>Hur mycket överförings aktivitet sker för att stödja cachen?
+Varje gång en CDN-POP måste fylla sin cache, gör den en begäran till ursprunget för objektet som cachelagras. Det innebär att ursprunget ådrar sig en fakturerbar transaktion på varje cache missar. Antalet Cachemissar beror på ett antal faktorer:
 
-- Hur många noder behöver läsa in objektet: Varje gång en nod har lästs in ett objekt från ursprunget medför en fakturerbar transaktion. Därför kan resulterar fler globala innehåll (som öppnas från flera noder) i fler faktureringsbara transaktioner.
+- Så här cachelagrar du innehållet: Om innehållet har höga TTL-värden (Time-to-Live)/expiration och används ofta så att det förblir populärt i cachen, hanteras den stora delen av belastningen av CDN. En typisk bra kvot för cache-träff är väl över 90%, vilket innebär att mindre än 10% av klient begär Anden måste gå tillbaka till ursprunget, antingen för ett cacheminne som missar eller objekt uppdatering.
 
-- TTL påverkan: En högre TTL-värde för ett objekt innebär att den måste hämtas från ursprunget mindre ofta. Det innebär också klienter, till exempel webbläsare, kan cachelagra objektet längre, vilket kan minska transaktionerna till CDN.
+- Hur många noder som behöver läsa in objektet: Varje gång en nod läser in ett objekt från ursprunget, påförs en fakturerbar transaktion. Det innebär att mer globalt innehåll (som nås från fler noder) resulterar i mer fakturerbara transaktioner.
 
-## <a name="how-do-i-manage-my-costs-most-effectively"></a>Hur hanterar jag mina kostnader så effektivt som möjligt?
-Ange den längsta TTL möjligt på ditt innehåll. 
+- TTL-påverkan: Ett högt TTL-värde för ett-objekt innebär att det måste hämtas från ursprunget mindre ofta. Det innebär också att klienter, till exempel webbläsare, kan cachelagra objektet längre, vilket kan minska transaktionerna till CDN.
+
+## <a name="which-origin-services-are-eligible-for-free-data-transfer-with-azure-cdn-from-microsoft"></a>Vilka ursprungs tjänster är berättigade till kostnads fri data överföring med Azure CDN från Microsoft? 
+Om du använder någon av följande Azure-tjänster som ditt CDN-ursprung kommer du inte att debiteras från data överföring från ursprunget till CDN pop. 
+
+- Azure Storage
+- Azure Media Services
+- Azure virtuella maskiner
+- Virtuellt nätverk
+- Lastbalanserare
+- Application Gateway
+- Azure DNS
+- ExpressRoute
+- VPN Gateway
+- Traffic Manager
+- Network Watcher
+- Azure Firewall
+- Azure Front Door Service
+- Azure Bastion
+- Azure App tjänst
+- Azure Functions
+- Azure Data Factory
+- Azure API Management
+- Azure Batch 
+- Azure-datautforskaren
+- HDInsight
+- Azure Cosmos DB
+- Azure Data Lake Store
+- Azure Machine Learning-tjänst 
+- Azure SQL-databas
+- Azure Cache for Redis
+
+## <a name="how-do-i-manage-my-costs-most-effectively"></a>Hur gör jag för att hantera mina kostnader effektivt?
+Ange det längsta TTL-värdet som är möjligt för ditt innehåll. 

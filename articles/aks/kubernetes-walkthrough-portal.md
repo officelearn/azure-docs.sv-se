@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 5/31/2019
 ms.author: mlearned
 ms.custom: mvc
-ms.openlocfilehash: 8d42395bc4f813fecf3820024539999a1129921b
-ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
+ms.openlocfilehash: 0df60cac241151b5968c5ddfc01ca9c0515a5e6b
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70983803"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70996977"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-using-the-azure-portal"></a>Snabbstart: Distribuera ett kluster med Azure Kubernetes Service (AKS) med hjälp av Azure Portal
 
@@ -236,7 +236,7 @@ Containrarna *bak-azure-vote* och *azure-vote-front* visas enligt följande exem
 
 ![Visa hälsan för containrar som körs i AKS](media/kubernetes-walkthrough-portal/monitor-containers.png)
 
-Om du vill se loggar för podden `azure-vote-front` väljer du länken **Visa containerloggar** på höger sida av listan över containrar. Loggarna inkluderar strömmarna *stdout* och *stderr* från containern.
+Om du vill se loggar `azure-vote-front` för pod, väljer du **Visa behållar loggar** i list rutan i listan behållare. Loggarna inkluderar strömmarna *stdout* och *stderr* från containern.
 
 ![Visa containerloggarna i AKS](media/kubernetes-walkthrough-portal/monitor-container-logs.png)
 

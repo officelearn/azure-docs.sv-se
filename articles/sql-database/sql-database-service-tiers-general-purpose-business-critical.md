@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
 ms.date: 02/23/2019
-ms.openlocfilehash: 8709d88c4d21a40ac8ebb27e5c1669d8f5fa3555
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: 41acef4ebe13ac6152d795db4adfae5a6ae1ad91
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70934228"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70995435"
 ---
 # <a name="azure-sql-database-service-tiers"></a>Azure SQL Database tjänst nivåer
 
@@ -46,8 +46,6 @@ I följande tabell beskrivs viktiga skillnader mellan tjänst nivåer för den s
 | | Hanterad instans  | 32 GB – 8 TB | Gäller inte | 32 GB – 4 TB |
 | **TempDB-storlek** | Enkel databas/elastisk pool | [32 GB per vCore](sql-database-vcore-resource-limits-single-databases.md#general-purpose-service-tier-for-provisioned-compute) | [32 GB per vCore](sql-database-vcore-resource-limits-single-databases.md#hyperscale-service-tier-for-provisioned-compute) | [32 GB per vCore](sql-database-vcore-resource-limits-single-databases.md#business-critical-service-tier-for-provisioned-compute) |
 | | Hanterad instans  | [24 GB per vCore](sql-database-managed-instance-resource-limits.md#service-tier-characteristics) | Gäller inte | Upp till 4 TB – [begränsas av lagrings storlek](sql-database-managed-instance-resource-limits.md#service-tier-characteristics) |
-| **IO-dataflöde** | Enskild databas | [500 IOPS per vCore](sql-database-vcore-resource-limits-single-databases.md#general-purpose-service-tier-for-provisioned-compute) | Effektiv IOPs är beroende av arbets belastningen. | [4000 IOPS per vCore](sql-database-vcore-resource-limits-single-databases.md#business-critical-service-tier-for-provisioned-compute)|
-| | Hanterad instans | [100 – 250 MB/s och 500-7500 IOPS per fil](sql-database-managed-instance-resource-limits.md#service-tier-characteristics) | Gäller inte | [1375 IOPS per vCore](sql-database-managed-instance-resource-limits.md#service-tier-characteristics) |
 | **Logg skrivnings data flöde** | Enskild databas | [1,875 MB/s per vCore (max 30 MB/s)](sql-database-vcore-resource-limits-single-databases.md#general-purpose-service-tier-for-provisioned-compute) | 100 MB/s | [6 MB/s per vCore (max 96 MB/s)](sql-database-vcore-resource-limits-single-databases.md#business-critical-service-tier-for-provisioned-compute) |
 | | Hanterad instans | [3 MB/s per vCore (högst 22 MB/s)](sql-database-managed-instance-resource-limits.md#service-tier-characteristics) | Gäller inte | [4 MB/s per vCore (max 48 MB/s)](sql-database-managed-instance-resource-limits.md#service-tier-characteristics) |
 |**Tillgänglighet**|Alla| 99,99 % |  [99,95% med en sekundär replik, 99,99% med fler repliker](sql-database-service-tier-hyperscale-faq.md#what-slas-are-provided-for-a-hyperscale-database) | 99,99 % <br/> [99,995% med redundant zon i en enskild databas](https://azure.microsoft.com/blog/understanding-and-leveraging-azure-sql-database-sla/) |

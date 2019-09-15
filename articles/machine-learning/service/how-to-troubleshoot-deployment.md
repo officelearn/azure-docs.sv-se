@@ -1,7 +1,7 @@
 ---
 title: Distribuera felsökningsguide
-titleSuffix: Azure Machine Learning service
-description: Lär dig hur du arbetar runt, löser och felsöker vanliga Docker-distributions fel med Azure Kubernetes service och Azure Container Instances med hjälp av Azure Machine Learning-tjänsten.
+titleSuffix: Azure Machine Learning
+description: Lär dig hur du arbetar runt, löser och felsöker vanliga Docker-distributions fel med Azure Kubernetes service och Azure Container Instances med Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,18 +11,18 @@ ms.author: clauren
 ms.reviewer: jmartens
 ms.date: 07/09/2019
 ms.custom: seodec18
-ms.openlocfilehash: 5ec92e34ffa68718525e9b407dc9e58f4c409975
-ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
+ms.openlocfilehash: 08b9434dbcca96ff57e2c8182693023a5eb2eea9
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70183538"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70997162"
 ---
-# <a name="troubleshooting-azure-machine-learning-service-azure-kubernetes-service-and-azure-container-instances-deployment"></a>Felsöka Azure Machine Learning tjänsten Azure Kubernetes service och Azure Container Instances distribution
+# <a name="troubleshooting-azure-machine-learning-azure-kubernetes-service-and-azure-container-instances-deployment"></a>Felsöka Azure Machine Learning Azure Kubernetes service och Azure Container Instances distribution
 
-Lär dig att undvika eller lösa vanliga Docker-distributions fel med Azure Container Instances (ACI) och Azure Kubernetes service (AKS) med hjälp av Azure Machine Learning-tjänsten.
+Lär dig att undvika eller lösa vanliga Docker-distributions fel med Azure Container Instances (ACI) och Azure Kubernetes service (AKS) med Azure Machine Learning.
 
-När du distribuerar en modell i Azure Machine Learning-tjänsten, utförs ett antal uppgifter. Distribution aktiviteter är:
+När du distribuerar en modell i Azure Machine Learning utför systemet ett antal uppgifter. Distribution aktiviteter är:
 
 1. Registrera modellen i arbetsytan modellen registret.
 
@@ -46,7 +46,7 @@ Mer information om den här processen i den [modellhantering](concept-model-mana
 
 Om du stöter på några problem, det första du ska göra är att bryta ned aktiviteten distribution (tidigare beskrivs) till enskilda steg för att isolera problemet.
 
-Att dela upp distributionen i aktiviteter är användbart om du använder API för [WebService. Deploy ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice%28class%29?view=azure-ml-py#deploy-workspace--name--model-paths--image-config--deployment-config-none--deployment-target-none-) eller WebService [. deploy_from_model ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice%28class%29?view=azure-ml-py#deploy-from-model-workspace--name--models--image-config--deployment-config-none--deployment-target-none-) , eftersom båda dessa funktioner utför de ovannämnda stegen som en enda åtgärd. Dessa API: er är vanligt vis praktiska, men det hjälper dig att dela upp stegen vid fel sökning genom att ersätta dem med nedanstående API-anrop.
+Att dela upp distributionen i aktiviteter är användbart om du använder API för [WebService. Deploy ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice%28class%29?view=azure-ml-py#deploy-workspace--name--model-paths--image-config--deployment-config-none--deployment-target-none-) eller [WebService. deploy_from_model ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice%28class%29?view=azure-ml-py#deploy-from-model-workspace--name--models--image-config--deployment-config-none--deployment-target-none-) , eftersom båda dessa funktioner utför de ovannämnda stegen som en enda åtgärd. Dessa API: er är vanligt vis praktiska, men det hjälper dig att dela upp stegen vid fel sökning genom att ersätta dem med nedanstående API-anrop.
 
 1. Registrera modellen. Här är exempelkod:
 
@@ -346,7 +346,7 @@ I vissa fall kan du behöva interaktivt felsöka python-koden som finns i modell
 
         ```json
         {
-            "name": "Azure Machine Learning service: Docker Debug",
+            "name": "Azure Machine Learning: Docker Debug",
             "type": "python",
             "request": "attach",
             "port": 5678,
@@ -479,7 +479,7 @@ I den här text exemplet är `myregistry` register namnet och avbildningen heter
     docker run --rm --name debug -p 8000:5001 -p 5678:5678 debug:1
     ```
 
-1. Om du vill bifoga VS Code till PTVSD i behållaren öppnar du VS Code och använder F5-tangenten eller väljer __Felsök__. När du uppmanas väljer __du tjänsten Azure Machine Learning: Konfiguration av Docker-felsökning__ . Du kan också välja fel söknings ikonen från sido fältet, __Azure Machine Learning tjänsten: Docker-felsöknings post från List rutan Felsök och Använd sedan den gröna pilen för att koppla fel sökaren.__
+1. Om du vill bifoga VS Code till PTVSD i behållaren öppnar du VS Code och använder F5-tangenten eller väljer __Felsök__. När du uppmanas väljer __du Azure Machine Learning: Konfiguration av Docker-felsökning__ . Du kan också välja fel söknings ikonen från sido fältet, __Azure Machine Learning: Docker-felsöknings post från List rutan Felsök och Använd sedan den gröna pilen för att koppla fel sökaren.__
 
     ![Fel söknings ikonen, starta fel söknings knappen och konfigurations väljaren](media/how-to-troubleshoot-deployment/start-debugging.png)
 

@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/06/2019
-ms.openlocfilehash: 1571fc449bd40063c531f9942fe9b51da56f783c
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.openlocfilehash: e276340041e69101190645caad9dbf6de57abd95
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70764319"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70996502"
 ---
 # <a name="read-replicas-in-azure-database-for-postgresql---single-server"></a>Läsa repliker i Azure Database for PostgreSQL-enskild server
 
@@ -173,4 +173,4 @@ När en huvud server tas bort blir alla dess läsnings repliker fristående serv
 
 ## <a name="next-steps"></a>Nästa steg
 * Lär dig hur du [skapar och hanterar Läs repliker i Azure Portal](howto-read-replicas-portal.md).
-* Lär dig hur du [skapar och hanterar Läs repliker i Azure CLI](howto-read-replicas-cli.md).
+* Lär dig hur du [skapar och hanterar Läs repliker i Azure CLI och REST API](howto-read-replicas-cli.md).

@@ -1,7 +1,7 @@
 ---
 title: Kända problem & fel sökning
-titleSuffix: Azure Machine Learning service
-description: Hämta en lista över kända problem, lösningar, och felsökning för Azure Machine Learning-tjänsten.
+titleSuffix: Azure Machine Learning
+description: Hämta en lista över kända problem, lösningar och fel sökning för Azure Machine Learning.
 services: machine-learning
 author: j-martens
 ms.author: jmartens
@@ -11,16 +11,16 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 08/09/2019
 ms.custom: seodec18
-ms.openlocfilehash: 96af61089f2b7b85d58a8a2ab61936459cef158b
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: ffbc919333c43c04f461498a513d098ce8fe628f
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70858688"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70996583"
 ---
-# <a name="known-issues-and-troubleshooting-azure-machine-learning-service"></a>Kända problem och felsökning Azure Machine Learning-tjänsten
+# <a name="known-issues-and-troubleshooting-azure-machine-learning"></a>Kända problem och fel söknings Azure Machine Learning
 
-Den här artikeln hjälper dig att hitta och korrigera fel eller fel som uppstod när du använder Azure Machine Learning-tjänsten.
+Den här artikeln hjälper dig att hitta och korrigera fel eller fel som uppstår när du använder Azure Machine Learning.
 
 ## <a name="visual-interface-issues"></a>Problem med visuella gränssnitt
 
@@ -87,7 +87,7 @@ Databricks och Azure Machine Learning-problem.
 
 ### <a name="failure-when-installing-packages"></a>Det gick inte att installera paket
 
-Azure Machine Learning SDK-installationen Miss lyckas på Azure Databricks när fler paket är installerade. Vissa paket, till exempel `psutil`, kan orsaka konflikter. Undvik installations fel genom att installera paket genom att frysa biblioteks versionen. Det här problemet är relaterat till Databricks och inte till Azure Machine Learning service SDK. Du kan också uppleva det här problemet med andra bibliotek. Exempel:
+Azure Machine Learning SDK-installationen Miss lyckas på Azure Databricks när fler paket är installerade. Vissa paket, till exempel `psutil`, kan orsaka konflikter. Undvik installations fel genom att installera paket genom att frysa biblioteks versionen. Det här problemet är relaterat till Databricks och inte till Azure Machine Learning SDK. Du kan också uppleva det här problemet med andra bibliotek. Exempel:
 
 ```python
 psutil cryptography==1.5 pyopenssl==16.0.0 ipython==2.2.0
@@ -143,7 +143,7 @@ Om du går direkt för att visa din arbetsyta från en delningslänk från SDK: 
 Ibland kan det vara bra om du kan ange diagnostisk information när du frågar om du behöver hjälp. Om du vill se några loggar går du till [Azure Portal](https://portal.azure.com) och går till din arbets yta och väljer **arbets yta > Experiment > Kör > loggar**.  Du kan också hitta den här informationen i avsnittet **experiment** i [landnings sidan för arbets ytan (för hands version)](https://ml.azure.com).
 
 > [!NOTE]
-> Azure Machine Learning tjänst loggar information från en rad olika källor under utbildningen, till exempel AutoML eller Docker-behållaren som kör övnings jobbet. Många av dessa loggar dokumenteras inte. Om du stöter på problem och kontaktar Microsoft-supporten kan det hända att de kan använda dessa loggar under fel sökning.
+> Azure Machine Learning loggar information från en rad olika källor under utbildningen, till exempel AutoML eller Docker-behållaren som kör övnings jobbet. Många av dessa loggar dokumenteras inte. Om du stöter på problem och kontaktar Microsoft-supporten kan det hända att de kan använda dessa loggar under fel sökning.
 
 ## <a name="activity-logs"></a>Aktivitetsloggar
 

@@ -1,7 +1,7 @@
 ---
 title: Vad är nytt i versionen?
-titleSuffix: Azure Machine Learning service
-description: 'Lär dig mer om de senaste uppdateringarna för Azure Machine Learning service och Machine Learning och data prepare SDK: er.'
+titleSuffix: Azure Machine Learning
+description: 'Lär dig mer om de senaste uppdateringarna för Azure Machine Learning och Machine Learning och data prepare SDK: er.'
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,16 +10,16 @@ ms.author: jmartens
 author: j-martens
 ms.date: 08/19/2019
 ms.custom: seodec18
-ms.openlocfilehash: 2721e134e03d3d622e61085dc39a2914098ba570
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: 26d66dad1e9953ddcbdbe0fd3b495bb3e418b3e7
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70930743"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70993433"
 ---
-# <a name="azure-machine-learning-service-release-notes"></a>Viktig information för Azure Machine Learning-tjänsten
+# <a name="azure-machine-learning-release-notes"></a>Viktig information om Azure Machine Learning
 
-I den här artikeln lär du dig om Azure Machine Learning-tjänstversioner.  Information om fullständiga SDK-referenser finns på Azure Machine Learning huvud sidan [**för SDK för python**](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) -referens. 
+I den här artikeln får du lära dig mer om Azure Machine Learning-versioner.  Information om fullständiga SDK-referenser finns på Azure Machine Learning huvud sidan [**för SDK för python**](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) -referens. 
 
 Se [lista över kända problem](resource-known-issues.md) att lära dig om kända fel och lösningar.
 
@@ -557,7 +557,7 @@ I Azure Portal kan du nu:
 + Real tids diagram och mått uppdatering i kör rapporter och kör informations sidor
 + Uppdaterad fil visare för loggar, utdata och ögonblicks bilder på sidan körnings information.
 + Ny och förbättrad upplevelse för att skapa rapporter på fliken experiment. 
-+ Möjlighet att ladda ned config. JSON-filen från sidan Översikt i arbets ytan Azure Machine Learning service har lagts till.
++ Möjlighet att hämta config. JSON-filen från sidan Översikt i arbets ytan Azure Machine Learning har lagts till.
 + Stöd Machine Learning tjänst arbets yta skapas från Azure Databricks arbets yta 
 
 ## <a name="2019-04-26"></a>2019-04-26
@@ -576,7 +576,7 @@ Använd en Notebook VM som en säker, företags färdig värd miljö för Jupyte
 + [Skapa snabbt en förkonfigurerad virtuell](tutorial-1st-experiment-sdk-setup.md) dator med den senaste versionen av Azure Machine Learning SDK och relaterade paket.
 + Åtkomst skyddas via beprövad teknik, till exempel HTTPS, Azure Active Directory autentisering och auktorisering.
 + Tillförlitlig moln lagring med antecknings böcker och kod i ditt Azure Machine Learning-arbetsyta Blob Storage-konto. Du kan på ett säkert sätt ta bort den virtuella Notebook-datorn utan att förlora ditt arbete.
-+ Förinstallerade exempel antecknings böcker för att utforska och experimentera med Azure Machine Learning service-funktioner.
++ Förinstallerade exempel antecknings böcker för att utforska och experimentera med Azure Machine Learning funktioner.
 + Fullständiga anpassnings funktioner för virtuella Azure-datorer, valfri VM-typ, alla paket och eventuella driv rutiner. 
 
 ## <a name="2019-04-26"></a>2019-04-26
@@ -873,7 +873,7 @@ Obs! Data prepare för prepare installation och `numpy` `pandas` paket kommer in
 
 ## <a name="2018-12-04-general-availability"></a>2018-12-04: Allmän tillgänglighet
 
-Azure Machine Learning-tjänsten är nu allmänt tillgänglig.
+Azure Machine Learning är nu allmänt tillgänglig.
 
 ### <a name="azure-machine-learning-compute"></a>Azure Machine Learning-beräkning
 I den här versionen får vi presentera en ny hanterad beräknings upplevelse genom [Azure Machine Learning Compute](how-to-set-up-training-targets.md#amlcompute). Detta beräknings mål ersätter Azure Batch AI beräkning för Azure Machine Learning. 
@@ -985,7 +985,7 @@ Läs mer om Data Prep SDK genom att läsa [referera till docs](https://aka.ms/da
 ## <a name="2018-11-05"></a>2018-11-05
 
 ### <a name="azure-portal"></a>Azure Portal 
-Azure-portalen för Azure Machine Learning-tjänsten har följande uppdateringar:
+Azure Portal för Azure Machine Learning har följande uppdateringar:
   * En ny **Pipelines** fliken för publicerade pipelines.
   * Stöd har lagts till för att bifoga ett befintligt HDInsight-kluster som en beräkningsmål.
 
@@ -1098,4 +1098,4 @@ En ny, uppdaterad version av Azure Machine Learning: Läs mer om den här versio
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läs översikten för [Azure Machine Learning-tjänsten](../service/overview-what-is-azure-ml.md).
+Läs översikten för [Azure Machine Learning](../service/overview-what-is-azure-ml.md).

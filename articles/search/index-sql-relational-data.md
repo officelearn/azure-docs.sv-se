@@ -8,12 +8,12 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 09/12/2019
 ms.author: heidist
-ms.openlocfilehash: f6cc119387482e4f5403e91de98916cbe2aaff2a
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.openlocfilehash: 60dfae48b0aa1d6e0d9bc8e79d5ff2dedd744fd5
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70963504"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70993582"
 ---
 # <a name="how-to-model-relational-sql-data-for-import-and-indexing-in-azure-search"></a>Så här modellerar du Relations-SQL-data för import och indexering i Azure Search
 
@@ -152,11 +152,11 @@ Med hänsyn till föregående resultat uppsättning och index schemat ovan har d
 
 ## <a name="next-steps"></a>Nästa steg
 
-Du kan använda [guiden Importera data](search-import-data-portal.md) för att indexera en rad uppsättning som liknar den som beskrivs i den här artikeln. Guiden identifierar inbäddad JSON-samling i *rum* och härleder ett index schema som tillhandahåller lämplig komplex typ samling. 
+Med din egen data uppsättning kan du använda [guiden Importera data](search-import-data-portal.md) för att skapa och läsa in indexet. Guiden identifierar inbäddad JSON-samling, till exempel den som finns i *rummen*, och härleder ett index schema som innehåller en komplex typ samling. 
 
   ![Index som härletts av guiden Importera data](media/index-sql-relational-data/search-index-rooms-complex-collection.png "Index som härletts av guiden Importera data")
 
-Om du vill slutföra importen och skapa ett användbart index måste du välja nyckeln och ange attributen själv. Om du inte är bekant med den här guiden kan du prova följande snabb start för att lära dig de grundläggande stegen.
+Prova följande snabb start för att lära dig de grundläggande stegen i guiden Importera data.
 
 > [!div class="nextstepaction"]
 > [Snabbstart: Skapa ett Sök index med Azure Portal](search-get-started-portal.md)

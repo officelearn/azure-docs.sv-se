@@ -7,12 +7,12 @@ ms.author: shthota
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 09/09/2019
-ms.openlocfilehash: 535dae4226f7db9cbc7240f9a92642f0e206cd3b
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.openlocfilehash: 4357a91a87648885def69d8e75e19e38a5a3f751
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70962739"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70993725"
 ---
 # <a name="analytics-for-the-commercial-marketplace-in-partner-center"></a>Analys för den kommersiella marknads platsen i Partner Center
 
@@ -244,7 +244,7 @@ Du får ett popup-meddelande och ett e-postmeddelande som innehåller en länk t
 | Moln instans namn: Azure Government | Beställa| Myndighets-/regionsspecifika Microsoft-moln för någon av följande myndigheter: Kina, Tyskland eller USA av Amerika.| |
 | Kund ort| Kunden| Orts namnet som tillhandahålls av kunden. Staden kan skilja sig från staden i en kunds Azure-prenumeration.||
 | Kundens kommunikations språk  | Kunden| Det språk som kunden föredrar för kommunikation.||
-| Kund företags namn | Kund, order | Företags namnet som tillhandahålls av kunden. Namnet får inte vara detsamma som staden i en kunds Azure-prenumeration.|  |
+| Kund företags namn | Kund, order | Företags namnet som tillhandahålls av kunden. Namnet kan skilja sig från namnet i en kunds Azure-prenumeration.|  |
 | Kund land | Kund, order | Landets namn som tillhandahålls av kunden. Landet kan skilja sig från landet i en kunds Azure-prenumeration.|  |
 | Kund-e-post| Kunden| E-postadressen som tillhandahålls av slut kunden. E-postadressen kan skilja sig från e-postadressen i en kunds Azure-prenumeration.||
 | Förnamn för kund| Kunden| Det namn som tillhandahålls av kunden. Namnet får inte vara detsamma som det namn som anges i en kunds Azure-prenumeration.| |

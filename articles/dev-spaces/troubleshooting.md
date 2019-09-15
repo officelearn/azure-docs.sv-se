@@ -9,12 +9,12 @@ ms.date: 09/11/2018
 ms.topic: conceptual
 description: Snabb Kubernetes-utveckling med containrar och mikrotjänster i Azure
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes service, Containers, Helm, service nät, service nät-routning, kubectl, K8s '
-ms.openlocfilehash: 6ab2e0866c4e6c5cc8f89cb490504f6ca6a076fc
-ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
+ms.openlocfilehash: b16a7d874f15747c14df1d728be824fac76de2be
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69019653"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70993947"
 ---
 # <a name="troubleshooting-guide"></a>Felsökningsguide
 
@@ -283,7 +283,7 @@ Container image build failed
 Kommandot ovan visar att tjänstens Pod har tilldelats till *virtuell-Node-ACI-Linux*, som är en virtuell nod.
 
 ### <a name="try"></a>Prova:
-Uppdatera Helm-diagrammet för tjänsten för att ta bort avsökeror och/eller *tolerera* värden som tillåter att tjänsten körs på en virtuell nod De här värdena definieras vanligt vis i diagrammets `values.yaml` fil.
+Uppdatera Helm-diagrammet för tjänsten för att ta bort avsökeror *och/* eller *tolerera* värden som tillåter att tjänsten körs på en virtuell nod De här värdena definieras vanligt vis i diagrammets `values.yaml` fil.
 
 Du kan fortfarande använda ett AKS-kluster som har funktionen virtuella noder aktiverade, om tjänsten som du vill bygga/felsöka via dev Spaces körs på en VM-nod. Detta är standard konfigurationen.
 
@@ -456,3 +456,40 @@ Nedan visas ett exempel på en proxy-resurs anteckning som ska tillämpas på po
 ```
 azds.io/proxy-resources: "{\"Limits\": {\"cpu\": \"300m\",\"memory\": \"400Mi\"},\"Requests\": {\"cpu\": \"150m\",\"memory\": \"200Mi\"}}"
 ```
+
+## <a name="error-unauthorized-authentication-required-when-trying-to-use-a-docker-image-from-a-private-registry"></a>Fel "obehörig: autentisering krävs" vid försök att använda en Docker-avbildning från ett privat register
+
+### <a name="reason"></a>Reason
+
+Du använder en Docker-avbildning från ett privat register som kräver autentisering. Du kan låta dev-utrymmen autentisera och hämta bilder från det privata registret med [imagePullSecrets](https://kubernetes.io/docs/concepts/configuration/secret/#using-imagepullsecrets).
+
+### <a name="try"></a>Testa
+
+Om du vill använda imagePullSecrets [skapar du en Kubernetes-hemlighet](https://kubernetes.io/docs/concepts/containers/images/#specifying-imagepullsecrets-on-a-pod) i namn området där du använder avbildningen. Ange sedan hemligheten som en imagePullSecret i `azds.yaml`.
+
+Nedan visas ett exempel på en att ange imagePullSecrets `azds.yaml`i.
+
+```
+kind: helm-release
+apiVersion: 1.1
+build:
+  context: $BUILD_CONTEXT$
+  dockerfile: Dockerfile
+install:
+  chart: $CHART_DIR$
+  values:
+  - values.dev.yaml?
+  - secrets.dev.yaml?
+  set:
+    # Optional, specify an array of imagePullSecrets. These secrets must be manually created in the namespace.
+    # This will override the imagePullSecrets array in values.yaml file.
+    # If the dockerfile specifies any private registry, the imagePullSecret for the registry must be added here.
+    # ref: https://kubernetes.io/docs/concepts/containers/images/#specifying-imagepullsecrets-on-a-pod
+    #
+    # This uses credentials from secret "myRegistryKeySecretName".
+    imagePullSecrets:
+      - name: myRegistryKeySecretName
+```
+
+> [!IMPORTANT]
+> Om du anger `azds.yaml` imagePullSecrets i åsidosätts imagePullSecrets `values.yaml`som anges i.

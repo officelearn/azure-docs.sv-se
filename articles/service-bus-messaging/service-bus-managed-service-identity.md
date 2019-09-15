@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/22/2019
 ms.author: aschhab
-ms.openlocfilehash: a671b2ddd3cfa1237b6d843369e78233960f1c14
-ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.openlocfilehash: 139ebe02727bab8cc80f6f0c6bbbd2156f025c21
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70013205"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70992311"
 ---
 # <a name="authenticate-a-managed-identity-with-azure-active-directory-to-access-azure-service-bus-resources"></a>Autentisera en hanterad identitet med Azure Active Directory för att få åtkomst till Azure Service Bus resurser
 [Hanterade identiteter för Azure-resurser](../active-directory/managed-identities-azure-resources/overview.md) är en över flera Azure-funktion som låter dig skapa en säker identitet som är kopplad till distributionen som programkoden körs under. Därefter kan du associera den identiteten med åtkomstkontroll roller som ger anpassade behörigheter för åtkomst till specifika Azure-resurser som programmet behöver.
@@ -28,7 +28,7 @@ Med hanterade identiteter hanterar den här identiteten för körning i Azure-pl
 ## <a name="overview"></a>Översikt
 När ett säkerhets objekt (en användare, grupp eller ett program) försöker få åtkomst till en Service Bus entitet måste begäran vara auktoriserad. Med Azure AD är åtkomst till en resurs en två stegs process. 
 
- 1. Först autentiseras säkerhets objektets identitet och en OAuth 2,0-token returneras. 
+ 1. Först autentiseras säkerhets objektets identitet och en OAuth 2,0-token returneras. Resurs namnet för att begära en token `https://servicebus.azure.net`är.
  1. Därefter skickas token som en del av en begäran till tjänsten Service Bus för att ge åtkomst till den angivna resursen.
 
 Autentiserings steget kräver att en programbegäran innehåller en OAuth 2,0-åtkomsttoken vid körning. Om ett program körs i en Azure-entitet, till exempel en virtuell Azure-dator, en skalnings uppsättning för virtuella datorer eller en Azure Function-app, kan den använda en hanterad identitet för att få åtkomst till resurserna. Information om hur du autentiserar begär Anden som görs av en hanterad identitet i Service Bus-tjänsten finns i [autentisera åtkomst till Azure Service Bus resurser med Azure Active Directory och hanterade identiteter för Azure-resurser](service-bus-managed-service-identity.md). 
@@ -47,7 +47,7 @@ När en RBAC-roll tilldelas till ett säkerhets objekt i Azure AD ger Azure åtk
 För Azure Service Bus är hanteringen av namn rymder och alla relaterade resurser via Azure Portal och Azure Resource Management-API: t redan skyddade med hjälp av RBAC-modellen ( *rollbaserad åtkomst kontroll* ). Azure tillhandahåller de nedan inbyggda RBAC-rollerna för att auktorisera åtkomst till en Service Bus namnrymd:
 
 - [Azure Service Bus data ägare](../role-based-access-control/built-in-roles.md#azure-service-bus-data-owner): Aktiverar data åtkomst till Service Bus namnrymd och dess entiteter (köer, ämnen, prenumerationer och filter)
-- [Azure Service Bus data](../role-based-access-control/built-in-roles.md#azure-service-bus-data-sender)avsändare: Använd den här rollen för att ge Send Access till Service Bus namnrymd och dess entiteter.
+- [Azure Service Bus data avsändare](../role-based-access-control/built-in-roles.md#azure-service-bus-data-sender): Använd den här rollen för att ge Send Access till Service Bus namnrymd och dess entiteter.
 - [Azure Service Bus data mottagare](../role-based-access-control/built-in-roles.md#azure-service-bus-data-receiver): Använd den här rollen för att få åtkomst till Service Bus namnrymd och dess entiteter. 
 
 ## <a name="resource-scope"></a>Resurs omfång 
@@ -87,7 +87,7 @@ Här ska vi använda ett exempel på ett webb program som finns i [Azure App Ser
 Följ dessa steg när programmet har skapats: 
 
 1. Gå till **Inställningar** och välj **identitet**. 
-1. Välj den **status** som skaanvändas. 
+1. Välj den **status** som ska **användas.** 
 1. Spara inställningen genom att välja **Spara**. 
 
     ![Hanterad identitet för en webbapp](./media/service-bus-managed-service-identity/identity-web-app.png)
@@ -119,7 +119,7 @@ När du har tilldelat rollen får webb programmet åtkomst till Service Bus enti
 
 ### <a name="run-the-app"></a>Kör appen
 
-Ändra nu standard sidan för det ASP.NET-program som du skapade. Du kan använda webb program koden från [den här GitHub](https://github.com/Azure-Samples/app-service-msi-servicebus-dotnet)-lagringsplatsen.  
+Ändra nu standard sidan för det ASP.NET-program som du skapade. Du kan använda webb program koden från [den här GitHub-lagringsplatsen](https://github.com/Azure-Samples/app-service-msi-servicebus-dotnet).  
 
 Sidan default. aspx är din landnings sida. Du hittar koden i Default.aspx.cs-filen. Resultatet är ett minimalt webb program med några fält och med knapparna **Skicka** och **ta emot** som ansluter till Service Bus för att antingen skicka eller ta emot meddelanden.
 

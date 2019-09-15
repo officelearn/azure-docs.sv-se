@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/15/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 7385888c54d46e706621f781a64d12d3ae7aa5fb
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.openlocfilehash: 87e130d3a4569971bffb9b1ac2e189babb900225
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69512679"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70997730"
 ---
 # <a name="what-disk-types-are-available-in-azure"></a>Vilka disk typer är tillgängliga i Azure?
 
@@ -33,7 +33,7 @@ Följande tabell innehåller en jämförelse av Ultra disks, Premium Solid-State
 
 ## <a name="ultra-disk"></a>Ultra disk
 
-Azure Ultra disks levererar högt data flöde, hög IOPS och konsekvent låg latens disk lagring för virtuella Azure IaaS-datorer. Vissa ytterligare fördelar med Ultra disks är möjligheten att dynamiskt ändra diskens prestanda, tillsammans med dina arbets belastningar, utan att behöva starta om de virtuella datorerna. Ultra disks lämpar sig för data intensiva arbets belastningar som SAP HANA, toppnivå databaser och transaktions krävande arbets belastningar. Ultra disks kan endast användas som data diskar. Vi rekommenderar att du använder Premium-SSD som OS-diskar.
+Azure Ultra disks levererar högt data flöde, hög IOPS och konsekvent låg latens disk lagring för virtuella Azure IaaS-datorer. Vissa ytterligare fördelar med Ultra disks är möjligheten att dynamiskt ändra diskens prestanda, tillsammans med dina arbets belastningar, utan att behöva starta om dina virtuella datorer (VM). Ultra disks lämpar sig för data intensiva arbets belastningar som SAP HANA, toppnivå databaser och transaktions krävande arbets belastningar. Ultra disks kan endast användas som data diskar. Vi rekommenderar att du använder Premium-SSD som OS-diskar.
 
 ### <a name="performance"></a>Prestanda
 
@@ -42,9 +42,9 @@ När du etablerar en Ultra disk kan du oberoende konfigurera kapaciteten och dis
 Några viktiga funktioner i Ultra disks:
 
 - Disk kapacitet: Kapacitets intervall för Ultra disks från 4 GiB upp till 64 TiB.
-- Disk-IOPS: Ultra disks stöder IOPS-gränser på 300 IOPS/GiB, upp till högst 160 K IOPS per disk. Säkerställ att den valda disk-IOPS är mindre än den virtuella datorns IOPS-gräns för att uppnå den IOPS som du har allokerat. Lägsta IOPS per disk är 2 IOPS/GiB, med en total bas linje som är minst 100 IOPS. Om du till exempel har en 4 GiB Ultra-disk får du minst 100 IOPS i stället för 8 IOPS.
+- Disk-IOPS: Ultra disks stöder IOPS-gränser på 300 IOPS/GiB, upp till högst 160 K IOPS per disk. Säkerställ att den valda disk-IOPS är mindre än den virtuella datorns IOPS-gräns för att uppnå den IOPS som du har allokerat. Lägsta IOPS per disk är 2 IOPS/GiB, med en total bas linje som är minst 100 IOPS. Om du till exempel har en 4 GiB Ultra-disk får du minst 100 IOPS i stället för åtta IOPS.
 - Disk data flöde: Med Ultra disks är data flödes gränsen på en enskild disk 256 KiB/s för varje etablerad IOPS, upp till högst 2000 Mbit/s per disk (där Mbit/s = 10 ^ 6 byte per sekund). Lägsta data flöde per disk är 4KiB/s för varje etablerad IOPS, med en total bas linje som är minst 1 Mbit/s.
-- Ultra disks stöder justering av attribut för disk prestanda (IOPS och data flöde) vid körning utan att disken kopplas bort från den virtuella datorn. När en disk prestanda har ändrats på en disk kan det ta upp till en timme innan ändringen träder i kraft.
+- Ultra disks stöder justering av attribut för disk prestanda (IOPS och data flöde) vid körning utan att disken kopplas bort från den virtuella datorn. När en disk prestanda har ändrats på en disk kan det ta upp till en timme innan ändringen träder i kraft. Det finns en gräns för fyra åtgärder för storleks ändring under en 24-timmarsperiod. Det går att ändra storlek på en prestanda för att kunna köras på grund av brist på prestanda bandbredds kapacitet.
 
 ### <a name="disk-size"></a>Diskstorlek
 
@@ -71,3 +71,4 @@ För närvarande har Ultra disks ytterligare begränsningar, de är följande:
 - Kan bara skapas som tomma diskar  
 - Har ännu inte stöd för ögonblicks bilder av diskar, VM-avbildningar, tillgänglighets uppsättningar, skalnings uppsättningar för virtuella datorer och Azure Disk Encryption
 - Har ännu inte stöd för integrering med Azure Backup eller Azure Site Recovery
+- Den aktuella maximala gränsen för IOPS på GA-VM: ar är 80 000.

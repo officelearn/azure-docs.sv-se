@@ -1,6 +1,6 @@
 ---
 title: 'Exempel på visuella gränssnitt #3: regression till priser och jämför algoritmer'
-titleSuffix: Azure Machine Learning service
+titleSuffix: Azure Machine Learning
 description: Den här artikeln visar hur du skapar ett komplext dator inlärnings experiment utan att skriva en enda rad kod med hjälp av det visuella gränssnittet. Lär dig att träna och jämföra flera Regressions modeller för att förutsäga bilars priser baserat på tekniska funktioner
 services: machine-learning
 ms.service: machine-learning
@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: sgilley
 ms.date: 05/10/2019
-ms.openlocfilehash: d05a601196ec4a5349a0acb4763098d9716c17f5
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 2c45ccf55b1adde7150dee17fd562b24ee4777ba
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68990009"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70997107"
 ---
 # <a name="sample-2---regression-predict-price-and-compare-algorithms"></a>Exempel 2 – regression: Förutsäg priser och jämför algoritmer
 
@@ -70,7 +70,7 @@ Vi använder modulen **dela data** för att slumpmässigt dela in indata så att
 
 Vi använder två olika uppsättningar av slumpmässigt utvalda data att träna och testa modellen, enligt beskrivningen i föregående avsnitt. Vi delar data uppsättningen och använder olika data uppsättningar för att träna och testa modellen för att göra utvärderingen av modellen mer mål.
 
-När modellen har tränats använder vi **Poäng modellen** och utvärderar **modell** moduler för att generera förutsägande resultat och utvärdera modellerna. **Poäng modellen** genererar förutsägelser för test data uppsättningen med hjälp av den tränade modellen. Därefter skickar vi poängen för att **utvärdera modellen** för att generera utvärderings mått.
+När modellen har tränats använder vi **Poäng modellen** och **utvärderar modell** moduler för att generera förutsägande resultat och utvärdera modellerna. **Poäng modellen** genererar förutsägelser för test data uppsättningen med hjälp av den tränade modellen. Därefter skickar vi poängen för att **utvärdera modellen** för att generera utvärderings mått.
 
 I det här experimentet använder vi två instanser av **utvärdera modell** för att jämföra två par modeller.
 
@@ -80,7 +80,7 @@ Här är resultaten:
 
 ![Jämför resultaten](media/ui-sample-regression-predict-automobile-price-compare-algorithms/result.png)
 
-De här resultaten visar att modellen som har skapats med **Regressions träd regression** har ett fel i ett lägre rot genomsnitt än den modell som bygger på regressionen av **besluts skogen**.
+De här resultaten visar att modellen som har skapats med **Regressions träd regression** har ett fel i ett lägre rot genomsnitt än den modell som bygger på **regressionen av besluts skogen**.
 
 Båda algoritmerna har ett lägre fel på inlärnings data uppsättningen än på osett test data uppsättning.
 

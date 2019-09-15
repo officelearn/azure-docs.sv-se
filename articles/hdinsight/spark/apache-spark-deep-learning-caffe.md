@@ -3,16 +3,17 @@ title: Använda Caffe på Azure HDInsight Spark för distribuerad djup inlärnin
 description: Använd Caffe på Apache Spark för distribuerad djup inlärning i Azure HDInsight.
 author: hrasheed-msft
 ms.author: hrasheed
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/17/2017
-ms.openlocfilehash: 31911c6c2456ab8b4949bab6ef8e541b91fc8a2c
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: bb234e5b34bd8046c4e65d7cc6812cde0db3b5b2
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70814192"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70995638"
 ---
 # <a name="use-caffe-on-azure-hdinsight-spark-for-distributed-deep-learning"></a>Använda Caffe på Azure HDInsight Spark för distribuerad djup inlärning
 
@@ -65,7 +66,7 @@ Det andra steget är att ladda ned, kompilera och installera protobuf 2.5.0 för
 
 För att komma igång kan du bara köra den här skript åtgärden mot klustret till alla arbetsnoder och huvudnoder (för HDInsight 3,5). Du kan antingen köra skript åtgärder i ett befintligt kluster eller använda skript åtgärder när klustret skapas. Mer information om skript åtgärder finns i dokumentationen [här](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux).
 
-![Skript åtgärder för att installera beroenden](./media/apache-spark-deep-learning-caffe/Script-Action-1.png)
+![Skript åtgärder för att installera beroenden](./media/apache-spark-deep-learning-caffe/submit-script-action.png)
 
 
 ## <a name="step-2-build-caffe-on-apache-spark-for-hdinsight-on-the-head-node"></a>Steg 2: Bygg Caffe på Apache Spark för HDInsight på Head-noden
@@ -175,7 +176,8 @@ I det här exemplet, eftersom du använder processor snarare än GPU, bör du ä
     # solver mode: CPU or GPU
     solver_mode: CPU
 
-![Caffe Config1](./media/apache-spark-deep-learning-caffe/Caffe-1.png)
+![Caffe Config1](./media/apache-spark-deep-learning-caffe/caffe-configuration1.png
+)
 
 Du kan ändra andra rader efter behov.
 
@@ -184,7 +186,7 @@ Den andra filen ($ {CAFFE_ON_SPARK}/data/lenet_memory_train_test.prototxt) defin
 - ändra "File:/Users/Mridul/bigml/demodl/mnist_train_lmdb" till "wasb:///projects/machine_learning/image_dataset/mnist_train_lmdb"
 - ändra "File:/Users/Mridul/bigml/demodl/mnist_test_lmdb/" till "wasb:///projects/machine_learning/image_dataset/mnist_test_lmdb"
 
-![Caffe Config2](./media/apache-spark-deep-learning-caffe/Caffe-2.png)
+![Caffe Config2](./media/apache-spark-deep-learning-caffe/caffe-configuration2.png)
 
 Mer information om hur du definierar nätverket finns i [Caffe-dokumentationen för MNIST data uppsättning](https://caffe.berkeleyvision.org/gathered/examples/mnist.html)
 
@@ -204,15 +206,15 @@ Om du vill veta vad som hände, behöver du vanligt vis hämta Spark-drivrutinen
 
     https://yourclustername.azurehdinsight.net/yarnui
    
-![GARN GRÄNSSNITT](./media/apache-spark-deep-learning-caffe/YARN-UI-1.png)
+![GARN GRÄNSSNITT](./media/apache-spark-deep-learning-caffe/apache-yarn-window-1.png)
 
 Du kan ta en titt på hur många resurser som allokeras för det aktuella programmet. Du kan klicka på länken "Scheduler". då kommer du att se att för det här programmet, finns det nio behållare som körs. du ber garn att tillhandahålla åtta körningar och en annan behållare är för driv rutins processen. 
 
-![GARN Scheduler](./media/apache-spark-deep-learning-caffe/YARN-Scheduler.png)
+![GARN Scheduler](./media/apache-spark-deep-learning-caffe/apache-yarn-scheduler.png)
 
 Du kanske vill kontrol lera driv rutins loggarna eller container loggarna om det uppstår problem. För driv rutins loggar kan du klicka på program-ID i garn UI och sedan klicka på knappen loggar. Driv rutins loggarna skrivs in i stderr.
 
-![GARN GRÄNSSNITT 2](./media/apache-spark-deep-learning-caffe/YARN-UI-2.png)
+![GARN GRÄNSSNITT 2](./media/apache-spark-deep-learning-caffe/apache-yarn-window-2.png)
 
 Du kan till exempel se felet nedan från driv rutins loggarna, vilket indikerar att du allokerar för många körningar.
 

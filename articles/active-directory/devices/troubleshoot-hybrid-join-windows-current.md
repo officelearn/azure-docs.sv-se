@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c4b0b5bd5972e544c4254ee0f425e27cc8c465f0
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.openlocfilehash: 6d4a0f00c8bcf511f220d3e0df81adac1e9ff0d4
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68297579"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70995204"
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-devices"></a>Felsöka hybrid Azure Active Directory anslutna enheter 
 
@@ -404,6 +404,9 @@ Fälten visar om användaren har autentiserats för Azure AD vid inloggning på 
 - Alternativt inloggnings-ID
 - Det gick inte att hitta HTTP-proxy
 
+## <a name="known-issues"></a>Kända problem
+- Under Inställningar – > Konton – > åtkomst till arbete eller skola kan hybrid Azure AD-anslutna enheter Visa två olika konton, en för Azure AD och en för lokal AD, vid anslutning till mobila hotspots eller externa WiFi-nätverk. Detta är endast ett UI-problem och påverkar inte funktionaliteten. 
+ 
 ## <a name="next-steps"></a>Nästa steg
 
 Fortsätt [Felsöka enheter med kommandot dsregcmd](troubleshoot-device-dsregcmd.md)

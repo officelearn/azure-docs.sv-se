@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/01/2019
 ms.author: b-juche
-ms.openlocfilehash: 563416418b3f387f103fddc88b3ba9ad4c93fdd4
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: aea783b818550b8219e1a0498256280f61f678e1
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69030800"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70995104"
 ---
 # <a name="cost-model-for-azure-netapp-files"></a>Kostnadsmodell för Azure NetApp Files 
 
@@ -73,7 +73,7 @@ Diagrammet nedan illustrerar dessa begrepp:
     * Volymerna 1 till 8 tilldelas en kvot på 60 TiB.  Den totala använda kapaciteten är 480 TiB.  
         Varje volym har en QoS-gräns på 3,75 GiB/s med data flöde (60 TiB * 64 MiB/s).  
     * Volym 9 har tilldelats en kvot på 20 TiB.  
-        Volym 9 har en QoS-gräns på 1,25 GiB/s med data flöde (60 TiB * 64 MiB/s).
+        Volym 9 har en QoS-gräns på 1,25 GiB/s med data flöde (20 TiB * 64 MiB/s).
 * Volume 9 är ett överutnyttjande scenario. Den har 25 TiB faktisk konsumtion.  
     * Efter Grace-perioden för en timme ändras kapacitets gruppen till 505 TiB.  
         Det vill säga total använt kapacitet = 8 * 60-TiB kvot för volymerna 1 till 8 och 25 TiB faktisk konsumtion för volym 9.

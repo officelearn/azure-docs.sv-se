@@ -1,7 +1,7 @@
 ---
 title: Machine Learning CLI-tillägg
-titleSuffix: Azure Machine Learning service
-description: Läs mer om Azure Machine Learning CLI-tillägget för Azure CLI. Azure CLI är ett plattformsoberoende kommandoradsverktyg som gör det möjligt att arbeta med resurser i Azure-molnet. Machine Learning-tillägget kan du arbeta med Azure Machine Learning-tjänsten.
+titleSuffix: Azure Machine Learning
+description: Läs mer om Azure Machine Learning CLI-tillägget för Azure CLI. Azure CLI är ett plattformsoberoende kommandoradsverktyg som gör det möjligt att arbeta med resurser i Azure-molnet. Med tillägget Machine Learning kan du arbeta med Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,16 +11,16 @@ ms.author: jordane
 author: jpe316
 ms.date: 08/20/2019
 ms.custom: seodec18
-ms.openlocfilehash: 6c5068512f8ba26f7710bca7c0fccb98e0a5be33
-ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
+ms.openlocfilehash: 85ebcc36d32b86ec2640ce7ce02190deaab19d6b
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69996747"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70997088"
 ---
-# <a name="use-the-cli-extension-for-azure-machine-learning-service"></a>Använda CLI-tillägg för Azure Machine Learning-tjänsten
+# <a name="use-the-cli-extension-for-azure-machine-learning"></a>Använd CLI-tillägget för Azure Machine Learning
 
-Azure Machine Learning CLI är ett tillägg till den [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest), ett plattformsoberoende kommandoradsgränssnitt för Azure-plattformen. Det här tillägget innehåller kommandon för att arbeta med tjänsten Azure Machine Learning. Det gör att du kan automatisera dina Machine Learning-aktiviteter. Följande lista innehåller några exempel åtgärder som du kan göra med CLI-tillägget:
+Azure Machine Learning CLI är ett tillägg till den [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest), ett plattformsoberoende kommandoradsgränssnitt för Azure-plattformen. Det här tillägget innehåller kommandon för att arbeta med Azure Machine Learning. Det gör att du kan automatisera dina Machine Learning-aktiviteter. Följande lista innehåller några exempel åtgärder som du kan göra med CLI-tillägget:
 
 + Köra experiment för att skapa machine learning-modeller
 
@@ -32,7 +32,7 @@ CLI är inte en ersättning för Azure Machine Learning-SDK. Det är ett komplet
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-* Du måste ha en Azure-prenumeration om du vill använda CLI. Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnadsfria versionen eller betalversionen av Azure Machine Learning-tjänsten](https://aka.ms/AMLFree) i dag.
+* Du måste ha en Azure-prenumeration om du vill använda CLI. Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree) idag.
 
 * Den [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest).
 
@@ -86,7 +86,7 @@ Följande kommandon visar hur du använder CLI för att hantera resurser som anv
     az group create -n myresourcegroup -l westus2
     ```
 
-+ Skapa en arbetsyta för Azure Machine Learning-tjänsten:
++ Skapa en Azure Machine Learning arbets yta:
 
     ```azurecli-interactive
     az ml workspace create -w myworkspace -g myresourcegroup
@@ -163,7 +163,7 @@ Följande kommandon visar hur du använder CLI för att hantera resurser som anv
 
 ## <a name="environment-management"></a>Miljö hantering
 
-Följande kommandon visar hur du skapar, registrerar och listar Azure Machine Learning tjänst [miljöer](how-to-configure-environment.md) för din arbets yta:
+Följande kommandon visar hur du skapar, registrerar och listar Azure Machine Learning [miljöer](how-to-configure-environment.md) för din arbets yta:
 
 + Skapa ramverk-filer för en miljö:
 
@@ -221,7 +221,7 @@ Följande kommandon visar hur du kan registrera en träningsmodell och sedan dis
     az ml model deploy -n myservice -m mymodel:1 --ic inferenceconfig.json --dc deploymentconfig.json --ct akscomputetarget
     ```
     
-    Mer information om schema för konfigurations filen för konfigurations filen finns i [konfigurations schema](#inferenceconfig)för energischemat.
+    Mer information om schema för konfigurations filen för konfigurations filen finns i [konfigurations schema för energischemat](#inferenceconfig).
     
     Mer information om schemat för distributions konfigurations filen finns i [schema för distributions konfiguration](#deploymentconfig).
 

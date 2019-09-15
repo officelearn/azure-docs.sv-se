@@ -5,15 +5,15 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: include
-ms.date: 08/08/2019
+ms.date: 09/13/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: e95000f068d2ab36292a7c5d0440fab01cb44bb5
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 8899a6933c7941332d3d633b0360568eef9c64d7
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68879312"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70996347"
 ---
 Du kan kontrol lera länkarna i det här avsnittet om du vill ha mer information om tjänster som erbjuds av partner. Om din grenen hets partner inte visas i avsnittet nedan, måste du kontakta oss på din avdelnings enhets leverantör. De kan kontakta oss genom att skicka ett e azurevirtualwan@microsoft.com-postmeddelande till.
 
@@ -26,4 +26,5 @@ Du kan kontrol lera länkarna i det här avsnittet om du vill ha mer information
 |[Netfound](https://netfoundry.io/solutions/netfoundry-for-microsoft-azure-virtual-wan/)|
 |[Palo-nätverk](https://researchcenter.paloaltonetworks.com/2018/09/azure-vwan-integration/) |
 |[Riverbed-teknik](https://www.riverbed.com/go/steelconnect-azurewan.html)|
+| [Versa](https://www.versa-networks.com/partners/microsoft-azure-virtual-WAN) |
 |[128-teknik](https://www.128technology.com/partners/azure) |

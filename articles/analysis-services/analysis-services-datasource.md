@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 09/10/2019
+ms.date: 09/13/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 096f8b3aa6ae66e65bbbd9ea6e2204af619199dd
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: 81fc73ffd61a49eae1c4f107733b6f9f53efbb4f
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70899416"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70993393"
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Data källor som stöds i Azure Analysis Services
 
@@ -42,7 +42,7 @@ Data källor och anslutningar som visas i guiden hämta data eller importera i V
 **CSP**   
 InMemory-och DirectQuery-modeller som ansluter till Azure-datakällor använder .NET Framework Data Provider för SQL Server.
 
-## <a name="on-premises-data-sources"></a>Lokala datakällor
+## <a name="other-data-sources"></a>Andra data källor
 
 Anslutning till lokala data källor från och Azure AS Server kräver en lokal gateway. När du använder en gateway krävs 64-bitars providers.
 
@@ -113,6 +113,10 @@ För lokala data Källor:
 För moln data Källor:
 
 * Om du använder SQL-autentisering ska personifiering vara ett tjänst konto.
+
+## <a name="oauth-credentials"></a>Autentiseringsuppgifter för OAuth
+
+För tabell modeller på nivån 1400 och högre kompatibilitetsnivå Azure SQL Database, Azure SQL Data Warehouse, Dynamics 365 och SharePoint-listan stöder OAuth-autentiseringsuppgifter. Azure Analysis Services hanterar token-uppdatering för OAuth-datakällor för att undvika tids gränser för tids krävande uppdaterings åtgärder. Ange autentiseringsuppgifter genom att använda SSMS för att generera giltiga tokens.
 
 ## <a name="next-steps"></a>Nästa steg
 [Lokal gateway](analysis-services-gateway.md)   

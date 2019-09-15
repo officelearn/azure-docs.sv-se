@@ -1,7 +1,7 @@
 ---
 title: Visuellt gränssnitt
-titleSuffix: Azure Machine Learning service
-description: Lär dig mer om termer, begrepp och arbets flöde som utgör det visuella gränssnittet (för hands version) för Azure Machine Learning tjänst.
+titleSuffix: Azure Machine Learning
+description: Lär dig mer om termer, begrepp och arbets flöde som utgör det visuella gränssnittet (för hands version) för Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,20 +9,20 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 05/15/2019
-ms.openlocfilehash: 70141e3ad438ff7ff6d4486e6c27ff4163416e95
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: 65daf1468d27825d9904a14e42e43796d3985321
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70860410"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70996526"
 ---
-# <a name="what-is-the-visual-interface-for-azure-machine-learning-service"></a>Vad är det visuella gränssnittet för Azure Machine Learning-tjänsten? 
+# <a name="what-is-the-visual-interface-for-azure-machine-learning"></a>Vad är det visuella gränssnittet för Azure Machine Learning? 
 
-Med Visual Interface (för hands versionen) för Azure Machine Learning service kan du utveckla data, träna, testa, distribuera, hantera och spåra maskin inlärnings modeller utan att skriva kod.
+Med Visual Interface (för hands versionen) för Azure Machine Learning kan du utveckla data, träna, testa, distribuera, hantera och spåra maskin inlärnings modeller utan att skriva kod.
 
 Det krävs ingen programmering, du ansluter visuellt [data uppsättningar](#dataset) och [moduler](#module) visuellt för att skapa din modell.
 
-Det visuella gränssnittet använder din Azure Machine Learning tjänst [arbets yta](concept-workspace.md) för att:
+Det visuella gränssnittet använder din Azure Machine Learning [arbets yta](concept-workspace.md) för att:
 
 + Skriv artefakter för [experiment](#experiment) körningar till arbets ytan.
 + Åtkomst till [data uppsättningar](#dataset).

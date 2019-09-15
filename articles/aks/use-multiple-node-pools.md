@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/9/2019
 ms.author: mlearned
-ms.openlocfilehash: 516d4f47cb971dee91bc678ff56eeca71a28183a
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: 92accf4317ef8d0e3837ce3789615b5aaf6f6919
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70915841"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70996900"
 ---
 # <a name="preview---create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>För hands version – skapa och hantera flera resurspooler för ett kluster i Azure Kubernetes service (AKS)
 
@@ -76,9 +76,9 @@ az provider register --namespace Microsoft.ContainerService
 Följande begränsningar gäller när du skapar och hanterar AKS-kluster som stöder flera Node-pooler:
 
 * Flera noder i pooler är bara tillgängliga för kluster som skapats efter att du har registrerat *MultiAgentpoolPreview* -funktionen för din prenumeration. Du kan inte lägga till eller hantera resurspooler med ett befintligt AKS-kluster som skapats innan den här funktionen har registrerats.
-* Du kan inte ta bort den första noden.
+* Du kan inte ta bort standard-noden (första).
 * Det går inte att använda Dirigerings tillägget för HTTP-program.
-* Du kan inte lägga till/uppdatera/ta bort resurspooler med en befintlig Resource Manager-mall som i de flesta åtgärder. Använd i stället [en separat Resource Manager-mall](#manage-node-pools-using-a-resource-manager-template) för att göra ändringar i nodkonfigurationer i ett AKS-kluster.
+* Du kan inte lägga till eller ta bort resurspooler med en befintlig Resource Manager-mall som i de flesta åtgärder. Använd i stället [en separat Resource Manager-mall](#manage-node-pools-using-a-resource-manager-template) för att göra ändringar i nodkonfigurationer i ett AKS-kluster.
 
 När den här funktionen är i för hands version gäller följande ytterligare begränsningar:
 
@@ -89,6 +89,8 @@ När den här funktionen är i för hands version gäller följande ytterligare 
 ## <a name="create-an-aks-cluster"></a>Skapa ett AKS-kluster
 
 Kom igång genom att skapa ett AKS-kluster med en enda Node-pool. I följande exempel används kommandot [AZ Group Create][az-group-create] för att skapa en resurs grupp med namnet *myResourceGroup* i regionen *östra* . Ett AKS-kluster med namnet *myAKSCluster* skapas sedan med kommandot [AZ AKS Create][az-aks-create] . A *--Kubernetes-versionen* av *1.13.10* används för att visa hur du uppdaterar en Node-pool i ett följande steg. Du kan ange en [Kubernetes-version som stöds][supported-versions].
+
+Vi rekommenderar starkt att du använder standard-SKU: n för att använda SKU: n för flera noder. Läs [det här dokumentet](load-balancer-standard.md) om du vill veta mer om hur du använder standardbelastningsutjämnare med AKS.
 
 ```azurecli-interactive
 # Create a resource group in East US
@@ -101,7 +103,8 @@ az aks create \
     --vm-set-type VirtualMachineScaleSets \
     --node-count 2 \
     --generate-ssh-keys \
-    --kubernetes-version 1.13.10
+    --kubernetes-version 1.13.10 \
+    --load-balancer-sku standard
 ```
 
 Det tar några minuter att skapa klustret.
@@ -578,7 +581,7 @@ Det kan ta några minuter att uppdatera ditt AKS-kluster beroende på de instäl
 ## <a name="assign-a-public-ip-per-node-in-a-node-pool"></a>Tilldela en offentlig IP-adress per nod i en Node-pool
 
 > [!NOTE]
-> Under för hands versionen finns det en begränsning för att använda den här funktionen med *standard load BALANCER SKU i AKS (för hands version)* på grund av eventuella regler för belastnings utjämning i konflikt med VM-etablering. I för hands versionen använder du den *grundläggande Load Balancer SKU: n* om du behöver tilldela en offentlig IP-adress per nod.
+> Under förhands granskningen av att tilldela en offentlig IP-adress per nod kan den inte användas med *standard load BALANCER SKU i AKS* på grund av eventuella regler för belastnings utjämning i konflikt med VM-etablering. I för hands versionen använder du den *grundläggande Load Balancer SKU: n* om du behöver tilldela en offentlig IP-adress per nod.
 
 AKS-noder kräver inte sina egna offentliga IP-adresser för kommunikation. Vissa scenarier kan dock kräva att noder i en Node-pool har sina egna offentliga IP-adresser. Ett exempel är spel, där en konsol behöver upprätta en direkt anslutning till en virtuell dator i molnet för att minimera hopp. Detta kan uppnås genom att registrera dig för en separat förhands gransknings funktion, offentlig IP-adress (för hands version).
 

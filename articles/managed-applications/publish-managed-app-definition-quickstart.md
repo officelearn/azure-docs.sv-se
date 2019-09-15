@@ -4,17 +4,15 @@ description: Visar hur du skapar ett Azure-hanterat program som är avsett för 
 services: managed-applications
 author: tfitzmac
 ms.service: managed-applications
-ms.devlang: na
 ms.topic: quickstart
-ms.tgt_pltfrm: na
-ms.date: 08/06/2019
+ms.date: 09/13/2019
 ms.author: tomfitz
-ms.openlocfilehash: 7682670131b0ef50a1480285bc379b634169e49e
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: b8c5a99a74446fcd126606b34135bba315ca1473
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68840616"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70995416"
 ---
 # <a name="publish-an-azure-managed-application-definition"></a>Publicera en definition av Azure-hanterat program
 
@@ -61,7 +59,7 @@ az managedapp definition create \
   --display-name "Managed Storage Account" \
   --description "Managed Azure Storage Account" \
   --authorizations "$userid:$roleid" \
-  --package-file-uri "https://raw.githubusercontent.com/Azure/azure-managedapp-samples/master/samples/201-managed-storage-account/managedstorage.zip"
+  --package-file-uri "https://github.com/Azure/azure-managedapp-samples/raw/master/Managed%20Application%20Sample%20Packages/201-managed-storage-account/managedstorage.zip"
 ```
 
 När kommandot har slutförts har du en definition för det hanterade programmet i resursgruppen. 

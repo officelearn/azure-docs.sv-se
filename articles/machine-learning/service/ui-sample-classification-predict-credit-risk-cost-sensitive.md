@@ -1,6 +1,6 @@
 ---
 title: 'Exempel på visuella gränssnitt #4: Klassificering för att förutsäga kredit risk (kostnads känsligt)'
-titleSuffix: Azure Machine Learning service
+titleSuffix: Azure Machine Learning
 description: Den här artikeln visar hur du skapar ett komplext dator inlärnings experiment med hjälp av det visuella gränssnittet. Du lär dig hur du implementerar anpassade Python-skript och jämför flera modeller för att välja det bästa alternativet.
 services: machine-learning
 ms.service: machine-learning
@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: sgilley
 ms.date: 05/10/2019
-ms.openlocfilehash: ee4b67c82ef2bf5a1ef9c060687cc1c937328e66
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 977ff101b0f697a48b3e5595834c98fef0f1119a
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68990419"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70997029"
 ---
 # <a name="sample-4---classification-predict-credit-risk-cost-sensitive"></a>Exempel 4 – klassificering: Förutsägelse kredit risk (kostnads känsligt)
 
@@ -58,7 +58,7 @@ Här är grafen till experimentet:
 
 ## <a name="data-processing"></a>Databearbetning
 
-Vi börjar med att använda modulen **metadata** -redigeraren för att lägga till kolumn namn för att ersätta standard kolumn namnen med mer meningsfulla namn som hämtats från data uppsättnings beskrivningen på den unika en-plats. Vi tillhandahåller de nya kolumn namnen som kommaavgränsade värden i fältet **nytt kolumn** namn i **metadata**-redigeraren.
+Vi börjar med att använda modulen **metadata-redigeraren** för att lägga till kolumn namn för att ersätta standard kolumn namnen med mer meningsfulla namn som hämtats från data uppsättnings beskrivningen på den unika en-plats. Vi tillhandahåller de nya kolumn namnen som kommaavgränsade värden i fältet **nytt kolumn** namn i **metadata-redigeraren**.
 
 Därefter genererar vi de inlärnings-och test uppsättningar som används för att utveckla risk förutsägelse modellen. Vi delar upp den ursprungliga data uppsättningen i utbildning och test uppsättningar av samma storlek med hjälp av modulen **dela data** . Om du vill skapa uppsättningar med samma storlek ställer vi in **del av raderna i det första alternativet för data uppsättning för utdata** till 0,5.
 
@@ -104,7 +104,7 @@ Eftersom vi tillämpar två klassificerare, har **två klass stöd för Vector M
 
 Vi använder standard experiment arbets flödet för att skapa, träna och testa modellerna:
 
-1. Initiera Learning-algoritmerna med hjälp av **dubbelriktad Vector-dator** och två Klasss öknings bara **besluts träd**.
+1. Initiera Learning-algoritmerna med hjälp av **dubbelriktad Vector-dator** och två Klasss **öknings bara besluts träd**.
 1. Använd **träna modell** för att tillämpa algoritmen på data och skapa den faktiska modellen.
 1. Använd **Poäng modellen** för att skapa poäng med hjälp av test exemplen.
 
@@ -114,7 +114,7 @@ I följande diagram visas en del av det här experimentet där de ursprungliga o
 
 I utvärderings fasen av experimentet beräknar vi precisionen för var och en av de fyra modellerna. För det här experimentet använder vi **utvärdera modell** för att jämföra exempel som har samma felklassificerings kostnad.
 
-Modulen **utvärdera modell** kan beräkna prestanda måtten för så många som två poäng modeller. Vi använder därför en utvärderings **modell** för att utvärdera de två SVM-modellerna och en annan instans av **utvärdera modell** för att utvärdera de två bättre besluts träds modellerna.
+Modulen **utvärdera modell** kan beräkna prestanda måtten för så många som två poäng modeller. Vi använder därför en **utvärderings modell** för att utvärdera de två SVM-modellerna och en annan instans av **utvärdera modell** för att utvärdera de två bättre besluts träds modellerna.
 
 Observera att den replikerade test data uppsättningen används som indata för **Poäng modellen**. Med andra ord inkluderar de slutliga noggrannhets poängen kostnaden för att få etiketter fel.
 

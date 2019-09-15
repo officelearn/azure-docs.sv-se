@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 10/08/2018
 ms.author: mlearned
-ms.openlocfilehash: 5aa8268fee7d43ad13ea8710760ba493683f502e
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: f150103c8e9534bfd1bb93d20e3d65d715767184
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70126858"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70996971"
 ---
 # <a name="access-the-kubernetes-web-dashboard-in-azure-kubernetes-service-aks"></a>Få åtkomst till Kubernetes-webbinstrumentpanelen i Azure Kubernetes service (AKS)
 
@@ -36,34 +36,47 @@ az aks browse --resource-group myResourceGroup --name myAKSCluster
 
 Det här kommandot skapar en proxy mellan utvecklings systemet och Kubernetes-API: et och öppnar en webbläsare till Kubernetes-instrumentpanelen. Om en webbläsare inte öppnas på Kubernetes-instrumentpanelen kopierar du och klistrar in URL-adressen som anges i Azure CLI `http://127.0.0.1:8001`, vanligt vis.
 
-![Inloggnings sidan för Kubernetes-webbinstrumentpanelen](./media/kubernetes-dashboard/dashboard-login.png)
+<!--
+![The login page of the Kubernetes web dashboard](./media/kubernetes-dashboard/dashboard-login.png)
 
-Du har följande alternativ för att logga in på ditt klusters instrument panel:
+You have the following options to sign in to your cluster's dashboard:
 
-* En [kubeconfig-fil][kubeconfig-file]. Du kan skapa en kubeconfig-fil med [AZ AKS get-credentials][az-aks-get-credentials].
-* En token, till exempel en token för ett [tjänst konto][aks-service-accounts] eller en användartoken. I [AAD-aktiverade kluster][aad-cluster]skulle denna token vara en AAD-token. Du kan använda `kubectl config view` för att visa en lista över tokens i din kubeconfig-fil. Mer information om hur du skapar en AAD-token för användning med ett AKS-kluster finns i [integrera Azure Active Directory med Azure Kubernetes service med Azure CLI][aad-cluster].
-* Standard kontot för instrument panels tjänsten som används om du klickar på *hoppa över*.
+* A [kubeconfig file][kubeconfig-file]. You can generate a kubeconfig file using [az aks get-credentials][az-aks-get-credentials].
+* A token, such as a [service account token][aks-service-accounts] or user token. On [AAD-enabled clusters][aad-cluster], this token would be an AAD token. You can use `kubectl config view` to list the tokens in your kubeconfig file. For more details on creating an AAD token for use with an AKS cluster see [Integrate Azure Active Directory with Azure Kubernetes Service using the Azure CLI][aad-cluster].
+* The default dashboard service account, which is used if you click *Skip*.
 
 > [!WARNING]
-> Exponera aldrig Kubernetes-instrumentpanelen offentligt, oavsett vilken autentiseringsmetod som används.
+> Never expose the Kubernetes dashboard publicly, regardless of the authentication method used.
 > 
-> När du konfigurerar autentisering för Kubernetes-instrumentpanelen rekommenderar vi att du använder en token via standard kontot för instrument panelen. Med en token kan varje användare använda sina egna behörigheter. Med standard kontot för instrument panels tjänsten kan en användare kringgå sina egna behörigheter och använda tjänst kontot i stället.
+> When setting up authentication for the Kubernetes dashboard, it is recommended that you use a token over the default dashboard service account. A token allows each user to use their own permissions. Using the default dashboard service account may allow a user to bypass their own permissions and use the service account instead.
 > 
-> Om du väljer att använda standard kontot för instrument panels tjänsten och ditt AKS-kluster använder RBAC, måste du skapa en *ClusterRoleBinding* innan du kan få åtkomst till instrument panelen korrekt. Som standard distribueras instrument panelen Kubernetes med minimal Läs behörighet och visar RBAC-åtkomst fel. En kluster administratör kan välja att bevilja ytterligare åtkomst till *Kubernetes-instrument panelens* tjänst konto, men det kan vara en Vector för eskalering av privilegier. Du kan också integrera Azure Active Directory-autentisering för att ge en mer detaljerad åtkomst nivå.
+> If you do choose to use the default dashboard service account and your AKS cluster uses RBAC, a *ClusterRoleBinding* must be created before you can correctly access the dashboard. By default, the Kubernetes dashboard is deployed with minimal read access and displays RBAC access errors. A cluster administrator can choose to grant additional access to the *kubernetes-dashboard* service account, however this can be a vector for privilege escalation. You can also integrate Azure Active Directory authentication to provide a more granular level of access.
 >
-> Om du vill skapa en bindning använder du kommandot [kubectl Create clusterrolebinding][kubectl-create-clusterrolebinding] som visas i följande exempel. **Den här exempel bindningen tillämpar inte några ytterligare autentiseringspaket och kan leda till osäker användning.**
+> To create a binding, use the [kubectl create clusterrolebinding][kubectl-create-clusterrolebinding] command as shown in the following example. **This sample binding does not apply any additional authentication components and may lead to insecure use.**
 >
 > ```console
 > kubectl create clusterrolebinding kubernetes-dashboard --clusterrole=cluster-admin --serviceaccount=kube-system:kubernetes-dashboard
 > ```
 > 
-> Nu kan du komma åt Kubernetes-instrumentpanelen i ditt RBAC-aktiverade kluster. Starta Kubernetes-instrumentpanelen med hjälp av kommandot [AZ AKS Browse][az-aks-browse] enligt beskrivningen i föregående steg.
+> You can now access the Kubernetes dashboard in your RBAC-enabled cluster. To start the Kubernetes dashboard, use the [az aks browse][az-aks-browse] command as detailed in the previous step.
 >
-> Om klustret inte använder RBAC, rekommenderar vi inte att skapa en *ClusterRoleBinding*.
+> If your cluster does not use RBAC, it is not recommended to create a *ClusterRoleBinding*.
+> 
+> For more information on using the different authentication methods, see the Kubernetes dashboard wiki on [access controls][dashboard-authentication].
+
+After you choose a method to sign in, the Kubernetes dashboard is displayed. If you chose to use *token* or *skip*, the Kubernetes dashboard will use the permissions of the currently logged in user to access the cluster.
+-->
+
+> [!IMPORTANT]
+> Om ditt AKS-kluster använder RBAC måste du skapa en *ClusterRoleBinding* innan du kan få åtkomst till instrument panelen korrekt. Som standard distribueras instrument panelen Kubernetes med minimal Läs behörighet och visar RBAC-åtkomst fel. Kubernetes-instrumentpanelen stöder för närvarande inte användarens autentiseringsuppgifter för att fastställa åtkomst nivån, i stället använder den roller som har tilldelats tjänst kontot. En kluster administratör kan välja att bevilja ytterligare åtkomst till *Kubernetes-instrument panelens* tjänst konto, men det kan vara en Vector för eskalering av privilegier. Du kan också integrera Azure Active Directory-autentisering för att ge en mer detaljerad åtkomst nivå.
+> 
+> Om du vill skapa en bindning använder du kommandot [kubectl Create clusterrolebinding][kubectl-create-clusterrolebinding] . I följande exempel visas hur du skapar en exempel bindning, men den här exempel bindningen tillämpar inte några ytterligare autentiserings komponenter och kan leda till osäker användning. Kubernetes-instrumentpanelen är öppen för alla som har åtkomst till URL: en. Exponera inte Kubernetes-instrumentpanelen offentligt.
+>
+> ```console
+> kubectl create clusterrolebinding kubernetes-dashboard --clusterrole=cluster-admin --serviceaccount=kube-system:kubernetes-dashboard
+> ```
 > 
 > Mer information om hur du använder olika autentiseringsmetoder finns i Kubernetes-instrumentpanelen wiki på [åtkomst kontroller][dashboard-authentication].
-
-När du har valt en metod för att logga in visas instrument panelen för Kubernetes. Om du väljer att använda *token* eller *Skip*, använder Kubernetes-instrumentpanelen behörigheter för den inloggade användaren för att komma åt klustret.
 
 ![Sidan översikt på Kubernetes-webbinstrumentpanelen](./media/kubernetes-dashboard/dashboard-overview.png)
 
@@ -117,7 +130,7 @@ Det tar en stund för den nya poddar att skapas i en replik uppsättning. Välj 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om instrument panelen för Kubernetes finns på [instrument panelen för Kubernetes-][kubernetes-dashboard]webbgränssnittet.
+Mer information om instrument panelen för Kubernetes finns på [instrument panelen för Kubernetes-WEBBgränssnittet][kubernetes-dashboard].
 
 <!-- LINKS - external -->
 [dashboard-authentication]: https://github.com/kubernetes/dashboard/wiki/Access-control

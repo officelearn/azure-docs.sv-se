@@ -1,102 +1,89 @@
 ---
-title: 'Azure Active Directory Domain Services: Meddelandeinställningar | Microsoft Docs'
-description: Meddelandeinställningar för Azure AD Domain Services
+title: E-postmeddelanden för Azure AD Domain Services | Microsoft Docs
+description: Lär dig hur du konfigurerar e-postaviseringar för att varna dig om problem i en Azure Active Directory Domain Services hanterad domän
 services: active-directory-ds
-documentationcenter: ''
 author: iainfoulds
 manager: daveba
-editor: curtand
 ms.assetid: b9af1792-0b7f-4f3e-827a-9426cdb33ba6
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 05/20/2019
+ms.date: 09/12/2019
 ms.author: iainfou
-ms.openlocfilehash: a89b13d40f4eea08ecdb0f1eb8d68d1a146aca2b
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 8261723f145c7b8ba01e27108e7a309f9f483d2c
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67472799"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70993141"
 ---
-# <a name="notification-settings-in-azure-ad-domain-services"></a>Inställningar för meddelanden i Azure AD Domain Services
+# <a name="configure-email-notifications-for-issues-in-azure-active-directory-domain-services"></a>Konfigurera e-postaviseringar för problem i Azure Active Directory Domain Services
 
-Meddelanden för Azure AD Domain Services kan du uppdateras så snart en hälsovarning har upptäckts på din hanterade domän.  
+Hälsan för en Azure Active Directory Domain Services (Azure AD DS)-hanterad domän övervakas av Azure-plattformen. Sidan hälso status i Azure Portal visar alla aviseringar för den hanterade domänen. För att säkerställa att problem besvaras inom rimlig tid kan e-postmeddelanden konfigureras för att rapportera om hälso aviseringar så snart de upptäcks i den hanterade domänen i Azure AD DS.
 
-Den här funktionen är endast tillgänglig för hanterade domäner som inte finns på klassiska virtuella nätverk.
+Den här artikeln visar hur du konfigurerar e-postmottagare för en Azure AD DS-hanterad domän.
 
+## <a name="email-notification-overview"></a>Översikt över e-postavisering
 
-## <a name="how-to-check-your-azure-ad-domain-services-email-notification-settings"></a>Hur du kontrollerar din Azure AD Domain Services e-postmeddelandeinställningarna
+För att varna dig om problem med en Azure AD DS-hanterad domän kan du konfigurera e-postaviseringar. De här e-postaviseringarna anger den Azure AD DS-hanterade domän som aviseringen finns på, samt för att ge identifierings tiden och en länk till hälso sidan i Azure Portal. Du kan sedan följa den angivna fel söknings typen för att lösa problemen.
 
-1. Navigera till den [Azure AD Domain Services-sidan](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.AAD%2FdomainServices) på Azure portal
-2. Välj din hanterade domän från tabellen
-3. I det vänstra navigeringsfältet väljer **Meddelandeinställningar**
+Följande exempel på ett e-postmeddelande indikerar en kritisk varning eller avisering som genererats i den hanterade domänen för Azure AD DS:
 
-På sidan visas en lista med alla postmottagare av e-för e-postmeddelanden för Azure AD Domain Services.
-
-## <a name="what-does-an-email-notification-look-like"></a>Hur ser ett e-postmeddelande ut?
-
-Följande bild är ett exempel på ett e-postmeddelande:
-
-![Exempel e-postmeddelande](./media/active-directory-domain-services-alerts/email-alert.png)
-
-E-postmeddelandet anger den hanterade domänen som finns på aviseringen, samt ge tid för identifiering och en länk till sidan om Azure AD Domain Services health i Azure-portalen.
+![Exempel på e-postavisering](./media/active-directory-domain-services-alerts/email-alert.png)
 
 > [!WARNING]
-> Kontrollera alltid att e-postmeddelandet kommer från en verifierad Microsoft avsändare innan du klickar på länkarna i dina e-postmeddelanden. E-postmeddelanden kommer alltid från e-postmeddelandet azure-noreply@microsoft.com
+> Se alltid till att e-postmeddelandet kommer från en verifierad Microsoft-avsändare innan du klickar på länkarna i meddelandet. E-postaviseringarna kommer alltid `azure-noreply@microsoft.com` från adressen.
 
+### <a name="why-would-i-receive-email-notifications"></a>Varför får jag e-postaviseringar?
 
-## <a name="why-would-i-receive-email-notifications"></a>Varför skulle jag får e-postmeddelanden?
+Azure AD DS skickar e-postaviseringar för viktiga uppdateringar om den hanterade domänen. Dessa meddelanden är bara för brådskande problem som påverkar tjänsten och som bör åtgärdas omedelbart. Varje e-postavisering utlöses av en avisering på den hanterade domänen i Azure AD DS. Aviseringarna visas också i Azure Portal och kan visas på [sidan för Azure AD DS-hälsa][check-health].
 
-Azure AD Domain Services skickar e-postmeddelanden för viktiga uppdateringar om din domän.  Dessa meddelanden är endast för brådskande frågor som påverkar din tjänst och bör åtgärdas omedelbart. Varje e-postmeddelande utlöses av en avisering om din hanterade domän. Dessa aviseringar visas också på Azure portal och kan visas på den [sidan för Azure AD Domain Services health](check-health.md).
+Azure AD DS skickar inte e-post för annonsering, uppdateringar eller försäljnings syfte.
 
-Azure AD Domain Services inte skickar e-postmeddelanden till den här listan för annons, uppdateringar eller försäljning syften.
+### <a name="when-will-i-receive-email-notifications"></a>När får jag e-postaviseringar?
 
-## <a name="when-will-i-receive-email-notifications"></a>När får e-postmeddelanden?
+Ett meddelande skickas direkt när en [ny avisering][troubleshoot-alerts] hittas på en hanterad Azure AD DS-domän. Om aviseringen inte har lösts skickas ytterligare e-postmeddelanden som en påminnelse var fjärde dag.
 
-Ett meddelande skickas omedelbart när en [ny avisering](troubleshoot-alerts.md) hittas på den hanterade domänen. Om aviseringen inte är löst skickas ett e-postmeddelande som en påminnelse var fjärde dag.
+### <a name="who-should-receive-the-email-notifications"></a>Vem ska ta emot e-postaviseringar?
 
-## <a name="who-should-receive-the-email-notifications"></a>Vem som ska få e-postmeddelanden?
+Listan över e-postmottagare för Azure AD DS bör bestå av personer som kan administrera och göra ändringar i den hanterade domänen. Den här e-postlistan bör ses som dina "första svarare" till eventuella aviseringar och problem.
 
+Du kan lägga till upp till fem ytterligare e-postmottagare för e-postaviseringar. Om du vill ha fler än fem mottagare för e-postaviseringar skapar du en distributions lista och lägger till den i meddelande listan i stället.
 
- Vi rekommenderar att listan över e-postmottagare för Azure AD Domain Services ska bestå av personer som kommer administrera och göra ändringar i den hanterade domänen. Den här e-postlista bör betraktas som ”första svarare” till alla eventuella problem. Om du har fler än fem ytterligare e-postmeddelanden som du vill lägga till, rekommenderar vi att skapa en distributionslista för att lägga till i meddelandelistan över i stället.
+Du kan också välja att ha alla *globala administratörer* i Azure AD-katalogen och alla medlemmar i gruppen *AAD DC-administratörer* får e-postaviseringar. Azure AD DS skickar bara meddelanden till upp till 100 e-postadresser, inklusive listan över globala administratörer och AAD DC-administratörer.
 
-Du kan lägga till upp till fem ytterligare e-postmeddelanden för meddelanden om Azure AD Domain Services. Dessutom kan du kan också välja att ha alla globala administratörer för din katalog och varje medlem i gruppen ”AAD DC-administratörer” ta emot e-postaviseringar till Azure AD Domain Services. Azure AD Domain Services kommer bara att skicka meddelanden till upp till 100 e-postadresser, inklusive en lista över globala administratörer och AAD DC-administratörer.
+## <a name="configure-email-notifications"></a>Konfigurera e-postaviseringar
 
+Utför följande steg för att granska befintliga e-postmottagare eller lägga till ytterligare mottagare:
 
-## <a name="how-to-add-an-additional-email-recipient"></a>Hur du lägger till en ytterligare e-postmottagare
+1. I Azure Portal söker du efter och väljer **Azure AD Domain Services**.
+1. Välj din Azure AD DS-hanterade domän, till exempel *contoso.com*.
+1. På vänster sida av fönstret Azure AD DS-resurs väljer du **meddelande inställningar**. Befintliga mottagare för e-postaviseringar visas.
+1. Om du vill lägga till en e-postmottagare anger du e-postadressen i tabellen ytterligare mottagare.
+1. När du är färdig väljer du **Spara** i det övre navigerings fältet.
 
 > [!WARNING]
-> När du ändrar inställningar för meddelanden ändrar du meddelandeinställningarna för hela hanterade domänen, inte bara själv.
-
-1. Navigera till den [Azure AD Domain Services-sidan](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.AAD%2FdomainServices) på Azure portal.
-2. Klicka på den hanterade domänen.
-3. I det vänstra navigeringsfönstret klickar du på **Meddelandeinställningar**.
-4. Lägg till ett e-postmeddelande, ange den e-postadress i tabellen ytterligare mottagare.
-5. Klicka på ”Spara” i det övre navigeringsfältet.
+> När du ändrar meddelande inställningarna uppdateras meddelande inställningarna för hela den hanterade Azure AD DS-domänen, inte bara dig själv.
 
 ## <a name="frequently-asked-questions"></a>Vanliga frågor och svar
 
-#### <a name="i-received-an-email-notification-for-an-alert-but-when-i-logged-on-to-the-azure-portal-there-was-no-alert-what-happened"></a>Jag har fått ett e-postmeddelande för avisering men uppstod ingen avisering när jag har loggat in på Azure-portalen. Vad hände?
+### <a name="i-received-an-email-notification-for-an-alert-but-when-i-logged-on-to-the-azure-portal-there-was-no-alert-what-happened"></a>Jag har fått ett e-postmeddelande om en avisering, men när jag är inloggad på Azure Portal finns det ingen avisering. Vad hände?
 
-Om en avisering har lösts försvinner aviseringen från Azure-portalen. Den troligaste orsaken är att någon annan som tar emot e-postaviseringar löst avisering om din hanterade domän eller var automatiskt löst av Azure AD Domain Services.
+Om en avisering har åtgärd ATS tas aviseringen bort från Azure Portal. Den troligaste orsaken är att någon annan som tar emot e-postmeddelanden har löst aviseringen på den hanterade Azure AD DS-domänen, eller att den löstes av Azure-plattformen.
 
+### <a name="why-can-i-not-edit-the-notification-settings"></a>Varför kan jag inte redigera meddelande inställningarna?
 
-#### <a name="why-can-i-not-edit-the-notification-settings"></a>Varför kan jag inte redigera inställningar för meddelanden?
+Om du inte kan komma åt sidan meddelande inställningar i Azure Portal har du inte behörighet att redigera den hanterade Azure AD DS-domänen. Du måste kontakta en global administratör för att antingen få behörighet att redigera Azure AD DS-resurs eller ta bort den från listan över mottagare.
 
-Om det inte går att komma åt sidan meddelande inställningar i Azure-portalen har inte behörighet att redigera Azure AD Domain Services. Du måste kontakta din globala administratör för att antingen få behörighet att redigera resurser i Azure AD Domain Services eller tas bort från listan över mottagare.
+### <a name="i-dont-seem-to-be-receiving-email-notifications-even-though-i-provided-my-email-address-why"></a>Jag verkar inte ta emot e-postmeddelanden trots att jag har angett min e-postadress. Varför?
 
-#### <a name="i-dont-seem-to-be-receiving-email-notifications-even-though-i-provided-my-email-address-why"></a>Jag verkar inte får dessa meddelanden även om jag min e-postadress. Varför?
-
-Kontrollera mappen för skräppost eller skräppost i din e-post för meddelandet och kontrollera att godkänna avsändaren (azure-noreply@microsoft.com).
+Kontrol lera din skräp post eller skräppostmappen i din e-postadress för aviseringen och se till att tillåta `azure-noreply@microsoft.com`avsändaren.
 
 ## <a name="next-steps"></a>Nästa steg
-- [Lös aviseringar på din hanterade domän](troubleshoot-alerts.md)
-- [Läs mer om Azure AD Domain Services](overview.md)
-- [Kontakta produktteamet](contact-us.md)
 
-## <a name="contact-us"></a>Kontakta oss
-Kontakta Azure Active Directory Domain Services-produktteamet att [dela feedback eller support](contact-us.md).
+Mer information om fel sökning av problem som kan rapporteras finns i [lösa aviseringar på en hanterad Azure AD DS-domän][troubleshoot-alerts].
+
+<!-- INTERNAL LINKS -->
+[check-health]: check-health.md
+[troubleshoot-alerts]: troubleshoot-alerts.md

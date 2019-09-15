@@ -1,6 +1,6 @@
 ---
 title: 'Exempel på visuella gränssnitt #1: regression till förutsägelse pris'
-titleSuffix: Azure Machine Learning service
+titleSuffix: Azure Machine Learning
 description: Lär dig hur du skapar en maskin inlärnings modell för att förutsäga ett bils pris utan att behöva skriva en enda rad kod.
 services: machine-learning
 ms.service: machine-learning
@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: sgilley
 ms.date: 05/10/2019
-ms.openlocfilehash: 0c86955e0b10111bf9b6db0d884b73867a4467c5
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 4d41efcaeb93c0843686f9e8ef1b62da5367e071
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68990412"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70996539"
 ---
 # <a name="sample-1---regression-predict-price"></a>Exempel 1 – regression: Förutsäga pris
 
@@ -66,7 +66,7 @@ Vi använder modulen **dela data** för att slumpmässigt dela in indata så att
 
  Vi delar data uppsättningen och använder olika data uppsättningar för att träna och testa modellen för att göra utvärderingen av modellen mer mål.
 
-När modellen har tränats använder vi **Poäng modellen** och utvärderar **modell** moduler för att generera förutsägande resultat och utvärdera modellerna.
+När modellen har tränats använder vi **Poäng modellen** och **utvärderar modell** moduler för att generera förutsägande resultat och utvärdera modellerna.
 
 **Poäng modellen** genererar förutsägelser för test data uppsättningen med hjälp av den tränade modellen. Kontrol lera resultatet genom att välja utdataporten för **Poäng modellen** och sedan välja **visualisera**.
 

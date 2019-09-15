@@ -1,6 +1,6 @@
 ---
 title: 'Exempel på visuella gränssnitt #3: Klassificering för att förutsäga kredit risk'
-titleSuffix: Azure Machine Learning service
+titleSuffix: Azure Machine Learning
 description: Lär dig hur du skapar en klassificeraren för maskin inlärning utan att skriva en enda rad kod med hjälp av det visuella gränssnittet.
 services: machine-learning
 ms.service: machine-learning
@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: sgilley
 ms.date: 05/10/2019
-ms.openlocfilehash: 7565f94910d0e926682a72af42b02059fe7295ea
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 26e3f5f237cdd148d12f0a413eb97ed52cb84b49
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68990057"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70997040"
 ---
 # <a name="sample-3---classification-predict-credit-risk"></a>Exempel 3 – klassificering: Förutsäga kreditrisk
 
@@ -42,7 +42,7 @@ Här är det färdiga diagrammet för det här experimentet:
 ## <a name="data"></a>Data
 
 Vi använder det tyska kredit kortets data uppsättning från UC Irvine-lagringsplatsen.
-Data uppsättningen innehåller 1 000-exempel med 20 funktioner och 1 etikett. Varje exempel representerar en person. Funktionerna omfattar numeriska och kategoriska-funktioner. På sidan [](https://archive.ics.uci.edu/ml/datasets/Statlog+%28German+Credit+Data%29) för den här funktionen finns information om betydelsen av kategoriska-funktionerna. Den sista kolumnen är etiketten, som anger kredit risken och bara har två möjliga värden: hög kredit risk = 2 och låg kredit risk = 1.
+Data uppsättningen innehåller 1 000-exempel med 20 funktioner och 1 etikett. Varje exempel representerar en person. Funktionerna omfattar numeriska och kategoriska-funktioner. På sidan [för](https://archive.ics.uci.edu/ml/datasets/Statlog+%28German+Credit+Data%29) den här funktionen finns information om betydelsen av kategoriska-funktionerna. Den sista kolumnen är etiketten, som anger kredit risken och bara har två möjliga värden: hög kredit risk = 2 och låg kredit risk = 1.
 
 ## <a name="experiment-summary"></a>Experiment Sammanfattning
 

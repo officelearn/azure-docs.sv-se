@@ -8,12 +8,12 @@ author: axisc
 ms.topic: conceptual
 ms.date: 08/22/2019
 ms.author: aschhab
-ms.openlocfilehash: 0860b1d621d2df5f371638bb48a03fdd8474d12d
-ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.openlocfilehash: 6a78e4d81921fae8dcb325e9d72df1eee7b99a3b
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70014547"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70996994"
 ---
 # <a name="authenticate-and-authorize-an-application-with-azure-active-directory-to-access-azure-service-bus-entities"></a>Autentisera och auktorisera ett program med Azure Active Directory åtkomst till Azure Service Bus entiteter
 Azure Service Bus stöder användning av Azure Active Directory (Azure AD) för att auktorisera begär anden till Service Bus entiteter (köer, ämnen, prenumerationer eller filter). Med Azure AD kan du använda rollbaserad åtkomst kontroll (RBAC) för att bevilja behörighet till ett säkerhets objekt, som kan vara en användare, grupp eller ett program tjänst objekt. Mer information om roller och roll tilldelningar finns i [förstå de olika rollerna](../role-based-access-control/overview.md).
@@ -21,7 +21,7 @@ Azure Service Bus stöder användning av Azure Active Directory (Azure AD) för 
 ## <a name="overview"></a>Översikt
 När ett säkerhets objekt (en användare, grupp eller ett program) försöker få åtkomst till en Service Bus entitet måste begäran vara auktoriserad. Med Azure AD är åtkomst till en resurs en två stegs process. 
 
- 1. Först autentiseras säkerhets objektets identitet och en OAuth 2,0-token returneras. 
+ 1. Först autentiseras säkerhets objektets identitet och en OAuth 2,0-token returneras. Resurs namnet för att begära en token `https://servicebus.azure.net`är.
  1. Därefter skickas token som en del av en begäran till tjänsten Service Bus för att ge åtkomst till den angivna resursen.
 
 Autentiserings steget kräver att en programbegäran innehåller en OAuth 2,0-åtkomsttoken vid körning. Om ett program körs i en Azure-entitet, till exempel en virtuell Azure-dator, en skalnings uppsättning för virtuella datorer eller en Azure Function-app, kan den använda en hanterad identitet för att få åtkomst till resurserna. Information om hur du autentiserar begär Anden som görs av en hanterad identitet i Service Bus-tjänsten finns i [autentisera åtkomst till Azure Service Bus resurser med Azure Active Directory och hanterade identiteter för Azure-resurser](service-bus-managed-service-identity.md). 
@@ -40,7 +40,7 @@ När en RBAC-roll tilldelas till ett säkerhets objekt i Azure AD ger Azure åtk
 För Azure Service Bus är hanteringen av namn rymder och alla relaterade resurser via Azure Portal och Azure Resource Management-API: t redan skyddade med hjälp av RBAC-modellen ( *rollbaserad åtkomst kontroll* ). Azure tillhandahåller de nedan inbyggda RBAC-rollerna för att auktorisera åtkomst till en Service Bus namnrymd:
 
 - [Azure Service Bus data ägare](../role-based-access-control/built-in-roles.md#azure-service-bus-data-owner): Aktiverar data åtkomst till Service Bus namnrymd och dess entiteter (köer, ämnen, prenumerationer och filter)
-- [Azure Service Bus data](../role-based-access-control/built-in-roles.md#azure-service-bus-data-sender)avsändare: Använd den här rollen för att ge Send Access till Service Bus namnrymd och dess entiteter.
+- [Azure Service Bus data avsändare](../role-based-access-control/built-in-roles.md#azure-service-bus-data-sender): Använd den här rollen för att ge Send Access till Service Bus namnrymd och dess entiteter.
 - [Azure Service Bus data mottagare](../role-based-access-control/built-in-roles.md#azure-service-bus-data-receiver): Använd den här rollen för att få åtkomst till Service Bus namnrymd och dess entiteter. 
 
 ## <a name="resource-scope"></a>Resurs omfång 
@@ -138,7 +138,7 @@ En lista över scenarier där det finns stöd för att hämta token finns i avsn
 ## <a name="sample-on-github"></a>Exempel på GitHub
 Se följande exempel på GitHub: [Roll-grundläggande åtkomst kontroll för Service Bus](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/RoleBasedAccessControl). 
 
-Använd inloggnings alternativet för **klient hemlighet** , inte alternativet **interaktiv användar inloggning** . När du använder alternativet klient hemlighet visas inte ett popup-fönster. Programmet använder klient-ID och app-ID för autentisering. 
+Använd **inloggnings alternativet för klient hemlighet** , inte alternativet **interaktiv användar inloggning** . När du använder alternativet klient hemlighet visas inte ett popup-fönster. Programmet använder klient-ID och app-ID för autentisering. 
 
 ### <a name="run-the-sample"></a>Kör exemplet
 

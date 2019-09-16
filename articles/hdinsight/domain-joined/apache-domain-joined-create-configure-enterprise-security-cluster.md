@@ -306,7 +306,7 @@ Kontrol lera att certifikatet är installerat i datorns\'personliga arkiv. Utfö
         |---|---|
         | Source | Any |
         | Source port ranges | * |
-        | Mål | Any |
+        | Destination | Any |
         | Destination port range | 636 |
         | Protocol | Any |
         | Action | Allow |

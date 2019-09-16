@@ -55,9 +55,9 @@ System egenskaper hjälper till att identifiera innehåll och källa för meddel
 | -------- | ---- | ----------- |
 | contentType | string | Användaren anger meddelandets innehålls typ. Om du vill tillåta frågan på meddelande texten ska det här värdet ställas in Application/JSON. |
 | contentEncoding | string | Användaren anger meddelandets kodnings typ. Tillåtna värden är UTF-8, UTF-16, UTF-32 om contentType är inställt på Application/JSON. |
-| iothub-connection-device-id | string | Det här värdet anges av IoT Hub och identifierar enhetens ID. Om du vill fråga `$connectionDeviceId`använder du. |
+| iothub-Connection-Device-ID | string | Det här värdet anges av IoT Hub och identifierar enhetens ID. Om du vill fråga `$connectionDeviceId`använder du. |
 | iothub-enqueuedtime | string | Det här värdet anges av IoT Hub och representerar den faktiska tiden för att köa meddelandet i UTC. Om du vill fråga `enqueuedTime`använder du. |
-| iothub-interface-name | string | Det här värdet anges av användaren och representerar namnet på det digitala dubbla gränssnitt som implementerar telemetri-meddelandet. Om du vill fråga `$interfaceName`använder du. Den här funktionen är tillgänglig som en del av [IoT plug and Play offentlig för hands version](../iot-pnp/overview-iot-plug-and-play.md). |
+| iothub-gränssnitt-namn | string | Det här värdet anges av användaren och representerar namnet på det digitala dubbla gränssnitt som implementerar telemetri-meddelandet. Om du vill fråga `$interfaceName`använder du. Den här funktionen är tillgänglig som en del av [IoT plug and Play offentlig för hands version](../iot-pnp/overview-iot-plug-and-play.md). |
 
 Som det beskrivs i [IoT Hub-meddelanden](iot-hub-devguide-messages-construct.md)finns det ytterligare system egenskaper i ett meddelande. Förutom **ContentType**, **contentEncoding**och **enqueuedTime**kan **connectionDeviceId** och **connectionModuleId** också frågas.
 

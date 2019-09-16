@@ -13,21 +13,21 @@ ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: malop
 ms.reviewer: kumud
-ms.openlocfilehash: 80d89914f33273fcb033ab47098a8864b11974c9
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: c345b31c218c4678e7811c36113c94e0c4d2ac03
+ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67876149"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71019062"
 ---
 # <a name="virtual-network-integration-for-azure-services"></a>Integrering av virtuella nätverk för Azure-tjänster
 
 Integrering av Azure-tjänster på ett virtuellt Azure-nätverk möjliggör privat åtkomst till tjänsten från virtuella datorer eller beräknings resurser i det virtuella nätverket.
 Du kan integrera Azure-tjänster i ditt virtuella nätverk med följande alternativ:
 - Distribuera dedikerade instanser av tjänsten till ett virtuellt nätverk. Tjänsterna kan sedan nås privat i det virtuella nätverket och från lokala nätverk.
-- Utöka ett virtuellt nätverk till tjänsten via tjänst slut punkter. Med tjänst slut punkter kan enskilda tjänst resurser skyddas till det virtuella nätverket.
+- Använd [privat länk](../private-link/private-link-overview.md) för att få åtkomst till privat en speciell instans av tjänsten från det virtuella nätverket och från lokala nätverk.
 
-Om du vill integrera flera Azure-tjänster i ditt virtuella nätverk kan du kombinera ett eller flera av ovanstående mönster. Du kan till exempel distribuera HDInsight till ditt virtuella nätverk och skydda ett lagrings konto till HDInsight-undernätet via tjänst slut punkter.
+Du kan också komma åt tjänsten med offentliga slut punkter genom att utöka ett virtuellt nätverk till tjänsten via [tjänstens slut punkter](virtual-network-service-endpoints-overview.md). Med tjänst slut punkter kan tjänst resurser skyddas till det virtuella nätverket.
  
 ## <a name="deploy-azure-services-into-virtual-networks"></a>Distribuera Azure-tjänster till virtuella nätverk
 
@@ -50,19 +50,14 @@ Det finns följande funktioner för att distribuera tjänster i ett virtuellt n�
 
 |Category|Tjänsten| Dedikerat ¹ undernät
 |-|-|-|
-| Compute | Virtuella datorer: [Linux](../virtual-machines/linux/infrastructure-networking-guidelines.md?toc=%2fazure%2fvirtual-network%2ftoc.json) eller [Windows](../virtual-machines/windows/infrastructure-networking-guidelines.md?toc=%2fazure%2fvirtual-network%2ftoc.json) <br/>[Skalnings uppsättningar för virtuella datorer](../virtual-machine-scale-sets/virtual-machine-scale-sets-mvss-existing-vnet.md?toc=%2fazure%2fvirtual-network%2ftoc.json)<br/>[Cloud Service](https://msdn.microsoft.com/library/azure/jj156091): Endast virtuellt nätverk (klassiskt)<br/> [Azure Batch](../batch/batch-api-basics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#virtual-network-vnet-and-firewall-configuration)| Nej <br/> Nej <br/> Nej <br/> Nr ²
-| Nätverk | [Application Gateway-WAF](../application-gateway/application-gateway-ilb-arm.md?toc=%2fazure%2fvirtual-network%2ftoc.json)<br/>[VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json)<br/>[Azure-brandvägg](../firewall/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) <br/>[Virtuella nätverks enheter](/windows-server/networking/sdn/manage/use-network-virtual-appliances-on-a-vn) | Ja <br/> Ja <br/> Ja <br/> Nej
+| Compute | Virtuella datorer: [Linux](../virtual-machines/linux/infrastructure-networking-guidelines.md?toc=%2fazure%2fvirtual-network%2ftoc.json) eller [Windows](../virtual-machines/windows/infrastructure-networking-guidelines.md?toc=%2fazure%2fvirtual-network%2ftoc.json) <br/>[Skaluppsättningar för virtuella datorer](../virtual-machine-scale-sets/virtual-machine-scale-sets-mvss-existing-vnet.md?toc=%2fazure%2fvirtual-network%2ftoc.json)<br/>[Cloud Service](https://msdn.microsoft.com/library/azure/jj156091): Endast virtuellt nätverk (klassiskt)<br/> [Azure Batch](../batch/batch-api-basics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#virtual-network-vnet-and-firewall-configuration)| Nej <br/> Nej <br/> Nej <br/> Nr ²
+| Nätverk | [Application Gateway-WAF](../application-gateway/application-gateway-ilb-arm.md?toc=%2fazure%2fvirtual-network%2ftoc.json)<br/>[VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json)<br/>[Azure Firewall](../firewall/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) <br/>[Virtuella nätverks enheter](/windows-server/networking/sdn/manage/use-network-virtual-appliances-on-a-vn) | Ja <br/> Ja <br/> Ja <br/> Nej
 |Data|[RedisCache](../azure-cache-for-redis/cache-how-to-premium-vnet.md?toc=%2fazure%2fvirtual-network%2ftoc.json)<br/>[Azure SQL Database Managed Instance](../sql-database/sql-database-managed-instance-connectivity-architecture.md?toc=%2fazure%2fvirtual-network%2ftoc.json)| Ja <br/> Ja <br/> 
 |Analytics | [Azure HDInsight](../hdinsight/hdinsight-extend-hadoop-virtual-network.md?toc=%2fazure%2fvirtual-network%2ftoc.json)<br/>[Azure Databricks](../azure-databricks/what-is-azure-databricks.md?toc=%2fazure%2fvirtual-network%2ftoc.json) |Nr ² <br/> Nr ² <br/> 
 | Identitet | [Azure Active Directory Domain Services](../active-directory-domain-services/active-directory-ds-getting-started-vnet.md?toc=%2fazure%2fvirtual-network%2ftoc.json) |Nej <br/>
 | Containrar | [Azure Kubernetes Service (AKS)](../aks/concepts-network.md?toc=%2fazure%2fvirtual-network%2ftoc.json)<br/>[Azure Container Instance (ACI)](https://www.aka.ms/acivnet)<br/>[Azure Container Service motor](https://github.com/Azure/acs-engine) med [plugin-programmet](https://github.com/Azure/acs-engine/tree/master/examples/vnet) Azure Virtual Network cni|Nr ²<br/> Ja <br/><br/> Nej
 | Webb | [API Management](../api-management/api-management-using-with-vnet.md?toc=%2fazure%2fvirtual-network%2ftoc.json)<br/>[App Service Environment](../app-service/web-sites-integrate-with-vnet.md?toc=%2fazure%2fvirtual-network%2ftoc.json)<br/>[Azure Logic Apps](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)<br/>|Ja <br/> Ja <br/> Ja
-| Nås | [Azure Dedicated HSM](../dedicated-hsm/index.yml?toc=%2fazure%2fvirtual-network%2ftoc.json)<br/>[Azure NetApp Files](../azure-netapp-files/azure-netapp-files-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json)<br/>|Ja <br/> Ja <br/>
+| Värdbaserad | [Azure Dedicated HSM](../dedicated-hsm/index.yml?toc=%2fazure%2fvirtual-network%2ftoc.json)<br/>[Azure NetApp Files](../azure-netapp-files/azure-netapp-files-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json)<br/>|Ja <br/> Ja <br/>
 | | |
 
 ¹ "dedikerad" innebär att endast tjänstespecifika resurser kan distribueras i det här under nätet och inte kan kombineras med Customer VM/VMSSs <br/> ² rekommenderas, men inte ett obligatoriskt krav som angetts av tjänsten.
-
-
-## <a name="service-endpoints-for-azure-services"></a>Tjänst slut punkter för Azure-tjänster
-
-Vissa Azure-tjänster kan inte distribueras i virtuella nätverk. Du kan begränsa åtkomsten till vissa av tjänst resurserna till endast vissa virtuella nätverks under nät om du väljer, genom att aktivera en tjänst slut punkt för virtuellt nätverk.  Läs mer om [tjänst slut punkter för virtuella nätverk](virtual-network-service-endpoints-overview.md)och de tjänster som slut punkterna kan aktive ras för.

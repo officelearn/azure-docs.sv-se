@@ -1,17 +1,17 @@
 ---
-title: Metod tips för att skapa utvärdering med Azure Migrate Server utvärdering | Microsoft Docs
+title: Metod tips för att skapa utvärdering med Azure Migrate Server-utvärdering
 description: Innehåller tips för att skapa utvärderingar med Azure Migrate Server bedömning.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 07/15/2019
+ms.date: 09/16/2019
 ms.author: raynew
-ms.openlocfilehash: 18b82b5553f7045c38c9de532199c2a0fd815ee1
-ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
+ms.openlocfilehash: a07e83c805fc422c861f6c644a59da0b42bb8072
+ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68234305"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71007718"
 ---
 # <a name="best-practices-for-creating-assessments"></a>Metod tips för att skapa utvärderingar
 
@@ -33,8 +33,8 @@ Om du t. ex. har en lokal virtuell dator med fyra kärnor med 20% användning oc
 
 - **Prestanda baserad utvärdering**:
     - Identifierar effektiva kärnor och minne baserat på kärnan (4 x 0,20 = 0,8) och minne (8 GB x 0,10 = 0,8) användning.
-    - Använder den bekvämlighets faktor som anges i bedömnings egenskaper (le'ts, t. ex. 1.3 x) för att hämta de värden som ska användas för storleks ändring. 
-    - Rekommenderar den närmaste virtuella dator storleken i Azure som har stöd för ~ 1,4 kärnor (0,8 x 1,3) och ~ 1,4 GB (0,8 x 1,3) minne.
+    - Använder den bekvämlighets faktor som anges i bedömnings egenskaper (vi antar 1,3 x) för att hämta de värden som ska användas för storleks ändring. 
+    - Rekommenderar den närmaste virtuella dator storleken i Azure som har stöd för ~ 1,04 kärnor (0,8 x 1,3) och ~ 1,04 GB (0,8 x 1,3) minne.
 
 - **Som är (som lokal) utvärdering**:
     -  Rekommenderar en virtuell dator med fyra kärnor; 8 GB minne.
@@ -85,9 +85,9 @@ En utvärdering kanske inte har alla data punkter av olika anledningar:
 
 - Du profilerade inte din miljö för hela den varaktighet för vilken du skapar utvärderingen. Om du till exempel skapar en *prestanda baserad utvärdering* med varaktigheten en vecka, måste du vänta i minst en vecka efter att du har startat identifieringen av alla data punkter som ska samlas in. Du kan alltid klicka på **Beräkna** om för att se den senaste giltiga förtroende klassificeringen. Förtroende klassificeringen gäller endast när du skapar en *prestanda baserad* utvärdering.
 
-- Några virtuella datorer stängdes av under perioden som utvärderingen utfördes. Om vissa virtuella datorer har stängts av under en viss tid kan Server utvärderingen inte samla in prestanda data för den perioden.
+- Några virtuella datorer stängdes av under perioden som utvärderingen utfördes. Om några virtuella datorer var avstängda under en viss period, kan Server Assessment inte samla in prestandadata för den perioden.
 
-- Några virtuella datorer skapades efter att identifieringen i Server utvärderingen hade startats. Om du till exempel skapar en utvärdering för prestandahistoriken för den senaste månaden, men några virtuella datorer skapades i miljön för en vecka sedan. I det här fallet är prestanda data för de nya virtuella datorerna inte tillgängliga under hela varaktigheten och förtroendet är lågt.
+- Få virtuella datorer skapades efter att identifieringen startades i Server Assessment. Om du till exempel skapar en utvärdering för prestandahistoriken för den senaste månaden, men några virtuella datorer skapades i miljön för en vecka sedan. I detta fall kommer prestandadata för de nya virtuella datorerna inte att vara tillgängliga för hela tidsperioden och säkerhetsomdömet blir lågt.
 
 
 ## <a name="next-steps"></a>Nästa steg

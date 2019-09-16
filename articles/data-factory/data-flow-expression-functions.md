@@ -6,12 +6,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/15/2019
-ms.openlocfilehash: f13d156ea34fc1c909704a18f645be62a6e09f90
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: aa2bfd09bba863f416c75a3e4f5a9c2523b51541
+ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70881331"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71018536"
 ---
 # <a name="data-transformation-expressions-in-mapping-data-flow"></a>Data omvandlings uttryck i data flöde för mappning 
 
@@ -24,32 +24,33 @@ I Data Factory använder du uttrycks språket i funktionen mappa data flöde fö
 ___
 ### <code>abs</code>
 <code><b>abs(<i>&lt;value1&gt;</i> : number) => number</b></code><br/><br/>
-Positiv Modulus av siffer par.
-* ``abs(-20) -> 20``  
-* ``abs(10) -> 10``  
+Absolut värde för ett tal.
+* ``abs(-20) -> 20``
+* ``abs(10) -> 10``
 ___
 ### <code>acos</code>
 <code><b>acos(<i>&lt;value1&gt;</i> : number) => double</b></code><br/><br/>
-Beräknar ett värde för cosinus-inversen* ``acos(1) -> 0.0``  
+Beräknar ett värde för cosinus-inversen* ``acos(1) -> 0.0``
 ___
 ### <code>add</code>
 <code><b>add(<i>&lt;value1&gt;</i> : any, <i>&lt;value2&gt;</i> : any) => any</b></code><br/><br/>
-Lägger till ett par med strängar eller siffror. Lägger till ett datum i ett antal dagar. Lägger till en matris av liknande typ till en annan. Samma som operatorn +* ``add(10, 20) -> 30``  
-* ``10 + 20 -> 30``  
-* ``add('ice', 'cream') -> 'icecream'``  
-* ``'ice' + 'cream' + ' cone' -> 'icecream cone'``  
-* ``add(toDate('2012-12-12'), 3) -> 2012-12-15 (date value)``  
-* ``toDate('2012-12-12') + 3 -> 2012-12-15 (date value)``  
-* ``[10, 20] + [30, 40] => [10, 20, 30, 40]``  
+Lägger till ett par med strängar eller siffror. Lägger till ett datum i ett antal dagar. Lägger till en varaktighet i en tidsstämpel. Lägger till en matris av liknande typ till en annan. Samma som operatorn +* ``add(10, 20) -> 30``
+* ``10 + 20 -> 30``
+* ``add('ice', 'cream') -> 'icecream'``
+* ``'ice' + 'cream' + ' cone' -> 'icecream cone'``
+* ``add(toDate('2012-12-12'), 3) -> toDate('2012-12-15')``
+* ``toDate('2012-12-12') + 3 -> toDate('2012-12-15')``
+* ``[10, 20] + [30, 40] -> [10, 20, 30, 40]``
+* ``toTimestamp('2019-02-03 05:19:28.871', 'yyyy-MM-dd HH:mm:ss.SSS') + (days(1) + hours(2) - seconds(10)) -> toTimestamp('2019-02-04 07:19:18.871', 'yyyy-MM-dd HH:mm:ss.SSS')``
 ___
 ### <code>addDays</code>
 <code><b>addDays(<i>&lt;date/timestamp&gt;</i> : datetime, <i>&lt;days to add&gt;</i> : integral) => datetime</b></code><br/><br/>
-Lägg till dagar i ett datum eller en tidsstämpel. Samma som +-operatorn för datum* ``addDays(toDate('2016-08-08'), 1) -> 2016-08-09``
+Lägg till dagar i ett datum eller en tidsstämpel. Samma som +-operatorn för datum* ``addDays(toDate('2016-08-08'), 1) -> toDate('2016-08-09')``
 ___
 ### <code>addMonths</code>
-<code><b>addMonths(<i>&lt;date/timestamp&gt;</i> : datetime, <i>&lt;months to add&gt;</i> : integral) => datetime</b></code><br/><br/>
-Lägg till månader i ett datum eller en tidsstämpel* ``addMonths(toDate('2016-08-31'), 1) -> 2016-09-30``
-* ``addMonths(toTimestamp('2016-09-30 10:10:10'), -1) -> 2016-08-31 10:10:10``
+<code><b>addMonths(<i>&lt;date/timestamp&gt;</i> : datetime, <i>&lt;months to add&gt;</i> : integral, [<i>&lt;value3&gt;</i> : string]) => datetime</b></code><br/><br/>
+Lägg till månader i ett datum eller en tidsstämpel. Du kan också skicka en tidszon* ``addMonths(toDate('2016-08-31'), 1) -> toDate('2016-09-30')``
+* ``addMonths(toTimestamp('2016-09-30 10:10:10'), -1) -> toTimestamp('2016-08-31 10:10:10')``
 ___
 ### <code>and</code>
 <code><b>and(<i>&lt;value1&gt;</i> : boolean, <i>&lt;value2&gt;</i> : boolean) => boolean</b></code><br/><br/>
@@ -70,34 +71,35 @@ Returnerar vinkeln i radianer mellan den positiva x-axeln i ett plan och den pun
 ___
 ### <code>avg</code>
 <code><b>avg(<i>&lt;value1&gt;</i> : number) => number</b></code><br/><br/>
-Hämtar medelvärdet för en kolumns värden* ``avg(sales) -> 7523420.234``
+Hämtar medelvärdet för en kolumns värden* ``avg(sales)``
 ___
 ### <code>avgIf</code>
 <code><b>avgIf(<i>&lt;value1&gt;</i> : boolean, <i>&lt;value2&gt;</i> : number) => number</b></code><br/><br/>
-Baserat på ett villkor får du medelvärdet av värdena i en kolumn* ``avgIf(region == 'West', sales) -> 7523420.234``
+Baserat på ett villkor får du medelvärdet av värdena i en kolumn* ``avgIf(region == 'West', sales)``
 ___
 ### <code>byName</code>
-<code><b>byName(<i>&lt;column name&gt;</i> : string) => any</b></code><br/><br/>
-Markerar ett kolumn värde efter namn i data strömmen. Om det finns flera matchningar returneras den första matchningen. Om ingen matchning returneras ett NULL-värde. Det returnerade värdet måste vara en typ som konverteras av typ konverterings funktionerna (TO_DATE, TO_STRING...).  Kolumn namn som är kända i design tid ska bara åtgärdas med deras namn. Beräknade indata stöds inte, men du kan använda parameter ersättningar* ``toString(byName('parent')) -> appa``
-* ``toLong(byName('income')) -> 9000000000009``
-* ``toBoolean(byName('foster')) -> false``
-* ``toLong(byName($debtCol)) -> 123456890``
-* ``birthDate -> 12/31/2050``
-* ``toString(byName('Bogus Column')) -> NULL``
+<code><b>byName(<i>&lt;column name&gt;</i> : string, [<i>&lt;stream name&gt;</i> : string]) => any</b></code><br/><br/>
+Markerar ett kolumn värde efter namn i data strömmen. Du kan skicka ett valfritt Stream-namn som det andra argumentet. Om det finns flera matchningar returneras den första matchningen. Om ingen matchning returneras ett NULL-värde. Det returnerade värdet måste vara en typ som konverteras av typ konverterings funktionerna (TO_DATE, TO_STRING...).  Kolumn namn som är kända i design tid ska bara åtgärdas med deras namn. Beräknade indata stöds inte, men du kan använda parameter ersättningar* ``toString(byName('parent'))``
+* ``toLong(byName('income'))``
+* ``toBoolean(byName('foster'))``
+* ``toLong(byName($debtCol))``
+* ``toString(byName('Bogus Column'))``
+* ``toString(byName('Bogus Column', 'DeriveStream'))``
 ___
 ### <code>byPosition</code>
 <code><b>byPosition(<i>&lt;position&gt;</i> : integer) => any</b></code><br/><br/>
-Markerar ett kolumn värde efter dess relativa position (1) i data strömmen. Om positionen ligger utanför intervallet returneras ett NULL-värde. Det returnerade värdet måste vara en typ som konverteras av typ konverterings funktionerna (TO_DATE, TO_STRING...) Beräknade indata stöds inte, men du kan använda parameter ersättningar* ``toString(byPosition(1)) -> amma``
-* ``toDecimal(byPosition(2), 10, 2) -> 199990.99``
-* ``toBoolean(byName(4)) -> false``
-* ``toString(byName($colName)) -> family``
-* ``toString(byPosition(1234)) -> NULL``
+Markerar ett kolumn värde efter dess relativa position (1) i data strömmen. Om positionen ligger utanför intervallet returneras ett NULL-värde. Det returnerade värdet måste vara en typ som konverteras av typ konverterings funktionerna (TO_DATE, TO_STRING...) Beräknade indata stöds inte, men du kan använda parameter ersättningar* ``toString(byPosition(1))``
+* ``toDecimal(byPosition(2), 10, 2)``
+* ``toBoolean(byName(4))``
+* ``toString(byName($colName))``
+* ``toString(byPosition(1234))``
 ___
 ### <code>case</code>
 <code><b>case(<i>&lt;condition&gt;</i> : boolean, <i>&lt;true_expression&gt;</i> : any, <i>&lt;false_expression&gt;</i> : any, ...) => any</b></code><br/><br/>
-Baserat på alternerande villkor används ett värde eller det andra. Om antalet indata är jämnt, är det andra värdet NULL för det sista villkoret* ``case(custType == 'Premium', 10, 4.5)``
-* ``case(custType == 'Premium', price*0.95, custType == 'Elite',   price*0.9, price*2)``
-* ``case(dayOfWeek(saleDate) == 1, 'Sunday', dayOfWeek(saleDate) == 6, 'Saturday')``
+Baserat på alternerande villkor används ett värde eller det andra. Om antalet indata är jämnt, är det andra att standardvärdet är NULL för det sista villkoret* ``case(10 + 20 == 30, 'dumbo', 'gumbo') -> 'dumbo'``
+* ``case(10 + 20 == 25, 'bojjus', 'do' < 'go', 'gunchus') -> 'gunchus'``
+* ``isNull(case(10 + 20 == 25, 'bojjus', 'do' > 'go', 'gunchus')) -> true``
+* ``case(10 + 20 == 25, 'bojjus', 'do' > 'go', 'gunchus', 'dumbo') -> 'dumbo'``
 ___
 ### <code>cbrt</code>
 <code><b>cbrt(<i>&lt;value1&gt;</i> : number) => double</b></code><br/><br/>
@@ -119,20 +121,19 @@ Jämför två värden av samma typ. Returnerar negativt heltal om värde1 < vär
 ___
 ### <code>concat</code>
 <code><b>concat(<i>&lt;this&gt;</i> : string, <i>&lt;that&gt;</i> : string, ...) => string</b></code><br/><br/>
-Sammanfogar ett variabel antal strängar tillsammans. Samma som operatorn + med strängarna* ``concat('Awesome', 'Cool', 'Product') -> 'AwesomeCoolProduct'``
-* ``'Awesome' + 'Cool' + 'Product' -> 'AwesomeCoolProduct'``
-* ``concat(addrLine1, ' ', addrLine2, ' ', city, ' ', state, ' ', zip)``
-* ``addrLine1 + ' ' + addrLine2 + ' ' + city + ' ' + state + ' ' + zip``
+Sammanfogar ett variabel antal strängar tillsammans. Samma som operatorn + med strängarna* ``concat('dataflow', 'is', 'awesome') -> 'dataflowisawesome'``
+* ``'dataflow' + 'is' + 'awesome' -> 'dataflowisawesome'``
+* ``isNull('sql' + null) -> true``
 ___
 ### <code>concatWS</code>
 <code><b>concatWS(<i>&lt;separator&gt;</i> : string, <i>&lt;this&gt;</i> : string, <i>&lt;that&gt;</i> : string, ...) => string</b></code><br/><br/>
-Sammanfogar ett variabelt antal strängar tillsammans med en avgränsare. Den första parametern är avgränsaren* ``concatWS(' ', 'Awesome', 'Cool', 'Product') -> 'Awesome Cool Product'``
-* ``concatWS(' ' , addrLine1, addrLine2, city, state, zip) ->``
-* ``concatWS(',' , toString(order_total), toString(order_discount))``
+Sammanfogar ett variabelt antal strängar tillsammans med en avgränsare. Den första parametern är avgränsaren* ``concatWS(' ', 'dataflow', 'is', 'awesome') -> 'dataflow is awesome'``
+* ``isNull(concatWS(null, 'dataflow', 'is', 'awesome')) -> true``
+* ``concatWS(' is ', 'dataflow', 'awesome') -> 'dataflow is awesome'``
 ___
 ### <code>cos</code>
 <code><b>cos(<i>&lt;value1&gt;</i> : number) => double</b></code><br/><br/>
-Beräknar ett cosinus-värde* ``cos(10) -> -0.83907152907``
+Beräknar ett cosinus-värde* ``cos(10) -> -0.8390715290764524``
 ___
 ### <code>cosh</code>
 <code><b>cosh(<i>&lt;value1&gt;</i> : number) => double</b></code><br/><br/>
@@ -140,70 +141,74 @@ Beräknar ett hyperboliskt cosinus för ett värde* ``cosh(0) -> 1.0``
 ___
 ### <code>count</code>
 <code><b>count([<i>&lt;value1&gt;</i> : any]) => long</b></code><br/><br/>
-Hämtar det sammanställda antalet värden. Om valfria kolumner anges ignoreras NULL-värden i antalet* ``count(custId) -> 100``
-* ``count(custId, custName) -> 50``
-* ``count() -> 125``
-* ``count(iif(isNull(custId), 1, NULL)) -> 5``
+Hämtar det sammanställda antalet värden. Om valfria kolumner anges ignoreras NULL-värden i antalet* ``count(custId)``
+* ``count(custId, custName)``
+* ``count()``
+* ``count(iif(isNull(custId), 1, NULL))``
 ___
 ### <code>countDistinct</code>
 <code><b>countDistinct(<i>&lt;value1&gt;</i> : any, [<i>&lt;value2&gt;</i> : any], ...) => long</b></code><br/><br/>
-Hämtar det sammanlagda antalet distinkta värden för en uppsättning kolumner* ``countDistinct(custId, custName) -> 60``
+Hämtar det sammanlagda antalet distinkta värden för en uppsättning kolumner* ``countDistinct(custId, custName)``
 ___
 ### <code>countIf</code>
 <code><b>countIf(<i>&lt;value1&gt;</i> : boolean, [<i>&lt;value2&gt;</i> : any]) => long</b></code><br/><br/>
-Baserat på ett villkor hämtas det sammanställda antalet värden. Om den valfria kolumnen anges ignoreras NULL-värden i antalet* ``countIf(state == 'CA' && commission < 10000, name) -> 100``
+Baserat på ett villkor hämtas det sammanställda antalet värden. Om den valfria kolumnen anges ignoreras NULL-värden i antalet* ``countIf(state == 'CA' && commission < 10000, name)``
 ___
 ### <code>covariancePopulation</code>
 <code><b>covariancePopulation(<i>&lt;value1&gt;</i> : number, <i>&lt;value2&gt;</i> : number) => double</b></code><br/><br/>
-Hämtar populationens kovarians mellan två kolumner* ``covariancePopulation(sales, profit) -> 122.12``
+Hämtar populationens kovarians mellan två kolumner* ``covariancePopulation(sales, profit)``
 ___
 ### <code>covariancePopulationIf</code>
 <code><b>covariancePopulationIf(<i>&lt;value1&gt;</i> : boolean, <i>&lt;value2&gt;</i> : number, <i>&lt;value3&gt;</i> : number) => double</b></code><br/><br/>
-Baserat på ett villkor hämtar populationens kovarians för två kolumner* ``covariancePopulationIf(region == 'West', sales) -> 122.12``
+Baserat på ett villkor hämtar populationens kovarians för två kolumner* ``covariancePopulationIf(region == 'West', sales)``
 ___
 ### <code>covarianceSample</code>
 <code><b>covarianceSample(<i>&lt;value1&gt;</i> : number, <i>&lt;value2&gt;</i> : number) => double</b></code><br/><br/>
-Hämtar exempel kovariansen för två kolumner* ``covarianceSample(sales, profit) -> 122.12``
+Hämtar exempel kovariansen för två kolumner* ``covarianceSample(sales, profit)``
 ___
 ### <code>covarianceSampleIf</code>
 <code><b>covarianceSampleIf(<i>&lt;value1&gt;</i> : boolean, <i>&lt;value2&gt;</i> : number, <i>&lt;value3&gt;</i> : number) => double</b></code><br/><br/>
-Baserat på ett villkor hämtar exempel kovariansen för två kolumner* ``covarianceSampleIf(region == 'West', sales, profit) -> 122.12``
+Baserat på ett villkor hämtar exempel kovariansen för två kolumner* ``covarianceSampleIf(region == 'West', sales, profit)``
 ___
 ### <code>crc32</code>
 <code><b>crc32(<i>&lt;value1&gt;</i> : any, ...) => long</b></code><br/><br/>
-Beräknar CRC32-hashen för en uppsättning av varierande primitiva data typer med en bit längd som bara kan vara av värdena 0 (256), 224, 256, 384, 512. Den kan användas för att beräkna ett finger avtryck för en rad* ``crc32(256, 'gunchus', 8.2, 'bojjus', true, toDate('2010-4-4')) -> 3630253689``
+Beräknar CRC32-hashen för en uppsättning av varierande primitiva data typer med en bit längd som bara kan vara av värdena 0 (256), 224, 256, 384, 512. Den kan användas för att beräkna ett finger avtryck för en rad* ``crc32(256, 'gunchus', 8.2, 'bojjus', true, toDate('2010-4-4')) -> 3630253689L``
 ___
 ### <code>cumeDist</code>
 <code><b>cumeDist() => integer</b></code><br/><br/>
 Funktionen CumeDist beräknar positionen för ett värde relativt till alla värden i partitionen. Resultatet är antalet rader före eller lika med den aktuella raden i ordningen för partitionen, dividerat med det totala antalet rader i fönstrets partition. Eventuella förbindelse värden i ordningen kommer att utvärderas till samma position.
-* ``cumeDist() -> 1``
+* ``cumeDist()``
 ___
 ### <code>currentDate</code>
 <code><b>currentDate([<i>&lt;value1&gt;</i> : string]) => date</b></code><br/><br/>
 Hämtar det aktuella datumet då jobbet börjar köras. Du kan skicka en valfri tidszon i formatet "GMT", "PST", "UTC", "America/Cayman". Den lokala tids zonen används som standard.
-* ``currentDate() -> 12-12-2030``
-* ``currentDate('PST') -> 12-31-2050``
+* ``currentDate() == toDate('2250-12-31') -> false``
+* ``currentDate('PST')  == toDate('2250-12-31') -> false``
 ___
 ### <code>currentTimestamp</code>
 <code><b>currentTimestamp() => timestamp</b></code><br/><br/>
-Hämtar aktuell tidsstämpel när jobbet börjar köras med den lokala tids zonen* ``currentTimestamp() -> 12-12-2030T12:12:12``
+Hämtar aktuell tidsstämpel när jobbet börjar köras med den lokala tids zonen* ``currentTimestamp() == toTimestamp('2250-12-31 12:12:12') -> false``
 ___
 ### <code>currentUTC</code>
 <code><b>currentUTC([<i>&lt;value1&gt;</i> : string]) => timestamp</b></code><br/><br/>
-Hämtar den aktuella tidsstämpeln som UTC. Du kan skicka en valfri tidszon i formatet "GMT", "PST", "UTC", "America/Cayman". Den aktuella tids zonen används som standard* ``currentUTC() -> 12-12-2030T19:18:12``
-* ``currentUTC('Asia/Seoul') -> 12-13-2030T11:18:12``
+Hämtar den aktuella tidsstämpeln som UTC. Du kan skicka en valfri tidszon i formatet "GMT", "PST", "UTC", "America/Cayman". Den aktuella tids zonen används som standard* ``currentUTC() == toTimestamp('2050-12-12 19:18:12') -> false``
+* ``currentUTC() != toTimestamp('2050-12-12 19:18:12') -> true``
 ___
 ### <code>dayOfMonth</code>
 <code><b>dayOfMonth(<i>&lt;value1&gt;</i> : datetime) => integer</b></code><br/><br/>
-Hämtar dag i månaden baserat på ett datum* ``dayOfMonth(toDate('2018-06-08')) -> 08``
+Hämtar dag i månaden baserat på ett datum* ``dayOfMonth(toDate('2018-06-08')) -> 8``
 ___
 ### <code>dayOfWeek</code>
 <code><b>dayOfWeek(<i>&lt;value1&gt;</i> : datetime) => integer</b></code><br/><br/>
-Hämtar vecko dagen med angivet datum. 1 – söndag, 2 – måndag..., 7-lördag* ``dayOfWeek(toDate('2018-06-08')) -> 7``
+Hämtar vecko dagen med angivet datum. 1 – söndag, 2 – måndag..., 7-lördag* ``dayOfWeek(toDate('2018-06-08')) -> 6``
 ___
 ### <code>dayOfYear</code>
 <code><b>dayOfYear(<i>&lt;value1&gt;</i> : datetime) => integer</b></code><br/><br/>
 Hämtar dagen på året angivet datum* ``dayOfYear(toDate('2016-04-09')) -> 100``
+___
+### <code>days</code>
+<code><b>days(<i>&lt;value1&gt;</i> : integer) => long</b></code><br/><br/>
+Varaktighet i millisekunder för antal dagar* ``days(2) -> 172800000L``
 ___
 ### <code>degrees</code>
 <code><b>degrees(<i>&lt;value1&gt;</i> : number) => double</b></code><br/><br/>
@@ -211,7 +216,7 @@ Konverterar radianer till grader* ``degrees(3.141592653589793) -> 180``
 ___
 ### <code>denseRank</code>
 <code><b>denseRank(<i>&lt;value1&gt;</i> : any, ...) => integer</b></code><br/><br/>
-Beräknar rangordningen för ett värde i en grupp med värden. Resultatet är ett plus antalet rader före eller lika med den aktuella raden i ordningen för partitionen. Värdena kommer inte att skapa luckor i sekvensen. Kompakt rang fungerar även när data inte sorteras och söker efter ändrings värden* ``denseRank(salesQtr, salesAmt) -> 1``
+Beräknar rangordningen för ett värde i en grupp med värden. Resultatet är ett plus antalet rader före eller lika med den aktuella raden i ordningen för partitionen. Värdena kommer inte att skapa luckor i sekvensen. Kompakt rang fungerar även när data inte sorteras och söker efter ändrings värden* ``denseRank(salesQtr, salesAmt)``
 ___
 ### <code>divide</code>
 <code><b>divide(<i>&lt;value1&gt;</i> : any, <i>&lt;value2&gt;</i> : any) => any</b></code><br/><br/>
@@ -220,19 +225,19 @@ Dividerar ett par med tal. Samma som operatorn* ``divide(20, 10) -> 2``
 ___
 ### <code>endsWith</code>
 <code><b>endsWith(<i>&lt;string&gt;</i> : string, <i>&lt;substring to check&gt;</i> : string) => boolean</b></code><br/><br/>
-Kontrollerar om strängen slutar med den angivna strängen* ``endsWith('great', 'eat') -> true``
+Kontrollerar om strängen slutar med den angivna strängen* ``endsWith('dumbo', 'mbo') -> true``
 ___
 ### <code>equals</code>
 <code><b>equals(<i>&lt;value1&gt;</i> : any, <i>&lt;value2&gt;</i> : any) => boolean</b></code><br/><br/>
 Jämförelse likhets operator. Samma som = = operator* ``equals(12, 24) -> false``
-* ``12==24 -> false``
-* ``'bad'=='bad' -> true``
-* ``'good'== NULL -> false``
-* ``NULL===NULL -> false``
+* ``12 == 24 -> false``
+* ``'bad' == 'bad' -> true``
+* ``isNull('good' == toString(null)) -> true``
+* ``isNull(null == null) -> true``
 ___
 ### <code>equalsIgnoreCase</code>
 <code><b>equalsIgnoreCase(<i>&lt;value1&gt;</i> : string, <i>&lt;value2&gt;</i> : string) => boolean</b></code><br/><br/>
-Jämförelse är lika med operator som ignorerar Skift läge. Samma som < = > operator* ``'abc'<==>'abc' -> true``
+Jämförelse är lika med operator som ignorerar Skift läge. Samma som < = > operator* ``'abc'<=>'Abc' -> true``
 * ``equalsIgnoreCase('abc', 'Abc') -> true``
 ___
 ### <code>factorial</code>
@@ -241,13 +246,13 @@ Beräkna fakulteten för ett tal* ``factorial(5) -> 120``
 ___
 ### <code>false</code>
 <code><b>false() => boolean</b></code><br/><br/>
-Returnerar alltid ett falskt värde. Använd Function-syntaxen (false ()) om det finns en kolumn med namnet "false"* ``isDiscounted == false()``
-* ``isDiscounted() == false``
+Returnerar alltid ett falskt värde. Använd Function-syntaxen (false ()) om det finns en kolumn med namnet "false"* ``(10 + 20 > 30) -> false``
+* ``(10 + 20 > 30) -> false()``
 ___
 ### <code>first</code>
 <code><b>first(<i>&lt;value1&gt;</i> : any, [<i>&lt;value2&gt;</i> : boolean]) => any</b></code><br/><br/>
-Hämtar det första värdet för en kolumn grupp. Om den andra parametern ignoreNulls utelämnas, antas det vara falskt* ``first(sales) -> 12233.23``
-* ``first(sales, false) -> NULL``
+Hämtar det första värdet för en kolumn grupp. Om den andra parametern ignoreNulls utelämnas, antas det vara falskt* ``first(sales)``
+* ``first(sales, false)``
 ___
 ### <code>floor</code>
 <code><b>floor(<i>&lt;value1&gt;</i> : number) => number</b></code><br/><br/>
@@ -255,35 +260,52 @@ Returnerar det största heltal som inte är större än talet* ``floor(-0.1) -> 
 ___
 ### <code>fromUTC</code>
 <code><b>fromUTC(<i>&lt;value1&gt;</i> : timestamp, [<i>&lt;value2&gt;</i> : string]) => timestamp</b></code><br/><br/>
-Konverterar till tidsstämpeln från UTC. Du kan välja att skicka timezone i formatet "GMT", "PST", "UTC", "America/Cayman". Den aktuella tids zonen används som standard* ``fromUTC(currentTimeStamp()) -> 12-12-2030T19:18:12``
-* ``fromUTC(currentTimeStamp(), 'Asia/Seoul') -> 12-13-2030T11:18:12``
+Konverterar till tidsstämpeln från UTC. Du kan välja att skicka timezone i formatet "GMT", "PST", "UTC", "America/Cayman". Den aktuella tids zonen används som standard* ``fromUTC(currentTimeStamp()) == toTimestamp('2050-12-12 19:18:12') -> false``
+* ``fromUTC(currentTimeStamp(), 'Asia/Seoul') != toTimestamp('2050-12-12 19:18:12') -> true``
 ___
 ### <code>greater</code>
 <code><b>greater(<i>&lt;value1&gt;</i> : any, <i>&lt;value2&gt;</i> : any) => boolean</b></code><br/><br/>
 Jämförelse av större operator. Samma som > operatör* ``greater(12, 24) -> false``
-* ``'abcd' > 'abc' -> true``
+* ``('dumbo' > 'dum') -> true``
+* ``(toTimestamp('2019-02-05 08:21:34.890', 'yyyy-MM-dd HH:mm:ss.SSS') > toTimestamp('2019-02-03 05:19:28.871', 'yyyy-MM-dd HH:mm:ss.SSS')) -> true``
 ___
 ### <code>greaterOrEqual</code>
 <code><b>greaterOrEqual(<i>&lt;value1&gt;</i> : any, <i>&lt;value2&gt;</i> : any) => boolean</b></code><br/><br/>
-Jämförelse av större än eller lika operator. Samma som > = operator* ``greaterOrEqual(12, 12) -> false``
-* ``'abcd' >= 'abc' -> true``
+Jämförelse av större än eller lika operator. Samma som > = operator* ``greaterOrEqual(12, 12) -> true``
+* ``('dumbo' >= 'dum') -> true``
 ___
 ### <code>greatest</code>
 <code><b>greatest(<i>&lt;value1&gt;</i> : any, ...) => any</b></code><br/><br/>
-Returnerar det största värdet bland värdena i listan med värden som inmatade värden. Returnerar null om alla indata är null* ``greatest(10, 30, 15, 20) -> 30``
-* ``greatest(toDate('12/12/2010'), toDate('12/12/2011'), toDate('12/12/2000')) -> '12/12/2011'``
+Returnerar det största värdet i listan med värden som indatamängden hoppar över null-värden. Returnerar null om alla indata är null* ``greatest(10, 30, 15, 20) -> 30``
+* ``greatest(10, toInteger(null), 20) -> 20``
+* ``greatest(toDate('2010-12-12'), toDate('2011-12-12'), toDate('2000-12-12')) -> toDate('2011-12-12')``
+* ``greatest(toTimestamp('2019-02-03 05:19:28.871', 'yyyy-MM-dd HH:mm:ss.SSS'), toTimestamp('2019-02-05 08:21:34.890', 'yyyy-MM-dd HH:mm:ss.SSS')) -> toTimestamp('2019-02-05 08:21:34.890', 'yyyy-MM-dd HH:mm:ss.SSS')``
+___
+### <code>hasColumn</code>
+<code><b>hasColumn(<i>&lt;column name&gt;</i> : string, [<i>&lt;stream name&gt;</i> : string]) => boolean</b></code><br/><br/>
+Söker efter ett kolumn värde efter namn i data strömmen. Du kan skicka ett valfritt Stream-namn som det andra argumentet.  Kolumn namn som är kända i design tid ska bara åtgärdas med deras namn. Beräknade indata stöds inte, men du kan använda parameter ersättningar* ``hasColumn('parent')``
 ___
 ### <code>hour</code>
 <code><b>hour(<i>&lt;value1&gt;</i> : timestamp, [<i>&lt;value2&gt;</i> : string]) => integer</b></code><br/><br/>
 Hämtar timme-värdet för en tidsstämpel. Du kan skicka en valfri tidszon i formatet "GMT", "PST", "UTC", "America/Cayman". Den lokala tids zonen används som standard.
-* ``hour(toTimestamp('2009-07-30T12:58:59')) -> 12``
-* ``hour(toTimestamp('2009-07-30T12:58:59'), 'PST') -> 12``
+* ``hour(toTimestamp('2009-07-30 12:58:59')) -> 12``
+* ``hour(toTimestamp('2009-07-30 12:58:59'), 'PST') -> 12``
+___
+### <code>hours</code>
+<code><b>hours(<i>&lt;value1&gt;</i> : integer) => long</b></code><br/><br/>
+Varaktighet i millisekunder för antal timmar* ``hours(2) -> 7200000L``
 ___
 ### <code>iif</code>
 <code><b>iif(<i>&lt;condition&gt;</i> : boolean, <i>&lt;true_expression&gt;</i> : any, [<i>&lt;false_expression&gt;</i> : any]) => any</b></code><br/><br/>
-Baserat på ett villkor gäller ett värde eller det andra. Om inget annat anges anses det vara NULL. Båda värdena måste vara kompatibla (numeriska, sträng...)* ``iif(custType == 'Premium', 10, 4.5)``
-* ``iif(amount > 100, 'High')``
-* ``iif(dayOfWeek(saleDate) == 6, 'Weekend', 'Weekday')``
+Baserat på ett villkor gäller ett värde eller det andra. Om inget annat anges anses det vara NULL. Båda värdena måste vara kompatibla (numeriska, sträng...)* ``iif(10 + 20 == 30, 'dumbo', 'gumbo') -> 'dumbo'``
+* ``iif(10 > 30, 'dumbo', 'gumbo') -> 'gumbo'``
+* ``iif(month(toDate('2018-12-01')) == 12, 345.12, 102.67) -> 345.12``
+___
+### <code>iifNull</code>
+<code><b>iifNull(<i>&lt;value1&gt;</i> : any, [<i>&lt;value2&gt;</i> : any], ...) => any</b></code><br/><br/>
+Kontrollerar om värdet inte är NULL och returnerar det andra. Den testar för alla indata tills den hittar det första värdet som inte är null* ``iifNull(10, 20) -> 10``
+* ``iifNull(null, 20, 40) -> 20``
+* ``iifNull('bojjus', 'bo', 'dumbo') -> 'dumbo'``
 ___
 ### <code>in</code>
 <code><b>in(<i>&lt;array of items&gt;</i> : array, <i>&lt;item to find&gt;</i> : any) => boolean</b></code><br/><br/>
@@ -292,80 +314,85 @@ Kontrollerar om ett objekt finns i matrisen* ``in([10, 20, 30], 10) -> true``
 ___
 ### <code>initCap</code>
 <code><b>initCap(<i>&lt;value1&gt;</i> : string) => string</b></code><br/><br/>
-Konverterar den första bokstaven i varje ord till versaler. Ord identifieras som avgränsade med blank steg* ``initCap('cool iceCREAM') -> 'Cool IceCREAM'``
+Konverterar den första bokstaven i varje ord till versaler. Ord identifieras som avgränsade med blank steg* ``initCap('cool iceCREAM') -> 'Cool Icecream'``
 ___
 ### <code>instr</code>
 <code><b>instr(<i>&lt;string&gt;</i> : string, <i>&lt;substring to find&gt;</i> : string) => integer</b></code><br/><br/>
-Söker efter under strängens position (1) i en sträng. 0 returneras om det inte hittas* ``instr('great', 'eat') -> 3``
-* ``instr('microsoft', 'o') -> 7``
+Söker efter under strängens position (1) i en sträng. 0 returneras om det inte hittas* ``instr('dumbo', 'mbo') -> 3``
+* ``instr('microsoft', 'o') -> 5``
 * ``instr('good', 'bad') -> 0``
 ___
 ### <code>isDelete</code>
 <code><b>isDelete([<i>&lt;value1&gt;</i> : integer]) => boolean</b></code><br/><br/>
-Kontrollerar om raden har marker ATS för borttagning. För omvandlingar som tar fler än en indataströmmen kan du skicka det (1-baserade) indexet för data strömmen. Standardvärdet för Stream-index är 1* ``isDelete() -> true``
-* ``isDelete(1) -> false``
+Kontrollerar om raden har marker ATS för borttagning. För omvandlingar som tar fler än en indataströmmen kan du skicka det (1-baserade) indexet för data strömmen. Standardvärdet för Stream-index är 1* ``isDelete()``
+* ``isDelete(1)``
 ___
 ### <code>isError</code>
 <code><b>isError([<i>&lt;value1&gt;</i> : integer]) => boolean</b></code><br/><br/>
-Kontrollerar om raden har marker ATS som fel. För omvandlingar som tar fler än en indataströmmen kan du skicka det (1-baserade) indexet för data strömmen. Standardvärdet för Stream-index är 1* ``isError() -> true``
-* ``isError(1) -> false``
+Kontrollerar om raden har marker ATS som fel. För omvandlingar som tar fler än en indataströmmen kan du skicka det (1-baserade) indexet för data strömmen. Standardvärdet för Stream-index är 1* ``isError()``
+* ``isError(1)``
 ___
 ### <code>isIgnore</code>
 <code><b>isIgnore([<i>&lt;value1&gt;</i> : integer]) => boolean</b></code><br/><br/>
-Kontrollerar om raden har marker ATS för att ignoreras. För omvandlingar som tar fler än en indataströmmen kan du skicka det (1-baserade) indexet för data strömmen. Standardvärdet för Stream-index är 1* ``isIgnore() -> true``
-* ``isIgnore(1) -> false``
+Kontrollerar om raden har marker ATS för att ignoreras. För omvandlingar som tar fler än en indataströmmen kan du skicka det (1-baserade) indexet för data strömmen. Standardvärdet för Stream-index är 1* ``isIgnore()``
+* ``isIgnore(1)``
 ___
 ### <code>isInsert</code>
 <code><b>isInsert([<i>&lt;value1&gt;</i> : integer]) => boolean</b></code><br/><br/>
-Kontrollerar om raden har marker ATS för infogning. För omvandlingar som tar fler än en indataströmmen kan du skicka det (1-baserade) indexet för data strömmen. Standardvärdet för Stream-index är 1* ``isInsert() -> true``
-* ``isInsert(1) -> false``
+Kontrollerar om raden har marker ATS för infogning. För omvandlingar som tar fler än en indataströmmen kan du skicka det (1-baserade) indexet för data strömmen. Standardvärdet för Stream-index är 1* ``isInsert()``
+* ``isInsert(1)``
 ___
 ### <code>isMatch</code>
 <code><b>isMatch([<i>&lt;value1&gt;</i> : integer]) => boolean</b></code><br/><br/>
-Kontrollerar om raden matchas vid sökning. För omvandlingar som tar fler än en indataströmmen kan du skicka det (1-baserade) indexet för data strömmen. Standardvärdet för Stream-index är 1* ``isMatch() -> true``
-* ``isMatch(1) -> false``
+Kontrollerar om raden matchas vid sökning. För omvandlingar som tar fler än en indataströmmen kan du skicka det (1-baserade) indexet för data strömmen. Standardvärdet för Stream-index är 1* ``isMatch()``
+* ``isMatch(1)``
 ___
 ### <code>isNull</code>
 <code><b>isNull(<i>&lt;value1&gt;</i> : any) => boolean</b></code><br/><br/>
 Kontrollerar om värdet är NULL* ``isNull(NULL()) -> true``
-* ``isNull('') -> false'``
+* ``isNull('') -> false``
 ___
 ### <code>isUpdate</code>
 <code><b>isUpdate([<i>&lt;value1&gt;</i> : integer]) => boolean</b></code><br/><br/>
-Kontrollerar om raden har marker ATS för uppdatering. För omvandlingar som tar fler än en indataströmmen kan du skicka det (1-baserade) indexet för data strömmen. Standardvärdet för Stream-index är 1* ``isUpdate() -> true``
-* ``isUpdate(1) -> false``
+Kontrollerar om raden har marker ATS för uppdatering. För omvandlingar som tar fler än en indataströmmen kan du skicka det (1-baserade) indexet för data strömmen. Standardvärdet för Stream-index är 1* ``isUpdate()``
+* ``isUpdate(1)``
+___
+### <code>isUpsert</code>
+<code><b>isUpsert([<i>&lt;value1&gt;</i> : integer]) => boolean</b></code><br/><br/>
+Kontrollerar om raden har marker ATS för infogning. För omvandlingar som tar fler än en indataströmmen kan du skicka det (1-baserade) indexet för data strömmen. Standardvärdet för Stream-index är 1* ``isUpsert()``
+* ``isUpsert(1)``
 ___
 ### <code>kurtosis</code>
 <code><b>kurtosis(<i>&lt;value1&gt;</i> : number) => double</b></code><br/><br/>
-Hämtar en kolumns för-* ``kurtosis(sales) -> 122.12``
+Hämtar en kolumns för-* ``kurtosis(sales)``
 ___
 ### <code>kurtosisIf</code>
 <code><b>kurtosisIf(<i>&lt;value1&gt;</i> : boolean, <i>&lt;value2&gt;</i> : number) => double</b></code><br/><br/>
-Baserat på ett villkor hämtar du en kolumns,* ``kurtosisIf(region == 'West', sales) -> 122.12``
+Baserat på ett villkor hämtar du en kolumns,* ``kurtosisIf(region == 'West', sales)``
 ___
 ### <code>lag</code>
 <code><b>lag(<i>&lt;value&gt;</i> : any, [<i>&lt;number of rows to look before&gt;</i> : number], [<i>&lt;default value&gt;</i> : any]) => any</b></code><br/><br/>
-Hämtar värdet för den första parametern utvärderade n rader före den aktuella raden. Den andra parametern är antalet rader som du vill se tillbaka och standardvärdet är 1. Om det inte finns lika många rader returneras värdet null om inte ett standardvärde anges* ``lag(amount, 2) -> 60``
-* ``lag(amount, 2000, 100) -> 100``
+Hämtar värdet för den första parametern utvärderade n rader före den aktuella raden. Den andra parametern är antalet rader som du vill se tillbaka och standardvärdet är 1. Om det inte finns lika många rader returneras värdet null om inte ett standardvärde anges* ``lag(amount, 2)``
+* ``lag(amount, 2000, 100)``
 ___
 ### <code>last</code>
 <code><b>last(<i>&lt;value1&gt;</i> : any, [<i>&lt;value2&gt;</i> : boolean]) => any</b></code><br/><br/>
-Hämtar det sista värdet i en kolumn grupp. Om den andra parametern ignoreNulls utelämnas, antas det vara falskt* ``last(sales) -> 523.12``
-* ``last(sales, false) -> NULL``
+Hämtar det sista värdet i en kolumn grupp. Om den andra parametern ignoreNulls utelämnas, antas det vara falskt* ``last(sales)``
+* ``last(sales, false)``
 ___
 ### <code>lastDayOfMonth</code>
 <code><b>lastDayOfMonth(<i>&lt;value1&gt;</i> : datetime) => date</b></code><br/><br/>
-Hämtar det sista datumet i månaden utifrån ett datum* ``lastDayOfMonth(toDate('2009-01-12')) -> 2009-01-31``
+Hämtar det sista datumet i månaden utifrån ett datum* ``lastDayOfMonth(toDate('2009-01-12')) -> toDate('2009-01-31')``
 ___
 ### <code>lead</code>
 <code><b>lead(<i>&lt;value&gt;</i> : any, [<i>&lt;number of rows to look after&gt;</i> : number], [<i>&lt;default value&gt;</i> : any]) => any</b></code><br/><br/>
-Hämtar värdet för den första parametern utvärderade n rader efter den aktuella raden. Den andra parametern är antalet rader som ska se framåt och standardvärdet är 1. Om det inte finns lika många rader returneras värdet null om inte ett standardvärde anges* ``lead(amount, 2) -> 60``
-* ``lead(amount, 2000, 100) -> 100``
+Hämtar värdet för den första parametern utvärderade n rader efter den aktuella raden. Den andra parametern är antalet rader som ska se framåt och standardvärdet är 1. Om det inte finns lika många rader returneras värdet null om inte ett standardvärde anges* ``lead(amount, 2)``
+* ``lead(amount, 2000, 100)``
 ___
 ### <code>least</code>
 <code><b>least(<i>&lt;value1&gt;</i> : any, ...) => any</b></code><br/><br/>
 Jämförelsen är mindre än eller lika med operatorn. Samma som < = operator* ``least(10, 30, 15, 20) -> 10``
-* ``least(toDate('12/12/2010'), toDate('12/12/2011'), toDate('12/12/2000')) -> '12/12/2000'``
+* ``least(toDate('2010-12-12'), toDate('2011-12-12'), toDate('2000-12-12')) -> toDate('2000-12-12')``
 ___
 ### <code>left</code>
 <code><b>left(<i>&lt;string to subset&gt;</i> : string, <i>&lt;number of characters&gt;</i> : integral) => string</b></code><br/><br/>
@@ -374,17 +401,18 @@ Extraherar en under sträng som börjar vid index 1 med antalet tecken. Samma so
 ___
 ### <code>length</code>
 <code><b>length(<i>&lt;value1&gt;</i> : string) => integer</b></code><br/><br/>
-Returnerar längden på strängen* ``length('kiddo') -> 5``
+Returnerar längden på strängen* ``length('dumbo') -> 5``
 ___
 ### <code>lesser</code>
 <code><b>lesser(<i>&lt;value1&gt;</i> : any, <i>&lt;value2&gt;</i> : any) => boolean</b></code><br/><br/>
-Jämförelse av mindre operator. Samma som < operatör* ``lesser(12 < 24) -> true``
-* ``'abcd' < 'abc' -> false``
+Jämförelse av mindre operator. Samma som < operatör* ``lesser(12, 24) -> true``
+* ``('abcd' < 'abc') -> false``
+* ``(toTimestamp('2019-02-03 05:19:28.871', 'yyyy-MM-dd HH:mm:ss.SSS') < toTimestamp('2019-02-05 08:21:34.890', 'yyyy-MM-dd HH:mm:ss.SSS')) -> true``
 ___
 ### <code>lesserOrEqual</code>
 <code><b>lesserOrEqual(<i>&lt;value1&gt;</i> : any, <i>&lt;value2&gt;</i> : any) => boolean</b></code><br/><br/>
 Jämförelsen är mindre än eller lika med operatorn. Samma som < = operator* ``lesserOrEqual(12, 12) -> true``
-* ``'abcd' <= 'abc' -> false``
+* ``('dumbo' <= 'dum') -> false``
 ___
 ### <code>levenshtein</code>
 <code><b>levenshtein(<i>&lt;from string&gt;</i> : string, <i>&lt;to string&gt;</i> : string) => integer</b></code><br/><br/>
@@ -398,7 +426,7 @@ Escape-tecken är. Om ett escape-tecken föregår en särskild symbol eller ett 
 ___
 ### <code>locate</code>
 <code><b>locate(<i>&lt;substring to find&gt;</i> : string, <i>&lt;string&gt;</i> : string, [<i>&lt;from index - 1-based&gt;</i> : integral]) => integer</b></code><br/><br/>
-Söker efter positionen (1) för under strängen i en sträng som startar en viss position. Om positionen utelämnas beaktas den från början av strängen. 0 returneras om det inte hittas* ``locate('eat', 'great') -> 3``
+Söker efter positionen (1) för under strängen i en sträng som startar en viss position. Om positionen utelämnas beaktas den från början av strängen. 0 returneras om det inte hittas* ``locate('mbo', 'dumbo') -> 3``
 * ``locate('o', 'microsoft', 6) -> 7``
 * ``locate('bad', 'good') -> 0``
 ___
@@ -416,60 +444,70 @@ Gemener i en sträng* ``lower('GunChus') -> 'gunchus'``
 ___
 ### <code>lpad</code>
 <code><b>lpad(<i>&lt;string to pad&gt;</i> : string, <i>&lt;final padded length&gt;</i> : integral, <i>&lt;padding&gt;</i> : string) => string</b></code><br/><br/>
-Vänster fyller strängen med den angivna utfyllnaden tills den har en viss längd. Om strängen är lika med eller större än längden, betraktas den som * ``lpad('great', 10, '-') -> '___--great'`` en no-op 
-* ``lpad('great', 4, '-') -> 'great'`` 
-* -lpad ("Great", 8, "< >)->" < ><great'``
+Vänster fyller strängen med den angivna utfyllnaden tills den har en viss längd. Om strängen är lika med eller större än längden är den * ``lpad('dumbo', 10, '-') -> '-----dumbo'`` putsad till längden 
+* ``lpad('dumbo', 4, '-') -> 'dumb'`` 
+* "' lpad (' Dumbo ', 8, ' < > ')-> ' < ><dumbo'``
 ___
 ### <code>LTRIM</code>
-<code><b>ltrim(<i>&lt;string to trim&gt;</i> : string, <i>&lt;trim characters&gt;</i> : string) => string</b></code><br/><br/>
-Left trimmar en sträng med inledande tecken. Om den andra parametern inte anges rensas blank steg. Annars trimmas alla bokstäver som anges i den andra parametern* ``ltrim('!--!wor!ld!', '-!') -> 'wor!ld!'``
+<code><b>ltrim(<i>&lt;string to trim&gt;</i> : string, [<i>&lt;trim characters&gt;</i> : string]) => string</b></code><br/><br/>
+Left trimmar en sträng med inledande tecken. Om den andra parametern inte anges rensas blank steg. Annars trimmas alla bokstäver som anges i den andra parametern* ``ltrim('  dumbo  ') -> 'dumbo  '``
+* ``ltrim('!--!du!mbo!', '-!') -> 'du!mbo!'``
 ___
 ### <code>max</code>
 <code><b>max(<i>&lt;value1&gt;</i> : any) => any</b></code><br/><br/>
-Hämtar det maximala värdet för en kolumn* ``MAX(sales) -> 12312131.12``
+Hämtar det maximala värdet för en kolumn* ``max(sales)``
 ___
 ### <code>maxIf</code>
 <code><b>maxIf(<i>&lt;value1&gt;</i> : boolean, <i>&lt;value2&gt;</i> : any) => any</b></code><br/><br/>
-Baserat på ett villkor hämtar det maximala värdet för en kolumn* ``maxIf(region == 'West', sales) -> 99999.56``
+Baserat på ett villkor hämtar det maximala värdet för en kolumn* ``maxIf(region == 'West', sales)``
 ___
 ### <code>md5</code>
 <code><b>md5(<i>&lt;value1&gt;</i> : any, ...) => string</b></code><br/><br/>
-Beräknar MD5-sammandrag av en uppsättning av varierande primitiva data typer och returnerar en hex-sträng på 32 tecken. Den kan användas för att beräkna ett finger avtryck för en rad* ``md5(5, 'gunchus', 8.2, 'bojjus', true, toDate('2010-4-4')) -> 'c1527622a922c83665e49835e46350fe'``
+Beräknar MD5-sammandrag av en uppsättning av varierande primitiva data typer och returnerar en hex-sträng på 32 tecken. Den kan användas för att beräkna ett finger avtryck för en rad* ``md5(5, 'gunchus', 8.2, 'bojjus', true, toDate('2010-4-4')) -> '4ce8a880bd621a1ffad0bca905e1bc5a'``
 ___
 ### <code>mean</code>
 <code><b>mean(<i>&lt;value1&gt;</i> : number) => number</b></code><br/><br/>
-Hämtar medelvärdet för en kolumns värden. Samma som i genomsnitt* ``mean(sales) -> 7523420.234``
+Hämtar medelvärdet för en kolumns värden. Samma som i genomsnitt* ``mean(sales)``
 ___
 ### <code>meanIf</code>
 <code><b>meanIf(<i>&lt;value1&gt;</i> : boolean, <i>&lt;value2&gt;</i> : number) => number</b></code><br/><br/>
-Baserat på ett villkor hämtas medelvärdet av värden i en kolumn. Samma som avgIf* ``meanIf(region == 'West', sales) -> 7523420.234``
+Baserat på ett villkor hämtas medelvärdet av värden i en kolumn. Samma som avgIf* ``meanIf(region == 'West', sales)``
 ___
 ### <code>millisecond</code>
 <code><b>millisecond(<i>&lt;value1&gt;</i> : timestamp, [<i>&lt;value2&gt;</i> : string]) => integer</b></code><br/><br/>
 Hämtar millisekund-värdet för ett datum. Du kan skicka en valfri tidszon i formatet "GMT", "PST", "UTC", "America/Cayman". Den lokala tids zonen används som standard.
 * ``millisecond(toTimestamp('2009-07-30 12:58:59.871', 'yyyy-MM-dd HH:mm:ss.SSS')) -> 871``
 ___
+### <code>milliseconds</code>
+<code><b>milliseconds(<i>&lt;value1&gt;</i> : integer) => long</b></code><br/><br/>
+Varaktighet i millisekunder för antal millisekunder* ``seconds(2) -> 2L``
+___
 ### <code>min</code>
 <code><b>min(<i>&lt;value1&gt;</i> : any) => any</b></code><br/><br/>
-Hämtar det lägsta värdet för en kolumn* ``min(sales) -> 00.01``
-* ``min(orderDate) -> 12/12/2000``
+Hämtar det lägsta värdet för en kolumn* ``min(sales)``
 ___
 ### <code>minIf</code>
 <code><b>minIf(<i>&lt;value1&gt;</i> : boolean, <i>&lt;value2&gt;</i> : any) => any</b></code><br/><br/>
-Baserat på ett villkor hämtar det minsta värdet för en kolumn* ``minIf(region == 'West', sales) -> 00.01``
+Baserat på ett villkor hämtar det minsta värdet för en kolumn* ``minIf(region == 'West', sales)``
 ___
 ### <code>minus</code>
 <code><b>minus(<i>&lt;value1&gt;</i> : any, <i>&lt;value2&gt;</i> : any) => any</b></code><br/><br/>
-Subtraherar tal. Subtrahera från ett datum antal dagar. Samma som-operatorn* ``minus(20, 10) -> 10``
+Subtraherar tal. Subtrahera från ett datum antal dagar. Substract varaktighet från en tidsstämpel. Substract två tidsstämplar för att få en skillnad i millisekunder. Samma som-operatorn* ``minus(20, 10) -> 10``
 * ``20 - 10 -> 10``
-* ``minus(toDate('2012-12-15'), 3) -> 2012-12-12 (date value)``
-* ``toDate('2012-12-15') - 3 -> 2012-12-13 (date value)``
+* ``minus(toDate('2012-12-15'), 3) -> toDate('2012-12-12')``
+* ``toDate('2012-12-15') - 3 -> toDate('2012-12-12')``
+* ``toTimestamp('2019-02-03 05:19:28.871', 'yyyy-MM-dd HH:mm:ss.SSS') + (days(1) + hours(2) - seconds(10)) -> toTimestamp('2019-02-04 07:19:18.871', 'yyyy-MM-dd HH:mm:ss.SSS')``
+* ``toTimestamp('2019-02-03 05:21:34.851', 'yyyy-MM-dd HH:mm:ss.SSS') - toTimestamp('2019-02-03 05:21:36.923', 'yyyy-MM-dd HH:mm:ss.SSS') -> -2072``
 ___
 ### <code>minute</code>
 <code><b>minute(<i>&lt;value1&gt;</i> : timestamp, [<i>&lt;value2&gt;</i> : string]) => integer</b></code><br/><br/>
 Hämtar minutens värde för en tidsstämpel. Du kan skicka en valfri tidszon i formatet "GMT", "PST", "UTC", "America/Cayman". Den lokala tids zonen används som standard.
-* ``minute(toTimestamp('2009-07-30T12:58:59')) -> 58``
-* ``minute(toTimestamp('2009-07-30T12:58:59', 'PST')) -> 58``
+* ``minute(toTimestamp('2009-07-30 12:58:59')) -> 58``
+* ``minute(toTimestamp('2009-07-30 12:58:59'), 'PST') -> 58``
+___
+### <code>minutes</code>
+<code><b>minutes(<i>&lt;value1&gt;</i> : integer) => long</b></code><br/><br/>
+Tid i millisekunder för antal minuter* ``minutes(2) -> 120000L``
 ___
 ### <code>mod</code>
 <code><b>mod(<i>&lt;value1&gt;</i> : any, <i>&lt;value2&gt;</i> : any) => any</b></code><br/><br/>
@@ -481,9 +519,9 @@ ___
 Hämtar månad svärdet för ett datum eller en tidsstämpel* ``month(toDate('2012-8-8')) -> 8``
 ___
 ### <code>monthsBetween</code>
-<code><b>monthsBetween(<i>&lt;from date/timestamp&gt;</i> : datetime, <i>&lt;to date/timestamp&gt;</i> : datetime, [<i>&lt;time zone&gt;</i> : boolean], [<i>&lt;value4&gt;</i> : string]) => double</b></code><br/><br/>
-Hämtar antalet månader mellan två datesYou kan skicka en valfri tidszon i formatet "GMT", "PST", "UTC", "America/Cayman". Den lokala tids zonen används som standard.
-* ``monthsBetween(toDate('1997-02-28 10:30:00'), toDate('1996-10-30')) -> 3.94959677``
+<code><b>monthsBetween(<i>&lt;from date/timestamp&gt;</i> : datetime, <i>&lt;to date/timestamp&gt;</i> : datetime, [<i>&lt;roundoff&gt;</i> : boolean], [<i>&lt;time zone&gt;</i> : string]) => double</b></code><br/><br/>
+Hämtar antalet månader mellan två datum. Du kan avrunda beräkningen. Du kan skicka en valfri tidszon i formatet "GMT", "PST", "UTC", "America/Cayman". Den lokala tids zonen används som standard.
+* ``monthsBetween(toTimestamp('1997-02-28 10:30:00'), toDate('1996-10-30')) -> 3.94959677``
 ___
 ### <code>multiply</code>
 <code><b>multiply(<i>&lt;value1&gt;</i> : any, <i>&lt;value2&gt;</i> : any) => any</b></code><br/><br/>
@@ -493,8 +531,8 @@ ___
 ### <code>nTile</code>
 <code><b>nTile([<i>&lt;value1&gt;</i> : integer]) => integer</b></code><br/><br/>
 Funktionen NTile delar upp raderna för varje partition i `n` buckets mellan 1 och `n`högst. Bucket-värden kommer att skilja sig från de flesta 1. Om antalet rader i partitionen inte delas jämnt i antalet buckets, distribueras resten av värdena en per Bucket, från den första Bucket. Funktionen NTile är användbar för beräkning av tertiles, kvartilen, deciles och annan gemensam sammanfattnings statistik. Funktionen beräknar två variabler under initieringen: En vanlig Bucket-storlek kommer att ha en extra rad tillagd. Båda variablerna baseras på den aktuella partitionens storlek. Under beräknings processen håller funktionen reda på det aktuella rad numret, aktuellt Bucket-nummer och rad numret som Bucket ska ändras till (bucketThreshold). När det aktuella rad numret når Bucket-tröskelvärdet ökas värdet för Bucket med ett och tröskelvärdet ökas med Bucket-storlek (plus ett extra om den aktuella Bucket är utfylld).
-* ``nTile() -> 1``
-* ``nTile(numOfBuckets) -> 1``
+* ``nTile()``
+* ``nTile(numOfBuckets)``
 ___
 ### <code>negate</code>
 <code><b>negate(<i>&lt;value1&gt;</i> : number) => number</b></code><br/><br/>
@@ -502,29 +540,29 @@ Negerar ett tal. Ändrar positivt tal till negativt och tvärtom* ``negate(13) -
 ___
 ### <code>nextSequence</code>
 <code><b>nextSequence() => long</b></code><br/><br/>
-Returnerar nästa unika sekvens. Antalet är i följd bara i en partition och har prefixet partitionId* ``nextSequence() -> 12313112``
+Returnerar nästa unika sekvens. Antalet är i följd bara i en partition och har prefixet partitionId* ``nextSequence() == 12313112 -> false``
 ___
 ### <code>normalize</code>
 <code><b>normalize(<i>&lt;String to normalize&gt;</i> : string) => string</b></code><br/><br/>
-Normalisera strängvärdet för att separera Unicode-tecken med accenttecken* ``normalize('boys') -> 'boys'``
+Normalisera strängvärdet för att separera Unicode-tecken med accenttecken* ``regexReplace(normalize('bo²s'), `\p{M}`, '') -> 'boys'``
 ___
 ### <code>not</code>
 <code><b>not(<i>&lt;value1&gt;</i> : boolean) => boolean</b></code><br/><br/>
 Logisk negation operator* ``not(true) -> false``
-* ``not(premium)``
+* ``not(10 == 20) -> true``
 ___
 ### <code>notEquals</code>
 <code><b>notEquals(<i>&lt;value1&gt;</i> : any, <i>&lt;value2&gt;</i> : any) => boolean</b></code><br/><br/>
-Jämförelse operatorn är inte lika med. Samma som! = operator* ``12!=24 -> true``
-* ``'abc'!='abc' -> false``
+Jämförelse operatorn är inte lika med. Samma som! = operator* ``12 != 24 -> true``
+* ``'bojjus' != 'bo' + 'jjus' -> false``
 ___
 ### <code>null</code>
 <code><b>null() => null</b></code><br/><br/>
-Returnerar ett NULL-värde. Använd Function-syntaxen (null ()) om det finns en kolumn med namnet null. Alla åtgärder som använder resulterar i NULL* ``custId = NULL (for derived field)``
-* ``custId == NULL -> NULL``
-* ``'nothing' + NULL -> NULL``
-* ``10 * NULL -> NULL'``
-* ``NULL == '' -> NULL'``
+Returnerar ett NULL-värde. Använd Function-syntaxen (null ()) om det finns en kolumn med namnet null. Alla åtgärder som använder resulterar i NULL* ``isNull('dumbo' + null) -> true``
+* ``isNull(10 * null) -> true``
+* ``isNull('') -> false``
+* ``isNull(10 + 20) -> false``
+* ``isNull(10/0) -> true``
 ___
 ### <code>or</code>
 <code><b>or(<i>&lt;value1&gt;</i> : boolean, <i>&lt;value2&gt;</i> : boolean) => boolean</b></code><br/><br/>
@@ -542,7 +580,7 @@ Höjer ett tal till kraften hos ett annat* ``power(10, 2) -> 100``
 ___
 ### <code>rank</code>
 <code><b>rank(<i>&lt;value1&gt;</i> : any, ...) => integer</b></code><br/><br/>
-Beräknar rangordningen för ett värde i en grupp med värden. Resultatet är ett plus antalet rader före eller lika med den aktuella raden i ordningen för partitionen. Värdena kommer att skapa luckor i sekvensen. Rang fungerar även när data inte sorteras och söker efter ändrings värden* ``rank(salesQtr, salesAmt) -> 1``
+Beräknar rangordningen för ett värde i en grupp med värden. Resultatet är ett plus antalet rader före eller lika med den aktuella raden i ordningen för partitionen. Värdena kommer att skapa luckor i sekvensen. Rang fungerar även när data inte sorteras och söker efter ändrings värden* ``rank(salesQtr, salesAmt)``
 ___
 ### <code>regexExtract</code>
 <code><b>regexExtract(<i>&lt;string&gt;</i> : string, <i>&lt;regex to find&gt;</i> : string, [<i>&lt;match group 1-based index&gt;</i> : integral]) => string</b></code><br/><br/>
@@ -561,15 +599,16 @@ Ersätt alla förekomster av ett regex-mönster med en annan under sträng i den
 ___
 ### <code>regexSplit</code>
 <code><b>regexSplit(<i>&lt;string to split&gt;</i> : string, <i>&lt;regex expression&gt;</i> : string) => array</b></code><br/><br/>
-Delar upp en sträng baserat på en avgränsare som baseras på regex och returnerar en sträng mat ris* ``regexSplit('oneAtwoBthreeC', '[CAB]') -> ['one', 'two', 'three']``
-* ``regexSplit('oneAtwoBthreeC', '[CAB]')[1] -> 'one'``
-* ``regexSplit('oneAtwoBthreeC', '[CAB]')[0] -> NULL``
-* ``regexSplit('oneAtwoBthreeC', '[CAB]')[20] -> NULL``
+Delar upp en sträng baserat på en avgränsare som baseras på regex och returnerar en sträng mat ris* ``regexSplit('bojjusAgunchusBdumbo', `[CAB]`) -> ['bojjus', 'gunchus', 'dumbo']``
+* ``regexSplit('bojjusAgunchusBdumboC', `[CAB]`) -> ['bojjus', 'gunchus', 'dumbo', '']``
+* ``(regexSplit('bojjusAgunchusBdumboC', `[CAB]`)[1]) -> 'bojjus'``
+* ``isNull(regexSplit('bojjusAgunchusBdumboC', `[CAB]`)[20]) -> true``
 ___
 ### <code>replace</code>
-<code><b>replace(<i>&lt;string&gt;</i> : string, <i>&lt;substring to find&gt;</i> : string, <i>&lt;substring to replace&gt;</i> : string) => string</b></code><br/><br/>
-Ersätt alla förekomster av en under sträng med en annan under sträng i den aktuella strängen* ``replace('doggie dog', 'dog', 'cat') -> 'catgie cat'``
-* ``replace('doggie dog', 'dog', '') -> 'gie'``
+<code><b>replace(<i>&lt;string&gt;</i> : string, <i>&lt;substring to find&gt;</i> : string, [<i>&lt;substring to replace&gt;</i> : string]) => string</b></code><br/><br/>
+Ersätt alla förekomster av en under sträng med en annan under sträng i den aktuella strängen. Om den sista parametern utelämnas, är standardvärdet tom sträng* ``replace('doggie dog', 'dog', 'cat') -> 'catgie cat'``
+* ``replace('doggie dog', 'dog', '') -> 'gie '``
+* ``replace('doggie dog', 'dog') -> 'gie '``
 ___
 ### <code>reverse</code>
 <code><b>reverse(<i>&lt;value1&gt;</i> : string) => string</b></code><br/><br/>
@@ -582,7 +621,8 @@ Extraherar en under sträng med antalet tecken till höger. Samma som del strän
 ___
 ### <code>rlike</code>
 <code><b>rlike(<i>&lt;string&gt;</i> : string, <i>&lt;pattern match&gt;</i> : string) => boolean</b></code><br/><br/>
-Kontrollerar om strängen matchar angivet regex-mönster* ``rlike('200.50', '(\d+).(\d+)') -> true``
+Kontrollerar om strängen matchar angivet regex-mönster* ``rlike('200.50', `(\d+).(\d+)`) -> true``
+* ``rlike('bogus', `M[0-9]+.*`) -> false``
 ___
 ### <code>round</code>
 <code><b>round(<i>&lt;number&gt;</i> : number, [<i>&lt;scale to round&gt;</i> : number], [<i>&lt;rounding option&gt;</i> : integral]) => double</b></code><br/><br/>
@@ -592,34 +632,39 @@ Avrundar ett tal till en valfri skala och ett valfritt avrundnings läge. Om ska
 ___
 ### <code>rowNumber</code>
 <code><b>rowNumber() => integer</b></code><br/><br/>
-Tilldelar sekventiella rad nummer för rader i ett fönster som börjar med 1* ``rowNumber() -> 1``
+Tilldelar sekventiella rad nummer för rader i ett fönster som börjar med 1* ``rowNumber()``
 ___
 ### <code>rpad</code>
 <code><b>rpad(<i>&lt;string to pad&gt;</i> : string, <i>&lt;final padded length&gt;</i> : integral, <i>&lt;padding&gt;</i> : string) => string</b></code><br/><br/>
-Höger pad strängen med den angivna utfyllnaden tills den har en viss längd. Om strängen är lika med eller större än längden, betraktas den som * ``rpad('great', 10, '-') -> 'great___--'``en no-op 
-* ``rpad('great', 4, '-') -> 'great'`` 
-* ``rpad('great', 8, '<>') -> 'great<><'`` 
+Höger pad strängen med den angivna utfyllnaden tills den har en viss längd. Om strängen är lika med eller större än längden är den putsad till längden * ``rpad('dumbo', 10, '-') -> 'dumbo-----'``RTrim 
+* ``rpad('dumbo', 4, '-') -> 'dumb'`` 
+* ``rpad('dumbo', 8, '<>') -> 'dumbo<><'`` 
 ___
-### <code>rtrim</code>-RTrim</code>
-<code><b>rtrim(<i>&lt;string to trim&gt;</i> : string, <i>&lt;trim characters&gt;</i> : string) => string</b></code><br/><br/>
-Höger trimmar en sträng med inledande tecken. Om den andra parametern inte anges rensas blank steg. Annars trimmas alla bokstäver som anges i den andra parametern* ``rtrim('!--!wor!ld!', '-!') -> '!--!wor!ld'``
+### <code>rtrim</code></code>
+<code><b>rtrim(<i>&lt;string to trim&gt;</i> : string, [<i>&lt;trim characters&gt;</i> : string]) => string</b></code><br/><br/>
+Höger trimmar en sträng med inledande tecken. Om den andra parametern inte anges rensas blank steg. Annars trimmas alla bokstäver som anges i den andra parametern* ``rtrim('  dumbo  ') -> '  dumbo'``
+* ``rtrim('!--!du!mbo!', '-!') -> '!--!du!mbo'``
 ___
 ### <code>second</code>
 <code><b>second(<i>&lt;value1&gt;</i> : timestamp, [<i>&lt;value2&gt;</i> : string]) => integer</b></code><br/><br/>
 Hämtar det andra värdet för ett datum. Du kan skicka en valfri tidszon i formatet "GMT", "PST", "UTC", "America/Cayman". Den lokala tids zonen används som standard.
-* ``second(toTimestamp('2009-07-30T12:58:59')) -> 59``
+* ``second(toTimestamp('2009-07-30 12:58:59')) -> 59``
+___
+### <code>seconds</code>
+<code><b>seconds(<i>&lt;value1&gt;</i> : integer) => long</b></code><br/><br/>
+Tid i millisekunder för antal sekunder* ``seconds(2) -> 2000L``
 ___
 ### <code>sha1</code>
 <code><b>sha1(<i>&lt;value1&gt;</i> : any, ...) => string</b></code><br/><br/>
-Beräknar SHA-1-sammandrag av uppsättning av varierande primitiva data typer och returnerar en hex-sträng på 40 tecken. Den kan användas för att beräkna ett finger avtryck för en rad* ``sha1(5, 'gunchus', 8.2, 'bojjus', true, toDate('2010-4-4')) -> '63849fd2abb65fbc626c60b1f827bd05573f0cea'``
+Beräknar SHA-1-sammandrag av uppsättning av varierande primitiva data typer och returnerar en hex-sträng på 40 tecken. Den kan användas för att beräkna ett finger avtryck för en rad* ``sha1(5, 'gunchus', 8.2, 'bojjus', true, toDate('2010-4-4')) -> '46d3b478e8ec4e1f3b453ac3d8e59d5854e282bb'``
 ___
 ### <code>sha2</code>
 <code><b>sha2(<i>&lt;value1&gt;</i> : integer, <i>&lt;value2&gt;</i> : any, ...) => string</b></code><br/><br/>
-Beräknar SHA-2-sammandrag av en uppsättning av varierande primitiva data typer med en bit-längd som bara kan vara av värdena 0 (256), 224, 256, 384, 512. Den kan användas för att beräkna ett finger avtryck för en rad* ``sha2(256, 'gunchus', 8.2, 'bojjus', true, toDate('2010-4-4')) -> 'd3b2bff62c3a00e9370b1ac85e428e661a7df73959fa1a96ae136599e9ee20fd'``
+Beräknar SHA-2-sammandrag av en uppsättning av varierande primitiva data typer med en bit-längd som bara kan vara av värdena 0 (256), 224, 256, 384, 512. Den kan användas för att beräkna ett finger avtryck för en rad* ``sha2(256, 'gunchus', 8.2, 'bojjus', true, toDate('2010-4-4')) -> 'afe8a553b1761c67d76f8c31ceef7f71b66a1ee6f4e6d3b5478bf68b47d06bd3'``
 ___
 ### <code>sin</code>
 <code><b>sin(<i>&lt;value1&gt;</i> : number) => double</b></code><br/><br/>
-Beräknar ett sinus-värde* ``sin(2) -> 0.90929742682``
+Beräknar ett sinus-värde* ``sin(2) -> 0.9092974268256817``
 ___
 ### <code>sinh</code>
 <code><b>sinh(<i>&lt;value1&gt;</i> : number) => double</b></code><br/><br/>
@@ -627,20 +672,20 @@ Beräknar ett hyperboliskt sinus-värde* ``sinh(0) -> 0.0``
 ___
 ### <code>skewness</code>
 <code><b>skewness(<i>&lt;value1&gt;</i> : number) => double</b></code><br/><br/>
-Hämtar snedheten för en kolumn* ``skewness(sales) -> 122.12``
+Hämtar snedheten för en kolumn* ``skewness(sales)``
 ___
 ### <code>skewnessIf</code>
 <code><b>skewnessIf(<i>&lt;value1&gt;</i> : boolean, <i>&lt;value2&gt;</i> : number) => double</b></code><br/><br/>
-Utifrån ett villkor hämtar du snedheten för en kolumn* ``skewnessIf(region == 'West', sales) -> 122.12``
+Utifrån ett villkor hämtar du snedheten för en kolumn* ``skewnessIf(region == 'West', sales)``
 ___
 ### <code>slice</code>
 <code><b>slice(<i>&lt;array to slice&gt;</i> : array, <i>&lt;from 1-based index&gt;</i> : integral, [<i>&lt;number of items&gt;</i> : integral]) => array</b></code><br/><br/>
 Extraherar en delmängd av en matris från en position. Positionen är 1 baserad. Om längden utelämnas används standardvärdet i slutet av strängen* ``slice([10, 20, 30, 40], 1, 2) -> [10, 20]``
 * ``slice([10, 20, 30, 40], 2) -> [20, 30, 40]``
 * ``slice([10, 20, 30, 40], 2)[1] -> 20``
-* ``slice([10, 20, 30, 40], 2)[0] -> NULL``
-* ``slice([10, 20, 30, 40], 2)[20] -> NULL``
-* ``slice([10, 20, 30, 40], 8) -> []``
+* ``isNull(slice([10, 20, 30, 40], 2)[0]) -> true``
+* ``isNull(slice([10, 20, 30, 40], 2)[20]) -> true``
+* ``slice(['a', 'b', 'c', 'd'], 8) -> []``
 ___
 ### <code>soundex</code>
 <code><b>soundex(<i>&lt;value1&gt;</i> : string) => string</b></code><br/><br/>
@@ -648,13 +693,13 @@ Hämtar SOUNDEX-koden för strängen* ``soundex('genius') -> 'G520'``
 ___
 ### <code>split</code>
 <code><b>split(<i>&lt;string to split&gt;</i> : string, <i>&lt;split characters&gt;</i> : string) => array</b></code><br/><br/>
-Delar upp en sträng baserat på en avgränsare och returnerar en matris med strängar* ``split('100,200,300', ',') -> ['100', '200', '300']``
-* ``split('100,200,300', '|') -> ['100,200,300']``
-* ``split('100, 200, 300', ', ') -> ['100', '200', '300']``
-* ``split('100, 200, 300', ', ')[1] -> '100'``
-* ``split('100, 200, 300', ', ')[0] -> NULL``
-* ``split('100, 200, 300', ', ')[20] -> NULL``
-* ``split('100200300', ',') -> ['100200300']``
+Delar upp en sträng baserat på en avgränsare och returnerar en matris med strängar* ``split('bojjus,guchus,dumbo', ',') -> ['bojjus', 'guchus', 'dumbo']``
+* ``split('bojjus,guchus,dumbo', '|') -> ['bojjus,guchus,dumbo']``
+* ``split('bojjus, guchus, dumbo', ', ') -> ['bojjus', 'guchus', 'dumbo']``
+* ``split('bojjus, guchus, dumbo', ', ')[1] -> 'bojjus'``
+* ``isNull(split('bojjus, guchus, dumbo', ', ')[0]) -> true``
+* ``isNull(split('bojjus, guchus, dumbo', ', ')[20]) -> true``
+* ``split('bojjusguchusdumbo', ',') -> ['bojjusguchusdumbo']``
 ___
 ### <code>sqrt</code>
 <code><b>sqrt(<i>&lt;value1&gt;</i> : number) => double</b></code><br/><br/>
@@ -662,39 +707,39 @@ Beräknar kvadratroten ur ett tal* ``sqrt(9) -> 3``
 ___
 ### <code>startsWith</code>
 <code><b>startsWith(<i>&lt;string&gt;</i> : string, <i>&lt;substring to check&gt;</i> : string) => boolean</b></code><br/><br/>
-Kontrollerar om strängen börjar med den angivna strängen* ``startsWith('great', 'gr') -> true``
+Kontrollerar om strängen börjar med den angivna strängen* ``startsWith('dumbo', 'du') -> true``
 ___
 ### <code>stddev</code>
 <code><b>stddev(<i>&lt;value1&gt;</i> : number) => double</b></code><br/><br/>
-Hämtar standard avvikelsen för en kolumn* ``stdDev(sales) -> 122.12``
+Hämtar standard avvikelsen för en kolumn* ``stdDev(sales)``
 ___
 ### <code>stddevIf</code>
 <code><b>stddevIf(<i>&lt;value1&gt;</i> : boolean, <i>&lt;value2&gt;</i> : number) => double</b></code><br/><br/>
-Baserat på ett villkor hämtar standard avvikelsen för en kolumn* ``stddevIf(region == 'West', sales) -> 122.12``
+Baserat på ett villkor hämtar standard avvikelsen för en kolumn* ``stddevIf(region == 'West', sales)``
 ___
 ### <code>stddevPopulation</code>
 <code><b>stddevPopulation(<i>&lt;value1&gt;</i> : number) => double</b></code><br/><br/>
-Hämtar populationens standard avvikelse för en kolumn* ``stddevPopulation(sales) -> 122.12``
+Hämtar populationens standard avvikelse för en kolumn* ``stddevPopulation(sales)``
 ___
 ### <code>stddevPopulationIf</code>
 <code><b>stddevPopulationIf(<i>&lt;value1&gt;</i> : boolean, <i>&lt;value2&gt;</i> : number) => double</b></code><br/><br/>
-Baserat på ett villkor hämtar populationens standard avvikelse för en kolumn* ``stddevPopulationIf(region == 'West', sales) -> 122.12``
+Baserat på ett villkor hämtar populationens standard avvikelse för en kolumn* ``stddevPopulationIf(region == 'West', sales)``
 ___
 ### <code>stddevSample</code>
 <code><b>stddevSample(<i>&lt;value1&gt;</i> : number) => double</b></code><br/><br/>
-Hämtar exempel standard avvikelsen för en kolumn* ``stddevSample(sales) -> 122.12``
+Hämtar exempel standard avvikelsen för en kolumn* ``stddevSample(sales)``
 ___
 ### <code>stddevSampleIf</code>
 <code><b>stddevSampleIf(<i>&lt;value1&gt;</i> : boolean, <i>&lt;value2&gt;</i> : number) => double</b></code><br/><br/>
-Baserat på ett villkor hämtar exempel standard avvikelsen för en kolumn* ``stddevSampleIf(region == 'West', sales) -> 122.12``
+Baserat på ett villkor hämtar exempel standard avvikelsen för en kolumn* ``stddevSampleIf(region == 'West', sales)``
 ___
 ### <code>subDays</code>
 <code><b>subDays(<i>&lt;date/timestamp&gt;</i> : datetime, <i>&lt;days to subtract&gt;</i> : integral) => datetime</b></code><br/><br/>
-Subtrahera månader från ett datum. Samma som-operatorn för datum* ``subDays(toDate('2016-08-08'), 1) -> 2016-08-09``
+Subtrahera månader från ett datum eller en tidsstämpel. Samma som-operatorn för datum* ``subDays(toDate('2016-08-08'), 1) -> toDate('2016-08-07')``
 ___
 ### <code>subMonths</code>
 <code><b>subMonths(<i>&lt;date/timestamp&gt;</i> : datetime, <i>&lt;months to subtract&gt;</i> : integral) => datetime</b></code><br/><br/>
-Subtrahera månader från ett datum eller en tidsstämpel* ``subMonths(toDate('2016-09-30'), 1) -> 2016-08-31``
+Subtrahera månader från ett datum eller en tidsstämpel* ``subMonths(toDate('2016-09-30'), 1) -> toDate('2016-08-31')``
 ___
 ### <code>substring</code>
 <code><b>substring(<i>&lt;string to subset&gt;</i> : string, <i>&lt;from 1-based index&gt;</i> : integral, [<i>&lt;number of characters&gt;</i> : integral]) => string</b></code><br/><br/>
@@ -705,21 +750,21 @@ Extraherar en under sträng av en viss längd från en position. Positionen är 
 ___
 ### <code>sum</code>
 <code><b>sum(<i>&lt;value1&gt;</i> : number) => number</b></code><br/><br/>
-Hämtar mängd summan för en numerisk kolumn* ``sum(col) -> value``
+Hämtar mängd summan för en numerisk kolumn* ``sum(col)``
 ___
 ### <code>sumDistinct</code>
 <code><b>sumDistinct(<i>&lt;value1&gt;</i> : number) => number</b></code><br/><br/>
-Hämtar den sammanlagda summan av distinkta värden för en numerisk kolumn* ``sumDistinct(col) -> value``
+Hämtar den sammanlagda summan av distinkta värden för en numerisk kolumn* ``sumDistinct(col)``
 ___
 ### <code>sumDistinctIf</code>
 <code><b>sumDistinctIf(<i>&lt;value1&gt;</i> : boolean, <i>&lt;value2&gt;</i> : number) => number</b></code><br/><br/>
-Baserat på kriterier får den sammanlagda summan av en numerisk kolumn. Villkoret kan baseras på vilken kolumn som helst* ``sumDistinctIf(state == 'CA' && commission < 10000, sales) -> value``
-* ``sumDistinctIf(true, sales) -> SUM(sales)``
+Baserat på kriterier får den sammanlagda summan av en numerisk kolumn. Villkoret kan baseras på vilken kolumn som helst* ``sumDistinctIf(state == 'CA' && commission < 10000, sales)``
+* ``sumDistinctIf(true, sales)``
 ___
 ### <code>sumIf</code>
 <code><b>sumIf(<i>&lt;value1&gt;</i> : boolean, <i>&lt;value2&gt;</i> : number) => number</b></code><br/><br/>
-Baserat på kriterier får den sammanlagda summan av en numerisk kolumn. Villkoret kan baseras på vilken kolumn som helst* ``sumIf(state == 'CA' && commission < 10000, sales) -> value``
-* ``sumIf(true, sales) -> SUM(sales)``
+Baserat på kriterier får den sammanlagda summan av en numerisk kolumn. Villkoret kan baseras på vilken kolumn som helst* ``sumIf(state == 'CA' && commission < 10000, sales)``
+* ``sumIf(true, sales)``
 ___
 ### <code>tan</code>
 <code><b>tan(<i>&lt;value1&gt;</i> : number) => double</b></code><br/><br/>
@@ -729,16 +774,20 @@ ___
 <code><b>tanh(<i>&lt;value1&gt;</i> : number) => double</b></code><br/><br/>
 Beräknar ett hyperboliskt tangens-värde* ``tanh(0) -> 0.0``
 ___
+### <code>toBinary</code>
+<code><b>toBinary(<i>&lt;value1&gt;</i> : any) => binary</b></code><br/><br/>
+Konverterar valfri numerisk/datum/tidsstämpel/sträng till binär representation* ``toBinary(3) -> [0x11]``
+___
 ### <code>toBoolean</code>
 <code><b>toBoolean(<i>&lt;value1&gt;</i> : string) => boolean</b></code><br/><br/>
 Konverterar värdet (t, true, y, Yes, 1) till true och (' f ', ' false ', ' n ', ' no ', ' 0 ') till false och NULL för andra värden* ``toBoolean('true') -> true``
 * ``toBoolean('n') -> false``
-* ``toBoolean('truthy') -> NULL``
+* ``isNull(toBoolean('truthy')) -> true``
 ___
 ### <code>toDate</code>
 <code><b>toDate(<i>&lt;string&gt;</i> : any, [<i>&lt;date format&gt;</i> : string]) => date</b></code><br/><br/>
-Konverterar en sträng till ett datum som har fått ett valfritt datum format. Se Java-SimpleDateFormat för alla möjliga format. Om datum formatet utelämnas godkänns kombinationer av följande. [åååå, åååå-[M] M, åååå-[M] M-[d] d, åååå-[M] M-[d] d, åååå-[m] M-[d] d, åååå-[M] M-[d] d, åååå-[M] M-[d] dT *]* ``toDate('2012-8-8') -> 2012-8-8``
-* ``toDate('12/12/2012', 'MM/dd/yyyy') -> 2012-12-12``
+Konverterar datum strängen för indata till datum med ett valfritt datum format för indata. Se Java-SimpleDateFormat för tillgängliga format. Om datum formatet för indata utelämnas, är standardformatet åååå-[M] M-[d] d. Godkända format: [åååå, åååå-[M] M, åååå-[M] M-[d] d, åååå-[M] M-[d] dT *]* ``toDate('2012-8-18') -> toDate('2012-08-18')``
+* ``toDate('12/18/2012', 'MM/dd/yyyy') -> toDate('2012-12-18')``
 ___
 ### <code>toDecimal</code>
 <code><b>toDecimal(<i>&lt;value&gt;</i> : any, [<i>&lt;precision&gt;</i> : integral], [<i>&lt;scale&gt;</i> : integral], [<i>&lt;format&gt;</i> : string], [<i>&lt;locale&gt;</i> : string]) => decimal(10,0)</b></code><br/><br/>
@@ -756,9 +805,9 @@ Konverterar alla numeriska eller strängar till ett Double-värde. Ett valfritt 
 ___
 ### <code>toFloat</code>
 <code><b>toFloat(<i>&lt;value&gt;</i> : any, [<i>&lt;format&gt;</i> : string], [<i>&lt;locale&gt;</i> : string]) => float</b></code><br/><br/>
-Konverterar alla numeriska eller strängar till ett flytt ALS värde. Ett valfritt Java decimal format kan användas för konverteringen. Trunkerar alla dubbla* ``toFloat(123.45) -> 123.45``
-* ``toFloat('123.45') -> 123.45``
-* ``toFloat('$123.45', '$###.00') -> 123.45``
+Konverterar alla numeriska eller strängar till ett flytt ALS värde. Ett valfritt Java decimal format kan användas för konverteringen. Trunkerar alla dubbla* ``toFloat(123.45) -> 123.45f``
+* ``toFloat('123.45') -> 123.45f``
+* ``toFloat('$123.45', '$###.00') -> 123.45f``
 ___
 ### <code>toInteger</code>
 <code><b>toInteger(<i>&lt;value&gt;</i> : any, [<i>&lt;format&gt;</i> : string], [<i>&lt;locale&gt;</i> : string]) => integer</b></code><br/><br/>
@@ -786,37 +835,40 @@ Konverterar en primitiv datatyp till en sträng. För tal och datum kan ett form
 * ``toString(123.78, '000000.000') -> '000123.780'``
 * ``toString(12345, '##0.#####E0') -> '12.345E3'``
 * ``toString(toDate('2018-12-31')) -> '2018-12-31'``
-* ``toString(toDate('2018-12-31'), 'MM/dd/yy') -> '12/31/18'``
+* ``isNull(toString(toDate('2018-12-31', 'MM/dd/yy'))) -> true``
 * ``toString(4 == 20) -> 'false'``
 ___
 ### <code>toTimestamp</code>
 <code><b>toTimestamp(<i>&lt;string&gt;</i> : any, [<i>&lt;timestamp format&gt;</i> : string], [<i>&lt;time zone&gt;</i> : string]) => timestamp</b></code><br/><br/>
-Konverterar en sträng till ett datum som har fått ett valfritt tidsstämpel-format. Se Java-SimpleDateFormat för alla möjliga format. Om tidsstämpeln utelämnas, är standard mönstret åååå-[M] M-[d] d hh: mm: SS [. f...] används* ``toTimestamp('2016-12-31 00:12:00') -> 2012-8-8T00:12:00``
-* ``toTimestamp('2016/12/31T00:12:00', 'MM/dd/yyyyThh:mm:ss') -> 2012-12-12T00:12:00``
+Konverterar en sträng till en tidstämpel som har fått ett valfritt tidsstämpel-format. Se Java-SimpleDateFormat för alla möjliga format. Om tidsstämpeln utelämnas används standard mönstret. åååå-[M] M-[d] d hh: mm: SS [. f...]. Du kan skicka en valfri tidszon i formatet "GMT", "PST", "UTC", "America/Cayman". Tidsstämpeln har stöd för upp till millisekunder med värdet 999* ``toTimestamp('2016-12-31 00:12:00') -> toTimestamp('2016-12-31 00:12:00')``
+* ``toTimestamp('2016-12-31T00:12:00', 'yyyy-MM-dd\'T\'HH:mm:ss', 'PST') -> toTimestamp('2016-12-31 00:12:00')``
+* ``toTimestamp('12/31/2016T00:12:00', 'MM/dd/yyyy\'T\'HH:mm:ss') -> toTimestamp('2016-12-31 00:12:00')``
+* ``millisecond(toTimestamp('2019-02-03 05:19:28.871', 'yyyy-MM-dd HH:mm:ss.SSS')) -> 871``
 ___
 ### <code>toUTC</code>
 <code><b>toUTC(<i>&lt;value1&gt;</i> : timestamp, [<i>&lt;value2&gt;</i> : string]) => timestamp</b></code><br/><br/>
-Konverterar tidsstämpeln till UTC. Du kan skicka en valfri tidszon i formatet "GMT", "PST", "UTC", "America/Cayman". Den aktuella tids zonen används som standard* ``toUTC(currentTimeStamp()) -> 12-12-2030T19:18:12``
-* ``toUTC(currentTimeStamp(), 'Asia/Seoul') -> 12-13-2030T11:18:12``
+Konverterar tidsstämpeln till UTC. Du kan skicka en valfri tidszon i formatet "GMT", "PST", "UTC", "America/Cayman". Den aktuella tids zonen används som standard* ``toUTC(currentTimeStamp()) == toTimestamp('2050-12-12 19:18:12') -> false``
+* ``toUTC(currentTimeStamp(), 'Asia/Seoul') != toTimestamp('2050-12-12 19:18:12') -> true``
 ___
 ### <code>translate</code>
 <code><b>translate(<i>&lt;string to translate&gt;</i> : string, <i>&lt;lookup characters&gt;</i> : string, <i>&lt;replace characters&gt;</i> : string) => string</b></code><br/><br/>
-Ersätt en uppsättning tecken med en annan uppsättning tecken i strängen. Tecken har 1 till 1-ersättning* ``translate('(Hello)', '()', '[]') -> '[Hello]'``
-* ``translate('(Hello)', '()', '[') -> '[Hello'``
+Ersätt en uppsättning tecken med en annan uppsättning tecken i strängen. Tecken har 1 till 1-ersättning* ``translate('(bojjus)', '()', '[]') -> '[bojjus]'``
+* ``translate('(gunchus)', '()', '[') -> '[gunchus'``
 ___
 ### <code>trim</code>
 <code><b>trim(<i>&lt;string to trim&gt;</i> : string, [<i>&lt;trim characters&gt;</i> : string]) => string</b></code><br/><br/>
-Trimmar en sträng med inledande och avslutande tecken. Om den andra parametern inte anges rensas blank steg. Annars trimmas alla bokstäver som anges i den andra parametern* ``trim('!--!wor!ld!', '-!') -> 'wor!ld'``
+Trimmar en sträng med inledande och avslutande tecken. Om den andra parametern inte anges rensas blank steg. Annars trimmas alla bokstäver som anges i den andra parametern* ``trim('  dumbo  ') -> 'dumbo'``
+* ``trim('!--!du!mbo!', '-!') -> 'du!mbo'``
 ___
 ### <code>true</code>
 <code><b>true() => boolean</b></code><br/><br/>
-Returnerar alltid ett sant värde. Använd Function-syntaxen (true ()) om det finns en kolumn med namnet ' true '* ``isDiscounted == true()``
-* ``isDiscounted() == true``
+Returnerar alltid ett sant värde. Använd Function-syntaxen (true ()) om det finns en kolumn med namnet ' true '* ``(10 + 20 == 30) -> true``
+* ``(10 + 20 == 30) -> true()``
 ___
 ### <code>typeMatch</code>
 <code><b>typeMatch(<i>&lt;type&gt;</i> : string, <i>&lt;base type&gt;</i> : string) => boolean</b></code><br/><br/>
-Matchar kolumnens typ. Kan endast användas i mönster uttryck. antalet matchar Short, Integer, Long, Double, float eller decimal, integral matchar kort, heltal, lång, bråk matchade data, Float, decimal och datetime matchar datum-eller timestamp-typ* ``typeMatch(type, 'number') -> true``
-* ``typeMatch('date', 'number') -> false``
+Matchar kolumnens typ. Kan endast användas i mönster uttryck. antalet matchar Short, Integer, Long, Double, float eller decimal, integral matchar kort, heltal, lång, bråk matchade data, Float, decimal och datetime matchar datum-eller timestamp-typ* ``typeMatch(type, 'number')``
+* ``typeMatch('date', 'datetime')``
 ___
 ### <code>upper</code>
 <code><b>upper(<i>&lt;value1&gt;</i> : string) => string</b></code><br/><br/>
@@ -824,31 +876,35 @@ Versaler en sträng* ``upper('bojjus') -> 'BOJJUS'``
 ___
 ### <code>variance</code>
 <code><b>variance(<i>&lt;value1&gt;</i> : number) => double</b></code><br/><br/>
-Hämtar var Ian sen för en kolumn* ``variance(sales) -> 122.12``
+Hämtar var Ian sen för en kolumn* ``variance(sales)``
 ___
 ### <code>varianceIf</code>
 <code><b>varianceIf(<i>&lt;value1&gt;</i> : boolean, <i>&lt;value2&gt;</i> : number) => double</b></code><br/><br/>
-Baserat på ett villkor hämtar var Ian sen för en kolumn* ``varianceIf(region == 'West', sales) -> 122.12``
+Baserat på ett villkor hämtar var Ian sen för en kolumn* ``varianceIf(region == 'West', sales)``
 ___
 ### <code>variancePopulation</code>
 <code><b>variancePopulation(<i>&lt;value1&gt;</i> : number) => double</b></code><br/><br/>
-Hämtar populationens varians för en kolumn* ``variancePopulation(sales) -> 122.12``
+Hämtar populationens varians för en kolumn* ``variancePopulation(sales)``
 ___
 ### <code>variancePopulationIf</code>
 <code><b>variancePopulationIf(<i>&lt;value1&gt;</i> : boolean, <i>&lt;value2&gt;</i> : number) => double</b></code><br/><br/>
-Baserat på ett villkor hämtar populationens varians för en kolumn* ``variancePopulationIf(region == 'West', sales) -> 122.12``
+Baserat på ett villkor hämtar populationens varians för en kolumn* ``variancePopulationIf(region == 'West', sales)``
 ___
 ### <code>varianceSample</code>
 <code><b>varianceSample(<i>&lt;value1&gt;</i> : number) => double</b></code><br/><br/>
-Hämtar den neutrala var Ian sen för en kolumn* ``varianceSample(sales) -> 122.12``
+Hämtar den neutrala var Ian sen för en kolumn* ``varianceSample(sales)``
 ___
 ### <code>varianceSampleIf</code>
 <code><b>varianceSampleIf(<i>&lt;value1&gt;</i> : boolean, <i>&lt;value2&gt;</i> : number) => double</b></code><br/><br/>
-Baserat på ett villkor får du en kolumn som inte är vägd varians* ``varianceSampleIf(region == 'West', sales) -> 122.12``
+Baserat på ett villkor får du en kolumn som inte är vägd varians* ``varianceSampleIf(region == 'West', sales)``
 ___
 ### <code>weekOfYear</code>
 <code><b>weekOfYear(<i>&lt;value1&gt;</i> : datetime) => integer</b></code><br/><br/>
 Hämtar veckan på året angivet datum* ``weekOfYear(toDate('2008-02-20')) -> 8``
+___
+### <code>weeks</code>
+<code><b>weeks(<i>&lt;value1&gt;</i> : integer) => long</b></code><br/><br/>
+Varaktighet i millisekunder för antal veckor* ``weeks(2) -> 1209600000L``
 ___
 ### <code>xor</code>
 <code><b>xor(<i>&lt;value1&gt;</i> : boolean, <i>&lt;value2&gt;</i> : boolean) => boolean</b></code><br/><br/>

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.author: jingwang
-ms.openlocfilehash: f2b1e8b9829bab56f0e49eafc50b7c56594de96b
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 2ecb19f86c665e89e9326c160596a8f14a169dba
+ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68720819"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71009412"
 ---
 # <a name="copy-data-from-dynamics-ax-by-using-azure-data-factory-preview"></a>Kopiera data från Dynamics AX med Azure Data Factory (för hands version)
 
@@ -25,9 +25,14 @@ Den här artikeln beskriver hur du använder kopierings aktivitet i Azure Data F
 
 ## <a name="supported-capabilities"></a>Funktioner som stöds
 
+Den här Dynamics AX-anslutningen stöds för följande aktiviteter:
+
+- [Kopierings aktivitet](copy-activity-overview.md) med [käll mat ris som stöds](copy-activity-overview.md)
+- [Sökningsaktivitet](control-flow-lookup-activity.md)
+
 Du kan kopiera data från Dynamics AX till alla mottagar data lager som stöds. En lista över data lagrar att det stöder Kopieringsaktiviteten som källor och mottagare, finns i [datalager och format som stöds](copy-activity-overview.md#supported-data-stores-and-formats).
 
-Mer specifikt stöder den här Dynamics AX-anslutaren kopiering av data från Dynamics AX med hjälp av **OData-protokollet** med autentisering av **tjänstens huvud namn**.
+Mer specifikt stöder den här Dynamics AX-anslutaren kopiering av data från Dynamics AX med hjälp av **OData-protokollet** med **autentisering av tjänstens huvud namn**.
 
 >[!TIP]
 >Du kan också använda den här anslutningen för att kopiera data från **ekonomi och åtgärder i Dynamics 365**. Se Dynamics 365: s [OData-support](https://docs.microsoft.com/dynamics365/unified-operations/dev-itpro/data-entities/odata) och [autentiseringsmetod](https://docs.microsoft.com/dynamics365/unified-operations/dev-itpro/data-entities/services-home-page#authentication).
@@ -168,6 +173,11 @@ Om du vill kopiera data från Dynamics AX anger du **käll** typen i kopierings 
     }
 ]
 ```
+
+
+## <a name="lookup-activity-properties"></a>Egenskaper för Sök aktivitet
+
+Om du vill veta mer om egenskaperna kontrollerar du [söknings aktiviteten](control-flow-lookup-activity.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

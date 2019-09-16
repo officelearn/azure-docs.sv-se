@@ -75,13 +75,13 @@ Följande data typer stöds i modeller som har skapats med **serialiserar** -bib
 | int32\_t |32-bitars heltal |
 | int64\_t |64-bitars heltal |
 | bool |boolean |
-| ASCII\_-\_tecken PTR |ASCII-sträng |
-| \_TIDS\_FÖRSKJUTNING\_FÖR EDM-DATUM |datum/tid för förskjutning |
+| ascii\_char\_ptr |ASCII-sträng |
+| EDM\_DATE\_TIME\_OFFSET |datum/tid för förskjutning |
 | EDM\_GUID |GUID |
 | EDM\_BINARY |binary |
 | DECLARE\_STRUCT |komplex data typ |
 
-Vi börjar med den senaste data typen. Med **Declare\_-struct** kan du definiera komplexa data typer, som är grupperingar av andra primitiva typer. Med dessa grupperingar kan vi definiera en modell som ser ut så här:
+Vi börjar med den senaste data typen. Med **DECLARE\_STRUCT** kan du definiera komplexa data typer, som är grupperingar av andra primitiva typer. Med dessa grupperingar kan vi definiera en modell som ser ut så här:
 
 ```C
 DECLARE_STRUCT(TestType,

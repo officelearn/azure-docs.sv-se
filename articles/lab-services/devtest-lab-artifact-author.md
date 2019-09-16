@@ -84,10 +84,10 @@ För att definiera parametrar, använder du följande struktur:
 
 Tillåtna typer är:
 
-* sträng (en giltig JSON-sträng)
+* string (en giltig JSON-sträng)
 * int (alla giltiga JSON-heltal)
 * bool (alla giltiga JSON booleska)
-* matris (någon giltig JSON-matris)
+* array (någon giltig JSON-matris)
 
 ## <a name="secrets-as-secure-strings"></a>Hemligheter som säker strängar
 Deklarera hemligheter som säker strängar. Här är syntaxen för att deklarera en säker strängparameter i den `parameters` delen av den **artifactfile.json** fil:

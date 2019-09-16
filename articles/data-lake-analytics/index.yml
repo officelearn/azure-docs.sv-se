@@ -1,0 +1,91 @@
+### YamlMime:Landing
+title: Dokumentation om Azure Data Lake Analytics
+summary: Med Azure Data Lake Analytics kan du köra stordataanalysjobb som skalas för enorma datauppsättningar.
+metadata:
+  title: Azure Data Lake Analytics
+  description: Med Azure Data Lake Analytics kan du köra stordataanalysjobb som skalas för enorma datauppsättningar.
+  services: service
+  ms.service: data-lake-analytics
+  ms.subservice: subservice
+  ms.topic: landing-page
+  ms.collection: collection
+  author: hrasheed-msft
+  ms.author: hrasheed
+  ms.date: 09/13/2019
+  ms.openlocfilehash: a370cf424d7ebdf32fcdd2e0f8653e2e36b7162b
+  ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 09/14/2019
+  ms.locfileid: "70997255"
+landingContent:
+- title: Om Data Lake Analytics
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Vad är Azure Data Lake Analytics?
+      url: data-lake-analytics-overview.md
+  - linkListType: quickstart
+    links:
+    - text: Skapa U-SQL-jobb i Azure-portalen
+      url: data-lake-analytics-get-started-portal.md
+    - text: Skapa U-SQL-jobb med Azure CLI
+      url: data-lake-analytics-get-started-cli.md
+    - text: Skapa U-SQL-jobb i Visual Studio Code
+      url: data-lake-analytics-data-lake-tools-for-vscode.md
+- title: Läs om U-SQL-språket
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Kom igång med U-SQL
+      url: data-lake-analytics-u-sql-get-started.md
+    - text: Språkreferens för U-SQL
+      url: https://docs.microsoft.com/u-sql/
+    - text: Kom igång med U-SQL-katalogen
+      url: data-lake-analytics-u-sql-catalog.md
+    - text: Använda användardefinierade operatorer
+      url: data-lake-analytics-u-sql-develop-user-defined-operators.md
+- title: Utveckla U-SQL-program
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Använda Data Lake Tools för Visual Studio
+      url: data-lake-analytics-data-lake-tools-get-started.md
+    - text: Använda ett U-SQL-databasprojekt i Visual Studio
+      url: data-lake-analytics-data-lake-tools-develop-usql-database.md
+    - text: Använd jobbwebbläsare och jobbvy
+      url: data-lake-analytics-data-lake-tools-view-jobs.md
+    - text: Felsöka användardefinierad C#-kod
+      url: data-lake-analytics-debug-u-sql-jobs.md
+    - text: Använda Azure Data Lake Tools för Visual Studio Code
+      url: data-lake-analytics-data-lake-tools-for-vscode.md
+    - text: Använda anpassad kod med U-SQL i Visual Studio Code
+      url: data-lake-analytics-u-sql-develop-with-python-r-csharp-in-vscode.md
+    - text: Schemalägga jobb med SSIS
+      url: data-lake-analytics-schedule-jobs-ssis.md
+- title: Hantera Data Lake Analytics
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Hantera med Azure-portalen
+      url: data-lake-analytics-manage-use-portal.md
+    - text: Hantera med Azure CLI
+      url: data-lake-analytics-manage-use-cli.md
+    - text: Hantera med en .NET-app
+      url: data-lake-analytics-manage-use-dotnet-sdk.md
+    - text: Lägga till en användare i Azure-portalen
+      url: data-lake-analytics-add-users.md
+    - text: Hantera Azure Data Lake Analytics med hjälp av principer
+      url: data-lake-analytics-policies.md
+- title: Kontinuerlig integrering och distribution
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Konfigurera en CI/CD-pipeline
+      url: data-lake-analytics-cicd-overview.md
+    - text: Hantera U-SQL-sammansättningar
+      url: data-lake-analytics-cicd-manage-assemblies.md
+    - text: Testa U-SQL-skript
+      url: data-lake-analytics-cicd-test.md
+    - text: Använda U-SQL SDK
+      url: data-lake-analytics-u-sql-sdk.md

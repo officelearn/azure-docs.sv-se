@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 08/29/2019
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 4267b8299e13f1705b218e65b268c45bd5a658e2
-ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
+ms.openlocfilehash: 475e628901a96334976dbdbbaa8b362197ec3bc3
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70240302"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70914038"
 ---
 ::: zone target = "docs"
 
@@ -24,7 +24,7 @@ ms.locfileid: "70240302"
 
 ::: zone target = "chromeless"
 
-## <a name="copy-data-to-azure-data-box-heavy"></a>Kopiera data till Azure Data Box Heavy
+# <a name="copy-data-to-azure-data-box-heavy"></a>Kopiera data till Azure Data Box Heavy
 
 ::: zone-end
 
@@ -316,7 +316,7 @@ Stegvisa instruktioner finns i [Självstudier: Kopiera data till Azure Data Box 
 2. Om du vill kopiera data till Data Box-blogglagring kan du använda AzCopy.
 3. Upprepa de här stegen för att ansluta och kopiera data till den andra noden på Data Box Heavy-enheten.
 
-Stegvisa instruktioner finns i [Självstudier: Kopiera data till Azure Data Box Blob-lagring via REST-API:er](data-box-heavy-deploy-copy-data-via-rest.md).
+Stegvisa instruktioner finns i [Självstudier: Kopiera data till Azure Data Box-bloblagring via REST-API:er](data-box-heavy-deploy-copy-data-via-rest.md).
 
 ### <a name="copy-data-via-data-copy-service"></a>Kopiera data via datakopieringstjänsten
 

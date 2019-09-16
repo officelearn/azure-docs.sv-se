@@ -98,6 +98,10 @@
       href: functions-premium-plan.md
     - name: Distributioner
       href: functions-deployment-technologies.md
+    - name: Händelser och meddelanden
+      items:
+        - name: Design för identiska indata
+          href: functions-idempotent.md
     - name: Utlösare och bindningar
       items:
         - name: Om utlösare och bindningar

@@ -89,7 +89,7 @@
       items:
         - name: Distribuera Azure AD-programproxy
           href: deploy-azure-app-proxy.md
-        - name: Konfigurera support för profilsynkronisering för SharePoint Server
+        - name: Aktivera profilsynkronisering för SharePoint Server
           href: deploy-sp-profile-sync.md
     - name: Felsöka
       items:

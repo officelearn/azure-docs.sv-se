@@ -614,6 +614,12 @@
       items:
         - name: Bearbeta textfiler med fast bredd
           href: how-to-fixed-width.md
+    - name: SSIS-migrering från lokal plats
+      items:
+        - name: Översikt över SSIS-migrering
+          href: scenario-ssis-migration-overview.md
+        - name: SSISDB-migrering till en hanterad Azure SQL Database-instans
+          href: scenario-ssis-migration-ssisdb-mi.md
 - name: Referens
   items:
     - name: .NET

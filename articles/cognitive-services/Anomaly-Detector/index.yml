@@ -1,10 +1,10 @@
-### YamlMime:YamlDocument
-documentType: LandingData
-title: 'Dokumentation om API:et för avvikelseidentifiering'
+### YamlMime:Landing
+title: Dokumentation om API:et för avvikelseidentifiering
+summary: Lär dig hur du använder API:et för avvikelseidentifiering för att övervaka data under lång tid och identifiera avvikelser med hjälp av maskininlärning. Få insikter om dina data – oavsett hur stora volymer du har, vilken bransch du arbetar i eller vilket scenario det gäller.
 metadata:
-  title: 'API för avvikelseidentifiering – självstudier, snabbstarter, API-referens'
+  title: API för avvikelseidentifiering – självstudier, snabbstarter, API-referens
   titleSuffix: Azure Cognitive Services
-  description: 'Använd API:et för avvikelseidentifiering för att övervaka data under lång tid och identifiera avvikelser med hjälp av maskininlärning. Få insikter om dina data – oavsett hur stora volymer du har, vilken bransch du arbetar i eller vilket scenario det gäller.'
+  description: Använd API:et för avvikelseidentifiering för att övervaka data under lång tid och identifiera avvikelser med hjälp av maskininlärning. Få insikter om dina data – oavsett hur stora volymer du har, vilken bransch du arbetar i eller vilket scenario det gäller.
   services: cognitive-services
   author: aahill
   manager: nitinme
@@ -12,62 +12,102 @@ metadata:
   ms.service: cognitive-services
   ms.subservice: anomaly-detector
   ms.topic: landing-page
-  ms.date: 03/26/2019
+  ms.date: 09/10/2019
   ms.author: aahi
-abstract:
-  description: 'API:et för avvikelseidentifiering hjälper dig att enkelt bädda in funktioner för avvikelseidentifiering i dina appar så att dina användare snabbt kan identifiera problem och minimera förluster och kundpåverkan. Du behöver inga kunskaper om maskininlärning. Med ett enda API-anrop kan du aktivera den här förtränade AI-modellen som matar in tidsseriedata av alla typer och volymer, väljer den bästa modellen för avvikelseidentifiering för dina data och identifierar incidenter automatiskt så snart de inträffar. Du kan anpassa tjänsten för att identifiera avvikelser i olika storlekar.  Använd avvikelseidentifiering för att identifiera affärsincidenter, övervaka IoT-trafik, upptäcka bedrägerier, agera på marknadsförändringar och mycket mer.'
-sections:
-  - items:
-      - type: list
-        style: cards
-        className: cardsM
-        columns: 3
-        items:
-          - href: /azure/cognitive-services/anomaly-detector/overview
-            html: '<p>Läs mer om API:et för avvikelseidentifiering</p>'
-            image:
-              src: ../media/index/i_overview.svg
-            title: 'Vad är API:et för avvikelseidentifiering?'
-          - href: /azure/cognitive-services/anomaly-detector/concepts/anomaly-detection-best-practices
-            html: '<p>Optimera dina avvikelseidentifieringsresultat med hjälp av metodtips för API:et</p>'
-            image:
-              src: ../media/index/i_guidelines.svg
-            title: 'Metodtips när du använder API:et för avvikelseidentifiering'
-          - href: /azure/cognitive-services/anomaly-detector/how-to/identify-anomalies
-            html: '<p>Justera känsligheten för avvikelseidentifiering, använd olika lägen med mera.</p>'
-            image:
-              src: ../media/index/i_guidelines.svg
-            title: 'Använda API:et för avvikelseidentifiering'
-  - title: Snabbstarter på 5 minuter
-    items:
-      - type: paragraph
-        text: 'Identifiera avvikelser i dina tidsseriedata med hjälp av:'
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: media/logo_Csharp.svg
-            href: quickstarts/detect-data-anomalies-csharp
-            text: 'C#'
-          - image:
-              src: media/logo_Java.svg
-            href: quickstarts/detect-data-anomalies-java
-            text: Java
-          - image:
-              src: media/logo_python.svg
-            href: quickstarts/detect-data-anomalies-python
-            text: Python
-  - title: Referens
-    items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: REST-API
-            html: '<p><a href="https://aka.ms/anomaly-detector-rest-api-ref">API för avvikelseidentifiering</a></p>'
-          - title: 'SDK:er'
-            html: '<p><a href="https://aka.ms/anomaly-detector-dotnet-ref">NET</a></p> <p><a href="https://go.microsoft.com/fwlink/?linkid=2089915">Go</a></p> <p><a href="https://go.microsoft.com/fwlink/?linkid=2090370">Python</a></p> <p><a href="https://go.microsoft.com/fwlink/?linkid=2090788">Node.js</a></p>'
-          - title: PowerShell
-            html: '<p><a href="https://docs.microsoft.com/powershell/module/az.cognitiveservices/#cognitive_services">Azure PowerShell</a></p>'
-          - title: CLI
-            html: '<p><a href="https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest">Azure CLI</a></p>'
+  ms.openlocfilehash: 61db0fe16557b582ad43cd2eddbe8e421a0b743a
+  ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 09/13/2019
+  ms.locfileid: "70967077"
+landingContent:
+- title: Om API:et för avvikelseidentifiering
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Vad är API:et för avvikelseidentifiering?
+      url: overview.md
+  - linkListType: get-started
+    links:
+    - text: Demo för avvikelseidentifiering
+      url: https://aka.ms/adDemo
+  - linkListType: video
+    links:
+    - text: Introduktion till API:et för avvikelseidentifiering
+      url: https://channel9.msdn.com/Shows/AI-Show/Introducing-Azure-Anomaly-Detector?WT.mc_id=ai-c9-niner
+    - text: Algoritmer som används av API:et för avvikelseidentifiering
+      url: https://www.youtube.com/embed/ERTaAnwCarM
+  - linkListType: reference
+    links:
+    - text: Algoritmer som används vid avvikelseidentifiering (white paper)
+      url: https://arxiv.org/abs/1906.03821
+- title: Identifiera avvikelser i dina data
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Använd C#
+      url: quickstarts/detect-data-anomalies-csharp-sdk.md
+    - text: Använda Python
+      url: quickstarts/detect-data-anomalies-python-sdk.md
+  - linkListType: tutorial
+    links:
+    - text: Visualisera avvikelser med batchidentifiering och Power BI
+      url: tutorials/batch-anomaly-detection-powerbi.md
+    - text: Identifiera avvikelser i strömmade data med hjälp av Azure Databricks
+      url: tutorials/batch-anomaly-detection-powerbi.md
+  - linkListType: video
+    links:
+    - text: Avvikelseidentifiering på strömmade data med hjälp av Azure Databricks
+      url: https://channel9.msdn.com/Shows/AI-Show/Anomaly-detection-on-streaming-data-using-Azure-Databricks
+- title: Optimera dina identifieringsresultat
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Justera lägen för avvikelseidentifiering och parametrar för dina data.
+      url: how-to/identify-anomalies.md
+    - text: Använd de bästa metoderna för att optimera dina avvikelseidentifieringsresultat.
+      url: concepts/anomaly-detection-best-practices.md
+  - linkListType: video
+    links:
+    - text: Bästa metoder för avvikelseidentifiering
+      url: https://channel9.msdn.com/Shows/AI-Show/Anomaly-Detector-v10-Best-Practices
+- title: Använda Docker-containrar
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Installera och kör avvikelseidentifieringscontainrar
+      url: anomaly-detector-container-howto.md
+    - text: Konfigurera avvikelseidentifieringscontainrar
+      url: anomaly-detector-container-configuration.md
+    - text: Distribuera en containerinstans till Azure
+      url: how-to/deploy-anomaly-detection-on-container-instances.md
+  - linkListType: video
+    links:
+    - text: Få lokal avvikelseidentifiering med stöd för containrar
+      url: https://channel9.msdn.com/Shows/AI-Show/Bring-Anomaly-Detector-on-premise-with-containers-support
+- title: Delta i communityn för avvikelseidentifiering
+  linkLists:
+  - linkListType: learn
+    links:
+    - text: Gå med i rådgivningsgruppen för avvikelseidentifiering på Microsoft Teams
+      url: https://aka.ms/adadvisorsjoin
+    - text: Aktuellt användargenererat innehåll
+      url: user-generated-content.md
+- title: Referens
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: REST-API
+      url: https://aka.ms/anomaly-detector-rest-api-ref
+    - text: .NET SDK
+      url: https://aka.ms/anomaly-detector-dotnet-ref
+    - text: .Python SDK
+      url: https://go.microsoft.com/fwlink/?linkid=2090370
+    - text: Go SDK
+      url: https://go.microsoft.com/fwlink/?linkid=2089915
+    - text: Node.js SDK
+      url: https://go.microsoft.com/fwlink/?linkid=2090788
+    - text: Azure PowerShell
+      url: https://docs.microsoft.com/powershell/module/az.cognitiveservices/#cognitive_services
+    - text: Azure CLI
+      url: https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest#az_cognitiveservices_list

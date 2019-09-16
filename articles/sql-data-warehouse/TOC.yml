@@ -129,10 +129,16 @@
               href: /sql/t-sql/functions/openjson-transact-sql?view=azure-sqldw-latest
         - name: Materialiserad vy
           items:
+            - name: Vägledning för prestandajustering
+              href: performance-tuning-materialized-views.md
             - name: Skapa
               href: /sql/t-sql/statements/create-materialized-view-as-select-transact-sql
             - name: Ändra
               href: /sql/t-sql/statements/alter-materialized-view-transact-sql
+        - name: Grupperade kolumnlagringsindex
+          items:
+            - name: Vägledning för prestandajustering
+              href: performance-tuning-ordered-CCI.md
         - name: Cachelagring för resultatuppsättningar
           href: /sql/t-sql/statements/set-result-set-caching-transact-sql
         - name: Tabeller

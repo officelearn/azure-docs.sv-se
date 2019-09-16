@@ -1,19 +1,19 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Dokumentation till säker utveckling
+title: Dokumentation om säker utveckling
 metadata:
   document_id: null
-  title: Dokumentation till säker utveckling på Microsoft Azure
+  title: Dokumentation om säker utveckling på Microsoft Azure
   meta.description: Learn how to develop secure apps on Azure.
   services: security
   author: TerryLanfear
-  manager: barbkess
+  manager: rkarlin
   ms.service: security
   ms.subservice: develop
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 08/29/2019
+  ms.date: 09/14/2019
   ms.author: terrylan
 abstract:
   description: 'Läs mer om hur du utvecklar och distribuerar säkra program i Azure med våra exempelappar, metodtips och riktlinjer.'
@@ -27,12 +27,12 @@ sections:
           - href: /azure/security/develop/secure-dev-overview
             html: <p>Utveckla ett säkert webbprogram i Azure</p>
             image:
-              src: /media/common/i_get-started.svg
+              src: 'https://docs.microsoft.com/media/common/i_get-started.svg'
             title: Komma igång
           - href: 'https://docs.microsoft.com/learn/modules/top-5-security-items-to-consider'
             html: <p>De fem främsta säkerhetsobjekten för webbappar</p>
             image:
-              src: /media/common/i_learn-about.svg
+              src: 'https://docs.microsoft.com/media/common/i_learn-about.svg'
             title: Utveckla dina färdigheter med Microsoft Learn
   - title: Säkra exempelappar
     items:
@@ -41,6 +41,7 @@ sections:
         className: spaced noBullet
         items:
           - html: <a href="/azure/security/develop/secure-web-app">Webbapp i en Linux-container</a>
+          - html: <a href="/azure/security/develop/secure-pci-web-app">Betalkortsbranschen</a>
   - title: Begrepp
     items:
       - type: list

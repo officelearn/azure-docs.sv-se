@@ -1,9 +1,9 @@
-- name: Dokumentation om Azure Machine Learning-tjänsten
+- name: Dokumentation om Azure Machine Learning
   href: ../index.yml
 - name: Översikt
   expanded: true
   items:
-    - name: Vad är tjänsten Azure Machine Learning?
+    - name: Vad är Azure Machine Learning?
       displayName: 'AML, services, overview, introduction'
       href: overview-what-is-azure-ml.md
     - name: Arkitektur och villkor
@@ -31,6 +31,11 @@
             - name: Träna en maskininlärningsmodell automatiskt
               displayName: 'automl, automated, auto ml,'
               href: tutorial-auto-train-models.md
+        - name: Batchbedömning med pipelines (avancerat)
+          items:
+            - name: Batchbedöma en klassificeringsmodell
+              displayName: pipelines
+              href: tutorial-pipeline-batch-scoring-classification.md
     - name: Visuellt gränssnitt
       items:
         - name: 1. Träna regressionsmodellen
@@ -122,7 +127,7 @@
         - name: Använda Resource Manager-mallar
           displayName: arm
           href: how-to-create-workspace-template.md
-    - name: "Konfigurera utvecklingsmiljön\_"
+    - name: Konfigurera utvecklingsmiljön
       items:
         - name: Konfigurera utvecklingsmiljöer
           displayName: 'local, remote, azure notebooks, notebook, Jupyter, dsvm, Databricks, ADB'

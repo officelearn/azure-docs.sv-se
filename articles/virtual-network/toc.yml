@@ -253,6 +253,10 @@
           href: virtual-network-public-ip-address.md
         - name: Offentligt IP-prefix
           href: manage-public-ip-address-prefix.md
+    - name: Flytta mellan regioner
+      items:
+        - name: Virtuella nätverk – portalen
+          href: virtual-network-azure-to-azure-migrate-vnet-portal.md
     - name: Felsöka
       items:
         - name: Felsöka problem med peering i virtuella nätverk

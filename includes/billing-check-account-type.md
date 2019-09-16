@@ -5,27 +5,27 @@ ms.topic: include
 ms.date: 07/01/2019
 ms.author: amberb
 ms.openlocfilehash: a271f03788bc7b831e6d8daff3d53503db5a2710
-ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
-ms.translationtype: MT
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/01/2019
+ms.lasthandoff: 09/11/2019
 ms.locfileid: "67491069"
 ---
-Kontrollera avtalstyp för att avgöra vilken typ av ditt faktureringskonto
+Kontrollera din avtalstyp för att fastställa din faktureringskontotyp
  
-1. Logga in på [Azure Portal]( http://portal.azure.com).
+1. Logga in på [Azure-portalen]( http://portal.azure.com).
  
-2. Sök på **Cost Management + fakturering**.
+2. Sök efter **Kostnadshantering och fakturering**.
  
-   ![Skärmbild som visar Azure portal-sökning](./media/billing-check-account-type/billing-search-cost-management-billing.png)    
+   ![Skärmbild som visar en sökning i Azure-portalen](./media/billing-check-account-type/billing-search-cost-management-billing.png)    
  
-3. Om du har åtkomst till ett enda fakturering omfång väljer **egenskaper** till vänster.
+3. Om du bara har tillgång till ett faktureringsomfång väljer du **Egenskaper** till vänster.
  
-    ![Skärmbild som visar microsoft kundavtal egenskapssidan](./media/billing-check-account-type/billing-mca-property.png)
+    ![Skärmbild som visar Microsofts kundavtal på egenskapssidan](./media/billing-check-account-type/billing-mca-property.png)
     
-    Den **fakturering kontotyp** egenskaperna för sidan avgör vilken typ av ditt konto. Det kan vara Microsoft Online Service-Program, Enterprise-avtal eller Microsoft kundavtal. Mer information om vilken typ av fakturering konton finns [visa din faktureringsinformation konton i Azure-portalen](../articles/billing/billing-view-all-accounts.md).  
+    **Faktureringskontotyp** på egenskapssidan avgör kontotypen. Det kan vara Microsoft Online-tjänstprogrammet, Enterprise-avtalet eller Microsofts kundavtal. Mer information om faktureringskontotyper finns i [Visa faktureringskonton i Azure-portalen](../articles/billing/billing-view-all-accounts.md).  
  
-4. Om du har åtkomst till flera fakturering omfång väljer **fakturering konto** eller **alla fakturering omfång** till vänster. Kontrollera typen i den **fakturering kontotyp** kolumn.
+4. Om du har tillgång till flera faktureringsomfång väljer du **Faktureringskonto** eller **Alla faktureringsomfång** till vänster. Kontrollera typen i kolumnen **Faktureringskontotyp**.
  
-    ![Skärmbild som visar microsoft kundavtal i listan faktureringssidan konto](./media/billing-check-account-type/billing-account-type-in-the-list.png)
+    ![Skärmbild som visar Microsofts kundavtal på faktureringskontosidan](./media/billing-check-account-type/billing-account-type-in-the-list.png)
  

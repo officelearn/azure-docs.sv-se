@@ -58,6 +58,8 @@
       href: 'https://azure.microsoft.com/resources/samples/?service=key-vault'
 - name: Begrepp
   items:
+    - name: Grundläggande begrepp
+      href: basic-concepts.md
     - name: Säkerhet
       items:
         - name: Säkerhetsöversikt
@@ -68,8 +70,6 @@
           href: key-vault-ovw-security-worlds.md
         - name: Säkra ditt nyckelvalv
           href: key-vault-secure-your-key-vault.md
-    - name: Vad är Key Vault?
-      href: key-vault-whatis.md
     - name: Mjuk borttagning
       href: key-vault-ovw-soft-delete.md
     - name: Begränsning
@@ -92,6 +92,8 @@
           href: create-certificate-scenarios.md
 - name: Instruktionsguider
   items:
+    - name: Använda en hanterad identitet i App Service
+      href: managed-identity.md
     - name: Azure Key Vault-loggning
       href: key-vault-logging.md
     - name: Åtkomst bakom brandväggar

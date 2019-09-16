@@ -4,6 +4,8 @@
   items:
     - name: Om Azure-portalen
       href: azure-portal-overview.md
+    - name: Kom igång med Azure Snabbstartscenter
+      href: azure-portal-quickstart-center.md
     - name: Webbläsare och enheter som stöds
       href: azure-portal-supported-browsers-devices.md
 - name: Begrepp
@@ -25,7 +27,7 @@
     - name: Exportera eller ta bort användarinställningar
       href: azure-portal-export-delete-settings.md
     - name: Instruktionsvideoserie om Azure-portalen
-      href: 'https://www.youtube.com/playlist?list=PLLasX02E8BPBKgXP4oflOL29TtqTzwhxR'
+      href: azure-portal-video-series.md
 - name: Referens
   items:
     - name: Kortkommandon

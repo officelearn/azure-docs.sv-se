@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 8/27/2019
+ms.date: 09/10/2019
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 5b78dc8b815802502cda5baf2bf5e9646922d671
-ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
+ms.openlocfilehash: 194b90ab27d02c1fa3eb05bb3ddd78395d351599
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70241436"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70898181"
 ---
 ::: zone target="docs"
 
@@ -77,7 +77,7 @@ Kontrollera att datakopieringen till enheten är klar och att **Förbered för a
 
 ::: zone-end
 
-## <a name="ship-in-us-canada-europe"></a>Skicka i USA, Kanada eller Europa
+## <a name="in-us-canada-europetabin-us-canada-europe"></a>[I USA, Kanada, Europa](#tab/in-us-canada-europe)
 
 Utför följande steg om du returnerar enheten i USA, Kanada eller Europa.
 
@@ -94,7 +94,7 @@ Utför följande steg om du returnerar enheten i USA, Kanada eller Europa.
 4. Nära Data Box-enheten hämtas och skannas av transportföretaget uppdateras orderstatusen i portalen till **hämtad**. Du får också ett spårnings-ID.
 
 
-## <a name="ship-in-australia"></a>Leveranser i Australien
+## <a name="in-australiatabin-australia"></a>[I Australien](#tab/in-australia)
 
 Azure-datacenter i Australien kräver ytterligare en säkerhetsavisering. För alla inkommande leveranser krävs en särskild avisering. Följ stegen nedan vid leveranser i Australien.
 
@@ -126,7 +126,7 @@ För frågor om din beställning via telefonen:
 - Skicka ett e-postmeddelande om upphämtning först.
 - Ange namnet på din order på telefonen.
 
-## <a name="ship-in-japan"></a>Leveranser i Japan 
+## <a name="in-japantabin-japan"></a>[I Japan](#tab/in-japan) 
 
 1. Returnera enheten i originalkartongen.
 2. Stäng av enheten och avlägsna kablarna.

@@ -121,6 +121,10 @@
           href: billing-understand-free-service-meter-mapping.md
     - name: Redigera profil
       href: billing-how-to-change-azure-account-profile.md
+    - name: Open banking och stark kundautentisering
+      href: billing-open-banking-strong-customer-authentication.md
+    - name: Lös passerat betalningsdatum
+      href: billing-azure-subscription-past-due-balance.md
     - name: Bevilja åtkomst till fakturering
       href: billing-manage-access.md
     - name: Roller i Microsoft-kundavtal i Azure
@@ -131,6 +135,8 @@
       href: billing-view-all-accounts.md
     - name: Ordna kostnader med fakturaavsnitt
       href: billing-mca-section-invoice.md
+    - name: EA-uppgifter i Microsoft-kundavtal
+      href: billing-mca-enterprise-operations.md
     - name: EA-hantering
       items:
         - name: Kom igång i Azure EA-portalen
@@ -151,8 +157,6 @@
           href: billing-ea-portal-troubleshoot.md
         - name: EA-uppgifter i Microsoft-kundavtal
           href: billing-mca-enterprise-operations.md
-    - name: Lös passerat betalningsdatum
-      href: billing-azure-subscription-past-due-balance.md
     - name: Konfigurera ett faktureringskonto för Microsoft-kundavtal
       href: billing-mca-setup-account.md
     - name: Logga in med Office 365-konto

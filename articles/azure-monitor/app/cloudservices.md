@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.workload: tbd
 ms.date: 09/05/2018
 ms.author: mbullwin
-ms.openlocfilehash: 64995ad0560efd06bfa0084c948527e8a01e1890
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: 9325d2dd6c897f4c8dacb3dcf3a382f9f0e856a8
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "67443341"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70933000"
 ---
 # <a name="application-insights-for-azure-cloud-services"></a>Application Insights för Azure Cloud Services
 [Application Insights][start] kan övervaka [Azure Cloud Service-appar](https://azure.microsoft.com/services/cloud-services/) för tillgänglighet, prestanda, haverier och användning genom att kombinera data från Application Insights sdk: er med [Azure-diagnostik](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) data från moln tjänsterna. Med den feedback du får om appens prestanda och effektivitet kan du fatta välgrundade beslut om designen i varje utvecklingslivscykel.
@@ -84,8 +84,9 @@ Om du har bestämt dig för att skapa en separat resurs för varje roll, och kan
 
     ![Application Insightss fönster](./media/cloudservices/01-new.png)
 
-1. I list rutan **program typ** väljer du **ASP.NET-webbprogram**.  
-    Varje resurs identifieras med en Instrumentation-nyckel. Du kan behöva den här nyckeln senare om du vill konfigurera eller verifiera konfigurationen av SDK manuellt.
+1. I list rutan **program typ** väljer du **ASP.NET-webbprogram**.
+
+Varje resurs identifieras med en Instrumentation-nyckel. Du kan behöva den här nyckeln senare om du vill konfigurera eller verifiera konfigurationen av SDK manuellt.
 
 
 ## <a name="set-up-azure-diagnostics-for-each-role"></a>Konfigurera Azure Diagnostics för varje roll
@@ -133,8 +134,9 @@ I Visual Studio konfigurerar du Application Insights SDK för varje molnapprojek
     * [Arbetsroll](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/WorkerRoleA.cs#L232)
     * [För webb sidor](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/MvcWebRole/Views/Shared/_Layout.cshtml#L13) 
 
-1. Ange att filen *ApplicationInsights. config* alltid ska kopieras till utdatakatalogen.  
-    Ett meddelande i *. config* -filen uppmanar dig att placera instrument nyckeln där. Men för molnappar är det bättre att ställa in den från *. cscfg* -filen. Den här metoden säkerställer att rollen identifieras korrekt i portalen.
+1. Ange att filen *ApplicationInsights. config* alltid ska kopieras till utdatakatalogen.
+
+   Ett meddelande i *. config* -filen uppmanar dig att placera instrument nyckeln där. Men för molnappar är det bättre att ställa in den från *. cscfg* -filen. Den här metoden säkerställer att rollen identifieras korrekt i portalen.
 
 ## <a name="set-up-status-monitor-to-collect-full-sql-queries-optional"></a>Konfigurera Statusövervakare för att samla in fullständiga SQL-frågor (valfritt)
 
@@ -171,16 +173,19 @@ Det här steget behövs bara om du vill samla in fullständiga SQL-frågor på .
 
 1. Kör appen och logga in på Azure. 
 
-1. Öppna Application Insights resurser som du har skapat.  
-    Enskilda data punkter visas i [sökningen](../../azure-monitor/app/diagnostic-search.md)och sammanställda data visas i [Metric Explorer](../../azure-monitor/app/metrics-explorer.md). 
+1. Öppna Application Insights resurser som du har skapat.
+
+   Enskilda data punkter visas i [sökningen][diagnostic]och sammanställda data visas i [Metric Explorer](../../azure-monitor/app/metrics-explorer.md).
 
 1. Lägg till mer telemetri (se nästa avsnitt) och publicera sedan din app för att få Live-diagnostik och användnings feedback. 
 
 Om det inte finns några data gör du följande:
+
 1. Öppna panelen [Sök][diagnostic] om du vill visa enskilda händelser.
 1. Öppna olika sidor i appen så att den genererar viss telemetri.
 1. Vänta några sekunder och klicka sedan på **Uppdatera**.  
-    Mer information finns i [Felsökning][qna].
+
+Mer information finns i [Felsökning][qna].
 
 ## <a name="view-azure-diagnostics-events"></a>Visa Azure-diagnostik händelser
 Du kan hitta [Azure-diagnostik](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) information i Application Insights på följande platser:
@@ -257,7 +262,7 @@ Så här gör du:
 Om du vill hämta webbläsarbaserad telemetri, till exempel antal sid visningar, sid inläsnings tider eller skript undantag och skriva anpassad telemetri i dina sid skript, se [Lägg till Java Script SDK på dina webb sidor][client].
 
 ## <a name="availability-tests"></a>Tillgänglighetstester
-[Konfigurera][availability]webbtester för att se till att appen hålls Live och svarar.
+[Konfigurera webbtester][availability]för att se till att appen hålls Live och svarar.
 
 ## <a name="display-everything-together"></a>Visa allt tillsammans
 För en övergripande bild av systemet kan du Visa viktiga övervaknings diagram på en [instrument panel](../../azure-monitor/app/overview-dashboard.md). Du kan till exempel fästa antalet begäranden och fel för varje roll. 

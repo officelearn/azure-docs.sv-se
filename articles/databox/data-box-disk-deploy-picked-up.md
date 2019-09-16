@@ -6,16 +6,16 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 09/05/2019
+ms.date: 09/11/2019
 ms.author: alkohli
 ms.localizationpriority: high
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: b982e0bcd87a60e29b11c7123fbe5d675ab017b3
-ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.openlocfilehash: 03ca6163b4f788d50f7f27a2fcaf2c9b6c02d84c
+ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70390410"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70910118"
 ---
 ::: zone target="chromeless"
 
@@ -52,7 +52,7 @@ Innan du börjar bör du slutföra följande [självstudie: Kopiera data till en
 
 Nästa steg beror på var du returnerar enheten. Instruktionerna skiljer sig för USA/Kanada, EU, Australien eller länder i Asien.
 
-### <a name="pick-up-in-us-canada"></a>Upphämtning i USA och Kanada
+### <a name="in-us-or-canadatabin-us-or-canada"></a>[I USA eller Kanada](#tab/in-us-or-canada)
 
 Utför följande steg om du returnerar enheten i USA eller Kanada.
 
@@ -68,7 +68,7 @@ Utför följande steg om du returnerar enheten i USA eller Kanada.
     - Om du inte uppger spårningsnumret kräver UPS att du betalar en extra avgift vid upphämtningen.
     - I stället för att schemalägga upphämtningen kan du även lämna in Data Box Disk-enheten på närmaste inlämningsställe.
 
-### <a name="pick-up-in-europe"></a>Upphämtning i Europa
+### <a name="in-europetabin-europe"></a>[I Europa](#tab/in-europe)
 
 Utför följande steg om du returnerar enheten i Europa.
 
@@ -81,7 +81,7 @@ Utför följande steg om du returnerar enheten i Europa.
 4. Navigera till DHL-webbplatsen för ditt land/din region. Under Våra divisioner klickar du på DHL Express. Välj **Skicka > Skicka online**.    
 3. Identifiera ditt fraktsedelsnummer och klicka på **Boka upphämtning**.
 
-### <a name="pick-up-in-australia"></a>Upphämtning i Australien
+### <a name="in-australiatabin-australia"></a>[I Australien](#tab/in-australia)
 
 Azure-datacenter i Australien kräver ytterligare en säkerhetsavisering. För alla inkommande leveranser krävs en särskild avisering. Följ stegen nedan vid upphämtning i Australien.
 
@@ -89,9 +89,9 @@ Azure-datacenter i Australien kräver ytterligare en säkerhetsavisering. För a
 3. Fäst etiketten på kartongen. 
 4. Boka en upphämtning online på länken https://mydhl.express.dhl/au/en/schedule-pickup.html#/schedule-pickup#label-reference. 
 
-### <a name="pick-up-in-asia"></a>Upphämtning i Asien
+### <a name="in-japan-koreatabin-japan-korea"></a>[I Japan, Korea](#tab/in-japan-korea)
 
-Instruktionerna för upphämtning skiljer sig för Japan, Sydkorea och Singapore.
+Här är instruktionerna för upphämtning i Japan och Korea.
 
 #### <a name="pick-up-in-japan"></a>Upphämtning i Japan
 
@@ -134,7 +134,8 @@ Vid behov kan du kontakta Quantium Solutions support (på japanska) med följand
     3. Om fraktföretaget inte anländer för upphämtning ringer du journumret för *Quantium Solutions International* för alternativa lösningar. 
     4. Du får en muntlig bekräftelse om begäran görs via telefon.
 
-#### <a name="pick-up-in-singapore"></a>Upphämtning i Singapore
+
+### <a name="in-singaporetabin-singapore"></a>[I Singapore](#tab/in-singapore)
 
 1. Skriv ut adressetiketten och fäst den på kartongen. Om etiketten är skadad eller förlorad:
     - Gå till **Översikt > Ladda ned adressetikett** och hämta en returetikett.

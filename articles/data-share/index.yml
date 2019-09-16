@@ -1,63 +1,61 @@
-### YamlMime:YamlDocument
-documentType: LandingData
-title: Dokumentation om förhandsversionen av Azure Data Share
+### YamlMime:Landing
+title: Dokumentation om Azure Data Share (förhandsversion)
+summary: Förhandsversionen av Azure Data Share är en säker och tillförlitlig tjänst för att dela data med tredjepartsorganisationer.
 metadata:
-  title: 'Dokumentation om förhandsversionen av Azure Data Share – självstudier, instruktionsguider'
-  description: Förhandsversionen av Azure Data Share är en säker och tillförlitlig tjänst för att dela data med tredjepartsorganisationer.
-  author: joannapea
-  ms.author: joanpo
+  title: Azure Data Share (förhandsversion)
+  description: Azure Data Share (förhandsversion) är en säker och tillförlitlig tjänst för att dela data med tredjepartsorganisationer.
+  services: service
   ms.service: data-share
+  ms.subservice: subservice
   ms.topic: landing-page
-  ms.date: 07/10/2019
-abstract:
-  description: '<p>Förhandsversionen av Azure Data Share är en säker och tillförlitlig tjänst för att dela data med tredjepartsorganisationer. Välj de datauppsättningar du vill dela, lägg till mottagare och börja dela data med möjlighet att styra, övervaka och kontrollera dina datadelningsrelationer. </p><p>Lär dig att använda Azure Data Share med hjälp av våra självstudier och instruktionsguider.</p>'
-  aside:
-    image:
-      alt: null
-      height: 110
-      src: media/azure-friday.png
-      width: 250
-    title: Azure Data Share på Azure Friday
-    href: 'https://channel9.msdn.com/Shows/Azure-Friday/Share-data-simply-and-securely-using-Azure-Data-Share/player?format=ny'
-    width: 250
-sections:
-  - title: Instruktionsguider
-    items:
-      - type: paragraph
-        text: 'Lär dig hur du övervakar din datadelning, konfigurerar datauppsättningsmappningar, lägger till mottagare med mera med en av följande instruktionsguider:'
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: /azure/data-share/media/index/portal.svg
-            text: Övervaka Azure Data Share
-            href: /azure/data-share/how-to-monitor
-          - image:
-              src: /azure/data-share/media/index/portal.svg
-            text: Konfigurera en datauppsättningsmappning
-            href: /azure/data-share/how-to-configure-mapping
-          - image:
-              src: /azure/data-share/media/index/portal.svg
-            text: Felsöka Azure Data Share
-            href: /azure/data-share/data-share-troubleshoot
-  - title: Stegvisa självstudier
-    items:
-      - type: paragraph
-        text: Lär dig hur du börjar dela data med Azure Data Share
-      - type: list
-        style: ordered
-        items:
-          - html: <a href="share-your-data">Dela data med Azure Data Share</a>
-          - html: <a href="subscribe-to-data-share">Acceptera och ta emot data med Azure Data Share</a>
-  - title: Referens
-    items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: Språk
-            html: <p><a href="/dotnet/api/overview/azure/datashare">NET</a></p>
-          - title: PowerShell
-            html: '<p><a href="https://docs.microsoft.com/powershell/module/az.datashare/?view=azps-2.6.0">Azure PowerShell</a></p>'
-          - title: REST
-            html: <p><a href="/rest/api/datashare">REST-API</a></p>
+  ms.collection: collection
+  author: hrasheed-msft
+  ms.author: hrasheed
+  ms.date: 09/13/2019
+  ms.openlocfilehash: 7e44541fae4cb9987f4c2e3b68a6ec3ff61c1bcf
+  ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 09/14/2019
+  ms.locfileid: "70993944"
+landingContent:
+- title: Om Azure Data Share
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Vad är Azure Data Share?
+      url: overview.md
+  - linkListType: concept
+    links:
+    - text: Azure Data Share-begrepp
+      url: terminology.md
+    - text: Roller och krav för Azure Data Share
+      url: concepts-roles-permissions.md
+- title: Dela data
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Dela data med Azure Data Share
+      url: share-your-data.md
+    - text: Acceptera och ta emot data med Azure Data Share
+      url: subscribe-to-data-share.md
+  - linkListType: how-to-guide
+    links:
+    - text: Konfigurera datauppsättningsmappningar
+      url: how-to-configure-mapping.md
+    - text: Lägga till datauppsättningar
+      url: how-to-add-datasets.md
+- title: Övervaka och hantera
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Övervaka Azure Data Share
+      url: how-to-monitor.md
+    - text: Felsök vanliga problem
+      url: data-share-troubleshoot.md
+    - text: Lägga till datauppsättningar
+      url: how-to-add-datasets.md
+    - text: Ta bort en inbjudan
+      url: how-to-delete-invitation.md
+    - text: Återkalla en delad prenumeration
+      url: how-to-revoke-share-subscription.md

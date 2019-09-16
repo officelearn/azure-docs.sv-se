@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 09/05/2019
 ms.author: juliako
-ms.openlocfilehash: d45842a4c61f871a479c91f7b192de8e567f9821
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: 8158611678acc23d89bab377c170759c6bf9677f
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70862023"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70962638"
 ---
 # <a name="animated-character-detection-preview"></a>Animerat Character-identifiering (förhands granskning)
 
@@ -91,8 +91,7 @@ Om du äger ett Video Indexer betalt konto måste du först ansluta ett Custom V
     1. När du har skrivit det nya namnet klickar du på kryss ikonen bredvid det nya namnet. Detta sparar det nya namnet i modellen i Video Indexer.
     1. När du har redigerat alla namn som du vill ha måste du träna modellen.
 
-        * Utvärderings konton: öppna anpassnings sidan och klicka **på den animerade** tecken-modell som du har.
-        * Betalda konton: öppna anpassnings sidan och klicka på fliken animerade tecken. För relevant modell klickar du på länken **Redigera i Custom vision** . Du kommer sedan att vidarebefordras till modellens sida i Custom Vision. Klicka på knappen "träna" där för att träna din modell. 
+        Öppna anpassnings sidan och klicka på fliken **animerade tecken** . För relevant modell klickar du på länken **Redigera i Custom vision** . Du kommer sedan att vidarebefordras till modellens sida i Custom Vision. Klicka på knappen **träna** för att träna din modell. 
     1. När de har tränats in kommer alla videor som ska indexeras eller indexeras med den modellen att identifiera de intränaa tecknen. 
     Betalda konton som har åtkomst till sitt Custom Vision konto kan se modeller och taggade bilder där. Lär dig mer om [att förbättra din klassificerare i Custom vision](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/getting-started-improving-your-classifier).
 

@@ -1,64 +1,64 @@
 ---
-title: Microsoft Bing Speech Service | Microsoft Docs
+title: Microsoft Taligenkänning i Bing-tjänsten | Microsoft Docs
 titlesuffix: Azure Cognitive Services
-description: Använd Microsoft Speech API för att lägga till talstyrda åtgärder i dina appar, inklusive i realtid interaktionen med användarna.
+description: Använd Microsoft Speech API för att lägga till tal drivna åtgärder i dina appar, inklusive interaktion i real tid med användare.
 services: cognitive-services
-author: zhouwangzw
-manager: wolfma
+author: nitinme
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
-ms.author: zhouwang
+ms.author: nitinme
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: d2c7211831658a18e65e04aa753607f4eb22dac8
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: ff9de2557583eecd5ddb2acd97b445a93abc5fb6
+ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60515091"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70966652"
 ---
-# <a name="what-is-bing-speech"></a>Vad är Bing-taligenkänning?
+# <a name="what-is-bing-speech"></a>Vad är Taligenkänning i Bing?
 
 [!INCLUDE [Deprecation note](../../../includes/cognitive-services-bing-speech-api-deprecation-note.md)]
 
-Molnbaserade Microsoft Bing Speech API får utvecklare ett enkelt sätt att skapa kraftfulla funktioner som stöd för tal i sina program, t.ex. röst kommandokontroll, dialogruta för användare med hjälp av naturligt språk konversation, och taltranskription och diktering. Microsoft Speech API stöder både *tal till Text* och *Text till tal* konvertering.
+Den molnbaserade Microsoft API för Bing-taligenkänning ger utvecklare ett enkelt sätt att skapa kraftfulla aktiverade funktioner i sina program, t. ex. röst kommando kontroll, användar dialog med naturliga tal konversationer och tal avskrift och diktering. Microsoft Speech API stöder både *tal till text* och *text till tal* Conversion.
 
-- **Tal till Text** API omvandlar tal till text som kan användas som indata eller kommandon för att kontrollera ditt program.
-- **Text till tal** API: texten omvandlas till ljudströmmar som kan spelas upp för användare av ditt program.
+- **Tal till text** API konverterar mänskligt tal till text som kan användas som ininformation eller kommandon för att styra ditt program.
+- **Text till tal** API konverterar text till ljud strömmar som kan spelas upp till användaren av ditt program.
 
-## <a name="speech-to-text-speech-recognition"></a>Tal till text (Taligenkänning)
+## <a name="speech-to-text-speech-recognition"></a>Tal till text (tal igenkänning)
 
-Microsoft API för taligenkänning *transkriberar* ljudströmmar till text som ditt program kan visa för användaren eller vidta åtgärder som kommandot indata. Det finns två sätt för utvecklare att lägga till tal i sina appar: REST API: erna **eller** Websocket-baserade klientbibliotek.
+Microsoft tal igenkännings- *API: et* beskrivar ljud strömmar till text som programmet kan visa för användaren eller agerar vid indata. Det finns två sätt för utvecklare att lägga till tal i sina appar: REST-API: er **eller** WebSocket-baserade klient bibliotek.
 
-- [REST API: er](GetStarted/GetStartedREST.md): Utvecklare kan använda HTTP-anrop från sina appar till tjänsten för taligenkänning.
-- [Klientbibliotek](GetStarted/GetStartedClientLibraries.md): För avancerade funktioner, kan utvecklare hämta Microsoft Speech-klientbibliotek och länka till sina appar.  Klientbiblioteken är tillgängliga på olika plattformar (Windows, Android, iOS) med olika språk (C#, Java, JavaScript, ObjectiveC). Till skillnad från REST API: er använda klientbiblioteken Websocket-baserat protokoll.
+- [REST-API: er](GetStarted/GetStartedREST.md): Utvecklare kan använda HTTP-anrop från sina appar till tjänsten för tal igenkänning.
+- [Klient bibliotek](GetStarted/GetStartedClientLibraries.md): För avancerade funktioner kan utvecklare Hämta Microsofts tal klient bibliotek och länka till sina appar.  Klient biblioteken är tillgängliga på olika plattformar (Windows, Android, iOS) med olika språk (C#, Java, Java Script, ObjectiveC). Till skillnad från REST API: erna använder klient biblioteken WebSocket-baserat protokoll.
 
-| Användningsfall | [REST API:er](GetStarted/GetStartedREST.md) | [Klientbibliotek](GetStarted/GetStartedClientLibraries.md) |
+| Användningsfall | [REST API:er](GetStarted/GetStartedREST.md) | [Klient bibliotek](GetStarted/GetStartedClientLibraries.md) |
 |-----|-----|-----|
-| Konvertera en kort sagt talat ljud till exempel kommandon (ljud längd < 15 s) utan mellanliggande resultat | Ja | Ja |
-| Omvandla en lång (> 15 s) | Nej | Ja |
-| Stream ljud med mellanliggande resultat som önskas | Nej | Ja |
-| Förstå den text som konverterats från ljud med LUIS | Nej | Ja |
+| Konvertera ett kort talade ljud, till exempel kommandon (ljud längd < 15 s) utan interimistiska resultat | Ja | Ja |
+| Konvertera ett långt ljud (> 15 s) | Nej | Ja |
+| Strömma ljud med önskade interimistiska resultat | Nej | Ja |
+| Förstå texten som konverteras från ljud med LUIS | Nej | Ja |
 
-Oavsett vilken metod utvecklare välja (REST API: er eller klientbibliotek), Microsoft speech-tjänsten har stöd för följande:
+Oavsett vilken metod utvecklare väljer (REST-API: er eller klient bibliotek) stöder Microsoft Speech service följande:
 
-- Avancerade tal igenkänning av tekniker från Microsoft som används av Cortana, diktering för Office, Office Translator och andra Microsoft-produkter.
-- I realtid kontinuerlig erkännande. Taligenkänningens API kan du transkribera ljud till text i realtid och har stöd för att ta emot mellanresultat av ord som har blivit erkänt hittills. Speech-tjänsten stöder också slutet av tal-identifiering. Dessutom kan användare välja ytterligare formatering funktioner, som versaler och skiljetecken, maskning svordomar och normalisering av text.
-- Har stöd för optimerad tal resultat för *interaktiva*, *konversationen*, och *diktering* scenarier. För scenarier som kräver anpassade språkmodeller och akustiska modeller [Custom Speech Service](../custom-speech-service/cognitive-services-custom-speech-home.md) kan du skapa talmodeller som skräddarsys för ditt program och dina användare.
-- Stöd många talat språk i flera dialekter. En fullständig lista över språk som stöds i varje läge för igenkänning av Se [språk](api-reference-rest/supportedlanguages.md).
-- Integrering med language understanding. Förutom att konvertera indata ljud till text, den *tal till Text* ger program en ytterligare funktion att förstå vad det innebär att texten. Den använder den [Language Understanding Intelligent Service(LUIS)](../LUIS/what-is-luis.md) att extrahera avsikter och entiteter från den tolkade texten.
-
-### <a name="next-steps"></a>Nästa steg
-
-- Kom igång med att använda Microsoft speech igenkänning av tjänsten med [REST API: er](GetStarted/GetStartedREST.md) eller [klientbibliotek](GetStarted/GetStartedClientLibraries.md).
-- Kolla in [programexempel](samples.md) i din prioriterade programmeringsspråket.
-- Gå till avsnittet referens för att hitta [Microsoft Speech Protocol](API-Reference-REST/websocketprotocol.md) information och API-referenser.
-
-## <a name="text-to-speech-speech-synthesis"></a>Text till tal (talsyntes)
-
-*Text till tal* API: er Använd REST för att omvandla strukturerade text till en ljudström. API: er ger snabb text till talad konversation i olika röster och språk. Användare har också möjlighet att ändra ljud egenskaper som uttal, volym, försäljningsargument osv. med hjälp av SSML taggar.
+- Avancerad tal igenkännings teknik från Microsoft som används av Cortana, Office-diktering, Office Translator och andra Microsoft-produkter.
+- I realtid kontinuerlig erkännande. Tal igenkännings-API: et gör det möjligt för användare att skriva in ljud i text i real tid och har stöd för att ta emot de mellanliggande resultaten av de ord som har identifierats hittills. Tal tjänsten stöder även identifiering av slut punkt i tal. Dessutom kan användarna välja ytterligare formateringsfunktioner, t. ex. kapitalisering och interpunktion, maskering av svordomar och text normalisering.
+- Stöder optimerade tal igenkännings resultat för *interaktiva*, *konversations*-och *dikterings* scenarier. För användar scenarier som kräver anpassade språk modeller och akustiska modeller kan du [Custom Speech service](../custom-speech-service/cognitive-services-custom-speech-home.md) skapa tal modeller som är anpassade efter ditt program och dina användare.
+- Stöd för många talade språk i flera dialekter. En fullständig lista över språk som stöds i varje tolknings läge finns i [tolknings språk](api-reference-rest/supportedlanguages.md).
+- Integrering med språk förståelse. Förutom att konvertera indata-ljudet till text ger *tal till text* program en ytterligare möjlighet att förstå vad texten innebär. Den använder [language Understanding intelligent service (Luis)](../LUIS/what-is-luis.md) för att extrahera avsikter och entiteter från den tolkade texten.
 
 ### <a name="next-steps"></a>Nästa steg
 
-- Börja använda Microsoft text till tal-tjänst: [API-referens för text till tal](api-reference-rest/bingvoiceoutput.md). En fullständig lista över språk och röster som stöds av Text till tal, se [stöd för nationella inställningar och Rösttyper](api-reference-rest/bingvoiceoutput.md#SupLocales).
+- Kom igång med att använda Microsoft tal igenkännings tjänsten med [REST-API: er](GetStarted/GetStartedREST.md) eller [klient bibliotek](GetStarted/GetStartedClientLibraries.md).
+- Kolla in [exempel program](samples.md) i önskat programmeringsspråk.
+- Gå till avsnittet referens för att hitta information om [Microsoft Speech Protocol](API-Reference-REST/websocketprotocol.md) och API-referenser.
+
+## <a name="text-to-speech-speech-synthesis"></a>Text till tal (tal syntes)
+
+*Text till tal* API: er använder REST för att konvertera strukturerad text till en ljud ström. API: erna ger snabb text till tal konvertering i olika röster och språk. Dessutom kan användare även ändra ljud egenskaper som uttal, volym, färgdjup osv. använda SSML-taggar.
+
+### <a name="next-steps"></a>Nästa steg
+
+- Kom igång med att använda Microsoft text till tal service: [Text till tal-API referens](api-reference-rest/bingvoiceoutput.md). En fullständig lista över språk och röster som stöds av Text till tal finns i [nationella inställningar och röst teckensnitt som stöds](api-reference-rest/bingvoiceoutput.md#SupLocales).

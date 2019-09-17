@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: jingwang
-ms.openlocfilehash: 0a695f08f00b99fcd0bc634d12e30c0f3cfbd312
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: d8773b330349356410589cf66e8f50636d92b601
+ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70813089"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71009172"
 ---
 # <a name="copy-data-from-hdfs-using-azure-data-factory"></a>Kopiera data från HDFS med Azure Data Factory
 > [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
@@ -30,7 +30,7 @@ Den här artikeln beskriver hur du kopierar data från HDFS-servern. Läs om Azu
 
 Den här HDFS-anslutningen stöds för följande aktiviteter:
 
-- [Kopierings aktivitet](copy-activity-overview.md) med [matrisen source/Sink som stöds](copy-activity-overview.md)
+- [Kopierings aktivitet](copy-activity-overview.md) med [käll mat ris som stöds](copy-activity-overview.md)
 - [Sökningsaktivitet](control-flow-lookup-activity.md)
 
 Mer specifikt stöder den här HDFS-anslutningen:
@@ -481,6 +481,10 @@ Det finns två alternativ för att konfigurera den lokala miljön så att den an
 **I Azure Data Factory:**
 
 * Konfigurera HDFS-anslutningen med **Windows-autentisering** tillsammans med antingen ditt domän konto eller Kerberos-huvudobjektet för att ansluta till HDFS-datakällan. Kontrol lera [HDFS-avsnittet länkade tjänst egenskaper](#linked-service-properties) i konfigurations information.
+
+## <a name="lookup-activity-properties"></a>Egenskaper för Sök aktivitet
+
+Om du vill veta mer om egenskaperna kontrollerar du [söknings aktiviteten](control-flow-lookup-activity.md).
 
 
 ## <a name="next-steps"></a>Nästa steg

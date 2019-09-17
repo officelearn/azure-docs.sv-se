@@ -119,7 +119,7 @@ De här stegen beskriver den detaljerade processen Logic Apps använder för att
 
    | Fält för Logic Apps begär ande huvud | Value | type | Beskrivning |
    |---------------------------------|-------|------|-------------|
-   | **x-ms-transfer-mode** | segment vis | Sträng | Anger att innehållet har laddats upp i segment |
+   | **x-ms-transfer-mode** | segment vis | String | Anger att innehållet har laddats upp i segment |
    | **x-ms-content-length** | <*innehålls längd*> | Integer | Hela innehålls storleken i byte innan segmentning |
    ||||
 
@@ -128,7 +128,7 @@ De här stegen beskriver den detaljerade processen Logic Apps använder för att
    | Rubrik fält för slut punkts svar | type | Obligatoriskt | Beskrivning |
    |--------------------------------|------|----------|-------------|
    | **x-ms-chunk-size** | Integer | Nej | Den föreslagna segment storleken i byte |
-   | **Location** | Sträng | Ja | Den URL-plats dit meddelanden om HTTP-KORRIGERINGarna ska skickas |
+   | **Location** | String | Ja | Den URL-plats dit meddelanden om HTTP-KORRIGERINGarna ska skickas |
    ||||
 
 3. Din Logi Kap par skapar och skickar uppföljning av HTTP-meddelanden – var och en med den här informationen:

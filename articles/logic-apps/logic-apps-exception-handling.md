@@ -72,9 +72,9 @@ Eller så kan du manuellt ange principen för återförsök i `inputs` avsnittet
 
 | Value | type | Beskrivning |
 |-------|------|-------------|
-| <*retry-policy-type*> | Sträng | Den princip typ för återförsök som du vill `default`använda `none`: `fixed`,, eller`exponential` | 
-| <*retry-intervall*> | Sträng | Återförsöksintervall där värdet måste använda [ISO 8601-formatet](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations). Standardvärdet för minimi `PT5S` intervallet är och det maximala `PT1D`intervallet är. När du använder exponentiell intervall princip kan du ange olika minimi-och max värden. | 
-| <*försök-försök*> | Integer | Antalet återförsök som måste vara mellan 1 och 90 | 
+| <*retry-policy-type*> | String | Den princip typ för återförsök som du vill `default`använda `none`: `fixed`,, eller`exponential` | 
+| <*retry-intervall*> | String | Återförsöksintervall där värdet måste använda [ISO 8601-formatet](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations). Standardvärdet för minimi `PT5S` intervallet är och det maximala `PT1D`intervallet är. När du använder exponentiell intervall princip kan du ange olika minimi-och max värden. | 
+| <*retry-attempts*> | Integer | Antalet återförsök som måste vara mellan 1 och 90 | 
 ||||
 
 *Valfritt*

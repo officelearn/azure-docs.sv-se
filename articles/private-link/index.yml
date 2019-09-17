@@ -1,0 +1,55 @@
+### YamlMime:Landing
+title: Dokumentation om Private Link
+summary: Med Azure Private Link kan du få åtkomst till Azure PaaS-tjänster (till exempel Azure Storage och SQL Database) och Azure-värdbaserade/partnertjänster som ägs av en privat slutpunkt i det virtuella nätverket.  Trafik mellan ditt virtuella nätverk och tjänsten passerar över Microsofts stamnätverk, vilket eliminerar exponering från det offentliga Internet. Du kan också skapa en egen Private Link-tjänst i ditt virtuella nätverk och leverera den privat för kunderna.
+metadata:
+  title: Dokumentation om Private Link – Snabbstarter, guider och API-referenser
+  description: Lär dig hur du använder tjänsten Azure Private Link. Snabbstarter, självstudier, visar hur du distribuerar en Private Link-tjänst.
+  ms.service: virtual-network
+  ms.topic: landing-page
+  ms.collection: collection
+  author: KumudD
+  ms.author: kumud
+  ms.date: 09/16/2019
+  ms.openlocfilehash: 867c20b96f8a48aeb52e455d718057e686ddfcbe
+  ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 09/16/2019
+  ms.locfileid: "71020219"
+landingContent:
+- title: Om Azure Private Link
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Vad är Private Link?
+      url: private-link-overview.md
+- title: Ansluta till en Azure-tjänst
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Vad är en privat slutpunkt?
+      url: private-endpoint-overview.md
+  - linkListType: quickstart
+    links:
+    - text: Skapa en privat slutpunkt
+      url: create-private-endpoint-portal.md
+- title: Skapa en egen Private Link-tjänst
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Vad är en Private Link-tjänst?
+      url: private-link-service-overview.md
+  - linkListType: how-to-guide
+    links:
+    - text: Skapa en Private Link-tjänst
+      url: create-private-link-service-powershell.md
+- title: Referens
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: Azure CLI
+      url: /cli/azure/network
+    - text: Azure PowerShell
+      url: /powershell/module/az.network
+    - text: REST
+      url: /rest/api/virtualnetwork/privatelinkservices

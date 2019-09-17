@@ -1,73 +1,215 @@
-### YamlMime:YamlDocument
-documentType: LandingData
-title: Stream Analytics-dokumentation
+### YamlMime:Landing
+title: Dokumentation om Azure Stream Analytics
+summary: Azure Stream Analytics är en fullständigt hanterad analystjänst i realtid som är utformad för att hjälpa dig att analysera och bearbeta snabba flyttströmmar med data som kan användas för att utlösa aviseringar och åtgärder. Lär dig hur du använder Azure Stream Analytics med hjälp av våra snabbstarter, självstudier och exempel.
 metadata:
-  title: 'Dokumentation om Azure Stream Analytics – självstudier, API-referens'
-  meta.description: 'Learn how to run IoT analytics in the cloud with fully-managed event processing. Analyze data in real time from applications, sensors, devices, and more.'
-  services: stream-analytics
-  author: mamccrea
-  ms.author: mamccrea
+  title: Dokumentation om Azure Stream Analytics
+  description: Azure Stream Analytics är en fullständigt hanterad analystjänst i realtid som är utformad för att hjälpa dig att analysera och bearbeta snabba flyttströmmar med data som kan användas för att utlösa aviseringar och åtgärder. Lär dig hur du använder Azure Stream Analytics med hjälp av våra snabbstarter, självstudier och exempel.
+  services: service
   ms.service: stream-analytics
   ms.topic: landing-page
-  ms.date: 06/21/2019
-abstract:
-  description: 'Stream Analytics är en fullständigt hanterad PaaS-tjänst som hjälper dig att analysera och bearbeta snabba dataströmmar från till exempel IoT-enheter, program och klickströmmar i realtid och som utlöser aviseringar och åtgärder om det behövs. Lär dig hur du använder Azure Stream Analytics med hjälp av våra snabbstarter, självstudier och exempel.'
-  aside:
-    image:
-      alt: null
-      height: 110
-      src: ./media/index/streaming-analytics-thumbnail.png
-      width: 250
-    title: 'Från molnet till den intelligenta nätverksgränsen – få beslutsunderlag i realtid med Azure Stream Analytics. (1:02:11)'
-    href: 'https://azure.microsoft.com/resources/videos/build-2019-from-cloud-to-the-intelligent-edge-drive-real-time-decisions-with-azure-stream-analytics/'
-    width: 250
-sections:
-  - title: Snabbstarter på 5 minuter
-    items:
-      - type: paragraph
-        text: 'Lär dig hur du distribuerar ditt första Azure Stream Analytics-jobb:'
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: media/index/stream-analytics.svg
-            text: Azure Portal
-            href: 'https://docs.microsoft.com/azure/stream-analytics/stream-analytics-quick-create-portal'
-          - image:
-              src: 'https://docs.microsoft.com/media/logos/logo_powershell.svg'
-            text: PowerShell
-            href: 'https://docs.microsoft.com/azure/stream-analytics/stream-analytics-quick-create-powershell'
-          - image:
-              src: 'https://docs.microsoft.com/media/logos/logo_visual-studio.svg'
-            text: Visual Studio
-            href: 'https://docs.microsoft.com/azure/stream-analytics/stream-analytics-quick-create-vs'
-          - image:
-              src: 'https://docs.microsoft.com/media/logos/logo_vs-code.svg'
-            text: Visual Studio-koden
-            href: 'https://docs.microsoft.com/azure/stream-analytics/quick-create-vs-code'
-  - title: Steg för steg-självstudier
-    items:
-      - type: paragraph
-        text: 'Lär dig hur du distribuerar, hanterar och övervakar Azure Stream Analytics-jobb:'
-      - type: list
-        style: ordered
-        items:
-          - html: <a href="stream-analytics-manage-job">Skapa ett Stream Analytics-jobb för att analysera telefonsamtalsdata och visualisera resultat i en Power BI-instrumentpanel</a>
-          - html: <a href="stream-analytics-with-azure-functions">Köra Azure Functions från Azure Stream Analytics-jobb</a>
-          - html: <a href="stream-analytics-javascript-user-defined-functions">Köra användardefinierade funktioner i Azure Stream Analytics JavaScript-jobb</a>
-          - html: <a href="stream-analytics-tools-visual-studio-cicd-vsts">Distribuera ett Azure Stream Analytics-jobb med CI/CD med hjälp av Azure Pipelines</a>
-          - html: '<a href="stream-analytics-edge-csharp-udf">Skriva en C#-användardefinierad funktion för ett Azure Stream Analytics Edge-jobb (förhandsversion)</a>'
-  - title: Referens
-    items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: Förhandsgranskningar
-            html: '<p><a href="stream-analytics-previews#public-previews">Allmänt tillgängliga förhandsversioner</a></p><p><a href="stream-analytics-previews#other-previews">Privat förhandsgranskning</a></p>'
-          - title: Kommandorad
-            html: '<p><a href="https://docs.microsoft.com/powershell/module/az.streamanalytics/#stream_analytics">Azure PowerShell</a></p>'
-          - title: Språk
-            html: '<p><a href="/dotnet/api/microsoft.azure.management.streamanalytics?view=azuremgmtstreamanalytics-1.8.3">NET</a></p><p><a href="https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference">Stream Analytics-frågespråk</a></p>'
-          - title: REST
-            html: <p><a href="/rest/api/streamanalytics">REST API-referens</a></p>
+  author: mamccrea
+  ms.author: mamccrea
+  ms.date: 09/16/2019
+  ms.openlocfilehash: a4573c9f6938db56eba80da084004a620a54e9e4
+  ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 09/16/2019
+  ms.locfileid: "71018862"
+landingContent:
+- title: Om Azure Stream Analytics
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Skapa ett jobb med Azure-portalen
+      url: stream-analytics-quick-create-portal.md
+  - linkListType: overview
+    links:
+    - text: Vad är Azure Stream Analytics?
+      url: stream-analytics-introduction.md
+    - text: Azure Stream Analytics-lösningsmönster
+      url: stream-analytics-solution-patterns.md
+  - linkListType: whats-new
+    links:
+    - text: Stream Analytics-kompatibilitetsnivå
+      url: stream-analytics-compatibility-level.md
+    - text: Stream Analytics-förhandsversionsfunktioner
+      url: stream-analytics-previews.md
+  - linkListType: concept
+    links:
+    - text: Välja en strömningsanalysteknik
+      url: streaming-technologies.md
+    - text: Välj ett utvecklingsverktyg för dina jobb
+      url: feature-comparison.md
+- title: Ansluta jobb till en datakälla
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Läs mer om indatatyper
+      url: stream-analytics-add-inputs.md
+  - linkListType: concept
+    links:
+    - text: Strömma indata
+      url: stream-analytics-define-inputs.md
+    - text: Koppla referensdata för sökningar
+      url: stream-analytics-use-reference-data.md
+  - linkListType: how-to-guide
+    links:
+    - text: Använda referensdata från en SQL Database
+      url: sql-reference-data.md
+    - text: Felsöka indataanslutningar
+      url: stream-analytics-troubleshoot-input.md
+    - text: Bearbeta Apache Kafka för Event Hubs-händelser
+      url: ../event-hubs/event-hubs-kafka-stream-analytics.md
+    - text: Bearbeta data från Azure Event Hubs
+      url: ../event-hubs/process-data-azure-stream-analytics.md
+- title: Skicka data till en utgående mottagare
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Läs mer om utdatatyper
+      url: stream-analytics-define-outputs.md
+  - linkListType: concept
+    links:
+    - text: Utdata till Cosmos DB
+      url: stream-analytics-documentdb-output.md
+    - text: Utdata till Azure SQL Database
+      url: stream-analytics-sql-output-perf.md
+    - text: Anpassad partitionering av blobutdata
+      url: stream-analytics-custom-path-patterns-blob-storage-output.md
+    - text: Hanteringsprinciper för utdatafel
+      url: stream-analytics-output-error-policy.md
+  - linkListType: how-to-guide
+    links:
+    - text: Felsöka utdataanslutningar
+      url: stream-analytics-troubleshoot-output.md
+- title: Övervaka och felsöka jobb
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Introduktion till övervakning
+      url: stream-analytics-monitoring.md
+    - text: Övervaka jobb med Azure PowerShell
+      url: stream-analytics-monitor-and-manage-jobs-use-powershell.md
+    - text: Skapa en jobbövervakare med hjälp av Azure .NET SDK
+      url: stream-analytics-monitor-jobs.md
+    - text: Övervaka och hantera jobb från Visual Studio
+      url: stream-analytics-monitor-jobs-use-vs.md
+    - text: Felsöka med hjälp av diagnostikloggar
+      url: stream-analytics-job-diagnostic-logs.md
+    - text: Felsöka med hjälp av jobbdiagram
+      url: stream-analytics-job-diagram-with-metrics.md
+    - text: Felsöka datafel
+      url: data-errors.md
+- title: Granska tidsbaserade begrepp
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Vanliga frågemönster
+      url: stream-analytics-stream-analytics-query-patterns.md
+    - text: Förstå tidshantering i Stream Analytics
+      url: stream-analytics-time-handling.md
+    - text: Intern kontrollpunkt och återuppspelning
+      url: stream-analytics-concepts-checkpoint-replay.md
+- title: Transformera data med Stream Analytics-frågor
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Introduktion till fönsterfunktioner
+      url: stream-analytics-window-functions.md
+    - text: Introduktion till geospatiala funktioner
+      url: stream-analytics-geospatial-functions.md
+    - text: Parsa JSON- och Avro-data
+      url: stream-analytics-parsing-json.md
+  - linkListType: how-to-guide
+    links:
+    - text: Felsöka frågelogik
+      url: stream-analytics-troubleshoot-query.md
+    - text: Skriva användardefinierade JavaScript-samlingar
+      url: stream-analytics-javascript-user-defined-aggregates.md
+    - text: Utveckla .NET-användardefinierade funktioner för IoT Edge-jobb
+      url: stream-analytics-edge-csharp-udf-methods.md
+  - linkListType: tutorial
+    links:
+    - text: Köra en användardefinierad JavaScript-funktion
+      url: stream-analytics-javascript-user-defined-functions.md
+    - text: Köra en C#-användardefinierad funktion för ett Stream Analytics Edge-jobb
+      url: stream-analytics-edge-csharp-udf.md
+- title: Analysera med Machine Learning
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Använda Machine Learning för att identifiera avvikelser
+      url: stream-analytics-machine-learning-anomaly-detection.md
+    - text: Utföra attitydanalys med Azure Machine Learning Studio
+      url: stream-analytics-machine-learning-integration-tutorial.md
+    - text: Skala jobb med Machine Learning Studio-funktioner
+      url: stream-analytics-scale-with-machine-learning-functions.md
+- title: Skapa och hantera jobb med utvecklarverktyg
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Utforska jobb med Visual Studio Code
+      url: vscode-local-run.md
+    - text: Testa frågor med exempeldata i Visual Studio Code
+      url: vscode-local-run.md
+    - text: Installera verktyg för Visual Studio
+      url: stream-analytics-tools-for-visual-studio-install.md
+    - text: Testa frågor med exempeldata i Visual Studio
+      url: stream-analytics-vs-tools-local-run.md
+    - text: Testa frågor med livedata i Visual Studio
+      url: stream-analytics-live-data-local-testing.md
+    - text: Visa jobb i Visual Studio
+      url: stream-analytics-tools-for-visual-studio-edge-jobs.md
+    - text: Utveckla ett IoT Edge-jobb i Visual Studio
+      url: stream-analytics-tools-for-visual-studio-edge-jobs.md
+- title: Prova Stream Analytics-självstudier och -lösningar
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Skapa och hantera ett jobb
+      url: stream-analytics-manage-job.md
+    - text: Utlösa en Azure-funktion
+      url: stream-analytics-with-azure-functions.md
+  - linkListType: how-to-guide
+    links:
+    - text: Bygga lösningar med geofencing och geospatial sammansättning
+      url: geospatial-scenarios.md
+    - text: Köra jobb i IoT Edge
+      url: stream-analytics-edge.md
+    - text: Bygga en attitydanalyslösning
+      url: stream-analytics-twitter-sentiment-analysis-trends.md
+    - text: Identifiering av bedrägerier i realtid
+      url: stream-analytics-real-time-fraud-detection.md
+    - text: Skapa en IoT-lösning
+      url: stream-analytics-build-an-iot-solution-using-stream-analytics.md
+    - text: Handelssimulering med hög frekvens
+      url: stream-analytics-high-frequency-trading.md
+    - text: Avisering baserat på justerbara regeltrösklar
+      url: stream-analytics-threshold-based-rules.md
+- title: Distribuera Stream Analytics-jobb
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Distribuera ett jobb med CI/CD med hjälp av Azure Pipelines
+      url: stream-analytics-tools-visual-studio-cicd-vsts.md
+  - linkListType: how-to-guide
+    links:
+    - text: Konfigurera en CI/CD-pipeline med Visual Studio Code
+      url: setup-cicd-vs-code.md
+    - text: Konfigurera en CI/CD-pipeline med Visual Studio
+      url: stream-analytics-tools-for-visual-studio-cicd.md
+    - text: Använda REST API:er för att konfigurera CI/CD för IoT Edge-jobb
+      url: stream-analytics-cicd-api.md
+- title: Skala Stream Analytics-jobb
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Skala med direktuppspelningsenheter
+      url: stream-analytics-streaming-unit-consumption.md
+    - text: Skala med frågeparallellisering
+      url: stream-analytics-parallelization.md
+    - text: Skala jobb för att öka dataflödet
+      url: stream-analytics-scale-jobs.md
+    - text: Optimera bearbetning genom ompartitionering
+      url: repartition.md

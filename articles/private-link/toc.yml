@@ -1,0 +1,78 @@
+- name: Dokumentation om Azure Private Link
+  href: index.yml
+- name: Översikt
+  items:
+    - name: Vad är Azure Privat Link?
+      href: private-link-overview.md
+- name: Snabbstarter
+  items:
+    - name: Skapa en privat slutpunkt
+      items:
+        - name: Azure Portal
+          href: create-private-endpoint-portal.md
+        - name: Azure CLI
+          href: create-private-endpoint-cli.md
+        - name: Azure PowerShell
+          href: create-private-endpoint-powershell.md
+    - name: Skapa en Private Link-tjänst
+      items:
+        - name: Azure PowerShell
+          href: create-private-link-service-powershell.md
+        - name: Azure CLI
+          href: create-private-link-service-cli.md
+- name: Begrepp
+  items:
+    - name: Privat slutpunkt
+      href: private-endpoint-overview.md
+    - name: Private Link-tjänst
+      href: private-link-service-overview.md
+- name: Gör så här för att
+  items:
+    - name: Ansluta privat till ett lagringskonto
+      href: create-private-endpoint-storage-portal.md
+    - name: Inaktivera nätverksprinciper för en privat slutpunkt
+      href: disable-private-endpoint-network-policy.md
+    - name: Inaktivera nätverksprinciper för en Private Link-tjänst
+      href: disable-private-link-service-network-policy.md
+    - name: Hantera privata slutpunkter
+      href: manage-private-endpoint.md
+- name: Referens
+  items:
+    - name: Azure CLI
+      href: /cli/azure/network
+    - name: Azure PowerShell
+      href: /powershell/module/az.network
+    - name: .NET
+      href: /api/overview/azure/virtual-network
+    - name: Java
+      href: /java/api/
+    - name: Node.js
+      href: 'https://docs.microsoft.com/javascript/azure#azure-sdk'
+    - name: Python
+      href: 'https://azure.microsoft.com/develop/python/'
+    - name: REST
+      href: /rest/api/virtualnetwork/privateendpoints
+    - name: Resource Manager-mall
+      href: /azure/templates/microsoft.network/allversions
+    - name: Kodexempel
+      href: 'https://azure.microsoft.com/resources/samples/?service=virtual-network'
+- name: Resurser
+  items:
+    - name: Utveckla dina färdigheter med Microsoft Learn
+      href: /learn/browse/
+    - name: Azure-översikt
+      href: 'https://azure.microsoft.com/roadmap/?category=networking'
+    - name: Nätverksblogg
+      href: 'https://azure.microsoft.com/blog/topics/networking'
+    - name: Nätverksforum
+      href: 'https://social.msdn.microsoft.com/Forums/azure/home?forum=WAVirtualMachinesVirtualNetwork'
+    - name: Nätverksfeedback
+      href: 'https://feedback.azure.com/forums/217313-networking?category_id=77469'
+    - name: Prissättning
+      href: 'https://azure.microsoft.com/pricing/details/virtual-network'
+    - name: Priskalkylator
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/questions/tagged/azure-virtual-network'
+    - name: VANLIGA FRÅGOR OCH SVAR
+      href: private-link-faq.md

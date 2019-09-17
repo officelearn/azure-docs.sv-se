@@ -11,12 +11,12 @@ author: barmichal
 ms.author: mibar
 ms.reviewer: vanto
 ms.date: 08/22/2019
-ms.openlocfilehash: 0bba755ec5683e988bb8ae3f2308a1c298b228b0
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: b85793223e23aa3d668d6f86494da3ee78c43e91
+ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71000563"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71009998"
 ---
 # <a name="azure-sql-database-and-sql-data-warehouse-data-discovery--classification"></a>& Klassificering för Azure SQL Database och SQL Data Warehouse data identifiering
 
@@ -144,8 +144,11 @@ Du kan också använda REST-API: er för att hantera klassificeringar program m�
 
 - [Skapa eller uppdatera](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/createorupdate) – skapar eller uppdaterar känslighets etiketten för en specifik kolumn
 - [Ta bort](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/delete) – tar bort känslighets etiketten för en specifik kolumn
+- [Inaktivera rekommendation](https://docs.microsoft.com/en-us/rest/api/sql/sensitivitylabels/disablerecommendation) – inaktiverar känslighets rekommendationer för en specifik kolumn
+- [Aktivera rekommendation](https://docs.microsoft.com/en-us/rest/api/sql/sensitivitylabels/enablerecommendation) – möjliggör känslighets rekommendationer för en specifik kolumn (rekommendationer är aktiverade som standard för alla kolumner)
 - [Get](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/get) -hämtar en kolumns känslighets etikett
 - [Lista aktuella efter databas](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/listcurrentbydatabase) – hämtar de aktuella känslighets etiketterna för en specifik databas
+
 - [Lista rekommenderas av databasen](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/listrecommendedbydatabase) – hämtar de rekommenderade känslighets etiketterna för en specifik databas
 
 ## <a name="manage-data-discovery-and-classification-using-azure-powershell"></a>Hantera identifiering och klassificering av data med hjälp av Azure PowerShell

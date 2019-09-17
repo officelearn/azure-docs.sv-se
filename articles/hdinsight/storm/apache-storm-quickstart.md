@@ -1,6 +1,6 @@
 ---
-title: 'Snabbstart: Skapa och övervaka Apache Storm-topologi i Azure HDInsight'
-description: I den här snabbstarten lär du dig hur du skapar och övervakar en Apache Storm-topologi i Azure HDInsight.
+title: 'Snabbstart: Skapa och övervaka Apache Storm topologi i Azure HDInsight'
+description: I snabb starten lär du dig hur du skapar och övervakar en Apache Storm topologi i Azure HDInsight.
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -8,22 +8,22 @@ ms.topic: quickstart
 ms.date: 06/14/2019
 ms.author: hrasheed
 ms.custom: mvc
-ms.openlocfilehash: 12001aef970d3b465a7f5c8e0c7af072b8f4ec80
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 9e48cb53b55cdc4200498a54dba31ae93ca8b31a
+ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67428447"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71018586"
 ---
-# <a name="quickstart-create-and-monitor-an-apache-storm-topology-in-azure-hdinsight"></a>Snabbstart: Skapa och övervaka en Apache Storm-topologi i Azure HDInsight
+# <a name="quickstart-create-and-monitor-an-apache-storm-topology-in-azure-hdinsight"></a>Snabbstart: Skapa och övervaka en Apache Storm topologi i Azure HDInsight
 
 Apache Storm är ett skalbart, feltolerant och distribuerat system för beräkningar i realtid för bearbetning av dataströmmar. Du kan skapa ett molnbaserat Storm-kluster som utför analyser av stordata i realtid med Storm på Azure HDInsight.
 
-I den här snabbstarten använder du ett exempel från Apache [storm starter-](https://github.com/apache/storm/tree/v2.0.0/examples/storm-starter) projektet för att skapa och övervaka en Apache Storm-topologi i ett befintligt Apache Storm-kluster.
+I den här snabb starten använder du ett exempel från Apache [Storm-starter-](https://github.com/apache/storm/tree/v2.0.0/examples/storm-starter) projektet för att skapa och övervaka en Apache Storm topologi till ett befintligt Apache Storm-kluster.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-* Ett Apache Storm-kluster på HDInsight. Se [skapa Apache Hadoop-kluster med Azure portal](../hdinsight-hadoop-create-linux-clusters-portal.md) och välj **Storm** för **Klustertyp**.
+* Ett Apache Storm kluster i HDInsight. Se [skapa Apache Hadoop kluster med Azure Portal](../hdinsight-hadoop-create-linux-clusters-portal.md) och välj **Storm** för **kluster typ**.
 
 * En SSH-klient. Mer information finns i [Ansluta till HDInsight (Apache Hadoop) med hjälp av SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
@@ -35,7 +35,7 @@ I den här snabbstarten använder du ett exempel från Apache [storm starter-](h
     ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net
     ```
 
-2. Den **WordCount** exempel ingår i ditt HDInsight-kluster på `/usr/hdp/current/storm-client/contrib/storm-starter/`. Topologin genererar meningar slumpmässigt och räknar hur många gånger ord används. Använd följande kommando för att starta den **wordcount** topologi i klustret:
+2. **WORDCOUNT** -exemplet ingår i ditt HDInsight-kluster på `/usr/hdp/current/storm-client/contrib/storm-starter/`. Topologin genererar slumpmässiga meningar och räknar hur många gånger ord förekommer. Använd följande kommando för att starta **WORDCOUNT** -topologin i klustret:
 
     ```bash
     storm jar /usr/hdp/current/storm-client/contrib/storm-starter/storm-starter-topologies-*.jar org.apache.storm.starter.WordCountTopology wordcount
@@ -43,42 +43,42 @@ I den här snabbstarten använder du ett exempel från Apache [storm starter-](h
 
 ## <a name="monitor-the-topology"></a>Övervaka topologin
 
-Storm innehåller ett webbgränssnitt för att arbeta med topologier som körs och ingår i ditt HDInsight-kluster.
+Storm tillhandahåller ett webb gränssnitt för att arbeta med topologier som körs och ingår i ditt HDInsight-kluster.
 
 Genomför följande för att övervaka topologin med hjälp av Storm-användargränssnittet:
 
 1. Visa Storm-användargränssnittet genom att öppna en webbläsare på `https://CLUSTERNAME.azurehdinsight.net/stormui`. Ersätt `CLUSTERNAME` med namnet på klustret.
 
-2. Under **Topology Summary**väljer den **wordcount** post i den **namn** kolumn. Detta visar information om topologin.
+2. Under **topologins Sammanfattning**väljer du posten **WORDCOUNT** i kolumnen **namn** . Detta visar information om topologin.
 
-    ![Storm Dashboard med storm-starter, topologisk information om WordCount.](./media/apache-storm-quickstart/topology-summary.png)
+    ![Storm Dashboard med storm-starter, topologisk information om WordCount.](./media/apache-storm-quickstart/hdi-topology-summary.png)
 
     Den nya sidan innehåller följande information:
 
     |Egenskap | Beskrivning |
     |---|---|
-    |Topology stats|Grundläggande information om topologins prestanda ordnad i tidsfönster. När du markerar ett specifikt tidsfönster ändras tidsfönstret för information som visas i andra avsnitt på sidan.|
-    |Kanaler|Grundläggande information om kanaler, inklusive det senaste felet som returnerades av varje kanal.|
+    |Topology-statistik|Grundläggande information om topologins prestanda, indelad i tid Windows. När du markerar ett specifikt tidsfönster ändras tidsfönstret för information som visas i andra avsnitt på sidan.|
+    |Kanaler|Grundläggande information om kanaler, inklusive det senaste felet som returneras av varje kanalen.|
     |Bultar|Grundläggande information om bultar.|
-    |Topologikonfiguration|Detaljerad information om topologikonfiguration.|
-    |Aktivera|Återupptar bearbetningen av en inaktiverad topologi.|
-    |inaktivera|Pausar en topologi som körs.|
-    |Balansera om|Justerar topologins parallellitet. Du bör balansera om topologier som körs när du har ändrat antalet noder i klustret. Ombalansering justerar parallelliteten och kompenserar för det ökade/minskade antalet noder i klustret. Mer information finns i [förstå parallellitet i en Apache Storm-topologi](https://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html).|
-    |Avsluta|Avslutar en Storm-topologi efter en angiven tidsgräns.|
+    |Konfiguration av topologi|Detaljerad information om Topology-konfigurationen.|
+    |Aktivera|Återupptar bearbetning av en inaktive rad topologi.|
+    |Inaktivera|Pausar en topologi som körs.|
+    |Balansera om|Justerar topologins parallellitet. Du bör balansera om topologier som körs när du har ändrat antalet noder i klustret. Ombalansering justerar parallelliteten och kompenserar för det ökade/minskade antalet noder i klustret. Mer information finns i [förstå parallellitet för en Apache Storm topologi](https://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html).|
+    |Avsluta|Avslutar en Storm-topologi efter den angivna tids gränsen.|
 
 3. På den här sidan väljer du en post från avsnittet **Spouts** (Kanaler) eller **Bolts** (Bultar). Detta visar information om den valda komponenten.
 
-    ![Storm-instrumentpanelen med information om valda komponenter.](./media/apache-storm-quickstart/component-summary.png)
+    ![Storm-instrumentpanelen med information om valda komponenter.](./media/apache-storm-quickstart/hdi-component-summary.png)
 
     Den nya sidan visar följande information:
 
     |Egenskap | Beskrivning |
     |---|---|
-    |Spout/bult stats|Grundläggande information om komponentens prestanda, ordnad i tidsfönster. När du markerar ett specifikt tidsfönster ändras tidsfönstret för information som visas i andra avsnitt på sidan.|
-    |Input stats (endast bult)|Information om komponenter som producerar de data som används av bulten.|
-    |Output stats|Information om hur data som sänds av bulten.|
-    |Executors|Information om komponentens instanser.|
-    |Fel|Fel som genereras av den här komponenten.|
+    |Kanalen/bult-statistik|Grundläggande information om komponent prestanda, indelad i tid Windows. När du markerar ett specifikt tidsfönster ändras tidsfönstret för information som visas i andra avsnitt på sidan.|
+    |Ingångs statistik (endast bult)|Information om komponenter som producerar data som används av bulten.|
+    |Utmatnings statistik|Information om data som genereras av den här bulten.|
+    |Körare|Information om instanser av den här komponenten.|
+    |Fel|Fel som skapats av den här komponenten.|
 
 4. När du visar information om en kanal eller en bult väljer du en post i kolumnen **Port** i avsnittet **Executors** (Utförare) för att visa information för en viss komponentinstans.
 
@@ -99,13 +99,13 @@ Gå tillbaka till sidan **Topology summary** (Topologiöversikt) för ordräknin
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-När du har slutfört snabbstarten kan du ta bort klustret. Med HDInsight lagras dina data i Azure Storage så att du på ett säkert sätt kan ta bort ett kluster när det inte används. Du debiteras också för ett HDInsight-kluster, även när det inte används. Eftersom avgifterna för klustret är flera gånger större än avgifterna för lagring är det ekonomiskt sett bra att ta bort kluster när de inte används.
+När du har slutfört snabb starten kanske du vill ta bort klustret. Med HDInsight lagras dina data i Azure Storage så att du på ett säkert sätt kan ta bort ett kluster när det inte används. Du debiteras också för ett HDInsight-kluster, även när det inte används. Eftersom avgifterna för klustret är flera gånger större än avgifterna för lagring är det ekonomiskt sett bra att ta bort kluster när de inte används.
 
-Om du vill ta bort ett kluster, se [ta bort ett HDInsight-kluster med din webbläsare, PowerShell eller Azure CLI](../hdinsight-delete-cluster.md).
+Om du vill ta bort ett kluster läser du [ta bort ett HDInsight-kluster med hjälp av webbläsaren, PowerShell eller Azure CLI](../hdinsight-delete-cluster.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabbstarten använde du ett exempel från Apache [storm starter-](https://github.com/apache/storm/tree/v2.0.0/examples/storm-starter) projektet för att skapa och övervaka en Apache Storm-topologi i ett befintligt Apache Storm-kluster. Gå vidare till nästa artikel om du vill lära dig grunderna för hantering och övervakning av Apache Storm-topologier.
+I den här snabb starten använde du ett exempel från Apache [Storm-starter-](https://github.com/apache/storm/tree/v2.0.0/examples/storm-starter) projektet för att skapa och övervaka en Apache Storm topologi till ett befintligt Apache Storm-kluster. Gå vidare till nästa artikel och lär dig grunderna för att hantera och övervaka Apache Storm topologier.
 
 > [!div class="nextstepaction"]
->[Distribuera och hantera Apache Storm-topologier i Azure HDInsight](./apache-storm-deploy-monitor-topology-linux.md)
+>[Distribuera och hantera Apache Storm topologier på Azure HDInsight](./apache-storm-deploy-monitor-topology-linux.md)

@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 09/12/2019
 ms.author: raynew
-ms.openlocfilehash: 2d40e6fef215219035720ee64492a91fcdafb472
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: 867a2dc9739e839a6957190f93311a811556df15
+ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70933941"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71010248"
 ---
 # <a name="whats-new-in-site-recovery"></a>Nyheter i Site Recovery
 
@@ -59,7 +59,7 @@ Nya funktioner för haveri beredskap för virtuella Azure-datorer sammanfattas i
 **Rensa efter återställning efter fel** | Efter att ha växlat till den sekundära Azure, och sedan växlar tillbaka till den primära regionen, rensar Site Recovery automatiskt datorer i den sekundära regionen. Det finns inget behov av att manuellt ta bort virtuella datorer och nätverkskort.
 **Redundanstest behåller IP-adressen** | Du kan nu behålla IP-adressen för den virtuella käll datorn under en haveri beredskap-granskning och välja en statisk IP-adress för ett redundanstest.
 
-## <a name="vmwarephysical-server-disaster-recovery"></a>Katastrof återställning av VMware/fysisk server
+### <a name="vmwarephysical-server-disaster-recovery"></a>Katastrof återställning av VMware/fysisk server
 
 Funktioner som läggs till den här månaden sammanfattas i tabellen.
 
@@ -67,13 +67,13 @@ Funktioner som läggs till den här månaden sammanfattas i tabellen.
 --- | ---
 Nya process Server varningar | Vi har lagt till nya aviseringar för process servern. [Läs mer](vmware-physical-azure-monitor-process-server.md). 
 
-## <a name="hyper-v-disaster-recovery"></a>Katastrof återställning för Hyper-V
+### <a name="hyper-v-disaster-recovery"></a>Katastrof återställning för Hyper-V
 
 Funktioner som läggs till den här månaden sammanfattas i tabellen.
 
 **Funktion** | **Detaljer**
 --- | ---
-Lagringskonto | Site Recovery stöder nu användning av ett lagrings konto med RBAC-baserad åtkomst kontroll (RBAC) aktiverat. [Läs mer](../storage/common/storage-account-manage.md#access-control) om åtkomst kontroll för lagrings konton. 
+Lagringskonto | Site Recovery stöder nu användning av lagrings konton med brand vägg aktive rad för haveri beredskap för Hyper-V till Azure.  Du kan välja brand Väggs-aktiverade lagrings konton som ett mål konto eller för cachelagring. Om du använder ett brand Väggs konto, se till att du aktiverar alternativet för att tillåta betrodda Microsoft-tjänster.
 
 
 ## <a name="updates-august-2019"></a>Uppdateringar (augusti 2019)

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/02/2019
 ms.author: jingwang
-ms.openlocfilehash: 3082c568b3ce3fa5199c7a7d0d082db36720d293
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: 561f383327738c9a2ab29f2907f00ace1eec6def
+ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70233030"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71010280"
 ---
 # <a name="copy-data-to-or-from-azure-cosmos-db-sql-api-by-using-azure-data-factory"></a>Kopiera data till och från Azure Cosmos DB (SQL-API) med hjälp av Azure Data Factory
 
@@ -31,6 +31,11 @@ Den här artikeln beskrivs hur du använder Kopieringsaktivitet i Azure Data Fac
 >Den här anslutningen endast stöder kopiera data till/från Cosmos DB SQL API. För MongoDB-API, se [Connector för Azure Cosmos DB s API för MongoDB](connector-azure-cosmos-db-mongodb-api.md). Andra API-typer stöds inte nu.
 
 ## <a name="supported-capabilities"></a>Funktioner som stöds
+
+Den här Azure Cosmos DB-anslutningen (SQL API) stöds för följande aktiviteter:
+
+- [Kopierings aktivitet](copy-activity-overview.md) med [matrisen source/Sink som stöds](copy-activity-overview.md)
+- [Sökningsaktivitet](control-flow-lookup-activity.md)
 
 Du kan kopiera data från Azure Cosmos DB (SQL API) till alla mottagar data lager som stöds, eller kopiera data från alla käll data lager som stöds till Azure Cosmos DB (SQL API). En lista över data lagrar att det stöder Kopieringsaktiviteten som källor och mottagare, finns i [datalager och format som stöds](copy-activity-overview.md#supported-data-stores-and-formats).
 
@@ -205,7 +210,7 @@ Följande egenskaper stöds i Kopieringsaktiviteten **källa** avsnittet:
 
 ### <a name="azure-cosmos-db-sql-api-as-sink"></a>Azure Cosmos DB (SQL API) som mottagare
 
-Om du vill kopiera data till Azure Cosmos DB (SQL API) anger du mottagar typen i kopierings aktivitet till **DocumentDbCollectionSink**. 
+Om du vill kopiera data till Azure Cosmos DB (SQL API) anger du **mottagar** typen i kopierings aktivitet till **DocumentDbCollectionSink**. 
 
 Följande egenskaper stöds i Kopieringsaktiviteten **källa** avsnittet:
 
@@ -251,6 +256,9 @@ Följande egenskaper stöds i Kopieringsaktiviteten **källa** avsnittet:
     }
 ]
 ```
+## <a name="lookup-activity-properties"></a>Egenskaper för Sök aktivitet
+
+Om du vill veta mer om egenskaperna kontrollerar du [söknings aktiviteten](control-flow-lookup-activity.md).
 
 ## <a name="import-or-export-json-documents"></a>Importera eller exportera JSON-dokument
 

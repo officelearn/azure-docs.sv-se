@@ -1,6 +1,6 @@
 ---
 title: Kopiera data från och till Dynamics CRM eller Dynamics 365 (Common Data Service) med hjälp av Azure Data Factory | Microsoft Docs
-description: Lär dig hur du kopierar data från Microsoft Dynamics CRM eller Microsoft Dynamics 365 (Common Data Service) till stöd för datalager för mottagare, eller från datalager som stöds källa till Dynamics CRM eller Dynamics 365 med en Kopieringsaktivitet i en data factory-pipeline.
+description: Lär dig hur du kopierar data från Microsoft Dynamics CRM eller Microsoft Dynamics 365 (Common Data Service) till mottagar data lager som stöds eller från käll data lager som stöds till Dynamics CRM eller Dynamics 365 genom att använda en kopierings aktivitet i en Data Factory-pipeline.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -12,75 +12,80 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 07/01/2019
 ms.author: jingwang
-ms.openlocfilehash: 3f7bf3ce8c01e82fa69b3b041b573b4b31a719d2
-ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
+ms.openlocfilehash: 18fdb14430eee97ff2780d963abf3e5ceafe1126
+ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67514086"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71009399"
 ---
-# <a name="copy-data-from-and-to-dynamics-365-common-data-service-or-dynamics-crm-by-using-azure-data-factory"></a>Kopiera data från och till Dynamics 365 (Common Data Service) eller Dynamics CRM med hjälp av Azure Data Factory
+# <a name="copy-data-from-and-to-dynamics-365-common-data-service-or-dynamics-crm-by-using-azure-data-factory"></a>Kopiera data från och till Dynamics 365 (Common Data Service) eller Dynamics CRM genom att använda Azure Data Factory
 
-Den här artikeln beskrivs hur du använder Kopieringsaktivitet i Azure Data Factory för att kopiera data från och till Microsoft Dynamics 365 eller Microsoft Dynamics CRM. Den bygger på den [översikt över Kopieringsaktivitet](copy-activity-overview.md) artikel som ger en allmän översikt över Kopieringsaktivitet.
+Den här artikeln beskriver hur du använder kopierings aktivitet i Azure Data Factory för att kopiera data från och till Microsoft Dynamics 365 eller Microsoft Dynamics CRM. Den bygger på den [översikt över Kopieringsaktivitet](copy-activity-overview.md) artikel som ger en allmän översikt över Kopieringsaktivitet.
 
 ## <a name="supported-capabilities"></a>Funktioner som stöds
 
-Du kan kopiera data från Dynamics 365 (Common Data Service) eller Dynamics CRM till alla datalager för mottagare som stöds. Du kan också kopiera data från alla dataarkiv till Dynamics 365 (Common Data Service) eller Dynamics CRM. En lista över datalager som stöds som källor och mottagare av Kopieringsaktivitet finns i den [datalager som stöds](copy-activity-overview.md#supported-data-stores-and-formats) tabell.
+Den här anslutningen stöds för följande aktiviteter:
 
-Den här Dynamics-anslutningsappen stöder Dynamics version 7.x till 9.x för både online eller lokalt. Mer specifikt
+- [Kopierings aktivitet](copy-activity-overview.md) med [matrisen source/Sink som stöds](copy-activity-overview.md)
+- [Sökningsaktivitet](control-flow-lookup-activity.md)
 
-- Version 7.x mappar till Dynamics CRM 2015
-- Version 8.x mappar till Dynamics CRM 2016 och den tidigare versionen av Dynamics 365
-- Version 9.x mappar till den senare versionen av Dynamics 365
+Du kan kopiera data från Dynamics 365 (Common Data Service) eller Dynamics CRM till alla mottagar data lager som stöds. Du kan också kopiera data från alla käll data lager som stöds till Dynamics 365 (Common Data Service) eller Dynamics CRM. En lista över data lager som stöds som källor eller handfat av kopierings aktiviteten finns i tabellen över [data lager som stöds](copy-activity-overview.md#supported-data-stores-and-formats) .
 
-Se tabellen nedan på de typer av autentisering stöds och konfigurationer för respektive Dynamics versioner produkter. (IFD är kort för distribution av mot internet.)
+Den här Dynamics Connector stöder Dynamics version 7. x till 9. x för både online eller lokalt. Mer specifikt,
 
-| Dynamics-versioner | Autentiseringstyper | Länkad tjänst-exempel |
+- Version 7. x mappar till Dynamics CRM 2015
+- Version 8. x mappar till Dynamics CRM 2016 och den tidiga versionen av Dynamics 365
+- Version 9. x mappar till den senare versionen av Dynamics 365
+
+Se följande tabell på de autentiseringstyper och konfigurationer som stöds för respektive Dynamics-version/-produkter. (IFD är kort för distribution på Internet.)
+
+| Dynamics-versioner | Autentiseringstyper | Länkade tjänst exempel |
 |:--- |:--- |:--- |
 | Dynamics 365 online <br> Dynamics CRM Online | Office365 | [Dynamics online + Office365-autentisering](#dynamics-365-and-dynamics-crm-online) |
-| Dynamics 365 lokalt med IFD <br> Dynamics CRM 2016 lokalt med IFD <br> Dynamics CRM 2015 lokalt med IFD | IFD | [Dynamics lokalt med IFD + IFD auth](#dynamics-365-and-dynamics-crm-on-premises-with-ifd) |
+| Dynamics 365 lokalt med IFD <br> Dynamics CRM 2016 lokalt med IFD <br> Dynamics CRM 2015 lokalt med IFD | IFD | [Dynamics lokalt med IFD + IFD-autentisering](#dynamics-365-and-dynamics-crm-on-premises-with-ifd) |
 
-För Dynamics 365 mer specifikt kan stöds följande programtyper:
+För Dynamics 365 är det specifikt att följande program typer stöds:
 
-- Dynamics 365 for Sales
-- Dynamics 365 for Customer Service
+- Dynamics 365 för försäljning
+- Dynamics 365 för kund tjänst
 - Dynamics 365 for Field Service
-- Dynamics 365 for Project Service Automation
+- Dynamics 365 för Project service Automation
 - Dynamics 365 för marknadsföring
 
-Andra programtyper t.ex. finans och åtgärder, personal, etc. stöds inte av den här anslutningen.
+Andra program typer, t. ex. ekonomi och drift, personal osv. stöds inte av den här anslutningen.
 
-Den här Dynamics-kopplingen är byggt ovanpå [Dynamics XRM verktyg](https://docs.microsoft.com/dynamics365/customer-engagement/developer/build-windows-client-applications-xrm-tools).
+Den här Dynamics Connector bygger på [Dynamics XRM-verktyg](https://docs.microsoft.com/dynamics365/customer-engagement/developer/build-windows-client-applications-xrm-tools).
 
 >[!TIP]
->Kopiera data från **Dynamics 365 Finance and Operations**, du kan använda den [Dynamics AX-anslutning](connector-dynamics-ax.md).
+>Om du vill kopiera data från **ekonomi och åtgärder i dynamics 365**kan du använda [Dynamics AX-anslutningen](connector-dynamics-ax.md).
 
 ## <a name="get-started"></a>Kom igång
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
-Följande avsnitt innehåller information om egenskaper som används för att definiera Data Factory-entiteter som är specifika för Dynamics.
+Följande avsnitt innehåller information om egenskaper som används för att definiera Data Factory entiteter som är speciella för Dynamics.
 
 ## <a name="linked-service-properties"></a>Länkade tjänstegenskaper
 
-Följande egenskaper har stöd för den länkade tjänsten Dynamics.
+Följande egenskaper stöds för den länkade Dynamics-tjänsten.
 
 ### <a name="dynamics-365-and-dynamics-crm-online"></a>Dynamics 365 och Dynamics CRM Online
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| type | Type-egenskapen måste anges till **Dynamics**. | Ja |
-| deploymentType | Typen av distribution av Dynamics-instans. Det måste vara **”Online”** för Dynamics online. | Ja |
-| serviceUri | Tjänst-URL: en för din Dynamics instans, t.ex. `https://adfdynamics.crm.dynamics.com`. | Ja |
-| authenticationType | Autentiseringstyp för anslutning till en Dynamics-server. Ange **”Office365”** för Dynamics online. | Ja |
-| username | Ange användarnamn för anslutning till Dynamics. | Ja |
-| password | Ange lösenordet för det användarkonto som du angav för användarnamn. Markera det här fältet som en SecureString ska lagras på ett säkert sätt i Data Factory, eller [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
-| connectVia | Den [integreringskörningen](concepts-integration-runtime.md) som används för att ansluta till datalagret. Om den inte anges används standard Azure Integration Runtime. | Inte för källa har Ja för kanalmottagare om källan länkade tjänsten inte en integration runtime |
+| type | Egenskapen Type måste anges till **Dynamics**. | Ja |
+| deploymentType | Dynamics-instansens distributions typ. Det måste vara **"online"** för Dynamics Online. | Ja |
+| serviceUri | Tjänst-URL för din Dynamics-instans, t `https://adfdynamics.crm.dynamics.com`. ex. | Ja |
+| authenticationType | Autentiseringstypen för att ansluta till en Dynamics-Server. Ange **"Office365"** för Dynamics Online. | Ja |
+| username | Ange användar namnet för att ansluta till Dynamics. | Ja |
+| password | Ange lösen ordet för det användar konto som du har angett för användar namn. Markera det här fältet som en SecureString ska lagras på ett säkert sätt i Data Factory, eller [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
+| connectVia | Den [integreringskörningen](concepts-integration-runtime.md) som används för att ansluta till datalagret. Om den inte anges används standard Azure Integration Runtime. | Nej för källa, Ja för mottagare om den länkade käll tjänsten inte har en integrerings körning |
 
 >[!NOTE]
->Dynamics-koppling som används för att använda valfritt ”företagsnamn”-egenskapen för att identifiera din Dynamics CRM/365 Online-instans. Medan det håller fungerar behöver föreslås du för att ange egenskapen ”serviceUri” i stället för att få bättre prestanda, till exempel identifiering.
+>Dynamics-anslutningen som används för att använda valfri "företags namn"-egenskap för att identifiera din Dynamics CRM/365 Online-instans. Medan det fungerar, rekommenderar vi att du anger den nya egenskapen "serviceUri" i stället för att få bättre prestanda för instans identifiering.
 
-**Exempel: Dynamics online med Office 365-autentisering**
+**Exempel: Dynamics Online med Office365-autentisering**
 
 ```json
 {
@@ -108,21 +113,21 @@ Följande egenskaper har stöd för den länkade tjänsten Dynamics.
 
 ### <a name="dynamics-365-and-dynamics-crm-on-premises-with-ifd"></a>Dynamics 365 och Dynamics CRM lokalt med IFD
 
-*Ytterligare egenskaper som jämför till Dynamics online är ”värdnamnet” och ”port”.*
+*Ytterligare egenskaper som jämförs med Dynamics Online är "värdnamn" och "Port".*
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| type | Type-egenskapen måste anges till **Dynamics**. | Ja |
-| deploymentType | Typen av distribution av Dynamics-instans. Det måste vara **”OnPremisesWithIfd”** för Dynamics lokalt med IFD.| Ja |
-| hostName | Värdnamnet för den lokala Dynamics-servern. | Ja |
+| type | Egenskapen Type måste anges till **Dynamics**. | Ja |
+| deploymentType | Dynamics-instansens distributions typ. Det måste vara **"OnPremisesWithIfd"** för Dynamics-lokal med IFD.| Ja |
+| Värdnamn | Värd namnet för den lokala Dynamics-servern. | Ja |
 | port | Porten för den lokala Dynamics-servern. | Nej, standard är 443 |
-| organizationName | Organisationens namn på Dynamics-instans. | Ja |
-| authenticationType | Autentiseringstyp för anslutning till Dynamics-servern. Ange **”Ifd”** för Dynamics lokalt med IFD. | Ja |
-| username | Ange användarnamn för anslutning till Dynamics. | Ja |
-| password | Ange lösenordet för det användarkonto som du angav för användarnamn. Du kan välja att markera det här fältet som en SecureString att lagra den på ett säkert sätt i ADF eller lagra lösenord i Azure Key Vault och låta kopieringsaktiviteten hämta därifrån när du utför kopiering av data – Lär dig mer från [Store autentiseringsuppgifter i Key Vault](store-credentials-in-key-vault.md). | Ja |
+| organizationName | Organisations namnet för Dynamics-instansen. | Ja |
+| authenticationType | Autentiseringstypen för att ansluta till Dynamics-servern. Ange **"IFD"** för Dynamics lokalt med IFD. | Ja |
+| username | Ange användar namnet för att ansluta till Dynamics. | Ja |
+| password | Ange lösen ordet för det användar konto som du har angett för användar namn. Du kan välja att markera det här fältet som en SecureString för att lagra det på ett säkert sätt i ADF eller lagra lösen ord i Azure Key Vault och låta kopierings aktiviteten hämta från där när data kopieringen ska utföras – Läs mer från [lagra autentiseringsuppgifter i Key Vault](store-credentials-in-key-vault.md). | Ja |
 | connectVia | Den [integreringskörningen](concepts-integration-runtime.md) som används för att ansluta till datalagret. Om den inte anges används standard Azure Integration Runtime. | Nej för källa, Ja för mottagare |
 
-**Exempel: Dynamics lokalt med IFD med IFD autentisering**
+**Exempel: Dynamics lokalt med IFD med IFD-autentisering**
 
 ```json
 {
@@ -152,19 +157,19 @@ Följande egenskaper har stöd för den länkade tjänsten Dynamics.
 
 ## <a name="dataset-properties"></a>Egenskaper för datamängd
 
-En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera datauppsättningar finns i den [datauppsättningar](concepts-datasets-linked-services.md) artikeln. Det här avsnittet innehåller en lista över egenskaper som stöds av Dynamics-datauppsättningen.
+En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera datauppsättningar finns i den [datauppsättningar](concepts-datasets-linked-services.md) artikeln. Det här avsnittet innehåller en lista över egenskaper som stöds av Dynamics DataSet.
 
-För att kopiera data från och till Dynamics, ange typegenskapen på datauppsättningen till **DynamicsEntity**. Följande egenskaper stöds.
+Om du vill kopiera data från och till Dynamics anger du egenskapen type för data uppsättningen till **DynamicsEntity**. Följande egenskaper stöds.
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| type | Type-egenskapen för datauppsättningen måste anges till **DynamicsEntity**. |Ja |
-| entityName | Det logiska namnet för att hämta entiteten. | Nej för källa (om ”query” i källan för aktiviteten har angetts), Ja för mottagare |
+| type | Data uppsättningens typ-egenskap måste anges till **DynamicsEntity**. |Ja |
+| entityName | Det logiska namnet på den entitet som ska hämtas. | Nej för källa (om "fråga" i aktivitets källan har angetts), Ja för mottagare |
 
 > [!IMPORTANT]
->- När du kopierar data från Dynamics är avsnittet ”struktur” valfritt men rekommenderat mycket i Dynamics datauppsättningen så att en deterministisk Kopiera resultatet. Den definierar och datatyp för Dynamics-data som du vill kopiera över. Mer information finns i [datauppsättningsstrukturen](concepts-datasets-linked-services.md#dataset-structure-or-schema) och [datatypsmappningen för Dynamics](#data-type-mapping-for-dynamics).
->- När du importerar schemat i redigering Användargränssnittet härleda ADF schemat genom att sampling de översta raderna från Dynamics frågeresultat att initiera struktur tillverkning, i vilket fall kolumner utan värden utelämnas. Samma beteende gäller för att kopiera körningar om det finns ingen explicit strukturdefinition. Du kan granska och lägga till fler kolumner i Dynamics datauppsättning/datastrukturen vid behov, vilket kommer att användas under kopiera körning.
->- När du kopierar data till Dynamics är ”struktur”-avsnittet valfritt i Dynamics-datauppsättningen. Vilka kolumner som ska kopieras till bestäms av dataschemat källa. Om källan är en CSV-fil utan rubrik som är i datauppsättningen för indata anger du ”strukturen” med namn och datatyp för kolumnen. De mappar till fält i CSV-fil i taget i ordning.
+>- När du kopierar data från Dynamics är avsnittet "struktur" valfritt, men det är mycket omkommandoat i Dynamics-datauppsättningen för att säkerställa ett deterministiskt kopierings resultat. Den definierar kolumn namnet och data typen för de Dynamics-data som du vill kopiera. Mer information finns i [data uppsättnings struktur](concepts-datasets-linked-services.md#dataset-structure-or-schema) och [data typs mappning för Dynamics](#data-type-mapping-for-dynamics).
+>- När du importerar schemat i redigerings gränssnittet, härleder ADF schemat genom att sampla de översta raderna från exemplet på Dynamics-frågeresultatet för att initiera struktur konstruktionen. i så fall kommer kolumner utan värden att utelämnas. Samma sak gäller för kopierings körningar om det inte finns någon explicit struktur definition. Du kan granska och lägga till fler kolumner i schemat/strukturen för Dynamics-datauppsättningen efter behov, vilket kommer att behållas under kopierings körningen.
+>- När du kopierar data till Dynamics är avsnittet "struktur" valfritt i Dynamics-datauppsättningen. Vilka kolumner som ska kopieras till bestäms av käll data schemat. Om källan är en CSV-fil utan sidhuvud, anger du "struktur" med kolumn namn och datatyp i indata-datauppsättningen. De mappar till fält i CSV-filen en i ordning.
 
 **Exempel:**
 
@@ -204,19 +209,19 @@ För att kopiera data från och till Dynamics, ange typegenskapen på datauppsä
 
 ## <a name="copy-activity-properties"></a>Kopiera egenskaper för aktivitet
 
-En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera aktiviteter finns i den [Pipelines](concepts-pipelines-activities.md) artikeln. Det här avsnittet innehåller en lista över egenskaper som stöds av Dynamics käll- och mottagar-typer.
+En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera aktiviteter finns i den [Pipelines](concepts-pipelines-activities.md) artikeln. Det här avsnittet innehåller en lista över egenskaper som stöds av typerna Dynamics-källa och mottagare.
 
-### <a name="dynamics-as-a-source-type"></a>Dynamics som en typ av datakälla
+### <a name="dynamics-as-a-source-type"></a>Dynamics som typ av källa
 
-För att kopiera data från Dynamics, ange typ av datakälla i kopieringsaktiviteten till **DynamicsSource**. Följande egenskaper stöds i kopieringsaktiviteten **källa** avsnittet.
+Om du vill kopiera data från Dynamics anger du käll typen i kopierings aktiviteten till **DynamicsSource**. Följande egenskaper stöds i kopieringsaktiviteten **källa** avsnittet.
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| type | Type-egenskapen för aktiviteten kopieringskälla måste anges till **DynamicsSource**. | Ja |
-| query | FetchXML är en upphovsrättsskyddad frågespråk som används i Dynamics (online och on-premises). Se följande exempel. Mer information finns i [skapa frågor med FetchXML](https://msdn.microsoft.com/library/gg328332.aspx). | Nej (om ”entityName” i datauppsättningen har angetts) |
+| type | Typ egenskapen för kopierings aktivitets källan måste anges till **DynamicsSource**. | Ja |
+| query | FetchXML är ett patentskyddat frågespråk som används i Dynamics (online och lokalt). Se följande exempel. Mer information finns i [Bygg frågor med FetchXML](https://msdn.microsoft.com/library/gg328332.aspx). | Nej (om "entityName" i data uppsättningen har angetts) |
 
 >[!NOTE]
->Kolumnen PK kopieras alltid även om kolumnen projektionen som du konfigurerar i FetchXML-fråga inte innehåller den.
+>Kolumnen PK kommer alltid att kopieras, även om den kolumn projektion som du konfigurerar i FetchXML-frågan inte innehåller den.
 
 **Exempel:**
 
@@ -250,7 +255,7 @@ För att kopiera data från Dynamics, ange typ av datakälla i kopieringsaktivit
 ]
 ```
 
-### <a name="sample-fetchxml-query"></a>Exemplet FetchXML-fråga
+### <a name="sample-fetchxml-query"></a>Exempel på FetchXML-fråga
 
 ```xml
 <fetch>
@@ -270,23 +275,23 @@ För att kopiera data från Dynamics, ange typ av datakälla i kopieringsaktivit
 </fetch>
 ```
 
-### <a name="dynamics-as-a-sink-type"></a>Dynamics som en Mottagartyp
+### <a name="dynamics-as-a-sink-type"></a>Dynamics som mottagar typ
 
-För att kopiera data till Dynamics, ange Mottagartyp i kopieringsaktiviteten till **DynamicsSink**. Följande egenskaper stöds i kopieringsaktiviteten **mottagare** avsnittet.
+Om du vill kopiera data till Dynamics ställer du in mottagar typen i kopierings aktiviteten till **DynamicsSink**. Följande egenskaper stöds i avsnittet Kopiera aktivitets **mottagare** .
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| type | Egenskapen type kopiera aktivitet komprimeringstyp måste anges till **DynamicsSink**. | Ja |
-| writeBehavior | Åtgärden Skriv beteende.<br/>Tillåtna värde är **”Upsert”** . | Ja |
-| writeBatchSize | Antal rader för data som skrivs till Dynamics i varje batch. | Nej (standardvärdet är 10) |
-| ignoreNullValues | Anger om du vill ignorera null-värden från indata (utom nyckelfält) vid skrivning.<br/>Tillåtna värden är **true** och **false**.<br>- **True**: Lämna data i målobjektet oförändrade när du gör en upsert/uppdateringsåtgärd. Infoga ett definierat standardvärde när du gör en insert-åtgärd.<br/>- **False**: Uppdatera data i målobjektet till NULL när du gör en upsert/uppdateringsåtgärd. Infoga värdet NULL när du gör en insert-åtgärd. | Nej (standard är FALSKT) |
+| type | Egenskapen Type för kopierings aktivitetens Sink måste anges till **DynamicsSink**. | Ja |
+| writeBehavior | Åtgärdens Skriv funktion.<br/>Tillåtet värde är **"upsert"** . | Ja |
+| writeBatchSize | Rad antalet data som skrivs till Dynamics i varje batch. | Nej (standard är 10) |
+| ignoreNullValues | Anger om null-värden ska ignoreras från indata (förutom nyckel fält) under en Skriv åtgärd.<br/>Tillåtna värden är **true** och **false**.<br>- **Sant**: Lämna data i målobjektet oförändrade när du gör en upsert/uppdatering-åtgärd. Infoga ett definierat standardvärde när du infogar en åtgärd.<br/>- **Falskt**: Uppdatera data i målobjektet till NULL när du gör en upsert/uppdatering-åtgärd. Infoga ett NULL-värde när du gör en infognings åtgärd. | Nej (standard är falskt) |
 
 >[!NOTE]
->Standardvärdet för mottagaren ”**writeBatchSize**” och Kopieringsaktivitet ” **[parallelCopies](copy-activity-performance.md#parallel-copy)** ” för Dynamics-mottagaren är båda 10. Därför skickas 100 poster till Dynamics samtidigt.
+>Standardvärdet för sinken "**writeBatchSize**" och kopierings aktiviteten " **[ParallelCopies](copy-activity-performance.md#parallel-copy)** " för Dynamics-Sink är båda 10. Därför skickas 100 poster till Dynamics samtidigt.
 
-För Dynamics 365 online, det finns en gräns på [2 samtidiga batch-anrop per organisation](https://msdn.microsoft.com/library/jj863631.aspx#Run-time%20limitations). Om den gränsen överskrids, genereras ett ”servern är upptagen” fel innan den första begäran någonsin har körts. Att hålla ”writeBatchSize” mindre än eller lika med 10 skulle undvika sådan begränsning för samtidiga anrop.
+För Dynamics 365 online finns det en gräns på [2 samtidiga batch-anrop per organisation](https://msdn.microsoft.com/library/jj863631.aspx#Run-time%20limitations). Om den här gränsen överskrids genereras ett "Server upptagen"-fel innan den första begäran någonsin körs. Att hålla "writeBatchSize" mindre eller lika med 10 skulle förhindra att samtidiga samtal begränsas.
 
-Optimal kombination av ”**writeBatchSize**” och ”**parallelCopies**” beror på schemat för entiteten t.ex. antalet kolumner, Radstorleken, antal plugin-program/arbetsflöden/arbetsflödesaktiviteter ansluten Dessa anrop, osv. Standardinställningen för 10 writeBatchSize * 10 parallelCopies är rekommendationen enligt Dynamics-tjänsten, som skulle fungera för de flesta Dynamics-entiteter inte kan dock vara bästa prestanda. Du kan finjustera prestanda genom att justera kombinationen i din inställningarna för kopieringsaktiviteten.
+Den optimala kombinationen av "**writeBatchSize**" och "**parallelCopies**" är beroende av schemat för entiteten, t. ex. antal kolumner, rad storlek, antal plugin-program/arbets flöden/arbets flödes aktiviteter som kopplats samman till dessa anrop osv. Standardinställningen 10 writeBatchSize * 10 parallelCopies är rekommendationen enligt Dynamics-tjänsten, som skulle fungera för de flesta Dynamics-entiteter, men det kanske inte är bästa prestanda. Du kan justera prestanda genom att justera kombinationen i inställningarna för kopierings aktiviteten.
 
 **Exempel:**
 
@@ -322,35 +327,39 @@ Optimal kombination av ”**writeBatchSize**” och ”**parallelCopies**” ber
 ]
 ```
 
-## <a name="data-type-mapping-for-dynamics"></a>Datatypen mappning för Dynamics
+## <a name="data-type-mapping-for-dynamics"></a>Data typs mappning för Dynamics
 
-När du kopierar data från Dynamics, används följande mappningar från Dynamics-datatyper till Data Factory tillfälliga-datatyper. Läs hur kopieringsaktiviteten mappar källtypen schema och data till mottagaren i [Schema och data skriver mappningar](copy-activity-schema-and-type-mapping.md).
+När du kopierar data från Dynamics används följande mappningar från data typer i Dynamics för att Data Factory interimistiska data typer. Information om hur kopierings aktiviteten mappar käll schema och data typ till mottagaren finns i schema- [och data typs mappningar](copy-activity-schema-and-type-mapping.md).
 
-Konfigurera den motsvarande datatypen för Data Factory i en dataset-struktur baserat på källan Dynamics-datatyp med hjälp av mappningstabellen nedan.
+Konfigurera motsvarande Data Factory data typ i en data uppsättnings struktur baserat på data typen för din käll-Dynamics med hjälp av följande mappnings tabell.
 
-| Dynamics-datatypen | Data Factory tillfälliga datatyp | Stöds som källa | Stöds som mottagare |
+| Data typen Dynamics | Data Factory tillfälliga datatyp | Stöds som källa | Stöds som mottagare |
 |:--- |:--- |:--- |:--- |
 | AttributeTypeCode.BigInt | Lång | ✓ | ✓ |
-| AttributeTypeCode.Boolean | Boolean | ✓ | ✓ |
-| AttributeType.Customer | Guid | ✓ | |
-| AttributeType.DateTime | DateTime | ✓ | ✓ |
+| AttributeTypeCode. Boolean | Boolesk | ✓ | ✓ |
+| AttributeType. kund | Guid | ✓ | |
+| AttributeType. DateTime | DateTime | ✓ | ✓ |
 | AttributeType.Decimal | Decimal | ✓ | ✓ |
-| AttributeType.Double | Double | ✓ | ✓ |
-| AttributeType.EntityName | String | ✓ | ✓ |
-| AttributeType.Integer | Int32 | ✓ | ✓ |
-| AttributeType.Lookup | Guid | ✓ | ✓ (med enda mål som är associerade) |
-| AttributeType.ManagedProperty | Boolean | ✓ | |
-| AttributeType.Memo | String | ✓ | ✓ |
-| AttributeType.Money | Decimal | ✓ | ✓ |
-| AttributeType.Owner | Guid | ✓ | |
-| AttributeType.Picklist | Int32 | ✓ | ✓ |
-| AttributeType.Uniqueidentifier | Guid | ✓ | ✓ |
-| AttributeType.String | String | ✓ | ✓ |
-| AttributeType.State | Int32 | ✓ | ✓ |
-| AttributeType.Status | Int32 | ✓ | ✓ |
+| AttributeType. Double | Double | ✓ | ✓ |
+| AttributeType. EntityName | Sträng | ✓ | ✓ |
+| AttributeType. Integer | Int32 | ✓ | ✓ |
+| AttributeType.Lookup | Guid | ✓ | ✓ (med associerat enskilt mål) |
+| AttributeType.ManagedProperty | Boolesk | ✓ | |
+| AttributeType.Memo | Sträng | ✓ | ✓ |
+| AttributeType. Money | Decimal | ✓ | ✓ |
+| AttributeType. owner | Guid | ✓ | |
+| AttributeType. listruta | Int32 | ✓ | ✓ |
+| AttributeType. uniqueidentifier | Guid | ✓ | ✓ |
+| AttributeType. String | Sträng | ✓ | ✓ |
+| AttributeType. State | Int32 | ✓ | ✓ |
+| AttributeType. status | Int32 | ✓ | ✓ |
 
 > [!NOTE]
-> Dynamics-datatyper AttributeType.CalendarRules, AttributeType.MultiSelectPicklist och AttributeType.PartyList stöds inte.
+> Det finns inte stöd för Dynamics data typerna AttributeType. CalendarRules, AttributeType. MultiSelectPicklist och AttributeType. PartyList.
+
+## <a name="lookup-activity-properties"></a>Egenskaper för Sök aktivitet
+
+Om du vill veta mer om egenskaperna kontrollerar du [söknings aktiviteten](control-flow-lookup-activity.md).
 
 ## <a name="next-steps"></a>Nästa steg
 En lista över datalager som stöds som källor och mottagare av kopieringsaktiviteten i Data Factory finns i [datalager som stöds](copy-activity-overview.md#supported-data-stores-and-formats).

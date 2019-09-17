@@ -11,12 +11,12 @@ ms.author: jovanpop
 ms.reviewer: sstein, carlrab, bonova
 ms.date: 08/12/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 29fd82eb0253f2f7f6b9bc8b6a84882e2372124c
-ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
+ms.openlocfilehash: 388e676fbabf427801688cbfb47a1455444fd02e
+ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70984973"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71018998"
 ---
 # <a name="managed-instance-t-sql-differences-limitations-and-known-issues"></a>Hanterade instans T-SQL-skillnader, begränsningar och kända problem
 
@@ -339,14 +339,14 @@ En hanterad instans kan inte komma åt fil resurser och Windows-mappar, så föl
 - `ALTER ASSEMBLY`Det går inte att referera till filer. Se [Alter Assembly](https://docs.microsoft.com/sql/t-sql/statements/alter-assembly-transact-sql).
 
 ### <a name="database-mail-db_mail"></a>Database Mail (db_mail)
- - `sp_send_dbmail`Det går inte att @file_attachments skicka bilagor med hjälp av parametern. Det går inte att komma åt lokala fil system och Extertal-resurser eller Azure Blob Storage i den här proceduren.
+ - `sp_send_dbmail`Det går inte att @file_attachments skicka bilagor med hjälp av parametern. Lokalt fil system och externa resurser eller Azure Blob Storage kan inte nås från den här proceduren.
  - Se kända problem som `@query` rör parametrar och autentisering.
  
 ### <a name="dbcc"></a>DBCC
 
 Inte dokumenterade DBCC-instruktioner som är aktiverade i SQL Server stöds inte i hanterade instanser.
 
-- Endast ett begränsat antal globala `Trace flags` stöds. Session-Level `Trace flags` stöds inte. Se [spårnings flaggor](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-traceon-trace-flags-transact-sql).
+- Endast ett begränsat antal globala spårnings flaggor stöds. Session-Level `Trace flags` stöds inte. Se [spårnings flaggor](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-traceon-trace-flags-transact-sql).
 - [DBCC TRACEOFF](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-traceoff-transact-sql) och [DBCC TRACEON](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-traceon-transact-sql) fungerar med det begränsade antalet globala spårnings flaggor.
 - Det går inte att använda [DBCC CHECKDB](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-checkdb-transact-sql) med alternativen REPAIR_ALLOW_DATA_LOSS, REPAIR_FAST och REPAIR_REBUILD eftersom databasen inte kan anges `SINGLE_USER` i läget-se [Alter Database-skillnader](#alter-database-statement). Potentiella databas fel hanteras av support teamet för Azure. Kontakta Azure-supporten om du är märker databas skada som bör åtgärdas.
 
@@ -415,7 +415,7 @@ Externa tabeller som refererar till filerna i HDFS eller Azure Blob Storage stö
 Information om hur du konfigurerar replikering finns i [själv studie kursen för replikering](replication-with-sql-database-managed-instance.md).
 
 
-Om replikering har Aktiver ATS för en databas i en [failover-grupp](sql-database-auto-failover-group.md)måste den hanterade instans administratören rensa alla publikationer på den gamla primära servern och konfigurera om dem på den nya primära servern efter en redundansväxling. Följande aktiviteter behövs i det här scenariot:
+Om replikering har Aktiver ATS för en databas i en [failover-grupp](sql-database-auto-failover-group.md)måste den hanterade instans administratören rensa alla publikationer på den gamla primära och konfigurera om dem på den nya primära servern efter en redundansväxling. Följande aktiviteter behövs i det här scenariot:
 
 1. Stoppa alla migreringsjobb som körs på databasen, om det finns några.
 2. Släpp metadata för prenumerationer från utgivare genom att köra följande skript på utgivar databasen:
@@ -479,8 +479,8 @@ Begränsningar:
 - Återställning av `.BAK` filen för en databas som innehåller en begränsning som beskrivs i det här dokumentet ( `FILESTREAM` till exempel `FILETABLE` eller objekt) kan inte återställas på den hanterade instansen.
 - `.BAK`Det går inte att återställa filer som innehåller flera säkerhets kopierings uppsättningar. 
 - `.BAK`filer som innehåller flera loggfiler kan inte återställas.
-- Säkerhets kopior som innehåller databaser som är större än 8TB, aktiva InMemory OLTP-objekt eller antal filer som skulle överskrida 280 filer per instans kan inte återställas på en Generell användning instans. 
-- Säkerhets kopieringar som innehåller databaser som är större än 4 TB-eller in-memory OLTP-objekt med den totala storlek som är större än den storlek som beskrivs i [resurs gränser](sql-database-managed-instance-resource-limits.md) kan inte återställas på affärskritisk instans.
+- Säkerhets kopior som innehåller databaser som är större än 8 TB, aktiva InMemory OLTP-objekt eller antal filer som skulle överskrida 280 filer per instans kan inte återställas på en Generell användning instans. 
+- Säkerhets kopior som innehåller databaser som är större än 4 TB eller InMemory OLTP-objekt med Total storlek som är större än den storlek som beskrivs i [resurs gränser](sql-database-managed-instance-resource-limits.md) kan inte återställas affärskritisk-instansen.
 Information om Restore-instruktioner [](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-transact-sql)finns i Restore Statements.
 
  > [!IMPORTANT]
@@ -544,6 +544,16 @@ En hanterad instans placerar utförlig information i fel loggarna. Det finns må
 
 ## <a name="Issues"></a>Kända problem
 
+### <a name="missing-validations-in-restore-process"></a>Valideringar som saknas i återställnings processen
+
+**Ikraftträdande** Sep 2019
+
+`RESTORE`instruktionen och inbyggd återställning av återställnings punkt utför inte några nessecary-kontroller på den återställda databasen:
+- **DBCC CHECKDB**  -  `DBCC CHECKDB` -instruktionenfungerarintepåden`RESTORE` återställda databasen. Om en ursprunglig databas är skadad eller om en säkerhets kopia skadas när den kopieras till Azure Blob Storage, kommer automatiska säkerhets kopieringar inte att vidtas och Azure-supporten kommer att kontakta kunden. 
+- Inbyggd återställnings process för tidpunkter kontrollerar inte att den automatiska säkerhets kopieringen från Affärskritisk instans innehåller [InMemory OLTP-objekt](sql-database-in-memory.md#in-memory-oltp). 
+
+**Lösning**: Kontrol lera att du kör `DBCC CHECKDB` på käll databasen innan du tar en säkerhets kopia och Använd `WITH CHECKSUM` alternativet i säkerhets kopiering för att undvika potentiella fel som kan återställas på den hanterade instansen. Kontrol lera att käll databasen inte innehåller [InMemory OLTP-objekt](sql-database-in-memory.md#in-memory-oltp) om du återställer den på generell användning nivå.
+
 ### <a name="resource-governor-on-business-critical-service-tier-might-need-to-be-reconfigured-after-failover"></a>Resource Governor på Affärskritisk tjänst nivå kan behöva konfigureras om efter en redundansväxling
 
 **Ikraftträdande** Sep 2019
@@ -552,19 +562,19 @@ En hanterad instans placerar utförlig information i fel loggarna. Det finns må
 
 **Lösning**: Kör `ALTER RESOURCE GOVERNOR RECONFIGURE` regelbundet eller som en del av SQL Agent-jobbet som kör SQL-aktiviteten när instansen startar om du använder [Resource Governor](https://docs.microsoft.com/sql/relational-databases/resource-governor/resource-governor).
 
-### <a name="cannot-authenicate-to-external-mail-servers-using-secure-connection-ssl"></a>Det går inte att autentisering externa e-postservrar med säker anslutning (SSL)
+### <a name="cannot-authenticate-to-external-mail-servers-using-secure-connection-ssl"></a>Det går inte att autentisera till externa e-postservrar med säker anslutning (SSL)
 
 **Ikraftträdande** Aug 2019
 
 Database mail som har [kon figurer ATS med säker anslutning (SSL)](https://docs.microsoft.com/sql/relational-databases/database-mail/configure-database-mail) kan inte autentiseras för vissa e-postservrar utanför Azure. Detta är ett säkerhets konfigurations problem som kommer att lösas snart.
 
-**Korrigera** Tillfällig ta bort säker anslutning (SSL) formar databasens e-postkonfiguration tills problemet har lösts. 
+**Korrigera** Tillfälligt ta bort säker anslutning (SSL) från Database mail-konfigurationen tills problemet har lösts. 
 
 ### <a name="cross-database-service-broker-dialogs-must-be-re-initialized-after-service-tier-upgrade"></a>Service Broker dialog rutor mellan databaser måste initieras igen efter uppgraderingen av service nivå
 
 **Ikraftträdande** Aug 2019
 
-Service Broker dialog rutor mellan databaser slutar att leverera meddelanden till tjänsterna i andra databaser efter åtgärden ändra tjänst nivå. Meddelandena går **inte förlorade** och de finns i avsändar kön. Om du ändrar virtuella kärnor eller instans lagrings storlek i den hanterade instansen kommer `service_broke_guid` värdet i [sys. Databass](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-databases-transact-sql) -vyn att ändras för alla databaser. Alla `DIALOG` skapade med [dialog](https://docs.microsoft.com/en-us/sql/t-sql/statements/begin-dialog-conversation-transact-sql) instruktionen BEGIN som refererar till tjänst hanterare i andra databaser kommer att sluta leverera meddelanden till mål tjänsten.
+Service Broker dialog rutor mellan databaser slutar att leverera meddelanden till tjänsterna i andra databaser efter åtgärden ändra tjänst nivå. Meddelandena går **inte förlorade** och de finns i avsändar kön. Om du ändrar virtuella kärnor eller instans lagrings storlek i den hanterade instansen kommer `service_broke_guid` värdet i [sys. Databass](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-databases-transact-sql) -vyn att ändras för alla databaser. Alla `DIALOG` skapade med [dialog](https://docs.microsoft.com/en-us/sql/t-sql/statements/begin-dialog-conversation-transact-sql) instruktionen BEGIN som hänvisar till tjänst hanterare i andra databaser kommer att sluta leverera meddelanden till mål tjänsten.
 
 **Korrigera** Stoppa alla aktiviteter som använder Service Broker dialog samtal över flera databaser innan du uppdaterar tjänst nivån och återinitierar dem igen. Om det finns återstående meddelanden som inte levereras efter ändringar i tjänst nivån läser du meddelandena från käll kön och skickar dem igen till målkön.
 
@@ -592,7 +602,7 @@ Om transaktionell replikering har Aktiver ATS för en databas i en grupp för au
 
 **Ikraftträdande** Jan 2019
 
-SQL Server Management Studio och SQL Server Data Tools inte fuly stöd för Azures konto inloggningar och användare.
+SQL Server Management Studio och SQL Server Data Tools har inte fullt stöd för inloggningar och användare i Azure Active Directory.
 - Att använda Azure AD server-Huvudkonton (inloggningar) och användare (offentlig för hands version) med SQL Server Data Tools stöds inte för närvarande.
 - Skript för Azure AD server-Huvudkonton (inloggningar) och användare (offentlig för hands version) stöds inte i SQL Server Management Studio.
 
@@ -612,7 +622,7 @@ När en databas återställs på den hanterade instansen skapar återställnings
 
 Varje Generell användning hanterad instans har upp till 35 TB lagring reserverat för Azure Premium-disk utrymme. Varje databas fil placeras på en separat fysisk disk. Disk storlekar kan vara 128 GB, 256 GB, 512 GB, 1 TB eller 4 TB. Oanvänt utrymme på disken debiteras inte, men den totala summan av storleken på Azure Premium-diskar får inte överstiga 35 TB. I vissa fall kan en hanterad instans som inte behöver 8 TB totalt överskrida gränsen på 35 TB Azure på lagrings storleken på grund av intern fragmentering.
 
-En Generell användning hanterad instans kan till exempel ha en stor fil som är 1,2 TB i storleken på en 4 TB-disk. Det kan också finnas 248 filer på 1 GB filer som var placerade på separata 128 GB-diskar. I det här exemplet:
+En Generell användning hanterad instans kan till exempel ha en stor fil som är 1,2 TB i storleken på en 4 TB-disk. Det kan också finnas 248 filer med en storlek på 1 GB som placeras på separata 128 GB-diskar. I det här exemplet:
 
 - Den totala allokerade disk lagrings storleken är 1 x 4 TB + 248 x 128 GB = 35 TB.
 - Det totala reserverade utrymmet för databaser på instansen är 1 x 1,2 TB + 248 x 1 GB = 1,4 TB.
@@ -629,7 +639,7 @@ Flera systemvyer, prestanda räknare, fel meddelanden, XEvents och fel logg post
 
 ### <a name="error-logs-arent-persisted"></a>Fel loggarna är inte beständiga
 
-Fel loggar som är tillgängliga i den hanterade instansen är inte bestående och deras storlek ingår inte i den maximala lagrings gränsen. Fel loggar kan raderas automatiskt om redundansväxlingen sker. Det kan finnas luckor i fel logg historiken eftersom den hanterade instansen har flyttats flera gång på flera virtuella datorer.
+Fel loggar som är tillgängliga i den hanterade instansen är inte bestående och deras storlek ingår inte i den maximala lagrings gränsen. Fel loggar kan raderas automatiskt om redundansväxlingen sker. Det kan finnas luckor i fel logg historiken eftersom den hanterade instansen har flyttats flera gånger på flera virtuella datorer.
 
 ### <a name="transaction-scope-on-two-databases-within-the-same-instance-isnt-supported"></a>Transaktions omfånget på två databaser inom samma instans stöds inte
 

@@ -10,16 +10,16 @@ author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
 ms.date: 09/05/2019
-ms.openlocfilehash: aa280ea71735ce7c4000951e5c11de2913aaebe8
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 15a11ba74262ec5a354f0cb3fe22c09167c8d5a6
+ms.sourcegitcommit: d15b23e23328ce7502dd3d2846b49fd2d6d8209c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71001621"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71005398"
 ---
 # <a name="use-azure-machine-learning-pipelines-for-batch-scoring"></a>Använd Azure Machine Learning pipelines för batch-Poäng
 
-I den här självstudien använder du Azure Machine Learning pipelines för att köra en batch-poäng eller en härlednings uppgift. I det här exempel jobbet används den förtränade InDesign [-v3-](https://arxiv.org/abs/1512.00567) (convolutional neurala Network Tensorflow Model för att klassificera bilder som inte har etiketter. När du har skapat och publicerat en pipeline konfigurerar du en REST-slutpunkt så att du kan utlösa pipelinen från alla HTTP-bibliotek på vilken plattform som helst.
+I den här självstudien använder du Azure Machine Learning pipelines för att köra ett batch-bedömnings jobb. I det här exemplet används den förtränade InDesign [-v3-](https://arxiv.org/abs/1512.00567) (convolutional neurala Network Tensorflow Model för att klassificera omärkta bilder. När du har skapat och publicerat en pipeline konfigurerar du en REST-slutpunkt så att du kan utlösa pipelinen från alla HTTP-bibliotek på vilken plattform som helst.
 
 Maskin inlärnings pipeliner optimerar arbets flödet med hastighet, portabilitet och åter användning så att du kan fokusera på din expertis, maskin inlärning i stället för infrastruktur och automatisering. [Läs mer om ml-pipelines](concept-ml-pipelines.md).
 

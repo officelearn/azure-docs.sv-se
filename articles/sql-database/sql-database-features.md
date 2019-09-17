@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: bonova, sstein
 ms.date: 05/10/2019
-ms.openlocfilehash: 2ddef73121ef2f6c145516ca114989aa12b8003c
-ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
+ms.openlocfilehash: 3cad1a73dd98928ed12748e2acffaea158dc5924
+ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70873506"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71010304"
 ---
 # <a name="azure-sql-database-features"></a>Azure SQL Database funktioner
 
@@ -32,7 +32,7 @@ Azure SQL Database hanterar dina databaser och garanterar deras hög tillgängli
 
 I följande tabell visas de viktigaste funktionerna i SQL Server och innehåller information om huruvida funktionen delvis eller helt stöds i hanterade instanser eller Enkel databas och elastiska pooler, med en länk till mer information om funktionen.
 
-| **SQL-funktion** | **Enkla databaser och elastiska pooler** | **Hanterade instanser** |
+| **SQL-funktion** | **Enkla databaser och elastiska pooler** | **Hanterade instanser och instans pooler** |
 | --- | --- | --- |
 | [Alltid krypterad](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine) | Ja – se [certifikat Arkiv](sql-database-always-encrypted.md) och [nyckel valv](sql-database-always-encrypted-azure-key-vault.md) | Ja – se [certifikat Arkiv](sql-database-always-encrypted.md) och [nyckel valv](sql-database-always-encrypted-azure-key-vault.md) |
 | [Always on-tillgänglighetsgrupper](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) | [Hög tillgänglighet](sql-database-high-availability.md) ingår i varje databas. Haveri beredskap beskrivs i [Översikt över affärs kontinuitet med Azure SQL Database](sql-database-business-continuity.md) | [Hög tillgänglighet](sql-database-high-availability.md) ingår i varje databas och [kan inte hanteras av användaren](sql-database-managed-instance-transact-sql-information.md#always-on-availability). Haveri beredskap beskrivs i [Översikt över affärs kontinuitet med Azure SQL Database](sql-database-business-continuity.md) |
@@ -112,7 +112,7 @@ I följande tabell visas de viktigaste funktionerna i SQL Server och innehåller
 
 Azure-plattformen tillhandahåller ett antal PaaS-funktioner som läggs till som ett extra värde för standard databas funktionerna. Det finns ett antal externa tjänster som kan användas med Azure SQL Database-tjänsten. 
 
-| **Plattforms funktion** | **Enkla databaser och elastiska pooler** | **Hanterade instanser** |
+| **Plattforms funktion** | **Enkla databaser och elastiska pooler** | **Hanterade instanser och instans pooler** |
 | --- | --- | --- |
 | [Aktiv geo-replikering](sql-database-active-geo-replication.md) | Ja – alla tjänst nivåer förutom storskalig | Nej, se [grupperna för automatisk redundans (förhands granskning)](sql-database-auto-failover-group.md) som ett alternativ |
 | [Automatiska redundansgrupper](sql-database-auto-failover-group.md) | Ja – alla tjänst nivåer förutom storskalig | Ja, i [offentlig för hands version](sql-database-auto-failover-group.md)|
@@ -131,7 +131,7 @@ Azure-plattformen tillhandahåller ett antal PaaS-funktioner som läggs till som
 | [Principbaserad hantering](https://docs.microsoft.com/sql/relational-databases/policy-based-management/administer-servers-by-using-policy-based-management) | Nej | Nej |
 | Offentlig IP-adress | Ja. Åtkomsten kan begränsas med hjälp av brand Väggs-eller tjänst slut punkter.  | Ja. Måste aktive ras explicit och port 3342 måste vara aktive rad i NSG-regler. Offentliga IP-adresser kan inaktive ras om det behövs. Mer information finns i den [offentliga slut punkten](sql-database-managed-instance-public-endpoint-securely.md) . | 
 | [Återställning av tidpunkt för databas](https://docs.microsoft.com/sql/relational-databases/backup-restore/restore-a-sql-server-database-to-a-point-in-time-full-recovery-model) | Ja – alla andra tjänst nivåer än storskalig-se [SQL Database återställning](sql-database-recovery-using-backups.md#point-in-time-restore) | Ja – se [SQL Database återställning](sql-database-recovery-using-backups.md#point-in-time-restore) |
-| Resurspooler | Ja, som [elastiska pooler](sql-database-elastic-pool.md) | Nej. En enda hanterad instans kan ha flera databaser som delar samma pool med resurser. Hanterade instanser kan inte dela resurser. |
+| Resurspooler | Ja, som [elastiska pooler](sql-database-elastic-pool.md) | Ja. En enda hanterad instans kan ha flera databaser som delar samma pool med resurser. Dessutom kan du distribuera flera hanterade instanser i [instans pooler (för hands version)](sql-database-instance-pools.md) som kan dela resurserna. |
 | Skala upp eller ned (online) | Ja, du kan antingen ändra DTU eller reserverad virtuella kärnor eller maximum Storage med minimal stillestånds tid. | Ja, du kan ändra reserverad virtuella kärnor eller maximum Storage med minimal stillestånds tid. |
 | SQL-alias | Ja, se [DNS-alias](dns-alias-overview.md) | Nej |
 | [SQL-analys](https://docs.microsoft.com/azure/azure-monitor/insights/azure-sql) | Ja | Ja |
@@ -146,7 +146,7 @@ Azure-plattformen tillhandahåller ett antal PaaS-funktioner som läggs till som
 ## <a name="tools"></a>Verktyg
 Azure SQL Database har stöd för olika data verktyg som kan hjälpa dig att hantera dina data.
 
-| **Verktyg** | **Enkla databaser och elastiska pooler** | **Hanterade instanser** |
+| **Verktyg** | **Enkla databaser och elastiska pooler** | **Hanterade instanser och instans pooler** |
 | --- | --- | --- |
 | Azure Portal | Ja | Ja |
 | Azure CLI | Ja | Ja|
@@ -167,7 +167,7 @@ Azure SQL Database har stöd för olika data verktyg som kan hjälpa dig att han
 
 Du kan använda olika metoder för migrering för att flytta data mellan SQL Server, Enkel databas och hanterade instans databaser. Vissa metoder är **online** och alla ändringar som görs på källan hämtas när du kör migreringen, men i **offline** -metoder måste du stoppa arbets belastningen som ändrar data på källan medan migreringen pågår.
 
-| **Källa** | **Enkel databas och elastisk pool** | **Hanterad instans** |
+| **Källa** | **Enkel databas och elastisk pool** | **Hanterad instans och instans-pooler** |
 | --- | --- | --- |
 | SQL Server (lokal, AzureVM, Amazon RDS) | **Onlinemallar** [Data migration service (DMS)](https://docs.microsoft.com/sql/dma/dma-overview), [transaktionell replikering](sql-database-managed-instance-transactional-replication.md) <br/> **Anslutningen** [BACPAC-fil (import)](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/import-a-bacpac-file-to-create-a-new-user-database), BCP | **Onlinemallar** [Data migration service (DMS)](https://docs.microsoft.com/sql/dma/dma-overview), [transaktionell replikering](sql-database-managed-instance-transactional-replication.md) <br/> **Anslutningen** Inbyggd säkerhets kopiering/återställning, [BACPAC-fil (import)](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/import-a-bacpac-file-to-create-a-new-user-database), BCP, [ögonblicks bilds replikering](sql-database-managed-instance-transactional-replication.md) |
 | Enskild databas | **Anslutningen** [BACPAC-fil (import)](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/import-a-bacpac-file-to-create-a-new-user-database), BCP | **Anslutningen** [BACPAC-fil (import)](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/import-a-bacpac-file-to-create-a-new-user-database), BCP |
@@ -183,3 +183,4 @@ Microsoft fortsätter att lägga till funktioner i Azure SQL Database. Besök we
 Mer information om Azure SQL Database-varianter finns i:
 - [Vad är SQL Database?](sql-database-technical-overview.md)
 - [Vad är en hanterad instans?](sql-database-managed-instance.md)
+- [Vad är hanterade instans pooler?](sql-database-instance-pools.md)

@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: article
 ms.date: 07/24/2019
 ms.author: osamaz
-ms.openlocfilehash: 681a99d31e7ededda74aa186ff36cc837125bbda
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.openlocfilehash: a496b91ab8ec14ce859df0da93e0ad5d87c50982
+ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70052217"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71019018"
 ---
 # <a name="connecting-azure-with-public-clouds"></a>Ansluta Azure med offentliga moln
 
@@ -36,7 +36,7 @@ När du ansluter via Layer3-providern kommer Microsoft att annonsera kundens VNE
 
 ![](media/expressroute-connect-azure-to-public-cloud/azure-to-public-clouds-l3.png)
 
-Leverantören kan anropa varje moln leverantör i en separat VRF. Om trafiken från alla moln leverantörer kommer att uppnås hos kund routern. Om kunden kör BGP med tjänst leverantören annonseras dessa vägar på nytt till andra moln leverantörer som standard. 
+Leverantören kan ringa varje moln leverantör i en separat VRF, om trafik från alla moln leverantörer kommer till kundroutern. Om kunden kör BGP med tjänst leverantören annonseras dessa vägar på nytt till andra moln leverantörer som standard. 
 
 Om tjänste leverantören är vilplan för alla moln leverantörer i samma VRF, annonseras vägar till andra moln leverantörer från tjänst leverantören direkt. Detta förutsätter en standard-BGP-åtgärd där eBGP vägar annonseras till andra eBGP-grannar som standard.
 
@@ -61,7 +61,7 @@ Plats-till-plats-VPN anses inte vara en hög genom strömning och en lösning me
 ## <a name="next-steps"></a>Nästa steg
 Se [vanliga][ER-FAQ] frågor och svar om ExpressRoute för ytterligare frågor om ExpressRoute och virtuell nätverks anslutning.
 
-Se [Konfigurera direkt anslutning mellan Azure och Oracle][ER-OCI] -molnet för anslutning mellan Azure och Oracle
+Se [Konfigurera direkt anslutning mellan Azure och Oracle-molnet][ER-OCI] för anslutning mellan Azure och Oracle
 
 <!--Link References-->
 [ER-FAQ]: https://docs.microsoft.com/azure/expressroute/expressroute-faqs

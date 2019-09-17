@@ -1,0 +1,135 @@
+---
+title: Vad är en privat Azure-slutpunkt?
+description: Läs om den privata Azure-slutpunkten
+services: virtual-network
+author: KumudD
+ms.service: virtual-network
+ms.topic: conceptual
+ms.date: 09/16/2019
+ms.author: kumud
+ms.openlocfilehash: 031055dce66361cc128ed42a4d0c942ccb5a3b82
+ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71017976"
+---
+# <a name="what-is-azure-private-endpoint"></a>Vad är en privat Azure-slutpunkt?
+
+Den privata Azure-slutpunkten är ett nätverks gränssnitt som ansluter privat och säkert till en tjänst som drivs av en privat Azure-länk. Privat slut punkt använder en privat IP-adress från ditt VNet, vilket effektivt tar tjänsten till ditt VNet. Tjänsten kan vara en Azure-tjänst som Azure Storage, SQL osv. eller din egen [privata länk tjänst](private-link-service-overview.md).
+  
+## <a name="private-endpoint-properties"></a>Egenskaper för privat slut punkt 
+ En privat slut punkt anger följande egenskaper: 
+
+
+|Egenskap  |Description |
+|---------|---------|
+|Name    |    Ett unikt namn inom resurs gruppen.      |
+|Subnet    |  Under nätet för att distribuera och allokera privata IP-adresser från ett virtuellt nätverk. För under näts krav, se avsnittet begränsningar i den här artikeln.         |
+|Privat länk resurs    |   Den privata länk resursen för att ansluta med resurs-ID eller alias i listan över tillgängliga typer. Ett unikt nätverks-ID skapas för all trafik som skickas till den här resursen.       |
+|Mål under resurs   |      Den under resurs som ska anslutas. Varje privat länk resurs typ har olika alternativ för att välja baserat på preferens.    |
+|Metod för godkännande av anslutning    |  Automatisk eller manuell. Utifrån rollbaserad åtkomst kontroll (RBAC) behörigheter kan din privata slut punkt godkännas automatiskt. Om du försöker ansluta till en privat länk resurs utan RBAC använder du den manuella metoden för att tillåta resursens ägare att godkänna anslutningen.        |
+|Begär ande meddelande     |  Du kan ange ett meddelande för begärda anslutningar som ska godkännas manuellt. Det här meddelandet kan användas för att identifiera en speciell begäran.        |
+|Anslutningsstatus   |   En skrivskyddad egenskap som anger om den privata slut punkten är aktiv. Endast privata slut punkter i ett godkänt tillstånd kan användas för att skicka trafik. Ytterligare tillstånd är tillgängliga: <br>-**Godkänd**: Anslutningen godkändes automatiskt eller manuellt och är redo att användas.</br><br>-**Väntar**: Anslutningen skapades manuellt och väntar på att godkännas av ägaren till den privata länk resursen.</br><br>-**Avvisad**: Anslutningen avvisades av ägaren till den privata länk resursen.</br><br>-**Frånkopplad**: Anslutningen togs bort av ägaren till den privata länk resursen. Den privata slut punkten blir informativ och bör tas bort för rensning. </br>|
+
+Här följer några viktiga uppgifter om privata slut punkter: 
+- Med privat slut punkt kan du ansluta mellan konsumenter från samma VNet, regionalt peer-virtuella nätverk, globalt peered virtuella nätverk och lokalt med hjälp av [VPN](https://azure.microsoft.com/services/vpn-gateway/) eller [Express Route](https://azure.microsoft.com/services/expressroute/) och tjänster som drivs av en privat länk.
+ 
+- När du skapar en privat slut punkt skapas även ett nätverks gränssnitt för resursens livs cykel. Gränssnittet tilldelas en privat IP-adress från det undernät som mappar till den privata länk tjänsten.
+ 
+- Den privata slut punkten måste distribueras i samma region som det virtuella nätverket. 
+ 
+- Den privata länk resursen kan distribueras i en annan region än det virtuella nätverket och den privata slut punkten.
+ 
+- Flera privata slut punkter kan skapas med samma privata länk resurs. Den rekommenderade metoden är att använda en enda privat slut punkt för en viss privat länk resurs för att undvika dubbla poster eller konflikter i DNS-matchning för ett enda nätverk som använder en gemensam DNS-serverkonfiguration. 
+ 
+- Flera privata slut punkter kan skapas i samma eller olika undernät i samma virtuella nätverk. Det finns gränser för antalet privata slut punkter som du kan skapa i en prenumeration. Mer information finns i [Azure-gränser](https://docs.microsoft.com/azure/azure-subscription-service-limits.md#networking-limits).
+
+
+ 
+## <a name="private-link-resource"></a>Privat länk resurs 
+En privat länk resurs är mål målet för en specifik privat slut punkt. Följande är en lista över tillgängliga privata länk resurs typer: 
+ 
+|Resurs namn för privat länk  |Resurstyp   |Under resurser  |
+|---------|---------|---------|
+|**Privat länk tjänst** (Din egen tjänst)   |  Microsoft. Network/privateLinkServices       | saknas |
+|**Azure SQL Database** | Microsoft.Sql/servers    |  SQL Server (sqlServer)        |
+|**Azure SQL Data Warehouse** | Microsoft.Sql/servers    |  SQL Server (sqlServer)        |
+|**Azure Storage**  | (Microsoft. Storage/storageAccounts)    |  BLOB (BLOB, blob_secondary)<BR> Tabell (tabell, table_secondary)<BR> Kö (kö, queue_secondary)<BR> Fil (fil, file_secondary)<BR> Webb (webb, web_secondary)        |
+|**Azure Data Lake Storage Gen2**  | (Microsoft. Storage/storageAccounts)    |  BLOB (BLOB, blob_secondary)       |
+ 
+ 
+## <a name="network-security-of-private-endpoints"></a>Nätverks säkerhet för privata slut punkter 
+När du använder privata slut punkter för Azure-tjänster skyddas trafik till en enskild privat länk resurs. Plattformen utför en åtkomst kontroll för att verifiera att nätverks anslutningar når enbart den angivna privata länk resursen. För att få åtkomst till ytterligare resurser inom samma Azure-tjänst krävs ytterligare privata slut punkter. 
+ 
+Du kan helt låsa dina arbets belastningar från att komma åt offentliga slut punkter för att ansluta till en Azure-tjänst som stöds. Den här kontrollen ger ytterligare ett nätverks säkerhets lager till dina resurser genom att tillhandahålla ett inbyggt exfiltrering skydd som förhindrar åtkomst till andra resurser som finns på samma Azure-tjänst. 
+ 
+## <a name="access-to-a-private-link-resource-using-approval-workflow"></a>Åtkomst till en privat länk resurs med hjälp av godkännande arbets flöde 
+Du kan ansluta till en privat länk resurs med hjälp av följande metoder för godkännande av anslutning:
+- **Automatiskt** godkänd när du äger eller har behörighet för den specifika privata länk resursen. Den nödvändiga behörigheten baseras på resurs typen privat länk i följande format: Utforskaren. \<Provider >/< resource_type >/privateEndpointConnectionApproval/Action
+- **Manuell** begäran när du inte har behörighet som krävs och vill begära åtkomst. Ett arbets flöde för godkännande kommer att initieras. Den privata slut punkten och efterföljande privata slut punkts anslutningar skapas i ett väntande tillstånd. Ägaren till den privata länk resursen ansvarar för att godkänna anslutningen. När den har godkänts är den privata slut punkten aktive rad för att skicka trafik normalt, som du ser i följande arbets flödes diagram för godkännande.  
+
+![arbets flödes godkännande](media/private-endpoint-overview/private-link-paas-workflow.png)
+ 
+Resurs ägaren för privata länkar kan utföra följande åtgärder över en privat slut punkts anslutning: 
+- Granska alla anslutningar för privat slut punkt. 
+- Godkänn en privat slut punkts anslutning. Motsvarande privata slut punkt kommer att aktive ras för att skicka trafik till den privata länk resursen. 
+- Avvisa en privat slut punkts anslutning. Motsvarande privata slut punkt kommer att uppdateras för att avspegla statusen.
+- Ta bort en privat slut punkts anslutning i vilket tillstånd som helst. Motsvarande privata slut punkt kommer att uppdateras med frånkopplat tillstånd för att avspegla åtgärden. ägaren av den privata slut punkten kan bara ta bort resursen just nu. 
+ 
+> [!NOTE]
+> Endast en privat slut punkt i ett godkänt tillstånd kan skicka trafik till en specifik privat länk resurs. 
+
+### <a name="connecting-using-alias"></a>Ansluta med alias
+Alias är en unik moniker som skapas när tjänst ägaren skapar en privat länk tjänst bakom en standard belastningsutjämnare. Tjänstens ägare kan dela det här aliaset med sina konsumenter offline. Konsumenter kan begära en anslutning till privata länk tjänster med antingen resurs-URI eller alias. Om du vill ansluta med alias måste du skapa en privat slut punkt med hjälp av metoden för godkännande av manuellt anslutning. För att använda en manuell metod för godkännande av anslutning ställer du in en manuell begär ande parameter till sant under skapa flöde för privat slut punkt. Titta på [New-AzPrivateEndpoint](https://docs.microsoft.com/en-us/powershell/module/az.network/new-azprivateendpoint?view=azps-2.6.0) och [AZ Network Private-Endpoint Create](https://docs.microsoft.com/en-us/cli/azure/network/private-endpoint?view=azure-cli-latest#az-network-private-endpoint-create) för information. 
+
+## <a name="dns-configuration"></a>DNS-konfiguration 
+När du ansluter till en privat länk resurs med hjälp av ett fullständigt kvalificerat domän namn (FQDN) som en del av anslutnings strängen, är det viktigt att konfigurera dina DNS-inställningar på rätt sätt för att matcha den allokerade privata IP-adressen. Befintliga Azure-tjänster kanske redan har en DNS-konfiguration som ska användas vid anslutning via en offentlig slut punkt. Detta måste åsidosättas för att ansluta med hjälp av din privata slut punkt. 
+ 
+Nätverks gränssnittet som är kopplat till den privata slut punkten innehåller den fullständiga uppsättningen information som krävs för att konfigurera din DNS, inklusive FQDN och privata IP-adresser som allokerats för en specifik privat länk resurs. 
+ 
+Du kan använda följande alternativ för att konfigurera dina DNS-inställningar för privata slut punkter: 
+- **Använd värd filen (rekommenderas endast för testning)** . Du kan använda värd filen på en virtuell dator för att åsidosätta DNS.  
+- **Använd en privat DNS-zon**. Du kan använda privata DNS-zoner för att åsidosätta DNS-matchningen för en specifik privat slut punkt. En privat DNS-zon kan länkas till det virtuella nätverket för att lösa vissa domäner.
+- **Använd din anpassade DNS-Server**. Du kan använda din egen DNS-server för att åsidosätta DNS-matchningen för en specifik privat länk resurs. Om din DNS-Server finns i ett virtuellt nätverk kan du skapa en regel för vidarebefordran av DNS för att använda en privat DNS-zon för att förenkla konfigurationen för alla privata länk resurser.
+ 
+> [!IMPORTANT]
+> Vi rekommenderar inte att du åsidosätter en zon som används aktivt för att lösa offentliga slut punkter. Anslutningar till resurser kan inte lösas korrekt utan DNS-vidarebefordran till den offentliga DNS-tjänsten. Du kan undvika problem genom att skapa ett annat domän namn eller följa det föreslagna namnet för varje tjänst nedan. 
+ 
+För Azure-tjänster använder du de rekommenderade zon namnen enligt beskrivningen i följande tabell:
+
+|Resurs typ för privat länk   |Underresurs  |Zonnamn  |
+|---------|---------|---------|
+|SQL DB/DW (Microsoft. SQL/Servers)    |  SQL Server (sqlServer)        |   privatelink.database.windows.net       |
+|Lagrings konto (Microsoft. Storage/storageAccounts)    |  BLOB (BLOB, blob_secondary)        |    privatelink.blob.core.windows.net      |
+|Lagrings konto (Microsoft. Storage/storageAccounts)    |    Tabell (tabell, table_secondary)      |   privatelink.table.core.windows.net       |
+|Lagrings konto (Microsoft. Storage/storageAccounts)    |    Kö (kö, queue_secondary)     |   privatelink.queue.core.windows.net       |
+|Lagrings konto (Microsoft. Storage/storageAccounts)   |    Fil (fil, file_secondary)      |    privatelink.file.core.windows.net      |
+|Lagrings konto (Microsoft. Storage/storageAccounts)     |  Webb (webb, web_secondary)        |    privatelink.web.core.windows.net      |
+|Data Lake Gen2 för fil system (Microsoft. Storage/storageAccounts)  |  Data Lake Gen2 för fil system (DFS, dfs_secondary)        |     privatelink.dfs.core.windows.net     |
+||||
+ 
+
+Azure skapar en DNS-post för kanoniskt namn (CNAME) på den offentliga DNS-domänen för att omdirigera matchningen till föreslagna domän namn. Du kan åsidosätta upplösningen med den privata IP-adressen för dina privata slut punkter. 
+ 
+Dina program behöver inte ändra anslutnings-URL: en. När du försöker matcha med hjälp av en offentlig DNS-server kommer DNS-servern nu att matcha dina privata slut punkter. Processen påverkar inte dina program. 
+ 
+## <a name="limitations"></a>Begränsningar
+ 
+Följande tabell innehåller en lista med kända begränsningar när du använder privata slut punkter: 
+
+
+|Begränsning |Beskrivning |Åtgärd  |
+|---------|---------|---------|
+|Regler för nätverks säkerhets grupper (NSG) gäller inte för privat slut punkt    |NSG stöds inte för privata slut punkter. Medan undernät som innehåller den privata slut punkten kan ha NSG kopplade till sig, gäller inte reglerna för trafik som bearbetas av den privata slut punkten. Du måste ha [aktiverat tvingande nätverks principer](disable-private-endpoint-network-policy.md) för att distribuera privata slut punkter i ett undernät. NSG tillämpas fortfarande på andra arbets belastningar som finns i samma undernät.   | Styr trafiken genom att använda NSG regler för utgående trafik på käll klienter.        |
+|Det går inte att skapa privata slut punkter i undernät som är aktiverade för tjänst slut punkt eller specialiserade arbets belastningar    |Det går inte att distribuera privata slut punkter på undernät som är aktiverade för tjänst slut punkter eller undernät som har delegerats till specialiserade arbets belastningar|  Skapa ett separat undernät för att distribuera de privata slut punkterna.        |
+|privat slut punkt kan bara mappas till privata länk tjänst (kundens ägare) i samma region    |   Det går inte att ansluta till en privat länk tjänst från en annan region       |  Under för hands versionen måste du distribuera din privata länk tjänst i samma region.        |
+|Specialiserade arbets belastningar kan inte komma åt privata slut punkter    |   Följande tjänster som distribueras i det virtuella nätverket kan inte komma åt någon privat länk resurs med hjälp av privata slut punkter:<br>App Service-plan</br>Azure Container-instans</br>Azure NetApp Files</br>Dedikerad HSM i Azure<br>       |   Ingen minskning under för hands versionen.       |
+|  Portalen stöder inte skapande av privata slut punkter med alias  |   Portalen tillåter endast skapande av privata slut punkter med resurs-URI      | Använd resurs-URI för att begära privata slut punkts anslutningar        |
+
+## <a name="next-steps"></a>Nästa steg
+- [Skapa en privat slut punkt för SQL Database servern med hjälp av portalen](create-private-endpoint-portal.md)
+- [Skapa en privat slut punkt för SQL Database Server med PowerShell](create-private-endpoint-powershell.md)
+- [Skapa en privat slut punkt för SQL Database Server med CLI](create-private-endpoint-cli.md)
+- [Skapa en privat slut punkt för lagrings kontot med hjälp av portalen](create-private-endpoint-storage-portal.md)
+- [Skapa en egen privat länk-tjänst med hjälp av Azure PowerShell](create-private-link-service-powershell.md)

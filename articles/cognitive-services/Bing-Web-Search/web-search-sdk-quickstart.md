@@ -10,12 +10,12 @@ ms.subservice: bing-web-search
 ms.topic: quickstart
 ms.date: 04/15/2019
 ms.author: aahi
-ms.openlocfilehash: b1660034f1937d2d8ff9e70139407619626886a8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5e893fda5a0e71703eb867c045de19d391c012ed
+ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60498873"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71018217"
 ---
 # <a name="quickstart-use-the-bing-web-search-sdk-for-c"></a>Snabbstart: Använda SDK för webbsökning i Bing för C#
 
@@ -25,7 +25,7 @@ SDK för Webbsökning i Bing gör det enkelt att integrera Webbsökning i Bing i
 
 Se även [Priser för Cognitive Services – API för Bing-sökning](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 Här följer några saker som du behöver innan du kör den här snabbstarten:
 
 * [Visual Studio](https://visualstudio.microsoft.com/downloads/) eller
@@ -39,7 +39,7 @@ Här följer några saker som du behöver innan du kör den här snabbstarten:
 > [!TIP]
 > Hämta den senaste koden som en Visual Studio-lösning från [GitHub](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/).
 
-Det första steget är att skapa ett nytt konsollprojekt. Om du behöver hjälp med att konfigurera ett konsollprojekt kan du läsa [Hello World – ditt första Program (C# Programmeringsguide)](https://docs.microsoft.com/dotnet/csharp/programming-guide/inside-a-program/hello-world-your-first-program). För att kunna använda API för webbsökning i Bing i ditt program behöver du installera `Microsoft.Azure.CognitiveServices.Search.WebSearch` med hjälp av NuGet-pakethanteraren.
+Det första steget är att skapa ett nytt konsollprojekt. Om du behöver hjälp med att konfigurera ett konsol projekt, se [Hello World--ditt första program (C# programmerings guide)](https://docs.microsoft.com/dotnet/csharp/programming-guide/inside-a-program/hello-world-your-first-program). För att kunna använda API för webbsökning i Bing i ditt program behöver du installera `Microsoft.Azure.CognitiveServices.Search.WebSearch` med hjälp av NuGet-pakethanteraren.
 
 [SDK-paketet för webbsökning](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.WebSearch/1.2.0) installeras också:
 
@@ -61,7 +61,7 @@ using System.Linq;
 
 ## <a name="create-project-scaffolding"></a>Skapa projektställningar
 
-När du skapade det nya konsolprojektet bör en namnrymd och en klass för programmet ha skapats. Ditt program bör se ut som i följande exempel:
+När du skapade det nya konsolprojektet bör en namnrymd och en klass för programmet ha skapats. Programmet bör se ut som det här exemplet:
 
 ```csharp
 namespace WebSearchSDK
@@ -243,7 +243,7 @@ I det här exemplet används parametrarna `count` och `offset` för att begräns
     {
         try
         {
-            var webData = await client.Web.SearchAsync(query: "Best restaurants in Seattle", offset: 10, count: 20).Result;
+            var webData = await client.Web.SearchAsync(query: "Best restaurants in Seattle", offset: 10, count: 20);
             Console.WriteLine("\r\nSearching for \" Best restaurants in Seattle \"");
 
             if (webData?.WebPages?.Value?.Count > 0)
@@ -303,7 +303,7 @@ Det här exemplet används parametern `response_filter` för att filtrera sökre
         try
         {
             IList<string> responseFilterstrings = new List<string>() { "news" };
-            var webData = await client.Web.SearchAsync(query: "Microsoft", responseFilter: responseFilterstrings).Result;
+            var webData = await client.Web.SearchAsync(query: "Microsoft", responseFilter: responseFilterstrings);
             Console.WriteLine("\r\nSearching for \" Microsoft \" with response filter \"news\"");
 
             if (webData?.News?.Value?.Count > 0)
@@ -366,7 +366,7 @@ I det här exemplet används parametrarna `answer_count`, `promote` och `safe_se
         try
         {
             IList<string> promoteAnswertypeStrings = new List<string>() { "videos" };
-            var webData = await client.Web.SearchAsync(query: "Music Videos", answerCount: 2, promote: promoteAnswertypeStrings, safeSearch: SafeSearch.Strict).Result;
+            var webData = await client.Web.SearchAsync(query: "Music Videos", answerCount: 2, promote: promoteAnswertypeStrings, safeSearch: SafeSearch.Strict);
             Console.WriteLine("\r\nSearching for \"Music Videos\"");
 
             if (webData?.Videos?.Value?.Count > 0)

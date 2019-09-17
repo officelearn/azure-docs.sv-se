@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 06/30/2017
 ms.reviewer: sergkanz
 ms.author: mbullwin
-ms.openlocfilehash: 34658fb1db84ff09a4c3d22ea95f5bfc7384721d
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: 91467f99e7932ce7ffcd5b3300f8544fb848ccfa
+ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70883635"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71019080"
 ---
 # <a name="track-custom-operations-with-application-insights-net-sdk"></a>Spåra anpassade åtgärder med Application Insights .NET SDK
 
@@ -486,7 +486,7 @@ Varje Application Insights-åtgärd (Request eller Dependency) omfattar `Activit
 ## <a name="next-steps"></a>Nästa steg
 
 - Lär dig grunderna för [telemetri-korrelation](correlation.md) i Application Insights.
-- Ta reda på hur korrelerade data potenser för [transaktions diagnostik](/azure-monitor/app/transaction-diagnostics) och [program översikt](/azure-monitor/app/app-map).
+- Ta reda på hur korrelerade data potenser för [transaktions diagnostik](../../azure-monitor/app/transaction-diagnostics.md) och [program översikt](../../azure-monitor/app/app-map.md).
 - Se [data modellen](../../azure-monitor/app/data-model.md) för Application Insights typer och data modeller.
 - Rapportera anpassade [händelser och mått](../../azure-monitor/app/api-custom-events-metrics.md) till Application Insights.
 - Ta en titt på standard [konfigurationen](configuration-with-applicationinsights-config.md#telemetry-initializers-aspnet) för samling med kontext egenskaper.

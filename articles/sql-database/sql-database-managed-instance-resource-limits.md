@@ -10,20 +10,20 @@ ms.topic: conceptual
 author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp, sstein
-ms.date: 08/27/2019
-ms.openlocfilehash: 0dea447ed44a61b20faf9a0a1690b2bbdd674b30
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.date: 09/16/2019
+ms.openlocfilehash: 7f7faf11ed18fa2a85587c193376a3e4ce905fd2
+ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70930612"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71010194"
 ---
 # <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>Översikt Azure SQL Database hanterade instans resurs gränser
 
-Den här artikeln innehåller en översikt över resurs gränserna för Azure SQL Database Hanterad instans och ger information om hur du begär en ökning av dessa gränser.
+Den här artikeln innehåller en översikt över de tekniska egenskaperna och resurs gränserna för Azure SQL Database Hanterad instans och ger information om hur du begär en ökning av dessa gränser.
 
 > [!NOTE]
-> Skillnader i funktioner som stöds och T-SQL-uttryck finns i [funktions skillnader](sql-database-features.md) och [stöd för t-SQL-uttryck](sql-database-managed-instance-transact-sql-information.md).
+> Skillnader i funktioner som stöds och T-SQL-uttryck finns i [funktions skillnader](sql-database-features.md) och [stöd för t-SQL-uttryck](sql-database-managed-instance-transact-sql-information.md). Allmän skillnad mellan tjänst nivåerna i en enkel databas och en hanterad instans finns i [jämförelse av tjänst nivå](sql-database-service-tiers-general-purpose-business-critical.md#service-tier-comparison).
 
 ## <a name="instance-level-resource-limits"></a>Resurs gränser på instans nivå
 
@@ -36,18 +36,18 @@ Azure SQL Database Hanterad instans kan distribueras på två maskin varu genera
 |   | **Gen4** | **Gen5** |
 | --- | --- | --- |
 | Maskinvara | Intel E5-2673 v3 (Haswell) 2,4 GHz-processorer, anslutna SSD vCore = 1 PP (fysisk kärna) | Intel E5-2673 v4 (Broadwell) 2,3-GHz-processorer, fast NVMe SSD, vCore = 1 LP (Hyper-Thread) |
-| Antal virtuella kärnor | 8, 16, 24 virtuella kärnor | 4, 8, 16, 24, 32, 40, 64, 80 virtuella kärnor |
+| Antal v-kärnor | 8, 16, 24 virtuella kärnor | 4, 8, 16, 24, 32, 40, 64, 80 virtuella kärnor |
 | Högsta mängd minne (minne/Core-förhållande) | 7 GB per vCore<br/>Lägg till fler virtuella kärnor för att få mer minne. | 5,1 GB per vCore<br/>Lägg till fler virtuella kärnor för att få mer minne. |
 | Högsta minnes intern OLTP-minne | Instans gräns: 3 GB per vCore<br/>Databas gränser:<br/> – 8 kärnor: 8 GB per databas<br/> – 16 kärnor: 20 GB per databas<br/> – 24 kärnor: 36 GB per databas | Instans gräns: 2,5 GB per vCore<br/>Databas gränser:<br/> – 8 kärnor: 13 GB per databas<br/> – 16 kärnor: 32 GB per databas |
 | Högsta reserverade instans lagring |  Generell användning: 8 TB<br/>Affärskritisk: 1 TB | Generell användning: 8 TB<br/> Affärskritisk 1 TB, 2 TB eller 4 TB beroende på antalet kärnor |
 
 > [!IMPORTANT]
 > - Gen4-maskinvaran har fasats ut. Vi rekommenderar att du distribuerar nya hanterade instanser på Gen5-maskinvara.
-> - Gen4 maskin vara för närvarande är tillgänglig i följande regioner: Nord Europa, Västeuropa, östra USA, södra centrala USA, norra centrala USA, västra USA 2, centrala USA, centrala Kanada, södra Indien, Sydostasien och Korea, centrala.
+> - Gen4-maskinvaran är för närvarande bara tillgänglig i följande regioner: Nord Europa, Västeuropa, östra USA, södra centrala USA, norra centrala USA, västra USA 2, centrala USA, centrala Kanada, södra Indien, Sydostasien och Korea, centrala.
 
 ### <a name="service-tier-characteristics"></a>Egenskaper för tjänst nivå
 
-Den hanterade instansen har två tjänst nivåer: Generell användning och Affärskritisk. Dessa nivåer ger olika funktioner, enligt beskrivningen i tabellen nedan:
+Den hanterade instansen har två tjänst nivåer: [Generell användning](sql-database-service-tier-general-purpose.md) och [affärskritisk](sql-database-service-tier-business-critical.md). Dessa nivåer ger [olika funktioner](sql-database-service-tiers-general-purpose-business-critical.md), enligt beskrivningen i tabellen nedan:
 
 | **Funktion** | **Generell användning** | **Affärskritisk** |
 | --- | --- | --- |
@@ -73,6 +73,9 @@ Den hanterade instansen har två tjänst nivåer: Generell användning och Affä
 > - Data flödet och IOPS är också beroende av den sid storlek som inte uttryckligen begränsas av den hanterade instansen.
 > Du kan skapa en annan läsbar replik i olika Azure-regioner med hjälp av grupper för automatisk redundans.
 
+> [!NOTE]
+> Mer information om [resurs gränserna i hanterade instanser av pooler finns i den här artikeln](sql-database-instance-pools.md#instance-pools-resource-limitations).
+
 ## <a name="supported-regions"></a>Regioner som stöds
 
 Hanterade instanser kan bara skapas i [regioner som stöds](https://azure.microsoft.com/global-infrastructure/services/?products=sql-database&regions=all). Om du vill skapa en hanterad instans i en region som för närvarande inte stöds kan du [skicka en supportbegäran via Azure Portal](#obtaining-a-larger-quota-for-sql-managed-instance).
@@ -93,7 +96,7 @@ Den hanterade instansen stöder för närvarande endast distribution av följand
 Prenumerations typer som stöds kan innehålla ett begränsat antal resurser per region. Den hanterade instansen har två standard gränser per Azure-region beroende på typ av prenumerations typ:
 
 - **Under näts gräns**: Det maximala antalet undernät där hanterade instanser distribueras i en enda region.
-- **vCore gräns**: Det maximala antalet virtuella kärnor som kan distribueras över alla instanser i en enda region.
+- **vCore gräns**: Det maximala antalet virtuella kärnor som kan distribueras över alla instanser i en enda region. Det totala antalet instanser är inte begränsat så länge det ligger inom vCore-gränsen.
 
 > [!Note]
 > Dessa gränser är standardinställningar och inte tekniska begränsningar. Gränserna kan ökas på begäran genom att en särskild [supportbegäran skapas i Azure Portal](#obtaining-a-larger-quota-for-sql-managed-instance) om du behöver fler hanterade instanser i den aktuella regionen. Alternativt kan du skapa nya hanterade instanser i en annan Azure-region utan att skicka support förfrågningar.

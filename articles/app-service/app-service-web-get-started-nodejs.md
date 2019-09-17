@@ -14,12 +14,12 @@ ms.topic: quickstart
 ms.date: 02/15/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 989bff7d8be5c234d9536afa8afc0beb6870807e
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: d03b209902d3ab0bcdb247b1deefdd70d01905cb
+ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70071664"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71018499"
 ---
 # <a name="create-a-nodejs-web-app-in-azure"></a>Skapa en Node.js-webbapp i Azure
 
@@ -51,7 +51,7 @@ Ladda ned exempelprojektet för Node.js från [https://github.com/Azure-Samples/
 const port = process.env.PORT || 1337;
 ```
 
-App Service lägger in process.env.PORT i ditt program, så att koden använder variabeln för att veta vilken port som ska lyssna. 
+App Service fyller i miljövariabeln, **Kör. miljö. port**. Använd detta i ditt program så att koden vet vilken port som ska avlyssnas.
 
 I ett terminalfönster navigerar du till **rot katalogen** i exemplet Node. js-projektet (den katalog som innehåller _index. js_).
 

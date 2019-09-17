@@ -1,21 +1,21 @@
 ---
-title: Azure Cosmos-emulatorn nedladdning och viktig information
-description: Läs viktig information Azure Cosmos-emulatorn och ladda ned den.
+title: Hämtnings-och viktig information för Azure Cosmos-emulatorn
+description: Läs viktig information om Azure Cosmos-emulatorn och hämta den.
 ms.service: cosmos-db
 ms.topic: tutorial
 author: markjbrown
 ms.author: mjbrown
 ms.date: 06/20/2019
-ms.openlocfilehash: 5985d0d82341c76993ee91b8dff6927edd1ed8b4
-ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.openlocfilehash: 587c730dfa436760d42e614c2dabee117f3b61d3
+ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67332121"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71018807"
 ---
-# <a name="use-the-azure-cosmos-emulator-for-local-development-and-testing"></a>Använda Azure Cosmos-emulatorn för lokal utveckling och testning
+# <a name="use-the-azure-cosmos-emulator-for-local-development-and-testing"></a>Använd Azure Cosmos-emulatorn för lokal utveckling och testning
 
-I den här artikeln visas i Azure Cosmos-emulatorn viktig information med en lista över funktionsuppdateringar som har gjorts i varje version. Här visas även den senaste versionen av emulatorn för att hämta och använda.
+Den här artikeln visar viktig information om Azure Cosmos-emulatorn med en lista över funktions uppdateringar som har gjorts i varje version. Den visar även den senaste versionen av emulatorn för att hämta och använda.
 
 ## <a name="download"></a>Ladda ned
 
@@ -26,12 +26,16 @@ I den här artikeln visas i Azure Cosmos-emulatorn viktig information med en lis
 
 ## <a name="release-notes"></a>Viktig information
 
+### <a name="246"></a>2.4.6
+
+- Den här versionen innehåller paritet med funktionerna i Azure Cosmos-tjänsten från och med den 2019 juli, med undantag som anges i [utveckla lokalt med Azure Cosmos-emulatorn](local-emulator.md). Den åtgärdar också flera buggar som är relaterade till emulatorn stängs av när de anropas via kommando raden och interna IP-adresser åsidosätter för SDK-klienter som använder anslutning med direkt läge.
+
 ### <a name="243"></a>2.4.3
 
-- Inaktiverad startar tjänsten MongoDB som standard. Endast SQL-slutpunkten är aktiverad som standard. Användaren måste starta slutpunkten för manuellt med hjälp av emulatorn ”/ EnableMongoDbEndpoint” kommandoradsalternativ. Nu är det som alla andra tjänstslutpunkter som Gremlin, Cassandra och tabellen.
-- Ett fel har åtgärdats i emulatorn när du börjar med ”/ AllowNetworkAccess” där Gremlin, Cassandra och tabellen slutpunkter inte korrekt hantering av begäranden från externa klienter.
-- Lägga till direktanslutning portar i inställningarna för brandväggsregler.
+- Inaktive rad startar MongoDB-tjänsten som standard. Endast SQL-slutpunkten är aktive rad som standard. Användaren måste starta slut punkten manuellt med hjälp av kommando rads alternativet "/EnableMongoDbEndpoint" i emulatorn. Nu är det som alla andra tjänst slut punkter, till exempel Gremlin, Cassandra och Table.
+- En bugg har åtgärd ATS i emulatorn vid start med "/AllowNetworkAccess" där Gremlin, Cassandra och table-slutpunkterna inte korrekt hanterade begär Anden från externa klienter.
+- Lägg till direkta anslutnings portar i brand Väggs reglernas inställningar.
 
 ### <a name="240"></a>2.4.0
 
-- Ett problem har åtgärdats med emulator misslyckas med att starta när nätverket övervakning appar, till exempel Pulse-klienten finns på värddatorn.
+- Ett problem har åtgärd ATS med att emulatorn inte kan starta när appar för nätverks övervakning, till exempel Pulse client, finns på värddatorn.

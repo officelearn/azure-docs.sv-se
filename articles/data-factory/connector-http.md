@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: jingwang
-ms.openlocfilehash: 880f5624af03e08e3a91ec5b230e593025d979a5
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: 5a4aa1640de3a090deceea690b21a40e49f8ce4c
+ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70813014"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71009089"
 ---
 # <a name="copy-data-from-an-http-endpoint-by-using-azure-data-factory"></a>Kopiera data från en HTTP-slutpunkt med hjälp av Azure Data Factory
 
@@ -34,6 +34,11 @@ Skillnaden mellan den här HTTP-kopplingen, [rest-kopplingen](connector-rest.md)
 - **Webb tabells koppling** extraherar tabell innehåll från en HTML-webbsida.
 
 ## <a name="supported-capabilities"></a>Funktioner som stöds
+
+Den här HTTP-anslutningen stöds för följande aktiviteter:
+
+- [Kopierings aktivitet](copy-activity-overview.md) med [käll mat ris som stöds](copy-activity-overview.md)
+- [Sökningsaktivitet](control-flow-lookup-activity.md)
 
 Du kan kopiera data från en HTTP-källa till alla mottagar data lager som stöds. En lista över data lagrar att det stöder Kopieringsaktiviteten som källor och mottagare, finns i [datalager och format som stöds](copy-activity-overview.md#supported-data-stores-and-formats).
 
@@ -218,9 +223,9 @@ Följande egenskaper stöds för att kopiera data från HTTP i **Orc-format**:
 |:--- |:--- |:--- |
 | type | Data uppsättningens **typ** -egenskap måste anges till **HttpFile**. | Ja |
 | relativeUrl | En relativ URL till den resurs som innehåller data. När den här egenskapen inte anges används endast den URL som anges i den länkade tjänst definitionen. | Nej |
-| requestMethod | HTTP-metoden. Tillåtna värden är **Get** (standard) och **post**. | Nej |
+| RequestMethod | HTTP-metoden. Tillåtna värden är **Get** (standard) och **post**. | Nej |
 | additionalHeaders | Ytterligare rubriker för HTTP-begäran. | Nej |
-| requestBody | Bröd texten för HTTP-begäran. | Nej |
+| RequestBody | Bröd texten för HTTP-begäran. | Nej |
 | format | Om du vill hämta data från HTTP-slutpunkten i befintligt skick utan att parsa den, och sedan kopiera data till en filbaserad lagring, hoppar du över avsnittet **format** i både indata och utdata-datauppsättnings definitioner.<br/><br/>Om du vill parsa innehållet i HTTP-svar under kopieringen, stöds följande fil format typer: Text **Forms**, **JsonFormat**, **AvroFormat**, **OrcFormat**och **ParquetFormat**. Under **format**anger du egenskapen **Type** till något av dessa värden. Mer information finns i [JSON-format](supported-file-formats-and-compression-codecs.md#json-format), [text format](supported-file-formats-and-compression-codecs.md#text-format), [Avro](supported-file-formats-and-compression-codecs.md#avro-format)-format, Orc- [format](supported-file-formats-and-compression-codecs.md#orc-format)och [Parquet-format](supported-file-formats-and-compression-codecs.md#parquet-format). |Nej |
 | compression | Ange typ och komprimeringsnivå för data. Mer information finns i [stöds filformat och komprimering codec](supported-file-formats-and-compression-codecs.md#compression-support).<br/><br/>Typer som stöds: **Gzip**, **DEFLATE**, **BZip2**och **ZipDeflate**.<br/>Nivåer som stöds:  **Optimal** och **snabbast**. |Nej |
 
@@ -284,9 +289,9 @@ Om du vill kopiera data från **Parquet, avgränsade text-, JSON-, Avro-och bin�
 | Egenskap                 | Beskrivning                                                  | Krävs |
 | ------------------------ | ------------------------------------------------------------ | -------- |
 | type                     | Typ egenskapen under `storeSettings` måste anges till **HttpReadSetting**. | Ja      |
-| requestMethod            | HTTP-metoden. <br>Tillåtna värden är **Get** (standard) och **post**. | Nej       |
+| RequestMethod            | HTTP-metoden. <br>Tillåtna värden är **Get** (standard) och **post**. | Nej       |
 | addtionalHeaders         | Ytterligare rubriker för HTTP-begäran.                             | Nej       |
-| requestBody              | Bröd texten för HTTP-begäran.                               | Nej       |
+| RequestBody              | Bröd texten för HTTP-begäran.                               | Nej       |
 | requestTimeout           | Timeout ( **TimeSpan** -värdet) för http-begäran för att få ett svar. Det här värdet är tids gränsen för att få ett svar, inte tids gränsen för att läsa svars data. Standardvärdet är **00:01:40**. | Nej       |
 | maxConcurrentConnections | Antalet anslutningar för att ansluta till lagrings lagret samtidigt. Ange bara när du vill begränsa den samtidiga anslutningen till data lagret. | Nej       |
 
@@ -374,6 +379,10 @@ För att kopiera data från HTTP i **Orc-format**, stöds följande egenskaper i
     }
 ]
 ```
+
+## <a name="lookup-activity-properties"></a>Egenskaper för Sök aktivitet
+
+Om du vill veta mer om egenskaperna kontrollerar du [söknings aktiviteten](control-flow-lookup-activity.md).
 
 
 ## <a name="next-steps"></a>Nästa steg

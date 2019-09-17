@@ -5,63 +5,39 @@ services: container-service
 author: mlearned
 ms.service: container-service
 ms.topic: article
-ms.date: 06/06/2019
+ms.date: 08/29/2019
 ms.author: mlearned
-ms.openlocfilehash: 9476290669606f6eb6c56b51497f3026b9613698
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: 3010973c7d0af784938e9295bb80fc22b7f718f3
+ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70034947"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71018644"
 ---
-# <a name="preview---limit-egress-traffic-for-cluster-nodes-and-control-access-to-required-ports-and-services-in-azure-kubernetes-service-aks"></a>För hands version – begränsa utgående trafik för klusternoder och kontrol lera åtkomst till nödvändiga portar och tjänster i Azure Kubernetes service (AKS)
+# <a name="control-egress-traffic-for-cluster-nodes-in-azure-kubernetes-service-aks"></a>Styra utgående trafik för klusternoder i Azure Kubernetes service (AKS)
 
-Som standard har AKS-kluster obegränsad utgående Internet åtkomst. Den här nivån av nätverks åtkomst tillåter noder och tjänster som du kör för att få åtkomst till externa resurser efter behov. Om du vill begränsa utgångs trafik måste ett begränsat antal portar och adresser vara tillgängliga för att upprätthålla felfria kluster underhålls uppgifter. Klustret konfigureras sedan för att endast använda behållare avbildningar för bas system från Microsoft Container Registry (MCR) eller Azure Container Registry (ACR), inte externa offentliga lagrings platser. Du måste konfigurera önskade brand Väggs-och säkerhets regler för att tillåta dessa obligatoriska portar och adresser.
+Som standard har AKS-kluster obegränsad utgående Internet åtkomst. Den här nivån av nätverks åtkomst tillåter noder och tjänster som du kör för att få åtkomst till externa resurser efter behov. Om du vill begränsa utgångs trafik måste ett begränsat antal portar och adresser vara tillgängliga för att upprätthålla felfria kluster underhålls uppgifter. Klustret är konfigurerat som standard för att endast använda behållare avbildningar för bas system från Microsoft Container Registry (MCR) eller Azure Container Registry (ACR). Konfigurera önskade brand Väggs-och säkerhets regler för att tillåta dessa obligatoriska portar och adresser.
 
-Den här artikeln beskriver vilka nätverks portar och fullständigt kvalificerade domän namn (FQDN) som krävs och valfritt om du begränsar utgående trafik i ett AKS-kluster.  Den här funktionen är för närvarande en förhandsversion.
+Den här artikeln beskriver vilka nätverks portar och fullständigt kvalificerade domän namn (FQDN) som krävs och valfritt om du begränsar utgående trafik i ett AKS-kluster.
 
 > [!IMPORTANT]
-> AKS för hands versions funktioner är självbetjänings deltagande. För hands versioner tillhandahålls "i befintligt skick" och "som tillgängliga" och undantas från service nivå avtalen och den begränsade garantin. AKS för hands versionerna omfattas delvis av kund supporten på bästa möjliga sätt. Dessa funktioner är därför inte avsedda att användas för produktion. Om du vill ha ytterligare information kan du läsa följande artiklar om support:
->
-> * [Support principer för AKS][aks-support-policies]
-> * [Vanliga frågor och svar om support för Azure][aks-faq]
+> Det här dokumentet beskriver bara hur du låser trafiken som lämnar AKS-undernätet. AKS har inga ingress-krav.  Det går inte att blockera intern under näts trafik med hjälp av nätverks säkerhets grupper (NSG: er) och brand väggar. Använd [nätverks principer][network-policy]för att styra och blockera trafiken i klustret.
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
 Du behöver Azure CLI-versionen 2.0.66 eller senare installerad och konfigurerad. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI][install-azure-cli].
 
-Om du vill skapa ett AKS-kluster som kan begränsa utgående trafik måste du först aktivera en funktions flagga i din prenumeration. Med den här funktions registreringen konfigureras alla AKS-kluster som du skapar för att använda behållare avbildningar för bas system från MCR eller ACR. Registrera funktions flaggan *AKSLockingDownEgressPreview* genom att använda kommandot [AZ Feature register][az-feature-register] , som visas i följande exempel:
-
-> [!CAUTION]
-> När du registrerar en funktion på en prenumeration kan du för närvarande inte avregistrera funktionen. När du har aktiverat vissa för hands versions funktioner kan standarderna användas för alla AKS-kluster och sedan skapas i prenumerationen. Aktivera inte för hands versions funktioner för produktions prenumerationer. Använd en separat prenumeration för att testa för hands versions funktionerna och samla in feedback.
-
-```azurecli-interactive
-az feature register --name AKSLockingDownEgressPreview --namespace Microsoft.ContainerService
-```
-
-Det tar några minuter för statusen att visa *registrerad*. Du kan kontrol lera registrerings statusen med hjälp av kommandot [AZ feature list][az-feature-list] :
-
-```azurecli-interactive
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/AKSLockingDownEgressPreview')].{Name:name,State:properties.state}"
-```
-
-När du är klar uppdaterar du registreringen av resurs leverantören *Microsoft. container service* med hjälp av kommandot [AZ Provider register][az-provider-register] :
-
-```azurecli-interactive
-az provider register --namespace Microsoft.ContainerService
-```
-
 ## <a name="egress-traffic-overview"></a>Översikt över utgående trafik
 
 I hanterings-och drift syfte måste noder i ett AKS-kluster ha åtkomst till vissa portar och fullständiga domän namn (FQDN). De här åtgärderna kan vara till för att kommunicera med API-servern eller ladda ned och installera kärn Kubernetes-kluster komponenter och nodens säkerhets uppdateringar. Som standard är utgående (utgående) Internet trafik inte begränsad för noder i ett AKS-kluster. Klustret kan hämta behållar avbildningar för bas system från externa databaser.
 
-Om du vill öka säkerheten för ditt AKS-kluster kan du vilja begränsa utgående trafik. Klustret har kon figurer ATS för hämtning av bas system behållar avbildningar från MCR eller ACR. Om du låser utgående trafik på det här sättet måste du definiera vissa portar och FQDN för att tillåta att AKS-noderna kommunicerar med nödvändiga externa tjänster på rätt sätt. Utan dessa auktoriserade portar och FQDN kan dina AKS-noder inte kommunicera med API-servern eller installera kärn komponenter.
+Om du vill öka säkerheten för ditt AKS-kluster kan du vilja begränsa utgående trafik. Klustret har kon figurer ATS för hämtning av bas system behållar avbildningar från MCR eller ACR. Om du låser ut utgående trafik på det här sättet definierar du vissa portar och FQDN så att AKS-noderna kan kommunicera med de nödvändiga externa tjänsterna. Utan dessa auktoriserade portar och FQDN kan dina AKS-noder inte kommunicera med API-servern eller installera kärn komponenter.
 
 Du kan använda [Azure-brandväggen][azure-firewall] eller en brand Väggs enhet från tredje part för att skydda den utgående trafiken och definiera dessa nödvändiga portar och adresser. AKS skapar inte dessa regler automatiskt åt dig. Följande portar och adresser används som referens när du skapar lämpliga regler i nätverks brand väggen.
 
 > [!IMPORTANT]
-> När du använder Azure-brandväggen för att begränsa utgående trafik och skapar en användardefinierad väg (UDR) för att tvinga all utgående trafik, se till att du skapar en lämplig DNAT-regel i brand väggen för att tillåta inträngande trafik korrekt. Genom att använda Azure-brandväggen med en UDR avbryter du ingångs inställningen på grund av asymmetrisk routning. (Problemet beror på att AKS-undernätet har en standard väg som går till brand väggens privata IP-adress, men du använder en offentlig belastningsutjämnare – ingress eller Kubernetes-tjänst av typen: LoadBalancer). I det här fallet tas den inkommande belastnings Utjämnings trafiken emot via dess offentliga IP-adress, men retur vägen går genom brand väggens privata IP-adress. Eftersom brand väggen är tillstånds känslig, släpps det returnerade paketet eftersom brand väggen inte är medveten om en etablerad session. Information om hur du integrerar Azure-brandväggen med ingångs-eller tjänst belastnings utjämning finns i [integrera Azure-brandväggen med azure standard Load Balancer](https://docs.microsoft.com/en-us/azure/firewall/integrate-lb).
->
+> När du använder Azure-brandväggen för att begränsa utgående trafik och skapar en användardefinierad väg (UDR) för att tvinga all utgående trafik, se till att du skapar en lämplig DNAT-regel i brand väggen för att tillåta inträngande trafik korrekt. Genom att använda Azure-brandväggen med en UDR avbryter du ingångs inställningen på grund av asymmetrisk routning. (Problemet uppstår om AKS-undernätet har en standard väg som går till brand väggens privata IP-adress, men du använder en offentlig belastningsutjämnare – ingress eller Kubernetes-tjänst av typen: LoadBalancer). I det här fallet tas den inkommande belastnings Utjämnings trafiken emot via dess offentliga IP-adress, men retur vägen går genom brand väggens privata IP-adress. Eftersom brand väggen är tillstånds känslig, släpps det returnerade paketet eftersom brand väggen inte är medveten om en etablerad session. Information om hur du integrerar Azure-brandväggen med ingångs-eller tjänst belastnings utjämning finns i [integrera Azure-brandväggen med azure standard Load Balancer](https://docs.microsoft.com/azure/firewall/integrate-lb).
+> Du kan låsa trafiken för TCP-port 9000 och TCP-port 22 med en nätverks regel mellan utgående arbetsnodens IP (er) och IP-adressen för API-servern.
 
 I AKS finns det två uppsättningar portar och adresser:
 
@@ -69,15 +45,17 @@ I AKS finns det två uppsättningar portar och adresser:
 * De [valfria rekommenderade adresserna och portarna för AKS-kluster](#optional-recommended-addresses-and-ports-for-aks-clusters) krävs inte för alla scenarier, men integrering med andra tjänster som Azure Monitor fungerar inte korrekt. Granska listan med valfria portar och FQDN och auktorisera alla tjänster och komponenter som används i ditt AKS-kluster.
 
 > [!NOTE]
-> Att begränsa utgående trafik fungerar bara på nya AKS-kluster som skapas när du har aktiverat funktions flagga registreringen. För befintliga kluster utför du [en kluster uppgraderings åtgärd][aks-upgrade] med `az aks upgrade` kommandot innan du begränsar den utgående trafiken.
+> Det går bara att begränsa utgående trafik på nya AKS-kluster. För befintliga kluster utför du [en kluster uppgraderings åtgärd][aks-upgrade] med `az aks upgrade` kommandot innan du begränsar den utgående trafiken.
 
 ## <a name="required-ports-and-addresses-for-aks-clusters"></a>Obligatoriska portar och adresser för AKS-kluster
 
 Följande utgående portar/nätverks regler krävs för ett AKS-kluster:
 
 * TCP-port *443*
+* TCP [IPAddrOfYourAPIServer]: 443 krävs om du har en app som behöver kommunicera med API-servern.  Den här ändringen kan anges efter att klustret har skapats.
 * TCP-port *9000* och TCP-port *22* för tunnelns front-Pod för att kommunicera med tunnel slut på API-servern.
     * Mer information finns i * *. HCP.\< location\>. azmk8s.io* och * *. tun.\< location\>. azmk8s.io* -adresser i följande tabell.
+* UDP-port *53* för DNS krävs också om du har poddar direkt åtkomst till API-servern.
 
 Följande FQDN/program-regler krävs:
 
@@ -92,23 +70,68 @@ Följande FQDN/program-regler krävs:
 | management.azure.com       | HTTPS:443 | Den här adressen krävs för Kubernetes GET/tag-åtgärder. |
 | login.microsoftonline.com  | HTTPS:443 | Den här adressen krävs för Azure Active Directory autentisering. |
 | ntp.ubuntu.com             | UDP:123   | Den här adressen krävs för NTP-tidssynkronisering på Linux-noder. |
+| packages.microsoft.com     | HTTPS:443 | Den här adressen är Microsoft packages-lagringsplatsen som används för cachelagrat *apt-get-* åtgärder.  Exempel paket är Moby, PowerShell och Azure CLI. |
+| acs-mirror.azureedge.net   | HTTPS:443 | Den här adressen är för den lagrings plats som krävs för att installera nödvändiga binärfiler som Kubernetes och Azure CNI. |
 
 ## <a name="optional-recommended-addresses-and-ports-for-aks-clusters"></a>Valfria rekommenderade adresser och portar för AKS-kluster
 
-* UDP-port *53* för DNS
+Följande utgående portar/nätverks regler är valfria för ett AKS-kluster:
 
 Följande FQDN/program-regler rekommenderas för att AKS-kluster ska fungera korrekt:
 
 | FQDN                                    | Port      | Användning      |
 |-----------------------------------------|-----------|----------|
-| security.ubuntu.com, azure.archive.ubuntu.com, changelogs.ubuntu.com                           | HTTP:80   | Den här adressen låter Linux-klusternoderna hämta de nödvändiga säkerhets korrigeringarna och uppdateringarna. |
-| packages.microsoft.com                  | HTTPS:443 | Den här adressen är Microsoft packages-lagringsplatsen som används för cachelagrat *apt-get-* åtgärder. |
-| dc.services.visualstudio.com            | HTTPS:443 | Rekommenderas för att korrigera mått och övervakning med hjälp av Azure Monitor. |
-| *.opinsights.azure.com                  | HTTPS:443 | Rekommenderas för att korrigera mått och övervakning med hjälp av Azure Monitor. |
-| *.monitoring.azure.com                  | HTTPS:443 | Rekommenderas för att korrigera mått och övervakning med hjälp av Azure Monitor. |
-| gov-prod-policy-data.trafficmanager.net | HTTPS:443 | Den här adressen används för korrekt drift av Azure Policy (för närvarande i för hands version i AKS). |
-| apt.dockerproject.org                   | HTTPS:443 | Den här adressen används för korrekt driv rutins installation och åtgärd på GPU-baserade noder. |
-| nvidia.github.io                        | HTTPS:443 | Den här adressen används för korrekt driv rutins installation och åtgärd på GPU-baserade noder. |
+| security.ubuntu.com, azure.archive.ubuntu.com, changelogs.ubuntu.com | HTTP:80   | Den här adressen låter Linux-klusternoderna hämta de nödvändiga säkerhets korrigeringarna och uppdateringarna. |
+
+## <a name="required-addresses-and-ports-for-gpu-enabled-aks-clusters"></a>Obligatoriska adresser och portar för GPU-aktiverade AKS-kluster
+
+Följande FQDN/program-regler krävs för AKS-kluster med aktiverat GPU: er:
+
+| FQDN                                    | Port      | Användning      |
+|-----------------------------------------|-----------|----------|
+| nvidia.github.io | HTTPS:443 | Den här adressen används för korrekt driv rutins installation och åtgärd på GPU-baserade noder. |
+| us.download.nvidia.com | HTTPS:443 | Den här adressen används för korrekt driv rutins installation och åtgärd på GPU-baserade noder. |
+| apt.dockerproject.org | HTTPS:443 | Den här adressen används för korrekt driv rutins installation och åtgärd på GPU-baserade noder. |
+
+## <a name="required-addresses-and-ports-with-azure-monitor-for-containers-enabled"></a>Obligatoriska adresser och portar med Azure Monitor för behållare aktiverade
+
+Följande FQDN/program-regler krävs för AKS-kluster som har Azure Monitor för behållare aktiverade:
+
+| FQDN                                    | Port      | Användning      |
+|-----------------------------------------|-----------|----------|
+| dc.services.visualstudio.com | HTTPS:443  | Detta är för korrekta mått och övervakning av telemetri med hjälp av Azure Monitor. |
+| *.ods.opinsights.azure.com    | HTTPS:443 | Detta används av Azure Monitor för att mata in Log Analytics-data. |
+| *.oms.opinsights.azure.com | HTTPS:443 | Den här adressen används av omsagent, som används för att autentisera Log Analytics-tjänsten. |
+|*.microsoftonline.com | HTTPS:443 | Detta används för att autentisera och skicka mått till Azure Monitor. |
+|*.monitoring.azure.com | HTTPS:443 | Detta används för att skicka mått data till Azure Monitor. |
+
+## <a name="required-addresses-and-ports-for-aks-clusters-with-azure-policy-in-public-preview-enabled"></a>Obligatoriska adresser och portar för AKS-kluster med Azure Policy (i offentlig för hands version) aktiverat
+
+> [!CAUTION]
+> Några av funktionerna nedan finns i för hands version.  Förslagen i den här artikeln kan komma att ändras när funktionen flyttas till den offentliga för hands versionen och framtida versions steg.
+
+Följande FQDN/program-regler krävs för AKS-kluster som har Azure Policy aktiverat.
+
+| FQDN                                    | Port      | Användning      |
+|-----------------------------------------|-----------|----------|
+| gov-prod-policy-data.trafficmanager.net | HTTPS:443 | Adressen används för att Azure Policy ska fungera korrekt. (för närvarande i för hands version i AKS) |
+| raw.githubusercontent.com | HTTPS:443 | Den här adressen används för att hämta de inbyggda principerna från GitHub för att säkerställa korrekt drift av Azure Policy. (för närvarande i för hands version i AKS) |
+| *. GK. <location>. azmk8s.io | HTTPS:443 | Azure policy-tillägg pratar om Gatekeeper granska slut punkten som körs på huvud servern för att hämta gransknings resultaten. |
+| dc.services.visualstudio.com | HTTPS:443 | Azure policy-tillägg skickar telemetridata till program insikter-slutpunkten. |
+
+## <a name="required-by-windows-server-based-nodes-in-public-preview-enabled"></a>Krävs av Windows Server-baserade noder (i offentlig för hands version) aktiverat
+
+> [!CAUTION]
+> Några av funktionerna nedan finns i för hands version.  Förslagen i den här artikeln kan komma att ändras när funktionen flyttas till den offentliga för hands versionen och framtida versions steg.
+
+Följande FQDN/program-regler krävs för Windows Server-baserade AKS-kluster:
+
+| FQDN                                    | Port      | Användning      |
+|-----------------------------------------|-----------|----------|
+| onegetcdn.azureedge.net, winlayers.blob.core.windows.net, winlayers.cdn.mscr.io, go.microsoft.com | HTTPS:443 | Installera Windows-relaterade binärfiler |
+| mp.microsoft.com, www<span></span>. msftconnecttest.com, ctldl.windowsupdate.com | HTTP:80 | Installera Windows-relaterade binärfiler |
+| kms.core.windows.net | TCP: 1688 | Installera Windows-relaterade binärfiler |
+
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/25/2019
 ms.author: jingwang
-ms.openlocfilehash: b6d96ef2d2cdd79bec35f2581876823990e4a971
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.openlocfilehash: c15a60b7329359ee8d3e429159eb178c0c9b4782
+ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70172605"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71018772"
 ---
 # <a name="copy-data-to-and-from-azure-database-for-mysql-using-azure-data-factory"></a>Kopiera data till och från Azure Database for MySQL med Azure Data Factory
 
@@ -26,6 +26,11 @@ Den här artikeln beskriver hur du använder kopierings aktiviteten i Azure Data
 Den här anslutningen är specialiserad för [Azure Database for MySQL-tjänsten](../mysql/overview.md). Använd [MySQL Connector](connector-mysql.md)om du vill kopiera data från en allmän MySQL-databas som finns lokalt eller i molnet.
 
 ## <a name="supported-capabilities"></a>Funktioner som stöds
+
+Den här Azure Database for MySQL anslutningen stöds för följande aktiviteter:
+
+- [Kopierings aktivitet](copy-activity-overview.md) med [matrisen source/Sink som stöds](copy-activity-overview.md)
+- [Sökningsaktivitet](control-flow-lookup-activity.md)
 
 Du kan kopiera data från Azure Database for MySQL till alla mottagar data lager som stöds. Du kan också kopiera data från alla käll data lager som stöds till Azure Database for MySQL. En lista över datalager som stöds som källor/mottagare av Kopieringsaktivitet finns i den [datalager som stöds](copy-activity-overview.md#supported-data-stores-and-formats) tabell.
 
@@ -188,8 +193,7 @@ För att kopiera data till Azure Database for MySQL, stöds följande egenskaper
 | type | Egenskapen Type för kopierings aktivitetens Sink måste anges till: **AzureMySqlSink** | Ja |
 | preCopyScript | Ange en SQL-fråga för kopierings aktiviteten som ska köras innan data skrivs till Azure Database for MySQL i varje körning. Du kan använda den här egenskapen för att rensa de förinstallerade data. | Nej |
 | writeBatchSize | Infogar data i Azure Database for MySQL tabellen när buffertstorleken når writeBatchSize.<br>Tillåtet värde är Integer som representerar antalet rader. | Nej (standard är 10 000) |
-| writeBatchTimeout | Vänte tid för att infoga batch-åtgärden ska slutföras innan tids gränsen uppnåddes.<br> 
-Tillåtna värden är TimeSpan. Ett exempel är 00:30:00 (30 minuter). | Nej (standard är 00:00:30) |
+| writeBatchTimeout | Vänte tid för att infoga batch-åtgärden ska slutföras innan tids gränsen uppnåddes.<br>Tillåtna värden är TimeSpan. Ett exempel är 00:30:00 (30 minuter). | Nej (standard är 00:00:30) |
 
 **Exempel:**
 
@@ -223,6 +227,10 @@ Tillåtna värden är TimeSpan. Ett exempel är 00:30:00 (30 minuter). | Nej (st
     }
 ]
 ```
+
+## <a name="lookup-activity-properties"></a>Egenskaper för Sök aktivitet
+
+Om du vill veta mer om egenskaperna kontrollerar du [söknings aktiviteten](control-flow-lookup-activity.md).
 
 ## <a name="data-type-mapping-for-azure-database-for-mysql"></a>Data typs mappning för Azure Database for MySQL
 

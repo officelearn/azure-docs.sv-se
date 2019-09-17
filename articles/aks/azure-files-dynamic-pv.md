@@ -5,14 +5,14 @@ services: container-service
 author: mlearned
 ms.service: container-service
 ms.topic: article
-ms.date: 07/08/2019
+ms.date: 09/12/2019
 ms.author: mlearned
-ms.openlocfilehash: 580363973afd918351931edfb187a1a8d38d6985
-ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
+ms.openlocfilehash: 045fcb3286c89097459a4a8405d22ee70e44c205
+ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "67665975"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71018825"
 ---
 # <a name="dynamically-create-and-use-a-persistent-volume-with-azure-files-in-azure-kubernetes-service-aks"></a>Skapa och använda en beständig volym dynamiskt med Azure Files i Azure Kubernetes service (AKS)
 
@@ -33,6 +33,7 @@ En lagrings klass används för att definiera hur en Azure-filresurs skapas. Ett
 * *Standard_LRS* -standard lokalt redundant lagring (LRS)
 * *Standard_GRS* – standard Geo-redundant lagring (GRS)
 * *Standard_RAGRS* – standard Geo-redundant lagring med Läs behörighet (RA-GRS)
+* *Premium_LRS* – Premium lokalt redundant lagring (LRS)
 
 > [!NOTE]
 > Azure Files stöd för Premium Storage i AKS-kluster som kör Kubernetes 1,13 eller högre.
@@ -52,6 +53,9 @@ mountOptions:
   - file_mode=0777
   - uid=1000
   - gid=1000
+  - mfsymlinks
+  - nobrl
+  - cache=none
 parameters:
   skuName: Standard_LRS
 ```
@@ -101,7 +105,7 @@ kubectl apply -f azure-pvc-roles.yaml
 
 ## <a name="create-a-persistent-volume-claim"></a>Skapa ett beständigt volym anspråk
 
-Ett permanent volym anspråk (PVC) använder lagrings klass objekt för att dynamiskt etablera en Azure-filresurs. Följande YAML kan användas för att skapa en permanent volym anspråks *5 GB* i storlek med *ReadWriteMany* -åtkomst. Mer information om åtkomst lägen finns i dokumentationen för [Kubernetes-beständig volym][access-modes] .
+Ett permanent volym anspråk (PVC) använder lagrings klass objekt för att dynamiskt etablera en Azure-filresurs. Följande YAML kan användas för att skapa ett beständigt volym anspråk *5 GB* i storlek med *ReadWriteMany* -åtkomst. Mer information om åtkomst lägen finns i dokumentationen för [Kubernetes-beständig volym][access-modes] .
 
 Skapa nu en fil med `azure-file-pvc.yaml` namnet och kopiera den i följande yaml. Kontrol lera att *storageClassName* matchar lagrings klassen som skapades i det senaste steget:
 
@@ -118,6 +122,9 @@ spec:
     requests:
       storage: 5Gi
 ```
+
+> [!NOTE]
+> Om du använder *Premium_LRS* SKU för lagrings klassen måste det lägsta värdet för *lagring* vara *100Gi*.
 
 Skapa ett beständigt volym anspråk med kommandot [kubectl Apply][kubectl-apply] :
 
@@ -196,17 +203,7 @@ Volumes:
 
 ## <a name="mount-options"></a>Monteringsalternativ
 
-Standardvärden för *fileMode* och *dirMode* skiljer sig mellan Kubernetes-versioner enligt beskrivningen i följande tabell.
-
-| version | value |
-| ---- | ---- |
-| v 1.6. x, v 1.7. x | 0777 |
-| v1.8.0-v1.8.5 | 0700 |
-| v-1.8.6 eller högre | 0755 |
-| v-1.9.0 | 0700 |
-| v-1.9.1 eller högre | 0755 |
-
-Om du använder ett kluster av version 1.8.5 eller större och dynamiskt skapar den permanenta volymen med en lagrings klass kan monterings alternativ anges för objektet lagrings klass. I följande exempel anges *0777*:
+Standardvärdet för *fileMode* och *dirMode* är *0755* för Kubernetes version 1.9.1 och senare. Om du använder ett kluster med Kuberetes version 1.8.5 eller större och dynamiskt skapar den permanenta volymen med en lagrings klass, kan monterings alternativ anges för objektet lagrings klass. I följande exempel anges *0777*:
 
 ```yaml
 kind: StorageClass
@@ -219,6 +216,9 @@ mountOptions:
   - file_mode=0777
   - uid=1000
   - gid=1000
+  - mfsymlinks
+  - nobrl
+  - cache=none
 parameters:
   skuName: Standard_LRS
 ```

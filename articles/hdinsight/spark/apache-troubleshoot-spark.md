@@ -4,15 +4,16 @@ description: Få svar på vanliga frågor om hur du arbetar med Apache Spark och
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
+ms.reviewer: jasonh
 ms.topic: troubleshooting
 ms.date: 08/22/2019
 ms.custom: seodec18
-ms.openlocfilehash: 143a941b8266734a8415c71daafc07681bc13b80
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.openlocfilehash: 8931f9b09836d30f95e25cee245932475c3cf64c
+ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70049529"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71018413"
 ---
 # <a name="troubleshoot-apache-spark-by-using-azure-hdinsight"></a>Felsöka Apache Spark med Azure HDInsight
 
@@ -26,49 +27,49 @@ Konfigurations värden för Spark kan justeras för att undvika `OutofMemoryErro
 
 1. Navigera till **Spark2** > -**konfigurationer**.
 
-    ![Välj fliken konfigurationer](./media/apache-troubleshoot-spark/update-config-2.png)
+    ![Välj fliken konfigurationer](./media/apache-troubleshoot-spark/apache-spark-ambari-config2.png)
 
 1. I listan med konfigurationer väljer och expanderar du **Custom-spark2-defaults**.
 
 1. Leta efter värdeinställning som du behöver justera som **spark.executor.memory**. I det här fallet är värdet för **9728m** för högt.
 
-    ![Ange standardinställningar för anpassade spark](./media/apache-troubleshoot-spark/update-config-4.png)
+    ![Ange standardinställningar för anpassade spark](./media/apache-troubleshoot-spark/apache-spark-ambari-config4.png)
 
 1. Ange värdet till den rekommenderade inställningen. Värdet **2 048 m** rekommenderas för den här inställningen.
 
 1. Spara värdet och sedan spara konfigurationen. Välj **Spara**.
 
-    ![Ändra värdet till 2 048 m](./media/apache-troubleshoot-spark/update-config-6a.png)
+    ![Ändra värdet till 2 048 m](./media/apache-troubleshoot-spark/apache-spark-ambari-config6a.png)
 
     Skriv en anteckning om ändringar i konfigurationen och välj sedan **spara**.
 
-    ![Ange en kommentar om de ändringar du gjort](./media/apache-troubleshoot-spark/update-config-6c.png)
+    ![Ange en kommentar om de ändringar du gjort](./media/apache-troubleshoot-spark/apache-spark-ambari-config6c.png)
 
     Du får ett meddelande om några konfigurationer som behöver åtgärdas. Observera objekt och välj sedan **fortsätter ändå**.
 
-    ![Välj Fortsätt ändå](./media/apache-troubleshoot-spark/update-config-6b.png)
+    ![Välj Fortsätt ändå](./media/apache-troubleshoot-spark/apache-spark-ambari-config6b.png)
 
 1. När en konfiguration sparas uppmanas du att starta om tjänsten. Välj **starta om**.
 
-    ![Välj omstart](./media/apache-troubleshoot-spark/update-config-7a.png)
+    ![Välj omstart](./media/apache-troubleshoot-spark/apache-spark-ambari-config7a.png)
 
     Bekräfta omstarten.
 
-    ![Välj bekräfta starta om alla](./media/apache-troubleshoot-spark/update-config-7b.png)
+    ![Välj bekräfta starta om alla](./media/apache-troubleshoot-spark/apache-spark-ambari-config7b.png)
 
     Du kan granska de processer som körs.
 
-    ![Granska processer som körs](./media/apache-troubleshoot-spark/update-config-7c.png)
+    ![Granska processer som körs](./media/apache-troubleshoot-spark/apache-spark-ambari-config7c.png)
 
 1. Du kan lägga till konfigurationer. Välj i listan över konfigurationer, **anpassad-spark2-standardvärden**, och välj sedan **Lägg till egenskap**.
 
-    ![Välj Lägg till egenskap](./media/apache-troubleshoot-spark/update-config-8.png)
+    ![Välj Lägg till egenskap](./media/apache-troubleshoot-spark/apache-spark-ambari-config8.png)
 
 1. Definiera en ny egenskap. Du kan definiera en enskild egenskap med en dialogruta för specifika inställningar, till exempel datatypen. Eller du kan definiera flera egenskaper med hjälp av en definition av per rad.
 
     I det här exemplet på **spark.driver.memory** egenskapen har definierats med värdet **4g**.
 
-    ![Definiera nya egenskapen](./media/apache-troubleshoot-spark/update-config-9.png)
+    ![Definiera nya egenskapen](./media/apache-troubleshoot-spark/apache-spark-ambari-config9.png)
 
 1. Spara konfigurationen och sedan starta om tjänsten enligt beskrivningen i steg 6 och 7.
 

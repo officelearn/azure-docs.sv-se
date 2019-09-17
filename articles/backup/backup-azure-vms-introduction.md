@@ -5,14 +5,14 @@ author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 03/04/2019
+ms.date: 09/13/2019
 ms.author: dacurwin
-ms.openlocfilehash: 72ab33cd280892ac6de827986e21e04672e58960
-ms.sourcegitcommit: acffa72239413c62662febd4e39ebcb6c6c0dd00
+ms.openlocfilehash: db3e4b8a8abea4718f5779790906bf45591d221c
+ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68951854"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71018697"
 ---
 # <a name="an-overview-of-azure-vm-backup"></a>En översikt över säkerhets kopiering av virtuella Azure-datorer
 
@@ -79,7 +79,7 @@ Azure Backup tar ögonblicks bilder enligt schema för säkerhets kopiering.
 
 I följande tabell förklaras de olika typerna av ögonblicks bilds konsekvens:
 
-**Ögonblicks bild** | **Detaljer** | **Återställning** | **Beaktas**
+**Ögonblicks bild** | **Detaljer** | **Återställning** | **Övervägande**
 --- | --- | --- | ---
 **Programkonsekvent** | Programkonsekventa säkerhets kopieringar fångar upp minnes innehåll och väntande I/O-åtgärder. I programkonsekventa ögonblicks bilder används en VSS-skrivare (eller pre/post-skript för Linux) för att säkerställa konsekvensen av AppData innan en säkerhets kopiering sker. | När du återställer en virtuell dator med en programkonsekvent ögonblicks bild startas den virtuella datorn. Det finns inga skadade data eller går förlorade. Apparna startar i ett konsekvent tillstånd. | Windows: Alla VSS-skrivare har slutförts<br/><br/> Linux: Skript har kon figurer ATS och genomförts
 **Konsekvent fil system** | Konsekventa säkerhets kopieringar i fil systemet ger konsekvens genom att ta en ögonblicks bild av alla filer på samma gång.<br/><br/> | När du återställer en virtuell dator med en konsekvent fil system ögonblicks bild startas den virtuella datorn. Det finns inga skadade data eller går förlorade. Appar behöver implementera sin egen "Fix"-mekanism för att se till att återställda data är konsekventa. | Windows: Vissa VSS-skrivare misslyckades <br/><br/> Linux: Standard (om pre/post-skript inte har kon figurer ATS eller misslyckats)
@@ -87,7 +87,7 @@ I följande tabell förklaras de olika typerna av ögonblicks bilds konsekvens:
 
 ## <a name="backup-and-restore-considerations"></a>Överväganden för säkerhets kopiering och återställning
 
-**Beaktas** | **Detaljer**
+**Övervägande** | **Detaljer**
 --- | ---
 **Disk** | Säkerhets kopiering av virtuella dator diskar är parallell. Om till exempel en virtuell dator har fyra diskar, försöker säkerhets kopierings tjänsten säkerhetskopiera alla fyra diskarna parallellt. Backup är stegvis (endast ändrade data).
 **Tids** |  Du kan minska säkerhets kopierings trafiken genom att säkerhetskopiera olika virtuella datorer vid olika tidpunkter på dagen och se till att tiderna inte överlappar varandra. När du säkerhetskopierar virtuella datorer samtidigt orsakar det att trafiken fastnar.
@@ -113,7 +113,7 @@ När du konfigurerar VM-säkerhetskopieringar föreslår vi följande metoder:
 - Ändra standard schema tiderna som anges i en princip. Till exempel, om standard tiden i principen är 12:00 AM, ökar du tiden med flera minuter så att resurserna optimalt används.
 - Om du återställer virtuella datorer från ett enda valv rekommenderar vi starkt att du använder olika [generella v2-lagrings konton](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade) för att säkerställa att mål lagrings kontot inte får någon begränsning. Till exempel måste varje virtuell dator ha ett annat lagrings konto. Om till exempel 10 virtuella datorer återställs använder du 10 olika lagrings konton.
 - För säkerhets kopiering av virtuella datorer som använder Premium Storage, med omedelbar återställning, rekommenderar vi att du allokerar *50%* ledigt utrymme för det totala allokerade lagrings utrymmet, vilket **endast** krävs för den första säkerhets kopieringen. Det lediga utrymmet på 50% är inte ett krav för säkerhets kopieringar när den första säkerhets kopieringen har slutförts
-- Restore från ett allmänt lagrings lager (ögonblicks bild) kommer att slutföras på några minuter eftersom ögonblicks bilden finns på samma lagrings konto. Det kan ta flera timmar att återställa från General-Purpose v2-lagrings skiktet (valvet). I de fall där data är tillgängliga i generell användning v1-lagring rekommenderar vi att du använder funktionen för [omedelbar återställning](backup-instant-restore-capability.md) för snabbare återställningar. (Om data måste återställas från ett valv, tar det längre tid.)
+- Restore från ett allmänt lagrings lager (ögonblicks bild) kommer att slutföras på några minuter eftersom ögonblicks bilden finns på samma lagrings konto. Det kan ta flera timmar att återställa från General-Purpose v2-lagrings skiktet (valvet). I de fall där data är tillgängliga i generell användning v1-lagring rekommenderar vi att du använder funktionen för [omedelbar återställning för snabbare återställningar](backup-instant-restore-capability.md) . (Om data måste återställas från ett valv, tar det längre tid.)
 - Gränsen för antalet diskar per lagrings konto är i förhållande till hur mycket diskarna som används av program som körs på en virtuell IaaS-dator (Infrastructure as a Service). Som allmän praxis bör du, om det finns 5 till 10 diskar eller mer på ett enda lagrings konto, utjämna belastningen genom att flytta några diskar till separata lagrings konton.
 
 ## <a name="backup-costs"></a>Kostnader för säkerhets kopiering
@@ -140,48 +140,13 @@ Data disk 2 | 4 095 GB | 0 GB
 Den faktiska storleken på den virtuella datorn i det här fallet är 17 GB + 30 GB + 0 GB = 47 GB. Den här skyddade instans storleken (47 GB) utgör grunden för månads fakturan. När mängden data i den virtuella datorn växer ökar den skyddade instans storleken som används för fakturerings ändringar som ska matchas.
 
 <a name="limited-public-preview-backup-of-vm-with-disk-sizes-up-to-30tb"></a>
-## <a name="limited-public-preview-backup-of-vm-with-disk-sizes-up-to-30-tb"></a>Begränsad offentlig för hands version: Säkerhets kopiering av virtuell dator med disk storlekar upp till 30 TB
+## <a name="public-preview-backup-of-vm-with-disk-sizes-up-to-30-tb"></a>Offentlig förhandsversion: Säkerhets kopiering av virtuell dator med disk storlekar upp till 30 TB
 
-Azure Backup har nu stöd för en begränsad offentlig för hands version av större och mer kraftfulla [Azure-Managed disks](https://azure.microsoft.com/blog/larger-more-powerful-managed-disks-for-azure-virtual-machines/) på upp till 30 TB storlek. Den här för hands versionen innehåller stöd på produktions nivå för hanterade virtuella datorer.
+Azure Backup stöder nu en offentlig för hands version av större och mer kraftfulla [Azure-Managed disks](https://azure.microsoft.com/blog/larger-more-powerful-managed-disks-for-azure-virtual-machines/) på upp till 30 TB storlek. Den här för hands versionen innehåller stöd på produktions nivå för hanterade virtuella datorer.
 
-Du kan enkelt registrera i förhands granskningen utan att du behöver påverka dina säkerhets kopior. När prenumerationen har registrerats i förhands granskningen bör alla virtuella datorer med disk storlekar upp till 30 TB säkerhets kopie ras. För att registrera dig i för hands versionen:
- 
-Kör följande cmdlets från en upphöjd PowerShell-Terminal:
+Säkerhets kopiorna för de virtuella datorerna med varje disk storlek upp till 30TB och högst 256TB kombinerat för alla diskar i en virtuell dator bör fungera sömlöst utan att befintliga säkerhets kopior påverkas. Det krävs ingen användar åtgärd för att hämta säkerhets kopior som körs för de stora diskarna, om den virtuella datorn redan är konfigurerad med Azure Backup.
 
-1. Logga in på ditt Azure-konto.
-
-    ```powershell
-    PS C:> Login-AzureRmAccount
-    ```
-
-2. Välj den prenumeration som du vill registrera för uppgraderingen:
-
-    ```powershell
-    PS C:>  Get-AzureRmSubscription –SubscriptionName "Subscription Name" | Select-AzureRmSubscription
-    ```
-3. Registrera den här prenumerationen i förhands gransknings programmet: 
-
-    ```powershell
-    PS C:> Register-AzureRmProviderFeature -FeatureName "LargeDiskVMBackupPreview" –ProviderNamespace Microsoft.RecoveryServices
-    ```
-
-    Vänta i 30 minuter tills prenumerationen har registrerats i förhands granskningen. 
-
- 4. Kontrol lera statusen genom att köra följande cmdlets:
-
-    ```powershell
-    PS C:> Get-AzureRmProviderFeature -FeatureName "LargeDiskVMBackupPreview" –ProviderNamespace Microsoft.RecoveryServices 
-    ```
-5. Kör följande kommando när prenumerationen visas som registrerad:
-    
-    ```powershell
-    PS C:> Register-AzureRmResourceProvider -ProviderNamespace Microsoft.RecoveryServices
-    ```
-
-> [!NOTE]
-> Krypterade virtuella datorer med diskar som är större än 4 TB stöds inte i den här för hands versionen.
-
-
+Alla Azure-Virtual Machines med stora diskar som har den konfigurerade säkerhets kopian ska säkerhets kopie ras.
 
 ## <a name="next-steps"></a>Nästa steg
 

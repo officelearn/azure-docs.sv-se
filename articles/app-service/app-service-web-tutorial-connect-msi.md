@@ -11,15 +11,15 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 08/06/2019
+ms.date: 09/16/2019
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 09e9a89fc79763eee5d154ba589b599fe8a180b2
-ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
+ms.openlocfilehash: d4e0d632fe476df159710f800eca3a2a283f7908
+ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70743386"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71018290"
 ---
 # <a name="tutorial-secure-azure-sql-database-connection-from-app-service-using-a-managed-identity"></a>Självstudier: Säkra Azure SQL Database-anslutningar från App Service med en hanterad identitet
 
@@ -83,10 +83,22 @@ Mer information om hur du lägger till en Active Directory-administratör finns 
 
 ## <a name="set-up-visual-studio"></a>Konfigurera Visual Studio
 
-Om du vill aktivera utveckling och fel sökning i Visual Studio lägger du till din Azure AD-användare i Visual Studio genom att välja **fil** > **konto inställningar** på menyn och klicka på **Lägg till ett konto**.
+### <a name="windows"></a>Windows
+Visual Studio för Windows är integrerat med Azure AD-autentisering. Om du vill aktivera utveckling och fel sökning i Visual Studio lägger du till din Azure AD-användare i Visual Studio genom att välja **fil** > **konto inställningar** på menyn och klicka på **Lägg till ett konto**.
 
 Om du vill ställa in Azure AD-användaren för Azure-tjänsteautentisering väljer du **verktyg** > **alternativ** på menyn och väljer sedan**konto val**för **Azure-tjänstens autentisering** > . Välj den Azure AD-användare som du har lagt till och klicka på **OK**.
 
+Nu är du redo att utveckla och felsöka din app med SQL Database som Server del, med Azure AD-autentisering.
+
+### <a name="macos"></a>MacOS
+
+Visual Studio för Mac är inte integrerat med Azure AD-autentisering. Men det [Microsoft. Azure. Services. AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) -bibliotek som du kommer att använda senare kan använda tokens från Azure CLI. Om du vill aktivera utveckling och fel sökning i Visual Studio måste du först [Installera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) på den lokala datorn.
+
+När Azure CLI är installerat på den lokala datorn loggar du in på Azure CLI med följande kommando med hjälp av din Azure AD-användare:
+
+```bash
+az login --allow-no-subscriptions
+```
 Nu är du redo att utveckla och felsöka din app med SQL Database som Server del, med Azure AD-autentisering.
 
 ## <a name="modify-your-project"></a>Ändra ditt projekt

@@ -13,18 +13,23 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.author: orspodek
-ms.openlocfilehash: a7ac0bdc2bd5eed802f6959a628dee4c8141dbd1
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 5cb08ddafe2075ae27ced6d70894696025df0a86
+ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68720809"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71010256"
 ---
 # <a name="copy-data-to-or-from-azure-data-explorer-using-azure-data-factory"></a>Kopiera data till eller från Azure Datautforskaren med Azure Data Factory
 
 Den här artikeln beskriver hur du använder kopierings aktiviteten i Azure Data Factory för att kopiera data till eller från [Azure datautforskaren](../data-explorer/data-explorer-overview.md). Den bygger på den [översikt över Kopieringsaktivitet](copy-activity-overview.md) artikel som ger en allmän översikt över Kopieringsaktivitet.
 
 ## <a name="supported-capabilities"></a>Funktioner som stöds
+
+Den här Azure Datautforskaren-anslutningen stöds för följande aktiviteter:
+
+- [Kopierings aktivitet](copy-activity-overview.md) med [matrisen source/Sink som stöds](copy-activity-overview.md)
+- [Sökningsaktivitet](control-flow-lookup-activity.md)
 
 Du kan kopiera data från alla käll data lager som stöds till Azure Datautforskaren. Du kan också kopiera data från Azure Datautforskaren till alla mottagar data lager som stöds. En lista över datalager som stöds som källor och mottagare av Kopieringsaktivitet finns i den [datalager som stöds](copy-activity-overview.md) tabell.
 
@@ -56,7 +61,7 @@ Azure Datautforskaren-anslutningen använder autentisering av tjänstens huvud n
     - Programnyckel
     - Klient-ID:t
 
-2. Ge tjänstens huvud behörighet rätt behörighet i Azure Datautforskaren. Se [Hantera behörigheter för Azure datautforskaren Database](../data-explorer/manage-database-permissions.md) med detaljerad information om roller och behörigheter, samt genom gång av hantering av behörigheter. I allmänhet måste du
+2. Ge tjänstens huvud behörighet rätt behörighet i Azure Datautforskaren. Se [Hantera behörigheter för Azure datautforskaren Database](../data-explorer/manage-database-permissions.md) med detaljerad information om roller och behörigheter, samt genom att gå vidare med att hantera behörigheter. I allmänhet måste du
 
     - **Som källa**ger du minst rollen **databas hanterare** till din databas.
     - **Som mottagare**ger du minst rollen **databas** inmatnings roll till din databas.
@@ -71,9 +76,9 @@ Följande egenskaper stöds för den länkade tjänsten Azure Datautforskaren:
 | type | Egenskapen **Type** måste anges till **AzureDataExplorer** | Ja |
 | endpoint | Slut punkts-URL för Azure Datautforskaren-klustret, med `https://<clusterName>.<regionName>.kusto.windows.net`formatet. | Ja |
 | database | Namn på databasen. | Ja |
-| tenant | Ange klientinformation (domain name eller klient-ID) under där programmet finns. Detta är vad du normalt vet som "**auktoritets-ID**" i [Kusto](https://docs.microsoft.com/azure/kusto/api/connection-strings/kusto#application-authentication-properties)-anslutningssträngen. Hämta det genom att hovra med musen i det övre högra hörnet av Azure Portal. | Ja |
-| servicePrincipalId | Ange programmets klient-ID. Detta är vad du normalt vet som "**AAD-programklient-ID**" i [Kusto](https://docs.microsoft.com/azure/kusto/api/connection-strings/kusto#application-authentication-properties)-anslutningssträngen. | Ja |
-| servicePrincipalKey | Ange programmets nyckel. Detta är vad du normalt vet som "**AAD**-programnyckel" i [Kusto](https://docs.microsoft.com/azure/kusto/api/connection-strings/kusto#application-authentication-properties)-anslutningssträngen. Markera det här fältet som en **SecureString** ska lagras på ett säkert sätt i Data Factory, eller [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
+| tenant | Ange klientinformation (domain name eller klient-ID) under där programmet finns. Detta är vad du normalt vet som "**auktoritets-ID**" i [Kusto-anslutningssträngen](https://docs.microsoft.com/azure/kusto/api/connection-strings/kusto#application-authentication-properties). Hämta det genom att hovra med musen i det övre högra hörnet av Azure Portal. | Ja |
+| servicePrincipalId | Ange programmets klient-ID. Detta är vad du normalt vet som "**AAD-programklient-ID**" i [Kusto-anslutningssträngen](https://docs.microsoft.com/azure/kusto/api/connection-strings/kusto#application-authentication-properties). | Ja |
+| servicePrincipalKey | Ange programmets nyckel. Detta är vad du normalt vet som "**AAD-programnyckel**" i [Kusto-anslutningssträngen](https://docs.microsoft.com/azure/kusto/api/connection-strings/kusto#application-authentication-properties). Markera det här fältet som en **SecureString** ska lagras på ett säkert sätt i Data Factory, eller [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
 
 **Exempel på länkade tjänst egenskaper:**
 
@@ -134,7 +139,7 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 ### <a name="azure-data-explorer-as-source"></a>Azure Datautforskaren som källa
 
-Om du vill kopiera data från Azure Datautforskaren anger du egenskapen **Type** i kopierings aktivitetens källa till **AzureDataExplorerSource**. Följande egenskaper stöds i kopieringsaktiviteten **källa** avsnittet:
+Om du vill kopiera data från Azure Datautforskaren anger du egenskapen **Type** i kopierings aktivitetens källa till **AzureDataExplorerSource**. Följande egenskaper stöds i kopieringsaktiviteten **source** avsnittet:
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
@@ -219,6 +224,10 @@ Om du vill kopiera data till Azure Datautforskaren anger du egenskapen type i ko
     }
 ]
 ```
+
+## <a name="lookup-activity-properties"></a>Egenskaper för Sök aktivitet
+
+Om du vill veta mer om egenskaperna kontrollerar du [söknings aktiviteten](control-flow-lookup-activity.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

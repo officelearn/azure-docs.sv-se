@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 09/10/2019
 ms.author: raynew
-ms.openlocfilehash: 5d7ac7cf00ee59a06a914d312fd58de00515a0b4
-ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
+ms.openlocfilehash: 75a8207cd214a63258ddb167b887fe83b7aa032a
+ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70873335"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71008833"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>Stöd mat ris för haveri beredskap för lokala virtuella Hyper-V-datorer till Azure
 
@@ -132,8 +132,8 @@ Blockblob-objekt | Nej | Nej
 Kryptering i rest (SSE)| Ja | Ja
 Premium Storage | Ja | Ja
 Import/export-tjänst | Nej | Nej
-Azure Storage brand väggar för virtuella nätverk som har kon figurer ATS på mål lagring/cache lagrings konto (används för att lagra replikeringsdata) | Nej | Nej
-Ändra lagrings konto | Nej. Det går inte att ändra målets Azure Storage-konto när replikeringen har Aktiver ATS. Ändra genom att inaktivera och sedan återaktivera haveri beredskap. | Nej
+Azure Storage-konton med aktive rad brand vägg | Nej  | Ja. För mål lagring och cache.
+Ändra lagrings konto | Nej. Det går inte att ändra målets Azure Storage-konto när replikeringen har Aktiver ATS. Om du vill ändra inaktiverar du och aktiverar sedan haveri beredskap igen. | Nej
 
 
 ## <a name="azure-compute-features"></a>Beräknings funktioner i Azure

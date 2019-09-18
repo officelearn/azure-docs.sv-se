@@ -1,6 +1,6 @@
 ---
-title: Aktivera åldershantering i Azure Active Directory B2C | Microsoft Docs
-description: Läs mer om hur du identifierar minderåriga använder programmet.
+title: Aktivera ålders hantera i Azure Active Directory B2C | Microsoft Docs
+description: Lär dig mer om att identifiera minderåriga med ditt program.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -10,45 +10,45 @@ ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 33b379a03c92b81885f7adfc70f7025a85ce9057
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f7eb4d8e784acc659f6661ef6efbdb06816b142c
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66511669"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71064457"
 ---
-# <a name="enable-age-gating-in-azure-active-directory-b2c"></a>Aktivera Åldershantering i Azure Active Directory B2C
+# <a name="enable-age-gating-in-azure-active-directory-b2c"></a>Aktivera ålders hantera i Azure Active Directory B2C
 
 >[!IMPORTANT]
->Den här funktionen är en allmänt tillgänglig förhandsversion. Använd inte funktionen för program i produktion. 
+>Den här funktionen är en allmänt tillgänglig förhandsversion. Använd inte funktionen för produktions program.
 >
 
-Åldershantering i Azure Active Directory (Azure AD) B2C kan du identifiera minderåriga som vill använda ditt program. Du kan välja att blockera mindre från att logga in i programmet. Användare kan också gå tillbaka till programmet och identifiera deras åldersgrupp och deras medgivandenivå status. Azure AD B2C kan blockera minderåriga utan föräldrars tillstånd. Azure AD B2C kan också konfigureras att tillåta program att avgöra vad du gör med minderåriga.
+Ålders hantera i Azure Active Directory B2C (Azure AD B2C) gör att du kan identifiera minderåriga som vill använda ditt program. Du kan välja att blockera den underordnade från att logga in på programmet. Användarna kan också gå tillbaka till programmet och identifiera sin ålders grupp och deras överordnade medgivande status. Azure AD B2C kan blockera minderåriger utan överordnat medgivande. Azure AD B2C kan också konfigureras så att programmet kan bestämma vad som ska göras med minderåriga.
 
-När du har aktiverat åldershantering i din [användarflödet](active-directory-b2c-reference-policies.md), användarna uppmanas när de föddes och vilka land/region de finnas i. Om en användare loggar in som tidigare inte har angett information, måste de ange den nästa gång de loggar in. Reglerna tillämpas varje gång en användare loggar in.
+När du har aktiverat ålders hantera i ditt [användar flöde](active-directory-b2c-reference-policies.md)tillfrågas användarna när de föddes och vilket land/vilken region de bor i. Om en användare loggar in som inte tidigare har angett informationen måste han eller hon ange den nästa gången de loggar in. Reglerna tillämpas varje gång en användare loggar in.
 
-Azure AD B2C använder informationen som användaren anger för att identifiera om de är minderårig. Den **ageGroup** uppdateras sedan fältet i sina konton. Värdet kan vara `null`, `Undefined`, `Minor`, `Adult`, och `NotAdult`.  Den **ageGroup** och **consentProvidedForMinor** fält används sedan för att beräkna värdet för **legalAgeGroupClassification**.
+Azure AD B2C använder den information som användaren anger för att identifiera om de är mindre. Fältet **ageGroup** uppdateras sedan i sitt konto. `null`Värdet kan vara ,`Adult` ,,`NotAdult`och. `Undefined` `Minor`  Fälten **ageGroup** och **consentProvidedForMinor** används sedan för att beräkna värdet för **legalAgeGroupClassification**.
 
-Åldershantering omfattar två ålder värden: ålder som någon inte längre anses vara minderårig och ålder då minderårig måste ha föräldrars tillstånd. I följande tabell visas de ålder regler som används för att definiera en mindre och en mindre kräver godkännande.
+Ålders hantera omfattar två ålders värden: den ålder som någon inte längre anses vara mindre och den tid då en mindre måste ha ett överordnat medgivande. I följande tabell visas de ålders regler som används för att definiera en mindre och en mindre som kräver medgivande.
 
-| Land/region | Namn på Land/Region | Mindre medgivande ålder | Mindre ålder |
+| Land/region | Land/region namn | Liten medgivande ålder | Mindre ålder |
 | -------------- | ------------------- | ----------------- | --------- |
-| Standard | Ingen | Ingen | 18 |
-| AE | Förenade Arabemiraten | Ingen | 21 |
+| Standard | Inga | Inga | 18 |
+| AE | Förenade Arabemiraten | Inga | 21 |
 | AT | Österrike | 14 | 18 |
 | BE | Belgien | 14 | 18 |
 | BG | Bulgarien | 16 | 18 |
-| BH | Bahrain | Ingen | 21 |
-| CM | Kamerun | Ingen | 21 |
+| BH | Bahrain | Inga | 21 |
+| CM | Kamerun | Inga | 21 |
 | CY | Cypern | 16 | 18 |
 | CZ | Tjeckien | 16 | 18 |
 | DE | Tyskland | 16 | 18 |
 | DK | Danmark | 16 | 18 |
 | EE | Estland | 16 | 18 |
-| EG | Egypten | Ingen | 21 |
+| EG | Egypten | Inga | 21 |
 | ES | Spanien | 13 | 18 |
 | FR | Frankrike | 16 | 18 |
-| GB | Storbritannien | 13 | 18 |
+| GB | Storbritannien och Nordirland | 13 | 18 |
 | GR | Grekland | 16 | 18 |
 | HR | Kroatien | 16 | 18 |
 | HU | Ungern | 16 | 18 |
@@ -59,51 +59,51 @@ Azure AD B2C använder informationen som användaren anger för att identifiera 
 | LU | Luxemburg | 16 | 18 |
 | LV | Lettland | 16 | 18 |
 | MT | Malta | 16 | 18 |
-| Saknas | Namibia | Ingen | 21 |
+| Ej tillämpligt | Namibia | Inga | 21 |
 | NL | Nederländerna | 16 | 18 |
 | PL | Polen | 13 | 18 |
 | PT | Portugal | 16 | 18 |
 | RO | Rumänien | 16 | 18 |
 | SE | Sverige | 13 | 18 |
-| SG | Singapore | Ingen | 21 |
+| SG | Singapore | Inga | 21 |
 | SI | Slovenien | 16 | 18 |
 | SK | Slovakien | 16 | 18 |
-| TD | Tchad | Ingen | 21 |
-| TH | Thailand | Ingen | 20 |
-| TW | Taiwan | Ingen | 20 | 
+| TD | Tchad | Inga | 21 |
+| TH | Thailand | Inga | 20 |
+| TW | Taiwan | Ingen | 20 |
 | USA | USA | 13 | 18 |
 
-## <a name="age-gating-options"></a>Hantera alternativ ålder
- 
-### <a name="allowing-minors-without-parental-consent"></a>Så att minderåriga utan föräldrars tillstånd
+## <a name="age-gating-options"></a>Alternativ för ålders hantera
 
-För användarflöden som tillåter registrering, inloggning, eller båda, du kan välja att tillåta minderåriga utan medgivande i ditt program. Minderåriga utan föräldrars tillstånd ska kunna logga in eller registrera dig som normalt och Azure AD B2C utfärdar en ID-token med den **legalAgeGroupClassification** anspråk. Det här anspråket definierar som användarna har till exempel samla in föräldrars tillstånd och uppdaterar den **consentProvidedForMinor** fält.
+### <a name="allowing-minors-without-parental-consent"></a>Tillåta minderåriga utan föräldra medgivande
 
-### <a name="blocking-minors-without-parental-consent"></a>Blockera minderåriga utan föräldrars tillstånd
+För användar flöden som tillåter antingen registrering, inloggning eller både och kan du välja att tillåta minderåriga utan medgivande till ditt program. Minderåriga får inte logga in eller registrera sig som vanligt och Azure AD B2C utfärdar en ID-token med **legalAgeGroupClassification** -anspråket. Detta påstående definierar den upplevelse som användarna har, till exempel samla in föräldra medgivande och uppdatera fältet **consentProvidedForMinor** .
 
-Du kan välja att blockera minderåriga utan medgivande från programmet för användarflöden som gör att antingen registrera, logga in eller båda. Följande alternativ är tillgängliga för hantering av blockerade användare i Azure AD B2C:
+### <a name="blocking-minors-without-parental-consent"></a>Blockera minderåriger utan överordnat medgivande
 
-- Skicka en JSON tillbaka till programmet – det här alternativet skickar tillbaka ett svar till programmet att minderårig har blockerats.
-- Visa en felsida - användaren visas en sida som informerar dem om att de inte kan komma åt programmet.
+För användar flöden som tillåter antingen registrering, inloggning eller båda kan du välja att blockera minderåriga utan medgivande från programmet. Följande alternativ är tillgängliga för att hantera blockerade användare i Azure AD B2C:
 
-## <a name="set-up-your-tenant-for-age-gating"></a>Konfigurera din klient för åldershantering
+- Skicka en JSON tillbaka till programmet – med det här alternativet skickas ett svar tillbaka till programmet som en mindre blockerades.
+- Visa en felsida – användaren visas en sida som informerar dem om att de inte har åtkomst till programmet.
 
-Om du vill använda åldershantering i ett användarflöde, måste du konfigurera din klient om du vill ha ytterligare egenskaper.
+## <a name="set-up-your-tenant-for-age-gating"></a>Konfigurera din klient för ålders hantera
 
-1. Kontrollera att du använder den katalog som innehåller din Azure AD B2C-klient genom att klicka på den **katalog- och prenumerationsfilter** på den översta menyn. Välj den katalog som innehåller din klient. 
-2. Välj **alla tjänster** i det övre vänstra hörnet i Azure Portal Sök efter och välj **Azure AD B2C**.
-3. Välj **egenskaper** för din klient i menyn till vänster.
-2. Under den **åldershantering** klickar du på **konfigurera**.
-3. Vänta tills åtgärden har slutförts och din klient kommer att ställas in för åldershantering.
+Om du vill använda ålders hantera i ett användar flöde måste du konfigurera klienten så att den har ytterligare egenskaper.
 
-## <a name="enable-age-gating-in-your-user-flow"></a>Aktivera åldershantering i ditt användarflöde
+1. Kontrol lera att du använder den katalog som innehåller din Azure AD B2C klient genom att välja filtret **katalog + prenumeration** på den översta menyn. Välj den katalog som innehåller din klient.
+2. Välj **alla tjänster** i det övre vänstra hörnet av Azure Portal, Sök efter och välj **Azure AD B2C**.
+3. Välj **Egenskaper** för din klient på menyn till vänster.
+2. Under avsnittet **ålders hantera** klickar du på **Konfigurera**.
+3. Vänta tills åtgärden har slutförts och klienten kommer att konfigureras för ålders hantera.
 
-När din klient har ställts in för användning av åldershantering, du kan sedan använda den här funktionen i [användarflöden](user-flow-versions.md) där det är aktiverat. Du aktiverar åldershantering med följande steg:
+## <a name="enable-age-gating-in-your-user-flow"></a>Aktivera ålders hantera i ditt användar flöde
 
-1. Skapa ett användarflöde som har åldershantering aktiverat.
-2. När du har skapat användarflödet Välj **egenskaper** på menyn.
-3. I den **åldershantering** väljer **aktiverad**.
-4. Du kan sedan bestämmer hur du vill hantera användare som identifierar som minderåriga. För **registrering eller inloggning**, du väljer `Allow minors to access your application` eller `Block minors from accessing your application`. Om blockerar minderåriga är valt väljer du `Send a JSON back to the application` eller `Show an error message`. 
+När din klient organisation har kon figurer ATS för att använda ålders hantera kan du använda den här funktionen i [användar flöden](user-flow-versions.md) där den är aktive rad. Du aktiverar ålders hantera med följande steg:
+
+1. Skapa ett användar flöde som har ålders hantera aktiverat.
+2. När du har skapat användar flödet väljer du **Egenskaper** på menyn.
+3. I avsnittet **ålders hantera** väljer du **aktive rad**.
+4. Sedan bestämmer du hur du vill hantera användare som identifierar som minor. För **registrering eller inloggning**väljer `Allow minors to access your application` du eller `Block minors from accessing your application`. Om du väljer att blockera minor väljer `Send a JSON back to the application` du eller. `Show an error message`
 
 
 

@@ -10,18 +10,67 @@ ms.author: jmartens
 author: j-martens
 ms.date: 08/19/2019
 ms.custom: seodec18
-ms.openlocfilehash: 26d66dad1e9953ddcbdbe0fd3b495bb3e418b3e7
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: 5191f8b565762e9377f3718cc147c96e491f5a0d
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70993433"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71067721"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Viktig information om Azure Machine Learning
 
 I den här artikeln får du lära dig mer om Azure Machine Learning-versioner.  Information om fullständiga SDK-referenser finns på Azure Machine Learning huvud sidan [**för SDK för python**](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) -referens. 
 
 Se [lista över kända problem](resource-known-issues.md) att lära dig om kända fel och lösningar.
+
+## <a name="2019-09-16"></a>2019-09-16
+
+### <a name="azure-machine-learning-sdk-for-python-v1062"></a>Azure Machine Learning SDK för python v-1.0.62
+
++ **Nya funktioner**
+  + Introducerade timeseries-traiten på TabularDataset. Denna egenskap möjliggör enkel tidsstämpel-filtrering på data a TabularDataset, till exempel för att ta alla data mellan ett tidsintervall eller de senaste data. Om du vill veta mer om det här timeseries-traitet https://aka.ms/azureml-data på TabularDataset kan https://aka.ms/azureml-tsd-notebook du besöka dokumentationen eller för en exempel antecknings bok. 
+  + Träning med TabularDataset och FileDataset har Aktiver ATS. Besök https://aka.ms/dataset-tutorial ett exempel på en bärbar dator. 
+  
+  + **azureml-train-core**
+    + Stöd för Nccl och gloo har lagts till i PyTorch-uppskattningen
+  
++ **Fel korrigeringar och förbättringar**
+  + **azureml-automl-Core**
+    + Föråldrade AutoML-inställningen lag_length och LaggingTransformer.
+    + Korrigerad korrekt validering av indata om de anges i ett data flödes format
+    + Ändrade fit_pipeline. py för att generera graf-JSON och ladda upp till artefakter. 
+    + Renderade grafen under userrun med Cytoscape.
+  + **azureml-core**
+    + Har återhämtat undantags hanteringen i ADB-koden och gör ändringar till enligt den nya fel hanteringen
+    + Automatisk MSI-autentisering för virtuella dator datorer lades till.
+    + Korrigerar fel där skadade eller tomma modeller kan laddas upp på grund av misslyckade återförsök.
+    + Korrigerade felet där `DataReference` namn ändras `DataReference` när läget ändras (t. ex. vid `as_upload`anrop `as_download`, eller `as_mount`).
+    + Gör `mount_point` och `target_path` valfritt för `FileDataset.mount` och .`FileDataset.download`
+    + Det går inte att hitta tidsstämpel-kolumnen som ska utföras om tids serie-API: t anropas utan att en fin tidsstämpelkolumn-kolumn har tilldelats eller när de tilldelade tidsstämpelkolumn-kolumnerna har släppts.
+    + Tids serie kolumner ska tilldelas med en kolumn vars typ är datum, annars förväntas ett undantags fel
+    + Tids serie kolumner för att tilldela API: t ' with_timestamp_columns ' kan ta inget värdes-eller grovt tidsstämpel-kolumn namn, vilket raderar tidigare tilldelade Timestamp-kolumner.
+    + Undantag utlöstes när en grov kornig het eller en detaljerad tids stämplings kolumn ignoreras med indikation för att användaren som släpper kan utföras efter att ha utelämnat kolumnen tidsstämpel i släppa listan eller anropa with_time_stamp med inget värde för att frigöra tidsstämpel Sammanfattning
+    + Undantag utlöstes när en grov kornig het eller en detaljerad tids stämplings kolumn inte ingår i listan Behåll kolumner med indikation för den användare som håller på att utföras efter att ha angett kolumnen tidsstämpel i kolumnen Behåll kolumn eller anropa with_time_stamp utan någon värde att frisläppa Timestamp-kolumner.
+    + Loggning har lagts till för en registrerad modell storlek.
+  + **azureml-explain-model**
+    + Åtgärdad varning har skrivits ut till konsolen när python-paketet "packning" inte är installerat: "Om du använder äldre versioner än lightgbm som stöds, uppgradera till version som är större än 2.2.1"
+    + Förklaring av den fasta nedladdnings modellen med horisontell partitionering för globala förklaringar med många funktioner
+    + Välklarande härma-förklaring saknas initierings exempel på utdata förklaring
+    + Fast oåterkalleligt fel vid uppsättnings egenskaper vid överföring med förklarings klient med två olika typer av modeller
+    + En get_raw-parameter har lagts till i förklaringen. förklaring () så att en bedömnings förklaring kan returnera både de tillverkade och råa värdena.
+  + **azureml-train-automl**
+    + Introducerade offentliga API: er från AutoML för stödjande förklaringar från AutoML förklara SDK – nyare sätt att stödja AutoML-förklaringar genom att koppla från AutoML funktionalisering och förklara SDK-integrerad stöd för rå förklaringar från azureml förklara SDK för AutoML modellerna.
+    + Tar bort azureml-standardvärden från miljöer med Fjärrutbildning.
+    + Ändrade standard platsen för cachelagring från FileCacheStore baserat på en-AzureFileCacheStore med en för AutoML på AzureDatabricks-kodens sökväg.
+    + Korrigerad korrekt validering av indata om de anges i ett data flödes format
+  + **azureml-train-core**
+    + Återställningen av source_directory_data_store-utfasningen.
+    + Möjligheten att åsidosätta azureml installerade paket versioner har lagts till. 
+    + Stöd för Dockerfile har `environment_definition` lagts till i parametern i uppskattningar.
+    + Förenklade utbildnings parametrar i uppskattningar.
+         ```py 
+        from azureml.train.dnn import TensorFlow, Mpi, ParameterServer 
+        ```
 
 ## <a name="2019-09-09"></a>2019-09-09
 

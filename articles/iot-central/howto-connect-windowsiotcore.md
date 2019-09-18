@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: b14d6f70f4c4163f16c8275f4e071da6a9e0bc78
-ms.sourcegitcommit: 80dff35a6ded18fa15bba633bf5b768aa2284fa8
+ms.openlocfilehash: 3513dc0a1928168d6313e9d49a8f3d5d27aca781
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70019809"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71066339"
 ---
 # <a name="connect-a-windows-iot-core-device-to-your-azure-iot-central-application"></a>Ansluta en Windows IoT Core-enhet till ditt Azure IoT Central-program
 
@@ -37,19 +37,33 @@ Ett program som har skapats från **Devkits** program mal len innehåller en mal
 
 - Mått för telemetri för enheten: **Fuktighet**, **temperatur**och **tryck**.
 - Inställning för att kontrol lera **fläkt hastigheten**.
-- Ett tärnings **nummer** för enhets egenskapen och en **plats**för moln egenskaper.
+- Ett **tärnings nummer** för enhets egenskapen och en **plats**för moln egenskaper.
 
 Fullständig information om konfigurationen av enhets mal len finns i [information om Windows IoT Core-enhetens mall](#device-template-details).
 
 ## <a name="add-a-real-device"></a>Lägga till en riktig enhet
 
-I ditt Azure IoT Central-program använder du sidan **Device Explorer** för att lägga till en riktig enhet från mallen **Windows 10 IoT Core** Device. Anteckna enhetens anslutnings information (**scope-ID**, enhets **-ID**och **primär nyckel**). Mer information finns i [Hämta anslutnings information](howto-generate-connection-string.md#get-connection-information).
+I ditt Azure IoT Central-program använder du sidan **Device Explorer** för att lägga till en riktig enhet från mallen **Windows 10 IoT Core** Device. Anteckna enhetens anslutnings information (**scope-ID**, **enhets-ID**och **primär nyckel**).
 
 ## <a name="prepare-the-device"></a>Förbered enheten
 
-För att enheten ska kunna ansluta till IoT Central måste den ha en anslutnings sträng.
+För att enheten ska kunna ansluta till IoT Central krävs en anslutnings sträng:
 
-[!INCLUDE [iot-central-howto-connection-string](../../includes/iot-central-howto-connection-string.md)]
+1. `dps-keygen` Använd kommando rads verktyget för att skapa en anslutnings sträng:
+
+    Kör följande kommando för att installera [verktyget för nyckel Generator](https://github.com/Azure/dps-keygen):
+
+    ```cmd/sh
+    npm i -g dps-keygen
+    ```
+
+1. Skapa en anslutnings sträng genom att köra följande kommando med hjälp av anslutnings informationen som du antecknade tidigare:
+
+    ```cmd/sh
+    dps-keygen -di:<Device ID> -dk:<Primary or Secondary Key> -si:<Scope ID>
+    ```
+
+1. Kopiera anslutnings strängen från de `dps-keygen` utdata som ska användas i enhets koden.
 
 För enhets koden för att få åtkomst till anslutnings strängen sparar du den i en fil med namnet **Connection. String. iothub** i mappen `C:\Data\Users\DefaultAccount\Documents\` på din Windows 10 IoT Core-enhet.
 

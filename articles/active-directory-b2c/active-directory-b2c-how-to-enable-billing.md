@@ -10,17 +10,17 @@ ms.workload: identity
 ms.date: 01/24/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 5cc6c8b4947f8c5ebeb27be2dc82f323f84a6902
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: 892f47b6acf22c62ce2290e2ede9d0bcd21eefc8
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67835426"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71065897"
 ---
 # <a name="link-an-azure-subscription-to-an-azure-active-directory-b2c-tenant"></a>Länka en Azure-prenumeration till en Azure Active Directory B2C-klient
 
 > [!IMPORTANT]
-> Den senaste informationen om fakturering och priser för Azure Active Directory (Azure AD) B2C finns i [priser för Azure AD B2C](https://azure.microsoft.com/pricing/details/active-directory-b2c/).
+> Den senaste informationen om fakturering och priser för användning för Azure Active Directory B2C (Azure AD B2C) finns i [Azure AD B2C prissättning](https://azure.microsoft.com/pricing/details/active-directory-b2c/).
 
 Användningskostnader för Azure AD B2C debiteras till en Azure-prenumeration. När en Azure AD B2C-klient har skapats kan måste klientadministratören uttryckligen länka Azure AD B2C-klient till en Azure-prenumeration. Den här artikeln visar hur du gör.
 
@@ -29,7 +29,7 @@ Användningskostnader för Azure AD B2C debiteras till en Azure-prenumeration. N
 
 Prenumerationslänken uppnås genom att skapa en Azure AD-B2C ”resurs” i Azure-målprenumerationen. Många Azure AD-B2C ”resurser” kan skapas i en enda Azure-prenumeration, tillsammans med andra Azure-resurser (till exempel virtuella datorer, datalagring, LogicApps). Du kan se alla resurser i prenumerationen genom att gå till Azure AD-klient som prenumerationen är associerad till.
 
-Azure Cloud Solution Providers (CSP)-prenumerationer stöds i Azure AD B2C. Funktionen är tillgänglig i API: er eller Azure-portalen för Azure AD B2C och för alla Azure-resurser. CSP prenumerationens administratörer kan länka, flytta och ta bort relationer med Azure AD B2C på samma sätt som är klar för alla Azure-resurser. Hantering av Azure AD B2C med hjälp av rollbaserad åtkomstkontroll påverkas inte av kopplingen mellan Azure AD B2C-klient och en Azure CSP-prenumeration. Rollbaserad åtkomstkontroll uppnås med hjälp av klient-base roller, inte prenumerationsbaserade roller.
+Azure Cloud solution providers (CSP)-prenumerationer stöds i Azure AD B2C. Funktionerna är tillgängliga med API: er eller Azure Portal för Azure AD B2C och för alla Azure-resurser. Administratörer av CSP-prenumerationen kan länka, flytta och ta bort relationer med Azure AD B2C på samma sätt som du gör för alla Azure-resurser. Hanteringen av Azure AD B2C med hjälp av rollbaserad åtkomst kontroll påverkas inte av associationen mellan Azure AD B2C klienten och en Azure CSP-prenumeration. Rollbaserad åtkomst kontroll uppnås genom att använda klient organisations roller, inte prenumerations-baserade roller.
 
 En giltig Azure-prenumeration krävs för att fortsätta.
 
@@ -45,9 +45,9 @@ Gå till Azure AD-klient som visar din Azure-prenumeration. Öppna den [Azure-po
 
 ## <a name="find-azure-ad-b2c-in-the-azure-marketplace"></a>Hitta Azure AD B2C på Azure Marketplace
 
-Klicka på den **skapa en resurs** knappen. I den **Sök på Marketplace** anger `Active Directory B2C`.
+Klicka på den **skapa en resurs** knappen. I fältet **Sök på Marketplace** anger `Active Directory B2C`du.
 
-![Portalen skärmbild med ”Active Directory B2C' i Marketplace-sökning](../../includes/media/active-directory-b2c-create-tenant/find-azure-ad-b2c.png)
+![Portal skärm bild med "Active Directory B2C" i Marketplace-sökning](../../includes/media/active-directory-b2c-create-tenant/find-azure-ad-b2c.png)
 
 I resultatlistan väljer **Azure AD B2C**.
 
@@ -67,7 +67,7 @@ Välj en aktiv Azure-prenumeration som du är administratör för prenumeratione
 
 Välj en resursgrupp och plats för resursgruppen. Det här urvalet har ingen inverkan på din Azure AD B2C-klientplats, prestanda eller fakturering status.
 
-![Sidan Azure AD B2C-resursen skapas i Azure-portalen](./media/active-directory-b2c-how-to-enable-billing/createresourceb2c.png)
+![Sidan Azure AD B2C resurs skapande i Azure Portal](./media/active-directory-b2c-how-to-enable-billing/createresourceb2c.png)
 
 ## <a name="manage-your-azure-ad-b2c-tenant-resources"></a>Hantera dina resurser för Azure AD B2C-klient
 
@@ -80,15 +80,15 @@ Du kan använda den här resursen till:
 - Skicka en supportförfrågan
 - Flytta din Azure AD B2C-klient-resurs till en annan Azure-prenumeration eller till en annan resursgrupp.
 
-![Inställningssidan för B2C-resursen i Azure portal](./media/active-directory-b2c-how-to-enable-billing/b2cresourcesettings.PNG)
+![Sidan B2C resurs inställningar i Azure Portal](./media/active-directory-b2c-how-to-enable-billing/b2cresourcesettings.PNG)
 
-## <a name="change-the-azure-ad-b2c-tenant-billing-subscription"></a>Ändra Azure AD B2C-klient fakturering prenumeration
+## <a name="change-the-azure-ad-b2c-tenant-billing-subscription"></a>Ändra Azure AD B2C klient fakturerings prenumeration
 
-Azure AD B2C-klienter kan flyttas till en annan prenumeration om käll- och -prenumerationer finns i samma Azure Active Directory-klient.
+Azure AD B2C klienter kan flyttas till en annan prenumeration om käll-och mål prenumerationerna finns inom samma Azure Active Directory klient.
 
-Läs hur du flyttar Azure-resurser som din Azure AD B2C-klient till en annan prenumeration i [flytta resurser till ny resursgrupp eller prenumeration](../azure-resource-manager/resource-group-move-resources.md).
+Information om hur du flyttar Azure-resurser som din Azure AD B2C-klient till en annan prenumeration finns i [Flytta resurser till en ny resurs grupp eller prenumeration](../azure-resource-manager/resource-group-move-resources.md).
 
-Innan du startar flytten bör du läsa hela artikeln för att helt förstå begränsningar och krav för en sådan flytt. Förutom anvisningar för att flytta resurser innehåller den kritiska information som en checklista för före flytten och hur du validerar flyttåtgärden.
+Innan du börjar flytta måste du läsa hela artikeln för att kunna förstå begränsningarna och kraven för en sådan flytt. Förutom instruktioner för att flytta resurser innehåller den viktig information, till exempel en check lista för förflyttning och hur du verifierar flytt åtgärden.
 
 ## <a name="known-issues"></a>Kända problem
 

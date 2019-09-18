@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 07/12/2019
 ms.author: pafarley
-ms.openlocfilehash: ada570196c916a8101e8e968d284a3b280199cf3
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: ce1cdadcdc69fb5539394aa9bf402aa9463311e9
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70142808"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71057662"
 ---
 # <a name="quickstart-form-recognizer-client-library-for-net"></a>Snabbstart: Formulär tolkens klient bibliotek för .NET
 
@@ -22,9 +22,11 @@ Kom igång med formulär tolkens klient bibliotek för .NET. Formulär tolken ä
 
 Använd formulär tolkens klient bibliotek för .NET för att:
 
-* Träna en anpassad formulär igenkännings modell
-* Analysera formulär med en anpassad modell
-* Hämta en lista över anpassade modeller
+* [Träna en anpassad formulär igenkännings modell](#train-a-custom-model)
+* [Hämta en lista över extraherade nycklar](#get-a-list-of-extracted-keys)
+* [Analysera formulär med en anpassad modell](#analyze-forms-with-a-custom-model)
+* [Hämta en lista över anpassade modeller](#get-a-list-of-custom-models)
+* [Ta bort en anpassad modell](#delete-a-custom-model)
 
 [Referens dokumentation](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/formrecognizer?view=azure-dotnet-preview) | [bibliotek käll kods](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Vision.FormRecognizer) | [paket (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.FormRecognizer/)
 
@@ -68,14 +70,7 @@ Build succeeded.
 
 Från projekt katalogen öppnar du _program.cs_ -filen i önskat redigerings program eller IDE. Lägg till följande `using`-uttryck:
 
-```csharp
-using Microsoft.Azure.CognitiveServices.FormRecognizer;
-using Microsoft.Azure.CognitiveServices.FormRecognizer.Models;
-
-using System;
-using System.IO;
-using System.Threading.Tasks;
-```
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/Program.cs?name=snippet_using)]
 
 Lägg sedan till följande kod i programmets **main** -metod. Du ska definiera den här asynkrona uppgiften senare.
 
@@ -115,10 +110,12 @@ De här kodfragmenten visar hur du utför följande uppgifter med formulär tolk
 
 * [Autentisera klienten](#authenticate-the-client)
 * [Träna en anpassad formulär igenkännings modell](#train-a-custom-model)
+* [Hämta en lista över extraherade nycklar](#get-a-list-of-extracted-keys)
 * [Analysera formulär med en anpassad modell](#analyze-forms-with-a-custom-model)
 * [Hämta en lista över anpassade modeller](#get-a-list-of-custom-models)
+* [Ta bort en anpassad modell](#delete-a-custom-model)
 
-### <a name="define-variables"></a>Definiera variabler
+## <a name="define-variables"></a>Definiera variabler
 
 Innan du definierar några metoder lägger du till följande variabel definitioner överst i **program** klassen. Du måste fylla i några av variablerna själv. 
 
@@ -127,13 +124,13 @@ Innan du definierar några metoder lägger du till följande variabel definition
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/Program.cs?name=snippet_variables)]
 
-### <a name="authenticate-the-client"></a>Autentisera klienten
+## <a name="authenticate-the-client"></a>Autentisera klienten
 
 Under metoden definierar du uppgiften som refereras till i `Main`. `Main` Här autentiserar du klient-objektet med hjälp av de prenumerations variabler som du definierade ovan. Du ska definiera andra metoder senare.
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/Program.cs?name=snippet_maintask)]
 
-### <a name="train-a-custom-model"></a>Träna en anpassad modell
+## <a name="train-a-custom-model"></a>Träna en anpassad modell
 
 I följande metod används ditt formulär tolks klient objekt för att träna en ny igenkännings modell på dokumenten som lagras i din Azure Blob-behållare. Den använder en hjälp metod för att visa information om den nyligen intränaa modellen (som representeras av ett [ModelResult](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.formrecognizer.models.modelresult?view=azure-dotnet-preview) -objekt) och returnerar modell-ID: t.
 
@@ -143,9 +140,18 @@ Följande hjälp metod visar information om en formulär tolks modell.
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/Program.cs?name=snippet_displaymodel)]
 
-### <a name="analyze-forms-with-a-custom-model"></a>Analysera formulär med en anpassad modell
+## <a name="get-a-list-of-extracted-keys"></a>Hämta en lista över extraherade nycklar
+
+När inlärningen är klar kommer den anpassade modellen att ha en lista över nycklar som den har extraherat från utbildnings dokumenten. Det förväntar sig att de innehåller dessa nycklar och att de extraherar motsvarande värden i analys åtgärden. Använd följande metod för att hämta listan över extraherade nycklar och skriva ut den till-konsolen. Detta är ett bra sätt att kontrol lera att inlärnings processen var effektiv.
+
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/Program.cs?name=snippet_getkeys)]
+
+## <a name="analyze-forms-with-a-custom-model"></a>Analysera formulär med en anpassad modell
 
 Med den här metoden används formulär tolks klienten och ett modell-ID för att analysera ett PDF-formulär dokument och extrahera nyckel/värde-data. Den använder en hjälp metod för att visa resultaten (representeras av ett [AnalyzeResult](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.formrecognizer.models.analyzeresult?view=azure-dotnet-preview) -objekt).
+
+> [!NOTE]
+> Följande metod analyserar ett PDF-formulär. För liknande metoder som analyserar JPEG-och PNG-formulär, se den fullständiga exempel koden på [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/dotnet/FormRecognizer).
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/Program.cs?name=snippet_analyzepdf)]
 
@@ -153,11 +159,17 @@ Följande hjälp metod visar information om en analys åtgärd.
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/Program.cs?name=snippet_displayanalyze)]
 
-### <a name="get-a-list-of-custom-models"></a>Hämta en lista över anpassade modeller
+## <a name="get-a-list-of-custom-models"></a>Hämta en lista över anpassade modeller
 
 Du kan returnera en lista över alla utbildade modeller som tillhör ditt konto och du kan hämta information om när de skapades. Listan över modeller representeras av ett [ModelsResult](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.formrecognizer.models.modelsresult?view=azure-dotnet-preview) -objekt.
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/Program.cs?name=snippet_getmodellist)]
+
+## <a name="delete-a-custom-model"></a>Ta bort en anpassad modell
+
+Använd följande metod om du vill ta bort den anpassade modellen från ditt konto:
+
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/Program.cs?name=snippet_deletemodel)]
 
 ## <a name="run-the-application"></a>Köra programmet
 
@@ -174,9 +186,7 @@ Om du vill rensa och ta bort en Cognitive Services prenumeration kan du ta bort 
 * [Portal](../../cognitive-services-apis-create-account.md#clean-up-resources)
 * [Azure CLI](../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
 
-Om du har tränat en anpassad modell som du vill ta bort från ditt konto använder du dessutom följande metod:
-
-[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/Program.cs?name=snippet_deletemodel)]
+Om du har tränat en anpassad modell som du vill ta bort från ditt konto kör du dessutom metoden i [ta bort en anpassad modell](#delete-a-custom-model).
 
 ## <a name="next-steps"></a>Nästa steg
 

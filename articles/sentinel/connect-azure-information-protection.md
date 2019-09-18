@@ -1,11 +1,10 @@
 ---
-title: Ansluta Azure Information Protection-data till Azure Sentinel-Preview | Microsoft Docs
-description: Lär dig mer om att ansluta Azure Information Protection i Azure Sentinel.
+title: Ansluta Azure Information Protection data till Azure Sentinel Preview | Microsoft Docs
+description: Lär dig hur du ansluter Azure Information Protection data i Azure Sentinel.
 services: sentinel
 documentationcenter: na
-author: rkarlin
+author: cabailey
 manager: rkarlin
-editor: ''
 ms.assetid: bfa2eca4-abdc-49ce-b11a-0ee229770cdd
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
@@ -13,51 +12,63 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/07/2019
-ms.author: rkarlin
-ms.openlocfilehash: 3edfdca16141726ea591c8473528fc23ee076c53
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.date: 09/15/2019
+ms.author: cabailey
+ms.openlocfilehash: 0614d24b19ef39cebdf4cb47fdd2d44470ea59c0
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67620611"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71067749"
 ---
 # <a name="connect-data-from-azure-information-protection"></a>Anslut data från Azure Information Protection
 
 > [!IMPORTANT]
-> Azure Sentinel är för närvarande i offentlig förhandsversion.
+> Azure Sentinel är för närvarande en offentlig för hands version.
 > Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Du kan strömma loggar från [Azure Information Protection](https://docs.microsoft.com/azure/information-protection/reports-aip) i Azure Sentinel-med ett enda klick. Azure Information Protection hjälper dig att skydda dina data oavsett om de lagras i molnet eller i en lokal infrastruktur och kontroll och hjälper dig att skydda e-post, dokument och känsliga data som du delar utanför företaget. Förbättra dataskydd vid alla tidpunkter med Azure Information Protection enkel klassificering och inbäddade etiketter och behörigheter. När du ansluter Azure Information Protection till Azure Sentinel du stream alla aviseringar från Azure Information Protection i Azure Sentinel.
+Du kan strömma loggnings information från [Azure information Protection](https://azure.microsoft.com/services/information-protection/) till Azure Sentinel genom att konfigurera Azure information Protection data Connector. Azure Information Protection hjälper dig att kontrol lera och skydda känsliga data, oavsett om de lagras i molnet eller lokalt.
 
+Om [Central rapportering för Azure information Protection](https://docs.microsoft.com/azure/information-protection/reports-aip) redan har kon figurer ATS så att loggnings information från den här tjänsten lagras i samma Log Analytics arbets yta som du har valt för Azure Sentinel, kan du hoppa över konfigurationen av den här data kopplingen. Loggnings informationen från Azure Information Protection är redan tillgänglig för Azure Sentinel.
+
+Men om loggnings information från Azure Information Protection går till en annan Log Analytics arbets yta än den som du har valt för Azure Sentinel, gör du något av följande:
+
+- Ändra arbets ytan som valts i Azure Sentinel.
+
+- Ändra arbets ytan för Azure Information Protection, som du kan göra genom att konfigurera data kopplingen.
+    
+    Om du ändrar arbets ytan lagras nya rapport data för Azure Information Protection nu i arbets ytan du använder för Azure Sentinel, och historiska data är inte tillgängliga för Azure Sentinel. Om den föregående arbets ytan har kon figurer ATS för anpassade frågor, aviseringar eller REST-API: er måste de konfigureras om för Azure Sentinel-arbetsytan om du vill kunna använda dem för Azure Information Protection. Ingen omkonfiguration krävs för klienter och tjänster som använder Azure Information Protection.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-- Användare med global administratör, säkerhetsadministratör eller information protection-behörigheter
+- En av följande Azure AD-administratörs roller för din klient organisation: Azure Information Protection administratör, säkerhets administratör eller global administratör.
+    
+    > [!NOTE]
+    > Du kan inte använda rollen Azure Information Protection administratör om klienten finns på den [enhetliga etiketterande plattformen](https://docs.microsoft.com/azure/information-protection/faqs#how-can-i-determine-if-my-tenant-is-on-the-unified-labeling-platform).
 
+- Behörighet att läsa och skriva till arbets ytan Log Analytics som du använder för Sentinel och Azure Information Protection.
 
-## <a name="connect-to-azure-information-protection"></a>Ansluta till Azure Information Protection
+- Azure Information Protection har lagts till i Azure Portal. Om du behöver hjälp med det här steget går [du till Lägg till Azure information Protection i Azure Portal](https://docs.microsoft.com/azure/information-protection/quickstart-viewpolicy#add-azure-information-protection-to-the-azure-portal).
 
-Om du redan har Azure Information Protection garanterar att de är [aktiverat i nätverket](https://docs.microsoft.com/azure/information-protection/activate-service).
-Om Azure Information Protection har distribuerats och hämtar data aviseringsdata kan enkelt strömmas till Sentinel-Azure.
+## <a name="connect-to-azure-information-protection"></a>Anslut till Azure Information Protection
 
+Använd följande instruktioner om du inte har konfigurerat en Log Analytics arbets yta för Azure Information Protection eller om du behöver ändra arbets ytan som lagrar Azure Information Protection loggnings information. 
 
-1. I Azure Sentinel väljer **datakopplingar** och klicka sedan på den **Azure Information Protection** panelen.
+1. I Azure Sentinel väljer du **data kopplingar**och **Azure information Protection**.
 
-2. Gå till den [Azure Information Protection-portalen](https://portal.azure.com/?ScannerConfiguration=true&EndpointDiscovery=true#blade/Microsoft_Azure_InformationProtection/DataClassGroupEditBlade/quickstartBlade) 
+2. På bladet **Azure information Protection** väljer du **Öppna kopplings sidan**.
 
-3. Under **anslutning**, ställa in strömning av loggar från Azure Information Protection till Azure Sentinel genom att klicka på [konfigurera analytics](https://portal.azure.com/#blade/Microsoft_Azure_InformationProtection/DataClassGroupEditBlade/analyticsOnboardBlade)
+3. På nästa blad i avsnittet **konfiguration** väljer du **Azure information Protection** för att gå till **Azure information Protection Analytics**.
 
-4. Välj den arbetsyta som du har distribuerat Azure Sentinel. 
+4. I listan över tillgängliga arbets ytor väljer du den arbets yta som du för närvarande använder för Azure Sentinel. Om du väljer en annan arbets yta är inte rapporterings data från Azure Information Protection tillgängliga för Azure Sentinel.
 
-5. Klicka på **OK**.
+5. När du har valt en arbets yta väljer du **OK** och anslutnings **statusen** ska nu ändras till **ansluten**.
 
-6. Om du vill använda relevanta schemat i Log Analytics för Azure Information Protection-aviseringar, Sök efter **InformationProtectionLogs_CL**.
-
-
-
+6. Rapporterings data från Azure Information Protection lagras i tabellen **InformationProtectionLogs_CL** på den valda arbets ytan. 
+    
+    Om du vill använda det relevanta schemat i Azure Monitor för den här rapport informationen söker du efter **InformationProtectionEvents**. Information om dessa händelse funktioner finns i avsnittet [egna schema referenser för Event Functions](https://docs.microsoft.com/azure/information-protection/reports-aip#friendly-schema-reference-for-event-functions) i Azure information Protection-dokumentationen.
 
 ## <a name="next-steps"></a>Nästa steg
-I det här dokumentet lärde du dig att ansluta Azure Information Protection till Azure Sentinel. Mer information om Azure Sentinel finns i följande artiklar:
-- Lär dig hur du [få insyn i dina data och potentiella hot](quickstart-get-visibility.md).
-- Kom igång [upptäcka hot med Azure Sentinel](tutorial-detect-threats.md).
+I det här dokumentet har du lärt dig hur du ansluter Azure Information Protection till Azure Sentinel. Mer information om Azure Sentinel finns i följande artiklar:
+- Lär dig hur du [får insyn i dina data och potentiella hot](quickstart-get-visibility.md).
+- Kom igång [med att identifiera hot med Azure Sentinel](tutorial-detect-threats.md).

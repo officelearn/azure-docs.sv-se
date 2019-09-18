@@ -10,18 +10,18 @@ ms.topic: conceptual
 ms.date: 07/16/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 83269a5ae0d2e5fb7ae2651dbc27926c910a0e03
-ms.sourcegitcommit: af58483a9c574a10edc546f2737939a93af87b73
+ms.openlocfilehash: b7eb004dbeba499e6f67f98165b72d7ec8615f1b
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68302493"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71065851"
 ---
 # <a name="get-started-with-custom-policies-in-azure-active-directory-b2c"></a>Kom igång med anpassade principer i Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-[Anpassade principer](active-directory-b2c-overview-custom.md) är konfigurationsfiler som definierar beteendet för din Azure Active Directory (Azure AD) B2C-klient. I den här artikeln skapar du en anpassad princip som stöder registrering av lokalt konto eller inloggning med hjälp av en e-postadress och ett lösen ord. Du förbereder också din miljö för att lägga till identitets leverantörer.
+[Anpassade principer](active-directory-b2c-overview-custom.md) är konfigurationsfiler som definierar beteendet för din Azure Active Directory B2C (Azure AD B2C)-klient. I den här artikeln skapar du en anpassad princip som stöder registrering av lokalt konto eller inloggning med hjälp av en e-postadress och ett lösen ord. Du förbereder också din miljö för att lägga till identitets leverantörer.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -31,7 +31,7 @@ ms.locfileid: "68302493"
 ## <a name="add-signing-and-encryption-keys"></a>Lägg till signerings-och krypterings nycklar
 
 1. Logga in på [Azure Portal](https://portal.azure.com/) som global administratör för din Azure AD B2C-klientorganisationen.
-2. Kontrol lera att du använder den katalog som innehåller din Azure AD B2C-klient. Klicka på **katalogen och prenumerations filtret** på den översta menyn och välj den katalog som innehåller din klient.
+2. Kontrol lera att du använder den katalog som innehåller din Azure AD B2C-klient. Välj **katalog + prenumerations** filter på den översta menyn och välj den katalog som innehåller din klient.
 3. Välj **Alla tjänster** på menyn högst upp till vänster i Azure-portalen och sök efter och välj **Azure AD B2C**.
 4. På sidan Översikt väljer du **ID för identitets miljö**.
 
@@ -85,7 +85,7 @@ Azure AD B2C kräver att du registrerar två program som används för att regis
 1. I **Appregistreringar (bakåtkompatibelt)** väljer du **ny program registrering**.
 2. Som **namn**anger `ProxyIdentityExperienceFramework`du.
 3. Välj **intern**för **program typ**.
-4. För omdirigerings- `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com`URI anger `your-tenant-name` du, där är Azure AD B2C klient.
+4. Föromdirigerings- `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com`URI anger `your-tenant-name` du, där är Azure AD B2C klient.
 5. Klicka på **Skapa**. När den har skapats kopierar du program-ID: t och sparar det för att använda det senare.
 6. På sidan Inställningar väljer du **nödvändiga behörigheter**och väljer sedan **Lägg till**.
 7. Välj **Välj ett API**, Sök efter och välj **IdentityExperienceFramework**och klicka sedan på **Välj**.

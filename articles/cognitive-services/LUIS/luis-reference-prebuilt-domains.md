@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: diberry
-ms.openlocfilehash: b840f1ce42c9d7e4af8854a2c6bd7fd26f5b88e9
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: f5810a813b6c54f190d95061e79914457f51d19c
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70307448"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71067590"
 ---
 # <a name="prebuilt-domain-reference-for-your-luis-app"></a>Fördefinierad domän referens för din LUIS-app
 Den här referensen innehåller information om den [fördefinierade domäner](luis-how-to-use-prebuilt-domains.md), som är färdiga samlingar med avsikter och entiteter som LUIS erbjuder.
@@ -27,7 +27,7 @@ Den här referensen innehåller information om den [fördefinierade domäner](lu
 
 Tabellen nedan sammanfattar de domäner som stöds för närvarande. Stöd för engelska är vanligt vis mer komplett än andra. 
 
-| Entitetstyp       | EN-US      | ZH-CN   | DE    | FR     | ES    | it      | PT-BR |  JP  |      KO |        NL |    TR |
+| Entitetstyp       | EN-US      | ZH-CN   | DE    | FR     | ES    | IT      | PT-BR |  JP  |      KO |        NL |    TR |
 |:-----------------:|:-------:|:-------:|:-----:|:------:|:-----:|:-------:| :-------:| :-------:| :-------:| :-------:|  :-------:| 
 | [Månad](#calendar)    | ✓    | ✓       | ✓    | ✓     | ✓     | ✓  | ✓      | ✓    | ✓    | ✓     | ✓  |
 | [Uppgifter](#communication)   | ✓    | ✓       | ✓    | ✓     | ✓     | ✓  | ✓  | ✓      | ✓    | ✓    | ✓     | ✓  |
@@ -54,10 +54,10 @@ Kalender är allt om personliga möten och möten, inte offentlig händelse (til
 Namn på avsikt | Beskrivning | Exempel
 ---------|----------|---------------
  AcceptEventEntry | Acceptera en (n) avtalad tid/ett möte/en händelse i kalendern. | Acceptera en avtalad tid. <br> Acceptera händelsen <br> acceptera dagens möte.
- Avbryt | Avbryt den pågående åtgärden från virtuell assistent, till exempel att avbryta processen med att skapa ett möte. <br> ***Meddelande**: I detta syfte ingår huvudsakligen åtgärden "Avbryt" i kalender scenariot. Om du behöver ett allmänt uttryck på "Avbryt" kan du utnyttja avsikten "Cancel" i **verktyg** -domänen. * | Det är OK, du behöver bara avbryta händelsen. <br> Nej, jag avbryter bara den avtalade tiden.
+ Avbryt | Avbryt den pågående åtgärden från virtuell assistent, till exempel att avbryta processen med att skapa ett möte. <br> _**Meddelande**: I detta syfte ingår huvudsakligen åtgärden "Avbryt" i kalender scenariot. Om du behöver ett allmänt uttryck på "Avbryt" kan du utnyttja avsikten "Cancel" i **verktyg** -domänen._ | Det är OK, du behöver bara avbryta händelsen. <br> Nej, jag avbryter bara den avtalade tiden.
  ChangeCalendarEntry | Ändra eller ändra schemat för kalender posten. | Schemalägg om min förmiddag avtalad tid imorgon till 17.00 <br> Tidsplanera om läkares avtalade tider i 5 PM <br> Planera lunch med Jenny Olson till fredag. <br> Ändra händelse tid.
  CheckAvailability | Hitta tillgänglighet för en avtalad tid eller ett möte på användarens kalender eller en annan persons kalender. | När är tillgängliga för att möta Jim? <br> Visa när Carol är tillgängligt imorgon. <br> Är Chris kostnadsfritt på lördag?
- Bekräfta | Bekräfta om en åtgärd/åtgärd ska utföras baserat på tidigare avsikt. <br> ***Meddelande**: I detta syfte ingår huvudsakligen åtgärden "bekräfta" för kalender scenariot. Om du behöver fler allmänna uttryck på "bekräfta" kan du använda alternativet "bekräfta" i **verktyg** -domänen. *| Det stämmer. skapa mötet <br> Ja, tack, Anslut till mötet.
+ Bekräfta | Bekräfta om en åtgärd/åtgärd ska utföras baserat på tidigare avsikt. <br> _**Meddelande**: I detta syfte ingår huvudsakligen åtgärden "bekräfta" för kalender scenariot. Om du behöver fler allmänna uttryck på "bekräfta", kan du använda "bekräfta" avsikt i **verktyg** -domänen._| Det stämmer. skapa mötet <br> Ja, tack, Anslut till mötet.
  ConnectToMeeting | Anslut till ett möte. | Anslut mig till 11:00 konferens samtal med Andy. <br> Godkänn budget Mötes anropet.
  ContactMeetingAttendees | Kontakta Mötes deltagarna. | Berätta för mötet som jag kör sent till 3:00-möte. <br> Meddela kollegor om 8: a möte som det behöver starta vid 8:30.
  CreateCalendarEntry | Lägga till ett nytt enstaka objekt i kalendern. | Skapa ett möte om att diskutera problem. <br> skapa ett möte medabc@microsoft.com
@@ -69,17 +69,17 @@ Namn på avsikt | Beskrivning | Exempel
  FindCalendarDetail | Kontrol lera och Visa information om schemat. | Jag behöver lämna information om det möte jag har schemalagt med min kollega i Paul.
  FindDuration | Kontrol lera varaktigheten. | Hur lång tid behöver jag för att hämta inköps varor? <br> Hur lång tid har jag för lunch?
  FindMeetingRoom | Hitta de tillgängliga Mötes rummen. | Vad uppfyller rum? <br> En ny Mötes plats, hitta en.
- GoBack | Gå tillbaka till det sista steget eller objektet.  <br> ***Meddelande**: Mer GoBack-yttranden finns i avsnittet om **verktyg** . | Föregående en <br> Tillbaka till senaste e-post.
- Avvisa | Användaren avvisar vilken virtuell assistent som föreslagits. <br> ***Meddelande**: Mer information om allmänt yttranden finns i **-domänen.** | Du behöver inte ange händelsen. <br> Jag har andra saker att göra vid den tiden.
-ShowNext | Kontrol lera nästa händelse. <br> ***Meddelande**: Se **verktyg** -domänen för mer ShowNext General yttranden. * | Lämna nästa händelse. <br> Vad är intill i kalendern?
- ShowPrevious | Kontrol lera föregående händelse. <br> ***Meddelande**: Se **verktyg** -domänen för mer ShowPrevious General yttranden. * | Hur ser schemat före?
+ GoBack | Gå tillbaka till det sista steget eller objektet.  <br> _**Meddelande**: Mer GoBack-yttranden finns i avsnittet om **verktyg** ._ | Föregående en <br> Tillbaka till senaste e-post.
+ Avvisa | Användaren avvisar vilken virtuell assistent som föreslagits. <br> _**Meddelande**: Mer information om allmänna yttranden finns i domänen för innehålls Förtecknings **verktyg** ._ | Du behöver inte ange händelsen. <br> Jag har andra saker att göra vid den tiden.
+ShowNext | Kontrol lera nästa händelse. <br> _**Meddelande**: Se **verktyg** -domänen för mer ShowNext General yttranden._ | Lämna nästa händelse. <br> Vad är intill i kalendern?
+ ShowPrevious | Kontrol lera föregående händelse. <br> _**Meddelande**: Se **verktyg** -domänen för mer ShowPrevious General yttranden._ | Hur ser schemat före?
  TimeRemaining | Kontrol lera den återstående tiden till nästa händelse. | Visar hur lång tid det tar innan mina möten visas. <br> Visa hur lång tid det får innan nästa möte börjar.
  
 ### <a name="entities"></a>**Poster**
 Entitetsnamn | Entitetstyp | Beskrivning | Exempel | Fack
 -------|-----------------------|-------------|---------|--------
 Kontaktnamn | personName | Namnet på en kontakt eller en Mötes deltagare. | Uppfyller **Betsy**. <br>  Möte med **Aubrey** den tredje juli på 7 p.m. | Betsy <br> Aubrey <br> Amy 
-DestinationCalendar | gång | Mål kalenderns namn. | lunch med MOM tisdag 12 **personal** <br> Använd min **Google** Calendar som min standard kalender. <br> Uppdatera yoga-klassen till Mon ons på 14:00 lista i **personlig** kalender. | Google <br> egna <br> verksamheten <br> Huvudtillg
+DestinationCalendar | gång | Mål kalenderns namn. | lunch med MOM tisdag 12 **personal** <br> Använd min **Google** Calendar som min standard kalender. <br> Uppdatera yoga-klassen till Mon ons på 14:00 lista i **personlig** kalender. | Google <br> Egna <br> verksamheten <br> Huvudtillg
 Duration | datetime | Varaktigheten för ett möte, en avtalad tid eller en återstående tid. | Lägg till i arbets kalender mötet med Gary för att diskutera Scholarship-information imorgon vid 11 am i **20 minuter**. <br> Lägg till i kalendern en händelse på Subway på fredag jag ska äta med Thomas i **en timme** kl. 9 p.m. | en timme <br> 2 dagar <br> 20 minuter 
 EndDate | datetime | Slutdatum för ett möte eller en avtalad tid. | Kalender Lägg till konsert i bas Hall Maria tredje till **Mary 5** | Mary 5  
 EndTime | datetime | Slut tid för ett möte eller en avtalad tid. | kan du göra det 2 30 till **tre** | tre 
@@ -150,9 +150,9 @@ TurnSpeakerOn | Aktivera talare telefonen. | Högtalartelefon läge. <br>   Plac
 Entitetsnamn | Entitetstyp | Beskrivning | Exempel | Fack
 ------|-------|----------|--------------|---------------
 Attachment | gång | Bilagan som användaren vill skicka med text eller e-post. | Skicka en **fil** via e-post från OneNote. <br> Skicka mitt underhåll- **dokument** till Katie. | file <br> inköpsdok
-AudioDeviceType | gång | Typ av ljuden het (talare, headset, mikrofon osv.). | Svar med hjälp av **praktiska**. <br> Ring upp på **högtalar telefon**. | högtalar <br> hands fria <br> seriell
+AudioDeviceType | gång | Typ av ljuden het (talare, headset, mikrofon osv.). | Svar med hjälp av **praktiska**. <br> Ring upp på **högtalar telefon**. | högtalar <br> hands fria <br> Seriell
 Category | gång | Kategorin för ett meddelande eller e-postmeddelande. kategorin måste ha en tydlig definition i e-postsystemet, t. ex. "oläst", "flagga". Beskrivning med Rensa definition, till exempel "ny" och "senaste", är inte kategorier. | Markera alla e-postmeddelanden som **lästa**  <br> Nytt e-postmeddelande med **hög prioritet** för Paul | viktigt <br> hög prioritet <br> läsa
-ContactAttribute | gång | Ett attribut för att kontakta användaren med frågor om.| Alla **födelsedagar** nästa månad jag bör känna till? | födelsedagar <br> adress <br> telefonnummer
+ContactAttribute | gång | Ett attribut för att kontakta användaren med frågor om.| Alla **födelsedagar** nästa månad jag bör känna till? | födelsedagar <br> adress <br> Telefonnummer
 Kontaktnamn | personName  | Namnet på en kontakt eller ett meddelande mottagare. | Skicka e-postmeddelandet till **Stevens** | Stevens
 Date/Time | datetime | Datetime för ett e-postmeddelande som mottagits. | Läs **dagens**e-post <br> Vem har e-posta mig **idag**? <br> Vem har ringt på **7**? | i dag <br> imorgon
 DestinationPhone | gång | Mål användaren vill anropa eller skicka en text till. | Ring till **hus** <br> Skicka ett textmeddelande till **Start sidan** | egen <br> hem
@@ -268,7 +268,7 @@ Entitetsnamn | Entitetstyp | Beskrivning | Exempel
 Text | enkelt, mönster. Helst | Texten för en kommentar eller påminnelse. | Sträck ut innan walking <br> lång sikt imorgon
 Titel | enkelt, mönster. Helst | Rubrik för en anteckning. | mat <br> personer att anropa <br> att göra
 CreationDate | datetimeV2 | Det här facket är för när användaren ber om anteckningar som skapats inom ett visst datum/tid-fönster. | 
-Kvantifieraren | List | När en användare ber om att utföra en åtgärd för ' alla ', ' varje ' eller ' any ' objekt eller all text i en anteckning. | alla <br> valfri <br> återskapning
+Kvantifieraren | List | När en användare ber om att utföra en åtgärd för ' alla ', ' varje ' eller ' any ' objekt eller all text i en anteckning. | all <br> Helst <br> återskapning
 OrderReference | numret | Användaren vill utföra åtgärder med "First", "föregående", "Next" osv. | förstagångskörningen <br> pågå
 
 
@@ -386,7 +386,7 @@ LUIS-entitet | Entitetstyp | Beskrivning | Exempel
 ------------|-------------|-------------|---------
 numret | numret | Ett ordnings tal eller en numerisk referens till ett objekt. | Den **andra** . <br> **Nästa** .
 nummer | nummer | Antal objekt som användaren vill ha | De följande **3** objekten
-DirectionalReference | gång | En referens punkt för var på skärmen ett objekt finns. | Höger en <br> produktion
+DirectionalReference | gång | En referens punkt för var på skärmen ett objekt finns. | Höger en <br> Produktion
 
 ## <a name="weather"></a>**Baserad**
 Väder domänen fokuserar på att kontrol lera väder förhållanden och rekommendationer med plats och tid eller kontroll tid efter väder förhållanden.
@@ -402,14 +402,14 @@ Namn på avsikt | Beskrivning | Exempel
 ### <a name="entities"></a>**Poster**
 LUIS-entitet | Entitetstyp | Beskrivning | Exempel
 ------------|-------------|-------------|---------
-Location | placering | Den absoluta eller implicita platsen för en väder förfrågan. | Palo Alto<br>Shanghai<br>Seattle<br>Delvina<br>
+Location | Placering | Den absoluta eller implicita platsen för en väder förfrågan. | Palo Alto<br>Shanghai<br>Seattle<br>Delvina<br>
 Date/Time   | datetime | Datetime eller varaktighet för att skicka frågor till väderet. | November<br>per timme<br>morgon<br>Den här helgen<br>10 dagar<br>
-AdditionalWeatherCondition | list | Ytterligare beskrivning Word för väder, till exempel hastigheten eller riktningen på vinden. | direction<br>Snabb<br>hastighet
+AdditionalWeatherCondition | list | Ytterligare beskrivning Word för väder, till exempel hastigheten eller riktningen på vinden. | direction<br>Snabb<br>Hastighet
 Historiska | gång | Beskrivning av ord för historisk väder status, inklusive Genomsnittligt antal guide Joomla-gränser under den senaste tids perioden. | sedan<br>historik/historik<br>säsongs<br>bästa tid<br>registreras någonsin
 PrecipitationUnit | dimension | Fällningen för snö eller regn. | 5 tum<br>6 cm
 SuitableFor | gång | Beskrivningen av en mänsklig aktivitet under ett väderleks tillstånd, som är vanligt när användarna frågar aktivitets råd som är beroende av väder villkoret. | mantel<br>avses<br>simmar
 TemperatureUnit |temperatur | temperatur | 18 Celsius<br>7 Kelvin-grader
-WeatherRange | gång | Det speciella villkoret för temperatur, vind och andra väder förhållanden mellan en viss tids period | max<br>högt<br>börjar<br>Genomsnittligt högt<br>Högsta
+WeatherRange | gång | Det speciella villkoret för temperatur, vind och andra väder förhållanden mellan en viss tids period | max<br>Högt<br>Börjar<br>Genomsnittligt högt<br>Högsta
 WeatherCondition | gång | Beskrivning av väder villkor | solig<br>lilla<br>regn<br>temperatur<br>snö<br>hot
 WindDirectionUnit | list | Riktnings orden för vind | rakt<br>ifrån<br>östasiatisk<br>rubriken<br>nordöstra
 

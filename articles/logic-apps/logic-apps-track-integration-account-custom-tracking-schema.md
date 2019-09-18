@@ -58,7 +58,7 @@ Den här artikeln innehåller anpassad kod som du kan använda i lagren utanför
 
 | Egenskap | Obligatoriskt | Typ | Beskrivning |
 | --- | --- | --- | --- |
-| sourceType | Ja |   | Typ av kör källan. Tillåtna värden är **Microsoft.Logic/workflows** och **anpassade**. |
+| sourceType | Ja |   | Typ av kör källan. Tillåtna värden är **Microsoft.Logic/workflows** och **custom**. |
 | source | Ja |   | Om typ av datakälla är **Microsoft.Logic/workflows**, information om källdatorn måste följa det här schemat. Om typ av datakälla är **anpassade**, schemat är en JToken. |
 | systemId | Ja | String | Logic app system-ID. |
 | runId | Ja | String | Logikappskörningen ID. |

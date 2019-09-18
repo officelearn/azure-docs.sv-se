@@ -35,8 +35,6 @@
   items:
     - name: Ansluta enheter
       items:
-        - name: Generera en enhetsanslutningssträng
-          href: howto-generate-connection-string.md
         - name: Förbereda och ansluta ett (allmänt) Node.js-program
           href: howto-connect-nodejs.md
         - name: Förbereda och ansluta MXChip IoT DevKit

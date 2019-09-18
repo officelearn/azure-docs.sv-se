@@ -62,26 +62,6 @@ sections:
           - title: Avancerad säkerhet
             href: /azure/sql-database/sql-database-security-index
             html: <p>Skydda din instans och dina databaser med inbyggda funktioner i Azure SQL Database.<p>
-  - title: Nya funktioner och förhandsgranskningsfunktioner
-    items:
-      - type: paragraph
-        text: 'Vi förbättrar ständigt hanterad instans med nya funktioner:'
-      - type: list
-        style: unordered
-        items:
-          - html: (Förhandsversion) <a href="/azure/sql-database/sql-database-instance-pools"> Instanspooler</a> – ger ett bekvämt och kostnadseffektivt sätt att migrera mindre SQL-instanser till molnet.
-          - html: '<a href="https://aka.ms/four-cores-sql-mi-update"> 4 virtuella kärnor om Gen5-maskinvarugeneration</a>'
-          - html: 'Stöd för prenumerationer med <a href="https://aka.ms/sql-mi-visual-studio-subscribers" > Azures månadskredit för Visual Studio-prenumeranter </a>'
-          - html: 'Stöd för <a href="https://docs.microsoft.com/sharepoint/administration/deploy-azure-sql-managed-instance-with-sharepoint-servers-2016-2019"> SharePoint 2016 och SharePoint 2019 </a> och <a href="https://docs.microsoft.com/business-applications-release-notes/october18/dynamics365-business-central/support-for-azure-sql-database-managed-instance"> Dynamics 365 Business Central </a>'
-          - html: '<a href="https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-timezone">Konfigurera tidszonen</a> när en instans skapas.'
-          - html: 'Skapa instanser med <a href="https://aka.ms/managed-instance-collation">valfri sortering på servernivå</a>.'
-          - html: 'Med funktionen för geo-återställning kan du <a href="https://medium.com/@jocapc/geo-restore-your-databases-on-azure-sql-instances-1451480e90fa">återställa databasen till ett annat datacenter med PowerShell</a>.'
-          - html: '(Förhandsversion) <a href="https://medium.com/@jocapc/re-create-dropped-databases-in-azure-sql-managed-instance-dc369ed60266">Återskapa förlorade databaser med PowerShell</a>'
-          - html: Hanterade instanser skyddas med en <a href="sql-database-managed-instance-management-endpoint-verify-built-in-firewall.md">inbyggd brandvägg.</a>
-          - html: '(Förhandsversion) <a href="https://aka.ms/managed-instance-tde-byok">Ta med dina egna krypteringsnycklar</a> när du migrerar lokala databaser som redan har aktiverat transparent datakryptering (TDE).'
-          - html: '(Förhandsversion) Använd <a href="https://aka.ms/managed-instance-failover-groups">geo-distribuerade redundansgrupper</a> för att behålla en kopia av instansen i den andra regionen och se till att dina data blir tillgängliga även i scenariot med en regional katastrof.'
-          - html: '<a href="https://aka.ms/managed-instance-configurable-backup-retention">Konfigurera kvarhållning av säkerhetskopior upp till 35 dagar</a> för tidpunktsbaserad återställning. Observera att långsiktig kvarhållning av säkerhetskopior (upp till 10 år) fortfarande inte är aktiverat, så du kan använda <a href="https://docs.microsoft.com/sql/relational-databases/backup-restore/copy-only-backups-sql-server">Säkerhetskopieringar för enbart kopiering</a> som alternativ.'
-          - html: '(Förhandsversion) Skapa <a href="https://aka.ms/managed-instance-aadlogins">Azure AD-serverhuvudkonton (inloggningar) på instansnivå</a> med <a href="https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">CREATE LOGIN FROM EXTERNAL PROVIDER</a> (SKAPA INLOGGNING FRÅN EXTERN LEVERANTÖR).'
   - title: Snabbstarter på 5 minuter
     items:
       - type: paragraph

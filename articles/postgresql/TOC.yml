@@ -104,6 +104,8 @@
               href: concepts-monitoring.md
             - name: Serverloggar
               href: concepts-server-logs.md
+            - name: Granskningsloggar
+              href: concepts-audit.md
             - name: Query Store
               items:
                 - name: Query Store

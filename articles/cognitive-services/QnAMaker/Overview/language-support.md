@@ -1,7 +1,7 @@
 ---
 title: Språkstöd – QnA Maker
 titleSuffix: Azure Cognitive Services
-description: Språk för en kunskapsbas påverkar QnA Maker möjligheten att automatiskt extrahera frågor och svar från källor samt relevans resultatets QnA Maker ger svar på användarfrågor. En lista över kulturen, naturligt språk som stöds av QnA Maker för kunskapsbasen. Blanda inte språk i samma knowledge base.
+description: Språket i en kunskaps bas påverkar QnA Maker möjlighet att automatiskt extrahera frågor och svar från källor, samt relevansen för resultatet QnA Maker ger svar på användar frågor. En lista över kulturen, naturligt språk som stöds av QnA Maker för kunskapsbasen. Blanda inte språk i samma knowledge base.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -11,14 +11,14 @@ ms.topic: article
 ms.date: 03/21/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: a543b17633b99bea63d72f46ba856a8b4593d16a
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: bec09e5cd053774902083c6dd042c1ed4b293d20
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67439557"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71066667"
 ---
-# <a name="language-support-for-qna-maker"></a>Språkstöd för QnA Maker
+# <a name="language-support-for-qna-maker"></a>Språk stöd för QnA Maker
 
 Språk för en kunskapsbas påverkar QnA Maker möjligheten att automatiskt extrahera frågor och svar från [källor](../Concepts/data-sources-supported.md), samt relevans resultatets QnA Maker ger svar på användarfrågor.
 
@@ -33,28 +33,28 @@ QnA Maker stöder extrahering av fråga/svar i alla på sidan, men effektivitete
 |Tyska|Tyskland – *|
 |Spanska|ES – *|
 
-## <a name="primary-language-detection"></a>Primär språkidentifiering
+## <a name="primary-language-detection"></a>Primär språk identifiering
 
-Det primära språket som används för identifiering av har angetts för QnA Maker-resursen och alla kunskapsbaser som skapats på den aktuella, när det första dokumentet eller URL: en läggs till i första knowledge base. Språket kan inte ändras. 
+Det primära språket som används för identifiering anges för QnA Maker resursen och alla kunskaps banker som skapats på den resursen, när det första dokumentet eller URL: en läggs till i den första kunskaps basen. Det går inte att ändra språket. 
 
-Om du planerar att ha stöd för flera språk, som de behöver ha en ny QnA Maker-resurs för varje språk. Lär dig hur du [skapa en kunskapsbas för språk-baserade QnA Maker](../how-to/language-knowledge-base.md).  
+Om användaren planerar att stödja flera språk måste de ha en ny QnA Maker-resurs för varje språk. Lär dig hur du [skapar en språkbaserad QNA Maker kunskaps bas](../how-to/language-knowledge-base.md).  
 
-Kontrollera det primära språket med följande steg:
+Verifiera det primära språket med följande steg:
 
 1. Logga in på [Azure Portal](https://portal.azure.com).  
-1. Leta efter och välj den Azure Search-resurs som skapats som en del av din QnA Maker-resurs. Azure Search-resursnamn börjar med samma namn som QnA Maker-resursen och kommer att ha typen **söktjänsten**. 
-1. Från den **översikt** sidan Sök resursens väljer **index**. 
-1. Välj den **testkb** index.
-1. Välj den **fält** fliken. 
-1. Visa den **Analyzer** kolumnen för den **frågor** och **svar** fält. 
+1. Leta efter och välj den Azure Search resurs som skapats som en del av din QnA Maker-resurs. Azure Search resurs namnet kommer att börja med samma namn som den QnA Maker resursen och har typ **Sök tjänsten**. Kom ihåg att endast en QnA Maker resurs kan länkas till en Azure Search resurs.
+1. På sidan **Översikt** i Sök resursen väljer du **index**. 
+1. Välj **testkb** -indexet.
+1. Välj fliken **fält** . 
+1. Visa kolumnen **Analyzer** för **frågorna** och **svars** fälten. 
 
 
 ## <a name="query-matching-and-relevance"></a>Fråga matchar och relevans
 QnA Maker beror på [språkanalysverktyg](https://docs.microsoft.com/rest/api/searchservice/language-support) i Azure search för att tillhandahålla resultat. Särskilda igen rangordna funktioner är tillgängliga för En-* språk som gör bättre relevant.
 
-Funktioner för Azure Search finns på par för språk som stöds, har QnA Maker en ytterligare rankningen som är placerad ovanför Azure-sökresultaten. I den här rankningen modellen använder vi vissa särskilda semantiska och word-baserade funktioner i en-*, som ännu inte är tillgänglig för andra språk. Vi gör inte dessa funktioner tillgängliga, eftersom de är en del av en intern fungerande QnA Maker rankningen. 
+Funktioner för Azure Search finns på par för språk som stöds, har QnA Maker en ytterligare rankningen som är placerad ovanför Azure-sökresultaten. I den här ranknings modellen använder vi vissa särskilda semantiska och Word-baserade funktioner i en-*, som ännu inte är tillgängliga för andra språk. De här funktionerna är inte tillgängliga eftersom de är en del av den interna bearbetningen av QnA Makers rang. 
 
-QnA Maker [upptäcker automatiskt språket i kunskapsbasen](#primary-language-detection) när du skapar och ställer in analysatorn därefter. Du kan skapa kunskapsbaser på följande språk. 
+QnA Maker [automatiskt identifierar språket i kunskaps basen](#primary-language-detection) när det skapas och ställer in analysen enligt detta. Du kan skapa kunskapsbaser på följande språk. 
 
 |Språk som stöds|
 |-----|

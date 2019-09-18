@@ -1,7 +1,7 @@
 ---
 title: Viktiga begrepp för arkitektur &
-titleSuffix: Azure Machine Learning service
-description: Lär dig mer om arkitekturen, termer, koncept och arbets flöden som utgör den Azure Machine Learning tjänsten.
+titleSuffix: Azure Machine Learning
+description: Lär dig mer om arkitekturen, termer, koncept och arbets flöden som utgör Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,18 +10,18 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 07/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: 4e953ad732852f9ee99c7830997e2d1dc29b8f84
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: 91c747b8b4ca58e7714dc101777bad51f9f0286f
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70845007"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71035599"
 ---
-# <a name="how-azure-machine-learning-service-works-architecture-and-concepts"></a>Så här fungerar Azure Machine Learning service: Arkitektur och koncept
+# <a name="how-azure-machine-learning-works-architecture-and-concepts"></a>Så här fungerar Azure Machine Learning: Arkitektur och koncept
 
-Lär dig mer om arkitekturen, begreppen och arbets flödet för Azure Machine Learning-tjänsten. Huvud komponenterna i tjänsten och det allmänna arbets flödet för att använda tjänsten visas i följande diagram:
+Lär dig mer om arkitekturen, begreppen och arbets flödet för Azure Machine Learning. Huvud komponenterna i tjänsten och det allmänna arbets flödet för att använda tjänsten visas i följande diagram:
 
-![Azure Machine Learning tjänst arkitektur och arbets flöde](./media/concept-azure-machine-learning-architecture/workflow.png)
+![Azure Machine Learning arkitektur och arbets flöde](./media/concept-azure-machine-learning-architecture/workflow.png)
 
 ## <a name="workflow"></a>Arbetsflöde
 
@@ -47,10 +47,10 @@ Använd följande verktyg för Azure Machine Learning:
 +  Interagera med tjänsten i valfri python-miljö med [Azure Machine Learning SDK för python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
 + Automatisera dina Machine Learning-aktiviteter med [Azure Machine Learning CLI](https://docs.microsoft.com/azure/machine-learning/service/reference-azure-machine-learning-cli).
 + Skriva kod i Visual Studio Code med [Azure Machine Learning vs Code-tillägg](how-to-vscode-tools.md)
-+ Använd [Visual Interface (för hands version) för att Azure Machine Learning tjänsten för](ui-concept-visual-interface.md) att utföra arbets flödes stegen utan att skriva kod.
++ Använd [Visual Interface (för hands version) för Azure Machine Learning](ui-concept-visual-interface.md) för att utföra arbets flödes stegen utan att skriva kod.
 
 > [!NOTE]
-> Även om den här artikeln definierar termer och begrepp som används av Azure Machine Learning-tjänsten definierar den inte termer och begrepp för Azure-plattformen. Mer information om terminologi för Azure-plattformen finns i [ord listan Microsoft Azure](https://docs.microsoft.com/azure/azure-glossary-cloud-terminology).
+> Även om den här artikeln definierar termer och begrepp som används av Azure Machine Learning definierar den inte termer och begrepp för Azure-plattformen. Mer information om terminologi för Azure-plattformen finns i [ord listan Microsoft Azure](https://docs.microsoft.com/azure/azure-glossary-cloud-terminology).
 
 ## <a name="glossary"></a>Ordlista
 
@@ -75,7 +75,7 @@ Använd följande verktyg för Azure Machine Learning:
 
 ### <a name="workspaces"></a>Arbetsytor
 
-[Arbets ytan](concept-workspace.md) är den översta resursen för Azure Machine Learning tjänst. Det ger en central plats för att arbeta med alla artefakter som du skapar när du använder Azure Machine Learning-tjänsten. Du kan dela en arbets yta med andra. En detaljerad beskrivning av arbets ytor finns i [Vad är en Azure Machine Learning arbets yta?](concept-workspace.md).
+[Arbets ytan](concept-workspace.md) är den översta resursen för Azure Machine Learning. Det ger en central plats för att arbeta med alla artefakter som du skapar när du använder Azure Machine Learning. Du kan dela en arbets yta med andra. En detaljerad beskrivning av arbets ytor finns i [Vad är en Azure Machine Learning arbets yta?](concept-workspace.md).
 
 ### <a name="experiments"></a>Experiment
 
@@ -87,13 +87,13 @@ Ett exempel på hur du använder ett experiment finns [i Självstudier: Träna d
 
 I sin enklaste är en modell en typ av kod som hämtar indata och utdata. Skapa en modell för maskininlärning innebär att välja en algoritm, att förse den med data och justering av hyperparametrar. Utbildning är en iterativ process som skapar en tränad modell, som kapslar in det modellen har lärt dig under utbildning.
 
-En modell produceras av en körning i Azure Machine Learning. Du kan också använda en modell som har tränats utanför Azure Machine Learning. Du kan registrera en modell i en Azure Machine Learning service-arbetsyta.
+En modell produceras av en körning i Azure Machine Learning. Du kan också använda en modell som har tränats utanför Azure Machine Learning. Du kan registrera en modell i en Azure Machine Learning-arbetsyta.
 
-Azure Machine Learnings tjänsten är Framework-oberoende. När du skapar en modell kan du använda alla populära ramverk för maskin inlärning, till exempel Scikit – lära, XGBoost, PyTorch, TensorFlow och kedjor.
+Azure Machine Learning är en Framework-oberoende. När du skapar en modell kan du använda alla populära ramverk för maskin inlärning, till exempel Scikit – lära, XGBoost, PyTorch, TensorFlow och kedjor.
 
-Ett exempel på hur du tränar en modell med Scikit – lära och en uppskattningar [finns i Självstudier: Träna en modell för bildklassificering med Azure Machine Learning-tjänsten](tutorial-train-models-with-aml.md).
+Ett exempel på hur du tränar en modell med Scikit – lära och en uppskattningar [finns i Självstudier: Träna en bild klassificerings modell med](tutorial-train-models-with-aml.md)Azure Machine Learning.
 
-**Modell registret** håller reda på alla modeller i din Azure Machine Learning service-arbetsyta.
+**Modell registret** håller reda på alla modeller i din Azure Machine Learning-arbetsyta.
 
 Modeller identifieras av namn och version. Varje gången du registrerar en modell med samma namn som en befintlig, förutsätter registret att det är en ny version. Versionen ökar och den nya modellen registreras under samma namn.
 
@@ -124,8 +124,8 @@ Mer information finns i följande artiklar:
 
 * [Träna ml-modeller med uppskattningar](how-to-train-ml-models.md).
 * [Utbilda Pytorch djup inlärnings modeller i stor skala med Azure Machine Learning](how-to-train-pytorch.md).
-* [Träna och registrera TensorFlow-modeller i stor skala med Azure Machine Learning-tjänsten](how-to-train-tensorflow.md).
-* [Träna och registrera kedje modeller i stor skala med Azure Machine Learning-tjänsten](how-to-train-chainer.md).
+* [Träna och registrera TensorFlow-modeller i stor skala med Azure Machine Learning](how-to-train-tensorflow.md).
+* [Träna och registrera kedje modeller i skala med Azure Machine Learning](how-to-train-chainer.md).
 
 ### <a name="datasets-and-datastores"></a>Data uppsättningar och data lager
 
@@ -147,7 +147,7 @@ Lär dig mer om de [tillgängliga beräknings målen för utbildning och distrib
 
 För att träna en modell kan du ange den katalog som innehåller inlärningsskript och tillhörande filer. Du kan också ange ett experiment namn som används för att lagra information som samlas in under utbildningen. Under utbildningen kopieras hela katalogen till tränings miljön (Compute Target) och skriptet som anges av körnings konfigurationen startas. En ögonblicksbild av katalogen lagras också under experiment på arbetsytan.
 
-Ett exempel finns i [Självstudier: Träna en modell för bildklassificering med Azure Machine Learning-tjänsten](tutorial-train-models-with-aml.md).
+Ett exempel finns i [Självstudier: Träna en bild klassificerings modell med](tutorial-train-models-with-aml.md)Azure Machine Learning.
 
 ### <a name="runs"></a>Körningar
 
@@ -193,7 +193,7 @@ Azure Machine Learning kan skapa två typer av avbildningar:
 * **FPGA-avbildning**: Används när du distribuerar till en fält-programmerbar grind mat ris i Azure.
 * **Docker-avbildning**: Används när du distribuerar till beräknings mål som inte är FPGA. Exempel är Azure Container Instances och Azure Kubernetes-tjänsten.
 
-Tjänsten Azure Machine Learning tillhandahåller en bas avbildning, som används som standard. Du kan också ange egna anpassade avbildningar.
+Azure Machine Learning tillhandahåller en bas avbildning som används som standard. Du kan också ange egna anpassade avbildningar.
 
 ### <a name="image-registry"></a>Avbildningsregister
 
@@ -239,8 +239,8 @@ När du utvecklar din lösning använder du Azure Machine Learning python SDK i 
 
 ### <a name="next-steps"></a>Nästa steg
 
-Information om hur du kommer igång med Azure Machine Learning-tjänsten finns i:
+För att komma igång med Azure Machine Learning, se:
 
-* [Vad är Azure Machine Learning Service?](overview-what-is-azure-ml.md)
-* [Skapa en Azure Machine Learning service-arbetsyta](how-to-manage-workspace.md)
+* [Vad är Azure Machine Learning?](overview-what-is-azure-ml.md)
+* [Skapa en Azure Machine Learning-arbetsyta](how-to-manage-workspace.md)
 * [Självstudie (del 1): Träna en modell](tutorial-train-models-with-aml.md)

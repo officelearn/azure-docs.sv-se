@@ -10,16 +10,16 @@ ms.topic: conceptual
 ms.date: 08/31/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 8bd1bee82941953e96eed1defa04c9fddef3e293
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: d852b786c1cc1c1eb9d39b931f9b8a142f969815
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70809213"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71065876"
 ---
 # <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Azure AD B2C: Vanliga frågor och svar (FAQ)
 
-På den här sidan besvaras vanliga frågor om Azure Active Directory-B2C (Azure AD). Fortsätt att söka efter uppdateringar igen.
+På den här sidan besvaras vanliga frågor om Azure Active Directory B2C (Azure AD B2C). Fortsätt att söka efter uppdateringar igen.
 
 ### <a name="why-cant-i-access-the-azure-ad-b2c-extension-in-the-azure-portal"></a>Varför kan jag inte komma åt Azure AD B2C-tillägget i Azure Portal?
 
@@ -126,7 +126,7 @@ Visst!  Läs om [språk anpassning](active-directory-b2c-reference-language-cust
 
 ### <a name="can-i-use-my-own-urls-on-my-sign-up-and-sign-in-pages-that-are-served-by-azure-ad-b2c-for-instance-can-i-change-the-url-from-contosob2clogincom-to-logincontosocom"></a>Kan jag använda mina egna URL: er på mina registrerings-och inloggnings sidor som hanteras av Azure AD B2C? Kan jag till exempel ändra URL: en från contoso.b2clogin.com till login.contoso.com?
 
-Inte för närvarande. Den här funktionen finns i vår översikt. Att verifiera din domän på fliken **domäner** i Azure Portal att inte uppnå det här målet. Men med b2clogin.com erbjuder vi en [neutral toppnivå domän](b2clogin.md)och därför kan det externa utseendet implementeras utan omnämnande av Microsoft.
+Inte för tillfället. Den här funktionen finns i vår översikt. Att verifiera din domän på fliken **domäner** i Azure Portal att inte uppnå det här målet. Men med b2clogin.com erbjuder vi en [neutral toppnivå domän](b2clogin.md)och därför kan det externa utseendet implementeras utan omnämnande av Microsoft.
 
 ### <a name="how-do-i-delete-my-azure-ad-b2c-tenant"></a>Hur gör jag för att ta bort Azure AD B2C klienten?
 

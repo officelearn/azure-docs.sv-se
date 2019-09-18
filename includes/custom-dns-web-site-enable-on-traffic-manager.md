@@ -4,40 +4,40 @@ ms.service: app-service-web
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: cephalin
-ms.openlocfilehash: 67b9c0ba2566206b0e70db51844b21e5d5d3c261
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: ddeb46a2c7bc7f24f55c22f446926529cee7b598
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67187920"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71059828"
 ---
-När posterna för domännamnet har distribuerats, bör du kunna använda webbläsaren för att verifiera att ditt domännamn kan användas för att få åtkomst till din webbapp i Azure App Service.
+När posterna för ditt domän namn har spridits bör du kunna använda webbläsaren för att kontrol lera att ditt anpassade domän namn kan användas för att komma åt din webbapp i Azure App Service.
 
 > [!NOTE]
-> Det kan ta lite tid för din CNAME ska spridas genom DNS-systemet. Du kan använda en tjänst som <a href="https://www.digwebinterface.com/"> https://www.digwebinterface.com/ </a> att verifiera att CNAME är tillgänglig.
+> Det kan ta lite tid för din CNAME att spridas via DNS-systemet. Du kan använda en tjänst, till <a href="https://www.digwebinterface.com/">https://www.digwebinterface.com/</a> exempel för att kontrol lera att CNAME är tillgängligt.
 > 
 > 
 
-Om du inte redan har lagt webbappen som en Traffic Manager-slutpunkt måste du göra detta innan namnmatchning fungerar som de anpassade domänen namn vägarna till Traffic Manager. Traffic Manager dirigerar sedan till din webbapp. Använd informationen i [Lägg till eller ta bort slutpunkter](../articles/traffic-manager/traffic-manager-endpoints.md) lägger du till din webbapp som en slutpunkt i Traffic Manager-profilen.
+Om du inte redan har lagt till din webbapp som en Traffic Manager slut punkt måste du göra detta innan namn matchningen fungerar, som det anpassade domän namnet dirigeras till Traffic Manager. Traffic Manager dirigerar sedan till din webbapp. Använd informationen i [Lägg till eller ta bort slut punkter](../articles/traffic-manager/traffic-manager-endpoints.md) för att lägga till din webbapp som en slut punkt i Traffic Manager profilen.
 
 > [!NOTE]
-> Om din webbapp inte visas när du lägger till en slutpunkt, kontrollerar du att den är konfigurerad för **Standard** läge för App Service-plan. Du måste använda **Standard** läge för webbappen för att fungera med Traffic Manager.
+> Om din webbapp inte visas när du lägger till en slut punkt, kontrollerar du att den har kon figurer ATS för **Standard** App Service plan läge. Du måste använda **standard** läget för din webbapp för att kunna arbeta med Traffic Manager.
 > 
 > 
 
-1. I webbläsaren, öppna den [Azure-portalen](https://portal.azure.com).
-2. I den **Webbappar** klickar du på namnet på din webbapp, Välj **inställningar**, och välj sedan **anpassade domäner**
+1. Öppna [Azure Portal](https://portal.azure.com)i webbläsaren.
+2. På fliken **Web Apps** klickar du på namnet på din webbapp, väljer **Inställningar**och väljer sedan **anpassade domäner**
    
     ![](./media/custom-dns-web-site/dncmntask-cname-6.png)
-3. I den **anpassade domäner** bladet klickar du på **Lägg till värddatornamn**.
-4. Använd den **värdnamn** textrutor för att ange domännamnet för Traffic Manager ska associeras med det här webbprogrammet.
+3. I bladet **anpassade domäner** klickar du på **Lägg till värdnamn**.
+4. Använd text rutorna **hostname** för att ange det anpassade domän namn som ska associeras med den här webbappen.
    
     ![](./media/custom-dns-web-site/dncmntask-cname-8.png)
-5. Klicka på **verifiera** att spara konfigurationen av domain name.
-6. När du klickar på **verifiera** Azure startar domänverifiering arbetsflöde. Detta kommer att kontrollera för domänägarskap samt värdnamn tillgänglighet och rapporten slutfört eller detaljerade fel med vägledning om hur du åtgärdar felet.    
-7. Vid lyckad validering **Lägg till värddatornamn** knappen blir aktiv och du kommer att kunna tilldela värdnamnet. Navigera till ditt eget domännamn i en webbläsare. Du bör nu se appen som körs med hjälp av ditt anpassade domännamn. 
+5. Klicka på **Verifiera** för att spara domän namns konfigurationen.
+6. När du klickar på **Verifiera** Azure startas arbets flödet för domän verifiering. Detta kommer att kontrol lera om det finns någon domän ägarskaps domän och om värd namns tillgänglighet och rapporter om lyckade eller detaljerade fel med hjälp av vägledning om hur du åtgärdar felet.    
+7. När du har slutfört verifierings knappen för att **lägga till värdnamn** aktive ras den och du kan tilldela värd namnet. Navigera nu till ditt anpassade domän namn i en webbläsare. Nu bör du se din app som körs med ditt anpassade domän namn. 
    
-   När konfigurationen är klar visas det anpassade domännamnet i den **domännamn** delen av din webbapp.
+   När konfigurationen är klar visas det anpassade domän namnet i avsnittet **domän namn** i din webbapp.
 
-Du bör nu att kunna ange domännamnet för Traffic Manager i din webbläsare och se att det har tar dig till din webbapp.
+Nu bör du kunna ange namnet på Traffic Manager domän i webbläsaren och se att det har tagit dig till din webbapp.
 

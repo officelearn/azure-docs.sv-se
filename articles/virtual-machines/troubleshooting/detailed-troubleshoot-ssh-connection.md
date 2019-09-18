@@ -5,7 +5,7 @@ keywords: ssh-anslutningen nekades, SSH-fel, Azure SSH, SSH-anslutning misslycka
 services: virtual-machines-linux
 documentationcenter: ''
 author: genlin
-manager: gwallace
+manager: dcscontentpm
 editor: ''
 tags: top-support-issue,azure-service-management,azure-resource-manager
 ms.assetid: b8e8be5f-e8a6-489d-9922-9df8de32e839
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 41265973df21be289e63cbd6ed2703febc50cff2
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 3807f713065d16d4c6743c65f6a770d158ac7191
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70090501"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71058489"
 ---
 # <a name="detailed-ssh-troubleshooting-steps-for-issues-connecting-to-a-linux-vm-in-azure"></a>Detaljerade SSH-felsöknings steg för problem med att ansluta till en virtuell Linux-dator i Azure
 Det finns många möjliga orsaker till att SSH-klienten kanske inte kan komma åt SSH-tjänsten på den virtuella datorn. Om du har följt de mer [allmänna SSH-fel söknings stegen](troubleshoot-ssh-connection.md)måste du ytterligare felsöka anslutnings problemet. Den här artikeln vägleder dig genom detaljerade fel söknings steg för att avgöra var SSH-anslutningen fungerar och hur du löser den.
@@ -35,7 +35,7 @@ Följande steg hjälper dig att isolera källan till felen och ta reda på lösn
 1. Kontrol lera statusen för den virtuella datorn i portalen.
    I [Azure Portal](https://portal.azure.com)väljer du*VM-namn*för **virtuella datorer** > .
 
-   Status fönstret för den virtuella datorn bör visas. Rulla ned för att visa senaste aktivitet för beräknings-, lagrings-och nätverks resurser.
+   Status fönstret för den virtuella datorn **bör visas.** Rulla ned för att visa senaste aktivitet för beräknings-, lagrings-och nätverks resurser.
 
 2. Välj **Inställningar** för att undersöka slut punkter, IP-adresser, nätverks säkerhets grupper och andra inställningar.
 
@@ -102,7 +102,7 @@ Om du inte har en annan virtuell dator i samma virtuella nätverk kan du enkelt 
 
 Om du kan skapa en SSH-anslutning med en virtuell dator i samma virtuella nätverk, kontrollerar du följande områden:
 
-* **Slut punkts konfigurationen för SSH-trafik på den virtuella mål datorn.** Den privata TCP-porten för slut punkten ska matcha den TCP-port som SSH-tjänsten på den virtuella datorn lyssnar på. (Standard porten är 22). Verifiera SSH TCP-portnumret i Azure Portal genom att välja **virtuella datorer** > *VM Name* > **Settings** > -slutpunkter.
+* **Slut punkts konfigurationen för SSH-trafik på den virtuella mål datorn.** Den privata TCP-porten för slut punkten ska matcha den TCP-port som SSH-tjänsten på den virtuella datorn lyssnar på. (Standard porten är 22). Verifiera SSH TCP-portnumret i Azure Portal genom att välja **virtuella datorer** > *VM Name* > **Settings** > -**slutpunkter**.
 * **ACL för SSH-trafikens slut punkt på den virtuella mål datorn.** Med en ACL kan du ange tillåten eller nekad inkommande trafik från Internet, baserat på dess käll-IP-adress. Felkonfigurerade ACL: er kan förhindra inkommande SSH-trafik till slut punkten. Kontrol lera dina ACL: er för att säkerställa att inkommande trafik från den offentliga IP-adressen för proxyservern eller en annan gräns server tillåts. Mer information finns i [om åtkomst kontrol listor för nätverk (ACL: er)](../../virtual-network/virtual-networks-acl.md).
 
 För att eliminera slut punkten som en källa till problemet tar du bort den aktuella slut punkten, skapar en annan slut punkt och anger SSH-namnet (TCP-port 22 för det offentliga och privata port numret). Mer information finns i [Konfigurera slut punkter på en virtuell dator i Azure](../windows/classic/setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).

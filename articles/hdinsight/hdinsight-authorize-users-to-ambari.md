@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/26/2017
 ms.author: hrasheed
-ms.openlocfilehash: bcc29902628f4e7051d6a838d2e9ac145df9e45e
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: 533bd750056f2e961ca9239e995fbfc62b2381d0
+ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70916945"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71076687"
 ---
 # <a name="authorize-users-for-apache-ambari-views"></a>Auktorisera användare för Apache Ambari Views
 
@@ -30,7 +30,7 @@ Om du inte redan har gjort det följer du [de här anvisningarna](./domain-joine
 
 Öppna **hanterings sidan för Ambari** i [webb gränssnittet Apache Ambari](hdinsight-hadoop-manage-ambari.md)genom att bläddra till **`https://<YOUR CLUSTER NAME>.azurehdinsight.net`** . Ange det användar namn och lösen ord för kluster administratör som du definierade när du skapade klustret. Gå sedan till Ambari-instrumentpanelen och välj **Hantera Ambari** under **Administratörs** menyn:
 
-![Hantera Ambari](./media/hdinsight-authorize-users-to-ambari/manage-apache-ambari.png)
+![Hantera Apache Ambari-instrumentpanel](./media/hdinsight-authorize-users-to-ambari/manage-apache-ambari.png)
 
 ## <a name="grant-permissions-to-apache-hive-views"></a>Bevilja behörighet att Apache Hive vyer
 
@@ -38,11 +38,11 @@ Ambari levereras med View-instanser för [Apache Hive](https://hive.apache.org/)
 
 1. På sidan hantering väljer du länken **vyer** under **rubrik menyn till** vänster.
 
-    ![Länken vyer](./media/hdinsight-authorize-users-to-ambari/apache-ambari-views-link.png)
+    ![Apache Ambari vyer Visa länkar](./media/hdinsight-authorize-users-to-ambari/apache-ambari-views-link.png)
 
 2. På sidan vyer expanderar du **HIVE** -raden. Det finns en standard-Hive-vy som skapas när Hive-tjänsten läggs till i klustret. Du kan också skapa fler instanser av Hive-vyer efter behov. Välj en Hive-vy:
 
-    ![Vyer – Hive-vy](./media/hdinsight-authorize-users-to-ambari/views-apache-hive-view.png)
+    ![HDInsight-vyer – Apache Hive vy](./media/hdinsight-authorize-users-to-ambari/views-apache-hive-view.png)
 
 3. Rulla nedåt längst ned på sidan Visa. Under avsnittet *behörigheter* har du två alternativ för att ge domän användare behörighet till vyn:
 
@@ -54,20 +54,20 @@ Ambari levereras med View-instanser för [Apache Hive](https://hive.apache.org/)
 
    * Börja skriva användar namnet så visas en listruta med tidigare definierade namn.
 
-     ![Användaren har slutförts](./media/hdinsight-authorize-users-to-ambari/ambari-user-autocomplete.png)
+     ![Apache Ambari-användare slutförs automatiskt](./media/hdinsight-authorize-users-to-ambari/ambari-user-autocomplete.png)
 
    * Välj eller Skriv klart, användar namnet. Välj knappen **nytt** om du vill lägga till det här användar namnet som en ny användare.
 
    * Markera **kryss rutan blå**om du vill spara ändringarna.
 
-     ![Angiven användare](./media/hdinsight-authorize-users-to-ambari/user-entered-permissions.png)
+     ![Apache Ambari bevilja användar behörighet](./media/hdinsight-authorize-users-to-ambari/user-entered-permissions.png)
 
 1. Välj knappen **Lägg till grupp** om du vill lägga till en grupp.
 
    * Börja skriva grupp namnet. Processen att välja ett befintligt grupp namn eller lägga till en ny grupp är samma som för att lägga till användare.
    * Markera **kryss rutan blå**om du vill spara ändringarna.
 
-     ![Angiven grupp](./media/hdinsight-authorize-users-to-ambari/ambari-group-entered.png)
+     ![Apache Ambari Grant-behörighet](./media/hdinsight-authorize-users-to-ambari/ambari-group-entered.png)
 
 Att lägga till användare direkt i en vy är användbart när du vill tilldela behörigheter till en användare som ska använda vyn, men vill inte att de ska vara medlemmar i en grupp som har ytterligare behörigheter. För att minska den administrativa belastningen kan det vara enklare att tilldela grupper behörigheter.
 
@@ -77,7 +77,7 @@ Med [Apache TEZ](https://tez.apache.org/) View-instanserna kan användarna över
 
 Om du vill tilldela användare och grupper till en instans av Tez, expanderar du raden **Tez** på sidan vyer, enligt beskrivningen ovan.
 
-![Vyer – Tez vy](./media/hdinsight-authorize-users-to-ambari/views-apache-tez-view.png)
+![HDInsight-vyer – Apache Tez-vy](./media/hdinsight-authorize-users-to-ambari/views-apache-tez-view.png)
 
 Om du vill lägga till användare eller grupper upprepar du steg 3-5 i föregående avsnitt.
 
@@ -93,11 +93,11 @@ Det finns fem säkerhets roller för användare och grupper, som visas i ordning
 
 Om du vill hantera roller går du till **hanterings sidan för Ambari**och väljer sedan länken **roller** i meny gruppen *kluster* till vänster.
 
-![Meny länken roller](./media/hdinsight-authorize-users-to-ambari/cluster-roles-menu-link.png)
+![Meny länkar för Apache Ambari-roller](./media/hdinsight-authorize-users-to-ambari/cluster-roles-menu-link.png)
 
 Om du vill se en lista över behörigheter för varje roll, klickar du på det blå frågetecknet bredvid tabell rubriken **roller** på sidan roller.
 
-![Meny länk behörigheter för roller](./media/hdinsight-authorize-users-to-ambari/roles-menu-permissions.png "Meny länk behörigheter för roller")
+![Meny länk behörigheter för Apache Ambari roles](./media/hdinsight-authorize-users-to-ambari/roles-menu-permissions.png "Meny länk behörigheter för Apache Ambari roles")
 
 På den här sidan finns det två olika vyer som du kan använda för att hantera roller för användare och grupper: Blockera och lista.
 
@@ -105,7 +105,7 @@ På den här sidan finns det två olika vyer som du kan använda för att hanter
 
 I vyn blockera visas varje roll på en egen rad, och den **tilldelas roller till dessa användare** och **tilldelar roller till de här grupp** alternativen enligt beskrivningen ovan.
 
-![Vyn roll block](./media/hdinsight-authorize-users-to-ambari/ambari-roles-block-view.png)
+![Block vy för Apache Ambari roles](./media/hdinsight-authorize-users-to-ambari/ambari-roles-block-view.png)
 
 ### <a name="list-view"></a>Listvy
 
@@ -113,11 +113,11 @@ Listvyn innehåller snabb redigerings funktioner i två kategorier: Användare o
 
 * Kategorin användare i vyn lista visar en lista över alla användare, så att du kan välja en roll för varje användare i list rutan.
 
-    ![Visa lista över roller – användare](./media/hdinsight-authorize-users-to-ambari/roles-list-view-users.png)
+    ![List visning för Apache Ambari-roller – användare](./media/hdinsight-authorize-users-to-ambari/roles-list-view-users.png)
 
 *  Kategorin grupper i listvyn visar alla grupper och rollen som tilldelats till varje grupp. I vårt exempel synkroniseras listan med grupper från de Azure AD-grupper som anges i **användar grupp egenskapen åtkomst** för klustrets domän inställningar. Se [skapa ett HDInsight-kluster med ESP aktiverat](./domain-joined/apache-domain-joined-configure-using-azure-adds.md#create-a-hdinsight-cluster-with-esp).
 
-    ![Vyn roll lista – grupper](./media/hdinsight-authorize-users-to-ambari/roles-list-view-groups.png)
+    ![Vyn Apache Ambari roles List-Groups](./media/hdinsight-authorize-users-to-ambari/roles-list-view-groups.png)
 
     I bilden ovan tilldelas gruppen "hiveusers" rollen som *kluster användar* roll. Det här är en skrivskyddad roll som gör att användare av gruppen kan visa men inte ändra tjänst konfiguration och kluster mått.
 
@@ -125,13 +125,13 @@ Listvyn innehåller snabb redigerings funktioner i två kategorier: Användare o
 
 Vi har tilldelat våra Azure AD-domän användare "hiveuser1"-behörigheter till Hive-och Tez-vyer. När vi startar Ambari-webbgränssnittet och anger användarens domän uppgifter (Azure AD-användarnamnet i e-postformat och lösen ord) omdirigeras användaren till sidan Ambari views. Härifrån kan användaren välja vilken tillgänglig vy som helst. Användaren kan inte besöka någon annan del av webbplatsen, inklusive instrument panelen, tjänster, värdar, aviseringar eller administratörs sidor.
 
-![Användare med endast vyer](./media/hdinsight-authorize-users-to-ambari/ambari-user-views-only.png)
+![Apache Ambari-användare med endast vyer](./media/hdinsight-authorize-users-to-ambari/ambari-user-views-only.png)
 
 ## <a name="log-in-to-ambari-as-a-cluster-user"></a>Logga in på Ambari som en kluster användare
 
 Vi har tilldelat vår Azure AD-domän användare "hiveuser2" till *kluster användar* rollen. Den här rollen har åtkomst till instrument panelen och alla meny alternativ. En kluster användare har färre tillåtna alternativ än en administratör. Hiveuser2 kan till exempel Visa konfigurationer för var och en av tjänsterna, men kan inte redigera dem.
 
-![Användare med användar rollen kluster](./media/hdinsight-authorize-users-to-ambari/user-cluster-user-role.png)
+![Apache Ambari-instrumentpanel visas](./media/hdinsight-authorize-users-to-ambari/user-cluster-user-role.png)
 
 ## <a name="next-steps"></a>Nästa steg
 

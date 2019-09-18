@@ -10,12 +10,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 05/07/2019
 ms.author: cawa
-ms.openlocfilehash: a08fc7d7822b4aeddafb588fdb73e86559ce2b12
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 84e423ac055c074028df217060a548b932823496
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68849175"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71033384"
 ---
 # <a name="use-application-change-analysis-preview-in-azure-monitor"></a>Använda program ändrings analys (för hands version) i Azure Monitor
 
@@ -87,57 +87,39 @@ I Azure Monitor är ändrings analys för närvarande inbyggd i självbetjäning
 
 ### <a name="enable-change-analysis-at-scale"></a>Aktivera ändrings analys i skala
 
-Om din prenumeration innehåller flera webbappar är det inte effektivt att aktivera tjänsten på nivån för webbappen. I det här fallet följer du de här alternativa anvisningarna.
+Om din prenumeration innehåller flera webbappar är det inte effektivt att aktivera tjänsten på nivån för webbappen. Kör följande skript för att aktivera alla webb program i din prenumeration.
 
-### <a name="register-the-change-analysis-resource-provider-for-your-subscription"></a>Registrera resurs leverantören för ändrings analys för din prenumeration
+Krav:
+* PowerShell-modulen AZ. Följ anvisningarna i [installera Azure PowerShell-modulen](https://docs.microsoft.com/en-us/powershell/azure/install-az-ps?view=azps-2.6.0)
 
-1. Registrera funktions flaggan för ändrings analys (för hands version). Eftersom funktions flaggan är i för hands version måste du registrera den så att den blir synlig för din prenumeration:
+Kör följande skript:
 
-   1. Öppna [Azure Cloud Shell](https://azure.microsoft.com/features/cloud-shell/).
+```PowerShell
+# Log in to your Azure subscription
+Connect-AzAccount
 
-      ![Skärm bild av ändrings Cloud Shell](./media/change-analysis/cloud-shell.png)
+# Get subscription Id
+$SubscriptionId = Read-Host -Prompt 'Input your subscription Id'
 
-   1. Ändra Shell-typen till **PowerShell**.
+# Make Feature Flag visible to the subscription
+Set-AzContext -SubscriptionId $SubscriptionId
 
-      ![Skärm bild av ändrings Cloud Shell](./media/change-analysis/choose-powershell.png)
+# Register resource provider
+Register-AzResourceProvider -ProviderNamespace "Microsoft.ChangeAnalysis"
 
-   1. Kör följande PowerShell-kommando:
 
-        ``` PowerShell
-        Set-AzContext -Subscription <your_subscription_id> #set script execution context to the subscription you are trying to enable
-        Get-AzureRmProviderFeature -ProviderNamespace "Microsoft.ChangeAnalysis" -ListAvailable #Check for feature flag availability
-        Register-AzureRmProviderFeature -FeatureName PreviewAccess -ProviderNamespace Microsoft.ChangeAnalysis #Register feature flag
-        ```
+# Enable each web app
+$webapp_list = Get-AzWebApp | Where-Object {$_.kind -eq 'app'}
+foreach ($webapp in $webapp_list)
+{
+    $tags = $webapp.Tags
+    $tags[“hidden-related:diagnostics/changeAnalysisScanEnabled”]=$true
+    Set-AzResource -ResourceId $webapp.Id -Tag $tags -Force
+}
 
-1. Registrera resurs leverantören för ändrings analys för prenumerationen.
+```
 
-   - Gå till **prenumerationer**och välj den prenumeration som du vill aktivera i ändrings tjänsten. Välj sedan resurs leverantörer:
 
-        ![Skärm bild som visar hur du registrerar resurs leverantören för ändrings analys](./media/change-analysis/register-rp.png)
-
-       - Välj **Microsoft. ChangeAnalysis**. Välj **Registrera**längst upp på sidan.
-
-       - När resurs leverantören har Aktiver ATS kan du ange en dold tagg i webbappen för att identifiera ändringar på distributions nivån. Om du vill ange en dold tagg följer du anvisningarna under **det går inte att hämta information om ändrings analys**.
-
-   - Du kan också använda ett PowerShell-skript för att registrera resurs leverantören:
-
-        ```PowerShell
-        Get-AzureRmResourceProvider -ListAvailable | Select-Object ProviderNamespace, RegistrationState #Check if RP is ready for registration
-
-        Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.ChangeAnalysis" #Register the Change Analysis RP
-        ```
-
-        Om du vill använda PowerShell för att ange en dold tagg i en webbapp kör du följande kommando:
-
-        ```powershell
-        $webapp=Get-AzWebApp -Name <name_of_your_webapp>
-        $tags = $webapp.Tags
-        $tags[“hidden-related:diagnostics/changeAnalysisScanEnabled”]=$true
-        Set-AzResource -ResourceId <your_webapp_resourceid> -Tag $tag
-        ```
-
-     > [!NOTE]
-     > När du har lagt till den dolda taggen kan du fortfarande vänta i upp till fyra timmar innan du börjar se ändringarna. Resultatet är försenat eftersom ändrings analys bara söker igenom din webbapp var fjärde timme. Schemat på 4 timmar begränsar genomsökningens prestanda påverkan.
 
 ## <a name="next-steps"></a>Nästa steg
 

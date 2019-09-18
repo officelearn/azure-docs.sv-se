@@ -10,16 +10,16 @@ ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: da7ec020b6f3f4a3b1890695a78fb6bdb363d233
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.openlocfilehash: 69279da93197bcaaf1bf600bc9406287253d74bb
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67849386"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71063285"
 ---
 # <a name="tutorial-customize-the-interface-of-user-experiences-in-azure-active-directory-b2c"></a>Självstudier: Anpassa gränssnittet för användar upplevelser i Azure Active Directory B2C
 
-För vanliga användar upplevelser, till exempel registrering, inloggning och profil redigering, kan du använda [användar flöden](active-directory-b2c-reference-policies.md) i Azure Active Directory (Azure AD) B2C. Informationen i den här självstudien hjälper dig att lära dig hur du [anpassar användar gränssnittet (UI)](customize-ui-overview.md) för dessa upplevelser med hjälp av dina egna HTML-och CSS-filer.
+För vanliga användar upplevelser, till exempel registrering, inloggning och profil redigering, kan du använda [användar flöden](active-directory-b2c-reference-policies.md) i Azure Active Directory B2C (Azure AD B2C). Informationen i den här självstudien hjälper dig att lära dig hur du [anpassar användar gränssnittet (UI)](customize-ui-overview.md) för dessa upplevelser med hjälp av dina egna HTML-och CSS-filer.
 
 I den här artikeln kan du se hur du:
 
@@ -43,7 +43,7 @@ Du skapar ett Azure Storage-konto och en behållare och placerar sedan grundläg
 Även om du kan lagra dina filer på många sätt kan du i den här självstudien lagra dem i [Azure Blob Storage](../storage/blobs/storage-blobs-introduction.md).
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
-2. Kontrol lera att du använder den katalog som innehåller din Azure-prenumeration. Välj **katalog-och prenumerations filter** på den översta menyn och välj den katalog som innehåller din prenumeration. Den här katalogen skiljer sig åt från den som innehåller din Azure B2C-klient.
+2. Kontrol lera att du använder den katalog som innehåller din Azure-prenumeration. Välj **katalog + prenumerations** filter på den översta menyn och välj den katalog som innehåller din prenumeration. Den här katalogen skiljer sig åt från den som innehåller din Azure B2C-klient.
 3. Välj alla tjänster i det övre vänstra hörnet av Azure Portal, Sök efter och välj lagrings **konton**.
 4. Välj **Lägg till**.
 5. Under **resurs grupp**väljer du **Skapa ny**, anger ett namn för den nya resurs gruppen och klickar sedan på **OK**.

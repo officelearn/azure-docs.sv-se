@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 6adc5dfa740d440e78bf2f276447c4585503d7c0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e407b26091ad559ab458f76d94e2460660ecd14f
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65606464"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71036603"
 ---
 # <a name="heading"></a>Bearbeta Data i SQL Server-dator på Azure
 Det här dokumentet beskriver hur du utforska data och generera funktioner för data som lagras i en SQL Server-VM på Azure. Detta kan göras med Datatransformering med hjälp av SQL eller med ett programmeringsspråk som Python.
@@ -87,7 +87,7 @@ Här är en kort introduktion på latitud/longitud platsdata (resurstilldelas fr
 * Tecknet talar om för oss om vi är norr eller söder, Öst eller Väst i världen.
 * Ett annat värde än noll hundratals siffra talar om för oss att vi använder longitud, latitud inte!
 * Tio siffror ger möjlighet att cirka 1 000 kilometer. Det ger oss användbar information om vilka kontinent eller miljöer är vi på.
-* Enheter siffra (en decimal grad) ger en position upp till 111 kilometer (60 sjömil, ungefär 69 miles). Det kan berätta för oss ungefär vilka stora tillstånd eller land/region som det är en.
+* Enheter siffra (en decimal grad) ger en position upp till 111 kilometer (60 sjömil, ungefär 69 miles). Det kan berätta ungefär vilket tillstånd, land eller region du befinner dig i.
 * En decimal är värt att upp till 11.1 km: Det kan skilja positionen för en stor stad från en närliggande stora stad.
 * Andra decimal är värt att upp till 1.1 km: Det kan skilja ett village från nästa.
 * Den tredje decimalen är värt att upp till 110 m: kan identifiera ett stort agricultural fält eller institutionella campus.
@@ -116,7 +116,7 @@ Dessa funktioner för plats-baserade kan ytterligare används för att generera 
 > 
 
 ### <a name="sql-aml"></a>Ansluta till Azure Machine Learning
-Funktionen nygenererade kan läggas till som en kolumn i en befintlig tabell eller lagras i en ny tabell och anslutits med den ursprungliga tabellen för machine learning. Funktioner som kan genereras eller nås om redan har skapat med hjälp av den [importera Data] [ import-data] modul i Azure Machine Learning enligt nedan:
+Funktionen nygenererade kan läggas till som en kolumn i en befintlig tabell eller lagras i en ny tabell och anslutits med den ursprungliga tabellen för machine learning. Funktioner kan genereras eller nås om de redan har skapats, med hjälp av modulen [Importera data][import-data] i Azure Machine Learning som visas nedan:
 
 ![azureml-läsare][1] 
 

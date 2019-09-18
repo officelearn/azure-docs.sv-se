@@ -9,12 +9,12 @@ ms.date: 06/28/2019
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: f4e36edf86823453e663ed875c7d5e4ffdc2e524
-ms.sourcegitcommit: df7942ba1f28903ff7bef640ecef894e95f7f335
+ms.openlocfilehash: f7639eb2807654aab38a4e849c2e58d77f15bc31
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69016408"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71036256"
 ---
 # <a name="zone-redundant-storage-zrs-for-building-highly-available-azure-storage-applications"></a>Zone-redundant lagring (ZRS) för att skapa hög tillgängliga Azure Storage program
 
@@ -22,11 +22,11 @@ ms.locfileid: "69016408"
 
 ## <a name="support-coverage-and-regional-availability"></a>Support täckning och regional tillgänglighet
 
-ZRS stöder för närvarande standard konto typer för allmän användning v2. Mer information om typer av lagringskonton finns i [Översikt över Azure Storage-konton](storage-account-overview.md).
+ZRS stöder för närvarande generella typer av lagrings konton för generell användning v2 och FileStorage. Mer information om typer av lagringskonton finns i [Översikt över Azure Storage-konton](storage-account-overview.md).
 
 ZRS är tillgängligt för block-blobar, icke-diskens sid blobbar, filer, tabeller och köer.
 
-ZRS är allmänt tillgänglig i följande regioner:
+För General-Purpose v2-konton är ZRS allmänt tillgängligt i följande regioner:
 
 - Sydostasien
 - Västeuropa
@@ -38,6 +38,10 @@ ZRS är allmänt tillgänglig i följande regioner:
 - USA, östra
 - USA, östra 2
 - USA, västra 2
+
+För FileStorage-konton är ZRS allmänt tillgängligt i följande regioner:
+
+- Västeuropa
 
 Microsoft fortsätter att aktivera ZRS i ytterligare Azure-regioner. På sidan [uppdateringar för Azure-tjänsten](https://azure.microsoft.com/updates/) regelbundet hittar du information om nya regioner.
 
@@ -64,6 +68,9 @@ Det finns två primära alternativ för migrering till ZRS:
 
 - Kopiera eller flytta data manuellt till ett nytt ZRS-konto från ett befintligt konto.
 - Begär en direktmigrering.
+
+> [!IMPORTANT]
+> Direktmigrering stöds för närvarande inte för Premium-filresurser. Det finns för närvarande endast stöd för att kopiera eller flytta data manuellt.
 
 Om du vill att migreringen ska slutföras vid ett visst datum kan du utföra en manuell migrering. En manuell migrering ger större flexibilitet än en direktmigrering. Med en manuell migrering har du kontroll över tids inställningen.
 
@@ -94,7 +101,7 @@ Du kan begära en Direktmigrering via [Azure-support portalen](https://ms.portal
 4. Ange följande värden i avsnittet **problem** : 
     - **Allvarlighets grad**: Låt standardvärdet vara kvar.
     - **Problem typ**: Välj **datamigrering**.
-    - **Kategori**: Välj **migrera till ZRS inom en region**.
+    - **Kategori**: Välj **migrera till ZRS**.
     - **Rubrik**: Ange en beskrivande rubrik, till exempel **ZRS-kontots migrering**.
     - **Information**: Skriv ytterligare information i rutan **information** , till exempel om jag vill migrera till ZRS från [LRS, GRS] i \_ \_ regionen. 
 5. Välj **Nästa**.
@@ -137,7 +144,7 @@ Om du vill migrera dina data till ett ZRS-konto som finns i en annan region än 
 
 ZRS klassisk replikerar data mellan data Center i en och två regioner. Replikerade data kanske inte är tillgängliga om inte Microsoft initierar redundans till den sekundära. Ett klassiskt ZRS-konto kan inte konverteras till eller från LRS, GRS eller RA-GRS. ZRS klassiska konton stöder inte heller mått eller loggning.
 
-ZRS Classic är endast tillgängligt för **block** -blobar i GPv1-lagrings konton (General Purpose v1). Mer information om lagringskonton finns i [kontoöversikten för Azure Storage](storage-account-overview.md).
+ZRS Classic är endast tillgängligt för **block-blobar** i GPv1-lagrings konton (General Purpose v1). Mer information om lagringskonton finns i [kontoöversikten för Azure Storage](storage-account-overview.md).
 
 Om du vill migrera ZRS-Datadata manuellt till eller från ett LRS-, ZRS-klassiskt-, GRS-eller RA-GRS-konto använder du något av följande verktyg: AzCopy, Azure Storage Explorer, Azure PowerShell eller Azure CLI. Du kan också bygga en egen lösning för migrering med ett av klient biblioteken för Azure Storage.
 

@@ -3,16 +3,17 @@ title: Planera ett virtuellt nätverk för Azure HDInsight
 description: Lär dig hur du planerar en Azure Virtual Network-distribution för att ansluta HDInsight till andra moln resurser eller resurser i ditt data Center.
 author: hrasheed-msft
 ms.author: hrasheed
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 07/23/2019
-ms.openlocfilehash: a0c9c729081da9f6c7b8f549a4906d432af6ecb2
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.openlocfilehash: 2647a8c33bf777cb2d97dcfe89799097ad719ac3
+ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70961643"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71077025"
 ---
 # <a name="plan-a-virtual-network-for-azure-hdinsight"></a>Planera ett virtuellt nätverk för Azure HDInsight
 

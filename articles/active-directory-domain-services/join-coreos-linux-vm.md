@@ -1,79 +1,95 @@
 ---
-title: 'Azure Active Directory Domain Services: Anslut till en kärna Linux VM | Microsoft Docs'
-description: Anslut en virtuell Linux-dator till Azure AD Domain Services
+title: Koppla en Core-VM till Azure AD Domain Services | Microsoft Docs
+description: Lär dig hur du konfigurerar och ansluter till en virtuell dator med en kärna till en Azure AD Domain Services hanterad domän.
 services: active-directory-ds
-documentationcenter: ''
 author: iainfoulds
 manager: daveba
-editor: curtand
 ms.assetid: 5db65f30-bf69-4ea3-9ea5-add1db83fdb8
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/20/2019
+ms.date: 09/14/2019
 ms.author: iainfou
-ms.openlocfilehash: dc76d9a0d492d8ef0e37c0c34173216ff4c75164
-ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
+ms.openlocfilehash: c0c298a9aa0b9d46ec2c7510cdb5c3ba1c8c84af
+ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69990572"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71075541"
 ---
-# <a name="join-a-coreos-linux-virtual-machine-to-a-managed-domain"></a>Anslut en kärn Linux virtuell dator till en hanterad domän
-Den här artikeln visar hur du ansluter en virtuell Linux-dator i Azure till en Azure AD Domain Services hanterad domän.
+# <a name="join-a-coreos-virtual-machine-to-an-azure-ad-domain-services-managed-domain"></a>Anslut till en virtuell dator med en kärna till en Azure AD Domain Services hanterad domän
 
-[!INCLUDE [active-directory-ds-prerequisites.md](../../includes/active-directory-ds-prerequisites.md)]
+För att användarna ska kunna logga in på virtuella datorer i Azure med en enda uppsättning autentiseringsuppgifter, kan du ansluta virtuella datorer till en Azure Active Directory Domain Services (AD DS)-hanterad domän. När du ansluter en virtuell dator till en Azure AD DS-hanterad domän kan användar konton och autentiseringsuppgifter från domänen användas för att logga in och hantera servrar. Grupp medlemskap från den hanterade domänen i Azure AD DS tillämpas också så att du kan kontrol lera åtkomsten till filer och tjänster på den virtuella datorn.
 
-## <a name="before-you-begin"></a>Innan du börjar
-För att utföra de uppgifter som anges i den här artikeln behöver du:
-1. En giltig **Azure-prenumeration**.
-2. En **Azure AD-katalog** – antingen synkroniserad med en lokal katalog eller en katalog som endast är molnad.
-3. **Azure AD Domain Services** måste vara aktiverat för Azure AD-katalogen. Om du inte har gjort det följer du alla uppgifter som beskrivs i Komma igångs [guiden](tutorial-create-instance.md).
-4. Se till att du har konfigurerat IP-adresserna för den hanterade domänen som DNS-servrar för det virtuella nätverket. Mer information finns i [så här uppdaterar du DNS-inställningar för Azure Virtual Network](tutorial-create-instance.md#update-dns-settings-for-the-azure-virtual-network)
-5. Slutför de steg som krävs för att [Synkronisera lösen ord till din Azure AD Domain Services hanterade domänen](tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds).
+Den här artikeln visar hur du ansluter en virtuell dator till en Azure AD DS-hanterad domän.
 
+## <a name="prerequisites"></a>Förutsättningar
 
-## <a name="provision-a-coreos-linux-virtual-machine"></a>Etablera en virtuell Linux-dator
-Etablera en Core-virtuell dator i Azure med någon av följande metoder:
+För att slutföra den här självstudien behöver du följande resurser och behörigheter:
+
+* En aktiv Azure-prenumeration.
+    * [Skapa ett konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)om du inte har någon Azure-prenumeration.
+* En Azure Active Directory klient som är associerad med din prenumeration, antingen synkroniserad med en lokal katalog eller en katalog som endast är moln.
+    * Om det behövs kan du [skapa en Azure Active Directory klient][create-azure-ad-tenant] eller [associera en Azure-prenumeration med ditt konto][associate-azure-ad-tenant].
+* En Azure Active Directory Domain Services hanterad domän aktive rad och konfigurerad i Azure AD-klienten.
+    * Vid behov [skapar och konfigurerar][create-azure-ad-ds-instance]den första självstudien en Azure Active Directory Domain Services-instans.
+* Ett användar konto som är medlem i *Administratörs gruppen för Azure AD DC* i din Azure AD-klient.
+
+## <a name="create-and-connect-to-a-coreos-linux-vm"></a>Skapa och Anslut till en Core virtuell Linux-dator
+
+Om du har en befintlig Core virtuella Linux-dator i Azure ansluter du till den med SSH och fortsätter sedan till nästa steg för att [börja konfigurera den virtuella datorn](#configure-the-hosts-file).
+
+Om du behöver skapa en Core-virtuell Linux-dator, eller om du vill skapa en virtuell test dator för användning med den här artikeln, kan du använda någon av följande metoder:
+
 * [Azure Portal](../virtual-machines/linux/quick-create-portal.md)
 * [Azure CLI](../virtual-machines/linux/quick-create-cli.md)
 * [Azure PowerShell](../virtual-machines/linux/quick-create-powershell.md)
 
-I den här artikeln används avbildningen **Core Linux (stabil)** virtuell dator i Azure.
+När du skapar den virtuella datorn ska du tänka på inställningarna för det virtuella nätverket för att se till att den virtuella datorn kan kommunicera med den hanterade Azure AD DS-domänen:
 
-> [!IMPORTANT]
-> * Distribuera den virtuella datorn till **samma virtuella nätverk där du har aktiverat Azure AD Domain Services**.
-> * Välj ett **annat undernät** än det som du har aktiverat i Azure AD Domain Services.
->
+* Distribuera den virtuella datorn till samma eller ett peer-kopplat virtuellt nätverk där du har aktiverat Azure AD Domain Services.
+* Distribuera den virtuella datorn i ett annat undernät än Azure AD Domain Services-instansen.
 
+När den virtuella datorn har distribuerats följer du stegen för att ansluta till den virtuella datorn med SSH.
 
-## <a name="connect-remotely-to-the-newly-provisioned-linux-virtual-machine"></a>Fjärrans luta till den nyligen etablerade virtuella Linux-datorn
-Den virtuella datorns kärna har etablerats i Azure. Nästa uppgift är att fjärrans luta till den virtuella datorn med det lokala administratörs kontot som skapades när den virtuella datorn etablerades.
+## <a name="configure-the-hosts-file"></a>Konfigurera värd filen
 
-Följ instruktionerna i artikeln [så här loggar du in på en virtuell dator som kör Linux](../virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-
-
-## <a name="configure-the-hosts-file-on-the-linux-virtual-machine"></a>Konfigurera värd filen på den virtuella Linux-datorn
-I SSH-terminalen redigerar du/etc/hosts-filen och uppdaterar datorns IP-adress och värdnamn.
+För att se till att namnet på den virtuella datorns värd är korrekt konfigurerat för den hanterade domänen redigerar du */etc/hosts* -filen och anger värd namnet:
 
 ```console
 sudo vi /etc/hosts
 ```
 
-I hosts-filen anger du följande värde:
+I *hosts* -filen uppdaterar du adressen till *localhost* . I följande exempel:
+
+* *contoso.com* är DNS-domännamnet för din Azure AD DS-hanterade domän.
+* *Core* är värd namnet för den virtuella dator i kärnan som du ansluter till den hanterade domänen.
+
+Uppdatera namnen med dina egna värden:
 
 ```console
-127.0.0.1 contoso-coreos.contoso.com contoso-coreos
+127.0.0.1 coreos coreos.contoso.com
 ```
 
-Här är "contoso.com" DNS-domännamnet för din hanterade domän. Contoso-Core är värd namnet för den virtuella kärnor-dator som du ansluter till den hanterade domänen.
+När du är färdig sparar du och avslutar *hosts* - `:wq` filen med hjälp av redigerings kommandot.
 
+## <a name="configure-the-sssd-service"></a>Konfigurera SSSD-tjänsten
 
-## <a name="configure-the-sssd-service-on-the-linux-virtual-machine"></a>Konfigurera SSSD-tjänsten på den virtuella Linux-datorn
-Uppdatera sedan konfigurations filen för SSSD i ('/etc/SSSD/SSSD.conf ') så att den matchar följande exempel:
+Uppdatera */etc/SSSD/SSSD.conf* SSSD-konfigurationen.
+
+```console
+sudo vi /etc/sssd/sssd.conf
+```
+
+Ange ditt eget Azure AD DS-hanterade domän namn för följande parametrar:
+
+* *domäner* i alla versaler
+* *[domän/contoso]* där contoso är i alla versaler
+* *ldap_uri*
+* *ldap_search_base*
+* *krb5_server*
+* *krb5_realm* i alla versaler
 
 ```console
 [sssd]
@@ -102,56 +118,61 @@ krb5_server = contoso.com
 krb5_realm = CONTOSO.COM
 ```
 
-Ersätt ' CONTOSO. COM med DNS-domännamnet för din hanterade domän. Se till att du anger domän namnet i versaler i conf-filen.
+## <a name="join-the-vm-to-the-managed-domain"></a>Anslut den virtuella datorn till den hanterade domänen
 
+När konfigurations filen för SSSD har uppdaterats, så anslut nu den virtuella datorn till den hanterade domänen.
 
-## <a name="join-the-linux-virtual-machine-to-the-managed-domain"></a>Anslut den virtuella Linux-datorn till den hanterade domänen
-Nu när de nödvändiga paketen har installerats på den virtuella Linux-datorn är nästa uppgift att ansluta den virtuella datorn till den hanterade domänen.
+1. Använd `adcli info` först kommandot för att kontrol lera att du kan se information om den hanterade domänen i Azure AD DS. I följande exempel hämtas information för domänen *contoso.com*. Ange ditt eget Azure AD DS-hanterade domän namn med VERSALer:
 
-```console
-sudo adcli join -D CONTOSO.COM -U bob@CONTOSO.COM -K /etc/krb5.keytab -H contoso-coreos.contoso.com -N coreos
-```
+    ```console
+    sudo adcli info CONTOSO.COM
+    ```
 
+   `adcli info` Om kommandot inte kan hitta din Azure AD DS-hanterade domän kan du läsa följande fel söknings steg:
 
-> [!NOTE]
-> **Felsökning:** Om *adcli* inte kan hitta din hanterade domän:
->   * Se till att domänen kan kontaktas från den virtuella datorn (testa ping).
->   * Kontrol lera att den virtuella datorn verkligen har distribuerats till samma virtuella nätverk där den hanterade domänen är tillgänglig.
->   * Kontrol lera om du har uppdaterat DNS-serverinställningarna för det virtuella nätverket så att de pekar på domän kontrol Lanterna i den hanterade domänen.
+    * Kontrol lera att domänen kan kommas åt från den virtuella datorn. Försök `ping contoso.com` att se om ett positivt svar returneras.
+    * Kontrol lera att den virtuella datorn har distribuerats till samma eller ett peer-kopplat virtuella nätverk där Azure AD DS-hanterad domän är tillgänglig.
+    * Bekräfta att DNS-serverinställningarna för det virtuella nätverket har uppdaterats så att de pekar på domän kontrol Lanterna för den hanterade domänen i Azure AD DS.
 
-Starta SSSD-tjänsten. Skriv följande kommando i SSH-terminalen:
+1. Nu ansluter du den virtuella datorn till den hanterade Azure AD DS `adcli join` -domänen med hjälp av kommandot. Ange en användare som tillhör gruppen *AAD DC-administratörer* . Om det behövs [lägger du till ett användar konto i en grupp i Azure AD](../active-directory/fundamentals/active-directory-groups-members-azure-portal.md).
+
+    Azure AD DS-hanterade domän namnet måste anges i alla VERSALer. I följande exempel används kontot som heter `contosoadmin@contoso.com` för att initiera Kerberos. Ange ditt eget användar konto som är medlem i gruppen *AAD DC-administratörer* .
+
+    ```console
+    sudo adcli join -D CONTOSO.COM -U contosoadmin@CONTOSO.COM -K /etc/krb5.keytab -H coreos.contoso.com -N coreos
+    ```
+
+    `adcli join` Kommandot returnerar inte någon information när den virtuella datorn har anslutits till den hanterade domänen i Azure AD DS.
+
+1. Om du vill tillämpa konfigurationen för domän anslutning startar du SSSD-tjänsten:
   
-```console
-sudo systemctl start sssd.service
-```
-
-
-## <a name="verify-domain-join"></a>Verifiera domän anslutning
-Kontrol lera om datorn har anslutits till den hanterade domänen. Anslut till den domänbaserade kärnan i den virtuella datorn med en annan SSH-anslutning. Använd ett domän användar konto och kontrol lera sedan för att se om användar kontot har lösts korrekt.
-
-1. I SSH-terminalen skriver du följande kommando för att ansluta till den domänanslutna virtuella datorn med SSH. Använd ett domän konto som tillhör den hanterade domänen (till exempel "bob@CONTOSO.COM" i det här fallet.)
-    
     ```console
-    ssh -l bob@CONTOSO.COM contoso-coreos.contoso.com
+    sudo systemctl start sssd.service
     ```
 
-2. I SSH-terminalen skriver du följande kommando för att se om arbets katalogen har initierats korrekt.
-    
+## <a name="sign-in-to-the-vm-using-a-domain-account"></a>Logga in på den virtuella datorn med ett domän konto
+
+Verifiera att den virtuella datorn har anslutits till den hanterade Azure AD DS-domänen genom att starta en ny SSH-anslutning med ett domän användar konto. Bekräfta att en arbets katalog har skapats och att grupp medlemskapet från domänen används.
+
+1. Skapa en ny SSH-anslutning från-konsolen. Använd ett domän konto som tillhör den hanterade domänen med hjälp `ssh -l` av kommandot, `contosoadmin@contoso.com` till exempel och ange sedan den virtuella datorns adress, till exempel *CoreOS.contoso.com*. Om du använder Azure Cloud Shell använder du den offentliga IP-adressen för den virtuella datorn i stället för det interna DNS-namnet.
+
     ```console
-    pwd
+    ssh -l contosoadmin@CONTOSO.com coreos.contoso.com
     ```
 
-3. I SSH-terminalen skriver du följande kommando för att se om grupp medlemskapen har lösts korrekt.
-   
+1. Kontrol lera nu att grupp medlemskapen har lösts korrekt:
+
     ```console
     id
     ```
 
+    Du bör se dina grupp medlemskap från den hanterade domänen i Azure AD DS.
 
-## <a name="troubleshooting-domain-join"></a>Felsöka domän anslutning
-Se artikeln [fel söknings domän anslutning](join-windows-vm.md#troubleshoot-domain-join-issues) .
+## <a name="next-steps"></a>Nästa steg
 
-## <a name="related-content"></a>Relaterat innehåll
-* [Azure AD Domain Services-Komma igång guide](tutorial-create-instance.md)
-* [Ansluta en virtuell Windows Server-dator till en Azure AD Domain Services hanterad domän](active-directory-ds-admin-guide-join-windows-vm.md)
-* [Logga in på en virtuell dator som kör Linux](../virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Om du har problem med att ansluta den virtuella datorn till den hanterade domänen i Azure AD DS eller logga in med ett domän konto, se [fel sökning av problem med domän anslutning](join-windows-vm.md#troubleshoot-domain-join-issues).
+
+<!-- INTERNAL LINKS -->
+[create-azure-ad-tenant]: ../active-directory/fundamentals/sign-up-organization.md
+[associate-azure-ad-tenant]: ../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md
+[create-azure-ad-ds-instance]: tutorial-create-instance.md

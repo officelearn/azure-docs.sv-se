@@ -9,12 +9,12 @@ ms.date: 04/23/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 7fca5709a1c7c3ecae11a5fc7de2109f1b20645e
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: e2bfc65ad8fafa07de6e3727d651fccabaddc90e
+ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68839576"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71077257"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-for-linux-devices"></a>Självstudier: Utveckla en C# IoT Edge-modul för Linux-enheter
 
@@ -36,7 +36,7 @@ IoT Edge-modulen du skapar i den här självstudien filtrerar temperaturdata som
 
 Den här självstudien visar hur du utvecklar **C#** en modul i med hjälp av **Visual Studio Code**och hur du distribuerar den till en **Linux-enhet**. Om du utvecklar moduler för Windows-enheter går du till [utveckla en C# IoT Edge-modul för Windows-enheter](tutorial-csharp-module-windows.md) i stället.
 
-Använd följande tabell för att förstå alternativen för att utveckla och distribuera C-moduler till Linux: 
+Använd följande tabell för att förstå alternativen för att utveckla och distribuera C# moduler till Linux: 
 
 | C# | Visual Studio-koden | Visual Studio | 
 | -- | ------------------ | ------------- |

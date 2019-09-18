@@ -4,7 +4,7 @@ description: Lär dig hur du använder PerfInsights för att felsöka prestanda 
 services: virtual-machines-windows'
 documentationcenter: ''
 author: anandhms
-manager: cshepard
+manager: dcscontentpm
 editor: na
 tags: ''
 ms.service: virtual-machines-windows
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: eace9c196ebd9f71b7a6f2bac7a59f581e6f313f
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 783b479dd3e5f429516799d7d3ea82f363cac2ec
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70090462"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71058178"
 ---
 # <a name="how-to-use-perfinsights"></a>Så här använder du PerfInsights
 
@@ -242,7 +242,7 @@ Följ dessa steg om du vill köra PerfInsights-verktyget:
     >
     >PerfInsights kommer som standard att försöka uppdatera sig till den senaste versionen om den är tillgänglig. Använd **/SkipAutoUpdate** -eller **/SAU** -parametern för att hoppa över automatisk uppdatering.  
     >
-    >Om du inte anger parametern duration PerfInsights uppmanas du att återskapnings problemet när du kör vmslow, migreringsåtgärden och avancerade scenarier. 
+    >Om du inte anger **parametern duration** PerfInsights uppmanas du att återskapnings problemet när du kör vmslow, migreringsåtgärden och avancerade scenarier. 
 
 När spårningen eller åtgärderna har slutförts visas en ny fil i samma mapp som PerfInsights. Namnet på filen är **PerformanceDiagnostics\_åååå-mm-dd\_HH-mm-SS-FFF. zip.** Du kan skicka filen till support agenten för analys eller öppna rapporten i zip-filen för att granska resultat och rekommendationer.
 
@@ -280,7 +280,7 @@ Om den virtuella mål datorn är värd för några SQL Server instanser visas yt
 
 ![Skärm bild av fliken SQL](media/how-to-use-perfInsights/pi-sql-tab.png)
 
-Det här avsnittet innehåller en flik och ytterligare flikar för var och en av de SQL Server instanser som finns på den virtuella datorn.
+Det här avsnittet innehåller **en flik** och ytterligare flikar för var och en av de SQL Server instanser som finns på den virtuella datorn.
 
 Fliken **konstaterande** innehåller en lista över alla SQL-relaterade prestanda problem som har hittats, tillsammans med rekommendationerna.
 

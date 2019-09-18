@@ -1,10 +1,10 @@
 ---
-title: Hantera Azure reserverade IP-adresser (klassisk) | Microsoft Docs
+title: Hantera reserverade IP-adresser i Azure (klassisk) | Microsoft Docs
 description: Förstå reserverade IP-adresser (klassisk) och hur du hanterar dem med hjälp av Azure PowerShell och Azure CLI.
 services: virtual-network
 documentationcenter: na
 author: genlin
-manager: cshepard
+manager: dcscontentpm
 editor: tysonn
 ms.assetid: 34652a55-3ab8-4c2d-8fb2-43684033b191
 ms.service: virtual-network
@@ -14,54 +14,54 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/12/2018
 ms.author: genli
-ms.openlocfilehash: 8afed4eb1add0ba3a7db474e54b2f78a0babab06
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 675e7a7b557a3f19ea4d8d4960316c3859cbb9c1
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60789085"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71058480"
 ---
-# <a name="reserved-ip-addresses-classic-deployment"></a>Reserverade IP-adresser (klassisk distribution)
+# <a name="reserved-ip-addresses-classic-deployment"></a>Reserverad IP adresser (klassisk distribution)
 
- IP-adresser i Azure är indelade i två kategorier: dynamiska och reserverade. Offentliga IP-adresser som hanteras av Azure är dynamiska som standard. Det innebär att IP-adress används för en viss molntjänst (VIP) eller för att få åtkomst till en virtuell dator eller rollinstans direkt (ILPIP) kan ändras från tid till annan när resurser stängdes av eller Stoppad (frigjord).
+ IP-adresser i Azure hamnar i två kategorier: dynamiska och reserverade. Offentliga IP-adresser som hanteras av Azure är dynamiska som standard. Det innebär att den IP-adress som används för en specifik moln tjänst (VIP) eller åtkomst till en virtuell dator eller roll instans direkt (ILPIP) kan ändras från tiden till en gång, när resurser stängs av eller stoppas (frigörs).
 
-Förhindra att IP-adresser ändras, kan du reservera en IP-adress. Reserverade IP-adresser kan endast användas som en VIP, se till att IP-adressen för Molntjänsten förblir detsamma även när resurser stängdes av eller Stoppad (frigjord). Du kan dessutom konvertera befintliga dynamiska IP-adresser används som en VIP-adress till en reserverad IP-adress.
+För att förhindra att IP-adresser ändras kan du reservera en IP-adress. Reserverade IP-adresser kan endast användas som VIP-adresser, vilket säkerställer att moln tjänstens IP-adress förblir densamma, även om resurserna stängs av eller stoppas (frigörs). Du kan dessutom konvertera befintliga dynamiska IP-adresser som används som VIP till en reserverad IP-adress.
 
 > [!IMPORTANT]
-> Azure har två olika distributionsmodeller som används för att skapa och arbeta med resurser:  [Resource Manager och klassisk](../azure-resource-manager/resource-manager-deployment-model.md). Den här artikeln beskriver den klassiska distributionsmodellen. Microsoft rekommenderar att de flesta nya distributioner använder Resource Manager-modellen. Lär dig att reservera en statisk offentlig IP-adress med hjälp av den [Resource Manager-distributionsmodellen](virtual-network-ip-addresses-overview-arm.md).
+> Azure har två olika distributionsmodeller som används för att skapa och arbeta med resurser:  [Resource Manager och klassisk](../azure-resource-manager/resource-manager-deployment-model.md). Den här artikeln beskriver den klassiska distributionsmodellen. Microsoft rekommenderar att de flesta nya distributioner använder Resource Manager-modellen. Lär dig hur du reserverar en statisk offentlig IP-adress med hjälp av [distributions modellen för Resource Manager](virtual-network-ip-addresses-overview-arm.md).
 
-Mer information om IP-adresser i Azure den [IP-adresser](virtual-network-ip-addresses-overview-classic.md) artikeln.
+Läs mer om IP-adresser i Azure i artikeln [IP-adresser](virtual-network-ip-addresses-overview-classic.md) .
 
-## <a name="when-do-i-need-a-reserved-ip"></a>När behöver jag en reserverad IP
-* **Du vill säkerställa att den IP-Adressen är reserverad i din prenumeration**. Om du vill reservera en IP-adress som inte har släppts från prenumerationen under några omständigheter, bör du använda en reserverade offentliga IP-adress.  
-* **Du vill att din IP-adress att hålla din molntjänst även över stoppas eller frigöras tillstånd (VM)** . Om du vill att din tjänst som kan nås med hjälp av en IP-adress ändras som inte, även när virtuella datorer i Molntjänsten stängdes av eller stoppa (frigjord).
-* **Du vill kontrollera att utgående trafik från Azure använder en förutsägbar IP-adress**. Du kan ha den lokala brandväggen konfigurerade, så att endast trafik från specifika IP-adresser. Genom att reservera en IP-adress du vet källans IP-adress och behöver inte uppdatera brandväggsreglerna på grund av ett IP-ändring.
+## <a name="when-do-i-need-a-reserved-ip"></a>När behöver jag en reserverad IP-adress?
+* **Du vill se till att IP-adressen är reserverad i din prenumeration**. Om du vill reservera en IP-adress som inte har släppts från din prenumeration under någon omständighet bör du använda en reserverad offentlig IP-adress.  
+* **Du vill att din IP-adress ska hållas kvar med moln tjänsten även om den har stoppats eller frigjorts (VM)** . Om du vill att tjänsten ska nås med en IP-adress som inte ändras, även när virtuella datorer i moln tjänsten stängs av eller stoppas (frigörs).
+* **Du vill säkerställa att utgående trafik från Azure använder en förutsägbar IP-adress**. Du kanske har konfigurerat den lokala brand väggen så att den endast tillåter trafik från vissa IP-adresser. Genom att reservera en IP-adress känner du till Källans IP-adress och behöver inte uppdatera brand Väggs reglerna på grund av en IP-förändring.
 
 ## <a name="faqs"></a>Vanliga frågor och svar
 - Kan jag använda en reserverad IP-adress för alla Azure-tjänster?
-    Nej. Reserverade IP-adresser kan endast användas för virtuella datorer och instans molntjänstroller exponeras via en VIP.
+    Nej. Reserverade IP-adresser kan endast användas för virtuella datorer och moln tjänst instans roller som exponeras via en VIP.
 - Hur många reserverade IP-adresser kan jag ha?
-    Mer information finns i [Azure-begränsningar](../azure-subscription-service-limits.md#networking-limits) artikeln.
-- Finns det någon kostnad för reserverad IP-adresser?
-    Ibland. Information om prissättning finns i den [reserverade IP-adress prisinformation om](https://go.microsoft.com/fwlink/?LinkID=398482) sidan.
-- Hur jag för att reservera en IP-adress?
-    Du kan använda PowerShell, den [Azure Management REST API](https://msdn.microsoft.com/library/azure/dn722420.aspx), eller [Azure-portalen](https://portal.azure.com) att reservera en IP-adress i en Azure-region. En reserverad IP-adress är kopplad till din prenumeration.
-- Kan jag använda en reserverad IP med tillhörighetsgrupp-baserade virtuella nätverk?
-    Nej. Reserverade IP-adresser stöds endast i regionala virtuella nätverk. Reserverade IP-adresser stöds inte för virtuella nätverk som är associerade med tillhörighetsgrupper. Mer information om hur du kopplar ett virtuellt nätverk med en region eller tillhörighetsgrupp finns i den [om regionala virtuella nätverk och Tillhörighetsgrupper](virtual-networks-migrate-to-regional-vnet.md) artikeln.
+    Mer information finns i artikeln om [Azure-begränsningar](../azure-subscription-service-limits.md#networking-limits) .
+- Debiteras du för reserverade IP-adresser?
+    Omständigheter. Pris information finns på sidan med [pris information för reserverad IP-adressen](https://go.microsoft.com/fwlink/?LinkID=398482) .
+- Hur gör jag för att reservera en IP-adress?
+    Du kan använda PowerShell, [Azures hanterings REST API](https://msdn.microsoft.com/library/azure/dn722420.aspx)eller [Azure Portal](https://portal.azure.com) för att reservera en IP-adress i en Azure-region. En reserverad IP-adress är kopplad till din prenumeration.
+- Kan jag använda en reserverad IP med tillhörighets grupp baserad virtuella nätverk?
+    Nej. Reserverade IP-adresser stöds bara i regionala virtuella nätverk. Reserverade IP-adresser stöds inte för virtuella nätverk som är associerade med tillhörighets grupper. Mer information om hur du kopplar ett VNet med en region eller tillhörighets grupp finns i artikeln [om regional virtuella nätverk och tillhörighets grupper](virtual-networks-migrate-to-regional-vnet.md) .
 
 ## <a name="manage-reserved-vips"></a>Hantera reserverade virtuella IP-adresser
 
-### <a name="using-azure-powershell-classic"></a>Med Azure PowerShell (klassisk)
+### <a name="using-azure-powershell-classic"></a>Använda Azure PowerShell (klassisk)
 
-Innan du kan använda reserverade IP-adresser, måste du lägga till den prenumerationen. Skapa en reserverad IP-adress från poolen med offentliga IP-adresser som är tillgängliga i den *centrala USA* plats på följande sätt:
+Innan du kan använda reserverade IP-adresser måste du lägga till det i din prenumeration. Skapa en reserverad IP-adress från poolen med offentliga IP-adresser som är tillgängliga på den *centrala amerikanska* platsen enligt följande:
 
 > [!NOTE]
-> För klassiska distributionsmodellen måste du installera Service Management-versionen av Azure PowerShell. Läs mer i informationen om hur du [installerar Azure PowerShell Service Management-modulen](https://docs.microsoft.com/powershell/azure/servicemanagement/install-azure-ps?view=azuresmps-4.0.0). 
+> För den klassiska distributions modellen måste du installera Service Management-versionen av Azure PowerShell. Läs mer i informationen om hur du [installerar Azure PowerShell Service Management-modulen](https://docs.microsoft.com/powershell/azure/servicemanagement/install-azure-ps?view=azuresmps-4.0.0). 
 
   ```powershell
     New-AzureReservedIP –ReservedIPName MyReservedIP –Location "Central US"
   ```
-Observera att du inte kan ange vad IP som reserverats. Kör följande PowerShell-kommando om du vill visa vilka IP-adresser är reserverade i din prenumeration, och Lägg märke till värdena för *ReservedIPName* och *adress*:
+Observera dock att du inte kan ange vilken IP-adress som ska reserveras. Om du vill se vilka IP-adresser som är reserverade i din prenumeration kör du följande PowerShell-kommando och märker värdena för *ReservedIPName* och *address*:
 
 ```powershell
 Get-AzureReservedIP
@@ -83,22 +83,22 @@ Förväntad utdata:
     OperationStatus      : Succeeded
 
 >[!NOTE]
->När du skapar en reserverad IP-adress med PowerShell kan ange du inte en resursgrupp för att skapa den reserverade IP-Adressen i. Azure platser som den i en resursgrupp med namnet *standard-nätverk* automatiskt. Om du skapar en reserverad IP med hjälp av den [Azure-portalen](https://portal.azure.com), du kan ange valfri resursgrupp som du väljer. Om du skapar den reserverade IP-Adressen i en resursgrupp än *standard-nätverk* dock när du refererar till den reserverade IP-Adressen med kommandon som `Get-AzureReservedIP` och `Remove-AzureReservedIP`, måste du referera till namnet  *Gruppera Resursgruppsnamn-reserverade ip-namn*.  Exempel: Om du skapar en reserverad IP med namnet *myReservedIP* i en resursgrupp med namnet *myResourceGroup*, måste du referera till namnet på den reserverade IP-Adressen som *grupp myResourceGroup myReservedIP*.   
+>När du skapar en reserverad IP-adress med PowerShell kan du inte ange en resurs grupp för att skapa den reserverade IP-adressen i. Azure placerar det i en resurs grupp med namnet *standard-nätverk* automatiskt. Om du skapar den reserverade IP-adressen med [Azure Portal](https://portal.azure.com)kan du ange vilken resurs grupp du väljer. Om du skapar en reserverad IP-adress i en annan resurs grupp än *standard nätverk* men när du refererar till den reserverade IP- `Get-AzureReservedIP` adressen `Remove-AzureReservedIP`med kommandon som och, måste du referera till namn *gruppen resurs-grupp-namn reserverat-IP-namn*.  Om du till exempel skapar en reserverad IP-adress med namnet *myReservedIP* i en resurs grupp med namnet *myResourceGroup*, måste du referera till namnet på den reserverade IP-adressen som *Group myResourceGroup myReservedIP*.   
 
 
-När en IP-adress är reserverat fortfarande det kopplad till prenumerationen tills du tar bort den. Ta bort en reserverad IP-adress enligt följande:
+När en IP-adress har reserver ATS förblir den kopplad till din prenumeration tills du tar bort den. Ta bort en reserverad IP-adress enligt följande:
 
 ```powershell
 Remove-AzureReservedIP -ReservedIPName "MyReservedIP"
 ```
 
-### <a name="using-azure-cli-classic"></a>Med Azure CLI (klassisk)
-Skapa en reserverad IP-adress från poolen med offentliga IP-adresser som är tillgängliga i den *centrala USA* plats som använder Azure klassiskt CLI följer:
+### <a name="using-azure-cli-classic"></a>Använda Azure CLI (klassisk)
+Skapa en reserverad IP-adress från poolen med offentliga IP-adresser som är tillgängliga på den *centrala amerikanska* platsen som att använda den klassiska Azure-CLI:
 
 > [!NOTE]
-> Du måste använda Azure klassiskt CLI för klassisk distribution. Information om hur du installerar Azure klassiskt CLI finns i [installera den klassiska Azure CLI](https://docs.microsoft.com/cli/azure/install-classic-cli?view=azure-cli-latest)
+> För klassisk distribution måste du använda Azure klassisk CLI. Information om hur du installerar den klassiska Azure CLI finns i [installera den klassiska Azure-CLI: en](https://docs.microsoft.com/cli/azure/install-classic-cli?view=azure-cli-latest)
   
- Kommandot:
+ Kommandoprompt
  
 ```azurecli
 azure network reserved-ip create <name> <location>
@@ -108,15 +108,15 @@ Exempel:
  azure network reserved-ip create MyReservedIP centralus
  ```
 
-Du kan visa vilka IP-adresser är reserverade i din prenumeration med Azure CLI på följande sätt: 
+Du kan se vilka IP-adresser som är reserverade i din prenumeration med Azure CLI på följande sätt: 
 
-Kommandot:
+Kommandoprompt
 ```azurecli
 azure network reserved-ip list
 ```
-När en IP-adress är reserverat fortfarande det kopplad till prenumerationen tills du tar bort den. Ta bort en reserverad IP-adress enligt följande:
+När en IP-adress har reserver ATS förblir den kopplad till din prenumeration tills du tar bort den. Ta bort en reserverad IP-adress enligt följande:
 
-Kommandot:
+Kommandoprompt
 
  ```azurecli
  azure network reserved-ip delete <name>
@@ -125,18 +125,18 @@ Kommandot:
  ```azurecli
  azure network reserved-ip delete MyReservedIP
  ```
-## <a name="reserve-the-ip-address-of-an-existing-cloud-service"></a>Reserverad IP-adressen för en befintlig molntjänst
-Du kan reservera IP-adressen för en befintlig molntjänst genom att lägga till den `-ServiceName` parametern. Reservera IP-adressen för en molntjänst *TestService* i den *centrala USA* plats på följande sätt:
+## <a name="reserve-the-ip-address-of-an-existing-cloud-service"></a>Reservera IP-adressen för en befintlig moln tjänst
+Du kan reservera IP-adressen för en befintlig moln tjänst genom att lägga `-ServiceName` till parametern. Reservera IP-adressen för en moln tjänst *TestService* på den *centrala amerikanska* platsen enligt följande:
 
-- Med Azure PowerShell (klassisk):
+- Använda Azure PowerShell (klassisk):
 
   ```powershell
   New-AzureReservedIP –ReservedIPName MyReservedIP –Location "Central US" -ServiceName TestService
   ```
 
-- Med Azure CLI (klassisk):
+- Använda Azure CLI (klassisk):
   
-    Kommandot:
+    Kommandoprompt
 
     ```azurecli
      azure network reserved-ip create <name> <location> -r <service-name> -d <deployment-name>
@@ -147,10 +147,10 @@ Du kan reservera IP-adressen för en befintlig molntjänst genom att lägga till
       azure network reserved-ip create MyReservedIP centralus -r TestService -d asmtest8942
     ```
 
-## <a name="associate-a-reserved-ip-to-a-new-cloud-service"></a>Associera en reserverad IP-adress till en ny molntjänst
-Följande skript skapar en ny reserverad IP och sedan kopplar det till en ny molntjänst med namnet *TestService*.
+## <a name="associate-a-reserved-ip-to-a-new-cloud-service"></a>Koppla en reserverad IP-adress till en ny moln tjänst
+Följande skript skapar en ny reserverad IP och kopplar den sedan till en ny moln tjänst med namnet *TestService*.
 
-### <a name="using-azure-powershell-classic"></a>Med Azure PowerShell (klassisk)
+### <a name="using-azure-powershell-classic"></a>Använda Azure PowerShell (klassisk)
 ```powershell
 New-AzureReservedIP –ReservedIPName MyReservedIP –Location "Central US"
 
@@ -161,20 +161,20 @@ New-AzureVMConfig -Name TestVM -InstanceSize Small -ImageName $image.ImageName `
 | New-AzureVM -ServiceName TestService -ReservedIPName MyReservedIP -Location "Central US"
 ```
 > [!NOTE]
-> När du skapar en reserverad IP-adress ska användas med en molnbaserad tjänst kan du fortfarande referera till den virtuella datorn genom att använda *VIP:&lt;portnummer >* för inkommande kommunikation. Reservera en IP-adress betyder inte kan ansluta till den virtuella datorn direkt. Den reserverade IP-Adressen tilldelas till den molntjänst som den virtuella datorn har distribuerats till. Om du vill ansluta direkt till en virtuell dator efter IP måste du konfigurera en offentlig IP på instansnivå. En offentlig IP på instansnivå är en typ av offentlig IP-adress (kallas en ILPIP) som tilldelas direkt till den virtuella datorn. Det går inte att reservera. Mer information finns i [på instansnivå offentliga IP (ILPIP)](virtual-networks-instance-level-public-ip.md) artikeln.
+> När du skapar en reserverad IP-adress som ska användas med en moln tjänst refererar du fortfarande till den virtuella datorn med hjälp av *VIP:&lt;port nummer >* för inkommande kommunikation. Att reservera en IP-adress innebär inte att du kan ansluta till den virtuella datorn direkt. Den reserverade IP-adressen är tilldelad till den moln tjänst som den virtuella datorn har distribuerats till. Om du vill ansluta till en virtuell dator via IP direkt måste du konfigurera en offentlig IP-adress på instans nivå. En offentlig IP-adress på instans nivå är en typ av offentlig IP-adress (kallas en ILPIP) som tilldelas direkt till den virtuella datorn. Den kan inte reserveras. Mer information finns i artikeln [offentlig IP på instansnivå (ILPIP)](virtual-networks-instance-level-public-ip.md) .
 > 
 
-## <a name="remove-a-reserved-ip-from-a-running-deployment"></a>Ta bort en reserverad IP-adress från en distribution som körs
+## <a name="remove-a-reserved-ip-from-a-running-deployment"></a>Ta bort en reserverad IP-adress från en pågående distribution
 
-Ta bort en reserverad IP-adress som läggs till en ny molntjänst på följande sätt: 
-### <a name="using-azure-powershell-classic"></a>Med Azure PowerShell (klassisk)
+Ta bort en reserverad IP-adress som lagts till i en ny moln tjänst enligt följande: 
+### <a name="using-azure-powershell-classic"></a>Använda Azure PowerShell (klassisk)
 
 ```powershell
 Remove-AzureReservedIPAssociation -ReservedIPName MyReservedIP -ServiceName TestService
 ```
 
-### <a name="using-azure-cli-classic"></a>Med Azure CLI (klassisk)
-Kommandot:
+### <a name="using-azure-cli-classic"></a>Använda Azure CLI (klassisk)
+Kommandoprompt
 
 ```azurecli
 azure network reserved-ip disassociate <name> <service-name> <deployment-name>
@@ -187,12 +187,12 @@ azure network reserved-ip disassociate MyReservedIP TestService asmtest8942
 ```
 
 > [!NOTE]
-> Ta bort en reserverad IP-adress från en distribution som körs tar inte bort reservationen från prenumerationen. Det helt enkelt Frigör IP-Adressen som ska användas av en annan resurs i din prenumeration.
+> Att ta bort en reserverad IP-adress från en pågående distribution tar inte bort reservationen från din prenumeration. Den frigör bara IP-adressen som ska användas av en annan resurs i din prenumeration.
 > 
 
-Om du vill ta bort en reserverad IP helt från en prenumeration, kör du följande kommando:
+Om du vill ta bort en reserverad IP-adress helt från en prenumeration kör du följande kommando:
 
-Kommandot:
+Kommandoprompt
 
 ```azurecli
 azure network reserved-ip delete <name>
@@ -203,11 +203,11 @@ Exempel:
 azure network reserved-ip delete MyReservedIP
 ```
 
-## <a name="associate-a-reserved-ip-to-a-running-deployment"></a>Associera en reserverad IP-adress till en distribution som körs
+## <a name="associate-a-reserved-ip-to-a-running-deployment"></a>Koppla en reserverad IP-adress till en distribution som körs
 
-### <a name="using-azure-powershell-classic"></a>Med Azure PowerShell (klassisk)
+### <a name="using-azure-powershell-classic"></a>Använda Azure PowerShell (klassisk)
 
-Följande kommandon för att skapa en molntjänst med namnet *TestService2* med en ny virtuell dator med namnet *TestVM2*. Den befintliga reserverade IP med namnet *MyReservedIP* är sedan som är kopplad till Molntjänsten.
+Följande kommandon skapar en moln tjänst med namnet *TestService2* med en ny virtuell dator med namnet *TestVM2*. Den befintliga reserverade IP-adressen som heter *MyReservedIP* är sedan kopplad till moln tjänsten.
 
 ```powershell
 $image = Get-AzureVMImage|?{$_.ImageName -like "*RightImage-Windows-2012R2-x64*"}
@@ -219,10 +219,10 @@ New-AzureVMConfig -Name TestVM2 -InstanceSize Small -ImageName $image.ImageName 
 Set-AzureReservedIPAssociation -ReservedIPName MyReservedIP -ServiceName TestService2
 ```
 
-### <a name="using-azure-cli-classic"></a>Med Azure CLI (klassisk)
-Du kan associera en ny reserverad IP för att köra tjänsten molndistributionen med Azure CLI på följande sätt:
+### <a name="using-azure-cli-classic"></a>Använda Azure CLI (klassisk)
+Du kan associera en ny reserverad IP-adress till moln tjänst distributionen som körs med hjälp av Azure CLI enligt följande:
 
-Kommandot:
+Kommandoprompt
 ```azurecli
 azure network reserved-ip associate <name> <service-name> <deployment-name>
 ```
@@ -230,8 +230,8 @@ Exempel:
 ```azurecli
 azure network reserved-ip associate MyReservedIP TestService asmtest8942
 ```
-## <a name="associate-a-reserved-ip-to-a-cloud-service-by-using-a-service-configuration-file"></a>Associera en reserverad IP-adress till en molntjänst med hjälp av en tjänstkonfigurationsfil
-Du kan även associera en reserverad IP-adress till en molntjänst med hjälp av en tjänstkonfigurationsfilen (CSCFG). Följande exempel xml visar hur du konfigurerar en molnbaserad tjänst för att använda en reserverade VIP-adress med namnet *MyReservedIP*:
+## <a name="associate-a-reserved-ip-to-a-cloud-service-by-using-a-service-configuration-file"></a>Koppla en reserverad IP-adress till en moln tjänst med hjälp av en tjänst konfigurations fil
+Du kan också associera en reserverad IP-adress till en moln tjänst genom att använda en tjänst konfigurations fil (CSCFG). Följande XML-exempel visar hur du konfigurerar en moln tjänst för att använda en reserverad VIP med namnet *MyReservedIP*:
 ```
    <?xml version="1.0" encoding="utf-8"?>
     <ServiceConfiguration serviceName="ReservedIPSample" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceConfiguration" osFamily="4" osVersion="*" schemaVersion="2014-01.2.3">
@@ -251,7 +251,7 @@ Du kan även associera en reserverad IP-adress till en molntjänst med hjälp av
     </ServiceConfiguration>
 ```
 ## <a name="next-steps"></a>Nästa steg
-* Förstå hur [IP-adressering](virtual-network-ip-addresses-overview-classic.md) fungerar i den klassiska distributionsmodellen.
-* Lär dig mer om [reserverade privata IP-adresser](virtual-networks-reserved-private-ip.md).
-* Lär dig mer om [instans på offentliga IP (ILPIP) adresser](virtual-networks-instance-level-public-ip.md).
+* Förstå hur [IP-adresser](virtual-network-ip-addresses-overview-classic.md) fungerar i den klassiska distributions modellen.
+* Läs mer om [reserverade privata IP-adresser](virtual-networks-reserved-private-ip.md).
+* Lär dig mer om [offentliga IP-adresser på instans nivå (ILPIP)](virtual-networks-instance-level-public-ip.md).
 

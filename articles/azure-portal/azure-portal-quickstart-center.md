@@ -1,6 +1,6 @@
 ---
 title: Översikt över Azure Portal | Microsoft Docs
-description: Använd en guidad upplevelse för att komma igång med Azure
+description: Använd den guidade guiden för Azure snabb start Center för att komma igång med Azure
 services: azure-portal
 keywords: ''
 author: kfollis
@@ -9,12 +9,12 @@ ms.date: 09/13/2019
 ms.topic: conceptual
 ms.service: azure-portal
 manager: mtillman
-ms.openlocfilehash: 2dd34c11bc6a8d09c8a375cf73e5efad4fceff04
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 5086198a4e4efafe3ac05f1f182f7f09d867a709
+ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71004259"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71076740"
 ---
 # <a name="get-started-with-the-azure-quickstart-center"></a>Kom igång med Azure snabb start Center
 

@@ -1,10 +1,10 @@
 ---
 title: Konfigurera privata IP-adresser för virtuella datorer (klassisk) – Azure PowerShell | Microsoft Docs
-description: Lär dig hur du konfigurerar den privata IP-adresser för virtuella datorer (klassisk) med hjälp av PowerShell.
+description: Lär dig hur du konfigurerar privata IP-adresser för virtuella datorer (klassisk) med hjälp av PowerShell.
 services: virtual-network
 documentationcenter: na
 author: genlin
-manager: cshepard
+manager: dcscontentpm
 editor: tysonn
 tags: azure-service-management
 ms.assetid: 60c7b489-46ae-48af-a453-2b429a474afd
@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 02/02/2016
 ms.author: genli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a1be2966cf568fc5101fb0d887f0d55a8a1876d0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 00a4f282da3a943516ffce584247ac20935526b5
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65952497"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71058710"
 ---
 # <a name="configure-private-ip-addresses-for-a-virtual-machine-classic-using-powershell"></a>Konfigurera privata IP-adresser för en virtuell dator (klassisk) med hjälp av PowerShell
 
@@ -35,10 +35,10 @@ Den här artikeln beskriver hur du gör om du använder den klassiska distributi
 
 [!INCLUDE [virtual-networks-static-ip-scenario-include](../../includes/virtual-networks-static-ip-scenario-include.md)]
 
-Exemplet PowerShell-kommandona nedan förväntar sig en enkel miljö som redan har skapats. Om du vill köra kommandona i det här dokumentet visas först skapa testmiljön som beskrivs i [skapar ett virtuellt nätverk](virtual-networks-create-vnet-classic-netcfg-ps.md).
+PowerShell-kommandona nedan förväntar sig en enkel miljö som redan har skapats. Om du vill köra kommandona som de visas i det här dokumentet skapar du först test miljön som beskrivs i [skapa ett VNet](virtual-networks-create-vnet-classic-netcfg-ps.md).
 
-## <a name="how-to-verify-if-a-specific-ip-address-is-available"></a>Så här verifierar du om en specifik IP-adress är tillgänglig
-Kontrollera om IP-adressen *192.168.1.101* är tillgänglig i ett virtuellt nätverk med namnet *TestVNet*, kör följande kommando i PowerShell och kontrollera värdet för *IsAvailable*:
+## <a name="how-to-verify-if-a-specific-ip-address-is-available"></a>Så här kontrollerar du om en speciell IP-adress är tillgänglig
+Kontrol lera att IP- *192.168.1.101* är tillgänglig i ett VNet med namnet *TestVNet*genom att köra följande PowerShell-kommando och kontrol lera värdet för *IsAvailable*:
 
     Test-AzureStaticVNetIP –VNetName TestVNet –IPAddress 192.168.1.101 
 
@@ -51,7 +51,7 @@ Förväntad utdata:
     OperationStatus      : Succeeded
 
 ## <a name="how-to-specify-a-static-private-ip-address-when-creating-a-vm"></a>Så här anger du en statisk privat IP-adress när du skapar en virtuell dator
-PowerShell-skriptet nedan skapar en ny molntjänst med namnet *TestService*, hämtar en bild från Azure, skapar en virtuell dator med namnet *DNS01* i den nya Molntjänsten med den hämtade avbildningen anger den virtuella datorn till finnas i ett undernät med namnet *klientdel*, och anger *192.168.1.7* som en statisk privat IP-adress för den virtuella datorn:
+PowerShell-skriptet nedan skapar en ny moln tjänst med namnet *TestService*och hämtar sedan en avbildning från Azure, skapar en virtuell dator med namnet *DNS01* i den nya moln tjänsten med den hämtade avbildningen, anger att den virtuella datorn är i ett undernät med namnet *FrontEnd*och anger *192.168.1.7* som statisk privat IP-adress för den virtuella datorn:
 
     New-AzureService -ServiceName TestService -Location "Central US"
     $image = Get-AzureVMImage | where {$_.ImageName -like "*RightImage-Windows-2012R2-x64*"}
@@ -70,7 +70,7 @@ Förväntad utdata:
     New-AzureVM          3b99a86d-84f8-04e5-888e-b6fc3c73c4b9 Succeeded  
 
 ## <a name="how-to-retrieve-static-private-ip-address-information-for-a-vm"></a>Hur du hämtar statiska privata IP-adressinformation för en virtuell dator
-Kör följande PowerShell-kommando för att visa den statiska privata IP-adressinformationen för den virtuella datorn skapas med skriptet ovan, och notera värdena för *IpAddress*:
+Om du vill visa information om statisk privat IP-adress för den virtuella datorn som skapades med skriptet ovan kör du följande PowerShell-kommando och observera värdena för *IpAddress*:
 
     Get-AzureVM -Name DNS01 -ServiceName TestService
 
@@ -104,7 +104,7 @@ Förväntad utdata:
     OperationStatus             : OK
 
 ## <a name="how-to-remove-a-static-private-ip-address-from-a-vm"></a>Ta bort en statisk privat IP-adress från en virtuell dator
-Ta bort den statiska privata IP-adressen har lagt till till den virtuella datorn i skriptet ovan, kör följande PowerShell-kommando:
+Om du vill ta bort den statiska privata IP-adressen som lagts till den virtuella datorn i skriptet ovan kör du följande PowerShell-kommando:
 
     Get-AzureVM -ServiceName TestService -Name DNS01 |
       Remove-AzureStaticVNetIP |
@@ -116,8 +116,8 @@ Förväntad utdata:
     -------------------- -----------                          ---------------
     Update-AzureVM       052fa6f6-1483-0ede-a7bf-14f91f805483 Succeeded
 
-## <a name="how-to-add-a-static-private-ip-address-to-an-existing-vm"></a>Hur du lägger till en statisk privat IP-adress till en befintlig virtuell dator
-Kör följande kommando för att lägga till en statisk privat IP-adress till den virtuella datorn skapas med skriptet ovan:
+## <a name="how-to-add-a-static-private-ip-address-to-an-existing-vm"></a>Så här lägger du till en statisk privat IP-adress till en befintlig virtuell dator
+Om du vill lägga till en statisk privat IP-adress till den virtuella datorn som skapades med skriptet ovan kör du följande kommando:
 
     Get-AzureVM -ServiceName TestService -Name DNS01 |
       Set-AzureStaticVNetIP -IPAddress 192.168.1.7 |

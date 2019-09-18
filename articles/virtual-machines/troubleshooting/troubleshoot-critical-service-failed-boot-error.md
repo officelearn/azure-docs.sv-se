@@ -4,7 +4,7 @@ description: Lär dig hur du felsöker felet "0x0000005A-kritisk tjänst misslyc
 services: virtual-machines-windows
 documentationCenter: ''
 author: genlin
-manager: cshepard
+manager: dcscontentpm
 editor: ''
 ms.service: virtual-machines-windows
 ms.topic: troubleshooting
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/08/2018
 ms.author: genli
-ms.openlocfilehash: 2a6e8985a2cb13da0f2e34f4e9961f84aacdd974
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: f038e56fe4b1e6ad2737217674706eef77a39fd6
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70103510"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71058060"
 ---
 # <a name="windows-shows-critical-service-failed-on-blue-screen-when-booting-an-azure-vm"></a>Windows visar "kritisk tjänst misslyckades" på blå skärm vid start av en virtuell Azure-dator
 I den här artikeln beskrivs fel meddelandet "kritisk tjänst misslyckades" som kan uppstå när du startar en virtuell Windows-dator (VM) i Microsoft Azure. Den innehåller fel söknings steg som hjälper dig att lösa problemen. 

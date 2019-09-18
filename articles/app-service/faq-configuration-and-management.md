@@ -14,12 +14,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: 0b78b05e30185487df0b06d861b60b63741dc938
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 217601a430b40772eaf1f24c8e1501bc4b4fcae5
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70073189"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71055311"
 ---
 # <a name="configuration-and-management-faqs-for-web-apps-in-azure"></a>Vanliga frågor och svar om konfiguration och hantering för Web Apps i Azure
 
@@ -71,7 +71,7 @@ Så här ställer du in serverns tidszon för din webbapp:
     * Värde = *den tidszon du vill använda*
 3. Välj **Spara**.
 
-Se kolumnen **timezone** i artikeln [standard tids zoner](https://docs.microsoft.com/windows-hardware/manufacture/desktop/default-time-zones) för godkända värden.
+För de app Services som körs på Windows, se kolumnen **timezone** i artikeln [standard tids zoner](https://docs.microsoft.com/windows-hardware/manufacture/desktop/default-time-zones) för godkända värden. För de app Services som körs på Linux anger du [namnet på TZ-databasen](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) som tids zons värde. Här är ett exempel på ett TZ-databas namn: America/Adak.
 
 ## <a name="why-do-my-continuous-webjobs-sometimes-fail"></a>Varför kan mina kontinuerliga WebJobs ibland inte fungera?
 
@@ -96,7 +96,7 @@ Observera att om du vill använda en dedikerad eller reserverad IP-adress för i
 
 ## <a name="can-i-export-my-app-service-certificate-to-use-outside-azure-such-as-for-a-website-hosted-elsewhere"></a>Kan jag exportera mitt App Service certifikat för användning utanför Azure, till exempel för en webbplats som är värd för någon annan stans? 
 
-App Service certifikat betraktas som Azure-resurser. De är inte avsedda att användas utanför dina Azure-tjänster. Du kan inte exportera dem till att använda utanför Azure. Mer information finns i [vanliga frågor och svar om App Service certifikat och anpassade domäner](https://social.msdn.microsoft.com/Forums/azure/f3e6faeb-5ed4-435a-adaa-987d5db43b80/faq-on-app-service-certificates-and-custom-domains?forum=windowsazurewebsitespreview).
+Ja, du kan exportera dem för att använda utanför Azure. Mer information finns i [vanliga frågor och svar om App Service certifikat och anpassade domäner](https://social.msdn.microsoft.com/Forums/azure/f3e6faeb-5ed4-435a-adaa-987d5db43b80/faq-on-app-service-certificates-and-custom-domains?forum=windowsazurewebsitespreview).
 
 ## <a name="can-i-export-my-app-service-certificate-to-use-with-other-azure-cloud-services"></a>Kan jag exportera mitt App Service certifikat som ska användas med andra Azure Cloud Services?
 
@@ -159,8 +159,8 @@ Om du vill lägga till en regel för en URL-omskrivning skapar du en Web. config
 
 På webbplats nivå har du två alternativ för att styra inkommande trafik till App Service:
 
-* Aktivera dynamiska IP-begränsningar. Information om hur du aktiverar dynamiska IP-begränsningar finns i [IP-och domän begränsningar för Azure](https://azure.microsoft.com/blog/ip-and-domain-restrictions-for-windows-azure-web-sites/)websites.
-* Aktivera modulens säkerhet. Information om hur du aktiverar modulens säkerhet finns i [ModSecurity Web Application Firewall på Azure](https://azure.microsoft.com/blog/modsecurity-for-azure-websites/)websites.
+* Aktivera dynamiska IP-begränsningar. Information om hur du aktiverar dynamiska IP-begränsningar finns i [IP-och domän begränsningar för Azure Websites](https://azure.microsoft.com/blog/ip-and-domain-restrictions-for-windows-azure-web-sites/).
+* Aktivera modulens säkerhet. Information om hur du aktiverar modulens säkerhet finns i [ModSecurity Web Application Firewall på Azure Websites](https://azure.microsoft.com/blog/modsecurity-for-azure-websites/).
 
 Om du använder App Service-miljön kan du använda [Barracuda-brandväggen](https://azure.microsoft.com/blog/configuring-barracuda-web-application-firewall-for-azure-app-service-environment/).
 
@@ -193,7 +193,7 @@ Du har två alternativ för att fånga en F12-spårning:
 3. Högerklicka på meddelande ytan i fönstret och välj **Kopiera alla**.
 4. Klistra in den kopierade texten i en fil och spara sedan filen.
 
-Om du vill visa en har-fil kan du [](https://www.softwareishard.com/har/viewer/)använda visaren har visats.
+Om du vill visa en har-fil kan du använda [visaren har visats](https://www.softwareishard.com/har/viewer/).
 
 ## <a name="why-do-i-get-an-error-when-i-try-to-connect-an-app-service-web-app-to-a-virtual-network-that-is-connected-to-expressroute"></a>Varför visas ett fel meddelande när jag försöker ansluta en App Service-webbapp till ett virtuellt nätverk som är anslutet till ExpressRoute?
 
@@ -288,7 +288,7 @@ Detaljerad dokumentation för autentisering och auktorisering i App Service finn
 
 ## <a name="how-do-i-redirect-the-default-azurewebsitesnet-domain-to-my-azure-web-apps-custom-domain"></a>Hur gör jag för att omdirigera standard domänen *. azurewebsites.net till min Azure Web Apps anpassade domän?
 
-När du skapar en ny webbplats genom att använda Web Apps i Azure, tilldelasen standard plats. azurewebsites.net-domän till din webbplats. Om du lägger till ett anpassat värdnamn på din webbplats och inte vill att användarna ska kunna komma åt din standard-azurewebsites.net-domän, kan du omdirigera standard-URL: en. Information om hur du omdirigerar all trafik från din webbplats standard domän till din anpassade domän finns i [dirigera om standard domänen till din anpassade domän i Azure Web Apps](https://zainrizvi.io/blog/block-default-azure-websites-domain/).
+När du skapar en ny webbplats genom att använda Web Apps i Azure, tilldelas *en standard plats*. azurewebsites.net-domän till din webbplats. Om du lägger till ett anpassat värdnamn på din webbplats och inte vill att användarna ska kunna komma åt din standard-azurewebsites.net-domän, kan du omdirigera standard-URL: en. Information om hur du omdirigerar all trafik från din webbplats standard domän till din anpassade domän finns i [dirigera om standard domänen till din anpassade domän i Azure Web Apps](https://zainrizvi.io/blog/block-default-azure-websites-domain/).
 
 ## <a name="how-do-i-determine-which-version-of-net-version-is-installed-in-app-service"></a>Hur gör jag för att ta reda på vilken version av .NET-versionen som är installerad i App Service?
 
@@ -296,7 +296,7 @@ Det snabbaste sättet att hitta den version av Microsoft .NET som är installera
 
 ## <a name="why-isnt-autoscale-working-as-expected"></a>Varför fungerar inte autoskalning som förväntat?
 
-Om den automatiska skalningen i Azure inte har skalats in eller skalas ut från webb program instansen som du förväntade, kan du köra i ett scenario där vi avsiktligt väljer att inte skala för att undvika en oändlig loop på grund av "växlar". Detta inträffar vanligt vis när det inte finns en lämplig marginal mellan tröskelvärdena för skalning och skalning. Information om hur du undviker "växlar" och hur du kan läsa mer om hur du använder bästa metoder för autoskalning finns i [metod tips](../azure-monitor/platform/autoscale-best-practices.md#autoscale-best-practices)för autoskalning.
+Om den automatiska skalningen i Azure inte har skalats in eller skalas ut från webb program instansen som du förväntade, kan du köra i ett scenario där vi avsiktligt väljer att inte skala för att undvika en oändlig loop på grund av "växlar". Detta inträffar vanligt vis när det inte finns en lämplig marginal mellan tröskelvärdena för skalning och skalning. Information om hur du undviker "växlar" och hur du kan läsa mer om hur du använder bästa metoder för autoskalning finns i [metod tips för autoskalning](../azure-monitor/platform/autoscale-best-practices.md#autoscale-best-practices).
 
 ## <a name="why-does-autoscale-sometimes-scale-only-partially"></a>Varför skalar autoskalning ibland bara delvis?
 

@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 02/03/2019
-ms.openlocfilehash: 5ecd5ee4a053d3ebb550b6f2387a0e915b3c2c23
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 5366fb1d32020bfbcfaba36c60c0eb5441e92070
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68569415"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71055232"
 ---
 # <a name="azure-cli-samples-for-azure-sql-database"></a>Azure CLI-exempel för Azure SQL Database
 
@@ -28,7 +28,7 @@ Azure SQL Database kan konfigureras med <a href="/cli/azure">Azure CLI</a>.
 
 Om du väljer att installera och använda CLI lokalt måste du köra Azure CLI version 2.0 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa informationen i [Installera Azure CLI]( /cli/azure/install-azure-cli).
 
-## <a name="single-database--elastic-pools"></a>Enkel databas och elastiska pooler
+## <a name="single-database--elastic-poolstabsingle-database"></a>[Enkel databas & elastiska pooler](#tab/single-database)
 
 Följande tabell innehåller länkar till Azure CLI-exempelskript för Azure SQL Database.
 
@@ -46,7 +46,7 @@ Följande tabell innehåller länkar till Azure CLI-exempelskript för Azure SQL
 
 Läs mer om [Azure CLI API för enkel databas](sql-database-single-databases-manage.md#azure-cli-manage-sql-database-servers-and-single-databases).
 
-## <a name="managed-instance"></a>Managed Instance
+## <a name="managed-instancetabmanaged-instance"></a>[Hanterad instans](#tab/managed-instance)
 
 Följande tabell innehåller länkar till Azure CLI-exempelskript för Azure SQL Database – Managed Instance.
 
@@ -58,3 +58,5 @@ Följande tabell innehåller länkar till Azure CLI-exempelskript för Azure SQL
 |||
 
 Läs mer om [Azure CLI API för hanterad instans](sql-database-managed-instance-create-manage.md#azure-cli-create-and-manage-managed-instances) och hitta [ytterligare exempel här](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44).
+
+---

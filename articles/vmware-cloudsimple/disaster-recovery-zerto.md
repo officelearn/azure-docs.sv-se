@@ -8,19 +8,19 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 3ad2372f9a9f90e4502b304a08477771fd6ef385
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 0e019a9229b671be2fb73e758bd39f33657bc2d4
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69880389"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71037429"
 ---
 # <a name="set-up-cloudsimple-private-cloud-as-a-disaster-recovery-site-for-on-premises-vmware-workloads"></a>Konfigurera CloudSimple privata moln som en katastrof återställnings plats för lokala VMware-arbetsbelastningar
 
 Ditt privata CloudSimple-moln kan konfigureras som en återställnings plats för lokala program för att ge affärs kontinuitet i händelse av en katastrof. Återställnings lösningen baseras på Zerto virtuella replikering som replikerings-och Dirigerings plattform. Kritiska infrastruktur-och program virtuella datorer kan replikeras kontinuerligt från din lokala vCenter till ditt privata moln. Du kan använda ditt privata moln för testning av redundans och se till att programmet är tillgängligt under en katastrof. En liknande metod kan följas för att konfigurera det privata molnet som en primär plats som skyddas av en återställnings plats på en annan plats.
 
 > [!NOTE]
-> Mer information om hur du ändrar storlek på din katastrof återställnings miljö hittar du i Zerto dokument [storleks överväganden för Zerto virtuell replikering](http://s3.amazonaws.com/zertodownload_docs/5.5U3/Zerto%20Virtual%20Replication%20Sizing.pdf) .
+> Mer information om hur du ändrar storlek på din katastrof återställnings miljö hittar du i Zerto dokument [storleks överväganden för Zerto virtuell replikering](https://s3.amazonaws.com/zertodownload_docs/5.5U3/Zerto%20Virtual%20Replication%20Sizing.pdf) .
 
 CloudSimple-lösningen:
 

@@ -10,16 +10,16 @@ ms.topic: conceptual
 ms.date: 07/24/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 09cdc2fb5dba152e467164fd757225c7a9183264
-ms.sourcegitcommit: c71306fb197b433f7b7d23662d013eaae269dc9c
+ms.openlocfilehash: b0472b10de3641f1575f7f9a5c223ab5032f0e16
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68369395"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71066153"
 ---
 # <a name="application-types-that-can-be-used-in-active-directory-b2c"></a>Program typer som kan användas i Active Directory B2C
 
-Azure Active Directory (Azure AD) B2C stöder autentisering för en mängd moderna program arkitekturer. Alla baseras på standardprotokollen [OAuth 2.0](active-directory-b2c-reference-protocols.md) och [OpenID Connect](active-directory-b2c-reference-protocols.md). I den här artikeln beskrivs de olika typerna av program som du kan bygga, oberoende av vilket språk eller vilken plattform du föredrar. Det hjälper dig också att förstå de övergripande scenarierna innan du börjar skapa program.
+Azure Active Directory B2C (Azure AD B2C) stöder autentisering för en mängd moderna program arkitekturer. Alla baseras på standardprotokollen [OAuth 2.0](active-directory-b2c-reference-protocols.md) och [OpenID Connect](active-directory-b2c-reference-protocols.md). I den här artikeln beskrivs de olika typerna av program som du kan bygga, oberoende av vilket språk eller vilken plattform du föredrar. Det hjälper dig också att förstå de övergripande scenarierna innan du börjar skapa program.
 
 Alla program som använder Azure AD B2C måste registreras i din [Azure AD B2C-klient](active-directory-b2c-get-started.md) med hjälp av [Azure Portal](https://portal.azure.com/). Program registrerings processen samlar in och tilldelar värden, till exempel:
 
@@ -56,7 +56,7 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6ImtyaU1QZG1Cd...
 }
 ```
 
-Läs mer om de typer av tokens och anspråk som är tillgängliga för ett program i [referensen för Azure AD B2C](active-directory-b2c-reference-tokens.md)-token.
+Läs mer om de typer av tokens och anspråk som är tillgängliga för ett program i [referensen för Azure AD B2C-token](active-directory-b2c-reference-tokens.md).
 
 I ett webb program utför varje körning av en [princip](active-directory-b2c-reference-policies.md) dessa steg på hög nivå:
 
@@ -120,7 +120,7 @@ Program som innehåller tids krävande processer eller som fungerar utan föreko
 
 Även om flödet för klientautentiseringsuppgifter inte stöds av Azure AD B2C, kan du ställa in flöde för autentiseringsuppgifter för klient med hjälp av Azure AD. En Azure AD B2C-klient delar vissa funktioner med Azure AD Enterprise-klienter.  Klientens Credential-flöde stöds med hjälp av Azure AD-funktionerna i Azure AD B2C-klienten.
 
-Information om hur du konfigurerar inloggnings flödet för klienten finns i [Azure Active Directory v 2.0 och OAuth 2,0-klientens autentiseringsuppgifter Flow](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-protocols-oauth-client-creds). En lyckad autentisering resulterar i att en token formateras så att den kan användas av Azure AD enligt beskrivningen i [referens för Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims)-token.
+Information om hur du konfigurerar inloggnings flödet för klienten finns i [Azure Active Directory v 2.0 och OAuth 2,0-klientens autentiseringsuppgifter Flow](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-protocols-oauth-client-creds). En lyckad autentisering resulterar i att en token formateras så att den kan användas av Azure AD enligt beskrivningen i [referens för Azure AD-token](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims).
 
 #### <a name="web-api-chains-on-behalf-of-flow"></a>Webb-API-länkar (On-Behalf-Of-flöde)
 
@@ -132,12 +132,12 @@ Det här scenariot med länkade webb-API:er kan användas genom en tilldelning a
 
 Redigera inte Azure AD B2C program på följande sätt:
 
-- På andra program hanterings portaler som [program registrerings portalen](https://apps.dev.microsoft.com/).
+- På andra program hanterings [portaler som program registrerings portalen](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade).
 - Använda Graph API eller PowerShell.
 
 Om du redigerar Azure AD B2C-programmet utanför Azure Portal blir det ett felaktigt program och kan inte längre användas med Azure AD B2C. Ta bort programmet och skapa det igen.
 
-Om du vill ta bort programmet går du till [program registrerings portalen](https://apps.dev.microsoft.com/) och tar bort programmet där. Du måste vara ägare till appen (och inte bara en administratör för klienten) för att appen ska vara synlig.
+Om du vill ta bort programmet går du till [program registrerings portalen](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) och tar bort programmet där. Du måste vara ägare till appen (och inte bara en administratör för klienten) för att appen ska vara synlig.
 
 ## <a name="next-steps"></a>Nästa steg
 

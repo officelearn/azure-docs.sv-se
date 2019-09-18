@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: hrasheed
-ms.openlocfilehash: 3ab2bf0334b58f3a5ac8ad4abacfcc45e0366240
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: da4d1ed7dec8b3b0bc61dd2959a868d03875039c
+ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70917760"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71077018"
 ---
 # <a name="use-apache-ambari-hive-view-with-apache-hadoop-in-hdinsight"></a>Använda Apache Ambari Hive-vy med Apache Hadoop i HDInsight
 
@@ -34,7 +34,7 @@ Lär dig hur du kör Hive-frågor med hjälp av Apache Ambari Hive-vyn. I Hive-v
 
 3. I listan med vyer väljer du __Hive-vy__.
 
-    ![Den valda Hive-vyn](./media/apache-hadoop-use-hive-ambari-view/select-apache-hive-view.png)
+    ![Apache Ambari Välj Apache Hive vy](./media/apache-hadoop-use-hive-ambari-view/select-apache-hive-view.png)
 
     Sidan Hive-vy liknar följande bild:
 
@@ -98,25 +98,25 @@ Den **visuella förklaringen** av frågan kan vara till hjälp när du ska förs
 Om du vill visa Tez-gränssnittet för frågan väljer du fliken **Tez-gränssnitt** under kalkyl bladet.
 
 > [!IMPORTANT]  
-> Tez används inte för att lösa alla frågor. Du kan lösa många frågor utan att använda Tez. 
+> Tez används inte för att lösa alla frågor. Du kan lösa många frågor utan att använda Tez.
 
 ## <a name="view-job-history"></a>Visa jobbhistorik
 
 På fliken __jobb__ visas en historik över Hive-frågor.
 
-![Bild av jobb historik](./media/apache-hadoop-use-hive-ambari-view/apache-hive-job-history.png)
+![Apache Hive historik på fliken jobb](./media/apache-hadoop-use-hive-ambari-view/apache-hive-job-history.png)
 
 ## <a name="database-tables"></a>Databas tabeller
 
 Du kan använda fliken __tabeller__ för att arbeta med tabeller i en Hive-databas.
 
-![Bild av fliken tabeller](./media/apache-hadoop-use-hive-ambari-view/hdinsight-tables-tab.png)
+![Bild av fliken Apache Hive tabeller](./media/apache-hadoop-use-hive-ambari-view/hdinsight-tables-tab.png)
 
 ## <a name="saved-queries"></a>Sparade frågor
 
 På fliken **fråga** kan du välja att spara frågor. När du har sparat en fråga kan du återanvända den från fliken __sparade frågor__ .
 
-![Bild av fliken sparade frågor](./media/apache-hadoop-use-hive-ambari-view/ambari-saved-queries.png)
+![Apache Hive Visa sparade frågor-fliken](./media/apache-hadoop-use-hive-ambari-view/ambari-saved-queries.png)
 
 > [!TIP]  
 > Sparade frågor lagras i standard kluster lagringen. Du kan hitta de sparade frågorna under sökvägen `/user/<username>/hive/scripts`. Dessa lagras som oformaterade text `.hql` filer.
@@ -129,7 +129,7 @@ Du kan utöka Hive genom användardefinierade funktioner (UDF). Använd en UDF f
 
 Deklarera och spara en uppsättning UDF: er med hjälp av **UDF** -fliken överst i Hive-vyn. Dessa UDF: er kan användas med **Frågeredigeraren**.
 
-![Bild av UDF-flik](./media/apache-hadoop-use-hive-ambari-view/user-defined-functions.png)
+![Apache Hive visning av fliken UDF: er](./media/apache-hadoop-use-hive-ambari-view/user-defined-functions.png)
 
 När du har lagt till en UDF-fil i Hive-vyn visas knappen **Infoga UDF: er** längst ned i **Frågeredigeraren**. Om du väljer den här posten visas en nedrullningsbar lista med de UDF: er som definierats i Hive-vyn. Om du väljer en UDF läggs HiveQL-instruktioner till i din fråga för att aktivera UDF.
 

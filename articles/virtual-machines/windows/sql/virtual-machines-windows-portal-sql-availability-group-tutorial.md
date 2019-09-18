@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/30/2018
 ms.author: mikeray
-ms.openlocfilehash: 7683812c5ee98d21d5aa8191a88926669b2ed120
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 6485b7c102977f4fb6963418084f4da050c68558
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70102369"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71036532"
 ---
 # <a name="tutorial-configure-always-on-availability-group-in-azure-vm-manually"></a>Självstudier: Konfigurera tillgänglighets gruppen Always on i Azure VM manuellt
 
@@ -82,6 +82,9 @@ När kraven har slutförts är det första steget att skapa ett Windows Server-r
 
 ### <a name="set-the-windows-server-failover-cluster-ip-address"></a>Ange IP-adress för Windows Server-redundanskluster
 
+  > [!NOTE]
+  > På Windows Server 2019 skapar klustret ett **distribuerat Server namn** i stället för **klustrets nätverks namn**. Om du använder Windows Server 2019 hoppar du över alla steg som refererar till klustrets kärn namn i den här självstudien. Du kan skapa ett kluster nätverks namn med hjälp av [PowerShell](virtual-machines-windows-portal-sql-create-failover-cluster.md#windows-server-2019). Granska blogg [klustret för växling vid fel: Kluster nätverks objekt](https://blogs.windows.com/windowsexperience/2018/08/14/announcing-windows-server-2019-insider-preview-build-17733/#W0YAxO8BfwBRbkzG.97) för mer information. 
+
 1. I **Klusterhanteraren för växling vid fel**rullar du ned till **kluster kärn resurser** och expanderar kluster informationen. Du bör se både **namn** och **IP** -adressresurser i **felaktigt** tillstånd. Det går inte att ansluta till IP-adressresursen eftersom klustret tilldelas samma IP-adress som själva datorn, och därför är det en dubblett av adressen.
 
 2. Högerklicka på den felande **IP** -adressresursen och klicka sedan på **Egenskaper**.
@@ -139,7 +142,7 @@ I det här exemplet använder Windows-klustret en fil resurs för att skapa ett 
 
 1. I **namn, beskrivning och inställningar** kontrollerar du resursens namn och sökväg. Klicka på **Nästa**.
 
-1. Behörigheterna för **delade mappar** har angetts **Anpassa behörigheter**. Klicka på **Anpassad...** .
+1. **Behörigheterna för delade mappar** har angetts **Anpassa behörigheter**. Klicka på **Anpassad...** .
 
 1. Klicka på **Lägg till**på **Anpassa behörigheter**...
 
@@ -241,7 +244,7 @@ Repeat these steps on the second SQL Server.
 
 1. I **namn, beskrivning och inställningar** kontrollerar du resursens namn och sökväg. Klicka på **Nästa**.
 
-1. Behörigheterna för **delade mappar** har angetts **Anpassa behörigheter**. Klicka på **Anpassad...** .
+1. **Behörigheterna för delade mappar** har angetts **Anpassa behörigheter**. Klicka på **Anpassad...** .
 
 1. Klicka på **Lägg till**på **Anpassa behörigheter**...
 
@@ -266,7 +269,7 @@ Du är nu redo att konfigurera en tillgänglighets grupp med hjälp av följande
 
 * Skapa en databas på den första SQL Server.
 * Gör både en fullständig säkerhets kopiering och en säkerhets kopia av transaktions loggen för databasen
-* Återställa fullständiga säkerhets kopior och logg säkerhets kopior till den andra SQL Server med alternativet NORECOVERY
+* Återställa fullständiga säkerhets kopior och logg säkerhets kopior till den andra SQL Server med alternativet **NOrecovery**
 * Skapa tillgänglighets gruppen (**AG1**) med synkron genomförande, automatisk redundans och läsbar sekundär repliker
 
 ### <a name="create-the-availability-group"></a>Skapa tillgänglighets gruppen:
@@ -334,7 +337,7 @@ Du är nu redo att konfigurera en tillgänglighets grupp med hjälp av följande
    ![AG i Klusterhanteraren för växling vid fel](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/80-clustermanager.png)
 
    > [!WARNING]
-   > Försök inte att redundansväxla tillgänglighets gruppen från Klusterhanteraren för växling vid fel. Alla redundansväxling bör utföras inifrån **AlwaysOn** -instrumentpanelen i SSMS. Mer information finns i [begränsningar för att använda Klusterhanteraren för växling vid fel med tillgänglighets grupper](https://msdn.microsoft.com/library/ff929171.aspx).
+   > Försök inte att redundansväxla tillgänglighets gruppen från Klusterhanteraren för växling vid fel. Alla redundansväxling bör utföras inifrån **AlwaysOn-instrumentpanelen** i SSMS. Mer information finns i [begränsningar för att använda Klusterhanteraren för växling vid fel med tillgänglighets grupper](https://msdn.microsoft.com/library/ff929171.aspx).
     >
 
 Nu har du en tillgänglighets grupp med repliker på två instanser av SQL Server. Du kan flytta tillgänglighets gruppen mellan instanser. Du kan inte ansluta till tillgänglighets gruppen ännu eftersom du inte har en lyssnare. På Azure Virtual Machines kräver lyssnaren en belastningsutjämnare. Nästa steg är att skapa belastningsutjämnaren i Azure.
@@ -395,7 +398,7 @@ Om du vill konfigurera belastningsutjämnaren måste du skapa en backend-pool, e
 
 ### <a name="set-the-probe"></a>Ange avsökningen
 
-1. Klicka på belastningsutjämnaren, klicka på **hälso**avsökningar och klicka på **+ Lägg till**.
+1. Klicka på belastningsutjämnaren, klicka på **hälso avsökningar**och klicka på **+ Lägg till**.
 
 1. Ange lyssnar hälso avsökningen enligt följande:
 
@@ -438,7 +441,7 @@ WSFC-IP-adressen måste också finnas i belastningsutjämnaren.
 
 1. I portalen, i samma Azure Load Balancer, klickar du på **klient delens IP-konfiguration** och klickar på **+ Lägg till**. Använd IP-adressen som du konfigurerade för WSFC i kluster kärn resurserna. Ange IP-adressen som statisk.
 
-1. Klicka på **hälso**avsökningar i belastningsutjämnaren och klicka på **+ Lägg till**.
+1. Klicka på **hälso avsökningar**i belastningsutjämnaren och klicka på **+ Lägg till**.
 
 1. Ange hälso avsökningen för WSFC-klustrets kärn IP-adress enligt följande:
 
@@ -490,7 +493,7 @@ I SQL Server Management Studio anger du lyssnar porten.
 
 1. Starta SQL Server Management Studio och Anslut till den primära repliken.
 
-1. Navigera till tillgänglighets grupps lyssnare för tillgänglighets**grupper** | med **hög tillgänglighet** | för AlwaysOn.
+1. Navigera till tillgänglighets**grupps lyssnare för tillgänglighets** **grupper** | med **hög tillgänglighet** | för AlwaysOn.
 
 1. Du bör nu se det lyssnar namn som du skapade i Klusterhanteraren för växling vid fel. Högerklicka på namnet på lyssnaren och klicka på **Egenskaper**.
 

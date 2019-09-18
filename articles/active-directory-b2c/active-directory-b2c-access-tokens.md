@@ -10,16 +10,16 @@ ms.topic: conceptual
 ms.date: 04/16/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: df47b4fc5b8048f76f94486e213285896dab9cb9
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 042c4fa18ce583f714bbe71f522b1f8f1af3dfdb
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69874097"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71066112"
 ---
 # <a name="request-an-access-token-in-azure-active-directory-b2c"></a>Begär en åtkomsttoken i Azure Active Directory B2C
 
-En åtkomsttoken innehåller anspråk som du kan använda i Azure Active Directory (Azure AD) B2C för att identifiera de beviljade behörigheterna för dina API: er. När du anropar en resurs Server måste en åtkomsttoken finnas i HTTP-begäran. En åtkomsttoken betecknas som **access_token** i svaren från Azure AD B2C.
+En *åtkomsttoken* innehåller anspråk som du kan använda i Azure Active Directory B2C (Azure AD B2C) för att identifiera de beviljade behörigheterna för dina API: er. När du anropar en resurs Server måste en åtkomsttoken finnas i HTTP-begäran. En åtkomsttoken betecknas som **access_token** i svaren från Azure AD B2C.
 
 Den här artikeln visar hur du begär en åtkomsttoken för ett webb program och webb-API. Mer information om tokens i Azure AD B2C finns i [Översikt över tokens i Azure Active Directory B2C](active-directory-b2c-reference-tokens.md).
 
@@ -35,7 +35,7 @@ Den här artikeln visar hur du begär en åtkomsttoken för ett webb program och
 
 Med hjälp av omfång kan du hantera behörigheter för skyddade resurser. När en åtkomsttoken begärs måste klient programmet ange önskade behörigheter i **scope** -parametern för begäran. Om du till exempel vill ange **omfattning svärdet** `read` för för API: t som har **app-ID-URI: n** `https://contoso.onmicrosoft.com/api`, blir `https://contoso.onmicrosoft.com/api/read`omfattningen.
 
-Omfång används av webb-API för att implementera omfångsbaserad åtkomststyrning. Till exempel kan användare av webb-API:et ha både läs- och skrivbehörighet, eller så har användare av webb-API:et kanske bara läsbehörighet. Om du vill förvärva flera behörigheter i samma förfrågan kan du lägga till flera poster i den enda omfattnings parametern för begäran, avgränsade med blank steg.
+Omfång används av webb-API för att implementera omfångsbaserad åtkomststyrning. Till exempel kan användare av webb-API:et ha både läs- och skrivbehörighet, eller så har användare av webb-API:et kanske bara läsbehörighet. Om du vill förvärva flera behörigheter i samma förfrågan kan du lägga till flera poster i den enda **omfattnings** parametern för begäran, avgränsade med blank steg.
 
 I följande exempel visas omfattningarna som avkodats i en URL:
 
@@ -54,7 +54,7 @@ Om du begär fler omfattningar än vad som beviljas för ditt klient program, ly
 - **OpenID** -begär en ID-token.
 - **offline_access** – begär en uppdateringstoken med hjälp av [auth Code](active-directory-b2c-reference-oauth-code.md)flows.
 
-Om parametern **response_type** `/authorize` i en begäran inkluderar `token`, måste **omfattnings** parametern innehålla minst en annan resurs omfattning än `openid` och `offline_access` som ska beviljas. Annars Miss lyckas begäran. `/authorize`
+Om parametern **response_type** `/authorize` i en `token`begäran inkluderar, måste **omfattnings** parametern innehålla minst en annan resurs omfattning än `openid` och `offline_access` som ska beviljas. Annars Miss lyckas begäran. `/authorize`
 
 ## <a name="request-a-token"></a>Begär en token
 
@@ -65,7 +65,7 @@ I följande exempel ersätter du följande värden:
 - `<tenant-name>`– Namnet på din Azure AD B2C klient.
 - `<policy-name>`– Namnet på din anpassade princip eller ditt användar flöde.
 - `<application-ID>`– Program identifieraren för det webb program som du har registrerat för att stödja användar flödet.
-- `<redirect-uri>`– Den omdirigerings- **URI** som du angav när du registrerade klient programmet.
+- `<redirect-uri>`– Den **omdirigerings-URI** som du angav när du registrerade klient programmet.
 
 ```HTTP
 GET https://<tenant-name>.b2clogin.com/tfp/<tenant-name>.onmicrosoft.com/<policy-name>/oauth2/v2.0/authorize?

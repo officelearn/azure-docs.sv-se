@@ -10,16 +10,16 @@ ms.topic: article
 ms.date: 06/07/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 130186af13b9207326cd52b46b880c1f13a16100
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.openlocfilehash: 3633ffb09d71bd166cb7366f860662d9b91c7f07
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67848081"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71063404"
 ---
 # <a name="tutorial-create-user-flows-in-azure-active-directory-b2c"></a>Självstudier: Skapa användar flöden i Azure Active Directory B2C
 
-I dina program kan du ha [användar flöden](active-directory-b2c-reference-policies.md) som gör det möjligt för användare att registrera, logga in eller hantera sina profiler. Du kan skapa flera användar flöden av olika typer i din Azure Active Directory (Azure AD) B2C-klient och använda dem i dina program efter behov. Användar flöden kan återanvändas i olika program.
+I dina program kan du ha [användar flöden](active-directory-b2c-reference-policies.md) som gör det möjligt för användare att registrera, logga in eller hantera sina profiler. Du kan skapa flera användar flöden av olika typer i din Azure Active Directory B2C-klient (Azure AD B2C) och använda dem i dina program efter behov. Användar flöden kan återanvändas i olika program.
 
 I den här artikeln kan du se hur du:
 
@@ -41,7 +41,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 Användar flödet för registrering och inloggning hanterar både registrering och inloggnings upplevelser med en enda konfiguration. Användare av ditt program är i rätt sökväg beroende på kontexten.
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
-1. Kontrollera att du använder den katalog som innehåller din Azure AD B2C-klient genom att klicka på den **katalog- och prenumerationsfilter** i den översta menyn och välja den katalog som innehåller din klient.
+1. Kontrol lera att du använder den katalog som innehåller din Azure AD B2C klient genom att välja filtret **katalog + prenumeration** på den översta menyn och välja den katalog som innehåller din klient.
 
     ![Katalog-och prenumerations filter med B2C-klient valt](./media/tutorial-create-user-flows/switch-directories.PNG)
 
@@ -86,7 +86,7 @@ Om du vill att användarna ska kunna redigera sin profil i ditt program använde
 1. Välj användar flödet **profil redigering** på den rekommenderade fliken.
 1. Ange ett **Namn** för användarflödet. Till exempel *profileediting1*.
 1. För **identitets leverantörer**väljer du **lokal konto inloggning**.
-1. För **användarattribut**väljer du de attribut som du vill att kunden ska kunna redigera i profilen. Välj till exempel **Visa mer**och välj sedan både attribut och anspråk för **visnings namn** och befattning . Klicka på **OK**.
+1. För **användarattribut**väljer du de attribut som du vill att kunden ska kunna redigera i profilen. Välj till exempel **Visa mer**och välj sedan både attribut och anspråk för **visnings namn** och befattning. Klicka på **OK**.
 1. Klicka på **skapa** för att lägga till användar flödet. Ett prefix för *B2C_1* läggs automatiskt till i namnet.
 
 ### <a name="test-the-user-flow"></a>Testa användar flödet

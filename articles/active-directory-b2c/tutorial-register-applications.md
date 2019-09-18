@@ -10,16 +10,16 @@ ms.topic: article
 ms.date: 08/23/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 651c15c8206f7956bb35520f9c5837cb0c9308f9
-ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
+ms.openlocfilehash: 06b2c273f41bfa74ee968b6fd6676e83767ce8b2
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69980693"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71063261"
 ---
 # <a name="tutorial-register-an-application-in-azure-active-directory-b2c"></a>Självstudier: Registrera ett program i Azure Active Directory B2C
 
-Innan dina [program](active-directory-b2c-apps.md) kan interagera med Azure Active Directory-B2C (Azure AD) måste de registreras i en klient som du hanterar. Den här självstudien visar hur du registrerar ett webb program med hjälp av Azure Portal.
+Innan dina [program](active-directory-b2c-apps.md) kan interagera med Azure Active Directory B2C (Azure AD B2C) måste de registreras i en klient som du hanterar. Den här självstudien visar hur du registrerar ett webb program med hjälp av Azure Portal.
 
 I den här artikeln kan du se hur du:
 
@@ -35,14 +35,14 @@ Om du inte redan har skapat din egen [Azure AD B2C-klient](tutorial-create-tenan
 
 ## <a name="register-a-web-application"></a>Registrera ett webbprogram
 
-1. Kontrollera att du använder den katalog som innehåller din Azure AD B2C-klient genom att klicka på den **katalog- och prenumerationsfilter** i den översta menyn och välja den katalog som innehåller din klient.
+1. Kontrol lera att du använder den katalog som innehåller din Azure AD B2C klient genom att välja filtret **katalog + prenumeration** på den översta menyn och välja den katalog som innehåller din klient.
 1. Välj **Alla tjänster** på menyn uppe till vänster i Azure Portal. Sök sedan efter och välj **Azure AD B2C**.
 1. Välj **Program** och därefter **Lägg till**.
 1. Ange ett namn på programmet. Till exempel *webapp1*.
 1. För **Inkludera webbapp/webb-API** och **Tillåt implicit flöde** väljer du **Ja**.
 1. För **Svars-URL** anger du en slutpunkt dit Azure AD B2C ska returnera de token som programmet begär. Du kan till exempel ange att den ska lyssna lokalt på `https://localhost:44316`. Om du inte känner till port numret än kan du ange ett värde för plats hållare och ändra det senare.
 
-    För testnings ändamål som den här själv studie kursen kan `https://jwt.ms` du ange det som visar innehållet i en token för att kontrol lera. I den här självstudien anger du svars- **URL** till `https://jwt.ms`.
+    För testnings ändamål som den här själv studie kursen kan `https://jwt.ms` du ange det som visar innehållet i en token för att kontrol lera. I den här självstudien anger du **svars-URL** till `https://jwt.ms`.
 
     Följande begränsningar gäller för svars-URL: er:
 

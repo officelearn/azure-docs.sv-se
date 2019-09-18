@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 07/03/2019
 ms.author: pafarley
-ms.openlocfilehash: 53409769fc85422f4c34a14d22e7c44b2d5cce35
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.openlocfilehash: e7a63d09c3116c7504e9d409b32a44be140d8fe4
+ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68443839"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71074146"
 ---
 # <a name="quickstart-train-a-form-recognizer-model-and-extract-form-data-by-using-the-rest-api-with-python"></a>Snabbstart: Träna en formulär igenkännings modell och extrahera formulär data med hjälp av REST API med python
 
@@ -38,7 +38,7 @@ Först behöver du en uppsättning utbildnings data i en Azure Storage BLOB-beh�
 
 Om du vill träna en formulär tolknings modell med dokumenten i din Azure Blob-behållare anropar du **träna** API genom att köra följande python-kod. Innan du kör koden gör du följande ändringar:
 
-1. Ersätt `<Endpoint>` med slut punkts-URL: en för formulär igenkännings resursen i den Azure-region där du har köpt dina prenumerations nycklar.
+1. Ersätt `<Endpoint>` med slut punkts-URL: en för formulär igenkännings resursen.
 1. Ersätt `<Subscription key>` med den prenumerations nyckel som du kopierade från föregående steg.
 1. Ersätt `<SAS URL>` med Azure Blob Storage-behållarens URL för signatur för delad åtkomst (SAS). Hämta SAS-URL: en genom att öppna Microsoft Azure Storage Explorer, högerklicka på behållaren och välja **Hämta signatur för delad åtkomst**. Kontrol lera att **Läs** -och **list** behörigheterna är markerade och klicka på **skapa**. Kopiera sedan värdet i **URL** -avsnittet. Den bör ha formatet: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
 

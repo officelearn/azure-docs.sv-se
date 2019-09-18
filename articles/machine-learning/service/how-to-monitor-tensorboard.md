@@ -1,6 +1,6 @@
 ---
 title: Visualisera experiment med TensorBoard
-titleSuffix: Azure Machine Learning service
+titleSuffix: Azure Machine Learning
 description: Starta TensorBoard för att visualisera experiment körnings historik och identifiera potentiella områden för justering och omträning av en egen parameter.
 services: machine-learning
 ms.service: machine-learning
@@ -9,16 +9,16 @@ ms.topic: conceptual
 author: maxluk
 ms.author: maxluk
 ms.date: 06/28/2019
-ms.openlocfilehash: 2e4527ba167076935505b668a7879e5f1446b25e
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: b96b80a735c0caee8a3aabaf19b04fd0e153ba6b
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68856073"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71034338"
 ---
 # <a name="visualize-experiment-runs-and-metrics-with-tensorboard-and-azure-machine-learning"></a>Visualisera experiment körningar och mät värden med TensorBoard och Azure Machine Learning
 
-I den här artikeln får du lära dig hur du visar experiment körningar och mått i TensorBoard [med `tensorboard` ](https://docs.microsoft.com/python/api/azureml-tensorboard/?view=azure-ml-py) hjälp av paketet i huvud Azure Machine Learning tjänst-SDK: n. När du har kontrollerat att experimentet har körts kan du bättre justera och träna dina maskin inlärnings modeller.
+I den här artikeln får du lära dig hur du visar experiment körningar och mått i TensorBoard [med `tensorboard` ](https://docs.microsoft.com/python/api/azureml-tensorboard/?view=azure-ml-py) hjälp av paketet i huvud Azure Machine Learning SDK. När du har kontrollerat att experimentet har körts kan du bättre justera och träna dina maskin inlärnings modeller.
 
 [TensorBoard](https://www.tensorflow.org/tensorboard/r1/overview) är en uppsättning webb program för att kontrol lera och förstå din experiment struktur och prestanda.
 
@@ -43,7 +43,7 @@ Hur du startar TensorBoard med Azure Machine Learning experiment beror på typen
 
     * Din egen Juptyer Notebook-Server
           * [Installera Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py) med `tensorboard` extra
-          * [Skapa en Azure Machine Learning service-arbetsyta](how-to-manage-workspace.md).  
+          * [Skapa en Azure Machine Learning-arbetsyta](how-to-manage-workspace.md).  
           * [Skapa en konfigurations fil för arbets ytor](how-to-configure-environment.md#workspace).
   
 <a name="direct"></a>
@@ -71,7 +71,7 @@ if not path.exists(exp_dir):
 
 ### <a name="download-tensorflow-demo-experiment-code"></a>Hämta experiment koden för TensorFlow demo
 
-TensorFlow-lagringsplatsen har en MNIST-demo med omfattande TensorBoard Instrumentation. Du behöver inte heller ändra någon av den här demonstrationens kod för att den ska fungera med den Azure Machine Learning tjänsten. I följande kod laddar vi ned MNIST-koden och sparar den i vår nyligen skapade experiment-mapp.
+TensorFlow-lagringsplatsen har en MNIST-demo med omfattande TensorBoard Instrumentation. Du behöver inte heller ändra någon av den här demonstrationens kod för att den ska fungera med Azure Machine Learning. I följande kod laddar vi ned MNIST-koden och sparar den i vår nyligen skapade experiment-mapp.
 
 ```python
 import requests
@@ -162,7 +162,7 @@ run = exp.submit(tf_estimator)
 
 Du kan starta TensorBoard under din körning eller när den är klar. I följande skapar vi en TensorBoard objekt instans, `tb`som använder experiment körnings historiken som lästs in `run`i och `start()` sedan startar TensorBoard med-metoden. 
   
-[TensorBoard](https://docs.microsoft.com/python/api/azureml-tensorboard/azureml.tensorboard.tensorboard?view=azure-ml-py) -konstruktorn tar en matris med körningar, så var noga med att skicka den som en matris med ett enda element.
+[TensorBoard-konstruktorn](https://docs.microsoft.com/python/api/azureml-tensorboard/azureml.tensorboard.tensorboard?view=azure-ml-py) tar en matris med körningar, så var noga med att skicka den som en matris med ett enda element.
 
 ```python
 from azureml.tensorboard import Tensorboard

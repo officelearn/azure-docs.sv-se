@@ -9,12 +9,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 05/15/2019
 ms.author: sstein
-ms.openlocfilehash: ed41ccea0754f3eeffdd0248bac567859db1492c
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 21f80a2be09302e47817ccfd4223207bdcdd0413
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71001513"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71066812"
 ---
 # <a name="sql-database-release-notes"></a>Viktig information om SQL Database
 
@@ -26,6 +26,7 @@ Den här artikeln innehåller SQL Database funktioner som för närvarande finns
 
 | Funktion | Information |
 | ---| --- |
+| [Privat Azure-länk](https://azure.microsoft.com/updates/private-link-now-available-in-preview/)| Privata länkar fören klar nätverks arkitekturen och skyddar anslutningen mellan slut punkter i Azure genom att lagra data i Azure-nätverket, vilket eliminerar exponeringen för Internet. Med privat länk kan du också skapa och återge egna tjänster på Azure. |
 | Accelererad databas återställning med enkla databaser och elastiska pooler | Mer information finns i [accelererad databas återställning](sql-database-accelerated-database-recovery.md).|
 |Ungefärligt antal distinkta|Mer information finns i [Ungefärlig Count DISTINCT](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing#approximate-query-processing).|
 |Batch-läge på Rowstore (under kompatibilitetsnivå 150)|Mer information finns i [batch-läge på Rowstore](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing#batch-mode-on-rowstore).|
@@ -55,6 +56,24 @@ Den här artikeln innehåller SQL Database funktioner som för närvarande finns
 | &nbsp; |
 
 ---
+
+## <a name="new-features"></a>Nya funktioner
+
+### <a name="managed-instance-h2-2019-updates"></a>Hanterad instans H2 2019 uppdateringar
+
+- Konfigurera din hanterade instans beteende med [globala spårnings flaggor](https://azure.microsoft.com/updates/global-trace-flags-are-now-available-in-azure-sql-database-managed-instance/).
+
+### <a name="managed-instance-h1-2019-updates"></a>Hanterad instans H1 2019-uppdateringar
+
+Följande funktioner är aktiverade i distributions modellen för hanterade instanser i H1 2019:
+  - Support för prenumerationer med <a href="https://aka.ms/sql-mi-visual-studio-subscribers">Azures månatliga kredit för Visual Studio-prenumeranter</a> och ökade [regionala gränser](sql-database-managed-instance-resource-limits.md#regional-resource-limitations).
+  - Stöd för <a href="https://docs.microsoft.com/sharepoint/administration/deploy-azure-sql-managed-instance-with-sharepoint-servers-2016-2019"> SharePoint 2016 och SharePoint 2019 </a> och <a href="https://docs.microsoft.com/business-applications-release-notes/october18/dynamics365-business-central/support-for-azure-sql-database-managed-instance"> Dynamics 365 Business Central </a>
+  - Skapa instanser med <a href="https://aka.ms/managed-instance-collation">sortering på server nivå</a> och <a href="https://azure.microsoft.com/updates/managed-instance-time-zone-ga/">tidszon</a> som du väljer.
+  - Hanterade instanser skyddas nu med <a href="sql-database-managed-instance-management-endpoint-verify-built-in-firewall.md">inbyggd brand vägg</a>.
+  - Konfigurera instanser för att använda [offentliga slut punkter](sql-database-managed-instance-public-endpoint-configure.md), en [proxy-Åsidosätt](/sql-database-connectivity-architecture.md#connection-policy) anslutning för att få bättre nätverks prestanda, <a href="https://aka.ms/four-cores-sql-mi-update">4 virtuella kärnor på Gen5-maskinvarukompatibilitet</a> eller <a href="https://aka.ms/managed-instance-configurable-backup-retention">Konfigurera kvarhållning av säkerhets kopior upp till 35 dagar</a> för återställning vid tidpunkter. Långsiktig kvarhållning av säkerhets kopior (upp till 10 år) är fortfarande inte aktiverat så att du kan använda kopierings <a href="https://docs.microsoft.com/sql/relational-databases/backup-restore/copy-only-backups-sql-server">bara säkerhets kopior</a> som ett alternativ.
+  - Med nya funktioner kan du <a href="https://medium.com/@jocapc/geo-restore-your-databases-on-azure-sql-instances-1451480e90fa">geo-återställa databasen till ett annat data Center med hjälp av PowerShell</a>, [byta namn på databas](https://azure.microsoft.com/updates/azure-sql-database-managed-instance-database-rename-is-supported/), [ta bort virtuellt kluster](sql-database-managed-instance-delete-virtual-cluster.md).
+  - Den nya inbyggda [rollen instans deltagar roll](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#sql-managed-instance-contributor) möjliggör separering av tull (SOD) efterlevnad av säkerhets principer och efterlevnad av företags standarder.
+  - Hanterad instans är tillgänglig i följande Azure Government regioner till GA (US Gov, Texas, US Gov, Arizona) och i Kina, norra 2 och Kina, östra 2. Den är också tillgänglig i följande offentliga regioner: Australien, centrala, Australien, centrala 2, södra Brasilien, västra Frankrike, Förenade Arabemiraten Central, Förenade Arabemiraten Nord, Sydafrika, norra, södra Afrika.
 
 ## <a name="fixed-known-issues"></a>Fasta kända problem
 

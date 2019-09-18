@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/14/2017
 ms.author: ashishth
-ms.openlocfilehash: 4bec14cd3aa88d885f83142143c7a901ca82057b
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: dde4b4efc62ec444cbbd662a70e7507a1b8f70e7
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70918200"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71066984"
 ---
 # <a name="deep-dive---advanced-analytics"></a>Djupgående avancerad analys
 
@@ -23,17 +23,17 @@ HDInsight ger möjlighet att få värdefulla insikter från stora mängder struk
 
 ## <a name="advanced-analytics-process"></a>Avancerad analys process
 
-![Process](./media/apache-hadoop-deep-dive-advanced-analytics/hdinsight-analytic-process.png)
+![Process flöde för avancerad analys](./media/apache-hadoop-deep-dive-advanced-analytics/hdinsight-analytic-process.png)
 
-När du har identifierat affärs problemet och har börjat samla in och bearbeta dina data, måste du skapa en modell som representerar den fråga som du vill förutsäga. Din modell kommer att använda en eller flera Machine Learning-algoritmer för att göra den typ av förutsägelse som passar dina affärs behov bäst.  Majoriteten av dina data bör användas för att träna din modell, med resten som används för att testa eller utvärdera den. 
+När du har identifierat affärs problemet och har börjat samla in och bearbeta dina data, måste du skapa en modell som representerar den fråga som du vill förutsäga. Din modell kommer att använda en eller flera Machine Learning-algoritmer för att göra den typ av förutsägelse som passar dina affärs behov bäst.  Majoriteten av dina data bör användas för att träna din modell, med resten som används för att testa eller utvärdera den.
 
-När du har skapat, läst in, testat och utvärderat din modell är nästa steg att distribuera din modell så att den börjar tillhandahålla svar på dina frågor. Det sista steget är att övervaka modellens prestanda och finjustera den efter behov. 
+När du har skapat, läst in, testat och utvärderat din modell är nästa steg att distribuera din modell så att den börjar tillhandahålla svar på dina frågor. Det sista steget är att övervaka modellens prestanda och finjustera den efter behov.
 
 ## <a name="common-types-of-algorithms"></a>Vanliga typer av algoritmer
 
 Avancerade analys lösningar tillhandahåller en uppsättning Machine Learning-algoritmer. Här är en sammanfattning av olika kategorier av algoritmer och associerade vanliga företags användnings fall.
 
-![Machine Learning användnings fall](./media/apache-hadoop-deep-dive-advanced-analytics/machine-learning-use-cases.png)
+![Sammanfattningar av Machine Learning kategori](./media/apache-hadoop-deep-dive-advanced-analytics/machine-learning-use-cases.png)
 
 Tillsammans med att välja de bästa passnings algoritmerna måste du fundera över om du behöver ange data för träning. Machine Learning-algoritmer kategoriseras på följande sätt:
 
@@ -98,7 +98,7 @@ Det finns tre viktiga uppgifter i det här scenariot för avancerad analys:
 
 I det här exemplet används CIFAR-10-bilduppsättningen som kompileras och distribueras av Alex Krizhevsky, Nair och Geoffrey Hinton. CIFAR-10-datauppsättningen innehåller 60 000 32 × 32 färg bilder som tillhör 10 ömsesidigt uteslutande klasser:
 
-![Avbildningar](./media/apache-hadoop-deep-dive-advanced-analytics/machine-learning-images.png)
+![Machine Learning exempel bilder](./media/apache-hadoop-deep-dive-advanced-analytics/machine-learning-images.png)
 
 Mer information om data uppsättningen finns i Alex Krizhevsky s [Learning flera nivåer av funktioner från små bilder](https://www.cs.toronto.edu/~kriz/learning-features-2009-TR.pdf).
 
@@ -111,7 +111,7 @@ Data uppsättningen har partitionerats i en tränings uppsättning på 50 000 av
 
 Hela förbearbetningen/poängen för 10 000-avbildningarna tar mindre än en minut på ett kluster med fyra arbetsnoder. Modellen förutsäger korrekt etiketter på ~ 9 100 (91%) avbildningar. En förvirring mat ris illustrerar de vanligaste klassificerings felen. Matrisen visar till exempel att fel märkning av hundar som katter och vice versa inträffar oftare än för andra etikett par.
 
-![Resultat](./media/apache-hadoop-deep-dive-advanced-analytics/machine-learning-results.png)
+![Machine Learning resultat diagram](./media/apache-hadoop-deep-dive-advanced-analytics/machine-learning-results.png)
 
 ### <a name="try-it-out"></a>Prova!
 

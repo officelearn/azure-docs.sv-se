@@ -14,62 +14,82 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/12/2018
 ms.author: cawa
-ms.openlocfilehash: 1a051f3a0c55e207e6a53955d1cb4b9ea7e54a4d
-ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
+ms.openlocfilehash: 9e5bdb574439378b91a243d5d36ebddeb8520d49
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67544150"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71037459"
 ---
 # <a name="microsoft-azure-storage-explorer-release-notes"></a>Viktig information om Microsoft Azure Lagringsutforskaren
 
-Den här artikeln innehåller viktig information om Azure Storage Explorer 1.9.0 versionen, samt viktig information för tidigare versioner.
+Den här artikeln innehåller viktig information för Azure Storage Explorer 1.10.0-versionen, samt viktig information för tidigare versioner.
 
 [Microsoft Azure Lagringsutforskaren](./vs-azure-tools-storage-manage-with-storage-explorer.md) är en fristående app som gör det enkelt att arbeta med Azure Storage-data i Windows, macOS och Linux.
 
-## <a name="version-190"></a>Version 1.9.0
-7/1/2019
+## <a name="version-1100"></a>Version 1.10.0
+9/12/2019
 
-### <a name="download-azure-storage-explorer-190"></a>Hämta Azure Storage Explorer 1.9.0
-- [Azure Storage Explorer 1.9.0 för Windows](https://go.microsoft.com/fwlink/?LinkId=708343)
-- [Azure Storage Explorer 1.9.0 för Mac](https://go.microsoft.com/fwlink/?LinkId=708342)
-- [Azure Storage Explorer 1.9.0 för Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
+### <a name="download-azure-storage-explorer-1100"></a>Ladda ned Azure Storage Explorer 1.10.0
+- [Azure Storage Explorer 1.10.0 för Windows](https://go.microsoft.com/fwlink/?LinkId=708343)
+- [Azure Storage Explorer 1.10.0 för Mac](https://go.microsoft.com/fwlink/?LinkId=708342)
+- [Azure Storage Explorer 1.10.0 i snapin Store](https://snapcraft.io/storage-explorer)
+- [Azure Storage Explorer 1.10.0 för Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
 
 ### <a name="new"></a>Ny
 
-* Nu kan du koppla Blob-behållare via Azure AD (RBAC eller ACL-behörighet). Den här funktionen är avsedd att hjälpa användare som har åtkomst till behållare men inte de Lagringskonton som behållarna som finns i. Se vår Kom igång-guiden för mer information om den här funktionen.
-* Hämta och avbryta lånet nu fungerar med RBAC. [#1354](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1354)
-* Hantera principer för åtkomst och ange offentlig åtkomstnivå nu arbeta med RBAC. [#1355](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1355)
-* Ta bort blob mappar fungerar nu med RBAC. [#1450](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1450)
-* Ändra blobåtkomstnivån nu fungerar med RBAC. [#1446](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1446)
-* Du kan nu snabbt återställa Snabbåtkomst via ”Hjälp” → ”återställning”. [#1327](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1327)
+* Storage Explorer har nu ett särskilt inställnings gränssnitt. Du kan komma åt den via redigera → inställningar eller genom att klicka på inställnings ikonen (kugg hjulet) i det vänstra lodräta verktygsfältet. Den här funktionen är det första steget som vi vidtar för att tillhandahålla en rad olika [användare som begär inställningar](https://github.com/microsoft/AzureStorageExplorer/labels/%3Abulb%3A%20setting%20candidate). Från och med den här versionen stöds följande inställningar:
+    * Tema
+    * Proxy
+    * Logga ut vid avslut [#6](https://www.github.com/Microsoft/AzureStorageExplorer/issues/6)
+    * Aktivera inloggning med enhets kod flöde
+    * Uppdatera [#1526](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1526) automatiskt
+    * Aktivera AzCopy
+    * AzCopy SAS-varaktighet
 
-### <a name="preview-features"></a>Förhandsversionsfunktioner
+    Om det finns andra inställningar som du vill se till kan du [öppna ett problem på GitHub som beskriver den inställning som du vill se](https://github.com/microsoft/AzureStorageExplorer/issues/new?assignees=&labels=%3Abulb%3A%20setting%20candidate&template=feature_request.md&title=).
+* Storage Explorer stöder nu Managed Disks. Du kan:
+    * Ladda upp en virtuell hård disk på lokal till en ny disk
+    * Ladda ned en disk
+    * Kopiera och klistra in diskar i resurs grupper och regioner
+    * Ta bort diskar
+    * Skapa en ögonblicks bild av en disk
 
-* Enheten kod flow inloggningen finns nu att förhandsgranska. Aktivera det genom att gå till ”förhandsversion” → ”Använd kod Flow enhetsinloggning”. Vi rekommenderar att alla användare som har haft problem med tomma inloggning-fönster för den här funktionen, eftersom det kan visa sig vara en mer tillförlitlig form av inloggning.
-* Lagringsutforskaren integrerat med AzCopy är nu tillgänglig för förhandsgranskning. Aktivera det genom att gå till ”förhandsversion” → ”Använd AzCopy för förbättrad Blob ladda upp och ladda ned”. BLOB-överföringar har slutförts med AzCopy ska vara snabbare och bättre.
+    Kopiering, hämtning och lagring mellan regioner av diskar drivs av AzCopy v10.
+* Storage Explorer kan nu installeras via Snap Store på Linux. När du installerar via Snap Store installeras alla beroenden åt dig, inklusive .NET Core! För närvarande har vi kontrollerat att Storage Explorer fungerar bra på Ubuntu och CentOS. Om du stöter på problem med att installera från snapin Store på andra Linux-distributioner, [öppnar du ett problem på GitHub](https://github.com/microsoft/AzureStorageExplorer/issues/new?assignees=&labels=snaps&template=bug-report.md&title=). Mer information om hur du installerar från Snap Store finns i [guiden komma igång](https://aka.ms/storageexplorer/snapinformation). [#68](https://www.github.com/Microsoft/AzureStorageExplorer/issues/68)
+* Två större ändringar har gjorts för att bifoga Azure Active Directory (Azure AD) som är avsedda att göra funktionen mer användbar för ADLS Gen2 användare: * nu väljer du den klient som resursen som du lägger till är i. Det innebär att du inte längre behöver ha RBAC-åtkomst till resursens prenumeration.
+        * Om du bifogar en ADLS Gen2 BLOB-behållare kan du nu ansluta till en angiven sökväg i behållaren.
+* När du hanterar ACL: er för ADLS Gen2 filer och Storage Explorer mappar visas nu de egna namnen för entiteter i ACL: en. [#957](https://www.github.com/Microsoft/AzureStorageExplorer/issues/957)
+* När du lägger till via OID i en ADLS Gen2 ACL, kommer Storage Explorer nu att verifiera att OID tillhör en giltig entitet i din klient organisation. [#1603](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1603)
+* Kortkommandon för navigering mellan flikar använder nu fler standard tangentkombinationer. [#1018](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1018)
+* Om du klickar på en flik stängs det nu. [#1348](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1348)
+* Om en AzCopy Storage Explorer-överföring innehåller hoppa över och inga fel visas nu en varnings ikon för att markera att Skip har inträffat. [#1490](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1490)
+* Den integrerade AzCopy har uppdaterats till version 10.2.1. Dessutom kan du nu Visa versionen av AzCopy som är installerad i dialog rutan om. [#1343](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1343)
 
 ### <a name="fixes"></a>Korrigeringar
 
-* Fast att det inte går att läsa in mer än 50 prenumerationer för ett konto. [#1416](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1416)
-* Fasta knappen ”Logga in” fungerar inte på Informationsfältet som visas när en direktlänk misslyckas. [#1358](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1358)
-* Fasta var inte att ladda upp .app filer på macOS. [#1119](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1119)
-* Fast ”försök alla” fungerar inte för en misslyckad blob-byta. [#992](https://www.github.com/Microsoft/AzureStorageExplorer/issues/992)
-* Fast ”Avbryt” fungerar inte när du öppnar en blob. [#1464](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1464)
-* Fasta flera stavning och knappbeskrivning problem i hela produkten. Stort tack till alla som har rapporterat dessa problem! [#1303](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1303), [#1328](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1328), [#1329](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1329), [#1331](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1331), [#1336](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1336), [#1352](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1352), [#1368](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1368), [#1395](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1395)
+* Många användare har kört i olika "det går inte att läsa versionen av odefinierad" eller "det går inte att läsa en anslutning av odefinierade"-fel när du arbetar med anslutna lagrings konton. Även om vi fortfarande fortsätter att undersöka grund orsaken till problemet i 1.10.0 har vi förbättrat fel hanteringen vid inläsning av anslutna lagrings konton. [#1626](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1626), [#985](https://www.github.com/Microsoft/AzureStorageExplorer/issues/985)och [#1532](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1532)
+* Det var möjligt för Explorer-trädet (vänster sida) att hamna i ett tillstånd där fokus skulle gå till den översta noden flera gånger. Problemet har åtgärdats. [#1596](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1596)
+* Vid hantering av en blobs ögonblicks bilder skulle screenreaders inte läsa tidsstämpeln som hör till ögonblicks bilden. Problemet har åtgärdats. [#1202](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1202)
+* Det gick inte att ställa in proxy-inställningen på macOS i tid för att autentiseringsprocessen ska användas. Problemet har åtgärdats. [#1567](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1567)
+* Om ett lagrings konto i ett suveränt moln anslöts med hjälp av namn och nyckel skulle AzCopy inte fungera. Problemet har åtgärdats. [#1544](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1544)
+* När du ansluter via en anslutnings sträng tar Storage Explorer nu bort efterföljande blank steg. [#1387](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1387)
 
 ### <a name="known-issues"></a>Kända problem
 
-* När du utför en icke - AzCopy Blob-nedladdning, verifieras inte MD5 för stora filer. Detta beror på en bugg i Storage-SDK. [#1212](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1212)
-* När du använder RBAC kräver Lagringsutforskaren vissa management layer-behörigheter för att komma åt dina lagringsresurser. Se den [felsökningsguide](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting) för mer information.
-* Försök att få åtkomst till ADLS Gen2 Blobar när datorn är bakom en proxyserver misslyckas.
-* Kopplar från en resurs som är anslutna via SAS-URI, t.ex en blob-behållare kan orsaka ett fel som förhindrar andra bilagor från visas korrekt. Undvik problemet genom att bara uppdatera gruppnoden. Se #537 för mer information.
-* Om du använder VS för Mac och någon gång har skapat en anpassad AAD-konfiguration kan kanske du inte att logga in. Undvik problemet genom att ta bort innehållet i ~ /. IdentityService/AadConfigurations. Om du gör detta inte avblockera du kommentera problemet.
+* Inställningen för automatisk uppdatering påverkar inte alla åtgärder i BLOB Explorer än.
+* Hanterade disk funktioner stöds inte i Azure Stack.
+* Om en disk uppladdning eller inklistring Miss lyckas och en ny disk har skapats före misslyckandet, kommer Storage Explorer inte att ta bort disken åt dig.
+* Beroende på när du avbryter en disk uppladdning eller inklistring, är det möjligt att lämna den nya disken i ett skadat tillstånd. Om detta händer måste du antingen ta bort den nya disken eller manuellt anropa disk-API: erna för att ersätta innehållet på disken så att den inte längre är skadad.
+* När du utför en icke-AzCopy BLOB-hämtning, verifieras inte MD5 för stora filer. Detta beror på ett fel i Storage SDK: n. [#1212](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1212)
+* När du använder RBAC kräver Storage Explorer vissa behörigheter för hanterings lager för att få åtkomst till dina lagrings resurser. Mer information finns i [fel söknings guiden](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting) .
+* Om du kopplar från en resurs som är ansluten via SAS URI, till exempel en BLOB-behållare, kan det orsaka ett fel som förhindrar att andra bilagor visas korrekt. Undvik problemet genom att bara uppdatera gruppnoden. Se #537 för mer information.
+* Om du använder VS för Mac och någon gång har skapat en anpassad AAD-konfiguration kan kanske du inte att logga in. Undvik problemet genom att ta bort innehållet i ~ /. IdentityService/AadConfigurations. Om du gör det kan du kommentera det här problemet.
 * Azurite ännu inte helt har genomfört alla Storage API: er. Därför bör finnas det oväntade fel eller beteende när du använder Azurite för utvecklingslagring.
 * I sällsynta fall kan trädet fokus fastna på Snabbåtkomst. Du kan uppdatera alla som behövdes fokus.
-* Ladda upp från OneDrive-mapp fungerar inte på grund av ett fel i NodeJS. Buggen har åtgärdats, men ännu inte har integrerats i Electron. Om du vill undvika det här problemet vid överföring till eller hämta det från en blobbehållare kan använda du funktionen experimentella AzCopy.
+* Ladda upp från OneDrive-mapp fungerar inte på grund av ett fel i NodeJS. Buggen har åtgärdats, men ännu inte har integrerats i Electron. För att undvika det här problemet när du laddar upp eller laddar ned från en BLOB-behållare kan du använda funktionen experimentell AzCopy.
 * När du riktar in sig på Azure Stack, misslyckas ladda upp filer tilläggsblobbar.
-* När du klickar på ”Avbryt” för en aktivitet, kan det ta en stund innan aktiviteten att avbryta. Detta beskrivs eftersom vi använder Avbryt filter lösning här.
+* När du klickar på ”Avbryt” för en aktivitet, kan det ta en stund innan aktiviteten att avbryta. Det beror på att vi använder det Cancel filter-arbete som beskrivs här.
 * Om du väljer fel PIN-kod/smartkort-certifikat måste startas om för att få Lagringsutforskaren glömmer detta beslut.
 * Ögonblicksbilder bevaras inte när du byter namn på BLOB-objekt (individuellt eller i en omdöpt blobbehållare). Alla andra egenskaper och metadata för blobbar, filer och entiteter bevaras under en namnbyte.
 * Azure Stack har inte stöd för följande funktioner. Försök att använda dessa funktioner när du arbetar med Azure Stack kan resurser resultera i oväntade fel.
@@ -77,16 +97,18 @@ Den här artikeln innehåller viktig information om Azure Storage Explorer 1.9.0
    * Åtkomstnivåer
    * Mjuk borttagning
    * ADLS Gen2
+   * Managed Disks
 * Electron-gränssnitt som används av Storage Explorer har problem med vissa GPU (grafikprocessor) maskinvaruacceleration. Om Storage Explorer visning av ett tomt (tom) huvudfönstret måste du starta Lagringsutforskaren från kommandoraden och inaktivera GPU-acceleration genom att lägga till den `--disable-gpu` växla:
 
     ```
     ./StorageExplorer.exe --disable-gpu
     ```
 
-* Om du kör Lagringsutforskaren i Linux måste vissa beroenden installeras först. Kontrollera Storage Explorer [felsökningsguide](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting?tabs=1804#linux-dependencies) för mer information.
+* Att köra Storage Explorer på Linux kräver att vissa beroenden installeras först. Mer information finns i [fel söknings guiden](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting?tabs=1804#linux-dependencies) för Storage Explorer.
 
 ## <a name="previous-releases"></a>Tidigare versioner
 
+* [Version 1.9.0](#version-190)
 * [Version 1.8.1](#version-181)
 * [Version 1.8.0](#version-180)
 * [Version 1.7.0](#version-170)
@@ -125,48 +147,50 @@ Den här artikeln innehåller viktig information om Azure Storage Explorer 1.9.0
 * [Version 0.7.20160105.0](#version-07201601050)
 * [Version 0.7.20151116.0](#version-07201511160)
 
-## <a name="version-181"></a>Version 1.8.1
-5/13/2019
 
-### <a name="hotfixes"></a>Snabbkorrigeringar
-* I vissa fall skulle att klicka på ”inläsning mer” på resursnivån inte returnerar nästa sida i resurser. Problemet har åtgärdats. [#1359](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1359)
-* På Windows misslyckas AzCopy nedladdningar om en fil eller mapp hämtades och namnet på filen eller mappen hade ett tecken som var ogiltig för en Windows-sökväg. Problemet har åtgärdats. [#1350](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1350)
-* I ytterst sällsynta fall var när du utför en har bytt namn från en filresurs eller ett namnbyte i en filresurs, om kopiorna för det nya namnet misslyckades, eller om Storage utforska inte gick att bekräfta att överföringen av kopior med Azure, det risken för Storage Explorer för att ta bort o Håll filer innan kopieringen har slutförts. Problemet har åtgärdats.
+## <a name="version-190"></a>Version 1.9.0
+7/1/2019
+
+### <a name="download-azure-storage-explorer-190"></a>Ladda ned Azure Storage Explorer 1.9.0
+- [Azure Storage Explorer 1.9.0 för Windows](https://go.microsoft.com/fwlink/?LinkId=708343)
+- [Azure Storage Explorer 1.9.0 för Mac](https://go.microsoft.com/fwlink/?LinkId=708342)
+- [Azure Storage Explorer 1.9.0 för Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
 
 ### <a name="new"></a>Ny
 
-* Den integrerade AzCopy-versionen har blivit uppdaterad till version 10.1.0.
-* CTRL / Cmd + R kan nu användas för att uppdatera fokus redigeraren. [#1097](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1097)
-* Azure Stack Storage API-version har ändrats till 2017-04-17.
-* Dialogrutan Hantera åtkomst för ADLS Gen2 kommer nu se masken synkroniserade på ett sätt liknande till andra verktyg för behörigheter av POSIX. Användargränssnittet kommer också att varna dig om en ändring görs som gör att behörigheterna för en användare eller grupp att överskrida gränserna för masken. [#1253](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1253)
-* Flagga för att beräkna och ange MD5-hash har nu aktiverats för AzCopy uppladdningar. [#1223](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1223)
+* Nu kan du bifoga BLOB-behållare via Azure AD (RBAC eller ACL-behörigheter). Den här funktionen är avsedd att hjälpa användare som har åtkomst till behållare, men inte de lagrings konton som behållarna befinner sig i. Mer information om den här funktionen finns i vår Komma igångs guide.
+* Hämta och Bryt lånet fungerar nu med RBAC. [#1354](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1354)
+* Hantering av åtkomst principer och inställning av offentlig åtkomst nivå fungerar nu med RBAC. [#1355](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1355)
+* Att ta bort BLOB-mappar fungerar nu med RBAC. [#1450](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1450)
+* Att ändra BLOB-filnivån fungerar nu med RBAC. [#1446](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1446)
+* Du kan nu snabbt återställa snabb åtkomst via "hjälp" → "Återställ". [#1327](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1327)
 
+### <a name="preview-features"></a>Förhandsvisningsfunktioner
 
-### <a name="preview-features"></a>Förhandsversionsfunktioner
-
-* Enheten kod flow inloggningen finns nu att förhandsgranska. Aktivera det genom att gå till ”förhandsversion” → ”Använd kod Flow enhetsinloggning”. Vi rekommenderar att alla användare som har haft problem med tomma inloggning-fönster för den här funktionen, eftersom det kan visa sig vara en mer tillförlitlig form av inloggning.
-* Lagringsutforskaren integrerat med AzCopy är nu tillgänglig för förhandsgranskning. Aktivera det genom att gå till ”förhandsversion” → ”Använd AzCopy för förbättrad Blob ladda upp och ladda ned”. BLOB-överföringar har slutförts med AzCopy ska vara snabbare och bättre.
+* Logga in för enhets kod flöde är nu tillgängligt för förhands granskning. Om du vill aktivera den går du till "Förhandsgranska" → "Använd enhets kod flödes inloggning". Vi uppmuntrar alla användare som har haft problem med tomma inloggnings fönster att testa den här funktionen, eftersom det kan visa sig vara en mer tillförlitlig form av inloggning.
+* Storage Explorer integrerad med AzCopy är för närvarande tillgänglig för för hands version. Om du vill aktivera den går du till "Förhandsgranska" → "Använd AzCopy för att få förbättrad BLOB-överföring och nedladdning". BLOB-överföringar som slutförts med AzCopy bör vara snabbare och mer prestera.
 
 ### <a name="fixes"></a>Korrigeringar
 
-* Dialogrutan åtkomstprinciper kommer inte längre ange ett förfallodatum på åtkomst-principer för lagring som inte har ett utgångsdatum. [#764](https://www.github.com/Microsoft/AzureStorageExplorer/issues/764)
-* Vissa ändringar har gjorts att generera SAS-dialog Kontrollera lagrad åtkomstprinciper används korrekt när du genererar en SAS. [#1269](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1269)
-* När försök att överföra en icke - 512 byte justerade filen till en sida Blob Storage Explorer nu att exponera ett mer relevant fel. [#1050](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1050)
-* Kopiera en Blob-behållare där man använder ett visningsnamn misslyckas. Nu används det faktiska namnet på Blob-behållaren. [#1166](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1166)
-* Skulle inte att utföra vissa åtgärder på ett ADLS-Gen2-mappen som hade unicode-tecken i namnet. Alla åtgärder ska nu fungera. [#980](https://www.github.com/Microsoft/AzureStorageExplorer/issues/980)
+* Det gick inte att läsa in mer än 50 prenumerationer för ett konto. [#1416](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1416)
+* Åtgärdade knappen "logga in" fungerar inte i informations fältet som visas när en direkt länk Miss lyckas. [#1358](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1358)
+* Fast inte att ladda upp. apps på macOS. [#1119](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1119)
+* Fast "försök alla" fungerar inte för en misslyckad BLOB-namnbyte. [#992](https://www.github.com/Microsoft/AzureStorageExplorer/issues/992)
+* Fast "Cancel" fungerar inte när en BLOB öppnas. [#1464](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1464)
+* Åtgärdat flera stavnings-och knapp beskrivnings problem i produkten. Många tack till alla som rapporterade problemen! [#1303](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1303), [#1328](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1328), [#1329](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1329), [#1331](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1331), [#1336](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1336), [#1352](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1352), [#1368](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1368), [#1395](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1395)
 
 ### <a name="known-issues"></a>Kända problem
 
-* När du utför en icke - AzCopy Blob-nedladdning, verifieras inte MD5 för stora filer. Detta beror på en bugg i Storage-SDK. [#1212](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1212)
-* När du använder RBAC kräver Lagringsutforskaren vissa management layer-behörigheter för att komma åt dina lagringsresurser. Se den [felsökningsguide](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting) för mer information.
-* Försök att få åtkomst till ADLS Gen2 Blobar när datorn är bakom en proxyserver misslyckas.
-* Kopplar från en resurs som är anslutna via SAS-URI, t.ex en blob-behållare kan orsaka ett fel som förhindrar andra bilagor från visas korrekt. Undvik problemet genom att bara uppdatera gruppnoden. Se #537 för mer information.
-* Om du använder VS för Mac och någon gång har skapat en anpassad AAD-konfiguration kan kanske du inte att logga in. Undvik problemet genom att ta bort innehållet i ~ /. IdentityService/AadConfigurations. Om du gör detta inte avblockera du kommentera problemet.
+* När du utför en icke-AzCopy BLOB-hämtning, verifieras inte MD5 för stora filer. Detta beror på ett fel i Storage SDK: n. [#1212](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1212)
+* När du använder RBAC kräver Storage Explorer vissa behörigheter för hanterings lager för att få åtkomst till dina lagrings resurser. Mer information finns i [fel söknings guiden](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting) .
+* Försök att komma åt ADLS Gen2 blobbar efter att en proxy kan Miss lyckas.
+* Om du kopplar från en resurs som är ansluten via SAS URI, till exempel en BLOB-behållare, kan det orsaka ett fel som förhindrar att andra bilagor visas korrekt. Undvik problemet genom att bara uppdatera gruppnoden. Se #537 för mer information.
+* Om du använder VS för Mac och någon gång har skapat en anpassad AAD-konfiguration kan kanske du inte att logga in. Undvik problemet genom att ta bort innehållet i ~ /. IdentityService/AadConfigurations. Om du gör det kan du kommentera det här problemet.
 * Azurite ännu inte helt har genomfört alla Storage API: er. Därför bör finnas det oväntade fel eller beteende när du använder Azurite för utvecklingslagring.
 * I sällsynta fall kan trädet fokus fastna på Snabbåtkomst. Du kan uppdatera alla som behövdes fokus.
-* Ladda upp från OneDrive-mapp fungerar inte på grund av ett fel i NodeJS. Buggen har åtgärdats, men ännu inte har integrerats i Electron. Om du vill undvika det här problemet vid överföring till eller hämta det från en blobbehållare kan använda du funktionen experimentella AzCopy.
+* Ladda upp från OneDrive-mapp fungerar inte på grund av ett fel i NodeJS. Buggen har åtgärdats, men ännu inte har integrerats i Electron. För att undvika det här problemet när du laddar upp eller laddar ned från en BLOB-behållare kan du använda funktionen experimentell AzCopy.
 * När du riktar in sig på Azure Stack, misslyckas ladda upp filer tilläggsblobbar.
-* När du klickar på ”Avbryt” för en aktivitet, kan det ta en stund innan aktiviteten att avbryta. Detta beskrivs eftersom vi använder Avbryt filter lösning här.
+* När du klickar på ”Avbryt” för en aktivitet, kan det ta en stund innan aktiviteten att avbryta. Det beror på att vi använder det Cancel filter-arbete som beskrivs här.
 * Om du väljer fel PIN-kod/smartkort-certifikat måste startas om för att få Lagringsutforskaren glömmer detta beslut.
 * Ögonblicksbilder bevaras inte när du byter namn på BLOB-objekt (individuellt eller i en omdöpt blobbehållare). Alla andra egenskaper och metadata för blobbar, filer och entiteter bevaras under en namnbyte.
 * Azure Stack har inte stöd för följande funktioner. Försök att använda dessa funktioner när du arbetar med Azure Stack kan resurser resultera i oväntade fel.
@@ -180,45 +204,102 @@ Den här artikeln innehåller viktig information om Azure Storage Explorer 1.9.0
     ./StorageExplorer.exe --disable-gpu
     ```
 
-* Om du kör Lagringsutforskaren i Linux måste vissa beroenden installeras först. Kontrollera Storage Explorer [felsökningsguide](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting?tabs=1804#linux-dependencies) för mer information.
+* Att köra Storage Explorer på Linux kräver att vissa beroenden installeras först. Mer information finns i [fel söknings guiden](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting?tabs=1804#linux-dependencies) för Storage Explorer.
+
+## <a name="version-181"></a>Version 1.8.1
+5/13/2019
+
+### <a name="hotfixes"></a>Snabbkorrigeringar
+* I vissa fall kan du klicka på Läs in mer på resurs nivå för att inte returnera nästa sida med resurser. Problemet har åtgärdats. [#1359](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1359)
+* I Windows skulle AzCopy-nedladdningar bli misslyckade om en enstaka fil eller mapp laddades ned och namnet på filen eller mappen hade ett ogiltigt format för en Windows-sökväg. Problemet har åtgärdats. [#1350](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1350)
+* I ytterst sällsynta fall, samtidigt som du utför ett namnbyte på en fil resurs eller ett namnbyte i en fil resurs, om kopiorna för namnbytet misslyckades, eller om lagrings tjänsten inte kunde bekräfta att kopiorna med Azure kunde utföras, var det möjligt att Storage Explorer ta bort o riginal filer innan kopieringen avslutades. Problemet har åtgärdats.
+
+### <a name="new"></a>Ny
+
+* Den integrerade AzCopy-versionen har uppdaterats till version 10.1.0.
+* Du kan nu använda Ctrl/Cmd + R för att uppdatera den för närvarande fokuserade redigeraren. [#1097](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1097)
+* Azure Stack Storage API-versionen har ändrats till 2017-04-17.
+* I dialog rutan Hantera åtkomst för ADLS Gen2 kommer nu att synkronisera masken på ett liknande sätt som andra POSIX-behörighets verktyg. Användar gränssnittet varnar dig även om en ändring görs som gör att behörigheterna för en användare eller grupp överskrider maskens gränser. [#1253](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1253)
+* För AzCopy-uppladdningar är flaggan för att beräkna och ange MD5-hash nu aktive rad. [#1223](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1223)
+
+
+### <a name="preview-features"></a>Förhandsvisningsfunktioner
+
+* Logga in för enhets kod flöde är nu tillgängligt för förhands granskning. Om du vill aktivera den går du till "Förhandsgranska" → "Använd enhets kod flödes inloggning". Vi uppmuntrar alla användare som har haft problem med tomma inloggnings fönster att testa den här funktionen, eftersom det kan visa sig vara en mer tillförlitlig form av inloggning.
+* Storage Explorer integrerad med AzCopy är för närvarande tillgänglig för för hands version. Om du vill aktivera den går du till "Förhandsgranska" → "Använd AzCopy för att få förbättrad BLOB-överföring och nedladdning". BLOB-överföringar som slutförts med AzCopy bör vara snabbare och mer prestera.
+
+### <a name="fixes"></a>Korrigeringar
+
+* Dialog rutan åtkomst principer kommer inte längre att ange ett förfallo datum för lagrings åtkomst principer som inte har något förfallo datum. [#764](https://www.github.com/Microsoft/AzureStorageExplorer/issues/764)
+* Vissa ändringar har gjorts i dialog rutan skapa SAS för att se till att lagrade åtkomst principer används korrekt när du genererar en SAS. [#1269](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1269)
+* När du försöker överföra en icke-512-komprimerad fil till en sid-BLOB kommer Storage Explorer nu att exponera ett mer relevant fel. [#1050](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1050)
+* Det gick inte att kopiera en BLOB-behållare som använder ett visnings namn. Nu används det faktiska namnet på BLOB-behållaren. [#1166](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1166)
+* Försök att utföra vissa åtgärder på en ADLS Gen2-mapp som hade Unicode-tecken i namnet skulle Miss lyckas. Alla åtgärder bör nu fungera. [#980](https://www.github.com/Microsoft/AzureStorageExplorer/issues/980)
+
+### <a name="known-issues"></a>Kända problem
+
+* När du utför en icke-AzCopy BLOB-hämtning, verifieras inte MD5 för stora filer. Detta beror på ett fel i Storage SDK: n. [#1212](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1212)
+* När du använder RBAC kräver Storage Explorer vissa behörigheter för hanterings lager för att få åtkomst till dina lagrings resurser. Mer information finns i [fel söknings guiden](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting) .
+* Försök att komma åt ADLS Gen2 blobbar efter att en proxy kan Miss lyckas.
+* Om du kopplar från en resurs som är ansluten via SAS URI, till exempel en BLOB-behållare, kan det orsaka ett fel som förhindrar att andra bilagor visas korrekt. Undvik problemet genom att bara uppdatera gruppnoden. Se #537 för mer information.
+* Om du använder VS för Mac och någon gång har skapat en anpassad AAD-konfiguration kan kanske du inte att logga in. Undvik problemet genom att ta bort innehållet i ~ /. IdentityService/AadConfigurations. Om du gör det kan du kommentera det här problemet.
+* Azurite ännu inte helt har genomfört alla Storage API: er. Därför bör finnas det oväntade fel eller beteende när du använder Azurite för utvecklingslagring.
+* I sällsynta fall kan trädet fokus fastna på Snabbåtkomst. Du kan uppdatera alla som behövdes fokus.
+* Ladda upp från OneDrive-mapp fungerar inte på grund av ett fel i NodeJS. Buggen har åtgärdats, men ännu inte har integrerats i Electron. För att undvika det här problemet när du laddar upp eller laddar ned från en BLOB-behållare kan du använda funktionen experimentell AzCopy.
+* När du riktar in sig på Azure Stack, misslyckas ladda upp filer tilläggsblobbar.
+* När du klickar på ”Avbryt” för en aktivitet, kan det ta en stund innan aktiviteten att avbryta. Det beror på att vi använder det Cancel filter-arbete som beskrivs här.
+* Om du väljer fel PIN-kod/smartkort-certifikat måste startas om för att få Lagringsutforskaren glömmer detta beslut.
+* Ögonblicksbilder bevaras inte när du byter namn på BLOB-objekt (individuellt eller i en omdöpt blobbehållare). Alla andra egenskaper och metadata för blobbar, filer och entiteter bevaras under en namnbyte.
+* Azure Stack har inte stöd för följande funktioner. Försök att använda dessa funktioner när du arbetar med Azure Stack kan resurser resultera i oväntade fel.
+   * Filresurser
+   * Åtkomstnivåer
+   * Mjuk borttagning
+   * ADLS Gen2
+* Electron-gränssnitt som används av Storage Explorer har problem med vissa GPU (grafikprocessor) maskinvaruacceleration. Om Storage Explorer visning av ett tomt (tom) huvudfönstret måste du starta Lagringsutforskaren från kommandoraden och inaktivera GPU-acceleration genom att lägga till den `--disable-gpu` växla:
+
+    ```
+    ./StorageExplorer.exe --disable-gpu
+    ```
+
+* Att köra Storage Explorer på Linux kräver att vissa beroenden installeras först. Mer information finns i [fel söknings guiden](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting?tabs=1804#linux-dependencies) för Storage Explorer.
 
 ## <a name="version-180"></a>Version 1.8.0
 5/1/2019
 
 ### <a name="new"></a>Ny
 
-* Den integrerade AzCopy-versionen har blivit uppdaterad till version 10.1.0.
-* CTRL / Cmd + R kan nu användas för att uppdatera fokus redigeraren. [#1097](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1097)
-* Azure Stack Storage API-version har ändrats till 2017-04-17.
-* Dialogrutan Hantera åtkomst för ADLS Gen2 kommer nu se masken synkroniserade på ett sätt liknande till andra verktyg för behörigheter av POSIX. Användargränssnittet kommer också att varna dig om en ändring görs som gör att behörigheterna för en användare eller grupp att överskrida gränserna för masken. [#1253](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1253)
-* Flagga för att beräkna och ange MD5-hash har nu aktiverats för AzCopy uppladdningar. [#1223](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1223)
+* Den integrerade AzCopy-versionen har uppdaterats till version 10.1.0.
+* Du kan nu använda Ctrl/Cmd + R för att uppdatera den för närvarande fokuserade redigeraren. [#1097](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1097)
+* Azure Stack Storage API-versionen har ändrats till 2017-04-17.
+* I dialog rutan Hantera åtkomst för ADLS Gen2 kommer nu att synkronisera masken på ett liknande sätt som andra POSIX-behörighets verktyg. Användar gränssnittet varnar dig även om en ändring görs som gör att behörigheterna för en användare eller grupp överskrider maskens gränser. [#1253](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1253)
+* För AzCopy-uppladdningar är flaggan för att beräkna och ange MD5-hash nu aktive rad. [#1223](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1223)
 
 
-### <a name="preview-features"></a>Förhandsversionsfunktioner
+### <a name="preview-features"></a>Förhandsvisningsfunktioner
 
-* Enheten kod flow inloggningen finns nu att förhandsgranska. Aktivera det genom att gå till ”förhandsversion” → ”Använd kod Flow enhetsinloggning”. Vi rekommenderar att alla användare som har haft problem med tomma inloggning-fönster för den här funktionen, eftersom det kan visa sig vara en mer tillförlitlig form av inloggning.
-* Lagringsutforskaren integrerat med AzCopy är nu tillgänglig för förhandsgranskning. Aktivera det genom att gå till ”förhandsversion” → ”Använd AzCopy för förbättrad Blob ladda upp och ladda ned”. BLOB-överföringar har slutförts med AzCopy ska vara snabbare och bättre.
+* Logga in för enhets kod flöde är nu tillgängligt för förhands granskning. Om du vill aktivera den går du till "Förhandsgranska" → "Använd enhets kod flödes inloggning". Vi uppmuntrar alla användare som har haft problem med tomma inloggnings fönster att testa den här funktionen, eftersom det kan visa sig vara en mer tillförlitlig form av inloggning.
+* Storage Explorer integrerad med AzCopy är för närvarande tillgänglig för för hands version. Om du vill aktivera den går du till "Förhandsgranska" → "Använd AzCopy för att få förbättrad BLOB-överföring och nedladdning". BLOB-överföringar som slutförts med AzCopy bör vara snabbare och mer prestera.
 
 ### <a name="fixes"></a>Korrigeringar
 
-* Dialogrutan åtkomstprinciper kommer inte längre ange ett förfallodatum på åtkomst-principer för lagring som inte har ett utgångsdatum. [#764](https://www.github.com/Microsoft/AzureStorageExplorer/issues/764)
-* Vissa ändringar har gjorts att generera SAS-dialog Kontrollera lagrad åtkomstprinciper används korrekt när du genererar en SAS. [#1269](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1269)
-* När försök att överföra en icke - 512 byte justerade filen till en sida Blob Storage Explorer nu att exponera ett mer relevant fel. [#1050](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1050)
-* Kopiera en Blob-behållare där man använder ett visningsnamn misslyckas. Nu används det faktiska namnet på Blob-behållaren. [#1166](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1166)
-* Skulle inte att utföra vissa åtgärder på ett ADLS-Gen2-mappen som hade unicode-tecken i namnet. Alla åtgärder ska nu fungera. [#980](https://www.github.com/Microsoft/AzureStorageExplorer/issues/980)
+* Dialog rutan åtkomst principer kommer inte längre att ange ett förfallo datum för lagrings åtkomst principer som inte har något förfallo datum. [#764](https://www.github.com/Microsoft/AzureStorageExplorer/issues/764)
+* Vissa ändringar har gjorts i dialog rutan skapa SAS för att se till att lagrade åtkomst principer används korrekt när du genererar en SAS. [#1269](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1269)
+* När du försöker överföra en icke-512-komprimerad fil till en sid-BLOB kommer Storage Explorer nu att exponera ett mer relevant fel. [#1050](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1050)
+* Det gick inte att kopiera en BLOB-behållare som använder ett visnings namn. Nu används det faktiska namnet på BLOB-behållaren. [#1166](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1166)
+* Försök att utföra vissa åtgärder på en ADLS Gen2-mapp som hade Unicode-tecken i namnet skulle Miss lyckas. Alla åtgärder bör nu fungera. [#980](https://www.github.com/Microsoft/AzureStorageExplorer/issues/980)
 
 ### <a name="known-issues"></a>Kända problem
 
-* När du utför en icke - AzCopy Blob-nedladdning, verifieras inte MD5 för stora filer. Detta beror på en bugg i Storage-SDK. [#1212](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1212)
-* När du använder RBAC kräver Lagringsutforskaren vissa management layer-behörigheter för att komma åt dina lagringsresurser. Se den [felsökningsguide](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting) för mer information.
-* Försök att få åtkomst till ADLS Gen2 Blobar när datorn är bakom en proxyserver misslyckas.
-* Kopplar från en resurs som är anslutna via SAS-URI, t.ex en blob-behållare kan orsaka ett fel som förhindrar andra bilagor från visas korrekt. Undvik problemet genom att bara uppdatera gruppnoden. Se #537 för mer information.
-* Om du använder VS för Mac och någon gång har skapat en anpassad AAD-konfiguration kan kanske du inte att logga in. Undvik problemet genom att ta bort innehållet i ~ /. IdentityService/AadConfigurations. Om du gör detta inte avblockera du kommentera problemet.
+* När du utför en icke-AzCopy BLOB-hämtning, verifieras inte MD5 för stora filer. Detta beror på ett fel i Storage SDK: n. [#1212](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1212)
+* När du använder RBAC kräver Storage Explorer vissa behörigheter för hanterings lager för att få åtkomst till dina lagrings resurser. Mer information finns i [fel söknings guiden](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting) .
+* Försök att komma åt ADLS Gen2 blobbar efter att en proxy kan Miss lyckas.
+* Om du kopplar från en resurs som är ansluten via SAS URI, till exempel en BLOB-behållare, kan det orsaka ett fel som förhindrar att andra bilagor visas korrekt. Undvik problemet genom att bara uppdatera gruppnoden. Se #537 för mer information.
+* Om du använder VS för Mac och någon gång har skapat en anpassad AAD-konfiguration kan kanske du inte att logga in. Undvik problemet genom att ta bort innehållet i ~ /. IdentityService/AadConfigurations. Om du gör det kan du kommentera det här problemet.
 * Azurite ännu inte helt har genomfört alla Storage API: er. Därför bör finnas det oväntade fel eller beteende när du använder Azurite för utvecklingslagring.
 * I sällsynta fall kan trädet fokus fastna på Snabbåtkomst. Du kan uppdatera alla som behövdes fokus.
-* Ladda upp från OneDrive-mapp fungerar inte på grund av ett fel i NodeJS. Buggen har åtgärdats, men ännu inte har integrerats i Electron. Om du vill undvika det här problemet vid överföring till eller hämta det från en blobbehållare kan använda du funktionen experimentella AzCopy.
+* Ladda upp från OneDrive-mapp fungerar inte på grund av ett fel i NodeJS. Buggen har åtgärdats, men ännu inte har integrerats i Electron. För att undvika det här problemet när du laddar upp eller laddar ned från en BLOB-behållare kan du använda funktionen experimentell AzCopy.
 * När du riktar in sig på Azure Stack, misslyckas ladda upp filer tilläggsblobbar.
-* När du klickar på ”Avbryt” för en aktivitet, kan det ta en stund innan aktiviteten att avbryta. Detta beskrivs eftersom vi använder Avbryt filter lösning här.
+* När du klickar på ”Avbryt” för en aktivitet, kan det ta en stund innan aktiviteten att avbryta. Det beror på att vi använder det Cancel filter-arbete som beskrivs här.
 * Om du väljer fel PIN-kod/smartkort-certifikat måste startas om för att få Lagringsutforskaren glömmer detta beslut.
 * Ögonblicksbilder bevaras inte när du byter namn på BLOB-objekt (individuellt eller i en omdöpt blobbehållare). Alla andra egenskaper och metadata för blobbar, filer och entiteter bevaras under en namnbyte.
 * Azure Stack har inte stöd för följande funktioner. Försök att använda dessa funktioner när du arbetar med Azure Stack kan resurser resultera i oväntade fel.
@@ -232,50 +313,50 @@ Den här artikeln innehåller viktig information om Azure Storage Explorer 1.9.0
     ./StorageExplorer.exe --disable-gpu
     ```
 
-* Om du kör Lagringsutforskaren i Linux måste vissa beroenden installeras först. Kontrollera Storage Explorer [felsökningsguide](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting?tabs=1804#linux-dependencies) för mer information.
+* Att köra Storage Explorer på Linux kräver att vissa beroenden installeras först. Mer information finns i [fel söknings guiden](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting?tabs=1804#linux-dependencies) för Storage Explorer.
 
 ## <a name="version-170"></a>Version 1.7.0
 3/5/2019
 
-### <a name="download-azure-storage-explorer-170"></a>Hämta Azure Storage Explorer 1.7.0
+### <a name="download-azure-storage-explorer-170"></a>Ladda ned Azure Storage Explorer 1.7.0
 - [Azure Storage Explorer 1.7.0 för Windows](https://go.microsoft.com/fwlink/?LinkId=708343)
 - [Azure Storage Explorer 1.7.0 för Mac](https://go.microsoft.com/fwlink/?LinkId=708342)
 - [Azure Storage Explorer 1.7.0 för Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
 
 ### <a name="new"></a>Ny
 
-* Du kan nu ändra ägare och ägande grupp vid hantering av åtkomst för en ADLS Gen2 behållare, fil eller mapp.
-* På Windows är uppdatering av Storage Explorer från inom produkten nu en inkrementell installation. Detta resulterar i en snabbare uppdatering-upplevelse. Om du föredrar en ren installation så du kan ladda ned den [installer](https://azure.microsoft.com/features/storage-explorer/) själv och sedan installera manuellt. #1089
+* Du kan nu ändra ägare och ägande grupp när du hanterar åtkomst för en ADLS Gen2 behållare, fil eller mapp.
+* I Windows är uppdateringen av Storage Explorer i produkten nu en stegvis installation. Detta bör resultera i en snabbare uppdaterings upplevelse. Om du föredrar en ren installation kan du ladda ned [installations programmet](https://azure.microsoft.com/features/storage-explorer/) själv och sedan installera manuellt. #1089
 
-### <a name="preview-features"></a>Förhandsversionsfunktioner
+### <a name="preview-features"></a>Förhandsvisningsfunktioner
 
-* Enheten kod flow inloggningen finns nu att förhandsgranska. Aktivera det genom att gå till ”förhandsversion” → ”Använd kod Flow enhetsinloggning”. Vi rekommenderar att alla användare som har haft problem med tomma inloggning-fönster för den här funktionen, eftersom det kan visa sig vara en mer tillförlitlig form av inloggning. #938
-* Lagringsutforskaren integrerat med AzCopy är nu tillgänglig för förhandsgranskning. Aktivera det genom att gå till ”förhandsversion” → ”Använd AzCopy för förbättrad Blob ladda upp och ladda ned”. BLOB-överföringar har slutförts med AzCopy ska vara snabbare och bättre.
+* Logga in för enhets kod flöde är nu tillgängligt för förhands granskning. Om du vill aktivera den går du till "Förhandsgranska" → "Använd enhets kod flödes inloggning". Vi uppmuntrar alla användare som har haft problem med tomma inloggnings fönster att testa den här funktionen, eftersom det kan visa sig vara en mer tillförlitlig form av inloggning. #938
+* Storage Explorer integrerad med AzCopy är för närvarande tillgänglig för för hands version. Om du vill aktivera den går du till "Förhandsgranska" → "Använd AzCopy för att få förbättrad BLOB-överföring och nedladdning". BLOB-överföringar som slutförts med AzCopy bör vara snabbare och mer prestera.
 
 ### <a name="fixes"></a>Korrigeringar
 
-* Du kan nu välja blobtyp som du vill ladda upp som när AzCopy är aktiverat. #1111
-* Tidigare, om du har aktiverat serverstatiska webbplatser för ett ADLS Gen2 Storage-konto och appliceras med namnet och nyckeln, Lagringsutforskaren skulle inte har upptäckt att hierarkiskt namnområde har aktiverats. Problemet har åtgärdats. #1081
-* I blob-redigeraren bröts sortera efter status eller kvarhållningsdagar återstående. Problemet har åtgärdats. #1106
-* Efter 1.5.0, Storage Explorer inte längre väntade på att servern sida kopior som ska finish innan den rapporterar lyckade under en Byt namn på eller kopiera och klistra in. Problemet har åtgärdats. #976
-* När du använder funktionen experimentella AzCopy, var kommandot som kopieras när du klickar på ”Kopiera kommandot till Urklipp” inte alltid att köra flödet på egen hand. Nu kan kopieras alla kommandon som behövs för att köra överföringen manuellt. #1079
-* Tidigare var ADLS Gen2 blobar inte tillgänglig om du är bakom en proxyserver. Det berodde på en bugg i ett nytt nätverk bibliotek som används av Storage SDK. Ett försök att åtgärda problemet har gjorts i 1.7.0, men vissa personer kan fortsätta att problem uppstå. En fullständig korrigering släpps i en kommande uppdatering. #1090
-* I 1.7.0, spara fildialogruta nu korrekt ihåg den senaste plats som du sparade en fil till. #16
-* På egenskapspanelen som SKU-nivån av ett lagringskonto visades som kontots typ. Problemet har åtgärdats. #654
-* Ibland inte var möjligt att avbryta lånet för en blob, även om du har angett namnet på bloben korrekt. Problemet har åtgärdats. #1070
+* Nu kan du välja den Blob-typ som du vill överföra som när AzCopy är aktive rad. #1111
+* Om du tidigare har aktiverat statiska webbplatser för ett ADLS Gen2 lagrings konto och kopplat det med namn och nyckel, skulle Storage Explorer inte ha identifierat att hierarkiskt namn område har Aktiver ATS. Problemet har åtgärdats. #1081
+* I BLOB-redigeraren, sorteras efter antingen kvarhållning dagar kvar eller status var bruten. Problemet har åtgärdats. #1106
+* Efter 1.5.0 väntar Storage Explorer inte längre på att Server sidans kopior ska slutföras innan rapporteringen lyckades under ett namnbyte eller en kopia & klistra in. Problemet har åtgärdats. #976
+* När du använder funktionen experimentell AzCopy har kommandot som kopierats efter att du klickat på "Kopiera kommando till Urklipp" inte alltid körbara. Nu kommer alla kommandon som behövs för att köra överföringen att kopieras manuellt. #1079
+* Tidigare var ADLS Gen2 blobbar inte tillgängliga om du var bakom en proxy. Detta beror på ett fel i ett nytt nätverks bibliotek som används av Storage SDK. I 1.7.0 har ett försök att minska det här problemet, men vissa personer kan fortsätta att se problem. En fullständig korrigering publiceras i en framtida uppdatering. #1090
+* I 1.7.0, kommer dialog rutan Spara fil att korrekt ändra den senaste platsen som du sparade en fil till. #16
+* På panelen Egenskaper visas SKU-nivån för ett lagrings konto som kontots typ. Problemet har åtgärdats. #654
+* Ibland var det omöjligt att avbryta lånet av en BLOB, även om du har angett namnet på blobben korrekt. Problemet har åtgärdats. #1070
 
 ### <a name="known-issues"></a>Kända problem
 
-* När du använder RBAC kräver Lagringsutforskaren vissa management layer-behörigheter för att komma åt dina lagringsresurser. Se den [felsökningsguide](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting) för mer information.
-* Försök att få åtkomst till ADLS Gen2 Blobar när datorn är bakom en proxyserver misslyckas.
-* Kopplar från en resurs som är anslutna via SAS-URI, t.ex en blob-behållare kan orsaka ett fel som förhindrar andra bilagor från visas korrekt. Undvik problemet genom att bara uppdatera gruppnoden. Se #537 för mer information.
-* Kopplar från en resurs som är anslutna via SAS-URI, t.ex en blob-behållare kan orsaka ett fel som förhindrar andra bilagor från visas korrekt. Undvik problemet genom att bara uppdatera gruppnoden. Mer information finns i #537.
-* Om du använder VS för Mac och någon gång har skapat en anpassad AAD-konfiguration kan kanske du inte att logga in. Undvik problemet genom att ta bort innehållet i ~ /. IdentityService/AadConfigurations. Om du gör detta inte avblockera du kommentera problemet.
+* När du använder RBAC kräver Storage Explorer vissa behörigheter för hanterings lager för att få åtkomst till dina lagrings resurser. Mer information finns i [fel söknings guiden](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting) .
+* Försök att komma åt ADLS Gen2 blobbar efter att en proxy kan Miss lyckas.
+* Om du kopplar från en resurs som är ansluten via SAS URI, till exempel en BLOB-behållare, kan det orsaka ett fel som förhindrar att andra bilagor visas korrekt. Undvik problemet genom att bara uppdatera gruppnoden. Se #537 för mer information.
+* Om du kopplar från en resurs som är ansluten via SAS URI, till exempel en BLOB-behållare, kan det orsaka ett fel som förhindrar att andra bilagor visas korrekt. Undvik problemet genom att bara uppdatera gruppnoden. Mer information finns i #537.
+* Om du använder VS för Mac och någon gång har skapat en anpassad AAD-konfiguration kan kanske du inte att logga in. Undvik problemet genom att ta bort innehållet i ~ /. IdentityService/AadConfigurations. Om du gör det kan du kommentera det här problemet.
 * Azurite ännu inte helt har genomfört alla Storage API: er. Därför bör finnas det oväntade fel eller beteende när du använder Azurite för utvecklingslagring.
 * I sällsynta fall kan trädet fokus fastna på Snabbåtkomst. Du kan uppdatera alla som behövdes fokus.
-* Ladda upp från OneDrive-mapp fungerar inte på grund av ett fel i NodeJS. Buggen har åtgärdats, men ännu inte har integrerats i Electron. Om du vill undvika det här problemet vid överföring till eller hämta det från en blobbehållare kan använda du funktionen experimentella AzCopy.
+* Ladda upp från OneDrive-mapp fungerar inte på grund av ett fel i NodeJS. Buggen har åtgärdats, men ännu inte har integrerats i Electron. För att undvika det här problemet när du laddar upp eller laddar ned från en BLOB-behållare kan du använda funktionen experimentell AzCopy.
 * När du riktar in sig på Azure Stack, misslyckas ladda upp filer tilläggsblobbar.
-* När du klickar på ”Avbryt” för en aktivitet, kan det ta en stund innan aktiviteten att avbryta. Detta beskrivs eftersom vi använder Avbryt filter lösning här.
+* När du klickar på ”Avbryt” för en aktivitet, kan det ta en stund innan aktiviteten att avbryta. Det beror på att vi använder det Cancel filter-arbete som beskrivs här.
 * Om du väljer fel PIN-kod/smartkort-certifikat måste startas om för att få Lagringsutforskaren glömmer detta beslut.
 * Ögonblicksbilder bevaras inte när du byter namn på BLOB-objekt (individuellt eller i en omdöpt blobbehållare). Alla andra egenskaper och metadata för blobbar, filer och entiteter bevaras under en namnbyte.
 * Azure Stack har inte stöd för följande funktioner. Försök att använda dessa funktioner när du arbetar med Azure Stack kan resurser resultera i oväntade fel.
@@ -308,46 +389,46 @@ Den här artikeln innehåller viktig information om Azure Storage Explorer 1.9.0
 1/9/2019
 
 ### <a name="hotfixes"></a>Snabbkorrigeringar
-* 1\.6.1 lades entiteter som läggs till ADLS Gen2 ACL: er av ObjectId som användare kan inte alltid som grupper. Endast grupper läggs nu som grupper och enheter, till exempel företagsprogram andService huvudkonton läggs till som användare. [#1049](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1049)
-* Om ett ADLS Gen2 Storage-konto har inga behållare och anslöts med namnet och nyckeln, skulle Lagringsutforskaren inte identifierar att Lagringskontot har ADLS Gen2. Problemet har åtgärdats. [#1048](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1048)
-* I 1.6.0 eller senare, skulle konflikter under kopiera och klistra in inte fråga efter en lösning. I stället misslyckas bara den borttagna kopian. Nu på den första konflikten blir du ombedd hur du vill ska lösas. [#1014](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1014)
-* Alla verifiering av ObjectIds i dialogrutan Hantera åtkomst har inaktiverats på grund av API-begränsningar. Verifieringen utförs nu endast för användare UPN-namn. [#954](https://www.github.com/Microsoft/AzureStorageExplorer/issues/954)
-* I dialogrutan Hantera ADLS Gen2 åtkomst kan behörigheter för en grupp inte ändras. Problemet har åtgärdats. [#958](https://www.github.com/Microsoft/AzureStorageExplorer/issues/958)
-* Ladda upp stöd till ADLS Gen2 redigeraren har lagts till dra och släpp. [#953](https://www.github.com/Microsoft/AzureStorageExplorer/issues/953)
-* URL-egenskapen i egenskapsdialogrutan för ADLS Gen2 filer och mappar saknades ibland en '/'. Problemet har åtgärdats. [#960](https://www.github.com/Microsoft/AzureStorageExplorer/issues/960)
-* Om får den aktuella behörigheten för en behållare för ADLS Gen2 fil eller mapp misslyckas och felet är nu propertly som visas i aktivitetsloggen. [#965](https://www.github.com/Microsoft/AzureStorageExplorer/issues/965)
-* Den tillfälliga sökvägen som skapats för att öppna filer har kortats ned för att minska risken för att skapa en sökväg som är längre än MAX_PATH på Windows. [#93](https://www.github.com/Microsoft/AzureStorageExplorer/issues/93)
-* Dialogrutan Anslut nu visas korrekt när inga användare är inloggad och inga resurser har bifogats. [#944](https://www.github.com/Microsoft/AzureStorageExplorer/issues/944)
-* Spara egenskaperna för icke - HNS Blobar och filer skulle i 1.6.0 eller senare koda värdet för varje egenskap. Detta resulterade i onödiga kodning av värden som innehöll endast ASCII-tecken. Värden kommer nu endast att kodas om de innehåller icke-ASCII-tecken. [#986](https://www.github.com/Microsoft/AzureStorageExplorer/issues/986)
-* Ladda upp en mapp till en icke - HNS blobbehållare misslyckas om en SAS har använts och SAS har inte behörighet att läsa. Problemet har åtgärdats. [#970](https://www.github.com/Microsoft/AzureStorageExplorer/issues/970)
-* Avbryter en AzCopy-överföring fungerade inte. Problemet har åtgärdats. [#943](https://www.github.com/Microsoft/AzureStorageExplorer/issues/943)
-* AzCopy misslyckas vid försök att ladda ned en mapp från en ADLS Gen2 Blob-behållare om mappen hade blanksteg i namnet. Problemet har åtgärdats. [#990](https://www.github.com/Microsoft/AzureStorageExplorer/issues/990)
-* CosmosDB-redigeraren har delats i 1.6.0 eller senare. Det har lösts. [#950](https://www.github.com/Microsoft/AzureStorageExplorer/issues/950)
+* I 1.6.1 har entiteter som lagts till ADLS Gen2 ACL: er av ObjectId, som inte användare har lagts till som grupper. Nu läggs endast grupper till som grupper och entiteter som företags program andService-huvudobjekt läggs till som användare. [#1049](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1049)
+* Om ett ADLS Gen2 lagrings konto inte har några behållare och kopplats till namnet och nyckeln, identifierar Storage Explorer inte att lagrings kontot var ADLS Gen2. Problemet har åtgärdats. [#1048](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1048)
+* I 1.6.0 uppmanas inte konflikter under kopiering och inklistring för en lösning. I stället fungerar inte den konfliktskapande kopian. I den första konflikten får du nu en fråga om hur du vill att den ska lösas. [#1014](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1014)
+* På grund av API-begränsningar har all validering av ObjectIds i dialog rutan Hantera åtkomst inaktiverats. Verifiering sker nu bara för användar-UPN. [#954](https://www.github.com/Microsoft/AzureStorageExplorer/issues/954)
+* I dialog rutan ADLS Gen2 hantera åtkomst går det inte att ändra behörigheterna för en grupp. Problemet har åtgärdats. [#958](https://www.github.com/Microsoft/AzureStorageExplorer/issues/958)
+* Har lagt till dra och släpp överförings stöd till ADLS Gen2 redigeraren. [#953](https://www.github.com/Microsoft/AzureStorageExplorer/issues/953)
+* URL-egenskapen i dialog rutan Egenskaper för ADLS Gen2 filer och mappar saknar ibland '/'. Problemet har åtgärdats. [#960](https://www.github.com/Microsoft/AzureStorageExplorer/issues/960)
+* Om det inte går att hämta de aktuella behörigheterna för en ADLS Gen2 behållare, fil eller mapp, visas felet nu i aktivitets loggen. [#965](https://www.github.com/Microsoft/AzureStorageExplorer/issues/965)
+* Den tillfälliga sökvägen som skapades för att öppna filer har kortats ned för att minska risken för att skapa en sökväg som är längre än MAX_PATH i Windows. [#93](https://www.github.com/Microsoft/AzureStorageExplorer/issues/93)
+* Dialog rutan Anslut visas nu på rätt sätt när det inte finns några inloggade användare och inga resurser har bifogats. [#944](https://www.github.com/Microsoft/AzureStorageExplorer/issues/944)
+* När du sparar egenskaper för icke-HNS-blobbar och filer i 1.6.0 kodas värdet för varje egenskap. Detta ledde till onödig kodning av värden som endast innehåller ASCII-tecken. Nu kommer värdena endast att kodas om de innehåller icke-ASCII-tecken. [#986](https://www.github.com/Microsoft/AzureStorageExplorer/issues/986)
+* Att ladda upp en mapp till en icke-HNS BLOB-behållare kan inte köras om en SAS användes och SAS inte hade Läs behörighet. Problemet har åtgärdats. [#970](https://www.github.com/Microsoft/AzureStorageExplorer/issues/970)
+* Det gick inte att avbryta en AzCopy-överföring. Problemet har åtgärdats. [#943](https://www.github.com/Microsoft/AzureStorageExplorer/issues/943)
+* AzCopy skulle inte fungera när en mapp skulle hämtas från en ADLS Gen2 BLOB-behållare om mappen hade blank steg i sitt namn. Problemet har åtgärdats. [#990](https://www.github.com/Microsoft/AzureStorageExplorer/issues/990)
+* CosmosDB-redigeraren har brutits i 1.6.0. Den har nu åtgärd ATS. [#950](https://www.github.com/Microsoft/AzureStorageExplorer/issues/950)
         
 ### <a name="new"></a>Ny
 
-* Du kan nu använda Storage Explorer för att få åtkomst till din Blob-data via [RBAC](https://go.microsoft.com/fwlink/?linkid=2045904&clcid=0x409). Om du har loggat in och Storage Explorer kan inte hämta nycklarna för ditt lagringskonto, används en OAuth-token för autentisering när du interagerar med dina data.
-* Lagringsutforskaren stöder nu ADLS Gen2 Storage-konton. När Storage Explorer upptäcker det hierarkiskt namnområdet har aktiverats för ett lagringskonto, kommer du att se ”(ADLS Gen2 förhandsgranskning)” bredvid namnet på ditt lagringskonto. Lagringsutforskaren kan identifiera huruvida hierarkiskt namnområde är aktiverad när du är inloggad, eller om du har anslutit ditt Lagringskonto med namnet och nyckeln. Du kan använda Storage Explorer för ADLS Gen2 Storage-konton:
+* Du kan nu använda Storage Explorer för att få åtkomst till dina BLOB-data via [RBAC](https://go.microsoft.com/fwlink/?linkid=2045904&clcid=0x409). Om du är inloggad och Storage Explorer inte kan hämta nycklarna för ditt lagrings konto, används en OAuth-token för att autentisera när du interagerar med dina data.
+* Storage Explorer stöder nu ADLS Gen2 lagrings konton. När Storage Explorer upptäcker att hierarkiskt namn område har Aktiver ATS för ett lagrings konto visas "(ADLS Gen2 för hands version) bredvid namnet på ditt lagrings konto. Storage Explorer kan identifiera om hierarkiskt namn område är aktiverat när du är inloggad eller om du har kopplat ditt lagrings konto med namn och nyckel. För ADLS Gen2 lagrings konton kan du använda Storage Explorer för att:
   * Skapa och ta bort behållare
-  * Hantera egenskaper för behållare och behörigheter (vänster)
-  * Visa och navigera data i behållare
+  * Hantera behållar egenskaper och behörigheter (vänster sida)
+  * Visa och navigera i data i behållare
   * Skapa nya mappar
-  * Ladda upp, hämta, byta namn på och ta bort filer och mappar
-  * Hantera egenskaper för filer och mappar och behörigheter (till höger).
+  * Ladda upp, ladda ned, byta namn på och ta bort filer och mappar
+  * Hantera egenskaper och behörigheter för filer och mappar (höger sida).
     
-    Andra vanliga Blob-funktioner, till exempel mjuk borttagning och ögonblicksbilder är inte tillgänglig för tillfället. Hantera behörigheter är också bara tillgängligt när du loggat in. När du arbetar i ett ADLS Gen2 Storage-konto, kommer Lagringsutforskaren dessutom använda AzCopy för alla överföringar och hämtning och med namnet och nyckeln autentiseringsuppgifter för alla åtgärder om det är tillgängligt som standard.
-* Efter stark Användarfeedback användas lease break återigen att avbryta lån för flera blobar på samma gång.
+    Andra typiska BLOB-funktioner, till exempel mjuk borttagning och ögonblicks bilder, är inte tillgängliga för närvarande. Hanterings behörigheter är också bara tillgängligt när du är inloggad. När du arbetar i ett ADLS Gen2 lagrings konto använder Storage Explorer dessutom AzCopy för alla uppladdningar och nedladdningar och standard för att använda namn-och autentiseringsuppgifter för alla åtgärder om det är tillgängligt.
+* När du har fått en stark användare kan du använda Bryt lån igen för att avbryta lån på flera blobbar samtidigt.
 
 ### <a name="known-issues"></a>Kända problem
 
-* När du laddar ned från ett ADLS Gen2 Storage-konto om något av de filer som överförs redan finns kommer AzCopy ibland krascha. Detta kommer att åtgärdas i en kommande snabbkorrigering.
-* Kopplar från en resurs som är anslutna via SAS-URI, t.ex en blob-behållare kan orsaka ett fel som förhindrar andra bilagor från visas korrekt. Undvik problemet genom att bara uppdatera gruppnoden. Mer information finns i #537.
-* Om du använder VS för Mac och någon gång har skapat en anpassad AAD-konfiguration kan kanske du inte att logga in. Undvik problemet genom att ta bort innehållet i ~ /. IdentityService/AadConfigurations. Om du gör detta inte avblockera du kommentera problemet.
+* Om en av de filer som överförs redan finns vid hämtning från ett ADLS Gen2 lagrings konto kommer AzCopy ibland att krascha. Detta kommer att åtgärdas i en kommande snabb korrigering.
+* Om du kopplar från en resurs som är ansluten via SAS URI, till exempel en BLOB-behållare, kan det orsaka ett fel som förhindrar att andra bilagor visas korrekt. Undvik problemet genom att bara uppdatera gruppnoden. Mer information finns i #537.
+* Om du använder VS för Mac och någon gång har skapat en anpassad AAD-konfiguration kan kanske du inte att logga in. Undvik problemet genom att ta bort innehållet i ~ /. IdentityService/AadConfigurations. Om du gör det kan du kommentera det här problemet.
 * Azurite ännu inte helt har genomfört alla Storage API: er. Därför bör finnas det oväntade fel eller beteende när du använder Azurite för utvecklingslagring.
 * I sällsynta fall kan trädet fokus fastna på Snabbåtkomst. Du kan uppdatera alla som behövdes fokus.
-* Ladda upp från OneDrive-mapp fungerar inte på grund av ett fel i NodeJS. Buggen har åtgärdats, men ännu inte har integrerats i Electron. Om du vill undvika det här problemet vid överföring till eller hämta det från en blobbehållare kan använda du funktionen experimentella AzCopy.
+* Ladda upp från OneDrive-mapp fungerar inte på grund av ett fel i NodeJS. Buggen har åtgärdats, men ännu inte har integrerats i Electron. För att undvika det här problemet när du laddar upp eller laddar ned från en BLOB-behållare kan du använda funktionen experimentell AzCopy.
 * När du riktar in sig på Azure Stack, misslyckas ladda upp filer tilläggsblobbar.
-* När du klickar på ”Avbryt” för en aktivitet, kan det ta en stund innan aktiviteten att avbryta. Detta beskrivs eftersom vi använder Avbryt filter lösning här.
+* När du klickar på ”Avbryt” för en aktivitet, kan det ta en stund innan aktiviteten att avbryta. Det beror på att vi använder det Cancel filter-arbete som beskrivs här.
 * Om du väljer fel PIN-kod/smartkort-certifikat måste startas om för att få Lagringsutforskaren glömmer detta beslut.
 * Ögonblicksbilder bevaras inte när du byter namn på BLOB-objekt (individuellt eller i en omdöpt blobbehållare). Alla andra egenskaper och metadata för blobbar, filer och entiteter bevaras under en namnbyte.
 * Azure Stack har inte stöd för följande funktioner. Försök att använda dessa funktioner när du arbetar med Azure Stack kan resurser resultera i oväntade fel.
@@ -380,43 +461,43 @@ Den här artikeln innehåller viktig information om Azure Storage Explorer 1.9.0
 12/18/2018
 
 ### <a name="hotfixes"></a>Snabbkorrigeringar
-* Alla verifiering av ObjectIds i dialogrutan Hantera åtkomst har inaktiverats på grund av API-begränsningar. Verifieringen utförs nu endast för användare UPN-namn. [#954](https://www.github.com/Microsoft/AzureStorageExplorer/issues/954)
-* I dialogrutan Hantera ADLS Gen2 åtkomst kan behörigheter för en grupp inte ändras. Problemet har åtgärdats. [#958](https://www.github.com/Microsoft/AzureStorageExplorer/issues/958)
-* Ladda upp stöd till ADLS Gen2 redigeraren har lagts till dra och släpp. [#953](https://www.github.com/Microsoft/AzureStorageExplorer/issues/953)
-* URL-egenskapen i egenskapsdialogrutan för ADLS Gen2 filer och mappar saknades ibland en '/'. Problemet har åtgärdats. [#960](https://www.github.com/Microsoft/AzureStorageExplorer/issues/960)
-* Om får den aktuella behörigheten för en behållare för ADLS Gen2 fil eller mapp misslyckas och felet är nu propertly som visas i aktivitetsloggen. [#965](https://www.github.com/Microsoft/AzureStorageExplorer/issues/965)
-* Den tillfälliga sökvägen som skapats för att öppna filer har kortats ned för att minska risken för att skapa en sökväg som är längre än MAX_PATH på Windows. [#93](https://www.github.com/Microsoft/AzureStorageExplorer/issues/93)
-* Dialogrutan Anslut nu visas korrekt när inga användare är inloggad och inga resurser har bifogats. [#944](https://www.github.com/Microsoft/AzureStorageExplorer/issues/944)
-* Spara egenskaperna för icke - HNS Blobar och filer skulle i 1.6.0 eller senare koda värdet för varje egenskap. Detta resulterade i onödiga kodning av värden som innehöll endast ASCII-tecken. Värden kommer nu endast att kodas om de innehåller icke-ASCII-tecken. [#986](https://www.github.com/Microsoft/AzureStorageExplorer/issues/986)
-* Ladda upp en mapp till en icke - HNS blobbehållare misslyckas om en SAS har använts och SAS har inte behörighet att läsa. Problemet har åtgärdats. [#970](https://www.github.com/Microsoft/AzureStorageExplorer/issues/970)
-* Avbryter en AzCopy-överföring fungerade inte. Problemet har åtgärdats. [#943](https://www.github.com/Microsoft/AzureStorageExplorer/issues/943)
-* AzCopy misslyckas vid försök att ladda ned en mapp från en ADLS Gen2 Blob-behållare om mappen hade blanksteg i namnet. Problemet har åtgärdats. [#990](https://www.github.com/Microsoft/AzureStorageExplorer/issues/990)
-* CosmosDB-redigeraren har delats i 1.6.0 eller senare. Det har lösts. [#950](https://www.github.com/Microsoft/AzureStorageExplorer/issues/950)
+* På grund av API-begränsningar har all validering av ObjectIds i dialog rutan Hantera åtkomst inaktiverats. Verifiering sker nu bara för användar-UPN. [#954](https://www.github.com/Microsoft/AzureStorageExplorer/issues/954)
+* I dialog rutan ADLS Gen2 hantera åtkomst går det inte att ändra behörigheterna för en grupp. Problemet har åtgärdats. [#958](https://www.github.com/Microsoft/AzureStorageExplorer/issues/958)
+* Har lagt till dra och släpp överförings stöd till ADLS Gen2 redigeraren. [#953](https://www.github.com/Microsoft/AzureStorageExplorer/issues/953)
+* URL-egenskapen i dialog rutan Egenskaper för ADLS Gen2 filer och mappar saknar ibland '/'. Problemet har åtgärdats. [#960](https://www.github.com/Microsoft/AzureStorageExplorer/issues/960)
+* Om det inte går att hämta de aktuella behörigheterna för en ADLS Gen2 behållare, fil eller mapp, visas felet nu i aktivitets loggen. [#965](https://www.github.com/Microsoft/AzureStorageExplorer/issues/965)
+* Den tillfälliga sökvägen som skapades för att öppna filer har kortats ned för att minska risken för att skapa en sökväg som är längre än MAX_PATH i Windows. [#93](https://www.github.com/Microsoft/AzureStorageExplorer/issues/93)
+* Dialog rutan Anslut visas nu på rätt sätt när det inte finns några inloggade användare och inga resurser har bifogats. [#944](https://www.github.com/Microsoft/AzureStorageExplorer/issues/944)
+* När du sparar egenskaper för icke-HNS-blobbar och filer i 1.6.0 kodas värdet för varje egenskap. Detta ledde till onödig kodning av värden som endast innehåller ASCII-tecken. Nu kommer värdena endast att kodas om de innehåller icke-ASCII-tecken. [#986](https://www.github.com/Microsoft/AzureStorageExplorer/issues/986)
+* Att ladda upp en mapp till en icke-HNS BLOB-behållare kan inte köras om en SAS användes och SAS inte hade Läs behörighet. Problemet har åtgärdats. [#970](https://www.github.com/Microsoft/AzureStorageExplorer/issues/970)
+* Det gick inte att avbryta en AzCopy-överföring. Problemet har åtgärdats. [#943](https://www.github.com/Microsoft/AzureStorageExplorer/issues/943)
+* AzCopy skulle inte fungera när en mapp skulle hämtas från en ADLS Gen2 BLOB-behållare om mappen hade blank steg i sitt namn. Problemet har åtgärdats. [#990](https://www.github.com/Microsoft/AzureStorageExplorer/issues/990)
+* CosmosDB-redigeraren har brutits i 1.6.0. Den har nu åtgärd ATS. [#950](https://www.github.com/Microsoft/AzureStorageExplorer/issues/950)
         
 ### <a name="new"></a>Ny
 
-* Du kan nu använda Storage Explorer för att få åtkomst till din Blob-data via [RBAC](https://go.microsoft.com/fwlink/?linkid=2045904&clcid=0x409). Om du har loggat in och Storage Explorer kan inte hämta nycklarna för ditt lagringskonto, används en OAuth-token för autentisering när du interagerar med dina data.
-* Lagringsutforskaren stöder nu ADLS Gen2 Storage-konton. När Storage Explorer upptäcker det hierarkiskt namnområdet har aktiverats för ett lagringskonto, kommer du att se ”(ADLS Gen2 förhandsgranskning)” bredvid namnet på ditt lagringskonto. Lagringsutforskaren kan identifiera huruvida hierarkiskt namnområde är aktiverad när du är inloggad, eller om du har anslutit ditt Lagringskonto med namnet och nyckeln. Du kan använda Storage Explorer för ADLS Gen2 Storage-konton:
+* Du kan nu använda Storage Explorer för att få åtkomst till dina BLOB-data via [RBAC](https://go.microsoft.com/fwlink/?linkid=2045904&clcid=0x409). Om du är inloggad och Storage Explorer inte kan hämta nycklarna för ditt lagrings konto, används en OAuth-token för att autentisera när du interagerar med dina data.
+* Storage Explorer stöder nu ADLS Gen2 lagrings konton. När Storage Explorer upptäcker att hierarkiskt namn område har Aktiver ATS för ett lagrings konto visas "(ADLS Gen2 för hands version) bredvid namnet på ditt lagrings konto. Storage Explorer kan identifiera om hierarkiskt namn område är aktiverat när du är inloggad eller om du har kopplat ditt lagrings konto med namn och nyckel. För ADLS Gen2 lagrings konton kan du använda Storage Explorer för att:
   * Skapa och ta bort behållare
-  * Hantera egenskaper för behållare och behörigheter (vänster)
-  * Visa och navigera data i behållare
+  * Hantera behållar egenskaper och behörigheter (vänster sida)
+  * Visa och navigera i data i behållare
   * Skapa nya mappar
-  * Ladda upp, hämta, byta namn på och ta bort filer och mappar
-  * Hantera egenskaper för filer och mappar och behörigheter (till höger).
+  * Ladda upp, ladda ned, byta namn på och ta bort filer och mappar
+  * Hantera egenskaper och behörigheter för filer och mappar (höger sida).
     
-    Andra vanliga Blob-funktioner, till exempel mjuk borttagning och ögonblicksbilder är inte tillgänglig för tillfället. Hantera behörigheter är också bara tillgängligt när du loggat in. När du arbetar i ett ADLS Gen2 Storage-konto, kommer Lagringsutforskaren dessutom använda AzCopy för alla överföringar och hämtning och med namnet och nyckeln autentiseringsuppgifter för alla åtgärder om det är tillgängligt som standard.
-* Efter stark Användarfeedback användas lease break återigen att avbryta lån för flera blobar på samma gång.
+    Andra typiska BLOB-funktioner, till exempel mjuk borttagning och ögonblicks bilder, är inte tillgängliga för närvarande. Hanterings behörigheter är också bara tillgängligt när du är inloggad. När du arbetar i ett ADLS Gen2 lagrings konto använder Storage Explorer dessutom AzCopy för alla uppladdningar och nedladdningar och standard för att använda namn-och autentiseringsuppgifter för alla åtgärder om det är tillgängligt.
+* När du har fått en stark användare kan du använda Bryt lån igen för att avbryta lån på flera blobbar samtidigt.
 
 ### <a name="known-issues"></a>Kända problem
 
-* När du laddar ned från ett ADLS Gen2 Storage-konto om något av de filer som överförs redan finns kommer AzCopy ibland krascha. Detta kommer att åtgärdas i en kommande snabbkorrigering.
-* Kopplar från en resurs som är anslutna via SAS-URI, t.ex en blob-behållare kan orsaka ett fel som förhindrar andra bilagor från visas korrekt. Undvik problemet genom att bara uppdatera gruppnoden. Mer information finns i #537.
-* Om du använder VS för Mac och någon gång har skapat en anpassad AAD-konfiguration kan kanske du inte att logga in. Undvik problemet genom att ta bort innehållet i ~ /. IdentityService/AadConfigurations. Om du gör detta inte avblockera du kommentera problemet.
+* Om en av de filer som överförs redan finns vid hämtning från ett ADLS Gen2 lagrings konto kommer AzCopy ibland att krascha. Detta kommer att åtgärdas i en kommande snabb korrigering.
+* Om du kopplar från en resurs som är ansluten via SAS URI, till exempel en BLOB-behållare, kan det orsaka ett fel som förhindrar att andra bilagor visas korrekt. Undvik problemet genom att bara uppdatera gruppnoden. Mer information finns i #537.
+* Om du använder VS för Mac och någon gång har skapat en anpassad AAD-konfiguration kan kanske du inte att logga in. Undvik problemet genom att ta bort innehållet i ~ /. IdentityService/AadConfigurations. Om du gör det kan du kommentera det här problemet.
 * Azurite ännu inte helt har genomfört alla Storage API: er. Därför bör finnas det oväntade fel eller beteende när du använder Azurite för utvecklingslagring.
 * I sällsynta fall kan trädet fokus fastna på Snabbåtkomst. Du kan uppdatera alla som behövdes fokus.
-* Ladda upp från OneDrive-mapp fungerar inte på grund av ett fel i NodeJS. Buggen har åtgärdats, men ännu inte har integrerats i Electron. Om du vill undvika det här problemet vid överföring till eller hämta det från en blobbehållare kan använda du funktionen experimentella AzCopy.
+* Ladda upp från OneDrive-mapp fungerar inte på grund av ett fel i NodeJS. Buggen har åtgärdats, men ännu inte har integrerats i Electron. För att undvika det här problemet när du laddar upp eller laddar ned från en BLOB-behållare kan du använda funktionen experimentell AzCopy.
 * När du riktar in sig på Azure Stack, misslyckas ladda upp filer tilläggsblobbar.
-* När du klickar på ”Avbryt” för en aktivitet, kan det ta en stund innan aktiviteten att avbryta. Detta beskrivs eftersom vi använder Avbryt filter lösning här.
+* När du klickar på ”Avbryt” för en aktivitet, kan det ta en stund innan aktiviteten att avbryta. Det beror på att vi använder det Cancel filter-arbete som beskrivs här.
 * Om du väljer fel PIN-kod/smartkort-certifikat måste startas om för att få Lagringsutforskaren glömmer detta beslut.
 * Ögonblicksbilder bevaras inte när du byter namn på BLOB-objekt (individuellt eller i en omdöpt blobbehållare). Alla andra egenskaper och metadata för blobbar, filer och entiteter bevaras under en namnbyte.
 * Azure Stack har inte stöd för följande funktioner. Försök att använda dessa funktioner när du arbetar med Azure Stack kan resurser resultera i oväntade fel.
@@ -446,32 +527,32 @@ Den här artikeln innehåller viktig information om Azure Storage Explorer 1.9.0
     ```
 
 ## <a name="version-160"></a>Version 1.6.0
-12/5/2018
+2018-12-05
 
 ### <a name="new"></a>Ny
 
-* Du kan nu använda Storage Explorer för att få åtkomst till din Blob-data via [RBAC](https://go.microsoft.com/fwlink/?linkid=2045904&clcid=0x409). Om du har loggat in och Storage Explorer kan inte hämta nycklarna för ditt lagringskonto, används en OAuth-token för autentisering när du interagerar med dina data.
-* Lagringsutforskaren stöder nu ADLS Gen2 Storage-konton. När Storage Explorer upptäcker det hierarkiskt namnområdet har aktiverats för ett lagringskonto, kommer du att se ”(ADLS Gen2 förhandsgranskning)” bredvid namnet på ditt lagringskonto. Lagringsutforskaren kan identifiera huruvida hierarkiskt namnområde är aktiverad när du är inloggad, eller om du har anslutit ditt Lagringskonto med namnet och nyckeln. Du kan använda Storage Explorer för ADLS Gen2 Storage-konton:
+* Du kan nu använda Storage Explorer för att få åtkomst till dina BLOB-data via [RBAC](https://go.microsoft.com/fwlink/?linkid=2045904&clcid=0x409). Om du är inloggad och Storage Explorer inte kan hämta nycklarna för ditt lagrings konto, används en OAuth-token för att autentisera när du interagerar med dina data.
+* Storage Explorer stöder nu ADLS Gen2 lagrings konton. När Storage Explorer upptäcker att hierarkiskt namn område har Aktiver ATS för ett lagrings konto visas "(ADLS Gen2 för hands version) bredvid namnet på ditt lagrings konto. Storage Explorer kan identifiera om hierarkiskt namn område är aktiverat när du är inloggad eller om du har kopplat ditt lagrings konto med namn och nyckel. För ADLS Gen2 lagrings konton kan du använda Storage Explorer för att:
   * Skapa och ta bort behållare
-  * Hantera egenskaper för behållare och behörigheter (vänster)
-  * Visa och navigera data i behållare
+  * Hantera behållar egenskaper och behörigheter (vänster sida)
+  * Visa och navigera i data i behållare
   * Skapa nya mappar
-  * Ladda upp, hämta, byta namn på och ta bort filer och mappar
-  * Hantera egenskaper för filer och mappar och behörigheter (till höger).
+  * Ladda upp, ladda ned, byta namn på och ta bort filer och mappar
+  * Hantera egenskaper och behörigheter för filer och mappar (höger sida).
     
-    Andra vanliga Blob-funktioner, till exempel mjuk borttagning och ögonblicksbilder är inte tillgänglig för tillfället. Hantera behörigheter är också bara tillgängligt när du loggat in. När du arbetar i ett ADLS Gen2 Storage-konto, kommer Lagringsutforskaren dessutom använda AzCopy för alla överföringar och hämtning och med namnet och nyckeln autentiseringsuppgifter för alla åtgärder om det är tillgängligt som standard.
-* Efter stark Användarfeedback användas lease break återigen att avbryta lån för flera blobar på samma gång.
+    Andra typiska BLOB-funktioner, till exempel mjuk borttagning och ögonblicks bilder, är inte tillgängliga för närvarande. Hanterings behörigheter är också bara tillgängligt när du är inloggad. När du arbetar i ett ADLS Gen2 lagrings konto använder Storage Explorer dessutom AzCopy för alla uppladdningar och nedladdningar och standard för att använda namn-och autentiseringsuppgifter för alla åtgärder om det är tillgängligt.
+* När du har fått en stark användare kan du använda Bryt lån igen för att avbryta lån på flera blobbar samtidigt.
 
 ### <a name="known-issues"></a>Kända problem
 
-* När du laddar ned från ett ADLS Gen2 Storage-konto om något av de filer som överförs redan finns kommer AzCopy ibland krascha. Detta kommer att åtgärdas i en kommande snabbkorrigering.
-* Kopplar från en resurs som är anslutna via SAS-URI, t.ex en blob-behållare kan orsaka ett fel som förhindrar andra bilagor från visas korrekt. Undvik problemet genom att bara uppdatera gruppnoden. Mer information finns i #537.
-* Om du använder VS för Mac och någon gång har skapat en anpassad AAD-konfiguration kan kanske du inte att logga in. Undvik problemet genom att ta bort innehållet i ~ /. IdentityService/AadConfigurations. Om du gör detta inte avblockera du kommentera problemet.
+* Om en av de filer som överförs redan finns vid hämtning från ett ADLS Gen2 lagrings konto kommer AzCopy ibland att krascha. Detta kommer att åtgärdas i en kommande snabb korrigering.
+* Om du kopplar från en resurs som är ansluten via SAS URI, till exempel en BLOB-behållare, kan det orsaka ett fel som förhindrar att andra bilagor visas korrekt. Undvik problemet genom att bara uppdatera gruppnoden. Mer information finns i #537.
+* Om du använder VS för Mac och någon gång har skapat en anpassad AAD-konfiguration kan kanske du inte att logga in. Undvik problemet genom att ta bort innehållet i ~ /. IdentityService/AadConfigurations. Om du gör det kan du kommentera det här problemet.
 * Azurite ännu inte helt har genomfört alla Storage API: er. Därför bör finnas det oväntade fel eller beteende när du använder Azurite för utvecklingslagring.
 * I sällsynta fall kan trädet fokus fastna på Snabbåtkomst. Du kan uppdatera alla som behövdes fokus.
-* Ladda upp från OneDrive-mapp fungerar inte på grund av ett fel i NodeJS. Buggen har åtgärdats, men ännu inte har integrerats i Electron. Om du vill undvika det här problemet vid överföring till eller hämta det från en blobbehållare kan använda du funktionen experimentella AzCopy.
+* Ladda upp från OneDrive-mapp fungerar inte på grund av ett fel i NodeJS. Buggen har åtgärdats, men ännu inte har integrerats i Electron. För att undvika det här problemet när du laddar upp eller laddar ned från en BLOB-behållare kan du använda funktionen experimentell AzCopy.
 * När du riktar in sig på Azure Stack, misslyckas ladda upp filer tilläggsblobbar.
-* När du klickar på ”Avbryt” för en aktivitet, kan det ta en stund innan aktiviteten att avbryta. Detta beskrivs eftersom vi använder Avbryt filter lösning här.
+* När du klickar på ”Avbryt” för en aktivitet, kan det ta en stund innan aktiviteten att avbryta. Det beror på att vi använder det Cancel filter-arbete som beskrivs här.
 * Om du väljer fel PIN-kod/smartkort-certifikat måste startas om för att få Lagringsutforskaren glömmer detta beslut.
 * Ögonblicksbilder bevaras inte när du byter namn på BLOB-objekt (individuellt eller i en omdöpt blobbehållare). Alla andra egenskaper och metadata för blobbar, filer och entiteter bevaras under en namnbyte.
 * Azure Stack har inte stöd för följande funktioner. Försök att använda dessa funktioner när du arbetar med Azure Stack kan resurser resultera i oväntade fel.
@@ -512,12 +593,12 @@ Den här artikeln innehåller viktig information om Azure Storage Explorer 1.9.0
 * Dessutom när du använder AzCopy:
    * Du kan kopiera AzCopy-kommandot som används för att köra överföringen till Urklipp. Klickar du på ”Kopiera AzCopy-kommandot till Urklipp” i aktivitetsloggen.
    * Behöver du uppdatera blob-redigeraren manuellt när du har överfört.
-   * Ladda upp filer för att bifoga blobbar stöds inte, och kommer att överföra vhd-filer som sidblobar och alla andra filer överförs som blockblobar.
-   * Fel och konflikter som uppstår under överföring eller hämtning exponeras inte förrän efter en överföring eller hämtningen är klar.
+   * Det finns inte stöd för att ladda upp filer till tillägg till blobar, och VHD-filer laddas upp som Page blobbar, och alla andra filer laddas upp som block blobbar.
+   * Fel och konflikter som inträffar under uppladdningen eller hämtningen visas inte förrän överföringen eller hämtningen är färdig.
 
 Slutligen kommer stöd för att använda AzCopy med filresurser i framtiden.
 * Lagringsutforskaren använder Electron version 2.0.11.
-* Avbryter lån kan nu endast utföras på en blob i taget. Du måste dessutom ange namnet på blob vars lån du bryter ned. Den här ändringen har gjorts för att minska sannolikheten för att av misstag större ett lån, särskilt för virtuella datorer. #394
+* Avbryter lån kan nu endast utföras på en blob i taget. Du måste dessutom ange namnet på blob vars lån du bryter ned. Den här ändringen gjordes för att minska sannolikheten för att oavsiktligt bryta ett lån, särskilt för virtuella datorer. #394
 * Om du stöter på problem med användarinloggning någonsin kan försöka du nu återställa autentisering. Gå till ”Hjälp”-menyn och klicka på ”Återställ” för att komma åt den här funktionen. #419
 
 ### <a name="fix"></a>Korrigera
@@ -529,13 +610,13 @@ Slutligen kommer stöd för att använda AzCopy med filresurser i framtiden.
 
 ### <a name="known-issues"></a>Kända problem
 
-* Kopplar från en resurs som är anslutna via SAS-URI, t.ex en blob-behållare kan orsaka ett fel som förhindrar andra bilagor från visas korrekt. Undvik problemet genom att bara uppdatera gruppnoden. Mer information finns i #537.
-* Om du använder VS för Mac och någon gång har skapat en anpassad AAD-konfiguration kan kanske du inte att logga in. Undvik problemet genom att ta bort innehållet i ~ /. IdentityService/AadConfigurations. Om du gör detta inte avblockera du kommentera problemet.
+* Om du kopplar från en resurs som är ansluten via SAS URI, till exempel en BLOB-behållare, kan det orsaka ett fel som förhindrar att andra bilagor visas korrekt. Undvik problemet genom att bara uppdatera gruppnoden. Mer information finns i #537.
+* Om du använder VS för Mac och någon gång har skapat en anpassad AAD-konfiguration kan kanske du inte att logga in. Undvik problemet genom att ta bort innehållet i ~ /. IdentityService/AadConfigurations. Om du gör det kan du kommentera det här problemet.
 * Azurite ännu inte helt har genomfört alla Storage API: er. Därför bör finnas det oväntade fel eller beteende när du använder Azurite för utvecklingslagring.
 * I sällsynta fall kan trädet fokus fastna på Snabbåtkomst. Du kan uppdatera alla som behövdes fokus.
-* Ladda upp från OneDrive-mapp fungerar inte på grund av ett fel i NodeJS. Buggen har åtgärdats, men ännu inte har integrerats i Electron. Om du vill undvika det här problemet vid överföring till eller hämta det från en blobbehållare kan använda du funktionen experimentella AzCopy.
+* Ladda upp från OneDrive-mapp fungerar inte på grund av ett fel i NodeJS. Buggen har åtgärdats, men ännu inte har integrerats i Electron. För att undvika det här problemet när du laddar upp eller laddar ned från en BLOB-behållare kan du använda funktionen experimentell AzCopy.
 * När du riktar in sig på Azure Stack, misslyckas ladda upp filer tilläggsblobbar.
-* När du klickar på ”Avbryt” för en aktivitet, kan det ta en stund innan aktiviteten att avbryta. Detta beskrivs eftersom vi använder Avbryt filter lösning här.
+* När du klickar på ”Avbryt” för en aktivitet, kan det ta en stund innan aktiviteten att avbryta. Det beror på att vi använder det Cancel filter-arbete som beskrivs här.
 * Om du väljer fel PIN-kod/smartkort-certifikat måste startas om för att få Lagringsutforskaren glömmer detta beslut.
 * Ögonblicksbilder bevaras inte när du byter namn på BLOB-objekt (individuellt eller i en omdöpt blobbehållare). Alla andra egenskaper och metadata för blobbar, filer och entiteter bevaras under en namnbyte.
 * Azure Stack har inte stöd för följande funktioner. Försök att använda dessa funktioner när du arbetar med Azure Stack kan resurser resultera i oväntade fel.
@@ -569,7 +650,7 @@ Slutligen kommer stöd för att använda AzCopy med filresurser i framtiden.
 10/15/2018
 
 ### <a name="hotfixes"></a>Snabbkorrigeringar
-* Azure Resource Management API-versionen har återställts för att låsa upp användare i Azure för amerikanska myndigheter. [#696](https://github.com/Microsoft/AzureStorageExplorer/issues/696)
+* Azure Resource Management API-versionen har återställts för att avblockera Azure-användare från amerikanska myndigheter. [#696](https://github.com/Microsoft/AzureStorageExplorer/issues/696)
 * Läser in rotationsrutor använder nu CSS-animeringar för att minska mängden GPU som används av Storage Explorer. [#653](https://github.com/Microsoft/AzureStorageExplorer/issues/653)
 
 ### <a name="new"></a>Ny
@@ -595,7 +676,7 @@ Slutligen kommer stöd för att använda AzCopy med filresurser i framtiden.
 * I sällsynta fall kan trädet fokus fastna på Snabbåtkomst. Du kan uppdatera alla som behövdes fokus.
 * Ladda upp från OneDrive-mapp fungerar inte på grund av ett fel i NodeJS. Buggen har åtgärdats, men ännu inte har integrerats i Electron.
 * När du riktar in sig på Azure Stack, misslyckas ladda upp filer tilläggsblobbar.
-* När du klickar på ”Avbryt” för en aktivitet, kan det ta en stund innan aktiviteten att avbryta. Detta eftersom vi använder Avbryt filter lösning beskrivs [här](https://github.com/Azure/azure-storage-node/issues/317).
+* När du klickar på ”Avbryt” för en aktivitet, kan det ta en stund innan aktiviteten att avbryta. Det beror på att vi använder det Cancel filter-arbete som beskrivs [här](https://github.com/Azure/azure-storage-node/issues/317).
 * Om du väljer fel PIN-kod/smartkort-certifikat måste startas om för att få Lagringsutforskaren glömmer detta beslut.
 * Ögonblicksbilder bevaras inte när du byter namn på BLOB-objekt (individuellt eller i en omdöpt blobbehållare). Alla andra egenskaper och metadata för blobbar, filer och entiteter bevaras under en namnbyte.
 * Även om Azure Stack inte för närvarande stöd för filresurser, visas en filresurser nod fortfarande under ett anslutna Azure Stack-lagringskonto.
@@ -625,7 +706,7 @@ Slutligen kommer stöd för att använda AzCopy med filresurser i framtiden.
 10/11/2018
 
 ### <a name="hotfixes"></a>Snabbkorrigeringar
-* Azure Resource Management API-versionen har återställts för att låsa upp användare i Azure för amerikanska myndigheter. [#696](https://github.com/Microsoft/AzureStorageExplorer/issues/696)
+* Azure Resource Management API-versionen har återställts för att avblockera Azure-användare från amerikanska myndigheter. [#696](https://github.com/Microsoft/AzureStorageExplorer/issues/696)
 * Läser in rotationsrutor använder nu CSS-animeringar för att minska mängden GPU som används av Storage Explorer. [#653](https://github.com/Microsoft/AzureStorageExplorer/issues/653)
 
 ### <a name="new"></a>Ny
@@ -651,7 +732,7 @@ Slutligen kommer stöd för att använda AzCopy med filresurser i framtiden.
 * I sällsynta fall kan trädet fokus fastna på Snabbåtkomst. Du kan uppdatera alla som behövdes fokus.
 * Ladda upp från OneDrive-mapp fungerar inte på grund av ett fel i NodeJS. Buggen har åtgärdats, men ännu inte har integrerats i Electron.
 * När du riktar in sig på Azure Stack, misslyckas ladda upp filer tilläggsblobbar.
-* När du klickar på ”Avbryt” för en aktivitet, kan det ta en stund innan aktiviteten att avbryta. Detta eftersom vi använder Avbryt filter lösning beskrivs [här](https://github.com/Azure/azure-storage-node/issues/317).
+* När du klickar på ”Avbryt” för en aktivitet, kan det ta en stund innan aktiviteten att avbryta. Det beror på att vi använder det Cancel filter-arbete som beskrivs [här](https://github.com/Azure/azure-storage-node/issues/317).
 * Om du väljer fel PIN-kod/smartkort-certifikat måste startas om för att få Lagringsutforskaren glömmer detta beslut.
 * Ögonblicksbilder bevaras inte när du byter namn på BLOB-objekt (individuellt eller i en omdöpt blobbehållare). Alla andra egenskaper och metadata för blobbar, filer och entiteter bevaras under en namnbyte.
 * Även om Azure Stack inte för närvarande stöd för filresurser, visas en filresurser nod fortfarande under ett anslutna Azure Stack-lagringskonto.
@@ -681,7 +762,7 @@ Slutligen kommer stöd för att använda AzCopy med filresurser i framtiden.
 09/24/2018
 
 ### <a name="hotfixes"></a>Snabbkorrigeringar
-* Uppdatera Azure Resource Management API-versionen till 2018-07-01 för att lägga till stöd för nya typer av Azure Storage-konto. [#652](https://github.com/Microsoft/AzureStorageExplorer/issues/652)
+* Uppdatera Azure Resource Management API-versionen till 2018-07-01 för att lägga till stöd för nya Azure Storage konto typer. [#652](https://github.com/Microsoft/AzureStorageExplorer/issues/652)
 
 ### <a name="new"></a>Ny
 * Extern resurs bifogade filer, till exempel för SAS-anslutningarna och emulatorer, har förbättrats avsevärt. Nu kan du:
@@ -706,7 +787,7 @@ Slutligen kommer stöd för att använda AzCopy med filresurser i framtiden.
 * I sällsynta fall kan trädet fokus fastna på Snabbåtkomst. Du kan uppdatera alla som behövdes fokus.
 * Ladda upp från OneDrive-mapp fungerar inte på grund av ett fel i NodeJS. Buggen har åtgärdats, men ännu inte har integrerats i Electron.
 * När du riktar in sig på Azure Stack, misslyckas ladda upp filer tilläggsblobbar.
-* När du klickar på ”Avbryt” för en aktivitet, kan det ta en stund innan aktiviteten att avbryta. Detta eftersom vi använder Avbryt filter lösning beskrivs [här](https://github.com/Azure/azure-storage-node/issues/317).
+* När du klickar på ”Avbryt” för en aktivitet, kan det ta en stund innan aktiviteten att avbryta. Det beror på att vi använder det Cancel filter-arbete som beskrivs [här](https://github.com/Azure/azure-storage-node/issues/317).
 * Om du väljer fel PIN-kod/smartkort-certifikat måste startas om för att få Lagringsutforskaren glömmer detta beslut.
 * Ögonblicksbilder bevaras inte när du byter namn på BLOB-objekt (individuellt eller i en omdöpt blobbehållare). Alla andra egenskaper och metadata för blobbar, filer och entiteter bevaras under en namnbyte.
 * Även om Azure Stack inte för närvarande stöd för filresurser, visas en filresurser nod fortfarande under ett anslutna Azure Stack-lagringskonto.
@@ -766,7 +847,7 @@ Slutligen kommer stöd för att använda AzCopy med filresurser i framtiden.
 * I sällsynta fall kan trädet fokus fastna på Snabbåtkomst. Du kan uppdatera alla som behövdes fokus.
 * Ladda upp från OneDrive-mapp fungerar inte på grund av ett fel i NodeJS. Buggen har åtgärdats, men ännu inte har integrerats i Electron.
 * När du riktar in sig på Azure Stack, misslyckas ladda upp filer tilläggsblobbar.
-* När du klickar på ”Avbryt” för en aktivitet, kan det ta en stund innan aktiviteten att avbryta. Detta eftersom vi använder Avbryt filter lösning beskrivs [här](https://github.com/Azure/azure-storage-node/issues/317).
+* När du klickar på ”Avbryt” för en aktivitet, kan det ta en stund innan aktiviteten att avbryta. Det beror på att vi använder det Cancel filter-arbete som beskrivs [här](https://github.com/Azure/azure-storage-node/issues/317).
 * Om du väljer fel PIN-kod/smartkort-certifikat måste startas om för att få Lagringsutforskaren glömmer detta beslut.
 * Ögonblicksbilder bevaras inte när du byter namn på BLOB-objekt (individuellt eller i en omdöpt blobbehållare). Alla andra egenskaper och metadata för blobbar, filer och entiteter bevaras under en namnbyte.
 * Även om Azure Stack inte för närvarande stöd för filresurser, visas en filresurser nod fortfarande under ett anslutna Azure Stack-lagringskonto.
@@ -799,7 +880,7 @@ Slutligen kommer stöd för att använda AzCopy med filresurser i framtiden.
 * Nu har stöd för att komma åt $web-behållare som används av Serverstatiska webbplatser. På så sätt kan du enkelt ladda upp och hantera filer och mappar som används av din webbplats. [#223](https://github.com/Microsoft/AzureStorageExplorer/issues/223)
 * App-panelen på macOS har organiserats. Förändringarna innefattar en Arkiv-menyn, vissa genväg viktiga ändringar och flera nya kommandon under menyn app. [#99](https://github.com/Microsoft/AzureStorageExplorer/issues/99)
 * Utfärdare av slutpunkten för att logga in till Azure för amerikanska myndigheter har ändrats till https://login.microsoftonline.us/
-* Hjälpmedel: När en skärmläsare är aktiv, fungerar tangentbordsnavigering nu med de tabeller som används för att visa objekt på höger sida. Du kan använda piltangenterna för att navigera rader och kolumner, RETUR för att anropa standardåtgärder, på kontexten menyn för att öppna snabbmenyn för ett objekt, och flytta eller kontroll till flera markeringar. [#103](https://github.com/Microsoft/AzureStorageExplorer/issues/103)
+* Tågen När en skärm läsare är aktiv fungerar tangent bords navigering nu med de tabeller som används för att visa objekt på den högra sidan. Du kan använda piltangenterna för att navigera rader och kolumner, RETUR för att anropa standardåtgärder, på kontexten menyn för att öppna snabbmenyn för ett objekt, och flytta eller kontroll till flera markeringar. [#103](https://github.com/Microsoft/AzureStorageExplorer/issues/103)
 
 ### <a name="fixes"></a>Korrigeringar
 *  På vissa datorer, underordnade processerna tar lång tid att starta. När detta händer visas felet ”underordnade processen misslyckades att starta i tid”. Tiden för en underordnad process att starta har nu ökat från 20 till 90 sekunder. Om du fortfarande har drabbats av det här problemet, kommentera på den länkade GitHub-ärenden. [#281](https://github.com/Microsoft/AzureStorageExplorer/issues/281)
@@ -807,20 +888,20 @@ Slutligen kommer stöd för att använda AzCopy med filresurser i framtiden.
 * Ange offentlig åtkomstnivå för en behållare som skulle ta bort alla åtkomstprinciper och vice versa. Nu kan bevaras principer och åtkomst för offentlig åtkomst när du ställer in av två. [#197](https://github.com/Microsoft/AzureStorageExplorer/issues/197)
 * ”AccessTierChangeTime” trunkerades i dialogrutan Egenskaper. Problemet har åtgärdats. [#145](https://github.com/Microsoft/AzureStorageExplorer/issues/145)
 * ”Microsoft Azure Storage Explorer –” prefix saknades från dialogrutan Skapa ny katalog. Problemet har åtgärdats. [#299](https://github.com/Microsoft/AzureStorageExplorer/issues/299)
-* Hjälpmedel: Dialogrutan Lägg till entitet var svårt att navigera när du använder VoiceOver. Förbättringar har gjorts. [#206](https://github.com/Microsoft/AzureStorageExplorer/issues/206)
-* Hjälpmedel: Bakgrundsfärgen för Dölj/Visa knappen för fönstret Akce a Vlastnosti var inkonsekvent med liknande UI-kontroller i högkontrast svart tema. Färgen har ändrats. [#123](https://github.com/Microsoft/AzureStorageExplorer/issues/123)
-* Hjälpmedel: Högkontrast svart tema kunde inte fokus formatering för knappen ”X” i dialogrutan Egenskaper visas. Problemet har åtgärdats. [#243](https://github.com/Microsoft/AzureStorageExplorer/issues/243)
-* Hjälpmedel: Flikarna åtgärder och egenskaper saknades flera aria-värden som resulterade i en läsare för subpar skärm. Värden som saknas aria har nu lagts till. [#316](https://github.com/Microsoft/AzureStorageExplorer/issues/316)
-* Hjälpmedel: Komprimerad trädnoder på vänster sida har inte som den angivna värdet false för aria-expanderas. Problemet har åtgärdats. [#352](https://github.com/Microsoft/AzureStorageExplorer/issues/352)
+* Tågen Dialog rutan Lägg till entitet var svår att navigera vid användning av VoiceOver. Förbättringar har gjorts. [#206](https://github.com/Microsoft/AzureStorageExplorer/issues/206)
+* Tågen Bakgrunds färgen för knappen Dölj/expandera i fönstret åtgärder och egenskaper stämmer inte överens med liknande GRÄNSSNITTs kontroller i Högkontrast svart tema. Färgen har ändrats. [#123](https://github.com/Microsoft/AzureStorageExplorer/issues/123)
+* Tågen I Högkontrast svart tema visas inte fokus formatet för knappen X i dialog rutan Egenskaper. Problemet har åtgärdats. [#243](https://github.com/Microsoft/AzureStorageExplorer/issues/243)
+* Tågen Flikarna åtgärder och egenskaper saknade flera Aria-värden som resulterade i en subpar skärm läsare. Värden som saknas aria har nu lagts till. [#316](https://github.com/Microsoft/AzureStorageExplorer/issues/316)
+* Tågen Komprimerade trädnod till vänster har inte fått ett Aria-expanderat värde som är falskt. Problemet har åtgärdats. [#352](https://github.com/Microsoft/AzureStorageExplorer/issues/352)
 
 ### <a name="known-issues"></a>Kända problem
-* Kopplar från en resurs som är anslutna via SAS-URI, t.ex en blob-behållare kan orsaka ett fel som förhindrar andra bilagor från visas korrekt. Undvik problemet genom att bara uppdatera gruppnoden. Se [problemet](https://github.com/Microsoft/AzureStorageExplorer/issues/537) för mer information.
+* Om du kopplar från en resurs som är ansluten via SAS URI, till exempel en BLOB-behållare, kan det orsaka ett fel som förhindrar att andra bilagor visas korrekt. Undvik problemet genom att bara uppdatera gruppnoden. Se [problemet](https://github.com/Microsoft/AzureStorageExplorer/issues/537) för mer information.
 * Om du använder VS för Mac och någon gång har skapat en anpassad AAD-konfiguration kan kanske du inte att logga in. Undvik problemet genom att ta bort innehållet i ~ /. IdentityService/AadConfigurations. Om detta inte det avblockerar du, kommentera på [problemet](https://github.com/Microsoft/AzureStorageExplorer/issues/97).
 * Azurite ännu inte helt har genomfört alla Storage API: er. Därför bör finnas det oväntade fel eller beteende när du använder Azurite för utvecklingslagring.
 * I sällsynta fall kan trädet fokus fastna på Snabbåtkomst. Du kan uppdatera alla som behövdes fokus.
 * Ladda upp från OneDrive-mapp fungerar inte på grund av ett fel i NodeJS. Buggen har åtgärdats, men ännu inte har integrerats i Electron.
 * När du riktar in sig på Azure Stack, misslyckas ladda upp filer tilläggsblobbar.
-* När du klickar på ”Avbryt” för en aktivitet, kan det ta en stund innan aktiviteten att avbryta. Detta eftersom vi använder Avbryt filter lösning beskrivs [här](https://github.com/Azure/azure-storage-node/issues/317).
+* När du klickar på ”Avbryt” för en aktivitet, kan det ta en stund innan aktiviteten att avbryta. Det beror på att vi använder det Cancel filter-arbete som beskrivs [här](https://github.com/Azure/azure-storage-node/issues/317).
 * Om du väljer fel PIN-kod/smartkort-certifikat måste startas om för att få Lagringsutforskaren glömmer detta beslut.
 * Ögonblicksbilder bevaras inte när du byter namn på BLOB-objekt (individuellt eller i en omdöpt blobbehållare). Alla andra egenskaper och metadata för blobbar, filer och entiteter bevaras under en namnbyte.
 * Azure Stack har inte stöd för följande funktioner och försök att använda dem när du arbetar med Azure Stack kan resultera i oväntade fel:
@@ -880,7 +961,7 @@ Slutligen kommer stöd för att använda AzCopy med filresurser i framtiden.
 * I sällsynta fall kan trädet fokus fastna på Snabbåtkomst. Du kan uppdatera alla som behövdes fokus.
 * Ladda upp från OneDrive-mapp fungerar inte på grund av ett fel i NodeJS. Buggen har åtgärdats, men ännu inte har integrerats i Electron.
 * När du riktar in sig på Azure Stack, misslyckas ladda upp filer tilläggsblobbar.
-* När du klickar på ”Avbryt” för en aktivitet, kan det ta en stund innan aktiviteten att avbryta. Detta eftersom vi använder Avbryt filter lösning beskrivs [här](https://github.com/Azure/azure-storage-node/issues/317).
+* När du klickar på ”Avbryt” för en aktivitet, kan det ta en stund innan aktiviteten att avbryta. Det beror på att vi använder det Cancel filter-arbete som beskrivs [här](https://github.com/Azure/azure-storage-node/issues/317).
 * Om du väljer fel PIN-kod/smartkort-certifikat måste startas om för att få Lagringsutforskaren glömmer detta beslut.
 * Ögonblicksbilder bevaras inte när du byter namn på BLOB-objekt (individuellt eller i en omdöpt blobbehållare). Alla andra egenskaper och metadata för blobbar, filer och entiteter bevaras under en namnbyte.
 * Även om Azure Stack inte för närvarande stöd för filresurser, visas en filresurser nod fortfarande under ett anslutna Azure Stack-lagringskonto.
@@ -934,7 +1015,7 @@ Slutligen kommer stöd för att använda AzCopy med filresurser i framtiden.
 * I sällsynta fall kan trädet fokus fastna på Snabbåtkomst. Du kan uppdatera alla som behövdes fokus.
 * Ladda upp från OneDrive-mapp fungerar inte på grund av ett fel i NodeJS. Buggen har åtgärdats, men ännu inte har integrerats i Electron.
 * När du riktar in sig på Azure Stack, misslyckas ladda upp filer tilläggsblobbar.
-* När du klickar på ”Avbryt” för en aktivitet, kan det ta en stund innan aktiviteten att avbryta. Detta eftersom vi använder Avbryt filter lösning beskrivs [här](https://github.com/Azure/azure-storage-node/issues/317).
+* När du klickar på ”Avbryt” för en aktivitet, kan det ta en stund innan aktiviteten att avbryta. Det beror på att vi använder det Cancel filter-arbete som beskrivs [här](https://github.com/Azure/azure-storage-node/issues/317).
 * Om du väljer fel PIN-kod/smartkort-certifikat måste startas om för att få Lagringsutforskaren glömmer detta beslut.
 * Ögonblicksbilder bevaras inte när du byter namn på BLOB-objekt (individuellt eller i en omdöpt blobbehållare). Alla andra egenskaper och metadata för blobbar, filer och entiteter bevaras under en namnbyte.
 * Även om Azure Stack inte för närvarande stöd för filresurser, visas en filresurser nod fortfarande under ett anslutna Azure Stack-lagringskonto.
@@ -1000,7 +1081,7 @@ Slutligen kommer stöd för att använda AzCopy med filresurser i framtiden.
 ### <a name="known-issues"></a>Kända problem
 * I sällsynta fall kan trädet fokus fastna på Snabbåtkomst. Du kan uppdatera alla som behövdes fokus.
 * När du riktar in sig på Azure Stack, misslyckas ladda upp filer tilläggsblobbar.
-* När du klickar på ”Avbryt” för en aktivitet, kan det ta en stund innan aktiviteten att avbryta. Detta beskrivs eftersom vi använder Avbryt filter lösning här.
+* När du klickar på ”Avbryt” för en aktivitet, kan det ta en stund innan aktiviteten att avbryta. Det beror på att vi använder det Cancel filter-arbete som beskrivs här.
 * Om du väljer fel PIN-kod/smartkort-certifikat måste startas om för att få Lagringsutforskaren glömmer detta beslut.
 * Ögonblicksbilder bevaras inte när du byter namn på BLOB-objekt (individuellt eller i en omdöpt blobbehållare). Alla andra egenskaper och metadata för blobbar, filer och entiteter bevaras under en namnbyte.
 * Även om Azure Stack inte för närvarande stöd för filresurser, visas en filresurser nod fortfarande under ett anslutna Azure Stack-lagringskonto.
@@ -1036,7 +1117,7 @@ Slutligen kommer stöd för att använda AzCopy med filresurser i framtiden.
 ### <a name="known-issues"></a>Kända problem
 * Storage Explorer har inte stöd för AD FS-konton.
 * När du riktar in sig på Azure Stack, misslyckas ladda upp filer tilläggsblobbar.
-* När du klickar på ”Avbryt” för en aktivitet, kan det ta en stund innan aktiviteten att avbryta. Detta eftersom vi använder Avbryt filter lösning beskrivs [här](https://github.com/Azure/azure-storage-node/issues/317).
+* När du klickar på ”Avbryt” för en aktivitet, kan det ta en stund innan aktiviteten att avbryta. Det beror på att vi använder det Cancel filter-arbete som beskrivs [här](https://github.com/Azure/azure-storage-node/issues/317).
 * Om du väljer fel PIN-kod/smartkort-certifikat måste startas om för att få Lagringsutforskaren glömmer detta beslut.
 * Inställningspanelen konto kan indikera att du måste ange autentiseringsuppgifter för att filtrera prenumerationer igen.
 * Ögonblicksbilder bevaras inte när du byter namn på BLOB-objekt (individuellt eller i en omdöpt blobbehållare). Alla andra egenskaper och metadata för blobbar, filer och entiteter bevaras under en namnbyte.
@@ -1085,7 +1166,7 @@ Slutligen kommer stöd för att använda AzCopy med filresurser i framtiden.
 ### <a name="known-issues"></a>Kända problem
 * Storage Explorer har inte stöd för AD FS-konton.
 * När du riktar in sig på Azure Stack, misslyckas ladda upp filer tilläggsblobbar.
-* När du klickar på ”Avbryt” för en aktivitet, kan det ta en stund innan aktiviteten att avbryta. Detta beskrivs eftersom vi använder Avbryt filter lösning här.
+* När du klickar på ”Avbryt” för en aktivitet, kan det ta en stund innan aktiviteten att avbryta. Det beror på att vi använder det Cancel filter-arbete som beskrivs här.
 * Om du väljer fel PIN-kod/smartkort-certifikat måste startas om för att få Lagringsutforskaren glömmer detta beslut.
 * Inställningspanelen konto kan indikera att du måste ange autentiseringsuppgifter för att filtrera prenumerationer igen.
 * Ögonblicksbilder bevaras inte när du byter namn på BLOB-objekt (individuellt eller i en omdöpt blobbehållare). Alla andra egenskaper och metadata för blobbar, filer och entiteter bevaras under en namnbyte.
@@ -1132,7 +1213,7 @@ Slutligen kommer stöd för att använda AzCopy med filresurser i framtiden.
 * Storage Explorer har inte stöd för AD FS-konton.
 * Kortkommandon för ”Visa Explorer” och ”visa kontohantering” ska vara Ctrl / Cmd + SKIFT + E och Ctrl / Cmd + SKIFT + A respektive.
 * När du riktar in sig på Azure Stack, misslyckas ladda upp filer tilläggsblobbar.
-* När du klickar på ”Avbryt” för en aktivitet, kan det ta en stund innan aktiviteten att avbryta. Detta beskrivs eftersom vi använder Avbryt filter lösning här.
+* När du klickar på ”Avbryt” för en aktivitet, kan det ta en stund innan aktiviteten att avbryta. Det beror på att vi använder det Cancel filter-arbete som beskrivs här.
 * Om du väljer fel PIN-kod/smartkort-certifikat måste startas om för att få Lagringsutforskaren glömmer detta beslut.
 * Inställningspanelen konto kan indikera att du måste ange autentiseringsuppgifter för att filtrera prenumerationer igen.
 * Ögonblicksbilder bevaras inte när du byter namn på BLOB-objekt (individuellt eller i en omdöpt blobbehållare). Alla andra egenskaper och metadata för blobbar, filer och entiteter bevaras under en namnbyte.
@@ -1196,7 +1277,7 @@ Slutligen kommer stöd för att använda AzCopy med filresurser i framtiden.
 * Storage Explorer har inte stöd för AD FS-konton.
 * Kortkommandon för ”Visa Explorer” och ”visa kontohantering” ska vara Ctrl / Cmd + SKIFT + E och Ctrl / Cmd + SKIFT + A respektive.
 * När du riktar in sig på Azure Stack, misslyckas ladda upp filer tilläggsblobbar.
-* När du klickar på ”Avbryt” för en aktivitet, kan det ta en stund innan aktiviteten att avbryta. Detta beskrivs eftersom vi använder Avbryt filter lösning här.
+* När du klickar på ”Avbryt” för en aktivitet, kan det ta en stund innan aktiviteten att avbryta. Det beror på att vi använder det Cancel filter-arbete som beskrivs här.
 * Om du väljer fel PIN-kod/smartkort-certifikat måste startas om för att få Lagringsutforskaren glömmer detta beslut.
 * Inställningspanelen konto kan indikera att du måste ange autentiseringsuppgifter för att filtrera prenumerationer igen.
 * Ögonblicksbilder bevaras inte när du byter namn på BLOB-objekt (individuellt eller i en omdöpt blobbehållare). Alla andra egenskaper och metadata för blobbar, filer och entiteter bevaras under en namnbyte.
@@ -1252,7 +1333,7 @@ Slutligen kommer stöd för att använda AzCopy med filresurser i framtiden.
 * Storage Explorer har inte stöd för AD FS-konton.
 * Kortkommandon för ”Visa Explorer” och ”visa kontohantering” ska vara Ctrl / Cmd + SKIFT + E och Ctrl / Cmd + SKIFT + A respektive.
 * När du riktar in sig på Azure Stack, misslyckas ladda upp filer tilläggsblobbar.
-* När du klickar på ”Avbryt” för en aktivitet, kan det ta en stund innan aktiviteten att avbryta. Detta beskrivs eftersom vi använder Avbryt filter lösning här.
+* När du klickar på ”Avbryt” för en aktivitet, kan det ta en stund innan aktiviteten att avbryta. Det beror på att vi använder det Cancel filter-arbete som beskrivs här.
 * Om du väljer fel PIN-kod/smartkort-certifikat måste startas om för att få Lagringsutforskaren glömmer detta beslut.
 * Inställningspanelen konto kan indikera att du måste ange autentiseringsuppgifter för att filtrera prenumerationer igen.
 * Ögonblicksbilder bevaras inte när du byter namn på BLOB-objekt (individuellt eller i en omdöpt blobbehållare). Alla andra egenskaper och metadata för blobbar, filer och entiteter bevaras under en namnbyte.
@@ -1325,12 +1406,12 @@ Slutligen kommer stöd för att använda AzCopy med filresurser i framtiden.
 
 * Uppdaterade Electron versionen till 1.7.2 för att kunna dra nytta av flera kritiska säkerhetsuppdateringar
 * Du kan nu snabbt komma åt online felsökningsguide för Hjälp-menyn
-* Felsöka Lagringsutforskaren [Guide][2]
-* [Instruktioner][3] om hur du ansluter till en Azure Stack-prenumeration
+* Storage Explorer fel söknings [Guide][2]
+* [Anvisningar][3] om hur du ansluter till en Azure Stack-prenumeration
 
 ### <a name="known-issues"></a>Kända problem
 
-* Knappar i bekräftelsedialogen ta bort mappen inte registrerar dig med musklick i Linux. arbete är cirka att använda RETUR-tangenten
+* Knappar i bekräftelsedialogen ta bort mappen inte registrerar dig med musklick i Linux. Undvik att använda retur nyckeln
 * Om du väljer fel PIN-kod/smartkort-certifikat måste du starta om för att få Lagringsutforskaren Glöm beslutet
 * Med fler än 3 grupper av blobar eller filöverföring samtidigt kan orsaka fel
 * Inställningspanelen konto kan indikera att du måste ange autentiseringsuppgifter igen för att filtrera prenumerationer
@@ -1350,17 +1431,17 @@ Slutligen kommer stöd för att använda AzCopy med filresurser i framtiden.
 
 #### <a name="new"></a>Ny
 
-* Felsöka Lagringsutforskaren [Guide][2]
-* [Instruktioner][3] om hur du ansluter till en Azure Stack-prenumeration
+* Storage Explorer fel söknings [Guide][2]
+* [Anvisningar][3] om hur du ansluter till en Azure Stack-prenumeration
 
 #### <a name="fixes"></a>Korrigeringar
 
-* Åtgärdat: Ladda upp filen hade en hög risk orsaka en out of minnesfel
-* Åtgärdat: Du kan nu logga in med PIN-kod/smartkort
-* Åtgärdat: Öppna i portalen nu fungerar med Azure Kina 21Vianet, Azure Germany, Azure US Government och Azure Stack
-* Åtgärdat: När du laddar upp en mapp på en blobbehållare, kan ett ”otillåten åtgärd”-fel ibland uppstå
-* Åtgärdat: Markera allt har inaktiverats medan du hanterar ögonblicksbilder
-* Åtgärdat: Metadata för grundläggande blob kan komma över när du visar egenskaperna för dess ögonblicksbilder
+* Fastsatt Fil uppladdning hade stor chans att orsaka minnes fel
+* Fastsatt Nu kan du logga in med PIN/smartkort
+* Fastsatt Öppna i portalen fungerar nu med Azure Kina 21Vianet, Azure Germany, Azure amerikanska myndigheter och Azure Stack
+* Fastsatt Vid uppladdning av en mapp till en BLOB-behållare skulle felet "otillåten åtgärd" uppstå ibland
+* Fastsatt Markera alla inaktiverades när du hanterade ögonblicks bilder
+* Fastsatt Metadata för bas-bloben kan komma att skrivas över när du har granskat egenskaperna för dess ögonblicks bilder
 
 #### <a name="known-issues"></a>Kända problem
 
@@ -1436,7 +1517,7 @@ Slutligen kommer stöd för att använda AzCopy med filresurser i framtiden.
 * Lagringsutforskaren 0.8.9 kommer automatiskt att hämta den senaste versionen för uppdateringar.
 * Snabbkorrigering: från en portal skulle genererade SAS-URI att ansluta ett lagringskonto resultera i ett fel.
 * Du kan nu skapa, hantera och uppgradera blob-ögonblicksbilder.
-* Du kan nu logga in på Azure Kina 21Vianet, Azure Tyskland och Azure US Government-konton.
+* Nu kan du logga in till Azure Kina 21Vianet, Azure Germany och Azure amerikanska myndigheters konton.
 * Du kan nu ändra zoomnivån. Använda alternativen i menyn Visa att Zooma In, Zooma ut och återställa Zooma.
 * Unicode-tecken stöds nu i Användarmetadata för för blobbar och filer.
 * Förbättrad användbarhet.
@@ -1469,13 +1550,13 @@ Slutligen kommer stöd för att använda AzCopy med filresurser i framtiden.
 
 #### <a name="fixes"></a>Korrigeringar
 
-* Åtgärdat: Storage Explorer är nu en betrodd app på Mac
-* Åtgärdat: Ubuntu 14.04 stöds igen
-* Åtgärdat: Ibland Lägg till konto Användargränssnittet blinkar vid inläsning av prenumerationer
-* Åtgärdat: Ibland inte alla lagringsresurser visades i navigeringsfönstret till vänster
-* Åtgärdat: Åtgärdsfönstret visas ibland tomma åtgärder
-* Åtgärdat: Fönsterstorlek från den senaste stängd sessionen sparas nu
-* Åtgärdat: Du kan öppna flera flikar för samma resurs med hjälp av snabbmenyn
+* Fastsatt Storage Explorer är nu en betrodd app på Mac
+* Fastsatt Ubuntu 14,04 stöds igen
+* Fastsatt Ibland blinkar Lägg till konto användar gränssnitt vid inläsning av prenumerationer
+* Fastsatt Ibland visas inte alla lagrings resurser i navigerings fönstret på vänster sida
+* Fastsatt Åtgärds fönstret visade ibland tomma åtgärder
+* Fastsatt Fönster storleken från den senast stängda sessionen behålls nu
+* Fastsatt Du kan öppna flera flikar för samma resurs med hjälp av snabb menyn
 
 #### <a name="known-issues"></a>Kända problem
 
@@ -1497,7 +1578,7 @@ Slutligen kommer stöd för att använda AzCopy med filresurser i framtiden.
 * Nytt har vi lagt omfattad sökning med vår nya förbättrade sökningen, så nu har du två alternativ för att söka:
     * Global Sök - bara ange en sökterm i sökrutan för bibliotekskontrollen
     * Omfångssökning - Klicka på förstoringsglaset bredvid en nod, och sedan lägga till en sökterm i slutet av sökvägen, eller högerklicka och välj ”Sök från hit”
-* Vi har lagt till olika teman: Ljus (standard), mörk, hög kontrast svart och Högkontrast vit. Gå till redigera -&gt; teman för att ändra inställningarna teman
+* Vi har lagt till olika teman: Light (standard), mörk, Högkontrast svart och Högkontrast vitt. Gå till redigera -&gt; teman för att ändra inställningarna teman
 * Du kan ändra Blob- och egenskaper
 * Vi stöder nu kodade (base64) och kodat Kömeddelanden
 * På Linux, ett 64-bitars operativsystem är nu krävs. Den här versionen stöder vi bara 64-bitars Ubuntu 16.04.1 LTS
@@ -1505,14 +1586,14 @@ Slutligen kommer stöd för att använda AzCopy med filresurser i framtiden.
 
 #### <a name="fixes"></a>Korrigeringar
 
-* Åtgärdat: Skärmen låser sig. problem
-* Åtgärdat: Förbättrad säkerhet
-* Åtgärdat: Ibland duplicerade anslutna konton kan visas
-* Åtgärdat: En blob med en odefinierad innehållstyp kan generera ett undantag
-* Åtgärdat: Öppna panelen fråga på en tom tabell var inte möjligt
-* Åtgärdat: Varierar buggar i Search
-* Åtgärdat: Ökat antal resurser som har lästs in från 50 till 100 när du klickar på ”Läs in mer”
-* Åtgärdat: På första körningen om ett konto som är inloggad på, välja vi nu alla prenumerationer för kontot som standard
+* Fastsatt Skärm låsnings problem
+* Fastsatt Förbättrad säkerhet
+* Fastsatt Ibland kan duplicerade anslutna konton visas
+* Fastsatt En blob med en odefinierad innehålls typ kan generera ett undantag
+* Fastsatt Det gick inte att öppna Frågity-panelen på en tom tabell
+* Fastsatt Varierar buggar i sökningen
+* Fastsatt Ökat antal resurser som lästs in från 50 till 100 vid klickning på Läs in mer
+* Fastsatt Vid första körningen, om ett konto är inloggat i, väljer vi nu alla prenumerationer för det kontot som standard
 
 #### <a name="known-issues"></a>Kända problem
 
@@ -1533,8 +1614,8 @@ Slutligen kommer stöd för att använda AzCopy med filresurser i framtiden.
 #### <a name="fixes"></a>Korrigeringar
 
 * Åtgärdat: konkurrenstillstånd vid sökning ibland orsakade noder blir inte är expanderbara
-* Åtgärdat: ”Använd HTTP” fungerar inte när du ansluter till Storage-konton med kontonamnet och nyckeln
-* Åtgärdat: SAS-nycklar (som är särskilt Portal-genererade) returneras en ”avslutande snedstreck”-fel
+* Fastsatt "Använd HTTP" fungerar inte vid anslutning till lagrings konton med konto namn och nyckel
+* Fastsatt SAS-nycklar (särskilt Portal-genererade) returnerar fel meddelandet "avslutande snedstreck"
 * Fast: importera tabell problem
     * Ibland har partitionsnyckel och radnyckel återförts
     * Det gick inte att läsa ”null” partitionsnycklar
@@ -1580,7 +1661,7 @@ Slutligen kommer stöd för att använda AzCopy med filresurser i framtiden.
 
 #### <a name="fixes"></a>Korrigeringar
 
-* Åtgärdat: Microsoft-Accounts kräver omautentisering var 8 – 12: e timme
+* Fastsatt Microsoft-konton kräver ny autentisering var 8-12: e timme
 
 #### <a name="known-issues"></a>Kända problem
 
@@ -1588,7 +1669,7 @@ Slutligen kommer stöd för att använda AzCopy med filresurser i framtiden.
 * Mac OS-installationen kan kräver förhöjd behörighet
 * Konto inställningspanelen kan indikera att du måste ange autentiseringsuppgifter igen för att filtrera prenumerationer
 * Byta namn på filresurser, blob-behållare och tabeller bevaras inte i metadata eller andra egenskaper för behållaren, till exempel filresurskvot, offentlig åtkomstnivå eller åtkomstprinciper
-* Ögonblicksbilder bevaras inte när du byter namn på BLOB-objekt (individuellt eller i en omdöpt blobbehållare). Alla andra egenskaper och metadata för blobbar, filer och entiteter bevaras under en namnbyte
+* Ögonblicksbilder bevaras inte när du byter namn på BLOB-objekt (individuellt eller i en omdöpt blobbehållare). Alla andra egenskaper och metadata för blobbar, filer och entiteter bevaras under ett namnbyte
 * Kopiera eller byta namn på resurser fungerar inte i SAS-anslutna konton
 
 07/07/2016
@@ -1599,7 +1680,7 @@ Slutligen kommer stöd för att använda AzCopy med filresurser i framtiden.
 #### <a name="new"></a>Ny
 
 * Storage-konton är grupperade efter prenumerationer; utvecklingslagring och resurser som är anslutna via nyckel eller SAS visas under noden (lokal och ansluten)
-* Logga ut från konton i panelen ”Azure-kontoinställningar”
+* Logga ut från konton i panelen "Azure-konto inställningar"
 * Konfigurera proxyinställningar för att aktivera och hantera inloggning
 * Skapa och ta bort blob-lån
 * Öppna blob-behållare, köer, tabeller och filer med enkelklickning
@@ -1636,7 +1717,7 @@ Slutligen kommer stöd för att använda AzCopy med filresurser i framtiden.
 
 * Fast: överföra och hämta stora blobbar kan resultera i ofullständig uppladdningar/nedladdningar
 * Fast: redigera, lägga till eller importera en entitet med ett numeriskt värde (”1”) konverteras det till dubbla
-* Åtgärdat: Det går inte att expandera noden tabellen i den lokala utvecklingsmiljön
+* Fastsatt Det går inte att expandera noden tabell i den lokala utvecklings miljön
 
 #### <a name="known-issues"></a>Kända problem
 
@@ -1656,7 +1737,7 @@ Slutligen kommer stöd för att använda AzCopy med filresurser i framtiden.
 
 #### <a name="known-issues"></a>Kända problem
 
-* Tabeller: Att lägga till, redigera eller importera en entitet som har en egenskap med ett ambiguously numeriska värde, till exempel ”1” eller ”1.0”, och användaren försöker skicka det som en `Edm.String`, värdet kommer tillbaka via klientens API som en Edm.Double
+* Hierarkitabeller Genom att lägga till, redigera eller importera en entitet som har en egenskap med ett tvetydigt numeriskt värde, till exempel "1" eller "1,0", och användaren försöker skicka den som `Edm.String`en, kommer värdet att komma tillbaka via klient-API: et som en EDM. dubbel
 
 03/31/2016
 
@@ -1702,7 +1783,7 @@ Slutligen kommer stöd för att använda AzCopy med filresurser i framtiden.
 
 * Linux-support (paritet funktioner till OSX)
 * Lägg till blob-behållare med signaturer för delad åtkomst (SAS)-nyckel
-* Lägga till Lagringskonton för Azure Kina 21Vianet
+* Lägg till lagrings konton för Azure Kina 21Vianet
 * Lägga till Lagringskonton med anpassade slutpunkter
 * Öppna och visa innehållet text- och blobar
 * Visa och redigera blobbegenskaper och metadata

@@ -10,16 +10,16 @@ ms.topic: conceptual
 ms.date: 08/17/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 66b3dc4aba5d1b29cc0c6190877fbd6b26a11f0c
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.openlocfilehash: a1a9ad0c615e50db746548a1ed5b557fe6fdea5a
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69510102"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71064286"
 ---
 # <a name="pass-an-access-token-through-a-user-flow-to-your-application-in-azure-active-directory-b2c"></a>Skicka en åtkomsttoken via ett användar flöde till ditt program i Azure Active Directory B2C
 
-Ett [användar flöde](active-directory-b2c-reference-policies.md) i Azure Active Directory B2C (Azure AD B2C) ger användare av programmet en möjlighet att registrera sig eller logga in med en identitets leverantör. När resan startar får Azure AD B2C en åtkomsttoken från [](active-directory-b2c-reference-tokens.md) identitets leverantören. Azure AD B2C använder denna token för att hämta information om användaren. Du aktiverar ett anspråk i ditt användar flöde för att skicka token till de program som du registrerar i Azure AD B2C.
+Ett [användar flöde](active-directory-b2c-reference-policies.md) i Azure Active Directory B2C (Azure AD B2C) ger användare av programmet en möjlighet att registrera sig eller logga in med en identitets leverantör. När resan startar får Azure AD B2C en [åtkomsttoken från identitets](active-directory-b2c-reference-tokens.md) leverantören. Azure AD B2C använder denna token för att hämta information om användaren. Du aktiverar ett anspråk i ditt användar flöde för att skicka token till de program som du registrerar i Azure AD B2C.
 
 Azure AD B2C stöder för närvarande bara att skicka åtkomsttoken för [OAuth 2,0](active-directory-b2c-reference-oauth-code.md) -identitets leverantörer, som innehåller [Facebook](active-directory-b2c-setup-fb-app.md) och [Google](active-directory-b2c-setup-goog-app.md). För alla andra identitets leverantörer returneras anspråket tomt.
 
@@ -31,7 +31,7 @@ Azure AD B2C stöder för närvarande bara att skicka åtkomsttoken för [OAuth 
 ## <a name="enable-the-claim"></a>Aktivera anspråket
 
 1. Logga in på [Azure Portal](https://portal.azure.com/) som global administratör för din Azure AD B2C-klientorganisationen.
-2. Kontrol lera att du använder den katalog som innehåller din Azure AD B2C-klient. Välj **katalog-och prenumerations filter** på den översta menyn och välj den katalog som innehåller din klient.
+2. Kontrol lera att du använder den katalog som innehåller din Azure AD B2C-klient. Välj **katalog + prenumerations** filter på den översta menyn och välj den katalog som innehåller din klient.
 3. Välj **Alla tjänster** på menyn högst upp till vänster i Azure-portalen och sök efter och välj **Azure AD B2C**.
 4. Välj **användar flöden (principer)** och välj sedan ditt användar flöde. Till exempel **B2C_1_signupsignin1**.
 5. Välj **Programanspråk**.

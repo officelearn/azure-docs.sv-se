@@ -1,7 +1,7 @@
 ---
 title: Köra batch-förutsägelser på stora data med pipelines
-titleSuffix: Azure Machine Learning service
-description: Lär dig mer om att göra förutsägelser för batch asynkront på stora mängder data med hjälp av Azure Machine Learning-tjänsten.
+titleSuffix: Azure Machine Learning
+description: Lär dig hur du gör batch förutsägelse asynkront på stora mängder data med hjälp av Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,16 +10,16 @@ ms.reviewer: jmartens, garye
 ms.author: jordane
 author: jpe316
 ms.date: 07/12/2019
-ms.openlocfilehash: b0d8eef025efb6398f1d7c734ca558540b157fef
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 3997f327bd6512eeee2cb5e7a0af802f12d1727a
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70128258"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71034295"
 ---
 # <a name="run-batch-predictions-on-large-data-sets-with-azure-machine-learning-pipelines"></a>Köra batch-förutsägelser på stora data mängder med Azure Machine Learning pipelines
 
-I den här artikeln får du lära dig hur du gör förutsägelser för stora mängder data asynkront med hjälp av ML-pipelines med Azure Machine Learning-tjänsten.
+I den här artikeln får du lära dig hur du gör förutsägelser för stora mängder data asynkront med hjälp av ML-pipelines med Azure Machine Learning.
 
 Batch förutsägelse (eller batch-Poäng) tillhandahåller kostnads effektiv härledning, med oöverträffat data flöde för asynkrona program. Batch förutsägelse pipelines kan skala för att utföra inferens på terabyte av produktionsdata. Batch förutsägelse är optimerad för hög genom strömning, Fire-och-glömma förutsägelser för en stor data insamling.
 
@@ -30,7 +30,7 @@ I följande steg skapar du en [maskin inlärnings pipeline](concept-ml-pipelines
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-- Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnads fria eller betalda versionen av Azure Machine learnings tjänsten](https://aka.ms/AMLFree).
+- Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree).
 
 - Konfigurera din utvecklingsmiljö för att installera Azure Machine Learning-SDK. Mer information finns i [konfigurera en utvecklingsmiljö för Azure Machine Learning](how-to-configure-environment.md).
 

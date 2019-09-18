@@ -10,16 +10,16 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: b4b70ddfe6ea2baf42227cc83ed0cc14969b3e92
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.openlocfilehash: 75469d4522cea2914e0f69d5aa1850e468cb0d50
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66508104"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71064844"
 ---
 # <a name="tutorial-grant-access-to-a-nodejs-web-api-from-a-desktop-app-using-azure-active-directory-b2c"></a>Självstudie: Bevilja åtkomst till ett Node.js-webb-API från en skrivbordsapp med hjälp av Azure Active Directory B2C
 
-I den här självstudiekursen ser du hur du kan anropa en Node.js-webb-API-resurs som skyddas av Azure Active Directory (Azure AD) B2C från en WPF-skrivbordsapp (Windows Presentation Foundation).
+Den här självstudien visar hur du anropar en Azure Active Directory B2C (Azure AD B2C) skyddad Node. js-webb-API-resurs från en Windows Presentation Foundation (WPF) Desktop-app.
 
 I den här guiden får du lära dig att:
 
@@ -31,16 +31,16 @@ I den här guiden får du lära dig att:
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Slutför stegen och förutsättningarna i [Självstudie: Aktivera autentisering av konton i ett skrivbordsprogram med hjälp av Azure Active Directory B2C](active-directory-b2c-tutorials-desktop-app.md).
 
 ## <a name="add-a-web-api-application"></a>Lägga till ett program för webb-API
 
-Webb-API-resurser måste vara registrerade i klientorganisationen innan de kan godkänna och svara på en begäran från en skyddad resurs från klientprogram som använder en åtkomsttoken. 
+Webb-API-resurser måste vara registrerade i klientorganisationen innan de kan godkänna och svara på en begäran från en skyddad resurs från klientprogram som använder en åtkomsttoken.
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
-2. Se till att du använder den katalog som innehåller din Azure AD B2C-klientorganisation genom att klicka på **katalog- och prenumerationsfiltret** på den översta menyn och välja katalogen som innehåller din klientorganisation.
+2. Kontrol lera att du använder den katalog som innehåller din Azure AD B2C klient genom att välja filtret **katalog + prenumeration** på den översta menyn och välja den katalog som innehåller din klient.
 3. Välj **Alla tjänster** på menyn uppe till vänster i Azure Portal. Sök sedan efter och välj **Azure AD B2C**.
 4. Välj **Program** och därefter **Lägg till**.
 5. Ange ett namn på programmet. Till exempel *webapi1*.
@@ -76,14 +76,14 @@ En användare autentiserar med Azure AD B2C för att använda WPF-skrivbordsappe
 
 ## <a name="configure-the-sample"></a>Konfigurera exemplet
 
-När webb-API:t är registrerat och har ett definierat omfång måste du konfigurera webb-API-koden så att den använder din Azure AD B2C-klientorganisation. I den här självstudien konfigurerar du en Node.js-webbapp som du kan ladda ned från GitHub. 
+När webb-API:t är registrerat och har ett definierat omfång måste du konfigurera webb-API-koden så att den använder din Azure AD B2C-klientorganisation. I den här självstudien konfigurerar du en Node.js-webbapp som du kan ladda ned från GitHub.
 
 [Ladda ned en zip-fil](https://github.com/Azure-Samples/active-directory-b2c-javascript-nodejs-webapi/archive/master.zip) eller klona exempelwebbappen från GitHub.
 
 ```
 git clone https://github.com/Azure-Samples/active-directory-b2c-javascript-nodejs-webapi.git
 ```
-Exempelwebb-API:et för Node.js använder Passport.js-biblioteket för att aktivera Azure AD B2C att skydda anrop till API: et. 
+Exempelwebb-API:et för Node.js använder Passport.js-biblioteket för att aktivera Azure AD B2C att skydda anrop till API: et.
 
 1. Öppna filen `index.js`.
 2. Konfigurera exemplet med registreringsinformation för Azure AD B2C-klientorganisationen. Ändra följande rader med kod:
@@ -111,7 +111,7 @@ Exempelwebb-API:et för Node.js använder Passport.js-biblioteket för att aktiv
 1. Öppna lösningen **active-directory-b2c-wpf** i Visual Studio.
 2. Tryck på **F5** för att köra skrivbordsappen.
 3. Logga in med e-postadressen och lösenordet som skapades i [självstudien för autentisering av användare med Azure Active Directory B2C i en skrivbordsapp](active-directory-b2c-tutorials-desktop-app.md).
-4. Klicka på knappen **Anropa API**. 
+4. Klicka på knappen **Anropa API**.
 
 Skrivbordsappen gör skickar en förfrågan till webb-API:t och får ett svar med den inloggade användarens visningsnamn. Den skyddade skrivbordsappen anropar det skyddade webb-API:t i Azure AD B2C-klientorganisationen.
 
@@ -126,4 +126,4 @@ I den här självstudiekursen lärde du dig att:
 > * Uppdatera exemplet så att programmet används
 
 > [!div class="nextstepaction"]
-> [Självstudie: Lägga till identitetsproviders i program i Azure Active Directory B2C](tutorial-add-identity-providers.md)
+> [Självstudier: Lägga till identitetsproviders i program i Azure Active Directory B2C](tutorial-add-identity-providers.md)

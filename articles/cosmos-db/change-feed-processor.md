@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/23/2019
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: 2f0f3d70d51ff35e37506eab1082fc07b16e711c
-ms.sourcegitcommit: 3f78a6ffee0b83788d554959db7efc5d00130376
+ms.openlocfilehash: 4074f26cdefd650c1b927293f422623841dfff7d
+ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70018784"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71073693"
 ---
 # <a name="change-feed-processor-in-azure-cosmos-db"></a>Ändra flödes processor i Azure Cosmos DB 
 
@@ -60,7 +60,7 @@ Den normala livs cykeln för en värd instans är:
 1. Läs ändrings flödet.
 1. Om det inte finns några ändringar kan du försätta i vilo läge under en `WithPollInterval` fördefinierad tid (anpassningsbar med i-verktyget) och gå till #1.
 1. Om det finns ändringar skickar du dem till **ombudet**.
-1. När ombudet har slutfört bearbetningenav ändringarna uppdaterar du leasing lagret med den senaste bearbetade tidpunkten och går till #1.
+1. När ombudet har slutfört bearbetningen **av ändringarna uppdaterar**du leasing lagret med den senaste bearbetade tidpunkten och går till #1.
 
 ## <a name="error-handling"></a>Felhantering
 
@@ -95,5 +95,6 @@ Du debiteras för ru: er som förbrukas, eftersom data förflyttning in och ut u
 Nu kan du fortsätta med att lära dig mer om att ändra flödes processor i följande artiklar:
 
 * [Översikt över ändra feed](change-feed.md)
+* [Så här migrerar du från biblioteket Change feed processor](how-to-migrate-from-change-feed-library.md)
 * [Använda uppskattningen ändra feed](how-to-use-change-feed-estimator.md)
 * [Ändra start tid för matnings processor](how-to-configure-change-feed-start-time.md)

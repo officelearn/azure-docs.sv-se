@@ -10,18 +10,18 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 5dfc1ef732c8456356de82f7fe026476fdfc075b
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: 92ac1e6a85023d49ceb8242b93651a60da3d2166
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68227137"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71064172"
 ---
 # <a name="javascript-samples-for-use-in-azure-active-directory-b2c"></a>JavaScript-exempel för användning i Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-public-preview](../../includes/active-directory-b2c-public-preview.md)]
 
-Du kan lägga till egna klientens JavaScript-kod till din Azure Active Directory (Azure AD) B2C-program. Om du vill aktivera Java Script för dina program måste du lägga till ett element i din [anpassade princip](active-directory-b2c-overview-custom.md), välja en [sidlayout](page-layout.md)och använda [b2clogin.com](b2clogin.md) i dina begär Anden. I den här artikeln beskrivs hur du kan ändra den anpassade principen för att aktivera skript körning.
+Du kan lägga till din egen kod för Java Script på klient sidan i Azure Active Directory B2C (Azure AD B2C)-program. Om du vill aktivera Java Script för dina program måste du lägga till ett element i din [anpassade princip](active-directory-b2c-overview-custom.md), välja en [sidlayout](page-layout.md)och använda [b2clogin.com](b2clogin.md) i dina begär Anden. I den här artikeln beskrivs hur du kan ändra den anpassade principen för att aktivera skript körning.
 
 > [!NOTE]
 > Om du vill aktivera Java Script för användar flöden, se [Java Script och versioner av sidlayout i Azure Active Directory B2C](user-flow-javascript-overview.md).

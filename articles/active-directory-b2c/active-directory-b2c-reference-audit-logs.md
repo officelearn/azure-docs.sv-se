@@ -11,12 +11,12 @@ ms.date: 09/14/2019
 ms.author: marsma
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: cbb748e9856b6de9004d57e4393e205ddfcfffb4
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: c216512aef117a332d3aabfc83ec5615b70b202c
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "70998826"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71033833"
 ---
 # <a name="accessing-azure-ad-b2c-audit-logs"></a>Åtkomst till Azure AD B2C gransknings loggar
 
@@ -92,12 +92,13 @@ Om du vill tillåta skript-eller programbaserad åtkomst till Azure AD repor tin
 * Microsoft Graph
   * Program: Läs alla Gransknings logg data
 
-Du kan aktivera de här behörigheterna för en befintlig program registrering i B2C-klienten eller skapa en ny som är specifik för användning med gransknings logg automatisering.
+Du kan aktivera de här behörigheterna för en befintlig Azure Active Directory program registrering i B2C-klienten eller skapa en ny som är specifik för användning med gransknings logg automatisering.
 
 Om du vill skapa ett nytt program tilldelar du nödvändiga API-behörigheter och skapar en klient hemlighet och utför följande steg:
 
-1. Registrera program
-    1. Logga in på [Azure Portal](https://portal.azure.com), växla till den katalog som innehåller Azure AD B2C klienten och bläddra sedan till **Azure AD B2C**.
+1. Registrera program i Azure Active Directory
+    1. Logga in på [Azure Portal](https://portal.azure.com) och växla till den katalog som innehåller din Azure AD B2C-klient.
+    1. Välj **Azure Active Directory** (*inte* Azure AD B2C) på den vänstra menyn. Eller Välj **alla tjänster**och Sök sedan efter och välj **Azure Active Directory**.
     1. Under **Hantera** i den vänstra menyn väljer du **Appregistreringar (bakåtkompatibelt)** .
     1. Välj **ny program registrering**
     1. Ange ett namn på programmet. Till exempel *Gransknings logg app*.

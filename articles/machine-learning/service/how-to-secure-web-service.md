@@ -1,7 +1,7 @@
 ---
 title: Skydda webb tjänster med hjälp av SSL
-titleSuffix: Azure Machine Learning service
-description: Lär dig hur du skyddar en webb tjänst som distribueras via Azure Machine Learnings tjänsten genom att aktivera HTTPS. HTTPS säkrar data från av klienter genom att använda TLS (Transport Layer Security), en ersättning för SSL (Secure Sockets Layer). Klienter använder också HTTPS för att verifiera webb tjänstens identitet.
+titleSuffix: Azure Machine Learning
+description: Lär dig hur du skyddar en webb tjänst som distribueras via Azure Machine Learning genom att aktivera HTTPS. HTTPS säkrar data från av klienter genom att använda TLS (Transport Layer Security), en ersättning för SSL (Secure Sockets Layer). Klienter använder också HTTPS för att verifiera webb tjänstens identitet.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,16 +11,16 @@ ms.author: aashishb
 author: aashishb
 ms.date: 08/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: 8805e065c92b42013c1e56f20b4a032d280cb8ac
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.openlocfilehash: ce60806c26359ae682f5ab468e4f4265d3572c87
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70772511"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71034366"
 ---
 # <a name="use-ssl-to-secure-a-web-service-through-azure-machine-learning"></a>Använd SSL för att skydda en webb tjänst via Azure Machine Learning
 
-Den här artikeln visar hur du skyddar en webb tjänst som distribueras via Azure Machine Learnings tjänsten.
+Den här artikeln visar hur du skyddar en webb tjänst som distribueras via Azure Machine Learning.
 
 Du använder [https](https://en.wikipedia.org/wiki/HTTPS) för att begränsa åtkomsten till webb tjänster och säkra de data som klienter skickar. HTTPS skyddar kommunikationen mellan en klient och en webb tjänst genom att kryptera kommunikationen mellan de två. Kryptering använder [Transport Layer Security (TLS)](https://en.wikipedia.org/wiki/Transport_Layer_Security). TLS kallas ibland även *Secure Sockets Layer* (SSL), som var den föregående aktiviteten TLS.
 
@@ -151,7 +151,7 @@ Därefter måste du uppdatera din DNS så att den pekar till webbtjänsten.
 
   Uppdatera DNS för den offentliga IP-adressen för AKS-klustret på fliken **konfiguration** under **Inställningar** i det vänstra fönstret. (Se följande bild.) Den offentliga IP-adressen är en resurs typ som skapas under resurs gruppen som innehåller AKS-agentens noder och andra nätverks resurser.
 
-  [![Azure Machine Learning tjänst: Skydda webb tjänster med SSL](./media/how-to-secure-web-service/aks-public-ip-address.png)](./media/how-to-secure-web-service/aks-public-ip-address-expanded.png)
+  [![Azure Machine Learning: Skydda webb tjänster med SSL](./media/how-to-secure-web-service/aks-public-ip-address.png)](./media/how-to-secure-web-service/aks-public-ip-address-expanded.png)
 
 ## <a name="update-the-ssl-certificate"></a>Uppdatera SSL-certifikatet
 

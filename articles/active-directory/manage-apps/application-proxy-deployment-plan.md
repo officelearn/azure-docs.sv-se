@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: baselden
 ms.reviewer: ''
-ms.openlocfilehash: 04a2a3f2557ccef510a831a5c9fbf89bb62cb9a7
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: 959d959cd269884b3b75c4c23bfd0054ae64ced7
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70812829"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71033634"
 ---
 # <a name="plan-an-azure-ad-application-proxy-deployment"></a>Planera en Azure AD-programproxy-distribution
 
@@ -64,7 +64,7 @@ Följande grund krav måste uppfyllas för att du ska kunna konfigurera och impl
 
 *  **Azure-onboarding**: Innan du distribuerar programproxyn måste användar identiteter synkroniseras från en lokal katalog eller skapas direkt i dina Azure AD-klienter. Identitetssynkronisering gör det möjligt för Azure AD att förautentisera användare innan de beviljar åtkomst till App proxy-publicerade program och att ha nödvändig information om användar-ID för att utföra enkel inloggning (SSO).
 
-* **Krav för villkorlig åtkomst**: Vi rekommenderar inte att du använder programproxy för intranät åtkomst eftersom detta lägger till latens som påverkar användarna. Vi rekommenderar att du använder Application Proxy med förautentisering och principer för villkorlig åtkomst för fjärråtkomst från Internet.  En metod för att ge villkorlig åtkomst för intranät användning är att modernisera program så att de kan diretly autentisera med AAD. Mer information hittar du i [resurser för att migrera program till AAD](https://docs.microsoft.com/azure/active-directory/manage-apps/migration-resources) . 
+* **Krav för villkorlig åtkomst**: Vi rekommenderar inte att du använder programproxy för intranät åtkomst eftersom detta lägger till latens som påverkar användarna. Vi rekommenderar att du använder Application Proxy med förautentisering och principer för villkorlig åtkomst för fjärråtkomst från Internet.  En metod för att ge villkorlig åtkomst för intranät användning är att modernisera program så att de kan autentiseras direkt med AAD. Mer information hittar du i [resurser för att migrera program till AAD](https://docs.microsoft.com/azure/active-directory/manage-apps/migration-resources) . 
 
 * **Tjänst begränsningar**: För att skydda mot överförbrukning av resurser av enskilda klienter finns det begränsade gränser som ställts in per program och klient. För att se de här begränsningarna refererar du till [Azure AD-tjänstens gränser och begränsningar](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-service-limits-restrictions). Dessa begränsnings gränser baseras på ett riktmärke som ligger över normal användnings volym och ger en stor buffert för en majoritet av distributionerna.
 
@@ -239,7 +239,7 @@ Kontrol lera att programmet kan nås via programproxyn via den externa URL: en.
 
 3. I fältet **före autentisering** använder du List rutan för att välja **Azure Active Directory**och väljer **Spara**.
 
-När förautentisering har Aktiver ATS kommer Azure AD att utmana användare först för autentisering och om enkel inloggning är configued verifierar Server dels programmet användaren innan åtkomst till programmet beviljas. Om du ändrar Förautentiserings läget från genom strömning till Azure AD konfigureras även den externa URL: en med HTTPS, så alla program som ursprungligen konfigureras för HTTP kommer nu att skyddas med HTTPS.
+När förautentisering har Aktiver ATS kommer Azure AD att utmana användare först för autentisering och om enkel inloggning har kon figurer ATS kommer Server dels programmet även att verifiera användaren innan åtkomst till programmet beviljas. Om du ändrar Förautentiserings läget från genom strömning till Azure AD konfigureras även den externa URL: en med HTTPS, så alla program som ursprungligen konfigureras för HTTP kommer nu att skyddas med HTTPS.
 
 ### <a name="enable-single-sign-on"></a>Aktivera enkel inloggning
 
@@ -292,11 +292,11 @@ Användare behöver dock fortfarande utföra dagliga privilegierade åtgärder, 
 
 ### <a name="reporting-and-monitoring"></a>Rapportering och övervakning
 
-Azure AD ger ytterligare insikter om din organisations program användning och drifts hälsa genom [gransknings loggar och-rapporter](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-audit-logs). Programproxyn gör det också mycket enkelt att övervaka anslutningar från Azure AD-portalen och Windows-händelseloggen.
+Azure AD ger ytterligare insikter om din organisations program användning och drifts hälsa genom [gransknings loggar och-rapporter](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context). Programproxyn gör det också mycket enkelt att övervaka anslutningar från Azure AD-portalen och Windows-händelseloggen.
 
 #### <a name="application-audit-logs"></a>Granskningsloggar för program
 
-Dessa loggar innehåller detaljerad information om inloggningar till program som kon figurer ATS med programproxy och enheten och användaren som har åtkomst till programmet. [Gransknings loggar](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-audit-logs) finns i Azure Portal och i [gransknings-API](https://docs.microsoft.com/graph/api/resources/directoryaudit?view=graph-rest-beta) för export. Dessutom är [användnings-och insikts rapporter](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-usage-insights-report) också tillgängliga för ditt program.
+Dessa loggar innehåller detaljerad information om inloggningar till program som kon figurer ATS med programproxy och enheten och användaren som har åtkomst till programmet. [Gransknings loggar](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context) finns i Azure Portal och i [gransknings-API](https://docs.microsoft.com/graph/api/resources/directoryaudit?view=graph-rest-beta) för export. Dessutom är [användnings-och insikts rapporter](../reports-monitoring/concept-usage-insights-report.md?context=azure/active-directory/manage-apps/context/manage-apps-context) också tillgängliga för ditt program.
 
 #### <a name="application-proxy-connector-monitoring"></a>Övervakning av Application Proxy Connector
 

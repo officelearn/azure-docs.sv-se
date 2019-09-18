@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 0f589adf5cbcd04b9642dfe1362fd13d5be1f9aa
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: d6d4af28d79b2375e774da98d4fdb1ad9dc22063
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69640635"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71035727"
 ---
 # <a name="create-the-azure-vmware-solution-by-cloudsimple-service"></a>Skapa Azure VMware-lösningen av CloudSimple-tjänsten
 
@@ -24,7 +24,7 @@ För att komma igång med Azure VMware-lösningen från CloudSimple skapar du Az
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 
-Logga in på [Azure Portal](http://portal.azure.com).
+Logga in på [Azure Portal](https://portal.azure.com).
 
 ## <a name="create-the-service"></a>Skapa tjänsten
 

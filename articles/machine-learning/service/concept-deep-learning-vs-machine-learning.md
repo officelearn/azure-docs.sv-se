@@ -1,6 +1,6 @@
 ---
 title: Djup inlärning eller Machine Learning
-titleSuffix: Azure Machine Learning service
+titleSuffix: Azure Machine Learning
 description: Lär dig mer om djup inlärning jämfört med Machine Learning och hur båda begreppen relaterar till artificiell intelligens. Djup inlärning kan användas i scenarier som bedrägeri identifiering, röst-och ansikts igenkänning, sentiment analys och tids serie prognoser.
 services: machine-learning
 ms.service: machine-learning
@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: lazzeri
 author: FrancescaLazzeri
 ms.date: 08/07/2019
-ms.openlocfilehash: 3b0546c42ddd5252b35d1a77d7b152733beec233
-ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
+ms.openlocfilehash: cff31916f837141ae54f3c14dd125be6a92a5008
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70240946"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71035508"
 ---
 # <a name="deep-learning-vs-machine-learning"></a>Djup inlärning eller Machine Learning
 
@@ -106,9 +106,9 @@ Ett (convolutional neurala-nätverk är ett särskilt effektivt artificiellt neu
 
 ## <a name="next-steps"></a>Nästa steg
 
-I följande artiklar visas hur du använder djup inlärnings teknik i [Azure Machine learnings tjänsten](https://docs.microsoft.com/azure/machine-learning/service/?WT.mc_id=docs-article-lazzeri):
+I följande artiklar visas hur du använder djup inlärnings teknik i [Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/service/?WT.mc_id=docs-article-lazzeri):
 
 - [Klassificera handskrivna siffror med hjälp av en TensorFlow-modell](https://docs.microsoft.com/azure/machine-learning/service/how-to-train-tensorflow?WT.mc_id=docs-article-lazzeri)
 - [Klassificera handskrivna siffror med en TensorFlow-uppskattning och keras](https://docs.microsoft.com/azure/machine-learning/service/how-to-train-keras?WT.mc_id=docs-article-lazzeri)
 - [Klassificera bilder med hjälp av en Pytorch-modell](https://docs.microsoft.com/azure/machine-learning/service/how-to-train-pytorch?WT.mc_id=docs-article-lazzeri)
-- [Klassificera handskrivna siffror med hjälp av en kedje modell](https://docs.microsoft.com/en-us/azure/machine-learning/service/how-to-train-chainer?WT.mc_id=docs-article-lazzeri)
+- [Klassificera handskrivna siffror med hjälp av en kedje modell](https://docs.microsoft.com/azure/machine-learning/service/how-to-train-chainer?WT.mc_id=docs-article-lazzeri)

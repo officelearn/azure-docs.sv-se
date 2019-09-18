@@ -4,14 +4,14 @@ description: Innehåller en översikt över kända problem i Azure Migrates tjä
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 08/06/2019
+ms.date: 09/17/2019
 ms.author: raynew
-ms.openlocfilehash: 16e0fe51137ce7e96cf98c0a8acf7c490e9087b3
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: 49c43d393ef0722424088e0073942b56787f1bc7
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70232421"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71067813"
 ---
 # <a name="troubleshoot-azure-migrate"></a>Felsöka Azure Migrate
 
@@ -78,7 +78,7 @@ Ta bort ett projekt i den aktuella versionen av Azure Migrate:
 2. På sidan resurs grupp väljer du **Visa dolda typer**.
 3. Välj det migrerade projektet som du vill ta bort. Resurs typen är Microsoft. Migrate/migrateprojects och tar bort den.
 
-Ta bort ett projekt i den äldre versionen av Azure Migrate: 
+Ta bort ett projekt i den äldre versionen av Azure Migrate:
 
 1. Öppna Azure-resurs gruppen där projektet skapades.
 2. Välj det migrerade projektet som du vill ta bort. Resurs typen är migreringsjobb och tar bort den.
@@ -90,7 +90,7 @@ Bläddra till Log Analytics arbets ytan som är kopplad till projektet.
 * Om du inte har tagit bort det Azure Migrate projektet kan du hitta länken till arbets ytan i **Essentials** > **Server Assessment**.
        ![LA-arbetsyta](./media/troubleshooting-general/loganalytics-workspace.png)
 
-     * If you've already deleted the Azure Migrate project, select **Resource Groups** in the left pane of the Azure portal. Locate the workspace in the relevant resources group, and [follow the instructions](https://docs.microsoft.com/azure/azure-monitor/platform/delete-workspace) to delete it. 
+     * If you've already deleted the Azure Migrate project, select **Resource Groups** in the left pane of the Azure portal. Locate the workspace in the relevant resources group, and [follow the instructions](https://docs.microsoft.com/azure/azure-monitor/platform/delete-workspace) to delete it.
 
 
 ## <a name="error-requests-must-contain-user-identity-headers"></a>Fel "begär Anden måste innehålla användar identitets rubriker"
@@ -153,7 +153,7 @@ Om du får det här anslutnings felet kanske du inte kan ansluta till vCenter Se
 
 ## <a name="error-appliance-might-not-be-registered"></a>Fel: Installationen kanske inte är registrerad
 
-- Fel 60052, "installationen kanske inte har registrerats till Azure Migrate projektet" inträffar om det Azure-konto som används för att registrera installationen har otillräcklig behörighet. 
+- Fel 60052, "installationen kanske inte har registrerats till Azure Migrate projektet" inträffar om det Azure-konto som används för att registrera installationen har otillräcklig behörighet.
     - Se till att Azure-användarkontot som används för att registrera installationen har minst deltagar behörighet för prenumerationen.
     - [Lär dig mer](https://docs.microsoft.com/azure/migrate/migrate-appliance#appliance-deployment-requirements) om de Azure-roller och behörigheter som krävs.
 - Fel 60039, "installationen kanske inte kan registreras Azure Migrate projektet" kan inträffa om registreringen Miss lyckas eftersom det Azure Migrate-projekt som används för att registrera installationen inte kan hittas.
@@ -162,7 +162,7 @@ Om du får det här anslutnings felet kanske du inte kan ansluta till vCenter Se
 
 ## <a name="error-key-vault-management-operation-failed"></a>Fel: Key Vault hanterings åtgärden misslyckades
 
-Om du får felet 60030 eller 60031 kan du göra följande för att utföra en Azure Key Vault hanterings åtgärd: 
+Om du får felet 60030 eller 60031 kan du göra följande för att utföra en Azure Key Vault hanterings åtgärd:
 - Kontrol lera att Azure-användarkontot som används för att registrera installationen har minst deltagar behörighet för prenumerationen.
 - Kontrol lera att kontot har åtkomst till nyckel valvet som anges i fel meddelandet och försök sedan igen.
 - Kontakta Microsoft-supporten om problemet kvarstår.
@@ -187,7 +187,7 @@ Fel 60025: "En Azure AD-åtgärd misslyckades. Felet inträffade när Azure AD-p
 
 ## <a name="discovered-vms-not-in-portal"></a>Identifierade virtuella datorer som inte är i portalen
 
-Observera följande om du startar identifieringen så att **Server utvärderingen** och **Server migrering** visar att **identifiering pågår**, men ännu inte ser de virtuella datorerna i portalen: 
+Observera följande om du startar identifieringen så att **Server utvärderingen** och **Server migrering** visar att **identifiering pågår**, men ännu inte ser de virtuella datorerna i portalen:
 
 - Efter att ha påbörjat identifiering från installationen tar det cirka 15 minuter för en identifiering av VMware VM och runt två minuter för varje tillagd värd för identifiering av virtuella Hyper-V-datorer.
 - Om du fortsätter att se **identifiering pågår** även efter dessa vänte perioder väljer du **Uppdatera** på fliken **servrar** . Detta ska visa antalet identifierade servrar i **Server utvärderingen** och **Server migrering**.
@@ -202,7 +202,7 @@ Tänk på följande om du har distribuerat en installation som kontinuerligt ide
 
     1. I **servrar** > **Azure Migrate Server utvärdering**väljer du **Översikt**.
     2. Under **Hantera**väljer du **agenthälsa**
-    3. Välj **Uppdatera agent**. 
+    3. Välj **Uppdatera agent**.
     1. Vänta tills uppdaterings åtgärden har slutförts. Nu bör du se uppdaterad information.
 
 ## <a name="vm-information-isnt-in-the-portal"></a>VM-informationen finns inte i portalen
@@ -212,7 +212,7 @@ Tänk på följande om du har distribuerat en installation som kontinuerligt ide
 
     1. I **servrar** > **Azure Migrate Server utvärdering**väljer du **Översikt**.
     2. Under **Hantera**väljer du **agenthälsa**
-    3. Välj **Uppdatera agent**. 
+    3. Välj **Uppdatera agent**.
     1. Vänta tills uppdaterings åtgärden har slutförts. Nu bör du se uppdaterad information.
 
 
@@ -259,10 +259,6 @@ Det gick inte att fastställa VM-lämplighet på grund av ett internt fel | För
 Det gick inte att fastställa lämplighet för en eller flera diskar på grund av ett internt fel | Försök att skapa en ny utvärdering för gruppen.
 Det gick inte att fastställa lämplighet för ett eller flera nätverkskort på grund av ett internt fel | Försök att skapa en ny utvärdering för gruppen.
 
-## <a name="cant-add-enterprise-agreement-ea-in-an-assessment"></a>Det går inte att lägga till Enterprise-avtal (EA) i en utvärdering
-
-Azure Migrate Server-utvärderingen stöder för närvarande inte priser för Enterprise-avtal (EA). Undvik den här begränsningen genom att använda **betala per** användning som Azure-erbjudande och Använd egenskapen **rabatt** för att ange en anpassad rabatt som du får. [Lär dig](https://aka.ms/migrate/selfhelp/eapricing) hur du anpassar en utvärdering.
-
 ## <a name="linux-vms-are-conditionally-ready"></a>Virtuella Linux-datorer är "villkorligt redo"
 
 Server utvärderingen markerar virtuella Linux-datorer som "villkorligt redo" på grund av ett känt avstånd i Server utvärderingen.
@@ -270,7 +266,7 @@ Server utvärderingen markerar virtuella Linux-datorer som "villkorligt redo" p�
 - Luckan förhindrar att den lägre versionen av Linux OS som är installerad på lokala virtuella datorer identifieras.
 - För RHEL 6,10 identifieras till exempel bara RHEL 6 som operativ system version för för närvarande.
 -  Eftersom Azure bara godkänner vissa versioner av Linux är de virtuella Linux-datorerna för närvarande markerade som villkorligt klara i Server utvärderingen.
-- Du kan avgöra om Linux-operativsystemet som körs på den lokala virtuella datorn har godkänts i Azure genom att granska [Azure Linux](https://aka.ms/migrate/selfhost/azureendorseddistros)-supporten.
+- Du kan avgöra om Linux-operativsystemet som körs på den lokala virtuella datorn har godkänts i Azure genom att granska [Azure Linux-supporten](https://aka.ms/migrate/selfhost/azureendorseddistros).
 -  När du har verifierat den godkända distributionen kan du ignorera den här varningen.
 
 ## <a name="azure-skus-exceed-on-premises-sizing"></a>Azure-SKU: er överskrider lokal storleks ändring
@@ -279,7 +275,7 @@ Azure Migrate Server utvärderingen kan rekommendera Azure VM SKU: er med fler k
 
 
 - Den virtuella datorns SKU-rekommendation beror på utvärderings egenskaperna.
-- Detta påverkas av den typ av utvärdering som du utför i Server utvärderingen: *Prestanda-baserade*eller *lokalt*. 
+- Detta påverkas av den typ av utvärdering som du utför i Server utvärderingen: *Prestanda-baserade*eller *lokalt*.
 - För prestandabaserade utvärderingar beaktar Server utvärderingen användnings data för de lokala virtuella datorerna (CPU, minne, disk och nätverks användning) för att fastställa rätt mål-SKU för virtuella datorer för dina lokala virtuella datorer. Den lägger också till en bekvämlighets faktor när du fastställer effektiv användning.
 - För lokal storleks sortering beaktas inte prestanda data och SKU: n rekommenderas för lokal allokering.
 
@@ -288,14 +284,14 @@ För att visa hur detta kan påverka rekommendationerna, tar vi ett exempel:
 Vi har en lokal virtuell dator med fyra kärnor och åtta GB minne, med 50% processor användning och 50% minnes användning och en angiven bekvämlighets faktor på 1,3.
 
 -  Om utvärderingen är **lokalt**, rekommenderas en Azure VM-SKU med 4 kärnor och 8 GB minne.
-- Om utvärderingen är Prestandaoptimerad, baserat på effektiv processor-och minnes användning (50% av 4 kärnor * 1,3 = 2,6 kärnor och 50% av 8 GB minne * 1,3 = 5,3-GB minne), billigaste VM-SKU: n för fyra kärnor (närmaste antal kärnor som stöds) och 8 GB minne (närmaste stöd minnes storlek) rekommenderas. 
+- Om utvärderingen är Prestandaoptimerad, baserat på effektiv processor-och minnes användning (50% av 4 kärnor * 1,3 = 2,6 kärnor och 50% av 8 GB minne * 1,3 = 5,3-GB minne), billigaste VM-SKU: n för fyra kärnor (närmaste antal kärnor som stöds) och 8 GB minne (närmaste stöd minnes storlek) rekommenderas.
 - [Läs mer](concepts-assessment-calculation.md#sizing) om utvärderings storlek.
 
 ## <a name="azure-disk-skus-bigger-than-on-premises"></a>Azure disk-SKU: er större än lokalt
 
 Azure Migrate Server-utvärderingen kan rekommendera en större disk baserat på typen av utvärdering.
 - Disk storlek i Server utvärderingen är beroende av två bedömnings egenskaper: storleks kriterier och lagrings typ.
-- Om storleks kriteriet är **prestanda baserat**och lagrings typen är inställd på **Automatisk**, betraktas IOPS-och data flödes värden för disken när mål disk typen identifieras (standard HDD, standard SSD eller Premium). En disk-SKU från disk typen rekommenderas och rekommendationen tar hänsyn till storleks kraven för den lokala disken. 
+- Om storleks kriteriet är **prestanda baserat**och lagrings typen är inställd på **Automatisk**, betraktas IOPS-och data flödes värden för disken när mål disk typen identifieras (standard HDD, standard SSD eller Premium). En disk-SKU från disk typen rekommenderas och rekommendationen tar hänsyn till storleks kraven för den lokala disken.
 - Om storleks kriteriet är **prestanda baserat**och lagrings typen är **Premium**rekommenderas en SKU för Premium-diskar i Azure baserat på IOPS, data flöde och storleks krav för den lokala disken. Samma logik används för att utföra disk storlek när storleks kriteriet är **lokalt** och lagrings typen är **standard HDD**, **standard SSD**eller **Premium**.
 
 Om du till exempel har en lokal disk med 32 GB minne, men den aggregerade läsnings-och skriv-IOPS för disken är 800 IOPS, rekommenderar Server utvärderingen en Premium disk (på grund av de högre IOPS-kraven) och rekommenderar sedan en disk-SKU som stöder r ektion IOPS och storlek. Den bästa matchningen i det här exemplet är P15 (256 GB, 1100 IOPS). Även om den storlek som krävs av den lokala disken var 32 GB, rekommenderar Server utvärderingen en större disk på grund av det höga IOPS-kravet för den lokala disken.
@@ -336,7 +332,7 @@ När du har installerat beroende visualiserings agenter på lokala virtuella dat
 
 För virtuella Windows-datorer:
 1. Starta MMA på kontroll panelen.
-2. I **egenskaperna** > för Microsoft Monitoring Agent**Azure Log Analytics (OMS)** kontrollerar du att arbets ytans **status** är grön.
+2. I >  **egenskaperna för Microsoft Monitoring Agent** **Azure Log Analytics (OMS)** kontrollerar du att arbets ytans **status** är grön.
 3. Om statusen inte är grön kan du försöka ta bort arbets ytan och lägga till den igen till MMA.
 
       ![Dialog rutan Egenskaper för MMA](./media/troubleshooting-general/mma-status.png)

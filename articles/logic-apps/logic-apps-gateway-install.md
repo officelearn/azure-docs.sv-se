@@ -8,24 +8,24 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: arthii, LADocs
 ms.topic: article
-ms.date: 07/01/2019
-ms.openlocfilehash: c6994127b504cba31df051c757295f3e575bc23f
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
-ms.translationtype: MT
+ms.date: 09/01/2019
+ms.openlocfilehash: 3a197ab8d8c44229328c63330bcbc99fb2e64f01
+ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70931209"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71077276"
 ---
 # <a name="install-on-premises-data-gateway-for-azure-logic-apps"></a>Installera lokal datagateway för Azure Logic Apps
 
-Innan du kan [ansluta till lokala data källor från Azure Logic Apps](../logic-apps/logic-apps-gateway-connection.md)kan du hämta och installera den lokala datagatewayen på en lokal dator. Gatewayen fungerar som en brygga som ger snabb data överföring och kryptering mellan data källor lokalt och dina Logic Apps. Du kan använda samma Gateway-installation med andra moln tjänster, till exempel Power BI, Microsoft Flow, PowerApps och Azure Analysis Services. Information om hur du använder gatewayen med dessa tjänster finns i följande artiklar:
+Innan du kan [ansluta till lokala data källor från Azure Logic Apps](../logic-apps/logic-apps-gateway-connection.md)kan du hämta och installera den lokala [datagatewayen](https://aka.ms/on-premises-data-gateway-installer) på en lokal dator. Gatewayen fungerar som en brygga som ger snabb data överföring och kryptering mellan data källor lokalt och dina Logic Apps. Du kan använda samma Gateway-installation med andra moln tjänster, till exempel Power BI, Microsoft Flow, PowerApps och Azure Analysis Services. Information om hur du använder gatewayen med dessa tjänster finns i följande artiklar:
 
 * [Microsoft Power BI lokal datagateway](https://powerbi.microsoft.com/documentation/powerbi-gateway-onprem/)
 * [Microsoft PowerApps lokal datagateway](https://powerapps.microsoft.com/tutorials/gateway-management/)
 * [Microsoft Flow lokal datagateway](https://flow.microsoft.com/documentation/gateway-manage/)
 * [Azure Analysis Services lokal datagateway](../analysis-services/analysis-services-gateway.md)
 
-Den här artikeln visar hur du hämtar, installerar och konfigurerar din lokala datagateway så att du kan komma åt lokala data källor från Azure Logic Apps. Du kan också lära dig mer om [hur data gatewayen fungerar](#gateway-cloud-service) senare i det här avsnittet.
+Den här artikeln visar hur du hämtar, installerar och konfigurerar din lokala datagateway så att du kan komma åt lokala data källor från Azure Logic Apps. Du kan också lära dig mer om [hur data gatewayen fungerar](#gateway-cloud-service) senare i det här avsnittet. Mer information om gatewayen finns i [Vad är en lokal gateway](https://docs.microsoft.com/data-integration/gateway/service-gateway-onprem)?
 
 <a name="requirements"></a>
 
@@ -264,8 +264,8 @@ Här är några sätt som du kan matcha dina lokala Active Directory-konton med 
 
 Mer information finns i följande avsnitt:
 
-* [Vanliga frågor och svar om lokal datagateway](https://docs.microsoft.com/data-integration/service-gateway-onprem-faq)
-* [Felsöka den lokala datagatewayen](https://docs.microsoft.com/data-integration/gateway-service-gateway-tshoot)
+* [Vanliga frågor och svar om lokal datagateway](https://docs.microsoft.com/data-integration/gateway/service-gateway-onprem-faq)
+* [Felsöka den lokala datagatewayen](https://docs.microsoft.com/data-integration/gateway/gateway-service-gateway-tshoot)
 * [Övervaka och optimera Gateway-prestanda](https://docs.microsoft.com/data-integration/gateway/service-gateway-performance)
 
 ## <a name="next-steps"></a>Nästa steg

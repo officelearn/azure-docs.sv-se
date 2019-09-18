@@ -5,16 +5,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 07/10/2019
+ms.date: 09/17/2019
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 17d1bd95067c15bd67f80f3713f0e497bff8a68d
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.openlocfilehash: 3640d2d88fc679b78395472c667fcde39979728a
+ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69516119"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71074339"
 ---
 # <a name="azure-storage-redundancy"></a>Azure Storage redundans
 
@@ -28,16 +28,16 @@ Azure Storage verifierar regelbundet integriteten för data som lagras med hjäl
 
 När du skapar ett lagrings konto kan du välja något av följande alternativ för redundans:
 
-* [Lokalt redundant lagring (LRS)](storage-redundancy-lrs.md)
-* [Zonredundant lagring (ZRS)](storage-redundancy-zrs.md)
-* [Geo-redundant lagring (GRS)](storage-redundancy-grs.md)
-* [Geo-redundant lagring med läsbehörighet (RA-GRS)](storage-redundancy-grs.md#read-access-geo-redundant-storage)
-* [GZRS (geo-Zone-redundant lagring)](storage-redundancy-gzrs.md)
-* [Read-Access geo-Zone-redundant lagring (RA-GZRS)](storage-redundancy-gzrs.md)
+- [Lokalt redundant lagring (LRS)](storage-redundancy-lrs.md)
+- [Zonredundant lagring (ZRS)](storage-redundancy-zrs.md)
+- [Geo-redundant lagring (GRS)](storage-redundancy-grs.md)
+- [Geo-redundant lagring med läsbehörighet (RA-GRS)](storage-redundancy-grs.md#read-access-geo-redundant-storage)
+- [GZRS (geo-Zone-redundant lagring)](storage-redundancy-gzrs.md)
+- [Read-Access geo-Zone-redundant lagring (RA-GZRS)](storage-redundancy-gzrs.md)
 
 Följande tabell ger en snabb överblick över omfattningen av hållbarhet och tillgänglighet som varje replikeringsprincip ger dig en specifik typ av händelse (eller händelse av liknande påverkan).
 
-| Scenario                                                                                                 | LRS                             | ZRS                              | GRS/RA-GRS                                  | GZRS/RA-GZRS                               |
+| Scenario                                                                                                 | LRS                             | ZRS                              | GRS/RA-GRS                                  | GZRS/RA-GZRS (för hands version)                              |
 | :------------------------------------------------------------------------------------------------------- | :------------------------------ | :------------------------------- | :----------------------------------- | :----------------------------------- |
 | Noden är inte tillgänglig i ett Data Center                                                                 | Ja                             | Ja                              | Ja                                  | Ja                                  |
 | Ett helt data Center (zonindelade eller icke-zonindelade) blir otillgängligt                                           | Nej                              | Ja                              | Ja                                  | Ja                                  |
@@ -45,7 +45,7 @@ Följande tabell ger en snabb överblick över omfattningen av hållbarhet och t
 | Läs åtkomst till dina data (i en fjärran sluten geo-replikerad region) i händelse av regions omfattande otillgänglighet | Nej                              | Nej                               | Ja (med RA-GRS)                                   | Ja (med RA-GZRS)                                 |
 | Utformad för att \_ tillhandahålla \_ hållbarhet för objekt under ett år                                          | minst 99,999999999% (11 9) | minst 99,9999999999% (12 9-) | minst 99.99999999999999% (16 9) | minst 99.99999999999999% (16 9) |
 | Typer av lagrings konton som stöds                                                                   | GPv2, GPv1, Blob                | GPv2                             | GPv2, GPv1, Blob                     | GPv2                     |
-| Tillgänglighets-SLA för Läs begär Anden | Minst 99,9% (99% för låg frekvent åtkomst nivå) | Minst 99,9% (99% för låg frekvent åtkomst nivå) | Minst 99,9% (99% för låg frekvent åtkomst nivå) | Minst 99,99% (99,9% för låg frekvent åtkomst nivå) |
+| Tillgänglighets-SLA för Läs begär Anden | Minst 99,9% (99% för låg frekvent åtkomst nivå) | Minst 99,9% (99% för låg frekvent åtkomst nivå) | Minst 99,9% (99% för låg frekvent åtkomst nivå) för GRS<br /><br />Minst 99,99% (99,9% för låg frekvent åtkomst nivå) för RA-GRS | Minst 99,9% (99% för låg frekvent åtkomst nivå) för GZRS<br /><br />Minst 99,99% (99,9% för låg frekvent åtkomst nivå) för RA-GZRS |
 | Tillgänglighets-SLA för Skriv förfrågningar | Minst 99,9% (99% för låg frekvent åtkomst nivå) | Minst 99,9% (99% för låg frekvent åtkomst nivå) | Minst 99,9% (99% för låg frekvent åtkomst nivå) | Minst 99,9% (99% för låg frekvent åtkomst nivå) |
 
 Alla data i ditt lagrings konto replikeras, inklusive block-blobbar och tillägg av blobbar, sid blobbar, köer, tabeller och filer. Alla typer av lagrings konton replikeras, även om ZRS kräver ett allmänt-syfte v2-lagrings konto.
@@ -61,9 +61,9 @@ Information om Azure Storage garantier för hållbarhet och tillgänglighet finn
 
 Du kan ändra lagrings kontots replikeringsprincip genom att använda [Azure Portal](https://portal.azure.com/), [Azure POWERSHELL](storage-powershell-guide-full.md), [azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)eller något av Azure Storage- [klient biblioteken](https://docs.microsoft.com/azure/index#pivot=sdkstools). Att ändra replikerings typen för ditt lagrings konto leder inte till en tids gräns.
 
-   > [!NOTE]
-   > För närvarande kan du inte använda Azure Portal eller Azure Storage klient bibliotek för att konvertera ditt konto till ZRS, GZRS eller RA-GZRS. Om du vill migrera ditt konto till ZRS, se [Zone-redundant lagring (ZRS) för att skapa hög tillgängliga Azure Storage program](storage-redundancy-zrs.md) för mer information. För att migrera GZRS eller RA-GZRS, se [geo-Zone-redundant lagring för hög tillgänglighet och maximal hållbarhet (för hands version)](storage-redundancy-zrs.md) för mer information.
-    
+> [!NOTE]
+> För närvarande kan du inte använda Azure Portal eller Azure Storage klient bibliotek för att konvertera ditt konto till ZRS, GZRS eller RA-GZRS. Om du vill migrera ditt konto till ZRS, se [Zone-redundant lagring (ZRS) för att skapa hög tillgängliga Azure Storage program](storage-redundancy-zrs.md) för mer information. För att migrera GZRS eller RA-GZRS, se [geo-Zone-redundant lagring för hög tillgänglighet och maximal hållbarhet (för hands version)](storage-redundancy-zrs.md) för mer information.
+
 ### <a name="are-there-any-costs-to-changing-my-accounts-replication-strategy"></a>Finns det några kostnader för att ändra mitt kontos replikeringsprincip?
 
 Det beror på din konverterings Sök väg. Beställ från minst till dyra, Azure Storage redundans erbjudanden LRS, ZRS, GRS, RA-GRS, GZRS och RA-GZRS. Om du till exempel går *från* LRS till en annan typ av replikering debiteras ytterligare avgifter eftersom du flyttar till en mer avancerad redundans nivå. Migrering *till* GRS eller RA-GRS innebär en utgående bandbredds avgift eftersom dina data (i din primära region) replikeras till din sekundära fjärrregion. Den här avgiften är en engångs kostnad vid första konfigurationen. När data har kopierats sker inga ytterligare migreringar. Du debiteras bara för att replikera nya eller uppdateringar av befintliga data. Mer information om kostnader för bandbredd finns på [sidan Azure Storage prissättning](https://azure.microsoft.com/pricing/details/storage/blobs/).

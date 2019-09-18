@@ -1,92 +1,93 @@
 ---
-title: Använda en Windows-dator med Hadoop i HDInsight - Azure
-description: Arbeta i en Windows-dator i Hadoop på HDInsight. Hantera och fråga kluster med PowerShell, Visual Studio och Linux-verktyg. Utveckla big data-lösningar med .NET.
+title: Använda en Windows-dator med Hadoop på HDInsight – Azure
+description: Arbeta från en Windows-dator i Hadoop på HDInsight. Hantera och fråga kluster med PowerShell-, Visual Studio-och Linux-verktyg. Utveckla Big data-lösningar med .NET.
 author: hrasheed-msft
 ms.author: hrasheed
+ms.reviewer: jasonh
 ms.topic: conceptual
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 04/24/2019
-ms.openlocfilehash: 5045c48a00c51a16d37dcf4b7f72f25633f23b3f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 942ca2fe89441ab7497e98c6ffe1fffb9847da77
+ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64926034"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71076592"
 ---
-# <a name="work-in-the-apache-hadoop-ecosystem-on-hdinsight-from-a-windows-pc"></a>Arbeta i Apache Hadoop-ekosystemet i HDInsight från en Windows-dator
+# <a name="work-in-the-apache-hadoop-ecosystem-on-hdinsight-from-a-windows-pc"></a>Arbeta i Apache Hadoop eko system på HDInsight från en Windows-dator
 
-Läs mer om utveckling och hanteringsalternativ på Windows-dator för att arbeta i Apache Hadoop-ekosystemet i HDInsight. 
+Lär dig mer om utvecklings-och hanterings alternativ på Windows-datorn för att arbeta i Apache Hadoop eko systemet i HDInsight. 
 
-HDInsight bygger på Apache Hadoop- och Hadoop-komponenter, tekniker för öppen källkod som utvecklas för Linux. HDInsight version 3.4 och senare använder Ubuntu Linux-distribution som det underliggande Operativsystemet för klustret. Dock kan du arbeta med HDInsight från en Windows-klienten eller Windows-utvecklingsmiljö.
+HDInsight baseras på Apache Hadoop-och Hadoop-komponenter, teknik med öppen källkod som utvecklats i Linux. HDInsight version 3,4 och högre använder Ubuntu Linux distribution som det underliggande operativ systemet för klustret. Du kan dock arbeta med HDInsight från en Windows-klient eller Windows utvecklings miljö.
 
-## <a name="use-powershell-for-deployment-and-management-tasks"></a>Använda PowerShell för distribution och hantering av uppgifter
-Azure PowerShell är en skriptmiljö som du kan använda för att styra och automatisera distributionen och hanteringsuppgifter i HDInsight från Windows.
+## <a name="use-powershell-for-deployment-and-management-tasks"></a>Använda PowerShell för distributions-och hanterings uppgifter
+Azure PowerShell är en skript miljö som du kan använda för att styra och automatisera distributions-och hanterings uppgifter i HDInsight från Windows.
 
-Exempel på uppgifter som du kan göra med PowerShell:
+Exempel på uppgifter som du kan utföra med PowerShell:
 
-* [Skapa kluster med hjälp av PowerShell](hdinsight-hadoop-create-linux-clusters-azure-powershell.md).
-* [Kör Apache Hive-frågor med hjälp av PowerShell](hadoop/apache-hadoop-use-hive-powershell.md).
+* [Skapa kluster med PowerShell](hdinsight-hadoop-create-linux-clusters-azure-powershell.md).
+* [Kör Apache Hive frågor med PowerShell](hadoop/apache-hadoop-use-hive-powershell.md).
 * [Hantera kluster med PowerShell](hdinsight-administer-use-powershell.md).
 
-Följ stegen för att [installera och konfigurera Azure Powershell](https://docs.microsoft.com/powershell/azure/install-az-ps) att hämta den senaste versionen.
+Följ stegen för att [Installera och konfigurera Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps) för att få den senaste versionen.
 
 ## <a name="utilities-you-can-run-in-a-browser"></a>Verktyg som du kan köra i en webbläsare
-Följande verktyg har ett webbgränssnitt som körs i en webbläsare:
-* **[Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview)**  är en interaktiv, kommandorads-gränssnitt som körs i webbläsaren och inifrån Azure-portalen.
-* **[Apache Ambari-Webbgränssnittet](hdinsight-hadoop-manage-ambari.md)**  är en övervaknings- och verktyg som är tillgängliga i Azure portal som kan användas för att hantera olika typer av jobb, som:
+Följande verktyg har ett webb gränssnitt som körs i en webbläsare:
+* **[Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview)** är ett interaktivt kommando rads gränssnitt som körs i webbläsaren och inifrån Azure Portal.
+* **[Apache Ambari Web UI](hdinsight-hadoop-manage-ambari.md)** är ett hanterings-och övervaknings verktyg som är tillgängligt i Azure Portal som kan användas för att hantera olika typer av jobb, t. ex.:
     * [Använd Apache Ambari med REST API](hdinsight-hadoop-manage-ambari-rest-api.md)
-    * [Apache Hive-vyn i Apache Ambari](hadoop/apache-hadoop-use-hive-ambari-view.md)
-    * [Apache Tez vyn i Apache Ambari](hdinsight-debug-ambari-tez-view.md)
+    * [Apache Hive vy i Apache Ambari](hadoop/apache-hadoop-use-hive-ambari-view.md)
+    * [Apache Tez-vy i Apache Ambari](hdinsight-debug-ambari-tez-view.md)
 
-## <a name="data-lake-hadoop-tools-for-visual-studio"></a>Data Lake (Hadoop)-verktyg för Visual Studio
-Använda Data Lake Tools för Visual Studio för att distribuera och hantera Storm-topologier. Data Lake-verktyg installeras också SDK för SCP.NET, där du kan utveckla C# Storm-topologier med Visual Studio.
+## <a name="data-lake-hadoop-tools-for-visual-studio"></a>Data Lake-verktyg (Hadoop) för Visual Studio
+Använd Data Lake verktyg för Visual Studio för att distribuera och hantera Storm-topologier. Data Lake verktyg installerar även SCP.NET SDK, som gör att du kan utveckla C# Storm-topologier med Visual Studio.
 
-Innan du går till exemplet nedan [installera och testa Data Lake Tools för Visual Studio](hadoop/apache-hadoop-visual-studio-tools-get-started.md). 
+Innan du går till följande exempel, [installerar du och försöker data Lake verktyg för Visual Studio](hadoop/apache-hadoop-visual-studio-tools-get-started.md). 
 
-Exempel på uppgifter som du kan göra med Visual Studio och Data Lake Tools för Visual Studio:
+Exempel på uppgifter som du kan utföra med Visual Studio och Data Lake verktyg för Visual Studio:
 * [Distribuera och hantera Storm-topologier från Visual Studio](storm/apache-storm-deploy-monitor-topology-linux.md)
-* [Utveckla C#-topologier för Storm med Visual Studio](storm/apache-storm-develop-csharp-visual-studio-topology.md). Bits innehåller exempel på mallar för Storm-topologier som du kan ansluta till databaser, till exempel Azure Cosmos DB och SQL-databas.
+* [Utveckla C# topologier för Storm med Visual Studio](storm/apache-storm-develop-csharp-visual-studio-topology.md). Bitarna innehåller exempel mallar för Storm-topologier som du kan ansluta till databaser, till exempel Azure Cosmos DB och SQL Database.
 
 ## <a name="visual-studio-and-the-net-sdk"></a>Visual Studio och .NET SDK 
 
-Du kan använda Visual Studio med .NET SDK för att hantera kluster och utveckla big data-program. Du kan använda andra IDE: er för följande uppgifter, men exempel visas i Visual Studio.
+Du kan använda Visual Studio med .NET SDK för att hantera kluster och utveckla Big data program. Du kan använda andra IDE: er för följande uppgifter, men exemplen visas i Visual Studio.
 
-Exempel på uppgifter som du kan göra med .NET SDK i Visual Studio:
-* [Skapa kluster och fungerar med HDInsight från .NET Framework-program](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md).
-* [Kör Apache Hive-frågor med .NET SDK](hadoop/apache-hadoop-use-hive-dotnet-sdk.md).
-* [Använd C# användardefinierade funktioner med Apache Hive och Apache Pig strömning på Apache Hadoop](hadoop/apache-hadoop-hive-pig-udf-dotnet-csharp.md).
+Exempel på uppgifter som du kan utföra med .NET SDK i Visual Studio:
+* [Skapa kluster och arbeta i HDInsight från ett .NET Framework-program](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md).
+* [Kör Apache Hive frågor med .NET SDK](hadoop/apache-hadoop-use-hive-dotnet-sdk.md).
+* [Använd C# användardefinierade funktioner med Apache Hive och Apache gris streaming på Apache Hadoop](hadoop/apache-hadoop-hive-pig-udf-dotnet-csharp.md).
 
-## <a name="intellij-idea-and-eclipse-ide-for-spark-clusters"></a>Intellij IDEA och Eclipse IDE för Spark-kluster
-Båda [Intellij IDEA](https://www.jetbrains.com/idea/download) och [Eclipse IDE](https://www.eclipse.org/downloads/) kan användas för att:
+## <a name="intellij-idea-and-eclipse-ide-for-spark-clusters"></a>IntelliJ-idé och Sol förmörkelse IDE för Spark-kluster
+Både [IntelliJ-idén](https://www.jetbrains.com/idea/download) och [sol förmörkelses IDE](https://www.eclipse.org/downloads/) kan användas för att:
 * Utveckla och skicka in ett Scala Spark-program på ett HDInsight Spark-kluster.
-* Åtkomst till Spark-klusterresurser.
+* Åtkomst till Spark kluster resurser.
 * Utveckla och kör ett Scala Spark-program lokalt.
 
-Dessa artiklar visar hur: 
-* Intellij IDEA: [Skapa Apache Spark-program med hjälp av Azure Toolkit för Intellij plugin-programmet och Scala-SDK.](spark/apache-spark-intellij-tool-plugin.md)
-* Eclipse IDE eller Scala IDE för Eclipse: [Skapa Apache Spark-program och Azure Toolkit för Eclipse](spark/apache-spark-eclipse-tool-plugin.md) 
+De här artiklarna visar hur: 
+* IntelliJ idé: [Skapa Apache Spark program med hjälp av Azure Toolkit för IntelliJ-plugin och Scala SDK.](spark/apache-spark-intellij-tool-plugin.md)
+* Sol förmörkelse IDE eller Scala IDE för Sol förmörkelse: [Skapa Apache Spark-program och Azure Toolkit for Eclipse](spark/apache-spark-eclipse-tool-plugin.md) 
 
 
-## <a name="notebooks-on-spark-for-data-scientists"></a>Anteckningsböcker på Spark för dataexperter 
-Apache Spark-kluster i HDInsight innefattar Apache Zeppelin-anteckningsböcker och kernlar som du kan använda med Jupyter-anteckningsböcker. 
+## <a name="notebooks-on-spark-for-data-scientists"></a>Bärbara datorer i Spark för data experter 
+Apache Spark kluster i HDInsight innehåller Apache Zeppelin-anteckningsböcker och kärnor som kan användas med Jupyter-anteckningsböcker. 
 
-* [Lär dig att använda kernlar i Apache Spark-kluster med Jupyter-anteckningsböcker för att testa Spark-program](spark/apache-spark-zeppelin-notebook.md)
-* [Lär dig hur du använder Apache Zeppelin-anteckningsböcker i Apache Spark-kluster för att köra Spark-jobb](spark/apache-spark-jupyter-notebook-kernels.md) 
+* [Lär dig hur du använder kärnor i Apache Spark kluster med Jupyter-anteckningsböcker för att testa Spark-program](spark/apache-spark-zeppelin-notebook.md)
+* [Lär dig hur du använder Apache Zeppelin-anteckningsböcker på Apache Spark kluster för att köra Spark-jobb](spark/apache-spark-jupyter-notebook-kernels.md) 
 
-## <a name="run-linux-based-tools-and-technologies-on-windows"></a>Kör Linux-baserade verktyg och tekniker i Windows
+## <a name="run-linux-based-tools-and-technologies-on-windows"></a>Köra Linux-baserade verktyg och tekniker i Windows
 
-Om det uppstår en situation där du måste använda ett verktyg eller en teknik som endast är tillgängligt i Linux, Överväg följande alternativ:
+Om du stöter på en situation där du måste använda ett verktyg eller en teknik som bara är tillgänglig i Linux bör du tänka på följande alternativ:
 
-* **Bash i Ubuntu för Windows 10** ger ett undersystem för Linux på Windows. Bash kan du direkt köra Linux-verktyg utan att behöva underhålla en dedikerad Linux-installation. Se [Windows-undersystem for Linux Installation Guide för Windows 10](https://docs.microsoft.com/windows/wsl/install-win10) för installationssteg.  Andra [Unix gränssnitt](https://www.gnu.org/software/bash/) fungerar också.
-* **Docker för Windows** ger åtkomst till många Linux-baserade verktyg och kan köras direkt från Windows. Du kan till exempel använda Docker för att köra klienten Beeline för Hive direkt från Windows. Du kan också använda Docker för att köra en lokal Jupyter notebook och fjärransluta till Spark i HDInsight. [Kom igång med Docker för Windows](https://docs.docker.com/docker-for-windows/)
-* **[MobaXTerm](https://mobaxterm.mobatek.net/)**  kan du bläddra grafiskt filsystemet klustret via en SSH-anslutning.
+* **Bash på Ubuntu i Windows 10** tillhandahåller ett Linux-undersystem i Windows. Med bash kan du köra Linux-verktyg direkt utan att behöva ha en särskild Linux-installation. Installations [Guide för Windows-undersystem för Linux finns i Windows 10](https://docs.microsoft.com/windows/wsl/install-win10) för installations steg.  Andra [UNIX-gränssnitt](https://www.gnu.org/software/bash/) fungerar också.
+* **Docker för Windows** ger till gång till många Linux-baserade verktyg och kan köras direkt från Windows. Du kan till exempel använda Docker för att köra Beeline-klienten för Hive direkt från Windows. Du kan också använda Docker för att köra en lokal Jupyter-anteckningsbok och fjärrans luta till Spark på HDInsight. [Kom igång med Docker för Windows](https://docs.docker.com/docker-for-windows/)
+* Med **[MobaXTerm](https://mobaxterm.mobatek.net/)** kan du grafiskt bläddra i kluster fil systemet via en SSH-anslutning.
 
-## <a name="cross-platform-tools"></a>Plattformsoberoende verktyg
+## <a name="cross-platform-tools"></a>Plattforms oberoende verktyg
 
-Kommandoradsgränssnittet för Azure (CLI) är Microsofts plattformsoberoende kommandoradsmiljö för att hantera Azure-resurser.  Mer information finns i [Azure kommandoradsgränssnitt (CLI)](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest).
+Kommandoradsgränssnittet för Azure (CLI) är Microsofts plattformsoberoende kommandoradsmiljö för att hantera Azure-resurser.  Mer information finns i [kommando rads gränssnittet för Azure (CLI)](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest).
 
 ## <a name="next-steps"></a>Nästa steg
-Om du inte har arbetat i Linux-baserade kluster finns i följande artiklar:
+Om du inte har arbetat med att arbeta i Linux-baserade kluster kan du läsa följande artiklar:
 * [Konfigurera Apache Hadoop, Apache Kafka, Apache Spark eller andra kluster](hdinsight-hadoop-provision-linux-clusters.md)
-* [Tips för HDInsight-kluster på Linux](hdinsight-hadoop-linux-information.md)
+* [Tips för HDInsight-kluster i Linux](hdinsight-hadoop-linux-information.md)

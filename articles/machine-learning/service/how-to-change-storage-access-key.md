@@ -1,7 +1,7 @@
 ---
 title: Ändra åtkomst nycklar för lagrings kontot
-titleSuffix: Azure Machine Learning service
-description: Lär dig hur du ändrar åtkomst nycklarna för det Azure Storage konto som används av din arbets yta. Azure Machine Learning tjänsten använder ett Azure Storage konto för att lagra data och modeller. När du återskapar åtkomst nyckeln för lagrings kontot måste du uppdatera Azure Machine Learning-tjänsten för att använda de nya nycklarna.
+titleSuffix: Azure Machine Learning
+description: Lär dig hur du ändrar åtkomst nycklarna för det Azure Storage konto som används av din arbets yta. Azure Machine Learning använder ett Azure Storage konto för att lagra data och modeller. När du återskapar åtkomst nyckeln för lagrings kontot måste du uppdatera Azure Machine Learning för att använda de nya nycklarna.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,22 +10,22 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 08/16/2019
-ms.openlocfilehash: e386e34a8326a51753631ee9ea4215d01ba7ceb3
-ms.sourcegitcommit: a6888fba33fc20cc6a850e436f8f1d300d03771f
+ms.openlocfilehash: 6c87d4553c7b0fd34513d761558a06cd527c4e3b
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69558224"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71034954"
 ---
 # <a name="regenerate-storage-account-access-keys"></a>Återskapa åtkomst nycklar för lagrings kontot
 
-Lär dig hur du ändrar åtkomst nycklarna för Azure Storage konton som används av Azure Machine Learnings tjänsten. Azure Machine Learning kan använda lagrings konton för att lagra data eller utbildade modeller.
+Lär dig hur du ändrar åtkomst nycklarna för Azure Storage konton som används av Azure Machine Learning. Azure Machine Learning kan använda lagrings konton för att lagra data eller utbildade modeller.
 
 Av säkerhets synpunkt kan du behöva ändra åtkomst nycklarna för ett Azure Storage-konto. När du återskapar åtkomst nyckeln måste Azure Machine Learning uppdateras för att använda den nya nyckeln. Azure Machine Learning kan använda lagrings kontot för både modell lagring och som ett data lager.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-* En arbetsyta för Azure Machine Learning-tjänsten. Mer information finns i artikeln [skapa en arbets yta](how-to-manage-workspace.md) .
+* En Azure Machine Learning-arbetsyta. Mer information finns i artikeln [skapa en arbets yta](how-to-manage-workspace.md) .
 
 * [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).
 
@@ -35,7 +35,7 @@ Av säkerhets synpunkt kan du behöva ändra åtkomst nycklarna för ett Azure S
 
 ## <a name="what-needs-to-be-updated"></a>Vad som behöver uppdateras
 
-Lagrings konton kan användas av Azure Machine Learning service-arbetsytan (lagrings loggar, modeller, ögonblicks bilder osv.) och som ett data lager. Processen för att uppdatera arbets ytan är ett enda Azure CLI-kommando och kan köras efter uppdatering av lagrings nyckeln. Processen för att uppdatera data lager är mer involverad och du måste identifiera vilka data lager som för närvarande använder lagrings kontot och sedan registrera dem på nytt.
+Lagrings konton kan användas av Azure Machine Learning arbets ytan (lagrings loggar, modeller, ögonblicks bilder osv.) och som ett data lager. Processen för att uppdatera arbets ytan är ett enda Azure CLI-kommando och kan köras efter uppdatering av lagrings nyckeln. Processen för att uppdatera data lager är mer involverad och du måste identifiera vilka data lager som för närvarande använder lagrings kontot och sedan registrera dem på nytt.
 
 > [!IMPORTANT]
 > Uppdatera arbets ytan med hjälp av Azure CLI och data lagret med python, på samma tidpunkt. Uppdatering av endast en eller flera är inte tillräckligt och kan orsaka fel tills båda uppdateras.
@@ -74,7 +74,7 @@ Om det finns en post för det lagrings konto som du planerar att återskapa åtk
 
 ## <a name="update-the-access-key"></a>Uppdatera åtkomst nyckeln
 
-Använd följande steg för att uppdatera Azure Machine Learning-tjänsten för att använda den nya nyckeln:
+Om du vill uppdatera Azure Machine Learning att använda den nya nyckeln använder du följande steg:
 
 > [!IMPORTANT]
 > Utför alla steg, uppdatera både arbets ytan med hjälp av CLI och data lager med python. Uppdatering av bara en av dem kan orsaka fel tills båda uppdateras.

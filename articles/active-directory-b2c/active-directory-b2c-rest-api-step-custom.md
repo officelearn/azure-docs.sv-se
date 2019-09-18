@@ -10,18 +10,18 @@ ms.topic: conceptual
 ms.date: 08/21/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 42129870c6ab2bb5e58bdf9aaa323a3d64b479f8
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: 12ddbe9f43baf68f6c11c9b720a0f684316af46a
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69644912"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71065323"
 ---
 # <a name="add-rest-api-claims-exchanges-to-custom-policies-in-azure-active-directory-b2c"></a>Lägg till REST API åberopade anspråk till anpassade principer i Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Du kan lägga till interaktion med ett RESTful-API till dina [anpassade principer](active-directory-b2c-overview-custom.md) i Azure Active Directory (Azure AD) B2C. Den här artikeln visar hur du skapar en Azure AD B2C användar resa som samverkar med RESTful-tjänster.
+Du kan lägga till interaktion med ett RESTful-API till dina [anpassade principer](active-directory-b2c-overview-custom.md) i Azure Active Directory B2C (Azure AD B2C). Den här artikeln visar hur du skapar en Azure AD B2C användar resa som samverkar med RESTful-tjänster.
 
 Interaktionen innehåller ett anspråk utbyte av information mellan REST API anspråk och Azure AD B2C. Anspråk byten har följande egenskaper:
 

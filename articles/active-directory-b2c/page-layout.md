@@ -10,18 +10,18 @@ ms.topic: conceptual
 ms.date: 07/04/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 011fb262ff91c56269c5b7dc9adf4aaeab9acbd5
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: 612d2e3a9a5a324f7d6d8e1b63b6b7e297047239
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68229055"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71063844"
 ---
 # <a name="select-a-page-layout-in-azure-active-directory-b2c-using-custom-policies"></a>Välj en sidlayout i Azure Active Directory B2C att använda anpassade principer
 
 [!INCLUDE [active-directory-b2c-public-preview](../../includes/active-directory-b2c-public-preview.md)]
 
-Du kan aktivera JavaScript-kod på klient sidan i dina Azure Active Directory (Azure AD) B2C-principer oavsett om du använder användar flöden eller anpassade principer. Om du vill aktivera Java Script för dina program måste du lägga till ett element i din [anpassade princip](active-directory-b2c-overview-custom.md), välja en sidlayout och använda [b2clogin.com](b2clogin.md) i dina begär Anden.
+Du kan aktivera JavaScript-kod på klient sidan i din Azure Active Directory B2C (Azure AD B2C) principer oavsett om du använder användar flöden eller anpassade principer. Om du vill aktivera Java Script för dina program måste du lägga till ett element i din [anpassade princip](active-directory-b2c-overview-custom.md), välja en sidlayout och använda [b2clogin.com](b2clogin.md) i dina begär Anden.
 
 En sidlayout är en associering av element som Azure AD B2C tillhandahåller och det innehåll som du anger.
 

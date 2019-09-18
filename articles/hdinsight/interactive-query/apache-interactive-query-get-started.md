@@ -7,13 +7,13 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: overview
-ms.date: 06/14/2019
-ms.openlocfilehash: 29b2a9378abaaa697d2d869145d5e912d6c06d6c
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.date: 09/17/2019
+ms.openlocfilehash: 3e0fddc03ad880d36876276827198b0ac180a00d
+ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70811598"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71076365"
 ---
 # <a name="what-is-interactive-query-in-azure-hdinsight"></a>Vad är interaktiv fråga i Azure HDInsight?
 
@@ -28,6 +28,9 @@ Du kan bara komma åt Hive-tjänsten i det interaktiva fråge klustret via Apach
 ## <a name="create-an-interactive-query-cluster"></a>Skapa ett interaktivt Query-kluster
 
 Information om hur du skapar ett HDInsight-kluster finns i [skapa Apache Hadoop kluster i HDInsight](../hdinsight-hadoop-provision-linux-clusters.md). Välj kluster typen interaktiv fråga.
+
+> [!IMPORTANT]
+> Den minsta huvudnoden storleken för interaktiva Query-kluster är Standard_D13_v2. Mer information finns i [diagrammet storleks schema för virtuell Azure-dator](../../cloud-services/cloud-services-sizes-specs.md#dv2-series).
 
 ## <a name="execute-apache-hive-queries-from-interactive-query"></a>Köra Apache Hive frågor från interaktiv fråga
 

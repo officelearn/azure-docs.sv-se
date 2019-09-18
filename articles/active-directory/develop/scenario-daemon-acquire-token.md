@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/07/2019
+ms.date: 09/15/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6a5f15aa5264c0abf87cb15f0468e8a3a924e0b5
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: ef28520edd8500be0da52996e6484a0407fb03c8
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68562350"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71056448"
 ---
 # <a name="daemon-app-that-calls-web-apis---acquire-a-token"></a>Daemon-app som anropar webb-API: er – hämta en token
 
@@ -31,45 +31,44 @@ När det konfidentiella klient programmet har skapats kan du hämta en token fö
 
 Omfånget för att begära ett flöde för klientautentiseringsuppgifter är namnet på resursen följt av `/.default`. Den här texten gör att Azure AD kan använda **behörigheter på program nivå** som har deklarerats statiskt under program registreringen. Som tidigare sett måste dessa API-behörigheter beviljas av en klient administratör
 
-### <a name="net"></a>.NET
+# <a name="nettabdotnet"></a>[NET](#tab/dotnet)
 
 ```CSharp
 ResourceId = "someAppIDURI";
 var scopes = new [] {  ResourceId+"/.default"};
 ```
 
-### <a name="python"></a>Python
+# <a name="pythontabpython"></a>[Python](#tab/python)
 
 I MSAL. Python, konfigurations filen ser ut som följande kodfragment:
 
-```Python
+```Json
 {
-    "authority": "https://login.microsoftonline.com/organizations",
-    "client_id": "your_client_id",
-    "secret": "This is a sample only. You better NOT persist your password."
-    "scope": ["https://graph.microsoft.com/.default"]
+    "scope": ["https://graph.microsoft.com/.default"],
 }
 ```
 
-### <a name="java"></a>Java
+# <a name="javatabjava"></a>[Java](#tab/java)
 
 ```Java
-public final static String KEYVAULT_DEFAULT_SCOPE = "https://vault.azure.net/.default";
+final static String GRAPH_DEFAULT_SCOPE = "https://graph.microsoft.com/.default";
 ```
 
-### <a name="all"></a>Alla
-
-Det omfång som används för klientens autentiseringsuppgifter ska alltid vara resourceId + "/.default"
+---
 
 ### <a name="case-of-azure-ad-v10-resources"></a>Exempel på Azure AD-resurser (v 1.0)
 
+Det omfång som används för klientens autentiseringsuppgifter ska alltid vara resourceId + "/.default"
+
 > [!IMPORTANT]
-> För MSAL (Microsoft Identity Platform-slutpunkt) som efterfrågar en åtkomsttoken för en resurs som accepterar en v 1.0-åtkomsttoken, parsar Azure AD den önskade mål gruppen från det begärda omfånget genom att ta allt före det sista snedstrecket och använda det som resurs-ID.
+> För MSAL som frågar en åtkomsttoken för en resurs som accepterar en v 1.0-åtkomsttoken parsar Azure AD den önskade mål gruppen från det begärda omfånget genom att ta allt före det sista snedstrecket och använda det som resurs-ID.
 > Om till exempel Azure SQL ( **https://database.windows.net** ) förväntar sig en mål grupp som slutar med ett snedstreck (för Azure SQL: `https://database.windows.net/` ), måste du begära ett omfånget `https://database.windows.net//.default` (Observera det dubbla snedstrecket). Se även MSAL.NET problem [#747](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/747): Resurs-URL: en avslutande snedstreck utelämnas, vilket orsakade SQL-auth-haveriet.
 
 ## <a name="acquiretokenforclient-api"></a>AcquireTokenForClient-API
 
-### <a name="net"></a>.NET
+Om du vill hämta en token för appen använder `AcquireTokenForClient` du eller motsvarande, beroende på plattformarna.
+
+# <a name="nettabdotnet"></a>[NET](#tab/dotnet)
 
 ```CSharp
 using Microsoft.Identity.Client;
@@ -98,13 +97,12 @@ catch (MsalServiceException ex) when (ex.Message.Contains("AADSTS70011"))
 }
 ```
 
-#### <a name="application-token-cache"></a>Cache för program-token
-
-`AcquireTokenForClient` I MSAL.net använder **Application token cache** (alla andra AcquireTokenXX-metoder använder token-cachen) anropa `AcquireTokenSilent` inte innan anrop `AcquireTokenForClient` som `AcquireTokenSilent` använder **användartoken** . `AcquireTokenForClient`kontrollerar cacheminnet för **program** -token och uppdaterar det.
-
-### <a name="python"></a>Python
+# <a name="pythontabpython"></a>[Python](#tab/python)
 
 ```Python
+# The pattern to acquire a token looks like this.
+result = None
+
 # Firstly, looks up a token from cache
 # Since we are looking for token for the current app, NOT for an end user,
 # notice we give account parameter as None.
@@ -113,20 +111,42 @@ result = app.acquire_token_silent(config["scope"], account=None)
 if not result:
     logging.info("No suitable token exists in cache. Let's get a new one from AAD.")
     result = app.acquire_token_for_client(scopes=config["scope"])
+
+if "access_token" in result:
+    # Call a protected API with the access token
+    print(result["token_type"])
+    print(result["expires_in"])  # You don't normally need to care about this.
+                                 # It will be good for at least 5 minutes.
+else:
+    print(result.get("error"))
+    print(result.get("error_description"))
+    print(result.get("correlation_id"))  # You may need this when reporting a bug
 ```
 
-### <a name="java"></a>Java
+# <a name="javatabjava"></a>[Java](#tab/java)
 
 ```Java
-ClientCredentialParameters parameters = ClientCredentialParameters
-        .builder(Collections.singleton(KEYVAULT_DEFAULT_SCOPE))
+ClientCredentialParameters clientCredentialParam = ClientCredentialParameters.builder(
+        Collections.singleton(GRAPH_DEFAULT_SCOPE))
         .build();
 
-CompletableFuture<AuthenticationResult> future = cca.acquireToken(parameters);
+CompletableFuture<IAuthenticationResult> future = app.acquireToken(clientCredentialParam);
 
-// You can complete the future in many different ways. Here we use .get() for simplicity
-AuthenticationResult result = future.get();
+BiConsumer<IAuthenticationResult, Throwable> processAuthResult = (res, ex) -> {
+    if (ex != null) {
+        System.out.println("Oops! We have an exception - " + ex.getMessage());
+    }
+    System.out.println("Returned ok - " + res);
+    System.out.println("ID Token - " + res.idToken());
+
+    /* call a protected API with res.accessToken() */
+};
+
+future.whenCompleteAsync(processAuthResult);
+future.join();
 ```
+
+---
 
 ### <a name="protocol"></a>Protocol
 
@@ -159,9 +179,11 @@ scope=https%3A%2F%2Fgraph.microsoft.com%2F.default
 &grant_type=client_credentials
 ```
 
-### <a name="learn-more-about-the-protocol"></a>Läs mer om protokollet
-
 Mer information finns i protokoll dokumentationen: [Microsoft Identity Platform och OAuth 2,0-klientens autentiseringsuppgifter flöde](v2-oauth2-client-creds-grant-flow.md).
+
+## <a name="application-token-cache"></a>Cache för program-token
+
+`AcquireTokenForClient` I MSAL.net använder **Application token cache** (alla andra AcquireTokenXX-metoder använder token-cachen) anropa `AcquireTokenSilent` inte innan anrop `AcquireTokenForClient` som `AcquireTokenSilent` använder **användartoken** . `AcquireTokenForClient`kontrollerar cacheminnet för **program** -token och uppdaterar det.
 
 ## <a name="troubleshooting"></a>Felsökning
 

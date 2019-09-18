@@ -10,16 +10,16 @@ ms.topic: article
 ms.date: 07/08/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 388ef66351140dab18bd7c92290d84f0f4d734ac
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.openlocfilehash: bc7828b7926ea6e7f2d6bc3891ee231972ae3208
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69622796"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71063239"
 ---
 # <a name="tutorial-add-identity-providers-to-your-applications-in-azure-active-directory-b2c"></a>Självstudier: Lägg till identitets leverantörer till dina program i Azure Active Directory B2C
 
-Du kanske vill att användarna ska kunna logga in på dina program med olika identitetsprovidrar. En *identitetsprovider* skapar, underhåller och hanterar identitetsinformation samt autentiseringstjänster till program. Du kan lägga till identitets leverantörer som stöds av Azure Active Directory (Azure AD) B2C till dina [användar flöden](active-directory-b2c-reference-policies.md) med hjälp av Azure Portal.
+Du kanske vill att användarna ska kunna logga in på dina program med olika identitetsprovidrar. En *identitetsprovider* skapar, underhåller och hanterar identitetsinformation samt autentiseringstjänster till program. Du kan lägga till identitets leverantörer som stöds av Azure Active Directory B2C (Azure AD B2C) till dina [användar flöden](active-directory-b2c-reference-policies.md) med hjälp av Azure Portal.
 
 I den här artikeln kan du se hur du:
 
@@ -45,12 +45,12 @@ Identitets leverantörs program ger identifieraren och nyckeln för att aktivera
 Om du vill aktivera inloggning för användare från Azure AD måste du registrera ett program i Azure AD-klienten. Azure AD-klienten är inte samma som din Azure AD B2C klient.
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
-1. Kontrol lera att du använder den katalog som innehåller din Azure AD-klient genom att klicka på **filtret katalog och prenumeration** på den översta menyn och välja den katalog som innehåller din Azure AD-klient.
+1. Kontrol lera att du använder den katalog som innehåller din Azure AD-klient genom att välja filtret **katalog + prenumeration** på den översta menyn och välja den katalog som innehåller din Azure AD-klient.
 1. Välj **alla tjänster** i det övre vänstra hörnet av Azure Portal och Sök sedan efter och välj **Appregistreringar**.
 1. Välj **ny registrering**.
 1. Ange ett namn för ditt program. Till exempel `Azure AD B2C App`.
 1. Godkänn bara valet av **konton i den här organisations katalogen** för det här programmet.
-1. För omdirigerings- **URI: n**, godkänn värdet för **webben** och ange följande URL i gemener och `your-B2C-tenant-name` Ersätt med namnet på din Azure AD B2C-klient.
+1. För **omdirigerings-URI: n**, godkänn värdet för **webben** och ange följande URL i gemener och `your-B2C-tenant-name` Ersätt med namnet på din Azure AD B2C-klient.
 
     ```
     https://your-B2C-tenant-name.b2clogin.com/your-B2C-tenant-name.onmicrosoft.com/oauth2/authresp
@@ -85,8 +85,8 @@ Om du vill använda ett Facebook-konto som identitets leverantör i Azure AD B2C
 1. Bredvid **appens hemlighet**väljer du **Visa** och registrera dess värde. Du kan använda både appens ID och appens hemlighet för att konfigurera Facebook som en identitets leverantör i din klient organisation. **App Secret** är en viktig säkerhets autentiseringsuppgift som du bör lagra säkert.
 1. Välj plus tecknet bredvid **produkter**och välj sedan **Konfigurera**på **Facebook-inloggning**.
 1. Under **Facebook-inloggning** i den vänstra menyn väljer du **Inställningar**.
-1. I **giltiga OAuth**-omdirigerings `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp`-URI: er anger du. Ersätt `your-tenant-name` med namnet på din klient. Välj **Spara ändringar** längst ned på sidan.
-1. Om du vill göra ditt Facebook-program tillgängligt för Azure AD B2C klickar du på **status** väljaren längst upp till höger på sidan och aktiverar det för att göra programmet offentligt, och klickar sedan på **Bekräfta**. I det här läget bör statusen ändras från **utveckling** till **Live**.
+1. I **giltiga OAuth-omdirigerings-URI: er**anger `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp`du. Ersätt `your-tenant-name` med namnet på din klient. Välj **Spara ändringar** längst ned på sidan.
+1. Om du vill göra ditt Facebook-program tillgängligt för Azure AD B2C klickar du på **status** väljaren längst upp till höger på sidan och **aktiverar det för att göra** programmet offentligt, och klickar sedan på **Bekräfta**. I det här läget bör statusen ändras från **utveckling** till **Live**.
 
 ## <a name="add-the-identity-providers"></a>Lägg till identitets leverantörer
 

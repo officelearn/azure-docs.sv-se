@@ -11,14 +11,14 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.reviewer: mbullwin
-ms.date: 09/04/2019
+ms.date: 09/17/2019
 ms.author: dalek
-ms.openlocfilehash: f0a3930cfb3ff403e0ce9d9be308370810e2065a
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: 62f2ea36468e30b20ef08bde21bfde961faae8f9
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70277000"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71067016"
 ---
 # <a name="manage-usage-and-costs-for-application-insights"></a>Hantera användning och kostnader för Application Insights
 
@@ -151,7 +151,7 @@ I varje kvarhållen post `itemCount` anger antalet ursprungliga poster som den r
 ## <a name="change-the-data-retention-period"></a>Ändra kvarhållningsperioden för data
 
 > [!NOTE]
-> Vi har tillfälligt tagit bort den här funktionen medan vi åtgärdar ett möjligt problem.  Vi har den igen med mitten – september 2019.
+> Vi har tillfälligt tagit bort den här funktionen medan vi åtgärdar ett möjligt problem.  Vi kommer att få tillbaka den första veckan i oktober 2019.
 
 Standard kvarhållning av Application Insights resurser är 90 dagar. Olika bevarande perioder kan väljas för varje Application Insights resurs. Den fullständiga uppsättningen tillgängliga kvarhållningsperiod är 30, 60, 90, 120, 180, 270, 365, 550 eller 730 dagar. 
 

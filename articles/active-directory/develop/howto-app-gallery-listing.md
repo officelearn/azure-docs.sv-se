@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/06/2019
+ms.date: 09/16/2019
 ms.author: ryanwi
 ms.reviewer: elisol, bryanla
 ms.custom: aaddev, seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1cf3eead3a56297efa3bea90ef48eb464ad63da0
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: ba4beeff5484f774e801842f06d694af456c4e96
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70898520"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71033757"
 ---
 # <a name="how-to-list-your-application-in-the-azure-active-directory-application-gallery"></a>Anvisningar: Visa ditt program i Azure Active Directory-programgalleriet
 
@@ -48,12 +48,7 @@ Den här artikeln visar hur du visar en lista över ett program i Azure AD-progr
 
 - För inloggning med lösen ord kontrollerar du att ditt program stöder formulärautentisering så att lösen ords valvet kan utföras för att få enkel inloggning som förväntat.
 
-- För automatisk etablering av användare ska programmet visas i galleriet med funktionen för enkel inloggning aktiverat med SAML 2.0/WS-utfodras. Du kan begära SSO och användar etablering tillsammans på portalen, om den inte redan finns med i listan.
-
 - Behöver ett permanent konto för testning med minst 2 användare registrerade.
-
-> [!NOTE]
-> Vi kör med ett stort antal SCIM anslutnings begär Anden, så vi har slutat ta nya förfrågningar på vår portal. Vänta på dina begär anden tills vidare meddelande. Vi beklagar den här fördröjningen och eventuella besvär detta kan ha orsakat.
 
 ## <a name="submit-the-request-in-the-portal"></a>Skicka begäran i portalen
 

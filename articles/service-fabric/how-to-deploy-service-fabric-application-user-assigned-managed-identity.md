@@ -7,12 +7,12 @@ ms.service: service-fabric
 ms.topic: article
 ms.date: 08/09/2019
 ms.author: atsenthi
-ms.openlocfilehash: f8dfaa39f02aefbdda1f34afa5011ce5fadbae49
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.openlocfilehash: 0cc1e51a4d5f9ad54866066a4247e1588da381a6
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69624906"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71037490"
 ---
 # <a name="deploy-service-fabric-application-with-a-user-assigned-managed-identity-preview"></a>Distribuera Service Fabric program med en användardefinierad hanterad identitet (förhands granskning)
 
@@ -27,7 +27,7 @@ Om du vill distribuera ett Service Fabric program med hanterad identitet måste 
 
 ## <a name="user-assigned-identity"></a>Användare tilldelad identitet
 
-Om du vill aktivera program med en användardefinierad identitet måste du först lägga till egenskapen **identitet** i program resursen med typen **userAssigned** och de referenser som tilldelats av användaren. Lägg sedan till ett **managedIdentities** -avsnitt i avsnittet **Egenskaper** för **program** resursen som innehåller en lista med ett eget namn för principalId-mappningen för var och en av de användare som tilldelats identiteter.
+Om du vill aktivera program med en användardefinierad identitet måste du först lägga till egenskapen **identitet** i program resursen med typen **userAssigned** och de referenser som tilldelats av användaren. Lägg sedan till ett **managedIdentities** -avsnitt i avsnittet **Egenskaper** för **program** resursen som innehåller en lista med ett eget namn för principalId-mappningen för var och en av de användare som tilldelats identiteter. Mer information om tilldelade identiteter finns i [skapa, lista eller ta bort en hanterad identitet som tilldelats av användare](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell).
 
 ### <a name="application-template"></a>Programmall
 

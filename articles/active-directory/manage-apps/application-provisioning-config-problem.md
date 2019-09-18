@@ -1,6 +1,6 @@
 ---
-title: Problem med att konfigurera användaretablering för ett Azure AD-galleriprogram | Microsoft Docs
-description: Så här felsöker du vanliga problem som kan stöta på när Konfigurera användaretablering för ett program redan visas i Azure AD-Programgalleriet
+title: Problem med att konfigurera användar etablering i ett Azure AD Gallery-program | Microsoft Docs
+description: Så här felsöker du vanliga problem med att konfigurera användar etablering till ett program som redan finns med i Azure AD-programgalleriet
 services: active-directory
 documentationcenter: ''
 author: msmimart
@@ -12,63 +12,63 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/11/2017
+ms.date: 09/03/2019
 ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 42bffdc1960a87c931e914896e8e36de45991bd4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9a8eaa46b46551f9b6075ec10b38de80f84c22a0
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65784117"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71034160"
 ---
-# <a name="problem-configuring-user-provisioning-to-an-azure-ad-gallery-application"></a>Problem med att konfigurera användaretablering för ett Azure AD-galleriprogram
+# <a name="problem-configuring-user-provisioning-to-an-azure-ad-gallery-application"></a>Problem med att konfigurera användar etablering i ett Azure AD Gallery-program
 
-Konfigurera [automatisk användaretablering](https://docs.microsoft.com/azure/active-directory/active-directory-saas-app-provisioning) för en app (om det stöds), kräver att specifika anvisningar följas för att förbereda programmet för automatisk etablering. Du kan sedan använda Azure-portalen för att konfigurera etableringstjänsten för att synkronisera användarkonton till programmet.
+Konfigurera [Automatisk användar etablering](https://docs.microsoft.com/azure/active-directory/active-directory-saas-app-provisioning) för en app (där stöds) kräver att specifika instruktioner följs för att förbereda programmet för automatisk etablering. Sedan kan du använda Azure Portal för att konfigurera etablerings tjänsten för att synkronisera användar konton till programmet.
 
-Du bör alltid börja genom att söka efter installationen självstudien specifika för att skapa etablering för ditt program. Följ dessa steg för att konfigurera både appen och Azure AD för att skapa etablering anslutningen. En lista över appen självstudier finns på [lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list).
+Du bör alltid starta genom att söka efter installations självstudien som är specifik för att konfigurera etablering för ditt program. Följ sedan dessa steg för att konfigurera både appen och Azure AD för att skapa en etablerings anslutning. En lista med själv studie kurser finns i [listan med självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list).
 
-## <a name="how-to-see-if-provisioning-is-working"></a>Så här att se om etablering fungerar 
+## <a name="how-to-see-if-provisioning-is-working"></a>Så här ser du om etableringen fungerar 
 
-När tjänsten är konfigurerad, kan de flesta insikter i driften av tjänsten ska ritas från två platser:
+När tjänsten har kon figurer ATS kan de flesta insikter om driften av tjänsten hämtas från två platser:
 
--   **Granskningsloggar** – etablering granskningsloggarna post alla åtgärder som utförts av etableringstjänsten, inklusive frågor till Azure AD för tilldelad användare som är inom omfånget för etablering. Fråga målappen för om användarna kommer att jämföra användarobjekt mellan systemet. Lägg sedan till, uppdatera eller inaktivera användarkontot i målsystemet baserat på en jämförelse. Etablering granskningsloggarna är tillgängliga i Azure-portalen i den **Azure Active Directory &gt; Företagsappar &gt; \[programnamn\] &gt; granskningsloggarna** fliken. Filtrera loggarna på den **Kontoetablering** kategori för att bara se händelserna etablering för appen.
+-   **Etablerings loggar (för hands version)** – [etablerings loggarna](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context) registrerar alla åtgärder som utförs av etablerings tjänsten, inklusive frågor om Azure AD för tilldelade användare som omfattas av etableringen. Fråga appen mål för att söka efter dessa användare, och jämför användar objekt mellan systemet. Lägg sedan till, uppdatera eller inaktivera användar kontot i mål systemet baserat på jämförelsen. Du kan komma åt etablerings loggarna i Azure Portal genom att välja **Azure Active Directory** &gt; etablerings loggar för **företags appar** &gt; **(för hands version)** i avsnittet **aktivitet** .
 
--   **Etableringsstatus –** att köra en sammanfattning av senaste etableringen för en viss app kan ses i den **Azure Active Directory &gt; Företagsappar &gt; \[programnamn\] &gt;Etablering** avsnittet längst ned på skärmen under tjänstinställningarna. Det här avsnittet sammanfattas hur många användare (och/eller grupper) håller på att synkroniseras mellan de två systemen, och om det finns några fel. Information om att i granskningsloggarna. Observera att etableringsstatusen inte ifyllda tills en första fullständig synkronisering har slutförts mellan Azure AD och appen.
+-   **Aktuell status –** En sammanfattning av den senaste etablerings körningen för en specifik app visas i avsnittet  **&gt; Azure Active Directory företags Apps &gt; \[program\] namns &gt;etablering** , längst ned i skärm under tjänst inställningarna. Avsnittet aktuell status visar om en etablerings cykel har börjat att tillhandahålla användar konton. Du kan se förloppet för cykeln, se hur många användare och grupper som har etablerats och se hur många roller som skapas. Om det finns några fel kan du hitta information i [etablerings loggarna (för hands version)](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context).
 
-## <a name="general-problem-areas-with-provisioning-to-consider"></a>Allmän problemområden med etablering för att tänka på
+## <a name="general-problem-areas-with-provisioning-to-consider"></a>Allmänna problemområden med etablering att överväga
 
-Nedan visas en lista över de allmänna problemområden som innehåller detaljer om du har en uppfattning om var du ska börja.
+Nedan visas en lista över allmänna problemområden som du kan detaljgranska i om du har en uppfattning om var du ska börja.
 
-* [Etableringstjänsten visas inte starta](#provisioning-service-does-not-appear-to-start)
-* Det går inte att spara konfigurationen på grund av app autentiseringsuppgifter fungerar inte
-* [Granskningsloggar säger användare ”skipped” och inte har etablerats, även om de är tilldelade](#audit-logs-say-users-are-skipped-and-not-provisioned-even-though-they-are-assigned)
+* [Etablerings tjänsten verkar inte starta](#provisioning-service-does-not-appear-to-start)
+* Det går inte att spara konfigurationen på grund av att autentiseringsuppgifter för appen inte fungerar
+* [Etablerings loggar säger att användarna är "överhoppade" och inte etablerade, även om de är tilldelade](#provisioning-logs-say-users-are-skipped-and-not-provisioned-even-though-they-are-assigned)
 
-## <a name="provisioning-service-does-not-appear-to-start"></a>Etableringstjänsten visas inte starta
+## <a name="provisioning-service-does-not-appear-to-start"></a>Etablerings tjänsten verkar inte starta
 
-Om du ställer in den **Etableringsstatus** vara **på** i den **Azure Active Directory &gt; Företagsappar &gt; \[programnamn\] &gt;Etablering** på Azure portal. Men inga andra statusinformation visas på sidan när efterföljande läses in på nytt. Det är troligt att tjänsten körs men har inte slutförts ännu en inledande synkronisering. Kontrollera den **granskningsloggar** som beskrivs ovan för att avgöra vilka åtgärder som tjänsten fungerar, och om det finns några fel.
+Om du ställer in **etablerings statusen** **på** i avsnittet  **&gt; Azure Active Directory företags Apps &gt; \[program\] namns &gt;etablering** i Azure Portal . Ingen annan statusinformation visas på den sidan efter efterföljande omläsningar. Det är troligt att tjänsten körs men inte har slutfört en första cykel ännu. Kontrol lera **etablerings loggarna** som beskrivs ovan för att avgöra vilka åtgärder tjänsten utför, och om det finns några fel.
 
 >[!NOTE]
->En inledande synkronisering kan ta allt från 20 minuter till flera timmar beroende på storleken på Azure AD-katalog och antalet användare inom omfånget för etablering. Efterföljande synkroniseringar efter den första synkroniseringen vara snabbare, som lagrar vattenstämplar som representerar tillståndet för båda systemen efter den inledande synkroniseringen, förbättra prestanda för efterföljande synkroniseringar för etableringstjänsten.
+>En första cykel kan ta var som helst från 20 minuter till flera timmar, beroende på storleken på Azure AD-katalogen och antalet användare i omfånget för etablering. Efterföljande synkroniseringar efter den första cykeln går snabbare, eftersom etablerings tjänsten lagrar vattenstämplar som representerar båda systemens tillstånd efter den första cykeln, vilket förbättrar prestandan för efterföljande synkroniseringar.
 >
 >
 
-## <a name="cant-save-configuration-due-to-app-credentials-not-working"></a>Det går inte att spara konfigurationen på grund av app autentiseringsuppgifter fungerar inte
+## <a name="cant-save-configuration-due-to-app-credentials-not-working"></a>Det går inte att spara konfigurationen på grund av att autentiseringsuppgifter för appen inte fungerar
 
-Azure AD kräver giltiga autentiseringsuppgifter som gör att den kan ansluta till en API som tillhandahålls av appen för användarhantering i ordning för etablering för att fungera. Om autentiseringsuppgifterna inte fungerar eller om du inte vet vad de är, gå till självstudie för att konfigurera den här appen, som beskrivs ovan.
+För att etableringen ska fungera kräver Azure AD giltiga autentiseringsuppgifter som gör det möjligt att ansluta till ett API för användar hantering som tillhandahålls av appen. Om autentiseringsuppgifterna inte fungerar, eller om du inte vet vad de är, kan du läsa självstudien för att konfigurera den här appen, som beskrivs ovan.
 
-## <a name="audit-logs-say-users-are-skipped-and-not-provisioned-even-though-they-are-assigned"></a>Granskningsloggar säger användare hoppas över och inte har etablerats även om de är tilldelade
+## <a name="provisioning-logs-say-users-are-skipped-and-not-provisioned-even-though-they-are-assigned"></a>Etablerings loggar innebär att användare hoppas över och inte tillhandahålls trots att de har tilldelats
 
-När en användare visas som ”skipped” i granskningsloggarna, är det mycket viktigt att läsa utökade informationen i loggmeddelande att fastställa orsaken. Nedan visas vanliga orsaker och lösningar:
+När en användare visas som "överhoppad" i etablerings loggarna är det mycket viktigt att läsa den utökade informationen i logg meddelandet för att fastställa orsaken. Nedan visas vanliga orsaker och lösningar:
 
-- **Ett Omfångsfilter har konfigurerats** **som filtrerar användaren baserat på ett attributvärde**. Läs mer på Omfångsfilter <https://docs.microsoft.com/azure/active-directory/active-directory-saas-scoping-filters>.
+- **Ett omfångs filter har kon figurer ATS** **det här filtrerar användaren utifrån ett attributvärde**. Mer information om omfångs filter finns <https://docs.microsoft.com/azure/active-directory/active-directory-saas-scoping-filters>i.
 
-- **Användaren har ”inte effektivt rätt”.** Om du ser det aktuella felmeddelandet, beror det på att det finns ett problem med användarposten för tilldelning lagras i Azure AD. För att åtgärda det här problemet, tilldela användaren (eller grupp) från appen och tilldela den igen. Läs mer på tilldelning <https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal>.
+- **Användaren är "inte korrekt berättigad".** Om du ser det här fel meddelandet beror det på att det finns ett problem med användar tilldelnings posten som är lagrad i Azure AD. Du kan åtgärda det här problemet genom att ta bort användaren (eller gruppen) från appen och sedan tilldela den igen. Mer information om tilldelning finns i <https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal>.
 
-- **Ett obligatoriskt attribut är inte ifyllt för en användare eller saknas.** En viktig sak att tänka på när du konfigurerar etablering är att granska och konfigurera attributmappningar och arbetsflöden som definierar vilka användare (eller grupp) egenskaper flow från Azure AD till programmet. Detta inkluderar egenskapen ”matchande” som används för att identifiera och matcha användare/grupper mellan de två systemen. Läs mer om den här viktiga processen <https://docs.microsoft.com/azure/active-directory/active-directory-saas-customizing-attribute-mappings>.
+- **Ett nödvändigt attribut saknas eller har inte fyllts i för en användare.** Ett viktigt saker att tänka på när du konfigurerar etableringen är att granska och konfigurera de mappningar och arbets flöden som definierar vilka användar egenskaper (eller grupp) som flödar från Azure AD till programmet. Detta innefattar att ange "matchande egenskap" som används för att unikt identifiera och matcha användare/grupper mellan de två systemen. Mer information om den här viktiga processen finns i <https://docs.microsoft.com/azure/active-directory/active-directory-saas-customizing-attribute-mappings>.
 
-  * **Attributmappningar för grupper:** Etablering av namn- och gruppinformation, förutom medlemmarna, om det stöds för vissa program. Du kan aktivera eller inaktivera den här funktionen genom att aktivera eller inaktivera den **mappning** för grupp-objekt som visas i den **etablering** fliken. Om etablering grupper är aktiverad, bör du granska attributmappningar för att säkerställa att ett lämpligt fält som används för ”matchande ID”. Det kan vara Visa namn eller e-postalias), som gruppen och dess medlemmar inte etableras om matchning av egenskap är tom eller inte fylls i automatiskt för en grupp i Azure AD.
+  * **Attribut mappningar för grupper:** Etablering av grupp namn och grupp information, förutom medlemmarna, om de stöds för vissa program. Du kan aktivera eller inaktivera den här funktionen genom att aktivera eller inaktivera **mappningen** för grupp objekt som visas på fliken **etablering** . Om etablerings grupper har Aktiver ATS, se till att granska mappningar för attribut för att säkerställa att ett lämpligt fält används för "matchande ID". Detta kan vara visnings namnet eller e-postaliaset, eftersom gruppen och dess medlemmar inte tillhandahålls om matchande egenskap är tom eller inte har fyllts i för en grupp i Azure AD.
 
 ## <a name="next-steps"></a>Nästa steg
 [Automatisera användaretablering och avetablering för SaaS-program med Azure Active Directory](user-provisioning.md)

@@ -1,10 +1,10 @@
 ---
-title: Felsöka en Azure VPN-anslutning för plats-till-plats som inte kan ansluta | Microsoft Docs
-description: Lär dig hur du felsöker en plats-till-plats VPN-anslutning som plötsligt slutar fungera och det går inte att återanslutas.
+title: Felsöka en Azure plats-till-plats VPN-anslutning som inte kan ansluta | Microsoft Docs
+description: Lär dig hur du felsöker en plats-till-plats-VPN-anslutning som plötsligt slutar fungera och inte kan återanslutas.
 services: vpn-gateway
 documentationcenter: na
 author: chadmath
-manager: cshepard
+manager: dcscontentpm
 editor: ''
 tags: ''
 ms.service: vpn-gateway
@@ -12,52 +12,52 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/30/2018
+ms.date: 09/16/2019
 ms.author: genli
-ms.openlocfilehash: 3919243569035be41293ddc97c76a9f964cda7cc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e196c4b512de3fac97347e4c252b697ed6818227
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64688506"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71058875"
 ---
-# <a name="troubleshooting-an-azure-site-to-site-vpn-connection-cannot-connect-and-stops-working"></a>Felsökning: En Azure VPN-anslutning för plats-till-plats kan inte ansluta och slutar fungera
+# <a name="troubleshooting-an-azure-site-to-site-vpn-connection-cannot-connect-and-stops-working"></a>Telefonbaserad En Azure plats-till-plats-VPN-anslutning kan inte ansluta och sluta fungera
 
-När du har konfigurerat en plats-till-plats VPN-anslutning mellan ett lokalt nätverk och ett Azure-nätverk, VPN-anslutningen plötsligt att slutar fungera och kan inte återanslutas. Den här artikeln innehåller felsökningssteg för att hjälpa dig att lösa problemet. 
+När du har konfigurerat en plats-till-plats-VPN-anslutning mellan ett lokalt nätverk och ett virtuellt Azure-nätverk slutar VPN-anslutningen plötsligt att fungera och går inte att ansluta igen. Den här artikeln innehåller fel söknings steg som hjälper dig att lösa det här problemet. 
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
 ## <a name="troubleshooting-steps"></a>Felsökningsanvisningar
 
-För att lösa problemet, försöker först [återställa Azure VPN-gatewayen](vpn-gateway-resetgw-classic.md) och återställa tunneln från den lokala VPN-enheten. Om problemet kvarstår, följer du stegen nedan för att identifiera orsaken till problemet.
+Lös problemet genom att först försöka [återställa Azure VPN-gatewayen](vpn-gateway-resetgw-classic.md) och återställa tunneln från den lokala VPN-enheten. Om problemet kvarstår följer du stegen nedan för att identifiera orsaken till problemet.
 
-### <a name="prerequisite-step"></a>Innan du börjar:
+### <a name="prerequisite-step"></a>Förutsättnings steg
 
-Kontrollera vilken typ av Azure VPN-gateway.
+Kontrol lera typen av Azure VPN-gateway.
 
 1. Gå till [Azure-portalen](https://portal.azure.com).
 
-2. Kontrollera den **översikt** för VPN-gateway för informationen.
+2. På sidan **Översikt** i VPN-gatewayen finns typ information.
     
     ![Översikt över gatewayen](media/vpn-gateway-troubleshoot-site-to-site-cannot-connect/gatewayoverview.png)
 
-### <a name="step-1-check-whether-the-on-premises-vpn-device-is-validated"></a>Steg 1. Kontrollera om den lokala VPN-enheten har verifierats
+### <a name="step-1-check-whether-the-on-premises-vpn-device-is-validated"></a>Steg 1. Kontrol lera om den lokala VPN-enheten har verifierats
 
-1. Kontrollera om du använder en [verifierade VPN-enhet- och operativsystemets version](vpn-gateway-about-vpn-devices.md#devicetable). Om enheten inte är en validerade VPN-enhet kan du behöva kontakta enhetstillverkaren för att se om det finns ett kompatibilitetsproblem.
+1. Kontrol lera om du använder en [verifierad VPN-enhet och operativ system version](vpn-gateway-about-vpn-devices.md#devicetable). Om enheten inte är en verifierad VPN-enhet kan du behöva kontakta enhets tillverkaren för att se om det finns något kompatibilitetsproblem.
 
-2. Kontrollera att VPN-enheten är korrekt konfigurerad. Mer information finns i [redigera enhetens Konfigurationsexempel](vpn-gateway-about-vpn-devices.md#editing).
+2. Kontrol lera att VPN-enheten är korrekt konfigurerad. Mer information finns i [Redigera exempel på enhets konfiguration](vpn-gateway-about-vpn-devices.md#editing).
 
-### <a name="step-2-verify-the-shared-key"></a>Steg 2. Kontrollera den delade nyckeln
+### <a name="step-2-verify-the-shared-key"></a>Steg 2. Verifiera den delade nyckeln
 
-Jämför den delade nyckeln för den lokala VPN-enheten till Azure Virtual Network VPN för att se till att nycklarna matchar. 
+Jämför den delade nyckeln för den lokala VPN-enheten med Azure Virtual Network VPN för att kontrol lera att nycklarna matchar. 
 
-Använd någon av följande metoder om du vill visa den delade nyckeln för Azure VPN-anslutningen:
+Använd någon av följande metoder för att visa den delade nyckeln för Azure VPN-anslutningen:
 
 **Azure Portal**
 
-1. Gå till VPN-gateway plats-till-plats-anslutningen som du skapade.
+1. Gå till VPN gateway plats-till-plats-anslutningen som du skapade.
 
-2. I den **inställningar** klickar du på **delad nyckel**.
+2. I avsnittet **Inställningar** klickar du på **delad nyckel**.
     
     ![Delad nyckel](media/vpn-gateway-troubleshoot-site-to-site-cannot-connect/sharedkey.png)
 
@@ -65,53 +65,53 @@ Använd någon av följande metoder om du vill visa den delade nyckeln för Azur
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-För Azure Resource Manager-distributionsmodellen:
+För Azure Resource Manager distributions modell:
 
     Get-AzVirtualNetworkGatewayConnectionSharedKey -Name <Connection name> -ResourceGroupName <Resource group name>
 
-För den klassiska distributionsmodellen:
+För den klassiska distributions modellen:
 
     Get-AzureVNetGatewayKey -VNetName -LocalNetworkSiteName
 
-### <a name="step-3-verify-the-vpn-peer-ips"></a>Steg 3. Verifiera VPN-peer IP-adresser
+### <a name="step-3-verify-the-vpn-peer-ips"></a>Steg 3. Verifiera VPN peer IP-adresser
 
--   IP-definitionen i den **lokala nätverksgateway** objektet i Azure måste matcha IP-Adressen för den lokala enheten.
--   Azure gateway IP-definition som är inställd på den lokala enheten ska matcha Azure gateway-IP.
+-   IP-definitionen i objektet **lokal** nätverksgateway i Azure måste matcha IP-adressen för den lokala enheten.
+-   IP-definitionen för Azure gateway som anges på den lokala enheten ska matcha IP-adressen för Azure Gateway.
 
-### <a name="step-4-check-udr-and-nsgs-on-the-gateway-subnet"></a>Steg 4. Kontrollera UDR och NSG: er på gateway-undernätet
+### <a name="step-4-check-udr-and-nsgs-on-the-gateway-subnet"></a>Steg 4. Kontrol lera UDR och NSG: er i Gateway-undernätet
 
-Sök efter och ta bort en användardefinierad routning (UDR) eller Nätverkssäkerhetsgrupper (NSG) på gateway-undernätet och testar sedan resultatet. Om problemet är löst, verifierar du de inställningar som UDR eller NSG tillämpas.
+Sök efter och ta bort användardefinierad routning (UDR) eller nätverks säkerhets grupper (NSG: er) i Gateway-undernätet och testa sedan resultatet. Om problemet är löst kontrollerar du inställningarna som UDR eller NSG tillämpas på.
 
-### <a name="step-5-check-the-on-premises-vpn-device-external-interface-address"></a>Steg 5. Kontrollera den lokala VPN-enhetens externa gränssnittet på adress
+### <a name="step-5-check-the-on-premises-vpn-device-external-interface-address"></a>Steg 5. Kontrol lera den lokala VPN-enhetens externa gränssnitts adress
 
-- Om internetuppkopplade IP-adressen för VPN-enheten som ingår i den **lokalt nätverk** definition i Azure, kan du uppleva sporadiska frånkopplingar.
-- Enhetens externa gränssnittet måste vara direkt på Internet. Det bör finnas några nätverksadresser eller en brandvägg mellan Internet och enheten.
-- Om du vill konfigurera klustring för att du har en virtuell IP-brandväggen måste du bryta klustret och exponera VPN-enhet direkt till ett offentligt gränssnitt som gatewayen kan användas med.
+- Om VPN-enhetens IP-adress på Internet ingår i den **lokala nätverks** definitionen i Azure kan det uppstå sporadiska från kopplingar.
+- Enhetens externa gränssnitt måste vara direkt på Internet. Det får inte finnas någon Network Address Translation eller brand vägg mellan Internet och enheten.
+- Om du vill konfigurera brand Väggs kluster att ha en virtuell IP-adress måste du bryta klustret och exponera VPN-installationen direkt till ett offentligt gränssnitt som gatewayen kan gränssnitts Visa.
 
-### <a name="step-6-verify-that-the-subnets-match-exactly-azure-policy-based-gateways"></a>Steg 6. Kontrollera att undernäten matchar exakt (Azure principbaserade gatewayer)
+### <a name="step-6-verify-that-the-subnets-match-exactly-azure-policy-based-gateways"></a>Steg 6. Kontrol lera att undernät matchar exakt (Azure policy-baserade gatewayer)
 
--   Kontrollera att vnet-adress space(s) matchar exakt mellan Azure-nätverk och lokala definitioner.
--   Kontrollera att undernäten matchar exakt mellan de **lokala nätverksgateway** och lokala definitioner för det lokala nätverket.
+-   Kontrol lera att adress utrymmena för det virtuella nätverket matchar exakt mellan det virtuella Azure-nätverket och de lokala definitionerna.
+-   Kontrol lera att under näten matchar exakt mellan den **lokala** Nätverksgatewayen och lokala definitioner för det lokala nätverket.
 
-### <a name="step-7-verify-the-azure-gateway-health-probe"></a>Steg 7. Kontrollera hälsoavsökningen Azure-gateway
+### <a name="step-7-verify-the-azure-gateway-health-probe"></a>Steg 7. Verifiera hälso avsökningen för Azure Gateway
 
-1. Öppna hälsoavsökning genom att bläddra till följande URL:
+1. Öppna hälso avsökningen genom att bläddra till följande URL:
 
     `https://<YourVirtualNetworkGatewayIP>:8081/healthprobe`
 
-2. Klicka dig igenom certifikatvarningen.
-3. Om du får ett svar, anses VPN-gatewayen felfritt. Om du inte får ett svar kan gatewayen kanske inte är felfri eller en NSG på gateway-undernätet som orsakar problemet. Följande text är ett exempelsvaret:
+2. Klicka dig igenom certifikat varningen.
+3. Om du får ett svar betraktas VPN-gatewayen som felfri. Om du inte får något svar kan det hända att gatewayen inte är felfri eller att en NSG i Gateway-undernätet orsakar problemet. Följande text är ett exempel svar:
 
     ```xml
     <?xml version="1.0"?>
     <string xmlns="http://schemas.microsoft.com/2003/10/Serialization/">Primary Instance: GatewayTenantWorker_IN_1 GatewayTenantVersion: 14.7.24.6</string>
     ```
 
-### <a name="step-8-check-whether-the-on-premises-vpn-device-has-the-perfect-forward-secrecy-feature-enabled"></a>Steg 8. Kontrollera om den lokala VPN-enheten har funktionen PFS aktiverad
+### <a name="step-8-check-whether-the-on-premises-vpn-device-has-the-perfect-forward-secrecy-feature-enabled"></a>Steg 8. Kontrol lera om den lokala VPN-enheten har aktiverat funktionen för PFS (Perfect Forward Secrecy)
 
-PFS-funktionen kan orsaka frånkoppling av problem. Om VPN-enheten har PFS aktiverat kan du inaktivera funktionen. Uppdatera sedan VPN-gateway IPsec-principen.
+Funktionen Perfect Forward Secrecy kan orsaka anslutnings problem. Om VPN-enheten har Perfect Forward Secrecy aktiverat inaktiverar du funktionen. Uppdatera sedan IPsec-principen för VPN gateway.
 
 ## <a name="next-steps"></a>Nästa steg
 
 -   [Konfigurera en plats-till-plats-anslutning till ett virtuellt nätverk](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
--   [Konfigurera en IPsec/IKE-princip för plats-till-plats VPN-anslutningar](vpn-gateway-ipsecikepolicy-rm-powershell.md)
+-   [Konfigurera en IPsec/IKE-princip för plats-till-plats-VPN-anslutningar](vpn-gateway-ipsecikepolicy-rm-powershell.md)

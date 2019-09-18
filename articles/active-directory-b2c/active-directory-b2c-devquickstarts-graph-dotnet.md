@@ -10,19 +10,19 @@ ms.topic: conceptual
 ms.date: 08/07/2017
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 11a9fc521a7b17ae0ff2f579f173f4d43383bdd5
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: c7fcbbbfcc2192160ca852538c015a365518e448
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70880085"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71065948"
 ---
 # <a name="azure-ad-b2c-use-the-azure-ad-graph-api"></a>Azure AD B2C: Använd Azure AD Graph API:n
 
 >[!NOTE]
 > Du måste använda [Azure AD-Graph API](/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-operations-overview) för att hantera användare i en Azure AD B2C katalog. Detta skiljer sig från Microsoft Graph-API: et. Lär dig mer [här](https://blogs.msdn.microsoft.com/aadgraphteam/2016/07/08/microsoft-graph-or-azure-ad-graph/).
 
-Azure Active Directory (Azure AD) B2C-klienter tenderar att vara mycket stora. Det innebär att många vanliga klient hanterings uppgifter måste utföras program mässigt. En primärt exempel är användarhantering. Du kan behöva migrera ett befintligt användar arkiv till en B2C-klient. Du kanske vill vara värd för användarregistrering på sidan och skapa användarkonton i Azure AD B2C-katalogen i bakgrunden. Dessa typer av uppgifter kräver möjligheten att skapa, läsa, uppdatera och ta bort användarkonton. Du kan utföra dessa uppgifter med hjälp av Azure AD Graph API.
+Azure Active Directory B2C-klienter (Azure AD B2C) tenderar att vara mycket stora. Det innebär att många vanliga klient hanterings uppgifter måste utföras program mässigt. En primärt exempel är användarhantering. Du kan behöva migrera ett befintligt användar arkiv till en B2C-klient. Du kanske vill vara värd för användarregistrering på sidan och skapa användarkonton i Azure AD B2C-katalogen i bakgrunden. Dessa typer av uppgifter kräver möjligheten att skapa, läsa, uppdatera och ta bort användarkonton. Du kan utföra dessa uppgifter med hjälp av Azure AD Graph API.
 
 För B2C-klienter finns det två huvudsakliga lägen för att kommunicera med Graph API.
 
@@ -43,10 +43,10 @@ När du har en B2C-klient måste du registrera ditt program med hjälp av [Azure
 1. Logga in på [Azure Portal](https://portal.azure.com).
 2. Välj din Azure AD B2C klient genom att välja ditt konto i det övre högra hörnet på sidan.
 3. I det vänstra navigerings fönstret väljer du **alla tjänster**, klickar på **program registreringar**och klickar sedan på **ny registrering**.
-4. Följ anvisningarna och skapa ett nytt program. 
+4. Följ anvisningarna och skapa ett nytt program.
     1. Lägg till ett lämpligt namn
     2. Välj **konton endast i den här organisations katalogen**
-    3. Välj **webb** som program typ och ange **en inloggnings-URL** (t. ex `https://B2CGraphAPI`.) eftersom den inte är relevant för det här exemplet.  
+    3. Välj **webb** som program typ och ange **en inloggnings-URL** (t. ex `https://B2CGraphAPI`.) eftersom den inte är relevant för det här exemplet.
     4. Klicka på registrera.
 5. Programmet visas nu i listan med program. Klicka på det för att hämta **program-ID: t** (även kallat klient-ID). Kopiera den som du behöver i ett senare avsnitt.
 6. I menyn Inställningar klickar du på **certifikat & hemligheter**.
@@ -65,8 +65,8 @@ Nu har du ett program som har behörighet att skapa, läsa och uppdatera använd
 
 > [!NOTE]
 > Det kan ta några minuter att bevilja behörigheter att bearbetas fullständigt.
-> 
-> 
+>
+>
 
 ## <a name="configure-delete-or-update-password-permissions-for-your-application"></a>Konfigurera ta bort eller uppdatera lösen ords behörigheter för ditt program
 För närvarande inkluderar behörigheten *läsa och skriva katalog data* **inte** möjligheten att ta bort användare eller uppdatera användar lösen ord. Om du vill ge ditt program möjlighet att ta bort användare eller uppdatera lösen ord måste du göra dessa extra steg som inbegriper PowerShell, annars kan du gå vidare till nästa avsnitt.
@@ -132,8 +132,8 @@ Alla begär anden till Graph API kräver en åtkomsttoken för autentisering. `B
 
 > [!NOTE]
 > I det här kod exemplet används ADAL v2 för att kommunicera med Graph API.  Du måste använda ADAL v2 eller v3 för att få åtkomsttoken som kan användas med Azure AD-Graph API.
-> 
-> 
+>
+>
 
 När `B2CGraphClient` körs skapas en instans `B2CGraphClient` av klassen. Konstruktorn för den här klassen ställer in en ADAL-autentiserings-ramverk:
 
@@ -260,8 +260,8 @@ Du kan se hur POST-begäran konstrueras i `B2CGraphClient.SendGraphPostRequest(.
 
 > [!NOTE]
 > Om de konton som du vill migrera från ett befintligt användar Arkiv har lägre lösen ords styrka än den [starka lösen ords styrkan som tillämpas av Azure AD B2C](/previous-versions/azure/jj943764(v=azure.100)), kan du inaktivera kravet på starkt lösen ord med `DisableStrongPassword` hjälp av värdet i `passwordPolicies`egenskap. Du kan till exempel ändra begäran om att skapa användare enligt följande: `"passwordPolicies": "DisablePasswordExpiration, DisableStrongPassword"`.
-> 
-> 
+>
+>
 
 ### <a name="update-consumer-user-accounts"></a>Uppdatera konsument användar konton
 När du uppdaterar användar objekt liknar processen den som du använder för att skapa användar objekt. Men den här processen använder http `PATCH` -metoden:

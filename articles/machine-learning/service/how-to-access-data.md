@@ -1,7 +1,7 @@
 ---
 title: Få åtkomst till data i Azure Storage-tjänster
-titleSuffix: Azure Machine Learning service
-description: Lär dig hur du använder data lager för att få åtkomst till Azure Storage-tjänster under utbildning med Azure Machine Learning service
+titleSuffix: Azure Machine Learning
+description: Lär dig hur du använder data lager för att få åtkomst till Azure Storage-tjänster under utbildning med Azure Machine Learning
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,12 +11,12 @@ author: MayMSFT
 ms.reviewer: nibaccam
 ms.date: 08/2/2019
 ms.custom: seodec18
-ms.openlocfilehash: 7b800a7ef38624dbe89a61dd04e2bd97b02066bb
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: eaed6e7b0ea044ba39a1055ad14de13d5deb9b05
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70191929"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71035299"
 ---
 # <a name="access-data-in-azure-storage-services"></a>Få åtkomst till data i Azure Storage-tjänster
 
@@ -173,7 +173,7 @@ datastore.path('./bar').as_download()
 
 Följande kod exempel är speciella för [`Estimator`](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator.estimator?view=azure-ml-py) klassen för att få åtkomst till data under träning. 
 
-`script_params`är en ord lista som innehåller parametrar för entry_script. Du kan använda den för att skicka in ett data lager och beskriva hur data ska göras tillgängliga för beräknings mål. Läs mer i vår självstudier från slut punkt [](tutorial-train-models-with-aml.md)till slut punkt.
+`script_params`är en ord lista som innehåller parametrar för entry_script. Du kan använda den för att skicka in ett data lager och beskriva hur data ska göras tillgängliga för beräknings mål. Läs mer i vår [självstudier](tutorial-train-models-with-aml.md)från slut punkt till slut punkt.
 
 ```Python
 from azureml.train.estimator import Estimator
@@ -232,7 +232,7 @@ run_config.source_directory_data_store = "workspaceblobstore"
 
 ## <a name="access-data-during-scoring"></a>Åtkomst till data under Poängsättning
 
-Azure Machine Learnings tjänsten ger dig flera olika sätt att använda dina modeller för poäng. Några av dessa metoder ger inte åtkomst till data lager. Använd följande tabell för att förstå vilka metoder du kan använda för att komma åt data lager under poängsättningen:
+Azure Machine Learning tillhandahåller flera olika sätt att använda dina modeller för att beräkna poäng. Några av dessa metoder ger inte åtkomst till data lager. Använd följande tabell för att förstå vilka metoder du kan använda för att komma åt data lager under poängsättningen:
 
 | Metod | Åtkomst till data lager | Beskrivning |
 | ----- | :-----: | ----- |

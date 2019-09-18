@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 08/27/2019
 ms.author: dacurwin
-ms.openlocfilehash: 6ac15e042f93befe406553d622c790eeabad7c2c
-ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
+ms.openlocfilehash: 9f16a00bd8bc8e61aecbf6d6bd7f31e90f50140a
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70060702"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71067108"
 ---
 # <a name="back-up-an-sap-hana-database-to-azure"></a>Säkerhetskopiera en SAP HANA-databas till Azure
 
@@ -26,8 +26,8 @@ ms.locfileid: "70060702"
 **Support** | **Detaljer**
 --- | ---
 **Geografiska områden som stöds** | Sydöstra Australien, östra Australien <br> Södra Brasilien <br> Kanada, centrala, Östra Kanada <br> Asien, sydöstra Asien, östra <br> Östra USA, östra USA 2, västra centrala USA, västra USA, västra USA 2, norra centrala USA, centrala USA, södra centrala USA<br> Indien, centrala, södra Indien <br> Östra Japan, västra Japan<br> Sydkorea, centrala; Sydkorea, södra <br> Norra Europa, västra Europa <br> Storbritannien, södra Storbritannien, västra
-**Virtuella dator operativ system som stöds** | SLES 12 med SP2 eller SP3.
-**HANA-versioner som stöds** | SDC on HANA 1.x, MDC on HANA 2.x <= SPS03
+**Virtuella dator operativ system som stöds** | SLES 12 med SP2, SP3 eller SP4.
+**HANA-versioner som stöds** | SDC på HANA 1. x, MDC på HANA 2. x < = SPS04 rev 42
 
 ### <a name="current-limitations"></a>Aktuella begränsningar
 

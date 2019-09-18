@@ -1,6 +1,6 @@
 ---
 title: Skapa, kör & spåra ML-pipelines
-titleSuffix: Azure Machine Learning service
+titleSuffix: Azure Machine Learning
 description: Skapa och kör en machine learning-pipeline med Azure Machine Learning-SDK för Python. Använd ML-pipelines för att skapa och hantera arbets flöden som häftar ihop Machine Learning-faser (ML). I de här faserna ingår förberedelse av data, modell utbildning, modell distribution och härledning/poängsättning.
 services: machine-learning
 ms.service: machine-learning
@@ -11,12 +11,12 @@ ms.author: sanpil
 author: sanpil
 ms.date: 08/09/2019
 ms.custom: seodec18
-ms.openlocfilehash: 12ba2991f22576dc62559d5c62dc4a0e769d2681
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: f1a0db395b86f473d2372a5ca779020e54186e45
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70858766"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71034845"
 ---
 # <a name="create-and-run-machine-learning-pipelines-with-azure-machine-learning-sdk"></a>Skapa och kör maskin inlärnings pipeliner med Azure Machine Learning SDK
 
@@ -26,11 +26,11 @@ I den här artikeln får du lära dig hur du skapar, publicerar, kör och spåra
 
 Varje fas i en ML-pipeline, till exempel data förberedelse och modell utbildning, kan innehålla ett eller flera steg.
 
-De ML-pipeliner som du skapar visas för medlemmarna i din Azure Machine Learning service- [arbetsyta](how-to-manage-workspace.md). 
+De ML-pipeliner som du skapar visas för medlemmarna i din Azure Machine Learning- [arbetsyta](how-to-manage-workspace.md). 
 
 ML pipelines använder fjärrberäknings mål för beräkning och lagring av mellanliggande och slutliga data som är kopplade till den pipelinen. De kan läsa och skriva data till och från [Azure Storage](https://docs.microsoft.com/azure/storage/) platser som stöds.
 
-Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnads fria eller betalda versionen av Azure Machine learnings tjänsten](https://aka.ms/AMLFree).
+Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree).
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -283,7 +283,7 @@ trainStep = PythonScriptStep(
 När du har definierat stegen skapar du pipelinen med hjälp av några eller samtliga av dessa steg.
 
 > [!NOTE]
-> Ingen fil eller några data överförs till Azure Machine Learning tjänsten när du definierar stegen eller skapar pipelinen.
+> Ingen fil eller några data överförs till Azure Machine Learning när du definierar stegen eller skapar pipelinen.
 
 ```python
 # list of steps to run
@@ -322,7 +322,7 @@ Mer information finns i referens för [Azure-pipeline-steg-paketet](https://docs
 
 ## <a name="submit-the-pipeline"></a>Skicka pipelinen
 
-När du skickar pipelinen kontrollerar Azure Machine Learning tjänsten beroenden för varje steg och överför en ögonblicks bild av käll katalogen som du har angett. Om ingen källkatalog har angetts, laddas den aktuella lokala katalogen. Ögonblicks bilden lagras också som en del av experimentet i din arbets yta.
+När du skickar pipelinen kontrollerar Azure Machine Learning beroendena för varje steg och överför en ögonblicks bild av käll katalogen som du har angett. Om ingen källkatalog har angetts, laddas den aktuella lokala katalogen. Ögonblicks bilden lagras också som en del av experimentet i din arbets yta.
 
 > [!IMPORTANT]
 > Om du vill förhindra att filer tas med i ögonblicks bilden skapar du en `.amlignore` [. gitignore](https://git-scm.com/docs/gitignore) -eller-fil i katalogen och lägger till filerna i den. Filen använder samma syntax och mönster som [. gitignore](https://git-scm.com/docs/gitignore) -filen. `.amlignore` Om båda filerna finns `.amlignore` prioriteras filen.

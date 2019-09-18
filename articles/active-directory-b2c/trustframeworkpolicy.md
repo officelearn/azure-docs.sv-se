@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: b8b2cad95929d6132a4f0ae52597fb1633874ff1
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 673807377914aabad5b90d1ac2ecc16623870d30
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68592105"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71063359"
 ---
 # <a name="trustframeworkpolicy"></a>TrustFrameworkPolicy
 
@@ -41,7 +41,7 @@ En anpassad princip visas som en eller flera XML-formaterade filer som refererar
 | Attribut | Obligatorisk | Beskrivning |
 |---------- | -------- | ----------- |
 | PolicySchemaVersion | Ja | Den schema version som ska användas för att köra principen. Värdet måste vara`0.3.0.0` |
-| TenantObjectId | Nej | Unikt objekt-ID för den Azure Active Directory (Azure AD) B2C-klienten. |
+| TenantObjectId | Nej | Den unika objekt identifieraren för Azure Active Directory B2C-klienten (Azure AD B2C). |
 | TenantId | Ja | Den unika identifieraren för den klient som principen tillhör. |
 | `PolicyId` | Ja | Den unika identifieraren för principen. Den här identifieraren måste föregås av *B2C_1A_* |
 | PublicPolicyUri | Ja | En URI för principen, som är en kombination av klient-ID och princip-ID. |

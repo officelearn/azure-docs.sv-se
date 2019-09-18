@@ -10,18 +10,18 @@ ms.topic: conceptual
 ms.date: 11/07/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 5dffba9106493e60b35538a5210a51cead7fb135
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: 99d21e773fee59780d82004eaa7213598fe7c8bb
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69899636"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71066130"
 ---
 # <a name="add-adfs-as-a-saml-identity-provider-using-custom-policies-in-azure-active-directory-b2c"></a>Lägg till ADFS som en SAML Identity Provider med anpassade principer i Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Den här artikeln visar hur du aktiverar inloggning för ett ADFS-användarkonto genom att använda [anpassade principer](active-directory-b2c-overview-custom.md) i Azure Active Directory (Azure AD) B2C. Du aktiverar inloggning genom att lägga till en [teknisk SAML-profil](saml-technical-profile.md) i en anpassad princip.
+Den här artikeln visar hur du aktiverar inloggning för ett ADFS-användarkonto genom att använda [anpassade principer](active-directory-b2c-overview-custom.md) i Azure Active Directory B2C (Azure AD B2C). Du aktiverar inloggning genom att lägga till en [teknisk SAML-profil](saml-technical-profile.md) i en anpassad princip.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -34,7 +34,7 @@ Den här artikeln visar hur du aktiverar inloggning för ett ADFS-användarkonto
 Du måste lagra ditt certifikat i Azure AD B2C-klienten.
 
 1. Logga in på [Azure Portal](https://portal.azure.com/).
-2. Kontrol lera att du använder den katalog som innehåller din Azure AD B2C-klient. Välj **katalog-och prenumerations filter** på den översta menyn och välj den katalog som innehåller din klient.
+2. Kontrol lera att du använder den katalog som innehåller din Azure AD B2C-klient. Välj **katalog + prenumerations** filter på den översta menyn och välj den katalog som innehåller din klient.
 3. Välj **Alla tjänster** på menyn uppe till vänster i Azure Portal. Sök sedan efter och välj **Azure AD B2C**.
 4. På sidan Översikt väljer du **ID för identitets miljö**.
 5. Välj **princip nycklar** och välj sedan **Lägg till**.
@@ -45,7 +45,7 @@ Du måste lagra ditt certifikat i Azure AD B2C-klienten.
 
 ## <a name="add-a-claims-provider"></a>Lägg till en anspråks leverantör
 
-Om du vill att användarna ska logga in med ett ADFS-konto måste du definiera kontot som en anspråks leverantör som Azure AD B2C kan kommunicera med via en slut punkt. Slut punkten innehåller en uppsättning anspråk som används av Azure AD B2C för att verifiera att en speciell användare har autentiserats. 
+Om du vill att användarna ska logga in med ett ADFS-konto måste du definiera kontot som en anspråks leverantör som Azure AD B2C kan kommunicera med via en slut punkt. Slut punkten innehåller en uppsättning anspråk som används av Azure AD B2C för att verifiera att en speciell användare har autentiserats.
 
 Du kan definiera ett ADFS-konto som en anspråks leverantör genom att lägga till det i **ClaimsProviders** -elementet i principens tilläggs fil.
 
@@ -138,7 +138,7 @@ Nu när du har en knapp på plats måste du länka den till en åtgärd. Åtgär
     ```XML
     <ClaimsExchange Id="ContosoExchange" TechnicalProfileReferenceId="Contoso-SAML2" />
     ```
-    
+
     Uppdatera värdet för **TechnicalProfileReferenceId** till ID: t för den tekniska profil som du skapade tidigare. Till exempel `Contoso-SAML2`.
 
 3. Spara filen *TrustFrameworkExtensions. XML* och ladda upp den igen för verifiering.
@@ -157,18 +157,18 @@ Ersätt följande värden:
 - **din klient** organisation med ditt klient namn, till exempel Your-Tenant.onmicrosoft.com.
 - **din princip** med ditt princip namn. Till exempel B2C_1A_signup_signin_adfs.
 - **din tekniska profil** med namnet på din SAML Identity Provider-tekniska profil. Till exempel contoso-SAML2.
- 
+
 Öppna en webbläsare och gå till URL: en. Se till att du anger rätt URL och att du har åtkomst till XML-metadatafilen. Om du vill lägga till ett nytt förtroende för förlitande part med hjälp av snapin-modulen för AD FS-hantering och konfigurera inställningarna manuellt, utför följande procedur på en Federations Server. Det krävs minst medlemskap i **Administratörer** eller motsvarande på den lokala datorn för att kunna slutföra den här proceduren.
 
 1. I Serverhanteraren väljer du **verktyg**och sedan ADFS- **hantering**.
-2. Välj **Lägg till förtroende**för förlitande part.
-3. På sidan **Välkommen** väljer du anspråks **medveten**och klickar sedan på **Starta**.
+2. Välj **Lägg till förtroende för förlitande part**.
+3. På sidan **Välkommen** väljer du **anspråks medveten**och klickar sedan på **Starta**.
 4. På sidan **Välj data källa** väljer du **Importera data om den förlitande parten publicera online eller i ett lokalt nätverk**, anger din Azure AD B2C metadata-URL och klickar sedan på **Nästa**.
 5. På sidan **Ange visnings namn** anger du ett **visnings namn**under **anteckningar**, anger en beskrivning för det här förlitande part förtroendet och klickar sedan på **Nästa**.
 6. På sidan **välj Access Control princip** väljer du en princip och klickar sedan på **Nästa**.
 7. På sidan **redo att lägga till förtroende** granskar du inställningarna och klickar sedan på **Nästa** för att spara information om förtroende för förlitande part.
 8. På sidan **Slutför** klickar du på **Stäng**. den här åtgärden visar automatiskt dialog rutan **Redigera anspråks regler** .
-9. Välj **Lägg till regel**.  
+9. Välj **Lägg till regel**.
 10. I **anspråks regel mal len**väljer du **Skicka LDAP-attribut som anspråk**.
 11. Ange ett **namn på anspråks regeln**. För **attributarkivet**väljer du **Välj Active Directory**, lägger till följande anspråk och klickar sedan på **Slutför** och **OK**.
 
@@ -179,23 +179,23 @@ Ersätt följande värden:
     | Angivet namn | given_name |
     | E-Mail-Address | email |
     | Visnings namn | name |
-    
-    Observera att dessa namn inte visas i list rutan Utgående anspråks typer. Du måste skriva in dem manuellt i. (List rutan kan redige ras i själva verket). 
-    
-12.  Utifrån din certifikat typ kan du behöva ange HASH-algoritmen. I fönstret Egenskaper för förlitande part förtroende (B2C demo) väljer du fliken **Avancerat** och ändrar sedan den **säkra hash** - `SHA-256`algoritmen till och klickar på **OK**.  
+
+    Observera att dessa namn inte visas i list rutan Utgående anspråks typer. Du måste skriva in dem manuellt i. (List rutan kan redige ras i själva verket).
+
+12.  Utifrån din certifikat typ kan du behöva ange HASH-algoritmen. I fönstret Egenskaper för förlitande part förtroende (B2C demo) väljer du fliken **Avancerat** och ändrar sedan den **säkra hash-algoritmen** till `SHA-256`och klickar på **OK**.
 13. I Serverhanteraren väljer du **verktyg**och sedan ADFS- **hantering**.
-14. Välj det förtroende för förlitande part som du har skapat, Välj **Uppdatera från federationsmetadata**och klicka sedan på **Uppdatera**. 
+14. Välj det förtroende för förlitande part som du har skapat, Välj **Uppdatera från federationsmetadata**och klicka sedan på **Uppdatera**.
 
 ## <a name="create-an-azure-ad-b2c-application"></a>Skapa ett Azure AD B2C program
 
 Kommunikation med Azure AD B2C sker via ett program som du skapar i din klient organisation. Det här avsnittet innehåller valfria steg som du kan utföra för att skapa ett testprogram om du inte redan har gjort det.
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
-2. Se till att du använder den katalog som innehåller din Azure AD B2C-klientorganisation genom att klicka på **katalog- och prenumerationsfiltret** på den översta menyn och välja katalogen som innehåller din klientorganisation.
+2. Kontrol lera att du använder den katalog som innehåller din Azure AD B2C klient genom att välja filtret **katalog + prenumeration** på den översta menyn och välja den katalog som innehåller din klient.
 3. Välj **Alla tjänster** på menyn uppe till vänster i Azure Portal. Sök sedan efter och välj **Azure AD B2C**.
 4. Välj **Program** och därefter **Lägg till**.
 5. Ange ett namn för programmet, till exempel *testapp1*.
-6. För **webbapp/webb-API**väljer `Yes`du och anger `https://jwt.ms` sedan för svars- **URL: en**.
+6. För **webbapp/webb-API**väljer `Yes`du och anger `https://jwt.ms` sedan för **svars-URL: en**.
 7. Klicka på **Skapa**.
 
 ### <a name="update-and-test-the-relying-party-file"></a>Uppdatera och testa den förlitande part filen

@@ -10,18 +10,18 @@ ms.workload: identity
 ms.date: 10/12/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: e18157c95dac0de90c50b4b7e8591e32c5b76aaf
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: c02757fb4b48ebf1220a5826bc9699741faa5170
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68227238"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71066188"
 ---
 # <a name="track-user-behavior-in-azure-active-directory-b2c-using-application-insights"></a>Spåra användar beteende i Azure Active Directory B2C att använda Application Insights
 
 [!INCLUDE [active-directory-b2c-public-preview](../../includes/active-directory-b2c-public-preview.md)]
 
-När du använder Azure Active Directory-B2C (Azure AD) tillsammans med Azure Application insikter kan du få detaljerade och anpassade händelse loggar för dina användar resor. I den här artikeln kan du se hur du:
+När du använder Azure Active Directory B2C (Azure AD B2C) tillsammans med Azure Application insikter kan du få detaljerade och anpassade händelse loggar för dina användar resor. I den här artikeln kan du se hur du:
 
 * Få insikter om användar beteende.
 * Felsök dina egna principer i utvecklingen eller i produktionen.
@@ -45,7 +45,7 @@ Slutför stegen i [Kom igång med anpassade principer](active-directory-b2c-get-
 När du använder Application Insights med Azure AD B2C behöver du bara skapa en resurs och hämta Instrumentation-nyckeln.
 
 1. Logga in på [Azure Portal](https://portal.azure.com/).
-2. Kontrol lera att du använder den katalog som innehåller din Azure-prenumeration genom att klicka på **filtret katalog och prenumeration** på den översta menyn och välja den katalog som innehåller din prenumeration. Den här klienten är inte din Azure AD B2C klient.
+2. Kontrol lera att du använder den katalog som innehåller din Azure-prenumeration genom att välja filtret **katalog + prenumeration** på den översta menyn och välja den katalog som innehåller din prenumeration. Den här klienten är inte din Azure AD B2C klient.
 3. Välj **skapa en resurs** i det övre vänstra hörnet av Azure Portal och Sök sedan efter och välj **Application Insights**.
 4. Klicka på **Skapa**.
 5. Ange ett **namn** för resursen.
@@ -109,12 +109,12 @@ När du använder Application Insights med Azure AD B2C behöver du bara skapa e
 
 Tekniska profiler kan betraktas som funktioner i Azure AD B2C för identitets upplevelsen. I den här tabellen definieras de tekniska profiler som används för att öppna en session och publicera händelser.
 
-| Teknisk profil | Aktivitet |
+| Teknisk profil | Uppgift |
 | ----------------- | -----|
-| AzureInsights-Common | Skapar en gemensam uppsättning parametrar som ska ingå i alla AzureInsights tekniska profiler. | 
-| AzureInsights-SignInRequest | Skapar en inloggnings händelse med en uppsättning anspråk när en inloggnings förfrågan har mottagits. | 
-| AzureInsights-UserSignup | Skapar en UserSignup-händelse när användaren utlöser inloggnings alternativet i en inloggnings-eller inloggnings resa. | 
-| AzureInsights-SignInComplete | Registrerar slutförd slutförd autentisering när en token har skickats till den förlitande parten. | 
+| AzureInsights-Common | Skapar en gemensam uppsättning parametrar som ska ingå i alla AzureInsights tekniska profiler. |
+| AzureInsights-SignInRequest | Skapar en inloggnings händelse med en uppsättning anspråk när en inloggnings förfrågan har mottagits. |
+| AzureInsights-UserSignup | Skapar en UserSignup-händelse när användaren utlöser inloggnings alternativet i en inloggnings-eller inloggnings resa. |
+| AzureInsights-SignInComplete | Registrerar slutförd slutförd autentisering när en token har skickats till den förlitande parten. |
 
 Lägg till profilerna i *TrustFrameworkExtensions. XML-* filen från start paketet. Lägg till dessa element i **ClaimsProviders** -elementet:
 
@@ -230,11 +230,11 @@ Spara och ladda upp filen *TrustFrameworkExtensions. XML* . Anropa sedan den fö
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lägg till anspråks typer och händelser till din användar resa för att passa dina behov. Du kan använda [](claim-resolver-overview.md) anspråks matchare eller valfri typ av sträng anspråk, lägga till anspråken genom att lägga till ett indatamängds element i Application Insights-händelsen eller till AzureInsights-vanliga tekniska profiler. 
+Lägg till anspråks typer och händelser till din användar resa för att passa dina behov. Du kan använda [](claim-resolver-overview.md) anspråks matchare eller valfri typ av sträng anspråk, lägga till anspråken genom att lägga till ett indatamängds element i Application Insights-händelsen eller till AzureInsights-vanliga tekniska profiler.
 
 - **ClaimTypeReferenceId** är referensen till en anspråks typ.
-- **PartnerClaimType** är namnet på den egenskap som visas i Azure Insights. Använd syntaxen för `{property:NAME}`, där `NAME` är egenskapen som läggs till i händelsen. 
-- **Standardvärde** Använd valfritt sträng värde eller anspråks lösare. 
+- **PartnerClaimType** är namnet på den egenskap som visas i Azure Insights. Använd syntaxen för `{property:NAME}`, där `NAME` är egenskapen som läggs till i händelsen.
+- **Standardvärde** Använd valfritt sträng värde eller anspråks lösare.
 
 ```XML
 <InputClaim ClaimTypeReferenceId="app_session" PartnerClaimType="{property:app_session}" DefaultValue="{OAUTH-KV:app_session}" />

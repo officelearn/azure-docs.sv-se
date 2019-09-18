@@ -10,18 +10,18 @@ ms.topic: conceptual
 ms.date: 09/20/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: a5b0d236424803056530eed81d9821fbafa14309
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 45b0d499f04de2bb20eeec913abaef11632fb504
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68952834"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71066103"
 ---
 # <a name="set-up-sign-in-with-a-google-account-using-custom-policies-in-azure-active-directory-b2c"></a>Konfigurera inloggning med ett Google-konto med anpassade principer i Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Den här artikeln visar hur du aktiverar inloggning för användare från ett Google-konto med hjälp av [anpassade principer](active-directory-b2c-overview-custom.md) i Azure Active Directory (Azure AD) B2C.
+Den här artikeln visar hur du aktiverar inloggning för användare från ett Google-konto med hjälp av [anpassade principer](active-directory-b2c-overview-custom.md) i Azure Active Directory B2C (Azure AD B2C).
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -39,7 +39,7 @@ Om du vill aktivera inloggning för användare från ett Google-konto måste du 
 5. Välj eller ange en giltig **e-postadress**, ange ett **produkt namn** som visas för användarna `b2clogin.com` , ange i **godkända domäner**och klicka sedan på **Spara**.
 6. Under **program typ**väljer du **webb program**.
 7. Ange ett **namn** för ditt program.
-8. I **auktoriserade JavaScript**-ursprung `https://your-tenant-name.b2clogin.com` anger och i auktoriserade omdirigerings- **URI: er**, anger `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp`du. Ersätt ditt-Tenant-namn med namnet på din klient. Du måste använda små bokstäver när du anger ditt klient namn även om klienten har definierats med versaler i Azure AD B2C.
+8. I **auktoriserade JavaScript**-ursprung `https://your-tenant-name.b2clogin.com` anger och i **auktoriserade omdirigerings-URI: er**, anger `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp`du. Ersätt ditt-Tenant-namn med namnet på din klient. Du måste använda små bokstäver när du anger ditt klient namn även om klienten har definierats med versaler i Azure AD B2C.
 8. Klicka på **Skapa**.
 9. Kopiera värdena för **klient-ID** och **klient hemlighet**. Du behöver båda dessa för att kunna konfigurera Google som en identitets leverantör i din klient organisation. Klient hemlighet är en viktig säkerhets autentiseringsuppgift.
 
@@ -48,7 +48,7 @@ Om du vill aktivera inloggning för användare från ett Google-konto måste du 
 Du måste lagra klient hemligheten som du tidigare registrerade i Azure AD B2C-klienten.
 
 1. Logga in på [Azure Portal](https://portal.azure.com/).
-2. Kontrol lera att du använder den katalog som innehåller din Azure AD B2C-klient. Välj **katalog-och prenumerations filter** på den översta menyn och välj den katalog som innehåller din klient.
+2. Kontrol lera att du använder den katalog som innehåller din Azure AD B2C-klient. Välj **katalog + prenumerations** filter på den översta menyn och välj den katalog som innehåller din klient.
 3. Välj **Alla tjänster** på menyn uppe till vänster i Azure Portal. Sök sedan efter och välj **Azure AD B2C**.
 4. På sidan Översikt väljer du **ID för identitets miljö**.
 5. Välj **princip nycklar** och välj sedan **Lägg till**.
@@ -162,11 +162,11 @@ Nu när du har en knapp på plats måste du länka den till en åtgärd. Åtgär
 Kommunikation med Azure AD B2C sker via ett program som du skapar i din klient organisation. Det här avsnittet innehåller valfria steg som du kan utföra för att skapa ett testprogram om du inte redan har gjort det.
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
-2. Kontrol lera att du använder den katalog som innehåller din Azure AD B2C-klient. Välj **katalog-och prenumerations filter** på den översta menyn och välj den katalog som innehåller din klient.
+2. Kontrol lera att du använder den katalog som innehåller din Azure AD B2C-klient. Välj **katalog + prenumerations** filter på den översta menyn och välj den katalog som innehåller din klient.
 3. Välj **Alla tjänster** på menyn uppe till vänster i Azure Portal. Sök sedan efter och välj **Azure AD B2C**.
 4. Välj **Program** och därefter **Lägg till**.
 5. Ange ett namn för programmet, till exempel *testapp1*.
-6. För **webbapp/webb-API**väljer `Yes`du och anger `https://jwt.ms` sedan för svars- **URL: en**.
+6. För **webbapp/webb-API**väljer `Yes`du och anger `https://jwt.ms` sedan för **svars-URL: en**.
 7. Klicka på **Skapa**.
 
 ## <a name="update-and-test-the-relying-party-file"></a>Uppdatera och testa den förlitande part filen

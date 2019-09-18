@@ -1,6 +1,6 @@
 ---
-title: Definiera en Azure Active Directory-tekniska profilen i en anpassad princip i Azure Active Directory B2C | Microsoft Docs
-description: Definiera en Azure Active Directory-tekniska profilen i en anpassad princip i Azure Active Directory B2C.
+title: Definiera en Azure Active Directory teknisk profil i en anpassad princip i Azure Active Directory B2C | Microsoft Docs
+description: Definiera en Azure Active Directory teknisk profil i en anpassad princip i Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -10,35 +10,35 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 8b8bbe540d9e296b0f6a0c11a62d3b861e0115d3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4383980953147560b9e51e4ccab3032dd8173dd4
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66507435"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71064628"
 ---
-# <a name="define-an-azure-active-directory-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definiera en Azure Active Directory-tekniska profilen i en anpassad princip för Azure Active Directory B2C
+# <a name="define-an-azure-active-directory-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definiera en Azure Active Directory teknisk profil i en Azure Active Directory B2C anpassad princip
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Azure Active Directory (Azure AD) B2C har stöd för hantering för Azure Active Directory-användare. Den här artikeln beskriver specifika för den tekniska profilen för att interagera med en anspråksprovider som stöder detta standardiserade protokoll.
+Azure Active Directory B2C (Azure AD B2C) ger stöd för Azure Active Directory användar hantering. I den här artikeln beskrivs de olika kraven för en teknisk profil för att interagera med en anspråks leverantör som stöder detta standardiserade protokoll.
 
 ## <a name="protocol"></a>Protocol
 
-Den **namn** attributet för den **protokollet** element måste anges till `Proprietary`. Den **hanteraren** attributet måste innehålla det fullständigt kvalificerade namnet för protokollet hanteraren sammansättningen `Web.TPEngine.Providers.AzureActiveDirectoryProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null`.
+Namnattributet **för** **protokoll** elementet måste anges till `Proprietary`. Attributet **hanterare** måste innehålla det fullständigt kvalificerade namnet på protokoll hanterarens sammansättning `Web.TPEngine.Providers.AzureActiveDirectoryProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null`.
 
-Tekniska profiler för alla Azure AD innehåller den **AAD-gemensamma** tekniska profilen. Följande tekniska profiler inte ange protokollet eftersom protokollet som har konfigurerats i den **AAD-gemensamma** tekniska profil:
+Alla tekniska profiler för Azure AD inkluderar **AAD-vanliga** tekniska profiler. Följande tekniska profiler anger inte protokollet eftersom protokollet har kon figurer ATS i **AAD-common** Technical Profile:
 
-- **AAD-UserReadUsingAlternativeSecurityId** och **AAD-UserReadUsingAlternativeSecurityId-NoError** – Leta upp upp ett socialt konto i katalogen.
-- **AAD-UserWriteUsingAlternativeSecurityId** -skapa ett nytt sociala konto.
-- **AAD-UserReadUsingEmailAddress** – Leta upp upp ett lokalt konto i katalogen. 
-- **AAD-UserWriteUsingLogonEmail** -skapa ett nytt lokalt konto.
-- **AAD-UserWritePasswordUsingObjectId** – uppdatera ett lösenord för ett lokalt konto.
-- **AAD-UserWriteProfileUsingObjectId** – uppdatera en användarprofil för en lokal eller sociala kontot.
-- **AAD-UserReadUsingObjectId** -läsa en profil för en lokal eller sociala kontot.
-- **AAD-UserWritePhoneNumberUsingObjectId** -skriva telefonnummer för MFA för en lokal eller sociala konto
+- **AAD-UserReadUsingAlternativeSecurityId** och **AAD-UserReadUsingAlternativeSecurityId-noerror** – slå upp ett socialt konto i katalogen.
+- **AAD-UserWriteUsingAlternativeSecurityId** – skapa ett nytt socialt konto.
+- **AAD-UserReadUsingEmailAddress** – leta upp ett lokalt konto i katalogen.
+- **AAD-UserWriteUsingLogonEmail** – skapa ett nytt lokalt konto.
+- **AAD-UserWritePasswordUsingObjectId** – uppdatera ett lösen ord för ett lokalt konto.
+- **AAD-UserWriteProfileUsingObjectId** – uppdatera en användar profil för ett lokalt eller socialt konto.
+- **AAD-UserReadUsingObjectId** – Läs en användar profil för ett lokalt eller socialt konto.
+- **AAD-UserWritePhoneNumberUsingObjectId** – Skriv MFA-telefonnumret för ett lokalt eller socialt konto
 
-I följande exempel visas den **AAD-gemensamma** tekniska profil:
+I följande exempel visas **AAD – vanlig** teknisk profil:
 
 ```XML
 <TechnicalProfile Id="AAD-Common">
@@ -55,29 +55,29 @@ I följande exempel visas den **AAD-gemensamma** tekniska profil:
 </TechnicalProfile>
 ```
 
-## <a name="input-claims"></a>Inkommande anspråk
+## <a name="input-claims"></a>Inmatade anspråk
 
 Följande tekniska profiler innehåller **InputClaims** för sociala och lokala konton:
 
-- Socialt konto tekniska profiler **AAD-UserReadUsingAlternativeSecurityId** och **AAD-UserWriteUsingAlternativeSecurityId** innehåller den **AlternativeSecurityId** anspråk. Det här anspråket innehåller användaridentifierare sociala kontot.
-- Lokalt konto tekniska profiler **AAD-UserReadUsingEmailAddress** och **AAD-UserWriteUsingLogonEmail** innehåller den **e-post** anspråk. Det här anspråket innehåller namnet logga in på det lokala kontot.
-- Enhetlig (lokal och sociala) tekniska profiler **AAD-UserReadUsingObjectId**, **AAD-UserWritePasswordUsingObjectId**, **AAD-UserWriteProfileUsingObjectId**, och **AAD-UserWritePhoneNumberUsingObjectId** innehåller den **objectId** anspråk. Den unika identifieraren för ett konto.
+- De tekniska profilerna för sociala konton **AAD-UserReadUsingAlternativeSecurityId** och **AAD-UserWriteUsingAlternativeSecurityId** innehåller **AlternativeSecurityId** -anspråket. Detta påstående innehåller användar identifieraren för sociala kontot.
+- De lokala kontots tekniska profiler **AAD-UserReadUsingEmailAddress** och **AAD-UserWriteUsingLogonEmail** innehåller **e-** postanspråket. Detta anspråk innehåller inloggnings namnet för det lokala kontot.
+- De enhetliga (lokala och sociala) tekniska profilerna **AAD-UserReadUsingObjectId**, **AAD-UserWritePasswordUsingObjectId**, **AAD-UserWriteProfileUsingObjectId**och **AAD-UserWritePhoneNumberUsingObjectId** innehåller **ObjectID** -anspråk. Unikt ID för ett konto.
 
-Den **InputClaimsTransformations** element kan innehålla en uppsättning **InputClaimsTransformation** element som används för att ändra de inkommande anspråken eller skapa nya.
+**InputClaimsTransformations** -elementet kan innehålla en samling av **InputClaimsTransformation** -element som används för att ändra de inloggade anspråken eller skapa nya.
 
-## <a name="output-claims"></a>Utdataanspråk
+## <a name="output-claims"></a>Utgående anspråk
 
-Den **OutputClaims** elementet innehåller en lista över anspråk som returneras av den tekniska profilen för Azure AD. Du kan behöva matchar namnet på anspråk som definierats i din princip att namnet som definierats i Azure Active Directory. Du kan även inkludera anspråk som inte returneras av Azure Active Directory, så länge som du ställer in den `DefaultValue` attribut.
+**OutputClaims** -elementet innehåller en lista över anspråk som returneras av den tekniska Azure AD-profilen. Du kan behöva mappa namnet på det anspråk som definierats i principen till det namn som definierats i Azure Active Directory. Du kan också inkludera anspråk som inte returneras av Azure Active Directory, så länge som du ställer in `DefaultValue` attributet.
 
-Den **OutputClaimsTransformations** element kan innehålla en uppsättning **OutputClaimsTransformation** element som används för att ändra de utgående anspråk eller generera nya.
+**OutputClaimsTransformations** -elementet kan innehålla en samling av **OutputClaimsTransformation** -element som används för att ändra de utgående anspråken eller skapa nya.
 
-Till exempel den **AAD-UserWriteUsingLogonEmail** tekniska profilen skapar ett lokalt konto och returnerar följande anspråk:
+Till exempel skapar den tekniska profilen **AAD-UserWriteUsingLogonEmail** ett lokalt konto och returnerar följande anspråk:
 
-- **objectId**, vilket är identifierare för det nya kontot
-- **ny användare**, vilket anger om användaren är ny
-- **authenticationSource**, som anger autentisering till `localAccountAuthentication`
-- **userPrincipalName**, vilket är användarens huvudnamn på det nya kontot
-- **signInNames.emailAddress**, vilket är namnet på kontot loggar in, liknar den **e-post** inkommande anspråk
+- **ObjectID**, som är identifierare för det nya kontot
+- **newUser**, som anger om användaren är ny
+- **authenticationSource**, som anger autentiseringen till`localAccountAuthentication`
+- **userPrincipalName**, som är User Principal Name för det nya kontot
+- **signInNames. EmailAddress**, som är kontots inloggnings namn, på liknande sätt som **e-** postanspråket
 
 ```xml
 <OutputClaims>
@@ -91,9 +91,9 @@ Till exempel den **AAD-UserWriteUsingLogonEmail** tekniska profilen skapar ett l
 
 ## <a name="persistedclaims"></a>PersistedClaims
 
-Den **PersistedClaims** elementet innehåller alla värden som ska sparas av Azure AD med möjliga mappningsinformation mellan en Anspråkstyp som redan har definierats i avsnittet ClaimsSchema i principen och attributet Azure AD Namn. 
+**PersistedClaims** -elementet innehåller alla värden som ska sparas av Azure AD med möjlig mappnings information mellan en anspråks typ som redan har definierats i ClaimsSchema-avsnittet i principen och namnet på Azure AD-attributnamnet.
 
-Den **AAD-UserWriteUsingLogonEmail** tekniska profil, vilket skapar nya lokalt konto, kvarstår efter anspråk:
+Den tekniska profilen **AAD-UserWriteUsingLogonEmail** , som skapar ett nytt lokalt konto, behåller följande anspråk:
 
 ```XML
   <PersistedClaims>
@@ -109,22 +109,22 @@ Den **AAD-UserWriteUsingLogonEmail** tekniska profil, vilket skapar nya lokalt k
   </PersistedClaims>
 ```
 
-Anspråkets namn är namnet på attributet Azure AD, såvida inte den **PartnerClaimType** attributet anges, som innehåller namnet på Azure AD-attributet.
+Namnet på anspråket är namnet på Azure AD-attributet om inte attributet **PartnerClaimType** anges, som innehåller namnet på Azure AD-attributet.
 
 ## <a name="requirements-of-an-operation"></a>Krav för en åtgärd
 
-- Det måste finnas exakt ett **InputClaim** element i uppsättningen anspråk för alla Azure AD tekniska profiler. 
-- Om åtgärden `Write` eller `DeleteClaims`, och det måste också finnas i en **PersistedClaims** element.
-- Värdet för den **userPrincipalName** anspråk måste vara i formatet `user@tenant.onmicrosoft.com`.
-- Den **displayName** anspråk är obligatoriskt och kan inte vara en tom sträng.
+- Det måste finnas exakt ett **InputClaim** -element i anspråks säcken för alla Azure AD-tekniska profiler.
+- Om åtgärden är `Write` eller `DeleteClaims`, måste den också visas i ett **PersistedClaims** -element.
+- Värdet för **userPrincipalName** -anspråket måste ha formatet `user@tenant.onmicrosoft.com`.
+- Detta **DisplayName** -anspråk krävs och kan inte vara en tom sträng.
 
-## <a name="azure-ad-technical-provider-operations"></a>Azure AD teknisk provideråtgärder
+## <a name="azure-ad-technical-provider-operations"></a>Azure AD Technical Provider-åtgärder
 
 ### <a name="read"></a>Läsa
 
-Den **Läs** åtgärden läser data om ett enda användarkonto. Om du vill läsa användardata, måste du ange en nyckel som ett inkommande anspråk som **objectId**, **userPrincipalName**, **signInNames** (valfri typ, användarnamnet och e-postbaserad konto) eller **alternativeSecurityId**.  
+**Läs** åtgärden läser data om ett enda användar konto. Om du vill läsa användar data måste du ange en nyckel som ett indata-anspråk, till exempel **ObjectID**, **userPrincipalName**, **signInNames** (alla typer, användar namn och e-postbaserat konto) eller **alternativeSecurityId**.
 
-Följande tekniska profil läser data om ett användarkonto med hjälp av användarens objekt-ID:
+Följande tekniska profil läser data om ett användar konto med hjälp av användarens objectId:
 
 ```XML
 <TechnicalProfile Id="AAD-UserReadUsingObjectId">
@@ -154,9 +154,9 @@ Följande tekniska profil läser data om ett användarkonto med hjälp av använ
 
 ### <a name="write"></a>Skriva
 
-Den **skriva** åtgärden skapar eller uppdaterar ett enda användarkonto. Om du vill skriva ett användarkonto, måste du ange en nyckel som ett inkommande anspråk som **objectId**, **userPrincipalName**, **signInNames.emailAddress**, eller  **alternativeSecurityId**.  
+**Skriv** åtgärden skapar eller uppdaterar ett enskilt användar konto. Om du vill skriva ett användar konto måste du ange en nyckel som ett indata-anspråk, till exempel **ObjectID**, **userPrincipalName**, **signInNames. EmailAddress**eller **alternativeSecurityId**.
 
-Följande tekniska profil skapas nya socialt konto:
+Följande tekniska profil skapar ett nytt socialt konto:
 
 ```XML
 <TechnicalProfile Id="AAD-UserWriteUsingAlternativeSecurityId">
@@ -196,9 +196,9 @@ Följande tekniska profil skapas nya socialt konto:
 
 ### <a name="deleteclaims"></a>DeleteClaims
 
-Den **DeleteClaims** åtgärden tar bort information från en angiven lista i anspråk. Om du vill ta bort information från anspråk måste du ange en nyckel som ett inkommande anspråk som **objectId**, **userPrincipalName**, **signInNames.emailAddress** eller **alternativeSecurityId**.  
+**DeleteClaims** -åtgärden rensar informationen från en angiven lista över anspråk. Om du vill ta bort information från anspråk måste du ange en nyckel som ett indata-anspråk, till exempel **ObjectID**, **userPrincipalName**, **signInNames. EmailAddress** eller **alternativeSecurityId**.
 
-Följande tekniska profilen tar bort anspråk:
+Följande tekniska profil tar bort anspråk:
 
 ```XML
 <TechnicalProfile Id="AAD-DeleteClaimsUsingObjectId">
@@ -219,9 +219,9 @@ Följande tekniska profilen tar bort anspråk:
 
 ### <a name="deleteclaimsprincipal"></a>DeleteClaimsPrincipal
 
-Den **DeleteClaimsPrincipal** ett enda användarkonto tas bort från katalogen. Om du vill ta bort ett användarkonto, måste du ange en nyckel som ett inkommande anspråk som **objectId**, **userPrincipalName**, **signInNames.emailAddress** eller  **alternativeSecurityId**.  
+Åtgärden **DeleteClaimsPrincipal** tar bort ett enskilt användar konto från katalogen. Om du vill ta bort ett användar konto måste du ange en nyckel som ett indata-anspråk, till exempel **ObjectID**, **userPrincipalName**, **signInNames. EmailAddress** eller **alternativeSecurityId**.
 
-Följande tekniska profilen tar bort ett användarkonto från katalogen med hjälp av användarens huvudnamn:
+Följande tekniska profil tar bort ett användar konto från katalogen med hjälp av User Principal Name:
 
 ```XML
 <TechnicalProfile Id="AAD-DeleteUserUsingObjectId">
@@ -236,7 +236,7 @@ Följande tekniska profilen tar bort ett användarkonto från katalogen med hjä
 </TechnicalProfile>
 ```
 
-Följande tekniska profilen tar bort en social användarkonto med **alternativeSecurityId**:
+Följande tekniska profil tar bort ett socialt användar konto med **alternativeSecurityId**:
 
 ```XML
 <TechnicalProfile Id="AAD-DeleteUserUsingAlternativeSecurityId">
@@ -252,15 +252,15 @@ Följande tekniska profilen tar bort en social användarkonto med **alternativeS
 ```
 ## <a name="metadata"></a>Metadata
 
-| Attribut | Obligatoriskt | Beskrivning |
+| Attribut | Obligatorisk | Beskrivning |
 | --------- | -------- | ----------- |
-| Åtgärd | Ja | Åtgärden som ska utföras. Möjliga värden: `Read`, `Write`, `DeleteClaims`, eller `DeleteClaimsPrincipal`. | 
-| RaiseErrorIfClaimsPrincipalDoesNotExist | Nej | Returnerar ett fel om användarobjektet inte finns i katalogen. Möjliga värden: `true` eller `false`. | 
-| UserMessageIfClaimsPrincipalDoesNotExist | Nej | Om ett fel är att höjas (se Attributbeskrivning RaiseErrorIfClaimsPrincipalDoesNotExist), ange ska visas för användaren om användarobjektet inte finns. Värdet kan vara [lokaliserade](localization.md).| 
-| RaiseErrorIfClaimsPrincipalAlreadyExists | Nej | Returnerar ett fel om användarobjektet finns redan. Möjliga värden: `true` eller `false`.| 
-| UserMessageIfClaimsPrincipalAlreadyExists | Nej | Om ett fel är att höjas (se RaiseErrorIfClaimsPrincipalAlreadyExists Attributbeskrivning), ange ska visas för användaren om användarobjektet finns redan. Värdet kan vara [lokaliserade](localization.md).| 
-| ApplicationObjectId | Nej | Program-objektidentifierare för tilläggsattribut. Värde: ObjectId för ett program. Mer information finns i [Använd anpassade attribut i en anpassad profil redigera principen](active-directory-b2c-create-custom-attributes-profile-edit-custom.md). | 
-| ClientId | Nej | Klient-ID för att få åtkomst till klientorganisationen som en tredje part. Mer information finns i [Använd anpassade attribut i en anpassad profil Redigera princip](active-directory-b2c-create-custom-attributes-profile-edit-custom.md) | 
+| Åtgärd | Ja | Åtgärden som ska utföras. Möjliga värden: `Read`, `Write`, `DeleteClaims`eller. `DeleteClaimsPrincipal` |
+| RaiseErrorIfClaimsPrincipalDoesNotExist | Nej | Generera ett fel om objektet användare inte finns i katalogen. Möjliga värden: `true` eller `false`. |
+| UserMessageIfClaimsPrincipalDoesNotExist | Nej | Om ett fel ska höjas (se beskrivningen av RaiseErrorIfClaimsPrincipalDoesNotExist) anger du det meddelande som ska visas för användaren om användar objekt inte finns. Värdet kan lokaliseras [](localization.md).|
+| RaiseErrorIfClaimsPrincipalAlreadyExists | Nej | Generera ett fel om det redan finns ett användar objekt. Möjliga värden: `true` eller `false`.|
+| UserMessageIfClaimsPrincipalAlreadyExists | Nej | Om ett fel ska höjas (se RaiseErrorIfClaimsPrincipalAlreadyExists-Attribute Description) anger du det meddelande som ska visas för användaren om användar objekt redan finns. Värdet kan lokaliseras [](localization.md).|
+| ApplicationObjectId | Nej | Programobjekts-ID för tilläggets attribut. Värde: ObjectId för ett program. Mer information finns i [använda anpassade attribut i en anpassad profil redigerings princip](active-directory-b2c-create-custom-attributes-profile-edit-custom.md). |
+| ClientId | Nej | Klient identifieraren för åtkomst till klienten som en tredje part. Mer information finns i [använda anpassade attribut i en anpassad profil redigerings princip](active-directory-b2c-create-custom-attributes-profile-edit-custom.md) |
 
 
 

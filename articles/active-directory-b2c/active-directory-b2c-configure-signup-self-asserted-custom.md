@@ -1,6 +1,6 @@
 ---
-title: Lägga till anspråk och anpassa användarindata anpassade principer – Azure Active Directory B2C | Microsoft Docs
-description: Lär dig hur du anpassar indata från användaren och lägga till anspråk att resa för registrering eller inloggning i Azure Active Directory B2C.
+title: Lägg till anspråk och anpassa användarindata med anpassade principer – Azure Active Directory B2C | Microsoft Docs
+description: Lär dig hur du anpassar användarindata och lägger till anspråk till inloggnings-eller inloggnings resan i Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -10,31 +10,31 @@ ms.topic: conceptual
 ms.date: 02/07/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: ae6d55180785c9407662776a95fcba31f8ba5275
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: e29e2e3e61594870cc9d704d64b1040a4211a520
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67835213"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71066215"
 ---
-#  <a name="add-claims-and-customize-user-input-using-custom-policies-in-azure-active-directory-b2c"></a>Lägga till anspråk och anpassa användarindata med anpassade principer i Azure Active Directory B2C
+#  <a name="add-claims-and-customize-user-input-using-custom-policies-in-azure-active-directory-b2c"></a>Lägg till anspråk och anpassa användarindata med anpassade principer i Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-I den här artikeln får du lägga till en ny post i anges av användaren (ett anspråk) användarresan registrering i Azure Active Directory (Azure AD) B2C.  Du konfigurerar posten som en listruta och definiera om det krävs.
+I den här artikeln lägger du till en ny användardefinierad post (ett anspråk) till din inloggnings användar resa i Azure Active Directory B2C (Azure AD B2C).  Du konfigurerar posten som en listruta och definierar om det krävs.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Utför stegen i artikeln [komma igång med anpassade principer](active-directory-b2c-get-started-custom.md). Testa vägen registrerings- eller logga in användaren att registrera ett nytt lokalt konto innan du fortsätter.
+Slutför stegen i artikeln [komma igång med anpassade principer](active-directory-b2c-get-started-custom.md). Testa inloggnings-eller inloggnings användar resan och registrera ett nytt lokalt konto innan du fortsätter.
 
-## <a name="add-claims"></a>Lägga till anspråk
+## <a name="add-claims"></a>Lägg till anspråk
 
-Första datainsamlingen från dina användare uppnås med hjälp av registrering eller inloggning användarresa. Ytterligare anspråk samlas in senare med hjälp av en användarresa för redigering av profil. När Azure AD B2C samlar in information direkt från användaren interaktivt, använder de Identitetsramverk sin självkontrollerad provider.
+Att samla in inledande data från dina användare uppnås med hjälp av användar resan för registrering eller inloggning. Ytterligare anspråk kan samlas in senare med hjälp av en profil redigera användar resa. När Azure AD B2C samlar in information direkt från användaren interaktivt, används en självkontrollerad Provider i identitets miljöns ramverk.
 
 
 ### <a name="define-the-claim"></a>Definiera anspråket
 
-Nu ska vi be användaren ange sina stad. Lägg till följande element till den **ClaimsSchema** element i TrustFrameworkBase principfil:
+Låt oss be användaren om sitt ort. Lägg till följande-element i **ClaimsSchema** -elementet i TrustFrameworkBase-princip filen:
 
 ```xml
 <ClaimType Id="city">
@@ -47,9 +47,9 @@ Nu ska vi be användaren ange sina stad. Lägg till följande element till den *
 
 Följande element används för att definiera anspråket:
 
-- **DisplayName** – en sträng som definierar den användarinriktade etiketten.
-- **UserHelpText** -hjälper användaren att förstå vad som krävs.
-- **UserInputType** -kan vara en textruta, ett radio-val, en nedrullningsbar listruta eller flera val.
+- **DisplayName** – en sträng som definierar den användarbaserade etiketten.
+- **UserHelpText** – hjälper användaren att förstå vad som krävs.
+- **UserInputType** – kan vara en text ruta, ett alternativ val, en nedrullningsbar listruta eller flera markeringar.
 
 #### <a name="textbox"></a>TextBox
 
@@ -79,7 +79,7 @@ Följande element används för att definiera anspråket:
 
 #### <a name="dropdownsingleselect"></a>DropdownSingleSelect
 
-![Flervals-listmeny-kontroll som visar flera alternativ](./media/active-directory-b2c-configure-signup-self-asserted-custom/dropdown-menu-example.png)
+![List Rute kontroll med ett enda val som visar flera alternativ](./media/active-directory-b2c-configure-signup-self-asserted-custom/dropdown-menu-example.png)
 
 ```xml
 <ClaimType Id="city">
@@ -96,7 +96,7 @@ Följande element används för att definiera anspråket:
 
 #### <a name="checkboxmultiselect"></a>CheckboxMultiSelect
 
-![Välj flera kryssrutekontroll som visar flera alternativ](./media/active-directory-b2c-configure-signup-self-asserted-custom/multiselect-menu-example.png)
+![Markera kryss Rute kontroll med flera alternativ](./media/active-directory-b2c-configure-signup-self-asserted-custom/multiselect-menu-example.png)
 
 ```xml
 <ClaimType Id="city">
@@ -111,9 +111,9 @@ Följande element används för att definiera anspråket:
 </ClaimType>
 ```
 
-### <a name="add-the-claim-to-the-user-journey"></a>Lägg till anspråk för användarresa
+### <a name="add-the-claim-to-the-user-journey"></a>Lägg till anspråket till användar resan
 
-1. Lägg till anspråk som en `<OutputClaim ClaimTypeReferenceId="city"/>` till den `LocalAccountSignUpWithLogonEmail` tekniska profilen finns i filen TrustFrameworkBase princip. Den här tekniska profilen använder SelfAssertedAttributeProvider.
+1. Lägg till anspråket `<OutputClaim ClaimTypeReferenceId="city"/>` som en `LocalAccountSignUpWithLogonEmail` till den tekniska profilen som finns i TrustFrameworkBase-princip filen. Den här tekniska profilen använder SelfAssertedAttributeProvider.
 
     ```xml
     <TechnicalProfile Id="LocalAccountSignUpWithLogonEmail">
@@ -150,7 +150,7 @@ Följande element används för att definiera anspråket:
     </TechnicalProfile>
     ```
 
-2. Lägg till anspråk till den tekniska profilen AAD-UserWriteUsingLogonEmail som en `<PersistedClaim ClaimTypeReferenceId="city" />` att skriva anspråk till AAD-katalogen efter att användaren har. Du kan hoppa över det här steget om du inte föredrar att spara anspråk i katalogen för framtida användning.
+2. Lägg till anspråket i AAD-UserWriteUsingLogonEmail tekniska profil som `<PersistedClaim ClaimTypeReferenceId="city" />` en för att skriva anspråket till AAD-katalogen när den har samlats in från användaren. Du kan hoppa över det här steget om du inte föredrar att behålla anspråk i katalogen för framtida bruk.
 
     ```xml
     <!-- Technical profiles for local accounts -->
@@ -186,7 +186,7 @@ Följande element används för att definiera anspråket:
     </TechnicalProfile>
     ```
 
-3. Lägg till den `<OutputClaim ClaimTypeReferenceId="city" />` anspråk till de tekniska profiler som läser från katalogen när en användare loggar in.
+3. Lägg till `<OutputClaim ClaimTypeReferenceId="city" />` anspråket i de tekniska profiler som läser från katalogen när en användare loggar in.
 
     ```xml
     <TechnicalProfile Id="AAD-UserReadUsingEmailAddress">
@@ -236,7 +236,7 @@ Följande element används för att definiera anspråket:
     </TechnicalProfile>
     ```
 
-4. Lägg till den `<OutputClaim ClaimTypeReferenceId="city" />` anspråk till filen SignUporSignIn.xml så att det här anspråket skickas till programmet i token efter en lyckad användarresa.
+4. Lägg till `<OutputClaim ClaimTypeReferenceId="city" />` anspråket i filen SignUporSignIn. XML så att detta anspråk skickas till programmet i token efter en lyckad användar resa.
 
     ```xml
     <RelyingParty>
@@ -261,18 +261,18 @@ Följande element används för att definiera anspråket:
 ## <a name="test-the-custom-policy"></a>Testa den anpassade principen
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
-2. Kontrollera att du använder den katalog som innehåller Azure AD-klienten genom att klicka på den **katalog- och prenumerationsfilter** i den översta menyn och välja den katalog som innehåller din Azure AD-klient.
-3. Välj **alla tjänster** i det övre vänstra hörnet av Azure-portalen och Sök efter och välj **appregistreringar**.
-4. Välj **Identitetsramverk (förhandsversion)** .
-5. Välj **överför Kundpolicy**, och sedan ladda upp de två principfiler som du har ändrats.
-2. Välj den princip för registrering eller inloggning som du laddat upp och klicka på den **kör nu** knappen.
-3. Du ska kunna registrera dig med en e-postadress.
+2. Kontrol lera att du använder den katalog som innehåller din Azure AD-klient genom att välja filtret **katalog + prenumeration** på den översta menyn och välja den katalog som innehåller din Azure AD-klient.
+3. Välj **alla tjänster** i det övre vänstra hörnet av Azure Portal och Sök sedan efter och välj **Appregistreringar**.
+4. Välj **ramverk för identitets upplevelse (för hands version)** .
+5. Välj **överför anpassad princip**och ladda upp de två principfiler som du har ändrat.
+2. Välj den registrerings-eller inloggnings princip som du laddade upp och klicka på knappen **Kör nu** .
+3. Du bör kunna registrera dig med en e-postadress.
 
-Registrering-skärmen bör se ut ungefär så här:
+Registrerings skärmen bör se ut ungefär så här:
 
-![Skärmbild av ändrade inloggningsalternativet](./media/active-directory-b2c-configure-signup-self-asserted-custom/signup-with-city-claim-dropdown-example.png)
+![Skärm bild av ändrat registrerings alternativ](./media/active-directory-b2c-configure-signup-self-asserted-custom/signup-with-city-claim-dropdown-example.png)
 
-Den token som skickas tillbaka till programmet innehåller den `city` anspråk.
+Den token som skickas tillbaka till programmet inkluderar `city` anspråket.
 
 ```json
 {
@@ -294,11 +294,11 @@ Den token som skickas tillbaka till programmet innehåller den `city` anspråk.
 }
 ```
 
-## <a name="optional-remove-email-verification"></a>Valfritt: Ta bort e-Postverifiering
+## <a name="optional-remove-email-verification"></a>Valfritt: Ta bort e-postverifiering
 
-Om du vill hoppa över e-Postverifiering, kan du ta bort `PartnerClaimType="Verified.Email"`. I det här fallet den e-postadressen är obligatorisk men har inte verifierats, såvida inte ”krävs” = true tas bort.  Överväg noggrant om det här alternativet är bäst för ditt användningsfall.
+Om du vill hoppa över verifiering av e-post `PartnerClaimType="Verified.Email"`kan du välja att ta bort. I det här fallet är e-postadressen obligatorisk men inte verifierad, om inte "nödvändig" = True tas bort.  Överväg noga om det här alternativet är rätt för dina användnings fall.
 
-Verifiera e-post är aktiverat som standard i den `<TechnicalProfile Id="LocalAccountSignUpWithLogonEmail">` i TrustFrameworkBase principfil:
+Verifierad e-post är aktiverat som `<TechnicalProfile Id="LocalAccountSignUpWithLogonEmail">` standard i i TrustFrameworkBase-princip filen:
 
 ```xml
 <OutputClaim ClaimTypeReferenceId="email" PartnerClaimType="Verified.Email" Required="true" />
@@ -306,4 +306,4 @@ Verifiera e-post är aktiverat som standard i den `<TechnicalProfile Id="LocalAc
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig hur du [Använd anpassade attribut i en anpassad profil redigera principen](active-directory-b2c-create-custom-attributes-profile-edit-custom.md).
+Lär dig hur du [använder anpassade attribut i en anpassad profil redigerings princip](active-directory-b2c-create-custom-attributes-profile-edit-custom.md).

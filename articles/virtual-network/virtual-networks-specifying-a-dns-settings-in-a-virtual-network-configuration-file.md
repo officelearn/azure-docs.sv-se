@@ -1,10 +1,10 @@
 ---
-title: Ange DNS-inställningar i en konfigurationsfil för virtuellt nätverk | Microsoft Docs
-description: Så här ändrar du DNS-serverinställningarna i ett virtuellt nätverk med en konfigurationsfil för virtuellt nätverk i den klassiska distributionsmodellen
+title: Ange DNS-inställningar i en virtuell nätverks konfigurations fil | Microsoft Docs
+description: Ändra DNS-serverinställningar i ett virtuellt nätverk med hjälp av en konfigurations fil för virtuellt nätverk i den klassiska distributions modellen
 services: virtual-network
 documentationcenter: na
 author: genlin
-manager: cshepard
+manager: dcscontentpm
 editor: tysonn
 tags: azure-service-management
 ms.assetid: a8905927-92ac-42b5-8c33-8e42c000692c
@@ -15,28 +15,28 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/23/2016
 ms.author: genli
-ms.openlocfilehash: 36f7ed9b02b66718327c1a05a6cf29eedf39e7a5
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: c15d73673c19383deabe15ef30026990dfd138b9
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60232838"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71059097"
 ---
-# <a name="specifying-dns-settings-in-a-virtual-network-configuration-file"></a>Ange DNS-inställningar i en virtuell nätverkskonfigurationsfil
-En nätverkskonfigurationsfil har två element som du kan använda för att ange inställningar för Domain Name System (DNS): **DnsServers** och **DnsServerRef**. Du kan lägga till en lista över DNS-servrar genom att ange sina IP-adresser och referera till som ska den **DnsServers** element. Du kan sedan använda en **DnsServerRef** element att ange vilka DNS-serverposter från DnsServers-elementet används för olika nätverksplatser i det virtuella nätverket.
+# <a name="specifying-dns-settings-in-a-virtual-network-configuration-file"></a>Ange DNS-inställningar i en virtuell nätverks konfigurations fil
+En nätverks konfigurations fil har två element som du kan använda för att ange inställningar för Domain Name System (DNS): **DnsServers** och **DnsServerRef**. Du kan lägga till en lista över DNS-servrar genom att ange deras IP-adresser och referens namn i **DnsServers** -elementet. Du kan sedan använda ett **DnsServerRef** -element för att ange vilka DNS-Server poster från DnsServers-elementet som används för olika nätverks platser i det virtuella nätverket.
 
 [!INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]
 
 Den här artikeln beskriver hur du gör om du använder den klassiska distributionsmodellen.
 
-Nätverkskonfigurationsfilen kan innehålla följande element. Rubriken på varje element är länkad till en sida som innehåller ytterligare information om inställningar för elementet värde.
+Nätverks konfigurations filen kan innehålla följande element. Rubriken för varje element är länkad till en sida som innehåller ytterligare information om värde inställningarna för elementet.
 
 > [!IMPORTANT]
-> Information om hur du konfigurerar nätverkskonfigurationsfilen finns i [konfigurera ett virtuellt nätverk med en Nätverkskonfigurationsfil](virtual-networks-using-network-configuration-file.md). Läs om hur varje element i nätverkskonfigurationsfilen [konfigurationsschema för Azure virtuellt nätverk](https://msdn.microsoft.com/library/azure/jj157100.aspx).
+> Information om hur du konfigurerar nätverks konfigurations filen finns i [Konfigurera en Virtual Network med hjälp av en nätverks konfigurations fil](virtual-networks-using-network-configuration-file.md). Information om varje element som finns i nätverks konfigurations filen finns i [konfigurations schema för Azure Virtual Network](https://msdn.microsoft.com/library/azure/jj157100.aspx).
 > 
 > 
 
-[Dns Element](https://go.microsoft.com/fwlink/?LinkId=248093)
+[DNS-element](https://go.microsoft.com/fwlink/?LinkId=248093)
 
     <Dns>
       <DnsServers>
@@ -47,11 +47,11 @@ Nätverkskonfigurationsfilen kan innehålla följande element. Rubriken på varj
     </Dns>
 
 > [!WARNING]
-> Den **namn** attribut i den **DnsServer** elementet används bara som referens för den **DnsServerRef** element. Det motsvarar inte värdnamn för DNS-servern. Varje **DnsServer** attributvärdet måste vara unikt inom hela Microsoft Azure-prenumeration
+> Namnattributet **i** **DNS Server** -elementet används endast som en referens för elementet **DnsServerRef** . Den representerar inte värd namnet för DNS-servern. Varje **DNS Server** -attributvärde måste vara unikt för hela Microsoft Azure prenumerationen
 > 
 > 
 
-[Virtual Network Sites Element](https://go.microsoft.com/fwlink/?LinkId=248093)
+[Element för Virtual Network-platser](https://go.microsoft.com/fwlink/?LinkId=248093)
 
     <DnsServersRef>
       <DnsServerRef name="ID1" />
@@ -60,12 +60,12 @@ Nätverkskonfigurationsfilen kan innehålla följande element. Rubriken på varj
     </DnsServersRef>
 
 > [!NOTE]
-> För att ange den här inställningen för elementet virtuella nätverksplatser, måste den ha tidigare definierats i DNS-elementet. DnsServerRef *namn* på de virtuella nätverksplatserna elementet måste referera till ett namnvärde som anges i DNS-element för DnsServer *namn*.
+> För att kunna ange den här inställningen för elementet Virtual Network Sites måste det tidigare definierats i DNS-elementet. DnsServerRef *namn* i Virtual Network Sites-elementet måste referera till ett namn värde som anges i DNS-elementet för DNS Server- *namn*.
 > 
 > 
 
 ## <a name="next-steps"></a>Nästa steg
-* Förstå den [konfigurationsschema för Azure-nätverk](https://go.microsoft.com/fwlink/?LinkId=248093).
-* Förstå den [Azure-Tjänstkonfigurationens Schema](https://msdn.microsoft.com/library/windowsazure/ee758710).
-* [Konfigurera ett virtuellt nätverk med nätverkskonfigurationen](virtual-networks-using-network-configuration-file.md).
+* Förstå [konfigurations schemat för Azure Virtual Network](https://go.microsoft.com/fwlink/?LinkId=248093).
+* Förstå [konfigurations schemat för Azure-tjänsten](https://msdn.microsoft.com/library/windowsazure/ee758710).
+* [Konfigurera ett virtuellt nätverk med hjälp av konfigurationsfiler för nätverk](virtual-networks-using-network-configuration-file.md).
 

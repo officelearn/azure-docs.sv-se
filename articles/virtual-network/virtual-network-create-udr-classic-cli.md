@@ -1,10 +1,10 @@
 ---
-title: Kontrollera routning i ett virtuellt nätverk för Azure - CLI - klassisk | Microsoft Docs
-description: Lär dig hur du styr routning i virtuella nätverk med Azure CLI i den klassiska distributionsmodellen
+title: Styra routning i ett Azure Virtual Network-CLI-Klassiskt | Microsoft Docs
+description: Lär dig hur du styr routning i virtuella nätverk med hjälp av Azure CLI i den klassiska distributions modellen
 services: virtual-network
 documentationcenter: na
 author: genlin
-manager: cshepard
+manager: dcscontentpm
 editor: ''
 tags: azure-service-management
 ms.assetid: ca2b4638-8777-4d30-b972-eb790a7c804f
@@ -15,14 +15,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: genli
-ms.openlocfilehash: e1b8bb3544a08b60564ceb5bd7e1666214059e09
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1193145b315175e6394db4caf93ab2e76a942ed9
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60743929"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71058792"
 ---
-# <a name="control-routing-and-use-virtual-appliances-classic-using-the-azure-cli"></a>Kontrollera Routning och använder virtuella installationer (klassisk) med hjälp av Azure CLI
+# <a name="control-routing-and-use-virtual-appliances-classic-using-the-azure-cli"></a>Kontrol lera Routning och Använd virtuella apparater (klassisk) med Azure CLI
 
 > [!div class="op_single_selector"]
 > * [PowerShell](tutorial-create-route-table-powershell.md)
@@ -34,16 +34,16 @@ ms.locfileid: "60743929"
 
 [!INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]
 
-Den här artikeln beskriver hur du gör om du använder den klassiska distributionsmodellen. Du kan också [styr Routning och använder virtuella installationer i Resource Manager-distributionsmodellen](tutorial-create-route-table-cli.md).
+Den här artikeln beskriver hur du gör om du använder den klassiska distributionsmodellen. Du kan också [styra Routning och använda virtuella enheter i distributions modellen för Resource Manager](tutorial-create-route-table-cli.md).
 
 [!INCLUDE [virtual-network-create-udr-scenario-include.md](../../includes/virtual-network-create-udr-scenario-include.md)]
 
-Exemplet Azure CLI-kommandona nedan förväntar sig en enkel miljö som redan har skapats baserat på scenariot ovan. Om du vill köra kommandon som de visas i det här dokumentet, skapa miljön visas i [skapa ett virtuellt nätverk (klassisk) med Azure CLI](virtual-networks-create-vnet-classic-cli.md).
+Exempel på Azure CLI-kommandon nedan förväntar sig en enkel miljö som redan har skapats baserat på scenariot ovan. Om du vill köra kommandona som de visas i det här dokumentet skapar du miljön som visas i [skapa ett VNet (klassisk) med hjälp av Azure CLI](virtual-networks-create-vnet-classic-cli.md).
 
 [!INCLUDE [azure-cli-prerequisites-include.md](../../includes/azure-cli-prerequisites-include.md)]
 
-## <a name="create-the-udr-for-the-front-end-subnet"></a>Skapa den användardefinierade vägen för klientdelens undernät
-Följ stegen nedan om du vill skapa routningstabell och väg som behövs för klientdelens undernät baserat på scenariot ovan.
+## <a name="create-the-udr-for-the-front-end-subnet"></a>Skapa UDR för klient delens undernät
+Följ stegen nedan om du vill skapa en routningstabell och routning som krävs för klient dels under nätet baserat på scenariot ovan.
 
 1. Kör följande kommando för att växla till klassiskt läge:
 
@@ -51,17 +51,17 @@ Följ stegen nedan om du vill skapa routningstabell och väg som behövs för kl
     azure config mode asm
     ```
 
-    Utdata:
+    Resultat:
 
         info:    New mode is asm
 
-2. Kör följande kommando för att skapa en routningstabell för klientdelsundernätet:
+2. Kör följande kommando för att skapa en routningstabell för klient dels under nätet:
 
     ```azurecli
     azure network route-table create -n UDR-FrontEnd -l uswest
     ```
    
-    Utdata:
+    Resultat:
    
         info:    Executing command network route-table create
         info:    Creating route table "UDR-FrontEnd"
@@ -72,15 +72,15 @@ Följ stegen nedan om du vill skapa routningstabell och väg som behövs för kl
    
     Parametrar:
    
-   * **-l (eller --location)** . Azure-region där den nya NSG: N kommer att skapas. För vårt scenario, *westus*.
-   * **-n (eller --name)** . Namnet för den nya NSG. För vårt scenario, *NSG-klientdel*.
-3. Kör följande kommando för att skapa en väg i routningstabellen för att skicka all trafik till serverdelsundernätet (192.168.2.0/24) till den **FW1** VM (192.168.0.4):
+   * **-l (eller --location)** . Azure-region där den nya NSG kommer att skapas. I vårt scenario, *väster*.
+   * **-n (eller --name)** . Namnet på den nya NSG. I vårt scenario, *NSG-FrontEnd*.
+3. Kör följande kommando för att skapa en väg i routningstabellen för att skicka all trafik som är avsedd för backend-undernätet (192.168.2.0/24) till **FW1** VM (192.168.0.4):
 
     ```azurecli
     azure network route-table route set -r UDR-FrontEnd -n RouteToBackEnd -a 192.168.2.0/24 -t VirtualAppliance -p 192.168.0.4
     ```
 
-    Utdata:
+    Resultat:
    
         info:    Executing command network route-table route set
         info:    Getting route table "UDR-FrontEnd"
@@ -89,17 +89,17 @@ Följ stegen nedan om du vill skapa routningstabell och väg som behövs för kl
    
     Parametrar:
    
-   * **-r (eller--route-table-name)** . Namnet på routningstabellen där flödet kommer att läggas till. För vårt scenario, *UDR-klientdel*.
-   * **-a (eller --address-prefix)** . Adressprefix för undernätet där paket är avsedd för. För vårt scenario, *192.168.2.0/24*.
-   * **-t (eller--nästa hopptyp)** . Typ av objekt trafik skickas till. Möjliga värden är *VirtualAppliance*, *VirtualNetworkGateway*, *VNETLocal*, *Internet*, eller *ingen*.
-   * **-p (eller--nästa-hopp-ip-adress**). IP-adressen för nästa hopp. För vårt scenario, *192.168.0.4*.
-4. Kör följande kommando för att associera routningstabellen som skapats med den **klientdel** undernät:
+   * **-r (eller-Route-Table-Name)** . Namnet på den routningstabell där vägen ska läggas till. I vårt scenario, *UDR-FrontEnd*.
+   * **-a (eller --address-prefix)** . Adressprefix för det undernät där paketen är avsedda för. För vårt scenario, *192.168.2.0/24*.
+   * **-t (eller---nästa hopp-typ)** . Typ av objekt trafik kommer att skickas till. Möjliga värden är *VirtualAppliance*, *VirtualNetworkGateway*, *VNETLocal*, *Internet*eller *none*.
+   * **-p (eller--Next-hop-IP-Address**). IP-adress för nästa hopp. För vårt scenario, *192.168.0.4*.
+4. Kör följande kommando för att associera routningstabellen som skapats med **klient dels** under nätet:
 
     ```azurecli
     azure network vnet subnet route-table add -t TestVNet -n FrontEnd -r UDR-FrontEnd
     ```
    
-    Utdata:
+    Resultat:
    
         info:    Executing command network vnet subnet route-table add
         info:    Looking up the subnet "FrontEnd"
@@ -114,25 +114,25 @@ Följ stegen nedan om du vill skapa routningstabell och väg som behövs för kl
    
     Parametrar:
    
-   * **-t (eller--vnet-namn)** . Namnet på det virtuella nätverket där undernätet finns. I vårt scenario, *TestVNet*.
-   * **-n (eller--subnet-name**. Namnet på undernätet routningstabellen kommer att läggas till. I vårt scenario, *FrontEnd*.
+   * **-t (eller--VNet-namn)** . Namnet på det VNet där under nätet finns. I vårt scenario, *TestVNet*.
+   * **-n (eller--undernäts namn**. Namnet på under nätet som routningstabellen ska läggas till i. I vårt scenario, *FrontEnd*.
 
-## <a name="create-the-udr-for-the-back-end-subnet"></a>Skapa den användardefinierade vägen för backend-undernät
-Utför följande steg för att skapa routningstabell och väg som behövs för serverdelsundernätet baserat på scenariot:
+## <a name="create-the-udr-for-the-back-end-subnet"></a>Skapa UDR för Server dels under nätet
+Utför följande steg för att skapa den routningstabell och det flöde som krävs för backend-undernätet baserat på scenariot:
 
-1. Kör följande kommando för att skapa en routningstabell för backend-undernät:
+1. Kör följande kommando för att skapa en routningstabell för Server dels under nätet:
 
     ```azurecli
     azure network route-table create -n UDR-BackEnd -l uswest
     ```
 
-2. Kör följande kommando för att skapa en väg i routningstabellen för att skicka all trafik till klientdelsundernätet (192.168.1.0/24) till den **FW1** VM (192.168.0.4):
+2. Kör följande kommando för att skapa en väg i routningstabellen för att skicka all trafik till klient dels under nätet (192.168.1.0/24) till **FW1** VM (192.168.0.4):
 
     ```azurecli
     azure network route-table route set -r UDR-BackEnd -n RouteToFrontEnd -a 192.168.1.0/24 -t VirtualAppliance -p 192.168.0.4
     ```
 
-3. Kör följande kommando för att associera routningstabellen med den **serverdel** undernät:
+3. Kör följande kommando för att associera routningstabellen med **Server dels** under nätet:
 
     ```azurecli
     azure network vnet subnet route-table add -t TestVNet -n BackEnd -r UDR-BackEnd

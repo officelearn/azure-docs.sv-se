@@ -1,50 +1,50 @@
 ---
-title: Azure brandväggen log analytics-exempel
-description: Azure brandväggen log analytics-exempel
+title: Exempel för Log Analytics i Azure Firewall
+description: Exempel för Log Analytics i Azure Firewall
 services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 2/15/2019
+ms.date: 09/17/2019
 ms.author: victorh
-ms.openlocfilehash: 3f329d3dd4af1faef8f77d08db655cc7d6ef79fd
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a4ab1263abac67714357594e5bd87a4b910953b1
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60461542"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71033987"
 ---
-# <a name="azure-firewall-log-analytics-samples"></a>Azure brandväggen log analytics-exempel
+# <a name="azure-firewall-log-analytics-samples"></a>Exempel för Log Analytics i Azure Firewall
 
-Följande exempel för Azure Monitor-loggar kan användas för att analysera dina loggar från brandväggen för Azure. Exempelfilen är inbyggd i Vydesigner i Azure Monitor kan den [Vydesigner i Azure Monitor](https://docs.microsoft.com/azure/log-analytics/log-analytics-view-designer) artikeln innehåller mer information om konceptet Vydesignen.
+Följande Azure Monitor loggar exempel kan användas för att analysera dina Azure Firewall-loggar. Exempel filen är inbyggd i View Designer i Azure Monitor, finns mer information om visnings design koncept i [View Designer i Azure Monitor](https://docs.microsoft.com/azure/log-analytics/log-analytics-view-designer) artikeln.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-## <a name="azure-monitor-logs-view"></a>Azure Monitor loggar vy
+## <a name="azure-monitor-logs-view"></a>Vyn Azure Monitor loggar
 
-Här är hur du kan konfigurera ett exempel visualisering för Azure Monitor-loggar. Du kan ladda ned exempel visualisering från den [azure-docs-json-samples](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-firewall/AzureFirewall.omsview) lagringsplats. Det enklaste sättet är att högerklicka på hyperlänken på den här sidan och välja *Spara som* och ange ett namn som **AzureFirewall.omsview**. 
+Så här kan du konfigurera ett exempel Azure Monitor loggar visualisering. Du kan ladda ned exempel visualiseringen från lagrings platsen [Azure-dok-JSON-samples](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-firewall/AzureFirewall.omsview) . Det enklaste sättet är att högerklicka på hyperlänken på den här sidan och välja *Spara som* och ange ett namn som **AzureFirewall. omsview**. 
 
-Kör följande steg för att lägga till vyn till din Log Analytics-arbetsyta:
+Utför följande steg för att lägga till vyn i Log Analytics arbets ytan:
 
-1. Öppna Log Analytics-arbetsytan i Azure Portal.
-2. Öppna **visa Designer** nedan **Allmänt**.
+1. Öppna arbets ytan Log Analytics i Azure Portal.
+2. Öppna **Visa designer** under **Allmänt**.
 3. Klicka på **Importera**.
-4. Bläddra och välj den **AzureFirewall.omsview** filen du laddade ner innan.
+4. Bläddra och välj den **AzureFirewall. omsview** -fil som du laddade ned tidigare.
 5. Klicka på **Spara**.
 
-Här är hur vyn ser ut för programdata regeln loggen:
+Så här ser vyn ut för program regel logg data:
 
-![Loggdata för programmet regel](./media/log-analytics-samples/azurefirewall-applicationrulelogstats.png)
+![Data för program regel logg](./media/log-analytics-samples/azurefirewall-applicationrulelogstats.png)
 
-Och för loggdata för nätverk regeln:
+Och för data för nätverks regel loggen:
 
-![Loggdata för nätverk regeln]( ./media/log-analytics-samples/azurefirewall-networkrulelogstats.png)
+![Data för nätverks regel logg]( ./media/log-analytics-samples/azurefirewall-networkrulelogstats.png)
 
-Azure-brandväggen loggar data AzureDiagnostics kategori som antingen **AzureFirewallApplicationRule** eller **AzureFirewallNetworkRule**. Data som innehåller information lagras i fältet msg_s. Med hjälp av den [parsa](https://docs.microsoft.com/azure/kusto/query/parseoperator) operator som vi kan extrahera olika intressanta egenskaper från fältet msg_s. Frågorna nedan extrahera information för båda kategorier.
+Azure-brandväggen loggar data nedan AzureDiagnostics med kategori som antingen **AzureFirewallApplicationRule** eller **AzureFirewallNetworkRule**. Data som innehåller informationen lagras i fältet msg_s. Med hjälp av [parse](https://docs.microsoft.com/azure/kusto/query/parseoperator) -operatorn kan vi extrahera de olika intressanta egenskaperna från fältet msg_s. Frågorna nedan extraherar informationen för båda kategorierna.
 
-## <a name="application-rules-log-data-query"></a>Regler för program logga datafrågor
+## <a name="application-rules-log-data-query"></a>Data fråga för program regel logg
 
-Frågan nedan tolkar programdata regeln log. I de olika kommentar raderna har viss vägledning i hur frågan skapades:
+Frågan nedan analyserar data för program regel loggen. I de olika kommentars raderna finns det några rikt linjer för hur frågan skapats:
 
 ```Kusto
 AzureDiagnostics
@@ -70,7 +70,7 @@ SourcePort = tostring(SourcePortInt)
 TargetPort = tostring(TargetPortInt)
 | extend
 //make sure we only have Allowed / Deny in the Action Field
-Action1 = case(Action1 == "denied","Deny","Unknown Action")
+Action1 = case(Action1 == "Deny","Deny","Unknown Action")
 | extend
     Action = case(Action2 == "",Action1,Action2),
     Rule = case(Rule2a == "",case(Rule1 == "",case(Rule2b == "","N/A", Rule2b),Rule1),Rule2a), 
@@ -92,15 +92,15 @@ AzureDiagnostics
 | parse TempDetails with * "Deny." RuleCollection2b ". Proceeding with" Rule2b
 | extend SourcePort = tostring(SourcePortInt)
 | extend TargetPort = tostring(TargetPortInt)
-| extend Action1 = case(Action1 == "denied","Deny","Unknown Action")
+| extend Action1 = case(Action1 == "Deny","Deny","Unknown Action")
 | extend Action = case(Action2 == "",Action1,Action2),Rule = case(Rule2a == "", case(Rule1 == "",case(Rule2b == "","N/A", Rule2b),Rule1),Rule2a), 
 RuleCollection = case(RuleCollection2b == "",case(RuleCollection2a == "","No rule matched",RuleCollection2a), RuleCollection2b),FQDN = case(FQDN == "", "N/A", FQDN),TargetPort = case(TargetPort == "", "N/A", TargetPort)
 | project TimeGenerated, msg_s, Protocol, SourceIP, SourcePort, FQDN, TargetPort, Action ,RuleCollection, Rule
 ```
 
-## <a name="network-rules-log-data-query"></a>Nätverket regler log datafrågor
+## <a name="network-rules-log-data-query"></a>Data fråga för nätverks regler
 
-Följande fråga tolkar nätverk regeln loggdata. I de olika kommentar raderna har viss vägledning i hur frågan skapades:
+Följande fråga analyserar data för nätverks regel loggen. I de olika kommentars raderna finns det några rikt linjer för hur frågan skapats:
 
 ```Kusto
 AzureDiagnostics
@@ -151,9 +151,9 @@ AzureDiagnostics
 | project TimeGenerated, msg_s, Protocol, SourceIP,SourcePort,TargetIP,TargetPort,Action, NatDestination
 ```
 
-## <a name="threat-intelligence-log-data-query"></a>Threat Intelligence data loggfråga
+## <a name="threat-intelligence-log-data-query"></a>Data fråga för Threat Intelligence-logg
 
-Följande fråga Parsar loggdata för Hotinformation för regeln:
+Följande fråga analyserar loggdata för hot informations regeln:
 
 ```Kusto
 AzureDiagnostics
@@ -168,4 +168,4 @@ AzureDiagnostics
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läs om Azure-Brandvägg för övervakning och diagnostik i [självstudien: Övervaka Azure-brandväggen loggar och mått](tutorial-diagnostics.md).
+Mer information om övervakning och diagnostik i Azure-brandväggen [finns i Självstudier: Övervaka Azure Firewall-loggar och-](tutorial-diagnostics.md)mått.

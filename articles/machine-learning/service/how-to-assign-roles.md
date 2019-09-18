@@ -1,7 +1,7 @@
 ---
 title: Hantera roller i en Azure Machine Learning-arbetsyta
-titleSuffix: Azure Machine Learning service
-description: Lär dig hur du kommer åt en Azure Machine Learning service-arbetsyta med rollbaserad åtkomst kontroll (RBAC).
+titleSuffix: Azure Machine Learning
+description: Lär dig hur du kommer åt en Azure Machine Learning-arbetsyta med rollbaserad åtkomst kontroll (RBAC).
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,12 +11,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 07/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: 0f28397717d5c89e5a5bcd5e7bdc17b4feb49577
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.openlocfilehash: 22ce9ea44dde6da4d1194463fe266ed00c5a3f96
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68467980"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71067710"
 ---
 # <a name="manage-access-to-an-azure-machine-learning-workspace"></a>Hantera åtkomst till en Azure Machine Learning-arbetsyta
 
@@ -107,11 +107,13 @@ Efter distributionen blir den här rollen tillgänglig på den angivna arbets yt
 az ml workspace share -w my_workspace -g my_resource_group --role "Data Scientist" --user jdoe@contoson.com
 ```
 
+Mer information om anpassade roller finns i [anpassade roller för Azure-resurser](/azure/role-based-access-control/custom-roles).
 
-Mer information finns i [anpassade roller för Azure-resurser](/azure/role-based-access-control/custom-roles).
+Mer information om de åtgärder (åtgärder) som kan användas med anpassade roller finns i [Resource Provider-åtgärder](/azure/role-based-access-control/resource-provider-operations#microsoftmachinelearningservices).
 
 ## <a name="next-steps"></a>Nästa steg
 
 - [Översikt över företags säkerhet](concept-enterprise-security.md)
 - [Köra experiment och härledning/Poäng i ett virtuellt nätverk på ett säkert sätt](how-to-enable-virtual-network.md)
 - [Självstudier: Träna modeller](tutorial-train-models-with-aml.md)
+- [Åtgärder för resurs leverantör](/azure/role-based-access-control/resource-provider-operations#microsoftmachinelearningservices)

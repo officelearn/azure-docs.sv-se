@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/03/2018
 ms.author: apimpm
-ms.openlocfilehash: f0f89275006498c0ff4883f259d7e76f723b922b
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 467d9cee74567fc0d19031773415675ae7c51818
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68851325"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71066760"
 ---
 # <a name="advanced-request-throttling-with-azure-api-management"></a>Avancerad begränsning av förfrågningar med Azure API Management
 Att kunna begränsa inkommande begär Anden är en viktig roll i Azure API Management. Antingen genom att kontrol lera antalet begär Anden eller de totala begär Anden/data som överförs, tillåter API Management att API-providers skyddar sina API: er från missbruk och skapar värden för olika API-produktsortiment.
@@ -29,7 +29,8 @@ Hittills har frekvens begränsnings funktionerna begränsats till en viss produk
 
 ## <a name="custom-key-based-throttling"></a>Anpassad nyckelbaserad begränsning
 
-> OBS! - `rate-limit-by-key` Och`quota-by-key` -principerna är inte tillgängliga när du arbetar på användnings nivån i Azure API Management. 
+> [!NOTE]
+> \- `rate-limit-by-key` Och`quota-by-key` -principerna är inte tillgängliga när du arbetar på användnings nivån i Azure API Management. 
 
 De nya principerna för [hastighets begränsning](/azure/api-management/api-management-access-restriction-policies#LimitCallRateByKey) och [kvot-till-nyckel](/azure/api-management/api-management-access-restriction-policies#SetUsageQuotaByKey) ger en mer flexibel lösning för trafik kontroll. Med de här nya principerna kan du definiera uttryck för att identifiera de nycklar som används för att spåra användning av trafiken. Sättet det här fungerar är enkelt att illustrera med ett exempel. 
 
@@ -78,5 +79,5 @@ Detta gör det möjligt för utvecklarens klient program att välja hur du vill 
 Azure API Management ger pris-och offert begränsning till både skydda och lägga till värde i din API-tjänst. Med de nya begränsnings principerna med anpassade omfångs regler kan du få bättre kontroll över principerna så att kunderna kan skapa ännu bättre program. I exemplen i den här artikeln demonstreras användningen av dessa nya principer med hjälp av tillverknings frekvens begränsar nycklar med klientens IP-adresser, användar identitet och klienter som genererar värden. Det finns dock många andra delar av meddelandet som kan användas, till exempel användar agent, fragment för URL-sökvägar, meddelande storlek.
 
 ## <a name="next-steps"></a>Nästa steg
-Ge oss din feedback i Disqus-tråden för det här ämnet. Det skulle vara bra att höra om andra potentiella nyckel värden som har varit ett logiskt val i dina scenarier.
+Ge oss din feedback som ett GitHub-problem för det här ämnet. Det skulle vara bra att höra om andra potentiella nyckel värden som har varit ett logiskt val i dina scenarier.
 

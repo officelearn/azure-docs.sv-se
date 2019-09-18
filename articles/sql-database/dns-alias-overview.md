@@ -7,16 +7,16 @@ ms.subservice: operations
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: oslake
-ms.author: moslake
-ms.reviewer: genemi, ayolubek, jrasnick
+author: rohitnayakmsft
+ms.author: rohitna
+ms.reviewer: genemi, jrasnick, vanto
 ms.date: 06/26/2019
-ms.openlocfilehash: 3d0a4b5890ed5758f4045459815fb4ebbffe75c6
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 5d37b41fa7b51871f9ce1b21c62de1f9ab7f3b82
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68550663"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71058564"
 ---
 # <a name="dns-alias-for-azure-sql-database"></a>DNS-alias för Azure SQL Database
 
@@ -60,7 +60,7 @@ Följande egenskaper gäller för varje DNS-alias för din SQL Database-Server:
   - När du släpper en SQL Database-Server släpper Azure-systemet också alla DNS-alias som refererar till servern.
 - *Inte kopplat till någon region:* DNS-alias är inte kopplade till en region. Alla DNS-alias kan uppdateras för att referera till en Azure SQL Database-Server som finns i valfri geografisk region.
   - Men när du uppdaterar ett alias för att referera till en annan server måste båda servrarna finnas i samma Azure- *prenumeration*.
-- *Åtkomst* Användaren måste ha behörighet som *Server deltagare* eller högre för att kunna hantera ett DNS-alias. Mer information finns i [Kom igång med rollbaserad Access Control i Azure Portal](../role-based-access-control/overview.md).
+- *Behörigheter:* Användaren måste ha behörighet som *Server deltagare* eller högre för att kunna hantera ett DNS-alias. Mer information finns i [Kom igång med rollbaserad Access Control i Azure Portal](../role-based-access-control/overview.md).
 
 ## <a name="manage-your-dns-aliases"></a>Hantera dina DNS-alias
 

@@ -1,7 +1,7 @@
 ---
 title: Identifiera data avvikelse (för hands version) på AKS-distributioner
-titleSuffix: Azure Machine Learning service
-description: Identifiera data drift på Azure Kubernetes service-distribuerade modeller i Azure Machine Learning-tjänsten.
+titleSuffix: Azure Machine Learning
+description: Identifiera data drift på Azure Kubernetes-tjänst distribuerade modeller i Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,16 +10,16 @@ ms.reviewer: jmartens
 ms.author: copeters
 author: cody-dkdc
 ms.date: 09/13/2019
-ms.openlocfilehash: 80c5ad26150547263469c9f59366e270bf660335
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: 59cce0b56a4e54208a454c9f71d9a4c8576b0a8b
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70993166"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71034361"
 ---
 # <a name="detect-data-drift-preview-on-models-deployed-to-azure-kubernetes-service-aks"></a>Identifiera data drift (för hands version) i modeller som distribuerats till Azure Kubernetes service (AKS)
 
-I den här artikeln får du lära dig hur du övervakar data drift mellan inlärnings data uppsättningen och data härlednings data i en distribuerad modell. I samband med Machine Learning kan tränade maskin inlärnings modeller uppleva försämrade förutsägelser på grund av driften. Med Azure Machine Learning tjänsten kan du övervaka data driften och tjänsten kan skicka en e-postavisering till dig när en avvikelse upptäcks.
+I den här artikeln får du lära dig hur du övervakar data drift mellan inlärnings data uppsättningen och data härlednings data i en distribuerad modell. I samband med Machine Learning kan tränade maskin inlärnings modeller uppleva försämrade förutsägelser på grund av driften. Med Azure Machine Learning kan du övervaka data driften och tjänsten kan skicka en e-postavisering till dig när en avvikelse upptäcks.
 
 ## <a name="what-is-data-drift"></a>Vad är data avvikelser?
 
@@ -27,7 +27,7 @@ Data avvikelser inträffar när data som hanteras i en modell i produktion skilj
 
 ## <a name="what-can-i-monitor"></a>Vad kan jag övervaka?
 
-Med Azure Machine Learning tjänsten kan du övervaka indata till en modell som distribueras på AKS och jämföra dessa data med data uppsättningen för inlärning för modellen. Med jämna mellanrum är det en [ögonblicks bild och profilerad](how-to-explore-prepare-data.md), som sedan beräknas mot bas linje data uppsättningen för att skapa en data avvikelse analys som: 
+Med Azure Machine Learning kan du övervaka indata till en modell som distribueras på AKS och jämföra dessa data med data uppsättningen för träning för modellen. Med jämna mellanrum är det en [ögonblicks bild och profilerad](how-to-explore-prepare-data.md), som sedan beräknas mot bas linje data uppsättningen för att skapa en data avvikelse analys som: 
 
 + Mäter omfattningen av data avvikelsen, som kallas för drift koefficienten.
 + Mäter data drifts bidraget efter funktion, som informerar vilka funktioner som orsakade data drift.
@@ -38,20 +38,20 @@ Med Azure Machine Learning tjänsten kan du övervaka indata till en modell som 
 > [!Note]
 > Den här tjänsten är i (för hands version) och är begränsad i konfigurations alternativen. Information och uppdateringar finns i vår [API-dokumentation](https://docs.microsoft.com/python/api/azureml-contrib-datadrift/?view=azure-ml-py) och [viktig](azure-machine-learning-release-notes.md) information. 
 
-### <a name="how-data-drift-is-monitored-in-azure-machine-learning-service"></a>Så här övervakas data driften i Azure Machine Learnings tjänsten
+### <a name="how-data-drift-is-monitored-in-azure-machine-learning"></a>Så här övervakas data driften i Azure Machine Learning
 
-Med hjälp av Azure Machine Learning tjänsten övervakas data drift genom data uppsättningar eller distributioner. För att övervaka data, en bas linje uppsättning – vanligt vis är inlärnings data uppsättningen för en modell-angiven. En andra data uppsättning – vanligt vis modell indata som samlas in från en distribution, testas mot bas linje data uppsättningen. Båda data uppsättningarna är profilerade och indata för data tjänst övervaknings tjänsten. En maskin inlärnings modell är utbildad för att identifiera skillnader mellan de två data uppsättningarna. Modellens prestanda konverteras till drivgarn, som mäter storleken på driften mellan de två data uppsättningarna. Med [modell tolkning](machine-learning-interpretability-explainability.md)kan de funktioner som bidrar till drifts koefficienten beräknas. Statistisk information om varje funktion spåras från data uppsättnings profilen. 
+Med hjälp av Azure Machine Learning övervakas data driften via data uppsättningar eller distributioner. För att övervaka data, en bas linje uppsättning – vanligt vis är inlärnings data uppsättningen för en modell-angiven. En andra data uppsättning – vanligt vis modell indata som samlas in från en distribution, testas mot bas linje data uppsättningen. Båda data uppsättningarna är profilerade och indata för data tjänst övervaknings tjänsten. En maskin inlärnings modell är utbildad för att identifiera skillnader mellan de två data uppsättningarna. Modellens prestanda konverteras till drivgarn, som mäter storleken på driften mellan de två data uppsättningarna. Med [modell tolkning](machine-learning-interpretability-explainability.md)kan de funktioner som bidrar till drifts koefficienten beräknas. Statistisk information om varje funktion spåras från data uppsättnings profilen. 
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-- En Azure-prenumeration. Om du inte har ett konto kan du skapa ett kostnads fritt konto innan du börjar. Prova den [kostnadsfria versionen eller betalversionen av Azure Machine Learning-tjänsten](https://aka.ms/AMLFree) i dag.
+- En Azure-prenumeration. Om du inte har ett konto kan du skapa ett kostnads fritt konto innan du börjar. Prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree) idag.
 
 - Azure Machine Learning SDK för python har installerats. Följ anvisningarna på [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py) för att göra följande:
 
     - Skapa en Miniconda-miljö
     - Installera Azure Machine Learning SDK för python
 
-- En [Azure Machine Learning service-arbetsyta](how-to-manage-workspace.md).
+- En [Azure Machine Learning-arbetsyta](how-to-manage-workspace.md).
 
 - En [konfigurations fil](how-to-configure-environment.md#workspace)för arbets ytan.
 
@@ -173,7 +173,7 @@ Om du vill visa resultat i din arbets yta i [landnings sidan för arbets ytan (f
 
 Genom att ange ett tröskelvärde för aktive ras aviserings tröskel och tillhandahålla en e-postadress skickas en [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview) e-postavisering automatiskt när en avvikelse är över tröskeln. 
 
-För att du ska kunna ställa in anpassade aviseringar och åtgärder lagras alla data inriktnings mått i den [Application Insights](how-to-enable-app-insights.md) resurs som skapades tillsammans med arbets ytan Azure Machine learnings tjänst. Du kan följa länken i e-postaviseringen till den Application Insights frågan.
+För att du ska kunna ställa in anpassade aviseringar och åtgärder lagras alla data inriktnings mått i den [Application Insights](how-to-enable-app-insights.md) resurs som skapades tillsammans med arbets ytan Azure Machine Learning. Du kan följa länken i e-postaviseringen till den Application Insights frågan.
 
 ![E-postavisering om data larm](media/how-to-monitor-data-drift/drift_email.png)
 

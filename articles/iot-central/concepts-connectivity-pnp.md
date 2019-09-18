@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 26f05e60761af0b8f0db9508488f28613b82293f
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 81e386be98f9c5684402c376372f43e90fefcb42
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69880246"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71066735"
 ---
 # <a name="device-connectivity-in-azure-iot-central-preview-features"></a>Enhets anslutning i Azure IoT Central (för hands versions funktioner)
 
@@ -34,15 +34,18 @@ Genom att använda DPS kan du:
 
 I den här artikeln beskrivs följande användnings fall:
 
-1. [Anslut snabbt en enskild enhet med hjälp av SAS](#connect-a-single-device)
-1. [Ansluta enheter i stor skala med SAS](#connect-devices-at-scale-using-sas)
-1. [Anslut enheter i skala med X. 509-certifikat](#connect-devices-using-x509-certificates) detta är den rekommenderade metoden för produktions miljöer.
-1. [Anslut utan att först registrera enheter](#connect-without-registering-devices)
-1. [Ansluta enheter med IoT Plug and Play-funktioner](howto-connect-pnp-device-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)
+- [Anslut snabbt en enskild enhet med hjälp av SAS](#connect-a-single-device)
+- [Ansluta enheter i stor skala med SAS](#connect-devices-at-scale-using-sas)
+- [Anslut enheter i skala med X. 509-certifikat](#connect-devices-using-x509-certificates) detta är den rekommenderade metoden för produktions miljöer.
+- [Anslut utan att först registrera enheter](#connect-without-registering-devices)
+- [Ansluta enheter med IoT Plug and Play-funktioner](howto-connect-pnp-device-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)
 
 ## <a name="connect-a-single-device"></a>Anslut en enskild enhet
 
-Den här metoden är användbar när du experimenterar med IoT Central eller testning av enheter. Du kan använda anslutnings informationen för enheten från ditt IoT Central program för att generera anslutnings strängen för en enhet. Detaljerade anvisningar finns i [så här skapar du en enhets anslutnings sträng för att ansluta till ett Azure IoT Central-program](howto-generate-connection-string.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json).
+Den här metoden är användbar när du experimenterar med IoT Central eller testning av enheter. Du kan använda enhets anslutnings informationen från ditt IoT Central-program för att ansluta en enhet till ditt IoT Central-program med Device Provisioning-tjänsten (DPS). Du hittar exempel på DPS-enhetens klient kod för följande språk:
+
+- [C\#](https://github.com/Azure-Samples/azure-iot-samples-csharp/tree/master/provisioning/Samples/device)
+- [Node.js](https://github.com/Azure-Samples/azure-iot-samples-node/tree/master/provisioning/Samples/device)
 
 ## <a name="connect-devices-at-scale-using-sas"></a>Ansluta enheter i stor skala med SAS
 
@@ -140,7 +143,7 @@ I följande steg beskrivs den här processen i detalj. Stegen skiljer sig något
 
 1. Sätt sedan på enheten för att ansluta till ditt IoT Central-program. När du växlar på en enhet ansluter den först till DPS för att hämta IoT Central registrerings information.
 
-1. Den anslutna enheten visas initialt som inte **kopplad** på sidan **enheter** . Enhetens etablerings status har **registrerats**. **Migrera** enheten till lämplig enhets mall och godkänn enheten för att ansluta till ditt IoT Central-program. Enheten kan sedan hämta en anslutnings sträng från IoT Hub och börja skicka data. Enhets etableringen är nu slutförd och etablerings statusen har nu tillhandahållits.
+1. Den anslutna enheten visas initialt som inte **kopplad** på sidan **enheter** . Enhetens etablerings status har **registrerats**. **Migrera** enheten till lämplig enhets mall och godkänn enheten för att ansluta till ditt IoT Central-program. Enheten kan sedan hämta en anslutnings sträng från IoT Hub och börja skicka data. Enhets etableringen är nu slutförd och etablerings statusen har nu **tillhandahållits**.
 
 ## <a name="connect-devices-with-iot-plug-and-play"></a>Ansluta enheter med IoT Plug and Play
 
@@ -190,8 +193,6 @@ Azure-enhetens SDK: er erbjuder det enklaste sättet för dig att implementera e
 - [Azure IoT SDK för Node. js](https://github.com/azure/azure-iot-sdk-node)
 - [Azure IoT SDK för Java](https://github.com/azure/azure-iot-sdk-java)
 - [Azure IoT SDK för .NET](https://github.com/azure/azure-iot-sdk-csharp)
-
-Varje enhet ansluter med en unik anslutnings sträng som identifierar enheten. En enhet kan endast ansluta till IoT-hubben där den är registrerad. När du skapar en riktig enhet i ditt Azure IoT Central-program genererar programmet den information som du behöver för att skapa en anslutnings sträng `dps-keygen`med hjälp av.
 
 ### <a name="sdk-features-and-iot-hub-connectivity"></a>SDK-funktioner och IoT Hub anslutning
 

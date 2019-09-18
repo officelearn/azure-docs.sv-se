@@ -1,7 +1,7 @@
 ---
 title: Vad är FPGA – distribuera
-titleSuffix: Azure Machine Learning service
-description: Lär dig hur du distribuerar en webb tjänst med en modell som körs på en FPGA med Azure Machine Learning-tjänst för svars tids fördröjning med liten låg latens.
+titleSuffix: Azure Machine Learning
+description: Lär dig hur du distribuerar en webb tjänst med en modell som körs på en FPGA med Azure Machine Learning för svars tids härledning med liten låg latens.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,16 +11,16 @@ ms.author: tedway
 author: tedway
 ms.date: 07/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: 8f95846844f9ff498b1b99a0b7a375f1c883457d
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: 929ca8e16db73be5cfa226b5d55a30dbb7b2bc99
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70860477"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71034450"
 ---
 # <a name="what-are-field-programmable-gate-arrays-fpga-and-how-to-deploy"></a>Vad är FPGA (Field-programmerbara grind mat ris) och hur du distribuerar
 
-Den här artikeln innehåller en introduktion till Field-programmerbara grind mat ris (FPGA) och visar hur du distribuerar dina modeller med hjälp av Azure Machine Learning tjänst till en Azure-FPGA. 
+Den här artikeln innehåller en introduktion till Field-programmerbara grind mat ris (FPGA) och visar hur du distribuerar dina modeller med Azure Machine Learning till en Azure-FPGA. 
 
 FPGAs innehåller en matris med programmerbara logiska block och en hierarki med omkonfigurerbara kopplingar. Med samkopplingarna kan dessa block konfigureras på olika sätt efter tillverkningen. Jämfört med andra kretsar ger FPGAs en kombination av programmering och prestanda.
 
@@ -28,7 +28,7 @@ FPGAs innehåller en matris med programmerbara logiska block och en hierarki med
 
 Följande diagram och tabell visar hur FPGAs jämför med andra processorer.
 
-![Diagram över Azure Machine Learning jämförelse av FPGA-tjänst](./media/concept-accelerate-with-fpgas/azure-machine-learning-fpga-comparison.png)
+![Diagram över Azure Machine Learning FPGA-jämförelse](./media/concept-accelerate-with-fpgas/azure-machine-learning-fpga-comparison.png)
 
 |Processor||Beskrivning|
 |---|:-------:|------|
@@ -89,7 +89,7 @@ Du kan distribuera en modell som en webb tjänst på FPGAs med Azure Machine Lea
 
 ### <a name="prerequisites"></a>Förutsättningar
 
-- En Azure-prenumeration.  Om du inte har ett konto kan du skapa ett kostnads fritt konto innan du börjar. Prova den [kostnadsfria versionen eller betalversionen av Azure Machine Learning-tjänsten](https://aka.ms/AMLFree) i dag.
+- En Azure-prenumeration.  Om du inte har ett konto kan du skapa ett kostnads fritt konto innan du börjar. Prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree) idag.
 
 - FPGA-kvot. Använd Azure CLI för att kontrol lera om du har en kvot:
 
@@ -112,7 +112,7 @@ Du kan distribuera en modell som en webb tjänst på FPGAs med Azure Machine Lea
 
     Om du inte har någon kvot skickar du en förfrågan till [https://aka.ms/accelerateAI](https://aka.ms/accelerateAI).
 
-- En arbetsyta för Azure Machine Learning-tjänsten och Azure Machine Learning-SDK för Python installerat. Mer information finns i [skapa en arbets yta](how-to-manage-workspace.md).
+- En Azure Machine Learning-arbetsyta och Azure Machine Learning SDK för python är installerat. Mer information finns i [skapa en arbets yta](how-to-manage-workspace.md).
  
 - Python SDK för maskin accelererade modeller:
 

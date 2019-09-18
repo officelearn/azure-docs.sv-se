@@ -4,7 +4,7 @@ description: Lär dig hur du installerar Azure VM-agenten i offline-läge.
 services: virtual-machines-windows
 documentationcenter: ''
 author: genlin
-manager: gwallace
+manager: dcscontentpm
 editor: ''
 tags: azure-resource-manager
 ms.service: virtual-machines-windows
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 018f27999c4f69c0868e2a8fde6535346c7d0377
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 438143d3253f1cab1afb958a90f427dcba59a98e
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70090367"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71059240"
 ---
 # <a name="install-the-azure-virtual-machine-agent-in-offline-mode"></a>Installera Azure Virtual Machine-agenten i offline-läge 
 
@@ -75,7 +75,7 @@ Använd följande steg för att installera VM-agenten i offline-läge.
 
           ![Exportera register under nycklarna](./media/install-vm-agent-offline/backup-reg.png)
 
-    2. Redigera registerfilerna. I varje fil ändrar du värdet för post värde till **BROKENSYSTEM** (se följande bilder) och sparar filen. Kom ihåg **ImagePath** för den aktuella VM-agenten. Vi kommer att behöva kopiera motsvarande mapp till den anslutna OS-disken. 
+    2. Redigera registerfilerna. I varje fil **ändrar du värdet för post värde** till **BROKENSYSTEM** (se följande bilder) och sparar filen. Kom ihåg **ImagePath** för den aktuella VM-agenten. Vi kommer att behöva kopiera motsvarande mapp till den anslutna OS-disken. 
 
         ![Ändra värden för register under nyckeln](./media/install-vm-agent-offline/change-reg.png)
 

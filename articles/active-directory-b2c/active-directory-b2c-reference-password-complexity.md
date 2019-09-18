@@ -1,6 +1,6 @@
 ---
-title: Lösenordskomplexitet - Azure Active Directory B2C | Microsoft Docs
-description: Så här konfigurerar du komplexitetskrav för lösenord som anges av användare i Azure Active Directory B2C.
+title: Lösen ords komplexitet – Azure Active Directory B2C | Microsoft Docs
+description: Hur du konfigurerar komplexitets kraven för lösen ord som tillhandahålls av användare i Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -10,70 +10,70 @@ ms.topic: conceptual
 ms.date: 02/11/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 37f8305d8ed212cf2c6678b35220d823611b9d7a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 642621e2e04d3e96dc6886b1bdb28c161560b28e
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66509022"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71065463"
 ---
-# <a name="configure-complexity-requirements-for-passwords-in-azure-active-directory-b2c"></a>Konfigurera komplexitetskrav för lösenord i Azure Active Directory B2C
+# <a name="configure-complexity-requirements-for-passwords-in-azure-active-directory-b2c"></a>Konfigurera komplexitets krav för lösen ord i Azure Active Directory B2C
 
-Azure Active Directory (Azure AD) B2C stöder ändra komplexitetskrav för lösenord som tillhandahålls av en slutanvändare när du skapar ett konto. Azure AD B2C använder som standard `Strong` lösenord. Azure AD-B2C stöder också alternativ för att styra komplexitet och deras lösenord som kunder kan använda.
+Azure Active Directory B2C (Azure AD B2C) stöder ändring av komplexitets kraven för lösen ord som tillhandahålls av en slutanvändare när ett konto skapas. Som standard använder `Strong` Azure AD B2C lösen ord. Azure AD B2C också stöd för konfigurations alternativ för att kontrol lera komplexiteten för lösen ord som kunder kan använda.
 
-## <a name="password-rule-enforcement"></a>Regelverkställning för lösenord
+## <a name="password-rule-enforcement"></a>Tvingad lösen ords regel
 
-Under registreringen eller återställning av lösenord, en användare måste ange ett lösenord som uppfyller reglerna komplexitet. Lösenord tillämpas per användarflödet. Det är möjligt att ha en policy som kräver en 4-siffrig PIN-kod under registrering medan en annan användarflödet kräver en åtta tecken lång sträng under registreringen. Du kan till exempel använda ett användarflöde med olika lösenordskomplexitet för vuxna än för barn.
+Vid registrering eller återställning av lösen ord måste användaren ange ett lösen ord som uppfyller komplexitets reglerna. Reglerna för komplexitet av lösen ord upprätthålls per användar flöde. Det är möjligt att ett användar flöde kräver en fyrsiffrig PIN-kod under registreringen medan ett annat användar flöde kräver en sträng med åtta tecken under registreringen. Du kan till exempel använda ett användar flöde med annan lösen ords komplexitet för vuxna än för barn.
 
-Lösenordskomplexitet tillämpas aldrig under inloggning. Användare uppmanas aldrig under inloggning för att ändra sina lösenord eftersom den inte uppfyller kravet på aktuell komplexitet.
+Lösen ords komplexitet tillämpas aldrig under inloggningen. Användare tillfrågas aldrig under inloggningen för att ändra sina lösen ord eftersom det inte uppfyller det aktuella komplexitets kravet.
 
-Lösenordskomplexitet kan konfigureras i följande typer av användarflöden:
+Lösen ords komplexitet kan konfigureras i följande typer av användar flöden:
 
-- Registrering eller inloggning användarflödet
-- Användarflödet med återställning av lösenord
+- Användar flöde för registrering eller inloggning
+- Användar flöde för återställning av lösen ord
 
-Om du använder anpassade principer, kan du ([konfigurera lösenordskomplexitet i en anpassad princip](active-directory-b2c-reference-password-complexity-custom.md)).
+Om du använder anpassade principer kan du ([Konfigurera lösen ords komplexitet i en anpassad princip](active-directory-b2c-reference-password-complexity-custom.md)).
 
-## <a name="configure-password-complexity"></a>Konfigurera lösenordskomplexitet
+## <a name="configure-password-complexity"></a>Konfigurera lösen ords komplexitet
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
-2. Se till att du använder den katalog som innehåller din Azure AD B2C-klientorganisation genom att klicka på **katalog- och prenumerationsfiltret** på den översta menyn och välja katalogen som innehåller din klientorganisation.
+2. Kontrol lera att du använder den katalog som innehåller din Azure AD B2C klient genom att välja filtret **katalog + prenumeration** på den översta menyn och välja den katalog som innehåller din klient.
 3. Välj **Alla tjänster** på menyn uppe till vänster i Azure Portal. Sök sedan efter och välj **Azure AD B2C**.
-4. Välj **användarflöden**.
-2. Välj ett användarflöde klicka sedan på **egenskaper**.
-3. Under **lösenordskomplexitet**, ändra lösenordskomplexiteten för det här användarflödet till **enkel**, **starka**, eller **anpassad**.
+4. Välj **användar flöden**.
+2. Välj ett användar flöde och klicka på **Egenskaper**.
+3. Under **lösen ords komplexitet**ändrar du lösen ords komplexiteten för det här användar flödet till **enkel**, **stark**eller **anpassad**.
 
-### <a name="comparison-chart"></a>Jämförelsetabell
+### <a name="comparison-chart"></a>Jämförelse diagram
 
 | Komplexitet | Beskrivning |
 | --- | --- |
-| Enkel | Ett lösenord som är minst 8 – 64 tecken. |
-| Stark | Ett lösenord som är minst 8 – 64 tecken. Det krävs 3 av 4 av gemener, versaler, siffror eller symboler. |
-| Anpassat | Det här alternativet ger störst kontroll över lösenord.  Det gör att konfigurera en anpassad längd.  Det gör också accepterar endast många lösenord (PIN). |
+| Enkel | Ett lösen ord som består av minst 8 till 64 tecken. |
+| Stark | Ett lösen ord som består av minst 8 till 64 tecken. Det kräver 3 av 4 av gemener, versaler, siffror eller symboler. |
+| Anpassat | Det här alternativet ger störst kontroll över regler för lösen ords komplexitet.  Det gör det möjligt att konfigurera en anpassad längd.  Det tillåter också att du godkänner endast lösen ord (PIN-kod). |
 
 ## <a name="custom-options"></a>Anpassade alternativ
 
 ### <a name="character-set"></a>Teckenuppsättning
 
-Gör att du accepterar endast siffror (PIN) eller fullständiga teckenuppsättning.
+Du kan bara acceptera siffror (PIN-nummer) eller den fullständiga teckenuppsättningen.
 
-- **Nummer endast** tillåter siffror endast (0-9) när du skriver in ett lösenord.
-- **Alla** tillåter alla bokstav, siffra eller symbol.
+- **Siffror endast** tillåter siffror (0-9) när du anger ett lösen ord.
+- **Alla** tillåter bokstäver, siffror och symboler.
 
 ### <a name="length"></a>Längd
 
-Låter dig styra längdkraven av lösenordet.
+Gör att du kan kontrol lera lösen ordets längd krav.
 
-- **Minsta längd** måste vara minst 4.
-- **Maximal längd** måste vara större eller lika med minimilängden och högst kan vara 64 tecken.
+- Den **minsta längden** måste vara minst 4.
+- Den **maximala längden** måste vara större än eller lika med minimilängd och får innehålla högst 64 tecken.
 
-### <a name="character-classes"></a>Teckenklasser
+### <a name="character-classes"></a>Character-klasser
 
-Låter dig styra vilka olika teckenuppsättningar som används i lösenordet.
+Gör att du kan kontrol lera de olika teckenuppsättningarna som används i lösen ordet.
 
-- **2 av 4: Gemen, en versal bokstav, siffra (0-9), en Symbol** säkerställer lösenordet innehåller minst två teckentyper. Till exempel ett tal och en gemen.
-- **3 av 4: Gemen, en versal bokstav, siffra (0-9), en Symbol** säkerställer lösenordet innehåller minst två teckentyper. Till exempel ett tal, en gemen bokstav och en versal.
-- **4 av 4: Gemen, en versal bokstav, siffra (0-9), en Symbol** säkerställer lösenordet innehåller alla för teckentyper.
+- **2 av 4: Gemener, versaler, siffror (0-9), symbol** ser till att lösen ordet innehåller minst två tecken typer. Till exempel ett tal och ett gemener.
+- **3 av 4: Gemener, versaler, siffror (0-9), symbol** ser till att lösen ordet innehåller minst två tecken typer. Till exempel ett tal, ett gement och ett versalt.
+- **4 av 4: Gemener, versaler, siffror (0-9), symbol** ser till att lösen ordet innehåller alla för tecken typer.
 
     > [!NOTE]
-    > Kräver **4 av 4** kan resultera i slutanvändarens frustrationen. Vissa studier har visat att det här kravet inte förbättrar lösenord entropi. Se [NIST: S riktlinjer för lösenord](https://pages.nist.gov/800-63-3/sp800-63b.html#appA)
+    > Genom att kräva **4 av 4** kan du få till följd av en slutanvändare. Vissa studier har visat att detta krav inte förbättrar entropi. Se [rikt linjer för NIST-lösenord](https://pages.nist.gov/800-63-3/sp800-63b.html#appA)

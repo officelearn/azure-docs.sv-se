@@ -1,6 +1,6 @@
 ---
 title: Vad är ML-pipelines
-titleSuffix: Azure Machine Learning service
+titleSuffix: Azure Machine Learning
 description: Läs mer om de machine learning pipelines som du kan skapa med Azure Machine Learning-SDK för Python och fördelarna med att använda pipelines i den här artikeln. Machine learning (ML) pipelines som används av datatekniker att bygga, optimera och hantera sina arbetsflöden för maskininlärning.
 services: machine-learning
 ms.service: machine-learning
@@ -11,16 +11,16 @@ ms.author: sanpil
 author: sanpil
 ms.date: 08/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: 2547ca3af3039af53cb5fd5b244669b9152c21b3
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: 07efde7c3664ba1866e59f23c31b9c385ed9c366
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70993291"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71035492"
 ---
-# <a name="what-are-ml-pipelines-in-azure-machine-learning-service"></a>Vad är ML pipelines i Azure Machine Learning service?
+# <a name="what-are-ml-pipelines-in-azure-machine-learning"></a>Vad är ML-pipelines i Azure Machine Learning?
 
-Lär dig mer om de pipelines i Machine Learning som du kan bygga och hantera med Azure Machine Learning-tjänsten. 
+Lär dig mer om de pipelines för Machine Learning som du kan bygga och hantera med Azure Machine Learning. 
 
 Med machine learning (ML) pipelines, dataexperter, datatekniker och IT-proffs kan samarbeta med stegen som ingår i:
 + Förberedelse av data, till exempel normalizations och omvandlingar
@@ -30,7 +30,7 @@ Med machine learning (ML) pipelines, dataexperter, datatekniker och IT-proffs ka
 
 Lär dig hur du [skapa din första pipeline](how-to-create-your-first-pipeline.md).
 
-![Maskin inlärnings pipeliner i Azure Machine Learning-tjänsten](./media/concept-ml-pipelines/pipeline-flow.png)
+![Maskin inlärnings pipeliner i Azure Machine Learning](./media/concept-ml-pipelines/pipeline-flow.png)
 
 <a name="compare"></a>
 ### <a name="which-azure-pipeline-technology-should-i-use"></a>Vilken Azure pipeline-teknik ska jag använda?

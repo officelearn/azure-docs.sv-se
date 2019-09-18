@@ -1,7 +1,7 @@
 ---
 title: Vad är en arbets yta?
-titleSuffix: Azure Machine Learning service
-description: Arbets ytan är den översta resursen för Azure Machine Learning tjänst. Den innehåller en historik över alla utbildningar som körs, inklusive loggar, statistik, utdata och en ögonblicks bild av dina skript. Du kan använda den här informationen för att avgöra vilken utbildning som ska användas för att skapa den bästa modellen
+titleSuffix: Azure Machine Learning
+description: Arbets ytan är den översta resursen för Azure Machine Learning. Den innehåller en historik över alla utbildningar som körs, inklusive loggar, statistik, utdata och en ögonblicks bild av dina skript. Du kan använda den här informationen för att avgöra vilken utbildning som ska användas för att skapa den bästa modellen
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,16 +9,16 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 08/06/2019
-ms.openlocfilehash: ef060c083109a7096b62ebb35f2b49bb37a371b8
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: 84aad0f1a797bb7eccf1872bd291e72ecefa7eee
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70860512"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71035329"
 ---
-# <a name="what-is-an-azure-machine-learning-service-workspace"></a>Vad är en Azure Machine Learning service-arbetsyta?
+# <a name="what-is-an-azure-machine-learning-workspace"></a>Vad är en Azure Machine Learning arbets yta?
 
-Arbets ytan är den översta resursen för Azure Machine Learning tjänst, vilket ger en central plats för att arbeta med alla artefakter som du skapar när du använder Azure Machine Learning-tjänsten.  Arbets ytan har en historik över alla utbildningar som körs, inklusive loggar, mått, utdata och en ögonblicks bild av dina skript. Du kan använda den här informationen för att avgöra vilken utbildning som ska användas för att skapa den bästa modellen.  
+Arbets ytan är toppnivå resursen för Azure Machine Learning, vilket ger en central plats för att arbeta med alla artefakter som du skapar när du använder Azure Machine Learning.  Arbets ytan har en historik över alla utbildningar som körs, inklusive loggar, mått, utdata och en ögonblicks bild av dina skript. Du kan använda den här informationen för att avgöra vilken utbildning som ska användas för att skapa den bästa modellen.  
 
 När du har en modell som du gillar kan du registrera den med arbets ytan. Sedan använder du de registrerade modell-och bedömnings skripten för att distribuera till Azure Container Instances, Azure Kubernetes-tjänsten eller till en FPGA (Field-programmerbar grind array) som en REST-baserad HTTP-slutpunkt. Du kan också distribuera modellen till en Azure IoT Edge enhet som en modul.
 
@@ -103,9 +103,9 @@ När du skapar en ny arbetsyta skapas automatiskt flera Azure-resurser som anvä
 
 ## <a name="next-steps"></a>Nästa steg
 
-Information om hur du kommer igång med Azure Machine Learning-tjänsten finns i:
+För att komma igång med Azure Machine Learning, se:
 
-+ [Översikt över Azure Machine Learning tjänsten](overview-what-is-azure-ml.md)
++ [Översikt över Azure Machine Learning](overview-what-is-azure-ml.md)
 + [Skapa en arbetsyta](how-to-manage-workspace.md)
 + [Hantera en arbetsyta](how-to-manage-workspace.md)
 + [Självstudier: Träna en modell](tutorial-train-models-with-aml.md)

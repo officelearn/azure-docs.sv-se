@@ -7,12 +7,12 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: tutorial
 ms.date: 09/04/2019
-ms.openlocfilehash: 6cac4bd05f2acf5b11a8235a4bc1e0d09e0c4dc7
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: 6d92ebc743bae97ecfa1591add27f470792dcafc
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70885933"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71037174"
 ---
 # <a name="tutorial-configure-apache-kafka-policies-in-hdinsight-with-enterprise-security-package-preview"></a>Självstudier: Konfigurera Apache Kafka-principer i HDInsight med Enterprise Security Package (förhandsversion)
 
@@ -36,7 +36,7 @@ Ett [HDInsight Kafka-kluster med Enterprise Security Package](./apache-domain-jo
 
 2. Logga in med dina administratörsautentiseringsuppgifter för Azure Active Directory (AD). Azure AD-administratörsautentiseringsuppgifterna är inte samma som autentiseringsuppgifterna för HDInsight-kluster eller SSH-autentiseringsuppgifterna för Linux HDInsight-noder.
 
-   ![Apache Ranger-administratörsanvändargränssnitt](./media/apache-domain-joined-run-kafka/apache-ranger-admin-login.png)
+   ![HDInsight Apache Ranger-administratörs gränssnitt](./media/apache-domain-joined-run-kafka/apache-ranger-admin-login.png)
 
 ## <a name="create-domain-users"></a>Skapa domänanvändare
 
@@ -183,7 +183,7 @@ Baserat på Ranger-principerna som konfigurerats kan **sales_user** skapa/använ
 
 9. Granska åtkomsthändelserna i Ranger-användargränssnittet.
 
-   ![Principgranskning i Ranger-användargränssnittet](./media/apache-domain-joined-run-kafka/apache-ranger-admin-audit.png)
+   ![Ranger UI policy granska åtkomst händelser ](./media/apache-domain-joined-run-kafka/apache-ranger-admin-audit.png)
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 

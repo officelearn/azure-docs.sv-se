@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: c4eba3e08e403243e76ac891d3bfcb59f12cad85
-ms.sourcegitcommit: 8fea78b4521921af36e240c8a92f16159294e10a
+ms.openlocfilehash: f794fad0f42a27190bdd948df49d0133dfaa1a92
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2019
-ms.locfileid: "70211917"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71066418"
 ---
 # <a name="take-a-tour-of-the-azure-iot-central-ui"></a>Ta en rundtur i Azure IoT Central-användargränssnittet
 
@@ -44,22 +44,21 @@ Använd den vänstra navigerings menyn för att få åtkomst till olika delar av
       ![Left navigation menu](media/overview-iot-central-tour/navigationbar.png)
   :::column-end:::
   :::column span="2":::
-
-      **Dashboard** displays your application dashboard. As a builder, you can customize the dashboard for your operators. Users can also create their own  dashboards.
+     **Instrument** panelen visar din program instrument panel. Som ett verktyg kan du anpassa instrument panelen för dina operatörer. Användare kan också skapa egna instrument paneler.
     
-      **Device Explorer** lists the simulated and real devices associated with each device template in the application. As an operator, you use the **Device Explorer** to manage your connected devices.
+     **Device Explorer** listar de simulerade och riktiga enheter som är kopplade till varje enhets mall i programmet. Som operatör kan du använda **Device Explorer** till att hantera dina anslutna enheter.
     
-      **Device Sets** enables you to view and create device sets. As an operator, you can create device sets as a logical collection of devices specified by a query.
+     Med **enhets uppsättningar** kan du Visa och skapa enhets uppsättningar. Som operatör kan du skapa enhetsuppsättningar som en logisk samling av enheter som anges av en fråga.
     
-      **Analytics** shows analytics derived from device telemetry for devices and device sets. As an operator, you can create custom views on top of device data to derive insights from your application.
+     **Analytics** visar analys som härletts från enhets telemetri för enheter och enhets uppsättningar. Som operatör kan du skapa anpassade vyer ovanpå enhetsdata för att kunna härleda insikter från ditt program.
     
-      **Jobs** enables bulk device management by having you create and run jobs to perform updates at scale.
+     **Jobb** möjliggör hantering av Mass enheter genom att du har skapat och kört jobb för att utföra uppdateringar i stor skala.
     
-      **Device Templates** shows the tools a builder uses to create and manage device templates.
+     **Enhets mallar** visar de verktyg som en Builder använder för att skapa och hantera mallar för enheter.
     
-      **Continuous Data Export** enables an administrator to configure a continuous export to other Azure services such as storage and queues.
+     Med **kontinuerliga data export** kan en administratör konfigurera en kontinuerlig export till andra Azure-tjänster, till exempel lagring och köer.
     
-      **Administration** shows the application administration pages where an administrator can manage application settings, users, and roles.
+     **Administration** visar de program administrations sidor där en administratör kan hantera program inställningar, användare och roller.
    :::column-end:::
 :::row-end:::
 
@@ -69,7 +68,7 @@ Den översta menyn visas på varje sida:
 
 ![Verktygsfält](media/overview-iot-central-tour/toolbar.png)
 
-- Ange ett sökvärde om du vill söka efter enhets mallar och enheter.
+- Ange **ett** sökvärde om du vill söka efter enhets mallar och enheter.
 - Om du vill ändra språket eller temat för användar gränssnittet väljer du ikonen **Inställningar** .
 - Om du vill logga ut från programmet väljer du **konto** ikonen.
 - Om du behöver hjälp och support väljer du listrutan **Hjälp** för att visa en lista med resurser. I ett utvärderings program inkluderar support resurserna åtkomst till [Live Chat](howto-show-hide-chat.md).

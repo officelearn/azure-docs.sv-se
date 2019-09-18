@@ -16,12 +16,12 @@ ms.date: 05/31/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 13beafe9a6937b0404a58d3508a9aba9892ac04d
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 50cb5a76c6b19668fc23147244d65a0d996ebf90
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70073875"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71033724"
 ---
 # <a name="azure-active-directory-connect-sync-configure-preferred-data-location-for-office-365-resources"></a>Azure Active Directory Connect synkronisering: Konfigurera önskad data plats för Office 365-resurser
 Syftet med det här avsnittet är att hjälpa dig att konfigurera attributet för önskad data plats i Azure Active Directory (Azure AD) Connect-synkronisering. När någon använder flera geo-funktioner i Office 365 använder du det här attributet för att ange geo-platsen för användarens Office 365-data. (Regions *region* och *geo* används utbytbart.)
@@ -92,7 +92,7 @@ För att undvika oönskade ändringar som exporteras till Azure AD kontrollerar 
 1. Starta en PowerShell-session på Azure AD Connect servern.
 2. Inaktivera schemalagd synkronisering genom att köra denna cmdlet `Set-ADSyncScheduler -SyncCycleEnabled $false`:.
 3. Starta **Synchronization Service Manageren** genom att gå till **Starta** > **synkroniseringstjänsten**.
-4. Välj fliken **åtgärder** och bekräfta att det inte finns någon åtgärd med statusen pågår.
+4. Välj fliken **åtgärder** och bekräfta att det inte finns någon åtgärd *med statusen*pågår.
 
 ![Skärm bild av Synchronization Service Manager](./media/how-to-connect-sync-feature-preferreddatalocation/preferreddatalocation-step1.png)
 
@@ -172,7 +172,7 @@ Regeln för utgående synkronisering tillåter att attributvärdet flödar från
     | sourceObjectType | SKEPPNINGSKVANTITETEN | Användare |
     | cloudMastered | NOTEQUAL | Sant |
 
-    Omfångs filtret bestämmer vilka Azure AD-objekt den här utgående synkroniseringsregeln tillämpas på. I det här exemplet använder vi samma omfångs filter från "out to AD – användar identitet" OOB (out-of-Box) synkroniseringsregeln. Det förhindrar att synkroniseringsregeln tillämpas på **användar** objekt som inte är synkroniserade från lokala Active Directory. Du kan behöva justera omfångs filtret enligt din Azure AD Connect-distribution.
+    Omfångs filtret bestämmer vilka Azure AD-objekt den här utgående synkroniseringsregeln tillämpas på. I det här exemplet använder vi samma omfångs filter från "ut till Azure AD – användar identitet" OOB (out-of-Box) synkroniseringsregeln. Det förhindrar att synkroniseringsregeln tillämpas på **användar** objekt som inte är synkroniserade från lokala Active Directory. Du kan behöva justera omfångs filtret enligt din Azure AD Connect-distribution.
 
 6. Gå till fliken **omvandling** och implementera följande omvandlings regel:
 

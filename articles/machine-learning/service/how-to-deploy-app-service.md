@@ -1,7 +1,7 @@
 ---
 title: Distribuera ml-modeller till Azure App Service (för hands version)
-titleSuffix: Azure Machine Learning service
-description: Lär dig hur du använder tjänsten Azure Machine Learning för att distribuera en modell till en webbapp i Azure App Service.
+titleSuffix: Azure Machine Learning
+description: Lär dig att använda Azure Machine Learning för att distribuera en modell till en webbapp i Azure App Service.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,21 +10,21 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 08/27/2019
-ms.openlocfilehash: 20a90a70c66310f6838b41a40aa945308bf338d4
-ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
+ms.openlocfilehash: 24ec49a0f23516638d1f525341ea44e204653fea
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70147909"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71034600"
 ---
 # <a name="deploy-a-machine-learning-model-to-azure-app-service-preview"></a>Distribuera en maskin inlärnings modell till Azure App Service (för hands version)
 
-Lär dig hur du distribuerar en modell från Azure Machine Learning-tjänsten som en webbapp i Azure App Service.
+Lär dig hur du distribuerar en modell från Azure Machine Learning som en webbapp i Azure App Service.
 
 > [!IMPORTANT]
-> Både Azure Machine Learning tjänst och Azure App Service är allmänt tillgängliga, men möjligheten att distribuera en modell från Machine Learnings tjänsten till App Service är i för hands version.
+> Både Azure Machine Learning och Azure App Service är allmänt tillgängliga, men möjligheten att distribuera en modell från Machine Learnings tjänsten till App Service är i för hands version.
 
-Med Azure Machine Learning tjänsten kan du skapa Docker-avbildningar från tränade maskin inlärnings modeller. Den här avbildningen innehåller en webb tjänst som tar emot data, skickar den till modellen och returnerar svaret. Azure App Service kan användas för att distribuera avbildningen och innehåller följande funktioner:
+Med Azure Machine Learning kan du skapa Docker-avbildningar från tränade maskin inlärnings modeller. Den här avbildningen innehåller en webb tjänst som tar emot data, skickar den till modellen och returnerar svaret. Azure App Service kan användas för att distribuera avbildningen och innehåller följande funktioner:
 
 * Avancerad [autentisering](/azure/app-service/configure-authentication-provider-aad) för förbättrad säkerhet. Autentiseringsmetoder omfattar både Azure Active Directory och Multi-factor auth.
 * [Skala](/azure/azure-monitor/platform/autoscale-get-started?toc=%2fazure%2fapp-service%2ftoc.json) utan att behöva distribuera igen.
@@ -37,7 +37,7 @@ Mer information om funktioner som tillhandahålls av Azure App Service finns i [
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-* En arbetsyta för Azure Machine Learning-tjänsten. Mer information finns i artikeln [skapa en arbets yta](how-to-manage-workspace.md) .
+* En Azure Machine Learning-arbetsyta. Mer information finns i artikeln [skapa en arbets yta](how-to-manage-workspace.md) .
 * Den [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 * En utbildad Machine Learning-modell som registrerats i din arbets yta. Om du inte har någon modell använder du [själv studie kursen om bild klassificering: träna modell](tutorial-train-models-with-aml.md) att träna och registrera en.
 
@@ -48,7 +48,7 @@ Mer information om funktioner som tillhandahålls av Azure App Service finns i [
     > * `model`– Den registrerade modellen som ska distribueras.
     > * `inference_config`– Den här modellens konfigurations konfiguration.
     >
-    > Mer information om hur du ställer in dessa variabler finns i [Distribuera modeller med Azure Machine Learning-tjänsten](how-to-deploy-and-where.md).
+    > Mer information om hur du ställer in dessa variabler finns i [Distribuera modeller med Azure Machine Learning](how-to-deploy-and-where.md).
 
 ## <a name="prepare-for-deployment"></a>Förbereda för distribution
 
@@ -66,7 +66,7 @@ Innan du distribuerar måste du definiera vad som behövs för att köra modelle
     >
     > Ett annat alternativ som kan fungera för ditt scenario är [batch](how-to-run-batch-predictions.md)-förutsägelser, vilket ger åtkomst till data lager när poäng.
 
-    Mer information om Entry-skript finns i [Distribuera modeller med Azure Machine Learning-tjänsten](how-to-deploy-and-where.md).
+    Mer information om Entry-skript finns i [Distribuera modeller med Azure Machine Learning](how-to-deploy-and-where.md).
 
 * **Beroenden**, till exempel hjälp skript eller python/Conda-paket som krävs för att köra registrerings skriptet eller modellen
 
@@ -89,17 +89,17 @@ Dessa entiteter kapslas in i en konfiguration för en __härledning__. Konfigura
 
 Mer information om miljöer finns i [skapa och hantera miljöer för utbildning och distribution](how-to-use-environments.md).
 
-Mer information om konfiguration av konfiguration finns i [Distribuera modeller med Azure Machine Learning-tjänsten](how-to-deploy-and-where.md).
+Mer information om konfiguration av konfiguration finns i [Distribuera modeller med Azure Machine Learning](how-to-deploy-and-where.md).
 
 > [!IMPORTANT]
-> När du distribuerar till Azure App Service behöver du inte skapa en distributions __konfiguration__.
+> När du distribuerar till Azure App Service behöver du inte skapa en __distributions konfiguration__.
 
 ## <a name="create-the-image"></a>Skapa avbildningen
 
 Om du vill skapa Docker-avbildningen som distribueras till Azure App Service använder du [modell. Package](https://docs.microsoft.com//python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#package-workspace--models--inference-config--generate-dockerfile-false-). Följande kodfragment visar hur du skapar en ny avbildning från modellen och konfigurationen för konfigurations härledning:
 
 > [!NOTE]
-> Kodfragmentet förutsätter att `model` innehåller en registrerad modell och att `inference_config` den innehåller konfigurationen för härlednings miljön. Mer information finns i [Distribuera modeller med Azure Machine Learning-tjänsten](how-to-deploy-and-where.md).
+> Kodfragmentet förutsätter att `model` innehåller en registrerad modell och att `inference_config` den innehåller konfigurationen för härlednings miljön. Mer information finns i [Distribuera modeller med Azure Machine Learning](how-to-deploy-and-where.md).
 
 ```python
 from azureml.core import Model
@@ -153,7 +153,7 @@ När `show_output=True`visas utdata från Docker-build-processen. När processen
     I det här exemplet används en __grundläggande__ pris nivå`--sku B1`().
 
     > [!IMPORTANT]
-    > Avbildningar som skapats av tjänsten Azure Machine Learning använder Linux, så du måste använda `--is-linux` parametern.
+    > Avbildningar som skapats av Azure Machine Learning använda Linux, så du måste `--is-linux` använda parametern.
 
 1. Använd följande kommando för att skapa en webbapp. Ersätt `<app-name>` med det namn som du vill använda. Ersätt `<acrinstance>` `package.location` och `<imagename>` med värdena från returnerade tidigare:
 

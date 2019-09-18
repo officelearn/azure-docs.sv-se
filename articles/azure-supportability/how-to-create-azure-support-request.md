@@ -1,6 +1,6 @@
 ---
-title: Så här skapar du en supportförfrågan för Azure | Microsoft Docs
-description: Så här skapar du en supportförfrågan för Azure.
+title: Så här skapar du en support förfrågan för Azure | Microsoft Docs
+description: Så här skapar du en support förfrågan för Azure.
 services: Azure Supportability
 documentationcenter: ''
 author: ganganarayanan
@@ -14,121 +14,121 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/25/2016
 ms.author: gangan
-ms.openlocfilehash: f6d9e683e1feff670c26b01a31ce977557295bff
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 462a14d7845c6723a3482e50b01c50e3d913beee
+ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62129067"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71072088"
 ---
 # <a name="how-to-create-an-azure-support-request"></a>Skapa en supportbegäran för Azure
 ## <a name="summary"></a>Sammanfattning
-Azure-kunder kan skapa och hantera supportärenden i Azure-portalen [ https://portal.azure.com ](https://portal.azure.com).
+Azure- [https://portal.azure.com](https://portal.azure.com)kunder kan skapa och hantera support förfrågningar i Azure Portal.
 
 > [!NOTE]
-> Azure-portalen för Tyskland är [https://portal.microsoftazure.de](https://portal.microsoftazure.de)   
-> Azure-portalen för USA: S regering är [ https://portal.azure.us ](https://portal.azure.us).
+> Azure Portal för Commerical-användning [https://portal.azure.com](https://portal.azure.com) är Azure Portal för Tyskland[https://portal.microsoftazure.de](https://portal.microsoftazure.de)   
+> Azure Portal för USA myndigheter är[https://portal.azure.us](https://portal.azure.us)
 
 
-Baserat på feedback från kunder, har vi uppdaterat begäran supportupplevelse att fokusera på tre huvudsakliga mål:
+Baserat på kundfeedback har vi uppdaterat support ärende upplevelsen för att fokusera på tre huvudsakliga mål:
 
-* **Effektiv**: Minska klick och blad att göra det enkelt att skicka en supportförfrågan.
-* **Integrerad**: När du felsöker ett problem med en Azure-resurs, bör det vara lätt att öppna en supportbegäran för den resursen utan att växla kontext.
-* **Effektiv**: Samla in viktig information som supportpersonalen behöver effektivt lösa problemet.
+* **Effektiviserat**: Minska klickningar och blad för att göra det enkelt att skicka en support förfrågan.
+* **Integrerad**: När du felsöker ett problem med en Azure-resurs bör det vara enkelt att öppna en support förfrågan för resursen utan att växla sammanhang.
+* **Effektiv**: Samla in viktig information som support teknikern behöver för att effektivt lösa problemet.
 
 ## <a name="getting-started"></a>Komma igång
-Du kan skapa en begäran från den övre navigeringsmenyn eller direkt från ett Resursblad.
+Du kan skapa en support förfrågan från den översta navigerings menyn eller direkt från ett resurs blad.
 
-**Från det övre navigeringsfältet**
+**Från det övre navigerings fältet**
 
-![Hjälp och Support](./media/how-to-create-azure-support-request/HelpandSupport.png)
+![Hjälp och support](./media/how-to-create-azure-support-request/HelpandSupport.png)
 
-Välj ”ny supportbegäran” från sidan Hjälp och Support
+På sidan hjälp och support väljer du "ny supportbegäran"
 
-![Ny supportbegäran](./media/how-to-create-azure-support-request/NewSupportRequest.png)
+![Ny supportförfrågan](./media/how-to-create-azure-support-request/NewSupportRequest.png)
 
-**Från ett Resursblad**
+**Från ett resurs blad**
 
-![I kontexten](./media/how-to-create-azure-support-request/Incontext.png)
+![I sammanhang](./media/how-to-create-azure-support-request/Incontext.png)
 
-## <a name="basics"></a>Grundläggande inställningar
-Det första steget i begäran supportprocessen samlar in grundläggande information om problemet och ditt supportavtal.
+## <a name="basics"></a>Grundinställningar
+Det första steget i support förfrågnings processen samlar in grundläggande information om ditt problem och ditt support avtal.
 
-Låt oss ta ett exempel: Du med tekniska problem med din virtuella dator och misstänker ett problem med nätverksanslutningen.
-Markera service (”virtuell dator som kör Windows”) och resursen (namnet på den virtuella datorn) i det första steget i guiden startar processen för att få hjälp för det här problemet.
+Låt oss ta ett exempel: Du är riktad mot tekniska problem med den virtuella datorn och misstänker ett problem med nätverks anslutningen.
+Om du väljer tjänsten ("virtuell dator som kör Windows") och resursen (namnet på den virtuella datorn) i det första steget i guiden startar processen för att få hjälp med det här problemet.
 
 ![Bladet Grundläggande inställningar](./media/how-to-create-azure-support-request/Basics.png)
 
 > [!NOTE]
-> Azure ger obegränsad support för prenumerationshantering (t.ex. fakturering, justering av kvoter och kontoöverföringar). För teknisk support behöver du ett supportavtal. [Mer information om supportavtal](https://azure.microsoft.com/support/plans).
+> Azure ger obegränsad support för prenumerations hantering (t. ex. fakturering, kvot justeringar och konto överföringar). För teknisk support behöver du en Support plan. [Läs mer om support planer](https://azure.microsoft.com/support/plans).
 >
 >
 
 ## <a name="problem"></a>Problem
-Det andra steget i guiden samlar in ytterligare information om problemet. Med korrekt information i det här steget kan vi att dirigera ditt ärende till bästa supportteknikern för problemet och för att påbörja diagnostisera problemet så snart som möjligt.
+I det andra steget i guiden samlas ytterligare information om problemet. Genom att tillhandahålla korrekt information i det här steget kan vi skicka ditt ärende till bästa support teknikern för problemet och börja diagnostisera problemet så snart som möjligt.
 
-![Problem-bladet](./media/how-to-create-azure-support-request/Problem01.png)
+![Bladet problem](./media/how-to-create-azure-support-request/Problem01.png)
 
-Fortsättning på VM-anslutning exemplet ovan, Fyll i det här formuläret för att indikera ett problem med nätverksanslutningen, och du vill ange ytterligare information om problemet, inklusive den ungefärliga tid när du har haft problemet.
+Om du fortsätter med den virtuella datorns anslutnings exempel från ovan kan du fylla i det här formuläret för att ange ett problem med nätverks anslutningen, och du får mer information om problemet, inklusive den ungefärliga tiden när du fick problemet.
 
-![Problemet bladet 2](./media/how-to-create-azure-support-request/Problem02.png)
+![Problem blad 2](./media/how-to-create-azure-support-request/Problem02.png)
 
-## <a name="related-help"></a>Tillhörande hjälp
-Baserat på typen av problem och den kategori som du valt, tillhandahåller vi en lösning som hjälper dig att lösa problemet.
+## <a name="related-help"></a>Relaterad hjälp
+Baserat på problem typ och den kategori du väljer, tillhandahåller vi en lösning som kan hjälpa dig att lösa problemet.
 
 ![Tillhörande hjälp](./media/how-to-create-azure-support-request/RelatedHelp.png)
 
-Vi ger även sammanhangsberoende självhjälp lösningar som bygger på textbeskrivning av problemet.
+Vi tillhandahåller även sammanhangsbaserade självhjälps lösningar som baseras på den text Beskrivning av problemet.
 
-![Tillhörande hjälp 2](./media/how-to-create-azure-support-request/RelatedHelp02.png)
+![Relaterad hjälp 2](./media/how-to-create-azure-support-request/RelatedHelp02.png)
 
-Om de rekommenderade lösningarna inte hjälper, kan du fortsätta processen för att skapa en supportbegäran.
+Om de rekommenderade lösningarna inte hjälper kan du fortsätta genom processen för att skapa en support förfrågan.
 
-![Problemet bladet 3](./media/how-to-create-azure-support-request/Problem03.png)
+![Problem blad 3](./media/how-to-create-azure-support-request/Problem03.png)
 
-## <a name="contact-information"></a>Kontaktinformation
-Det sista steget i guiden bekräftar din Kontaktalternativ och ytterligare kontaktinformation så att vi vet hur man når du.
+## <a name="contact-information"></a>Kontaktuppgifter
+Det sista steget i guiden bekräftar dina kontakt alternativ och kontakt information så att vi vet hur man når dig.
 
-![Kontaktinformation](./media/how-to-create-azure-support-request/ContactInformation.png)
+![Kontaktuppgifter](./media/how-to-create-azure-support-request/ContactInformation.png)
 
-Beroende på hur allvarligt problemet, kan du bli ombedd att ange om du vill att vi kontaktar dig under kontorstid eller om du vill använda ett 24 x 7-svar, vilket innebär att vi kan kontakta dig när som helst.
+Beroende på problemets allvarlighets grad kan du bli ombedd att ange om du vill att vi ska kontakta dig under kontors tid eller om du föredrar ett svar dygnet runt, vilket innebär att vi kan kontakta dig när som helst.
 
-![Kontaktinformation 24 x 7](./media/how-to-create-azure-support-request/ContactInformation-2.png)
+![Kontakt information dygnet runt](./media/how-to-create-azure-support-request/ContactInformation-2.png)
 
-## <a name="all-support-requests"></a>Alla supportärenden
-När du har skapat supportförfrågan, kan du visa information från den **alla supportärenden** sidan.
+## <a name="all-support-requests"></a>Alla supportförfrågningar
+När du har skapat support förfrågan kan du Visa informationen på sidan **alla support förfrågningar** .
 
-**Från det övre navigeringsfältet**
+**Från det övre navigerings fältet**
 
-![Hjälp och Support](./media/how-to-create-azure-support-request/HelpandSupport.png)
+![Hjälp och support](./media/how-to-create-azure-support-request/HelpandSupport.png)
 
-Välj ”alla supportärenden” i den vänstra menyn från sidan Hjälp och Support.
+På sidan hjälp och support väljer du "alla support förfrågningar" på den vänstra menyn.
 
-![Alla supportärende länk](./media/how-to-create-azure-support-request/AllSupportRequest-link.png)
+![Länk till alla support begär Anden](./media/how-to-create-azure-support-request/AllSupportRequest-link.png)
 
-På den **alla supportärenden** kan du visa alla supportärenden och deras status.
+På sidan **alla support förfrågningar** kan du Visa alla support förfrågningar och deras status.
 
-![Alla supportförfrågan](./media/how-to-create-azure-support-request/AllSupportRequest.png)
+![Alla support förfrågningar](./media/how-to-create-azure-support-request/AllSupportRequest.png)
 
-Support begär sida, ger kunderna för att filtrera fall av prenumerationen, skapat datum (UTC) och status.
-Dessutom kan du sortera och söka efter begäranden om support på den här sidan.
+Sidan Support begär Anden ger kunder möjlighet att filtrera ärenden efter prenumeration, skapat datum (UTC) och status.
+Dessutom kan du sortera och söka efter support förfrågningar på den här sidan.
 
-Välj supportbegäran för att visa information om, inklusive allvarlighetsgrad och den förväntade tiden det tar för en supporttekniker svarar.
+Välj supportbegäran för att se information, inklusive allvarlighets grad och den förväntade tiden det tar för en support tekniker att svara.
 ![VID](./media/how-to-create-azure-support-request/VID.png)
 
-Om du vill ändra allvarlighetsgrad för begäran, klickar du på den **inverkan på företaget** panelen. I föregående exempel är begäran för närvarande inställd på allvarlighetsgrad C.
+Om du vill ändra allvarlighets graden för begäran klickar du på panelen påverkan på **företaget** . I föregående exempel är förfrågan för närvarande inställd på allvarlighets grad C.
 
-Klicka på panelen visar listan över allvarlighetsgrader som du kan tilldela till en öppen supportförfrågan.
+Om du klickar på panelen visas en lista över allvarlighets grader som du kan tilldela till en öppen supportbegäran.
 
 > [!NOTE]
-> Den högsta allvarlighetsgraden beror på ditt supportavtal. [Mer information om supportavtal](https://azure.microsoft.com/support/plans).
+> Den högsta allvarlighets graden beror på support avtalet. [Läs mer om support planer](https://azure.microsoft.com/support/plans).
 >
 >
 
 ![VID-2](./media/how-to-create-azure-support-request/VID-2.png)
 
 ## <a name="feedback"></a>Feedback
-Vi är alltid öppna för återkoppling och förslag! Skicka oss dina [förslag](https://feedback.azure.com/forums/266794-support-feedback). Dessutom kan du föra en dialog med oss via [Twitter](https://twitter.com/azuresupport) eller [MSDN-forum](https://social.msdn.microsoft.com/Forums/azure).
+Vi är alltid öppna för återkoppling och förslag! Skicka oss dina [förslag](https://feedback.azure.com/forums/266794-support-feedback). Dessutom kan du delta i oss via [Twitter](https://twitter.com/azuresupport) eller MSDN- [Forum](https://social.msdn.microsoft.com/Forums/azure).
 
-## <a name="learn-more"></a>Läs mer
-[Vanliga frågor om Azure-Support](https://azure.microsoft.com/support/faq)
+## <a name="learn-more"></a>Lär dig mer
+[Vanliga frågor och svar om support för Azure](https://azure.microsoft.com/support/faq)

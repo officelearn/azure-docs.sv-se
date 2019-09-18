@@ -10,18 +10,18 @@ ms.topic: conceptual
 ms.date: 09/20/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 557d25c4921c9906be75bce03c326903e63432de
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.openlocfilehash: bfe8b1297b155ecd947140149c13da6c3a08c3c8
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68464794"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71065985"
 ---
 # <a name="set-up-sign-in-with-a-twitter-account-by-using-custom-policies-in-azure-active-directory-b2c"></a>Konfigurera inloggning med ett Twitter-konto genom att använda anpassade principer i Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Den här artikeln visar hur du aktiverar inloggning för användare av ett Twitter-konto genom att använda [anpassade principer](active-directory-b2c-overview-custom.md) i Azure Active Directory (Azure AD) B2C.
+Den här artikeln visar hur du aktiverar inloggning för användare av ett Twitter-konto genom att använda [anpassade principer](active-directory-b2c-overview-custom.md) i Azure Active Directory B2C (Azure AD B2C).
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -36,7 +36,7 @@ Om du vill använda Twitter som identitets leverantör i Azure AD B2C måste du 
 2. Välj **skapa en app**.
 3. Ange ett **namn på appen** och en **program beskrivning**.
 4. I **webbplats-URL**anger `https://your-tenant.b2clogin.com`du. Ersätt `your-tenant` med namnet på din klient. Till exempel https://contosob2c.b2clogin.com.
-5. Ange`https://your-tenant.b2clogin.com/your-tenant.onmicrosoft.com/your-policy-Id/oauth1/authresp`för återanrops- **URL: en**. Ersätt `your-tenant` med namnet på ditt klient namn och `your-policy-Id` med identifieraren för din princip. Till exempel `b2c_1A_signup_signin_twitter`. Du måste använda små bokstäver när du anger ditt klient namn även om klienten har definierats med versaler i Azure AD B2C.
+5. Ange`https://your-tenant.b2clogin.com/your-tenant.onmicrosoft.com/your-policy-Id/oauth1/authresp`för **ÅTERanrops-URL: en**. Ersätt `your-tenant` med namnet på ditt klient namn och `your-policy-Id` med identifieraren för din princip. Till exempel `b2c_1A_signup_signin_twitter`. Du måste använda små bokstäver när du anger ditt klient namn även om klienten har definierats med versaler i Azure AD B2C.
 6. Längst ned på sidan, Läs och godkänn villkoren och välj sedan **skapa**.
 7. På sidan **information om appar** väljer du **Redigera > Redigera information**, markerar kryss rutan **Aktivera inloggning med Twitter**och väljer sedan **Spara**.
 8. Välj **nycklar och tokens** och registrera konsument- **API-nyckeln** och de **hemliga nyckel** värden för konsument-API som ska användas senare.
@@ -46,7 +46,7 @@ Om du vill använda Twitter som identitets leverantör i Azure AD B2C måste du 
 Du måste lagra den hemliga nyckeln som du tidigare har registrerat i Azure AD B2C-klienten.
 
 1. Logga in på [Azure Portal](https://portal.azure.com/).
-2. Kontrol lera att du använder den katalog som innehåller din Azure AD B2C-klient. Välj **katalog-och prenumerations filter** på den översta menyn och välj den katalog som innehåller din klient.
+2. Kontrol lera att du använder den katalog som innehåller din Azure AD B2C-klient. Välj **katalog + prenumerations** filter på den översta menyn och välj den katalog som innehåller din klient.
 3. Välj **Alla tjänster** på menyn uppe till vänster i Azure Portal. Sök sedan efter och välj **Azure AD B2C**.
 4. På sidan Översikt väljer du **ID för identitets miljö**.
 5. Välj **princip nycklar** och välj sedan **Lägg till**.
@@ -157,11 +157,11 @@ Nu när du har en knapp på plats måste du länka den till en åtgärd. Åtgär
 Kommunikation med Azure AD B2C sker via ett program som du skapar i din klient organisation. Det här avsnittet innehåller valfria steg som du kan utföra för att skapa ett testprogram om du inte redan har gjort det.
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
-2. Kontrol lera att du använder den katalog som innehåller din Azure AD B2C-klient. Välj **katalog-och prenumerations filter** på den översta menyn och välj den katalog som innehåller din klient.
+2. Kontrol lera att du använder den katalog som innehåller din Azure AD B2C-klient. Välj **katalog + prenumerations** filter på den översta menyn och välj den katalog som innehåller din klient.
 3. Välj **Alla tjänster** på menyn uppe till vänster i Azure Portal. Sök sedan efter och välj **Azure AD B2C**.
 4. Välj **Program** och därefter **Lägg till**.
 5. Ange ett namn för programmet, till exempel *testapp1*.
-6. För **webbapp/webb-API**väljer `Yes`du och anger `https://jwt.ms` sedan för svars- **URL: en**.
+6. För **webbapp/webb-API**väljer `Yes`du och anger `https://jwt.ms` sedan för **svars-URL: en**.
 7. Klicka på **Skapa**.
 
 ## <a name="update-and-test-the-relying-party-file"></a>Uppdatera och testa den förlitande part filen

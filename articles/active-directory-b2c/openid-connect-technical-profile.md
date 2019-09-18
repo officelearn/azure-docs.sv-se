@@ -10,22 +10,22 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 1e8f03b17c5e8ea68affa9fe83875382fd5d8512
-ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
+ms.openlocfilehash: b1262d34f93ecbcdb71586fd551d28fde477f92a
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68716701"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71063949"
 ---
 # <a name="define-an-openid-connect-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definiera en OpenID Connect-teknisk profil i en Azure Active Directory B2C anpassad princip
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Azure Active Directory (Azure AD) B2C tillhandahåller stöd för [OpenID Connect](https://openid.net/2015/04/17/openid-connect-certification-program/) Protocol Identity Provider. OpenID Connect 1,0 definierar ett identitets lager ovanpå OAuth 2,0 och representerar status för grafiken i moderna autentiseringsprotokoll. Med en OpenID Connect-teknisk profil kan du federera med en OpenID Connect-baserad identitets leverantör, t. ex. Azure AD. Genom att federera med en identitets leverantör kan användare logga in med sina befintliga sociala identiteter eller företags identiteter.
+Azure Active Directory B2C (Azure AD B2C) har stöd för [OpenID Connect](https://openid.net/2015/04/17/openid-connect-certification-program/) Protocol Identity Provider. OpenID Connect 1,0 definierar ett identitets lager ovanpå OAuth 2,0 och representerar status för grafiken i moderna autentiseringsprotokoll. Med en OpenID Connect-teknisk profil kan du federera med en OpenID Connect-baserad identitets leverantör, t. ex. Azure AD. Genom att federera med en identitets leverantör kan användare logga in med sina befintliga sociala identiteter eller företags identiteter.
 
 ## <a name="protocol"></a>Protocol
 
-Namnattributet för **protokoll** elementet måste anges till `OpenIdConnect`. Till exempel är `OpenIdConnect`protokollet för den tekniska profilen **MSA-OIDC** :
+Namnattributet **för** **protokoll** elementet måste anges till `OpenIdConnect`. Till exempel är `OpenIdConnect`protokollet för den tekniska profilen **MSA-OIDC** :
 
 ```XML
 <TechnicalProfile Id="MSA-OIDC">
@@ -54,7 +54,7 @@ I följande exempel visas de anspråk som returneras av Microsoft-kontots identi
 
 - Det **under** anspråk som är mappat till **issuerUserId** -anspråket.
 - Det **namn** anspråk som är mappat till anspråket **DisplayName** .
-- **E-** postmeddelandet utan namn mappning.
+- **E-postmeddelandet** utan namn mappning.
 
 Den tekniska profilen returnerar även anspråk som inte returneras av identitets leverantören:
 

@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/14/2017
 ms.author: ashishth
-ms.openlocfilehash: 751d5b47006f5c99a747503ad4f052b3e03a043c
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: 8ad2bdd0f12abad08515f0314b9c03cc971127cb
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70882443"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71059203"
 ---
 # <a name="analyze-apache-hadoop-logs-in-azure-hdinsight"></a>Analysera Apache Hadoop loggar i Azure HDInsight
 
@@ -110,7 +110,7 @@ Mer information om program loggar finns i [förenkla hanteringen av användar lo
 ### <a name="access-the-ambari-ui"></a>Komma åt Ambari-ANVÄNDARGRÄNSSNITTET
 Klicka på ett HDInsight-kluster namn i Azure Portal för att öppna kluster fönstret. I rutan kluster klickar du på **instrument panel**.
 
-![Starta kluster instrument panel](./media/apache-hadoop-debug-jobs/hdi-debug-launch-dashboard.png)
+![Starta kluster instrument panel för HDInsight](./media/apache-hadoop-debug-jobs/hdi-debug-launch-dashboard.png)
 
 
 ### <a name="access-the-yarn-ui"></a>Få åtkomst till garn gränssnittet
@@ -120,7 +120,7 @@ Du kan använda garn gränssnittet för att göra följande:
 
 * **Hämta kluster status**. I den vänstra rutan expanderar du **kluster**och klickar på **om**. Den här informationen om kluster status, t. ex. totalt allokerat minne, kärnor som används, tillstånd för kluster resurs hanteraren, kluster version och så vidare.
   
-    ![Starta kluster instrument panels garn](./media/apache-hadoop-debug-jobs/hdi-debug-yarn-cluster-state.png "Starta kluster instrument panels garn")
+    ![Instrument panels garn för HDInsight-lansering](./media/apache-hadoop-debug-jobs/hdi-debug-yarn-cluster-state.png "Instrument panels garn för HDInsight-lansering")
 * **Hämta Node-status**. Expandera **kluster**i den vänstra rutan och klicka på **noder**. Här visas alla noder i klustret, HTTP-adress för varje nod, resurser som har allokerats till varje nod osv.
 * **Övervaka jobb status**. I den vänstra rutan expanderar du **kluster**och klickar sedan på **program** för att visa alla jobb i klustret. Om du vill titta på jobb i ett särskilt tillstånd (till exempel ny, skickad, körs osv.) klickar du på lämplig länk under **program**. Du kan ytterligare Klicka på jobb namnet för att få mer information om jobbet, till exempel utdata, loggar osv.
 

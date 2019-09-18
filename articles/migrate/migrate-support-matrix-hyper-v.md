@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 09/04/2019
+ms.date: 09/17/2019
 ms.author: raynew
-ms.openlocfilehash: 97972be655a6a03cfe29d8589a144d1e027b86fc
-ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
+ms.openlocfilehash: 0d0329be0b7f864edbfc3c2aabc08f1742359670
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70376098"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71066783"
 ---
 # <a name="support-matrix-for-hyper-v-assessment-and-migration"></a>Stödmatris för utvärdering och migrering av Hyper-V
 
@@ -27,9 +27,9 @@ Tabellen sammanfattar scenarier som stöds för virtuella Hyper-V-datorer.
 **Distribution** | **Information***
 --- | ---
 **Utvärdera lokala virtuella Hyper-V-datorer** | [Konfigurera](tutorial-prepare-hyper-v.md) din första utvärdering.<br/><br/> [Kör](scale-hyper-v-assessment.md) en storskalig bedömning.
-**Migrera virtuella Hyper-V-datorer till Azure** | [Prova](tutorial-migrate-hyper-v.md) migrering till Azure. 
+**Migrera virtuella Hyper-V-datorer till Azure** | [Prova](tutorial-migrate-hyper-v.md) migrering till Azure.
 
-Migrering av Hyper-V-servrar som hanteras med System Center Virtual Machine Manager (VMM) stöds inte av Azure Migrate Server-migrering. 
+Migrering av Hyper-V-servrar som hanteras med System Center Virtual Machine Manager (VMM) stöds inte av Azure Migrate Server-migrering.
 
 ## <a name="azure-migrate-projects"></a>Azure Migrate projekt
 
@@ -44,10 +44,13 @@ Geografi | Du kan skapa Azure Migrate projekt i ett antal geografiska områden. 
   Azure Government | Virginia (USA-förvaltad region)
   Asien och stillahavsområdet | Asien, östra eller Sydostasien
   Australien | Östra Australien eller Australien, sydöstra
+  Brasilien | Södra Brasilien
   Kanada | Kanada, centrala eller Kanada, öst
   Europa | Europa, norra eller Europa, västra
+  Frankrike | Frankrike, centrala
   Indien | Centrala Indien eller södra Indien
   Japan |  Japan, östra eller Japan, väst
+  Korea | Korea, centrala eller Korea, södra
   Storbritannien och Nordirland | Storbritannien, södra eller Storbritannien, västra
   USA | USA, centrala eller västra USA 2
 
@@ -87,7 +90,7 @@ Vid utvärdering kör Azure Migrate en förenklad installation för att identifi
 | **Hyper-V-värdar**          | En apparat kan ansluta till upp till 300 Hyper-V-värdar.
 | **Identifikation**              | En enda apparat kan identifiera upp till 5000 virtuella datorer.
 | **Utvärderings grupp**       | Du kan lägga till upp till 35 000 datorer i en enda grupp.
-| **Beskrivningar**             | Du kan utvärdera upp till 35 000 virtuella datorer i en enda utvärdering.
+| **Utvärdering**             | Du kan utvärdera upp till 35 000 virtuella datorer i en enda utvärdering.
 
 
 

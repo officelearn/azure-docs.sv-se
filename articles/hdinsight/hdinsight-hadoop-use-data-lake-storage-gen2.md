@@ -2,17 +2,18 @@
 title: Använda Azure Data Lake Storage Gen2 med Azure HDInsight-kluster
 description: Lär dig hur du använder Azure Data Lake Storage Gen2 med Azure HDInsight-kluster.
 author: hrasheed-msft
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 08/27/2019
 ms.author: hrasheed
-ms.openlocfilehash: a8ef347b874bf01fc2832d0a785f6fcec58ef095
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.openlocfilehash: bd459998568287db767e98a2094d6f80a126ccde
+ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70961156"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71077120"
 ---
 # <a name="use-azure-data-lake-storage-gen2-with-azure-hdinsight-clusters"></a>Använda Azure Data Lake Storage Gen2 med Azure HDInsight-kluster
 

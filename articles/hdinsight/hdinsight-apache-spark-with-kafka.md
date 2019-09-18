@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: b4d50c39bf670cb8c14d9dbe4feb2fc18c89bf0a
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: 201e86908b61efa72eed76346f70cfc55e08d03c
+ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70917196"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71076800"
 ---
 # <a name="apache-spark-streaming-dstream-example-with-apache-kafka-on-hdinsight"></a>Apache Spark streaming (DStream)-exempel med Apache Kafka på HDInsight
 
@@ -40,9 +40,9 @@ Apache Kafka på HDInsight ger inte tillgång till asynkrona meddelandeköer i K
 Även om du kan skapa ett virtuellt Azure-nätverk, Kafka och Spark-kluster manuellt, är det enklare att använda en Azure Resource Manager mall. Använd följande steg för att distribuera ett virtuellt Azure-nätverk, Kafka och Spark-kluster till din Azure-prenumeration.
 
 1. Använd följande knapp för att logga in på Azure och öppna mallen i Azure Portal.
-    
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-kafka-spark-cluster-in-vnet-v4.1.json" target="_blank"><img src="./media/hdinsight-apache-spark-with-kafka/hdi-deploy-to-azure1.png" alt="Deploy to Azure"></a>
-    
+
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-kafka-spark-cluster-in-vnet-v4.1.json" target="_blank"><img src="./media/hdinsight-apache-spark-with-kafka/hdi-deploy-to-azure1.png" alt="Deploy to Azure button for new cluster"></a>
+
     Azure Resource Manager-mallen finns i **https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-kafka-spark-cluster-in-vnet-v4.1.json** .
 
     > [!WARNING]  
@@ -51,9 +51,9 @@ Apache Kafka på HDInsight ger inte tillgång till asynkrona meddelandeköer i K
     Den här mallen skapar ett HDInsight 3,6-kluster för både Kafka och Spark.
 
 2. Använd följande information för att fylla i posterna i avsnittet **Anpassad distribution** :
-   
-    ![Anpassad HDInsight-distribution](./media/hdinsight-apache-spark-with-kafka/hdinsight-parameters.png)
-   
+
+    ![Anpassade parametrar för HDInsight-distribution](./media/hdinsight-apache-spark-with-kafka/hdinsight-parameters.png)
+
     * **Resursgrupp**: Skapa en grupp eller Välj en befintlig. Den här gruppen innehåller HDInsight-klustret.
 
     * **Plats**: Välj en plats geografiskt nära dig.

@@ -1,10 +1,10 @@
 ---
 title: Visa och ändra värdnamn | Microsoft Docs
-description: Så här att visa och ändra värdnamn för Azure virtual machines, web och worker-roller för namnmatchning
+description: Visa och ändra värd namn för virtuella Azure-datorer, webb-och arbets roller för namn matchning
 services: virtual-network
 documentationcenter: na
 author: genlin
-manager: cshepard
+manager: dcscontentpm
 editor: tysonn
 ms.assetid: c668cd8e-4e43-4d05-acc3-db64fa78d828
 ms.service: virtual-network
@@ -14,51 +14,51 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: 3fdb0f566789382a1606b19e4fac179f9ecf40cd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: cce248e2906f4a36737388e8cc7124b1bb19fbae
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62122965"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71058680"
 ---
 # <a name="viewing-and-modifying-hostnames"></a>Visa och ändra värdnamn
-Om du vill tillåta dina rollinstanser som refereras av värdnamn, måste du ange värdet för värdnamnet i tjänstekonfigurationsfilen för varje roll. Det gör du genom att lägga till önskade värdnamnet till den **vmName** attributet för den **rollen** element. Värdet för den **vmName** attributet används som bas för värdnamnet för varje rollinstans. Till exempel om **vmName** är *webrole* och det finns tre instanser av rollen, värdnamn av instanserna blir *webrole0*, *webrole1*, och *webrole2*. Du behöver inte ange ett värdnamn för virtuella datorer i konfigurationsfilen, eftersom värdnamnet för en virtuell dator har fyllts i baserat på virtuella datornamn. Mer information om hur du konfigurerar en Microsoft Azure-tjänst finns i [Azure-Tjänstkonfigurationens Schema (.cscfg-filen)](https://msdn.microsoft.com/library/azure/ee758710.aspx)
+Om du vill att roll instanserna ska refereras av värd namnet måste du ange värdet för värd namnet i tjänst konfigurations filen för varje roll. Det gör du genom att lägga till det önskade värd namnet i **vmName** -attributet för **roll** elementet. Värdet för attributet **vmName** används som bas för värd namnet för varje roll instans. Om **vmName** till exempel är *webrole* och det finns tre instanser av rollen, kommer värd namnen för instanserna att vara *webrole0*, *webrole1*och *webrole2*. Du behöver inte ange ett värdnamn för virtuella datorer i konfigurations filen, eftersom värd namnet för en virtuell dator är ifyllt baserat på namnet på den virtuella datorn. Mer information om hur du konfigurerar en Microsoft Azure-tjänst finns i [konfigurations schema för Azure-tjänsten (. cscfg-fil)](https://msdn.microsoft.com/library/azure/ee758710.aspx)
 
 ## <a name="viewing-hostnames"></a>Visa värdnamn
-Du kan visa värdnamn för virtuella datorer och rollinstanser i en molntjänst med hjälp av verktygen nedan.
+Du kan visa värd namnen för virtuella datorer och roll instanser i en moln tjänst genom att använda något av verktygen nedan.
 
-### <a name="service-configuration-file"></a>Tjänstkonfigurationsfil
-Du kan hämta tjänstkonfigurationsfilen för en distribuerad tjänst från den **konfigurera** bladet för tjänsten i Azure-portalen. Du kan sedan söka efter den **vmName** attributet för den **rollnamn** element att se värdnamnet. Tänk på att värddatorns namn används som bas för värdnamnet för varje rollinstans. Till exempel om **vmName** är *webrole* och det finns tre instanser av rollen, värdnamn av instanserna blir *webrole0*, *webrole1*, och *webrole2*.
+### <a name="service-configuration-file"></a>Tjänst konfigurations fil
+Du kan hämta tjänst konfigurations filen för en distribuerad tjänst från tjänstens **konfigurations blad i** Azure Portal. Du kan sedan leta efter attributet **vmName** för elementet **roll namn** för att se värd namnet. Tänk på att det här värd namnet används som bas för värd namnet för varje roll instans. Om **vmName** till exempel är *webrole* och det finns tre instanser av rollen, kommer värd namnen för instanserna att vara *webrole0*, *webrole1*och *webrole2*.
 
 ### <a name="remote-desktop"></a>Fjärrskrivbord
-När du har aktiverat Fjärrskrivbord (Windows), Windows PowerShell-fjärrkommunikation (Windows) eller SSH (Linux och Windows) anslutningar till dina virtuella datorer eller rollinstanser kan du visa värdnamnet från en aktiv anslutning till fjärrskrivbord på olika sätt:
+När du har aktiverat anslutning till fjärr skrivbord (Windows), Windows PowerShell-fjärrkommunikation (Windows) eller SSH (Linux och Windows) till dina virtuella datorer eller roll instanser, kan du Visa värd namnet från en aktiv anslutning till fjärr skrivbord på olika sätt:
 
-* Skriv värdnamn vid kommandotolken eller SSH-terminalen.
-* Skriv ipconfig/alla vid Kommandotolken (endast Windows).
-* Visa namnet på datorn i Systeminställningar (endast Windows).
+* Ange hostname i kommando tolken eller SSH-terminalen.
+* Skriv ipconfig/all i kommando tolken (endast Windows).
+* Visa dator namnet i systeminställningarna (endast Windows).
 
-### <a name="azure-service-management-rest-api"></a>Azure Service Management REST API
-Följ de här instruktionerna från en REST-klient:
+### <a name="azure-service-management-rest-api"></a>Azure Service Management-REST API
+Följ dessa instruktioner från en REST-klient:
 
-1. Kontrollera att du har ett klientcertifikat för att ansluta till Azure-portalen. Om du vill skaffa ett klientcertifikat, följer du stegen som visas i [så här: Hämta och importera publicera inställningar och prenumerationsinformation](https://msdn.microsoft.com/library/dn385850.aspx). 
-2. Ange en rubrikpost med namnet x-ms-version med värdet 2013-11-01.
-3. Skicka en begäran i följande format: https:\//management.core.windows.net/\<prenumerationen-id\>/services/hostedservices/\<tjänstnamnet\>? bädda in detail = true
-4. Leta efter den **värdnamn** element för varje **Rollinstans** element.
+1. Se till att du har ett klient certifikat för att ansluta till Azure Portal. Hämta ett klient certifikat genom att följa anvisningarna i [How to: Hämta och importera publicerings inställningar och prenumerations information](https://msdn.microsoft.com/library/dn385850.aspx). 
+2. Ange en sidhuvud post med namnet x-MS-version med värdet 2013-11-01.
+3. Skicka en begäran i följande\/format: https:/Management.Core.Windows.net/\<prenumerationen-ID\>/Services/hostedservices/\<service-name\>? embed-detail = True
+4. Leta efter **hostname** -elementet för varje **RoleInstance** -element.
 
 > [!WARNING]
-> Du kan också visa interna domänsuffixet för din molntjänst från REST-anrop svar genom att markera den **InternalDnsSuffix** element, eller genom att köra ipconfig/allt från en kommandotolk i en fjärrskrivbordssession (Windows) eller genom att Kör cat /etc/resolv.conf från en terminal SSH (Linux).
+> Du kan också visa det interna domänsuffixet för moln tjänsten från REST-anropet genom att kontrol lera **InternalDnsSuffix** -elementet eller genom att köra ipconfig/all från en kommando tolk i en fjärrskrivbordssession (Windows) eller genom att köra Cat-/etc/ matcha. conf från en SSH-Terminal (Linux).
 > 
 > 
 
 ## <a name="modifying-a-hostname"></a>Ändra ett värdnamn
-Du kan ändra värdnamnet för valfri virtuell dator eller rollinstans genom att ladda upp en ändrad tjänstkonfigurationsfil eller genom att byta namn på datorn från en fjärrskrivbordssession.
+Du kan ändra värd namnet för en virtuell dator eller roll instans genom att överföra en ändrad tjänst konfigurations fil eller genom att byta namn på datorn från en fjärrskrivbordssession.
 
 ## <a name="next-steps"></a>Nästa steg
-[Namnmatchning (DNS)](virtual-networks-name-resolution-for-vms-and-role-instances.md)
+[Namn matchning (DNS)](virtual-networks-name-resolution-for-vms-and-role-instances.md)
 
-[Azure-Tjänstkonfigurationens Schema (.cscfg)](https://msdn.microsoft.com/library/windowsazure/ee758710.aspx)
+[Konfigurations schema för Azure-tjänsten (. cscfg)](https://msdn.microsoft.com/library/windowsazure/ee758710.aspx)
 
-[Konfigurationsschema för Azure-nätverk](https://go.microsoft.com/fwlink/?LinkId=248093)
+[Konfigurations schema för Azure Virtual Network](https://go.microsoft.com/fwlink/?LinkId=248093)
 
-[Ange DNS-inställningar med hjälp av nätverkskonfigurationen](virtual-networks-specifying-a-dns-settings-in-a-virtual-network-configuration-file.md)
+[Ange DNS-inställningar med hjälp av konfigurationsfiler för nätverk](virtual-networks-specifying-a-dns-settings-in-a-virtual-network-configuration-file.md)
 

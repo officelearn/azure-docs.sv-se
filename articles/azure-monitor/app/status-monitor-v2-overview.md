@@ -3,21 +3,21 @@ title: Översikt över Azure Statusövervakare v2 | Microsoft Docs
 description: En översikt över Statusövervakare v2. Övervaka webbplatsens prestanda utan att omdistribuera webbplatsen. Fungerar med ASP.NET-webbappar som finns lokalt, i virtuella datorer eller på Azure.
 services: application-insights
 documentationcenter: .net
-author: MS-TimothyMothra
+author: TimothyMothra
 manager: alexklim
 ms.assetid: 769a5ea4-a8c6-4c18-b46c-657e864e24de
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 04/23/2019
+ms.date: 09/16/2019
 ms.author: tilee
-ms.openlocfilehash: 0264cf3a972c35edb3ad6dc600ca39bdaa076dfd
-ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.openlocfilehash: 3060659c5f870be60f1ac02e432dd0a8333f0900
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68333698"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71057840"
 ---
 # <a name="status-monitor-v2"></a>Statusövervakare v2
 
@@ -59,7 +59,15 @@ Statusövervakare v2 finns här: https://www.powershellgallery.com/packages/Az.A
   *Ja*. Det finns flera sätt att ladda ned Statusövervakare v2. Om datorn har Internet åtkomst kan du publicera den PowerShell-galleriet med hjälp `-Proxy` av parametrar.
 Du kan också hämta modulen manuellt och antingen installera den på datorn eller använda den direkt.
 Vart och ett av dessa alternativ beskrivs i de [detaljerade anvisningarna](status-monitor-v2-detailed-instructions.md).
+
+- Stöder Statusövervakare v2 ASP.NET Core program?
+
+  *Nej*. Instruktioner för hur du aktiverar övervakning av ASP.NET Core program finns i [Application Insights för ASP.net Core program](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core). Du behöver inte installera StatusMonitor för ett ASP.NET Core-program. Detta gäller även om ASP.NET Core program finns i IIS.
   
+Stöder Statusövervakare v2 ASP.NET Core program? 
+
+  *Nej*. Följ [dessa](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core) anvisningar för att aktivera övervakning av ASP.net Core program. Du behöver inte installera StatusMonitor för ett ASP.NET Core-program. Detta gäller även om ASP.NET Core program finns i IIS.
+
 - Hur gör jag för att verifiera att aktiveringen lyckades?
 
   - [Get-ApplicationInsightsMonitoringStatus](status-monitor-v2-api-get-status.md) -cmdlet: en kan användas för att kontrol lera att aktiveringen har slutförts.

@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 03/05/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: cc0d6b07e1e61baa28ceb8e7198ef15f0f831fb7
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: fe4a47161e86614807e69b613b49e8808a35e041
+ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70078665"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71077237"
 ---
 # <a name="sap-hana-high-availability-for-azure-virtual-machines"></a>SAP HANA hög tillgänglighet för virtuella Azure-datorer
 
@@ -58,10 +58,11 @@ Förutom att du är bekant med att distribuera virtuella datorer i Azure, rekomm
 
 Azure har olika tillgänglighets service avtal för olika komponenter, t. ex. nätverk, lagring och virtuella datorer. Alla service avtal dokumenteras. Mer information finns i [Microsoft Azure Service nivå avtal](https://azure.microsoft.com/support/legal/sla/). 
 
-[SLA för Virtual Machines](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_6/) beskriver två olika service avtal för två olika konfigurationer:
+[SLA för Virtual Machines](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/) beskriver tre olika service avtal för tre olika konfigurationer:
 
-- En enskild virtuell dator som använder [Azure Premium-SSD](../../windows/disks-types.md) för OS-disken och alla data diskar. Det här alternativet ger en månatlig drift tid på 99,9 procent.
+- En enskild virtuell dator som använder [Azure Premium-SSD](../../wi https://azure.microsoft.com/en-us/support/legal/sla/virtual-machines/v1_8/ows/disks-types.md) för OS-disken och alla data diskar. Det här alternativet ger en månatlig drift tid på 99,9 procent.
 - Flera (minst två) virtuella datorer som är ordnade i en [Azures tillgänglighets uppsättning](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-availability-sets). Det här alternativet ger en månatlig drift tid på 99,95 procent.
+- Flera (minst två) virtuella datorer som är ordnade i en [tillgänglighet-zon](https://docs.microsoft.com/azure/availability-zones/az-overview). Det här alternativet tillhandahöll en månatlig drift tid på 99,99 procent.
 
 Mät ditt tillgänglighets krav mot service avtal som Azure-komponenter kan tillhandahålla. Välj sedan dina scenarier för SAP HANA för att uppnå önskad tillgänglighets nivå.
 

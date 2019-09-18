@@ -3,7 +3,7 @@ title: Azure Statusövervakare v2 – komma igång | Microsoft Docs
 description: En snabb starts guide för Statusövervakare v2. Övervaka webbplatsens prestanda utan att omdistribuera webbplatsen. Fungerar med ASP.NET-webbappar som finns lokalt, i virtuella datorer eller på Azure.
 services: application-insights
 documentationcenter: .net
-author: MS-TimothyMothra
+author: TimothyMothra
 manager: alexklim
 ms.assetid: 769a5ea4-a8c6-4c18-b46c-657e864e24de
 ms.service: application-insights
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
-ms.openlocfilehash: a0c836c8ef947e190a0090b3435eec1c53ded436
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: d9c354edac3cbd3faccaa261654e56f858befdf6
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68326263"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71058241"
 ---
-# <a name="get-started-with-status-monitor-v2"></a>Kom igång med Statusövervakare v2
+# <a name="get-started-with-status-monitor-v2"></a>Kom igång med Status Monitor v2
 
 Den här artikeln innehåller snabb start kommandon som förväntas fungera i de flesta miljöer.
 Anvisningarna är beroende av PowerShell-galleriet för att distribuera uppdateringar.
@@ -31,7 +31,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 ## <a name="download-and-install-via-powershell-gallery"></a>Hämta och installera via PowerShell-galleriet
 
-### <a name="install-prerequisites"></a>Installationskrav
+### <a name="install-prerequisites"></a>Installera nödvändiga komponenter
 Kör PowerShell som administratör.
 ```powershell
 Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process -Force

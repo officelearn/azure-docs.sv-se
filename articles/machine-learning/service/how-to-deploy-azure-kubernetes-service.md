@@ -1,7 +1,7 @@
 ---
 title: Distribuera modeller till Azure Kubernetes-tjänsten
-titleSuffix: Azure Machine Learning service
-description: Lär dig hur du distribuerar dina Azure Machine Learning-tjänst modeller som en webb tjänst med Azure Kubernetes-tjänsten.
+titleSuffix: Azure Machine Learning
+description: Lär dig hur du distribuerar dina Azure Machine Learning modeller som en webb tjänst med Azure Kubernetes-tjänsten.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,16 +10,16 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 07/08/2019
-ms.openlocfilehash: 302fad84a2f0443fb639e57d7bb0cfddef4c3443
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: c32560f7bb182ac347e9e5a71b53b57cf80fac38
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70858746"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71034618"
 ---
 # <a name="deploy-a-model-to-an-azure-kubernetes-service-cluster"></a>Distribuera en modell till ett Azure Kubernetes service-kluster
 
-Lär dig hur du använder tjänsten Azure Machine Learning för att distribuera en modell som en webb tjänst på Azure Kubernetes service (AKS). Azure Kubernetes-tjänsten är lämplig för storskaliga produktions distributioner. Använd Azure Kubernetes-tjänsten om du behöver en eller flera av följande funktioner:
+Lär dig hur du använder Azure Machine Learning för att distribuera en modell som en webb tjänst på Azure Kubernetes service (AKS). Azure Kubernetes-tjänsten är lämplig för storskaliga produktions distributioner. Använd Azure Kubernetes-tjänsten om du behöver en eller flera av följande funktioner:
 
 - __Snabb svars tid__.
 - Automatisk __skalning__ av den distribuerade tjänsten.
@@ -30,15 +30,15 @@ Lär dig hur du använder tjänsten Azure Machine Learning för att distribuera 
 
 När du distribuerar till Azure Kubernetes-tjänsten distribuerar du till ett AKS-kluster som är __anslutet till din arbets yta__. Det finns två sätt att ansluta ett AKS-kluster till din arbets yta:
 
-* Skapa AKS-klustret med hjälp av Azure Machine Learning service SDK, Machine Learning CLI, [Azure Portal](https://portal.azure.com) -eller [arbets ytans landnings sida (för hands version)](https://ml.azure.com). Den här processen ansluter automatiskt klustret till arbets ytan.
-* Koppla ett befintligt AKS-kluster till din Azure Machine Learning service-arbetsyta. Ett kluster kan kopplas med hjälp av Azure Machine Learning service SDK, Machine Learning CLI eller Azure Portal.
+* Skapa AKS-klustret med hjälp av Azure Machine Learning SDK, Machine Learning CLI, [Azure Portal](https://portal.azure.com) -eller [arbets ytans landnings sida (för hands version)](https://ml.azure.com). Den här processen ansluter automatiskt klustret till arbets ytan.
+* Koppla ett befintligt AKS-kluster till din Azure Machine Learning-arbetsyta. Ett kluster kan kopplas med hjälp av Azure Machine Learning SDK, Machine Learning CLI eller Azure Portal.
 
 > [!IMPORTANT]
 > Processen för att skapa eller bifogad fil är en engångs uppgift. När ett AKS-kluster är anslutet till arbets ytan kan du använda det för distributioner. Du kan koppla bort eller ta bort AKS-klustret om du inte längre behöver det. När detatched eller tagits bort kommer du inte längre att kunna distribuera till klustret.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-- En arbetsyta för Azure Machine Learning-tjänsten. Mer information finns i [skapa en Azure Machine Learning service-arbetsyta](how-to-manage-workspace.md).
+- En Azure Machine Learning-arbetsyta. Mer information finns i [skapa en Azure Machine Learning-arbetsyta](how-to-manage-workspace.md).
 
 - En Machine Learning-modell som registrerats i din arbets yta. Om du inte har en registrerad modell, se [hur och var modeller ska distribueras](how-to-deploy-and-where.md).
 
@@ -117,7 +117,7 @@ Mer information finns i [AZ ml computetarget Create be](https://docs.microsoft.c
 Om du redan har AKS-kluster i din Azure-prenumeration och det är version 1.12. # # kan du använda det för att distribuera avbildningen.
 
 > [!TIP]
-> Det befintliga AKS-klustret kan finnas i en Azure-region än din Azure Machine Learning service-arbetsyta.
+> Det befintliga AKS-klustret kan finnas i en Azure-region än din Azure Machine Learning-arbetsyta.
 >
 > Om du vill skydda ditt AKS-kluster med hjälp av ett Azure-Virtual Network måste du först skapa det virtuella nätverket. Mer information finns i [säker experimentering och härledning med Azure Virtual Network](how-to-enable-virtual-network.md#aksvnet).
 

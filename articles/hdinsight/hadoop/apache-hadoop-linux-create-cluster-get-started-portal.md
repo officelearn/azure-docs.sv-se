@@ -9,12 +9,12 @@ ms.custom: hdinsightactive,hdiseo17may2017,mvc,seodec18
 ms.topic: quickstart
 ms.date: 07/02/2019
 ms.author: hrasheed
-ms.openlocfilehash: be7ff67f07ed8eaeb3f04a15c6185191bf107cf2
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: 33f70ba33168190577baf1757e9be0ece5d315ba
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70918416"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71066894"
 ---
 # <a name="quickstart-create-apache-hadoop-cluster-in-azure-hdinsight-using-azure-portal"></a>Snabbstart: Skapa Apache Hadoop kluster i Azure HDInsight med Azure Portal
 
@@ -34,7 +34,7 @@ I det här avsnittet skapar du ett Hadoop-kluster i HDInsight med hjälp av Azur
 
 1. Från Azure Portal går du till **skapa en resurs** > **analys** > **HDInsight**.
 
-    ![Databricks på Azure-portalen](./media/apache-hadoop-linux-create-cluster-get-started-portal/create-hdinsight-cluster.png "Databricks på Azure-portalen")
+    ![Skapa ett resurs-HDInsight-kluster](./media/apache-hadoop-linux-create-cluster-get-started-portal/create-hdinsight-cluster.png "Skapa ett resurs-HDInsight-kluster")
 
 1. Ange eller Välj följande värden under **HDInsight** > **Quick Create** > **Basics**:
 
@@ -101,7 +101,7 @@ I det här avsnittet skapar du ett Hadoop-kluster i HDInsight med hjälp av Azur
 
 3. Öppna **Hive-vy** så som det visas på följande skärmbild:
 
-    ![Välja Ambari-vyer](./media/apache-hadoop-linux-create-cluster-get-started-portal/hdi-select-hive-view.png "HDInsight Hive Viewer-menyn")
+    ![Välja Hive-vy från Ambari](./media/apache-hadoop-linux-create-cluster-get-started-portal/hdi-select-hive-view.png "HDInsight Hive Viewer-menyn")
 
 4. På fliken **FRÅGA** klistrar du in följande HiveQL-instruktioner i kalkylbladet:
 
@@ -109,13 +109,13 @@ I det här avsnittet skapar du ett Hadoop-kluster i HDInsight med hjälp av Azur
     SHOW TABLES;
     ```
 
-    ![HDInsight Hive-vyer](./media/apache-hadoop-linux-create-cluster-get-started-portal/hdi-apache-hive-view1.png "HDInsight Hive visa frågeredigeraren")
+    ![HDInsight Hive Visa Frågeredigeraren](./media/apache-hadoop-linux-create-cluster-get-started-portal/hdi-apache-hive-view1.png "HDInsight Hive Visa Frågeredigeraren")
 
 5. Välj **Kör**. Fliken **RESULTAT** visas under fliken **FRÅGA** och visar information om jobbet. 
 
     När frågan har slutförts visas resultatet av åtgärden på fliken **FRÅGA**. En tabell med namnet **hivesampletable** bör visas. Detta exempel på en Hive-tabell kommer med alla HDInsight-kluster.
 
-    ![HDInsight Hive Visa resultat](./media/apache-hadoop-linux-create-cluster-get-started-portal/hdinsight-hive-views.png "HDInsight Hive Visa resultat")
+    ![HDInsight Apache Hive Visa resultat](./media/apache-hadoop-linux-create-cluster-get-started-portal/hdinsight-hive-views.png "HDInsight Apache Hive Visa resultat")
 
 6. Upprepa steg 4 och 5 för att köra följande fråga:
 
@@ -125,7 +125,7 @@ I det här avsnittet skapar du ett Hadoop-kluster i HDInsight med hjälp av Azur
 
 7. Du kan också spara frågans resultat. Välj menyknappen till höger och ange om du vill ladda ned resultatet som en CSV-fil eller lagra den på lagringskontot som är associerat till klustret.
 
-    ![Spara resultatet från Hive-frågan](./media/apache-hadoop-linux-create-cluster-get-started-portal/hdinsight-linux-hive-view-save-results.png "Spara resultatet från Hive-frågan")
+    ![Spara resultatet av Apache Hive fråga](./media/apache-hadoop-linux-create-cluster-get-started-portal/hdinsight-linux-hive-view-save-results.png "Spara resultatet av Apache Hive fråga")
 
 När du har slutfört ett Hive-jobb kan du [exportera resultaten till Azure SQL Database eller SQL Server-databasen](apache-hadoop-use-sqoop-mac-linux.md) och även [visualisera resultat i Excel](apache-hadoop-connect-excel-power-query.md). Mer information om hur du använder Hive i HDInsight finns i [Använda Apache Hive och HiveQL med Apache Hadoop i HDInsight för att analysera ett exempel i en Apache log4j-fil](hdinsight-use-hive.md).
 
@@ -140,7 +140,7 @@ När du har slutfört snabb starten kanske du vill ta bort klustret. Med HDInsig
 
 1. Gå tillbaka till webbläsarfliken där du har Azure-portalen. Du bör vara på översiktssidan för klustret. Om du endast vill ta bort klustret men behålla standardlagringskontot kan du klicka på **Ta bort**.
 
-    ![HDInsight-borttagningskluster](./media/apache-hadoop-linux-create-cluster-get-started-portal/hdinsight-delete-cluster.png "Ta bort HDInsight-kluster")
+    ![Azure HDInsight ta bort kluster](./media/apache-hadoop-linux-create-cluster-get-started-portal/hdinsight-delete-cluster.png "Ta bort Azure HDInsight-kluster")
 
 2. Om du vill ta bort klustret och standardlagringskontot öppnar du resursgruppssidan genom att välja resursgruppens namn (markerat i föregående skärmbild).
 

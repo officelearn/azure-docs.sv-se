@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/06/2019
+ms.date: 09/17/2019
 ms.author: magoedte
-ms.openlocfilehash: c63feb02712447d2427061cbfabc525622107043
-ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
+ms.openlocfilehash: 945dc6c35eacab99db28172703e1aebed10bd58a
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70744577"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71067092"
 ---
 # <a name="understand-aks-cluster-performance-with-azure-monitor-for-containers"></a>Förstå prestanda för AKS-kluster med Azure Monitor för behållare
 Med Azure Monitor för behållare kan du använda prestanda diagram och hälso status för att övervaka arbets belastningen för dina Azure Kubernetes service (AKS)-kluster från två perspektiv. Du kan övervaka direkt från ett AKS-kluster, eller så kan du övervaka alla AKS-kluster i en prenumeration från Azure Monitor. Det är också möjligt att Visa Azure Container Instances när du övervakar ett speciellt AKS-kluster.
@@ -170,9 +170,13 @@ Från en utökad nod kan du öka detalj nivån från POD eller containern som k�
 
 Välj kontrollanter eller behållare högst upp på sidan för att granska status och resursutnyttjande för dessa objekt. Om du vill granska minnes användningen väljer du **minnes-RSS** eller **minnes arbets minne**i list rutan **mått** . **Minne RSS** stöds endast för Kubernetes version 1.8 och senare. Annars kan du visa värden för **Min&nbsp; %**  som *NaN&nbsp;%* , vilket är ett värde av numeriska data som representerar en odefinierad eller inte går att representera värde.
 
-**Minnes arbets minnet** visar både det residenta minnet och det virtuella minnet (cache) som ingår och är det totala antalet som programmet använder. **Minne RSS** visar bara huvud minnet (vilket är inget men det residenta minnet med andra ord). Det här måttet visar den faktiska kapaciteten för tillgängligt minne.
-
 ![Behållaren noder prestandavy](./media/container-insights-analyze/containers-node-metric-dropdown.png)
+
+**Minnes arbets minnet** visar både det residenta minnet och det virtuella minnet (cache) som ingår och är det totala antalet som programmet använder. **Minne RSS** visar bara huvud minnet (vilket är inget men det residenta minnet med andra ord). Det här måttet visar den faktiska kapaciteten för tillgängligt minne. Vad är skillnaden mellan Resident minne och virtuellt minne?
+
+- Inbyggt minne eller primärt minne är den faktiska mängden maskin minne som är tillgängligt för noderna i klustret.
+
+- Det virtuella minnet är ett reserverat hårddisk utrymme (cache) som används av operativ systemet för att växla data från minne till disk när de är under minnes belastning och sedan hämta tillbaka dem till minnet när det behövs.
 
 Som standard baseras prestanda data på de senaste sex timmarna, men du kan ändra fönstret genom att använda alternativet **TimeRange** längst upp till vänster. Du kan också filtrera resultaten inom tidsintervallet genom att välja **min**, **AVG**, **50**, **nittionde**, **95**och **Max** i percentils väljaren. 
 

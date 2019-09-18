@@ -1,7 +1,7 @@
 ---
 title: Vad är automatiserad ML/automl
-titleSuffix: Azure Machine Learning service
-description: Lär dig hur Azure Machine Learning-tjänsten kan välja en algoritm automatiskt och generera en modell från den för att spara tid genom att använda de parametrar och kriterier som du anger för att välja den bästa algoritmen för din modell.
+titleSuffix: Azure Machine Learning
+description: Lär dig hur Azure Machine Learning automatiskt kan välja en algoritm åt dig och generera en modell från den för att spara tid genom att använda de parametrar och kriterier som du anger för att välja den bästa algoritmen för din modell.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,12 +11,12 @@ author: nacharya1
 ms.author: nilesha
 ms.date: 06/20/2019
 ms.custom: seodec18
-ms.openlocfilehash: b7347be086cd9e85dda7b8271548ccb44e8114ff
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: 32ff1ba599f4f95cc413bc2bb2c3bbc442405022
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70882029"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71035710"
 ---
 # <a name="what-is-automated-machine-learning"></a>Vad är automatisk maskininlärning?
 
@@ -39,7 +39,7 @@ Data forskare, analytiker och utvecklare i olika branscher kan använda automati
 
 ## <a name="how-automated-ml-works"></a>Så här fungerar automatisk ML
 
-Med hjälp av **Azure Machine Learning tjänsten**kan du utforma och köra dina automatiserade ml-experiment med följande steg:
+Med hjälp av **Azure Machine Learning**kan du utforma och köra dina AUTOMATISERAde ml-experiment med följande steg:
 
 1. **Identifiera det ml-problem** som ska lösas: klassificering, Prognosticering eller regression
 
@@ -53,7 +53,7 @@ Med hjälp av **Azure Machine Learning tjänsten**kan du utforma och köra dina 
 
   ![Automatisk maskin inlärning](./media/how-to-automated-ml/automl-concept-diagram2.png)
 
-Under utbildningen skapar Azure Machine Learning tjänsten ett antal parallella pipelines som testar olika algoritmer och parametrar. Det stoppas när det träffar de slut kriterier som definierats i experimentet.
+Under utbildningen skapar Azure Machine Learning ett antal parallella pipelines som testar olika algoritmer och parametrar. Det stoppas när det träffar de slut kriterier som definierats i experimentet.
 
 Du kan också kontrol lera den loggade körnings informationen, som [innehåller mått](how-to-understand-automated-ml.md) som samlats in under körningen. Inlärnings körningen genererar ett serialiserat objekt (`.pkl` fil) som innehåller modellen och data förbearbetningen.
 

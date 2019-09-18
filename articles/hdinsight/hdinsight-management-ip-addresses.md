@@ -3,20 +3,21 @@ title: Azure HDInsight-hantering IP-adresser
 description: Lär dig vilka IP-adresser du måste tillåta inkommande trafik från, för att kunna konfigurera nätverks säkerhets grupper och användardefinierade vägar för virtuella nätverk med Azure HDInsight.
 author: hrasheed-msft
 ms.author: hrasheed
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 07/19/2019
-ms.openlocfilehash: 0a41d1d57257db8f88481766e65eb8ee7569da87
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.openlocfilehash: 3f0b31cd3d37c3040ff99a89c1a5201b413fd3fc
+ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68479192"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71076638"
 ---
 # <a name="hdinsight-management-ip-addresses"></a>Hanterings-IP-adresser för HDInsight
 
-Om du använder nätverks säkerhets grupper (NSG: er) eller användardefinierade vägar (UDR) för att styra inkommande trafik till ditt HDInsight-kluster, måste du se till att klustret kan kommunicera med viktiga Azure-tjänster för hälso tillstånd och hantering.  Några av IP-adresserna för dessa tjänster är regions information och vissa av dem gäller för alla Azure-regioner. Du kan också behöva tillåta trafik från Azure DNSs tjänsten om du inte använder anpassad DNS.
+Om du använder nätverks säkerhets grupper (NSG: er) eller användardefinierade vägar (UDR) för att styra inkommande trafik till ditt HDInsight-kluster, måste du se till att klustret kan kommunicera med viktiga Azure-tjänster för hälso tillstånd och hantering.  Några av IP-adresserna för dessa tjänster är regions information och vissa av dem gäller för alla Azure-regioner. Du kan också behöva tillåta trafik från Azure DNS-tjänsten om du inte använder anpassad DNS.
 
 I följande avsnitt beskrivs de olika IP-adresser som måste vara tillåtna.
 
@@ -28,7 +29,7 @@ Om du använder den Azure-angivna DNS-tjänsten ger du åtkomst från __168.63.1
 
 Tillåt trafik från följande IP-adresser för Azure HDInsight-hälso-och hanterings tjänster som gäller för alla Azure-regioner:
 
-| IP-källadress | Mål  | Direction |
+| IP-källadress | Destination  | Direction |
 | ---- | ----- | ----- |
 | 168.61.49.99 | \*:443 | Inkommande |
 | 23.99.5.239 | \*:443 | Inkommande |

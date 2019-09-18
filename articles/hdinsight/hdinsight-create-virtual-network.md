@@ -3,16 +3,17 @@ title: Skapa virtuella nätverk för Azure HDInsight-kluster
 description: Lär dig hur du skapar en Azure-Virtual Network för att ansluta HDInsight till andra moln resurser eller resurser i ditt data Center.
 author: hrasheed-msft
 ms.author: hrasheed
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 07/23/2019
-ms.openlocfilehash: 2fd4c20e5c1cd0a8e1ee6f7c36d4b4a8b99d37ea
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.openlocfilehash: 6fd23e3d41dda15b1ec439c1e8b02073722b8871
+ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68442009"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71073639"
 ---
 # <a name="create-virtual-networks-for-azure-hdinsight-clusters"></a>Skapa virtuella nätverk för Azure HDInsight-kluster
 
@@ -329,7 +330,7 @@ Det här exemplet gör följande antaganden:
     };
     ```
 
-    Ersätt värdet med DNS-suffixet för det andra virtuella nätverket.  `0owcbllr5hze3hxdja3mqlrhhe.ex.internal.cloudapp.net` Den här posten dirigerar begär Anden om DNS-suffixet för fjärrnätverket till den anpassade DNS i nätverket.
+    Ersätt värdet med DNS-suffixet för det andra virtuella nätverket. `0owcbllr5hze3hxdja3mqlrhhe.ex.internal.cloudapp.net` Den här posten dirigerar begär Anden om DNS-suffixet för fjärrnätverket till den anpassade DNS i nätverket.
 
 3. På de anpassade DNS-servrarna i båda virtuella nätverken använder du följande text som `/etc/bind/named.conf.options` filens innehåll:
 

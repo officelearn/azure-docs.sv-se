@@ -9,12 +9,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 09/07/2019
 ms.author: azfuncdf
-ms.openlocfilehash: c81eccaa2b3a4335f034b9667f6e7be317635f43
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: 094ae511337556ef0c67c86f6d8692cae005430a
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70933392"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71033955"
 ---
 # <a name="http-api-reference"></a>HTTP API-referens
 
@@ -28,7 +28,7 @@ Alla HTTP-API: er som implementeras av tillägget kräver följande parametrar. 
 | **`connection`** | Frågesträng    | **Namnet** på anslutnings strängen för lagrings kontot. Om inget värde anges antas standard anslutnings strängen för Function-appen. |
 | **`systemKey`**  | Frågesträng    | Den auktoriseringskod som krävs för att anropa API: et. |
 
-`systemKey`är en auktoriseringspost som genereras automatiskt av Azure Functions-värden. Den ger särskilt åtkomst till de ständiga API: erna för aktivitets tillägg och kan hanteras på samma sätt som [andra auktoriseringsarkiv](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Key-management-API). Det enklaste sättet att identifiera `systemKey` värdet är genom att `CreateCheckStatusResponse` använda API: et som nämnts ovan.
+`systemKey`är en auktoriseringspost som genereras automatiskt av Azure Functions-värden. Den ger särskilt åtkomst till de ständiga API: erna för aktivitets tillägg och kan hanteras på samma sätt som [andra auktoriseringsarkiv](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Key-management-API). Du kan generera URL: er som innehåller `taskHub`rätt `connection`, och `systemKey` frågesträngs värden med hjälp `CreateCheckStatusResponse` av [Dirigerings](durable-functions-bindings.md#orchestration-client) -API: er för bindning `CreateHttpManagementPayload` av klient, `createCheckStatusResponse` till exempel API: er i .net, eller och `createHttpManagementPayload` API: er i Java Script.
 
 I följande avsnitt beskrivs de HTTP-API: er som stöds av tillägget och innehåller exempel på hur de kan användas.
 

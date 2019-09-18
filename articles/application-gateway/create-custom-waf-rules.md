@@ -7,12 +7,12 @@ author: vhorne
 ms.service: application-gateway
 ms.date: 6/18/2019
 ms.author: victorh
-ms.openlocfilehash: a4cc11447686f81017332a3528019a54a5167c52
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: 71f2357ba2c2d3e978e4f967ad09fee763586a7c
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70231995"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71058316"
 ---
 # <a name="create-and-use-web-application-firewall-v2-custom-rules"></a>Skapa och använda anpassade regler för brand vägg för webbaserade program v2
 
@@ -179,7 +179,7 @@ Motsvarande regel för boknings system:`SecRule REMOTE_ADDR "@ipMatch 192.168.5.
 
 ## <a name="example-3"></a>Exempel 3
 
-I det här exemplet vill du blockera *evilbot*för användar agent och trafik i intervallet 192.168.5.0/24. För att åstadkomma detta kan du skapa två separata matchnings villkor och lägga dem både i samma regel. Detta säkerställer att både *evilbot* i User-Agent-huvudet **och** IP-adresserna från intervallet 192.168.5.0/24 blockeras.
+I det här exemplet vill du blockera *evilbot*för användar agent och trafik i intervallet 192.168.5.0/24. För att åstadkomma detta kan du skapa två separata matchnings villkor och lägga dem både i samma regel. Detta säkerställer att om båda *evilbot* i användar agentens huvud- **och** IP-adresser från intervallet 192.168.5.0/24 matchas, blockeras begäran.
 
 Logik: p **och** q
 

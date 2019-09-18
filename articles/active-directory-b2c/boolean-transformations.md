@@ -1,6 +1,6 @@
 ---
-title: Booleskt värde anspråk omvandling exempel för den identiteten upplevelse Framework Schema för Azure Active Directory B2C | Microsoft Docs
-description: Booleskt värde anspråk omvandling exempel för den identiteten upplevelse Framework Schema för Azure Active Directory B2C.
+title: Transformerings exempel för booleska anspråk för identitets upplevelsens Ramverks schema i Azure Active Directory B2C | Microsoft Docs
+description: Transformerings exempel för booleska anspråk för Azure Active Directory B2C i identitets upplevelsens Ramverks schema.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -10,37 +10,37 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 0a08849340d19055a03f85ca401757a81cd2c95d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: da4fc4704ee72210e180ef95fe6a821c8d116fa2
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66511747"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71064563"
 ---
-# <a name="boolean-claims-transformations"></a>Booleska anspråksomvandlingar
+# <a name="boolean-claims-transformations"></a>Omvandlingar med booleska anspråk
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Den här artikeln innehåller exempel för att använda booleskt anspråksomvandlingar av Identitetsramverk schemat i Azure Active Directory (Azure AD) B2C. Mer information finns i [ClaimsTransformations](claimstransformations.md).
+Den här artikeln innehåller exempel på hur du använder booleska anspråks omvandlingar av Identity Experience Framework-schemat i Azure Active Directory B2C (Azure AD B2C). Mer information finns i [ClaimsTransformations](claimstransformations.md).
 
 ## <a name="andclaims"></a>AndClaims
 
-Utförs av två booleskt inputClaims och ställer in outputClaim med resultatet av åtgärden.
+Utför en och-åtgärd av två booleska inputClaims och anger outputClaim med resultatet av åtgärden.
 
 | Objekt  | TransformationClaimType  | Datatyp  | Anteckningar |
 |-------| ------------------------ | ---------- | ----- |
-| InputClaim | inputClaim1 | boolesk | Första ClaimType att utvärdera. |
-| InputClaim | inputClaim2  | boolesk | Andra ClaimType att utvärdera. |
-|OutputClaim | outputClaim | boolesk | ClaimTypes som skapas när detta omvandling av anspråk har anropats (SANT eller FALSKT). |
+| InputClaim | inputClaim1 | boolean | Den första ClaimType som ska utvärderas. |
+| InputClaim | inputClaim2  | boolean | Den andra ClaimType som ska utvärderas. |
+|OutputClaim | outputClaim | boolean | Den ClaimTypes som ska skapas efter att den här anspråks omvandlingen har anropats (sant eller falskt). |
 
-Följande anspråkstransformering visar hur du och två booleskt ClaimTypes: `isEmailNotExist`, och `isSocialAccount`. Utdata-anspråket `presentEmailSelfAsserted` är inställd på `true` om värdet för båda inkommande anspråk är `true`. I ett orchestration-steg kan du använda ett villkor för att ange en självkontrollerad sida, bara om ett e-postmeddelande för socialt konto är tom.
+Följande anspråks omvandling visar hur du och två booleska ClaimTypes `isEmailNotExist`:, `isSocialAccount`och. Utgående anspråk `presentEmailSelfAsserted` anges till `true` om värdet för båda indata-anspråken `true`är. I ett Orchestration-steg kan du använda ett villkor för att förinställa en självkontrollerad sida, bara om ett e-postmeddelande om sociala konton är tomt.
 
 ```XML
 <ClaimsTransformation Id="CheckWhetherEmailBePresented" TransformationMethod="AndClaims">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="isEmailNotExist" TransformationClaimType="inputClaim1" />
     <InputClaim ClaimTypeReferenceId="isSocialAccount" TransformationClaimType="inputClaim2" />
-  </InputClaims>                    
+  </InputClaims>
   <OutputClaims>
     <OutputClaim ClaimTypeReferenceId="presentEmailSelfAsserted" TransformationClaimType="outputClaim" />
   </OutputClaims>
@@ -49,27 +49,27 @@ Följande anspråkstransformering visar hur du och två booleskt ClaimTypes: `is
 
 ### <a name="example"></a>Exempel
 
-- Inkommande anspråk:
-    - **inputClaim1**: true
-    - **inputClaim2**: false
+- Inmatade anspråk:
+    - **inputClaim1**: sant
+    - **inputClaim2**: falskt
 - Utgående anspråk:
-    - **outputClaim**: false
+    - **outputClaim**: falskt
 
 
 ## <a name="assertbooleanclaimisequaltovalue"></a>AssertBooleanClaimIsEqualToValue
 
-Kontrollerar att booleska värden för två anspråk är likvärdiga och utlöser ett undantag om de inte.
+Kontrollerar att booleska värden för två anspråk är lika och genererar ett undantag om de inte är det.
 
 | Objekt | TransformationClaimType  | Datatyp  | Anteckningar |
 | ---- | ------------------------ | ---------- | ----- |
-| inputClaim | inputClaim | boolesk | ClaimType verifieringsvillkor som ska kontrolleras. |
-| InputParameter |valueToCompareTo | boolesk | Värde att jämföra (SANT eller FALSKT). |
+| inputClaim | inputClaim | boolean | Den ClaimType som ska försäkras. |
+| InputParameter |valueToCompareTo | boolean | Värdet som ska jämföras (sant eller falskt). |
 
-Den **AssertBooleanClaimIsEqualToValue** anspråkstransformering utförs alltid från en [teknisk verifieringsprofil](validation-technical-profile.md) som anropas av en [lokal verifieringsvillkor tekniska profilen](self-asserted-technical-profile.md). Den **UserMessageIfClaimsTransformationBooleanValueIsNotEqual** självkontrollerad tekniska profilens metadata styr det felmeddelande som den tekniska profilen som visas för användaren.
+Omvandlingen av **AssertBooleanClaimIsEqualToValue** -anspråk körs alltid från en [teknisk verifierings profil](validation-technical-profile.md) som anropas av en [självkontrollerad teknisk profil](self-asserted-technical-profile.md). **UserMessageIfClaimsTransformationBooleanValueIsNotEqual** -metadata för självkontrollerad teknisk profil styr det fel meddelande som den tekniska profilen presenterar för användaren.
 
-![AssertStringClaimsAreEqual körning](./media/boolean-transformations/assert-execution.png)
+![AssertStringClaimsAreEqual-körning](./media/boolean-transformations/assert-execution.png)
 
-Följande anspråkstransformering visar hur du kontrollerar värdet för en boolesk ClaimType med en `true` värde. Om värdet för den `accountEnabled` ClaimType är FALSKT, genereras ett felmeddelande.
+Följande anspråks omvandling visar hur du kontrollerar värdet för en boolesk claimType med ett `true` värde. Om värdet för `accountEnabled` claimType är falskt genereras ett fel meddelande.
 
 ```XML
 <ClaimsTransformation Id="AssertAccountEnabledIsTrue" TransformationMethod="AssertBooleanClaimIsEqualToValue">
@@ -83,7 +83,7 @@ Följande anspråkstransformering visar hur du kontrollerar värdet för en bool
 ```
 
 
-Den `login-NonInteractive` verifiering tekniska profilen anrop den `AssertAccountEnabledIsTrue` omvandling av anspråk.
+Den `login-NonInteractive` tekniska verifierings profilen `AssertAccountEnabledIsTrue` anropar anspråks omvandlingen.
 ```XML
 <TechnicalProfile Id="login-NonInteractive">
   ...
@@ -93,7 +93,7 @@ Den `login-NonInteractive` verifiering tekniska profilen anrop den `AssertAccoun
 </TechnicalProfile>
 ```
 
-Den tekniska profilen självkontrollerad anropar verifieringen **inloggning utan interaktivitet** tekniska profilen.
+Den självkontrollerade tekniska profilen anropar verifierings **inloggningen-inaktiv** teknisk profil.
 
 ```XML
 <TechnicalProfile Id="SelfAsserted-LocalAccountSignin-Email">
@@ -108,21 +108,21 @@ Den tekniska profilen självkontrollerad anropar verifieringen **inloggning utan
 
 ### <a name="example"></a>Exempel
 
-- Inkommande anspråk:
-    - **inputClaim**: false
-    - **valueToCompareTo**: true
-- Resultat: Fel uppstod
+- Inmatade anspråk:
+    - **inputClaim**: falskt
+    - **valueToCompareTo**: sant
+- Medför Fel utlöst
 
 ## <a name="notclaims"></a>NotClaims
 
-Utför en inte av boolesk inputClaim och ställer in outputClaim med resultatet av åtgärden.
+Utför en not-åtgärd för den booleska inputClaim och ställer in outputClaim med resultatet av åtgärden.
 
 | Objekt | TransformationClaimType | Datatyp | Anteckningar |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | inputClaim | boolesk | Anspråk att vara i drift. |
-| OutputClaim | outputClaim | boolesk | ClaimTypes som genereras när den här ClaimsTransformation har anropats (SANT eller FALSKT). |
+| InputClaim | inputClaim | boolean | Det anspråk som ska användas. |
+| OutputClaim | outputClaim | boolean | ClaimTypes som skapas efter att denna ClaimsTransformation har anropats (sant eller falskt). |
 
-Använda den här anspråksomvandling för att utföra logisk negation på ett anspråk.
+Använd den här anspråks omvandlingen för att utföra logisk negation på ett anspråk.
 
 ```XML
 <ClaimsTransformation Id="CheckWhetherEmailBePresented" TransformationMethod="NotClaims">
@@ -136,29 +136,29 @@ Använda den här anspråksomvandling för att utföra logisk negation på ett a
 
 ### <a name="example"></a>Exempel
 
-- Inkommande anspråk:
-    - **inputClaim**: false
+- Inmatade anspråk:
+    - **inputClaim**: falskt
 - Utgående anspråk:
-    - **outputClaim**: true
+    - **outputClaim**: sant
 
-## <a name="orclaims"></a>OrClaims 
+## <a name="orclaims"></a>OrClaims
 
-Beräknar en Or av två booleskt inputClaims och ställer in outputClaim med resultatet av åtgärden.
+Beräknar en eller två booleska inputClaims och anger outputClaim med resultatet av åtgärden.
 
 | Objekt | TransformationClaimType | Datatyp | Anteckningar |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | inputClaim1 | boolesk | Första ClaimType att utvärdera. |
-| InputClaim | inputClaim2 | boolesk | Andra ClaimType att utvärdera. |
-| OutputClaim | outputClaim | boolesk | ClaimTypes som skapas när den här ClaimsTransformation har anropats (SANT eller FALSKT). |
+| InputClaim | inputClaim1 | boolean | Den första ClaimType som ska utvärderas. |
+| InputClaim | inputClaim2 | boolean | Den andra ClaimType som ska utvärderas. |
+| OutputClaim | outputClaim | boolean | ClaimTypes som skapas efter att denna ClaimsTransformation har anropats (sant eller falskt). |
 
-Följande anspråkstransformering visar hur du `Or` två booleskt ClaimTypes. I orchestration-steg du kan använda ett villkor för att ange en självkontrollerad sida om värdet för ett av anspråken är `true`.
+Följande anspråks omvandling visar hur `Or` man två booleska ClaimTypes. I Orchestration-steget kan du använda ett villkor för att förinställa en självkontrollerad sida om värdet för ett av anspråken är `true`.
 
 ```XML
 <ClaimsTransformation Id="CheckWhetherEmailBePresented" TransformationMethod="OrClaims">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="isLastTOSAcceptedNotExists" TransformationClaimType="inputClaim1" />
     <InputClaim ClaimTypeReferenceId="isLastTOSAcceptedGreaterThanNow" TransformationClaimType="inputClaim2" />
-  </InputClaims>                    
+  </InputClaims>
   <OutputClaims>
     <OutputClaim ClaimTypeReferenceId="presentTOSSelfAsserted" TransformationClaimType="outputClaim" />
   </OutputClaims>
@@ -168,9 +168,9 @@ Följande anspråkstransformering visar hur du `Or` två booleskt ClaimTypes. I 
 
 ### <a name="example"></a>Exempel
 
-- Inkommande anspråk:
-    - **inputClaim1**: true
-    - **inputClaim2**: false
+- Inmatade anspråk:
+    - **inputClaim1**: sant
+    - **inputClaim2**: falskt
 - Utgående anspråk:
-    - **outputClaim**: true
+    - **outputClaim**: sant
 

@@ -10,16 +10,16 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 2066a7848efaf067dddde3d5db1decfc88d94436
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: f6fa48ea1d98c8bc6e6a6bcdea7c0f1083952e49
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70914208"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71064714"
 ---
 # <a name="tutorial-enable-authentication-in-a-web-application-using-azure-active-directory-b2c"></a>Självstudier: Aktivera autentisering i en webbapp med hjälp av Azure Active Directory B2C
 
-Den här självstudien lär dig att använda Azure Active Directory (Azure AD) B2C för att logga in och registrera användare i en ASP.NET-webbapp. Med Azure AD B2C kan program autentisera med konton på sociala medier, företagskonton och Azure Active Directory-konton med hjälp av öppna standardprotokoll.
+Den här självstudien visar hur du använder Azure Active Directory B2C (Azure AD B2C) för att logga in och registrera användare i ett ASP.NET-webbprogram. Med Azure AD B2C kan program autentisera med konton på sociala medier, företagskonton och Azure Active Directory-konton med hjälp av öppna standardprotokoll.
 
 I den här guiden får du lära dig att:
 
@@ -40,8 +40,8 @@ I den här guiden får du lära dig att:
 I den självstudien som du slutförde som en del av förutsättningarna lade du till en webbapp i Azure AD B2C. För att möjliggöra kommunikation med exemplet i den här självstudien behöver du lägga till en omdirigerings-URI i programmet i Azure AD B2C.
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
-2. Se till att du använder den katalog som innehåller din Azure AD B2C-klientorganisation genom att klicka på **katalog- och prenumerationsfiltret** på den översta menyn och välja katalogen som innehåller din klientorganisation.
-3. Välj **Alla tjänster** på menyn högst upp till vänster i Azure-portalen och sök efter och välj **Azure AD B2C**.
+2. Kontrol lera att du använder den katalog som innehåller din Azure AD B2C klient genom att välja filtret **katalog + prenumeration** på den översta menyn och välja den katalog som innehåller din klient.
+3. Välj **Alla tjänster** på menyn uppe till vänster i Azure Portal. Sök sedan efter och välj **Azure AD B2C**.
 4. Välj **Program** och därefter programmet *webapp1*.
 5. Under **Svars-URL** lägger du till `https://localhost:44316`.
 6. Välj **Spara**.

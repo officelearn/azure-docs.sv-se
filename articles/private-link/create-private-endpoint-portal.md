@@ -7,12 +7,12 @@ ms.service: virtual-network
 ms.topic: quickstart
 ms.date: 09/16/2019
 ms.author: kumud
-ms.openlocfilehash: c0ade6b0728717cfb8524eea92b63b49a979ec1f
-ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
+ms.openlocfilehash: e629a921b5c853f1cae2c224be35570cd71e5d37
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71018964"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71067799"
 ---
 # <a name="create-a-private-endpoint-using-azure-portal"></a>Skapa en privat slut punkt med hjälp av Azure Portal
 
@@ -199,8 +199,9 @@ När du har skapat **myVm*ansluter du till den från Internet på följande sät
 ## <a name="access-the-sql-database-server-privately-from-the-vm"></a>Få åtkomst till SQL Database-servern privat från den virtuella datorn
 
 1. Öppna PowerShell i fjärr skrivbordet för *myVM*.
-2. Ange `myserver.database.windows.net`. 
-' Du får ett meddelande som liknar detta:
+2. Ange `nslookup myserver.database.windows.net`. 
+
+    Du får ett meddelande som liknar detta:
     ```azurepowershell
     Server:  UnKnown
     Address:  168.63.129.16

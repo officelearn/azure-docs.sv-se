@@ -7,14 +7,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: overview
-ms.date: 07/03/2019
+ms.date: 09/17/2019
 ms.author: alkohli
-ms.openlocfilehash: cd2a776988ba27add54c69b0feccbc3fce8337aa
-ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
+ms.openlocfilehash: a3e27cf427de3a33f71d6f4a0af9b1590abeb573
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67551513"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71067003"
 ---
 # <a name="what-is-azure-data-box"></a>Vad är Azure Data Box?
 
@@ -109,16 +109,9 @@ Under den här processen meddelas du via e-post om alla statusändringar. Mer in
 
 ## <a name="region-availability"></a>Regional tillgänglighet
 
-Data Box kan överföra data baserat på den region där tjänsten distribueras, land/region som enheten levereras och mål-Azure storage-konto där du kan överföra data. 
+Data Box-enhet kan överföra data baserat på den region där tjänsten distribueras, land/region dit enheten levereras och det Azure Storage-konto som du överför data till. 
 
-- **Tjänstens tillgänglighet** – för den här versionen är Data Box-tjänsten tillgänglig i följande regioner:
-    - Alla regioner i USA – USA, västra centrala, USA, västra 2, USA, västra, USA, södra centrala, USA, centrala, USA, norra centrala, USA, östra samt USA, östra 2.
-    - EU – Europa, västra och Europa, norra.
-    - Storbritannien – Storbritannien, södra och Storbritannien, västra.
-    - Frankrike – Frankrike, centrala och Frankrike, södra.
-    - Japan – Japan, östra och Japan, västra.
-    - Australien – Australien, östra och sydöstra Australien.
-    - Kanada – Östra Kanada och centrala Kanada.
+- **Tjänst tillgänglighet** – information om regions tillgänglighet finns i [Azure-produkter tillgängliga per region](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all). Data Box-enhet kan också distribueras i Azure Government molnet. Mer information finns i [Vad är Azure Government?](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome).
 
 - **Destinationslagringskonton** – de lagringskonton som lagrar data som är tillgängliga i alla Azure-regioner där tjänsten är tillgänglig.  
 

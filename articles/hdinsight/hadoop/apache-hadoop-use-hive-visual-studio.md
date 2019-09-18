@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/14/2019
 ms.author: hrasheed
-ms.openlocfilehash: 129f200bc9f61d70f4403b1154978d57e09fee26
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: 1e5e3854f0b132ede38e182f99435a569c04d49e
+ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70917486"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71076272"
 ---
 # <a name="run-apache-hive-queries-using-the-data-lake-tools-for-visual-studio"></a>Kör Apache Hive frågor med hjälp av Data Lake verktyg för Visual Studio
 
@@ -115,7 +115,7 @@ Ad hoc-frågor kan köras i antingen **batch** -eller **interaktivt** läge.
 
 6. I verktygsfältet väljer du det **HDInsight-kluster** som du vill använda för den här frågan. Välj **Skicka** för att köra uttrycken som ett Hive-jobb.
 
-   ![Skicka fält](./media/apache-hadoop-use-hive-visual-studio/hdinsight-toolbar-submit.png)
+   ![Skicka Azure HDInsight-verktygsfältet](./media/apache-hadoop-use-hive-visual-studio/hdinsight-toolbar-submit.png)
 
 7. **Sammanfattningen av Hive-jobbet** visas och visar information om det jobb som körs. Använd länken **Uppdatera** för att uppdatera jobb informationen tills **jobbets status** ändras till **slutförd**.
 

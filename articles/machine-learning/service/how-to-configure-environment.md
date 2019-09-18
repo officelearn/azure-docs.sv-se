@@ -1,7 +1,7 @@
 ---
 title: Konfigurera en python-utvecklings miljö
-titleSuffix: Azure Machine Learning service
-description: 'Lär dig hur du konfigurerar en utvecklings miljö när du arbetar med tjänsten Azure Machine Learning. I den här artikeln får du lära dig hur du använder Conda-miljöer, skapar konfigurationsfiler och konfigurerar din egen molnbaserade Notebook-Server, Jupyter-anteckningsböcker, Azure Databricks, IDE: er, kod redigerare och Data Science Virtual Machine.'
+titleSuffix: Azure Machine Learning
+description: 'Lär dig hur du konfigurerar en utvecklings miljö när du arbetar med Azure Machine Learning. I den här artikeln får du lära dig hur du använder Conda-miljöer, skapar konfigurationsfiler och konfigurerar din egen molnbaserade Notebook-Server, Jupyter-anteckningsböcker, Azure Databricks, IDE: er, kod redigerare och Data Science Virtual Machine.'
 services: machine-learning
 author: rastala
 ms.author: roastala
@@ -11,16 +11,16 @@ ms.reviewer: larryfr
 ms.topic: conceptual
 ms.date: 07/31/2019
 ms.custom: seodec18
-ms.openlocfilehash: 39daff8be5ac072479463dc10c9041cda6b7b628
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: 933ae5b70d8e0485360a94ede1fff99c02f75a4c
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70860571"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71034874"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>Konfigurera en utvecklingsmiljö för Azure Machine Learning
 
-I den här artikeln får du lära dig hur du konfigurerar en utvecklings miljö så att den fungerar med Azure Machine Learning-tjänsten. Azure Machine Learning-tjänsten är plattforms oberoende. Det enda hårda kravet för utvecklings miljön är python 3. En isolerad miljö som Anaconda eller virtuell miljö rekommenderas också.
+I den här artikeln får du lära dig hur du konfigurerar en utvecklings miljö så att den fungerar med Azure Machine Learning. Azure Machine Learning är plattforms oberoende. Det enda hårda kravet för utvecklings miljön är python 3. En isolerad miljö som Anaconda eller virtuell miljö rekommenderas också.
 
 I följande tabell visas varje utvecklings miljö som beskrivs i den här artikeln, tillsammans med-och-och nack delar.
 
@@ -40,7 +40,7 @@ Den här artikeln innehåller också ytterligare användnings tips för följand
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-En arbetsyta för Azure Machine Learning-tjänsten. Information om hur du skapar arbets ytan finns i [skapa en Azure Machine Learning service-arbetsyta](how-to-manage-workspace.md). En arbets yta är allt du behöver för att komma igång med din egen [molnbaserade Notebook-Server](#notebookvm), en [DSVM](#dsvm)eller [Azure Databricks](#aml-databricks).
+En Azure Machine Learning-arbetsyta. Information om hur du skapar arbets ytan finns i [skapa en Azure Machine Learning arbets yta](how-to-manage-workspace.md). En arbets yta är allt du behöver för att komma igång med din egen [molnbaserade Notebook-Server](#notebookvm), en [DSVM](#dsvm)eller [Azure Databricks](#aml-databricks).
 
 Om du vill installera SDK-miljön för den [lokala datorn](#local), [Jupyter Notebook Server](#jupyter) eller [Visual Studio-kod](#vscode) som du också behöver:
 
@@ -70,7 +70,7 @@ Den virtuella Notebook-datorn är:
   + Ett urval av ramverk för djup inlärning
 
 
-  Om du är i kod innehåller den virtuella datorn självstudier och exempel som hjälper dig att utforska och lära dig hur du använder Azure Machine Learning-tjänsten. Exempel antecknings böckerna lagras i Azure Blob Storage-kontot på arbets ytan som gör att de kan delas mellan virtuella datorer. När det körs har de också åtkomst till data lager och beräknings resurser för din arbets yta.
+  Om du är i kod innehåller den virtuella datorn självstudier och exempel som hjälper dig att utforska och lära dig hur du använder Azure Machine Learning. Exempel antecknings böckerna lagras i Azure Blob Storage-kontot på arbets ytan som gör att de kan delas mellan virtuella datorer. När det körs har de också åtkomst till data lager och beräknings resurser för din arbets yta.
 
 + **Enkel installation**: Skapa en när som helst i din Azure Machine Learning-arbetsyta. Ange ett namn och ange en typ av virtuell Azure-dator. Prova nu med den här [självstudien: Installations miljö och arbets](tutorial-1st-experiment-sdk-setup.md)yta.
 
@@ -145,7 +145,7 @@ Om du vill använda DSVM som utvecklings miljö gör du följande:
     print(azureml.core.VERSION)
     ```
 
-1. Information om hur du konfigurerar DSVM till att använda din Azure Machine Learning service-arbetsyta finns i avsnittet [skapa en konfigurations fil för arbets yta](#workspace) .
+1. Information om hur du konfigurerar DSVM så att den använder din Azure Machine Learning arbets yta finns i avsnittet [skapa en konfigurations fil för arbets ytor](#workspace) .
 
 Mer information finns i [Virtual Machines för data vetenskap](https://azure.microsoft.com/services/virtual-machines/data-science-virtual-machines/).
 
@@ -255,7 +255,7 @@ Proceduren i avsnittet [lokal dator](#local) installerar nödvändiga komponente
     sys.path
     ```
     
-1. Om du vill konfigurera Jupyter Notebook att använda arbets ytan Azure Machine Learnings tjänst, går du till avsnittet [skapa en konfigurations fil för arbets yta](#workspace) .
+1. Om du vill konfigurera Jupyter Notebook att använda arbets ytan Azure Machine Learning går du till avsnittet [skapa en konfigurations fil för arbets yta](#workspace) .
 
 
 ### <a id="vscode"></a>Visual Studio Code
@@ -287,7 +287,7 @@ Om du vill använda Visual Studio Code för utveckling gör du följande:
 ## <a name="azure-databricks"></a>Azure Databricks
 Azure Databricks är en Apache Spark-baserad miljö i Azure-molnet. Den ger en samarbets Notebook-baserad miljö med processor-eller GPU-baserade beräknings kluster.
 
-Hur Azure Databricks fungerar med Azure Machine Learning-tjänsten:
+Hur Azure Databricks fungerar med Azure Machine Learning:
 + Du kan träna en modell med Spark-MLlib och distribuera modellen till ACI/AKS inifrån Azure Databricks.
 + Du kan också använda [automatiska maskin inlärnings](concept-automated-ml.md) funktioner i en särskild Azure ml SDK med Azure Databricks.
 + Du kan använda Azure Databricks som ett beräknings mål från en [Azure Machine Learning pipeline](concept-ml-pipelines.md).

@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 09/04/2019
+ms.date: 09/17/2019
 ms.author: raynew
-ms.openlocfilehash: ecceb1177d7b7015afc92f10284a9372d0cfb4a2
-ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
+ms.openlocfilehash: a0ca483005cf1f5aaadcd7a6107b092d581d6773
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70375303"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71067759"
 ---
 # <a name="support-matrix-for-vmware-assessment-and-migration"></a>Stödmatris för utvärdering och migrering av VMware
 
@@ -43,10 +43,13 @@ Tabellen sammanfattar scenarier som stöds för virtuella VMware-datorer.
 Azure Government | Virginia (USA-förvaltad region)
 Asien och stillahavsområdet | Asien, östra eller Sydostasien
 Australien | Östra Australien eller Australien, sydöstra
+Brasilien | Södra Brasilien
 Kanada | Kanada, centrala eller Kanada, öst
 Europa | Europa, norra eller Europa, västra
+Frankrike | Frankrike, centrala
 Indien | Centrala Indien eller södra Indien
 Japan |  Japan, östra eller Japan, väst
+Korea | Korea, centrala eller Korea, södra
 Storbritannien och Nordirland | Storbritannien, södra eller Storbritannien, västra
 USA | USA, centrala eller västra USA 2
 
@@ -73,11 +76,11 @@ Azure Migrate kör en förenklad installation för att identifiera virtuella VMw
 
 **Support** | **Detaljer**
 --- | ---
-**Distribution av utrustning** | Du distribuerar installationen som en virtuell VMware-dator. Du behöver tillräckligt med resurser på vCenter Server för att allokera en virtuell dator med 32 GB RAM, 8 virtuella processorer, cirka 80 GB disk lagring och en extern virtuell växel.<br/><br/> Enheten kräver Internet åtkomst, antingen direkt eller via en proxyserver.<br/> Den virtuella datorn måste distribueras på en ESXi-värd som kör version 5,5 eller senare. 
+**Distribution av utrustning** | Du distribuerar installationen som en virtuell VMware-dator. Du behöver tillräckligt med resurser på vCenter Server för att allokera en virtuell dator med 32 GB RAM, 8 virtuella processorer, cirka 80 GB disk lagring och en extern virtuell växel.<br/><br/> Enheten kräver Internet åtkomst, antingen direkt eller via en proxyserver.<br/> Den virtuella datorn måste distribueras på en ESXi-värd som kör version 5,5 eller senare.
 **Azure Migrate projekt** | En apparat kan associeras med ett enda projekt. <br/> Valfritt antal enheter kan associeras med ett enda projekt.<br/> Du kan utvärdera upp till 35 000 virtuella datorer i ett projekt.
 **Identifikation** | En apparat kan identifiera upp till 10 000 virtuella VMware-datorer på en vCenter Server.<br/> En apparat kan ansluta till en enda vCenter Server.
 **Utvärderings grupp** | Du kan lägga till upp till 35 000 datorer i en enda grupp.
-**Beskrivningar** | Du kan utvärdera upp till 35 000 virtuella datorer i en enda utvärdering.
+**Utvärdering** | Du kan utvärdera upp till 35 000 virtuella datorer i en enda utvärdering.
 
 
 ## <a name="assessment-url-access-requirements"></a>Bedömnings krav för URL-åtkomst

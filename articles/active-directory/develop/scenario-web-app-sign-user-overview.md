@@ -15,12 +15,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 95aeeacfd85dd79453bff4e365e5b050039f77b9
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
-ms.translationtype: MT
+ms.openlocfilehash: 7b898a93b87811fa5139e148a3273d7051af851b
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68852473"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71056280"
 ---
 # <a name="scenario-web-app-that-signs-in-users"></a>Scenario: Webbapp som loggar in användare
 
@@ -55,7 +55,7 @@ Som en andra fas kan du också aktivera ditt program så att det anropar webb-AP
 
 ## <a name="specifics"></a>Information
 
-- Under program registreringen måste du ange en eller flera (om du distribuerar appen till flera platser) svars-URI: er. I vissa fall (ASP.NET/ASP.NET Core) måste du aktivera IDToken. Slutligen vill du skapa en utloggnings-URI så att ditt program reagerar på användare som loggar ut.
+- Under program registreringen måste du ange en eller flera (om du distribuerar appen till flera platser) svars-URI: er. I vissa fall (ASP.NET/ASP.NET Core) måste du aktivera ID-token. Slutligen vill du skapa en utloggnings-URI så att ditt program reagerar på användare som loggar ut.
 - I koden för ditt program måste du ange den myndighet som du vill att webbappen delegerar inloggning för. Du kanske vill anpassa verifiering av token (särskilt i ISV-scenarier).
 - Webb program stöder alla typer av konton. Mer information finns i [konto typer som stöds](v2-supported-account-types.md).
 

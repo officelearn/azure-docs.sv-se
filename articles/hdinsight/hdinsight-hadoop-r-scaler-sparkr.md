@@ -3,16 +3,17 @@ title: Använda scaler och Spark med Azure HDInsight
 description: Använd scaler och sparker för data manipulation och modell utveckling med ML-tjänster på Azure HDInsight
 author: hrasheed-msft
 ms.author: hrasheed
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/19/2017
-ms.openlocfilehash: a91d2d569b4900e3d5b787145c242a75b928d822
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.openlocfilehash: 9fa18550a3c27ce38599b9a0d47abdc38524d9c2
+ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70733370"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71077096"
 ---
 # <a name="combine-scaler-and-sparkr-in-hdinsight"></a>Kombinera scaler och Sparkr i HDInsight
 

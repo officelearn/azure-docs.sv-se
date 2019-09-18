@@ -16,12 +16,12 @@ ms.date: 07/10/2019
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9b631f078240821e79513c4bd944a33b4725bc52
-ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
+ms.openlocfilehash: 6857697423e494c515bd052cb42af3ad1d9fe188
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2019
-ms.locfileid: "70207149"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71057783"
 ---
 # <a name="delegate-tasks-in-azure-ad-entitlement-management-preview"></a>Delegera aktiviteter i hantering av Azure AD-rättigheter (för hands version)
 
@@ -42,7 +42,7 @@ Anta att din organisation har följande fem användare:
 
 | Användare | Avdelning | Anteckningar |
 | --- | --- | --- |
-| Alice | it | Global administratör |
+| Alice | IT | Global administratör |
 | Bob | Forskning | Bob är också ägare av en Research grupp |
 | Carole | Forskning |  |
 | Dave | Marknadsföring |  |
@@ -69,7 +69,7 @@ Rättighets hantering har följande roller som är speciella för rättighets ha
 
 | Role | Beskrivning |
 | --- | --- |
-| Katalog skapare | Skapa och hantera kataloger. Vanligt vis en IT-administratör som inte är en global administratör eller en resurs ägare för en samling resurser. Personen som skapar en katalog blir automatiskt katalogens första katalog ägare och kan lägga till ytterligare katalog ägare. |
+| Katalog skapare | Skapa och hantera kataloger. Vanligt vis en IT-administratör som inte är en global administratör eller en resurs ägare för en samling resurser. Personen som skapar en katalog blir automatiskt katalogens första katalog ägare och kan lägga till ytterligare katalog ägare. En katalog skapare kan inte hantera eller se kataloger som de inte äger och kan inte lägga till resurser som de inte äger i en katalog. Om katalog skaparen behöver hantera en annan katalog eller lägga till resurser som de inte äger, kan de begära att bli medägare till katalogen eller resursen. |
 | Katalog ägare | Redigera och hantera befintliga kataloger. Vanligt vis en IT-administratör eller resurs ägare, eller en användare som har tilldelats katalog ägaren. |
 | Åtkomst till paket hanteraren | Redigera och hantera alla befintliga åtkomst paket i en katalog. |
 
@@ -139,7 +139,15 @@ Om du vill delegera skapandet av katalogen lägger du till användare i kataloge
 
 ## <a name="add-a-catalog-owner-or-an-access-package-manager"></a>Lägg till en katalog ägare eller en Access Package Manager
 
-Om du vill delegera hantering av en katalog eller åtkomst paket i katalogen lägger du till användare i katalog ägaren eller Access Package Manager-roller. Vem som skapar en katalog blir den första katalog ägaren. Följ de här stegen för att tilldela en användare rollen som katalog ägare eller Access Package Manager.
+Om du vill delegera hantering av en katalog eller åtkomst paket i katalogen lägger du till användare i katalog ägaren eller Access Package Manager-roller. Vem som skapar en katalog blir den första katalog ägaren. 
+
+Den tilldelade katalogen ägare eller åtkomst paket hanteraren måste vara bekant med projektet. Katalogens skapare bör skapa åtkomst paketet om det ingår i projektets dagliga drift och att de känner till följande information:
+- vilka resurser behövs
+- vem som behöver åtkomst
+- som behöver godkänna åtkomst
+- Hur länge projektet ska vara sist
+
+Katalogens skapare bör delegera uppgiften till projektets lead, som kommer att skapa och hantera åtkomst paketet, om detta inte är inblandat under den dagliga driften av projektet. Följ de här stegen för att tilldela en användare rollen katalog ägare eller Access Package Manager:
 
 **Nödvändig roll:** Global administratör, användar administratör eller katalog ägare
 

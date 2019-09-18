@@ -1,5 +1,5 @@
 ---
-title: Skydda ett webb-API med Azure AD | Microsoft Docs
+title: 'Snabbstart: Skydda ett webb-API med Azure Active Directory'
 description: Lär dig hur du skapar ett Node.js REST-webb-API som integreras med Azure AD för autentisering.
 services: active-directory
 documentationcenter: nodejs
@@ -14,14 +14,14 @@ ms.devlang: javascript
 ms.topic: quickstart
 ms.date: 09/24/2018
 ms.author: ryanwi
-ms.custom: aaddev
+ms.custom: seo-javascript-september2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7dcbe10c08d581e2ec01e1616da49b7a1b31018d
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 7307afb2ce9e10326c42f96733d3f80979c4a4b3
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65545980"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71056544"
 ---
 # <a name="quickstart-secure-a-web-api-with-azure-active-directory"></a>Snabbstart: Skydda ett webb-API med Azure Active Directory
 
@@ -33,7 +33,7 @@ Omfånget för den här snabbstarten beskriver frågor som rör skydd av API-slu
 
 Det fullständiga kodexempel som är associerat med den här artikeln finns på [GitHub](https://github.com/Azure-Samples/active-directory-node-webapi-basic).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Kom igång genom att slutföra följande krav.
 
@@ -82,7 +82,7 @@ az ad app create --display-name node-aad-demo --homepage http://localhost --iden
 
 Innan du kan ansluta till Azure Active Directory behöver du följande information:
 
-| Namn  | Beskrivning | Variabelnamn i konfigurationsfilen |
+| Name  | Beskrivning | Variabelnamn i konfigurationsfilen |
 | ------------- | ------------- | ------------- |
 | Namn på klientorganisation  | [Namn på klientorganisation](quickstart-create-new-tenant.md) som du vill använda för autentisering | `tenantName`  |
 | Klientorganisations-ID  | Klientorganisations-ID är den OAuth-term som används för AAD-_program-ID_. |  `clientID`  |

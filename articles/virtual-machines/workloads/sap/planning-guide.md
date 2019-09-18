@@ -13,15 +13,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 05/07/2019
+ms.date: 09/16/2019
 ms.author: sedusch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e87ea28f2454ec3c969574b21ef383e81b3148c2
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: d9b9476d8cc62585be7e7003d837607b502c8566
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70098771"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71067865"
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>Azure Virtual Machines planera och implementera SAP-NetWeaver
 
@@ -344,6 +344,7 @@ I hela dokumentet använder vi följande villkor:
 * SAP-liggande: Den här termen avser hela SAP-till gångarna i en kunds IT-liggande. SAP-landskapet innehåller alla produktions miljöer och icke-produktions miljöer.
 * SAP-system: Kombinationen av DBMS-skiktet och program lagret i, till exempel ett SAP ERP-utvecklingssystem, SAP BW test system, SAP CRM-produktionssystem osv. I Azure-distributioner finns det inte stöd för att dela upp dessa två skikt mellan lokalt och Azure. Innebär att ett SAP-system antingen är distribuerat lokalt eller distribuerat i Azure. Du kan dock distribuera de olika systemen i ett SAP-landskap till antingen Azure eller lokalt. Du kan t. ex. distribuera SAP CRM-utvecklings-och test system i Azure, men i det lokala SAP CRM-operativsystemet.
 * Mellan platser eller hybrider: Beskriver ett scenario där virtuella datorer distribueras till en Azure-prenumeration som har plats-till-plats-, flera-plats-eller ExpressRoute-anslutning mellan lokala data Center (er) och Azure. I gemensam Azure-dokumentation beskrivs även dessa typer av distributioner som olika platser eller hybrid scenarier. Orsaken till anslutningen är att utöka lokala domäner, lokala Active Directory/OpenLDAP och lokala DNS i Azure. Det lokala landskapet utökas till Azure-till gångar för prenumerationen. De virtuella datorerna kan vara en del av den lokala domänen. Domän användare av den lokala domänen kan komma åt servrarna och kan köra tjänster på de virtuella datorerna (t. ex. DBMS-tjänster). Kommunikation och namn matchning mellan virtuella datorer som distribuerats lokalt och Azure-distribuerade virtuella datorer är möjligt. Detta är det vanligaste och nästan exklusiva fallet som distribuerar SAP-tillgångar till Azure. Mer information finns i [den här][vpn-gateway-cross-premises-options] artikeln och [detta][vpn-gateway-site-to-site-create].
+* Azure Monitoring Extension, förbättrad övervakning och Azure-tillägg för SAP: Beskriv ett och samma objekt. Den beskriver ett VM-tillägg som måste distribueras av dig för att tillhandahålla grundläggande data om Azure-infrastrukturen till SAP-värd agenten. SAP i SAP-anteckningar kan referera till det som övervaknings tillägg eller förbättrad övervakning. I Azure refererar vi till det som Azure- **tillägg för SAP**.
 
 > [!NOTE]
 > Mellan lokala eller hybrid distributioner av SAP-system där Azure Virtual Machines som kör SAP-system är medlemmar i en lokal domän som stöds för produktion av SAP-system. Lokala eller hybrid konfigurationer stöds för att distribuera delar eller slutföra SAP-landskap till Azure. Även om du kör hela SAP liggande i Azure måste de virtuella datorerna vara en del av den lokala domänen och ADS/OpenLDAP. 
@@ -383,7 +384,7 @@ Följande SAP-anteckningar är relaterade till ämnet i SAP på Azure:
 | [2069760] |Oracle Linux 7. x SAP-installation och uppgradering |
 | [1597355] |Rekommendation för växlings utrymme för Linux |
 
-Läs även [SCN](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes) -wikin som innehåller alla SAP-anteckningar för Linux.
+Läs även [SCN-wikin](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes) som innehåller alla SAP-anteckningar för Linux.
 
 Allmänna standard begränsningar och maximala begränsningar för Azure-prenumerationer finns i [den här artikeln][azure-subscription-service-limits-subscription].
 
@@ -483,7 +484,7 @@ Det är inte alla olika VM-serier som erbjuds i var och en av Azure-regionerna (
 >
 
 ### <a name="be80d1b9-a463-4845-bd35-f4cebdb5424a"></a>Azure Regions
-Virtual Machines distribueras till så kallade *Azure-regioner*. En Azure-region kan vara en eller flera data Center som finns nära varandra. För de flesta regionerna i världen har Microsoft minst två Azure-regioner. I Europa finns det till exempel en Azure-region i *Nord Europa* och en avVästeuropa. Sådana två Azure-regioner i ett geografiskt politisk region skiljs åt med tillräckligt stort avstånd så att fysiska eller tekniska haveri effekter inte påverkar både Azure-regioner i samma geografiskt politisk region. Eftersom Microsoft ständigt skapar nya Azure-regioner i olika politiska regioner globalt, växer antalet regioner ständigt och från och med dec 2015 uppnås antalet 20 Azure-regioner med ytterligare regioner som redan har meddelats. Du som kund kan distribuera SAP-system i alla dessa regioner, inklusive de två Azure-regionerna i Kina. Aktuell information om Azure-regioner finns på följande webbplats:<https://azure.microsoft.com/regions/>
+Virtual Machines distribueras till så kallade *Azure-regioner*. En Azure-region kan vara en eller flera data Center som finns nära varandra. För de flesta regionerna i världen har Microsoft minst två Azure-regioner. I Europa finns det till exempel en Azure-region i *Nord Europa* och *en av Västeuropa*. Sådana två Azure-regioner i ett geografiskt politisk region skiljs åt med tillräckligt stort avstånd så att fysiska eller tekniska haveri effekter inte påverkar både Azure-regioner i samma geografiskt politisk region. Eftersom Microsoft ständigt skapar nya Azure-regioner i olika politiska regioner globalt, växer antalet regioner ständigt och från och med dec 2015 uppnås antalet 20 Azure-regioner med ytterligare regioner som redan har meddelats. Du som kund kan distribuera SAP-system i alla dessa regioner, inklusive de två Azure-regionerna i Kina. Aktuell information om Azure-regioner finns på följande webbplats:<https://azure.microsoft.com/regions/>
 
 ### <a name="8d8ad4b8-6093-4b91-ac36-ea56d80dbf77"></a>Koncept för Microsoft Azure virtuell dator
 Microsoft Azure erbjuder en IaaS-lösning (Infrastructure as a Service) som fungerar som värd för Virtual Machines med liknande funktioner som en lokal virtualiseringslösning. Du kan skapa Virtual Machines inifrån Azure Portal, PowerShell eller CLI, som även erbjuder funktioner för distribution och hantering.
@@ -513,7 +514,7 @@ Azure-Virtual Machines inom en Azure-tillgänglighets uppsättning distribueras 
 
 Läs [den här artikeln][virtual-machines-manage-availability] för att förstå konceptet med tillgänglighets uppsättningar i Azure och hur tillgänglighets uppsättningar relaterar till fel-och uppgraderings domäner
 
-Om du vill definiera tillgänglighets uppsättningar för Azure Resource Manager via en JSON-mall, se specifikationerna för [REST-API](https://github.com/Azure/azure-rest-api-specs/blob/master/arm-compute/2015-06-15/swagger/compute.json) och Sök efter "tillgänglighet".
+Om du vill definiera tillgänglighets uppsättningar för Azure Resource Manager via en JSON-mall, se [specifikationerna för REST-API](https://github.com/Azure/azure-rest-api-specs/blob/master/arm-compute/2015-06-15/swagger/compute.json) och Sök efter "tillgänglighet".
 
 ### <a name="a72afa26-4bf4-4a25-8cf7-855d6032157f"></a>Lagrings Microsoft Azure Storage och data diskar
 Microsoft Azure Virtual Machines använder olika lagrings typer. När du implementerar SAP på Azure Virtual Machine-tjänster är det viktigt att förstå skillnaderna mellan dessa två huvud typer av lagring:
@@ -597,7 +598,7 @@ Strängen ovan måste vara unikt identifiera den virtuella hård disk som lagras
 
 #### <a name="c55b2c6e-3ca1-4476-be16-16c81927550f"></a>Managed Disks
 
-Managed Disks är en ny resurs typ i Azure Resource Manager som kan användas i stället för virtuella hård diskar som lagras i Azure Storage konton. Managed Disks automatiskt justeras mot tillgänglighets uppsättningen för den virtuella datorn som de är kopplade till och därför ökar tillgängligheten för den virtuella datorn och de tjänster som körs på den virtuella datorn. Mer information finns i översikts [artikeln](https://docs.microsoft.com/azure/storage/storage-managed-disks-overview).
+Managed Disks är en ny resurs typ i Azure Resource Manager som kan användas i stället för virtuella hård diskar som lagras i Azure Storage konton. Managed Disks automatiskt justeras mot tillgänglighets uppsättningen för den virtuella datorn som de är kopplade till och därför ökar tillgängligheten för den virtuella datorn och de tjänster som körs på den virtuella datorn. Mer information finns i [översikts artikeln](https://docs.microsoft.com/azure/storage/storage-managed-disks-overview).
 
 Vi rekommenderar att du använder hanterad disk, eftersom de fören klar distributionen och hanteringen av dina virtuella datorer.
 SAP stöder för närvarande endast Premium Managed Disks. Mer information finns i SAP NOTE [1928533].
@@ -799,7 +800,7 @@ Kund upplevelsen har hittills varit att PowerShell (PS) är det mest kraftfulla 
 Se följande exempel:<https://blogs.technet.com/b/keithmayer/archive/2015/07/07/18-steps-for-end-to-end-iaas-provisioning-in-the-cloud-with-azure-resource-manager-arm-powershell-and-desired-state-configuration-dsc.aspx>
 
 
-Distribution av Azures övervaknings tillägg för SAP (mer information finns i kapitel [Azure Monitoring-lösningen för SAP][planning-guide-9.1] i det här dokumentet) är bara möjlig via POWERSHELL eller cli. Därför är det nödvändigt att konfigurera och konfigurera PowerShell eller CLI när du distribuerar eller administrerar ett SAP NetWeaver-system i Azure.  
+Distribution av Azure-tillägget för SAP (se kapitel [Azure-tillägg för SAP][planning-guide-9.1] i det här dokumentet) är bara möjlig via POWERSHELL eller cli. Därför är det nödvändigt att konfigurera och konfigurera PowerShell eller CLI när du distribuerar eller administrerar ett SAP NetWeaver-system i Azure.  
 
 Eftersom Azure tillhandahåller fler funktioner kommer nya PS-cmdlets att läggas till som kräver en uppdatering av cmdletarna. Därför är det klokt att kontrol lera Azures hämtnings plats minst en gång <https://azure.microsoft.com/downloads/> i månaden för en ny version av cmdletarna. Den nya versionen installeras ovanpå den äldre versionen.
 
@@ -816,7 +817,7 @@ Information om installation, konfiguration och hur du använder CLI-kommandon f�
 * [Distribuera och hantera virtuella datorer med hjälp av Azure Resource Manager-mallar och Azure CLI] [../../linux/create-ssh-secured-vm-from-template.md]
 * [Använd den klassiska Azure-CLI: en för Mac, Linux och Windows med Azure Resource Manager][xplat-cli-azure-resource-manager]
 
-Läs även kapitel [Azure CLI för virtuella Linux-datorer][deployment-guide-4.5.2] i [distributions guiden][planning-guide] för hur du använder Azure CLI för att distribuera Azures övervaknings tillägg för SAP.
+Läs även kapitel [Azure CLI för virtuella Linux-datorer][deployment-guide-4.5.2] i [distributions guiden][planning-guide] för hur du använder Azure CLI för att distribuera Azure-tillägget för SAP.
 
 ## <a name="different-ways-to-deploy-vms-for-sap-in-azure"></a>Olika sätt att distribuera virtuella datorer för SAP i Azure
 
@@ -851,7 +852,7 @@ Om du redan har installerat SAP-innehåll i din lokala virtuella dator (särskil
 
 #### <a name="deploying-a-vm-out-of-the-azure-marketplace"></a>Distribuera en virtuell dator från Azure Marketplace
 
-Du vill använda en virtuell dator avbildning från Microsoft eller tredje part från Azure Marketplace för att distribuera den virtuella datorn. När du har distribuerat den virtuella datorn i Azure följer du samma rikt linjer och verktyg för att installera SAP-programvaran och/eller DBMS i den virtuella datorn som du skulle göra i en lokal miljö. Mer detaljerad distributions beskrivning finns i kapitel [scenario 1: Distribuera en virtuell dator från Azure Marketplace för SAP][deployment-guide-3.2] i distributions [guiden][deployment-guide].
+Du vill använda en virtuell dator avbildning från Microsoft eller tredje part från Azure Marketplace för att distribuera den virtuella datorn. När du har distribuerat den virtuella datorn i Azure följer du samma rikt linjer och verktyg för att installera SAP-programvaran och/eller DBMS i den virtuella datorn som du skulle göra i en lokal miljö. Mer detaljerad distributions beskrivning finns i kapitel [scenario 1: Distribuera en virtuell dator från Azure Marketplace för SAP][deployment-guide-3.2] i [distributions guiden][deployment-guide].
 
 ### <a name="6ffb9f41-a292-40bf-9e70-8204448559e7"></a>Förbereda virtuella datorer med SAP för Azure
 
@@ -1242,7 +1243,7 @@ Mer information och mer information, specifikt för virtuella DBMS-datorer, finn
 
 #### <a name="disk-handling"></a>Disk hantering
 
-I de flesta fall måste du skapa ytterligare diskar för att kunna distribuera SAP-databasen till den virtuella datorn. Vi har talat om överväganden om antalet diskar i kapitlet om [VM/disk Structure för SAP][planning-guide-5.5.1] -distributioner av det här dokumentet. Med Azure Portal kan du ansluta och koppla från diskar när en virtuell bas dator har distribuerats. Diskarna kan kopplas/kopplas från när den virtuella datorn är igång samt när den har stoppats. När du kopplar en disk, Azure Portal erbjuda en tom disk eller en befintlig disk, vilket vid tidpunkten inte är kopplat till en annan virtuell dator.
+I de flesta fall måste du skapa ytterligare diskar för att kunna distribuera SAP-databasen till den virtuella datorn. Vi har talat om överväganden om antalet diskar i kapitlet om [VM/disk Structure för SAP-distributioner][planning-guide-5.5.1] av det här dokumentet. Med Azure Portal kan du ansluta och koppla från diskar när en virtuell bas dator har distribuerats. Diskarna kan kopplas/kopplas från när den virtuella datorn är igång samt när den har stoppats. När du kopplar en disk, Azure Portal erbjuda en tom disk eller en befintlig disk, vilket vid tidpunkten inte är kopplat till en annan virtuell dator.
 
 **Obs!** Diskar kan bara kopplas till en virtuell dator vid en specifik tidpunkt.
 
@@ -1270,7 +1271,7 @@ Därefter måste du bestämma om du vill skapa en ny och en tom disk eller om du
 ---
 Om den nya disken är en tom disk, måste du även formatera disken. För formatering, särskilt för DBMS-data och loggfiler, samma rekommendationer som för distribution utan operativ system i DBMS tillämpas.
 
-Som redan nämnts i kapitlet [Microsoft Azure begreppet virtuell dator][planning-guide-3.2]ger ett Azure Storage konto inte några oändliga resurser vad gäller i/O-volym, IOPS och data volym. Virtuella DBMS-datorer påverkas vanligt vis av detta. Det kan vara bäst att använda ett separat lagrings konto för varje virtuell dator om du har några virtuella datorer i/O-volymer som ska distribueras för att ligga inom gränsen för Azure Storage kontots volym. Annars måste du se hur du kan balansera de virtuella datorerna mellan olika lagrings konton utan att använda gränsen för varje enskilt lagrings konto. Mer information beskrivs i distributions [guiden för DBMS][dbms-guide]. Du bör också ha de här begränsningarna i åtanke för virtuella datorer i SAP-programservern eller andra virtuella datorer, vilket kan kräva ytterligare virtuella hård diskar. Dessa begränsningar gäller inte om du använder hanterad disk. Om du planerar att använda Premium Storage rekommenderar vi att du använder hanterad disk.
+Som redan nämnts i kapitlet [Microsoft Azure begreppet virtuell dator][planning-guide-3.2]ger ett Azure Storage konto inte några oändliga resurser vad gäller i/O-volym, IOPS och data volym. Virtuella DBMS-datorer påverkas vanligt vis av detta. Det kan vara bäst att använda ett separat lagrings konto för varje virtuell dator om du har några virtuella datorer i/O-volymer som ska distribueras för att ligga inom gränsen för Azure Storage kontots volym. Annars måste du se hur du kan balansera de virtuella datorerna mellan olika lagrings konton utan att använda gränsen för varje enskilt lagrings konto. Mer information beskrivs i [distributions guiden för DBMS][dbms-guide]. Du bör också ha de här begränsningarna i åtanke för virtuella datorer i SAP-programservern eller andra virtuella datorer, vilket kan kräva ytterligare virtuella hård diskar. Dessa begränsningar gäller inte om du använder hanterad disk. Om du planerar att använda Premium Storage rekommenderar vi att du använder hanterad disk.
 
 Ett annat ämne, som är relevant för lagrings konton är om de virtuella hård diskarna i ett lagrings konto får geo-replikeras. Geo-replikering är aktiverat eller inaktiverat på lagrings konto nivån och inte på VM-nivån. Om geo-replikering är aktiverat replikeras de virtuella hård diskarna i lagrings kontot till ett annat Azure-datacenter inom samma region. Innan du bestämmer detta bör du tänka på följande begränsning:
 
@@ -1302,7 +1303,7 @@ Azure geo-replikering fungerar lokalt på varje virtuell hård disk i en virtuel
 ---
 ### <a name="final-deployment"></a>Slutlig distribution
 
-För den slutliga distributionen och de exakta stegen, särskilt vad gäller distributionen av den utökade SAP-övervakningen, se [distributions guiden][deployment-guide].
+För den slutliga distributionen och de exakta stegen, särskilt vad gäller distributionen av Azure-tillägget för SAP, se [distributions guiden][deployment-guide].
 
 ## <a name="accessing-sap-systems-running-within-azure-vms"></a>Åtkomst till SAP-system som körs i virtuella Azure-datorer
 
@@ -1742,7 +1743,7 @@ Sekvensen inklusive ett SAP-system i en transport domän ser ut så här:
 
 Detta SAP-system innehåller nu nödvändig information om alla andra SAP-system i transport domänen. På samma tidpunkt skickas adress data för det nya SAP-systemet till alla andra SAP-system, och SAP-systemet anges i transport kontroll programmets transport profil. Kontrol lera om RFC: er och åtkomst till domänens transport katalog fungerar.
 
-Fortsätt med konfigurationen av ditt transport system som vanligt enligt beskrivningen i dokumentations ändrings- [och transport systemet](https://help.sap.com/saphelp_nw70ehp3/helpdata/en/48/c4300fca5d581ce10000000a42189c/content.htm?frameset=/en/44/b4a0b47acc11d1899e0000e829fbbd/frameset.htm).
+Fortsätt med konfigurationen av ditt transport system som vanligt enligt beskrivningen i dokumentations [ändrings-och transport systemet](https://help.sap.com/saphelp_nw70ehp3/helpdata/en/48/c4300fca5d581ce10000000a42189c/content.htm?frameset=/en/44/b4a0b47acc11d1899e0000e829fbbd/frameset.htm).
 
 Anvisningar:
 
@@ -1775,29 +1776,29 @@ SAP-instanser som finns i Azure behöver komma åt fil resurser som finns i för
 
 ## <a name="supportability"></a>Support
 
-### <a name="6f0a47f3-a289-4090-a053-2521618a28c3"></a>Azure Monitoring-lösning för SAP
+### <a name="6f0a47f3-a289-4090-a053-2521618a28c3"></a>Azure-tillägg för SAP
 
-För att möjliggöra övervakning av verksamhets kritiska SAP-system på Azure kan du hämta data från Azure-SAPOSCOL eller SAP-värd agenten genom att hämta data från Azure-tjänsten för virtuella datorer via Azures övervaknings tillägg för SAP. Eftersom de krav som publicerades av SAP var speciella för SAP-program, beslutade Microsoft inte att allmänt implementera de nödvändiga funktionerna i Azure, utan lämna dem för kunderna att distribuera nödvändiga övervaknings komponenter och konfigurationer till deras virtuella Datorer som körs i Azure. Distributions-och livs cykel hanteringen av övervaknings komponenterna kommer dock att automatiseras av Azure.
+För att kunna mata in viss del av Azures infrastruktur information om verksamhets kritiska SAP-system till SAP-värd agent instanserna som är installerade på virtuella datorer, måste ett Azure-tillägg (VM) för SAP installeras för de distribuerade virtuella datorerna. Eftersom de krav som publicerades av SAP var speciella för SAP-program, beslutade Microsoft inte att generiskt implementera de nödvändiga funktionerna i Azure, men lämna dem för kunderna att distribuera nödvändig VM-tillägg och konfigurationer till Virtual Machines som körs i Azure. Distribution och livs cykel hantering av Azure VM-tillägget för SAP kommer dock att automatiseras av Azure.
 
 #### <a name="solution-design"></a>Lösningsdesign
 
-Lösningen som har utvecklats för att aktivera SAP-övervakning baseras på arkitekturen för Azure VM-agenten och tillägg ramverket. Idén med Azure VM-agenten och tillägg ramverket är att tillåta att program vara som är tillgängliga i Azures tillägg för virtuella Azure-tillägg i en virtuell dator kan installeras. Princip idén bakom detta begrepp är att tillåta (i de fall som Azure Monitoring Extension för SAP), distributionen av special funktioner till en virtuell dator och konfigurationen av sådan program vara vid distributions tillfället.
+Lösningen som har utvecklats för att möjliggöra att SAP-värd agent får nödvändig information baseras på arkitekturen i Azure VM agent och tillägg ramverket. Idén med Azure VM-agenten och tillägg ramverket är att tillåta att program vara som är tillgängliga i Azures tillägg för virtuella Azure-tillägg i en virtuell dator kan installeras. Princip idén bakom detta begrepp är att tillåta (i de fall som Azure-tillägget för SAP), distributionen av särskilda funktioner till en virtuell dator och konfigurationen av sådan program vara vid distributions tillfället.
 
 Azure VM-agenten som möjliggör hantering av vissa Azure VM-tillägg i den virtuella datorn matas in i virtuella Windows-datorer som standard när du skapar virtuella datorer i Azure Portal. Om det gäller SUSE, Red Hat eller Oracle Linux är VM-agenten redan en del av Azure Marketplace-avbildningen. Om en skulle ladda upp en virtuell Linux-dator från lokal plats till Azure måste VM-agenten installeras manuellt.
 
-De grundläggande Bygg stenarna i övervaknings lösningen i Azure för SAP ser ut så här:
+De grundläggande Bygg stenarna i lösningen för att tillhandahålla Azure-infrastruktur information till SAP-värd agenten i Azure ser ut så här:
 
 ![Microsoft Azure tilläggs komponenter][planning-guide-figure-2400]
 
-Som du ser i block diagrammet ovan, finns en del av övervaknings lösningen för SAP i Azure VM-avbildningen och Azure Extension Gallery, som är en globalt replikerad lagrings plats som hanteras av Azure-åtgärder. Det är ansvaret för det gemensamma SAP/MS-teamet som arbetar med Azure-implementeringen av SAP för att arbeta med Azure-åtgärder för att publicera nya versioner av Azures övervaknings tillägg för SAP.
+Som du ser i block diagrammet ovan, finns en del av lösningen i Azure VM-avbildningen och Azure Extension Gallery, som är en globalt replikerad lagrings plats som hanteras av Azure-åtgärder. Det är ansvaret för det gemensamma SAP/MS-teamet som arbetar med Azure-implementeringen av SAP för att arbeta med Azure-åtgärder för att publicera nya versioner av Azure-tillägget för SAP.
 
-När du distribuerar en ny virtuell Windows-dator läggs Azure VM-agenten automatiskt till i den virtuella datorn. Den här agentens funktion är att samordna inläsningen och konfigurationen av Azure-tilläggen för övervakning av SAP NetWeaver-system. För virtuella Linux-datorer ingår Azure VM-agenten redan i Azure Marketplace OS-avbildningen.
+När du distribuerar en ny virtuell Windows-dator läggs Azure VM-agenten automatiskt till i den virtuella datorn. Den här agentens funktion är att samordna inläsningen och konfigurationen av de virtuella datorernas Azure-tillägg. För virtuella Linux-datorer ingår Azure VM-agenten redan i Azure Marketplace OS-avbildningen.
 
 Det finns dock ett steg som fortfarande måste utföras av kunden. Detta är inaktiverat och konfigurationen av prestanda insamling. Processen som är relaterad till konfigurationen automatiseras av ett PowerShell-skript eller CLI-kommando. PowerShell-skriptet kan laddas ned i Microsoft Azure Script Center enligt beskrivningen i [distributions guiden][deployment-guide].
 
-Den övergripande arkitekturen i Azure Monitoring-lösningen för SAP ser ut så här:
+Den övergripande arkitekturen för Azure-tillägget för SAP ser ut så här:
 
-![Azure Monitoring-lösning för SAP NetWeaver][planning-guide-figure-2500]
+![Azure-tillägg för SAP ][planning-guide-figure-2500]
 
 **Om du vill ha mer information om hur du använder dessa PowerShell-cmdletar eller CLI-kommandot under distributioner följer du anvisningarna i [distributions guiden][deployment-guide].**
 

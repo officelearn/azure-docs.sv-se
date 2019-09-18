@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/07/2019
+ms.date: 09/15/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1b86841cc6889eb8e716df3f6d1ac9bc7b158992
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: ae0912203f2427694d2a9b8611966a55e1e6889e
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68852726"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71056389"
 ---
 # <a name="scenario-daemon-application-that-calls-web-apis"></a>Scenario: Daemon-program som anropar webb-API: er
 
@@ -33,7 +33,7 @@ Lär dig allt du behöver för att bygga ett daemon-program som anropar webb-API
 
 ## <a name="overview"></a>Översikt
 
-Ditt program kan hämta en token för att anropa ett webb-API för sig själv (inte för en användares räkning). Det här scenariot är användbart för daemon-program. Den använder standard beviljast OAuth [](v2-oauth2-client-creds-grant-flow.md) 2,0-klientautentiseringsuppgifter.
+Ditt program kan hämta en token för att anropa ett webb-API för sig själv (inte för en användares räkning). Det här scenariot är användbart för daemon-program. Den använder standard beviljast OAuth 2,0 [-klientautentiseringsuppgifter.](v2-oauth2-client-creds-grant-flow.md)
 
 ![Daemon-appar](./media/scenario-daemon-app/daemon-app.svg)
 
@@ -60,7 +60,7 @@ Program som hämtar en token för sina egna identiteter:
 För utvecklare har slut punkt till slut punkt i det här scenariot följande aspekter:
 
 - Daemon-program kan bara fungera i Azure AD-klienter. Det skulle inte vara bra att skapa ett daemon-program som försöker manipulera Microsoft-personliga konton. Om du är en affärsutvecklare (LOB) kan du skapa daemon-appen i din klient organisation. Om du är en ISV kanske du vill skapa ett daemon-program för flera innehavare. De måste godkännas av varje klient administratör.
-- Svars- **URI** behövs inte under [program registreringen](./scenario-daemon-app-registration.md). Du måste dela hemligheter eller certifikat med Azure AD och du måste begära program behörigheter och bevilja administratörs medgivande för att kunna använda dessa program behörigheter.
+- **Svars-URI** behövs inte under [program registreringen](./scenario-daemon-app-registration.md). Du måste dela hemligheter eller certifikat eller signerade intyg med Azure AD och du måste begära program behörigheter och bevilja administratörs medgivande för att kunna använda dessa program behörigheter.
 - [Program konfigurationen](./scenario-daemon-app-configuration.md) måste ange klientautentiseringsuppgifterna som delas med Azure AD under program registreringen.
 - Det [omfång](scenario-daemon-acquire-token.md#scopes-to-request) som används för att hämta en token med ett flöde för klientautentiseringsuppgifter måste vara ett statiskt omfång.
 

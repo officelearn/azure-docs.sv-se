@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/25/2019
-ms.openlocfilehash: c32803fec6107e39a0b8329adaee072e3e291575
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 998497d3e790ba501ac5cdeb4974bf7ee9ea6a54
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68567053"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71059264"
 ---
 # <a name="azure-powershell-samples-for-azure-sql-database"></a>Azure PowerShell-exempel för Azure SQL Database
 
@@ -27,7 +27,7 @@ Med Azure SQL Database kan du konfigurera dina databaser, instanser och pooler m
 
 Om du väljer att installera och använda PowerShell lokalt kräver den här självstudien AZ PowerShell-1.4.0 eller senare. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-az-ps) (Installera Azure PowerShell-modul). Om du kör PowerShell lokalt måste du också köra `Connect-AzAccount` för att skapa en anslutning till Azure.
 
-## <a name="single-database-and-elastic-pools"></a>Enkel databas och elastiska pooler
+## <a name="single-database-and-elastic-poolstabsingle-database"></a>[Enkel databas och elastiska pooler](#tab/single-database)
 
 Följande tabell innehåller länkar till Azure PowerShell-exempelskript för Azure SQL Database.
 
@@ -58,7 +58,7 @@ Följande tabell innehåller länkar till Azure PowerShell-exempelskript för Az
 
 Läs mer om [Azure PowerShell API för enkel databas](sql-database-single-databases-manage.md#powershell-manage-sql-database-servers-and-single-databases).
 
-## <a name="managed-instance"></a>Managed Instance
+## <a name="managed-instancetabmanaged-instance"></a>[Hanterad instans](#tab/managed-instance)
 
 Följande tabell innehåller länkar till Azure PowerShell-exempelskript för Azure SQL Database – hanterad instans.
 
@@ -74,6 +74,8 @@ Följande tabell innehåller länkar till Azure PowerShell-exempelskript för Az
 
 Läs mer om [Azure PowerShell API för hanterad instans](sql-database-managed-instance-create-manage.md#powershell-create-and-manage-managed-instances).
 
+---
+
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-Exemplen som visas på den här sidan använder [Azure SQL Database](/powershell/module/az.sql/) -cmdletar för att skapa och hantera Azure SQL-resurser. Ytterligare cmdletar för att köra frågor och utföra många databas uppgifter finns i [SQLServer](/powershell/module/sqlserver/) -modulen. Mer information finns i [SQL Server PowerShell](/sql/powershell/sql-server-powershell/).
+Exemplen som visas på den här sidan använder [Azure SQL Database-cmdletar](/powershell/module/az.sql/) för att skapa och hantera Azure SQL-resurser. Ytterligare cmdletar för att köra frågor och utföra många databas uppgifter finns i [SQLServer](/powershell/module/sqlserver/) -modulen. Mer information finns i [SQL Server PowerShell](/sql/powershell/sql-server-powershell/).

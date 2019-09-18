@@ -1,6 +1,6 @@
 ---
-title: Inaktivera e-Postverifiering under konsument registrering i Azure Active Directory B2C | Microsoft Docs
-description: Ett avsnitt som visar hur du inaktiverar e-Postverifiering under konsument registrering i Azure Active Directory B2C.
+title: Inaktivera e-postverifiering under konsument registrering i Azure Active Directory B2C | Microsoft Docs
+description: Ett ämne som demonstrerar hur du inaktiverar e-postverifiering under konsument registrering i Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -10,29 +10,29 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 8b50b59b6a1f99787b842923cd6ec77ee6500f0a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d827843bdbaff1ad95dce3318f39867abe8b2d0f
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66509522"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71065625"
 ---
-# <a name="disable-email-verification-during-consumer-sign-up-in-azure-active-directory-b2c"></a>Inaktivera e-Postverifiering under konsument registrering i Azure Active Directory B2C 
-När aktiverat kan Azure Active Directory (Azure AD) B2C en konsument att registrera dig för program genom att tillhandahålla en e-postadress och skapa ett lokalt konto. Azure AD B2C säkerställer giltiga e-postadresser genom att kräva att konsumenterna kan kontrollera dem när du registrerade dig. Det förhindrar också en skadlig automatiserad process genererar falska konton för programmen.
+# <a name="disable-email-verification-during-consumer-sign-up-in-azure-active-directory-b2c"></a>Inaktivera e-postverifiering under konsument registrering i Azure Active Directory B2C
+När Azure Active Directory B2C (Azure AD B2C) ger en konsument möjlighet att registrera sig för program genom att ange en e-postadress och skapa ett lokalt konto. Azure AD B2C garanterar giltiga e-postadresser genom att kräva att användarna verifierar dem under registrerings processen. Det förhindrar också en skadlig automatiserad process från att generera falska konton för programmen.
 
-Vissa programutvecklare föredrar att hoppa över e-Postverifiering när du registrerade dig och i stället har konsumenter som kontrollerar e-postadressen senare. Azure AD B2C kan konfigureras för att inaktivera e-Postverifiering för detta ändamål. Detta skapar en jämnare registreringsprocessen och ger utvecklare möjlighet att skilja konsumenter som har verifierat e-postadressen från dessa konsumenter som inte har.
+Vissa programutvecklare föredrar att hoppa över e-postverifiering under registrerings processen och måste i stället låta konsumenterna verifiera e-postadressen senare. Azure AD B2C kan konfigureras för att inaktivera e-postverifiering för att stödja detta. Om du gör det skapas en smidigare registrerings process som gör det möjligt för utvecklare att särskilja de konsumenter som har verifierat sin e-postadress från de konsumenter som inte har det.
 
-Som standard har registrering användarflöden e-Postverifiering aktiveras. Använd följande steg för att stänga av den:
+Som standard har inloggnings användar flöden aktiverat e-postverifiering. Använd följande steg för att inaktivera det:
 
-1. Klicka på **användarflöden**.
-2. Klicka på ditt användarflöde (till exempel ”B2C_1_SiUp”) för att öppna den. 
-3. Klicka på **sidan layouter**.
-4. Klicka på **registreringssida för lokalt konto**.
-5. Klicka på **e-postadress** i den **namn** kolumnen under den **användarattribut** avsnittet.
-6. Under **kräver verifiering**väljer **nr**.
+1. Klicka på **användar flöden**.
+2. Klicka på ditt användar flöde (till exempel "B2C_1_SiUp") för att öppna det.
+3. Klicka på **sidlayouter**.
+4. Klicka på **registrerings sidan för lokalt konto**.
+5. Klicka på **e-postadress** i kolumnen **namn** under avsnittet **användarattribut** .
+6. Under **kontrollen krävs**väljer du **Nej**.
 7. Klicka på **Spara** överst på bladet. Du är klar!
 
 > [!NOTE]
-> Inaktivera e-Postverifiering i registreringsprocessen kan leda till att skicka meddelanden. Om du inaktiverar standardvärdet, rekommenderar vi att lägga till egna verifieringssystem.
-> 
+> Att inaktivera e-postverifiering i registrerings processen kan leda till skräp post. Om du inaktiverar standard alternativet rekommenderar vi att du lägger till ett eget verifierings system.
+>
 >

@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: reference
 ms.date: 08/17/2018
-ms.openlocfilehash: aa9752cdc2148036b3edff8a6002dc81ebff6312
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: 5e98c40384207c77b4ea7e9557a7d1ebebd95e47
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69036312"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71058575"
 ---
 # <a name="azure-cosmos-db-table-net-api-download-and-release-notes"></a>Azure Cosmos DB tabell .NET-API: Information om hämtning och version
 
@@ -38,6 +38,10 @@ ms.locfileid: "69036312"
 >
 
 ## <a name="release-notes"></a>Viktig information
+
+### <a name="a-name212212"></a><a name="2.1.2"/>2.1.2
+
+* Felkorrigeringar
 
 ### <a name="a-name210210"></a><a name="2.1.0"/>2.1.0
 
@@ -85,6 +89,7 @@ Förfrågningar till Azure Cosmos DB med hjälp av en tillbakadragen SDK avvisas
 
 | Version | Utgivningsdatum | Slutdatum |
 | --- | --- | --- |
+| [2.1.2](#2.1.2) |16 september 2019| |
 | [2.1.0](#2.1.0) |Den 22 januari 2019|01 april 2020 |
 | [2.0.0](#2.0.0) |26 september 2018|01 mars 2020 |
 | [1.1.3](#1.1.3) |17 juli 2018|01 december 2019 |

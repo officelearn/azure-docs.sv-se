@@ -10,25 +10,25 @@ ms.topic: conceptual
 ms.date: 08/08/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 7286bf1fd51883587aa41dc69d5dae0a3e6fb824
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.openlocfilehash: 158bb3b1329d2ad2cbd55ecf44f980966e2546e2
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69622413"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71065178"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-google-account-using-azure-active-directory-b2c"></a>Konfigurera registrering och inloggning med ett Google-konto med hjälp av Azure Active Directory B2C
 
 ## <a name="create-a-google-application"></a>Skapa ett Google-program
 
-Om du vill använda ett Google-konto som [identitets leverantör](active-directory-b2c-reference-oauth-code.md) i Azure Active Directory (Azure AD) B2C måste du skapa ett program i din klient organisation som representerar det. Om du inte redan har ett Google-konto kan du registrera dig [https://accounts.google.com/SignUp](https://accounts.google.com/SignUp)på.
+Om du vill använda ett Google-konto som [identitets leverantör](active-directory-b2c-reference-oauth-code.md) i Azure Active Directory B2C (Azure AD B2C) måste du skapa ett program i din klient som representerar det. Om du inte redan har ett Google-konto kan du registrera dig [https://accounts.google.com/SignUp](https://accounts.google.com/SignUp)på.
 
 1. Logga in på [Google Developer-konsolen](https://console.developers.google.com/) med dina Google-kontoautentiseringsuppgifter.
 1. I det övre vänstra hörnet på sidan väljer du projekt listan och väljer sedan **nytt projekt**.
 1. Ange ett **projekt namn**, klicka på **skapa**och kontrol lera att du använder det nya projektet.
 1. Välj **autentiseringsuppgifter** på den vänstra menyn och välj sedan **skapa autentiseringsuppgifter** > **OAuth klient-ID**.
 1. Under **program typ**väljer du **webb program**.
-1. Ange ett **namn** för ditt program, ange `https://your-tenant-name.b2clogin.com` i **auktoriserade JavaScript**-ursprung `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp` och i auktoriserade omdirigerings- **URI: er**. Ersätt `your-tenant-name` med namnet på din klient. Du måste använda små bokstäver när du anger ditt klient namn även om klienten har definierats med versaler i Azure AD B2C.
+1. Ange ett **namn** för ditt program, ange `https://your-tenant-name.b2clogin.com` i **auktoriserade JavaScript**-ursprung `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp` och i **auktoriserade omdirigerings-URI: er**. Ersätt `your-tenant-name` med namnet på din klient. Du måste använda små bokstäver när du anger ditt klient namn även om klienten har definierats med versaler i Azure AD B2C.
 1. Klicka på **Skapa**.
 1. Kopiera värdena för **klient-ID** och **klient hemlighet**. Du behöver båda dessa för att kunna konfigurera Google som en identitets leverantör i din klient organisation. **Klient hemlighet** är en viktig säkerhets autentiseringsuppgift.
 

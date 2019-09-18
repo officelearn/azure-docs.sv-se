@@ -9,12 +9,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: tutorial
 ms.date: 06/25/2019
 ms.author: hrasheed
-ms.openlocfilehash: df216c4d634ac20365cc5a1cc6e26fbd78be7ab9
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: e43d2d64535085a9b22d2febc761fc7026498ba8
+ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70917387"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71077142"
 ---
 # <a name="tutorial-use-apache-hbase-in-azure-hdinsight"></a>Självstudier: Använda Apache HBase i Azure HDInsight
 
@@ -41,7 +41,7 @@ I följande procedur används en Azure Resource Manager-mall för att skapa ett 
 
 1. Välj följande bild för att öppna mallen i Azure Portal. Mallen finns i [snabb starts mallar för Azure](https://azure.microsoft.com/resources/templates/).
 
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-hbase-linux%2Fazuredeploy.json" target="_blank"><img src="./media/apache-hbase-tutorial-get-started-linux/hdi-deploy-to-azure1.png" alt="Deploy to Azure"></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-hbase-linux%2Fazuredeploy.json" target="_blank"><img src="./media/apache-hbase-tutorial-get-started-linux/hdi-deploy-to-azure1.png" alt="Deploy to Azure button for new cluster"></a>
 
 2. Från bladet **Anpassad distribution** anger du följande värden:
 
@@ -68,11 +68,11 @@ Du kan använda SSH för att ansluta till HBase-kluster och sedan använda [Apac
 
 För de flesta visas data i tabellformat:
 
-![HDInsight HBase-tabelldata](./media/apache-hbase-tutorial-get-started-linux/hdinsight-hbase-contacts-tabular.png)
+![HDInsight Apache HBase tabell data](./media/apache-hbase-tutorial-get-started-linux/hdinsight-hbase-contacts-tabular.png)
 
 I HBase (en implementering av [Cloud BigTable](https://cloud.google.com/bigtable/)) ser samma data ut så här:
 
-![HDInsight HBase BigTable-data](./media/apache-hbase-tutorial-get-started-linux/hdinsight-hbase-contacts-bigtable.png)
+![HDInsight Apache HBase BigTable-data](./media/apache-hbase-tutorial-get-started-linux/hdinsight-hbase-contacts-bigtable.png)
 
 **Använd HBase Shell**
 
@@ -115,7 +115,7 @@ I HBase (en implementering av [Cloud BigTable](https://cloud.google.com/bigtable
     scan 'Contacts'
     ```
 
-    ![HDInsight Hadoop HBase shell](./media/apache-hbase-tutorial-get-started-linux/hdinsight-hbase-shell.png)
+    ![HDInsight Apache Hadoop HBase-gränssnitt](./media/apache-hbase-tutorial-get-started-linux/hdinsight-hbase-shell.png)
 
 1. Använd `get` kommandot för att hämta innehållet i en rad. Ange följande kommando:
 
@@ -284,7 +284,7 @@ HBase i HDInsight levereras med ett webbgränssnitt för övervakning av kluster
 
 1. Välj **snabb länkar** överst på sidan, peka på länken aktiva Zookeeper och välj sedan **HBase Master användar gränssnitt**.  Gränssnittet har öppnats i en annan webbläsarflik:
 
-   ![HDInsight HBase HMaster UI](./media/apache-hbase-tutorial-get-started-linux/hdinsight-hbase-hmaster-ui.png)
+   ![HDInsight Apache HBase HMaster UI](./media/apache-hbase-tutorial-get-started-linux/hdinsight-hbase-hmaster-ui.png)
 
    HBase Master UI innehåller följande avsnitt:
 

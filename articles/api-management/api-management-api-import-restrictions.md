@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 06/26/2019
 ms.author: apimpm
-ms.openlocfilehash: 1a1196da62b9d28280150dd1ddf1582db64a93d4
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: d1c80e2ab9ae6a893b1adea6bd68e9b585288d8b
+ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70073782"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71074963"
 ---
 # <a name="api-import-restrictions-and-known-issues"></a>API import-begränsningar och kända problem
 
@@ -36,7 +36,7 @@ Om du får fel när du importerar OpenAPI-dokumentet ser du till att du har vali
 -   referens punkter kan inte referera till externa filer.  **\$**
 -   **x-MS – sökvägar** och **x-servrar** är de enda tillägg som stöds.
 -   Anpassade tillägg ignoreras vid import och sparas eller bevaras inte för export.
--   Rekursion – API Management stöder inte definitioner som definierats rekursivt (till exempel scheman som refererar till sig själva).
+-   **Rekursion** – API Management stöder inte definitioner som definierats rekursivt (till exempel scheman som refererar till sig själva).
 -   Käll filens URL (om tillgänglig) används för relativa server-URL: er.
 -   Säkerhets definitioner ignoreras.
 
@@ -50,19 +50,16 @@ Om du får fel när du importerar OpenAPI-dokumentet ser du till att du har vali
 -   **Exempel** stöds inte, men det är ett **exempel** .
 -   **Multipart/form-data** stöds inte.
 
-> [!IMPORTANT]
-> Det här [dokumentet](https://blogs.msdn.microsoft.com/apimanagement/2018/04/11/important-changes-to-openapi-import-and-export/) innehåller viktig information och tips om OpenAPI-import.
-
 ## <a name="wsdl"> </a>WSDL
 
 WSDL-filer används för att skapa SOAP-vidarekoppling och SOAP-till-REST-API: er.
 
--   **SOAP** -bindningar – endast SOAP-bindningar av formatet "Document" och "literal" stöds. Det finns inget stöd för "RPC"-format eller SOAP-kodning.
+-   **SOAP-bindningar** – endast SOAP-bindningar av formatet "Document" och "literal" stöds. Det finns inget stöd för "RPC"-format eller SOAP-kodning.
 -   **WSDL: import** -detta attribut stöds inte. Kunderna bör slå samman importen till ett dokument.
 -   **Meddelanden med flera delar** – dessa typer av meddelanden stöds inte.
 -   **WCF-wsHttpBinding** – SOAP-tjänster som skapats med Windows Communication Foundation ska använda BasicHttpBinding-wsHttpBinding stöds inte.
 -   **MTOM** -tjänster som använder MTOM <em>kan</em> fungera. Statsstöd erbjuds inte för tillfället.
--   Rekursion – typer som definieras rekursivt (till exempel för att referera till en matris) stöds inte av APIM.
+-   **Rekursion** – typer som definieras rekursivt (till exempel för att referera till en matris) stöds inte av APIM.
 -   **Flera namn rymder** – flera namn områden kan användas i ett schema, men endast mål namn området kan användas för att definiera meddelande delar. Andra namn områden än målet som används för att definiera andra indata-eller utdata-element bevaras inte. Även om ett sådant WSDL-dokument kan importeras, kommer att ha mål namn området för WSDL i Exportera alla meddelande delar.
 -   **Matriser** – SOAP-till-rest-omvandling stöder bara omslutna matriser som visas i exemplet nedan:
 

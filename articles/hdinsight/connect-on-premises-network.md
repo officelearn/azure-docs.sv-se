@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/04/2019
-ms.openlocfilehash: 1ed722ad68280226387b98b3fefb77647f5cd825
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: ad43af0f6f9bd8d5d78cef78b26345436169c0fd
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70918547"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71034133"
 ---
 # <a name="connect-hdinsight-to-your-on-premises-network"></a>Ansluta HDInsight till det lokala nätverket
 
@@ -40,7 +40,7 @@ Den här konfigurationen aktiverar följande beteende:
 
 I följande diagram är gröna rader begär Anden om resurser som slutar med DNS-suffixet för det virtuella nätverket. Blå rader är begär Anden för resurser i det lokala nätverket eller på det offentliga Internet.
 
-![Diagram över hur DNS-begäranden löses i konfigurationen som används i det här dokumentet](./media/connect-on-premises-network/on-premises-to-cloud-dns.png)
+![Diagram över hur DNS-begäranden löses i konfigurationen](./media/connect-on-premises-network/on-premises-to-cloud-dns.png)
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -96,7 +96,7 @@ De här stegen använder [Azure Portal](https://portal.azure.com) för att skapa
     |Subnet | Välj standard under nätet för det virtuella nätverk som du skapade tidigare. Välj __inte__ det undernät som används av VPN-gatewayen.|
     |Offentlig IP | Använd det automatiskt ifyllda värdet.  |
 
-    ![Inställningar för virtuellt nätverk](./media/connect-on-premises-network/virtual-network-settings.png)
+    ![Inställningar för virtuella HDInsight-nätverk](./media/connect-on-premises-network/virtual-network-settings.png)
 
     Lämna övriga poster till standardvärdena och välj sedan **Granska + skapa**.
 

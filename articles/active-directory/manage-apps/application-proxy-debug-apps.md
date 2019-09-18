@@ -1,5 +1,5 @@
 ---
-title: Felsöka Application Proxy - program i Azure Active Directory | Microsoft Docs
+title: Felsöka program för programproxy – Azure Active Directory | Microsoft Docs
 description: Felsöka problem med Azure Active Directory (Azure AD) Application Proxy-program.
 services: active-directory
 author: msmimart
@@ -11,44 +11,44 @@ ms.topic: conceptual
 ms.date: 05/21/2019
 ms.author: mimart
 ms.reviewer: japere
-ms.openlocfilehash: d0a12bde119e9dae3f950603fac4bce060bb5f91
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 06b8edcb0f912bfd35137e197253b20b9459448f
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66172272"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71057747"
 ---
-# <a name="debug-application-proxy-application-issues"></a>Felsöka problem med Application Proxy-program 
+# <a name="debug-application-proxy-application-issues"></a>Felsöka program problem med programproxy 
 
-Den här artikeln hjälper dig att felsöka problem med Azure Active Directory (Azure AD) Application Proxy-program. Om du använder tjänsten Application Proxy för fjärråtkomst till ett webbprogram i en lokal, men du har problem med att ansluta till programmet, kan du använda den här flödesschema för att felsöka programfel. 
+Den här artikeln hjälper dig att felsöka problem med Azure Active Directory (Azure AD) Application Proxy-program. Om du använder Application Proxy-tjänsten för fjärråtkomst till ett lokalt webb program, men du har problem med att ansluta till programmet, kan du använda det här flödesschemat för att felsöka program problem. 
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
-När du felsöker problem med Application Proxy rekommenderar vi att du börjar med kopplingar. Följ först felsökning flödet i [felsöka Application Proxy Connector utfärdar](application-proxy-debug-connectors.md) att kontrollera att programproxyanslutningar är korrekt konfigurerade. Om du fortfarande har problem, kan du gå tillbaka till den här artikeln om du vill felsöka programmet.  
+När du felsöker problem med programproxyn rekommenderar vi att du börjar med anslutningarna. Börja med att följa fel söknings flödet i [Felsöka anslutnings problem för programproxy](application-proxy-debug-connectors.md) för att kontrol lera att Application Proxy-kopplingar är korrekt konfigurerade. Om du fortfarande har problem kan du gå tillbaka till den här artikeln för att felsöka programmet.  
 
-Mer information om Application Proxy finns:
+Mer information om Application Proxy finns i:
 
 - [Fjärråtkomst till lokala program via programproxy](application-proxy.md)
-- [Anslutningar för programproxy](application-proxy-connectors.md)
-- [Installera och registrera en anslutningsapp](application-proxy-add-on-premises-application.md)
+- [Application Proxy-kopplingar](application-proxy-connectors.md)
+- [Installera och registrera en anslutning](application-proxy-add-on-premises-application.md)
 - [Felsöka problem med Application Proxy och felmeddelanden](application-proxy-troubleshoot.md)
 
-## <a name="flowchart-for-application-issues"></a>Flödesschema för programfel
+## <a name="flowchart-for-application-issues"></a>Flödes schema för program problem
 
-Det här flödesschemat vägleder dig genom stegen för att felsöka några av de vanligaste problemen med att ansluta till programmet. Information om varje steg finns i tabellen som följer flödesscheman.
+Det här flödesschemat vägleder dig genom stegen för att felsöka några av de vanligaste problemen med att ansluta till programmet. Mer information om varje steg finns i tabellen efter flödesschemat.
 
-![Flödesschema som visar stegen för felsökning av program](media/application-proxy-debug-apps/application-proxy-apps-debugging-flowchart.png)
+![Flödes schema som visar steg för att felsöka ett program](media/application-proxy-debug-apps/application-proxy-apps-debugging-flowchart.png)
 
-|  | Åtgärd | Beskrivning | 
+|  | Action | Beskrivning | 
 |---------|---------|---------|
-|1 | Öppna en webbläsare, åtkomst till appen och ange dina autentiseringsuppgifter | Försök att använda dina autentiseringsuppgifter för att logga in på appen och Sök efter alla användare-relaterade fel som [företagets appen kan inte nås](application-proxy-sign-in-bad-gateway-timeout-error.md). |
-|2 | Kontrollera Användartilldelning till appen | Kontrollera att ditt användarkonto har behörighet att komma åt programmet från inuti företagsnätverket och testar sedan logga in i appen genom att följa stegen i [testa programmet](application-proxy-add-on-premises-application.md#test-the-application). Om problem med användarinloggning kvarstår [så här felsöker du inloggningsfel](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-troubleshoot-sign-in-errors).  |
-|3 | Öppna en webbläsare och försök få åtkomst till appen | Om ett felmeddelande visas omedelbart, kontrollera att Application Proxy har konfigurerats korrekt. Mer information om felmeddelanden finns [felsöka programproxyn problem och felmeddelanden](application-proxy-troubleshoot.md).  |
-|4 | Kontrollera din konfiguration för anpassad domän eller felsöka felet | Om sidan inte visas alls, kontrollerar du din anpassade domän har konfigurerats korrekt genom att granska [arbeta med anpassade domäner](application-proxy-configure-custom-domain.md).<br></br>Om sidan inte läsa in och ett felmeddelande visas kan du felsöka problemet genom att referera till [felsöka programproxyn problem och felmeddelanden](application-proxy-troubleshoot.md). <br></br>Om det tar längre tid än 20 sekunder för ett felmeddelande visas, kan det vara problem med nätverksanslutningen. Gå till den [felsöka programproxyanslutningar](application-proxy-debug-connectors.md) felsökningsartikeln.  |
-|5 | Om problemen kvarstår så går du till anslutningen felsökning | Det kan finnas ett problem med anslutningen mellan proxyservern och connector eller mellan anslutningstjänsten och backend-servern. Gå till den [felsöka programproxyanslutningar](application-proxy-debug-connectors.md) felsökningsartikeln. |
-|6 | Publicera alla resurser, kontrollera utvecklarverktyg i webbläsaren och åtgärda länkar | Kontrollera att Publiceringssökväg innehåller alla nödvändiga bilder, skript och formatmallar för ditt program. Mer information finns i [lägga till en lokal app i Azure AD](application-proxy-add-on-premises-application.md#add-an-on-premises-app-to-azure-ad). <br></br>Använda webbläsarens utvecklingsverktyg (F12 verktyg i Internet Explorer eller Microsoft Edge) och kontrollera för att publicera problem som beskrivs i [programsidan visas inte korrekt](application-proxy-page-appearance-broken-problem.md). <br></br>Granska alternativ för att åtgärda brutna länkar i [länkarna på sidan fungerar inte](application-proxy-page-links-broken-problem.md). |
-|7 | Sök efter svarstid för nätverk | Om sidan läses in långsamt, Lär dig mer om olika sätt att minimera Nätverksfördröjningen i [överväganden för att minska svarstiden](application-proxy-network-topology.md#considerations-for-reducing-latency). | 
-|8 | Se ytterligare hjälp med felsökning | Om problemen kvarstår så hittar du ytterligare felsökning artiklar i den [Application Proxy Felsökningsdokumentation](application-proxy-page-appearance-broken-problem.md). |
+|1 | Öppna en webbläsare, öppna appen och ange dina autentiseringsuppgifter | Försök att använda dina autentiseringsuppgifter för att logga in i appen och kontrol lera om det finns några användarspecifika fel som [den här företags appen inte går att komma åt](application-proxy-sign-in-bad-gateway-timeout-error.md). |
+|2 | Verifiera användar tilldelning till appen | Se till att ditt användar konto har behörighet att komma åt appen inifrån företags nätverket och testa sedan att logga in på appen genom att följa stegen i [testa programmet](application-proxy-add-on-premises-application.md#test-the-application). Om inloggnings problem kvarstår, se [Felsöka inloggnings fel](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context).  |
+|3 | Öppna en webbläsare och försök att komma åt appen | Om ett fel visas omedelbart kontrollerar du att programproxyn har kon figurer ATS korrekt. Mer information om specifika fel meddelanden finns i [Felsöka problem med programproxy och fel meddelanden](application-proxy-troubleshoot.md).  |
+|4 | Kontrol lera den anpassade domän konfigurationen eller Felsök felet | Om sidan inte visas alls kontrollerar du att den anpassade domänen är korrekt konfigurerad genom att granska [arbetet med anpassade domäner](application-proxy-configure-custom-domain.md).<br></br>Om sidan inte läses in och ett fel meddelande visas, felsöka felet genom att referera till fel [sökning av problem med programproxy och fel meddelanden](application-proxy-troubleshoot.md). <br></br>Om det tar längre tid än 20 sekunder innan ett fel meddelande visas kan det vara problem med anslutningen. Gå till fel söknings artikeln för fel söknings [program proxy-kopplingar](application-proxy-debug-connectors.md) .  |
+|5 | Om problemen kvarstår går du till anslutnings fel sökning | Det kan finnas anslutnings problem mellan proxyn och anslutningen eller mellan anslutningen och Server delen. Gå till fel söknings artikeln för fel söknings [program proxy-kopplingar](application-proxy-debug-connectors.md) . |
+|6 | Publicera alla resurser, kontrol lera webbläsarens utvecklingsverktyg och åtgärda länkar | Se till att publicerings Sök vägen innehåller alla bilder, skript och formatmallar som krävs för ditt program. Mer information finns i [lägga till en lokal app i Azure AD](application-proxy-add-on-premises-application.md#add-an-on-premises-app-to-azure-ad). <br></br>Använd webbläsarens utvecklarverktyg (F12-verktyg i Internet Explorer eller Microsoft Edge) och Sök efter publicerings problem på det sätt som beskrivs på [sidan program visas inte på rätt sätt](application-proxy-page-appearance-broken-problem.md). <br></br>Gransknings alternativ för att lösa brutna länkar i [länkar på sidan fungerar inte](application-proxy-page-links-broken-problem.md). |
+|7 | Sök efter nätverks fördröjning | Om sidan läses in långsamt kan du läsa om hur du minimerar nätverks fördröjningen i [överväganden för att minska svars tiden](application-proxy-network-topology.md#considerations-for-reducing-latency). | 
+|8 | Se ytterligare fel söknings hjälp | Om problemen kvarstår hittar du ytterligare fel söknings artiklar i [fel söknings dokumentationen för programproxyn](application-proxy-page-appearance-broken-problem.md). |
 
 ## <a name="next-steps"></a>Nästa steg
 

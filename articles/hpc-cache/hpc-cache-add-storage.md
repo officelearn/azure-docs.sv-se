@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: v-erkell
-ms.openlocfilehash: 4554214b74b4d09fa40e355270208bebda4076b7
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.openlocfilehash: ca8e13e322c3e192b697248f1252b65f6cbeda7f
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70775265"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71037230"
 ---
 # <a name="add-storage"></a>Lägg till lagringsutrymme
 
@@ -27,13 +27,15 @@ Du kan lägga till lagrings mål när du skapar din Azure HPC-cache eller efter�
 
 Använd fliken **lagrings mål** i guiden Skapa cache för att definiera lagring på samma gång som du skapar en cache-instans.
 
-![skärm bild av sidan lagrings mål](media/create-targets.png)
+![skärm bild av sidan lagrings mål](media/hpc-cache-storage-targets-pop.png)
 
 Klicka på länken **Lägg till lagrings mål** för att lägga till lagring.
 
 ## <a name="add-storage-targets-from-the-cache"></a>Lägg till lagrings mål från cachen
 
 Öppna din cache-instans från Azure Portal och klicka på **lagrings mål** på den vänstra sid panelen. Sidan lagrings mål listar alla befintliga mål och innehåller en länk för att lägga till en ny.
+
+![skärm bild av länken lagrings mål på sid panelen under rubriken konfigurera, som är mellan kategorins rubrik inställningar och övervakning](media/hpc-cache-storage-targets-sidebar.png)
 
 ## <a name="add-a-new-azure-blob-storage-target"></a>Lägg till ett nytt Azure Blob Storage-mål
 
@@ -52,15 +54,13 @@ Ange den här informationen för att definiera en Azure Blob-behållare.
 
 * **Sökväg till virtuellt namn område** – ange klient Sök vägen för det här lagrings målet. Läs [Konfigurera sammanställd namnrymd](hpc-cache-namespace.md) för att lära dig mer om funktionen för virtuellt namn område.
 
-<!--  The namespace path value must end with a slash (``/``) and should not start with one.  -->
-
 När du är färdig klickar du på **OK** för att lägga till lagrings målet.
 
 ### <a name="add-the-access-control-roles-to-your-account"></a>Lägg till roller för åtkomst kontroll i ditt konto
 
 Azure HPC-cachen använder [rollbaserad åtkomst kontroll (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/index) för att ge cache-programmet åtkomst till ditt lagrings konto för Azure Blob Storage-mål.
 
-Lagrings kontots ägare måste uttryckligen lägga till [lagrings konto deltagare](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-account-contributor) och [Storage BLOB data-deltagare](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor) för användaren "StorageCache Resource Provider".
+Lagrings kontots ägare måste uttryckligen lägga till rollerna [lagrings konto deltagare](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-account-contributor) och [Storage BLOB data-deltagare](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor) för användaren "StorageCache Resource Provider".
 
 Du kan göra detta i förväg eller genom att klicka på en länk på sidan där du lägger till ett Blob Storage-mål.
 

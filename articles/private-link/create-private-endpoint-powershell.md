@@ -7,12 +7,12 @@ ms.service: virtual-network
 ms.topic: article
 ms.date: 09/16/2019
 ms.author: kumud
-ms.openlocfilehash: f9a2bd4c4ec176e018948a7a5a01603d075a7ea2
-ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
+ms.openlocfilehash: ca3fec3dbb4fbe77a1d375c0329275b7b799d06b
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71018015"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71067839"
 ---
 # <a name="create-a-private-endpoint-using-azure-powershell"></a>Skapa en privat slut punkt med hjälp av Azure PowerShell
 En privat slut punkt är det grundläggande Bygg blocket för privat länk i Azure. Den gör det möjligt för Azure-resurser, t. ex. Virtual Machines (VM), att kommunicera privat med privata länk resurser. 
@@ -109,7 +109,7 @@ New-AzSqlDatabase-ResourceGroupName "myResourceGroup" `
     -RequestedServiceObjectiveName "S0" ` -SampleName "AdventureWorksLT"
 
 
-## <a name="create-a-private-endpoint"></a>Skapa en privat slut punkt
+## <a name="create-a-private-endpoint"></a>Skapa en privat slutpunkt
 
 Privat slut punkt för SQL Database-servern i Virtual Network med [New-AzPrivateLinkServiceConnection](/powershell/module/az.network/New-AzPrivateLinkServiceConnection): 
 
@@ -182,25 +182,38 @@ mstsc /v:<publicIpAddress>
 2. Ange användarnamnet och lösenordet du angav när du skapade den virtuella datorn.
   > [!NOTE]
   > Du kan behöva välja fler alternativ > använda ett annat konto för att ange de autentiseringsuppgifter du angav när du skapade den virtuella datorn. 
+  
 3. Välj **OK**. 
 4. Du kan få en certifikatsvarning. Om du gör det väljer du **Ja** eller **Fortsätt**. 
 
 ## <a name="access-sql-database-server-privately-from-the-vm"></a>Åtkomst SQL Database Server privat från den virtuella datorn
 
 1. Öppna PowerShell i fjärr skrivbordet för myVM.
-2. Enternslookup myserver.database.windows.net du får ett meddelande som liknar detta:  Azure PowerShellCopy-Server:  Okänd adress:  168.63.129.16 icke-auktoritativt svar:  Namn: myserver.privatelink.database.windows.net-adress:  10.0.0.5-alias: myserver.database.windows.net
-3. Installera SQL Server Management Studio
-4. I Anslut till server anger eller väljer du den här informationen: Ange värde Server Typ Välj databas motor.
-      Server namn Välj myserver.database.windows.net användar namn Ange ett användar namn som angavs vid skapandet.
-      Lösen ord ange ett lösen ord som angavs när det skapas.
-      Kom ihåg lösen ord Välj Ja.
-5. Välj Anslut.
-6. Bläddra bland databaser från menyn till vänster. 
-7. Du kan också Skapa eller fråga efter information från en databas
-8. Stäng fjärr skrivbords anslutningen till *myVM*. 
+2. Ange `nslookup myserver.database.windows.net`. 
 
-## <a name="clean-up-resources"></a>Rensa resurser 
-När du är klar med den privata slut punkten, SQL Database Server och den virtuella datorn använder du [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) för att ta bort resurs gruppen och alla resurser den har:
+    Du får ett meddelande som liknar detta:
+    ```azurepowershell
+    Server:  UnKnown
+    Address:  168.63.129.16
+    Non-authoritative answer:
+    Name:    myserver.privatelink.database.windows.net
+    Address:  10.0.0.5
+    Aliases:   myserver.database.windows.net
+3. Install SQL Server Management Studio
+4. In Connect to server, enter or select this information:
+    Setting Value
+      Server type   Select Database Engine.
+      Server name   Select myserver.database.windows.net
+      Username  Enter a username provided during creation.
+      Password  Enter a password provided during creation.
+      Remember password Select Yes.
+5. Select Connect.
+6. Browse Databases from left menu. 
+7. (Optionally) Create or query information from mydatabase
+8. Close the remote desktop connection to *myVM*. 
+
+## Clean up resources 
+When you're done using the private endpoint, SQL Database server and the VM, use [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) to remove the resource group and all the resources it has:
 
 ```azurepowershell-interactive
 Remove-AzResourceGroup -Name myResourceGroup -Force

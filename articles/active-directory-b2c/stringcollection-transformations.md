@@ -1,6 +1,6 @@
 ---
-title: StringCollection anspråk omvandling exempel för den identiteten upplevelse Framework Schema för Azure Active Directory B2C | Microsoft Docs
-description: StringCollection anspråk omvandling exempel för den identiteten upplevelse Framework Schema för Azure Active Directory B2C.
+title: Exempel på StringCollection-anspråk för identitets upplevelse Framework-schemat för Azure Active Directory B2C | Microsoft Docs
+description: Exempel på StringCollection-anspråk för identitets upplevelse Framework-schemat för Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -10,32 +10,32 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 98453daeb34d093b49cdcc636f68c3d7ae017126
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9add75b8922fe958fc348fb2a6dd48a7b300eade
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66512443"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71063316"
 ---
-# <a name="stringcollection-claims-transformations"></a>StringCollection anspråk omvandlingar
+# <a name="stringcollection-claims-transformations"></a>StringCollection-anspråk omvandlingar
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Den här artikeln innehåller exempel för att använda anspråksomvandlingar för sträng samling av Identitetsramverk schemat i Azure Active Directory (Azure AD) B2C. Mer information finns i [ClaimsTransformations](claimstransformations.md).
+Den här artikeln innehåller exempel på hur du kan använda anspråks omvandlingar för identitets samling i ett Ramverks schema för identitets miljö i Azure Active Directory B2C (Azure AD B2C). Mer information finns i [ClaimsTransformations](claimstransformations.md).
 
 ## <a name="additemtostringcollection"></a>AddItemToStringCollection
 
-Lägger till ett sträng-anspråk till ett nytt stringCollection anspråk. 
+Lägger till ett sträng anspråk till ett nytt stringCollection-anspråk.
 
 | Objekt | TransformationClaimType | Datatyp | Anteckningar |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | Objekt | string | ClaimType som ska läggas till utdata-anspråket. |
-| InputClaim | Samling | stringCollection | [Valfritt] Om anges anspråkstransformering kopieras objekt från den här samlingen och lägger till objektet i slutet av samlingen utdataanspråket. |
-| OutputClaim | Samling | stringCollection | ClaimTypes som genereras när den här ClaimsTransformation har anropats. |
+| InputClaim | item | sträng | Den ClaimType som ska läggas till i utgående anspråk. |
+| InputClaim | samling | stringCollection | Valfritt Om det här alternativet anges kopierar anspråks omvandlingen objekten från den här samlingen och lägger till objektet i slutet av utmatnings samlingens anspråk. |
+| OutputClaim | samling | stringCollection | ClaimTypes som skapas efter att denna ClaimsTransformation har anropats. |
 
-Använd detta omvandling för att lägga till en sträng till en ny eller befintlig stringCollection av anspråk. Används ofta i en **AAD-UserWriteUsingAlternativeSecurityId** tekniska profilen. Innan ett nytt sociala konto skapas **CreateOtherMailsFromEmail** anspråkstransformering läser ClaimType och lägger till värdet till den **otherMails** ClaimType. 
+Använd den här anspråks omvandlingen för att lägga till en sträng till en ny eller befintlig stringCollection. Den används ofta i en **AAD-UserWriteUsingAlternativeSecurityId** teknisk profil. Innan ett nytt socialt konto skapas läser **CreateOtherMailsFromEmail** Claims-omvandlingen claimType och lägger till värdet i **otherMails** -claimType.
 
-Följande anspråkstransformering lägger till den **e-post** ClaimType till **otherMails** ClaimType.
+Följande påstående-omvandling lägger till **e-** **otherMails** för claimType.
 
 ```XML
 <ClaimsTransformation Id="CreateOtherMailsFromEmail" TransformationMethod="AddItemToStringCollection">
@@ -51,23 +51,23 @@ Följande anspråkstransformering lägger till den **e-post** ClaimType till **o
 
 ### <a name="example"></a>Exempel
 
-- Inkommande anspråk:
-  - **samlingen**: [”someone@outlook.com”]
-  - **item**: "admin@contoso.com"
-- Utgående anspråk: 
-  - **samlingen**: [”someone@outlook.com” ”,admin@contoso.com”]
+- Inmatade anspråk:
+  - **samling**: ["someone@outlook.com"]
+  - **objekt**: "admin@contoso.com"
+- Utgående anspråk:
+  - **samling**: ["someone@outlook.com", "admin@contoso.com"]
 
 ## <a name="addparametertostringcollection"></a>AddParameterToStringCollection
 
-Lägger till en strängparameter till ett nytt stringCollection anspråk. 
+Lägger till en sträng parameter till ett nytt stringCollection-anspråk.
 
 | Objekt | TransformationClaimType | Datatyp | Anteckningar |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | Samling | stringCollection | [Valfritt] Om anges anspråkstransformering kopieras objekt från den här samlingen och lägger till objektet i slutet av samlingen utdataanspråket. |
-| InputParameter | Objekt | string | Värdet som ska läggas till utdata-anspråket. |
-| OutputClaim | Samling | stringCollection | ClaimTypes som skapas när den här ClaimsTransformation har anropats. |
+| InputClaim | samling | stringCollection | Valfritt Om det här alternativet anges kopierar anspråks omvandlingen objekten från den här samlingen och lägger till objektet i slutet av utmatnings samlingens anspråk. |
+| InputParameter | item | sträng | Det värde som ska läggas till i utgående anspråk. |
+| OutputClaim | samling | stringCollection | ClaimTypes som skapas efter att denna ClaimsTransformation har anropats. |
 
-Använd detta omvandling för att lägga till ett strängvärde till en ny eller befintlig stringCollection av anspråk. I följande exempel läggs en konstant e-postadress (admin@contoso.com) till den **otherMails** anspråk. 
+Använd den här anspråks omvandlingen för att lägga till ett sträng värde till en ny eller befintlig stringCollection. I följande exempel läggs en konstant e-postadressadmin@contoso.com() till i **otherMails** -anspråket.
 
 ```XML
 <ClaimsTransformation Id="SetCompanyEmail" TransformationMethod="AddParameterToStringCollection">
@@ -85,23 +85,23 @@ Använd detta omvandling för att lägga till ett strängvärde till en ny eller
 
 ### <a name="example"></a>Exempel
 
-- Inkommande anspråk:
-  - **samlingen**: [”someone@outlook.com”]
-- Indataparametrar 
-  - **item**: "admin@contoso.com"
+- Inmatade anspråk:
+  - **samling**: ["someone@outlook.com"]
+- Indataparametrar
+  - **objekt**: "admin@contoso.com"
 - Utgående anspråk:
-  - **samlingen**: [”someone@outlook.com” ”,admin@contoso.com”]
+  - **samling**: ["someone@outlook.com", "admin@contoso.com"]
 
 ## <a name="getsingleitemfromstringcollection"></a>GetSingleItemFromStringCollection
 
-Hämtar det första objektet från mängden strängen. 
+Hämtar det första objektet från den angivna sträng samlingen.
 
 | Objekt | TransformationClaimType | Datatyp | Anteckningar |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | Samling | stringCollection | ClaimTypes som används av anspråkstransformering för att hämta objektet. |
-| OutputClaim | extractedItem | string | ClaimTypes som genereras när den här ClaimsTransformation har anropats. Det första objektet i samlingen. |
+| InputClaim | samling | stringCollection | ClaimTypes som används av anspråks omvandlingen för att hämta objektet. |
+| OutputClaim | extractedItem | sträng | ClaimTypes som skapas efter att denna ClaimsTransformation har anropats. Det första objektet i samlingen. |
 
-I följande exempel läser den **otherMails** anspråk och returnerar det första objektet i den **e-post** anspråk. 
+I följande exempel läses **otherMails** -anspråket och det första objektet returneras till **e-** postanspråket.
 
 ```XML
 <ClaimsTransformation Id="CreateEmailFromOtherMails" TransformationMethod="GetSingleItemFromStringCollection">
@@ -116,8 +116,8 @@ I följande exempel läser den **otherMails** anspråk och returnerar det först
 
 ### <a name="example"></a>Exempel
 
-- Inkommande anspråk:
-  - **samlingen**: [”someone@outlook.com” ”,someone@contoso.com”]
-- Utgående anspråk: 
-  - **extractedItem**”:someone@outlook.com”
+- Inmatade anspråk:
+  - **samling**: ["someone@outlook.com", "someone@contoso.com"]
+- Utgående anspråk:
+  - **extractedItem**: "someone@outlook.com"
 

@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/28/2019
 ms.author: tyfox
-ms.openlocfilehash: 07b82f475074f5b55a2a5a93f7a59008476233c8
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: 153c28dc8a06968dc9dd3cfda021496672a094d5
+ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70934323"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71076554"
 ---
 # <a name="how-to-monitor-cluster-availability-with-ambari-and-azure-monitor-logs"></a>Övervaka kluster tillgänglighet med Ambari och Azure Monitor loggar
 
@@ -34,23 +34,23 @@ Du uppmanas sedan att ange ett användar namn och lösen ord för kluster inlogg
 
 Du kommer sedan till Ambari-instrumentpanelen som innehåller widgetar som visar en fåtal med mått för att ge dig en snabb överblick över ditt HDInsight-klusters hälsa. Dessa widgetar visar mått som antalet Live-DataNodes (arbetsnoder) och Journalnodes available (Zookeeper Node), NameNodes (huvudnoder) drift tid, samt mått som är specifika för vissa kluster typer, t. ex. garn-ResourceManager drift tid för Spark-och Hadoop-kluster.
 
-![Ambari-instrumentpanel](media/hdinsight-cluster-availability/apache-ambari-dashboard.png)
+![Apache Ambari Använd instrument panels visning](media/hdinsight-cluster-availability/apache-ambari-dashboard.png)
 
 ### <a name="hosts--view-individual-node-status"></a>Värdar – Visa status för enskilda noder
 
 Du kan också visa statusinformation för enskilda noder. Klicka på fliken **värdar** om du vill visa en lista över alla noder i klustret och se grundläggande information om varje nod. Den gröna kontrollen till vänster om varje nodnamn visar att alla komponenter är upp på noden. Om en komponent finns i en nod visas en röd aviserings triangel i stället för den gröna kontrollen.
 
-![Vy över Ambari-värdar](media/hdinsight-cluster-availability/apache-ambari-hosts1.png)
+![HDInsight Apache Ambari hosts-vy](media/hdinsight-cluster-availability/apache-ambari-hosts1.png)
 
 Sedan kan du klicka på **namnet** på en nod om du vill visa mer detaljerade värd mått för just den noden. I den här vyn visas status/tillgänglighet för varje enskild komponent.
 
-![Ambari är värd för vyn enskild nod](media/hdinsight-cluster-availability/apache-ambari-hosts-node.png)
+![Apache Ambari-värdar, vy med en nod](media/hdinsight-cluster-availability/apache-ambari-hosts-node.png)
 
 ### <a name="ambari-alerts"></a>Ambari aviseringar
 
 Ambari erbjuder också flera konfigurerbara aviseringar som kan ge meddelanden om vissa händelser. När aviseringar utlöses visas de i det övre vänstra hörnet av Ambari i en röd skylt som innehåller antalet aviseringar. Om du klickar på den här skylten visas en lista över aktuella aviseringar.
 
-![Antal aviseringar för Ambari](media/hdinsight-cluster-availability/apache-ambari-alerts.png)
+![Antal aktuella aviseringar för Apache Ambari](media/hdinsight-cluster-availability/apache-ambari-alerts.png)
 
 Om du vill visa en lista över aviserings definitioner och deras status klickar du på fliken **aviseringar** , som visas nedan.
 
@@ -69,7 +69,7 @@ En fullständig lista över Ambari-aviseringar som hjälper dig att övervaka ti
 
 Om du vill visa information om en avisering eller ändra villkor klickar du på **namnet** på aviseringen. Ta **DataNode Health Summary** som ett exempel. Du kan se en beskrivning av aviseringen samt de villkor som utlöser en varnings avisering eller kritisk avisering och kontroll intervallet för kriterierna. Redigera konfigurationen genom att klicka på knappen **Redigera** i det övre högra hörnet i rutan konfiguration.
 
-![Aviserings konfiguration för Ambari](media/hdinsight-cluster-availability/ambari-alert-configuration.png)
+![Aviserings konfiguration för Apache Ambari](media/hdinsight-cluster-availability/ambari-alert-configuration.png)
 
 Här kan du redigera beskrivningen och, viktigare, kontroll intervall och tröskelvärden för varningar eller kritiska aviseringar.
 
@@ -131,7 +131,7 @@ Du kan också ställa in Azure Monitor aviseringar som ska utlösas när värdet
 
 Från bladet **loggar** kör du exempel frågan **otillgängliga datorer** genom att klicka på **Kör** på den frågan, som visas nedan.
 
-![Exempel frågan för bladet "ej tillgängliga datorer" på arbets ytan Log Analytics](media/hdinsight-cluster-availability/portal-unavailable-computers.png)
+![Log Analytics arbets ytan loggar bladet "ej tillgängliga datorer"](media/hdinsight-cluster-availability/portal-unavailable-computers.png)
 
 Om alla noder är tillgängliga ska den här frågan returnera 0 resultat för tillfället. Klicka på **ny varnings regel** för att börja konfigurera aviseringen för den här frågan.
 
@@ -141,7 +141,7 @@ Det finns tre komponenter i en avisering: den *resurs* för vilken du vill skapa
 
 Klicka på **villkors rubriken**som visas nedan för att slutföra konfigurationen av signal logiken.
 
-![Villkor för varnings regel](media/hdinsight-cluster-availability/portal-condition-title.png)
+![Portal varning Skapa regel villkor](media/hdinsight-cluster-availability/portal-condition-title.png)
 
 Då öppnas bladet **Konfigurera signal logik** .
 
@@ -161,7 +161,7 @@ Klicka på **klart** när du är färdig med konfigurationen av signal logiken.
 
 Om du inte redan har en befintlig åtgärds grupp klickar du på **Skapa ny** under avsnittet **Åtgärds grupper** .
 
-![Ny åtgärds grupp för aviserings regel](media/hdinsight-cluster-availability/portal-create-new-action-group.png)
+![Varnings regel skapa ny åtgärds grupp](media/hdinsight-cluster-availability/portal-create-new-action-group.png)
 
 Då öppnas bladet **Lägg till åtgärds grupp** . Välj ett **Åtgärds grupp namn**, **kort namn**, **prenumeration**och **resurs grupp.** Under avsnittet **åtgärder** väljer du ett **Åtgärds namn** och väljer **e-post/SMS/push/röst** som **Åtgärds typ.**
 
@@ -170,19 +170,19 @@ Då öppnas bladet **Lägg till åtgärds grupp** . Välj ett **Åtgärds grupp 
 
 Då öppnas bladet **e-post/SMS/push/röst** . Välj ett **namn** för mottagaren, **Markera** rutan **e-** postadress och skriv en e-postadress som du vill att aviseringen ska skickas till. Klicka på **OK** i bladet **e-post/SMS/push/Voice** och Slutför konfigurationen av din åtgärds grupp i bladet **Lägg till åtgärds grupp** .
 
-![Åtgärds grupp för att lägga till aviserings regel](media/hdinsight-cluster-availability/portal-add-action-group.png)
+![Varnings regel skapa Lägg till åtgärds grupp](media/hdinsight-cluster-availability/portal-add-action-group.png)
 
 När bladen stängs bör du se din åtgärds grupp i avsnittet **Åtgärds grupper** . Slutligen fyller du i avsnittet **aviserings information** genom att ange ett namn och en **Beskrivning** för **varnings regeln** och välja en **allvarlighets grad**.
 Klicka på **skapa aviserings regel** för att slutföra.
 
-![Skapa varnings regel slutförd](media/hdinsight-cluster-availability/portal-create-alert-rule-finish.png)
+![Portal skapa varnings regel slutförd](media/hdinsight-cluster-availability/portal-create-alert-rule-finish.png)
 
 > [!TIP]
 > Möjligheten att ange **allvarlighets grad** är ett kraftfullt verktyg som kan användas när du skapar flera aviseringar. Du kan till exempel skapa en avisering för att utlösa en varning (allvarlighets grad 1) om en enda Head-nod går ned och en annan avisering som aktiverar kritisk (allvarlighets grad 0) i förmodad händelse att båda huvudnoderna går ned.
 
 När villkoret för den här aviseringen uppfylls, utlöses aviseringen och du får ett e-postmeddelande med aviserings informationen så här:
 
-![Azure Monitor e-postavisering](media/hdinsight-cluster-availability/portal-oms-alert-email.png)
+![Exempel på Azure Monitor aviserings meddelande](media/hdinsight-cluster-availability/portal-oms-alert-email.png)
 
 Du kan också Visa alla aviseringar som har utlösts, grupperade efter allvarlighets grad, genom att gå till bladet **aviseringar** i **arbets ytan Log Analytics**.
 

@@ -1,7 +1,7 @@
 ---
 title: 'Compute-mål: var du ska träna och distribuera modeller'
-titleSuffix: Azure Machine Learning service
-description: Definiera var du vill träna eller distribuera din modell med Azure Machine Learning-tjänsten.
+titleSuffix: Azure Machine Learning
+description: Definiera var du vill träna eller distribuera din modell med Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 07/10/2019
-ms.openlocfilehash: b2e4c9160ccad66b04dd30979f0568da68836d76
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: fe60b740312ee49510ea931bba1346ceaef9f31a
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70860588"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71035523"
 ---
-#  <a name="what-are-compute-targets-in-azure-machine-learning-service"></a>Vad är beräknings mål i Azure Machine Learnings tjänsten? 
+#  <a name="what-are-compute-targets-in-azure-machine-learning"></a>Vad är beräknings mål i Azure Machine Learning? 
 
 Ett **beräknings mål** är en viss beräknings resurs/miljö där du kör ditt utbildnings skript eller är värd för tjänst distributionen. Den här platsen kan vara din lokala dator eller en molnbaserad beräknings resurs. Genom att använda beräknings mål kan du enkelt ändra beräknings miljön utan att behöva ändra koden.  
 
@@ -29,7 +29,7 @@ De beräknings resurser som du använder för beräknings målen är kopplade ti
 
 ## <a name="train"></a>Inlärnings mål
 
-Azure Machine Learning tjänsten har varierande stöd för olika beräknings resurser.  Du kan också koppla din egen beräknings resurs, även om stöd för olika scenarier kan variera.
+Azure Machine Learning har varierande stöd för olika beräknings resurser.  Du kan också koppla din egen beräknings resurs, även om stöd för olika scenarier kan variera.
 
 [!INCLUDE [aml-compute-target-train](../../../includes/aml-compute-target-train.md)]
 
@@ -46,7 +46,7 @@ Lär dig [hur och hur du distribuerar din modell till ett beräknings mål](how-
 <a name="amlcompute"></a>
 ## <a name="azure-machine-learning-compute-managed"></a>Azure Machine Learning Compute (hanterad)
 
-En hanterad beräknings resurs skapas och hanteras av Azure Machine Learning tjänsten. Den här beräkningen är optimerad för Machine Learning-arbetsbelastningar. Azure Machine Learning Compute är den enda hanterade beräkningen från och med den 30 maj 2019. Ytterligare hanterade beräknings resurser kan läggas till i framtiden.
+En hanterad beräknings resurs skapas och hanteras av Azure Machine Learning. Den här beräkningen är optimerad för Machine Learning-arbetsbelastningar. Azure Machine Learning Compute är den enda hanterade beräkningen från och med den 30 maj 2019. Ytterligare hanterade beräknings resurser kan läggas till i framtiden.
 
 Du kan använda Azure Machine Learning Compute for Training och batch-inferencing (för hands version).  Med den här beräknings resursen har du:
 
@@ -59,7 +59,7 @@ Du kan skapa Azure Machine Learning beräknings instanser i Azure Portal eller d
 
 ## <a name="unmanaged-compute"></a>Ohanterad beräkning
 
-Ett ohanterat beräknings mål hanteras *inte* av Azure Machine learnings tjänsten. Du skapar den här typen av beräknings mål utanför Azure Machine Learning och kopplar den sedan till din arbets yta. Ohanterade beräknings resurser kan kräva ytterligare åtgärder för att underhålla eller förbättra prestanda för Machine Learning-arbetsbelastningar.
+Ett ohanterat beräknings mål hanteras *inte* av Azure Machine Learning. Du skapar den här typen av beräknings mål utanför Azure Machine Learning och kopplar den sedan till din arbets yta. Ohanterade beräknings resurser kan kräva ytterligare åtgärder för att underhålla eller förbättra prestanda för Machine Learning-arbetsbelastningar.
 
 ## <a name="next-steps"></a>Nästa steg
 

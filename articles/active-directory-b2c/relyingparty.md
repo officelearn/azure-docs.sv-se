@@ -10,18 +10,18 @@ ms.topic: reference
 ms.date: 01/25/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: bf8d4889c277d59d0c42894281a89345fbf90a84
-ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
+ms.openlocfilehash: b1bfa945843d185a46f1f1d79fd4dab0e991c769
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68716698"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71063799"
 ---
 # <a name="relyingparty"></a>RelyingParty
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-**RelyingParty** -elementet anger den användar resa som ska tillämpas för den aktuella begäran till Azure Active Directory (Azure AD) B2C. Den anger också listan över anspråk som den förlitande parten (RP) behöver som en del av Utfärdad token. Ett RP-program, till exempel ett webb-, mobil-eller Skriv bords program, anropar RP-principagenten. RP-principagenten kör en speciell uppgift, som att logga in, återställa ett lösen ord eller redigera en profil. Flera program kan använda samma RP-princip och ett enda program kan använda flera principer. Alla RP-program får samma token med anspråk, och användaren går igenom samma användar resa.
+**RelyingParty** -elementet anger användar resan som ska tillämpas på den aktuella begäran för att Azure Active Directory B2C (Azure AD B2C). Den anger också listan över anspråk som den förlitande parten (RP) behöver som en del av Utfärdad token. Ett RP-program, till exempel ett webb-, mobil-eller Skriv bords program, anropar RP-principagenten. RP-principagenten kör en speciell uppgift, som att logga in, återställa ett lösen ord eller redigera en profil. Flera program kan använda samma RP-princip och ett enda program kan använda flera principer. Alla RP-program får samma token med anspråk, och användaren går igenom samma användar resa.
 
 I följande exempel visas ett **RelyingParty** -element i *B2C_1A_signup_signin* -princip filen:
 
@@ -104,7 +104,7 @@ Det valfria **RelyingParty** -elementet innehåller följande element:
 
 | Attribut | Obligatorisk | Beskrivning |
 | --------- | -------- | ----------- |
-| ReferenceId | Ja | En identifierare för användar resan i principen. Mer information finns i [användar resor](userjourneys.md) |
+| referenceId | Ja | En identifierare för användar resan i principen. Mer information finns i [användar resor](userjourneys.md) |
 
 ## <a name="userjourneybehaviors"></a>UserJourneyBehaviors
 
@@ -125,7 +125,7 @@ Det valfria **RelyingParty** -elementet innehåller följande element:
 | Attribut | Obligatorisk | Beskrivning |
 | --------- | -------- | ----------- |
 | Omfång | Ja | Omfattningen av det enkla inloggnings beteendet. Möjliga värden: `Suppressed`, `Tenant`, `Application`eller. `Policy` `Suppressed` Värdet anger att beteendet ignoreras. Om du till exempel använder en enkel inloggning, upprätthålls ingen session för användaren och användaren uppmanas alltid att ange ett val av identitetsprovider. `TrustFramework` Värdet anger att beteendet tillämpas för alla principer i förtroende ramverket. En användare som navigerar genom två princip resor för ett förtroende Framework behöver till exempel inte ange något val av identitetsprovider. `Tenant` Värdet anger att beteendet tillämpas på alla principer i klienten. Till exempel behöver en användare som navigerar genom två princip resor för en klient inte uppmanas att välja ett val av identitetsprovider. `Application` Värdet anger att beteendet tillämpas på alla principer för programmet som gör begäran. Till exempel behöver en användare som navigerar genom två princip resor för ett program inte ange något val av en identitetsprovider. `Policy` Värdet anger att beteendet bara gäller för en princip. Till exempel, en användare som navigerar genom två princip resor för ett förtroende Framework, uppmanas du att ange en identitets leverantör när du växlar mellan principer. |
-| KeepAliveInDays | Ja | Styr hur länge användaren förblir inloggad. Om du anger värdet 0 inaktive ras KMSI avgör-funktionen. Mer information finns i [Håll mig](active-directory-b2c-reference-kmsi-custom.md)inloggad. |
+| KeepAliveInDays | Ja | Styr hur länge användaren förblir inloggad. Om du anger värdet 0 inaktive ras KMSI avgör-funktionen. Mer information finns i [Håll mig inloggad](active-directory-b2c-reference-kmsi-custom.md). |
 
 ## <a name="journeyinsights"></a>JourneyInsights
 
@@ -208,8 +208,8 @@ Mer information finns i [Konfigurera gränssnittet med dynamiskt innehåll med h
 ### <a name="subjectnaminginfo"></a>SubjectNamingInfo
 
 Med **SubjectNameingInfo** -elementet kan du styra värdet för token-ämnet:
-- **JWT** -token `sub` – anspråket. Detta är ett huvud konto som används för att kontrollera information, t. ex. användare av ett program. Värdet är oföränderligt och kan inte tilldelas om eller återanvändas. Den kan användas för att utföra säkra verifierings kontroller, till exempel när token används för att få åtkomst till en resurs. Som standard fylls ämnes anspråket med objekt-ID: t för användaren i katalogen. Mer information finns i [konfiguration av token, session och enkel inloggning](active-directory-b2c-token-session-sso.md).
-- **SAML** -token `<Subject><NameID>` – det element som identifierar ämnes elementet.
+- **JWT-token** – `sub` anspråket. Detta är ett huvud konto som används för att kontrollera information, t. ex. användare av ett program. Värdet är oföränderligt och kan inte tilldelas om eller återanvändas. Den kan användas för att utföra säkra verifierings kontroller, till exempel när token används för att få åtkomst till en resurs. Som standard fylls ämnes anspråket med objekt-ID: t för användaren i katalogen. Mer information finns i [konfiguration av token, session och enkel inloggning](active-directory-b2c-token-session-sso.md).
+- **SAML-token** – det `<Subject><NameID>` element som identifierar ämnes elementet.
 
 **SubjectNamingInfo** -elementet innehåller följande attribut:
 

@@ -10,16 +10,16 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 339b118e48a01469312a40e6b0652a4ffb90291a
-ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
+ms.openlocfilehash: ec6b667dfc554c037d9b0a56e52bc8f212812812
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68347124"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71064729"
 ---
 # <a name="tutorial-grant-access-to-an-aspnet-web-api-using-azure-active-directory-b2c"></a>Självstudier: Bevilja åtkomst till ett ASP.NET webb-API med hjälp av Azure Active Directory B2C
 
-Den här självstudien lär dig anropa en skyddad webb-API-resurs i Azure Active Directory (Azure AD) B2C från en ASP.NET-webbapp.
+Den här självstudien visar hur du anropar en skyddad webb-API-resurs i Azure Active Directory B2C (Azure AD B2C) från ett ASP.NET-webbprogram.
 
 I den här guiden får du lära dig att:
 
@@ -40,7 +40,7 @@ Slutför stegen och kraven i [Självstudie: Aktivera autentisering i en webbapp 
 Webb-API-resurser måste vara registrerade i klientorganisationen innan de kan godkänna och svara på en begäran från en skyddad resurs från klientprogram som använder en åtkomsttoken.
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
-2. Se till att du använder den katalog som innehåller din Azure AD B2C-klientorganisation genom att klicka på **katalog- och prenumerationsfiltret** på den översta menyn och välja katalogen som innehåller din klientorganisation.
+2. Kontrol lera att du använder den katalog som innehåller din Azure AD B2C klient genom att välja filtret **katalog + prenumeration** på den översta menyn och välja den katalog som innehåller din klient.
 3. Välj **Alla tjänster** på menyn uppe till vänster i Azure Portal. Sök sedan efter och välj **Azure AD B2C**.
 4. Välj **Program** och därefter **Lägg till**.
 5. Ange ett namn på programmet. Till exempel *webapi1*.
@@ -89,7 +89,7 @@ Följande två projekt finns i exempellösningen:
 
 1. Öppna **B2C-WebAPI-DotNet**-lösningen i Visual Studio.
 2. Öppna **Web.config** i projektet **TaskWebApp**.
-3. Kör API:et lokalt genom att använda inställningen för lokala värden för **api:TaskServiceUrl**. Ändra Web.config enligt följande: 
+3. Kör API:et lokalt genom att använda inställningen för lokala värden för **api:TaskServiceUrl**. Ändra Web.config enligt följande:
 
     ```csharp
     <add key="api:TaskServiceUrl" value="https://localhost:44332/"/>
@@ -133,16 +133,16 @@ Följande två projekt finns i exempellösningen:
 
 ## <a name="run-the-sample"></a>Kör exemplet
 
-Du måste köra både **TaskWebApp**- och **TaskService**-projektet. 
+Du måste köra både **TaskWebApp**- och **TaskService**-projektet.
 
-1. Högerklicka på lösningen i Solution Explorer och välj **Ange startprojekt...** . 
+1. Högerklicka på lösningen i Solution Explorer och välj **Ange startprojekt...** .
 2. Välj **Flera startprojekt**.
 3. Ändra **Åtgärd** för båda projekten till **Start**.
 4. Spara ändringarna genom att klicka på **OK**.
 5. Tryck på **F5** för att köra båda programmen. Varje program öppnas i sitt eget webbläsarfönster. `https://localhost:44316/` är webbappen.
     `https://localhost:44332/` är webb-API:t.
 
-6. I webbappen klickar du på **registrera/logga in** för att logga in i webbappen. Använd det konto som du skapade tidigare. 
+6. I webbappen klickar du på **registrera/logga in** för att logga in i webbappen. Använd det konto som du skapade tidigare.
 7. När du loggat in klickar du på **att göra-listan** och skapar en post i listan.
 
 När du skapar en post i listan skickar webbappen en begäran till webb-API:et om att skapa listposten. Den skyddade webbappen anropar det skyddade webb-API:et i din Azure AD B2C-klientorganisation.

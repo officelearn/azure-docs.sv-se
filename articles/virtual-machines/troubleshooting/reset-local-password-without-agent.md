@@ -4,7 +4,7 @@ description: Återställa lösen ordet för ett lokalt Windows-användarkonto n�
 services: virtual-machines-windows
 documentationcenter: ''
 author: genlin
-manager: gwallace
+manager: dcscontentpm
 editor: ''
 ms.assetid: cf353dd3-89c9-47f6-a449-f874f0957013
 ms.service: virtual-machines-windows
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 04/25/2019
 ms.author: genli
-ms.openlocfilehash: 75d6c10ded4038297689835d5ff012f344540e6f
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: 6faab5bffaddbbd5d8deb9c3834bf3d8fe3e3445
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69638843"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71058651"
 ---
 # <a name="reset-local-windows-password-for-azure-vm-offline"></a>Återställ lokalt Windows-lösenord för virtuell Azure-dator offline
 Du kan återställa det lokala Windows-lösenordet för en virtuell dator i Azure med hjälp av [Azure Portal eller Azure PowerShell](reset-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) förutsatt att Azures gästa Gent är installerad. Den här metoden är det primära sättet att återställa ett lösen ord för en virtuell Azure-dator. Om du stöter på problem med att Azures gästa Gent inte svarar eller om du inte vill installera efter att du har laddat upp en anpassad avbildning kan du manuellt återställa ett Windows-lösenord. Den här artikeln beskriver hur du återställer ett lokalt konto lösen ord genom att koppla den virtuella käll operativ system disken till en annan virtuell dator. De steg som beskrivs i den här artikeln gäller inte för Windows-domänkontrollanter. 
@@ -212,9 +212,9 @@ Försök alltid att återställa ett lösen ord med hjälp av [Azure Portal elle
 2. Ta bort följande filer från fjärrsessionen till den nya virtuella datorn för att rensa miljön:
     
     * Som`%windir%\System32`
-      * ta bort`FixAzureVM.cmd`
+      * Ta bort`FixAzureVM.cmd`
     * Som`%windir%\System32\GroupPolicy\Machine\Scripts`
-      * ta bort`scripts.ini`
+      * Ta bort`scripts.ini`
     * Som`%windir%\System32\GroupPolicy`
       * ta `gpt.ini` bort ( `gpt.ini` om `gpt.ini.bak` denfanns`gpt.ini`före, och du byter namn på den till, byter du namn på filentillbakatill)`.bak`
 

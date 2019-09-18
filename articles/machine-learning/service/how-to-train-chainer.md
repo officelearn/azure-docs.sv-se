@@ -1,7 +1,7 @@
 ---
 title: Träna djup inlärning neurala nätverk med kedjer
 titleSuffix: Azure Machine Learning
-description: Lär dig hur du kör dina PyTorch-utbildnings skript i företags skala med hjälp av Azure Machine Learnings uppskattare-klass.  I exempel skriptet classifis skrivna siffror för att bygga ett djup inlärnings neurala nätverk med hjälp av kedje-och python-biblioteket som körs ovanpå numpy.
+description: Lär dig hur du kör dina PyTorch-utbildnings skript i företags skala med hjälp av Azure Machine Learnings uppskattare-klass.  Exempel skriptet klassificerar handskrivna siffer bilder för att bygga ett djup inlärnings neurala nätverk med hjälp av kedje-och python-biblioteket som körs ovanpå numpy.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,12 +10,12 @@ ms.author: maxluk
 author: maxluk
 ms.reviewer: sdgilley
 ms.date: 08/02/2019
-ms.openlocfilehash: 91e638793d77a6d38f9813345829720d98545293
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 79c0cadc1b266a6d160cd36fc21dcaf36637a2b1
+ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71002720"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71076410"
 ---
 # <a name="train-and-register-chainer-models-at-scale-with-azure-machine-learning"></a>Träna och registrera kedje modeller i skala med Azure Machine Learning
 
@@ -84,7 +84,7 @@ I den här självstudien har utbildnings skriptet **chainer_mnist. py** redan an
 
 Om du vill använda Azure MLs spårnings-och mått funktioner lägger du till en liten del av Azure ML-koden i utbildnings skriptet.  I övnings skriptet **chainer_mnist. py** visas hur du loggar vissa mått i Azure ml-körningen med `Run` hjälp av objektet i skriptet.
 
-Det tillhandahållna utbildnings skriptet använder exempel data från kedje `datasets.mnist.get_mnist` funktionen.  För dina egna data kan du behöva använda steg som att [Ladda upp data uppsättning och skript](how-to-train-keras.md#upload-dataset-and-scripts) för att göra data tillgängliga under utbildningen.
+Det tillhandahållna utbildnings skriptet använder exempel data från kedje `datasets.mnist.get_mnist` funktionen.  För dina egna data kan du behöva använda steg som att [Ladda upp data uppsättning och skript](how-to-train-keras.md) för att göra data tillgängliga under utbildningen.
 
 Kopiera övnings skriptet **chainer_mnist. py** till projekt katalogen.
 

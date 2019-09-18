@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eb4486c889dec29f81b57605c3ccee510242f832
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: bdb1e26d9f10ae9b9549421e72a99f2c4e5341c2
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70035149"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71056089"
 ---
 # <a name="enable-remote-access-to-power-bi-mobile-with-azure-ad-application-proxy"></a>Få fjärråtkomst till Power BI Mobile med Azure AD-programproxy
 
@@ -69,7 +69,7 @@ Om du vill konfigurera KCD upprepar du följande steg för varje kopplings dator
 
 1. Logga in på en domänkontrollant som domän administratör och öppna sedan **Active Directory användare och datorer**.
 2. Hitta den dator som kör anslutningstjänsten på.  
-3. Dubbelklicka på datorn och välj sedan fliken delegering ****  .
+3. Dubbelklicka på datorn och välj sedan fliken **delegering** .
 4. Ställ in Delegerings inställningarna på **den här datorn som betrodd för delegering till de angivna tjänsterna**. Välj sedan **Använd valfritt autentiseringsprotokoll**.
 5. Välj **Lägg till**och välj sedan **användare eller datorer**.
 6. Ange det tjänst konto som du använder för repor ting Services. Detta är det konto som du har lagt till SPN-namnet i repor ting Services-konfigurationen.
@@ -138,11 +138,11 @@ Innan Power BI mobilappen kan ansluta och komma åt rapport tjänster måste du 
 ## <a name="step-5-configure-intune-policy-for-managed-devices-optional"></a>Steg 5: Konfigurera Intune-princip för hanterade enheter (valfritt)
 
 > [!NOTE]
-> Den här funktionen kommer inte att vara tillgänglig förrän 7/31/19.
+> Den här funktionen är för närvarande bara tillgänglig i iOS.
 
 Du kan använda Microsoft Intune för att hantera de klient program som företagets personal använder. Med Intune kan du använda funktioner som data kryptering och ytterligare åtkomst krav. Mer information om hantering av appar via Intune finns i hantering av Intune-appar. Använd följande steg för att aktivera Power BI mobil program som fungerar med Intune-principen.
 
-1. Gå till **Azure Active Directory** och sedan **app**-registreringar.
+1. Gå till **Azure Active Directory** och sedan **app-registreringar**.
 2. Välj det program som konfigurerades i steg 3 när du registrerar det interna klient programmet.
 3. På programmets sida väljer du API- **behörigheter**.
 4. Klicka på **Lägg till en behörighet**. 

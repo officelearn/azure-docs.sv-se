@@ -10,18 +10,18 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 679de2d3a5519e57978239ddd75a4b9fa2ffef3c
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: f90b69cde4a961457c987f004e2605e6884bf323
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "70998761"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71063331"
 ---
 # <a name="about-technical-profiles-in-azure-active-directory-b2c-custom-policies"></a>Om tekniska profiler i Azure Active Directory B2C anpassade principer
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-En teknisk profil innehåller ett ramverk med en inbyggd mekanism för att kommunicera med olika typer av parter med hjälp av en anpassad princip i Azure Active Directory (Azure AD) B2C. Tekniska profiler används för att kommunicera med din Azure AD B2C-klient, för att skapa en användare eller läsa en användar profil. En teknisk profil kan självkontrolleras för att aktivera interaktion med användaren. Du kan till exempel samla in användarens autentiseringsuppgifter för att logga in och sedan återge sidan för registrerings sidan eller lösen ords återställningen.
+En teknisk profil innehåller ett ramverk med en inbyggd mekanism för att kommunicera med olika typer av parter med hjälp av en anpassad princip i Azure Active Directory B2C (Azure AD B2C). Tekniska profiler används för att kommunicera med din Azure AD B2C-klient, för att skapa en användare eller läsa en användar profil. En teknisk profil kan självkontrolleras för att aktivera interaktion med användaren. Du kan till exempel samla in användarens autentiseringsuppgifter för att logga in och sedan återge sidan för registrerings sidan eller lösen ords återställningen.
 
 ## <a name="type-of-technical-profiles"></a>Typ av tekniska profiler
 

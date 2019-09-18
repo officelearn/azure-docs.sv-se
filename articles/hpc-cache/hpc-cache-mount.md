@@ -4,14 +4,14 @@ description: Ansluta klienter till en Azure HPC cache-tjänst
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 09/06/2019
+ms.date: 09/12/2019
 ms.author: v-erkell
-ms.openlocfilehash: 0ccd256ed399fff7c364883ada45d2d15c75a120
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.openlocfilehash: 46f221fd7c340b7f321d317f0e7493448d83177c
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70775356"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71036970"
 ---
 # <a name="mount-the-azure-hpc-cache"></a>Montera Azure HPC-cachen
 
@@ -19,13 +19,13 @@ När cachen har skapats kan NFS-klienter komma åt den med ett enkelt monterings
 
 Använd de monterings adresser som anges på sidan cache-översikt och den virtuella namn rymds-sökväg som du angav när du skapade lagrings målet. 
 
-![skärm bild av översikts sidan för Azure HPC-instansen med en markerings ruta runt monterings adress listan längst ned till höger](media/mount-addresses.png)
+![skärm bild av översikts sidan för Azure HPC-instansen med en markerings ruta runt monterings adress listan längst ned till höger](media/hpc-cache-mount-addresses.png)
 
 > [!NOTE] 
 > Cachens cache-adresser motsvarar nätverks gränssnitten i cachens undernät. Dessa nätverkskort visas i resurs gruppen med namn som slutar `-cluster-nic-` med och en siffra. Ändra inte eller ta bort dessa gränssnitt, annars blir cachen otillgänglig.
 
-De virtuella namn Rymdernas sökvägar visas på sidan **lagrings mål** . 
-![skärm bild av cachens lagrings mål panel med en markerings ruta runt en post i kolumnen sökväg i tabellen](media/storage-target-path.png)
+De virtuella namn Rymdernas sökvägar visas på sidan **lagrings mål** . Klicka på mål namnet om du vill se information, inklusive den sammanställda sökvägen (eller sökvägar) som är kopplad till den. 
+![skärm bild av cachens lagrings mål panel med en markerings ruta runt en post i kolumnen sökväg i tabellen](media/hpc-cache-view-namespace-paths.png)
 
 ## <a name="mount-command-syntax"></a>Montera kommandosyntax
 

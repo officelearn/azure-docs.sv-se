@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/08/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 428149fbc015037fa8c92bad6fe72cbd97aad5d7
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.openlocfilehash: 4a019c3f197f123486dd28dc2bdb46e34f6cabc4
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69622244"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71064904"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-weibo-account-using-azure-active-directory-b2c"></a>Konfigurera registrering och inloggning med ett Weibo-konto med hjälp av Azure Active Directory B2C
 
@@ -23,7 +23,7 @@ ms.locfileid: "69622244"
 
 ## <a name="create-a-weibo-application"></a>Skapa ett Weibo-program
 
-Om du vill använda ett Weibo-konto som identitets leverantör i Azure Active Directory (Azure AD) B2C måste du skapa ett program i din klient organisation som representerar det. Om du inte redan har ett Weibo-konto kan du registrera dig på [https://weibo.com/signup/signup.php?lang=en-us](https://weibo.com/signup/signup.php?lang=en-us).
+Om du vill använda ett Weibo-konto som identitets leverantör i Azure Active Directory B2C (Azure AD B2C) måste du skapa ett program i din klient som representerar det. Om du inte redan har ett Weibo-konto kan du registrera dig på [https://weibo.com/signup/signup.php?lang=en-us](https://weibo.com/signup/signup.php?lang=en-us).
 
 1. Logga in på [Weibo Developer-portalen](https://open.weibo.com/) med dina Weibo-kontoautentiseringsuppgifter.
 1. När du har loggat in väljer du ditt visnings namn i det övre högra hörnet.

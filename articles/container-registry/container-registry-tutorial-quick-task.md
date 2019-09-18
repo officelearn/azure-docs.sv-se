@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: a9e84210427612143bffe33efe4a5da5364b7a22
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 091c1a4c9e6adae69ec1c8b3e507624b9f5e6a96
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68310445"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71057501"
 ---
 # <a name="tutorial-build-and-deploy-container-images-in-the-cloud-with-azure-container-registry-tasks"></a>Självstudie: Skapa och distribuera containeravbildningar i molnet med Azure Container Registry Tasks
 
@@ -75,7 +75,7 @@ Kommandona i den här självstudieserien är formaterade för Bash-gränssnittet
 
 Nu när du har hämtat källkoden till din dator, följer du dessa steg för att skapa ett containerregister och en containeravbildning med ACR Tasks.
 
-För att göra det enklare att köra exempelkommandona, använder självstudierna i serien gränssnittets miljövariabler. Kör följande kommando för att ange variabeln `ACR_NAME`. Ersätt **\<registry-name\>** med ett unikt namn för ditt nya containerregister. Registernamnet måste vara unikt i Azure och innehålla 5–50 alfanumeriska tecken. De andra resurser som du skapar i självstudien baseras på det här namnet, så du behöver bara ändra den första variabeln.
+För att göra det enklare att köra exempelkommandona, använder självstudierna i serien gränssnittets miljövariabler. Kör följande kommando för att ange variabeln `ACR_NAME`. Ersätt **\<registry-name\>** med ett unikt namn för ditt nya containerregister. Register namnet måste vara unikt inom Azure, får bara innehålla gemena bokstäver och innehålla 5-50 alfanumeriska tecken. De andra resurser som du skapar i självstudien baseras på det här namnet, så du behöver bara ändra den första variabeln.
 
 ```azurecli-interactive
 ACR_NAME=<registry-name>
@@ -192,7 +192,7 @@ az keyvault create --resource-group $RES_GROUP --name $AKV_NAME
 
 Du måste nu skapa ett huvudnamn för tjänsten och lagra dess autentiseringsuppgifter i nyckelvalvet.
 
-Använd kommandot [AZ AD SP Create-for-RBAC][az-ad-sp-create-for-rbac] för att skapa tjänstens huvud namn och [hemligheten för AZ-valv][az-keyvault-secret-set] för att lagra tjänstens huvud namn i valvet:
+Använd kommandot [AZ AD SP Create-for-RBAC][az-ad-sp-create-for-rbac] för att skapa tjänstens huvud namn och [hemligheten för AZ-valv][az-keyvault-secret-set] för att lagra tjänstens huvud **namn i** valvet:
 
 ```azurecli-interactive
 # Create service principal, store its password in AKV (the registry *password*)

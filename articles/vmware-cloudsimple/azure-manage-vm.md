@@ -8,20 +8,20 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: b7d09ebd9c6ef04aff4d750024216b51513c3cca
-ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
+ms.openlocfilehash: 44a0b8fe56477620c0ac47d5c5de8830dac46214
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69576828"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71037476"
 ---
 # <a name="manage-your-cloudsimple-private-cloud-virtual-machines-in-azure"></a>Hantera dina virtuella CloudSimple privata moln datorer i Azure
 
-Logga in på [Azure Portal](http://portal.azure.com)för att hantera de virtuella datorer som du har [skapat för ditt privata moln i CloudSimple](azure-create-vm.md). Sök efter och välj den virtuella (Sök under **alla tjänster** eller **Virtual Machines** på sido menyn).
+Logga in på [Azure Portal](https://portal.azure.com)för att hantera de virtuella datorer som du har [skapat för ditt privata moln i CloudSimple](azure-create-vm.md). Sök efter och välj den virtuella (Sök under **alla tjänster** eller **Virtual Machines** på sido menyn).
 
 ## <a name="control-virtual-machine-operation"></a>Kontrol lera virtuell dator åtgärd
 
-Följande kontroller är tillgängliga på översikts sidan för den valda virtuella datorn.
+Följande kontroller är tillgängliga på **översikts** sidan för den valda virtuella datorn.
 
 | Kontroll | Beskrivning |
 | ------------ | ------------- |
@@ -36,7 +36,7 @@ Följande kontroller är tillgängliga på översikts sidan för den valda virtu
 
 ### <a name="view-performance-information"></a>Visa prestanda information
 
-Diagrammen i den nedre delen av översikts sidan visar prestanda data för det valda intervallet (senaste timmen till de senaste 30 dagarna; standard är den senaste timmen). I varje diagram kan du Visa de numeriska värdena när som helst inom intervallet genom att flytta markören tillbaka och tillbaka i diagrammet.
+Diagrammen i den nedre delen av **översikts** sidan visar prestanda data för det valda intervallet (senaste timmen till de senaste 30 dagarna; standard är den senaste timmen). I varje diagram kan du Visa de numeriska värdena när som helst inom intervallet genom att flytta markören tillbaka och tillbaka i diagrammet.
 
 Följande diagram visas.
 
@@ -62,7 +62,7 @@ Om du vill ta bort en disk markerar du den och klickar på **ta bort**.
 
 ## <a name="change-the-capacity-of-the-vm"></a>Ändra kapaciteten för den virtuella datorn
 
-Om du vill ändra kapaciteten för den virtuella datorn öppnar du storleks sidan för den valda virtuella datorn. Ange något av följande och klicka på **Spara**.
+Om du vill ändra kapaciteten för den virtuella datorn öppnar du **storleks** sidan för den valda virtuella datorn. Ange något av följande och klicka på **Spara**.
 
 | Objekt | Beskrivning |
 | ------------ | ------------- |

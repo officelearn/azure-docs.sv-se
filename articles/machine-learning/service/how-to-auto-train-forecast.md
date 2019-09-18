@@ -1,7 +1,7 @@
 ---
 title: Automatisk träna en tids serie prognos modell
-titleSuffix: Azure Machine Learning service
-description: Lär dig hur du använder Azure Machine Learning-tjänsten för att träna en uppskattnings Regressions modell i Time Series med hjälp av automatisk maskin inlärning.
+titleSuffix: Azure Machine Learning
+description: Lär dig hur du använder Azure Machine Learning för att träna en Regressions Regressions modell i Time Series med hjälp av automatisk maskin inlärning.
 services: machine-learning
 author: trevorbye
 ms.author: trbye
@@ -10,16 +10,16 @@ ms.subservice: core
 ms.reviewer: trbye
 ms.topic: conceptual
 ms.date: 06/20/2019
-ms.openlocfilehash: e75de16d0e16bc639a0439220a1c9dfe53e1689b
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: c49d8000888d4094ea1df47920c1927747927f5c
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70879055"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71035050"
 ---
 # <a name="auto-train-a-time-series-forecast-model"></a>Automatisk träna en tids serie prognos modell
 
-I den här artikeln får du lära dig hur du tränar en Regressions Regressions modell i Time Series med hjälp av automatisk maskin inlärning i Azure Machine Learning-tjänsten. Att konfigurera en prognos modell liknar att konfigurera en standard Regressions modell med hjälp av automatisk maskin inlärning, men vissa konfigurations alternativ och för bearbetnings steg finns för att arbeta med Time Series-data. I följande exempel visas hur du:
+I den här artikeln får du lära dig hur du tränar en uppskattnings Regressions modell i Time Series med hjälp av automatisk maskin inlärning i Azure Machine Learning. Att konfigurera en prognos modell liknar att konfigurera en standard Regressions modell med hjälp av automatisk maskin inlärning, men vissa konfigurations alternativ och för bearbetnings steg finns för att arbeta med Time Series-data. I följande exempel visas hur du:
 
 * Förbereda data för tids serie modellering
 * Konfigurera angivna parametrar för tids serier i ett [`AutoMLConfig`](/python/api/azureml-train-automl/azureml.train.automl.automlconfig) objekt
@@ -37,7 +37,7 @@ Funktioner som har extraherats från tränings data spelar en viktig roll. Och a
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-* En arbetsyta för Azure Machine Learning-tjänsten. Information om hur du skapar arbets ytan finns i [skapa en Azure Machine Learning service-arbetsyta](how-to-manage-workspace.md).
+* En Azure Machine Learning-arbetsyta. Information om hur du skapar arbets ytan finns i [skapa en Azure Machine Learning arbets yta](how-to-manage-workspace.md).
 * I den här artikeln förutsätter vi att du har konfigurerat ett automatiserat experiment för maskin inlärning. Följ [själv studie kursen](tutorial-auto-train-models.md) eller [anvisningar](how-to-configure-auto-train.md) för att se design mönster för det grundläggande automatiserade maskin inlärnings experimentet.
 
 ## <a name="preparing-data"></a>Förbereda data

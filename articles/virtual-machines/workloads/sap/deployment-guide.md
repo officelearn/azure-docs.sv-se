@@ -13,14 +13,14 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 09/26/2018
+ms.date: 09/16/2019
 ms.author: sedusch
-ms.openlocfilehash: b9db5cbb9e65fc7bc8aa306a69a0889f29b61be3
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 549fd8f4cb770d472eefd1c504e42837fa8230dd
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70101339"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71066855"
 ---
 # <a name="azure-virtual-machines-deployment-for-sap-netweaver"></a>Azure Virtual Machines-distribution för SAP NetWeaver
 
@@ -121,12 +121,12 @@ ms.locfileid: "70101339"
 [deployment-guide-4.4]:deployment-guide.md#c7cbb0dc-52a4-49db-8e03-83e7edc2927d (Ladda ned, installera och aktivera Azure VM-agenten)
 [deployment-guide-4.5.1]:deployment-guide.md#987cf279-d713-4b4c-8143-6b11589bb9d4 (Azure PowerShell)
 [deployment-guide-4.5.2]:deployment-guide.md#408f3779-f422-4413-82f8-c57a23b4fc2f (Azure CLI)
-[deployment-guide-4.5]:deployment-guide.md#d98edcd3-f2a1-49f7-b26a-07448ceb60ca (Konfigurera Azure Enhanced Monitoring-tillägget för SAP)
-[deployment-guide-5.1]:deployment-guide.md#bb61ce92-8c5c-461f-8c53-39f5e5ed91f2 (Beredskaps kontroll för förbättrad Azure-övervakning för SAP)
-[deployment-guide-5.2]:deployment-guide.md#e2d592ff-b4ea-4a53-a91a-e5521edb6cd1 (Hälso kontroll för Azures övervaknings infrastruktur)
-[deployment-guide-5.3]:deployment-guide.md#fe25a7da-4e4e-4388-8907-8abc2d33cfd8 (Felsöka Azure-övervakning för SAP)
+[deployment-guide-4.5]:deployment-guide.md#d98edcd3-f2a1-49f7-b26a-07448ceb60ca (Konfigurera Azure-tillägget för SAP)
+[deployment-guide-5.1]:deployment-guide.md#bb61ce92-8c5c-461f-8c53-39f5e5ed91f2 (Beredskaps kontroll för Azure-tillägg för SAP)
+[deployment-guide-5.2]:deployment-guide.md#e2d592ff-b4ea-4a53-a91a-e5521edb6cd1 (Hälso kontroll för Azure-tillägget för SAP-konfiguration)
+[deployment-guide-5.3]:deployment-guide.md#fe25a7da-4e4e-4388-8907-8abc2d33cfd8 (Felsöka Azure-tillägget för SAP)
 
-[deployment-guide-configure-monitoring-scenario-1]:deployment-guide.md#ec323ac3-1de9-4c3a-b770-4ff701def65b (Konfigurera övervakning)
+[deployment-guide-configure-monitoring-scenario-1]:deployment-guide.md#ec323ac3-1de9-4c3a-b770-4ff701def65b (Konfigurera VM-tillägg)
 [deployment-guide-configure-proxy]:deployment-guide.md#baccae00-6f79-4307-ade4-40292ce4e02d (Konfigurera proxyn)
 [deployment-guide-figure-100]:media/virtual-machines-shared-sap-deployment-guide/100-deploy-vm-image.png
 [deployment-guide-figure-1000]:media/virtual-machines-shared-sap-deployment-guide/1000-service-properties.png
@@ -150,7 +150,7 @@ ms.locfileid: "70101339"
 [deployment-guide-figure-azure-cli-installed]:deployment-guide.md#402488e5-f9bb-4b29-8063-1c5f52a892d0
 [deployment-guide-figure-azure-cli-version]:deployment-guide.md#0ad010e6-f9b5-4c21-9c09-bb2e5efb3fda
 [deployment-guide-install-vm-agent-windows]:deployment-guide.md#b2db5c9a-a076-42c6-9835-16945868e866
-[deployment-guide-troubleshooting-chapter]:deployment-guide.md#564adb4f-5c95-4041-9616-6635e83a810b (Kontroller och fel sökning för att konfigurera övervakning från slut punkt till slut punkt)
+[deployment-guide-troubleshooting-chapter]:deployment-guide.md#564adb4f-5c95-4041-9616-6635e83a810b (Kontroller och fel sökning för data insamling från slut punkt till slut punkt för SAP-värda Gent)
 
 [deploy-template-cli]:../../../resource-group-template-deploy-cli.md
 [deploy-template-portal]:../../../resource-group-template-deploy-portal.md
@@ -327,7 +327,7 @@ Om du vill hantera virtuella Windows-eller Linux-datorer kan du använda ett Pow
 
 ### <a name="internet-connection"></a>Internet anslutning
 
-Du måste vara ansluten till Internet för att kunna hämta och köra de verktyg och skript som krävs för distribution av SAP-program. Den virtuella Azure-datorn som kör Azure Enhanced Monitoring-tillägget för SAP behöver också åtkomst till Internet. Om den virtuella Azure-datorn är en del av ett virtuellt Azure-nätverk eller en lokal domän kontrollerar du att de relevanta proxyinställningarna är inställda, enligt beskrivningen i [Konfigurera proxyservern][deployment-guide-configure-proxy].
+Du måste vara ansluten till Internet för att kunna hämta och köra de verktyg och skript som krävs för distribution av SAP-program. Den virtuella Azure-datorn som kör Azure-tillägget för SAP behöver också åtkomst till Internet. Om den virtuella Azure-datorn är en del av ett virtuellt Azure-nätverk eller en lokal domän kontrollerar du att de relevanta proxyinställningarna är inställda, enligt beskrivningen i [Konfigurera proxyservern][deployment-guide-configure-proxy].
 
 ### <a name="microsoft-azure-subscription"></a>Microsoft Azure-prenumeration
 
@@ -435,12 +435,12 @@ Guiden vägleder dig genom att ange de parametrar som krävs för att skapa den 
    * **Storage**
      * **Disktyp**: Välj disk typen för OS-disken. Om du vill använda Premium Storage för dina data diskar rekommenderar vi att du även använder Premium Storage för operativ system disken.
      * **Använd Managed disks**: Välj Ja om du vill använda Managed Disks. Mer information om Managed Disks finns i kapitel [Managed disks][planning-guide-managed-disks] i planerings guiden.
-     * **Lagringskonto**: Välj ett befintligt lagrings konto eller skapa ett nytt. Alla lagrings typer fungerar inte för att köra SAP-program. Mer information om lagrings typer finns i [lagrings strukturen för en virtuell dator för RDBMS](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_general#65fa79d6-a85f-47ee-890b-22e794f51a64)-distributioner.
+     * **Lagringskonto**: Välj ett befintligt lagrings konto eller skapa ett nytt. Alla lagrings typer fungerar inte för att köra SAP-program. Mer information om lagrings typer finns i [lagrings strukturen för en virtuell dator för RDBMS-distributioner](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_general#65fa79d6-a85f-47ee-890b-22e794f51a64).
    * **Nätverk**
      * **Virtuellt nätverk** och **undernät**: Om du vill integrera den virtuella datorn med intranätet väljer du det virtuella nätverk som är anslutet till ditt lokala nätverk.
      * **Offentlig IP-adress**: Välj den offentliga IP-adress som du vill använda, eller ange parametrar för att skapa en ny offentlig IP-adress. Du kan använda en offentlig IP-adress för att få åtkomst till den virtuella datorn via Internet. Se till att du även skapar en nätverks säkerhets grupp för att skydda åtkomsten till den virtuella datorn.
      * **Nätverks säkerhets grupp**: Mer information finns i [styra nätverks trafikflöde med nätverks säkerhets grupper][virtual-networks-nsg].
-   * **Tillägg**: Du kan installera tillägg för virtuella datorer genom att lägga till dem i distributionen. Du behöver inte lägga till tillägg i det här steget. De tillägg som krävs för SAP-supporten installeras senare. Se kapitlet [Konfigurera Azure Enhanced Monitoring-tillägget för SAP][deployment-guide-4.5] i den här hand boken.
+   * **Tillägg**: Du kan installera tillägg för virtuella datorer genom att lägga till dem i distributionen. Du behöver inte lägga till tillägg i det här steget. De tillägg som krävs för SAP-supporten installeras senare. Se kapitlet [Konfigurera Azure-tillägget för SAP][deployment-guide-4.5] i den här hand boken.
    * **Hög tillgänglighet**: Välj en tillgänglighets uppsättning eller ange parametrarna för att skapa en ny tillgänglighets uppsättning. Mer information finns i [Azures tillgänglighets uppsättningar][planning-guide-3.2.3].
    * **Övervakning**
      * **Startdiagnostik**: Du kan välja **inaktivera** för startdiagnostik.
@@ -508,19 +508,19 @@ Azure VM-agenten distribueras som standard när du använder en avbildning från
 
 #### <a name="configure-proxy-settings"></a>Konfigurera proxyinställningar
 
-Beroende på hur ditt lokala nätverk är konfigurerat kan du behöva konfigurera proxyn på den virtuella datorn. Om den virtuella datorn är ansluten till ditt lokala nätverk via VPN eller ExpressRoute kanske den virtuella datorn inte kan ansluta till Internet och kan inte ladda ned de nödvändiga tilläggen eller samla in övervaknings data. Mer information finns i [Konfigurera proxyservern][deployment-guide-configure-proxy].
+Beroende på hur ditt lokala nätverk är konfigurerat kan du behöva konfigurera proxyn på den virtuella datorn. Om den virtuella datorn är ansluten till ditt lokala nätverk via VPN eller ExpressRoute kanske den virtuella datorn inte kan ansluta till Internet och kan inte ladda ned de nödvändiga VM-tilläggen eller samla in information om Azure-infrastrukturen för SAP-värdservern via SAP-tillägget för Azure. Mer information finns i [Konfigurera proxyservern][deployment-guide-configure-proxy].
 
 #### <a name="join-a-domain-windows-only"></a>Anslut till en domän (endast Windows)
 
 Om din Azure-distribution är ansluten till en lokal Active Directory eller DNS-instans via en Azure plats-till-plats VPN-anslutning eller ExpressRoute (Detta kallas för *olika platser* i [Azure Virtual Machines planera och implementera för SAP NetWeaver][planning-guide]) är det förväntat att den virtuella datorn ansluter till en lokal domän. Mer information om överväganden för den här uppgiften finns i [ansluta en virtuell dator till en lokal domän (endast Windows)][deployment-guide-4.3].
 
-#### <a name="ec323ac3-1de9-4c3a-b770-4ff701def65b"></a>Konfigurera övervakning
+#### <a name="ec323ac3-1de9-4c3a-b770-4ff701def65b"></a>Konfigurera VM-tillägg
 
-Om du vill vara säker på att SAP stöder din miljö konfigurerar du Azures övervaknings tillägg för SAP enligt beskrivningen i [Konfigurera Azure Enhanced Monitoring Extension för SAP][deployment-guide-4.5]. Kontrol lera kraven för SAP-övervakning och de lägsta versionerna av SAP kernel och SAP host agent, i resurserna som listas i [SAP-resurser][deployment-guide-2.2].
+Om du vill vara säker på att SAP stöder din miljö konfigurerar du Azure-tillägget för SAP enligt beskrivningen i [Konfigurera Azure-tillägget för SAP][deployment-guide-4.5]. Kontrol lera kraven för SAP och de lägsta versionen av SAP kernel och SAP host agent som krävs i resurserna som listas i [SAP-resurser][deployment-guide-2.2].
 
-#### <a name="monitoring-check"></a>Övervaknings kontroll
+#### <a name="vm-extension-for-sap-check"></a>VM-tillägg för SAP-kontroll
 
-Kontrol lera om övervakningen fungerar, enligt beskrivningen i [checkar och fel sökning för att konfigurera övervakning från slut punkt till slut punkt][deployment-guide-troubleshooting-chapter].
+Kontrol lera om VM-tillägget för SAP fungerar, enligt beskrivningen i [checkar och fel sökning för slut punkt till slut punkt data insamling för SAP-värdservern][deployment-guide-troubleshooting-chapter].
 
 #### <a name="post-deployment-steps"></a>Steg efter distribution
 
@@ -540,7 +540,7 @@ Du kan använda olika steg för att skapa en privat avbildning för Linux än at
 >
 > ![Linux][Logo_Linux] Linux
 >
-> För att förbereda en Linux-avbildning som du kan använda för att distribuera flera virtuella datorer, måste vissa Linux-inställningar vara abstrakta eller generaliserade på den lokala virtuella datorn. Du kan använda `waagent -deprovision` för att göra detta. Mer information finns i [avbilda en virtuell Linux-dator som körs på Azure][virtual-machines-linux-capture-image] och [användar handboken för Azure Linux][virtual-machines-linux-agent-user-guide-command-line-options]-agenten.
+> För att förbereda en Linux-avbildning som du kan använda för att distribuera flera virtuella datorer, måste vissa Linux-inställningar vara abstrakta eller generaliserade på den lokala virtuella datorn. Du kan använda `waagent -deprovision` för att göra detta. Mer information finns i [avbilda en virtuell Linux-dator som körs på Azure][virtual-machines-linux-capture-image] och [användar handboken för Azure Linux-agenten][virtual-machines-linux-agent-user-guide-command-line-options].
 >
 >
 
@@ -579,7 +579,7 @@ Guiden vägleder dig genom att ange de parametrar som krävs för att skapa den 
      * **Virtuellt nätverk** och **undernät**: Om du vill integrera den virtuella datorn med intranätet väljer du det virtuella nätverk som är anslutet till ditt lokala nätverk.
      * **Offentlig IP-adress**: Välj den offentliga IP-adress som du vill använda, eller ange parametrar för att skapa en ny offentlig IP-adress. Du kan använda en offentlig IP-adress för att få åtkomst till den virtuella datorn via Internet. Se till att du även skapar en nätverks säkerhets grupp för att skydda åtkomsten till den virtuella datorn.
      * **Nätverks säkerhets grupp**: Mer information finns i [styra nätverks trafikflöde med nätverks säkerhets grupper][virtual-networks-nsg].
-   * **Tillägg**: Du kan installera tillägg för virtuella datorer genom att lägga till dem i distributionen. Du behöver inte lägga till tillägg i det här steget. De tillägg som krävs för SAP-supporten installeras senare. Se kapitlet [Konfigurera Azure Enhanced Monitoring-tillägget för SAP][deployment-guide-4.5] i den här hand boken.
+   * **Tillägg**: Du kan installera tillägg för virtuella datorer genom att lägga till dem i distributionen. Du behöver inte lägga till tillägg i det här steget. De tillägg som krävs för SAP-supporten installeras senare. Se kapitlet [Konfigurera Azure-tillägget för SAP][deployment-guide-4.5] i den här hand boken.
    * **Hög tillgänglighet**: Välj en tillgänglighets uppsättning eller ange parametrarna för att skapa en ny tillgänglighets uppsättning. Mer information finns i [Azures tillgänglighets uppsättningar][planning-guide-3.2.3].
    * **Övervakning**
      * **Startdiagnostik**: Du kan välja **inaktivera** för startdiagnostik.
@@ -654,22 +654,22 @@ Om din Azure-distribution är ansluten till en lokal Active Directory eller DNS-
 
 #### <a name="configure-proxy-settings"></a>Konfigurera proxyinställningar
 
-Beroende på hur ditt lokala nätverk är konfigurerat kan du behöva konfigurera proxyn på den virtuella datorn. Om den virtuella datorn är ansluten till ditt lokala nätverk via VPN eller ExpressRoute kanske den virtuella datorn inte kan ansluta till Internet och kan inte ladda ned de nödvändiga tilläggen eller samla in övervaknings data. Mer information finns i [Konfigurera proxyservern][deployment-guide-configure-proxy].
+Beroende på hur ditt lokala nätverk är konfigurerat kan du behöva konfigurera proxyn på den virtuella datorn. Om den virtuella datorn är ansluten till ditt lokala nätverk via VPN eller ExpressRoute kanske den virtuella datorn inte kan ansluta till Internet och kan inte ladda ned de nödvändiga VM-tilläggen eller samla in information om Azure-infrastrukturen för SAP-värdservern via SAP-tillägget för Azure, se [Konfigurera proxy][deployment-guide-configure-proxy].
 
-#### <a name="configure-monitoring"></a>Konfigurera övervakning
+#### <a name="configure-azure-vm-extension-for-sap"></a>Konfigurera Azure VM-tillägg för SAP
 
-Om du vill vara säker på att SAP stöder din miljö konfigurerar du Azures övervaknings tillägg för SAP enligt beskrivningen i [Konfigurera Azure Enhanced Monitoring Extension för SAP][deployment-guide-4.5]. Kontrol lera kraven för SAP-övervakning och de lägsta versionerna av SAP kernel och SAP host agent, i resurserna som listas i [SAP-resurser][deployment-guide-2.2].
+Om du vill vara säker på att SAP stöder din miljö konfigurerar du Azure-tillägget för SAP enligt beskrivningen i [Konfigurera Azure-tillägget för SAP][deployment-guide-4.5]. Kontrol lera kraven för SAP och de lägsta versionen av SAP kernel och SAP host agent som krävs i resurserna som listas i [SAP-resurser][deployment-guide-2.2].
 
-#### <a name="monitoring-check"></a>Övervaknings kontroll
+#### <a name="sap-vm-extension-check"></a>Kontroll av SAP VM-tillägg
 
-Kontrol lera om övervakningen fungerar, enligt beskrivningen i [checkar och fel sökning för att konfigurera övervakning från slut punkt till slut punkt][deployment-guide-troubleshooting-chapter].
+Kontrol lera om VM-tillägget för SAP fungerar, enligt beskrivningen i [checkar och fel sökning för slut punkt till slut punkt data insamling för SAP-värdservern][deployment-guide-troubleshooting-chapter].
 
 
 ### <a name="a9a60133-a763-4de8-8986-ac0fa33aa8c1"></a>Scenario 3: Flytta en lokal virtuell dator med hjälp av en icke-generaliserad virtuell Azure-dator med SAP
 
 I det här scenariot planerar du att flytta ett särskilt SAP-system från en lokal miljö till Azure. Det kan du göra genom att ladda upp den virtuella hård disk som har operativ systemet, SAP-binärfilerna och till sist de virtuella hård diskarna, samt de virtuella hård diskarna med data-och loggfilerna för DBMS, till Azure. Till skillnad från scenariot som [beskrivs i scenario 2: Genom att distribuera en virtuell dator med en anpassad][deployment-guide-3.3]avbildning för SAP, i det här fallet behåller du värd namnet, SAP sid och SAP-användarkonton i den virtuella Azure-datorn, eftersom de konfigurerades i den lokala miljön. Du behöver inte generalisera operativ systemet. Det här scenariot gäller oftast scenarier med flera platser där en del av SAP-landskapet körs lokalt och en del av det körs på Azure.
 
-I det här scenariot installeras **inte** VM-agenten automatiskt under distributionen. Eftersom VM-agenten och Azure Enhanced Monitoring-tillägget för SAP krävs för att köra SAP NetWeaver på Azure, måste du ladda ned, installera och aktivera båda komponenterna manuellt när du har skapat den virtuella datorn.
+I det här scenariot installeras **inte** VM-agenten automatiskt under distributionen. Eftersom VM-agenten och Azure-tillägget för SAP krävs för att köra SAP NetWeaver på Azure måste du ladda ned, installera och aktivera båda komponenterna manuellt när du har skapat den virtuella datorn.
 
 Mer information om Azure VM-agenten finns i följande resurser.
 
@@ -734,7 +734,7 @@ Ange följande parametrar för mallen i Azure Portal:
 
 #### <a name="install-the-vm-agent"></a>Installera VM-agenten
 
-Om du vill använda mallarna som beskrivs i föregående avsnitt måste den virtuella dator agenten vara installerad på operativ system disken, annars kommer distributionen att Miss klar. Hämta och installera VM-agenten på den virtuella datorn, enligt beskrivningen i [Hämta, installera och aktivera Azure VM][deployment-guide-4.4]-agenten.
+Om du vill använda mallarna som beskrivs i föregående avsnitt måste den virtuella dator agenten vara installerad på operativ system disken, annars kommer distributionen att Miss klar. Hämta och installera VM-agenten på den virtuella datorn, enligt beskrivningen i [Hämta, installera och aktivera Azure VM-agenten][deployment-guide-4.4].
 
 Om du inte använder mallarna som beskrivs i föregående avsnitt kan du också installera VM-agenten efteråt.
 
@@ -744,26 +744,26 @@ Om din Azure-distribution är ansluten till en lokal Active Directory eller DNS-
 
 #### <a name="configure-proxy-settings"></a>Konfigurera proxyinställningar
 
-Beroende på hur ditt lokala nätverk är konfigurerat kan du behöva konfigurera proxyn på den virtuella datorn. Om den virtuella datorn är ansluten till ditt lokala nätverk via VPN eller ExpressRoute kanske den virtuella datorn inte kan ansluta till Internet och kan inte ladda ned de nödvändiga tilläggen eller samla in övervaknings data. Mer information finns i [Konfigurera proxyservern][deployment-guide-configure-proxy].
+Beroende på hur ditt lokala nätverk är konfigurerat kan du behöva konfigurera proxyn på den virtuella datorn. Om den virtuella datorn är ansluten till ditt lokala nätverk via VPN eller ExpressRoute kanske den virtuella datorn inte kan ansluta till Internet och kan inte ladda ned de nödvändiga VM-tilläggen eller samla in information om Azure-infrastrukturen för SAP-värdservern via SAP-tillägget för Azure, se [Konfigurera proxy][deployment-guide-configure-proxy].
 
-#### <a name="configure-monitoring"></a>Konfigurera övervakning
+#### <a name="configure-azure-vm-extension-for-sap"></a>Konfigurera Azure VM-tillägg för SAP
 
-Om du vill vara säker på att SAP stöder din miljö konfigurerar du Azures övervaknings tillägg för SAP enligt beskrivningen i [Konfigurera Azure Enhanced Monitoring Extension för SAP][deployment-guide-4.5]. Kontrol lera kraven för SAP-övervakning och de lägsta versionerna av SAP kernel och SAP host agent, i resurserna som listas i [SAP-resurser][deployment-guide-2.2].
+Om du vill vara säker på att SAP stöder din miljö konfigurerar du Azure-tillägget för SAP enligt beskrivningen i [Konfigurera Azure-tillägget för SAP][deployment-guide-4.5]. Kontrol lera kraven för SAP och de lägsta versionen av SAP kernel och SAP host agent som krävs i resurserna som listas i [SAP-resurser][deployment-guide-2.2].
 
-#### <a name="monitoring-check"></a>Övervaknings kontroll
+#### <a name="sap-vm-check"></a>Kontroll av SAP VM
 
-Kontrol lera om övervakningen fungerar, enligt beskrivningen i [checkar och fel sökning för att konfigurera övervakning från slut punkt till slut punkt][deployment-guide-troubleshooting-chapter].
+Kontrol lera om VM-tillägget för SAP fungerar, enligt beskrivningen i [checkar och fel sökning för slut punkt till slut punkt data insamling för SAP-värdservern][deployment-guide-troubleshooting-chapter].
 
-## <a name="update-the-monitoring-configuration-for-sap"></a>Uppdatera övervaknings konfigurationen för SAP
+## <a name="update-the-configuration-of-azure-extension-for-sap"></a>Uppdatera konfigurationen av Azure-tillägget för SAP
 
-Uppdatera SAP Monitoring-konfigurationen i något av följande scenarier:
-* Det gemensamma Microsoft/SAP-teamet utökar övervaknings funktionerna och begär fler eller färre räknare.
-* Microsoft presenterar en ny version av den underliggande Azure-infrastrukturen som levererar övervaknings data och Azure Enhanced Monitoring-tillägget för SAP måste anpassas till dessa ändringar.
-* Du monterar ytterligare data diskar till din virtuella Azure-dator eller tar bort en datadisk. I det här scenariot uppdaterar du insamlingen av Storage-relaterade data. Att ändra konfigurationen genom att lägga till eller ta bort slut punkter eller genom att tilldela IP-adresser till en virtuell dator påverkar inte övervaknings konfigurationen.
+Uppdatera konfigurationen av Azure-tillägget för SAP i något av följande scenarier:
+* Det gemensamma Microsoft/SAP-teamet utökar funktionerna i VM-tillägget och begär fler eller färre räknare.
+* Microsoft presenterar en ny version av den underliggande Azure-infrastrukturen som levererar data och Azure-tillägget för SAP måste anpassas till dessa ändringar.
+* Du monterar ytterligare data diskar till din virtuella Azure-dator eller tar bort en datadisk. I det här scenariot uppdaterar du insamlingen av Storage-relaterade data. Att ändra konfigurationen genom att lägga till eller ta bort slut punkter eller genom att tilldela IP-adresser till en virtuell dator påverkar inte tilläggs konfigurationen.
 * Du ändrar storleken på din virtuella Azure-dator, till exempel från storlek A5 till någon annan VM-storlek.
 * Du lägger till nya nätverks gränssnitt till din virtuella Azure-dator.
 
-Om du vill uppdatera övervaknings inställningarna uppdaterar du övervaknings infrastrukturen genom att följa stegen i [Konfigurera Azure Enhanced Monitoring-tillägget för SAP][deployment-guide-4.5].
+Uppdatera inställningarna genom att uppdatera konfigurationen av Azure-tillägget för SAP genom att följa stegen i [Konfigurera Azure-tillägget för SAP][deployment-guide-4.5].
 
 ## <a name="detailed-tasks-for-sap-software-deployment"></a>Detaljerade uppgifter för distribution av SAP-program
 
@@ -838,7 +838,7 @@ Det här steget krävs inte om du distribuerar en virtuell dator från Azure Mar
 #### <a name="b2db5c9a-a076-42c6-9835-16945868e866"></a>Windows
 
 1. Ladda ned Azure VM-agenten:
-   1.  Hämta [installations paketet för Azure VM](https://go.microsoft.com/fwlink/?LinkId=394789)-agenten.
+   1.  Hämta [installations paketet för Azure VM-agenten](https://go.microsoft.com/fwlink/?LinkId=394789).
    1.  Lagra VM-agentens MSI-paket lokalt på en personlig dator eller server.
 1. Installera Azure VM-agenten:
    1.  Anslut till den distribuerade virtuella Azure-datorn med hjälp av Remote Desktop Protocol (RDP).
@@ -925,17 +925,17 @@ Proxyinställningarna i \\osv\\waagent. conf gäller även för de VM-tillägg s
 
 Mer information om användardefinierade vägar finns i [användardefinierade vägar och IP-vidarebefordring][virtual-networks-udr-overview].
 
-### <a name="d98edcd3-f2a1-49f7-b26a-07448ceb60ca"></a>Konfigurera Azure Enhanced Monitoring-tillägget för SAP
+### <a name="d98edcd3-f2a1-49f7-b26a-07448ceb60ca"></a>Konfigurera Azure-tillägget för SAP
 
-När du har för berett den virtuella datorn enligt beskrivningen i [distributions scenarier för virtuella datorer för SAP på Azure][deployment-guide-3]installeras Azure VM-agenten på den virtuella datorn. Nästa steg är att distribuera Azure Enhanced Monitoring-tillägget för SAP, som är tillgängligt i Azure Extension-lagringsplatsen i globala Azure-datacenter. Mer information finns i [Azure Virtual Machines planera och implementera för SAP NetWeaver][planning-guide-9.1].
+När du har för berett den virtuella datorn enligt beskrivningen i [distributions scenarier för virtuella datorer för SAP på Azure][deployment-guide-3]installeras Azure VM-agenten på den virtuella datorn. Nästa steg är att distribuera Azure-tillägget för SAP, som är tillgängligt i Azure Extension-lagringsplatsen i de globala Azure-datacentren. Mer information finns i [Azure Virtual Machines planera och implementera för SAP NetWeaver][planning-guide-9.1].
 
-Du kan använda PowerShell eller Azure CLI för att installera och konfigurera Azure Enhanced Monitoring-tillägget för SAP. Om du vill installera tillägget på en virtuell Windows-eller Linux-dator med hjälp av en Windows-dator kan du läsa [Azure PowerShell][deployment-guide-4.5.1]. Om du vill installera tillägget på en virtuell Linux-dator med hjälp av ett Linux-skrivbord, se [Azure CLI][deployment-guide-4.5.2].
+Du kan använda PowerShell eller Azure CLI för att installera och konfigurera Azure-tillägget för SAP. Om du vill installera tillägget på en virtuell Windows-eller Linux-dator med hjälp av en Windows-dator kan du läsa [Azure PowerShell][deployment-guide-4.5.1]. Om du vill installera tillägget på en virtuell Linux-dator med hjälp av ett Linux-skrivbord, se [Azure CLI][deployment-guide-4.5.2].
 
 #### <a name="987cf279-d713-4b4c-8143-6b11589bb9d4"></a>Azure PowerShell för virtuella Linux-och Windows-datorer
 
-Så här installerar du Azure Enhanced Monitoring-tillägget för SAP med hjälp av PowerShell:
+Så här installerar du Azure-tillägget för SAP med hjälp av PowerShell:
 
-1. Kontrol lera att du har installerat den senaste versionen av Azure PowerShell-cmdleten. Mer information finns i [distribuera Azure PowerShell][deployment-guide-4.1]-cmdletar.  
+1. Kontrol lera att du har installerat den senaste versionen av Azure PowerShell-cmdleten. Mer information finns i [distribuera Azure PowerShell-cmdletar][deployment-guide-4.1].  
 1. Kör följande PowerShell-cmdlet:
     För en lista över tillgängliga miljöer kör `commandlet Get-AzEnvironment`du. Om du vill använda Global Azure är din miljö **AzureCloud**. För Azure i Kina väljer du **AzureChinaCloud**.
 
@@ -952,21 +952,21 @@ Mer information `Set-AzVMAEMExtension`finns i [set-AzVMAEMExtension][msdn-set-Az
 
 ![Lyckad körning av SAP-Specific Azure-cmdlet Set-AzVMAEMExtension][deployment-guide-figure-900]
 
-`Set-AzVMAEMExtension` Konfigurationen gör alla steg för att konfigurera värd övervakning för SAP.
+`Set-AzVMAEMExtension` Konfigurationen gör alla steg för att konfigurera värd data insamling för SAP.
 
 Utdata i skriptet innehåller följande information:
 
-* Bekräftelse på att övervakning av OS-disken och alla ytterligare data diskar har kon figurer ATS.
+* Bekräfta att data insamlingen för OS-disken och alla ytterligare data diskar har kon figurer ATS.
 * Följande två meddelanden bekräftar konfigurationen av lagrings mått för ett angivet lagrings konto.
-* En rad utdata ger status för den faktiska uppdateringen av övervaknings konfigurationen.
+* En rad utdata ger status för den faktiska uppdateringen av VM-tillägget för SAP-konfiguration.
 * En annan rad utdata bekräftar att konfigurationen har distribuerats eller uppdaterats.
-* Den sista raden med utdata är information. Det visar dina alternativ för att testa övervaknings konfigurationen.
-* För att kontrol lera att alla steg i Azure Enhanced Monitoring har körts och att Azure-infrastrukturen tillhandahåller nödvändiga data, fortsätter du med beredskaps kontrollen för tillägget Azure Enhanced Monitoring för SAP, enligt beskrivningen i [ Beredskaps kontroll för förbättrad Azure-övervakning för SAP][deployment-guide-5.1].
+* Den sista raden med utdata är information. Den visar dina alternativ för att testa VM-tillägget för SAP-konfigurationen.
+* För att kontrol lera att alla steg i Azure VM-tillägget för SAP-konfigurationen har körts och att Azure-infrastrukturen tillhandahåller nödvändiga data, Fortsätt med beredskaps kontrollen för Azure-tillägget för SAP, enligt beskrivningen i [beredskaps kontroll för Azure-tillägg för SAP][deployment-guide-5.1].
 * Vänta 15-30 minuter för Azure-diagnostik att samla in relevanta data.
 
 #### <a name="408f3779-f422-4413-82f8-c57a23b4fc2f"></a>Azure CLI för virtuella Linux-datorer
 
-Så här installerar du Azure Enhanced Monitoring-tillägget för SAP med hjälp av Azure CLI:
+Så här installerar du Azure-tillägget för SAP med hjälp av Azure CLI:
 
    1. Installera den klassiska Azure-CLI: en som beskrivs i [installera den klassiska Azure-CLI: en][azure-cli].
    1. Logga in med ditt Azure-konto:
@@ -981,7 +981,7 @@ Så här installerar du Azure Enhanced Monitoring-tillägget för SAP med hjälp
       azure config mode arm
       ```
 
-   1. Aktivera förbättrad övervakning i Azure:
+   1. Aktivera Azure-tillägg för SAP:
 
       ```
       azure vm enable-aem <resource-group-name> <vm-name>
@@ -1008,7 +1008,7 @@ Så här installerar du Azure Enhanced Monitoring-tillägget för SAP med hjälp
       az vm aem set -g <resource-group-name> -n <vm name>
       ```
 
-1. Verifiera att Azure Enhanced Monitoring-tillägget är aktivt på den virtuella Azure Linux-datorn. Kontrol lera om filen \\var\\lib\\-\\AzureEnhancedMonitor PerfCounters finns. Om den finns går du till kommando tolken och kör det här kommandot för att visa information som samlats in av den förbättrade Azure-övervakaren:
+1. Kontrol lera att Azure-tillägget för SAP är aktivt på den virtuella Azure Linux-datorn. Kontrol lera om filen \\var\\lib\\-\\AzureEnhancedMonitor PerfCounters finns. Om den finns går du till kommando tolken och kör det här kommandot för att visa information som samlats in av Azure-tillägget för SAP:
 
    ```
    cat /var/lib/AzureEnhancedMonitor/PerfCounters
@@ -1022,25 +1022,25 @@ Så här installerar du Azure Enhanced Monitoring-tillägget för SAP med hjälp
    ...
    ```
 
-## <a name="564adb4f-5c95-4041-9616-6635e83a810b"></a>Kontroller och fel sökning för övervakning från slut punkt till slut punkt
+## <a name="564adb4f-5c95-4041-9616-6635e83a810b"></a>Kontroller och fel sökning för data insamling från slut punkt till slut punkt för SAP-värda Gent
 
-När du har distribuerat den virtuella Azure-datorn och konfigurerat den relevanta Azure Monitoring-infrastrukturen kontrollerar du om alla komponenter i tillägget Azure Enhanced Monitoring fungerar som förväntat.
+När du har distribuerat den virtuella Azure-datorn och konfigurerat Azure-tillägget för SAP kontrollerar du om alla komponenter i tillägget fungerar som förväntat.
 
-Kör beredskaps kontrollen för Azure Enhanced Monitoring-tillägget för SAP enligt beskrivningen i beredskaps [kontroll för Azure Enhanced Monitoring-tillägget för SAP][deployment-guide-5.1]. Om alla beredskaps kontroll resultat är positiva och alla relevanta prestanda räknare visas som OK, har Azure-övervakning installerats. Du kan fortsätta med installationen av SAP host agent enligt beskrivningen i SAP-anteckningar i [SAP-resurser][deployment-guide-2.2]. Om beredskaps kontrollen visar att räknare saknas kör du hälso kontrollen för Azures övervaknings infrastruktur, enligt beskrivningen i [hälso kontroll för Azure Monitoring Infrastructure Configuration][deployment-guide-5.2]. Mer fel söknings alternativ finns i [Felsöka Azure-övervakning för SAP][deployment-guide-5.3].
+Kör beredskaps kontrollen för Azure-tillägget för SAP enligt beskrivningen i [beredskaps kontroll för Azure-tillägget för SAP][deployment-guide-5.1]. Om alla beredskaps kontroll resultat är positiva och alla relevanta prestanda räknare visas OK, har Azure-tillägget för SAP kon figurer ATS korrekt. Du kan fortsätta med installationen av SAP host agent enligt beskrivningen i SAP-anteckningar i [SAP-resurser][deployment-guide-2.2]. Om beredskaps kontrollen indikerar att räknare saknas, kör du hälso kontrollen för Azure-tillägget för SAP, enligt beskrivningen i [hälso kontroll för Azure-tillägget för SAP-konfiguration][deployment-guide-5.2]. Mer fel söknings alternativ finns i [Felsöka Azure-tillägg för SAP][deployment-guide-5.3].
 
-### <a name="bb61ce92-8c5c-461f-8c53-39f5e5ed91f2"></a>Beredskaps kontroll för Azure Enhanced Monitoring-tillägget för SAP
+### <a name="bb61ce92-8c5c-461f-8c53-39f5e5ed91f2"></a>Beredskaps kontroll för Azure-tillägget för SAP
 
-Den här kontrollen säkerställer att alla prestanda mått som visas i ditt SAP-program tillhandahålls av den underliggande Azure-infrastrukturen för övervakning.
+Den här kontrollen säkerställer att alla prestanda mått som visas i ditt SAP-program tillhandahålls av det underliggande Azure-tillägget för SAP.
 
 #### <a name="run-the-readiness-check-on-a-windows-vm"></a>Kör beredskaps kontrollen på en virtuell Windows-dator
 
 1. Logga in på den virtuella Azure-datorn (med ett administratörs konto behövs inte).
 1. Öppna ett kommandotolksfönster.
-1. I kommando tolken ändrar du katalogen till installationsmappen för Azure Enhanced Monitoring-tillägget för SAP: C:\\paket\\\\plugin\\-program Microsoft. AzureCAT. AzureEnhancedMonitoring. AzureCATExtensionHandler\\&lt;version > drop
+1. I kommando tolken ändrar du katalogen till installationsmappen för Azure-tillägget för SAP: C:\\paket\\\\plugin\\-program Microsoft. AzureCAT. AzureEnhancedMonitoring. AzureCATExtensionHandler\\&lt;version > drop
 
-   *Versionen* i sökvägen till övervaknings tillägget kan variera. Om du ser mappar för flera versioner av övervaknings tillägget i installationsmappen kontrollerar du konfigurationen för Windows-tjänsten AzureEnhancedMonitoring och växlar sedan till mappen som anges som *sökväg till körbar fil*.
+   *Versionen* i sökvägen till tillägget kan variera. Om du ser mappar för flera versioner av tillägget i installationsmappen kontrollerar du konfigurationen av Windows-tjänsten AzureEnhancedMonitoring och växlar sedan till mappen som anges som *sökväg till körbar fil*.
 
-   ![Egenskaper för tjänsten som kör Azure Enhanced Monitoring-tillägget för SAP][deployment-guide-figure-1000]
+   ![Egenskaper för tjänsten som kör Azure-tillägget för SAP][deployment-guide-figure-1000]
 
 1. I kommando tolken kör du **azperflib. exe** utan några parametrar.
 
@@ -1049,15 +1049,15 @@ Den här kontrollen säkerställer att alla prestanda mått som visas i ditt SAP
    >
    >
 
-Om tillägget Azure Enhanced Monitoring inte är installerat, eller om AzureEnhancedMonitoring-tjänsten inte körs, har tillägget inte kon figurer ATS korrekt. Detaljerad information om hur du distribuerar tillägget finns i [Felsöka Azures övervaknings infrastruktur för SAP][deployment-guide-5.3].
+Om Azure-tillägget för SAP inte är installerat, eller om AzureEnhancedMonitoring-tjänsten inte körs, har tillägget inte kon figurer ATS korrekt. Detaljerad information om hur du distribuerar tillägget finns i [Felsöka Azure-tillägget för SAP][deployment-guide-5.3].
 
 > [!NOTE]
-> Azperflib. exe är en komponent som inte kan användas för eget bruk. Det är en komponent som levererar Azures övervaknings data som är relaterade till den virtuella datorn för SAP-värd agenten.
+> Azperflib. exe är en komponent som inte kan användas för eget bruk. Det är en komponent som levererar Azures infrastruktur data som är relaterade till den virtuella datorn för SAP-värd agenten exklusivt.
 > 
 
 ##### <a name="check-the-output-of-azperflibexe"></a>Kontrol lera utdata från azperflib. exe
 
-Azperflib. exe-utdata visar alla fyllda Azure-prestandaräknare för SAP. Längst ned i listan över insamlade räknare visar en sammanfattnings-och hälso indikator statusen för Azure-övervakning.
+Azperflib. exe-utdata visar alla fyllda Azure-prestandaräknare för SAP. Längst ned i listan över insamlade räknare visar en sammanfattnings-och hälso indikator statusen för Azure-tillägget för SAP.
 
 ![Hälso kontrollens utdata genom att köra azperflib. exe, vilket tyder på att det inte finns några problem][deployment-guide-figure-1100]
 <a name="figure-11"></a>
@@ -1066,20 +1066,20 @@ Kontrol lera resultatet som returnerades för **räknaren Totalt antal** utdata,
 
 Tolka de resulterande värdena enligt följande:
 
-| Resultat värden för Azperflib. exe | Hälso status för Azure-övervakning |
+| Resultat värden för Azperflib. exe | Azure-tillägg för hälso status för SAP |
 | --- | --- |
 | **API-anrop – inte tillgängligt** | Räknare som inte är tillgängliga kan vara antingen inte tillämpliga för konfigurationen av den virtuella datorn eller är fel. Se **hälso status**. |
 | **Totalt antal räknare – tomt** |Följande två räknare för Azure Storage kan vara tomma: <ul><li>Storage Read op latens-Server MSEK</li><li>Lagring Läs op latens E2E MSEK</li></ul>Alla andra räknare måste ha värden. |
 | **Hälso status** |OK om retur status visas **OK**. |
 | **Diagnostik** |Detaljerad information om hälso status. |
 
-Om värdet för **hälso status** inte är **OK**följer du anvisningarna i [hälso kontroll för Azure Monitoring Infrastructure Configuration][deployment-guide-5.2].
+Om värdet för **hälso status** inte är **OK**, följer du anvisningarna i [hälso kontroll för Azure-tillägget för SAP-konfiguration][deployment-guide-5.2].
 
 #### <a name="run-the-readiness-check-on-a-linux-vm"></a>Kör beredskaps kontrollen på en virtuell Linux-dator
 
 1. Anslut till den virtuella Azure-datorn med hjälp av SSH.
 
-1. Kontrol lera utdata från Azure Enhanced Monitoring-tillägget.
+1. Kontrol lera utdata från Azure-tillägget för SAP.
 
    a.  Kör `more /var/lib/AzureEnhancedMonitor/PerfCounters`
 
@@ -1105,11 +1105,11 @@ Om föregående kontroll inte lyckades kör du följande ytterligare kontroller:
 
    **Förväntat resultat**: Visar en post som liknar:`python /usr/sbin/waagent -daemon`
 
-1. Kontrol lera att tillägget Azure Enhanced Monitoring är installerat och körs.
+1. Kontrol lera att Azure-tillägget för SAP är installerat och körs.
 
    a.  Kör `sudo sh -c 'ls -al /var/lib/waagent/Microsoft.OSTCExtensions.AzureEnhancedMonitorForLinux-*/'`
 
-   **Förväntat resultat**: Visar innehållet i Azure Enhanced Monitoring-katalogen.
+   **Förväntat resultat**: Visar innehållet i Azure-tillägget för SAP-katalogen.
 
    b. Kör `ps -ax | grep AzureEnhanced`
 
@@ -1125,13 +1125,13 @@ Om föregående kontroll inte lyckades kör du följande ytterligare kontroller:
 
 Om du redan har en SAP NetWeaver ABAP-Programserver installerad öppnar du Transaction ST06 och kontrollerar om förbättrad övervakning har Aktiver ATS.
 
-Om någon av dessa kontroller inte fungerar och detaljerad information om hur du distribuerar om tillägget finns i [Felsöka Azures övervaknings infrastruktur för SAP][deployment-guide-5.3].
+Om någon av dessa kontroller inte fungerar och detaljerad information om hur du distribuerar om tillägget finns i [Felsöka Azure-tillägget för SAP][deployment-guide-5.3].
 
-### <a name="e2d592ff-b4ea-4a53-a91a-e5521edb6cd1"></a>Hälso kontroll för konfigurationen av Azure Monitoring-infrastrukturen
+### <a name="e2d592ff-b4ea-4a53-a91a-e5521edb6cd1"></a>Hälso kontroll för Azure-tillägget för SAP-konfiguration
 
-Om några av övervaknings data inte levereras korrekt enligt beskrivningen i beredskaps [kontrollen för Azure Enhanced Monitoring för SAP][deployment-guide-5.1], kör du `Test-AzVMAEMExtension` cmdleten för att kontrol lera om Azures övervaknings infrastruktur och övervakning tillägget för SAP har kon figurer ATS korrekt.
+Om några av infrastruktur data inte levereras korrekt enligt beskrivningen i [beredskaps kontroll för Azure-tillägget för SAP][deployment-guide-5.1], kör du `Test-AzVMAEMExtension` cmdleten för att kontrol lera om Azure-infrastrukturen och Azure-tillägget för SAP är korrekt konfigurerad.
 
-1. Kontrol lera att du har installerat den senaste versionen av Azure PowerShell-cmdlet, enligt beskrivningen i [distribuera Azure PowerShell][deployment-guide-4.1]-cmdletar.
+1. Kontrol lera att du har installerat den senaste versionen av Azure PowerShell-cmdlet, enligt beskrivningen i [distribuera Azure PowerShell-cmdletar][deployment-guide-4.1].
 1. Kör följande PowerShell-cmdlet: Kör cmdleten `Get-AzEnvironment`om du vill ha en lista över tillgängliga miljöer. Om du vill använda Global Azure väljer du **AzureCloud** -miljön. För Azure i Kina väljer du **AzureChinaCloud**.
    ```powershell
    $env = Get-AzEnvironment -Name <name of the environment>
@@ -1146,21 +1146,21 @@ Om några av övervaknings data inte levereras korrekt enligt beskrivningen i be
 
 1. Skriptet testar konfigurationen av den virtuella dator som du väljer.
 
-   ![Utdata från lyckad test av Azures övervaknings infrastruktur för SAP][deployment-guide-figure-1300]
+   ![Utdata för lyckad test av Azure-tillägget för SAP][deployment-guide-figure-1300]
 
-Kontrol lera att alla hälso kontroll resultat är **OK**. Om vissa kontroller inte visar **OK**kör du uppdaterings-cmdleten enligt beskrivningen i [Konfigurera Azure Enhanced Monitoring-tillägget för SAP][deployment-guide-4.5]. Vänta 15 minuter och upprepa kontrollerna som beskrivs i beredskaps [kontrollen för förbättrad Azure-övervakning för SAP][deployment-guide-5.1] och [hälso kontroll för Azure Monitoring Infrastructure Configuration][deployment-guide-5.2]. Om kontrollerna fortfarande indikerar ett problem med vissa eller alla räknare, se [Felsöka Azure Monitoring Infrastructure for SAP][deployment-guide-5.3].
+Kontrol lera att alla hälso kontroll resultat är **OK**. Om vissa kontroller inte visar **OK**kör du uppdaterings-cmdleten enligt beskrivningen i [Konfigurera Azure-tillägget för SAP][deployment-guide-4.5]. Vänta i 15 minuter och upprepa kontrollerna som beskrivs i [beredskaps kontrollen för Azure-tillägg för SAP][deployment-guide-5.1] och [hälso kontroll för Azure-tillägget för SAP-konfiguration][deployment-guide-5.2]. Om kontrollerna fortfarande indikerar ett problem med vissa eller alla räknare, se [Felsöka Azure-tillägget för SAP][deployment-guide-5.3].
 
 > [!Note]
-> Du kan uppleva vissa varningar i fall där du använder hanterade standard Azure-diskar. Varningar visas i stället för testerna som returnerar "OK". Detta är normalt och avsett i händelse av disk typen. Se även [Felsöka Azure Monitoring Infrastructure for SAP][deployment-guide-5.3]
+> Du kan uppleva vissa varningar i fall där du använder hanterade standard Azure-diskar. Varningar visas i stället för testerna som returnerar "OK". Detta är normalt och avsett i händelse av disk typen. Se även [Felsöka Azure-tillägget för SAP][deployment-guide-5.3]
 > 
 
-### <a name="fe25a7da-4e4e-4388-8907-8abc2d33cfd8"></a>Felsöka Azures övervaknings infrastruktur för SAP
+### <a name="fe25a7da-4e4e-4388-8907-8abc2d33cfd8"></a>Felsöka Azure-tillägget för SAP
 
 #### <a name="windowslogo_windows-azure-performance-counters-do-not-show-up-at-all"></a>![Windows][Logo_Windows] Prestanda räknare för Azure visas inte alls
 
 Windows-tjänsten AzureEnhancedMonitoring samlar in prestanda mått i Azure. Om tjänsten inte har installerats på rätt sätt eller om den inte körs på den virtuella datorn kan inga prestanda mått samlas in.
 
-##### <a name="the-installation-directory-of-the-azure-enhanced-monitoring-extension-is-empty"></a>Installations katalogen för tillägget Azure Enhanced Monitoring är tom
+##### <a name="the-installation-directory-of-the-azure-extension-for-sap-is-empty"></a>Installations katalogen för Azure-tillägget för SAP är tom
 
 ###### <a name="issue"></a>Problem
 
@@ -1170,7 +1170,7 @@ Installations katalogen C:\\packages\\plugin\\-program Microsoft. AzureCAT. Azur
 
 Tillägget är inte installerat. Ta reda på om detta är ett proxy-problem (som beskrivits tidigare). Du kan behöva starta om datorn eller köra `Set-AzVMAEMExtension` konfigurations skriptet igen.
 
-##### <a name="service-for-azure-enhanced-monitoring-does-not-exist"></a>Tjänsten för förbättrad övervakning i Azure finns inte
+##### <a name="service-for-azure-extension-for-sap-does-not-exist"></a>Tjänsten för Azure-tillägg för SAP finns inte
 
 ###### <a name="issue"></a>Problem
 
@@ -1178,16 +1178,16 @@ AzureEnhancedMonitoring Windows-tjänsten finns inte.
 
 Azperflib. exe-utdata genererar ett fel:
 
-![Körning av azperflib. exe anger att tjänsten för Azure Enhanced Monitoring-tillägget för SAP inte körs][deployment-guide-figure-1400]
+![Körning av azperflib. exe anger att tjänsten för Azure-tillägget för SAP inte körs][deployment-guide-figure-1400]
 <a name="figure-14"></a>
 
 ###### <a name="solution"></a>Lösning
 
-Om tjänsten inte finns har Azure Enhanced Monitoring-tillägget för SAP inte installerats på rätt sätt. Distribuera tillägget igen med hjälp av stegen som beskrivs i distributions scenariot i [distributions scenarier för virtuella datorer för SAP i Azure][deployment-guide-3].
+Om tjänsten inte finns har Azure-tillägget för SAP inte installerats på rätt sätt. Distribuera tillägget igen med hjälp av stegen som beskrivs i distributions scenariot i [distributions scenarier för virtuella datorer för SAP i Azure][deployment-guide-3].
 
 När du har distribuerat tillägget, efter en timme, kontrollerar du igen om Azures prestanda räknare finns i den virtuella Azure-datorn.
 
-##### <a name="service-for-azure-enhanced-monitoring-exists-but-fails-to-start"></a>Det finns en förbättrad övervakning av tjänsten för Azure, men det går inte att starta
+##### <a name="service-for-azure-extension-for-sap-exists-but-fails-to-start"></a>Det finns redan en tjänst för Azure-tillägget för SAP, men det går inte att starta
 
 ###### <a name="issue"></a>Problem
 
@@ -1195,7 +1195,7 @@ AzureEnhancedMonitoring Windows-tjänsten finns och är aktive rad, men det går
 
 ###### <a name="solution"></a>Lösning
 
-Konfigurationen är felaktig. Starta om övervaknings tillägget för den virtuella datorn enligt beskrivningen i [Konfigurera Azure Enhanced Monitoring-tillägget för SAP][deployment-guide-4.5].
+Konfigurationen är felaktig. Starta om Azure-tillägget för SAP på den virtuella datorn enligt beskrivningen i [Konfigurera Azure-tillägget för SAP][deployment-guide-4.5].
 
 #### <a name="windowslogo_windows-some-azure-performance-counters-are-missing"></a>![Windows][Logo_Windows] Vissa prestanda räknare för Azure saknas
 
@@ -1207,11 +1207,11 @@ Om fel sökning med hjälp av SAP NOTE [1999351] inte löser problemet kör du `
 
 Prestanda mått i Azure samlas in av en daemon. Om daemon inte körs kan inga prestanda mått samlas in.
 
-##### <a name="the-installation-directory-of-the-azure-enhanced-monitoring-extension-is-empty"></a>Installations katalogen för tillägget Azure Enhanced Monitoring är tom
+##### <a name="the-installation-directory-of-the-azure-extension-for-sap-is-empty"></a>Installations katalogen för Azure-tillägget för SAP är tom
 
 ###### <a name="issue"></a>Problem
 
-Katalogen \\var\\lib-\\waagentsaknarunderkatalogförtilläggetAzureEnhanced\\ Monitoring.
+Katalogen \\var\\lib-\\waagentsaknarunderkatalogförAzure-\\ tillägget för SAP.
 
 ###### <a name="solution"></a>Lösning
 
@@ -1233,13 +1233,13 @@ Kör azperfli. exe på det sätt som beskrivs tidigare. du kan få ett resultat 
 
 ###### <a name="solution"></a>Lösning
 
-Meddelandena orsakas av att standard Managed Disks inte levererar de API: er som används av övervaknings tillägget för att kontrol lera statistik för standard Azure Storages kontona. Detta är inte en angelägenhets risk. Orsak till att introduktionen till övervakningen av standard Disklagring-konton låg begränsning av I/o som har inträffat ofta. De hanterade diskarna förhindrar sådan begränsning genom att begränsa antalet diskar i ett lagrings konto. Därför är inte den typen av övervaknings data inte kritisk.
+Meddelandena orsakas av att standard Managed Disks inte levererar de API: er som används av SAP-tillägget för SAP för att kontrol lera statistik för standard Azure Storages kontona. Detta är inte en angelägenhets risk. Anledningen till att samla in data för standard Disklagring-konton var begränsade av I/o som har inträffat ofta. De hanterade diskarna förhindrar sådan begränsning genom att begränsa antalet diskar i ett lagrings konto. Därför är det inte viktigt att inte ha denna typ av data.
 
 
 #### <a name="linuxlogo_linux-some-azure-performance-counters-are-missing"></a>![Linux][Logo_Linux] Vissa prestanda räknare för Azure saknas
 
 Prestanda mått i Azure samlas in av en daemon, som hämtar data från flera olika källor. Vissa konfigurations data samlas in lokalt och vissa prestanda mått läses från Azure-diagnostik. Lagrings räknare kommer från loggarna i din lagrings prenumeration.
 
-En fullständig och aktuell lista över kända problem finns i SAP anmärkning [1999351], som innehåller ytterligare felsöknings information för utökad Azure-övervakning för SAP.
+En fullständig och aktuell lista över kända problem finns i SAP anmärkning [1999351], som innehåller ytterligare felsöknings information för Azure-tillägget för SAP.
 
-Om fel sökning med hjälp av SAP NOTE [1999351] inte löser problemet kör du `Set-AzVMAEMExtension` konfigurations skriptet på det sätt som beskrivs i [Konfigurera Azure Enhanced Monitoring-tillägget för SAP][deployment-guide-4.5]. Du kan behöva vänta en timme eftersom lagrings analys-eller diagnostik-räknare kanske inte skapas direkt efter att de har Aktiver ATS. Om problemet kvarstår öppnar du ett SAP-kund support meddelande på komponenten BC-OP-NT-AZR för Windows eller BC-OP-LNX-AZR för en virtuell Linux-dator.
+Om fel sökning med hjälp av SAP NOTE [1999351] inte löser problemet kör du `Set-AzVMAEMExtension` konfigurations skriptet på det sätt som beskrivs i [Konfigurera Azure-tillägget för SAP][deployment-guide-4.5]. Du kan behöva vänta en timme eftersom lagrings analys-eller diagnostik-räknare kanske inte skapas direkt efter att de har Aktiver ATS. Om problemet kvarstår öppnar du ett SAP-kund support meddelande på komponenten BC-OP-NT-AZR för Windows eller BC-OP-LNX-AZR för en virtuell Linux-dator.

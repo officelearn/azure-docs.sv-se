@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 02/15/2019
 ms.author: hrasheed
-ms.openlocfilehash: 7f82ad65ecc805d5a45c78e8b190dd0eee4c340c
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: 5784fb4f4ab0f46d2db7e5e8cfe9deeafabb4e90
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70882322"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71066949"
 ---
 # <a name="use-c-with-mapreduce-streaming-on-apache-hadoop-in-hdinsight"></a>Använd C# med MapReduce streaming på Apache Hadoop i HDInsight
 
@@ -162,7 +162,7 @@ När du har skapat programmet skapar du det för att `/bin/Debug/reducer.exe` sk
 
    * Om du använder ett __Azure Storage konto__klickar du på ikonen Ladda upp och bläddrar sedan till mappen **bin\debug** för **Mapper** -projektet. Välj slutligen filen **mapper. exe** och klicka på **OK**.
 
-        ![Ladda upp ikon](./media/apache-hadoop-dotnet-csharp-mapreduce-streaming/hdinsight-upload-icon.png)
+        ![HDInsight upload-ikon för mapper](./media/apache-hadoop-dotnet-csharp-mapreduce-streaming/hdinsight-upload-icon.png)
     
    * Om du använder __Azure Data Lake Storage__högerklickar du på ett tomt utrymme i fil listan och väljer sedan __Ladda upp__. Välj slutligen filen **mapper. exe** och klicka på **Öppna**.
 

@@ -1,6 +1,6 @@
 ---
-title: Integrera med Azure hanterade identiteter | Microsoft Docs
-description: Lär dig hur du använder Azure hanterade identiteter för att autentisera med och få åtkomst till Azure-Appkonfiguration
+title: Integrera med Azure Managed Identities | Microsoft Docs
+description: Lär dig hur du använder Azure Managed Identities för att autentisera med och få till gång till Azure App konfiguration
 services: azure-app-configuration
 documentationcenter: ''
 author: yegu-ms
@@ -13,61 +13,63 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: 3977991386dbcd07e92f21d1ac541f486b4f7f0a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4318c4b4d8f1b1f0974d0fae0a2ae5bd6e94b593
+ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66393657"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71076540"
 ---
-# <a name="integrate-with-azure-managed-identities"></a>Integrera med Azure hanterade identiteter
+# <a name="integrate-with-azure-managed-identities"></a>Integrera med Azure Managed Identities
 
-Azure Active Directory [hanterade identiteter](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) att förenkla hanteringen av hemligheter för ditt molnprogram. Med en hanterad identitet kan du konfigurera din kod att använda tjänstens huvudnamn som skapades för den körs på Azure compute-tjänsten. Du kan använda en hanterad identitet i stället för en separat autentiseringen som lagras i Azure Key Vault eller en lokal anslutningssträng. 
+Azure Active Directory [hanterade identiteter](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) bidrar till att förenkla hanteringen av hemligheter för ditt moln program. Med en hanterad identitet kan du konfigurera din kod för att använda tjänstens huvud namn som skapades för den Azure Compute-tjänst som den körs på. Du använder en hanterad identitet i stället för en separat autentiseringsuppgift som lagras i Azure Key Vault eller en lokal anslutnings sträng. 
 
-Konfiguration av Azure och dess .NET Core, .NET och Java Spring klientbibliotek medföljer managed service identity (MSI) support inbyggd. Även om du inte behöver använda den, eliminerar behovet av en åtkomsttoken som innehåller hemligheter MSI. Koden har veta endast tjänstens slutpunkt för en appkonfiguration lagra för att kunna komma åt den. Du kan bädda in den här URL: en i din kod direkt utan problem med att exponera alla hemlighet.
+Azure App konfiguration och dess .NET Core-, .NET-och Java våren-klient bibliotek har stöd för hanterad tjänst identitet (MSI) inbyggda i dem. Även om du inte behöver använda den, eliminerar MSI behovet av en åtkomsttoken som innehåller hemligheter. Din kod behöver bara känna till tjänstens slut punkt för ett app Configuration-Arkiv för att komma åt den. Du kan bädda in den här URL: en i koden direkt utan att oroa dig för att exponera någon hemlighet.
 
-Den här självstudien visar hur du kan dra nytta av MSI för att komma åt App Configuration. Den bygger på den webbapp som introducerades i snabbstarterna. Innan du fortsätter Slutför [skapa en ASP.NET Core-app med Appkonfiguration](./quickstart-aspnet-core-app.md) första.
+Den här självstudien visar hur du kan dra nytta av MSI för att komma åt App Configuration. Den bygger på den webbapp som introducerades i snabbstarterna. Innan du fortsätter måste du först [skapa en ASP.net Core-app med app-konfigurationen](./quickstart-aspnet-core-app.md) .
 
-Du kan använda valfri Kodredigerare för att utföra stegen i den här självstudien. [Visual Studio Code](https://code.visualstudio.com/) är ett utmärkt alternativ tillgängligt på Windows, macOS och Linux-plattformar.
+Du kan använda valfri kod redigerare för att utföra stegen i den här självstudien. [Visual Studio Code](https://code.visualstudio.com/) är ett utmärkt alternativ som är tillgängligt på Windows-, MacOS-och Linux-plattformarna.
 
 I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
-> * Ge en hanterad identitet tillgång till Appkonfiguration.
-> * Konfigurera din app om du vill använda en hanterad identitet när du ansluter till Appkonfiguration.
+> * Bevilja en hanterad identitets åtkomst till app-konfigurationen.
+> * Konfigurera appen så att den använder en hanterad identitet när du ansluter till app-konfigurationen.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Du behöver följande för att kunna slutföra den här självstudiekursen:
 
 * [.NET Core SDK](https://www.microsoft.com/net/download/windows).
-* [Azure Cloud Shell konfigurerade](https://docs.microsoft.com/azure/cloud-shell/quickstart).
+* [Azure Cloud Shell kon figurer ATS](https://docs.microsoft.com/azure/cloud-shell/quickstart).
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="add-a-managed-identity"></a>Lägga till en hanterad identitet
 
-Om du vill konfigurera en hanterad identitet i portalen du först skapa ett program som vanligt och sedan aktivera funktionen.
+Om du vill konfigurera en hanterad identitet i portalen skapar du först ett program som normalt och aktiverar sedan funktionen.
 
-1. Skapa en app i den [Azure-portalen](https://portal.azure.com) som vanligt. Gå till den i portalen.
+1. Skapa en App Services-instans i [Azure Portal](https://portal.azure.com) som du vanligt vis gör. Gå till den i portalen.
 
-2. Rulla ned till den **inställningar** gruppen i den vänstra rutan och välj **identitet**.
+2. Rulla ned till **inställnings** gruppen i det vänstra fönstret och välj **identitet**.
 
-3. På den **systemtilldelad** fliken, växla **Status** till **på** och välj **spara**.
+3. Växla **status** till **på på** fliken **systemtilldelad** och välj **Spara**.
+
+4. Svara **Ja** när du uppmanas att aktivera systemtilldelad hanterad identitet.
 
     ![Ange hanterad identitet i App Service](./media/set-managed-identity-app-service.png)
 
 ## <a name="grant-access-to-app-configuration"></a>Bevilja åtkomst till App Configuration
 
-1. I den [Azure-portalen](https://portal.azure.com)väljer **alla resurser** och välj app-konfigurationsarkivet som du skapade i snabbstarten.
+1. I [Azure Portal](https://portal.azure.com)väljer du **alla resurser** och väljer det konfigurations Arkiv för app som du skapade i snabb starten.
 
 2. Välj **åtkomstkontroll (IAM)** .
 
-3. På den **Kontrollera åtkomst** fliken **Lägg till** i den **Lägg till rolltilldelning** kortet Användargränssnittet.
+3. På fliken **kontrol lera åtkomst** väljer du **Lägg till** i användar gränssnittet **Lägg till Roll tilldelnings** kort.
 
-4. Under **rollen**väljer **deltagare**. Under **tilldela åtkomst till**väljer **Apptjänst** under **System tilldelade hanterad identitet**.
+4. Under **roll**väljer du **deltagare**. Under **tilldela åtkomst till**väljer du **App Service** under **systemtilldelad hanterad identitet**.
 
-5. Under **prenumeration**, Välj din Azure-prenumeration. Välj den App Service-resursen för din app.
+5. Under **prenumeration**väljer du din Azure-prenumeration. Välj App Service resurs för din app.
 
 6. Välj **Spara**.
 
@@ -75,7 +77,9 @@ Om du vill konfigurera en hanterad identitet i portalen du först skapa ett prog
 
 ## <a name="use-a-managed-identity"></a>Använda en hanterad identitet
 
-1. Öppna *appsettings.json*, och Lägg till följande skript. Ersätt  *\<service_endpoint >* , inklusive parenteser med URL-Adressen till din app konfiguration av lagring:
+1. Hitta URL: en till appens konfigurations Arkiv genom att gå till konfigurations skärmen i Azure Portal och sedan klicka på fliken **åtkomst nycklar** .
+
+2. Öppna *appSettings. JSON*och Lägg till följande skript. *Ersätt\<service_endpoint >* , inklusive hakparenteser, med URL: en till appens konfigurations lager. 
 
     ```json
     "AppConfig": {
@@ -83,7 +87,7 @@ Om du vill konfigurera en hanterad identitet i portalen du först skapa ett prog
     }
     ```
 
-2. Öppna *Program.cs*, och uppdatera den `CreateWebHostBuilder` metoden genom att ersätta den `config.AddAzureAppConfiguration()` metoden.
+3. Öppna *program.cs*och uppdatera `CreateWebHostBuilder` metoden genom att `config.AddAzureAppConfiguration()` ersätta metoden.
 
     ```csharp
     public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
@@ -103,27 +107,34 @@ Om du vill konfigurera en hanterad identitet i portalen du först skapa ett prog
 
 ## <a name="deploy-from-local-git"></a>Distribuera från lokal Git
 
-Det enklaste sättet att aktivera lokal Git-distribution för din app med Kudu build-servern är att använda Azure Cloud Shell.
+Det enklaste sättet att aktivera lokal Git-distribution för din app med kudu build-servern är att använda Azure Cloud Shell.
 
 ### <a name="configure-a-deployment-user"></a>Konfigurera en distributionsanvändare
 
 [!INCLUDE [Configure a deployment user](../../includes/configure-deployment-user-no-h.md)]
 
 ### <a name="enable-local-git-with-kudu"></a>Aktivera lokal Git med Kudu
+Om du ännu inte har en lokal git-lagringsplats för din app måste du initiera en genom att köra följande kommandon från appens projekt katalog:
 
-Om du vill aktivera lokal Git-distribution för din app med Kudu build-servern kör [ `az webapp deployment source config-local-git` ](/cli/azure/webapp/deployment/source?view=azure-cli-latest#az-webapp-deployment-source-config-local-git) i Cloud Shell.
+```cmd
+git init
+git add .
+git commit -m "Initial version"
+```
+
+Om du vill aktivera lokal Git-distribution för din app med kudu build- [`az webapp deployment source config-local-git`](/cli/azure/webapp/deployment/source?view=azure-cli-latest#az-webapp-deployment-source-config-local-git) servern kör du i Cloud Shell.
 
 ```azurecli-interactive
 az webapp deployment source config-local-git --name <app_name> --resource-group <group_name>
 ```
 
-Om du vill skapa en Git-aktiverad app i stället kör [ `az webapp create` ](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) i Cloud Shell med den `--deployment-local-git` parametern.
+Om du vill skapa en git-aktiverad app i [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) stället kör du i `--deployment-local-git` Cloud Shell med parametern.
 
 ```azurecli-interactive
 az webapp create --name <app_name> --resource-group <group_name> --plan <plan_name> --deployment-local-git
 ```
 
-Den `az webapp create` kommandot ger dig något som liknar följande utdata:
+`az webapp create` Kommandot ger dig något som liknar följande utdata:
 
 ```json
 Local git is configured with url of 'https://<username>@<app_name>.scm.azurewebsites.net/<app_name>.git'
@@ -149,27 +160,27 @@ I det _lokala terminalfönstret_ kan du lägga till en Azure-fjärrdatabas till 
 git remote add azure <url>
 ```
 
-Skicka till Azure-fjärrdatabasen för att distribuera appen med följande kommando. När du uppmanas att ange ett lösenord anger du lösenordet som du skapade i [konfigurera en distributionsanvändare](#configure-a-deployment-user). Använd inte lösenordet du använde för att logga in på Azure-portalen.
+Skicka till Azure-fjärrdatabasen för att distribuera appen med följande kommando. När du uppmanas att ange ett lösen ord anger du det lösen ord som du skapade i [Konfigurera en distributions användare](#configure-a-deployment-user). Använd inte det lösen ord du använder för att logga in på Azure Portal.
 
 ```bash
 git push azure master
 ```
 
-Du kan se runtime-specifika automation i utdata, till exempel MSBuild för ASP.NET, `npm install` för Node.js, och `pip install` för Python.
+Du kan se körnings viss automatisering i utdata, till exempel MSBuild för ASP.net, `npm install` för Node. js och `pip install` för python.
 
 ### <a name="browse-to-the-azure-web-app"></a>Bläddra till Azure-webbappen
 
-Bläddra till webbappen med en webbläsare för att kontrollera att innehållet distribueras.
+Bläddra till din webbapp med hjälp av en webbläsare för att kontrol lera att innehållet har distribuerats.
 
 ```bash
 http://<app_name>.azurewebsites.net
 ```
 
-![App som körs i App Service](../app-service/media/app-service-web-tutorial-dotnetcore-sqldb/azure-app-in-browser.png)
+![app som körs i App Service](../app-service/media/app-service-web-tutorial-dotnetcore-sqldb/azure-app-in-browser.png)
 
 ## <a name="use-managed-identity-in-other-languages"></a>Använd hanterad identitet på andra språk
 
-App Configuration-providrar för .NET Framework och Java Spring har också inbyggt stöd för hanterad identitet. I dessa fall kan du använda din app configuration store URL-slutpunkt i stället för dess fullständiga anslutningssträngen när du konfigurerar en provider. Till exempel för .NET Framework konsolappen skapade i snabbstarten, anger du följande inställningar i den *App.config* fil:
+App Configuration-providrar för .NET Framework och Java Spring har också inbyggt stöd för hanterad identitet. I dessa fall använder du programmets URL-slutpunkt i appens konfiguration i stället för dess fullständiga anslutnings sträng när du konfigurerar en provider. Om du till exempel vill skapa en app för .NET Framework-konsolen som skapats i snabb starten anger du följande inställningar i filen *app. config* :
 
 ```xml
     <configSections>

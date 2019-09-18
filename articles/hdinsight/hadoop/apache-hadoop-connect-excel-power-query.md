@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
-ms.openlocfilehash: de72daa6d34ea54517d5a21d7467a62d8097581c
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: e64905cdfeac8d507df1c3dd92c245cb910a79b2
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70882652"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71033575"
 ---
 # <a name="connect-excel-to-apache-hadoop-by-using-power-query"></a>Ansluta Excel till Apache Hadoop med hjälp av Power Query
 En viktig funktion i Microsofts stor data lösning är integreringen av Microsoft Business Intelligence-komponenter (BI) med Apache Hadoop kluster i Azure HDInsight. Ett primärt exempel är möjligheten att ansluta Excel till det Azure Storage konto som innehåller de data som är kopplade till ditt Hadoop-kluster med hjälp av Microsoft Power Query för Excel-tillägget. Den här artikeln beskriver hur du konfigurerar och använder Power Query för att fråga efter data som är associerade med ett Hadoop-kluster som hanteras med HDInsight.
@@ -58,12 +58,12 @@ Med Power Query-tillägget för Excel kan du enkelt importera data från HDInsig
 5. För **konto nyckel**anger du nyckeln för Blob Storage-kontot och klickar sedan på **Spara**. (Du behöver bara ange konto informationen första gången du öppnar det här arkivet.)
 6. I fönstret **navigatör** till vänster i Frågeredigeraren dubbelklickar du på namnet på Blob storage-behållaren. Behållarens namn är som standard samma namn som kluster namnet.
 7. Leta upp **HiveSampleData. txt** i kolumnen **namn** (mappsökvägen är **... /Hive/Warehouse/hivesampletable/** ) och klicka sedan på **binär** till vänster om HiveSampleData. txt. HiveSampleData. txt levereras med alla kluster. Du kan också använda en egen fil.
-   
-    ![HDI.PowerQuery.ImportData](./media/apache-hadoop-connect-excel-power-query/powerquery-importdata.png)
+
+    ![Importera data från HDI Excel Power Query](./media/apache-hadoop-connect-excel-power-query/powerquery-importdata.png)
 
 8. Om du vill kan du byta namn på kolumn namnen. När du är klar klickar du på **stäng & belastning**.  Data har lästs in i din arbets bok:
-   
-    ![HDI. PowerQuery. ImportedTable](./media/apache-hadoop-connect-excel-power-query/powerquery-importedtable.png)
+
+    ![HDI Excel Power Query-importerad tabell](./media/apache-hadoop-connect-excel-power-query/powerquery-importedtable.png)
 
 ## <a name="next-steps"></a>Nästa steg
 I den här artikeln har du lärt dig hur du använder Power Query för att hämta data från HDInsight till Excel. På samma sätt kan du hämta data från HDInsight till Azure SQL Database. Det går också att ladda upp data till HDInsight. Mer information finns i följande artiklar:

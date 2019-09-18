@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: tutorial
 ms.date: 09/06/2019
 ms.author: v-erkell
-ms.openlocfilehash: 479adf9419cdd6b04e50fa479d47b56762b2bdc6
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.openlocfilehash: e1b69f17d964647944f23f4d16a0a1a5f112b60d
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70774688"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71037078"
 ---
 # <a name="create-an-azure-hpc-cache"></a>Skapa en Azure HPC-cache
 
@@ -21,7 +21,7 @@ Använd Azure Portal för att skapa din cache.
 
 ## <a name="define-basic-details"></a>Definiera grundläggande information
 
-![skärm bild av sidan projekt information i Azure Portal](media/create-1.png)
+![skärm bild av sidan projekt information i Azure Portal](media/hpc-cache-create-basics.png)
 
 I **projekt information**väljer du den prenumeration och resurs grupp som ska vara värd för Azure HPC-cachen. Se till att prenumerationen finns i listan över för [hands version](hpc-cache-prereqs.md#azure-subscription) .
 
@@ -47,7 +47,7 @@ Tänk på att den faktiska data överförings hastigheten är beroende av arbets
 
 I cache-lagring hanterar Azure HPC cache vilka filer som cachelagras och förinstalleras för att maximera träffar i cacheträffar. Innehållet i cachen utvärderas kontinuerligt och filer flyttas till långsiktig lagring när de används mindre ofta. Välj en lagrings storlek för cachen som enkelt kan lagra den aktiva uppsättningen arbetsfiler med ytterligare utrymme för metadata och andra kostnader.
 
-![skärm bild av sidan cache-storlek](media/create-cache-iops.png)
+![skärm bild av sidan cache-storlek](media/hpc-cache-create-iops.png)
 
 ## <a name="add-storage-targets"></a>Lägg till lagrings mål
 
@@ -55,19 +55,21 @@ Lagrings mål är Server delen och långsiktig lagring för innehållet i din ca
 
 Du kan definiera lagrings mål när du skapar cachen, men du kan också lägga till dem efteråt med länken i avsnittet **Konfigurera** i sidans cacheminne i portalen.
 
-![skärm bild av sidan lagrings mål](media/create-targets.png)
+![skärm bild av sidan lagrings mål](media/hpc-cache-storage-targets-pop.png)
 
 Klicka på **länken Lägg till lagrings mål** för att definiera dina Server dels lagrings system. Lagrings utrymmet kan vara Azure Blob-behållare eller lokala NFS-system.
 
 Du kan definiera upp till tio olika lagrings mål.
 
-För steg-för-steg-instruktioner för att lägga till ett lagrings mål läser du [Lägg till lagring](hpc-cache-add-storage.md). Proceduren skiljer sig för Blob Storage eller för NFS-export.
+Steg för steg-instruktioner för att lägga till ett lagrings mål ingår i [Lägg till lagring](hpc-cache-add-storage.md). Proceduren skiljer sig för Blob Storage eller för NFS-export.
 
-För båda typerna av lagrings utrymme måste du ange hur du vill hitta server dels lagrings systemet (antingen en NFS-adress eller ett BLOB-behållarobjekt) och sökvägen till den klient-motstående namn rymden.
+Här följer några tips: 
 
-När du skapar ett Blob Storage-mål kontrollerar du att cachen har åtkomst behörighet till lagrings kontot, enligt beskrivningen i [Lägg till åtkomst kontroll roller](hpc-cache-add-storage.md#add-the-access-control-roles-to-your-account). Om du inte är säker på att roll konfigurationen kommer att lyckas skapar du cachen först och lägger sedan till blob-lagringen efteråt.
+* För båda typerna av lagrings utrymme måste du ange hur du vill hitta server dels lagrings systemet (antingen en NFS-adress eller ett BLOB-behållarobjekt) och sökvägen till den klient-motstående namn rymden.
 
-När du skapar ett NFS-lagrings mål anger du en [användnings modell](hpc-cache-add-storage.md#choose-a-usage-model). Inställningen användnings modell hjälper cacheminnet att optimera ditt arbets flöde.
+* När du skapar ett Blob Storage-mål kontrollerar du att cachen har åtkomst behörighet till lagrings kontot, enligt beskrivningen i [Lägg till åtkomst kontroll roller](hpc-cache-add-storage.md#add-the-access-control-roles-to-your-account). Om du inte är säker på att roll konfigurationen kommer att lyckas skapar du cachen först och lägger sedan till blob-lagringen efteråt.
+
+* När du skapar ett NFS-lagrings mål anger du en [användnings modell](hpc-cache-add-storage.md#choose-a-usage-model). Inställningen användnings modell hjälper cacheminnet att optimera ditt arbets flöde.
 
 ## <a name="add-resource-tags-optional"></a>Lägg till resurs koder (valfritt)
 
@@ -77,11 +79,13 @@ På sidan **taggar** kan du lägga till [resurs Taggar](https://go.microsoft.com
 
 När du har konfigurerat den nya cachen klickar du på fliken **Granska + skapa** . Portalen verifierar dina val och gör att du kan granska dina val. Om allt stämmer klickar du på **skapa**. 
 
-Det tar cirka 10 minuter att skapa cacheminnet. Du kan följa förloppet i Azure Portal meddelande panel. När det är klart visas ett meddelande med en länk till den nya Azure HPC cache-instansen. 
+Det tar cirka 10 minuter att skapa cacheminnet. Du kan följa förloppet i Azure Portal meddelande panel. 
 
-Cachen visas också i prenumerationens lista över **resurser** . 
+![skärm bild av sidorna för att skapa "distribution pågår" och "Notifications" i portalen](media/hpc-cache-deploy-status.png)
 
-![skärm bild av Azure HPC cache-instansen i Azure Portal](media/finished-hpc-cache.png)
+När en avisering har skapats visas ett meddelande med en länk till den nya Azure HPC cache-instansen och cachen visas i prenumerationens lista över **resurser** . 
+
+![skärm bild av Azure HPC cache-instansen i Azure Portal](media/hpc-cache-new-overview.png)
 
 ## <a name="next-steps"></a>Nästa steg
 

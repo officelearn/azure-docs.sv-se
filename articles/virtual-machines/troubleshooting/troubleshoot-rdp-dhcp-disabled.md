@@ -4,7 +4,7 @@ description: Lär dig att felsöka RDP problem som orsakas av DHCP-klienttjänst
 services: virtual-machines-windows
 documentationCenter: ''
 author: genlin
-manager: cshepard
+manager: dcscontentpm
 editor: ''
 ms.service: virtual-machines-windows
 ms.topic: troubleshooting
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 11/13/2018
 ms.author: genli
-ms.openlocfilehash: d16c5b6304f598440fe4d70648dd652f0dcf06ec
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: ef44931cc3b36bcab64a2de840d9264c1b8fdedb
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70089942"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71058029"
 ---
 #  <a name="cannot-rdp-to-azure-virtual-machines-because-the-dhcp-client-service-is-disabled"></a>Kan inte använda RDP till Azure Virtual Machines eftersom DHCP-klienttjänsten har inaktiverats
 

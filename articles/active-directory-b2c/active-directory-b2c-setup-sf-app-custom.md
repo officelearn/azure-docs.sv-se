@@ -1,6 +1,6 @@
 ---
-title: Ställ in logga in med ett Salesforce SAML-providern med hjälp av anpassade principer i Azure Active Directory B2C
-description: Ställ in logga in med ett Salesforce SAML-providern med hjälp av anpassade principer i Azure Active Directory B2C.
+title: Konfigurera inloggning med en Salesforce-SAML-provider genom att använda anpassade principer i Azure Active Directory B2C
+description: Konfigurera inloggning med en Salesforce-SAML-provider genom att använda anpassade principer i Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -10,67 +10,67 @@ ms.topic: conceptual
 ms.date: 09/21/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 7cbde2beb03c174facbd145954387a31f6158a9a
-ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
+ms.openlocfilehash: 0bc373649b19b75a8f137e82bf839ac5b27b8692
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67654180"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71065002"
 ---
-# <a name="set-up-sign-in-with-a-salesforce-saml-provider-by-using-custom-policies-in-azure-active-directory-b2c"></a>Ställ in logga in med ett Salesforce SAML-providern med hjälp av anpassade principer i Azure Active Directory B2C
+# <a name="set-up-sign-in-with-a-salesforce-saml-provider-by-using-custom-policies-in-azure-active-directory-b2c"></a>Konfigurera inloggning med en Salesforce-SAML-provider genom att använda anpassade principer i Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Den här artikeln visar hur du aktiverar inloggning för användare från ett Salesforce-organisation med [anpassade principer](active-directory-b2c-overview-custom.md) i Azure Active Directory (Azure AD) B2C. Du aktiverar inloggning genom att lägga till en [tekniska SAML-profilen](saml-technical-profile.md) till en anpassad princip.
+Den här artikeln visar hur du aktiverar inloggning för användare från en Salesforce-organisation med [anpassade principer](active-directory-b2c-overview-custom.md) i Azure Active Directory B2C (Azure AD B2C). Du aktiverar inloggning genom att lägga till en [teknisk SAML-profil](saml-technical-profile.md) i en anpassad princip.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-- Utför stegen i [Kom igång med anpassade principer i Azure Active Directory B2C](active-directory-b2c-get-started-custom.md).
-- Om du inte redan gjort det, registrera dig för en [kostnadsfritt Developer Edition konto](https://developer.salesforce.com/signup). Den här artikeln används den [Salesforce Lightning upplevelse](https://developer.salesforce.com/page/Lightning_Experience_FAQ).
+- Slutför stegen i [Kom igång med anpassade principer i Azure Active Directory B2C](active-directory-b2c-get-started-custom.md).
+- Registrera dig för ett [kostnads fritt Developer Edition-konto](https://developer.salesforce.com/signup)om du inte redan gjort det. I den här artikeln används [Salesforce-upplevelsen](https://developer.salesforce.com/page/Lightning_Experience_FAQ).
 - [Konfigurera en min domän](https://help.salesforce.com/articleView?id=domain_name_setup.htm&language=en_US&type=0) för din Salesforce-organisation.
 
-### <a name="set-up-salesforce-as-an-identity-provider"></a>Konfigurera Salesforce som identitetsprovider
+### <a name="set-up-salesforce-as-an-identity-provider"></a>Konfigurera Salesforce som identitets leverantör
 
-1. [Logga in till Salesforce](https://login.salesforce.com/).
-2. På den vänstra menyn under **inställningar**, expandera **identitet**, och välj sedan **identitetsprovider**.
-3. Välj **aktivera identitetsprovider**.
-4. Under **Välj certifikatet**, Välj det certifikat du vill Salesforce som du använder för att kommunicera med Azure AD B2C. Du kan använda standard-certifikatet.
+1. [Logga in på Salesforce](https://login.salesforce.com/).
+2. På den vänstra menyn, under **Inställningar**, expandera **identitet**och välj sedan **identitetsprovider**.
+3. Välj **Aktivera identitets leverantör**.
+4. Under **Välj certifikat**väljer du det certifikat som du vill att Salesforce ska använda för att kommunicera med Azure AD B2C. Du kan använda standard certifikatet.
 5. Klicka på **Spara**.
 
 ### <a name="create-a-connected-app-in-salesforce"></a>Skapa en ansluten app i Salesforce
 
-1. På den **identitetsprovidern** väljer **tjänstleverantörer skapas nu via appar som är anslutna. Klicka här.**
-2. Under **basinformation**, ange värdena som krävs för dina anslutna appar.
-3. Under **Webbprograminställningarna**, kontrollera den **aktivera SAML** box.
-4. I den **entitets-ID** fältet, anger du följande URL. Se till att du ersätter värdet för `your-tenant` med namnet på din Azure AD B2C-klient.
+1. På sidan **identitetsprovider** väljer **du tjänst leverantörer som nu skapas via anslutna appar. Klicka här.**
+2. Under **grundläggande information**anger du de värden som krävs för den anslutna appen.
+3. Markera kryss rutan **Aktivera SAML** under **Inställningar för webbapp**.
+4. I fältet **entitets-ID** anger du följande URL. Se till att du ersätter värdet för `your-tenant` med namnet på din Azure AD B2C-klient.
 
       ```
       https://your-tenant.b2clogin.com/your-tenant.onmicrosoft.com/B2C_1A_TrustFrameworkBase
       ```
 
-6. I den **ACS URL** fältet, anger du följande URL. Se till att du ersätter värdet för `your-tenant` med namnet på din Azure AD B2C-klient.
+6. I fältet **ACS URL** anger du följande URL. Se till att du ersätter värdet för `your-tenant` med namnet på din Azure AD B2C-klient.
 
       ```
       https://your-tenant.b2clogin.com/your-tenant.onmicrosoft.com/B2C_1A_TrustFrameworkBase/samlp/sso/assertionconsumer
       ```
-7. Rulla till slutet av listan och klicka sedan på **spara**.
+7. Rulla längst ned i listan och klicka sedan på **Spara**.
 
 ### <a name="get-the-metadata-url"></a>Hämta metadata-URL
 
-1. På översiktssidan av dina anslutna appar **hantera**.
-2. Kopiera värdet för **slutpunkt för identifiering av Metadata**, och spara den. Du ska använda den senare i den här artikeln.
+1. På översikts sidan för din anslutna app klickar du på **Hantera**.
+2. Kopiera värdet för **slut punkten för identifiering av metadata**och spara det sedan. Du kommer att använda den senare i den här artikeln.
 
-### <a name="set-up-salesforce-users-to-federate"></a>Konfigurera användare av Salesforce för att federera
+### <a name="set-up-salesforce-users-to-federate"></a>Konfigurera Salesforce-användare att federera
 
-1. På den **hantera** sidan för din ansluten app, klickar du på **Spravovat Profily**.
-2. Välj profiler (eller grupper av användare) som du vill federera med Azure AD B2C. Som systemadministratör, Välj den **systemadministratören** kryssrutan så att du kan federera med hjälp av ditt Salesforce-konto.
+1. På sidan **Hantera** i din anslutna app klickar du på **Hantera profiler**.
+2. Välj de profiler (eller grupper av användare) som du vill federera med Azure AD B2C. Som system administratör markerar du kryss rutan **system administratör** så att du kan federera med ditt Salesforce-konto.
 
-## <a name="generate-a-signing-certificate"></a>Generera ett signeringscertifikat
+## <a name="generate-a-signing-certificate"></a>Generera ett signerings certifikat
 
-Begäranden som skickas till Salesforce måste signeras av Azure AD B2C. Om du vill generera ett signeringscertifikat, öppnar du Azure PowerShell och kör sedan följande kommandon.
+Begär Anden som skickats till Salesforce måste signeras av Azure AD B2C. Om du vill generera ett signerings certifikat öppnar du Azure PowerShell och kör sedan följande kommandon.
 
 > [!NOTE]
-> Se till att du uppdaterar innehavarens namn och lösenord i de två översta raderna.
+> Se till att du uppdaterar klientens namn och lösen ord på de två översta raderna.
 
 ```powershell
 $tenantName = "<YOUR TENANT NAME>.onmicrosoft.com"
@@ -83,30 +83,30 @@ $pwd = ConvertTo-SecureString -String $pwdText -Force -AsPlainText
 Export-PfxCertificate -Cert $Cert -FilePath .\B2CSigningCert.pfx -Password $pwd
 ```
 
-## <a name="create-a-policy-key"></a>Skapa en principnyckel
+## <a name="create-a-policy-key"></a>Skapa en princip nyckel
 
-Du behöver lagra certifikatet som du skapade i din Azure AD B2C-klient.
+Du måste lagra det certifikat som du skapade i Azure AD B2C-klienten.
 
 1. Logga in på [Azure Portal](https://portal.azure.com/).
-2. Se till att du använder den katalog som innehåller din Azure AD B2C-klientorganisation genom att klicka på **katalog- och prenumerationsfiltret** på den översta menyn och välja katalogen som innehåller din klientorganisation.
+2. Kontrol lera att du använder den katalog som innehåller din Azure AD B2C klient genom att välja filtret **katalog + prenumeration** på den översta menyn och välja den katalog som innehåller din klient.
 3. Välj **Alla tjänster** på menyn uppe till vänster i Azure Portal. Sök sedan efter och välj **Azure AD B2C**.
-4. På sidan Översikt väljer **Identitetsramverk**.
-5. Välj **Principnycklar** och välj sedan **Lägg till**.
-6. För **alternativ**, Välj `Upload`.
-7. Ange ett **Namn** för principen. Till exempel SAMLSigningCert. Prefixet `B2C_1A_` läggs automatiskt till namnet på din nyckel.
-8. Bläddra till och välj det B2CSigningCert.pfx-certifikat som du skapade.
-9. Ange den **lösenord** för certifikatet.
+4. På sidan Översikt väljer du **ID för identitets miljö**.
+5. Välj **princip nycklar** och välj sedan **Lägg till**.
+6. För **alternativ**väljer `Upload`du.
+7. Ange ett **Namn** för principen. Till exempel SAMLSigningCert. Prefixet `B2C_1A_` läggs automatiskt till i namnet på din nyckel.
+8. Bläddra till och välj det B2CSigningCert. PFX-certifikat som du skapade.
+9. Ange **lösen ordet** för certifikatet.
 3. Klicka på **Skapa**.
 
-## <a name="add-a-claims-provider"></a>Lägg till en anspråksprovider
+## <a name="add-a-claims-provider"></a>Lägg till en anspråks leverantör
 
-Om du vill att användarna ska logga in med ett Salesforce-konto, måste du definiera kontot som en anspråksprovider som Azure AD B2C kan kommunicera med via en slutpunkt. Slutpunkten som innehåller en uppsättning anspråk som används av Azure AD B2C för att verifiera att en viss användare har autentiserats.
+Om du vill att användarna ska logga in med ett Salesforce-konto måste du definiera kontot som en anspråks leverantör som Azure AD B2C kan kommunicera med via en slut punkt. Slut punkten innehåller en uppsättning anspråk som används av Azure AD B2C för att verifiera att en speciell användare har autentiserats.
 
-Du kan definiera en Salesforce-konto som en anspråksprovider genom att lägga till den **ClaimsProviders** elementet i tilläggsfilen av din princip.
+Du kan definiera ett Salesforce-konto som en anspråks leverantör genom att lägga till det i **ClaimsProviders** -elementet i principens tilläggs fil.
 
-1. Öppna den *TrustFrameworkExtensions.xml*.
-2. Hitta den **ClaimsProviders** element. Om det inte finns, lägger du till det under rotelementet.
-3. Lägga till en ny **ClaimsProvider** på följande sätt:
+1. Öppna *TrustFrameworkExtensions. XML*.
+2. Hitta **ClaimsProviders** -elementet. Om den inte finns lägger du till den under rot elementet.
+3. Lägg till en ny **ClaimsProvider** enligt följande:
 
     ```XML
     <ClaimsProvider>
@@ -147,33 +147,33 @@ Du kan definiera en Salesforce-konto som en anspråksprovider genom att lägga t
     </ClaimsProvider>
     ```
 
-4. Uppdatera värdet för **PartnerEntity** med Salesforce-metadata-URL som du kopierade tidigare.
-5. Uppdatera värdet för båda instanserna av **StorageReferenceId** till namnet på nyckeln för ditt signeringscertifikat. Till exempel B2C_1A_SAMLSigningCert.
+4. Uppdatera värdet för **PartnerEntity** med URL: en för Salesforce-metadata som du kopierade tidigare.
+5. Uppdatera värdet för båda instanserna av **StorageReferenceId** till namnet på nyckeln för ditt signerings certifikat. Till exempel B2C_1A_SAMLSigningCert.
 
-### <a name="upload-the-extension-file-for-verification"></a>Ladda upp tilläggsfilen med för verifiering
+### <a name="upload-the-extension-file-for-verification"></a>Ladda upp tilläggs filen för verifiering
 
-Nu bör har du konfigurerat principen så att Azure AD B2C vet att kommunicera med ditt Salesforce-konto. Försök att överföra tilläggsfilen i din princip bara för att bekräfta att den inte har några problem hittills.
+Nu har du konfigurerat principen så att Azure AD B2C vet hur de kan kommunicera med ditt Salesforce-konto. Försök att ladda upp tilläggs filen för principen för att bekräfta att den inte har några problem hittills.
 
-1. På den **anpassade principer** sidan i din Azure AD B2C-klient väljer **ladda upp principen**.
-2. Aktivera **Skriv över principen om den finns**, och sedan bläddra till och markera den *TrustFrameworkExtensions.xml* fil.
+1. På sidan **anpassade principer** i Azure AD B2C klienten väljer du **Ladda upp princip**.
+2. Aktivera **Skriv över principen om den finns**och bläddra sedan till och välj filen *TrustFrameworkExtensions. XML* .
 3. Klicka på **Överför**.
 
-## <a name="register-the-claims-provider"></a>Registrera anspråksprovidern
+## <a name="register-the-claims-provider"></a>Registrera anspråks leverantören
 
-Nu identitetsprovidern har ställts in, men det finns inte i någon av skärmarna registrering eller inloggning. Du skapar en dubblett av en befintlig mall för användarresa så att den blir tillgänglig, och ändra den så att den har också identitetsprovider Salesforce.
+Nu har identitets leverantören kon figurer ATS, men den är inte tillgänglig på någon av registrerings-eller inloggnings skärmarna. För att göra det tillgängligt, skapar du en dubblett av en befintlig användar resa och ändrar den så att den även har Salesforce-identitetsprovider.
 
-1. Öppna den *TrustFrameworkBase.xml* filen från startpaket.
-2. Hitta och kopiera hela innehållet i den **UserJourney** element som innehåller `Id="SignUpOrSignIn"`.
-3. Öppna den *TrustFrameworkExtensions.xml* och hitta den **UserJourneys** element. Om elementet inte finns kan du lägga till en.
-4. Klistra in hela innehållet i den **UserJourney** element som du kopierade som underordnad till den **UserJourneys** element.
-5. Byt namn på ID för användarresa. Till exempel `SignUpSignInSalesforce`.
+1. Öppna filen *TrustFrameworkBase. XML* från start paketet.
+2. Sök efter och kopiera hela innehållet i **UserJourney** -elementet som innehåller `Id="SignUpOrSignIn"`.
+3. Öppna *TrustFrameworkExtensions. XML* och hitta **UserJourneys** -elementet. Om elementet inte finns lägger du till ett.
+4. Klistra in hela innehållet i **UserJourney** -elementet som du kopierade som ett underordnat objekt till **UserJourneys** -elementet.
+5. Byt namn på användar resans ID. Till exempel `SignUpSignInSalesforce`.
 
 ### <a name="display-the-button"></a>Visa knappen
 
-Den **ClaimsProviderSelection** element är detsamma som en knapp med identity-providern på en skärm för registrering eller inloggning. Om du lägger till en **ClaimsProviderSelection** element för ett LinkedIn-konto, en ny knapp visas när en användare finns på sidan.
+**ClaimsProviderSelection** -elementet är detsamma som en identitetsprovider på en registrerings-eller inloggnings skärm. Om du lägger till ett **ClaimsProviderSelection** -element för ett LinkedIn-konto visas en ny knapp när en användare hamnar på sidan.
 
-1. Hitta den **OrchestrationStep** element som innehåller `Order="1"` i användarresan som du nyss skapade.
-2. Under **ClaimsProviderSelects**, lägger du till följande element. Ange värdet för **TargetClaimsExchangeId** till ett lämpligt värde, till exempel `SalesforceExchange`:
+1. Hitta **OrchestrationStep** -elementet som innehåller `Order="1"` i användar resan som du nyss skapade.
+2. Lägg till följande-element under **ClaimsProviderSelects**. Ange värdet för **TargetClaimsExchangeId** till ett lämpligt värde, till exempel `SalesforceExchange`:
 
     ```XML
     <ClaimsProviderSelection TargetClaimsExchangeId="SalesforceExchange" />
@@ -181,38 +181,38 @@ Den **ClaimsProviderSelection** element är detsamma som en knapp med identity-p
 
 ### <a name="link-the-button-to-an-action"></a>Länka knappen till en åtgärd
 
-Nu när du har en knapp på plats kan behöva du länka den till en åtgärd. Åtgärden, i det här fallet är för Azure AD B2C att kommunicera med ett Salesforce-konto för att ta emot en token.
+Nu när du har en knapp på plats måste du länka den till en åtgärd. Åtgärden, i det här fallet, är att Azure AD B2C kommunicera med ett Salesforce-konto för att ta emot en token.
 
-1. Hitta den **OrchestrationStep** som innehåller `Order="2"` i användarresan.
-2. Lägg till följande **ClaimsExchange** element att se till att du använder samma värde för **Id** som du använde för **TargetClaimsExchangeId**:
+1. Hitta **OrchestrationStep** som ingår `Order="2"` i användar resan.
+2. Lägg till följande **ClaimsExchange** -element och kontrol lera att du använder samma värde för **ID** som du använde för **TargetClaimsExchangeId**:
 
     ```XML
     <ClaimsExchange Id="SalesforceExchange" TechnicalProfileReferenceId="salesforce" />
     ```
 
-    Uppdatera värdet för **TechnicalProfileReferenceId** till den **Id** för den tekniska profilen du skapade tidigare. Till exempel `LinkedIn-OAUTH`.
+    Uppdatera värdet för **TechnicalProfileReferenceId** till **ID: t** för den tekniska profil som du skapade tidigare. Till exempel `LinkedIn-OAUTH`.
 
-3. Spara den *TrustFrameworkExtensions.xml* fil och ladda upp den igen för att bekräfta.
+3. Spara filen *TrustFrameworkExtensions. XML* och ladda upp den igen för verifiering.
 
-## <a name="create-an-azure-ad-b2c-application"></a>Skapa ett Azure AD B2C-program
+## <a name="create-an-azure-ad-b2c-application"></a>Skapa ett Azure AD B2C program
 
-Kommunikation med Azure AD B2c sker via ett program som du skapar i din klient. Det här avsnittet innehåller valfria steg som du kan utföra för att skapa ett testprogram om du inte redan gjort det.
+Kommunikation med Azure AD B2C sker via ett program som du skapar i din klient organisation. Det här avsnittet innehåller valfria steg som du kan utföra för att skapa ett testprogram om du inte redan har gjort det.
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
-2. Se till att du använder den katalog som innehåller din Azure AD B2C-klientorganisation genom att klicka på **katalog- och prenumerationsfiltret** på den översta menyn och välja katalogen som innehåller din klientorganisation.
+2. Kontrol lera att du använder den katalog som innehåller din Azure AD B2C klient genom att välja filtret **katalog + prenumeration** på den översta menyn och välja den katalog som innehåller din klient.
 3. Välj **Alla tjänster** på menyn uppe till vänster i Azure Portal. Sök sedan efter och välj **Azure AD B2C**.
 4. Välj **Program** och därefter **Lägg till**.
 5. Ange ett namn för programmet, till exempel *testapp1*.
-6. För **Webbapp / webb-API**väljer `Yes`, och ange sedan `https://jwt.ms` för den **svars-URL**.
+6. För **webbapp/webb-API**väljer `Yes`du och anger `https://jwt.ms` sedan för **svars-URL: en**.
 7. Klicka på **Skapa**.
 
-## <a name="update-and-test-the-relying-party-file"></a>Uppdatera och testa filen förlitande part
+## <a name="update-and-test-the-relying-party-file"></a>Uppdatera och testa den förlitande part filen
 
-Uppdatera filen för förlitande part (RP) som initierar användarresa som du nyss skapade:
+Uppdatera den förlitande part filen (RP) som initierar användar resan som du nyss skapade:
 
-1. Skapa en kopia av *SignUpOrSignIn.xml* i din arbetskatalog och Byt namn på den. Exempel: Byt namn på den till *SignUpSignInSalesforce.xml*.
-2. Öppna den nya filen och uppdatera värdet för den **PolicyId** attributet för **TrustFrameworkPolicy** med ett unikt värde. Till exempel `SignUpSignInSalesforce`.
-3. Uppdatera värdet för **PublicPolicyUri** med URI: N för principen. Exempel:`http://contoso.com/B2C_1A_signup_signin_salesforce`
-4. Uppdatera värdet för den **ReferenceId** attributet i **DefaultUserJourney** att matcha ID för den nya användarresa som du skapade (SignUpSignInSalesforce).
-5. Spara dina ändringar, överföra filen och välj sedan den nya principen i listan.
-6. Se till att Azure AD B2C-program som du skapat är markerad i den **Välj program** fältet och sedan testa den genom att klicka på **kör nu**.
+1. Gör en kopia av *SignUpOrSignIn. XML* i din arbets katalog och Byt namn på den. Byt till exempel namnet till *SignUpSignInSalesforce. XML*.
+2. Öppna den nya filen och uppdatera värdet för attributet **PolicyId** för **TrustFrameworkPolicy** med ett unikt värde. Till exempel `SignUpSignInSalesforce`.
+3. Uppdatera värdet för **PublicPolicyUri** med URI: n för principen. Till exempel`http://contoso.com/B2C_1A_signup_signin_salesforce`
+4. Uppdatera värdet för attributet **ReferenceId** i **DefaultUserJourney** för att matcha ID för den nya användar resan som du skapade (SignUpSignInSalesforce).
+5. Spara ändringarna, ladda upp filen och välj sedan den nya principen i listan.
+6. Kontrol lera att Azure AD B2C programmet som du har skapat är markerat i fältet **Välj program** och testa det genom att klicka på **Kör nu**.

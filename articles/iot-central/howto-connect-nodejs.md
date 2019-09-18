@@ -3,17 +3,17 @@ title: Anslut ett allmänt Node. js-klientprogram till Azure IoT Central | Micro
 description: Som enhets utvecklare, hur du ansluter en generisk Node. js-enhet till ditt Azure IoT Central-program.
 author: dominicbetts
 ms.author: dobett
-ms.date: 06/14/2019
+ms.date: 09/12/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 3b73344a233182fe8366795cfa111b706c6d06ac
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 75b900ecb37ae8d092d4e37129b7f39f801c470d
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69876227"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71066452"
 ---
 # <a name="connect-a-generic-client-application-to-your-azure-iot-central-application-nodejs"></a>Ansluta ett allmänt klient program till ditt Azure IoT Central-program (Node. js)
 
@@ -25,8 +25,8 @@ Den här artikeln beskriver hur, som en enhets utvecklare, för att ansluta ett 
 
 Du behöver följande för att slutföra stegen i den här artikeln:
 
-1. Ett Azure IoT Central-program. Mer information finns i [snabbstarten om att skapa ett program](quick-deploy-iot-central.md).
-1. En utvecklings dator med [Node. js](https://nodejs.org/) version 4.0.0 eller senare installerad. Du kan köra `node --version` på kommando raden för att kontrol lera din version. Node.js är tillgängligt för många olika operativsystem.
+- Ett Azure IoT Central-program. Mer information finns i [snabbstarten om att skapa ett program](quick-deploy-iot-central.md).
+- En utvecklings dator med [Node. js](https://nodejs.org/) version 4.0.0 eller senare installerad. Du kan köra `node --version` på kommando raden för att kontrol lera din version. Node.js är tillgängligt för många olika operativsystem.
 
 ## <a name="create-a-device-template"></a>Skapa en enhets mall
 
@@ -125,11 +125,13 @@ Ange fält namn exakt som de visas i tabellerna i enhets mal len. Om fält namne
 
 I ditt Azure IoT Central-program lägger du till en riktig enhet i enhets mal len som du skapade i föregående avsnitt.
 
-Följ sedan anvisningarna i självstudien Lägg till en enhet för att [skapa en anslutnings sträng för den riktiga enheten](tutorial-add-device.md#generate-connection-string). Du använder den här anslutnings strängen i följande avsnitt:
+Anteckna anslutnings informationen för enheten på **enhets anslutnings** sidan: **Omfångs-ID**, **enhets-ID**och **primär nyckel**. Du lägger till dessa värden i enhets koden senare i den här instruktions guiden:
+
+![Information om enhets anslutning](./media/howto-connect-nodejs/device-connection.png)
 
 ### <a name="create-a-nodejs-application"></a>Skapa ett Node.js-program
 
-Följande steg visar hur du skapar ett klient program som implementerar den riktiga enheten som du har lagt till i programmet. Här är det Node. js-programmet som representerar den riktiga enheten. 
+Följande steg visar hur du skapar ett klient program som implementerar den riktiga enheten som du har lagt till i programmet. Här är det Node. js-programmet som representerar den riktiga enheten.
 
 1. Skapa en mapp med namnet `connected-air-conditioner-adv` på datorn. Navigera till mappen i din kommando rads miljö.
 
@@ -137,7 +139,7 @@ Följande steg visar hur du skapar ett klient program som implementerar den rikt
 
     ```cmd/sh
     npm init
-    npm install azure-iot-device azure-iot-device-mqtt --save
+    npm install azure-iot-device azure-iot-device-mqtt azure-iot-provisioning-device-mqtt azure-iot-security-symmetric-key --save
     ```
 
 1. Skapa en fil med namnet **connectedAirConditionerAdv. js** i `connected-air-conditioner-adv` mappen.
@@ -148,22 +150,31 @@ Följande steg visar hur du skapar ett klient program som implementerar den rikt
     "use strict";
 
     // Use the Azure IoT device SDK for devices that connect to Azure IoT Central.
-    var clientFromConnectionString = require('azure-iot-device-mqtt').clientFromConnectionString;
+    var iotHubTransport = require('azure-iot-device-mqtt').Mqtt;
+    var Client = require('azure-iot-device').Client;
     var Message = require('azure-iot-device').Message;
-    var ConnectionString = require('azure-iot-device').ConnectionString;
+    var ProvisioningTransport = require('azure-iot-provisioning-device-mqtt').Mqtt;
+    var SymmetricKeySecurityClient = require('azure-iot-security-symmetric-key').SymmetricKeySecurityClient;
+    var ProvisioningDeviceClient = require('azure-iot-provisioning-device').ProvisioningDeviceClient;
     ```
 
 1. Lägg till följande variabeldeklarationer i filen:
 
     ```javascript
-    var connectionString = '{your device connection string}';
+    var provisioningHost = 'global.azure-devices-provisioning.net';
+    var idScope = '{your Scope ID}';
+    var registrationId = '{your Device ID}';
+    var symmetricKey = '{your Primary Key};
+    var provisioningSecurityClient = new SymmetricKeySecurityClient(registrationId, symmetricKey);
+    var provisioningClient = ProvisioningDeviceClient.create(provisioningHost, idScope, new ProvisioningTransport(), provisioningSecurityClient);
+    var hubClient;
+
     var targetTemperature = 0;
     var locLong = -122.1215;
     var locLat = 47.6740;
-    var client = clientFromConnectionString(connectionString);
     ```
 
-    Uppdatera plats hållaren `{your device connection string}` med [enhets anslutnings strängen](tutorial-add-device.md#generate-connection-string). I det här exemplet initierar `targetTemperature` du till noll, du kan använda den aktuella läsningen från enheten eller ett värde från enheten.
+    Uppdatera plats hållarna `{your Scope ID}`, `{your Device ID}`och `{your Primary Key}` med de värden som du antecknade tidigare. I det här exemplet initierar `targetTemperature` du till noll, du kan använda den aktuella läsningen från enheten eller ett värde från enheten.
 
 1. Om du vill skicka mått för telemetri, tillstånd, händelser och platser till ditt Azure IoT Central-program lägger du till följande funktion i filen:
 
@@ -187,7 +198,7 @@ Följande steg visar hur du skapar ett klient program som implementerar den rikt
             lat: locationLat }
         });
       var message = new Message(data);
-      client.sendEvent(message, (err, res) => console.log(`Sent message: ${message.getData()}` +
+      hubClient.sendEvent(message, (err, res) => console.log(`Sent message: ${message.getData()}` +
         (err ? `; error: ${err.toString()}` : '') +
         (res ? `; status: ${res.constructor.name}` : '')));
     }
@@ -262,14 +273,14 @@ Följande steg visar hur du skapar ett klient program som implementerar den rikt
     // Handle countdown command
     function onCountdown(request, response) {
       console.log('Received call to countdown');
-
+    
       var countFrom = (typeof(request.payload.countFrom) === 'number' && request.payload.countFrom < 100) ? request.payload.countFrom : 10;
-
+    
       response.send(200, (err) => {
         if (err) {
           console.error('Unable to send method response: ' + err.toString());
         } else {
-          client.getTwin((err, twin) => {
+          hubClient.getTwin((err, twin) => {
             function doCountdown(){
               if ( countFrom >= 0 ) {
                 var patch = {
@@ -282,7 +293,7 @@ Följande steg visar hur du skapar ett klient program som implementerar den rikt
                 setTimeout(doCountdown, 2000 );
               }
             }
-
+    
             doCountdown();
           });
         }
@@ -301,13 +312,13 @@ Följande steg visar hur du skapar ett klient program som implementerar den rikt
         console.log('Device successfully connected to Azure IoT Central');
 
         // Create handler for countdown command
-        client.onDeviceMethod('countdown', onCountdown);
+        hubClient.onDeviceMethod('countdown', onCountdown);
 
         // Send telemetry measurements to Azure IoT Central every 1 second.
         setInterval(sendTelemetry, 1000);
 
         // Get device twin from Azure IoT Central.
-        client.getTwin((err, twin) => {
+        hubClient.getTwin((err, twin) => {
           if (err) {
             console.log(`Error getting device twin: ${err.toString()}`);
           } else {
@@ -325,8 +336,20 @@ Följande steg visar hur du skapar ett klient program som implementerar den rikt
       }
     };
 
-    // Start the device (connect it to Azure IoT Central).
-    client.open(connectCallback);
+    // Start the device (register and connect to Azure IoT Central).
+    provisioningClient.register((err, result) => {
+      if (err) {
+        console.log('Error registering device: ' + err);
+      } else {
+        console.log('Registration succeeded');
+        console.log('Assigned hub=' + result.assignedHub);
+        console.log('DeviceId=' + result.deviceId);
+        var connectionString = 'HostName=' + result.assignedHub + ';DeviceId=' + result.deviceId + ';SharedAccessKey=' + symmetricKey;
+        hubClient = Client.fromConnectionString(connectionString, iotHubTransport);
+
+        hubClient.open(connectCallback);
+      }
+    });
     ```
 
 ## <a name="run-your-nodejs-application"></a>Köra Node. js-programmet
@@ -355,7 +378,7 @@ Som operatör i ditt Azure IoT Central-program för din riktiga enhet kan du:
 
     ![Ange fläkt hastighet](media/howto-connect-nodejs/setfanspeed.png)
 
-* Anropa kommandot nedräkning från kommando sidan:
+* Anropa kommandot nedräkning från kommando **sidan:**
 
     ![Kommandot anropa nedräkning](media/howto-connect-nodejs/callcountdown.png)
 

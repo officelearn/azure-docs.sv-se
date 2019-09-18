@@ -1,6 +1,6 @@
 ---
-title: Hur reservation rabatter som gäller för Azure SQL Data Warehouse | Microsoft Docs
-description: Lär dig hur reservation rabatter som gäller för Azure SQL Data Warehouse för att spara pengar.
+title: Så här tillämpas reservationsrabatter för Azure SQL Data Warehouse | Microsoft Docs
+description: Läs om hur reservationsrabatter tillämpas för Azure SQL Data Warehouse så att du kan spara pengar.
 services: billing
 author: yashesvi
 manager: yashar
@@ -9,43 +9,43 @@ ms.topic: conceptual
 ms.date: 04/13/2019
 ms.author: banders
 ms.openlocfilehash: 10e19377d31489cd19465fe6171ffb530bd58c28
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: MT
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 09/11/2019
 ms.locfileid: "60918432"
 ---
-# <a name="how-reservation-discounts-apply-to-azure-sql-data-warehouse"></a>Hur reservation rabatter som gäller för Azure SQL Data Warehouse
+# <a name="how-reservation-discounts-apply-to-azure-sql-data-warehouse"></a>Så här tillämpas reservationsrabatter för Azure SQL Data Warehouse
 
-När du köper Azure SQL Data Warehouse reserverad kapacitet tillämpas i reservationsrabatten automatiskt till datalager som finns i den regionen. Rabatten gäller för användning som anges av SQL Data Warehouse cDWU mätaren. Lagring och nätverk debiteras enligt priserna för användningsbaserad betalning.
+När du har köpt reserverad kapacitet för Azure SQL Data Warehouse tillämpas reservationsrabatten automatiskt på informationslager i den aktuella regionen. Reservationsrabatten gäller den användning som genereras av cDWU-mätaren för SQL Data Warehouse. Lagring och nätverk debiteras enligt Betala per användning-priser.
 
-## <a name="reservation-discount-application"></a>Tillämpningen av rabatter för reservation
+## <a name="reservation-discount-application"></a>Tillämpning av reservationsrabatter
 
-SQL Data Warehouse rabatten reserverad kapacitet till att köra informationslager per timme. Om du inte har ett informationslager som distribueras i en timme, gått reserverad kapacitet för den timmen. Den sprids inte.
+Rabatten för reserverad SQL Data Warehouse-kapacitet tillämpas per timme för informationslager som körs. Om du inte har något informationslager distribuerat under en timme så går den reserverade kapaciteten för timmen förlorad. Den överförs inte.
 
-Efter köpet matchas som du köper reservationen till SQL Data Warehouse användning anges genom att köra informationslager när som helst i tid. Om du stänger av vissa distributionslager sedan tillämpa reservation rabatter automatiskt på de matchande lager.
+Efter köpet matchas den reservation du har köpt mot SQL Data Warehouse-användningen som genereras av de informationslager som körs vid varje given tidpunkt. Om du stänger av ett informationslager tillämpas reservationsrabatten automatiskt på övriga matchande informationslager.
 
-För informationslager som inte körs för en hel timme, används automatiskt reservationen för andra matchande instanser i den timmen.
+För informationslager som inte körs under hela timmen tillämpas reservationen automatiskt på andra matchande instanser under timmen.
 
-## <a name="discount-examples"></a>Rabatt exempel
+## <a name="discount-examples"></a>Exempel på rabatter
 
-I följande exempel visas hur SQL Data Warehouse reserverad kapacitet rabatten gäller beroende på distributioner.
+I följande exempel visas hur rabatten för reserverad SQL Data Warehouse-kapacitet tillämpas beroende på distributionen.
 
-- **Exempel 1**: Du köper 5 enheter om 100 cDWU reserverad kapacitet. Du kan köra en DW1500c SQL Data Warehouse-instans i en timme. I det här fallet anges användning för 15 enheter av 100 cDWU-användning. Rabatten gäller för de 5 enheter som du använde. Du debiteras med priserna för användningsbaserad betalning för återstående 10 enheter med 100 cDWU användning som du använde.
+- **Exempel 1**: Du köper 5 enheter om 100 cDWU reserverad kapacitet. Du kör en DW1500c SQL Data Warehouse-instans under en timme. I det här fallet genereras en användning på 15 enheter om 100 cDWU. Reservationsrabatten gäller de 5 enheter du använde. Du debiteras enligt Betala per användning-priser för de återstående 10 enheterna om 100 cDWU som du använde.
 
-- **Exempel 2**: Du köper 5 enheter om 100 cDWU reserverad kapacitet. Du kan köra två DW100c SQL Data Warehouse-instanser i en timme. I det här fallet genereras två användning händelserna för 1 enhet av 100 cDWU-användning. Båda Användningshändelser få rabatter reserverad kapacitet. Återstående 3 enheter av 100 cDWU reserverad kapacitet har gått och sprids inte för framtida användning.
+- **Exempel 2**: Du köper 5 enheter om 100 cDWU reserverad kapacitet. Du kör två DW100c SQL Data Warehouse-instanser under en timme. I det här fallet genereras två användningshändelser på 1 enhet om 100 cDWU. Båda användningshändelserna erhåller rabatt för reserverad kapacitet. Återstående 3 enheter om 100 cDWU reserverad kapacitet går förlorade och kan inte användas för framtida användning.
 
-- **Exempel 3**: Du kan köpa 1 enhet av 100 cDWU reserverad kapacitet. Du kör två DW100c SQL Data Warehouse-instanser. Båda körs under 30 minuter. I det här fallet få både Användningshändelser reserverad kapacitet rabatter. Ingen användning debiteras med priserna för användningsbaserad betalning.
+- **Exempel 3**: Du köper 1 enhet om 100 cDWU reserverad kapacitet. Du kör två DW100c SQL Data Warehouse-instanser. Varje instans körs i 30 minuter. I det här fallet erhåller båda användningshändelserna rabatt för reserverad kapacitet. Ingen användning debiteras enligt Betala per användning-priser.
 
 ## <a name="need-help-contact-us"></a>Behöver du hjälp? Kontakta oss
 
-- Om du har frågor eller behöver hjälp, [skapa en supportbegäran](https://go.microsoft.com/fwlink/?linkid=2083458).
+- Om du har frågor eller behöver hjälp kan du [skapa en supportbegäran](https://go.microsoft.com/fwlink/?linkid=2083458).
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om du vill veta mer om Azure reservationer, finns i följande artiklar:
+Du kan läsa mer om Azure-reservationer i följande artiklar:
 
-- [Vad är Azure reservationer?](billing-save-compute-costs-reservations.md)
-- [Visa transaktioner för reservation](billing-view-reservations.md)
-- [Hämta reserverade transaktioner och användning via API: et](billing-reservation-apis.md)
+- [Vad är Azure-reservationer?](billing-save-compute-costs-reservations.md)
+- [Visa reservationstransaktioner](billing-view-reservations.md)
+- [Hämta reservationstransaktioner och användning via API:et](billing-reservation-apis.md)
 - [Hantera reservationer](billing-manage-reserved-vm-instance.md)

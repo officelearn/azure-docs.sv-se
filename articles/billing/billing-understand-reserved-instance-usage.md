@@ -1,6 +1,6 @@
 ---
-title: Användning av Azure reservation för en enskild prenumeration med användningsbaserad betalning
-description: Lär dig hur du läser din användning för att förstå hur Azure reservation för din enskilda prenumeration med användningsbaserad betalning används.
+title: Användning av Azure-reservationer för en enskild prenumeration med Betala per användning-priser
+description: Lär dig hur du läser av din användning för att förstå hur Azure-reservationen tillämpas för din enskilda prenumeration med Betala per användning-priser.
 author: bandersmsft
 manager: yashr
 tags: billing
@@ -12,96 +12,96 @@ ms.workload: na
 ms.date: 07/01/2019
 ms.author: banders
 ms.openlocfilehash: 11f05c3de50f2f82173b6666d304887fbc2038cc
-ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
-ms.translationtype: MT
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/01/2019
+ms.lasthandoff: 09/11/2019
 ms.locfileid: "67490369"
 ---
-# <a name="understand-azure-reservation-usage-for-your-individual-subscription-with-pay-as-you-go-rates-subscription"></a>Förstå användningen av Azure reservation för prenumerationen enskilda med betala per användning-prenumeration
+# <a name="understand-azure-reservation-usage-for-your-individual-subscription-with-pay-as-you-go-rates-subscription"></a>Förstå användning av Azure-reservationer för din enskilda prenumeration med Betala per användning-priser
 
-Använda ReservationId från [Reservation sidan](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=Reservations&Microsoft_Azure_Reservations=true#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade) och användningsfil från den [konton i Azure portal](https://account.azure.com) att utvärdera din reservation användning.
+Använd ReservationId-värdet från sidan [Reservation](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=Reservations&Microsoft_Azure_Reservations=true#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade) och användningsfilen från [Azure-kontoportalen](https://account.azure.com) till att utvärdera reservationsutnyttjandet.
 
-Om du är en kund med ett Enterprise-avtal kan se [förstå användningen av reserverade för Enterprise-registreringen.](billing-understand-reserved-instance-usage-ea.md).
+Om du är en kund med ett Enterprise-avtal kan du läsa i [Förstå reservationsanvändningen i din Enterprise-registrering](billing-understand-reserved-instance-usage-ea.md).
 
-Den här artikeln förutsätter att reservationen ska gälla för en prenumeration. Om reservationen ska gälla i mer än en prenumeration, ditt reservationsförmånen kan sträcka sig över flera användning CSV-filer.
+I den här artikeln förutsätter vi att reservationen gäller en enskild prenumeration. Om reservationen gäller fler än en prenumeration kan reservationsförmånen omfatta flera CSV-användningsfiler.
 
-## <a name="usage-for-reserved-virtual-machine-instances"></a>Användningen av reserverade VM-instanser
+## <a name="usage-for-reserved-virtual-machine-instances"></a>Användning av reserverade VM-instanser
 
-Anta att du kör en Standard_DS1_v2 Windows virtuell dator i östra USA och dina reserverade VM-instans information ut i följande tabell i följande avsnitt:
+I följande avsnitt antar vi att du kör en Windows-dator av typen Standard_DS1_v2 i regionen USA, östra och att informationen om den reserverade VM-instansen ser ut som i följande tabell:
 
 | Fält | Värde |
 |---| :---: |
 |ReservationId |8117adfb-1d94-4675-be2b-f3c1bca808b6|
 |Kvantitet |1|
 |SKU | Standard_DS1_v2|
-|Region | usaöstra |
+|Region | eastus |
 
-Maskinvara-delen av den virtuella datorn ingår eftersom den distribuerade virtuella datorn matchar reservationen-attribut. Vilka Windows-program som inte omfattas av den reserverade VM-instansen finns i [Azure reserverade VM-instanser Windows kostnader för programvara](billing-reserved-instance-windows-software-costs.md)
+Den virtuella datorns maskinvara täcks eftersom den distribuerade virtuella datorn matchar reservationens attribut. Du kan se vilka Windows-program som inte täcks av den reserverade VM-instansen [Kostnader för Windows-program i reserverade Azure VM-instanser](billing-reserved-instance-windows-software-costs.md)
 
-### <a name="statement-section-of-csv-file-for-vms"></a>Instruktionen i CSV-fil för virtuella datorer
+### <a name="statement-section-of-csv-file-for-vms"></a>Informationsavsnittet i CSV-filen för virtuella datorer
 
-Det här avsnittet av CSV-filen visar den totala användningen av din reservation. Använder du filtret på den **Mätarunderkategori** fält som innehåller **”Reservation-”** . Det se ut ungefär som på följande skärmbild:
+I det här avsnittet av CSV-filen ser du den totala användningen av din reservation. Använd filtret i fältet **Mätarunderkategori** som innehåller **Reservation-** . Du bör se någonting som liknar följande skärmbild:
 
-![Skärmbild som visar filtrerade reservationsinformation för användning och kostnader](./media/billing-understand-reserved-instance-usage/billing-payg-reserved-instance-csv-statements.png)
+![Skärmbild av filtrerad användningsinformation och avgifter för en reservation](./media/billing-understand-reserved-instance-usage/billing-payg-reserved-instance-csv-statements.png)
 
-Den **reserverade instanser – bas-VM** raden innehåller det totala antalet timmar som omfattas av reservationen. Den här raden är $0,00 eftersom reservationen täcker den. Den **reserverade Windows Server-instanser (1 kärna)** rad täcker kostnaden för Windows-programvara.
+På raden **Reserverade instanser – bas-VM** ser du det totala antalet timmar som täcks av reservationen. Den här raden visar $0,00 eftersom den täcks av reservationen. Raden **Reserverade Windows Server-instanser (1 kärna)** täcker kostnaden för Windows-program.
 
-### <a name="daily-usage-section-of-csv-file"></a>Daglig användning i CSV-fil
+### <a name="daily-usage-section-of-csv-file"></a>Avsnittet med daglig användning i CSV-filen
 
-Filtrera på **ytterligare information** och skriver i din **reservations-ID**. Följande skärmbild visar relaterade fält till reservationen.
+Filtrera på **Ytterligare information** och skriv in ditt **reservations-ID**. I följande skärmbild ser du fälten som är relaterade till reservationen.
 
-![Skärmbild som visar information om daglig användning och kostnader](./media/billing-understand-reserved-instance-usage/billing-payg-reserved-instance-csv-details.png)
+![Skärmbild med information och avgifter för daglig användning](./media/billing-understand-reserved-instance-usage/billing-payg-reserved-instance-csv-details.png)
 
-1. **ReservationId** i den **ytterligare information** fältet är reservationen som tillämpas på den virtuella datorn.
-2. **ConsumptionMeter** är mätnings-ID för den virtuella datorn.
-3. Den **reserverade instanser – bas-VM** **Mätarunderkategori** rad utgör $0 kostnaden i instruktionen avsnittet. Kostnaden för att köra den här virtuella datorn har betalats av reservationen.
-4. **Mäter ID** är mätnings-ID för reservationen. Kostnaden för den här mätaren är $0. Den här mätnings-id visas för alla virtuella datorer som är kvalificerad för reservationsrabatten.
-5. Standard_DS1_v2 är en virtuell processor virtuella datorn och den virtuella datorn har distribuerats utan Azure Hybrid-förmånen. Den här mätaren omfattar så visas extra kostnaden för Windows-programvara. Du hittar den mätning som motsvarar D-serien 1 kärna VM [Azure reserverade VM-instanser Windows programvarukostnader](billing-reserved-instance-windows-software-costs.md). Om du har Azure Hybrid-förmånen kan tillämpas inte den här extra kostnad.
+1. **ReservationId** i fältet **Ytterligare information** är reservationen som tillämpas på den virtuella datorn.
+2. **ConsumptionMeter** är den virtuella datorns mätar-ID.
+3. Raden **Reserverade instanser – bas-VM** **Mätarunderkategori** representerar kostnaden $0 i informationsavsnittet. Kostnaden för att köra den här virtuella datorn täcks av reservationen.
+4. **Mätar-ID** är reservationens mätar-ID. Kostnaden för den här mätaren är $0. Detta mätar-ID visas för alla virtuella datorer som är kvalificerade för reservationsrabatten.
+5. Standard_DS1_v2 är en virtuell dator med vCPU och den virtuella datorn är distribuerad utan Azure Hybrid-förmånen. Den här mätaren täcker alltså den extra kostnaden för Windows-programvaran. Om du vill hitta mätaren som motsvarar den virtuella datorn i D-serien med 1 kärna kan du läsa i [Kostnader för Windows-program i reserverade Azure VM-instanser](billing-reserved-instance-windows-software-costs.md). Om du har Azure Hybrid-förmånen tas inte den här extra avgiften ut.
 
-## <a name="usage-for-sql-database--cosmos-db-reservations"></a>Användningen av SQL Database och Cosmos DB-reservationer
+## <a name="usage-for-sql-database--cosmos-db-reservations"></a>Användning av reservationer för SQL Database och Cosmos DB
 
-I följande avsnitt använder Azure SQL Database som exempel för att beskriva användningsrapporten. Du kan använda samma steg för att hämta användning för Azure Cosmos DB samt.
+I följande avsnitt används Azure SQL Database som exempel när vi beskriver användningsrapporten. Du kan hämta användningen för Azure Cosmos DB på samma sätt.
 
-Anta att du kör en SQL-databas Gen 4 i östra USA och din reservation informationen ser ut som i följande tabell:
+Anta att du kör en SQL Database Gen 4 i regionen USA, östra och att reservationsinformationen ser ut som i följande tabell:
 
 | Fält | Värde |
 |---| --- |
 |ReservationId |446ec809-423d-467c-8c5c-bbd5d22906b1|
 |Kvantitet |2|
-|Product| SQL Database Gen 4 (2 kärnor)|
-|Region | usaöstra |
+|Produkt| SQL Database Gen 4 (2 Core)|
+|Region | eastus |
 
-### <a name="statement-section-of-csv-file"></a>Instruktionen i CSV-fil
+### <a name="statement-section-of-csv-file"></a>Informationsavsnittet i CSV-filen
 
-Filtrera på **användningen av reserverade instanser** mäter namn och välj de nödvändiga **Mätningskategori** – Azure SQL database eller Azure Cosmos DB. Det se ut ungefär som på följande skärmbild:
+Filtrera på mätarnamnet **Reserverade instanser – användning** och välj **mätarkategorin** – Azure SQL Database eller Azure Cosmos DB. Du bör se någonting som liknar följande skärmbild:
 
-![CSV-fil för SQL Database reserverad kapacitet](./media/billing-understand-reserved-instance-usage/billing-payg-sql-db-reserved-capacity-csv-statements.png)
+![CSV-fil för reserverad SQL Database-kapacitet](./media/billing-understand-reserved-instance-usage/billing-payg-sql-db-reserved-capacity-csv-statements.png)
 
-Den **användningen av reserverade instanser** raden innehåller det totala antalet kärntimmar som omfattas av reservationen. Priset som gäller $0 för den här raden som reservationen beskrivs kostnaden.
+På raden **Reserverade instanser – användning** ser du det totala antalet kärntimmar som täcks av reservationen. Priset är $0 för den här raden eftersom reservationen täcker kostnaden.
 
-### <a name="detail-section-of-csv-file"></a>Avsnittet för information om i CSV-fil
+### <a name="detail-section-of-csv-file"></a>Informationsavsnittet i CSV-filen
 
-Filtrera på **ytterligare information** och skriver i din **reservations-ID**. Följande skärmbild visar relaterade fält till SQL Database reserverad kapacitetsreservationen.
+Filtrera på **Ytterligare information** och skriv in ditt **reservations-ID**. I följande skärmbild ser du fälten som är relaterade till den reserverade SQL Database-kapaciteten.
 
-![CSV-fil för SQL Database reserverad kapacitet](./media/billing-understand-reserved-instance-usage/billing-payg-sql-db-reserved-capacity-csv-details.png)
+![CSV-fil för reserverad SQL Database-kapacitet](./media/billing-understand-reserved-instance-usage/billing-payg-sql-db-reserved-capacity-csv-details.png)
 
-1. **ReservationId** i den **ytterligare information** fältet är SQL Database reserverad kapacitetsreservationen som tillämpas på SQL-databasresurser.
-2. **ConsumptionMeter** är mätnings-ID för SQL Database-resursen.
-3. Den **mätnings-Id** är mätning reservation. Kostnaden för den här mätaren är $0. Alla SQL Database-resurser som uppfyller kraven för reservationsrabatten visar den här mätnings-ID i CSV-filen.
+1. **ReservationId** i fältet **Ytterligare information** är reservationen av SQL Database-kapacitet som tillämpas på SQL Database-resursen.
+2. **ConsumptionMeter** är SQL Database-resursens mätar-ID.
+3. **Mätar-ID** är reservationens mätare. Kostnaden för den här mätaren är $0. Det här mätar-ID:t visas för alla SQL Database-resurser som är berättigade till reservationsrabatten i CSV-filen.
 
 ## <a name="need-help-contact-us"></a>Behöver du hjälp? Kontakta oss.
 
-Om du har frågor eller behöver hjälp, [skapa en supportbegäran](https://go.microsoft.com/fwlink/?linkid=2083458).
+Om du har frågor eller behöver hjälp kan du [skapa en supportbegäran](https://go.microsoft.com/fwlink/?linkid=2083458).
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om du vill veta mer om Azure reservationer, finns i följande artiklar:
+Du kan läsa mer om Azure-reservationer i följande artiklar:
 
-- [Vad är Azure reservationer?](billing-save-compute-costs-reservations.md)
+- [Vad är Azure-reservationer?](billing-save-compute-costs-reservations.md)
 - [Förskottsbetala för Virtual Machines med Azure Reserved VM Instances](../virtual-machines/windows/prepay-reserved-vm-instances.md)
 - [Förskottsbetala för SQL Database-beräkningsresurser med reserverad kapacitet för Azure SQL Database](../sql-database/sql-database-reserved-capacity.md)
 - [Hantera Azure Reservations](billing-manage-reserved-vm-instance.md)
 - [Förstå hur reservationsrabatten tillämpas](billing-understand-vm-reservation-charges.md)
-- [Förstå användningen av reserverade för din Enterprise-registrering](billing-understand-reserved-instance-usage-ea.md)
-- [Kostnader för Windows-programvara ingår inte i reservationer](billing-reserved-instance-windows-software-costs.md)
+- [Förstå reservationsanvändning för din Enterprise-registrering](billing-understand-reserved-instance-usage-ea.md)
+- [Kostnader för Windows-programvara som inte ingår i reservationer](billing-reserved-instance-windows-software-costs.md)

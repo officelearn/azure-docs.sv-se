@@ -1,6 +1,6 @@
 ---
-title: Förstå villkoren i ditt prisdokument för ett Microsoft-kundavtal - Azure
-description: Lär dig mer om att läsa och förstå din användningen och fakturan för en Microsoft-kundavtal.
+title: Förstå termerna i prisdokumentet för ett Microsoft-kundavtal – Azure
+description: Lär dig att läsa och förstå din användning och fakturering för ett Microsoft-kundavtal.
 author: bandersmsft
 manager: jureid
 tags: billing
@@ -12,53 +12,53 @@ ms.workload: na
 ms.date: 07/01/2019
 ms.author: banders
 ms.openlocfilehash: 4d83228fbec395d604e5ce3f988d2a6157f21eed
-ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
-ms.translationtype: MT
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/01/2019
+ms.lasthandoff: 09/11/2019
 ms.locfileid: "67490652"
 ---
-# <a name="terms-in-your-microsoft-customer-agreement-price-sheet"></a>Villkoren i ditt Microsoft-kundavtal prisdokument
+# <a name="terms-in-your-microsoft-customer-agreement-price-sheet"></a>Termer i prisdokumentet för ett Microsoft-kundavtal
 
-Den här artikeln gäller för en Azure faktureringskonto för en Microsoft-kundavtal. [Kontrollera om du har åtkomst till en Microsoft-kundavtal](#check-access-to-a-microsoft-customer-agreement).
+Den här artikeln gäller ett Azure-faktureringskonto för ett Microsoft-kundavtal. [Kontrollera om du har åtkomst till ett Microsoft-kundavtal](#check-access-to-a-microsoft-customer-agreement).
 
-Om du är en fakturering profil ägare, deltagare, läsare eller faktura Manager kan du hämta din organisations prisdokument från Azure-portalen. Se [visa och ladda ned din organisation priser](billing-ea-pricing.md).
+Om du har rollen ägare, deltagare, läsare eller fakturaansvarig för en faktureringsprofil kan du ladda ned organisationens prisdokument från Azure-portalen. Läs mer i [Visa och ladda ned din organisations priser](billing-ea-pricing.md).
 
-## <a name="terms-and-descriptions-in-your-price-sheet"></a>Termer och beskrivningar i din prisdokument
+## <a name="terms-and-descriptions-in-your-price-sheet"></a>Termer och beskrivningar för prisdokumentet
 
-I följande avsnitt beskrivs viktiga termer som visas i din Microsoft kundavtal prisdokument.
+I följande avsnitt beskrivs de viktigaste termerna i prisdokumentet för ett Microsoft-kundavtal.
 
 | **Fältnamn**   | **Beskrivning**   |
 | --- | --- |
 | billingAccountId  | Unik identifierare för faktureringskontot.   |
 | billingAccountName  | Namnet på faktureringskontot.  |
-| billingProfileId  | Unik identifierare för fakturerings-profilen.   |
-| billingProfileName  | Namnet på den fakturering profil som är konfigurerade att ta emot fakturor. Priserna i prisdokumentet har associerats med den här fakturering profilen. |
-| productOrderName  | Namnet på den köpta produkt-planen. |
-| serviceFamily  | Typ av Azure-tjänsten. Exempel: Compute, Analytics, Security |
-| Product  | Namnet på den produkt som betalar avgifterna. Exempel: Grundläggande SQL DB mot Standard SQL DB  |
-| productId  | Unik identifierare för den produkt som förbrukas vars mätaren. |
-| unitOfMeasure  | Identifierar enheterna för fakturering för tjänsten. Beräkningstjänster, till exempel faktureras per timme. |
+| billingProfileId  | Unik identifierare för faktureringsprofilen.   |
+| billingProfileName  | Namnet på faktureringsprofilen som har konfigurerats för att ta emot fakturor. Priserna i prisdokumentet är kopplade till den här faktureringsprofilen. |
+| productOrderName  | Namnet på den köpta produktplanen. |
+| serviceFamily  | Typ av Azure-tjänst, till exempel Compute, Analytics, Security |
+| Produkt  | Namnet på produkten som avgifterna gäller, till exempel Basic SQL DB eller Standard SQL DB  |
+| productId  | Unik identifierare för produkten vars mätare förbrukas. |
+| unitOfMeasure  | Anger måttenheten för fakturering av tjänsten. Beräkningstjänster debiteras exempelvis per timme. |
 | meterId  | Unik identifierare för mätaren. |
-| meterName  | Namnet på mätaren. Mätaren representerar den distribuerbar resursen för en Azure-tjänst. |
-| meterCategory  | Namnet på klassificeringskategori för mätaren. Till exempel _molntjänster_, _nätverk_osv. |
-| meterType  |  Namnet på mätaren. |
-| meterSubCategory  | Namnet på underkategori för mätning klassificering.  |
-| meterRegion  | Namnet på den region där mätaren för tjänsten är tillgänglig. Anger datacenterplats för vissa tjänster som prissätts beroende på var datacentret ligger.    |
-| tierId  | Identifierar prisnivån när så är tillämpligt. Detta fungerar tillsammans med tierMinimumUnits för att ställa in nivåindelade priser när priser varierar beroende på hur många enheter som används.    |
-| tierMinimumUnits  | Definierar den undre gränsen för nivån intervallet priser har definierats. Om intervallet är 0 till 100, skulle tierMinimumUnits vara 0.  |
-| effectiveStartDate  | Startdatum när priset träder i kraft. |
-| effectiveEndDate  | Slutdatum för gällande pris. |
-| unitPrice  | Pris per enhet vid tidpunkten för fakturering (inte det effektiva blandat priset) som är specifika för en mätare och produkten beställningens namn.  Obs! Enhetspriset är inte densamma som pris i användningsinformation hämtar händelse av tjänster som har differentiell priser på nivåerna.  Vid tjänster med flera nivåer priser gällande pris har en blandad avgift på nivåerna och visar inte en nivå-specifika enhetspriset. Blandat pris eller pris är nettopriset för Använd kvantitet utsträckning över flera nivåer (där varje nivå har ett specifikt a-pris). |
-| basePrice  | Marknad priset då kunden loggar in eller marknad priset på gång mätaren tjänsten startar om den efter inloggning.   |
+| meterName  | Namnet på mätaren. Mätaren representerar den distribuerbara resursen för en Azure-tjänst. |
+| meterCategory  | Namnet på mätarens klassificeringskategori. Det här kan till exempel vara _Molntjänster_ eller _Nätverk_. |
+| meterType  |  Namnet på mätartypen. |
+| meterSubCategory  | Namnet på mätarens underkategori.  |
+| meterRegion  | Namnet på regionen där mätaren för tjänsten är tillgänglig. Anger datacenterplats för vissa tjänster som prissätts beroende på var datacentret ligger.    |
+| tierId  | Anger prisnivån i förekommande fall. Det här används tillsammans med tierMinimumUnits för fastställande av nivåindelade priser när priset varierar beroende på antalet förbrukade enheter.    |
+| tierMinimumUnits  | Definierar den nedre gränsen för nivåintervallet som priserna gäller. Om intervallet till exempel är 0 till 100 skulle tierMinimumUnits vara 0.  |
+| effectiveStartDate  | Startdatumet när priset börjar gälla. |
+| effectiveEndDate  | Slutdatumet för det gällande priset. |
+| unitPrice  | Pris per enhet vid faktureringstillfället (inte det effektiva blandade priset) som är specifikt för en mätare och ett produktbeställningsnamn.  Obs! Enhetspriset är inte detsamma som det effektiva priset i användningsinformationen när det gäller tjänster som har olika priser för olika nivåer.  När det gäller tjänster med olika priser för olika nivåer så är det effektiva priset en blandning av de olika prisnivåerna och då visas inget nivåspecifikt enhetspris. Det blandade priset eller det effektiva priset är nettopriset för den förbrukade kvantiteten och sträcker sig över flera nivåer (där varje nivå har ett visst enhetspris). |
+| basePrice  | Marknadspriset vid den tidpunkt då kunden loggar in eller marknadspriset när mätaren för tjänsten startar om den här tidpunkten infaller efter inloggningen.   |
 
-## <a name="check-access-to-a-microsoft-customer-agreement"></a>Kontrollera åtkomst till en Microsoft-kundavtal
+## <a name="check-access-to-a-microsoft-customer-agreement"></a>Kontrollera åtkomsten till ett Microsoft-kundavtal
 [!INCLUDE [billing-check-mca](../../includes/billing-check-mca.md)]
 
 ## <a name="need-help-contact-us"></a>Behöver du hjälp? Kontakta oss.
 
-Om du har frågor eller behöver hjälp, [skapa en supportbegäran](https://go.microsoft.com/fwlink/?linkid=2083458).
+Om du har frågor eller behöver hjälp kan du [skapa en supportbegäran](https://go.microsoft.com/fwlink/?linkid=2083458).
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Visa och hämta din organisations priser](billing-ea-pricing.md)
+- [Visa och ladda ned din organisations priser](billing-ea-pricing.md)

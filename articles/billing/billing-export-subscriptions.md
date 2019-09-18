@@ -1,6 +1,6 @@
 ---
-title: Exportera din Azure-prenumerationsinformation på toppnivån | Microsoft Docs
-description: Beskriver hur du kan visa alla Azure-prenumerations-ID som är associerade med ditt konto.
+title: Exportera information på toppnivån för din Azure-prenumeration | Microsoft Docs
+description: Här beskrivs hur du kan visa ID:n för alla Azure-prenumerationer som är kopplade till ditt konto.
 keywords: ''
 services: billing
 documentationcenter: ''
@@ -16,23 +16,23 @@ ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: banders
 ms.openlocfilehash: 8a3d1a3a6b1dce1d729942715bbe5962837ff093
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: MT
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 09/11/2019
 ms.locfileid: "60918830"
 ---
-# <a name="export-and-view-your-top-level-subscription-information"></a>Exportera och visa översta prenumerationsinformation
-Om du vill visa en uppsättning prenumerations-ID som är associerade med dina användaruppgifter [hämta en .json-fil med din prenumerationsinformation från Azure Kontocenter](https://account.azure.com/subscriptions/download).
+# <a name="export-and-view-your-top-level-subscription-information"></a>Exportera och visa information på toppnivån för en prenumeration
+Om du behöver visa de prenumerations-ID:n som är kopplade till din användare kan du [ladda ned en .json-fil med din prenumerationsinformation från Azure-kontocentret](https://account.azure.com/subscriptions/download).
 
 [!INCLUDE [gdpr-dsr-and-stp-note](../../includes/gdpr-dsr-and-stp-note.md)]
 
-Hämtade JSON-fil innehåller följande information:
-- E-postadress: E-postadress som är associerade med ditt konto.
-- PUID: Den unika identifieraren som är kopplade till ditt faktureringskonto.
-- SubscriptionIds: En lista över prenumerationer som hör till ditt konto, av prenumerations-ID.
+Den nedladdade .json-filen innehåller följande information:
+- Email: E-postadressen som är kopplad till ditt konto.
+- Puid: Den unika identifierare som är kopplad till faktureringskontot.
+- SubscriptionIds: En lista med prenumerationer som tillhör ditt konto, uppräknade efter prenumerations-ID.
 
-### <a name="subscriptionsjson-sample"></a>subscriptions.JSON exempel
+### <a name="subscriptionsjson-sample"></a>subscriptions.json sample
 
 ```json
 {

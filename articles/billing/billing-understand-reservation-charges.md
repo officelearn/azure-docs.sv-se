@@ -1,6 +1,6 @@
 ---
-title: Förstå reservationer rabatt för Azure SQL-databaser | Microsoft Docs
-description: Lär dig hur en reservationsrabatten tillämpas på med Azure SQL-databaser.
+title: Förstå reservationsrabatt för Azure SQL-databaser | Microsoft Docs
+description: Lär dig hur en reservationsrabatt tillämpas på Azure SQL-databaser som körs.
 documentationcenter: ''
 author: yashesvi
 manager: yashar
@@ -13,52 +13,52 @@ ms.workload: na
 ms.date: 04/13/2019
 ms.author: banders
 ms.openlocfilehash: 4b4c6b390e9b3a0cf764f998523fe3c1cdc66026
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: MT
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 09/11/2019
 ms.locfileid: "60370295"
 ---
-# <a name="how-a-reservation-discount-is-applied-to-azure-sql-databases"></a>Hur en reservationsrabatten tillämpas på Azure SQL-databaser
+# <a name="how-a-reservation-discount-is-applied-to-azure-sql-databases"></a>Så tillämpas en reservationsrabatt på Azure SQL-databaser
 
-När du köper en Azure SQL Database reserverad kapacitet tillämpas i reservationsrabatten automatiskt till SQL-databaser som matchar de attribut och mängden reservationen. En reservation täcker beräkningskostnaderna för din SQL Database. Du debiteras för programvara, lagring och nätverk enligt de vanliga under. Du kan täcka licenskostnaden för SQL-databaser med [Azure Hybrid-förmånen](https://azure.microsoft.com/pricing/hybrid-benefit/).
+När du har köpt en reserverad Azure SQL Database-kapacitet tillämpas reservationsrabatten automatiskt på SQL-databaser som matchar reservationens attribut och kvantitet. En reservation omfattar beräkningskostnaderna för din SQL Database. Du debiteras för programvara, lagring och nätverk enligt de vanliga priserna. Du kan täcka licenskostnaderna för SQL-databaser med [Azure Hybrid-förmån](https://azure.microsoft.com/pricing/hybrid-benefit/).
 
-Reserverade instanser av virtuella datorer, se [förstå Azure Reserved VM Instances rabatt](billing-understand-vm-reservation-charges.md).
+Information om reserverade VM-instanser finns i artikeln om [hur rabatt för Azure Reserved VM Instances fungerar](billing-understand-vm-reservation-charges.md).
 
-## <a name="how-reservation-discount-is-applied"></a>Hur reservationsrabatten tillämpas
+## <a name="how-reservation-discount-is-applied"></a>Så tillämpas reservationsrabatten
 
-En reservationsrabatten är ”*användning – it-eller-förlora-it*”. Så om du inte har matchande resurser för en timme, förlorar sedan du en Reservationskvantitet för den timmen. Du kan inte utföra vidarebefordra oanvända reserverade timmar.
+Reservationsrabatter *går förlorade om de inte används*. Om du inte har några matchande resurser för en viss timme förlorar du därmed en reservationskvantitet för den timmen. Det går inte att föra vidare oanvända reserverade timmar.
 
-När du stänger en resurs kan tillämpas reservationsrabatten automatiskt till en annan matchande resurs i det specificerade omfånget. Om inga matchande resurser finns i det specificerade omfånget så är de reserverade timmarna *förlorad*.
+När du avslutar en resurs tillämpas reservationsrabatten automatiskt på en annan matchande resurs i det angivna omfånget. Om det inte finns några matchande resurser i det angivna omfånget *försvinner* de reserverade timmarna.
 
-## <a name="discount-applied-to-sql-databases"></a>Rabatt som tillämpats på SQL-databaser
+## <a name="discount-applied-to-sql-databases"></a>Rabatt som tillämpas på SQL-databaser
 
- SQL Database rabatten reserverad kapacitet till att köra SQL-databaser per timme. Som du köper reservationen matchas till användningen av beräkning som genereras genom att köra SQL-databaser. För SQL-databaser som inte körs under en hel timme tillämpas automatiskt reservationen på andra SQL-databaser som matchar reservationsattributen. Rabatten kan använda för SQL-databaser som körs samtidigt. Om du inte har SQL-databaser som körs under hela timmen som matchar reservationen attribut kan får du inte ut mesta möjliga av rabatten för den timmen.
+ Rabatten för reserverad SQL Database-kapacitet tillämpas timvis på SQL-databaser som körs. Den reservation som du köper matchas mot den beräkningsanvändning som genereras av de SQL-databaser som körs. För SQL-databaser som inte körs timmen ut tillämpas reservationen automatiskt på andra SQL-databaser som matchar reservationsattributen. Rabatten kan gälla för SQL-databaser som körs samtidigt. Om du inte har några SQL-databaser som körs timmen ut och som matchar reservationsattributen får du inte den fullständiga fördelen med reservationsrabatten för den timmen.
 
-I följande exempel visas hur SQL-databas reserverad kapacitet rabatten gäller baserat på antalet kärnor som du köpt och när de körs.
+I följande exempel visas hur rabatten för reserverad SQL Database-kapacitet tillämpas beroende på det antal kärnor som du har köpt och när de körs.
 
-- Scenario 1: Du köper en SQL-databas som reserverad kapacitet för en SQL-databas med 8 kärnor. Du kör en SQL-databas som matchar resten av reservationen attribut med 16 kärnor. Du debiteras användningsbaserade priset för 8 kärnor i SQL Database beräkning användning. Du får rabatten för en timmes 8 kärnor SQL Database beräkning användning.
+- Scenario 1: Du köper en reserverad SQL Database-kapacitet för en 8-kärnig SQL Database. Du kör en 16-kärnig SQL Database som matchar resten av reservationens attribut. Du debiteras Betala per användning-pris för 8 kärnor med SQL Database-beräkningsanvändning. Du får reservationsrabatten för en timme med 8-kärnig SQL Database-beräkningsanvändning.
 
-I resten av de här exemplen förutsätter att du köper reserverade SQL-databas kapaciteten är för en SQL-databas med 16 kärnor och resten av reservation-attribut matchar de som kör SQL-databaser.
+För resten av dessa exempel förutsätter vi att den reserverade SQL Database-kapacitet som du köper är avsedd för en 16-kärnig SQL Database och att resten av reservationens attribut matchar de SQL-databaser som körs.
 
-- Scenario 2: Du kan köra två SQL-databaser med 8 kärnor i en timme. 16 kärnor reservationsrabatten tillämpas för att beräkna användning för både till 8 kärnor SQL-databaser.
-- Scenario 3: Du kör ett 16-kärnig SQL-databas från 1 pm till 1:30 pm. Du kör en annan 16 kärnor SQL-databas från 1:30 till 14: 00. Båda omfattas av reservationsrabatten.
-- Scenario 4: Du kör ett 16-kärnig SQL-databas från 1 pm till 1:45 pm. Du kör en annan 16 kärnor SQL-databas från 1:30 till 14: 00. Du debiteras användningsbaserad priset för den 15 minuters överlappar varandra. Rabatten gäller för den beräkning användningen av resten av tiden.
+- Scenario 2: Du kör två 8-kärniga SQL-databaser i en timme. Reservationsrabatten för 16 kärnor används för beräkningsanvändning för båda de 8-kärniga SQL-databaserna.
+- Scenario 3: Du kör en 16-kärnig SQL Database från kl. 13:00 till 13:30. Du kör en till 16-kärnig SQL Database från kl. 13:30 till 14:00. Båda omfattas av reservationsrabatten.
+- Scenario 4: Du kör en 16-kärnig SQL Database från kl. 13:00 till 13:45. Du kör en till 16-kärnig SQL Database från kl. 13:30 till 14:00. Du debiteras Betala per användning-priset för överlappningen på 15 minuter. Reservationsrabatten gäller för beräkningsanvändningen för resten av tiden.
 
-För att förstå och visa tillämpningen av dina Azure-reservationer i fakturering användningsrapporter, se [förstå Azure reservation användning](billing-understand-reserved-instance-usage-ea.md).
+Information om hur du förstår och visar tillämpningen av dina Azure-reservationer i rapporterna för faktureringsanvändning finns i avsnittet om [hur Azure-reservationsanvändning fungerar](billing-understand-reserved-instance-usage-ea.md).
 
 ## <a name="need-help-contact-us"></a>Behöver du hjälp? Kontakta oss
 
-Om du har frågor eller behöver hjälp, [skapa en supportbegäran](https://go.microsoft.com/fwlink/?linkid=2083458).
+Om du har frågor eller behöver hjälp kan du [skapa en supportbegäran](https://go.microsoft.com/fwlink/?linkid=2083458).
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om du vill veta mer om Azure reservationer, finns i följande artiklar:
+Mer information om Azure-reservationer finns i följande artiklar:
 
-- [Vad är Azure reservationer?](billing-save-compute-costs-reservations.md)
+- [Vad är Azure-reservationer?](billing-save-compute-costs-reservations.md)
 - [Förskottsbetala för Virtual Machines med Azure Reserved VM Instances](../virtual-machines/windows/prepay-reserved-vm-instances.md)
 - [Förskottsbetala för SQL Database-beräkningsresurser med reserverad kapacitet för Azure SQL Database](../sql-database/sql-database-reserved-capacity.md)
 - [Hantera Azure Reservations](billing-manage-reserved-vm-instance.md)
-- [Förstå användningen av reservation för prenumerationen med användningsbaserad betalning](billing-understand-reserved-instance-usage.md)
-- [Förstå användningen av reserverade för din Enterprise-registrering](billing-understand-reserved-instance-usage-ea.md)
-- [Förstå användningen av reserverade för CSP-prenumerationer](/partner-center/azure-reservations)
+- [Förstå reservationsanvändning för din Betala per användning-prenumeration](billing-understand-reserved-instance-usage.md)
+- [Förstå reservationsanvändning för din Enterprise-registrering](billing-understand-reserved-instance-usage-ea.md)
+- [Förstå reservationsanvändning för CSP-prenumerationer](/partner-center/azure-reservations)

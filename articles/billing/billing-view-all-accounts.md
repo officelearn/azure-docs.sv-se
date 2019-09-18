@@ -1,6 +1,6 @@
 ---
-title: Visa din faktureringsinformation konton i Azure-portalen | Microsoft Docs
-description: Lär dig hur du visar dina fakturering konton i Azure-portalen.
+title: Visa dina faktureringskonton i Azure-portalen | Microsoft Docs
+description: Lär dig hur du visar dina faktureringskonton i Azure-portalen.
 services: ''
 documentationcenter: ''
 author: amberbhargava
@@ -15,77 +15,77 @@ ms.workload: na
 ms.date: 05/11/2018
 ms.author: banders
 ms.openlocfilehash: 36430e9b0a4554761d53b537d3c32fa57068eabb
-ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
-ms.translationtype: MT
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/01/2019
+ms.lasthandoff: 09/11/2019
 ms.locfileid: "67490224"
 ---
-# <a name="view-billing-accounts-in-azure-portal"></a>Visa fakturering konton i Azure-portalen  
+# <a name="view-billing-accounts-in-azure-portal"></a>Visa faktureringskonton i Azure-portalen  
 
-Ett faktureringskonto skapas när du registrerar dig att använda Azure. Du använder ditt faktureringskonto för att hantera dina fakturor, betalningar och spåra kostnader. Du kan ha åtkomst till flera konton för fakturering. Exempelvis kan kanske du har registrerat dig för Azure för dina personliga projekt. Du kan också ha åtkomst till din organisations Enterprise-avtal eller Microsoft kundavtal. För var och en av dessa scenarier behöver du en separat faktureringskonto.
+Ett faktureringskonto skapas när du registrerar dig för att använda Azure. Du använder faktureringskontot för att hantera fakturor och betalningar samt spåra kostnader. Du kan ha åtkomst till flera faktureringskonton. Du kan till exempel ha registrerat dig för Azure för dina personliga projekt. Du kan även ha åtkomst via organisationens Enterprise-avtal eller Microsoft-kundavtal. För var och en av dessa scenarier skulle du ha ett separat faktureringskonto.
 
-Azure-portalen stöder för närvarande följande typ av fakturering konton:
+Azure-portalen stöder för närvarande följande typer av faktureringskonton:
 
-- **Microsoft Online Services-programmet**: Faktureringskonto för en Microsoft onlinetjänster-programmet skapas när du registrerar dig för Azure via Azure-webbplatsen. Till exempel när du registrerar dig för en [kostnadsfritt Azure-konto](https://azure.microsoft.com/offers/ms-azr-0044p/), [konto med betala per användning](https://azure.microsoft.com/offers/ms-azr-0003p/) eller som en [Visual studio-prenumerant](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/).
+- **Microsoft Online Services-programmet**: Ett faktureringskonto för ett Microsoft Online Services-program skapas när du registrerar dig för Azure via Azure-webbplatsen. Det gäller till exempel när du registrerar dig för ett [kostnadsfritt Azure-konto](https://azure.microsoft.com/offers/ms-azr-0044p/) eller ett [konto med Betala per användning-priser](https://azure.microsoft.com/offers/ms-azr-0003p/) eller som [Visual studio-prenumerant](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/).
 
-- **Enterprise-avtal**: Faktureringskonto för Enterprise Agreement-kund skapas när organisationen registrerar en [Enterprise Agreement (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/) att använda Azure.
+- **Enterprise-avtal**: Ett faktureringskonto för ett Enterprise-avtal skapas när din organisation tecknar ett [Enterprise-avtal (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/) för att använda Azure.
 
-- **Microsoft kundavtal**: Faktureringskonto för en Microsoft-kundavtal skapas när din organisation arbetar med en Microsoft-representant för att registrera ett Microsoft-kundavtal. Vissa kunder i utvalda regioner som registrerar sig via Azure-webbplatsen för en [konto med betala per användning](https://azure.microsoft.com/offers/ms-azr-0003p/) eller uppgradera sina [kostnadsfritt Azure-konto](https://azure.microsoft.com/offers/ms-azr-0044p/) kan ha något faktureringskonto för en Microsoft Customer Samt avtalet. Mer information finns i [Kom igång med ditt faktureringskonto för Microsoft kundavtal](billing-mca-overview.md).
+- **Microsoft-kundavtal**: Ett faktureringskonto för ett Microsoft-kundavtal skapas när din organisation arbetar med en Microsoft-representant för att teckna ett Microsoft-kundavtal. Vissa kunder i utvalda regioner som registrerar sig via Azure-webbplatsen för ett [konto med Betala per användning-priser](https://azure.microsoft.com/offers/ms-azr-0003p/) eller uppgraderar sitt [kostnadsfria Azure-konto](https://azure.microsoft.com/offers/ms-azr-0044p/) kan även ha ett faktureringskonto för ett Microsoft-kundavtal. Mer information finns i artikeln om att [komma igång med ditt faktureringskonto för Microsoft-kundavtal](billing-mca-overview.md).
 
 <!--Todo Add section to identify the type of accounts -->
 
-## <a name="scopes-for-billing-accounts"></a>Omfång för fakturering konton
-Ett scope är en nod i ett faktureringskonto som användare använder för att visa och hantera fakturering. Det är där användare hantera faktureringsinformation, betalningar, fakturor, och utföra allmänna kontohantering. 
+## <a name="scopes-for-billing-accounts"></a>Omfång för faktureringskonton
+Ett omfång är en nod i ett faktureringskonto som användarna använder för att visa och hantera fakturering. Det är där som användare hanterar faktureringsdata, betalningar och fakturor samt genomför allmän kontohantering. 
 
 ### <a name="microsoft-online-services-program"></a>Microsoft Online Services-programmet
 
-|Scope  |Definition  |
+|Omfång  |Definition  |
 |---------|---------|
-|Faktureringskonto     | Representerar en enskild ägare (kontoadministratör) för en eller flera Azure-prenumerationer. En kontoadministratör har behörighet att utföra olika fakturering uppgifter som att skapa prenumerationer, visa fakturor eller ändra faktureringen för prenumerationer.  |
-|Prenumeration     |  Representerar en gruppering av Azure-resurser. Fakturan skapas i den här omfattningen. Den har en egen betalningsmetoder som används för att betala dess fakturan.|
+|Faktureringskonto     | Representerar en enskild ägare (kontoadministratör) för en eller flera Azure-prenumerationer. En kontoadministratör har behörighet att utföra olika faktureringsuppgifter, till exempel skapa prenumerationer, visa fakturor eller ändra faktureringen för prenumerationer.  |
+|Prenumeration     |  Representerar en gruppering av Azure-resurser. Fakturan genereras i detta omfång. Den har sina egna betalningsmetoder som används för att betala fakturan.|
 
 
 ### <a name="enterprise-agreement"></a>Enterprise-avtal
 
-|Scope  |Definition  |
+|Omfång  |Definition  |
 |---------|---------|
-|Faktureringskonto    | Representerar en Enterprise Agreement-registrering. Fakturan skapas i den här omfattningen. Det är strukturerad med avdelningar och registreringskonton.  |
+|Faktureringskonto    | Representerar en Enterprise-avtalsregistrering. Fakturan genereras i detta omfång. Det struktureras med hjälp av avdelningar och registreringskonton.  |
 |Avdelning     |  Valfri gruppering av registreringskonton.      |
-|Registreringskonto     |  Representerar en enskild ägare. Azure-prenumerationer som skapats under det här omfånget.  |
+|Registreringskonto     |  Representerar en enskild kontoägare. Azure-prenumerationer skapas under detta omfång.  |
 
 
-### <a name="microsoft-customer-agreement"></a>Microsofts kundavtal
+### <a name="microsoft-customer-agreement"></a>Microsoft-kundavtal
 
-|Scope  |Uppgifter  |
+|Omfång  |Uppgifter  |
 |---------|---------|
-|Faktureringskonto     |   Representerar en kundavtal för flera Microsoft-produkter och tjänster. Det är strukturerad med hjälp av profiler för fakturering och faktura avsnitt.   |
-|Fakturering profil     |  Representerar en faktura och dess betalningsmetoder. Fakturan skapas i den här omfattningen. Den kan ha flera faktura-avsnitt.      |
-|Faktura-avsnitt     |   Representerar en grupp av kostnader i en faktura. Prenumerationer och andra inköp som är kopplade till det här omfånget.    |
+|Faktureringskonto     |   Representerar ett kundavtal för flera Microsoft-produkter och -tjänster. Det struktureras med hjälp av faktureringsprofiler och fakturaavsnitt.   |
+|Faktureringsprofil     |  Representerar en faktura och dess betalningsmetod. Fakturan genereras i detta omfång. Den kan ha flera fakturaavsnitt.      |
+|Fakturaavsnitt     |   Representerar en grupp med kostnader i en faktura. Prenumerationer och andra inköp är kopplade till det här omfånget.    |
 
 
-## <a name="switch-billing-scope-in-the-azure-portal"></a>Växla fakturering omfång i Azure portal
+## <a name="switch-billing-scope-in-the-azure-portal"></a>Byta faktureringsomfång i Azure-portalen
 
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 
-2. Sök efter **Cost Management + fakturering**.
+2. Sök efter **Kostnadshantering + fakturering**.
 
-   ![Skärmbild som visar Azure portal-sökning](./media/billing-view-all-accounts/billing-search-cost-management-billing.png)
+   ![Skärmbild som visar en sökning i Azure-portalen](./media/billing-view-all-accounts/billing-search-cost-management-billing.png)
 
-3. Välj **alla fakturering omfång** till vänster.
+3. Välj **Alla faktureringsomfång** på vänster sida.
 
-   ![Skärmbild som visar alla fakturering omfång](./media/billing-view-all-accounts/billing-list-of-accounts.png)
+   ![Skärmbild som visar alla faktureringsomfång](./media/billing-view-all-accounts/billing-list-of-accounts.png)
 
-   ** Du kommer inte se **alla fakturering omfång** om du bara har åtkomst till ett omfång.
+   ** Du kommer inte att se **Alla faktureringsomfång** om du bara har åtkomst till ett enda omfång.
 
-4. Välj ett omfång för att visa detaljer.
+4. Välj ett omfång för att visa information.
 
 
 
 ## <a name="need-help-contact-us"></a>Behöver du hjälp? Kontakta oss.
 
-Om du har frågor eller behöver hjälp, [skapa en supportbegäran](https://go.microsoft.com/fwlink/?linkid=2083458).
+Om du har frågor eller behöver hjälp kan du [skapa en supportbegäran](https://go.microsoft.com/fwlink/?linkid=2083458).
 
 ## <a name="next-steps"></a>Nästa steg
-- Lär dig hur du startar [analysera kostnaderna](../cost-management/quick-acm-cost-analysis.md).
+- Lär dig hur du börjar [analysera dina kostnader](../cost-management/quick-acm-cost-analysis.md).

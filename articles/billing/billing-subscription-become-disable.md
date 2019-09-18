@@ -1,7 +1,7 @@
 ---
-title: Återaktivera en inaktive rad Azure-prenumeration
-description: Beskriver när du kan ha en Azure-prenumeration inaktive rad och hur du återaktiverar den.
-keywords: Azure-prenumeration inaktive rad
+title: Återaktivera en inaktiverad Azure-prenumeration
+description: Beskriver när du kanske har en Azure-prenumeration inaktiverad och hur du återaktiverar den.
+keywords: Azure-prenumeration inaktiverad
 author: bandersmsft
 manager: amberb
 tags: billing
@@ -13,53 +13,53 @@ ms.topic: conceptual
 ms.date: 07/01/2019
 ms.author: banders
 ms.openlocfilehash: 484a7344185efa17731f5c35c7c4dec109608b67
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
-ms.translationtype: MT
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2019
+ms.lasthandoff: 09/11/2019
 ms.locfileid: "68933083"
 ---
-# <a name="reactivate-a-disabled-azure-subscription"></a>Återaktivera en inaktive rad Azure-prenumeration
+# <a name="reactivate-a-disabled-azure-subscription"></a>Återaktivera en inaktiverad Azure-prenumeration
 
-Din Azure-prenumeration kan inaktive ras eftersom krediten har upphört att gälla, du har uppnått din utgifts gräns, har en förfallen faktura, nått kredit korts gränsen eller på grund av att prenumerationen har avbrutits av konto administratören. Se vilka problem som gäller dig och följ stegen i den här artikeln för att se till att din prenumeration återaktiveras.
+Din Azure-prenumeration kan inaktiveras om din kredit har gått ut, om du har nått din utgiftsgräns, om du har en förfallen faktura, om din kreditkortsgräns har nåtts eller om prenumerationen har avbrutits av kontoadministratören. Se vilket problem som gäller dig och följ stegen i den här artikeln för att få din prenumeration återaktiverad.
 
-## <a name="your-credit-is-expired"></a>Din kredit har upphört att gälla
+## <a name="your-credit-is-expired"></a>Din kredit har upphört
 
-När du registrerar dig för ett kostnads fritt Azure-konto får du en kostnads fri utvärderings prenumeration som ger dig $200 i Azure-krediter i 30 dagar och 12 månaders kostnads fria tjänster. I slutet av 30 dagar inaktiverar Azure prenumerationen. Din prenumeration är inaktive rad för att skydda dig från att av misstag debiteras för användning utöver de kredit tjänster och kostnads fria tjänster som ingår i din prenumeration. Om du vill fortsätta använda Azure-tjänster måste du [uppgradera din prenumeration](billing-upgrade-azure-subscription.md). När du har uppgraderat har prenumerationen fortfarande till gång till kostnads fria tjänster i 12 månader. Du debiteras bara för användning utöver de kostnads fria tjänsterna och kvantiteterna.
+När du registrerar dig för ett kostnadsfritt Azure-konto får du en kostnadsfri utvärderingsprenumeration som ger dig 200 USD i Azure-krediter i 30 dagar och 12 månaders kostnadsfria tjänster. Efter 30-dagarsperioden inaktiverar Azure din prenumeration. Din prenumeration inaktiveras för att skydda dig så att du inte oavsiktligt debiteras för användning utöver krediten och de kostnadsfria tjänsterna som ingår i din prenumeration. Om du vill fortsätta att använda Azure-tjänster måste du [uppgradera din prenumeration](billing-upgrade-azure-subscription.md). Efter uppgraderingen har prenumerationen fortfarande tillgång till kostnadsfria tjänster i 12 månader. Du debiteras bara för användning utöver de kostnadsfria tjänsterna och kvantiteterna.
 
-## <a name="you-reached-your-spending-limit"></a>Du har nått din utgifts gräns
+## <a name="you-reached-your-spending-limit"></a>Du har uppnått utgiftsgränsen
 
-Azure-prenumerationer med kredit, till exempel kostnads fri utvärdering och Visual Studio Enterprise, har en utgifts gräns. Det innebär att du bara kan använda tjänster upp till den inkluderade krediten. När din användning når utgifts gränsen inaktive ras prenumerationen för resten av fakturerings perioden i Azure. Din prenumeration är inaktive rad för att skydda dig från att av misstag debiteras för användning utöver den kredit som ingår i din prenumeration. Om du vill ta bort utgifts gränsen läser du [ta bort utgifts gränsen i konto Center](billing-spending-limit.md#remove).
+Azure-prenumerationer med kredit, till exempel kostnadsfri utvärdering och Visual Studio Enterprise, har en utgiftsgräns. Det innebär att du bara kan använda tjänster upp till den inkluderade krediten. När din användning når utgiftsgränsen inaktiveras din prenumeration under återstoden av faktureringsperioden. Din prenumeration inaktiveras för att skydda dig så att du inte oavsiktligt debiteras för användning utöver krediten som ingår i din prenumeration. Information om hur du tar bort utgiftsgränsen finns i [Ta bort utgiftsgränsen i Kontocenter](billing-spending-limit.md#remove).
 
 > [!NOTE]
-> Om du har en kostnads fri utvärderings prenumeration och tar bort utgifts gränsen, omvandlas prenumerationen till en enskild prenumeration med taxan betala per användning i slutet av den kostnads fria utvärderings versionen. Du behåller din återstående kredit i 30 dagar efter att du har skapat prenumerationen. Du har även tillgång till kostnadsfria tjänster i 12 månader.
+> Om du har en kostnadsfri utvärderingsprenumeration och tar bort utgiftsgränsen så omvandlas din prenumeration till en enskild prenumeration med Betala per användning-priser i slutet av den kostnadsfria utvärderingsperioden. Du behåller din kvarvarande kredit under återstoden av de 30 dagarna från det att du skapade prenumerationen. Du har även tillgång till kostnadsfria tjänster i 12 månader.
 
-Information om hur du övervakar och hanterar fakturerings aktiviteter för Azure finns i [förhindra oväntade kostnader med fakturering och kostnads hantering i Azure](billing-getting-started.md).
+Information om hur du övervakar och hanterar faktureringsaktivitet för Azure finns i [Förhindra oväntade kostnader med Azure-fakturering och kostnadshantering](billing-getting-started.md).
 
 
 ## <a name="your-bill-is-past-due"></a>Din faktura är försenad
 
-Om du vill lösa förfallna saldon läser du åtgärda förfallet [saldo för din Azure-prenumeration när du har hämtat ett e-postmeddelande från Azure](billing-azure-subscription-past-due-balance.md)
+Information om hur du löser problem med ett passerat betalningsdatum finns i [Lösa problem med ett passerat betalningsdatum för en Azure-prenumeration när du har fått ett e-postmeddelande från Azure](billing-azure-subscription-past-due-balance.md).
 
-## <a name="the-bill-exceeds-your-credit-card-limit"></a>Fakturan överskrider kredit korts gränsen
+## <a name="the-bill-exceeds-your-credit-card-limit"></a>Fakturan överskrider kreditkortsgränsen
 
-Lös problemet genom att [byta till ett annat kredit kort](billing-how-to-change-credit-card.md). Eller om du representerar en verksamhet kan du [byta till betala med faktura](billing-how-to-pay-by-invoice.md).
+Lös problemet genom att [byta till ett annat kreditkort](billing-how-to-change-credit-card.md). Eller om du representerar ett företag så kan du [byta till att betala mot faktura](billing-how-to-pay-by-invoice.md).
 
 ## <a name="the-subscription-was-accidentally-canceled"></a>Prenumerationen har avbrutits av misstag
 
-Om du är konto administratör och oavsiktligt har avbrutit en enskild prenumeration med priser enligt principen betala per användning kan du återaktivera den i konto centret.
+Om du är kontoadministratör och oavsiktligt har avbrutit en enskild prenumeration med Betala per användning-priser kan du återaktivera den i Kontocenter.
 
-1. Logga in på [konto Center](https://account.windowsazure.com/Subscriptions).
+1. Logga in på [Kontocenter](https://account.windowsazure.com/Subscriptions).
 1. Välj den avbrutna prenumerationen.
-1. Klicka på **återaktivera**.
+1. Klicka på **Återaktivera**.
 
-    ![Skärm bild som visar återaktivera länkar i den högra rutan](./media/billing-how-to-cancel-azure-subscription/reactivate-sub.png)
+    ![Skärmbild som visar återaktiveringslänkar i den högra rutan](./media/billing-how-to-cancel-azure-subscription/reactivate-sub.png)
 
-[Kontakta supporten](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) om du vill återaktivera prenumerationen för andra prenumerations typer.
+För andra prenumerationstyper kan du [kontakta supporten](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) och få prenumerationen återaktiverad.
 
 ## <a name="need-help-contact-us"></a>Behöver du hjälp? Kontakta oss.
 
-Om du har frågor eller behöver hjälp kan du [skapa en support förfrågan](https://go.microsoft.com/fwlink/?linkid=2083458).
+Om du har frågor eller behöver hjälp kan du [skapa en supportbegäran](https://go.microsoft.com/fwlink/?linkid=2083458).
 
 ## <a name="next-steps"></a>Nästa steg
-- Lär dig hur du [övervakar och hanterar fakturerings aktiviteter för Azure](billing-getting-started.md).
+- Lär dig hur du [övervakar och hanterar faktureringsaktivitet för Azure](billing-getting-started.md).

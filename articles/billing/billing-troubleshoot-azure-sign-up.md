@@ -1,6 +1,6 @@
 ---
 title: Felsöka Azure-registrering
-description: Lösa ett problem när du försöker registrera dig för ett nytt konto i Microsoft Azure-portalen konto Center.
+description: Detta gäller lösning av ett problem vid försök att registrera ett nytt konto i Microsoft Azure-portalen eller kontocentret.
 author: v-miegge
 manager: na
 editor: v-jesits
@@ -13,127 +13,127 @@ ms.workload: na
 ms.date: 08/12/2019
 ms.author: v-miegge
 ms.openlocfilehash: 5032762c1275d3f1c8d1a020a54d20555f8ba3fe
-ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
-ms.translationtype: MT
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2019
+ms.lasthandoff: 09/11/2019
 ms.locfileid: "70242441"
 ---
 # <a name="troubleshoot-azure-sign-up"></a>Felsöka Azure-registrering
 
-Ett problem kan uppstå när du försöker registrera dig för ett nytt konto i Microsoft Azure-portalen eller Azure konto Center. Innan du felsöker problemet ska du först kontrol lera följande:
+Ett problem kan uppstå när du försöker registrera ett nytt konto i Microsoft Azure-portalen eller Azure-kontocenter. Innan du felsöker problemet bör du först kontrollera följande:
 
-- Den information som du har angett för din profil för Azure-kontot (inklusive e-postadress till kontakt, gatuadress och telefonnummer) är korrekt.
-- Kredit korts informationen är korrekt.
-- Du har inte redan en Microsoft-konto med samma information.
+- De uppgifter du angav för din Azure-kontoprofil (däribland e-postadress, gatuadress och telefonnummer för kontakt) är korrekta.
+- Kreditkortsuppgifterna stämmer.
+- Du har inte redan ett Microsoft-konto där du använder samma uppgifter.
 
-## <a name="resolutions"></a>Problemen
+## <a name="resolutions"></a>Lösningar
 
-Om du vill lösa eventuella fel väljer du det problem som du stöter på när du försöker registrera dig för Azure.
+Lös eventuella problem genom att välja det problem som uppstår för dig när du försöker registrera dig för Azure.
 
-### <a name="error-we-cannot-proceed-with-sign-up-due-to-an-issue-with-your-account-please-contact-billing-support"></a>Fel: *Det går inte att fortsätta med registreringen på grund av ett problem med ditt konto. Kontakta fakturerings supporten.*
+### <a name="error-we-cannot-proceed-with-sign-up-due-to-an-issue-with-your-account-please-contact-billing-support"></a>Fel: *Det går inte att fortsätta med registreringen på grund av ett problem med ditt konto. Kontakta faktureringssupporten.*
 
-Följ dessa steg för att lösa problemet:
+Följ dessa anvisningar för att lösa problemet:
 
-1. Logga in på [Azure konto Center](https://account.azure.com/Profile) med hjälp av administratörs behörighet för kontot.
+1. Logga in på [Azure-kontocenter](https://account.azure.com/Profile) med hjälp av kontoadministratörens autentiseringsuppgifter.
 
 2. Välj **Redigera information**.
 
-3. Kontrol lera att alla adress fält är slutförda och giltiga.
+3. Kontrollera att alla adressfält är ifyllda och giltiga.
 
-4. När du registrerar dig för Azure-prenumerationen ska du kontrol lera att fakturerings adressen för kredit korts registreringen matchar dina bank poster.
+4. När du registrerar dig för Azure-prenumerationen ska du kontrollera att faktureringsadressen för kreditkortsregistreringen överensstämmer med dina bankuppgifter.
 
-Om du fortsätter att få fel meddelandet försöker du registrera dig med hjälp av en annan webbläsare.
+Om du fortsätter att få felmeddelandet kan du försöka att registrera dig via en annan webbläsare.
 
-### <a name="progress-bar-hangs-in-identity-verification-by-card-section"></a>Förlopps indikatorn låser sig i avsnittet om *identitets verifiering per kort* .
+### <a name="progress-bar-hangs-in-identity-verification-by-card-section"></a>Förloppsindikatorn låser sig i avsnittet *Identitetsverifiering via kort*.
 
-Om du vill slutföra identitets verifieringen med ett kort måste cookies från tredje part tillåtas för din webbläsare.
+För att du ska kunna slutföra identitetsverifieringen via kort måste cookies från tredje part tillåtas i webbläsaren.
 
 ![Identitetsverifiering via kort](./media/billing-troubleshoot-azure-sign-up/identify-verification-by-card.png)
  
-Använd följande steg för att uppdatera webbläsarens cookie-inställningar.
+Använd följande steg för att uppdatera webbläsarens inställningar för cookies.
 
-1. Om du använder Chrome väljer du **Inställningar** > **Visa avancerade inställningar** > **Sekretess** > **innehålls inställningar**. Rensa **blockera cookies från tredje part och plats data**.
+1. Om du använder Chrome väljer du **Inställningar** > **Visa avancerade inställningar** > **Sekretess** > **Innehållsinställningar**. Avmarkera **Blockera cookies från tredje part och platsdata**.
 
-2. Om du använder Microsoft Edge väljer du **Inställningar** > **Visa avancerade inställningar** > **cookies** > **Blockera inte cookies**.
+2. Om du använder Microsoft Edge väljer du **Inställningar** > **Visa avancerade inställningar** > **Cookies** > **Blockera inte cookies**.
 
-3. Uppdatera sidan för Azure-registrering och kontrol lera om problemet är löst.
+3. Uppdatera sidan för Azure-registrering och kontrollera om problemet är löst.
 
-4. Om uppdateringen inte löste problemet avslutar du och startar om webbläsaren och försöker sedan igen.
+4. Om uppdateringen inte löste problemet avslutar du och startar om webbläsaren, och försöker sedan igen.
 
-### <a name="credit-card-form-doesnt-support-my-billing-address"></a>Kredit korts formuläret stöder inte min fakturerings adress
+### <a name="credit-card-form-doesnt-support-my-billing-address"></a>Kreditkortsformuläret stöder inte min faktureringsadress
 
-Din fakturerings adress måste finnas i det land som du väljer i avsnittet **om** . Kontrol lera att du väljer rätt land.
+Din faktureringsadress måste finnas i det land eller den region som du väljer i avsnittet **Om dig**. Kontrollera att du väljer rätt land eller region.
 
-### <a name="no-text-messages-or-calls-during-sign-up-account-verification"></a>Inga textmeddelanden eller anrop vid verifiering av registrerings kontot
+### <a name="no-text-messages-or-calls-during-sign-up-account-verification"></a>Inga textmeddelanden eller samtal vid kontoverifiering under registrering
 
-Även om processen normalt är snabb, kan det ta upp till fyra minuter innan en verifierings kod levereras. Det telefonnummer som du anger för verifiering lagras inte som ett kontakt nummer för kontot.
+Även om processen normalt är snabb kan det ta upp till fyra minuter innan en verifieringskod levereras. Det telefonnummer som du anger för verifiering lagras inte som ett kontaktnummer för kontot.
 
 Här följer några ytterligare tips:
 
-- Det går inte att använda ett VoiP-telefonnummer (Voice-över-IP) för telefon verifierings processen.
-- Dubbelklicka på det telefonnummer som du anger, inklusive lands koden som du väljer i den nedrullningsbara menyn.
-- Om din telefon inte tar emot textmeddelanden (SMS) kan du prova alternativet **Ring mig** .
-- Kontrol lera att din telefon kan ta emot samtal eller SMS-meddelanden från ett USA-baserat telefonnummer.
+- Det går inte att använda ett VoiP-telefonnummer för telefonverifieringsprocessen.
+- Dubbelkontrollera det telefonnummer som du anger, inklusive den landskod som du väljer i den nedrullningsbara menyn.
+- Om din telefon inte får textmeddelanden (SMS) kan du prova alternativet **Ring mig**.
+- Kontrollera att din telefon kan ta emot samtal eller SMS från ett USA-baserat telefonnummer.
 
-När du får textmeddelandet eller telefonsamtalet anger du den kod som du får i text rutan.
+När du får SMS:et eller telefonsamtalet anger du den kod som du får i textrutan.
 
-### <a name="credit-card-declined-or-not-accepted"></a>Kredit kort har avböjts eller accepterats inte
+### <a name="credit-card-declined-or-not-accepted"></a>Kreditkort nekas eller accepterats inte
 
-Virtuella eller förbetalda kredit-eller betalkort godkänns inte som betalning för Azure-prenumerationer. Om du vill se vad mer kan orsaka att kortet nekas, kan du läsa ditt betalkort eller kredit kortet [nekas vid Azure-registrering](https://support.microsoft.com/help/4042960).
+Virtuella eller förbetalda kredit- eller debetkort accepteras inte som betalningsmedel för Azure-prenumerationer. Om du vill se fler potentiella orsaker till att ditt kort nekas kan du se om ditt debetkort eller kreditkort [nekas vid Azure-registrering](https://support.microsoft.com/help/4042960).
 
-### <a name="free-trial-is-not-available"></a>Den kostnads fria utvärderings versionen är inte tillgänglig
+### <a name="free-trial-is-not-available"></a>Kostnadsfri utvärderingsversion är inte tillgänglig
 
-Har du använt en Azure-prenumeration tidigare? Azures användningsvillkor begränsar aktivering av kostnadsfri utvärderingsversion endast för en användare som är nybörjare på Azure. Om du har haft någon annan typ av Azure-prenumeration kan du inte aktivera en kostnadsfri utvärderingsversion. Överväg att registrera dig för en [prenumeration där du betalar per](https://azure.microsoft.com/offers/ms-azr-0003p/)användning.
+Har du använt en Azure-prenumeration tidigare? Azures användningsvillkor begränsar aktivering av kostnadsfri utvärderingsversion endast för en användare som är nybörjare på Azure. Om du har haft någon annan typ av Azure-prenumeration kan du inte aktivera en kostnadsfri utvärderingsversion. Överväg att registrera dig för en [Betala per användning-prenumeration](https://azure.microsoft.com/offers/ms-azr-0003p/).
 
-### <a name="i-saw-a-charge-on-my-free-trial-account"></a>Jag såg en avgift på mitt kostnads fria utvärderings konto
+### <a name="i-saw-a-charge-on-my-free-trial-account"></a>Jag såg en avgift på mitt kostnadsfria utvärderingskonto
 
-Du kan se att en liten verifiering är kvar på ditt kredit korts konto efter registreringen. Detta tas bort inom tre till fem dagar. Om du oroar dig för att hantera kostnader kan du läsa mer om [att förhindra oväntade kostnader](billing-getting-started.md).
+Det kan finnas ett litet reservationsbelopp på ditt kreditkortskonto efter att du har registrerat dig. Detta tas bort inom tre till fem dagar. Om du har funderingar kring hantering av kostnader kan du läsa mer om att [förhindra oväntade kostnader](billing-getting-started.md).
 
-### <a name="cant-activate-azure-benefit-plan-like-msdn-bizspark-bizsparkplus-or-mpn"></a>Det går inte att aktivera Azures förmåns plan som MSDN, BizSpark, BizSparkPlus eller MPN
+### <a name="cant-activate-azure-benefit-plan-like-msdn-bizspark-bizsparkplus-or-mpn"></a>Det går inte att aktivera Azure-förmånsplan såsom MSDN, BizSpark, BizSparkPlus eller MPN
 
-Kontrol lera att du använder rätt inloggnings uppgifter. Kontrol lera sedan förmåns programmet för att se till att du är berättigad.
+Kontrollera att du använder rätt inloggningsuppgifter. Kontrollera sedan förmånsprogrammet för att se om du är berättigad.
 
 - MSDN 
-  - Kontrol lera status för din status på din [MSDN-konto sida](https://msdn.microsoft.com/subscriptions/manage/default.aspx).
-  - Om du inte kan verifiera din status kontaktar du [MSDN-prenumerationens kund Service Center](https://msdn.microsoft.com/library/aa493452.aspx).
+  - Kontrollera din berättigandestatus på din [MSDN-kontosida](https://msdn.microsoft.com/subscriptions/manage/default.aspx).
+  - Om du inte kan verifiera din status kontaktar du [kundtjänstcentret för MSDN-prenumerationskunder](https://msdn.microsoft.com/library/aa493452.aspx).
 - Microsoft for Startups
-  - Logga in på [Microsoft for startups-portalen](https://startups.microsoft.com/#start-two) för att kontrol lera status för Microsoft för starter.
-  - Om du inte kan verifiera din status kan du få hjälp i [forumen Microsoft for startups](https://www.microsoftpartnercommunity.com/t5/Microsoft-for-Startups/ct-p/Microsoft_Startups).
+  - Logga in på [Microsoft for Startups-portalen](https://startups.microsoft.com/#start-two) för att kontrollera din berättigandestatus för Microsoft for Startups.
+  - Om du inte kan verifiera statusen kan du få hjälp på [forumen för Microsoft for Startups](https://www.microsoftpartnercommunity.com/t5/Microsoft-for-Startups/ct-p/Microsoft_Startups).
 - MPN 
-  - Logga in på [MPN-portalen](https://mspartner.microsoft.com/Pages/Locale.aspx) för att verifiera din status. Om du har rätt [moln plattforms kompetens](https://mspartner.microsoft.com/pages/membership/cloud-platform-competency.aspx)kan du vara berättigad till ytterligare förmåner.
-  - Kontakta [MPN-supporten](https://mspartner.microsoft.com/Pages/Support/Premium/contact-support.aspx)om du inte kan verifiera din status.
+  - Logga in på [MPN-portalen](https://mspartner.microsoft.com/Pages/Locale.aspx) för att verifiera din berättigandestatus. Om du har rätt [molnplattformskompetenser](https://mspartner.microsoft.com/pages/membership/cloud-platform-competency.aspx) kan du vara berättigad till ytterligare förmåner.
+  - Om du inte kan verifiera din status kontaktar du [MPN-supporten](https://mspartner.microsoft.com/Pages/Support/Premium/contact-support.aspx).
 
-### <a name="cant-activate-new-azure-in-open-subscription"></a>Det går inte att aktivera ny Azure i Open-prenumeration
+### <a name="cant-activate-new-azure-in-open-subscription"></a>Det går inte att aktivera ny Azure In Open-prenumeration
 
-Om du vill skapa en Azure i Open-prenumeration måste du ha en giltig nyckel för aktivering av online tjänst (OSA) som har minst en Azure i Open-token kopplad till sig. Om du inte har en OSA-nyckel kontaktar du en av de Microsoft-partner som finns i [Microsoft Pinpoint](https://pinpoint.microsoft.com/).
+För att kunna skapa en Azure In Open-prenumeration måste du ha en giltig OSA-nyckel (Online Service Activation) som har minst en Azure In Open-token associerad. Om du inte har en OSA-nyckel kontaktar du en av de Microsoft-partner som anges i [Microsoft Pinpoint](https://pinpoint.microsoft.com/).
 
 ### <a name="error-you-are-not-eligible-for-an-azure-subscription"></a>Fel: *Du är inte berättigad till en Azure-prenumeration*
 
-Lös problemet genom att kontrol lera om följande objekt är sanna:
+Lös det här problemet genom att kontrollera om följande saker stämmer:
 
-- Den information som du har angett för din profil för Azure-kontot (inklusive e-postadress till kontakt, gatuadress och telefonnummer) är korrekt.
-- Kredit korts informationen är korrekt.
-- Du har inte redan en Microsoft-konto som använder samma information.
+- De uppgifter du angav för din Azure-kontoprofil (däribland e-postadress, gatuadress och telefonnummer för kontakt) är korrekta.
+- Kreditkortsuppgifterna stämmer.
+- Du har inte redan ett Microsoft-konto där samma uppgifter används.
 
-### <a name="error-your-current-account-type-is-not-supported"></a>Fel: *Den aktuella konto typen stöds inte*
+### <a name="error-your-current-account-type-is-not-supported"></a>Fel: *Din aktuella kontotyp stöds inte*
 
-Det här problemet kan uppstå om kontot är registrerat i en [ohanterad Azure AD-katalog](../active-directory/users-groups-roles/directory-self-service-signup.md)och inte finns i din organisations Azure AD-katalog. 
+Det här problemet kan uppstå om kontot är registrerat i en [ohanterad Azure AD-katalog](../active-directory/users-groups-roles/directory-self-service-signup.md) och inte finns i din organisations Azure AD-katalog. 
 
-Lös problemet genom att registrera Azure-kontot med ett annat konto eller ta över den ohanterade AD-katalogen. Mer information finns i [ta över en ohanterad katalog som administratör i Azure Active Directory](../active-directory/users-groups-roles/domains-admin-takeover.md).
+Lös det här problemet genom att registrera Azure-kontot med hjälp av ett annat konto eller ta över den ohanterade AD-katalogen. Mer information finns i [Ta över en ohanterad katalog som administratör i Azure Active Directory](../active-directory/users-groups-roles/domains-admin-takeover.md).
  
-## <a name="additional-help-resources"></a>Ytterligare hjälp resurser
+## <a name="additional-help-resources"></a>Fler hjälpresurser
 
-Andra fel söknings artiklar för Azure-fakturering och-prenumerationer
+Här är några fler felsökningsartiklar som gäller fakturering och prenumerationer i Azure
 
 - [Nekat kort](billing-troubleshoot-declined-card.md)
-- [Problem med prenumerations inloggning](billing-troubleshoot-sign-in-issue.md)
+- [Problem med prenumerationsinloggning](billing-troubleshoot-sign-in-issue.md)
 - [Inga prenumerationer hittades](billing-no-subscriptions-found.md)
 - [Företagskostnadsvy inaktiverad](billing-enterprise-mgmt-grp-troubleshoot-cost-view.md)
 
 ## <a name="contact-us-for-help"></a>Kontakta oss om du behöver hjälp
 
-Om du har frågor eller behöver hjälp, [skapa en supportbegäran](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+Om du har frågor eller behöver hjälp kan du [skapa en supportbegäran](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
 ## <a name="next-steps"></a>Nästa steg
 

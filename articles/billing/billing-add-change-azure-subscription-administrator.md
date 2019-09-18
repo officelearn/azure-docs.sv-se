@@ -1,6 +1,6 @@
 ---
-title: Lägga till eller ändra Azure-prenumerationsadministratörer | Microsoft Docs
-description: Beskriver hur du lägger till eller ändrar en administratör för Azure-prenumeration med hjälp av rollbaserad åtkomstkontroll (RBAC).
+title: Lägga till eller ändra administratörer för en Azure-prenumeration | Microsoft Docs
+description: Här beskrivs hur du lägger till eller ändrar administratörer för en Azure-prenumeration med hjälp av rollbaserad åtkomstkontroll (RBAC).
 services: ''
 documentationcenter: ''
 author: genlin
@@ -16,54 +16,54 @@ ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: banders
 ms.openlocfilehash: 000315a2d751a05d3e401ee1bb9f593c6e321194
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: MT
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 09/11/2019
 ms.locfileid: "64922907"
 ---
-# <a name="add-or-change-azure-subscription-administrators"></a>Lägga till eller ändra Azure-prenumerationsadministratörer
+# <a name="add-or-change-azure-subscription-administrators"></a>Lägg till eller ändra administratörer för en Azure-prenumeration
 
-Du måste ha rätt administratörsroll för att hantera åtkomst till Azure-resurser. Azure har ett auktoriseringssystem som kallas rollbaserad åtkomstkontroll (RBAC) med flera inbyggda roller som du kan välja bland. Du kan tilldela dessa roller med olika omfång, till exempel hanteringsgruppen, prenumeration eller resursgrupp.
+Du måste ha rätt administratörsroll för att hantera åtkomst till Azure-resurser. Azure har ett behörighetssystem som kallas rollbaserad åtkomstkontroll (RBAC) där du kan välja mellan flera olika inbyggda roller. Du kan tilldela dessa roller för olika omfång, som en hanteringsgrupp, en prenumeration eller en resursgrupp.
 
-Microsoft rekommenderar att du hanterar åtkomst till resurser med hjälp av RBAC. Men om du fortfarande använder den klassiska distributionsmodellen och hantera klassiska resurser med hjälp av [Azure Service Management PowerShell-modulen](https://docs.microsoft.com/powershell/module/servicemanagement/azure), måste du använda en klassisk administratör. 
+Microsoft rekommenderar att du hanterar åtkomsten till resurser med RBAC. Om du fortfarande använder den klassiska distributionsmodellen och hanterar de klassiska resurserna med hjälp av [Azure Service Management Powershell-modulen](https://docs.microsoft.com/powershell/module/servicemanagement/azure) måste du använda en klassisk administratör. 
 
 > [!TIP]
-> Om du bara använder Azure-portalen för att hantera klassiska resurser, behöver du inte använda den klassiska administratören.
+> Om du bara använder Azure-portalen till att hantera de klassiska resurserna behöver du inte använda någon klassisk administratör.
 
-Mer information finns i [Azure Resource Manager och klassisk distribution](../azure-resource-manager/resource-manager-deployment-model.md) och [Azure klassiska prenumerationsadministratörer](../role-based-access-control/classic-administrators.md).
+Mer information finns i [Azure Resource Manager jämfört med klassisk distribution](../azure-resource-manager/resource-manager-deployment-model.md) och [Administratörer för klassiska Azure-prenumerationer](../role-based-access-control/classic-administrators.md).
 
-Den här artikeln beskrivs hur lägga till eller ändra administratörsrollen för en användare med RBAC prenumerationsområde.
+I den här artikeln beskrivs hur du lägger till eller ändrar administratörsroller för användare med RBAC i ett prenumerationsomfång.
 
 <a name="add-an-admin-for-a-subscription"></a>
 
 ## <a name="assign-a-user-as-an-administrator-of-a-subscription"></a>Tilldela en användare som administratör för en prenumeration
 
-Om du vill göra en administratör för en Azure-prenumeration för en användare, tilldela dem den [ägare](../role-based-access-control/built-in-roles.md#owner) roll (en RBAC-roll) prenumerationsområde. Ägarrollen ger användaren fullständig åtkomst till alla resurser i prenumerationen, inklusive rätten att delegera åtkomst till andra. De här stegen är desamma som alla andra rolltilldelning.
+Om du vill göra en användare till administratör för en Azure-prenumeration tilldelar du rollen [Ägare](../role-based-access-control/built-in-roles.md#owner) (en RBAC-roll) i prenumerationsomfånget. Rollen ägare ger fullständig åtkomst till alla resurser i prenumerationen, inklusive rätten att ge åtkomst till andra. De här stegen är desamma som för andra rolltilldelningar.
 
-1. I Azure-portalen öppnar [prenumerationer](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
+1. Öppna [Prenumerationer](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) i Azure-portalen.
 
-1. Klicka på den prenumeration där du vill bevilja åtkomst.
+1. Klicka på prenumerationen du vill ge åtkomst till.
 
-1. Klicka på **åtkomstkontroll (IAM)** .
+1. Klicka på **Åtkomstkontroll (IAM)** .
 
-1. Klicka på den **rolltilldelningar** fliken för att visa alla rolltilldelningar för den här prenumerationen.
+1. Klicka på fliken **Rolltilldelningar** så att du ser alla rolltilldelningar för prenumerationen.
 
     ![Skärmbild som visar rolltilldelningar](./media/billing-add-change-azure-subscription-administrator/role-assignments.png)
 
-1. Klicka på **Lägg till** > **Lägg till rolltilldelning** att öppna den **Lägg till rolltilldelning** fönstret.
+1. Klicka på **Lägg till** > **Lägg till rolltilldelning** för att öppna fönstret **Lägg till rolltilldelning**.
 
-    Om du inte har behörighet att tilldela roller, inaktiveras alternativet.
+    Om du inte har behörighet att tilldela roller är det här alternativet inaktiverat.
 
-1. I den **rollen** listrutan, väljer den **ägare** roll.
+1. I listrutan **Roll** väljer du rollen **Ägare**.
 
-1. I den **Välj** väljer du en användare. Om du inte ser användare i listan kan du skriva i den **Välj** om du vill söka i katalogen för visningsnamn och e-postadresser.
+1. Välj en användare i listan **Välj**. Om du inte ser användaren i listan kan du ange visningsnamn och e-postadresser i rutan **Välj** om du vill söka i katalogen.
 
-    ![Skärmbild som visar ägarrollen valt](./media/billing-add-change-azure-subscription-administrator/add-role.png)
+    ![Skärmbild där rollen Ägare är vald](./media/billing-add-change-azure-subscription-administrator/add-role.png)
 
-1. Klicka på **spara** du tilldela rollen.
+1. Klicka på **Spara** för att tilldela rollen.
 
-    Efter en liten stund tilldelas användaren ägarrollen prenumerationsområde.
+    Efter en stund tilldelas rollen Ägare till användaren i prenumerationsomfånget.
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -74,4 +74,4 @@ Om du vill göra en administratör för en Azure-prenumeration för en användar
 
 ## <a name="need-help-contact-support"></a>Behöver du hjälp? Kontakta supporten
 
-Om du fortfarande behöver hjälp, [supporten](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) att lösa problemet snabbt.
+Om du fortfarande behöver hjälp kan du [kontakta supporten](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) så får du hjälp att lösa problemet snabbt.

@@ -1,6 +1,6 @@
 ---
-title: Utgifts gräns för Azure | Microsoft Docs
-description: Den här artikeln beskriver hur en utgifts gräns i Azure fungerar och hur du tar bort den.
+title: Utgiftsgräns för Azure | Microsoft Docs
+description: I den här artikeln beskrivs hur en utgiftsgräns för Azure fungerar samt hur du tar bort den.
 author: bandersmsft
 manager: amberb
 tags: billing
@@ -12,76 +12,76 @@ ms.topic: conceptual
 ms.date: 08/28/2019
 ms.author: banders
 ms.openlocfilehash: 1324b60de05805cd409975358ff78e5b2b27eef1
-ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
-ms.translationtype: MT
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
+ms.lasthandoff: 09/11/2019
 ms.locfileid: "70114438"
 ---
-# <a name="azure-spending-limit"></a>Utgifts gräns för Azure
+# <a name="azure-spending-limit"></a>Utgiftsgräns i Azure
 
-Utgifts gränsen i Azure gör att du inte kan spendera på ditt kredit belopp. Alla nya kunder som registrerar sig för en utvärderings version av Azure eller erbjudanden som innehåller krediter under flera månader har utgifts gränsen aktive rad som standard. Utgifts gränsen är $0 och kan inte ändras. Du kan till exempel inte ändra utgifts gränsen till $100. Du kan dock ta bort utgifts gränsen. Så du har antingen ingen gräns eller så har du en gräns på noll som hindrar dig från de flesta typer av utgifter. Utgifts gränsen är inte tillgänglig för prenumerationer under vissa planer på sådana avtals planer och planer med priser för betala per användning. Se den [fullständiga listan med Azure-erbjudanden och tillgängligheten för utgifts gränsen](https://azure.microsoft.com/support/legal/offer-details/).
+Utgiftsgränsen i Azure gör att du inte kan spendera mer än ditt kreditbelopp. Alla nya kunder som registrerar sig för en Azure-utvärdering eller erbjudanden som innefattar krediter i flera månader har utgiftsgränsen aktiverad som standard. Utgiftsgränsen är 0 USD och kan inte ändras. Du kan till exempel inte ändra utgiftsgränsen till 100 USD. Dock kan du när som helst ta bort utgiftsgränsen. Därmed har du antingen ingen gräns eller en gräns på noll som förhindrar de flesta typer av utgifter. Utgiftsgränsen är inte tillgänglig för prenumerationer under vissa planer, till exempel åtagandeplaner och planer med Betala per användning-priser. Mer information finns i den [fullständiga listan med Azure-erbjudanden och tillgänglighet för utgiftsgränsen](https://azure.microsoft.com/support/legal/offer-details/).
 
-## <a name="reaching-a-spending-limit"></a>Nått en utgifts gräns
+## <a name="reaching-a-spending-limit"></a>Uppnå en utgiftsgräns
 
-När din användning leder till kostnader som förbrukar de månatliga beloppen som ingår i din Azure-prenumeration inaktive ras de tjänster som du har distribuerat för resten av fakturerings perioden.
+När din användning leder till avgifter som överstiger de månadsbelopp som ingår i din Azure-prenumeration inaktiveras de tjänster som du har distribuerat under resten av den faktureringsperioden.
 
-När du till exempel lägger till all kredit som ingår i din prenumeration tas de Azure-resurser som du har distribuerat bort från produktionen och dina virtuella Azure-datorer stoppas och tas bort. Data i dina lagrings konton är tillgängliga som skrivskyddade.
+När du till exempel spenderar all kredit som ingår i din prenumeration tas de Azure-resurser som du distribuerade bort från produktion, och dina virtuella Azure-datorer stoppas och avallokeras. Data i dina lagringskonton är tillgängliga som skrivskyddade.
 
-I början av nästa fakturerings period, om ditt prenumerations erbjudande innehåller krediter under flera månader, aktive ras prenumerationen igen automatiskt. Sedan kan du distribuera om dina Azure-resurser och få full åtkomst till dina lagrings konton och databaser.
+Om ditt prenumerationserbjudande omfattar krediter under flera månader återaktiveras din prenumeration automatiskt i början av nästa faktureringsperiod. Sedan kan du distribuera om dina Azure-resurser och få fullständig åtkomst till dina lagringskonton och databaser.
 
-Azure skickar e-postaviseringar när du når utgifts gränsen för din prenumeration. Logga in på [konto centret](https://account.windowsazure.com/Subscriptions) för att se meddelanden om prenumerationer som har nått utgifts gränsen.
+Azure skickar e-postaviseringar när du når utgiftsgränsen för din prenumeration. Logga in på [Kontocenter](https://account.windowsazure.com/Subscriptions) för att se meddelanden om prenumerationer som har nått utgiftsgränsen.
 
-Om du har en kostnads fri utvärderings prenumeration och når utgifts gränsen kan du uppgradera till en plan med priset [betala per](billing-upgrade-azure-subscription.md) användning för att ta bort utgifts gränsen och automatiskt aktivera prenumerationen.
+Om du har en kostnadsfri utvärderingsprenumeration och når utgiftsgränsen kan du uppgradera till en plan med [Betala per användning-priser](billing-upgrade-azure-subscription.md) för att ta bort utgiftsgränsen och automatiskt aktivera prenumerationen.
 
 <a id="remove"></a>
 
-## <a name="remove-the-spending-limit-in-account-center"></a>Ta bort utgifts gränsen i konto Center
+## <a name="remove-the-spending-limit-in-account-center"></a>Ta bort utgiftsgränsen i Kontocenter
 
-Du kan när som helst ta bort utgifts gränsen så länge det finns en giltig betalnings metod som är kopplad till din Azure-prenumeration. För erbjudanden som har kredit över flera månader kan du också aktivera utgifts gränsen i början av nästa fakturerings period.
+Du kan ta bort utgiftsgränsen när som helst så länge det finns en giltig betalningsmetod som är associerad med din Azure-prenumeration. För erbjudanden som har krediter under flera månader kan du även aktivera utgiftsgränsen i början av nästa faktureringsperiod.
 
 Om du vill ta bort utgiftsgränsen följer du dessa anvisningar:
 
-1. Logga in på [konto Center](https://account.windowsazure.com/Subscriptions).
-1. Välj en prenumeration. Om prenumerationen är inaktive rad eftersom utgifts gränsen har uppnåtts klickar du på meddelandet: **Prenumerationen nådde utgifts gränsen och har inaktiverats för att förhindra avgifter.** Annars klickar du på **ta bort utgifts gräns** i avsnittet **prenumerations status** .
+1. Logga in på [Kontocenter](https://account.windowsazure.com/Subscriptions).
+1. Välj en prenumeration. Om prenumerationen har inaktiverats på grund av att utgiftsgränsen har uppnåtts klickar du på meddelandet: **Prenumerationen har nått utgiftsgränsen och har inaktiverats för att förhindra att avgifter tas ut.** Annars klickar du på **Ta bort utgiftsgräns** i området **PRENUMERATIONSSTATUS**.
 1. Välj ett alternativ som passar dig.
 
-![Välja ett alternativ för att ta bort utgifts gränsen](./media/billing-spending-limit/remove-spending-limit.PNG)
+![Välja ett alternativ för att ta bort utgiftsgränsen](./media/billing-spending-limit/remove-spending-limit.PNG)
 
 | Alternativ | Verkan |
 | --- | --- |
-| Ta bort utgiftsgränsen på obestämd tid | Tar bort utgiftsgränsen utan att den aktiveras automatiskt vid början av nästa debiteringsperiod. |
-| Ta bort utgiftsgränsen för den aktuella debiteringsperioden | Tar bort utgiftsgränsen så att den nollställs automatiskt vid början av nästa faktureringsperiod. |
+| Ta bort utgiftsgränsen på obestämd tid | Tar bort utgiftsgränsen utan att den aktiveras automatiskt vid början av nästa faktureringsperiod. |
+| Ta bort utgiftsgränsen för den aktuella faktureringsperioden | Tar bort utgiftsgränsen så att den återaktiveras automatiskt vid början av nästa faktureringsperiod. |
 
-## <a name="why-you-might-want-to-remove-the-spending-limit"></a>Varför du kanske vill ta bort utgifts gränsen
+## <a name="why-you-might-want-to-remove-the-spending-limit"></a>Därför bör du kanske ta bort utgiftsgränsen
 
-Utgifts gränsen kan förhindra att du distribuerar eller använder vissa tredje parter och Microsoft-tjänster. Här är de situationer där du bör ta bort utgifts gränsen för din prenumeration.
+Utgiftsgränsen kan hindra dig från att distribuera eller använda vissa tjänster från tredje part och Microsoft-tjänster. Här följer några situationer där du bör ta bort utgiftsgränsen för din prenumeration.
 
--  Du planerar att distribuera avbildningar från första part, till exempel Oracle och tjänster som Azure DevOps Services. Den här situationen gör att du överskrider din utgifts gräns nästan omedelbart och gör att din prenumeration inaktive ras.
+-  Du planerar att distribuera avbildningar från första part, till exempel Oracle, och tjänster såsom Azure DevOps Services. Den här situationen gör att du överstiger utgiftsgränsen nästan omedelbart och gör att din prenumeration inaktiveras.
 - Du har tjänster som du inte vill ska störas.
-- Du har tjänster och resurser med inställningar, till exempel virtuella IP-adresser, som du inte vill förlora. De här inställningarna försvinner när tjänsterna och resurserna är avallokerade.
+- Du har tjänster och resurser med inställningar, till exempel virtuella IP-adresser, som du inte vill förlora. Dessa inställningar förloras när tjänsterna och resurserna avallokeras.
 
-## <a name="turn-on-the-spending-limit-after-removing"></a>Aktivera utgifts gränsen efter borttagning
+## <a name="turn-on-the-spending-limit-after-removing"></a>Aktivera utgiftsgränsen efter borttagning
 
-Den här funktionen är endast tillgänglig när utgifts gränsen har tagits bort under obestämd tid. Ändra det så att det aktive ras automatiskt i början av nästa fakturerings period.
+Den här funktionen är endast tillgänglig när utgiftsgränsen har tagits bort under obestämd tid. Ändra den så att den aktiveras automatiskt i början av nästa faktureringsperiod.
 
-1. Logga in på [konto Center](https://account.windowsazure.com/Subscriptions).
-1. Klicka på den gula banderollen för att ändra alternativet för utgifts gräns.
-1. Välj **Aktivera utgifts gränsen under nästa fakturerings period \<start datum för fakturerings perioden\>**
+1. Logga in på [Kontocenter](https://account.windowsazure.com/Subscriptions).
+1. Klicka på den gula banderollen för att ändra alternativet för utgiftsgräns.
+1. Välj **Aktivera utgiftsgränsen under nästa faktureringsperiod \<startdatum för faktureringsperioden\>**
 
-## <a name="custom-spending-limit"></a>Anpassad utgifts gräns
+## <a name="custom-spending-limit"></a>Anpassad utgiftsgräns
 
-Anpassade utgifts gränser är inte tillgängliga.
+Anpassade utgiftsgränser är inte tillgängliga.
 
-## <a name="a-spending-limit-doesnt-prevent-all-charges"></a>En utgifts gräns förhindrar inte alla avgifter
+## <a name="a-spending-limit-doesnt-prevent-all-charges"></a>En utgiftsgräns förhindrar inte alla typer av utgifter
 
-[Vissa externa tjänster som publicerats på Azure Marketplace](billing-understand-your-azure-marketplace-charges.md) kan inte användas med dina prenumerations krediter, och kan medföra separata avgifter även om din utgifts gräns har angetts. Exempel är Visual Studio-licenser, Azure Active Directory Premium, support avtal och de flesta märkes tjänster från tredje part. När du etablerar en ny extern tjänst visas en varning som låter dig veta att tjänsterna faktureras separat:
+[Vissa externa tjänster som publicerats på Azure Marketplace](billing-understand-your-azure-marketplace-charges.md) kan inte användas med dina prenumerationskrediter, och kan medföra separata avgifter även när din utgiftsgräns har angetts. Exempel är Visual Studio-licenser, Azure Active Directory Premium, supportavtal och de flesta varumärkestjänster från tredje part. När du etablerar en ny extern tjänst visas en varning om att tjänsterna faktureras separat:
 
-![Marknads plats inköps varning](./media/billing-understand-your-azure-marketplace-charges/marketplace-warning.PNG)
+![Marketplace-inköpsvarning](./media/billing-understand-your-azure-marketplace-charges/marketplace-warning.PNG)
 
 ## <a name="need-help-contact-us"></a>Behöver du hjälp? Kontakta oss.
 
-Om du har frågor eller behöver hjälp kan du [skapa en support förfrågan](https://go.microsoft.com/fwlink/?linkid=2083458).
+Om du har frågor eller behöver hjälp kan du [skapa en supportbegäran](https://go.microsoft.com/fwlink/?linkid=2083458).
 
 ## <a name="next-steps"></a>Nästa steg
-- Uppgradera till en plan med priset [betala per](billing-upgrade-azure-subscription.md) användning.
+- Uppgradera till en plan med [Betala per användning-priser](billing-upgrade-azure-subscription.md).

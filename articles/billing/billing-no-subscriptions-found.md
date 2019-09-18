@@ -1,6 +1,6 @@
 ---
-title: Inga prenumerationer hittades fel - portalen för inloggning i Azure | Microsoft Docs
-description: Ger lösningen för ett problem där inga prenumerationer hittades fel uppstår när loggar in på Azure portal eller Azure kontocenter.
+title: Felet Inga prenumerationer hittades – inloggningen i Azure-portalen | Microsoft Docs
+description: Den här artikeln innehåller en lösning på problemet där inga prenumerationer hittas när du loggar in i Azure-portalen eller Azure-kontocentret.
 services: ''
 documentationcenter: ''
 author: genlin
@@ -17,43 +17,43 @@ ms.date: 05/11/2018
 ms.author: banders
 ms.custom: seodec18
 ms.openlocfilehash: 094d79026a55e651a1f67a5047dff20c769c359a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: MT
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 09/11/2019
 ms.locfileid: "60371245"
 ---
-# <a name="no-subscriptions-found-sign-in-error-for-azure-portal-or-azure-account-center"></a>Inga prenumerationer hittades logga fel för Azure-portalen eller Azure-kontocenter
+# <a name="no-subscriptions-found-sign-in-error-for-azure-portal-or-azure-account-center"></a>Felet Inga prenumerationer hittades för Azure-portalen och Azure-kontocentret
 
-Du kan få ett meddelande om ”inga prenumerationer hittades” när du försöker logga in på den [Azure-portalen](https://portal.azure.com/) eller [Azure Kontocenter](https://account.windowsazure.com/Subscriptions). Den här artikeln innehåller en lösning på problemet.
+Du kan se felet ”Inga prenumerationer hittades” när du försöker logga in på [Azure-portalen](https://portal.azure.com/) eller [Azure-kontocentret](https://account.windowsazure.com/Subscriptions). Den här artikeln innehåller en lösning på det här problemet.
 
-## <a name="symptom"></a>Symtom
+## <a name="symptom"></a>Symptom
 
-När du försöker logga in på den [Azure-portalen](https://portal.azure.com/) eller [Azure kontocenter](https://account.windowsazure.com/Subscriptions), du får följande felmeddelande visas: ”Inga prenumerationer hittades”.
+När du försöker logga in i [Azure-portalen](https://portal.azure.com/) eller [Azure-kontocentret](https://account.windowsazure.com/Subscriptions) visas följande felmeddelande: ”Inga prenumerationer hittades”.
 
 ## <a name="cause"></a>Orsak
 
-Det här problemet uppstår om du valde i fel katalog, eller om ditt konto inte har tillräcklig behörighet. 
+Det här problemet inträffar om du har valt fel katalog eller om kontot inte har tillräcklig behörighet. 
 
 ## <a name="solution"></a>Lösning
 
-### <a name="scenario-1-error-message-is-received-in-the-azure-portalhttpsportalazurecom"></a>Scenario 1: Felmeddelande tas emot i den [Azure-portalen](https://portal.azure.com)
+### <a name="scenario-1-error-message-is-received-in-the-azure-portalhttpsportalazurecom"></a>Scenario 1: Felmeddelandet visas i [Azure-portalen](https://portal.azure.com)
 
-Att åtgärda problemet:
+Så här åtgärdar du problemet:
 
-* Kontrollera att rätt Azure-katalogen har valts genom att klicka på ditt konto längst upp till höger.
+* Se till att du har valt rätt Azure-katalog genom att klicka på ditt konto längst upp till höger.
 
-  ![Välj katalogen längst upp höger på Azure portal](./media/billing-no-subscriptions-found/directory-switch.png)
-* Om rätt Azure-katalogen har valts men du fortfarande får felmeddelandet [tilldela rollen ägare till ditt konto](../role-based-access-control/role-assignments-portal.md).
+  ![Välj katalogen längst upp till höger i Azure-portalen](./media/billing-no-subscriptions-found/directory-switch.png)
+* Om du har valt rätt Azure-katalog men du fortfarande ser felmeddelandet ska du [lägga till rollen som ägare för kontot](../role-based-access-control/role-assignments-portal.md).
 
-### <a name="scenario-2-error-message-is-received-in-the-azure-account-centerhttpsaccountwindowsazurecomsubscriptions"></a>Scenario 2: Felmeddelande tas emot i den [Azures Kontocenter](https://account.windowsazure.com/Subscriptions)
+### <a name="scenario-2-error-message-is-received-in-the-azure-account-centerhttpsaccountwindowsazurecomsubscriptions"></a>Scenario 2: Felmeddelandet visas i [Azure-kontocentret](https://account.windowsazure.com/Subscriptions)
 
-Kontrollera om det konto som du använde kontoadministratör. Följ dessa steg för att kontrollera vem som är kontoadministratör:
+Kontrollera om kontot du använder är en kontoadministratör. Så här kontrollerar du vem som är kontoadministratör:
 
-1. Logga in på den [prenumerationer visa i Azure-portalen](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
-1. Välj den prenumeration som du vill kontrollera och tittar sedan under **inställningar**.
-1. Välj **egenskaper**. Kontoadministratör för prenumerationen visas i den **kontoadministratören** box.  
+1. Logga in i [vyn Prenumerationer i Azure-portalen](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
+1. Välj den prenumeration du vill kontrollera och gå till **Inställningar**.
+1. Välj **Egenskaper**. Prenumerationens kontoadministratör visas i rutan **Kontoadministratör**.  
 
 ## <a name="need-help-contact-us"></a>Behöver du hjälp? Kontakta oss.
 
-Om du har frågor eller behöver hjälp, [skapa en supportbegäran](https://go.microsoft.com/fwlink/?linkid=2083458).
+Om du har frågor eller behöver hjälp kan du [skapa en supportbegäran](https://go.microsoft.com/fwlink/?linkid=2083458).

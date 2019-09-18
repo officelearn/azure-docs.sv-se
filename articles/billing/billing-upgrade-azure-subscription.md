@@ -1,7 +1,7 @@
 ---
-title: Uppgradera ditt kostnadsfria Azure-prenumeration
-description: Beskriver hur du kan uppgradera en kostnadsfri prenumeration.
-keywords: betala uppgradering
+title: Uppgradera din kostnadsfria Azure-prenumeration
+description: Här beskrivs hur du kan uppgradera en kostnadsfri prenumeration.
+keywords: uppgradering till Betala per användning
 author: bandersmsft
 manager: jureid
 tags: billing
@@ -14,69 +14,69 @@ ms.date: 07/01/2019
 ms.author: banders
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 1a670976b199a558f7adedeb52811d465f644058
-ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
-ms.translationtype: MT
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/01/2019
+ms.lasthandoff: 09/11/2019
 ms.locfileid: "67490250"
 ---
-# <a name="upgrade-your-azure-free-account-or-azure-for-students-starter-subscription"></a>Uppgradera ditt kostnadsfria Azure-konto eller Azure för studenter Starter-prenumeration
+# <a name="upgrade-your-azure-free-account-or-azure-for-students-starter-subscription"></a>Uppgradera ditt kostnadsfria Azure-konto eller din Azure for Students Starter-prenumeration
 
-Om du har en [kostnadsfri utvärderingsversion](https://azure.microsoft.com/free/) eller en [Azure för studenter Starter](https://azure.microsoft.com/offers/ms-azr-0144p/) -prenumeration kan du uppgradera till en [enskild prenumeration med användningsbaserad betalning](https://azure.microsoft.com/offers/ms-azr-0003p/) i Azure-portalen. Om du har en prenumeration för Azure för studenter Starter och är berättigad till en kostnadsfri utvärderingsversion, kan du uppgradera till kostnadsfri utvärderingsversion.
+Om du har en [kostnadsfri utvärdering](https://azure.microsoft.com/free/) eller en [Azure for Students Starter](https://azure.microsoft.com/offers/ms-azr-0144p/)-prenumeration kan du uppgradera till en [enskild prenumeration med Betala per användning-priser](https://azure.microsoft.com/offers/ms-azr-0003p/) i Azure-portalen. Om du har en Azure for Students Starter-prenumeration och är berättigad till en kostnadsfri utvärderingsversion kan du uppgradera till den kostnadsfria utvärderingsversionen.
 
 <a id="freetrial"></a>
 
-## <a name="upgrade-your-free-trial"></a>Uppgradera din kostnadsfria utvärderingsversion
+## <a name="upgrade-your-free-trial"></a>Uppgradera din kostnadsfria utvärderingsprenumeration
 
 När du uppgraderar från en kostnadsfri utvärderingsprenumeration behåller du din kvarvarande kredit under återstoden av de 30 dagarna från det att du skapade prenumerationen. Du har även tillgång till kostnadsfria tjänster i 12 månader.
 
 1. Logga in på [Azure-portalen](https://portal.azure.com)
-1. Sök efter **prenumerationer.**
+1. Sök efter **Prenumerationer**.
 
-    ![Skärmbild som visar sökning](./media/billing-upgrade-azure-subscription/search-subscriptions-ibiza.png)
+    ![Skärmbild som visar sökningen](./media/billing-upgrade-azure-subscription/search-subscriptions-ibiza.png)
 
 1. Välj din kostnadsfria utvärderingsprenumeration.
-1. I översikten prenumeration redan, klickar du på **Uppgradera prenumeration** i kommandofältet.
+1. Klicka på **Uppgradera prenumeration** på kommandoraden i prenumerationsöversikten.
 
-    ![Skärmbild som visar knappen uppgradera](./media/billing-upgrade-azure-subscription/free-upgrade-button.png)
+    ![Skärmbild som visar knappen Uppgradera](./media/billing-upgrade-azure-subscription/free-upgrade-button.png)
 
-1. Om du inte redan har en betalningsmetod för prenumerationen kostnadsfri utvärderingsversion, uppmanas du att lägga till ett.
+1. Om du inte redan har en betalningsmetod för den kostnadsfria utvärderingsprenumerationen uppmanas du att lägga till en.
 1. Du kan behöva ange ett telefonnummer för att verifiera din identitet.
-1. Skriv ett namn för din prenumeration. Som standard heter *betala per användning.*
+1. Ange ett namn för prenumerationen. Namnet är som standard *Betala per användning*.
 
-     ![Skärmbild som visar namn](./media/billing-upgrade-azure-subscription/free-upgrade-name.png)
+     ![Skärmbild som visar namnet](./media/billing-upgrade-azure-subscription/free-upgrade-name.png)
 
-1. Välj ett supportavtal för din prenumeration. Mer information om supportavtal finns [supportavtal](https://azure.microsoft.com/us/support/plans/).
+1. Välj ett supportavtal för prenumerationen. Mer information om supportavtal finns i [Supportavtal för Azure](https://azure.microsoft.com/us/support/plans/).
 
-1. Klicka på **uppgradera**.
+1. Klicka på **Uppgradera**.
 
-Om du vill [överföra prenumerationen](billing-subscription-transfer.md) efter uppgraderingen måste du vänta tills prenumerationserbjudande ID: T ändras till **MS-AZR - 003P**. Erbjudandets ID ändras när
+Om du vill [överföra prenumerationen](billing-subscription-transfer.md) efter uppgraderingen måste du vänta tills prenumerationserbjudandets ID ändras till **MS-AZR-003P**. Erbjudandets ID ändras när
 
 * du förbrukar all återstående kredit eller
 * 30 dagar har gått sedan du startade den kostnadsfria utvärderingsversionen
 
 <a id="student"></a>
 
-## <a name="upgrade-your-azure-for-students-starter-subscription"></a>Uppgradera din prenumeration för Azure för studenter Starter
+## <a name="upgrade-your-azure-for-students-starter-subscription"></a>Uppgradera din Azure for Students Starter-prenumeration
 
-Med stegen nedan kan uppgradera du till en kostnadsfri utvärderingsversion om du är berättigad.
+Om du är berättigad till en kostnadsfri utvärderingsprenumeration kan du uppgradera med stegen nedan.
 
 1. Logga in på [Azure-portalen](https://portal.azure.com)
-1. Sök efter **prenumerationer.**
+1. Sök efter **Prenumerationer**.
 
-    ![Skärmbild som visar sökning](./media/billing-upgrade-azure-subscription/search-subscriptions-ibiza.png)
+    ![Skärmbild som visar sökningen](./media/billing-upgrade-azure-subscription/search-subscriptions-ibiza.png)
 
-1. Välj din Azure för studenter Starter-prenumeration.
-1. I området prenumeration översikt klickar du på **Uppgradera prenumeration** i kommandofältet.
+1. Välj din Azure for Students Starter-prenumeration.
+1. Klicka på **Uppgradera prenumeration** på kommandoraden i prenumerationsöversikten.
 
-    ![Skärmbild som visar knappen uppgradera för studenter](./media/billing-upgrade-azure-subscription/student-upgrade-ibiza.png)
+    ![Skärmbild som visar knappen Uppgradera för studenter](./media/billing-upgrade-azure-subscription/student-upgrade-ibiza.png)
 
-1. Om du uppgraderar till ett enskilt konto med betala per användning och inte redan har en betalningsmetod för din prenumeration, uppmanas du att lägga till ett.
+1. Om du uppgraderar till ett enskilt konto med Betala per användning-priser och inte redan har någon betalningsmetod för prenumerationen uppmanas du att lägga till en.
 1. Du kan behöva ange ett telefonnummer för att verifiera din identitet.
-1. Skriv ett namn för din prenumeration.
-1. Om du uppgraderar till ett enskilt konto med betala per användning, väljer du ett supportavtal för din prenumeration. Mer information om supportavtal finns [supportavtal](https://azure.microsoft.com/us/support/plans/).
-1. Klicka på **uppgradera**.
+1. Ange ett namn för prenumerationen.
+1. Om du uppgraderar till ett enskilt konto med Betala per användning-priser väljer du ett supportavtal för prenumerationen. Mer information om supportavtal finns i [Supportavtal för Azure](https://azure.microsoft.com/us/support/plans/).
+1. Klicka på **Uppgradera**.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu när du har en enskild prenumeration med användningsbaserad betalning, se [förhindra oväntade avgifter med Azure-fakturering och kostnadshantering.](billing-getting-started.md)
+Nu när du har en enskild prenumeration med Betala per användning-priser kan du läsa mer i [Förhindra oväntade avgifter med hantering av fakturor och kostnader i Azure](billing-getting-started.md).

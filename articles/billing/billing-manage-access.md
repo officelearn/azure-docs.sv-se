@@ -1,6 +1,6 @@
 ---
 title: Hantera åtkomst till Azure-fakturering | Microsoft Docs
-description: Lär dig mer om att ge åtkomst till din faktureringsinformation för medlemmar i ditt team.
+description: Lär dig hur du ger åtkomst till din Azure-faktureringsinformation för medlemmar i din grupp.
 services: ''
 documentationcenter: ''
 author: vikramdesai01
@@ -17,25 +17,25 @@ ms.date: 11/02/2018
 ms.author: banders
 ms.custom: seodec18
 ms.openlocfilehash: 6726c876d0895f9488aa2ae5c225a6b2ac19e69f
-ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
-ms.translationtype: MT
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/01/2019
+ms.lasthandoff: 09/11/2019
 ms.locfileid: "67491082"
 ---
 # <a name="manage-access-to-billing-information-for-azure"></a>Hantera åtkomst till faktureringsinformation för Azure
 
-Du kan ange andra åtkomst till faktureringsinformation för ditt konto i Azure-portalen. Typ av fakturering roller och instruktionerna för att ge åtkomst till faktureringsinformation variera beroende på typ av ditt faktureringskonto. För att avgöra vilken typ av ditt faktureringskonto, se [Kontrollera vilken typ av ditt faktureringskonto](#check-the-type-of-your-billing-account).
+Du kan ge andra tillgång till faktureringsinformation för ditt konto i Azure-portalen. Typen av faktureringsroller och instruktionerna för att ge åtkomst till faktureringsinformationen varierar beroende på typen av ditt faktureringskonto. Information om hur du avgör typen av ditt faktureringskonto finns i [Kontrollera typen av ditt faktureringskonto](#check-the-type-of-your-billing-account).
 
-Artikeln gäller för kunder med konton för Microsoft Online Service-programmet. Om du är Azure-kund med ett Enterprise Agreement (EA) och Enterprise-administratör, kan du ge behörigheter till avdelningen administratörer och kontoinnehavare i Enterprise portal. Mer information finns i [förstå Azure Enterprise-avtal administrativa roller i Azure](billing-understand-ea-roles.md). Om du är en Microsoft kundavtal kund visas [förstå Microsoft kundavtal administrativa roller i Azure](billing-understand-mca-roles.md). 
+Artikeln gäller för kunder med Microsoft Online-tjänstprogramkonton. Om du är Azure-kund med ett Enterprise-avtal (EA) och är företagsadministratören kan du ge behörighet till avdelningsadministratörer och kontoägare i Enterprise-portalen. Mer information finns i [Förstå administrativa roller för Azure Enterprise-avtal i Azure](billing-understand-ea-roles.md). Om du är Microsoft Customer Agreement-kund kan du läsa [Förstå administrativa roller för Microsofts kundavtal i Azure](billing-understand-mca-roles.md). 
 
-## <a name="account-administrators-for-microsoft-online-service-program-accounts"></a>Kontoadministratörer för Microsoft Online Service-programmet konton
+## <a name="account-administrators-for-microsoft-online-service-program-accounts"></a>Kontoadministratörer för Microsoft Online-tjänstprogramkonton
 
-En kontoadministratör är ensam ägare för ett faktureringskonto för Microsoft Online Service-Program. Rollen tilldelas till en person som registrerat sig för Azure. Kontoadministratörer har behörighet att utföra olika fakturering uppgifter som att skapa prenumerationer, visa fakturor eller ändra faktureringen för en prenumeration.
+Kontoadministratören är den enda ägaren till ett faktureringskonto för Microsoft Online-tjänstprogram. Rollen tilldelas till en person som har registrerat sig för Azure. Kontoadministratörer har behörighet att utföra olika faktureringsuppgifter, till exempel skapa prenumerationer, visa fakturor eller ändra faktureringen för en prenumeration.
 
-## <a name="give-others-access-to-view-billing-information"></a>Ge andra användare behörighet att visa faktureringsinformation
+## <a name="give-others-access-to-view-billing-information"></a>Ge andra åtkomst till att visa faktureringsinformation
 
-Kontoadministratören kan bevilja andra åtkomst till faktureringsinformation genom att tilldela någon av följande roller för en prenumeration i sitt konto.
+Kontoadministratören kan ge andra åtkomst till faktureringsinformationen i Azure genom att tilldela någon av följande roller i en prenumeration i sitt konto.
 
 - Tjänstadministratör
 - Medadministratör
@@ -44,76 +44,76 @@ Kontoadministratören kan bevilja andra åtkomst till faktureringsinformation ge
 - Läsare
 - Faktureringsläsare
 
-Dessa roller har åtkomst till faktureringsinformation i den [Azure-portalen](https://portal.azure.com/). Personer som tilldelas dessa roller kan också använda den [fakturerings-API: er](billing-usage-rate-card-overview.md) att programmässigt få fakturor och användningsinformation.
+Dessa roller har åtkomst till faktureringsinformation i [Azure-portalen](https://portal.azure.com/). Personer som har tilldelats dessa roller kan även använda [API:er för fakturering](billing-usage-rate-card-overview.md) för att programmatiskt hämta fakturor och användningsinformation.
 
-Om du vill tilldela roller, se [hantera åtkomst med RBAC och Azure portal](../role-based-access-control/role-assignments-portal.md).
+Information om hur du tilldelar roller finns i [Hantera åtkomst med hjälp av RBAC och Azure-portalen](../role-based-access-control/role-assignments-portal.md).
 
-** Om du är en EA-kund kan kan Kontoägare tilldela rollen ovan för andra användare av sina team. Men för dessa användare kan visa faktureringsinformation, Enterprise-administratör måste aktivera AO Visa avgifter i Enterprise portal.
+** Om du är EA-kund kan en kontoägare tilldela rollen ovan till andra användare i sitt team. Men för att dessa användare ska kunna visa faktureringsinformation måste företagsadministratören aktivera AO-visningsdebitering i Enterprise-portalen.
 
 
-### <a name="opt-in"></a> Låt användare ladda ned fakturor
+### <a name="opt-in"></a> Tillåta användare att ladda ned fakturor
 
-När en kontoadministratör har tilldelat lämpliga roller till andra användare, måste de aktiverar åtkomst till ladda ner fakturor i Azure-portalen. Fakturor som är äldre än December 2016 är tillgängliga att kontoadministratör.
+När en kontoadministratör har tilldelat lämpliga roller till andra användare måste den aktivera åtkomst till att ladda ned fakturor i Azure-portalen. Fakturor som är äldre än december 2016 är endast tillgängliga för kontoadministratören.
 
-1. Logga in på den [Azure-portalen](https://portal.azure.com/), som kontot Administratör
+1. Logga in på [Azure-portalen](https://portal.azure.com/) som kontoadministratör.
 
-1. Sök på **Cost Management + fakturering**.
+1. Sök efter **Kostnadshantering och fakturering**.
 
-    ![Skärmbild som visar Azure portal-sökning](./media/billing-manage-access/billing-search-cost-management-billing.png)
+    ![Skärmbild som visar en sökning i Azure-portalen](./media/billing-manage-access/billing-search-cost-management-billing.png)
  
-1. Välj **prenumerationer** från det vänstra fönstret. Beroende på din åtkomst, du kan behöva väljer du en fakturering omfattning och välj sedan **prenumerationer**.
+1. Välj **Prenumerationer** i den vänstra rutan. Beroende på din åtkomst kan du behöva välja ett faktureringsomfång och sedan välja **Prenumerationer**.
  
-    ![Skärmbild som visar att välja prenumerationer](./media/billing-manage-access/billing-select-subscriptions.png)
+    ![Skärmbild som visar val av prenumerationer](./media/billing-manage-access/billing-select-subscriptions.png)
 
-1. Välj **fakturor** och sedan **Fakturaåtkomsten**.
+1. Välj **Fakturor** och sedan **Åtkomst till faktura**.
 
     ![Skärmbild som visar hur du delegerar åtkomst till fakturor](./media/billing-manage-access/AA-optin.png)
 
-1. Välj **på** och spara.
+1. Välj **På** och spara.
 
-    ![Skärmbild som visar på-av att delegera åtkomst till faktura](./media/billing-manage-access/AA-optinAllow.png)
+    ![Skärmbild som visar på/av för att delegera åtkomst till fakturor](./media/billing-manage-access/AA-optinAllow.png)
 
 Kontoadministratören kan också konfigurera att fakturor ska skickas via e-post. Mer information finns i [Få fakturan via e-post](billing-download-azure-invoice-daily-usage-date.md).
 
-## <a name="give-read-only-access-to-billing"></a>Ge läsbehörighet till fakturering
+## <a name="give-read-only-access-to-billing"></a>Ge skrivskyddad behörighet till fakturering
 
-Tilldela rollen Billing Reader till någon som behöver skrivskyddad åtkomst till faktureringsinformation för prenumerationen men inte möjligheten att hantera eller skapa Azure-tjänster. Den här rollen är lämplig för användare i en organisation som ansvarar för den finansiella och kostnad för Azure-prenumerationer.
+Tilldela rollen Faktureringsläsare till någon som behöver skrivskyddad åtkomst till faktureringsinformationen för prenumerationen men inte möjligheten att hantera eller skapa Azure-tjänster. Den här rollen är lämplig för användare i en organisation som ansvarar för ekonomi- och kostnadshanteringen för Azure-prenumerationer.
 
-Billing Reader-funktionen är en förhandsversion och har stöd inte för icke-globala moln.
+Funktionen Faktureringsläsare är i förhandsversion och har ännu inte stöd för icke-globala moln.
 
-1. Logga in på den [Azure-portalen](https://portal.azure.com/), som kontot Administratör
+1. Logga in på [Azure-portalen](https://portal.azure.com/) som kontoadministratör.
 
-1. Sök på **Cost Management + fakturering**.
+1. Sök efter **Kostnadshantering och fakturering**.
 
-    ![Skärmbild som visar Azure portal-sökning](./media/billing-manage-access/billing-search-cost-management-billing.png)
+    ![Skärmbild som visar en sökning i Azure-portalen](./media/billing-manage-access/billing-search-cost-management-billing.png)
 
-1. Välj **prenumerationer** från det vänstra fönstret. Beroende på din åtkomst, du kan behöva väljer du en fakturering omfattning och välj sedan **prenumerationer**.
+1. Välj **Prenumerationer** i den vänstra rutan. Beroende på din åtkomst kan du behöva välja ett faktureringsomfång och sedan välja **Prenumerationer**.
  
-    ![Skärmbild som visar att välja prenumerationer](./media/billing-manage-access/billing-select-subscriptions.png)
+    ![Skärmbild som visar val av prenumerationer](./media/billing-manage-access/billing-select-subscriptions.png)
 
-1. Välj **åtkomstkontroll (IAM)** .
-1. Välj **Lägg till** högst upp på sidan.
+1. Välj **Åtkomstkontroll (IAM)** .
+1. Välj **Lägg till** längst upp på sidan.
 
-    ![Skärmbild som visar att klicka på Lägg till rolltilldelning](./media/billing-manage-access/billing-click-add-role-assignment.png)
+    ![Skärmbild som visar hur du klickar för att lägga till rolltilldelning](./media/billing-manage-access/billing-click-add-role-assignment.png)
 
-1. I den **rollen** listrutan väljer du **Billing Reader**.
-1. I den **Välj** textrutan anger du namnet eller e-post för den användare som du vill lägga till.
+1. I listrutan **Roll** väljer du **Faktureringsläsare**.
+1. I rutan **Välj** skriver du namn eller e-postadress för den användare som du vill lägga till.
 1. Välj användaren.
 1. Välj **Spara**.
-    ![Skärmbild som visar att klicka på Lägg till rolltilldelning](./media/billing-manage-access/billing-save-role-assignment.png)
+    ![Skärmbild som visar hur du klickar för att lägga till rolltilldelning](./media/billing-manage-access/billing-save-role-assignment.png)
 
-1. Efter en liten stund tilldelas användaren rollen Billing Reader för prenumerationen.
+1. Efter en liten stund tilldelas användaren rollen Faktureringsläsare för prenumerationen.
 
-** Om du är en EA-kund, tilldela en ägare eller administratör för avdelning rollen Billing Reader till gruppmedlemmar. Men för den Billing Reader visa faktureringsinformation för avdelning eller konto, Enterprise-administratör måste aktivera **AO visa debiteringar** eller **DA visa debiteringar** principer i Enterprise portal.
+** Om du är EA-kund kan en kontoägare eller en avdelningsadministratör tilldela rollen Faktureringsläsare till teammedlemmar. Men för att den faktureringsläsaren ska kunna visa faktureringsinformation för avdelningen eller kontot måste företagsadministratören aktivera principer för **AO-visningsdebitering** eller **DA-visningsdebitering** i Enterprise-portalen.
 
-## <a name="check-the-type-of-your-billing-account"></a>Kontrollera typ av ditt faktureringskonto
+## <a name="check-the-type-of-your-billing-account"></a>Kontrollera typen av ditt faktureringskonto
 [!INCLUDE [billing-check-account-type](../../includes/billing-check-account-type.md)]
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Användare i andra roller som ägare eller deltagare, når inte bara faktureringsinformation, men Azure-tjänster samt. För att hantera dessa roller, se [hantera åtkomst med RBAC och Azure portal](../role-based-access-control/role-assignments-portal.md).
-- Mer information om roller finns i [inbyggda roller för Azure-resurser](../role-based-access-control/built-in-roles.md).
+- Användare i andra roller, till exempel Ägare eller Deltagare, kan inte bara komma åt faktureringsinformation, utan även Azure-tjänster. Information om hur du hanterar dessa roller finns i [Hantera åtkomst med hjälp av RBAC och Azure-portalen](../role-based-access-control/role-assignments-portal.md).
+- Mer information om roller finns i [Inbyggda roller för Azure-resurser](../role-based-access-control/built-in-roles.md).
 
 ## <a name="need-help-contact-us"></a>Behöver du hjälp? Kontakta oss.
 
-Om du har frågor eller behöver hjälp, [skapa en supportbegäran](https://go.microsoft.com/fwlink/?linkid=2083458).
+Om du har frågor eller behöver hjälp kan du [skapa en supportbegäran](https://go.microsoft.com/fwlink/?linkid=2083458).

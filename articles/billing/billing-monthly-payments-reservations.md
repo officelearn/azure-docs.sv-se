@@ -1,6 +1,6 @@
 ---
-title: Köp Azure-reservationer med fram-eller månads betalningar
-description: Lär dig hur du kan köpa Azure-reservationer med fram-eller månads betalningar.
+title: Betala för Azure-reservationer i förväg eller via månadsbetalningar
+description: Läs om hur du kan betala för Azure-reservationer i förväg eller via månadsbetalningar.
 services: billing
 author: bandersmsft
 manager: yashar
@@ -9,73 +9,73 @@ ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: banders
 ms.openlocfilehash: d211334ad2aa760cd63b98c6827fb2512811a1d3
-ms.sourcegitcommit: b8578b14c8629c4e4dea4c2e90164e42393e8064
-ms.translationtype: MT
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/09/2019
+ms.lasthandoff: 09/11/2019
 ms.locfileid: "70806953"
 ---
-# <a name="purchase-reservations-with-monthly-payments"></a>Köp reservationer med månads betalningar
+# <a name="purchase-reservations-with-monthly-payments"></a>Betala för reservationer via månadsbetalningar
 
-Fram till nu är Azure-reservationer som kräver betalning fram. Nu kan du betala för reservationer med månads betalningar. Till skillnad från ett första inköp där du betalar hela beloppet, delar alternativet för månatlig betalning upp den totala kostnaden för reservationen jämnt över varje månad. Den totala kostnaden för upp-och månads reservationer är samma och du betalar inte några extra avgifter när du väljer att betala varje månad.
+Fram till nu har du varit tvungen att betala för Azure-reservationer i förväg. Nu kan du betala för reservationer via månadsbetalningar. När du betalar per månad delar du upp totalkostnaden för reservationen mellan de avtalade månaderna snarare än att betala hela beloppet i förväg. Totalbeloppet är detsamma oavsett om du betalar i förväg eller per månad, det tillkommer inte några extra avgifter när du väljer månadsbetalning.
 
-Ditt månatliga betalnings belopp kan variera beroende på den aktuella månadens marknads växelkurs för din lokala valuta.
+Beloppet du betalar per månad kan variera beroende på den aktuella månadens växelkurs för din lokala valuta.
 
-Månads betalningar är tillgängliga för:
+Månadsbetalningar är tillgängliga för:
 
 - Virtuella datorer
 - SQL Database
 - SQL Data Warehouse
 - Cosmos DB
-- App Service Stamp-avgift
+- Stämpelavgifter för App Service
 
-Köp reservationer i [Azure Portal](https://portal.azure.com/?Microsoft_Azure_Reservations_EnableMultiCart=true&amp;paymentPlan=true#blade/Microsoft_Azure_Reservations/CreateBlade).
+Köp reservationer i [Azure-portalen](https://portal.azure.com/?Microsoft_Azure_Reservations_EnableMultiCart=true&amp;paymentPlan=true#blade/Microsoft_Azure_Reservations/CreateBlade).
 
-![Exempel som visar reservations köp](./media/billing-monthly-payments-reservations/purchase-reservation.png)
+![Exempel som visar ett reservationsköp](./media/billing-monthly-payments-reservations/purchase-reservation.png)
 
-När du gör ett reservations köp kan du Visa betalnings planen. Klicka på **Visa fullständigt betalnings schema**.
+När du gör ett reservationsköp kan du visa betalningsschemat. Klicka på **Visa fullständigt betalningsschema**.
 
-![Exempel som visar reservations betalnings schema](./media/billing-monthly-payments-reservations/prepurchase-schedule.png)
+![Exempel som visar betalningsschemat för ett reservationsköp](./media/billing-monthly-payments-reservations/prepurchase-schedule.png)
 
-Om du vill visa betalnings planen efter köpet väljer du en reservation, klickar på **reservations orderns ID**och klickar sedan på fliken **betalningar** .
+Om du vill visa betalningsschemat efter köpet väljer du en reservation, klickar på **Reservationsbeställnings-id** och sedan på fliken **Betalningar**.
 
-## <a name="view-payments-made"></a>Visa betalningar som gjorts
+## <a name="view-payments-made"></a>Visa gjorda betalningar
 
-Du kan visa betalningar som gjorts med hjälp av API: er, användnings data och i kostnads analys. För reservationer som betalas för varje månad visas frekvens svärdet som **återkommande** i API för användnings data och reservations avgifter. För reservationer som betalas fram visas värdet som **Databasmigrering**.
+Du kan visa redan gjorda betalningar med hjälp av API:er, i användningsdata och i kostnadsanalyser. För reservationer som betalas varje månad visas frekvenssvärdet som **Återkommande** i användningsdata och i API:et Reservation Charges. För reservationer som betalas i förväg visas värdet som **En gång**.
 
-Kostnads analys visar månatliga inköp i standardvyn. Använd **inköps** filtret för **debiterings typ** och **återkommande** för **frekvens** för att se alla inköp. Om du bara vill visa reservationer ska du använda ett filter för **reservation**.
+I kostnadsanalyser visas månatliga inköp i standardvyn. Använd filtret **inköp** för **Debiteringstyp** och **återkommande** för **Frekvens** om du vill se alla inköp. Om du bara vill visa reservationer använder du ett filter för **Reservation**.
 
-![Exempel som visar reservations inköps kostnader i kostnads analys](./media/billing-monthly-payments-reservations/cost-analysis.png)
+![Exempel som visar inköpskostnader för reservationer i en kostnadsanalys](./media/billing-monthly-payments-reservations/cost-analysis.png)
 
-## <a name="switch-to-monthly-payments-at-renewal"></a>Växla till månatliga betalningar vid förnyelse
+## <a name="switch-to-monthly-payments-at-renewal"></a>Byta till månatliga betalningar när avtalet förnyas
 
-När du förnyar en reservation kan du ändra fakturerings frekvensen till varje månad.
+När du förnyar en reservation kan du byta till månatlig fakturering.
 
-## <a name="exchange-and-refunds"></a>Exchange och åter betalning
+## <a name="exchange-and-refunds"></a>Byten och återbetalning
 
-Precis som andra reservationer kan du återbetala eller byta ut reservationer med månatlig fakturering. För närvarande kan du skicka en support förfrågan om att starta ett utbyte eller en åter betalning för en reservation som köpts med månatlig fakturering.
+Precis som med andra reservationer kan du återbetala eller byta ut reservationer med månatlig fakturering. För närvarande kan du skicka en supportförfrågan om du vill påbörja ett utbyte eller en återbetalning för en reservation som köpts med månatlig fakturering.
 
-När du utbyter en reservation som betalas för varje månad bör den totala livstids kostnaden för det nya köpet vara större än de överblivna betalningar som avbrutits för den returnerade reservationen. Det finns inga andra gränser eller avgifter för utbyten. Du kan byta ut en reservation som betalas fram för att köpa en ny reservation som faktureras per månad. Men livstid svärdet för den nya reservationen ska vara större än det beräknade värdet för den reservation som returneras.
+När du byter ut en reservation som du betalar för månadsvis måste den totala livstidskostnaden för det nya köpet vara större än de överblivna betalningar som ställs in för den returnerade reservationen. Det finns inga andra gränser och tillkommer inga andra avgifter för byten. Du kan byta ut en reservation som betalats i förväg till en ny reservation som faktureras per månad. Livstidsvärdet för den nya reservationen måste dock vara större än det beräknade värdet för reservationen som returneras.
 
-Om du avbryter en reservation som betalas ut för varje månad kan Microsoft tillämpa en uppsägnings avgift för framtida genomförda betalningar som annulleras. Återstående genomförda betalningar påförs mot bidrags gränsen $50 000 USD.
+Om du avbryter en reservation som betalas per månad kan Microsoft ta ut en uppsägningsavgift för de framtida betalningar som ställs in. Återstående åtagna betalningar räknas av mot återbetalningsgränsen på 50 000 USD.
 
-För ytterligare information om Exchange och åter betalning, se [självbetjänings utbyten och åter betalningar för Azure reservations](billing-azure-reservations-self-service-exchange-and-refund.md).
+Du kan läsa mer om byten och återbetalningar i [Självservice vid byten och återbetalningar för Azure-reservationer](billing-azure-reservations-self-service-exchange-and-refund.md).
 
 ## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
 
-F. Erbjuder Azure en del upp-front-reservationer?<br>
-A. Nej. Eftersom kostnaderna för reservationer som betalas fram och månads vis är desamma, har Microsoft inte stöd för partiella betalningar.
+F. Erbjuder Azure några ”delvis i förväg betalda reservationer”?<br>
+A. Nej. Eftersom kostnaderna för reservationer som betalas i förväg och per månad är identiska erbjuder inte Microsoft några delbetalningar i förväg.
 
-F. Är månads betalningar tillgängliga för CSP-programmet (Microsoft Cloud Solution Provider)?<br>
-A. Ja, partner kan köpa reservationer för sina CSP-kunder i Azure Portal. Möjligheten att köpa reservationer med månatlig fakturering är inte tillgänglig i Partner Center.
+F. Är månatliga betalningar tillgängliga för Microsofts CSP-program (Cloud Solution Provider)?<br>
+A. Ja, partnerföretag kan köpa reservationer för sina CSP-kunder i Azure-portalen. Det går inte att köpa reservationer med månatlig betalning i partnercentret.
 
-F. Jag är en US Azure Government-kund, kan jag betala månads vis för reservations köp?<br>
-A. Inte för närvarande.
+F. Jag är Azure Government-kund i USA, kan jag betala för reservationer per månad?<br>
+A. Inte för tillfället.
 
-F. När kan jag utbyta eller återbetala mig själv i Azure Portal, i stället för att skapa ett support ärende?<br>
-A. Inte för närvarande. Förfrågningar till Exchange-och bidrags reservationer med månads betalningar hanteras av Azure-supporten.
+F. När jag kan byta eller få återbetalning för en reservation på egen hand istället för att skapa en supportbegäran?<br>
+A. Inte för tillfället. Förfrågningar om att byta och återbetala reservationer som betalas månatligen hanteras av Azures support.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Läs mer om reservationer i [Vad är Azure reservations?](billing-save-compute-costs-reservations.md)
-- Information om vilka uppgifter du bör utföra innan du köper en reservation finns i [bestämma rätt VM-storlek innan du köper](../virtual-machines/windows/prepay-reserved-vm-instances.md#determine-the-right-vm-size-before-you-buy)
+- Du kan läsa mer om reservationer i [Vad är Azure-reservationer?](billing-save-compute-costs-reservations.md)
+- Du kan läsa mer om vad du behöver göra innan du köper en reservation i [Avgör vilken VM-storlek som passar dig innan du köper](../virtual-machines/windows/prepay-reserved-vm-instances.md#determine-the-right-vm-size-before-you-buy)

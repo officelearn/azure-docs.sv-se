@@ -1,6 +1,6 @@
 ---
-title: Felsöka inloggnings problem i Azure-prenumeration
-description: Hjälper till att lösa de problem som du inte kan använda för att logga in Azure Portal eller Azure konto Center.
+title: Felsöka problem med inloggning för Azure-prenumeration
+description: Hjälper till att lösa de problem som gör att du inte kan logga in på Azure-portalen eller Azure-kontocentret.
 author: v-miegge
 manager: na
 editor: na
@@ -13,69 +13,69 @@ ms.workload: na
 ms.date: 08/12/2019
 ms.author: v-miegge
 ms.openlocfilehash: ca641813e8b01a39d31a56e3730424b0fa1d6436
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
-ms.translationtype: MT
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2019
+ms.lasthandoff: 09/11/2019
 ms.locfileid: "69657052"
 ---
-# <a name="troubleshoot-azure-subscription-sign-in-issues"></a>Felsöka inloggnings problem i Azure-prenumeration
+# <a name="troubleshoot-azure-subscription-sign-in-issues"></a>Felsöka problem med inloggning för Azure-prenumeration
 
-Den här guiden hjälper dig att lösa de problem som du inte kan använda för att logga in Azure Portal eller Azure konto Center. 
+Den här guiden hjälper till att lösa de problem som gör att du inte kan logga in på Azure-portalen eller Azure-kontocentret. 
 
 ## <a name="issues"></a>Problem
 
-### <a name="page-hangs-in-the-loading-status"></a>Sidan låser sig i inläsnings status
+### <a name="page-hangs-in-the-loading-status"></a>Sidan låser sig under inläsningen
 
-Om sidan på din webbläsare låser sig kan du prova med följande steg tills du får Azure Portal.
+Om sidan i webbläsaren låser sig provar du vart och ett av följande steg tills du kommer till Azure-portalen.
 
 - Uppdatera sidan.
 - Använd en annan webbläsare.
-- Använd läget privat webbläsare för webbläsaren. För Internet Explorer: Klicka på **verktyg** > **säkerhet** > InPrivate-**surfning**och bläddra sedan och logga in i [Azure Portal](https://portal.azure.com/) eller [Azure konto Center](https://account.azure.com/Subscriptions).
+- Använd privat surfläge för webbläsaren. För Internet Explorer: Klicka på**Verktyg** > **Säkerhet** > **InPrivate-surfning** och gå till och logga in på[Azure-portalen](https://portal.azure.com/) eller [Azure-kontocentret](https://account.azure.com/Subscriptions).
 
-### <a name="you-are-automatically-signed-in-as-a-different-user"></a>Du är automatiskt inloggad som en annan användare
+### <a name="you-are-automatically-signed-in-as-a-different-user"></a>Du loggas automatiskt in som en annan användare
 
-Det här problemet kan uppstå om du använder mer än ett användar konto i en webbläsare.
+Det här problemet kan uppstå om du använder mer än ett användarkonto i en webbläsare.
 
 Försök att lösa problemet på något av följande sätt:
 
-- Rensa cacheminnet och ta bort Internet-cookies. I Internet Explorer klickar du på **verktyg** > **Internet alternativ** > **ta bort**. Kontrol lera att kryss rutorna för temporära filer, cookies, lösen ord och webb läsar historik är markerade och klicka sedan på ta bort.
-- Återställ Internet Explorer-inställningarna för att återställa alla personliga inställningar som du har gjort. Klicka på **verktyg** > **Internet alternativ** > **Avancerat** > Välj rutan **ta bort personliga inställningar** > **Återställ**.
-- Använd läget privat webbläsare för webbläsaren. För Internet Explorer:  Klicka på **verktyg** > **säkerhet** > InPrivate-**surfning**och bläddra sedan och logga in i [Azure Portal](https://portal.azure.com/) eller [Azure konto Center](https://account.azure.com/Subscriptions).
+- Rensa cacheminnet och ta bort Internet-cookies. I Internet Explorer klickar du på **Verktyg** > **Internetalternativ** > **Ta bort**. Kontrollera att kryssrutorna för temporära filer, cookies, lösenord och webbläsarhistorik är markerade och klicka sedan på ta bort.
+- Återställ Internet Explorer-inställningarna för att återställa alla personliga inställningar som du har gjort. Klicka på **Verktyg** > **Internetalternativ** > **Avancerat** > välj rutan **Ta bort personliga inställningar** > **Återställ**.
+- Använd privat surfläge för webbläsaren. För Internet Explorer:  Klicka på**Verktyg** > **Säkerhet** > **InPrivate-surfning** och gå till och logga in på[Azure-portalen](https://portal.azure.com/) eller [Azure-kontocentret](https://account.azure.com/Subscriptions).
 
-### <a name="i-can-sign-in-but-i-see-no-subscriptions-found"></a>Jag kan logga in, men jag ser *inga prenumerationer som hittas*
+### <a name="i-can-sign-in-but-i-see-no-subscriptions-found"></a>Jag kan logga in men det står *Inga prenumerationer hittades*
 
-Det här problemet uppstår om du valde i fel katalog, eller om ditt konto inte har tillräcklig behörighet.
+Det här problemet uppstår om du har valt fel katalog eller om ditt konto inte har tillräcklig behörighet.
 
-**Scenario 1:** Fel meddelandet tas emot i [Azure Portal](https://portal.azure.com/)
+**Scenario 1:** Felmeddelande visas i [Azure-portalen](https://portal.azure.com/)
 
-Att åtgärda problemet:
+Så här åtgärdar du problemet:
 
-- Kontrollera att rätt Azure-katalogen har valts genom att klicka på ditt konto längst upp till höger.
-- Om rätt Azure-katalog är markerad men du fortfarande får fel meddelandet, har ditt konto [lagts till som ägare](billing-add-change-azure-subscription-administrator.md).
+- Se till att rätt Azure-katalog har valts genom att klicka på ditt konto längst uppe till höger.
+- Om rätt Azure-katalog har valts men du fortfarande får felmeddelandet ska du [lägga till ditt konto som ägare](billing-add-change-azure-subscription-administrator.md).
 
-**Scenario 2:** Fel meddelandet tas emot i [Azure-kontocenter](https://account.windowsazure.com/Subscriptions)
+**Scenario 2:** Felmeddelande visas i [Azure-kontocentret](https://account.windowsazure.com/Subscriptions)
 
-Kontrollera om det konto som du använde kontoadministratör. Följ dessa steg för att kontrollera vem som är kontoadministratör:
+Kontrollera om det konto som du använde är kontoadministratören. Följ dessa steg för att kontrollera vem som är kontoadministratör:
 
-1. Logga in på den [prenumerationer visa i Azure-portalen](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
+1. Logga in på [prenumerationsvyn i Azure-portalen](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
 
-2. Välj den prenumeration som du vill kontrollera och tittar sedan under **inställningar**.
+2. Välj den prenumeration du vill kontrollera och gå till **Inställningar**.
 
-3. Välj **egenskaper**. Kontoadministratör för prenumerationen visas i den **kontoadministratören** box.
+3. Välj **Egenskaper**. Prenumerationens kontoadministratör visas i rutan **Kontoadministratör**.
 
-## <a name="additional-help-resources"></a>Ytterligare hjälp resurser
+## <a name="additional-help-resources"></a>Fler hjälpresurser
 
-Andra fel söknings artiklar för Azure-fakturering och-prenumerationer
+Här är några fler felsökningsartiklar som gäller fakturering och prenumerationer i Azure
 
 - [Nekat kort](billing-troubleshoot-declined-card.md)
-- [Prenumerations registrerings problem](billing-troubleshoot-azure-sign-up.md)
+- [Problem med prenumerationsregistrering](billing-troubleshoot-azure-sign-up.md)
 - [Inga prenumerationer hittades](billing-no-subscriptions-found.md)
 - [Företagskostnadsvy inaktiverad](billing-enterprise-mgmt-grp-troubleshoot-cost-view.md)
 
 ## <a name="contact-us-for-help"></a>Kontakta oss om du behöver hjälp
 
-Om du har frågor eller behöver hjälp, [skapa en supportbegäran](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+Om du har frågor eller behöver hjälp kan du [skapa en supportbegäran](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
 ## <a name="next-steps"></a>Nästa steg
 

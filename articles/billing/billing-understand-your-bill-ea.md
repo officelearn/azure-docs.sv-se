@@ -1,6 +1,6 @@
 ---
-title: Förstå fakturan Azure enterprise
-description: Lär dig mer om att läsa och förstå din användningen och fakturan för Azure Enterprise-avtal.
+title: Förstå din Azure Enterprise-faktura
+description: Lär dig att läsa och förstå din användning och fakturering för Azure Enterprise-avtal.
 author: adpick
 manager: dougeby
 tags: billing
@@ -12,124 +12,124 @@ ms.workload: na
 ms.date: 07/01/2019
 ms.author: banders
 ms.openlocfilehash: 02ddaf4878367524291ce54a4e12fc9b4fee4cd2
-ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
-ms.translationtype: MT
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/01/2019
+ms.lasthandoff: 09/11/2019
 ms.locfileid: "67490292"
 ---
-# <a name="understand-your-azure-enterprise-agreement-bill"></a>Förstå fakturan Azure Enterprise-avtal
+# <a name="understand-your-azure-enterprise-agreement-bill"></a>Förstå fakturan för ditt Azure Enterprise-avtal
 
-Azure-kunder med Enterprise Agreement-kund får en faktura när de överskrider organisationens kredit eller använda tjänster som inte omfattas av kredit.
+Azure-kunder med ett Enterprise-avtal får en faktura när de överskrider organisationens kredit eller använder tjänster som inte omfattas av krediten.
 
-Din organisations kredit innehåller ditt betalningsåtagande. Summa i förskott är den organisationen förskott betalas för användning av Azure-tjänster. Du kan lägga till några prenumerationskrediter till ditt Enterprise Agreement genom att kontakta din Kontoansvariga på Microsoft eller din återförsäljare.  
+Din organisations kredit inkluderar ditt ekonomiska åtagande. Det ekonomiska åtagandet är det belopp som din organisation förskottsbetalade för användningen av Azure-tjänster. Du kan lägga till belopp för ekonomiskt åtagande till ditt Enterprise-avtal genom att kontakta din Microsoft-kontoansvarige eller återförsäljare.  
 
 ## <a name="invoices-for-most-customers"></a>Fakturor för de flesta kunder
 
-Det här avsnittet gäller inte för Azure-kunder i Australien, Japan eller Singapore. Om du använder en av dessa länder/regioner kan se [fakturor för andra kunder](#invoices-for-other-customers).
+Det här avsnittet gäller inte för Azure-kunder i Australien, Japan eller Singapore. Om du är i något av dessa länder/regioner kan du läsa [Fakturor för andra kunder](#invoices-for-other-customers).
 
-Du får en Azure-faktura när något av följande inträffar under faktureringsperioden:
+Du får en Azure-faktura när något av följande inträffar under din faktureringsperiod:
 
-- **Överförbrukning för tjänsten**: Avgifter för användning av din organisations överskrider din kreditsaldo.
-- **Avgifter debiteras separat**: Tjänster som din organisation använde inte omfattas av kredit. Du är fakturerat för följande tjänster oavsett dina kreditsaldo:
+- **Överförbrukning av tjänst**: Din organisations användningsavgifter överstiger ditt kreditsaldo.
+- **Avgifter som debiteras separat**: De tjänster som din organisation använder omfattas inte av krediten. Du faktureras för följande tjänster oavsett ditt kreditsaldo:
     - Canonical
     - Citrix XenApp Essentials
     - Citrix XenDesktop
     - Registrerad användare
-    - Openlogic
-    - Fjärråtkomst Rights XenApp Essentials registrerad användare
+    - OpenLogic
+    - Registrerad användare för Remote Access Rights XenApp Essentials
     - Ubuntu Advantage
-    - Visual Studio Enterprise (per månad)
-    - Visual Studio Enterprise (årligt)
-    - Visual Studio Professional (per månad)
-    - Visual Studio Professional (årligt)
-- **Marketplace-avgifter**: Azure Marketplace-köp och användning omfattas inte av din organisations kredit. Därför är du faktureras för Marketplace-avgifter oavsett dina kreditsaldo. I Enterprise-portalen kan en företagsadministratör aktivera och inaktivera Marketplace-köp.
+    - Visual Studio Enterprise (månatligen)
+    - Visual Studio Enterprise (årsvis)
+    - Visual Studio Professional (månatligen)
+    - Visual Studio Professional (årsvis)
+- **Marketplace-avgifter**: Azure Marketplace-köp och -användning omfattas inte av din organisations kredit. Du faktureras därmed för Marketplace-tjänster oavsett ditt kreditsaldo. I Enterprise Portal kan en företagsadministratör aktivera och inaktivera Marketplace-köp.
 
 ## <a name="review-charges-for-most-customers"></a>Granska avgifter för de flesta kunder
-Det här avsnittet gäller inte för Azure-kunder i Australien, Japan eller Singapore. Om du använder en av dessa länder kan se [granska kostnader för andra kunder](#review-charges-for-other-customers).
+Det här avsnittet gäller inte för Azure-kunder i Australien, Japan eller Singapore. Om du är i något av dessa länder/regioner kan du läsa [Granska avgifter för andra kunder](#review-charges-for-other-customers).
 
-Om du vill granska och kontrollera avgifter på fakturan, måste du vara en företagsadministratör. Mer information finns i [förstå Azure Enterprise-avtal administrativa roller i Azure](billing-understand-ea-roles.md). Om du inte vet vem företagsadministratören är för din organisation, [supporten](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+För att kunna granska och verifiera avgifterna på din faktura måste du vara företagsadministratör. Mer information finns i [Förstå administrativa roller för Azure Enterprise-avtal i Azure](billing-understand-ea-roles.md). Om du inte vet vem som är företagsadministratör för din organisation bör du [kontakta supporten](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
-Din faktura visas alla dina Azure-användning, följt av alla Marketplace-avgifter. Om du har ett saldo, tillämpas den på Azure-användning.
+Din faktura visar all din Azure-användning, följt av eventuella Marketplace-avgifter. Om du har ett kreditsaldo tillämpas det på Azure-användning.
 
-Jämför dina kombinerade totala belopp som visas i Enterprise portal i **rapporter** > **Användningsöversikt** med din Azure-faktura. De mängder som anges i den **Användningsöversikt** inkluderar inte skatt.
+Jämför det sammanlagda belopp som visas i Enterprise Portal i **Rapporter** > **Användningssammanfattning** med din Azure-faktura. De belopp som anges i **Användningssammanfattning** inkluderar inte skatt.
 
-1. Logga in på den [Enterprise portal](https://ea.azure.com).
-1. Välj **rapporter**.
-1. Växla från vyn på det övre högra hörnet av fliken **M** till **C** och matcha perioden på fakturan.  
-    ![Skärmbild som visar M + C-alternativet i Användningsöversikt.](./media/billing-understand-your-bill-ea/ea-portal-usage-sumary-cm-option.png)
-1. Den sammanlagda mängden **Total användning** och **Azure Marketplace** måste matcha den **utökade Totalmängd** på din faktura.
-1. Mer information om dina debiteringar, gå till **ladda ned användning**.  
-    ![Skärmbild som visar fliken hämta användning](./media/billing-understand-your-bill-ea/ea-portal-download-usage.png)
+1. Logga in på [Enterprise Portal](https://ea.azure.com).
+1. Välj **Rapporter**.
+1. I flikens övre högra hörn växlar du vyn från **M** till **C** och matchar perioden på fakturan.  
+    ![Skärmbild som visar alternativet M + C i Användningssammanfattning.](./media/billing-understand-your-bill-ea/ea-portal-usage-sumary-cm-option.png)
+1. Den sammanlagda summan för **Total användning** och **Azure Marketplace** bör överensstämma med **Totalt utökat belopp** på din faktura.
+1. Om du vill ha mer information om dina avgifter kan du gå till **Ladda ned användning**.  
+    ![Skärmbild som visar fliken Ladda ned användning](./media/billing-understand-your-bill-ea/ea-portal-download-usage.png)
 
 ## <a name="invoices-for-other-customers"></a>Fakturor för andra kunder
 
-Det här avsnittet gäller bara för Azure-kunder i Australien, Japan eller Singapore.
+Det här avsnittet gäller endast för Azure-kunder i Australien, Japan eller Singapore.
 
-Du får en eller flera Azure-fakturor när inträffar följande:
+Du får en eller flera Azure-fakturor när följande inträffar:
 
-- **Överförbrukning för tjänsten**: Avgifter för användning av din organisations överskrider din kreditsaldo.
-- **Avgifter debiteras separat**: Tjänster som din organisation använde inte omfattas av kredit. Du är fakturerat för följande tjänster oavsett dina kreditsaldo:
+- **Överförbrukning av tjänst**: Din organisations användningsavgifter överstiger ditt kreditsaldo.
+- **Avgifter som debiteras separat**: De tjänster som din organisation använder omfattas inte av krediten. Du faktureras för följande tjänster oavsett ditt kreditsaldo:
     - Canonical
     - Citrix XenApp Essentials
     - Citrix XenDesktop
     - Registrerad användare
-    - Openlogic
-    - Fjärråtkomst Rights XenApp Essentials registrerad användare
+    - OpenLogic
+    - Registrerad användare för Remote Access Rights XenApp Essentials
     - Ubuntu Advantage
-    - Visual Studio Enterprise (per månad)
-    - Visual Studio Enterprise (årligt)
-    - Visual Studio Professional (per månad)
-    - Visual Studio Professional (årligt)
-- **Marketplace-avgifter**: Azure Marketplace-köp och användning omfattas inte av din organisations kredit och faktureras separat. I Enterprise-portalen kan en företagsadministratör aktivera och inaktivera Marketplace-köp.
+    - Visual Studio Enterprise (månatligen)
+    - Visual Studio Enterprise (årsvis)
+    - Visual Studio Professional (månatligen)
+    - Visual Studio Professional (årsvis)
+- **Marketplace-avgifter**: Azure Marketplace-köp och -användning omfattas inte av din organisations kredit, och faktureras separat. I Enterprise Portal kan en företagsadministratör aktivera och inaktivera Marketplace-köp.
 
-När du har avgifter på grund av för avgifter som debiteras separat under fakturaperioden och överförbrukning för tjänsten som du får en faktura. Den innehåller båda typerna av avgifter. Marknadsplatser kostnader faktureras alltid separat.
+När du har avgifter som har förfallit för överförbrukning av tjänst och avgifter som fakturas separat under faktureringsperioden får du en faktura. Den innehåller båda typerna av avgifter. Marketplace-avgifter faktureras alltid separat.
 
-## <a name="review-charges-for-other-customers"></a>Granska kostnader för andra kunder
+## <a name="review-charges-for-other-customers"></a>Granska avgifter för andra kunder
 
 Det här avsnittet gäller endast om du är i Australien, Japan eller Singapore.
 
-Om du vill granska och kontrollera avgifter på fakturan, måste du vara en företagsadministratör. Mer information finns i [förstå Azure Enterprise-avtal administrativa roller i Azure](billing-understand-ea-roles.md). Om du inte vet vem företagsadministratören är för din organisation, [supporten](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+För att kunna granska och verifiera avgifterna på din faktura måste du vara företagsadministratör. Mer information finns i [Förstå administrativa roller för Azure Enterprise-avtal i Azure](billing-understand-ea-roles.md). Om du inte vet vem som är företagsadministratör för din organisation bör du [kontakta supporten](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
-### <a name="review-service-overage-invoice"></a>Granska-överförbrukning fakturan
+### <a name="review-service-overage-invoice"></a>Granska fakturan för överförbrukning av tjänst
 
-Jämför din totala användning i Enterprise portal i **rapporter** > **Användningsöversikt** med servicefakturan överförbrukning. Den extra fakturan inkluderar användning som överstiger krediten för din organisation och/eller tjänster som inte omfattas av kredit. De mängder som anges på den **Användningsöversikt** inkluderar inte skatt.
+Jämför ditt totala användningsbelopp i Enterprise Portal i **Rapporter** > **Användningssammanfattning** med din faktura för överförbrukning av tjänst. Fakturan för överförbrukning av tjänst omfattar användning som överskrider organisationens kredit och/eller tjänster som inte omfattas av krediten. Belopp i **Användningssammanfattning** inkluderar inte skatt.
 
-1. Logga in på den [Enterprise portal](https://ea.azure.com).
-1. Välj **rapporter**.
-1. Växla från vyn på det övre högra hörnet av fliken **M** till **C** och matcha perioden på fakturan.  
-    ![Skärmbild som visar M + C-alternativet i Användningsöversikt.](./media/billing-understand-your-bill-ea/ea-portal-usage-sumary-cm-option.png)
-1. Den **Total användning** beloppet måste matcha den **utökade Totalmängd** för din överförbrukning faktura.  
-1. Om du vill ha mer information om dina debiteringar kan du gå till **ladda ned användning** > **avancerade ladda ned rapporten**. Rapporten innehåller inte skatter eller avgifter för reservationer eller marketplace-avgifter.  
-      ![Skärmbild som visar avancerade rapporten ladda ned på fliken hämta användning.](./media/billing-understand-your-bill-ea/ea-portal-download-usage-advanced.png)
+1. Logga in på [Enterprise Portal](https://ea.azure.com).
+1. Välj **Rapporter**.
+1. I flikens övre högra hörn växlar du vyn från **M** till **C** och matchar perioden på fakturan.  
+    ![Skärmbild som visar alternativet M + C i Användningssammanfattning.](./media/billing-understand-your-bill-ea/ea-portal-usage-sumary-cm-option.png)
+1. Beloppet för **Total användning** ska överensstämma med **Totalt utökat belopp** på fakturan för överförbrukning av tjänst.  
+1. Du kan få mer information om dina avgifter genom att gå till **Ladda ned användning** > **Nedladdning av avancerad rapport**. Rapporten innehåller inte skatter eller avgifter för reservationer eller Marketplace-debiteringar.  
+      ![Skärmbild som visar Nedladdning av avancerad rapport på fliken Ladda ned användning.](./media/billing-understand-your-bill-ea/ea-portal-download-usage-advanced.png)
 
-I följande tabell visas de termer och beskrivningar som visas på fakturan och på den **Användningsöversikt** i Enterprise portal:
+I följande tabell visas de termer och beskrivningar som finns på fakturan och i **Användningssammanfattning** i Enterprise Portal:
 
-|Faktura termen|Sammanfattning av villkor för användning|Beskrivning|
+|Fakturaterm|Termen Användningssammanfattning|Beskrivning|
 |---|---|---|
-|Totalt antal utökade belopp|Total användning|Total användning för före skatt avgiften för den specifika perioden innan krediten tillämpas.|
-|Åtagande användning|Åtagande användning|Kredit som gällde under den specifika perioden.|
-|Total försäljning|Total överförbrukning|Avgiften för total användning som överstiger din kredit. Den här mängden omfattar inte skatt.|
+|Totalt utökat belopp|Total användning|Den totala användningsavgiften före skatt för den specifika perioden innan krediten tillämpas.|
+|Åtagandeanvändning|Åtagandeanvändning|Den kredit som tillämpas under den specifika perioden.|
+|Total försäljning|Total överförbrukning|Den totala överförbrukningsavgiften som överstiger ditt kreditbelopp. Detta belopp inkluderar inte skatt.|
 |Skattebelopp|Inte tillämpligt|Skatt som gäller för det totala försäljningsbeloppet för den specifika perioden.|
-|Totalmängd|Inte tillämpligt|Hur mycket på grund av för fakturan när krediten har tillämpats och skatt läggs till.|
+|Totalt belopp|Inte tillämpligt|Det belopp som ska betalas för fakturan efter det att krediten har tillämpats och skatten lagts till.|
 
 ### <a name="marketplace-invoice"></a>Marketplace-faktura
 
 Det här avsnittet gäller endast om du är i Australien, Japan eller Singapore.
 
-Jämför din totala på Azure Marketplace **rapporter** > **Användningsöversikt** i Enterprise portal med din marketplace-faktura. Marketplace-fakturan avser enbart Azure Marketplace-köp och -användning. De mängder som anges på den **Användningsöversikt** inkluderar inte skatt.
+Jämför din totala Azure Marketplace-summa i **Rapporter** > **Användningssammanfattning** i Enterprise-portalen med din Marketplace-faktura. Marketplace-fakturan avser enbart Azure Marketplace-köp och -användning. Belopp i **Användningssammanfattning** inkluderar inte skatt.
 
-1. Logga in på den [Enterprise portal](https://ea.azure.com).
-1. Välj **rapporter**.
-1. Växla från vyn på det övre högra hörnet av fliken **M** till **C** och matcha perioden på fakturan.  
-     ![Skärmbild som visar M + C alternativet på Användningsöversikt.](./media/billing-understand-your-bill-ea/ea-portal-usage-sumary-cm-option.png)  
-1. Den **Azure Marketplace** totalt ska matcha den **Total försäljning** på din marketplace-faktura.
-1. Mer information om dina användningsbaserade avgifter, gå till **ladda ned användning**. Under **Marketplace-avgifter**väljer **hämta**. Den här rapporten inkluderar inga skatter och visar inte enstaka köp.  
-     ![Skärmbild som visar Hämta alternativ under Marketplace-avgifter.](./media/billing-understand-your-bill-ea/ea-portal-download-usage-marketplace.png)
+1. Logga in på [Enterprise Portal](https://ea.azure.com).
+1. Välj **Rapporter**.
+1. I flikens övre högra hörn växlar du vyn från **M** till **C** och matchar perioden på fakturan.  
+     ![Skärmbild som visar alternativet M + C i Användningssammanfattning.](./media/billing-understand-your-bill-ea/ea-portal-usage-sumary-cm-option.png)  
+1. Det totala **Azure Marketplace**-beloppet ska överensstämma med **Total försäljning** på din Marketplace-faktura.
+1. Du kan få mer information om dina användningsbaserade avgifter genom att gå till **Ladda ned användning**. Under **Marketplace-avgifter** väljer du **Ladda ned**. Den här rapporten inkluderar inga skatter och visar inte enstaka köp.  
+     ![Skärmbild som visar nedladdningsalternativet under Marketplace-avgifter.](./media/billing-understand-your-bill-ea/ea-portal-download-usage-marketplace.png)
 
 ## <a name="need-help-contact-us"></a>Behöver du hjälp? Kontakta oss.
 
-Om du har frågor eller behöver hjälp, [skapa en supportbegäran](https://go.microsoft.com/fwlink/?linkid=2083458).
+Om du har frågor eller behöver hjälp kan du [skapa en supportbegäran](https://go.microsoft.com/fwlink/?linkid=2083458).
 
 ## <a name="next-steps"></a>Nästa steg
-- [Visa och hämta din Azure-användning och kostnader](billing-download-azure-daily-usage.md)
+- [Visa och ladda ned information om din användning och dina avgifter för Azure](billing-download-azure-daily-usage.md)

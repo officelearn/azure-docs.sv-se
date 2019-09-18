@@ -1,7 +1,7 @@
 ---
 title: Distribuera modeller med en anpassad Docker-bas avbildning
-titleSuffix: Azure Machine Learning service
-description: Lär dig hur du använder en anpassad Docker-bas avbildning när du distribuerar Azure Machine Learning tjänst modeller. När du distribuerar en utbildad modell distribueras en bas behållar avbildning för att köra din modell för härledning. Azure Machine Learning tjänsten tillhandahåller en standard bas avbildning åt dig, kan du också använda en egen bas avbildning.
+titleSuffix: Azure Machine Learning
+description: Lär dig hur du använder en anpassad Docker-bas avbildning när du distribuerar Azure Machine Learning-modeller. När du distribuerar en utbildad modell distribueras en bas behållar avbildning för att köra din modell för härledning. Medan Azure Machine Learning tillhandahåller en standard bas avbildning åt dig, kan du också använda en egen bas avbildning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,20 +10,20 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 08/22/2019
-ms.openlocfilehash: 753f0bece5b8b52ebb50ab2a6e93056ce209cfbc
-ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
+ms.openlocfilehash: 04d81f8e16a3f34f7abf15c9606833002fafb39c
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70183557"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71034537"
 ---
 # <a name="deploy-a-model-using-a-custom-docker-base-image"></a>Distribuera en modell med en anpassad Docker-bas avbildning
 
-Lär dig hur du använder en anpassad Docker-bas avbildning när du distribuerar utbildade modeller med Azure Machine Learning-tjänsten.
+Lär dig hur du använder en anpassad Docker-bas avbildning när du distribuerar utbildade modeller med Azure Machine Learning.
 
 När du distribuerar en utbildad modell till en webb tjänst eller IoT Edge enhet skapas ett paket som innehåller en webb server för att hantera inkommande begär Anden.
 
-Azure Machine Learning tjänsten tillhandahåller en standard Docker-bas avbildning så att du inte behöver oroa dig för att skapa en. Du kan också använda Azure Machine Learning tjänst __miljöer__ för att välja en enskild bas avbildning eller använda en anpassad som du anger.
+Azure Machine Learning tillhandahåller en standard Docker-bas avbildning så att du inte behöver oroa dig för att skapa en. Du kan också använda Azure Machine Learning __miljöer__ för att välja en enskild bas avbildning eller använda en anpassad som du anger.
 
 En bas avbildning används som start punkt när en avbildning skapas för en distribution. Det tillhandahåller underliggande operativ system och komponenter. Distributions processen lägger sedan till ytterligare komponenter, till exempel din modell, Conda-miljö och andra till gångar, till avbildningen innan du distribuerar den.
 
@@ -42,20 +42,20 @@ Det här dokumentet är uppdelat i två delar:
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-* En Azure Machine Learning tjänst arbets grupp. Mer information finns i artikeln [skapa en arbets yta](how-to-manage-workspace.md) .
+* En Azure Machine Learning arbets grupp. Mer information finns i artikeln [skapa en arbets yta](how-to-manage-workspace.md) .
 * [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py). 
 * Den [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 * [CLI-tillägget för Azure Machine Learning](reference-azure-machine-learning-cli.md).
 * En [Azure Container Registry](/azure/container-registry) eller ett annat Docker-register som är tillgängligt på Internet.
-* Stegen i det här dokumentet förutsätter att du är van vid att skapa och använda ett konfigurations objekt för konfigurations objekt som en del av modell distributionen. Mer information finns i avsnittet "förbereda distribution" i [var du ska distribuera och hur](how-to-deploy-and-where.md#prepare-to-deploy).
+* Stegen i det här dokumentet förutsätter att du är van vid att skapa och använda ett __konfigurations objekt för konfigurations__ objekt som en del av modell distributionen. Mer information finns i avsnittet "förbereda distribution" i [var du ska distribuera och hur](how-to-deploy-and-where.md#prepare-to-deploy).
 
 ## <a name="create-a-custom-base-image"></a>Skapa en anpassad bas avbildning
 
-Informationen i det här avsnittet förutsätter att du använder en Azure Container Registry för att lagra Docker-avbildningar. Använd följande check lista när du planerar att skapa anpassade avbildningar för Azure Machine Learning-tjänsten:
+Informationen i det här avsnittet förutsätter att du använder en Azure Container Registry för att lagra Docker-avbildningar. Använd följande check lista när du planerar att skapa anpassade avbildningar för Azure Machine Learning:
 
-* Kommer du att använda Azure Container Registry som skapats för arbets ytan Azure Machine Learnings tjänst eller en fristående Azure Container Registry?
+* Kommer du att använda Azure Container Registry som skapats för arbets ytan Azure Machine Learning eller en fristående Azure Container Registry?
 
-    När du använder avbildningar som lagras i behållar __registret för arbets ytan__behöver du inte autentisera till registret. Autentiseringen hanteras av arbets ytan.
+    När du använder avbildningar som lagras i __behållar registret för arbets ytan__behöver du inte autentisera till registret. Autentiseringen hanteras av arbets ytan.
 
     > [!WARNING]
     > Azure Container Rzegistry för din arbets yta __skapas första gången du tränar eller distribuerar en modell__ med hjälp av arbets ytan. Om du har skapat en ny arbets yta, men inte tränat eller skapat någon modell, så finns det inga Azure Container Registry för arbets ytan.
@@ -70,7 +70,7 @@ Informationen i det här avsnittet förutsätter att du använder en Azure Conta
 
 * Azure Container Registry-och avbildnings information: Ange avbildnings namnet för alla som behöver använda det. En bild som heter `myimage`, lagrad i ett register med namnet `myregistry`, refereras till som `myregistry.azurecr.io/myimage` när du använder avbildningen för modell distribution
 
-* Avbildnings krav: Azure Machine Learnings tjänsten har endast stöd för Docker-avbildningar som tillhandahåller följande program vara:
+* Avbildnings krav: Azure Machine Learning stöder endast Docker-avbildningar som tillhandahåller följande program vara:
 
     * Ubuntu 16,04 eller senare.
     * Conda 4.5. # eller senare.
@@ -80,12 +80,12 @@ Informationen i det här avsnittet förutsätter att du använder en Azure Conta
 
 ### <a name="get-container-registry-information"></a>Hämta information om container registret
 
-I det här avsnittet får du lära dig hur du hämtar namnet på Azure Container Registry för din Azure Machine Learning service-arbetsyta.
+I det här avsnittet får du lära dig hur du hämtar namnet på Azure Container Registry för Azure Machine Learning arbets ytan.
 
 > [!WARNING]
 > Azure Container Registry för din arbets yta __skapas första gången du tränar eller distribuerar en modell__ med hjälp av arbets ytan. Om du har skapat en ny arbets yta, men inte tränat eller skapat någon modell, så finns det inga Azure Container Registry för arbets ytan.
 
-Om du redan har tränat eller distribuerat modeller med hjälp av tjänsten Azure Machine Learning, har ett behållar register skapats för din arbets yta. Använd följande steg för att hitta namnet på det här behållar registret:
+Om du redan har tränat eller distribuerat modeller med hjälp av Azure Machine Learning har ett behållar register skapats för din arbets yta. Använd följande steg för att hitta namnet på det här behållar registret:
 
 1. Öppna ett nytt gränssnitt eller kommando tolk och Använd följande kommando för att autentisera till din Azure-prenumeration:
 
@@ -95,7 +95,7 @@ Om du redan har tränat eller distribuerat modeller med hjälp av tjänsten Azur
 
     Följ anvisningarna för att autentisera till prenumerationen.
 
-2. Använd följande kommando för att Visa behållar registret för arbets ytan. Ersätt `<myworkspace>` med namnet på din Azure Machine Learning service-arbetsyta. Ersätt `<resourcegroup>` med Azure-resurs gruppen som innehåller din arbets yta:
+2. Använd följande kommando för att Visa behållar registret för arbets ytan. Ersätt `<myworkspace>` med namnet på din Azure Machine Learning-arbetsyta. Ersätt `<resourcegroup>` med Azure-resurs gruppen som innehåller din arbets yta:
 
     ```azurecli-interactive
     az ml workspace show -w <myworkspace> -g <resourcegroup> --query containerRegistry
@@ -182,7 +182,7 @@ Microsoft tillhandahåller flera Docker-avbildningar på en offentligt tillgäng
 
 | Image | Beskrivning |
 | ----- | ----- |
-| `mcr.microsoft.com/azureml/o16n-sample-user-base/ubuntu-miniconda` | Grundläggande avbildning för Azure Machine Learning tjänst |
+| `mcr.microsoft.com/azureml/o16n-sample-user-base/ubuntu-miniconda` | Grundläggande avbildning för Azure Machine Learning |
 | `mcr.microsoft.com/azureml/onnxruntime:v0.4.0` | Innehåller ONNX-körningsmiljön. |
 | `mcr.microsoft.com/azureml/onnxruntime:v0.4.0-cuda10.0-cudnn7` | Innehåller ONNX Runtime-och CUDA-komponenterna. |
 | `mcr.microsoft.com/azureml/onnxruntime:v0.4.0-tensorrt19.03` | Innehåller ONNX Runtime och TensorRT. |
@@ -193,7 +193,7 @@ Microsoft tillhandahåller flera Docker-avbildningar på en offentligt tillgäng
 > [!IMPORTANT]
 > Microsoft-avbildningar som använder CUDA eller TensorRT får endast användas på Microsoft Azure-tjänster.
 
-Mer information finns i [Azure Machine Learning tjänst behållare](https://github.com/Azure/AzureML-Containers).
+Mer information finns i [Azure Machine Learning behållare](https://github.com/Azure/AzureML-Containers).
 
 > [!TIP]
 >__Om din modell tränas på Azure Machine Learning Compute__, med __version 1.0.22 eller senare__ av Azure Machine Learning SDK, skapas en avbildning under utbildningen. Använd `run.properties["AzureML.DerivedImageName"]`om du vill identifiera namnet på den här avbildningen. Följande exempel visar hur du använder den här avbildningen:
@@ -205,7 +205,7 @@ Mer information finns i [Azure Machine Learning tjänst behållare](https://gith
 
 ### <a name="use-an-image-with-the-azure-machine-learning-sdk"></a>Använd en avbildning med Azure Machine Learning SDK
 
-Om du vill använda en avbildning som lagras i **Azure Container Registry för din arbets yta**, eller ett behållar **register som är offentligt tillgängligt**, anger du följande miljöattribut: [](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py)
+Om du vill använda en avbildning som lagras i **Azure Container Registry för din arbets yta**, eller ett **behållar register som är offentligt tillgängligt**, anger [du följande](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py) miljöattribut:
 
 + `docker.enabled=True`
 + `docker.base_image`: Ange till registret och sökvägen till avbildningen.
@@ -248,7 +248,7 @@ service.wait_for_deployment(show_output = True)
 print(service.state)
 ```
 
-Mer information om distribution finns i [Distribuera modeller med Azure Machine Learning-tjänsten](how-to-deploy-and-where.md).
+Mer information om distribution finns i [Distribuera modeller med Azure Machine Learning](how-to-deploy-and-where.md).
 
 ### <a name="use-an-image-with-the-machine-learning-cli"></a>Använd en avbildning med Machine Learning CLI
 
@@ -276,9 +276,9 @@ Den här filen används med `az ml model deploy` kommandot. `--ic` Parametern an
 az ml model deploy -n myservice -m mymodel:1 --ic inferenceconfig.json --dc deploymentconfig.json --ct akscomputetarget
 ```
 
-Mer information om hur du distribuerar en modell med hjälp av ML CLI finns i avsnittet "modell registrering, profilering och distribution" i CLI- [tillägget för Azure Machine Learning service](reference-azure-machine-learning-cli.md#model-registration-profiling-deployment) artikeln.
+Mer information om hur du distribuerar en modell med hjälp av ML CLI finns i avsnittet "modell registrering, profilering och distribution" i CLI- [tillägget för Azure Machine Learning](reference-azure-machine-learning-cli.md#model-registration-profiling-deployment) artikel.
 
 ## <a name="next-steps"></a>Nästa steg
 
 * Läs mer om [var du distribuerar och hur](how-to-deploy-and-where.md).
-* Lär dig hur du [tränar och distribuerar maskin inlärnings modeller med Azure](/azure/devops/pipelines/targets/azure-machine-learning?view=azure-devops)-pipeliner.
+* Lär dig hur du [tränar och distribuerar maskin inlärnings modeller med Azure-pipeliner](/azure/devops/pipelines/targets/azure-machine-learning?view=azure-devops).

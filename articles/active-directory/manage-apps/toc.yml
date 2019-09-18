@@ -22,6 +22,7 @@
     - name: Lägga till en lokal app med programproxy
       href: application-proxy-add-on-premises-application.md
 - name: Begrepp
+  expanded: true
   items:
     - name: Molnappar och enkel inloggning
       items:
@@ -240,6 +241,8 @@
           items:
             - name: Felsöka användaretablering
               href: application-provisioning-config-problem.md
+            - name: Etableringsloggar
+              href: /azure/active-directory/reports-monitoring/concept-provisioning-logs?context=azure/active-directory/manage-apps/context/manage-apps-context
             - name: Synkronisera ett attribut för mappning – galleriappen
               href: user-provisioning-sync-attributes-for-mapping.md
             - name: Tar flera timmar – galleriapp

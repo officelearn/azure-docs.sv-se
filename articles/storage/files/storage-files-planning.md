@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 4c13c0b7601257c120c46ec341156a8e8bba332f
-ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
+ms.openlocfilehash: da9ab6eef98a602635e5e92dca3bd5628846ce62
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70967791"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71036338"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planera för distribution av Azure Files
 
@@ -95,7 +95,7 @@ Om du vill lära dig hur du skapar en Premium-filresurs, se vår artikel om ämn
 För närvarande kan du inte direkt konvertera mellan en standard fil resurs och en Premium-filresurs. Om du vill växla till någon av nivåerna måste du skapa en ny fil resurs på den nivån och manuellt kopiera data från den ursprungliga resursen till den nya resurs som du har skapat. Du kan göra detta med hjälp av någon av de Azure Files kopierings verktyg som stöds, till exempel Robocopy eller AzCopy.
 
 > [!IMPORTANT]
-> Premium-filresurser är bara tillgängliga med LRS och är tillgängliga i de flesta regioner som erbjuder lagrings konton. För att ta reda på om Premium-filresurser är tillgängliga i din region, se sidan [produkter som är tillgängliga per region](https://azure.microsoft.com/global-infrastructure/services/?products=storage) för Azure.
+> Premium-filresurser är tillgängliga med LRS i de flesta regioner som erbjuder lagrings konton och med ZRS i en mindre delmängd regioner. För att ta reda på om Premium-filresurser är tillgängliga i din region, se sidan [produkter som är tillgängliga per region](https://azure.microsoft.com/global-infrastructure/services/?products=storage) för Azure. För att ta reda på vilka regioner som stöder ZRS, se [support täckning och regional tillgänglighet](../common/storage-redundancy-zrs.md#support-coverage-and-regional-availability).
 
 #### <a name="provisioned-shares"></a>Etablerade resurser
 
@@ -157,7 +157,7 @@ Nya fil resurser börjar med det fullständiga antalet krediter i sin burst-Buck
 
 Azure Files standard resurser stöder fyra alternativ för dataredundans: lokalt redundant lagring (LRS), Zone-redundant lagring (ZRS), Geo-redundant lagring (GRS) och geo-Zone-redundant lagring (GZRS) (för hands version).
 
-Azure Files Premium-resurser har endast stöd för lokalt redundant lagring (LRS).
+Azure Files Premium-resurser stöder både LRS och ZRS, ZRS är för närvarande tillgänglig i en mindre delmängd regioner.
 
 I följande avsnitt beskrivs skillnaderna mellan olika alternativ för redundans:
 

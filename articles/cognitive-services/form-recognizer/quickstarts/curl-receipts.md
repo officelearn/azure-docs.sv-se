@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 07/01/2019
 ms.author: pafarley
-ms.openlocfilehash: f8edb27e52d843d9a765aed8da9b75417cf357d1
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: badd674030ec014f2e70050c3c45599a26b17882
+ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68552580"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71073815"
 ---
 # <a name="quickstart-extract-receipt-data-using-the-form-recognizer-rest-api-with-curl"></a>Snabbstart: Extrahera indata med formulär tolken REST API med vändning
 
@@ -36,7 +36,7 @@ För att slutföra den här snabb starten måste du ha:
 
 Om du vill börja analysera ett kvitto anropar du API: et för att **analysera kvitto** med hjälp av kommandot vänd nedan. Innan du kör kommandot gör du följande ändringar:
 
-1. Ersätt `<Endpoint>` med den slut punkt som du fick från ditt formulärs igenkännings prenumerations nyckel. Du hittar det på fliken **Översikt** i formulärets tolknings resurs.
+1. Ersätt `<Endpoint>` med den slut punkt som du fick med ditt formulärs igenkännings prenumerations nyckel. Du hittar det på fliken **Översikt** i formulärets tolknings resurs.
 1. Ersätt `<your receipt URL>` med URL-adressen för en kvitto avbildning.
 1. Ersätt `<subscription key>` med den prenumerations nyckel som du kopierade från föregående steg.
 

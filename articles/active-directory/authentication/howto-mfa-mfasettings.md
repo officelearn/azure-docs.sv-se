@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9eab92f044f62a1ca32062753f824ea76a2726a8
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: cf732ec97a57a5bc1d2bcaa39e5fd14a305504d0
+ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70860279"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71075501"
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>Konfigurera inställningar för Azure-Multi-Factor Authentication
 
@@ -403,6 +403,8 @@ Funktionen minskar antalet autentiseringar i Web Apps, som normalt frågas varje
 >Funktionen **kom ihåg Multi-Factor Authentication** är inte kompatibel med funktionen **Håll mig inloggad** i AD FS, när användare utför tvåstegsverifiering för AD FS via Azure Multi-Factor Authentication-Server eller en Multi-Factor-faktor från tredje part autentiserings lösning.
 >
 >Om användarna väljer att **låta mig vara inloggad** på AD FS och även markera enheten som betrodd för Multi-Factor Authentication, kontrol leras inte användaren automatiskt när det **sparade Multi-Factor Authentication** -antalet dagar upphör att gälla. Azure AD begär en ny tvåstegsverifiering, men AD FS returnerar en token med den ursprungliga Multi-Factor Authentication anspråket och datumet, i stället för att utföra tvåstegsverifiering igen. **Den här reaktionen anger en verifierings slinga mellan Azure AD och AD FS.**
+>
+>Funktionen **kom ihåg Multi-Factor Authentication** är inte kompatibel med B2B-användare och kommer inte att vara synlig för B2B-användare när de loggar in på inbjudna klienter.
 >
 
 ### <a name="enable-remember-multi-factor-authentication"></a>Aktivera kom ihåg Multi-Factor Authentication

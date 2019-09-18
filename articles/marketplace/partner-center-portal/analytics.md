@@ -7,12 +7,12 @@ ms.author: shthota
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 09/09/2019
-ms.openlocfilehash: 4357a91a87648885def69d8e75e19e38a5a3f751
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: 87ecf534fa7d4f3609882f5f18b314c246e388bd
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70993725"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71036647"
 ---
 # <a name="analytics-for-the-commercial-marketplace-in-partner-center"></a>Analys för den kommersiella marknads platsen i Partner Center
 
@@ -250,7 +250,7 @@ Du får ett popup-meddelande och ett e-postmeddelande som innehåller en länk t
 | Förnamn för kund| Kunden| Det namn som tillhandahålls av kunden. Namnet får inte vara detsamma som det namn som anges i en kunds Azure-prenumeration.| |
 | Kund-ID | Kund, order | Den unika identifierare som tilldelats till en kund. En kund kan ha noll eller flera prenumerationer på Azure Marketplace.|  |
 | Kund post nummer  | Kunden| Post numret från kunden. Koden får inte vara samma som post numret i en kunds Azure-prenumeration.| |
-| Kund tillstånd| Kunden| Den stat (adress) som tillhandahålls av kunden. Tillstånd kan skilja sig från det sista namnet som angavs i en kunds Azure-prenumeration.| |
+| Kund tillstånd| Kunden| Den stat (adress) som tillhandahålls av kunden. Tillstånd kan skilja sig från det tillstånd som tillhandahölls i en kunds Azure-prenumeration.| |
 | Inköps datum| Kunden| Det första datumet då kunden köpte ett erbjudande som publicerats av dig.| |
 | Datum förlorat| Kunden| Det senaste datumet då kunden avbröt den sista av alla erbjudanden som tidigare har köpts.||
 | Är ny kund  | Beställa| Värdet identifierar en ny kund som förvärvar ett eller flera av dina erbjudanden för första gången (eller inte). Värdet blir "Ja" om det är inom samma kalender månad för "inköps datum". Värdet blir "nej" om kunden har köpt något av dina erbjudanden före den kalender månad som rapporter ATS. |

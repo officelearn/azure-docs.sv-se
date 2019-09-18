@@ -11,18 +11,18 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein
 ms.date: 02/04/2019
-ms.openlocfilehash: 81f3e4beb29f21f1b752a876827e9b35856c713a
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: c501bed9220c08013d44836066e46df92cf69eaa
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68566889"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71037440"
 ---
 # <a name="azure-resource-manager-templates-for-azure-sql-database"></a>Azure Resource Manager-mallar för Azure SQL Database
 
 Med Azure Resource Manager-mallar kan du definiera din infrastruktur som kod och distribuera lösningar till Azure-molnet.
 
-## <a name="single-database--elastic-pool"></a>Enkel databas och elastisk pool
+## <a name="single-database--elastic-pooltabsingle-database"></a>[Enkel databas & elastisk pool](#tab/single-database)
 
 Följande tabell innehåller länkar till Azure Resource Manager-mallar för Azure SQL Database.
 
@@ -41,7 +41,7 @@ Följande tabell innehåller länkar till Azure Resource Manager-mallar för Azu
 | [HDInsight-kluster med en SQL-databas](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-linux-with-sql-database) | Med den här mallen kan du skapa ett HDInsight-kluster, en SQL Database-server, en SQL-databas och två tabeller. Den här mallen används av artikeln om att [använda Sqoop med Hadoop i HDInsight](https://docs.microsoft.com/azure/hdinsight/hadoop/hdinsight-use-sqoop) |
 | [Azure-logikapp som kör en SQL-lagrad procedur enligt ett schema](https://github.com/Azure/azure-quickstart-templates/tree/master/101-logic-app-sql-proc) | Med den här mallen kan du skapa en logikapp som ska köra en SQL-lagrad procedur enligt ett schema. Argument för proceduren kan placeras i brödtexten i mallen.|
 
-## <a name="managed-instance"></a>Managed Instance
+## <a name="managed-instancetabmanaged-instance"></a>[Hanterad instans](#tab/managed-instance)
 
 Följande tabell innehåller länkar till Azure Resource Manager-mallar för Azure SQL Database – hanterad instans.
 
@@ -51,3 +51,5 @@ Följande tabell innehåller länkar till Azure Resource Manager-mallar för Azu
 | [Nätverksmiljö för hanterad instans](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-managed-instance-azure-environment) | Den här distributionen skapar ett konfigurerat Azure-nätverk med två undernät – ett som dedikeras till dina hanterade instanser och ett annat där du kan placera andra resurser (till exempel virtuella datorer, App Service-miljöer osv.). Den här mallen skapar en korrekt konfigurerad nätverksmiljö där du kan distribuera hanterade instanser. |
 | [Hanterad instans med P2S-anslutning](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sqlmi-new-vnet-w-point-to-site-vpn) | Den här distributionen skapar ett virtuellt Azure-nätverk med två undernät, `ManagedInstance` och `GatewaySubnet`. Hanterad instans kommer att distribueras i undernätet ManagedInstance. Virtuell nätverksgateway skapas i undernätet `GatewaySubnet` och konfigureras för punkt-till-plats-VPN-anslutning. |
 | [Hanterad instans med virtuell dator](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sqlmi-new-vnet-w-jumpbox) | Den här distributionen skapar ett virtuellt Azure-nätverk med två undernät, `ManagedInstance` och `Management`. Hanterad instans kommer att distribueras i undernätet `ManagedInstance`. Virtuell dator med den senaste versionen av SQL Server Management Studio (SSMS) kommer att distribueras i undernätet `Management`. |
+
+---

@@ -1,6 +1,6 @@
 ---
 title: Skapa och använda beräkningsmål för modellträning
-titleSuffix: Azure Machine Learning service
+titleSuffix: Azure Machine Learning
 description: Konfigurera utbildnings miljöer (beräknings mål) för maskin inlärnings modell träning. Du kan enkelt växla mellan utbildnings miljöer. Börja träna lokalt. Om du behöver skala ut växlar du till ett moln baserat beräknings mål.
 services: machine-learning
 author: heatherbshapiro
@@ -11,18 +11,18 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 06/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: 0a34ccf5201b81a2c74c2eccd0ec3f311a1158ab
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: 7c3bae2fff9e20ed9427c72b5f5f632d975f9f94
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70860536"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71034417"
 ---
 # <a name="set-up-and-use-compute-targets-for-model-training"></a>Konfigurera och Använd Compute-mål för modell träning 
 
-Med Azure Machine Learning tjänsten kan du träna din modell på en mängd olika resurser eller miljöer, som sammankallas för [__beräknings mål__](concept-azure-machine-learning-architecture.md#compute-targets). Ett beräknings mål kan vara en lokal dator eller en moln resurs, till exempel en Azure Machine Learning beräkning, Azure HDInsight eller en virtuell dator för virtuella datorer.  Du kan också skapa beräknings mål för modell distribution enligt beskrivningen i ["var och hur du distribuerar dina modeller"](how-to-deploy-and-where.md).
+Med Azure Machine Learning kan du träna din modell på en mängd olika resurser eller miljöer, som sammankallas för [__beräknings mål__](concept-azure-machine-learning-architecture.md#compute-targets). Ett beräknings mål kan vara en lokal dator eller en moln resurs, till exempel en Azure Machine Learning beräkning, Azure HDInsight eller en virtuell dator för virtuella datorer.  Du kan också skapa beräknings mål för modell distribution enligt beskrivningen i ["var och hur du distribuerar dina modeller"](how-to-deploy-and-where.md).
 
-Du kan skapa och hantera ett beräknings mål med hjälp av Azure Machine Learning SDK, Azure Portal, landnings sidan för arbets ytan (för hands version), Azure CLI eller Azure Machine Learning VS Code-tillägg. Om du har beräkningsmål som har skapats via en annan tjänst (till exempel ett HDInsight-kluster), kan du använda dem genom att koppla dem till din arbetsyta för Azure Machine Learning-tjänsten.
+Du kan skapa och hantera ett beräknings mål med hjälp av Azure Machine Learning SDK, Azure Portal, landnings sidan för arbets ytan (för hands version), Azure CLI eller Azure Machine Learning VS Code-tillägg. Om du har beräknings mål som har skapats via en annan tjänst (till exempel ett HDInsight-kluster) kan du använda dem genom att koppla dem till din Azure Machine Learning-arbetsyta.
  
 I den här artikeln får du lära dig hur du använder olika beräknings mål för modell träning.  Stegen för alla beräknings mål följer samma arbets flöde:
 1. __Skapa__ ett beräknings mål om du inte redan har ett.
@@ -35,7 +35,7 @@ I den här artikeln får du lära dig hur du använder olika beräknings mål f�
 
 ## <a name="compute-targets-for-training"></a>Compute-mål för utbildning
 
-Azure Machine Learning tjänsten har varierande stöd för olika beräknings mål. En typisk modellen för säkerhetsutveckling börjar med utveckling/experimentering på en liten mängd data. I det här skedet bör du använda en lokal miljö. Den lokala datorn eller en molnbaserad VM. När du skalar upp utbildning på större datauppsättningar eller göra distribuerad utbildning, bör du använda beräkning av Azure Machine Learning för att skapa ett enda eller flera node kluster som skalar varje gång du skickar en körning. Du kan även bifoga dina egna beräkningsresurs, även om stöd för olika scenarier kan variera som beskrivs nedan:
+Azure Machine Learning har varierande stöd för olika beräknings mål. En typisk modellen för säkerhetsutveckling börjar med utveckling/experimentering på en liten mängd data. I det här skedet bör du använda en lokal miljö. Den lokala datorn eller en molnbaserad VM. När du skalar upp utbildning på större datauppsättningar eller göra distribuerad utbildning, bör du använda beräkning av Azure Machine Learning för att skapa ett enda eller flera node kluster som skalar varje gång du skickar en körning. Du kan även bifoga dina egna beräkningsresurs, även om stöd för olika scenarier kan variera som beskrivs nedan:
 
 [!INCLUDE [aml-compute-target-train](../../../includes/aml-compute-target-train.md)]
 
@@ -45,7 +45,7 @@ Azure Machine Learning tjänsten har varierande stöd för olika beräknings må
 
 ## <a name="whats-a-run-configuration"></a>Vad är en körnings konfiguration?
 
-När det gäller utbildning är det vanligt att starta på den lokala datorn och senare köra det utbildnings skriptet på ett annat Compute-mål. Med Azure Machine Learning tjänsten kan du köra skriptet på olika beräknings mål utan att behöva ändra ditt skript.
+När det gäller utbildning är det vanligt att starta på den lokala datorn och senare köra det utbildnings skriptet på ett annat Compute-mål. Med Azure Machine Learning kan du köra skriptet på olika beräknings mål utan att behöva ändra ditt skript.
 
 Allt du behöver göra är att definiera miljön för varje beräknings mål i en **körnings konfiguration**.  När du sedan vill köra ditt utbildnings experiment på ett annat beräknings mål anger du körnings konfigurationen för den beräkningen. Information om hur du anger en miljö och binder den till att köra konfigurationen finns i [skapa och hantera miljöer för utbildning och distribution](how-to-use-environments.md).
 
@@ -143,7 +143,7 @@ Nu när du har kopplat beräkningen och konfigurerat din körning är nästa ste
 
 ### <a id="vm"></a>Virtuella fjärrdatorer
 
-Azure Machine Learning har även stöd för att få ut dina egna beräkningsresurs och kopplar den till din arbetsyta. En sådan resurs typ är en godtycklig virtuell fjärrdator, så länge den är tillgänglig från Azure Machine Learning-tjänsten. Resursen kan vara en virtuell Azure-dator, en fjärrserver i din organisation eller lokalt. Mer specifikt, baserat på IP-adress och autentiseringsuppgifter (användar namn och lösen ord eller SSH-nyckel), kan du använda valfri tillgänglig virtuell dator för fjärrkörningar.
+Azure Machine Learning har även stöd för att få ut dina egna beräkningsresurs och kopplar den till din arbetsyta. En sådan resurs typ är en godtycklig virtuell fjärrdator, så länge den är tillgänglig från Azure Machine Learning. Resursen kan vara en virtuell Azure-dator, en fjärrserver i din organisation eller lokalt. Mer specifikt, baserat på IP-adress och autentiseringsuppgifter (användar namn och lösen ord eller SSH-nyckel), kan du använda valfri tillgänglig virtuell dator för fjärrkörningar.
 
 Du kan använda en inbyggd system conda-miljö, en redan befintlig Python-miljö eller en Docker-behållare. Om du vill köra på en Docker-behållare måste du ha en Docker-motor som körs på den virtuella datorn. Den här funktionen är särskilt användbart när du vill att en mer flexibel, molnbaserad utveckling/experimentmiljön än den lokala datorn.
 
@@ -327,7 +327,7 @@ Följ föregående steg för att visa listan över beräknings mål. Använd sed
 
 ### <a id="portal-reuse"></a>Bifoga Compute-mål
 
-Om du vill använda beräknings mål som skapats utanför arbets ytan Azure Machine Learnings tjänst måste du koppla dem. Om du kopplar ett beräknings mål blir det tillgängligt för din arbets yta.
+Om du vill använda beräknings mål som skapats utanför arbets ytan Azure Machine Learning måste du koppla dem. Om du kopplar ett beräknings mål blir det tillgängligt för din arbets yta.
 
 Följ stegen som beskrivs ovan för att visa listan över beräknings mål. Använd sedan följande steg för att ansluta ett beräknings mål: 
 
@@ -356,7 +356,7 @@ Följ stegen som beskrivs ovan för att visa listan över beräknings mål. Anv�
 
 ## <a name="set-up-with-cli"></a>Konfigurera med CLI
 
-Du kan komma åt de beräknings mål som är kopplade till din arbets yta med [CLI-tillägget](reference-azure-machine-learning-cli.md) för Azure Machine Learning-tjänsten.  Du kan använda CLI för att:
+Du kan komma åt de beräknings mål som är kopplade till din arbets yta med [CLI-tillägget](reference-azure-machine-learning-cli.md) för Azure Machine Learning.  Du kan använda CLI för att:
 
 * Skapa ett hanterat beräknings mål
 * Uppdatera ett hanterat beräknings mål
@@ -366,7 +366,7 @@ Mer information finns i [resurs hantering](reference-azure-machine-learning-cli.
 
 ## <a name="set-up-with-vs-code"></a>Konfigurera med VS Code
 
-Du kan komma åt, skapa och hantera de beräknings mål som är kopplade till din arbets yta med [vs Code-tillägget](how-to-vscode-tools.md#create-and-manage-compute-targets) för Azure Machine Learning-tjänsten.
+Du kan komma åt, skapa och hantera de beräknings mål som är kopplade till din arbets yta med [vs Code-tillägget](how-to-vscode-tools.md#create-and-manage-compute-targets) för Azure Machine Learning.
 
 ## <a id="submit"></a>Skicka utbildnings körning med hjälp av Azure Machine Learning SDK
 
@@ -515,4 +515,4 @@ Se dessa antecknings böcker för exempel på utbildning med olika beräknings m
 * Lär dig hur du [effektivt justerar disponeringsparametrarna](how-to-tune-hyperparameters.md) för att bygga bättre modeller.
 * När du har en tränad modell lär du dig [hur och var modeller ska distribueras](how-to-deploy-and-where.md).
 * Visa SDK-referens för [RunConfiguration-klass](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.runconfiguration?view=azure-ml-py) .
-* [Använda Azure Machine Learning-tjänsten med virtuella Azure-nätverk](how-to-enable-virtual-network.md)
+* [Använda Azure Machine Learning med virtuella Azure-nätverk](how-to-enable-virtual-network.md)

@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 02/28/2019
 ms.author: zarhoads
-ms.openlocfilehash: 4fc34ed5cdd53977aa20bef84200ba2bf5386979
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: d2d7508b4f0a2789a0eae5d6c6205475b5795e36
+ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70899479"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71097830"
 ---
 # <a name="scaling-options-for-applications-in-azure-kubernetes-service-aks"></a>Skalnings alternativ för program i Azure Kubernetes service (AKS)
 
@@ -27,7 +27,7 @@ Den här artikeln beskriver de viktigaste begreppen som hjälper dig att skala p
 
 ## <a name="manually-scale-pods-or-nodes"></a>Skala poddar eller noder manuellt
 
-Du kan skala repliker (poddar) och noder manuellt för att testa hur programmet svarar på en ändring i tillgängliga resurser och tillstånd. Genom att skala resurser manuellt kan du också definiera en uppsättning resurser som ska användas för att upprätthålla en fast kostnad, till exempel antalet noder. Om du vill skala manuellt definierar du repliken eller antalet noder och Kubernetes API-scheman skapar ytterligare poddar eller tömmer noder.
+Du kan skala repliker (poddar) och noder manuellt för att testa hur programmet svarar på en ändring i tillgängliga resurser och tillstånd. Genom att skala resurser manuellt kan du också definiera en uppsättning resurser som ska användas för att upprätthålla en fast kostnad, till exempel antalet noder. Om du vill skala manuellt definierar du repliken eller antalet noder. Kubernetes-API: et schemalägger sedan att skapa ytterligare poddar eller tömma noder baserat på replikering eller antal noder.
 
 För att komma igång med manuell skalning av poddar och noder, se [skala program i AKS][aks-scale].
 
@@ -43,15 +43,15 @@ För att komma igång med den vågräta Pod-autoskalning i AKS, se [AutoScale-po
 
 ### <a name="cooldown-of-scaling-events"></a>Cooldown för skalnings händelser
 
-I takt med att den vågräta Pod-autoskalning kontrollerar Metrics API var 30: e sekund kanske tidigare skalnings händelser inte har slutförts innan en annan kontroll görs. Detta kan orsaka att den vågräta Pod automatiskt skalar för att ändra antalet repliker innan föregående skalnings händelse har kunnat ta emot program arbets belastning och resurs behoven för att justera detta.
+I takt med att den vågräta Pod-autoskalning kontrollerar Metrics API var 30: e sekund kanske tidigare skalnings händelser inte har slutförts innan en annan kontroll görs. Det här problemet kan orsaka att den vågräta Pod automatiskt skalar för att ändra antalet repliker innan föregående skalnings händelse kan ta emot program arbets belastning och resurs kraven för att justera detta.
 
-För att minimera dessa tävlings händelser anges cooldown eller fördröjnings värden. Dessa värden definierar hur länge den automatiska skalningen av vågrät Pod måste vänta efter en skalnings händelse innan en annan skalnings händelse kan utlösas. Det här beteendet gör att det nya replik antalet börjar gälla och att mått-API: et återspeglar den distribuerade arbets belastningen. Som standard är fördröjningen för skala upp händelser 3 minuter och fördröjningen för att skala ned händelser är 5 minuter
+För att minimera dessa tävlings händelser anges cooldown eller fördröjnings värden. Dessa värden definierar hur länge den automatiska skalningen av vågrät Pod måste vänta efter en skalnings händelse innan en annan skalnings händelse kan utlösas. Detta innebär att det nya replik antalet börjar gälla och att API: et för att avspegla den distribuerade arbets belastningen. Som standard är fördröjningen för skala upp händelser 3 minuter och fördröjningen för att skala ned händelser är 5 minuter
 
 För närvarande kan du inte finjustera dessa cooldown-värden från standardvärdet.
 
 ## <a name="cluster-autoscaler"></a>Kluster autoskalning
 
-För att svara på ändring av Pod-krav har Kubernetes en kluster autoskalning (för närvarande i för hands version i AKS) som justerar antalet noder baserat på de begärda beräknings resurserna i Node-poolen. Som standard kontrollerar kluster autoskalning den metriska API-servern var 10: e sekund för alla nödvändiga ändringar i antalet noder. Om klustrets autoskalning avgör att en ändring krävs, ökar eller minskar du antalet noder i ditt AKS-kluster. Kluster autoskalning fungerar med RBAC-aktiverade AKS-kluster som kör Kubernetes 1.10. x eller senare.
+För att svara på ändring av Pod-krav har Kubernetes en kluster autoskalning, som för närvarande är en för hands version i AKS, som justerar antalet noder baserat på de begärda beräknings resurserna i Node-poolen. Som standard kontrollerar kluster autoskalning den metriska API-servern var 10: e sekund för alla nödvändiga ändringar i antalet noder. Om klustrets autoskalning avgör att en ändring krävs, ökar eller minskar du antalet noder i ditt AKS-kluster. Kluster autoskalning fungerar med RBAC-aktiverade AKS-kluster som kör Kubernetes 1.10. x eller senare.
 
 ![Kubernetes-kluster autoskalning](media/concepts-scale/cluster-autoscaler.png)
 
@@ -65,13 +65,13 @@ För att komma igång med klustrets autoskalning i AKS, se [kluster autoskalning
 
 Om en nod inte har tillräckligt med beräknings resurser för att köra en begärd pod, kan Pod inte passera genom schemaläggnings processen. Pod kan inte startas om inte ytterligare beräknings resurser är tillgängliga i Node-poolen.
 
-När poddar för kluster autoskalning inte kan schemaläggas på grund av resurs begränsningar för en resurspool, ökar antalet noder i noden för att tillhandahålla ytterligare beräknings resurser. När de ytterligare noderna har distribuerats och är tillgängliga för användning i Node-poolen, schemaläggs poddar sedan att köras på dem.
+När poddar i klustret inte kan schemaläggas på grund av resurs begränsningar för en resurspool, ökar antalet noder i noden för att tillhandahålla ytterligare beräknings resurser. När de ytterligare noderna har distribuerats och är tillgängliga för användning i Node-poolen, schemaläggs poddar sedan att köras på dem.
 
 Om ditt program behöver skala snabbt kan vissa poddar finnas kvar i ett tillstånd som väntar på att schemaläggas tills de ytterligare noder som distribueras av klustret autoskalning kan godkänna den schemalagda poddar. För program som har höga burst-krav kan du skala med virtuella noder och Azure Container Instances.
 
 ### <a name="scale-down-events"></a>Skala ned händelser
 
-Klustrets autoskalning övervakar också Pod schemaläggnings status för noder som inte nyligen har fått nya tids planerings begär Anden. Det här scenariot indikerar att Node-poolen har fler beräknings resurser än vad som krävs och att antalet noder kan minskas.
+Klustrets autoskalning övervakar också Pod schemaläggnings status för noder som inte nyligen har tagit emot nya tids planerings begär Anden. Det här scenariot indikerar att Node-poolen har fler beräknings resurser än vad som krävs och antalet noder kan minskas.
 
 En nod som skickar ett tröskelvärde som inte längre behövs i 10 minuter är schemalagd för borttagning. När den här situationen inträffar är poddar schemalagda att köras på andra noder i Node-poolen och klustrets autoskalning minskar antalet noder.
 

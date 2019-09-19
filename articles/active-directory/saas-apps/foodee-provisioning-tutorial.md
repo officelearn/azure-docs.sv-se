@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/30/2019
 ms.author: Zhchia
-ms.openlocfilehash: e444d6254b575ead4b5d436a4b92f960c61b1d1c
-ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
+ms.openlocfilehash: 171a1141670e55814474390c59ae8d514491edbd
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/08/2019
-ms.locfileid: "70802880"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71088098"
 ---
 # <a name="tutorial-configure-foodee-for-automatic-user-provisioning"></a>Självstudier: Konfigurera en livsmedelsingrediens för automatisk användar etablering
 
@@ -36,12 +36,12 @@ Syftet med den här självstudien är att demonstrera de steg som ska utföras i
 Det scenario som beskrivs i den här självstudien förutsätter att du redan har följande krav:
 
 * En Azure AD-klientorganisation.
-* [En klient organisation](https://Foodee.com/pricing/)
+* [En klient organisation](https://www.food.ee/about/)
 * Ett användar konto i en livsmedelsingrediens med administratörs behörighet.
 
 ## <a name="assigning-users-to-foodee"></a>Tilldela användare till en livsmedelsingrediens 
 
-Azure Active Directory använder ett begrepp som kallas *tilldelningar* för att avgöra vilka användare som ska få åtkomst till valda appar. I kontexten för automatisk användar etablering synkroniseras endast de användare och/eller grupper som har tilldelats till ett program i Azure AD.
+Azure Active Directory använder ett begrepp som kallas tilldelningar för att avgöra vilka användare som ska få åtkomst till valda appar. I kontexten för automatisk användar etablering synkroniseras endast de användare och/eller grupper som har tilldelats till ett program i Azure AD.
 
 Innan du konfigurerar och aktiverar automatisk användar etablering bör du bestämma vilka användare och/eller grupper i Azure AD som behöver åtkomst till en livsmedelsingrediens. När du har bestämt dig kan du tilldela dessa användare och/eller grupper till en livsmedelsingrediens genom att följa anvisningarna här:
 * [Tilldela en användare eller grupp till en företags app](../manage-apps/assign-user-or-group-access-portal.md)

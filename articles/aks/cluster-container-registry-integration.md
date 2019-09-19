@@ -6,43 +6,28 @@ author: mlearned
 manager: gwallace
 ms.service: container-service
 ms.topic: article
-ms.date: 08/15/2018
+ms.date: 09/17/2018
 ms.author: mlearned
-ms.openlocfilehash: 3c11367945b74db9be20ade86c7bc26901440e4d
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: ab744efd205d826cb7ae2c3eda7bba28f4a9bee0
+ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70305150"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71097808"
 ---
-# <a name="preview---authenticate-with-azure-container-registry-from-azure-kubernetes-service"></a>Förhands granskning – autentisera med Azure Container Registry från Azure Kubernetes-tjänsten
+# <a name="authenticate-with-azure-container-registry-from-azure-kubernetes-service"></a>Autentisera med Azure Container Registry från Azure Kubernetes-tjänsten
 
 När du använder Azure Container Registry (ACR) med Azure Kubernetes service (AKS) måste du upprätta en autentiseringsmekanism. Den här artikeln beskriver de rekommenderade konfigurationerna för autentisering mellan dessa två Azure-tjänster.
 
 Du kan ställa in AKS till ACR-integrering i några enkla kommandon med Azure CLI.
-
-> [!IMPORTANT]
-> AKS för hands versions funktioner är självbetjänings deltagande. För hands versioner tillhandahålls "i befintligt skick" och "som tillgängliga" och undantas från service nivå avtalen och den begränsade garantin. AKS för hands versionerna omfattas delvis av kund supporten på bästa möjliga sätt. Dessa funktioner är därför inte avsedda att användas för produktion. Om du vill ha ytterligare information kan du läsa följande artiklar om support:
->
-> * [Support principer för AKS](support-policies.md)
-> * [Vanliga frågor och svar om support för Azure](faq.md)
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
 Du måste ha följande:
 
 * Rollen **ägare** eller **administratör för Azure-konto** på Azure- **prenumerationen**
-* Du behöver också Azure CLI-version 2.0.70 eller senare och AKS 0.4.8-tillägget för-Preview
+* Du behöver också Azure CLI version 2.0.73 eller senare
 * Du måste ha [Docker installerat](https://docs.docker.com/install/) på klienten och du behöver åtkomst till [Docker Hub](https://hub.docker.com/)
-
-## <a name="install-latest-aks-cli-preview-extension"></a>Installera det senaste AKS CLI Preview-tillägget
-
-Du behöver tillägget **AKS-Preview 0.4.13** eller senare.
-
-```azurecli
-az extension remove --name aks-preview 
-az extension add -y --name aks-preview
-```
 
 ## <a name="create-a-new-aks-cluster-with-acr-integration"></a>Skapa ett nytt AKS-kluster med ACR-integrering
 
@@ -52,7 +37,7 @@ az login
 az acr create -n myContainerRegistry -g myContainerRegistryResourceGroup --sku basic [in case you do not have an existing ACR]
 az aks create -n myAKSCluster -g myResourceGroup --attach-acr <acr-name-or-resource-id>
 ```
-\* * Ett ACR resurs-ID har följande format: 
+**Ett ACR resurs-ID har följande format:** 
 
 /Subscriptions/< prenumeration-d >/resourceGroups/< resurs-grupp-Name >/providers/Microsoft.ContainerRegistry/registries/{name} 
   

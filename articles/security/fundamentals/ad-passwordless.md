@@ -9,12 +9,12 @@ ms.topic: article
 ms.service: security
 ms.subservice: security-fundamentals
 ms.workload: identity
-ms.openlocfilehash: e702a5921e785100c5971057d1652db9aab26acf
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: d1c69cd1cf9990fc77a24e18d87690210453cf75
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69899958"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71091957"
 ---
 # <a name="a-world-without-passwords-with-azure-active-directory"></a>En värld utan lösen ord med Azure Active Directory
 
@@ -107,7 +107,7 @@ En djupare titt på autentiseringsprocessen i andra scenarier som omfattar Windo
 
 #### <a name="user-manages-their-windows-hello-for-business-credentials"></a>Användaren hanterar sina Windows Hello för företag-autentiseringsuppgifter
 
-[Microsofts tjänster för PIN-återställning](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-features#pin-reset) är en funktion i Azure AD som gör det möjligt för användare att återställa sina PIN-koder vid behov. Med hjälp av en grup princip, Microsoft Intune eller en kompatibel MDM, kan en administratör konfigurera Windows 10-enheter för att säkert använda Microsofts tjänst för PIN-återställning som gör det möjligt för användare att återställa sina glömt PIN-koder via inställningar eller ovanför Lås skärmen utan att kräva omregistrering.
+[Microsofts tjänster för PIN-återställning](/windows/security/identity-protection/hello-for-business/hello-feature-pin-reset) är en funktion i Azure AD som gör det möjligt för användare att återställa sina PIN-koder vid behov. Med hjälp av en grup princip, Microsoft Intune eller en kompatibel MDM, kan en administratör konfigurera Windows 10-enheter för att säkert använda Microsofts tjänst för PIN-återställning som gör det möjligt för användare att återställa sina glömt PIN-koder via inställningar eller ovanför Lås skärmen utan att kräva omregistrering.
 
 Ibland måste användare använda lösen ord. [Lösen ords återställning](../../active-directory/authentication/howto-sspr-deployment.md) via självbetjäning (SSPR) är en annan Azure AD-funktion som gör det möjligt för användare att återställa sina lösen ord utan att behöva kontakta IT-personalen. Användare måste registreras för eller registreras för lösen ords återställning via självbetjäning innan tjänsten kan användas. Vid registreringen väljer användaren en eller flera autentiseringsmetoder som har Aktiver ATS av organisationen. SSPR gör det möjligt för användarna att snabbt få tag i blockering och fortsätta att arbeta oavsett var de befinner sig eller tiden på dagen. Genom att tillåta användare att avblockera sig själva kan din organisation minska den icke produktiva tiden och höga support kostnader för de flesta vanliga problem som rör lösen ord.
 
@@ -150,7 +150,7 @@ Eftersom de flesta användare bara är vana vid att använda lösen ord för att
 
 Innan Microsoft Authenticator-appen kan användas som en lösen ords lös lösning för att logga in på ett Azure AD-konto måste steg utföras av både administratörer och slutanvändarna.
 
-Först måste administratören [aktivera användningen av appen som autentiseringsuppgifter](../../active-directory/authentication/howto-authentication-passwordless-phone.md) i klienten med hjälp av Windows PowerShell. Administratören måste också aktivera slutanvändare för Azure Multi-Factor Authentication (Azure MFA) och konfigurera Microsoft Authenticator-appen som en av [verifierings metoderna](../../active-directory/authentication/howto-mfa-mfasettings.md#verification-methods).
+Först måste administratören [aktivera användningen av appen som autentiseringsuppgifter](../../active-directory/authentication/howto-authentication-passwordless-phone.md) i klienten med hjälp av Windows PowerShell. Administratören måste också aktivera slutanvändare för Azure Multi-Factor Authentication (Azure MFA) och konfigurera Microsoft Authenticator-appen som en av verifierings [metoderna](../../active-directory/authentication/howto-mfa-mfasettings.md#verification-methods).
 
 Slutanvändare måste [Ladda ned och installera](../../active-directory/user-help/user-help-auth-app-download-install.md) Microsoft Authenticator-appen och [Konfigurera sitt konto](../../active-directory/user-help/security-info-setup-auth-app.md) för att använda Microsoft Authenticator-appen som en av verifierings metoderna.
 
@@ -228,7 +228,7 @@ Vi rekommenderar också att varje organisation skapar ett protokoll för använd
 
 Administratörer kan [manuellt etablera nycklar](https://docs.microsoft.com/azure/active-directory/authentication/concept-authentication-passwordless) och distribuera dem till slutanvändare, och etablering och aktivering av FIDO2 på Windows 10-Lås-skärmen kommer att stödjas via [Intune](https://docs.microsoft.com/intune/windows-enrollment-methods). Administratörer måste också använda [Azure Portal](https://portal.azure.com/) för att aktivera maskinvaru-token-enheter som en metod för lösen ords lös autentisering.
 
-Att distribuera FIDO2 säkerhets nycklar kräver också att användarna registrerar sina nycklar med hjälp av [kombinerad registrering](../../active-directory/authentication/concept-registration-mfa-sspr-combined.md). Med kombinerad registrering kan användarna registrera sig en gång och få fördelarna med både Azure Multi-Factor Authentication och lösen ords återställning med enkel inloggning (SSPR).
+Att distribuera FIDO2 säkerhets nycklar kräver också att användarna registrerar sina nycklar med hjälp av [kombinerad registrering](../../active-directory/authentication/concept-registration-mfa-sspr-combined.md). Med kombinerad registrering kan användarna registrera sig en gång och få fördelarna med både Azure Multi-Factor Authentication och återställning av lösen ord för enkel inloggning (SSPR).
 
 Förutom att välja maskinvaru-token som standard metod för Multi-Factor Authentication, rekommenderar vi att du även väljer ett ytterligare verifierings alternativ.
 

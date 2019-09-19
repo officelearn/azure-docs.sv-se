@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/28/2018
 ms.author: robb
 ms.subservice: alerts
-ms.openlocfilehash: ae3e45ece1bd53846ab7728c29c0da1b709fe42c
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: eab6e7e0fb834447a55b67dfc9a17c470e9e3361
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70915952"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71091763"
 ---
 # <a name="overview-of-alerts-in-microsoft-azure"></a>Översikt över aviseringar i Microsoft Azure 
 
@@ -202,9 +202,9 @@ Följande exempel förfrågan till API: et returnerar antalet aviseringar inom e
   }
 }
 ```
-Du kan fråga aviseringarna om de [viktigaste](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-common-schema-definitions#essentials-fields) fälten.
+Du kan fråga aviseringarna om de [viktigaste](alerts-common-schema-definitions.md#essentials) fälten.
 
-Använd [Aviseringshantering REST API](https://aka.ms/alert-management-api) för att få mer information om vissa aviseringar, inklusive deras [aviserings kontext](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-common-schema-definitions#alert-context-fields) fält.
+Använd [Aviseringshantering REST API](https://aka.ms/alert-management-api) för att få mer information om vissa aviseringar, inklusive deras [aviserings kontext](alerts-common-schema-definitions.md#alert-context) fält.
 
 ## <a name="next-steps"></a>Nästa steg
 

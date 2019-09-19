@@ -9,10 +9,10 @@ ms.date: 05/06/2019
 ms.author: heidist
 ms.custom: include file
 ms.openlocfilehash: 1e147e8bd9260cd1ece60b70641968a229995ec1
-ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
+ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2019
+ms.lasthandoff: 09/18/2019
 ms.locfileid: "67187722"
 ---
 Du kan skapa flera tjänster i en prenumeration. Var och en kan tillhandahållas på en speciell nivå. Du är begränsad endast av antalet tjänster som tillåts på varje nivå. Du kan till exempel skapa upp till 12 tjänster på Basic-nivån och en annan 12-tjänst på S1-nivån i samma prenumeration. Mer information om nivåer finns i [Välj en SKU eller nivå för Azure Search](../articles/search/search-sku-tier.md).

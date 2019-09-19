@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 08/21/2019
+ms.date: 09/03/2019
 ms.author: alkohli
-ms.openlocfilehash: f9afd3ae1d1d5d6235cf8bd0a6350a782ea6afbe
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 8dbdbe39f613bb8895be6ae21d8aa29b766781cd
+ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70142932"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71098809"
 ---
 # <a name="azure-data-box-frequently-asked-questions"></a>Azure Data Box: Vanliga frågor och svar
 
@@ -159,7 +159,7 @@ A.  Påskynda kopieringsprocessen:
 - Använd flera dataströmmar. Med till exempel Robocopy kan du använda flertrådsalternativet. Mer information om exakt vilket kommando som används finns i [Självstudie: Kopiera data till Azure Data Box och verifiera](data-box-deploy-copy-data.md).
 - Använda flera sessioner.
 - Kontrollera att dina data finns lokalt på datorn som Data Box är ansluten till, i stället för att kopiera via nätverk (där du kan begränsas av nätverkshastigheterna).
-- Analysera prestanda för den dator som används för att kopiera data. Ladda ned och använd [Bluestop FIO-verktyget](https://ci.appveyor.com/project/axboe/fio) för att analysera servermaskinvarans prestanda. Välj den senaste x86-eller x64-versionen, Välj fliken artefakter och ladda ned MSI.
+- Analysera prestanda för den dator som används för att kopiera data. Ladda ned och använd [Bluestop FIO-verktyget](https://ci.appveyor.com/project/axboe/fio) för att analysera servermaskinvarans prestanda. Välj den senaste x86-eller x64-versionen, Välj fliken **artefakter** och ladda ned MSI.
 
 <!--### Q. How to speed up the data copy if the source data has small files (KBs or few MBs)?
 A.  To speed up the copy process:
@@ -180,8 +180,19 @@ A.  Ja. Högst tio lagringskonton, GA-version (generell användning), klassisk e
 ### <a name="q-my-device-was-delivered-but-the-device-seems-to-be-damaged-what-should-i-do"></a>F. Min enhet har levererats men enheten verkar vara skadad. Vad ska jag göra?
 A. Om enheten är skadad eller om det finns tecken på att den har manipulerats ska du inte använda enheten. [Kontakta Microsoft Support](data-box-disk-contact-microsoft-support.md) och returnera enheten så snart som möjligt. Du kan också skapa en ny Data Box-beställning för en ersättningsenhet. I så fall debiteras du inte för ersättningsenheten.
 
-### <a name="q-can-i-use-my-own-shipping-carrier-to-ship-data-box"></a>F. Kan jag använda mitt eget transportföretag för att skicka Data Box?
-A. För Data Box-tjänsten hanterar Microsoft leveransen till och från Azure-datacentret. Om du vill använda ditt eget transportföretag kan du använda tjänsten Azure Import/Export. Mer information finns i [Vad är Azure Import/Export-tjänsten?](../storage/common/storage-import-export-service.md)
+### <a name="q-can-i-pick-up-my-data-box-order-myself-can-i-return-the-data-box-via-a-carrier-that-i-choose"></a>F. Kan jag hämta min Data Box-enhet beställningen själv? Kan jag returnera Data Box-enhet via en operatör som jag väljer?
+A. Ja. Microsoft erbjuder även självhanterad leverans i US Gov region. När du placerar Data Box-enhets ordningen kan du välja alternativ för själv hantering av leverans. Utför följande steg för att hämta din Data Box-enhet-enhet:
+    
+1. När du har placerat ordern bearbetas ordern och Data Box-enhet är för beredd. Du kommer att meddelas via ett e-postmeddelande om att din beställning är klar för hämtning. 
+2. När ordern är klar för hämtning går du till din beställning i Azure Portal och navigerar till **översikts** bladet. 
+3. Ett meddelande visas med en kod i Azure Portal. E-posta [Azure Data boxs drifts teamet](mailto:adbops@microsoft.com) och ange koden. Teamet tillhandahåller platsen och schemalägger hämtnings datum och-tid. Du måste ringa teamet inom fem arbets dagar efter att du fått e-postaviseringen.
+
+När data kopieringen är klar utför du följande steg för att returnera enheten:
+
+1. Kör **Förbered för att skicka**när data kopieringen har slutförts utan fel. När förberedelsen är klar får du en kod i enhetens lokala webb gränssnitt. Kopiera och spara koden.
+2. Stäng av enheten och ta bort anslutande kablar.
+3. Rulla upp strömkabeln som levererades med enheten och placera kabeln säkert på baksidan av enheten.
+4. E-posta [Azure Data boxs drifts teamet](mailto:adbops@microsoft.com) och ange koden som du sparade tidigare. De ger dig information om var och när du ska ta bort enheten.
 
 ### <a name="q-will-my-data-box-devices-cross-country-borders-during-shipping"></a>F. Kommer mina Data Box-enhet enheter att korsa lands gränser under leverans?
 A. Alla Data Box-enhet enheter levereras inifrån samma land som deras destination och kommer inte att korsa några internationella gränser. Det enda undantaget är för beställningar i Europeiska unionen (EU), där enheterna kan leverera till och från ett EU-land. Detta gäller både för Data Box-enhet och Data Box Heavy enheterna.

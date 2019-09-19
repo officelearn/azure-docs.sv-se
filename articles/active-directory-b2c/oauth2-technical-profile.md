@@ -1,6 +1,6 @@
 ---
-title: Definiera ett OAuth2-tekniska profilen i en anpassad princip i Azure Active Directory B2C | Microsoft Docs
-description: Definiera ett OAuth2-tekniska profilen i en anpassad princip i Azure Active Directory B2C.
+title: Definiera en OAuth2 teknisk profil i en anpassad princip i Azure Active Directory B2C | Microsoft Docs
+description: Definiera en OAuth2 teknisk profil i en anpassad princip i Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -10,33 +10,33 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 80b196b34e8eee99ed77c3c8a914f89fa68d87b8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 63500c057b5c9f497e59589286a852a4394059ec
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66512939"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71063977"
 ---
-# <a name="define-an-oauth2-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definiera ett OAuth2-tekniska profilen i en anpassad princip för Azure Active Directory B2C
+# <a name="define-an-oauth2-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definiera en OAuth2 teknisk profil i en Azure Active Directory B2C anpassad princip
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Azure Active Directory (Azure AD) B2C har stöd för identitetsprovidern för OAuth2-protokollet. OAuth2 är det primära protokollet för auktorisering och delegerad autentisering. Mer information finns i den [RFC 6749 The OAuth 2.0 auktorisering Framework](https://tools.ietf.org/html/rfc6749). Med en teknisk OAuth2-profil kan du federera med en OAuth2 baserat identitetsprovider, till exempel Facebook. Federera med en identitetsprovider tillåter användare att logga in med sina befintliga sociala eller företagsidentiteter.
+Azure Active Directory B2C (Azure AD B2C) har stöd för OAuth2-protokollets identitets leverantör. OAuth2 är det primära protokollet för auktorisering och delegerad autentisering. Mer information finns i [RFC 6749 Authorization Framework för OAuth 2,0](https://tools.ietf.org/html/rfc6749). Med en OAuth2 teknisk profil kan du federera med en OAuth2-baserad identitets leverantör, t. ex. Facebook. Genom att federera med en identitets leverantör kan användare logga in med sina befintliga sociala identiteter eller företags identiteter.
 
 ## <a name="protocol"></a>Protocol
 
-Den **namn** attributet för den **protokollet** element måste anges till `OAuth2`. Till exempel protokollet för den **Facebook-OAUTH** tekniska profilen är `OAuth2`:
+Namnattributet **för** **protokoll** elementet måste anges till `OAuth2`. Till exempel är `OAuth2`protokollet för den tekniska profilen för **Facebook-OAuth** :
 
 ```XML
 <TechnicalProfile Id="Facebook-OAUTH">
   <DisplayName>Facebook</DisplayName>
   <Protocol Name="OAuth2" />
-  ...    
+  ...
 ```
 
-## <a name="input-claims"></a>Inkommande anspråk
+## <a name="input-claims"></a>Inmatade anspråk
 
-Den **InputClaims** och **InputClaimsTransformations** element krävs inte. Men du kanske vill skicka ytterligare parametrar till din identitetsprovider. I följande exempel läggs den **domain_hint** frågesträngparametern med värdet för `contoso.com` till begäran om godkännande.
+Elementen **InputClaims** och **InputClaimsTransformations** krävs inte. Men du kanske vill skicka ytterligare parametrar till din identitets leverantör. I följande exempel läggs frågesträngparametern **domain_hint** till med värdet för `contoso.com` till auktoriseringsbegäran.
 
 ```XML
 <InputClaims>
@@ -44,23 +44,23 @@ Den **InputClaims** och **InputClaimsTransformations** element krävs inte. Men 
 </InputClaims>
 ```
 
-## <a name="output-claims"></a>Utdataanspråk
+## <a name="output-claims"></a>Utgående anspråk
 
-Den **OutputClaims** elementet innehåller en lista över anspråk som returneras av OAuth2 identitetsleverantören. Du kan behöva matchar namnet på anspråk som definierats i din princip att namnet som definierats i identitetsprovidern. Du kan även inkludera anspråk som inte returneras av identitetsleverantören. så länge som du ställer in den `DefaultValue` attribut.
+**OutputClaims** -elementet innehåller en lista över anspråk som returneras av OAuth2 Identity Provider. Du kan behöva mappa namnet på det anspråk som definierats i principen till det namn som definierats i identitets leverantören. Du kan också inkludera anspråk som inte returneras av identitets leverantören så länge som du ställer in `DefaultValue` attributet.
 
-Den **OutputClaimsTransformations** element kan innehålla en uppsättning **OutputClaimsTransformation** element som används för att ändra de utgående anspråk eller generera nya.
+**OutputClaimsTransformations** -elementet kan innehålla en samling av **OutputClaimsTransformation** -element som används för att ändra de utgående anspråken eller skapa nya.
 
-I följande exempel visar de anspråk som returneras av identitetsleverantören. Facebook:
+I följande exempel visas de anspråk som returneras av Facebook Identity Provider:
 
-- Den **first_name** anspråk har mappats till den **givenName** anspråk.
-- Den **efternamn** anspråk har mappats till den **efternamn** anspråk.
-- Den **displayName** anspråk utan mappning av användarnamn.
-- Den **e-post** anspråk utan mappning av användarnamn.
+- **First_name** -anspråket är mappat till **givenName** -anspråket.
+- **Last_Name** -anspråket är mappat till anspråket efter **namn** .
+- **DisplayName** -anspråket utan namn mappning.
+- **E-** postanspråk utan namn mappning.
 
-Den tekniska profilen returnerar också anspråk som inte returnerade poskytovatelem identity: 
+Den tekniska profilen returnerar även anspråk som inte returneras av identitets leverantören:
 
-- Den **identityProvider** anspråk som innehåller namnet på identitetsprovidern.
-- Den **authenticationSource** anspråk med ett standardvärde på **socialIdpAuthentication**.
+- **IdentityProvider** -anspråket som innehåller namnet på identitets leverantören.
+- **AuthenticationSource** -anspråket med standardvärdet **socialIdpAuthentication**.
 
 ```xml
 <OutputClaims>
@@ -76,43 +76,43 @@ Den tekniska profilen returnerar också anspråk som inte returnerade poskytovat
 
 ## <a name="metadata"></a>Metadata
 
-| Attribut | Obligatoriskt | Beskrivning |
+| Attribut | Obligatorisk | Beskrivning |
 | --------- | -------- | ----------- |
-| client_id | Ja | Program-ID för identitetsprovidern. |
-| IdTokenAudience | Nej | Id_token målgrupp. Om anges kontrollerar om token är i ett anspråk som returnerades av identitetsprovidern och är lika med den som angetts i Azure AD B2C. |
-| authorization_endpoint | Ja | URL för auktoriseringsslutpunkt enligt RFC 6749. |
-| AccessTokenEndpoint | Ja | URL för tokenslutpunkt enligt RFC 6749. |  
-| ClaimsEndpoint | Ja | URL till slutpunkten användaren information enligt RFC 6749. | 
-| AccessTokenResponseFormat | Nej | Formatet för åtkomst-token för slutpunkt-anropet. Till exempel Facebook kräver en HTTP GET-metod, men svaret för åtkomst-token är i JSON-format. |
-| AdditionalRequestQueryParameters | Nej | Begäran om ytterligare Frågeparametrar. Du kan till exempel vill skicka ytterligare parametrar till din identitetsprovider. Du kan inkludera flera parametrar med kommatecken avgränsare. | 
-| ClaimsEndpointAccessTokenName | Nej | Namnet på åtkomst-token frågesträngparametern. Vissa identitetsleverantörer anspråk slutpunkterna stöder hämta HTTP-begäran. I så fall skickas ägartoken med hjälp av en frågesträngsparameter i stället för auktoriseringsrubriken. |
-| ClaimsEndpointFormatName | Nej | Namnet på formatet för frågesträngparametern. Du kan till exempel ange namnet som `format` anspråk slutpunkt i den här LinkedIn `https://api.linkedin.com/v1/people/~?format=json`. | 
-| ClaimsEndpointFormat | Nej | Värdet för frågesträngparametern för format. Du kan till exempel ange värdet som `json` anspråk slutpunkt i den här LinkedIn `https://api.linkedin.com/v1/people/~?format=json`. | 
-| ProviderName | Nej | Namnet på identitetsprovidern. |
-| response_mode | Nej | Den metod som identitetsprovidern använder för att skicka resultatet tillbaka till Azure AD B2C. Möjliga värden: `query`, `form_post` (standard), eller `fragment`. |
-| scope | Nej | Omfattningen för den begäran som definieras enligt specifikationen OAuth2 identity-providern. Till exempel `openid`, `profile`, och `email`. |
-| HttpBinding | Nej | Den förväntade HTTP-bindningen till åtkomst-token och anspråk token slutpunkterna. Möjliga värden: `GET` eller `POST`.  |
-| ResponseErrorCodeParamName | Nej | Namnet på den parameter som innehåller det felmeddelande som returneras via HTTP 200 (Ok). |
-| ExtraParamsInAccessTokenEndpointResponse | Nej | Innehåller de extra parametrar som kan returneras i svaret från **AccessTokenEndpoint** av vissa identitetsleverantörer. Exempel: svaret från **AccessTokenEndpoint** innehåller en extra parameter som `openid`, vilket är en obligatorisk parameter förutom access_token i en **ClaimsEndpoint** begäran fråga sträng. Flera parameternamn måste vara undantagna och avgränsade med semikolon ',' avgränsare. |
-| ExtraParamsInClaimsEndpointRequest | Nej | Innehåller de extra parametrar som kan returneras i de **ClaimsEndpoint** begäran från vissa identitetsleverantörer. Flera parameternamn måste vara undantagna och avgränsade med semikolon ',' avgränsare. |
+| client_id | Ja | Program identifieraren för identitets leverantören. |
+| IdTokenAudience | Nej | Id_token mål grupp. Om det här alternativet anges kontrollerar Azure AD B2C om token finns i ett anspråk som returneras av identitets leverantören och är lika med det som anges. |
+| authorization_endpoint | Ja | URL: en för Authorization-slutpunkten enligt RFC 6749. |
+| AccessTokenEndpoint | Ja | URL: en för token-slutpunkten enligt RFC 6749. |
+| ClaimsEndpoint | Ja | URL: en för slut punkten för användar information enligt RFC 6749. |
+| AccessTokenResponseFormat | Nej | Formatet på slut punkts anropet för åtkomsttoken. Facebook kräver till exempel en HTTP GET-metod, men svaret om åtkomsttoken är i JSON-format. |
+| AdditionalRequestQueryParameters | Nej | Parametrar för ytterligare begär ande fråga. Du kanske till exempel vill skicka ytterligare parametrar till din identitets leverantör. Du kan inkludera flera parametrar med hjälp av komma-avgränsare. |
+| ClaimsEndpointAccessTokenName | Nej | Namnet på frågesträngparametern för åtkomsttoken. Vissa identitets-providers anspråks slut punkter stöder HTTP-begäran. I det här fallet skickas Bearer-token med hjälp av en frågesträngparametern i stället för Authorization-huvudet. |
+| ClaimsEndpointFormatName | Nej | Namnet på parametern format Query String. Du kan till exempel ange namnet som `format` i den här LinkedIn-anspråks slut punkten. `https://api.linkedin.com/v1/people/~?format=json` |
+| ClaimsEndpointFormat | Nej | Värdet för parametern format Query String. Du kan till exempel ange värdet som `json` i den här LinkedIn-anspråks slut punkten. `https://api.linkedin.com/v1/people/~?format=json` |
+| ProviderName | Nej | Namnet på identitets leverantören. |
+| response_mode | Nej | Metoden som identitets leverantören använder för att skicka tillbaka resultatet till Azure AD B2C. Möjliga värden: `query`, `form_post` (standard) eller `fragment`. |
+| scope | Nej | Omfattningen av begäran som definieras enligt OAuth2 Identity Provider-specifikationen. Till exempel `openid`, `profile`och `email`. |
+| HttpBinding | Nej | Den förväntade HTTP-bindningen till åtkomsttoken och slut punkter för anspråks-token. Möjliga värden: `GET` eller `POST`.  |
+| ResponseErrorCodeParamName | Nej | Namnet på parametern som innehåller fel meddelandet som returnerades över HTTP 200 (OK). |
+| ExtraParamsInAccessTokenEndpointResponse | Nej | Innehåller de extra parametrar som kan returneras i svaret från **AccessTokenEndpoint** av vissa identitets leverantörer. Svaret från **AccessTokenEndpoint** innehåller till exempel en extra parameter `openid`som, som är en obligatorisk parameter förutom access_token i en frågesträng för **ClaimsEndpoint** förfrågan. Flera parameter namn ska undantas och avgränsas med kommatecken ",". |
+| ExtraParamsInClaimsEndpointRequest | Nej | Innehåller de extra parametrar som kan returneras i **ClaimsEndpoint** -begäran av vissa identitets leverantörer. Flera parameter namn ska undantas och avgränsas med kommatecken ",". |
 
-## <a name="cryptographic-keys"></a>Krypteringsnycklar
+## <a name="cryptographic-keys"></a>Kryptografiska nycklar
 
-Den **CryptographicKeys** elementet innehåller följande attribut:
+**CryptographicKeys** -elementet innehåller följande attribut:
 
-| Attribut | Obligatoriskt | Beskrivning |
+| Attribut | Obligatorisk | Beskrivning |
 | --------- | -------- | ----------- |
-| client_secret | Ja | Klienthemlighet för identitetsprogram för providern. Den kryptografiska nyckeln krävs endast om den **response_types** metadata är inställd på `code`. Azure AD B2C gör i det här fallet ett annat anrop till byta auktoriseringskod för en åtkomsttoken. Om metadata är inställt på `id_token`, du kan utelämna den kryptografiska nyckeln. |  
+| client_secret | Ja | Klient hemligheten för Identity Provider-programmet. Den kryptografiska nyckeln krävs endast om **response_types** metadata har angetts till `code`. I det här fallet gör Azure AD B2C ett annat anrop till Exchange-auktoriseringskod för en åtkomsttoken. Om metadata har angetts till `id_token`kan du utelämna den kryptografiska nyckeln. |
 
 ## <a name="redirect-uri"></a>Omdirigerings-URI
 
-När du konfigurerar omdirigerings-URL: en för din identitetsprovider, ange `https://login.microsoftonline.com/te/tenant/policyId/oauth2/authresp`. Ersätt **klient** med klientens namn (exempel: contosob2c.onmicrosoft.com) och **policyId** med ID för principen (till exempel b2c_1a_policy). Omdirigerings-URI måste vara i alla gemener.
+När du konfigurerar omdirigerings-URL: en för din `https://login.microsoftonline.com/te/tenant/policyId/oauth2/authresp`identitetsprovider anger du. Se till att ersätta **klient organisationen** med klient organisationens namn (till exempel contosob2c.onmicrosoft.com) och **policyId** med identifieraren för principen (till exempel b2c_1a_policy). Omdirigerings-URI: n måste vara i gemener.
 
-Om du använder den **b2clogin.com** domänen i stället för **login.microsoftonline.com** se till att använda b2clogin.com i stället för login.microsoftonline.com.
+Om du använder **b2clogin.com** -domänen i stället för **login.microsoftonline.com** ska du se till att använda b2clogin.com i stället för login.microsoftonline.com.
 
 Exempel:
 
-- [Lägg till Google + som identitetsprovider OAuth2 anpassade principer](active-directory-b2c-custom-setup-goog-idp.md)
+- [Lägg till Google + som en OAuth2-identitetsprovider med anpassade principer](active-directory-b2c-custom-setup-goog-idp.md)
 
 
 

@@ -6,14 +6,14 @@ author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 06/28/2019
+ms.date: 09/17/2019
 ms.author: dacurwin
-ms.openlocfilehash: 26d07ac0b09655e170b53af91f890f21d15afb1b
-ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
+ms.openlocfilehash: e1cfb9bf0e8b17df67b2f7060f665d169a71c8d6
+ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70909788"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71098387"
 ---
 # <a name="frequently-asked-questions-back-up-azure-vms"></a>Vanliga frågor och svar – säkerhetskopiera virtuella Azure-datorer
 
@@ -126,6 +126,10 @@ För hanterad virtuell Azure-dator är återställning till tillgänglighets upp
 När du har ändrat inställningarna för nyckel valvet för den krypterade virtuella datorn fortsätter säkerhets kopieringarna att fungera med den nya uppsättningen information, men efter återställningen från en återställnings punkt innan ändringen måste du återställa hemligheterna i ett nyckel valv innan du kan skapa den virtuella datorn från  företaget. Mer information hittar du i den här [artikeln](https://docs.microsoft.com/azure/backup/backup-azure-restore-key-secret)
 
 Åtgärder som hemliga/viktiga överanvändning kräver inte det här steget och samma nyckel valv kan användas efter återställningen.
+
+### <a name="can-i-access-the-vm-once-restored-due-to-an-vm-having-broken-relationship-with-domain-controller"></a>Kan jag få åtkomst till den virtuella datorn när den återställts på grund av en virtuell dator med en skadad relation med domänkontrollanten?
+
+Ja, du får åtkomst till den virtuella datorn när den återställts på grund av en virtuell dator med en bruten relation med domänkontrollanten. Mer information hittar du i den här [artikeln](https://docs.microsoft.com/azure/backup/backup-azure-arm-restore-vms#post-restore-steps)
 
 ## <a name="manage-vm-backups"></a>Hantera säkerhetskopior av virtuella datorer
 

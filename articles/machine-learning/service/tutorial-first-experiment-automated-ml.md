@@ -10,12 +10,12 @@ ms.author: tzvikei
 author: tsikiksr
 ms.reviewer: nibaccam
 ms.date: 09/09/2019
-ms.openlocfilehash: f8b9876680899a5d8e87f8a49a0b4ed6c113fb45
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 2422a4525c94f3997dd0a9a0859135e9acf59ffa
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71001857"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71092012"
 ---
 # <a name="tutorial-create-your-first-classification-model-with-automated-machine-learning"></a>Självstudier: Skapa din första klassificerings modell med automatisk maskin inlärning
 
@@ -67,7 +67,7 @@ Skärmen **Kom igång** visas, eftersom det första experimentet med automatiser
 
 1. Ange **mitt-1st-automl-experiment** som namn på experimentet.
 
-1. Välj **skapa en ny beräkning**. 
+1. Välj **skapa en ny beräkning**. En beräkning är en lokal eller molnbaserad resurs miljö som används för att köra ditt utbildnings skript eller vara värd för tjänst distributionen. För det här experimentet använder vi en molnbaserad beräkning. 
 
     1. Konfigurera din beräknings kontext för det här experimentet.
         
@@ -147,9 +147,9 @@ När experimentet är klart uppdaterar skärmen **upprepnings diagrammet** och *
 
 ## <a name="deploy-the-model"></a>Distribuera modellen
 
-Genom att använda Automatisk maskin inlärning i landnings sidan för arbets ytan kan du distribuera den bästa modellen som en webb tjänst för att förutse nya data och identifiera potentiella områden i affärs möjligheten. För det här experimentet innebär distributionen att det finansiella institutet nu har en iterativ och skalbar lösning för att identifiera potentiella fasta, långsiktiga kunder.
+Genom att använda Automatisk maskin inlärning i landnings sidan för arbets ytan kan du distribuera den bästa modellen som en webb tjänst med några få steg. Distribution är integreringen av modellen så att den kan förutsäga nya data och identifiera potentiella områden i affärs möjligheten. För det här experimentet innebär distribution till en webb tjänst att finans Institutet nu har en iterativ och skalbar webb lösning för att identifiera potentiella fasta, långsiktiga kunder. 
 
-I den här experiment kontexten betraktas **VotingEnsemble** som den bästa modellen, baserat på **AUC_weighted** mått.  Vi distribuerar den här modellen, men vi rekommenderar att distributionen tar ungefär 20 minuter att slutföra.
+I den här experiment kontexten betraktas **VotingEnsemble** som den bästa modellen, baserat på **AUC_weighted** mått.  Vi distribuerar den här modellen, men vi rekommenderar att distributionen tar ungefär 20 minuter att slutföra. Distributions processen innehåller flera steg som att registrera modellen, generera resurser och konfigurera dem för webb tjänsten.
 
 1. På sidan **körnings information** väljer du knappen **distribuera bästa modell** i det övre högra hörnet.
 
@@ -162,7 +162,7 @@ I den här experiment kontexten betraktas **VotingEnsemble** som den bästa mode
     Bedömnings skript| Skapa
     Miljö skript| Skapa
     
-1. Välj **Distribuera**.
+1. Välj **Distribuera**.  
 
     Ett meddelande om slutförd distribution visas när distributionen har slutförts.
     

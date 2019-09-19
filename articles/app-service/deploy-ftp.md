@@ -11,16 +11,16 @@ ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 11/30/2018
+ms.date: 09/18/2019
 ms.author: cephalin
 ms.reviewer: dariac
 ms.custom: seodec18
-ms.openlocfilehash: f239fb4464d2e7f67b91a2d18c21b089ffd52b27
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 6e8a6820b3cf3031f11ab04d9baf4a7888491c81
+ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70070490"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71098100"
 ---
 # <a name="deploy-your-app-to-azure-app-service-using-ftps"></a>Distribuera din app till Azure App Service med FTP/S
 
@@ -42,7 +42,7 @@ I FTP-instrumentpanelen klickar du på **Kopiera** för att kopiera FTPS slut pu
 
 ![Kopiera FTP-information](./media/app-service-deploy-ftp/ftp-dashboard.png)
 
-Vi rekommenderar att du använder **autentiseringsuppgifter för appen** för att distribuera till din app eftersom den är unik för varje app. Om du klickar på användarautentiseringsuppgifterkan du dock ange autentiseringsuppgifter på användar nivå som du kan använda för FTP/S-inloggning till alla App Service appar i din prenumeration.
+Vi rekommenderar att du använder **autentiseringsuppgifter för appen** för att distribuera till din app eftersom den är unik för varje app. Om du klickar på användarautentiseringsuppgifter kan du dock ange **autentiseringsuppgifter på användar**nivå som du kan använda för FTP/S-inloggning till alla App Service appar i din prenumeration.
 
 > [!NOTE]
 > Autentisering till en FTP/FTPS-slutpunkt med autentiseringsuppgifter på användar nivå kräver ett användar namn i följande format: 
@@ -72,9 +72,9 @@ Vi rekommenderar att du använder **autentiseringsuppgifter för appen** för at
 
 För förbättrad säkerhet bör du endast tillåta FTP över SSL. Du kan också inaktivera både FTP-och FTPS om du inte använder FTP-distribution.
 
-På din apps resurs sida i [Azure Portal](https://portal.azure.com)väljer du **appinställningar** i det vänstra navigerings fältet.
+På din apps resurs sida i [Azure Portal](https://portal.azure.com)väljer du **konfiguration** > av**allmänna inställningar** i det vänstra navigerings fältet.
 
-Om du vill inaktivera okrypterad FTP väljer du **endast FTPS**. Om du vill inaktivera både FTP-och FTPS helt väljer du **inaktivera**. När det är klart klickar du på **Spara**. Om du **bara använder FTPS** måste du framtvinga TLS 1,2 eller högre genom att gå till bladet **SSL-inställningar** i din webbapp. TLS 1,0 och 1,1 stöds inte med **FTPS**.
+Om du vill inaktivera okrypterad FTP väljer du **FTPS endast** i **FTP-tillstånd**. Om du vill inaktivera både FTP-och FTPS helt väljer du **inaktive rad**. När det är klart klickar du på **Spara**. Om du **bara använder FTPS**måste du framtvinga TLS 1,2 eller högre genom att gå till bladet **TLS/SSL-inställningar** i din webbapp. TLS 1,0 och 1,1 stöds inte med **FTPS**.
 
 ![Inaktivera FTP/S](./media/app-service-deploy-ftp/disable-ftp.png)
 

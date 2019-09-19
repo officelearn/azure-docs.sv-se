@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 82fe917f911be45d7f68662e956fe3bd14f92267
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.openlocfilehash: 74f81cb1f9b62755d2dd2707518b828466e9ed1b
+ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70959883"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71097558"
 ---
 # <a name="azure-ad-password-protection-on-premises---frequently-asked-questions"></a>Azure AD Password Protection lokalt – vanliga frågor och svar
 
@@ -136,6 +136,10 @@ Nej.
 **F: Varför nekar Azure AD fortfarande svaga lösen ord trots att jag har konfigurerat principen som gransknings läge?**
 
 Gransknings läget stöds bara i den lokala Active Directorys miljön. Azure AD är implicit alltid i "framtvinga" läge när det utvärderar lösen ord.
+
+**F: Mina användare ser det traditionella Windows fel meddelandet när ett lösen ord avvisas av lösen ords skyddet i Azure AD. Är det möjligt att anpassa det här fel meddelandet så att användarna vet vad som verkligen hände?**
+
+Nej. Fel meddelandet som visas av användare när ett lösen ord avvisas av en domänkontrollant styrs av klient datorn, inte av domänkontrollanten. Det här problemet uppstår om ett lösen ord avvisas av standard Active Directory lösen ords principer eller av en metod för lösen ords filtrering, till exempel Azure AD Password Protection.
 
 ## <a name="additional-content"></a>Ytterligare innehåll
 

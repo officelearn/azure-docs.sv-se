@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 06/26/2019
 ms.author: brendm
 ms.custom: seodec18
-ms.openlocfilehash: f0cbb8d19d2a7d60fdfd3c10a8c9914ffa79e0a3
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: 8e47365f74668ba2b93bad2b65a9dc9e83080832
+ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70034906"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71098126"
 ---
 # <a name="configure-a-linux-java-app-for-azure-app-service"></a>Konfigurera en Linux Java-app för Azure App Service
 
@@ -49,11 +49,11 @@ Prestanda rapporter, trafik visualiseringar och hälso checkups är tillgänglig
 
 [!INCLUDE [Access diagnostic logs](../../../includes/app-service-web-logs-access-no-h.md)]
 
-Mer information finns i [strömmande loggar med Azure CLI](../troubleshoot-diagnostic-logs.md#streaming-with-azure-cli).
+Mer information finns i [Stream-loggar i Cloud Shell](../troubleshoot-diagnostic-logs.md#in-cloud-shell).
 
 ### <a name="app-logging"></a>Loggning av app
 
-Aktivera [program loggning](../troubleshoot-diagnostic-logs.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#enablediag) via Azure Portal eller [Azure CLI](/cli/azure/webapp/log#az-webapp-log-config) för att konfigurera App Service att skriva programmets standard-och standard konsol fel strömmar till det lokala fil systemet eller Azure-Blob Storage. Loggning till den lokala App Service fil Systems instansen är inaktive rad 12 timmar efter att den har kon figurer ATS Om du behöver kvarhållare kan du konfigurera programmet att skriva utdata till en Blob Storage-behållare. Du hittar dina program loggar för Java och Tomcat i katalogen */Home/LogFiles/Application/* .
+Aktivera [program loggning](../troubleshoot-diagnostic-logs.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#enable-application-logging-windows) via Azure Portal eller [Azure CLI](/cli/azure/webapp/log#az-webapp-log-config) för att konfigurera App Service att skriva programmets standard-och standard konsol fel strömmar till det lokala fil systemet eller Azure-Blob Storage. Loggning till den lokala App Service fil Systems instansen är inaktive rad 12 timmar efter att den har kon figurer ATS Om du behöver kvarhållare kan du konfigurera programmet att skriva utdata till en Blob Storage-behållare. Du hittar dina program loggar för Java och Tomcat i katalogen */Home/LogFiles/Application/* .
 
 Om ditt program använder [logback](https://logback.qos.ch/) eller [log4j](https://logging.apache.org/log4j) för spårning kan du vidarebefordra de här spårningarna för granskning till Azure Application Insights med hjälp av konfigurations anvisningar för loggnings ramverk i [utforska Java trace-loggar i Application Insights ](/azure/application-insights/app-insights-java-trace-logs).
 
@@ -233,7 +233,7 @@ Följ instruktionerna i [BIND ett befintligt anpassat SSL-certifikat](../app-ser
 
 ### <a name="use-keyvault-references"></a>Använda nyckel Valvs referenser
 
-[Azure](../../key-vault/key-vault-overview.md) -nyckels valvet tillhandahåller centraliserad hemlig hantering med åtkomst principer och gransknings historik. Du kan lagra hemligheter (till exempel lösen ord eller anslutnings strängar) i ett nyckel valv och komma åt dessa hemligheter i ditt program via miljövariabler.
+Azure-nyckels [valvet](../../key-vault/key-vault-overview.md) tillhandahåller centraliserad hemlig hantering med åtkomst principer och gransknings historik. Du kan lagra hemligheter (till exempel lösen ord eller anslutnings strängar) i ett nyckel valv och komma åt dessa hemligheter i ditt program via miljövariabler.
 
 Börja med att följa anvisningarna för [att ge appen åtkomst till Key Vault](../app-service-key-vault-references.md#granting-your-app-access-to-key-vault) och [skapa en nyckel valv referens till din hemlighet i en program inställning](../app-service-key-vault-references.md#reference-syntax). Du kan kontrol lera att referensen matchar hemligheten genom att skriva ut miljövariabeln och fjärrans luta till App Service terminalen.
 
@@ -248,24 +248,24 @@ Det här avsnittet visar hur du ansluter Java-program som distribuerats på Azur
 1. Skapa ett NewRelic-konto på [NewRelic.com](https://newrelic.com/signup)
 2. Hämta Java-agenten från NewRelic kommer den att ha ett fil namn som liknar *newrelic-Java-x. x. x. zip*.
 3. Kopiera licens nyckeln, du behöver den för att konfigurera agenten senare.
-4. [Använda SSH i App Service](app-service-linux-ssh-support.md) -instansen och skapa en ny katalog */Home/site/wwwroot/APM*.
+4. [Använda SSH i App Service-instansen](app-service-linux-ssh-support.md) och skapa en ny katalog */Home/site/wwwroot/APM*.
 5. Överför de uppackade NewRelic Java agent-filerna till en katalog under */Home/site/wwwroot/APM*. Filerna för din agent ska vara i */Home/site/wwwroot/APM/newrelic*.
 6. Ändra YAML-filen på */Home/site/wwwroot/APM/newrelic/newrelic.yml* och ersätt licens värdet för plats hållaren med din egen licens nyckel.
 7. I Azure Portal bläddrar du till ditt program i App Service och skapar en ny program inställning.
     - Om din app använder **Java se**skapar du en miljö variabel med namnet `JAVA_OPTS` med värdet. `-javaagent:/home/site/wwwroot/apm/newrelic/newrelic.jar`
     - Om du använder **Tomcat**skapar du en miljö variabel med namnet `CATALINA_OPTS` med värdet `-javaagent:/home/site/wwwroot/apm/newrelic/newrelic.jar`.
-    - Om du använder **WildFly**kan du läsa mer i den nya [](https://docs.newrelic.com/docs/agents/java-agent/additional-installation/wildfly-version-11-installation-java) Relic-dokumentationen för att få vägledning om hur du installerar Java-agenten och JBoss-konfigurationen.
+    - Om du använder **WildFly**kan du läsa mer i den nya Relic [-dokumentationen för att få](https://docs.newrelic.com/docs/agents/java-agent/additional-installation/wildfly-version-11-installation-java) vägledning om hur du installerar Java-agenten och JBoss-konfigurationen.
 
 ### <a name="configure-appdynamics"></a>Konfigurera AppDynamics
 
 1. Skapa ett AppDynamics-konto på [AppDynamics.com](https://www.appdynamics.com/community/register/)
 2. Hämta Java-agenten från AppDynamics-webbplatsen kommer fil namnet att likna *AppServerAgent-x. x. x. XXXXX. zip*
-3. [Använda SSH i App Service](app-service-linux-ssh-support.md) -instansen och skapa en ny katalog */Home/site/wwwroot/APM*.
+3. [Använda SSH i App Service-instansen](app-service-linux-ssh-support.md) och skapa en ny katalog */Home/site/wwwroot/APM*.
 4. Överför Java-agentens filer till en katalog under */Home/site/wwwroot/APM*. Filerna för din agent ska vara i */Home/site/wwwroot/APM/AppDynamics*.
 5. I Azure Portal bläddrar du till ditt program i App Service och skapar en ny program inställning.
     - Om du använder **Java se**skapar du en miljö variabel med namnet `JAVA_OPTS` med värdet `-javaagent:/home/site/wwwroot/apm/appdynamics/javaagent.jar -Dappdynamics.agent.applicationName=<app-name>` där `<app-name>` är ditt App Service namn.
     - Om du använder **Tomcat**skapar du en miljö variabel med namnet `CATALINA_OPTS` med värdet `-javaagent:/home/site/wwwroot/apm/appdynamics/javaagent.jar -Dappdynamics.agent.applicationName=<app-name>` där `<app-name>` är ditt App Service namn.
-    - Om du använder **WildFly**kan du läsa mer i AppDynamics [](https://docs.appdynamics.com/display/PRO45/JBoss+and+Wildfly+Startup+Settings) -dokumentationen om hur du installerar Java-agenten och JBoss-konfigurationen.
+    - Om du använder **WildFly**kan du läsa mer i AppDynamics [-dokumentationen om](https://docs.appdynamics.com/display/PRO45/JBoss+and+Wildfly+Startup+Settings) hur du installerar Java-agenten och JBoss-konfigurationen.
 
 >  Om du redan har en miljö variabel för `JAVA_OPTS` eller `CATALINA_OPTS`lägger `-javaagent:/...` du till alternativet i slutet av det aktuella värdet.
 
@@ -481,7 +481,7 @@ När du har filer och innehåll för modulen följer du stegen nedan för att l�
 
 1. Använd FTP för att ladda upp filer till en plats i App Service-instansen under katalogen */Home* , till exempel */Home/site/Deployments/tools*. Mer information finns i [distribuera din app för att Azure App Service att använda FTP/S](../deploy-ftp.md).
 2. På sidan**allmänna inställningar** för **konfiguration** > i Azure Portal anger du fältet **Start skript** till platsen för start kommando skriptet, till exempel */Home/site/Deployments/tools/startup.sh*.
-3. Starta om App Service-instansen genom att trycka på knappen **starta om** i översikts avsnittet i portalen eller använda Azure CLI.
+3. Starta om App Service-instansen genom att trycka på knappen **starta om** i **översikts** avsnittet i portalen eller använda Azure CLI.
 
 ### <a name="configure-data-sources"></a>Konfigurera data källor
 
@@ -633,7 +633,7 @@ Sedan måste du uppdatera WildFly-konfigurationen för appen och distribuera den
     mvn package -DskipTests azure-webapp:deploy
     ```
 
-3. Starta om App Service-instansen genom att trycka på knappen **starta om** i översikts avsnittet i Azure Portal eller med hjälp av Azure CLI.
+3. Starta om App Service-instansen genom att trycka på knappen **starta om** i **översikts** avsnittet i Azure Portal eller med hjälp av Azure CLI.
 
 Din App Service-instans har nu kon figurer ATS för att få åtkomst till din databas.
 
@@ -696,7 +696,7 @@ Om du vill använda Tomcat med Redis måste du konfigurera appen så att den anv
 
 3. Använd FTP för att ladda upp sessionshanteraren i App Service-instansen och placera den i */Home/Tomcat/lib* -katalogen. Mer information finns i [distribuera din app för att Azure App Service att använda FTP/S](https://docs.microsoft.com/azure/app-service/deploy-ftp).
 
-4. Inaktivera cookien för [session-tillhörighet](https://azure.microsoft.com/blog/disabling-arrs-instance-affinity-in-windows-azure-web-sites/) för App Service-instansen. Du kan göra detta från Azure Portal genom att navigera till din app och sedan ställa in **konfigurations > allmänna inställningar > arr** -tillhörighet. Alternativt kan du använda följande kommando:
+4. Inaktivera [cookien för session-tillhörighet](https://azure.microsoft.com/blog/disabling-arrs-instance-affinity-in-windows-azure-web-sites/) för App Service-instansen. Du kan göra detta från Azure Portal genom att **navigera till din**app och sedan ställa in **konfigurations > allmänna inställningar > arr-tillhörighet** . Alternativt kan du använda följande kommando:
 
     ```azurecli
     az webapp update -g <resource group> -n <webapp name> --client-affinity-enabled false

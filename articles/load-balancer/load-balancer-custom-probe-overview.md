@@ -12,45 +12,79 @@ ms.topic: article
 ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/07/2019
+ms.date: 09/17/2019
 ms.author: allensu
-ms.openlocfilehash: 75009530940a0cce7adb8469ead5f55f509a1faa
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 22f0ef7da9018da128e9a978cefa71eaa786829c
+ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68275342"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71098929"
 ---
 # <a name="load-balancer-health-probes"></a>Läsa in Belastningsutjämnarens hälsotillståndsavsökningar
 
-Azure Load Balancer tillhandahåller hälso avsökningar för användning med regler för belastnings utjämning.  Konfiguration av hälso avsökning och avsöknings svar avgör vilka instanser av backend-pool som får nya flöden. Du kan använda hälsoavsökningar för att upptäcka fel på ett program på en backend-instans. Du kan också skapa ett anpassat svar på en hälso avsökning och använda hälso avsökningen för flödes kontroll för att hantera inläsning eller planerad stillestånds tid. När en hälsoavsökning inte slutar belastningsutjämnaren att skicka nya flöden till respektive feltillstånd instansen.
+När du använder regler för belastnings utjämning med Azure Load Balancer måste du ange en hälso avsökning för att tillåta Load Balancer att identifiera Server delens slut punkts status.  Konfigurationen av hälso avsökningen och avsöknings Svaren avgör vilka instanser av backend-poolen som kommer att ta emot nya flöden. Du kan använda hälso avsökningar för att identifiera ett programs fel på en backend-slutpunkt. Du kan också skapa ett anpassat svar på en hälso avsökning och använda hälso avsökningen för flödes kontroll för att hantera inläsning eller planerad stillestånds tid. När en hälso avsökning Miss lyckas, slutar Load Balancer att skicka nya flöden till respektive ohälsosam instans.
 
-Hälso avsökningar stöder flera protokoll. Tillgängligheten för en speciell typ av hälso avsökning som stöder ett speciellt protokoll varierar beroende på Load Balancer SKU.  Dessutom varierar funktions sättet för tjänsten med Load Balancer SKU.
+Hälso avsökningar stöder flera protokoll. Tillgängligheten för ett speciellt hälso avsöknings protokoll varierar med Load Balancer SKU.  Dessutom varierar funktions sättet för tjänsten med Load Balancer SKU som visas i den här tabellen:
 
 | | Standard-SKU | Grundläggande SKU |
 | --- | --- | --- |
 | [Avsökningen typer](#types) | TCP, HTTP, HTTPS | TCP, HTTP |
 | [Avsökning av beteende](#probedown) | Alla avsökningar ned alla TCP-flöden fortsätter. | Alla avsökningar, alla TCP-flöden upphör att gälla. | 
 
-> [!IMPORTANT]
-> Load Balancer hälso avsökningar kommer från IP-168.63.129.16 och får inte blockeras för avsökningar för att markera instansen.  Granska [avsökning källans IP-adress](#probesource) mer information.
 
+>[!IMPORTANT]
+>Granska det här dokumentet i sin helhet, inklusive viktig [design vägledning](#design) för att skapa en tillförlitlig tjänst.
+
+>[!IMPORTANT]
+>Load Balancer hälso avsökningar kommer från IP-168.63.129.16 och får inte blockeras för avsökningar för att markera instansen.  Granska [avsökning källans IP-adress](#probesource) mer information.
+
+## <a name="probes"></a>Avsöknings konfiguration
+
+Konfigurationen av hälso avsökningen består av följande element:
+
+- Varaktighet för intervallet mellan enskilda avsökningar
+- Antal avsöknings svar som måste observeras innan avsökningen övergår till ett annat tillstånd
+- Protokoll för avsökningen
+- Port för avsökningen
+- HTTP-sökväg som ska användas för HTTP GET vid användning av HTTP (S)-avsökningar
+
+## <a name="understanding-application-signal-detection-of-the-signal-and-reaction-of-the-platform"></a>Förstå program signal, identifiering av signal och plattformens reaktion
+
+Antalet avsöknings svar gäller både
+
+- antalet lyckade avsökningar som tillåter att en instans markeras som upp och
+- Antalet misslyckade avsökningar som gör att en instans markeras som nere.
+
+De angivna värdena för timeout och intervall avgör om en instans ska markeras med upp eller ned.  Varaktigheten för intervallet multiplicerat med antalet avsöknings svar avgör den varaktighet under vilken avsöknings Svaren måste identifieras.  Tjänsten kommer att reagera efter att de begärda avsökningarna har uppnåtts.
+
+Vi kan illustrera beteendet ytterligare med ett exempel. Om du har angett antalet avsöknings svar till 2 och intervallet till 5 sekunder, betyder det att 2 avsöknings felen måste observeras inom ett 10 sekunders intervall.  Eftersom den tid då en avsökning skickas inte synkroniseras när programmet kan ändra tillstånd, kan vi binda tiden till att identifiera genom två scenarier:
+
+1. Om ditt program börjar generera ett avsöknings svar strax innan den första avsökningen kommer, tar identifieringen av dessa händelser 10 sekunder (2 x 5 sekunder) plus varaktigheten för programmet som startar för att signalera ett haveri till när den första avsökningen kommer.  Du kan anta att identifieringen tar något över 10 sekunder.
+2. Om ditt program börjar generera ett avsöknings svar strax efter att den första avsökningen har uppkommit, kommer identifieringen av dessa händelser inte att starta förrän nästa avsökning kommer (och Miss lyckas) plus ytterligare 10 sekunder (2 x 5 sekunder).  Du kan anta att den här identifieringen tar strax under 15 sekunder.
+
+I det här exemplet tar plattformen en liten stund att reagera på den här ändringen när identifieringen har skett.  Det innebär en beroende på 
+
+1. När programmet börjar ändra tillstånd och
+2. När den här ändringen upptäcks och uppfyller de nödvändiga kriterierna (antal avsökningar som skickats vid det angivna intervallet) och
+3. När identifieringen har kommunicerats över plattformen 
+
+Du kan anta att reaktionen på en misslyckad avsökning tar mellan minst 10 sekunder och högst en aning över 15 sekunder att reagera på en förändring i signalen från programmet.  Det här exemplet tillhandahålls för att illustrera vad som händer, men det är inte möjligt att prognostisera en exakt varaktighet utöver ovanstående rikt linjer som illustreras i det här exemplet.
+ 
 ## <a name="types"></a>Avsökningen typer
 
-Hälso avsökningen kan konfigureras för lyssnare med följande tre protokoll:
+Protokollet som används av hälso avsökningen kan konfigureras till något av följande:
 
 - [TCP-lyssnare](#tcpprobe)
 - [HTTP-slutpunkter](#httpprobe)
 - [HTTPS-slutpunkter](#httpsprobe)
 
-De tillgängliga typerna av hälsoavsökningar varierar beroende på vilken Load Balancer SKU som valts:
+Vilka protokoll som är tillgängliga beror på vilken Load Balancer SKU som används:
 
 || TCP | HTTP | HTTPS |
 | --- | --- | --- | --- |
 | Standard-SKU |    &#9989; |   &#9989; |   &#9989; |
 | Grundläggande SKU |   &#9989; |   &#9989; | &#10060; |
-
-Oavsett vilken avsöknings typ du väljer kan hälso avsökningar Observera vilken port som helst på en server dels instans, inklusive den port där den faktiska tjänsten tillhandahålls.
 
 ### <a name="tcpprobe"></a> TCP-avsökning
 
@@ -62,7 +96,7 @@ En TCP-avsökning misslyckas när:
 * TCP-lyssnaren på-instansen svarar inte under tidsperioden.  En avsökning har marker ATS baserat på antalet misslyckade avsöknings begär Anden, som har kon figurer ATS för att svara före avsökningen.
 * Avsökningen tar emot en TCP återställa från instansen.
 
-#### <a name="resource-manager-template"></a>Resource Manager-mall
+Följande visar hur du kan uttrycka den här typen av avsöknings konfiguration i en Resource Manager-mall:
 
 ```json
     {
@@ -77,8 +111,8 @@ En TCP-avsökning misslyckas när:
 
 ### <a name="httpprobe"></a> <a name="httpsprobe"></a> HTTP / HTTPS-avsökning
 
-> [!NOTE]
-> HTTPS-avsökning är endast tillgänglig för [Standardbelastningsutjämnare](load-balancer-standard-overview.md).
+>[!NOTE]
+>HTTPS-avsökning är endast tillgänglig för [Standardbelastningsutjämnare](load-balancer-standard-overview.md).
 
 HTTP-och HTTPS-avsökningar bygger på TCP-avsökningen och utfärdar en HTTP-hämtning med den angivna sökvägen. Båda dessa avsökningar stöder relativa sökvägar för HTTP GET. HTTPS-avsökningar är samma som HTTP-avsökningar och Lägg till en Transport Layer Security (TLS, tidigare känd som SSL) omslutning. Hälsoavsökningen markeras när instansen svarar med en HTTP-statuskod 200 inom tidsgränsen.  Hälso avsökningen försöker kontrol lera den konfigurerade hälso avsöknings porten var 15: e sekund som standard. Minsta avsökningsintervallet är 5 sekunder. Den totala varaktigheten för alla intervall får inte överstiga 120 sekunder.
 
@@ -91,7 +125,7 @@ HTTP / HTTPS-avsökning misslyckas när:
 * Avsöknings slut punkten svarar inte alls under tids gränsen på 31 sekunder. Flera avsöknings begär Anden kan bli obesvarade innan avsökningen markeras som ej igång och tills summan av alla timeout-intervall har uppnåtts.
 * Avsökningen slutpunkten stängs anslutningen via en TCP-återställning.
 
-#### <a name="resource-manager-templates"></a>Mallar för Resurshanteraren
+Följande visar hur du kan uttrycka den här typen av avsöknings konfiguration i en Resource Manager-mall:
 
 ```json
     {
@@ -132,42 +166,35 @@ Om gästagenten svarar med ett 200 HTTP, skickar belastningsutjämnaren nya flö
 När du använder en webbroll webbplats koden vanligtvis körs i w3wp.exe som inte övervakas av Azure fabric eller gäst-agenten. Fel i w3wp.exe (till exempel HTTP 500-svar) inte har rapporterats till gästagenten. Belastningsutjämnaren tar därför inte den instansen bort från roteringen.
 
 <a name="health"></a>
-## <a name="probehealth"></a>Avsökningen hälsotillstånd
+## <a name="probehealth"></a>Avsöknings beteende
 
-TCP, HTTP och HTTPS hälsoavsökningar anses vara felfria och markera rollinstans som felfri när:
+TCP-, http-och https-avsökningar betraktas som felfria och markerar backend-slutpunkten som felfri när:
 
 * Hälso avsökningen lyckas när den virtuella datorn startas.
-* Det angivna antalet avsökningar som krävs för att markera roll instansen som felfri har uppnåtts.
+* Det angivna antalet avsökningar som krävs för att markera backend-slutpunkten som felfri har uppnåtts.
+
+Alla backend-slutpunkter som har uppnått ett felfritt tillstånd är berättigade till att ta emot nya flöden.  
 
 > [!NOTE]
-> Om hälso avsökningen fluktuerar väntar belastningsutjämnaren längre innan den placerar roll instansen igen i felfritt tillstånd. Den här extra väntetid skyddar användaren och infrastrukturen och är en avsiktlig princip.
-
-## <a name="probe-count-and-timeout"></a>Avsökningen antal och timeout
-
-Avsökningen beteende beror på:
-
-* Antal lyckade avsökningar som gör att en instans har markerats som drift.
-* Antal misslyckade avsökningar som orsakar en instans är markerad som inaktiv.
-
-De angivna värdena för timeout och intervall avgör om en instans är markerad som aktiv eller inte.
+> Om hälso avsökningen fluktuerar väntar belastningsutjämnaren längre innan den placerar backend-slutpunkten igen i felfritt tillstånd. Den här extra väntetid skyddar användaren och infrastrukturen och är en avsiktlig princip.
 
 ## <a name="probedown"></a>Avsökning av beteende
 
 ### <a name="tcp-connections"></a>TCP-anslutningar
 
-Nya TCP-anslutningar kommer att lyckas på de återstående felfria Server dels instanserna.
+Nya TCP-anslutningar kommer att lyckas på den återstående felfria Server delen.
 
-Om en backend-instans hälsoavsökning misslyckas, fortsätter du etablerade TCP-anslutningar till den här backend-instansen.
+Om en server dels hälso avsökningen Miss lyckas upprättas TCP-anslutningar till backend-slutpunkten.
 
 Om alla avsökningar för alla instanser i en serverdelspool misslyckas, skickas inga nya flöden till i serverdelspoolen. Standard Load Balancer tillåter etablerad TCP-flöden för att fortsätta.  Basic Load Balancer avslutas alla befintliga TCP-flöden till i serverdelspoolen.
  
-Load Balancer är en direkt tjänst (avslutar inte TCP-anslutningar) och flödet är alltid mellan klienten och den virtuella datorns gäst operativ system och program. En pool med alla avsökningar gör att en klient del inte svarar på TCP-anslutningens öppna försök (SYN) eftersom det inte finns någon felfri backend-instans för att ta emot flödet och svara med en SYN-ACK.
+Load Balancer är en direkt tjänst (avslutar inte TCP-anslutningar) och flödet är alltid mellan klienten och den virtuella datorns gäst operativ system och program. En pool med alla avsökningar gör att en klient del inte svarar på TCP-anslutningens öppna försök (SYN) eftersom det inte finns någon felfria backend-slutpunkt för att ta emot flödet och svara med en SYN-ACK.
 
 ### <a name="udp-datagrams"></a>UDP-datagram
 
-UDP-datagram levereras till Felfri backend-instanser.
+UDP-datagram skickas till felfria backend-slutpunkter.
 
-UDP anslutningslös och det finns inga läget för energiflöde som spåras för UDP. Om en backend-instans hälsoavsökning misslyckas kan befintliga UDP-flöden flytta till en annan felfri instans i serverdelspoolen.
+UDP anslutningslös och det finns inga läget för energiflöde som spåras för UDP. Om en server dels hälso avsökningen Miss lyckas kan befintliga UDP-flöden flyttas till en annan felfria instans i backend-poolen.
 
 Om alla avsökningar för alla instanser i en serverdelspool misslyckas avslutas befintliga UDP-flöden för Basic och Standard belastningsutjämnare.
 
@@ -188,15 +215,15 @@ Utöver Load Balancer hälso avsökningar [använder följande åtgärder följa
 
 Hälso avsökningar används för att göra tjänsten elastisk och kan skalas. En felaktig konfiguration eller ett dåligt design mönster kan påverka tjänstens tillgänglighet och skalbarhet. Granska hela dokumentet och fundera över vad som påverkar ditt scenario när avsöknings svaret är markerat eller markerat och hur det påverkar tillgängligheten för ditt program scenario.
 
-När du utformar hälso modellen för ditt program bör du avsöka en port på en server dels instans som återspeglar hälso tillståndet för den instansen __och__ den program tjänst som du tillhandahåller.  Program porten och avsöknings porten måste inte vara samma.  I vissa fall kan det vara önskvärt att avsöknings porten är annorlunda än porten som programmet tillhandahåller tjänsten på.  
+När du utformar hälso modellen för ditt program bör du avsöka en port på en backend-slutpunkt som visar hälso tillståndet för den instansen __och__ den program tjänst som du tillhandahåller.  Program porten och avsöknings porten måste inte vara samma.  I vissa fall kan det vara önskvärt att avsöknings porten är annorlunda än porten som programmet tillhandahåller tjänsten på.  
 
 Ibland kan det vara användbart för ditt program att generera ett hälso avsöknings svar för att inte bara identifiera ditt programs hälsa, utan också signaler direkt till Load Balancer om din instans ska ta emot eller inte ta emot nya flöden.  Du kan ändra avsöknings svaret så att ditt program kan skapa mottryck och begränsa leveransen av nya flöden till en instans genom att inte godkänna hälso avsökningen eller förbereda för underhåll av ditt program och börja tömma ditt scenario.  När du använder Standard Load Balancer kommer [](#probedown) en avsöknings signal att tillåta att TCP-flöden fortsätter tills tids gränsen för inaktivitet eller anslutning stängs. 
 
-För UDP-belastnings utjämning bör du skapa en anpassad hälso avsöknings signal från backend-instansen och använda antingen en TCP-, HTTP-eller HTTPS-hälsoavsökning som riktar sig mot motsvarande lyssnare för att avspegla hälso tillståndet för ditt UDP-program.
+För UDP-belastnings utjämning bör du skapa en anpassad hälso avsöknings signal från backend-slutpunkten och använda antingen en TCP-, HTTP-eller HTTPS-hälsoavsökning som riktar sig mot motsvarande lyssnare för att avspegla hälso tillståndet för ditt UDP-program.
 
 När du använder [belastnings Utjämnings regler för ha-portar](load-balancer-ha-ports-overview.md) med [standard Load Balancer](load-balancer-standard-overview.md), är alla portar belastningsutjämnade och ett enda svar på hälso avsökning måste visa status för hela instansen.
 
-Översätt eller Använd inte en hälso avsökning via instansen som tar emot hälso avsökningen till en annan instans i ditt VNet eftersom den här konfigurationen kan leda till sammanhängande fel i ditt scenario.  Tänk dig följande scenario: en uppsättning tredjeparts-enheter distribueras i backend-poolen för en Load Balancer resurs för att ge skalning och redundans för enheterna och hälso avsökningen är konfigurerad för att avsöka en port som används av den tredje partens proxyservrar eller översätts till andra virtuella datorer bakom enheten.  Om du avsöker samma port som du använder för att översätta eller proxyanslutningar till de andra virtuella datorerna bakom installationen, markerar alla avsöknings svar från en enskild virtuell dator bakom installations programmet själva enheten. Den här konfigurationen kan leda till ett överlappande avbrott i hela program scenariot som ett resultat av en enskild server dels instans bakom-enheten.  Utlösaren kan vara ett tillfälligt avsöknings fel som gör att Load Balancer kan markera det ursprungliga målet (installations instansen) och i sin tur inaktivera hela program scenariot. Avsök själva hälso tillståndet för själva enheten i stället. Valet av avsökning för att fastställa hälso signalen är ett viktigt övervägande för NVA-scenarier (Network Virtual Restore) och du måste kontakta din program varu leverantör för att få en lämplig hälso signal för sådana scenarier.
+Översätt eller Använd inte en hälso avsökning via instansen som tar emot hälso avsökningen till en annan instans i ditt VNet eftersom den här konfigurationen kan leda till sammanhängande fel i ditt scenario.  Tänk dig följande scenario: en uppsättning tredjeparts-enheter distribueras i backend-poolen för en Load Balancer resurs för att ge skalning och redundans för enheterna och hälso avsökningen är konfigurerad för att avsöka en port som används av den tredje partens proxyservrar eller översätts till andra virtuella datorer bakom enheten.  Om du avsöker samma port som du använder för att översätta eller proxyanslutningar till de andra virtuella datorerna bakom installationen, markerar alla avsöknings svar från en enskild virtuell dator bakom installations programmet själva enheten. Den här konfigurationen kan leda till ett överlappande avbrott i hela program scenariot, till följd av en enda server dels slut punkt bakom enheten.  Utlösaren kan vara ett tillfälligt avsöknings fel som gör att Load Balancer kan markera det ursprungliga målet (installations instansen) och i sin tur inaktivera hela program scenariot. Avsök själva hälso tillståndet för själva enheten i stället. Valet av avsökning för att fastställa hälso signalen är ett viktigt övervägande för NVA-scenarier (Network Virtual Restore) och du måste kontakta din program varu leverantör för att få en lämplig hälso signal för sådana scenarier.
 
 Om du inte tillåter avsökningens [käll-IP-adress](#probesource) i brand Väggs principerna, Miss söker hälso avsökningen eftersom den inte kan komma åt din instans.  I sin tur markerar belastningsutjämnare ned din instans på grund av uteblivna för avsökning.  Den här Felaktiga konfigurationen kan orsaka att ditt belastningsutjämnade program scenario inte fungerar.
 
@@ -208,18 +235,18 @@ Konfigurera inte ditt VNet med det Microsoft-adressintervall som innehåller 168
 
 Om du har flera gränssnitt på den virtuella datorn kan behöva du se till att du svara på avsökningen på gränssnittet som du fick på.  Du kan behöva källans nätverks adress översätter den här adressen i den virtuella datorn per gränssnitt.
 
-Aktivera inte [TCP-tidsstämplar](https://tools.ietf.org/html/rfc1323).  Om du aktiverar TCP-tidsstämplar kan hälso avsökningar inte köras på grund av att TCP-paketen har släppts av den virtuella datorns gäst operativ system TCP-stack, vilket leder till att Load Balancer markerar respektive slut punkt.  TCP-tidsstämplar aktive ras rutinmässigt som standard på säkerhets härdning av virtuella dator avbildningar och måste inaktive ras.
+Aktivera inte [TCP-tidsstämplar](https://tools.ietf.org/html/rfc1323).  Om du aktiverar TCP-tidsstämplar kan det leda till att hälso avsökningar inte fungerar på grund av att TCP-paketen har släppts av den virtuella datorns gäst operativ system TCP-stack, vilket leder till att Load Balancer markerar respektive slut  TCP-tidsstämplar aktive ras rutinmässigt som standard på säkerhets härdning av virtuella dator avbildningar och måste inaktive ras.
 
 ## <a name="monitoring"></a>Övervakning
 
-Både offentliga och interna [Standardbelastningsutjämnare](load-balancer-standard-overview.md) exponera per slutpunkt och backend-instans avsökningen hälsostatus som flerdimensionella mätvärden via Azure Monitor. Dessa mått kan utnyttjas av andra Azure-tjänster eller partner program. 
+Både offentliga och interna [standard Load Balancer](load-balancer-standard-overview.md) exponeras per slut punkt och status för status avsökningar för backend-slutpunkt som flerdimensionella mått via Azure Monitor. Dessa mått kan utnyttjas av andra Azure-tjänster eller partner program. 
 
 Grundläggande offentliga Load Balancer visar status för hälso avsökningar som sammanfattas per backend-pool via Azure Monitor loggar.  Azure Monitors loggar är inte tillgängliga för interna Basic Load Balancer.  Du kan använda [Azure Monitor loggar](load-balancer-monitor-log.md) för att kontrol lera hälso statusen för avsökningen av offentliga belastningsutjämnare och avsöknings antal. Loggning kan användas med Power BI eller Azure Operational Insights för att tillhandahålla statistik om hälsostatusen för belastningsutjämnaren.
 
 ## <a name="limitations"></a>Begränsningar
 
 - HTTPS-avsökningar stöder inte ömsesidig autentisering med ett klientcertifikat.
-- Hälso avsökningar fungerar inte när TCP-tidsstämplar är aktiverade.
+- Du bör assumehHealth-avsökningar Miss Miss kan när TCP-tidsstämplar är aktiverade.
 
 ## <a name="next-steps"></a>Nästa steg
 

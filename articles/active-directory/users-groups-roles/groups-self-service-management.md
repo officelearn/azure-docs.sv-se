@@ -15,30 +15,30 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b860257fd1b3f0897152dc3d48bff0c7e1d3d994
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 2b52604d4ad20fed83c4649f046722ed45e766c4
+ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60469869"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71097703"
 ---
-# <a name="set-up-self-service-group-management-in-azure-active-directory"></a>Konfigurera hantering av självbetjäning i Azure Active Directory 
+# <a name="set-up-self-service-group-management-in-azure-active-directory"></a>Konfigurera hantering av självbetjänings grupper i Azure Active Directory 
 
-Du kan aktivera användare att skapa och hantera egna säkerhetsgrupper eller Office 365-grupper i Azure Active Directory (AD Azure). Ägare av gruppen kan godkänna eller neka förfrågningar om medlemskap och delegera kontrollen av gruppmedlemskap. Självbetjäning funktioner för grupphantering är inte tillgängliga för e-postaktiverade säkerhetsgrupper eller distributionslistor.
+Du kan göra det möjligt för användare att skapa och hantera egna säkerhets grupper eller Office 365-grupper i Azure Active Directory (Azure AD). Ägare av gruppen kan godkänna eller neka medlemskaps begär Anden och kan delegera kontrollen över grupp medlemskap. Funktioner för grupp hantering via självbetjäning är inte tillgängliga för e-postaktiverade säkerhets grupper eller distributions listor.
 
-## <a name="self-service-group-membership-defaults"></a>Självbetjäning medlemskap standardvärden
+## <a name="self-service-group-membership-defaults"></a>Standardinställningar för grupp medlemskap för självbetjäning
 
-När säkerhetsgrupper skapas i Azure portal eller med Azure AD PowerShell kan endast gruppens ägare uppdatera medlemskap. Säkerhetsgrupper som skapas i den [åtkomstpanelen](https://account.activedirectory.windowsazure.com/r#/joinGroups) och alla Office 365-grupper är tillgängliga för att ansluta till för alla användare om ägare godkänd eller som godkänts automatiskt. Du kan ändra medlemskap alternativ när du skapar gruppen i åtkomstpanelen.
+När säkerhets grupper skapas i Azure Portal eller med hjälp av Azure AD PowerShell kan endast gruppens ägare uppdatera medlemskap. Säkerhets grupper som skapas i [åtkomst panelen](https://account.activedirectory.windowsazure.com/r#/joinGroups) och alla Office 365-grupper är tillgängliga för att ansluta till alla användare, oavsett om de är godkända eller automatiskt godkända. I åtkomst panelen kan du ändra medlemskaps alternativ när du skapar gruppen.
 
-Grupper som skapats i | Standardbeteendet för säkerhet grupp | Standardbeteendet för Office 365-grupp
+Grupper som skapats i | Standard beteende för säkerhets grupp | Standard beteende för Office 365-grupper
 ------------------ | ------------------------------- | ---------------------------------
-[Azure AD PowerShell](groups-settings-cmdlets.md) | Endast ägare kan lägga till medlemmar<br>Synliga men finns inte för att gå med i åtkomstpanelen | Öppen för alla användare
-[Azure Portal](https://portal.azure.com) | Endast ägare kan lägga till medlemmar<br>Synliga men finns inte för att gå med i åtkomstpanelen<br>Ägare tilldelas inte automatiskt när en skapas | Öppen för alla användare
-[Åtkomstpanelen](https://account.activedirectory.windowsazure.com/r#/joinGroups) | Öppen för alla användare<br>Alternativ kan ändras när gruppen har skapats | Öppen för alla användare<br>Alternativ kan ändras när gruppen har skapats
+[Azure AD PowerShell](groups-settings-cmdlets.md) | Endast ägare kan lägga till medlemmar<br>Synlig men inte tillgänglig för anslutning i åtkomst panelen | Öppna för att ansluta till alla användare
+[Azure Portal](https://portal.azure.com) | Endast ägare kan lägga till medlemmar<br>Synlig men inte tillgänglig för anslutning i åtkomst panelen<br>Ägaren tilldelas inte automatiskt när gruppen skapas | Öppna för att ansluta till alla användare
+[Åtkomst panel](https://account.activedirectory.windowsazure.com/r#/joinGroups) | Öppna för att ansluta till alla användare<br>Medlemskaps alternativ kan ändras när gruppen skapas | Öppna för att ansluta till alla användare<br>Medlemskaps alternativ kan ändras när gruppen skapas
 
-## <a name="self-service-group-management-scenarios"></a>Scenarier för hantering av självbetjäning
+## <a name="self-service-group-management-scenarios"></a>Självbetjänings grupp hanterings scenarier
 
-* **Delegerad grupphantering** Ett exempel är en administratör som hanterar åtkomsten till ett SaaS-program som hennes företag använder. Eftersom det börjar bli svårt att hantera dessa åtkomstbehörigheter ber administratören företagsägaren att skapa en ny grupp. Administratören tilldelar åtkomst för programmet till den nya gruppen och lägger till alla personer som redan har åtkomst till programmet till gruppen. Företagsägaren kan sedan lägga till fler användare, som automatiskt tilldelas programmet. Företagsägaren behöver inte vänta på administratören för att kunna hantera åtkomst för användarna. Om administratören tilldelar samma behörighet till en chef i en annan affärsgrupp, kan sedan den personen också hantera åtkomst för sina egna medlemmar i gruppen. Varken företagsägaren eller chefen kan visa eller hantera varandras gruppmedlemskap. Administratören kan fortfarande se alla användare som har åtkomst till programmet och blockera behörigheten om det behövs.
+* **Delegerad grupphantering** Ett exempel är en administratör som hanterar åtkomsten till ett SaaS-program som hennes företag använder. Eftersom det börjar bli svårt att hantera dessa åtkomstbehörigheter ber administratören företagsägaren att skapa en ny grupp. Administratören tilldelar åtkomst till programmet till den nya gruppen och lägger till gruppen alla personer som redan har åtkomst till programmet. Företagsägaren kan sedan lägga till fler användare, som automatiskt tilldelas programmet. Företagsägaren behöver inte vänta på administratören för att kunna hantera åtkomst för användarna. Om administratören ger samma behörighet till en chef i en annan affärs grupp, kan den personen även hantera åtkomsten för sina egna grupp medlemmar. Varken företags ägaren eller chefen kan visa eller hantera vart och ett av grupp medlemskapen. Administratören kan fortfarande se alla användare som har åtkomst till programmet och blockera behörigheten om det behövs.
 * **Grupphantering via självbetjäning** Ett exempel på det här scenariot är två användare som båda har SharePoint Online-platser som de har konfigurerat oberoende av varandra. De vill ge varandras grupper åtkomst till sina respektive webbplatser. De kan åstadkomma detta genom att först skapa en grupp i Azure AD och därefter var och en välja samma grupp i SharePoint Online, vilket ger dem åtkomst till varandras webbplatser. När någon vill ha åtkomst begär de det från åtkomstpanelen och efter godkännande får de automatiskt åtkomst till båda SharePoint Online-platserna. Senare beslutar den ena av dem att alla användare som har åtkomst till webbplatsen även ska få åtkomst till ett visst SaaS-program. SaaS-programmets administratör kan lägga till åtkomstbehörighet för programmet till SharePoint Online-webbplatsen. När det är gjort kommer alla förfrågningar som han godkänner att ge åtkomst till de två SharePoint Online-webbplatserna och även till SaaS-programmet.
 
 ## <a name="make-a-group-available-for-user-self-service"></a>Göra en grupp tillgänglig för självbetjäning av användare
@@ -50,9 +50,9 @@ Grupper som skapats i | Standardbeteendet för säkerhet grupp | Standardbeteend
    * När inställningarna är aktiverade kan alla användare i katalogen skapa nya säkerhetsgrupper och lägga till medlemmar i dessa grupper. Dessa nya grupper visas även på åtkomstpanelen för alla andra användare. Om gruppens principinställningar så tillåter kan andra användare skapa förfrågningar om att ansluta till dessa grupper. 
    * När de här inställningarna är avaktiverade kan användarna inte skapa grupper eller ändra de befintliga grupper som de äger. De kan dock fortfarande hantera medlemskap i dessa grupper och godkänna förfrågningar från andra användare om att ansluta till grupperna.
 
-Genom **Användare som kan hantera säkerhetsgrupper** och **Användare som kan hantera Office 365-grupper** kan du få mer detaljerad åtkomstkontroll över dina användares grupphantering via självbetjäning. När **Användare kan skapa grupper** är aktiverat kan alla användare i klientorganisationen skapa nya grupper och lägga till medlemmar i dessa grupper. Du kan inte ange personer som kan skapa sina egna grupper. Du kan ange enskilda användare endast för att göra en annan medlem gruppägare.
+Genom **Användare som kan hantera säkerhetsgrupper** och **Användare som kan hantera Office 365-grupper** kan du få mer detaljerad åtkomstkontroll över dina användares grupphantering via självbetjäning. När **Användare kan skapa grupper** är aktiverat kan alla användare i klientorganisationen skapa nya grupper och lägga till medlemmar i dessa grupper. Du kan inte ange personer som kan skapa sina egna grupper. Du kan bara ange individer för att göra en annan grupp medlem till en grupp ägare.
 
-Genom att ange **användare som kan använda Självbetjäning för säkerhetsgrupper** och **användare som kan hantera Office 365-grupper** till **Ja**, användarna i din klient för att skapa en ny grupper.
+Genom att ställa in **användare som kan använda självbetjäning för säkerhets grupper** och **användare som kan hantera Office 365-grupper** till **Ja**, så kan du aktivera alla användare i din klient organisation för att skapa nya grupper.
 
 Du kan också använda **Grupp som kan hantera säkerhetsgrupper** eller **Grupp som kan hantera Office 365-grupper** för att ange en enda grupp vars medlemmar ska kunna använda självbetjäning.
 

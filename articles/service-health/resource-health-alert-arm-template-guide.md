@@ -1,62 +1,62 @@
 ---
-title: Konfigurera Azure resource health-aviseringar med hjälp av Resource Manager-mallar | Microsoft Docs
-description: Skapa aviseringar programmässigt som meddelar dig när dina Azure-resurser blir otillgängliga.
+title: Konfigurera Azure Resource Health-aviseringar med hjälp av Resource Manager-mallar | Microsoft Docs
+description: Skapa aviseringar program mässigt som meddelar dig när dina Azure-resurser blir otillgängliga.
 author: stephbaron
 ms.author: stbaron
 ms.topic: conceptual
 ms.service: service-health
 ms.date: 9/4/2018
-ms.openlocfilehash: e552b90a4c98eff7b04cbeaef26aa10749ce672c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7ccd84042d11b586d524d4eb76eba03111e0b3c5
+ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66493404"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71099015"
 ---
-# <a name="configure-resource-health-alerts-using-resource-manager-templates"></a>Konfigurera resource health-aviseringar med hjälp av Resource Manager-mallar
+# <a name="configure-resource-health-alerts-using-resource-manager-templates"></a>Konfigurera resurs hälso aviseringar med Resource Manager-mallar
 
-Den här artikeln visar hur du skapar Resource Health Aktivitetsloggaviseringar genom programmering med Azure Resource Manager-mallar och Azure PowerShell.
+I den här artikeln får du lära dig hur du skapar Resource Health aktivitets logg aviseringar via programmering med hjälp av Azure Resource Manager mallar och Azure PowerShell.
 
-Azure Resource Health håller dig informerad om aktuell och historisk hälsotillståndet för dina Azure-resurser. Azure Resource Health-aviseringar kan meddela dig i nära realtid när resurserna har en ändring i deras hälsostatus. Skapa Resource Health Tillåt aviseringar programmässigt användare att skapa och anpassa aviseringar gruppvis.
+Azure Resource Health håller dig informerad om aktuella och historiska hälso status för dina Azure-resurser. Azure Resource Health aviseringar kan meddela dig nästan i real tid när resurserna har en ändring i deras hälso status. Skapa Resource Health aviseringar program mässigt tillåta att användare skapar och anpassar aviseringar i flera.
 
 > [!NOTE]
-> Resource Health-aviseringar är för närvarande i förhandsversion.
+> Resource Health aviseringar är för närvarande en för hands version.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
-Om du vill följa anvisningarna på den här sidan måste du konfigurera några saker i förväg:
+Om du vill följa instruktionerna på den här sidan måste du konfigurera några saker i förväg:
 
-1. Du måste installera den [Azure PowerShell-modulen](https://docs.microsoft.com/powershell/azure/install-Az-ps)
-2. Du behöver [skapa eller återanvända en åtgärdsgrupp](../azure-monitor/platform/action-groups.md) konfigurerad för att meddela dig
+1. Du måste installera Azure PowerShell- [modulen](https://docs.microsoft.com/powershell/azure/install-Az-ps)
+2. Du måste [skapa eller återanvända en åtgärds grupp](../azure-monitor/platform/action-groups.md) som kon figurer ATS för att meddela dig
 
-## <a name="instructions"></a>Instruktioner
-1. Med hjälp av PowerShell, logga in på Azure med ditt konto och välj den prenumeration som du vill interagera med
+## <a name="instructions"></a>Anvisningar
+1. Använd PowerShell för att logga in på Azure med ditt konto och välj den prenumeration som du vill interagera med
 
         Login-AzAccount
         Select-AzSubscription -Subscription <subscriptionId>
 
-    > Du kan använda `Get-AzSubscription` för att lista prenumerationerna som du har åtkomst till.
+    > Du kan använda `Get-AzSubscription` för att visa en lista över de prenumerationer som du har åtkomst till.
 
-2. Hitta och spara den fullständiga Azure Resource Manager-ID för din åtgärdsgrupp
+2. Hitta och spara det fullständiga Azure Resource Manager-ID: t för din åtgärds grupp
 
         (Get-AzActionGroup -ResourceGroupName <resourceGroup> -Name <actionGroup>).Id
 
-3. Skapa och spara en Resource Manager-mall för Resource Health-aviseringar som `resourcehealthalert.json` ([se information nedan](#resource-manager-template-options-for-resource-health-alerts))
+3. Skapa och spara en Resource Manager-mall för Resource Health aviseringar som `resourcehealthalert.json` ([se informationen nedan](#resource-manager-template-options-for-resource-health-alerts))
 
 4. Skapa en ny Azure Resource Manager-distribution med hjälp av den här mallen
 
         New-AzResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName <resourceGroup> -TemplateFile <path\to\resourcehealthalert.json>
 
-5. Du uppmanas att ange Aviseringsnamn och åtgärden grupp resurs-ID som du kopierade tidigare:
+5. Du uppmanas att ange det aviserings namn och den åtgärds grupp resurs-ID som du kopierade tidigare:
 
         Supply values for the following parameters:
         (Type !? for Help.)
         activityLogAlertName: <Alert Name>
         actionGroupResourceId: /subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>/providers/microsoft.insights/actionGroups/<actionGroup>
 
-6. Om allt har arbetat får du en bekräftelse i PowerShell
+6. Om allt fungerade utan problem får du en bekräftelse i PowerShell
 
         DeploymentName          : ExampleDeployment
         ResourceGroupName       : <resourceGroup>
@@ -74,13 +74,13 @@ Om du vill följa anvisningarna på den här sidan måste du konfigurera några 
         Outputs                 :
         DeploymentDebugLogLevel :
 
-Observera att om du planerar att den här processen automatiseras helt, behöver du bara redigera Resource Manager-mall för att fråga inte om värdena i steg 5.
+Observera att om du planerar att helt automatisera den här processen behöver du bara redigera Resource Manager-mallen för att inte fråga efter värdena i steg 5.
 
-## <a name="resource-manager-template-options-for-resource-health-alerts"></a>Alternativ för resurshanteraren för Resource Health-aviseringar
+## <a name="resource-manager-template-options-for-resource-health-alerts"></a>Alternativ för Resource Manager-mallar för Resource Health aviseringar
 
-Du kan använda den här grundläggande mallen som utgångspunkt för att skapa Resource Health-aviseringar. Den här mallen fungerar likadant som och kommer att registrera dig att ta emot aviseringar för alla nyligen aktiverade resurshälsotillståndshändelser över alla resurser i en prenumeration.
+Du kan använda den här bas mal len som utgångs punkt för att skapa Resource Health aviseringar. Den här mallen fungerar som skrivet och registrerar dig för att ta emot aviseringar om alla nyligen aktiverade resurs hälso händelser över alla resurser i en prenumeration.
 
-> Längst ned i den här artikeln har vi också inkluderat en mer komplex avisering mall som bör öka signalen-brus-förhållande för Resource Health-aviseringar jämfört med den här mallen.
+> Längst ned i den här artikeln har vi också inkluderat en mer komplex varnings mall som ska öka signalen till brus förhållandet för Resource Health aviseringar jämfört med den här mallen.
 
 ```json
 {
@@ -137,26 +137,26 @@ Du kan använda den här grundläggande mallen som utgångspunkt för att skapa 
 }
 ```
 
-Men rekommenderas en bred avisering som den här Allmänt inte. Lär dig hur vi kan definiera omfattningen av den här aviseringen kan fokusera på de händelser som vi värnar om nedan.
+En bred avisering som den här typen av sådan rekommenderas dock vanligt vis inte. Lär dig hur vi kan fokusera på den här aviseringen och fokusera på de händelser vi bryr oss om.
 
-### <a name="adjusting-the-alert-scope"></a>Justera aviseringar omfattningen
+### <a name="adjusting-the-alert-scope"></a>Justera aviserings omfånget
 
-Resource Health-aviseringar kan konfigureras för att övervaka händelser i tre olika omfång:
+Resource Health aviseringar kan konfigureras för övervakning av händelser i tre olika omfång:
 
  * Prenumerationsnivå
- * Resursgruppsnivå
- * Resurs
+ * Resurs grupps nivå
+ * Resurs nivå
 
-Aviseringen mallen har konfigurerats på prenumerationsnivån, men om du vill konfigurera aviseringen för att bara meddela dig om vissa resurser eller resurser inom en viss resursgrupp du behöver bara ändra den `scopes` avsnittet ovan mallen.
+Varnings mal len konfigureras på prenumerations nivån, men om du vill konfigurera aviseringen så att den bara meddelar dig om vissa resurser eller resurser inom en viss resurs grupp behöver du bara ändra `scopes` avsnittet i ovanstående webbplatsmall.
 
-För en resurs på gruppomfattning, scope-avsnittet se ut som:
+För en resurs grupp nivå omfattning bör avsnittet omfattningar se ut så här:
 ```json
 "scopes": [
     "/subscriptions/<subscription id>/resourcegroups/<resource group>"
 ],
 ```
 
-Och för en resurs på omfattning avsnittet omfång bör se ut:
+För en resurs nivå omfattning bör avsnittet omfattning se ut så här:
 
 ```json
 "scopes": [
@@ -166,11 +166,11 @@ Och för en resurs på omfattning avsnittet omfång bör se ut:
 
 Exempel: `"/subscriptions/d37urb3e-ed41-4670-9c19-02a1d2808ff9/resourcegroups/myRG/providers/microsoft.compute/virtualmachines/myVm"`
 
-> Du kan gå till Azure-portalen och titta på URL: en när du visar din Azure-resurs för att få den här strängen.
+> Du kan gå till Azure-portalen och titta på URL: en när du visar din Azure-resurs för att hämta den här strängen.
 
-### <a name="adjusting-the-resource-types-which-alert-you"></a>Justera resursen typer som varnar dig
+### <a name="adjusting-the-resource-types-which-alert-you"></a>Justera resurs typerna som varnar dig
 
-Aviseringar i prenumeration eller resursgrupp kan ha olika typer av resurser. Om du vill begränsa aviseringar för att endast komma från en viss delmängd av resurstyper kan du definiera som i den `condition` avsnitt i mallen som detta:
+Aviseringar på prenumerations-eller resurs grupps nivå kan ha olika typer av resurser. Om du vill begränsa aviseringarna till att endast komma från en viss del av resurs typerna kan du definiera det i `condition` avsnittet i mallen:
 
 ```json
 "condition": {
@@ -195,12 +195,12 @@ Aviseringar i prenumeration eller resursgrupp kan ha olika typer av resurser. Om
 },
 ```
 
-Här använder vi den `anyOf` -gränssnitt för att tillåta resource health aviseringen matchar någon av villkor som vi anger, så att aviseringar som är avsedda för specifika resurstyper.
+Här använder `anyOf` vi omslutningen för att tillåta resurs hälso aviseringen att matcha de villkor som vi anger, vilket ger aviseringar som riktar sig mot specifika resurs typer.
 
-### <a name="adjusting-the-resource-health-events-that-alert-you"></a>Resource Health-händelser som varnar dig
-Om resurser genomgår en hälsohändelse, de kan gå igenom en serie steg som representerar tillståndet för hälsohändelsen: `Active`, `InProgress`, `Updated`, och `Resolved`.
+### <a name="adjusting-the-resource-health-events-that-alert-you"></a>Justera Resource Health händelser som varnar dig
+När resurser genomgår en hälso händelse kan de gå igenom en serie steg som `Active`representerar hälso tillståndet: `Updated`, `InProgress`, och `Resolved`.
 
-Du bara vill meddelas när en resurs blir ohälsosamt, då du vill konfigurera aviseringen för att bara meddela när den `status` är `Active`. Men om du vill också bli meddelad på de andra stegen kan du lägga till detaljer som detta:
+Du kanske bara vill bli meddelad när en resurs blir skadad, i vilket fall du vill konfigurera aviseringen så att den endast meddelar när `status` är. `Active` Men om du vill att du även vill bli meddelad i de andra stegen kan du lägga till dessa uppgifter så här:
 
 ```json
 "condition": {
@@ -230,13 +230,13 @@ Du bara vill meddelas när en resurs blir ohälsosamt, då du vill konfigurera a
 }
 ```
 
-Om du vill bli informerad om alla fyra faser i health-händelser, kan du ta bort det här tillståndet allt på samma plats och aviseringen meddelar dig oavsett den `status` egenskapen.
+Om du vill bli meddelad om alla fyra stadier av hälso tillstånds händelser kan du ta bort det här villkoret tillsammans och aviseringen meddelar dig `status` oberoende av egenskapen.
 
-### <a name="adjusting-the-resource-health-alerts-to-avoid-unknown-events"></a>Justera Resource Health-aviseringar för att undvika ”okänt” händelser
+### <a name="adjusting-the-resource-health-alerts-to-avoid-unknown-events"></a>Justera Resource Health aviseringar för att undvika "okända" händelser
 
-Azure Resource Health kan rapportera till du senaste hälsotillståndet för dina resurser genom att ständigt övervaka dem med hjälp av test-deltagare. Den relevanta rapporterade health-statusen är: ”Tillgänglig”, ”ej tillgänglig” och ”försämrad”. Men i situationer där köraren och Azure-resursen är inte kan kommunicera, ett ”okänt” hälsotillståndet rapporteras för resursen och som betraktas som en ”aktiv” hälsotillståndshändelse.
+Azure Resource Health kan rapportera till dig med de senaste hälso tillståndet för dina resurser genom att kontinuerligt övervaka dem med hjälp av test-löpare. De relevanta rapporterade hälso statusarna är: "Tillgängligt", "ej tillgängligt" och "degraderat". Men i situationer där löpare och Azure-resursen inte kan kommunicera, rapporteras en "okänd" hälso status för resursen och det anses vara en "aktiv"-hälso händelse.
 
-När en resurs rapporterar ”okänt”, är det dock sannolikt att dess hälsostatus inte har ändrats sedan den senaste korrekta rapporten. Om du vill undvika aviseringar för händelser som ”okänt” kan du ange denna logik i mallen:
+Men när en resurs rapporterar "okänd", är det troligt att dess hälso status inte har ändrats sedan den senaste korrekta rapporten. Om du vill eliminera varningar om "okända" händelser kan du ange den logiken i mallen:
 
 ```json
 "condition": {
@@ -284,15 +284,15 @@ När en resurs rapporterar ”okänt”, är det dock sannolikt att dess hälsos
 },
 ```
 
-I det här exemplet vi bara meddela på händelser där aktuella och tidigare hälsostatus inte har ”okänt”. Den här ändringen kan vara ett användbart tillägg om dina aviseringar skickas direkt till din mobiltelefon eller e-post. 
+I det här exemplet meddelar vi bara händelser där aktuella och tidigare hälso status inte har "okänd". Den här ändringen kan vara ett användbart tillägg om aviseringarna skickas direkt till din mobil telefon eller e-post. 
 
-Observera att det är möjligt för egenskaperna currentHealthStatus och previousHealthStatus vara null i vissa händelser. Till exempel när en uppdaterad händelse inträffar är det troligt att resursen hälsostatus inte har ändrats sedan den senaste rapporten endast denna ytterligare händelseinformation är tillgänglig (t.ex. ge). Därför använda satsen ovan kan resultera i vissa aviseringar som aktiveras inte, eftersom de properties.currentHealthStatus och properties.previousHealthStatus värdena anges till null.
+Observera att det är möjligt att egenskaperna currentHealthStatus och previousHealthStatus är null i vissa händelser. Till exempel, när en uppdaterad händelse inträffar är det troligt att resursens hälso status inte har ändrats sedan den senaste rapporten, bara att ytterligare händelse information är tillgänglig (t. ex. orsak). Med hjälp av satsen ovan kan det därför leda till att vissa aviseringar inte utlöses, eftersom värdena Properties. currentHealthStatus och Properties. previousHealthStatus får värdet null.
 
-### <a name="adjusting-the-alert-to-avoid-user-initiated-events"></a>Justera aviseringen för att undvika användarinitierad händelser
+### <a name="adjusting-the-alert-to-avoid-user-initiated-events"></a>Justera aviseringen för att undvika händelser som initieras av användaren
 
-Resource Health-händelser kan vara utlösare efter plattform som initierade och användarinitierad händelser. Det kan vara klokt att bara skicka en avisering när hälsohändelsen orsakas av Azure-plattformen.
+Resource Health händelser kan utlösas av inaktiverade plattformar och händelser som initieras av användaren. Det kan vara klokt att bara skicka ett meddelande när hälso händelsen orsakas av Azure-plattformen.
 
-Det är enkelt att konfigurera aviseringen för att filtrera för dessa typer av händelser:
+Det är enkelt att konfigurera aviseringen så att den bara filtrerar för följande typer av händelser:
 
 ```json
 "condition": {
@@ -306,11 +306,11 @@ Det är enkelt att konfigurera aviseringen för att filtrera för dessa typer av
     ]
 }
 ```
-Observera att det är möjligt för fältet Orsak att vara null i vissa händelser. Det vill säga en hälsotillstånd övergång äger rum (t.ex. tillgänglig för otillgänglig) och händelsen loggas omedelbart att förhindra meddelande fördröjningar. Därför använda satsen ovan kan resultera i en avisering som aktiveras inte, eftersom egenskapsvärdet properties.clause anges till null.
+Observera att det är möjligt att fältet orsak är null i vissa händelser. Det vill säga att en hälso över gång sker (t. ex. tillgänglig för otillgänglig) och att händelsen loggas omedelbart för att förhindra meddelande fördröjningar. Med hjälp av satsen ovan kan det därför leda till att en avisering inte utlöses eftersom egenskap svärdet Properties. sats kommer att anges till null.
 
-## <a name="complete-resource-health-alert-template"></a>Fullständiga Resource Health avisering mallen
+## <a name="complete-resource-health-alert-template"></a>Slutför Resource Health aviserings mal len
 
-Med hjälp av de olika justeringar som beskrivs i föregående avsnitt, är här en exempelmall som är konfigurerad för att maximera signalen-brus-förhållande. Ha i åtanke varningar som anges ovan där de currentHealthStatus, previousHealthStatus och egenskapsvärden för orsak kan vara null i vissa händelser.
+Med hjälp av de olika justeringarna som beskrivs i föregående avsnitt är här en exempel mall som är konfigurerad för att maximera signalen till brus förhållandet. Tänk på de varningar som anges ovan där egenskapsvärdena currentHealthStatus, previousHealthStatus och orsak kan vara null i vissa händelser.
 
 ```json
 {
@@ -434,7 +434,7 @@ Med hjälp av de olika justeringar som beskrivs i föregående avsnitt, är här
 }
 ```
 
-Men du vet bäst vilka konfigurationer som gäller för dig, så Använd de verktyg som undervisats till dig i den här dokumentationen för att göra egna anpassning.
+Du vet dock bäst vilka konfigurationer som är effektiva för dig, så Använd de verktyg som beskrivs i den här dokumentationen för att göra din egen anpassning.
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -443,6 +443,6 @@ Läs mer om Resource Health:
 -  [Resurstyper och hälsokontroller är tillgängliga genom Azure Resource Health](resource-health-checks-resource-types.md)
 
 
-Skapa Service Health-aviseringar:
+Skapa Service Health aviseringar:
 -  [Konfigurera aviseringar för Service Health](../azure-monitor/platform/alerts-activity-log-service-notifications.md) 
--  [Azure Händelseschema för aktivitetslogg](../azure-monitor/platform/activity-log-schema.md)
+-  [Händelse schema för Azure aktivitets logg](../azure-monitor/platform/activity-log-schema.md)

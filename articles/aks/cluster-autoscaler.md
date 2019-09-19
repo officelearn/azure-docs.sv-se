@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 07/18/2019
 ms.author: mlearned
-ms.openlocfilehash: 877d0a17b9ff06e9b9ac2c843c1847c9cb9726e4
-ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
+ms.openlocfilehash: e96d501196a629c7e37de7e5ad66b68863bf556f
+ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71018721"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71097903"
 ---
 # <a name="preview---automatically-scale-a-cluster-to-meet-application-demands-on-azure-kubernetes-service-aks"></a>För hands version – Skala automatiskt ett kluster så att det uppfyller program kraven på Azure Kubernetes service (AKS)
 
@@ -52,8 +52,8 @@ Följande begränsningar gäller när du skapar och hanterar AKS-kluster som anv
 
 För att justera för att ändra program krav, till exempel mellan arbets dagar och kväll eller på en helg, behöver kluster ofta ett sätt att skala automatiskt. AKS-kluster kan skalas på ett av två sätt:
 
-* Den **automatiska skalnings** funktionen i klustret söker efter poddar som inte kan schemaläggas på noder på grund av resurs begränsningar. Klustret ökar automatiskt antalet noder.
-* Den **horisontella Pod-autoskalning** använder mått servern i ett Kubernetes-kluster för att övervaka resurs behovet för poddar. Om en tjänst behöver fler resurser ökas antalet poddar automatiskt för att uppfylla behovet.
+* Den **automatiska skalnings** funktionen i klustret söker efter poddar som inte kan schemaläggas på noder på grund av resurs begränsningar. Klustret ökar sedan automatiskt antalet noder.
+* Den **horisontella Pod-autoskalning** använder mått servern i ett Kubernetes-kluster för att övervaka resurs behovet för poddar. Om ett program behöver fler resurser ökas antalet poddar automatiskt för att uppfylla behovet.
 
 ![Autoskalning av klustret och horisontell Pod-autoskalning fungerar ofta tillsammans för att stödja nödvändiga program krav](media/autoscaler/cluster-autoscaler.png)
 
@@ -67,7 +67,7 @@ För mer information om hur klustrets autoskalning inte kan skalas ned, se [vilk
 
 Klustrets autoskalning använder start parametrar för saker som tidsintervall mellan skalnings händelser och resurs trösklar. Dessa parametrar definieras av Azure-plattformen och är för närvarande inte tillgängliga för dig att justera. Mer information om vilka parametrar som används av klustret finns i [Vad är klustrets parametrar för autoskalning?][autoscaler-parameters].
 
-De automatiska skalningarna i kluster och horisontella Pod kan fungera tillsammans och båda distribueras ofta tillsammans i ett kluster. När den här funktionen kombineras, fokuserar den horisontella Pod autoskalning på att köra antalet poddar som krävs för att uppfylla programmets krav. Klustrets autoskalning fokuserar på att köra antalet noder som krävs för att stödja den schemalagda poddar.
+De automatiska skalningarna i kluster och horisontella Pod kan fungera tillsammans och båda är ofta distribuerade i ett kluster. När den här funktionen kombineras, fokuserar den horisontella Pod autoskalning på att köra antalet poddar som krävs för att uppfylla programmets krav. Klustrets autoskalning fokuserar på att köra antalet noder som krävs för att stödja den schemalagda poddar.
 
 > [!NOTE]
 > Manuell skalning är inaktive rad när du använder klustret autoskalning. Låt klustret autoscaler fastställa antalet noder som krävs. Om du vill skala klustret manuellt [inaktiverar du klustrets autoskalning](#disable-the-cluster-autoscaler).

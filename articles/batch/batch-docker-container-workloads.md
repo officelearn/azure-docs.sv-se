@@ -10,12 +10,12 @@ ms.workload: na
 ms.date: 08/09/2019
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: c8fc8e7d5888f9a0b080c0ca1d24e53068b543be
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: c9e24924472e0bb8dbd0e529b739263469b631fb
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70095177"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71090740"
 ---
 # <a name="run-container-applications-on-azure-batch"></a>Kör behållar program på Azure Batch
 
@@ -89,7 +89,7 @@ Ytterligare överväganden för att använda en anpassad Linux-avbildning:
 
 ## <a name="container-configuration-for-batch-pool"></a>Container konfiguration för batch-pool
 
-Om du vill aktivera en batch-pool för att köra arbets belastningar för behållare måste du ange [ContainerConfiguration](/dotnet/api/microsoft.azure.batch.containerconfiguration) -inställningar i poolens [VirtualMachineConfiguration](/dotnet/api/microsoft.azure.batch.virtualmachineconfiguration) -objekt. (Den här artikeln innehåller länkar till batch .NET API-referensen. Motsvarande inställningar finns i [batch python](/python/api/azure.batch) -API: et.)
+Om du vill aktivera en batch-pool för att köra arbets belastningar för behållare måste du ange [ContainerConfiguration](/dotnet/api/microsoft.azure.batch.containerconfiguration) -inställningar i poolens [VirtualMachineConfiguration](/dotnet/api/microsoft.azure.batch.virtualmachineconfiguration) -objekt. (Den här artikeln innehåller länkar till batch .NET API-referensen. Motsvarande inställningar finns i [batch python](/python/api/overview/azure/batch) -API: et.)
 
 Du kan skapa en container-aktiverad pool med eller utan förhämtade behållar avbildningar, som du ser i följande exempel. Hämtnings processen (eller för hämtning) gör att du kan läsa in behållar avbildningar från antingen Docker Hub eller ett annat behållar register på Internet. Använd ett [Azure Container Registry](../container-registry/container-registry-intro.md) i samma region som batch-kontot för bästa prestanda.
 

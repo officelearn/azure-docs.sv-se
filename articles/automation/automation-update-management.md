@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 05/22/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 2a2b62cc0548b0bbedae35f6a0d72ac327723e60
-ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
-ms.translationtype: MT
+ms.openlocfilehash: daa075518c569e257fd86a478809a1d1650d4345
+ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70743841"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71098111"
 ---
 # <a name="update-management-solution-in-azure"></a>Uppdateringshantering lösning i Azure
 
@@ -75,7 +75,7 @@ I följande tabell visas en lista över operativ system som stöds:
 
 |Operativsystem  |Anteckningar  |
 |---------|---------|
-|Windows Server 2019 (Data Center/Data Center Core/standard)<br><br>Windows Server 2016 (Data Center/Data Center Core/standard)<br><br>Windows Server 2012 R2 (Data Center/standard)<br><br>Windows Server 2008 R2 (RTM och SP1 standard)|**Uppdaterings utvärderingar**: Stöds<br><br>**Uppdatering**: Kräver Hybrid Runbook Worker. Se [hybrid Runbook Worker krav](automation-windows-hrw-install.md#installing-the-windows-hybrid-runbook-worker)|
+|Windows Server 2019 (Data Center/Data Center Core/standard)<br><br>Windows Server 2016 (Data Center/Data Center Core/standard)<br><br>Windows Server 2012 R2 (Data Center/standard)<br><br>Windows Server 2012<br><br>Windows Server 2008 R2 (RTM och SP1 standard)|**Uppdaterings utvärderingar**: Stöds<br><br>**Uppdatering**: Kräver Hybrid Runbook Worker. Se [hybrid Runbook Worker krav](automation-windows-hrw-install.md#installing-the-windows-hybrid-runbook-worker)|
 |CentOS 6 (x86/x64) och 7 (x64)      | Linux-agenter måste ha åtkomst till en uppdateringslagringsplats. Klassificerings baserad uppdatering kräver ' yum ' för att returnera säkerhets data som CentOS inte har gjort i rutan. Mer information om klassificerings-baserad uppdatering på CentOS finns i [uppdaterings klassificeringar på Linux](#linux-2)          |
 |Red Hat Enterprise 6 (x86/x64) och 7 (x64)     | Linux-agenter måste ha åtkomst till en uppdateringslagringsplats.        |
 |SUSE Linux Enterprise Server 11 (x86/x64) och 12 (x64)     | Linux-agenter måste ha åtkomst till en uppdateringslagringsplats.        |
@@ -99,7 +99,7 @@ I följande tabell visas operativsystem som inte stöds:
 
 #### <a name="windows"></a>Windows
 
-Windows-agenter måste konfigureras för att kommunicera med en WSUS-server, eller så måste de ha åtkomst till Microsoft Update. Du kan använda Uppdateringshantering med System Center Configuration Manager. Mer information om integrations scenarier finns i [integrera System Center Configuration Manager med uppdateringshantering](oms-solution-updatemgmt-sccmintegration.md#configuration). [Windows-agenten](../azure-monitor/platform/agent-windows.md) krävs. Agenten installeras automatiskt om du registrerar en virtuell Azure-dator.
+Windows-agenter måste konfigureras för att kommunicera med en WSUS-server, eller så måste de ha åtkomst till Microsoft Update. Du kan använda Uppdateringshantering med System Center Configuration Manager. Mer information om integrations scenarier finns i [integrera System Center Configuration Manager med uppdateringshantering](oms-solution-updatemgmt-sccmintegration.md#configuration). [Windows](../azure-monitor/platform/agent-windows.md) -agenten krävs. Agenten installeras automatiskt om du registrerar en virtuell Azure-dator.
 
 > [!NOTE]
 > Det är möjligt för en användare att ändra grupprincip så att omstarter av datorn bara kan utföras av användaren, inte av systemet. Hanterade datorer kan fastna, om Uppdateringshantering inte har behörighet att starta om datorn utan manuell interaktion från användaren.
@@ -176,7 +176,7 @@ På en Windows-dator kan du granska följande information för att verifiera age
 1. Öppna **Microsoft Monitoring Agent**i kontroll panelen. På fliken **Azure-Log Analytics** visar agenten följande meddelande: **Microsoft Monitoring Agent har anslutit till Log Analytics**.
 2. Öppna händelse loggen i Windows. Gå till **program-och tjänst loggar \ Operations Manager** och Sök efter händelse-ID 3000 och händelse-ID 5002 från käll **tjänst anslutningen**. Dessa händelser anger att datorn har registrerats med Log Analytics-arbetsytan och tar emot konfiguration.
 
-Om agenten inte kan kommunicera med Azure Monitor loggar och agenten är konfigurerad för att kommunicera med Internet via en brand vägg eller proxyserver, kontrollerar du att brand väggen eller proxyservern har kon figurer ATS korrekt. Information om hur du verifierar att brand väggen eller proxyservern har kon figurer ATS korrekt finns i [nätverks konfiguration för Windows-agent](../azure-monitor/platform/agent-windows.md) eller [nätverks konfiguration för Linux-agenten](../log-analytics/log-analytics-agent-linux.md).
+Om agenten inte kan kommunicera med Azure Monitor loggar och agenten är konfigurerad för att kommunicera med Internet via en brand vägg eller proxyserver, kontrollerar du att brand väggen eller proxyservern har kon figurer ATS korrekt. Information om hur du verifierar att brand väggen eller proxyservern har kon figurer ATS korrekt finns i [nätverks konfiguration för Windows-agent](../azure-monitor/platform/agent-windows.md) eller [nätverks konfiguration för Linux](../log-analytics/log-analytics-agent-linux.md)-agenten.
 
 > [!NOTE]
 > Om Linux-systemen har kon figurer ATS för att kommunicera med en proxy eller Log Analytics gateway och du registrerar den här lösningen uppdaterar du *proxyn. conf* -behörighet för att ge behörigheten omiuser Group Läs behörighet för filen genom att använda följande kommandon:
@@ -280,7 +280,7 @@ Välj **saknade uppdateringar** om du vill visa en lista med uppdateringar som s
 
 ## <a name="view-update-deployments"></a>Visa uppdaterings distributioner
 
-Välj fliken **uppdaterings distributioner** om du vill visa en lista över befintliga uppdaterings distributioner. Välj någon av uppdaterings distributionerna i tabellen för att öppna **körnings fönstret för uppdaterings distribution** för den uppdaterings distributionen. Jobb loggar lagras i högst 30 dagar.
+Välj fliken **uppdaterings distributioner** om du vill visa en lista över befintliga uppdaterings distributioner. Välj någon av uppdaterings distributionerna i tabellen för att öppna körnings fönstret för **uppdaterings distribution** för den uppdaterings distributionen. Jobb loggar lagras i högst 30 dagar.
 
 ![Översikt över resultat av uppdaterings distribution](./media/automation-update-management/update-deployment-run.png)
 
@@ -642,7 +642,7 @@ I följande avsnitt beskrivs eventuella problem med Linux-korrigeringar.
 
 På vissa Linux-varianter, till exempel Red Hat Enterprise Linux, kan uppgraderingar av operativ Systems nivå ske via paket. Detta kan leda till att Uppdateringshantering körs där versions numret för operativ systemet ändras. Eftersom Uppdateringshantering använder samma metoder för att uppdatera paket som en administratör använder lokalt på Linux-datorn, är detta avsiktligt avsiktligt.
 
-Använd **undantags** funktionen om du vill undvika att uppdatera operativ system versionen via uppdateringshantering körs.
+Använd undantags funktionen om du vill undvika att uppdatera operativ system versionen via uppdateringshantering körs.
 
 I Red Hat Enterprise Linux är paket namnet som ska undantas RedHat-release-Server. x86_64.
 

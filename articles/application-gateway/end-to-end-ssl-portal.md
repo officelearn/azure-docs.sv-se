@@ -1,6 +1,6 @@
 ---
-title: Snabbstart – konfigurera slutpunkt till slutpunkt SSL-kryptering med Azure Application Gateway – Azure-portalen | Microsoft Docs
-description: Lär dig hur du använder Azure-portalen för att skapa en Azure-Programgateway med slutpunkt till slutpunkt SSL-kryptering.
+title: Snabb start – Konfigurera SSL-kryptering från slut punkt till slut punkt med Azure Application Gateway-Azure Portal | Microsoft Docs
+description: Lär dig hur du använder Azure Portal för att skapa en Azure Application Gateway med SSL-kryptering från slut punkt till slut punkt.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
@@ -8,100 +8,112 @@ ms.topic: article
 ms.date: 4/30/2019
 ms.author: absha
 ms.custom: mvc
-ms.openlocfilehash: bd165f81b45e3ae0c121fb8876ed88e68d493195
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a37b313bd808ee0441d84ac92050b087eba7ac9d
+ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64946804"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71097199"
 ---
-# <a name="configure-end-to-end-ssl-by-using-application-gateway-with-the-portal"></a>Konfigurera SSL för slutpunkt till slutpunkt med hjälp av Application Gateway med portalen
+# <a name="configure-end-to-end-ssl-by-using-application-gateway-with-the-portal"></a>Konfigurera SSL från slut punkt till slut punkt med hjälp av Application Gateway med portalen
 
-Den här artikeln visar hur du använder Azure-portalen för att konfigurera slutpunkt till slutpunkt SSL-kryptering med en Programgateway v1-SKU.  
+Den här artikeln visar hur du använder Azure Portal för att konfigurera SSL-kryptering från slut punkt till slut punkt med en Application Gateway v1 SKU.  
 
 > [!NOTE]
-> Application Gateway v2-SKU kräver betrodda rotcertifikat för att aktivera slutpunkt till slutpunkt-konfigurationen. Portal-stöd för att lägga till betrodda rotcertifikat är inte tillgänglig ännu. Därför vid v2 SKU finns i [Konfigurera SSL för slutpunkt till slutpunkt med hjälp av PowerShell](https://docs.microsoft.com/azure/application-gateway/application-gateway-end-to-end-ssl-powershell).
+> Application Gateway v2-SKU: n kräver betrodda rot certifikat för att aktivera konfiguration från slut punkt till slut punkt.
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
-Om du vill konfigurera SSL för slutpunkt till slutpunkt med application gateway, krävs ett certifikat för gateway och certifikat krävs för backend servrarna. Gateway-certifikatet används för att härleda en symmetrisk nyckel enligt specifikationen för SSL-protokollet. Den symmetriska nyckeln används sedan för att kryptera och dekryptera trafiken som skickas till gatewayen. För slutpunkt till slutpunkt SSL-kryptering måste backend-servern också vitlistas med application gateway. Gör du genom att ladda upp det offentliga certifikatet för backend-servrar, även kallat autentiseringscertifikat till application gateway. Lägger till certifikatet säkerställer att den application gatewayen kommunicerar bara med kända serverdelsinstanser. Detta skyddar ytterligare slutpunkt till slutpunkt-kommunikation.
+Om du vill konfigurera SSL från slut punkt till slut punkt med ett Application Gateway krävs ett certifikat för den gateway och de certifikat som krävs för backend-servrarna. Gateway-certifikatet används för att härleda en symmetrisk nyckel enligt specifikationen för SSL-protokoll. Den symmetriska nyckeln används sedan för att kryptera och dekryptera trafiken som skickas till gatewayen. För SSL-kryptering från slut punkt till slut punkt måste rätt backend-servrar vara tillåtna i Application Gateway. Om du vill göra detta laddar du upp det offentliga certifikatet för backend-servrarna, även kallat autentiseringscertifikat (v1) eller betrodda rot certifikat (v2), till Application Gateway. Genom att lägga till certifikatet ser du till att Application Gateway endast kommunicerar med kända backend-instanser. Detta skyddar all kommunikation från slut punkt till slut punkt.
 
-Mer information finns i [SSL-avslutning och slutpunkt till slutpunkt SSL](https://docs.microsoft.com/azure/application-gateway/ssl-overview).
+Läs mer i SSL- [terminering och slut punkt till slut punkt för SSL](https://docs.microsoft.com/azure/application-gateway/ssl-overview).
 
-## <a name="create-a-new-application-gateway-with-end-to-end-ssl"></a>Skapa en ny Programgateway med SSL för slutpunkt till slutpunkt
+## <a name="create-a-new-application-gateway-with-end-to-end-ssl"></a>Skapa en ny Application Gateway med SSL från slut punkt till slut punkt
 
-Om du vill skapa en ny Programgateway med slutpunkt till slutpunkt SSL-kryptering, måste du först aktivera SSL-avslutning när du skapar en ny Programgateway. Detta aktiverar SSL-kryptering för kommunikation mellan klient och application gateway. Sedan kan behöver du vitlista certifikat för backend-servrarna i HTTP-inställningarna att aktivera SSL-kryptering för kommunikation mellan application gateway och backend-servrarna, utföra slutpunkt till slutpunkt SSL-kryptering.
+Om du vill skapa en ny Programgateway med SSL-kryptering från slut punkt till slut punkt måste du först aktivera SSL-avslutning när du skapar en ny Application Gateway. Detta aktiverar SSL-kryptering för kommunikationen mellan klienten och programgatewayen. Sedan måste du vitlista certifikat för backend-servrar i HTTP-inställningarna för att aktivera SSL-kryptering för kommunikationen mellan programgatewayen och backend-servrar, vilket gör SSL-kryptering från slut punkt till slut punkt.
 
-### <a name="enable-ssl-termination-while-creating-a-new-application-gateway"></a>Aktivera SSL-avslutning när du skapar en ny Programgateway
+### <a name="enable-ssl-termination-while-creating-a-new-application-gateway"></a>Aktivera SSL-avslutning när du skapar en ny Application Gateway
 
-I den här artikeln för att förstå hur du [aktivera SSL-avslutning när du skapar en ny Programgateway](https://docs.microsoft.com/azure/application-gateway/create-ssl-portal).
+Läs den här artikeln för att förstå hur du [aktiverar SSL-terminering när du skapar en ny Application Gateway](https://docs.microsoft.com/azure/application-gateway/create-ssl-portal).
 
-### <a name="whitelist-certificates-for-backend-servers"></a>Listan över godkända certifikat för backend-servrar
+### <a name="add-authenticationroot-certificate-of-back-end-servers"></a>Lägg till autentisering/rot certifikat för backend-servrar
 
 1. Välj **Alla resurser** och välj sedan **myAppGateway**.
 
-2. Välj **HTTP-inställningar** menyn till vänster. Azure skapas automatiskt en standardinställning HTTP, **appGatewayBackendHttpSettings**, när du skapade application gateway. 
+2. Välj **http-inställningar** på den vänstra menyn. Azure skapade automatiskt en standard-HTTP-inställning, **appGatewayBackendHttpSettings**, när du skapade Application Gateway. 
 
 3. Välj **appGatewayBackendHttpSettings**.
 
-4. Under **protokollet**väljer **HTTPS**. Ett fönster för **Backend-certifikat för serverautentisering** visas. 
+4. Under **protokoll**väljer du **https**. Ett fönster för **certifikat från Server delens autentisering eller betrodda rot certifikat** visas. 
 
-5. Under **Backend-certifikat för serverautentisering**, Välj **Skapa ny**.
+5. Välj **Skapa nytt**.
 
-6. Ange lämpliga **namn**.
+6. Ange ett lämpligt **namn**.
 
-7. Överför certifikatet med hjälp av den **ladda upp CER-certifikat** box.![ addcert](./media/end-to-end-ssl-portal/addcert.png)
+7. Välj certifikat filen i rutan **Ladda upp CER-certifikat** .
 
-   > [!NOTE]
-   > Certifikatet som angavs i det här steget ska vara den offentliga nyckeln för .pfx-certifikat finns på serverdelen. Exportera certifikat (inte rotcertifikatet) installerat på backend-servern i anspråk, bevis och skäl till (CER)-format och använda den i det här steget. Det här steget vitlistor serverdelen med application gateway.
+   För standard-och WAF-programgatewayer (v1) bör du överföra den offentliga nyckeln för Server delens Server certifikat i. cer-format.
+
+   ![addcert](./media/end-to-end-ssl-portal/addcert.png)
+
+   För Standard_v2-och WAF_v2-programgatewayer bör du ladda upp **rot certifikatet** för Server delens Server certifikat i CER-format. Om Server dels certifikatet har utfärdats av en välkänd certifikat utfärdare, kan du markera kryss rutan Använd välkänd CA-certifikat och det finns inget behov av att ladda upp ett certifikat.
+
+   ![addtrustedrootcert](./media/end-to-end-ssl-portal/trustedrootcert-portal.png)
+
+   ![rootcert](./media/end-to-end-ssl-portal/trustedrootcert.png)
 
 8. Välj **Spara**.
 
-## <a name="enable-end-to-end-ssl-for-existing-application-gateway"></a>Aktivera SSL för slutpunkt till slutpunkt för befintlig Programgateway
+## <a name="enable-end-to-end-ssl-for-existing-application-gateway"></a>Aktivera slutpunkt-till-slutpunkt-SSL för befintlig Application Gateway
 
-Om du vill konfigurera en befintlig Programgateway med slutpunkt till slutpunkt SSL-kryptering, måste du första aktivera SSL-avslutning i lyssnaren. Detta aktiverar SSL-kryptering för kommunikation mellan klient och application gateway. Sedan kan behöver du vitlista certifikat för backend-servrarna i HTTP-inställningarna att aktivera SSL-kryptering för kommunikation mellan application gateway och backend-servrarna, utföra slutpunkt till slutpunkt SSL-kryptering.
+Om du vill konfigurera en befintlig Application Gateway med SSL-kryptering från slut punkt till slut punkt måste du först aktivera SSL-avslutning i lyssnaren. Detta aktiverar SSL-kryptering för kommunikationen mellan klienten och programgatewayen. Sedan måste du vitlista certifikat för backend-servrar i HTTP-inställningarna för att aktivera SSL-kryptering för kommunikationen mellan programgatewayen och backend-servrar, vilket gör SSL-kryptering från slut punkt till slut punkt.
 
-Du måste använda en lyssnare med HTTPS-protokollet och certifikat för att aktivera SSL-avslutning. Du kan inte ändra protokollet för en befintlig lyssnare. Därför kan du antingen välja att använda en befintlig lyssnare med HTTPS-protokollet och certifikat, eller skapa en ny lyssnare. Om du väljer tidigare kan du ignorera de nämns nedan steg för att **aktivera SSL-avslutning i befintlig Programgateway** och gå direkt till **listan över godkända certifikat för backend-servrarna** avsnittet. Följ stegen nedan om du väljer det senare.
+Du måste använda en lyssnare med HTTPS-protokoll och certifikat för att aktivera SSL-avslutning. Du kan välja att antingen använda en befintlig lyssnare med HTTPS-protokoll och certifikat, eller skapa en ny lyssnare. Om du väljer den tidigare kan du ignorera de nedan nämnda stegen för att **Aktivera SSL-avslutning i den befintliga programgatewayen** och flytta den direkt till avsnittet **Lägg till autentisering/betrodda rot certifikat för backend-servrar** . Använd de här stegen om du väljer den senare.
 
-### <a name="enable-ssl-termination-in-existing-application-gateway"></a>Aktivera SSL-avslutning i befintlig Programgateway
+### <a name="enable-ssl-termination-in-existing-application-gateway"></a>Aktivera SSL-avslutning i den befintliga Application Gateway
 
 1. Välj **Alla resurser** och välj sedan **myAppGateway**.
 
-2. Välj **lyssnare** menyn till vänster.
+2. Välj **lyssnare** på den vänstra menyn.
 
-3. Välj mellan **grundläggande** och **multisite** lyssnare enligt dina behov.
+3. Välj mellan **grundläggande** och fler lyssnare för **flera platser** enligt ditt krav.
 
-4. Under **protokollet**väljer **HTTPS**. Ett fönster för **certifikat** visas.
+4. Under **protokoll**väljer du **https**. Ett fönster för **certifikat** kommer att visas.
 
-5. Ladda upp PFX-certifikatet som du vill använda för SSL-avslutning mellan klienten och programmet gatewayen.
+5. Ladda upp det PFX-certifikat som du vill använda för SSL-terminering mellan klienten och programgatewayen.
 
    > [!NOTE]
-   > I testsyfte kan du använda ett självsignerat certifikat. Du bör inte använda självsignerade certifikat för produktionsarbetsbelastningar. Lär dig hur du [skapa ett självsignerat certifikat](https://docs.microsoft.com/azure/application-gateway/create-ssl-portal#create-a-self-signed-certificate).
+   > I test syfte kan du använda ett självsignerat certifikat. men vi rekommenderar inte att du använder produktions arbets belastningar eftersom de är svårare att hantera och inte helt säkra. Lär dig hur du [skapar ett självsignerat certifikat](https://docs.microsoft.com/azure/application-gateway/create-ssl-portal#create-a-self-signed-certificate).
 
-6. Lägg till andra inställningar som krävs för den **lyssnare** enligt dina behov.
+6. Lägg till andra nödvändiga inställningar för **lyssnaren** enligt ditt krav.
 
 7. Välj **OK** för att spara.
 
-### <a name="whitelist-certificates-for-backend-servers"></a>Listan över godkända certifikat för backend-servrar
+### <a name="add-authenticationtrusted-root-certificates-of-back-end-servers"></a>Lägg till autentisering/betrodda rot certifikat för backend-servrar
 
 1. Välj **Alla resurser** och välj sedan **myAppGateway**.
 
-2. Välj **HTTP-inställningar** menyn till vänster. Du kan antingen godkänna certifikat i en befintlig serverdel HTTP att eller skapa en ny HTTP-inställning. I den under steget ska vi listan över godkända certifikat för HTTP-standardinställningen **appGatewayBackendHttpSettings**.
+2. Välj **http-inställningar** på den vänstra menyn. Du kan antingen vitlista certifikat i en befintlig HTTP-inställning för Server delen eller skapa en ny HTTP-inställning. I steget nedan kommer vi att vitlista certifikat för standard-HTTP-inställningen, **appGatewayBackendHttpSettings**.
 
 3. Välj **appGatewayBackendHttpSettings**.
 
-4. Under **protokollet**väljer **HTTPS**. Ett fönster för **Backend-certifikat för serverautentisering** visas. 
+4. Under **protokoll**väljer du **https**. Ett fönster för **certifikat från Server delens autentisering eller betrodda rot certifikat** visas. 
 
-5. Under **Backend-certifikat för serverautentisering**, Välj **Skapa ny**.
+5. Välj **Skapa nytt**.
 
-6. Ange lämpliga **namn**.
+6. Ange lämpligt **namn**.
 
-7. Överför certifikatet med hjälp av den **ladda upp CER-certifikat** box.![ addcert](./media/end-to-end-ssl-portal/addcert.png)
+7. Välj certifikat filen i rutan **Ladda upp CER-certifikat** .
 
-   > [!NOTE]
-   > Certifikatet som angavs i det här steget ska vara den offentliga nyckeln för .pfx-certifikat finns på serverdelen. Exportera certifikat (inte rotcertifikatet) installerat på backend-servern i anspråk, bevis och skäl till (CER)-format och använda den i det här steget. Det här steget vitlistor serverdelen med application gateway.
+   För standard-och WAF-programgatewayer (v1) bör du överföra den offentliga nyckeln för Server delens Server certifikat i. cer-format.
+
+   ![addcert](./media/end-to-end-ssl-portal/addcert.png)
+
+   För Standard_v2-och WAF_v2-programgatewayer bör du ladda upp **rot certifikatet** för Server delens Server certifikat i CER-format. Om Server dels certifikatet har utfärdats av en välkänd certifikat utfärdare, kan du markera kryss rutan Använd välkänd CA-certifikat och det finns inget behov av att ladda upp ett certifikat.
+
+   ![addtrustedrootcert](./media/end-to-end-ssl-portal/trustedrootcert-portal.png)
 
 8. Välj **Spara**.
 

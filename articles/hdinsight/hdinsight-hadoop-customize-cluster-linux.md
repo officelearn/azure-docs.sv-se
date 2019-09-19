@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/02/2019
-ms.openlocfilehash: 226a3b0ffa4b770d1738e69fd04592476b9f4075
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: df9e6e3a9116b9a4490d8847e9a9d3e9e112f4f7
+ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70935315"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71098798"
 ---
 # <a name="customize-azure-hdinsight-clusters-by-using-script-actions"></a>Anpassa Azure HDInsight-kluster med hjälp av skript åtgärder
 
@@ -45,11 +45,11 @@ Få mer information om hur du arbetar med åtkomst hantering:
 En skript åtgärd är Bash-skript som körs på noderna i ett HDInsight-kluster. Egenskaper och funktioner för skript åtgärder är följande:
 
 * Måste lagras på en URI som är tillgänglig från HDInsight-klustret. Följande är möjliga lagrings platser:
-    
+
     * För vanliga kluster:
-    
+
       * ADLS Gen1: Det tjänst huvud namn som används för att komma åt Data Lake Storage måste ha Läs behörighet till skriptet. URI-formatet för skript som lagras i Data Lake Storage Gen1 `adl://DATALAKESTOREACCOUNTNAME.azuredatalakestore.net/path_to_file`är.
-      
+
       * En BLOB i ett Azure Storage konto som antingen är det primära eller ytterligare lagrings kontot för HDInsight-klustret. HDInsight beviljas åtkomst till båda typerna av lagrings konton när klustret skapas.
 
         > [!IMPORTANT]  
@@ -60,9 +60,9 @@ En skript åtgärd är Bash-skript som körs på noderna i ett HDInsight-kluster
         Till exempel URI: er, se skript för [skript åtgärder](#example-script-action-scripts).
 
      * För kluster med ESP:
-         
+
          * Wasb://eller wasbs://eller http [s]://URI: er stöds.
-            
+
 * Kan begränsas till att endast köras på vissa nodtyper. Exempel är Head-noder eller arbetsnoder.
 
 * Kan vara bestående eller ad hoc.
@@ -107,14 +107,12 @@ Skriptet körs medan HDInsight konfigureras. Skriptet körs parallellt på alla 
 > [!NOTE]  
 > Du kan utföra åtgärder som att stoppa och starta tjänster, inklusive Apache Hadoop-relaterade tjänster. Om du stoppar tjänster måste du kontrol lera att Ambari-tjänsten och andra Hadoop-relaterade tjänster körs innan skriptet har slutförts. Dessa tjänster krävs för att kunna fastställa hälso tillståndet och tillståndet för klustret medan det skapas.
 
-
 När klustret skapas kan du använda många skript åtgärder samtidigt. Dessa skript anropas i den ordning som de har angetts.
 
 > [!IMPORTANT]  
 > Skript åtgärder måste avslutas inom 60 minuter eller tids gränsen uppnåddes. Vid kluster etablering körs skriptet samtidigt med andra installations-och konfigurations processer. Konkurrens för resurser som CPU-tid eller nätverks bandbredd kan orsaka att skriptet tar längre tid att slutföra än i utvecklings miljön.
 >
 > Undvik hur lång tid det tar att köra skriptet genom att undvika åtgärder som att ladda ned och kompilera program från källan. Förkompilera program och lagra binärfilen i Azure Storage.
-
 
 ### <a name="script-action-on-a-running-cluster"></a>Skript åtgärd i ett kluster som körs
 
@@ -161,13 +159,13 @@ I det här avsnittet beskrivs de olika sätten att använda skript åtgärder n�
 
 1. Börja skapa ett kluster enligt beskrivningen i [Konfigurera kluster i HDInsight med Apache Hadoop, Apache Spark, Apache Kafka med mera](hdinsight-hadoop-provision-linux-clusters.md). När klustret skapas, kommer du till sidan __kluster Sammanfattning__ . På sidan __kluster Sammanfattning__ väljer du länken __Redigera__ för __Avancerade inställningar__.
 
-    ![Länk till avancerade inställningar](./media/hdinsight-hadoop-customize-cluster-linux/advanced-settings-link.png)
+    ![Avancerade inställningar för Azure Portal Cluster](./media/hdinsight-hadoop-customize-cluster-linux/advanced-settings-link.png)
 
-3. I avsnittet __Avancerade inställningar__ väljer du __skript åtgärder__. I avsnittet __skript åtgärder__ väljer du __+ Skicka ny__.
+1. I avsnittet __Avancerade inställningar__ väljer du __skript åtgärder__. I avsnittet __skript åtgärder__ väljer du __+ Skicka ny__.
 
-    ![Skicka en ny skript åtgärd](./media/hdinsight-hadoop-customize-cluster-linux/add-new-script-action.png)
+    ![Portal skript åtgärder skicka ny](./media/hdinsight-hadoop-customize-cluster-linux/add-new-script-action.png)
 
-4. Använd posten __Välj en skript__ för att välja ett förtillverkade skript. Välj __anpassad__om du vill använda ett anpassat skript. Ange sedan __namnet__ och __bash skript-URI__ för skriptet.
+1. Använd posten __Välj en skript__ för att välja ett förtillverkade skript. Välj __anpassad__om du vill använda ett anpassat skript. Ange sedan __namnet__ och __bash skript-URI__ för skriptet.
 
     ![Lägg till ett skript i formuläret Välj skript](./media/hdinsight-hadoop-customize-cluster-linux/hdinsight-select-script.png)
 
@@ -183,13 +181,13 @@ I det här avsnittet beskrivs de olika sätten att använda skript åtgärder n�
 
     Använd posten __Behåll den här skript åtgärden__ för att kontrol lera att skriptet används vid skalnings åtgärder.
 
-5. Välj __skapa__ för att spara skriptet. Sedan kan du använda __+ Skicka ny__ för att lägga till ett annat skript.
+1. Välj __skapa__ för att spara skriptet. Sedan kan du använda __+ Skicka ny__ för att lägga till ett annat skript.
 
-    ![Flera skript åtgärder](./media/hdinsight-hadoop-customize-cluster-linux/multiple-scripts-actions.png)
+    ![Åtgärder för flera skript i HDInsight](./media/hdinsight-hadoop-customize-cluster-linux/multiple-scripts-actions.png)
 
     När du är klar med att lägga till skript väljer du knappen __Välj__ och klickar sedan på __Nästa__ för att återgå till avsnittet __kluster Sammanfattning__ .
 
-3. Skapa klustret genom att välja __skapa__ från __kluster sammanfattnings__ valet.
+1. Skapa klustret genom att välja __skapa__ från __kluster sammanfattnings__ valet.
 
 ### <a name="use-a-script-action-from-azure-resource-manager-templates"></a>Använda en skript åtgärd från Azure Resource Manager mallar
 
@@ -249,7 +247,7 @@ Gå till [Azure Portal](https://portal.azure.com):
 
     ![Lägga till ett skript i ett kluster som körs](./media/hdinsight-hadoop-customize-cluster-linux/add-script-running-cluster.png)
 
-4. Använd posten __Välj en skript__ för att välja ett förtillverkade skript. Välj __anpassad__om du vill använda ett anpassat skript. Ange sedan __namnet__ och __bash skript-URI__ för skriptet.
+1. Använd posten __Välj en skript__ för att välja ett förtillverkade skript. Välj __anpassad__om du vill använda ett anpassat skript. Ange sedan __namnet__ och __bash skript-URI__ för skriptet.
 
     ![Lägg till ett skript i formuläret Välj skript](./media/hdinsight-hadoop-customize-cluster-linux/hdinsight-select-script.png)
 
@@ -265,7 +263,7 @@ Gå till [Azure Portal](https://portal.azure.com):
 
     Använd posten __Behåll den här skript åtgärden__ för att kontrol lera att skriptet används vid skalnings åtgärder.
 
-5. Slutligen väljer du knappen **skapa** för att tillämpa skriptet på klustret.
+1. Slutligen väljer du knappen **skapa** för att tillämpa skriptet på klustret.
 
 ### <a name="apply-a-script-action-to-a-running-cluster-from-azure-powershell"></a>Tillämpa en skript åtgärd på ett kluster som körs från Azure PowerShell
 
@@ -346,17 +344,17 @@ Ett exempel på hur du använder .NET SDK för att tillämpa skript i ett kluste
 
 1. I standardvyn väljer du **skript åtgärder**under **Inställningar**.
 
-4. En historik över skript för det här klustret visas i avsnittet skript åtgärder. Den här informationen innehåller en lista över bestående skript. Följande skärm bild visar att solr-skriptet har körts på det här klustret. Skärm bilden visar inte några sparade skript.
+1. En historik över skript för det här klustret visas i avsnittet skript åtgärder. Den här informationen innehåller en lista över bestående skript. Följande skärm bild visar att solr-skriptet har körts på det här klustret. Skärm bilden visar inte några sparade skript.
 
-    ![Skriptåtgärder](./media/hdinsight-hadoop-customize-cluster-linux/script-action-history.png)
+    ![Portal skript åtgärder skicka historik](./media/hdinsight-hadoop-customize-cluster-linux/script-action-history.png)
 
-5. Välj ett skript från historiken för att visa avsnittet **Egenskaper** för det här skriptet. Överst på skärmen kan du köra skriptet igen eller befordra det.
+1. Välj ett skript från historiken för att visa avsnittet **Egenskaper** för det här skriptet. Överst på skärmen kan du köra skriptet igen eller befordra det.
 
-    ![Skript åtgärder, egenskaper](./media/hdinsight-hadoop-customize-cluster-linux/promote-script-actions.png)
+    ![Egenskaper för skript åtgärder befordran](./media/hdinsight-hadoop-customize-cluster-linux/promote-script-actions.png)
 
-6. Du kan också välja ellipsen ( **...** ) till höger om poster i avsnittet skript åtgärder för att utföra åtgärder.
+1. Du kan också välja ellipsen ( **...** ) till höger om poster i avsnittet skript åtgärder för att utföra åtgärder.
 
-    ![Skript åtgärder, ellips](./media/hdinsight-hadoop-customize-cluster-linux/hdi-delete-promoted-sa.png)
+    ![Borttagning av beständiga skript åtgärder](./media/hdinsight-hadoop-customize-cluster-linux/hdi-delete-promoted-sa.png)
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 
@@ -414,7 +412,7 @@ Det finns två typer av komponenter med öppen källkod i HDInsight-tjänsten:
 > [!WARNING]  
 > Komponenter som ingår i HDInsight-klustret stöds fullt ut. Microsoft Support hjälper till att isolera och lösa problem som rör dessa komponenter.
 >
-> Anpassade komponenter får kommersiellt rimlig support för att hjälpa dig att ytterligare felsöka problemet. Microsoft Support kanske kan lösa problemet. Du kan också be dig att engagera tillgängliga kanaler för teknikerna med öppen källkod där djupgående expertis för tekniken hittas. Många Community-webbplatser kan användas. Exempel är [MSDN-forum för HDInsight](https://social.msdn.microsoft.com/Forums/azure/home?forum=hdinsight) och [Stack Overflow](https://stackoverflow.com). 
+> Anpassade komponenter får kommersiellt rimlig support för att hjälpa dig att ytterligare felsöka problemet. Microsoft Support kanske kan lösa problemet. Du kan också be dig att engagera tillgängliga kanaler för teknikerna med öppen källkod där djupgående expertis för tekniken hittas. Många Community-webbplatser kan användas. Exempel är [MSDN-forum för HDInsight](https://social.msdn.microsoft.com/Forums/azure/home?forum=hdinsight) och [Stack Overflow](https://stackoverflow.com).
 >
 > Apache-projekt har också projekt webbplatser på [Apache-webbplatsen](https://apache.org). Ett exempel är [Hadoop](https://hadoop.apache.org/).
 
@@ -442,7 +440,7 @@ Du kan använda Ambari-webbgränssnittet för att visa information som loggats a
 
 3. Hitta de poster som har **kört\_customscriptaction** i kolumnen **åtgärder** . Dessa poster skapas när skript åtgärderna körs.
 
-    ![Skärm bild av åtgärder](./media/hdinsight-hadoop-customize-cluster-linux/ambari-script-action.png)
+    ![Åtgärds åtgärder för Apache Ambari-skript](./media/hdinsight-hadoop-customize-cluster-linux/ambari-script-action.png)
 
     Om du vill visa **STDOUT** -och **stderr** -utdata väljer du posten **run\customscriptaction** och ökar detalj nivån genom länkarna. Dessa utdata skapas när skriptet körs och kan ha användbar information.
 

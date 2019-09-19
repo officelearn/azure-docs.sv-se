@@ -7,32 +7,32 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 03/18/2019
-ms.openlocfilehash: 54c34690e678f07d6309a1877b0ca5d0a0b274f5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a48f1b6e4410820d40ba6563d431c690ab791ff0
+ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60831251"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71097249"
 ---
 # <a name="overview-of-websocket-support-in-application-gateway"></a>Översikt över WebSocket-stöd i Application Gateway
 
 Application Gateway har inbyggt stöd för WebSocket i alla gatewaystorlekar. Det finns inga inställningar som kan konfigureras av användaren för att selektivt aktivera eller inaktivera WebSocket-stöd. 
 
-WebSocket-protokoll är standardiserade i [RFC6455](https://tools.ietf.org/html/rfc6455) möjliggör en fullständig duplex kommunikation mellan en server och en klient via en tidskrävande TCP-anslutning. Den här funktionen möjliggör en mer interaktiv kommunikation mellan servern och klienten, vilket kan vara dubbelriktad utan att behöva avsökningen som krävs i HTTP-baserade implementeringar. WebSocket har låg overhead till skillnad från HTTP och kan återanvända samma TCP-anslutningen för flera begäran/svar vilket resulterar i en mer effektiv användning av resurser. WebSocket-protokoll är utformade att fungera över traditionella HTTP-portarna 80 och 443.
+Med WebSocket-protokollet standardiserat i [RFC6455](https://tools.ietf.org/html/rfc6455) kan en fullständig duplex-kommunikation mellan en server och en klient under en tids krävande TCP-anslutning. Den här funktionen gör det möjligt att använda en mer interaktiv kommunikation mellan webb servern och klienten, som kan vara dubbelriktad utan att det krävs någon avsökning som krävs i HTTP-baserade implementeringar. WebSocket har låg belastning till skillnad från HTTP och kan återanvända samma TCP-anslutning för flera begär Anden/svar som resulterar i en mer effektiv användning av resurser. WebSocket-protokollen är utformade för att fungera över traditionella HTTP-portar på 80 och 443.
 
-Du kan fortsätta med en standard HTTP-lyssnaren på port 80 eller 443 att ta emot WebSocket-trafik. WebSocket-trafik dirigeras sedan till WebSocket-aktiverade backend-servern med korrekta serverdels-pooler som anges i reglerna för application gateway. Backend-servern måste svara på application gateway-avsökningar som beskrivs i den [översikt över hälsotillståndet för avsökning](application-gateway-probe-overview.md) avsnittet. Hälsoavsökningar för Application gateway är endast HTTP/HTTPS. Varje backend-servern måste svara på HTTP-avsökningar för application gateway att dirigera WebSocket-trafik till servern.
+Du kan fortsätta att använda en HTTP-lyssnare som är standard på port 80 eller 443 för att ta emot WebSocket-trafik. WebSocket-trafik dirigeras sedan till den WebSocket-aktiverade backend-servern med hjälp av lämplig backend-pool som anges i Application Gateway-regler. Backend-servern måste svara på Application Gateway-avsökningarna, som beskrivs i avsnittet [Översikt över hälso avsökning](application-gateway-probe-overview.md) . Hälso avsökningar för Application Gateway är endast HTTP/HTTPS. Varje backend-server måste svara på HTTP-avsökningar för att Application Gateway ska kunna dirigera WebSocket-trafik till servern.
 
-Den används i appar som har nytta av snabba, i realtid kommunikation, till exempel chatt, instrumentpanel och spelappar.
+Den används i appar som drar nytta av snabb kommunikation i real tid, till exempel chatt, instrument panel och spelappar.
 
 ## <a name="how-does-websocket-work"></a>Hur fungerar WebSocket
 
-För att upprätta en WebSocket-anslutning, utväxlas en specifik HTTP-baserade handskakning mellan klienten och servern. Om detta lyckas uppgraderas application layer protocol ”” från HTTP till WebSockets, med hjälp av den tidigare etablerade TCP-anslutningen. När detta inträffar är HTTP helt utanför bild. data kan skickas eller tas emot med WebSocket-protokoll av båda slutpunkterna tills WebSocket-anslutningen är stängd. 
+För att upprätta en WebSocket-anslutning utbyts en unik HTTP-baserad hand skakning mellan klienten och servern. Om det lyckas, är applikations lager protokollet "uppgraderat" från HTTP till WebSockets med hjälp av den tidigare upprättade TCP-anslutningen. När detta inträffar är HTTP helt ur bilden. data kan skickas eller tas emot med hjälp av WebSocket-protokollet av båda slut punkterna, tills WebSocket-anslutningen har stängts. 
 
-![addcert](./media/application-gateway-websocket/websocket.png)
+![WebSocket](./media/application-gateway-websocket/websocket.png)
 
 ### <a name="listener-configuration-element"></a>Listener-konfigurationselementet
 
-En HTTP-lyssnare kan användas för att stödja WebSocket-trafik. Följande är ett utdrag från httpListeners-elementet från en exempelfil i mallen. Du behöver både HTTP och HTTPS-lyssnare för att stödja WebSocket och säker WebSocket-trafik. På samma sätt du kan använda portalen eller Azure PowerShell för att skapa en Programgateway med lyssnare på port 80/443 för att stödja WebSocket-trafik.
+En befintlig HTTP-lyssnare kan användas för att stödja WebSocket-trafik. Följande är ett kodfragment för ett httpListeners-element från en exempel mal len fil. Du behöver både HTTP-och HTTPS-lyssnare för att stödja WebSocket-och Secure WebSocket-trafik. På samma sätt kan du använda portalen eller Azure PowerShell för att skapa en Programgateway med lyssnare på port 80/443 för att stödja WebSocket-trafik.
 
 ```json
 "httpListeners": [
@@ -66,9 +66,9 @@ En HTTP-lyssnare kan användas för att stödja WebSocket-trafik. Följande är 
     ],
 ```
 
-## <a name="backendaddresspool-backendhttpsetting-and-routing-rule-configuration"></a>Konfiguration av BackendAddressPool BackendHttpSetting och Routning
+## <a name="backendaddresspool-backendhttpsetting-and-routing-rule-configuration"></a>Konfiguration av BackendAddressPool, BackendHttpSetting och routnings regel
 
-En BackendAddressPool används för att definiera en serverdelspool med aktiverad WebSocket-servrar. BackendHttpSetting definieras med en backend-port 80 och 443. Egenskaper för cookie-baserad tillhörighet och requestTimeouts är inte relevanta för WebSocket-trafik. Det finns inga ändringar behövs i routingregeln. ”grundläggande” används för att knyta rätt lyssnare till motsvarande serverdels-adresspool. 
+En BackendAddressPool används för att definiera en backend-pool med WebSocket-aktiverade servrar. BackendHttpSetting definieras med Server dels port 80 och 443. Timeout-värdet för begäran i HTTP-inställningarna gäller även för WebSocket-sessionen. Ingen ändring krävs i regeln för routning, som används för att koppla lämplig lyssnare till motsvarande Server dels adress. 
 
 ```json
 "requestRoutingRules": [{
@@ -104,9 +104,9 @@ En BackendAddressPool används för att definiera en serverdelspool med aktivera
 }]
 ```
 
-## <a name="websocket-enabled-backend"></a>WebSocket aktiverat serverdel
+## <a name="websocket-enabled-backend"></a>WebSocket-aktiverad server del
 
-Serverdelen måste ha en HTTP/HTTPS-webbserver som körs på den konfigurerade port (vanligtvis 80/443) för WebSocket ska fungera. Det här kravet är eftersom WebSocket-protokoll kräver inledande handskakningen vara HTTP vid uppgraderingar WebSocket-protokoll som ett huvud-fält. Följande är ett exempel på en rubrik:
+Server delen måste ha en HTTP/HTTPS-webbserver som körs på den konfigurerade porten (vanligt vis 80/443) för att WebSocket ska fungera. Detta krav beror på att WebSocket-protokollet kräver att den första hand skakningen är HTTP med uppgradering till WebSocket-protokollet som ett rubrik fält. Följande är ett exempel på ett sidhuvud:
 
 ```
     GET /chat HTTP/1.1
@@ -119,8 +119,8 @@ Serverdelen måste ha en HTTP/HTTPS-webbserver som körs på den konfigurerade p
     Sec-WebSocket-Version: 13
 ```
 
-En annan orsak kan vara hälsoavsökning för serverdelen som application gateway stöder endast HTTP och HTTPS-protokoll. Om backend-servern inte svarar på HTTP eller HTTPS avsökningar, tas den utanför serverdelspool.
+En annan orsak till detta är att Application Gateway server dels hälso avsökning stöder endast HTTP-och HTTPS-protokoll. Om backend-servern inte svarar på HTTP-eller HTTPS-avsökningar, tas den bort från backend-poolen.
 
 ## <a name="next-steps"></a>Nästa steg
 
-När du läst om WebSocket-stöd, gå till [skapa en Programgateway](quick-create-powershell.md) att komma igång med en WebSocket aktiverat webbprogram.
+När du har lärt dig om WebSocket-stöd går du till [skapa en Programgateway](quick-create-powershell.md) för att komma igång med ett WebSocket-aktiverat webb program.

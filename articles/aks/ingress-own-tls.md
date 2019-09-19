@@ -7,18 +7,18 @@ ms.service: container-service
 ms.topic: article
 ms.date: 05/24/2019
 ms.author: mlearned
-ms.openlocfilehash: 2b30ade9971ede6f9544b618504033553392e9bd
-ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
+ms.openlocfilehash: fc7f2180e4166070fe44863aed2b12135b0db8ee
+ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "67615441"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71097847"
 ---
 # <a name="create-an-https-ingress-controller-and-use-your-own-tls-certificates-on-azure-kubernetes-service-aks"></a>Skapa en HTTPS ingångs kontroll och Använd dina egna TLS-certifikat på Azure Kubernetes service (AKS)
 
 En ingress-kontrollant är en del av programvaran som tillhandahåller omvänd proxy, konfigurerbar trafikroutning och TLS-Avslut för Kubernetes-tjänster. Kubernetes ingress-resurser används för att konfigurera inkommande regler och vägar för enskilda Kubernetes-tjänster. Med hjälp av en ingress-kontrollant och ingress-regler kan en IP-adress användas för att dirigera trafik till flera tjänster i ett Kubernetes-kluster.
 
-Den här artikeln visar hur du distribuerar [nginx ingress][nginx-ingress] -kontrollanten i ett Azure Kubernetes service-kluster (AKS). Du genererar dina egna certifikat och skapar en Kubernetes-hemlighet för användning med ingångs vägen. Slutligen körs två program i AKS-klustret, som var och en är tillgänglig över en enskild IP-adress.
+Den här artikeln visar hur du distribuerar [nginx ingress-kontrollanten][nginx-ingress] i ett Azure Kubernetes service-kluster (AKS). Du genererar dina egna certifikat och skapar en Kubernetes-hemlighet för användning med ingångs vägen. Slutligen körs två program i AKS-klustret, som var och en är tillgänglig över en enskild IP-adress.
 
 Du kan också:
 
@@ -133,7 +133,7 @@ Båda programmen körs nu på ditt Kubernetes-kluster, men de har kon figurer AT
 I följande exempel dirigeras trafik till adressen `https://demo.azure.com/` till tjänsten med namnet. `aks-helloworld` Trafik till adressen `https://demo.azure.com/hello-world-two` dirigeras `ingress-demo` till tjänsten. I den här artikeln behöver du inte ändra namnen på dessa demonstrations värdar. För produktions användning anger du namnen som anges som en del av certifikatbegäran och generations processen.
 
 > [!TIP]
-> Om det värdnamn som anges under processen för certifikatbegäran, CN-namnet, inte matchar den angivna värden i din ingångs väg, visar ingångs enheten ett *Kubernetes*-ingångs enhets förfalskat certifikat. Kontrol lera att ditt certifikat och att dirigera värdnamn matchar.
+> Om det värdnamn som anges under processen för certifikatbegäran, CN-namnet, inte matchar den angivna värden i din ingångs väg visas ingångs enheten i en Kubernetes ingångs *kontroll enhet falsk certifikat* varning. Kontrol lera att ditt certifikat och att dirigera värdnamn matchar.
 
 Avsnittet *TLS* instruerar ingångs vägen att använda hemligheten med namnet *AKS-ingress-tls* för värden *demo.Azure.com*. För produktions användning anger du din egen värd adress.
 

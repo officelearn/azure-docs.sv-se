@@ -14,12 +14,12 @@ ms.date: 04/12/2019
 ms.author: jafreebe
 ms.reviewer: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 0538b3ea4ac3a7999a3028cfd8b2cfafbbf7856c
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: 91f0c059d22fb921aeb0c65f7d4eba95debd530d
+ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68967283"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71097739"
 ---
 # <a name="configure-a-windows-java-app-for-azure-app-service"></a>Konfigurera en Windows java-app för Azure App Service
 
@@ -49,11 +49,11 @@ Prestanda rapporter, trafik visualiseringar och hälso checkups är tillgänglig
 
 [!INCLUDE [Access diagnostic logs](../../includes/app-service-web-logs-access-no-h.md)]
 
-Mer information finns i [strömmande loggar med Azure CLI](troubleshoot-diagnostic-logs.md#streaming-with-azure-cli).
+Mer information finns i [Stream-loggar i Cloud Shell](troubleshoot-diagnostic-logs.md#in-cloud-shell).
 
 ### <a name="app-logging"></a>Loggning av app
 
-Aktivera [program loggning](troubleshoot-diagnostic-logs.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#enablediag) via Azure Portal eller [Azure CLI](/cli/azure/webapp/log#az-webapp-log-config) för att konfigurera App Service att skriva programmets standard-och standard konsol fel strömmar till det lokala fil systemet eller Azure-Blob Storage. Loggning till den lokala App Service fil Systems instansen är inaktive rad 12 timmar efter att den har kon figurer ATS Om du behöver kvarhållare kan du konfigurera programmet att skriva utdata till en Blob Storage-behållare. Du hittar dina program loggar för Java och Tomcat i katalogen */LogFiles/Application/* .
+Aktivera [program loggning](troubleshoot-diagnostic-logs.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#enable-application-logging-windows) via Azure Portal eller [Azure CLI](/cli/azure/webapp/log#az-webapp-log-config) för att konfigurera App Service att skriva programmets standard-och standard konsol fel strömmar till det lokala fil systemet eller Azure-Blob Storage. Loggning till den lokala App Service fil Systems instansen är inaktive rad 12 timmar efter att den har kon figurer ATS Om du behöver kvarhållare kan du konfigurera programmet att skriva utdata till en Blob Storage-behållare. Du hittar dina program loggar för Java och Tomcat i katalogen */LogFiles/Application/* .
 
 Om ditt program använder [logback](https://logback.qos.ch/) eller [log4j](https://logging.apache.org/log4j) för spårning kan du vidarebefordra de här spårningarna för granskning till Azure Application Insights med hjälp av konfigurations anvisningar för loggnings ramverk i [utforska Java trace-loggar i Application Insights ](/azure/application-insights/app-insights-java-trace-logs).
 
@@ -177,7 +177,7 @@ Följ instruktionerna i [BIND ett befintligt anpassat SSL-certifikat](app-servic
 
 ### <a name="use-keyvault-references"></a>Använda nyckel Valvs referenser
 
-[Azure](../key-vault/key-vault-overview.md) -nyckels valvet tillhandahåller centraliserad hemlig hantering med åtkomst principer och gransknings historik. Du kan lagra hemligheter (till exempel lösen ord eller anslutnings strängar) i ett nyckel valv och komma åt dessa hemligheter i ditt program via miljövariabler.
+Azure-nyckels [valvet](../key-vault/key-vault-overview.md) tillhandahåller centraliserad hemlig hantering med åtkomst principer och gransknings historik. Du kan lagra hemligheter (till exempel lösen ord eller anslutnings strängar) i ett nyckel valv och komma åt dessa hemligheter i ditt program via miljövariabler.
 
 Börja med att följa anvisningarna för [att ge appen åtkomst till Key Vault](app-service-key-vault-references.md#granting-your-app-access-to-key-vault) och [skapa en nyckel valv referens till din hemlighet i en program inställning](app-service-key-vault-references.md#reference-syntax). Du kan kontrol lera att referensen matchar hemligheten genom att skriva ut miljövariabeln och fjärrans luta till App Service terminalen.
 
@@ -320,7 +320,7 @@ Utvecklare kan ladda ned Production Edition of Azul Zulu Enterprise JDK för lok
 
 ### <a name="development-support"></a>Utvecklings support
 
-Produkt support för det [Azure-Azul Zulu-JDK som stöds](https://www.azul.com/downloads/azure-only/zulu/) är tillgängligt via Microsoft när du utvecklar för azure eller [Azure Stack](https://azure.microsoft.com/overview/azure-stack/) med ett kvalificerat support avtal för [Azure](https://azure.microsoft.com/support/plans/).
+Produkt support för det [Azure-Azul Zulu-JDK som stöds](https://www.azul.com/downloads/azure-only/zulu/) är tillgängligt via Microsoft när du utvecklar för azure eller [Azure Stack](https://azure.microsoft.com/overview/azure-stack/) med ett [kvalificerat support](https://azure.microsoft.com/support/plans/)avtal för Azure.
 
 ### <a name="runtime-support"></a>Runtime-stöd
 

@@ -11,12 +11,12 @@ ms.date: 01/04/2019
 author: djpmsft
 ms.author: daperlov
 manager: craigg
-ms.openlocfilehash: c4a3fc20e806ec91ed2646e6131f682bf5c80e38
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: eb7a7eb8e1bdacae4b74e3a0019a376c440fe4d5
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70140841"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71091967"
 ---
 # <a name="templates"></a>Mallar
 
@@ -56,7 +56,7 @@ Data Factory använder Azure Resource Manager mallar för att spara mallar för 
 
     -   Kopiera från \<källa\> till \<mål\>
 
-        -   Från Amazon S3 till Azure Data Lake Store gen 2
+        -   [Från Amazon S3 till Azure Data Lake Store gen 2](solution-template-migration-s3-azure.md)
 
         -   Från Google stor fråga till Azure Data Lake Store gen 2
 

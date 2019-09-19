@@ -7,14 +7,14 @@ manager: carmonm
 keywords: Återställ säkerhets kopia; så här återställer du. återställnings punkt;
 ms.service: backup
 ms.topic: conceptual
-ms.date: 05/08/2019
+ms.date: 09/17/2019
 ms.author: dacurwin
-ms.openlocfilehash: 3d7497b7afd44a05f3691d3e3094e84c3dd73747
-ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
+ms.openlocfilehash: c479249a3a09b625e37fb80e7b73dcc8a1268622
+ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70983923"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71098369"
 ---
 # <a name="how-to-restore-azure-vm-data-in-azure-portal"></a>Så här återställer du Azure VM-data i Azure Portal
 
@@ -188,7 +188,27 @@ Det finns ett antal saker att notera när du återställer en virtuell dator:
 - Om den säkerhetskopierade virtuella datorn har en statisk IP-adress, kommer den återställda virtuella datorn ha en dynamisk IP-adress för att undvika konflikter. Du kan [lägga till en statisk IP-adress till den återställda virtuella datorn](../virtual-network/virtual-networks-reserved-private-ip.md#how-to-add-a-static-internal-ip-to-an-existing-vm).
 - Det finns ingen tillgänglighets uppsättning för en återställd virtuell dator. Om du använder alternativet för att återställa diskar kan du [Ange en tillgänglighets uppsättning](../virtual-machines/windows/tutorial-availability-sets.md) när du skapar en virtuell dator från disken med hjälp av den angivna mallen eller PowerShell.
 - Om du använder en Cloud-Init-baserad Linux-distribution, till exempel Ubuntu, av säkerhets skäl, blockeras lösen ordet efter återställningen. Använd tillägget VMAccess på den återställda virtuella datorn för att [återställa lösen ordet](../virtual-machines/linux/reset-password.md). Vi rekommenderar att du använder SSH-nycklar på dessa distributioner, så du behöver inte återställa lösen ordet efter återställningen.
+- Om du inte kan komma åt den virtuella datorn när den har återställts på grund av att den virtuella datorn har brutit relationer med domänkontrollanten följer du stegen nedan för att öppna den virtuella datorn:
+    - Koppla OS-disk som en data disk till en återställd virtuell dator.
+    - Installera VM-agenten manuellt om Azure-agenten inte svarar genom att följa den här [länken](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/install-vm-agent-offline).
+    - Aktivera åtkomst till seriell konsol på den virtuella datorn för att tillåta kommando rad åtkomst till den virtuella datorn
+    
+  ```
+    bcdedit /store <drive letter>:\boot\bcd /enum
+    bcdedit /store <VOLUME LETTER WHERE THE BCD FOLDER IS>:\boot\bcd /set {bootmgr} displaybootmenu yes
+    bcdedit /store <VOLUME LETTER WHERE THE BCD FOLDER IS>:\boot\bcd /set {bootmgr} timeout 5
+    bcdedit /store <VOLUME LETTER WHERE THE BCD FOLDER IS>:\boot\bcd /set {bootmgr} bootems yes
+    bcdedit /store <VOLUME LETTER WHERE THE BCD FOLDER IS>:\boot\bcd /ems {<<BOOT LOADER IDENTIFIER>>} ON
+    bcdedit /store <VOLUME LETTER WHERE THE BCD FOLDER IS>:\boot\bcd /emssettings EMSPORT:1 EMSBAUDRATE:115200
+    ```
+    - När den virtuella datorn återskapas använder Azure Portal för att återställa det lokala administratörs kontot och lösen ordet
+    - Använda Seriell konsol Access och CMD för att koppla från den virtuella datorn från domänen
 
+    ```
+    cmd /c "netdom remove <<MachineName>> /domain:<<DomainName>> /userD:<<DomainAdminhere>> /passwordD:<<PasswordHere>> /reboot:10 /Force" 
+    ```
+
+- När den virtuella datorn har kopplats från och startats om, kommer du att kunna distribuera RDP till den virtuella datorn med autentiseringsuppgifter för lokal administratör och återansluta den till domänen.
 
 ## <a name="backing-up-restored-vms"></a>Säkerhetskopiera återställda virtuella datorer
 

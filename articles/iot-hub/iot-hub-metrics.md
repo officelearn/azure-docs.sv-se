@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/24/2019
 ms.author: jlian
-ms.openlocfilehash: 948cdb2ab1af3fe93566497186c025f7f8f39b2e
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: f0bcf12a43a4732b371dd2d64c0b174a0087bea9
+ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69877079"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71098947"
 ---
 # <a name="understand-iot-hub-metrics"></a>Förstå IoT Hub mått
 
@@ -81,7 +81,7 @@ IoT Hub tillhandahåller flera mått för att ge dig en översikt över hälsan 
 |C2D<br>. metoder<br>. Failure|Misslyckade direkta metod anrop|Count|Totalt|Antalet misslyckade direkta metod anrop.|Inga dimensioner|
 |C2D<br>. metoder<br>.requestSize|Begär ande storlek för direkta metod anrop|Byte|Average|Genomsnitt, min och Max för alla lyckade direkta metod begär Anden.|Inga dimensioner|
 |C2D<br>. metoder<br>.responseSize|Svars storlek för direkta metod anrop|Byte|Average|Medelvärde, min och Max för alla lyckade direkta metod svar.|Inga dimensioner|
-|C2D<br>.twin<br>. Läs<br>.success|Lyckades dubbla läspaket från Server delen|Count|Totalt|Antalet dubbla läsningar som initierats av alla lyckade.|Inga dimensioner|
+|C2D<br>.twin<br>. Läs<br>.success|Lyckades dubbla läspaket från Server delen|Count|Totalt|Antalet dubbla läsningar som initierats av alla lyckade. Det här antalet inkluderar inte dubbla läsningar som initieras från dubbla frågor.|Inga dimensioner|
 |C2D<br>.twin<br>. Läs<br>. Failure|Det gick inte att dubbla läsningar från Server delen|Count|Totalt|Antalet dubbla läsningar som initierats av alla misslyckade backend-slutpunkter.|Inga dimensioner|
 |C2D<br>.twin<br>. Läs<br>.size|Svars storlek för dubbla läsningar från Server delen|Byte|Average|Genomsnitt, min och Max för alla lyckade, dubbla läsningar som initieras i slut punkt.|Inga dimensioner|
 |C2D<br>.twin<br>.update<br>.success|Lyckades dubbla uppdateringar från Server delen|Count|Totalt|Antalet fullständiga uppdateringar som initierats av alla lyckade backend-uppdateringar.|Inga dimensioner|
@@ -106,7 +106,7 @@ IoT Hub tillhandahåller flera mått för att ge dig en översikt över hälsan 
 |dailyMessage<br>QuotaUsed|Totalt antal meddelanden som används|Count|Average|Antal sammanlagt antal meddelanden som använts idag. Detta är ett ackumulerat värde som återställs till noll vid 00:00 UTC varje dag.|Inga dimensioner|
 |deviceDataUsage|Total användning av enhets data|Byte|Totalt|Överförda byte till och från alla enheter som är anslutna till IotHub|Inga dimensioner|
 |totalDeviceCount|Totalt antal enheter (förhands granskning)|Count|Average|Antal enheter som har registrerats för din IoT-hubb|Inga dimensioner|
-|länk<br>DeviceCount|Anslutna enheter (förhands granskning)|Count|Average|Antal enheter som är anslutna till din IoT-hubb|Inga dimensioner|
+|Länk<br>DeviceCount|Anslutna enheter (förhands granskning)|Count|Average|Antal enheter som är anslutna till din IoT-hubb|Inga dimensioner|
 |konfigurationer|Konfigurations mått|Count|Totalt|Mått för konfigurations åtgärder|Inga dimensioner|
 
 ## <a name="next-steps"></a>Nästa steg

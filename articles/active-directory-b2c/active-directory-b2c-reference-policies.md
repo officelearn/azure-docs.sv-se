@@ -1,6 +1,6 @@
 ---
-title: Användarflöden i Azure Active Directory B2C | Microsoft Docs
-description: Läs mer om utökningsbart principramverk för Azure Active Directory B2C och hur du skapar olika användarflöden.
+title: Användar flöden i Azure Active Directory B2C | Microsoft Docs
+description: Lär dig mer om den utöknings bara princip ramverket för Azure Active Directory B2C och hur du skapar olika användar flöden.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -10,30 +10,30 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 54677dc0771f65b7636b4d1cac77f53f9c04a09d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 08da04a8bf167c99ef2384a9714034ae1865bec1
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66508942"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71065378"
 ---
-# <a name="user-flows-in-azure-active-directory-b2c"></a>Användarflöden i Azure Active Directory B2C
+# <a name="user-flows-in-azure-active-directory-b2c"></a>Användar flöden i Azure Active Directory B2C
 
-Utökningsbart principramverk för Azure Active Directory (Azure AD) B2C är core styrkan hos tjänsten. Principer helt beskriver identitetsupplevelser som registrering, inloggning och profilredigering. Som hjälper dig att konfigurera de vanligaste uppgifterna för identitet, Azure AD B2C-portalen innehåller fördefinierade, konfigureras principer som kallas **användarflöden**. 
+Den utöknings bara princip ramverket för Azure Active Directory B2C (Azure AD B2C) är tjänstens kärn styrka. Principer beskriver fullständigt identitets upplevelser som registrering, inloggning eller profil redigering. För att hjälpa dig att skapa de vanligaste identitets uppgifterna innehåller Azure AD B2C portalen fördefinierade, konfigurerbara principer som kallas **användar flöden**.
 
-## <a name="what-are-user-flows"></a>Vad är användarflöden?
+## <a name="what-are-user-flows"></a>Vad är användar flöden?
 
-Ett användarflöde kan du styra beteenden i dina program genom att konfigurera följande inställningar:
+Med ett användar flöde kan du styra beteenden i dina program genom att konfigurera följande inställningar:
 
-- Kontot som typer används för inloggning, till exempel konton i sociala medier som ett Facebook eller lokala konton
-- Attribut som ska samlas in från konsumenten, till exempel förnamn, postnummer och redskap storlek
+- Konto typer som används för inloggning, till exempel sociala konton som ett Facebook-eller lokala konto
+- Attribut som ska samlas in från konsumenten, till exempel förnamn, post nummer och sko storlek
 - Azure Multi-Factor Authentication
-- Anpassning av användargränssnittet
-- Information som programmet tar emot som anspråk i en token 
+- Anpassning av användar gränssnittet
+- Information som programmet tar emot som anspråk i en token
 
-Du kan skapa flera användarflöden av olika typer i din klient och använda dem i dina program, vid behov. Användarflöden kan återanvändas i program. Den här flexibiliteten gör att du kan definiera och ändra identitetsupplevelser med minimala kodändringar eller inga ändringar i koden. Programmets utlöser ett användarflöde med hjälp av en standard HTTP-autentisering-begäran som innehåller en parameter för flödet av användaren. En anpassad [token](active-directory-b2c-reference-tokens.md) tas emot som ett svar. 
+Du kan skapa många användar flöden av olika typer av klienter och använda dem i dina program efter behov. Användar flöden kan återanvändas i olika program. Den här flexibiliteten gör det möjligt att definiera och ändra identitets upplevelser med minimala eller inga ändringar i koden. Ditt program utlöser ett användar flöde genom att använda en standard-HTTP-autentiseringsbegäran som innehåller en användar flödes parameter. En anpassad [token](active-directory-b2c-reference-tokens.md) tas emot som ett svar.
 
-I följande exempel visas ”p” för frågesträngparametern som anger användarflödet som ska användas:
+I följande exempel visas frågesträngparametern "p" som anger det användar flöde som ska användas:
 
 ```
 https://contosob2c.b2clogin.com/contosob2c.onmicrosoft.com/oauth2/v2.0/authorize?
@@ -61,30 +61,30 @@ client_id=2d4d11a2-f814-46a7-890a-274a72a7309e      // Your registered Applicati
 
 ## <a name="user-flow-versions"></a>Användarflödesversioner
 
-I Azure portal, ny [versioner av användarflöden](user-flow-versions.md) läggs hela tiden. När du komma igång med Azure AD B2C, testas användaren flöden rekommenderas som du kan använda. När du skapar ett nytt användarflöde, väljer du det användarflöde som du behöver från de **rekommenderas** fliken.
+I Azure Portal läggs nya [versioner av användar flöden](user-flow-versions.md) till hela tiden. När du kommer igång med Azure AD B2C rekommenderar vi att du använder och testar användar flöden. När du skapar ett nytt användar flöde väljer du det användar flöde som du behöver från den **rekommenderade** fliken.
 
-För närvarande rekommenderas följande användarflöden:
+Följande användar flöden rekommenderas för närvarande:
 
-- **Registrera dig och logga in** -hanterar båda upplevelser för registrering och inloggning med en enda konfiguration. Användare leds av rätt väg beroende på kontext. Vi rekommenderar att du använder det här användarflödet över en **registrering** användarflödet eller en **inloggning** användarflödet.
-- **Profilredigering** – gör det möjligt för användare att redigera deras profilinformation.
-- **Återställning av lösenord** – kan du konfigurera om och hur användare kan återställa sina lösenord.
+- **Registrera dig och logga in** – hanterar både registrerings-och inloggnings upplevelser med en enda konfiguration. Användarna utsätts för rätt sökväg beroende på kontexten. Vi rekommenderar att du använder det här användar flödet över ett **registrerings** användar flöde eller ett **inloggnings** användar flöde.
+- **Profil redigering** – gör att användare kan redigera profil informationen.
+- **Lösen ords återställning** – låter dig konfigurera om och hur användarna kan återställa sina lösen ord.
 
-## <a name="linking-user-flows"></a>Länkramverk användarflöden
+## <a name="linking-user-flows"></a>Länka användar flöden
 
-En **registrering eller inloggning** användarflödet med lokala konton omfattar en **har du glömt lösenordet?** länk på första sidan i miljön. Klicka på den här länken återställs inte utlösa ett lösenord automatiskt användarflödet. 
+En **registrerings-eller inloggnings** användare med lokala konton innehåller ett **bortglömt lösen ord?** länk på den första sidan i upplevelsen. När du klickar på den här länken utlöses inget användar flöde för lösen ords återställning automatiskt.
 
-I stället felkoden `AADB2C90118` returneras till programmet. Programmet behöver för att hantera felet genom att köra en specifik användare-flöde som återställer lösenordet. Om du vill se ett exempel kan ta en titt på en [enkel ASP.NET-exemplet](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIDConnect-DotNet-SUSI) som visar länkning av användarflöden.
+I stället returneras felkoden `AADB2C90118` till ditt program. Programmet måste hantera denna felkod genom att köra ett speciellt användar flöde som återställer lösen ordet. Om du vill se ett exempel kan du titta på ett [enkelt ASP.net-exempel](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIDConnect-DotNet-SUSI) som visar hur användar flöden länkas.
 
-## <a name="email-address-storage"></a>E-postadress lagring
+## <a name="email-address-storage"></a>Lagring av e-postadress
 
-En e-postadress kan krävas som en del av ett användarflöde. Om användaren autentiseras med en social identitetsprovider, e-postadressen lagras i den **otherMails** egenskapen. Om ett lokalt konto är baserat på ett användarnamn, lagras e-postadressen i en egenskap med stark autentisering-information. Om ett lokalt konto är baserat på en e-postadress och e-postadressen lagras i den **signInNames** egenskapen.
- 
-E-postadressen är inte säkert att verifieras i båda fallen. En Innehavaradministratör kan inaktivera e-Postverifiering i de grundläggande principerna för lokala konton. Även om e-postadress verifiering är aktiverad, adresser inte verifiera om de kommer från en social identitetsprovider och de inte har ändrats.
- 
-Endast den **otherMails** och **signInNames** egenskaper exponeras via Active Directory Graph API. E-postadress i egenskapen stark autentisering-information är inte tillgänglig.
+En e-postadress kan krävas som en del av ett användar flöde. Om användaren autentiseras med en social identitetsprovider lagras e-postadressen i egenskapen **otherMails** . Om ett lokalt konto är baserat på ett användar namn lagras e-postadressen i detalj egenskapen för stark autentisering. Om ett lokalt konto är baserat på en e-postadress lagras e-postadressen i egenskapen **signInNames** .
+
+E-postadressen är inte garanterat verifierad i någon av dessa fall. En klient administratör kan inaktivera e-postverifiering i de grundläggande principerna för lokala konton. Även om verifiering av e-postadresser är aktive rad, kontrol leras inte adresser om de kommer från en social identitetsprovider och de inte har ändrats.
+
+Endast egenskaperna **otherMails** och **signInNames** visas via Active Directory Graph API. E-postadressen i detalj egenskapen för stark autentisering är inte tillgänglig.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om du vill skapa de rekommenderade användarflöden, följer du anvisningarna i [självstudien: Skapa ett användarflöde](tutorial-create-user-flows.md).
+Följ anvisningarna i [själv studie kursen för att skapa de rekommenderade användar flödena: Skapa ett användar flöde](tutorial-create-user-flows.md).
 
 

@@ -8,12 +8,12 @@ ms.topic: troubleshooting
 ms.date: 8/26/2019
 ms.author: abnarain
 ms.reviewer: craigg
-ms.openlocfilehash: 45aa1354f6009d5eccd48f85f993bae8949139e3
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
-ms.translationtype: HT
+ms.openlocfilehash: ed466b072a771c3aa288a96fa4a0037c31b875f9
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71058979"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71091993"
 ---
 # <a name="troubleshoot-azure-data-factory"></a>Felsöka Azure Data Factory
 
@@ -282,17 +282,109 @@ Följande tabell gäller för U-SQL.
 
 - **Orsak**: Definitionen av Azure Function-aktiviteten har inte slutförts.
 
-- **Rekommendation**: Kontrol lera att JSON-definitionen för inAzureFunction aktivitet har egenskapen med namnet ' Method '.
+- **Rekommendation**: Kontrol lera att JSON-definitionen för inAzureFunction aktivitet har egenskapen "metod".
 
 
 ### <a name="error-code--3612"></a>Felkod:  3612
 
 - **Meddelande**:`Azure function activity missing LinkedService definition in JSON.`
 
-- **Orsak**: Definitionen av Azure Function-aktiviteten har inte slutförts.
+- **Orsak**: Det går inte att slutföra Azure Function-aktivitets definitionen.
 
 - **Rekommendation**: Kontrol lera att det finns länkad tjänst information i indata-AzureFunction Activity JSON-definitionen.
 
+
+## <a name="azure-machine-learning"></a>Azure Machine Learning
+
+
+### <a name="error-code--4101"></a>Felkod:  4101
+
+- **Meddelande**:`AzureMLExecutePipeline activity '%activityName;' has invalid value for property '%propertyName;'.`
+
+- **Orsak**: Felaktigt format eller en definition av en egenskap saknas.
+
+- **Rekommendation**:  Kontrol lera att aktiviteten har definierats med rätt data.
+
+
+### <a name="error-code--4110"></a>Felkod:  4110
+
+- **Meddelande**: AzureMLExecutePipeline-aktivitet saknar LinkedService-definition i JSON.
+
+- **Orsak**: AzureMLExecutePipeline aktivitets definitionen är inte fullständig.
+
+- **Rekommendation**:  Kontrol lera att JSON-definitionen för indata-AzureMLExecutePipeline aktivitet innehåller länkad tjänst information.
+
+
+### <a name="error-code--4111"></a>Felkod:  4111
+
+- **Meddelande**:`AzureMLExecutePipeline activity has wrong LinkedService type in JSON. Expected LinkedService type: '%expectedLinkedServiceType;', current LinkedService type: Expected LinkedService type: '%currentLinkedServiceType;'.`
+
+- **Orsak**: Felaktig aktivitets definition.
+
+- **Rekommendation**:  Kontrol lera om JSON-definitionen för indata-AzureMLExecutePipeline aktivitet har rätt länkad tjänst information.
+
+
+### <a name="error-code--4112"></a>Felkod:  4112
+
+- **Meddelande**:`AzureMLService linked service has invalid value for property '%propertyName;'.`
+
+- **Orsak**: Felaktigt format eller en definition av en egenskap saknas.
+
+- **Rekommendation**:  Kontrol lera om den länkade tjänst definitionen har rätt data.
+
+
+### <a name="error-code--4121"></a>Felkod:  4121
+
+- **Meddelande**:`Request sent to AzureML Service for operation '%operation;' failed with http status code '%statusCode;'. Error message from AzureML Service: '%externalMessage;'.`
+
+- **Orsak**: Autentiseringsuppgifterna som används för att komma åt Azure ML-tjänsten har upphört att gälla.
+
+- **Rekommendation**:  Verifiera att autentiseringsuppgiften är giltig och försök igen
+
+
+### <a name="error-code--4122"></a>Felkod:  4122
+
+- **Meddelande**:`Request sent to AzureML Service for operation '%operation;' failed with http status code '%statusCode;'. Error message from AzureML Service: '%externalMessage;'.`
+
+- **Orsak**: Autentiseringsuppgifterna som tillhandahölls i den länkade tjänsten för AzureML-tjänsten är ogiltig eller har inte behörighet för åtgärden.
+
+- **Rekommendation**:  Kontrol lera att autentiseringsuppgiften i den länkade tjänsten är giltig och har behörighet att komma åt AzureML-tjänsten.
+
+
+### <a name="error-code--4123"></a>Felkod:  4123
+
+- **Meddelande**:`Request sent to AzureML Service for operation '%operation;' failed with http status code '%statusCode;'. Error message from AzureML Service: '%externalMessage;'.`
+
+- **Orsak**:`Properties of the activity such as pipelineParamters are invalid for the Azure ML pipeline.`
+
+- **Rekommendation**:  Kontrol lera värdet för aktivitets egenskaper för att matcha förväntad nytto last för den publicerade Azure ML-pipelinen som anges i den länkade tjänsten.
+
+
+### <a name="error-code--4124"></a>Felkod:  4124
+
+- **Meddelande**:`Request sent to AzureML Service for operation '%operation;' failed with http status code '%statusCode;'. Error message from AzureML Service: '%externalMessage;'.`
+
+- **Orsak**: Slut punkten för den publicerade Azure ML-pipelinen finns inte.
+
+- **Rekommendation**:  Kontrol lera att den publicerade Azure ML-pipelinen som angavs i den länkade tjänsten finns i Azure ML-tjänsten.
+
+
+### <a name="error-code--4125"></a>Felkod:  4125
+
+- **Meddelande**:`Request sent to AzureML Service for operation '%operation;' failed with http status code '%statusCode;'. Error message from AzureML Service: '%externalMessage;'.`
+
+- **Orsak**: Server fel i Azure ML-tjänsten.
+
+- **Rekommendation**:  Försök igen senare. Kontakta Azure ML-teamet för hjälp om problemet kvarstår.
+
+
+### <a name="error-code--4126"></a>Felkod:  4126
+
+- **Meddelande**:`AzureML pipeline run failed with status: '%amlPipelineRunStatus;'. Azure ML pipeline run Id: '%amlPipelineRunId;'. Please check in AzureMLService for more error loggings.`
+
+- **Orsak**: AzureML pipeline-körningen misslyckades.
+
+- **Rekommendation**:  Checka in AzureMLService för fler fel loggningar och åtgärda ML-pipeline
 
 
 ## <a name="custom"></a>Anpassat
@@ -316,6 +408,15 @@ Följande tabell gäller för Azure Batch.
 - **Orsak**: Felaktig nyckel för batch-åtkomst eller poolnamn.
 
 - **Rekommendation**: Verifiera poolens namn och åtkomst nyckeln för batch i den länkade tjänsten.
+
+
+### <a name="error-code--2502"></a>Felkod:  2502
+
+- **Meddelande**:`Cannot access user storage account; please check storage account settings.`
+
+- **Orsak**: Felaktigt lagrings konto namn eller åtkomst nyckel.
+
+- **Rekommendation**: Kontrol lera lagrings kontots namn och åtkomst nyckeln i den länkade tjänsten.
 
 
 ### <a name="error-code--2504"></a>Felkod:  2504
@@ -472,7 +573,7 @@ Följande tabell gäller Spark, Hive, MapReduce, gris och Hadoop streaming.
 
 ## <a name="web-activity"></a>Webbaktivitet
 
-### <a name="error-code--2310"></a>Felkod:  2310
+### <a name="error-code--2108"></a>Felkod:  2108
 
 - **Meddelande**:`Invalid HttpMethod: '...'.`
 
@@ -559,6 +660,25 @@ Följande tabell gäller Spark, Hive, MapReduce, gris och Hadoop streaming.
 - **Orsak**: Webb aktivitets texten är felaktig.
 
 - **Rekommendation**:  Använd Fiddler eller Postman för att kontrol lera slut punkten.
+
+
+### <a name="error-code--2208"></a>Felkod:  2208
+
+- **Meddelande**:`Invoking Web Activity failed with HttpStatusCode - {0}.`
+
+- **Orsak**: Mål tjänsten returnerade en status för felet.
+
+- **Rekommendation**:  Använd Fiddler/Postman för att verifiera begäran.
+
+
+### <a name="error-code--2308"></a>Felkod:  2308
+
+- **Meddelande**:`No response from the endpoint. Possible causes: network connectivity, DNS failure, server certificate validation or timeout.`
+
+- **Orsak**: Det kan finnas flera orsaker till det här felet, t. ex. nätverks anslutning, DNS-fel, verifiering av Server certifikat eller tids gräns.
+
+- **Rekommendation**:  Använd Fiddler/Postman för att verifiera begäran.
+
 
 Så här använder du Fiddler för att skapa en HTTP-session för det övervakade webb programmet:
 

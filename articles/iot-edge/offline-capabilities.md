@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 5d618f12b2a83b0aee145470aff900e26241b705
-ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
+ms.openlocfilehash: 80a38767121f5c54afe51a7d4d788716fe9547e2
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70147269"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71091367"
 ---
 # <a name="understand-extended-offline-capabilities-for-iot-edge-devices-modules-and-child-devices"></a>Förstå utökade offline-funktioner för IoT Edge enheter, moduler och underordnade enheter
 
@@ -71,7 +71,7 @@ Du kan deklarera den överordnade-underordnade relationen när du skapar en ny e
 
 #### <a name="option-2-use-the-az-command-line-tool"></a>Alternativ 2: `az` Använda kommando rads verktyget
 
-Med hjälp av [Azures kommando rads gränssnitt](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) med [IoT-tillägget](https://github.com/azure/azure-iot-cli-extension) (v 0.7.0 eller senare) kan du hantera överordnade underordnade relationer med under kommandona enhets [identitet](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/hub/device-identity?view=azure-cli-latest) . Exemplet nedan använder en fråga för att tilldela alla icke-IoT Edge enheter i hubben som underordnade enheter till en IoT Edge enhet. 
+Med hjälp av [Azures kommando rads gränssnitt](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) med [IoT-tillägget](https://github.com/azure/azure-iot-cli-extension) (v 0.7.0 eller senare) kan du hantera överordnade underordnade relationer med under kommandona [enhets identitet](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/hub/device-identity?view=azure-cli-latest) . Exemplet nedan använder en fråga för att tilldela alla icke-IoT Edge enheter i hubben som underordnade enheter till en IoT Edge enhet. 
 
 ```shell
 # Set IoT Edge parent device
@@ -98,7 +98,7 @@ Du kan ändra [frågan](../iot-hub/iot-hub-devguide-query-language.md) om du vil
 
 #### <a name="option-3-use-iot-hub-service-sdk"></a>Alternativ 3: Använda IoT Hub service SDK 
 
-Slutligen kan du hantera överordnade underordnade relationer genom att använda antingen C#Java eller Node. js IoT Hub service SDK. Här är ett [exempel på](https://aka.ms/set-child-iot-device-c-sharp) hur du C# tilldelar en underordnad enhet med hjälp av SDK.
+Slutligen kan du hantera överordnade underordnade relationer genom att använda antingen C#Java eller Node. js IoT Hub service SDK. Här är C# ett [exempel på hur du tilldelar en underordnad enhet](https://aka.ms/set-child-iot-device-c-sharp) med hjälp av SDK.
 
 ### <a name="set-up-the-parent-device-as-a-gateway"></a>Konfigurera den överordnade enheten som en gateway
 
@@ -110,7 +110,7 @@ Ett sätt att skapa den här förtroende relationen beskrivs i detalj i följand
 
 ## <a name="specify-dns-servers"></a>Ange DNS-servrar 
 
-För att förbättra stabiliteten rekommenderar vi starkt att du anger de DNS-serveradresser som används i din miljö. Se två alternativ för att [ställa in DNS-servern i fel söknings artikeln](troubleshoot.md#resolution-7).
+För att förbättra stabiliteten rekommenderar vi starkt att du anger de DNS-serveradresser som används i din miljö. Om du vill ställa in DNS-servern för IoT Edge kan du läsa mer i lösningen för [Edge-agenten i kontinuerlig rapport ' Tom konfigurations fil ' och inga moduler startar på enheten](troubleshoot.md#edge-agent-module-continually-reports-empty-config-file-and-no-modules-start-on-the-device) i fel söknings artikeln.
 
 ## <a name="optional-offline-settings"></a>Valfria inställningar för offline
 
@@ -208,4 +208,4 @@ Läs mer om hur du konfigurerar en transparent Gateway för dina överordnade/un
 
 * [Konfigurera en IoT Edge-enhet kan fungera som en transparent gateway](how-to-create-transparent-gateway.md)
 * [Autentisera en underordnad enhet till Azure IoT Hub](how-to-authenticate-downstream-device.md)
-* [Ansluta en underordnad enhet till en Azure IoT Edge-Gateway](how-to-connect-downstream-device.md)
+* [Ansluta en underordnad enhet till en Azure IoT Edge-gateway](how-to-connect-downstream-device.md)

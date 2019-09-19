@@ -1,19 +1,19 @@
 ---
-title: Snabbstart – Skapa ett AKS-kluster (Azure Kubernetes Service)
+title: 'Snabbstart: Distribuera ett Azure Kubernetes service-kluster'
 description: Lär dig hur du snabbt kan skapa ett Kubernetes-kluster, distribuera ett program och övervaka prestanda i Azure Kubernetes Service (AKS) med hjälp av Azure CLI.
 services: container-service
 author: mlearned
 ms.service: container-service
 ms.topic: quickstart
-ms.date: 05/20/2019
+ms.date: 09/13/2019
 ms.author: mlearned
-ms.custom: H1Hack27Feb2017, mvc, devcenter
-ms.openlocfilehash: 8a5fb9313fca2a8d787d0fbde47401f6d3e1d229
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.custom: H1Hack27Feb2017, mvc, devcenter, seo-javascript-september2019
+ms.openlocfilehash: 0ad1bb4acf27ff542b94b2e6f4aef82705f4b46a
+ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68880683"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71097994"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-using-the-azure-cli"></a>Snabbstart: Distribuera ett kluster med Azure Kubernetes Service (AKS) med hjälp av Azure CLI
 
@@ -30,6 +30,9 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 Om du väljer att installera och använda CLI lokalt kräver den här snabb starten att du kör Azure CLI-version 2.0.64 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI][azure-cli-install].
+
+> [!Note]
+> Om du kör kommandona i den här snabb starten lokalt (i stället för Azure Cloud Shell), måste du kontrol lera att du kör kommandona som administratör.
 
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
@@ -58,15 +61,10 @@ Följande exempelutdata visar den resursgrupp som skapats:
 
 ## <a name="create-aks-cluster"></a>Skapa AKS-kluster
 
-Använd kommandot [AZ AKS Create][az-aks-create] för att skapa ett AKS-kluster. I följande exempel skapas ett kluster med namnet *myAKSCluster* och en enda nod. Azure Monitor för containrar aktiveras också med hjälp av parametern *--enable-addons monitoring*.
+Använd kommandot [AZ AKS Create][az-aks-create] för att skapa ett AKS-kluster. I följande exempel skapas ett kluster med namnet *myAKSCluster* och en enda nod. Azure Monitor för containrar aktiveras också med hjälp av parametern *--enable-addons monitoring*.  Det tar flera minuter att slutföra.
 
 ```azurecli-interactive
-az aks create \
-    --resource-group myResourceGroup \
-    --name myAKSCluster \
-    --node-count 1 \
-    --enable-addons monitoring \
-    --generate-ssh-keys
+az aks create --resource-group myResourceGroup --name myAKSCluster --node-count 1 --enable-addons monitoring --generate-ssh-keys
 ```
 
 Efter några minuter slutförs kommandot och returnerar JSON-formaterad information om klustret.
@@ -100,7 +98,7 @@ aks-nodepool1-31718369-0   Ready    agent   6m44s   v1.12.8
 
 ## <a name="run-the-application"></a>Köra programmet
 
-En Kubernetes-manifestfil definierar ett önskat tillstånd för klustret, till exempel vilka containeravbildningar som ska köras. I den här snabbstarten används ett manifest för att skapa alla objekt som behövs för att köra Azure Vote-programmet. Det här manifestet innehåller två [Kubernetes][kubernetes-deployment] -distributioner – en för Azures rösten python-program och en annan för en Redis-instans. Två [Kubernetes-tjänster][kubernetes-service] skapas också – en intern tjänst för Redis-instansen och en extern tjänst för att få åtkomst till Azures röst program från Internet.
+En Kubernetes-manifestfil definierar ett önskat tillstånd för klustret, till exempel vilka containeravbildningar som ska köras. I den här snabbstarten används ett manifest för att skapa alla objekt som behövs för att köra Azure Vote-programmet. Det här manifestet innehåller två [Kubernetes-distributioner][kubernetes-deployment] – en för Azures rösten python-program och en annan för en Redis-instans. Två [Kubernetes-tjänster][kubernetes-service] skapas också – en intern tjänst för Redis-instansen och en extern tjänst för att få åtkomst till Azures röst program från Internet.
 
 > [!TIP]
 > I den här snabbstarten skapar och distribuerar du manuellt applikationsmanifest till AKS-klustret. I verkliga scenarier kan du använda [Azure dev Spaces][azure-dev-spaces] för att snabbt iterera och felsöka koden direkt i AKS-klustret. Du kan använda Dev Spaces på olika OS-plattformar och i olika utvecklingsmiljöer samt arbeta tillsammans med andra i ditt team.
@@ -234,30 +232,11 @@ Om du vill se hur Azure Vote-appen fungerar i praktiken så öppnar du en webbl�
 
 ![Bild som illustrerar hur du navigerar till Azure Vote](media/container-service-kubernetes-walkthrough/azure-vote.png)
 
-## <a name="monitor-health-and-logs"></a>Övervaka hälsotillstånd och loggar
-
-När AKS-klustret skapades aktiverades Azure Monitor för containrar för att registrera hälsomått för både klusternoderna och poddarna. De här hälsomåtten är tillgängliga i Azure-portalen.
-
-Slutför följande steg för att se aktuell status, drift tid och resursanvändning för Azure röst poddar:
-
-1. Öppna en webbläsare för Azure Portal [https://portal.azure.com][azure-portal].
-1. Välj din resursgrupp, till exempel *myResourceGroup*, och välj sedan ditt AKS-kluster, till exempel *myAKSCluster*.
-1. Under **övervakning** till vänster väljer du insikter.
-1. Klicka på **+ Lägg till filter**överst.
-1. Välj *namnrymd* som egenskap och välj  *\<sedan alla utom\>Kube-system*.
-1. Välj **behållare**.
-
-Containrarna *bak-azure-vote* och *azure-vote-front* visas enligt följande exempel:
-
-![Visa hälsan för containrar som körs i AKS](media/kubernetes-walkthrough/monitor-containers.png)
-
-Om du vill se loggar `azure-vote-back` för Pod väljer du alternativet att **Visa i Analytics**och väljer sedan länken **Visa container loggar** till höger i listan behållare. Loggarna inkluderar strömmarna *stdout* och *stderr* från containern.
-
-![Visa containerloggarna i AKS](media/kubernetes-walkthrough/monitor-container-logs.png)
+När AKS-klustret skapades har [Azure Monitor för behållare](../azure-monitor/insights/container-insights-overview.md) Aktiver ATS för att avbilda hälso mått för både klusternoderna och poddar. De här hälsomåtten är tillgängliga i Azure-portalen.
 
 ## <a name="delete-the-cluster"></a>Ta bort klustret
 
-När klustret inte längre behövs kan du använda kommandot [AZ Group Delete][az-group-delete] för att ta bort resurs gruppen, behållar tjänsten och alla relaterade resurser.
+För att undvika Azure-avgifter bör du rensa resurser som inte behövs.  När klustret inte längre behövs kan du använda kommandot [AZ Group Delete][az-group-delete] för att ta bort resurs gruppen, behållar tjänsten och alla relaterade resurser.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup --yes --no-wait
@@ -274,7 +253,7 @@ I den här snabbstarten har fördefinierade containeravbildningar användes för
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabbstartsguiden distribuerade du ett Kubernetes-kluster och distribuerade sedan ett flerbehållarprogram till det. Du kan också [komma åt Kubernetes-][kubernetes-dashboard] webbinstrumentpanelen för ditt AKS-kluster.
+I den här snabbstartsguiden distribuerade du ett Kubernetes-kluster och distribuerade sedan ett flerbehållarprogram till det. Du kan också [komma åt Kubernetes-webbinstrumentpanelen][kubernetes-dashboard] för ditt AKS-kluster.
 
 Om du vill lära dig mer om AKS, och gå igenom ett exempel med fullständig distributionskod, fortsätter du till självstudiekursen om Kubernetes-kluster.
 

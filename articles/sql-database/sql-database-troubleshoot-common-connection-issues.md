@@ -8,19 +8,20 @@ ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
 author: dalechen
+manager: dcscontentpm
 ms.author: daleche
 ms.reviewer: jrasnik
 ms.date: 01/25/2019
-ms.openlocfilehash: 6dccfca256239f922c2243e2ebfab5c26835ee98
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: cd0ab6d89d88c594d283dc0718c0f58ebb98bf43
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68566309"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71090802"
 ---
 # <a name="troubleshoot-connection-issues-to-azure-sql-database"></a>Felsöka anslutnings problem till Azure SQL Database
 
-När anslutningen till Azure SQL Database Miss lyckas får du [fel meddelanden](sql-database-develop-error-messages.md). Den här artikeln är ett centraliserat avsnitt som hjälper dig att felsöka problem med Azure SQL Database-anslutningen. Den introducerar [vanliga orsaker](#cause) till anslutnings problem, rekommenderar [ett fel söknings verktyg](#try-the-troubleshooter-for-azure-sql-database-connectivity-issues) som hjälper dig att identifiera problemet och ger fel söknings steg för att lösa [tillfälliga fel](#troubleshoot-transient-errors) och beständiga [eller icke-tillfälliga fel ](#troubleshoot-persistent-errors). 
+När anslutningen till Azure SQL Database Miss lyckas får du [fel meddelanden](sql-database-develop-error-messages.md). Den här artikeln är ett centraliserat avsnitt som hjälper dig att felsöka problem med Azure SQL Database-anslutningen. Den introducerar [vanliga orsaker](#cause) till anslutnings problem, rekommenderar [ett fel söknings verktyg](#try-the-troubleshooter-for-azure-sql-database-connectivity-issues) som hjälper dig att identifiera problemet och ger fel söknings steg för att lösa [tillfälliga fel](#troubleshoot-transient-errors) och [beständiga eller icke-tillfälliga fel ](#troubleshoot-persistent-errors). 
 
 Om du stöter på anslutnings problem kan du prova med fel söknings stegen som beskrivs i den här artikeln.
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]

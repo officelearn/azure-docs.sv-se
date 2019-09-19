@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 06/03/2019
 ms.author: mlearned
-ms.openlocfilehash: 1cc2849ffe55fff737993140a1d0f18182820eff
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 3683c9fa7810083d26527275a1235df5336d1c65
+ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68498574"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71097827"
 ---
 # <a name="configure-azure-cni-networking-in-azure-kubernetes-service-aks"></a>Konfigurera Azure CNI Networking i Azure Kubernetes service (AKS)
 
@@ -106,7 +106,7 @@ När du skapar ett AKS-kluster kan följande parametrar konfigureras för Azure 
 
 **IP-adress för KUBERNETES DNS-tjänst**:  IP-adressen för klustrets DNS-tjänst. Adressen måste ligga inom *Kubernetes-tjänstens adress intervall*. Använd inte den första IP-adressen i adress intervallet, till exempel. 1. Den första adressen i under nätets intervall används för *Kubernetes. default. svc. Cluster. local* .
 
-**Docker Bridge-adress**: Nätverks adressen Docker Bridge representerar den standard nätverks adress för *docker0* -brygga som finns i alla Docker-installationer. Även om *docker0* -bryggan inte används av AKS-kluster eller själva poddar, måste du ange den här adressen så att den fortfarande stöder scenarier som Docker- *build* i AKS-klustret. Det krävs att du väljer en CIDR för Docker-bryggans nätverks adress eftersom en annan Docker kommer att välja ett undernät automatiskt som kan hamna i konflikt med andra CIDR-enheter. Du måste välja ett adress utrymme som inte kolliderar med resten av CIDR-inställningarna i dina nätverk, inklusive klustrets tjänst-CIDR och Pod CIDR.
+**Docker Bridge-adress**: Nätverks adressen Docker Bridge representerar den standard nätverks adress för *docker0* -brygga som finns i alla Docker-installationer. Även om *docker0* -bryggan inte används av AKS-kluster eller själva poddar, måste du ange den här adressen så att den fortfarande stöder scenarier som *Docker-build* i AKS-klustret. Det krävs att du väljer en CIDR för Docker-bryggans nätverks adress eftersom en annan Docker kommer att välja ett undernät automatiskt som kan hamna i konflikt med andra CIDR-enheter. Du måste välja ett adress utrymme som inte kolliderar med resten av CIDR-inställningarna i dina nätverk, inklusive klustrets tjänst-CIDR och Pod CIDR.
 
 ## <a name="configure-networking---cli"></a>Konfigurera nätverk – CLI
 
@@ -118,7 +118,7 @@ Börja med att hämta under nätets resurs-ID för det befintliga under nätet d
 $ az network vnet subnet list \
     --resource-group myVnet \
     --vnet-name myVnet \
-    --query [].id --output tsv
+    --query "[0].id" --output tsv
 
 /subscriptions/<guid>/resourceGroups/myVnet/providers/Microsoft.Network/virtualNetworks/myVnet/subnets/default
 ```

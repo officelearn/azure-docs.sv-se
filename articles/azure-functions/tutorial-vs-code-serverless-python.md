@@ -8,12 +8,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 07/02/2019
 ms.author: glenga
-ms.openlocfilehash: 43fee2ce25e358bbcff915d2fbef96bf4b7c1a0c
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: 590757f78086be894cdc2384bb4a4df380e91c27
+ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70233116"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71098609"
 ---
 # <a name="deploy-python-to-azure-functions-with-visual-studio-code"></a>Distribuera python till Azure Functions med Visual Studio Code
 
@@ -45,7 +45,7 @@ Om du inte har en Azure-prenumeration kan du [Registrera dig nu](https://azure.m
 
 Installera följande program vara:
 
-- Python 3.6. x som krävs av Azure Functions. [Python-3.6.8](https://www.python.org/downloads/release/python-368/) är den senaste versionen 3.6. x.
+- Python 3.6. x som krävs av Azure Functions. [Python-3.6.9](https://www.python.org/downloads/release/python-369/) är den senaste versionen 3.6. x.
 - [Visual Studio Code](https://code.visualstudio.com/).
 - [Python-tillägget](https://marketplace.visualstudio.com/items?itemName=ms-python.python) som beskrivs i [själv studie kursen om Visual Studio Code python-krav](https://code.visualstudio.com/docs/python/python-tutorial).
 - [Azure Functions-tillägget](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions). Allmän information finns på [VSCode-Azurefunctions GitHub-lagringsplatsen](https://github.com/Microsoft/vscode-azurefunctions).
@@ -446,6 +446,18 @@ I det här avsnittet lägger du till en lagrings bindning till HttpExample-funkt
         }
     ```
 
+1. Ersätt innehållet i *Host. JSON* med följande, och Lägg till [tilläggs paket referensen](functions-bindings-register.md#extension-bundles).
+
+    ```json
+    {
+        "version": "2.0",
+        "extensionBundle": {
+            "id": "Microsoft.Azure.Functions.ExtensionBundle",
+            "version": "[1.*, 2.0.0)"
+        }
+    }
+    ```
+
 1. Nu när du har konfigurerat bindningen kan du använda den i funktions koden. Återigen visas den nyligen definierade bindningen i koden som ett argument `main` för funktionen i  *\_ \_\_init\_. py*. Du kan till exempel `msg` ändra  *\_ \_filen\_init\_. py* i HttpExample så att den matchar följande, som visar hur du använder argumentet för att skriva ett tidsstämplat meddelande med namnet som används i anmoda. Kommentarerna förklarar de olika ändringarna:
 
     ```python
@@ -498,7 +510,7 @@ I det här avsnittet lägger du till en lagrings bindning till HttpExample-funkt
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Funktionsapp som du har skapat inkluderar resurser som kan medföra minimala kostnader (se prissättningen för [funktioner](https://azure.microsoft.com/pricing/details/functions/)). Om du vill rensa resurserna högerklickar du på Funktionsapp i **Azure: Funktions** Utforskaren och välj **ta bort Funktionsapp**. Du kan också besöka [Azure Portal](https://portal.azure.com), välja **resurs grupper** från det vänstra navigerings fönstret, välja resurs gruppen som skapades i processen för den här själv studie kursen och sedan använda kommandot **ta bort resurs grupp** .
+Funktionsapp som du har skapat inkluderar resurser som kan medföra minimala kostnader (se [prissättningen för funktioner](https://azure.microsoft.com/pricing/details/functions/)). Om du vill rensa resurserna högerklickar du på Funktionsapp i **Azure: Funktions** Utforskaren och välj **ta bort Funktionsapp**. Du kan också besöka [Azure Portal](https://portal.azure.com), välja **resurs grupper** från det vänstra navigerings fönstret, välja resurs gruppen som skapades i processen för den här själv studie kursen och sedan använda kommandot **ta bort resurs grupp** .
 
 ## <a name="next-steps"></a>Nästa steg
 

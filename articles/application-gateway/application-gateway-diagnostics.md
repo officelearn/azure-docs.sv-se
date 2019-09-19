@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 3/28/2019
 ms.author: victorh
-ms.openlocfilehash: 6df78a46e6bc8055f8cce89e199d01ad631e178e
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: 896e1fb3e93fc0a542f0dca75cc1d87b3a2c237c
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70306194"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71057900"
 ---
 # <a name="back-end-health-and-diagnostic-logs-for-application-gateway"></a>Server dels hälsa och diagnostikloggar för Application Gateway
 
@@ -309,6 +309,8 @@ Brand Väggs loggen skapas endast om du har aktiverat den för varje Application
 |details.data     | Vissa data som finns i en begäran som matchade regeln.         |
 |information. fil     | Konfigurations fil som innehåller regeln.        |
 |information. rad     | Rad nummer i konfigurations filen som utlöste händelsen.       |
+|värddatornamn   | Värdnamn eller IP-adress för Application Gateway.    |
+|transactionId  | Unikt ID för en specifik transaktion som hjälper till att gruppera flera regel överträdelser som inträffade inom samma begäran.   |
 
 ```json
 {
@@ -333,6 +335,8 @@ Brand Väggs loggen skapas endast om du har aktiverat den för varje Application
       "file": "rules/REQUEST-941-APPLICATION-ATTACK-XSS.conf",
       "line": "865"
     }
+    "hostname": "40.90.218.100", 
+    "transactionId": "AYAcUqAcAcAcAcAcASAcAcAc"
   }
 } 
 

@@ -16,12 +16,12 @@ ms.workload: na
 ms.date: 03/04/2016
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 9102d6f3ce3be44107268419517dc9ebe434ac7a
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: bfb66789df3236c096ea00bcc83ddc435e87f047
+ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70098462"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71097647"
 ---
 # <a name="azure-app-service-local-cache-overview"></a>Översikt över Azure App Service lokal cache
 
@@ -49,7 +49,7 @@ Den Azure App Service Local cache-funktionen tillhandahåller en webbrolls visni
 * Den lokala cachen innehåller en engångs kopia av _/installation_ -och _/siteextensions_ -mapparna i det delade innehålls arkivet, på _D:\home\site_ respektive _D:\home\siteextensions_. Filerna kopieras till den lokala cachen när appen startas. Storleken på de två mapparna för varje app är begränsad till 300 MB som standard, men du kan öka upp till 2 GB.
 * Den lokala cachen har Läs-och Skriv behörighet. Alla ändringar tas dock bort när appen flyttar virtuella datorer eller startas om. Använd inte det lokala cacheminnet för appar som lagrar verksamhets kritiska data i innehålls lagringen.
 * _D:\home\LogFiles_ och _D:\home\Data_ innehåller loggfiler och appdata. De två undermapparna lagras lokalt på den virtuella dator instansen och kopieras till den delade innehålls lagringen med jämna mellanrum. Appar kan spara loggfiler och data genom att skriva dem till dessa mappar. Kopieringen till den delade innehålls lagringen är dock bästa möjliga, så det är möjligt att loggfiler och data går förlorade på grund av en plötslig krasch i en VM-instans.
-* [Logg strömning](troubleshoot-diagnostic-logs.md#streamlogs) påverkas av den bästa kopieringen. Du kan se en fördröjning på en minut i strömmarna loggar.
+* [Logg strömning](troubleshoot-diagnostic-logs.md#stream-logs) påverkas av den bästa kopieringen. Du kan se en fördröjning på en minut i strömmarna loggar.
 * I det delade innehålls arkivet finns en ändring i mappstrukturen för _loggfiler_ och datamappar för appar som använder den lokala cachen. Det finns nu undermappar som följer namngivnings mönstret för "unik identifierare" + tidsstämpel. Var och en av undermapparna motsvarar en VM-instans där appen körs eller har körts.
 * Andra mappar i _D:\home_ finns kvar i det lokala cacheminnet och kopieras inte till den delade innehålls lagringen.
 * Program distribution via en metod som stöds publicerar direkt till den varaktigt delade innehålls lagringen. Om du vill uppdatera _D:\home\site_ -och _D:\home\siteextensions_ -mapparna i det lokala cacheminnet måste appen startas om. Om du vill göra livs cykeln sömlös kan du läsa mer i informationen längre fram i den här artikeln.
@@ -98,7 +98,7 @@ Som standard är den lokala cachestorleken **300 MB**. Detta omfattar de/install
 ## <a name="best-practices-for-using-app-service-local-cache"></a>Metod tips för att använda App Service lokal cache
 Vi rekommenderar att du använder lokal cache tillsammans med funktionen för [mellanlagrings miljöer](../app-service/deploy-staging-slots.md) .
 
-* Lägg till inställningen `WEBSITE_LOCAL_CACHE_OPTION` för tröga appar med `Always` värdet till **produktions** platsen. Om du använder `WEBSITE_LOCAL_CACHE_SIZEINMB`, kan du även lägga till den som en trög inställning för din produktions plats.
+* Lägg till inställningen `WEBSITE_LOCAL_CACHE_OPTION` för *tröga* appar med `Always` värdet till **produktions** platsen. Om du använder `WEBSITE_LOCAL_CACHE_SIZEINMB`, kan du även lägga till den som en trög inställning för din produktions plats.
 * Skapa en **mellanlagringsplats** och publicera på mellanlagrings platsen. Normalt anger du inte mellanlagringsplatsen för att använda lokal cache för att möjliggöra en sömlös bygge-distribution-test-livscykel för mellanlagring om du får fördelarna med lokal cache för produktions platsen.
 * Testa din webbplats mot mellanlagrings platsen.  
 * När du är klar utfärdar du en [växlings åtgärd](../app-service/deploy-staging-slots.md#Swap) mellan dina mellanlagrings-och produktions platser.  

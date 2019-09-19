@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: 67f3fd8f3166abac987e8fefbbf4a020f165c8bf
-ms.sourcegitcommit: acffa72239413c62662febd4e39ebcb6c6c0dd00
+ms.openlocfilehash: 7264b8e5a536c90d106b3bf4a5e26093744327d6
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68951877"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71091818"
 ---
 # <a name="message-sessions-first-in-first-out-fifo"></a>Message-sessioner: först in, först ut (FIFO) 
 
@@ -40,6 +40,9 @@ Funktionen session i Service Bus aktiverar en enskild Receive-åtgärd i form av
 I portalen anger du flaggan med följande kryss ruta:
 
 ![][2]
+
+> [!NOTE]
+> När sessioner är aktiverade i en kö eller en prenumeration kan klient programmen ***inte längre*** skicka/ta emot vanliga meddelanden. Alla meddelanden måste skickas som en del av en session (genom att ställa in sessions-ID) och tas emot genom att ta emot sessionen.
 
 API: erna för sessioner finns i kö-och prenumerations klienter. Det finns en tvingande modell som styr när sessioner och meddelanden tas emot, och en hanterare-baserad modell, som liknar *motringningen OnMessage*, som döljer komplexiteten med att hantera Receive-slingan.
 
@@ -89,7 +92,7 @@ Definitionen av leverans antal per meddelande i samband med sessioner skiljer si
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Se antingen [Microsoft. Azure. Service Bus](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/Sessions) -exemplen eller [Microsoft. Service Bus. Messaging](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/Sessions) -exemplen för ett exempel som använder .NET Framework-klienten för att hantera sessionsbaserade meddelanden. 
+- Se antingen [Microsoft. Azure. Service Bus-exemplen](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/Sessions) eller [Microsoft. Service Bus. Messaging-exemplen](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/Sessions) för ett exempel som använder .NET Framework-klienten för att hantera sessionsbaserade meddelanden. 
 
 Mer information om Service Bus meddelanden finns i följande avsnitt:
 

@@ -1,6 +1,6 @@
 ---
-title: Webbapp som loggar in användare (flytta till produktion) - Microsoft identity-plattformen
-description: Lär dig att skapa en webbapp som loggar in användare (flytta till produktion)
+title: Webbapp som loggar in användare (flytta till produktion) – Microsoft Identity Platform
+description: Lär dig hur du skapar en webbapp som loggar in användare (flytta till produktion)
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -11,38 +11,42 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/07/2019
+ms.date: 09/17/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d41ad2518f885bbaa02dda3b01f0c02e9fc1d217
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bd6717c132d32d54c16e7678695a09e35181a057
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65074717"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71086554"
 ---
 # <a name="web-app-that-signs-in-users---move-to-production"></a>Webbapp som loggar in användare – flytta till produktion
 
-Nu när du vet hur du skaffa en token för att anropa webb-API: er lär du dig hur du flyttar det till produktion.
+Nu när du vet hur du kan hämta en token för att anropa webb-API: er, lär du dig hur du flyttar den till produktionen.
 
 [!INCLUDE [Move to production common steps](../../../includes/active-directory-develop-scenarios-production.md)]
 
 ## <a name="next-steps"></a>Nästa steg
 
-### <a name="calling-web-apis-scenario"></a>Anropa webb-API: er scenario
+### <a name="calling-web-apis-scenario"></a>Anropa webb-API-scenario
 
-När dina web app loggar in användare, kan det anropa webb-API: er åt de inloggade användarna. Anropa webb API: er från webbapp är objekt av följande scenario:
+När din webbapp loggar in användare kan den anropa webb-API: er för de inloggade användarna. Att anropa webb-API: er från webbappen är objektet i följande scenario:
 
 > [!div class="nextstepaction"]
 > [Webbapp som anropar webb-API:er](scenario-web-app-call-api-overview.md)
 
-### <a name="deep-dive---web-app-tutorial"></a>Djupdykning - självstudier om webbappen
+### <a name="deep-dive---aspnet-core-web-app-tutorial"></a>Djupgående vägledning – ASP.NET Core Web Apps-självstudie
 
-Lär dig mer om andra sätt att logga in användare med ASP.NET Core-självstudie: [ms-identity-aspnetcore-webapp-tutorial](https://github.com/Azure-Samples/ms-identity-aspnetcore-webapp-tutorial). Det här är en progressiv självstudiekurs i produktionskoden redo för en webbapp, inklusive hur du lägger till inloggningen.
+Lär dig mer om andra sätt att logga in användare med självstudierna ASP.NET Core: [MS-Identity-aspnetcore-webapp-självstudie](https://github.com/Azure-Samples/ms-identity-aspnetcore-webapp-tutorial). Det här exemplet är en progressiv självstudie med produktions klar kod för en webbapp, inklusive hur du lägger till inloggning med konton i:
 
-<!--- Removed the diagram as it's already shown in the above link to GitHub
+- din organisation,
+- flera organisationer,
+- arbets-eller skol konton eller personliga Microsoft-konto,
+- med [Azure AD B2C](https://aka.ms/aadb2c),
+- eller i nationella moln.
 
-![Tutorial overview](media/scenarios/aspnetcore-webapp-tutorial.svg)
+### <a name="sample-code---java-web-app"></a>Exempel kod – Java-webbapp
 
---->
+Läs mer om Java-webbappen från exemplet på GitHub: [Ett Java-webbprogram som loggar in användare med Microsoft Identity Platform och anropar Microsoft Graph](https://github.com/Azure-Samples/ms-identity-java-webapp)

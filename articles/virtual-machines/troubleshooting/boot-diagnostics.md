@@ -1,29 +1,29 @@
 ---
-title: Startdiagnostik för virtuella datorer i Azure | Microsoft-dokument
-description: Översikt över två felsökningsfunktioner för virtuella datorer i Azure
+title: Starta diagnostik för virtuella datorer i Azure | Microsoft doc
+description: Översikt över de två fel söknings funktionerna för virtuella datorer i Azure
 services: virtual-machines
 author: Deland-Han
-manager: gwallace
+manager: dcscontentpm
 editor: ''
 tags: azure-resource-manager
 ms.service: virtual-machines
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: delhan
-ms.openlocfilehash: 7796d24b88ccc531b8042bfadf9d87f0072a2994
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: d34182e09bf453dbec1e9592f131cb9b3b78a086
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67709866"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71086475"
 ---
-# <a name="how-to-use-boot-diagnostics-to-troubleshoot-virtual-machines-in-azure"></a>Hur du använder startdiagnostik för felsökning av virtuella datorer i Azure
+# <a name="how-to-use-boot-diagnostics-to-troubleshoot-virtual-machines-in-azure"></a>Så här använder du startdiagnostik för att felsöka virtuella datorer i Azure
 
-Det kan finnas många orsaker till att en virtuell dator försätts i ett icke startbart tillstånd. Att åtgärda problem med med dina virtuella datorer som skapats med hjälp av Resource Manager-distributionsmodell som du kan använda följande felsökningsfunktioner: Konsolutdata och skärmbild stöd för virtuella Azure-datorer. 
+Det kan finnas många orsaker till att en virtuell dator övergår till ett icke startbart tillstånd. För att lösa problem med dina virtuella datorer som skapats med distributions modellen Resource Manager kan du använda följande fel söknings funktioner: Konsol utdata och skärm bilds stöd för Azure Virtual Machines. 
 
-Du kan visa utdata från konsolloggen på portalen för virtuella Linux-datorer. För både Windows och Linux-datorer kan Azure du se en skärmbild av den virtuella datorn från hypervisor-programmet. Båda funktionerna har stöd för virtuella Azure-datorer i alla regioner. Tänk på att det kan ta upp till 10 minuter innan skärmbilder och utdata visas på lagringskontot.
+För virtuella Linux-datorer kan du visa utdata från konsol loggen från portalen. För både virtuella Windows-och Linux-datorer kan du använda Azure för att visa en skärm bild av den virtuella datorn från hypervisorn. Båda funktionerna stöds för virtuella Azure-datorer i alla regioner. Tänk på att det kan ta upp till 10 minuter innan skärmbilder och utdata visas på lagringskontot.
 
-Du kan välja den **Startdiagnostik** alternativ för att visa loggen och skärmbilden.
+Du kan välja alternativet **Starta diagnostik** för att visa loggen och skärm bilden.
 
 ![Resource Manager](./media/virtual-machines-common-boot-diagnostics/screenshot1.png)
 
@@ -43,21 +43,21 @@ Du kan välja den **Startdiagnostik** alternativ för att visa loggen och skärm
 - [Inget operativsystem hittades](https://support.microsoft.com/help/4010142)
 - [Startfel eller INACCESSIBLE_BOOT_DEVICE](https://support.microsoft.com/help/4010143)
 
-## <a name="enable-diagnostics-on-a-virtual-machine-created-using-the-azure-portal"></a>Aktivera diagnostik på en virtuell dator som skapats med hjälp av Azure Portal
+## <a name="enable-diagnostics-on-a-virtual-machine-created-using-the-azure-portal"></a>Aktivera diagnostik på en virtuell dator som skapats med Azure Portal
 
-Följande procedur är för en virtuell dator som skapats med hjälp av Resource Manager-distributionsmodellen.
+Följande procedur gäller för en virtuell dator som skapats med Resource Manager-distributions modellen.
 
-På den **Management** fliken **övervakning** avsnittet, se till att **Startdiagnostik** är påslagen. Från den **diagnostiklagringskonto** listrutan väljer du ett lagringskonto där du vill placera diagnostikfilerna.
+På fliken **hantering** i avsnittet **övervakning** kontrollerar du att **startdiagnostik** är aktiverat. I list rutan **diagnostik-lagrings konto** väljer du ett lagrings konto där du vill placera diagnostikfiler.
  
-![Skapa en virtuell dator](./media/virtual-machines-common-boot-diagnostics/enable-boot-diagnostics-vm.png)
+![Skapa virtuell dator](./media/virtual-machines-common-boot-diagnostics/enable-boot-diagnostics-vm.png)
 
 > [!NOTE]
-> Funktionen Boot diagnostics har inte stöd för premium storage-konto. Om du använder premium-lagringskonto för startdiagnostik kan hända det StorageAccountTypeNotSupported-fel när du startar den virtuella datorn.
+> Funktionen för att starta diagnostik har inte stöd för Premium Storage-konton. Om du använder Premium Storage-kontot för startdiagnostik kan du få ett StorageAccountTypeNotSupported-fel när du startar den virtuella datorn.
 >
 
 ### <a name="deploying-from-an-azure-resource-manager-template"></a>Distribuera från en Azure Resource Manager-mall
 
-Om du distribuerar en Azure Resource Manager-mall, navigera till den virtuella datorresursen och lägger till diagnostikprofilavsnittet. Ange API-versionsrubriken till ”2015-06-15” eller senare. Den senaste versionen är ”2018-10-01”.
+Om du distribuerar från en Azure Resource Manager-mall navigerar du till den virtuella dator resursen och lägger till diagnostisk profil avsnittet. Ange API-versions rubriken till "2015-06-15" eller senare. Den senaste versionen är "2018-10-01".
 
 ```json
 {
@@ -79,15 +79,15 @@ Via diagnostikprofilen kan du välja det lagringskonto där loggarna ska placera
 }
 ```
 
-Mer information om hur du distribuerar resurser med hjälp av mallar finns i [snabbstarten: Skapa och distribuera Azure Resource Manager-mallar med hjälp av Azure-portalen](../../azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal.md).
+Mer information om hur du distribuerar resurser med hjälp av [mallar finns i snabb start: Skapa och distribuera Azure Resource Manager-mallar med hjälp av Azure-portalen](../../azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal.md).
 
-## <a name="enable-boot-diagnostics-on-existing-virtual-machine"></a>Aktivera startdiagnostik på befintlig virtuell dator 
+## <a name="enable-boot-diagnostics-on-existing-virtual-machine"></a>Aktivera startdiagnostik på den befintliga virtuella datorn 
 
 Följ dessa steg om du vill aktivera startdiagnostik på en befintlig virtuell dator:
 
-1. Logga in på den [Azure-portalen](https://portal.azure.com), och välj sedan den virtuella datorn.
-2. I den **Support och felsökning** väljer **Startdiagnostik**och välj sedan den **inställningar** fliken.
-3. I **Startdiagnostik** inställningar, ändrar du statusen till **på**, och från den **lagringskonto** listrutan Välj ett lagringskonto. 
+1. Logga in på [Azure Portal](https://portal.azure.com)och välj den virtuella datorn.
+2. I avsnittet **support och fel sökning** väljer du **startdiagnostik**och väljer sedan fliken **Inställningar** .
+3. I inställningar för **startdiagnostik** ändrar du status till **på**och i list rutan **lagrings konto** väljer du ett lagrings konto. 
 4. Spara ändringen.
 
     ![Uppdatera befintlig virtuell dator](./media/virtual-machines-common-boot-diagnostics/enable-for-existing-vm.png)
@@ -96,5 +96,5 @@ Du måste starta om den virtuella datorn för att ändringen ska börja gälla.
 
 ### <a name="enable-boot-diagnostics-using-the-azure-cli"></a>Aktivera startdiagnostik med Azure CLI
 
-Du kan använda Azure CLI för att aktivera startdiagnostik på befintliga Azure-datorer. Mer information finns i [az vm boot-diagnostics](
-https://docs.microsoft.com/cli/azure/vm/boot-diagnostics?view=azure-cli-latest).
+Du kan använda Azure CLI för att aktivera startdiagnostik på en befintlig virtuell Azure-dator. Mer information finns i [AZ VM Boot-Diagnostics.](
+https://docs.microsoft.com/cli/azure/vm/boot-diagnostics?view=azure-cli-latest)

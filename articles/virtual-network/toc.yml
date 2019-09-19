@@ -255,8 +255,18 @@
           href: manage-public-ip-address-prefix.md
     - name: Flytta mellan regioner
       items:
+        - name: Nätverkssäkerhetsgrupper – portalen
+          href: move-across-regions-nsg-portal.md
+        - name: Nätverkssäkerhetsgrupper – PowerShell
+          href: move-across-regions-nsg-powershell.md
         - name: Virtuella nätverk – portalen
           href: virtual-network-azure-to-azure-migrate-vnet-portal.md
+        - name: Virtuella nätverk – PowerShell
+          href: virtual-network-azure-to-azure-migrate-vnet-powershell.md
+        - name: Offentliga IP-adresser – portalen
+          href: move-across-regions-publicip-portal.md
+        - name: Offentliga IP-adresser – PowerShell
+          href: move-across-regions-publicip-powershell.md
     - name: Felsöka
       items:
         - name: Felsöka problem med peering i virtuella nätverk

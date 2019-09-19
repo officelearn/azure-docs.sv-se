@@ -7,11 +7,11 @@
 - name: Snabbstarter
   expanded: true
   items:
-    - name: Skapa ett program med flera tjänster
-      href: terrafom-quickstart.md
     - name: Installera och konfigurera Terraform
       href: /azure/virtual-machines/linux/terraform-install-configure
       maintainContext: true
+    - name: Skapa ett program med flera tjänster
+      href: terrafom-quickstart.md
     - name: Skapa en virtuell Linux-dator
       href: /azure/virtual-machines/linux/terraform-create-complete-vm
       maintainContext: true
@@ -67,10 +67,6 @@
   items:
     - name: Konfigurationsmallar
       href: 'https://github.com/terraform-providers/terraform-provider-azurerm/tree/master/examples'
-- name: Begrepp
-  items:
-    - name: Azure Cloud Shell-integrering
-      href: terraform-cloud-shell.md
 - name: Instruktionsguider
   items:
     - name: Lagra tillstånd i Azure Storage
@@ -79,7 +75,7 @@
   items:
     - name: Azure-modulregister
       href: 'https://registry.terraform.io/modules/Azure'
-    - name: Terraform-referens
+    - name: Leverantör av Terraform för Azure
       href: 'https://aka.ms/terraform'
 - name: Resurser
   items:

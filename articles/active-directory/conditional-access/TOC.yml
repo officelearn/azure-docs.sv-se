@@ -19,10 +19,10 @@
 - name: Begrepp
   expanded: false
   items:
-    - name: Använda villkorsstyrd åtkomst
-      href: howto-conditional-access-adoption-kit.md
     - name: Vanliga principer för villkorlig åtkomst
       href: concept-conditional-access-policy-common.md
+    - name: Komponenter för princip för villkorsstyrd åtkomst
+      href: concept-conditional-access-policies.md
     - name: Villkor
       href: conditions.md
     - name: Platsvillkor

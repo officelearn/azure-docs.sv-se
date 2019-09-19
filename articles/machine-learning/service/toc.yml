@@ -152,6 +152,9 @@
         - name: Lägga till och registrera datauppsättningar
           displayName: 'data, dataset'
           href: how-to-create-register-datasets.md
+        - name: Träna med datauppsättningar
+          displayName: 'data, dataset'
+          href: how-to-train-with-datasets.md
     - name: Inlärningsmodeller
       items:
         - name: Konfigurera miljöer för utbildning

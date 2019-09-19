@@ -164,7 +164,7 @@
           href: sql-database-reserved-capacity.md
         - name: Migrera från Premium RS-tjänstnivån
           href: sql-database-service-tiers-prs.md
-    - name: Beräkning och lagring
+    - name: Tjänstnivåer
       items:
         - name: Översikt
           href: sql-database-service-tiers-general-purpose-business-critical.md
@@ -302,6 +302,8 @@
                   href: sql-database-vnet-service-endpoint-rule-overview.md
                 - name: Slutpunkter för virtuellt nätverk – PowerShell
                   href: sql-database-vnet-service-endpoint-rule-powershell.md
+            - name: Private Link
+              href: sql-database-private-endpoint-overview.md
         - name: Åtkomstkontroll
           items:
             - name: Åtkomstkontroll

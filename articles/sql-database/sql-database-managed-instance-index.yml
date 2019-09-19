@@ -44,6 +44,9 @@ sections:
           - title: VNET-integration
             href: /azure/sql-database/sql-database-managed-instance-connectivity-architecture
             html: <p>Säker tjänst som placerats i ditt privata Azure VNet med privata IP-adresser.</p>
+          - href: /azure/sql-database/sql-database-instance-pools
+            html: <p>Kostnadseffektiv lösning för att distribuera flera hanterade instanser som delar resurserna.</p>
+            title: Instanspooler
           - title: Enkel migrering
             href: /azure/sql-database/sql-database-managed-instance-get-started-restore
             html: <p>Migrera enkelt dina lokala databaser till Azure-molnet med intern återställning.</p>
@@ -59,9 +62,6 @@ sections:
           - title: Tjänstnivåer
             href: /azure/sql-database/sql-database-service-tiers-general-purpose-business-critical
             html: <p>Välj mellan tjänstnivåerna Generell användning och Affärskritisk beroende på dina affärsbehov.</p>
-          - title: Avancerad säkerhet
-            href: /azure/sql-database/sql-database-security-index
-            html: <p>Skydda din instans och dina databaser med inbyggda funktioner i Azure SQL Database.<p>
   - title: Snabbstarter på 5 minuter
     items:
       - type: paragraph
@@ -93,6 +93,12 @@ sections:
               - href: null
               - href: 'https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44'
               - href: '/powershell/module/az.sql/set-azsqlinstance#examples'
+              - href: null
+          - title: Skapa en ny instanspool
+            values:
+              - href: null
+              - href: null
+              - href: '/azure/sql-database/sql-database-instance-pools-how-to#create-an-instance-pool'
               - href: null
           - title: Konfigurera Azures nätverksmiljö
             values:

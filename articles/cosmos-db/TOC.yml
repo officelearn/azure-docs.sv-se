@@ -666,6 +666,8 @@
           href: how-to-configure-change-feed-start-time.md
         - name: Använda ändringsflödesövervakaren
           href: how-to-use-change-feed-estimator.md
+        - name: Migrera från Change Feed Processor-biblioteket
+          href: how-to-migrate-from-change-feed-library.md
     - name: Inbyggd analys med Apache Spark
       items:
         - name: Azure Databricks Spark-anslutningsapp

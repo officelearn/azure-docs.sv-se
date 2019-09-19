@@ -1,64 +1,87 @@
-### YamlMime:YamlDocument
-documentType: LandingData
+### YamlMime:Landing
 title: Dokumentation om Ansible på Azure
+summary: Lär dig använda Ansible för att automatisera etablering i molnet, konfigurationshantering och programdistribution.
 metadata:
-  title: 'Dokumentation om Ansible på Azure – självstudier, exempel, referenser och resurser'
-  description: 'Lär dig använda Ansible för att automatisera etablering i molnet, konfigurationshantering och programdistribution.'
-  ms.service: azure
-  keywords: 'ansible, azure, devops, tutorials, samples, reference'
-  author: tomarchermsft
-  manager: jeconnoc
-  ms.author: tarcher
+  title: Dokumentation om Ansible på Azure
+  description: Lär dig använda Ansible för att automatisera etablering i molnet, konfigurationshantering och programdistribution.
+  services: azure
+  ms.service: ansible
   ms.topic: landing-page
-  ms.date: 04/22/2019
-abstract:
-  description: 'Använd <a href="https://www.ansible.com">Ansible</a> för att automatisera etablering i molnet, konfigurationshantering och programdistribution.'
-sections:
-  - title: Snabbstarter på 5 minuter
-    items:
-      - type: paragraph
-        text: Installera Ansible och använda det för att skapa och hantera virtuella Linux-datorer i Azure.
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: /azure/media/index/azure_dev-9.svg
-            text: Installera Ansible
-            href: /azure/virtual-machines/linux/ansible-install-configure?toc=%2Fen-us%2Fazure%2Fansible%2Ftoc.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json
-          - image:
-              src: /azure/media/index/VirtualMachine.svg
-            text: Konfigurera en virtuell Linux-dator
-            href: /azure/virtual-machines/linux/ansible-create-vm?toc=%2Fen-us%2Fazure%2Fansible%2Ftoc.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json
-          - image:
-              src: /azure/media/index/VirtualMachine.svg
-            text: Hantera en virtuell Linux-dator
-            href: /azure/virtual-machines/linux/ansible-manage-linux-vm?toc=%2Fen-us%2Fazure%2Fansible%2Ftoc.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json
-  - title: Steg för steg-självstudier
-    items:
-      - type: paragraph
-        text: 'Lär dig använda Ansible för att skapa och hantera infrastruktur för beräkning, nätverk och lagring i Azure.'
-      - type: list
-        style: unordered
-        items:
-          - html: '<a href="/azure/virtual-machines/linux/ansible-create-complete-vm?toc=%2Fen-us%2Fazure%2Fansible%2Ftoc.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json">Skapa en virtuell Linux-dator, inklusive ett virtuellt nätverk, en offentlig IP-adress och ett virtuellt nätverkskort.</a>'
-          - html: <a href="./ansible-run-playbook-in-cloudshell">Köra Ansible med Bash i Azure Cloud Shell.</a>
-          - html: <a href="./ansible-manage-azure-dynamic-inventories">Skapa och hantera ett dynamisk lager för dina Azure-resurser.</a>
-          - html: <a href="./ansible-create-configure-vmss">Skapa och hantera skalningsuppsättningar för virtuella datorer i Azure.</a>
-          - html: <a href="./ansible-deploy-app-vmss">Distribuera program till skalningsuppsättningar för virtuella datorer i Azure.</a>
-          - html: <a href="./ansible-create-configure-aks">Skapa och hantera Azure Kubernetes Service-kluster.</a>
-          - html: <a href="./ansible-create-configure-application-gateway">Hantera webbtrafik med en Azure Application Gateway.</a>
-          - html: <a href="./ansible-auto-scale-vmss">Skala skalningsuppsättningar för virtuella datorer automatiskt i Azure med Ansible.</a>
-          - html: <a href="./ansible-scale-azure-web-apps">Skala Azure App Service-webbappar med Ansible.</a>
-          - html: '<a href="./ansible-create-configure-route-table">Skapa, ändra eller ta bort en Azure-routningstabell med Ansible.</a>'
-  - title: Referens
-    items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: Spelboksroller
-            html: '<p><a href="https://galaxy.ansible.com/Azure/azure_preview_modules/">azure_preview_module</a></p>'
-          - title: Versioner och funktioner
-            html: <p><a href="./ansible-matrix.md">Funktionsmatris för moduler och roller</a></p>
-          - title: Verktyg
-            html: '<p><a href="https://marketplace.visualstudio.com/items?itemName=vscoss.vscode-ansible">Visual Studio Code-tillägg för Ansible</a></p>'
+  author: TomArcherMsft
+  ms.author: tarcher
+  ms.date: 09/11/2019
+  ms.openlocfilehash: 8a33d1b9661ef84294a35c51ecd42a59dde68f23
+  ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 09/17/2019
+  ms.locfileid: "71075064"
+landingContent:
+- title: Om Ansible på Azure
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Om Ansible på Azure
+      url: ansible-overview.md
+  - linkListType: architecture
+    links:
+    - text: Ansible-moduler och versionsmatriser
+      url: ansible-matrix.md
+- title: Installera och konfigurera Ansible
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Distribuera Ansible-lösningsmallar till CentOS
+      url: ansible-deploy-solution-template.md
+    - text: Installera Ansible på virtuella Linux-datorer
+      url: /azure/virtual-machines/linux/ansible-install-configure
+    - text: Köra spelböcker i Cloud Shell
+      url: ansible-run-playbook-in-cloudshell.md
+  - linkListType: tutorial
+    links:
+    - text: Konfigurera ett dynamiskt lager
+      url: ansible-manage-azure-dynamic-inventories.md
+  - linkListType: download
+    links:
+    - text: Visual Studio Code-tillägg för Ansible
+      url: https://marketplace.visualstudio.com/items?itemName=vscoss.vscode-ansible
+- title: Hantera Virtual Machines
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Konfigurera virtuella Linux-datorer
+      url: /azure/virtual-machines/linux/ansible-create-vm?toc=%2Fen-us%2Fazure%2Fansible%2Ftoc.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json
+    - text: Hantera virtuella Linux-datorer
+      url: /azure/virtual-machines/linux/ansible-manage-linux-vm?toc=%2Fen-us%2Fazure%2Fansible%2Ftoc.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json
+- title: Hantera Virtual Machine Scale Sets
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Konfigurera Virtual Machine Scale Sets
+      url: ansible-create-configure-vmss.md
+    - text: Distribuera program till Virtual Machine Scale Sets
+      url: ansible-deploy-app-vmss.md
+    - text: Skala Virtual Machine Scale Sets automatiskt
+      url: ansible-auto-scale-vmss.md
+    - text: Uppdatera anpassade avbildningar
+      url: ansible-vmss-update-image.md
+- title: Hantera virtuella nätverk
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Konfigurera peering
+      url: ansible-vnet-peering-configure.md
+    - text: Konfigurera routningstabeller
+      url: ansible-create-configure-route-table.md
+- title: Hantera AKS
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Konfigurera AKS-kluster
+      url: ansible-create-configure-aks.md
+    - text: Konfigurera Azure CNI-nätverk
+      url: ansible-aks-configure-cni-networking.md
+    - text: Konfigurera kubenet-nätverk
+      url: ansible-aks-configure-kubenet-networking.md
+    - text: Konfigurera RBAC-roller i AKS-kluster
+      url: ansible-aks-configure-rbac.md

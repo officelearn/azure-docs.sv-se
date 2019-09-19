@@ -1,63 +1,85 @@
-### YamlMime:YamlDocument
-documentType: LandingData
+### YamlMime:Landing
 title: Dokumentation om Terraform på Azure
+summary: Lär dig hur du använder Terraform för att etablera virtuella datorer och annan infrastruktur på Azure på ett tillförlitligt sätt.
 metadata:
-  title: 'Dokumentation om Terraform på Azure – självstudier, exempel, referenser och resurser'
+  title: Dokumentation om Terraform på Azure – självstudier, exempel, referenser och resurser
   description: Lär dig hur du använder Terraform för att etablera virtuella datorer och annan infrastruktur på Azure på ett tillförlitligt sätt.
-  services: terraform
-  ms.service: azure
-  keywords: 'terraform, azure, devops, tutorials, samples, reference'
-  author: tomarchermsft
-  manager: jeconnoc
-  ms.author: tarcher
+  services: azure
+  ms.service: terraform
   ms.topic: landing-page
-  ms.date: 08/31/2018
-abstract:
-  description: 'Använd Terraform för att på ett tillförlitligt sätt tilldela versionsnummer och skapa infrastruktur på Azure. Lär dig hur du skapar resurser, använder Azure Terraform-moduler och underhåller din infrastruktur med kod med våra snabbstarter och självstudier.'
-sections:
-  - title: Snabbstarter
-    items:
-      - type: paragraph
-        text: Konfigurera Terraform och använd tjänsten för att skapa en virtuell Linux-dator i Azure.
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: 'https://docs.microsoft.com/azure/media/index/azure_dev-9.svg'
-            text: Installera och konfigurera Terraform
-            href: 'https://docs.microsoft.com/azure/virtual-machines/linux/terraform-install-configure'
-          - image:
-              src: 'https://docs.microsoft.com/azure/media/index/VirtualMachine.svg'
-            text: Skapa en virtuell Linux-dator
-            href: 'https://docs.microsoft.com/azure/virtual-machines/linux/terraform-create-complete-vm'
-  - title: Steg för steg-självstudier
-    items:
-      - type: paragraph
-        text: Lär dig hur du skapar beräknings- och nätverksinfrastruktur i Azure från kod med Terraform.
-      - type: list
-        style: unordered
-        items:
-          - html: <a href="/azure/terraform/terraform-create-k8s-cluster-with-tf-and-aks">Skapa ett Kubernetes-kluster med AKS</a>.
-          - html: <a href="/azure/terraform/terraform-create-k8s-cluster-with-aks-applicationgateway-ingress">Skapa ett Kubernetes-kluster med Application Gateway som en inkommande kontrollant med AKS</a>.
-          - html: <a href="/azure/terraform/terraform-vm-msi">Skapa en virtuell Terraform-dator med aktiverad MSI-autentisering med hjälp av en Azure Marketplace-avbildning</a>.
-          - html: <a href="/azure/terraform/terraform-create-vm-cluster-module">Skapa ett belastningsutjämnat VM-kluster med Azure Terraform-moduler</a>.
-          - html: <a href="/azure/terraform/terraform-create-vm-cluster-with-infrastructure">Skapa ett belastningsutjämnat VM-kluster i Azure Cloud Shell</a>.
-          - html: <a href="/azure/terraform/terraform-create-vm-scaleset-network-disks-hcl">Konfigurera en VM-skalningsuppsättning med nätverk och lagring</a>
-          - html: <a href="/azure/terraform/terraform-create-vm-scaleset-network-disks-using-packer-hcl">Etablera en VM-skalningsuppsättning från en anpassad Packer-avbildning</a>
-  - title: Exempel
-    items:
-      - type: paragraph
-        text: Exempelkonfigurationsmallar för vanliga distributionsuppgifter.
-      - type: list
-        style: unordered
-        className: spaced noBullet
-        items:
-          - html: '<a href="https://github.com/terraform-providers/terraform-provider-azurerm/tree/master/examples">GitHub</a>'
-  - title: Referens
-    items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: Azure Terraform-moduler
-            html: '<p><a href="https://registry.terraform.io/modules/Azure/database/azurerm">Azure RM för databas</a></p><p><a href="https://registry.terraform.io/modules/Azure/loadbalancer">Azure RM för lastbalanserare</a></p><p><a href="https://registry.terraform.io/modules/Azure/computegroup">Azure RM-beräkningsgrupp</a></p><p><a href="https://registry.terraform.io/modules/Azure/network">Azure RM-nätverk</a></p><p><a href="https://registry.terraform.io/modules/Azure/compute">Azure RM-beräkning</a></p>'
+  author: TomArcherMsft
+  ms.author: tarcher
+  ms.date: 09/12/2019
+  ms.openlocfilehash: 9195595a36fd5ff09afaf61169fb2bc1c3eb2533
+  ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 09/18/2019
+  ms.locfileid: "71086502"
+landingContent:
+- title: Om Terraform på Azure
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Om Terraform på Azure
+      url: terraform-overview.md
+  - linkListType: architecture
+    links:
+    - text: Leverantör av Terraform för Azure
+      url: https://aka.ms/terraform
+- title: Installera och konfigurera Terraform
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Installera och konfigurera Terraform
+      url: /azure/virtual-machines/linux/terraform-install-configure?/azure/terraform/toc.json&bc=/azure/bread/toc.json
+    - text: Skapa en Terraform-konfigurations för Azure
+      url: terrafom-quickstart.md
+    - text: Installera Terraform Visual Studio Code-tillägget
+      url: terraform-vscode-extension.md
+    - text: Skapa en grundläggande Terraform-mall med hjälp av Yeoman
+      url: terraform-vscode-module-generator.md
+    - text: Testa Terraform-moduler med hjälp av Terratest
+      url: terratest-in-terraform-modules.md
+- title: Hantera AKS
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Skapa ett Kubernetes-kluster med AKS
+      url: terraform-create-k8s-cluster-with-tf-and-aks.md
+    - text: Skapa ett Kubernetes-kluster med Application Gateway
+      url: terraform-create-k8s-cluster-with-aks-applicationgateway-ingress.md
+- title: Hantera infrastruktur
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Skapa en virtuell Linux-dator
+      url: /azure/virtual-machines/linux/terraform-create-complete-vm?/azure/terraform/toc.json&bc=/azure/bread/toc.json
+  - linkListType: tutorial
+    links:
+    - text: Skapa en virtuell Terraform-dator med MSI aktiverat
+      url: terraform-vm-msi.md
+    - text: Skapa ett VM-kluster med Terraform-moduler
+      url: terraform-create-vm-cluster-module.md
+    - text: Skapa ett VM-kluster med Terraform och HCL
+      url: terraform-create-vm-cluster-with-infrastructure.md
+    - text: Etablera virtuella skalningsuppsättningar med infrastruktur
+      url: terraform-create-vm-scaleset-network-disks-hcl.md
+    - text: Etablera en VM-skalningsuppsättning från en anpassad Packer-avbildning
+      url: terraform-create-vm-scaleset-network-disks-using-packer-hcl.md
+- title: Hantera nätverk
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: 1. Skapa topologi av typen hub-spoke
+      url: terraform-hub-spoke-introduction.md
+    - text: 2. Skapa ett lokalt virtuellt nätverk
+      url: terraform-hub-spoke-on-prem.md
+    - text: 3. Skapa ett virtuellt hub-nätverk
+      url: terraform-hub-spoke-hub-network.md
+    - text: 4. Skapa en installation för ett virtuellt hub-nätverk
+      url: terraform-hub-spoke-hub-nva.md
+    - text: 5. Skapa ett spoke-nätverk
+      url: terraform-hub-spoke-spoke-network.md
+    - text: 6. Verifiera nätverksanslutning för topologi
+      url: terraform-hub-spoke-validation.md

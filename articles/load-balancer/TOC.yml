@@ -123,6 +123,14 @@
       href: load-balancer-query-metrics-rest-api.md
     - name: Konfigurera portar med hög tillgänglighet för intern Azure Load Balancer
       href: load-balancer-configure-ha-ports.md
+    - name: Flytta mellan regioner
+      items:
+        - name: Extern lastbalanserare – portalen
+          href: move-across-regions-external-load-balancer-portal.md
+        - name: Extern lastbalanserare – PowerShell
+          href: move-across-regions-external-load-balancer-powershell.md
+        - name: Intern lastbalanserare – PowerShell
+          href: move-across-regions-internal-load-balancer-powershell.md
     - name: Felsöka
       items:
         - name: Felsök Azure Load Balancer

@@ -73,7 +73,7 @@ sections:
       - type: list
         style: cards
         className: cardsM
-        columns: 3
+        columns: 2
         items:
           - href: /azure/sql-database/sql-database-single-index
             html: <p>Använd en enskilda databas som hanteras av en SQL Database-server för dina SaaS-program och mikrotjänster som behöver en enkel databas med förutsägbara prestanda.</p>
@@ -90,6 +90,11 @@ sections:
             image:
               src: media/index/i_mi.svg
             title: Hanterad instans
+          - href: /azure/sql-database/sql-database-instance-pools
+            html: <p>Använd hanterade instanspooler som en enkel och kostnadseffektiv lösning för att distribuera flera hanterade instanser som delar resurser och skalar snabbt.</p>
+            image:
+              src: media/index/i_instancepool.png
+            title: Instanspool
   - title: Snabbstarter på 5 minuter
     items:
       - type: paragraph
@@ -128,6 +133,12 @@ sections:
               - href: 'https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44'
               - href: /azure/sql-database/scripts/sql-database-create-configure-managed-instance-powershell
               - href: 'https://github.com/Azure/azure-quickstart-templates/tree/master/101-sqlmi-new-vnet'
+          - title: Skapa instanspool
+            values:
+              - href: null
+              - href: null
+              - href: '/azure/sql-database/sql-database-instance-pools-how-to#create-an-instance-pool'
+              - href: null
   - title: Stegvisa guider och utbildningsmaterial
     items:
       - type: paragraph

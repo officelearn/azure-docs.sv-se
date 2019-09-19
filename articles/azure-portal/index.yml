@@ -1,45 +1,77 @@
-### YamlMime:YamlDocument
-documentType: LandingData
+### YamlMime:Landing
 title: Dokumentation om Azure Portal
+summary: Azure-portalen är en webbaserad, enhetlig konsol som ger ett alternativ till kommandoradsverktyg. Du kan hantera din Azure-prenumeration i Azure-portalen. Bygg, hantera och styr allt, från enkla webbappar till komplexa molndistributioner. Skapa anpassade instrumentpaneler för en ordnad vy över resurser och konfigurera alternativ för åtkomlighet för bästa möjliga upplevelse.
 metadata:
-  description: Lär dig hur du använder Azure-portalen för att skapa anpassade instrumentpaneler.
-  services: azure portal
-  documentationcenter: ''
-  author: kfollis
-  manager: mtillman
-  editor: ''
-  ms.assetid: 3e12c488-9c8c-4d0d-9b07-e018dec42fc6
+  title: Dokumentation om Azure Portal
+  description: Lär dig att hantera din Azure-prenumeration och dina -resurser med Azure-portalens webbaserade konsol.
+  services: Azure portal
   ms.service: azure-portal
-  ms.devlang: na
+  ms.subservice: 
   ms.topic: landing-page
-  ms.tgt_pltfrm: na
-  ms.workload: na
-  ms.date: 10/08/2018
+  ms.collection: collection
+  author: kfollis
   ms.author: kfollis
-abstract:
-  description: 'Azure-portalen är en webbaserad enhetlig konsol som du kan använda för att bygga, hantera och styra allt från enkla webbappar till komplexa molnprogram. Den innehåller en anpassningsbar instrumentpanel och hjälpmedelsalternativ.'
-sections:
-  - items:
-      - type: list
-        style: cards
-        className: cardsM
-        columns: 3
-        items:
-          - href: /azure/azure-preview-portal-supported-browsers-devices
-            html: <p>Du kan köra Azure-portalen på alla moderna skrivbords- och surfplatteenheter och webbläsare.</p>
-            title: Webbläsare och enheter som stöds
-          - href: /azure/azure-portal/azure-portal-change-theme-high-contrast
-            html: <p>Ändra kontrast- eller färgschema i Azure-portalen.</p>
-            title: Aktivera högkontrast
-          - href: /azure/azure-portal/azure-portal-keyboard-shortcuts
-            html: <p>Läs mer om kortkommandon som fungerar i hela Azure-portalen.</p>
-            title: Kortkommandon
-          - href: /azure/azure-portal/azure-portal-dashboards
-            html: <p>Skapa flera instrumentpaneler och dela dem med andra som har åtkomst till dina Azure-prenumerationer.</p>
-            title: Skapa och dela Azure-instrumentpaneler
-          - href: /azure/azure-portal/azure-portal-dashboard-share-access
-            html: <p>Publicera och dela en instrumentpanel med andra användare i din organisation.</p>
-            title: Dela instrumentpaneler med hjälp av RBAC
-          - href: /azure/azure-portal/azure-portal-dashboards-create-programmatically
-            html: <p>Skapa och publicera instrumentpaneler programmässigt i organisationen</p>
-            title: Skapa Azure-instrumentpaneler programmässigt
+  ms.date: 09/17/2019
+  ms.openlocfilehash: 7fdd6f95ee2f84abc151f5c6e6e7929df2bc57a1
+  ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 09/17/2019
+  ms.locfileid: "71076655"
+landingContent:
+- title: Om Azure-portalen
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Vad är Azure-portalen?
+      url: azure-portal-overview.md
+    - text: Webbläsare och enheter som stöds
+      url: azure-portal-supported-browsers-devices.md
+- title: Anpassa Azure-portalen
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Skapa och dela anpassade instrumentpaneler
+      url: azure-portal-dashboards.md
+    - text: Hantera dina favoriter
+      url: azure-portal-add-remove-sort-favorites.md
+- title: Hantera åtkomst till Azure-portalen
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: Lägga till Azure-portalens URL:er i listan över säkra URL:er
+      url: azure-portal-safelist-urls.md
+    - text: Rollbaserad åtkomstkontroll för instrumentpaneler
+      url: azure-portal-dashboard-share-access.md
+  - linkListType: learn
+    links:
+    - text: Hantera resurser i Azure
+      url: /learn/paths/manage-resources-in-azure/
+    - text: Skydda dina Azure-resurser med rollbaserad åtkomstkontroll (RBAC)
+      url: /learn//modules/secure-azure-resources-with-rbac/
+- title: Komma igång
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Kom igång med Azure Snabbstartscenter
+      url: azure-portal-quickstart-center.md
+  - linkListType: how-to-guide
+    links:
+    - text: Instruktionsvideoserie om Azure-portalen
+      url: azure-portal-video-series.md
+  - linkListType: learn
+    links:
+    - text: Grunderna i Azure
+      url: /learn/paths/azure-fundamentals/
+    - text: Molnkoncept – Principer för molnbaserad databehandling
+      url: /learn/modules/principles-cloud-computing/
+- title: Använda hjälpmedelsalternativ
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: Kortkommandon
+      url: azure-portal-keyboard-shortcuts.md
+  - linkListType: how-to-guide
+    links:
+    - text: Aktivera högkontrast
+      url: azure-portal-change-theme-high-contrast.md

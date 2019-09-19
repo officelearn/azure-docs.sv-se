@@ -1,69 +1,69 @@
-### YamlMime:YamlDocument
-documentType: LandingData
-title: Dokumentation om Application Gateway
+### YamlMime:Landing
+title: Dokumentation om Azure Application Gateway
+summary: Lär dig hur du skapar programgatewayer. Den här dokumentationen hjälper dig att planera, distribuera och hantera webbtrafik till dina Azure-resurser.
 metadata:
-  title: 'Dokumentation om Azure Application Gateway – Självstudier, API-referens'
-  meta.description: 'Learn how to create application gateways. Documentation helps you plan, deploy, and manage web traffic to your Azure resources.'
+  title: Dokumentation om Azure Application Gateway
+  description: Lär dig att distribuera Azure Firewall, en molnbaserad tjänst för nätverkssäkerhet.
   services: application-gateway
-  author: vhorne
   ms.service: application-gateway
   ms.topic: landing-page
-  ms.date: 5/20/2019
+  author: vhorne
   ms.author: victorh
-abstract:
-  description: 'Lär dig hur du distribuerar Application Gateway, en Application Deliver Controller (ADC) som en tjänst. Självstudier, API-referenser och annan dokumentation som visar hur du konfigurerar routning på appnivå och belastningsutjämningstjänster som hjälper dig att bygga en skalbar och högtillgänglig frontwebb.'
-sections:
-  - title: Snabbstarter på 5 minuter
-    items:
-      - type: paragraph
-        text: 'Lär dig hur du hanterar webbtrafik till dina resurser med Application Gateway:'
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: 'https://docs.microsoft.com/azure/application-gateway/media/index/portal.svg'
-            text: Azure Portal
-            href: 'https://docs.microsoft.com/azure/application-gateway/quick-create-portal'
-          - image:
-              src: 'https://docs.microsoft.com/azure/application-gateway/media/index/logo_powershell.svg'
-            text: Azure PowerShell
-            href: 'https://docs.microsoft.com/azure/application-gateway/quick-create-powershell'
-          - image:
-              src: 'https://docs.microsoft.com/azure/application-gateway/media/index/cli.svg'
-            text: Azure CLI
-            href: 'https://docs.microsoft.com/azure/application-gateway/quick-create-cli'
-  - title: Steg för steg-självstudier
-    items:
-      - type: paragraph
-        text: 'Lär dig att distribuera, hantera och övervaka Application Gateway på Azure'
-      - type: list
-        style: ordered
-        items:
-          - html: <a href="/azure/application-gateway/application-gateway-web-application-firewall-portal">Skapa en programgateway med en brandvägg för webbaserade program</a>
-          - html: <a href="/azure/application-gateway/create-ssl-portal">Konfigurera en programgateway med SSL-avslutning</a>
-          - html: <a href="/azure/application-gateway/create-multiple-sites-portal">Skapa och konfigurera en programgateway för att tillhandahålla värdtjänster för flera webbplatser</a>
-          - html: <a href="/azure/application-gateway/create-url-route-portal">Skapa en programgateway med sökvägsbaserade routningsregler</a>
-          - html: <a href="/azure/application-gateway/tutorial-url-redirect-cli">Skapa en programgateway med webbadressbaserad omdirigering</a>
-          - html: <a href="/azure/application-gateway/tutorial-autoscale-ps">Skapa en programgateway som förbättrar webbprogramåtkomsten</a>
-  - title: Exempel
-    items:
-      - type: paragraph
-        text: Hantera webbtrafik med Application Gateway.
-      - type: list
-        style: unordered
-        className: spaced noBullet
-        items:
-          - html: <a href="/azure/application-gateway/cli-samples">Azure CLI</a>
-          - html: <a href="/azure/application-gateway/powershell-samples">Azure PowerShell</a>
-  - title: Referens
-    items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: Kommandorad
-            html: <p><a href="/powershell/resourcemanager">Azure PowerShell</a></p><p><a href="/cli/azure/network/application-gateway">Azure CLI</a></p>
-          - title: Språk
-            html: '<p><a href="/dotnet/api">NET</a></p><p><a href="/java/api/com.microsoft.azure.management.network">Java</a></p><p><a href="/javascript/api/azure-arm-network/ApplicationGateways">Node.js</a></p><p><a href="https://docs.microsoft.com/python/api/azure-mgmt-network/azure.mgmt.network.v2018_08_01.operations.applicationgatewaysoperations">Python</a></p>'
-          - title: REST
-            html: '<p><a href="https://msdn.microsoft.com/library/mt684941">Fullständig REST API-referens</a></p>'
+  ms.date: 09/18/2019
+  ms.openlocfilehash: ff940f474c6d5d6fd96a03c45be18de39f065b97
+  ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 09/17/2019
+  ms.locfileid: "71076034"
+landingContent:
+- title: Läs mer om Application Gateway
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Vad är Azure Application Gateway?
+      url: overview.md
+  - linkListType: concept
+    links:
+    - text: Vanliga frågor och svar
+      url: application-gateway-faq.md
+- title: Distribuera en Application Gateway
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Dirigera webbtrafik med Azure Application Gateway
+      url: quick-create-portal.md
+- title: Distribuera med SSL-avslutning
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: SSL-avslutning och slutpunkt-till-slutpunkt-SSL på Application Gateway
+      url: ssl-overview.md
+    - text: Översikt över SSL-princip
+      url: application-gateway-ssl-policy-overview.md
+  - linkListType: tutorial
+    links:
+    - text: Konfigurera en programgateway med SSL-avslutning
+      url: create-ssl-portal.md
+- title: Automatisk skalning och zonredundanta programgatewayer
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Automatisk skalning och zonredundant Application Gateway v2
+      url: application-gateway-autoscaling-zone-redundant.md
+  - linkListType: tutorial
+    links:
+    - text: Skapa en application gateway som förbättrar åtkomsten till webbprogrammet
+      url: tutorial-autoscale-ps.md
+- title: Felsöka programgateway
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Översikt över Resource Health för Application Gateway
+      url: resource-health-overview.md
+  - linkListType: how-to-guide
+    links:
+    - text: Använda Log Analytics för att undersöka loggar från brandväggen för webbaserade program för Application Gateway
+      url: log-analytics.md
+    - text: Hälsotillstånd för serverdel i Application Gateway
+      url: application-gateway-backend-health-troubleshooting.md

@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: conceptual
-ms.date: 06/19/2019
+ms.date: 09/18/2019
 ms.author: dapine
-ms.openlocfilehash: a2f743b2b7e63df8b81a1024b20e3e27a3f247a9
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 4a961080bc124e53a8c5fe4dcc5f3cd6f21e9e5c
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68932996"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71102577"
 ---
-# <a name="configure-anomaly-detector-containers"></a>Konfigurera avvikelse detektor behållare
+# <a name="configure-anomaly-detector-containers"></a>Konfigurera avvikelseidentifieringscontainrar
 
 Körnings miljön för **avvikelse detektor** behållare konfigureras med hjälp `docker run` av kommando argumenten. Den här behållaren har flera inställningar som krävs, tillsammans med några valfria inställningar. Flera [exempel](#example-docker-run-commands) kommandots är tillgängliga. De behållar-/regionsspecifika inställningarna är fakturerings inställningarna. 
 
@@ -88,7 +88,7 @@ De avvikande detektor behållarna använder inte indata eller utdata monteras f�
 
 Den exakta syntaxen hos montera värdplats varierar beroende på värdens operativsystem. Dessutom kanske [värd datorns](anomaly-detector-container-howto.md#the-host-computer)monterings plats inte är tillgänglig på grund av en konflikt mellan behörigheter som används av Docker-tjänstkontot och värd monterings platsens behörigheter. 
 
-|Valfritt| Namn | Datatyp | Beskrivning |
+|Valfritt| Name | Datatyp | Beskrivning |
 |-------|------|-----------|-------------|
 |Inte tillåtet| `Input` | Sträng | Avvikelse detektor behållare använder inte detta.|
 |Valfritt| `Output` | Sträng | Utdata mount-mål. Standardvärdet är `/output`. Det här är platsen för loggarna. Detta inkluderar behållar loggar. <br><br>Exempel:<br>`--mount type=bind,src=c:\output,target=/output`|
@@ -104,8 +104,10 @@ Ersätt värdet inom hakparenteser, `{}`med dina egna värden:
 
 | Platshållare | Värde | Format eller exempel |
 |-------------|-------|---|
-|{API_KEY} | Slut punkts nyckeln för avvikelse identifierings resursen. |xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx|
-|{ENDPOINT_URI} | Värdet för fakturerings slut punkten inklusive region.|`https://westus2.api.cognitive.microsoft.com`|
+| **{API_KEY}** | `Anomaly Detector` Resursens slut punkts nyckel på sidan med `Anomaly Detector` Azure-nycklar. | `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx` |
+| **{ENDPOINT_URI}** | Värdet för fakturerings slut punkten är tillgängligt på sidan `Anomaly Detector` Azure-översikt.| Se [samla in obligatoriska parametrar](anomaly-detector-container-howto.md#gathering-required-parameters) för explicita exempel. |
+
+[!INCLUDE [subdomains-note](../../../includes/cognitive-services-custom-subdomains-note.md)]
 
 > [!IMPORTANT]
 > Den `Eula`, `Billing`, och `ApiKey` alternativ måste anges för att köra behållaren, i annat fall startar inte behållaren.  Mer information finns i [fakturering](anomaly-detector-container-howto.md#billing).

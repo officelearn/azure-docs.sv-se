@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/11/2018
-ms.openlocfilehash: dec3cdd63f3e3ff303bfd60ca1ae77a4c4641190
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.openlocfilehash: 122840614aede3ee112f8fd68cf6dabfa91fa225
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70961346"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71105514"
 ---
 # <a name="operationalize-a-data-analytics-pipeline"></a>Operationalisera en pipeline för dataanalys
 
@@ -23,7 +23,7 @@ Den här artikeln beskriver hur du operationalisera data pipelines för repeterb
 
 I följande scenario är indata en platt fil som innehåller en grupp med flyg data i en månad. Dessa flyg data innehåller information som till exempel platsens ursprung och målplats, mil flödet, avresa och ankomst tider, och så vidare. Målet med den här pipelinen är att sammanfatta dagliga flyg bolags prestanda, där varje flyg bolag har en rad för varje dag med genomsnittlig avvikelse och ankomst fördröjningar på några minuter, och det totala antalet mil i km som den dagen.
 
-| ÅR | MÅNAD | DAY_OF_MONTH | BÄRVÅG |AVG_DEP_DELAY | AVG_ARR_DELAY |TOTAL_DISTANCE |
+| YEAR | MÅNAD | DAY_OF_MONTH | BÄRVÅG |AVG_DEP_DELAY | AVG_ARR_DELAY |TOTAL_DISTANCE |
 | --- | --- | --- | --- | --- | --- | --- |
 | 2017 | 1 | 3 | AA | 10,142229 | 7,862926 | 2644539 |
 | 2017 | 1 | 3 | AS | 9,435449 | 5,482143 | 572289 |
@@ -33,7 +33,7 @@ Exempel pipelinen väntar tills en ny tids period har inkommer och lagrar sedan 
 
 Följande diagram illustrerar exempel pipelinen.
 
-![Pipeline för flyg data](./media/hdinsight-operationalize-data-pipeline/flight-pipeline-overview.png)
+![Översikt över HDI Flight exempel data pipeline](./media/hdinsight-operationalize-data-pipeline/flight-pipeline-overview.png)
 
 ## <a name="apache-oozie-solution-overview"></a>Översikt över Apache Oozie-lösning
 
@@ -43,7 +43,7 @@ Oozie beskriver sina pipeliner vad gäller *åtgärder*, *arbets flöden*och *ko
 
 Följande diagram visar den övergripande designen av det här exemplet Oozie pipeline.
 
-![Oozie flyg data pipeline](./media/hdinsight-operationalize-data-pipeline/pipeline-overview-oozie.png)
+![Oozie flyg exempel data pipeline](./media/hdinsight-operationalize-data-pipeline/pipeline-overview-oozie.png)
 
 ### <a name="provision-azure-resources"></a>Etablera Azure-resurser
 
@@ -55,23 +55,23 @@ Den här pipelinen kräver ett Azure SQL Database och ett HDInsight Hadoop-klust
 2. Etablera en Azure-SQL Server och databas i resursgruppen.`oozie` Du behöver inte en databas som är större än standard pris nivån för S1.
 3. Använd Azure Portal, navigera till fönstret för ditt nyligen distribuerade SQL Database och välj **verktyg**.
 
-    ![Knappen Verktyg](./media/hdinsight-operationalize-data-pipeline/hdi-sql-db-tools-button.png)
+    ![Knapp ikon för HDInsight SQL DB-verktyg](./media/hdinsight-operationalize-data-pipeline/hdi-sql-db-tools-button.png)
 
 4. Välj **Frågeredigeraren**.
 
-    ![Knappen Frågeredigeraren](./media/hdinsight-operationalize-data-pipeline/sql-db-query-editor1.png)
+    ![Verktyg för hands version av SQL DB-Frågeredigeraren](./media/hdinsight-operationalize-data-pipeline/sql-db-query-editor1.png)
 
 5. I fönstret **Frågeredigeraren** väljer du **Logga in**.
 
-    ![Inloggnings knapp](./media/hdinsight-operationalize-data-pipeline/sql-db-login-window1.png)
+    ![SQL DB inloggnings fönster för Frågeredigeraren](./media/hdinsight-operationalize-data-pipeline/sql-db-login-window1.png)
 
 6. Ange dina SQL Database autentiseringsuppgifter och välj **OK**.
 
-   ![Inloggnings formulär](./media/hdinsight-operationalize-data-pipeline/sql-db-login-window2.png)
+   ![Fråge redigeraren SQL DB inloggnings parametrar](./media/hdinsight-operationalize-data-pipeline/sql-db-login-window2.png)
 
 7. I text rutan Frågeredigeraren anger du följande SQL-uttryck för att skapa den `dailyflights` tabell som ska lagra de sammanfattade data från varje körning av pipelinen.
 
-    ```
+    ```sql
     CREATE TABLE dailyflights
     (
         YEAR INT,
@@ -90,7 +90,7 @@ Den här pipelinen kräver ett Azure SQL Database och ett HDInsight Hadoop-klust
 
 8. Välj **Kör** för att köra SQL-instruktionerna.
 
-    ![Knappen Kör](./media/hdinsight-operationalize-data-pipeline/hdi-sql-db-run-button.png)
+    ![Körnings knapp för HDInsight SQL DB](./media/hdinsight-operationalize-data-pipeline/hdi-sql-db-run-button.png)
 
 Din Azure SQL Database är nu klar.
 
@@ -104,12 +104,12 @@ Din Azure SQL Database är nu klar.
 
 4. I fönstret **kluster typ** väljer du typ av **Hadoop** -kluster, **Linux** -operativsystem och den senaste versionen av HDInsight-klustret. Lämna **kluster nivån** på **standard**.
 
-    ![Typ av HDInsight-kluster](./media/hdinsight-operationalize-data-pipeline/hdinsight-cluster-type.png)
+    ![Azure Portal kluster konfigurations typ](./media/hdinsight-operationalize-data-pipeline/hdinsight-cluster-type.png)
 
 5. Välj **Välj** om du vill använda ditt kluster typ val.
 6. Slutför fönstret **grundläggande** genom att ange ett inloggnings lösen ord och `oozie` välja din resurs grupp i listan. Välj sedan **Nästa**.
 
-    ![Fönstret grundläggande för HDInsight](./media/hdinsight-operationalize-data-pipeline/hdinsight-basics-pane.png)
+    ![Azure Portal skapa fönstret med grundläggande kluster](./media/hdinsight-operationalize-data-pipeline/hdinsight-basics-pane.png)
 
 7. I rutan **lagring** lämnar du den primära lagrings typen inställd på **Azure Storage**, väljer **Skapa ny**och anger ett namn för det nya kontot.
 
@@ -123,13 +123,13 @@ Din Azure SQL Database är nu klar.
 
     ![HDInsight Hive-Metaarkiv autentisera](./media/hdinsight-operationalize-data-pipeline/hdi-authenticate-sql.png)
 
-10. Ange ditt användar namn och lösen ord för SQL Database och välj **Välj**. 
+10. Ange ditt användar namn och lösen ord för SQL Database och välj **Välj**.
 
        ![HDInsight Hive Metaarkiv autentisera inloggning](./media/hdinsight-operationalize-data-pipeline/hdi-authenticate-sql-login.png)
 
-11. I fönstret **Inställningar för metaarkiv** väljer du din databas för Oozie-metadatalagret och autentiserar dig på samma sätt som tidigare. 
+11. I fönstret **Inställningar för metaarkiv** väljer du din databas för Oozie-metadatalagret och autentiserar dig på samma sätt som tidigare.
 
-       ![Inställningar för HDInsight-Metaarkiv](./media/hdinsight-operationalize-data-pipeline/hdi-metastore-settings.png)
+       ![Azure Portal inställningar för Metaarkiv](./media/hdinsight-operationalize-data-pipeline/hdi-metastore-settings.png)
 
 12. Välj **Nästa**.
 13. I fönstret **Sammanfattning** väljer du **skapa** för att distribuera klustret.
@@ -176,17 +176,18 @@ Du kan kopiera filen med hjälp av SCP i `bash` din Shell-session.
 Exempel data är nu tillgängliga. Pipelinen kräver dock två Hive-tabeller för bearbetning, en för inkommande data (`rawFlights`) och en för sammanfattade data (`flights`). Skapa tabellerna i Ambari på följande sätt.
 
 1. Logga in på Ambari genom att gå till http:\//headnodehost: 8080.
+
 2. I listan över tjänster väljer du **Hive**.
 
-    ![Välja Hive i Ambari](./media/hdinsight-operationalize-data-pipeline/hdi-ambari-services-hive.png)
+    ![Apache Ambari Services-lista Välj Hive](./media/hdinsight-operationalize-data-pipeline/hdi-ambari-services-hive.png)
 
 3. Välj **gå till vy** bredvid Hive-vyns 2,0-etikett.
 
-    ![Välja Hive-vy i Ambari](./media/hdinsight-operationalize-data-pipeline/hdi-ambari-services-hive-summary.png)
+    ![Ambari Apache Apache Hive Summary List](./media/hdinsight-operationalize-data-pipeline/hdi-ambari-services-hive-summary.png)
 
-4. Klistra in följande instruktioner i fråge text avsnittet för att skapa `rawFlights` tabellen. Tabellen innehåller en schema för läsning av CSV-filer `/example/data/flights` i mappen i Azure Storage. `rawFlights` 
+4. Klistra in följande instruktioner i fråge text avsnittet för att skapa `rawFlights` tabellen. Tabellen innehåller en schema för läsning av CSV-filer `/example/data/flights` i mappen i Azure Storage. `rawFlights`
 
-    ```
+    ```sql
     CREATE EXTERNAL TABLE IF NOT EXISTS rawflights (
         YEAR INT,
         MONTH INT,
@@ -211,7 +212,7 @@ Exempel data är nu tillgängliga. Pipelinen kräver dock två Hive-tabeller fö
 
 5. Välj **Kör** för att skapa tabellen.
 
-    ![Hive-fråga i Ambari](./media/hdinsight-operationalize-data-pipeline/hdi-ambari-services-hive-query.png)
+    ![HDI Ambari Services Hive-fråga](./media/hdinsight-operationalize-data-pipeline/hdi-ambari-services-hive-query.png)
 
 6. Om du vill `flights` skapa tabellen ersätter du texten i fråge textområdet med följande instruktioner. `flights` Tabellen är en Hive-hanterad tabell som partitionerar data som läses in i den efter år, månad och dag i månaden. Den här tabellen innehåller alla historiska flyg data, med den lägsta kornig het som finns i käll informationen för en rad per flygning.
 
@@ -463,7 +464,7 @@ Använd SCP från bash-sessionen för att distribuera Oozie-arbetsflödet`workfl
 
 7. Observera statusen med hjälp av webb konsolen för Oozie. I Ambari väljer du **Oozie**, **snabb länkar**och **Oozie webb konsol**. Under fliken **arbets flödes jobb** väljer du **alla jobb**.
 
-    ![Oozie webb konsol arbets flöden](./media/hdinsight-operationalize-data-pipeline/hdi-oozie-web-console-workflows.png)
+    ![HDI Oozie webb konsol arbets flöden](./media/hdinsight-operationalize-data-pipeline/hdi-oozie-web-console-workflows.png)
 
 8. När statusen är klar kan du fråga SQL Database-tabellen om du vill visa de infogade raderna. Använd Azure Portal, navigera till fönstret för din SQL Database, Välj **verktyg**och öppna **Frågeredigeraren**.
 
@@ -475,7 +476,7 @@ Nu när arbets flödet körs för den enskilda test dagen kan du omsluta det hä
 
 Om du vill schemalägga det här arbets flödet så att det körs dagligen (eller alla dagar i ett datum intervall) kan du använda en koordinator. En koordinator definieras av en XML-fil, till exempel `coordinator.xml`:
 
-```
+```xml
 <coordinator-app name="daily_export" start="2017-01-01T00:00Z" end="2017-01-05T00:00Z" frequency="${coord:days(1)}" timezone="UTC" xmlns="uri:oozie:coordinator:0.4">
     <datasets>
         <dataset name="ds_input1" frequency="${coord:days(1)}" initial-instance="2016-12-31T00:00Z" timezone="UTC">
@@ -554,7 +555,7 @@ Som du kan se skickar majoriteten av koordinatorn bara konfigurations informatio
 
 * Punkt 2: Inom arbets flödets `dataset` datum intervall anger elementet var du ska titta på HDFS för data för ett visst datum intervall och konfigurerar hur Oozie avgör om data är tillgängliga ännu för bearbetning.
 
-    ```
+    ```xml
     <dataset name="ds_input1" frequency="${coord:days(1)}" initial-instance="2016-12-31T00:00Z" timezone="UTC">
         <uri-template>${sourceDataFolder}${YEAR}-${MONTH}-FlightData.csv</uri-template>
         <done-flag></done-flag>
@@ -567,7 +568,7 @@ Som du kan se skickar majoriteten av koordinatorn bara konfigurations informatio
 
 * Punkt 3: Elementet anger den specifika tidstämpeln som ska användas som den nominella tiden när värdena i `uri-template` för den associerade data mängden ersätts. `data-in`
 
-    ```
+    ```xml
     <data-in name="event_input1" dataset="ds_input1">
         <instance>${coord:current(0)}</instance>
     </data-in>

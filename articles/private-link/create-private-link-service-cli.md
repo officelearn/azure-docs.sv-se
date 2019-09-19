@@ -1,18 +1,18 @@
 ---
 title: Skapa en Azure Private Link-tjänst med Azure CLI
 description: Lär dig hur du skapar en Azure Private Link-tjänst med Azure CLI
-services: virtual-network
+services: private-link
 author: KumudD
-ms.service: virtual-network
+ms.service: private-link
 ms.topic: article
 ms.date: 09/16/2019
 ms.author: kumud
-ms.openlocfilehash: 6955e1147bbe7b3e777ce4f06ac64901b0392f42
-ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
+ms.openlocfilehash: 87d0f08d67dbbe6a0fa1725aba850c8d9b6c5619
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71018080"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71104709"
 ---
 # <a name="create-a-private-link-service-using-azure-cli"></a>Skapa en privat länk-tjänst med Azure CLI
 Den här artikeln visar hur du skapar en privat länk-tjänst i Azure med hjälp av Azure CLI.
@@ -20,7 +20,7 @@ Den här artikeln visar hur du skapar en privat länk-tjänst i Azure med hjälp
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 Om du väljer att installera och använda Azure CLI lokalt måste du använda den senaste versionen av Azure CLI i den här snabb starten. Kör `az --version` för att hitta den installerade versionen. Se [Installera Azure CLI](/cli/azure/install-azure-cli) för installations- eller uppgraderingsinformation.
-## <a name="create-a-private-link-service"></a>Skapa en privat länk-tjänst
+## <a name="create-a-private-link-service"></a>Skapa en Private Link-tjänst
 ### <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
 Innan du kan skapa ett virtuellt nätverk måste du skapa en resursgrupp som ska vara värd för det virtuella nätverket. Skapa en resursgrupp med [az group create](/cli/azure/group). I det här exemplet skapas en resurs grupp med namnet *myResourceGroup* på *westcentralus* -platsen:
@@ -88,7 +88,7 @@ Private Link Service kräver en IP-adress från valfritt undernät i ett virtuel
 az network vnet subnet update --resource-group myResourceGroup --vnet-name myVirtualNetwork --name mySubnet --disable-private-link-service-network-policies true 
 ```
  
-## <a name="create-a-private-link-service"></a>Skapa en privat länk-tjänst  
+## <a name="create-a-private-link-service"></a>Skapa en Private Link-tjänst  
  
 Skapa en privat länk-tjänst med Standard Load Balancer klient delens IP-konfiguration med [AZ Network Private-Link-service Create](/cli/azure/network/az-network-private-link-service-create). I det här exemplet skapas en privat länk tjänst med namnet *myPLS* med hjälp av standard Load Balancer med namnet *myLoadBalancer* i resurs gruppen med namnet *myResourceGroup*. 
  

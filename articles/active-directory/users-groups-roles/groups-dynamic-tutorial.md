@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 93b59a108d5d87479c12174e97713d4c12d84f2e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1429841ca1376d67c7372f36bd35694afd4cd7ce
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60471632"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71102635"
 ---
 # <a name="tutorial-add-or-remove-group-members-automatically"></a>Självstudier: Lägga till eller ta bort gruppmedlemmar automatiskt
 
@@ -28,15 +28,15 @@ I Azure Active Directory (Azure AD) kan du automatiskt lägga till eller ta bort
 
 I den här guiden får du lära dig att:
 > [!div class="checklist"]
-> * Skapa en automatiskt ifyllda gästanvändare-grupp från ett partnerföretag
+> * Skapa en automatiskt ifylld grupp av gäst användare från ett partner företag
 > * Tilldela licenser till gruppen för partnerspecifika funktioner för gästanvändare för åtkomst
 > * Bonus: skydda gruppen **Alla användare** genom att ta bort gästanvändare så att du, till exempel, kan ge medlemmarna användaråtkomst till webbplatser som är endast interna
 
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
-Den här funktionen kräver en Azure AD Premium-licens för du som global administratör för klienten. Om du inte har en väljer du **Licenser** > **Produkter** > **Testa/Köp** i Azure AD.
+Den här funktionen kräver en Azure AD Premium-licens för dig som klient organisationens globala administratör. Om du inte har en väljer du **Licenser** > **Produkter** > **Testa/Köp** i Azure AD.
 
 Du behöver inte tilldela licenser till användarna för att de ska bli medlemmar i dynamiska grupper. Du behöver bara det minsta antalet tillgängliga Azure AD Premium P1-licenser i klientorganisationen för att täcka alla sådana användare. 
 
@@ -44,19 +44,31 @@ Du behöver inte tilldela licenser till användarna för att de ska bli medlemma
 
 Först skapar du en grupp för dina gästanvändare som alla finns i samma partnerföretag. De behöver en speciallicens, så det är ofta effektivare att skapa en grupp för det här syftet.
 
-1. Logga in på Azure-portalen (https://portal.azure.com) med ett konto som är global administratör för din klient.
+1. Logga in på Azure Portal (https://portal.azure.com) med ett konto som är den globala administratören för din klient organisation.
 2. Välj **Azure Active Directory** > **Grupper** > **Ny grupp**.
    ![Välj kommando för att starta en ny grupp](./media/groups-dynamic-tutorial/new-group.png)
 3. På bladet **Grupp**:
   
-   * Välj **Säkerhet** som grupptyp
-   * Ange `Guest users Contoso` som namn och beskrivning för gruppen
-   * Ändra **Medlemstyp** till **Dynamisk användare**
-   * Välj **Lägg till dynamisk fråga**
-  
-4. Välj **Avancerad regel** och ange följande i rutan **Avancerad regel**: `(user.userType -eq "Guest") -and (user.companyName -eq "Contoso")`
-5. Välj **Lägg till fråga** för att stänga bladet.
-6. På bladet **Grupp** väljer du **Skapa** för att skapa gruppen.
+   * Välj **säkerhet** som grupptyp.
+   * Ange `Guest users Contoso` som namn och beskrivning för gruppen.
+   * Ändra **medlemskaps typ** till **dynamisk användare**.
+   
+4. Välj **ägare** och Sök efter önskade ägare i bladet **Lägg till ägare** . Klicka på önskade ägare för att lägga till i valet.
+5. Stäng bladet **Lägg till ägare** genom att klicka på **Välj** .  
+6. Välj **Redigera dynamisk fråga** i rutan **dynamiska användar medlemmar** .
+7. På bladet **dynamiska medlemskaps regler** :
+
+   * I **egenskaps** fältet, klickar du på det befintliga värdet och väljer **userType**. 
+   * Kontrol lera att **operator** fältet har **lika med** markerat.  
+   * Välj fältet **värde** och ange **gäst**. 
+   * Klicka på hyperlänken **Lägg till uttryck** för att lägga till en annan rad.
+   * I fältet **och/eller** väljer du **och**.
+   * I fältet **egenskap** väljer du **företags namn**.
+   * Kontrol lera att **operator** fältet har **lika med** markerat.
+   * I fältet **värde** anger du **contoso**.
+   * Klicka på **Spara** för att stänga bladet **dynamiska medlemskaps regler** .
+   
+8. På bladet **Grupp** väljer du **Skapa** för att skapa gruppen.
 
 ## <a name="assign-licenses"></a>Tilldela licenser
 

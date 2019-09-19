@@ -6,12 +6,12 @@ ms.service: load-balancer
 ms.topic: article
 ms.date: 09/17/2019
 ms.author: allensu
-ms.openlocfilehash: 9cf15595270e0a0040e565be8319c13e3f5da306
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
-ms.translationtype: HT
+ms.openlocfilehash: eda0d6e8fe56b985c3b29fa80cee880444d63741
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 09/18/2019
-ms.locfileid: "71092227"
+ms.locfileid: "71105295"
 ---
 # <a name="move-azure-external-load-balancer-to-another-region-using-the-azure-portal"></a>Flytta externa Azure-Load Balancer till en annan region med hjälp av Azure Portal
 
@@ -179,7 +179,7 @@ Följande steg visar hur du förbereder den externa belastningsutjämnaren för 
 
     ```
 
-6.  Om du vill redigera värdet för den offentliga mål-IP-adress som flyttades ovan måste du först hämta resurs-ID: t och sedan kopiera och klistra in det i filen **parametrar skapades. JSON** .  Hämta ID:
+6.  Om du vill redigera värdet för den offentliga mål-IP-adress som flyttades ovan måste du först hämta resurs-ID: t och sedan kopiera och klistra in det i filen **Parameters. JSON** . Hämta ID:
     
     1. Logga in på [Azure Portal](http://portal.azure.com) > **resurs grupper** i en annan flik i webbläsaren eller fönstret.
     2. Leta upp mål resurs gruppen som innehåller den flyttade offentliga IP-adressen från stegen ovan och klicka på den.
@@ -187,19 +187,19 @@ Följande steg visar hur du förbereder den externa belastningsutjämnaren för 
     4. Markera **resurs-ID** i bladet till höger och kopiera det till Urklipp.  Alternativt kan du klicka på knappen **Kopiera till Urklipp** till höger om sökvägen till **resurs-ID: t** .
     5. Klistra in resurs-ID: t i egenskapen **Value** i **Redigera parameter** redigeraren öppna i det andra webbläsarfönstret eller fliken:
 
-    ```json
-       ```json
-       "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
-       "contentVersion": "1.0.0.0",
-       "parameters": {
-          "loadBalancers_myLoadbalancer_ext_name": {
-          "value": "<target-external-lb-name>"
-    },
-          "publicIPAddresses_myPubIP_in_externalid": {
-          "value": "<target-publicIP-resource-ID>"
-    },
+        ```json
+           ```json
+           "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+           "contentVersion": "1.0.0.0",
+           "parameters": {
+              "loadBalancers_myLoadbalancer_ext_name": {
+              "value": "<target-external-lb-name>"
+        },
+              "publicIPAddresses_myPubIP_in_externalid": {
+              "value": "<target-publicIP-resource-ID>"
+        },
 
-    ```
+        ```
     6. Klicka på **Spara** i redigeraren online.
    
 

@@ -1,18 +1,18 @@
 ---
 title: Vanliga frågor och svar om Azure Private Link
 description: Lär dig mer om Azures privata länk.
-services: virtual-network
+services: private-link
 author: KumudD
-ms.service: virtual-network
+ms.service: private-link
 ms.topic: conceptual
 ms.date: 09/16/2019
 ms.author: kumud
-ms.openlocfilehash: 7e08c91636089abf25e46e1303097fc27b2d75b1
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: 32e570e098c9a3f95dfc5393348cccb1ebe1fb60
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71037515"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71104592"
 ---
 # <a name="azure-private-link-frequently-asked-questions-faq"></a>Vanliga frågor och svar om Azure Private Link
 
@@ -23,7 +23,7 @@ ms.locfileid: "71037515"
 - **[Privat Azure-slutpunkt](private-endpoint-overview.md)** : Den privata Azure-slutpunkten är ett nätverks gränssnitt som ansluter privat och säkert till en tjänst som drivs av en privat Azure-länk. Du kan använda privata slut punkter för att ansluta till en Azure PaaS-tjänst som stöder privat länk eller till en egen privat länk tjänst.
 - **[Azure Private Link-tjänst](private-link-service-overview.md)** : Azure Private Link service är en tjänst som skapats av en tjänst leverantör. För närvarande kan en privat länk tjänst kopplas till klient delens IP-konfiguration för en Standard Load Balancer. 
 
-### <a name="how-is-traffic-being-send-when-using-private-link"></a>Hur skickas trafik när jag använder en privat länk?
+### <a name="how-is-traffic-being-sent-when-using-private-link"></a>Hur skickas trafik när du använder en privat länk?
 Trafiken skickas privat med Microsoft stamnätet. Den passerar inte Internet.  
  
 ### <a name="what-is-the-difference-between-a-service-endpoints-and-a-private-endpoints"></a>Vad är skillnaden mellan en tjänst slut punkt och en privat slut punkt?

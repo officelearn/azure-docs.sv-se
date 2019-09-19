@@ -2,18 +2,18 @@
 title: Använda Azure Data Lake Storage Gen2 med Azure HDInsight-kluster
 description: Lär dig hur du använder Azure Data Lake Storage Gen2 med Azure HDInsight-kluster.
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 08/27/2019
-ms.author: hrasheed
-ms.openlocfilehash: bd459998568287db767e98a2094d6f80a126ccde
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.openlocfilehash: f6bee53268ea99e99d79e218eaf7a5ae9fcb1d05
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71077120"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71104470"
 ---
 # <a name="use-azure-data-lake-storage-gen2-with-azure-hdinsight-clusters"></a>Använda Azure Data Lake Storage Gen2 med Azure HDInsight-kluster
 
@@ -90,9 +90,9 @@ Tilldela den hanterade identiteten till rollen **Storage BLOB data-ägare** på 
         ![Lagrings inställningar för att använda Data Lake Storage Gen2 med Azure HDInsight](./media/hdinsight-hadoop-use-data-lake-storage-gen2/primary-storage-type-adls-gen2.png)
     
     * Under **identitet**väljer du rätt prenumeration och den nyligen skapade hanterade identiteten som skapats av användaren.
-        
-        ![Identitets inställningar för att använda Data Lake Storage Gen2 med Azure HDInsight](./media/hdinsight-hadoop-use-data-lake-storage-gen2/managed-identity-cluster-creation.png)
-        
+
+        ![Identitets inställningar för att använda Data Lake Storage Gen2 med HDInsight](./media/hdinsight-hadoop-use-data-lake-storage-gen2/managed-identity-cluster-creation.png)
+
 > [!Note]
 > Om du vill lägga till ett sekundärt Data Lake Storage Gen2 konto, på lagrings konto nivå, tilldelar du bara den hanterade identitet som skapats tidigare till det nya Data Lake Storage Gen2 lagrings konto som du vill lägga till. Vi rekommenderar att du inte kan lägga till ett sekundärt Data Lake Storage Gen2 konto via bladet "ytterligare lagrings konton" i HDInsight. 
 

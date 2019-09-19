@@ -5,14 +5,14 @@ services: vpn-gateway
 author: yushwang
 ms.service: vpn-gateway
 ms.topic: article
-ms.date: 09/06/2019
+ms.date: 09/18/2019
 ms.author: yushwang
-ms.openlocfilehash: b61b1acee3b60aa33fbdef7f639cb2d2ec2c177d
-ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
+ms.openlocfilehash: c7d7fcc16fe10c1d4cd4b0dfb6d60575b98212b1
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70968348"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71105606"
 ---
 # <a name="about-vpn-devices-and-ipsecike-parameters-for-site-to-site-vpn-gateway-connections"></a>Om VPN-enheter och IPSec-/IKE-parametrar för anslutningar för VPN Gateway från plats till plats
 
@@ -60,10 +60,11 @@ Information om hur du konfigurerar VPN-enheten finns i länkarna som motsvarar l
 | Microsoft |Routning och fjärråtkomst |Windows Server 2012 |Inte kompatibel |Stöds |
 | Open Systems AG |Mission Control Security Gateway |Gäller inte |[Konfigurationsguide](https://www.open.ch/_pdf/Azure/AzureVPNSetup_Installation_Guide.pdf) |Inte kompatibel |
 | Palo Alto Networks |Alla enheter som kör PAN-OS |PAN-OS<br>Principbaserad 6.1.5 eller senare<br>Routningsbaserad 7.1.4 |Stöds |[Konfigurationsguide](https://knowledgebase.paloaltonetworks.com/KCSArticleDetail?id=kA10g000000Cm6WCAS) |
+| Sentrium (utvecklare) | VyOS | VyOS 1.2.2 | (inte testat) | [Konfigurations guide](https://vyos.readthedocs.io/en/latest/appendix/examples/azure-vpn-bgp.html)|
 | ShareTech | Nästa datagenerations UTM (Nu-serien) | 9.0.1.3 | Inte kompatibel | [Konfigurationsguide](http://www.sharetech.com.tw/images/file/Solution/NU_UTM/S2S_VPN_with_Azure_Route_Based_en.pdf) |
 | SonicWall |TZ-serie, NSA-serie<br>SuperMassive-serie<br>NSA-serie i E-klassen |SonicOS 5.8.x<br>SonicOS 5.9.x<br>SonicOS 6.x |Inte kompatibel |[Konfigurationsguide](https://www.sonicwall.com/support/knowledge-base/170505320011694) |
 | Sophos | XG nästa generations brandvägg | XG v17 | (inte testat) | [Konfigurationsguide](https://community.sophos.com/kb/127546)<br><br>[Konfigurations guide – flera SAs](https://community.sophos.com/kb/en-us/133154) |
-| Synology | MR2200ac <br>RT2600ac <br>RT1900ac | SRM1.1.5/VpnPlusServer-1.2.0 | (inte testat) | [Konfigurations guide](https://www.synology.com/en-global/knowledgebase/SRM/tutorial/VPN/How_to_set_up_Site_to_Site_VPN_between_Synology_Router_and_MS_Azure) |
+| Synology | MR2200ac <br>RT2600ac <br>RT1900ac | SRM1.1.5/VpnPlusServer-1.2.0 | (inte testat) | [Konfigurationsguide](https://www.synology.com/en-global/knowledgebase/SRM/tutorial/VPN/How_to_set_up_Site_to_Site_VPN_between_Synology_Router_and_MS_Azure) |
 | Ubiquiti | EdgeRouter | Rand v 1.10 | (inte testat) | [BGP över IKEv2/IPsec](https://help.ubnt.com/hc/en-us/articles/115012374708)<br><br>[VTI över IKEv2/IPsec](https://help.ubnt.com/hc/en-us/articles/115012305347)
 | WatchGuard |Alla |Fireware XTM<br> Principbaserad: v11.11.x<br>Routningsbaserad: v11.12.x |[Konfigurationsguide](http://watchguardsupport.force.com/publicKB?type=KBArticle&SFDCID=kA2F00000000LI7KAM&lang=en_US) |[Konfigurationsguide](http://watchguardsupport.force.com/publicKB?type=KBArticle&SFDCID=kA22A000000XZogSAG&lang=en_US)|
 | ZyXEL |ZyWALL USG-serien<br>ZyWALL ATP-serien<br>ZyWALL VPN-serien | ZLD v-4.32 + | (inte testat) | [VTI över IKEv2/IPsec](https://businessforum.zyxel.com/discussion/2648/)<br>[BGP över IKEv2/IPsec](https://businessforum.zyxel.com/discussion/2650/)|

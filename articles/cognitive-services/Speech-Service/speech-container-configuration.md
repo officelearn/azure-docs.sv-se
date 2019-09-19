@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/11/2019
 ms.author: dapine
-ms.openlocfilehash: c4598e5e99012694a798e44c0d37e9578486751b
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: f7e2e95b553039b88267f730787fbbac82099948
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68932110"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71105169"
 ---
 # <a name="configure-speech-service-containers"></a>Konfigurera tal tjänst behållare
 
@@ -78,7 +78,7 @@ Tal behållarna använder inte indata eller utdata monteras för att lagra utbil
 
 Den exakta syntaxen hos montera värdplats varierar beroende på värdens operativsystem. Dessutom kan den [värddatorn](speech-container-howto.md#the-host-computer)'s montera platsen är kanske inte tillgänglig på grund av en konflikt mellan behörigheter som används av docker-tjänstkontot och värden montera plats behörigheter. 
 
-|Valfritt| Namn | Datatyp | Beskrivning |
+|Valfritt| Name | Datatyp | Beskrivning |
 |-------|------|-----------|-------------|
 |Inte tillåtet| `Input` | Sträng | Tal behållare använder inte detta.|
 |Valfritt| `Output` | Sträng | Utdata mount-mål. Standardvärdet är `/output`. Det här är platsen för loggarna. Detta inkluderar behållar loggar. <br><br>Exempel:<br>`--mount type=bind,src=c:\output,target=/output`|
@@ -90,12 +90,14 @@ I följande exempel används konfigurationsinställningarna som illustrerar hur 
 * **Rad fortsättnings avstånd**: Docker- `\`kommandona i följande avsnitt använder omvänt snedstreck, som ett fortsättnings streck. Ersätta eller ta bort detta baserat på din värdoperativsystemet. 
 * **Argument ordning**: Ändra inte ordningen på argumenten om du inte är bekant med Docker-behållare.
 
-Ersätt { _} med dina egna värden:
+Ersätt {_argument_name_} med dina egna värden:
 
 | Platshållare | Värde | Format eller exempel |
 |-------------|-------|---|
-|{API_KEY} | Tal resursens API-nyckel. |xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx|
-|{ENDPOINT_URI} | Slut punkt svärdet inklusive region.|`https://westus.api.cognitive.microsoft.com/sts/v1.0`|
+| **{API_KEY}** | `Speech` Resursens slut punkts nyckel på sidan med `Speech` Azure-nycklar. | `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx` |
+| **{ENDPOINT_URI}** | Värdet för fakturerings slut punkten är tillgängligt på sidan `Speech` Azure-översikt.| Se [samla in obligatoriska parametrar](speech-container-howto.md#gathering-required-parameters) för explicita exempel. |
+
+[!INCLUDE [subdomains-note](../../../includes/cognitive-services-custom-subdomains-note.md)]
 
 > [!IMPORTANT]
 > Den `Eula`, `Billing`, och `ApiKey` alternativ måste anges för att köra behållaren, i annat fall startar inte behållaren.  Mer information finns i [fakturering](#billing-configuration-setting).

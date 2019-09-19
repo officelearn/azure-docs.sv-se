@@ -2,18 +2,18 @@
 title: Hantera loggar för ett HDInsight-kluster – Azure HDInsight
 description: Bestäm typ, storlek och bevarande principer för HDInsight-aktivitets logg filen.
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/19/2019
-ms.author: hrasheed
-ms.openlocfilehash: 4e9a6a9ca435971d64ec8f59203a518287e6db4e
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.openlocfilehash: c069b620e129177be5d374f5b23b5e54befd8ca2
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70960992"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71105434"
 ---
 # <a name="manage-logs-for-an-hdinsight-cluster"></a>Hantera loggar för ett HDInsight-kluster
 
@@ -79,11 +79,11 @@ Apache Ambari fören klar hanteringen, konfigurationen och övervakningen av ett
 
 Öppna en lista över tjänstevyer genom att välja fönstret **Ambari vyer** på sidan Azure Portal för HDInsight.  Den här listan varierar beroende på vilka bibliotek som du har installerat.  Du kan till exempel se garn Queue Manager, Hive och Tez vy.  Välj en tjänst länk om du vill visa information om konfigurationen och tjänsten.  Sidan Ambari UI **stack och version** innehåller information om konfigurations historiken för kluster tjänster och tjänster. Om du vill navigera till det här avsnittet i Ambari-ANVÄNDARGRÄNSSNITTET väljer du **Administratörs** menyn och sedan **stackar och versioner**.  Välj fliken **versioner** för att se information om tjänst version.
 
-![Stack och versioner](./media/hdinsight-log-management/ambari-stack-versions.png)
+![Apache Ambari admin stack och versioner](./media/hdinsight-log-management/ambari-stack-versions.png)
 
 Med hjälp av användar gränssnittet för Ambari kan du ladda ned konfigurationen för alla (eller alla) tjänster som körs på en viss värd (eller nod) i klustret.  Välj menyn **värdar** och sedan länken för värden av intresse. På värddatorns sida väljer du knappen **värd åtgärder** och **laddar ned klient konfigurationerna**.
 
-![Konfiguration av värd klient](./media/hdinsight-log-management/download-client-configs.png)
+![Apache Ambari Ladda ned värd klient konfigurationerna](./media/hdinsight-log-management/download-client-configs.png)
 
 ### <a name="view-the-script-action-logs"></a>Visa skript åtgärds loggar
 
@@ -93,7 +93,7 @@ HDInsight [skript åtgärder](hdinsight-hadoop-customize-cluster-linux.md) kör 
 
 Nästa steg är att granska loggfilerna för jobb körning för de olika tjänsterna.  Tjänsterna kan omfatta Apache HBase, Apache Spark och många andra. Ett Hadoop-kluster genererar ett stort antal utförliga loggar, så att du kan fastställa vilka loggar som är användbara (och som inte är) kan vara tids krävande.  Att förstå loggnings systemet är viktigt för riktad hantering av loggfiler.  Följande är en exempel logg fil.
 
-![Exempel på HDInsight-logg filen](./media/hdinsight-log-management/hdi-log-file-example.png)
+![Exempel på HDInsight-exempel på logg filens utdata](./media/hdinsight-log-management/hdi-log-file-example.png)
 
 ### <a name="access-the-hadoop-log-files"></a>Komma åt Hadoop-loggfilerna
 
@@ -146,9 +146,9 @@ Nu har du tillräckligt med information för att skapa en logg hanterings strate
 
 När du har fastställt vilka loggfiler som kan tas bort kan du justera loggnings parametrarna på många Hadoop-tjänster för att automatiskt ta bort loggfiler efter en angiven tids period.
 
-För vissa loggfiler kan du använda en metod för att arkivera logg filen med lägre pris. För Azure Resource Manager aktivitets loggar kan du utforska den här metoden med hjälp av Azure Portal.  Ställ in arkivering av ARM-loggar genom att välja länken **aktivitets logg**i Azure Portal för din HDInsight-instans.  Överst på sidan för aktivitets loggs ökning väljer du meny alternativet **Exportera** för att öppna fönstret **Exportera aktivitets logg** .  Fyll i prenumerationen, regionen, om du vill exportera till ett lagrings konto och hur många dagar loggen ska sparas. I det här fönstret kan du också ange om du vill exportera till en Event Hub. 
+För vissa loggfiler kan du använda en metod för att arkivera logg filen med lägre pris. För Azure Resource Manager aktivitets loggar kan du utforska den här metoden med hjälp av Azure Portal.  Ställ in arkivering av ARM-loggar genom att välja länken **aktivitets logg**i Azure Portal för din HDInsight-instans.  Överst på sidan för aktivitets loggs ökning väljer du meny alternativet **Exportera** för att öppna fönstret **Exportera aktivitets logg** .  Fyll i prenumerationen, regionen, om du vill exportera till ett lagrings konto och hur många dagar loggen ska sparas. I det här fönstret kan du också ange om du vill exportera till en Event Hub.
 
-![Exportera loggfiler](./media/hdinsight-log-management/hdi-export-log-files.png)
+![Azure Portal för hands version av export av aktivitets logg](./media/hdinsight-log-management/hdi-export-log-files.png)
 
 Alternativt kan du arkivera skript loggen med PowerShell.  Ett exempel på PowerShell-skript finns i [arkivera Azure Automation loggar till Azure Blob Storage](https://gallery.technet.microsoft.com/scriptcenter/Archive-Azure-Automation-898a1aa8).
 

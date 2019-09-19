@@ -7,12 +7,12 @@ ms.author: v-qiwe
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 07/10/2019
-ms.openlocfilehash: 3fa485c9fb2835b8270cb35fc75b57251476005f
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: a244e4f7ac406fecd4c053b39a5e9a9cb6ecab2c
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70141778"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71105500"
 ---
 # <a name="metered-billing-using-the-marketplace-metering-service"></a>Avgiftsbelagd fakturering med Marketplace-avläsning
 
@@ -55,7 +55,7 @@ Contoso är till exempel en utgivare med en SaaS-tjänst som heter Contoso Notif
     * Utöver 50000 e-postmeddelanden betalar du $0,5 för varje 100 e-post
     * Utöver 10000-texterna betalar du $0,01 för varje text
 
-En Azure-kund som prenumererar på CNS-tjänsten kommer att kunna skicka den inkluderade mängden text och e-postmeddelanden per månad baserat på den valda planen.  När kunderna förbrukar mer än den mängd som ingår behöver de inte ändra några planer eller göra något annat.  Contoso mäter överförbrukningen utöver den mängd som ingår och startar sändning av användnings händelser till Microsoft för ytterligare användning med [API: et för avläsning](./marketplace-metering-service-apis.md)av program vara i Marketplace.  Microsoft kommer att debitera kunden för den ytterligare användningen som anges av utgivaren.
+En Azure-kund som prenumererar på CNS-tjänsten kommer att kunna skicka den inkluderade mängden text och e-postmeddelanden per månad baserat på den valda planen.  Contoso mäter användningen upp till den inkluderade mängden utan att skicka några användnings händelser till Microsoft.  När kunderna förbrukar mer än den mängd som ingår behöver de inte ändra några planer eller göra något annat.  Contoso mäter överförbrukningen utöver den mängd som ingår och startar sändning av användnings händelser till Microsoft för ytterligare användning med [API: et för avläsning](./marketplace-metering-service-apis.md)av program vara i Marketplace.  Microsoft kommer att debitera kunden för den ytterligare användningen som anges av utgivaren.
 
 ## <a name="billing-dimensions"></a>Fakturerings dimensioner
 

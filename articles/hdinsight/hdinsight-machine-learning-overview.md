@@ -2,18 +2,18 @@
 title: Översikt över Machine Learning – Azure HDInsight
 description: Översikt över utbildnings alternativ för Big data Machine för kluster i Azure HDInsight.
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/19/2018
-ms.author: hrasheed
-ms.openlocfilehash: 0fecb41c3417d5b43e0638815d6a7d274ba461b0
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.openlocfilehash: 139d82079b5946b0628760f5b05bb08d208cae6f
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70961982"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71105417"
 ---
 # <a name="machine-learning-on-hdinsight"></a>Maskin inlärning på HDInsight
 
@@ -39,7 +39,7 @@ Med ML-tjänster i HDInsight med Spark kan du parallellisera utbildning över no
 
 Azure Machine Learning innehåller verktyg för att modellera förutsägelse analys, samt en fullständigt hanterad tjänst som du kan använda för att distribuera förutsägelse modeller som färdiga webb tjänster. Azure Machine Learning är en komplett lösning för förutsägelse analys i molnet som du kan använda för att skapa, testa, operationalisera och hantera förutsägelse modeller. Välj från ett bibliotek med stora algoritmer, Använd en webbaserad Studio för att skapa modeller och enkelt distribuera din modell som en webb tjänst.
 
-![Göra avancerade analyser tillgängliga för Hadoop med Microsoft Azure Machine Learning](./media/hdinsight-machine-learning-overview/azure-machine-learning.png)
+![Översikt över Microsoft Azure Machine Learning](./media/hdinsight-machine-learning-overview/azure-machine-learning.png)
 
 Skapa funktioner för data i ett HDInsight Hadoop-kluster med [Hive-frågor](../machine-learning/team-data-science-process/create-features-hive.md). *Funktions teknikerna* försöker öka förutsägelse kraften hos Learning-algoritmer genom att skapa funktioner från rå data som underlättar inlärnings processen. Du kan köra HiveQL-frågor från Azure Machine Learning Studio och komma åt data som bearbetas i Hive och lagras i Blob Storage med hjälp av [modulen importera data](../machine-learning/studio/import-data.md).
 

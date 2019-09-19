@@ -7,12 +7,12 @@ ms.date: 07/30/2019
 ms.author: rogarana
 ms.subservice: files
 ms.topic: conceptual
-ms.openlocfilehash: 0fe893ae95b31b1b676a982a60166041a0ad964d
-ms.sourcegitcommit: df7942ba1f28903ff7bef640ecef894e95f7f335
+ms.openlocfilehash: cc827f52d227ee36620bd215dfcba96b433804d3
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69015908"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71103058"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Vanliga frågor och svar om Azure Files
 [Azure Files](storage-files-introduction.md) erbjuder fullständigt hanterade fil resurser i molnet som är tillgängliga via [SMB-protokollet (Server Message Block)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx)som är bransch standard. Du kan montera Azure-filresurser samtidigt i molnet eller lokala distributioner av Windows, Linux och macOS. Du kan också cachelagra Azure-filresurser på Windows Server-datorer med hjälp av Azure File Sync för snabb åtkomst nära var data används.
@@ -22,7 +22,7 @@ I den här artikeln besvaras vanliga frågor om Azure Files funktioner och funkt
 1. Avsnittet kommentarer i den här artikeln.
 2. [Azure Storage-forumet](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata).
 3. [Azure Files UserVoice](https://feedback.azure.com/forums/217298-storage/category/180670-files). 
-4. Microsoft-supporten. Om du vill skapa en ny supportbegäran går du till fliken **Hjälp** i Azure Portal, väljer **Hjälp + Support** -knappen och väljer sedan **ny supportbegäran**.
+4. Microsoft Support. Om du vill skapa en ny supportbegäran går du till fliken **Hjälp** i Azure Portal, väljer **Hjälp + Support** -knappen och väljer sedan **ny supportbegäran**.
 
 ## <a name="general"></a>Allmänt
 * <a id="why-files-useful"></a>
@@ -72,7 +72,7 @@ I den här artikeln besvaras vanliga frågor om Azure Files funktioner och funkt
 
 * <a id="tier-options"></a>
   **Vilka lagrings nivåer stöds i Azure Files?**  
-    Azure Files stöder två lagrings nivåer: Premium och standard. Standard fil resurser skapas i lagrings konton för generell användning (GPv1 eller GPv2) och Premium-filresurser skapas i FileStorage Storage-konton. Lär dig mer om hur du skapar [standard fil resurser](storage-how-to-create-file-share.md) och [Premium](storage-how-to-create-premium-fileshare.md)-filresurser. 
+    Azure Files stöder två lagrings nivåer: Premium och standard. Standard fil resurser skapas i lagrings konton för generell användning (GPv1 eller GPv2) och Premium-filresurser skapas i FileStorage Storage-konton. Lär dig mer om hur du skapar [standard fil resurser](storage-how-to-create-file-share.md) och [Premium-filresurser](storage-how-to-create-premium-fileshare.md). 
     
     > [!NOTE]
     > Du kan inte skapa Azure-filresurser från Blob Storage-konton eller *Premium* -GPv1-eller GPv2-lagrings konton. Standard Azure-filresurser måste skapas i *standard* konton för generell användning och endast Premium Azure-filresurser måste skapas i FileStorage lagrings konton. GPv1-och GPv2-lagrings konton ( *Premium* General Purpose) är endast för-blobar för Premium sidor. 
@@ -100,7 +100,7 @@ I den här artikeln besvaras vanliga frågor om Azure Files funktioner och funkt
    
     \<FileNameWithoutExtension\>-\<MachineName\>\[-#\].\<ext\>  
 
-    Den första konflikten i CompanyReport. docx skulle till exempel bli CompanyReport-CentralServer. docx om CentralServer är där den äldre skrivningen ägde rum. Den andra konflikten skulle ha namnet CompanyReport-CentralServer-1. docx.
+    Den första konflikten i CompanyReport. docx skulle till exempel bli CompanyReport-CentralServer. docx om CentralServer är där den äldre skrivningen ägde rum. Den andra konflikten skulle ha namnet CompanyReport-CentralServer-1. docx. Azure File Sync stöder 100-konfliktskapande filer per fil. När det maximala antalet konfliktskapande filer har nåtts kommer filen inte att synkroniseras förrän antalet konfliktskapande filer är mindre än 100.
 
 * <a id="afs-storage-redundancy"></a>
   **Stöds Geo-redundant lagring för Azure File Sync?**  
@@ -255,7 +255,7 @@ I den här artikeln besvaras vanliga frågor om Azure Files funktioner och funkt
 ## <a name="backup"></a>Säkerhetskopiera
 * <a id="backup-share"></a>
 **Hur gör jag för att säkerhetskopiera min Azure-filresurs?**  
-    Du kan använda periodiska [resurs ögonblicks bilder](storage-snapshots-files.md) för att skydda mot oavsiktlig borttagning. Du kan också använda AzCopy, Robocopy eller ett säkerhets kopierings verktyg från tredje part som kan säkerhetskopiera en monterad fil resurs. Azure Backup erbjuder säkerhets kopiering av Azure Files. Läs mer om hur du säkerhetskopierar [Azure-filresurser genom att Azure Backup](https://docs.microsoft.com/azure/backup/backup-azure-files).
+    Du kan använda periodiska [resurs ögonblicks bilder](storage-snapshots-files.md) för att skydda mot oavsiktlig borttagning. Du kan också använda AzCopy, Robocopy eller ett säkerhets kopierings verktyg från tredje part som kan säkerhetskopiera en monterad fil resurs. Azure Backup erbjuder säkerhets kopiering av Azure Files. Läs mer om hur du [säkerhetskopierar Azure-filresurser genom att Azure Backup](https://docs.microsoft.com/azure/backup/backup-azure-files).
 
 ## <a name="share-snapshots"></a>Resursögonblicksbilder
 

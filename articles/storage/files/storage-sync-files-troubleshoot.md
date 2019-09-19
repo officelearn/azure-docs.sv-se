@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/29/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 78e113f881d1f62c9848ba40f039fa19eeb09055
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: e07d154ce5dae8a461bf9db19303db685f8a4152
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70996455"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71103067"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Felsök Azure File Sync
 Använd Azure File Sync för att centralisera organisationens fil resurser i Azure Files, samtidigt som du behåller flexibilitet, prestanda och kompatibilitet för en lokal fil server. Windows Server omvandlas av Azure File Sync till ett snabbt cacheminne för Azure-filresursen. Du kan använda alla protokoll som är tillgängliga på Windows Server för att komma åt dina data lokalt, inklusive SMB, NFS och FTPS. Du kan ha så många cacheminnen som du behöver över hela världen.
@@ -293,6 +293,7 @@ Om du vill se de här felen kör du PowerShell-skriptet **FileSyncErrorsReport. 
 | 0x8000ffff | – 2147418113 | E_UNEXPECTED | Det går inte att synkronisera filen på grund av ett oväntat fel. | Om felet kvarstår i flera dagar öppnar du ett support ärende. |
 | 0x80070020 | -2147024864 | ERROR_SHARING_VIOLATION | Filen kan inte synkroniseras eftersom den används. Filen kommer att synkroniseras när den inte längre används. | Ingen åtgärd krävs. |
 | 0x80c80017 | -2134376425 | ECS_E_SYNC_OPLOCK_BROKEN | Filen ändrades under synkroniseringen, så den måste synkroniseras igen. | Ingen åtgärd krävs. |
+| 0x80c80200 | – 2134375936 | ECS_E_SYNC_CONFLICT_NAME_EXISTS | Det går inte att synkronisera filen eftersom det maximala antalet konfliktskapande filer har nåtts. Azure File Sync stöder 100-konfliktskapande filer per fil. Mer information om fil konflikter finns i Azure File Sync [vanliga frågor och svar](https://docs.microsoft.com/azure/storage/files/storage-files-faq#afs-conflict-resolution). | Lös problemet genom att minska antalet konfliktskapande filer. Filen kommer att synkroniseras när antalet konfliktskapande filer är mindre än 100. |
 
 #### <a name="handling-unsupported-characters"></a>Hantera tecken som inte stöds
 Om PowerShell-skriptet **FileSyncErrorsReport. ps1** visar fel som beror på tecken som inte stöds (felkod 0x8007007B eller 0x80c80255) bör du ta bort eller byta namn på tecknen vid fel från respektive fil namn. PowerShell kommer förmodligen att skriva ut dessa tecken som frågetecken eller tomma rektanglar eftersom de flesta av dessa tecken inte har någon standardiserad visuell kodning. [Utvärderings verktyget](storage-sync-files-planning.md#evaluation-cmdlet) kan användas för att identifiera tecken som inte stöds.

@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 08/29/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0e8e6a9eb50d15e6e4eb788fefe13d7e5983a834
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: 1411d64a6adc6f340b3ad49ca38ca30136bdef47
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70166060"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71104557"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-f5"></a>Självstudier: Azure Active Directory enkel inloggning (SSO) med F5
 
@@ -279,15 +279,15 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 | eb46b6b6. session. SAML. Last. assertionID | _9a4e4ddd-148f-45c4-b959-f4d148172e00 |
 | eb46b6b6. session. SAML. Last. assertionIssueInstant  | 2019-06-16T19:18:03.054 Z |
 | eb46b6b6. session. SAML. Last. assertionIssuer | `https://sts.windows.net/<TENANT ID>`/ |
-| eb46b6b6.session.saml.last.attr.name. http://schemas.microsoft.com/claims/authnmethodsreferences | `http://schemas.microsoft.com/ws/2008/06/identity/authenticationmethod/password` |
-| eb46b6b6.session.saml.last.attr.name. http://schemas.microsoft.com/identity/claims/displayname | user0 |
-| eb46b6b6.session.saml.last.attr.name. http://schemas.microsoft.com/identity/claims/identityprovider | `https://sts.windows.net/<TENANT ID>/` |
-| eb46b6b6.session.saml.last.attr.name. http://schemas.microsoft.com/identity/claims/objectidentifier | 90d5f0e5-8f46-4bfd-b40f-ec973d00fcb7 |
-| eb46b6b6.session.saml.last.attr.name. http://schemas.microsoft.com/identity/claims/tenantid | e6abffcf-4d23-4388-91c2-bfdfcbb1530c |
-| eb46b6b6.session.saml.last.attr.name. http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress | user0@superdemo.live |
-| eb46b6b6.session.saml.last.attr.name. http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname | user0 |
-| eb46b6b6.session.saml.last.attr.name. http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name | user0@superdemo.live |
-| eb46b6b6.session.saml.last.attr.name. http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname | 0 |
+| eb46b6b6. session. SAML. Last. attr. Name. http:\//schemas.Microsoft.com/Claims/authnmethodsreferences | `http://schemas.microsoft.com/ws/2008/06/identity/authenticationmethod/password` |
+| eb46b6b6. session. SAML. Last. attr. Name. http:\//schemas.Microsoft.com/Identity/Claims/DisplayName | user0 |
+| eb46b6b6. session. SAML. Last. attr. Name. http:\//schemas.Microsoft.com/Identity/Claims/identityprovider | `https://sts.windows.net/<TENANT ID>/` |
+| eb46b6b6. session. SAML. Last. attr. Name. http:\//schemas.Microsoft.com/Identity/Claims/objectidentifier | 90d5f0e5-8f46-4bfd-b40f-ec973d00fcb7 |
+| eb46b6b6. session. SAML. Last. attr. Name. http:\//schemas.Microsoft.com/Identity/Claims/tenantid | e6abffcf-4d23-4388-91c2-bfdfcbb1530c |
+| eb46b6b6. session. SAML. Last. attr. Name. http:\//schemas.xmlsoap.org/WS/2005/05/Identity/Claims/EmailAddress | user0@superdemo.live |
+| eb46b6b6. session. SAML. Last. attr. Name. http:\//schemas.xmlsoap.org/WS/2005/05/Identity/Claims/givenName | user0 |
+| eb46b6b6. session. SAML. Last. attr. Name. http:\//schemas.xmlsoap.org/WS/2005/05/Identity/Claims/Name | user0@superdemo.live |
+| eb46b6b6. session. SAML. Last. attr. Name. http:\//schemas.xmlsoap.org/WS/2005/05/Identity/Claims/Surname | 0 |
 | eb46b6b6. session. SAML. Last. Audience | `https://kerbapp.superdemo.live` |
 | eb46b6b6. session. SAML. Last. authNContextClassRef | urn: Oasis: namn: TC: SAML: 2.0: AC: klasser: lösen ord |
 | eb46b6b6. session. SAML. Last. authNInstant | 2019-06-16T19:18:00.318 Z |

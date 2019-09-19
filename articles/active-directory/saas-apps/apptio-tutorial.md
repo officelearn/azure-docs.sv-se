@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 07/08/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c07a978004ee8d2e25772f0d393529cbb509380a
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: d0ac86dcdb698c554c40325d6a20d6d27de908f8
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68967227"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71104390"
 ---
 # <a name="tutorial-integrate-apptio-with-azure-active-directory"></a>Självstudier: Integrera Apptio med Azure Active Directory
 
@@ -85,7 +85,7 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
     I textrutan **Identifierare** skriver du värdet:  `urn:federation:apptio`
 
-5. Apptio-programmet förväntar sig SAML-intyg i ett särskilt format, vilket innebär att du kan lägga till anpassade mappningar av attribut i konfigurationen för SAML-token. I följande skärmbild visas listan över standardattribut. Klicka på ikonen **Redigera** för att öppna dialogrutan Användarattribut.
+5. Apptio-programmet förväntar sig SAML-intyg i ett särskilt format, vilket innebär att du kan lägga till anpassade mappningar av attribut i konfigurationen för SAML-token. I följande skärmbild visas listan över standardattribut. Klicka på ikonen**Redigera** för att öppna dialogrutan Användarattribut.
 
     ![image](common/edit-attribute.png)
 
@@ -94,7 +94,7 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
 6. Utöver ovan förväntar sig Apptio-programmet att fler attribut skickas tillbaka i SAML-svar. I avsnittet användar anspråk i dialog rutan användarattribut, utför följande steg för att lägga till SAML-token-attributet som visas i tabellen nedan: 
 
-    | Namn |  Källattribut|
+    | Name |  Källattribut|
     | -------------- | -------------------- |
     | fullständigt namn       | user.displayname |
     | e-post           | user.mail |
@@ -156,7 +156,7 @@ För att konfigurera enkel inloggning på **Apptio**-sidan behöver du skicka ne
 
 ### <a name="create-apptio-test-user"></a>Skapa Apptio-testanvändare
 
-I det här avsnittet skapar du en användare som heter B. Simon i Apptio. Ta hjälp av  [Apptio-supportteamet](https://www.apptio.com/about/contact) för att lägga till användare på Apptio-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
+I det här avsnittet skapar du en användare som heter B. Simon i Apptio. Arbeta med [Apptio support team](https://www.apptio.com/about/contact) för att lägga till användare i Apptio-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
 
 ## <a name="test-sso"></a>Testa SSO 
 

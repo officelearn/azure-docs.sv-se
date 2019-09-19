@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/31/2019
 ms.author: genli
-ms.openlocfilehash: 37c2cf5ffb5e6eaf8b8da6e7bc9259cfa101c796
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: 0a32f9a9fde0983a5b97f7342a111d40ef01c686
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71058826"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71104824"
 ---
 # <a name="troubleshooting-azure-point-to-site-connection-problems"></a>Telefonbaserad Problem med Azure punkt-till-plats-anslutning
 
@@ -48,8 +48,7 @@ Följ dessa steg för att lösa problemet:
     | Certifikat | Location |
     | ------------- | ------------- |
     | AzureClient.pfx  | Aktuell User\Personal\Certificates |
-    | Azuregateway-*GUID*.cloudapp.net  | Aktuella User\Trusted rot certifikat utfärdare|
-    | AzureGateway-*GUID*.cloudapp.net, AzureRoot.cer    | Lokala Computer\Trusted rot certifikat utfärdare|
+    | AzureRoot. cer    | Lokala Computer\Trusted rot certifikat utfärdare|
 
 3. Gå till C:\Users\<username > \AppData\Roaming\Microsoft\Network\Connections\Cm\<GUID >, installera certifikatet (*. CER-filen) manuellt på användarens och datorns Arkiv.
 

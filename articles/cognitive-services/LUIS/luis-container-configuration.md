@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 06/11/2019
+ms.date: 09/18/2019
 ms.author: dapine
-ms.openlocfilehash: e6a13688bba1c3a0e62e427e078e78c8f8dd4e70
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 9760475886ecb0f20d9f0f3981eab8246643da21
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68560627"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71101988"
 ---
 # <a name="configure-language-understanding-docker-containers"></a>Konfigurera Language Understanding Docker-behållare 
 
@@ -57,7 +57,7 @@ Använd inte starter-nyckel eller nyckeln för redigering.
 
 ## <a name="billing-setting"></a>Inställningen för fakturering
 
-Inställningen anger slut punkts-URI för den Cognitive Services resursen på Azure som används för att mäta fakturerings information för behållaren.  `Billing` Du måste ange ett värde för den här konfigurations inställningen och värdet måste vara en giltig slut punkts-URI för en _Cognitive Services_ -resurs på Azure. Behållar rapporteringen visar var 10 till 15: e minut.
+Inställningen anger slut punkts-URI för den Cognitive Services resursen på Azure som används för att mäta fakturerings information för behållaren. `Billing` Du måste ange ett värde för den här konfigurations inställningen och värdet måste vara en giltig slut punkts-URI för en _Cognitive Services_ -resurs på Azure. Behållar rapporteringen visar var 10 till 15: e minut.
 
 Du hittar den här inställningen på följande platser:
 
@@ -106,7 +106,7 @@ I följande tabell beskrivs de inställningar som stöds.
 
 I följande exempel används konfigurationsinställningarna som illustrerar hur du skriver och använda `docker run` kommandon.  När du kör, behållaren fortsätter att köras tills du [stoppa](luis-container-howto.md#stop-the-container) den.
 
-* I de här exemplen används katalogen `c:` från enheten för att undvika eventuella behörighets konflikter i Windows. Om du vill använda en viss katalog som den inkommande katalogen kan du behöva ge docker tjänsten behörighet. 
+* I de här exemplen används katalogen `C:` från enheten för att undvika eventuella behörighets konflikter i Windows. Om du vill använda en viss katalog som den inkommande katalogen kan du behöva ge docker tjänsten behörighet. 
 * Ändra inte argumentens ordning om du inte är bekant med docker-behållare.
 * Om du använder ett annat operativ system använder du rätt konsol/Terminal, kommandosyntax för montering och linje fortsättnings text för systemet. Dessa exempel förutsätter en Windows-konsol med ett linje `^`fortsättnings steg. Eftersom behållaren är ett Linux-operativsystem använder mål-Mount en syntax för en mappvy i Linux-typ.
 
@@ -116,11 +116,13 @@ Ersätt {_argument_name_} med dina egna värden:
 
 | Platshållare | Värde | Format eller exempel |
 |-------------|-------|---|
-|{API_KEY} | Slutpunktsnyckeln av tränade LUIS-programmet. |xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx|
-|{ENDPOINT_URL} | Värdet för fakturerings slut punkten är tillgängligt på sidan `Cognitive Services` Azure-översikt. |https://westus.api.cognitive.microsoft.com/luis/v2.0|
+| **{API_KEY}** | `LUIS` Resursens slut punkts nyckel på sidan med `LUIS` Azure-nycklar. | `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx` |
+| **{ENDPOINT_URI}** | Värdet för fakturerings slut punkten är tillgängligt på sidan `LUIS` Azure-översikt.| Se [samla in obligatoriska parametrar](luis-container-howto.md#gathering-required-parameters) för explicita exempel. |
+
+[!INCLUDE [subdomains-note](../../../includes/cognitive-services-custom-subdomains-note.md)]
 
 > [!IMPORTANT]
-> Den `Eula`, `Billing`, och `ApiKey` alternativ måste anges för att köra behållaren, i annat fall startar inte behållaren.  Mer information finns i [fakturering](luis-container-howto.md#billing).
+> Den `Eula`, `Billing`, och `ApiKey` alternativ måste anges för att köra behållaren, i annat fall startar inte behållaren. Mer information finns i [fakturering](luis-container-howto.md#billing).
 > ApiKey-värdet är **nyckeln** på sidan nycklar och slut punkter i Luis-portalen och finns också på sidan med Azures `Cognitive Services` resurs nycklar. 
 
 ### <a name="basic-example"></a>Grundläggande exempel

@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 06/19/2019
+ms.date: 09/18/2019
 ms.author: dapine
 ms.custom: seodec18
-ms.openlocfilehash: 3e1dc68ec67e8a7a24c3459519df80a8faf2fc01
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 186f2f60aad15b336265114d7c85c757e0dd333f
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68565650"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71102292"
 ---
 # <a name="configure-recognize-text-docker-containers"></a>Konfigurera Identifiera text Docker-behållare
 
@@ -43,7 +43,7 @@ Du hittar den här inställningen på följande plats:
 
 ## <a name="billing-configuration-setting"></a>Fakturering konfigurationsinställning
 
-Inställningen anger slut punkts-URI för den Cognitive Services resursen på Azure som används för att mäta fakturerings information för behållaren.  `Billing` Du måste ange ett värde för den här konfigurations inställningen och värdet måste vara en giltig slut punkts-URI för en _Cognitive Services_ -resurs på Azure. Behållar rapporteringen visar var 10 till 15: e minut.
+Inställningen anger slut punkts-URI för den Cognitive Services resursen på Azure som används för att mäta fakturerings information för behållaren. `Billing` Du måste ange ett värde för den här konfigurations inställningen och värdet måste vara en giltig slut punkts-URI för en _Cognitive Services_ -resurs på Azure. Behållar rapporteringen visar var 10 till 15: e minut.
 
 Du hittar den här inställningen på följande plats:
 
@@ -79,7 +79,7 @@ Visuellt innehåll behållare använder inte indata eller utdata monteras för a
 
 Den exakta syntaxen hos montera värdplats varierar beroende på värdens operativsystem. Dessutom kanske [värd datorns](computer-vision-how-to-install-containers.md#the-host-computer)monterings plats inte är tillgänglig på grund av en konflikt mellan behörigheter som används av Docker-tjänstkontot och värd monterings platsens behörigheter. 
 
-|Valfritt| Namn | Datatyp | Beskrivning |
+|Valfritt| Name | Datatyp | Beskrivning |
 |-------|------|-----------|-------------|
 |Inte tillåtet| `Input` | Sträng | Visuellt innehåll behållare använder inte detta.|
 |Valfritt| `Output` | Sträng | Utdata mount-mål. Standardvärdet är `/output`. Det här är platsen för loggarna. Detta inkluderar behållar loggar. <br><br>Exempel:<br>`--mount type=bind,src=c:\output,target=/output`|
@@ -97,8 +97,10 @@ Ersätt {_argument_name_} med dina egna värden:
 
 | Platshållare | Värde | Format eller exempel |
 |-------------|-------|---|
-|{API_KEY} | Cognitive Services resursens slut punkts nyckel. |xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx|
-|{ENDPOINT_URI} | Värdet för fakturerings slut punkten inklusive region.|`https://westcentralus.api.cognitive.microsoft.com/vision/v1.0`|
+| **{API_KEY}** | `Computer Vision` Resursens slut punkts nyckel på sidan med `Computer Vision` Azure-nycklar. | `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx` |
+| **{ENDPOINT_URI}** | Värdet för fakturerings slut punkten är tillgängligt på sidan `Computer Vision` Azure-översikt.| Se [samla in obligatoriska parametrar](computer-vision-how-to-install-containers.md#gathering-required-parameters) för explicita exempel. |
+
+[!INCLUDE [subdomains-note](../../../includes/cognitive-services-custom-subdomains-note.md)]
 
 > [!IMPORTANT]
 > Den `Eula`, `Billing`, och `ApiKey` alternativ måste anges för att köra behållaren, i annat fall startar inte behållaren.  Mer information finns i [fakturering](computer-vision-how-to-install-containers.md#billing).

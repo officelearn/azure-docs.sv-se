@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/16/2019
+ms.date: 09/16/2019
 ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: caea0b7e64c7079156480aef0f65279989285ff3
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 5334c17b4f918e128ac69569e8ab6deeebac2182
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68834976"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71103948"
 ---
 # <a name="token-cache-serialization-in-msalnet"></a>Cachelagring av token i MSAL.NET
 När en [token har hämtats](msal-acquire-cache-tokens.md)cachelagras den av Microsoft Authentication Library (MSAL).  Program koden bör försöka hämta en token från cachen innan du hämtar en token med en annan metod.  I den här artikeln beskrivs standard och anpassad serialisering för token cache i MSAL.NET.
@@ -275,7 +275,7 @@ namespace CommonCacheMsalV3
 
 I webbappar eller webb-API: er kan cache utnyttja sessionen, en Redis-cache eller en databas.
 
-Ett viktigt att komma ihåg är att för webbappar och webb-API: er bör det finnas ett token cache per användare (per konto). Du måste serialisera token-cachen för varje konto.
+I Web Apps eller webb-API: er, Behåll ett token-cache per konto.  För Web Apps bör token-cachen anges av konto-ID: t.  För webb-API: er ska kontot anges genom hashen för den token som används för att anropa API: et. MSAL.NET tillhandahåller anpassad cachelagring av token i .NET Framework och .NET Core-underplattformar. Händelser utlöses när cachen används, kan appar välja om de vill serialisera eller deserialisera cachen. På konfidentiella klient program som hanterar användare (webbappar som loggar in användare och anropar webb-API: er och webb-API: er som anropar underordnade webb-API: er), kan det finnas många användare och användarna bearbetas parallellt. Av säkerhets-och prestanda skäl är vår rekommendation att serialisera en cache per användare. Serialiserings händelser beräknar en cache-nyckel baserat på identiteten för den bearbetade användaren och serialiserar/deserialiserar en token-cache för den användaren.
 
 Exempel på hur du kan använda token-cacheminnen för webbappar och webb-API: er finns i självstudien [ASP.net Core Web Apps](https://ms-identity-aspnetcore-webapp-tutorial) i fas [2-2-token cache](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/2-WebApp-graph-user/2-2-TokenCache). För implementeringar har du en titt på följande mapp [TokenCacheProviders](https://github.com/AzureAD/microsoft-authentication-extensions-for-dotnet/tree/master/src/Microsoft.Identity.Client.Extensions.Web/TokenCacheProviders) i biblioteket [Microsoft-Authentication-Extensions-for-dotNet](https://github.com/AzureAD/microsoft-authentication-extensions-for-dotnet) (i mappen [Microsoft. Identity. client. Extensions. Web](https://github.com/AzureAD/microsoft-authentication-extensions-for-dotnet/tree/master/src/Microsoft.Identity.Client.Extensions.Web) . 
 

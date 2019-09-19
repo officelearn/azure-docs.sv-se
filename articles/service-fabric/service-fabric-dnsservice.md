@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 7/20/2018
 ms.author: atsenthi
-ms.openlocfilehash: 123e63fb79ba966e4e17b0c55440049a79add905
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: d8925f1c31b7a0c8f45e65e783077e8f5e2b0add
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70931176"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71103247"
 ---
 # <a name="dns-service-in-azure-service-fabric"></a>DNS-tjänst i Azure Service Fabric
 DNS-tjänsten är en valfri system tjänst som du kan aktivera i klustret för att identifiera andra tjänster som använder DNS-protokollet. 
@@ -73,16 +73,16 @@ När du har en mall kan du aktivera DNS-tjänsten med följande steg:
 
    - Om du vill aktivera DNS-tjänsten med standardinställningar lägger du till den `addonFeatures` i avsnittet `properties` i avsnittet, som du ser i följande exempel:
 
-       ```json
-           "properties": {
-              ...
-
-              "addonFeatures": [
-                "DnsService"
+        ```json
+          "properties": {
+            ...
+            "addonFeatures": [
+              "DnsService"
               ],
-              ...
-           }
-       ```
+            ...
+          }
+        ```
+
    - Om du vill aktivera tjänsten med andra inställningar än standardinställningarna lägger du `DnsService` till ett avsnitt `fabricSettings` i avsnittet i `properties` avsnittet. I det här fallet behöver du inte lägga till DNS service i `addonFeatures`. Mer information om de egenskaper som kan anges för DNS-tjänsten finns i inställningar för [DNS-tjänsten](./service-fabric-cluster-fabric-settings.md#dnsservice).
 
        ```json
@@ -111,7 +111,10 @@ När du har en mall kan du aktivera DNS-tjänsten med följande steg:
               ]
             }
        ```
-1. När du har uppdaterat kluster mal len med ändringarna tillämpar du dem och låter uppgraderingen slutföras. När uppgraderingen är klar börjar DNS-systemtjänsten att köras i klustret. Tjänst namnet är `fabric:/System/DnsService`, och du hittar det under avsnittet **system** service i Service Fabric Explorer. 
+3. När du har uppdaterat kluster mal len med ändringarna tillämpar du dem och låter uppgraderingen slutföras. När uppgraderingen är klar börjar DNS-systemtjänsten att köras i klustret. Tjänst namnet är `fabric:/System/DnsService`, och du hittar det under avsnittet **system** service i Service Fabric Explorer. 
+
+> [!NOTE]
+> När du uppgraderar DNS från inaktive rad till aktive rad kanske Service Fabric Explorer inte visar det nya läget. Lös problemet genom att starta om noderna genom att ändra UpgradePolicy i din Azure Resource Manager-mall. Mer information finns i [referensen för Service Fabric mal len](https://docs.microsoft.com/azure/templates/microsoft.servicefabric/2019-03-01/clusters/applications) .
 
 
 ## <a name="setting-the-dns-name-for-your-service"></a>Ange DNS-namnet för din tjänst

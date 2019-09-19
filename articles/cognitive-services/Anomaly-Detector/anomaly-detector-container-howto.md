@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: conceptual
-ms.date: 06/19/2019
+ms.date: 09/18/2019
 ms.author: dapine
-ms.openlocfilehash: 0c2ff2c745ebed8385df0d351c6d43faf5ab1b9d
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.openlocfilehash: 339aab3ffe228d306738d3c17394bd322ab5e06c
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70050072"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71103776"
 ---
-# <a name="install-and-run-anomaly-detector-containers"></a>Installera och kör avvikelse detektor behållare
+# <a name="install-and-run-anomaly-detector-containers"></a>Installera och kör avvikelseidentifieringscontainrar
 
 Avvikelse detektorn har följande behållare: 
 
@@ -39,6 +39,8 @@ Du måste uppfylla följande krav innan du använder behållare för avvikelse d
 |Docker-motor| Du behöver Docker-motorn installerad på en [värddator](#the-host-computer). Docker innehåller paket som konfigurerar Docker-miljön på [MacOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/)och [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Få en genomgång om grunderna för Docker och behållare finns i den [översikt över Docker](https://docs.docker.com/engine/docker-overview/).<br><br> Docker måste konfigureras för att tillåta behållarna för att ansluta till och skicka faktureringsdata till Azure. <br><br> **I Windows**måste Docker också konfigureras för att stödja Linux-behållare.<br><br>|
 |Bekant med Docker | Du bör ha grundläggande kunskaper om Docker-koncept, t. ex. register, databaser, behållare och behållar avbildningar, samt kunskaper `docker` om grundläggande kommandon.| 
 |Avvikelse detektor resurs |Du måste ha följande för att kunna använda dessa behållare:<br><br>En Azure- _avvikelses detektor_ resurs för att hämta tillhör ande API-nyckel och slut punkts-URI. Båda värdena är tillgängliga på Azure Portalens **avvikelse detektor** översikt och nycklar sidor och krävs för att starta behållaren.<br><br>**{API_KEY}** : En av de två tillgängliga resurs nycklarna på sidan **nycklar**<br><br>**{ENDPOINT_URI}** : Slut punkten enligt vad som anges på sidan **Översikt**|
+
+[!INCLUDE [Gathering required container parameters](../containers/includes/container-gathering-required-parameters.md)]
 
 ## <a name="request-access-to-the-container-registry"></a>Begär åtkomst till behållar registret
 
@@ -80,7 +82,6 @@ For a full description of available tags, such as `latest` used in the preceding
 -->
 [!INCLUDE [Tip for using docker list](../../../includes/cognitive-services-containers-docker-list-tip.md)]
 
-
 ### <a name="docker-pull-for-the-anomaly-detector-container"></a>Docker-hämtning för avvikelse detektor behållaren
 
 ```Docker
@@ -96,14 +97,9 @@ När behållaren är på värddatorn [](#the-host-computer)använder du följand
 
 ## <a name="run-the-container-with-docker-run"></a>Kör behållaren med`docker run`
 
-Använd kommandot [Docker Run](https://docs.docker.com/engine/reference/commandline/run/) för att köra någon av de tre behållarna. Kommandot använder följande parametrar:
+Använd kommandot [Docker Run](https://docs.docker.com/engine/reference/commandline/run/) för att köra behållaren. Läs om hur du [samlar in nödvändiga parametrar](#gathering-required-parameters) för information om hur `{ENDPOINT_URI}` du `{API_KEY}` hämtar och-värden.
 
-| Platshållare | Value |
-|-------------|-------|
-|{API_KEY} | Den här nyckeln används för att starta behållaren och är tillgänglig på sidan med Azure Portals avvikelse nycklar.  |
-|{ENDPOINT_URI} | URI-värdet för fakturerings slut punkten finns på översikts sidan för Azure Portalens avvikelse detektor.|
-
-Ersätt dessa parametrar med dina egna värden i följande exempel `docker run` kommando.
+[Exempel](anomaly-detector-container-configuration.md#example-docker-run-commands) på `docker run` kommandot är tillgängliga.
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \

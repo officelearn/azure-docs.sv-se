@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017,seodec18
 ms.topic: conceptual
 ms.date: 07/15/2019
-ms.openlocfilehash: 0f29df02e8242872311df3d4cb660d46bbc2cee3
-ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
+ms.openlocfilehash: cf276f3a0b14658d6c0bc10a138e814f30561cc9
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71018774"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71104507"
 ---
 # <a name="set-up-clusters-in-hdinsight-with-apache-hadoop-apache-spark-apache-kafka-and-more"></a>Konfigurera kluster i HDInsight med Apache Hadoop, Apache Spark, Apache Kafka med mera
 
@@ -41,14 +41,14 @@ I följande tabell visas de olika metoder som du kan använda för att skapa ett
 | [Azure Resource Manager mallar](hdinsight-hadoop-create-linux-clusters-arm-templates.md) |&nbsp; |✔ |&nbsp; |&nbsp; |
 
 ## <a name="quick-create-basic-cluster-setup"></a>Snabb registrering: Grundläggande kluster konfiguration
-Den här artikeln vägleder dig genom installationen i [Azure Portal](https://portal.azure.com), där du kan skapa ett HDInsight-kluster med hjälp av *snabb registrering* eller *anpassad*. 
+Den här artikeln vägleder dig genom installationen i [Azure Portal](https://portal.azure.com), där du kan skapa ett HDInsight-kluster med hjälp av *snabb registrering* eller *anpassad*.
 
 ![HDInsight Create Options Custom Quick Create](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-creation-options.png)
 
 Följ anvisningarna på skärmen för att göra en grundläggande kluster konfiguration. Mer information finns nedan:
 
 * [Resurs grupps namn](#resource-group-name)
-* [Kluster typer och konfiguration](#cluster-types) 
+* [Kluster typer och konfiguration](#cluster-types)
 * [Klusternamn](#cluster-name)
 * [Kluster inloggning och SSH-användarnamn](#cluster-login-and-ssh-username)
 * [Location](#location)
@@ -61,7 +61,7 @@ Följ anvisningarna på skärmen för att göra en grundläggande kluster konfig
 Azure HDInsight tillhandahåller för närvarande följande kluster typer, var och en med en uppsättning komponenter för att tillhandahålla vissa funktioner.
 
 > [!IMPORTANT]  
-> HDInsight-kluster är tillgängliga i olika typer, var och en för en enskild arbets belastning eller teknik. Det finns ingen metod som stöds för att skapa ett kluster som kombinerar flera typer, till exempel storm och HBase på ett kluster. Om lösningen kräver tekniker som sprids över flera HDInsight-kluster typer kan ett [virtuellt Azure-nätverk](https://docs.microsoft.com/azure/virtual-network) ansluta de kluster typer som krävs. 
+> HDInsight-kluster är tillgängliga i olika typer, var och en för en enskild arbets belastning eller teknik. Det finns ingen metod som stöds för att skapa ett kluster som kombinerar flera typer, till exempel storm och HBase på ett kluster. Om lösningen kräver tekniker som sprids över flera HDInsight-kluster typer kan ett [virtuellt Azure-nätverk](https://docs.microsoft.com/azure/virtual-network) ansluta de kluster typer som krävs.
 
 | Klustertyp | Funktioner |
 | --- | --- |
@@ -72,7 +72,6 @@ Azure HDInsight tillhandahåller för närvarande följande kluster typer, var o
 | [ML-tjänster](r-server/r-server-overview.md) |Olika stor data statistik, förutsägande modellering och maskin inlärnings funktioner |
 | [Spark](spark/apache-spark-overview.md) |Minnes intern bearbetning, interaktiva frågor, bearbetning av mikrobatch-dataström |
 | [Stort](storm/apache-storm-overview.md) |Händelsebearbetning i realtid |
-
 
 ### <a name="hdinsight-version"></a>HDInsight-version
 Välj HDInsight-versionen för det här klustret. Mer information finns i [HDInsight-versioner som stöds](hdinsight-component-versioning.md#supported-hdinsight-versions).
@@ -126,16 +125,15 @@ Mer information om lagrings alternativ med HDInsight finns i [jämföra lagrings
 > [!WARNING]  
 > Det finns inte stöd för att använda ett ytterligare lagrings konto på en annan plats från HDInsight-klustret.
 
-
 Under konfigurationen för standard lagrings slut punkten anger du en BLOB-behållare för ett Azure Storage konto eller Data Lake Storage. Standard lagringen innehåller program-och system loggar. Alternativt kan du ange ytterligare länkade Azure Storage konton och Data Lake Storage konton som klustret har åtkomst till. HDInsight-klustret och beroende lagrings kontona måste finnas på samma Azure-plats.
 
 ![Kluster lagrings inställningar: HDFS-kompatibla slut punkter för lagring](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-cluster-creation-storage.png)
 
 [!INCLUDE [secure-transfer-enabled-storage-account](../../includes/hdinsight-secure-transfer.md)]
 
-
 ### <a name="optional-metastores"></a>Valfri metastores
-Du kan skapa valfria Hive-eller Apache Oozie-metastores. Alla kluster typer stöder dock inte metastores, och Azure SQL Data Warehouse är inte kompatibel med metastores. 
+
+Du kan skapa valfria Hive-eller Apache Oozie-metastores. Alla kluster typer stöder dock inte metastores, och Azure SQL Data Warehouse är inte kompatibel med metastores.
 
 Mer information finns i [använda externa metadata butiker i Azure HDInsight](./hdinsight-use-external-metadata-stores.md).
 
@@ -150,11 +148,10 @@ An-HDInsight metaarkiv som skapas för en HDInsight-kluster version kan inte del
 
 ### <a name="oozie-metastore"></a>Oozie metaarkiv
 
-Använd en anpassad metaarkiv för att öka prestandan när du använder Oozie. En metaarkiv kan också ge åtkomst till Oozie-jobb data när du har tagit bort klustret. 
+Använd en anpassad metaarkiv för att öka prestandan när du använder Oozie. En metaarkiv kan också ge åtkomst till Oozie-jobb data när du har tagit bort klustret.
 
 > [!IMPORTANT]  
 > Du kan inte återanvända en anpassad Oozie-metaarkiv. Om du vill använda en anpassad Oozie-metaarkiv måste du ange en tom Azure SQL Database när du skapar HDInsight-klustret.
-
 
 ## <a name="custom-cluster-setup"></a>Anpassad kluster konfiguration
 Anpassad kluster installation bygger på snabb starts inställningarna och lägger till följande alternativ:
@@ -163,14 +160,14 @@ Anpassad kluster installation bygger på snabb starts inställningarna och lägg
 - [Kluster storlek](#configure-cluster-size)
 - [Skript åtgärder](#advanced-settings-script-actions)
 - [Virtuellt nätverk](#advanced-settings-extend-clusters-with-a-virtual-network)
- 
+
 ## <a name="enterprise-security-package"></a>Säkerhets paket för företag
 
 För Hadoop-, Spark-, HBase-, Kafka-och interaktiv fråga-kluster typer kan du välja att aktivera **Enterprise Security Package**. Det här paketet ger möjlighet att ha en säkrare kluster konfiguration genom att använda Apache Ranger och integrera med Azure Active Directory. Mer information finns i [Översikt över företags säkerhet i Azure HDInsight](./domain-joined/hdinsight-security-overview.md).
 
 ![HDInsight-alternativ för skapande väljer Enterprise Security-paket](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-creation-enterprise-security-package.png)
 
-Mer information om hur du skapar domänanslutna HDInsight-kluster finns i avsnittet [skapa domänansluten HDInsight-miljö](./domain-joined/apache-domain-joined-configure.md). 
+Mer information om hur du skapar domänanslutna HDInsight-kluster finns i avsnittet [skapa domänansluten HDInsight-miljö](./domain-joined/apache-domain-joined-configure.md).
 
 ## <a name="install-hdinsight-applications-on-clusters"></a>Installera HDInsight-program i kluster
 
@@ -183,38 +180,40 @@ De flesta av HDInsight-programmen installeras på en tom Edge-nod.  En tom Edge-
 Du debiteras för användning av Node så länge klustret finns. Faktureringen startar när ett kluster skapas och stoppas när klustret tas bort. Kluster kan inte avallokeras eller spärras.
 
 ### <a name="number-of-nodes-for-each-cluster-type"></a>Antal noder för varje kluster typ
+
 Varje kluster typ har sitt eget antal noder, terminologi för noder och standard storlek för virtuell dator. I följande tabell är antalet noder för varje nodtyp inom parentes.
 
 | type | Noder | Diagram |
 | --- | --- | --- |
 | Hadoop |Head-nod (2), arbetsnoden (1 +) |![HDInsight Hadoop-klusternoder](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-hadoop-cluster-type-nodes.png) |
-| HBase |Huvud server (2), region Server (1 +), Master/ZooKeeper-nod (3) |![HDInsight HBase-klusternoder](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-hbase-cluster-type-setup.png) |
-| Storm |Nimbus Node (2), övervaknings Server (1 +), ZooKeeper Node (3) |![HDInsight Storm-klusternoder](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-storm-cluster-type-setup.png) |
-| Spark |Head Node (2), arbetsnoden (1 +), ZooKeeper Node (3) (kostnads fri för a1 ZooKeeper VM-storlek) |![HDInsight Spark-klusternoder](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-spark-cluster-type-setup.png) |
+| HBase |Huvud server (2), region Server (1 +), Master/ZooKeeper-nod (3) |![Konfiguration av HDInsight HBase-kluster typ](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-hbase-cluster-type-setup.png) |
+| Storm |Nimbus Node (2), övervaknings Server (1 +), ZooKeeper Node (3) |![Konfiguration av HDInsight Storm kluster typ](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-storm-cluster-type-setup.png) |
+| Spark |Head Node (2), arbetsnoden (1 +), ZooKeeper Node (3) (kostnads fri för a1 ZooKeeper VM-storlek) |![Konfiguration av HDInsight Spark kluster typ](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-spark-cluster-type-setup.png) |
 
 Mer information finns i [standard konfiguration av noder och virtuella dator storlekar för kluster](hdinsight-component-versioning.md#default-node-configuration-and-virtual-machine-sizes-for-clusters) i "Vad är Hadoop-komponenter och-versioner i HDInsight?"
 
-Kostnaden för HDInsight-kluster bestäms av antalet noder och storlekarna för virtuella datorer för noderna. 
+Kostnaden för HDInsight-kluster bestäms av antalet noder och storlekarna för virtuella datorer för noderna.
 
 Olika typer av kluster har olika nodtyper, antal noder och Node-storlekar:
-* Standardvärde för Hadoop-kluster typ: 
+* Standardvärde för Hadoop-kluster typ:
     * Två *Head-noder*  
     * Fyra *arbetsnoder*
-* Standard Storm kluster typ: 
+* Standard Storm kluster typ:
     * Två *Nimbus-noder*
     * Tre *ZooKeeper-noder*
-    * Fyra *överordnade noder* 
+    * Fyra *överordnade noder*
 
 Om du bara försöker använda HDInsight rekommenderar vi att du använder en arbetsnod. Mer information om priser för HDInsight finns i avsnittet om [priser för HDInsight](https://go.microsoft.com/fwLink/?LinkID=282635&clcid=0x409).
 
 > [!NOTE]  
 > Kluster storleks gränsen varierar mellan Azure-prenumerationer. Kontakta [Azures fakturerings support](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request) för att öka gränsen.
 
-När du använder Azure Portal för att konfigurera klustret är Node-storleken tillgängligt via bladet **Node pris nivåer** . I portalen kan du också se kostnaden som är associerad med de olika nodernas storlekar. 
+När du använder Azure Portal för att konfigurera klustret är Node-storleken tillgängligt via bladet **Node pris nivåer** . I portalen kan du också se kostnaden som är associerad med de olika nodernas storlekar.
 
-![VM-storlekar för HDInsight](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-node-sizes.png)
+![HDInsight Välj Node-storlek](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-node-sizes.png)
 
 ### <a name="virtual-machine-sizes"></a>Storlekar för virtuella datorer 
+
 När du distribuerar kluster väljer du beräknings resurser baserat på den lösning som du planerar att distribuera. Följande virtuella datorer används för HDInsight-kluster:
 * Virtuella datorer i och D1-4-serien: [Allmänna Linux VM-storlekar](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-general)
 * D11 – 14-seriens virtuella datorer: [Minnesoptimerade virtuella Linux-storlekar](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-memory)
@@ -224,7 +223,7 @@ För att ta reda på vilket värde du ska använda för att ange en VM-storlek n
 > [!IMPORTANT]  
 > Om du behöver fler än 32 arbetsnoder i ett kluster måste du välja en huvudnods storlek med minst 8 kärnor och 14 GB RAM.
 
-Mer information finns i [storlekar för virtuella datorer](../virtual-machines/windows/sizes.md). Information om priser för de olika storlekarna finns i avsnittet om [priser för HDInsight](https://azure.microsoft.com/pricing/details/hdinsight).   
+Mer information finns i [storlekar för virtuella datorer](../virtual-machines/windows/sizes.md). Information om priser för de olika storlekarna finns i avsnittet om [priser för HDInsight](https://azure.microsoft.com/pricing/details/hdinsight).
 
 ## <a name="advanced-settings-script-actions"></a>Avancerade inställningar: Skriptåtgärder
 
@@ -258,12 +257,12 @@ Ibland vill du konfigurera följande konfigurationsfiler under skapande processe
 Mer information finns i [Anpassa HDInsight-kluster med hjälp av bootstrap](hdinsight-hadoop-customize-cluster-bootstrap.md).
 
 ## <a name="advanced-settings-extend-clusters-with-a-virtual-network"></a>Avancerade inställningar: Utöka kluster med ett virtuellt nätverk
+
 Om lösningen kräver tekniker som sprids över flera HDInsight-kluster typer kan ett [virtuellt Azure-nätverk](https://docs.microsoft.com/azure/virtual-network) ansluta de kluster typer som krävs. Den här konfigurationen tillåter kluster och all kod som du distribuerar till dem för att kommunicera direkt med varandra.
 
 Mer information om hur du använder ett virtuellt Azure-nätverk med HDInsight finns i [planera ett virtuellt nätverk för HDInsight](hdinsight-plan-virtual-network-deployment.md).
 
 Ett exempel på hur du använder två kluster typer i ett virtuellt Azure-nätverk finns i [använda Apache Spark strukturerad strömning med Apache Kafka](hdinsight-apache-kafka-spark-structured-streaming.md). Mer information om hur du använder HDInsight med ett virtuellt nätverk, inklusive särskilda konfigurations krav för det virtuella nätverket, finns i [planera ett virtuellt nätverk för HDInsight](hdinsight-plan-virtual-network-deployment.md).
-
 
 ## <a name="next-steps"></a>Nästa steg
 

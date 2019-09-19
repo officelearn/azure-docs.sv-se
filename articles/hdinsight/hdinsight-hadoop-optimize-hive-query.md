@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/21/2019
-ms.openlocfilehash: d545cd997b35cfa5e7fec58b17507ce63097fd20
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: 7624f15e878e13a93b5b5f395ef9cf9af48c95e4
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70898773"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71104521"
 ---
 # <a name="optimize-apache-hive-queries-in-azure-hdinsight"></a>Optimera Apache Hive frågor i Azure HDInsight
 
@@ -29,11 +29,11 @@ Genom att öka antalet arbetsnoder i ett HDInsight-kluster kan arbetet använda 
 
 * När du skapar ett kluster kan du ange antalet arbetsnoder med hjälp av Azure Portal, Azure PowerShell eller kommando rads gränssnittet.  Mer information finns i [Skapa HDInsight-kluster](hdinsight-hadoop-provision-linux-clusters.md). Följande skärm bild visar konfigurationen för arbetsnoden på Azure Portal:
   
-    ![scaleout_1](./media/hdinsight-hadoop-optimize-hive-query/hdinsight-scaleout-1.png "scaleout_1")
-    
+    ![Noder i Azure Portal kluster storlek](./media/hdinsight-hadoop-optimize-hive-query/hdinsight-scaleout-1.png "scaleout_1")
+
 * När du har skapat kan du också redigera antalet arbetsnoder för att skala ut ett kluster ytterligare utan att skapa ett nytt:
 
-    ![scaleout_2](./media/hdinsight-hadoop-optimize-hive-query/hdinsight-scaleout-2.png "scaleout_2")
+    ![Azure Portal skalnings kluster storlek](./media/hdinsight-hadoop-optimize-hive-query/hdinsight-scaleout-2.png "scaleout_2")
 
 Mer information om hur du skalar HDInsight finns i [skala HDInsight-kluster](hdinsight-scaling-best-practices.md)
 
@@ -41,7 +41,7 @@ Mer information om hur du skalar HDInsight finns i [skala HDInsight-kluster](hdi
 
 [Apache Tez](https://tez.apache.org/) är en alternativ körnings motor till MapReduce-motorn. Linux-baserade HDInsight-kluster har Tez aktiverat som standard.
 
-![tez_1](./media/hdinsight-hadoop-optimize-hive-query/hdinsight-tez-engine.png)
+![HDInsight Apache Tez-översikt diagram](./media/hdinsight-hadoop-optimize-hive-query/hdinsight-tez-engine.png)
 
 Tez är snabbare eftersom:
 
@@ -55,9 +55,9 @@ Mer information om dessa begrepp finns i [Apache TEZ](https://tez.apache.org/).
 
 Du kan göra eventuella Hive-Tez aktiverade genom att aktivera frågan med följande set-kommando:
 
-   ```hive
-   set hive.execution.engine=tez;
-   ```
+```hive
+set hive.execution.engine=tez;
+```
 
 ## <a name="hive-partitioning"></a>Hive-partitionering
 
@@ -65,7 +65,7 @@ I/O-åtgärder är den stora prestanda Flask halsen för att köra Hive-frågor.
 
 Hive-partitionering implementeras genom att organisera om rå data i nya kataloger. Varje partition har en egen fil katalog. Partitioneringen definieras av användaren. Följande diagram illustrerar partitionering av en Hive-tabell efter kolumn *året*. En ny katalog skapas för varje år.
 
-![Hive-partitionering](./media/hdinsight-hadoop-optimize-hive-query/hdinsight-partitioning.png)
+![HDInsight Apache Hive partitionering](./media/hdinsight-hadoop-optimize-hive-query/hdinsight-partitioning.png)
 
 Några partitionering överväganden:
 
@@ -75,32 +75,32 @@ Några partitionering överväganden:
 
 Om du vill skapa en partitionstabell använder du den *partitionerade by* -satsen:
 
-   ```hive
-   CREATE TABLE lineitem_part
-       (L_ORDERKEY INT, L_PARTKEY INT, L_SUPPKEY INT,L_LINENUMBER INT,
-        L_QUANTITY DOUBLE, L_EXTENDEDPRICE DOUBLE, L_DISCOUNT DOUBLE,
-        L_TAX DOUBLE, L_RETURNFLAG STRING, L_LINESTATUS STRING,
-        L_SHIPDATE_PS STRING, L_COMMITDATE STRING, L_RECEIPTDATE STRING, 
-        L_SHIPINSTRUCT STRING, L_SHIPMODE STRING, L_COMMENT STRING)
-   PARTITIONED BY(L_SHIPDATE STRING)
-   ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t'
-   STORED AS TEXTFILE;
-   ```
-   
+```sql
+CREATE TABLE lineitem_part
+      (L_ORDERKEY INT, L_PARTKEY INT, L_SUPPKEY INT,L_LINENUMBER INT,
+      L_QUANTITY DOUBLE, L_EXTENDEDPRICE DOUBLE, L_DISCOUNT DOUBLE,
+      L_TAX DOUBLE, L_RETURNFLAG STRING, L_LINESTATUS STRING,
+      L_SHIPDATE_PS STRING, L_COMMITDATE STRING, L_RECEIPTDATE STRING, 
+      L_SHIPINSTRUCT STRING, L_SHIPMODE STRING, L_COMMENT STRING)
+PARTITIONED BY(L_SHIPDATE STRING)
+ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t'
+STORED AS TEXTFILE;
+```
+
 När den partitionerade tabellen har skapats kan du antingen skapa statisk partitionering eller dynamisk partitionering.
 
 * **Statisk partitionering** innebär att du redan har shardade data i lämpliga kataloger. Med statiska partitioner lägger du till Hive-partitioner manuellt utifrån katalogens plats. Följande kodfragment är ett exempel.
   
-   ```hive
+   ```sql
    INSERT OVERWRITE TABLE lineitem_part
    PARTITION (L_SHIPDATE = ‘5/23/1996 12:00:00 AM’)
    SELECT * FROM lineitem 
    WHERE lineitem.L_SHIPDATE = ‘5/23/1996 12:00:00 AM’
-   
+
    ALTER TABLE lineitem_part ADD PARTITION (L_SHIPDATE = ‘5/23/1996 12:00:00 AM’))
    LOCATION ‘wasb://sampledata@ignitedemo.blob.core.windows.net/partitions/5_23_1996/'
    ```
-   
+
 * **Dynamisk partitionering** innebär att du vill att Hive ska skapa partitioner automatiskt åt dig. Eftersom du redan har skapat partitionerings tabellen från mellanlagrings tabellen behöver du bara infoga data i den partitionerade tabellen:
   
    ```hive
@@ -117,7 +117,7 @@ När den partitionerade tabellen har skapats kan du antingen skapa statisk parti
        L_SHIPINSTRUCT as L_SHIPINSTRUCT, L_SHIPMODE as L_SHIPMODE, 
        L_COMMENT as L_COMMENT, L_SHIPDATE as L_SHIPDATE FROM lineitem;
    ```
-   
+
 Mer information finns i [partitionerade tabeller](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DDL#LanguageManualDDL-PartitionedTables).
 
 ## <a name="use-the-orcfile-format"></a>Använd ORCFile-formatet
@@ -136,40 +136,40 @@ ORC-formatet (optimerad rad kolumn) är ett mycket effektivt sätt att lagra Hiv
 
 Om du vill aktivera ORC-formatet skapar du först en tabell med satsen *lagrad som Orc*:
 
-   ```hive
-   CREATE TABLE lineitem_orc_part
-       (L_ORDERKEY INT, L_PARTKEY INT,L_SUPPKEY INT, L_LINENUMBER INT,
-        L_QUANTITY DOUBLE, L_EXTENDEDPRICE DOUBLE, L_DISCOUNT DOUBLE,
-        L_TAX DOUBLE, L_RETURNFLAG STRING, L_LINESTATUS STRING,
-        L_SHIPDATE_PS STRING, L_COMMITDATE STRING, L_RECEIPTDATE STRING,
-        L_SHIPINSTRUCT STRING, L_SHIPMODE STRING, L_COMMENT      STRING)
-   PARTITIONED BY(L_SHIPDATE STRING)
-   STORED AS ORC;
-   ```
-   
+```sql
+CREATE TABLE lineitem_orc_part
+      (L_ORDERKEY INT, L_PARTKEY INT,L_SUPPKEY INT, L_LINENUMBER INT,
+      L_QUANTITY DOUBLE, L_EXTENDEDPRICE DOUBLE, L_DISCOUNT DOUBLE,
+      L_TAX DOUBLE, L_RETURNFLAG STRING, L_LINESTATUS STRING,
+      L_SHIPDATE_PS STRING, L_COMMITDATE STRING, L_RECEIPTDATE STRING,
+      L_SHIPINSTRUCT STRING, L_SHIPMODE STRING, L_COMMENT      STRING)
+PARTITIONED BY(L_SHIPDATE STRING)
+STORED AS ORC;
+```
+
 Sedan infogar du data i tabellen ORC från mellanlagrings tabellen. Exempel:
 
-   ```hive
-   INSERT INTO TABLE lineitem_orc
-   SELECT L_ORDERKEY as L_ORDERKEY, 
-          L_PARTKEY as L_PARTKEY , 
-          L_SUPPKEY as L_SUPPKEY,
-          L_LINENUMBER as L_LINENUMBER,
-          L_QUANTITY as L_QUANTITY, 
-          L_EXTENDEDPRICE as L_EXTENDEDPRICE,
-          L_DISCOUNT as L_DISCOUNT,
-          L_TAX as L_TAX,
-          L_RETURNFLAG as L_RETURNFLAG,
-          L_LINESTATUS as L_LINESTATUS,
-          L_SHIPDATE as L_SHIPDATE,
-           L_COMMITDATE as L_COMMITDATE,
-           L_RECEIPTDATE as L_RECEIPTDATE, 
-           L_SHIPINSTRUCT as L_SHIPINSTRUCT,
-           L_SHIPMODE as L_SHIPMODE,
-           L_COMMENT as L_COMMENT
-    FROM lineitem;
-   ```
-   
+```sql
+INSERT INTO TABLE lineitem_orc
+SELECT L_ORDERKEY as L_ORDERKEY, 
+         L_PARTKEY as L_PARTKEY , 
+         L_SUPPKEY as L_SUPPKEY,
+         L_LINENUMBER as L_LINENUMBER,
+         L_QUANTITY as L_QUANTITY, 
+         L_EXTENDEDPRICE as L_EXTENDEDPRICE,
+         L_DISCOUNT as L_DISCOUNT,
+         L_TAX as L_TAX,
+         L_RETURNFLAG as L_RETURNFLAG,
+         L_LINESTATUS as L_LINESTATUS,
+         L_SHIPDATE as L_SHIPDATE,
+         L_COMMITDATE as L_COMMITDATE,
+         L_RECEIPTDATE as L_RECEIPTDATE, 
+         L_SHIPINSTRUCT as L_SHIPINSTRUCT,
+         L_SHIPMODE as L_SHIPMODE,
+         L_COMMENT as L_COMMENT
+FROM lineitem;
+```
+
 Du kan läsa mer om ORC-formatet i [språk hand boken för Apache Hive](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+ORC).
 
 ## <a name="vectorization"></a>Vectorization
@@ -178,13 +178,14 @@ Vectorization tillåter att Hive bearbetar en batch med 1024 rader i stället f�
 
 Så här aktiverar du vectorization-prefix för Hive-frågan med följande inställning:
 
-   ```hive
-    set hive.vectorized.execution.enabled = true;
-   ```
+```hive
+set hive.vectorized.execution.enabled = true;
+```
 
 Mer information finns i [Vector Query Execution](https://cwiki.apache.org/confluence/display/Hive/Vectorized+Query+Execution).
 
 ## <a name="other-optimization-methods"></a>Andra optimerings metoder
+
 Det finns fler optimerings metoder som du kan överväga, till exempel:
 
 * **Hive-Bucket:** en teknik som gör det möjligt att klustra eller segmentera stora data uppsättningar för att optimera prestanda för frågor.
@@ -192,6 +193,7 @@ Det finns fler optimerings metoder som du kan överväga, till exempel:
 * **Öka minskaren**.
 
 ## <a name="next-steps"></a>Nästa steg
+
 I den här artikeln har du lärt dig flera vanliga optimerings metoder för Hive-frågor. Mer information finns i följande artiklar:
 
 * [Använda Apache Hive i HDInsight](hadoop/hdinsight-use-hive.md)

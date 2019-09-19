@@ -8,22 +8,20 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/19/2018
-ms.openlocfilehash: e18203162229e6c3db24a5f76b65de61d572f96a
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.openlocfilehash: 76d1947ae6fbdf7577cc9b8db9d902dc55350b7f
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71076781"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71105323"
 ---
 # <a name="streaming-at-scale-in-hdinsight"></a>Direktuppspelning i skala i HDInsight
 
 Real tids data lösningar i real tid fungerar på data som är i rörelse. Dessa data är vanligt vis mest värdefulla vid ankomst tillfället. Om den inkommande data strömmen blir större än vad som kan hanteras för tillfället kan du behöva begränsa resurserna. Alternativt kan ett HDInsight-kluster skala upp för att uppfylla din strömnings lösning genom att lägga till noder på begäran.
 
-
 I ett strömmande program genererar en eller flera data källor händelser (ibland i miljon tals per sekund) som måste matas in snabbt utan att du behöver släppa någon användbar information. Inkommande händelser hanteras med *Stream-buffring*, även kallat *Event Queuing*, av en tjänst som [Apache Kafka](kafka/apache-kafka-introduction.md) eller [Event Hubs](https://azure.microsoft.com/services/event-hubs/). När du har samlat in händelserna kan du analysera data med hjälp av ett real tids analys system i lager *bearbetnings* skiktet, till exempel [Apache Storm](storm/apache-storm-overview.md) eller [Apache Spark strömning](spark/apache-spark-streaming-overview.md). Bearbetade data kan lagras i långsiktiga lagrings system, t. ex. [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/)och visas i real tid på en Business Intelligence instrument panel, till exempel [Power BI](https://powerbi.microsoft.com), Tableau eller en anpassad webb sida.
 
-
-![Mönster för att strömma HDInsight](./media/hdinsight-streaming-at-scale-overview/HDInsight-streaming-patterns.png)
+![Återströmnings mönster i Azure HDInsight](./media/hdinsight-streaming-at-scale-overview/HDInsight-streaming-patterns.png)
 
 ## <a name="apache-kafka"></a>Apache Kafka
 

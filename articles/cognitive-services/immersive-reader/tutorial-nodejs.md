@@ -10,12 +10,12 @@ ms.subservice: immersive-reader
 ms.topic: tutorial
 ms.date: 06/20/2019
 ms.author: metan
-ms.openlocfilehash: ea9728ac54ae357925bd666ffecf270172137f77
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: e0c85dba22a7c689631a853bc22d58d1cc4093aa
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68991052"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71104995"
 ---
 # <a name="tutorial-launch-the-immersive-reader-nodejs"></a>Självstudier: Starta Avancerad läsare (Node.js)
 
@@ -85,7 +85,7 @@ Se till att du inte utför den här filen i käll kontrollen eftersom den inneh�
 require('dotenv').config();
 ```
 
-Öppna filen _routes\index.js_ och följande import överst i filen:
+Öppna filen _routes\index.js_ och Lägg till följande kod högst upp i filen:
 
 ```javascript
 var request = require('request');
@@ -193,7 +193,7 @@ router.get('/subdomain', function (req, res) {
     npm start
     ```
 
-4. Öppna webbläsaren och gå till _http://localhost:3000_ . Du bör se innehållet ovan på sidan. Klicka på knappen fördjupad **läsare** för att starta den fördjupade läsaren med ditt innehåll.
+4. Öppna webbläsaren och gå till _http://localhost:3000_ . Du bör se innehållet ovan på sidan. Klicka på knappen **fördjupad läsare** för att starta den fördjupade läsaren med ditt innehåll.
 
 ## <a name="specify-the-language-of-your-content"></a>Ange språket för ditt innehåll
 

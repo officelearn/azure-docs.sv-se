@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 06/17/2019
-ms.openlocfilehash: 5cb3b5c2d36707875c87bd589e3d96c0a2f4f939
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: d036e56a4ccf826ccd19fb7424b7b76568839b23
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70885218"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71104540"
 ---
 # <a name="compare-storage-options-for-use-with-azure-hdinsight-clusters"></a>Jämför lagrings alternativ för användning med Azure HDInsight-kluster
 
@@ -34,7 +34,7 @@ I följande tabell sammanfattas de Azure Storage tjänster som stöds med olika 
 |Azure Storage| Blob Storage * * | Object | Blockblob | Standard | Frekvent, låg frekvent, Arkiv | Alla | Alla |
 |Azure Data Lake Storage Gen1| Gäller inte | Hierarkisk (FileSystem) | Gäller inte | Saknas | Gäller inte | 3,6 endast | Alla utom HBase |
 
-\* * För HDInsight-kluster kan endast sekundära lagrings konton vara av typen BlobStorage.
+\* * För HDInsight-kluster kan endast sekundära lagrings konton vara av typen BlobStorage och Page BLOB är inte ett lagrings alternativ som stöds.
 
 Mer information om Azure Storage konto typer finns i [Översikt över Azure Storage-konto](../storage/common/storage-account-overview.md)
 
@@ -129,7 +129,7 @@ Om du väljer att skydda ditt lagrings konto med **brand väggar och begränsnin
 
 Följande diagram innehåller en översikt över HDInsight-arkitekturen för Azure Storage:
 
-![Diagram över hur Hadoop-kluster använder HDFS API för att komma åt och lagra strukturerade och ostrukturerade data i Blob Storage](./media/hdinsight-hadoop-compare-storage-options/storage-architecture.png "HDInsight Storage arkitektur")
+![HDInsight Storage arkitektur](./media/hdinsight-hadoop-compare-storage-options/storage-architecture.png "HDInsight Storage arkitektur")
 
 HDInsight ger tillgång till det distribuerade filsystemet som är lokalt anslutet till beräkningsnoderna. Detta filsystem kan nås med hjälp av den fullständigt kvalificerade URI-strängen, till exempel:
 

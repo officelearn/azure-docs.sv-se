@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: conceptual
-ms.date: 09/06/2019
+ms.date: 09/18/2019
 ms.author: dapine
-ms.openlocfilehash: 752613becb92711866d520e6fcd46ed3a320353f
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: a07f088f7f5699a2698c0ea8fb0e853b3d287572
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70860265"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71101959"
 ---
 # <a name="configure-face-docker-containers"></a>Konfigurera ansikts Docker-behållare
 
@@ -138,8 +138,8 @@ Ersätt {_argument_name_} med dina egna värden:
 
 | Platshållare | Värde | Format eller exempel |
 |-------------|-------|---|
-|{API_KEY} | Cognitive Services resursens slut punkts nyckel. |xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx|
-|{ENDPOINT_URI} | Slut punktens URL-värde.|`https://myresourcename.cognitive.microsoft.com/face/v1.0`|
+| **{API_KEY}** | `Face` Resursens slut punkts nyckel på sidan med `Face` Azure-nycklar. | `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx` |
+| **{ENDPOINT_URI}** | Värdet för fakturerings slut punkten är tillgängligt på sidan `Face` Azure-översikt.| Se [samla in obligatoriska parametrar](face-how-to-install-containers.md#gathering-required-parameters) för explicita exempel. |
 
 [!INCLUDE [subdomains-note](../../../includes/cognitive-services-custom-subdomains-note.md)]
 

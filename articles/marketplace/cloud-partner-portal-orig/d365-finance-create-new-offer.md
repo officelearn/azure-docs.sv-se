@@ -1,37 +1,23 @@
 ---
-title: Så här skapar du din nya erbjudandet för Microsoft Dynamics 365 Business Central | Azure Marketplace
-description: Beskriver hur du skapar ett nytt Microsoft Dynamics 365 Business Central erbjudande med partnerportalen i molnet.
+title: Så här skapar du ditt nya Microsoft Dynamics 365 Business Central-erbjudande | Azure Marketplace
+description: Inaktuell och länkad till motsvarande PC-artiklar; förklaras hur du skapar ett nytt Microsoft Dynamics 365 Business Central-erbjudande med hjälp av Cloud Partner Portal. "
 services: Azure, Marketplace, Cloud Partner Portal,
-author: v-miclar
+author: ChJenk
 ms.service: marketplace
 ms.topic: conceptual
-ms.date: 09/17/2018
+ms.date: 09/18/2019
 ms.author: pabutler
-ms.openlocfilehash: 603dd63b31536bf906afc49223f4d6ac99819293
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 165406f2cf7ad6087febebdfdc67896527d23961
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64935050"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71105579"
 ---
-<a name="how-to-create-your-new-microsoft-dynamics-365-business-central-offer"></a>Så här skapar du din nya erbjudandet för Microsoft Dynamics 365 Business Central
-====================================================================
+# <a name="how-to-create-your-new-microsoft-dynamics-365-business-central-offer"></a>Så här skapar du ditt nya Microsoft Dynamics 365 Business Central-erbjudande
 
-När du har skapat din app, måste du definiera alla attribut som avgör hur appen visas i Microsoft AppSource. Till exempel måste du ange företagets information, ditt erbjudande och planer, marknadsföring information, en Supportkontakt och Microsoft AppSource-kategorier. 
+[Cloud Partner Portal](https://cloudpartner.azure.com/) har inte längre stöd för att skapa och hantera Dynamics 365 Business Central-erbjudanden. I stället har den här funktionen flyttats till Microsoft [partner Center-portalen](https://partner.microsoft.com/). Mer information finns i [skapa ett nytt Dynamics 365 Business Central-erbjudande](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-business-central-offer).
 
-Definiera attribut, logga in på Microsoft [Cloud Partner Portal](https://cloudpartner.azure.com/), med Microsoft-konto som du använde för registrering i Developer Center.
+## <a name="next-steps"></a>Nästa steg
 
-1. I Cloud Partner Portal, från det vänstra navigeringsfältet, klickar du på **+ nytt erbjudande** och välj **Dynamics 365 Business Central** från listan med program.
-
-   ![Skapa nytt erbjudande](./media/d365-financials/image003.png)
-
-2. Ett nytt erbjudande ”Editor” Visa nu öppnas för dig och du är redo att börja redigera.
-
-   ![Publicera erbjudande-sekvens](./media/d365-financials/image005.png)
-
-3. I vyn ”Editor” visas en översikt över flikarna som inte är slutförda. Varje flik består av en uppsättning fält som ska fyllas i. Obligatoriskt fält är markerade med en röd asterisk (\*). Du kan inte fortsätta till nästa publicering steg utan att slutföra de här fälten. Följande flikar visas för en Dynamics 365 Business Central-app:
-
--   **Erbjudandeinställningar**
--   **Teknisk information**
--   **Storefront information**
--   **Kontakter**
+Innan du skapar ett nytt Dynamics 365 Business Central-erbjudande bör du läsa [skapa ett partner Center-konto](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) och sedan öppna [instrument panelen för instrument panelen](https://partner.microsoft.com/dashboard/directory) med den valda **översikts** sidan. Följ instruktionerna i [skapa ett nytt Dynamics 365 Business Central-erbjudande](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-business-central-offer) för att skapa ditt erbjudande.

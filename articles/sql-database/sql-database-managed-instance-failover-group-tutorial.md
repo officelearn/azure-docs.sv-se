@@ -12,12 +12,12 @@ ms.author: mathoma
 ms.reviewer: sashan, carlrab
 manager: jroth
 ms.date: 06/27/2019
-ms.openlocfilehash: 3e5b96cf4227e933aa99b37469410276a775dbed
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 04802b8b25ca21cc0099874e5a9ea69748868f6e
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70103093"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71103216"
 ---
 # <a name="tutorial-add-a-sql-database-managed-instance-to-a-failover-group"></a>Självstudier: Lägga till en SQL Database Hanterad instans i en failover-grupp
 
@@ -29,9 +29,9 @@ Lägg till en SQL Database Hanterad instans i en failover-grupp. I den här arti
 > - Testa redundans
 
   > [!NOTE]
-  > - När du går igenom den här självstudien kontrollerar du att du konfigurerar dina resurser med förutsättningarna för att konfigurera [grupper för hantering av redundans](sql-database-auto-failover-group.md#enabling-geo-replication-between-managed-instances-and-their-vnets). 
-  > - Det kan ta lång tid att skapa en hanterad instans. Därför kan det ta flera timmar att slutföra den här självstudien. Mer information om etablerings tider finns i hanterings [åtgärder för hanterade instanser](sql-database-managed-instance.md#managed-instance-management-operations). 
-  > - Att använda Redundansrelationer med hanterade instanser är för närvarande en för hands version. 
+  > - När du går igenom den här självstudien kontrollerar du att du konfigurerar dina resurser med [förutsättningarna för att konfigurera grupper för hantering av redundans](sql-database-auto-failover-group.md#enabling-geo-replication-between-managed-instances-and-their-vnets). 
+  > - Det kan ta lång tid att skapa en hanterad instans. Därför kan det ta flera timmar att slutföra den här självstudien. Mer information om etablerings tider finns i [hanterings åtgärder för hanterade instanser](sql-database-managed-instance.md#managed-instance-management-operations). 
+
 
 ## <a name="prerequisites"></a>Förutsättningar
 

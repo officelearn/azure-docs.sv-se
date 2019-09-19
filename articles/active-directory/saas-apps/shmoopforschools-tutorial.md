@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 08/12/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e5fa47e029434b70166403b8603c820d611690f2
-ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.openlocfilehash: c88457653d73931600c37f5e332cc4327dc7957a
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68975991"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71102889"
 ---
 # <a name="tutorial-integrate-shmoop-for-schools-with-azure-active-directory"></a>Självstudier: Integrera Shmoop för skolor med Azure Active Directory
 
@@ -91,16 +91,16 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
     > [!NOTE]
     > Dessa värden är inte verkliga. Uppdatera de här värdena med faktisk inloggnings-URL och identifierare. Kontakta [Shmoop för skolor kund support](mailto:support@shmoop.com) för att hämta dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
-5. Shmoop for skolor-appen förväntar sig SAML-intyg i ett särskilt format, vilket kräver att du lägger till anpassade attribut mappningar i konfigurationen för SAML-token. I följande skärmbild visas listan över standardattribut. Klicka på ikonen  **Redigera** för att öppna dialogrutan **Användarattribut** .
+5. Shmoop for skolor-appen förväntar sig SAML-intyg i ett särskilt format, vilket kräver att du lägger till anpassade attribut mappningar i konfigurationen för SAML-token. I följande skärmbild visas listan över standardattribut. Klicka på **Redigera** ikon för att öppna dialog rutan **användarattribut** .
 
     ![image](common/edit-attribute.png)
 
     > [!NOTE]
     > Shmoop for School stöder två roller för användare: **Lärare** och **student**. Konfigurera de här rollerna i Azure AD så att användarna kan tilldelas lämpliga roller. Information om hur du konfigurerar roller i Azure AD finns [här](https://docs.microsoft.com/azure/active-directory/develop/active-directory-enterprise-app-role-management).
 
-6. Utöver ovan förväntar sig Shmoop för skolor-program att fler attribut skickas tillbaka i SAML-svar. I avsnittet **användar anspråk**  ****  i dialog rutan användarattribut, utför följande steg för att lägga till SAML-token-attributet som visas i tabellen nedan: 
+6. Utöver ovan förväntar sig Shmoop för skolor-program att fler attribut skickas tillbaka i SAML-svar. I avsnittet **Användaranspråk** i dialogrutan **Användarattribut** utför du följande steg för att lägga till SAML-tokenattributet enligt det som visas i tabellen nedan: 
 
-    | Namn |  Källattribut|
+    | Name |  Källattribut|
     | --------- | --------------- |
     | role      | user.assignedroles |
 
@@ -158,7 +158,7 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 ## <a name="configure-shmoop-for-schools-sso"></a>Konfigurera Shmoop för skolor SSO
 
-Om du vill konfigurera enkel inloggning på **Shmoop för skolor** -sidan måste du skicka **URL: en** för appens Federations-metadata till [Shmoop for skolor support team](mailto:support@shmoop.com). De ställer du in SAML SSO ansluta till korrekt inställda på båda sidorna.
+Om du vill konfigurera enkel inloggning på **Shmoop för skolor** -sidan måste du skicka **URL: en för appens Federations-metadata** till [Shmoop for skolor support team](mailto:support@shmoop.com). De ställer du in SAML SSO ansluta till korrekt inställda på båda sidorna.
 
 ### <a name="create-shmoop-for-schools-test-user"></a>Skapa Shmoop för skolor test användare
 

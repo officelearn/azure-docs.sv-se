@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 06/19/2019
+ms.date: 09/18/2019
 ms.author: dapine
 ms.custom: seodec18
-ms.openlocfilehash: cbf199c391b49518bb595d7d1a0ed47147903a85
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: d3a36615109383074833e9af634eb611fb863339
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70034497"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71103657"
 ---
 # <a name="install-and-run-recognize-text-containers"></a>Installera och Kör Identifiera text behållare
 
@@ -36,6 +36,8 @@ Du måste uppfylla följande krav innan du använder Identifiera text behållare
 |Docker-motor| Du behöver Docker-motorn installerad på en [värddator](#the-host-computer). Docker innehåller paket som konfigurerar Docker-miljön på [MacOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/)och [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Få en genomgång om grunderna för Docker och behållare finns i den [översikt över Docker](https://docs.docker.com/engine/docker-overview/).<br><br> Docker måste konfigureras för att tillåta behållarna för att ansluta till och skicka faktureringsdata till Azure. <br><br> **I Windows**måste Docker också konfigureras för att stödja Linux-behållare.<br><br>|
 |Bekant med Docker | Du bör ha grundläggande kunskaper om Docker-koncept, t. ex. register, databaser, behållare och behållar avbildningar, samt kunskaper `docker` om grundläggande kommandon.| 
 |Visuellt innehåll resurs |För att du ska kunna använda behållaren måste du ha:<br><br>En Azure **visuellt innehåll** -resurs och den tillhör ande API-nyckeln slut punkts-URI. Båda värdena är tillgängliga på sidorna översikt och nycklar för resursen och krävs för att starta behållaren.<br><br>**{API_KEY}** : En av de två tillgängliga resurs nycklarna på sidan **nycklar**<br><br>**{ENDPOINT_URI}** : Slut punkten enligt vad som anges på sidan **Översikt**|
+
+[!INCLUDE [Gathering required container parameters](../containers/includes/container-gathering-required-parameters.md)]
 
 ## <a name="request-access-to-the-private-container-registry"></a>Begär åtkomst till privat behållarregister
 
@@ -77,16 +79,9 @@ När behållaren är på värddatorn [](#the-host-computer)använder du följand
 
 ## <a name="run-the-container-with-docker-run"></a>Kör behållaren med`docker run`
 
-Använd kommandot [Docker Run](https://docs.docker.com/engine/reference/commandline/run/) för att köra behållaren. Kommandot använder följande parametrar:
+Använd kommandot [Docker Run](https://docs.docker.com/engine/reference/commandline/run/) för att köra behållaren. Läs om hur du [samlar in nödvändiga parametrar](#gathering-required-parameters) för information om hur `{ENDPOINT_URI}` du `{API_KEY}` hämtar och-värden.
 
-| Platshållare | Value |
-|-------------|-------|
-|{API_KEY} | Den här nyckeln används för att starta behållaren och är tillgänglig på sidan med Azure `Cognitive Services` -nycklar.  |
-|{ENDPOINT_URI} | URI-värdet för fakturerings slut punkten. Exempel:`https://westus.api.cognitive.microsoft.com/vision/v2.0`|
-
-Du måste lägga till `vision/v2.0` operationsföljden i slut punkts-URI: n enligt följande BILLING_ENDPOINT_URI-exempel.
-
-Ersätt dessa parametrar med dina egna värden i följande exempel `docker run` kommando.
+[Exempel](computer-vision-resource-container-config.md#example-docker-run-commands) på `docker run` kommandot är tillgängliga.
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \

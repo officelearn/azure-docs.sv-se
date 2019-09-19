@@ -4,19 +4,19 @@ description: Den här artikeln beskriver hur du använder ompartitionering för 
 ms.service: stream-analytics
 author: mamccrea
 ms.author: mamccrea
-ms.date: 07/26/2019
+ms.date: 09/19/2019
 ms.topic: conceptual
 ms.custom: mvc
-ms.openlocfilehash: 9c802e6d23daf502da351549c66a7dae1247c068
-ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
+ms.openlocfilehash: 82e4a225d26bac04ed4754169cc4a79e0a8f9b32
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68517441"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71101516"
 ---
 # <a name="use-repartitioning-to-optimize-processing-with-azure-stream-analytics"></a>Använd ompartitionering för att optimera bearbetningen med Azure Stream Analytics
 
-Den här artikeln visar hur du använder ompartitionering för att skala din Azure Stream Analytics fråga efter scenarier som inte kan [](stream-analytics-scale-jobs.md)vara helt parallella.
+Den här artikeln visar hur du använder ompartitionering för att skala din Azure Stream Analytics fråga efter scenarier som inte kan vara helt [parallella](stream-analytics-scale-jobs.md).
 
 Du kanske inte kan använda [parallellisering](stream-analytics-parallelization.md) om:
 
@@ -54,7 +54,17 @@ Experimentera och studera resursanvändningen för jobbet för att fastställa d
 
 ## <a name="repartitions-for-sql-output"></a>Ompartitionering för SQL-utdata
 
-När jobbet använder SQL Database för utdata använder du explicit ompartitionering för att matcha det optimala antalet partitioner för att maximera data flödet. Eftersom SQL fungerar bäst med åtta skrivare, behöver du partitionera om flödet till åtta innan du tömmer eller någonstans ytterligare överströms, vilket kan dra nytta av jobbets prestanda. Mer information finns i [Azure Stream Analytics utdata till Azure SQL Database](stream-analytics-sql-output-perf.md).
+När jobbet använder SQL Database för utdata använder du explicit ompartitionering för att matcha det optimala antalet partitioner för att maximera data flödet. Eftersom SQL fungerar bäst med åtta skrivare, behöver du partitionera om flödet till åtta innan du tömmer eller någonstans ytterligare överströms, vilket kan dra nytta av jobbets prestanda. 
+
+Om det finns fler än 8 inpartitioner är det inte säkert att du väljer att ärva schemat för inpartitionering. Överväg att [använda i frågan för att](/stream-analytics-query/into-azure-stream-analytics.md#into-shard-count) uttryckligen ange antalet utgående skrivare. 
+
+Följande exempel läser från indata, oavsett om de är naturligt partitionerade och partitionerar om Stream-tiofaldig enligt DeviceID-dimensionen och tömmer data till utdata. 
+
+```sql
+SELECT * INTO [output] FROM [input] PARTITION BY DeviceID INTO 10
+```
+
+Mer information finns i [Azure Stream Analytics utdata till Azure SQL Database](stream-analytics-sql-output-perf.md).
 
 
 ## <a name="next-steps"></a>Nästa steg

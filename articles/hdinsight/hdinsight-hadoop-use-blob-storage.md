@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/23/2019
-ms.openlocfilehash: 5d287165e77597943d298178689c216497361570
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: e9ecc34566e6e534b7489c934c0d5fa3b34e219b
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70879660"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71104484"
 ---
 # <a name="use-azure-storage-with-azure-hdinsight-clusters"></a>Använda Azure-lagring med Azure HDInsight-kluster
 
@@ -45,7 +45,7 @@ Om du väljer att skydda ditt lagrings konto med **brand väggar och begränsnin
 ## <a name="hdinsight-storage-architecture"></a>Lagringsarkitekturen i HDInsight
 Följande diagram visar en abstrakt vy av lagringsarkitekturen i HDInsight med Azure Storage:
 
-![Hadoop-kluster använder HDFS API för att komma åt och lagra strukturerade och ostrukturerade data i Blob Storage.](./media/hdinsight-hadoop-use-blob-storage/storage-architecture.png "HDInsight Storage-arkitektur")
+![Hadoop-kluster använder HDFS API för att komma åt och lagra data i Blob Storage](./media/hdinsight-hadoop-use-blob-storage/storage-architecture.png "HDInsight Storage arkitektur")
 
 HDInsight ger tillgång till det distribuerade filsystemet som är lokalt anslutet till beräkningsnoderna. Detta filsystem kan nås med hjälp av den fullständigt kvalificerade URI-strängen, till exempel:
 
@@ -73,6 +73,7 @@ Flera WebHCat-jobb, inklusive Apache Hive, MapReduce, Apache Hadoop streaming oc
 Blobar kan användas för strukturerade och ostrukturerade data. I blobcontainrar förvaras data som nyckel/värde-par och det finns ingen kataloghierarki. Däremot kan snedstreck (/) användas i nyckelnamnet så att det visas som om det vore en fil som lagrats i en katalogstruktur. Nyckeln för en blob kan till exempel vara *input/log1.txt*. Det finns ingen faktisk katalog för *indata*, men eftersom det finns ett snedstreck i nyckelnamnet ser namnet ut som en filsökväg.
 
 ## <a id="benefits"></a>Fördelar med Azure Storage
+
 Den underförstådda prestanda kostnaden för att inte placera beräknings kluster och lagrings resurser begränsas av hur beräknings klustren skapas nära lagrings konto resurserna i Azure-regionen, där det snabba nätverket gör det effektivt för Compute-noder för att få åtkomst till data i Azure Storage.
 
 Det finns flera fördelar med att lagra data i Azure Storage i stället för i HDFS:
@@ -93,6 +94,7 @@ Vissa MapReduce-jobb och -paket kan skapa mellanresultat som du inte egentligen 
 > De flesta HDFS-kommandon (till `ls`exempel `copyFromLocal` , `mkdir`och) fungerar fortfarande som förväntat. Endast de kommandon som är specifika för den inbyggda HDFS-implementeringen (som kallas DFS), till exempel `fschk` och `dfsadmin`, visar olika beteenden i Azure Storage.
 
 ## <a name="address-files-in-azure-storage"></a>Adressera filer i Azure Storage
+
 Följande URI-schema används för att komma åt filer i Azure Storage från HDInsight:
 
 ```config
@@ -125,6 +127,7 @@ example/jars/hadoop-mapreduce-examples.jar
 > När du arbetar med blobar utanför HDInsight kan de flesta verktyg inte identifiera WASB-formatet utan förväntar sig i stället ett grundläggande sökvägsformat som `example/jars/hadoop-mapreduce-examples.jar`.
 
 ##  <a name="blob-containers"></a>Blob-containrar
+
 Om du vill använda blobbar skapar du först ett [Azure Storage-konto](../storage/common/storage-create-storage-account.md). Som en del av detta anger du en Azure-region där lagringskontot ska skapas. Klustret och lagringskontot måste finnas i samma region. Hive-metaarkiv SQL Server Database och Apache Oozie metaarkiv SQL Server Database måste också finnas i samma region.
 
 Oavsett var den finns tillhör varje blob som du skapar en container på ditt Azure Storage-konto. Den här containern kan vara en befintlig blob som skapats utanför HDInsight eller en container som skapats för ett HDInsight-kluster.

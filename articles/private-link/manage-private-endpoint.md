@@ -1,18 +1,18 @@
 ---
 title: Hantera en privat slut punkts anslutning i Azure
 description: Lär dig hur du hanterar privata slut punkts anslutningar i Azure
-services: virtual-network
+services: private-link
 author: KumudD
-ms.service: virtual-network
+ms.service: private-link
 ms.topic: article
 ms.date: 09/16/2019
 ms.author: kumud
-ms.openlocfilehash: 16654662665607f86aa08d1f9c5638daf2cbc251
-ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
+ms.openlocfilehash: 012b236e997ef9144eaab43862f5f4dd2b324fff
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71018922"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71104638"
 ---
 # <a name="manage-a-private-endpoint-connection"></a>Hantera en anslutning till en privat slutpunkt
 Azures privata länk fungerar på en flödes modell för godkännande av samtal där mottagare av den privata länk tjänsten kan begära en anslutning till tjänst leverantören för att konsumera tjänsten. Tjänste leverantören kan sedan bestämma om konsumenten ska tillåtas att ansluta eller inte. Med Azures privata länk kan tjänst leverantörer hantera den privata slut punkts anslutningen på sina resurser. Den här artikeln innehåller anvisningar om hur du hanterar anslutningar för privata slut punkter.

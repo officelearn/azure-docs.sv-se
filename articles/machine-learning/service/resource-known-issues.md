@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 08/09/2019
 ms.custom: seodec18
-ms.openlocfilehash: ffbc919333c43c04f461498a513d098ce8fe628f
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: 81eabadba70a2d5334fab43157f17d24c41d97ec
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70996583"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71103419"
 ---
 # <a name="known-issues-and-troubleshooting-azure-machine-learning"></a>Kända problem och fel söknings Azure Machine Learning
 
@@ -174,3 +174,43 @@ Till exempel visas ett fel meddelande om du försöker skapa eller ansluta ett b
 Använd följande lösningar om du `Unable to upload project files to working directory in AzureFile because the storage is overloaded`får ett fel meddelande.
 
 Om du använder fil resurs för andra arbets belastningar, till exempel data överföring, är rekommendationen att använda blobbar så att fil resursen är kostnads fri att användas för att skicka körningar. Du kan också dela upp arbets belastningen mellan två olika arbets ytor.
+
+## <a name="webservices-in-azure-kubernetes-service-failures"></a>Webservice i Azure Kubernetes service-problem 
+
+Många WebService-fel i Azure Kubernetes-tjänsten kan felsökas genom att ansluta till klustret med `kubectl`hjälp av. Du kan hämta `kubeconfig.json` ett Azure Kubernetes service-kluster genom att köra
+
+```bash
+az aks get-credentials -g <rg> -n <aks cluster name>
+```
+
+## <a name="updating-azure-machine-learning-components-in-aks-cluster"></a>Uppdatera Azure Machine Learning-komponenter i AKS-kluster
+
+Uppdateringar av Azure Machine Learning-komponenter som är installerade i ett Azure Kubernetes service-kluster måste appliceras manuellt. Du kan använda dessa kluster genom att koppla från klustret från arbets ytan Azure Machine Learning och sedan koppla klustret till arbets ytan igen. Om SSL är aktiverat i klustret måste du ange SSL-certifikatet och den privata nyckeln när du ansluter klustret igen. 
+
+```python
+compute_target = ComputeTarget(workspace=ws, name=clusterWorkspaceName)
+compute_target.detach()
+compute_target.wait_for_completion(show_output=True)
+
+attach_config = AksCompute.attach_configuration(resource_group=resourceGroup, cluster_name=kubernetesClusterName)
+
+## If SSL is enabled.
+attach_config.enable_ssl(
+    ssl_cert_pem_file="cert.pem",
+    ssl_key_pem_file="key.pem",
+    ssl_cname=sslCname)
+
+attach_config.validate_configuration()
+
+compute_target = ComputeTarget.attach(workspace=ws, name=args.clusterWorkspaceName, attach_configuration=attach_config)
+compute_target.wait_for_completion(show_output=True)
+```
+
+Om du inte längre har SSL-certifikatet och den privata nyckeln, eller om du använder ett certifikat som har genererats av Azure Machine Learning, kan du hämta filerna innan du kopplar från klustret genom att ansluta till `kubectl` klustret med hjälp av och hämta hemligheten `azuremlfessl`.
+
+```bash
+kubectl get secret/azuremlfessl -o yaml
+```
+
+>[!Note]
+>Kubernetes lagrar hemligheterna i Base-64-kodat format. Du behöver Base-64-avkoda `cert.pem` -och `key.pem` -komponenterna i hemligheterna `attach_config.enable_ssl`innan du ger dem. 

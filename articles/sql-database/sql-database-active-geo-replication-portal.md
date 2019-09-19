@@ -11,18 +11,18 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 02/13/2019
-ms.openlocfilehash: 058afdbc4aa134b5b3c4c8cc5e9e2f2ae6f53084
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 049122b97a26e63188142dd5494927c2ae71d852
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68569641"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71103231"
 ---
 # <a name="configure-active-geo-replication-for-azure-sql-database-in-the-azure-portal-and-initiate-failover"></a>Konfigurera aktiv geo-replikering för Azure SQL Database i Azure Portal och initiera redundans
 
 Den här artikeln visar hur du konfigurerar [aktiv geo-replikering för enstaka och](sql-database-active-geo-replication.md#active-geo-replication-terminology-and-capabilities) grupperade databaser i Azure SQL Database att använda [Azure Portal](https://portal.azure.com) och för att initiera redundans.
 
-Information om grupper för automatisk redundans med enkla databaser och databaser i pooler finns i [metod tips för att använda failover-grupper med enkla databaser och databaser i pooler](sql-database-auto-failover-group.md#best-practices-of-using-failover-groups-with-single-databases-and-elastic-pools). Information om grupper för automatisk redundans med hanterade instanser (förhands granskning) finns i [metod tips för att använda failover-grupper med hanterade instanser](sql-database-auto-failover-group.md#best-practices-of-using-failover-groups-with-managed-instances).
+Information om grupper för automatisk redundans med enkla databaser och databaser i pooler finns i [metod tips för att använda failover-grupper med enkla databaser och databaser i pooler](sql-database-auto-failover-group.md#best-practices-of-using-failover-groups-with-single-databases-and-elastic-pools). För information om grupper med automatisk redundans med hanterade instanser, se [metod tips för att använda failover-grupper med hanterade instanser](sql-database-auto-failover-group.md#best-practices-of-using-failover-groups-with-managed-instances).
 
 ## <a name="prerequisites"></a>Förutsättningar
 

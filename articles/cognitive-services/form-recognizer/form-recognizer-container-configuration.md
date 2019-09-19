@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 06/19/2019
+ms.date: 09/18/2019
 ms.author: dapine
-ms.openlocfilehash: 4a490e8a9f111985df9c9e8c9f73bc36d686cc2a
-ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
+ms.openlocfilehash: af30719ead8464d0420734818203b8070eb5d145
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68348704"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71105110"
 ---
 # <a name="configure-form-recognizer-containers"></a>Konfigurera formulär igenkännings behållare
 
@@ -45,7 +45,7 @@ Inställningen anger slut punkts-URI för _formulär igenkännings_ resursen på
 
 Du hittar den här inställningen i rutan Azure Portal, i **formulär igenkännings översikt**, under **slut punkt**.
 
-|Krävs| Namn | Datatyp | Beskrivning |
+|Obligatorisk| Namn | Datatyp | Beskrivning |
 |--|------|-----------|-------------|
 |Ja| `Billing` | Sträng | Fakturering endpoint URI<br><br>Exempel:<br>`Billing=https://westus2.api.cognitive.microsoft.com/` |
 
@@ -74,10 +74,10 @@ Formulär identifierarens behållare kräver en indata montering och en utgåend
 
 Den exakta syntaxen hos montera värdplats varierar beroende på värdens operativsystem. Dessutom kanske [värd datorns](form-recognizer-container-howto.md#the-host-computer) monterings plats inte är tillgänglig på grund av en konflikt mellan Docker-tjänstens konto behörigheter och värd monterings platsens behörigheter.
 
-|Valfri| Namn | Datatyp | Beskrivning |
+|Valfritt| Name | Datatyp | Beskrivning |
 |-------|------|-----------|-------------|
-|Krävs| `Input` | Sträng | Inkommande monterings-mål. Standardvärdet är `/input`.    <br><br>Exempel:<br>`--mount type=bind,src=c:\input,target=/input`|
-|Krävs| `Output` | Sträng | Utdata mount-mål. Standardvärdet är `/output`.  <br><br>Exempel:<br>`--mount type=bind,src=c:\output,target=/output`|
+|Obligatorisk| `Input` | Sträng | Inkommande monterings-mål. Standardvärdet är `/input`.    <br><br>Exempel:<br>`--mount type=bind,src=c:\input,target=/input`|
+|Obligatorisk| `Output` | Sträng | Utdata mount-mål. Standardvärdet är `/output`.  <br><br>Exempel:<br>`--mount type=bind,src=c:\output,target=/output`|
 
 ## <a name="example-docker-run-commands"></a>Exempel docker-kommandon
 
@@ -90,16 +90,17 @@ Ersätt {_argument_name_} i följande tabell med dina egna värden:
 
 | Platshållare | Value |
 |-------------|-------|
-|{FORM_RECOGNIZER_API_KEY} | Den nyckel som används för att starta behållaren. Den finns på sidan Azure Portal formulär igenkännings nycklar.  |
-|{FORM_RECOGNIZER_ENDPOINT_URI} | URI-värdet för fakturerings slut punkten är tillgängligt på översikts sidan för Azure Portal formulär igenkänning.|
-|{COMPUTER_VISION_API_KEY}| Nyckeln finns på sidan Azure Portal API för visuellt innehåll nycklar.|
-|{COMPUTER_VISION_ENDPOINT_URI}|Fakturerings slut punkten. Om du använder en molnbaserad Visuellt innehåll resurs finns URI-värdet på översikts sidan för Azure Portal API för visuellt innehåll. Om du använder en *kognitivt-tjänster-identifiera-text* behållare använder du URL: en för fakturerings slut punkt som skickas till behållaren i `docker run` kommandot.|
+| **{FORM_RECOGNIZER_API_KEY}** | Den nyckel som används för att starta behållaren. Den finns på sidan Azure Portal formulär igenkännings nycklar. |
+| **{FORM_RECOGNIZER_ENDPOINT_URI}** | URI-värdet för fakturerings slut punkten är tillgängligt på översikts sidan för Azure Portal formulär igenkänning.|
+| **{COMPUTER_VISION_API_KEY}** | Nyckeln finns på sidan Azure Portal API för visuellt innehåll nycklar.|
+| **{COMPUTER_VISION_ENDPOINT_URI}** | Fakturerings slut punkten. Om du använder en molnbaserad Visuellt innehåll resurs finns URI-värdet på översikts sidan för Azure Portal API för visuellt innehåll. Om du använder en *kognitivt-tjänster-identifiera-text* behållare använder du URL: en för fakturerings slut punkt som skickas till behållaren i `docker run` kommandot. |
+
+Se [samla in obligatoriska parametrar](form-recognizer-container-howto.md#gathering-required-parameters) för information om hur du hämtar dessa värden.
+
+[!INCLUDE [cognitive-services-custom-subdomains-note](../../../includes/cognitive-services-custom-subdomains-note.md)]
 
 > [!IMPORTANT]
 > Om du vill köra behållaren anger `Eula`du alternativen, `Billing`och `ApiKey` . annars startar inte behållaren. Mer information finns i [fakturering](#billing-configuration-setting).
-
-> [!NOTE] 
-> ApiKey-värdet är **nyckeln** på sidan med resurs nycklar för Azure Forms igenkänning.
 
 ## <a name="form-recognizer-container-docker-examples"></a>Formulär identifierarens Docker-exempel
 

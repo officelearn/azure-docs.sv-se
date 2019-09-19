@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: bonova, sstein
 ms.date: 05/10/2019
-ms.openlocfilehash: 3cad1a73dd98928ed12748e2acffaea158dc5924
-ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
+ms.openlocfilehash: 594edab4e6a69edb49c8a1ce407c9fd943d11f2b
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71010304"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71103157"
 ---
 # <a name="azure-sql-database-features"></a>Azure SQL Database funktioner
 
@@ -114,8 +114,8 @@ Azure-plattformen tillhandahåller ett antal PaaS-funktioner som läggs till som
 
 | **Plattforms funktion** | **Enkla databaser och elastiska pooler** | **Hanterade instanser och instans pooler** |
 | --- | --- | --- |
-| [Aktiv geo-replikering](sql-database-active-geo-replication.md) | Ja – alla tjänst nivåer förutom storskalig | Nej, se [grupperna för automatisk redundans (förhands granskning)](sql-database-auto-failover-group.md) som ett alternativ |
-| [Automatiska redundansgrupper](sql-database-auto-failover-group.md) | Ja – alla tjänst nivåer förutom storskalig | Ja, i [offentlig för hands version](sql-database-auto-failover-group.md)|
+| [Aktiv geo-replikering](sql-database-active-geo-replication.md) | Ja – alla tjänst nivåer förutom storskalig | Nej, se [grupper för automatisk redundans](sql-database-auto-failover-group.md) som ett alternativ |
+| [Automatiska redundansgrupper](sql-database-auto-failover-group.md) | Ja – alla tjänst nivåer förutom storskalig | Ja, se [grupper för automatisk redundans](sql-database-auto-failover-group.md)|
 | Autoskala | Ja, men endast i en [Server lös modell](sql-database-serverless.md). I den icke-serverbaserade modellen är ändringen av tjänst nivån (ändring av vCore, Storage eller DTU) snabb och online. Ändringen av tjänst nivån kräver minimal eller ingen stillestånds tid. | Nej, du måste välja reserverad beräkning och lagring. Ändringen av tjänst nivån (vCore eller maximum Storage) är online och kräver minimal eller ingen stillestånds tid. |
 | [Automatisk säkerhets kopiering](sql-database-automated-backups.md) | Ja. Fullständiga säkerhets kopieringar görs var sjunde dag, Differentiellt 12 timmar och logg säkerhets kopior var 5-10: e minut. | Ja. Fullständiga säkerhets kopieringar görs var sjunde dag, Differentiellt 12 timmar och logg säkerhets kopior var 5-10: e minut. |
 | [Automatisk justering (index)](https://docs.microsoft.com/sql/relational-databases/automatic-tuning/automatic-tuning)| [Ja](sql-database-automatic-tuning.md)| Nej |
@@ -169,9 +169,9 @@ Du kan använda olika metoder för migrering för att flytta data mellan SQL Ser
 
 | **Källa** | **Enkel databas och elastisk pool** | **Hanterad instans och instans-pooler** |
 | --- | --- | --- |
-| SQL Server (lokal, AzureVM, Amazon RDS) | **Onlinemallar** [Data migration service (DMS)](https://docs.microsoft.com/sql/dma/dma-overview), [transaktionell replikering](sql-database-managed-instance-transactional-replication.md) <br/> **Anslutningen** [BACPAC-fil (import)](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/import-a-bacpac-file-to-create-a-new-user-database), BCP | **Onlinemallar** [Data migration service (DMS)](https://docs.microsoft.com/sql/dma/dma-overview), [transaktionell replikering](sql-database-managed-instance-transactional-replication.md) <br/> **Anslutningen** Inbyggd säkerhets kopiering/återställning, [BACPAC-fil (import)](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/import-a-bacpac-file-to-create-a-new-user-database), BCP, [ögonblicks bilds replikering](sql-database-managed-instance-transactional-replication.md) |
+| SQL Server (lokal, AzureVM, Amazon RDS) | **Online:** [Data migration service (DMS)](https://docs.microsoft.com/sql/dma/dma-overview), [transaktionell replikering](sql-database-managed-instance-transactional-replication.md) <br/> **Anslutningen** [BACPAC-fil (import)](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/import-a-bacpac-file-to-create-a-new-user-database), BCP | **Online:** [Data migration service (DMS)](https://docs.microsoft.com/sql/dma/dma-overview), [transaktionell replikering](sql-database-managed-instance-transactional-replication.md) <br/> **Anslutningen** Inbyggd säkerhets kopiering/återställning, [BACPAC-fil (import)](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/import-a-bacpac-file-to-create-a-new-user-database), BCP, [ögonblicks bilds replikering](sql-database-managed-instance-transactional-replication.md) |
 | Enskild databas | **Anslutningen** [BACPAC-fil (import)](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/import-a-bacpac-file-to-create-a-new-user-database), BCP | **Anslutningen** [BACPAC-fil (import)](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/import-a-bacpac-file-to-create-a-new-user-database), BCP |
-| Managed Instance | **Onlinemallar** [Transaktionsreplikering](sql-database-managed-instance-transactional-replication.md) <br/> **Anslutningen** [BACPAC-fil (import)](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/import-a-bacpac-file-to-create-a-new-user-database), BCP, [ögonblicks bilds replikering](sql-database-managed-instance-transactional-replication.md) | **Onlinemallar** [Transaktionsreplikering](sql-database-managed-instance-transactional-replication.md) <br/> **Anslutningen** Återställning mellan instansen för tidpunkt ([Azure PowerShell](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqlinstancedatabase?#examples) eller [Azure CLI](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/Cross-instance-point-in-time-restore-in-Azure-SQL-Database/ba-p/386208)), [inbyggd säkerhets kopiering/återställning](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-get-started-restore), [BACPAC-fil (import)](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/import-a-bacpac-file-to-create-a-new-user-database), BCP, [ögonblicks bild replikering](sql-database-managed-instance-transactional-replication.md) |
+| Managed Instance | **Online:** [Transaktionsreplikering](sql-database-managed-instance-transactional-replication.md) <br/> **Anslutningen** [BACPAC-fil (import)](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/import-a-bacpac-file-to-create-a-new-user-database), BCP, [ögonblicks bilds replikering](sql-database-managed-instance-transactional-replication.md) | **Online:** [Transaktionsreplikering](sql-database-managed-instance-transactional-replication.md) <br/> **Anslutningen** Återställning mellan instansen för tidpunkt ([Azure PowerShell](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqlinstancedatabase?#examples) eller [Azure CLI](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/Cross-instance-point-in-time-restore-in-Azure-SQL-Database/ba-p/386208)), [inbyggd säkerhets kopiering/återställning](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-get-started-restore), [BACPAC-fil (import)](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/import-a-bacpac-file-to-create-a-new-user-database), BCP, [ögonblicks bild replikering](sql-database-managed-instance-transactional-replication.md) |
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 05/22/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: daa075518c569e257fd86a478809a1d1650d4345
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
-ms.translationtype: HT
+ms.openlocfilehash: 20d8106f06b708527fc60e025a19c6b07656acb3
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 09/18/2019
-ms.locfileid: "71098111"
+ms.locfileid: "71102655"
 ---
 # <a name="update-management-solution-in-azure"></a>Uppdateringshantering lösning i Azure
 
@@ -108,7 +108,7 @@ Windows-agenter måste konfigureras för att kommunicera med en WSUS-server, ell
 
 #### <a name="linux"></a>Linux
 
-För Linux måste datorn ha åtkomst till en uppdaterings lagrings plats. Uppdaterings lagrings platsen kan vara privat eller offentlig. TLS 1,1 eller TLS 1,2 krävs för att interagera med Uppdateringshantering. En Log Analytics-agent för Linux som är konfigurerad för att rapportera till fler än en Log Analytics arbets ytor stöds inte med den här lösningen.
+För Linux måste datorn ha åtkomst till en uppdaterings lagrings plats. Uppdaterings lagrings platsen kan vara privat eller offentlig. TLS 1,1 eller TLS 1,2 krävs för att interagera med Uppdateringshantering. En Log Analytics-agent för Linux som är konfigurerad för att rapportera till fler än en Log Analytics arbets ytor stöds inte med den här lösningen.  Datorn måste också ha python 2. x installerat.
 
 Information om hur du installerar Log Analytics-agenten för Linux och laddar ned den senaste versionen finns i [Log Analytics agent för Linux](https://github.com/microsoft/oms-agent-for-linux). Information om hur du installerar Log Analytics agent för Windows finns i [Microsoft Monitoring Agent för Windows](../log-analytics/log-analytics-windows-agent.md).
 

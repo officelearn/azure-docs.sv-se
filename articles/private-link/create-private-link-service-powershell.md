@@ -1,18 +1,18 @@
 ---
 title: Skapa en Azure Private Link-tjänst med Azure PowerShell | Microsoft Docs
 description: Lär dig hur du skapar en Azure Private Link-tjänst med Azure PowerShell
-services: virtual-network
+services: private-link
 author: KumudD
-ms.service: virtual-network
+ms.service: private-link
 ms.topic: article
 ms.date: 09/16/2019
 ms.author: kumud
-ms.openlocfilehash: 496f3d177446e6c3a4a086f89f15bf5cd66fefed
-ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
+ms.openlocfilehash: 09158a935aac023382049d3aa9ce23a711972023
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71018947"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71104748"
 ---
 # <a name="create-a-private-link-service-using-azure-powershell"></a>Skapa en privat länk-tjänst med hjälp av Azure PowerShell
 Den här artikeln visar hur du skapar en privat länk-tjänst i Azure med hjälp av Azure PowerShell.
@@ -113,7 +113,7 @@ I det här skedet har din privata länk tjänst skapats och är redo att ta emot
 
 Härnäst ska vi visa hur tjänsten mappas till en privat slut punkt i ett annat virtuellt nätverk med hjälp av PowerShell. Återigen är exemplet begränsat till att skapa den privata slut punkten och ansluta till en privat länk-tjänst som skapats ovan. Du kan skapa Virtual Machines i Virtual Network för att skicka/ta emot trafik till den privata slut punkten för att skapa ditt scenario. 
 
-## <a name="create-a-private-endpoint"></a>Skapa en privat slut punkt
+## <a name="create-a-private-endpoint"></a>Skapa en privat slutpunkt
 ### <a name="create-a-virtual-network"></a>Skapa ett virtuellt nätverk
 Skapa ett virtuellt nätverk för din privata slut punkt med [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork). I det här exemplet skapas ett virtuellt nätverk med namnet *vnetPE* i resurs gruppen med namnet *myResourceGroup*:
  

@@ -1,6 +1,6 @@
 ---
 title: Visa reservationer för Azure-resurser | Microsoft Docs
-description: Lär dig hur du visar Azure reservationer i Azure-portalen.
+description: Lär dig hur du visar Azure-reservationer i Azure-portalen.
 documentationcenter: ''
 author: yashesvi
 manager: yashar
@@ -13,78 +13,78 @@ ms.workload: na
 ms.date: 04/13/2019
 ms.author: banders
 ms.openlocfilehash: 21bf96866c14615009a17279ff2fdd04bf4116ad
-ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
-ms.translationtype: MT
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/01/2019
+ms.lasthandoff: 09/11/2019
 ms.locfileid: "67490273"
 ---
-# <a name="view-azure-reservations-in-the-azure-portal"></a>Visa Azure reservationer i Azure portal
+# <a name="view-azure-reservations-in-the-azure-portal"></a>Visa Azure-reservationer i Azure-portalen
 
-Beroende på prenumerationstyp och behörigheter finns det ett par olika sätt att visa reservationer för Azure.
+Beroende på typen av prenumerations och din behörighet finns det ett par olika sätt att visa reservationer för Azure.
 
 ## <a name="view-purchased-reservations"></a>Visa köpta reservationer
 
-Som standard när du köper en reservation kan du och kontoadministratören visa reservationen. Du och kontoadministratören får automatiskt rollen ägare reservationsbeställning och reservation. Om du vill att andra ska kunna se reservationen, måste du lägga till dem som en **ägare** eller **läsare** på reservationsbeställning eller reservation.
+När du köper en reservation kan du och kontoadministratören som standard visa reservationen. Du och kontoadministratören får automatiskt rollen som ägare för reservationsbeställningen och reservationen. Om du vill att andra personer ska kunna visa reservationen måste du lägga till dem som **ägare** eller **läsare** för reservationsbeställningen eller reservationen.
 
-Mer information finns i [Lägg till eller ändra användare som kan hantera en reservation](billing-manage-reserved-vm-instance.md#add-or-change-users-who-can-manage-a-reservation).
+Du kan läsa mer i [Lägga till eller ändra användare som kan hantera en reservation](billing-manage-reserved-vm-instance.md#add-or-change-users-who-can-manage-a-reservation).
 
-Visa en reservation ägare eller läsare,
+Så här visar du en reservation som ägare eller läsare:
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
-2. Sök efter **reservationer**.
-    ![Skärmbild som visar Azure portal-sökning](./media/billing-view-reservation/portal-reservation-search.png)  
-3. I listan visas alla bokningar där du har rollen ägare eller läsare. Varje reservation visar det senaste kända nätverksutnyttjandet i procent.  
-    ![Exemplet visar en lista med reservationer](./media/billing-view-reservation/view-reservations.png)
-4. Välj en reservation och se användningstrenden sista fem dagar.  
-    ![Exempel som visar reservation användningstrend](./media/billing-view-reservation/reservation-utilization.png)
-5. Du kan också hämta den [reservation användning](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-usage) med användningen av reserverade instanser API och med den [Microsoft Azure Consumption Insights Power BI-Innehållspaketet](/power-bi/service-connect-to-azure-consumption-insights).
+1. Logga in på [Azure-portalen](https://portal.azure.com).
+2. Sök efter **Reservationer**.
+    ![Skärmbild som visar en sökning i Azure-portalen](./media/billing-view-reservation/portal-reservation-search.png)  
+3. I listan visas alla reservationer där du har rollen ägare eller läsare. För varje reservation visas den senast kända utnyttjandegraden.  
+    ![Exempel som visar en lista med reservationer](./media/billing-view-reservation/view-reservations.png)
+4. Om du väljer en reservation ser du utnyttjandetrenden för de senaste fem dagarna.  
+    ![Exempel som visar trenden för reservationens utnyttjande](./media/billing-view-reservation/reservation-utilization.png)
+5. Du kan också hämta [reservationens utnyttjande](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-usage) med hjälp av API:et för utnyttjande av reserverade instanser och [Power BI-innehållspaketet Microsoft Azure Consumption Insights](/power-bi/service-connect-to-azure-consumption-insights).
 
-Om du vill ändra omfattningen för en reservation kan dela en reservation eller ändra vem som kan hantera en reservation Se [hantera Azure-reservationer](billing-manage-reserved-vm-instance.md).
+Om du behöver ändra omfattningen för en reservation, dela upp reservationen eller ändra vem som kan hantera den kan du läsa i [Hantera Azure-reservationer](billing-manage-reserved-vm-instance.md).
 
-## <a name="view-reservation-transactions-for-enterprise-enrollments"></a>Visa reservation transaktioner för Enterprise-registreringar
+## <a name="view-reservation-transactions-for-enterprise-enrollments"></a>Visa reservationstransaktioner för Enterprise-registreringar
 
- Om du har en partner som leds Enterprise-registrering kan du visa reservationer genom att gå till **rapporter** i EA-portalen. Du kan visa reservationer i EA-portalen och i Azure-portalen för andra Enterprise-registreringar. Du måste vara ett EA-administratören ska kunna visa reservation transaktioner.
+ Om du har en partnerstyrd företagsregistrering kan du visa reservationer genom att gå till **Rapporter** i EA-portalen. För andra Enterprise-registreringar kan du visa reservationer i EA-portalen och i Azure-portalen. Du måste vara EA-administratör för att visa reservationstransaktioner.
 
-Visa transaktioner för reserverade Azure-portalen
+Så här visar du reservationstransaktioner i Azure-portalen:
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
-1. Sök efter **Cost Management + fakturering**.
+1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Sök efter **Kostnadshantering + fakturering**.
 
-    ![Skärmbild som visar Azure portal-sökning](./media/billing-view-reservation/portal-cm-billing-search.png)
+    ![Skärmbild som visar en sökning i Azure-portalen](./media/billing-view-reservation/portal-cm-billing-search.png)
 
-1. Välj **Reservation transaktioner**.
-1. Om du vill filtrera resultatet väljer **Timespan**, **typ**, eller **beskrivning**.
+1. Välj **Reservationstransaktioner**.
+1. Du kan filtrera resultaten genom att välja **Tidsintervall**, **Typ** eller **Beskrivning**.
 1. Välj **Använd**.
 
-    ![Skärmbild som visar reservation transaktioner resultat](./media/billing-view-reservation/portal-billing-reservation-transaction-results.png)
+    ![Skärmbild som visar resultat med reservationstransaktioner](./media/billing-view-reservation/portal-billing-reservation-transaction-results.png)
 
-Om du vill hämta data med hjälp av ett API, se [hämta reserverad instans debiteras för företagskunder](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-charges).
+Du kan läsa om att hämta data via ett API i [Hämta transaktionsavgifter för reserverade instanser för Enterprise-kunder](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-charges).
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om du vill veta mer om Azure reservationer, finns i följande artiklar:
+Du kan läsa mer om Azure-reservationer i följande artiklar:
 
-- [Vad är reservationer för Azure?](billing-save-compute-costs-reservations.md)
+- [Vad är Azure-reservationer?](billing-save-compute-costs-reservations.md)
 - [Hantera reservationer för Azure](billing-manage-reserved-vm-instance.md)
 
-Köp en serviceplan:
+Köpa en tjänstplan:
 
-- [Betala i förskott för Cosmos DB reserverad kapacitet](../cosmos-db/cosmos-db-reserved-capacity.md)
+- [Förskottsbetala för en reserverad Cosmos DB-kapacitet](../cosmos-db/cosmos-db-reserved-capacity.md)
 - [Förskottsbetala för SQL Database-beräkningsresurser med reserverad kapacitet för Azure SQL Database](../sql-database/sql-database-reserved-capacity.md)
 - [Förskottsbetala för Virtual Machines med Azure Reserved VM Instances](../virtual-machines/windows/prepay-reserved-vm-instances.md)
 
-Köp en plan för programvara:
+Köpa en programvaruplan:
 
-- [Betala i förskott för Red Hat programvaruplaner från Azure-reservationer](../virtual-machines/linux/prepay-rhel-software-charges.md)
+- [Förskottsbetala för Red Hat-programvaruplaner från Azure Reservations](../virtual-machines/linux/prepay-rhel-software-charges.md)
 - [Förskottsbetala för SUSE-programvaruplaner från Azure Reservations](../virtual-machines/linux/prepay-suse-software-charges.md)
 
-Förstå användningen av:
+Förstå användningen:
 
-- [Förstå användningen av reservation för prenumerationen med användningsbaserad betalning](billing-understand-reserved-instance-usage.md)
-- [Förstå användningen av reserverade för din Enterprise-registrering](billing-understand-reserved-instance-usage-ea.md)
-- [Förstå användningen av reserverade för CSP-prenumerationer](https://docs.microsoft.com/partner-center/azure-reservations)
+- [Förstå reservationsanvändning för din Betala per användning-prenumeration](billing-understand-reserved-instance-usage.md)
+- [Förstå reservationsanvändning för din Enterprise-registrering](billing-understand-reserved-instance-usage-ea.md)
+- [Förstå reservationsanvändning för CSP-prenumerationer](https://docs.microsoft.com/partner-center/azure-reservations)
 
 ## <a name="need-help-contact-us"></a>Behöver du hjälp? Kontakta oss
 
-Om du har frågor eller behöver hjälp, [skapa en supportbegäran](https://go.microsoft.com/fwlink/?linkid=2083458).
+Om du har frågor eller behöver hjälp kan du [skapa en supportbegäran](https://go.microsoft.com/fwlink/?linkid=2083458).

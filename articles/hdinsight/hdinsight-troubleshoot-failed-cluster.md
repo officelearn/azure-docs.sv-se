@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: troubleshooting
 ms.date: 08/15/2019
-ms.openlocfilehash: 8ec081a758096298036efacfe1b0e6d62ed00cbd
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.openlocfilehash: efb2ac4be074508107bb31ae321c27a3d1263d9e
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70961863"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71105351"
 ---
 # <a name="troubleshoot-a-slow-or-failing-job-on-a-hdinsight-cluster"></a>Felsöka ett jobb som är långsamt eller som inte fungerar i ett HDInsight-kluster
 
@@ -80,7 +80,7 @@ Varje HDInsight-kluster förlitar sig på olika Azure-tjänster och på program 
 
 Apache Ambari tillhandahåller hantering och övervakning av ett HDInsight-kluster med ett webb gränssnitt och en REST API. Ambari ingår i Linux-baserade HDInsight-kluster. Välj fönstret **kluster instrument panel** på sidan Azure Portal HDInsight.  Välj **panelen för kluster instrument panelen i HDInsight** för att öppna AMBARI-användargränssnittet och ange autentiseringsuppgifter för inloggning för klustret.  
 
-![Ambari-Användargränssnittet](./media/hdinsight-troubleshoot-failed-cluster/apache-ambari-overview.png)
+![Översikt över Apache Ambari Dashboard](./media/hdinsight-troubleshoot-failed-cluster/apache-ambari-overview.png)
 
 Öppna en lista över tjänstevyer genom att välja **Ambari-vyer** på sidan Azure Portal.  Den här listan beror på vilka bibliotek som är installerade. Du kan till exempel se garn Queue Manager, Hive och Tez vy.  Välj en tjänst länk om du vill visa information om konfigurationen och tjänsten.
 
@@ -127,7 +127,7 @@ curl -u admin:{HTTP PASSWD} https://{CLUSTERNAME}.azurehdinsight.net/templeton/v
 
 Ambari visar en avisering som visar värdarna där WebHCat-tjänsten är nere. Du kan försöka att ta WebHCat-tjänsten tillbaka genom att starta om tjänsten på värddatorn.
 
-![Starta om WebHCat-servern](./media/hdinsight-troubleshoot-failed-cluster/restart-webhcat-server.png)
+![Apache Ambari restart WebHCat Server](./media/hdinsight-troubleshoot-failed-cluster/restart-webhcat-server.png)
 
 Om en WebHCat-Server fortfarande inte är igång kan du kontrol lera i åtgärds loggen om felen. Mer detaljerad information finns i och de `stderr` filer `stdout` som refereras till på noden.
 
@@ -176,7 +176,7 @@ På garn nivån finns det två typer av tids gränser:
 
     Följande bild visar joblauncher-kön vid 714,4% överanvändning. Detta är acceptabelt så länge det fortfarande finns ledig kapacitet i standard kön till låna från. Men när klustret används fullt ut och garn minnet har en kapacitet på 100%, måste nya jobb vänta, vilket kan orsaka timeout.
 
-    ![Joblauncher-kö](./media/hdinsight-troubleshoot-failed-cluster/hdi-job-launcher-queue.png)
+    ![Vyn queue i HDInsight-jobb](./media/hdinsight-troubleshoot-failed-cluster/hdi-job-launcher-queue.png)
 
     Det finns två sätt att lösa det här problemet: du kan antingen minska hastigheten på nya jobb som skickas eller öka förbruknings hastigheten för gamla jobb genom att skala upp klustret.
 
@@ -208,7 +208,7 @@ Så här diagnostiserar du problemen:
 
 Ambari-GRÄNSSNITTets **stack-och version** -sida innehåller information om kluster tjänstens konfiguration och tjänst versions historik.  Felaktiga Hadoop service Library-versioner kan vara orsaken till kluster fel.  I Ambari-ANVÄNDARGRÄNSSNITTET väljer du **Administratörs** menyn och sedan **stackar och versioner**.  Välj fliken **versioner** på sidan för att se information om tjänst version:
 
-![Stack och versioner](./media/hdinsight-troubleshoot-failed-cluster/ambari-stack-versions.png)
+![Apache Ambari stack och versioner](./media/hdinsight-troubleshoot-failed-cluster/ambari-stack-versions.png)
 
 ## <a name="step-5-examine-the-log-files"></a>Steg 5: Granska loggfilerna
 

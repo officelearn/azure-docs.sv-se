@@ -1,21 +1,21 @@
 ---
-title: Självstudie – Bevilja åtkomst till ett ASP.NET webb-API – Azure Active Directory B2C | Microsoft Docs
+title: Självstudie – bevilja åtkomst till ett ASP.NET-webb-API – Azure Active Directory B2C
 description: Självstudie om hur du använder Active Directory B2C för att skydda ett ASP.NET webb-API och anropa det från en ASP.NET-webbapp.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
 ms.author: marsma
-ms.date: 02/04/2019
+ms.date: 09/19/2019
 ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: ec6b667dfc554c037d9b0a56e52bc8f212812812
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 87d46fad1c0a5494910a8218c4e40994fc140386
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71064729"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71103400"
 ---
 # <a name="tutorial-grant-access-to-an-aspnet-web-api-using-azure-active-directory-b2c"></a>Självstudier: Bevilja åtkomst till ett ASP.NET webb-API med hjälp av Azure Active Directory B2C
 
@@ -82,20 +82,20 @@ Exempellösningen innehåller två projekt:
 
 Följande två projekt finns i exempellösningen:
 
-- **TaskWebApp** – Skapa och redigera en uppgiftslista. Exemplet använder användarflödet för **registrering eller inloggning** för att registrera eller logga in användare.
-- **TaskService** – Har stöd för att skapa, läsa, uppdatera och ta bort funktionen för uppgiftslistor. API:et skyddas av Azure AD B2C och anropas av TaskWebApp.
+* **TaskWebApp** – Skapa och redigera en uppgiftslista. Exemplet använder användarflödet för **registrering eller inloggning** för att registrera eller logga in användare.
+* **TaskService** – Har stöd för att skapa, läsa, uppdatera och ta bort funktionen för uppgiftslistor. API:et skyddas av Azure AD B2C och anropas av TaskWebApp.
 
 ### <a name="configure-the-web-application"></a>Konfigurera webbappen
 
 1. Öppna **B2C-WebAPI-DotNet**-lösningen i Visual Studio.
-2. Öppna **Web.config** i projektet **TaskWebApp**.
-3. Kör API:et lokalt genom att använda inställningen för lokala värden för **api:TaskServiceUrl**. Ändra Web.config enligt följande:
+1. Öppna **Web. config**i **TaskWebApp** -projektet.
+1. Kör API:et lokalt genom att använda inställningen för lokala värden för **api:TaskServiceUrl**. Ändra Web.config enligt följande:
 
     ```csharp
     <add key="api:TaskServiceUrl" value="https://localhost:44332/"/>
     ```
 
-3. Konfigurera en URI för API:et. Det här är den URI som webbappen använder för att göra API-begäran. Ställ även in de behörigheter som krävs.
+1. Konfigurera en URI för API:et. Det här är den URI som webbappen använder för att göra API-begäran. Ställ även in de behörigheter som krävs.
 
     ```csharp
     <add key="api:ApiIdentifier" value="https://<Your tenant name>.onmicrosoft.com/api/" />
@@ -105,26 +105,27 @@ Följande två projekt finns i exempellösningen:
 
 ### <a name="configure-the-web-api"></a>Konfigurera webb-API
 
-1. Öppna **Web.config** i projektet **TaskService**.
-2. Ställ in API:t så det använder din klientorganisation.
+1. Öppna **Web. config**i **TaskService** -projektet.
+1. Ställ in API:t så det använder din klientorganisation.
 
     ```csharp
+    <add key="ida:AadInstance" value="https://<Your tenant name>.b2clogin.com/{0}/{1}/v2.0/.well-known/openid-configuration" />
     <add key="ida:Tenant" value="<Your tenant name>.onmicrosoft.com" />
     ```
 
-3. Ställ in klient-ID till det registrerade program-ID:t för ditt API.
+1. Ange klient-ID: t för program-ID: t för det registrerade webb-API-programmet, *webapi1*.
 
     ```csharp
     <add key="ida:ClientId" value="<application-ID>"/>
     ```
 
-4. Uppdatera inställningarna för användarflöde namnet för användarflödet för registrering och inloggning.
+1. Uppdatera användar flödes inställningen med namnet på ditt användar flöde för registrering och inloggning, *B2C_1_signupsignin1*.
 
     ```csharp
-    <add key="ida:SignUpSignInUserFlowId" value="B2C_1_signupsignin1" />
+    <add key="ida:SignUpSignInPolicyId" value="B2C_1_signupsignin1" />
     ```
 
-5. Konfigurera inställningen för omfång så den överensstämmer med det du skapade i portalen.
+1. Konfigurera omfattnings inställningen så att den matchar de som du skapade i portalen.
 
     ```csharp
     <add key="api:ReadScope" value="Hello.Read" />
@@ -136,16 +137,17 @@ Följande två projekt finns i exempellösningen:
 Du måste köra både **TaskWebApp**- och **TaskService**-projektet.
 
 1. Högerklicka på lösningen i Solution Explorer och välj **Ange startprojekt...** .
-2. Välj **Flera startprojekt**.
-3. Ändra **Åtgärd** för båda projekten till **Start**.
-4. Spara ändringarna genom att klicka på **OK**.
-5. Tryck på **F5** för att köra båda programmen. Varje program öppnas i sitt eget webbläsarfönster. `https://localhost:44316/` är webbappen.
-    `https://localhost:44332/` är webb-API:t.
+1. Välj **Flera startprojekt**.
+1. Ändra **Åtgärd** för båda projekten till **Start**.
+1. Spara ändringarna genom att klicka på **OK**.
+1. Tryck på **F5** för att köra båda programmen. Varje program öppnas i ett eget webbläsarfönster.
+    * `https://localhost:44316/`är webb programmet.
+    * `https://localhost:44332/` är webb-API:t.
 
-6. I webbappen klickar du på **registrera/logga in** för att logga in i webbappen. Använd det konto som du skapade tidigare.
-7. När du loggat in klickar du på **att göra-listan** och skapar en post i listan.
+1. I webb programmet väljer du **registrering/logga** in för att logga in på webb programmet. Använd det konto som du skapade tidigare.
+1. När du har loggat in väljer **du att göra-lista** och skapar ett objekt för att göra-listan.
 
-När du skapar en post i listan skickar webbappen en begäran till webb-API:et om att skapa listposten. Den skyddade webbappen anropar det skyddade webb-API:et i din Azure AD B2C-klientorganisation.
+När du skapar en post i listan skickar webbappen en begäran till webb-API:et om att skapa listposten. Det skyddade webb programmet anropar webb-API: t som skyddas av Azure AD B2C.
 
 ## <a name="next-steps"></a>Nästa steg
 

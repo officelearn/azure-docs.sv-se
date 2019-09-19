@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 08/09/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 99e6839443a75376224fe6a1007802b6b948a395
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 503de723894388a198abbb687221cb1403a6fa84
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68989469"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71104434"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-cisco-webex"></a>Självstudier: Azure Active Directory enkel inloggning (SSO) med Cisco WebEx
 
@@ -62,8 +62,8 @@ Konfigurera och testa Azure AD SSO med Cisco WebEx med en test användare som he
 Om du vill konfigurera och testa Azure AD SSO med Cisco WebEx slutför du följande Bygg stenar:
 
 1. **[Konfigurera Azure AD SSO](#configure-azure-ad-sso)** så att användarna kan använda den här funktionen.
-    1. **[Skapa en Azure AD](#create-an-azure-ad-test-user)** -testanvändare för att testa enkel inloggning i Azure AD med B. Simon.
-    1. **[Tilldela Azure AD](#assign-the-azure-ad-test-user)** -testanvändaren att aktivera B. Simon för att använda enkel inloggning i Azure AD.
+    1. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** för att testa enkel inloggning i Azure AD med B. Simon.
+    1. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** att aktivera B. Simon för att använda enkel inloggning i Azure AD.
 2. **[Konfigurera Cisco-WebEx](#configure-cisco-webex)** för att konfigurera SSO-inställningarna på program sidan.
     1. **[Skapa Cisco WebEx-test](#create-cisco-webex-test-user)** för att få en motsvarighet till B. Simon i Cisco WebEx som är länkat till Azure AD-representation av användare.
 3. **[Testa SSO](#test-sso)** för att kontrol lera om konfigurationen fungerar.
@@ -89,15 +89,15 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
     c. När metadatafilen för tjänstleverantör har laddats upp fylls värdena för **Identifierare** och **Svars-URL** i automatiskt i avsnittet **Grundläggande SAML-konfiguration**:
 
-    I text rutan för inloggnings- **URL** klistrar du in värdet för svars-URL, som **automatiskt**fylls med fil uppladdning av SP-metadatafil.
+    I text rutan för **inloggnings-URL** klistrar du in värdet för **svars-URL**, som automatiskt fylls med fil uppladdning av SP-metadatafil.
 
-5. Cisco WebEx-programmet förväntar sig SAML-intyg i ett särskilt format, vilket kräver att du lägger till anpassade mappningar av attribut i konfigurationen för SAML-token. I följande skärmbild visas listan över standardattribut. Klicka på ikonen **Redigera** för att öppna dialogrutan Användarattribut.
+5. Cisco WebEx-programmet förväntar sig SAML-intyg i ett särskilt format, vilket kräver att du lägger till anpassade mappningar av attribut i konfigurationen för SAML-token. I följande skärmbild visas listan över standardattribut. Klicka på ikonen**Redigera** för att öppna dialogrutan Användarattribut.
 
     ![image](common/edit-attribute.png)
 
 6. Utöver ovanstående förväntar sig Cisco Webex-programmet att några fler attribut skickas tillbaka i SAML-svaret. I avsnittet **Användaranspråk** i dialogrutan **Användarattribut** utför du följande steg för att lägga till SAML-tokenattributet enligt det som visas i tabellen nedan:
     
-    | Namn |  Källattribut|
+    | Name |  Källattribut|
     | ---------------|--------- |
     | uid | user.userprincipalname |
 
@@ -190,7 +190,7 @@ I det här avsnittet skapar du en användare som heter B. Simon i Cisco WebEx. I
 
     ![Konfigurera enkel inloggning](./media/cisco-spark-tutorial/tutorial-cisco-spark-13.png) 
 
-    a. I text rutan Förnamn skriver du första namnet på användaren, t. ex. **B**.
+    a. I text rutan **förnamn** skriver du första namnet på användaren, t. ex. **B**.
 
     b. I textrutan för **efternamn** skriver du efternamnet: **Simon**.
 

@@ -1,18 +1,18 @@
 ---
 title: Skapa en privat Azure-slutpunkt med Azure CLI | Microsoft Docs
 description: Läs om den privata Azure-slutpunkten
-services: virtual-network
+services: private-link
 author: KumudD
-ms.service: virtual-network
+ms.service: private-link
 ms.topic: article
 ms.date: 09/16/2019
 ms.author: kumud
-ms.openlocfilehash: 7d27cb58bfbe0669bf1e6d0e0f0d696e3e85d38a
-ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
+ms.openlocfilehash: 33383f42c3731d8a5aefdcde5008d706d5a9eed8
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71017963"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71104788"
 ---
 # <a name="create-a-private-endpoint-using-azure-cli"></a>Skapa en privat slut punkt med Azure CLI
 Privat slut punkt är det grundläggande Bygg blocket för privat länk i Azure. Den gör det möjligt för Azure-resurser, t. ex. virtuella datorer, att kommunicera privat med privata länk resurser. I den här snabb starten får du lära dig hur du skapar en virtuell dator i ett virtuellt nätverk, en SQL Database-Server med en privat slut punkt med hjälp av Azure CLI. Sedan kan du komma åt den virtuella datorn till och säkert komma åt den privata länk resursen (en privat Azure SQL Database Server i det här exemplet). 

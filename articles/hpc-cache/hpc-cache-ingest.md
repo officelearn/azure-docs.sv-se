@@ -4,14 +4,14 @@ description: Så här fyller du i Azure Blob Storage för användning med Azure 
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 09/06/2019
+ms.date: 09/18/2019
 ms.author: v-erkell
-ms.openlocfilehash: 07a97b1afa8049ace97f1589393cd76c24f21368
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.openlocfilehash: 0a71efdc0479a69aed8fecc22a6c89c506279d57
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70775655"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71105317"
 ---
 # <a name="move-data-to-azure-blob-storage-for-azure-hpc-cache"></a>Flytta data till Azure Blob Storage för Azure HPC-cache
 
@@ -31,15 +31,17 @@ Om du inte vill använda inläsnings verktyget, eller om du vill lägga till inn
 
 ## <a name="pre-load-data-in-blob-storage-with-clfsload"></a>För inläsning av data i blob-lagring med CLFSLoad
 
-Du kan använda verktyget [aver CLFSLoad](https://aka.ms/avere-clfsload) för att kopiera data till en ny Blob Storage-behållare innan du lägger till den som ett lagrings mål. Det här verktyget körs på en virtuell Linux-dator och skriver data i det tillverkarspecifika format som krävs för Azure HPC-cache. Detta är det mest effektiva sättet att fylla i en Blob Storage-behållare för användning med cachen.
+Du kan använda <!--[Avere CLFSLoad](https://aka.ms/avere-clfsload)--> Aver CLFSLoad-verktyget för att kopiera data till en ny Blob Storage-behållare innan du lägger till den som ett lagrings mål. Det här verktyget körs på ett enda Linux-system och skriver data i det tillverkarspecifika format som krävs för Azure HPC-cache. CLFSLoad är det mest effektiva sättet att fylla i en Blob Storage-behållare för användning med cachen.
+
+Verktyget aver CLFSLoad är tillgängligt på begäran från Azure HPC cache-teamet. Be din grupp kontakt eller öppna ett support ärende för att be om hjälp.
 
 Det här alternativet fungerar med nya, tomma behållare. Skapa behållaren innan du använder AVERT CLFSLoad.
 
-Detaljerad information finns i filen [AVERT CLFSLoad README](https://github.com/microsoft/Avere-CLFSLoad/blob/master/README.md). <!-- caution literal link -->
+Detaljerad information finns i CLFSLoad-distributionen för AVERT, som är tillgänglig på begäran från Azure HPC cache-teamet. <!-- [Avere CLFSLoad readme](https://github.com/microsoft/Avere-CLFSLoad/blob/master/README.md). --><!-- caution literal link -->
 
 En allmän översikt över processen:
 
-1. Förbered ett Linux-system (fysisk eller virtuell dator) med python version 3,6 eller senare. (Python 3,7 rekommenderas för bättre prestanda.)
+1. Förbered ett Linux-system (VM eller fysisk) med python version 3,6 eller senare. (Python 3,7 rekommenderas för bättre prestanda.)
 1. Installera AVERT-CLFSLoad-programvaran på Linux-systemet.
 1. Kör överföringen från Linux-kommandoraden.
 
@@ -50,7 +52,7 @@ Verktyget aver CLFSLoad behöver följande information:
 * En signatur för signatur för delad åtkomst (SAS) som tillåter att verktyget skriver till behållaren
 * En lokal sökväg till data källan – antingen en lokal katalog som innehåller de data som ska kopieras eller en lokal sökväg till ett monterat fjärrsystem med data.
 
-Kraven beskrivs i detalj i filen [AVERT CLFSLoad viktigt](https://aka.ms/avere-clfsload).
+<!-- The requirements are explained in detail in the [Avere CLFSLoad readme](https://aka.ms/avere-clfsload). -->
 
 ## <a name="copy-data-through-the-azure-hpc-cache"></a>Kopiera data via Azure HPC-cache
 

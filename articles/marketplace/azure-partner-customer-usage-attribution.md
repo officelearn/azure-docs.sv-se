@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 11/17/2018
 ms.author: pabutler
-ms.openlocfilehash: 40170540458b7bc7ddb30f88117d472858937e8c
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.openlocfilehash: 0bbe0e9718a25fdff76e591bf388bf829518502e
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70962941"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71105619"
 ---
 # <a name="azure-partner-customer-usage-attribution"></a>Spårning av kundanvändning för Azure-partner
 
@@ -166,43 +166,28 @@ Du kan också spåra GUID på en mer detaljerad nivå, till exempel SKU, där SK
 
 GUID måste registreras för att aktivera kund användnings behörighet.
 
-Alla registreringar för mall-GUID görs via Azure Marketplace-Cloud Partner Portal (CPP).
+Alla registreringar för mall-GUID görs i Partner Center.
 
-När du har lagt till GUID i mallen eller i användar agenten och registrerat GUID i CPP, spåras alla distributioner.
+När du har lagt till GUID i mallen eller i användar agenten och registrerat GUID i Partner Center, spåras alla distributioner.
 
-1. Tillämpa på [Azure Marketplace](https://aka.ms/listonazuremarketplace) och få åtkomst till cpp.
+1. Registrera dig som en [extern Marketplace-utgivare](https://aka.ms/JoinMarketplace).
 
-   * Partner måste [ha en profil i cpp](https://docs.microsoft.com/azure/marketplace/become-publisher). Du uppmanas att ange erbjudandet i Azure Marketplace eller AppSource.
+   * Partner måste [ha en profil i Partner Center](https://docs.microsoft.com/azure/marketplace/become-publisher). Du uppmanas att ange erbjudandet i Azure Marketplace eller AppSource.
    * Partner kan registrera flera GUID.
    * Partner kan registrera ett GUID för mallarna och erbjudandena för icke-Marketplace-lösningar.
 
-1. Logga in på [Cloud Partner Portal](https://cloudpartner.azure.com/).
+1. Logga in på [partner Center](https://partner.microsoft.com/dashboard).
 
-1. I det övre högra hörnet väljer du din konto ikon och väljer sedan utgivar **profil**.
+1. I det övre högra hörnet väljer du kugg hjuls ikonen Inställningar och väljer sedan **Inställningar för utvecklare**.
 
-   ![Välj utgivar profil](media/marketplace-publishers-guide/guid-image-for-lu.png)
+1. På **sidan konto inställningar**väljer du **Lägg till spårnings-GUID.**
 
-1. På **sidan profil**väljer du **Lägg till spårnings-GUID.**
-
-   ![Välj Lägg till spårnings-GUID](media/marketplace-publishers-guide/guid-how-to-add-tracking.png)
-
-1. I rutan **spårnings-GUID** anger du ditt spårnings-GUID. Ange bara GUID utan **PID-** prefix. Ange namnet eller beskrivningen för erbjudandet i rutan **anpassad Beskrivning** .
-
-   ![Profil sida](media/marketplace-publishers-guide/guid-dev-center-login.png)
-
-   ![Ange ett GUID och en beskrivning av erbjudandet](media/marketplace-publishers-guide/guid-dev-center-example.png)
+1. I rutan **GUID** anger du ditt spårnings-GUID. Ange bara GUID utan **PID-** prefix. I rutan **Beskrivning** anger du namnet eller beskrivningen för erbjudandet.
 
 1. Om du vill registrera fler än ett GUID väljer du **Lägg till spårnings-GUID** igen. Fler rutor visas på sidan.
 
-   ![Välj Lägg till spårnings-GUID igen](media/marketplace-publishers-guide/guid-dev-center-example-add.png)
-
-   ![Ange ett annat GUID och en beskrivning av erbjudandet](media/marketplace-publishers-guide/guid-dev-center-example-description.png)
-
 1. Välj **Spara**.
 
-   ![Välj Spara](media/marketplace-publishers-guide/guid-dev-center-save.png)
-
-När du har lagt till GUID i mallen eller i användar agenten och registrerat GUID i CPP, spåras alla distributioner.
 
 ## <a name="verify-the-guid-deployment"></a>Verifiera GUID-distributionen
 

@@ -12,12 +12,12 @@ author: wenjiefu
 ms.author: wenjiefu
 ms.reviewer: sawinark
 manager: craigg
-ms.openlocfilehash: a7ad0f3be754029c654b04d19750aab7bbcd210d
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 8e800ec8a7a2dd52e052547efa51deaad8c9bb45
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68933641"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71104926"
 ---
 # <a name="troubleshoot-package-execution-in-the-ssis-integration-runtime"></a>Felsöka paket körning i SSIS integration runtime
 
@@ -37,7 +37,7 @@ Här är möjliga orsaker och rekommenderade åtgärder:
 * Data källan eller målet är överbelastat. Kontrol lera belastningen på data källan eller målet och se om det finns tillräckligt med kapacitet. Om du t. ex. använde Azure SQL Database kan du skala upp om databasen troligen är tids gräns.
 * Nätverket mellan SSIS-integrerings körningen och data källan eller målet är instabilt, särskilt när anslutningen är mellan olika regioner eller mellan lokala platser och Azure. Använd mönstret för återförsök i SSIS-paketet genom att följa dessa steg:
   * Se till att dina SSIS-paket kan köras igen vid fel utan sido effekter (till exempel data förlust eller dataduplicering).
-  * Konfigurera återförsök och ÅTERFÖRSÖKSINTERVALL för aktiviteten **kör SSIS-paket** på fliken **Allmänt** . ![Ange egenskaper på fliken Allmänt](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-general.png)
+  * Konfigurera **återförsök** **och återförsöksintervall** för aktiviteten **kör SSIS-paket** på fliken **Allmänt** . ![Ange egenskaper på fliken Allmänt](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-general.png)
   * För en ADO.NET och OLE DB käll-eller mål komponent anger du **ConnectRetryCount** och **ConnectRetryInterval** i anslutnings hanteraren i SSIS-paketet eller SSIS-aktiviteten.
 
 ### <a name="error-message-ado-net-source-has-failed-to-acquire-the-connection--with-a-network-related-or-instance-specific-error-occurred-while-establishing-a-connection-to-sql-server-the-server-was-not-found-or-was-not-accessible"></a>Felmeddelande: "ADO NET source kunde inte hämta anslutningen"... "" med "ett nätverksrelaterade eller instans-relaterat fel uppstod när en anslutning upprättades till SQL Server. Det gick inte att hitta servern eller så var den inte tillgänglig. "
@@ -55,11 +55,11 @@ Den potentiella orsaken är att ADO.NET-providern som används i paketet inte ä
 
 ### <a name="error-message-the-connection--is-not-found"></a>Felmeddelande: "Anslutningen"... " hittades inte "
 
-Ett känt problem i äldre versioner av SQL Server Management Studio (SSMS) kan orsaka det här felet. Om paketet innehåller en anpassad komponent (till exempel SSIS Azure Feature Pack eller partnerkomponenter) som inte är installerad på den dator där SSMS används för att utföra distributionen, tar SSMS bort komponenten och orsakar felet. Uppgradera [SSMS](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) till den senaste versionen som har problemet åtgärdat.
+Ett känt problem i äldre versioner av SQL Server Management Studio (SSMS) kan orsaka det här felet. Om paketet innehåller en anpassad komponent (till exempel SSIS Azure Feature Pack eller partnerkomponenter) som inte är installerad på den dator där SSMS används för att utföra distributionen, tar SSMS bort komponenten och orsakar felet. Uppgradera [SSMS](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) till den senaste versionen där problemet är korrigerat.
 
 ### <a name="error-messagessis-executor-exit-code--1073741819"></a>Fel meddelande: "SSIS utförar avslutning Code:-1073741819".
 
-* Möjlig orsak & Rekommenderad åtgärd:
+* Möjlig orsak och rekommenderad åtgärd:
   * Det här felet kan bero på begränsningen för Excel-källa och-mål när flera Excel-källor eller-mål körs parallellt i flera trådar. Du kan lösa den här begränsningen genom att ändra dina Excel-komponenter så att de körs i följd, eller separera dem till olika paket och utlösa genom att köra paket uppgift med egenskapen ExecuteOutOfProcess inställd på sant.
 
 ### <a name="error-message-there-is-not-enough-space-on-the-disk"></a>Felmeddelande: "Det finns inte tillräckligt med utrymme på disken"
@@ -70,7 +70,7 @@ Det här felet innebär att den lokala disken används i SSIS-noden för integra
 
 ### <a name="error-message-failed-to-retrieve-resource-from-master-microsoftsqlserverintegrationservicesscalescaleoutcontractcommonmasterresponsefailedexception-code300004-descriptionload-file--failed"></a>Felmeddelande: "Det gick inte att hämta resursen från huvud servern. Microsoft.SqlServer.IntegrationServices.Scale.ScaleoutContract.Common.MasterResponseFailedException: Kod: 300004. Beskrivning: det gick inte att läsa in filen "* * *". "
 
-* Möjlig orsak & Rekommenderad åtgärd:
+* Möjlig orsak och rekommenderad åtgärd:
   * Om SSIS-aktiviteten kör ett paket från fil systemet (paketfil eller projekt filen) uppstår det här felet om projektet, paketet eller konfigurations filen inte är tillgängliga med de autentiseringsuppgifter för paket åtkomst som du angav i SSIS-aktiviteten
     * Om du använder Azure-fil:
       * Fil Sök vägen ska börja med \\ \\ \<lagrings konto\>namnet.\\File.Core.Windows.net\<fil resurs Sök väg\>
@@ -81,7 +81,7 @@ Det här felet innebär att den lokala disken används i SSIS-noden för integra
 
 ### <a name="error-message-the-file-name--specified-in-the-connection-was-not-valid"></a>Felmeddelande: "Fil namnet"... " angavs i anslutningen var inte giltigt.
 
-* Möjlig orsak & Rekommenderad åtgärd:
+* Möjlig orsak och rekommenderad åtgärd:
   * Ett ogiltigt fil namn har angetts
   * Kontrol lera att du använder FQDN (fullständigt kvalificerat domän namn) i stället för kort tid i anslutnings hanteraren
 
@@ -90,7 +90,7 @@ Det här felet innebär att den lokala disken används i SSIS-noden för integra
 Det här felet uppstår när paket körningen inte kan hitta en fil på den lokala disken i SSIS integration Runtime. Försök med följande åtgärder:
 * Använd inte den absoluta sökvägen i paketet som körs i SSIS integration Runtime. Använd den aktuella körnings arbets katalogen (.) eller Temp-mappen (% TEMP%) i stället.
 * Om du behöver spara några filer på SSIS-noderna för integration runtime förbereder du filerna enligt beskrivningen i [Anpassa installationen](how-to-configure-azure-ssis-ir-custom-setup.md). Alla filer i arbets katalogen kommer att rensas när körningen har slutförts.
-* Använd Azure Files i stället för att lagra filen i SSIS integration runtime-noden. Mer information finns i [använda Azure](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-files-file-shares?view=sql-server-2017#use-azure-file-shares)-filresurser.
+* Använd Azure Files i stället för att lagra filen i SSIS integration runtime-noden. Mer information finns i [använda Azure-filresurser](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-files-file-shares?view=sql-server-2017#use-azure-file-shares).
 
 ### <a name="error-message-the-database-ssisdb-has-reached-its-size-quota"></a>Felmeddelande: "Databasen" SSISDB "har nått sin storleks kvot"
 
@@ -107,7 +107,7 @@ Om många paket körs parallellt i SSIS-integrerings körningen kan det här fel
 Felet orsakas oftast av ett tillfälligt problem, så försök att köra paket körningen igen. Använd mönstret för återförsök i SSIS-paketet genom att följa dessa steg:
 
 * Se till att dina SSIS-paket kan köras igen vid fel utan sido effekter (till exempel data förlust eller dataduplicering).
-* Konfigurera återförsök och ÅTERFÖRSÖKSINTERVALL för aktiviteten **kör SSIS-paket** på fliken **Allmänt** . ![Ange egenskaper på fliken Allmänt](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-general.png)
+* Konfigurera **återförsök** **och återförsöksintervall** för aktiviteten **kör SSIS-paket** på fliken **Allmänt** . ![Ange egenskaper på fliken Allmänt](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-general.png)
 * För en ADO.NET och OLE DB käll-eller mål komponent anger du **ConnectRetryCount** och **ConnectRetryInterval** i anslutnings hanteraren i SSIS-paketet eller SSIS-aktiviteten.
 
 ### <a name="error-message-there-is-no-active-worker"></a>Felmeddelande: "Det finns ingen aktiv arbets rutin."
@@ -120,19 +120,47 @@ Felet uppstår när SSIS-integrerings körningen inte kan komma åt lagrings utr
 
 ### <a name="error-message-microsoft-ole-db-provider-for-analysis-services-hresult-0x80004005-description-com-error-com-error-mscorlib-exception-has-been-thrown-by-the-target-of-an-invocation"></a>Felmeddelande: "Microsoft OLE DB Provider för Analysis Services. HRESULT Beskrivning av 0x80004005 visas: COM-fel: COM-fel: mscorlib; Ett undantag har utlösts av målet för ett anrop "
 
-En möjlig orsak är att användar namnet eller lösen ordet med Azure Multi-Factor Authentication har Aktiver ATS för Azure Analysis Services autentisering. Den här autentiseringen stöds inte i integrerings körningen för SSIS. Försök att använda ett huvud namn för tjänsten för Azure Analysis Services autentisering:
+En möjlig orsak är att användar namnet eller lösen ordet med Azure Multi-Factor Authentication aktiverat har kon figurer ATS för Azure Analysis Services autentisering. Den här autentiseringen stöds inte i integrerings körningen för SSIS. Försök att använda ett huvud namn för tjänsten för Azure Analysis Services autentisering:
 1. Förbered ett huvud namn för tjänsten enligt beskrivningen i [Automation med tjänstens huvud namn](https://docs.microsoft.com/azure/analysis-services/analysis-services-service-principal).
 2. I anslutnings hanteraren konfigurerar du **Använd ett särskilt användar namn och lösen ord**: ange **AppID** som användar namn och **clientSecret** som lösen ord.
 
-### <a name="error-message-adonet-source-has-failed-to-acquire-the-connection-guid-with-the-following-error-message-login-failed-for-user-nt-authorityanonymous-logon-when-using-a-managed-identity"></a>Felmeddelande: "ADONET-källan kunde inte hämta anslutningen {GUID} med följande fel meddelande: Inloggningen misslyckades för användarens NT AUTHORITY\ANONYMOUS-inloggning när en hanterad identitet används
+### <a name="error-message-adonet-source-has-failed-to-acquire-the-connection-guid-with-the-following-error-message-login-failed-for-user-nt-authorityanonymous-logon-when-using-a-managed-identity"></a>Felmeddelande: ”ADONET-källan kunde inte hämta anslutningen {GUID} med följande felmeddelande: Inloggningen misslyckades för användarens NT AUTHORITY\ANONYMOUS-inloggning när en hanterad identitet används
 
 Se till att du inte konfigurerar autentiseringsmetoden för anslutnings hanteraren som **Active Directory** lösenordsautentisering när parametern *ConnectUsingManagedIdentity* är **True**. Du kan konfigurera den som **SQL-autentisering** i stället, vilket ignoreras om *ConnectUsingManagedIdentity* har angetts.
 
+### <a name="error-message-request-staging-task-with-operation-guid--fail-since-error-failed-to-dispatch-staging-operation-with-error-message-microsoftsqlserverintegrationservicesaisagentcoreaisagentexception-failed-to-load-data-proxy"></a>Felmeddelande: "Begär mellanlagrings uppgift med åtgärds-GUID... misslyckande sedan fel: Det gick inte att skicka mellanlagrings åtgärd med fel meddelande: Microsoft. SqlServer. IntegrationServices. AisAgentCore. AisAgentException: Det gick inte att läsa in dataproxy. "
+
+Se till att din Azure-SSIS integration Runtime har kon figurer ATS med integration runtime med egen värd. Mer information finns i [Konfigurera egen värd-IR som proxy för Azure-SSIS IR i ADF](self-hosted-integration-runtime-proxy-ssis.md).
+
+### <a name="error-message-staging-task-status-failed-staging-task-error-errorcode-2010-errormessage-the-self-hosted-integration-runtime--is-offline"></a>Felmeddelande: "Status för mellanlagring av aktivitet: Bröt. Fel vid mellanlagring av aktivitet: ErrorCode 2010, ErrorMessage: Den egen värdbaserade Integration Runtime... är offline "
+
+Kontrol lera att din egen värd för integration runtime är installerad och igång. Mer information finns i [skapa och konfigurera en integration runtime med egen värd](create-self-hosted-integration-runtime.md)
+
+### <a name="error-message-staging-task-error-errorcode-2906-errormessage-package-execution-failed-output-operationerrormessages-error-the-requested-ole-db-provider--is-not-registered-if-the-64-bit-driver-is-not-installed-run-the-package-in-32-bit-mode"></a>Felmeddelande: "Mellanlagrings aktivitets fel: ErrorCode 2906, ErrorMessage: Paket körningen misslyckades., utdata: {"OperationErrorMessages": Fels Den begärda OLE DB providern... är inte registrerad. Om 64-bitars driv rutinen inte är installerad kör du paketet i 32-bitars läge... "
+
+Se till att motsvarande provider som används av dina OLE DB-anslutningar i paketet är installerade på den lokala integration runtime-datorn korrekt. Mer information finns i [Konfigurera egen värd-IR som proxy för Azure-SSIS IR i ADF](self-hosted-integration-runtime-proxy-ssis.md#prepare-self-hosted-ir)
+
+### <a name="error-message-staging-task-error-errorcode-2906-errormessage-package-execution-failed-output-operationerrormessages-error-systemiofileloadexception-could-not-load-file-or-assembly-microsoftwindowsazurestorage-version-cultureneutral-publickeytoken31bf3856ad364e35-or-one-of-its-dependencies-the-located-assemblys-manifest-definition-does-not-match-the-assembly-reference"></a>Felmeddelande: "Mellanlagrings aktivitets fel: ErrorCode 2906, ErrorMessage: Paket körningen misslyckades., utdata: {"OperationErrorMessages": Fels System. IO. FileLoadException: Det gick inte att läsa in filen eller sammansättningen "Microsoft. WindowsAzure. Storage, version =..., Culture = neutral, PublicKeyToken = 31bf3856ad364e35" eller något av dess beroenden. Den Funna sammansättningens manifest definition matchar inte sammansättnings referensen. ..."
+
+En möjlig orsak är att integration runtime med egen värd inte har installerats eller uppgraderats korrekt. Föreslå att ladda ned och installera om den senaste integrerings körningen med egen värd. Mer information finns i [skapa och konfigurera en integration runtime med egen värd](create-self-hosted-integration-runtime.md#installation-best-practices)
+
+### <a name="error-message-a-connection-is-required-when-requesting-metadata-if-you-are-working-offline-uncheck-work-offline-on-the-ssis-menu-to-enable-the-connection"></a>Felmeddelande: "En anslutning krävs när metadata begärs. Om du arbetar offline avmarkerar du arbeta offline på SSIS-menyn för att aktivera anslutningen.
+
+* Möjlig orsak och rekommenderad åtgärd:
+  * Om det också finns ett varnings meddelande om att komponenten inte stöder användning av anslutnings hanteraren med värdet true i ConnectByProxy i körnings loggen, innebär det att en anslutnings hanterare används på en komponent som inte har stöd för "ConnectByProxy" än. De komponenter som stöds finns i [Konfigurera egen värd-IR som proxy för Azure-SSIS IR i ADF](self-hosted-integration-runtime-proxy-ssis.md#enable-ssis-packages-to-connect-by-proxy)
+  * Du kan hitta körnings loggen i [SSMS-rapporten](https://docs.microsoft.com/sql/integration-services/performance/monitor-running-packages-and-other-operations?view=sql-server-2017#reports) eller i den loggfil som du angav i SSIS-paketets körnings aktivitet.
+  * vNet kan också användas för att komma åt lokala data som ett alternativ. Mer information finns i delta i en [Azure-SSIS integration runtime till ett virtuellt nätverk](join-azure-ssis-integration-runtime-virtual-network.md)
+
+### <a name="error-message-staging-task-status-failed-staging-task-error-errorcode-2906-errormessage-package-execution-failed-output-operationerrormessages-ssis-executor-exit-code--1n-loglocation-ssistelemetryexecutionlog-effectiveintegrationruntime--executionduration--durationinqueue--integrationruntimequeue--"></a>Felmeddelande: "Status för mellanlagring av aktivitet: Bröt. Fel vid mellanlagring av aktivitet: ErrorCode 2906, ErrorMessage: Paket körningen misslyckades., utdata: {"OperationErrorMessages": "SSIS utförar avslutning Code:-1. \ n", "LogLocation": "... \\SSISTelemetryExecutionLog.\\.. "," effectiveIntegrationRuntime ":"... "," executionDuration ":...," durationInQueue ": {" integrationRuntimeQueue ":...}}"\\
+
+Kontrol lera att C++ Visual runtime är installerat på den lokala integration runtime-datorn. Mer information finns i [Konfigurera egen värd-IR som proxy för Azure-SSIS IR i ADF](self-hosted-integration-runtime-proxy-ssis.md#prepare-self-hosted-ir)
+
 ### <a name="multiple-package-executions-are-triggered-unexpectedly"></a>Flera paket körningar utlöses oväntade
 
-* Möjlig orsak & Rekommenderad åtgärd:
-  * ADF-lagrad procedur aktivitet används för att utlösa körning av SSIS-paket. T-SQL-kommandot kan nå ett tillfälligt problem och utlösa omkörningen vilket skulle orsaka flera paket körningar.
+* Möjlig orsak och rekommenderad åtgärd:
+  * ADF-lagrad procedur aktivitet eller söknings aktivitet används för att utlösa körning av SSIS-paket. T-SQL-kommandot kan nå ett tillfälligt problem och utlösa omkörningen vilket skulle orsaka flera paket körningar.
   * Använd ExecuteSSISPackage-aktivitet i stället för att se till att paket körningen inte körs igen om inte antalet nya försök i aktiviteten. Information finns på[https://docs.microsoft.com/azure/data-factory/how-to-invoke-ssis-package-ssis-activity](https://docs.microsoft.com/azure/data-factory/how-to-invoke-ssis-package-ssis-activity)
+  * Förfina t-SQL-kommandot för att kunna köra igen genom att kontrol lera om en körning redan har utlösts
 
 ### <a name="package-execution-takes-too-long"></a>Paket körningen tar för lång tid
 

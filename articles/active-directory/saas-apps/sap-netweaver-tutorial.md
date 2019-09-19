@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 08/14/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b002a9d5385d6cee3f22da7a1ddcf1f0864311ec
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: d79c953f22bfe587f740bc29050796834309186a
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68989046"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71103370"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-sap-netweaver"></a>Självstudier: Azure Active Directory enkel inloggning (SSO) med SAP NetWeaver
 
@@ -66,8 +66,8 @@ Konfigurera och testa Azure AD SSO med SAP NetWeaver med en test användare som 
 Om du vill konfigurera och testa Azure AD SSO med SAP NetWeaver slutför du följande Bygg stenar:
 
 1. **[Konfigurera Azure AD SSO](#configure-azure-ad-sso)** så att användarna kan använda den här funktionen.
-    1. **[Skapa en Azure AD](#create-an-azure-ad-test-user)** -testanvändare för att testa enkel inloggning i Azure AD med B. Simon.
-    1. **[Tilldela Azure AD](#assign-the-azure-ad-test-user)** -testanvändaren att aktivera B. Simon för att använda enkel inloggning i Azure AD.
+    1. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** för att testa enkel inloggning i Azure AD med B. Simon.
+    1. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** att aktivera B. Simon för att använda enkel inloggning i Azure AD.
 1. **[Konfigurera SAP-NetWeaver med SAML](#configure-sap-netweaver-using-saml)** för att konfigurera SSO-inställningar på program sidan.
     1. **[Skapa SAP NetWeaver-test](#create-sap-netweaver-test-user)** för att få en motsvarighet till B. Simon i SAP NetWeaver som är länkat till Azure AD-representation av användare.
 1. **[Testa SSO](#test-sso)** för att kontrol lera om konfigurationen fungerar.
@@ -136,7 +136,7 @@ Konfigurera enkel inloggning i Azure Active Directory med SAP NetWeaver genom at
 
     b. Klicka på **Metadata**.
 
-    c. Spara den genererade **XML-filen för metadata** på datorn och ladda upp den i **grundläggande SAML-konfiguration** för att automatiskt fylla i **ID** -och svars- **URL** -värden i Azure Portal.
+    c. Spara den genererade **XML-filen för metadata** på datorn och ladda upp den i **grundläggande SAML-konfiguration** för att automatiskt fylla i **ID** -och **svars-URL** -värden i Azure Portal.
 
 Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
@@ -163,7 +163,7 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
     > ``` 
     > ServicePrincipal Object ID ska anges av dig först, eller så kan du skicka det också här.
 
-1. SAP NetWeaver-programmet förväntar sig SAML-intyg i ett särskilt format, vilket kräver att du lägger till anpassade mappningar av attribut i konfigurationen för SAML-token. I följande skärmbild visas listan över standardattribut. Klicka på ikonen **Redigera** för att öppna dialogrutan Användarattribut.
+1. SAP NetWeaver-programmet förväntar sig SAML-intyg i ett särskilt format, vilket kräver att du lägger till anpassade mappningar av attribut i konfigurationen för SAML-token. I följande skärmbild visas listan över standardattribut. Klicka på ikonen**Redigera** för att öppna dialogrutan Användarattribut.
 
     ![image](common/edit-attribute.png)
 
@@ -267,7 +267,7 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
     ![Konfigurera enkel inloggning](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_addidentityprovider.png)
 
-13. I popup-fönstret väljer du ospecificerad från de NameID- **format som stöds** och klickar på OK.
+13. I popup-fönstret väljer du **ospecificerad** från de NameID- **format som stöds** och klickar på OK.
 
     ![Konfigurera enkel inloggning](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_nameid.png)
 
@@ -360,7 +360,7 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 ### <a name="register-the-new-oauth-20-client-id-with-the-creation-wizard"></a>Registrera det nya OAuth 2,0-klient-ID: t med guiden skapa
 
-1. Registrera en ny **OAuth 2,0** -klients start transaktion **SOAUTH2**. Transaktionen visar en översikt över de OAuth 2,0-klienter som redan har registrerats. Välj **skapa** för att starta guiden för den nya OAuth-klienten med namnet KLIENT1 i det här exemplet.
+1. Registrera en ny **OAuth 2,0-klients** start transaktion **SOAUTH2**. Transaktionen visar en översikt över de OAuth 2,0-klienter som redan har registrerats. Välj **skapa** för att starta guiden för den nya OAuth-klienten med namnet KLIENT1 i det här exemplet.
 
 2. Gå till T-kod: **SOAUTH2** och ange beskrivningen och klicka sedan på **Nästa**.
 

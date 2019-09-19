@@ -2,18 +2,18 @@
 title: Använda SSH-tunnlar för att få åtkomst till Azure HDInsight
 description: Lär dig hur du använder en SSH-tunnel för att på ett säkert sätt bläddra bland webb resurser som finns på dina Linux-baserade HDInsight-noder.
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/28/2019
-ms.author: hrasheed
-ms.openlocfilehash: cad2988a9b6d6cdf557eeabee7cc93e0bbba9267
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: d976826fe90946697a32c5b1edb9dd323b01cc1c
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70879579"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71105458"
 ---
 # <a name="use-ssh-tunneling-to-access-apache-ambari-web-ui-jobhistory-namenode-apache-oozie-and-other-uis"></a>Använd SSH-tunnlar för att komma åt Apache Ambari Web UI, JobHistory, NameNode, Apache Oozie och andra UIs
 
@@ -90,19 +90,19 @@ När kommandot har slutförts dirigeras trafik som skickas till port 9876 på de
 
 1. Välj **spara**
 
-    ![Skapa SSH-session](./media/hdinsight-linux-ambari-ssh-tunnel/hdinsight-create-putty-session.png)
+    ![HDInsight skapa SparaTillFil-session](./media/hdinsight-linux-ambari-ssh-tunnel/hdinsight-create-putty-session.png)
 
 1. I avsnittet **kategori** till vänster om dialog rutan expanderar du **anslutning**, expanderar **SSH**och väljer sedan **tunnlar**.
 
 1. Ange följande information om alternativen för att **kontrol lera vidarebefordring av SSH-portar** :
-   
+
    * **Källport** – Porten på den klient som du vill vidarebefordra. Till exempel **9876**.
 
    * **Mål** – SSH-adressen för HDInsight-klustret. Till exempel **mycluster-ssh.azurehdinsight.net**.
 
    * **Dynamisk** – Aktiverar dynamisk SOCKS-proxyroutning.
-     
-     ![bild av tunnel alternativ](./media/hdinsight-linux-ambari-ssh-tunnel/hdinsight-putty-tunnel.png)
+
+     ![Tunnel alternativ för SparaTillFil-konfiguration](./media/hdinsight-linux-ambari-ssh-tunnel/hdinsight-putty-tunnel.png)
 
 1. Välj **Lägg** till för att lägga till inställningarna och klicka sedan på **Öppna** för att öppna en SSH-anslutning.
 
@@ -114,9 +114,9 @@ När kommandot har slutförts dirigeras trafik som skickas till port 9876 på de
 > Stegen i det här avsnittet använder Mozilla FireFox-webbläsaren, eftersom den ger samma proxyinställningar på alla plattformar. Andra moderna webbläsare, till exempel Google Chrome, kan kräva ett tillägg, till exempel FoxyProxy, för att arbeta med tunneln.
 
 1. Konfigurera webbläsaren att använda **localhost** och den port som du använde när du skapade tunneln som en **SOCKS V5** -proxy. Så här ser Firefox-inställningarna ut. Om du använde en annan port än 9876 ändrar du porten till den som du använde:
-   
-    ![bild av Firefox-inställningar](./media/hdinsight-linux-ambari-ssh-tunnel/firefox-proxy-settings.png)
-   
+
+    ![proxyinställningar för Firefox webbläsare](./media/hdinsight-linux-ambari-ssh-tunnel/firefox-proxy-settings.png)
+
    > [!NOTE]  
    > Om du väljer **fjärranslutna DNS** matchas Domain Name System DNS-begäranden (DNS) med hjälp av HDInsight-klustret. Den här inställningen löser DNS med hjälp av Head-noden i klustret.
 
@@ -133,7 +133,7 @@ När klustret har upprättats kan du använda följande steg för att kontrol le
 
 2. Från Ambari-webbgränssnittet väljer du HDFS i listan till vänster på sidan.
 
-    ![Bild med HDFS valt](./media/hdinsight-linux-ambari-ssh-tunnel/hdfs-service-selected.png)
+    ![Apache Ambari HDFS-tjänsten har valts](./media/hdinsight-linux-ambari-ssh-tunnel/hdfs-service-selected.png)
 
 3. När HDFS-tjänsteinformationen visas väljer du **snabb länkar**. En lista med kluster huvud-noder visas. Välj en av huvudnoderna och välj sedan **NameNode-användargränssnittet**.
 
@@ -146,7 +146,7 @@ När klustret har upprättats kan du använda följande steg för att kontrol le
 
 4. En sida som liknar följande bild visas:
 
-    ![Bild av NameNode-ANVÄNDARGRÄNSSNITTET](./media/hdinsight-linux-ambari-ssh-tunnel/hdinsight-namenode-ui.png)
+    ![Bild av Hadoop NameNode-ANVÄNDARGRÄNSSNITTET](./media/hdinsight-linux-ambari-ssh-tunnel/hdinsight-namenode-ui.png)
 
     > [!NOTE]  
     > Lägg märke till URL: en för den här sidan. Det bör likna `http://hn1-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net:8088/cluster`. Denna URI använder det interna fullständigt kvalificerade domän namnet (FQDN) för noden och är bara tillgänglig när du använder en SSH-tunnel.

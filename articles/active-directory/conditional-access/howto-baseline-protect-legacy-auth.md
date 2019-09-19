@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 413df402d5acc878130a47821efd5fa3a512257d
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 9b74491c76747bd635547f6f22964fe792dbf01a
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68931939"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71104088"
 ---
 # <a name="baseline-policy-block-legacy-authentication-preview"></a>Bas linje princip: Blockera äldre autentisering (för hands version)
 
@@ -106,11 +106,11 @@ Princip **bas linje princip: Blockera äldre autentisering (för hands** version
 
 Så här aktiverar du den här principen och skyddar din organisation:
 
-1. Logga in på **Azure Portal** som global administratör, säkerhets administratör eller administratör för villkorlig åtkomst.
+1. Logga in på **Azure Portal** som global administratör, säkerhets administratör eller administratör för villkorlig åtkomst.
 1. Bläddra till **Azure Active Directory** > **villkorlig åtkomst**.
 1. I listan med principer väljer **du bas linje princip: Blockera äldre autentisering (för hands**version).
 1. Ange principen för att **aktivera principen** **direkt**.
-1. Klicka på **Spara**.
+1. Klicka på **Spara**.
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -2,18 +2,18 @@
 title: Övervaka kluster prestanda – Azure HDInsight
 description: Övervaka hälso tillstånd och prestanda för Apache Hadoop kluster i Azure HDInsight.
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/29/2019
-ms.author: hrasheed
-ms.openlocfilehash: 936307399b658b75962e6969820215f9808d053f
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.openlocfilehash: 7a7544ef9fe5724d1f6c11918411a76461d908e5
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70961085"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71104403"
 ---
 # <a name="monitor-cluster-performance-in-azure-hdinsight"></a>Övervaka kluster prestanda i Azure HDInsight
 
@@ -36,11 +36,11 @@ För att få en överblick på noderna i klustret och deras inläsningar loggar 
 
 Du ser också kolumner som visar antalet kärnor och mängden RAM-minne för varje värd, samt disk användning och belastnings medelvärde.
 
-![Fliken värdar](./media/hdinsight-key-scenarios-to-monitor/apache-ambari-hosts-tab.png)
+![Fliken Apache Ambari-värdar – översikt](./media/hdinsight-key-scenarios-to-monitor/apache-ambari-hosts-tab.png)
 
 Välj något av värd namnen för en detaljerad titt på komponenter som körs på värden och deras mått. Måtten visas som en valbar tids linje för processor användning, belastning, disk användning, minnes användning, nätverks användning och antal processer.
 
-![Värd information](./media/hdinsight-key-scenarios-to-monitor/apache-ambari-host-details.png)
+![Översikt över Apache Ambari-värd information](./media/hdinsight-key-scenarios-to-monitor/apache-ambari-host-details.png)
 
 Se [Hantera HDInsight-kluster med hjälp av Apache Ambari Web UI](hdinsight-hadoop-manage-ambari.md) för information om att ställa in aviseringar och visa mått.
 
@@ -56,7 +56,7 @@ När flera klienter delar ett stort kluster finns det konkurrens för klustrets 
 
 GARN gör att vi kan allokera resurser till dessa köer och visar om alla dina tillgängliga resurser har tilldelats. Om du vill visa information om dina köer loggar du in på Ambari-webbgränssnittet och väljer sedan **garn Queue Manager** på den översta menyn.
 
-![GARN Queue Manager](./media/hdinsight-key-scenarios-to-monitor/apache-yarn-queue-manager.png)
+![Apache Ambari garn Queue Manager](./media/hdinsight-key-scenarios-to-monitor/apache-yarn-queue-manager.png)
 
 Sidan garn Queue Manager visar en lista över dina köer till vänster, tillsammans med den procent andel av kapaciteten som tilldelats var och en.
 
@@ -64,11 +64,11 @@ Sidan garn Queue Manager visar en lista över dina köer till vänster, tillsamm
 
 Om du vill ha en mer detaljerad titt på dina köer går du till Ambari-instrumentpanelen och väljer **garn** tjänsten i listan till vänster. Sedan väljer du **Resource Manager-gränssnitt** under den aktiva noden under List menyn **snabb länkar** .
 
-![Meny länk till Resource Manager-gränssnitt](./media/hdinsight-key-scenarios-to-monitor/resource-manager-ui-menu-link.png)
+![Länkar till Resource Manager-webbgränssnitt](./media/hdinsight-key-scenarios-to-monitor/resource-manager-ui-menu-link.png)
 
 I Resource Manager-ANVÄNDARGRÄNSSNITTET väljer du **Scheduler** på menyn till vänster. Du ser en lista över dina köer under *program köer*. Här kan du se kapaciteten som används för var och en av dina köer, hur väl jobben distribueras mellan dem och om några jobb är resurs begränsningar.
 
-![Meny för Resource Manager-gränssnitt](./media/hdinsight-key-scenarios-to-monitor/resource-manager-ui-menu.png)
+![Användar gränssnitts menyn Apache HAdoop Resource Manager](./media/hdinsight-key-scenarios-to-monitor/resource-manager-ui-menu.png)
 
 ## <a name="storage-throttling"></a>Lagrings begränsning
 

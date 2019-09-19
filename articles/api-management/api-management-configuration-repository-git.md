@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/12/2019
 ms.author: apimpm
-ms.openlocfilehash: b4ee4ca2ede2e0a2d6d1af906cc34051c76353bd
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 9bbd62bc05e03641c2abe9308d9238bef23877c2
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70073761"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71104972"
 ---
 # <a name="how-to-save-and-configure-your-api-management-service-configuration-using-git"></a>Spara och konfigurera API Management tjänst konfigurationen med git
 
@@ -74,7 +74,7 @@ För information om hur du utför den här åtgärden med hjälp av REST API, se
 
 Om du vill klona en lagrings plats behöver du URL: en till din lagrings plats, ett användar namn och ett lösen ord. Om du vill hämta användar namn och andra autentiseringsuppgifter klickar du på behörigheter för **åtkomst** längst upp på sidan.
 
-Om du vill generera ett lösen ord måste du först se till att förfallo datum och-tid har angetts till önskad giltighets tid och klicka sedan på **generera**.
+Om du vill generera ett lösen ord måste du först se till att förfallo datum och- **tid har angetts** till önskad giltighets tid och klicka sedan på **generera**.
 
 > [!IMPORTANT]
 > Anteckna det här lösen ordet. När du lämnar den här sidan visas inte lösen ordet igen.
@@ -96,10 +96,10 @@ Om du får fel meddelanden kan du försöka att `git clone` ändra kommandot så
 git clone https://username:password@{name}.scm.azure-api.net/
 ```
 
-Om detta är ett fel kan du prova URL: en och ange lösen ordets del av kommandot. Ett snabbt sätt att göra detta är att öppna Visual Studio och utfärda följande kommando i kommando tolken. Öppna **direkt fönstret**genom att öppna en lösning eller ett projekt i Visual Studio (eller skapa ett nytt tomt konsol program) och välj **Windows**, **omedelbart** från **fel söknings** menyn.
+Om detta är ett fel kan du prova URL: en och ange lösen ordets del av kommandot. Ett snabbt sätt att göra detta är att öppna Visual Studio och utfärda följande kommando i kommando **tolken**. Öppna **direkt fönstret**genom att öppna en lösning eller ett projekt i Visual Studio (eller skapa ett nytt tomt konsol program) och välj **Windows**, **omedelbart** från **fel söknings** menyn.
 
 ```
-?System.NetWebUtility.UrlEncode("password from the Azure portal")
+?System.Net.WebUtility.UrlEncode("password from the Azure portal")
 ```
 
 Använd det kodade lösen ordet tillsammans med ditt användar namn och din lagrings plats för att skapa git-kommandot.
@@ -108,7 +108,7 @@ Använd det kodade lösen ordet tillsammans med ditt användar namn och din lagr
 git clone https://username:url encoded password@{name}.scm.azure-api.net/
 ```
 
-När lagrings platsen är klonad kan du Visa och arbeta med den i det lokala fil systemet. Mer information finns i [referens för fil-och mappstruktur för den lokala git](#file-and-folder-structure-reference-of-local-git-repository)-lagringsplatsen.
+När lagrings platsen är klonad kan du Visa och arbeta med den i det lokala fil systemet. Mer information finns i [referens för fil-och mappstruktur för den lokala git-lagringsplatsen](#file-and-folder-structure-reference-of-local-git-repository).
 
 ## <a name="to-update-your-local-repository-with-the-most-current-service-instance-configuration"></a>Uppdatera din lokala lagrings plats med den mest aktuella tjänst instans konfigurationen
 
@@ -208,12 +208,12 @@ De första fyra inställningarna (`RegistrationEnabled` `UserRegistrationTermsEn
 | UserRegistrationTermsConsentRequired |Kryss rutan **Kräv medgivande** |
 | RequireUserSigninEnabled |Kryss rutan **omdirigera anonyma användare till inloggnings sidan** |
 
-De fyra följande inställningarna (`DelegationEnabled` `DelegatedSubscriptionEnabled`, `DelegationUrl`, `DelegationValidationKey`och) mappas till följande inställningar på fliken delegering i avsnittet **säkerhet** .
+De fyra följande inställningarna (`DelegationEnabled` `DelegatedSubscriptionEnabled`, `DelegationUrl`, `DelegationValidationKey`och) mappas till följande inställningar på fliken **delegering** i avsnittet **säkerhet** .
 
 | Delegerings inställning | Mappar till |
 | --- | --- |
 | DelegationEnabled |Kryss ruta **för att delegera inloggning &** |
-| DelegationUrl |URL-text för Delegerings **slut punkt** |
+| DelegationUrl |URL-text för **Delegerings slut punkt** |
 | DelegatedSubscriptionEnabled |Kryss rutan **delegera produkt prenumeration** |
 | DelegationValidationKey |Text ruta för att **delegera validerings nyckel** |
 
@@ -250,10 +250,10 @@ Den sista inställningen, `$ref-policy`mappas till den globala princip deklarati
 `products` Mappen innehåller en mapp för varje produkt som definierats i tjänst instansen.
 
 * `products\<product name>\configuration.json`– Det här är konfigurationen för produkten. Detta är samma information som skulle returneras om du anropar åtgärden [Hämta en enskild produkt](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/product/get) .
-* `products\<product name>\product.description.html`– Det här är en beskrivning av produkten och motsvarar `description` egenskapen för entiteten [produkt](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-product-entity) i REST API.
+* `products\<product name>\product.description.html`– Det här är en beskrivning av produkten och motsvarar `description` egenskapen för [entiteten produkt](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-product-entity) i REST API.
 
 ### <a name="templates"></a>mallar
-Mappen innehåller konfiguration för [e-](api-management-howto-configure-notifications.md) postmallarna för tjänst instansen. `templates`
+Mappen innehåller konfiguration för [e-postmallarna](api-management-howto-configure-notifications.md) för tjänst instansen. `templates`
 
 * `<template name>\configuration.json`– Det här är konfigurationen för e-postmallen.
 * `<template name>\body.html`– Det här är bröd texten i e-postmallen.

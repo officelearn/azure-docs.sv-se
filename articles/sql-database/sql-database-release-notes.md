@@ -9,12 +9,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 05/15/2019
 ms.author: sstein
-ms.openlocfilehash: 21f80a2be09302e47817ccfd4223207bdcdd0413
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 232f8b13174aed19477ee0b139c83fba439049ac
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71066812"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71101535"
 ---
 # <a name="sql-database-release-notes"></a>Viktig information om SQL Database
 
@@ -48,7 +48,6 @@ Den här artikeln innehåller SQL Database funktioner som för närvarande finns
 | ---| --- |
 | <a href="/azure/sql-database/sql-database-instance-pools">Instans-pooler</a> | Ett bekvämt och kostnads effektivt sätt att migrera mindre SQL-instanser till molnet. |
 | <a href="https://aka.ms/managed-instance-tde-byok">Transparent data kryptering (TDE) med Bring Your Own Key (BYOK)</a> |Mer information finns [i Azure SQL Transparent datakryptering med Kundhanterade nycklar i Azure Key Vault: Bring Your Own Key support](transparent-data-encryption-byok-azure-sql.md).|
-| <a href="https://aka.ms/managed-instance-failover-groups">Geo-distribuerade failover-grupper</a> | Behåll en kopia av instansen i en annan region och se till att dina data blir tillgängliga även i det regionala katastrof scenariot. |
 | <a href="https://aka.ms/managed-instance-aadlogins">Azure AD server-huvudobjekt på instans nivå (inloggningar)</a> | Skapa inloggningar på server nivå med hjälp av instruktionen <a href="https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">Skapa inloggning från extern provider</a> . |
 | [Transaktionsreplikering](sql-database-managed-instance-transactional-replication.md) | Replikera ändringarna från dina tabeller till andra databaser som har placerats på hanterade instanser, enskilda databaser eller SQL Server instanser eller uppdatera tabeller när vissa rader ändras i andra hanterade instanser eller SQL Server instans. Mer information finns i [Konfigurera replikering i en Azure SQL Database Hanterad instans databas](replication-with-sql-database-managed-instance.md). |
 | Identifiering av hot |Mer information finns i [Konfigurera hot identifiering i Azure SQL Database Hanterad instans](sql-database-managed-instance-threat-detection.md).|

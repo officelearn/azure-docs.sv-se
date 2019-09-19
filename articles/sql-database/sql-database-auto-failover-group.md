@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 09/06/2019
-ms.openlocfilehash: a80e1d0e4aa243d46efa79173af3fc5d774eb46f
-ms.sourcegitcommit: b8578b14c8629c4e4dea4c2e90164e42393e8064
+ms.openlocfilehash: 6f5d865b5a12ce8989631deee7ebda49dbe1ab12
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70806603"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71103184"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Använd grupper för automatisk redundans för att aktivera transparent och samordnad redundansväxling av flera databaser
 
@@ -173,9 +173,6 @@ När du utformar en tjänst med affärs kontinuitet i åtanke följer du dessa a
 
 ## <a name="best-practices-of-using-failover-groups-with-managed-instances"></a>Metod tips för att använda failover-grupper med hanterade instanser
 
-> [!IMPORTANT]
-> Grupper för automatisk redundans för hanterade instanser är i offentlig för hands version.
-
 Gruppen för automatisk redundans måste konfigureras på den primära instansen och ansluter den till den sekundära instansen i en annan Azure-region.  Alla databaser i instansen kommer att replikeras till den sekundära instansen. 
 
 Följande diagram illustrerar en typisk konfiguration av ett Geo-redundant moln program med hjälp av en hanterad instans och en grupp för automatisk redundans.
@@ -323,7 +320,7 @@ Information om hur du använder återställning av punkt-till-tid med failover-g
 
 ## <a name="programmatically-managing-failover-groups"></a>Hantera failover-grupper program mässigt
 
-Som tidigare nämnts kan grupper för automatisk redundans och aktiv geo-replikering också hanteras program mässigt med hjälp av Azure PowerShell och REST API. I följande tabeller beskrivs en uppsättning kommandon som är tillgängliga. Aktiv geo-replikering innehåller en uppsättning Azure Resource Manager-API: er för hantering, inklusive [Azure SQL Database REST API](https://docs.microsoft.com/rest/api/sql/) och [Azure PowerShell-cmdletar](https://docs.microsoft.com/powershell/azure/overview). Dessa API: er kräver användning av resurs grupper och stöd för rollbaserad säkerhet (RBAC). Mer information om hur du implementerar åtkomst roller finns i [Azure Role-Based Access Control](../role-based-access-control/overview.md).
+Som tidigare nämnts kan grupper för automatisk redundans och aktiv geo-replikering också hanteras program mässigt med hjälp av Azure PowerShell och REST API. I följande tabeller beskrivs en uppsättning kommandon som är tillgängliga. Aktiv geo-replikering innehåller en uppsättning Azure Resource Manager-API: er för hantering, inklusive [Azure SQL Database REST API](https://docs.microsoft.com/rest/api/sql/) och [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)-cmdletar. Dessa API: er kräver användning av resurs grupper och stöd för rollbaserad säkerhet (RBAC). Mer information om hur du implementerar åtkomst roller finns i [Azure Role-Based Access Control](../role-based-access-control/overview.md).
 
 ### <a name="powershell-manage-sql-database-failover-with-single-databases-and-elastic-pools"></a>PowerShell: Hantera SQL Database-redundans med enkla databaser och elastiska pooler
 
@@ -365,7 +362,7 @@ Som tidigare nämnts kan grupper för automatisk redundans och aktiv geo-replike
 | [Uppdatera redundans grupp](https://docs.microsoft.com/rest/api/sql/failovergroups/update) | Uppdaterar en failover-grupp. |
 |  | |
 
-### <a name="rest-api-manage-failover-groups-with-managed-instances-preview"></a>REST API: Hantera redundanskluster med hanterade instanser (förhands granskning)
+### <a name="rest-api-manage-failover-groups-with-managed-instances"></a>REST API: Hantera failover-grupper med hanterade instanser
 
 | API | Beskrivning |
 | --- | --- |

@@ -1,20 +1,20 @@
 ---
 title: Hög tillgänglighet för Hadoop – Azure HDInsight
 description: Lär dig hur HDInsight-kluster förbättrar tillförlitligheten och tillgängligheten genom att använda en ytterligare Head-nod. Lär dig hur detta påverkar Hadoop-tjänster som Ambari och Hive, samt hur du ansluter till varje Head-nod med hjälp av SSH.
-ms.reviewer: jasonh
 author: hrasheed-msft
+ms.author: hrasheed
+ms.reviewer: jasonh
 keywords: Hadoop hög tillgänglighet
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 04/24/2019
-ms.author: hrasheed
-ms.openlocfilehash: 1bfc17d343f6e788d22cd158fcb849c5895b019f
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: 615b1e4c5684084b6c5f88d26293b993c1efbf1f
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70879747"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71104408"
 ---
 # <a name="availability-and-reliability-of-apache-hadoop-clusters-in-hdinsight"></a>Tillgänglighet och tillförlitlighet för Apache Hadoop kluster i HDInsight
 
@@ -106,7 +106,7 @@ Ambari webb gränssnitt kan visas på `https://CLUSTERNAME.azurehdinsight.net`. 
 
 När du kommer till sidan Ambari visas de installerade tjänsterna till vänster på sidan.
 
-![Installerade tjänster](./media/hdinsight-high-availability-linux/hdinsight-installed-services.png)
+![Apache Ambari-installerade tjänster](./media/hdinsight-high-availability-linux/hdinsight-installed-services.png)
 
 Det finns en serie ikoner som kan visas bredvid en tjänst för att indikera status. Aviseringar som är relaterade till en tjänst kan visas med hjälp av länken **aviseringar** överst på sidan.  Ambari erbjuder flera fördefinierade aviseringar.
 
@@ -155,11 +155,11 @@ Du kan välja varje tjänst om du vill visa mer information om den.
 
 Även om tjänst sidan innehåller information om statusen och konfigurationen för varje tjänst ger den inte information om vilken Head-nod tjänsten körs på. Om du vill visa den här informationen använder du länken **värdar** överst på sidan. Den här sidan visar värdar i klustret, inklusive Head-noderna.
 
-![lista över värdar](./media/hdinsight-high-availability-linux/hdinsight-hosts-list.png)
+![Apache Ambari huvudnoden hosts-lista](./media/hdinsight-high-availability-linux/hdinsight-hosts-list.png)
 
 Om du väljer länken för en av huvudnoderna visas tjänsterna och komponenterna som körs på noden.
 
-![Komponent status](./media/hdinsight-high-availability-linux/hdinsight-node-services.png)
+![Apache Ambari-komponent status](./media/hdinsight-high-availability-linux/hdinsight-node-services.png)
 
 Mer information om hur du använder Ambari finns i [övervaka och hantera HDInsight med Apache Ambari Web UI](hdinsight-hadoop-manage-ambari.md).
 

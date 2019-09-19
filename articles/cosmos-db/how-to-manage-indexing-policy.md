@@ -4,14 +4,14 @@ description: Lär dig hur du hanterar indexerings principer i Azure Cosmos DB
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/10/2019
+ms.date: 09/17/2019
 ms.author: thweiss
-ms.openlocfilehash: ede4266457aaa76bdd9f1141df5c2981bb722326
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: b80a4b8697544a0f7fe7cee99b666a513f53a0d6
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70915917"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71104856"
 ---
 # <a name="manage-indexing-policies-in-azure-cosmos-db"></a>Hantera indexerings principer i Azure Cosmos DB
 
@@ -374,47 +374,23 @@ az cosmosdb collection update \
 
 ## <a name="use-the-net-sdk-v2"></a>Använda .NET SDK v2
 
-`IndexingMode` `IndexingPolicy` `ExcludedPaths` `IncludedPaths` [](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/) [](create-sql-api-dotnet.md) Objektet från .NET SDK v2 (se den här snabb starten om användningen) visar en egenskap som gör att du kan ändra och lägga till eller ta bort och. `DocumentCollection`
+`IndexingPolicy` `IncludedPaths` `IndexingMode` `ExcludedPaths` [](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/) Objektet från .NET SDK v2 visar en egenskap som gör att du kan ändra och lägga till eller ta bort och. `DocumentCollection`
 
-Hämta behållarens information
 
 ```csharp
+// Retrieve the container's details
 ResourceResponse<DocumentCollection> containerResponse = await client.ReadDocumentCollectionAsync(UriFactory.CreateDocumentCollectionUri("database", "container"));
-```
-
-Ange att indexerings läget ska vara konsekvent
-
-```csharp
+// Set the indexing mode to consistent
 containerResponse.Resource.IndexingPolicy.IndexingMode = IndexingMode.Consistent;
-```
-
-Lägg till en sökväg som finns
-
-```csharp
-containerResponse.Resource.IndexingPolicy.IncludedPaths.Add(new IncludedPath { Path = "/age/*" });
-```
-
-Lägg till en undantagen sökväg
-
-```csharp
+// Add an included path
+containerResponse.Resource.IndexingPolicy.IncludedPaths.Add(new IncludedPath { Path = "/*" });
+// Add an excluded path
 containerResponse.Resource.IndexingPolicy.ExcludedPaths.Add(new ExcludedPath { Path = "/name/*" });
-```
-
-Lägg till ett rums index
-
-```csharp
+// Add a spatial index
 containerResponse.Resource.IndexingPolicy.SpatialIndexes.Add(new SpatialSpec() { Path = "/locations/*", SpatialTypes = new Collection<SpatialType>() { SpatialType.Point } } );
-```
-
-Lägg till ett sammansatt index
-
-```csharp
+// Add a composite index
 containerResponse.Resource.IndexingPolicy.CompositeIndexes.Add(new Collection<CompositePath> {new CompositePath() { Path = "/name", Order = CompositePathSortOrder.Ascending }, new CompositePath() { Path = "/age", Order = CompositePathSortOrder.Descending }});
-```
-
-Uppdatera behållare med ändringar
-
-```csharp
+// Update container with changes
 await client.ReplaceDocumentCollectionAsync(containerResponse.Resource);
 ```
 
@@ -425,6 +401,64 @@ Om du vill spåra omvandlings förloppet för `RequestOptions` indexet skickar d
 ResourceResponse<DocumentCollection> container = await client.ReadDocumentCollectionAsync(UriFactory.CreateDocumentCollectionUri("database", "container"), new RequestOptions { PopulateQuotaInfo = true });
 // retrieve the index transformation progress from the result
 long indexTransformationProgress = container.IndexTransformationProgress;
+```
+
+## <a name="use-the-net-sdk-v3"></a>Använd .NET SDK v3
+
+`IndexingMode` `IndexingPolicy` `ExcludedPaths` `IncludedPaths` [](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/) [](create-sql-api-dotnet.md) Objektet från .NET SDK v3 (se den här snabb starten om användningen) visar en egenskap som gör att du kan ändra och lägga till eller ta bort och. `ContainerProperties`
+
+
+```csharp
+// Retrieve the container's details
+ContainerResponse containerResponse = await client.GetContainer("database", "container").ReadContainerAsync();
+// Set the indexing mode to consistent
+containerResponse.Resource.IndexingPolicy.IndexingMode = IndexingMode.Consistent;
+// Add an included path
+containerResponse.Resource.IndexingPolicy.IncludedPaths.Add(new IncludedPath { Path = "/*" });
+// Add an excluded path
+containerResponse.Resource.IndexingPolicy.ExcludedPaths.Add(new ExcludedPath { Path = "/name/*" });
+// Add a spatial index
+SpatialPath spatialPath = new SpatialPath
+{
+    Path = "/locations/*"
+};
+spatialPath.SpatialTypes.Add(SpatialType.Point);
+containerResponse.Resource.IndexingPolicy.SpatialIndexes.Add(spatialPath);
+// Add a composite index
+containerResponse.Resource.IndexingPolicy.CompositeIndexes.Add(new Collection<CompositePath> { new CompositePath() { Path = "/name", Order = CompositePathSortOrder.Ascending }, new CompositePath() { Path = "/age", Order = CompositePathSortOrder.Descending } });
+// Update container with changes
+await client.GetContainer("database", "container").ReplaceContainerAsync(containerResponse.Resource);
+```
+
+Om du vill spåra omvandlings förloppet för `RequestOptions` indexet skickar du `PopulateQuotaInfo` ett objekt `true`som anger egenskapen till och hämtar sedan `x-ms-documentdb-collection-index-transformation-progress` värdet från svars huvudet.
+
+```csharp
+// retrieve the container's details
+ContainerResponse containerResponse = await client.GetContainer("database", "container").ReadContainerAsync(new ContainerRequestOptions { PopulateQuotaInfo = true });
+// retrieve the index transformation progress from the result
+long indexTransformationProgress = long.Parse(containerResponse.Headers["x-ms-documentdb-collection-index-transformation-progress"]);
+```
+
+När du definierar en anpassad indexerings princip när du skapar en ny behållare kan du med SDK V3's Fluent API skriva den här definitionen på ett koncist och effektivt sätt:
+
+```csharp
+await client.GetDatabase("database").DefineContainer(name: "container", partitionKeyPath: "/myPartitionKey")
+    .WithIndexingPolicy()
+        .WithIncludedPaths()
+            .Path("/*")
+        .Attach()
+        .WithExcludedPaths()
+            .Path("/name/*")
+        .Attach()
+        .WithSpatialIndex()
+            .Path("/locations/*", SpatialType.Point)
+        .Attach()
+        .WithCompositeIndex()
+            .Path("/name", CompositePathSortOrder.Ascending)
+            .Path("/age", CompositePathSortOrder.Descending)
+        .Attach()
+    .Attach()
+    .CreateIfNotExistsAsync();
 ```
 
 ## <a name="use-the-java-sdk"></a>Använda Java SDK

@@ -1,18 +1,18 @@
 ---
 title: Anslut privat till ett lagrings konto med hjälp av Azures privata slut punkt
 description: Lär dig hur du ansluter privat till ett lagrings konto i Azure med en privat slut punkt.
-services: virtual-network
+services: private-link
 author: KumudD
-ms.service: virtual-network
+ms.service: private-link
 ms.topic: article
 ms.date: 09/16/2019
 ms.author: kumud
-ms.openlocfilehash: d11e035be2e343128caaadcb0b1b2c4a24165330
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
-ms.translationtype: HT
+ms.openlocfilehash: bb0c6e9d20c12df3532a52df1fe4d9574344d4b3
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 09/18/2019
-ms.locfileid: "71091093"
+ms.locfileid: "71104721"
 ---
 # <a name="connect-privately-to-a-storage-account-using-azure-private-endpoint"></a>Anslut privat till ett lagrings konto med hjälp av Azures privata slut punkt
 Den privata Azure-slutpunkten är det grundläggande Bygg blocket för privat länk i Azure. Den gör det möjligt för Azure-resurser, t. ex. virtuella datorer, att kommunicera privat med privata länk resurser.

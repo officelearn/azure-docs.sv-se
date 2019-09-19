@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 04/26/2019
 ms.author: mlearned
-ms.openlocfilehash: 5dabbb6458d0d0d4af51490bea0c3f38a7c5c41d
-ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
+ms.openlocfilehash: 26f1544cab5cf5be2edd52f97c758d46eb835514
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69542902"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71103791"
 ---
 # <a name="integrate-azure-active-directory-with-azure-kubernetes-service"></a>Integrera Azure Active Directory med Azure Kubernetes-tjänsten
 
@@ -39,7 +39,7 @@ Mer information om OpenID Connect finns i [bevilja åtkomst till webb program me
 
 I ett Kubernetes-kluster används autentisering med webhook-token för att autentisera tokens. Webhook-token-autentisering konfigureras och hanteras som en del av AKS-klustret.
 
-Mer information om autentisering med webhook-token finns [][kubernetes-webhook] i avsnittet webhook token Authentication i Kubernetes-dokumentationen.
+Mer information om autentisering med webhook-token finns i avsnittet [webhook token Authentication][kubernetes-webhook] i Kubernetes-dokumentationen.
 
 För att tillhandahålla Azure AD-autentisering för ett AKS-kluster skapas två Azure AD-program. Det första programmet är en Server komponent som tillhandahåller användarautentisering. Det andra programmet är en klient komponent som används när du uppmanas att använda CLI för autentisering. Det här klient programmet använder Server programmet för den faktiska autentiseringen av de autentiseringsuppgifter som anges av klienten.
 
@@ -86,7 +86,7 @@ Det första Azure AD-programmet används för att hämta användarens medlemskap
 
     e. Välj **Lägg till behörigheter** för att spara uppdateringarna.
 
-    f. Under **bevilja medgivande**väljer du **bevilja administrativt medgivande**. Den här knappen är inte tillgänglig om det aktuella kontot inte är en klient organisations administratör.
+    f. Under **bevilja medgivande**väljer du **bevilja administrativt medgivande**. Den här knappen är inte tillgänglig. det aktuella kontot som används visas inte som innehavaradministratör.
 
     När behörigheterna har beviljats visas följande meddelande i portalen:
 

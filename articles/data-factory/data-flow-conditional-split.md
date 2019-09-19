@@ -1,34 +1,34 @@
 ---
-title: Azure Data Factory mappning Dataomvandling Flow villkorlig dela
-description: Azure Data Factory Data Flow villkorlig Split-transformering
+title: Azure Data Factory mappa data flöde villkorlig delnings omvandling
+description: Transformering av villkorlig delning för Azure Data Factory data flöde
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/03/2019
-ms.openlocfilehash: f9fd346d4c4eaed0797d564fe52dd44e9f0e240a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: dd51cc2d5f95598154b76b5da8e3fc9e4801100d
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65795637"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71104952"
 ---
-# <a name="mapping-data-flow-conditional-split-transformation"></a>Mappning av dataflödet villkorlig dela omvandling
+# <a name="mapping-data-flow-conditional-split-transformation"></a>Mappa data flöde villkorlig delnings omvandling
 
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
-![villkorlig dela verktygslådan](media/data-flow/conditionalsplit2.png "villkorlig dela verktygslådan")
+![verktyg för villkorlig delning](media/data-flow/conditionalsplit2.png "verktyg för villkorlig delning")
 
-Villkorlig dela transformeringen kan vidarebefordra rader med data till olika dataströmmar beroende på innehållet i data. Implementeringen av villkorlig dela transformeringen liknar en CASE beslut struktur i ett programmeringsspråk. Transformeringen utvärderar uttryck, och baserat på resultatet, leder datarad till den angivna dataströmmen. Den här omvandlingen tillhandahåller även en standardutdata, så att om en rad matchar inget uttryck dirigeras den till standardutdata.
+Den villkorliga delnings omvandlingen kan dirigera data rader till olika strömmar beroende på innehållet i data. Implementeringen av den villkorliga delnings omvandlingen liknar en ärende besluts struktur i ett programmeringsspråk. Omvandlingen utvärderar uttryck och baseras på resultaten och dirigerar data raden till den angivna data strömmen. Den här omvandlingen innehåller också en standardutdata, så att om en rad matchar inget uttryck dirigeras den till standardutdata.
 
-![villkorlig dela](media/data-flow/conditionalsplit1.png "villkorlig delningsalternativ")
+![villkorlig delning](media/data-flow/conditionalsplit1.png "alternativ för villkorlig delning")
 
 ## <a name="multiple-paths"></a>Flera sökvägar
 
-Välj ”Lägg till Stream” längst ned i fönstret konfiguration för att lägga till ytterligare villkor, och klicka i textrutan Uttrycksverktyget för att skapa uttrycket.
+Om du vill lägga till ytterligare villkor väljer du Lägg till ström i det nedre konfigurations fönstret och klickar i text rutan uttrycks verktyg för att skapa ditt uttryck.
 
-![dela med flera villkorlig](media/data-flow/conditionalsplit3.png "villkorlig dela med flera")
+![villkorlig delning multi](media/data-flow/conditionalsplit3.png "villkorlig delning multi")
 
 ## <a name="next-steps"></a>Nästa steg
 
-Vanliga flödet dataomvandlingar används med villkorlig delning: [Ansluta till omvandling](data-flow-join.md), [Loopup omvandling](data-flow-lookup.md), [Välj omvandling](data-flow-select.md)
+Vanliga data flödes omvandlingar som används med villkorlig delning: [Koppla omvandling](data-flow-join.md), [Lookup-omvandling](data-flow-lookup.md), [Välj omvandling](data-flow-select.md)

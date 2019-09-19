@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 06/19/2019
+ms.date: 09/18/2019
 ms.author: dapine
-ms.openlocfilehash: 7708133fcba0d594ecd420afd8da1b2881055aa7
-ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
+ms.openlocfilehash: 4b8ea102c7acc55acec05234303ff4c215a4bc0f
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70241023"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71105164"
 ---
 # <a name="install-and-run-speech-service-containers"></a>Installera och kör tal tjänst behållare
 
@@ -39,6 +39,8 @@ Du måste uppfylla följande krav innan du använder tal behållare:
 |Docker-motor| Du behöver Docker-motorn installerad på en [värddator](#the-host-computer). Docker innehåller paket som konfigurerar Docker-miljön på [MacOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/)och [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Få en genomgång om grunderna för Docker och behållare finns i den [översikt över Docker](https://docs.docker.com/engine/docker-overview/).<br><br> Docker måste konfigureras för att tillåta behållarna för att ansluta till och skicka faktureringsdata till Azure. <br><br> **I Windows**måste Docker också konfigureras för att stödja Linux-behållare.<br><br>|
 |Bekant med Docker | Du bör ha grundläggande kunskaper om Docker-koncept, t. ex. register, databaser, behållare och behållar avbildningar, samt kunskaper `docker` om grundläggande kommandon.| 
 |Tal resurs |Du måste ha följande för att kunna använda dessa behållare:<br><br>En Azure _tal_ -resurs för att hämta tillhör ande API-nyckel och slut punkts-URI. Båda värdena är tillgängliga på Azure Portalens **tal** översikt och nycklar sidor. Båda krävs för att starta behållaren.<br><br>**{API_KEY}** : En av de två tillgängliga resurs nycklarna på sidan **nycklar**<br><br>**{ENDPOINT_URI}** : Slut punkten enligt vad som anges på sidan **Översikt**|
+
+[!INCLUDE [Gathering required container parameters](../containers/includes/container-gathering-required-parameters.md)]
 
 ## <a name="request-access-to-the-container-registry"></a>Begär åtkomst till behållar registret
 
@@ -167,23 +169,19 @@ docker pull containerpreview.azurecr.io/microsoft/cognitive-services-text-to-spe
 
 ## <a name="how-to-use-the-container"></a>Använda behållaren
 
-När behållaren är på [värddatorn](#the-host-computer)använder du följande process för att arbeta med behållaren.
+När behållaren är på värddatorn [](#the-host-computer)använder du följande process för att arbeta med behållaren.
 
 1. [Kör behållaren](#run-the-container-with-docker-run)med de fakturerings inställningar som krävs. Fler [exempel](speech-container-configuration.md#example-docker-run-commands) på `docker run` kommandot är tillgängliga.
 1. [Fråga behållarens förutsägelse slut punkt](#query-the-containers-prediction-endpoint).
 
 ## <a name="run-the-container-with-docker-run"></a>Kör behållaren med`docker run`
 
-Använd kommandot [Docker Run](https://docs.docker.com/engine/reference/commandline/run/) för att köra någon av de tre behållarna. Kommandot använder följande parametrar:
+Använd kommandot [Docker Run](https://docs.docker.com/engine/reference/commandline/run/) för att köra behållaren. Läs om hur du [samlar in nödvändiga parametrar](#gathering-required-parameters) för information om hur `{ENDPOINT_URI}` du `{API_KEY}` hämtar och-värden.
 
-**Under för hands versionen**måste fakturerings inställningarna vara giltiga för att starta behållaren, men du debiteras inte för användning.
+[Exempel](speech-container-configuration.md#example-docker-run-commands) på `docker run` kommandot är tillgängliga.
 
-| Platshållare | Value |
-|-------------|-------|
-|{API_KEY} | Den här nyckeln används för att starta behållaren och är tillgänglig på sidan Azure Portals tal nycklar.  |
-|{ENDPOINT_URI} | URI-värdet för fakturerings slut punkten är tillgängligt på sidan med tal översikts sidan för Azure Portal.|
-
-Ersätt dessa parametrar med dina egna värden i följande exempel `docker run` kommando.
+> [!NOTE]
+> **Under för hands versionen**måste fakturerings inställningarna vara giltiga för att starta behållaren, men du debiteras inte för användning.
 
 ### <a name="text-to-speech"></a>Text till tal
 

@@ -5,35 +5,35 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 06/04/2019
+ms.date: 09/18/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: vitavor
 ms.custom: secdec18
-ms.openlocfilehash: 946a9bd7595692dddd157d01945fd15bdf1ab965
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 332ec3930a7654fd5aecf1fc71ccb55c16df127f
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66493757"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71105126"
 ---
 # <a name="assign-access-to-cost-management-data"></a>Tilldela åtkomst till Cost Management-data
 
-För användare med Azure Enterprise-avtal kan definiera en kombination av behörigheter som beviljas i Azure-portalen och Enterprise (EA)-portalen en användares åtkomstnivå till data i Azure Cost Management. Cost Management-data är enklare för användare med andra typer av Azure-konto, en användares åtkomstnivå är att. Den här artikeln beskriver hur du tilldelar åtkomst till Cost Management-data. När en kombination av behörigheter tilldelas baserat vyer användardata i Cost Management omfattningen som de har åtkomst till och omfattning att de väljer i Azure-portalen.
+För användare med Azure Enterprise-avtal definierar en kombination av behörigheter som beviljats i Azure Portal och Enterprise-portalen (EA) en användar nivå för åtkomst till Azure Cost Management data. För användare med andra typer av Azure-konton är en användares åtkomst nivå att Cost Management data är enklare. Den här artikeln beskriver hur du tilldelar åtkomst till Cost Management-data. När en kombination av behörigheter tilldelas baserat vyer användardata i Cost Management omfattningen som de har åtkomst till och omfattning att de väljer i Azure-portalen.
 
 Omfattningen som en användare väljer används i hela kostnadshantering datakonsolidering och styra åtkomsten till kostnadsinformation. När du använder omfång kan användare inte flerval dem. I stället väljer de ett större område som underordnade omfattningar kavla upp till och sedan de filter ned för att de vill visa. Konsolidera data är viktigt att förstå eftersom vissa användare inte ska ha åtkomst till en överordnad omfattning som underordnade omfattningar slås upp till.
 
-Titta på den [tilldela åtkomst med Azure Cost Management](https://www.youtube.com/watch?v=J997ckmwTa8) video för att lära dig om att tilldela behörighet att visa kostnader och tillägg med rollbaserad åtkomstkontroll i Azure.
+Se [hur du tilldelar åtkomst med Azure Cost Management](https://www.youtube.com/watch?v=J997ckmwTa8) video för att lära dig mer om hur du tilldelar åtkomst för att Visa kostnader och kostnader med rollbaserad åtkomst kontroll i Azure.
 
 >[!VIDEO https://www.youtube.com/embed/J997ckmwTa8]
 
 ## <a name="cost-management-scopes"></a>Cost Management-scope
 
-Kostnadshantering stöder en mängd olika typer av Azure-konto. Om du vill se hela listan med kontotyper som stöds kan du läsa [Förstå Cost Management-data](understand-cost-mgt-data.md). Typ av konto avgör tillgängliga scope.
+Kostnads hantering stöder olika typer av Azure-konton. Om du vill se hela listan med kontotyper som stöds kan du läsa [Förstå Cost Management-data](understand-cost-mgt-data.md). Konto typen fastställer tillgängliga omfattningar.
 
-### <a name="azure-ea-subscription-scopes"></a>Omfång för Azure EA-prenumeration
+### <a name="azure-ea-subscription-scopes"></a>Azure EA-prenumerations omfång
 
-Om du vill visa kostnadsdata för Azure EA-prenumerationer, måste en användare ha minst skrivskyddad åtkomst till en eller flera av följande omfattningar.
+Om du vill visa kostnads data för Azure EA-prenumerationer måste användaren ha minst Läs behörighet till ett eller flera av följande omfång.
 
 | **Omfång** | **Definieras på** | **Behörighet att visa data** | **Nödvändig EA-inställning** | **Konsoliderar data till** |
 | --- | --- | --- | --- | --- |
@@ -48,21 +48,21 @@ Om du vill visa kostnadsdata för Azure EA-prenumerationer, måste en användare
 
 <sup>2</sup> registreringskontot kallas också ägare.
 
-Följande diagram illustrerar förhållandet mellan kostnadshantering scope med roller och inställningar för EA.
+I följande diagram illustreras förhållandet mellan Cost Management omfattningar med inställningar för roller och EA-portalen.
 
-![Diagram över relationen mellan kostnadshantering scope med roller och EA portalinställningar](./media/assign-access-acm-data/scope-access-relationship-diagram.png)
+![Diagram som visar relationen mellan Cost Management omfattningar med roller och inställningar för EA-portalen](./media/assign-access-acm-data/scope-access-relationship-diagram.png)
 
-När **DA visa debiteringar** är inaktiverade i EA-portalen visas ett meddelande om *kostnader inaktiverad för din organisation* när du försöker visa kostnader för avdelningar och konton.
+När **da View-avgifter** inaktive ras i EA-portalen visas ett meddelande om att *kostnader har inaktiverats för din organisation* när du försöker Visa kostnader för avdelningar och konton.
 
-På liknande sätt när **AO visa debiteringar** är inaktiverade i EA-portalen visas ett meddelande om *kostnader inaktiverad för din organisation* när du försöker visa kostnaderna för registreringskonton, hanteringsgrupper, prenumerationer och resursgrupper.
+När **Ao View-avgifter** har inaktiverats i EA-portalen visas ett meddelande om att *kostnader har inaktiverats för din organisation* när du försöker Visa kostnader för registrerings konton, hanterings grupper, prenumerationer och resurs grupper.
 
-## <a name="other-azure-account-scopes"></a>Andra Azure-konto-scope
+## <a name="other-azure-account-scopes"></a>Andra scope för Azure-konto
 
-Om du vill visa kostnadsdata för andra Azure-prenumerationer, måste en användare ha minst läsbehörighet åtkomst till en eller flera av följande områden:
+Om du vill visa kostnads data för andra Azure-prenumerationer måste användaren ha minst Läs behörighet till en eller flera av följande omfattningar:
 
 - Azure-konto
 - Hanteringsgrupp
-- Resursgrupp
+- Resource group
 
 ## <a name="enable-access-to-costs-in-the-ea-portal"></a>Aktivera åtkomst till kostnader i EA-portalen
 
@@ -129,7 +129,7 @@ När du har slutfört stegen ovan, användarkontot blir ett konto för enhetsreg
 
 ## <a name="assign-management-group-scope-access"></a>Tilldela åtkomst till hanteringsgruppen omfång
 
-Åtkomst till en grupp hanteringsomfång kräver minst behörigheten Cost Management Reader (eller läsare). Du kan konfigurera behörigheter för en hanteringsgrupp i Azure-portalen. Du måste minst ha behörigheten administratör för användaråtkomst (eller ägare) att aktivera åtkomst för andra hanteringsgruppen. Och för Azure EA-konton du måste också har aktiverat den **AO visa debiteringar** i EA-portalen.
+Åtkomst till Visa hanterings gruppens omfång kräver minst Cost Management läsar behörighet (eller läsare). Du kan konfigurera behörigheter för en hanteringsgrupp i Azure-portalen. Du måste minst ha behörigheten administratör för användaråtkomst (eller ägare) att aktivera åtkomst för andra hanteringsgruppen. Och för Azure EA-konton måste du också ha aktiverat inställningen **Ao View charges** i EA-portalen.
 
 1. Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.com).
 2. Välj **alla tjänster** i sidopanelen, söker du efter _hanteringsgrupper_och välj sedan **hanteringsgrupper**.
@@ -145,7 +145,7 @@ När du har slutfört stegen ovan, användarkontot blir ett konto för enhetsreg
 
 ## <a name="assign-subscription-scope-access"></a>Tilldela omfång prenumerationsåtkomst
 
-Åtkomst till en prenumeration kräver minst behörigheten Cost Management Reader (eller läsare). Du kan konfigurera behörigheter till en prenumeration på Azure-portalen. Du måste minst ha behörigheten administratör för användaråtkomst (eller ägare) att aktivera åtkomst för andra prenumerationen. Och för Azure EA-konton du måste också har aktiverat den **AO visa debiteringar** i EA-portalen.
+Åtkomst till en prenumeration kräver minst behörigheten Cost Management Reader (eller läsare). Du kan konfigurera behörigheter till en prenumeration på Azure-portalen. Du måste minst ha behörigheten administratör för användaråtkomst (eller ägare) att aktivera åtkomst för andra prenumerationen. Och för Azure EA-konton måste du också ha aktiverat inställningen **Ao View charges** i EA-portalen.
 
 1. Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.com).
 2. Välj **alla tjänster** i sidopanelen, söker du efter _prenumerationer_och välj sedan **prenumerationer**.
@@ -159,7 +159,7 @@ När du har slutfört stegen ovan, användarkontot blir ett konto för enhetsreg
 
 ## <a name="assign-resource-group-scope-access"></a>Tilldela resursåtkomst grupp omfång
 
-Åtkomst till en resursgrupp kräver minst behörigheten Cost Management Reader (eller läsare). Du kan konfigurera behörigheter till en resursgrupp i Azure-portalen. Du måste minst ha behörigheten administratör för användaråtkomst (eller ägare) att aktivera åtkomst för andra resursgruppen. Och för Azure EA-konton du måste också har aktiverat den **AO visa debiteringar** i EA-portalen.
+Åtkomst till en resursgrupp kräver minst behörigheten Cost Management Reader (eller läsare). Du kan konfigurera behörigheter till en resursgrupp i Azure-portalen. Du måste minst ha behörigheten administratör för användaråtkomst (eller ägare) att aktivera åtkomst för andra resursgruppen. Och för Azure EA-konton måste du också ha aktiverat inställningen **Ao View charges** i EA-portalen.
 
 1. Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.com).
 2. Välj **alla tjänster** i sidopanelen, söker du efter _resursgrupper_och välj sedan **resursgrupper**.
@@ -171,11 +171,11 @@ När du har slutfört stegen ovan, användarkontot blir ett konto för enhetsreg
 8. Tilldela åtkomst genom att söka efter och välj sedan användaren.
 9. Klicka på **Spara**.
 
-## <a name="cross-tenant-authentication-issues"></a>Autentiseringsproblem med flera klienter
+## <a name="cross-tenant-authentication-issues"></a>Problem med autentisering mellan klienter
 
-Azure Cost Management har för närvarande begränsat stöd för flera klienter autentisering. I vissa fall när du försöker autentisera över klienter, får du en **åtkomst nekad** fel i kostnadsanalys. Det här problemet kan uppstå om du konfigurerar rollbaserad åtkomstkontroll (RBAC till en annan klient-prenumeration) och försök sedan att visa kostnadsdata.
+För närvarande har Azure Cost Management begränsat stöd för autentisering mellan klienter. I vissa fall när du försöker autentisera över klient organisationer kan du få **åtkomst nekade** fel vid kostnads analys. Det här problemet kan uppstå om du konfigurerar rollbaserad åtkomst kontroll (RBAC) till en annan klient prenumeration och sedan försöker visa kostnads data.
 
-*Att undvika problemet*: När du konfigurerar RBAC för flera klienter, vänta en timme. Försök sedan att visa kostnader i kostnadsanalys eller bevilja kostnadshantering åtkomst till användare i båda klienter.  
+*Så här löser du problemet*: När du har konfigurerat RBAC för flera klienter väntar du en timme. Försök sedan att Visa kostnader i kostnads analys eller bevilja Cost Management åtkomst till användare i båda klient organisationerna.  
 
 
 ## <a name="next-steps"></a>Nästa steg

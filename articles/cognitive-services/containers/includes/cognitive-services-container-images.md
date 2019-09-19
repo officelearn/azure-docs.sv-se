@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 09/06/2019
 ms.author: dapine
-ms.openlocfilehash: 600c01fc2a273141b06996369231c2389c5d6d57
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.openlocfilehash: 181f4acd86dfacb15592ded6f2df3287e3dc13bf
+ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70775901"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71130144"
 ---
 ### <a name="container-repositories-and-images"></a>Behållar databaser och avbildningar
 
@@ -38,6 +38,7 @@ I förhands gransknings registret är värd för alla offentligt tillgängliga "
 |--|--|--|
 | [Avvikelse detektor](../../anomaly-detector/anomaly-detector-container-howto.md) | Avvikelseidentifiering | `containerpreview.azurecr.io/microsoft/cognitive-services-anomaly-detector` |
 | [Visuellt innehåll](../../Computer-vision/computer-vision-how-to-install-containers.md) | Identifiera text | `containerpreview.azurecr.io/microsoft/cognitive-services-recognize-text` |
+| [Visuellt innehåll](../../Computer-vision/computer-vision-how-to-install-containers.md) | Läsa | `containerpreview.azurecr.io/microsoft/cognitive-services-read` |
 | [Ansikte](../../face/face-how-to-install-containers.md) | Ansikte | `containerpreview.azurecr.io/microsoft/cognitive-services-face` |
 | [Formulär igenkänning](https://go.microsoft.com/fwlink/?linkid=2083826&clcid=0x409) | Formigenkänning | `containerpreview.azurecr.io/microsoft/cognitive-services-form-recognizer` |
 | [Speech Service API](../../speech-service/speech-container-howto.md) | Tal till text | `containerpreview.azurecr.io/microsoft/cognitive-services-speech-to-text` |

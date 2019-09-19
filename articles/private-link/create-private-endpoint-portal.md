@@ -1,18 +1,18 @@
 ---
 title: Hantera privata slut punkter i Azure
 description: Lär dig hur du skapar en privat slut punkt med hjälp av Azure Portal
-services: virtual-network
+services: private-link
 author: KumudD
-ms.service: virtual-network
+ms.service: private-link
 ms.topic: quickstart
 ms.date: 09/16/2019
 ms.author: kumud
-ms.openlocfilehash: e629a921b5c853f1cae2c224be35570cd71e5d37
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 15b4d3208be693a5b8d858d30b663347515f5a68
+ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71067799"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71130296"
 ---
 # <a name="create-a-private-endpoint-using-azure-portal"></a>Skapa en privat slut punkt med hjälp av Azure Portal
 
@@ -199,6 +199,7 @@ När du har skapat **myVm*ansluter du till den från Internet på följande sät
 ## <a name="access-the-sql-database-server-privately-from-the-vm"></a>Få åtkomst till SQL Database-servern privat från den virtuella datorn
 
 1. Öppna PowerShell i fjärr skrivbordet för *myVM*.
+
 2. Ange `nslookup myserver.database.windows.net`. 
 
     Du får ett meddelande som liknar detta:

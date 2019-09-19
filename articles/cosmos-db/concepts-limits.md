@@ -6,12 +6,12 @@ ms.author: arramac
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/05/2019
-ms.openlocfilehash: d3d09d466e05c97de215542c66987aa6b723afce
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: 9b78c18547ef61b388a56a1272b5621cada43806
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68827982"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71120492"
 ---
 # <a name="azure-cosmos-db-service-quotas"></a>Azure Cosmos DB tjänst kvoter
 
@@ -30,6 +30,7 @@ När du har skapat ett Azure Cosmos-konto under din prenumeration kan du hantera
 | Maximalt antal distinkta (logiska) sessionsnycklar | Obegränsat |
 | Maximalt lagrings utrymme per behållare | Obegränsat |
 | Maximalt lagrings utrymme per databas | Obegränsat |
+| Maximal storlek på bifogade filer per konto (funktionen bilaga skrivs över) | 2 GB | 
 
 > [!NOTE]
 > För bästa praxis för att hantera arbets belastningar som har partitionsnyckel som behöver högre gränser för lagring eller data flöde, se [design för varmt partitionsnyckel](synthetic-partition-keys.md)
@@ -123,7 +124,7 @@ Cosmos DB stöder [CRUD-och Query-åtgärder](https://docs.microsoft.com/rest/ap
 
 När en åtgärd som fråga når tids gränsen för körning eller svars storlek returneras en sida med resultat och en fortsättnings-token till klienten för att återuppta körningen. Det finns ingen genomförbar gräns för varaktigheten som en enskild fråga kan köras mellan sidor/fortsättningar.
 
-Cosmos DB använder HMAC för auktorisering. Du kan antingen använda en huvud nyckel eller en [resurs](secure-access-to-data.md) -token för detaljerad åtkomst kontroll till resurser som behållare, partitionsalternativ eller objekt. I följande tabell visas begränsningar för autentiseringstoken i Cosmos DB.
+Cosmos DB använder HMAC för auktorisering. Du kan antingen använda en huvud nyckel eller en [resurs-token](secure-access-to-data.md) för detaljerad åtkomst kontroll till resurser som behållare, partitionsalternativ eller objekt. I följande tabell visas begränsningar för autentiseringstoken i Cosmos DB.
 
 | Resource | Standardgräns |
 | --- | --- |

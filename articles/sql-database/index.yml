@@ -93,7 +93,7 @@ sections:
           - href: /azure/sql-database/sql-database-instance-pools
             html: <p>Använd hanterade instanspooler som en enkel och kostnadseffektiv lösning för att distribuera flera hanterade instanser som delar resurser och skalar snabbt.</p>
             image:
-              src: media/index/i_instancepool.png
+              src: media/index/i-instancepools.svg
             title: Instanspool
   - title: Snabbstarter på 5 minuter
     items:

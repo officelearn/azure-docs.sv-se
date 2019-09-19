@@ -4,7 +4,7 @@ description: Felsök problem med domän-och SSL-certifikat i Azure App Service
 services: app-service\web
 documentationcenter: ''
 author: genlin
-manager: cshepard
+manager: dcscontentpm
 editor: ''
 tags: top-support-issue
 ms.service: app-service-web
@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 03/01/2019
 ms.author: genli
 ms.custom: seodec18
-ms.openlocfilehash: 097d4ea45827223a5d3e64a2d1ca326569db9958
-ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
+ms.openlocfilehash: a6c3b8485a3243d7c89ab409a2fb83b1b045c9ba
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70113534"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71121985"
 ---
 # <a name="troubleshoot-domain-and-ssl-certificate-problems-in-azure-app-service"></a>Felsök problem med domän-och SSL-certifikat i Azure App Service
 
@@ -89,7 +89,7 @@ Det här problemet kan bero på någon av följande orsaker:
 
 - Prenumerationen har uppnått gränsen för inköp som tillåts för en prenumeration.
 
-    **Lösning**: App Service certifikat har en gräns på 10 certifikat inköp för prenumerations typerna betala per användning och EA. För andra prenumerations typer är gränsen 3. Kontakta [Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)-supporten om du vill öka gränsen.
+    **Lösning**: App Service certifikat har en gräns på 10 certifikat inköp för prenumerations typerna betala per användning och EA. För andra prenumerations typer är gränsen 3. Kontakta [Azure-supporten](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)om du vill öka gränsen.
 - App Service certifikatet har marker ATS som bedrägerier. Du har fått följande fel meddelande: "Ditt certifikat har flaggats för möjlig bedrägerier. Begäran är för närvarande en granskning. Kontakta Azure-supporten om certifikatet inte kan användas inom 24 timmar. "
 
     **Lösning**: Om certifikatet har marker ATS som bedrägeri och inte har lösts efter 24 timmar följer du dessa steg:
@@ -167,7 +167,7 @@ Din domän visas inte längre i Azure Portal.
 Ägaren till prenumerationen kan ha tagit bort domänen av misstag.
 
 #### <a name="solution"></a>Lösning
-Om din domän har tagits bort mindre än sju dagar sedan har domänen inte startat om borttagnings processen än. I det här fallet kan du köpa samma domän igen på Azure Portal under samma prenumeration. (Var noga med att ange det exakta domän namnet i sökrutan.) Du debiteras inte igen för den här domänen. Om domänen har tagits bort mer än sju dagar sedan, kan du kontakta [Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) -supporten om du vill ha hjälp med att återställa domänen.
+Om din domän har tagits bort mindre än sju dagar sedan har domänen inte startat om borttagnings processen än. I det här fallet kan du köpa samma domän igen på Azure Portal under samma prenumeration. (Var noga med att ange det exakta domän namnet i sökrutan.) Du debiteras inte igen för den här domänen. Om domänen har tagits bort mer än sju dagar sedan, kan du kontakta [Azure-supporten](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) om du vill ha hjälp med att återställa domänen.
 
 ## <a name="domain-problems"></a>Domän problem
 
@@ -181,7 +181,7 @@ Du har köpt ett App Service-certifikat för fel domän. Du kan inte uppdatera c
 
 Ta bort certifikatet och Köp ett nytt certifikat.
 
-Om det aktuella certifikatet som använder fel domän är i "utfärdat" tillstånd debiteras du även för det certifikatet. App Service certifikat kan inte återbetalas, men du kan kontakta [Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) -supporten för att se om det finns andra alternativ. 
+Om det aktuella certifikatet som använder fel domän är i "utfärdat" tillstånd debiteras du även för det certifikatet. App Service certifikat kan inte återbetalas, men du kan kontakta [Azure-supporten](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) för att se om det finns andra alternativ. 
 
 ### <a name="an-app-service-certificate-was-renewed-but-the-app-shows-the-old-certificate"></a>Ett App Service certifikat har förnyats, men appen visar det gamla certifikatet 
 
@@ -244,7 +244,7 @@ Det här problemet uppstår av någon av följande orsaker:
     **Lösning**: [Tilldela ägar rollen](../role-based-access-control/role-assignments-portal.md) till ditt konto. Eller kontakta prenumerations administratören för att få behörighet att köpa en domän.
 - Du har nått gränsen för att köpa domäner i din prenumeration. Den aktuella gränsen är 20.
 
-    **Lösning**: Kontakta [Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)-supporten om du vill begära en ökning av gränsen.
+    **Lösning**: Kontakta [Azure-supporten](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)om du vill begära en ökning av gränsen.
 - Din prenumerations typ för Azure stöder inte köpet av en App Service domän.
 
     **Lösning**: Uppgradera din Azure-prenumeration till en annan prenumerations typ, till exempel en prenumeration där du betalar per användning.
@@ -268,7 +268,7 @@ Det här problemet uppstår av någon av följande orsaker:
 
     |Posttyp|Värd|Peka på|
     |------|------|-----|
-    |G|@|IP-adress för en app|
+    |A|@|IP-adress för en app|
     |TXT|@|`<app-name>.azurewebsites.net`|
     |CNAME|www|`<app-name>.azurewebsites.net`|
 

@@ -12,14 +12,14 @@ ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 06/18/2019
+ms.date: 09/19/2019
 ms.author: cephalin
-ms.openlocfilehash: b86f08fbcb661ae4266658016de7aa92da785bf9
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 35618b80dc4731f4d679bab9f035987af50730e8
+ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70070587"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71129708"
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Konfigurera mellanlagrings miljöer i Azure App Service
 <a name="Overview"></a>
@@ -39,7 +39,7 @@ Om du vill skala din app till en annan nivå ser du till att mål nivån stöder
 <a name="Add"></a>
 
 ## <a name="add-a-slot"></a>Lägg till en plats
-Appen måste köras på nivån **standard**, **Premium**eller isolerad för att du ska kunna aktivera flera distributions platser.
+Appen måste köras på nivån **standard**, **Premium**eller **isolerad** för att du ska kunna aktivera flera distributions platser.
 
 1. Öppna appens [resurs sida](../azure-resource-manager/manage-resources-portal.md#manage-resources)i [Azure Portal](https://portal.azure.com/).
 
@@ -48,7 +48,7 @@ Appen måste köras på nivån **standard**, **Premium**eller isolerad för att 
     ![Lägg till en ny distributions plats](./media/web-sites-staged-publishing/QGAddNewDeploymentSlot.png)
    
    > [!NOTE]
-   > Om appen inte redan finns på **standard**-, **Premium**-eller den isolerade nivån får du ett meddelande som anger vilka nivåer som stöds för aktivering av mellanlagrad publicering. Nu har du möjlighet att välja **uppgradering** och gå till fliken **Scale (skala** ) i appen innan du fortsätter.
+   > Om appen inte redan finns på **standard**-, **Premium**-eller den **isolerade** nivån får du ett meddelande som anger vilka nivåer som stöds för aktivering av mellanlagrad publicering. Nu har du möjlighet att välja **uppgradering** och gå till fliken **Scale (skala** ) i appen innan du fortsätter.
    > 
 
 3. I dialog rutan **Lägg till en plats** anger du platsens namn och anger om du vill klona en app-konfiguration från en annan distributions plats. Välj **Lägg till** för att fortsätta.
@@ -78,7 +78,7 @@ Den nya distributions platsen har inget innehåll, även om du klonar inställni
 När du växlar två platser (vanligt vis från en mellanlagringsplats till produktions platsen) gör App Service följande för att se till att mål platsen inte upplever drift stopp:
 
 1. Använd följande inställningar från mål platsen (till exempel produktions platsen) till alla instanser av käll platsen: 
-    - [](#which-settings-are-swapped) Platsspecifika appinställningar och anslutnings strängar, om tillämpligt.
+    - [Platsspecifika appinställningar och](#which-settings-are-swapped) anslutnings strängar, om tillämpligt.
     - Inställningar för [kontinuerlig distribution](deploy-continuous-deployment.md) , om aktive rad.
     - [App Service autentiseringsinställningarna](overview-authentication-authorization.md) om det är aktiverat.
     
@@ -120,7 +120,7 @@ Du kan växla distributions platser på sidan **distributions platser** för app
 
 Växla mellan distributions platser:
 
-1. Gå till sidan distributions **platser** för appen och välj **Byt**.
+1. Gå till sidan **distributions platser** för appen och välj **Byt**.
    
     ![Växlings knapp](./media/web-sites-staged-publishing/SwapButtonBar.png)
 
@@ -220,6 +220,9 @@ Du kan också anpassa det varmaste sättet med en eller båda av följande [appi
 - `WEBSITE_SWAP_WARMUP_PING_PATH`: Sökvägen till ping för att värma upp din webbplats. Lägg till den här appens inställningen genom att ange en anpassad sökväg som börjar med ett snedstreck som värde. Ett exempel är `/statuscheck`. Standardvärdet är `/`. 
 - `WEBSITE_SWAP_WARMUP_PING_STATUSES`: Giltiga HTTP-svars koder för en värme åtgärd. Lägg till den här appens inställningen med en kommaavgränsad lista över HTTP-koder. Ett exempel är `200,202` . Om den returnerade status koden inte finns i listan stoppas uppvärmnings och växlings åtgärder. Som standard är alla svars koder giltiga.
 
+> [!NOTE]
+> `<applicationInitialization>`är del av varje app-Start, där eftersom de här två inställningarna endast gäller för fack växlingar.
+
 Om du har problem kan du läsa [Felsöka växlingar](#troubleshoot-swaps).
 
 ## <a name="monitor-a-swap"></a>Övervaka en växling
@@ -272,7 +275,7 @@ Som standard tilldelas nya platser en regel för `0%`routning, som visas i gråt
 
 ## <a name="delete-a-slot"></a>Ta bort en plats
 
-Gå till appens resurs sida. Välj plats för **distributions fack** >  *\<för att ta bort >*  > **Översikt**. Välj **ta bort** i kommando fältet.  
+Gå till appens resurs sida. Välj plats för **distributions fack** >  >  *\<för att ta bort >* **Översikt**. Välj **ta bort** i kommando fältet.  
 
 ![Ta bort ett distributions fack](./media/web-sites-staged-publishing/DeleteStagingSiteButton.png)
 
@@ -368,6 +371,8 @@ Här följer några vanliga växlings fel:
     </conditions>
     ```
 - Vissa [regler för IP-begränsning](app-service-ip-restrictions.md) kan förhindra att växlings åtgärden skickar HTTP-förfrågningar till din app. IPv4-adress intervall som börjar `10.` med `100.` och är interna för din distribution. Du bör tillåta dem att ansluta till din app.
+
+- När plats växlingen har växlats kan appen uppleva oväntade omstarter. Detta beror på att när du har växlat över bindningen för värdnamn, är bindnings bindningen inte synkroniserad, vilket inte leder till omstarter. Vissa underliggande lagrings händelser (till exempel lagrings volym växling vid fel) kan dock identifiera dessa avvikelser och tvinga alla arbets processer att starta om. Om du vill minimera de här typerna av omstarter [ `WEBSITE_ADD_SITENAME_BINDINGS_IN_APPHOST_CONFIG=1` ](https://github.com/projectkudu/kudu/wiki/Configurable-settings#disable-the-generation-of-bindings-in-applicationhostconfig) ställer du in app-inställningen på *alla platser*. Den här appens inställning fungerar dock *inte* med Windows Communication Foundation (WCF)-appar.
 
 ## <a name="next-steps"></a>Nästa steg
 [Blockera åtkomst till platser som inte är för produktion](app-service-ip-restrictions.md)

@@ -1,19 +1,19 @@
 ---
 title: Visualisera interaktiva Hive-frågedata med Power BI i Azure HDInsight
 description: Använd Microsoft Power BI för att visualisera interaktiva Hive-frågedata från Azure HDInsight
-ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
+ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/17/2019
-ms.openlocfilehash: 6311ae7e89cab67611396c607d38fd0f00f99dad
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: 0f273f75c33362bc99efbd7ac6bc46c3778ae88b
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70811613"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71123025"
 ---
 # <a name="visualize-interactive-query-apache-hive-data-with-microsoft-power-bi-using-direct-query-in-hdinsight"></a>Visualisera interaktiva frågor Apache Hive data med Microsoft Power BI med direkt fråga i HDInsight
 
@@ -37,7 +37,7 @@ Innan du går igenom den här artikeln måste du ha följande objekt:
 
 2. I meny raden går du till **Start** > **Hämta data** > **mer.** ...
 
-    ![HDInsight Power BI öppna data](./media/apache-hadoop-connect-hive-power-bi-directquery/hdinsight-power-bi-open-odbc.png)
+    ![HDInsight Power BI hämta data mer](./media/apache-hadoop-connect-hive-power-bi-directquery/hdinsight-power-bi-open-odbc.png)
 
 3. I fönstret **Hämta data** anger du **HDInsight** i sökrutan.  
 

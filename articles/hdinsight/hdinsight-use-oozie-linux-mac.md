@@ -1,18 +1,18 @@
 ---
 title: Använda Hadoop Oozie-arbetsflöden i Linux-baserade Azure HDInsight
 description: Använda Hadoop-Oozie i Linux-baserade HDInsight. Lär dig hur du definierar ett Oozie-arbetsflöde och skickar ett Oozie-jobb.
-ms.service: hdinsight
 author: omidm1
 ms.author: omidm
 ms.reviewer: jasonh
+ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/06/2019
-ms.openlocfilehash: d601dc1efe8dc3f6f2678f5d4df03f172146cd07
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: c24370c91c7164786503cdd8e3c44de60abc8370
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70900465"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71122497"
 ---
 # <a name="use-apache-oozie-with-apache-hadoop-to-define-and-run-a-workflow-on-linux-based-azure-hdinsight"></a>Använd Apache Oozie med Apache Hadoop för att definiera och köra ett arbets flöde på Linux-baserade Azure HDInsight
 
@@ -39,12 +39,11 @@ Du kan också använda Oozie för att schemalägga jobb som är speciella för e
 
 * [URI-schemat](./hdinsight-hadoop-linux-information.md#URI-and-scheme) för klustrets primära lagring. Detta gäller Azure Storage, `abfs://` för Azure Data Lake Storage Gen2 eller `adl://` för Azure Data Lake Storage gen1. `wasb://` Om säker överföring har Aktiver ATS för Azure Storage eller data Lake Storage Gen2, skulle URI `wasbs://` : `abfss://`n vara eller, se även [säker överföring](../storage/common/storage-require-secure-transfer.md).
 
-
 ## <a name="example-workflow"></a>Exempel arbets flöde
 
 Arbets flödet som används i det här dokumentet innehåller två åtgärder. Åtgärder är definitioner för aktiviteter, till exempel körning av Hive, Sqoop, MapReduce eller andra processer:
 
-![Arbets flödes diagram][img-workflow-diagram]
+![HDInsight Oozie Workflow-diagram](./media/hdinsight-use-oozie-linux-mac/oozie-workflow-diagram.png)
 
 1. En Hive-åtgärd kör ett HiveQL-skript för att extrahera `hivesampletable` poster från det som ingår i HDInsight. Varje datarad beskriver ett besök från en speciell mobil enhet. Post formatet visas som följande text:
 
@@ -510,29 +509,29 @@ Utför följande steg för att få åtkomst till Oozie-webbgränssnittet:
 
 3. Från vänster sida av sidan väljer du **Oozie** > **Quick Links** > **Oozie Web UI**.
 
-    ![Bild av menyerna](./media/hdinsight-use-oozie-linux-mac/hdi-oozie-web-ui-steps.png)
+    ![Apache Ambari Oozie Web UI-steg](./media/hdinsight-use-oozie-linux-mac/hdi-oozie-web-ui-steps.png)
 
 4. Oozie webb GRÄNSSNITTets standardinställningar visar de arbets flödes jobb som körs. Om du vill se alla arbets flödes jobb väljer du **alla jobb**.
 
-    ![Alla jobb som visas](./media/hdinsight-use-oozie-linux-mac/hdinsight-oozie-jobs.png)
+    ![Arbets flödes jobb för Oozie webb konsol](./media/hdinsight-use-oozie-linux-mac/hdinsight-oozie-jobs.png)
 
 5. Om du vill visa mer information om ett jobb väljer du jobbet.
 
-    ![Jobbinformation](./media/hdinsight-use-oozie-linux-mac/hdinsight-oozie-job-info.png)
+    ![HDInsight Apache Oozie-jobb information](./media/hdinsight-use-oozie-linux-mac/hdinsight-oozie-job-info.png)
 
 6. På fliken **jobb information** kan du se grundläggande jobb information och enskilda åtgärder i jobbet. Du kan använda flikarna längst upp för att visa **jobb definitionen**, **jobb konfigurationen**, komma åt **jobb loggen**eller visa ett dirigerat acykliska diagram (DAG) för jobbet under **jobb dag**.
 
    * **Jobb logg**: Välj knappen **Hämta loggar** för att hämta alla loggar för jobbet eller Använd fältet **Ange Sök filter** för att filtrera loggarna.
 
-       ![Jobb logg](./media/hdinsight-use-oozie-linux-mac/hdinsight-oozie-job-log.png)
+       ![HDInsight Apache Oozie-jobb logg](./media/hdinsight-use-oozie-linux-mac/hdinsight-oozie-job-log.png)
 
    * **Jobb dag**: DAG är en grafisk översikt över data Sök vägar som tas i arbets flödet.
 
-       ![Jobb DAG](./media/hdinsight-use-oozie-linux-mac/hdinsight-oozie-job-dag.png)
+       ![HDInsight Apache Oozie Job dag](./media/hdinsight-use-oozie-linux-mac/hdinsight-oozie-job-dag.png)
 
 7. Om du väljer någon av åtgärderna på fliken **jobb information** visas information för åtgärden. Välj till exempel åtgärden **RunSqoopExport** .
 
-    ![Åtgärds information](./media/hdinsight-use-oozie-linux-mac/oozie-job-action-info.png)
+    ![HDInsight Oozie jobb åtgärds information](./media/hdinsight-use-oozie-linux-mac/oozie-job-action-info.png)
 
 8. Du kan se information om åtgärden, till exempel en länk till konsol- **URL:** en. Använd den här länken om du vill visa information om jobb Spårare för jobbet.
 
@@ -632,18 +631,18 @@ Du kan använda koordinatorn för att ange en start, en slut punkt och förekoms
 
 7. Om du går till Oozie-webbgränssnittet och väljer fliken **koordinator jobb** ser du information som i följande bild:
 
-    ![Fliken koordinator jobb](./media/hdinsight-use-oozie-linux-mac/coordinator-jobs-tab.png)
+    ![Oozie-webb konsol koordinator-fliken jobb](./media/hdinsight-use-oozie-linux-mac/coordinator-jobs-tab.png)
 
     **Nästa materialization** -post innehåller nästa gång som jobbet körs.
 
 8. Precis som det tidigare arbets flödes jobbet, om du väljer jobb posten i webb gränssnittet, visas information om jobbet:
 
-    ![Information om koordinator jobb](./media/hdinsight-use-oozie-linux-mac/coordinator-job-info.png)
+    ![Apache Oozie-koordinator jobb information](./media/hdinsight-use-oozie-linux-mac/coordinator-job-info.png)
 
     > [!NOTE]  
     > I den här bilden visas endast lyckade körningar av jobbet, inte de enskilda åtgärderna i det schemalagda arbets flödet. Välj en av **Åtgärds** posterna för att se de enskilda åtgärderna.
 
-    ![Information om koordinator åtgärd](./media/hdinsight-use-oozie-linux-mac/coordinator-action-job.png)
+    ![OOzie webb konsol jobb information fliken](./media/hdinsight-use-oozie-linux-mac/coordinator-action-job.png)
 
 ## <a name="troubleshooting"></a>Felsökning
 
@@ -747,7 +746,6 @@ I den här artikeln har du lärt dig hur du definierar ett Oozie-arbetsflöde oc
 
 [cindygross-hive-tables]: https://blogs.msdn.com/b/cindygross/archive/2013/02/06/hdinsight-hive-internal-and-external-tables-intro.aspx
 
-[img-workflow-diagram]: ./media/hdinsight-use-oozie-linux-mac/oozie-workflow-diagram.png
 [img-preparation-output]: ./media/hdinsight-use-oozie-linux-mac/HDI.UseOozie.Preparation.Output1.png
 [img-runworkflow-output]: ./media/hdinsight-use-oozie/HDI.UseOozie.RunWF.Output.png
 

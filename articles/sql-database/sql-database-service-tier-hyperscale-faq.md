@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 05/06/2019
-ms.openlocfilehash: 951d5bb10fbeeac090a1edb510b7214855477eac
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.openlocfilehash: 3f64bce34a1bdb11bdbebb99fe28cdf3ff16dfb8
+ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69515350"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71128710"
 ---
 # <a name="faq-about-azure-sql-hyperscale-databases"></a>Vanliga frågor och svar om Azure SQL-storskaliga databaser
 
@@ -54,7 +54,7 @@ VCore-baserade tjänst nivåer skiljer sig i huvudsak baserat på tillgänglighe
 | | Hanterad instans  | 32 GB – 8 TB | Gäller inte | 32 GB – 4 TB |
 | **IO-dataflöde** | Enkel databas * * | 500 IOPS per vCore med 7000 maximal IOPS | Hög skalning är en arkitektur med flera nivåer med cachelagring på flera nivåer. Effektiv IOPs är beroende av arbets belastningen. | 5000 IOPS med 200 000 högsta IOPS|
 | | Hanterad instans | Beror på fil storleken | Gäller inte | Hanterad instans: Beror på fil storleken|
-|**Tillgänglighet**|Alla|1 replik, ingen Read-Scale, ingen lokal cache | Flera repliker, upp till 15 Read-Scale, delvis lokalt cacheminne | 3 repliker, 1 Read-Scale, Zone-redundant HA, fullständig lokal cache |
+|**Tillgänglighet**|Alla|1 replik, ingen Read-Scale, ingen lokal cache | Flera repliker, upp till 4 storskalig, delvis lokal cache | 3 repliker, 1 Read-Scale, Zone-redundant HA, fullständig lokal cache |
 |**Regelbundet**|Alla|RA-GRS, 7-35 dagar (7 dagar som standard)| RA-GRS, 7 dagar, konstant tidpunkts återställning (PITR) | RA-GRS, 7-35 dagar (7 dagar som standard) |
 
 \*Elastiska pooler stöds inte i den storskaliga tjänst nivån

@@ -1,19 +1,19 @@
 ---
-title: 'Konfiguration av arbetsflöden – ExpressRoute-krets: Azure| Microsoft Docs'
+title: 'Arbets flöden för krets konfiguration – ExpressRoute: Azure| Microsoft Docs'
 description: Den här sidan visas arbetsflödena för att konfigurera ExpressRoute-kretsen och peer-kopplingar
 services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 09/18/2018
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: 3ffcc5ac2193e607573ceb93717258f5349d1f15
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1e0f4d356bb6addf735bf148a80e6be3ca550c8f
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60883206"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71123380"
 ---
 # <a name="expressroute-workflows-for-circuit-provisioning-and-circuit-states"></a>Arbetsflöden i ExpressRoute för kretsetablering och kretstillstånd
 Den här sidan vägleder dig genom tjänsten etablering och routning configuration arbetsflöden på hög nivå.
@@ -29,7 +29,7 @@ Följande bild och motsvarande steg visar de uppgifter som du måste följa för
    
    * Aktiverar Azures privata peering – aktivera den här peering för att ansluta till virtuella datorer / molntjänster som distribuerats i virtuella nätverk.
 
-   * Aktivera Microsoft-peering – aktivera det här alternativet för åtkomst till Office 365 och Dynamics 365. Dessutom är alla Azure PaaS-tjänster tillgängliga via Microsoft-peering.
+   * Aktivera Microsoft-peering – aktivera detta för att få åtkomst till Office 365. Dessutom är alla Azure PaaS-tjänster tillgängliga via Microsoft-peering.
      
      > [!IMPORTANT]
      > Du måste se till att du använder en separat proxyserver / edge för att ansluta till Microsoft än som du använder för Internet. Använder samma kant för både ExpressRoute och Internet orsaka asymmetrisk Routning och orsaka avbrott i anslutningen för ditt nätverk.

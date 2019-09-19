@@ -4,7 +4,7 @@ description: Få svar på vanliga frågor om tillgänglighets-, prestanda-och pr
 services: app-service\web
 documentationcenter: ''
 author: genlin
-manager: cshepard
+manager: dcscontentpm
 editor: ''
 tags: top-support-issue
 ms.assetid: 2fa5ee6b-51a6-4237-805f-518e6c57d11b
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
 ms.custom: seodec18
-ms.openlocfilehash: 2b9689eeecb0549fae9f7131dd424e15c040b042
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 9cd529424a022edfa64f9053a53cbbe9f756637e
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70073184"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71122075"
 ---
 # <a name="application-performance-faqs-for-web-apps-in-azure"></a>Vanliga frågor och svar om program prestanda för Web Apps i Azure
 
@@ -46,7 +46,7 @@ I vissa scenarier med hög minnes användning kan din app faktiskt kräva mer da
 
 ## <a name="how-do-i-automate-app-service-web-apps-by-using-powershell"></a>Hur gör jag för att automatisera App Service webbappar med PowerShell?
 
-Du kan använda PowerShell-cmdletar för att hantera och underhålla App Service webbappar. I vårt blogg inlägg [automatiserar webbappar som finns i Azure App Service med hjälp av PowerShell](https://blogs.msdn.microsoft.com/puneetgupta/2016/03/21/automating-webapps-hosted-in-azure-app-service-through-powershell-arm-way/), beskriver vi hur du använder Azure Resource Manager-baserade PowerShell-cmdletar för att automatisera vanliga uppgifter. Blogg inlägget innehåller också en exempel kod för olika hanterings uppgifter för webbappar. Beskrivningar och syntax för alla App Service Web Apps-cmdlets finns i [AZ.](/powershell/module/az.websites)websites.
+Du kan använda PowerShell-cmdletar för att hantera och underhålla App Service webbappar. I vårt blogg inlägg [automatiserar webbappar som finns i Azure App Service med hjälp av PowerShell](https://blogs.msdn.microsoft.com/puneetgupta/2016/03/21/automating-webapps-hosted-in-azure-app-service-through-powershell-arm-way/), beskriver vi hur du använder Azure Resource Manager-baserade PowerShell-cmdletar för att automatisera vanliga uppgifter. Blogg inlägget innehåller också en exempel kod för olika hanterings uppgifter för webbappar. Beskrivningar och syntax för alla App Service Web Apps-cmdlets finns i [AZ. websites](/powershell/module/az.websites).
 
 ## <a name="how-do-i-view-my-web-apps-event-logs"></a>Hur gör jag för att visa mina webbappens händelse loggar?
 
@@ -106,7 +106,7 @@ Som standard inaktive ras Web Apps om de är inaktiva under en angiven tids peri
 Aktivera spårning av misslyckade begär Anden:
 
 1. I Azure Portal går du till din webbapp.
-3. Välj **alla inställningar** > diagnostikloggar.
+3. Välj **alla inställningar** > **diagnostikloggar.**
 4. För **spårning av misslyckade begär Anden**väljer du **på**.
 5. Välj **Spara**.
 6. På bladet webbapp väljer du **verktyg**.
@@ -189,7 +189,7 @@ Det här felet uppstår vanligt vis om utgående TCP-anslutningar på VM-instans
 
 Det här felet kan också uppstå om du försöker komma åt en lokal adress från ditt program. Mer information finns i [lokala adress begär Anden](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox#local-address-requests).
 
-Mer information om utgående anslutningar i din webbapp finns i blogg inlägget om [utgående anslutningar till Azure](https://www.freekpaans.nl/2015/08/starving-outgoing-connections-on-windows-azure-web-sites/)websites.
+Mer information om utgående anslutningar i din webbapp finns i blogg inlägget om [utgående anslutningar till Azure Websites](https://www.freekpaans.nl/2015/08/starving-outgoing-connections-on-windows-azure-web-sites/).
 
 ## <a name="how-do-i-use-visual-studio-to-remote-debug-my-app-service-web-app"></a>Hur gör jag för att använder du Visual Studio till fjärrfelsökning min App Service-webbapp?
 

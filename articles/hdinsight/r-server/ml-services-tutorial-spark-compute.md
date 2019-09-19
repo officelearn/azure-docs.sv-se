@@ -1,19 +1,19 @@
 ---
 title: 'Självstudier: Använda R i en spark Compute-kontext i Azure HDInsight'
 description: Självstudie – kom igång med R och Spark på ett Azure HDInsight Machine Learning Services-kluster.
-ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
+ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 06/21/2019
-ms.openlocfilehash: a58d7befdb1066ce08ad1e46e6550141e2b0824f
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: 73ca0d089ab758fb13e69d341337139d79194cc5
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70899997"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71121928"
 ---
 # <a name="tutorial-use-r-in-a-spark-compute-context-in-azure-hdinsight"></a>Självstudier: Använda R i en spark Compute-kontext i Azure HDInsight
 
@@ -59,9 +59,9 @@ Första gången du loggar in autentiseras du två gånger. Vid den första auten
 
 1. I den högra rutan väljer du fliken **miljö** . Variablerna visas under **värden**.
 
-    ![RStudio](./media/ml-services-tutorial-spark-compute/hdinsight-rstudio-image.png)
+    ![Webb konsol för HDInsight R Studio](./media/ml-services-tutorial-spark-compute/hdinsight-rstudio-image.png)
 
-1.  Skapa en lokal katalog och hämta exempel data. I RStudio anger du följande kod:
+1. Skapa en lokal katalog och hämta exempel data. I RStudio anger du följande kod:
 
     ```R
     # Create local directory

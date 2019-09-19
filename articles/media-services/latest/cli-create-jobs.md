@@ -14,18 +14,18 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/01/2019
 ms.author: juliako
-ms.openlocfilehash: e4f2d4f0e7dd9380ba708d84dfe7588043fd4a68
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 08caf4b78b1042d5753dba2bc73e93fa3a250a17
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65236697"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71122378"
 ---
 # <a name="cli-example-create-and-submit-a-job"></a>CLI-exempel: Skapa och skicka ett jobb
 
-När du skickar in jobb för att bearbeta videor i Media Services v3 måste du informera Media Services om var indatavideo finns. Något av alternativen är att ange en HTTPS-URL som ett jobb som indata (som visas i den här artikeln). 
+När du skickar in jobb för att bearbeta videor i Media Services v3 måste du informera Media Services om var indatavideo finns. Ett av alternativen är att ange en HTTPS-URL som jobb inmatad (som visas i den här artikeln). 
 
-## <a name="prerequisites"></a>Nödvändiga komponenter 
+## <a name="prerequisites"></a>Förutsättningar 
 
 [Skapa ett Media Services-konto](create-account-cli-how-to.md).
 
@@ -87,4 +87,4 @@ Du får ett svar som liknar följande:
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Översikt över Media Services](media-services-overview.md)
+[AZ AMS-jobb (CLI)](https://docs.microsoft.com/cli/azure/ams/job?view=azure-cli-latest)

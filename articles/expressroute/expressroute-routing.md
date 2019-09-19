@@ -5,15 +5,15 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 09/04/2019
+ms.date: 09/19/2019
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: 9d4822d07a95fcdec32c0c4146562884302fa4f8
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: 9bc0d1b31ebeaecce8b4be8699cf87811047b6f9
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70308321"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71123264"
 ---
 # <a name="expressroute-routing-requirements"></a>ExpressRoute-routningskrav
 För att kunna ansluta till Microsofts molntjänster med ExpressRoute måste du konfigurera och hantera routning. Vissa anslutningsleverantörer erbjuder konfigurering och hantering av routning som en hanterad tjänst. Fråga din anslutningsleverantör om de erbjuder denna tjänst. Om inte måste du uppfylla följande krav:
@@ -84,7 +84,7 @@ Du måste använda offentliga IP-adresser som du äger när du konfigurerar BGP-
 Du kan välja att använda offentliga eller privata IPv4-adresser för privat peering. Vi erbjuder isolering av din trafik från slutpunkt till slutpunkt, vilket innebär att adressöverlappning med andra kunder inte är möjligt med privat peering. De här adresserna annonseras inte till Internet. 
 
 ### <a name="microsoft-peering"></a>Microsoft-peering
-Med Microsofts peeringsökväg kan du ansluta till Microsofts molntjänster. Listan över tjänster innehåller Office 365-tjänster, till exempel Exchange Online, SharePoint Online, Skype för företag, Microsoft Teams och Dynamics 365. Microsoft stöder dubbelriktade anslutningar för Microsoft-peering. Trafik till Microsofts molntjänster måste använda giltiga offentliga IPv4-adresser innan de kommer in i Microsoft-nätverket.
+Med Microsofts peeringsökväg kan du ansluta till Microsofts molntjänster. Listan över tjänster innehåller Office 365-tjänster, till exempel Exchange Online, SharePoint Online, Skype för företag och Microsoft Teams. Microsoft stöder dubbelriktade anslutningar för Microsoft-peering. Trafik till Microsofts molntjänster måste använda giltiga offentliga IPv4-adresser innan de kommer in i Microsoft-nätverket.
 
 Kontrollera att din IP-adress och ditt AS-nummer är registrerade på dig i något av följande register:
 
@@ -218,7 +218,6 @@ Förutom ovanstående taggar Microsoft också prefix baserat på vilken tjänst 
 | exchange online | 12076:5010 |
 | sharepoint online | 12076:5020 |
 | Skype för företag – Online | 12076:5030 |
-| Dynamics 365 | 12076:5040 |
 | Azure Global Services * | 12076:5050 |
 | Andra Office 365 Online-tjänster | 12076:5100 |
 
@@ -249,7 +248,6 @@ Förutom ovanstående taggar Microsoft också prefix baserat på vilken tjänst 
 | exchange online |12076:5110 |
 | sharepoint online |12076:5120 |
 | Skype för företag – Online |12076:5130 |
-| Dynamics 365 |12076:5140 |
 | Andra Office 365 Online-tjänster |12076:5200 |
 
 ## <a name="next-steps"></a>Nästa steg

@@ -1,6 +1,6 @@
 ---
-title: Ansluta till HTTP-eller HTTPS-slutpunkter från Azure Logic Apps
-description: Övervaka HTTP-eller HTTPS-slutpunkter i automatiserade uppgifter, processer och arbets flöden med hjälp av Azure Logic Apps
+title: Anropa HTTP-och HTTPS-slutpunkter – Azure Logic Apps
+description: Skicka utgående begär anden till HTTP-och HTTPS-slutpunkter med hjälp av Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -10,18 +10,20 @@ ms.reviewer: klam, LADocs
 ms.topic: conceptual
 ms.date: 07/05/2019
 tags: connectors
-ms.openlocfilehash: 04d9beaef29e76d40c0bb3f9dcf0bb6f4fe3152d
-ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
+ms.openlocfilehash: df856e0d76dbd5903964bc80aa01b97b7461128a
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68234376"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71122700"
 ---
-# <a name="call-http-or-https-endpoints-by-using-azure-logic-apps"></a>Anropa HTTP-eller HTTPS-slutpunkter genom att använda Azure Logic Apps
+# <a name="send-outgoing-calls-to-http-or-https-endpoints-by-using-azure-logic-apps"></a>Skicka utgående anrop till HTTP-eller HTTPS-slutpunkter med hjälp av Azure Logic Apps
 
-Med [Azure Logic Apps](../logic-apps/logic-apps-overview.md) och den inbyggda HTTP-anslutningen kan du automatisera arbets flöden som regelbundet anropar http-eller https-slutpunkter genom att skapa Logic Apps. Du kan till exempel övervaka tjänst slut punkten för din webbplats genom att kontrol lera slut punkten enligt ett angivet schema. När en viss händelse inträffar vid den slut punkten, till exempel om din webbplats går ned, utlöser händelsen din Logic app-arbetsflöde och kör de angivna åtgärderna.
+Med [Azure Logic Apps](../logic-apps/logic-apps-overview.md) och den inbyggda http-utlösaren eller åtgärden kan du skapa automatiserade uppgifter och arbets flöden som regelbundet skickar begär anden till http-eller https-slutpunkter. Använd den inbyggda [begär ande utlösaren eller svars åtgärden](../connectors/connectors-native-reqres.md)för att ta emot och svara på inkommande http-eller https-anrop i stället.
 
-Om du vill  kontrol lera eller avsöka en slut punkt enligt ett regelbundet schema kan du använda http-utlösaren som det första steget i arbets flödet. Vid varje kontroll skickar utlösaren ett anrop eller en *begäran* till slut punkten. Svaret på slut punkten avgör om din Logic Apps-arbetsflöde körs. Utlösaren passerar allt innehåll från svar till åtgärder i din Logic app.
+Du kan till exempel övervaka tjänst slut punkten för din webbplats genom att kontrol lera slut punkten enligt ett angivet schema. När en viss händelse inträffar vid den slut punkten, till exempel om din webbplats går ned, utlöser händelsen din Logic app-arbetsflöde och kör de angivna åtgärderna.
+
+Om du vill kontrol lera eller avsöka en slut punkt enligt ett regelbundet schema kan du använda http-utlösaren som det första steget i arbets flödet. Vid varje kontroll skickar utlösaren ett anrop eller en *begäran* till slut punkten. Svaret på slut punkten avgör om din Logic Apps-arbetsflöde körs. Utlösaren passerar allt innehåll från svar till åtgärder i din Logic app.
 
 Du kan använda HTTP-åtgärden som andra steg i arbets flödet för att anropa slut punkten när du vill. Svaret på slut punkten avgör hur arbets flödets återstående åtgärder ska köras.
 
@@ -142,25 +144,25 @@ Mer information om utlösare och åtgärds parametrar finns i följande avsnitt:
 * [Parametrar för HTTP-utlösare](../logic-apps/logic-apps-workflow-actions-triggers.md##http-trigger)
 * [Parametrar för HTTP-åtgärd](../logic-apps/logic-apps-workflow-actions-triggers.md##http-action)
 
-### <a name="output-details"></a>Information om utdata
+### <a name="output-details"></a>Utdatainformation
 
 Här är mer information om utdata från en HTTP-utlösare eller åtgärd som returnerar denna information:
 
 | Egenskapsnamn | type | Beskrivning |
 |---------------|------|-------------|
 | Sidhuvud | object | Huvudena från begäran |
-| Brödtext | object | JSON-objekt | Objektet med bröd text innehållet från begäran |
+| brödtext | object | JSON-objekt | Objektet med bröd text innehållet från begäran |
 | Status kod | int | Status koden från begäran |
 |||
 
 | Statuskod | Beskrivning |
 |-------------|-------------|
 | 200 | Ok |
-| 202 | Accept |
+| 202 | Accepterad |
 | 400 | Felaktig förfrågan |
 | 401 | Behörighet saknas |
 | 403 | Förbjudna |
-| 404 | Hittades inte |
+| 404 | Kunde inte hittas |
 | 500 | Internt Server fel. Ett okänt fel uppstod. |
 |||
 

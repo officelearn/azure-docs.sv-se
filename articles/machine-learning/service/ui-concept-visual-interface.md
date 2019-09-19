@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 05/15/2019
-ms.openlocfilehash: 65daf1468d27825d9904a14e42e43796d3985321
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: f560887a48ce4754b26a54ef0e18093c5577af34
+ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70996526"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71128812"
 ---
 # <a name="what-is-the-visual-interface-for-azure-machine-learning"></a>Vad är det visuella gränssnittet för Azure Machine Learning? 
 
@@ -95,8 +95,8 @@ Information om hur du distribuerar din modell finns i [Självstudier: Distribuer
 
 * Lär dig grunderna för förutsägelse analys och maskin inlärning med [Självstudier: Förutsäg bil pris med Visual Interface](ui-tutorial-automobile-price-train-score.md)
 * Använd ett av exemplen och ändra till Suite-behoven:
-    * [Exempel 1 – regression: Förutsägelse pris](ui-sample-regression-predict-automobile-price-basic.md)
-    * [Exempel 2 – regression: Förutsäg priser och jämför algoritmer](ui-sample-regression-predict-automobile-price-compare-algorithms.md)
-    * [Exempel 3 – klassificering: Förutsägelse kredit risk](ui-sample-classification-predict-credit-risk-basic.md)
-    * [Exempel 4 – klassificering: Förutsägelse kredit risk (kostnads känsligt)](ui-sample-classification-predict-credit-risk-cost-sensitive.md)
-    * [Exempel 5 – klassificering: Förutsäga omsättning, begär och försäljning](ui-sample-classification-predict-churn.md)
+    * [Exempel 1 – regression: Förutsägelse pris](how-to-ui-sample-regression-predict-automobile-price-basic.md)
+    * [Exempel 2 – regression: Förutsäg priser och jämför algoritmer](how-to-ui-sample-regression-predict-automobile-price-compare-algorithms.md)
+    * [Exempel 3 – klassificering: Förutsägelse kredit risk](how-to-ui-sample-classification-predict-credit-risk-basic.md)
+    * [Exempel 4 – klassificering: Förutsägelse kredit risk (kostnads känsligt)](how-to-ui-sample-classification-predict-credit-risk-cost-sensitive.md)
+    * [Exempel 5 – klassificering: Förutsäga omsättning, begär och försäljning](how-to-ui-sample-classification-predict-churn.md)

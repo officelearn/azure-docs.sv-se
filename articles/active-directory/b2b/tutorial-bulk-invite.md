@@ -1,140 +1,110 @@
 ---
-title: Självstudie för stora bjuda in användare för B2B-samarbetet - Azure Active Directory | Microsoft Docs
+title: Självstudie för Mass inbjudan av B2B-samarbets användare – Azure Active Directory | Microsoft Docs
 description: I den här självstudien lär du dig hur du använder PowerShell och en CSV-fil för att skicka massinbjudningar till externa Azure AD B2B-samarbetsanvändare.
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: tutorial
-ms.date: 08/14/2018
+ms.date: 9/19/2019
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d3bd02afa1fe1aaba6602201f839468a58673c29
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: ec1a6ea8f363f2ddd4a9568700d5bff3330443c0
+ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68278006"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71128728"
 ---
-# <a name="tutorial-bulk-invite-azure-ad-b2b-collaboration-users"></a>Självstudier: Massinbjuda Azure AD B2B-samarbetsanvändare
+# <a name="tutorial-bulk-invite-azure-ad-b2b-collaboration-users-preview"></a>Självstudier: Grupp inbjudan till Azure AD B2B-samarbets användare (för hands version)
 
-Om du använder Azure Active Directory (Azure AD) B2B-samarbete för att arbeta med externa partners, kan du bjuda in flera gästanvändare till din organisation samtidigt. I den här självstudien lär du dig hur du använder PowerShell för att skicka massinbjudningar till externa användare. Närmare bestämt kan du göra följande:
+|     |
+| --- |
+| I den här artikeln beskrivs en allmän förhands gransknings funktion i Azure Active Directory. Mer information om förhandsversioner finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).|
+|     |
+
+
+Om du använder Azure Active Directory (Azure AD) B2B-samarbete för att arbeta med externa partners, kan du bjuda in flera gästanvändare till din organisation samtidigt. I den här självstudien får du lära dig hur du använder Azure Portal för att skicka mass inbjudningar till externa användare. Närmare bestämt kan du göra följande:
 
 > [!div class="checklist"]
-> * Förbereda en fil med kommaavgränsade värden (CSV) med användarinformation
-> * Skicka inbjudningar genom att köra ett PowerShell-skript
+> * Använd **Mass Inbjudnings användare (för hands version)** för att förbereda en fil med kommaavgränsade värden (. csv) med användar information och Inbjudnings inställningar
+> * Ladda upp CSV-filen till Azure AD
 > * Verifiera att användarna har lagts till i katalogen
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar. 
+Om du inte har Azure Active Directory skapar du ett [kostnads fritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar. 
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-### <a name="install-the-latest-azureadpreview-module"></a>Installera den senaste AzureADPreview-modulen
-Se till att du installerar den senaste versionen av Azure AD PowerShell för Graph-modulen (AzureADPreview). 
-
-Kontrollera först vilka moduler du har installerat. Öppna Windows PowerShell som upphöjd användare (Kör som administratör) och kör följande kommando:
- 
-```powershell  
-Get-Module -ListAvailable AzureAD*
-```
-
-Gör något av följande, baserat på utdata:
-
-- Om inga resultat returneras installerar du modulen AzureADPreview genom att köra följande kommando:
-  
-   ```powershell  
-   Install-Module AzureADPreview
-   ```
-- Om enbart AzureAD-modulen visas i resultaten, så installera modulen AzureADPreview genom att köra följande kommandon: 
-
-   ```powershell 
-   Uninstall-Module AzureAD 
-   Install-Module AzureADPreview 
-   ```
-- Om endast AzureADPreview-modulen visas i resultatet, men du får ett meddelande som anger att det finns en senare version, så uppdatera modulen genom att köra följande kommandon: 
-
-   ```powershell 
-   Uninstall-Module AzureADPreview 
-   Install-Module AzureADPreview 
-  ```
-
-Du får eventuellt en uppmaning om att installera modulen från en ej betrodd lagringsplats. Det här inträffar om du inte tidigare angett PSGallery-lagringsplatsen som en betrodd lagringsplats. Installera modulen genom att trycka på **Y**.
-
-### <a name="get-test-email-accounts"></a>Hämta test-e-postkontona
-
 Du behöver två eller flera test-e-postkonton att skicka inbjudningar till. Kontona måste finnas utanför din organisation. Du kan använda vilken typ av konto som helst, t.ex. konton i sociala medier som gmail.com- eller outlook.com-adresser.
 
-## <a name="prepare-the-csv-file"></a>Förbered CSV-filen
+## <a name="invite-guest-users-in-bulk"></a>Bjud in gäst användare i bulk
 
-Skapa en CSV-fil i Microsoft Excel med listan med de inbjudnas användarnamn och e-postadresser. Se till att inkludera kolumnrubrikerna **Namn** och **InvitedUserEmailAddress**. 
+1. Logga in på Azure Portal med ett konto som är en användar administratör i organisationen.
+2. I navigerings fönstret väljer du **Azure Active Directory**.
+3. Under **Hantera**väljer **du användare** > **Mass inbjudan**.
+4. På sidan **massredigera användare (förhands granskning)** väljer du **Hämta** för att hämta en giltig CSV-fil med Inbjudnings egenskaper.
 
-Du kan t.ex. skapa ett kalkylblad i följande format:
+    ![Hämtnings knapp för Mass inbjudan](media/tutorial-bulk-invite/bulk-invite-button.png)
 
+5. Öppna CSV-filen och Lägg till en rad för varje gäst användare. Obligatoriska värden är:
 
-![PowerShell-utdata som visar väntande godkännande av användare](media/tutorial-bulk-invite/AddUsersExcel.png)
+   * **E-postadress att bjuda in** – användaren som får en inbjudan
 
-Spara filen som **C:\BulkInvite\Invitations.csv**. 
+   * **URL för omdirigering** – URL: en dit den inbjudna användaren vidarebefordras efter att inbjudan har accepterats
 
-Om du inte har Excel kan du skapa en CSV-fil i en textredigerare, t.ex. Anteckningar. Avgränsa varje värde med ett kommatecken och varje rad med ny rad. 
+    ![Exempel på en CSV-fil med gäst användare angivna](media/tutorial-bulk-invite/bulk-invite-csv.png)
 
-## <a name="sign-in-to-your-tenant"></a>Logga in på din klientorganisation
+   > [!NOTE]
+   > Använd inte kommatecken i det **anpassade Inbjudnings meddelandet** eftersom de hindrar meddelandet från att kunna parsas.
 
-Kör följande kommando för att ansluta till klientorganisationens domän:
+6. Spara filen.
+7. På sidan **massredigera användare (förhands granskning)** , under **överför din CSV-fil**, bläddrar du till filen. När du väljer filen startar valideringen av. csv-filen. 
+8. När fil innehållet verifieras visas **filen har laddats upp**. Om det finns fel måste du åtgärda dem innan du kan skicka jobbet.
+9. När din fil klarar valideringen väljer du **Skicka** för att starta den Azure Mass åtgärd som lägger till inbjudningarna. 
+10. Om du vill visa jobb statusen väljer **du klicka här för att visa status för varje åtgärd**. Du kan också välja **Mass åtgärds resultat (för hands version)** i avsnittet **aktivitet** . Om du vill ha mer information om varje rad objekt i Mass åtgärden väljer du värdena under kolumnerna **# lyckades**, **# Failure**eller **Totalt antal förfrågningar** . Om fel inträffar visas orsaken till felet.
 
-```powershell
-Connect-AzureAD -TenantDomain "<Tenant_Domain_Name>"
-```
-Till exempel `Connect-AzureAD -TenantDomain "contoso.onmicrosoft.com"`.
+    ![Exempel på Mass åtgärds resultat](media/tutorial-bulk-invite/bulk-operation-results.png)
 
-Ange dina autentiseringsuppgifter när du uppmanas att göra det.
+11. När jobbet har slutförts visas ett meddelande om att Mass åtgärden har slutförts.
 
-## <a name="send-bulk-invitations"></a>Skicka massinbjudningar
+## <a name="verify-guest-users-in-the-directory"></a>Verifiera gäst användare i katalogen
 
-Skicka inbjudningarna genom att köra följande PowerShell-skript (där **c:\bulkinvite\invitations.csv** är CSV-filens sökväg): 
+Kontrol lera att gäst användare som du har lagt till finns i katalogen antingen i Azure Portal eller med PowerShell.
 
-```powershell
-$invitations = import-csv c:\bulkinvite\invitations.csv
-   
-$messageInfo = New-Object Microsoft.Open.MSGraph.Model.InvitedUserMessageInfo
-   
-$messageInfo.customizedMessageBody = "Hello. You are invited to the Contoso organization."
-   
-foreach ($email in $invitations) 
-   {New-AzureADMSInvitation `
-      -InvitedUserEmailAddress $email.InvitedUserEmailAddress `
-      -InvitedUserDisplayName $email.Name `
-      -InviteRedirectUrl https://myapps.microsoft.com `
-      -InvitedUserMessageInfo $messageInfo `
-      -SendInvitationMessage $true
-   }
-```
-Skriptet skickar en inbjudan till e-postadresserna i filen Invitations.csv. Du bör se utdata som liknar följande för respektive användare:
+### <a name="view-guest-users-in-the-azure-portal"></a>Visa gäst användare i Azure Portal
 
-![PowerShell-utdata som visar väntande godkännande av användare](media/tutorial-bulk-invite/B2BBulkImport.png)
+1. Logga in på Azure Portal med ett konto som är en användar administratör i organisationen.
+2. I navigerings fönstret väljer du **Azure Active Directory**.
+3. Under **Hantera** väljer du **Användare**.
+4. Under **Visa**väljer du **gäst användare** och verifiera att de användare som du har lagt till visas.
 
-## <a name="verify-users-exist-in-the-directory"></a>Kontrollera att det finns användare i katalogen
+### <a name="view-guest-users-with-powershell"></a>Visa gäst användare med PowerShell
 
-Kontrollera att de inbjudna användarna har lagts till i Azure AD genom att köra följande kommando:
+Kör följande kommando:
+
 ```powershell
  Get-AzureADUser -Filter "UserType eq 'Guest'"
 ```
-Du bör se de användare som du inbjuden visas med en användarens huvudnamn (UPN) i formatet *e-postadress*EXT #\@*domän*. Till exempel *lstokes_fabrikam.com#EXT#\@contoso.onmicrosoft.com*, där contoso.onmicrosoft.com är organisationen som du har skickat inbjudningarna.
+
+Du bör se de användare som du har bjudit in i listan, med en User Principal Name (UPN)i formatet EmailAddress\@#EXT #*Domain*. Till exempel *lstokes_fabrikam. com #\@ext # contoso.onmicrosoft.com*, där contoso.onmicrosoft.com är den organisation som du skickade inbjudningarna från.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-När den inte längre behövs kan du ta bort testanvändarkontona i katalogen. Kör följande kommando för att ta bort ett användarkonto:
+När de inte längre behövs kan du ta bort test användar kontona i katalogen i Azure Portal på sidan användare genom att markera kryss rutan bredvid gäst användaren och sedan välja **ta bort**. 
+
+Du kan också köra följande PowerShell-kommando för att ta bort ett användar konto:
 
 ```powershell
  Remove-AzureADUser -ObjectId "<UPN>"
 ```
+
 Exempel: `Remove-AzureADUser -ObjectId "lstokes_fabrikam.com#EXT#@contoso.onmicrosoft.com"`
 
-
 ## <a name="next-steps"></a>Nästa steg
+
 I den här självstudien har du skickat massinbjudningar till gästanvändare utanför organisationen. Härnäst ska du få lära dig hur inlösningsprocessen för inbjudningar ser ut.
 
 > [!div class="nextstepaction"]
 > [Läs mer om inlösningsprocessen för Azure AD B2B-samarbetsinbjudningar](redemption-experience.md)
-

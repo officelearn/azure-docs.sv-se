@@ -11,12 +11,12 @@ author: moslake
 ms.author: moslake
 ms.reviewer: sstein, carlrab
 ms.date: 09/06/2019
-ms.openlocfilehash: e6c815b317e60d7a65a2f26249782451bc917097
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: 04e3881b553f639bb2df948b6ad1154f86f1c9da
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70993454"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71123089"
 ---
 # <a name="azure-sql-database-serverless-preview"></a>Azure SQL Database utan server (för hands version)
 
@@ -160,6 +160,12 @@ Att skapa en ny databas eller flytta en befintlig databas till en server lös be
    |GP_S_Gen5_1|Generellt syfte|Gen5|1|
    |GP_S_Gen5_2|Generellt syfte|Gen5|2|
    |GP_S_Gen5_4|Generellt syfte|Gen5|4|
+   |GP_S_Gen5_6|Generellt syfte|Gen5|6|
+   |GP_S_Gen5_8|Generellt syfte|Gen5|8|
+   |GP_S_Gen5_10|Generellt syfte|Gen5|10|
+   |GP_S_Gen5_12|Generellt syfte|Gen5|12|
+   |GP_S_Gen5_14|Generellt syfte|Gen5|14|
+   |GP_S_Gen5_16|Generellt syfte|Gen5|16|
 
 2. Alternativt kan du ange den minsta virtuella kärnor och den automatiskt paus fördröjningen för att ändra standardvärdena. I följande tabell visas de tillgängliga värdena för dessa parametrar.
 

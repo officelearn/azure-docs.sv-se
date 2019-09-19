@@ -1,30 +1,30 @@
 ---
-title: Fråga Apache Hive ODBC-drivrutinen och PowerShell - Azure HDInsight
-description: Använda Microsoft Hive ODBC-drivrutinen och PowerShell för att fråga Apache Hive-kluster på Azure HDInsight.
-keywords: hive hive odbc powershell
+title: Fråga Apache Hive med ODBC-drivrutin och PowerShell – Azure HDInsight
+description: Använd Microsoft Hive ODBC-drivrutin och PowerShell för att fråga Apache Hive kluster på Azure HDInsight.
+keywords: Hive, Hive ODBC, PowerShell
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: tutorial
 ms.date: 06/27/2019
-ms.author: hrasheed
-ms.openlocfilehash: b02c865e953861b5ac396538fdd0f0623b0e5428
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 04771ddc633c210ce8c7b3c42a9e46cb2f1ed349
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67486104"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71122179"
 ---
-# <a name="tutorial-query-apache-hive-with-odbc-and-powershell"></a>Självstudier: Fråga Apache Hive ODBC-och PowerShell
+# <a name="tutorial-query-apache-hive-with-odbc-and-powershell"></a>Självstudier: Fråga Apache Hive med ODBC och PowerShell
 
-Microsoft ODBC-drivrutiner ger ett flexibelt sätt att interagera med olika typer av datakällor, inklusive Apache Hive. Du kan skriva kod i skriptspråk som PowerShell som använder ODBC-drivrutiner för att öppna en anslutning till ditt Hive-kluster, skicka en fråga välja och visa resultatet.
+Microsoft ODBC-drivrutiner ger ett flexibelt sätt att interagera med olika typer av data källor, inklusive Apache Hive. Du kan skriva kod i skript språk som PowerShell som använder ODBC-drivrutinerna för att öppna en anslutning till Hive-klustret, skicka en fråga som du väljer och visa resultatet.
 
-I den här självstudien gör du följande uppgifter:
+I den här självstudien ska du utföra följande uppgifter:
 
 > [!div class="checklist"]
-> * Ladda ned och installera Microsoft Hive ODBC-drivrutin
-> * Skapa ett Apache Hive ODBC-datakälla kopplad till ditt kluster
-> * Läsa exemplet information från ditt kluster med hjälp av PowerShell
+> * Hämta och installera Microsoft Hive ODBC-drivrutinen
+> * Skapa en Apache Hive ODBC-datakälla som är länkad till klustret
+> * Fråga exempel information från klustret med hjälp av PowerShell
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
@@ -32,57 +32,57 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 Innan du börjar den här självstudiekursen behöver du följande:
 
-* Ett interaktivt frågekluster på HDInsight. Om du vill skapa en [Kom igång med Azure HDInsight](../hdinsight-hadoop-provision-linux-clusters.md). Välj **interaktiv fråga** som klustertyp av.
+* Ett interaktivt Query-kluster i HDInsight. Information om hur du skapar ett finns i [Kom igång med Azure HDInsight](../hdinsight-hadoop-provision-linux-clusters.md). Välj **interaktiv fråga** som kluster typ.
 
 ## <a name="install-microsoft-hive-odbc-driver"></a>Installera Microsoft Hive ODBC-drivrutin
 
-Ladda ned och installera den [Microsoft Hive ODBC-drivrutin](https://go.microsoft.com/fwlink/?LinkID=286698).
+Hämta och installera [Microsoft HIVE ODBC-drivrutinen](https://go.microsoft.com/fwlink/?LinkID=286698).
 
 ## <a name="create-apache-hive-odbc-data-source"></a>Skapa Apache Hive ODBC-datakälla
 
-Följande steg visar hur du skapar ett Apache Hive ODBC-datakälla.
+Följande steg visar hur du skapar en ODBC-datakälla för Apache Hive.
 
-1. Från Windows, navigerar du till **starta** > **Windows Administrationsverktyg** > **ODBC-datakällor (32-bit)/(64-bit)** .  En **ODBC Data Source Administrator** öppnas.
+1. Från Windows navigerar du till **Starta** > **Windows Administration Tools** > **ODBC data sources (32-bitars)/(64-bitars)** .  En **Administratörs fönstret för ODBC-datakälla** öppnas.
 
-    ![Datakälla för OBDC](./media/apache-hive-query-odbc-driver-powershell/hive-odbc-driver-dsn-setup.png "konfigurera en DNS med hjälp av ODBC-datakälla")
+    ![OBDC data källans administratör](./media/apache-hive-query-odbc-driver-powershell/hive-odbc-driver-dsn-setup.png "Konfigurera en data källa med hjälp av administratör för ODBC-datakälla")
 
-1. Från den **användar-DSN** fliken **Lägg till** att öppna den **Skapa ny datakälla** fönster.
+1. På fliken **användar-DSN** väljer du **Lägg till** för att öppna fönstret **Skapa ny data källa** .
 
-1. Välj **Microsoft Hive ODBC-drivrutin**, och välj sedan **Slutför** att öppna den **Microsoft Hive ODBC-drivrutinen DSN för** fönster.
+1. Välj **Microsoft HIVE ODBC-drivrutin**och välj sedan **Slutför** för att öppna **installations fönstret för Microsoft Hive ODBC-drivrutin** .
 
 1. Ange eller välj följande värden:
 
    | Egenskap | Beskrivning |
    | --- | --- |
    |  Namn på datakälla |Namnge din datakälla |
-   |  Värdar |Ange `CLUSTERNAME.azurehdinsight.net`. Till exempel, `myHDICluster.azurehdinsight.net` |
+   |  Värd (er) |Ange `CLUSTERNAME.azurehdinsight.net`. Till exempel, `myHDICluster.azurehdinsight.net` |
    |  Port |Använd **443**.|
    |  Databas |Använd **standard**. |
-   |  Mekanism |Välj **Windows Azure HDInsight-tjänsten** |
-   |  Användarnamn |Ange HDInsight-kluster HTTP användarens användarnamn. Standardanvändarnamnet är **admin**. |
-   |  Lösenord |Ange användarlösenord för HDInsight-kluster. Markera kryssrutan **spara lösenord (krypterade)** .|
+   |  Metod |Välj **Windows Azure HDInsight-tjänst** |
+   |  Användarnamn |Ange HDInsight-kluster HTTP användar namn användar namn. Standardanvändarnamnet är **admin**. |
+   |  lösenordsinställning |Ange användar lösen ord för HDInsight-kluster. Markera kryss rutan **Spara lösen ord (krypterad)** .|
 
-1. Valfritt: Välj **avancerade alternativ**.  
+1. Valfritt: Välj **Avancerade alternativ**.  
 
    | Parameter | Beskrivning |
    | --- | --- |
-   |  Använda Internfråga |När det är valt försöker ODBC-drivrutinen inte att konvertera TSQL till HiveQL. Använd det här alternativet endast om du är 100% se till att du skickar ren HiveQL-instruktioner. När du ansluter till SQL Server eller Azure SQL Database, bör du lämna det avmarkerat. |
-   |  Rader hämtade per block |När du hämtar ett stort antal poster, kan justera den här parametern krävas att säkerställa optimala prestanda. |
-   |  Standardlängden för sträng-kolumnen, binär Kolumnlängd, Decimal kolumnskalan |Datatypen längder och Precision-datorerna kan påverka hur data returneras. De kan orsaka felaktig information som ska returneras på grund av förlust av precision och trunkering. |
+   |  Använd intern fråga |När den är markerad försöker inte ODBC-drivrutinen konvertera TSQL till HiveQL. Använd bara det här alternativet om du är 100% säker på att du skickar in ren HiveQL-instruktioner. När du ansluter till SQL Server eller Azure SQL Database bör du lämna det omarkerat. |
+   |  Hämtade rader per block |När du hämtar ett stort antal poster kan du behöva justera den här parametern för att säkerställa optimala prestanda. |
+   |  Standard sträng kolumn längd, binär kolumn längd, decimal kolumn skala |Data typens längd och precision kan påverka hur data returneras. De gör att felaktig information returneras på grund av förlust och trunkering. |
 
-    ![Avancerade alternativ](./media/apache-hive-query-odbc-driver-powershell/odbc-data-source-advanced-options.png "avancerade DSN konfigurationsalternativ")
+    ![Avancerade konfigurations alternativ för DSN](./media/apache-hive-query-odbc-driver-powershell/odbc-data-source-advanced-options.png "Avancerade konfigurations alternativ för DSN")
 
-1. Välj **testa** att testa datakällan. När datakällan är korrekt konfigurerad, visar testresultatet **lyckades**.  
+1. Testa data källan genom att välja **test** . När data källan har kon figurer ATS korrekt visar test resultatet **lyckades**.  
 
-1. Välj **OK** att stänga testfönstret.  
+1. Stäng test fönstret genom att klicka på **OK** .  
 
-1. Välj **OK** att Stäng den **Microsoft Hive ODBC-drivrutinen DSN för** fönster.  
+1. Välj **OK** för att stänga **installations fönstret för Microsoft Hive ODBC-drivrutin** .  
 
-1. Välj **OK** att Stäng den **ODBC Data Source Administrator** fönster.  
+1. Välj **OK** för att stänga fönstret **ODBC-Administrera data källa** .  
 
 ## <a name="query-data-with-powershell"></a>Fråga efter data med PowerShell
 
-Följande PowerShell-skript är en funktion som ODBC att fråga en Hive-kluster.
+Följande PowerShell-skript är en funktion som ODBC kan köra för att fråga ett Hive-kluster.
 
 ```powershell
 function Get-ODBC-Data {
@@ -109,7 +109,7 @@ function Get-ODBC-Data {
 }
 ```
 
-Följande kodavsnitt använder funktionen ovan för att köra en fråga på klustret för interaktiv fråga som du skapade i början av självstudien. Ersätt `DATASOURCENAME` med den **datakällnamn** som du angav på det **Microsoft Hive ODBC-drivrutinen DSN för** skärmen. När du tillfrågas om autentiseringsuppgifter, anger du användarnamnet och lösenordet som du angav under **användarnamnet för klusterinloggning** och **inloggningslösenordet för klustret** när du skapade klustret.
+Följande kodfragment använder funktionen ovan för att köra en fråga på det interaktiva Query-kluster som du skapade i början av självstudien. Ersätt `DATASOURCENAME` med namnet på den **data källa** som du har angett på skärmen **installations program för Microsoft Hive ODBC-drivrutin** . När du uppmanas att ange autentiseringsuppgifter anger du det användar namn och lösen ord som du angav under **användar namn för kluster inloggning** och **lösen ord för kluster inloggning** när du skapade klustret.
 
 ```powershell
 
@@ -122,11 +122,11 @@ Get-ODBC-Data -query $query -dsn $dsn
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Ta bort resursgruppen, HDInsight-klustret och storage-konto när de inte längre behövs. Välj den resursgrupp där klustret har skapats för att göra det, och klicka på **ta bort**.
+Ta bort resurs gruppen, HDInsight-klustret och lagrings kontot när de inte längre behövs. Det gör du genom att markera resurs gruppen där klustret skapades och klicka på **ta bort**.
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudien beskrivs hur du använder Microsoft Hive ODBC-drivrutinen och PowerShell för att hämta data från ditt interaktiv fråga i Azure HDInsight-kluster.
+I den här självstudien har du lärt dig hur du använder Microsoft Hive ODBC-drivrutin och PowerShell för att hämta data från ditt Azure HDInsight-kluster för interaktiva frågor.
 
 > [!div class="nextstepaction"]
 > [Ansluta Excel till Apache Hive med hjälp av ODBC](../hadoop/apache-hadoop-connect-excel-hive-odbc-driver.md)

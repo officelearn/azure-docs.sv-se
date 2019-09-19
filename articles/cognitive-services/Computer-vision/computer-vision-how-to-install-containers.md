@@ -11,25 +11,27 @@ ms.topic: conceptual
 ms.date: 09/18/2019
 ms.author: dapine
 ms.custom: seodec18
-ms.openlocfilehash: d3a36615109383074833e9af634eb611fb863339
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: 97a9b6c60539191850e8205eed4387565b79f6db
+ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71103657"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71129874"
 ---
-# <a name="install-and-run-recognize-text-containers"></a>Installera och Kör Identifiera text behållare
+# <a name="install-and-run-computer-vision-containers"></a>Installera och kör Visuellt innehåll behållare
 
-Identifiera Text-delen av visuellt innehåll är också tillgängligt som en Docker-behållare. Det kan du identifiera och extrahera utskrivna text från bilder för olika objekt med olika ytor och bakgrunder, till exempel kvitton och affischer visitkort.
+Med behållare kan du köra Visuellt innehåll-API: er i din egen miljö. Behållare är fantastiska för särskilda säkerhets-och data styrnings krav. I den här artikeln får du lära dig hur du hämtar, installerar och kör en Visuellt innehåll-behållare.
+
+Det finns två Docker-behållare som är tillgängliga för Visuellt innehåll: *Identifiera text* och *läsa*. Med *identifiera text* containern kan du identifiera och extrahera *utskriven text* från bilder av olika objekt med olika ytor och bakgrunder, till exempel kvitton, affischer och visitkort. *Läs* behållaren, men identifierar också *handskriven text* i bilder och ger stöd för PDF/TIFF/flera sidor. Mer information finns i [Read API](concept-recognizing-text.md#read-api) -dokumentationen.
 
 > [!IMPORTANT]
-> Behållaren identifiera Text fungerar för närvarande bara på engelska.
+> Identifiera text containern har ersatts av Läs containern. Läs containern är en supermängd av den föregående Identifiera text behållaren, och konsumenter bör migreras till med hjälp av Read-behållaren. Båda behållare fungerar bara med engelska.
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Du måste uppfylla följande krav innan du använder Identifiera text behållare:
+Du måste uppfylla följande krav innan du använder behållarna:
 
 |Obligatorisk|Syfte|
 |--|--|
@@ -43,6 +45,8 @@ Du måste uppfylla följande krav innan du använder Identifiera text behållare
 
 [!INCLUDE [Request access to public preview](../../../includes/cognitive-services-containers-request-access.md)]
 
+[!INCLUDE [Gathering required parameters](../containers/includes/container-gathering-required-parameters.md)]
+
 ### <a name="the-host-computer"></a>Värddatorn
 
 [!INCLUDE [Host Computer requirements](../../../includes/cognitive-services-containers-host-computer.md)]
@@ -53,20 +57,43 @@ Du måste uppfylla följande krav innan du använder Identifiera text behållare
 
 ## <a name="get-the-container-image-with-docker-pull"></a>Hämta behållar avbildningen med`docker pull`
 
-Behållar avbildningar för Identifiera text är tillgängliga. 
+# <a name="readtabread"></a>[Läsa](#tab/read)
 
-| Container | Lagringsplats |
+Behållar avbildningar för läsning är tillgängliga.
+
+| Container | Container Registry/namn på lagrings plats/avbildning |
 |-----------|------------|
-|Identifiera text | `containerpreview.azurecr.io/microsoft/cognitive-services-recognize-text:latest` |
+| Läsa | `containerpreview.azurecr.io/microsoft/cognitive-services-read:latest` |
+
+# <a name="recognize-texttabrecognize-text"></a>[Identifiera Text](#tab/recognize-text)
+
+Behållar avbildningar för Identifiera text är tillgängliga.
+
+| Container | Container Registry/namn på lagrings plats/avbildning |
+|-----------|------------|
+| Identifiera text | `containerpreview.azurecr.io/microsoft/cognitive-services-recognize-text:latest` |
+
+***
 
 [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) Använd kommandot för att ladda ned en behållar avbildning.
 
+# <a name="readtabread"></a>[Läsa](#tab/read)
+
+### <a name="docker-pull-for-the-read-container"></a>Docker pull för Läs behållaren
+
+```bash
+docker pull containerpreview.azurecr.io/microsoft/cognitive-services-read:latest
+```
+
+# <a name="recognize-texttabrecognize-text"></a>[Identifiera Text](#tab/recognize-text)
 
 ### <a name="docker-pull-for-the-recognize-text-container"></a>Docker-hämtning för Identifiera text container
 
-```
+```bash
 docker pull containerpreview.azurecr.io/microsoft/cognitive-services-recognize-text:latest
 ```
+
+***
 
 [!INCLUDE [Tip for using docker list](../../../includes/cognitive-services-containers-docker-list-tip.md)]
 
@@ -83,8 +110,27 @@ Använd kommandot [Docker Run](https://docs.docker.com/engine/reference/commandl
 
 [Exempel](computer-vision-resource-container-config.md#example-docker-run-commands) på `docker run` kommandot är tillgängliga.
 
+# <a name="readtabread"></a>[Läsa](#tab/read)
+
 ```bash
-docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \
+docker run --rm -it -p 5000:5000 --memory 16g --cpus 8 \
+containerpreview.azurecr.io/microsoft/cognitive-services-read \
+Eula=accept \
+Billing={ENDPOINT_URI} \
+ApiKey={API_KEY}
+```
+
+Det här kommandot:
+
+* Kör Läs containern från behållar avbildningen.
+* Allokerar 8 processor kärnor och 16 GB minne.
+* Exponerar TCP-port 5000 och allokerar en pseudo-TTY för behållaren.
+* Tar automatiskt bort behållaren när den har avslut ATS. Behållar avbildningen är fortfarande tillgänglig på värddatorn.
+
+# <a name="recognize-texttabrecognize-text"></a>[Identifiera Text](#tab/recognize-text)
+
+```bash
+docker run --rm -it -p 5000:5000 --memory 16g --cpus 8 \
 containerpreview.azurecr.io/microsoft/cognitive-services-recognize-text \
 Eula=accept \
 Billing={ENDPOINT_URI} \
@@ -93,10 +139,12 @@ ApiKey={API_KEY}
 
 Det här kommandot:
 
-* Kör en identifierande behållare från behållar avbildningen
-* Allokerar en processor kärna och 4 GB minne
-* Visar TCP-port 5000 och allokerar en pseudo-TTY för behållaren
-* Tar automatiskt bort behållaren när den har avslut ATS. Behållar avbildningen är fortfarande tillgänglig på värddatorn. 
+* Kör Identifiera text containern från behållar avbildningen.
+* Allokerar 8 processor kärnor och 16 GB minne.
+* Exponerar TCP-port 5000 och allokerar en pseudo-TTY för behållaren.
+* Tar automatiskt bort behållaren när den har avslut ATS. Behållar avbildningen är fortfarande tillgänglig på värddatorn.
+
+***
 
 Fler [exempel](./computer-vision-resource-container-config.md#example-docker-run-commands) på `docker run` kommandot är tillgängliga. 
 
@@ -105,12 +153,179 @@ Fler [exempel](./computer-vision-resource-container-config.md#example-docker-run
 
 [!INCLUDE [Running multiple containers on the same host](../../../includes/cognitive-services-containers-run-multiple-same-host.md)]
 
+<!--  ## Validate container is running -->
+
+[!INCLUDE [Container's API documentation](../../../includes/cognitive-services-containers-api-documentation.md)]
 
 ## <a name="query-the-containers-prediction-endpoint"></a>Fråga behållarens förutsägelse slut punkt
 
 Behållaren innehåller REST-baserade slut punkts-API: er för frågor förutsägelse. 
 
 Använd värden, `http://localhost:5000`för behållar-API: er.
+
+# <a name="readtabread"></a>[Läsa](#tab/read)
+
+### <a name="asynchronous-read"></a>Asynkron läsning
+
+Du kan använda `POST /vision/v2.0/read/core/asyncBatchAnalyze` -och `GET /vision/v2.0/read/operations/{operationId}` -åtgärderna i samförstånd för att läsa en avbildning asynkront, på liknande sätt som visuellt innehåll tjänsten använder motsvarande rest-åtgärder. Metoden asynkron post returnerar en `operationId` som används som identifierare till HTTP GET-begäran.
+
+I Swagger-användargränssnittet väljer du alternativet `asyncBatchAnalyze` för att expandera det i webbläsaren. Välj sedan **testa den** > **Välj fil**. I det här exemplet ska vi använda följande bild:
+
+![tabbar eller blank steg](media/tabs-vs-spaces.png)
+
+När det asynkrona inlägget har körts returneras en status kod för **HTTP 202** . Som en del av svaret finns ett `operation-location` huvud som innehåller slut punkten för resultatet.
+
+```http
+ content-length: 0
+ date: Fri, 13 Sep 2019 16:23:01 GMT
+ operation-location: http://localhost:5000/vision/v2.0/read/operations/a527d445-8a74-4482-8cb3-c98a65ec7ef9
+ server: Kestrel
+```
+
+`operation-location` Är den fullständigt kvalificerade URL: en och nås via en HTTP Get. Här är JSON-svaret från att köra `operation-location` URL: en från föregående bild:
+
+```json
+{
+  "status": "Succeeded",
+  "recognitionResults": [
+    {
+      "page": 1,
+      "clockwiseOrientation": 2.42,
+      "width": 502,
+      "height": 252,
+      "unit": "pixel",
+      "lines": [
+        {
+          "boundingBox": [
+            56,
+            39,
+            317,
+            50,
+            313,
+            134,
+            53,
+            123
+          ],
+          "text": "Tabs VS",
+          "words": [
+            {
+              "boundingBox": [
+                90,
+                43,
+                243,
+                53,
+                243,
+                123,
+                94,
+                125
+              ],
+              "text": "Tabs",
+              "confidence": "Low"
+            },
+            {
+              "boundingBox": [
+                259,
+                55,
+                313,
+                62,
+                313,
+                122,
+                259,
+                123
+              ],
+              "text": "VS"
+            }
+          ]
+        },
+        {
+          "boundingBox": [
+            221,
+            148,
+            417,
+            146,
+            417,
+            206,
+            227,
+            218
+          ],
+          "text": "Spaces",
+          "words": [
+            {
+              "boundingBox": [
+                230,
+                148,
+                416,
+                141,
+                419,
+                211,
+                232,
+                218
+              ],
+              "text": "Spaces"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+```
+
+### <a name="synchronous-read"></a>Synkron läsning
+
+Du kan använda `POST /vision/v2.0/read/core/Analyze` åtgärden för att synkront läsa en avbildning. När bilden har lästs in helt och hållet returnerar API: et ett JSON-svar. Det enda undantaget är om ett fel inträffar. När ett fel inträffar returneras följande JSON:
+
+```json
+{
+    status: "Failed"
+}
+```
+
+Objektet JSON Response har samma objekt diagram som den asynkrona versionen. Om du är en JavaScript-användare och vill ha typ säkerhet kan följande typer användas för att omvandla JSON-svaret som ett `AnalyzeResult` objekt.
+
+```typescript
+export interface AnalyzeResult {
+    status: Status;
+    recognitionResults?: RecognitionResult[] | null;
+}
+
+export enum Status {
+    NotStarted = 0,
+    Running = 1,
+    Failed = 2,
+    Succeeded = 3
+}
+
+export enum Unit {
+    Pixel = 0,
+    Inch = 1
+}
+
+export interface RecognitionResult {
+    page?: number | null;
+    clockwiseOrientation?: number | null;
+    width?: number | null;
+    height?: number | null;
+    unit?: Unit | null;
+    lines?: Line[] | null;
+}
+
+export interface Line {
+    boundingBox?: number[] | null;
+    text: string;
+    words?: Word[] | null;
+}
+
+export interface Word {
+  boundingBox?: number[] | null;
+  text: string;
+  confidence?: string | null;
+}
+```
+
+Ett exempel på användnings fall finns i [sand Box typescript här](https://aka.ms/ts-read-api-types) och välj "kör" för att visualisera den lättanvända användningen.
+
+# <a name="recognize-texttabrecognize-text"></a>[Identifiera Text](#tab/recognize-text)
 
 ### <a name="asynchronous-text-recognition"></a>Asynkron textigenkänning
 
@@ -120,10 +335,7 @@ Du kan använda den `POST /vision/v2.0/recognizeText` och `GET /vision/v2.0/text
 
 Du kan använda den `POST /vision/v2.0/recognizeTextDirect` åtgärden att synkront känna igen utskrivna text i en bild. Eftersom den här åtgärden är synkron, är begär ande texten för den här åtgärden densamma som `POST /vision/v2.0/recognizeText` åtgärden, men svars texten för den här åtgärden är densamma som den som returnerades `GET /vision/v2.0/textOperations/*{id}*` av åtgärden.
 
-<!--  ## Validate container is running -->
-
-[!INCLUDE [Container's API documentation](../../../includes/cognitive-services-containers-api-documentation.md)]
-
+***
 
 ## <a name="stop-the-container"></a>Stoppa behållaren
 
@@ -133,10 +345,9 @@ Du kan använda den `POST /vision/v2.0/recognizeTextDirect` åtgärden att synkr
 
 Om du kör behållaren med en utgående [montering](./computer-vision-resource-container-config.md#mount-settings) och loggning aktive rad genererar behållaren loggfiler som är till hjälp vid fel sökning av problem som inträffar när du startar eller kör behållaren. 
 
-
 ## <a name="billing"></a>Fakturering
 
-Identifiera text behållare skickar fakturerings information till Azure med hjälp av en _identifiera text_ resurs på ditt Azure-konto. 
+Cognitive Services behållare skickar fakturerings information till Azure med motsvarande resurs på ditt Azure-konto.
 
 [!INCLUDE [Container's Billing Settings](../../../includes/cognitive-services-containers-how-to-billing-info.md)]
 
@@ -148,12 +359,12 @@ Mer information om alternativen finns i [konfigurera behållare](./computer-visi
 
 ## <a name="summary"></a>Sammanfattning
 
-I den här artikeln har du lärt dig begrepp och arbets flöde för att ladda ned, installera och köra Identifiera text behållare. Sammanfattningsvis:
+I den här artikeln beskrivs begrepp och arbetsflöde för att ladda ned, installera och visuellt behållare som körs. Sammanfattningsvis:
 
-* Identifiera text tillhandahåller en Linux-behållare för Docker och identifierar text.
-* Behållaravbildningar laddas ned från Microsoft Container Registry (MCR) i Azure.
+* Visuellt innehåll tillhandahåller en Linux-behållare för Docker och kapslar in både Identifiera text och läsa.
+* Behållar avbildningar laddas ned från behållar förhands gransknings registret i Azure.
 * Behållaravbildningar som körs i Docker.
-* Du kan använda antingen REST API eller SDK för att anropa åtgärder i Identifiera text behållare genom att ange behållarens värd-URI.
+* Du kan använda antingen REST API eller SDK för att anropa åtgärder i Identifiera text eller Läs behållare genom att ange behållarens värd-URI.
 * Du måste ange faktureringsinformation när instanser skapades av en behållare.
 
 > [!IMPORTANT]
@@ -162,7 +373,7 @@ I den här artikeln har du lärt dig begrepp och arbets flöde för att ladda ne
 ## <a name="next-steps"></a>Nästa steg
 
 * Granska [konfigurera behållare](computer-vision-resource-container-config.md) för konfigurationsinställningar
-* Granska [visuellt översikt](Home.md) vill veta mer om att känna igen utskrivna och handskriven text  
+* Granska [visuellt översikt](Home.md) vill veta mer om att känna igen utskrivna och handskriven text
 * Referera till den [API för visuellt innehåll](//westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) mer information om de metoder som stöds av behållaren.
 * Referera till [vanliga frågor (och svar FAQ)](FAQ.md) att lösa problem som rör visuellt funktioner.
 * Använd fler [Cognitive Services behållare](../cognitive-services-container-support.md)

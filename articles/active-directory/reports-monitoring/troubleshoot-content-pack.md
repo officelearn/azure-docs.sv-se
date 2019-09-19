@@ -17,12 +17,12 @@ ms.date: 06/07/2019
 ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 54a0a5b5306414eb50a1928ec8a1854f56055681
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 9e50f2b92318ada729ad8e3405af8403f31d7b6e
+ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68987908"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71129289"
 ---
 # <a name="troubleshooting-azure-active-directory-activity-logs-content-pack-errors"></a>Felsöka Azure Active Directory aktivitets loggar fel i innehålls paketet 
 
@@ -47,7 +47,7 @@ Den här artikeln innehåller information om möjliga orsaker och hur du åtgär
 | Orsak | Så här åtgärdar du |
 | ---   | ---        |
 | Uppdaterings fel kan uppstå när autentiseringsuppgifterna för de användare som ansluter till innehålls paketet har återställts men inte uppdaterats i anslutnings inställningarna för innehålls paketet. | I Power BI letar du upp data uppsättningen som motsvarar instrument panelen för Azure AD-aktivitets loggar (**Azure Active Directory aktivitets loggar**), väljer Schemalägg uppdatering och anger sedan dina autentiseringsuppgifter för Azure AD. |
-| En uppdatering kan inte utföras på grund av stora data mängder. | Azure AD-innehålls paketet med Power BI kan för närvarande endast stödja små data uppsättningar (mindre än 500, 00 rader) på grund av vissa begränsningar kring timeout i Power BIs tjänsten. Om du stöter på fel eller om uppdateringen Miss lyckas på grund av timeout-problem kan det bero på att du försöker hämta en stor data uppsättning. Minska tids perioden i frågan och försök igen.|
+| En uppdatering kan inte utföras på grund av stora data mängder. | Azure AD-innehålls paketet med Power BI kan för närvarande endast stödja små data uppsättningar (mindre än 500 000 rader) på grund av vissa begränsningar kring timeout i Power BIs tjänsten. Om du stöter på fel eller om uppdateringen Miss lyckas på grund av timeout-problem kan det bero på att du försöker hämta en stor data uppsättning. Minska tids perioden i frågan och försök igen.|
  
  
 ## <a name="failed-to-update-data-source-credentials"></a>Det gick inte att uppdatera data källans autentiseringsuppgifter 

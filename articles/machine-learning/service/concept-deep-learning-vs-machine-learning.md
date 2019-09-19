@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: lazzeri
 author: FrancescaLazzeri
 ms.date: 08/07/2019
-ms.openlocfilehash: cff31916f837141ae54f3c14dd125be6a92a5008
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: 791566dc65b41bf3124e84544390d7d843e51273
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71035508"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71123146"
 ---
 # <a name="deep-learning-vs-machine-learning"></a>Djup inlärning eller Machine Learning
 
@@ -37,7 +37,7 @@ Den här artikeln hjälper dig att jämföra djup inlärningen jämfört med Mac
 
 - **Artificiell intelligens (AI)** är en teknik som gör det möjligt för datorer att efterlikna mänsklig intelligens. Den innehåller Machine Learning. 
  
-Det är viktigt att förstå förhållandet mellan AI, maskin inlärning och djup inlärning. Machine Learning är ett sätt att få artificiell intelligens. Genom att använda maskin inlärnings-och djup inlärnings tekniker kan du skapa dator system och program som utför uppgifter som ofta är associerade med mänsklig intelligens. De här uppgifterna omfattar visuell uppfattning, tal igenkänning, besluts fattande och språk översättning.
+Det är viktigt att förstå förhållandet mellan AI, maskin inlärning och djup inlärning. Machine Learning är ett sätt att få artificiell intelligens. Genom att använda maskin inlärnings-och djup inlärnings tekniker kan du skapa dator system och program som utför uppgifter som ofta är associerade med mänsklig intelligens. Dessa uppgifter omfattar bild igenkänning, tal igenkänning och språk översättning.
 
 ## <a name="techniques-of-deep-learning-vs-machine-learning"></a>Tekniker för djup inlärning jämfört med Machine Learning 
 
@@ -47,12 +47,12 @@ I följande tabell jämförs de två metoderna i detalj:
 
 | |Alla Machine Learning |Endast djup inlärning|
 |---|---|---|
-|  **Antal data punkter** | Kan använda små data mängder från användare. | Kräver en stor mängd utbildnings data för att göra kortfattade slut satser. |
+|  **Antal data punkter** | Kan använda små mängder data för att göra förutsägelser. | Behöver använda stora mängder tränings data för att göra förutsägelser. |
 |  **Maskin varu beroenden** | Kan arbeta på datorer med låg slut. Det behöver inte vara en stor mängd beräknings kraft. | Är beroende av avancerade datorer. Det finns ett stort antal åtgärder för mat ris multiplikation. En GPU kan effektivt optimera dessa åtgärder. |
 |  **Funktionalisering process** | Kräver att funktioner identifieras korrekt och skapas av användare. | Lär dig mer om hög nivå funktioner från data och skapar nya funktioner själva. |
-|  **Inlärnings metod** | Delar upp uppgifter i små delar och kombinerar sedan mottagna resultat till en slutsats. | Löser problemet från slut punkt till slut punkt. |
-|  **Körnings tid** | Tar relativt lite tid att träna, från några sekunder till några timmar. | Tar en ovanligt lång tid att träna eftersom en djup inlärnings algoritm omfattar många parametrar. |
-|  **Resultat** | Utdata är vanligt vis ett numeriskt värde, till exempel en poäng eller en klassificering. | Utdata kan vara text, en poäng, ett element eller ett ljud. |
+|  **Inlärnings metod** | Delar upp inlärnings processen i mindre steg. Den kombinerar sedan resultaten från varje steg till ett resultat. | Går igenom inlärnings processen genom att lösa problemet från slut punkt till slut punkt. |
+|  **Körnings tid** | Tar relativt lite tid att träna, från några sekunder till några timmar. | Det tar vanligt vis lång tid att träna eftersom en djup inlärnings algoritm omfattar många lager. |
+|  **Resultat** | Utdata är vanligt vis ett numeriskt värde, till exempel en poäng eller en klassificering. | Utdata kan ha flera format, t. ex. en text, en poäng eller ett ljud. |
 
 ## <a name="deep-learning-use-cases"></a>Användnings fall för djup inlärning
 
@@ -62,7 +62,7 @@ Några av de vanligaste programmen för djup inlärning beskrivs i följande sty
 
 ### <a name="named-entity-recognition"></a>Identifiering av namngivna enheter
 
-En användning av djup inlärnings nätverk heter-enhets igenkänning, vilket är ett sätt att extrahera vissa typer av information från ostrukturerade och omärkta data. Den här informationen kan vara personer, platser, företag eller saker. Informationen kan sedan lagras i ett strukturerat schema för att bygga en lista över adresser eller fungera som ett riktmärke för en identitets validerings motor.
+Identifiering av namngivna enheter är en djup inlärnings metod som tar en del av texten som inmatad och omvandlar den till en fördefinierad klass. Den nya informationen kan vara ett post nummer, ett datum, ett produkt-ID. Informationen kan sedan lagras i ett strukturerat schema för att bygga en lista över adresser eller fungera som ett riktmärke för en identitets validerings motor.
 
 ### <a name="object-detection"></a>Objektidentifiering
 
@@ -72,17 +72,21 @@ Objekt identifiering används redan i branscher som spel, detalj handel, turism 
 
 ### <a name="image-caption-generation"></a>Generering av bild text
 
-Som bild igenkänning, i bild texter, för en bild måste systemet generera en beskrivning som beskriver innehållet i bilden. När du kan identifiera och märka objekt i fotografier är nästa steg att omvandla dessa etiketter till beskrivande, sammanhängande meningar. I allmänhet använder avbildnings under texter mycket stora (convolutional neurala-nätverk för att identifiera objekt i fotografierna och sedan använda ett omaktuellt neurala-nätverk (RNN) för att omvandla etiketterna till sammanhängande meningar.
+Som bild igenkänning, i bild texter, för en bild måste systemet generera en beskrivning som beskriver innehållet i bilden. När du kan identifiera och märka objekt i fotografier är nästa steg att omvandla dessa etiketter till beskrivande meningar. 
+
+Normalt används (convolutional neurala-nätverk för att identifiera objekt i en avbildning och sedan använda ett återkommande neurala-nätverk för att omvandla etiketterna till konsekventa meningar.
 
 ### <a name="machine-translation"></a>Maskinöversättning
 
-Maskin översättningen tar ord, fraser eller meningar från ett språk och automatiskt översätter dem till ett annat språk. Automatisk maskin översättning har varit runt under en längre tid, men djup inlärningen uppnår imponerande resultat i två olika områden: automatisk översättning av text (och översättning av tal till text) och automatisk översättning av bilder. 
+Maskin översättningen tar ord eller meningar från ett språk och översätter automatiskt dem till ett annat språk. Maskin översättning har varit runt under en längre tid, men djup inlärningen uppnår imponerande resultat i två olika områden: automatisk översättning av text (och översättning av tal till text) och automatisk översättning av bilder.
 
-Med rätt data omvandling kan ett djup nätverk förstå text-, ljud-och visuella signaler. Maskin översättning kan användas för att identifiera kodfragment av ljud i större ljudfiler och skriva över det talade ordet eller bilden som text.
+Med rätt data omvandling kan ett neurala-nätverk förstå text-, ljud-och visuella signaler. Maskin översättning kan användas för att identifiera kodfragment av ljud i större ljudfiler och skriva över det talade ordet eller bilden som text.
 
 ### <a name="text-analytics"></a>Textanalys
 
-En viktig uppgift för djup inlärning är e-identifiering. Företag använder text analys som baseras på djup inlärning för att upptäcka insider handel och efterlevnad med myndighets bestämmelser. Riskminimeringsfonder-fonder använder text analys för att öka detalj nivån i enorma dokument databaser för att få insikter om framtida investerings prestanda och marknads sentiment. Användnings fallet för text analys som bygger på djup inlärning kretsar runt dess förmåga att parsa enorma mängder text data och utföra analys-eller avkastnings agg regeringar.
+Text analys som bygger på djup inlärnings metoder innebär analys av stora mängder text data (till exempel medicinska dokument eller utgifts kvitton), igenkänning av mönster och skapande av strukturerad och kortfattad information från IT.
+
+Företag använder djup inlärning för att utföra text analyser för att identifiera insider handel och efterlevnad med myndighets bestämmelser. Ett annat vanligt exempel är försäkrings bedrägerier: text analys har ofta använts för att analysera stora mängder dokument för att identifiera sannolikheten för ett försäkrings anspråk som bedrägerier. 
 
 ## <a name="artificial-neural-networks"></a>Artificiell neurala-nätverk
 
@@ -92,17 +96,17 @@ I följande avsnitt lär du de flesta populära artificiell neurala-nätverkstop
 
 ### <a name="feedforward-neural-network"></a>Feedforward neurala-nätverk
 
-Feedforward neurala Network är den mest grundläggande typen av artificiellt neurala-nätverk. I ett feedforward nätverk överförs information endast i en riktning från indatanivå till output-lagret. Feedforward neurala Networks transformerar inmatningar genom att placera det genom en serie med dolda lager. Varje lager består av en uppsättning neurons och varje lager är fullständigt anslutet till alla neurons i lagret. Det senast fullständigt anslutna lagret (utmatnings lagret) representerar de genererade förutsägelserna.
+Feedforward neurala Network är den mest grundläggande typen av artificiellt neurala-nätverk. I ett feedforward nätverk flyttas informationen endast i en riktning från indatanivå till output-lagret. Feedforward neurala Networks transformerar inmatningar genom att placera det genom en serie med dolda lager. Varje lager består av en uppsättning neurons och varje lager är fullständigt anslutet till alla neurons i lagret. Det senast fullständigt anslutna lagret (utmatnings lagret) representerar de genererade förutsägelserna.
 
 ### <a name="recurrent-neural-network"></a>Aktuellt neurala-nätverk
 
-Befintliga neurala-nätverk är ett mycket vanligt artificiellt neurala nätverk. Dessa nätverk sparar utdata för ett lager och matar tillbaka det till inmatnings lagret för att förutsäga lagrets resultat. Befintliga neurala-nätverk har fantastiska inlärnings möjligheter. De används ofta för komplexa uppgifter, till exempel inlärning av hand skrift och tolkning av språk.
+Befintliga neurala-nätverk är ett mycket vanligt artificiellt neurala nätverk. Dessa nätverk sparar utdata för ett lager och matar tillbaka det till inmatnings lagret för att förutsäga lagrets resultat. Befintliga neurala-nätverk har fantastiska inlärnings möjligheter. De används ofta för komplexa uppgifter som tids serie prognoser, inlärnings hand skrift och tolknings språk.
 
 ### <a name="convolutional-neural-networks"></a>(Convolutional neurala-nätverk
 
 Ett (convolutional neurala-nätverk är ett särskilt effektivt artificiellt neurala-nätverk och det presenterar en unik arkitektur. Lager ordnas i tre dimensioner: bredd, höjd och djup. Neurons i ett lager ansluter inte till alla neurons i nästa skikt, men endast till en liten region i lagrets neurons. Den slutliga utmatningen reduceras till en enda kombination av sannolikhets poäng, ordnat längs djup dimensionen. 
 
-(Convolutional neurala-nätverk har använts i områden som bild igenkänning och klassificering.
+(Convolutional neurala-nätverk har använts i områden som video igenkänning, bild igenkänning och rekommenderade system.
 
 ## <a name="next-steps"></a>Nästa steg
 

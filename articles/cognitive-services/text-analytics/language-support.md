@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 06/18/2019
 ms.author: aahi
-ms.openlocfilehash: efac8755be8435ae7929fdcb2ecedb4959c363b9
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: 953699793d81485e3828b9fb46de8523d2b7674e
+ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71097143"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71130005"
 ---
 # <a name="language-and-region-support-for-the-text-analytics-api"></a>Språk-och region stöd för API för textanalys
 
@@ -49,7 +49,7 @@ Språk stöd är inlednings vis insamlat i för hands version, som är i allmän
 | Arabiska      | `ar`          |           |             | ✔\*                     | |
 | Tjeckiska       | `cs`          |           |             | ✔\*                     | |
 | Kinesiska – Förenklad | `zh-hans`| ✔\***     |             | ✔         |    |
-| Kinesiska (traditionell) | `zh-hant`| ✔\***     |             | ✔         |    |
+| Kinesiska (traditionell) | `zh-hant`| ✔\***     |             |          |    |
 | Danska      | `da`          | ✔\*     | ✔           | ✔\*            |     |
 | Nederländska       | `nl`          | ✔\*     | ✔          |  ✔\*           |     |
 | Svenska     | `en`          | ✔\***       | ✔           |  ✔\*\*     |      |

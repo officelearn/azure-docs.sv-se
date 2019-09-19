@@ -1,30 +1,31 @@
 ---
 title: Uppgradera HDInsight-kluster till en nyare version – Azure
 description: Läs rikt linjerna för att uppgradera ditt Azure HDInsight-kluster till en nyare version.
-ms.service: hdinsight
 author: omidm1
 ms.author: omidm
 ms.reviewer: jasonh
+ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/04/2017
-ms.openlocfilehash: a62da0d27d21589f7b75a89cc184ce9f456f1fed
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.openlocfilehash: 808e592a01bca2066b7d3d37a5fdfa697d739d4b
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70960711"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71122438"
 ---
 # <a name="upgrade-hdinsight-cluster-to-a-newer-version"></a>Uppgradera HDInsight-kluster till en nyare version
+
 För att kunna dra nytta av de senaste HDInsight-funktionerna rekommenderar vi att HDInsight-kluster uppgraderas till den senaste versionen. Följ rikt linjerna nedan för att uppgradera dina HDInsight-kluster versioner.
 
 > [!NOTE]  
 > Information om vilka versioner av HDInsight som stöds finns i [versioner av HDInsight-komponenter](hdinsight-component-versioning.md#supported-hdinsight-versions).
 
 ## <a name="upgrade-tasks"></a>Uppgraderings uppgifter
-Arbets flödet för att uppgradera HDInsight-kluster är följande.
 
-![Uppgradera arbets flödes diagram](./media/hdinsight-upgrade-cluster/upgrade-workflow-diagram.png)
+Arbets flödet för att uppgradera HDInsight-kluster är följande.
+![Arbets flödes diagram för HDInsight-uppgradering](./media/hdinsight-upgrade-cluster/upgrade-workflow-diagram.png)
 
 1. Läs varje avsnitt av det här dokumentet om du vill veta vilka ändringar som kan krävas när du uppgraderar ditt HDInsight-kluster.
 2. Skapa ett kluster som test/kvalitets säkrings miljö. Mer information om hur du skapar ett kluster finns i [Lär dig hur du skapar Linux-baserade HDInsight-kluster](hdinsight-hadoop-provision-linux-clusters.md)
@@ -40,7 +41,7 @@ När du har kontrollerat att allt fungerar som förväntat schemalägger du stil
 5.  Starta jobb/Fortsätt bearbeta med det nya klustret.
 
 ## <a name="next-steps"></a>Nästa steg
+
 * [Lär dig hur du skapar Linux-baserade HDInsight-kluster](hdinsight-hadoop-provision-linux-clusters.md)
 * [Ansluta till HDInsight med hjälp av SSH](hdinsight-hadoop-linux-use-ssh-unix.md)
 * [Hantera ett Linux-baserat kluster med Apache Ambari](hdinsight-hadoop-manage-ambari.md)
-

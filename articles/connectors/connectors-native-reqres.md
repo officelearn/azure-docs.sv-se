@@ -1,6 +1,6 @@
 ---
-title: Svara på HTTP-begäranden – Azure Logic Apps
-description: Svara på händelser i real tid via HTTP genom att använda Azure Logic Apps
+title: Ta emot och svara på HTTPS-anrop – Azure Logic Apps
+description: Hantera HTTPS-begäranden och händelser i real tid med hjälp av Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -12,20 +12,22 @@ ms.assetid: 566924a4-0988-4d86-9ecd-ad22507858c0
 ms.topic: article
 ms.date: 09/06/2019
 tags: connectors
-ms.openlocfilehash: 07f143b261d0cff9eba0d4b1803753446c311818
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: 668e815f1dc1ead0ad38264bdc71fc3c315b751c
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70914349"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71122720"
 ---
-# <a name="respond-to-http-requests-by-using-azure-logic-apps"></a>Svara på HTTP-begäranden med hjälp av Azure Logic Apps
+# <a name="receive-and-respond-to-incoming-https-calls-by-using-azure-logic-apps"></a>Ta emot och svara på inkommande HTTPS-anrop genom att använda Azure Logic Apps
 
-Med [Azure Logic Apps](../logic-apps/logic-apps-overview.md) och den inbyggda åtgärden begär ande utlösare eller svar kan du skapa automatiserade uppgifter och arbets flöden som tar emot och svarar i real tid på http-begäranden. Du kan till exempel ha din Logic-app:
+Med [Azure Logic Apps](../logic-apps/logic-apps-overview.md) och den inbyggda begär ande utlösare eller svars åtgärd kan du skapa automatiserade uppgifter och arbets flöden som tar emot och svarar på inkommande HTTPS-begäranden. Du kan till exempel ha din Logic-app:
 
-* Svara på en HTTP-begäran om data i en lokal databas.
+* Ta emot och svara på en HTTPS-begäran om data i en lokal databas.
 * Utlös ett arbets flöde när en extern webhook-händelse inträffar.
-* Anropa en Logic-app inifrån en annan Logic-app.
+* Ta emot och svara på ett HTTPS-anrop från en annan Logic app.
+
+Utlösaren för begär Anden stöder *endast* https. Använd den inbyggda [http-utlösaren eller åtgärden](../connectors/connectors-native-http.md)om du vill göra utgående http-eller https-anrop i stället.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -35,15 +37,15 @@ Med [Azure Logic Apps](../logic-apps/logic-apps-overview.md) och den inbyggda å
 
 <a name="add-request"></a>
 
-## <a name="add-a-request-trigger"></a>Lägg till en begär ande utlösare
+## <a name="add-request-trigger"></a>Lägg till begär ande utlösare
 
-Den här inbyggda utlösaren skapar en manuellt anropad slut punkt som kan ta emot en inkommande HTTP-begäran. När den här händelsen inträffar utlöses utlösaren och kör Logic-appen. Mer information om utlösaren för den underliggande JSON-definitionen och hur du anropar den här utlösaren finns i [begäran om utlösare](../logic-apps/logic-apps-workflow-actions-triggers.md#request-trigger) och [anrop, utlösare eller kapslade arbets flöden med http-slutpunkter i Azure Logic Apps](../logic-apps/logic-apps-http-endpoint.md)
+Den här inbyggda utlösaren skapar en manuellt anropad HTTPS-slutpunkt som *bara* får ta emot inkommande HTTPS-begäranden. När den här händelsen inträffar utlöses utlösaren och kör Logic-appen. Mer information om utlösarens underliggande JSON-definition och hur du anropar den här utlösaren finns i [begäran om utlösare](../logic-apps/logic-apps-workflow-actions-triggers.md#request-trigger) och [anrop, utlösare eller kapslade arbets flöden med http-slutpunkter i Azure Logic Apps](../logic-apps/logic-apps-http-endpoint.md).
 
 1. Logga in på [Azure Portal](https://portal.azure.com). Skapa en tom logikapp.
 
 1. När Logic App Designer öppnas i sökrutan anger du "http-förfrågan" som filter. I listan utlösare väljer du alternativet **när en HTTP-begäran tas emot** , vilket är det första steget i ditt Logic app-arbetsflöde.
 
-   ![Välj utlösare för HTTP-begäranden](./media/connectors-native-reqres/select-request-trigger.png)
+   ![Välj begär utlösare](./media/connectors-native-reqres/select-request-trigger.png)
 
    Utlösaren för begäran visar följande egenskaper:
 
@@ -52,10 +54,10 @@ Den här inbyggda utlösaren skapar en manuellt anropad slut punkt som kan ta em
    | Egenskapsnamn | JSON-egenskaps namn | Obligatorisk | Beskrivning |
    |---------------|--------------------|----------|-------------|
    | **HTTP POST-URL** | alternativet | Ja | Slut punkts-URL: en som genereras efter att du har sparat Logic-appen och som används för att anropa din Logic app |
-   | **Begär ande text JSON-schema** | `schema` | Nej | JSON-schemat som beskriver egenskaperna och värdena i bröd texten för inkommande HTTP-begäran |
+   | **Begär ande text JSON-schema** | `schema` | Nej | JSON-schemat som beskriver egenskaperna och värdena i den inkommande begär ande texten |
    |||||
 
-1. I rutan **begär text-JSON-schema** kan du ange ett JSON-schema som beskriver texten i http-begäran i inkommande begäran, till exempel:
+1. I rutan **begär text-JSON-schema** kan du ange ett JSON-schema som beskriver bröd texten i den inkommande begäran, till exempel:
 
    ![Exempel på JSON-schema](./media/connectors-native-reqres/provide-json-schema.png)
 
@@ -190,7 +192,7 @@ Här är mer information om utdata från begär ande utlösare:
 
 ## <a name="add-a-response-action"></a>Lägg till en svars åtgärd
 
-Du kan använda svars åtgärden för att svara med en nytto Last (data) till en inkommande HTTP-begäran, men endast i en Logic-app som utlöses av en HTTP-begäran. Du kan lägga till svars åtgärden när som helst i arbets flödet. Mer information om den underliggande JSON-definitionen för den här utlösaren finns i [Åtgärds typen svar](../logic-apps/logic-apps-workflow-actions-triggers.md#response-action).
+Du kan använda svars åtgärden för att svara med en nytto Last (data) till en inkommande HTTPS-begäran, men endast i en Logic-app som utlöses av en HTTPS-begäran. Du kan lägga till svars åtgärden när som helst i arbets flödet. Mer information om den underliggande JSON-definitionen för den här utlösaren finns i [Åtgärds typen svar](../logic-apps/logic-apps-workflow-actions-triggers.md#response-action).
 
 Din Logi Kap par ser till att inkommande begäran endast öppnas i en minut. Förutsatt att ditt Logic app-arbetsflöde innehåller en svars åtgärd, om Logic app inte returnerar ett svar efter den här tiden, returnerar din Logic app en `504 GATEWAY TIMEOUT` till anroparen. Om din Logic app inte innehåller någon svars åtgärd returnerar din Logi Kap app omedelbart ett `202 ACCEPTED` svar till anroparen.
 
@@ -224,7 +226,7 @@ Din Logi Kap par ser till att inkommande begäran endast öppnas i en minut. Fö
 
    | Egenskapsnamn | JSON-egenskaps namn | Obligatorisk | Beskrivning |
    |---------------|--------------------|----------|-------------|
-   | **Statuskod** | `statusCode` | Ja | Den HTTP-statuskod som ska returneras i svaret |
+   | **Statuskod** | `statusCode` | Ja | Status koden som ska returneras i svaret |
    | **Headers** | `headers` | Nej | Ett JSON-objekt som beskriver en eller flera huvuden som ska inkluderas i svaret |
    | **Brödtext** | `body` | Nej | Svars texten |
    |||||

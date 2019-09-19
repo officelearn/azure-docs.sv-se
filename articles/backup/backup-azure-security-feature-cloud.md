@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: dacurwin
-ms.openlocfilehash: 4fb88cbed4e73a7cea2b0ccf01b1429a3ff321f3
-ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
+ms.openlocfilehash: b882b8ee08c38b6313558916ab46f80ce9dd5130
+ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71018186"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71129338"
 ---
 # <a name="security-features-to-help-protect-cloud-workloads-that-use-azure-backup"></a>Säkerhetsfunktioner som hjälper dig att skydda moln arbets belastningar som använder Azure Backup
 
@@ -122,9 +122,9 @@ Undelete följt av Resume-åtgärden skyddar resursen igen. Återuppta åtgärd 
 
 Det går inte att ta bort Recovery Services valv om det finns säkerhets kopierings objekt i läget Soft-Deleted i valvet. De mjuka borttagna objekten tas bort permanent efter 14 dagars borttagnings åtgärd. Du kan bara ta bort valvet när alla mjuka borttagna objekt har rensats.  
 
-#### <a name="how-can-i-delete-the-data-earlier-than-the-14-days-soft-delete-period-after-deletion"></a>Hur kan jag ta bort data som är tidigare än den 14: e dagars mjuk borttagnings perioden efter borttagningen?
+#### <a name="can-i-delete-the-data-earlier-than-the-14-days-soft-delete-period-after-deletion"></a>Kan jag ta bort data som är tidigare än de 14 dagarna mjuk borttagnings perioden efter borttagningen?
 
-Det finns inget sätt att rensa data innan 14 dagar efter borttagningen. Kontakta Microsoft-supporten om det är en blockerings-eller kompatibilitetsproblem.
+Nej. Du kan inte framtvinga borttagning av borttagna objekt, de tas bort automatiskt efter 14 dagar. Den här säkerhetsfunktionen är aktive rad för att skydda säkerhetskopierade data från oavsiktliga eller skadliga borttagningar.  Du bör vänta i 14 dagar innan du utför någon annan åtgärd på den virtuella datorn.  Objekt som inte kan tas bort debiteras inte.  Kontakta Microsoft-supporten om du behöver skydda de virtuella datorerna som är markerade för mjuk borttagning inom 14 dagar till ett nytt valv.
 
 #### <a name="can-soft-delete-operations-be-performed-in-powershell-or-cli"></a>Kan mjuka borttagnings åtgärder utföras i PowerShell eller CLI?
 

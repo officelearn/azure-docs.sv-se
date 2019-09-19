@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlrab
 ms.date: 05/07/2019
-ms.openlocfilehash: cacd67e26b13df8ef456ac8f1391e4396f5bdd96
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 0344fc834cb1ef29c91bc52239d1df2706d1ca81
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69873883"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71101679"
 ---
 # <a name="quickstart-create-an-azure-sql-database-managed-instance"></a>Snabbstart: Skapa en hanterad Azure SQL Database-instans
 
@@ -60,7 +60,7 @@ I följande steg visas hur du skapar en hanterad instans.
 
    ![Formulär för hanterad instans](./media/sql-database-managed-instance-get-started/managed-instance-create-form.png)
 
-5. Om du vill använda den hanterade instansen som en sekundär redundansgrupp för instansen väljer du utcheckningen och anger den hanterade DnsAzurePartner-instansen. Den här funktionen är i för hands version och visas inte i följande skärm bild.
+5. Om du vill använda den hanterade instansen som en sekundär redundansgrupp för instansen väljer du utcheckningen och anger den hanterade DnsAzurePartner-instansen. 
 6. Välj **pris nivå** för att ändra storlek på beräknings-och lagrings resurser och granska alternativ för pris nivå. Standardvärdet är prisnivån Generell användning med 32 GB minne och 16 virtuella kärnor.
 7. Använd skjutreglagen eller textrutorna för att ange mängden lagringsutrymme och antalet virtuella kärnor.
 8. När du är klar väljer du **tillämpa** för att spara ditt val. 
@@ -116,5 +116,5 @@ När distributionen har slutförts granskar du de resurser som har skapats och h
   - En snabb start som visar hur du ansluter till en hanterad instans från en lokal klient dator med hjälp av en punkt-till-plats-anslutning finns i [Konfigurera en punkt-till-plats](sql-database-managed-instance-configure-p2s.md)-anslutning.
 - Så här återställer du en befintlig SQL Server databas från en lokal plats till en hanterad instans: 
     - Använd [Azure Database migration service (DMS) för migrering](../dms/tutorial-sql-server-to-managed-instance.md) för att återställa från en databas säkerhets kopia. 
-    - Använd [kommandot T-SQL](sql-database-managed-instance-get-started-restore.md) Restore för att återställa från en databas säkerhets kopia.
+    - Använd [kommandot T-SQL REstore](sql-database-managed-instance-get-started-restore.md) för att återställa från en databas säkerhets kopia.
 - Avancerad övervakning av hanterade instanser av databas prestanda med inbyggd fel söknings information finns i [övervaka Azure SQL Database med hjälp av Azure SQL-analys](../azure-monitor/insights/azure-sql.md).

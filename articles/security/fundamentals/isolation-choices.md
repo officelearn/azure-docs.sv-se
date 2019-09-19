@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 9ab09c7215827369b3e1fc449af68be307881f51
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: a3e4a598446c0b59cd678e186906abc61d3d727d
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68928017"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71123061"
 ---
 # <a name="isolation-in-the-azure-public-cloud"></a>Isolering i det offentliga Azure-molnet
 ##  <a name="introduction"></a>Introduktion
@@ -105,7 +105,7 @@ Några andra funktioner för Azure Active Directory inkluderar:
 
 - Azure AD tillhandahåller identitet som en tjänst via Federation med hjälp av [Active Directory Federation Services (AD FS)](../../active-directory/hybrid/how-to-connect-fed-azure-adfs.md), synkronisering och replikering med lokala kataloger.
 
-- [Azure Multi-Factor Authentication](../../active-directory/authentication/multi-factor-authentication.md) är den Multi-Factor Authentication-tjänst som kräver att användarna verifierar inloggningar med hjälp av en mobilapp, ett telefonsamtal eller ett textmeddelande. Den kan användas med Azure AD för att skydda lokala resurser med Azure Multi-Factor Authentication-servern och även med anpassade program och kataloger med hjälp av SDK.
+- [Azure Multi-Factor Authentication](../../active-directory/authentication/multi-factor-authentication.md) är Multi-Factor Authentication-tjänsten som kräver att användarna verifierar inloggningar med hjälp av en mobilapp, ett telefonsamtal eller ett textmeddelande. Den kan användas med Azure AD för att skydda lokala resurser med Azure Multi-Factor Authentication-servern och även med anpassade program och kataloger med hjälp av SDK.
 
 - Med [Azure AD Domain Services](https://azure.microsoft.com/services/active-directory-ds/) kan du ansluta virtuella Azure-datorer till en Active Directory domän utan att distribuera domänkontrollanter. Du kan logga in på dessa virtuella datorer med företagets Active Directory autentiseringsuppgifter och administrera domänanslutna virtuella datorer genom att använda grupprincip för att tvinga säkerhets bas linjer på alla virtuella Azure-datorer.
 
@@ -128,19 +128,8 @@ Om en disk enhet som används för lagring drabbas av ett maskin varu haveri rad
 Microsoft Azure tillhandahåller olika molnbaserade data behandlings tjänster som innehåller ett brett urval av beräknings instanser & tjänster som kan skalas upp och ned automatiskt för att möta behoven hos ditt program eller företag. Dessa beräknings instanser och tjänst erbjudande isoleras på flera nivåer för att skydda data utan att offra flexibiliteten i konfigurationen som kunderna kräver.
 
 ### <a name="isolated-virtual-machine-sizes"></a>Isolerade storlekar för virtuella datorer
-Azure Compute ger VM-storlekar som isoleras till en specifik maskinvarutyp och dedikerad till en enda kund.  Dessa VM-storlekar passar bäst för arbetsbelastningar som kräver en hög grad av isolering från andra kunder för arbetsbelastningar som innehåller element som efterlevnad och regelkrav.  Kunder kan också välja att ytterligare dela upp resurserna i de isolerade virtuella datorerna med hjälp av [Azure-stöd för kapslade virtuella datorer](https://azure.microsoft.com/blog/nested-virtualization-in-azure/).
 
-Användning av en isolerad storlek garanterar att den virtuella datorn är den enda som körs på den aktuella Server instansen.  De aktuella isolerade virtuella dator erbjudandena är:
-* Standard_E64is_v3
-* Standard_E64i_v3
-* Standard_M128ms
-* Standard_GS5
-* Standard_G5
-* Standard_DS15_v2
-* Standard_D15_v2
-* Standard_F72s_v2
-
-Du kan lära dig mer om varje isolerad storlek som finns [här](../../virtual-machines/windows/sizes-memory.md).
+[!INCLUDE [virtual-machines-common-isolation](../../../includes/virtual-machines-common-isolation.md)]
 
 ### <a name="hyper-v--root-os-isolation-between-root-vm--guest-vms"></a>Hyper-V & rot operativ system isolering mellan virtuella rot-VM & virtuella gäst datorer
 Azures beräknings plattform baseras på VM-virtualisering, vilket innebär att all kund kod körs i en virtuell Hyper-V-dator. På varje Azure-nod (eller nätverks slut punkt) finns en hypervisor som körs direkt över maskin varan och delar upp en nod i ett variabel antal gäst Virtual Machines (VM).
@@ -352,7 +341,7 @@ Azure-distributionen har flera lager av nätverks isolering. Följande diagram v
 
 - [Nätverks isolerings alternativ för datorer i virtuella Windows Azure-nätverk](https://azure.microsoft.com/blog/network-isolation-options-for-machines-in-windows-azure-virtual-networks/)
 
-Detta omfattar det klassiska frontend-och backend-scenariot där datorer i ett visst Server dels nätverk eller under nätverk bara kan tillåta att vissa klienter eller andra datorer ansluter till en viss slut punkt baserat på en vitlista IP-adress.
+Detta omfattar det klassiska klient-och Server dels scenariot där datorer i ett visst Server dels nätverk eller under nätverk bara kan tillåta att vissa klienter eller andra datorer ansluter till en viss slut punkt baserat på en lista över tillåtna IP-adresser.
 
 - [Beräknings isolering](https://msenterprise.global.ssl.fastly.net/vnext/PDFs/A01_AzureSecurityWhitepaper20160415c.pdf)
 

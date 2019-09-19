@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 09/05/2019
 ms.author: juliako
-ms.openlocfilehash: 8158611678acc23d89bab377c170759c6bf9677f
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.openlocfilehash: ac31a2945e59df3b57000a0ffdcbca8344e44c18
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70962638"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71122296"
 ---
 # <a name="animated-character-detection-preview"></a>Animerat Character-identifiering (förhands granskning)
 
@@ -91,7 +91,11 @@ Om du äger ett Video Indexer betalt konto måste du först ansluta ett Custom V
     1. När du har skrivit det nya namnet klickar du på kryss ikonen bredvid det nya namnet. Detta sparar det nya namnet i modellen i Video Indexer.
     1. När du har redigerat alla namn som du vill ha måste du träna modellen.
 
-        Öppna anpassnings sidan och klicka på fliken **animerade tecken** . För relevant modell klickar du på länken **Redigera i Custom vision** . Du kommer sedan att vidarebefordras till modellens sida i Custom Vision. Klicka på knappen **träna** för att träna din modell. 
+        Öppna anpassnings sidan och klicka på fliken **animerade tecken** . Om du har ett betalt konto kan du klicka på länken **Hantera modeller i Customer vision** (se nedan). Du kommer sedan att vidarebefordras till modellens sida i Custom Vision. Klicka på knappen **träna** för att träna din modell. 
+        
+        ![Anpassning av innehållsmodellen](./media/animated-characters-recognition/content-model-customization-tab.png)
+
+        Om du har ett utvärderings konto visas inte länken **Hantera modeller i Customer vision** . I det här fallet kan du trycka på **träna** direkt på sidan **anpassning av innehålls modell** .
     1. När de har tränats in kommer alla videor som ska indexeras eller indexeras med den modellen att identifiera de intränaa tecknen. 
     Betalda konton som har åtkomst till sitt Custom Vision konto kan se modeller och taggade bilder där. Lär dig mer om [att förbättra din klassificerare i Custom vision](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/getting-started-improving-your-classifier).
 

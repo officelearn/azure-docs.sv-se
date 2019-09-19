@@ -4,7 +4,7 @@ description: Det finns några vanliga problem som du kan stöta på när du dist
 services: cloud-services
 documentationcenter: ''
 author: simonxjx
-manager: felixwu
+manager: dcscontentpm
 editor: ''
 tags: top-support-issue
 ms.assetid: a18ae415-0d1c-4bc4-ab6c-c1ddea02c870
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 06/15/2018
 ms.author: v-six
-ms.openlocfilehash: e8ed7066025dd60f0c157a4ce4caec925fe08792
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: ccb08f853ae0f941dd5f9c0eca8c77f0f650905a
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68945374"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71122755"
 ---
 # <a name="troubleshoot-cloud-service-deployment-problems"></a>Felsöka problem med distribution av moln tjänster
 När du distribuerar ett moln tjänst program paket till Azure kan du hämta information om distributionen från fönstret **Egenskaper** i Azure Portal. Du kan använda informationen i det här fönstret för att felsöka problem med moln tjänsten och du kan ge den här informationen till Azure-supporten när du öppnar en ny supportbegäran.
@@ -39,7 +39,7 @@ Du hittar fönstret **Egenskaper** på följande sätt:
 URL-länken för webbplatsen som visas i portalen omfattar inte porten. Standard porten för webbplatser är 80. Om programmet har kon figurer ATS för att köras i en annan port måste du lägga till rätt port nummer till URL: en när du ansluter till webbplatsen.
 
 1. Klicka på distributionen av moln tjänsten i Azure Portal.
-2. I rutan **Egenskaper** för Azure Portal kontrollerar du portarna för roll instanserna (under ingångs **slut punkter**).
+2. I rutan **Egenskaper** för Azure Portal kontrollerar du portarna för roll instanserna (under **ingångs slut punkter**).
 3. Om porten inte är 80 lägger du till rätt port värde till URL: en när du öppnar programmet. Om du vill ange en port som inte är standard, anger du URL: en följt av ett kolon (:) följt av port numret, utan blank steg.
 
 ## <a name="problem-my-role-instances-recycled-without-me-doing-anything"></a>Problem: Mina roll instanser återvanns utan mig att göra något

@@ -5,15 +5,15 @@ services: expressroute
 author: mialdrid
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 04/24/2019
+ms.date: 09/18/2019
 ms.author: mialdrid
 ms.custom: seodec18
-ms.openlocfilehash: c4290473a7c1edce02d74a4a787c62ccf0d9c052
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 864b834fcc6810b52f067d8e67b4a48febd0f787
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64924314"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71123480"
 ---
 # <a name="expressroute-circuits-and-peering"></a>ExpressRoute-kretsar och peering
 
@@ -22,7 +22,7 @@ ExpressRoute-kretsar ansluter din lokala infrastruktur till Microsoft via en ans
 ![](./media/expressroute-circuit-peerings/expressroute-basic.png)
 
 > [!IMPORTANT]
-> Azures offentliga peering har gjorts inaktuell och är inte tillgänglig för nya ExpressRoute-kretsar. Ny kretsar stöd för Microsoft-peering och privat peering.  
+> Azures offentliga peering är inaktuell och är inte tillgänglig för nya ExpressRoute-kretsar. Nya kretsar stöder Microsoft-peering och privat peering.  
 >
 
 ## <a name="circuits"></a>ExpressRoute-kretsar
@@ -31,7 +31,7 @@ En ExpressRoute-krets representerar en logisk anslutning mellan din lokala infra
 
 ExpressRoute-kretsar mappas inte till alla fysiska enheter. En krets identifieras unikt genom en standard som GUID kallas för en Tjänstnyckel (s-nyckel). Tjänstnyckeln är enda information som utbyts mellan Microsoft anslutningsleverantören och du. S-nyckeln är inte en hemlighet av säkerhetsskäl. Det finns en 1:1-mappning mellan en ExpressRoute-krets och s-nyckel.
 
-Nya ExpressRoute-kretsar kan innehålla två oberoende peerings: Privat peering och Microsofts peering. Medan befintliga ExpressRoute-kretsar kan innehålla tre peerings: Azure offentlig, privat Azure och Microsoft. Varje peering är två oberoende BGP-sessioner, var och en av dem redundant konfigureras för hög tillgänglighet. Det finns en 1: n (1 < = N < = 3) mappning mellan en ExpressRoute-krets och routning domäner. En ExpressRoute-krets kan ha en, två eller alla tre peerings aktiveras per ExpressRoute-krets.
+Nya ExpressRoute-kretsar kan innehålla två oberoende peering: Privat peering och Microsoft-peering. Befintliga ExpressRoute-kretsar kan innehålla tre peer-kopplingar: Azure offentlig, Azure Private och Microsoft. Varje peering är två oberoende BGP-sessioner, var och en av dem redundant konfigureras för hög tillgänglighet. Det finns en 1: n (1 < = N < = 3) mappning mellan en ExpressRoute-krets och routning domäner. En ExpressRoute-krets kan ha en, två eller alla tre peerings aktiveras per ExpressRoute-krets.
 
 Varje krets har en fast bandbredd (50 Mbit/s, 100 Mbit/s, 200 Mbit/s, 500 Mbit/s, 1 Gbit/s, 10 Gbit/s) och mappas till en anslutningsprovider och en peering-plats. Den bandbredd som du väljer delas mellan alla krets peer-kopplingar
 
@@ -41,7 +41,7 @@ Standardkvoter och begränsningar gäller för varje ExpressRoute-krets. Referer
 
 ## <a name="routingdomains"></a>ExpressRoute-peering
 
-En ExpressRoute-krets har flera routning domäner/peerings kopplade till den: Azure offentliga, Azures privata och Microsoft. Varje peering har konfigurerats identiskt på två routrar (i aktiv-aktiv eller dela belastningen konfiguration) för hög tillgänglighet. Azure-tjänster som kategoriseras som *Azures offentliga* och *privat Azure* som motsvarar den IP-adresser scheman.
+En ExpressRoute-krets har flera associerade routningsdomäner/peering-kopplingar: Azure offentlig, Azure Private och Microsoft. Varje peering har konfigurerats identiskt på två routrar (i aktiv-aktiv eller dela belastningen konfiguration) för hög tillgänglighet. Azure-tjänster som kategoriseras som *Azures offentliga* och *privat Azure* som motsvarar den IP-adresser scheman.
 
 ![](./media/expressroute-circuit-peerings/expressroute-peerings.png)
 
@@ -55,14 +55,14 @@ Du kan ansluta flera virtuella nätverk till privat peering domänen. Granska de
 
 [!INCLUDE [expressroute-office365-include](../../includes/expressroute-office365-include.md)]
 
-Anslutning till Microsofts onlinetjänster (Office 365, Dynamics 365 och Azure PaaS-tjänster) sker via Microsoft-peering. Vi Aktivera dubbelriktad anslutning mellan ditt WAN-nätverk och Microsofts molntjänster via Microsoft peering routningsdomän. Du måste ansluta till Microsofts molntjänster endast med offentliga IP-adresser som ägs av dig eller din anslutningsleverantör och du måste följa alla definierade regler. Mer information finns i den [ExpressRoute-krav](expressroute-prerequisites.md) sidan.
+Anslutning till Microsoft onlinetjänster (Office 365 och Azure PaaS Services) sker via Microsoft-peering. Vi Aktivera dubbelriktad anslutning mellan ditt WAN-nätverk och Microsofts molntjänster via Microsoft peering routningsdomän. Du måste ansluta till Microsofts molntjänster endast med offentliga IP-adresser som ägs av dig eller din anslutningsleverantör och du måste följa alla definierade regler. Mer information finns i den [ExpressRoute-krav](expressroute-prerequisites.md) sidan.
 
 Se den [FAQ-sida](expressroute-faqs.md) för mer information om tjänster som stöds, kostnader och konfigurationsinformation. Se den [ExpressRoute-platser](expressroute-locations.md) för information om listan över anslutningsleverantörer erbjuder Microsoft peering support.
 
 ### <a name="publicpeering"></a>Azures offentliga peering (föråldrad för nya kretsar)
 
 > [!Note]
-> Azures offentliga peering har 1 NAT IP-adress som är kopplade till varje BGP-sessionen. Större än 2 NAT IP-adresser, flytta till Microsoft-peering. Microsoft-peering kan du konfigurera din egen NAT-allokeringar, samt använda flödesfilter för selektiv prefix annonser. Mer information finns i [flytta till Microsoft-peering](https://docs.microsoft.com/azure/expressroute/how-to-move-peering).
+> Offentlig Azure-peering har en NAT-IP-adress kopplad till varje BGP-session. För fler än 2 NAT IP-adresser flyttar du till Microsoft-peering. Med Microsoft-peering kan du konfigurera dina egna NAT-allokeringar, samt använda väg filter för annonser av selektivt prefix. Mer information finns i [Flytta till Microsoft-peering](https://docs.microsoft.com/azure/expressroute/how-to-move-peering).
 >
 
 Tjänster som Azure Storage, SQL-databaser och webbplatser erbjuds på offentliga IP-adresser. Privat kan du ansluta till tjänster som finns i den offentliga IP-adresser, inklusive virtuella IP-adresser för cloud services, via offentlig peering routningsdomän. Du kan ansluta den offentliga peering domänen till din DMZ och ansluta till alla Azure-tjänster på deras offentliga IP-adresser från ditt WAN-nätverk utan att behöva ansluta via internet.

@@ -1,135 +1,133 @@
 ---
-title: Vad är Azure Active Directory B2C? | Microsoft Docs
-description: Läs mer om hur du skapar och hanterar identitetsupplevelser, till exempel registrering, inloggning och profilhantering i ditt program med Azure Active Directory B2C.
+title: Vad är Azure Active Directory B2C?
+description: Lär dig hur du kan använda Azure Active Directory B2C för att stödja externa identiteter i dina program, inklusive sociala inloggningar med Facebook, Google och andra identitets leverantörer.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: overview
-ms.date: 02/20/2019
+ms.date: 09/19/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: ca636079439f811a887d16b627473e7d73930799
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 007b23f07afec6163c2158feb3f17ba71e44bdb5
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71065697"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71120561"
 ---
 # <a name="what-is-azure-active-directory-b2c"></a>Vad är Azure Active Directory B2C?
 
-Azure Active Directory B2C (Azure AD B2C) är en identitets hanterings tjänst för verksamhets-till-konsument. Med den här tjänsten kan du anpassa och styra hur användarna på ett säkert sätt samverkar med webb-, skrivbords-, mobil- eller ensidesapplikationer. Med Azure AD B2C kan användarna registrera sig, logga in, återställa lösenord och redigera profiler. Azure AD B2C implementerar en form av OpenID Connect- och OAuth 2.0-protokoll. Det viktigaste i implementeringen av dessa protokoll är de säkerhetstokens och deras anspråk som gör det möjligt att ge säker åtkomst till resurser.
+Azure Active Directory B2C ger affärs-till-kund-identitet som en tjänst. Dina kunder använder sina prioriterade sociala konton, företags-eller lokala konto identiteter för att få åtkomst till enkel inloggning till dina program och API: er.
 
-En *användarresa* är en begäran som anger en princip, vilken styr beteendet för hur användaren och programmet interagerar med Azure AD B2C. Det finns två tillgängliga sökvägar som du kan använda för att definiera användarresor i Azure AD B2C.
+![Informations grafiken av Azure AD B2C identitets leverantörer och underordnade program](media/active-directory-b2c-overview/azureadb2c-overview.png)
 
-Om du är programutvecklare, med eller utan kunskaper om identitet, kan du välja att definiera användarflöden med vanlig identitet med hjälp av Azure-portalen. Om du är identitetsexpert, systemintegrerare, konsult eller ett internt identitetsteam, om du känner till OpenID Connect-flöden samt förstår identitetsproviders och anspråksbaserad autentisering, kan du välja XML-baserade anpassade principer.
+Azure Active Directory B2C (Azure AD B2C) är en CIAM-lösning (Customer Identity Access Management) som stöder miljon tals användare och miljarder autentiseringar per dag. Det tar hand om skalning och säkerhet för Autentiseringstjänsten, övervakning och hantering av hot som denial-of-service, lösen ords spray eller brute force-attacker.
 
-Innan du börjar definiera en användarresa, måste du skapa en Azure AD B2C-klientorganisation samt registrera ditt program och API i klientorganisationen. När du har slutfört åtgärderna kan du börja definiera en användarresa med användarflöden eller anpassade principer. Du kan också välja att lägga till eller ändra identitetsproviders, eller anpassa hur användaren upplever resan.
+## <a name="custom-branded-identity-solution"></a>Lösning för anpassad identitet
 
-## <a name="protocols-and-tokens"></a>Protokoll och token
+Azure AD B2C är en autentiseringsmetod med vita etiketter. Du kan anpassa hela användar upplevelsen med ditt varumärke så att den blandar sömlöst med dina webb-och mobil program.
 
-Azure AD B2C stöder [OpenID Connect- och OAuth 2.0-protokollen](active-directory-b2c-reference-protocols.md) för användarresor. I Azure AD B2C-implementeringen av OpenID Connect startar ditt program användarresan genom att utfärda autentiseringsbegäranden till Azure AD B2C.
+Anpassa varje sida som visas av Azure AD B2C när användarna registrerar sig, loggar in och ändrar deras profil information. Anpassa HTML, CSS och Java Script i din användar resa så att Azure AD B2C-upplevelsen ser ut och ser ut som om den är en inbyggd del av ditt program.
 
-Resultatet av en begäran till Azure AD B2C är en säkerhetstoken som t.ex. en [ID-token eller åtkomsttoken](active-directory-b2c-reference-tokens.md). Denna säkerhetstoken definierar användarens identitet. Tokens tas emot från Azure AD B2C-slutpunkter, till exempel en `/token`- eller `/authorize`-slutpunkt. Med dessa tokens får du tillgång till anspråk som kan användas för att verifiera en identitet och tillåta åtkomst till säkra resurser.
+![Anpassade registrerings-och inloggnings sidor och bakgrunds bild](media/active-directory-b2c-overview/sign-in-small.png)
 
-## <a name="tenants-and-applications"></a>Klientorganisationer och program
+## <a name="single-sign-on-access-with-a-user-provided-identity"></a>Åtkomst med enkel inloggning med en användardefinierad identitet
 
-I Azure AD B2C representerar en *klientorganisation* din organisation och är en katalog med användare. Varje Azure AD B2C-klientorganisation är separat och åtskild från andra Azure AD B2C-klientorganisationer. Du kanske redan har en Azure Active Directory-klientorganisation, men Azure AD B2C-klientorganisationen är en annan klientorganisation. En klientorganisation innehåller information om de användare som har registrerat sig för att använda programmet. Exempel: lösenord, profildata och behörigheter. Mer information finns i [Självstudie: Skapa en Azure Active Directory B2C-klientorganisation](tutorial-create-tenant.md).
+Azure AD B2C använder standardbaserad autentiseringsprotokoll, inklusive OpenID Connect, OAuth 2,0 och SAML. Den integreras med de flesta moderna program och kommersiella program som inte är i hylla.
 
-Innan du konfigurerar programmet till att använda Azure AD B2C, måste du först registrera det i klientorganisationen med Azure-portalen. Registreringsprocessen samlar in och tilldelar värden till ditt program. Dessa värden inkluderar ett program-ID som unikt identifierar programmet och en omdirigerings-URI som används för att dirigera svar tillbaka till programmet.
+![Diagram över identiteter från tredje part som federerar till Azure AD B2C](media/active-directory-b2c-overview/scenario-singlesignon.png)
 
-Interaktionen för alla program följer ett liknande övergripande mönster:
+Genom att betjäna den centrala autentiseringsmetoden för dina webb program, mobilappar och API: er, kan du med Azure AD B2C bygga en enkel inloggnings lösning (SSO) för alla. Centralisera insamlingen av användar profils-och inställnings information och samla in detaljerad analys om inloggnings beteende och registrerings omvandling.
 
-1. Programmet dirigerar användaren till att köra en princip.
-2. Användaren uppfyller principen enligt principdefinitionen.
-3. Programmet tar emot en token.
-4. Programmet använder denna token till att försöka komma åt en resurs.
-5. Resursservern verifierar token för att kontrollera att åtkomst kan beviljas.
-6. Programmet uppdaterar token med jämna mellanrum.
+## <a name="integrate-with-external-user-stores"></a>Integrera med externa användar lager
 
-Registrera webbappen genom att slutföra stegen i [Självstudie: Registrera ett program för att aktivera registrering och inloggning med hjälp av Azure AD B2C](tutorial-register-applications.md). Du kan också [lägga till ett webb-API-program i din Azure Active Directory B2C-klientorganisation](add-web-application.md) eller [lägga till ett internt klientprogram i din Azure Active Directory B2C-klientorganisation](add-native-application.md).
+Azure AD B2C tillhandahåller en katalog som kan innehålla 100 anpassade attribut per användare. Du kan dock även integrera med externa system. Du kan till exempel använda Azure AD B2C för autentisering, men delegera till en extern kund Relations hantering (CRM) eller kund förmåns databas som källa till sanningen för kund information.
 
-## <a name="user-journeys"></a>Användarresor
+Ett annat externt användar lagrings scenario är att Azure AD B2C hantera autentiseringen för ditt program, men integrera med ett externt system som lagrar användar profil eller personliga data. Till exempel för att uppfylla data placering krav som regionala eller lokala data lagrings principer.
 
-Principen i en användarresa kan definieras som ett [användarflöde](active-directory-b2c-reference-policies.md) eller en [anpassad princip](active-directory-b2c-overview-custom.md). Fördefinierade användarflöden för de flesta identitetsuppgifter, till exempel registrering och profilredigering, är tillgängliga i Azure-portalen.
+![Ett logiskt diagram för Azure AD B2C som kommunicerar med ett externt användar Arkiv](media/active-directory-b2c-overview/scenario-remoteprofile.png)
 
-Med användarresor kan du styra beteenden genom att konfigurera följande inställningar:
+Azure AD B2C kan under lätta insamlingen av informationen från användaren under registrering eller profil redigering, och sedan lämna ut data till det externa systemet. Under framtida autentiseringar kan Azure AD B2C hämta data från det externa systemet och, om det behövs, inkludera det som en del av svaret på autentiseringstoken som skickas till ditt program.
 
-- Konton i sociala medier som användaren använder för att registrera sig för programmet
-- Data som samlas in från användaren, till exempel förnamn eller postnummer
-- Multi-Factor Authentication
-- Utseendet på sidor
-- Information som returneras till programmet
+## <a name="progressive-profiling"></a>Progressiv profilering
 
-Anpassade principer är konfigurationsfiler som definierar beteendet för [Identity Experience Framework](trustframeworkpolicy.md) i din Azure AD B2C-klientorganisation. Identity Experience Framework är den underliggande plattform som upprättar flerpartsförtroende och slutför stegen i en användarresa.
+Ett annat alternativ för användar resa innehåller progressiv profilering. Med progressiv profilering kan dina kunder snabbt slutföra sin första transaktion genom att samla in en minimal mängd information. Sedan kan du gradvis samla in mer profil data från kunden i kommande inloggningar.
 
-Anpassade principer kan ändras för att slutföra många uppgifter. En anpassad princip är en eller flera XML-formaterade filer som refererar till varandra i en hierarkisk kedja. Det finns ett [startpaket](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/archive/master.zip) för anpassade principer som kan användas till att aktivera vanliga identitetsuppgifter.
+![En visuell visning av progressiv profilering](media/active-directory-b2c-overview/scenario-progressive.png)
 
-Anpassade principer eller användarflöden av olika typer används i din Azure AD B2C-klientorganisation efter behov och kan återanvändas i olika program. Den här flexibiliteten gör att du kan definiera och ändra användarens identitetsupplevelse med minimala eller inga ändringar i koden. Principer används genom att en särskild frågeparameter läggs till i HTTP-autentiseringsbegäranden. Om du vill skapa en egen anpassad princip kan du läsa [Kom igång med anpassade principer i Azure Active Directory B2C](active-directory-b2c-get-started-custom.md).
+## <a name="third-party-identity-verification-and-proofing"></a>Identitets verifiering från tredje part och språk kontroll
 
-## <a name="identity-providers"></a>Identitetsprovidrar
+Använd Azure AD B2C för att under lätta identitets verifiering och-korrektur genom att samla in användar data och sedan skicka det till ett tredje parts system för att utföra verifiering, förtroende bedömning och godkännande för skapande av användar konto.
 
-Du kanske vill att användarna ska kunna logga in på dina program med olika identitetsprovidrar. En *identitetsprovider* skapar, underhåller och hanterar identitetsinformation samt autentiseringstjänster till program. Du kan lägga till identitetsprovidrar som stöds av Azure AD B2C med hjälp av Azure-portalen.
+![Ett diagram som visar användar flödet för identitets bevis från tredje part](media/active-directory-b2c-overview/scenario-idproofing.png)
 
-Du använder vanligtvis bara en identitetsprovider i ditt program, men du har möjlighet att lägga till fler. Om du vill konfigurera en identitetsprovider i din Azure AD B2C-klientorganisation måste du först skapa ett program på identitetsproviderns utvecklarwebbplats och sedan registrera programidentifieraren eller klientidentifieraren samt lösenordet eller klienthemligheten från det identitetsproviderprogram som du skapar. Den här identifieraren och lösenordet används sedan för att konfigurera ditt program.
+Dessa är bara några av de saker som du kan göra med Azure AD B2C som din affärs-till-kund-identitets plattform. Följande avsnitt i den här översikten vägleder dig genom ett demo program som använder Azure AD B2C. Du är också välkommen att gå direkt till en mer djupgående [teknisk översikt över Azure AD B2C](technical-overview.md).
 
-I följande artiklar beskrivs stegen för att lägga till några av de vanliga identitetsprovidrarna i användarflöden:
+## <a name="example-woodgrove-groceries"></a>Exempel: Sparbankens livsmedels varor
 
-- [Amazon](active-directory-b2c-setup-amzn-app.md)
-- [Facebook](active-directory-b2c-setup-fb-app.md)
-- [Microsoft-konto](active-directory-b2c-setup-msa-app.md)
+[Sparbanken][woodgrove] är ett Live-webbprogram som skapats av Microsoft för att demonstrera flera Azure AD B2C-funktioner. I följande avsnitt granskas några av de autentiseringsalternativ som tillhandahålls av Azure AD B2C på Sparbankens webbplats.
 
-I följande artiklar beskrivs stegen för att lägga till några av de vanliga identitetsprovidrarna i anpassade principer:
-- [Amazon](setup-amazon-custom.md)
-- [Google](active-directory-b2c-custom-setup-goog-idp.md)
-- [Microsoft-konto](active-directory-b2c-custom-setup-msa-idp.md)
+### <a name="business-overview"></a>Företags översikt
 
-Mer information finns i [Självstudie: Lägga till identitetsprovidrar i dina program i Azure Active Directory B2C](tutorial-add-identity-providers.md).
+Sparbanken är en inköps lager online som säljer varor till både enskilda konsumenter och företags kunder. Deras företags kunder köper mat varor på uppdrag av företaget eller företag som de hanterar.
 
+### <a name="sign-in-options"></a>Inloggningsalternativ
 
-## <a name="page-customization"></a>Anpassning av sida
+Sparbankens sparbanker erbjuder flera inloggnings alternativ baserat på relationen deras kunder har med butiken:
 
-Merparten av det HTML- och CSS-innehåll som presenteras för kunderna i en användarresa är kontrollerbart. Du kan anpassa utseendet på alla anpassade principer eller användarnas flöden med hjälp av sidoanpassning. Du håller varumärke och grafik konsekventa mellan programmet och Azure AD B2C genom att använda den här anpassningsfunktionen.
+* **Enskilda** kunder kan registrera sig eller logga in med enskilda konton, till exempel med en social identitetsprovider eller en e-postadress och ett lösen ord.
+* **Företags** kunder kan registrera sig och logga in med sina företags uppgifter.
+* **Partner** och leverantörer är personer som tillhandahåller en livsmedels lagrings plats med produkter att sälja. Partner identitet tillhandahålls av [Azure Active Directory B2B](../active-directory/b2b/what-is-b2b.md).
 
-Azure AD B2C kör koden i användarens webbläsare och använder en modern metod som kallas Resursdelning för korsande ursprung (CORS). Först anger du en URL i en princip med anpassat HTML-innehåll. Azure AD B2C sammanfogar användargränssnittets element med HTML-innehåll som läses in från din URL och visar sedan sidan för användaren.
+![Enskilda (B2C), Business (B2C) och partner (B2B) inloggnings sidor](media/active-directory-b2c-overview/woodgrove-overview.png)
 
-Du skickar parametrar till Azure AD B2C i en frågesträng. Genom att skicka parametern till HTML-slutpunkten ändras sidinnehållet dynamiskt. Till exempel kan du ändra bakgrundsbilden på registrerings- eller inloggningssidan baserat på en parameter som du skickar från ditt webb- eller mobilprogram.
+### <a name="authenticate-individual-customers"></a>Autentisera enskilda kunder
 
-Om du vill anpassa sidor i ett användarflöde kan du gå vidare till [Självstudie: Anpassa gränssnittet för användarupplevelser i Azure Active Directory B2C](tutorial-customize-ui.md). Om du vill anpassa sidor i en anpassad princip kan du läsa mer i [Anpassa användargränssnittet i ditt program med en anpassad princip i Azure Active Directory B2C](active-directory-b2c-ui-customization-custom.md) eller [Konfigurera användargränssnittet med dynamiskt innehåll med hjälp av anpassade principer i Azure Active Directory B2C](active-directory-b2c-ui-customization-custom-dynamic.md).
+När en kund väljer **Logga in med ditt personliga konto**omdirigeras de till en anpassad inloggnings sida med Azure AD B2C. Du kan se följande bild som vi har anpassat användar gränssnittet (UI) för att se och känna sig precis som webbplatsen för Sparbanken. Sparbankens kunder bör vara medvetna om att autentiseringen är värdbaserad och skyddas av Azure AD B2C.
 
-## <a name="developer-resources"></a>Utvecklarresurser
+![Anpassad inloggnings sida för Sparbanken som finns Azure AD B2C](media/active-directory-b2c-overview/sign-in.png)
 
-### <a name="client-applications"></a>Klientprogram
+Med Sparbanken kan kunderna registrera sig och logga in med sina Google-, Facebook-eller Microsoft-konton som identitets leverantör. Eller så kan de registrera sig genom att använda sin e-postadress och ett lösen ord för att skapa vad som kallas *lokalt konto*.
 
-Du kan välja mellan program för [iOS](active-directory-b2c-devquickstarts-ios.md), [Android](active-directory-b2c-devquickstarts-android.md) och .NET med flera. Azure AD B2C möjliggör dessa åtgärder samtidigt som användarnas identiteter skyddas.
+När en kund väljer **att registrera sig med ditt personliga konto** och sedan **Registrera dig nu**visas en anpassad registrerings sida.
 
-Om du är ASP.NET-webbappsutvecklare konfigurerar du programmet för att autentisera konton med hjälp av stegen i [Självstudie: Aktivera ett webbprogram för autentisering med konton med hjälp av Azure AD B2C](active-directory-b2c-tutorials-web-app.md).
+![Anpassad inloggnings sida för Sparbanken som finns Azure AD B2C](media/active-directory-b2c-overview/sign-up.png)
 
-Om du utvecklar skrivbordsprogram konfigurerar du programmet för att autentisera konton med hjälp av stegen i [Självstudie: Aktivera ett skrivbordsprogram för autentisering med konton med hjälp av Azure AD B2C](active-directory-b2c-tutorials-desktop-app.md).
+När du har angett en e-postadress och valt **Skicka verifierings kod**skickar Azure AD B2C koden. När de har angett sin kod väljer du **verifiera kod**och anger sedan den andra informationen i formuläret. de måste också godkänna villkoren i tjänsten.
 
-Om du utvecklar ensidesapplikationer med hjälp av Node.js konfigurerar du programmet att autentisera konton via stegen i [Självstudie: Aktivera en ensidesapplikation för autentisering med konton med hjälp av Azure AD B2C](active-directory-b2c-tutorials-spa.md).
+Genom att klicka på knappen **skapa** kan Azure AD B2C omdirigera användaren tillbaka till webbplatsen Sparbanken. När den omdirigeras skickar Azure AD B2C en OpenID Connect-autentiseringstoken till Sparbank-webbappen. Användaren är nu inloggad och redo att gå och visnings namnet visas i det övre högra hörnet för att indikera att de är inloggade.
 
-### <a name="apis"></a>API:er
-Om dina klient- eller webbappar behöver anropa API:er kan du konfigurera säker åtkomst till dessa resurser i Azure AD B2C.
+![Webbplats rubrik för sparbanker som visar att användaren är inloggad](media/active-directory-b2c-overview/signed-in-individual.png)
 
-Om du är ASP.NET-webbappsutvecklare konfigurerar du programmet till att anropa ett skyddat API med hjälp av stegen i [Självstudie: Bevilja åtkomst till ett ASP.NET webb-API med hjälp av Azure Active Directory B2C](active-directory-b2c-tutorials-web-api.md).
+### <a name="authenticate-business-customers"></a>Autentisera företags kunder
 
-Om du är programutvecklare konfigurerar du programmet till att anropa ett skyddat API med hjälp av stegen i [Självstudie: Ge åtkomst till ett Node.js-webb-API från en skrivbordsapp med hjälp av Azure Active Directory B2C](active-directory-b2c-tutorials-desktop-app-webapi.md).
+När en kund väljer något av alternativen under **företags kunder**, anropar webbplatsen Sparbanken en annan Azure AD B2C princip än för enskilda kunder.
 
-Om du utvecklar ensidesapplikationer med hjälp av Node.js konfigurerar du programmet att autentisera kontor via stegen i [Självstudie: Bevilja åtkomst till ett ASP.NET Core webb-API från en ensidesapplikation med hjälp av Azure Active Directory B2C](active-directory-b2c-tutorials-spa-webapi.md).
+Den här principen visar användaren med ett alternativ för att använda sina företags uppgifter för registrering och inloggning. I exempel på Sparbanken uppmanas användarna att logga in med ett Office 365-eller Azure AD-konto. Den här principen använder ett [Azure AD-program med flera innehavare](../active-directory/develop/howto-convert-app-to-be-multi-tenant.md) och `/common` Azure AD-slutpunkten för att federera Azure AD B2C med valfri Office 365-kund i världen.
 
-### <a name="javascript"></a>JavaScript
+### <a name="authenticate-partners"></a>Autentisera partners
 
-Du kan lägga till egen JavaScript-kod på klientsidan i dina program i Azure AD B2C. Om du vill konfigurera java script i ditt program definierar du en [Sidlayout och](page-layout.md) aktiverar [Java Script](javascript-samples.md) i dina användar flöden eller anpassade principer.
+Länken **Logga in med ditt leverantörs konto** använder Azure Active Directory B2B's samarbets funktioner. Azure AD B2B är en serie funktioner i Azure Active Directory för att hantera partner identiteter. Dessa identiteter kan vara federerade från Azure Active Directory för åtkomst till Azure AD B2C-skyddade program.
 
-### <a name="user-accounts"></a>Användarkonton
+Lär dig mer om Azure AD B2B i [Vad är gäst användar åtkomst i Azure Active Directory B2B?](../active-directory/b2b/what-is-b2b.md).
 
-Många vanliga klienthanteringsuppgifter måste utföras via programmering. En primärt exempel är användarhantering. Du kan behöva migrera ett befintligt användararkiv till en Azure AD B2C-klientorganisation. Du kanske vill vara värd för användarregistrering på sidan och skapa användarkonton i Azure AD B2C-katalogen i bakgrunden. Dessa typer av uppgifter kräver möjligheten att skapa, läsa, uppdatera och ta bort användarkonton. Du kan utföra dessa uppgifter med hjälp av [Azure AD Graph API](active-directory-b2c-devquickstarts-graph-dotnet.md).
+<!-- UNCOMMENT WHEN REPO IS UPDATED WITH LATEST DEMO CODE
+### Sample code
+
+If you'd like to jump right into the code to see how the WoodGrove Groceries application is built, you can find the repository on GitHub:
+
+[Azure-Samples/active-directory-external-identities-woodgrove-demo][woodgrove-repo] (GitHub)
+-->
 
 ## <a name="next-steps"></a>Nästa steg
 
-Börja konfigurera ditt program för registrerings- och inloggningsupplevelsen genom att fortsätta till självstudien.
+Nu när du har en uppfattning om vad Azure AD B2C är och några av de scenarier som de kan hjälpa dig med, kan du gräva lite djupare i dess funktioner och tekniska aspekter.
 
 > [!div class="nextstepaction"]
-> [Självstudier: Skapa en Azure Active Directory B2C-klientorganisation](tutorial-create-tenant.md)
+> [Azure AD B2C teknisk översikt >](technical-overview.md)
+
+<!-- LINKS - External -->
+[woodgrove]: https://aka.ms/ciamdemo
+[woodgrove-repo]: https://github.com/Azure-Samples/active-directory-external-identities-woodgrove-demo

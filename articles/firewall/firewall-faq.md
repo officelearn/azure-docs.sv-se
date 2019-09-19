@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 09/17/2019
+ms.date: 09/20/2019
 ms.author: victorh
-ms.openlocfilehash: 4b258df1711aa51ed4edee6ecd209fa39c7fde27
-ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
+ms.openlocfilehash: cb5b8bbb322dc401c7a8b057418d392120ef68e3
+ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71018853"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71130213"
 ---
 # <a name="azure-firewall-faq"></a>Vanliga frågor och svar om Azure-brandvägg
 
@@ -163,3 +163,7 @@ Azure-brandväggen måste etablera fler virtuella dator instanser när den skala
 ## <a name="does-the-firewall-subnet-size-need-to-change-as-the-service-scales"></a>Måste brand Väggs under näts storleken ändras när tjänsten skalas?
 
 Nej. Azure-brandväggen behöver inte ett undernät som är större än/26.
+
+## <a name="does-azure-firewall-allow-access-to-active-directory-by-default"></a>Tillåter Azure-brandväggen åtkomst till Active Directory som standard?
+
+Nej. Azure-brandväggen blockerar Active Directory åtkomst som standard. För att tillåta åtkomst konfigurerar du AzureActiveDirectory service tag. Mer information finns i [Azure Firewall service-Taggar](service-tags.md).

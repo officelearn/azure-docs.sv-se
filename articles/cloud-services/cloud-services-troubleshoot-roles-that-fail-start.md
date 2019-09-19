@@ -4,7 +4,7 @@ description: Här följer några vanliga orsaker till varför en moln tjänst ro
 services: cloud-services
 documentationcenter: ''
 author: simonxjx
-manager: felixwu
+manager: dcscontentpm
 editor: ''
 tags: top-support-issue
 ms.assetid: 674b2faf-26d7-4f54-99ea-a9e02ef0eb2f
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 06/15/2018
 ms.author: v-six
-ms.openlocfilehash: 9e1ae9ca6106a6a55e0cfc933ad47a5944ed5abb
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: 869453d92f536a62aacc2be52598223158566ae0
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68945396"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71122732"
 ---
 # <a name="troubleshoot-cloud-service-roles-that-fail-to-start"></a>Felsöka moln tjänst roller som inte startar
 Här följer några vanliga problem och lösningar som rör Azure Cloud Services roller som inte startar.
@@ -27,7 +27,7 @@ Här följer några vanliga problem och lösningar som rör Azure Cloud Services
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
 ## <a name="missing-dlls-or-dependencies"></a>DLL-filer eller beroenden som saknas
-Roller och roller som inte svarar mellan **initiering**, upptaget och **stopp** tillstånd kan orsakas av saknade DLL-filer eller sammansättningar.
+Roller och roller som inte svarar mellan **initiering**, **upptaget**och **stopp** tillstånd kan orsakas av saknade DLL-filer eller sammansättningar.
 
 Symtom på saknade DLL-filer eller sammansättningar kan vara:
 
@@ -75,7 +75,7 @@ Att navigera till webbplatsen kommer nu att returnera fler explicita fel meddela
 
 * Server fel i programmet '/'.
 * Beskrivning: Ett ohanterat undantag inträffade under körningen av den aktuella webb förfrågan. Läs stack spårningen om du vill ha mer information om felet och var det kom i koden.
-* Undantags information: System.IO.FIleNotFoundException: Det gick inte att läsa in filen eller sammansättningen "Microsoft. WindowsAzure. StorageClient, version = 1.1.0.0, Culture = neutral, PublicKeyToken = 31bf856ad364e35" eller något av dess beroenden. Det går inte att hitta den angivna filen.
+* Undantags information: System.IO.FIleNotFoundException: Det gick inte att läsa in filen eller sammansättningen "Microsoft. WindowsAzure. StorageClient, version = 1.1.0.0, Culture = neutral, PublicKeyToken = 31bf856ad364e35" eller något av dess beroenden. Det går inte att hitta den angivna filen i systemet.
 
 Exempel:
 
@@ -104,8 +104,8 @@ Följ de här stegen för att distribuera tjänsten med IntelliTrace aktiverat:
 3. När instansen startar öppnar du **Server Explorer**.
 4. Expandera **Azure\\Cloud Services** -noden och leta upp distributionen.
 5. Expandera distributionen tills du ser roll instanserna. Högerklicka på en av instanserna.
-6. Välj **Visa IntelliTrace-loggar**. Sammanfattningen av **IntelliTrace** öppnas.
-7. Leta upp avsnittet undantag i sammanfattningen. Om det finns undantag får avsnittet en etikett med undantags **data**.
+6. Välj **Visa IntelliTrace-loggar**. **Sammanfattningen av IntelliTrace** öppnas.
+7. Leta upp avsnittet undantag i sammanfattningen. Om det finns undantag får avsnittet en etikett med **undantags data**.
 8. Expandera **undantags data** och leta efter **system. io. FileNotFoundException** -fel som liknar följande:
 
 ![Undantags data, saknad fil eller sammansättning](./media/cloud-services-troubleshoot-roles-that-fail-start/ic503390.png)

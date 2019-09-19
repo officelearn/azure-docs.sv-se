@@ -7,12 +7,12 @@ ms.date: 07/29/2019
 ms.topic: tutorial
 ms.service: backup
 manager: carmonm
-ms.openlocfilehash: d5702576b3353bbc779601c7a5fe91417d73c7a1
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.openlocfilehash: 44a2b0feab19d042de58359a7ea13814415e6c9e
+ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69624358"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71129553"
 ---
 # <a name="back-up-and-restore-azure-file-shares"></a>Säkerhetskopiera och återställa Azure-filresurser
 Den här artikeln förklarar hur du använder Azure Portal för att säkerhetskopiera och återställa [Azure-filresurser](../storage/files/storage-files-introduction.md).
@@ -86,13 +86,15 @@ Ibland kanske du vill skapa en ögonblicksbild eller återställningspunkt på e
 
    ![klicka på säkerhetskopian för att associera Azure-filresursen med valvet](./media/backup-file-shares/list-of-azure-files-backup-items.png)
 
-3. Välj önskad filresurs i listan med Azure-filresurser. Menyn Säkerhetskopieringsobjekt för den valda filresursen öppnas.
+3. Välj önskad filresurs i listan med Azure-filresurser. Informationen om **säkerhets kopierings objekt** visas. Från menyn **säkerhets kopierings objekt** klickar du på **Säkerhetskopiera nu**. Eftersom detta är en säkerhetskopiering på begäran finns det ingen bevarandeprincip som är associerad med återställningspunkten.
 
    ![klicka på säkerhetskopian för att associera Azure-filresursen med valvet](./media/backup-file-shares/backup-item-menu.png)
 
-4. I menyn Säkerhetskopieringsobjekt klickar du på **Säkerhetskopiera nu**. Eftersom detta är en säkerhetskopiering på begäran finns det ingen bevarandeprincip som är associerad med återställningspunkten. Dialogrutan **Säkerhetskopiera nu** öppnas. Ange den senaste dag som du vill behålla återställningspunkten för.
+4. Dialogrutan **Säkerhetskopiera nu** öppnas. Ange den senaste dag som du vill behålla återställningspunkten för.
 
    ![klicka på säkerhetskopian för att associera Azure-filresursen med valvet](./media/backup-file-shares/backup-now-menu.png)
+
+5. Klicka på **OK** för att bekräfta säkerhets kopierings jobbet på begäran.
 
 ## <a name="restore-from-backup-of-azure-file-share"></a>Återställa från en säkerhetskopia av Azure-filresurser
 Om du behöver återställa en hel filresurs eller enskilda filer och mappar från en återställningspunkt, går du till Säkerhetskopieringsobjekt enligt anvisningarna i föregående avsnitt. Välj **Återställ resursen** för att återställa en hel filresurs från en önskad tidpunkt. I listan med återställningspunkter som visas väljer du en för att kunna skriva över den aktuella filresursen, eller återställa den till en annan filresurs i samma region.

@@ -1,18 +1,18 @@
 ---
 title: Felsöka YARN i Azure HDInsight
 description: Få svar på vanliga frågor om hur du arbetar med Apache Hadoop YARN och Azure HDInsight.
-ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
+ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 08/15/2019
-ms.openlocfilehash: 107230a4d8c2e0427c2fcf2a8862559c707831a1
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.openlocfilehash: a0eb0d15d931cf1b2f71740c7a9359cf16205481
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71076572"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71122519"
 ---
 # <a name="troubleshoot-apache-hadoop-yarn-by-using-azure-hdinsight"></a>Felsöka Apache Hadoop garn med hjälp av Azure HDInsight
 
@@ -34,24 +34,24 @@ I det här exemplet, två befintliga köer (**standard** och **thriftsvr**) båd
 
 1. Välj den **Ambari-vyer** ikonen och välj sedan mönstret rutnätet. Välj sedan **YARN köhanteraren**.
 
-    ![Välj ikonen Ambari-vyer](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-1.png)
+    ![Apache Ambari Dashboard garn Queue Manager](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-1.png)
 2. Välj den **standard** kö.
 
-    ![Välj standardkö](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-2.png)
+    ![Apache Ambari-garn Välj standard kön](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-2.png)
 3. För den **standard** kö, ändra den **kapacitet** från 50% till 25%. För den **thriftsvr** kö, ändra den **kapacitet** till 25%.
 
     ![Ändra kapaciteten till 25% för standard och thriftsvr köer](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-3.png)
 4. Om du vill skapa en ny kö, Välj **Lägg till kö**.
 
-    ![Välj Lägg till kö](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-4.png)
+    ![Apache Ambari garn Dashboard Lägg till kö](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-4.png)
 
 5. Namnge den nya kön.
 
-    ![Namn på kön Spark](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-5.png)  
+    ![Apache Ambari garn instrument panel, namn kö](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-5.png)  
 
 6. Lämna den **kapacitet** värden på 50% och välj sedan den **åtgärder** knappen.
 
-    ![Välj knappen åtgärder](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-6.png)  
+    ![Apache Ambari-garn Välj åtgärd](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-6.png)  
 7. Välj **spara och uppdatera köer**.
 
     ![Välj Spara och uppdatera köer](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-7.png)  
@@ -64,7 +64,7 @@ Dessa ändringar visas direkt på Scheduler YARN-Användargränssnittet.
 
 ## <a name="how-do-i-download-yarn-logs-from-a-cluster"></a>Hur jag för att hämta YARN-loggar från ett kluster?
 
-### <a name="resolution-steps"></a>Lösningsanvisningar 
+### <a name="resolution-steps"></a>Lösningsanvisningar
 
 1. Anslut till HDInsight-kluster med hjälp av en Secure Shell (SSH)-klient. Mer information finns i [mer att läsa](#additional-reading-2).
 

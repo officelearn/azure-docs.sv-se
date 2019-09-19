@@ -5,15 +5,15 @@ services: expressroute
 author: jaredr80
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 06/28/2019
+ms.date: 09/18/2019
 ms.author: jaredro
 ms.custom: seodec18
-ms.openlocfilehash: 9a5e5dc414d487efd5f6762c89cecb77da74e3d5
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 6e3045ba8363965fcfc198356ed68447a187308d
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68592057"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71123436"
 ---
 # <a name="expressroute-faq"></a>Vanliga frågor och svar för ExpressRoute
 
@@ -55,11 +55,23 @@ Mer information finns i den [ExpressRoute SLA](https://azure.microsoft.com/suppo
 
 ## <a name="supported-services"></a>Tjänster som stöds
 
-ExpressRoute stöder [tre routningsdomäner](expressroute-circuit-peerings.md) för olika typer av tjänster.
+ExpressRoute stöder [tre routningsdomäner](expressroute-circuit-peerings.md) för olika typer av tjänster: privat peering, Microsoft-peering och offentlig peering.
 
 ### <a name="private-peering"></a>Privat peering
 
 * Virtuella nätverk, inklusive alla virtuella datorer och molntjänster
+
+### <a name="microsoft-peering"></a>Microsoft-peering
+
+* [Office 365](https://aka.ms/ExpressRouteOffice365)
+* Power BI – tillgängligt via en regional Azure-community, finns [här](https://docs.microsoft.com/power-bi/service-admin-where-is-my-tenant-located) för hur du kan ta reda på den region där din Power BI-klient finns.
+* Azure Active Directory
+* [Azure DevOps](https://blogs.msdn.microsoft.com/devops/2018/10/23/expressroute-for-azure-devops/) (globala tjänster för Azure-community)
+* De flesta av de Azure-tjänsterna stöds. Kontrollera direkt med den tjänst som du vill använda för att verifiera support.<br><br>**Följande tjänster stöds inte**:
+    * CDN
+    * Azure Front Door
+    * Multifaktorautentisering
+    * Traffic Manager
 
 ### <a name="public-peering"></a>Offentlig peering
 
@@ -68,26 +80,17 @@ ExpressRoute stöder [tre routningsdomäner](expressroute-circuit-peerings.md) f
 >
 
 * Power BI
-* Dynamics 365 för finans och åtgärder (tidigare kallat Dynamics AX Online)
 * De flesta av de Azure-tjänsterna stöds. Kontrollera direkt med den tjänst som du vill använda för att verifiera support.<br><br>
   **Följande tjänster stöds inte**:
     * CDN
-    * Azure-front dörr
+    * Azure Front Door
     * Multifaktorautentisering
     * Traffic Manager
 
-### <a name="microsoft-peering"></a>Microsoft-peering
+### <a name="is-dynamics-365-supported-on-expressroute"></a>Stöds Dynamics 365 på ExpressRoute?
 
-* [Office 365](https://aka.ms/ExpressRouteOffice365)
-* Dynamics 365 
-* Power BI – tillgängligt via en regional Azure-community, finns [här](https://docs.microsoft.com/power-bi/service-admin-where-is-my-tenant-located) för hur du kan ta reda på den region där din Power BI-klient finns. 
-* Azure Active Directory
-* [Azure DevOps](https://blogs.msdn.microsoft.com/devops/2018/10/23/expressroute-for-azure-devops/) (globala tjänster för Azure-community)
-* De flesta av de Azure-tjänsterna stöds. Kontrollera direkt med den tjänst som du vill använda för att verifiera support.<br><br>**Följande tjänster stöds inte**:
-    * CDN
-    * Azure-front dörr
-    * Multifaktorautentisering
-    * Traffic Manager
+Dynamics 365-och Common Data Service-miljöer (CD) är värdbaserade på Azure och därför drar kunderna nytta av det underliggande ExpressRoute-stödet för Azure-resurser. Du kan ansluta till dess tjänst slut punkter om ditt router-filter innehåller Azure-regionerna som dina Dynamics 365/CD-miljöer finns i.
+
 
 ## <a name="data-and-connections"></a>Data och anslutningar
 
@@ -262,7 +265,7 @@ ExpressRoute premium är en samling med följande funktioner:
 
 * Ökad routning tabell gräns från 4000 vägar till 10 000 vägar för privat peering.
 * Ökat antal virtuella nätverk och Global räckvidd i ExpressRoute-anslutningar som kan aktiveras för en ExpressRoute-krets (standardvärdet är 10). Mer information finns i den [ExpressRoute gränser](#limits) tabell.
-* Anslutning till Office 365 och Dynamics 365.
+* Anslutning till Office 365
 * Global anslutbarhet via Microsoft core nätverket. Du kan nu länka ett virtuellt nätverk i en geopolitisk region med en ExpressRoute-krets i en annan region.<br>
     **Exempel:**
 
@@ -332,7 +335,7 @@ ExpressRoute Local är tillgängligt på peering-platserna där en eller två Az
 > 
 > 
 
-### <a name="can-my-existing-expressroute-circuits-support-connectivity-to-office-365-services-and-dynamics-365"></a>Kan min befintliga ExpressRoute-kretsar stöd för anslutning till Office 365-tjänster och Dynamics 365?
+### <a name="can-my-existing-expressroute-circuits-support-connectivity-to-office-365-services"></a>Kan mina befintliga ExpressRoute-kretsar stödja anslutning till Office 365-tjänster?
 
 Ja. Befintliga ExpressRoute-kretsen kan konfigureras för att stödja anslutningen till Office 365-tjänster. Se till att du har tillräcklig kapacitet för att ansluta till Office 365-tjänster och att du har aktiverat premium-tillägget. [Nätverksplanering och prestandajustering för Office 365](https://aka.ms/tune/) hjälper dig att planera din anslutning behöver. Se även [skapa och ändra en ExpressRoute-krets](expressroute-howto-circuit-classic.md).
 
@@ -369,13 +372,9 @@ Du kommer inte se några vägar. Du måste koppla ett flödesfilter till kretsen
 
 När du använder flödesfilter kan kan alla kunder aktivera Microsoft-peering. För att använda Office 365-tjänster behöver du dock fortfarande att få behörighet av Office 365.
 
-### <a name="do-i-need-to-get-authorization-for-turning-on-dynamics-365-over-microsoft-peering"></a>Behöver jag få behörighet för att aktivera Dynamics 365 via Microsoft-peering?
-
-Nej, du behöver inte auktorisering för Dynamics 365. Du kan skapa en regel och Välj Dynamics 365-community utan behörighet.
-
 ### <a name="i-enabled-microsoft-peering-prior-to-august-1-2017-how-can-i-take-advantage-of-route-filters"></a>Jag har aktiverat Microsoft-peering före den 1 augusti 2017, hur kan jag dra nytta av flödesfilter?
 
-Din befintliga krets fortsätter annonserar prefixen för Office 365 och Dynamics 365. Om du vill lägga till Azure offentliga prefix annonser över för samma Microsoft-peering kan du skapa ett flödesfilter, Välj de tjänster du behöver annonseras (inklusive Office 365-tjänster som du behöver och Dynamics 365) och koppla filtret till ditt Microsoft- peering. Anvisningar finns i [konfigurera routningsfilter för Microsoft-peering](how-to-routefilter-powershell.md).
+Din befintliga krets fortsätter att annonsera om prefixen för Office 365. Om du vill lägga till offentliga Azure-prefix över samma Microsoft-peering kan du skapa ett flödes filter, välja de tjänster som du behöver annonseras (inklusive de Office 365-tjänster du behöver) och koppla filtret till din Microsoft-peering. Anvisningar finns i [konfigurera routningsfilter för Microsoft-peering](how-to-routefilter-powershell.md).
 
 ### <a name="i-have-microsoft-peering-at-one-location-now-i-am-trying-to-enable-it-at-another-location-and-i-am-not-seeing-any-prefixes"></a>Jag har Microsoft-peering på en plats, nu jag försöker aktivera den på en annan plats och jag ser inte alla prefix.
 

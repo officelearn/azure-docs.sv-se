@@ -1,27 +1,42 @@
 ---
-title: Krav och rekommendationer för behållare.
+title: Behållarkrav och rekommendationer
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 8/26/2019
+ms.date: 09/18/2019
 ms.author: dapine
-ms.openlocfilehash: 5da088bf0356dd54d98ec5393fd2db8068f9c666
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: 47c889a428ec2916dc8cad73e30ef5ff630372a7
+ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70034478"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71129805"
 ---
-I följande tabell beskrivs de minsta och rekommenderade processor kärnor och minne som ska allokeras för varje Identifiera text behållare.
+> [!NOTE]
+> Kraven och rekommendationerna baseras på benchmarks med en enda begäran per sekund, med en 8 MB-avbildning av en skannad affärs skrivelse som innehåller 29 rader och totalt 803 tecken.
+
+#### <a name="readtabread"></a>[Läsa](#tab/read)
+
+I följande tabell beskrivs den lägsta och rekommenderade fördelningen av resurser för varje read-behållare.
 
 | Container | Minimum | Rekommenderas |TPS<br>(Minimum, maximum)|
 |-----------|---------|-------------|--|
-|Identifiera text|1 kärna, 8 GB minne, 0,5 TPS|2 kärnor, 8 GB minne, 1 TPS|0,5, 1|
+| Läsa | 1 kärnor, 8 GB minne, 0,24 TPS | 8 kärnor, 16 GB minne, 1,17 TPS | 0,24, 1,17 |
+
+#### <a name="recognize-texttabrecognize-text"></a>[Identifiera Text](#tab/recognize-text)
+
+I följande tabell beskrivs den lägsta och rekommenderade fördelningen av resurser för varje Identifiera text behållare.
+
+| Container | Minimum | Rekommenderas |TPS<br>(Minimum, maximum)|
+|-----------|---------|-------------|--|
+| Identifiera text | 1 kärna, 8 GB minne, 0,12 TPS | 8 kärnor, 16 GB minne, 0,60 TPS | 0,12, 0,60 |
+
+***
 
 * Varje kärna måste vara minst 2,6 gigahertz (GHz) eller snabbare.
-* TPS-transaktioner per sekund
+* TPS-transaktioner per sekund.
 
 Core och minne motsvarar `--cpus` inställningarna och `--memory` som `docker run` används som en del av kommandot.

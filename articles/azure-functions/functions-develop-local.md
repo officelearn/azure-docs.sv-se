@@ -9,12 +9,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 09/04/2018
 ms.author: glenga
-ms.openlocfilehash: 7e0b5137355c9fd89600fa48c075c81cfb1190e3
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: c50615b9cbe5c3ca926d893858bb39eeb5720067
+ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70085454"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71129594"
 ---
 # <a name="code-and-test-azure-functions-locally"></a>Kod och test Azure Functions lokalt
 
@@ -33,7 +33,7 @@ Hur du utvecklar funktioner på din lokala dator beror på [språk](supported-la
 
 [!INCLUDE [Don't mix development environments](../../includes/functions-mixed-dev-environments.md)]
 
-Var och en av de här lokala utvecklings miljöerna gör att du kan skapa Function app-projekt och använda fördefinierade funktions mallar för att skapa nya funktioner. Varje använder kärn verktygen så att du kan testa och felsöka dina funktioner mot Real tids körningen på din egen dator precis som med andra appar. Du kan också publicera ett program projekt från någon av dessa miljöer till Azure.  
+Var och en av de här lokala utvecklings miljöerna gör att du kan skapa Function app-projekt och använda fördefinierade funktions mallar för att skapa nya funktioner. Varje använder kärn verktygen så att du kan testa och felsöka dina funktioner mot Real tids körningen på din egen dator precis som med andra appar. Du kan också publicera ditt Function app-projekt från någon av dessa miljöer till Azure.  
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -1,5 +1,5 @@
 ---
-title: 'Konfigurera routningsfilter för Microsoft-peering: Med ExpressRoute i Azure - portalen | Microsoft Docs'
+title: 'Konfigurera väg filter för Microsoft-peering: Azure-ExpressRoute – Portal | Microsoft Docs'
 description: Den här artikeln beskriver hur du konfigurerar routningsfilter för Microsoft-peering med hjälp av Azure portal.
 services: expressroute
 author: ganesr
@@ -8,14 +8,14 @@ ms.topic: article
 ms.date: 07/01/2019
 ms.author: ganesr
 ms.custom: seodec18
-ms.openlocfilehash: 55b5207e4c05712b4d96d4272f9ae193cc4c1720
-ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
+ms.openlocfilehash: c49b1fa1e2e8421146f5d5012de983c14934c23c
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67508604"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71122943"
 ---
-# <a name="configure-route-filters-for-microsoft-peering-azure-portal"></a>Konfigurera routningsfilter för Microsoft-peering: Azure Portal
+# <a name="configure-route-filters-for-microsoft-peering-azure-portal"></a>Konfigurera väg filter för Microsoft-peering: Azure Portal
 > [!div class="op_single_selector"]
 > * [Azure Portal](how-to-routefilter-portal.md)
 > * [Azure PowerShell](how-to-routefilter-powershell.md)
@@ -24,7 +24,7 @@ ms.locfileid: "67508604"
 
 Flödesfilter är ett sätt att använda en delmängd av tjänster som stöds via Microsoft-peering. Stegen i den här artikeln hjälper dig att konfigurera och hantera flödesfilter för ExpressRoute-kretsar.
 
-Dynamics 365-tjänster, och Office 365-tjänster som Exchange Online, SharePoint Online och Skype för företag och Azure-tjänster som lagring och SQL DB är tillgängliga via Microsoft-peering. När Microsoft-peering har konfigurerats i en ExpressRoute-krets, visas alla prefix som är relaterade till dessa tjänster i BGP-sessioner upprättas. Ett community-värde för BGP är kopplat till varje prefix för att identifiera vilken tjänst som erbjuds genom prefixet. En lista över BGP community-värden och de tjänster som de mappas till finns i [BGP-communities](expressroute-routing.md#bgp).
+Office 365-tjänster som Exchange Online, SharePoint Online och Skype för företag, och Azure-tjänster som lagring och SQL DB, är tillgängliga via Microsoft-peering. När Microsoft-peering har konfigurerats i en ExpressRoute-krets, visas alla prefix som är relaterade till dessa tjänster i BGP-sessioner upprättas. Ett community-värde för BGP är kopplat till varje prefix för att identifiera vilken tjänst som erbjuds genom prefixet. En lista över BGP community-värden och de tjänster som de mappas till finns i [BGP-communities](expressroute-routing.md#bgp).
 
 Om du behöver anslutning till alla tjänster har ett stort antal prefix annonseras via BGP. Detta ökar avsevärt storleken på routningstabeller som underhålls av routrar i nätverket. Om du planerar att använda en underuppsättning av tjänster som erbjuds via Microsoft-peering kan du minska storleken på dina routningstabeller på två sätt. Du kan:
 
@@ -36,9 +36,9 @@ Om du behöver anslutning till alla tjänster har ett stort antal prefix annonse
 
 Om Microsoft-peering är konfigurerat på ExpressRoute-kretsen, upprätta ett par med BGP-sessioner med edge-routrar (själv eller din anslutningsleverantör) i Microsoft edge-routrar. Inga vägar annonseras till ditt nätverk. Om du vill aktivera vägannonseringar till ditt nätverk måste du associera ett flödesfilter.
 
-Med ett flödesfilter kan du identifiera tjänster som du vill använda via Microsoft-peering för din ExpressRoute-krets. Det är i princip en lista över alla BGP community-värden för att tillåta. När en flödesfilterresurs har definierats och kopplats till en ExpressRoute-krets, annonseras alla prefix som mappar till community-värden för BGP till ditt nätverk.
+Med ett flödesfilter kan du identifiera tjänster som du vill använda via Microsoft-peering för din ExpressRoute-krets. Det är i grunden en lista över alla värden för BGP-communityn som du vill tillåta. När en flödesfilterresurs har definierats och kopplats till en ExpressRoute-krets, annonseras alla prefix som mappar till community-värden för BGP till ditt nätverk.
 
-Om du vill kunna kopplar du flödesfilter med Office 365-tjänster på dem. måste du ha behörighet att använda Office 365-tjänster via ExpressRoute. Om du inte har behörighet att använda Office 365-tjänster via ExpressRoute, misslyckas åtgärden kopplar du flödesfilter. Läs mer om auktoriseringsprocessen [Azure ExpressRoute för Office 365](https://support.office.com/article/Azure-ExpressRoute-for-Office-365-6d2534a2-c19c-4a99-be5e-33a0cee5d3bd). Anslutningen till Dynamics 365-tjänster kräver inte någon tillstånd.
+Om du vill kunna kopplar du flödesfilter med Office 365-tjänster på dem. måste du ha behörighet att använda Office 365-tjänster via ExpressRoute. Om du inte har behörighet att använda Office 365-tjänster via ExpressRoute, misslyckas åtgärden kopplar du flödesfilter. Läs mer om auktoriseringsprocessen [Azure ExpressRoute för Office 365](https://support.office.com/article/Azure-ExpressRoute-for-Office-365-6d2534a2-c19c-4a99-be5e-33a0cee5d3bd).
 
 > [!IMPORTANT]
 > Microsoft-peering av ExpressRoute-kretsar som konfigurerades före den 1 augusti 2017 kommer att ha alla service-prefix som annonseras via Microsoft-peering, även om flödesfilter inte har definierats. Microsoft-peering av ExpressRoute-kretsar som är konfigurerade på eller efter den 1 augusti 2017 har inte alla prefix annonseras förrän ett flödesfilter är kopplad till kretsen.
@@ -71,7 +71,7 @@ Innan du börjar konfigurationen måste du kontrollera att du uppfyller följand
  - Du måste ha en aktiv Microsoft-peering. Följ anvisningarna i [skapa och ändra peering-konfigurationen](expressroute-howto-routing-portal-resource-manager.md)
 
 
-## <a name="prefixes"></a>Steg 1: Hämta en lista över prefix och BGP community-värden
+## <a name="prefixes"></a>Steg 1: Hämta en lista över prefix och värden för BGP-community
 
 ### <a name="1-get-a-list-of-bgp-community-values"></a>1. Hämta en lista över BGP community-värden
 
@@ -79,9 +79,9 @@ BGP community-värden som är associerade med tjänster som är tillgängliga vi
 
 ### <a name="2-make-a-list-of-the-values-that-you-want-to-use"></a>2. Skapa en lista över de värden som du vill använda
 
-Skapa en lista över [BGP community-värden](expressroute-routing.md#bgp) du vill använda i flödesfiltret. 
+Skapa en lista över [värden för BGP-grupper](expressroute-routing.md#bgp) som du vill använda i flödes filtret. 
 
-## <a name="filter"></a>Steg 2: Skapa ett flödesfilter och en regel för filter
+## <a name="filter"></a>Steg 2: Skapa ett flödes filter och en filter regel
 
 Ett flödesfilter kan ha endast en regel och regeln måste vara av typen 'Tillåt'. Den här regeln kan ha en lista över BGP community-värden som är associerade med den.
 
@@ -101,14 +101,14 @@ Du kan lägga till och uppdatera regler genom att välja fliken hantera regel f�
 ![Skapa ett flödesfilter](./media/how-to-routefilter-portal/ManageRouteFilter.png)
 
 
-Du kan välja de tjänster du vill ansluta till från den nedrullningsbara listan och spara regeln när du är klar.
+Du kan välja de tjänster som du vill ansluta till från List rutan och spara regeln när du är färdig.
 
 ![Skapa ett flödesfilter](./media/how-to-routefilter-portal/AddRouteFilterRule.png)
 
 
-## <a name="attach"></a>Steg 3: Koppla flödesfiltret till en ExpressRoute-krets
+## <a name="attach"></a>Steg 3: Koppla väg filtret till en ExpressRoute-krets
 
-Du kan koppla flödesfiltret till en krets genom att välja knappen ”Lägg till krets” och välja ExpressRoute-kretsen från den nedrullningsbara listan.
+Du kan koppla flödes filtret till en krets genom att välja knappen Lägg till krets och välja ExpressRoute-kretsen i list rutan.
 
 ![Skapa ett flödesfilter](./media/how-to-routefilter-portal/AddCktToRouteFilter.png)
 
@@ -137,7 +137,7 @@ Du kan uppdatera listan över värden för BGP-community är ansluten till en kr
 
 ### <a name="detach"></a>Att koppla från ett flödesfilter från en ExpressRoute-krets
 
-Om du vill koppla bort en krets från flödesfiltret, högerklicka på kretsen och klicka på ”Ta bort koppling”.
+Om du vill koppla bort en krets från väg filtret högerklickar du på kretsen och klickar på "ta bort koppling".
 
 ![Skapa ett flödesfilter](./media/how-to-routefilter-portal/DetachRouteFilter.png) 
 
@@ -152,4 +152,4 @@ Du kan ta bort ett flödesfilter genom att välja knappen Ta bort.
 
 * Mer information om ExpressRoute finns i [Vanliga frågor och svar om ExpressRoute](expressroute-faqs.md).
 
-* Läs om hur routerkonfigurationer [routerkonfigurationer att konfigurera och hantera routning](expressroute-config-samples-routing.md). 
+* Information om exempel på routerkonfigurationen finns i [konfigurations exempel för routern för att konfigurera och hantera routning](expressroute-config-samples-routing.md). 

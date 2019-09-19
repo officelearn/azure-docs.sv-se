@@ -1,107 +1,104 @@
 ---
-title: Användningsanalys med Azure Application Insights | Microsoft docs
+title: Användnings analys med Azure Application Insights | Microsoft-dokument
 description: Förstå dina användare och vad de gör med din app.
 services: application-insights
 documentationcenter: ''
-author: NumberByColors
+author: mrbullwinkle
 manager: carmonm
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 10/10/2017
-ms.pm_owner: daviste;NumberByColors
-ms.reviewer: mbullwin
-ms.author: daviste
-ms.openlocfilehash: ba29688958ee11aa9906a820f7a3d2bf41223743
-ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
+ms.date: 09/19/2019
+ms.author: mbullwin
+ms.openlocfilehash: 77aa39ae68800128409beb17ce3eb636ddcf28d1
+ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67798170"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71128968"
 ---
 # <a name="usage-analysis-with-application-insights"></a>Användningsanalys med Application Insights
 
-Vilka funktioner för webb- eller mobilappen som är mest populära? Användarna att uppnå sina mål med din app? De försvinner vid specifika tidpunkter och de komma tillbaka senare?  [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) hjälper dig att få kraftfulla insikter om hur personer använder din app. Varje gång du uppdaterar din app kan du utvärdera hur väl den fungerar för användare. Med denna kunskap kan göra du datadrivna beslut om din nästa utvecklingscykler.
+Vilka funktioner i din webb-eller mobilapp är mest populära? Uppnår användarna sina mål med din app? Släpps de vid vissa tidpunkter och returnerar dem senare?  [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) hjälper dig att få kraftfulla insikter om hur användarna använder din app. Varje gång du uppdaterar din app kan du utvärdera hur väl den fungerar för användare. Med den här kunskapen kan du fatta data drivna beslut om dina nästa utvecklings cykler.
 
 ## <a name="send-telemetry-from-your-app"></a>Skicka telemetri från din app
 
-Den bästa upplevelsen hämtas genom att installera Application Insights både i serverkoden app och i dina webbsidor. Klient- och komponenterna i din app skickar telemetri till Azure-portalen för analys.
+Den bästa upplevelsen erhålls genom att installera Application Insights både i appens Server kod och på dina webb sidor. Klient-och Server komponenterna i appen skickar telemetri tillbaka till Azure Portal för analys.
 
-1. **Kod:** Installera modulen lämpliga för din [ASP.NET](../../azure-monitor/app/asp-net.md), [Azure](../../azure-monitor/app/app-insights-overview.md), [Java](../../azure-monitor/app/java-get-started.md), [Node.js](../../azure-monitor/app/nodejs.md), eller [andra](../../azure-monitor/app/platforms.md) App.
+1. **Server kod:** Installera lämplig modul för din [ASP.net](../../azure-monitor/app/asp-net.md), [Azure](../../azure-monitor/app/app-insights-overview.md), [Java](../../azure-monitor/app/java-get-started.md), [Node. js](../../azure-monitor/app/nodejs.md)eller [någon annan](../../azure-monitor/app/platforms.md) app.
 
-    * *Vill du installera serverkoden inte? Bara [skapa en Azure Application Insights-resurs](../../azure-monitor/app/create-new-resource.md ).*
+    * *Vill du inte installera Server koden? [Skapa bara en Azure Application Insights-resurs](../../azure-monitor/app/create-new-resource.md ).*
 
-2. **Webbsidans kod:** Lägga till följande skript på din webbsida före avslutande ``</head>``. Ersätt instrumenteringsnyckeln med lämpligt värde för Application Insights-resursen:
-
-   ```javascript
-      <script type="text/javascript">
-        var appInsights=window.appInsights||function(a){
-            function b(a){c[a]=function(){var b=arguments;c.queue.push(function(){c[a].apply(c,b)})}}var c={config:a},d=document,e=window;setTimeout(function(){var b=d.createElement("script");b.src=a.url||"https://az416426.vo.msecnd.net/scripts/a/ai.0.js",d.getElementsByTagName("script")[0].parentNode.appendChild(b)});try{c.cookie=d.cookie}catch(a){}c.queue=[];for(var f=["Event","Exception","Metric","PageView","Trace","Dependency"];f.length;)b("track"+f.pop());if(b("setAuthenticatedUserContext"),b("clearAuthenticatedUserContext"),b("startTrackEvent"),b("stopTrackEvent"),b("startTrackPage"),b("stopTrackPage"),b("flush"),!a.disableExceptionTracking){f="onerror",b("_"+f);var g=e[f];e[f]=function(a,b,d,e,h){var i=g&&g(a,b,d,e,h);return!0!==i&&c["_"+f](a,b,d,e,h),i}}return c
-        }({
-            instrumentationKey: "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxx"
-        });
-        
-        window.appInsights=appInsights,appInsights.queue&&0===appInsights.queue.length&&appInsights.trackPageView();
+2. **Webbs Ides kod:** Lägg till följande skript på din webb sida före stängningen ``</head>``. Ersätt Instrumentation-nyckeln med lämpligt värde för din Application Insights-resurs:
+    
+    ```html
+    <script type="text/javascript">
+    var sdkInstance="appInsightsSDK";window[sdkInstance]="appInsights";var aiName=window[sdkInstance],aisdk=window[aiName]||function(e){function n(e){t[e]=function(){var n=arguments;t.queue.push(function(){t[e].apply(t,n)})}}var t={config:e};t.initialize=!0;var i=document,a=window;setTimeout(function(){var n=i.createElement("script");n.src=e.url||"https://az416426.vo.msecnd.net/scripts/b/ai.2.min.js",i.getElementsByTagName("script")[0].parentNode.appendChild(n)});try{t.cookie=i.cookie}catch(e){}t.queue=[],t.version=2;for(var r=["Event","PageView","Exception","Trace","DependencyData","Metric","PageViewPerformance"];r.length;)n("track"+r.pop());n("startTrackPage"),n("stopTrackPage");var s="Track"+r[0];if(n("start"+s),n("stop"+s),n("setAuthenticatedUserContext"),n("clearAuthenticatedUserContext"),n("flush"),!(!0===e.disableExceptionTracking||e.extensionConfig&&e.extensionConfig.ApplicationInsightsAnalytics&&!0===e.extensionConfig.ApplicationInsightsAnalytics.disableExceptionTracking)){n("_"+(r="onerror"));var o=a[r];a[r]=function(e,n,i,a,s){var c=o&&o(e,n,i,a,s);return!0!==c&&t["_"+r]({message:e,url:n,lineNumber:i,columnNumber:a,error:s}),c},e.autoExceptionInstrumented=!0}return t}(
+    {
+      instrumentationKey:"INSTRUMENTATION_KEY"
+    }
+    );window[aiName]=aisdk,aisdk.queue&&0===aisdk.queue.length&&aisdk.trackPageView({});
     </script>
     ```
-    Om du vill lära dig mer om avancerade konfigurationer för att övervaka webbplatser kan du läsa [JavaScript SDK API-referensen](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md).
 
-3. **Kod för mobilapp:** Använda App Center SDK för att samla in händelser från din app och sedan skicka kopior av dessa händelser till Application Insights för analys av [följer den här guiden](../../azure-monitor/learn/mobile-center-quickstart.md).
+    Mer avancerade konfigurationer för övervakning av webbplatser finns i [referens artikeln för Java Script SDK](https://docs.microsoft.com/azure/azure-monitor/app/javascript).
 
-4. **Hämta telemetri:** Köra projektet i felsökningsläge i några minuter och sedan leta efter resultat i bladet översikt i Application Insights.
+3. **Kod för mobilapp:** Använd App Center SDK för att samla in händelser från din app och skicka sedan kopior av dessa händelser till Application Insights för analys genom att [följa den här hand boken](../../azure-monitor/learn/mobile-center-quickstart.md).
+
+4. **Hämta telemetri:** Kör ditt projekt i fel söknings läge under några minuter och leta sedan efter resultat på bladet översikt i Application Insights.
 
     Publicera din app för att övervaka appens prestanda och ta reda på vad användarna gör med din app.
 
-## <a name="include-user-and-session-id-in-your-telemetry"></a>Ange ID för användaren och session i din telemetri
-Om du vill spåra användare över tid, kräver ett sätt att identifiera dem i Application Insights. Händelseverktyget är det enda verktyg för användning som inte kräver ett användar-ID eller ett sessions-ID.
+## <a name="include-user-and-session-id-in-your-telemetry"></a>Inkludera användar-och sessions-ID i din telemetri
+För att spåra användare över tid kräver Application Insights ett sätt att identifiera dem. Events-verktyget är det enda användnings verktyget som inte kräver ett användar-ID eller sessions-ID.
 
-Börja skicka användar- och sessions-ID med hjälp av [den här processen](https://docs.microsoft.com/azure/application-insights/app-insights-usage-send-user-context).
+Börja skicka användar-och sessions-ID med [den här processen](https://docs.microsoft.com/azure/application-insights/app-insights-usage-send-user-context).
 
-## <a name="explore-usage-demographics-and-statistics"></a>Utforska demografi användning och statistik
-Ta reda på när din app används, vilka sidor som de är mest intresserad av, där användarna befinner sig, vilka webbläsare och operativsystem som de använder. 
+## <a name="explore-usage-demographics-and-statistics"></a>Utforska användnings demografiskhet och statistik
+Ta reda på när användarna använder din app, vilka sidor de är mest intresserade av, var dina användare finns, vilka webbläsare och operativ system de använder. 
 
-Rapporter för användare och sessioner filtrera dina data genom sidor eller anpassade händelser och segmentera dem efter egenskaper, till exempel plats, miljö och sidan. Du kan också lägga till egna filter.
+Rapporterna användare och sessioner filtrerar dina data efter sidor eller anpassade händelser och segmenterar dem efter egenskaper som plats, miljö och sida. Du kan också lägga till egna filter.
 
 ![Användare](./media/usage-overview/users.png)  
 
-Insikter till höger påpeka intressanta mönster i datauppsättningen.  
+Insikter på den högra punkten för att ta reda på intressanta mönster i data uppsättningen.  
 
-* Den **användare** rapporten räknar antalet unika användare som har åtkomst till sidorna i din valda tidsperioder. För web apps räknas användare genom att använda cookies. Om någon får åtkomst till din webbplats med olika webbläsare eller klientdatorer eller tar bort sina cookies, och sedan de kommer att räknas mer än en gång.
-* Den **sessioner** rapporten räknar antalet användarsessioner som har åtkomst till din webbplats. En session är en viss aktivitet av en användare som avslutades av en period av inaktivitet av mer än en halvtimme.
+* Rapporten **användare** räknar antalet unika användare som har åtkomst till dina sidor inom de valda tids perioderna. För Web Apps räknas användare med hjälp av cookies. Om någon kommer åt din webbplats med olika webbläsare eller klient datorer, eller rensar sina cookies, kommer de att räknas mer än en gång.
+* I rapporten **sessioner** räknas antalet användarsessioner som har åtkomst till din webbplats. En session är en aktivitets period av en användare som avslutas med en period av inaktivitet på mer än en halvtimme.
 
 [Mer om verktyg för användare, sessioner och händelser](usage-segmentation.md)  
 
 ## <a name="retention---how-many-users-come-back"></a>Kvarhållning – hur många användare kommer tillbaka?
 
-Kvarhållning hjälper dig att förstå hur ofta användarna Återvänder för att använda sin app, baserat på kohorter med användare som utförde vissa företag åtgärd under en viss tid bucket. 
+Kvarhållning hjälper dig att förstå hur ofta dina användare kommer att använda sin app, baserat på kohorter av användare som utförde viss affärs åtgärd under en viss tids period. 
 
-- Förstå vilka specifika funktioner att användare ska komma tillbaka mer än andra 
-- Formuläret hypoteser baserat på verkliga användardata 
-- Avgöra om kvarhållning av säkerhetskopior är ett problem i din produkt 
+- Förstå vilka olika funktioner som gör att användarna kan komma tillbaka mer än andra 
+- Formulär Hypotheses baserat på verkliga användar data 
+- Ta reda på om kvarhållning är ett problem i din produkt 
 
 ![Kvarhållning](./media/usage-overview/retention.png) 
 
-Kvarhållning-kontrollerna längst upp kan du definiera specifika händelser och tidsintervall för att beräkna kvarhållning. Diagrammet i mitten ger en visuell representation av den övergripande kvarhållning i procent av det angivna tidsintervallet. Diagrammet längst ned representerar enskilda kvarhållning i en viss tidsperiod. Den här detaljnivån tillåter dig att förstå vad användarna gör och vad kan påverka returnerande användare på en mer detaljerad granularitet.  
+Med kontrollerna för kvarhållning i överkant kan du definiera enskilda händelser och tidsintervall för att beräkna kvarhållning. Grafen i mitten ger en visuell representation av den övergripande kvarhållning procenten med det angivna tidsintervallet. Diagrammet längst ned representerar individuell kvarhållning under en viss tids period. Den här detalj nivån gör att du kan förstå vad dina användare gör och vad som kan påverka användare med en mer detaljerad granularitet.  
 
-[Mer om verktyget kvarhållning](usage-retention.md)
+[Mer om bevarande verktyget](usage-retention.md)
 
-## <a name="custom-business-events"></a>Anpassade affärshändelser
+## <a name="custom-business-events"></a>Anpassade affärs händelser
 
-För att få en förståelse för vad användarna gör med din app, är det praktiskt att infoga rader med kod för att logga in anpassade händelser. Dessa händelser kan spåra allt från detaljerad användaråtgärder som att klicka på specifika knappar för att mer betydande affärshändelser, till exempel inköp eller vunnit ett spel. 
+För att få en tydlig förståelse av vad användarna gör med din app, är det praktiskt att infoga rader med kod för att logga anpassade händelser. Dessa händelser kan spåra allt från detaljerade användar åtgärder, till exempel att klicka på specifika knappar, till fler viktiga affärs händelser som att göra ett köp eller vinna ett spel. 
 
-Men i vissa fall kan sidvisningar representera användbara händelser, det är inte sant i allmänhet. En användare kan öppna en produktsidan utan att köpa produkten. 
+I vissa fall kan sid visningar representera användbara händelser, men det är inte sant i allmänhet. En användare kan öppna en produkt sida utan att köpa produkten. 
 
-Med specifika händelser, kan du skapa diagram användarnas förloppet via webbplatsen. Du kan ta reda på deras preferenser för olika alternativ, och om de försvinner ut eller har problem. Med den här kunskapen kan du fatta välgrundade beslut om prioriteringarna i utveckling uppgiftslistan.
+Med specifika affärs händelser kan du rita upp användarnas status genom din webbplats. Du kan ta reda på deras inställningar för olika alternativ och var de än är eller har problem. Med den här kunskapen kan du fatta välgrundade beslut om prioriteringarna i din utvecklings efter släpning.
 
-Händelser kan loggas från klientsidan av appen:
+Händelser kan loggas från klient sidan av appen:
 
 ```JavaScript
 
     appInsights.trackEvent("ExpandDetailTab", {DetailTab: tabName});
 ```
 
-Eller från serversidan:
+Eller från Server sidan:
 
 ```csharp
     var tc = new Microsoft.ApplicationInsights.TelemetryClient();
@@ -112,27 +109,27 @@ Eller från serversidan:
     tc.TrackEvent("CompletedPurchase");
 ```
 
-Du kan koppla egenskapsvärden till dessa händelser så att du kan filtrera eller dela upp händelser när du inspektera dem i portalen. Dessutom kan är en standarduppsättning egenskaper kopplat till varje händelse, till exempel anonyma användar-ID, vilket gör att du kan spåra sekvensen av aktiviteter för en enskild användare.
+Du kan koppla egenskaps värden till dessa händelser så att du kan filtrera eller dela händelser när du inspekterar dem i portalen. Dessutom är en standard uppsättning egenskaper kopplad till varje händelse, till exempel anonymt användar-ID, som gör att du kan spåra sekvensen av en enskild användares aktiviteter.
 
-Läs mer om [anpassade händelser](../../azure-monitor/app/api-custom-events-metrics.md#trackevent) och [egenskaper](../../azure-monitor/app/api-custom-events-metrics.md#properties).
+Läs mer om [anpassade händelser](../../azure-monitor/app/api-custom-events-metrics.md#trackevent) och [Egenskaper](../../azure-monitor/app/api-custom-events-metrics.md#properties).
 
-### <a name="slice-and-dice-events"></a>Rapportanvändarna händelser
+### <a name="slice-and-dice-events"></a>Händelser för segment och tärning
 
-Du kan ta ett utsnitt och segmentera anpassade händelser efter användarnamn, event och egenskaper i Verktyg för användare, sessioner och händelser.
+I verktygen användare, sessioner och händelser kan du segmentera och tärninga anpassade händelser efter användare, händelse namn och egenskaper.
 ![Användare](./media/usage-overview/users.png)  
   
 ## <a name="design-the-telemetry-with-the-app"></a>Utforma telemetri med appen
 
-När du utformar varje funktion i din app, kan du överväga hur du kommer att mäta sin framgång med dina användare. Bestäm vilka affärshändelser som du behöver registrera och kod spårnings-anrop för dessa händelser i din app från början.
+När du utformar varje funktion i din app bör du fundera på hur du ska mäta dess framgång med dina användare. Bestäm vilka affärs händelser du behöver registrera och koda spårnings anropen för dessa händelser till din app från start.
 
-## <a name="a--b-testing"></a>A | B-testning
-Om du inte vet vilken variant av en funktion ska bli mer framgångsrika, släpp lagringsintensiva gör varje är tillgängliga för olika användare. Mät framgången för varje och sedan flytta till en enhetlig version.
+## <a name="a--b-testing"></a>En | B-testning
+Om du inte vet vilken variant av en funktion som kommer att bli mer framgångs rik, frigör du båda dessa och gör dem tillgängliga för olika användare. Mät framgången och gå sedan vidare till en enhetlig version.
 
-För den här tekniken koppla distinkta egenskapsvärden till all telemetri som skickas av varje version av din app. Du kan göra det genom att definiera egenskaperna i den aktiva TelemetryContext. Dessa standardegenskaperna läggs till i alla telemetrimeddelanden som programmet skickar – inte bara din anpassade meddelanden, men även standard telemetri.
+För den här metoden kopplar du distinkta egenskaps värden till all telemetri som skickas av varje version av din app. Det kan du göra genom att definiera egenskaper i den aktiva TelemetryContext. Dessa standard egenskaper läggs till i varje telemetri som programmet skickar – inte bara dina anpassade meddelanden, utan även standard-telemetri.
 
-Filtrera och dela dina data på egenskapsvärden för att jämföra olika versioner i Application Insights-portalen.
+Filtrera och dela data på egenskapsvärdena i Application Insights-portalen, så att du kan jämföra olika versioner.
 
-Gör [ställa in en telemetri-initierare](../../azure-monitor/app/api-filtering-sampling.md#add-properties-itelemetryinitializer):
+Det gör du genom att [Konfigurera en telemetri-initierare](../../azure-monitor/app/api-filtering-sampling.md#add-properties-itelemetryinitializer):
 
 **ASP.NET-appar**
 
@@ -147,7 +144,7 @@ Gör [ställa in en telemetri-initierare](../../azure-monitor/app/api-filtering-
     }
 ```
 
-I web app initieraren, till exempel Global.asax.cs:
+I Web App-initieraren, till exempel Global.asax.cs:
 
 ```csharp
 
@@ -159,12 +156,12 @@ I web app initieraren, till exempel Global.asax.cs:
     }
 ```
 
-**ASP.NET Core-appar**
+**ASP.NET Core appar**
 
 > [!NOTE]
-> Att lägga till initieraren med hjälp av `ApplicationInsights.config` eller med hjälp av `TelemetryConfiguration.Active` är inte giltig för ASP.NET Core-program. 
+> Det går inte att `ApplicationInsights.config` lägga till `TelemetryConfiguration.Active` initieraren med eller använda är ogiltig för ASP.net Core-program. 
 
-För [ASP.NET Core](asp-net-core.md#adding-telemetryinitializers) program, att lägga till en ny `TelemetryInitializer` görs genom att lägga till behållaren Beroendeinmatning enligt nedan. Detta görs `ConfigureServices` -metoden för din `Startup.cs` klass.
+Om du vill [ASP.net Core](asp-net-core.md#adding-telemetryinitializers) program lägger du `TelemetryInitializer` till en ny genom att lägga till den i behållaren för beroende insprutning, som du ser nedan. Detta görs i `ConfigureServices` -metoden för din `Startup.cs` klass.
 
 ```csharp
  using Microsoft.ApplicationInsights.Extensibility;
@@ -175,7 +172,7 @@ För [ASP.NET Core](asp-net-core.md#adding-telemetryinitializers) program, att l
 }
 ```
 
-Alla nya TelemetryClients Lägg automatiskt till egenskapsvärdet som du anger. Enskilda telemetrihändelser kan åsidosätta standardvärdena.
+Alla nya TelemetryClients lägger automatiskt till det egenskaps värde som du anger. Enskilda telemetri händelser kan åsidosätta standardvärdena.
 
 ## <a name="next-steps"></a>Nästa steg
    - [Användare, sessioner, händelser](usage-segmentation.md)
@@ -183,4 +180,4 @@ Alla nya TelemetryClients Lägg automatiskt till egenskapsvärdet som du anger. 
    - [Kvarhållning](usage-retention.md)
    - [Användarflöden](usage-flows.md)
    - [Arbetsböcker](../../azure-monitor/app/usage-workbooks.md)
-   - [Lägg till användarkontext](usage-send-user-context.md)
+   - [Lägg till användar kontext](usage-send-user-context.md)

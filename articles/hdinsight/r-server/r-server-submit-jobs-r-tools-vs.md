@@ -1,19 +1,19 @@
 ---
 title: Skicka jobb från R-verktyg för Visual Studio – Azure HDInsight
 description: Skicka R-jobb från den lokala Visual Studio-datorn till ett HDInsight-kluster.
-ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
+ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/19/2019
-ms.openlocfilehash: 2d53f1bfc6eade535bfb1b3bb07d5115ffe5fc80
-ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
+ms.openlocfilehash: 1323e46d734d047f68652d0b21902e03182e6b62
+ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70967877"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71130260"
 ---
 # <a name="submit-jobs-from-r-tools-for-visual-studio"></a>Skicka jobb från R Tools för Visual Studio
 
@@ -41,7 +41,7 @@ RTVS förbättrar ditt R-arbetsflöde genom att erbjuda verktyg som t. ex. [R In
 
    2. Gå till meny alternativet **R tools** och välj **data science-inställningar...** .
 
-       ![Inställningar för data vetenskap...](./media/r-server-submit-jobs-r-tools-vs/data-science-settings.png)
+       ![Inställningar för Visual Studio data science](./media/r-server-submit-jobs-r-tools-vs/data-science-settings.png)
 
       > [!NOTE]  
       > Med hjälp av metoden i steg 1 kan du också spara och återställa din anpassade data expert layout i stället för att upprepa kommandot **data vetenskaps inställningar** .
@@ -56,11 +56,11 @@ RTVS förbättrar ditt R-arbetsflöde genom att erbjuda verktyg som t. ex. [R In
 6. Börja överst i filen och tryck på CTRL + RETUR för att skicka varje rad, en i taget, till det interaktiva R-fönstret. Det kan ta en stund att installera några rader medan paketen installeras.
     * Alternativt kan du markera alla rader i R-filen (Ctrl + A), sedan antingen köra alla (CTRL + RETUR) eller välja ikonen kör interaktiv i verktygsfältet.
 
-        ![Kör interaktiva](./media/r-server-submit-jobs-r-tools-vs/execute-interactive1.png)
+        ![Visual Studio köra interaktiv](./media/r-server-submit-jobs-r-tools-vs/execute-interactive1.png)
 
 7. När du har kört alla rader i skriptet bör du se utdata som liknar detta:
 
-    ![Arbetsyta](./media/r-server-submit-jobs-r-tools-vs/visual-studio-workspace.png)
+    ![Visual Studio Workspace R-verktyg](./media/r-server-submit-jobs-r-tools-vs/visual-studio-workspace.png)
 
 ## <a name="submit-jobs-to-an-hdinsight-ml-services-cluster"></a>Skicka jobb till ett HDInsight ML-tjänst kluster
 
@@ -96,7 +96,7 @@ Med hjälp av en Microsoft ml Server/Microsoft R-klient från en Windows-dator s
     rxSetComputeContext(mySparkCluster)
     ```
 
-   ![Ställer in Spark-kontexten](./media/r-server-submit-jobs-r-tools-vs/apache-spark-context.png)
+   ![Apache Spark-inställning för kontexten](./media/r-server-submit-jobs-r-tools-vs/apache-spark-context.png)
 
 1. Kör följande kommandon i det interaktiva R-fönstret:
 
@@ -113,17 +113,17 @@ Med hjälp av en Microsoft ml Server/Microsoft R-klient från en Windows-dator s
 
     1. Från ditt kluster i HDInsight ML-tjänster i Azure väljer du **lagrings konton** i den vänstra menyn.
 
-        ![Lagringskonton](./media/r-server-submit-jobs-r-tools-vs/hdinsight-storage-accounts.png)
+        ![Azure HDInsight Storage-konton](./media/r-server-submit-jobs-r-tools-vs/hdinsight-storage-accounts.png)
 
     2. Välj standard lagrings konto för klustret och Anteckna namnet på behållaren/katalogen.
 
     3. Välj **behållare** på menyn till vänster i fönstret lagrings konto.
 
-        ![Containrar](./media/r-server-submit-jobs-r-tools-vs/hdi-storage-containers.png)
+        ![Azure HDInsight Storage-behållare](./media/r-server-submit-jobs-r-tools-vs/hdi-storage-containers.png)
 
     4. Välj klustrets behållar namn, bläddra till mappen **användare** (du kanske måste klicka på *Läs in mer* längst ned i listan) och välj sedan *RevoShare*, sedan **newUser**. Filen ska visas `newUser` i mappen. `people.json`
 
-        ![Kopierad fil](./media/r-server-submit-jobs-r-tools-vs/hdinsight-copied-file.png)
+        ![HDInsight kopierad mappsökväg](./media/r-server-submit-jobs-r-tools-vs/hdinsight-copied-file.png)
 
 1. När du är färdig med den aktuella Apache Sparks kontexten måste du stoppa den. Det går inte att köra flera kontexter samtidigt.
 
@@ -135,4 +135,3 @@ Med hjälp av en Microsoft ml Server/Microsoft R-klient från en Windows-dator s
 
 * [Alternativ för beräknings kontext för ML-tjänster i HDInsight](r-server-compute-contexts.md)
 * Genom att [kombinera scaler och sparker](../hdinsight-hadoop-r-scaler-sparkr.md) finns ett exempel på flyg Plans fördröjnings förutsägelser.
-

@@ -9,12 +9,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 07/11/2019
-ms.openlocfilehash: 22d5c41e8b815fd99450962cb63d11e9560c787f
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: 9378c6a14c3b755a6456ef68ecd73730cb77fc79
+ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70997016"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71128971"
 ---
 # <a name="tutorial-deploy-a-machine-learning-model-with-the-visual-interface"></a>Självstudier: Distribuera en maskin inlärnings modell med det visuella gränssnittet
 
@@ -130,4 +130,4 @@ Du kan också hitta dessa modeller och distributioner i avsnitten **modeller** o
 I den här självstudien har du lärt dig viktiga steg för att skapa, distribuera och använda en maskin inlärnings modell i det visuella gränssnittet. Mer information om hur du kan använda det visuella gränssnittet för att lösa andra typer av problem finns i våra andra exempel experiment.
 
 > [!div class="nextstepaction"]
-> [Exempel på kredit risk klassificering](ui-sample-classification-predict-credit-risk-cost-sensitive.md)
+> [Exempel på kredit risk klassificering](how-to-ui-sample-classification-predict-credit-risk-cost-sensitive.md)

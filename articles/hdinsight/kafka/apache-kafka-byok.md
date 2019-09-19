@@ -1,18 +1,18 @@
 ---
 title: Ta med din egen nyckel för Apache Kafka på Azure HDInsight
 description: Den här artikeln beskriver hur du använder din egen nyckel från Azure Key Vault för att kryptera data som lagras i Apache Kafka på Azure HDInsight.
-ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: hrasheed
+ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/06/2019
-ms.openlocfilehash: 15638d90fe24938a45f6d4cce156e998f1f9afc2
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: ba49944011546db45d25cc87c2c4b93c8b99502a
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71000104"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71122686"
 ---
 # <a name="bring-your-own-key-for-apache-kafka-on-azure-hdinsight"></a>Ta med din egen nyckel för Apache Kafka på Azure HDInsight
 
@@ -22,7 +22,7 @@ Alla hanterade diskar i HDInsight skyddas med Azure Storage Service Encryption (
 
 BYOK-kryptering är en enda steg-process som hanteras när klustret skapas utan extra kostnad. Allt du behöver göra är att registrera HDInsight som en hanterad identitet med Azure Key Vault och lägga till krypterings nyckeln när du skapar klustret.
 
-Alla meddelanden till Kafka-klustret (inklusive repliker som underhålls av Kafka) krypteras med en symmetrisk data krypterings nyckel (DEK). DEK skyddas med nyckel krypterings nyckeln (KEK) från ditt nyckel valv. Krypterings-och dekrypterings processerna hanteras helt av Azure HDInsight. 
+Alla meddelanden till Kafka-klustret (inklusive repliker som underhålls av Kafka) krypteras med en symmetrisk data krypterings nyckel (DEK). DEK skyddas med nyckel krypterings nyckeln (KEK) från ditt nyckel valv. Krypterings-och dekrypterings processerna hanteras helt av Azure HDInsight.
 
 Du kan använda Azure Portal eller Azure CLI för att på ett säkert sätt rotera nycklar i nyckel valvet. När en nyckel roterar, börjar HDInsight Kafka-klustret att använda den nya nyckeln inom några minuter. Aktivera nyckel skydds funktionerna "mjuk borttagning" för att skydda dig mot utpressnings scenarier och oavsiktlig borttagning. Nyckel valv utan denna skydds funktion stöds inte.
 
@@ -46,6 +46,7 @@ Vi kommer att gå igenom följande steg för att skapa ett BYOK-aktiverat Kafka-
    1. Om du vill skapa ett nytt nyckel valv följer du snabb starten för [Azure Key Vault](../../key-vault/key-vault-overview.md) . Mer information om hur du importerar befintliga nycklar finns på [nycklar, hemligheter och certifikat](../../key-vault/about-keys-secrets-and-certificates.md).
 
    2. Aktivera "mjuk borttagning" i Key-valvet med hjälp av AZ-kommando för [uppdatering](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-update) cli.
+
         ```Azure CLI
         az keyvault update --name <Key Vault Name> --enable-soft-delete
         ```
@@ -58,16 +59,16 @@ Vi kommer att gå igenom följande steg för att skapa ett BYOK-aktiverat Kafka-
 
         b. Ange **alternativ** för att **generera** och ge nyckeln ett namn.
 
-        ![Generera nyckel namn](./media/apache-kafka-byok/apache-kafka-create-key.png "Generera nyckel namn")
+        ![Apache Kafka generera nyckel namn](./media/apache-kafka-byok/apache-kafka-create-key.png "Generera nyckel namn")
 
         c. Välj den nyckel som du skapade i listan över nycklar.
 
-        ![Azure Key Vault nyckel lista](./media/apache-kafka-byok/kafka-key-vault-key-list.png)
+        ![Nyckel lista för Apache Kafka Key Vault](./media/apache-kafka-byok/kafka-key-vault-key-list.png)
 
         d. När du använder din egen nyckel för Kafka-kluster kryptering måste du ange nyckel-URI: n. Kopiera **nyckel identifieraren** och spara den någonstans tills du är redo att skapa klustret.
 
-        ![Kopiera nyckel identifierare](./media/apache-kafka-byok/kafka-get-key-identifier.png)
-   
+        ![Hämta nyckel-ID för Apache Kafka](./media/apache-kafka-byok/kafka-get-key-identifier.png)
+
     4. Lägg till hanterad identitet i åtkomst principen för nyckel valvet.
 
         a. Skapa en ny Azure Key Vault åtkomst princip.
@@ -99,6 +100,7 @@ Vi kommer att gå igenom följande steg för att skapa ett BYOK-aktiverat Kafka-
    Under skapandet av klustret anger du den fullständiga nyckel-URL: en, inklusive nyckel versionen. Till exempel `https://contoso-kv.vault.azure.net/keys/kafkaClusterKey/46ab702136bc4b229f8b10e8c2997fa4`. Du måste också tilldela den hanterade identiteten till klustret och ange nyckel-URI: n.
 
 ## <a name="rotating-the-encryption-key"></a>Rotera krypterings nyckeln
+
    Det kan finnas scenarier där du kanske vill ändra de krypterings nycklar som används av Kafka-klustret när det har skapats. Detta kan enkelt ske via portalen. För den här åtgärden måste klustret ha åtkomst till både den aktuella nyckeln och den avsedda nya nyckeln, annars går det inte att rotera nyckeln.
 
    Om du vill rotera nyckeln måste du ha den fullständiga URL: en för den nya nyckeln (se steg 3 i [konfigurera Key Vault och nycklar](#setup-the-key-vault-and-keys)). När du har gjort det går du till avsnittet Kafka-kluster egenskaper i portalen och klickar på **ändra nyckel** under **URL för disk krypterings nyckel**. Ange den nya nyckel-URL: en och skicka för att rotera nyckeln.
@@ -122,7 +124,7 @@ Vi kommer att gå igenom följande steg för att skapa ett BYOK-aktiverat Kafka-
 **Vad händer om klustret förlorar åtkomst till nyckel valvet eller nyckeln?**
 Om klustret förlorar åtkomst till nyckeln, visas varningar i Apache Ambari-portalen. I det här läget går det inte att utföra **ändrings nyckeln** . När nyckel åtkomsten har återställts försvinner Ambari-varningar och åtgärder som nyckel rotation kan utföras.
 
-   ![Kafka Key Access Ambari-avisering](./media/apache-kafka-byok/kafka-byok-ambari-alert.png)
+   ![Avisering om Apache Kafka nyckel åtkomst Ambari](./media/apache-kafka-byok/kafka-byok-ambari-alert.png)
 
 **Hur kan jag återställa klustret om nycklarna tas bort?**
 

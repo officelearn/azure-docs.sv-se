@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp, sstein
 ms.date: 09/16/2019
-ms.openlocfilehash: 7f7faf11ed18fa2a85587c193376a3e4ce905fd2
-ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
+ms.openlocfilehash: d0356ff61ec8073e7fe69c3b09cbbdd8845fb787
+ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71010194"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71128917"
 ---
 # <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>Översikt Azure SQL Database hanterade instans resurs gränser
 
@@ -52,18 +52,18 @@ Den hanterade instansen har två tjänst nivåer: [Generell användning](sql-dat
 | **Funktion** | **Generell användning** | **Affärskritisk** |
 | --- | --- | --- |
 | Antal virtuella kärnor\* | Gen4 8, 16, 24<br/>Gen5 4, 8, 16, 24, 32, 40, 64, 80 | Gen4 8, 16, 24 <br/> Gen5 4, 8, 16, 24, 32, 40, 64, 80 |
-| Högsta mängd minne | Gen4 56 GB-168 GB (7GB/vCore)<br/>Gen5 40,8 GB-408 GB (5,1 GB/vCore)<br/>Lägg till fler virtuella kärnor för att få mer minne. | Gen4 56 GB-168 GB (7GB/vCore)<br/>Gen5 40,8 GB-408 GB (5,1 GB/vCore)<br/>Lägg till fler virtuella kärnor för att få mer minne. |
-| Maximal lagrings storlek för reserverad instans | -2 TB för 4 virtuella kärnor (endast Gen5)<br/>– 8 TB för andra storlekar | Gen4 1 TB <br/> Gen5 <br/>-1 TB för 4, 8, 16 virtuella kärnor<br/>– 2 TB för 24 virtuella kärnor<br/>– 4 TB för 32, 40, 64, 80 virtuella kärnor |
-| Maximal databasstorlek | 8 TB | 4 TB |
-| Maximalt antal databaser per instans | 100 | 100 |
-| Maximalt antal databasfiler per instans | Upp till 280 | 32 767 filer per databas |
-| Maximal fil storlek | 8 TB | 4 TB |
-| Största logg fils storlek | 2 TB | 2 TB |
+| Högsta mängd minne | Gen4 56 GB-168 GB (7GB/vCore)<br/>Gen5 20,4 GB-408 GB (5,1 GB/vCore)<br/>Lägg till fler virtuella kärnor för att få mer minne. | Gen4 56 GB-168 GB (7GB/vCore)<br/>Gen5 20,4 GB-408 GB (5,1 GB/vCore)<br/>Lägg till fler virtuella kärnor för att få mer minne. |
+| Maximal instans lagrings storlek (reserverad) | -2 TB för 4 virtuella kärnor (endast Gen5)<br/>– 8 TB för andra storlekar | Gen4 1 TB <br/> Gen5 <br/>-1 TB för 4, 8, 16 virtuella kärnor<br/>– 2 TB för 24 virtuella kärnor<br/>– 4 TB för 32, 40, 64, 80 virtuella kärnor |
+| Maximal databasstorlek | Upp till tillgänglig instans storlek (max 2 TB-8 TB beroende på antalet virtuella kärnor). | Upp till tillgänglig instans storlek (max 1 TB – 4 TB beroende på antalet virtuella kärnor). |
+| Maximal tempDB-storlek | Begränsad till 24 GB/vCore (96-1 920 GB) och instans storlek som är tillgänglig för tillfället.<br/>Lägg till fler virtuella kärnor för att få mer TempDB-utrymme. | Upp till tillgänglig instans storlek för tillfället. TempDB-logg fils storleken är för närvarande begränsad till 24GB/vCore. |
+| Maximalt antal databaser per instans | 100, om inte storleks gränsen för instans lagring har uppnåtts. | 100, om inte storleks gränsen för instans lagring har uppnåtts. |
+| Maximalt antal databasfiler per instans | Upp till 280, om inte instansens lagrings storlek eller [Azure Premium disk](sql-database-managed-instance-transact-sql-information.md#exceeding-storage-space-with-small-database-files) utrymmes gräns har nåtts. | 32 767 filer per databas, om inte storleks gränsen för instans lagring har uppnåtts. |
+| Maximal fil storlek | Begränsad till 8 TB, tillgänglig instans storlek (högst 2 TB-8 TB) och [lagrings utrymme för Azure Premium-disk](sql-database-managed-instance-transact-sql-information.md#exceeding-storage-space-with-small-database-files). | Begränsad till 4 TB och tillgänglig instans storlek (upp till 1 TB-4 TB). |
+| Största logg fils storlek | Begränsad till 2 TB, för närvarande tillgänglig instans storlek och [Azure Premium disk lagring allokerat utrymme](sql-database-managed-instance-transact-sql-information.md#exceeding-storage-space-with-small-database-files). | Begränsad till 2 TB och för tillfället tillgänglig instans storlek. |
 | Data/logga IOPS (ungefärligt) | 500 – 7 500 per fil<br/>\*[Öka fil storleken för att få mer IOPS](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes)| 5,5 k-110 K (1375/vCore)<br/>Lägg till fler virtuella kärnor för att få bättre IO-prestanda. |
-| Skriv gränsen för logg skrivnings data | 3 MB/s per vCore<br/>Högst 22 MB/s per instans | 4 MB/s per vCore<br/>Max 48 MB/s per instans|
-| Data flöde (ungefärligt) | 100-250 MB/s per fil<br/>\*[Öka fil storleken för att få bättre IO-prestanda](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes) | Gäller inte |
+| Logg Skriv data flödes gräns (per instans) | 3 MB/s per vCore<br/>Högst 22 MB/s | 4 MB/s per vCore<br/>Max 48 MB/s |
+| Data flöde (ungefärligt) | 100-250 MB/s per fil<br/>\*[Öka fil storleken för att få bättre IO-prestanda](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes) | Inte begränsat. |
 | IO-latens för lagring (ungefärligt) | 5-10 MS | 1-2 MS |
-| Maximal tempDB-storlek | 192 – 1 920 GB (24 GB per vCore)<br/>Lägg till fler virtuella kärnor för att få mer TempDB-utrymme. | Begränsas av maximal instans lagrings storlek. TempDB-logg fils storleken är för närvarande begränsad till 24GB/vCore. |
 | Minnesintern OLTP | Stöds inte | Tillgängligt |
 | Maximalt antal sessioner | 30000 | 30000 |
 | [Skrivskyddade repliker](sql-database-read-scale-out.md) | 0 | 1 (ingår i priset) |
@@ -80,7 +80,7 @@ Den hanterade instansen har två tjänst nivåer: [Generell användning](sql-dat
 
 Hanterade instanser kan bara skapas i [regioner som stöds](https://azure.microsoft.com/global-infrastructure/services/?products=sql-database&regions=all). Om du vill skapa en hanterad instans i en region som för närvarande inte stöds kan du [skicka en supportbegäran via Azure Portal](#obtaining-a-larger-quota-for-sql-managed-instance).
 
-## <a name="supported-subscription-types"></a>Prenumerations typer som stöds
+## <a name="supported-subscription-types"></a>Prenumerationstyper som stöds
 
 Den hanterade instansen stöder för närvarande endast distribution av följande typer av prenumerationer:
 
@@ -93,10 +93,10 @@ Den hanterade instansen stöder för närvarande endast distribution av följand
 
 ## <a name="regional-resource-limitations"></a>Begränsningar för regionala resurser
 
-Prenumerations typer som stöds kan innehålla ett begränsat antal resurser per region. Den hanterade instansen har två standard gränser per Azure-region beroende på typ av prenumerations typ:
+Prenumerations typer som stöds kan innehålla ett begränsat antal resurser per region. Den hanterade instansen har två standard gränser per Azure-region (som kan ökas på begäran genom att en särskild [supportbegäran skapas i Azure Portal](#obtaining-a-larger-quota-for-sql-managed-instance)) beroende på typ av prenumerations typ:
 
 - **Under näts gräns**: Det maximala antalet undernät där hanterade instanser distribueras i en enda region.
-- **vCore gräns**: Det maximala antalet virtuella kärnor som kan distribueras över alla instanser i en enda region. Det totala antalet instanser är inte begränsat så länge det ligger inom vCore-gränsen.
+- **vCore enhets gräns**: Det maximala antalet vCore-enheter som kan distribueras över alla instanser i en enda region. En GP-vCore använder en vCore-enhet och en BC-vCore tar 4 vCore-enheter. Det totala antalet instanser är inte begränsat så länge det ligger inom gränsen för vCore-enheten.
 
 > [!Note]
 > Dessa gränser är standardinställningar och inte tekniska begränsningar. Gränserna kan ökas på begäran genom att en särskild [supportbegäran skapas i Azure Portal](#obtaining-a-larger-quota-for-sql-managed-instance) om du behöver fler hanterade instanser i den aktuella regionen. Alternativt kan du skapa nya hanterade instanser i en annan Azure-region utan att skicka support förfrågningar.

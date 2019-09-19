@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/24/2019
-ms.openlocfilehash: 8565ee03ddff67afb3700aa1cda91ae696a0fc93
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.openlocfilehash: 270bc5401e58f4e5c99cae3c5ab06b4f03ae9543
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70960217"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71123245"
 ---
 # <a name="use-mirrormaker-to-replicate-apache-kafka-topics-with-kafka-on-hdinsight"></a>Använda MirrorMaker för att replikera Apache Kafka ämnen med Kafka på HDInsight
 
@@ -84,7 +84,7 @@ Den här arkitekturen innehåller två kluster i olika resurs grupper och virtue
     1. Klicka på **Lägg till**.
     1. På sidan **Lägg till peering (Lägg till peering** ) anger du informationen som visas på skärm bilden nedan.
 
-        ![Lägg till VNet-peering](./media/apache-kafka-mirroring/hdi-add-vnet-peering.png)
+        ![HDInsight-Kafka Lägg till VNet-peering](./media/apache-kafka-mirroring/hdi-add-vnet-peering.png)
 
 1. Konfigurera IP-annonsering:
     1. Gå till Ambari-instrumentpanelen för det primära klustret `https://PRIMARYCLUSTERNAME.azurehdinsight.net`:.
@@ -104,7 +104,7 @@ Den här arkitekturen innehåller två kluster i olika resurs grupper och virtue
     1. Klicka på **OK** i **Spara konfigurations ändringarna**.
     1. Klicka på **Starta** > om omstart**allt påverkat** i meddelandet **omstart krävs** . Klicka på **Bekräfta omstart av alla**.
 
-        ![Starta om Kafka-noder](./media/apache-kafka-mirroring/ambari-restart-notification.png)
+        ![Apache Ambari-omstart alla påverkade](./media/apache-kafka-mirroring/ambari-restart-notification.png)
 
 1. Konfigurera Kafka för att lyssna på alla nätverks gränssnitt.
     1. Stanna kvar på fliken **configs** under **Services** > **Kafka**. I **Kafka Broker** -avsnittet anger du egenskapen **Listeners** till `PLAINTEXT://0.0.0.0:9092`.
@@ -115,7 +115,7 @@ Den här arkitekturen innehåller två kluster i olika resurs grupper och virtue
     1. Klicka på **värdar** på Ambari-instrumentpanelen.
     1. Anteckna IP-adresserna för utjämnare och Zookeepers. Service Broker-noderna har dubbelt **så många** de två första bokstäverna i värd namnet och Zookeeper-noderna har **ZK** som de första två bokstäverna i värd namnet.
 
-        ![Visa IP-adresser](./media/apache-kafka-mirroring/view-node-ip-addresses2.png)
+        ![Apache Ambari View Node IP-adresser](./media/apache-kafka-mirroring/view-node-ip-addresses2.png)
 
 1. Upprepa föregående tre steg för det andra klustret **Kafka – sekundärt kluster**: Konfigurera IP-annonsering, ange lyssnare och anteckna IP-adresserna för Broker och Zookeeper.
 
@@ -251,7 +251,7 @@ Den här arkitekturen innehåller två kluster i olika resurs grupper och virtue
         6. Ändra värdet `auto.create.topics.enable` till sant och välj sedan __Spara__. Lägg till en anteckning och välj sedan __Spara__ igen.
         7. Välj __Kafka__ -tjänsten, Välj __starta om__och välj sedan __starta om alla berörda__. När du uppmanas väljer du __Bekräfta omstart av alla__.
 
-        ![Konfigurera avsnitt skapa automatiskt](./media/apache-kafka-mirroring/kafka-enable-auto-create-topics.png)
+        ![Kafka aktivera automatisk skapande av ämnen](./media/apache-kafka-mirroring/kafka-enable-auto-create-topics.png)
 
 ## <a name="start-mirrormaker"></a>Starta MirrorMaker
 

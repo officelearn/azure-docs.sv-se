@@ -2,18 +2,18 @@
 title: Azure HDInsight-verktyg – PySpark interaktiv miljö för Visual Studio Code
 description: Lär dig hur du använder Azure HDInsight-verktyg för Visual Studio Code för att skapa och skicka frågor och skript.
 keywords: VScode, Azure HDInsight tools, Hive, python, PySpark, Spark, HDInsight, Hadoop, LLAP, Interactive Hive, interaktiv fråga
-ms.service: hdinsight
 author: jejiang
 ms.author: jejiang
 ms.reviewer: jasonh
+ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 06/13/2019
-ms.openlocfilehash: d220d81b8dc57541113f7ef1e477bb77d394e206
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: f62f7994818e487202e35e4931472355fb6ac3d2
+ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70879286"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71130179"
 ---
 # <a name="set-up-the-pyspark-interactive-environment-for-visual-studio-code"></a>Konfigurera den interaktiva PySpark-miljön för Visual Studio Code
 
@@ -22,19 +22,18 @@ Följande steg visar hur du konfigurerar den interaktiva PySpark-miljön i VS Co
 Vi använder kommandot **python/pip** för att bygga en virtuell miljö i din Start Sök väg. Om du vill använda en annan version måste du ändra standard versionen av **python/pip** kommando manuellt. Mer information finns i [Update-alternativ](https://linux.die.net/man/8/update-alternatives).
 
 1. Installera [python](https://www.python.org/downloads/) och [pip](https://pip.pypa.io/en/stable/installing/).
-   
+
    + Installera python från [https://www.python.org/downloads/](https://www.python.org/downloads/).
    + Installera pip från [https://pip.pypa.io/en/stable/installing](https://pip.pypa.io/en/stable/installing/) (om det inte är installerat från python-installationen).
    + Kontrol lera att python och pip har installerats med hjälp av följande kommandon. Valfritt
- 
-        ![Python pip-version](./media/set-up-pyspark-interactive-environment/check-python-pip-version.png)
+
+        ![Kontrol lera kommandot python pip version](./media/set-up-pyspark-interactive-environment/check-python-pip-version.png)
 
      > [!NOTE]
      > Vi rekommenderar att du installerar python manuellt i stället för att använda macOS-standardversionen.
 
-
 2. Installera **virtuell miljö** genom att köra kommandot nedan.
-   
+
    ```
    pip install virtualenv
    ```
@@ -43,7 +42,7 @@ Vi använder kommandot **python/pip** för att bygga en virtuell miljö i din St
 
 Om ett fel meddelande visas installerar du de nödvändiga paketen genom att köra följande kommandon:
 
-   ![libkrb5-paket](./media/set-up-pyspark-interactive-environment/install-libkrb5-package.png)
+   ![Installera libkrb5-paket för python](./media/set-up-pyspark-interactive-environment/install-libkrb5-package.png)
 
 ```
 sudo apt-get install libkrb5-dev

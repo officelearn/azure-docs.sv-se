@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 03/15/2019
 ms.author: jenoller
-ms.openlocfilehash: 909b32890ea7ff33d6b5b5db3bb55f36f7007c6b
-ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
+ms.openlocfilehash: b4c771b406d635410c22db5c1c4687a34a2e6eb0
+ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71018667"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71130022"
 ---
 # <a name="customize-coredns-with-azure-kubernetes-service"></a>Anpassa CoreDNS med Azure Kubernetes service
 
@@ -20,7 +20,7 @@ I Azure Kubernetes service (AKS) används ett [CoreDNS][coredns] -projekt för k
 
 Eftersom AKS är en hanterad tjänst kan du inte ändra huvud konfigurationen för CoreDNS (en *CoreFile*). I stället använder du en Kubernetes- *ConfigMap* för att åsidosätta standardinställningarna. Om du vill se standard AKS CoreDNS-ConfigMaps använder `kubectl get configmaps --namespace=kube-system coredns -o yaml` du kommandot.
 
-Den här artikeln visar hur du använder ConfigMaps för grundläggande anpassnings alternativ för CoreDNS i AKS.
+Den här artikeln visar hur du använder ConfigMaps för grundläggande anpassnings alternativ för CoreDNS i AKS. Den här metoden skiljer sig från att konfigurera CoreDNS i andra kontexter, t. ex. genom att använda CoreFile. Kontrol lera vilken version av CoreDNS som körs eftersom konfigurations värdena kan ändras mellan olika versioner.
 
 > [!NOTE]
 > `kube-dns`Erbjud olika [anpassnings alternativ][kubednsblog] via en Kubernetes-konfigurations karta. CoreDNS är **inte** bakåtkompatibla med Kube-DNS. Alla anpassningar som du använt tidigare måste uppdateras för användning med CoreDNS.
@@ -31,7 +31,7 @@ Den här artikeln förutsätter att du har ett befintligt AKS-kluster. Om du beh
 
 ## <a name="what-is-supportedunsupported"></a>Vad stöds/stöds inte
 
-Alla inbyggda plugin-program för CoreDNS stöds. Inga plugin-program för tillägg/tredje part stöds. 
+Alla inbyggda plugin-program för CoreDNS stöds. Inga plugin-program för tillägg/tredje part stöds.
 
 ## <a name="rewrite-dns"></a>Skriv över DNS
 

@@ -9,12 +9,12 @@ ms.date: 09/17/2019
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 3640d2d88fc679b78395472c667fcde39979728a
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.openlocfilehash: 6a598ad3f68c613a745fd56f3b368e309afeb8b6
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71074339"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71122965"
 ---
 # <a name="azure-storage-redundancy"></a>Azure Storage redundans
 
@@ -28,12 +28,7 @@ Azure Storage verifierar regelbundet integriteten för data som lagras med hjäl
 
 När du skapar ett lagrings konto kan du välja något av följande alternativ för redundans:
 
-- [Lokalt redundant lagring (LRS)](storage-redundancy-lrs.md)
-- [Zonredundant lagring (ZRS)](storage-redundancy-zrs.md)
-- [Geo-redundant lagring (GRS)](storage-redundancy-grs.md)
-- [Geo-redundant lagring med läsbehörighet (RA-GRS)](storage-redundancy-grs.md#read-access-geo-redundant-storage)
-- [GZRS (geo-Zone-redundant lagring)](storage-redundancy-gzrs.md)
-- [Read-Access geo-Zone-redundant lagring (RA-GZRS)](storage-redundancy-gzrs.md)
+[!INCLUDE [azure-storage-redundancy](../../../includes/azure-storage-redundancy.md)]
 
 Följande tabell ger en snabb överblick över omfattningen av hållbarhet och tillgänglighet som varje replikeringsprincip ger dig en specifik typ av händelse (eller händelse av liknande påverkan).
 
@@ -55,7 +50,7 @@ Pris information för varje alternativ för redundans finns i [Azure Storage pri
 Information om Azure Storage garantier för hållbarhet och tillgänglighet finns i [service avtalet för Azure Storage](https://azure.microsoft.com/support/legal/sla/storage/).
 
 > [!NOTE]
-> Azure Premium Storage har endast stöd för lokalt redundant lagring (LRS).
+> Azure Premium Storage har för närvarande endast stöd för lokalt redundant lagring (LRS).
 
 ## <a name="changing-replication-strategy"></a>Ändra replikeringsprincip
 

@@ -1,5 +1,5 @@
 ---
-title: 'Självstudier: Azure Active Directory integrering med asynkrona servicechannel | Microsoft Docs'
+title: 'Självstudier: Azure Active Directory enkel inloggning (SSO) med asynkrona servicechannel | Microsoft Docs'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och asynkrona servicechannel.
 services: active-directory
 documentationCenter: na
@@ -13,17 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 08/12/2019
+ms.date: 08/29/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 120dbefb6885489155a4b86fae429223766a06bc
-ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.openlocfilehash: 4adc22982c8c7fa7b7a856ded01f88ee548bde93
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68976094"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71121969"
 ---
-# <a name="tutorial-integrate-servicechannel-with-azure-active-directory"></a>Självstudier: Integrera asynkrona servicechannel med Azure Active Directory
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-servicechannel"></a>Självstudier: Azure Active Directory enkel inloggning (SSO) med asynkrona servicechannel
 
 I den här självstudien får du lära dig hur du integrerar asynkrona servicechannel med Azure Active Directory (Azure AD). När du integrerar asynkrona servicechannel med Azure AD kan du:
 
@@ -58,7 +58,6 @@ Om du vill konfigurera integreringen av asynkrona servicechannel i Azure AD mås
 1. I avsnittet **Lägg till från galleriet** , skriver du **asynkrona servicechannel** i sökrutan.
 1. Välj **asynkrona servicechannel** från resultat panelen och Lägg sedan till appen. Vänta några sekunder medan appen läggs till i din klient organisation.
 
-
 ## <a name="configure-and-test-azure-ad-single-sign-on-for-servicechannel"></a>Konfigurera och testa enkel inloggning med Azure AD för asynkrona servicechannel
 
 Konfigurera och testa Azure AD SSO med asynkrona servicechannel med hjälp av en test användare som heter **B. Simon**. För att SSO ska fungera måste du upprätta en länk relation mellan en Azure AD-användare och den relaterade användaren i asynkrona servicechannel.
@@ -68,9 +67,9 @@ Om du vill konfigurera och testa Azure AD SSO med asynkrona servicechannel, slut
 1. **[Konfigurera Azure AD SSO](#configure-azure-ad-sso)** – så att användarna kan använda den här funktionen.
     1. **[Skapa en Azure AD-test](#create-an-azure-ad-test-user)** för att testa enkel inloggning med Azure AD med B. Simon.
     1. **[Tilldela Azure AD](#assign-the-azure-ad-test-user)** -testuser-för att aktivera B. Simon för att använda enkel inloggning med Azure AD.
-2. **[Konfigurera ASYNKRONA SERVICECHANNEL SSO](#configure-servicechannel-sso)** – för att konfigurera inställningarna för enkel inloggning på program sidan.
+1. **[Konfigurera ASYNKRONA SERVICECHANNEL SSO](#configure-servicechannel-sso)** – för att konfigurera inställningarna för enkel inloggning på program sidan.
     1. **[Skapa asynkrona servicechannel test User](#create-servicechannel-test-user)** -om du vill ha en motsvarighet till B. Simon i asynkrona servicechannel som är länkad till Azure AD-representation av användare.
-3. **[Testa SSO](#test-sso)** – för att kontrol lera om konfigurationen fungerar.
+1. **[Testa SSO](#test-sso)** – för att kontrol lera om konfigurationen fungerar.
 
 ## <a name="configure-azure-ad-sso"></a>Konfigurera Azure AD SSO
 
@@ -82,53 +81,22 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
    ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
 
-1. I avsnittet **Grundläggande SAML-konfiguration** utför du följande steg:
+1. På sidan **Konfigurera enkel inloggning med SAML** anger du värdena för följande fält:
 
-      a. I text rutan **identifierare** skriver du in värdet som:`http://adfs.<domain>.com/adfs/service/trust`
+    a. I text rutan **identifierare** skriver du in värdet som:`http://adfs.<domain>.com/adfs/service/trust`
 
     b. I textrutan **Svars-URL** skriver du en URL med följande mönster: `https://<customer domain>.servicechannel.com/saml/acs`
 
     > [!NOTE]
     > Dessa värden är inte verkliga. Uppdatera dessa värden med den faktiska identifieraren och svars-URL. Här föreslår vi att du använder det unika värdet för strängen i identifieraren. Kontakta [asynkrona servicechannel client support team](https://servicechannel.zendesk.com/hc/en-us) för att hämta dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
-5. Ditt asynkrona servicechannel-program förväntar sig SAML-intyg i ett särskilt format, vilket kräver att du lägger till anpassade mappningar av attribut i konfigurationen för SAML-token. Följande skärmbild visar en lista över standardattribut, där **nameidentifier** mappas med **user.userprincipalname**. Asynkrona servicechannel-programmet förväntar sig att **NameIdentifier** mappas med **User. mail**, så du måste redigera mappningen av attribut genom att klicka på ikonen **Redigera** och ändra attributet mappning.
+1. Roll anspråk är förkonfigurerat så att du inte behöver konfigurera det, men du måste fortfarande skapa dem i Azure AD med hjälp av den här [artikeln](https://docs.microsoft.com/azure/active-directory/develop/active-directory-enterprise-app-role-management). Du kan se asynkrona servicechannel- [Guide för mer information](https://servicechannel.zendesk.com/hc/articles/217514326-Azure-AD-Configuration-Example) om anspråk.
 
-    Du kan se asynkrona servicechannel- [](https://servicechannel.zendesk.com/hc/articles/217514326-Azure-AD-Configuration-Example) guide för mer information om anspråk.
-
-    ![image](common/edit-attribute.png)
-
-    > [!NOTE]
-    > Se den här [länken](https://docs.microsoft.com/azure/active-directory/develop/active-directory-enterprise-app-role-management) för att lära dig hur du konfigurerar en **roll** i Azure AD.
-
-6. Förutom ovan, om du planerar att aktivera just vid tidpunkten för användar etablering, ska du lägga till följande anspråk enligt vad som visas nedan. **Roll** anspråk måste mappas till **User. assignedroles** som innehåller användarens roll. I avsnittet **Användaranspråk** i dialogrutan **Användarattribut** utför du följande steg för att lägga till SAML-tokenattributet enligt det som visas i tabellen nedan:
-
-    | Namn   |  Källattribut |
-    | ------ | --- |
-    | Role   | user.assignedroles |
-
-    a. Klicka på **Lägg till nytt anspråk** för att öppna dialogrutan **Hantera användaranspråk**.
-
-    ![image](common/new-save-attribute.png)
-
-    ![image](common/new-attribute-details.png)
-
-    b. I textrutan **Namn** skriver du det attributnamn som visas för den raden.
-
-    c. Lämna **Namnrymd** tom.
-
-    d. Välj Källa som **Attribut**.
-
-    e. Från listan över **Källattribut** skriver du det attributvärde som visas för den raden.
-
-    f. Klicka på **Ok**
-
-    g. Klicka på **Spara**.
-
-4. På sidan **Konfigurera enkel inloggning med SAML** , i avsnittet **SAML-signeringscertifikat** , Sök efter **certifikat (base64)** och välj **Ladda ned** för att ladda ned certifikatet och spara det på din dator.
+1. På sidan **Konfigurera enkel inloggning med SAML** , i avsnittet **SAML-signeringscertifikat** , Sök efter **certifikat (base64)** och välj **Ladda ned** för att ladda ned certifikatet och spara det på din dator.
 
     ![Länk för hämtning av certifikat](common/certificatebase64.png)
 
-6. I avsnittet **Konfigurera asynkrona servicechannel** kopierar du lämpliga URL: er baserat på ditt krav.
+1. I avsnittet **Konfigurera asynkrona servicechannel** kopierar du lämpliga URL: er baserat på ditt krav.
 
     ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
 
@@ -139,10 +107,10 @@ I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B
 1. I den vänstra rutan i Azure Portal väljer du **Azure Active Directory**, väljer **användare**och väljer sedan **alla användare**.
 1. Välj **ny användare** överst på skärmen.
 1. I **användar** egenskaperna följer du de här stegen:
-    1. I **Namn**-fältet skriver du `B.Simon`.  
-    1. I fältet **användar namn** anger du username@companydomain.extension. Till exempel `B.Simon@contoso.com`.
-    1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
-    1. Klicka på **Skapa**.
+   1. I **Namn**-fältet skriver du `B.Simon`.  
+   1. I fältet **användar namn** anger du username@companydomain.extension. Till exempel `B.Simon@contoso.com`.
+   1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
+   1. Klicka på **Skapa**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
 
@@ -152,7 +120,7 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 1. I listan program väljer du **asynkrona servicechannel**.
 1. På sidan Översikt för appen letar du reda på avsnittet **Hantera** och väljer **användare och grupper**.
 
-    ![Länken ”användare och grupper”](common/users-groups-blade.png)
+   ![Länken ”användare och grupper”](common/users-groups-blade.png)
 
 1. Välj **Lägg till användare**och välj sedan **användare och grupper** i dialog rutan **Lägg till tilldelning** .
 
@@ -164,13 +132,13 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 ## <a name="configure-servicechannel-sso"></a>Konfigurera asynkrona servicechannel SSO
 
-Om du vill konfigurera enkel inloggning på **asynkrona servicechannel** sida måste du skicka det hämtade **certifikatet (base64)** och lämpliga kopierade url: er från Azure Portal till [support teamet för asynkrona servicechannel](https://servicechannel.zendesk.com/hc/). De ställer du in SAML SSO ansluta till korrekt inställda på båda sidorna.
+Om du vill konfigurera enkel inloggning på **asynkrona servicechannel** sida måste du skicka det hämtade **certifikatet (base64)** och lämpliga kopierade url: er från Azure Portal till [support teamet för asynkrona servicechannel](https://servicechannel.zendesk.com/hc/en-us). De ställer du in SAML SSO ansluta till korrekt inställda på båda sidorna.
 
 ### <a name="create-servicechannel-test-user"></a>Skapa asynkrona servicechannel test användare
 
 Programmet stöder just-in-time-användaretablering, och efter autentiseringen skapas användare automatiskt i programmet. Kontakta [asynkrona servicechannel support-teamet](https://servicechannel.zendesk.com/hc/)om du vill ha fullständig användar etablering.
 
-## <a name="test-sso"></a>Testa SSO 
+## <a name="test-sso"></a>Testa SSO
 
 I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
 
@@ -184,3 +152,4 @@ När du klickar på panelen asynkrona servicechannel på åtkomst panelen, bör 
 
 - [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
+- [Prova asynkrona servicechannel med Azure AD](https://aad.portal.azure.com/)

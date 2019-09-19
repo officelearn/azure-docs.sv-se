@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/11/2019
 ms.author: allensu
-ms.openlocfilehash: fb7c0c31ad91bfdb6ea360c1909a216f0779ebde
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 349d8afd46a06455edcd25e2a7ea48f407d285ef
+ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68274619"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71130416"
 ---
 # <a name="what-is-azure-load-balancer"></a>Vad är Azure Load Balancer?
 
@@ -171,6 +171,7 @@ Information om Standard Load Balancer SLA finns på sidan med [Load Balancer-ser
 
 - Load Balancer är en TCP- eller UDP-produkt för belastningsutjämning och portvidarebefordran för dessa specifika IP-protokoll.  Belastningsutjämningsregler och inkommande NAT-regler stöds för TCP och UDP och stöds inte för andra IP-protokoll, inklusive ICMP. Load Balancer avslutar inte, svarar inte på eller på annat sätt interagerar med nyttolasten för ett UDP- eller TCP-flöde. Det är inte en proxy. Lyckad validering av anslutningen till en klientdel måste äga rum in-band med samma protokoll som används i en belastningsutjämningsregel eller inkommande NAT-regel (TCP eller UDP) _och_ minst en av dina virtuella datorer måste generera ett svar för en klient för att se ett svar från en klientdel.  Ett uteblivet in-band-svar från lastbalanserarens klientdel anger att inga virtuella datorer kunde svara.  Det är inte möjligt att interagera med en lastbalanserares klientdel utan att en virtuell dator kan svara.  Det här gäller även för utgående anslutningar där [portmaskerings-SNAT](load-balancer-outbound-connections.md#snat) bara stöds för TCP och UDP. Alla andra IP-protokoll, inklusive ICMP, kommer att misslyckas.  Tilldela en offentlig IP-adress på instansnivå som åtgärd.
 - Till skillnad från offentliga lastbalanserare som ger [utgående anslutningar](load-balancer-outbound-connections.md) vid övergång från privata IP-adresser i det virtuella nätverket till offentliga IP-adresser så översätter inte interna lastbalanserare anslutningar med utgående ursprung till klientdelen för en intern lastbalanserare eftersom båda finns i det privata IP-adressutrymmet.  På så sätt undviker du risken för SNAT-portöverbelastning i ett unikt internt IP-adressutrymme där översättning inte krävs.  Bieffekten är att om ett utgående flöde från en virtuell dator i serverdelspoolen försöker med ett flöde till klientdelen för den interna lastbalanseraren där poolen finns _och_ mappas tillbaka till sig själv så matchar inte båda benen för flödet och flödet misslyckas.  Om flödet inte har mappats tillbaka till samma virtuella dator i serverdelspoolen som har skapat flödet till klientdelen kommer flödet att lyckas.   När flödet mappas tillbaka till sig själv verkar det utgående flödet komma från den virtuella datorn till klientdelen och det motsvarande inkommande flödet verkar komma från själva den virtuella datorn. Från gästoperativsystemets perspektiv matchar inte de inkommande och utgående delarna av samma flöde i den virtuella datorn. TCP-stacken känner inte igen dessa halvor av samma flöde som en del av samma flöde som källan eftersom källan och målet inte matchar.  När flödet mappas till en annan virtuell dator i serverdelspoolen matchar halvorna av flödet och den virtuella datorn kan svara på flödet.  Symtomet för det här scenariot är tillfälliga anslutningstimeouter när flödet returnerar samma serverdel som är ursprung till flödet. Det finns flera vanliga lösningar för att tillförlitligt uppnå det här scenariot (flöden från en serverdelspool till serverdelspoolerna respektive den interna lastbalanserarens klientdel) som innehåller infogande av en proxynivå bakom den interna lastbalanseraren eller [med hjälp av DSR-formatregler](load-balancer-multivip-overview.md).  Kunder kan kombinera en intern lastbalanserare med en tredjepartsproxy eller en ersättande intern [Application Gateway](../application-gateway/application-gateway-introduction.md) för proxyscenarier begränsade till HTTP/HTTPS. Du kan använda en offentlig lastbalanserare som åtgärd men det resulterande scenariot har en fallenhet för [SNAT-överbelastning](load-balancer-outbound-connections.md#snat) och bör undvikas om det inte hanteras noggrant.
+- I allmänhet stöds inte vidarebefordrande IP-fragment eller utföra IP-fragmentering av UDP-och TCP-paket i regler för belastnings utjämning.  [Belastnings Utjämnings regler för ha-portar](load-balancer-ha-ports-overview.md) är undantag till den här allmänna instruktionen och kan användas för att vidarebefordra befintliga IP-fragment.
 
 ## <a name="next-steps"></a>Nästa steg
 

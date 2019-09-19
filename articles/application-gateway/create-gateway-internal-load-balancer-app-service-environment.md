@@ -1,10 +1,10 @@
 ---
-title: Felsöka en Programgateway i Azure – ILB ASE | Microsoft Docs
-description: Lär dig hur du felsöker en Programgateway med hjälp av en intern belastningsutjämnare med en App Service-miljö i Azure
+title: Felsöka ett Application Gateway i Azure – ILB ASE | Microsoft Docs
+description: Lär dig hur du felsöker en Programgateway med hjälp av ett internt Load Balancer med ett App Service-miljön i Azure
 services: vpn-gateway
 documentationCenter: na
 author: genlin
-manager: cshepard
+manager: dcscontentpm
 editor: ''
 tags: ''
 ms.service: vpn-gateway
@@ -14,62 +14,62 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/06/2018
 ms.author: genli
-ms.openlocfilehash: baed2b23a321c53a614303d3085fbb3a4bf6ad0b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9c3216af283ebd9d84a5469d4d50d18c19f67534
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60831103"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71121958"
 ---
-# <a name="back-end-server-certificate-is-not-whitelisted-for-an-application-gateway-using-an-internal-load-balancer-with-an-app-service-environment"></a>Backend-servercertifikatet är inte vitlistad för en Programgateway med en intern belastningsutjämnare med en App Service Environment
+# <a name="back-end-server-certificate-is-not-whitelisted-for-an-application-gateway-using-an-internal-load-balancer-with-an-app-service-environment"></a>Backend-servercertifikat är inte vit listas för en Programgateway med en intern Load Balancer med ett App Service-miljön
 
-Den här artikeln felsöker följande problem: Ett certifikat är inte godkänd när du skapar en Programgateway med hjälp av ett internt belastningsutjämnaren (ILB) tillsammans med en App Service Environment (ASE) på backend-servern när du använder SSL för slutpunkt till slutpunkt i Azure.
+I den här artikeln felsöker du följande problem: Ett certifikat är inte vit listas när du skapar en Programgateway med hjälp av en intern Load Balancer (ILB) tillsammans med en App Service-miljön (ASE) på Server sidan när du använder SSL i slut punkt till slut punkt i Azure.
 
 ## <a name="symptoms"></a>Symtom
 
-När du skapar en Programgateway med en ILB med en ASE på serverdelen kan backend-servern bli skadad. Det här problemet uppstår om certifikat för serverautentisering för programgatewayen inte matchar det konfigurerade certifikatet på backend-servern. Se följande scenario som exempel:
+När du skapar en Programgateway med hjälp av en ILB med en ASE på Server sidan kan backend-servern bli ohälsosam. Det här problemet uppstår om Authentication-certifikatet för programgatewayen inte matchar det konfigurerade certifikatet på backend-servern. Se följande scenario som exempel:
 
-**Konfiguration för Programgatewayen:**
+**Application Gateway konfiguration:**
 
 - **Lyssnare:** Flera platser
 - **Port:** 443
 - **Värdnamn:** test.appgwtestase.com
 - **SSL-certifikat:** CN=test.appgwtestase.com
-- **Serverdelspool:** IP-adress eller FQDN
+- **Backend-pool:** IP-adress eller FQDN
 - **IP-adress:** : 10.1.5.11
 - **HTTP-inställningar:** HTTPS
 - **Port:** : 443
 - **Anpassad avsökning:** Hostname – test.appgwtestase.com
-- **Certifikat för serverautentisering:** .cer av test.appgwtestase.com
-- **Serverdelens hälsotillstånd:** Ohälsosamma – Backend-servercertifikatet är inte godkänd med Application Gateway.
+- **Autentiseringscertifikat:** . cer av test.appgwtestase.com
+- **Server dels hälsa:** Ej felfri – backend-servercertifikatet är inte vit listas med Application Gateway.
 
 **ASE-konfiguration:**
 
-- **ILB IP-ADRESS:** 10.1.5.11
-- **Domännamn:** appgwtestase.com
+- **ILB IP:** 10.1.5.11
+- **Domän namn:** appgwtestase.com
 - **App Service:** test.appgwtestase.com
-- **SSL-bindning:** SNI SSL – CN=test.appgwtestase.com
+- **SSL-bindning:** SNI SSL – CN = test. appgwtestase. com
 
-När du har åtkomst till application gateway får följande felmeddelande eftersom backend-servern är felaktiga:
+När du ansluter till programgatewayen visas följande fel meddelande, eftersom backend-servern inte är felfri:
 
-**502 – webbservern tog emot ett ogiltigt svar när den fungerade som gateway eller proxy.**
+**502 – webb servern tog emot ett ogiltigt svar när den fungerade som en gateway eller proxyserver.**
 
 ## <a name="solution"></a>Lösning
 
-När du inte använder ett värdnamn för att få åtkomst till en HTTPS-webbplats, returnerar backend-servern det konfigurerade certifikatet på standardwebbplatsen, om SNI är inaktiverad. För en ILB ASE kommer standardcertifikatet från ILB-certifikat. Om det finns inga konfigurerade certifikat för den interna Belastningsutjämnaren, kommer certifikatet från ASE App certificate.
+När du inte använder ett värdnamn för att komma åt en HTTPS-webbplats, returnerar backend-servern det konfigurerade certifikatet på standard webbplatsen, om SNI är inaktiverat. För en ILB-ASE kommer standard certifikatet från ILB-certifikatet. Om det inte finns några konfigurerade certifikat för ILB kommer certifikatet från ASE app-certifikatet.
 
-När du använder ett fullständigt kvalificerat domännamn (FQDN) för att få åtkomst till den interna Belastningsutjämnaren, returneras rätt certifikat som har överförts i HTTP-inställningarna i backend-servern. Om det inte är fallet, bör du följande alternativ:
+När du använder ett fullständigt kvalificerat domän namn (FQDN) för att komma åt ILB, returnerar backend-servern rätt certifikat som laddas upp i HTTP-inställningarna. Om så inte är fallet, bör du överväga följande alternativ:
 
-- Använda FQDN i backend-poolen med application gateway för att peka på IP-adressen för den interna Belastningsutjämnaren. Det här alternativet fungerar bara om du har en privat DNS-zon eller en anpassad DNS konfigurerat. Annars, måste du skapa en A-post för en offentlig DNS.
+- Använd FQDN i backend-poolen för programgatewayen för att peka på IP-adressen för ILB. Det här alternativet fungerar bara om du har en privat DNS-zon eller en anpassad DNS-konfigurerad. Annars måste du skapa en "A"-post för en offentlig DNS.
 
-- Använd överförda certifikat på den interna Belastningsutjämnaren eller standardcertifikatet (ILB-certifikat) i HTTP-inställningarna. Application gateway hämtar certifikatet när den kommer åt den interna belastningsutjämnarens IP för avsökningen.
+- Använd det överförda certifikatet på ILB eller standard certifikatet (ILB-certifikat) i HTTP-inställningarna. Programgatewayen hämtar certifikatet när den får åtkomst till ILB IP för avsökningen.
 
-- Använd ett jokerteckencertifikat på den interna Belastningsutjämnaren och backend-servern, så att certifikatet är gemensamma för alla webbplatser. Den här lösningen är dock bara möjligt med underdomäner och inte om var och en av webbplatser kräver olika värdnamn.
+- Använd ett certifikat med jokertecken på ILB och backend-servern, så att certifikatet är gemensamt för alla webbplatser. Den här lösningen är dock bara möjlig i händelse av under domäner och inte om var och en av dessa webbplatser kräver olika värdnamn.
 
-- Rensa den **för App service** alternativ för application gateway om du använder IP-adressen för den interna Belastningsutjämnaren.
+- Avmarkera alternativet **Använd för App Service** för Application Gateway om du använder IP-adressen för ILB.
 
-Du kan överföra ILB-certifikat i HTTP-inställningarna för att göra avsökningssökvägen fungerar för att minska omkostnaderna. (Det här steget gäller bara för listan över tillåtna program. Den används inte för SSL-kommunikation.) Du kan hämta ILB-certifikat genom att gå till den interna Belastningsutjämnaren med dess IP-adress från din webbläsare på HTTPS och sedan exportera SSL-certifikatet i en Base64-kodad CER-format och ladda upp certifikatet på respektive HTTP-inställningarna.
+För att minska omkostnaderna kan du ladda upp ILB-certifikatet i HTTP-inställningarna för att göra avsöknings Sök vägen fungera. (Det här steget är bara för vit listning. Den används inte för SSL-kommunikation.) Du kan hämta ILB-certifikatet genom att komma åt ILB med dess IP-adress från din webbläsare på HTTPS och sedan exportera SSL-certifikatet i ett Base-64-kodat CER-format och ladda upp certifikatet på respektive HTTP-inställningar.
 
 ## <a name="need-help-contact-support"></a>Behöver du hjälp? Kontakta supporten
 
-Om du fortfarande behöver hjälp, [supporten](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) att lösa problemet snabbt.
+Om du fortfarande behöver hjälp kan du [kontakta supporten](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) så får du hjälp att lösa problemet snabbt.

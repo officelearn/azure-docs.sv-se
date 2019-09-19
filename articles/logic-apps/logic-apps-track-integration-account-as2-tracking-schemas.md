@@ -76,7 +76,7 @@ För att du övervakar lyckades, fel och meddelandeegenskaper för business-to-b
 | outgoingHeaders |Ordlista med JToken | Utgående AS2 information om meddelandet. (Valfritt) |
 | isNrrEnabled | Boolean | Använd standardvärdet om värdet inte är känd. (Obligatorisk) |
 | isMdnExpected | Boolean | Använd standardvärdet om värdet inte är känd. (Obligatorisk) |
-| mdnType | Enum | Tillåtna värden är **NotConfigured**, **synkronisering**, och **Async**. (Obligatorisk) |
+| mdnType | Enum | Tillåtna värden är **NotConfigured**, **Sync**, och **Async**. (Obligatorisk) |
 ||||
 
 ## <a name="as2-mdn-tracking-schema"></a>AS2 MDN-spårningsschema

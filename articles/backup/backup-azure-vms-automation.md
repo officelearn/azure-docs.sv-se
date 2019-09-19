@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 09/11/2019
 ms.author: dacurwin
-ms.openlocfilehash: d624f6a1711bf2c2bad5ebc252d00c299ebca225
-ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
+ms.openlocfilehash: 372851686b43e6d2caf4695b988789990077e8fe
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70909835"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71090854"
 ---
 # <a name="back-up-and-restore-azure-vms-with-powershell"></a>Säkerhetskopiera och återställa virtuella Azure-datorer med PowerShell
 
@@ -175,7 +175,7 @@ När du skapar ett Recovery Services-valv medföljer standardskydd och principer
 Använd **[Get-AzRecoveryServicesBackupProtectionPolicy](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupprotectionpolicy)** för att visa de skydds principer som är tillgängliga i valvet. Du kan använda denna cmdlet för att hämta en princip eller för att visa de principer som är kopplade till en arbets belastnings typ. I följande exempel hämtas principer för arbets belastnings typ, AzureVM.
 
 ```powershell
-Get-AzRecoveryServicesBackupProtectionPolicy -WorkloadType "AzureVM"
+Get-AzRecoveryServicesBackupProtectionPolicy -WorkloadType "AzureVM" -VaultId $targetVault.ID
 ```
 
 Utdata ser ut ungefär så här:
@@ -201,7 +201,7 @@ En säkerhets kopierings skydds princip är associerad med minst en bevarande pr
 Som standard definieras en start tid i objektet Schemalägg princip. Använd följande exempel för att ändra start tiden till önskad start tid. Den önskade start tiden ska också vara i UTC-tid. I exemplet nedan förutsätter du att den önskade start tiden är 01:00 AM UTC för dagliga säkerhets kopieringar.
 
 ```powershell
-$schPol = Get-AzRecoveryServicesBackupSchedulePolicyObject -WorkloadType "AzureVM"
+$schPol = Get-AzRecoveryServicesBackupSchedulePolicyObject -WorkloadType "AzureVM" -VaultId $targetVault.ID
 $UtcTime = Get-Date -Date "2019-03-20 01:00:00Z"
 $UtcTime = $UtcTime.ToUniversalTime()
 $schpol.ScheduleRunTimes[0] = $UtcTime
@@ -213,8 +213,8 @@ $schpol.ScheduleRunTimes[0] = $UtcTime
 I följande exempel lagras schema principen och bevarande principen i variabler. Exemplet använder variablerna för att definiera parametrarna när du skapar en skydds princip, *NewPolicy*.
 
 ```powershell
-$retPol = Get-AzRecoveryServicesBackupRetentionPolicyObject -WorkloadType "AzureVM"
-New-AzRecoveryServicesBackupProtectionPolicy -Name "NewPolicy" -WorkloadType "AzureVM" -RetentionPolicy $retPol -SchedulePolicy $schPol
+$retPol = Get-AzRecoveryServicesBackupRetentionPolicyObject -WorkloadType "AzureVM" -VaultId $targetVault.ID
+New-AzRecoveryServicesBackupProtectionPolicy -Name "NewPolicy" -WorkloadType "AzureVM" -RetentionPolicy $retPol -SchedulePolicy $schPol -VaultId $targetVault.ID
 ```
 
 Utdata ser ut ungefär så här:
@@ -237,24 +237,24 @@ I följande exempel aktive ras skyddet för objektet, V2VM, med hjälp av princi
 Aktivera skydd på **icke-krypterade Resource Manager-virtuella datorer**:
 
 ```powershell
-$pol = Get-AzRecoveryServicesBackupProtectionPolicy -Name "NewPolicy"
-Enable-AzRecoveryServicesBackupProtection -Policy $pol -Name "V2VM" -ResourceGroupName "RGName1"
+$pol = Get-AzRecoveryServicesBackupProtectionPolicy -Name "NewPolicy" -VaultId $targetVault.ID
+Enable-AzRecoveryServicesBackupProtection -Policy $pol -Name "V2VM" -ResourceGroupName "RGName1" -VaultId $targetVault.ID
 ```
 
 Om du vill aktivera skydd på krypterade virtuella datorer (krypterade med BEK och KEK) måste du ge Azure Backup tjänst behörighet att läsa nycklar och hemligheter från nyckel valvet.
 
 ```powershell
 Set-AzKeyVaultAccessPolicy -VaultName "KeyVaultName" -ResourceGroupName "RGNameOfKeyVault" -PermissionsToKeys backup,get,list -PermissionsToSecrets get,list -ServicePrincipalName 262044b1-e2ce-469f-a196-69ab7ada62d3
-$pol = Get-AzRecoveryServicesBackupProtectionPolicy -Name "NewPolicy"
-Enable-AzRecoveryServicesBackupProtection -Policy $pol -Name "V2VM" -ResourceGroupName "RGName1"
+$pol = Get-AzRecoveryServicesBackupProtectionPolicy -Name "NewPolicy" -VaultId $targetVault.ID
+Enable-AzRecoveryServicesBackupProtection -Policy $pol -Name "V2VM" -ResourceGroupName "RGName1" -VaultId $targetVault.ID
 ```
 
 Om du vill aktivera skydd på **krypterade virtuella datorer (endast krypterat med Bek)** måste du ge Azure Backup tjänst behörighet att läsa hemligheter från nyckel valvet.
 
 ```powershell
 Set-AzKeyVaultAccessPolicy -VaultName "KeyVaultName" -ResourceGroupName "RGNameOfKeyVault" -PermissionsToSecrets backup,get,list -ServicePrincipalName 262044b1-e2ce-469f-a196-69ab7ada62d3
-$pol = Get-AzRecoveryServicesBackupProtectionPolicy -Name "NewPolicy"
-Enable-AzRecoveryServicesBackupProtection -Policy $pol -Name "V2VM" -ResourceGroupName "RGName1"
+$pol = Get-AzRecoveryServicesBackupProtectionPolicy -Name "NewPolicy" -VaultId $targetVault.ID
+Enable-AzRecoveryServicesBackupProtection -Policy $pol -Name "V2VM" -ResourceGroupName "RGName1" -VaultId $targetVault.ID
 ```
 
 > [!NOTE]
@@ -266,7 +266,7 @@ Enable-AzRecoveryServicesBackupProtection -Policy $pol -Name "V2VM" -ResourceGro
 Du kan övervaka långvariga åtgärder, till exempel säkerhets kopierings jobb, utan att använda Azure Portal. Använd cmdleten [Get-AzRecoveryservicesBackupJob](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupjob) för att hämta status för ett pågående jobb. Denna cmdlet hämtar säkerhets kopierings jobben för ett visst valv och det valvet anges i valv kontexten. Följande exempel hämtar status för ett pågående jobb som en matris och lagrar status i $joblist-variabeln.
 
 ```powershell
-$joblist = Get-AzRecoveryservicesBackupJob –Status "InProgress"
+$joblist = Get-AzRecoveryservicesBackupJob –Status "InProgress" -VaultId $targetVault.ID
 $joblist[0]
 ```
 
@@ -281,7 +281,7 @@ V2VM             Backup               InProgress            4/23/2016           
 I stället för att avsöka de här jobben för slut för ande, vilket är onödig ytterligare kod, använder du [wait-AzRecoveryServicesBackupJob](https://docs.microsoft.com/powershell/module/az.recoveryservices/wait-azrecoveryservicesbackupjob) -cmdlet: en. Den här cmdleten pausar körningen tills antingen jobbet har slutförts eller tills det angivna tids gräns värdet har uppnåtts.
 
 ```powershell
-Wait-AzRecoveryServicesBackupJob -Job $joblist[0] -Timeout 43200
+Wait-AzRecoveryServicesBackupJob -Job $joblist[0] -Timeout 43200 -VaultId $targetVault.ID
 ```
 
 ## <a name="manage-azure-vm-backups"></a>Hantera säkerhetskopior av virtuella Azure-datorer
@@ -299,8 +299,8 @@ $SchPol = Get-AzRecoveryServicesBackupSchedulePolicyObject -WorkloadType "AzureV
 $UtcTime = Get-Date -Date "2019-03-20 01:00:00Z" (This is the time that the customer wants to start the backup)
 $UtcTime = $UtcTime.ToUniversalTime()
 $SchPol.ScheduleRunTimes[0] = $UtcTime
-$pol = Get-AzRecoveryServicesBackupProtectionPolicy -Name "NewPolicy"
-Set-AzRecoveryServicesBackupProtectionPolicy -Policy $pol  -SchedulePolicy $SchPol
+$pol = Get-AzRecoveryServicesBackupProtectionPolicy -Name "NewPolicy" -VaultId $targetVault.ID
+Set-AzRecoveryServicesBackupProtectionPolicy -Policy $pol  -SchedulePolicy $SchPol -VaultId $targetVault.ID
 ````
 
 #### <a name="modifying-retention"></a>Ändrar kvarhållning
@@ -310,8 +310,8 @@ I följande exempel ändras återställnings punktens kvarhållning till 365 dag
 ```powershell
 $retPol = Get-AzRecoveryServicesBackupRetentionPolicyObject -WorkloadType "AzureVM"
 $retPol.DailySchedule.DurationCountInDays = 365
-$pol = Get-AzRecoveryServicesBackupProtectionPolicy -Name "NewPolicy"
-Set-AzRecoveryServicesBackupProtectionPolicy -Policy $pol  -RetentionPolicy $RetPol
+$pol = Get-AzRecoveryServicesBackupProtectionPolicy -Name "NewPolicy" -VaultId $targetVault.ID
+Set-AzRecoveryServicesBackupProtectionPolicy -Policy $pol  -RetentionPolicy $RetPol -VaultId $targetVault.ID
 ```
 
 #### <a name="configuring-instant-restore-snapshot-retention"></a>Konfigurera omedelbar kvarhållning av ögonblicks bilder
@@ -320,9 +320,9 @@ Set-AzRecoveryServicesBackupProtectionPolicy -Policy $pol  -RetentionPolicy $Ret
 > Från AZ PS version 1.6.0 och senare, kan en uppdatering av återställnings perioden för ögonblicks bilder av ögonblicks bilder i principen med hjälp av PowerShell
 
 ````powershell
-$bkpPol = Get-AzureRmRecoveryServicesBackupProtectionPolicy -WorkloadType "AzureVM"
+$bkpPol = Get-AzureRmRecoveryServicesBackupProtectionPolicy -WorkloadType "AzureVM" -VaultId $targetVault.ID
 $bkpPol.SnapshotRetentionInDays=7
-Set-AzureRmRecoveryServicesBackupProtectionPolicy -policy $bkpPol
+Set-AzureRmRecoveryServicesBackupProtectionPolicy -policy $bkpPol -VaultId $targetVault.ID
 ````
 
 Standardvärdet är 2, användaren kan ange värdet med minst 1 och högst 5. För veckovis säkerhets kopierings principer är perioden inställt på 5 och kan inte ändras.
@@ -332,8 +332,8 @@ Standardvärdet är 2, användaren kan ange värdet med minst 1 och högst 5. F�
 Använd [Backup-AzRecoveryServicesBackupItem](https://docs.microsoft.com/powershell/module/az.recoveryservices/backup-azrecoveryservicesbackupitem) för att utlösa ett säkerhets kopierings jobb. Om det är den första säkerhets kopian, är det en fullständig säkerhets kopia. Efterföljande säkerhets kopieringar tar en stegvis kopia. I följande exempel utförs en VM-säkerhetskopiering i 60 dagar.
 
 ```powershell
-$namedContainer = Get-AzRecoveryServicesBackupContainer -ContainerType "AzureVM" -Status "Registered" -FriendlyName "V2VM"
-$item = Get-AzRecoveryServicesBackupItem -Container $namedContainer -WorkloadType "AzureVM"
+$namedContainer = Get-AzRecoveryServicesBackupContainer -ContainerType "AzureVM" -Status "Registered" -FriendlyName "V2VM" -VaultId $targetVault.ID
+$item = Get-AzRecoveryServicesBackupItem -Container $namedContainer -WorkloadType "AzureVM" -VaultId $targetVault.ID
 $endDate = (Get-Date).AddDays(60).ToUniversalTime()
 $job = Backup-AzRecoveryServicesBackupItem -Item $item -VaultId $targetVault.ID -ExpiryDateTimeUTC $endDate
 ```
@@ -356,9 +356,9 @@ V2VM              Backup              InProgress          4/23/2016             
 Användaren kan antingen ändra den befintliga principen eller ändra principen för det säkerhetskopierade objektet från Policy1 till Policy2. Om du vill växla principer för ett säkerhetskopierat objekt hämtar du den relevanta principen och säkerhetskopierar objektet och använder kommandot [Enable-AzRecoveryServices](https://docs.microsoft.com/powershell/module/az.recoveryservices/Enable-AzRecoveryServicesBackupProtection?view=azps-1.5.0) med säkerhets kopierings objekt som parameter.
 
 ````powershell
-$TargetPol1 = Get-AzRecoveryServicesBackupProtectionPolicy -Name <PolicyName>
-$anotherBkpItem = Get-AzRecoveryServicesBackupItem -WorkloadType AzureVM -BackupManagementType AzureVM -Name "<BackupItemName>"
-Enable-AzRecoveryServicesBackupProtection -Item $anotherBkpItem -Policy $TargetPol1
+$TargetPol1 = Get-AzRecoveryServicesBackupProtectionPolicy -Name <PolicyName> -VaultId $targetVault.ID
+$anotherBkpItem = Get-AzRecoveryServicesBackupItem -WorkloadType AzureVM -BackupManagementType AzureVM -Name "<BackupItemName>" -VaultId $targetVault.ID
+Enable-AzRecoveryServicesBackupProtection -Item $anotherBkpItem -Policy $TargetPol1 -VaultId $targetVault.ID
 ````
 
 Kommandot väntar tills den konfigurerade säkerhets kopieringen har slutförts och returnerar följande utdata.
@@ -415,8 +415,8 @@ De grundläggande stegen för att återställa en virtuell Azure-dator är:
 Om du vill hämta PowerShell-objektet som identifierar rätt säkerhets kopierings objekt, startar du från behållaren i valvet och arbetar på ditt sätt nedåt i-objekt-hierarkin. Om du vill välja den behållare som representerar den virtuella datorn använder du cmdleten [Get-AzRecoveryServicesBackupContainer](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupcontainer) och pipe till [Get-AzRecoveryServicesBackupItem](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupitem) -cmdlet: en.
 
 ```powershell
-$namedContainer = Get-AzRecoveryServicesBackupContainer  -ContainerType "AzureVM" -Status "Registered" -FriendlyName "V2VM"
-$backupitem = Get-AzRecoveryServicesBackupItem -Container $namedContainer  -WorkloadType "AzureVM"
+$namedContainer = Get-AzRecoveryServicesBackupContainer  -ContainerType "AzureVM" -Status "Registered" -FriendlyName "V2VM" -VaultId $targetVault.ID
+$backupitem = Get-AzRecoveryServicesBackupItem -Container $namedContainer  -WorkloadType "AzureVM" -VaultId $targetVault.ID
 ```
 
 ### <a name="choose-a-recovery-point"></a>Välj en återställningspunkt
@@ -428,7 +428,7 @@ I följande skript är variabeln **$RP**en matris med återställnings punkter f
 ```powershell
 $startDate = (Get-Date).AddDays(-7)
 $endDate = Get-Date
-$rp = Get-AzRecoveryServicesBackupRecoveryPoint -Item $backupitem -StartDate $startdate.ToUniversalTime() -EndDate $enddate.ToUniversalTime()
+$rp = Get-AzRecoveryServicesBackupRecoveryPoint -Item $backupitem -StartDate $startdate.ToUniversalTime() -EndDate $enddate.ToUniversalTime() -VaultId $targetVault.ID
 $rp[0]
 ```
 
@@ -455,7 +455,7 @@ Använd cmdleten [restore-AzRecoveryServicesBackupItem](https://docs.microsoft.c
 Så här återställer du diskar och konfigurations information:
 
 ```powershell
-$restorejob = Restore-AzRecoveryServicesBackupItem -RecoveryPoint $rp[0] -StorageAccountName "DestAccount" -StorageAccountResourceGroupName "DestRG"
+$restorejob = Restore-AzRecoveryServicesBackupItem -RecoveryPoint $rp[0] -StorageAccountName "DestAccount" -StorageAccountResourceGroupName "DestRG" -VaultId $targetVault.ID
 $restorejob
 ```
 
@@ -475,7 +475,7 @@ Ange ytterligare en parameter **TargetResourceGroupName** för att ange rg som d
 
 
 ```powershell
-$restorejob = Restore-AzRecoveryServicesBackupItem -RecoveryPoint $rp[0] -StorageAccountName "DestAccount" -StorageAccountResourceGroupName "DestRG" -TargetResourceGroupName "DestRGforManagedDisks"
+$restorejob = Restore-AzRecoveryServicesBackupItem -RecoveryPoint $rp[0] -StorageAccountName "DestAccount" -StorageAccountResourceGroupName "DestRG" -TargetResourceGroupName "DestRGforManagedDisks" -VaultId $targetVault.ID
 ```
 
 Filen **VMConfig. JSON** kommer att återställas till lagrings kontot och de hanterade diskarna kommer att återställas till den angivna mål-rg.
@@ -497,8 +497,8 @@ Wait-AzRecoveryServicesBackupJob -Job $restorejob -Timeout 43200
 När återställnings jobbet har slutförts använder du cmdleten [Get-AzRecoveryServicesBackupJobDetails](https://docs.microsoft.com/powershell/module/az.recoveryservices/wait-azrecoveryservicesbackupjob) för att hämta information om återställnings åtgärden. Egenskapen JobDetails innehåller den information som behövs för att återskapa den virtuella datorn.
 
 ```powershell
-$restorejob = Get-AzRecoveryServicesBackupJob -Job $restorejob
-$details = Get-AzRecoveryServicesBackupJobDetails -Job $restorejob
+$restorejob = Get-AzRecoveryServicesBackupJob -Job $restorejob -VaultId $targetVault.ID
+$details = Get-AzRecoveryServicesBackupJobDetails -Job $restorejob -VaultId $targetVault.ID
 ```
 
 När du har återställt diskarna går du till nästa avsnitt för att skapa den virtuella datorn.
@@ -768,8 +768,8 @@ De grundläggande stegen för att återställa en fil från en Azure VM-säkerhe
 Om du vill hämta PowerShell-objektet som identifierar rätt säkerhets kopierings objekt, startar du från behållaren i valvet och arbetar på ditt sätt nedåt i-objekt-hierarkin. Om du vill välja den behållare som representerar den virtuella datorn använder du cmdleten [Get-AzRecoveryServicesBackupContainer](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupcontainer) och pipe till [Get-AzRecoveryServicesBackupItem](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupitem) -cmdlet: en.
 
 ```powershell
-$namedContainer = Get-AzRecoveryServicesBackupContainer  -ContainerType "AzureVM" -Status "Registered" -FriendlyName "V2VM"
-$backupitem = Get-AzRecoveryServicesBackupItem -Container $namedContainer  -WorkloadType "AzureVM"
+$namedContainer = Get-AzRecoveryServicesBackupContainer  -ContainerType "AzureVM" -Status "Registered" -FriendlyName "V2VM" -VaultId $targetVault.ID
+$backupitem = Get-AzRecoveryServicesBackupItem -Container $namedContainer  -WorkloadType "AzureVM" -VaultId $targetVault.ID
 ```
 
 ### <a name="choose-a-recovery-point"></a>Välj en återställningspunkt
@@ -781,7 +781,7 @@ I följande skript är variabeln **$RP**en matris med återställnings punkter f
 ```powershell
 $startDate = (Get-Date).AddDays(-7)
 $endDate = Get-Date
-$rp = Get-AzRecoveryServicesBackupRecoveryPoint -Item $backupitem -StartDate $startdate.ToUniversalTime() -EndDate $enddate.ToUniversalTime()
+$rp = Get-AzRecoveryServicesBackupRecoveryPoint -Item $backupitem -StartDate $startdate.ToUniversalTime() -EndDate $enddate.ToUniversalTime() -VaultId $targetVault.ID
 $rp[0]
 ```
 
@@ -811,7 +811,7 @@ Använd cmdleten [Get-AzRecoveryServicesBackupRPMountScript](https://docs.micros
 >
 
 ```powershell
-Get-AzRecoveryServicesBackupRPMountScript -RecoveryPoint $rp[0]
+Get-AzRecoveryServicesBackupRPMountScript -RecoveryPoint $rp[0] -VaultId $targetVault.ID
 ```
 
 Utdata ser ut ungefär så här:
@@ -829,7 +829,7 @@ Kör skriptet på den dator där du vill återställa filerna. Om du vill köra 
 När de filer som krävs har kopierats använder du [disable-AzRecoveryServicesBackupRPMountScript](https://docs.microsoft.com/powershell/module/az.recoveryservices/disable-azrecoveryservicesbackuprpmountscript) för att demontera diskarna. Se till att demontera diskarna så att åtkomsten till filerna för återställnings punkten tas bort.
 
 ```powershell
-Disable-AzRecoveryServicesBackupRPMountScript -RecoveryPoint $rp[0]
+Disable-AzRecoveryServicesBackupRPMountScript -RecoveryPoint $rp[0] -VaultId $targetVault.ID
 ```
 
 ## <a name="next-steps"></a>Nästa steg

@@ -8,14 +8,14 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 08/07/2019
 ms.author: rajanaki
-ms.openlocfilehash: 907a698a675a039dfdc852210adecb94c7bfab25
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 1905d6afb023b1bed15f1359fed8477d815acb45
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68886902"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71087711"
 ---
-# <a name="customize-networking-configurations-of-the-target-azure-vm"></a>Anpassa nätverkskonfigurationer för den virtuella Azure-datorn
+# <a name="customize-networking-configurations-of-the-target-azure-vm"></a>Anpassa nätverkskonfigurationer för den virtuella Azure-måldatorn
 
 Den här artikeln innehåller vägledning om hur du anpassar nätverkskonfigurationer på den virtuella Azure-datorn när du replikerar och återställer virtuella Azure-datorer från en region till en annan med hjälp av [Azure Site Recovery](site-recovery-overview.md).
 
@@ -23,13 +23,16 @@ Den här artikeln innehåller vägledning om hur du anpassar nätverkskonfigurat
 
 Lär dig hur Site Recovery ger haveri beredskap för [det här scenariot](azure-to-azure-architecture.md).
 
-## <a name="support-networking-resources"></a>Stöd för nätverks resurser
+## <a name="supported-networking-resources"></a>Nätverks resurser som stöds
 
 Följande konfigurationer av nyckel resurser kan anges för den virtuella datorn med redundans vid replikering av virtuella Azure-datorer.
 
 - [Intern lastbalanserare](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview#what-is-standard-load-balancer)
 - [Offentlig IP-adress](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm#public-ip-addresses)
 - [Nätverks säkerhets grupp](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group) både för under nätet och för nätverkskortet
+
+ > [!IMPORTANT]
+  > De här inställningarna stöds bara i redundansväxlingen för tillfället och inte för redundanstest.
 
 ## <a name="pre-requisites"></a>Förutsättningar
 

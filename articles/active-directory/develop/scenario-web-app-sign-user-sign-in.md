@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/07/2019
+ms.date: 09/17/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9766b530b4d795d0f35f097de20155cdd17687ca
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: 4ed61a09ffc76b4813dcb97330d3a1a436aa16eb
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70812391"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71086462"
 ---
 # <a name="web-app-that-signs-in-users---sign-in"></a>Webbapp som loggar in användare – logga in
 
@@ -38,15 +38,31 @@ Webbappen måste också omdirigera användaren till Microsoft Identity Platform 
 
 Mer information finns i avsnittet [skicka en utloggnings förfrågan](v2-protocols-oidc.md#send-a-sign-out-request) i dokumentationen för [Microsoft Identity Platform och OpenID Connect Protocol](v2-protocols-oidc.md) konceptuell.
 
-## <a name="application-registration"></a>Programregistrering
+### <a name="application-registration"></a>Programregistrering
+
+# <a name="aspnet-coretabaspnetcore"></a>[ASP.NET Core](#tab/aspnetcore)
 
 Under program registreringen har du registrerat en **URI för post-utloggning**. I den här självstudien `https://localhost:44321/signout-oidc` har du registrerat i fältet **Logga in URL** i avsnittet **Avancerade inställningar** på sidan **autentisering** . Mer information finns i [Registrera webApp-appen](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/1-WebApp-OIDC/1-1-MyOrg#register-the-webapp-app-webapp)
 
-## <a name="aspnet-core-code"></a>ASP.NET Core kod
+# <a name="aspnettabaspnet"></a>[ASP.NET](#tab/aspnet)
 
-### <a name="signout-button"></a>Knappen Logga in
+Under program registreringen har du registrerat en **URI för post-utloggning**. I den här självstudien `https://localhost:44308/Account/EndSession` har du registrerat i fältet **Logga in URL** i avsnittet **Avancerade inställningar** på sidan **autentisering** . Mer information finns i [Registrera webApp-appen](https://github.com/Azure-Samples/active-directory-dotnet-web-single-sign-out#register-the-service-app-webapp-distributedsignout-dotnet)
 
-Knappen Logga ut visas `Views\Shared\_LoginPartial.cshtml` och visas endast när det finns ett autentiserat konto (det vill säga när användaren tidigare har loggat in).
+# <a name="javatabjava"></a>[Java](#tab/java)
+
+Under program registreringen registrerar du en **URI för post-utloggning**. I den här självstudien `http://localhost:8080/msal4jsample/` har du registrerat i fältet **Logga in URL** i avsnittet **Avancerade inställningar** på sidan **autentisering** .
+
+# <a name="pythontabpython"></a>[Python](#tab/python)
+
+Under program registreringen behöver du inte registrera en utloggnings-URL. Exemplet implementerar inte global utloggning
+
+---
+
+### <a name="sign-out-button"></a>Knappen Logga ut
+
+# <a name="aspnet-coretabaspnetcore"></a>[ASP.NET Core](#tab/aspnetcore)
+
+I ASP.net Core visas knappen Logga ut i `Views\Shared\_LoginPartial.cshtml` och visas endast när det finns ett autentiserat konto (det vill säga när användaren tidigare har loggat in).
 
 ```html
 @using Microsoft.Identity.Web
@@ -65,9 +81,89 @@ else
 }
 ```
 
-### <a name="signout-action-of-the-accountcontroller"></a>`Signout()`åtgärd för`AccountController`
+# <a name="aspnettabaspnet"></a>[ASP.NET](#tab/aspnet)
 
-Genom att trycka på knappen **Logga ut** i webbappen utlöses `SignOut` åtgärden på `Account` kontrollanten. I tidigare versioner av ASP.net Core-mallarna `Account` har kontrollanten bäddats in med webbappen, men det är inte längre fallet eftersom det nu är en del av själva ASP.net Core ramverket. 
+I ASP.NET MVC visas knappen Logga ut i `Views\Shared\_LoginPartial.cshtml` och visas endast när det finns ett autentiserat konto (det vill säga när användaren tidigare har loggat in).
+
+```html
+@if (Request.IsAuthenticated)
+{
+    <text>
+        <ul class="nav navbar-nav navbar-right">
+            <li class="navbar-text">
+                Hello, @User.Identity.Name!
+            </li>
+            <li>
+                @Html.ActionLink("Sign out", "SignOut", "Account")
+            </li>
+        </ul>
+    </text>
+}
+else
+{
+    <ul class="nav navbar-nav navbar-right">
+        <li>@Html.ActionLink("Sign in", "SignIn", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+    </ul>
+}
+```
+
+# <a name="javatabjava"></a>[Java](#tab/java)
+
+I vår Java snabb start finns knappen Logga ut i filen main/resources/templates/auth_page.html
+
+```html
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<body>
+
+<form action="/msal4jsample/sign_out">
+    <input type="submit" value="Sign out">
+</form>
+...
+```
+
+# <a name="pythontabpython"></a>[Python](#tab/python)
+
+I python-snabb starten finns knappen Logga ut i filen [templates/display.html](https://github.com/Azure-Samples/ms-identity-python-webapp/blob/e1199b4c3cdcb637cf0d8306832efbd85492e123/templates/display.html#L18-L20)
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Acquire Token Result </title>
+</head>
+<body>
+    {% if cond  %}
+        <p1><b>Your information</b> </p1>
+        <table>
+        {% for key, value in auth_result.items() %}
+           <tr>
+                <th> {{ key }} </th>
+                <td> {{ value }} </td>
+           </tr>
+        {% endfor %}
+        </table>
+        <form action="/logout" >
+            <input type="submit" value=" Logout"/>
+        </form>
+    {% else %}
+        <p1><b> {{auth_result}} </b> </p1>
+        <form action="/authenticate" >
+            <input type="submit" value=" Sign-in"/>
+        </form>
+    {% endif %}
+</body>
+</html>
+```
+
+---
+
+### <a name="signout-action-of-the-controller"></a>`Signout()`åtgärd för kontrollanten
+
+# <a name="aspnet-coretabaspnetcore"></a>[ASP.NET Core](#tab/aspnetcore)
+
+Genom att trycka på knappen **Logga ut** i ASP.net i-webbappen utlöses `SignOut` åtgärden på `AccountController` kontrollanten. I tidigare versioner av ASP.net Core-mallarna `Account` har kontrollanten bäddats in med webbappen, men det är inte längre fallet eftersom det nu är en del av själva ASP.net Core ramverket.
 
 Koden för `AccountController` är tillgänglig från ASP.net Core-lagringsplatsen på från [AccountController.cs](https://github.com/aspnet/AspNetCore/blob/master/src/Azure/AzureAD/Authentication.AzureAD.UI/src/Areas/AzureAD/Controllers/AccountController.cs). Konto kontrollen:
 
@@ -75,37 +171,11 @@ Koden för `AccountController` är tillgänglig från ASP.net Core-lagringsplats
 - Anrop `Signout()`, som låter OpenIdConnect mellanprogram kontakta den Microsoft Identity Platform `logout` -slutpunkt som:
 
   - Tar bort sessions-cookien från webbläsaren och
-  - Anrop skickas slutligen tillbaka till **utloggnings-URL: en**, som standard, som standard visar sidan signerad vy som är [signerad. html](https://github.com/aspnet/AspNetCore/blob/master/src/Azure/AzureAD/Authentication.AzureAD.UI/src/Areas/AzureAD/Pages/Account/SignedOut.cshtml) ingår också som en del av ASP.net Core.
+  - anropar slutligen återställnings- **URL: en**som standard visar sidan signerad vy som är signerad [. html](https://github.com/aspnet/AspNetCore/blob/master/src/Azure/AzureAD/Authentication.AzureAD.UI/src/Areas/AzureAD/Pages/Account/SignedOut.cshtml) som en del av ASP.net Core.
 
-### <a name="intercepting-the-call-to-the-logout-endpoint"></a>Spärr av anrop till `logout` slut punkten
+# <a name="aspnettabaspnet"></a>[ASP.NET](#tab/aspnet)
 
-ASP.net Core OpenIdConnect mellan program vara gör att din app kan fånga upp anropet till Microsoft Identity `logout` Platform-slutpunkten genom att `OnRedirectToIdentityProviderForSignOut`tillhandahålla en OpenIdConnect-händelse med namnet. Webbappen använder den för att försöka undvika att dialog rutan Välj konto visas för användaren vid utloggning. Den här avlyssningen görs i `AddAzureAdV2Authentication` `Microsoft.Identity.Web` det återanvändbara biblioteket. Se [StartupHelpers.cs L58-L66](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/blob/b87a1d859ff9f9a4a98eb7b701e6a1128d802ec5/Microsoft.Identity.Web/StartupHelpers.cs#L58-L66)
-
-```CSharp
-public static IServiceCollection AddAzureAdV2Authentication(this IServiceCollection services,
-                                                            IConfiguration configuration)
-{
-    ...
-    services.Configure<OpenIdConnectOptions>(AzureADDefaults.OpenIdScheme, options =>
-    {
-        ...
-        options.Authority = options.Authority + "/v2.0/";
-        ...
-        // Attempt to avoid displaying the select account dialog when signing out
-        options.Events.OnRedirectToIdentityProviderForSignOut = async context =>
-        {
-            var user = context.HttpContext.User;
-            context.ProtocolMessage.LoginHint = user.GetLoginHint();
-            context.ProtocolMessage.DomainHint = user.GetDomainHint();
-            await Task.FromResult(0);
-        };
-    }
-}
-```
-
-## <a name="aspnet-code"></a>ASP.NET-kod
-
-I ASP.NET utlöses utloggning från metoden Signe () på en kontrollant (till exempel AccountController). Den här metoden är inte en del av ASP.NET-ramverket (som strider mot vad som händer i ASP.NET Core) och som inte använder async, och det är därför:
+I ASP.net utlöses utloggning från `SignOut()` -metoden på en kontrollant (till exempel AccountController). Den här metoden är inte en del av ASP.NET-ramverket (som strider mot vad som händer i ASP.NET Core). Den använder `async`inte, och det är därför det:
 
 - skickar en OpenId-utloggnings utmaning
 - rensar cachen
@@ -120,14 +190,84 @@ public void SignOut()
  HttpContext.GetOwinContext()
             .Authentication
             .SignOut(CookieAuthenticationDefaults.AuthenticationType);
- MsalAppBuilder.ClearUserTokenCache();
  Response.Redirect("/");
 }
 ```
 
+# <a name="javatabjava"></a>[Java](#tab/java)
+
+I Java hanteras utloggningen genom att anropa slut punkten för Microsoft Identity Platform-utloggning direkt och tillhandahålla post_logout_redirect_uri.
+
+```Java
+@RequestMapping("/msal4jsample/sign_out")
+    public void signOut(HttpServletRequest httpRequest, HttpServletResponse response) throws IOException {
+
+        httpRequest.getSession().invalidate();
+
+        String endSessionEndpoint = "https://login.microsoftonline.com/common/oauth2/v2.0/logout";
+
+        String redirectUrl = "http://localhost:8080/msal4jsample/";
+        response.sendRedirect(endSessionEndpoint + "?post_logout_redirect_uri=" +
+                URLEncoder.encode(redirectUrl, "UTF-8"));
+    }
+```
+
+# <a name="pythontabpython"></a>[Python](#tab/python)
+
+```Python
+@app.route("/logout")
+def logout():
+    return flask.redirect(flask.url_for('index'))
+```
+
+---
+
+### <a name="intercepting-the-call-to-the-logout-endpoint"></a>Spärr av anrop till `logout` slut punkten
+
+URI: n efter utloggning gör det möjligt för program att delta i den globala utloggningen.
+
+# <a name="aspnet-coretabaspnetcore"></a>[ASP.NET Core](#tab/aspnetcore)
+
+ASP.net Core OpenIdConnect mellan program vara gör att din app kan fånga upp anropet till Microsoft Identity `logout` Platform-slutpunkten genom att `OnRedirectToIdentityProviderForSignOut`tillhandahålla en OpenIdConnect-händelse med namnet. Se [Microsoft. Identity. Web/WebAppServiceCollectionExtensions. cs # L151-L156](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/blob/faa94fd49c2da46b22d6694c4f5c5895795af26d/Microsoft.Identity.Web/WebAppServiceCollectionExtensions.cs#L151-L156) för ett exempel på hur du prenumererar på den här händelsen (rensa token cache)
+
+```CSharp
+               // Handling the global sign-out
+                options.Events.OnRedirectToIdentityProviderForSignOut = async context =>
+                {
+                    // Forget about the signed-in user
+                };
+```
+
+# <a name="aspnettabaspnet"></a>[ASP.NET](#tab/aspnet)
+
+I ASP.NET kan du delegera till mellanprogram för att köra utloggningen och rensa sessionens cookie:
+
+```CSharp
+public class AccountController : Controller
+{
+ ...
+ public void EndSession()
+ {
+  Request.GetOwinContext().Authentication.SignOut();
+  Request.GetOwinContext().Authentication.SignOut(Microsoft.AspNet.Identity.DefaultAuthenticationTypes.ApplicationCookie);
+  this.HttpContext.GetOwinContext().Authentication.SignOut(CookieAuthenticationDefaults.AuthenticationType);
+ }
+}
+```
+
+# <a name="javatabjava"></a>[Java](#tab/java)
+
+I vår Java snabb start visar URL: en för att logga ut omdirigering bara index. html-Sidan 
+
+# <a name="pythontabpython"></a>[Python](#tab/python)
+
+I python-snabb starten visar den utgående omdirigerings-URI: n bara index. HTML-sidan.
+
+---
+
 ## <a name="protocol"></a>Protocol
 
-Om du inte vill använda ASP.NET Core eller ASP.NET kan du titta i protokoll dokumentationen, som är tillgänglig från [Öppna ID Connect](./v2-protocols-oidc.md).
+Om du vill veta mer om utloggning läser du protokoll dokumentationen som är tillgänglig från [Öppna-ID Connect](./v2-protocols-oidc.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

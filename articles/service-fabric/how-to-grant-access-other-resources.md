@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/08/2019
 ms.author: atsenthi
-ms.openlocfilehash: f2621abcb2bac55ff123a11efa0ae9a082a1acbd
-ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
+ms.openlocfilehash: 467b202cf6b981969316a2646aac99f788f7a2f4
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70968267"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71091186"
 ---
 # <a name="granting-a-service-fabric-applications-managed-identity-access-to-azure-resources-preview"></a>Bevilja en Service Fabric programmets hanterade identitets åtkomst till Azure-resurser (förhands granskning)
 
@@ -40,9 +40,14 @@ På samma sätt som med lagring kan du använda den hanterade identiteten för e
 
 ![Key Vault åtkomst princip](../key-vault/media/vs-secure-secret-appsettings/add-keyvault-access-policy.png)
 
-I följande exempel visas hur du beviljar åtkomst till ett valv via en mall distribution. Lägg till kodfragmentet nedan som en annan post `resources` under mallens element.
+I följande exempel visas hur du beviljar åtkomst till ett valv via en mall distribution. Lägg till kodfragmenten nedan som en annan post under `resources` mallens element. Exemplet visar åtkomst beviljande för både tilldelade och systemtilldelade identitets typer – Välj lämplig.
 
 ```json
+    # under 'variables':
+  "variables": {
+        "userAssignedIdentityResourceId" : "[resourceId('Microsoft.ManagedIdentity/userAssignedIdentities/', parameters('userAssignedIdentityName'))]",
+    }
+    # under 'resources':
     {
         "type": "Microsoft.KeyVault/vaults/accessPolicies",
         "name": "[concat(parameters('keyVaultName'), '/add')]",
@@ -64,6 +69,42 @@ I följande exempel visas hur du beviljar åtkomst till ett valv via en mall dis
             ]
         }
     },
+```
+Och för systemtilldelade hanterade identiteter:
+```json
+    # under 'variables':
+  "variables": {
+        "sfAppSystemAssignedIdentityResourceId": "[concat(resourceId('Microsoft.ServiceFabric/clusters/applications/', parameters('clusterName'), parameters('applicationName')), '/providers/Microsoft.ManagedIdentity/Identities/default')]"
+    }
+    # under 'resources':
+    {
+        "type": "Microsoft.KeyVault/vaults/accessPolicies",
+        "name": "[concat(parameters('keyVaultName'), '/add')]",
+        "apiVersion": "2018-02-14",
+        "properties": {
+            "accessPolicies": [
+            {
+                    "name": "[concat(parameters('clusterName'), '/', parameters('applicationName'))]",
+                    "tenantId": "[reference(variables('sfAppSystemAssignedIdentityResourceId'), '2018-11-30').tenantId]",
+                    "objectId": "[reference(variables('sfAppSystemAssignedIdentityResourceId'), '2018-11-30').principalId]",
+                    "dependsOn": [
+                        "[variables('sfAppSystemAssignedIdentityResourceId')]"
+                    ],
+                    "permissions": {
+                        "secrets": [
+                            "get",
+                            "list"
+                        ],
+                        "certificates": 
+                        [
+                            "get", 
+                            "list"
+                        ]
+                    }
+            },
+        ]
+        }
+    }
 ```
 
 Mer information finns i [valv-uppdatera åtkomst princip](https://docs.microsoft.com/rest/api/keyvault/vaults/updateaccesspolicy).

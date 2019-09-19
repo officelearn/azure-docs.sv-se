@@ -2,18 +2,18 @@
 title: Åtkomst Apache Hadoop garn program loggar på Linux-baserade HDInsight – Azure
 description: Lär dig hur du kommer åt garn program loggar i ett Linux-baserat HDInsight-kluster (Apache Hadoop) med både kommando raden och en webbläsare.
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/22/2018
-ms.author: hrasheed
-ms.openlocfilehash: 2b230f91b9d6b169b89b125bdd0394c2c7ecd96f
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: 6eb24e85d1d7ffa4f3377d4c2fe8b168303c15f0
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70879860"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71091513"
 ---
 # <a name="access-apache-hadoop-yarn-application-logs-on-linux-based-hdinsight"></a>Åtkomst Apache Hadoop garn program loggar på Linux-baserade HDInsight
 
@@ -62,11 +62,11 @@ Användar gränssnittet för garn-ResourceManager körs på klustrets huvudnoden
 1. Navigera till https://CLUSTERNAME.azurehdinsight.net i webbläsaren. Ersätt kluster namn med namnet på ditt HDInsight-kluster.
 2. I listan över tjänster till vänster väljer du **garn**.
 
-    ![Garn tjänst vald](./media/hdinsight-hadoop-access-yarn-app-logs-linux/yarn-service-selected.png)
+    ![Apache Ambari garn-tjänsten vald](./media/hdinsight-hadoop-access-yarn-app-logs-linux/yarn-service-selected.png)
 
 3. I list rutan **snabb länkar** väljer du en av klustrets huvud-noder och väljer sedan **ResourceManager-logg**.
 
-    ![Snabb Länkar för garn](./media/hdinsight-hadoop-access-yarn-app-logs-linux/hdi-yarn-quick-links.png)
+    ![Snabb Länkar för Apache Ambari garn](./media/hdinsight-hadoop-access-yarn-app-logs-linux/hdi-yarn-quick-links.png)
 
     En lista med länkar till garn loggar visas.
 

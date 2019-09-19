@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 11/29/2018
 ms.author: lahugh
 ms.custom: mvc
-ms.openlocfilehash: 92d8c6fb1bfa1689475774bbc4f62cd9ab38268f
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: d06cf74b2a29af3fea2c24facac2899d09a0a84f
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68321837"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71090774"
 ---
 # <a name="tutorial-run-a-parallel-workload-with-azure-batch-using-the-python-api"></a>Självstudier: Köra en parallell arbetsbelastning med Azure Batch med hjälp av Python API
 
@@ -123,7 +123,7 @@ I följande avsnitt bryter vi ned exempelprogrammet i de steg som utförs när e
 
 ### <a name="authenticate-blob-and-batch-clients"></a>Autentisera Blob- och Batch-klienter
 
-För att interagera med ett lagringskonto använder appen paketet [azure-storage-blob](https://pypi.python.org/pypi/azure-storage-blob) för att skapa ett [BlockBlobService](/python/api/azure.storage.blob.blockblobservice.blockblobservice)-objekt.
+För att interagera med ett lagringskonto använder appen paketet [azure-storage-blob](https://pypi.python.org/pypi/azure-storage-blob) för att skapa ett [BlockBlobService](/python/api/azure-storage-blob/azure.storage.blob.blockblobservice.blockblobservice)-objekt.
 
 ```python
 blob_client = azureblob.BlockBlobService(
@@ -144,7 +144,7 @@ batch_client = batch.BatchServiceClient(
 
 ### <a name="upload-input-files"></a>Ladda upp indatafiler
 
-Appen använder referensen `blob_client` för att skapa en lagringscontainer för MP4-indatafilerna och en container för uppgiftsutdata. Sedan anropas `upload_file_to_container`-funktionen för att ladda upp MP4-filer i den lokala `InputFiles`-katalogen till containern. De lagrade filerna har definierats som Batch [ResourceFile](/python/api/azure.batch.models.resourcefile)-objekt som Batch senare kan hämta till beräkningsnoder.
+Appen använder referensen `blob_client` för att skapa en lagringscontainer för MP4-indatafilerna och en container för uppgiftsutdata. Sedan anropas `upload_file_to_container`-funktionen för att ladda upp MP4-filer i den lokala `InputFiles`-katalogen till containern. De lagrade filerna har definierats som Batch [ResourceFile](/python/api/azure-batch/azure.batch.models.resourcefile)-objekt som Batch senare kan hämta till beräkningsnoder.
 
 ```python
 blob_client.create_container(input_container_name, fail_on_exist=False)
@@ -165,13 +165,13 @@ input_files = [
 
 ### <a name="create-a-pool-of-compute-nodes"></a>Skapa en pool med beräkningsnoder
 
-Därefter skapar exempelkoden en pool med beräkningsnoder i Batch-kontot med ett anrop till `create_pool`. Den här definierade funktionen använder Batch-klassen [PoolAddParameter](/python/api/azure.batch.models.pooladdparameter) för att ange antalet noder, VM-storlek och en poolkonfiguration. Här anger ett [VirtualMachineConfiguration](/python/api/azure.batch.models.virtualmachineconfiguration)-objekt en [ImageReference](/python/api/azure.batch.models.imagereference) till en Ubuntu Server 18.04 LTS-avbildning som har publicerats på Azure Marketplace. Batch har stöd för ett stort antal Linux- och Windows Server-avbildningar på Azure Marketplace samt för anpassade VM-avbildningar.
+Därefter skapar exempelkoden en pool med beräkningsnoder i Batch-kontot med ett anrop till `create_pool`. Den här definierade funktionen använder Batch-klassen [PoolAddParameter](/python/api/azure-batch/azure.batch.models.pooladdparameter) för att ange antalet noder, VM-storlek och en poolkonfiguration. Här anger ett [VirtualMachineConfiguration](/python/api/azure-batch/azure.batch.models.virtualmachineconfiguration)-objekt en [ImageReference](/python/api/azure-batch/azure.batch.models.imagereference) till en Ubuntu Server 18.04 LTS-avbildning som har publicerats på Azure Marketplace. Batch har stöd för ett stort antal Linux- och Windows Server-avbildningar på Azure Marketplace samt för anpassade VM-avbildningar.
 
 Antalet noder och VM-storleken anges med definierade konstanter. Batch har stöd för dedikerade noder och [noder med låg prioritet](batch-low-pri-vms.md), och du kan använda en av eller båda typerna i dina pooler. Dedikerade noder är reserverade för din pool. Noder med låg prioritet erbjuds till ett reducerat pris från VM-överskottskapacitet i Azure. Noder med låg prioritet är inte tillgängliga om Azure inte har tillräckligt med kapacitet. Exemplet skapar som standard en pool som endast innehåller 5 noder med låg prioritet i storleken *Standard_A1_v2*. 
 
-Förutom fysiska nodegenskaper innehåller den här poolkonfigurationen ett [StartTask](/python/api/azure.batch.models.starttask)-objekt. StartTask körs på varje nod när noden ansluter till poolen och varje gång en nod startas om. I det här exemplet kör StartTask Bash shell-kommandon för att installera paketet ffmpeg och beroenden på noderna.
+Förutom fysiska nodegenskaper innehåller den här poolkonfigurationen ett [StartTask](/python/api/azure-batch/azure.batch.models.starttask)-objekt. StartTask körs på varje nod när noden ansluter till poolen och varje gång en nod startas om. I det här exemplet kör StartTask Bash shell-kommandon för att installera paketet ffmpeg och beroenden på noderna.
 
-Metoden [pool.add](/python/api/azure.batch.operations.pooloperations) skickar poolen till Batch-tjänsten.
+Metoden [pool.add](/python/api/azure-batch/azure.batch.operations.pooloperations) skickar poolen till Batch-tjänsten.
 
 ```python
 new_pool = batch.models.PoolAddParameter(
@@ -201,7 +201,7 @@ batch_service_client.pool.add(new_pool)
 
 ### <a name="create-a-job"></a>Skapa ett jobb
 
-Ett Batch-jobb anger en pool för körning av uppgifter, samt valfria inställningar som en prioritet och ett schema för arbetet. I exemplet skapas ett jobb med ett anrop till `create_job`. Den här definierade funktionen använder klassen [JobAddParameter](/python/api/azure.batch.models.jobaddparameter) för att skapa ett jobb på din pool. Metoden [job.add](/python/api/azure.batch.operations.joboperations) skickar poolen till Batch-tjänsten. Från början har jobbet inga aktiviteter.
+Ett Batch-jobb anger en pool för körning av uppgifter, samt valfria inställningar som en prioritet och ett schema för arbetet. I exemplet skapas ett jobb med ett anrop till `create_job`. Den här definierade funktionen använder klassen [JobAddParameter](/python/api/azure-batch/azure.batch.models.jobaddparameter) för att skapa ett jobb på din pool. Metoden [job.add](/python/api/azure-batch/azure.batch.operations.joboperations) skickar poolen till Batch-tjänsten. Från början har jobbet inga aktiviteter.
 
 ```python
 job = batch.models.JobAddParameter(
@@ -213,11 +213,11 @@ batch_service_client.job.add(job)
 
 ### <a name="create-tasks"></a>Skapa aktiviteter
 
-Appen skapar aktiviteter i jobbet med ett anrop till `add_tasks`. Den här definierade funktionen skapar en lista med aktivitetsobjekt med hjälp av klassen [TaskAddParameter](/python/api/azure.batch.models.taskaddparameter). Varje aktivitet kör ffmpeg för bearbetning av ett `resource_files`-indataobjekt med en `command_line`-parameter. ffmpeg installerades tidigare på varje nod när poolen skapades. Här kör kommandoraden ffmpeg för att konvertera varje MP4-indatafil (video) till en MP3-fil (ljud).
+Appen skapar aktiviteter i jobbet med ett anrop till `add_tasks`. Den här definierade funktionen skapar en lista med aktivitetsobjekt med hjälp av klassen [TaskAddParameter](/python/api/azure-batch/azure.batch.models.taskaddparameter). Varje aktivitet kör ffmpeg för bearbetning av ett `resource_files`-indataobjekt med en `command_line`-parameter. ffmpeg installerades tidigare på varje nod när poolen skapades. Här kör kommandoraden ffmpeg för att konvertera varje MP4-indatafil (video) till en MP3-fil (ljud).
 
-I exemplet skapas ett [OutputFile](/python/api/azure.batch.models.outputfile)-objekt för MP3-filen när du kör kommandoraden. Varje uppgifts utdatafiler (i det här fallet en) laddas upp till en container i länkade lagringskontot med uppgiftsegenskapen `output_files`.
+I exemplet skapas ett [OutputFile](/python/api/azure-batch/azure.batch.models.outputfile)-objekt för MP3-filen när du kör kommandoraden. Varje uppgifts utdatafiler (i det här fallet en) laddas upp till en container i länkade lagringskontot med uppgiftsegenskapen `output_files`.
 
-Sedan lägger appen till aktiviteter i jobbet med metoden [task.add_collection](/python/api/azure.batch.operations.taskoperations) som köar dem för att köras på beräkningsnoderna. 
+Sedan lägger appen till aktiviteter i jobbet med metoden [task.add_collection](/python/api/azure-batch/azure.batch.operations.taskoperations) som köar dem för att köras på beräkningsnoderna. 
 
 ```python
 tasks = list()
@@ -247,7 +247,7 @@ batch_service_client.task.add_collection(job_id, tasks)
 
 När aktiviteter läggs till i ett jobb placerar Batch dem automatiskt i kö och schemalägger dem för körning vid beräkningsnoder i den associerade poolen. Baserat på de inställningar du anger sköter Batch all köhantering, all schemaläggning, alla omförsök och all annan uppgiftsadministration åt dig. 
 
-Du kan övervaka aktivitetskörningen på många sätt. Funktionen `wait_for_tasks_to_complete` i det här exemplet använder objektet [TaskState](/python/api/azure.batch.models.taskstate) för att övervaka aktiviteter för ett visst tillstånd, i det här fallet tillståndet slutfört, inom en tidsgräns.
+Du kan övervaka aktivitetskörningen på många sätt. Funktionen `wait_for_tasks_to_complete` i det här exemplet använder objektet [TaskState](/python/api/azure-batch/azure.batch.models.taskstate) för att övervaka aktiviteter för ett visst tillstånd, i det här fallet tillståndet slutfört, inom en tidsgräns.
 
 ```python
 while datetime.datetime.now() < timeout_expiration:
@@ -267,7 +267,7 @@ while datetime.datetime.now() < timeout_expiration:
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-När uppgifterna har körts tar appen automatiskt bort den lagringscontainer som skapades och du får möjlighet att ta bort Batch-poolen och jobbet. Klasserna [JobOperations](/python/api/azure.batch.operations.joboperations) och [PoolOperations](/python/api/azure.batch.operations.pooloperations) i BatchClient har båda borttagningsmetoder som anropas om du bekräftar borttagningen. Även om du inte debiteras för själva jobben och aktiviteterna debiteras du för beräkningsnoder. Vi rekommenderar därför att du endast allokerar pooler efter behov. När du tar bort poolen raderas alla aktivitetsutdata på noderna. In- och utdatafilerna ligger däremot kvar i lagringskontot.
+När uppgifterna har körts tar appen automatiskt bort den lagringscontainer som skapades och du får möjlighet att ta bort Batch-poolen och jobbet. Klasserna [JobOperations](/python/api/azure-batch/azure.batch.operations.joboperations) och [PoolOperations](/python/api/azure-batch/azure.batch.operations.pooloperations) i BatchClient har båda borttagningsmetoder som anropas om du bekräftar borttagningen. Även om du inte debiteras för själva jobben och aktiviteterna debiteras du för beräkningsnoder. Vi rekommenderar därför att du endast allokerar pooler efter behov. När du tar bort poolen raderas alla aktivitetsutdata på noderna. In- och utdatafilerna ligger däremot kvar i lagringskontot.
 
 När de inte längre behövs tar du bort resursgruppen, Batch-kontot och lagringskontot. Om du vill göra det i Azure-portalen väljer du resursgruppen för Batch-kontot och klickar på **Ta bort resursgrupp**.
 

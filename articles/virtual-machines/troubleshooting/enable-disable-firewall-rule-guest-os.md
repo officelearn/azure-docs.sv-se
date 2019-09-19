@@ -1,10 +1,10 @@
 ---
-title: Aktivera eller inaktivera en brandväggsregel på ett gäst-OS i Azure VM | Microsoft Docs
+title: Aktivera eller inaktivera en brand Väggs regel på ett gäst operativ system på en virtuell Azure-dator | Microsoft Docs
 description: ''
 services: virtual-machines-windows
 documentationcenter: ''
 author: Deland-Han
-manager: willchen
+manager: dcscontentpm
 editor: ''
 tags: ''
 ms.service: virtual-machines
@@ -14,28 +14,28 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 11/22/2018
 ms.author: delhan
-ms.openlocfilehash: 7a547efb7af69c58f8e04615d24dd7c230f0c8b0
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 782240c51833fc841af9f4260860db4c03897c03
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67444653"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71086438"
 ---
-# <a name="enable-or-disable-a-firewall-rule-on-an-azure-vm-guest-os"></a>Aktivera eller inaktivera en brandväggsregel på Azure VM gäst-OS
+# <a name="enable-or-disable-a-firewall-rule-on-an-azure-vm-guest-os"></a>Aktivera eller inaktivera en brand Väggs regel på en Azure VM gäst operativ system
 
-Den här artikeln innehåller en referens för att felsöka en situation där du misstänker att operativsystemet gästbrandvägg filtrerar delvis trafik på en virtuell dator (VM). Det kan vara praktiskt av följande skäl:
+Den här artikeln innehåller en referens för fel sökning av en situation där du misstänker att gäst operativ systemets brand vägg filtrerar delvis trafik på en virtuell dator (VM). Detta kan vara användbart av följande anledningar:
 
-*   Om en ändring gjordes avsiktligt i brandväggen som orsakade RDP-anslutningar misslyckas, kan med hjälp av funktionen för tillägget för anpassat skript lösa problemet.
+*   Om en ändring avsiktligt har gjorts till den brand vägg som orsakade att RDP-anslutningarna misslyckades kan du lösa problemet med hjälp av tillägget för anpassad skript funktion.
 
-*   Inaktivera alla brandväggsprofiler är ett mer felsäker sätt att felsöka än att ange brandväggsregeln RDP-specifika.
+*   Att inaktivera alla brand Väggs profiler är ett mer foolprooft sätt att felsöka än att ställa in den RDP-specificerade brand Väggs regeln.
 
 ## <a name="solution"></a>Lösning
 
-Hur du konfigurerar brandväggsregler beror på vilken åtkomstnivå till den virtuella datorn som krävs. I följande exempel används RDP-regler. På samma sätt kan dock tillämpas till en annan typ av trafik genom att peka på rätt registernyckel.
+Hur du konfigurerar brand Väggs reglerna beror på åtkomst nivån för den virtuella datorn som krävs. I följande exempel används RDP-regler. Samma metoder kan dock tillämpas på alla typer av trafik genom att peka på rätt register nyckel.
 
 ### <a name="online-troubleshooting"></a>Felsökning av online 
 
-#### <a name="mitigation-1-custom-script-extension"></a>Lösning 1: Anpassat skripttillägg
+#### <a name="mitigation-1-custom-script-extension"></a>Minskning 1: Anpassat skripttillägg
 
 1.  Skapa ditt skript med hjälp av följande mall.
 
@@ -44,20 +44,20 @@ Hur du konfigurerar brandväggsregler beror på vilken åtkomstnivå till den vi
         netsh advfirewall firewall set rule dir=in name="Remote Desktop - User Mode (TCP-In)" new enable=yes
         ```
 
-    *   Inaktivera en regel:
+    *   Så här inaktiverar du en regel:
         ```cmd
         netsh advfirewall firewall set rule dir=in name="Remote Desktop - User Mode (TCP-In)" new enable=no
         ```
 
-2.  Ladda upp skriptet i Azure portal med den [tillägget för anpassat skript](../extensions/custom-script-windows.md) funktionen. 
+2.  Överför skriptet i Azure Portal med hjälp av [tillägget för anpassat skript](../extensions/custom-script-windows.md) . 
 
-#### <a name="mitigation-2-remote-powershell"></a>Lösning 2: Fjärr-PowerShell
+#### <a name="mitigation-2-remote-powershell"></a>Minskning 2: Fjärr-PowerShell
 
-Om den virtuella datorn är online och kan kommas åt på en annan virtuell dator på samma virtuella nätverk kan göra du följande åtgärder med hjälp av den andra virtuella datorn.
+Om den virtuella datorn är online och kan nås på en annan virtuell dator i samma virtuella nätverk kan du utföra följande åtgärder med hjälp av den andra virtuella datorn.
 
-1.  Öppna ett PowerShell-konsolfönster på Virtuella felsökningsdatorn.
+1.  Öppna en PowerShell-konsol i fönstret Felsök virtuell dator.
 
-2.  Kör följande kommandon och efter behov.
+2.  Kör följande kommandon, efter vad som är tillämpligt.
 
     *   Så här aktiverar du en regel:
         ```powershell
@@ -66,18 +66,18 @@ Om den virtuella datorn är online och kan kommas åt på en annan virtuell dato
         exit
         ```
 
-    *   Inaktivera en regel:
+    *   Så här inaktiverar du en regel:
         ```powershell
         Enter-PSSession (New-PSSession -ComputerName "<HOSTNAME>" -Credential (Get-Credential) -SessionOption (New-PSSessionOption -SkipCACheck -SkipCNCheck)) 
         Disable-NetFirewallRule -DisplayName  "RemoteDesktop-UserMode-In-TCP"
         exit
         ```
 
-#### <a name="mitigation-3-pstools-commands"></a>Lösning 3: PSTools kommandon
+#### <a name="mitigation-3-pstools-commands"></a>Minskning 3: PSTools-kommandon
 
-Om den virtuella datorn är online och kan kommas åt på en annan virtuell dator på samma virtuella nätverk kan göra du följande åtgärder med hjälp av den andra virtuella datorn.
+Om den virtuella datorn är online och kan nås på en annan virtuell dator i samma virtuella nätverk kan du utföra följande åtgärder med hjälp av den andra virtuella datorn.
 
-1.  På Virtuellt felsökningsdatorn, ladda ned [PSTools](https://docs.microsoft.com/sysinternals/downloads/pstools).
+1.  Hämta [PSTools](https://docs.microsoft.com/sysinternals/downloads/pstools)på den virtuella datorn för fel sökning.
 
 2.  Öppna en CMD-instans och få åtkomst till den virtuella datorn via dess interna IP (DIP). 
 
@@ -87,41 +87,41 @@ Om den virtuella datorn är online och kan kommas åt på en annan virtuell dato
         netsh advfirewall firewall set rule dir=in name="Remote Desktop - User Mode (TCP-In)" new enable=yes
         ```
 
-    *   Inaktivera en regel:
+    *   Så här inaktiverar du en regel:
         ```cmd
         psexec \\<DIP> -u <username> cmd
         netsh advfirewall firewall set rule dir=in name="Remote Desktop - User Mode (TCP-In)" new enable=no
         ```
 
-#### <a name="mitigation-4-remote-registry"></a>Minskning 4: Remote Registry
+#### <a name="mitigation-4-remote-registry"></a>Minskning 4: Fjär register
 
-Om den virtuella datorn är online och kan kommas åt på en annan virtuell dator på samma virtuella nätverk, kan du använda [Remote Registry](https://support.microsoft.com/help/314837/how-to-manage-remote-access-to-the-registry) på den andra virtuella datorn.
+Om den virtuella datorn är online och kan nås på en annan virtuell dator i samma virtuella nätverk, kan du använda [fjär registret](https://support.microsoft.com/help/314837/how-to-manage-remote-access-to-the-registry) på den andra virtuella datorn.
 
-1.  Starta Registereditorn (regedit.exe) på Virtuellt felsökningsdatorn, och välj sedan **filen** > **ansluta register**.
+1.  Starta Registereditorn (regedit. exe) på den virtuella datorn för fel sökning och välj sedan **fil** > **Anslut nätverks register**.
 
-2.  Öppna den *MÅLDATORN*\SYSTEM grenen och ange följande värden:
+2.  Öppna *mål datorn*\System-gren och ange följande värden:
 
-    * Öppna följande registervärde för att aktivera en regel:
+    * Om du vill aktivera en regel öppnar du följande register värde:
     
-        *TARGET MACHINE*\SYSTEM\CurrentControlSet\Services\SharedAccess\Parameters\FirewallPolicy\FirewallRules\RemoteDesktop-UserMode-In-TCP
+        *Mål datorn*\SYSTEM\CurrentControlSet\Services\SharedAccess\Parameters\FirewallPolicy\FirewallRules\RemoteDesktop-usermode-in-TCP
     
-        Sedan kan ändra **Active = FALSE** till **Active = TRUE** i strängen:
+        Ändra sedan **aktiv = falskt** till **aktiv = sant** i strängen:
 
-        **v2.22 | Åtgärd = Tillåt | Aktiva = TRUE | Dir = In | Protocol = 6 | Profil = domän | Profil = privat | Profil = offentlig | LPort = 3389 | App=%systemroot%\system32\svchost.exe| SVC = termservice | Namn =\@FirewallAPI.dll-28775 | Desc =\@FirewallAPI.dll-28756 | EmbedCtxt =\@FirewallAPI.dll-28752 |**
+        **v-2.22 | Åtgärd = Tillåt | Active = TRUE | Dir = in | Protokoll = 6 | Profil = domän | Profil = privat | Profil = offentlig | LPort = 3389 | App =%SystemRoot%\system32\svchost.exe | SVC = TermService | Namn =\@FirewallAPI. dll,-28775 | Desc =\@FirewallAPI. dll,-28756 | EmbedCtxt =\@FirewallAPI. dll,-28752 |**
     
-    * Öppna följande registervärde för att inaktivera en regel:
+    * Om du vill inaktivera en regel öppnar du följande register värde:
     
-        *TARGET MACHINE*\SYSTEM\CurrentControlSet\Services\SharedAccess\Parameters\FirewallPolicy\FirewallRules\RemoteDesktop-UserMode-In-TCP
+        *Mål datorn*\SYSTEM\CurrentControlSet\Services\SharedAccess\Parameters\FirewallPolicy\FirewallRules\RemoteDesktop-usermode-in-TCP
 
-        Sedan kan ändra **Active = TRUE** till **Active = FALSE**:
+        Ändra sedan **aktiv = sant** till **aktiv = falskt**:
         
-        **v2.22 | Åtgärd = Tillåt | Aktiva = FALSE | Dir = In | Protocol = 6 | Profil = domän | Profil = privat | Profil = offentlig | LPort = 3389 | App=%systemroot%\system32\svchost.exe| SVC = termservice | Namn =\@FirewallAPI.dll-28775 | Desc =\@FirewallAPI.dll-28756 | EmbedCtxt =\@FirewallAPI.dll-28752 |**
+        **v-2.22 | Åtgärd = Tillåt | Aktiv = falskt | Dir = in | Protokoll = 6 | Profil = domän | Profil = privat | Profil = offentlig | LPort = 3389 | App =%SystemRoot%\system32\svchost.exe | SVC = TermService | Namn =\@FirewallAPI. dll,-28775 | Desc =\@FirewallAPI. dll,-28756 | EmbedCtxt =\@FirewallAPI. dll,-28752 |**
 
 3.  Starta om den virtuella datorn för att tillämpa ändringarna.
 
-### <a name="offline-troubleshooting"></a>Felsökning offline 
+### <a name="offline-troubleshooting"></a>Offline-felsökning 
 
-Om du inte åtkomst till den virtuella datorn med varje metod, med hjälp av tillägget för anpassat skript kommer att misslyckas och du måste arbeta i OFFLINE-läge genom att arbeta direkt med hjälp av systemdisken.
+Om du inte kan komma åt den virtuella datorn med någon metod kommer det inte att gå att använda det anpassade skript tillägget och du måste arbeta i OFFLINE-läge genom att gå direkt genom system disken.
 
 Innan du följer dessa steg kan du ta en ögonblicksbild av systemdisken på den berörda virtuella datorn som en säkerhetskopia. Mer information finns i [ögonblicksbild av en disk](../windows/snapshot-copy-managed-disk.md).
 
@@ -129,42 +129,42 @@ Innan du följer dessa steg kan du ta en ögonblicksbild av systemdisken på den
 
 2.  Starta en fjärrskrivbordsanslutning till den Virtuella återställningsdatorn.
 
-3.  Kontrollera att disken flaggas som **Online** i konsolen Diskhantering. Observera att enheten enhetsbokstaven som är tilldelad till den anslutna systemdisken.
+3.  Kontrollera att disken flaggas som **Online** i konsolen Diskhantering. Observera att den enhets beteckning som är kopplad till den anslutna system disken.
 
-4.  Innan du gör några ändringar kan du skapa en kopia av mappen \windows\system32\config om en återställning av ändringarna är nödvändigt.
+4.  Innan du gör några ändringar skapar du en kopia av mappen \Windows\System32\Config om du behöver återställa ändringarna.
 
-5.  Starta Registereditorn (regedit.exe) på Virtuella felsökningsdatorn.
+5.  Starta Registereditorn (regedit. exe) på den virtuella datorn för fel sökning.
 
-6.  Markera den **HKEY_LOCAL_MACHINE** nyckel och välj sedan **filen** > **Läs in registreringsdatafil** på menyn.
+6.  Markera nyckeln **HKEY_LOCAL_MACHINE** och välj sedan **fil** > **läsnings registrerings data** fil på menyn.
 
     ![Regedit](./media/enable-or-disable-firewall-rule-guest-os/load-registry-hive.png)
 
-7.  Leta upp och öppna sedan filen \windows\system32\config\SYSTEM. 
+7.  Leta upp och öppna filen \windows\system32\config\SYSTEM. 
 
     > [!Note]
-    > Du uppmanas att ange ett namn. Ange **BROKENSYSTEM**, och expandera sedan **HKEY_LOCAL_MACHINE**. Nu visas en ytterligare nyckel som heter **BROKENSYSTEM**. För den här felsökning monterar vi dessa problem registreringsdatafilerna som **BROKENSYSTEM**.
+    > Du uppmanas att ange ett namn. Ange **BROKENSYSTEM**och expandera sedan **HKEY_LOCAL_MACHINE**. Nu visas en ytterligare nyckel som heter **BROKENSYSTEM**. För den här fel sökningen monterar vi dessa problem strukturer som **BROKENSYSTEM**.
 
-8.  Gör följande ändringar på BROKENSYSTEM gren:
+8.  Gör följande ändringar på BROKENSYSTEM-grenen:
 
-    1.  Kontrollera vilka **ControlSet** registernyckel som den virtuella datorn startas från. Du kan se dess viktiga nummer i hklm\brokensystem\välj\aktuell.
+    1.  Kontrol lera vilken register nyckel för **ControlSet** som den virtuella datorn startar från. Nyckel numret visas i HKLM\BROKENSYSTEM\Select\Current.
 
-    2.  Öppna följande registervärde för att aktivera en regel:
+    2.  Om du vill aktivera en regel öppnar du följande register värde:
     
         HKLM\BROKENSYSTEM\ControlSet00X\Services\SharedAccess\Parameters\FirewallPolicy\FirewallRules\RemoteDesktop-UserMode-In-TCP
         
-        Then, change **Active=FALSE** to **Active=True**.
+        Ändra sedan **aktiv = falskt** till **aktiv = sant**.
         
-        **v2.22 | Åtgärd = Tillåt | Aktiva = TRUE | Dir = In | Protocol = 6 | Profil = domän | Profil = privat | Profil = offentlig | LPort = 3389 | App=%systemroot%\system32\svchost.exe| SVC = termservice | Namn =\@FirewallAPI.dll-28775 | Desc =\@FirewallAPI.dll-28756 | EmbedCtxt =\@FirewallAPI.dll-28752 |**
+        **v-2.22 | Åtgärd = Tillåt | Active = TRUE | Dir = in | Protokoll = 6 | Profil = domän | Profil = privat | Profil = offentlig | LPort = 3389 | App =%SystemRoot%\system32\svchost.exe | SVC = TermService | Namn =\@FirewallAPI. dll,-28775 | Desc =\@FirewallAPI. dll,-28756 | EmbedCtxt =\@FirewallAPI. dll,-28752 |**
 
-    3.  Om du vill inaktivera en regel, öppnar du följande registernyckel:
+    3.  Om du vill inaktivera en regel öppnar du följande register nyckel:
 
         HKLM\BROKENSYSTEM\ControlSet00X\Services\SharedAccess\Parameters\FirewallPolicy\FirewallRules\RemoteDesktop-UserMode-In-TCP
 
-        Then, change **Active=True** to **Active=FALSE**.
+        Ändra sedan **aktiv = sant** till **aktiv = falskt**.
         
-        **v2.22 | Åtgärd = Tillåt | Aktiva = FALSE | Dir = In | Protocol = 6 | Profil = domän | Profil = privat | Profil = offentlig | LPort = 3389 | App=%systemroot%\system32\svchost.exe| SVC = termservice | Namn =\@FirewallAPI.dll-28775 | Desc =\@FirewallAPI.dll-28756 | EmbedCtxt =\@FirewallAPI.dll-28752 |**
+        **v-2.22 | Åtgärd = Tillåt | Aktiv = falskt | Dir = in | Protokoll = 6 | Profil = domän | Profil = privat | Profil = offentlig | LPort = 3389 | App =%SystemRoot%\system32\svchost.exe | SVC = TermService | Namn =\@FirewallAPI. dll,-28775 | Desc =\@FirewallAPI. dll,-28756 | EmbedCtxt =\@FirewallAPI. dll,-28752 |**
 
-9.  Markera **BROKENSYSTEM**, och välj sedan **filen** > **ta bort registreringsdata** på menyn.
+9.  Markera **BROKENSYSTEM**och välj sedan **Arkiv** > **ta bort Hive** från menyn.
 
 10. [Koppla från systemdisken och återskapa den virtuella datorn](troubleshoot-recovery-disks-portal-windows.md).
 

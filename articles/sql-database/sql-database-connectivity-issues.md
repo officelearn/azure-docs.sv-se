@@ -9,15 +9,16 @@ ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
 author: dalechen
+manager: dcscontentpm
 ms.author: ninarn
 ms.reviewer: carlrab
 ms.date: 06/14/2019
-ms.openlocfilehash: da2107a0573fafd10394931be21fb446f83fd5f2
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: eb34395e0a9ec881c2f5e303383555fa6544369d
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68569064"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71090906"
 ---
 # <a name="working-with-sql-database-connection-issues-and-transient-errors"></a>Arbeta med SQL Database anslutnings problem och tillfälliga fel
 
@@ -310,7 +311,7 @@ ORDER BY
 ;
 ```
 
-#### <a name="a-few-returned-rows-from-sysfnxetelemetryblobtargetreadfile"></a>Några returnerade rader från sys. fn_xe_telemetry_blob_target_read_file
+#### <a name="a-few-returned-rows-from-sysfn_xe_telemetry_blob_target_read_file"></a>Några returnerade rader från sys. fn_xe_telemetry_blob_target_read_file
 
 I följande exempel visas hur en returnerad rad kan se ut. De null-värden som visas är ofta inte null i andra rader.
 
@@ -354,7 +355,7 @@ I namn området **Microsoft. Practices. EnterpriseLibrary. TransientFaultHandlin
 Här följer några länkar till information om EntLib60:
 
 - Hämtning av kostnads fri bok: [Developer ' s Guide to Microsoft Enterprise Library, andra utgåvan](https://www.microsoft.com/download/details.aspx?id=41145).
-- Bästa praxis: [Allmänna rikt linjer](../best-practices-retry-general.md) har en utmärkt detaljerad beskrivning av omprövnings logiken.
+- Metodtips: [Allmänna rikt linjer](../best-practices-retry-general.md) har en utmärkt detaljerad beskrivning av omprövnings logiken.
 - NuGet nedladdning: [Enterprise Library – tillfälligt fel hanterings program Block 6,0](https://www.nuget.org/packages/EnterpriseLibrary.TransientFaultHandling/).
 
 <a id="entlib60-the-logging-block" name="entlib60-the-logging-block"></a>

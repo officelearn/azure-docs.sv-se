@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/28/2019
 ms.author: kaushika
-ms.openlocfilehash: fc01a20a077a1c624ed490600db919fe3197556c
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: 68d4f55d4a382f59386e72779a5f60cfc2a65338
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70901768"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71091107"
 ---
 # <a name="troubleshoot-virtual-network-peering-issues"></a>Felsöka problem med peering i virtuella nätverk
 
@@ -58,7 +58,7 @@ Mer information finns i [krav och begränsningar](https://docs.microsoft.com/azu
 Om du vill konfigurera virtuell nätverks-peering för virtuella nätverk i olika prenumerationer eller Active Directory klienter följer du stegen i [skapa peering i olika prenumerationer för Azure CLI](https://docs.microsoft.com/azure/virtual-network/create-peering-different-subscriptions#cli).
 
 > [!Note]
-> Om du vill konfigurera nätverks-peering måste du ha behörighet som **nätverks deltagare** i båda prenumerationerna. Mer information finns i [peering-behörigheter](https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-peering%23permissions).
+> Om du vill konfigurera nätverks-peering måste du ha behörighet som **nätverks deltagare** i båda prenumerationerna. Mer information finns i [peering-behörigheter](virtual-network-manage-peering.md#permissions).
 
 ## <a name="scenario-2-configure-virtual-network-peering-with-hub-spoke-topology-that-uses-on-premises-resources"></a>Scenario 2: Konfigurera peering för virtuellt nätverk med nav-eker-topologi som använder lokala resurser
 
@@ -104,7 +104,7 @@ Mer information om globala peering-krav och begränsningar finns i det [virtuell
 
 ## <a name="scenario-4-i-have-a-connectivity-issue-between-two-peered-virtual-networks"></a>Scenario 4: Jag har ett anslutnings problem mellan två peer-anslutna virtuella nätverk
 
-Logga in på [Azure Portal](https://portal.azure.com/) med ett konto som har de [roller och behörigheter](https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-peering#roles-permissions)som krävs. Välj det virtuella nätverket, Välj **peering**och kontrol lera sedan fältet **status** . Vad är statusen?
+Logga in på [Azure Portal](https://portal.azure.com/) med ett konto som har de [roller och behörigheter](virtual-network-manage-peering.md#permissions)som krävs. Välj det virtuella nätverket, Välj **peering**och kontrol lera sedan fältet **status** . Vad är statusen?
 
 ### <a name="connection-type-1-the-peering-status-shows-connected"></a>Anslutnings typ 1: Peering-status visar "ansluten"
 

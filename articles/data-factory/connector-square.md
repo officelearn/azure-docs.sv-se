@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.author: jingwang
-ms.openlocfilehash: 8e2cf8ae771ea252d4291b10c3af677835a13133
-ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
+ms.openlocfilehash: 84091a91321f3d42c5c75aa11d12abf10c5545d7
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71010167"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71089305"
 ---
 # <a name="copy-data-from-square-using-azure-data-factory-preview"></a>Kopiera data från ruta med Azure Data Factory (förhandsversion)
 
@@ -30,7 +30,7 @@ Den här artikeln beskriver hur du använder Kopieringsaktivitet i Azure Data Fa
 
 Den här fyr kantens koppling stöds för följande aktiviteter:
 
-- [Kopierings aktivitet](copy-activity-overview.md) med [käll mat ris som stöds](copy-activity-overview.md)
+- [Kopierings aktivitet](copy-activity-overview.md) med [matrisen source/Sink som stöds](copy-activity-overview.md)
 - [Sökningsaktivitet](control-flow-lookup-activity.md)
 
 

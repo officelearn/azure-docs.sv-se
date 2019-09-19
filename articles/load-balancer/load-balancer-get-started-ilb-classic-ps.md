@@ -5,6 +5,7 @@ description: Lär dig hur du skapar en intern lastbalanserare med hjälp av Powe
 services: load-balancer
 documentationcenter: na
 author: genlin
+manager: dcscontentpm
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
@@ -13,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: genli
-ms.openlocfilehash: ef6aac0d97c38798f826304475779ea8059875c7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b864a4bf352c547779bb368650971fa8b805fca7
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60848557"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71090972"
 ---
 # <a name="get-started-creating-an-internal-load-balancer-classic-using-powershell"></a>Komma igång med att skapa en intern lastbalanserare (klassisk) med hjälp av PowerShell
 
@@ -44,7 +45,7 @@ Följ dessa steg för att skapa en intern lastbalanseringsuppsättning och de se
 2. Lägg till slutpunkter som motsvarar de virtuella datorerna som ska ta emot den inkommande trafiken.
 3. Konfigurera servrarna som ska skicka trafiken som ska belastningsutjämnas så att de skickar trafiken till den virtuella IP-adressen för instansen för intern belastningsutjämning.
 
-### <a name="step-1-create-an-internal-load-balancing-instance"></a>Steg 1: Skapa en instans för intern belastningsutjämning
+### <a name="step-1-create-an-internal-load-balancing-instance"></a>Steg 1: Skapa en instans av en intern belastnings utjämning
 
 För en befintlig molntjänst eller en molntjänst som distribuerats i ett regionalt virtuellt nätverk kan du skapa en instans för intern belastningsutjämning med hjälp av följande Windows PowerShell-kommandon:
 
@@ -59,7 +60,7 @@ Add-AzureInternalLoadBalancer -ServiceName $svc -InternalLoadBalancerName $ilb �
 
 Observera att den här användningen av Windows PowerShell-cmdleten [Add-AzureEndpoint](https://msdn.microsoft.com/library/dn495300.aspx) använder parameteruppsättningen DefaultProbe. Mer information om fler parameteruppsättningar finns i [Add-AzureEndpoint](https://msdn.microsoft.com/library/dn495300.aspx).
 
-### <a name="step-2-add-endpoints-to-the-internal-load-balancing-instance"></a>Steg 2: Lägga till slutpunkter i instansen för intern belastningsutjämning
+### <a name="step-2-add-endpoints-to-the-internal-load-balancing-instance"></a>Steg 2: Lägg till slut punkter till den interna belastnings Utjämnings instansen
 
 Här är ett exempel:
 
@@ -75,7 +76,7 @@ $ilb="ilbset"
 Get-AzureVM –ServiceName $svc –Name $vmname | Add-AzureEndpoint -Name $epname -Lbset $lbsetname -Protocol $prot -LocalPort $locport -PublicPort $pubport –DefaultProbe -InternalLoadBalancerName $ilb | Update-AzureVM
 ```
 
-### <a name="step-3-configure-your-servers-to-send-their-traffic-to-the-new-internal-load-balancing-endpoint"></a>Steg 3: Konfigurera servrarna så att de skickar trafiken till den nya slutpunkten för intern belastningsutjämning
+### <a name="step-3-configure-your-servers-to-send-their-traffic-to-the-new-internal-load-balancing-endpoint"></a>Steg 3: Konfigurera servrarna så att de skickar sin trafik till den nya slut punkten för intern belastnings utjämning
 
 Du måste konfigurera servrarna vars trafik ska belastningsutjämnas så att de använder den nya IP-adressen (VIP-adressen) för instansen för intern belastningsutjämning. Det här är den adress som instansen för intern belastningsutjämning lyssnar på. I de flesta fall behöver du bara lägga till eller ändra en DNS-post för VIP-adressen för instansen för intern belastningsutjämning.
 

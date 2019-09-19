@@ -4,7 +4,7 @@ description: Lär dig hur du felsöker problem med virtuella Windows-datorer i A
 services: virtual-machines-windows
 documentationCenter: ''
 author: genlin
-manager: gwallace
+manager: dcscontentpm
 editor: ''
 ms.service: virtual-machines-windows
 ms.topic: troubleshooting
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 08/09/2018
 ms.author: genli
-ms.openlocfilehash: 265a4f58fc383519246d8d69d6cf7407b92e4728
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: d99bf2a41bc82722fd31c1835f34f913163ce55b
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70089775"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71088213"
 ---
 # <a name="troubleshoot-a-windows-vm-by-attaching-the-os-disk-to-a-recovery-vm-using-azure-powershell"></a>Felsöka en virtuell Windows-dator genom att koppla OS-disken till en virtuell återställnings dator med hjälp av Azure PowerShell
 Om din virtuella Windows-dator (VM) i Azure påträffar ett start-eller disk fel kan du behöva utföra fel söknings stegen på själva disken. Ett vanligt exempel är en misslyckad program uppdatering som förhindrar att den virtuella datorn kan starta. Den här artikeln beskriver hur du använder Azure PowerShell för att ansluta disken till en annan virtuell Windows-dator för att åtgärda eventuella fel och sedan reparera den ursprungliga virtuella datorn. 
@@ -40,7 +40,7 @@ Så här ser felsökningsprocessen ut:
 6. Demontera och koppla från disk från virtuell återställnings dator.
 7. Ändra OS-disken för den berörda virtuella datorn.
 
-Du kan använda skript för återställning av virtuella datorer för att automatisera steg 1, 2, 3, 4, 6 och 7. Mer dokumentation och instruktioner finns i återställnings [skript för virtuella datorer i Resource Manager](https://github.com/Azure/azure-support-scripts/tree/master/VMRecovery/ResourceManager).
+Du kan använda skript för återställning av virtuella datorer för att automatisera steg 1, 2, 3, 4, 6 och 7. Mer dokumentation och instruktioner finns i [återställnings skript för virtuella datorer i Resource Manager](https://github.com/Azure/azure-support-scripts/tree/master/VMRecovery/ResourceManager).
 
 Kontrol lera att du har [den senaste Azure PowerShell](/powershell/azure/overview) installerat och loggat in på din prenumeration:
 

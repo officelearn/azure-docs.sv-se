@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e8095b4fa6e52b7c34cedaea35b129ab68dddc65
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: 06b3a3f12b2955ae97c43b0caf6a4ac13c9b770a
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69532950"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71086735"
 ---
 # <a name="baseline-policy-require-mfa-for-service-management-preview"></a>Bas linje princip: Kräv MFA för Service Management (för hands version)
 
@@ -50,7 +50,7 @@ Om CLI kan öppna din standardwebbläsare så sker det och en inloggningssida l�
 
 ## <a name="deployment-considerations"></a>Distributionsöverväganden
 
-Eftersom principen **KRÄV MFA för hantering av tjänster** gäller för alla Azure Resource Manager användare måste flera saker göras för att säkerställa en smidig distribution. Dessa överväganden omfattar att identifiera användare och tjänst principer i Azure AD som inte kan eller inte bör utföra MFA, samt program och klienter som används av din organisation som inte stöder modern autentisering.
+Principen **KRÄV MFA för Service Management** gäller för alla Azure Resource Manager användare.
 
 ## <a name="enable-the-baseline-policy"></a>Aktivera bas linje principen
 

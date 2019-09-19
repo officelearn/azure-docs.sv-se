@@ -4,7 +4,7 @@ description: Visar en lista över händelser som kan göra att en virtuell dator
 services: virtual-machines
 documentationcenter: ''
 author: genlin
-manager: willchen
+manager: dcscontentpm
 editor: ''
 tags: ''
 ms.service: virtual-machines
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: aea4c20ceeb9b4f1ad70187da2690fd5d202fe7a
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: a536eb89f2040333617329e963ce00f5c6b1ba7a
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70089553"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71086967"
 ---
 # <a name="understand-a-system-reboot-for-azure-vm"></a>Förstå en omstart av systemet för virtuell Azure-dator
 

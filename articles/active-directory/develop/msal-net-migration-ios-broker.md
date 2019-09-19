@@ -16,12 +16,12 @@ ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 609aeeada78985466cb7c254cab32864e5d84b0e
-ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
-ms.translationtype: MT
+ms.openlocfilehash: 689e1c8912c567e466d2834172b5d2b98cfbc32c
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70875658"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71086849"
 ---
 # <a name="migrating-ios-applications-using-microsoft-authenticator-from-adalnet-to-msalnet"></a>Migrera iOS-program med Microsoft Authenticator från ADAL.NET till MSAL.NET
 
@@ -36,7 +36,7 @@ Det här dokumentet förutsätter att du redan har en Xamarin iOS-app som är in
 
 ### <a name="what-are-brokers"></a>Vad är utjämnare?
 
-Mäklare är program, som tillhandahålls av Microsoft, på Android och iOS ([Microsoft Authenticator](https://www.microsoft.com/account/authenticator) på iOS och android, Intune-företagsportal på Android). 
+Mäklare är program, som tillhandahålls av Microsoft, på Android och iOS ([Microsoft Authenticator](https://www.microsoft.com/en-us/account/authenticator) på iOS och android, Intune-företagsportal på Android). 
 
 De aktiverar:
 

@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 08/23/2019
-ms.openlocfilehash: 04b17d2e3acba7f003325ca7fdef2107108aea4d
-ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.date: 09/10/2019
+ms.openlocfilehash: 383f5acb9f106bb4697433be99c53bb78d00b396
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70013420"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71091133"
 ---
 # <a name="postgresql-extensions-in-azure-database-for-postgresql---single-server"></a>PostgreSQL-tillägg i Azure Database for PostgreSQL-enskild server
 PostgreSQL ger möjlighet att utöka funktionerna i databasen med hjälp av tillägg. Tillägg buntar samman flera relaterade SQL-objekt i ett enda paket som kan läsas in eller tas bort från databasen med ett enda kommando. Efter att ha lästs in i databasen, fungerar utöknings funktionen som inbyggda funktioner.
@@ -44,6 +44,7 @@ Följande tillägg är tillgängliga i Azure Database for PostgreSQL servrar som
 > |[inte är](https://www.postgresql.org/docs/11/isn.html)                          | 1.2             | data typer för internationella standarder för produkt nummer|
 > |[ltree](https://www.postgresql.org/docs/11/ltree.html)                        | 1.1             | datatyp för hierarkiska träd strukturer|
 > |[orafce](https://github.com/orafce/orafce)                       | 3.7             | Funktioner och operatorer som emulerar en delmängd funktioner och paket från kommersiella RDBMS|
+> |[pgaudit](https://www.pgaudit.org/)                     | 1.3             | tillhandahåller gransknings funktioner|
 > |[pgcrypto](https://www.postgresql.org/docs/11/pgcrypto.html)                     | 1.3             | kryptografiska funktioner|
 > |[pgrouting](https://pgrouting.org/)                    | 2.6.2           | pgRouting-tillägg|
 > |[pgrowlocks](https://www.postgresql.org/docs/11/pgrowlocks.html)                   | 1.2             | Visa lås information på radnivå|
@@ -88,6 +89,7 @@ Följande tillägg är tillgängliga i Azure Database for PostgreSQL servrar som
 > |[inte är](https://www.postgresql.org/docs/10/isn.html)                          | 1.1             | data typer för internationella standarder för produkt nummer|
 > |[ltree](https://www.postgresql.org/docs/10/ltree.html)                        | 1.1             | datatyp för hierarkiska träd strukturer|
 > |[orafce](https://github.com/orafce/orafce)                       | 3.7             | Funktioner och operatorer som emulerar en delmängd funktioner och paket från kommersiella RDBMS|
+> |[pgaudit](https://www.pgaudit.org/)                     | 1.3             | tillhandahåller gransknings funktioner|
 > |[pgcrypto](https://www.postgresql.org/docs/10/pgcrypto.html)                     | 1.3             | kryptografiska funktioner|
 > |[pgrouting](https://pgrouting.org/)                    | 2.5.2           | pgRouting-tillägg|
 > |[pgrowlocks](https://www.postgresql.org/docs/10/pgrowlocks.html)                   | 1.2             | Visa lås information på radnivå|
@@ -133,6 +135,7 @@ Följande tillägg är tillgängliga i Azure Database for PostgreSQL servrar som
 > |[inte är](https://www.postgresql.org/docs/9.6/isn.html)                          | 1.1             | data typer för internationella standarder för produkt nummer|
 > |[ltree](https://www.postgresql.org/docs/9.6/ltree.html)                        | 1.1             | datatyp för hierarkiska träd strukturer|
 > |[orafce](https://github.com/orafce/orafce)                       | 3.7             | Funktioner och operatorer som emulerar en delmängd funktioner och paket från kommersiella RDBMS|
+> |[pgaudit](https://www.pgaudit.org/)                     | 1.3             | tillhandahåller gransknings funktioner|
 > |[pgcrypto](https://www.postgresql.org/docs/9.6/pgcrypto.html)                     | 1.3             | kryptografiska funktioner|
 > |[pgrouting](https://pgrouting.org/)                    | 2.3.2           | pgRouting-tillägg|
 > |[pgrowlocks](https://www.postgresql.org/docs/9.6/pgrowlocks.html)                   | 1.2             | Visa lås information på radnivå|
@@ -178,6 +181,7 @@ Följande tillägg är tillgängliga i Azure Database for PostgreSQL servrar som
 > |[inte är](https://www.postgresql.org/docs/9.5/isn.html)                          | 1.0             | data typer för internationella standarder för produkt nummer|
 > |[ltree](https://www.postgresql.org/docs/9.5/ltree.html)                        | 1.0             | datatyp för hierarkiska träd strukturer|
 > |[orafce](https://github.com/orafce/orafce)                       | 3.7             | Funktioner och operatorer som emulerar en delmängd funktioner och paket från kommersiella RDBMS|
+> |[pgaudit](https://www.pgaudit.org/)                     | 1.3             | tillhandahåller gransknings funktioner|
 > |[pgcrypto](https://www.postgresql.org/docs/9.5/pgcrypto.html)                     | 1.2             | kryptografiska funktioner|
 > |[pgrouting](https://pgrouting.org/)                    | 2.3.0           | pgRouting-tillägg|
 > |[pgrowlocks](https://www.postgresql.org/docs/9.5/pgrowlocks.html)                   | 1.1             | Visa lås information på radnivå|
@@ -212,6 +216,9 @@ För närvarande stöds inte utgående anslutningar från Azure Database for Pos
 ## <a name="uuid"></a>uuid
 Om du planerar att använda `uuid_generate_v4()` från UUID-ossp-tillägget kan du jämföra med med `gen_random_uuid()` pgcrypto-tillägget för prestanda förmåner.
 
+
+## <a name="pgaudit"></a>pgAudit
+PgAudit-tillägget innehåller loggning av session-och objekt granskning. Information om hur du använder det här tillägget i Azure Database for PostgreSQL finns i [artikeln gransknings begrepp](concepts-audit.md). 
 
 ## <a name="timescaledb"></a>TimescaleDB
 TimescaleDB är en databas för tids serier som är paketerad som ett tillägg för PostgreSQL. TimescaleDB tillhandahåller tidsorienterade analys funktioner, optimeringar och skalar postgres för arbets belastningar för tids serier.

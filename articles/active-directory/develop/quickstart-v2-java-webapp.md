@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 08/11/2019
 ms.author: sagonzal
 ms.custom: aaddev
-ms.openlocfilehash: f1ceae17195c08af380a7448dd4dbf3bfa3f9de2
-ms.sourcegitcommit: 8fea78b4521921af36e240c8a92f16159294e10a
+ms.openlocfilehash: 22d65d20220bfda821fe255e08dd056b761a828d
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2019
-ms.locfileid: "70211872"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71086996"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-a-java-web-app"></a>Snabbstart: Lägg till inloggning med Microsoft i en Java-webbapp
 
@@ -32,10 +32,11 @@ När du har slutfört guiden kommer ditt program att godkänna inloggningar med 
 
 ![Visar hur exempel appen som genereras av den här snabb starten fungerar](media/quickstart-v2-java-webapp/java-quickstart.svg)
 
-> ## <a name="prerequisites"></a>Förutsättningar
-> Om du vill köra det här exemplet behöver du: 
-> - Java Development Kit (JDK) 8 eller senare och Maven.
->
+## <a name="prerequisites"></a>Förutsättningar
+
+Om du vill köra det här exemplet behöver du: 
+- Java Development Kit (JDK) 8 eller senare och Maven.
+
 > [!div renderon="docs"]
 > ## <a name="register-and-download-your-quickstart-app"></a>Registrera och ladda ned snabbstartsappen
 > Det finns två alternativ för att starta ditt snabb starts program: Express (alternativ 1) eller manuell (alternativ 2)
@@ -69,11 +70,11 @@ När du har slutfört guiden kommer ditt program att godkänna inloggningar med 
 > 1. Välj **ny registrering**.
 > 1. När sidan **Registrera ett program** visas anger du programmets registreringsinformation:
 >    - I avsnittet **Namn** anger du ett beskrivande programnamn som ska visas för appens användare, till exempel `java-webapp`.
->    - Lämna omdirigerings- **URI** tomt för tillfället och välj **Registrera**.
+>    - Lämna **omdirigerings-URI** tomt för tillfället och välj **Registrera**.
 > 1. Hitta **programmets ID-värde (Client)** för programmet. Uppdatera värdet för `Enter_the_Application_Id_here` i filen *Application. Properties* .
 > 1. Hitta programmets **ID-värde för katalogen (klient)** . Uppdatera värdet för `Enter_the_Tenant_Info_Here` i filen *Application. Properties* . 
 > 1. Välj menyn **Autentisering** och lägg sedan till följande information:
->    - I omdirigerings- `http://localhost:8080/msal4jsamples/secure/aad` URI `https://localhost:8080/msal4jsamples/graph/users`: **er**lägger du till och.
+>    - I **omdirigerings**- `http://localhost:8080/msal4jsamples/secure/aad` URI `https://localhost:8080/msal4jsamples/graph/users`: er lägger du till och.
 >    - Välj **Spara**.
 > 1. På den vänstra menyn väljer du **certifikat & hemligheter** och klickar på **ny klient hemlighet** i avsnittet **klient hemligheter** :
 >     

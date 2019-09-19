@@ -7,12 +7,12 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: tutorial
 ms.date: 09/04/2019
-ms.openlocfilehash: 72e268628560618fb6fa47843f5125d9126a9f3e
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: 5823bed08e0fc2ed67dbbf3c58c39982f3a1897e
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70885154"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71037273"
 ---
 # <a name="tutorial-configure-apache-hbase-policies-in-hdinsight-with-enterprise-security-package"></a>Självstudier: Konfigurera Apache HBase-principer i HDInsight med Enterprise Security Package
 
@@ -88,7 +88,8 @@ Du kan använda SSH för att ansluta till HBase-kluster och sedan använda [Apac
     ```hbaseshell
     scan 'Contacts'
     ```
-    ![HDInsight Hadoop HBase shell](./media/apache-domain-joined-run-hbase/hbase-shell-scan-table.png)
+
+    ![HDInsight Hadoop HBase Shell-utdata](./media/apache-domain-joined-run-hbase/hbase-shell-scan-table.png)
 
 ## <a name="create-ranger-policies"></a>Skapa Ranger-principer
 
@@ -96,7 +97,7 @@ Skapa en Ranger-princip för **sales_user1** och **marketing_user1**.
 
 1. Öppna **Ranger-administratörsanvändargränssnittet**. Klicka på **\<ClusterName>_hbase** (Klusternamn) under **HBase**.
 
-   ![Apache Ranger-administratörsanvändargränssnitt](./media/apache-domain-joined-run-hbase/apache-ranger-admin-login.png)
+   ![HDInsight Apache Ranger-administratörs gränssnitt](./media/apache-domain-joined-run-hbase/apache-ranger-admin-login.png)
 
 2. Skärmen **Lista över principer** visar alla Ranger-principer som skapats för det här klustret. En förkonfigurerad princip kan visas. Klicka på **Lägg till ny princip**.
 
@@ -202,14 +203,14 @@ Baserat på de konfigurerade Ranger-principerna kan **sales_user1** visa alla da
    kinit marketing_user1
    ```
 
-2. Öppna HBase-gränssnittet och Genomsök tabellen `Customers`:
+1. Öppna HBase-gränssnittet och Genomsök tabellen `Customers`:
 
     ```hbaseshell
     hbase shell
     scan `Customers`
     ```
 
-3. Observera att marknadsföringsanvändaren endast kan visa de fem kolumnerna i kolumnserien `Contact`.
+1. Observera att marknadsföringsanvändaren endast kan visa de fem kolumnerna i kolumnserien `Contact`.
 
     ```hbaseshell
     ROW                                COLUMN+CELL
@@ -226,9 +227,9 @@ Baserat på de konfigurerade Ranger-principerna kan **sales_user1** visa alla da
     2 row(s) in 0.0730 seconds
     ```
 
-9. Granska åtkomsthändelserna i Ranger-användargränssnittet.
+1. Granska åtkomsthändelserna i Ranger-användargränssnittet.
 
-   ![Principgranskning i Ranger-användargränssnittet](./media/apache-domain-joined-run-hbase/apache-ranger-admin-audit.png)
+   ![Granskning av GRÄNSSNITTs princip för HDInsight Ranger](./media/apache-domain-joined-run-hbase/apache-ranger-admin-audit.png)
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 

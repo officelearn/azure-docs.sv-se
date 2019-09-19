@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: dd1c9f5b10583e886c0357ce64bdf9d8bdc6c4c8
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: 629a7c98a7b46b470470445cc56a6f53d9e4f4b4
+ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70883370"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71077222"
 ---
 # <a name="process-and-analyze-json-documents-by-using-apache-hive-in-azure-hdinsight"></a>Bearbeta och analysera JSON-dokument med hjälp av Apache Hive i Azure HDInsight
 
@@ -91,7 +91,7 @@ Instruktionen **insert** fyller i **StudentOneLine** -tabellen med de sammanslag
 
 Här är resultatet av **Select** -instruktionen:
 
-![Förenkla JSON-dokumentet](./media/using-json-in-hive/hdinsight-flatten-json.png)
+![HDInsight förenkla JSON-dokumentet](./media/using-json-in-hive/hdinsight-flatten-json.png)
 
 ## <a name="analyze-json-documents-in-hive"></a>Analysera JSON-dokument i Hive
 Hive innehåller tre olika mekanismer för att köra frågor på JSON-dokument, eller så kan du skriva egna:
@@ -115,7 +115,7 @@ FROM StudentsOneLine;
 
 Här är utdata när du kör den här frågan i konsol fönstret:
 
-![get_json_object UDF](./media/using-json-in-hive/hdinsight-get-json-object.png)
+![Apache Hive Hämta JSON-objekt UDF](./media/using-json-in-hive/hdinsight-get-json-object.png)
 
 Det finns begränsningar för get_json_object UDF:
 
@@ -136,7 +136,7 @@ LATERAL VIEW JSON_TUPLE(jt.json_body, 'StudentId', 'Grade') q1
 
 Utdata från det här skriptet i Hive-konsolen:
 
-![json_tuple UDF](./media/using-json-in-hive/hdinsight-json-tuple.png)
+![Apache Hive JSON-frågeresultat](./media/using-json-in-hive/hdinsight-json-tuple.png)
 
 UDF-json_tuple [använder i Hive-syntaxen](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+LateralView) i Hive, som gör\_att JSON-tupel kan skapa en virtuell tabell genom att använda UDT-funktionen på varje rad i den ursprungliga tabellen. Komplexa JSON blir för svårhanterligt på grund av den upprepade användningen av **sido visning**. Dessutom kan **JSON_TUPLE** inte hantera KAPSLAde JSON-artiklar.
 

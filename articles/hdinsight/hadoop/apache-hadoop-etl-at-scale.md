@@ -8,20 +8,20 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/13/2019
 ms.author: ashishth
-ms.openlocfilehash: e4168b2aec73efcaa282398cbe145df49a117da0
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: d19640d19c3b7fa611f5bfe0e4fd0868924650c5
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70810758"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71066928"
 ---
 # <a name="extract-transform-and-load-etl-at-scale"></a>Extrahera, transformera och läsa in (ETL) i skala
 
-Extrahering, transformering och inläsning (ETL) är den process som data hämtas från olika källor, som samlas in på en standard plats, rensas och bearbetas, och som slutligen läses in i ett data lager som det kan frågas om. Äldre ETL-processer importerar data, rengör dem på plats och lagrar dem sedan i en Relations data motor. Med HDInsight kan en mängd olika Apache Hadoop eko system komponenter stödja ETL i stor skala. 
+Extrahering, transformering och inläsning (ETL) är den process som data hämtas från olika källor, som samlas in på en standard plats, rensas och bearbetas, och som slutligen läses in i ett data lager som det kan frågas om. Äldre ETL-processer importerar data, rengör dem på plats och lagrar dem sedan i en Relations data motor. Med HDInsight kan en mängd olika Apache Hadoop eko system komponenter stödja ETL i stor skala.
 
 Användningen av HDInsight i ETL-processen kan sammanfattas av den här pipelinen:
 
-![Översikt över HDInsight ETL](./media/apache-hadoop-etl-at-scale/hdinsight-etl-at-scale-overview.png)
+![HDInsight ETL i skalnings översikt](./media/apache-hadoop-etl-at-scale/hdinsight-etl-at-scale-overview.png)
 
 I följande avsnitt lär du dig var och en av de olika ETL-faserna och deras associerade komponenter.
 
@@ -35,11 +35,11 @@ Dirigering krävs för att köra lämpligt jobb vid lämplig tidpunkt.
 
 Apache Oozie är ett system för arbets flödes koordinering som hanterar Hadoop-jobb. Oozie körs i ett HDInsight-kluster och är integrerat med Hadoop-stacken. Oozie stöder Hadoop-jobb för Apache Hadoop MapReduce, Apache gris, Apache Hive och Apache Sqoop. Oozie kan också användas för att schemalägga jobb som är speciella för ett system, t. ex. Java-program eller Shell-skript.
 
-Mer information finns i [använda Apache Oozie med Apache Hadoop för att definiera och köra ett arbets flöde i HDInsight](../hdinsight-use-oozie-linux-mac.md) för en djup visning som visar hur du använder Oozie för att driva en pipeline från slut punkt till slut punkt, se [operationalisera data pipelinen](../hdinsight-operationalize-data-pipeline.md). 
+Mer information finns i [använda Apache Oozie med Apache Hadoop för att definiera och köra ett arbets flöde i HDInsight](../hdinsight-use-oozie-linux-mac.md) för en djup visning som visar hur du använder Oozie för att driva en pipeline från slut punkt till slut punkt, se [operationalisera data pipelinen](../hdinsight-operationalize-data-pipeline.md).
 
 ### <a name="azure-data-factory"></a>Azure Data Factory
 
-Azure Data Factory tillhandahåller Orchestration-funktioner i form av Platform-as-a-service. Det är en molnbaserad data integrerings tjänst som gör att du kan skapa data drivna arbets flöden i molnet för att samordna och automatisera data förflyttning och data omvandling. 
+Azure Data Factory tillhandahåller Orchestration-funktioner i form av Platform-as-a-service. Det är en molnbaserad data integrerings tjänst som gör att du kan skapa data drivna arbets flöden i molnet för att samordna och automatisera data förflyttning och data omvandling.
 
 Med hjälp av Azure Data Factory kan du:
 

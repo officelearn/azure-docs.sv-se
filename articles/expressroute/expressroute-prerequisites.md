@@ -5,15 +5,15 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 07/23/2019
+ms.date: 09/18/2019
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: f16f797afca6d60029c1f39fea7235ce84e4f954
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.openlocfilehash: 4ef1a768356078c160b798c1a96412adda0330f6
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68442218"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71123300"
 ---
 # <a name="expressroute-prerequisites--checklist"></a>ExpressRoute-krav och checklista
 Om du vill ansluta till Microsofts molntjänster med ExpressRoute måste du kontrollera att följande krav som anges i följande avsnitt är uppfyllda.
@@ -21,7 +21,7 @@ Om du vill ansluta till Microsofts molntjänster med ExpressRoute måste du kont
 [!INCLUDE [expressroute-office365-include](../../includes/expressroute-office365-include.md)]
 
 ## <a name="azure-account"></a>Azure-konto
-* Ett giltigt och aktivt Microsoft Azure-konto. Detta konto är nödvändigt för att kunna konfigurera ExpressRoute-kretsen. ExpressRoute-kretsar är resurser i Azure-prenumerationer. Du måste ha en Azure-prenumeration, även om anslutningen är begränsad till Microsoft-molntjänster som inte finns i Azure, som till exempel Office 365-tjänster och Dynamics 365.
+* Ett giltigt och aktivt Microsoft Azure-konto. Detta konto är nödvändigt för att kunna konfigurera ExpressRoute-kretsen. ExpressRoute-kretsar är resurser i Azure-prenumerationer. En Azure-prenumeration är ett krav även om anslutningen är begränsad till Microsofts moln tjänster som inte kommer från Azure, till exempel Office 365.
 * En aktiv prenumeration på Office 365 (om du använder Office 365-tjänster). Mer information finns i avsnittet Office 365-särskilda krav i den här artikeln.
 
 ## <a name="connectivity-provider"></a>Anslutningsleverantör
@@ -48,9 +48,6 @@ Om du planerar att aktivera Office 365 på ExpressRoute bör du läsa följande 
 * [Räknare och verktyg för nätverksbandbredd](https://support.office.com/article/Network-and-migration-planning-for-Office-365-f5ee6c33-bcd7-4b0b-b0f8-dc1d9fb8d132)
 * [Office 365-integration med lokala miljöer](https://support.office.com/article/Office-365-integration-with-on-premises-environments-263faf8d-aa21-428b-aed3-2021837a4b65)
 * [ExpressRoute på Office 365 – avancerade utbildningsvideor](https://channel9.msdn.com/series/aer/)
-
-## <a name="dynamics-365"></a>Dynamics 365
-Om du planerar att aktivera Dynamics 365 på ExpressRoute, granskar du [dynamics 365-URL: er](https://support.microsoft.com/kb/2655102) och [IP-adressintervall](https://support.microsoft.com/kb/2728473).
 
 ## <a name="next-steps"></a>Nästa steg
 * Mer information om ExpressRoute finns i [Vanliga frågor och svar om ExpressRoute](expressroute-faqs.md).

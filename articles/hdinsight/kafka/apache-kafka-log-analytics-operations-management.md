@@ -1,19 +1,19 @@
 ---
 title: Azure Monitor loggar för Apache Kafka – Azure HDInsight
 description: Lär dig hur du använder Azure Monitor loggar för att analysera loggar från Apache Kafka-kluster på Azure HDInsight.
-ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
+ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/02/2019
-ms.openlocfilehash: 44eea1bc6390e743aff104550e5b6d7e97c45929
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.openlocfilehash: 5739883984d4087d2b2a1bda66c01ff3cfa10eb0
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70960125"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71122601"
 ---
 # <a name="analyze-logs-for-apache-kafka-on-hdinsight"></a>Analysera loggar för Apache Kafka i HDInsight
 
@@ -43,7 +43,7 @@ Stegen för att aktivera Azure Monitor loggar för HDInsight är desamma för al
 * Disk användning:
 
     ```kusto
-    Perf 
+    Perf
     | where ObjectName == "Logical Disk" and CounterName == "Free Megabytes" and InstanceName == "_Total" and ((Computer startswith_cs "hn" and Computer contains_cs "-") or (Computer startswith_cs "wn" and Computer contains_cs "-")) 
     | summarize AggregatedValue = avg(CounterValue) by Computer, bin(TimeGenerated, 1h)
     ```
@@ -82,17 +82,17 @@ Stegen för att aktivera Azure Monitor loggar för HDInsight är desamma för al
 
     > [!IMPORTANT]  
     > Ersätt värdena i frågan med din klustrade information. Till exempel `ClusterName_s` måste vara inställt på namnet på klustret. `HostName_s`måste anges till domän namnet för en arbetsnoden i klustret.
-    
+
     Du kan också ange `*` om du vill söka efter alla typer som loggas. För närvarande finns följande loggar för frågor:
-    
+
     | Loggtyp | Beskrivning |
     | ---- | ---- |
     | Logga\_kafkaserver\_cl | Kafka Broker-Server. log |
     | log\_kafkacontroller\_CL | Kafka Broker-styrenhet. log |
     | \_mått Kafkacl\_ | Kafka JMX-mått |
-    
-    ![Bild av CPU-användnings sökning](./media/apache-kafka-log-analytics-operations-management/apache-kafka-cpu-usage.png)
- 
+
+    ![Apache Kafka Log Analytics CPU-användning](./media/apache-kafka-log-analytics-operations-management/apache-kafka-cpu-usage.png)
+
 ## <a name="next-steps"></a>Nästa steg
 
 Mer information om Azure Monitor finns i [Azure Monitor översikt](../../log-analytics/log-analytics-get-started.md)och [fråga Azure Monitor loggar för att övervaka HDInsight-kluster](../hdinsight-hadoop-oms-log-analytics-use-queries.md).

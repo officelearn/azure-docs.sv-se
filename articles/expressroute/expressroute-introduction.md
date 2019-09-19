@@ -5,20 +5,20 @@ services: expressroute
 author: mialdrid
 ms.service: expressroute
 ms.topic: overview
-ms.date: 05/20/2019
+ms.date: 09/18/2019
 ms.author: mialdrid
 ms.custom: seodec18
-ms.openlocfilehash: 6d83cb76abad3923dc7f0473f4a609938093d990
-ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
+ms.openlocfilehash: a068912857c16d2257d09e221477afc5d4a8d603
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66730500"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71123323"
 ---
 # <a name="expressroute-overview"></a>Översikt över ExpressRoute
-Med ExpressRoute kan du utöka ditt lokala nätverk till Microsoft-molnet över en privat anslutning som tillhandahålls av en anslutningsprovider. Med ExpressRoute kan du upprätta anslutningar till Microsofts molntjänster, till exempel Microsoft Azure, Office 365 och Dynamics 365.
+Med ExpressRoute kan du utöka ditt lokala nätverk till Microsoft-molnet över en privat anslutning som tillhandahålls av en anslutningsprovider. Med ExpressRoute kan du upprätta anslutningar till Microsofts moln tjänster, till exempel Microsoft Azure och Office 365.
 
-Anslutningen kan vara från ett ”any-to-any”-nätverk (IP VPN), ett ”point-to-point”-nätverk med Ethernet eller en virtuell korsanslutning via en anslutningsleverantör på en samlokaliseringsanläggning. ExpressRoute-anslutningar går inte via offentligt Internet. På så sätt kan ExpressRoute-anslutningar som är mer tillförlitlighet, snabbare hastighet, konsekvent svarstider och högre säkerhet än vanliga anslutningar via Internet. Mer information om hur du ansluter nätverket till Microsoft med ExpressRoute finns [ExpressRoute-anslutningsmodeller](expressroute-connectivity-models.md).
+Anslutningen kan vara från ett ”any-to-any”-nätverk (IP VPN), ett ”point-to-point”-nätverk med Ethernet eller en virtuell korsanslutning via en anslutningsleverantör på en samlokaliseringsanläggning. ExpressRoute-anslutningar går inte via offentligt Internet. Detta gör att ExpressRoute-anslutningar ger bättre tillförlitlighet, snabbare hastigheter, konsekvent fördröjning och högre säkerhet än vanliga anslutningar via Internet. Mer information om hur du ansluter nätverket till Microsoft med ExpressRoute finns [ExpressRoute-anslutningsmodeller](expressroute-connectivity-models.md).
 
 ![Översikt över ExpressRoute-anslutning](./media/expressroute-introduction/expressroute-connection-overview.png)
 
@@ -46,7 +46,6 @@ Varje ExpressRoute-krets består av två anslutningar till två Microsoft Enterp
 ExpressRoute-anslutningar ger åtkomst till följande tjänster:
 * Microsoft Azure-tjänster
 * Microsoft Office 365-tjänster
-* Microsoft Dynamics 365
 
 > [!NOTE]
 > [!INCLUDE [expressroute-office365-include](../../includes/expressroute-office365-include.md)]
@@ -60,10 +59,10 @@ Du kan ansluta till Microsoft på någon av våra [peeringplatser](expressroute-
 Om du exempelvis ansluter till Microsoft i Amsterdam via ExpressRoute kommer du ha åtkomst till alla Microsoft-molntjänster som finns i Europa, norra och Europa, västra. En översikt över geopolitiska regioner, tillhörande Microsoft-molnområden och motsvarande ExpressRoute-peeringplatser finns i [ExpressRoute-partners och peeringplatser](expressroute-locations.md).
 
 ### <a name="global-connectivity-with-expressroute-premium"></a>Global anslutning med ExpressRoute Premium
-Du kan aktivera [ExpressRoute Premium](expressroute-faqs.md) vill utöka anslutningen över geopolitiska gränser. Om du till exempel ansluter till Microsoft i Amsterdam via ExpressRoute får du åtkomst till alla Microsoft-molntjänster som finns i alla regioner över hela världen (med undantag för nationella moln). Du kan komma åt tjänster som distribueras i Sydamerika eller Australien på samma sätt som du har åtkomst till regionerna Europa, norra och Europa, västra.
+Du kan aktivera [ExpressRoute Premium](expressroute-faqs.md) för att utöka anslutningen mellan politiska gränser. Om du till exempel ansluter till Microsoft i Amsterdam via ExpressRoute får du åtkomst till alla Microsoft-molntjänster som finns i alla regioner över hela världen (med undantag för nationella moln). Du kan komma åt tjänster som distribueras i Sydamerika eller Australien på samma sätt som du har åtkomst till regionerna Europa, norra och Europa, västra.
 
-### <a name="local-connectivity-with-expressroute-local"></a>Lokal anslutning med ExpressRoute lokala
-Du kan överföra data kostnadseffektivt genom att aktivera den [lokala SKU](expressroute-faqs.md) om du kan hämta dina data till en ExpressRoute-plats nära dina önskade Azure-region. Med lokal ingår dataöverföring i kostnaden för ExpressRoute-port. 
+### <a name="local-connectivity-with-expressroute-local"></a>Lokal anslutning med ExpressRoute Local
+Du kan överföra data kostnads effektivt genom att aktivera den [lokala SKU: n](expressroute-faqs.md) om du kan hämta dina data till en ExpressRoute-plats nära önskad Azure-region. Med lokal ingår data överföring i ExpressRoute port Charge. 
 
 ### <a name="across-on-premises-connectivity-with-expressroute-global-reach"></a>Lokal anslutning till flera platser med ExpressRoute Global Reach
 Du kan aktivera ExpressRoute Global Reach för att utbyta data på dina olika lokala platser genom att ansluta ExpressRoute-kretsarna. Om du till exempel har ett privat datacenter i Kalifornien som är anslutet till ExpressRoute i Silicon Valley och ett annat privat datacenter anslutet till ExpressRoute i Dallas kan du, med ExpressRoute Global Reach, ansluta dina privata datacenter till varandra genom två ExpressRoute-kretsar. Din trafik över datacenter passerar genom Microsofts nätverk.

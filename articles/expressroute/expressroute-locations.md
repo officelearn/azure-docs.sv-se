@@ -2,24 +2,18 @@
 title: 'Anslutningsproviders och platser: Azure ExpressRoute | Microsoft Docs'
 description: Den här artikeln innehåller en detaljerad översikt över platser där tjänster erbjuds och hur du ansluter till Azure-regioner. Sorteras efter anslutningsleverantör.
 services: expressroute
-documentationcenter: na
 author: cherylmc
-manager: timlt
-editor: ''
-ms.assetid: c878513a-d594-42ad-8b0e-403efd0c4b25
 ms.service: expressroute
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/16/2019
 ms.author: cherylmc
-ms.openlocfilehash: 997d6b29ef41c84766348c8b0ff74c5bc5c877d0
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: 63358923dae22a2547d7946cd10ca2a3f02e33a5
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71033945"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71122818"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>ExpressRoute-partners och peeringplatser
 
@@ -80,7 +74,7 @@ I följande tabell visas platser efter tjänstleverantör. Om du vill visa tillg
 
 ### <a name="production-azure"></a>Produktions-Azure
 
-| **Tjänstleverantör** | **Microsoft Azure** | **Office 365 och Dynamics 365** | **Platser** |
+| **Tjänstleverantör** | **Microsoft Azure** | **Office 365**  | **Platser** |
 | --- | --- | --- | --- |
 | **[AARNet](https://www.aarnet.edu.au/network-and-services/connectivity-services/azure-expressroute)** |Stöds |Stöds |Melbourne, Sydney |
 | **[Airtel](https://www.airtel.in/business/#/)** | Stöds | Stöds | Chennai2, Mumbai2 |

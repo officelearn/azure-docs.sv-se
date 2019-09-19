@@ -8,19 +8,19 @@ ms.topic: include
 ms.date: 07/19/2019
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: d5ce4c094da3a411168c7fe4c282b15ceac7bb86
-ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
+ms.openlocfilehash: b51d984726cfd178189e7fe1a994c35c7efaed36
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70036788"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71124105"
 ---
 I följande tabell beskrivs standard gränserna för Azures allmänna-syfte v1-, v2-och Blob Storage-konton. Den *inkommande* gränsen refererar till alla data från begär Anden som skickas till ett lagrings konto. *Utgående* gräns avser alla data från svar som tas emot från ett lagrings konto.
 
 | Resource | Standardgräns |
 | --- | --- |
 | Antal lagrings konton per region per prenumeration, inklusive både standard-och Premium konton | 250 |
-| Maximal kapacitet för lagrings konto | 2 PB för USA och Europa och 500 TB för alla andra regioner (inklusive Storbritannien)<sup>1</sup>|
+| Maximal kapacitet för lagrings konto | 2 PiB för USA och Europa och 500 TiB för alla andra regioner (inklusive Storbritannien)<sup>1</sup>|
 | Maximalt antal BLOB-behållare, blobbar, fil resurser, tabeller, köer, entiteter eller meddelanden per lagrings konto | Ingen gräns |
 | Högsta begär ande frekvens<sup>1</sup> per lagrings konto | 20 000 begär Anden per sekund |
 | Maximalt antal inkommande<sup>1</sup> per lagrings konto (USA, Europa regioner) | 25 Gbit/s |
@@ -31,12 +31,7 @@ I följande tabell beskrivs standard gränserna för Azures allmänna-syfte v1-,
 
 <sup>1</sup> Azure standard Storage-konton stöder högre kapacitets gränser och högre gränser för ingångar efter begäran. Kontakta [Azure](https://azure.microsoft.com/support/faq/)-supporten om du vill begära en ökning av konto gränserna för ingress. Mer information finns i avsnittet om att [presentera större och högre skalnings lagrings konton](https://azure.microsoft.com/blog/announcing-larger-higher-scale-storage-accounts/).
 
-<sup>2</sup> [Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-redundancy) alternativen för replikering inkluderar:
-
-- **RA-GRS**: Geo-redundant lagring med Läs behörighet. Om RA-GRS är aktive rad är utgående mål för den sekundära platsen identiska med de för den primära platsen.
-- **GRS**: Geo-redundant lagring.
-- **ZRS**: Zon-redundant lagring.
-- **LRS**: Lokalt redundant lagring.
+<sup>2</sup> om du har aktiverat Read-Access (RA-GRS/ra-GZRS) är utgångs målen för den sekundära platsen identiska med de på den primära platsen. [Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-redundancy) alternativen för replikering inkluderar:[!INCLUDE [azure-storage-redundancy](azure-storage-redundancy.md)]
 
 > [!NOTE]
 > Vi rekommenderar att du använder ett allmänt-syfte v2-lagrings konto för de flesta scenarier. Du kan enkelt uppgradera ett allmänt v1-eller Azure Blob Storage-konto till ett allmänt-syfte v2-konto utan avbrott och utan att behöva kopiera data.

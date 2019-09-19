@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 09/13/2019
 ms.author: dapine
-ms.openlocfilehash: d8d069dddbce6ab6ddb541db460634ad3f6fa067
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: 0e9fa9146292bf7dabbbf06d3bb436aa6cd2e6e2
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70994925"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71124106"
 ---
 ## <a name="azure-cognitive-services-container-security"></a>Säkerhet för Azure Cognitive Services-behållare
 
@@ -30,6 +30,23 @@ Diagrammet nedan visar standard och **osäker** Metod:
 Som ett alternativ och *säkert* tillvägagångs sätt kan förbrukare av Cognitive Services behållare utöka en behållare med en klient som är klient del, så att behållar slut punkten är privat. Vi ska ta en titt på ett scenario där vi använder [Istio][istio] som en ingress-Gateway. Istio stöder HTTPS/SSL och autentisering av klient certifikat. I det här scenariot exponeras behållar åtkomsten i Istio-frontend-filen, som presenterar klient certifikatet som vit listas i förväg med Istio.
 
 [Nginx][nginx] är ett annat populärt val i samma kategori. Både Istio och Nginx fungerar som ett tjänst nät och erbjuder ytterligare funktioner, inklusive t. ex. belastnings utjämning, Routning och Rate-kontroll.
+
+### <a name="container-networking"></a>Nätverk för containrar
+
+Cognitive Services behållare krävs för att skicka in avläsnings information för fakturerings syfte. Det enda undantaget är *offline-behållare* när de följer en annan fakturerings metod. Det gick inte att tillåta en lista över olika nätverks kanaler som Cognitive Services behållare förlitar sig på förhindrar att behållaren fungerar.
+
+#### <a name="allow-list-cognitive-services-domains-and-ports"></a>Lista över tillåtna Cognitive Services domäner och portar
+
+Värden ska tillåta List **port 443** och följande domäner:
+
+* `*.cognitive.microsoft.com`
+* `*.cognitiveservices.azure.com`
+
+#### <a name="disable-deep-packet-inspection"></a>Inaktivera djup paket granskning
+
+> [Djup paket inspektion](https://en.wikipedia.org/wiki/Deep_packet_inspection) (DPI) är en typ av data bearbetning som identifierar data som skickas över ett dator nätverk, och som vanligt vis vidtar åtgärder genom att blockera, dirigera om eller logga i enlighet med detta.
+
+Inaktivera DPI på de säkra kanaler som Cognitive Services behållare skapar till Microsoft-servrar. Om du inte gör det kommer behållaren inte att fungera korrekt.
 
 [istio]: https://istio.io/
 [nginx]: https://www.nginx.com

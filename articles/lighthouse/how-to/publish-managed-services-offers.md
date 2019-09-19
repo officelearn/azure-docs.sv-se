@@ -4,22 +4,22 @@ description: Lär dig hur du publicerar ett hanterat tjänst erbjudande som regi
 author: JnHs
 ms.author: jenhayes
 ms.service: lighthouse
-ms.date: 08/29/2019
+ms.date: 09/19/2019
 ms.topic: overview
 manager: carmonm
-ms.openlocfilehash: c0c2ccf03292434b3f23b26857ec0d2b3fc3ceed
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: 4a1adf1be8798f4bb21b89ff0654287a2958146e
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70165258"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71105269"
 ---
 # <a name="publish-a-managed-services-offer-to-azure-marketplace"></a>Publicera ett erbjudande för hanterade tjänster på Azure Marketplace
 
 I den här artikeln får du lära dig hur du publicerar ett offentligt eller privat hanterat tjänst erbjudande till [Azure Marketplace](https://azuremarketplace.microsoft.com) med hjälp av [Cloud Partner Portal](https://cloudpartner.azure.com/), vilket gör det möjligt för en kund som köper erbjudandet till onboard-resurser för Azure delegerad resurs hanterings.
 
 > [!NOTE]
-> Du måste ha ett giltigt [konto i Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) för att kunna skapa och publicera dessa erbjudanden. Om du inte redan har ett konto kommer [registrerings processen](https://aka.ms/joinmarketplace) att leda dig genom stegen för att skapa ett konto i Partner Center och registrera dig i programmet för kommersiella marknads platser. Ditt Microsoft Partner Network (MPN) ID kommer [automatiskt](https://docs.microsoft.com/azure/billing/billing-partner-admin-link-started) att associeras med de erbjudanden du publicerar för att spåra din påverkan på kund engagemang.
+> Du måste ha ett giltigt [konto i Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) för att kunna skapa och publicera dessa erbjudanden. Om du inte redan har ett konto kommer [registrerings processen](https://aka.ms/joinmarketplace) att leda dig genom stegen för att skapa ett konto i Partner Center och registrera dig i programmet för kommersiella marknads platser. Ditt Microsoft Partner Network (MPN) ID kommer [automatiskt att associeras](https://docs.microsoft.com/azure/billing/billing-partner-admin-link-started) med de erbjudanden du publicerar för att spåra din påverkan på kund engagemang.
 >
 > Om du inte vill publicera ett erbjudande på Azure Marketplace kan du publicera kunder manuellt med hjälp av Azure Resource Manager mallar. Mer information finns i [publicera en kund till Azure delegerad resurs hantering](onboard-customer.md).
 
@@ -71,7 +71,7 @@ Slutför Slutligen avsnittet **manifest information** . Detta skapar ett manifes
   - **Objekt-ID för Azure AD**: Azure AD-identifieraren för en användare, en användar grupp eller ett program som kommer att beviljas vissa behörigheter (som beskrivs av roll definitionen) till dina kunders resurser.
   - **Visnings namn för Azure AD-objekt**: Ett eget namn som hjälper kunden att förstå syftet med den här auktoriseringen. Kunden ser det här namnet när resurser delegeras.
   - **Rolldefinition**: Välj en av de tillgängliga inbyggda Azure AD-rollerna i listan. Den här rollen avgör de behörigheter som användaren i fältet **Azure AD-objekt-ID** kommer att ha på dina kunders resurser. Information om dessa roller finns i [inbyggda roller](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles).
-  - **Tilldelnings bara roller**: Om du har valt administratör för användar åtkomst i **roll definitionen** för den här auktoriseringen kan du lägga till en eller flera tilldelnings bara roller här. Användaren i fältet **Azure AD-objekt-ID** kommer att kunna tilldela dessa tilldelnings bara **roller** till [hanterade identiteter](https://docs.microsoft.com/azure/managed-applications/publish-managed-identity). Observera att inga andra behörigheter som normalt är kopplade till rollen administratör för användar åtkomst gäller för den här användaren. (Om du inte har valt administratör för användar åtkomst för den här användarens roll definition har det här fältet ingen inverkan.)
+  - **Tilldelnings bara roller**: Detta krävs endast om du har valt administratör för användar åtkomst i **roll definitionen** för den här auktoriseringen. I så fall måste du lägga till en eller flera tilldelnings bara roller här. Användaren i fältet **Azure AD-objekt-ID** kommer att kunna tilldela dessa tilldelnings bara **roller** till [hanterade identiteter](https://docs.microsoft.com/azure/managed-applications/publish-managed-identity). Observera att inga andra behörigheter som normalt är kopplade till rollen administratör för användar åtkomst gäller för den här användaren. Om du inte väljer en eller flera roller här skickas inte certifieringen. (Om du inte har valt administratör för användar åtkomst för den här användarens roll definition har det här fältet ingen inverkan.)
 
 > [!TIP]
 > I de flesta fall vill du tilldela behörigheter till en användar grupp eller ett tjänst huvud namn i Azure AD, i stället för till en serie med enskilda användar konton. På så sätt kan du lägga till eller ta bort åtkomst för enskilda användare utan att behöva uppdatera och publicera om planen när dina åtkomst krav ändras.
@@ -82,7 +82,7 @@ När du är klar med att lägga till planer väljer du **Spara**och fortsätter 
 
 I avsnittet **Marketplace** kan du ange den text och de bilder som kunderna ser i Azure Marketplace och Azure Portal.
 
-Ange information för följande fält i översikts avsnittet:
+Ange information för följande fält i **översikts** avsnittet:
 
 |Fält  |Beskrivning  |
 |---------|---------|
@@ -132,7 +132,7 @@ När du är nöjd med all information som du har angett är nästa steg att publ
 
 När en kund lägger till erbjudandet kommer de att kunna [delegera en eller flera specifika prenumerationer eller resurs grupper](view-manage-service-providers.md#delegate-resources) som sedan kommer att registreras för Azure-delegerad resurs hantering. Om en kund har accepterat ett erbjudande men ännu inte har delegerat några resurser visas en anteckning längst upp i avsnittet **leverantörs erbjudanden** på sidan [**tjänst leverantörer**](view-manage-service-providers.md) i Azure Portal.
 
-Innan en prenumeration (eller resurs grupper inom en prenumeration) kan registreras måste prenumerationen vara auktoriserad för onboarding genom att manuellt registrera **Microsoft. ManagedServices** -resurs leverantören. En användare i kundens klient organisation med rollen deltagare eller ägare kan göra detta genom att följa stegen som beskrivs i Azures [resurs leverantörer och typer](../../azure-resource-manager/resource-manager-supported-services.md).
+Innan en prenumeration (eller resurs grupper inom en prenumeration) kan registreras måste prenumerationen vara auktoriserad för onboarding genom att manuellt registrera **Microsoft. ManagedServices** -resurs leverantören. En användare i kundens klient organisation med rollen deltagare eller ägare kan göra detta genom att följa stegen som beskrivs i [Azures resurs leverantörer och typer](../../azure-resource-manager/resource-manager-supported-services.md).
 
 Kunden kan sedan bekräfta att prenumerationen är redo för onboarding på något av följande sätt.
 

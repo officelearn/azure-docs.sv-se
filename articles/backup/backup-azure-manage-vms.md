@@ -6,14 +6,14 @@ author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 03/13/2019
+ms.date: 09/18/2019
 ms.author: dacurwin
-ms.openlocfilehash: 025052a5005702232eb9eaf255e6aac2c58fec98
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.openlocfilehash: 0e8dacb97b6ccfb57573fc21c3a4df3694cc7ec8
+ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68735572"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71098404"
 ---
 # <a name="manage-azure-vm-backups-with-azure-backup-service"></a>Hantera virtuella Azure-säkerhetskopieringar med Azure Backup tjänsten
 
@@ -132,7 +132,7 @@ Stoppa skyddet och ta bort data för en virtuell dator:
 
 ## <a name="resume-protection-of-a-vm"></a>Återuppta skyddet av en virtuell dator
 
-Om du har valt alternativet [stoppa skydd och behåll säkerhets kopierings data](#stop-protection-and-retain-backup-data) under stoppa VM-skyddet kan du använda **återuppta säkerhets kopiering**. Det här alternativet är inte tillgängligt om du väljer alternativet [stoppa skydd och ta bort](#stop-protection-and-delete-backup-data) säkerhets kopierings data eller [tar bort säkerhetskopierade data](#delete-backup-data).
+Om du har valt alternativet [stoppa skydd och behåll säkerhets kopierings data](#stop-protection-and-retain-backup-data) under stoppa VM-skyddet kan du använda **återuppta säkerhets kopiering**. Det här alternativet är inte tillgängligt om du väljer alternativet [stoppa skydd och ta bort säkerhets kopierings](#stop-protection-and-delete-backup-data) data eller [tar bort säkerhetskopierade data](#delete-backup-data).
 
 Återuppta skyddet för en virtuell dator:
 
@@ -166,6 +166,6 @@ Det finns två sätt att ta bort en virtuell dators säkerhets kopierings data:
   > När du tar bort säkerhetskopierade data tar du bort alla tillhör ande återställnings punkter. Du kan inte välja vissa återställnings punkter att ta bort.
 
 ## <a name="next-steps"></a>Nästa steg
-- Lär dig hur du säkerhetskopierar [virtuella Azure-datorer från inställningarna för den virtuella datorn](backup-azure-vms-first-look-arm.md).
+- Lär dig hur du [säkerhetskopierar virtuella Azure-datorer från inställningarna för den virtuella datorn](backup-azure-vms-first-look-arm.md).
 - Lär dig hur du [återställer virtuella datorer](backup-azure-arm-restore-vms.md).
 - Lär dig hur du [övervakar säkerhets kopior av virtuella Azure-datorer](backup-azure-monitor-vms.md).

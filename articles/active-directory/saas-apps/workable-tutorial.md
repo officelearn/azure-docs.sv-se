@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/15/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1341f0def306a1167e1e4876365c70901cf89cd2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5fc1f6434bea8f75c7bcc7859c6f90d7abdd031b
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67087005"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71091043"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workable"></a>Självstudier: Azure Active Directory-katalogintegrering med Workable
 
@@ -35,7 +35,7 @@ Du får följande fördelar när du integrerar Workable med Azure AD:
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 För att kunna konfigurera Azure AD-integrering med Workable behöver du följande:
 
@@ -142,7 +142,7 @@ Om du vill aktivera enkel inloggning i Workable kontaktar du Workable-kontoansva
 
 3. Utloggnings-URL
 
-När enkel inloggning har aktiverats, kundansvarig fungerande meddelar dig och du kan använda [Workable's SSO sidan](https://id.workable.com/sso/signin) att logga in med din fungerande konto underdomän.
+När enkel inloggning har Aktiver ATS kommer din fungerande konto hanterare att meddela dig och du kan använda [fungerande inloggnings sida](https://help.workable.com/hc/en-us/articles/360000067753-Single-Sign-on-SSO-Overview-Pro) för att logga in med din fungerande konto under domän.
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
@@ -162,7 +162,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     a. I fältet **Namn** anger du **BrittaSimon**.
   
-    b. I den **användarnamn** fälttyp `brittasimon\@yourcompanydomain.extension`. Till exempel BrittaSimon@contoso.com.
+    b. I `brittasimon\@yourcompanydomain.extension`fältet **användar namn** . Till exempel BrittaSimon@contoso.com.
 
     c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
 

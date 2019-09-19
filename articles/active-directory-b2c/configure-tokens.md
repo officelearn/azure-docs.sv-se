@@ -10,16 +10,16 @@ ms.topic: conceptual
 ms.date: 04/16/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 2ed1426bea920d1ef30fb28ff4a975d1268c12ff
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.openlocfilehash: 83f8051fa31b6431d4a8515e2c0912cc1872a402
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67846933"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71064378"
 ---
 # <a name="configure-tokens-in-azure-active-directory-b2c"></a>Konfigurera tokens i Azure Active Directory B2C
 
-I den här artikeln får du lära dig hur du konfigurerar [livs längd och kompatibilitet för en token](active-directory-b2c-reference-tokens.md) i Azure Active Directory (Azure AD) B2C.
+I den här artikeln får du lära dig hur du konfigurerar [livs längd och kompatibilitet för en token](active-directory-b2c-reference-tokens.md) i Azure Active Directory B2C (Azure AD B2C).
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -30,7 +30,7 @@ I den här artikeln får du lära dig hur du konfigurerar [livs längd och kompa
 Du kan konfigurera livs längden för token för ett användar flöde.
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
-2. Kontrol lera att du använder den katalog som innehåller din Azure AD B2C-klient. Välj **katalog-och prenumerations filter** på den översta menyn och välj den katalog som innehåller Azure AD B2C klient.
+2. Kontrol lera att du använder den katalog som innehåller din Azure AD B2C-klient. Välj **katalog + prenumerations** filter på den översta menyn och välj den katalog som innehåller Azure AD B2C klienten.
 3. Välj **Alla tjänster** på menyn uppe till vänster i Azure Portal. Sök sedan efter och välj **Azure AD B2C**.
 4. Välj **användar flöden (principer)** .
 5. Öppna det användar flöde som du skapade tidigare.

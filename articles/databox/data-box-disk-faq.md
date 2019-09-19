@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: overview
-ms.date: 08/15/2019
+ms.date: 08/29/2019
 ms.author: alkohli
-ms.openlocfilehash: 1ac91853c78a33645c0ccb234437e3cabc188f88
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: eee33a2e1f5d081c1394368152d0d9afb7091e34
+ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70076903"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71098827"
 ---
 # <a name="azure-data-box-disk-frequently-asked-questions"></a>Azure Data Box Disk: Vanliga frågor och svar
 
@@ -89,6 +89,24 @@ A.  Du kan spåra statusen för Data Box Disk-beställningen i Azure-portalen. N
 ### <a name="q-how-do-i-return-the-disks"></a>F. Hur gör jag för att skicka tillbaka diskarna? 
 A.  Microsoft skickar med en adressetikett i paketet med Data Box-diskarna. Fäst etiketten på leveranskartongen och lämna in det förseglade paketet hos transportföretaget. Om etiketten är skadad eller har försvunnit kan du hämta en ny via **Översikt > Ladda ned adressetikett**.
 
+### <a name="can-i-pick-up-my-data-box-disk-order-myself-can-i-return-the-disks-via-a-carrier-that-i-choose"></a>Kan jag hämta min Data Box Disk beställningen själv? Kan jag returnera diskarna via en operatör som jag väljer?
+A. Ja. Microsoft erbjuder även självhanterad leverans i US Gov region. När du placerar Data Box Disks ordningen kan du välja alternativ för själv hantering av leverans. Gör så här för att hämta din Data Box Disks ordning:
+    
+1. När du har placerat ordern bearbetas ordern och diskarna förbereds. Du kommer att meddelas via ett e-postmeddelande om att din beställning är klar för hämtning. 
+2. När ordern är klar för hämtning går du till din beställning i Azure Portal och navigerar till **översikts** bladet. 
+3. Ett meddelande visas med en kod i Azure Portal. E-posta [Azure Data boxs drifts teamet](mailto:adbops@microsoft.com) och ange koden. Teamet tillhandahåller platsen och schemalägger hämtnings datum och-tid. Du måste ringa teamet inom fem arbets dagar efter att du fått e-postaviseringen.
+
+När data kopieringen och verifieringen har slutförts utför du följande steg för att returnera disken:
+
+1. När dataverifieringen har genomförts kan du koppla från diskarna. Ta bort anslutningskablarna.
+2. Slå in alla diskar och anslutningskablarna i bubbelplast och lägg dem i fraktlådan. Avgifter kan tillkomma om tillbehören saknas.
+
+    - Återanvänd förpackningen från den första leveransen. Vi rekommenderar att du förpackar diskarna i ordentligt fäst cellplast.
+    - Packa tätt så att den förpackade enheten inte rör sig i kartongen.
+3. Gå till **bladet översikt** för din beställning i Azure Portal. Du bör se ett meddelande med en kod.
+4. Använd koden och skicka e-postmeddelandet till den [Azure Data Box drifts gruppen](mailto:adbops@microsoft.com) och ange koden. De ger dig information om var och när du ska ta bort diskarna.
+
+
 ## <a name="migrate-data"></a>Migrera data
 
 ### <a name="q-what-is-the-maximum-data-size-that-can-be-used-with-data-box-disks"></a>F. Hur stor mängd data får plats på Data Box-diskarna?  
@@ -113,7 +131,7 @@ A.  Påskynda kopieringsprocessen:
 - Använda flera sessioner.
 - Kontrollera att dina data finns lokalt på datorn som diskarna är ansluta till, i stället för att kopiera via nätverk (där du kan begränsas av nätverkshastigheterna).
 - Se till att du använder USB 3.0 eller senare under kopieringen. Ladda ned och använda [USBView-verktyget](https://docs.microsoft.com/windows-hardware/drivers/debugger/usbview) för att identifiera USB-kontrollanterna och USB-enheterna som är anslutna till datorn.
-- Analysera prestanda för den dator som används för att kopiera data. Ladda ned och använd [Bluestop FIO-verktyget](https://ci.appveyor.com/project/axboe/fio) för att analysera servermaskinvarans prestanda. Välj den senaste x86-eller x64-versionen, Välj fliken artefakter och ladda ned MSI.
+- Analysera prestanda för den dator som används för att kopiera data. Ladda ned och använd [Bluestop FIO-verktyget](https://ci.appveyor.com/project/axboe/fio) för att analysera servermaskinvarans prestanda. Välj den senaste x86-eller x64-versionen, Välj fliken **artefakter** och ladda ned MSI.
 
 ### <a name="q-how-to-speed-up-the-data-if-the-source-data-has-small-files-kbs-or-few-mbs"></a>F. Hur skyndar jag på dataöverföringen om källdata består av små filer (KB eller få MB)?
 A.  Påskynda kopieringsprocessen:

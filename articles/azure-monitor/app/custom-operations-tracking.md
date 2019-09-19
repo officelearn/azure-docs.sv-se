@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 06/30/2017
 ms.reviewer: sergkanz
 ms.author: mbullwin
-ms.openlocfilehash: 91467f99e7932ce7ffcd5b3300f8544fb848ccfa
-ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
+ms.openlocfilehash: d966ff3bc00d5190ebc163d4f4bfa35ba73d21ab
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71019080"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71087664"
 ---
 # <a name="track-custom-operations-with-application-insights-net-sdk"></a>Spåra anpassade åtgärder med Application Insights .NET SDK
 
@@ -354,7 +354,7 @@ Se till att du ställer in operation (korrelation)-identifierarna när du tar bo
 
 ### <a name="dependency-types"></a>Beroende typer
 
-Application Insights använder beroende typen för att cusomize UI-upplevelser. För köer identifieras följande typer av `DependencyTelemetry` som förbättrar [upplevelsen för transaktions diagnostik](/azure-monitor/app/transaction-diagnostics):
+Application Insights använder beroende typen för att cusomize UI-upplevelser. För köer identifieras följande typer av `DependencyTelemetry` som förbättrar [upplevelsen för transaktions diagnostik](/azure/azure-monitor/app/transaction-diagnostics):
 - `Azure queue`för Azure Storage köer
 - `Azure Event Hubs`för Azure Event Hubs
 - `Azure Service Bus`för Azure Service Bus

@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/07/2019
+ms.date: 09/17/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7b898a93b87811fa5139e148a3273d7051af851b
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
-ms.translationtype: HT
+ms.openlocfilehash: 1f9b6d4ce4048b31f17b50184f90aed4d2a8ba81
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71056280"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71086558"
 ---
 # <a name="scenario-web-app-that-signs-in-users"></a>Scenario: Webbapp som loggar in användare
 
@@ -32,15 +32,35 @@ Lär dig allt du behöver för att bygga en webbapp som loggar in användare med
 
 ## <a name="getting-started"></a>Komma igång
 
+# <a name="aspnet-coretabaspnetcore"></a>[ASP.NET Core](#tab/aspnetcore)
+
 Följ den här snabb starten om du vill skapa dina första bärbara (ASP.NET Core)-webbappar som loggar in användare:
 
 > [!div class="nextstepaction"]
 > [Snabbstart: ASP.NET Core-webbapp som loggar in användare](quickstart-v2-aspnet-core-webapp.md)
 
-Om du vill fortsätta med ASP.NET kan du prova följande självstudie:
+# <a name="aspnettabaspnet"></a>[ASP.NET](#tab/aspnet)
+
+f du vill lära dig hur du lägger till inloggning i ett äldre ASP.NET-webbprogram, prova följande självstudie:
 
 > [!div class="nextstepaction"]
 > [Snabbstart: ASP.NET-webbapp som loggar in användare](quickstart-v2-aspnet-webapp.md)
+
+# <a name="javatabjava"></a>[Java](#tab/java)
+
+Om du är en Java-utvecklare kan du prova följande snabb start:
+
+> [!div class="nextstepaction"]
+> [Snabbstart: Lägg till inloggning med Microsoft i en Java-webbapp](quickstart-v2-java-webapp.md)
+
+# <a name="pythontabpython"></a>[Python](#tab/python)
+
+Om du utvecklar med python kan du prova:
+
+> [!div class="nextstepaction"]
+> [Snabbstart: Lägg till inloggning med Microsoft i en python-webbapp](quickstart-v2-python-webapp.md)
+
+---
 
 ## <a name="overview"></a>Översikt
 
@@ -51,7 +71,7 @@ Du lägger till autentisering i din webbapp så att den kan logga in användare.
 Som en andra fas kan du också aktivera ditt program så att det anropar webb-API: er åt den inloggade användaren. Nästa fas är ett annat scenario, som du hittar i webb- [API: er för webb program](scenario-web-app-call-api-overview.md)
 
 > [!NOTE]
-> Att lägga till inloggning i en webbapp är att skydda webbappen och verifiera en användartoken, vilket är vad **mellan** program varu bibliotek gör. Det här scenariot kräver inte Microsoft Authentication libraries (MSAL), som håller på att förvärva en token för att anropa skyddade API: er. Autentiseringsinställningarna kommer bara att införas i uppföljnings scenariot när webbappen behöver anropa webb-API: er.
+> Att lägga till inloggning i en webbapp är att skydda webbappen och verifiera en användartoken, vilket är vad **mellan** program varu bibliotek gör. I fallet med .NET kräver det här scenariot ännu inte Microsoft Authentication libraries (MSAL), som handlar om att förvärva en token för att anropa skyddade API: er. Autentiseringsinställningarna kommer bara att införas i uppföljnings scenariot när webbappen behöver anropa webb-API: er.
 
 ## <a name="specifics"></a>Information
 

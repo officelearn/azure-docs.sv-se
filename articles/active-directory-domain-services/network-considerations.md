@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/09/2019
 ms.author: iainfou
-ms.openlocfilehash: 506967fc4cecd322c694d31789cf09bec22ad3d4
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: e18f990885a25b7e130dfeb5a0a3425530ee11e6
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69617316"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71086588"
 ---
 # <a name="virtual-network-design-considerations-and-configuration-options-for-azure-ad-domain-services"></a>Design överväganden för virtuellt nätverk och konfigurations alternativ för Azure AD Domain Services
 
@@ -36,7 +36,7 @@ När du utformar det virtuella nätverket för Azure AD DS gäller följande asp
     * För att minimera fördröjningen bör du hålla dina kärn program nära eller i samma region som det virtuella nätverkets undernät för din Azure AD DS-hanterade domän. Du kan använda peering för virtuella nätverk eller anslutningar för virtuella privata nätverk (VPN) mellan virtuella Azure-nätverk.
 * Det virtuella nätverket kan inte förlita sig på andra DNS-tjänster än de som tillhandahålls av Azure AD DS.
     * Azure AD DS tillhandahåller sin egen DNS-tjänst. Det virtuella nätverket måste konfigureras för att använda dessa DNS-tjänst adresser. Namn matchning för ytterligare namn områden kan utföras med hjälp av villkorliga vidarebefordrare.
-    * Du kan inte använda anpassade DNS-serverinställningar för att dirigera frågor till andra DNS-servrar, inklusive på virtuella datorer. Resurser i det virtuella nätverket måste använda den DNS-tjänst som tillhandahålls av Azure AD DS.
+    * Du kan inte använda anpassade DNS-serverinställningar för att dirigera frågor från andra DNS-servrar, inklusive virtuella datorer. Resurser i det virtuella nätverket måste använda den DNS-tjänst som tillhandahålls av Azure AD DS.
 
 > [!IMPORTANT]
 > Du kan inte flytta Azure AD DS till ett annat virtuellt nätverk när du har aktiverat tjänsten.
@@ -68,7 +68,7 @@ Peering för virtuella nätverk är en mekanism som ansluter två virtuella nät
 
 ![Anslutning till virtuellt nätverk med peering](./media/active-directory-domain-services-design-guide/vnet-peering.png)
 
-Mer information finns i [Översikt över Azure Virtual Network](../virtual-network/virtual-network-peering-overview.md)-peering.
+Mer information finns i [Översikt över Azure Virtual Network-peering](../virtual-network/virtual-network-peering-overview.md).
 
 ### <a name="virtual-private-networking"></a>Virtuellt privat nätverk
 
@@ -105,7 +105,7 @@ En [nätverks säkerhets grupp (NSG)](https://docs.microsoft.com/azure/virtual-n
 
 Följande regler för nätverks säkerhets grupper krävs för att Azure AD DS ska kunna tillhandahålla autentiserings-och hanterings tjänster. Redigera inte eller ta bort dessa regler för nätverks säkerhets grupper för det virtuella nätverkets undernät din Azure AD DS-hanterade domän distribueras till.
 
-| Portnummer | Protocol | Källa                             | Mål | Action | Obligatorisk | Syfte |
+| Portnummer | Protocol | Källa                             | Destination | Action | Obligatorisk | Syfte |
 |:-----------:|:--------:|:----------------------------------:|:-----------:|:------:|:--------:|:--------|
 | 443         | TCP      | AzureActiveDirectoryDomainServices | Any         | Allow  | Ja      | Synkronisering med din Azure AD-klient. |
 | 3389        | TCP      | CorpNetSaw                         | Any         | Allow  | Ja      | Hantering av din domän. |

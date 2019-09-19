@@ -1,26 +1,26 @@
 ---
-title: Felsöka oväntade omstarter av virtuella datorer med anslutna virtuella hårddiskar på virtuella Azure-datorer | Microsoft Docs
+title: Felsöka oväntade omstarter av virtuella datorer med anslutna virtuella hård diskar på virtuella Azure-datorer | Microsoft Docs
 description: Så här felsöker du oväntade omstarter av virtuella datorer.
-keywords: SSH anslutningen nekades, ssh fel, azure ssh, SSH-anslutningen misslyckades
+keywords: ssh-anslutningen nekades, SSH-fel, Azure SSH, SSH-anslutning misslyckades
 services: virtual-machines
 author: genlin
-manager: cshepard
+manager: dcscontentpm
 tags: top-support-issue,azure-service-management,azure-resource-manager
 ms.service: virtual-machines
 ms.topic: article
 ms.date: 11/01/2018
 ms.author: genli
-ms.openlocfilehash: 6273087e28be8b784168d5808918d04d0e4cf303
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: d3b54941d38424e71ac800d2e750ac9bbc96cde9
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60443729"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71086872"
 ---
-# <a name="troubleshoot-unexpected-reboots-of-vms-with-attached-vhds"></a>Felsöka oväntade omstarter av virtuella datorer med anslutna virtuella hårddiskar
+# <a name="troubleshoot-unexpected-reboots-of-vms-with-attached-vhds"></a>Felsöka oväntade omstarter av virtuella datorer med anslutna virtuella hård diskar
 
-Om Azure Virtual Machine (VM) har ett stort antal anslutna virtuella hårddiskar som är i samma lagringskonto, kan du överskrida skalbarhetsmål för en enskild storage-konto, vilket gör den virtuella datorn ska startas om oväntat. Kontrollera minutmått för storage-konto (**TotalRequests**/**TotalIngress**/**TotalEgress**) för toppar som överstiger den skalbarhetsmål för ett lagringskonto. Se [mätningar visar en ökning i PercentThrottlingError](../../storage/common/storage-monitoring-diagnosing-troubleshooting.md#metrics-show-an-increase-in-PercentThrottlingError) mer information om huruvida begränsning har inträffat i ditt storage-konto.
+Om en virtuell Azure-dator (VM) har ett stort antal anslutna virtuella hård diskar som finns i samma lagrings konto kan du överskrida skalbarhets målen för ett enskilt lagrings konto, vilket innebär att den virtuella datorn inte startar om. Kontrol lera minut måtten för lagrings kontot (**TotalRequests**/**Total ingress**/**TotalEgress**) för toppar som överskrider skalbarhets målen för ett lagrings konto. Se [måtten Visa en ökning i PercentThrottlingError](../../storage/common/storage-monitoring-diagnosing-troubleshooting.md#metrics-show-an-increase-in-PercentThrottlingError) för att få hjälp med att avgöra om begränsningen har inträffat på ditt lagrings konto.
 
-I allmänhet varje enskild indata eller utdata på en virtuell Hårddisk från en virtuell dator översätts till **hämta sidan** eller **placera sidan** åtgärder på den underliggande sidblob. Därför kan du använda den uppskattade IOPS för miljön för att justera hur många virtuella hårddiskar kan i ett enda lagringskonto baserat på vad som sker i ditt program. Microsoft rekommenderar att ha 40 eller färre diskar i ett enda lagringskonto. Se [skalbarhet för lagring av Azure- och prestandamål](../../storage/common/storage-scalability-targets.md) mer information om skalbarhetsmål för storage-konton, särskilt för totala antalet begäranden och den totala bandbredden för typ av storage-konto du använder.
+I allmänhet översätts varje enskild indata-eller utdata-åtgärd på en virtuell hård disk från en virtuell dator för att **Hämta sid** -eller **placerings** åtgärder på den underliggande sid-blobben. Därför kan du använda den uppskattade IOPS för din miljö för att justera hur många virtuella hård diskar du kan ha i ett enda lagrings konto baserat på programmets specifika beteende. Microsoft rekommenderar att du har 40 eller färre diskar i ett enda lagrings konto. Se [Azure Storage skalbarhets-och prestanda mål](../../storage/common/storage-scalability-targets.md) för information om skalbarhets mål för lagrings konton, särskilt den totala begär ande frekvensen och den totala bandbredden för den typ av lagrings konto som du använder.
 
-Om du överstiger det för skalbarhetsmål för ditt lagringskonto, placera de virtuella hårddiskarna i flera lagringskonton för att minska aktiviteten i varje enskilt konto.
+Om du överskrider skalbarhets målen för ditt lagrings konto ska du placera dina virtuella hård diskar i flera lagrings konton för att minska aktiviteten i varje enskilt konto.

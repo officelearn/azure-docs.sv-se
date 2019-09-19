@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 08/30/2019
 ms.author: surmb
-ms.openlocfilehash: ce1d0542530c4f190ace52d45e2369d6ecc18772
-ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
+ms.openlocfilehash: 1fd4e9156e29133b1db4fe9ab9a0825eb1aa3b55
+ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70384091"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71097583"
 ---
 <a name="troubleshoot-backend-health-issues-in-application-gateway"></a>Felsök problem med Server delens hälsa i Application Gateway
 ==================================================
@@ -81,10 +81,10 @@ När du ser backend-serverns status som ohälsosam för alla servrar i en backen
 Det meddelande som visas i kolumnen information på fliken Server dels hälsa ger mer detaljerade insikter om problemet och utifrån dem kan vi börja felsöka problemet.
 
 > [!NOTE]
-> Standard avsöknings förfrågan skickas i formatet <protocol>://127.0.0.1:<port> <http://127.0.0.1/> /, till exempel för en http-avsökning på port 80 och endast ett svar på HTTP-statuskod 200-399 som ett felfritt svar. Protokollet och mål porten ärvs från HTTP-inställningar. Om du vill Application Gateway avsöka på ett annat protokoll, värdnamn eller sökväg och acceptera en annan status kod som felfri, konfigurerar du en anpassad avsökning och kopplar den till HTTP-inställningarna.
+> Standard avsöknings förfrågan skickas i formatet \<protokoll\>://127.0.0.1:\<port\>/, till exempel <http://127.0.0.1/> för en http-avsökning på port 80 och endast ett svar på HTTP-statuskod 200-399 som felfritt svar. Protokollet och mål porten ärvs från HTTP-inställningar. Om du vill Application Gateway avsöka på ett annat protokoll, värdnamn eller sökväg och acceptera en annan status kod som felfri, konfigurerar du en anpassad avsökning och kopplar den till HTTP-inställningarna.
 
-### <a name="error-messages"></a>Felmeddelanden
-
+<a name="error-messages"></a>Felmeddelanden
+------------------------
 #### <a name="backend-server-timeout"></a>Timeout för backend-server
 
 **Meddelande** Tiden det tar för Server delen att svara på Application\'Gateway s hälso avsökning är över tröskelvärdet för avsöknings inställningen.

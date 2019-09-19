@@ -16,12 +16,12 @@ ms.date: 05/23/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e491815f25f3744d839efc09ce34793d80d9943a
-ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
+ms.openlocfilehash: ce66c0239eee3f31695a942a586766694525fbad
+ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70983557"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71097599"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: Versionshistorik
 Gruppen Azure Active Directory (Azure AD) uppdaterar regelbundet Azure AD Connect med nya funktioner. Alla tillägg gäller inte för alla mål grupper.
@@ -44,6 +44,9 @@ Medan vi går igenom den här processen visas versions numret för versionen med
 Det är inte alla versioner av Azure AD Connect som görs tillgängliga för automatisk uppgradering. Versions statusen anger om en version görs tillgänglig för automatisk uppgradering eller endast för hämtning. Om automatisk uppgradering har Aktiver ATS på Azure AD Connect-servern, uppgraderas servern automatiskt till den senaste versionen av Azure AD Connect som släpps för automatisk uppgradering. Observera att inte alla Azure AD Connect konfigurationer är berättigade till automatisk uppgradering. Använd den här länken för att läsa mer om [automatisk uppgradering](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-install-automatic-upgrade)
 
 ## <a name="14x0"></a>1.4. X. 0
+
+>[!IMPORTANT]
+>Tidigare var Windows äldre Windows-baserade datorer anslutna till lokal AD felaktigt synkroniserade med molnet under vissa omständigheter. Som exempel fylls attributvärdet userCertificate för Windows-enheter på den äldre nivån i AD. Men sådana enheter i Azure AD är alltid i vänte läge eftersom dessa operativ system versioner inte har utformats för att registreras med Azure AD via AAD Sync. I den här versionen av Azure AD Connect slutar AAD Sync synkronisera Windows-datorer med äldre versioner till Azure AD och tar också bort de felaktigt synkroniserade Windows-enheter på äldre nivå från Azure AD. Observera att den här ändringen inte tar bort några Windows-enheter på låg nivå som har registrerats korrekt med Azure AD med hjälp av MSI-paketet. Dessa enheter fortsätter att fungera som förväntat för användning av enhets villkorliga åtkomst. Vissa kunder kan se vissa eller alla sina Windows-enheter på äldre nivå försvinner från Azure AD. Detta är inte en anledning till problem eftersom dessa enhets identiteter aldrig faktiskt användes av Azure AD under auktoriseringen för villkorlig åtkomst. Sådana kunder kan behöva https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-plan gå tillbaka och få sina Windows-enheter på hög nivå registrerade på rätt sätt för att säkerställa att sådana enheter helt kan delta i enhets-baserad villkorlig åtkomst. Observera att om du ser de här borttagningarna av dator-/enhets objekt på äldre nivå i Azure AD som överskrider tröskelvärdet för borttagning av export, rekommenderar vi att kunden tillåter dessa borttagningar att gå igenom.
 
 ### <a name="release-status"></a>Versions status
 9/10/2019: Endast publicerat för automatisk uppgradering

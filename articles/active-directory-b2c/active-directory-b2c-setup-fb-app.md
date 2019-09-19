@@ -10,18 +10,18 @@ ms.topic: conceptual
 ms.date: 08/08/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 524e1e5f877fcb03d4252d79635ef855b9811f09
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.openlocfilehash: c13f3166c50d9afc03125d66155ce654c84e5e0a
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69622084"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71065238"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-facebook-account-using-azure-active-directory-b2c"></a>Konfigurera registrering och inloggning med ett Facebook-konto med hjälp av Azure Active Directory B2C
 
 ## <a name="create-a-facebook-application"></a>Skapa ett Facebook-program
 
-Om du vill använda ett Facebook-konto som [identitets leverantör](active-directory-b2c-reference-oauth-code.md) i Azure Active Directory (Azure AD) B2C måste du skapa ett program i din klient organisation som representerar det. Om du inte redan har ett Facebook-konto kan du registrera dig på [https://www.facebook.com/](https://www.facebook.com/).
+Om du vill använda ett Facebook-konto som [identitets leverantör](active-directory-b2c-reference-oauth-code.md) i Azure Active Directory B2C (Azure AD B2C) måste du skapa ett program i din klient som representerar det. Om du inte redan har ett Facebook-konto kan du registrera dig på [https://www.facebook.com/](https://www.facebook.com/).
 
 1. Logga in på [Facebook för utvecklare](https://developers.facebook.com/) med dina Facebook-kontoautentiseringsuppgifter.
 1. Om du inte redan har gjort det måste du registrera dig som en Facebook-utvecklare. Om du vill göra det väljer du **Kom igång** i det övre högra hörnet på sidan, accepterar Facebook-principer och slutför registrerings stegen.
@@ -37,8 +37,8 @@ Om du vill använda ett Facebook-konto som [identitets leverantör](active-direc
 1. Klicka på **Visa** och kopiera värdet för **appens hemlighet**. Du använder båda alternativen för att konfigurera Facebook som en identitets leverantör i din klient organisation. **App Secret** är en viktig säkerhets autentiseringsuppgift.
 1. Välj plus tecknet bredvid **produkter**och välj sedan **Konfigurera** under **Facebook-inloggning**.
 1. Under **Facebook-inloggning**väljer du **Inställningar**.
-1. I **giltiga OAuth**-omdirigerings `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp`-URI: er anger du. Ersätt `your-tenant-name` med namnet på din klient. Klicka på **Spara ändringar** längst ned på sidan.
-1. Om du vill göra ditt Facebook-program tillgängligt för Azure AD B2C klickar du på status väljaren längst upp till höger på sidan och aktiverar det för att göra programmet offentligt, och klickar sedan på **Bekräfta**.  I det här läget bör statusen ändras från **utveckling** till **Live**.
+1. I **giltiga OAuth-omdirigerings-URI: er**anger `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp`du. Ersätt `your-tenant-name` med namnet på din klient. Klicka på **Spara ändringar** längst ned på sidan.
+1. Om du vill göra ditt Facebook-program tillgängligt för Azure AD B2C klickar du på status väljaren längst upp till höger på sidan och **aktiverar det för att göra** programmet offentligt, och klickar sedan på **Bekräfta**.  I det här läget bör statusen ändras från **utveckling** till **Live**.
 
 ## <a name="configure-a-facebook-account-as-an-identity-provider"></a>Konfigurera ett Facebook-konto som en identitets leverantör
 

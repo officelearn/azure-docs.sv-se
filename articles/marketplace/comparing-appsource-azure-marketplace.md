@@ -1,6 +1,6 @@
 ---
 title: Jämföra AppSource och Azure Marketplace | Azure
-description: Den här artikeln beskriver butiker i Microsoft AppSource och Azure Marketplace.
+description: I den här artikeln beskrivs butiker i Microsoft AppSource och Azure Marketplace.
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 author: jm-aditi-ms
 manager: pabutler
@@ -8,33 +8,33 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: 0de536f687272283b816e6724e41eb61e3a22cd0
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: b44d3b7a50de04900d47708ca76ca36092b5ad2e
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67442338"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71066793"
 ---
 # <a name="comparing-appsource-and-the-azure-marketplace"></a>Jämföra AppSource och Azure Marketplace
-Butiker i den [Azure Marketplace](https://azuremarketplace.microsoft.com) och [Microsoft AppSource](https://appsource.microsoft.com) fungerar unika kundbehov. Använd butiker till målkunder efter roll. Du kan erbjuda rätt lösning eller tjänst beroende på kunden.
+Butiker på [Azure Marketplace](https://azuremarketplace.microsoft.com) och [Microsoft AppSource](https://appsource.microsoft.com) betjäna unika kund krav. Använd butiker för att rikta in kunder efter roll. Du kan erbjuda rätt lösning eller tjänst baserat på din kund.
 
 ## <a name="understanding-the-differences-between-storefronts"></a>Förstå skillnaderna mellan butiker
-Om du vill välja en butik, börja med att identifiera vilken målgrupp för ditt erbjudande. Om målgruppen för flera butiker, kan du publicera en gång om du vill sälja i flera butiker.
+Om du vill välja en butik börjar du med att identifiera mål gruppen för ditt erbjudande. Om du riktar in mål grupper i flera butiker kan du publicera en gång för att sälja i flera butiker.
 
 | Azure Marketplace | AppSource |
 |:--- |:--- |
-| IT-proffs och utvecklare | Företagsanvändare och beslutsfattare |
+| IT-proffs och utvecklare | Företags användare och affärs besluts fattare |
  
 I följande tabell beskrivs fördelarna med att använda en butik:
 
-| Fördelar | AppSource | Azure Marketplace |
+| Fördelar | Azure Marketplace | AppSource | 
 |:--- |:--- | :--- |
-| **Faktureringsflexibilitet** | AppSource stöder kostnadsfria, utvärdering, BYOL och transactable erbjudandetyper. Transactable erbjudanden är prenumerationsbaserade SaaS-produkter som kan fakturering eller månadsvis på en per plats eller fasta.| Azure Marketplace-stöder kostnadsfria, utvärdering, BYOL och transactable erbjudandetyper. Transactable erbjudanden är antingen förbrukningsbaserad eller prenumerationsbaserade. Förbrukningsbaserad erbjudanden debiteras per användning per timme och kan tillhandahålla en inledande gratisperioden. Prenumerationen-baserade tjänster faktureras eller månadsvis på en per klient eller en fast avgift.|
-|**Anslutningar med andra partner** | Länkar oberoende programvaruleverantörer, systemintegrerare och leverantörer av hanterade tjänster till särskilda implementeringslösningar scenarier. Du kan samarbeta sälj till nya kunder. | Du kan inte för närvarande kan länka en tjänstepartner för provider eller leverans till ditt erbjudande. | 
-| **Automation** | Länkar oberoende programvaruleverantörer, systemintegrerare och leverantörer av hanterade tjänster till särskilda implementeringslösningar scenarier. Du kan samarbeta sälj till nya kunder. | Du kan inte för närvarande kan länka en tjänstepartner för provider eller leverans till ditt erbjudande. Dra nytta av automatiserade programvara som en tjänst (SaaS) med tillägget etablering. Använd Azure-appar: Lösningsmallen publicera alternativet för att automatisera scenarier för insamling och distribution av SaaS-baserade data. |
-| **Flera molntyper** | För närvarande stöd inte för Azure Stack, Azure Government eller nationella moln. | Publicera lösningar för både det offentliga molnet och lokalt med hjälp av följande typer:<ul> <li>Azure Stack</li> <li>Azure Government</li> <li>Nationella moln, inklusive Kina och Tyskland</li></ul> |
-| **Kontextbaserad presentation för kunder** | Nå fler kunder genom appupplevelsen för Microsoft-produkter, till exempel Dynamics 365, Power BI och Office 365. | Tillgängliggöra din lösning i Azure-portal-upplevelsen för sammanhangsbaserad sökning. Använd de virtuella datorn och Azure-apparna: Lösningen publiceringsalternativ för mallen. |
+| **Fakturerings flexibilitet** | Azure Marketplace har stöd för kostnads fria, utvärderings versioner, BYOL och typer av transactable-erbjudanden. Transactable-erbjudanden är antingen konsumtions-eller prenumerations-baserade. Förbruknings erbjudanden faktureras per användning per timme och kan tillhandahålla en inledande fri period. Prenumerations tjänster faktureras varje månad eller per år per klient eller fast pris.| AppSource stöder typer av kostnads fria, utvärderings-, BYOL-och Transact-erbjudanden. Transactable-erbjudanden är SaaS produkter som kan faktureras varje månad eller per år per plats eller fast pris. |
+|**Anslutningar till andra partner**  | För närvarande kan du inte länka en tjänst leverantör eller leverans partner till ditt erbjudande. | Länkar oberoende program varu leverantörer, system integrerare och hanterade tjänst leverantörer till vissa implementerings scenarier. Du kan samar beta med att sälja till nya kunder. |
+| **Automation** | För närvarande kan du inte länka en tjänst leverantör eller leverans partner till ditt erbjudande. Dra nytta av automatiserad program vara som en tjänst (SaaS) med etablering av tillägg. Använd Azure-apparna: Publicerings alternativ för lösnings mal len för att automatisera SaaS-baserade data insamling och distributions scenarier. | Länkar oberoende program varu leverantörer, system integrerare och hanterade tjänst leverantörer till vissa implementerings scenarier. Du kan samar beta med att sälja till nya kunder. |
+| **Flera moln typer** | Publicera lösningar för både det offentliga molnet och lokalt genom att använda följande typer:<ul> <li>Azure Stack</li> <li>Azure Government</li> <li>Regionala moln, inklusive Kina och Tyskland</li></ul> | För närvarande stöder inte Azure Stack, Azure Government eller regionala moln. |
+| **Sammanhangs beroende presentation till kunder** | Gör din lösning tillgänglig i Azure i Portal-upplevelse för sammanhangsbaserad sökning. Använd den virtuella datorn och Azure Apps: Publicerings alternativ för lösnings mal len. | Få fler kunder via appen i appen för Microsoft-produkter, till exempel Dynamics 365, Power BI och Office 365. |
 
 ## <a name="next-steps"></a>Nästa steg
-*   Granska den [publiceringsguide för Azure Marketplace och AppSource](./marketplace-publishers-guide.md).
+*   Läs igenom [publicerings guiden för Azure Marketplace och AppSource](./marketplace-publishers-guide.md).
 

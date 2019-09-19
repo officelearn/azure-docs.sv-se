@@ -1,7 +1,7 @@
 ---
 title: Distribuera modeller till Azure Container Instances
-titleSuffix: Azure Machine Learning service
-description: Lär dig hur du distribuerar dina Azure Machine Learning-tjänst modeller som en webb tjänst med hjälp av Azure Container Instances.
+titleSuffix: Azure Machine Learning
+description: Lär dig hur du distribuerar dina Azure Machine Learning modeller som en webb tjänst med hjälp av Azure Container Instances.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,16 +10,16 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 07/08/2019
-ms.openlocfilehash: cb80cb92ef93132aae3c57e74c108293da3a7834
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: 27988edaf9d6fe70288352b0ba45945e32976d4d
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70279145"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71034638"
 ---
 # <a name="deploy-a-model-to-azure-container-instances"></a>Distribuera en modell till Azure Container Instances
 
-Lär dig hur du använder tjänsten Azure Machine Learning för att distribuera en modell som en webb tjänst på Azure Container Instances (ACI). Använd Azure Container Instances om något av följande villkor är uppfyllt:
+Lär dig hur du använder Azure Machine Learning för att distribuera en modell som en webb tjänst på Azure Container Instances (ACI). Använd Azure Container Instances om något av följande villkor är uppfyllt:
 
 - Du behöver att snabbt distribuera och verifiera din modell. Du behöver inte skapa ACI-behållare i förväg. De skapas som en del av distributions processen.
 - Du testar en modell som är under utveckling. 
@@ -28,7 +28,7 @@ Information om kvot-och regions tillgänglighet för ACI finns i [kvoter och reg
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-- En arbetsyta för Azure Machine Learning-tjänsten. Mer information finns i [skapa en Azure Machine Learning service-arbetsyta](how-to-manage-workspace.md).
+- En Azure Machine Learning-arbetsyta. Mer information finns i [skapa en Azure Machine Learning-arbetsyta](how-to-manage-workspace.md).
 
 - En Machine Learning-modell som registrerats i din arbets yta. Om du inte har en registrerad modell, se [hur och var modeller ska distribueras](how-to-deploy-and-where.md).
 

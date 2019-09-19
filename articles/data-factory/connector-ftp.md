@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: jingwang
-ms.openlocfilehash: 46bff2babb5c0b3156d064a4b88370494c05de7d
-ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
+ms.openlocfilehash: 4909ba1b66e89808533af1db9e048bd6a07147f0
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71009302"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71090370"
 ---
 # <a name="copy-data-from-ftp-server-by-using-azure-data-factory"></a>Kopiera data från FTP-servern med hjälp av Azure Data Factory
 > [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
@@ -31,7 +31,7 @@ Den här artikeln beskriver hur du kopierar data från FTP-servern. Läs om Azur
 
 Denna FTP-anslutning stöds för följande aktiviteter:
 
-- [Kopierings aktivitet](copy-activity-overview.md) med [käll mat ris som stöds](copy-activity-overview.md)
+- [Kopierings aktivitet](copy-activity-overview.md) med [matrisen source/Sink som stöds](copy-activity-overview.md)
 - [Sökningsaktivitet](control-flow-lookup-activity.md)
 - [GetMetadata-aktivitet](control-flow-get-metadata-activity.md)
 - [Ta bort aktivitet](delete-activity.md)

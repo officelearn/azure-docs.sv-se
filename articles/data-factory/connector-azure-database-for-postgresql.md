@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/16/2019
 ms.author: jingwang
-ms.openlocfilehash: d6b860f43abae2283b4889bff0913bac25c821f5
-ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
+ms.openlocfilehash: 4cb6f420b6d084539dc98a09632d0760a1344012
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71017784"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71092178"
 ---
 # <a name="copy-data-to-and-from-azure-database-for-postgresql-using-azure-data-factory"></a>Kopiera data till och från Azure Database for PostgreSQL med Azure Data Factory
 
@@ -29,7 +29,7 @@ Den här anslutningen är specialiserad för [Azure Database for PostgreSQL-tjä
 
 Den här Azure Database for PostgreSQL anslutningen stöds för följande aktiviteter:
 
-- [Kopierings aktivitet](copy-activity-overview.md) med [käll mat ris som stöds](copy-activity-overview.md)
+- [Kopierings aktivitet](copy-activity-overview.md) med [matrisen source/Sink som stöds](copy-activity-overview.md)
 - [Sökningsaktivitet](control-flow-lookup-activity.md)
 
 Du kan kopiera data från Azure Database för PostgreSQL till alla datalager för mottagare som stöds. Du kan också kopiera data från alla käll data lager som stöds till Azure Database for PostgreSQL. En lista över datalager som stöds som källor/mottagare av Kopieringsaktivitet finns i den [datalager som stöds](copy-activity-overview.md#supported-data-stores-and-formats) tabell.

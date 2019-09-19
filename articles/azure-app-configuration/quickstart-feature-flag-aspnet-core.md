@@ -14,12 +14,12 @@ ms.tgt_pltfrm: ASP.NET Core
 ms.workload: tbd
 ms.date: 04/19/2019
 ms.author: yegu
-ms.openlocfilehash: 41947de18ae27b41d046fd4358f0039a1b56374d
-ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
+ms.openlocfilehash: 6f9094a52ff3558fa8d1f2fee1d80ed8eb09a416
+ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68347924"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71076329"
 ---
 # <a name="quickstart-add-feature-flags-to-an-aspnet-core-app"></a>Snabbstart: Lägga till funktions flaggor i en ASP.NET Core app
 
@@ -36,9 +36,9 @@ Biblioteken för .NET Core Feature Management utökar ramverket med omfattande s
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
-6. Välj **funktions hanteraren** >  **+ skapa** för att lägga till följande funktions flaggor:
+6. Välj **funktions hanteraren** >  **+ Lägg** till för att lägga till följande funktions flaggor:
 
-    | Nyckel | Tillstånd |
+    | Nyckel | State |
     |---|---|
     | Beta | Av |
 
@@ -81,10 +81,11 @@ Lägg till [verktyget Secret Manager](https://docs.microsoft.com/aspnet/core/sec
 
 ## <a name="connect-to-an-app-configuration-store"></a>Anslut till ett konfigurations Arkiv för appen
 
-1. Lägg till en `Microsoft.Azure.AppConfiguration.AspNetCore` referens till NuGet-paketet genom att köra följande kommando:
+1. Lägg till referens till `Microsoft.Azure.AppConfiguration.AspNetCore` `Microsoft.FeatureManagement.AspNetCore` NuGet-paketen genom att köra följande kommandon:
 
     ```
-    dotnet add package Microsoft.Azure.AppConfiguration.AspNetCore --version 2.0.0-preview-009200001-7
+    dotnet add package Microsoft.Azure.AppConfiguration.AspNetCore --version 2.0.0-preview-009470001-12
+    dotnet add package Microsoft.FeatureManagement.AspNetCore --version 1.0.0-preview-009000001-1251
     ```
 
 1. Kör följande kommando för att återställa paket för ditt projekt:
@@ -262,9 +263,11 @@ Lägg till [verktyget Secret Manager](https://docs.microsoft.com/aspnet/core/sec
 
 1. Välj **funktions hanteraren**och ändra status för **beta** nyckeln till **på**:
 
-    | Nyckel | Tillstånd |
+    | Nyckel | State |
     |---|---|
     | Beta | På |
+
+1. Starta om programmet genom att växla tillbaka till kommando tolken och `Ctrl-C` fortsätta att köra `dotnet` processen genom att klicka på kör `dotnet run`igen.
 
 1. Uppdatera webbläsarsidan för att visa de nya konfigurationsinställningarna.
 
@@ -281,3 +284,4 @@ I den här snabb starten har du skapat ett nytt konfigurations Arkiv för appar 
 - Läs mer om [funktions hantering](./concept-feature-management.md).
 - [Hantera funktions flaggor](./manage-feature-flags.md).
 - [Använd funktions flaggor i en ASP.net Core app](./use-feature-flags-dotnet-core.md).
+- [Använd dynamisk konfiguration i en ASP.NET Core app](./enable-dynamic-configuration-aspnet-core.md)

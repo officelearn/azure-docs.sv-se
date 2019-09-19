@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/27/2019
-ms.openlocfilehash: 66e0654162d3d0ac68d8fc1622358b36268569cf
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: 3767ea10d777a0ea7ad88a2ffa4793e866ffbe6c
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70916504"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71091472"
 ---
 # <a name="apache-hadoop-architecture-in-hdinsight"></a>Apache Hadoop-arkitektur i HDInsight
 
@@ -45,7 +45,7 @@ När en användare skickar ett MapReduce-program för att köras i klustret skic
 
 Alla typer av HDInsight-kluster distribuerar garn. ResourceManager distribueras för hög tillgänglighet med en primär och sekundär instans, som körs på de första och andra Head-noderna i klustret. Endast den enda instansen av ResourceManager är aktiv i taget. NodeManager-instanserna körs över tillgängliga arbetsnoder i klustret.
 
-![GARN på HDInsight](./media/hdinsight-hadoop-architecture/apache-yarn-on-hdinsight.png)
+![Apache-garn på Azure HDInsight](./media/hdinsight-hadoop-architecture/apache-yarn-on-hdinsight.png)
 
 ## <a name="next-steps"></a>Nästa steg
 

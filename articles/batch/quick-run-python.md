@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.date: 11/27/2018
 ms.author: lahugh
 ms.custom: mvc
-ms.openlocfilehash: 8b35d2441db654278f9d66f3cbb4e7a79d70e835
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 77ccfc1a67fabca7fde47edac9094c6a68191f0f
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70128036"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71090771"
 ---
 # <a name="quickstart-run-your-first-batch-job-with-the-python-api"></a>Snabbstart: Kör ditt första Batch-jobb med Python-API
 
@@ -116,7 +116,7 @@ Se filen `python_quickstart_client.py` och information i följande avsnitt.
 
 ### <a name="preliminaries"></a>Förberedelser
 
-För att interagera med ett lagringskonto använder appen paketet [azure-storage-blob](https://pypi.python.org/pypi/azure-storage-blob) för att skapa ett [BlockBlobService](/python/api/azure.storage.blob.blockblobservice.blockblobservice)-objekt.
+För att interagera med ett lagringskonto använder appen paketet [azure-storage-blob](https://pypi.python.org/pypi/azure-storage-blob) för att skapa ett [BlockBlobService](/python/api/azure-storage-blob/azure.storage.blob.blockblobservice.blockblobservice)-objekt.
 
 ```python
 blob_client = azureblob.BlockBlobService(
@@ -124,7 +124,7 @@ blob_client = azureblob.BlockBlobService(
     account_key=config._STORAGE_ACCOUNT_KEY)
 ```
 
-Appen använder referensen `blob_client` för att skapa en container i lagringskontot och för att överföra filer till containern. De lagrade filerna har definierats som Batch [ResourceFile](/python/api/azure.batch.models.resourcefile)-objekt som Batch senare kan hämta till beräkningsnoder.
+Appen använder referensen `blob_client` för att skapa en container i lagringskontot och för att överföra filer till containern. De lagrade filerna har definierats som Batch [ResourceFile](/python/api/azure-batch/azure.batch.models.resourcefile)-objekt som Batch senare kan hämta till beräkningsnoder.
 
 ```python
 input_file_paths = [os.path.join(sys.path[0], 'taskdata0.txt'),
@@ -149,11 +149,11 @@ batch_client = batch.BatchServiceClient(
 
 ### <a name="create-a-pool-of-compute-nodes"></a>Skapa en pool med beräkningsnoder
 
-För att skapa en Batch-pool använder appen klassen [PoolAddParameter](/python/api/azure.batch.models.pooladdparameter) för att ange antalet noder, VM-storlek och en poolkonfiguration. Här anger ett [VirtualMachineConfiguration](/python/api/azure.batch.models.virtualmachineconfiguration)-objekt en [ImageReference](/python/api/azure.batch.models.imagereference) till en Ubuntu Server 18.04 LTS-avbildning som har publicerats på Azure Marketplace. Batch stöder ett brett utbud av Linux- och Windows Server-avbildningar på Azure Marketplace samt anpassade VM-avbildningar.
+För att skapa en Batch-pool använder appen klassen [PoolAddParameter](/python/api/azure-batch/azure.batch.models.pooladdparameter) för att ange antalet noder, VM-storlek och en poolkonfiguration. Här anger ett [VirtualMachineConfiguration](/python/api/azure-batch/azure.batch.models.virtualmachineconfiguration)-objekt en [ImageReference](/python/api/azure-batch/azure.batch.models.imagereference) till en Ubuntu Server 18.04 LTS-avbildning som har publicerats på Azure Marketplace. Batch stöder ett brett utbud av Linux- och Windows Server-avbildningar på Azure Marketplace samt anpassade VM-avbildningar.
 
 Antalet noder (`_POOL_NODE_COUNT`) och VM-storlek (`_POOL_VM_SIZE`) är definierade konstanter. Exemplet skapar som standard en pool med 2 noder i storleken *Standard_A1_v2*. Storleken som föreslås erbjuder en bra balans mellan prestanda och kostnad för det här snabba exemplet.
 
-Metoden [pool.add](/python/api/azure.batch.operations.pooloperations) skickar poolen till Batch-tjänsten.
+Metoden [pool.add](/python/api/azure-batch/azure.batch.operations.pooloperations) skickar poolen till Batch-tjänsten.
 
 ```python
 new_pool = batch.models.PoolAddParameter(
@@ -174,7 +174,7 @@ batch_service_client.pool.add(new_pool)
 
 ### <a name="create-a-batch-job"></a>Skapa ett Batch-jobb
 
-Ett Batch-jobb är en logisk gruppering av en eller flera aktiviteter. Ett jobb omfattar inställningar som är gemensamma för aktiviteter, till exempel prioritet och vilken pool som aktiviteterna ska köras på. Appen använder klassen [JobAddParameter](/python/api/azure.batch.models.jobaddparameter) för att skapa ett jobb på din pool. Metoden [Job. Add](/python/api/azure.batch.operations.joboperations) lägger till ett jobb till det angivna batch-kontot. Från början har jobbet inga aktiviteter.
+Ett Batch-jobb är en logisk gruppering av en eller flera aktiviteter. Ett jobb omfattar inställningar som är gemensamma för aktiviteter, till exempel prioritet och vilken pool som aktiviteterna ska köras på. Appen använder klassen [JobAddParameter](/python/api/azure-batch/azure.batch.models.jobaddparameter) för att skapa ett jobb på din pool. Metoden [Job. Add](/python/api/azure-batch/azure.batch.operations.joboperations) lägger till ett jobb till det angivna batch-kontot. Från början har jobbet inga aktiviteter.
 
 ```python
 job = batch.models.JobAddParameter(
@@ -185,9 +185,9 @@ batch_service_client.job.add(job)
 
 ### <a name="create-tasks"></a>Skapa aktiviteter
 
-Appen skapar en lista med aktivitetsobjekt med hjälp av klassen [TaskAddParameter](/python/api/azure.batch.models.taskaddparameter). Varje aktivitet bearbetar ett indata `resource_files`-objekt med en `command_line`-parameter. I det här exemplet kör kommandoraden Bash-gränssnittskommandot `cat` för att visa textfilen. Detta kommando är ett enkelt exempel i demonstrationssyfte. När du använder Batch är det på kommandoraden som du anger din app eller ditt skript. Batch tillhandahåller ett antal sätt att distribuera appar och skript till beräkningsnoder.
+Appen skapar en lista med aktivitetsobjekt med hjälp av klassen [TaskAddParameter](/python/api/azure-batch/azure.batch.models.taskaddparameter). Varje aktivitet bearbetar ett indata `resource_files`-objekt med en `command_line`-parameter. I det här exemplet kör kommandoraden Bash-gränssnittskommandot `cat` för att visa textfilen. Detta kommando är ett enkelt exempel i demonstrationssyfte. När du använder Batch är det på kommandoraden som du anger din app eller ditt skript. Batch tillhandahåller ett antal sätt att distribuera appar och skript till beräkningsnoder.
 
-Sedan lägger appen till aktiviteter i jobbet med metoden [task.add_collection](/python/api/azure.batch.operations.taskoperations) som köar dem för att köras på beräkningsnoderna. 
+Sedan lägger appen till aktiviteter i jobbet med metoden [task.add_collection](/python/api/azure-batch/azure.batch.operations.taskoperations) som köar dem för att köras på beräkningsnoderna. 
 
 ```python
 tasks = list()

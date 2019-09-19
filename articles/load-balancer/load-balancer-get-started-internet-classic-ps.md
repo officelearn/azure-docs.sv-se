@@ -5,7 +5,7 @@ description: Lär dig hur du skapar en Internetuppkopplad lastbalanserare i klas
 services: load-balancer
 documentationcenter: na
 author: genlin
-manager: cshepard
+manager: dcscontentpm
 tags: azure-service-management
 ms.service: load-balancer
 ms.devlang: na
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: genli
-ms.openlocfilehash: 54ef8782620a387d60454023d0e446279e467a99
-ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
+ms.openlocfilehash: 7bfe5a78f9725205db52fe6790d8a261752cfc4b
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "64730325"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71090877"
 ---
 # <a name="get-started-creating-an-internet-facing-load-balancer-classic-in-powershell"></a>Komma igång med att skapa en Internetuppkopplad lastbalanserare (klassisk) i PowerShell
 
@@ -31,7 +31,7 @@ ms.locfileid: "64730325"
 [!INCLUDE [load-balancer-get-started-internet-intro-include.md](../../includes/load-balancer-get-started-internet-intro-include.md)]
 
 > [!IMPORTANT]
-> Innan du börjar arbeta med Azure-resurser, är det viktigt att förstå att Azure för närvarande har två distributionsmodeller: Azure Resource Manager och klassisk. Se till att du förstår [distributionsmodeller och verktyg](../azure-classic-rm.md) innan du börjar arbeta med Azure-resurser. Du kan granska dokumentationen för olika verktyg genom att klicka på flikarna överst i den här artikeln. Den här artikeln beskriver hur du gör om du använder den klassiska distributionsmodellen. Du kan också läsa artikeln om [hur du skapar en Internetuppkopplad lastbalanserare med hjälp av Azure Resource Manager](load-balancer-get-started-internet-arm-ps.md).
+> Innan du arbetar med Azure-resurser är det viktigt att du förstår att Azure för närvarande har två distributions modeller: Azure Resource Manager och klassisk. Se till att du förstår [distributionsmodeller och verktyg](../azure-classic-rm.md) innan du börjar arbeta med Azure-resurser. Du kan granska dokumentationen för olika verktyg genom att klicka på flikarna överst i den här artikeln. Den här artikeln beskriver hur du gör om du använder den klassiska distributionsmodellen. Du kan också läsa artikeln om [hur du skapar en Internetuppkopplad lastbalanserare med hjälp av Azure Resource Manager](load-balancer-get-started-internet-arm-ps.md).
 
 [!INCLUDE [load-balancer-get-started-internet-scenario-include.md](../../includes/load-balancer-get-started-internet-scenario-include.md)]
 

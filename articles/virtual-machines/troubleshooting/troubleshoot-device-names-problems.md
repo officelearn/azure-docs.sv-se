@@ -1,10 +1,10 @@
 ---
-title: Felsöka ändringar av Linux VM enhetsnamn i Azure | Microsoft Docs
-description: Förklarar varför ändra namn i Linux VM-enhet och hur du löser problemet.
+title: Felsöka virtuella Linux-enheters enhets namns ändringar i Azure | Microsoft Docs
+description: Förklarar varför virtuella Linux-enheters enhets namn ändras och hur du löser problemet.
 services: virtual-machines-linux
 documentationcenter: ''
 author: genlin
-manager: gwallace
+manager: dcscontentpm
 editor: ''
 tags: ''
 ms.service: virtual-machines-linux
@@ -14,43 +14,43 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.date: 11/01/2018
 ms.author: genli
-ms.openlocfilehash: 0350b6bdc990ed6c2de60e3e98c3768b18d0d636
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 7d8a7e7e88837214042fb8f1c109c0b93bfe771b
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67710423"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71058208"
 ---
-# <a name="troubleshoot-linux-vm-device-name-changes"></a>Felsöka ändringar av enhetsnamn Linux VM
+# <a name="troubleshoot-linux-vm-device-name-changes"></a>Felsöka ändringar av enhets namn för virtuella Linux-datorer
 
-Den här artikeln förklarar varför enhetsnamn ändras när du startar om en Linux-VM eller ansluta datadiskar. Artikeln innehåller också lösningar för det här problemet.
+I den här artikeln förklaras varför enhets namn ändras när du startar om en virtuell Linux-dator eller återansluter data diskarna. Artikeln innehåller också lösningar på det här problemet.
 
 ## <a name="symptoms"></a>Symtom
 Följande problem kan uppstå när du kör virtuella Linux-datorer i Microsoft Azure:
 
-- Den virtuella datorn inte kan startas efter en omstart.
-- När datadiskar är oberoende och återansluta, har disk-enhetsnamnen ändrats.
-- Ett program eller skript som refererar till en disk med hjälp av namnet på enheten misslyckas eftersom namnet på enheten har ändrats.
+- Den virtuella datorn kan inte starta efter en omstart.
+- När data diskar kopplas från och återkopplas, ändras disk enhets namnen.
+- Ett program eller skript som refererar till en disk med hjälp av enhets namnet Miss lyckas eftersom enhets namnet har ändrats.
 
 ## <a name="cause"></a>Orsak
 
-Enhetssökvägarna i Linux är inte garanterat enhetlig mellan omstarter. Enhetsnamn består av större tal (versaler) och lägre tal. När Linux storage drivrutinen upptäcker en ny enhet, tilldelar drivrutinen högre och den lägre tal från det tillgängliga intervallet till enheten. När en enhet tas bort, frigörs enheten siffror för återanvändning.
+Enhets Sök vägar i Linux garanterar inte att de är konsekventa i omstarter. Enhets namn består av huvud siffror (bokstäver) och mindre siffror. När driv rutinen för Linux-lagringsenheten identifierar en ny enhet tilldelar driv rutinen huvud-och del nummer från det tillgängliga intervallet till enheten. När en enhet tas bort frigörs enhets numren för åter användning.
 
-Problemet uppstår eftersom enheten i Linux schemaläggs av SCSI-undersystem ske asynkront. Ett enhetsnamn för sökvägen kan därför kan variera mellan olika omstarter.
+Problemet beror på att enhets genomsökning i Linux har schemalagts av SCSI-undersystemet för att ske asynkront. Det innebär att namnet på en enhets Sök väg kan variera mellan omstarter.
 
 ## <a name="solution"></a>Lösning
 
-Lös problemet genom att använda beständiga naming. Det finns fyra sätt att använda beständiga naming: av filsystem etikett, UUID, efter ID eller efter sökväg. Vi rekommenderar att du använder filsystem etiketten eller UUID för virtuella Linux-datorer.
+Lös problemet genom att använda beständiga namn. Det finns fyra sätt att använda beständiga namn: efter fil Systems etikett, efter UUID, efter ID eller sökväg. Vi rekommenderar att du använder fil Systems etiketten eller UUID: n för virtuella Azure Linux-datorer.
 
-De flesta distributioner ger den `fstab` **nofail** eller **nobootwait** parametrar. Dessa parametrar kan ett system att starta när disken inte kan montera vid start. Kontrollera din distribution-dokumentationen för mer information om dessa parametrar. Information om hur du konfigurerar en Linux-VM för att använda en UUID när du lägger till en datadisk finns i [Anslut till Linux VM att montera den nya disken](../linux/add-disk.md#connect-to-the-linux-vm-to-mount-the-new-disk).
+De flesta distributioner ger `fstab` parametrarna **nomisslyckande** eller **nobootwait** . Dessa parametrar gör det möjligt för ett system att starta när disken inte kan monteras vid start. Mer information om dessa parametrar finns i distributions dokumentationen. Information om hur du konfigurerar en virtuell Linux-dator för att använda en UUID när du lägger till en datadisk finns i [Anslut till den virtuella Linux-datorn för att montera den nya disken](../linux/add-disk.md#connect-to-the-linux-vm-to-mount-the-new-disk).
 
-När Azure Linux-agent installeras på en virtuell dator, använder agenten Udev regler för att konstruera en uppsättning symboliska länkar under /dev/disk/azure-sökvägen. Program och skript kan du använda Udev regler för att identifiera diskar som är anslutna till den virtuella datorn, tillsammans med disktypen och disk LUN.
+När Azure Linux-agenten installeras på en virtuell dator använder agenten udev-regler för att skapa en uppsättning symboliska länkar under/dev/disk/Azure-sökvägen. Program och skript använder udev-regler för att identifiera diskar som är anslutna till den virtuella datorn, samt disk typen och diskens LUN.
 
-Om du redan har redigerat din fstab så att den virtuella datorn inte startar och du kan inte SSH till den virtuella datorn, kan du använda den [VM Seriekonsolen](./serial-console-linux.md) ange [enanvändarläge](./serial-console-grub-single-user-mode.md) och ändra din fstab.
+Om du redan har redigerat din fstab på ett sådant sätt att den virtuella datorn inte startar och du inte kan använda SSH till den virtuella datorn kan du använda den [virtuella datorns serie konsol](./serial-console-linux.md) för att ange [enanvändarläge](./serial-console-grub-single-user-mode.md) och ändra din fstab.
 
-### <a name="identify-disk-luns"></a>Identifiera disken LUN
+### <a name="identify-disk-luns"></a>Identifiera disk-LUN
 
-Program använda LUN för att hitta alla anslutna diskar och att konstruera symboliska länkar. Azure Linux-agent innehåller Udev-regler som har konfigurerat symboliska länkar från en LUN till enheterna:
+Program använder LUN för att hitta alla anslutna diskar och skapa symboliska länkar. Azure Linux-agenten innehåller udev-regler som konfigurerar symboliska länkar från ett LUN till enheterna:
 
     $ tree /dev/disk/azure
 
@@ -67,7 +67,7 @@ Program använda LUN för att hitta alla anslutna diskar och att konstruera symb
         ├── lun1-part2 -> ../../../sdd2
         └── lun1-part3 -> ../../../sdd3
 
-LUN-information från Linux gästkontot hämtas med hjälp av `lsscsi` eller ett liknande verktyg:
+LUN-information från Linux-gäst kontot hämtas med hjälp `lsscsi` av eller ett liknande verktyg:
 
       $ sudo lsscsi
 
@@ -81,7 +81,7 @@ LUN-information från Linux gästkontot hämtas med hjälp av `lsscsi` eller ett
 
       [5:0:0:1] disk Msft Virtual Disk 1.0 /dev/sdd
 
-Gästen LUN informationen används med Azure-prenumeration metadata för att hitta den virtuella Hårddisken i Azure Storage som innehåller data för partitionen. Du kan till exempel använda den `az` CLI:
+LUN-informationen för gästen används med metadata för Azure-prenumerationen för att hitta den virtuella hård disken i Azure Storage som innehåller partitionens data. Du kan till exempel använda `az` CLI:
 
     $ az vm show --resource-group testVM --name testVM | jq -r .storageProfile.dataDisks
     [
@@ -111,9 +111,9 @@ Gästen LUN informationen används med Azure-prenumeration metadata för att hit
       }
     ]
 
-### <a name="discover-filesystem-uuids-by-using-blkid"></a>Identifiera UUID: N för filsystem med hjälp av blkid
+### <a name="discover-filesystem-uuids-by-using-blkid"></a>Identifiera UUID för filesystem med hjälp av blkid
 
-Program och skript läsa utdata från `blkid`, eller liknande informationskällorna att konstruera symboliska länkar i /dev sökvägen. Utdata visar UUID för alla diskar som är kopplade till den virtuella datorn och deras associerade-fil:
+Program och skript läser utdata från `blkid`, eller liknande informations källor, för att skapa symboliska länkar i/dev-sökvägen. Utdata visar UUID: n för alla diskar som är anslutna till den virtuella datorn och deras tillhör ande enhets fil:
 
     $ sudo blkid -s UUID
 
@@ -122,7 +122,7 @@ Program och skript läsa utdata från `blkid`, eller liknande informationskällo
     /dev/sdb1: UUID="176250df-9c7c-436f-94e4-d13f9bdea744"
     /dev/sdc1: UUID="b0048738-4ecc-4837-9793-49ce296d2692"
 
-Azure Linux agent Udev regler konstruera en uppsättning symboliska länkarna under /dev/disk/azure-sökväg:
+Udev-regler för Azure Linux-Agent konstruerar en uppsättning symboliska länkar under/dev/disk/Azure-sökvägen:
 
     $ ls -l /dev/disk/azure
 
@@ -132,18 +132,18 @@ Azure Linux agent Udev regler konstruera en uppsättning symboliska länkarna un
     lrwxrwxrwx 1 root root  9 Jun  2 23:17 root -> ../../sda
     lrwxrwxrwx 1 root root 10 Jun  2 23:17 root-part1 -> ../../sda1
 
-Program använda länkarna för att identifiera disken startenheten och resursdisk (tillfällig). I Azure, program bör se ut i /dev/disk/azure/root-part1 eller /dev/disk/azure-resource-part1 sökvägarna att identifiera de här partitionerna.
+Programmen använder länkarna för att identifiera start disk enheten och resurs (tillfällig) disk. I Azure bör programmen titta på/dev/disk/Azure/root-part1-eller/dev/disk/Azure-Resource-part1-sökvägar för att identifiera dessa partitioner.
 
-Alla ytterligare partitioner från den `blkid` listan finns på en datadisk. Program Underhåll UUID för de här partitionerna och använda en sökväg för att identifiera namnet på enheten vid körning:
+Eventuella ytterligare partitioner från `blkid` listan finns på en datadisk. Program behåller UUID för dessa partitioner och använder en sökväg för att identifiera enhets namnet vid körning:
 
     $ ls -l /dev/disk/by-uuid/b0048738-4ecc-4837-9793-49ce296d2692
 
     lrwxrwxrwx 1 root root 10 Jun 19 15:57 /dev/disk/by-uuid/b0048738-4ecc-4837-9793-49ce296d2692 -> ../../sdc1
 
 
-### <a name="get-the-latest-azure-storage-rules"></a>Hämta de senaste Azure Storage-reglerna
+### <a name="get-the-latest-azure-storage-rules"></a>Hämta de senaste Azure Storage reglerna
 
-Om du vill hämta de senaste Azure Storage-reglerna, kör du följande kommandon:
+Du kan hämta de senaste Azure Storage reglerna genom att köra följande kommandon:
 
     # sudo curl -o /etc/udev/rules.d/66-azure-storage.rules https://raw.githubusercontent.com/Azure/WALinuxAgent/master/config/66-azure-storage.rules
     # sudo udevadm trigger --subsystem-match=block
@@ -152,8 +152,8 @@ Om du vill hämta de senaste Azure Storage-reglerna, kör du följande kommandon
 
 Mer information finns i följande artiklar:
 
-- [Ubuntu: Med hjälp av UUID](https://help.ubuntu.com/community/UsingUUID)
-- [Red Hat: Beständiga namngivning](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Storage_Administration_Guide/persistent_naming.html)
-- [Linux: Vad du kan göra med UUID: N](https://www.linux.com/news/what-uuids-can-do-you)
-- [Udev: Introduktion till hantering av enheter i ett modernt Linux-system](https://www.linux.com/news/udev-introduction-device-management-modern-linux-system)
+- [Ubuntu Använda UUID](https://help.ubuntu.com/community/UsingUUID)
+- [Red Hat: Beständig namngivning](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Storage_Administration_Guide/persistent_naming.html)
+- [Linux: Vilka UUID kan göra för dig](https://www.linux.com/news/what-uuids-can-do-you)
+- [Udev Introduktion till enhets hantering i ett modernt Linux-system](https://www.linux.com/news/udev-introduction-device-management-modern-linux-system)
 

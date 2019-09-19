@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/01/2018
 ms.author: jingwang
-ms.openlocfilehash: 72cddc56a0b36a1c12b1783fa540f426318df30d
-ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
+ms.openlocfilehash: 6396aa727abcb253f3fd728e924a066f1c22f16f
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71008517"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71092165"
 ---
 # <a name="copy-data-from-amazon-marketplace-web-service-using-azure-data-factory-preview"></a>Kopiera data från Amazon Marketplace-webbtjänst med hjälp av Azure Data Factory (förhandsversion)
 
@@ -30,7 +30,7 @@ Den här artikeln beskriver hur du använder Kopieringsaktivitet i Azure Data Fa
 
 Den här webb tjänst anslutningen för Amazon Marketplace stöds för följande aktiviteter:
 
-- [Kopierings aktivitet](copy-activity-overview.md) med [käll mat ris som stöds](copy-activity-overview.md)
+- [Kopierings aktivitet](copy-activity-overview.md) med [matrisen source/Sink som stöds](copy-activity-overview.md)
 - [Sökningsaktivitet](control-flow-lookup-activity.md)
 
 Du kan kopiera data från Amazon Marketplace Web Service till alla datalager för mottagare som stöds. En lista över datalager som stöds som källor/mottagare av Kopieringsaktivitet finns i den [datalager som stöds](copy-activity-overview.md#supported-data-stores-and-formats) tabell.

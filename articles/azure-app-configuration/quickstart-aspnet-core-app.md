@@ -14,12 +14,12 @@ ms.tgt_pltfrm: ASP.NET Core
 ms.workload: tbd
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: 600c808c0bda991bb7203bbf60c098918e274da6
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: b4642ecfad17bf3e926e9efdec034bbe4aa6c20e
+ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68326632"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71076312"
 ---
 # <a name="quickstart-create-an-aspnet-core-app-with-azure-app-configuration"></a>Snabbstart: Skapa en ASP.NET Core-app med Azure App Configuration
 
@@ -57,9 +57,9 @@ Du använder [.net Core kommando rads gränssnitt (CLI)](https://docs.microsoft.
 
 ## <a name="add-secret-manager"></a>Lägga till Secret Manager
 
-Lägg till [verktyget Secret Manager](https://docs.microsoft.com/aspnet/core/security/app-secrets) i projektet. Verktyget Secret Manager lagrar känsliga uppgifter för utvecklingsarbete utanför projektträdet. Den här metoden hjälper till att förhindra oavsiktlig delning av apphemligheter i källkoden.
+Om du vill använda Secret Manager lägger `UserSecretsId` du till ett-element i *. CSPROJ* -filen.
 
-- Öppna *. CSPROJ* -filen. Lägg till `UserSecretsId` ett-element som det visas här och Ersätt värdet med ditt eget, vilket vanligt vis är ett GUID. Spara filen.
+- Öppna *. CSPROJ* -filen. Lägg till `UserSecretsId` ett-element som det visas här. Du kan använda samma GUID, eller så kan du ersätta det här värdet med ditt eget. Spara filen.
 
     ```xml
     <Project Sdk="Microsoft.NET.Sdk.Web">
@@ -77,11 +77,13 @@ Lägg till [verktyget Secret Manager](https://docs.microsoft.com/aspnet/core/sec
     </Project>
     ```
 
+Verktyget Secret Manager lagrar känsliga uppgifter för utvecklingsarbete utanför projektträdet. Den här metoden hjälper till att förhindra oavsiktlig delning av apphemligheter i källkoden. Mer information om Secret Manager finns i [säker lagring av app hemligheter i utvecklingen i ASP.net Core](https://docs.microsoft.com/aspnet/core/security/app-secrets)
+
 ## <a name="connect-to-an-app-configuration-store"></a>Anslut till ett konfigurations Arkiv för appen
 
 1. Lägg till en referens till `Microsoft.Azure.AppConfiguration.AspNetCore` NuGet-paketet genom att köra följande kommando:
 
-        dotnet add package Microsoft.Azure.AppConfiguration.AspNetCore --version 2.0.0-preview-009200001-7
+        dotnet add package Microsoft.Azure.AppConfiguration.AspNetCore --version 2.0.0-preview-009470001-12
 
 2. Kör följande kommando för att återställa paket för ditt projekt:
 
@@ -94,6 +96,9 @@ Lägg till [verktyget Secret Manager](https://docs.microsoft.com/aspnet/core/sec
     Det här kommandot måste köras i samma katalog som *.csproj*-filen.
 
         dotnet user-secrets set ConnectionStrings:AppConfig <your_connection_string>
+
+    > [!IMPORTANT]
+    > Vissa gränssnitt kommer att trunkera anslutnings strängen om den inte omges av citat tecken. Se till att `dotnet user-secrets` kommandots utdata visar hela anslutnings strängen. Om den inte gör det kör du kommandot på nytt, så att anslutnings strängen stängs av i citat tecken.
 
     Secret Manager används bara för att testa webbappen lokalt. När appen distribueras till [Azure App Service](https://azure.microsoft.com/services/app-service/web)kan du till exempel använda ett program för att ange **anslutnings strängar** i App Service i stället för med Secret Manager för att lagra anslutnings strängen.
 
@@ -182,7 +187,7 @@ Lägg till [verktyget Secret Manager](https://docs.microsoft.com/aspnet/core/sec
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabb starten har du skapat ett nytt konfigurations Arkiv för appar och använt det med en ASP.NET Core-webbapp via [appens Konfigurationsprovider](https://go.microsoft.com/fwlink/?linkid=2074664). Om du vill veta mer om hur du använder app-konfiguration fortsätter du till nästa självstudie som visar autentisering.
+I den här snabb starten har du skapat ett nytt konfigurations Arkiv för appar och använt det med en ASP.NET Core-webbapp via [appens Konfigurationsprovider](https://go.microsoft.com/fwlink/?linkid=2074664). Om du vill veta mer om hur du använder app-konfiguration fortsätter du till nästa självstudie som visar hur du konfigurerar din webbapp så att konfigurations inställningarna uppdateras dynamiskt.
 
 > [!div class="nextstepaction"]
-> [Hanterad identitets integrering](./howto-integrate-azure-managed-service-identity.md)
+> [Använd dynamisk konfiguration i en ASP.NET Core app](./enable-dynamic-configuration-aspnet-core.md)

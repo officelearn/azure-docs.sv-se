@@ -4,7 +4,7 @@ description: Den här artikeln hjälper dig att länka till artiklar för att fe
 services: virtual-machines-windows
 documentationCenter: ''
 author: genlin
-manager: cshepard
+manager: dcscontentpm
 editor: ''
 ms.service: virtual-machines-windows
 ms.topic: troubleshooting
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 12/12/2018
 ms.author: genli
-ms.openlocfilehash: ce51b462b17a7082fa7951aea8790e28e517401e
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 660c7fa0051654fd9b0012740ce7ed3ee1e91531
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70080507"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71059174"
 ---
 # <a name="troubleshoot-azure-virtual-machines-boot-errors"></a>Felsöka fel vid start av Azure Virtual Machines
 
@@ -25,13 +25,13 @@ Den här artikeln innehåller vanliga startfel som du kan få när du startar en
 
 ## <a name="boot-errors-and-solutions"></a>Start fel och lösningar
 
-* [Start fel i BitLocker](troubleshoot-bitlocker-boot-error.md) 
-* [Windows show "kontrol lera fil system" under start](troubleshoot-check-disk-boot-error.md)
+* [BitLocker-startfel](troubleshoot-bitlocker-boot-error.md) 
+* [”Kontrollerar filsystem” visas i Windows vid start](troubleshoot-check-disk-boot-error.md)
 * [Fel som visar en blå kraschskärm](troubleshoot-common-blue-screen-error.md)
-* [Starten av den virtuella datorn har fastnat i "komma igång med Windows](troubleshoot-vm-boot-configure-update.md)
-* [Fel meddelandet "kritisk tjänst misslyckades" på blå skärm](troubleshoot-critical-service-failed-boot-error.md)
-* [Problem med omstart-slinga](troubleshoot-reboot-loop.md)
-* [Den virtuella datorns start har fastnat i Windows Update-fasen](troubleshoot-stuck-updating-boot-error.md)
+* [Uppstarten av den virtuella datorn fastnar i läget ”Förbereder Windows”](troubleshoot-vm-boot-configure-update.md)
+* [Felmeddelandet "KRITISKT TJÄNSTFEL" visas på blå skärm](troubleshoot-critical-service-failed-boot-error.md)
+* [Problem med omstartsloop](troubleshoot-reboot-loop.md)
+* [Uppstarten av den virtuella datorn fastnar i Windows-uppdateringen](troubleshoot-stuck-updating-boot-error.md)
 
 ## <a name="next-steps"></a>Nästa steg
 

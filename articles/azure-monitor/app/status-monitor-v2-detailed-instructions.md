@@ -3,7 +3,7 @@ title: Detaljerade instruktioner för Azure Statusövervakare v2 | Microsoft Doc
 description: Detaljerade anvisningar för att komma igång med Statusövervakare v2. Övervaka webbplatsens prestanda utan att omdistribuera webbplatsen. Fungerar med ASP.NET-webbappar som finns lokalt, i virtuella datorer eller på Azure.
 services: application-insights
 documentationcenter: .net
-author: MS-TimothyMothra
+author: TimothyMothra
 manager: alexklim
 ms.assetid: 769a5ea4-a8c6-4c18-b46c-657e864e24de
 ms.service: application-insights
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
-ms.openlocfilehash: 02f4fa45cbfa619825478520961b6411459973e4
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 791db3de897231667d184f08ee152705c59a1e35
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68326278"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71057857"
 ---
 # <a name="status-monitor-v2-detailed-instructions"></a>Statusövervakare v2: Detaljerade anvisningar
 

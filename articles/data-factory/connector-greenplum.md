@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: jingwang
-ms.openlocfilehash: 7281ad87acf7ab7cb828bcbdb80977614aed1bd8
-ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
+ms.openlocfilehash: f23a8784044ddb362f5872ee19e9ca723b0cd456
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71009212"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71092068"
 ---
 # <a name="copy-data-from-greenplum-using-azure-data-factory"></a>Kopiera data från Greenplum med Azure Data Factory
 
@@ -27,7 +27,7 @@ Den här artikeln beskrivs hur du använder Kopieringsaktivitet i Azure Data Fac
 
 Den här Greenplum-anslutningen stöds för följande aktiviteter:
 
-- [Kopierings aktivitet](copy-activity-overview.md) med [käll mat ris som stöds](copy-activity-overview.md)
+- [Kopierings aktivitet](copy-activity-overview.md) med [matrisen source/Sink som stöds](copy-activity-overview.md)
 - [Sökningsaktivitet](control-flow-lookup-activity.md)
 
 Du kan kopiera data från Greenplum till alla datalager för mottagare som stöds. En lista över datalager som stöds som källor/mottagare av Kopieringsaktivitet finns i den [datalager som stöds](copy-activity-overview.md#supported-data-stores-and-formats) tabell.

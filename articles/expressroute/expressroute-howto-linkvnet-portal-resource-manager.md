@@ -5,15 +5,15 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 09/17/2019
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: 1545e2e7eba23b0bedbfe297c292fc94e1659ae3
-ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
+ms.openlocfilehash: 6185540340bba4299eb9307432480c91d531779a
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2019
-ms.locfileid: "68775285"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71088904"
 ---
 # <a name="connect-a-virtual-network-to-an-expressroute-circuit-using-the-portal"></a>Ansluta ett virtuellt nätverk till en ExpressRoute-krets med hjälp av portalen
 > [!div class="op_single_selector"]
@@ -32,7 +32,7 @@ Den här artikeln hjälper dig att skapa en anslutning för att länka ett virtu
 
 * Du måste ha en aktiv ExpressRoute-krets.
   * Följ anvisningarna för att [skapa en ExpressRoute-krets](expressroute-howto-circuit-portal-resource-manager.md) och aktivera kretsen av anslutningsprovidern.
-  * Kontrollera att du har Azure privat peering har konfigurerats för din krets. Se den [konfigurera routning](expressroute-howto-routing-portal-resource-manager.md) artikeln routning anvisningar.
+  * Kontrollera att du har Azure privat peering har konfigurerats för din krets. Se artikeln [skapa och ändra peering för en ExpressRoute-krets](expressroute-howto-routing-portal-resource-manager.md) för peering-och routningsmetod.
   * Se till att Azures privata peering har konfigurerats och BGP-peering mellan ditt nätverk och Microsoft är igång så att du kan aktivera anslutning för slutpunkt till slutpunkt.
   * Kontrollera att du har ett virtuellt nätverk och en virtuell nätverksgateway skapas och helt etablerad. Följ anvisningarna för att [skapar en virtuell nätverksgateway för ExpressRoute](expressroute-howto-add-gateway-resource-manager.md). En virtuell nätverksgateway för ExpressRoute använder GatewayType ExpressRoute, inte VPN.
 
@@ -52,15 +52,16 @@ Den här artikeln hjälper dig att skapa en anslutning för att länka ett virtu
 
 ### <a name="to-create-a-connection"></a>Skapa en anslutning
 
-1. Se till att dina ExpressRoute-krets och Azures privata peering har konfigurerats. Följ instruktionerna i [skapa en ExpressRoute-krets](expressroute-howto-circuit-arm.md) och [konfigurera routning](expressroute-howto-routing-arm.md). ExpressRoute-kretsen bör se ut som på följande bild:
+1. Se till att dina ExpressRoute-krets och Azures privata peering har konfigurerats. Följ anvisningarna i [skapa en ExpressRoute-krets](expressroute-howto-circuit-arm.md) och [skapa och ändra peering för en ExpressRoute-krets](expressroute-howto-routing-arm.md). ExpressRoute-kretsen bör se ut som på följande bild:
 
-   ![Skärmbild för ExpressRoute-krets](./media/expressroute-howto-linkvnet-portal-resource-manager/routing1.png)
+   [![Skärm bild av ExpressRoute-krets](./media/expressroute-howto-linkvnet-portal-resource-manager/routing1.png "Visa krets")](./media/expressroute-howto-linkvnet-portal-resource-manager/routing1-exp.png#lightbox)
 2. Du kan nu börja etablera en anslutning för att länka din virtuella nätverksgateway för ExpressRoute-kretsen. Klicka på **anslutning** > **Lägg till** att öppna den **Lägg till anslutning** sidan och sedan konfigurera värden.
 
-   ![Lägg till anslutning skärmbild](./media/expressroute-howto-linkvnet-portal-resource-manager/samesub1.png)
+   [![Skärm bild för Lägg till anslutning](./media/expressroute-howto-linkvnet-portal-resource-manager/samesub1.png "Skärm bild för Lägg till anslutning")](./media/expressroute-howto-linkvnet-portal-resource-manager/samesub1-exp.png#lightbox)
 3. När anslutningen har konfigurerats, kommer din anslutningsobjektet visas information om anslutningen.
 
    ![Skärmbild av anslutningen objekt](./media/expressroute-howto-linkvnet-portal-resource-manager/samesub2.png)
+
 
 ## <a name="connect-a-vnet-to-a-circuit---different-subscription"></a>Ansluta ett virtuellt nätverk till en krets - annan prenumeration
 

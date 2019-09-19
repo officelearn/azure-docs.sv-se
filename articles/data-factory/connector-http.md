@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: jingwang
-ms.openlocfilehash: 5a4aa1640de3a090deceea690b21a40e49f8ce4c
-ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
+ms.openlocfilehash: 6dd40527cdb073c76872c5768a7bea44b74155b7
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71009089"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71092051"
 ---
 # <a name="copy-data-from-an-http-endpoint-by-using-azure-data-factory"></a>Kopiera data från en HTTP-slutpunkt med hjälp av Azure Data Factory
 
@@ -37,7 +37,7 @@ Skillnaden mellan den här HTTP-kopplingen, [rest-kopplingen](connector-rest.md)
 
 Den här HTTP-anslutningen stöds för följande aktiviteter:
 
-- [Kopierings aktivitet](copy-activity-overview.md) med [käll mat ris som stöds](copy-activity-overview.md)
+- [Kopierings aktivitet](copy-activity-overview.md) med [matrisen source/Sink som stöds](copy-activity-overview.md)
 - [Sökningsaktivitet](control-flow-lookup-activity.md)
 
 Du kan kopiera data från en HTTP-källa till alla mottagar data lager som stöds. En lista över data lagrar att det stöder Kopieringsaktiviteten som källor och mottagare, finns i [datalager och format som stöds](copy-activity-overview.md#supported-data-stores-and-formats).

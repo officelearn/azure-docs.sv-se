@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.author: jingwang
-ms.openlocfilehash: d9e31c1c7decec159de9224f97edfcba15f93966
-ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
+ms.openlocfilehash: 1ac8b4577b50ad9daa8d8da3cdb79120b961f55b
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71007837"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71089044"
 ---
 # <a name="copy-data-from-xero-using-azure-data-factory-preview"></a>Kopiera data från Xero med Azure Data Factory (förhandsversion)
 
@@ -30,7 +30,7 @@ Den här artikeln beskrivs hur du använder Kopieringsaktivitet i Azure Data Fac
 
 Den här Xero-anslutningen stöds för följande aktiviteter:
 
-- [Kopierings aktivitet](copy-activity-overview.md) med [käll mat ris som stöds](copy-activity-overview.md)
+- [Kopierings aktivitet](copy-activity-overview.md) med [matrisen source/Sink som stöds](copy-activity-overview.md)
 - [Sökningsaktivitet](control-flow-lookup-activity.md)
 
 Du kan kopiera data från Xero till alla datalager för mottagare som stöds. En lista över datalager som stöds som källor/mottagare av Kopieringsaktivitet finns i den [datalager som stöds](copy-activity-overview.md#supported-data-stores-and-formats) tabell.

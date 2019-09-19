@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: automation
 ms.subservice: process-automation
 ms.custom: mvc
-ms.openlocfilehash: 3dece2d2bffc7bd2b9e0a3c2931b2038ebc3c77e
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 2cbb37b4e93468a42335f40a19baf4c742cb6dbb
+ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68850649"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71098625"
 ---
 # <a name="create-an-azure-automation-runbook"></a>Skapa en Azure Automation-runbook
 
@@ -34,7 +34,7 @@ Skapa en runbook först. Exempelrunbooken som skapas i den här snabbstarten mat
 
 1. Klicka på **Runbooks** under **PROCESSAUTOMATISERING**. En lista med runbooks visas.
 
-1. Klicka på knappen **Lägg till en runbook** överst i listan. På sidan **Lägg till runbook** väljer du **Snabbregistrering**.
+1. Klicka på knappen **skapa en Runbook** som finns överst i listan
 
 1. Ange ”Hello-World” som runbookens **Namn** och välj **PowerShell** som **Typ av runbook**. Klicka på **Skapa**.
 

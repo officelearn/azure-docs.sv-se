@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: arthii, LADocs
 ms.topic: article
 ms.date: 09/01/2019
-ms.openlocfilehash: 3a197ab8d8c44229328c63330bcbc99fb2e64f01
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
-ms.translationtype: HT
+ms.openlocfilehash: a070b224b0cb1378f0ba6729af33840715dc0a29
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71077276"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71087714"
 ---
 # <a name="install-on-premises-data-gateway-for-azure-logic-apps"></a>Installera lokal datagateway för Azure Logic Apps
 
@@ -264,9 +264,9 @@ Här är några sätt som du kan matcha dina lokala Active Directory-konton med 
 
 Mer information finns i följande avsnitt:
 
-* [Vanliga frågor och svar om lokal datagateway](https://docs.microsoft.com/data-integration/gateway/service-gateway-onprem-faq)
-* [Felsöka den lokala datagatewayen](https://docs.microsoft.com/data-integration/gateway/gateway-service-gateway-tshoot)
-* [Övervaka och optimera Gateway-prestanda](https://docs.microsoft.com/data-integration/gateway/service-gateway-performance)
+* [Vanliga frågor och svar om lokal datagateway](/data-integration/gateway/service-gateway-onprem-faq)
+* [Felsöka den lokala datagatewayen](/data-integration/gateway/service-gateway-tshoot)
+* [Övervaka och optimera Gateway-prestanda](/data-integration/gateway/service-gateway-performance)
 
 ## <a name="next-steps"></a>Nästa steg
 

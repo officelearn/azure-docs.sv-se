@@ -348,7 +348,7 @@ För att hjälpa dig att övervaka lyckades, fel och meddelandeegenskaper för b
 | respondingfunctionalGroupControlNumber | String | Kontrollnummer för den ursprungliga funktionell gruppen. (Valfritt) |
 | respondingFunctionalGroupId | String | Mappar till AK101 i funktionsgruppen bekräftelse-ID. (Valfritt) |
 | isMessageFailed | Boolean | Om X12 meddelandet misslyckades. (Obligatorisk) |
-| statusCode | Enum | Bekräftelsestatuskod. Tillåtna värden är **godkända**, **Avvisad**, och **AcceptedWithErrors**. (Obligatorisk) |
+| statusCode | Enum | Bekräftelsestatuskod. Tillåtna värden är **Accepted**, **Rejected**, och **AcceptedWithErrors**. (Obligatorisk) |
 | processingStatus | Enum | Bearbetningsstatus av bekräftelsen. Tillåtna värden är **mottagna**, **Generated**, och **skickade**. (Obligatorisk) |
 | ak903 | String | Antal transaktionsuppsättningar som tagits emot. (Valfritt) |
 | ak904 | String | Antal transaktionsuppsättningar accepteras i identifierade funktionsgruppen. (Valfritt) |

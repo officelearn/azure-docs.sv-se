@@ -4,12 +4,12 @@ ms.author: erhopf
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 07/23/2019
-ms.openlocfilehash: f8d6e5de7f907ae78958b8c239649f55257bf7f2
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.openlocfilehash: 3a6807cc204a5f8a6957bb03cf4dcbaf3611c17c
+ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68467525"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71148502"
 ---
 ## <a name="authenticate-with-azure-active-directory"></a>Autentisera med hjälp av Azure Active Directory
 
@@ -68,6 +68,7 @@ Nu när du har en anpassad under domän som är kopplad till din resurs, kommer 
 3. Det sista steget är att [tilldela rollen "Cognitive Services användare"](https://docs.microsoft.com/powershell/module/az.Resources/New-azRoleAssignment?view=azps-1.8.0) till tjänstens huvud namn (omfattas av resursen). Genom att tilldela en roll beviljar du tjänstens huvud namns åtkomst till den här resursen. Du kan ge samma tjänst huvud namn åtkomst till flera resurser i din prenumeration.
    >[!NOTE]
    > Objekt-ID: t för tjänstens huvud namn används, inte ObjectId för programmet.
+   > ACCOUNT_ID är Azure-resurs-ID: t för det Cognitive Services konto som du skapade. Du hittar Azure Resource ID från "egenskaper" för resursen i Azure Portal.
 
    ```azurecli-interactive
    New-AzRoleAssignment -ObjectId <SERVICE_PRINCIPAL_OBJECTID> -Scope <ACCOUNT_ID> -RoleDefinitionName "Cognitive Services User"
@@ -86,7 +87,8 @@ I det här exemplet används ett lösen ord för att autentisera tjänstens huvu
 2. Hämta en token:
    ```azurecli-interactive
    $authContext = New-Object "Microsoft.IdentityModel.Clients.ActiveDirectory.AuthenticationContext" -ArgumentList "https://login.windows.net/<TENANT_ID>"
-   $clientCredential = New-Object "Microsoft.IdentityModel.Clients.ActiveDirectory.ClientCredential" -ArgumentList $app.ApplicationId, $password
+   $secureSecretObject = New-Object "Microsoft.IdentityModel.Clients.ActiveDirectory.SecureClientSecret" -ArgumentList $SecureStringPassword   
+   $clientCredential = New-Object "Microsoft.IdentityModel.Clients.ActiveDirectory.ClientCredential" -ArgumentList $app.ApplicationId, $secureSecretObject
    $token=$authContext.AcquireTokenAsync("https://cognitiveservices.azure.com/", $clientCredential).Result
    $token
    ```

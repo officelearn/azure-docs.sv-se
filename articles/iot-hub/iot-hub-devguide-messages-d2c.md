@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 05/15/2019
 ms.author: asrastog
-ms.openlocfilehash: 6ee9e334c10bd2d0f291b5fd1bb547ba3ba83ddb
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: d2c84f5b6389ac83206472440d26aa8d81ba76be
+ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69877195"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71147364"
 ---
 # <a name="use-iot-hub-message-routing-to-send-device-to-cloud-messages-to-different-endpoints"></a>Använd IoT Hub meddelanderoutning för att skicka meddelanden från enheten till molnet till olika slut punkter
 
@@ -25,13 +25,17 @@ Med meddelanderoutning kan du skicka meddelanden från dina enheter till moln tj
 
 * **Filtrering av data innan de dirigeras till olika slut punkter** genom att använda omfattande frågor. Med meddelanderoutning kan du fråga efter meddelande egenskaper och meddelande text samt enhetens dubbla Taggar och enhetens dubbla egenskaper. Läs mer om hur du använder [frågor i](iot-hub-devguide-routing-query-syntax.md)meddelanderoutning.
 
-IoT Hub behöver skriv åtkomst till dessa tjänst slut punkter för att meddelanderoutning ska fungera. Om du konfigurerar dina slut punkter via Azure Portal läggs de nödvändiga behörigheterna till. Se till att du konfigurerar dina tjänster så att de stöder det förväntade data flödet. När du först konfigurerar din IoT-lösning kan du behöva övervaka ytterligare slut punkter och göra nödvändiga justeringar för den faktiska belastningen.
+IoT Hub behöver skriv åtkomst till dessa tjänst slut punkter för att meddelanderoutning ska fungera. Om du konfigurerar dina slut punkter via Azure Portal läggs de nödvändiga behörigheterna till. Se till att du konfigurerar dina tjänster så att de stöder det förväntade data flödet. Om du till exempel använder Event Hubs som en anpassad slut punkt måste du konfigurera **data flödes enheter** för den händelsehubben så att den kan hantera ingångs händelser som du planerar att skicka via IoT Hub meddelanderoutning. När du använder en Service Bus-kö som en slut punkt måste du konfigurera den **maximala storleken** så att kön kan hålla alla data inträngda tills den har utgångs punkt av konsumenter. När du först konfigurerar din IoT-lösning kan du behöva övervaka ytterligare slut punkter och göra nödvändiga justeringar för den faktiska belastningen.
 
 IoT Hub definierar ett [gemensamt format](iot-hub-devguide-messages-construct.md) för all kommunikation från enhet till moln för samverkan mellan protokoll. Om ett meddelande matchar flera vägar som pekar på samma slut punkt, IoT Hub levererar meddelandet till slut punkten bara en gång. Därför behöver du inte konfigurera deduplicering i Service Bus kö eller ämne. I partitionerade köer garanterar partitionens tillhörighet meddelande ordning. Använd den här självstudien för att lära dig hur du [konfigurerar meddelanderoutning](tutorial-routing.md).
 
 ## <a name="routing-endpoints"></a>Dirigera slut punkter
 
-En IoT-hubb har en inbyggd standard slut punkt (**meddelanden/händelser**) som är kompatibel med Event Hubs. Du kan skapa [anpassade slut punkter](iot-hub-devguide-endpoints.md#custom-endpoints) för att dirigera meddelanden till genom att länka andra tjänster i din prenumeration till IoT Hub. IoT Hub stöder för närvarande följande tjänster som anpassade slut punkter:
+En IoT-hubb har en inbyggd standard slut punkt (**meddelanden/händelser**) som är kompatibel med Event Hubs. Du kan skapa [anpassade slut punkter](iot-hub-devguide-endpoints.md#custom-endpoints) för att dirigera meddelanden till genom att länka andra tjänster i din prenumeration till IoT Hub. 
+
+Varje meddelande dirigeras till alla slut punkter vars vägvals frågor det matchar. Med andra ord kan ett meddelande dirigeras till flera slut punkter.
+
+IoT Hub stöder för närvarande följande tjänster som anpassade slut punkter:
 
 ### <a name="built-in-endpoint"></a>Inbyggd slut punkt
 
@@ -43,9 +47,9 @@ IoT Hub stöder skrivning av data till Azure Blob Storage i [Apache Avro](https:
 
 ![Slut punkts kodning för Blob Storage](./media/iot-hub-devguide-messages-d2c/blobencoding.png)
 
-IoT Hub också stöd för att dirigera meddelanden till ADLS Gen2 konton, som är [hierarkiska namn rymds](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-namespace)-aktiverade lagrings konton som skapats ovanpå Blob Storage. Den här funktionen finns i en offentlig för hands version och är tillgänglig för nya ADLS Gen2 konton i USA, västra 2 och västra centrala USA. Vi kommer snart att distribuera den här funktionen till alla moln regioner.
+IoT Hub också stöd för att dirigera meddelanden till [Azure Data Lake Storage](https://docs.microsoft.com/en-us/azure/storage/blobs/data-lake-storage-introduction) (ADLS) Gen2-konton, som är [hierarkiska namn rymds](../storage/blobs/data-lake-storage-namespace.md)-aktiverade lagrings konton som byggts ovanpå Blob Storage. Den här funktionen finns i en offentlig för hands version och är tillgänglig för nya ADLS Gen2 konton i USA, västra 2 och västra centrala USA. [Registrera dig](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR2EUNXd_ZNJCq_eDwZGaF5VURjFLTDRGS0Q4VVZCRFY5MUVaTVJDTkROMi4u) för att förhandsgranska detta. Vi kommer snart att distribuera den här funktionen till alla moln regioner. 
 
-IoT Hub batchar meddelanden och skriver data till en BLOB när batchen når en viss storlek eller en viss tid har förflutit. IoT Hub standardvärdet för följande fil namns konvention:
+IoT Hub batchar meddelanden och skriver data till en BLOB när batchen når en viss storlek eller en viss tid har förflutit. IoT Hub standardvärdet för följande fil namns konvention: 
 
 ```
 {iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}
@@ -81,7 +85,7 @@ Förutom den inbyggda-Event Hubs-kompatibla slut punkten kan du också dirigera 
 
 ## <a name="reading-data-that-has-been-routed"></a>Läser data som har dirigerats
 
-Du kan konfigurera en väg genom att följa [](tutorial-routing.md)den här självstudien.
+Du kan konfigurera en väg genom att följa den här [självstudien](tutorial-routing.md).
 
 Använd följande självstudier om du vill lära dig mer om att läsa meddelanden från en slut punkt.
 

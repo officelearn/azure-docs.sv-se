@@ -12,12 +12,12 @@ ms.topic: reference
 ms.date: 09/05/2019
 ms.author: cshoe
 ms.reviewer: jehollan
-ms.openlocfilehash: 09bcce6daf519c7d5e99c7c120064f5c8bb92475
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: e1cf67abcc44a3ca134e5435137869d4fff1a7eb
+ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70996878"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71162350"
 ---
 # <a name="use-dependency-injection-in-net-azure-functions"></a>Använd beroende inmatning i .NET Azure Functions
 
@@ -197,6 +197,9 @@ public class HttpTrigger
 ```
 
 Mer information om hur du arbetar med alternativ finns [i alternativ mönster i ASP.net Core](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/options) .
+
+> [!WARNING]
+> Undvik att försöka läsa värden från filer som *Local. Settings. JSON* eller *appSettings. { miljö}. JSON* i förbruknings planen. Värden som läses från dessa filer som rör utlösnings anslutningar är inte tillgängliga eftersom appen skalas eftersom värd infrastrukturen inte har åtkomst till konfigurations informationen.
 
 ## <a name="next-steps"></a>Nästa steg
 

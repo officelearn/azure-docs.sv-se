@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 03/06/2019
-ms.openlocfilehash: d782c2d9dff45dc152cab2246c95dda063bfd900
-ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
+ms.openlocfilehash: b6c2885f0919752f7ede7f5a15121be2f8a953ca
+ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71130393"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71162326"
 ---
 # <a name="automatic-tuning-in-azure-sql-database"></a>Automatisk justering i Azure SQL Database
 
@@ -68,7 +68,7 @@ Alternativen för automatisk justering är tillgängliga i Azure SQL Database:
 | Alternativ för automatisk justering | Stöd för enkel databas och poolad databas | Stöd för instans databas |
 | :----------------------------- | ----- | ----- |
 | **Skapa index** – identifierar index som kan förbättra prestandan för din arbets belastning, skapar index och automatiskt verifierar att prestandan för frågor har förbättrats. | Ja | Nej | 
-| **Drop index** – identifierar redundanta och duplicerade index dagligen, förutom unika index och index som inte har använts under en längre tid (> 90 dagar). Observera att det här alternativet inte är kompatibelt med program som använder partition växlings-och index tips. | Ja | Nej |
+| **Drop index** – identifierar redundanta och duplicerade index dagligen, förutom unika index och index som inte har använts under en längre tid (> 90 dagar). Observera att det här alternativet inte är kompatibelt med program som använder partitions växlings-och index tips. Det går inte att släppa oanvända index för Premium-och Affärskritisk tjänst nivåer. | Ja | Nej |
 | **FRAMTVINGA senaste effektiva plan** (automatisk plan korrigering) – identifierar SQL-frågor med hjälp av en körnings plan som är långsammare än den tidigare fungerande planen och frågor som använder det senaste fungerande schemat i stället för försämrat-planen. | Ja | Ja |
 
 Automatisk justering identifierar **skapa index**, **Drop index**och **Framtvinga senaste lämpliga plan** rekommendationer som kan optimera databas prestanda och visa dem i [Azure Portal](sql-database-advisor-portal.md)och exponera dem via [T-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current) och [ REST API](https://docs.microsoft.com/rest/api/sql/serverautomatictuning). Om du vill veta mer om den senaste effektiva planen och konfigurera alternativ för automatisk justering via T-SQL, se [Automatisk justering inför automatisk plan korrigering](https://azure.microsoft.com/blog/automatic-tuning-introduces-automatic-plan-correction-and-t-sql-management/).

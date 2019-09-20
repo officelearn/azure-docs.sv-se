@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/06/2017
 ms.author: atsenthi
-ms.openlocfilehash: 3810afa7ad00aa731751aa1f0bfe38d503de5850
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 0bec430cbb98452f8c852c96053f3f699ce5098e
+ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68953209"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71153593"
 ---
 # <a name="manage-applications-and-services-as-azure-resource-manager-resources"></a>Hantera program och tjänster som Azure Resource Manager resurser
 
@@ -67,7 +67,7 @@ I följande kodfragment visas olika typer av resurser som kan hanteras via en ma
 1. Förbered klustrets Resource Manager-mall för distribution. Mer information finns i [skapa ett Service Fabric-kluster med hjälp av Azure Resource Manager](service-fabric-cluster-creation-via-arm.md) .
 2. Tänk på några av de program som du planerar att distribuera i klustret. Finns det några som alltid kommer att köra andra program som kan ta beroenden? Planerar du att distribuera kluster styrning eller installations program? Dessa sorters program hanteras bäst via en Resource Manager-mall, enligt beskrivningen ovan. 
 3. När du har avvisat vilka program du vill distribuera på det här sättet måste programmen paketeras, zippas och placeras på en fil resurs. Resursen måste vara tillgänglig via en REST-slutpunkt för Azure Resource Manager att använda under distributionen.
-4. Beskriv varje programs egenskaper i din Resource Manager-mall under kluster deklarationen. Dessa egenskaper inkluderar replik-eller instans antal och eventuella beroende kedjor mellan resurser (andra program eller tjänster). En lista över omfattande egenskaper finns i [REST API Swagger](https://aka.ms/sfrpswaggerspec)-specifikationen. Observera att detta inte ersätter program-eller tjänst manifesten, utan beskriver i stället några av vad som ingår i klustrets Resource Manager-mall. Här är en exempel-mall som inkluderar distribution av en tillstånds lös tjänst *Service1* och en tillstånds känslig tjänst *service2* som en del av *application1*:
+4. Beskriv varje programs egenskaper i din Resource Manager-mall under kluster deklarationen. Dessa egenskaper inkluderar replik-eller instans antal och eventuella beroende kedjor mellan resurser (andra program eller tjänster). En lista över omfattande egenskaper finns i [REST API Swagger-specifikationen](https://aka.ms/sfrpswaggerspec). Observera att detta inte ersätter program-eller tjänst manifesten, utan beskriver i stället några av vad som ingår i klustrets Resource Manager-mall. Här är en exempel-mall som inkluderar distribution av en tillstånds lös tjänst *Service1* och en tillstånds känslig tjänst *service2* som en del av *application1*:
 
    ```json
    {
@@ -272,7 +272,7 @@ Att bara ta bort Microsoft. ServiceFabric/kluster/program från ARM-mallen aveta
 
 ## <a name="manage-an-existing-application-via-resource-manager"></a>Hantera ett befintligt program via Resource Manager
 
-Om klustret redan är igång och vissa program som du vill hantera som Resource Manager-resurser redan har distribuerats på det, i stället för att ta bort program och distribuera dem igen, kan du använda ett anrop med samma API: er för att programmen ska få bekräftat som Resource Manager-resurser. 
+Om klustret redan är igång och vissa program som du vill hantera som Resource Manager-resurser redan har distribuerats på det, i stället för att ta bort program och distribuera dem igen, kan du använda ett anrop med samma API: er för att programmen ska få bekräftat som Resource Manager-resurser. Mer information finns i [Vad är Service Fabric-programmets resurs modell?](https://docs.microsoft.com/azure/service-fabric/service-fabric-concept-resource-model)
 
 > [!NOTE]
 > Om du vill tillåta att en kluster uppgradering ignorerar appar som inte är felfria kan kunden ange "maxPercentUnhealthyApplications: 100 "i avsnittet" upgradeDescription/healthPolicy " detaljerade beskrivningar för alla inställningar finns i [service fabric REST API dokumentation om kluster uppgraderings principer](https://docs.microsoft.com/rest/api/servicefabric/sfrp-model-clusterupgradepolicy).

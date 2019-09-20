@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 08/19/2019
+ms.date: 09/19/2019
 ms.author: spelluru
-ms.openlocfilehash: a7d1249d68ddd4a161d1c0476e5f56e80c4d32f9
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: 10813600621293e9f559129230193f81ea0c505a
+ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70032018"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71161521"
 ---
 # <a name="how-to-access-a-classroom-lab-in-azure-lab-services"></a>Få åtkomst till ett klassrumslabb i Azure Lab Services
 Den här artikeln beskriver hur du registrerar dig för ett klass rums labb, visar alla labb som du kan komma åt, starta/stoppa en virtuell dator i labbet och ansluta till den virtuella datorn. 
@@ -28,8 +28,11 @@ Den här artikeln beskriver hur du registrerar dig för ett klass rums labb, vis
 
 1. Gå till **registrerings-URL:en** som du fick av läraren. Du behöver inte använda registrerings-URL:en efter att du har slutfört registreringen. Använd i stället URL:en: [https://labs.azure.com](https://labs.azure.com). Internet Explorer 11 stöds inte ännu. 
 1. Logga in på tjänsten med ditt skolkonto för att slutföra registreringen. 
-2. När registreringen är klar kontrollerar du att du ser den virtuella datorn för det labb som du har åtkomst till. 
-3. Vänta tills den virtuella datorn är klar. Observera följande fält på panelen VM:
+
+    > [!NOTE]
+    > En Microsoft-konto krävs för att använda Azure Lab Services. Om du försöker använda en icke-Microsoft-konto, t. ex. Yahoo eller Google-konton för att logga in på portalen, följer du anvisningarna för att skapa ett Microsoft-konto som kommer att länkas till din icke-Microsoft-konto. Följ sedan stegen för att slutföra registrerings processen. 
+1. När registreringen är klar kontrollerar du att du ser den virtuella datorn för det labb som du har åtkomst till. 
+1. Vänta tills den virtuella datorn är klar. Observera följande fält på panelen VM:
     1. Längst upp i panelen ser du **namnet på labbet**.
     1. Till höger visas ikonen som representerar den virtuella datorns **operativ system (OS)** . I det här exemplet är det Windows-operativsystem. 
     1. Du ser ikoner/knappar längst ned i panelen för att starta/stoppa den virtuella datorn och ansluta till den virtuella datorn. 

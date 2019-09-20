@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 09/12/2019
 ms.author: ellbe
-ms.openlocfilehash: 843b92d3fe34d592b39cd86ece447fef2ff9af67
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: 729ac9fc7c8ec6a85b3497c51888d3b5a6fc8558
+ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70931113"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71147197"
 ---
 # <a name="automatically-identify-the-spoken-language-with-language-identification-model"></a>Identifiera det talade språket automatiskt med språk identifierings modellen
 
@@ -53,7 +53,7 @@ Modellens dominerande språk är tillgängligt i insikts-JSON som `sourceLanguag
 * Om ljudet innehåller andra språk än de som stöds ovan, är resultatet oväntat.
 * Om video Indexer inte kan identifiera språket med hög nog tillförlitlighet (`>0.6`) är reserv språket engelska.
 * Det finns inget aktuellt stöd för filen med ljud från blandade språk. Om ljudet innehåller blandade språk är resultatet oväntat. 
-* Ljud Caustic med låg kvalitet kan påverka modell resultatet.
+* Ljud med låg kvalitet kan påverka modell resultatet.
 * Modellen kräver minst en minut med tal i ljudet.
 * Modellen är utformad för att identifiera ett spontant samtals tal (inte röst kommandon, loggar osv.).
 

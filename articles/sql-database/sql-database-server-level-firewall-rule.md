@@ -11,12 +11,12 @@ author: sachinpMSFT
 ms.author: sachinp
 ms.reviewer: vanto, carlrab
 ms.date: 02/11/2019
-ms.openlocfilehash: d13ee8c46df9433530df1d26a86978daab709a52
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 27b554159fca2043fbd0c853e260a66294c10387
+ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68883057"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71162298"
 ---
 # <a name="quickstart-create-a-server-level-firewall-rule-for-single-and-pooled-databases-using-the-azure-portal"></a>Snabbstart: Skapa en brandväggsregel på servernivå för enkla databaser eller pooldatabaser med hjälp av Azure-portalen
 
@@ -54,7 +54,7 @@ Följ de här stegen om du vill skapa en IP-brandväggsregel på servernivå fö
 4. Välj **Lägg till klient-IP** i verktygsfältet och lägg till din aktuella IP-adress i en ny IP-brandväggsregel på servernivå. Med en IP-brandväggsregel på servernivå kan du öppna port 1433 för en enskild IP-adress eller för ett IP-adressintervall.
 
    > [!IMPORTANT]
-   > Som standard är åtkomst genom SQL Database-brandväggen aktiverad för alla Azure-tjänster. Välj **AV** på den här sidan om du vill inaktivera åtkomsten för alla Azure-tjänster.
+   > Som standard är åtkomst via SQL Database brand väggen inaktive rad för alla Azure-tjänster. Välj **på** den här sidan om du vill aktivera åtkomst för alla Azure-tjänster.
    >
 
 5. Välj **Spara**. En IP-brandväggsregel på servernivå för att öppna port 1433 på SQL Database-servern skapas för din aktuella IP-adress.

@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 07/17/2019
 ms.author: tomfitz
-ms.openlocfilehash: e18fc040249954ce7ea6a8a686e121a4b56fb54a
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.openlocfilehash: 9bcbfe1bdb501cac6ff31156db5382d1174eb8ad
+ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68312126"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71146827"
 ---
 # <a name="use-tags-to-organize-your-azure-resources"></a>Använd taggar för att organisera Azure-resurser
 
@@ -23,7 +23,7 @@ Om du vill använda taggar för resurser måste användaren ha Skriv behörighet
 
 ## <a name="policies"></a>Principer
 
-Du kan använda [Azure policy](../governance/policy/overview.md) för att tillämpa taggnings regler och konventioner. Genom att skapa en princip undviker du syftet med resurser som distribueras till din prenumeration som inte följer de förväntade taggarna för din organisation. I stället för att manuellt tillämpa taggar eller söka efter resurser som inte är kompatibla, kan du skapa en princip som automatiskt tillämpar de taggar som krävs under distributionen. I följande avsnitt visas exempel principer för taggar.
+Du kan använda [Azure policy](../governance/policy/overview.md) för att tillämpa taggnings regler och konventioner. Genom att skapa en princip undviker du syftet med resurser som distribueras till din prenumeration som inte följer de förväntade taggarna för din organisation. I stället för att manuellt tillämpa taggar eller söka efter resurser som inte är kompatibla, kan du skapa en princip som automatiskt tillämpar de taggar som krävs under distributionen. Taggar kan nu också tillämpas på befintliga resurser med den nya [ändra](../governance/policy/concepts/effects.md#modify) -effekt och en [reparations uppgift](../governance/policy/how-to/remediate-resources.md). I följande avsnitt visas exempel principer för taggar.
 
 [!INCLUDE [Tag policies](../../includes/azure-policy-samples-general-tags.md)]
 

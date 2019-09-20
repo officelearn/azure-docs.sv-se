@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 04/10/2019
 ms.author: aschhab
 ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: b85099605d7f660b792186f7e17b0ed4ea43ef04
-ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
+ms.openlocfilehash: 19cfd2c5dd4229e4687fcb1a3286509c9b768d7a
+ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70967859"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71155503"
 ---
 # <a name="use-azure-service-bus-queues-with-java-to-send-and-receive-messages"></a>Använda Azure Service Bus köer med Java för att skicka och ta emot meddelanden
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
@@ -42,7 +42,7 @@ I den här självstudien får du lära dig hur du skapar Java-program för att s
 ## <a name="configure-your-application-to-use-service-bus"></a>Konfigurera programmet så att det använder Service Bus
 Kontrol lera att du har installerat [Azure SDK för Java][Azure SDK for Java] innan du skapar det här exemplet. Om du använder Sol förmörkelse kan du installera [Azure Toolkit for Eclipse][Azure Toolkit for Eclipse] som innehåller Azure SDK för Java. Du kan sedan lägga till **Microsoft Azure bibliotek för Java** i projektet:
 
-![Skärm bild av fliken bibliotek där du kan lägga till bibliotek](./media/service-bus-java-how-to-use-queues/eclipselibs.png)
+![Lägg till Microsoft Azure bibliotek för java i ditt Sol förmörkelse-projekt](./media/service-bus-java-how-to-use-queues/eclipse-azure-libraries-java.png)
 
 Lägg till följande `import` -instruktioner överst i Java-filen:
 

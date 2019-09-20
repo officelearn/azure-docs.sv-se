@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
-ms.date: 06/07/2019
+ms.date: 09/19/2019
 ms.author: diberry
-ms.openlocfilehash: 72c425a1ec9fb83cc2e9dd1bae2c4f521109f162
-ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
+ms.openlocfilehash: bb9a9c1d67e52c21d2cb039832d27547a023da9f
+ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68663383"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71154668"
 ---
 # <a name="reward-scores-indicate-success-of-personalization"></a>Belönings Poäng visar att anpassningen lyckades
 
@@ -25,11 +25,11 @@ Personanpassa tågens maskin inlärnings modeller genom att utvärdera belöning
 
 ## <a name="use-reward-api-to-send-reward-score-to-personalizer"></a>Använd belönings-API: et för att skicka belönings poängen till Personanpassaren
 
-Förmåner skickas till Personanpassare av belönings- [API: et](https://docs.microsoft.com/rest/api/cognitiveservices/personalizer/events/reward). En belöning är ett tal från-1 och 1. Personanpassare tågen modellen för att uppnå högsta möjliga summa av förmåner över tid.
+Förmåner skickas till Personanpassare av [belönings-API: et](https://docs.microsoft.com/rest/api/cognitiveservices/personalizer/events/reward). En belöning är vanligt vis en siffra mellan 0 och 1. En negativ belöning, med värdet-1, är möjlig i vissa scenarier och bör endast användas om du har erfarenhet av förstärknings inlärning (HUVUDWEBBADRESS). Personanpassare tågen modellen för att uppnå högsta möjliga summa av förmåner över tid.
 
 Förmåner skickas när användar beteendet har inträffat, vilket kan vara dagar senare. Den maximala tid som Personanpassaren väntar tills en händelse anses vara ingen belöning eller en standard belöning har kon figurer ATS med försvars [tid](#reward-wait-time) för betalning i Azure Portal.
 
-Om belönings poängen för en händelse inte har tagits emot inom svars **tiden**för belöningen, kommer **standard belöningen** att tillämpas. Normalt är **[standard belöningen](how-to-settings.md#configure-reward-settings-for-the-feedback-loop-based-on-use-case)** inställd på noll.
+Om belönings poängen för en händelse inte har tagits emot inom svars **tiden för belöningen**, kommer **standard belöningen** att tillämpas. Normalt är **[standard belöningen](how-to-settings.md#configure-reward-settings-for-the-feedback-loop-based-on-use-case)** inställd på noll.
 
 
 ## <a name="behaviors-and-data-to-consider-for-rewards"></a>Beteenden och data som ska övervägas för förmåner
@@ -56,7 +56,7 @@ Om ingen belöning tas emot inom svarets [vänte tid](#reward-wait-time), varakt
 
 ## <a name="building-up-rewards-with-multiple-factors"></a>Skapa fördelar med flera faktorer  
 
-För effektiv anpassning kan du skapa belönings poängen (alla siffror från-1 och 1) baserat på flera faktorer. 
+För effektiv anpassning kan du skapa belönings poängen baserat på flera faktorer. 
 
 Du kan till exempel använda dessa regler för att anpassa en lista med video innehåll:
 
@@ -78,9 +78,9 @@ Samlings inställningar:
 *  **Första**: Tar emot den första belönings poängen för evenemanget och tar bort resten.
 * **Sum**: Tar alla belönings resultat som samlas in för eventId och lägger till dem tillsammans.
 
-Alla förmåner för en händelse, som tas emot efter den **väntande tiden**för belöningen, tas bort och påverkar inte inlärningen av modeller.
+Alla förmåner för en händelse, som tas emot efter den **väntande tiden för belöningen**, tas bort och påverkar inte inlärningen av modeller.
 
-Genom att lägga till belönings resultat kan din slutliga belöning vara högre än 1 eller lägre än-1. Detta gör inte att tjänsten fungerar.
+Genom att lägga till belönings resultat kan din slutliga belöning vara utanför det förväntade Poäng intervallet. Detta gör inte att tjänsten fungerar.
 
 <!--
 @edjez - is the number ignored if it is outside the acceptable range?
@@ -100,7 +100,7 @@ Genom att lägga till belönings resultat kan din slutliga belöning vara högre
     * Om du visar en lista över filmer, om användaren hovrar över den första för ett tag för att se mer information, kan du fastställa att vissa användar engagemang har inträffat. Beteendet kan räknas med en belönings poäng på 0,1. 
     * Om användaren öppnade sidan och sedan avslutas, kan belönings poängen vara 0,2. 
 
-## <a name="reward-wait-time"></a>Vänte tid för belöning
+## <a name="reward-wait-time"></a>Väntetid för ersättning
 
 En personanpassare korrelerar informationen om ett rang samtal med de fördelar som skickas i belönings anrop för att träna modellen. De kan komma att uppstå vid olika tidpunkter. Personanpassaren väntar en begränsad tid och startar när rang anropet skedde, även om rang anropet gjordes som en inaktiv händelse och aktive ras senare.
 

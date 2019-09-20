@@ -7,12 +7,12 @@ ms.service: lighthouse
 ms.date: 09/19/2019
 ms.topic: overview
 manager: carmonm
-ms.openlocfilehash: 4a1adf1be8798f4bb21b89ff0654287a2958146e
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: 4781126bc4fcfb6391db42a75553a13e0e4cc4f9
+ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71105269"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71155137"
 ---
 # <a name="publish-a-managed-services-offer-to-azure-marketplace"></a>Publicera ett erbjudande för hanterade tjänster på Azure Marketplace
 
@@ -24,6 +24,8 @@ I den här artikeln får du lära dig hur du publicerar ett offentligt eller pri
 > Om du inte vill publicera ett erbjudande på Azure Marketplace kan du publicera kunder manuellt med hjälp av Azure Resource Manager mallar. Mer information finns i [publicera en kund till Azure delegerad resurs hantering](onboard-customer.md).
 
 Att publicera ett erbjudande för hanterade tjänster liknar att publicera någon annan typ av erbjudande till Azure Marketplace. Mer information om den här processen finns i [Azure Marketplace och AppSource Publishing guide](https://docs.microsoft.com/azure/marketplace/marketplace-publishers-guide) och [Hantera Azure-och AppSource Marketplace-erbjudanden](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/manage-offers/cpp-manage-offers). Du bör också gå igenom de [kommersiella Marketplace-certifierings principerna](https://docs.microsoft.com/legal/marketplace/certification-policies), särskilt avsnittet [hanterade tjänster](https://docs.microsoft.com/legal/marketplace/certification-policies#700-managed-services) .
+
+När en kund lägger till erbjudandet kommer de att kunna delegera en eller flera specifika prenumerationer eller resurs grupper som sedan kommer att registreras [för Azure-delegerad resurs hantering](#the-customer-onboarding-process). Observera att innan en prenumeration (eller resurs grupper inom en prenumeration) kan registreras måste prenumerationen vara auktoriserad för onboarding genom att manuellt registrera **Microsoft. ManagedServices** -resurs leverantören.
 
 > [!IMPORTANT]
 > Varje plan i ett erbjudande för hanterade tjänster innehåller ett avsnitt om **manifest information** , där du definierar de Azure Active Directory (Azure AD) entiteter i din klient som ska ha åtkomst till de delegerade resurs grupperna och/eller prenumerationer för kunder som Köp planen. Det är viktigt att vara medveten om att alla grupper (eller användare eller tjänstens huvud namn) som du inkluderar har samma behörigheter för alla kunder som köper planen. Om du vill tilldela olika grupper för att arbeta med varje kund måste du publicera en separat privat plan som är exklusiv för varje kund.

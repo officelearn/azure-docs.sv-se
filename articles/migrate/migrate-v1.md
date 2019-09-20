@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 07/11/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: b3607f0b462efceab322e6eaf616268a34b02fb0
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 2c63d63e57a23963f17b6773f244973b051b57eb
+ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70142086"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71162463"
 ---
 # <a name="work-with-the-previous-version-of-azure-migrate"></a>Arbeta med den tidigare versionen av Azure Migrate
 
@@ -78,7 +78,7 @@ Vyn för Azure-beredskap i utvärderingen visar beredskapsstatus för varje virt
 
 **Beredskap** | **Låst** | **Detaljer**
 --- | --- | ---
-Redo för Azure | Inga kompatibilitetsproblem. Datorn kan migreras som den är till Azure och den kommer att starta i Azure fullständigt Azure-support. | För förberedda virtuella datorer rekommenderar Azure Migrate en VM-storlek i Azure.
+Redo för Azure | Inga kompatibilitetsproblem. Datorn kan migreras med Azure, och den kommer att startas i Azure med fullständig support för Azure. | För förberedda virtuella datorer rekommenderar Azure Migrate en VM-storlek i Azure.
 Villkorligt redo för Azure | Datorn kan starta i Azure, men kanske inte har fullständig support för Azure. Till exempel en dator med en äldre version av Windows Server som inte stöds i Azure. | Azure Migrate förklarar beredskaps problemen och ger åtgärder.
 Ej redo för Azure |  Det går inte att starta den virtuella datorn i Azure. Om en virtuell dator till exempel har en disk som är större än 4 TB, kan den inte finnas i Azure. | Azure Migrate förklarar beredskaps problemen och ger åtgärder.
 Beredskap okänd | Azure Migrate kan inte identifiera Azure-beredskap, vanligt vis eftersom data inte är tillgängliga.
@@ -91,7 +91,7 @@ Beredskapen tar hänsyn till ett antal VM-egenskaper, för att identifiera om de
 **Egenskap** | **Detaljer** | **Beredskap**
 --- | --- | ---
 **Start typ** | BIOS stöds. UEFI stöds inte. | Villkoret klart om start typen är UEFI.
-**Kärnor** | Datorer Core < = det maximala antalet kärnor (128) som stöds för en virtuell Azure-dator.<br/><br/> Om prestanda historiken är tillgänglig, Azure Migrate beakta de använda kärnorna.<br/>Om en <br/>bekvämlighets faktorn anges i utvärderings inställningarna, antalet använda kärnor multipliceras med den praktiska faktorn.<br/><br/> Om det inte finns någon prestanda historik använder Azure Migrate tilldelade kärnor, utan att använda den praktiska faktorn. | Redo om det är mindre än eller lika med begränsningar.
+**Kärnor** | Datorer Core < = det maximala antalet kärnor (128) som stöds för en virtuell Azure-dator.<br/><br/> Om prestanda historiken är tillgänglig, Azure Migrate beakta de använda kärnorna.<br/>Om en bekvämlighets faktor anges i utvärderings inställningarna multipliceras antalet använda kärnor av den praktiska faktorn.<br/><br/> Om det inte finns någon prestanda historik använder Azure Migrate tilldelade kärnor, utan att använda den praktiska faktorn. | Redo om det är mindre än eller lika med begränsningar.
 **Minnesoptimerade** | Datorns minnes storlek < = högsta mängd minne (3892 GB på Azure M-serien&nbsp;Standard_M128m<sup>2</sup>) för en virtuell Azure-dator. [Läs mer](https://docs.microsoft.com/azure/virtual-machines/windows/sizes).<br/><br/> Om prestanda historiken är tillgänglig Azure Migrate anses det använda minnet.<br/><br/>Om en bekvämlighets faktor anges multipliceras det använda minnet av den praktiska faktorn.<br/><br/> Om det inte finns någon historik används allokerat minne, utan att du använder den praktiska faktorn.<br/><br/> | Redo om det är inom gränserna.
 **Lagrings disk** | Den allokerade storleken på en disk måste vara 4 TB (4096 GB) eller mindre.<br/><br/> Antalet diskar som är anslutna till datorn måste vara 65 eller mindre, inklusive OS-disken. | Redo om det är inom gränserna.
 **Nätverk** | En dator måste ha 32 eller färre nätverkskort kopplade till sig. | Redo om det är inom gränserna.
@@ -142,7 +142,7 @@ Kostnads uppskattningar visar total beräknings-och lagrings kostnad för att k�
 
 Varje prestanda-baserad utvärdering är associerad med en förtroende bedömning.
 
-- Ett konfidens intervall från en stjärna till fem stjärnor (en-start är den lägsta och fem första).
+- Ett konfidens intervall från en stjärna till fem stjärnor (en stjärna är det lägsta och fem stjärnor).
 - Förtroendet har tilldelats en utvärdering, baserat på tillgängligheten för data punkter som behövs för att beräkna utvärderingen.
 - Med säkerhetsomdömet kan du beräkna tillförlitligheten i de storleksrekommendationer som anges av Azure Migrate.
 - Konfidens omdömet är inte tillgängligt för lokala utvärderingar i "i befintligt skick".
@@ -216,7 +216,7 @@ När du har konfigurerat en arbets yta laddar du ned och installerar agenter på
 4. Kopiera arbetsytans ID och nyckel. Du behöver dessa när du installerar MMA på den lokala datorn.
 
 > [!NOTE]
-> Om du vill automatisera installationen av agenter kan du använda ett distributions verktyg som System Center Configuration Manager eller ett partner verktyg, till exempel en [Intigua](https://www.intigua.com/getting-started-intigua-for-azure-migration), som orovides en agent distributions lösning för Azure Migrate.
+> Om du vill automatisera installationen av agenter kan du använda ett distributions verktyg som System Center Configuration Manager eller ett partner verktyg, till exempel en [Intigua](https://www.intigua.com/getting-started-intigua-for-azure-migration), som tillhandahåller en agent distributions lösning för Azure Migrate.
 
 
 #### <a name="install-the-mma-agent-on-a-windows-machine"></a>Installera MMA-agenten på en Windows-dator

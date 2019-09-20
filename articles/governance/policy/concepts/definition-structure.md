@@ -3,16 +3,16 @@ title: Information om princip definitions strukturen
 description: Beskriver hur resource principdefinitionen används av Azure Policy för att etablera konventioner för resurser i din organisation genom att beskriva när principen tillämpas och vilken effekt ska börja.
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 03/13/2019
+ms.date: 09/09/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 1999a47d18fd3ce6388d6177be85c7debd3c1e97
-ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
+ms.openlocfilehash: d7e264bda62753693cdd2333625313cf213f142a
+ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70239192"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71145572"
 ---
 # <a name="azure-policy-definition-structure"></a>Azure Policy-definitionsstruktur
 
@@ -398,6 +398,7 @@ Azure Policy stöder följande typer av påverkan:
 - **DeployIfNotExists**: distribuerar en resurs om den inte redan finns
 - **Inaktiverad**: inte utvärdera resurser för principregeln
 - **EnforceRegoPolicy**: konfigurerar kontrollanten för öppen Policy Agent inspelare i Azure Kubernetes-tjänsten (för hands version)
+- **Ändra**: lägger till, uppdaterar eller tar bort definierade taggar från en resurs
 
 För **lägga till**, måste du ange följande information:
 
@@ -424,6 +425,8 @@ Den **DeployIfNotExists** effekt kräver den **roleDefinitionId** -egenskapen i 
     ]
 }
 ```
+
+På samma sätt **krävs** **roleDefinitionId** -egenskapen i **informations** delen av princip regeln för [Åtgärds uppgiften](../how-to/remediate-resources.md). **Ändra** kräver även en **Åtgärds** mat ris för att definiera vilka åtgärder som ska vidtas på resurs taggarna.
 
 Fullständig information om varje effekt, utvärderings ordning, egenskaper och exempel finns i [förstå Azure policys effekter](effects.md).
 

@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 08/08/2019
 ms.author: juliako
-ms.openlocfilehash: 64bf8f5c8de5f56ee1140e91d0472a33b35570cf
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: d8cb8fdebb5a7e4bcbc9f979c98085e90ebd4c68
+ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68878803"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71147160"
 ---
 # <a name="handling-event-grid-events"></a>Hantera Event Grid-händelser
 
@@ -38,6 +38,9 @@ Program som hanterar Media Services händelser bör följa några rekommenderade
 * På samma sätt kan du kontrol lera att eventType är att du är för beredd att bearbeta och inte förutsätter att alla händelser som du tar emot är de typer som du förväntar dig.
 * Ignorera fält som du inte förstår.  Den här övningen hjälper dig att hålla dig flexibel till nya funktioner som kan läggas till i framtiden.
 * Använd prefixet "subject" och suffixet matchar för att begränsa händelser till en viss händelse.
+
+> [!NOTE]
+> Händelser omfattas Event Grid [serviceavtal (SLA)](https://azure.microsoft.com/support/legal/sla/event-grid/v1_0/). Om du vill hämta händelse meddelanden med hjälp av API: er, se exempel på hur du använder händelser, med [.NET SDK](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/master/ContentProtection/BasicAESClearKey) eller [Java SDK](https://github.com/Azure-Samples/media-services-v3-java/tree/master/ContentProtection/BasicAESClearKey).
 
 ## <a name="next-steps"></a>Nästa steg
 

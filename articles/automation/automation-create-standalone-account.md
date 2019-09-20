@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 01/15/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 32fafaeb6332ca0e76dbc8d72f11872a82ca1cbe
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.openlocfilehash: 1cdea358daa3bd0f9e738a0454613ea774a0e6dc
+ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68779144"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71146652"
 ---
 # <a name="create-a-standalone-azure-automation-account"></a>Skapa ett fristående Azure Automation-konto
 
@@ -28,7 +28,6 @@ När du skapar ett Automation-konto i Azure Portal skapas dessa konton automatis
   * Skapar ett huvud namn för tjänsten i Azure Active Directory (Azure AD).
   * Skapar ett certifikat.
   * Tilldelar rollbaserade Access Control i rollen medarbetare (RBAC) som hanterar Azure Resource Manager resurser med hjälp av Runbooks.
-* **Klassiskt kör som-konto**. Det här kontot överför ett hanterings certifikat. Certifikatet hanterar klassiska resurser med hjälp av Runbooks.
 
 När du har skapat de här kontona kan du snabbt börja skapa och distribuera Runbooks som stöder dina automatiserings behov.
 
@@ -97,14 +96,13 @@ När Automation-kontot har skapats skapas flera resurser automatiskt. När du ha
 | AzureRunAsCertificate |En certifikat till gång som skapas automatiskt när Automation-kontot skapas, eller genom att använda ett PowerShell-skript för ett befintligt konto. Certifikatet autentiseras med Azure så att du kan hantera Azure Resource Manager resurser från Runbooks. Det här certifikatet har en livslängd på ett år. |
 | AzureRunAsConnection |En anslutnings till gång som skapas automatiskt när Automation-kontot skapas, eller genom att använda ett PowerShell-skript för ett befintligt konto. |
 
-I följande tabell sammanfattas resurserna för det klassiska Kör som-kontot.
+## <a name="classic-run-as-accounts"></a>Klassiska kör som-konton
 
-| Resource | Beskrivning |
-| --- | --- |
-| AzureClassicAutomationTutorial-runbook |Ett exempel på en grafisk Runbook. Runbooken hämtar alla klassiska virtuella datorer i en prenumeration med hjälp av det klassiska kör som-kontot (certifikat). Sedan visar den VM-namn och-status. |
-| AzureClassicAutomationTutorial Script-runbook |Ett exempel på en PowerShell-Runbook. Runbooken hämtar alla klassiska virtuella datorer i en prenumeration med hjälp av det klassiska kör som-kontot (certifikat). Sedan visar den VM-namn och-status. |
-| AzureClassicRunAsCertificate |En certifikat till gång som skapas automatiskt. Certifikatet autentiseras med Azure så att du kan hantera klassiska Azure-resurser från Runbooks. Det här certifikatet har en livslängd på ett år. |
-| AzureClassicRunAsConnection |En anslutnings till gång som skapas automatiskt. Till gången autentiseras med Azure så att du kan hantera klassiska Azure-resurser från Runbooks. |
+Klassiska kör som-konton skapas inte längre som standard när du skapar ett Azure Automation-konto. Om du fortfarande behöver ett klassiskt kör som-konto utför du följande steg.
+
+1. På sidan **Automation-konto** väljer du **Kör som-konton** under **konto inställningar**.
+2. Välj **det klassiska kör som-kontot i Azure**.
+3. Klicka på **skapa** för att fortsätta med att skapa det klassiska kör som-kontot.
 
 ## <a name="next-steps"></a>Nästa steg
 

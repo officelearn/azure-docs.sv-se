@@ -1,19 +1,19 @@
 ---
-title: Skriptexempel för Azure PowerShell - kontonyckel och anslutning sträng åtgärder för ett Azure Cosmos-konto
-description: PowerShell skriptexempel för Azure - konto nyckel och anslutningen strängåtgärder för ett Azure Cosmos-konto
+title: Azure PowerShell skript-konto nyckel och anslutnings Strängs åtgärder för ett Azure Cosmos-konto
+description: Azure PowerShell skript exempel – konto nyckel och anslutnings Strängs åtgärder för ett Azure Cosmos-konto
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 05/20/2019
+ms.date: 09/20/2019
 ms.author: mjbrown
-ms.openlocfilehash: 55f28ef6c6ff82f0b82b10ac1dd7931ac46aa2fc
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 1eb9cc4c35584b94d3d16654b1bec253e21a91ff
+ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67602513"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71154747"
 ---
-# <a name="connection-string-and-account-key-operations-for-an-azure-cosmos-account-using-powershell"></a>Anslutningssträngen och konto-nyckeln för ett Azure Cosmos-konto med hjälp av PowerShell
+# <a name="connection-string-and-account-key-operations-for-an-azure-cosmos-account-using-powershell"></a>Anslutnings strängar och konto nyckel åtgärder för ett Azure Cosmos-konto med PowerShell
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 
@@ -21,7 +21,8 @@ ms.locfileid: "67602513"
 
 ## <a name="sample-script"></a>Exempelskript
 
-Den här exempel kräver resursgruppen och kontot finns. Använd en befintlig PowerShell skapa exemplet för att etablera ett konto först.
+> [!NOTE]
+> Det här exemplet visar hur du använder ett SQL (Core) API-konto. Om du vill använda det här exemplet för andra API: er kopierar du de relaterade egenskaperna och tillämpar på ditt API-speciella skript
 
 [!code-powershell[main](../../../../../powershell_scripts/cosmosdb/common/ps-account-keys-connection-strings.ps1 "Connection strings and account keys for Azure Cosmos account")]
 
@@ -41,7 +42,7 @@ Det här skriptet använder följande kommandon. Varje kommando i tabellen länk
 |---|---|
 |**Azure-resurser**| |
 | [Invoke-AzResourceAction](https://docs.microsoft.com/powershell/module/az.resources/invoke-azresourceaction) | Anropar en åtgärd på en resurs. |
-|**Azure-resursgrupper**| |
+|**Resurs grupper i Azure**| |
 | [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) | Tar bort en resursgrupp, inklusive alla kapslade resurser. |
 |||
 

@@ -1,28 +1,26 @@
 ---
-title: Analysera webbplatsloggar med Python-biblioteken i Spark - Azure
-description: Den här anteckningsboken visar hur du analyserar loggdata som använder ett anpassat bibliotek med Spark på Azure HDInsight.
+title: Analysera webbplats loggar med python-bibliotek i Spark – Azure
+description: Den här antecknings boken visar hur du analyserar loggdata med ett anpassat bibliotek med Spark på Azure HDInsight.
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/28/2017
-ms.author: hrasheed
-ms.openlocfilehash: 5492f4865e464cf8bedaee6e9b0ab25532e21459
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 6d23e8cfa8d20169d2b63723138b60dafb1069de
+ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67448764"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71146985"
 ---
-# <a name="analyze-website-logs-using-a-custom-python-library-with-apache-spark-cluster-on-hdinsight"></a>Analysera webbplatsloggar med hjälp av en anpassad Python-bibliotek med Apache Spark-kluster i HDInsight
+# <a name="analyze-website-logs-using-a-custom-python-library-with-apache-spark-cluster-on-hdinsight"></a>Analysera webbplats loggar med ett anpassat python-bibliotek med Apache Spark kluster i HDInsight
 
-Den här anteckningsboken visar hur du analyserar loggdata som använder ett anpassat bibliotek med Apache Spark i HDInsight. Det anpassade biblioteket som vi använder är ett Python-bibliotek som kallas **iislogparser.py**.
+Den här antecknings boken visar hur du analyserar logg data med hjälp av ett anpassat bibliotek med Apache Spark på HDInsight. Det anpassade biblioteket som vi använder är ett Python-bibliotek med namnet **iislogparser.py**.
 
 > [!TIP]  
-> Den här artikeln är också tillgängligt som en Jupyter-anteckningsbok i ett kluster med Spark (Linux) som du skapar i HDInsight. Notebook-upplevelsen kan du köra Python-kodavsnitt från anteckningsboken själva. Om du vill utföra artikeln från inom en bärbar dator, skapa ett Spark-kluster, starta en Jupyter-anteckningsbok (`https://CLUSTERNAME.azurehdinsight.net/jupyter`), och sedan köra anteckningsboken **analysera loggar med Spark med en anpassad library.ipynb** under den **PySpark** mapp.
->
->
+> Den här artikeln är också tillgänglig som en Jupyter Notebook på ett Spark-kluster (Linux) som du skapar i HDInsight. Med Notebook-upplevelsen kan du köra python-kodfragmenten från själva antecknings boken. Om du vill utföra artikeln i en bärbar dator skapar du ett Spark-kluster, startar en Jupyter`https://CLUSTERNAME.azurehdinsight.net/jupyter`Notebook () och kör sedan antecknings boken **med Spark med hjälp av ett anpassat bibliotek. ipynb** under mappen **PySpark** .
 
 **Krav:**
 
@@ -32,23 +30,24 @@ Du måste ha följande:
 
 * Ett Apache Spark-kluster i HDInsight. Anvisningar finns i [Skapa Apache Spark-kluster i Azure HDInsight](apache-spark-jupyter-spark-sql.md).
 
-## <a name="save-raw-data-as-an-rdd"></a>Spara rådata som en RDD
-I det här avsnittet använder vi den [Jupyter](https://jupyter.org) anteckningsboken som är associerade med ett Apache Spark-kluster i HDInsight för att köra jobb som bearbetar din exempelrådata och spara den som en Hive-tabell. Exempeldata är en .csv-fil (hvac.csv) tillgängliga i alla kluster som standard.
+## <a name="save-raw-data-as-an-rdd"></a>Spara rå data som en RDD
+I det här avsnittet använder vi den [Jupyter](https://jupyter.org) Notebook som är associerad med ett Apache Spark kluster i HDInsight för att köra jobb som bearbetar dina rå data och spara dem som en Hive-tabell. Exempel data är en. csv-fil (HVAC. csv) som är tillgänglig i alla kluster som standard.
 
-När du har sparat dina data som en Apache Hive-tabell i nästa avsnitt ansluter vi till Hive-tabell med hjälp av BI-verktyg som Power BI och Tableau.
+När dina data har sparats som en Apache Hive tabell i nästa avsnitt kommer vi att ansluta till Hive-tabellen med BI-verktyg som Power BI och Tableau.
 
-1. På startsidan i [Azure Portal](https://portal.azure.com/) klickar du på panelen för ditt Spark-kluster (om du har fäst det på startsidan). Du kan också navigera till ditt kluster under **Bläddra bland alla** > **HDInsight-kluster**.   
+1. På startsidan i [Azure Portal](https://portal.azure.com/) klickar du på panelen för ditt Spark-kluster (om du har fäst det på startsidan). Du kan också navigera till ditt kluster under **Bläddra bland alla** > **HDInsight-kluster**.
+
 2. Från Spark-klusterbladet, klickar du på **Klusterinstrumentpanel** och sedan på **Jupyter Notebook**. Ange administratörsautentiseringsuppgifterna för klustret om du uppmanas att göra det.
 
    > [!NOTE]
    > Du kan också nå Jupyter Notebook för ditt kluster genom att öppna nedanstående URL i webbläsaren. Ersätt **CLUSTERNAME** med namnet på klustret:
    >
    > `https://CLUSTERNAME.azurehdinsight.net/jupyter`
-   >
-   >
+
 3. Skapa en ny anteckningsbok. Klicka på **Ny** och sedan på **PySpark**.
 
-    ![Skapa en ny Jupyter-anteckningsbok](./media/apache-spark-custom-library-website-log-analysis/hdinsight-create-jupyter-notebook.png "Skapa en ny Jupyter-anteckningsbok")
+    ![Skapa en ny Apache Jupyter-anteckningsbok](./media/apache-spark-custom-library-website-log-analysis/hdinsight-create-jupyter-notebook.png "Skapa en ny Jupyter-anteckningsbok")
+
 4. En ny anteckningsbok skapas och öppnas med namnet Untitled.pynb. Klicka på anteckningsbokens namn högst upp och ange ett trevligt namn.
 
     ![Ange ett namn för anteckningsboken](./media/apache-spark-custom-library-website-log-analysis/hdinsight-name-jupyter-notebook.png "Ange ett namn för anteckningsboken")
@@ -57,13 +56,11 @@ När du har sparat dina data som en Apache Hive-tabell i nästa avsnitt ansluter
         from pyspark.sql import Row
         from pyspark.sql.types import *
 
-
-1. Skapa en RDD med log exempeldata redan finns på klustret. Du kan komma åt data i standardkontot för lagring som är associerade med klustret i **\HdiSamples\HdiSamples\WebsiteLogSampleData\SampleLog\909f2b.log**.
+6. Skapa en RDD med hjälp av de exempel logg data som redan är tillgängliga i klustret. Du kan komma åt data i det standard lagrings konto som är associerat med klustret på **\HdiSamples\HdiSamples\WebsiteLogSampleData\SampleLog\909f2b.log**.
 
         logs = sc.textFile('wasb:///HdiSamples/HdiSamples/WebsiteLogSampleData/SampleLog/909f2b.log')
 
-
-1. Hämta en exempellogg inställd på att kontrollera att det föregående steget har slutförts.
+7. Hämta en exempel logg uppsättning för att kontrol lera att föregående steg har slutförts.
 
         logs.take(5)
 
@@ -79,21 +76,22 @@ När du har sparat dina data som en Apache Hive-tabell i nästa avsnitt ansluter
          u'2014-01-01 02:01:09 SAMPLEWEBSITE GET /blogposts/mvc4/step3.png X-ARR-LOG-ID=9eace870-2f49-4efd-b204-0d170da46b4a 80 - 1.54.23.196 Mozilla/5.0+(Windows+NT+6.3;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/31.0.1650.63+Safari/537.36 - http://weblogs.asp.net/sample/archive/2007/12/09/asp-net-mvc-framework-part-4-handling-form-edit-and-post-scenarios.aspx www.sample.com 200 0 0 51237 871 32',
          u'2014-01-01 02:01:09 SAMPLEWEBSITE GET /blogposts/mvc4/step4.png X-ARR-LOG-ID=4bea5b3d-8ac9-46c9-9b8c-ec3e9500cbea 80 - 1.54.23.196 Mozilla/5.0+(Windows+NT+6.3;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/31.0.1650.63+Safari/537.36 - http://weblogs.asp.net/sample/archive/2007/12/09/asp-net-mvc-framework-part-4-handling-form-edit-and-post-scenarios.aspx www.sample.com 200 0 0 72177 871 47']
 
-## <a name="analyze-log-data-using-a-custom-python-library"></a>Analysera loggdata med hjälp av en anpassad Python-bibliotek
-1. Första raderna i par innehåller rubrikinformation och varje återstående rad matchar schemat som beskrivs i den rubriken i utdata ovan. Sådana parsningsloggar kan vara komplicerat. Därför använder vi en anpassad Python-bibliotek (**iislogparser.py**) som gör att sådana parsningsloggar som är mycket enklare. Som standard det här biblioteket som ingår i ditt Spark-kluster i HDInsight på **/HdiSamples/HdiSamples/WebsiteLogSampleData/iislogparser.py**.
+## <a name="analyze-log-data-using-a-custom-python-library"></a>Analysera loggdata med ett anpassat python-bibliotek
 
-    Det här biblioteket är dock inte i den `PYTHONPATH` så att vi inte kan använda den med hjälp av en import-sats som `import iislogparser`. Om du vill använda det här biblioteket, måste vi distribuera den till alla arbetsnoder. Kör följande fragment.
+1. I utdata ovan inkluderar de första raderna rubrik informationen och varje återstående rad matchar schemat som beskrivs i rubriken. Det kan vara svårt att parsa sådana loggar. Vi använder därför ett anpassat python-bibliotek (**iislogparser.py**) som gör det mycket enklare att parsa dessa loggar. Som standard ingår det här biblioteket i ditt Spark-kluster i HDInsight på **/HdiSamples/HdiSamples/WebsiteLogSampleData/iislogparser.py**.
+
+    Det här biblioteket är dock inte i `PYTHONPATH` så att vi inte kan använda det med hjälp av en import instruktion som. `import iislogparser` För att kunna använda det här biblioteket måste vi distribuera det till alla arbetsnoder. Kör följande kodfragment.
 
         sc.addPyFile('wasb:///HdiSamples/HdiSamples/WebsiteLogSampleData/iislogparser.py')
 
-
-1. `iislogparser` innehåller en funktion `parse_log_line` som returnerar `None` om en logg är en rubrikrad, och returnerar en instans av den `LogLine` klassen om påträffas av en rad i loggen. Använd den `LogLine` klassen för att extrahera bara log-rader från RDD:
+1. `iislogparser`tillhandahåller en funktion `parse_log_line` som returnerar `None` om en logg rad är en rubrik rad och `LogLine` returnerar en instans av klassen om den påträffar en logg rad. `LogLine` Använd klassen för att endast extrahera logg rader från RDD:
 
         def parse_line(l):
             import iislogparser
             return iislogparser.parse_log_line(l)
         logLines = logs.map(parse_line).filter(lambda p: p is not None).cache()
-2. Hämta några extraherade log rader att kontrollera att steget har slutförts.
+
+1. Hämta några extraherade logg rader för att verifiera att steget har slutförts.
 
        logLines.take(2)
 
@@ -105,7 +103,8 @@ När du har sparat dina data som en Apache Hive-tabell i nästa avsnitt ansluter
 
        [2014-01-01 02:01:09 SAMPLEWEBSITE GET /blogposts/mvc4/step2.png X-ARR-LOG-ID=2ec4b8ad-3cf0-4442-93ab-837317ece6a1 80 - 1.54.23.196 Mozilla/5.0+(Windows+NT+6.3;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/31.0.1650.63+Safari/537.36 - http://weblogs.asp.net/sample/archive/2007/12/09/asp-net-mvc-framework-part-4-handling-form-edit-and-post-scenarios.aspx www.sample.com 200 0 0 53175 871 46,
         2014-01-01 02:01:09 SAMPLEWEBSITE GET /blogposts/mvc4/step3.png X-ARR-LOG-ID=9eace870-2f49-4efd-b204-0d170da46b4a 80 - 1.54.23.196 Mozilla/5.0+(Windows+NT+6.3;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/31.0.1650.63+Safari/537.36 - http://weblogs.asp.net/sample/archive/2007/12/09/asp-net-mvc-framework-part-4-handling-form-edit-and-post-scenarios.aspx www.sample.com 200 0 0 51237 871 32]
-3. Den `LogLine` klass, i sin tur har vissa användbara metoder som `is_error()`, vilket returnerar om en loggpost har en felkod. Använda detta för att beräkna antalet fel i extraherade raderna för logg och sedan logga alla fel på en annan fil.
+
+1. Klassen, i sin tur, har en del användbara metoder, `is_error()`till exempel, som returnerar om en loggpost innehåller en felkod. `LogLine` Använd detta för att beräkna antalet fel i de extraherade logg raderna och logga sedan alla fel till en annan fil.
 
        errors = logLines.filter(lambda p: p.is_error())
        numLines = logLines.count()
@@ -120,8 +119,8 @@ När du har sparat dina data som en Apache Hive-tabell i nästa avsnitt ansluter
        # -----------------
 
        There are 30 errors and 646 log entries
-4. Du kan också använda **Matplotlib** att konstruera en visualisering av data. Om du vill ta reda på orsaken för begäranden som körs under en längre tid kan du till exempel vill hitta de filer som tar längst tid att betjäna i genomsnitt.
-   Kodavsnittet nedan hämtar de översta 25 resurser som tog de flesta tid att hantera en begäran.
+1. Du kan också använda **matplotlib** för att skapa en visualisering av data. Om du till exempel vill isolera orsaken till begär Anden som körs under en längre tid kanske du vill hitta de filer som tar mest tid att betjäna i genomsnitt.
+   I kodfragmentet nedan hämtas de 25 främsta resurser som tog mest tid att betjäna en begäran.
 
        def avgTimeTakenByKey(rdd):
            return rdd.combineByKey(lambda line: (line.time_taken, 1),
@@ -162,7 +161,8 @@ När du har sparat dina data som en Apache Hive-tabell i nästa avsnitt ansluter
         (u'/blogposts/sqlvideos/sqlvideos.jpg', 102.0),
         (u'/blogposts/mvcrouting/step21.jpg', 101.0),
         (u'/blogposts/mvc4/step1.png', 98.0)]
-5. Du kan också visa den här informationen i form av diagram. Som ett första steg att skapa en rityta, låt oss först skapa en tillfällig tabell **AverageTime**. Tabellen grupperar loggarna efter tid att se om det fanns någon ovanlig svarstidsspikar vid given tidpunkt.
+
+1. Du kan också presentera den här informationen i form av rityta. Låt oss börja med att skapa en tillfällig tabell **AverageTime**, som ett första steg för att skapa en rityta. I tabellen grupperas loggarna efter tid för att se om det fanns några toppar vid en viss tidpunkt vid några ovanliga svar.
 
        avgTimeTakenByMinute = avgTimeTakenByKey(logLines.map(lambda p: (p.datetime.minute, p))).sortByKey()
        schema = StructType([StructField('Minutes', IntegerType(), True),
@@ -170,19 +170,21 @@ När du har sparat dina data som en Apache Hive-tabell i nästa avsnitt ansluter
 
        avgTimeTakenByMinuteDF = sqlContext.createDataFrame(avgTimeTakenByMinute, schema)
        avgTimeTakenByMinuteDF.registerTempTable('AverageTime')
-6. Sedan kan du köra följande SQL-fråga för att hämta alla poster i den **AverageTime** tabell.
+
+1. Du kan sedan köra följande SQL-fråga för att hämta alla poster i tabellen **AverageTime** .
 
        %%sql -o averagetime
        SELECT * FROM AverageTime
 
-   Den `%%sql` magic följt av `-o averagetime` garanterar att utdata från frågan sparas lokalt på Jupyter-servern (vanligtvis huvudnoden i klustret). Utdata sparas som en [Pandas](https://pandas.pydata.org/) dataframe med det angivna namnet **averagetime**.
+   Magic följt av `-o averagetime` ser till att utdata från frågan sparas lokalt på Jupyter-servern (vanligt vis huvudnoden i klustret). `%%sql` Utdata sparas som en [Pandas](https://pandas.pydata.org/) -dataframe med det angivna namnet **averagetime**.
 
    Du bör se utdata som liknar följande:
 
-   ![SQL-frågan returnerade](./media/apache-spark-custom-library-website-log-analysis/hdinsight-jupyter-sql-qyery-output.png "SQL-frågan returnerade")
+   ![HDInsight Jupyter SQL qyery-utdata](./media/apache-spark-custom-library-website-log-analysis/hdinsight-jupyter-sql-qyery-output.png "SQL-frågans utdata")
 
-   Mer information om den `%%sql` magic, se [parametrar stöds med den %% sql magic](apache-spark-jupyter-notebook-kernels.md#parameters-supported-with-the-sql-magic).
-7. Du kan nu använda Matplotlib, ett bibliotek som används för att konstruera visualisering av data, för att skapa en rityta. Eftersom området måste skapas från lokalt till beständiga **averagetime** dataframe, kodfragmentet måste börja med den `%%local` magic. Detta säkerställer att koden körs lokalt på Jupyter-server.
+   Mer information om `%%sql` Magic finns i [parametrar som stöds med SQL-Magic%%](apache-spark-jupyter-notebook-kernels.md#parameters-supported-with-the-sql-magic).
+
+1. Nu kan du använda matplotlib, ett bibliotek som används för att konstruera visualisering av data, för att skapa en rityta. Eftersom området måste skapas från det lokalt sparade **averagetime** -dataframe måste kodfragmentet börja med `%%local` Magic. Detta säkerställer att koden körs lokalt på Jupyter-servern.
 
        %%local
        %matplotlib inline
@@ -194,26 +196,27 @@ När du har sparat dina data som en Apache Hive-tabell i nästa avsnitt ansluter
 
    Du bör se utdata som liknar följande:
 
-   ![Matplotlib utdata](./media/apache-spark-custom-library-website-log-analysis/hdinsight-apache-spark-web-log-analysis-plot.png "Matplotlib utdata")
-8. När du har kört appen bör du stänga ned anteckningsboken för att frigöra resurser. Du gör det genom att klicka på **Stäng och stoppa** i anteckningsbokens **Fil**-meny. Då avslutas anteckningsboken och stängs ned.
+   ![analys ritning för Apache Spark-webblogg](./media/apache-spark-custom-library-website-log-analysis/hdinsight-apache-spark-web-log-analysis-plot.png "Matplotlib-utdata")
+
+1. När du har kört appen bör du stänga ned anteckningsboken för att frigöra resurser. Du gör det genom att klicka på **Stäng och stoppa** i anteckningsbokens **Fil**-meny. Då avslutas anteckningsboken och stängs ned.
 
 ## <a name="seealso"></a>Se även
-* [Översikt: Apache Spark på Azure HDInsight](apache-spark-overview.md)
+* [: Apache Spark på Azure HDInsight](apache-spark-overview.md)
 
 ### <a name="scenarios"></a>Scenarier
-* [Apache Spark med BI: Utföra interaktiv dataanalys med Spark i HDInsight med BI-verktyg](apache-spark-use-bi-tools.md)
-* [Apache Spark med Machine Learning: Använda Spark i HDInsight för analys av byggnadstemperatur med HVAC-data](apache-spark-ipython-notebook-machine-learning.md)
-* [Apache Spark med Machine Learning: Använda Spark i HDInsight för att förutse matinspektionsresultat](apache-spark-machine-learning-mllib-ipython.md)
+* [Apache Spark med BI: Utföra interaktiv data analys med hjälp av spark i HDInsight med BI-verktyg](apache-spark-use-bi-tools.md)
+* [Apache Spark med Machine Learning: Använda spark i HDInsight för analys av bygg temperatur med HVAC-data](apache-spark-ipython-notebook-machine-learning.md)
+* [Apache Spark med Machine Learning: Använd spark i HDInsight för att förutsäga resultatet av livsmedels inspektionen](apache-spark-machine-learning-mllib-ipython.md)
 
 ### <a name="create-and-run-applications"></a>Skapa och köra program
 * [Skapa ett fristående program med hjälp av Scala](apache-spark-create-standalone-application.md)
 * [Köra jobb via fjärranslutning på ett Apache Spark-kluster med hjälp av Apache Livy](apache-spark-livy-rest-interface.md)
 
 ### <a name="tools-and-extensions"></a>Verktyg och tillägg
-* [Använda HDInsight Tools-Plugin för IntelliJ IDEA till att skapa och skicka Apache Spark Scala-appar](apache-spark-intellij-tool-plugin.md)
-* [Använda HDInsight Tools-Plugin för IntelliJ IDEA till att felsöka Apache Spark-program via fjärranslutning](../hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
-* [Använda Apache Zeppelin-anteckningsböcker med Apache Spark-kluster på HDInsight](apache-spark-zeppelin-notebook.md)
-* [Kernlar som är tillgängliga för Jupyter notebook i Apache Spark-kluster för HDInsight](apache-spark-jupyter-notebook-kernels.md)
+* [Använd HDInsight tools-plugin för IntelliJ idé för att skapa och skicka Apache Spark Scala-program](apache-spark-intellij-tool-plugin.md)
+* [Använd HDInsight tools-plugin för IntelliJ-idé för att felsöka Apache Spark program via fjärr anslutning](../hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
+* [Använda Apache Zeppelin-anteckningsböcker med ett Apache Spark-kluster i HDInsight](apache-spark-zeppelin-notebook.md)
+* [Kernels tillgängliga för Jupyter Notebook i Apache Spark kluster för HDInsight](apache-spark-jupyter-notebook-kernels.md)
 * [Använda externa paket med Jupyter-anteckningsböcker](apache-spark-jupyter-notebook-use-external-packages.md)
 * [Installera Jupyter på datorn och ansluta till ett HDInsight Spark-kluster](apache-spark-jupyter-notebook-install-locally.md)
 

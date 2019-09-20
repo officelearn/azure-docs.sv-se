@@ -8,12 +8,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 5/31/2019
 ms.author: victorh
-ms.openlocfilehash: 5f7fd47a096ddd57150a466f85fabcfc2f7045d9
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 725b284fa58296aea310f618c000e77d9a0fb4c9
+ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68564865"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71146628"
 ---
 # <a name="what-is-azure-application-gateway"></a>Vad är Azure Application Gateway?
 
@@ -35,7 +35,7 @@ Application Gateway stöder SSL/TLS-avslutning på gatewayen, efter vilken trafi
 
 ## <a name="autoscaling"></a>Automatisk skalning
 
-Application Gateway-eller WAF-distributioner under Standard_v2 eller WAF_v2 SKU stöder automatisk skalning och kan skalas upp eller ned baserat på ändrade trafik inläsnings mönster. Automatisk skalning tar även bort behovet av att välja distributionsstorlek eller instansantal under etablering. Mer information om funktionerna för Application Gateway standard_v2 och WAF_v2 finns i autoskalning [v2 SKU](application-gateway-autoscaling-zone-redundant.md).
+Application Gateway-eller WAF-distributioner under Standard_v2 eller WAF_v2 SKU stöder automatisk skalning och kan skalas upp eller ned baserat på ändrade trafik inläsnings mönster. Automatisk skalning tar även bort behovet av att välja distributionsstorlek eller instansantal under etablering. Mer information om funktionerna för Application Gateway Standard_v2 och WAF_v2 finns i [autoskalning v2 SKU](application-gateway-autoscaling-zone-redundant.md).
 
 ## <a name="zone-redundancy"></a>Zon redundans
 
@@ -45,13 +45,13 @@ En Application Gateway-eller WAF-distribution under Standard_v2 eller WAF_v2 SKU
 
 Programgatewayens VIP på Standard_v2-eller WAF_v2-SKU: n stöder enbart statisk VIP-typ. Detta säkerställer att den VIP som är associerad med Application Gateway inte ändras ens under Application Gatewayens livstid.
 
-## <a name="web-application-firewall"></a>Brandvägg för webbappar
+## <a name="web-application-firewall"></a>Brandvägg för webbaserade program
 
-Brandvägg för webbaserade program (WAF) är en funktion i Application Gateway som ger ett centraliserat skydd för dina webbappar mot vanliga kryphål och säkerhetsproblem. WAF baseras på regler från [OWASP-kärnregeluppsättningarna (Open Web Application Security Project)](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) 3.0 eller 2.2.9. 
+Brandvägg för webbaserade program (WAF) är en funktion i Application Gateway som ger ett centraliserat skydd för dina webbappar mot vanliga kryphål och säkerhetsproblem. WAF baseras på regler från [OWASP (Open Web Application Security Project) Core Rule set](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) 3,1 (endast WAF_v2), 3,0 och 2.2.9. 
 
 Webbprogram blir i allt större utsträckning föremål för attacker där kända svagheter i programmen utnyttjas. Bland annat är SQL-inmatningsattacker och skriptangrepp mellan webbplatser vanliga. Det kan vara svårt att förhindra sådana attacker i programkoden och kräver ofta omfattande underhåll, korrigeringar och övervakning av många skikt i programtopologin. Med en centraliserad brandvägg för webbaserade program blir det enklare att hantera säkerheten och programadministratörer får bättre möjligheter skydda mot intrång. En brandväggslösning för webbaserade program kan även reagera snabbare på ett säkerhetshot genom att åtgärda en känd svaghet på en central plats jämfört med om korrigeringar ska utföras i varje enskilt webbprogram. Befintliga programgatewayer kan enkelt konverteras till en Application Gateway med brandväggen för webbprogram.
 
-Mer information finns i [brand vägg för webbaserade program (WAF) i Application Gateway](https://docs.microsoft.com/azure/application-gateway/waf-overview)).
+Mer information finns i [brand vägg för webbaserade program (WAF) i Application Gateway](https://docs.microsoft.com/azure/application-gateway/waf-overview).
 
 ## <a name="url-based-routing"></a>URL-baserad routning
 
@@ -63,7 +63,7 @@ Mer information finns i [URL-baserad routning med Application Gateway](https://d
 
 ## <a name="multiple-site-hosting"></a>Värd för flera platser
 
-Om du har flera webbplatser så kan du konfigurera fler än en webbplats inom samma programgateway-instans. Den här funktionen låter dig konfigurera en mer effektiv topologi för dina distributioner genom att lägga till upp till 100 webbplatser till en programgateway. Varje webbplats kan dirigeras till en egen programpool. Till exempel kan programgatewayen hantera trafik för `contoso.com` och `fabrikam.com` från två serverpooler som kallas ContosoServerPool och FabrikamServerPool.
+Om du har flera webbplatser så kan du konfigurera fler än en webbplats inom samma programgateway-instans. Med den här funktionen kan du konfigurera en effektivare topologi för dina distributioner genom att lägga till upp till 100 webbplatser till en Application Gateway eller 40 för WAF (för optimala prestanda). Varje webbplats kan dirigeras till en egen programpool. Till exempel kan programgatewayen hantera trafik för `contoso.com` och `fabrikam.com` från två serverpooler som kallas ContosoServerPool och FabrikamServerPool.
 
 Begäranden för `http://contoso.com` dirigeras till ContosoServerPool och `http://fabrikam.com` dirigeras till FabrikamServerPool.
 
@@ -95,7 +95,7 @@ Application Gateway har inbyggt stöd för WebSocket- och HTTP/2-protokoll. Det 
 
 WebSocket- och HTTP/2-protokollen aktiverar full duplex-kommunikation mellan en server och en klient över en tidskrävande TCP-anslutning. Det här tillåter en mer interaktiv kommunikation mellan webbservern och klienten, som kan vara dubbelriktad utan att behöva avsökning som krävs i HTTP-baserade implementeringar. Dessa protokoll har låg belastning, till skillnad från HTTP, och kan återanvända samma TCP-anslutning för flera begär Anden/svar som resulterar i en mer effektiv resursutnyttjande. Dessa protokoll är utformade att fungera via de traditionella HTTP-portarna 80 och 443.
 
-Mer information finns i stöd för WebSocket- [support](https://docs.microsoft.com/azure/application-gateway/application-gateway-websocket) och [http/2](https://docs.microsoft.com/azure/application-gateway/configuration-overview#http2-support).
+Mer information finns i stöd för [WebSocket-support](https://docs.microsoft.com/azure/application-gateway/application-gateway-websocket) och [http/2](https://docs.microsoft.com/azure/application-gateway/configuration-overview#http2-support).
 
 ## <a name="azure-kubernetes-service-aks-ingress-controller-preview"></a>Förhandsversion av Azure Kubernetes Service (AKS) Ingress-kontrollant 
 
@@ -106,6 +106,8 @@ Mer information finns i avsnittet om [Azure Application Gateway Ingress-kontroll
 ## <a name="connection-draining"></a>Anslutningstömning
 
 Anslutningstömning hjälper dig att få korrekt borttagning av medlemmar i serverdelspoolen under planerade serviceuppdateringar. Den här inställningen aktiveras via serverdelens http-inställning och kan tillämpas på alla medlemmar i en serverdelspool i samband med regelskapandet. Application Gateway säkerställer att alla avregistrerande instanser av en backend-pool inte får någon ny begäran samtidigt som de tillåter att befintliga begär Anden kan slutföras inom en angiven tids gräns. Detta gäller för båda Server dels instanserna som uttryckligen tas bort från backend-poolen med ett API-anrop, och Server dels instanser som rapporteras som skadade enligt hälso avsökningarna.
+
+Mer information finns i avsnittet om tömning av anslutningar i [Application Gateway konfigurations översikt](https://docs.microsoft.com/azure/application-gateway/configuration-overview#connection-draining).
 
 ## <a name="custom-error-pages"></a>Anpassade felsidor
 
@@ -127,13 +129,13 @@ Mer information finns i [skriva om HTTP-huvuden](rewrite-http-headers.md).
 
 ## <a name="sizing"></a>Storleksändring
 
-Application Gateway Standard_v2 och WAF_v2 SKU kan konfigureras för automatisk skalning eller distributioner med fast storlek. Dessa SKU: er erbjuder inte olika instans storlekar.
+Application Gateway Standard_v2 och WAF_v2 SKU kan konfigureras för automatisk skalning eller distributioner med fast storlek. Dessa SKU: er erbjuder inte olika instans storlekar. Mer information om v2-prestanda och priser finns i [autoskalning v2 SKU](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant#pricing).
 
 Application Gateway standard-och WAF SKU finns för närvarande i tre storlekar: **liten**, **medel** och **stor**. Smål instansstorlekar är avsedda för utvecklings- och testningsscenarier.
 
 En fullständig lista över gränserna för programgateways finns i avsnittet om [gränser för Application Gateway-tjänsten](../azure-subscription-service-limits.md?toc=%2fazure%2fapplication-gateway%2ftoc.json#application-gateway-limits).
 
-Följande tabell visar ett genomsnittligt prestanda-dataflöde för varje Application Gateway-instans som har SSL-avlastning aktiverat:
+I följande tabell visas ett genomsnittligt prestanda data flöde för varje Application Gateway v1-instans med SSL-avlastning aktive rad:
 
 | Genomsnittligt sidsvarsstorlek för serverdel | Liten | Medel | Stor |
 | --- | --- | --- | --- |

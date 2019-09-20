@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 11/20/2018
 ms.author: genli
-ms.openlocfilehash: 27f86660de4f37142829114780ab9c198cb1858d
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 5f95b42fd17aec4e3ec6b7b8fac1965772fefa67
+ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71088497"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71162599"
 ---
 #  <a name="cannot-connect-remotely-to-a-vm-because-rdp-port-is-not-enabled-in-nsg"></a>Det går inte att fjärrans luta till en virtuell dator eftersom RDP-porten inte är aktive rad i NSG
 
@@ -42,9 +42,8 @@ Följ dessa steg om du vill aktivera RDP-porten i en NSG:
 4. I **regler för inkommande port**kontrollerar du om porten för RDP är korrekt inställd. Följande är ett exempel på konfigurationen: 
 
     **Prioritet**: 300 </br>
-    **Port**: 3389 </br>
     **Namn på**: Port_3389 </br>
-    **Port**: 3389 </br>
+    **Port (mål)** : 3389 </br>
     **Protokoll**: TCP </br>
     **Källa**: Any </br>
     **Mål**: Any </br>

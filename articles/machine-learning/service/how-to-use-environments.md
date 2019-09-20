@@ -1,5 +1,5 @@
 ---
-title: Skapa, använda och hantera miljöer för modell utbildning och distribution
+title: Skapa återanvändbara ML-miljöer
 titleSuffix: Azure Machine Learning
 description: Skapa och hantera miljöer för modell utbildning och distribution. Hantera python-paket och andra inställningar för miljön.
 services: machine-learning
@@ -9,16 +9,15 @@ ms.reviewer: nibaccam
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.date: 08/16/2019
-ms.custom: seodec18
-ms.openlocfilehash: 242f3cec0ac766e537bd0483725ba51685bb7ced
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.date: 09/16/2019
+ms.openlocfilehash: b46ca59bc93477c338001009ff7eeeddc7248684
+ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70996623"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71147333"
 ---
-# <a name="create-and-manage-environments-for-training-and-deployment"></a>Skapa och hantera miljöer för utbildning och distribution
+# <a name="create-and-manage-reusable-environments-for-training-and-deployment-with-azure-machine-learning"></a>Skapa och hantera återanvändbara miljöer för utbildning och distribution med Azure Machine Learning.
 
 I den här artikeln lär du dig att skapa och hantera Azure Machine Learning [miljöer](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py) så att du kan spåra och återskapa dina projekts program varu beroenden när de utvecklas.
 

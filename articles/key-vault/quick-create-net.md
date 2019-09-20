@@ -6,12 +6,12 @@ ms.author: mbaldwin
 ms.date: 05/20/2019
 ms.service: key-vault
 ms.topic: quickstart
-ms.openlocfilehash: d24323996e222caf6456372cbc65681d2055c3db
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: 4f039fde275e5dca49b3c78550722d827bead062
+ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70996645"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71155104"
 ---
 # <a name="quickstart-azure-key-vault-client-library-for-net"></a>Snabbstart: Azure Key Vault klient bibliotek för .NET
 
@@ -83,7 +83,7 @@ dotnet add package Microsoft.Azure.Management.ResourceManager.Fluent
 I den här snabb starten används ett i förväg skapade Azure Key Vault. Du kan skapa ett nyckel valv genom att följa stegen i snabb starten för [Azure CLI](quick-create-cli.md), [Azure PowerShell snabb start](quick-create-powershell.md)eller [Azure Portal snabb start](quick-create-portal.md). Alternativt kan du bara köra Azure CLI-kommandona nedan.
 
 > [!Important]
-> Varje Key Vault måste ha ett unikt namn. I följande exempel skapas en Key Vault med namnet *myKV*, men du måste namnge något annat och använda det namnet i den här snabb starten.
+> Varje nyckel valv måste ha ett unikt namn. Ersätt < ditt-unika-nyckel-valv > med namnet på nyckel valvet i följande exempel.
 
 ```azurecli
 az group create --name "myResourceGroup" -l "EastUS"

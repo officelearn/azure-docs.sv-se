@@ -4,7 +4,7 @@ description: En moln tjänst roll som plötsligt återanvänds kan orsaka betyda
 services: cloud-services
 documentationcenter: ''
 author: simonxjx
-manager: felixwu
+manager: dcscontentpm
 editor: ''
 tags: top-support-issue
 ms.assetid: 533930d1-8035-4402-b16a-cf887b2c4f85
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 06/15/2018
 ms.author: v-six
-ms.openlocfilehash: 37abdae07c1b0ecc11d39c57b550b1c7f60c73cd
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: 554508b1bf784e306cd12a4a601f908e06320933
+ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68945418"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71154980"
 ---
 # <a name="common-issues-that-cause-roles-to-recycle"></a>Vanliga problem som gör att roller återvinns
 Den här artikeln beskriver några vanliga orsaker till distributions problem och innehåller fel söknings tips som hjälper dig att lösa problemen. En indikation på att ett problem har uppstått med ett program är när roll instansen inte startar, eller så växlar den mellan initierings-, upptaget-och stopp tillstånd.
@@ -42,7 +42,7 @@ Azure är en 64-bitars miljö. Därför fungerar inte .NET-sammansättningar som
 Undantag som har utlösts av metoderna i [RoleEntryPoint] -klassen, som innehåller metoderna [OnStart], [OnStop]och [Kör] , är ohanterade undantag. Om ett ohanterat undantag uppstår i någon av dessa metoder kommer rollen att återvinna. Om rollen åter användning görs upprepade gånger kan det leda till ett ohanterat undantag varje gång det försöker starta.
 
 ## <a name="role-returns-from-run-method"></a>Rollen returnerar från körnings metoden
-[Kör] metoden är avsedd att köras oändligt. Om din kod åsidosätter körnings [] metoden bör den vila i låg tid. Om [Kör] metoden returnerar återvinner rollen.
+[Kör] metoden är avsedd att köras oändligt. Om din kod åsidosätter [Kör] metoden bör den vila i låg tid. Om [Kör] metoden returnerar återvinner rollen.
 
 ## <a name="incorrect-diagnosticsconnectionstring-setting"></a>Felaktig DiagnosticsConnectionString-inställning
 Om programmet använder Azure-diagnostik måste tjänst konfigurations filen ange `DiagnosticsConnectionString` konfigurations inställningen. Den här inställningen ska ange en HTTPS-anslutning till ditt lagrings konto i Azure.

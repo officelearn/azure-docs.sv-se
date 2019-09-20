@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 01/25/2019
-ms.openlocfilehash: 457ee34daf368150a8703ea32a39b2350d654523
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 67a05d065cba8286c837487e21fc2f5be54e2c0b
+ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68569417"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71162334"
 ---
 # <a name="enable-automatic-tuning-to-monitor-queries-and-improve-workload-performance"></a>Aktivera automatisk justering för att övervaka frågor och förbättra arbets Belastningens prestanda
 
@@ -41,7 +41,7 @@ Om du vill aktivera automatisk justering på Azure SQL Database logisk **Server*
 ![Server](./media/sql-database-automatic-tuning-enable/server.png)
 
 > [!NOTE]
-> Observera att alternativet **DROP_INDEX** för tillfället inte är kompatibelt med program som använder partitions växlings-och index tips och inte bör aktive ras i dessa fall.
+> Observera att alternativet **DROP_INDEX** för tillfället inte är kompatibelt med program som använder partitions växlings-och index tips och inte bör aktive ras i dessa fall. Det går inte att släppa oanvända index för Premium-och Affärskritisk tjänst nivåer.
 >
 
 Välj de automatiska justerings alternativ som du vill aktivera och välj **Använd**.
@@ -106,10 +106,10 @@ Automatisk justering övervakar alla åtgärder som det tar i databasen och i vi
 
 ## <a name="configure-automatic-tuning-e-mail-notifications"></a>Konfigurera e-postmeddelanden för automatisk justering
 
-Se guide för [Automatisk justering av e-](sql-database-automatic-tuning-email-notifications.md) postaviseringar.
+Se guide för [Automatisk justering av e-postaviseringar](sql-database-automatic-tuning-email-notifications.md) .
 
 ## <a name="next-steps"></a>Nästa steg
 
 * Läs [artikeln om automatisk justering](sql-database-automatic-tuning.md) för att lära dig mer om automatisk justering och hur det kan hjälpa dig att förbättra prestandan.
 * Se [prestanda rekommendationer](sql-database-advisor.md) för en översikt över Azure SQL Database prestanda rekommendationer.
-* Mer information om hur du visar prestanda påverkan för dina vanligaste frågor finns i [fråga prestanda](sql-database-query-performance.md) insikter.
+* Mer information om hur du visar prestanda påverkan för dina vanligaste frågor finns i [fråga prestanda insikter](sql-database-query-performance.md) .

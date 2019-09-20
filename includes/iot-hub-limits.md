@@ -4,12 +4,12 @@ ms.author: robinsh
 ms.service: iot-hub
 ms.topic: include
 ms.date: 10/26/2018
-ms.openlocfilehash: 104849557a8580e16fa1860b7919d1c0252debe9
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: 689322614e2cea4e59a5a573b72bfeb2aafda847
+ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "67187738"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71148501"
 ---
 I följande tabell visas de gränser som är associerade med de olika tjänst nivåerna S1, S2, S3 och F1. Information om kostnaden för varje *enhet* i varje nivå finns i [Azure IoT Hub prissättning](https://azure.microsoft.com/pricing/details/iot-hub/).
 
@@ -38,6 +38,7 @@ I följande tabell visas de begränsningar som gäller för IoT Hub resurser.
 | Maximal storlek för moln-till-enhet-meddelande |64 kB |
 | Maximalt TTL-värde för moln-till-enhet-meddelanden |2 dagar |
 | Maximalt antal leveranser för moln-till-enhet- <br/> meddelanden |100 |
+| Högsta antal köer för moln till enhet per enhet |50 |
 | Maximalt antal leveranser för feedbackmeddelanden <br/> som svar på ett moln-till-enhet-meddelande |100 |
 | Maximalt TTL-värde för meddelanden som <br/> svar på ett moln-till-enhet-meddelande |2 dagar |
 | [Maximal enhets storlek](../articles/iot-hub/iot-hub-devguide-device-twins.md#device-twin-size) <br/> (taggar, rapporterade egenskaper och önskade egenskaper) | 8 kB |

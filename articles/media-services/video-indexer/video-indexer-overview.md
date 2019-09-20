@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 09/17/2019
 ms.author: juliako
-ms.openlocfilehash: a30fa858ea7befa2363e0ac2742e16d46037d0e0
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: a4b7ccf6ece8ed40d6f6c6a22410d4bbe99e590a
+ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 09/19/2019
-ms.locfileid: "71123515"
+ms.locfileid: "71146476"
 ---
 # <a name="what-is-video-indexer"></a>Vad är Video Indexer?
 
@@ -54,10 +54,13 @@ Nedan följer en lista med insikter som du kan hämta från dina videor med hjä
 * **Identifiering av svart ram**: Identifierar svarta bild rutor som visas i videon.
 * **Extrahering av nyckel rutor**: Identifierar stabila nyckel rutor i en video.
 * **Rullande krediter**: identifiera början och slutet av de rullande eftertexterna i slutet av TV-program och filmer.
+* **Identifiera animerade tecken** (för hands version): identifiering, gruppering och igenkänning av tecken i animerat innehåll via integration med [Cognitive Services anpassad vision](https://azure.microsoft.com/services/cognitive-services/custom-vision-service/). Mer information finns i [animerat teckensnitts identifiering](animated-characters-recognition.md).
+* **Identifiering av redaktionell text typer**: Tagga bilder baserat på deras typ (t. ex. wide-bild, medie tagning, nära upp, extrema nära upp, två bilder, flera personer, utomhus och inomhus osv.). Mer information finns i [identifiering av redaktionella typer av tagningar](scenes-shots-keyframes.md#editorial-shot-type-detection).
 
 ### <a name="audio-insights"></a>Ljud insikter
 
 * **Automatisk språk identifiering**: Identifierar automatiskt det dominerande talade språket. Språk som stöds är engelska, spanska, franska, tyska, italienska, kinesiska (förenklad), japanska, ryska och brasiliansk portugisiska. Om språket inte kan identifieras med förtroende förutsätter Video Indexer att det talade språket är engelska. Mer information finns i [språk identifierings modell](language-identification-model.md).
+* **Tal identifiering och avskriftering på flera språk** (för hands version): Identifierar automatiskt det talade språket i olika segment från ljud, vilket innebär att varje segment i medie filen har tilldelats och kombinera avskriften till en enhetlig avskrift. Mer information finns i [identifiera och automatisk identifiering av innehåll på flera språk](multi-language-identification-transcription.md).
 * **Ljud avskrift**: Konverterar tal till text på 12 språk och tillåter tillägg. Språk som stöds är engelska, spanska, franska, tyska, italienska, kinesiska (förenklad), japanska, arabiska, ryska, portugisiska (Brasilien), hindi och koreanska.
 * **Dold textning**: Skapar dold textning i tre format: VTT, TTML, SRT.
 * **Två kanal bearbetning**: Automatisk identifierar, separera avskrift och sammanslagningar till en enda tids linje.
@@ -75,6 +78,7 @@ Nedan följer en lista med insikter som du kan hämta från dina videor med hjä
 När indexering av en kanal del resultat för dessa modeller är tillgänglig
 
 * **Extrahering av nyckelord**: Extraherar nyckelord från tal och visuell text.
+* **Extrahering av namngivna enheter**: Extraherar varumärken, platser och personer från tal och visuell text via naturlig språk bearbetning (NLP).
 * **Extrahering av varumärken**: Extraherar varumärken från tal och visuell text.
 * **Avsnitts härledning**: Gör det enklare att utföra huvud ämnena i avskrifter. IPTC-taxonomi på den första nivån ingår.
 * **Artefakter**: Extraherar omfattande uppsättning "nästa nivå av information"-artefakter för varje modell.

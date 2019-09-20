@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/21/2019
-ms.openlocfilehash: c262d3841acd3497667c00a9deee04b304ddae76
-ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
+ms.openlocfilehash: 74bff4059442c85cfcde589c5a6cc7ab36472881
+ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70984814"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71147044"
 ---
 # <a name="use-hdinsight-spark-cluster-to-read-and-write-data-to-azure-sql-database"></a>Använd HDInsight Spark-kluster för att läsa och skriva data till Azure SQL Database
 
@@ -38,7 +38,7 @@ Börja med att skapa en [Jupyter Notebook](https://jupyter.org/) som är associe
 1. Öppna klustret från [Azure Portal](https://portal.azure.com/).
 1. Välj **Jupyter Notebook** under **kluster instrument paneler** på höger sida.  Om du inte ser **kluster instrument paneler**väljer du **Översikt** på den vänstra menyn. Ange administratörsautentiseringsuppgifterna för klustret om du uppmanas att göra det.
 
-    ![Jupyter Notebook på Spark](./media/apache-spark-connect-to-sql-database/hdinsight-spark-cluster-dashboard-jupyter-notebook.png "Jupyter Notebook på Spark")
+    ![Jupyter Notebook på Apache Spark](./media/apache-spark-connect-to-sql-database/hdinsight-spark-cluster-dashboard-jupyter-notebook.png "Jupyter Notebook på Spark")
    
    > [!NOTE]  
    > Du kan också komma åt Jupyter Notebook i Spark-kluster genom att öppna följande URL i webbläsaren. Ersätt **CLUSTERNAME** med namnet på klustret:
@@ -182,7 +182,7 @@ I det här avsnittet strömmar vi data till **hvactable** som du redan har skapa
 
 1. Utdata visar schemat för **HVAC. csv**. **Hvactable** har också samma schema. Utdata visar kolumnerna i tabellen.
 
-    ![Schema för tabell](./media/apache-spark-connect-to-sql-database/hdinsight-schema-table.png "Schema för tabell")
+    ![hdinsight Apache Spark schema tabell](./media/apache-spark-connect-to-sql-database/hdinsight-schema-table.png "Schema för tabell")
 
 1. Använd slutligen följande kodfragment för att läsa data från HVAC. csv och strömma dem till **hvactable** i Azure SQL Database. Klistra in kodfragmentet i en kod cell, Ersätt plats hållarnas värden med värdena för din Azure SQL-databas och tryck sedan på **SKIFT + RETUR** för att köra.
 

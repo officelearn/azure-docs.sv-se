@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 04/15/2019
 ms.author: aschhab
 ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: 7cd7bcd4bd10152ecd2fa60e4e8418f17db16b61
-ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
+ms.openlocfilehash: affd62bd7cae0103b7d2510022fc12a66d26c865
+ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70967836"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71155589"
 ---
 # <a name="use-service-bus-topics-and-subscriptions-with-java"></a>Använda Service Bus ämnen och prenumerationer med Java
 
@@ -41,7 +41,7 @@ I den här snabb starten skriver du Java-kod för att skicka meddelanden till et
 ## <a name="configure-your-application-to-use-service-bus"></a>Konfigurera programmet så att det använder Service Bus
 Kontrol lera att du har installerat [Azure SDK för Java][Azure SDK for Java] innan du skapar det här exemplet. Om du använder Sol förmörkelse kan du installera [Azure Toolkit for Eclipse][Azure Toolkit for Eclipse] som innehåller Azure SDK för Java. Du kan sedan lägga till **Microsoft Azure bibliotek för Java** i projektet:
 
-![Bibliotek i bygge-sökväg för Sol förmörkelse](media/service-bus-java-how-to-use-topics-subscriptions/eclipselibs.png)
+![Lägg till Microsoft Azure bibliotek för java i ditt Sol förmörkelse-projekt](media/service-bus-java-how-to-use-topics-subscriptions/eclipse-azure-libraries-java.png)
 
 Du måste också lägga till följande jar v7 i Java-build-sökvägen:
 

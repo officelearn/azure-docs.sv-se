@@ -7,12 +7,12 @@ ms.service: jenkins
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 07/31/2019
-ms.openlocfilehash: 10ff8f4645ee1e7023c96174236243a3b85de938
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: 3d5e8ba8a29481a6f37ffd10f577d354fc5fbf0a
+ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68679127"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71161483"
 ---
 <!-- GMinchAQ, 06/18/19 -->
 
@@ -30,7 +30,7 @@ I den här självstudien får du utföra följande uppgifter:
 > * Förbered din Jenkins-Server
 > * Använd plugin-programmet för Azure dev Spaces i en Jenkins-pipeline för att förhandsgranska kod ändringar innan du sammanfogar dem i projektet
 
-Den här självstudien förutsätter mellanliggande kunskaper om grundläggande Azure-tjänster, AKS, [](https://jenkins.io/doc/book/pipeline/) ACR, Azure dev Spaces, Jenkins pipelines och plugin-program och GitHub. Grundläggande kunskaper om support verktyg som kubectl och Helm är till hjälp.
+Den här självstudien förutsätter mellanliggande kunskaper om grundläggande Azure-tjänster, AKS, ACR, Azure dev Spaces, Jenkins [pipelines](https://jenkins.io/doc/book/pipeline/) och plugin-program och GitHub. Grundläggande kunskaper om support verktyg som kubectl och Helm är till hjälp.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -53,7 +53,7 @@ Den här självstudien förutsätter mellanliggande kunskaper om grundläggande 
 
 I det här avsnittet skapar du Azure-resurser:
 
-* En resurs grupp som innehåller alla Azure-resurser för den här självstudien.
+* En resurs grupp som innehåller alla Azure-resurser i den här självstudien.
 * Ett [Azure Kubernetes service](https://docs.microsoft.com/azure/aks/) -kluster (AKS).
 * Ett [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/) (ACR) för att skapa (med ACR-aktiviteter) och lagra Docker-avbildningar.
 
@@ -355,7 +355,7 @@ För att slutföra steg 3 i det här avsnittet måste du kommentera en del av Je
 
     1. Öppna webbläsaren och gå till den delade versionen `https://webfrontend.XXXXXXXXXXXXXXXXXXX.eastus.aksapp.io`. TEST_ENDPOINT innehåller URL: en.
 
-    2. Öppna en annan flik och ange sedan PR dev Space-URL: en. Det ser ut ungefär så `https://<yourdevspacename>.s.webfrontend.XXXXXXXXXXXXXXXXXXX.eastus.aksapp.io`här. Du hittar länken i versions **historik > < build # > > konsolens utdata** för Jenkins-jobbet. Sök på sidan för `aksapp`eller Visa endast prefixet genom att söka efter. `azdsprefix`
+    2. Öppna en annan flik och ange sedan PR dev Space-URL: en. Det ser ut ungefär så `https://<yourdevspacename>.s.webfrontend.XXXXXXXXXXXXXXXXXXX.eastus.aksapp.io`här. Du hittar länken i **versions historik > < build # > > konsolens utdata** för Jenkins-jobbet. Sök på sidan för `aksapp`eller Visa endast prefixet genom att söka efter. `azdsprefix`
 
  
 

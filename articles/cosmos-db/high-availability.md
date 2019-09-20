@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/31/2019
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 4b039e777748499e1b9a2a120e9498d94066b735
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: ab6544e4535f2d2c2e88284f61251f177d457a84
+ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68688284"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71146667"
 ---
 # <a name="high-availability-with-azure-cosmos-db"></a>Hög tillgänglighet med Azure Cosmos DB
 
@@ -50,7 +50,7 @@ Regionala avbrott är inte ovanliga, men med Azure Cosmos DB har din databas all
 
 - **Konton för flera regioner med en enkel-eller regions åtgärd (Skriv åtgärds avbrott):** 
   * Under ett avbrott i Skriv regionen är de här kontona fortfarande hög tillgängliga för läsning. För att Skriv förfrågningar ska lyckas måste du aktivera alternativet **Aktivera automatisk redundans** på ditt Azure Cosmos-konto. Om du aktiverar det här alternativet aktive ras den påverkade regionen till en annan region i ordningen för regionens prioritet som du har angett. 
-  * När den tidigare påverkade regionen är online igen görs eventuella Skriv data som inte har repliker ATS när regionen misslyckades, görs tillgängliga via feeden för [konflikter](how-to-manage-conflicts.md#read-from-conflict-feed). Program kan läsa konflikten, lösa konflikterna baserat på programspecifik logik och skriva uppdaterade data tillbaka till Azure Cosmos-behållaren efter behov. 
+  * När den tidigare påverkade regionen är online igen görs eventuella Skriv data som inte har repliker ATS när regionen misslyckades, görs tillgängliga via [feeden för konflikter](how-to-manage-conflicts.md#read-from-conflict-feed). Program kan läsa konflikten, lösa konflikterna baserat på programspecifik logik och skriva uppdaterade data tillbaka till Azure Cosmos-behållaren efter behov. 
   * När den tidigare påverkade Skriv regionen återställs blir den automatiskt tillgänglig som en Läs region. Du kan växla tillbaka till den återställda regionen som Skriv region. Du kan byta region med hjälp av [Azure CLI eller Azure Portal](how-to-manage-database-account.md#manual-failover). Det finns **Ingen förlust av data eller tillgänglighet** innan, under eller efter att du byter Skriv region och programmet fortfarande har hög tillgänglighet. 
 
 - **Konton för flera regioner med en enkel-eller regions åtgärd (Läs regions avbrott):** 
@@ -70,9 +70,9 @@ Azure Cosmos DB är en globalt distribuerad databas tjänst med flera huvud tjä
 
 Med support för tillgänglighets zon kan Azure Cosmos DB se till att repliker placeras i flera zoner inom en bestämd region för att ge hög tillgänglighet och återhämtning under zonindelade-haverier. Det finns inga ändringar i svars tid och andra service avtal i den här konfigurationen. I händelse av ett enskilt zon haveri ger zon redundans fullständig data hållbarhet med återställnings punkt = 0 och tillgänglighet med RTO = 0. 
 
-Zon redundans är en *kompletterande funktion* för funktionen för [multi-master-replikering](how-to-multi-master.md) . Zon redundans kan inte förlita sig på att uppnå regional återhämtning. I händelse av regionala avbrott eller åtkomst med låg fördröjning i regionerna, rekommenderar vi till exempel att du har flera Skriv regioner förutom zon redundans. 
+Zon redundans är en *kompletterande funktion* för funktionen för [multi-master-replikering](how-to-multi-master.md) . Du kan inte uppnå regional återhämtning enbart med zonredundans. I händelse av regionala avbrott eller åtkomst med låg fördröjning i regionerna, rekommenderar vi till exempel att du har flera Skriv regioner förutom zon redundans. 
 
-När du konfigurerar flera regions skrivningar för ditt Azure Cosmos-konto kan du välja zon redundans utan extra kostnad. I annat fall kan du läsa avsnittet om prissättningen av stöd för zon redundans. Du kan aktivera zon redundans i en befintlig region för ditt Azure Cosmos-konto genom att ta bort regionen och lägga till den igen med zon redundansen aktive rad.
+När du konfigurerar flera regions skrivningar för ditt Azure Cosmos-konto kan du välja zon redundans utan extra kostnad. I annat fall kan du läsa avsnittet om prissättningen av stöd för zon redundans. Du kan aktivera zonredundans för en befintlig region i ditt Azure Cosmos-konto genom att ta bort regionen och lägga tillbaka den med zonredundans aktiverat.
 
 Den här funktionen är tillgänglig i följande Azure-regioner:
 
@@ -106,13 +106,26 @@ I följande tabell sammanfattas funktionen för hög tillgänglighet för olika 
 > Om du vill aktivera stöd för tillgänglighets zoner för ett Azure Cosmos-konto med flera regioner måste kontot ha flera huvud skrivningar aktiverade.
 
 
-Du kan aktivera zon redundans när du lägger till en region i nya eller befintliga Azure Cosmos-konton. För närvarande kan du bara aktivera zon redundans genom att använda Azure Portal, PowerShell och Azure Resource Manager mallar. Om du vill aktivera zon redundans på ditt Azure Cosmos-konto, bör du `isZoneRedundant` ange flaggan `true` till för en angiven plats. Du kan ange den här flaggan i egenskapen locations. Följande PowerShell-kodfragment aktiverar till exempel zon redundans för regionen "Sydostasien":
+Du kan aktivera zon redundans när du lägger till en region i nya eller befintliga Azure Cosmos-konton. Om du vill aktivera zon redundans på ditt Azure Cosmos-konto, bör du `isZoneRedundant` ange flaggan `true` till för en angiven plats. Du kan ange den här flaggan i egenskapen locations. Följande PowerShell-kodfragment aktiverar till exempel zon redundans för regionen "Sydostasien":
 
 ```powershell
 $locations = @( 
     @{ "locationName"="Southeast Asia"; "failoverPriority"=0; "isZoneRedundant"= "true" }, 
     @{ "locationName"="East US"; "failoverPriority"=1 } 
 ) 
+```
+
+Följande kommando visar hur du aktiverar zon redundans för regionerna "öster" och "WestUS2":
+
+```azurecli-interactive
+az cosmosdb create \
+  --name mycosmosdbaccount \
+  --resource-group myResourceGroup \
+  --kind GlobalDocumentDB \
+  --default-consistency-level Session \
+  --locations regionName=EastUS failoverPriority=0 isZoneRedundant=True \
+  --locations regionName=WestUS2 failoverPriority=1 isZoneRedundant=True \
+  --enable-multiple-write-locations
 ```
 
 Du kan aktivera Tillgänglighetszoner genom att använda Azure Portal när du skapar ett Azure Cosmos-konto. När du skapar ett konto, se till att aktivera **GEO-redundans**, **flera regioner**och välj en region där Tillgänglighetszoner stöds: 

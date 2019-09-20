@@ -9,12 +9,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 05/15/2019
 ms.author: sstein
-ms.openlocfilehash: 232f8b13174aed19477ee0b139c83fba439049ac
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: 90482fc859c4dcdd04a70e91da2fd6adb079a795
+ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71101535"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71162279"
 ---
 # <a name="sql-database-release-notes"></a>Viktig information om SQL Database
 
@@ -26,7 +26,7 @@ Den här artikeln innehåller SQL Database funktioner som för närvarande finns
 
 | Funktion | Information |
 | ---| --- |
-| [Privat Azure-länk](https://azure.microsoft.com/updates/private-link-now-available-in-preview/)| Privata länkar fören klar nätverks arkitekturen och skyddar anslutningen mellan slut punkter i Azure genom att lagra data i Azure-nätverket, vilket eliminerar exponeringen för Internet. Med privat länk kan du också skapa och återge egna tjänster på Azure. |
+| [Privat Azure-länk](https://azure.microsoft.com/updates/private-link-now-available-in-preview/)| Private Link förenklar nätverksarkitekturen och skyddar anslutningen mellan slutpunkter i Azure genom att behålla data på Azure-nätverket, vilket eliminerar exponeringen på Internet. Med Private Link kan du även skapa och återge dina egna tjänster på Azure. |
 | Accelererad databas återställning med enkla databaser och elastiska pooler | Mer information finns i [accelererad databas återställning](sql-database-accelerated-database-recovery.md).|
 |Ungefärligt antal distinkta|Mer information finns i [Ungefärlig Count DISTINCT](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing#approximate-query-processing).|
 |Batch-läge på Rowstore (under kompatibilitetsnivå 150)|Mer information finns i [batch-läge på Rowstore](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing#batch-mode-on-rowstore).|
@@ -60,6 +60,7 @@ Den här artikeln innehåller SQL Database funktioner som för närvarande finns
 
 ### <a name="managed-instance-h2-2019-updates"></a>Hanterad instans H2 2019 uppdateringar
 
+- Med [grupper för automatisk redundans](https://azure.microsoft.com/updates/azure-sql-database-auto-failover-groups-feature-now-available-in-all-regions/) kan du replikera alla databaser från den primära instansen till en sekundär instans i en annan region.
 - Konfigurera din hanterade instans beteende med [globala spårnings flaggor](https://azure.microsoft.com/updates/global-trace-flags-are-now-available-in-azure-sql-database-managed-instance/).
 
 ### <a name="managed-instance-h1-2019-updates"></a>Hanterad instans H1 2019-uppdateringar

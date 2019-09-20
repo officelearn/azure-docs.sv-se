@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/09/2018
-ms.openlocfilehash: 846239c0122f3f2cadc40e7965ae690d4ba3e538
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: 737b049aa94ede2ffb0c1035b4cadfbed32d7dc4
+ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70899861"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71145599"
 ---
 # <a name="analyze-application-insights-telemetry-logs-with-apache-spark-on-hdinsight"></a>Analysera Application Insights telemetri loggar med Apache Spark på HDInsight
 
@@ -39,7 +39,7 @@ Följande resurser användes för att utveckla och testa det här dokumentet:
 
 Följande diagram illustrerar tjänst arkitekturen i det här exemplet:
 
-![diagram som visar data som flödar från Application Insights till Blob Storage och sedan bearbetas av Spark på HDInsight](./media/apache-spark-analyze-application-insight-logs/application-insights.png)
+![Data flödar från Application Insights till Blob Storage, sedan Spark](./media/apache-spark-analyze-application-insight-logs/application-insights.png)
 
 ### <a name="azure-storage"></a>Azure-lagring
 
@@ -72,7 +72,7 @@ Om du vill lägga till Azure Storage kontot i ett befintligt kluster använder d
 
 1. Välj ditt Spark på HDInsight-kluster från [Azure Portal](https://portal.azure.com). I avsnittet **snabb länkar** väljer du **kluster instrument paneler**och väljer sedan **Jupyter Notebook** i avsnittet kluster Dashboard__.
 
-    ![Kluster instrument paneler](./media/apache-spark-analyze-application-insight-logs/hdi-cluster-dashboards.png)
+    ![Azure Portal kluster instrument panel pyspark](./media/apache-spark-analyze-application-insight-logs/hdi-cluster-dashboards.png)
 
 2. I det övre högra hörnet på sidan Jupyter väljer du **nytt**och sedan **PySpark**. En ny flik i webbläsaren som innehåller en python-baserad Jupyter Notebook öppnas.
 
@@ -215,7 +215,8 @@ Om du vill lägga till Azure Storage kontot i ett befintligt kluster använder d
 
 1. Välj ditt Spark på HDInsight-kluster från [Azure Portal](https://portal.azure.com). I avsnittet **snabb länkar** väljer du **kluster instrument paneler**och väljer sedan **Jupyter Notebook** i avsnittet kluster Dashboard__.
 
-    ![Kluster instrument paneler](./media/apache-spark-analyze-application-insight-logs/hdi-cluster-dashboards.png)
+    ![Azure Portal kluster instrument panel Scala](./media/apache-spark-analyze-application-insight-logs/hdi-cluster-dashboards.png)
+
 2. I det övre högra hörnet på sidan Jupyter väljer du **nytt**och sedan **Scala**. En ny flik i webbläsaren som innehåller en Scala-baserad Jupyter Notebook visas.
 3. I det första fältet (kallas en **cell**) på sidan anger du följande text:
 

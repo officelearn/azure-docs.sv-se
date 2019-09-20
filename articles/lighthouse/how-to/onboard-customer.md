@@ -7,12 +7,12 @@ ms.service: lighthouse
 ms.date: 09/19/2019
 ms.topic: overview
 manager: carmonm
-ms.openlocfilehash: 402f82059f939de204e489bb36c2c2b82f816a19
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: a199dde6b9e36683b817f908e385aabcc431ce16
+ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71105280"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71155132"
 ---
 # <a name="onboard-a-customer-to-azure-delegated-resource-management"></a>Registrera en kund för Azure-delegerad resurshantering
 
@@ -23,7 +23,7 @@ Du kan upprepa den här processen om du hanterar resurser för flera kunder. Sed
 Du kan associera ditt Microsoft Partner Network (MPN) ID med dina inbyggda prenumerationer för att spåra din påverkan på kund engagemang och få igenkänning. Mer information finns i [Länka ett partner-ID till dina Azure-konton](https://docs.microsoft.com/azure/billing/billing-partner-admin-link-started). Observera att du måste utföra den här associationen i din tjänst leverantörs klient.
 
 > [!NOTE]
-> Kunder kan registreras automatiskt när de köper ett erbjudande för hanterade tjänster (offentligt eller privat) som du har publicerat på Azure Marketplace. Mer information finns i [publicera Managed Services-erbjudanden på Azure Marketplace](publish-managed-services-offers.md). Du kan också använda onboarding-processen som beskrivs här med ett erbjudande som publicerats på Azure Marketplace.
+> Kunder kan också registreras när de köper ett erbjudande för hanterade tjänster (offentligt eller privat) som du har publicerat på Azure Marketplace. Mer information finns i [publicera Managed Services-erbjudanden på Azure Marketplace](publish-managed-services-offers.md). Du kan också använda onboarding-processen som beskrivs här med ett erbjudande som publicerats på Azure Marketplace.
 
 Onboarding-processen kräver att åtgärder tas från både tjänst leverantörens klient organisation och kundens klient organisation. Alla dessa steg beskrivs i den här artikeln.
 

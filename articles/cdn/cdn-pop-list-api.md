@@ -15,20 +15,22 @@ ms.topic: article
 ms.date: 08/22/2019
 ms.author: magattus
 ms.custom: ''
-ms.openlocfilehash: bc8e8219c8f8de75b01c584a2a5ce13cc1429fec
-ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
+ms.openlocfilehash: f677d6b8edfe60646c6368acce9d47b23a35237d
+ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69991779"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71146879"
 ---
-# <a name="retrieve-the-current-verizon-pop-ip-list-for-azure-cdn"></a>Hämta den aktuella Verizon POP IP-listan för Azure CDN
+# <a name="retrieve-the-current-pop-ip-list-for-azure-cdn"></a>Hämta den aktuella POP IP-listan för Azure CDN
+
+## <a name="retrieve-the-current-verizon-pop-ip-list-for-azure-cdn"></a>Hämta den aktuella Verizon POP IP-listan för Azure CDN
 
 Du kan använda REST API för att hämta en uppsättning IP-adresser för Verizons Point of Presence (POP)-servrar. Dessa POP-servrar utför förfrågningar till ursprungs servrar som är associerade med Azure Content Delivery Network-slutpunkter (CDN) i en Verizon-profil (**Azure CDN Standard från Verizon** eller **Azure CDN Premium från Verizon**). Observera att den här uppsättningen IP-adresser skiljer sig från de IP-adresser som en klient kan se när de gör förfrågningar till pop. 
 
 Syntaxen för REST API-åtgärden för att hämta POP-listan finns i [Edge Nodes-List](https://docs.microsoft.com/rest/api/cdn/edgenodes/list).
 
-# <a name="retrieve-the-current-microsoft-pop-ip-list-for-azure-cdn"></a>Hämta den aktuella listan med Microsoft POP IP-adresser för Azure CDN
+## <a name="retrieve-the-current-microsoft-pop-ip-list-for-azure-cdn"></a>Hämta den aktuella listan med Microsoft POP IP-adresser för Azure CDN
 
 Om du vill låsa ditt program för att endast acceptera trafik från Azure CDN från Microsoft måste du konfigurera IP ACL: er för Server delen. Du kan också begränsa mängden godkända värden för rubriken "X-forwarded-Host" som skickas av Azure CDN från Microsoft. De här stegen beskrivs nedan:
 

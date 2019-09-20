@@ -1,5 +1,5 @@
 ---
-title: Programmässigt skapa principer och visa data för kompatibilitetsinställningar
+title: Skapa principer programmässigt
 description: Den här artikeln beskriver hur du programmässigt kan skapa och hantera principer för Azure Policy.
 author: DCtheGeek
 ms.author: dacoulte
@@ -7,14 +7,14 @@ ms.date: 01/31/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 1039073aaaf9d1a6b7bd9ac21a95c73871ce3ba3
-ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
+ms.openlocfilehash: 695e04dcbc7762c85dd0dd9aaff6e5fd9fe99348
+ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70239024"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71155562"
 ---
-# <a name="programmatically-create-policies-and-view-compliance-data"></a>Programmässigt skapa principer och visa data för kompatibilitetsinställningar
+# <a name="programmatically-create-policies"></a>Skapa principer programmässigt
 
 Den här artikeln beskriver hur du programmässigt kan skapa och hantera principer. Azure Policy definitioner tillämpar olika regler och effekter över dina resurser. Tvingande ser till att resurserna kompatibla med företagets standarder och serviceavtal.
 

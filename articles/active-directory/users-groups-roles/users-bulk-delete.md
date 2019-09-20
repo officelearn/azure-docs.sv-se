@@ -13,23 +13,26 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6c2204c572ca1f74f8060d0b6176df69359fe69a
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: eb01b46d61b6ba99c3ec9c537dccc350074f5e05
+ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70901716"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71146436"
 ---
 # <a name="bulk-delete-users-preview-in-azure-active-directory"></a>Mass borttagnings användare (för hands version) i Azure Active Directory
 
-Azure Active Directory (Azure AD) stöder Mass åtgärder för att skapa och ta bort, Gruppinbjudan för gäster och har stöd för nedladdning av listor över användare, grupper och grupp medlemmar.
+Med hjälp av Azure Active Directory (Azure AD)-portalen kan du ta bort ett stort antal medlemmar till en grupp med hjälp av en fil med kommaavgränsade värden (CSV) för Mass borttagning av användare.
 
 ## <a name="to-bulk-delete-users"></a>För Mass borttagning av användare
 
 1. Logga in på din Azure AD-organisation med ett konto som är en användar administratör i organisationen.
 1. I Azure AD väljer **du användare** > **Mass borttagning**.
 1. På sidan **Mass borttagning av användare** väljer du **Hämta** för att ta emot en giltig CSV-fil med användar egenskaper och lägger sedan till de användare som du vill ta bort.
-1. När du är klar med redigeringen av CSV-filen eller om du har en av dina egna redo att ladda upp, väljer du filen under **överför din CSV-fil** som ska verifieras.
+
+   ![CSV-filen innehåller namn och ID: n för de användare som ska tas bort](./media/users-bulk-delete/delete-csv-file.png)
+
+1. När du är klar med redigeringen av CSV-filen väljer du filen under **överför din CSV-fil** som ska verifieras.
 
    ![Välj en lokal CSV-fil där du visar de användare som du vill ta bort](./media/users-bulk-delete/bulk-delete.png)
 

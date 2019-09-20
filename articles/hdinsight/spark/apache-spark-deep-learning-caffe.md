@@ -8,19 +8,18 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/17/2017
-ms.openlocfilehash: bb234e5b34bd8046c4e65d7cc6812cde0db3b5b2
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: e0490913029efc17d12139378369646c286a276c
+ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70995638"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71145713"
 ---
 # <a name="use-caffe-on-azure-hdinsight-spark-for-distributed-deep-learning"></a>Använda Caffe på Azure HDInsight Spark för distribuerad djup inlärning
 
-
 ## <a name="introduction"></a>Introduktion
 
-Djup inlärningen påverkar allt från hälso vård till transport till tillverkning med mera. Företag vänder sig till djup inlärning för att lösa hårda problem, t. ex. [bild klassificering](https://blogs.microsoft.com/next/2015/12/10/microsoft-researchers-win-imagenet-computer-vision-challenge/), [tal igenkänning](https://googleresearch.blogspot.jp/2015/08/the-neural-networks-behind-google-voice.html), objekt igenkänning och maskin översättning. 
+Djup inlärningen påverkar allt från hälso vård till transport till tillverkning med mera. Företag vänder sig till djup inlärning för att lösa hårda problem, t. ex. [bild klassificering](https://blogs.microsoft.com/next/2015/12/10/microsoft-researchers-win-imagenet-computer-vision-challenge/), [tal igenkänning](https://googleresearch.blogspot.jp/2015/08/the-neural-networks-behind-google-voice.html), objekt igenkänning och maskin översättning.
 
 Det finns [många populära ramverk](https://en.wikipedia.org/wiki/Comparison_of_deep_learning_software), inklusive [Microsoft Cognitive Toolkit](https://www.microsoft.com/en-us/research/product/cognitive-toolkit/), [Tensorflow](https://www.tensorflow.org/), [Apache MXNet](https://mxnet.apache.org/), Theano osv. [Caffe](https://caffe.berkeleyvision.org/) är en av de mest berömda som inte är symboliska (tvingande) neurala nätverks ramverk och används ofta i många områden, inklusive dator vision. Dessutom kombinerar [CaffeOnSpark](https://yahoohadoop.tumblr.com/post/139916563586/caffeonspark-open-sourced-for-distributed-deep) Caffe med Apache Spark, vilket innebär att djup inlärningen enkelt kan användas i ett befintligt Hadoop-kluster. Du kan använda djup inlärning tillsammans med Spark ETL-pipelines, minska systemets komplexitet och svars tid för fullständig lösnings inlärning.
 
@@ -59,7 +58,6 @@ Du måste installera beroenden för att komma igång. Caffe-webbplatsen och [Caf
     sudo ldconfig
     echo "protobuf installation done"
 
-
 Det finns två steg i skript åtgärden. Det första steget är att installera alla bibliotek som krävs. Biblioteken innehåller de bibliotek som krävs för att både kompilera Caffe (till exempel gflags, Glog) och köra Caffe (till exempel numpy). du använder libatlas för CPU-optimering, men du kan alltid följa CaffeOnSpark-wikin för att installera andra optimerings bibliotek, till exempel MKL eller CUDA (för GPU).
 
 Det andra steget är att ladda ned, kompilera och installera protobuf 2.5.0 för Caffe under körning. Protobuf 2.5.0 [krävs](https://github.com/yahoo/CaffeOnSpark/issues/87), men den här versionen är inte tillgänglig som ett paket på Ubuntu 16, så du måste kompilera den från käll koden. Det finns också några resurser på Internet om hur du kompilerar den. Mer information finns [här](https://jugnu-life.blogspot.com/2013/09/install-protobuf-25-on-ubuntu.html).
@@ -68,10 +66,9 @@ För att komma igång kan du bara köra den här skript åtgärden mot klustret 
 
 ![Skript åtgärder för att installera beroenden](./media/apache-spark-deep-learning-caffe/submit-script-action.png)
 
-
 ## <a name="step-2-build-caffe-on-apache-spark-for-hdinsight-on-the-head-node"></a>Steg 2: Bygg Caffe på Apache Spark för HDInsight på Head-noden
 
-Det andra steget är att bygga Caffe på huvudnoden och sedan distribuera de kompilerade biblioteken till alla arbetsnoder. I det här steget måste du [använda SSH i din huvudnoden](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix). Efter det måste du följa CaffeOnSpark- [build-processen](https://github.com/yahoo/CaffeOnSpark/wiki/GetStarted_yarn). Nedan finns ett skript som du kan använda för att bygga CaffeOnSpark med några ytterligare steg. 
+Det andra steget är att bygga Caffe på huvudnoden och sedan distribuera de kompilerade biblioteken till alla arbetsnoder. I det här steget måste du [använda SSH i din huvudnoden](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix). Efter det måste du följa CaffeOnSpark- [build-processen](https://github.com/yahoo/CaffeOnSpark/wiki/GetStarted_yarn). Nedan finns ett skript som du kan använda för att bygga CaffeOnSpark med några ytterligare steg.
 
     #!/bin/bash
     git clone https://github.com/yahoo/CaffeOnSpark.git --recursive
@@ -115,7 +112,6 @@ Du kan behöva göra mer än vad dokumentationen för CaffeOnSpark säger. Ändr
 - Flytta data uppsättningarna till BLOB Storage, som är en delad plats som är tillgänglig för alla arbetsnoder för senare användning.
 - Sätt samman de kompilerade Caffe-biblioteken till BLOB Storage, och senare kopierar dessa bibliotek till alla noder med skript åtgärder för att undvika ytterligare kompilering av tiden.
 
-
 ### <a name="troubleshooting-an-ant-buildexception-has-occurred-exec-returned-2"></a>Telefonbaserad Ett ANT-BuildException har inträffat: exec returnerades: 2
 
 Vid första försöket att bygga CaffeOnSpark, säger det ibland
@@ -134,7 +130,6 @@ Ibland ger maven ett timeout-fel för anslutningen, som liknar följande kodfrag
     INFO: I/O exception (java.net.SocketException) caught when processing request to {s}->https://repo.maven.apache.org:443: Connection timed out (Read failed)
 
 Du måste göra ett nytt försök efter några minuter.
-
 
 ### <a name="troubleshooting-test-failure-for-caffe"></a>Telefonbaserad Test haveri för Caffe
 
@@ -167,7 +162,7 @@ Caffe använder en "lättfattliga programspecifika-arkitektur", där för att sk
 
 Den modell som du tränar är en exempel modell för MNIST-utbildning. MNIST-databasen med handskrivna siffror har en utbildnings uppsättning på 60 000 exempel och en test uppsättning med 10 000-exempel. Det är en del av en större uppsättning som är tillgänglig från NIST. Siffrorna har storleken-normaliserad och centreras i en bild med fast storlek. CaffeOnSpark har vissa skript för att ladda ned data uppsättningen och konvertera den till rätt format.
 
-CaffeOnSpark innehåller några exempel på nätverkstopologier för MNIST-utbildning. Det har en bra utformning av delning av nätverks arkitekturen (nätverkets topologi) och optimering. I det här fallet finns det två filer som krävs: 
+CaffeOnSpark innehåller några exempel på nätverkstopologier för MNIST-utbildning. Det har en bra utformning av delning av nätverks arkitekturen (nätverkets topologi) och optimering. I det här fallet finns det två filer som krävs:
 
 filen "problemlösa ren" ($ {CAFFE_ON_SPARK}/data/lenet_memory_solver.prototxt) används för att Visa optimeringen och skapa parameter uppdateringar. Till exempel definierar den om CPU eller GPU används, vad är det som är det, hur många iterationer som är osv. Den definierar också vilken neuron-nätverkstopologi som ska användas (vilket är den andra filen du behöver). Mer information om problemlösa ren finns i [Caffe-dokumentationen](https://caffe.berkeleyvision.org/tutorial/solver.html).
 
@@ -176,7 +171,7 @@ I det här exemplet, eftersom du använder processor snarare än GPU, bör du ä
     # solver mode: CPU or GPU
     solver_mode: CPU
 
-![Caffe Config1](./media/apache-spark-deep-learning-caffe/caffe-configuration1.png
+![Konfigurations exempel för HDInsight Caffe](./media/apache-spark-deep-learning-caffe/caffe-configuration1.png
 )
 
 Du kan ändra andra rader efter behov.
@@ -186,7 +181,7 @@ Den andra filen ($ {CAFFE_ON_SPARK}/data/lenet_memory_train_test.prototxt) defin
 - ändra "File:/Users/Mridul/bigml/demodl/mnist_train_lmdb" till "wasb:///projects/machine_learning/image_dataset/mnist_train_lmdb"
 - ändra "File:/Users/Mridul/bigml/demodl/mnist_test_lmdb/" till "wasb:///projects/machine_learning/image_dataset/mnist_test_lmdb"
 
-![Caffe Config2](./media/apache-spark-deep-learning-caffe/caffe-configuration2.png)
+![Konfigurations exempel för HDInsight-Caffe igen](./media/apache-spark-deep-learning-caffe/caffe-configuration2.png)
 
 Mer information om hur du definierar nätverket finns i [Caffe-dokumentationen för MNIST data uppsättning](https://caffe.berkeleyvision.org/gathered/examples/mnist.html)
 
@@ -202,19 +197,19 @@ Eftersom du använder ett garn kluster läge, kommer Spark-drivrutinen att schem
 
     17/02/01 23:22:16 INFO Client: Application report for application_1485916338528_0015 (state: RUNNING)
 
-Om du vill veta vad som hände, behöver du vanligt vis hämta Spark-drivrutinens logg, som innehåller mer information. I så fall måste du gå till garn gränssnittet för att hitta relevanta garn loggar. Du kan hämta garn gränssnittet via denna URL: 
+Om du vill veta vad som hände, behöver du vanligt vis hämta Spark-drivrutinens logg, som innehåller mer information. I så fall måste du gå till garn gränssnittet för att hitta relevanta garn loggar. Du kan hämta garn gränssnittet via denna URL:
 
     https://yourclustername.azurehdinsight.net/yarnui
-   
-![GARN GRÄNSSNITT](./media/apache-spark-deep-learning-caffe/apache-yarn-window-1.png)
+
+![webb läsar vyn Apache garn Scheduler](./media/apache-spark-deep-learning-caffe/apache-yarn-window-1.png)
 
 Du kan ta en titt på hur många resurser som allokeras för det aktuella programmet. Du kan klicka på länken "Scheduler". då kommer du att se att för det här programmet, finns det nio behållare som körs. du ber garn att tillhandahålla åtta körningar och en annan behållare är för driv rutins processen. 
 
-![GARN Scheduler](./media/apache-spark-deep-learning-caffe/apache-yarn-scheduler.png)
+![HDI Apache garn Scheduler-vy](./media/apache-spark-deep-learning-caffe/apache-yarn-scheduler.png)
 
 Du kanske vill kontrol lera driv rutins loggarna eller container loggarna om det uppstår problem. För driv rutins loggar kan du klicka på program-ID i garn UI och sedan klicka på knappen loggar. Driv rutins loggarna skrivs in i stderr.
 
-![GARN GRÄNSSNITT 2](./media/apache-spark-deep-learning-caffe/apache-yarn-window-2.png)
+![Apache garn fönstrets trädvy](./media/apache-spark-deep-learning-caffe/apache-yarn-window-2.png)
 
 Du kan till exempel se felet nedan från driv rutins loggarna, vilket indikerar att du allokerar för många körningar.
 
@@ -262,7 +257,6 @@ från huvudnoden. Efter kontroll av container haveri orsakas det av ett GPU-läg
     WARNING: Logging before InitGoogleLogging() is written to STDERR
     F0201 07:10:48.309725 11624 common.cpp:79] Cannot use GPU in CPU-only Caffe: check mode.
 
-
 ## <a name="getting-results"></a>Hämtar resultat
 
 Eftersom du allokerar 8 körningar och nätverk sto pol Ogin är enkel bör det bara ta cirka 30 minuter att köra resultatet. På kommando raden kan du se att du har försatt modellen till wasb:///mnist.model och att du anger resultatet i en mapp med namnet wasb:///mnist_features_result.
@@ -285,19 +279,19 @@ och resultatet ser ut så här:
 
 SampleID representerar ID: t i MNIST-datauppsättningen och etiketten är talet som modellen identifierar.
 
-
 ## <a name="conclusion"></a>Sammanfattning
 
 I den här dokumentationen har du försökt att installera CaffeOnSpark med ett enkelt exempel. HDInsight är en fullständigt hanterad beräknings plattform för molnet och är den bästa platsen för att köra maskin inlärnings-och avancerade analys arbets belastningar på stora data mängder och för distribuerad djup inlärning kan du använda Caffe på HDInsight Spark för att utföra djup inlärning uppgifter.
 
-
 ## <a name="seealso"></a>Se även
+
 * [: Apache Spark på Azure HDInsight](apache-spark-overview.md)
 
 ### <a name="scenarios"></a>Scenarier
+
 * [Apache Spark med Machine Learning: Använda spark i HDInsight för analys av bygg temperatur med HVAC-data](apache-spark-ipython-notebook-machine-learning.md)
 * [Apache Spark med Machine Learning: Använd spark i HDInsight för att förutsäga resultatet av livsmedels inspektionen](apache-spark-machine-learning-mllib-ipython.md)
 
 ### <a name="manage-resources"></a>Hantera resurser
-* [Hantera resurser för Apache Spark-klustret i Azure HDInsight](apache-spark-resource-manager.md)
 
+* [Hantera resurser för Apache Spark-klustret i Azure HDInsight](apache-spark-resource-manager.md)

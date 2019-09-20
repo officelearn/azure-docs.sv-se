@@ -4,23 +4,39 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 09/04/2018
 ms.author: glenga
-ms.openlocfilehash: c1784111cd2fc2c93b67510f310b9e513cf2b86e
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: f771b6b0416c5777c1ebde7e2cf2c4ffc6f375ff
+ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67187138"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71155274"
 ---
-Azure Functions [utlösare och bindningar](../articles/azure-functions/functions-triggers-bindings.md) kommunicera med olika Azure-tjänster. När du integrerar med dessa tjänster, kanske fel som kommer från API: er för de underliggande Azure-tjänsterna. Fel kan också inträffa när du försöker kommunicera med andra tjänster från Funktionskoden med hjälp av REST eller klientbiblioteken. För att undvika förlust av data och se till att bra beteendet för dina funktioner, är det viktigt att hantera fel från varken med källan.
+Fel som har Aktiver ATS i en Azure Functions kan komma från något av följande ursprung:
 
-Följande utlösare har inbyggda stöd:
+- Användning av inbyggda Azure Functions [utlösare och bindningar](..\articles\azure-functions\functions-triggers-bindings.md)
+- Anrop till API: er för underliggande Azure-tjänster
+- Anrop till REST-slutpunkter
+- Anrop till klient bibliotek, paket eller API: er från tredje part
+
+Följande metoder för solid-fel hantering är viktigt för att undvika förlust av data eller missade meddelanden. Rekommenderade fel hanterings metoder omfattar följande åtgärder:
+
+- [Aktivera Application Insights](../articles/azure-functions/functions-monitoring.md)
+- [Använd strukturerad fel hantering](#use-structured-error-handling)
+- [Design för idempotens](../articles/azure-functions/functions-idempotent.md)
+- Implementera principer för återförsök (där det är lämpligt)
+
+### <a name="use-structured-error-handling"></a>Använd strukturerad fel hantering
+
+Det är viktigt att fånga och publicera fel för att övervaka hälso tillståndet för programmet. Den översta nivån i en funktions kod ska innehålla ett try/catch-block. I catch-blocket kan du samla in och publicera fel.
+
+### <a name="retry-support"></a>Stöd för nytt försök
+
+Följande utlösare har inbyggt stöd för återförsök:
 
 * [Azure Blob Storage](../articles/azure-functions/functions-bindings-storage-blob.md)
-* [Azure Queue storage](../articles/azure-functions/functions-bindings-storage-queue.md)
+* [Azure Queue Storage](../articles/azure-functions/functions-bindings-storage-queue.md)
 * [Azure Service Bus (kö/ämne)](../articles/azure-functions/functions-bindings-service-bus.md)
 
-Som standard är de här utlösarna göras upp till fem gånger. Efter det femte återförsöket dessa utlösare skriva ett meddelande till en särskild [skadliga kö](../articles/azure-functions/functions-bindings-storage-queue.md#trigger---poison-messages).
+Som standard begär de här utlösarna nya försök upp till fem gånger. Efter det femte försöket utlöser båda utlösarna Skriv ett meddelande till en [Poison-kö](..\articles\azure-functions\functions-bindings-storage-queue.md#trigger---poison-messages).
 
-För de andra Functions-utlösarna finns inga inbyggda återförsök när fel uppstår under körning av funktion. För att förhindra förlust av information om utlösaren ska uppstå ett fel i din funktion, rekommenderar vi att du använder trycatch-block i Funktionskoden att fånga upp eventuella fel. När ett fel uppstår, skriver du den information som skickas till funktionen av utlösaren till en särskild ”skadliga” meddelandekö. Den här metoden är samma som används av den [Blob storage-utlösare](../articles/azure-functions/functions-bindings-storage-blob.md#trigger---poison-blobs).
-
-På så sätt kan avbilda du utlösande händelser som kan gå förlorade på grund av fel och återförsök vid ett senare tillfälle med hjälp av en annan funktion du bearbetar meddelanden från skadliga kön med hjälp av den lagrade informationen.  
+Du måste implementera principer för omförsök manuellt för alla andra utlösare eller bindningar. Manuella implementeringar kan innehålla information om att skriva fel till en [skadlig meddelandekö](..\articles\azure-functions\functions-bindings-storage-blob.md#trigger---poison-blobs). Genom att skriva till en Poison-kö har du möjlighet att försöka utföra åtgärder vid ett senare tillfälle. Den här metoden är samma som används av Blob Storage-utlösaren.

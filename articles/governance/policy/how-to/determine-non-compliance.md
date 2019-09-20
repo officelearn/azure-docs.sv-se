@@ -7,12 +7,12 @@ ms.date: 04/26/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 2b36e7c333521e9438e76bfbe53a26dce23c2e8a
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: a0faaeee369a2227f6018141e5aa5d18c9037e9d
+ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70194657"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71161985"
 ---
 # <a name="determine-causes-of-non-compliance"></a>Fastställa orsaker till icke-kompatibilitet
 
@@ -20,11 +20,11 @@ När en Azure-resurs bedöms vara icke-kompatibel med en princip regel är det b
 
 > [!div class="checklist"]
 > - [Information om efterlevnad](#compliance-details)
-> - [Ändrings historik (förhands granskning)](#change-history-preview)
+> - [Ändrings historik (förhands granskning)](#change-history)
 
 ## <a name="compliance-details"></a>Information om efterlevnad
 
-Om en resurs är icke-kompatibel, är kompatibilitetsinformation för resursen tillgängliga från sidan efterlevnadsprincip. I fönstret information om efterlevnad finns följande information:
+Om en resurs är icke-kompatibel, är kompatibilitetsinformation för resursen tillgängliga **från sidan efterlevnadsprincip** . I fönstret information om efterlevnad finns följande information:
 
 - Resurs information som namn, typ, plats och resurs-ID
 - Kompatibilitetstillstånd och tidsstämpel för den senaste utvärderings versionen för den aktuella princip tilldelningen
@@ -39,7 +39,7 @@ Följ dessa steg om du vill visa kompatibilitetsinformation:
 
 1. På sidan **Översikt** eller **efterlevnad** väljer du en princip i ett **kompatibilitetstillstånd** som _inte är kompatibelt_.
 
-1. På fliken **Resource Compliance (Resource Compliance** ) på sidan efterlevnadsprincip högerklickar du på eller väljer tre punkter i en resurs i ett kompatibelt **tillstånd** som _inte är kompatibelt_. Välj sedan **Visa Kompatibilitetsrapport**.
+1. På fliken **Resource Compliance (Resource Compliance** ) **på sidan efterlevnadsprincip** högerklickar du på eller väljer tre punkter i en resurs i ett kompatibelt **tillstånd** som _inte är kompatibelt_. Välj sedan **Visa Kompatibilitetsrapport**.
 
    ![Visa alternativ för efterlevnad](../media/determine-non-compliance/view-compliance-details.png)
 
@@ -77,9 +77,9 @@ Följ dessa steg om du vill visa kompatibilitetsinformation:
    ![Informations fönstret för efterlevnad – * ifNotExists](../media/determine-non-compliance/compliance-details-pane-existence.png)
 
 > [!NOTE]
-> Om ett egenskaps värde är hemligt för att skydda data visas asterisker i det aktuella värdet.
+> Om ett egenskaps värde är _hemligt_ för att skydda data visas asterisker i det aktuella värdet.
 
-Informationen förklarar varför en resurs för närvarande inte är kompatibel, men visas inte när ändringen gjordes till den resurs som gjorde att den blev inkompatibel. Mer information finns i [ändrings historik (förhands granskning)](#change-history-preview) nedan.
+Informationen förklarar varför en resurs för närvarande inte är kompatibel, men visas inte när ändringen gjordes till den resurs som gjorde att den blev inkompatibel. Mer information finns i [ändrings historik (förhands granskning)](#change-history) nedan.
 
 ### <a name="compliance-reasons"></a>Orsaker till efterlevnad
 
@@ -94,7 +94,7 @@ Följande matris mappar varje tänkbar _orsak_ till det ansvariga [villkoret](..
 |Det aktuella värdet måste vara större än eller lika med målvärdet. |Större eller **inte** mindre |
 |Det aktuella värdet måste vara större än målvärdet. |större eller **icke** -lessOrEquals |
 |Det aktuella värdet måste vara mindre än eller lika med målvärdet. |lessOrEquals eller **inte** större |
-|Det aktuella värdet måste finnas. |finns |
+|Det aktuella värdet måste finnas. |Finns |
 |Det aktuella värdet måste vara i målvärdet. |i eller **inte** notIn |
 |Det aktuella värdet måste vara samma som målvärdet. |gilla eller **inte** notLike |
 |Det aktuella värdet måste Skift läges känsligt matcha målvärdet. |matcha eller **not** notMatch |
@@ -107,11 +107,11 @@ Följande matris mappar varje tänkbar _orsak_ till det ansvariga [villkoret](..
 |Det aktuella värdet får inte vara samma som målvärdet. |notLike eller **inte** gilla |
 |Det aktuella värdet får inte Skift läges känsligt matcha målvärdet. |notMatch eller **not** match |
 |Det aktuella värdet får inte Skift läges okänsligt matcha målvärdet. |notMatchInsensitively eller **inte** matchInsensitively |
-|Inga relaterade resurser matchar träd informationen i princip definitionen. |En resurs av den typ som definierats i **sedan.** details. type och relaterad till den resurs som definierats i **IF** -delen i princip regeln finns inte. |
+|Inga relaterade resurser matchar träd informationen i princip definitionen. |En resurs av den typ som definierats i **sedan. details. Type** och relaterad till den resurs som definierats i **IF** -delen i princip regeln finns inte. |
 
 ## <a name="compliance-details-for-guest-configuration"></a>Information om efterlevnad för gäst konfiguration
 
-För _auditIfNotExists_ -principer i kategorin _gäst konfiguration_ kan flera inställningar utvärderas i den virtuella datorn och du måste visa information om varje inställning. Om du till exempel granskar en lista över lösen ords principer och bara en av dem har status inkompatibel, behöver du veta vilka principer för lösen ord som _inte är kompatibla_och varför.
+För _auditIfNotExists_ -principer i kategorin _gäst konfiguration_ kan flera inställningar utvärderas i den virtuella datorn och du måste visa information om varje inställning. Om du till exempel granskar en lista över lösen ords principer och bara en av dem har status _inkompatibel_, behöver du veta vilka principer för lösen ord som inte är kompatibla och varför.
 
 Du kanske inte har behörighet att logga in på den virtuella datorn direkt, men du måste rapportera om varför den virtuella datorn är _icke-kompatibel_.
 
@@ -200,7 +200,7 @@ Som en del av en ny **offentlig för hands version**är de 14 senaste dagarna i 
 
 1. På sidan **Översikt** eller **efterlevnad** väljer du en princip i valfritt **kompatibilitetstillstånd**.
 
-1. På fliken **Resource Compliance (Resource Compliance** ) på sidan efterlevnadsprincip väljer du en resurs.
+1. På fliken **Resource Compliance (Resource Compliance** ) **på sidan efterlevnadsprincip** väljer du en resurs.
 
 1. Välj fliken **ändrings historik (förhands granskning)** på sidan **resurs efterlevnad** . En lista över identifierade ändringar, om sådana finns, visas.
 

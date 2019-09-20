@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 10/29/2018
 ms.author: pabutler
-ms.openlocfilehash: 4986f888abca94549e921bfe5400d68f6d28c01f
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: bc2be73f85ebec7785b9aa06d6152447eee7e33e
+ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67876681"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71147292"
 ---
 # <a name="consulting-services-for-azure-marketplace-and-appsource"></a>Konsult tjänster för Azure Marketplace och AppSource
 Konsult tjänster i Azure Marketplace och AppSource ger Microsoft-partner målet att ansluta kunder med tjänster för att stödja och utöka användningen av Azure och affärs mål. 
@@ -24,15 +24,17 @@ Dessa konsult tjänst erbjudanden är kundspecifika engagemang. Utgivare har mö
 ## <a name="consulting-services-in-azure-marketplace-vs-appsource-storefront"></a>Konsult tjänster i Azure Marketplace vs AppSource butik
 Marketplace-butiker justeras med mål grupper och Microsofts moln produkter som hjälper kunderna att hitta vad de behöver. Varje butik erbjuder särskilda publicerings alternativ som hjälper dig att maximera publicerings investeringen. Följande tabell sammanfattar de här alternativen:
 
-|         |Azure Marketplace  |AppSource |
+|         |Azure Marketplace  |Microsoft AppSource |
 |---------|---------|---------|
 |**Filmen**   |**IT-proffs och moln utvecklare**|**Företags användare/affärs besluts fattare**|
 |Relevans för lösning     |Tekniska appar som skapats för eller bygger på Azure|Affärsappar som utnyttjar/utökar D365, Power BI, O365, Azure. (Appar för att lägga till eller lägga till färdiga appar)|
-|Publicerings alternativ     |Kontakta mig, utvärderings version, Transact eller konsult tjänster|Kontakta mig, utvärderings version eller konsult tjänster|
+|Publicerings alternativ     |Kontakta mig, utvärderings version, Transact eller tjänster för Azure|Kontakta mig, utvärderings version eller tjänster för Dynamics 365 och Power BI|
 |I produkt miljö      |Hanteringsportalen för Azure|Dynamics 365, Office 365, Office-klientprogram| 
-|Annat      |Lokal publicering via Azure Stack|Konsult tjänster för Dynamics och Power BI|
+|Annat      |Lokal publicering via Azure Stack, konsult tjänster för Azure, hanterade tjänster för Azure|Konsult tjänster för Dynamics och Power BI|
 
-Tjänst erbjudanden som baseras på Microsoft Dynamics 365, Office 365 och Power BI är berättigade att listas på AppSource. Mer information finns i [rikt linjer för Microsoft AppSource Consulting Services-registrering](https://smp-cdn-prod.azureedge.net/documents/Microsoft%20AppSource%20Partner%20Listing%20Guidelines.pdf). 
+Konsult tjänster erbjuder som baseras på Microsoft Dynamics 365 och Power BI är berättigade att listas på Microsoft AppSource. Mer information finns i [rikt linjer för Microsoft AppSource Consulting Services-registrering](https://smp-cdn-prod.azureedge.net/documents/Microsoft%20AppSource%20Partner%20Listing%20Guidelines.pdf). 
+
+Konsult tjänster och hanterade tjänster är baserade på Microsoft Azure är berättigade att listas på Azure Marketplace. Mer information finns i artikeln om att [publicera en Azure-konsulttjänster](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/consulting-services/cloud-partner-portal-consulting-services-publishing-offer) och [publicera ett hanterat tjänste erbjudande på Azure Marketplace](https://docs.microsoft.com/azure/lighthouse/how-to/publish-managed-services-offers).
 
 > [!Note]
 > Konsult tjänster i Azure Marketplace bör använda erbjudanden som är kopplade till en * * teknisk publik med fokus på *Azures tekniska lösningar och tjänster.* \* * Konsult tjänster i AppSource bör utnyttja erbjudanden som har stöd för deras expertis i att leverera kvalitets lösningar för Dynamics 365, Power BI eller PowerApps för att visa upp sina konsult tjänster på AppSource
@@ -71,9 +73,9 @@ Partner måste ha en silver- **eller guld kompetens** i det relevanta avsnittet 
 
 |Berättigade länder/regioner |   |   |   |
 |---------|----------|----------|----------|
-|Australien |Frankrike  |     Mexiko          |Spanien       |
+|Australien |Frankrike  |     Mexico          |Spanien       |
 |Belgien   |Tyskland |     Nederländerna     |Sverige       |
-|Kanada    |Indien   |     Nya Zeeland     |Storbritannien  |
+|Kanada    |Indien   |     Nya Zeeland     |Storbritannien och Nordirland  |
 |Danmark   |Italien   |     Norge          |USA |
 |Finland   |Japan   |     Polen          
 
@@ -149,9 +151,9 @@ Exempel:
 
 När du ska granska erbjudande beskrivningar och erbjudande sammanfattningar, kommer teamet att tillämpa följande kriterier:
 
-|Erbjudandetyp  |Krävs |Rekommenderas  |
+|Erbjudandetyp  |Obligatorisk |Rekommenderas  |
 |---------|---------|---------|
-|**Beskrivningar**    |   Ta med en detaljerad agenda för flera dagar eller flera vecko bedömningar, och tydliggör vilken slut produkt som kunden kan förväntar sig      |    Optimera din erbjudande Sammanfattning med dina bästa nyckelord för sökmotor optimering     |
+|**Utvärdering**    |   Ta med en detaljerad agenda för flera dagar eller flera vecko bedömningar, och tydliggör vilken slut produkt som kunden kan förväntar sig      |    Optimera din erbjudande Sammanfattning med dina bästa nyckelord för sökmotor optimering     |
 |**Genom gång**    |   Tydliggör vilken slut produkt som kunden kan förväntar sig. Kom ihåg att du måste erbjuda en person. Om du tillhandahåller en virtuell tjänst väljer du en annan erbjudande typ    |  Optimera din erbjudande Sammanfattning med dina bästa nyckelord för sökmotor optimering       |
 |**Serverimplementeringar**    |  Ta med en detaljerad agenda för implementeringar av flera dagar eller flera veckor och tydliggör vilka tekniska artefakter, tekniska artefakter eller andra artefakter som en kund kan förväntar sig som resultat av ärendet       |    Optimera din erbjudande Sammanfattning med dina bästa nyckelord för sökmotor optimering     |
 |**Koncept bevis**    |    Tydliggör vilka tekniska förändringar, tekniska artefakter eller andra artefakter som en kund kan förväntar sig som ett resultat av ärendet     | Optimera din erbjudande Sammanfattning med dina bästa nyckelord för sökmotor optimering        |

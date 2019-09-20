@@ -7,12 +7,12 @@ ms.topic: sample
 ms.date: 08/05/2019
 ms.author: mjbrown
 ms.custom: seodec18
-ms.openlocfilehash: e8f943ebaa5dfc06e0bfb04dc1097d6794ec6d05
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 5b041fecfaa5a84ed5a04a3a8c53de10b9efd65b
+ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69616837"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71155359"
 ---
 # <a name="manage-azure-cosmos-db-sql-api-resources-using-powershell"></a>Hantera Azure Cosmos DB SQL API-resurser med hjälp av PowerShell
 
@@ -43,6 +43,7 @@ Följande avsnitt visar hur du hanterar Azure Cosmos-kontot, inklusive:
 * [Återskapa nycklar för ett Azure Cosmos-konto](#regenerate-keys)
 * [Visa en lista med anslutnings strängar för ett Azure Cosmos-konto](#list-connection-strings)
 * [Ändra prioritet för redundans för ett Azure Cosmos-konto](#modify-failover-priority)
+* [Utlös en manuell redundansväxling för ett Azure Cosmos-konto](#trigger-manual-failover)
 
 ### <a id="create-account"></a>Skapa ett Azure Cosmos-konto
 
@@ -121,7 +122,9 @@ Med det här kommandot kan du uppdatera egenskaperna för ditt Azure Cosmos-data
 * Aktivera flera huvud
 
 > [!NOTE]
-> Med det här kommandot kan du lägga till och ta bort regioner, men du kan inte ändra prioriteter för redundans eller `failoverPriority=0`ändra regionen med. Om du vill ändra prioriteten för redundans läser du [ändra prioritet för redundans för ett Azure Cosmos-konto](#modify-failover-priority).
+> Du kan inte lägga till eller ta `locations` bort regioner samtidigt och ändra andra egenskaper för ett Azure Cosmos-konto. Ändra regioner måste utföras som en separat åtgärd än andra ändringar i konto resursen.
+> [!NOTE]
+> Med det här kommandot kan du lägga till och ta bort regioner, men du kan inte ändra prioriteter för redundans eller utlösa en manuell redundansväxling. Se [ändra prioritet för redundans](#modify-failover-priority) och [utlösa manuell redundans](#trigger-manual-failover).
 
 ```azurepowershell-interactive
 # Get an Azure Cosmos Account (assume it has two regions currently West US 2 and East US 2) and add a third region
@@ -238,23 +241,55 @@ Select-Object $keys
 
 ### <a id="modify-failover-priority"></a>Ändra prioritet för redundans
 
-För databas konton med flera regioner kan du ändra i vilken ordning ett Cosmos-konto ska befordra sekundära skrivskyddade repliker om en regional redundans inträffar på den primära Skriv repliken. Att `failoverPriority=0` ändra kan också användas för att initiera en haveri beredskap för att testa haveri beställnings planeringen.
+För konton som har kon figurer ATS med automatisk redundans kan du ändra i vilken ordning Cosmos ska befordra sekundära repliker till primär om den primära blir otillgänglig.
 
-I exemplet nedan antar du att kontot har en aktuell växlings prioritet för `West US 2 = 0` och `East US 2 = 1` och vänder regionerna.
+I exemplet nedan antar du den aktuella prioriteten för redundans `West US 2 = 0`, `East US 2 = 1`, `South Central US = 2`,.
 
 > [!CAUTION]
 > Om `locationName` du `failoverPriority=0` ändrar för aktive ras en manuell redundansväxling för ett Azure Cosmos-konto. Eventuella andra prioritets ändringar kommer inte att utlösa redundans.
 
 ```azurepowershell-interactive
 # Change the failover priority for an Azure Cosmos Account
-# Assume existing priority is "West US 2" = 0 and "East US 2" = 1
+# Assume existing priority is "West US 2" = 0, "East US 2" = 1, "South Central US" = 2
 
 $resourceGroupName = "myResourceGroup"
 $accountName = "mycosmosaccount"
 
 $failoverRegions = @(
-    @{ "locationName"="East US 2"; "failoverPriority"=0 },
-    @{ "locationName"="West US 2"; "failoverPriority"=1 }
+    @{ "locationName"="West US 2"; "failoverPriority"=0 },
+    @{ "locationName"="South Central US"; "failoverPriority"=1 },
+    @{ "locationName"="East US 2"; "failoverPriority"=2 }
+)
+
+$failoverPolicies = @{
+    "failoverPolicies"= $failoverRegions
+}
+
+Invoke-AzResourceAction -Action failoverPriorityChange `
+    -ResourceType "Microsoft.DocumentDb/databaseAccounts" -ApiVersion "2015-04-08" `
+    -ResourceGroupName $resourceGroupName -Name $accountName -Parameters $failoverPolicies
+```
+
+### <a id="trigger-manual-failover"></a>Utlös manuell redundans
+
+För konton som kon figurer ATS med manuell redundans, kan du redundansväxla och befordra valfri sekundär replik till primär `failoverPriority=0`genom att ändra till. Den här åtgärden kan användas för att starta en haveri beredskap för att testa haveri beredskaps planeringen.
+
+I exemplet nedan antar du att kontot har en aktuell växlings prioritet för `West US 2 = 0` och `East US 2 = 1` och vänder regionerna.
+
+> [!CAUTION]
+> Om `locationName` du `failoverPriority=0` ändrar för aktive ras en manuell redundansväxling för ett Azure Cosmos-konto. Alla andra prioritets ändringar kommer inte att utlösa redundans.
+
+```azurepowershell-interactive
+# Change the failover priority for an Azure Cosmos Account
+# Assume existing priority is "West US 2" = 0, "East US 2" = 1, "South Central US" = 2
+
+$resourceGroupName = "myResourceGroup"
+$accountName = "mycosmosaccount"
+
+$failoverRegions = @(
+    @{ "locationName"="South Central US"; "failoverPriority"=0 },
+    @{ "locationName"="East US 2"; "failoverPriority"=1 },
+    @{ "locationName"="West US 2"; "failoverPriority"=2 }
 )
 
 $failoverPolicies = @{

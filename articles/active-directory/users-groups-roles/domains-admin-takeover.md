@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c05e1dc720f49eb190ccdbe1826a1a347fba7fa1
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: 00753ee8d7d128222e9fb773f00a23720813a237
+ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70914781"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71146466"
 ---
 # <a name="take-over-an-unmanaged-directory-as-administrator-in-azure-active-directory"></a>Ta över en ohanterad katalog som administratör i Azure Active Directory
 
@@ -83,19 +83,16 @@ När du verifierar ägarskapet för domän namnet tar Azure AD bort domän namne
 
 - Användare
 - Prenumerationer
-- Licens tilldelningar
+- Licenstilldelningar
 
 ### <a name="support-for-external-admin-takeover"></a>Stöd för extern administratörs övertag Ande
 Extern administratörs övertag ande stöds av följande onlinetjänster:
 
-- Power BI
 - Azure Rights Management
 - exchange online
 
 Service planerna som stöds är:
 
-- Power BI kostnads fritt
-- Power BI Pro
 - PowerApps kostnads fritt
 - PowerFlow kostnads fritt
 - RMS för enskilda användare
@@ -113,10 +110,6 @@ För [RMS för enskilda användare](/azure/information-protection/rms-for-indivi
 Nyckeln och mallarna flyttas inte över när den ohanterade klienten är i en annan region. Till exempel om den ohanterade klienten finns i Europa och den organisation som du äger är i Nordamerika.
 
 Även om RMS för enskilda användare har utformats för att ge stöd för Azure AD-autentisering för att öppna skyddat innehåll, hindras inte användare från att också skydda innehåll. Om användarna har skyddat innehåll med prenumerationen RMS för enskilda användare och nyckeln och mallarna inte flyttats över, är det inte tillgängligt efter att domänen har övertagits.
-
-#### <a name="more-information-about-power-bi"></a>Mer information om Power BI
-
-När du utför en extern Övertagning placeras Power BI innehåll som skapades innan övertaget placeras i en [Power BI Arkiverad arbets yta](/power-bi/service-admin-power-bi-archived-workspace). Du måste manuellt Migrera innehåll som du vill använda i den nya klienten.
 
 ### <a name="azure-ad-powershell-cmdlets-for-the-forcetakeover-option"></a>Azure AD PowerShell-cmdletar för alternativet ForceTakeover
 Du kan se dessa cmdletar som används i [PowerShell-exemplet](#powershell-example).

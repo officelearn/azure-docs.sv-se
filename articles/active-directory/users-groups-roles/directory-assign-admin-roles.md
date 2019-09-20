@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 09/05/2019
+ms.date: 09/20/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c2eff9c0edf6797c08d0ef9732c903a81a6c764a
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: 27c38b23849eef535b17657f48c1c50cc998f72f
+ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "70861169"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71155009"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Administratörs roll behörigheter i Azure Active Directory
 
@@ -63,9 +63,9 @@ Användare med den här rollen kan skapa program registreringar när inställnin
 Användare med den här rollen kan ange eller återställa autentiseringsuppgifter för icke-lösenord och kan uppdatera lösen ord för alla användare. Autentiserings administratörer kan kräva att användarna registrerar sig igen mot befintliga autentiseringsuppgifter för icke-lösenord (till exempel MFA eller FIDO) och återkalla åtkomst till **MFA på enheten**, vilket efterfrågar MFA vid nästa inloggning av användare som inte är administratörer eller tilldelas följande roller endast:
 
 * Autentiseringsadministratör
-* Katalogläsare
+* Directory-reader
 * Gästinbjudare
-* Meddelandecenterläsare
+* Meddelandecenter-administratör
 * Rapportläsare
 
 Rollen som administratör för autentisering är för närvarande en offentlig för hands version. Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
@@ -78,6 +78,12 @@ Rollen som administratör för autentisering är för närvarande en offentlig f
 * Säkerhets grupp och Office 365-grupp ägare, som kan hantera grupp medlemskap. Dessa grupper kan ge åtkomst till känslig eller privat information eller kritisk konfiguration i Azure AD och någon annan stans.
 * Administratörer i andra tjänster utanför Azure AD, till exempel Exchange Online, Office Security och Compliance Center och personal system.
 * Icke-administratörer som chefer, juridiska konsulter och personal anställda som kan ha till gång till känslig eller privat information.
+
+### <a name="azure-devops-administratorazure-devops-administrator-permissions"></a>[Azure DevOps-administratör](#azure-devops-administrator-permissions)
+
+Användare med den här rollen kan hantera Azure DevOps-principen för att begränsa skapandet av nya Azure DevOps-organisationer till en uppsättning konfigurerbara användare eller grupper. Användare med den här rollen kan hantera den här principen via en Azure DevOps-organisation som har säkerhetskopierat företagets Azure AD-organisation.
+
+Alla Enterprise Azure DevOps-principer kan hanteras av användare i den här rollen.
 
 ### <a name="azure-information-protection-administratorazure-information-protection-administrator-permissions"></a>[Azure Information Protection administratör](#azure-information-protection-administrator-permissions)
 
@@ -213,10 +219,10 @@ Användare med den här rollen kan hantera Azure Active Directory B2B-gäst anv�
 
 Användare med den här rollen kan ändra lösen ord, ogiltig uppdatera tokens, hantera tjänst begär Anden och övervaka tjänstens hälsa. Om en uppdateringstoken inverifieras tvingar användaren att logga in igen. Administratörer för supportavdelningen kan återställa lösen ord och göra en ogiltig verifiering av uppdateringstoken för andra användare som inte är administratörer eller som tilldelas följande roller:
 
-* Katalogläsare
+* Directory-reader
 * Gästinbjudare
-* Supportavdelningsadministratör
-* Meddelandecenterläsare
+* Support administratör
+* Meddelandecenter-administratör
 * Rapportläsare
 
 > [!IMPORTANT]
@@ -268,7 +274,7 @@ Använd inte. Den här rollen är inaktuell och kommer att tas bort från Azure 
 
 Användare med den här rollen har begränsad möjlighet att hantera lösen ord. Den här rollen ger inte möjlighet att hantera tjänst begär Anden eller övervaka tjänstens hälsa. Lösen ords administratörer kan återställa lösen ord för andra användare som inte är administratörer eller medlemmar i följande roller:
 
-* Katalogläsare
+* Directory-reader
 * Gästinbjudare
 * Lösenordsadministratör
 
@@ -309,7 +315,7 @@ Användare med den här rollen har behörighet att hantera säkerhetsrelaterade 
 I | Kan göra
 --- | ---
 [Microsoft 365 Security Center](https://protection.office.com) | Övervaka säkerhetsrelaterade principer i Microsoft 365 Services<br>Hantera säkerhetshot och aviseringar<br>Visa rapporter
-Identity Protection Center | Alla behörigheter för säkerhets läsar rollen<br>Dessutom kan du utföra alla åtgärder för identitets skydds Center förutom att återställa lösen ord
+Identitets skydds Center | Alla behörigheter för säkerhets läsar rollen<br>Dessutom kan du utföra alla åtgärder för identitets skydds Center förutom att återställa lösen ord
 [Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-configure) | Alla behörigheter för säkerhets läsar rollen<br>**Det går inte att** hantera roll tilldelningar eller inställningar för Azure AD
 [Office 365 Säkerhets-och efterlevnadscenter](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d) | Hantera säkerhets principer<br>Visa, undersöka och reagera på säkerhetshot<br>Visa rapporter
 Azure Advanced Threat Protection | Övervaka och svara på misstänkt säkerhets aktivitet
@@ -326,7 +332,7 @@ Användare med den här rollen kan hantera aviseringar och ha global Läs behör
 I | Kan göra
 --- | ---
 [Microsoft 365 Security Center](https://protection.office.com) | Alla behörigheter för säkerhets läsar rollen<br>Visa, undersöka och svara på säkerhetshot
-Identity Protection Center | Alla behörigheter för säkerhets läsar rollen<br>Dessutom kan du utföra alla åtgärder för identitets skydds Center förutom att återställa lösen ord
+Identitets skydds Center | Alla behörigheter för säkerhets läsar rollen<br>Dessutom kan du utföra alla åtgärder för identitets skydds Center förutom att återställa lösen ord
 [Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-configure) | Alla behörigheter för säkerhets läsar rollen
 [Office 365 Säkerhets-och efterlevnadscenter](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d) | Alla behörigheter för säkerhets läsar rollen<br>Visa, undersöka och svara på säkerhets aviseringar
 Windows Defender ATP och EDR | Alla behörigheter för säkerhets läsar rollen<br>Visa, undersöka och svara på säkerhets aviseringar
@@ -341,7 +347,7 @@ Användare med den här rollen har global Läs behörighet i säkerhetsrelaterad
 I | Kan göra
 --- | ---
 [Microsoft 365 Security Center](https://protection.office.com) | Visa säkerhetsrelaterade principer i Microsoft 365 Services<br>Visa säkerhetshot och aviseringar<br>Visa rapporter
-Identity Protection Center | Läs alla säkerhets rapporter och inställnings information för säkerhetsfunktioner<br><ul><li>Anti-spam<li>Kryptering<li>Skydd mot data förlust<li>Program mot skadlig kod<li>Avancerat skydd<li>Skydd mot nätfiske<li>Flödes regler för flöden
+Identitets skydds Center | Läs alla säkerhets rapporter och inställnings information för säkerhetsfunktioner<br><ul><li>Anti-spam<li>Kryptering<li>Skydd mot data förlust<li>Program mot skadlig kod<li>Avancerat skydd<li>Skydd mot nätfiske<li>Flödes regler för flöden
 [Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-configure) | Har skrivskyddad åtkomst till all information som finns i Azure AD Privileged Identity Management: Principer och rapporter för roll tilldelningar i Azure AD och säkerhets granskningar.<br>**Det går inte att** registrera dig för Azure AD Privileged Identity Management eller göra ändringar i den. I Privileged Identity Management-portalen eller via PowerShell kan någon i den här rollen aktivera ytterligare roller (till exempel global administratör eller privilegie rad roll administratör), om användaren är berättigad till dem.
 [Office 365 Säkerhets-och efterlevnadscenter](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d) | Visa säkerhetsprinciper<br>Visa och undersök säkerhetshot<br>Visa rapporter
 Windows Defender ATP och EDR | Visa och undersök aviseringar. När du aktiverar rollbaserad åtkomst kontroll i Windows Defender ATP kan användare med Läs behörighet som rollen Azure AD Security Reader förlora åtkomst tills de tilldelas till en Windows Defender ATP-roll.
@@ -397,7 +403,7 @@ Användare med den här rollen kan skapa användare och hantera alla aspekter av
 | --- | --- |
 |Allmänna behörigheter|<p>Skapa användare och grupper</p><p>Skapa och hantera användar visningar</p><p>Hantera Office-support biljetter<p>Uppdatera principer för förfallo datum för lösen ord|
 |<p>För alla användare, inklusive alla administratörer</p>|<p>Hantera licenser</p><p>Hantera alla användar egenskaper utom användarens huvud namn</p>
-|Endast på användare som inte är administratörer eller någon av följande begränsade administratörs roller:<ul><li>Katalogläsare<li>Gästinbjudare<li>Supportavdelningsadministratör<li>Meddelandecenterläsare<li>Rapportläsare<li>Användaradministratör|<p>Ta bort och Återställ</p><p>Inaktivera och aktivera</p><p>Invalidera uppdateringstoken</p><p>Hantera alla användar egenskaper inklusive användarens huvud namn</p><p>Återställ lösenord</p><p>Uppdatera (FIDO) enhets nycklar</p>
+|Endast på användare som inte är administratörer eller någon av följande begränsade administratörs roller:<ul><li>Directory-reader<li>Gästinbjudare<li>Support administratör<li>Meddelandecenter-administratör<li>Rapportläsare<li>Användaradministratör|<p>Ta bort och Återställ</p><p>Inaktivera och aktivera</p><p>Invalidera uppdateringstoken</p><p>Hantera alla användar egenskaper inklusive användarens huvud namn</p><p>Återställ lösenord</p><p>Uppdatera (FIDO) enhets nycklar</p>
 
 > [!IMPORTANT]
 > Användare med den här rollen kan ändra lösen ord för personer som kan ha åtkomst till känslig eller privat information eller kritisk konfiguration i och utanför Azure Active Directory. Att ändra lösen ordet för en användare kan innebära att du antar användarens identitet och behörigheter. Exempel:
@@ -491,6 +497,19 @@ Tillåts Visa, ange och återställa information om autentiseringsinformation f�
 | microsoft.office365.serviceHealth/allEntities/allTasks | Läs och konfigurera Office 365 Service Health. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Skapa och hantera Office 365-support biljetter. |
 | Microsoft. Directory/Users/Password/Update | Uppdatera lösen ord för alla användare i Office 365-organisationen. Mer information finns i onlinedokumentationen. |
+
+### <a name="azure-devops-administrator-permissions"></a>Administratörs behörighet för Azure-DevOps
+
+Kan hantera Azure DevOps-organisationens principer och inställningar.
+
+> [!NOTE]
+> Den här rollen har ytterligare behörigheter utanför Azure Active Directory. Mer information finns i [roll Beskrivning](#azure-devops-administrator) ovan.
+>
+>
+
+| **Åtgärder** | **Beskrivning** |
+| --- | --- |
+| Microsoft. Azure. devOps/upplånade/allTasks | Läsa och konfigurera Azure-DevOps. |
 
 ### <a name="azure-information-protection-administrator-permissions"></a>Azure Information Protection administratörs behörighet
 
@@ -1496,55 +1515,55 @@ Graph-displayName | Visnings namn för Azure Portal | directoryRoleTemplateId
 Programadministratör | Programadministratör | 9B895D92-2CD3-44C7-9D02-A6AC2D5EA5C3
 Programutvecklare | Programutvecklare | CF1C38E5-3621-4004-A7CB-879624DCED7C
 Autentiseringsadministratör | Autentiseringsadministratör | c4e39bd9-1100-46d3-8c65-fb160da0071f
-Azure Information Protection administratör | Azure Information Protection administratör | 7495fdc4-34c4-4d15-a289-98788ce399fd
+Azure Information Protection administratör | Azure Information Protection-administratör | 7495fdc4-34c4-4d15-a289-98788ce399fd
 B2C användar flödes administratör | B2C användar flödes administratör | 6e591065-9bad-43ed-90f3-e9424366d2f0
-B2C User Flow Attribute Administrator | B2C User Flow Attribute Administrator | 0f971eea-41eb-4569-a71e-57bb8a3eff1e
-B2C IEF Keyset Administrator | B2C IEF Keyset Administrator | aaf43236-0c0d-4d5f-883a-6955382ac081
-B2C IEF Policy Administrator | B2C IEF Policy Administrator | 3edaf663-341e-4475-9f94-5c398ef6c070
+Administratör av B2C-användarflödesattribut | Administratör av B2C-användarflödesattribut | 0f971eea-41eb-4569-a71e-57bb8a3eff1e
+B2C IEF-nyckeluppsättningsadministratör | B2C IEF-nyckeluppsättningsadministratör | aaf43236-0c0d-4d5f-883a-6955382ac081
+B2C IEF-principadministratör | B2C IEF-principadministratör | 3edaf663-341e-4475-9f94-5c398ef6c070
 Faktureringsadministratör | Faktureringsadministratör | b0f54661-2d74-4c50-afa3-1ec803f12efe
 Molnprogramadministratör | Molnprogramadministratör | 158c047a-c907-4556-b7ef-446551a6b5f7
 Molnenhetsadministratör | Molnenhetsadministratör | 7698a772-787b-4ac8-901f-60d6b08affd2
 Företagsadministratör | Global administratör | 62e90394-69f5-4237-9190-012177145e10
 Efterlevnadsadministratör | Efterlevnadsadministratör | 17315797-102d-40b4-93e0-432062caca18
-Data administratör för efterlevnad | Data administratör för efterlevnad | e6d1a23a-da11-4be4-9570-befc86d067a7
+Efterlevnadsdataadministratör | Efterlevnadsdataadministratör | e6d1a23a-da11-4be4-9570-befc86d067a7
 Administratör för villkorsstyrd åtkomst | Administratör av villkorsstyrd åtkomst | b1be1c3e-b65d-4f19-8427-f6fa0d97feb9
-Tjänstadministratör för CRM | Dynamics 365-administratör | 44367163-eba1-44c3-98af-f5787879f96a
-Godkännare av åtkomst till Customer LockBox | Customer Lockbox åtkomst god kännare | 5c4f9dcd-47dc-4cf7-8c9a-9e4207cbfc91
+CRM-tjänstadministratör | Dynamics 365-administratör | 44367163-eba1-44c3-98af-f5787879f96a
+Customer Lockbox-åtkomstgodkännare | Customer Lockbox åtkomst god kännare | 5c4f9dcd-47dc-4cf7-8c9a-9e4207cbfc91
 Desktop Analytics-administratör | Desktop Analytics-administratör | 38a96431-2bdf-4b4c-8b6e-5d3d8abac1a4
 Enhetsadministratörer | Enhets administratörer | 9f06204d-73c1-4d4c-880a-6edb90606fd8
 Enhets anslutning | Enhets anslutning | 9c094953-4995-41c8-84c8-3ebb9b32c93f
 Enhetshanterare | Enhets hanterare | 2b499bcd-da44-4968-8aec-78e1674fa64d
 Enhets användare | Enhets användare | d405c6df-0af8-4e3b-95e4-4d06e542189e
-Katalogläsare | Katalogläsare | 88d8e3e3-8f55-4a1e-953a-9b9898b8876b
+Directory-reader | Directory-reader | 88d8e3e3-8f55-4a1e-953a-9b9898b8876b
 Konton för katalog synkronisering | Katalogsynkroniseringskonton | d29b2b05-8046-44ba-8758-1e26182fcf32
 Katalogskrivare | Katalogskrivare | 9360feb5-f418-4baa-8175-e2a00bac4301
-Exchange Service-administratör | Exchange-administratör | 29232cdf-9323-42fd-ade2-1d097af3e4de
-Administratör för extern identitetsprovider | Administratör för extern identitetsprovider | be2f45a1-457d-42af-a067-6ec1fa63bc45
+Exchange service-administratör | Exchange-administratör | 29232cdf-9323-42fd-ade2-1d097af3e4de
+Extern identitetsprovideradministratör | Extern identitetsprovideradministratör | be2f45a1-457d-42af-a067-6ec1fa63bc45
 Gästinbjudare | Gästinbjudare | 95e79109-95c0-4d8e-aee3-d01accf2d47b
-Supportavdelningsadministratör | Lösenordsadminitratör | 729827e3-9c14-49f7-bb1b-9608f156bbb8
+Support administratör | Lösenordsadministratör | 729827e3-9c14-49f7-bb1b-9608f156bbb8
 Administratör för Intune-tjänsten | Intune-administratör | 3a2c62db-5318-420d-8d74-23affee5d9d5
 Kaizala-administratör | Kaizala-administratör | 74ef975b-6605-40af-a5d2-b9539d836353
 Licensadministratör | Licensadministratör | 4d6ac14f-3453-41d0-bef9-a3e0c569773a
-Lync-tjänstadministratör | Skype for Business-administratör | 75941009-915a-4869-abe7-691bff18279e
-Meddelande Center sekretess läsare | Meddelande Center sekretess läsare | ac16e43d-7b2d-40e0-ac05-243ff356ab5b
-Meddelandecenterläsare | Meddelandecenterläsare | 790c1fb9-7f7d-4f88-86a1-ef1f95c05c1b
+Administratör för Lync-tjänsten | Skype for Business-administratör | 75941009-915a-4869-abe7-691bff18279e
+Integritetsläsare för Meddelandecenter | Integritetsläsare för Meddelandecenter | ac16e43d-7b2d-40e0-ac05-243ff356ab5b
+Meddelandecenter-administratör | Meddelandecenterläsare | 790c1fb9-7f7d-4f88-86a1-ef1f95c05c1b
 Partnersupport, nivå 1 | Partnersupport, nivå 1 | 4ba39ca4-527c-499a-b93d-d9b492c50246
 Partnersupport, nivå 2 | Partnersupport, nivå 2 | e00e864a-17c5-4a4b-9c06-f5b95a8d5bd8
-Lösenordsadministratör | Lösenordsadminitratör | 966707d0-3269-4727-9be2-8c3a10f19b9d
+Lösenordsadministratör | Lösenordsadministratör | 966707d0-3269-4727-9be2-8c3a10f19b9d
 Power BI-tjänstadministratör | Power BI-administratör | a9ea8996-122f-4c74-9520-8edcd192826c
 Privilegierad autentiseringsadministratör | Privilegierad autentiseringsadministratör | 7be44c8a-adaf-4e2a-84d6-ab2649e08a13
-Privilegierad rolladministratör | Administratör för privilegierad roll | e8611ab8-c189-46e8-94e1-60213ab1f814
+Administratör för privilegierad roll | Administratör för privilegierad roll | e8611ab8-c189-46e8-94e1-60213ab1f814
 Rapportläsare | Rapportläsare | 4a5d8f65-41da-4de4-8968-e035b65339cf
-Sök administratör | Sök administratör | 0964bb5e-9bdb-4d7b-ac29-58e794862a40
-Sök redigerare | Sök redigerare | 8835291a-918c-4fd7-a9ce-faa49f0cf7d9
+Sökadministratör | Sökadministratör | 0964bb5e-9bdb-4d7b-ac29-58e794862a40
+Sökredigeringsprogram | Sökredigerare | 8835291a-918c-4fd7-a9ce-faa49f0cf7d9
 Säkerhetsadministratör | Säkerhetsadministratör | 194ae4cb-b126-40b2-bd5b-6091b380977d
-Säkerhets operatör | Säkerhets operatör | 5f2222b1-57c3-48ba-8ad5-d4759f1fde6f
+Säkerhetsoperator | Säkerhetsoperator | 5f2222b1-57c3-48ba-8ad5-d4759f1fde6f
 Säkerhetsläsare | Säkerhetsläsare | 5d6b6bb7-de71-4623-b4af-96380a352509
-Tjänstesupport-administratör | Tjänstadministratör | f023fd81-a637-4b56-95fd-791ac0226033
+Tjänst support administratör | Tjänstadministratör | f023fd81-a637-4b56-95fd-791ac0226033
 SharePoint-tjänstadministratör | SharePoint-administratör | f28a1f50-f6e7-4571-818b-6a12f2af6b6c
-Teams Communications-administratör | Teams Communications-administratör | baf37b3a-610e-45da-9e62-d9d1e5e8914b
-Teams Communications-supporttekniker | Teams Communications-supporttekniker | f70938a0-fc10-4177-9e90-2178f8765737
-Teams Communications-supportspecialist | Teams Communications-supportspecialist | fcf91098-03e3-41a9-b5ba-6f0ec8188a12
+Teams-kommunikationsadministratör | Teams-kommunikationsadministratör | baf37b3a-610e-45da-9e62-d9d1e5e8914b
+Supporttekniker för Teams-kommunikation | Supporttekniker för Teams-kommunikation | f70938a0-fc10-4177-9e90-2178f8765737
+Supportspecialist för Teams-kommunikation | Supportspecialist för Teams-kommunikation | fcf91098-03e3-41a9-b5ba-6f0ec8188a12
 Teams-tjänstadministratör | Teams-tjänstadministratör | 69091246-20e8-4a56-aa4d-066075b2a7a8
 Användare | Användare | a0b1b346-4d3e-4e8b-98f8-753987be4970
 Användarkonto-administratör | Användaradministratör | fe930be7-5e62-47db-91af-98c3a49a38b1
@@ -1558,7 +1577,7 @@ Följande roller ska inte användas. De är inaktuella och kommer att tas bort f
 * Enhets anslutning
 * Enhetshanterare
 * Enhets användare
-* Skapare av e-postverifierad användare
+* E-postverifierad användarskapare
 * Postlådeadministratör
 * Arbetsplatsenhetskoppling
 

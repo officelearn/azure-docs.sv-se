@@ -4,7 +4,7 @@ description: Den här artikeln innehåller vanliga frågor och svar om konfigura
 services: cloud-services
 documentationcenter: ''
 author: genlin
-manager: cshepard
+manager: dcscontentpm
 editor: ''
 tags: top-support-issue
 ms.assetid: 84985660-2cfd-483a-8378-50eef6a0151d
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: genli
-ms.openlocfilehash: 480ca33f02242499bdf9fff3fa35695e7d4841a0
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: 0c694ffe6ccd23803fbe16001f54b7c1611635cd
+ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68945459"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71154728"
 ---
 # <a name="configuration-and-management-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Konfigurations-och hanterings problem för Azure-Cloud Services: Vanliga frågor och svar
 
@@ -207,7 +207,7 @@ De här stegen kan automatiseras via en start åtgärd, så när en ny PaaS-inst
 När detta har gjorts kan du kontrol lera om HTTP/2 har Aktiver ATS eller inte genom att använda någon av följande metoder:
 
 - Aktivera protokoll version i IIS-loggar och leta i IIS-loggarna. Då visas HTTP/2 i loggarna. 
-- Aktivera verktyget F12-utvecklare i Internet Explorer/Microsoft Edge och växla till fliken nätverk för att verifiera protokollet. 
+- Aktivera verktyget F12-utvecklare i Internet Explorer eller Microsoft Edge och växla till fliken nätverk för att verifiera protokollet. 
 
 Mer information finns i [http/2 i IIS](https://blogs.iis.net/davidso/http2).
 

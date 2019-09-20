@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
-ms.date: 09/13/2019
+ms.date: 09/19/2019
 ms.author: diberry
-ms.openlocfilehash: 87065709b16a5a0c7076584e8fc33c3830319e4f
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 246e76a0ab94624945723b500ef136e038ab40ec
+ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "70999652"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71155234"
 ---
 # <a name="where-can-you-use-personalizer"></a>Var kan du använda Personanpassning?
 
@@ -33,7 +33,7 @@ Du kan använda Personanpassare i situationer där:
 * Det bästa valet kan och bör registreras från kollektivt användar beteende och total belönings poäng.
 * Användningen av Machine Learning för anpassning följer de [rikt linjer](ethics-responsible-use.md) och alternativ som du väljer.
 * Det sammanhangsbaserade beslutet kan uttryckas som rangordning av det bästa alternativet (åtgärd) från en begränsad uppsättning alternativ.
-* Hur väl det rankade valet av program kan bestämmas genom att mäta viss aspekt av användar beteendet och uttrycka det i en _belönings Poäng_. Detta är ett tal mellan-1 och 1.
+* Hur väl det rankade valet av program kan bestämmas genom att mäta viss aspekt av användar beteendet och uttrycka det i en _[belönings Poäng](concept-rewards.md)_ .
 * Belönings poängen tar inte upp för många påträffande eller externa faktorer. Experimentets varaktighet är för låg nog att belönings poängen kan beräknas när den fortfarande är relevant.
 * Du kan uttrycka kontexten för rang som en lista över minst 5 [funktioner](concepts-features.md) som du tror kan hjälpa dig att välja rätt och som inte innehåller personligt identifierbar information. (PII).
 * Du har information om varje innehålls val, _åtgärd_, som en lista över minst 5 [funktioner](concepts-features.md) som du tror att du kan göra rätt val.

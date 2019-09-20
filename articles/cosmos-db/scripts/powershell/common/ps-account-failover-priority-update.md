@@ -1,19 +1,19 @@
 ---
-title: Skriptexempel för Azure PowerShell – ändra redundansprioritet för ett Azure Cosmos-konto
-description: Skriptexempel för Azure PowerShell – ändra redundansprioritet för ett Azure Cosmos-konto
+title: Azure PowerShell skript – ändra växlings prioritet eller utlösa redundans för ett Azure Cosmos-konto
+description: Azure PowerShell skript exempel – ändra växlings prioritet eller utlös redundans för ett Azure Cosmos-konto
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 05/06/2019
+ms.date: 09/20/2019
 ms.author: mjbrown
-ms.openlocfilehash: 0aea4e8e01b5f65be0d0ca4bb08082e058cba311
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: e4406124a7ea4eac213d830d0e5960e76fb6d364
+ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67603965"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71155392"
 ---
-# <a name="change-failover-priority-for-an-azure-cosmos-account-using-powershell"></a>Ändra redundansprioritet för ett Azure Cosmos-konto med hjälp av PowerShell
+# <a name="change-failover-priority-or-trigger-failover-for-an-azure-cosmos-account-using-powershell"></a>Ändra växlings prioritet eller utlös redundans för ett Azure Cosmos-konto med PowerShell
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 
@@ -21,7 +21,12 @@ ms.locfileid: "67603965"
 
 ## <a name="sample-script"></a>Exempelskript
 
-[!code-powershell[main](../../../../../powershell_scripts/cosmosdb/sql/ps-account-failover-priority-update.ps1 "Update failover priority for an Azure Cosmos account")]
+> [!NOTE]
+> Alla ändringar i en region med `failoverPriority=0` utlöser en manuell redundans och kan bara göras till ett konto som kon figurer ATS för manuell redundansväxling. Ändringar i alla andra regioner ändrar bara växlings prioriteten för ett Cosmos-konto.
+> [!NOTE]
+> Det här exemplet visar hur du använder ett SQL (Core) API-konto. Om du vill använda det här exemplet för andra API: er kopierar du de relaterade egenskaperna och tillämpar på ditt API-speciella skript
+
+[!code-powershell[main](../../../../../powershell_scripts/cosmosdb/common/ps-account-failover-priority-update.ps1 "Update failover priority for an Azure Cosmos account or trigger a manual failover")]
 
 ## <a name="clean-up-deployment"></a>Rensa distribution
 
@@ -39,7 +44,7 @@ Det här skriptet använder följande kommandon. Varje kommando i tabellen länk
 |---|---|
 |**Azure-resurser**| |
 | [Invoke-AzResourceAction](https://docs.microsoft.com/powershell/module/az.resources/invoke-azresourceaction) | Anropar en åtgärd på en resurs. |
-|**Azure-resursgrupper**| |
+|**Resurs grupper i Azure**| |
 | [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) | Tar bort en resursgrupp, inklusive alla kapslade resurser. |
 |||
 

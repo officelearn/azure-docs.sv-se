@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 08/20/2018
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 5a3ffcc75ac37dac1284d0ffb5af234fd2f376cd
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.openlocfilehash: ac4d78147820c2cf56549abbec7e1fbc873ea260
+ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68310469"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71146906"
 ---
 # <a name="tutorial-deploy-a-web-app-from-a-geo-replicated-azure-container-registry"></a>Självstudie: Distribuera en webbapp från ett georeplikerat Azure-containerregister
 
@@ -50,12 +50,16 @@ Om ”Distribuera till webbapp” är inaktiverat kan det bero på att du inte h
 
 Ange följande värden för varje inställning under **Web App for Containers**, som visas när du har valt ”Distribuera till webbapp”:
 
-| Inställning | Värde |
+| Inställning | Value |
 |---|---|
 | **Webbplatsnamn** | Ett globalt unikt namn för webbappen. I det här exemplet använder vi formatet `<acrName>-westus` för att lätt kunna identifiera det register och den region som webbappen distribueras från. |
 | **Resursgrupp** | **Använd befintlig** > `myResourceGroup` |
 | **App Service-plan/plats** | Skapa ett nytt schema med namnet `plan-westus` i regionen **USA, västra**. |
-| **Avbildning** | `acr-helloworld:v1`
+| **Avbildning** | `acr-helloworld:v1` |
+| **Operativsystem** | Linux |
+
+> [!NOTE]
+> När du skapar en ny app service-plan för att distribuera din behållare, väljs automatiskt en standard plan som är värd för ditt program. Standard planen beror på inställningen för operativ systemet.
 
 Etablera webbappen i regionen *USA, västra* genom att välja **Skapa**.
 
@@ -84,7 +88,8 @@ Distribuera en andra webbapp till regionen *USA, östra* med den procedur som be
 | **Webbplatsnamn** | Ett globalt unikt namn för webbappen. I det här exemplet använder vi formatet `<acrName>-eastus` för att lätt kunna identifiera det register och den region som webbappen distribueras från. |
 | **Resursgrupp** | **Använd befintlig** > `myResourceGroup` |
 | **App Service-plan/plats** | Skapa ett nytt schema med namnet `plan-eastus` i regionen **USA, östra**. |
-| **Avbildning** | `acr-helloworld:v1`
+| **Avbildning** | `acr-helloworld:v1` |
+| **Operativsystem** | Linux |
 
 Etablera webbappen i regionen *USA, östra* genom att välja **Skapa**.
 

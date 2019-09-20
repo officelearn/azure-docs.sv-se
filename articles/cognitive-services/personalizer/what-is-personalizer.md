@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: overview
-ms.date: 09/03/2019
+ms.date: 09/19/2019
 ms.author: diberry
-ms.openlocfilehash: 3132d31e9e45718fa95c39a1b8160ea303ded25d
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: ee17e204082389db19e1ebe463352a40d7ecd5ae
+ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70883659"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71155245"
 ---
 # <a name="what-is-personalizer"></a>Vad är Personanpassning?
 
@@ -39,7 +39,7 @@ I personanpassaren används maskin inlärnings modeller för att identifiera vil
 1. Skapa och konfigurera en instans av anpassnings tjänsten i Azure Portal. Varje instans är en personanpassa slinga.
 1. Använd SDK för att anropa Personanpassaren med information (_funktioner_) om dina användare och innehållet (_åtgärder_). Du behöver inte tillhandahålla rena, märkta data innan du använder Personanpassaren. 
 1. I klient programmet visar du användaren den åtgärd som valts av Personanpassaren.
-1. Använd SDK för att ge feedback till en person som anger om användaren har valt att utföra åtgärden. Detta är en _belönings Poäng_, vanligt vis mellan-1 och 1.
+1. Använd SDK: n för att ge feedback till en person som anger om användaren har valt att utföra åtgärden. Detta är en _[belönings Poäng](concept-rewards.md)_ .
 1. Visa analyser i Azure Portal för att utvärdera hur systemet fungerar och hur dina data bidrar till anpassning.
 
 ## <a name="where-can-i-use-personalizer"></a>Var kan jag använda Personanpassare?
@@ -60,7 +60,7 @@ Personanpassaren är inte en tjänst för att spara och hantera information om a
 Tjänsten för personliga tjänster har två API: er:
 
 * Skicka information (_funktioner_) om dina användare och innehållet (_åtgärder_) för att anpassa. En personanpassare svarar med den främsta åtgärden.
-* Skicka feedback till Personanpassare om hur väl rangordningen fungerar som ett tal vanligt vis mellan 0 och 1 (föregående avsnitt, 1 och 1). 
+* Skicka feedback till personligare om hur väl rangordningen fungerade som en [belönings Poäng](concept-rewards.md). 
 
 ![Grundläggande sekvens med händelser för anpassning](media/what-is-personalizer/personalization-intro.png)
 

@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 ms.author: aashishb
 author: aashishb
 ms.date: 08/05/2019
-ms.openlocfilehash: f12c77a25bad9781d5f23b9563f6684997a2a6c4
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 9299959eef24f6890218dc2d2aa733cc227e1a32
+ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71002793"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71162570"
 ---
 # <a name="secure-azure-ml-experimentation-and-inference-jobs-within-an-azure-virtual-network"></a>Skydda Azure ML-experimentering och härlednings jobb i en Azure-Virtual Network
 
@@ -345,6 +345,22 @@ aks_target = ComputeTarget.create(workspace=ws,
 ```
 
 När processen har skapats kan du köra en härledning eller modell bedömning i ett AKS-kluster bakom ett virtuellt nätverk. Mer information finns i [så här distribuerar du till AKS](how-to-deploy-to-aks.md).
+
+## <a name="use-azure-firewall"></a>Använd Azure-brandvägg
+
+När du använder Azure-brandväggen måste du konfigurera en nätverks regel för att tillåta trafik till och från följande adresser:
+
+- `*.batchai.core.windows.net`
+- `ml.azure.com`
+- `*.azureml.ms`
+- `*.experiments.azureml.net`
+- `*.modelmanagement.azureml.net`
+- `mlworkspace.azure.ai`
+- `*.aether.ms`
+
+När du lägger till regeln ställer du in __protokollet__ på valfri, och portarna `*`till.
+
+Mer information om hur du konfigurerar en nätverks regel finns i [distribuera och konfigurera Azure-brandväggen](/azure/firewall/tutorial-firewall-deploy-portal#configure-a-network-rule).
 
 ## <a name="next-steps"></a>Nästa steg
 

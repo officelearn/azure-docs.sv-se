@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp, sstein
 ms.date: 09/16/2019
-ms.openlocfilehash: d0356ff61ec8073e7fe69c3b09cbbdd8845fb787
-ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
+ms.openlocfilehash: 85ab8a61e0aebadf212217bc88e07e0066eca02b
+ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 09/19/2019
-ms.locfileid: "71128917"
+ms.locfileid: "71146792"
 ---
 # <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>Översikt Azure SQL Database hanterade instans resurs gränser
 
@@ -55,11 +55,11 @@ Den hanterade instansen har två tjänst nivåer: [Generell användning](sql-dat
 | Högsta mängd minne | Gen4 56 GB-168 GB (7GB/vCore)<br/>Gen5 20,4 GB-408 GB (5,1 GB/vCore)<br/>Lägg till fler virtuella kärnor för att få mer minne. | Gen4 56 GB-168 GB (7GB/vCore)<br/>Gen5 20,4 GB-408 GB (5,1 GB/vCore)<br/>Lägg till fler virtuella kärnor för att få mer minne. |
 | Maximal instans lagrings storlek (reserverad) | -2 TB för 4 virtuella kärnor (endast Gen5)<br/>– 8 TB för andra storlekar | Gen4 1 TB <br/> Gen5 <br/>-1 TB för 4, 8, 16 virtuella kärnor<br/>– 2 TB för 24 virtuella kärnor<br/>– 4 TB för 32, 40, 64, 80 virtuella kärnor |
 | Maximal databasstorlek | Upp till tillgänglig instans storlek (max 2 TB-8 TB beroende på antalet virtuella kärnor). | Upp till tillgänglig instans storlek (max 1 TB – 4 TB beroende på antalet virtuella kärnor). |
-| Maximal tempDB-storlek | Begränsad till 24 GB/vCore (96-1 920 GB) och instans storlek som är tillgänglig för tillfället.<br/>Lägg till fler virtuella kärnor för att få mer TempDB-utrymme. | Upp till tillgänglig instans storlek för tillfället. TempDB-logg fils storleken är för närvarande begränsad till 24GB/vCore. |
+| Maximal tempDB-storlek | Begränsad till 24 GB/vCore (96-1 920 GB) och för tillfället tillgänglig instans lagrings storlek.<br/>Lägg till fler virtuella kärnor för att få mer TempDB-utrymme. | Upp till tillgänglig instans lagrings storlek för närvarande. TempDB-logg fils storleken är för närvarande begränsad till 24GB/vCore. |
 | Maximalt antal databaser per instans | 100, om inte storleks gränsen för instans lagring har uppnåtts. | 100, om inte storleks gränsen för instans lagring har uppnåtts. |
 | Maximalt antal databasfiler per instans | Upp till 280, om inte instansens lagrings storlek eller [Azure Premium disk](sql-database-managed-instance-transact-sql-information.md#exceeding-storage-space-with-small-database-files) utrymmes gräns har nåtts. | 32 767 filer per databas, om inte storleks gränsen för instans lagring har uppnåtts. |
-| Maximal fil storlek | Begränsad till 8 TB, tillgänglig instans storlek (högst 2 TB-8 TB) och [lagrings utrymme för Azure Premium-disk](sql-database-managed-instance-transact-sql-information.md#exceeding-storage-space-with-small-database-files). | Begränsad till 4 TB och tillgänglig instans storlek (upp till 1 TB-4 TB). |
-| Största logg fils storlek | Begränsad till 2 TB, för närvarande tillgänglig instans storlek och [Azure Premium disk lagring allokerat utrymme](sql-database-managed-instance-transact-sql-information.md#exceeding-storage-space-with-small-database-files). | Begränsad till 2 TB och för tillfället tillgänglig instans storlek. |
+| Maximal data fil storlek | Begränsad till tillgänglig instans lagrings storlek (högst 2 TB-8 TB) och [lagrings utrymme för Azure Premium-disk](sql-database-managed-instance-transact-sql-information.md#exceeding-storage-space-with-small-database-files). | Begränsad till tillfället tillgänglig instans lagrings storlek (upp till 1 TB-4 TB). |
+| Största logg fils storlek | Begränsad till 2 TB och tillgänglig instans lagrings storlek för närvarande. | Begränsad till 2 TB och tillgänglig instans lagrings storlek för närvarande. |
 | Data/logga IOPS (ungefärligt) | 500 – 7 500 per fil<br/>\*[Öka fil storleken för att få mer IOPS](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes)| 5,5 k-110 K (1375/vCore)<br/>Lägg till fler virtuella kärnor för att få bättre IO-prestanda. |
 | Logg Skriv data flödes gräns (per instans) | 3 MB/s per vCore<br/>Högst 22 MB/s | 4 MB/s per vCore<br/>Max 48 MB/s |
 | Data flöde (ungefärligt) | 100-250 MB/s per fil<br/>\*[Öka fil storleken för att få bättre IO-prestanda](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes) | Inte begränsat. |
@@ -69,6 +69,7 @@ Den hanterade instansen har två tjänst nivåer: [Generell användning](sql-dat
 | [Skrivskyddade repliker](sql-database-read-scale-out.md) | 0 | 1 (ingår i priset) |
 
 > [!NOTE]
+> - **För närvarande är tillgänglig instans lagrings storlek** skillnaden mellan reserverad instans och använt lagrings utrymme.
 > - Både data-och logg fils storleken i användar-och system databaserna ingår i instans lagrings storleken som jämförs med den maximala lagrings storleks gränsen. Använd <a href="https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-master-files-transact-sql">sys. master_files</a> system-vyn för att fastställa det totala använda utrymmet för databaser. Fel loggarna är inte bestående och ingår inte i storlek. Säkerhets kopieringar ingår inte i lagrings storleken.
 > - Data flödet och IOPS är också beroende av den sid storlek som inte uttryckligen begränsas av den hanterade instansen.
 > Du kan skapa en annan läsbar replik i olika Azure-regioner med hjälp av grupper för automatisk redundans.

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 11/26/2018
 ms.author: cynthn
-ms.openlocfilehash: aa56cfafdcca163d3bdb3f339f84ceeaa37f3dc5
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 1980ee0bdea1316f6117d9deb7d2adb9df941768
+ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70079930"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71162619"
 ---
 # <a name="how-to-connect-and-sign-on-to-an-azure-virtual-machine-running-windows"></a>Ansluta och logga in på en virtuell Azure-dator som kör Windows
 Du använder knappen **Anslut** på Azure Portal för att starta en fjärrskrivbordssession (RDP) från ett Windows-skrivbord. Först ansluter du till den virtuella datorn och sedan loggar du in.
@@ -42,7 +42,7 @@ Om du vill ansluta till en virtuell Windows-dator från en Mac måste du install
    
     Domänansluten **virtuell dator**: Om den virtuella datorn tillhör en domän anger du användar namnet i formatet *domän*&#92;*användar namn*. Kontot måste också antingen vara i gruppen administratörer eller ha beviljats behörighet för fjärråtkomst för den virtuella datorn.
    
-    Domänkontrollant: Om den virtuella datorn är en domänkontrollant anger du användar namnet och lösen ordet för ett domän administratörs konto för domänen.
+    **Domänkontrollant:** Om den virtuella datorn är en domänkontrollant anger du användar namnet och lösen ordet för ett domän administratörs konto för domänen.
 4. Välj **Ja** för att verifiera identiteten för den virtuella datorn och slutför inloggningen.
    
    ![Skärmbild som visar ett meddelande om verifieringen av den virtuella datorns identitet.](./media/connect-logon/cert-warning.png)
@@ -57,7 +57,7 @@ Om du vill ansluta till en virtuell Windows-dator från en Mac måste du install
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Om du använder PowerShell och har Aure PowerShell-modulen installerad kan du också ansluta med hjälp av `Get-AzRemoteDesktopFile` cmdleten, som du ser nedan.
+Om du använder PowerShell och har installerat Azure PowerShell-modulen kan du också ansluta med hjälp av `Get-AzRemoteDesktopFile` cmdleten, som du ser nedan.
 
 I det här exemplet startas RDP-anslutningen direkt, med hjälp av liknande prompter som ovan.
 

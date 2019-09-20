@@ -1,22 +1,22 @@
 ---
 title: Åtgärda icke-kompatibla resurser
-description: Den här anvisningen vägleder dig genom reparation av resurser som är icke-kompatibla principer i Azure Policy.
+description: Den här guiden vägleder dig genom reparationen av resurser som inte är kompatibla med principer i Azure Policy.
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 01/23/2019
+ms.date: 09/09/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 40658412f19c444cfa06f5663f567a78453c7e9a
-ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
+ms.openlocfilehash: d6ca7827200815cf9b9b1c7ac697d06f9c6b306d
+ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70241142"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71147054"
 ---
 # <a name="remediate-non-compliant-resources-with-azure-policy"></a>Åtgärda icke-kompatibla resurser med Azure Policy
 
-Resurser som är icke-kompatibla till en **deployIfNotExists** princip kan placeras i ett kompatibelt tillstånd via **reparation**. Reparationen utförs genom att instruera Azure Policy att köra **deployIfNotExists** -resultatet av den tilldelade principen på dina befintliga resurser. Den här artikeln visar de steg som krävs för att förstå och utföra reparation med Azure Policy.
+Resurser som inte är kompatibla med en **deployIfNotExists** eller en **ändrings** princip kan försättas i ett kompatibelt tillstånd genom **reparation**. Reparationen utförs genom att instruera Azure Policy att köra **deployIfNotExists** -eller tag- **åtgärderna** för den tilldelade principen på dina befintliga resurser. Den här artikeln visar de steg som krävs för att förstå och utföra reparation med Azure Policy.
 
 ## <a name="how-remediation-security-works"></a>Hur fungerar säkerheten för reparation
 
@@ -26,11 +26,11 @@ Azure Policy skapar en hanterad identitet för varje tilldelning, men du måste 
 ![Hanterad identitet - saknas roll](../media/remediate-resources/missing-role.png)
 
 > [!IMPORTANT]
-> Om en resurs ändras av **deployIfNotExists** ligger utanför omfånget av tilldelning av principer eller mallen kommer åt egenskaper för resurser utanför omfånget för principtilldelningen, tilldelningens hanterad identitet måste vara [manuellt beviljas åtkomst](#manually-configure-the-managed-identity) eller reparation distributionen kommer att misslyckas.
+> Om en resurs som har ändrats av **deployIfNotExists** eller **ändrar** utanför omfånget för princip tilldelningen eller om mallen har åtkomst till egenskaper för resurser utanför omfånget för princip tilldelningen, måste tilldelningens hanterade identitet vara [ manuellt beviljad åtkomst](#manually-configure-the-managed-identity) eller reparations distributionen Miss kan.
 
 ## <a name="configure-policy-definition"></a>Konfigurera principdefinition
 
-Det första steget är att definiera rollerna som **deployIfNotExists** behöver distribuera innehållet i den inkluderade mallen i principdefinitionen. Under den **information** egenskapen, lägga till en **roleDefinitionIds** egenskapen. Den här egenskapen är en matris med strängar som matchar roller i din miljö. En fullständig exempel finns i den [deployIfNotExists exempel](../concepts/effects.md#deployifnotexists-example).
+Det första steget är att definiera de roller som **deployIfNotExists** och **ändra** behöver i princip definitionen för att kunna distribuera innehållet i den inkluderade mallen. Under den **information** egenskapen, lägga till en **roleDefinitionIds** egenskapen. Den här egenskapen är en matris med strängar som matchar roller i din miljö. Ett fullständigt exempel finns i DeployIfNotExists- [exemplet](../concepts/effects.md#deployifnotexists-example) eller i [ändra exempel](../concepts/effects.md#modify-examples).
 
 ```json
 "details": {
@@ -42,7 +42,7 @@ Det första steget är att definiera rollerna som **deployIfNotExists** behöver
 }
 ```
 
-**roleDefinitionIds** använder fullständiga resurs-ID och tar inte kortsiktiga **roleName** i rollen. Använd följande kod för att hämta ID för rollen ”Bidragsgivar” i din miljö:
+Egenskapen **roleDefinitionIds** använder det fullständiga resurs-ID: n och tar inte med den korta **roleName** för rollen. Använd följande kod för att hämta ID för rollen ”Bidragsgivar” i din miljö:
 
 ```azurecli-interactive
 az role definition list --name 'Contributor'
@@ -126,7 +126,7 @@ Följ dessa steg om du vill lägga till en roll i tilldelningens hanterad identi
 
 ### <a name="create-a-remediation-task-through-portal"></a>Skapa en reparations uppgift via portalen
 
-Under utvärderingen, principtilldelning med **deployIfNotExists** effekt avgör om det finns inkompatibla resurser. När icke-kompatibla resurser finns informationen tillhandahålls på den **reparation** sidan. Tillsammans med i listan över principer som har icke-kompatibla resurser är alternativet för att utlösa en **reparation uppgift**. Det här alternativet är det skapar en distribution från den **deployIfNotExists** mall.
+Under utvärderingen bestämmer princip tilldelningen med **deployIfNotExists** eller **ändra** effekter om det finns icke-kompatibla resurser. När icke-kompatibla resurser finns informationen tillhandahålls på den **reparation** sidan. Tillsammans med i listan över principer som har icke-kompatibla resurser är alternativet för att utlösa en **reparation uppgift**. Det här alternativet är vad som skapar en distribution från **deployIfNotExists** -mallen eller **ändra** -åtgärder.
 
 Skapa en **reparation uppgiften**, Följ dessa steg:
 
@@ -138,7 +138,7 @@ Skapa en **reparation uppgiften**, Följ dessa steg:
 
    ![Välj reparation på princip Sidan](../media/remediate-resources/select-remediation.png)
 
-1. Alla **deployIfNotExists** principtilldelningar med icke-kompatibla resurser ingår i den **principer för att åtgärda** fliken och en datatabell. Klicka på en princip med resurser som är icke-kompatibla. Den **ny reparation uppgift** öppnas.
+1. Alla **deployIfNotExists** och **ändra** princip tilldelningar med icke-kompatibla resurser ingår i **principerna för att åtgärda** fliken och data tabellen. Klicka på en princip med resurser som är icke-kompatibla. Den **ny reparation uppgift** öppnas.
 
    > [!NOTE]
    > Ett annat sätt att öppna den **reparation uppgift** är att hitta och klicka på principen från den **efterlevnad** sidan och klicka sedan på den **skapa reparation uppgift** knappen.
@@ -161,7 +161,7 @@ Resurser som distribueras via en **reparation uppgift** läggs till i **distribu
 
 ### <a name="create-a-remediation-task-through-azure-cli"></a>Skapa en reparations uppgift via Azure CLI
 
-Använd`az policy remediation` kommandona om du vill skapa en **reparations uppgift** med Azure CLI. Ersätt `{subscriptionId}` med ditt prenumerations- `{myAssignmentId}` ID och med ditt tilldelnings-ID för **deployIfNotExists** -principen.
+Använd`az policy remediation` kommandona om du vill skapa en **reparations uppgift** med Azure CLI. Ersätt `{subscriptionId}` med ditt prenumerations- `{myAssignmentId}` ID och med ditt **deployIfNotExists** eller **ändra** princip tilldelnings-ID.
 
 ```azurecli-interactive
 # Login first with az login if not using Cloud Shell
@@ -174,7 +174,7 @@ Andra reparations kommandon och exempel finns i kommandona för att [Reparera AZ
 
 ### <a name="create-a-remediation-task-through-azure-powershell"></a>Skapa en reparations uppgift via Azure PowerShell
 
-Om du vill skapa en **reparations uppgift** med Azure PowerShell använder `Start-AzPolicyRemediation` du kommandona. Ersätt `{subscriptionId}` med ditt prenumerations- `{myAssignmentId}` ID och med ditt tilldelnings-ID för **deployIfNotExists** -principen.
+Om du vill skapa en **reparations uppgift** med Azure PowerShell använder `Start-AzPolicyRemediation` du kommandona. Ersätt `{subscriptionId}` med ditt prenumerations- `{myAssignmentId}` ID och med ditt **deployIfNotExists** eller **ändra** princip tilldelnings-ID.
 
 ```azurepowershell-interactive
 # Login first with Connect-AzAccount if not using Cloud Shell

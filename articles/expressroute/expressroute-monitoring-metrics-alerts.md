@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 08/22/2019
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: 92ec03e20fb6e681a0afd14048449ad004ebca0c
-ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
+ms.openlocfilehash: dbe03ef29bd28d465fa671abc915d63d4b038cb2
+ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69991499"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71154770"
 ---
 # <a name="expressroute-monitoring-metrics-and-alerts"></a>Övervakning, mått och aviseringar i ExpressRoute
 
@@ -23,57 +23,50 @@ Den här artikeln hjälper dig att förstå ExpressRoute-övervakning, mått och
 >Med hjälp av **klassiska mått** rekommenderas inte.
 >
 
-## <a name="circuit-metrics"></a>Kretsen mått
+## <a name="expressroute-metrics"></a>ExpressRoute mått
 
-Navigera till **mått**, klickar på sidan ExpressRoute för kretsen som du vill övervaka. Under **övervakning**, du kan visa den **mått**. Välj bland måtten i listan nedan. Standard agg regeringen används. Alternativt kan du använda delning, som visar måtten med olika dimensioner.
+Om du vill visa **måtten**navigerar du till *Azure Monitor* sidan och klickar på *mått*. Om du vill visa **ExpressRoute** -mått, filer av resurs typ *ExpressRoute-kretsar*. Om du vill visa **Global Reach** mått filtrerar du efter resurs typ *ExpressRoute-kretsar* och väljer en ExpressRoute krets resurs som har Global Reach aktiverat. Om du vill visa **ExpressRoute Direct** -mått, filtrera resurs typ efter *ExpressRoute-portar*. 
 
-### <a name="metrics-available"></a>Tillgängliga mått: 
-* **Tillgänglighet** 
-    * ARP-tillgänglighet
-      * Tillgängliga dimensioner:
-        * Peer (primär/sekundär ExpressRoute-router)
-        * Peering-typ (privat/offentlig/Microsoft)
-    * BGP-tillgänglighet
-      * Tillgängliga dimensioner:
-        * Peer (primär/sekundär ExpressRoute-router)
-        * Peering-typ (privat/offentlig/Microsoft)
-* **Aktiviteten**
-    * BitsInPerSecond
-      * Tillgängliga dimensioner:
-        * Peering-typ (privat/offentlig/Microsoft)
-    * BitsOutPerSecond
-      * Tillgängliga dimensioner:
-        * Peering-typ (privat/offentlig/Microsoft)
-    * GlobalReachBitsInPerSecond
-      * Tillgängliga dimensioner:
-        * Skey krets-(tjänst nyckel)
-    * GlobalReachBitsOutPerSecond
-      * Tillgängliga dimensioner:
-        * Skey krets-(tjänst nyckel)
+När ett mått har valts tillämpas standard agg regeringen. Du kan också använda dela upp som visar måttet med olika dimensioner.
 
+### <a name="available-metrics"></a>Tillgängliga mått
+|**Mått**|**Kategori**|**Dimension (er)**|**Funktion (er)**|
+| --- | --- | --- | --- |
+|ARP-tillgänglighet|Tillgänglighet|<ui><li>Peer (primär/sekundär ExpressRoute-router)</ui></li><ui><li> Peering-typ (privat/offentlig/Microsoft)</ui></li>|ExpressRoute|
+|BGP-tillgänglighet|Tillgänglighet|<ui><li> Peer (primär/sekundär ExpressRoute-router)</ui></li><ui><li> Peering-typ</ui></li>|ExpressRoute|
+|BitsInPerSecond|Trafik|<ui><li> Peering-typ (ExpressRoute)</ui></li><ui><li>Länk (ExpressRoute Direct)</ui></li>| <li> ExpressRoute</li><li>ExpressRoute Direct|
+|BitsOutPerSecond|Trafik| <ui><li>Peering-typ (ExpressRoute)</ui></li><ui><li> Länk (ExpressRoute Direct) | <ui><li>ExpressRoute<ui><li>ExpressRoute Direct</ui></li> |
+|GlobalReachBitsInPerSecond|Trafik|<ui><li>Skey krets-(tjänst nyckel)</ui></li>|Global räckvidd|
+|GlobalReachBitsOutPerSecond|Trafik|<ui><li>Skey krets-(tjänst nyckel)</ui></li>|Global räckvidd|
+|AdminState|Fysisk anslutning|Länka|ExpressRoute Direct|
+|LineProtocol|Fysisk anslutning|Länka|ExpressRoute Direct|
+|RxLightLevel|Fysisk anslutning|<ui><li>Operationsföljdslänkkod</ui></li><ui><li>Lane</ui></li>|ExpressRoute Direct|
+|TxLightLevel|Fysisk anslutning|<ui><li>Operationsföljdslänkkod</ui></li><ui><li>Lane</ui></li>|ExpressRoute Direct|
 >[!NOTE]
 >Användning av *GlobalGlobalReachBitsInPerSecond* och *GlobalGlobalReachBitsOutPerSecond* visas bara om minst en global Reach anslutning har upprättats.
 >
 
-## <a name="bits-in-and-out---metrics-across-all-peerings"></a>BITS in och ut-mått för alla peer kopplingar
+## <a name="circuits-metrics"></a>Krets mått
+
+### <a name="bits-in-and-out---metrics-across-all-peerings"></a>BITS in och ut-mått för alla peer kopplingar
 
 Du kan visa mått för alla peer kopplingar på en angiven ExpressRoute-krets.
 
 ![Kretsen mått](./media/expressroute-monitoring-metrics-alerts/ermetricspeering.jpg)
 
-## <a name="bits-in-and-out---metrics-per-peering"></a>BITS in och ut-mått per peering
+### <a name="bits-in-and-out---metrics-per-peering"></a>BITS in och ut-mått per peering
 
 Du kan visa mått för privat, offentlig och Microsoft-peering i bitar per sekund.
 
 ![Mått per peering](./media/expressroute-monitoring-metrics-alerts/erpeeringmetrics.jpg) 
 
-## <a name="bgp-availability---split-by-peer"></a>BGP-tillgänglighet – dela efter peer  
+### <a name="bgp-availability---split-by-peer"></a>BGP-tillgänglighet – dela efter peer  
 
 Du kan visa nära real tids tillgänglighet för BGP över peering och peer-datorer (primära och sekundära ExpressRoute-routrar). Den här instrument panelen visar primär BGP-sessionen för privat peering och den andra BGP-sessionen för privat peering. 
 
 ![BGP-tillgänglighet per peer](./media/expressroute-monitoring-metrics-alerts/erBgpAvailabilityMetrics.jpg) 
 
-## <a name="arp-availability---split-by-peering"></a>ARP-tillgänglighet – dela via peering  
+### <a name="arp-availability---split-by-peering"></a>ARP-tillgänglighet – dela via peering  
 
 Du kan visa nära real tids tillgänglighet för [ARP](https://docs.microsoft.com/azure/expressroute/expressroute-troubleshooting-arp-resource-manager) över peering och peer-datorer (primära och sekundära ExpressRoute-routrar). Den här instrument panelen visar ARP-sessionen för privata peering på båda peer-datorerna, men slutfört för Microsoft-peering mellan peering. Standard agg regeringen (Average) utnyttjades över båda peer-datorerna.  
 

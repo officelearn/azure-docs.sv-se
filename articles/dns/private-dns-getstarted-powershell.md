@@ -1,20 +1,20 @@
 ---
-title: Skapa en privat Azure DNS-zon med hjälp av Azure PowerShell
+title: Snabb start – skapa en privat Azure-DNS-zon med hjälp av Azure PowerShell
 description: I den här artikeln skapar och testar du en privat DNS-zon och-post i Azure DNS. Det här är en steg-för-steg-guide om hur du skapar och hanterar din första privata DNS-zon och DNS-post med Azure PowerShell.
 services: dns
 author: vhorne
 ms.service: dns
-ms.topic: article
-ms.date: 06/14/2019
+ms.topic: quickstart
+ms.date: 09/20/2019
 ms.author: victorh
-ms.openlocfilehash: 6603929fa7b4c597a846fc299577a9682d8f54e0
-ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
-ms.translationtype: MT
+ms.openlocfilehash: b98b4a9c98f7b9477fa97f18702315b0431e4ac8
+ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67854121"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71154839"
 ---
-# <a name="create-an-azure-dns-private-zone-using-azure-powershell"></a>Skapa en privat Azure DNS-zon med hjälp av Azure PowerShell
+# <a name="create-an-azure-private-dns-zone-using-azure-powershell"></a>Skapa en privat Azure-DNS-zon med hjälp av Azure PowerShell
 
 [!INCLUDE [private-dns-public-preview-notice](../../includes/private-dns-public-preview-notice.md)]
 
@@ -36,7 +36,7 @@ I den här artikeln kan du se hur du:
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-Om du vill kan du slutföra den här proceduren med hjälp av [Azure CLI](private-dns-getstarted-cli.md).
+Om du vill kan du slutföra den här snabb starten med [Azure CLI](private-dns-getstarted-cli.md).
 
 ## <a name="create-the-resource-group"></a>Skapa en resursgrupp
 
@@ -46,7 +46,7 @@ Först skapar du en resursgrupp som ska innehålla DNS-zonen:
 New-AzResourceGroup -name MyAzureResourceGroup -location "eastus"
 ```
 
-## <a name="create-a-dns-private-zone"></a>Skapa en privat DNS-zon
+## <a name="create-a-private-dns-zone"></a>Skapa en privat DNS-zon
 
 En DNS-zon skapas med hjälp av cmdleten `New-AzPrivateDnsZone`.
 
@@ -209,7 +209,5 @@ Remove-AzResourceGroup -Name MyAzureResourceGroup
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här artikeln har du distribuerat en privat DNS-zon, skapat en DNS-post och testat zonen.
-Härnäst kan du läsa mer om privata DNS-zoner.
-
-* [Använda Azure DNS för privata domäner](private-dns-overview.md)
+> [!div class="nextstepaction"]
+> [Azure DNS Private Zones scenarier](private-dns-scenarios.md)

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/24/2018
 ms.author: allensu
-ms.openlocfilehash: b276766d69c187e2268f5896f23e3bd435ed63c3
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: b4c1fcd6a719f341dcebfd9f4efc4423241ca3dd
+ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68274824"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71147346"
 ---
 # <a name="overview-of-ipv6-for-azure-load-balancer"></a>Översikt över IPv6 för Azure Load Balancer
 
@@ -27,7 +27,7 @@ ms.locfileid: "68274824"
 >[!NOTE] 
 >Azure Load Balancer stöder två olika typer: Basic och Standard. Den här artikeln beskriver den grundläggande lastbalanseraren. Mer information om Standard Load Balancer finns i [standard Load Balancer översikt](load-balancer-standard-overview.md).
 
-Belastningsutjämnare mot Internet kan distribueras med en IPv6-adress. Förutom IPv4-anslutning möjliggör detta följande funktioner:
+Grundläggande SKU: er för Internet-belastnings utjämning kan distribueras med en IPv6-adress. Förutom IPv4-anslutning möjliggör detta följande funktioner:
 
 * Inbyggd IPv6-anslutning från slut punkt till slut punkt mellan offentliga Internet-klienter och Azure-Virtual Machines (VM) via belastningsutjämnaren.
 * Inbyggd IPv6 utgående anslutning från slut punkt till slut punkt mellan virtuella datorer och offentliga Internet IPv6-aktiverade klienter.
@@ -79,6 +79,7 @@ Begränsningar
 * Det finns **för närvarande inte stöd**för att ändra parametern LoadDistributionMethod för IPv6.
 * Reserverade IPv6 IP-adresser (där IPAllocationMethod = static) **stöds inte för närvarande**.
 * NAT64 (översättning av IPv6 till IPv4) stöds inte.
+* Standardenheter för SKU: er stöder för närvarande inte IPv6-adresser.
 
 ## <a name="next-steps"></a>Nästa steg
 

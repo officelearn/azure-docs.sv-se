@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 216316249197071bdd7a175dfc5339caeddee50a
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 2d56b1f800c71a5bbef7ffb1155d05e096113e2c
+ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71086832"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71162418"
 ---
 # <a name="azure-active-directory-conditional-access-settings-reference"></a>Referens för Azure Active Directory villkorlig åtkomst inställningar
 
@@ -246,7 +246,6 @@ I din princip för villkorlig åtkomst kan du kräva att en app Protection-princ
 Den här inställningen gäller för följande klient program:
 
 - Microsoft Cortana
-- Microsoft Edge
 - Microsoft OneDrive
 - Microsoft Outlook
 - Microsoft Planner

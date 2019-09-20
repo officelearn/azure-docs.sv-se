@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 07/31/2019
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ec23d3f08fb22f73618c27443bcd8b72c43a9862
-ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
+ms.openlocfilehash: cd7abdeef7c13c272a0e4bbf2075c6eda8f73a07
+ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70113564"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71162384"
 ---
 # <a name="writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>Skriva uttryck för attributmappningar i Azure Active Directory
 När du konfigurerar etablering till ett SaaS-program, är en av typerna av attributmappningar som du kan ange mappningen för en uttryck. För dessa, måste du skriva ett skript-liknande uttryck som hjälper dig att omvandla dina användares data till format som kan användas mer för SaaS-program.
@@ -163,9 +163,10 @@ Ersätter värden i en sträng. Den fungerar på olika sätt beroende på parame
 **Beskrivning:**<br> Kräver minst två argument, som är unikt värde Genereringsregler definieras med hjälp av uttryck. Funktionen utvärderar varje regel och sedan kontrollerar värdet som genererats för unikhet i appen/målkatalogen. Det första unika värdet att hitta som kommer att returneras. Om alla värden redan finns i målet, posten ska hämta escrowed och orsaken hämtar loggas i granskningsloggarna. Det finns ingen övre gräns för antalet argument som kan anges.
 
 > [!NOTE]
->1. Det här är en funktion på översta nivån, kan inte kapslas.
->2. Den här funktionen kan inte tillämpas på attribut som har en matchande prioritet.  
->3. Den här funktionen är endast avsedd att användas för skapande av posten. När du använder det med ett attribut, ange den **gäller mappning** egenskap **enbart vid objektskapande**.
+> - Det här är en funktion på översta nivån, kan inte kapslas.
+> - Den här funktionen kan inte tillämpas på attribut som har en matchande prioritet.  
+> - Den här funktionen är endast avsedd att användas för skapande av posten. När du använder det med ett attribut, ange den **gäller mappning** egenskap **enbart vid objektskapande**.
+> - Den här funktionen stöds för närvarande endast för "arbets dag för Active Directory användar etablering". Det kan inte användas med andra etablerings program. 
 
 
 **Parametrar:**<br> 
@@ -191,7 +192,7 @@ Ersätter värden i en sträng. Den fungerar på olika sätt beroende på parame
 ### <a name="split"></a>Delat
 **Funktionen:**<br> Dela (källa, avgränsare)
 
-**Beskrivning:**<br> Delar upp en sträng i en mulit-matris med det angivna avgränsnings tecken.
+**Beskrivning:**<br> Delar upp en sträng i en Multivärdes mat ris med hjälp av det angivna avgränsnings tecken.
 
 **Parametrar:**<br> 
 
@@ -228,7 +229,7 @@ Ersätter värden i en sträng. Den fungerar på olika sätt beroende på parame
 | **värde** |Krävs |Sträng |Ersättningsvärdet för den **källa** matchar nyckeln. |
 
 ---
-### <a name="tolower"></a>ToLower
+### <a name="tolower"></a>toLower
 **Funktionen:**<br> ToLower (källa, kultur)
 
 **Beskrivning:**<br> Tar ett *käll* sträng värde och konverterar det till gemener med de angivna kultur reglerna. Om det inte finns någon angiven *kultur* information, används en invariant kultur.
@@ -241,7 +242,7 @@ Ersätter värden i en sträng. Den fungerar på olika sätt beroende på parame
 | **substrat** |Valfritt |Sträng |Formatet för kultur namnet baserat på RFC 4646 är *languagecode2-land/regioncode2*, där *languagecode2* är språk koden för två bokstäver och *land/regioncode2* är under kultur koden med två bokstäver. Exempel är ja-JP för japanska (Japan) och en-US för engelska (USA). I de fall där en språkkod med två bokstäver inte är tillgänglig används en kod med tre bokstäver härledd från ISO 639-2.|
 
 ---
-### <a name="toupper"></a>ToUpper
+### <a name="toupper"></a>toUpper
 **Funktionen:**<br> ToUpper (källa, kultur)
 
 **Beskrivning:**<br> Tar ett *käll* sträng värde och konverterar det till versaler med de angivna kultur reglerna. Om det inte finns någon angiven *kultur* information, används en invariant kultur.

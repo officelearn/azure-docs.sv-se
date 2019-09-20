@@ -6,19 +6,20 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/18/2019
-ms.openlocfilehash: 8b4cbe309e310ef1fc384224c952a6f04385b1dd
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 198ab5f567652a76d209168041f305b9da4d0b43
+ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71092266"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71147174"
 ---
 # <a name="audit-logging-in-azure-database-for-postgresql---single-server"></a>Gransknings loggning i Azure Database for PostgreSQL-enskild server
 
 Gransknings loggning av databas aktiviteter i Azure Database for PostgreSQL – enskild server är tillgänglig via PostgreSQL gransknings tillägg: [pgAudit](https://www.pgaudit.org/). pgAudit tillhandahåller detaljerad loggning av sessioner och/eller objekt granskning.
 
 > [!NOTE]
-> pgAudit kan bara aktive ras på Generell användning och minnesoptimerade servrar.
+> pgAudit är en för hands version av Azure Database for PostgreSQL.
+> Tillägget kan bara aktive ras på Generell användning och minnesoptimerade servrar.
 
 ## <a name="usage-considerations"></a>Användnings överväganden
 Som standard genereras logg instruktioner för pgAudit tillsammans med dina reguljära logg instruktioner med hjälp av Postgress standard loggnings funktion. I Azure Database for PostgreSQL kan loggfilerna hämtas via Azure Portal eller CLI. Det maximala lagrings utrymmet för samling av filer är 1 GB och varje fil är tillgänglig i högst sju dagar (Standardvärdet är tre dagar). Den här tjänsten är ett alternativ för kortsiktig lagring.

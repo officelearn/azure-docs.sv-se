@@ -11,12 +11,12 @@ author: jpe316
 ms.reviewer: larryfr
 ms.date: 09/13/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: f70975749be52e8498488d7019bf5cb8d858df54
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: 30164824cab19aae9cc9665304eb66f595e082da
+ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71034690"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71162554"
 ---
 # <a name="deploy-models-with-azure-machine-learning"></a>Distribuera modeller med Azure Machine Learning
 
@@ -65,7 +65,7 @@ Följande kod visar hur du ansluter till en Azure Machine Learning-arbetsyta med
 En registrerad modell är en logisk behållare för en eller flera filer som utgör din modell. Om du till exempel har en modell som lagras i flera filer kan du registrera dem som en enskild modell i arbets ytan. När du har registrerat filerna kan du ladda ned eller distribuera den registrerade modellen och ta emot alla filer som du har registrerat.
 
 > [!TIP]
-> När du registrerar en modell anger du sökvägen till antingen en moln plats (från en utbildnings körning) eller en lokal katalog. Den här sökvägen är bara till för att hitta filerna som ska laddas upp som en del av registrerings processen. Den behöver inte matcha den sökväg som används i Entry-skriptet. Mer information finns i [Vad är get_model_path?](#what-is-get_model_path).
+> När du registrerar en modell anger du sökvägen till antingen en moln plats (från en utbildnings körning) eller en lokal katalog. Den här sökvägen är bara till för att hitta filerna som ska laddas upp som en del av registrerings processen. Den behöver inte matcha den sökväg som används i Entry-skriptet. Mer information finns i [hitta modell filer i ditt Entry-skript](#locate-model-files-in-your-entry-script).
 
 Machine Learning-modeller registreras i din Azure Machine Learning-arbetsyta. Modellen kan komma från Azure Machine Learning eller från någon annan stans. Följande exempel visar hur du registrerar en modell.
 
@@ -195,7 +195,37 @@ Skriptet innehåller två funktioner som läser in och kör modellen:
 
 * `run(input_data)`: Den här funktionen använder modellen för att förutsäga ett värde baserat på indata. Indata och utdata för körningen använder vanligt vis JSON för serialisering och deserialisering. Du kan också arbeta med rå data för rå data. Du kan transformera data innan du skickar dem till modellen eller innan du returnerar den till klienten.
 
-#### <a name="what-is-get_model_path"></a>Vad är get_model_path?
+#### <a name="locate-model-files-in-your-entry-script"></a>Hitta modell filer i ditt post skript
+
+Det finns två sätt att hitta modeller i ditt Entry-skript:
+* `AZUREML_MODEL_DIR`: En miljö variabel som innehåller sökvägen till modell platsen.
+* `Model.get_model_path`: Ett API som returnerar sökvägen till modell filen med namnet på den registrerade modellen.
+
+##### <a name="azureml_model_dir"></a>AZUREML_MODEL_DIR
+
+AZUREML_MODEL_DIR är en miljö variabel som skapas under tjänst distributionen. Du kan använda den här miljövariabeln för att hitta platsen för de distribuerade modellerna.
+
+I följande tabell beskrivs värdet för AZUREML_MODEL_DIR beroende på hur många modeller som distribueras:
+
+| Distribution | Miljö variabel värde |
+| ----- | ----- |
+| Enskild modell | Sökvägen till mappen som innehåller modellen. |
+| Flera modeller | Sökvägen till mappen som innehåller alla modeller. Modeller finns efter namn och version i den här mappen (`$MODEL_NAME/$VERSION`) |
+
+Om du vill hämta sökvägen till en fil i en modell kombinerar du miljövariabeln med det fil namn som du letar efter.
+Fil namnen för modellens filer bevaras vid registrering och distribution. 
+
+**Exempel på en modell**
+```python
+model_path = os.path.join(os.getenv('AZUREML_MODEL_DIR'), 'sklearn_regression_model.pkl')
+```
+
+**Exempel på flera modeller**
+```python
+model_path = os.path.join(os.getenv('AZUREML_MODEL_DIR'), 'sklearn_model/1/sklearn_regression_model.pkl')
+```
+
+##### <a name="get_model_path"></a>get_model_path
 
 När du registrerar en modell anger du ett modell namn som används för att hantera modellen i registret. Du använder det här namnet med metoden [Model. get _model_path ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#get-model-path-model-name--version-none---workspace-none-) för att hämta sökvägen till modell filen eller filerna i det lokala fil systemet. Om du registrerar en mapp eller en samling filer, returnerar detta API sökvägen till katalogen som innehåller filerna.
 
@@ -251,9 +281,9 @@ Följande exempel visar hur du accepterar och returnerar JSON-data:
 #Example: scikit-learn and Swagger
 import json
 import numpy as np
+import os
 from sklearn.externals import joblib
 from sklearn.linear_model import Ridge
-from azureml.core.model import Model
 
 from inference_schema.schema_decorators import input_schema, output_schema
 from inference_schema.parameter_types.numpy_parameter_type import NumpyParameterType
@@ -261,10 +291,12 @@ from inference_schema.parameter_types.numpy_parameter_type import NumpyParameter
 
 def init():
     global model
-    # Note that here "sklearn_regression_model.pkl" is the name of the model registered under.
-    # This is a different behavior than before when the code is run locally, even though the code is the same.
-    model_path = Model.get_model_path('sklearn_regression_model.pkl')
-    # Deserialize the model file back into a sklearn model.
+    # AZUREML_MODEL_DIR is an environment variable created during deployment. Join this path with the filename of the model file.
+    # It holds the path to the directory that contains the deployed model (./azureml-models/$MODEL_NAME/$VERSION).
+    # If there are multiple models, this value is the path to the directory containing all deployed models (./azureml-models).
+    # Alternatively: model_path = Model.get_model_path('sklearn_mnist')
+    model_path = os.path.join(os.getenv('AZUREML_MODEL_DIR'), 'sklearn_mnist_model.pkl')
+    # Deserialize the model file back into a sklearn model
     model = joblib.load(model_path)
 
 
@@ -302,8 +334,8 @@ from inference_schema.parameter_types.pandas_parameter_type import PandasParamet
 
 def init():
     global model
-    # Replace model_name with your actual model name, if necessary.
-    model_path = Model.get_model_path('model_name')
+    # Replace filename if needed.
+    model_path = os.path.join(os.getenv('AZUREML_MODEL_DIR'), 'model_file.pkl')
     # Deserialize the model file back into a sklearn model.
     model = joblib.load(model_path)
 

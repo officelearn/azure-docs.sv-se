@@ -4,7 +4,7 @@ description: Den här artikeln innehåller en översikt över arbets flödes pro
 services: cloud-services
 documentationcenter: ''
 author: genlin
-manager: Willchen
+manager: dcscontentpm
 editor: ''
 tags: top-support-issue
 ms.assetid: 9f2af8dd-2012-4b36-9dd5-19bf6a67e47d
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 04/08/2019
 ms.author: kwill
-ms.openlocfilehash: 383f4d26d44871936ccc910f15575db5aec3ec8c
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: 5dd57a87658554bf59acf5cee1b6daf67b8692b8
+ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68945330"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71162151"
 ---
 #    <a name="workflow-of-windows-azure-classic-vm-architecture"></a>Arbets flöde för klassisk virtuell dator arkitektur i Windows Azure 
 Den här artikeln innehåller en översikt över de arbets flödes processer som inträffar när du distribuerar eller uppdaterar en Azure-resurs, till exempel en virtuell dator. 
@@ -37,15 +37,16 @@ Följande diagram visar arkitekturen i Azure-resurser.
 
 **B**. Infrastruktur styrenheten ansvarar för att underhålla och övervaka alla resurser i data centret. Den kommunicerar med infrastruktur resurs värd agenter på Fabric-OS som skickar information, till exempel gäst operativ systemets version, tjänst paket, tjänst konfiguration och tjänst tillstånd.
 
-**C**. Värd agenten finns på värden OSsystem och ansvarar för att konfigurera gäst operativ system och kommunicera med gästa Gent (WindowsAzureGuestAgent) för att uppdatera rollen mot ett avsett mål tillstånd och utföra pulsslags kontroller med gäst agenten. Om värd agenten inte får pulsslags svar i 10 minuter startar värd agenten om gäst operativ systemet.
+**C**. Värd agenten finns på värd-OS och ansvarar för att konfigurera gäst operativ system och kommunicera med gästa Gent (WindowsAzureGuestAgent) för att uppdatera rollen mot ett avsett mål tillstånd och utföra pulsslags kontroller med gäst agenten. Om värd agenten inte får pulsslags svar i 10 minuter startar värd agenten om gäst operativ systemet.
 
 **C2**. WaAppAgent ansvarar för att installera, konfigurera och uppdatera WindowsAzureGuestAgent. exe.
 
 **D**.  WindowsAzureGuestAgent ansvarar för följande:
 
-1. Konfigurera gäst operativ systemet, inklusive brand väggar, ACL: er, LocalStorage-resurser, Service Pack och konfiguration och certifikat. Konfigurera SID för det användar konto som rollen ska köras under.
-2. Kommunikation mellan roll status och infrastruktur resurser.
-3. Starta WaHostBootstrapper och övervaka den för att se till att rollen är i mål tillstånd.
+1. Konfigurera gäst operativ systemet, inklusive brand väggar, ACL: er, LocalStorage-resurser, Service Pack och konfiguration och certifikat.
+2. Konfigurera SID för det användar konto som rollen ska köras under.
+3. Kommunikation mellan roll status och infrastruktur resurser.
+4. Starta WaHostBootstrapper och övervaka den för att se till att rollen är i mål tillstånd.
 
 **E**. WaHostBootstrapper ansvarar för:
 
@@ -76,7 +77,7 @@ Följande diagram visar arkitekturen i Azure-resurser.
 
 ## <a name="workflow-processes"></a>Arbets flödes processer
 
-1. En användare gör en begäran, till exempel laddar upp. cspkg-och. cscfg-filer, som talar om för en resurs att stoppa eller göra en konfigurations ändring och så vidare. Detta kan göras via Azure Portal eller ett verktyg som använder Service Management-API, till exempel funktionen för att publicera Visual Studio. Den här begäran går till RDFE för att göra allt prenumerations relaterat arbete och sedan skicka begäran till FFE. Resten av de här arbets flödes stegen är att distribuera ett nytt paket och starta det.
+1. En användare gör en begäran, som att ladda upp ". cspkg"-och ". cscfg"-filer, meddela en resurs att stoppa eller göra en konfigurations ändring och så vidare. Detta kan göras via Azure Portal eller ett verktyg som använder Service Management-API, till exempel funktionen för att publicera Visual Studio. Den här begäran går till RDFE för att göra allt prenumerations relaterat arbete och sedan skicka begäran till FFE. Resten av de här arbets flödes stegen är att distribuera ett nytt paket och starta det.
 2. FFE hittar rätt resurspool (baserat på kund uppgifter, som tillhörighets grupp eller geografisk plats plus indata från infrastruktur resursen, till exempel dator tillgänglighet) och kommunicerar med huvud infrastruktur styrenheten i den poolen.
 3. Infrastruktur styrenheten hittar en värd som har tillgängliga processor kärnor (eller skapar en ny värd). Tjänst paketet och konfigurationen kopieras till värden och infrastruktur styrenheten kommunicerar med värd agenten på värd operativ systemet för att distribuera paketet (konfigurera DIP, portar, gäst operativ system och så vidare).
 4. Värd agenten startar gäst operativ systemet och kommunicerar med gäst agenten (WindowsAzureGuestAgent). Värden skickar pulsslag till gästen för att se till att rollen fungerar mot målets tillstånd.

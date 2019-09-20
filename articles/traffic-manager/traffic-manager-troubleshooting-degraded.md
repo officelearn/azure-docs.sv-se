@@ -4,6 +4,7 @@ description: Så här felsöker du Traffic Manager profiler när de visas som de
 services: traffic-manager
 documentationcenter: ''
 author: rohinkoul
+manager: dcscontentpm
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
@@ -11,20 +12,20 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/03/2017
 ms.author: rohink
-ms.openlocfilehash: f8f457623dff7840ca839ef57580b744a4d916c7
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 8f043b11c9319d61c4413d01b008b324103ca6c3
+ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68565869"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71155217"
 ---
 # <a name="troubleshooting-degraded-state-on-azure-traffic-manager"></a>Felsöka degraderat tillstånd på Azure Traffic Manager
 
-Den här artikeln beskriver hur du felsöker en Azure Traffic Manager-profil som visar en degraderad status. Det första steget i att felsöka ett Azure-Traffic Manager degraderat tillstånd är att aktivera diagnostisk loggning.  Mer information hittar du i [Aktivera diagnostikloggar](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-diagnostic-logs) . I det här scenariot bör du tänka på att du har konfigurerat en Traffic Manager-profil som pekar på några av dina cloudapp.net-värdbaserade tjänster. Om hälso tillståndet för Traffic Manager visar degraderad status kan statusen för en eller flera slut punkter **försämras**:
+Den här artikeln beskriver hur du felsöker en Azure Traffic Manager-profil som visar en degraderad status. Det första steget i att felsöka ett Azure-Traffic Manager degraderat tillstånd är att aktivera diagnostisk loggning.  Mer information hittar du i [Aktivera diagnostikloggar](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-diagnostic-logs) . I det här scenariot bör du tänka på att du har konfigurerat en Traffic Manager-profil som pekar på några av dina cloudapp.net-värdbaserade tjänster. Om hälso tillståndet för Traffic Manager visar **degraderad** status kan statusen för en eller flera slut punkter **försämras**:
 
 ![status för degraderad slut punkt](./media/traffic-manager-troubleshooting-degraded/traffic-manager-degradedifonedegraded.png)
 
-Om hälso tillståndet för Traffic Manager visar inaktiv status kan båda slut punkterna vara inaktiverade:
+Om hälso tillståndet för Traffic Manager visar **inaktiv** status kan båda slut punkterna vara **inaktiverade**:
 
 ![Status för inaktiva Traffic Manager](./media/traffic-manager-troubleshooting-degraded/traffic-manager-inactive.png)
 

@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 04/09/2018
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 39c40f29f4548f2e7379472427a2c97f1a0b762c
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: 47e300bf242f02d458363b7d2ab7af8a4399b399
+ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70932978"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71155046"
 ---
 # <a name="what-are-microsoft-flow-logic-apps-functions-and-webjobs"></a>Vad är Microsoft Flow, Logic Apps, Functions och WebJobs?
 
@@ -88,7 +88,7 @@ Azure Functions bygger på WebJobs-SDK:n, och delar därför många händelseutl
 |[Betala per användning](functions-scale.md#consumption-plan)|✔||
 |[Integrering med Logic Apps](functions-twitter-email.md)|✔||
 | Utlösarhändelser |[Timer](functions-bindings-timer.md)<br>[Azure Storage-köer och blobar](functions-bindings-storage-blob.md)<br>[Azure Service Bus-köer och ämnen](functions-bindings-service-bus.md)<br>[Azure Cosmos DB](functions-bindings-cosmosdb.md)<br>[Azure Event Hubs](functions-bindings-event-hubs.md)<br>[HTTP/WebHook (GitHub, Slack)](functions-bindings-http-webhook.md)<br>[Azure Event Grid](functions-bindings-event-grid.md)|[Timer](functions-bindings-timer.md)<br>[Azure Storage-köer och blobar](functions-bindings-storage-blob.md)<br>[Azure Service Bus-köer och ämnen](functions-bindings-service-bus.md)<br>[Azure Cosmos DB](functions-bindings-cosmosdb.md)<br>[Azure Event Hubs](functions-bindings-event-hubs.md)<br>[Filsystem](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Files/FileTriggerAttribute.cs)|
-| Språk som stöds  |C#<br>F#<br>JavaScript<br>Java<br>Python (för hands version) |C#<sup>1</sup>|
+| Språk som stöds  |C#<br>F#<br>JavaScript<br>Java<br>Python |C#<sup>1</sup>|
 |Pakethanterare|NPM och NuGet|NuGet<sup>2</sup>|
 
 <sup>1</sup> WebJobs (utan WebJobs SDK) stöder C#Java, Java Script, bash,. cmd,. bat, PowerShell, php, typescript, python med mera. Den här listan är inte omfattande. Ett WebJob kan köra vilket program eller skript som helst som kan köras i App Service-sandboxen.

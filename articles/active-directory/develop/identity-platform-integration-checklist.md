@@ -16,12 +16,12 @@ ms.date: 09/11/2019
 ms.author: ryanwi
 ms.reviewer: lenalepa, sureshja, jesakowi
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 4e7b89fbb4b6343db62cf3476f3c35220b12649b
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: 1f4afe1c31ae964aab82664de12144185069af5a
+ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71104030"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71145662"
 ---
 # <a name="microsoft-identity-platform-best-practices-and-recommendations"></a>Metod tips och rekommendationer för Microsoft Identity Platform
 
@@ -78,6 +78,7 @@ Använd följande check lista för att se till att programmet är effektivt inte
 | ![Rute](./media/active-directory-integration-checklist/checkbox-two.svg) |  För Mobile Apps konfigurerar du varje plattform med hjälp av program registrerings upplevelsen. För att ditt program ska kunna dra nytta av Microsoft Authenticator eller Microsoft Företagsportal för enkel inloggning måste appen ha konfigurerat en "Broker-omdirigerings-URI". Detta gör att Microsoft kan returnera kontroll till programmet efter autentisering. När du konfigurerar varje plattform vägleder vi dig genom processen. Använd snabb starten för att hämta ett arbets exempel. Använd utjämnare och system webbvy när det är möjligt på iOS.|
 | ![Rute](./media/active-directory-integration-checklist/checkbox-two.svg) |  I Web Apps eller webb-API: er, Behåll ett token-cache per konto.  För Web Apps bör token-cachen anges av konto-ID: t.  För webb-API: er ska kontot anges genom hashen för den token som används för att anropa API: et. MSAL.NET tillhandahåller anpassad cachelagring av token i .NET Framework-och .NET Core-underplattformar. Av säkerhets-och prestanda skäl är vår rekommendation att serialisera en cache per användare. Mer information finns i about [cache-serialisering för token](msal-net-token-cache-serialization.md#token-cache-for-a-web-app-confidential-client-application).|
 | ![Rute](./media/active-directory-integration-checklist/checkbox-two.svg) | Om de data som krävs för din app är tillgängliga via [Microsoft Graph](https://developer.microsoft.com/graph)kan du begära behörigheter för dessa data med hjälp av Microsoft Graph-slutpunkten i stället för enskilda API. |
+| ![Rute](./media/active-directory-integration-checklist/checkbox-two.svg) |Titta inte på värdet för åtkomsttoken eller försök att parsa det som en klient.  De kan ändra värden, format eller till och med bli krypterade utan varning – Använd alltid id_token om klienten behöver lära sig något om användaren eller anropa Microsoft Graph.  Endast webb-API: er ska parsa åtkomsttoken (eftersom de är de som definierar formatet och ställer in krypterings nycklarna). |
 
 ## <a name="end-user-experience"></a>Slutanvändarens upplevelse
 

@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 09/17/2019
 ms.author: jgao
-ms.openlocfilehash: 5a1e0329f8d0227c05924137d5eaddd9658d5b3c
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.openlocfilehash: 1e993ec50694d8672fbe05f982d5dbc45a815abb
+ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71076949"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71161478"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-resource-manager-template"></a>Snabbstart: Ange och hämta en hemlighet från Azure Key Vault med Resource Manager-mall
 
@@ -58,6 +58,11 @@ Mallen som används i den här snabb starten är från [Azure snabb starts-malla
 
 [!code-json[<Azure Resource Manager template create key vault>](~/quickstart-templates/101-key-vault-create/azuredeploy.json)]
 
+Två Azure-resurser definieras i mallen:
+
+* **Microsoft. Key Vault/valv**: skapa ett Azure Key Vault.
+* **Microsoft. Key Vault/valv/hemligheter**: skapa en nyckel valvs hemlighet.
+
 Fler Azure Key Vault mall-exempel finns [här](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Keyvault).
 
 1. Välj följande bild för att logga in på Azure och öppna en mall. Mallen skapar ett nyckelvalv och en hemlighet.
@@ -82,6 +87,8 @@ Fler Azure Key Vault mall-exempel finns [här](https://azure.microsoft.com/resou
 3. Välj **Köp**. När nyckel valvet har distribuerats får du ett meddelande:
 
     ![Resource Manager-mall, Key Vault integrering, distribuera Portal meddelande](./media/quick-create-template/resource-manager-template-portal-deployment-notification.png)
+
+Azure Portal används för att distribuera mallen. Förutom Azure Portal kan du också använda Azure PowerShell, Azure CLI och REST API. Mer information om andra distributions metoder finns i [distribuera mallar](../azure-resource-manager/resource-group-template-deploy.md).
 
 ## <a name="validate-the-deployment"></a>Verifiera distributionen
 

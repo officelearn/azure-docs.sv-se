@@ -1,19 +1,19 @@
 ---
-title: Azure PowerShell-skript – uppdatera ett Azure Cosmos-konto
-description: Skriptexempel för Azure PowerShell – uppdatera ett Azure Cosmos-konto med regioner har lagts till
+title: Azure PowerShell skript – uppdatera ett Azure Cosmos-konto
+description: Azure PowerShell skript exempel – uppdatera ett Azure Cosmos-konto eller ändra regioner
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 05/06/2019
+ms.date: 09/20/2019
 ms.author: mjbrown
-ms.openlocfilehash: 8fad9b47b4f451f4b77f32038b26d6dc43809a60
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 7d57264daf4036d1823d3da27c248bdca1d7466d
+ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67603957"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71154731"
 ---
-# <a name="update-an-azure-cosmos-account-and-add-a-region-using-powershell"></a>Uppdatera ett Azure Cosmos-konto och lägger till en region med hjälp av PowerShell
+# <a name="update-an-azure-cosmos-account-or-add-modify-regions-using-powershell"></a>Uppdatera ett Azure Cosmos-konto eller Lägg till ändra regioner med PowerShell
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 
@@ -21,7 +21,12 @@ ms.locfileid: "67603957"
 
 ## <a name="sample-script"></a>Exempelskript
 
-[!code-powershell[main](../../../../../powershell_scripts/cosmosdb/sql/ps-account-update.ps1 "Update and add regions to an Azure Cosmos account")]
+> [!NOTE]
+> Du kan inte ändra regioner och ändra andra egenskaper för Cosmos-kontot i samma åtgärd. Dessa måste göras som två separata åtgärder.
+> [!NOTE]
+> Det här exemplet visar hur du använder ett SQL (Core) API-konto. Om du vill använda det här exemplet för andra API: er kopierar du de relaterade egenskaperna och tillämpar på ditt API-speciella skript.
+
+[!code-powershell[main](../../../../../powershell_scripts/cosmosdb/common/ps-account-update.ps1 "Add a region to an Azure Cosmos account")]
 
 ## <a name="clean-up-deployment"></a>Rensa distribution
 
@@ -38,9 +43,9 @@ Det här skriptet använder följande kommandon. Varje kommando i tabellen länk
 | Kommando | Anteckningar |
 |---|---|
 |**Azure-resurser**| |
-| [Get-AzResource](https://docs.microsoft.com/powershell/module/az.resources/get-azresource) | Hämtar en resurs. |
-| [Set-AzResource](https://docs.microsoft.com/powershell/module/az.resources/set-azresource) | Uppdaterar en resurs. |
-|**Azure-resursgrupper**| |
+| [New-AzResource](https://docs.microsoft.com/powershell/module/az.resources/new-azresource) | Skapa en resurs. |
+| [Set-AzResource](https://docs.microsoft.com/powershell/module/az.resources/set-azresource) | Uppdatera en resurs. |
+|**Resurs grupper i Azure**| |
 | [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup) | Skapar en resursgrupp där alla resurser lagras. |
 | [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) | Tar bort en resursgrupp, inklusive alla kapslade resurser. |
 |||

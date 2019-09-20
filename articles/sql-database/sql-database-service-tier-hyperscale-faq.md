@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 05/06/2019
-ms.openlocfilehash: 3f64bce34a1bdb11bdbebb99fe28cdf3ff16dfb8
-ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
+ms.openlocfilehash: 8c35877c7de2fa89a8fe7a94c11787814183df9e
+ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71128710"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71162259"
 ---
 # <a name="faq-about-azure-sql-hyperscale-databases"></a>Vanliga frågor och svar om Azure SQL-storskaliga databaser
 
@@ -361,6 +361,11 @@ Vi skapar två repliker för storskaliga databaser som standard. Om du vill just
 ### <a name="how-do-i-connect-to-these-secondary-compute-nodes"></a>Hur gör jag för att ansluta till dessa sekundära Compute-noder
 
 Du kan ansluta till dessa ytterligare skrivskyddade Compute-noder genom att ange `ApplicationIntent` argumentet för anslutnings strängen till. `readonly` Alla anslutningar som marker `readonly` ATS med dirigeras automatiskt till en av de ytterligare skrivskyddade Compute-noderna.  
+
+### <a name="how-do-i-validate-if-i-have-successfully-connected-to-secondary-compute-node-using-ssms--other-client-tools"></a>Hur gör jag för att validera om jag har lyckats ansluta till den sekundära Compute-noden med SSMS/andra klient verktyg?
+
+Du kan köra följande T-SQL-fråga med SSMS/andra klient verktyg: `SELECT DATABASEPROPERTYEX ( '<database_name>' , 'updateability' )`.
+Resultatet blir `READ_ONLY` om du pekar på den skrivskyddade sekundära noden eller `READ_WRITE` om din anslutning pekar på den primära noden.
 
 ### <a name="can-i-create-a-dedicated-endpoint-for-the-read-scale-replica"></a>Kan jag skapa en dedikerad slut punkt för den expanderade repliken
 

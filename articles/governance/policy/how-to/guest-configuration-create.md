@@ -7,12 +7,12 @@ ms.date: 07/26/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: ee8a17846495a122f7432e66c3e343a00dd0a015
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: 0c1c3470ae18b2a600af0d5e930b6fc114123728
+ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70194619"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71161935"
 ---
 # <a name="how-to-create-guest-configuration-policies"></a>Så här skapar du principer för gäst konfiguration
 
@@ -27,7 +27,7 @@ Använd följande åtgärder för att skapa en egen konfiguration för att verif
 
 ## <a name="add-the-guestconfiguration-resource-module"></a>Lägga till GuestConfiguration Resource module
 
-Om du vill skapa en princip för gäst konfiguration måste du lägga till modulen resurs. Den här modulen kan användas med lokalt installerad PowerShell, med [Azure Cloud Shell](https://shell.azure.com)eller med [Azure PowerShell Docker](https://hub.docker.com/rsdk-powershell/)-avbildningen.
+Om du vill skapa en princip för gäst konfiguration måste du lägga till modulen resurs. Den här modulen kan användas med lokalt installerad PowerShell, med [Azure Cloud Shell](https://shell.azure.com)eller med [Azure PowerShell Docker-avbildningen](https://hub.docker.com/rsdk-powershell/).
 
 ### <a name="base-requirements"></a>Grundläggande krav
 
@@ -54,13 +54,51 @@ I gäst konfigurationen används modulen **GuestConfiguration** för att skapa D
    Get-Command -Module 'GuestConfiguration'
    ```
 
-## <a name="create-custom-guest-configuration-configuration"></a>Skapa anpassad konfiguration för gäst konfiguration
+## <a name="create-custom-guest-configuration-configuration-and-resources"></a>Skapa anpassad konfiguration och resurser för gäst konfiguration
 
 Det första steget för att skapa en anpassad princip för gäst konfiguration är att skapa DSC-konfigurationen. En översikt över DSC-begrepp och terminologi finns i [Översikt över POWERSHELL DSC](/powershell/dsc/overview/overview).
 
+Om konfigurationen bara kräver resurser som är inbyggda med konfigurations agenten för gäst måste du bara redigera en MOF-fil för konfiguration. Om du behöver köra ytterligare skript måste du redigera en anpassad resurspool.
+
+### <a name="requirements-for-guest-configuration-custom-resources"></a>Krav för anpassade gäst konfigurations resurser
+
+När gäst konfigurationen granskar en dator körs `Test-TargetResource` den först för att avgöra om den är i rätt tillstånd.  Det booleska värde som returneras av funktionen avgör om Azure Resource Managers status för gäst tilldelningen ska vara kompatibel/inte kompatibel.  Om det booleska värdet `$false` är för en resurs i konfigurationen kommer providern att köras. `Get-TargetResource`
+Om booleska `$true` `Get-TargetResource` värdet inte anropas.
+
+Funktionen `Get-TargetResource` har särskilda krav för gäst konfiguration som inte behövs för Windows önskad tillstånds konfiguration.
+
+- Den hash-tabellen som returneras måste innehålla en egenskap med namnet **skäl**.
+- Egenskapen orsaker måste vara en matris.
+- Varje objekt i matrisen ska vara en hash med nycklar med namnet **kod** och **fras**.
+
+Egenskapen orsaker används av tjänsten för att standardisera hur information presenteras när en dator är inkompatibel.
+Du kan tänka på varje objekt av anledningen som en "orsak" för att resursen inte är kompatibel. Egenskapen är en matris eftersom en resurs inte kan vara kompatibel med fler än en orsak.
+
+Egenskaps **koden** och **frasen** förväntas av tjänsten. När du skapar en anpassad resurs ställer du in texten (vanligt vis STDOUT) som du vill visa som orsak till att resursen inte är kompatibel som värdet för **frasen**.  **Koden** har särskilda krav på formatering så att rapporter tydligt kan visa information om den resurs som användes för att utföra granskningen. Den här lösningen gör att gäst konfigurationen är utöknings bar. Alla kommandon kan köras för att granska en dator så länge utdata kan fångas och returneras som ett sträng värde för egenskapen **fras** .
+
+- **Kod** (sträng): Namnet på resursen, upprepat och ett kort namn utan blank steg som identifierare för orsaken.  Dessa tre värden ska vara kolon-avgränsade utan blank steg.
+    - Ett exempel är "Registry: Registry: keynotpresent".
+- **Fras** (sträng): Läslig text som förklarar varför inställningen inte är kompatibel.
+    - Ett exempel är att register nyckeln $key inte finns på datorn.
+
+```powershell
+$reasons = @()
+$reasons += @{
+  Code = 'Name:Name:ReasonIdentifer'
+  Phrase = 'Explain why the setting is not compliant'
+}
+return @{
+    reasons = $reasons
+}
+```
+
+#### <a name="scaffolding-a-guest-configuration-project"></a>Ramverk ett gäst konfigurations projekt
+
+För utvecklare som vill påskynda processen med att komma igång och arbeta med exempel kod, finns det ett community-projekt med namnet **gäst konfigurations projekt** som mall för den [Gipsbaserade](https://github.com/powershell/plaster) PowerShell-modulen.  Det här verktyget kan användas för att Autogenerera ett projekt, inklusive en fungerande konfiguration och exempel resurs, och en uppsättning [pester](https://github.com/pester/pester) -tester för att verifiera projektet.  Mallen innehåller också uppgifts utlöpare för Visual Studio Code för att automatisera skapandet och valideringen av gäst konfigurations paketet. Mer information finns i projektet GitHub Project [Guest Configuration](https://github.com/microsoft/guestconfigurationproject).
+
 ### <a name="custom-guest-configuration-configuration-on-linux"></a>Anpassad konfiguration av gäst konfiguration på Linux
 
-DSC-konfigurationen för gäst konfiguration i Linux använder `ChefInSpecResource` resursen för att tillhandahålla motorn namnet på den inspecde definitionen för [chef](https://www.chef.io/inspec/) . **Name** är den enda obligatoriska resurs egenskapen.
+DSC-konfigurationen för gäst konfiguration i Linux använder `ChefInSpecResource` resursen för att tillhandahålla motorn namnet på den [inspecde](https://www.chef.io/inspec/) definitionen för chef. **Name** är den enda obligatoriska resurs egenskapen.
 
 I följande exempel skapas en konfiguration med namnet **baseline**, importerar **GuestConfiguration** -modulen `ChefInSpecResource` och använder resurs uppsättningen namnet på INSPEC-definitionen för **linux-patch-bas linje**:
 
@@ -133,7 +171,7 @@ Parametrar för `New-GuestConfigurationPackage` cmdleten:
 - **Sökväg**: Sökväg till målmappen. Den här parametern är valfri. Om det inte anges skapas paketet i den aktuella katalogen.
 - **ChefProfilePath**: Fullständig sökväg till INSPEC-profil. Den här parametern stöds bara när du skapar innehåll för att granska Linux.
 
-Det färdiga paketet måste lagras på en plats som de hanterade virtuella datorerna kan komma åt. Exempel är GitHub-databaser, Azure-lagrings platsen eller Azure Storage. Om du inte vill att paketet ska vara offentligt kan du ta med en [SAS](../../../storage/common/storage-dotnet-shared-access-signature-part-1.md) -token i URL: en. Du kan också implementera [tjänstens slut punkt](../../../storage/common/storage-network-security.md#grant-access-from-a-virtual-network) för datorer i ett privat nätverk, även om den här konfigurationen endast gäller för åtkomst till paketet och inte kommunicerar med tjänsten.
+Det färdiga paketet måste lagras på en plats som de hanterade virtuella datorerna kan komma åt. Exempel är GitHub-databaser, Azure-lagrings platsen eller Azure Storage. Om du inte vill att paketet ska vara offentligt kan du ta med en [SAS-token](../../../storage/common/storage-dotnet-shared-access-signature-part-1.md) i URL: en. Du kan också implementera [tjänstens slut punkt](../../../storage/common/storage-network-security.md#grant-access-from-a-virtual-network) för datorer i ett privat nätverk, även om den här konfigurationen endast gäller för åtkomst till paketet och inte kommunicerar med tjänsten.
 
 ### <a name="working-with-secrets-in-guest-configuration-packages"></a>Arbeta med hemligheter i gäst konfigurations paket
 
@@ -141,10 +179,10 @@ I Azure Policy gäst konfiguration är det bästa sättet att hantera hemlighete
 
 Börja med att skapa en användardefinierad hanterad identitet i Azure. Identiteten används av datorer för att komma åt hemligheter lagrade i Key Vault. Detaljerade anvisningar finns i [skapa, lista eller ta bort en användardefinierad hanterad identitet med hjälp av Azure PowerShell](../../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell.md).
 
-Skapa sedan en Key Vault-instans. Detaljerade anvisningar finns i [Ange och hämta en hemlighet – PowerShell](../../../key-vault/quick-create-powershell.md).
+Skapa en Key Vault-instans. Detaljerade anvisningar finns i [Ange och hämta en hemlighet – PowerShell](../../../key-vault/quick-create-powershell.md).
 Tilldela behörighet till instansen för att ge den användare som tilldelats åtkomst till hemligheter som lagras i Key Vault. Detaljerade anvisningar finns i [Ange och hämta en hemlighet-.net](../../../key-vault/quick-create-net.md#give-the-service-principal-access-to-your-key-vault).
 
-Tilldela sedan den användare som tilldelats identiteten till din dator. Detaljerade anvisningar finns i [Konfigurera hanterade identiteter för Azure-resurser på en virtuell Azure-dator med hjälp av PowerShell](../../../active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm.md#user-assigned-managed-identity).
+Tilldela den användare som tilldelats identiteten till din dator. Detaljerade anvisningar finns i [Konfigurera hanterade identiteter för Azure-resurser på en virtuell Azure-dator med hjälp av PowerShell](../../../active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm.md#user-assigned-managed-identity).
 I skala tilldelar du den här identiteten med Azure Resource Manager via Azure Policy. Detaljerade anvisningar finns i [Konfigurera hanterade identiteter för Azure-resurser på en virtuell Azure-dator med hjälp av en mall](../../../active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm.md#assign-a-user-assigned-managed-identity-to-an-azure-vm).
 
 I din anpassade resurs använder du slutligen det klient-ID som genererades ovan för att få åtkomst Key Vault med hjälp av den token som är tillgänglig från datorn. URL: en till Key Vault-instansen kan skickas till resursen som egenskaper så att resursen inte behöver uppdateras i flera miljöer eller om värdena behöver ändras. [](/powershell/dsc/resources/authoringresourcemof#creating-the-mof-schema) `client_id`
@@ -334,7 +372,7 @@ När innehållet har konverterats är stegen ovan för att skapa ett paket och p
 
 ## <a name="optional-signing-guest-configuration-packages"></a>VALFRITT Signerar gäst konfigurations paket
 
-Anpassade principer för gäst konfiguration använder SHA256 hash för att kontrol lera att princip paketet inte har ändrats från när det publicerades till när det läses av servern som granskas.
+Anpassade principer för gäst konfiguration använder SHA256 hash för att verifiera att princip paketet inte har ändrats från när det publicerades till när det lästes av servern som granskas.
 Kunder kan också använda ett certifikat för att signera paket och tvinga gäst konfigurations tillägget att bara tillåta signerat innehåll.
 
 Det finns två steg som du måste utföra för att aktivera det här scenariot. Kör cmdleten för att signera innehålls paketet och Lägg till en tagg till de datorer som kräver att kod signeras.

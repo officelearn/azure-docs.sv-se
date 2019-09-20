@@ -12,19 +12,21 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/19/2019
+ms.date: 09/20/2019
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: e1a04cad7fe5c9c95397ffad2faa80c7d657d0f8
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: ab55583d72297f2a1c72bac21e4414919f31b91b
+ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68273802"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71161406"
 ---
-# <a name="quickstart-create-a-standard-load-balancer-to-load-balance-vms-by-using-an-azure-resource-manager-template"></a>Snabbstart: Skapa en standard Load Balancer för att belastningsutjämna virtuella datorer med hjälp av en Azure Resource Manager mall
+# <a name="quickstart-create-a-standard-load-balancer-to-load-balance-vms-by-using-azure-resource-manager-template"></a>Snabbstart: Skapa en standard Load Balancer för att belastningsutjämna virtuella datorer med Azure Resource Manager mall
 
-Med belastningsutjämning får du högre tillgänglighet och skala genom att inkommande förfrågningar sprids över flera virtuella datorer. I den här snabb starten lär du dig hur du distribuerar en Azure Resource Manager-mall som skapar en standard belastningsutjämnare för att belastningsutjämna virtuella datorer.
+Med belastningsutjämning får du högre tillgänglighet och skala genom att inkommande förfrågningar sprids över flera virtuella datorer. I den här snabb starten lär du dig hur du distribuerar en Azure Resource Manager-mall som skapar en standard belastningsutjämnare för att belastningsutjämna virtuella datorer. Att använda Resource Manager-mallen tar färre steg jämfört med andra distributions metoder.
+
+[Resource Manager-mall](../azure-resource-manager/template-deployment-overview.md) är en JavaScript Object Notation-fil (JSON) som definierar infrastrukturen och konfigurationen för ditt projekt. Mallen använder deklarativ syntax, som låter dig ange vad du vill distribuera utan att du behöver skriva sekvensen med programmerings kommandon för att skapa den. Om du vill veta mer om hur du utvecklar Resource Manager-mallar läser du [Resource Manager-dokumentationen](/azure/azure-resource-manager/) och [mallen referens](/azure/templates/microsoft.network/loadbalancers).
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
@@ -32,9 +34,22 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 Standard Load Balancer stöder endast en offentlig standard-IP-adress. När du skapar en standard belastningsutjämnare måste du också skapa en ny offentlig IP-adress som är konfigurerad som klient del för standard belastnings utjämningen.
 
-Du kan använda många metoder för att skapa en standard-belastningsutjämnare. I den här snabb starten använder du Azure PowerShell för att distribuera en [Resource Manager-mall](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-load-balancer-standard-create/azuredeploy.json). Resource Manager-mallar är JSON-filer som definierar de resurser du behöver för att distribuera lösningen.
+Mallen som används i den här snabb starten är en [snabb starts mall](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-load-balancer-standard-create/azuredeploy.json).
 
-Information om de begrepp som är kopplade till att distribuera och hantera dina Azure-lösningar finns i [Azure Resource Manager-dokumentationen](/azure/azure-resource-manager/). Du hittar fler mallar som är relaterade till Azure Load Balancer i [Azure snabb starts mallar](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Network&pageNumber=1&sort=Popular).
+[!code-json[<Azure Resource Manager template create standard load balancer>](~/quickstart-templates/101-load-balancer-standard-create/azuredeploy.json)]
+
+Flera Azure-resurser har definierats i mallen:
+
+- **Microsoft. Network/belastningsutjämnare**
+- **Microsoft. Network/publicIPAddresses**: för belastningsutjämnaren.
+- **Microsoft.Network/networkSecurityGroups**
+- **Microsoft.Network/virtualNetworks**
+- **Microsoft. Compute/virutalMachines** (3 av dem)
+- **Microsoft. Network/publicIPAddresses** (3 av dem): för var och en av de tre virtuella datorerna.
+- **Microsoft. Network/networkInterfaces** (3 av dem)
+- **Microsoft. Compute/virtualMachine/tillägg** (3 av dem): används för att konfigurera IIS och webb sidor
+
+Du hittar fler mallar som är relaterade till Azure Load Balancer i [Azure snabb starts mallar](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Network&pageNumber=1&sort=Popular).
 
 1. Välj **prova** från följande kodblock för att öppna Azure Cloud Shell och följ sedan anvisningarna för att logga in på Azure.
 
@@ -65,7 +80,11 @@ Information om de begrepp som är kopplade till att distribuera och hantera dina
 
    Resurs gruppens namn är projekt namnet med **RG** tillagt. Du behöver resurs grupps namnet i nästa avsnitt.
 
-Det tar cirka 10 minuter att distribuera mallen.
+Det tar cirka 10 minuter att distribuera mallen. När det är slutfört ser utdata ut ungefär så här:
+
+![Azure Standard Load Balancer Resource Manager-mall PowerShell-distribution av utdata](./media/quickstart-load-balancer-standard-public-template/azure-standard-load-balancer-resource-manager-template-powershell-output.png)
+
+Azure PowerShell används för att distribuera mallen. Förutom Azure PowerShell kan du också använda Azure Portal, Azure CLI och REST API. Mer information om andra distributions metoder finns i [distribuera mallar](../azure-resource-manager/resource-group-template-deploy-portal.md).
 
 ## <a name="test-the-load-balancer"></a>Testa lastbalanseraren
 
@@ -77,9 +96,13 @@ Det tar cirka 10 minuter att distribuera mallen.
 
 1. Markera belastningsutjämnaren. Dess standard namn är projekt namnet med **-lb-** tillägg.
 
-1. Kopiera endast IP-delen av den offentliga IP-adressen och klistra in den i adress fältet i webbläsaren. Webbläsaren visar standard sidan för webb servern för Internet Information Services (IIS).
+1. Kopiera endast IP-delen av den offentliga IP-adressen och klistra in den i adress fältet i webbläsaren.
 
-   ![IIS-webbserver](./media/tutorial-load-balancer-standard-zonal-portal/load-balancer-test.png)
+   ![Azure standard Load Balancer Resource Manager-mall offentlig IP](./media/quickstart-load-balancer-standard-public-template/azure-standard-load-balancer-resource-manager-template-deployment-public-ip.png)
+
+    Webbläsaren visar standard sidan för webb servern för Internet Information Services (IIS).
+
+   ![IIS-webbserver](./media/quickstart-load-balancer-standard-public-template/load-balancer-test-web-page.png)
 
 Om du vill se belastningsutjämnaren distribuerar trafik över alla tre virtuella datorer kan du framtvinga en uppdatering av webbläsaren från klient datorn.
 
@@ -95,4 +118,3 @@ Om du vill veta mer kan du fortsätta till självstudierna för Load Balancer.
 
 > [!div class="nextstepaction"]
 > [Självstudier om Azure Load Balancer](tutorial-load-balancer-standard-public-zone-redundant-portal.md)
- 

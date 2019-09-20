@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/21/2018
 ms.author: srrengar
-ms.openlocfilehash: 20fa8945f01a3431d2fd78d545c43d6215c83f56
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: e29c32c27e7f6c62eb2c6a9cbe2e4d3f1294f038
+ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "66110304"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71155169"
 ---
 # <a name="performance-monitoring-with-the-windows-azure-diagnostics-extension"></a>Prestanda övervakning med Windows Azure-diagnostik-tillägget
 
@@ -191,9 +191,6 @@ Här är ett exempel på en konfiguration med räknaren för den *totala process
       },
 ....
 ```
-
- >[!NOTE]
- >Även om du kan `*` använda för att ange grupper med prestanda räknare som har samma namn som du skickar räknare via en Sink (till Application Insights) kräver att de är individuellt deklarerade. 
 
 1. När du har lagt till lämpliga prestanda räknare som behöver samlas in måste du uppgradera kluster resursen så att dessa ändringar visas i det kluster som körs. Spara din ändrade `template.json` och öppna PowerShell. Du kan uppgradera klustret med hjälp `New-AzResourceGroupDeployment`av. Anropet kräver namnet på resurs gruppen, den uppdaterade mallfilen och parameter filen och begär Resource Manager för att göra lämpliga ändringar i de resurser som du har uppdaterat. När du har loggat in på ditt konto och har rätt prenumeration använder du följande kommando för att köra uppgraderingen:
 

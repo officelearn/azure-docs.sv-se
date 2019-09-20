@@ -4,7 +4,7 @@ description: ''
 services: virtual-machines-windows
 documentationcenter: ''
 author: Deland-Han
-manager: willchen
+manager: dcscontentpm
 editor: ''
 tags: ''
 ms.service: virtual-machines
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 11/22/2018
 ms.author: delhan
-ms.openlocfilehash: 0a0da446385c592bfeda2e01e209ef1fb75b7de3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6e90b164fac4ea1123f5f9a43eea1169d93d9a04
+ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60711585"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71154028"
 ---
 # <a name="azure-vm-guest-os-firewall-is-blocking-inbound-traffic"></a>Azure VM gäst-OS-brandväggen blockerar inkommande trafik
 
@@ -112,8 +112,8 @@ Ansluta till den [Seriekonsolen och öppna en PowerShell-instans](serial-console
 
     > [!Note]
     > Följande riktlinjer gäller för brandväggsprincipen, beroende på hur den är konfigurerad:
-    >    * *BlockInbound*: All inkommande trafik blockeras om du inte har en regel som gäller för att tillåta den trafiken.
-    >    * *BlockInboundAlways*: Alla brandväggsregler ignoreras och all trafik blockeras.
+    >    * *BlockInbound*: All inkommande trafik kommer att blockeras om du inte har en regel som tillåter att trafiken används.
+    >    * *BlockInboundAlways*: Alla brand Väggs regler kommer att ignoreras och all trafik kommer att blockeras.
 
 2.  Redigera den *DefaultInboundAction* att ställa in de här profilerna på **Tillåt** trafik. Gör detta genom att köra följande kommando:
 
@@ -142,7 +142,7 @@ Ansluta till den [Seriekonsolen och öppna en PowerShell-instans](serial-console
 
 #### <a name="mitigation-1"></a>Lösning 1
 
-Se [hur för aktivera / inaktivera en brandvägg som regeln på ett Gästoperativsystem](enable-disable-firewall-rule-guest-os.md).
+Se [Aktivera-inaktivera en brand Väggs regel på ett gäst operativ system](enable-disable-firewall-rule-guest-os.md).
 
 #### <a name="mitigation-2"></a>Lösning 2
 

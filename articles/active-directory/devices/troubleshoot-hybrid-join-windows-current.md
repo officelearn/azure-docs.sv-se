@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6d4a0f00c8bcf511f220d3e0df81adac1e9ff0d4
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: 49658e3e57748ffb7542508530940aa5331f5db1
+ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70995204"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71162412"
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-devices"></a>Felsöka hybrid Azure Active Directory anslutna enheter 
 
@@ -110,7 +110,7 @@ Fortsätt till nästa steg för ytterligare fel sökning.
 
 #### <a name="windows-10-1803-and-above"></a>Windows 10 1803 och senare
 
-Leta efter underavsnittet "föregående registrering" i avsnittet "diagnostikdata" i resultatet för att koppla status.
+Leta efter underavsnittet "föregående registrering" i avsnittet "diagnostikdata" i resultatet för att koppla status. Det här avsnittet visas endast om enheten är domänansluten och det inte går att ansluta till hybrid Azure AD Join.
 I fältet "fel fas" anges fasen för kopplings felet medan klient ErrorCode anger felkoden för kopplings åtgärden.
 
 ```
@@ -181,7 +181,7 @@ Använd någon av följande metoder för att hitta underfelkodna för identifier
 
 ##### <a name="windows-10-1803-and-above"></a>Windows 10 1803 och senare
 
-Sök efter "DRS Discovery test" i avsnittet "diagnostikdata" i sammanfognings statusens utdata.
+Sök efter "DRS Discovery test" i avsnittet "diagnostikdata" i sammanfognings statusens utdata. Det här avsnittet visas endast om enheten är domänansluten och det inte går att ansluta till hybrid Azure AD Join.
 
 ```
 +----------------------------------------------------------------------+
@@ -305,7 +305,7 @@ Sök efter registrerings typen och leta efter felkoden i listan nedan.
 
 #### <a name="windows-10-1803-and-above"></a>Windows 10 1803 och senare
 
-Leta efter underavsnittet "föregående registrering" i avsnittet "diagnostikdata" i resultatet för att koppla status.
+Leta efter underavsnittet "föregående registrering" i avsnittet "diagnostikdata" i resultatet för att koppla status. Det här avsnittet visas endast om enheten är domänansluten och det inte går att ansluta till hybrid Azure AD Join.
 Fältet "registrerings typ" anger vilken typ av koppling som utförs.
 
 ```

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/22/2019
 ms.author: sngun
 ms.reviewer: sngun
-ms.openlocfilehash: 39427ac12dc6214630d6c3e5ace62692b1ea30b6
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: ad690fa78f794b26b6cf496ea4485599486752b0
+ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71003072"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71146963"
 ---
 # <a name="migrate-data-to-azure-cosmos-db-cassandra-api-account-using-striim"></a>Migrera data till Azure Cosmos DB API för Cassandra konto med Striims
 
@@ -160,6 +160,8 @@ I det här avsnittet ska du konfigurera Azure Cosmos DB API för Cassandra-konto
 1. Ange konfigurations egenskaperna för mål Azure Cosmos DBs instansen och välj **Spara** för att fortsätta. Följande är de viktigaste parametrarna för att Observera:
 
    * **Adapter** -Använd **DatabaseWriter**. När du skriver till Azure Cosmos DB API för Cassandra krävs DatabaseWriter. Cassandra driv rutin 3.6.0 paketeras med Striims. Om DatabaseWriter överskrider antalet ru: er som har allokerats på din Azure Cosmos-behållare kraschar programmet.
+
+   * **Anslutnings-URL** – ange Azure Cosmos DB JDBC-anslutningens URL. URL: en har formatet`jdbc:cassandra://<contactpoint>:10350/<databaseName>?SSL=true`
 
    * **Användar namn** – ange namnet på ditt Azure Cosmos-konto.
    

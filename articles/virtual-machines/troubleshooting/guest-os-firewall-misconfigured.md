@@ -4,7 +4,7 @@ description: ''
 services: virtual-machines-windows
 documentationcenter: ''
 author: Deland-Han
-manager: willchen
+manager: dcscontentpm
 editor: ''
 tags: ''
 ms.service: virtual-machines
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 11/22/2018
 ms.author: delhan
-ms.openlocfilehash: fcea5e4e6bb108f1a8d8036e51a5dae8a9e6431b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8f04d943e1db49beed13c183fbd06e401546fc03
+ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60711024"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71153896"
 ---
 # <a name="azure-vm-guest-os-firewall-is-misconfigured"></a>Azure VM OS gästbrandvägg är felkonfigurerad
 
@@ -49,13 +49,13 @@ Ansluta till den [Seriekonsolen och öppna en PowerShell-instans](serial-console
 
 Följande regler kan redigeras för att antingen ge åtkomst till den virtuella datorn (via RDP) eller för att få en enklare felsökning upplevelse:
 
-*   Fjärrskrivbord (TCP-In): Det här är standard regeln som tillhandahåller primär åtkomst till den virtuella datorn genom att tillåta RDP i Azure.
+*   Fjärr skrivbord (TCP-in): Detta är standard regeln som ger primär åtkomst till den virtuella datorn genom att tillåta RDP i Azure.
 
-*   Windows Remote Management (HTTP-In): Den här regeln gör det möjligt att ansluta till den virtuella datorn med hjälp av PowerShell., i Azure, den här typen av åtkomst kan du använda skript aspekt av remote skript och felsökning.
+*   Windows Remote Management (HTTP-in): Med den här regeln kan du ansluta till den virtuella datorn med hjälp av PowerShell. i Azure kan du med den här typen av åtkomst använda skript aspekten för fjärrskriptering och fel sökning.
 
-*   Fil- och skrivardelning (SMB-In): Regeln möjliggör åtkomst till nätverksresurser som ett alternativ för felsökning.
+*   Fil-och skrivar delning (SMB-in): Den här regeln möjliggör åtkomst till nätverks resurser som fel söknings alternativ.
 
-*   Fil- och skrivardelning (ekobegäran - ICMPv4-In): Regeln gör det möjligt för dig att pinga den virtuella datorn.
+*   Fil-och skrivar delning (ekobegäran-ICMPv4-in): Med den här regeln kan du pinga den virtuella datorn.
 
 Du kan fråga den aktuella statusen för brandväggsregeln i seriell konsolåtkomst-instans.
 
@@ -98,7 +98,7 @@ Du kan fråga den aktuella statusen för brandväggsregeln i seriell konsolåtko
 
 ### <a name="offline-mitigations"></a>Offline-åtgärder
 
-1.  Om du vill aktivera eller inaktivera brandväggsregler, som avser [aktivera eller inaktivera en brandväggsregel på Azure VM gäst-OS](enable-disable-firewall-rule-guest-os.md).
+1.  Information om hur du aktiverar eller inaktiverar brand Väggs regler finns i [Aktivera eller inaktivera en brand Väggs regel på en Azure VM gäst operativ system](enable-disable-firewall-rule-guest-os.md).
 
 2.  Kontrollera om du är i den [gäst-OS i brandväggen blockerar inkommande trafik scenariot](guest-os-firewall-blocking-inbound-traffic.md).
 

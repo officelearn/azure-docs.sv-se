@@ -10,12 +10,12 @@ ms.author: tzvikei
 author: tsikiksr
 ms.reviewer: nibaccam
 ms.date: 09/09/2019
-ms.openlocfilehash: 2422a4525c94f3997dd0a9a0859135e9acf59ffa
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 8d91768d46d3e4a793982418da91f2d1877c5a79
+ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71092012"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71162550"
 ---
 # <a name="tutorial-create-your-first-classification-model-with-automated-machine-learning"></a>Självstudier: Skapa din första klassificerings modell med automatisk maskin inlärning
 
@@ -65,93 +65,93 @@ Skärmen **Kom igång** visas, eftersom det första experimentet med automatiser
 
 1. Välj **Skapa experiment**. 
 
-1. Ange **mitt-1st-automl-experiment** som namn på experimentet.
+1. Ange följande experiment namn:`my-1st-automl-experiment`
 
-1. Välj **skapa en ny beräkning**. En beräkning är en lokal eller molnbaserad resurs miljö som används för att köra ditt utbildnings skript eller vara värd för tjänst distributionen. För det här experimentet använder vi en molnbaserad beräkning. 
+1. Välj **skapa en ny beräkning** och konfigurera beräknings målet. Ett beräknings mål är en lokal eller molnbaserad resurs miljö som används för att köra ditt utbildnings skript eller vara värd för tjänst distributionen. För det här experimentet använder vi en molnbaserad beräkning. 
 
-    1. Konfigurera din beräknings kontext för det här experimentet.
-        
-        Fält | Value
-        ----|---
-        Namn på Machine Learning-beräkning |  Ange ett unikt namn som identifierar din beräknings kontext. I det här exemplet använder du **automl-Compute**.
-        Storlek på virtuell dator| Välj storlek på den virtuella datorn för din beräkning. Använd standard **Standard_DS12_V2**.
-        Ytterligare inställningar| *Min nod*: 1. Om du vill aktivera data profilering måste du ha en eller flera noder. <br> *Högsta nod*: 6.
- 
-    1. Om du vill skapa din nya beräkning väljer du **skapa**. Det tar några minuter att slutföra. 
+   Fält | Beskrivning | Värde för självstudier
+   ----|---|---
+   Namn på Machine Learning-beräkning |Ett unikt namn som identifierar din beräknings kontext.|automl – beräkning
+   Storlek&nbsp;på&nbsp;virtuell dator| Välj storlek på den virtuella datorn för din beräkning.|Standard_DS12_V2
+   Min/max-noder (i avancerade inställningar)| Du måste ange 1 eller fler noder för att kunna profilera data.|Minsta antal noder: 1<br>Högsta antal noder: 6
 
-    1. När du har skapat det väljer du den nya beräkningen i list rutan och väljer sedan **Nästa**.
+   >[!NOTE]
+   >I den här självstudien använder du det standard lagrings konto och den behållare som skapats med din nya beräkning. De fylls i automatiskt i formuläret.
+    
+1. Välj **skapa** för att hämta beräknings målet. 
+   **Det tar några minuter att slutföra.** 
 
-    >[!NOTE]
-    >I den här självstudien använder du det standard lagrings konto och den behållare som skapats med din nya beräkning. De fylls i automatiskt i formuläret.
+1. När du har skapat väljer du det nya beräknings målet i list rutan och väljer **Nästa**.
 
-1. Välj **Ladda upp från lokal fil**. Härifrån skapar du en ny data uppsättning med **bankmarketing_train. csv** -filen som du tidigare hämtade i den här självstudien. 
+1. Välj **överför från lokal fil** för att börja skapa en ny data uppsättning. 
 
-    1. Välj **Bläddra** och välj sedan filen **bankmarketing_train. csv** på den lokala datorn. 
+    1. Välj **Bläddra**.
+    
+    1. Välj filen **bankmarketing_train. csv** på den lokala datorn. Det här är den fil som du laddade ned som en [förutsättning](https://automlsamplenotebookdata.blob.core.windows.net/automl-sample-notebook-data/bankmarketing_train.csv).
 
     1. Ge din data uppsättning ett unikt namn och ange en valfri beskrivning. 
 
-    1. Välj **Nästa** för att överföra den till standard behållaren som konfigurerades automatiskt när arbets ytan skapades. Den offentliga för hands versionen stöder endast lokala fil överföringar. 
+    1. Välj **Nästa** längst ned till vänster för att överföra den till standard behållaren som konfigurerades automatiskt när arbets ytan skapades. Den offentliga för hands versionen stöder endast lokala fil överföringar. 
 
     1. När uppladdningen är klar fylls **inställningarna och förhands gransknings** formuläret i intelligent baserat på filtypen. Se till att formuläret är ifyllt på följande sätt.
         
         Fält|Value
         ---|---
-        Fil format| Avgränsade
+        Filformat| Avgränsad
         Avgränsare| Komma
         Kodning| UTF-8
         Kolumnrubriker| Alla filer har samma rubriker
         Hoppa över rader | Inga
 
-        >[!NOTE]
-        > Om någon av inställningarna i det här formuläret uppdateras så uppdateras förhands granskningen enligt detta.
-
         Välj **Nästa**.
     
-
     1. Med hjälp av **schema** formuläret kan du ytterligare konfigurera dina data för det här experimentet. I det här exemplet väljer du växlings växeln för **day_of_week** -funktionen, så att den inte inkluderas för det här experimentet. Välj **klar**för att slutföra fil uppladdning och skapa data uppsättningen för experimentet.
 
         ![Konfiguration av fliken för hands version](media/tutorial-1st-experiment-automated-ml/schema-tab-config.gif)
 
-        
 1. Välj **klassificering** som förutsägelse uppgift.
 
 1. Välj **y** som mål kolumn, vad du vill förutsäga. Den här kolumnen visar om klienten prenumererar på en term insättning eller inte.
 
 1. Expandera **Avancerade inställningar** och fyll i fälten enligt följande.
 
-    Avancerade inställningar|Value
-    ------|------
-    Primärt mått| AUC_weighted 
-    Avslutnings villkor| När något av dessa villkor uppfylls avslutas utbildnings jobbet innan det slutförs fullständigt: <br> *Utbildnings jobb tid (minuter)* : 5  <br> *Max antal iterationer*: 10 
-    Förbearbeta| Möjliggör förbehandling som genomförs av automatisk maskin inlärning. Detta inkluderar automatisk rensning av data, förberedelser och transformering för att generera syntetiska funktioner.
-    Validering| Välj m-vik kors validering och **2** för antalet kors valideringar. 
-    Samtidighet| Välj **5** för maximalt antal samtidiga iterationer.
-
    >[!NOTE]
-   > I det här experimentet ställer du inte in mått eller Max kärnor per upprepnings tröskel. Du kan inte heller blockera algoritmer från att testas.
+   > För det här experimentet ställer du inte in mått poäng eller Max kärnor per upprepnings tröskel. Du kan inte heller blockera algoritmer från att testas.
+   
+    Avancerade&nbsp;inställningar|Beskrivning|Värde&nbsp;för&nbsp;självstudier
+    ------|---------|---
+    Primärt mått| Bedömnings mått som ska mätas av Machine Learning-algoritmen.|**AUC_weighted** 
+    Avslutnings villkor| När något av dessa villkor uppfylls avslutas utbildnings jobbet även om det inte har slutförts fullständigt. |Utbildnings&nbsp;jobb&nbsp;tid&nbsp;(minuter): **5**  <br> <br> Max&nbsp;# för iterationer&#58;10&nbsp;&nbsp; 
+    Förbearbeta| Möjliggör förbehandling som genomförs av automatisk maskin inlärning. Detta inkluderar automatisk rensning av data, förberedelser och transformering för att generera syntetiska funktioner.| Aktivera
+    Verifiering| Validerings typ och antal tester. | **K-vikning** kors validering<br><br>  kors valideringar: **2** 
+    Samtidighet| Maximalt antal samtidiga iterationer.|**5**
 
-1. Välj **Starta** för att köra experimentet.
+1. Välj **Starta** för att köra experimentet. En skärm visas med ett status meddelande när experiment förberedelsen börjar.
 
-   När experimentet startar visas en tom skärm med ett status meddelande längst upp.
+>[!IMPORTANT]
+> Förberedelserna tar **10-15 minuter** för att förbereda experiment körningen. När du har kört det tar det **2-3 minuter för varje iteration**.  
+>
+> I produktion skulle du förmodligen gå undan för en bit. Men i den här själv studie kursen föreslår vi att du börjar utforska upprepnings resultatet när de är klara medan de andra fortfarande körs. 
 
-Experiment förberedelse processen tar flera minuter. När processen har slutförts körs status meddelandet för **körningen**.
+##  <a name="explore-iteration-results"></a>Utforska upprepnings resultat
 
-##  <a name="view-experiment-details"></a>Visa experiment information
+När experimentet uppdateras, uppdaterar skärmen **upprepnings diagrammet** och **upprepnings listan** med de olika iterationer (modeller) som skapas när de slutförs och sorterar dem efter metriska poäng. Som standard är modellen som visar högsta baserat på det valda **AUC_weighted** -måttet överst i listan.
 
-När experimentet är klart uppdaterar skärmen **upprepnings diagrammet** och **upprepnings listan** med de olika iterationer (modeller) som körs. Listan iterationer sorteras efter mått poäng. Som standard är modellen som visar högsta baserat på vårt **AUC_weighted** -mått överst i listan.
+Medan du väntar på att alla experiment iterationer ska slutföras, väljer du **namnet** på en slutförd iteration för att utforska dess prestanda information. 
+   
+Följande visar de diagram och körnings mått som genereras för varje iteration, till exempel en precisions återställnings kurva, en Förväxlings mat ris, viktade noggrannhets resultat osv. 
 
->[!WARNING]
-> Utbildnings jobb tar flera minuter för varje pipeline att slutföras.
-
-[![Körnings informations instrument panel](media/tutorial-1st-experiment-automated-ml/run-details.png)](media/tutorial-1st-experiment-automated-ml/run-details-expanded.png#lightbox)
+![Kör upprepnings information](media/tutorial-1st-experiment-automated-ml/run-detail.gif)
 
 ## <a name="deploy-the-model"></a>Distribuera modellen
 
-Genom att använda Automatisk maskin inlärning i landnings sidan för arbets ytan kan du distribuera den bästa modellen som en webb tjänst med några få steg. Distribution är integreringen av modellen så att den kan förutsäga nya data och identifiera potentiella områden i affärs möjligheten. För det här experimentet innebär distribution till en webb tjänst att finans Institutet nu har en iterativ och skalbar webb lösning för att identifiera potentiella fasta, långsiktiga kunder. 
+Med automatisk maskin inlärning på sidan landnings plats kan du distribuera den bästa modellen som en webb tjänst med några få steg. Distribution är integreringen av modellen så att den kan förutsäga nya data och identifiera potentiella områden i affärs möjligheten. För det här experimentet innebär distribution till en webb tjänst att finans Institutet nu har en iterativ och skalbar webb lösning för att identifiera potentiella fasta, långsiktiga kunder. 
+
+När körningen är klar går du tillbaka till detalj sidan **upprepnings diagram** och **upprepnings lista** . 
 
 I den här experiment kontexten betraktas **VotingEnsemble** som den bästa modellen, baserat på **AUC_weighted** mått.  Vi distribuerar den här modellen, men vi rekommenderar att distributionen tar ungefär 20 minuter att slutföra. Distributions processen innehåller flera steg som att registrera modellen, generera resurser och konfigurera dem för webb tjänsten.
 
-1. På sidan **körnings information** väljer du knappen **distribuera bästa modell** i det övre högra hörnet.
+1. Välj knappen **distribuera bästa modell** i det övre högra hörnet.
 
 1. Fyll i fönstret **distribuera bästa modell** enligt följande:
 

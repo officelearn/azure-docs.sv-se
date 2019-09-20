@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 03b279e6193c55141b80a5fadc9d39c7c1681006
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: f62698cc736bb7df51d013199d3054b25598240e
+ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70915135"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71147389"
 ---
 # <a name="tutorial-develop-iot-edge-modules-for-windows-devices"></a>Självstudier: Utveckla IoT Edge-moduler för Windows-tjänster
 
@@ -133,7 +133,7 @@ Tillägget Azure IoT Edge-verktyg innehåller projektmallar för alla språk som
    | ----- | ----- |
    | Visual Studio-mall | Välj  **C# modul**. | 
    | Modulnamn | Godkänn standard- **IotEdgeModule1**. | 
-   | Centrallagrets URL | En bildlagringsplats innehåller namnet på containerregistret och namnet på containeravbildningen. Behållar avbildningen fylls i automatiskt från värdet för modulens projekt namn. Ersätt **localhost:5000** med värdet för inloggningsservern från ditt Azure-containerregister. Du kan hämta inloggningsservern från sidan Översikt för ditt containerregister på Azure-portalen. <br><br> Den slutliga avbildnings lagrings \<platsen ser\>ut som register namn. azurecr.io/iotedgemodule1. |
+   | URL för databas | En bildlagringsplats innehåller namnet på containerregistret och namnet på containeravbildningen. Behållar avbildningen fylls i automatiskt från värdet för modulens projekt namn. Ersätt **localhost:5000** med värdet för inloggningsservern från ditt Azure-containerregister. Du kan hämta inloggningsservern från sidan Översikt för ditt containerregister på Azure-portalen. <br><br> Den slutliga avbildnings lagrings \<platsen ser\>ut som register namn. azurecr.io/iotedgemodule1. |
 
       ![Konfigurera ditt projekt för mål enheten, modultypen och behållar registret](./media/tutorial-develop-for-windows/add-module-to-solution.png)
 
@@ -299,7 +299,7 @@ IotEdgeModule1-koden tar emot meddelanden via sin indatakö och skickar dem till
 
 3. Titta på avsnittet **utdata** i Visual Studio för att se meddelanden som kommer till din IoT Hub. 
 
-   Det kan ta några minuter för båda modulerna att starta. Den IoT Edge körnings miljön måste ta emot sitt nya distributions manifest, Hämta modulens avbildningar från container körningen och sedan starta varje ny modul. Om du 
+   Det kan ta några minuter för båda modulerna att starta. Den IoT Edge körnings miljön måste ta emot sitt nya distributions manifest, Hämta modulens avbildningar från container körningen och sedan starta varje ny modul. 
 
    ![Visa inkommande enhet till moln meddelanden](./media/tutorial-develop-for-windows/view-d2c-messages.png)
 

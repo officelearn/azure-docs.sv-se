@@ -10,15 +10,15 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 06/19/2019
+ms.date: 09/19/2019
 ms.reviewer: sdash
 ms.author: lagayhar
-ms.openlocfilehash: c3f3d9437a6e796cc91ff1782b3a0774382c5f8b
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: ee64a8af35f938def94e369bdb400fed6e2798c0
+ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71067061"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71146601"
 ---
 # <a name="troubleshooting"></a>Felsökning
 
@@ -46,10 +46,9 @@ Den här artikeln hjälper dig att felsöka vanliga problem som kan uppstå när
 
 ## <a name="intermittent-test-failure-with-a-protocol-violation-error"></a>Tillfälligt test fel med ett protokoll fel
 
-|Symtom/fel meddelande| Möjliga orsaker|
-|----|---------|
-protokoll överträdelsen CR måste följas av LF | Detta inträffar när felaktiga rubriker identifieras. Mer specifikt kanske vissa huvuden inte använder CRLF för att indikera slut på rad, vilket strider mot HTTP-specifikationen och därför kommer att Miss klar med valideringen på .NET WebRequest-nivån.
- || Detta kan också bero på belastningsutjämnare eller CDN.
+|Symtom/fel meddelande| Möjliga orsaker| Möjliga lösningar |
+|----|---------|-----|
+|Servern genomförde ett protokoll fel. Section = ResponseHeader detail = CR måste följas av LF | Detta inträffar när felaktiga rubriker identifieras. Mer specifikt kanske vissa huvuden inte använder CRLF för att ange slutet på raden, vilket strider mot HTTP-specifikationen. Application Insights tillämpar den här HTTP-specifikationen och Miss lyckas svar med felaktiga huvuden.| a. Kontakta värd leverantören för webbplatsen/CDN-providern för att åtgärda de felande servrarna. <br> b. Om de misslyckade förfrågningarna är resurser (t. ex. formatfiler, bilder, skript) kan du överväga att inaktivera parsningen av beroende begär Anden. Tänk på att om du gör detta kommer du att förlora möjligheten att övervaka tillgängligheten för dessa filer.
 
 > [!NOTE]
 > URL: en kan inte Miss lyckas i webbläsare som har en avslappnad verifiering av HTTP-huvuden. I det här blogginlägget finns en detaljerad förklaring av felet: http://mehdi.me/a-tale-of-debugging-the-linkedin-api-net-and-http-protocol-violations/  

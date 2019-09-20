@@ -4,7 +4,7 @@ description: Den här artikeln innehåller vanliga frågor om distribution för 
 services: cloud-services
 documentationcenter: ''
 author: genlin
-manager: cshepard
+manager: dcscontentpm
 editor: ''
 tags: top-support-issue
 ms.assetid: 84985660-2cfd-483a-8378-50eef6a0151d
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: fff70cc0c80d26d5454e54e43a6ef6c0b39b5cac
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: 2ffa6d7b1cf0550c97a60614f3f00ddc4b955218
+ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68941728"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71154806"
 ---
 # <a name="deployment-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Distributions problem för Azure Cloud Services: Vanliga frågor och svar
 
@@ -32,22 +32,22 @@ Om en moln tjänst har en distribution i någon av platserna fästs hela moln tj
 
 Allokeringsfel inträffar när klustret där moln tjänsten finns inte har tillräckligt med fysiska beräknings resurser för att uppfylla din distributions förfrågan.
 
-Information om hur du åtgärdar sådana allokeringsfel finns i [fel vid tilldelning av moln tjänst: Lösningar](cloud-services-allocation-failures.md#solutions).
+Information om hur du åtgärdar sådana allokeringsfel finns i [Cloud Service Allocation Failure: Lösningar](cloud-services-allocation-failures.md#solutions).
 
 ## <a name="why-does-scaling-up-or-scaling-out-a-cloud-service-deployment-sometimes-result-in-allocation-failure"></a>Varför leder det till att det uppstår ett allokeringsfel vid skalning av en moln tjänst distribution?
 När en moln tjänst distribueras fästs det vanligt vis i ett enskilt kluster. Det innebär att skala upp eller ut en befintlig moln tjänst måste allokera nya instanser i samma kluster. Om klustret närmar sig kapacitet eller om önskad VM-storlek/typ inte är tillgänglig kan begäran Miss lyckas.
 
-Information om hur du åtgärdar sådana allokeringsfel finns i [fel vid tilldelning av moln tjänst: Lösningar](cloud-services-allocation-failures.md#solutions).
+Information om hur du åtgärdar sådana allokeringsfel finns i [Cloud Service Allocation Failure: Lösningar](cloud-services-allocation-failures.md#solutions).
 
 ## <a name="why-does-deploying-a-cloud-service-into-an-affinity-group-sometimes-result-in-allocation-failure"></a>Varför leder det till att distributionen av en moln tjänst till en tillhörighets grupp ibland leder till allokeringsfel?
 En ny distribution till en tom moln tjänst kan allokeras av infrastruktur resursen i alla kluster i den regionen, om inte moln tjänsten fästs på en tillhörighets grupp. Distributioner till samma tillhörighets grupp görs i samma kluster. Om klustret närmar sig kapaciteten kan begäran Miss lyckas.
 
-Information om hur du åtgärdar sådana allokeringsfel finns i [fel vid tilldelning av moln tjänst: Lösningar](cloud-services-allocation-failures.md#solutions).
+Information om hur du åtgärdar sådana allokeringsfel finns i [Cloud Service Allocation Failure: Lösningar](cloud-services-allocation-failures.md#solutions).
 
 ## <a name="why-does-changing-vm-size-or-adding-a-new-vm-to-an-existing-cloud-service-sometimes-result-in-allocation-failure"></a>Varför kan det ibland leda till allokeringsfel om du ändrar storlek på virtuell dator eller lägger till en ny virtuell dator i en befintlig moln tjänst?
 Kluster i ett Data Center kan ha olika konfigurationer av dator typer (t. ex. en serie, AV2 serie, D-serien, Dv2-serien, G-serien, H-serien osv.). Men alla kluster har inte nödvändigt vis alla typer av virtuella datorer. Om du till exempel försöker lägga till en virtuell dator i D-serien till en moln tjänst som redan har distribuerats i ett kluster med endast ett serie kluster får du ett allokeringsfel. Detta inträffar även om du försöker ändra VM-SKU-storlekar (till exempel växla från en serie till en D-serien).
 
-Information om hur du åtgärdar sådana allokeringsfel finns i [fel vid tilldelning av moln tjänst: Lösningar](cloud-services-allocation-failures.md#solutions).
+Information om hur du åtgärdar sådana allokeringsfel finns i [Cloud Service Allocation Failure: Lösningar](cloud-services-allocation-failures.md#solutions).
 
 Om du vill kontrol lera vilka storlekar som är tillgängliga [i din region, se Microsoft Azure: Produkter tillgängliga per region](https://azure.microsoft.com/regions/services).
 
@@ -79,4 +79,4 @@ Eftersom moln tjänsten är en klassisk resurs som inte är direkt kompatibel me
 
 I den klassiska portalen överfördes paketet till hanterings-API-lagret direkt, och API-lagret skulle då tillfälligt flytta paketet till ett internt lagrings konto.  Den här processen orsakar problem med prestanda och skalbarhet eftersom API-skiktet inte har utformats för att vara en fil överförings tjänst.  I Azure Portal (Resource Manager-distributions modell) har vi hoppat över steget för att först överföra till API-skiktet, vilket resulterar i snabbare och mer tillförlitlig distribution. 
 
-Vad gäller kostnaden är det mycket litet och du kan återanvända samma lagrings konto för alla distributioner. Du kan använda Kalkylatorn för [lagrings kostnad](https://azure.microsoft.com/pricing/calculator/#storage1) för att fastställa kostnaden för att ladda upp tjänst paketet (CSPKG), Hämta CSPKG och sedan ta bort CSPKG. 
+Vad gäller kostnaden är det mycket litet och du kan återanvända samma lagrings konto för alla distributioner. Du kan använda [Kalkylatorn för lagrings kostnad](https://azure.microsoft.com/pricing/calculator/#storage1) för att fastställa kostnaden för att ladda upp tjänst paketet (CSPKG), Hämta CSPKG och sedan ta bort CSPKG. 

@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 06/10/2019
-ms.openlocfilehash: dad796c8a7a34a782a4f78260ac38bd966eddde9
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: 4a1d835ebe47ec36bb839da8dcbcd107ffcb9c4c
+ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71105402"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71161963"
 ---
 # <a name="scale-azure-hdinsight-clusters"></a>Skala Azure HDInsight-kluster
 
@@ -42,7 +42,7 @@ Microsoft tillhandahåller följande verktyg för att skala kluster:
 Med någon av dessa metoder kan du skala ditt HDInsight-kluster upp eller ned på några minuter.
 
 > [!IMPORTANT]  
-> * Aure Classic CLI är inaktuell och bör endast användas med den klassiska distributions modellen. Använd [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)för alla andra distributioner.  
+> * Den klassiska Azure CLI är inaktuell och bör endast användas med den klassiska distributions modellen. Använd [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)för alla andra distributioner.  
 > * PowerShell-modulen AzureRM är föråldrad.  Använd AZ- [modulen](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-1.4.0) när det är möjligt.
 
 ## <a name="impact-of-scaling-operations"></a>Effekt av skalnings åtgärder

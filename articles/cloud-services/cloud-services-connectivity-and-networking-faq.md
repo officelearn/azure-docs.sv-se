@@ -4,7 +4,7 @@ description: Den här artikeln innehåller vanliga frågor och svar om anslutnin
 services: cloud-services
 documentationcenter: ''
 author: genlin
-manager: cshepard
+manager: dcscontentpm
 editor: ''
 tags: top-support-issue
 ms.assetid: 84985660-2cfd-483a-8378-50eef6a0151d
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 08/23/2018
 ms.author: genli
-ms.openlocfilehash: eef99c7d7a108618b570988dd5d7ec9c2fdb8db4
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: c6d470b9c14f53558d09e6876701cb25ddc15183
+ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68941740"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71154879"
 ---
 # <a name="connectivity-and-networking-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Anslutnings-och nätverks problem för Azure-Cloud Services: Vanliga frågor och svar
 
@@ -51,7 +51,7 @@ Du kan få fel meddelandet "det här användar kontot har upphört att gälla" n
 
 1. Logga in på [Azure Portal](https://portal.azure.com), gå till din moln tjänst och välj fliken **fjärr skrivbord** .
 
-2. Välj distributions plats för **produktion** eller mellanlagring.
+2. Välj distributions plats för **produktion** eller **mellanlagring** .
 
 3. Ändra förfallo datumen **för** datumet och spara sedan konfigurationen.
 
@@ -103,7 +103,7 @@ För att se till att den offentliga IP-adressen för din moln tjänst (även kal
 - [Reservera IP-adressen för en befintlig moln tjänst](../virtual-network/virtual-networks-reserved-public-ip.md#reserve-the-ip-address-of-an-existing-cloud-service)
 - [Koppla en reserverad IP-adress till en moln tjänst med hjälp av en tjänst konfigurations fil](../virtual-network/virtual-networks-reserved-public-ip.md#associate-a-reserved-ip-to-a-cloud-service-by-using-a-service-configuration-file)
 
-Om du har fler än en instans för dina roller bör du inte göra något avbrott om du kopplar RIP till moln tjänsten. Du kan också vitlista IP-intervallet för ditt Azure-datacenter. Du kan hitta alla Azure IP-intervall på [Microsoft Download Center](https://www.microsoft.com/en-us/download/details.aspx?id=41653).
+Om du har fler än en instans för dina roller bör du inte göra något avbrott om du kopplar RIP till moln tjänsten. Alternativt kan du lägga till IP-intervallet för ditt Azure-datacenter i en lista över tillåtna. Du kan hitta alla Azure IP-intervall på [Microsoft Download Center](https://www.microsoft.com/en-us/download/details.aspx?id=41653).
 
 Den här filen innehåller IP-adressintervall (inklusive beräknings-, SQL-och lagrings intervall) som används i Azure-datacenter. En uppdaterad fil publiceras varje vecka som visar de för närvarande distribuerade intervallen och eventuella kommande ändringar i IP-intervallen. Nya intervall som visas i filen används inte i Data Center i minst en vecka. Hämta den nya XML-filen varje vecka och genomför de nödvändiga ändringarna på webbplatsen för att identifiera tjänster som körs i Azure korrekt. Azure ExpressRoute-användare kan vara medveten om att den här filen används för att uppdatera BGP-annonsen för Azure Space under den första veckan i varje månad.
 

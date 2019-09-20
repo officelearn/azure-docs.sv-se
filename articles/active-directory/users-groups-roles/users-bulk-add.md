@@ -1,5 +1,5 @@
 ---
-title: Mass import för att lägga till användare (förhands granskning) i Azure Active Directory Portal | Microsoft Docs
+title: Massredigera användare (för hands version) i Azure Active Directory Portal | Microsoft Docs
 description: Lägg till användare i grupp i Azure AD administrations Center i Azure Active Directory
 services: active-directory
 author: curtand
@@ -13,14 +13,14 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a22052117448cdb71bbc16e1df7899e6d3eb764e
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: 87c62cbe71f2e02c6f2c09620a8470a97ae57392
+ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70901495"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71146324"
 ---
-# <a name="bulk-import-users-preview-in-azure-active-directory"></a>Mass import av användare (för hands version) i Azure Active Directory
+# <a name="bulk-create-users-preview-in-azure-active-directory"></a>Mass skapande av användare (för hands version) i Azure Active Directory
 
 Azure Active Directory (Azure AD) stöder Mass åtgärder för att skapa och ta bort, Gruppinbjudan för gäster och har stöd för nedladdning av listor över användare, grupper och grupp medlemmar.
 
@@ -37,6 +37,9 @@ Du måste vara inloggad som global administratör eller användar administratör
 1. [Logga in på din Azure AD-organisation](https://aad.portal.azure.com) med ett konto som är en användar administratör i organisationen.
 1. I Azure AD väljer **du användare** > **Mass skapande**.
 1. På sidan **skapa användare av grupp** väljer du **Hämta** för att ta emot en giltig CSV-fil (kommaavgränsade värden) för användar egenskaper och lägger sedan till nya användare.
+
+   ![CSV-filen innehåller namn och ID: n för de användare som ska skapas](./media/users-bulk-add/add-csv-file.png)
+
 1. När du är klar med redigeringen av CSV-filen eller om du har en av dina egna redo att ladda upp, väljer du filen under **överför din CSV-fil** som ska verifieras.
 
    ![Välj en lokal CSV-fil där du visar de användare som du vill lägga till](./media/users-bulk-add/upload-button.png)

@@ -239,17 +239,17 @@
           href: cognitive-search-concept-troubleshooting.md
         - name: Dokumentationslänkar
           href: cognitive-search-resources-documentation.md
-    - name: Knowledge Store (förhandsversion)
-      items:
-        - name: Skapa ett kunskapslager i Azure-portalen
-          href: knowledge-store-create-portal.md
-        - name: Skapa med hjälp av REST och Postman
-          href: knowledge-store-howto.md
-        - name: Visa med Storage Explorer
-          href: knowledge-store-view-storage-explorer.md
-        - name: Anslut med Power BI
-          href: knowledge-store-connect-power-bi.md
-    - name: Söka i data
+        - name: Knowledge Store (förhandsversion)
+          items:
+            - name: Skapa ett kunskapslager i Azure-portalen
+              href: knowledge-store-create-portal.md
+            - name: Skapa med hjälp av REST och Postman
+              href: knowledge-store-howto.md
+            - name: Visa med Storage Explorer
+              href: knowledge-store-view-storage-explorer.md
+            - name: Anslut med Power BI
+              href: knowledge-store-connect-power-bi.md
+    - name: Köra frågor mot dokument
       items:
         - name: Skapa en grundläggande fråga
           href: search-query-overview.md
@@ -283,18 +283,14 @@
       items:
         - name: Sidrelaterade funktioner
           href: search-pagination-page-layout.md
-    - name: Relevansjustering
-      items:
-        - name: Lägga till rankningsprofiler
+        - name: Relevansjustering (bedömningsprofiler)
           href: index-add-scoring-profiles.md
-    - name: Administration
+    - name: Hantera och övervaka
       items:
         - name: Portaladministration
           href: search-manage.md
         - name: PowerShell-administration
           href: search-manage-powershell.md
-    - name: Övervakning
-      items:
         - name: Övervaka aktivitet och loggning
           href: search-monitor-usage.md
         - name: Sök efter trafikanalys

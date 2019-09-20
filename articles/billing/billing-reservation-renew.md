@@ -1,6 +1,6 @@
 ---
-title: Förnya automatiskt Azure-reservationer
-description: Lär dig hur du automatiskt kan förnya Azure-reservationer för att fortsätta att få rabatt rabatter.
+title: Förnya Azure-reservationer automatiskt
+description: Lär dig hur du kan förnya Azure-reservationer automatiskt för att fortsätta att få reservationsrabatter.
 services: billing
 author: bandersmsft
 manager: yashar
@@ -9,87 +9,87 @@ ms.topic: conceptual
 ms.date: 07/30/2019
 ms.author: banders
 ms.openlocfilehash: c19c6af68bcde753ec9bed990e08aa81eabdd37d
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
-ms.translationtype: MT
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2019
+ms.lasthandoff: 09/11/2019
 ms.locfileid: "68679463"
 ---
 # <a name="automatically-renew-reservations"></a>Förnya reservationer automatiskt
 
-Du kan förnya reservationer för att automatiskt köpa en ersättning när en befintlig reservation upphör att gälla. Automatisk förnyelse ger ett enkelt sätt att fortsätta få rabatt rabatter. Du slipper också att noggrant övervaka förfallo datum för en reservation. Med automatisk förnyelse förhindrar du besparingar av besparingar genom att inte behöva förnya manuellt. Förnyelse inställningen är inaktive rad som standard. Aktivera eller inaktivera förnyelse inställningen när som helst, tills den befintliga reservationen upphör att gälla.
+Du kan förnya reservationer för att automatiskt köpa en ersättning när en befintlig reservation upphör att gälla. Automatisk förnyelse är ett enkelt sätt att fortsätta få reservationsrabatter. Du slipper även att noggrant övervaka förfallodatumet för en reservation. Med automatisk förnyelse ser du till att inte gå miste om minskade utgifter eftersom du inte behöver förnya manuellt. Inställningen för förnyelse är inaktiverad som standard. Aktivera eller inaktivera förnyelseinställningen när som helst, fram till upphörandet av den befintliga reservationen.
 
-Om du förnyar en reservation skapas en ny reservation när den befintliga reservationen upphör att gälla. Den utökar inte den befintliga reservationens period.
+Om du förnyar en reservation skapas en ny reservation när den befintliga reservationen upphör att gälla. Perioden för den befintliga reservationen förlängs inte.
 
-Välj att förnya automatiskt när som helst. Förnyelse priset är tillgängligt 30 dagar innan en befintlig reservation upphör att gälla. När du aktiverar förnyelsen mer än 30 dagar innan reservationen upphör att gälla, skickas ett e-postmeddelande om förnyelse kostnader 30 dagar före förfallo datum. Reservations priset kan ändras mellan den tidpunkt då du låser förnyelse priset och förnyelse tiden. I så fall är din förnyelse kostnad lägre än de två kostnaderna. Du kan göra ändringar i reservations antalet. Om du gör det uppdateras förnyelsen till att använda pris uppsättningen på marknaden vid tidpunkten för ändring av kvantiteten.
+Välj att förnya automatiskt när som helst. Förnyelsepriset är tillgängligt 30 dagar innan en befintlig reservation upphör att gälla. När du aktiverar förnyelse mer än 30 dagar innan reservationen upphör att gälla skickas ett e-postmeddelande med förnyelsekostnader 30 dagar före upphörandet. Reservationspriset kan komma att ändras mellan den tidpunkt då du låser förnyelsepriset och förnyelsetiden. I så fall blir din förnyelsekostnad den lägre av de två kostnaderna. Du kan göra ändringar i reservationskvantiteten. Om du gör det uppdateras förnyelsen till att använda det marknadspris som anges vid tiden för kvantitetsändringen.
 
-Det finns ingen skyldighet att förnya och du kan välja att inte förnya förnyelsen innan den befintliga reservationen upphör att gälla.
+Det finns ingen skyldighet att förnya, och du kan välja avbryta förnyelsen när som helst innan den befintliga reservationen upphör att gälla.
 
 ## <a name="set-up-renewal"></a>Konfigurera förnyelse
 
-Gå till Azure Portal >- **reservationer**.
+Gå till Azure-portalen > **Reservationer**.
 
 1. Välj reservationen.
-2. Klicka på **förnya**.
-3. Välj **köp automatiskt en ny reservation vid förfallo datum**.  
-  ![Exempel som visar reservations förnyelse](./media/billing-reservation-renew/reservation-renewal.png)
+2. Klicka på **Förnyelse**.
+3. Välj **Automatically purchase a new reservation upon expiry** (Köp en ny reservation automatiskt vid upphörande).  
+  ![Exempel som visar en reservationsförnyelse](./media/billing-reservation-renew/reservation-renewal.png)
 
 ## <a name="if-you-dont-renew"></a>Om du inte förnyar
 
-Dina tjänster fortsätter att köras normalt. Du debiteras taxan enligt principen betala per användning när reservationen har löpt ut.
+Dina tjänster fortsätter att köras normalt. Du debiteras Betala per användning-priser för din användning efter det att reservationen har upphört.
 
-## <a name="required-renewal-permissions"></a>Nödvändiga förnyelse behörigheter
+## <a name="required-renewal-permissions"></a>Nödvändiga behörigheter för förnyelse
 
 Följande villkor måste vara uppfyllda för att du ska kunna förnya en reservation:
 
 - Du måste vara ägare till den befintliga reservationen.
-- Du måste vara ägare till prenumerationen om reservationen är begränsad till en enda prenumeration eller resurs grupp.
-- Du måste vara ägare till prenumerationen om den har en delad omfattning.
+- Du måste vara ägare till prenumerationen om reservationen omfångsanpassas till en enskild prenumeration eller resursgrupp.
+- Du måste vara ägare till prenumerationen om den har ett delat omfång.
 
-## <a name="default-renewal-settings"></a>Inställningar för standard förnyelse
+## <a name="default-renewal-settings"></a>Standardinställningar för förnyelse
 
-Som standard ärver förnyelsen alla egenskaper från den utgående reservationen. Ett inköp av reservations förnyelse har samma SKU, region, omfattning, fakturerings prenumeration, period och kvantitet.
+Som standard ärver förnyelsen alla egenskaper från den upphörande reservationen. Ett inköp av reservationsförnyelse har samma SKU, region, omfång, faktureringsprenumeration, period och kvantitet.
 
-Du kan dock uppdatera inköps antalet för förnyelse reservationen för att optimera dina besparingar.
+Du kan dock uppdatera inköpskvantiteten för förnyelsereservation för att optimera dina besparingar.
 
 ## <a name="when-the-new-reservation-is-purchased"></a>När den nya reservationen köps
 
-En ny reservation köps när den befintliga reservationen upphör att gälla. Vi försöker förhindra en fördröjning mellan de två reservationerna. Kontinuitet garanterar att dina kostnader är förutsägbara och du fortsätter att få rabatt.
+En ny reservation köps när den befintliga reservationen upphör att gälla. Vi försöker förhindra fördröjningar mellan de två reservationerna. Kontinuitet säkerställer att dina kostnader är förutsägbara och du fortsätter att få rabatter.
 
-## <a name="changing-parent-reservation-after-setting-renewal"></a>Ändra överordnad reservation efter förnyelse av inställning
+## <a name="changing-parent-reservation-after-setting-renewal"></a>Ändra överordnad reservation efter angiven förnyelse
 
-Om du gör någon av följande ändringar i den utgående reservationen avbryts reservations förnyelsen:
+Om du gör någon av följande ändringar i den upphörande reservationen avbryts reservationsförnyelsen:
 
-- Delat
-- Slå samman
+- Dela
+- Sammanfoga
 - Överföra reservationen från ett konto till ett annat
-- Överföra reservationen från en WebDirect-prenumeration till en Enterprise Agreement-prenumeration (EA) eller någon annan inköps metod
+- Överföra reservationen från en WebDirect-prenumeration till en Enterprise-avtalsprenumeration (EA) eller någon annan inköpsmetod
 - Förnya registreringen
 
-Den nya reservationen ärver storleks inställningen för omfattning och instans storlek från den förfallna reservationen under förnyelsen.
+Den nya reservationen ärver omfånget och inställningen för flexibel instansstorlek från den upphörande reservationen under förnyelse.
 
-## <a name="new-reservation-permissions"></a>Nya reservations behörigheter
+## <a name="new-reservation-permissions"></a>Behörigheter för den nya reservationen
 
-Azure kopierar behörigheterna från den förfallna reservationen till den nya reservationen. Dessutom har prenumerations konto administratören för reservations köpet åtkomst till den nya reservationen.
+Azure kopierar behörigheterna från den upphörda reservationen till den nya reservationen. Dessutom har prenumerationens kontoadministratör för reservationsköpet åtkomst till den nya reservationen.
 
-## <a name="potential-renewal-problems"></a>Potentiella förnyelse problem
+## <a name="potential-renewal-problems"></a>Potentiella problem med förnyelse
 
-Azure kan inte bearbeta förnyelsen om:
+Azure bearbetar inte förnyelsen om:
 
-- Det går inte att samla in betalning
+- Betalningen inte kan genomföras
 - Ett systemfel uppstår under förnyelsen
-- Den utgångna SKU: n är inte aktiv under förnyelsen
-- EA-attributet förnyas till ett annat EA
+- Den upphörda SKU:n inte är aktiv under förnyelsen
+- Enterprise-avtalet förnyas till ett annat Enterprise-avtal
 
-Du får ett e-postmeddelande om något av de föregående villkoren inträffar och förnyelsen inaktive ras.
+Du får ett e-postmeddelande om något av de föregående villkoren inträffar och förnyelsen inaktiveras.
 
-## <a name="renewal-notification"></a>Förnyelse meddelande
+## <a name="renewal-notification"></a>Meddelande om förnyelse
 
-E-postmeddelanden skickas till olika personer beroende på din köp metod:
+E-postmeddelanden skickas till olika personer beroende på din inköpsmetod:
 
-- EA-kunder – e-postmeddelanden skickas till aviserings kontakterna som anges på EA-portalen.
-- Enskilda prenumerations kunder med priser enligt principen betala per användning – e-postmeddelanden skickas till användare som har kon figurer ATS som konto administratörer.
-- Cloud Solution Provider-kunder – e-postmeddelanden skickas till partner meddelande kontakten.
+- EA-kunder – e-postmeddelanden skickas till de aviseringskontakter som anges i EA-portalen.
+- Enskilda prenumerationskunder med Betala per användning-priser – e-postmeddelanden skickas till användare som anges som kontoadministratörer.
+- Cloud Solution Provider-kunder – e-postmeddelanden skickas till partnermeddelandekontakten.
 
 ## <a name="next-steps"></a>Nästa steg
-- Mer information om Azure Reservations finns i [Vad är Azure reservations?](billing-save-compute-costs-reservations.md)
+- Du kan läsa mer om Azure-reservationer i [Vad är Azure-reservationer?](billing-save-compute-costs-reservations.md)

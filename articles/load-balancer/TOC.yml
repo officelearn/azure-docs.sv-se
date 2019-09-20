@@ -129,6 +129,8 @@
           href: move-across-regions-external-load-balancer-portal.md
         - name: Extern lastbalanserare – PowerShell
           href: move-across-regions-external-load-balancer-powershell.md
+        - name: Intern lastbalanserare – portalen
+          href: move-across-regions-internal-load-balancer-portal.md
         - name: Intern lastbalanserare – PowerShell
           href: move-across-regions-internal-load-balancer-powershell.md
     - name: Felsöka

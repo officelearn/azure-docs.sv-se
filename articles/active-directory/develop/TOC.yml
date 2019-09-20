@@ -89,6 +89,8 @@
           href: authentication-scenarios.md
         - name: Autentiseringsflöden och appscenarier
           href: authentication-flows-app-scenarios.md
+        - name: Metodtips för identitetsplattform
+          href: identity-platform-integration-checklist.md
         - name: Programscenarier
           items:
             - name: Logga in målgrupp
@@ -217,8 +219,6 @@
                   href: scenario-mobile-call-api.md
                 - name: Flytta till produktion
                   href: scenario-mobile-production.md
-            - name: Checklista för integrering
-              href: identity-platform-integration-checklist.md
         - name: Microsoft Authentication Library (MSAL)
           items:
             - name: Översikt

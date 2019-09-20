@@ -128,12 +128,18 @@
           href: dealing-with-duplicates.md
     - name: Övervaka
       items:
-        - name: Övervaka hälsotillstånd hos kluster med hjälp av mått
+        - name: Använda diagnostikloggar för att övervaka datainmatning
+          href: using-diagnostic-logs.md
+        - name: Använda mått för att övervaka hälsotillstånd hos kluster
           href: using-metrics.md
     - name: Integrera med andra verktyg
       items:
-        - name: Masskopiera data med en Azure Data Factory-mall
-          href: data-factory-template.md
+        - name: Azure Data Factory
+          items:
+            - name: Masskopiera data med en Azure Data Factory-mall
+              href: data-factory-template.md
+            - name: Köra kontrollkommandon med Azure Data Factory
+              href: data-factory-command-activity.md
         - name: Apache Spark-anslutningsapp
           href: spark-connector.md
         - name: Ansluta från Databricks med hjälp av Python

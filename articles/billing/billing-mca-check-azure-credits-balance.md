@@ -1,6 +1,6 @@
 ---
-title: Spåra Azure kreditsaldo för en Microsoft-kundavtal
-description: Lär dig hur du kontrollerar Azure saldot för en Microsoft-kundavtal.
+title: Spåra Azure-kreditbalansen för ett Microsoft-kundavtal
+description: Lär dig hur du spårar Azure-kreditbalansen för ett Microsoft-kundavtal.
 author: bandersmsft
 manager: amberb
 tags: billing
@@ -12,89 +12,89 @@ ms.workload: na
 ms.date: 07/01/2019
 ms.author: banders
 ms.openlocfilehash: 352737b3ea61a51a39e066d4211c8f4ceae74184
-ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
-ms.translationtype: MT
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/01/2019
+ms.lasthandoff: 09/11/2019
 ms.locfileid: "67490970"
 ---
-# <a name="track-microsoft-customer-agreement-azure-credit-balance"></a>Spåra Microsoft Customer avtal Azure kreditsaldo
+# <a name="track-microsoft-customer-agreement-azure-credit-balance"></a>Spåra Azure-kreditbalansen för Microsoft-kundavtal
 
-Du kan kontrollera Azure saldot för Microsoft kundavtal i Azure-portalen. Du kan använda krediter för att betala för avgifter som omfattas av krediterna.
+Du kan kontrollera Azure-kreditbalansen för Microsoft-kundavtal i Azure-portalen. Du använder krediter för att betala för avgifter som omfattas av krediterna.
 
-Du debiteras när du använder produkter som inte omfattas av krediterna eller användningen överskrider din kreditsaldo. Mer information finns i [produkter som inte täcks av Azure-krediter. () #products-that-aren't-covered-by-azure-credits).
+Du debiteras när du använder produkter som inte omfattas av krediterna eller när din användning överskrider ditt kreditbelopp. Mer information finns i [Produkter som inte omfattas av Azure-krediter.(#products-that-arent-covered-by-azure-credits).
 
-Den här artikeln gäller för något faktureringskonto för en Microsoft-kundavtal. [Kontrollera om du har åtkomst till en Microsoft-kundavtal](#check-access-to-a-microsoft-customer-agreement).
+Den här artikeln gäller ett faktureringskonto för ett Microsoft-kundavtal. [Kontrollera om du har åtkomst till ett Microsoft-kundavtal](#check-access-to-a-microsoft-customer-agreement).
 
-## <a name="check-your-credit-balance"></a>Kontrollera din kreditsaldo
+## <a name="check-your-credit-balance"></a>Kontrollera ditt kreditsaldo
 
-1. Logga in på [Azure Portal]( https://portal.azure.com).
+1. Logga in på [Azure-portalen]( https://portal.azure.com).
 
-2. Sök efter **Cost Management + fakturering**.
+2. Sök efter **Kostnadshantering + fakturering**.
 
-    ![Skärmbild som visar search på portalen för kostnadshantering + fakturering](./media/billing-mca-check-azure-credits-balance/billing-search-cost-management-billing.png)
+    ![Skärmbild som visar en sökning i portalen efter kostnadshantering och fakturering](./media/billing-mca-check-azure-credits-balance/billing-search-cost-management-billing.png)
 
-3.  Välj **Azure-krediter** till vänster. Beroende på din åtkomst, du kan behöva välja ett faktureringskonto eller en profil för fakturering och välj sedan **Azure-krediter**.
+3.  Välj **Azure-krediter** på vänster sida. Beroende på din åtkomst kan du behöva välja ett faktureringskonto eller en faktureringsprofil och sedan välja **Azure-krediter**.
 
-4. Azure-krediter sidan visar följande information:
+4. På sidan Azure-krediter visas följande information:
 
-   ![Skärmbild av kreditsaldo och transaktioner för en profil för fakturering](./media/billing-mca-check-azure-credits-balance/billing-mca-credits-overview.png)
+   ![Skärmbild av kreditsaldo och transaktioner för en faktureringsprofil](./media/billing-mca-check-azure-credits-balance/billing-mca-credits-overview.png)
 
-   | Term               | Definition                           |
+   | Period               | Definition                           |
    |--------------------|--------------------------------------------------------|
-   | Beräknad saldo  | Uppskattade mängden krediter som du har när du överväger alla faktureras och pågående transaktioner |
-   | Aktuellt saldo    | Mängden krediter från och med den senaste fakturan. De omfattar inte eventuella väntande transaktioner |
-   | Transaktioner       | Alla fakturering transaktioner som påverkade ditt saldo i Azure-kredit |
+   | Uppskattat saldo  | Uppskattat belopp med krediter som du har när alla fakturerade och väntande transaktioner har tagits med i beräkningen |
+   | Aktuellt saldo    | Summan av krediterna från din senaste faktura. Inga väntande transaktioner ingår |
+   | Transaktioner       | Alla faktureringstransaktioner som påverkar ditt Azure-kreditsaldo |
 
-   När din uppskattade saldo sjunker till 0, debiteras du för all användning, inklusive för produkter som omfattas av krediter.
+   När ditt beräknade saldo sjunker till 0 debiteras du för all användning, inklusive för produkter som omfattas av krediter.
 
-6. Välj **krediter lista** att visa en lista över krediter för fakturerings-profilen. Krediter listan innehåller följande information:
+6. Välj **Kreditlista** om du vill visa en lista med krediter för faktureringsprofilen. Kreditlistan innehåller följande information:
 
-   ![Skärmbild av krediter listor för en profil för fakturering](./media/billing-mca-check-azure-credits-balance/billing-mca-credits-list.png)
+   ![Skärmbild av kreditlistor för en faktureringsprofil](./media/billing-mca-check-azure-credits-balance/billing-mca-credits-list.png)
 
-   | Term | Definition |
+   | Period | Definition |
    |---|---|
-   | Beräknad saldo | Mängden Azure-kredit du har efter att ej fakturerade kredit berättigade avgifter från ditt saldo|
-   | Aktuellt saldo | Mängden Azure-kredit du har innan ej fakturerade kredit berättigade avgifter. Det beräknas genom att lägga till nya Azure-krediter som du har fått saldot vid tidpunkten för den senaste fakturan|
-   | source | Förvärv källan kredit |
-   | Startdatum | Det datum när du har köpt kredit |
+   | Uppskattat saldo | Den mängd Azure-kredit som du har efter att subtraktion av ej fakturerade, kreditberättigade avgifter från ditt aktuella saldo|
+   | Aktuellt saldo | Den mängd Azure-kredit som du har innan ej fakturerade, kreditberättigade avgifter tas med i beräkningen. Det beräknas genom att nya Azure-krediter som du har fått läggs till i kreditsaldot vid tiden för sin senaste faktura|
+   | Källa | Kreditens förvärvskälla |
+   | Startdatum | Det datum då du skaffade krediten |
    | Förfallodatum | Det datum då krediten upphör att gälla |
-   | Saldo | Saldo från och med den senaste fakturan |
-   | Ursprungligt belopp | Ursprunglig mängd kredit |
-   | Status | Den aktuella statusen för kredit. Status kan vara aktiv, används, upphört att gälla eller upphör att gälla |
+   | Saldo | Saldot från din senaste faktura |
+   | Ursprungligt belopp | Den ursprungliga mängden kredit |
+   | Status | Aktuell kreditstatus. Statusen kan vara aktiv, används, upphörd eller håller på att upphöra |
 
-## <a name="how-credits-are-used"></a>Hur krediten är slut
+## <a name="how-credits-are-used"></a>Så används krediter
 
-I något faktureringskonto för en Microsoft-kundavtal använder du fakturering profiler för att hantera dina fakturor och betalningsmetoder. En månadsfaktura genereras för varje fakturering profil och du använder betalningsmetoder för att betala fakturan.
+I ett faktureringskonto för ett Microsoft-kundavtal använder du faktureringsprofiler för att hantera fakturor och betalningsmetoder. En månadsfaktura skapas för varje faktureringsprofil, och du använder betalningsmetoderna för att betala fakturan.
 
-Azure-krediter är en av betalningsmetoder. Du får kredit från Microsoft som erbjudanden kredit och nivån servicekrediter. Dessa krediter har tilldelats till en profil för fakturering. När en faktura genereras för fakturering profilen tillämpas automatiskt krediter på totalt fakturerat belopp att beräkna den mängd som du behöver betala. Du betalar återstående belopp med en annan betalningsmetod som kontrollen eller banköverföring.
+Azure-krediter är en av betalningsmetoderna. Du får kredit från Microsoft såsom kampanjkredit och kredit på tjänstnivå. Dessa krediter tilldelas till en faktureringsprofil. När en faktura genereras för faktureringsprofilen tillämpas krediter automatiskt på det totala fakturerade beloppet för beräkning av det belopp som du behöver betala. Du betalar återstående belopp med en annan betalningsmetod, till exempel check eller banköverföring.
 
-## <a name="products-that-arent-covered-by-azure-credits"></a>Produkter som inte täcks av Azure-krediter
+## <a name="products-that-arent-covered-by-azure-credits"></a>Produkter som inte omfattas av Azure-krediter
 
- Följande produkter är inte omfattas av dina Azure-krediter. Du debiteras för användning av dessa produkter oavsett dina kreditsaldo:
+ Följande produkter omfattas inte av dina Azure-krediter. Du debiteras för användning av dessa produkter oavsett ditt kreditsaldo:
 
 - Canonical
 - Citrix XenApp Essentials
 - Citrix XenDesktop
 - Registrerad användare
 - Openlogic
-- Fjärråtkomst Rights XenApp Essentials registrerad användare
+- Registrerad användare för Remote Access Rights XenApp Essentials
 - Ubuntu Advantage
-- Visual Studio Enterprise (per månad)
-- Visual Studio Enterprise (årligt)
-- Visual Studio Professional (per månad)
-- Visual Studio Professional (årligt)
+- Visual Studio Enterprise (månatligen)
+- Visual Studio Enterprise (årsvis)
+- Visual Studio Professional (månatligen)
+- Visual Studio Professional (årsvis)
 - Azure Marketplace-produkter
 - Azure-supportplaner
 
-## <a name="check-access-to-a-microsoft-customer-agreement"></a>Kontrollera åtkomst till en Microsoft-kundavtal
+## <a name="check-access-to-a-microsoft-customer-agreement"></a>Kontrollera åtkomsten till ett Microsoft-kundavtal
 [!INCLUDE [billing-check-mca](../../includes/billing-check-mca.md)]
 
 ## <a name="need-help-contact-support"></a>Behöver du hjälp? Kontakta supporten.
 
-Om du behöver hjälp, [supporten](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) att lösa problemet snabbt.
+Om du behöver hjälp kan du [kontakta supporten](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) så får du hjälp att lösa problemet snabbt.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Förstå faktureringskonto för Microsoft kundavtal](billing-mca-overview.md)
-- [Förstå villkoren på din faktura för Microsoft kundavtal](billing-mca-understand-your-invoice.md)
+- [Förstå faktureringskonton för Microsofts-kundavtal](billing-mca-overview.md)
+- [Förstå termerna på fakturan för ditt Microsoft-kundavtal](billing-mca-understand-your-invoice.md)

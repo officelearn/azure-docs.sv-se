@@ -187,3 +187,9 @@
   href: understand-vm-reboot.md
 - name: Fjärrfelsökningsverktyg
   href: remote-tools-troubleshoot-azure-vm-issues.md
+- name: Reparation av virtuell dator
+  items:
+    - name: Reparera en virtuell Windows-dator med hjälp av reparationskommandon för virtuella Azure-datorer
+      href: repair-windows-vm-using-azure-virtual-machine-repair-commands.md
+    - name: Reparera en virtuell Linux-dator med hjälp av reparationskommandon för virtuella Azure-datorer
+      href: repair-linux-vm-using-azure-virtual-machine-repair-commands.md

@@ -1,113 +1,133 @@
-### YamlMime:YamlDocument
-documentType: LandingData
-title: Dokumentation om Language Understanding Intelligent Service (LUIS)
+### YamlMime:Landing
+title: Dokumentation om Language Understanding (LUIS)
+summary: Lär dig mer om att använda Language Understanding-tjänsten så att ditt program kan förstå vad en person vill när den använder egna ord.
 metadata:
-  document_id: null
-  title: 'Language Understanding Intelligent Service (LUIS) – självstudier, snabbstarter, API-referens'
-  description: Lär dig mer om att använda Language Understanding-tjänsten så att ditt program kan förstå vad en person vill när den använder egna ord.
+  ms.topic: landing-page
+  ms.date: 09/19/2019
+  ms.author: nitinme
   author: nitinme
-  manager: nitinme
   ms.service: cognitive-services
   ms.subservice: language-understanding
-  ms.topic: landing-page
-  ms.date: 01/23/2019
-  ms.author: nitinme
-abstract:
+  services: cognitive-services
+  title: Dokumentation om Language Understanding Intelligent Service (LUIS)
+  titleSuffix: Azure Cognitive Services
   description: Language Understanding-tjänsten (LUIS) gör så att ditt program kan förstå vad en person vill när den använder egna ord. LUIS använder maskininlärning för att göra det möjligt för utvecklare att skapa program som kan ta emot indata från användaren i naturligt språk och sedan extrahera betydelse.
-  aside:
-    image:
-      alt: null
-      height: 110
-      src: ../media/index/luis-landing-page-video.png
-      width: 250
-    title: 'Senaste nytt för LUIS (18:28)'
-    href: 'https://azure.microsoft.com/resources/videos/whats-new-with-language-understanding-service-luis'
-    width: 250
-sections:
-  - items:
-      - type: list
-        style: cards
-        className: cardsM
-        columns: 3
-        items:
-          - href: /azure/cognitive-services/luis/what-is-luis
-            html: <p>Lär dig mer om tjänsten Language Understanding (LUIS).</p>
-            image:
-              src: ../media/index/i_overview.svg
-            title: Vad är LUIS?
-          - href: /azure/cognitive-services/luis/luis-how-plan-your-app
-            html: <p>Skapa ett översikt av avsikter och entiteter som är relevanta för din app.</p>
-            image:
-              src: ../media/index/i_guidelines.svg
-            title: Planera LUIS-appen
-          - href: /azure/cognitive-services/luis/luis-concept-best-practices
-            html: <p>Följ dessa rekommenderade säkerhetsmetoder när du skapar en LUIS-app.</p>
-            image:
-              src: ../media/index/i_guidelines.svg
-            title: Bästa metoder för en LUIS-app
-  - title: Snabbstarter på 5 minuter
-    items:
-      - type: table
-        style: dataMatrix
-        columns:
-          - image:
-              src: media/index/logo_csharp.svg
-          - image:
-              src: media/index/logo_java.svg
-          - image:
-              src: media/index/logo_nodejs.svg
-          - image:
-              src: media/index/logo_python.svg
-        rows:
-          - title: Slutpunkts-API
-            values:
-              - href: luis-get-started-cs-get-intent
-              - href: luis-get-started-java-get-intent
-              - href: luis-get-started-node-get-intent
-              - href: luis-get-started-python-get-intent
-          - title: Redigera API
-            values:
-              - href: luis-get-started-cs-add-utterance
-              - href: luis-get-started-java-add-utterance
-              - href: luis-get-started-node-add-utterance
-              - href: luis-get-started-python-add-utterance
-  - title: Stegvisa självstudier
-    items:
-      - type: list
-        style: ordered
-        items:
-          - html: <a href="luis-quickstart-intents-only">Skapa en app för HR-domänen (Human Resources)</a>
-          - html: <a href="luis-tutorial-prebuilt-intents-entities">Lägga till fördefinierade avsikter och entiteter</a>
-          - html: <a href="luis-quickstart-intents-regex-entity">Lägga till entitet för reguljära uttryck</a>
-          - html: <a href="luis-quickstart-intent-and-list-entity">Lägga till listentitet</a>
-          - html: <a href="tutorial-entity-roles">Använda entitetsroller</a>
-          - html: <a href="luis-quickstart-primary-and-secondary-data">Lägga till en enkel entitet och fraslista</a>
-          - html: <a href="luis-quickstart-intent-and-key-phrase">Lägga till keyPhrase-entitet</a>
-          - html: <a href="luis-quickstart-intent-and-sentiment-analysis">Lägga till attitydanalys</a>
-  - title: Exempel
-    items:
-      - type: list
-        style: unordered
-        items:
-          - html: '<a href="https://aka.ms/luis-code-samples">Exempel på GitHub</a><br/>'
-  - title: Videoklipp
-    items:
-      - type: list
-        style: unordered
-        items:
-          - html: '<a href="https://channel9.msdn.com/Shows/Azure-Friday/At-Build-2018-Cognitive-Services-Language-LUIS/player" >Azure Friday på Build 2018 – Cognitive Services – Language Understanding (LUIS)</a>'
-          - html: '<a href="https://channel9.msdn.com/events/Build/2018/BRK3208" >Session på Build 2018 – Robotintelligens, talfunktioner och regelverk för NLU</a>'
-  - title: Referens
-    items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: REST API v2
-            html: '<p><a href="https://go.microsoft.com/fwlink/?linkid=2092356">Slutpunkts-API</a></p><p><a href="https://go.microsoft.com/fwlink/?linkid=2092087">Redigera API</a></p>'
-          - title: 'SDK:er'
-            html: '<p><a href="https://aka.ms/luis-endpoint-sdk">Slutpunkt för .NET SDK</a></p><p><a href="https://aka.ms/luis-authoring-sdk">Redigera .NET SDK</a></p>'
-          - title: PowerShell
-            html: '<p><a href=https://docs.microsoft.com/powershell/module/az.cognitiveservices/#cognitive_services">Azure PowerShell</a></p>'
-          - title: CLI
-            html: '<p><a href="https://docs.microsoft.com/cli/azure/cognitiveservices">Azure CLI</a></p>'
+  ms.openlocfilehash: 2191d2b3efebe1439f9f6180540929dc83027846
+  ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 09/19/2019
+  ms.locfileid: "71129271"
+landingContent:
+- title: Om Language Understanding (LUIS)
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Vad är Language Understanding?
+      url: what-is-luis.md
+    - text: Nyheter
+      url: whats-new.md
+    - text: LUIS-portalen
+      url: https://www.luis.ai
+  - linkListType: concept
+    links:
+    - text: Planera din app
+      url: luis-how-plan-your-app.md
+    - text: Appens redigeringscykel
+      url: luis-concept-app-iteration.md
+  - linkListType: video
+    links:
+    - text: 'AI Roadshow: LUIS'
+      url: https://azure.microsoft.com/resources/videos/whats-new-with-language-understanding-service-luis
+- title: Skapa avsikter, entiteter och funktioner
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Avsikter
+      url: luis-concept-intent.md
+    - text: Entiteter
+      url: luis-concept-entity-types.md
+    - text: Exempel på bra yttranden
+      url: luis-concept-utterance.md
+    - text: Funktioner för fraslistor
+      url: luis-concept-feature.md
+  - linkListType: quickstart
+    links:
+    - text: 'Portal: Skapa en ny LUIS-app'
+      url: get-started-portal-build-app.md
+    - text: Med hjälp av C# SDK
+      url: sdk-python-quickstart-authoring-app.md
+    - text: Med hjälp av Python SDK
+      url: sdk-python-quickstart-authoring-app.md
+  - linkListType: how-to-guide
+    links:
+    - text: Skapa en ny LUIS-app
+      url: luis-how-to-start-new-app.md
+    - text: Lägg till avsikter med exempelyttranden
+      url: luis-how-to-add-intents.md
+    - text: Lägg till entiteter
+      url: luis-how-to-add-example-utterances.md
+    - text: Lägg till funktion för fraslista
+      url: luis-how-to-add-features.md
+- title: Versionshantera, träna, testa och publicera
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Versionshantering
+      url: luis-concept-version.md
+    - text: Interaktiv testning
+      url: luis-concept-test.md
+    - text: Batch-testning
+      url: luis-concept-batch-test.md
+  - linkListType: quickstart
+    links:
+    - text: 'Portal: Distribuera app till förutsägelseslutpunkt'
+      url: get-started-portal-deploy-app.md
+    - text: Med hjälp av C# SDK
+      url: sdk-python-quickstart-authoring-app.md#train-the-app
+    - text: Med hjälp av Python SDK
+      url: sdk-python-quickstart-authoring-app.md#train-the-app
+  - linkListType: how-to-guide
+    links:
+    - text: Versionshantering av appen
+      url: luis-how-to-manage-versions.md
+    - text: Interaktiv testning
+      url: luis-interactive-test.md
+    - text: Batch-testning
+      url: luis-how-to-batch-test.md
+    - text: Träna appen
+      url: luis-how-to-train.md
+    - text: Publicera för att använda förutsägelseslutpunkten
+      url: luis-how-to-publish-app.md
+- title: Hämta förutsägelser från slutpunkten
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Med C# .NET SDK
+      url: sdk-csharp-quickstart-query-prediction-endpoint.md
+  - linkListType: quickstart
+    links:
+    - text: Med C# som använder REST
+      url: luis-get-started-cs-get-intent.md
+    - text: Med Go som använder REST
+      url: luis-get-started-go-get-intent.md
+    - text: Med Java som använder REST
+      url: luis-get-started-java-get-intent.md
+    - text: Med Node.js som använder REST
+      url: luis-get-started-node-get-intent.md
+    - text: Med Python som använder REST
+      url: luis-get-started-python-get-intent.md
+- title: Referens
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: Utvecklarresurser
+      url: developer-reference-resource.md
+    - text: Appbegränsningar
+      url: luis-boundaries.md
+    - text: Fördefinierade entiteter
+      url: luis-reference-prebuilt-entities.md
+    - text: Anpassade entiteter
+      url: luis-concept-entity-types.md#types-of-entities
+    - text: Fördefinierade domäner
+      url: luis-reference-prebuilt-domains.md

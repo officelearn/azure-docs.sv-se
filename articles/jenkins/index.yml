@@ -1,64 +1,103 @@
-### YamlMime:YamlDocument
-documentType: LandingData
-title: Jenkins på Azure
+### YamlMime:Landing
+title: Dokumentation om Jenkins på Azure
+summary: Lär dig hur du använder Jenkins för att automatisera kontinuerlig integrering (KI) och kontinuerlig leverans i Azure.
 metadata:
-  title: 'Dokumentation om Jenkins på Azure – självstudier, exempel, referenser och resurser'
-  description: Distribuera och integrera Jenkins med Azure
+  title: Dokumentation om Jenkins i Azure
+  description: Lär dig hur du använder Jenkins för att automatisera kontinuerlig integrering (KI) och kontinuerlig leverans i Azure.
+  services: azure
   ms.service: jenkins
-  keywords: 'jenkins, azure, devops, självstudier, exempel, referenser'
-  author: tomarchermsft
-  manager: jeconnoc
-  ms.author: tarcher
   ms.topic: landing-page
-  ms.date: 08/27/2018
-  ms.custom: seo-java-july2019
-abstract:
-  description: 'Använd Jenkins-servern med öppen källkod för att skapa dina appar i molnet och distribuera dem till Azure. Lär dig hur du installerar, konfigurerar och skalar Jenkins på Azure samt konfigurerar kontinuerlig integrering (CI) för dina appar med våra snabbstarter, självstudier och exempel på pipeliner.'
-  aside:
-    image:
-      alt: Jenkins-logotyp
-      height: 133
-      width: 110
-      src: media/Jenkins.png
-    title: null
-sections:
-  - title: Snabbstarter på 5 minuter
-    items:
-      - type: paragraph
-        text: Skapa ett Jenkins-system i Azure och skapa en app.
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: 'https://docs.microsoft.com/azure/virtual-machines/linux/media/index/portal.svg'
-            text: Azure Portal
-            href: 'https://docs.microsoft.com/azure/jenkins/install-jenkins-solution-template'
-  - title: Steg för steg-självstudier
-    items:
-      - type: paragraph
-        text: 'Konfigurera kontinuerlig integrering för dina appar, kör agenter i molnet och använd Azure-tjänster i dina jobb.'
-      - type: list
-        style: ordered
-        items:
-          - html: 'Konfigurera CI i <a href="/azure/jenkins/java-deploy-webapp-tutorial">Azure App Service</a>, <a href="/azure/container-service/kubernetes/container-service-kubernetes-jenkins">Kubernetes</a> eller en <a href="/azure/virtual-machines/linux/tutorial-jenkins-github-docker-cicd">virtuell Linux-dator</a>.'
-          - html: <a href="/azure/jenkins/execute-cli-jenkins-pipeline">Etablera resurser i ett pipeline-jobb</a>.
-          - html: <a href="/azure/jenkins/jenkins-azure-vm-agents">Skala med Azure VM-agenter</a>.
-  - title: Exempel
-    items:
-      - type: paragraph
-        text: Exempel på skript och faser för dina pipeliner.
-      - type: list
-        style: unordered
-        className: spaced noBullet
-        items:
-          - html: '<a href="https://github.com/Azure/azure-devops-utils/tree/master/jenkins">Faser och kodavsnitt för Jenkinsfile</a>'
-  - title: Referens
-    items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: Plugin-program
-            html: '<p><a href="https://plugins.jenkins.io/azure-vm-agents">Agenter för virtuell Azure-dator</a><p><a href="https://plugins.jenkins.io/azure-app-service">Azure App Service</a></p><p><a href="https://plugins.jenkins.io/windows-azure-storage">Azure Storage</a></p><p><a href="https://plugins.jenkins.io/azure-container-agents">Azure Container Agents</a><p><a href="https://plugins.jenkins.io/azure-function">Plugin-program för Azure Function</a><p><a href="https://plugins.jenkins.io/azure-acs">Plugin-program för Azure Container Service</a>'
-  - type: paragraph
-    text: '<h4>Jenkins® är ett registrerat varumärke som tillhör Software in the Public Interest, Inc. [Jenkins®-logotypen](https://wiki.jenkins.io/display/JENKINS/Logo) är licensierad under [CC BY SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/) från [Jenkins-projektet](https://jenkins.io).</h4>'
+  author: TomArcherMsft
+  ms.author: tarcher
+  ms.date: 09/17/2019
+  ms.openlocfilehash: 3d0a74df70b2007812acf22a40e8bd210948fae2
+  ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 09/18/2019
+  ms.locfileid: "71104275"
+landingContent:
+- title: Om Jenkins på Azure
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Om Jenkins på Azure
+      url: overview.md
+  - linkListType: reference
+    links:
+    - text: Jenkins-pluginprogram för Azure
+      url: jenkins-plugins.md
+  - linkListType: architecture
+    links:
+    - text: Jenkins-arkitektur
+      url: /azure/architecture/reference-architectures/jenkins/
+- title: Installera och konfigurera Jenkins
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Skapa en Jenkins-server
+      url: install-jenkins-solution-template.md
+  - linkListType: download
+    links:
+    - text: Exempeljobb och skript
+      url: https://github.com/azure/jenkins
+- title: Skala med Jenkins och Azure
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Skala med Azure Container Instances
+      url: /azure/container-instances/container-instances-jenkins?toc=/azure/jenkinstoc.json&bc=/azure/bread/toc.json
+    - text: Skala med Azure VM-agenter
+      url: jenkins-azure-vm-agents.md
+- title: CI/CD till Azure Functions
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Distribuera till Azure Functions
+      url: jenkins-azure-functions-deploy.md
+- title: CI/CD till AKS
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Distribuera från GitHub till AKS
+      url: /azure/aks/jenkins-continuous-deployment?toc=/azure/jenkinstoc.json&bc=/azure/bread/toc.json
+    - text: Distribuera till AKS med hjälp av blått/grönt mönster
+      url: jenkins-aks-blue-green-deployment.md
+    - text: Distribuera med Azure Dev Spaces-pluginprogrammet
+      url: tutorial-jenkins-dev-spaces.md
+- title: CI/CD till App Service
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Skapa Azure-resurser i ett pipeline-jobb
+      url: execute-cli-jenkins-pipeline.md
+    - text: Distribuera från GitHub till App Service
+      url: tutorial-jenkins-deploy-web-app-azure-app-service.md
+  - linkListType: how-to-guide
+    links:
+    - text: Distribuera med App Service-pluginprogrammet
+      url: deploy-jenkins-app-service-plugin.md
+- title: CI/CD till Azure DevOps
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Distribuera till en virtuell Linux-dator med Azure DevOps Services
+      url: /azure/virtual-machines/linux/tutorial-build-deploy-jenkins?toc=/azure/jenkinstoc.json&bc=/azure/bread/toc.json
+- title: CI/CD till Azure Storage
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Använda Azure Storage med en Jenkins-C/I-lösning
+      url: /azure/storage/storage-java-jenkins-continuous-integration-solution?toc=/azure/jenkinstoc.json&bc=/azure/bread/toc.json
+- title: CI/CD till virtuella Linux-datorer
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Skapa en utvecklingsinfrastruktur på en virtuell Linux-dator
+      url: /azure/virtual-machines/linux/tutorial-jenkins-github-docker-cicd?toc=/azure/jenkinstoc.json&bc=/azure/bread/toc.json
+- title: CI/CD till Service Fabric
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Utveckla och distribuera en Azure Service Fabric-app
+      url: /azure/service-fabric/service-fabric-cicd-your-linux-applications-with-jenkins?toc=/azure/jenkinstoc.json&bc=/azure/bread/toc.json

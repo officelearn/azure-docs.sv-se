@@ -5,6 +5,8 @@
     - name: Om Azure AD B2C
       expanded: true
       href: active-directory-b2c-overview.md
+    - name: Översikt över funktioner och teknik
+      href: technical-overview.md
 - name: Snabbstarter
   expanded: true
   items:

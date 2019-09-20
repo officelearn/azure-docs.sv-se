@@ -1,6 +1,6 @@
 ---
-title: Optimera kostnader för Azure Databricks med en Pre-Purchase
-description: Lär dig hur du kan betala i förskott för Azure Databricks avgifter med reserverad kapacitet att spara pengar.
+title: Optimera Azure Databricks-kostnader med ett förhandsköp
+description: Lär dig hur du kan förskottsbetala Azure Databricks-avgifter med reserverad kapacitet för att spara pengar.
 services: billing
 author: yashesvi
 manager: yashar
@@ -9,75 +9,75 @@ ms.topic: conceptual
 ms.date: 07/10/2019
 ms.author: banders
 ms.openlocfilehash: 99eb4de86aa227d558bec54d011a0b1548d27cf0
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
-ms.translationtype: MT
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2019
+ms.lasthandoff: 09/11/2019
 ms.locfileid: "67811263"
 ---
-# <a name="optimize-azure-databricks-costs-with-a-pre-purchase"></a>Optimera kostnader för Azure Databricks med en Pre-Purchase
+# <a name="optimize-azure-databricks-costs-with-a-pre-purchase"></a>Optimera Azure Databricks-kostnader med ett förhandsköp
 
-Du kan spara på Azure Databricks unit (DBU) kostnaderna när du förhandsköpa Azure Databricks genomför enheter (DBCU) för ett eller tre år. Du kan använda köpt DBCUs när som helst under perioden för köp. Till skillnad från virtuella datorer, köpt enheter upphör att gälla inte per timme och du kan använda dem när som helst under perioden för köpet.
+Du kan minska kostnader för Azure Databricks-enheter (DBU) när du förhandsköper förhandsköpta Azure Databricks-enheter (DBCU) för ett eller tre år. Du kan använda förhandsköpta DBCU:er när som helst under inköpsperioden. Till skillnad från virtuella datorer upphör inte de förhandsköpta enheterna på timbasis, och du kan använda dem när som helst under inköpsperioden.
 
-Azure Databricks användning dras från köpt Dbu automatiskt. Du behöver inte distribuera om eller associera en köpt plan för din Azure Databricks-arbetsytor för DBU-användning att hämta Pre-Purchase rabatter.
+All Azure Databricks-användning dras automatiskt av från de förhandsköpta DBU:erna. Du behöver inte distribuera om eller tilldela en förhandsköpt plan till dina Azure Databricks-arbetsytor för DBU-användningen för att få förhandsköpsrabatterna.
 
-Pre-Purchase-rabatten gäller endast för DBU-användning. Andra avgifter, till exempel beräkning, lagring och nätverk debiteras separat.
+Förhandsköpsrabatten gäller endast för DBU-användningen. Andra avgifter för till exempel beräkning, lagring och nätverk debiteras separat.
 
-## <a name="determine-the-right-size-to-buy"></a>Fastställa rätt storlek för att köpa
+## <a name="determine-the-right-size-to-buy"></a>Välja rätt storlek att köpa
 
-Databricks Pre-Purchase gäller för alla Databricks arbetsbelastningar och nivåer. Du kan tänka dig Pre-Purchase som en pool av förbetald Databricks commit-enheter. Användning dras från poolen, oavsett arbetsbelastning eller nivå. Användning av i följande förhållanden:
+Förhandsköp av Databricks gäller för alla arbetsbelastningar och nivåer i Databricks. Förhandsköp kan liknas vid en pool av förbetalda DBCU:er. Användningen dras av från poolen, oberoende av arbetsbelastning eller nivå. Användningen dras av enligt följande förhållande:
 
-| **Arbetsbelastning** | **DBU-förhållande för program – Standard-nivån** | **Förhållandet mellan DBU-program – Premium-nivån** |
+| **Arbetsbelastning** | **DBU-tillämpningsgrad – Standard-nivå** | **DBU-tillämpningsgrad – Premium-nivå** |
 | --- | --- | --- |
-| Datanalys | 0.4 | 0.55 |
-| Datateknik | 0.15 | 0,30 |
-| Datateknik (lättversion) | 0.07 | 0.22 |
+| Dataanalys | 0,4 | 0,55 |
+| Datateknik | 0,15 | 0,30 |
+| Datateknik (lättversion) | 0,07 | 0,22 |
 
-Till exempel när en mängd Data Analytics – Standard-nivån förbrukas, köpt Databricks commit enheter dras av 0,4 enheter.
+Exempelvis dras 0,4 enheter av från de förhandsköpta DBCU:erna när en viss kvantitet av Dataanalys på Standard-nivå använts.
 
-Innan du köper beräkna den totala DBU kvantiteten som används för olika arbetsbelastningar och nivåer. Använd föregående förhållanden för att normalisera till DBCU och kör sedan en projektion av totala användning över bredvid ett eller tre år.
+Innan du köper bör du beräkna den totala DBU-kvantitet som förbrukas för olika arbetsbelastningar och nivåer. Använd föregående förhållanden för att normalisera till DBCU och kör sedan en prognos av total användning för nästa år eller de kommande tre åren.
 
-## <a name="purchase-databricks-commit-units"></a>Köpa Databricks commit-enheter
+## <a name="purchase-databricks-commit-units"></a>Köpa förhandsköpta Databricks-enheter
 
-Du kan köpa Databricks planer den [Azure-portalen](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/documentation/filters/%7B%22reservedResourceType%22%3A%22Databricks%22%7D). Du måste ha rollen ägare för minst en enterprise-prenumeration om du vill köpa reserverad kapacitet.
+Du kan köpa Databricks-planer i [Azure-portalen](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/documentation/filters/%7B%22reservedResourceType%22%3A%22Databricks%22%7D). För att kunna köpa reserverad kapacitet måste du ha rollen som ägare för minst en Enterprise-prenumeration.
 
-- För närvarande kan köpa förbetald är bara tillgängligt för Enterprise Agreement-kunder.
-- Du måste vara i en ägarrollen för minst en Enterprise-prenumeration.
-- För Enterprise-prenumerationer, **lägga till reserverade instanser** måste aktiveras i den [EA-portalen](https://ea.azure.com/). Eller, om den här inställningen har inaktiverats kan du måste vara en EA-administratör för prenumerationen.
+- För närvarande är förhandsköp endast tillgängligt för Enterprise-avtalskunder.
+- Du måste ha rollen som ägare för minst en Enterprise-prenumeration.
+- För Enterprise-prenumerationer måste **Lägg till reserverade instanser** vara aktiverat i [EA-portalen](https://ea.azure.com/). Om den inställningen är inaktiverad måste du vara EA-administratör för prenumerationen.
 
-**Att köpa:**
+**Så här köper du:**
 
 1. Gå till [Azure-portalen](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/documentation/filters/%7B%22reservedResourceType%22%3A%22Databricks%22%7D).
-1. Välj en prenumeration. Använd den **prenumeration** och välj den prenumeration som används för att betala för reserverad kapacitet. Betalningsmetoden för prenumerationen debiteras startavgifter för reserverad kapacitet. Avgifter dras av från den registrering saldo för åtagandebelopp eller debiteras som överanvändning.
-1. Välj ett omfång. Använd den **omfång** och välj en prenumeration omfattning:
-    - **Enkel resurs Gruppomfång** – reservationsrabatten avser matchande resurserna i den valda resursgruppen bara.
-    - **Enkel prenumerationsomfattningen** – reservationsrabatten avser de matchande resurserna i den valda prenumerationen.
-    - **Dela omfattning** – gäller rabatten för matchande resurser i berättigade prenumerationer som är i kontexten för fakturering. För Enterprise Agreement-kunder är faktureringskontexten registreringen.
-1. Välj hur många Azure Databricks commit-enheter som du vill köpa och slutför köpet.
+1. Välj en prenumeration. Använd **prenumerationslistan** och välj den prenumeration som används till att betala för den reserverade kapaciteten. Betalningsmetoden för prenumerationen debiteras förhandskostnaderna för den reserverade kapaciteten. Avgifterna dras från registreringens saldo för ekonomiskt åtagande eller debiteras som överförbrukning.
+1. Välj ett omfång. Använd **omfångslistan** till att välja ett prenumerationsomfång:
+    - **Omfång för enskild resursgrupp** – reservationsrabatten tillämpas endast på matchande resurser i den valda resursgruppen.
+    - **Omfång för enskild prenumeration** – reservationsrabatten tillämpas på matchande resurser i den valda prenumerationen.
+    - **Delat omfång** – reservationsrabatten tillämpas på matchande resurser i berättigade prenumerationer i faktureringskontexten. För Enterprise-avtalskunder är det registreringen som är faktureringskontext.
+1. Välj hur många förhandsköpta Azure Databricks-enheter som du vill köpa och slutför köpet.
 
 
-![Exempel på Azure Databricks köp på Azure-portalen](./media/billing-prepay-databricks-reserved-capacity/data-bricks-pre-purchase.png)
+![Exempel som visar Azure Databricks-inköp i Azure-portalen](./media/billing-prepay-databricks-reserved-capacity/data-bricks-pre-purchase.png)
 
 ## <a name="change-scope-and-ownership"></a>Ändra omfång och ägarskap
 
-Du kan göra följande typer av ändringar till en reservation efter köpet:
+Du kan göra följande typer av ändringar i en reservation efter köpet:
 
-- Uppdatera reservationsomfånget
+- Uppdatera reservationsomfång
 - Rollbaserad åtkomst
 
-Du kan inte dela eller slå samman Databricks commit enhet Pre-Purchase. Läs mer om hur du hanterar reservationer [hantera reservationer efter köpet](billing-manage-reserved-vm-instance.md).
+Du kan inte dela eller sammanslå förhandsköpet av den förhandsköpta Databricks-enheten. Mer information om hantering av reservationer finns i [Hantera reservationer efter inköp](billing-manage-reserved-vm-instance.md).
 
-## <a name="cancellations-and-exchanges"></a>Avbokningar och utbyten
+## <a name="cancellations-and-exchanges"></a>Annulleringar och utbyten
 
-Avbryt och exchange stöds inte för Databricks Pre-Purchase planer. Alla inköp är slutgiltiga.
+Annulleringar och utbyten stöds inte för Databricks-förhandsinköpsplaner. Alla inköp är slutliga.
 
 ## <a name="need-help-contact-us"></a>Behöver du hjälp? Kontakta oss.
 
-Om du har frågor eller behöver hjälp, [skapa en supportbegäran](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+Om du har frågor eller behöver hjälp kan du [skapa en supportbegäran](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Om du vill veta mer om Azure reservationer, finns i följande artiklar:
-  - [Vad är Azure reservationer?](billing-save-compute-costs-reservations.md)
-  - [Förstå hur en rabatt på Azure Databricks Pre-Purchase DBCU tillämpas](billing-reservation-discount-databricks.md)
-  - [Förstå användningen av reserverade för din Enterprise-registrering](billing-understand-reserved-instance-usage-ea.md)
+- Du kan läsa mer om Azure-reservationer i följande artiklar:
+  - [Vad är Azure-reservationer?](billing-save-compute-costs-reservations.md)
+  - [Förstå hur en rabatt för förhandsköp av förhandsköpta Azure Databricks-DBCU tillämpas](billing-reservation-discount-databricks.md)
+  - [Förstå reservationsanvändning för din Enterprise-registrering](billing-understand-reserved-instance-usage-ea.md)

@@ -102,6 +102,8 @@
         - name: Tidigare generationer
           href: sizes-previous-gen.md
           displayName: D-series Ds-series A-series Basic
+        - name: Isolerade storlekar
+          href: isolation.md
         - name: Azure-beräkningsenheter (ACU)
           href: acu.md
         - name: Benchmark-poäng

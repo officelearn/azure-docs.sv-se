@@ -1,91 +1,114 @@
-### YamlMime:YamlDocument
-documentType: LandingData
+### YamlMime:Landing
 title: Dokumentation om QnA Maker
+summary: Lär dig mer om QnA Maker-tjänsten och hur den här tjänstens kunskapsbaser fungerar med dina frågor och svar.
 metadata:
-  title: Dokumentation om QnA Maker – Microsoft Cognitive Services | Microsoft Docs
-  description: Lär dig mer om QnA Maker-tjänsten och hur den här tjänstens kunskapsbaser fungerar med dina frågor och svar.
-  services: cognitive-services
-  author: diberry
-  manager: nitinme
+  ms.topic: landing-page
+  ms.date: 09/18/2019
+  ms.author: nitinme
+  author: nitinme
   ms.service: cognitive-services
   ms.subservice: qna-maker
-  ms.topic: landing-page
-  ms.date: 12/18/2018
-  ms.author: diberry
-abstract:
-  description: 'QnA Maker är en molnbaserad API-tjänst som skapar ett konversationsanpassat lager för frågor och svar över dina data. Med QnA Maker kan du driva en tjänst för frågor och svar från halvstrukturerat innehåll som Vanliga frågor och svar-dokument, URL:er och produkthandböcker. QnA Maker-tjänsten svarar på dina användares frågor på naturligt språk genom att matcha med det bästa möjliga svaret från vanliga frågor och svar i kunskapsbasen.'
-  aside:
-    image:
-      alt: null
-      height: 110
-      src: ../media/index/qnamaker-landing-page-video.png
-      width: 250
-    title: 'Bygg en robot på några minuter med QnA Maker (8:54)'
-    href: 'https://channel9.msdn.com/Shows/AI-Show/Build-a-Bot-in-Minutes-with-QnA-Maker'
-    width: 250
-sections:
-  - items:
-      - type: list
-        style: cards
-        className: cardsM
-        columns: 3
-        items:
-          - href: /azure/cognitive-services/qnamaker/overview/overview
-            html: <p>Lär dig mer om QnA Maker.</p>
-            image:
-              src: ../media/index/i_overview.svg
-            title: Vad är QnA Maker?
-          - href: /azure/cognitive-services/qnamaker/quickstarts/create-publish-knowledge-base
-            html: '<p>Lär dig hur du skapar, tränar och publicerar en kunskapsbas.</p>'
-            image:
-              src: ../media/index/i_tasks.svg
-            title: 'Skapa, träna och publicera en kunskapsbas'
-          - href: /azure/cognitive-services/qnamaker/concepts/data-sources-supported
-            html: <p>Lär dig hur du publicerar en kunskapsbas.</p>
-            image:
-              src: ../media/index/i_tasks.svg
-            title: Förstå datakällor
-  - title: Snabbstarter på 5 minuter
-    items:
-      - type: paragraph
-        text: 'Skapa en kunskapsbas för dina frågor och svar:'
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: media/index/logo_Csharp.svg
-            text: 'C&#35;'
-            href: Quickstarts/create-new-kb-csharp
-          - image:
-              src: media/index/Go-Logo_Blue.svg
-            text: Go
-            href: Quickstarts/create-new-kb-go
-          - image:
-              src: media/index/logo_java.svg
-            text: Java
-            href: Quickstarts/create-new-kb-java
-          - image:
-              src: media/index/logo_nodejs.svg
-            text: Node.js
-            href: Quickstarts/create-new-kb-nodejs
-          - image:
-              src: media/index/logo_python.svg
-            text: Python
-            href: Quickstarts/create-new-kb-python
-  - title: Steg för steg-självstudier
-    items:
-      - type: paragraph
-        text: 'Lär dig hur du utvecklar program med hjälp av QnA Maker:'
-      - type: list
-        style: unordered
-        items:
-          - html: <a href="/azure/cognitive-services/qnamaker/tutorials/create-publish-query-in-portal">Skapa en kunskapsbas och besvara frågor</a></li>
-          - html: <a href="/azure/cognitive-services/qnamaker/tutorials/create-qna-bot">Skapa en QnA Maker-robot</a></li>
-  - title: Referens
-    items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: API
-            html: '<p><a href="https://go.microsoft.com/fwlink/?linkid=2092179">API för QnA Maker</a></p>'
+  services: cognitive-services
+  title: Dokumentation om QnA Maker
+  description: QnA Maker är en molnbaserad API-tjänst som skapar ett konversationsanpassat lager för frågor och svar över dina data. Med QnA Maker kan du driva en tjänst för frågor och svar från halvstrukturerat innehåll som Vanliga frågor och svar-dokument, URL:er och produkthandböcker. QnA Maker-tjänsten svarar på dina användares frågor på naturligt språk genom att matcha med det bästa möjliga svaret från vanliga frågor och svar i kunskapsbasen.
+  ms.openlocfilehash: 36b1c69ba1b94afadd105117ee5ac9dabcdd64a7
+  ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 09/19/2019
+  ms.locfileid: "71123013"
+landingContent:
+- title: Om QnA Maker
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Vad är QnA Maker?
+      url: overview/overview.md
+  - linkListType: concept
+    links:
+    - text: Utvecklingscykel
+      url: concepts/development-lifecycle-knowledge-base.md
+    - text: Datakällor
+      url: concepts/data-sources-supported.md
+  - linkListType: video
+    links:
+    - text: Bygg en robot på några minuter
+      url: https://channel9.msdn.com/Shows/AI-Show/Build-a-Bot-in-Minutes-with-QnA-Maker
+- title: Skapa och redigera en kunskapsbas
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Vad är en kunskapsbas?
+      url: concepts/knowledge-base.md
+  - linkListType: get-started
+    links:
+    - text: 'Snabbstart: Skapa en ny kunskapsbas'
+      url: how-to/create-knowledge-base.md
+    - text: 'Snabbstart: Lägg till frågor och svar'
+      url: quickstarts/add-question-metadata-portal.md
+  - linkListType: how-to-guide
+    links:
+    - text: Använd uppföljande frågor för att skapa en längre konversation
+      url: how-to/multiturn-conversation.md
+    - text: Lägg till småprat
+      url: how-to/chit-chat-knowledge-base.md
+    - text: Lägg till en säker SharePoint-datakälla
+      url: how-to/add-sharepoint-datasources.md
+- title: Testa och publicera
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Testa kunskapsbasen interaktivt
+      url: how-to/test-knowledge-base.md
+    - text: Publicera en kunskapsbas
+      url: quickstarts/create-publish-knowledge-base.md#publish-the-knowledge-base
+- title: Få svar från kunskapsbasen
+  linkLists:
+  - linkListType: get-started
+    links:
+    - text: 'Snabbstart: Använda Postman'
+      url: quickstarts/get-answer-from-kb-using-postman.md
+    - text: 'Snabbstart: Använda cURL'
+      url: quickstarts/get-answer-from-kb-using-curl.md
+    - text: 'Snabbstart: Använda REST och C#'
+      url: quickstarts/get-answer-from-knowledge-base-csharp.md
+    - text: 'Snabbstart: Använda NuGet och C#'
+      url: quickstarts/create-publish-kb-csharp-sdk.md#generate-an-answer-from-the-knowledge-base
+  - linkListType: how-to-guide
+    links:
+    - text: Få ett svar med metadata
+      url: how-to/metadata-generateanswer-usage.md
+- title: Förbättra kunskapsbasen
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Använda aktiv inlärning för att förbättra kunskapsbasen
+      url: how-to/improve-knowledge-base.md
+    - text: Få analyser om din kunskapsbas
+      url: how-to/get-analytics-knowledge-base.md
+- title: QnA Maker-robotar
+  linkLists:
+  - linkListType: get-started
+    links:
+    - text: 'Portal: Skapa en QnA-robot'
+      url: tutorials/create-qna-bot.md
+    - text: '.NET: Skapa en robot med QnA Maker och Language Understanding'
+      url: tutorials/integrate-qnamaker-luis.md
+    - text: Andra exempelrobotar
+      url: https://github.com/Microsoft/BotBuilder-Samples/blob/master/README.md
+- title: Referens
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: Begränsningar för en kunskapsbas
+      url: limits.md
+    - text: Redigera API:er
+      url: https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase
+    - text: API för att generera svar
+      url: https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime
+    - text: Referensdokumentation för .Net-SDK
+      url: https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker?view=azure-dotnet
+    - text: Azure PowerShell
+      url: https://docs.microsoft.com/powershell/module/az.cognitiveservices/?view=azps-2.6.0#cognitive_services
+    - text: Kommandoradsgränssnitt för Azure (CLI)
+      url: https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest#az-cognitiveservices-list

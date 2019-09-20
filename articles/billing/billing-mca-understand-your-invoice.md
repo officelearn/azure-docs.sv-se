@@ -1,6 +1,6 @@
 ---
-title: Förstå din Microsoft-kund avtals faktura i Azure
-description: Lär dig att läsa och förstå din Microsoft-kund avtals faktura i Azure
+title: Förstå Microsoft-kundavtalsfaktura i Azure
+description: Lär dig att läsa och förstå din Microsoft-kundavtalsfaktura i Azure
 author: bandersmsft
 manager: jureid
 tags: billing
@@ -12,100 +12,100 @@ ms.workload: na
 ms.date: 07/22/2019
 ms.author: banders
 ms.openlocfilehash: a5f77120c1d4e8a6721f3bc207132bee19a7772f
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
-ms.translationtype: MT
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/22/2019
+ms.lasthandoff: 09/11/2019
 ms.locfileid: "68383535"
 ---
-# <a name="terms-in-your-microsoft-customer-agreement-invoice"></a>Villkor i din Microsoft kund avtals faktura
+# <a name="terms-in-your-microsoft-customer-agreement-invoice"></a>Termer på din Microsoft-kundavtalsfaktura
 
-Den här artikeln gäller ett Azure-fakturerings konto för ett Microsofts kund avtal. [Kontrol lera om du har åtkomst till ett Microsofts kund avtal](#check-access-to-a-microsoft-customer-agreement).
+Den här artikeln gäller för ett Azure-faktureringskonto för ett Microsoft-kundavtal. [Kontrollera om du har åtkomst till ett Microsoft-kundavtal](#check-access-to-a-microsoft-customer-agreement).
 
-Din faktura innehåller en sammanfattning av dina avgifter och betalnings anvisningar. Den finns tillgänglig för hämtning i Portable Document Format (. pdf) från [Azure Portal](https://portal.azure.com/) eller kan skickas via e-post. Mer information finns i [Visa och ladda ned din Microsoft Azure faktura](billing-download-azure-invoice.md).
+Din faktura innehåller en sammanfattning av dina avgifter och instruktioner för betalning. Du kan ladda ned den i PDF-format (.pdf) från [Azure-portalen](https://portal.azure.com/) eller få den skickad via e-post. Mer information finns i [Visa och ladda ned din Microsoft Azure-faktura](billing-download-azure-invoice.md).
 
 ## <a name="billing-period"></a>Faktureringsperiod
 
-Du faktureras per månad. Du kan ta reda på vilken dag i månaden du får fakturor genom att kontrol lera *faktura datum* under egenskaper för fakturerings profil i [Azure Portal](https://portal.azure.com/). Kostnader som inträffar mellan slutet av fakturerings perioden och faktura datumet ingår i nästa månads faktura, eftersom de är i nästa fakturerings period. Start-och slutdatumen för fakturerings perioden för varje faktura visas i faktura-PDF -filen ovanför fakturerings sammanfattningen.
+Du faktureras per månad. Du kan ta reda på vilken dag i månaden du får fakturor genom att kontrollera *fakturadatumet* under egenskaperna för faktureringsprofil i [Azure-portalen](https://portal.azure.com/). Kostnader som inträffar mellan slutet av faktureringsperioden och fakturadatumet inkluderas i nästa månads faktura, eftersom de tillhör nästa faktureringsperiod. Faktureringsperiodens startdatum och slutdatum för varje anges ovanför **Faktureringssammanfattning** i PDF-fakturan.
 
-## <a name="invoice-terms-and-descriptions"></a>Faktura villkor och beskrivningar
+## <a name="invoice-terms-and-descriptions"></a>Termer och beskrivningar för faktura
 
-I följande avsnitt listas viktiga termer som du ser på din faktura och ger beskrivningar för varje term.
+I följande avsnitt anges viktiga termer som står på fakturan samt beskrivningar för respektive term.
 
-### <a name="invoice-summary"></a>Faktura sammanfattning
+### <a name="invoice-summary"></a>Sammanfattning av faktura
 
-**Faktura sammanfattningen** visas överst på den första sidan och visar information om din fakturerings profil och hur du betalar.
+**Fakturasammanfattningen** finns längst upp på den första sidan och visar information om din faktureringsprofil samt hur du betalar.
 
-![Avsnittet Sammanfattning av faktura](./media/billing-understand-your-invoice-mca/invoicesummary.png)
+![Avsnittet Fakturasammanfattning](./media/billing-understand-your-invoice-mca/invoicesummary.png)
 
-| Term | Beskrivning |
+| Period | Beskrivning |
 | --- | --- |
-| Såldes till |Adress till din juridiska person, som finns i egenskaper för fakturerings konto|
-| Fakturera till |Fakturerings adressen för den fakturerings profil som tar emot fakturan, som finns i egenskaper för fakturerings profil|
-| Faktureringsprofil |Namnet på den fakturerings profil som tar emot fakturan |
-| P.O. nummer |Ett valfritt inköps order nummer som du har tilldelat för spårning |
-| Faktura nummer |Ett unikt, Microsoft-genererat faktura nummer som används i spårnings syfte |
-| Fakturadatum |Datum då fakturan genereras, vanligt vis fem till 12 dagar efter fakturerings cykelns slut. Du kan kontrol lera faktura datumet i egenskaper för fakturerings profil.|
-| Betalnings villkor |Hur du betalar för din Microsoft-faktura. *Netto 30 dagar* innebär att du betalar inom 30 dagar från faktura datumet. |
+| Såldes till |Adress för din juridiska person, som finns i egenskaperna för faktureringskonto|
+| Fakturera till |Faktureringsadressen för den faktureringsprofil som tar emot fakturan, som finns i egenskaperna för faktureringsprofil|
+| Faktureringsprofil |Namnet på den faktureringsprofil som tar emot fakturan |
+| IO- nummer |Ett valfritt inköpsordernummer som du tilldelar i spårningssyfte |
+| Fakturanummer |Ett unikt fakturanummer som Microsoft genererar i spårningssyfte |
+| Fakturadatum |Det datum då fakturan genereras, vanligtvis fem till tolv dagar efter faktureringsperiodens slut. Du kan kontrollera fakturadatumet i egenskaperna för faktureringsprofil.|
+| Betalningsvillkor |Hur du betalar för din Microsoft-faktura. *30 dagar netto* innebär att du betalar inom 30 dagar från fakturadatumet. |
 
-### <a name="billing-summary"></a>Fakturerings Sammanfattning
+### <a name="billing-summary"></a>Faktureringssammanfattning
 
-I **fakturerings sammanfattningen** visas kostnaderna för fakturerings profilen sedan den föregående fakturerings perioden, eventuella krediter som tillämpats, skatt och det totala beloppet som förfallit.
+I **faktureringssammanfattningen** visas kostnaderna för faktureringsprofilen sedan den föregående faktureringsperioden, eventuella krediter som tillämpades, skatt samt det totala restbeloppet.
 
-![Avsnittet fakturerings Sammanfattning](./media/billing-understand-your-invoice-mca/billingsummary.png)
+![Avsnittet Faktureringssammanfattning](./media/billing-understand-your-invoice-mca/billingsummary.png)
 
-| Term | Beskrivning |
+| Period | Beskrivning |
 | --- | --- |
-| Avgifter|Totalt antal Microsoft-avgifter för den här fakturerings profilen sedan den senaste fakturerings perioden |
-| Eftertexter |Krediter som du fått från returer |
-| Azure-krediter tillämpas | Azure-krediter som automatiskt tillämpas på Azure debiterar varje fakturerings period |
-| Delsumma |Förfallet belopp för förskotts skatt |
-| Moms |Typ av och belopp för skatt som du betalar, beroende på land/region för din fakturerings profil. Om du inte behöver betala skatt kan du inte se skatt på din faktura. |
-| Beräknad total besparing |Den uppskattade total summan som du har sparat från effektiva rabatter. Om så är tillämpligt visas effektiva rabatt satser under inköps rad artiklarna i avsnittet information per faktura. |
+| Avgifter|Totalt antal Microsoft-avgifter för den här faktureringsprofilen sedan den senaste faktureringsperioden |
+| Krediter |Krediter som du fått från returer |
+| Tillämpade Azure-krediter | Azure-krediter som automatiskt tillämpas på Azure-avgifter varje faktureringsperiod |
+| Delsumma |Restbelopp före skatt |
+| Skatt |Typ av och belopp för skatt som du betalar, beroende på land/region för din faktureringsprofil. Om du inte behöver betala skatt står ingen skatt på din faktura. |
+| Uppskattade totalbesparingar |Den uppskattade totalsumma som du har sparat från effektiva rabatter. Om effektiva rabattsatser är tillämpliga visas de nedanför inköpsradobjekten i Information efter fakturaavsnitt. |
 
 ### <a name="invoice-sections"></a>Fakturaavsnitt
 
-För varje faktura avsnitt under din fakturerings profil ser du avgifterna, hur många Azure-krediter som används, skatt och det totala beloppet som förfaller.
+För varje fakturaavsnitt under din faktureringsprofil ser du avgifterna, hur många Azure-krediter som används, skatt samt totalt restbelopp.
 
 `Total = Charges - Azure Credit + Tax`
 
-### <a name="details-by-invoice-section"></a>Avsnittet information efter faktura
+### <a name="details-by-invoice-section"></a>Information efter fakturaavsnitt
 
-Informationen visar kostnaden för varje faktura avsnitt uppdelat efter produkt order. Inom varje produkt ordning delas kostnaden upp av tjänst typen. Du hittar dagliga avgifter för dina produkter och tjänster i Azure Portal och Azures användning och avgifter CSV. Mer information finns i [förstå avgifterna på din faktura för ett Microsofts kund avtal](billing-mca-understand-your-bill.md).
+Informationen visar kostnaden för varje fakturaavsnitt indelat efter produktorder. Inom varje produktorder delas kostnaden in efter typ av tjänst. Det finns dagliga avgifter för dina produkter och tjänster i Azure-portalen samt i CSV-filen för Azure-användning och -avgifter. Mer information finns i [Förstå avgifterna på din faktura för ett Microsoft-kundavtal](billing-mca-understand-your-bill.md).
 
-Det totala beloppet som förfaller för varje service familj beräknas genom att subtrahera *Azure-krediter* från *krediter/avgifter* och *moms*:
+Det totala restbeloppet för varje tjänstfamilj beräknas subtraktion av *Azure-krediter* från *Krediter/avgifter* och addition av *Skatt*:
 
 
-![Avsnittet information efter faktura](./media/billing-understand-your-invoice-mca/invoicesectiondetails.png)
+![Information efter fakturaavsnitt](./media/billing-understand-your-invoice-mca/invoicesectiondetails.png)
 
-| Term |Beskrivning |
+| Period |Beskrivning |
 | --- | --- |
-| A-pris | Det effektiva enhets priset för tjänsten (i pris valutan) som används för att bedöma användningen. Detta är unikt för en produkt, tjänst familj, mätare och erbjudande. |
-| Kvantitet | Köpt eller förbrukad kvantitet under fakturerings perioden |
-| Avgifter/krediter | Netto beloppet för avgifterna per kredit och åter betalning gäller |
-| Azure-kredit | Mängden Azure-krediter som används för avgifterna/krediterna|
-| Skatte sats | Skatte sats (er) beroende på land/region |
-| Skatte belopp | Moms belopp som tillämpas på inköp baserat på skatte sats |
-| Totalt | Det totala beloppet som ska betalas för köpet |
+| Enhetspris | Det effektiva enhetspriset för tjänsten (i prisvalutan) som används för att klassificera användningen. Detta är unikt för en produkt, en tjänstfamilj, en mätare och ett erbjudande. |
+| Kvantitet | Köpt eller förbrukad kvantitet under faktureringsperioden |
+| Avgifter/krediter | Nettobeloppet för avgifterna efter krediter/återbetalningar har tillämpats |
+| Azure-kredit | Den mängd Azure-krediter som tillämpats för avgifterna/krediterna|
+| Skattesats | Skattesats(er) beroende på land/region |
+| Skattebelopp | Den mängd skatt som tillämpas på inköp baserat på skattesats |
+| Totalt | Det totala restbeloppet för köpet |
 
-### <a name="how-to-pay"></a>Så här betalar du
+### <a name="how-to-pay"></a>Så betalar du
 
-Längst ned på fakturan finns det instruktioner för att betala fakturan. Du kan betala per kontroll, tråd eller online. Om du betalar online kan du använda ett kredit kort eller en Azure-kredit, om så är tillämpligt.
+Längst ned på fakturan finns instruktioner för hur du betalar faktura. Du kan betala med check eller banköverföring eller online. Om du betalar online kan du använda ett kreditkort eller en Azure-kredit, om så är tillämpligt.
 
-### <a name="publisher-information"></a>Utgivar information
+### <a name="publisher-information"></a>Utgivarinformation
 
-Om du har tjänster från tredje part på din faktura visas namnet och adressen för varje utgivare längst ned på fakturan.
+Om du har tjänster från tredje part på din faktura visas namn och adress för varje utgivare längst ned på fakturan.
 
-## <a name="check-access-to-a-microsoft-customer-agreement"></a>Kontrol lera åtkomsten till ett Microsofts kund avtal
+## <a name="check-access-to-a-microsoft-customer-agreement"></a>Kontrollera åtkomsten till ett Microsoft-kundavtal
 [!INCLUDE [billing-check-mca](../../includes/billing-check-mca.md)]
 
 ## <a name="need-help-contact-us"></a>Behöver du hjälp? Kontakta oss.
 
-Om du har frågor eller behöver hjälp, [skapa en supportbegäran](https://go.microsoft.com/fwlink/?linkid=2083458).
+Om du har frågor eller behöver hjälp kan du [skapa en supportbegäran](https://go.microsoft.com/fwlink/?linkid=2083458).
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Förstå avgifterna på din fakturerings profils faktura](billing-mca-understand-your-bill.md)
+- [Förstå avgifterna på faktureringsprofilens faktura](billing-mca-understand-your-bill.md)
 - [Så här hämtar du information om fakturering och daglig användning från Azure](billing-download-azure-invoice-daily-usage-date.md)
-- [Visa din organisations priser för Azure](billing-ea-pricing.md)
-- [Visa moms dokument för din fakturerings profil](billing-mca-download-tax-document.md)
+- [Visa organisationens Azure-priser](billing-ea-pricing.md)
+- [Visa skattedokument för din faktureringsprofil](billing-mca-download-tax-document.md)

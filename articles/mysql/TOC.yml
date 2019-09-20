@@ -195,7 +195,7 @@
           href: howto-data-in-replication.md
         - name: Skapa skrivskyddade repliker på Azure-portalen
           href: howto-read-replicas-portal.md
-        - name: Skapa skrivskyddade repliker i Azure CLI
+        - name: 'Skapa skrivskyddade repliker i Azure CLI, REST-API'
           href: howto-read-replicas-cli.md
     - name: Felsöka
       items:

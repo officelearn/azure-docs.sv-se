@@ -118,7 +118,7 @@
         - name: Ta bort ett AKS-kluster
           href: '/cli/azure/aks#az-aks-delete'
           maintainContext: true
-        - name: Skapa en ACR med ett AKS-kluster
+        - name: Integrera ACR med ett AKS-kluster
           href: cluster-container-registry-integration.md
         - name: Skapa virtuella noder
           items:

@@ -103,6 +103,8 @@
           href: sizes-hpc.md
         - name: Tidigare generationer
           href: sizes-previous-gen.md
+        - name: Isolerade storlekar
+          href: isolation.md
         - name: Azure-beräkningsenheter (ACU)
           href: acu.md
         - name: vCPU-kvoter

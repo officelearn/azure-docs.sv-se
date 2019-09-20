@@ -271,6 +271,14 @@
           href: ./spark/apache-spark-ipython-notebook-machine-learning.md
         - name: Skapa en Apache Spark-app i IntelliJ
           href: ./spark/apache-spark-create-standalone-application.md
+    - name: Begrepp
+      items:
+        - name: Metodtips för Spark på HDInsight
+          href: ./spark/spark-best-practices.md
+        - name: Konfigurera Apache Spark-inställningar
+          href: ./spark/apache-spark-settings.md
+        - name: Optimera Apache Spark-jobb
+          href: ./spark/apache-spark-perf.md
     - name: Gör så här för att
       items:
         - name: Använda verktyg
@@ -323,10 +331,6 @@
               href: ./spark/apache-spark-resource-manager.md
             - name: Hantera Apache Spark-program med hjälp av den utökade historikservern
               href: ./spark/apache-azure-spark-history-server.md
-            - name: Konfigurera Apache Spark-inställningar
-              href: ./spark/apache-spark-settings.md
-            - name: Optimera Apache Spark-jobb
-              href: ./spark/apache-spark-perf.md
             - name: Aktivera cachelagring med I/O-cache
               href: ./spark/apache-spark-improve-performance-iocache.md
             - name: Använda anteckningsböcker med Apache Spark

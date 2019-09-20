@@ -232,7 +232,7 @@
       items:
         - name: Hantera skrivskyddade repliker på Azure-portalen
           href: howto-read-replicas-portal.md
-        - name: Hantera skrivskyddade repliker i Azure CLI
+        - name: 'Hantera skrivskyddade repliker i Azure CLI, REST-API'
           href: howto-read-replicas-cli.md
 - name: Referens
   items:

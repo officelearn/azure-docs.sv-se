@@ -1,6 +1,6 @@
 ---
-title: Granska användningen av Azure Service-resurser med REST API | Microsoft Docs
-description: 'Lär dig hur du använder Azure REST API: er för att granska användningen av Azure-tjänst resurser.'
+title: Granska resursanvändning i Azure-tjänster med REST API | Microsoft Docs
+description: Lär dig hur du använder Azure REST-API:er för att granska resursanvändning i Azure-tjänster.
 services: billing
 documentationcenter: na
 author: lleonard-msft
@@ -14,24 +14,24 @@ ms.workload: na
 ms.date: 08/15/2018
 ms.author: banders
 ms.openlocfilehash: 47e19fae26d6e3bc465799980c587d7bb7ed5e92
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
-ms.translationtype: MT
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2019
+ms.lasthandoff: 09/11/2019
 ms.locfileid: "68443067"
 ---
-# <a name="review-azure-resource-usage-using-the-rest-api"></a>Granska användningen av Azure-resurser med hjälp av REST API
+# <a name="review-azure-resource-usage-using-the-rest-api"></a>Granska Azure-resursanvändning med hjälp av REST API
 
-Azure Cost Management-API: er hjälper dig att granska och hantera användningen av dina Azure-resurser.
+Azure Cost Management-API:er hjälper dig att granska och hantera förbrukningen av dina Azure-resurser.
 
-I den här artikeln får du lära dig hur du skapar en daglig rapport som genererar ett kommaavgränsat värde dokument med din användnings information per timme och sedan hur du använder filter för att anpassa rapporten så att du kan fråga användningen av virtuella datorer, databaser och taggade resurser i en Azure-resurs grupp.
+I den här artikeln lär du dig att skapa en daglig rapport som genererar ett dokument med kommaavgränsade värden där information visas om din timvisa användning. Du lär dig även att anpassa rapporten med hjälp av filter så att du kan köra frågor mot användningen av virtuella datorer, databaser och taggade resurser i en Azure-resursgrupp.
 
 >[!NOTE]
-> Cost Management API finns för närvarande i privat för hands version.
+> Cost Management-API:et är för närvarande i privat förhandsversion.
 
-## <a name="create-a-basic-cost-management-report"></a>Skapa en grundläggande kostnads hanterings rapport
+## <a name="create-a-basic-cost-management-report"></a>Skapa en grundläggande kostnadshanteringsrapport
 
-`reports` Använd åtgärden i Cost Management API för att definiera hur kostnads rapportering skapas och var rapporterna ska publiceras.
+Använd åtgärden `reports` i Cost Management-API:et för att definiera hur kostnadsrapportering skapas samt var rapporterna ska publiceras.
 
 ```http
 https://management.azure.com/subscriptions/{subscriptionGuid}/providers/Microsoft.CostManagement/reports/{reportName}?api-version=2018-09-01-preview
@@ -39,16 +39,16 @@ Content-Type: application/json
 Authorization: Bearer
 ```
 
-`{subscriptionGuid}` Parametern är obligatorisk och måste innehålla ett prenumerations-ID som kan läsas med de autentiseringsuppgifter som anges i API-token. Det`{reportName}`
+Parametern `{subscriptionGuid}` är obligatorisk och ska innehålla ett prenumerations-ID som kan läsas med hjälp av de autentiseringsuppgifter som anges i API-token. `{reportName}`
 
-Följande rubriker krävs: 
+Följande huvuden krävs: 
 
-|Begär ande huvud|Beskrivning|  
+|Begärandehuvud|Beskrivning|  
 |--------------------|-----------------|  
-|*Innehålls typ:*| Obligatoriskt. Ange till `application/json`. |  
-|*Authorization:*| Obligatoriskt. Ange en giltig `Bearer` token. |
+|*Content-Type:*| Krävs. Ange till `application/json`. |  
+|*Auktorisering:*| Krävs. Ange till giltig `Bearer`-token. |
 
-Konfigurera rapportens parametrar i HTTP-begärans brödtext. I exemplet nedan är rapporten inställd på att genereras varje dag när aktiv, är en CSV-fil som skrivs till en Azure Storage BLOB-behållare och innehåller Tim kostnads information för alla resurser i resurs gruppen `westus`.
+Konfigurera rapportens parametrar i HTTP-begärandetexten. I exemplet nedan är rapporten inställd på att genereras varje dag när den är aktiv. En CSV-fil skrivs till en Azure Storage-blobcontainer och innehåller information om timvisa kostnader för alla resurser i en resursgrupp `westus`.
 
 ```json
 {
@@ -93,11 +93,11 @@ Filtypen
 
 ## <a name="filtering-reports"></a>Filtrera rapporter
 
-I `filter` avsnittet `dimensions` och i förfrågnings texten när du skapar en rapport kan du fokusera på kostnaderna för vissa resurs typer. Föregående begär ande text visar hur du filtrerar efter alla resurser i en region. 
+I avsnitten `filter` och `dimensions` i begärandetexten vid skapande av en rapport kan du fokusera på kostnaderna för specifika resurstyper. Föregående begärandetext visar hur du filtrerar efter alla resurser i en region. 
 
-### <a name="get-all-compute-usage"></a>Hämta all beräknings användning
+### <a name="get-all-compute-usage"></a>Hämta all beräkningsanvändning
 
-`ResourceType` Använd dimensionen för att rapportera kostnader för virtuella Azure-datorer i din prenumeration i alla regioner.
+Använd dimensionen `ResourceType` för att rapportera kostnader för virtuella Azure-datorer i din prenumeration i alla regioner.
 
 ```json
 "filter": {
@@ -112,9 +112,9 @@ I `filter` avsnittet `dimensions` och i förfrågnings texten när du skapar en 
 }
 ```
 
-### <a name="get-all-database-usage"></a>Hämta all databas användning
+### <a name="get-all-database-usage"></a>Hämta all databasanvändning
 
-`ResourceType` Använd dimensionen för att rapportera Azure SQL Database kostnader i din prenumeration i alla regioner.
+Använd dimensionen `ResourceType` för att rapportera kostnader för Azure SQL Database i din prenumeration i alla regioner.
 
 ```json
 "filter": {
@@ -128,9 +128,9 @@ I `filter` avsnittet `dimensions` och i förfrågnings texten när du skapar en 
 }
 ```
 
-### <a name="report-on-specific-instances"></a>Rapportera om vissa instanser
+### <a name="report-on-specific-instances"></a>Rapportera om specifika instanser
 
-Med `Resource` dimensionen kan du rapportera kostnader för vissa resurser.
+Med dimensionen `Resource` kan du rapportera kostnader för specifika resurser.
 
 ```json
 "filter": {
@@ -144,9 +144,9 @@ Med `Resource` dimensionen kan du rapportera kostnader för vissa resurser.
 }
 ```
 
-### <a name="changing-timeframes"></a>Ändra tidsram
+### <a name="changing-timeframes"></a>Ändra tidsramar
 
-Ange att `timeframe` `Custom` definitionen ska ställas in för att ange en tidsram utanför veckan till datum och månad till datum inbyggda alternativ.
+Ange definitionen av `timeframe` till `Custom` för att ange en tidsram utanför de inbyggda alternativen Hittills den här veckan och Hittills den här månaden.
 
 ```json
 "timeframe": "Custom",
@@ -157,4 +157,4 @@ Ange att `timeframe` `Custom` definitionen ska ställas in för att ange en tids
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-- [Kom igång med Azure REST API](https://docs.microsoft.com/rest/api/azure/)   
+- [Komma igång med Azure REST API](https://docs.microsoft.com/rest/api/azure/)   

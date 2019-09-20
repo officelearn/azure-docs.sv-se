@@ -13,17 +13,17 @@ ms.devlang: multiple
 ms.topic: overview
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 05/13/2019
+ms.date: 09/17/2019
 ms.author: juliako
 ms.custom: mvc
-ms.openlocfilehash: b07675e25c0380921e24059ff0107fcfe1bb3873
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.openlocfilehash: a752d7759386828e916f68e5903115220812f3e0
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65602108"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71123031"
 ---
-# <a name="azure-media-services-v3-overview"></a>Azure Media Services v3-översikt
+# <a name="azure-media-services-v3-overview"></a>Översikt över Azure Media Services v3
 
 Azure Media Services är en molnbaserad plattform för att skapa lösningar för videor i sändningskvalitet för direktuppspelning, förbättra tillgängligheten och distributionen, analysera innehållet och mycket mer. Om du är en programutvecklare, ett callcenter, en myndighet eller ett underhållningsföretag kan Media Services hjälpa dig att skapa program som levererar medieupplevelser med fantastisk kvalitet för stora målgrupper på dagens populäraste mobila enheter och webbläsare. 
 
@@ -49,40 +49,44 @@ Media Services hjälper dig att skapa en mängd olika mediearbetsflöden i molne
 Lär dig hur du kodar och paketerar innehåll, strömmar videor på begäran, sänder live och analyserar dina videoklipp med Media Services v3. Självstudier, API-referenser och annan dokumentation visar hur du säkert levererar ljud- eller videoströmmar på begäran och live, som kan skalas till miljontals användare.
 
 > [!TIP]
-> Innan du börjar utveckla i:<br/>* [Grundläggande begrepp](concepts-overview.md) (incudes viktiga begrepp: paketering, kodning, skydda, osv.)<br/>* [Utveckla med API: er för Media Services v3](media-services-apis-overview.md) (innehåller information om hur du använder API: er, namngivningskonventioner, osv.)
+> Innan du börjar utveckla bör du gå igenom följande:<br/>* [Grundläggande begrepp](concepts-overview.md) (incudes viktiga begrepp: paketering, kodning, skydd osv.)<br/>* [Utveckla med Media Services v3-API: er](media-services-apis-overview.md) (innehåller information om åtkomst till API: er, namn konventioner osv.)
 
 ### <a name="quickstarts"></a>Snabbstarter  
 
-Snabbstarterna visar grundläggande dag 1 anvisningar för nya kunder kan snabbt komma igång med Media Services.
+Snabb starterna visar grundläggande dags-1-instruktioner för nya kunder för att snabbt testa Media Services.
 
-* [Stream videofiler – .NET](stream-files-dotnet-quickstart.md)
-* [Stream videofiler – CLI](stream-files-cli-quickstart.md)
-* [Stream videofiler – Node.js](stream-files-nodejs-quickstart.md)
+* [Strömma videofiler – .NET](stream-files-dotnet-quickstart.md)
+* [Strömma videofiler – CLI](stream-files-cli-quickstart.md)
+* [Strömma videofiler-Node. js](stream-files-nodejs-quickstart.md)
     
 ### <a name="tutorials"></a>Självstudier 
 
-Självstudierna visar scenario-baserade procedurer för några av de viktigaste uppgifterna för Media Services.
+Självstudierna visar scenariobaserade procedurer för några av de främsta Media Services uppgifterna.
 
 * [Koda fjärrfil och strömma video – REST](stream-files-tutorial-with-rest.md)
-* [Koda överförda filen och strömma video – .NET](stream-files-tutorial-with-api.md)
-* [Stream live – .NET](stream-live-tutorial-with-api.md)
+* [Koda uppladdad fil och strömma video – .NET](stream-files-tutorial-with-api.md)
+* [Strömma live – .NET](stream-live-tutorial-with-api.md)
 * [Analysera din video – .NET](analyze-videos-tutorial-with-api.md)
 * [AES-128 dynamisk kryptering – .NET](protect-with-aes128.md)
     
+### <a name="samples"></a>Exempel
+
+Använd [den här exempel webbläsaren](https://docs.microsoft.com/samples/browse/?products=azure-media-services) för att bläddra bland Azure Media Services kod exempel.
+
 ### <a name="how-to-guides"></a>Instruktionsguider
 
-Artiklar innehåller exempel som visar hur du utför en uppgift. I det här avsnittet hittar du många exempel, här är några av dem:
+Artiklar innehåller kod exempel som visar hur du utför en uppgift. I det här avsnittet hittar du många exempel. här är några exempel:
 
 * [Skapa ett konto – CLI](create-account-cli-how-to.md)
 * [Använd API:er – CLI](access-api-cli-how-to.md)
-* [Koda med HTTPS som indata - jobb .NET](job-input-from-http-how-to.md)  
+* [Koda med HTTPS som Job-inkommande – .NET](job-input-from-http-how-to.md)  
 * [Övervaka händelser – Portal](monitor-events-portal-how-to.md)
-* [Kryptera dynamiskt med multi-DRM - .NET](protect-with-drm.md) 
-* [Koda med en anpassad transformering – CLI](custom-preset-cli-howto.md)
+* [Kryptera dynamiskt med multi-DRM-.NET](protect-with-drm.md) 
+* [Koda med en anpassad Transform-CLI](custom-preset-cli-howto.md)
 
-## <a name="ask-questions-give-feedback-get-updates"></a>Ställ frågor, ge feedback, få uppdateringar
+## <a name="ask-questions-give-feedback-get-updates"></a>Ställ frågor, ge feedback, hämta uppdateringar
 
-Kolla in den [Azure Media Services-community](media-services-community.md) artikeln olika sätt du kan ställa frågor, ge feedback och få uppdateringar om Media Services.
+Kolla in [Azure Media Services community](media-services-community.md) -artikeln för att se olika sätt att ställa frågor, lämna feedback och få uppdateringar om Media Services.
 
 ## <a name="next-steps"></a>Nästa steg
 

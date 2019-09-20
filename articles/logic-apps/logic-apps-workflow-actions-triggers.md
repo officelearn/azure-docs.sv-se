@@ -52,10 +52,10 @@ Utlösare har dessa toppnivå element, även om några är valfria:
 
 | Value | type | Beskrivning | 
 |-------|------|-------------| 
-| <*trigger-name*> | Sträng | Namnet på utlösaren | 
-| <*trigger-type*> | Sträng | Utlösarens typ, till exempel "http" eller "ApiConnection" | 
+| <*trigger-name*> | String | Namnet på utlösaren | 
+| <*trigger-type*> | String | Utlösarens typ, till exempel "http" eller "ApiConnection" | 
 | <*trigger-inputs*> | JSON-objekt | De indata som definierar utlösarens beteende | 
-| <*tidsenhet*> | Sträng | Den tidsenhet som beskriver hur ofta utlösaren utlöses: "Sekund", "minut", "timme", "dag", "vecka", "månad" | 
+| <*tidsenhet*> | String | Den tidsenhet som beskriver hur ofta utlösaren utlöses: "Sekund", "minut", "timme", "dag", "vecka", "månad" | 
 | <*number-of-time-units*> | Integer | Ett värde som anger hur ofta utlösaren utlöses utifrån frekvensen, vilket är antalet tidsenheter som ska vänta tills utlösaren utlöses igen <p>Här följer de lägsta och högsta intervallen: <p>Månaderna 1-16 månader </br>Dagen 1-500 dagar </br>Timkostnad 1 – 12000 timmar </br>Minut 1 – 72000 minuter </br>Senare 1 – 9999999 sekunder<p>Om intervallet till exempel är 6 och frekvensen är "månad" är upprepningen var 6: a månad. | 
 |||| 
 

@@ -15,18 +15,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: banders
-ms.openlocfilehash: 16b2eaef74a7aa0e3e28bfcbb6dbd9da568db6cf
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: 45f4a45828501afea52f0ad522c3f3f6777f7ccd
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "67491410"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71057708"
 ---
 # <a name="download-or-view-your-azure-billing-invoice-and-daily-usage-data"></a>Ladda ned eller visa din Azure-faktura och information om den dagliga användningen
 
 För de flesta prenumerationer kan du ladda ned din faktura från [Azure-portalen](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) eller få den skickad via e-post. Om du är en Azure-kund med ett Enterprise-avtal (EA-kund) kan du inte ladda ned organisationens fakturor. Fakturorna skickas till den person som tar emot fakturor för registreringen.
 
-Om du är EA-kund eller har ett [Microsoft-kundavtal](#check-access-to-a-microsoft-customer-agreement) kan du ladda ned användningsinformation från [Azure-portalen](https://portal.azure.com/). För andra prenumerationer går du till [Azure-kontocentret](https://account.azure.com/Subscriptions) om du vill ladda ned användningsinformation.
+Om du är EA-kund eller har ett [Microsoft-kundavtal](#check-access-to-a-microsoft-customer-agreement) kan du ladda ned användningsinformation från [Azure-portalen](https://portal.azure.com/).
 
 Det är däremot endast vissa roller som har behörighet att hämta faktura- och användningsinformation, bland annat kontoadministratören och företagsadministratören. Läs mer om att få åtkomst till faktureringsinformation på sidan om att [hantera åtkomst till Azure-fakturering med hjälp av roller](billing-manage-access.md).
 
@@ -46,11 +46,13 @@ För de flesta prenumerationer kan du ladda ned dina fakturor från Azure-portal
 
     ![Skärmbild som visar alternativet för fakturering och användning](./media/billing-download-azure-invoice-daily-usage-date/billingandusage.png)
 
-3. Klicka på **Hämta faktura** om du vill se en kopia av PDF-fakturan. Om du ser texten **Inte tillgänglig** kan du läsa mer under [Varför visas ingen faktura för den senaste faktureringsperioden?](#noinvoice)
+3. Klicka på nedladdningsknappen för att ladda ned en kopia av PDF-fakturan och välj sedan **Ladda ned faktura**. Om du ser texten **Inte tillgänglig** kan du läsa mer under [Varför visas ingen faktura för den senaste faktureringsperioden?](#noinvoice)
 
-    ![Skärmbild som visar faktureringsperioder, nedladdningsalternativet och de totala avgifterna för varje faktureringsperiod](./media/billing-download-azure-invoice-daily-usage-date/billing4.png)
+    ![Skärmbild som visar faktureringsperioder, nedladdningsalternativet och de totala avgifterna för varje faktureringsperiod](./media/billing-download-azure-invoice-daily-usage-date/downloadinvoice.png)
 
-4. Du kan också visa din dagliga användning genom att klicka på faktureringsperioden.
+4. Du kan även ladda ned en daglig uppdelning av förbrukade kvantiteter och beräknade avgifter genom att klicka på **Ladda ned csv**.
+
+    ![Skärmbild som visar Ladda ned faktura och förbrukningssidan](./media/billing-download-azure-invoice-daily-usage-date/usageandinvoice.png)
 
 Läs mer om din faktura i [Förstå fakturan för Microsoft Azure](billing-understand-your-bill.md). Om du behöver hjälp att hantera dina kostnader kan du läsa [Förhindra oväntade kostnader med Azure-fakturering och kostnadshantering](billing-getting-started.md).
 
@@ -62,7 +64,7 @@ Fakturor skapas för varje [faktureringsprofil](billing-mca-overview.md#billing-
 2. Välj en faktureringsprofil.
 3. Välj **Fakturor**.
 4. Leta rätt på raden med fakturan du vill ladda ned i rutnätet.
-5. Klicka på ellipsen (`...`) i slutet av raden.
+5. Klicka på nedladdningsknappen i slutet av raden.
 6. Välj **Faktura** på snabbmenyn för nedladdningen.
 
 Om du inte ser någon faktura för den senaste faktureringsperioden kan du läsa **Ytterligare information**. <!-- Fix this -->
@@ -119,37 +121,19 @@ Om du har ett Microsoft-kundavtal kan du anmäla dig för att få dina fakturor 
 
 Du kan välja att inte få din faktura via e-post genom att följa stegen ovan och klicka på **Avanmäl dig**. Alla ägare, deltagare, läsare och fakturaansvariga avanmäls också från att få fakturan via e-post. Om du är läsare kan du inte ändra e-postinställningarna.
 
-## <a name="download-usage"></a>Ladda ned användning
+## <a name="download-usage-in-azure-portal"></a>Nedladdningsförbrukning i Microsoft Azure-portalen
 
- För de flesta prenumerationer hittar du filen med din dagliga användning i [Azure-kontocentret](https://account.azure.com/Subscriptions). Om du är EA-kund eller har ett Microsoft-kundavtal kan du ladda ned användningsinformation från [Azure-portalen](https://portal.azure.com/). <!-- TO DO: update PayG experience to Ibiza once it ships-->
+ För de flesta prenumerationer kan du följa följande steg för att hitta din dagliga användning:
 
-### <a name="download-usage-from-the-account-center-csv"></a>Ladda användningsinformation från kontocentret (.csv)
+1. Välj prenumerationen på sidan [Prenumerationer](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) i Azure-portalen som [en användare med åtkomst till fakturor](billing-manage-access.md).
 
-1. Logga in i [Azure-kontocentret](https://account.windowsazure.com/subscriptions) som kontoadministratör.
+2. Välj **Fakturor**.
 
-2. Välj den prenumeration som du vill ha användningsinformation och faktura för.
+    ![Skärmbild som visar alternativet för fakturering och användning](./media/billing-download-azure-invoice-daily-usage-date/billingandusage.png)
 
-3. Välj **FAKTURERINGSHISTORIK**.
+3. Klicka på nedladdningsknappen för en fakturaperiod som du vill kontrollera.
 
-    ![Skärmbild som visar alternativet faktureringshistorik](./media/billing-download-azure-invoice-daily-usage-date/Billinghisotry.png)
-
-4. Du ser utdrag för de senaste sex faktureringsperioderna och den aktuella, ännu inte fakturerade perioden.
-
-    ![Skärmbild som visar faktureringsperioder, alternativ för att ladda ned faktura och daglig användning och de totala avgifterna för varje faktureringsperiod](./media/billing-download-azure-invoice-daily-usage-date/billingSum.png)
-
-5. Välj **Visa aktuellt meddelande** om du vill se en uppskattning av dina avgifter, vid den tidpunkt då uppskattningen genererades. Den här informationen uppdateras bara en gång per dygn och kanske inte omfattar all användning. Din månadsfaktura behöver inte matcha den här uppskattningen.
-
-    ![Skärmbild som visar alternativet Visa aktuellt meddelande](./media/billing-download-azure-invoice-daily-usage-date/billingSum2.png)
-
-    ![Skärmbild som visar en uppskattning av aktuella avgifter](./media/billing-download-azure-invoice-daily-usage-date/billingSum3.png)
-
-6. Välj **Ladda ned användning** om du vill ladda ned dina dagliga användningsdata som en CSV-fil. Om det finns två tillgängliga versioner laddar du ned version två.
-
-    ![Skärmbild som visar alternativet Ladda ned användning](./media/billing-download-azure-invoice-daily-usage-date/DLusage.png)
-
-Endast kontoadministratören har åtkomst till Azure-kontocentret. Andra faktureringsadministratörer, till exempel ägare, kan få användningsinformation via [API:erna för fakturering](billing-usage-rate-card-overview.md).
-
-Läs mer om din dagliga användning i [Förstå fakturan för Microsoft Azure](billing-understand-your-bill.md). Om du behöver hjälp att hantera dina kostnader kan du läsa [Förhindra oväntade kostnader med Azure-fakturering och kostnadshantering](billing-getting-started.md).
+4. Ladda ned en daglig uppdelning av förbrukade kvantiteter och beräknade avgifter genom att klicka på **Ladda ned csv**.  Det kan ta några minuter att förbereda csv-filen.
 
 ### <a name="download-usage-for-ea-customers"></a>Ladda ned användningsdata för EA-kunder
 

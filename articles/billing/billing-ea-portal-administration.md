@@ -4,16 +4,16 @@ description: I den här artikeln förklaras några vanliga uppgifter som adminis
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 09/09/2019
+ms.date: 09/18/2019
 ms.topic: conceptual
 ms.service: billing
 manager: boalcsva
-ms.openlocfilehash: 7b594cef2fefa164ef900cbfd65fcf95d5d47b94
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: 236a8d6d280e75102df84fec5ab3df51f7ba355b
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70901142"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71105488"
 ---
 # <a name="azure-ea-portal-administration"></a>Administration i Azure EA-portalen
 
@@ -23,7 +23,7 @@ I den här artikeln förklaras några vanliga uppgifter som administratörer utf
 
 Företagsadministratörer har fullständig behörighet i hanteringen av en Azure EA-registrering. Den första Azure EA-administratören skapades när EA-avtalet tecknades. Du kan dock när som helst lägga till och ta bort administratörer. Det är bara befintliga administratörer som kan lägga till nya administratörer. Du kan läsa mer om att lägga till fler företagsadministratörer i [Skapa en ny företagsadministratör](billing-ea-portal-get-started.md#create-another-enterprise-admin). Mer information om roller och uppgifter för faktureringsprofiler finns i [Roller och uppgifter för faktureringsprofiler](billing-understand-mca-roles.md#billing-profile-roles-and-tasks).
 
-## <a name="update-user-state-from-pending-to-active"></a>Uppdatera användares status från Väntar till Aktiv
+## <a name="update-user-state-from-pending-to-active"></a>Uppdatera användarstatus från Väntar till Aktiv
 
 När nya kontoinnehavare först läggs till i en Azure EA-registrering är deras status _väntande_. När en ny kontoinnehavare får sitt aktiveringsmail kan kontoinnehavaren logga in och aktivera sitt konto. När kontoinnehavaren aktiverar sitt konto uppdateras kontostatusen från _väntande_ till _aktiv_. Nya användare kan uppmanas att ange sitt för- och efternamn och skapa ett handelskonto. I så fall måste personen ange den nödvändiga informationen innan kontot aktiveras.
 

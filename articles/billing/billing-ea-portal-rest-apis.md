@@ -4,16 +4,16 @@ description: I den här artikeln beskrivs de REST-API:er du använder med din Az
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 09/09/2019
+ms.date: 09/18/2019
 ms.topic: conceptual
 ms.service: billing
 manager: boalcsva
-ms.openlocfilehash: 4b56ef09525473920c5f5925485aae9c793ecc04
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: a8cf0d2eb87a823ee4b1d27484e7ea8d89c1abfc
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70900870"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71105443"
 ---
 # <a name="azure-enterprise-rest-apis"></a>REST-API:er för Azure Enterprise
 
@@ -31,7 +31,7 @@ Microsoft Enterprise Azure-kunder kan få information om användning och fakture
 
 **Kostnader för Marketplace Store** – [API:et för kostnader för Marketplace Store](billing-enterprise-api-marketplace-storecharge.md) returnerar en uppdelning av de användningsbaserade kostnaderna för Marketplace per dag under den angivna faktureringsperioden eller per start- och slutdatum. Du kan läsa mer i [Rapport-API:er för Enterprise-kunder – kostnader för Marketplace Store](/rest/api/billing/enterprise/billing-enterprise-api-marketplace-storecharge).
 
-**Prisdokument** – [API:et för prisdokument](/billing-enterprise-api-pricesheet.md) returnerar relevant pris för respektive mätare för en registrering och faktureringsperiod. Du kan läsa mer i [Rapport-API:er för Enterprise-kunder – prisdokument](/rest/api/billing/enterprise/billing-enterprise-api-pricesheet).
+**Prisdokument** – [API:et för prisdokument](/rest/api/billing/enterprise/billing-enterprise-api-pricesheet) returnerar relevant pris för respektive mätare för en registrering och faktureringsperiod. Du kan läsa mer i [Rapport-API:er för Enterprise-kunder – prisdokument](/rest/api/billing/enterprise/billing-enterprise-api-pricesheet).
 
 **Faktureringsperioder** – [API:et för faktureringsperioder](billing-enterprise-api-billing-periods.md) returnerar en lista med faktureringsperioder som har förbrukningsdata för en registrering i omvänd kronologisk ordning. Varje period innehåller en egenskap som pekar på API-vägen för de fyra datauppsättningarna BalanceSummary, UsageDetails, MarketplaceCharges och PriceSheet. Du kan läsa mer i [Rapport-API:er för Enterprise-kunder – faktureringsperioder](/rest/api/billing/enterprise/billing-enterprise-api-billing-periods).
 
@@ -68,7 +68,7 @@ Gör så här om du vill ge API-åtkomstnycklar till personer i registreringen s
 
 Skicka API-nyckeln i varje anrop för autentisering och auktorisering. Skicka följande egenskap till HTTP-huvuden:
 
-| Nyckel i huvud | Värde |
+| Nyckel för begärandehuvud | Värde |
 | --- | --- |
 | Auktorisering | Ange värdet på det här formatet: **bearer {API\_KEY}**
 Exempel: bearer \&lt;APIKey\&gt; |
@@ -81,7 +81,7 @@ Det finns en Swagger-slutpunkt vid [Enterprise Reporting v3-API:erna](https://co
 
 När du använder ett API returneras statuskoder. De beskrivs i följande tabell.
 
-| Returnerad statuskod | Meddelande | Beskrivning |
+| Statuskod för svar | Meddelande | Beskrivning |
 | --- | --- | --- |
 | 200 | OK | Inget fel |
 | 401 | Behörighet saknas | Det gick inte att hitta API-nyckeln – ogiltig, har gått ut eller liknande |
@@ -109,7 +109,7 @@ Följande information beskriver egenskaperna för API-rapporter.
 
 JSON-formatet genereras från CSV-rapporten. Formatet är därför detsamma som formatet i CSV-sammanfattningen. Kolumnnamnet är sammansatt, så du bör deserialisera till en datatabell när du använder JSON-sammanfattningsdata.
 
-| CSV-kolumnnamn | Json-kolumnnamn | Ny Json-kolumn | Kommentar |
+| CSV-kolumnnamn | JSON-kolumnnamn | Ny JSON-kolumn | Kommentar |
 | --- | --- | --- | --- |
 | AccountOwnerId | AccountOwnerLiveId | AccountOwnerLiveId |   |
 | Kontonamn | AccountName | AccountName |   |
@@ -145,7 +145,7 @@ JSON-formatet genereras från CSV-rapporten. Formatet är därför detsamma som 
 
 #### <a name="azure-marketplace-report"></a>Azure Marketplace-rapport
 
-| CSV-kolumnnamn | Json-kolumnnamn | Ny Json-kolumn |
+| CSV-kolumnnamn | JSON-kolumnnamn | Ny JSON-kolumn |
 | --- | --- | --- |
 | AccountOwnerId | AccountOwnerId | AccountOwnerId |
 | Kontonamn | AccountName | AccountName |
@@ -174,7 +174,7 @@ JSON-formatet genereras från CSV-rapporten. Formatet är därför detsamma som 
 
 #### <a name="price-sheet"></a>Prisdokument
 
-| CSV-kolumnnamn | Json-kolumnnamn | Kommentar |
+| CSV-kolumnnamn | JSON-kolumnnamn | Kommentar |
 | --- | --- | --- |
 | Tjänst | Tjänst |  Ingen ändring av priset |
 | Måttenhet | UnitOfMeasure |   |

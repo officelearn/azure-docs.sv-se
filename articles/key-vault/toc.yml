@@ -92,6 +92,10 @@
           href: create-certificate-scenarios.md
 - name: Instruktionsguider
   items:
+    - name: Säkerhet
+      items:
+        - name: Rekommendationer
+          href: security-recommendations.md
     - name: Använda en hanterad identitet i App Service
       href: managed-identity.md
     - name: Azure Key Vault-loggning

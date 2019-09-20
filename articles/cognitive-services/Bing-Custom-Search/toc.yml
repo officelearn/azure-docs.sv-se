@@ -31,6 +31,8 @@
               href: sdk-csharp-quick-start.md
             - name: Använda Python
               href: sdk-python-quickstart.md
+            - name: Använda Java
+              href: sdk-java-quickstart.md
 - name: Självstudier
   items:
     - name: Skapa en webbsida för anpassad sökning

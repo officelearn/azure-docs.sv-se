@@ -10,12 +10,12 @@ ms.service: cognitive-services
 ms.topic: article
 ms.date: 8/21/2019
 ms.author: dapine
-ms.openlocfilehash: ae4b4b13e81bc000bc0675c80c09101cc4369bc1
-ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
+ms.openlocfilehash: eac9264a98c6224af56618e439a1cd3f00f7157c
+ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 09/19/2019
-ms.locfileid: "71130127"
+ms.locfileid: "71146822"
 ---
 # <a name="container-support-in-azure-cognitive-services"></a>Stöd för behållare i Azure Cognitive Services
 
@@ -49,7 +49,7 @@ Azure Cognitive Services-behållare ger följande uppsättning Docker-behållare
 | Tjänsten | Pris nivå som stöds | Container | Beskrivning |
 |---------|----------|----------|-------------|
 |[Avvikelse detektor][ad-containers] |F0, S0|**Avvikelser-detektor** |Med API: t för avvikelse identifiering kan du övervaka och identifiera avvikelser i dina Time Series-data med Machine Learning.<br>[Begär åtkomst](https://aka.ms/adcontainer)|
-|[Visuellt innehåll][cv-containers] |F0, S1|**Läsa** |Extraherar ut text från bilder för olika objekt med olika ytor och bakgrunder, till exempel kvitton och affischer visitkort. I Läs behållaren identifieras även *handskriven text* i bilder och innehåller stöd för PDF/TIFF/flera sidor.<br/><br/>**Viktigt:** Behållaren identifiera Text fungerar för närvarande bara på engelska.<br>[Begär åtkomst](Computer-vision/computer-vision-how-to-install-containers.md#request-access-to-the-private-container-registry)|
+|[Visuellt innehåll][cv-containers] |F0, S1|**Läsa** |Extraherar ut text från bilder för olika objekt med olika ytor och bakgrunder, till exempel kvitton och affischer visitkort. I Läs behållaren identifieras även *handskriven text* i bilder och innehåller stöd för PDF/TIFF/flera sidor.<br/><br/>**Viktigt:** Läs behållaren fungerar för närvarande endast med engelska.<br>[Begär åtkomst](Computer-vision/computer-vision-how-to-install-containers.md#request-access-to-the-private-container-registry)|
 |[Visuellt innehåll][cv-containers] |F0, S1|**Identifiera Text** |Extraherar ut text från bilder för olika objekt med olika ytor och bakgrunder, till exempel kvitton och affischer visitkort.<br/><br/>**Viktigt:** Behållaren identifiera Text fungerar för närvarande bara på engelska.<br>[Begär åtkomst](Computer-vision/computer-vision-how-to-install-containers.md#request-access-to-the-private-container-registry)|
 |[Ansikte][fa-containers] |F0, S0|**Ansikte** |Identifierar ansikten i bilder och identifierar attribut, inklusive ansiktslandmärken (till exempel och rörliga och ögon), kön, ålder och andra dator-förväntad ansiktsdrag. Förutom identifiering Kontrollera ansikte om två ansikten i samma bild eller olika bilder är samma med hjälp av ett förtroenderesultat eller jämföra ansikten mot en databas för att se om en likartade eller identiska ansikte finns redan. Det kan även sortera liknande ansikten i grupper, med hjälp av delade visual egenskaper.<br>[Begär åtkomst](Face/face-how-to-install-containers.md#request-access-to-the-private-container-registry) |
 |[Formulär igenkänning][fr-containers] |F0, S0|**Formulär igenkänning** |Forms förståelse använder Machine Learning-teknik för att identifiera och extrahera nyckel/värde-par och tabeller från formulär.<br>[Begär åtkomst](https://aka.ms/FormRecognizerContainerRequestAccess)|

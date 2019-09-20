@@ -1,6 +1,6 @@
 ---
-title: 'Få Azure-användning med Azure Billing API: er | Microsoft Docs'
-description: Läs mer om Azure-fakturering användning och RateCard APIs som används för att ge insikter om Azure resursförbrukning och trender.
+title: Hämta Azure-användning med API:er för Azure-fakturering | Microsoft Docs
+description: Lär dig mer om API:erna för Azure-fakturering och RateCard och få information om resursförbrukning och trender i Azure.
 services: ''
 documentationcenter: ''
 author: tonguyen
@@ -17,50 +17,50 @@ ms.date: 5/10/2018
 ms.author: banders
 ms.custom: seodec18
 ms.openlocfilehash: 4756c7abcb354e0b72c8a95c9d2df4bb3a14671a
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
-ms.translationtype: MT
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2019
+ms.lasthandoff: 09/11/2019
 ms.locfileid: "68443022"
 ---
-# <a name="use-azure-billing-apis-to-programmatically-get-insight-into-your-azure-usage"></a>Använd Azure Billing API: er för att programmässigt få insikt i din Azure-användning
-Använda Azure Billing API: er att hämta användnings- och data till din önskade analysverktyg. Azures API:er för resursanvändning och RateCard kan hjälpa dig att korrekt förutse och hantera dina kostnader. API: er implementeras som en Provider för nätverksresurser och en del av familjen av API: er som exponeras av Azure Resource Manager.  
+# <a name="use-azure-billing-apis-to-programmatically-get-insight-into-your-azure-usage"></a>Använd API:erna för Azure-fakturering för att få programmatisk insyn i din Azure-användning
+Använd API:er för Azure-fakturering för att hämta användnings- och resursdata till önskat dataanalysverktyg. Azures API:er för resursanvändning och RateCard kan hjälpa dig att korrekt förutse och hantera dina kostnader. API:erna implementeras som en resursprovider och en del av familjen av API:er som exponeras av Azure Resource Manager.  
 
-## <a name="azure-invoice-download-api-preview"></a>API för nedladdning av faktura för Azure (förhandsversion)
-När den [anmälan har slutförts](billing-manage-access.md#opt-in), ladda ned fakturor med hjälp av förhandsversionen av [faktura API](/rest/api/billing). Funktionerna omfattar:
+## <a name="azure-invoice-download-api-preview"></a>API för nedladdning av Azure-fakturor (förhandsversion)
+När [registreringen är klar](billing-manage-access.md#opt-in) kan du ladda ned fakturor med [förhandsversionen av API:et för fakturor](/rest/api/billing). Här följer exempel på några funktioner:
 
-* **Azure rollbaserad åtkomstkontroll** -konfigurera åtkomstprinciper på den [Azure-portalen](https://portal.azure.com) eller via [Azure PowerShell-cmdlets](/powershell/azure/overview) att ange vilka användare eller program kan få åtkomst till den Prenumerationens användningsdata. Anropare måste använda standard Azure Active Directory-token för autentisering. Lägg till anroparen till antingen den Billing Reader, läsare, ägare eller deltagare roll för att få åtkomst till användningsdata för en viss Azure-prenumeration.
-* **Datum filtrering** – Använd den `$filter` parametern för att hämta alla fakturor i omvänd kronologisk ordning av periodslut fakturadatum.
+* **Rollbaserad åtkomstkontroll i Azure** – Konfigurera åtkomstprinciper på [Azure-portalen](https://portal.azure.com) eller med [Azure PowerShell-cmdlets](/powershell/azure/overview) för att ange vilka användare eller program som kan komma åt prenumerationens användningsinformation. Anropare måste använda Azure Active Directory-standardtoken för autentisering. Lägg till anroparen till någon av rollerna Faktureringsläsare, Läsare, Ägare eller Deltagare för att få åtkomst till användningsdata för en specifik Azure-prenumeration.
+* **Datumfiltrering** – Använd `$filter`-parametern för att hämta alla fakturor i omvänd kronologisk ordning efter faktureringsperiodens slutdatum.
 
 > [!NOTE]
-> Den här funktionen är i första versionen av förhandsgranskning och kan vara föremål för bakåtkompatibilitet inkompatibel ändringar. För närvarande, är det inte tillgänglig för vissa prenumerationserbjudanden (EA, CSP, AIO som inte stöds) och Azure Germany.
+> Den här funktionen är i den första förhandsversionen och den ändras på sätt som påverkar bakåtkompatibiliteten. För närvarande, är den inte tillgänglig för vissa prenumerationserbjudanden (EA, CSP, AIO stöds inte) och Azure Germany.
 
-## <a name="azure-resource-usage-api-preview"></a>Azure-Resursanvändning API (förhandsversion)
-Använd Azure [Resource användning API](/previous-versions/azure/reference/mt219003(v=azure.100)) att hämta uppskattad Azure-förbrukning-data. API: et innehåller:
+## <a name="azure-resource-usage-api-preview"></a>API för Azure-resursanvändning (förhandsversion)
+Använd [API:et för Azure-resursanvändning](/previous-versions/azure/reference/mt219003(v=azure.100)) för att hämta information om din beräknade Azure-användning. API:et ger tillgång till:
 
-* **Azure rollbaserad åtkomstkontroll** -konfigurera åtkomstprinciper på den [Azure-portalen](https://portal.azure.com) eller via [Azure PowerShell-cmdlets](/powershell/azure/overview) att ange vilka användare eller program kan få åtkomst till den Prenumerationens användningsdata. Anropare måste använda standard Azure Active Directory-token för autentisering. Lägg till anroparen till antingen den Billing Reader, läsare, ägare eller deltagare roll för att få åtkomst till användningsdata för en viss Azure-prenumeration.
-* **Varje timme eller varje dag** – anropare ange buckets om de vill ha sina data i Azure-användning i per timme eller varje dag buckets. Standardvärdet är varje dag.
-* **Instans-metadata (inklusive resurstaggar)** – hämta instansnivå information som fullständigt kvalificerade resurs-uri (/subscriptions/ {prenumerations-id} /...), grupp resursinformationen och resurstaggar. Dessa metadata kan du deterministiskt och programmässigt allokera användning efter taggar, för användningsfall som cross-debitering.
-* **Resursmetadata** -resursinformation som mätningsnamn, underkategori, underkategori för mätning, enhet och region ger anroparen en bättre förståelse för vad som förbrukades. Vi arbetar även om du vill justera resursen metadata terminologi för Azure-portalen, Azure-användning CSV, EA fakturering CSV och andra offentliga upplevelser, så att du kan korrelera data över upplevelser.
-* **Användningen av olika erbjudandetyper** – användningsdata är tillgängliga för typer av erbjudanden som betalar per användning, MSDN, monetära åtaganden, kredit och EA, utom [CSP](https://docs.microsoft.com/azure/cloud-solution-provider/billing/azure-csp-invoice#retrieve-usage-data-for-a-specific-subscription).
+* **Rollbaserad åtkomstkontroll i Azure** – Konfigurera åtkomstprinciper på [Azure-portalen](https://portal.azure.com) eller med [Azure PowerShell-cmdlets](/powershell/azure/overview) för att ange vilka användare eller program som kan komma åt prenumerationens användningsinformation. Anropare måste använda Azure Active Directory-standardtoken för autentisering. Lägg till anroparen till någon av rollerna Faktureringsläsare, Läsare, Ägare eller Deltagare för att få åtkomst till användningsdata för en specifik Azure-prenumeration.
+* **Aggregeringar per timme eller dag** – Anropare kan ange om de vill samla Azure-användningsdata i containrar för varje timme eller varje dag. Standardvärdet är varje dag.
+* **Metadata för instanser (inklusive resurstaggar)** – Få information på instansnivå, t.ex. den fullständigt kvalificerade resurs-URI:n (/Subscriptions/{Subscription-ID}/..), resursgruppsinformation och resurstaggar. Med dessa metadata kan du deterministiskt och programmässigt allokera användning baserat på taggarna, exempelvis för scenarier med tvärdebitering.
+* **Metadata för resurser** – Resursinformation som mätarnamn, mätarkategori, underkategori för mätare, enhet och region gör det enklare för anroparen att förstå vad som förbrukats. Vi arbetar också med att anpassa terminologin för resursmetadata mellan Azure-portalen, CSV-filen med Azure-användning, EA-fakturering och andra offentliga gränssnitt, så att du kan korrelera data mellan olika upplevelser.
+* **Användning för olika typer av erbjudanden** – Användningsdata är tillgängliga för erbjudandetyper som Betala per användning, MSDN, utgiftsåtagande, penningkredit och EA, förutom [CSP](https://docs.microsoft.com/azure/cloud-solution-provider/billing/azure-csp-invoice#retrieve-usage-data-for-a-specific-subscription).
 
-## <a name="azure-resource-ratecard-api-preview"></a>Azure-resurs RateCard-API (förhandsversion)
-Använd den [RateCard-API för Azure Resource](/previous-versions/azure/reference/mt219005(v=azure.100)) att hämta listan över tillgängliga Azure-resurser och uppskattade prisinformationen för varje. API: et innehåller:
+## <a name="azure-resource-ratecard-api-preview"></a>RateCard-API för Azure-resurser (förhandsversion)
+Använd [RateCard-API:et för Azure-resurser](/previous-versions/azure/reference/mt219005(v=azure.100)) för att hämta en lista över tillgängliga Azure-resurser och information om beräknade priser för var och en. API:et ger tillgång till:
 
-* **Azure rollbaserad åtkomstkontroll** -konfigurera dina åtkomstprinciper på den [Azure-portalen](https://portal.azure.com) eller via [Azure PowerShell-cmdlets](/powershell/azure/overview) att ange vilka användare eller program kan få åtkomst till den RateCard data. Anropare måste använda standard Azure Active Directory-token för autentisering. Lägg till anroparen läsare, ägare eller deltagare rollen för att få åtkomst till användningsdata för en viss Azure-prenumeration.
-* **Stöd för betala per användning, MSDN, monetära åtaganden och krediterbjudanden (EA och [CSP](https://docs.microsoft.com/azure/cloud-solution-provider/billing/azure-csp-pricelist#get-prices-by-using-the-azure-rate-card) stöds inte)** -API: et tillhandahåller Azure erbjudandet på servernivå rate information.  Anroparen av detta API måste klara i erbjudandeinformation att få information om resursen och priser. Vi kan för närvarande inte att tillhandahålla EA-priser eftersom EA erbjudanden har anpassat kostnader per registrering.
+* **Rollbaserad åtkomstkontroll i Azure** – Konfigurera dina åtkomstprinciper på [Azure-portalen](https://portal.azure.com) eller med [Azure PowerShell-cmdlets](/powershell/azure/overview) för att ange vilka användare eller program som kan komma åt RateCard-informationen. Anropare måste använda Azure Active Directory-standardtoken för autentisering. Lägg till anroparen till Rollen Läsare, Ägare eller Deltagare för att få åtkomst till användningsdata för en viss Azure-prenumeration.
+* **Stöd för erbjudandetyperna Betala per användning, MSDN, betalningsåtagande och penningkredit (EA och [CSP](https://docs.microsoft.com/azure/cloud-solution-provider/billing/azure-csp-pricelist#get-prices-by-using-the-azure-rate-card) stöds inte)** – Det här API:et tillhandahåller information på nivån för Azure-erbjudanden.  Anroparen för det här API:et måste skicka information om erbjudandet för att få resursinformation och priser. Vi kan för närvarande inte uppge EA-priser eftersom EA-erbjudanden har anpassade priser per registrering.
 
 ## <a name="scenarios"></a>Scenarier
-Här följer några scenarier som möjliggörs med en kombination av användning och RateCard-APIs:
+Här är exempel på några av de scenarier som är möjliga med kombinationen av användnings- och RateCard-API:erna:
 
-* **Azure-kostnader under månaden** – Använd en kombination av användning och RateCard APIs du får bättre insikter om ditt moln spendera under månaden. Du kan analysera per timme och dagliga buckets för användning och avgifter beräkningar.
-* **Ställa in aviseringar** – Använd användning och RateCard-APIs för att få uppskattade molnförbrukning och kostnader och konfigurera resurs- eller monetära-baserade aviseringar.
-* **Förutsäga faktura** – Get din uppskattade förbrukning och molnet spendera och använda machine learning-algoritmer för att förutsäga fakturan skulle vara i slutet av faktureringsperioden.
-* **Före förbrukningskostnad analysis** – Använd RateCard-API för att förutspå hur mycket din faktura är för din förväntade användning när du flyttar dina arbetsbelastningar till Azure. Om du har befintliga arbetsbelastningar i andra moln eller privata moln du kan också mappa din användning med Azure priserna för att få en bättre uppfattning av Azure-utgifter. Den här beräkningen ger dig möjlighet att pivotera erbjudande, och jämför och kontrastera mellan olika erbjudandetyper utöver betala per användning, som summa i förskott och kredit. API: et även ger dig möjlighet att se skillnaderna kostnaden per region och kan du göra en vad om kostnadsanalys som hjälper dig att distributionsbeslut.
+* **Azure-utgifter under månaden** – Använd användnings-API:et i kombination med RateCard-API:et för att få bättre inblick i dina molnkostnader under månaden. Du kan analysera den beräknade användningen och de beräknade kostnaderna efter timme eller dag.
+* **Konfigurera aviseringar** – Använd användnings- och RateCard-API:erna för att visa den beräknade molnanvändningen och de beräknade molnkostnaderna och konfigurera resurs- eller penningbaserade aviseringar.
+* **Förutse kostnaden** – Visa den beräknade molnanvändningen och de beräknade molnkostnaderna och använd maskininlärningsalgoritmer för att förutsäga vad kostnaden skulle bli i slutet av faktureringsperioden.
+* **Kostnadsanalys före användning** – Använd RateCard-API:et för att förutse kostnaden för din förväntade användning när du flyttar dina arbetsbelastningar till Azure. Om du har befintliga arbetsbelastningar i andra moln eller privata moln kan du även mappa din användning med Azures priser för att få en bättre kostnadsuppskattning för Azure. Den här kostnadsuppskattningen ger dig möjlighet att pivotera erbjudandet och jämföra med andra erbjudanden än Betala per användning, till exempel Betalningsåtagande och Penningkredit. Med det här API:et kan du även se kostnadsskillnader per region och göra en konsekvensanalys som hjälper dig att fatta distributionsbeslut.
 * **Konsekvensanalys** -
 
-  * Du kan fastställa om det är mer kostnadseffektivt att köra arbetsbelastningar i en annan region eller på en annan konfiguration av Azure-resursen. Kostnader för Azure-resurs kan variera beroende på Azure-region du använder.
-  * Du kan också bestämma om en annan typ av Azure-erbjudande ger ett bättre pris på en Azure-resurs.
+  * Du kan avgöra om det är mer kostnadseffektivt att köra arbetsbelastningar i en annan region eller med en annan konfiguration för Azure-resursen. Resurskostnaderna för Azure kan variera beroende på vilken Azure-region du använder.
+  * Du kan också se om priset för en Azure-resurs är bättre med en annan typ av Azure-erbjudande.
 
 
 ## <a name="next-steps"></a>Nästa steg
@@ -71,4 +71,4 @@ Här följer några scenarier som möjliggörs med en kombination av användning
 
   * [Kodexempel för API för RateCard](https://github.com/Azure-Samples/billing-dotnet-ratecard-api)
 
-* Läs mer om Azure Resource Manager i [översikt över Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
+* Mer information om Azure Resource Manager finns i [Översikt över Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).

@@ -1,6 +1,6 @@
 ---
-title: Förstå användning av Azure-reservationer för Enterprise-avtal
-description: Lär dig hur du läser din användning för att förstå hur Azure-reservationen för företags registreringen tillämpas.
+title: Förstå hur Azure-reservationer används för Enterprise-avtal
+description: Lär dig hur du läser dina användningsdata, så att du vet hur Azure-reservationen används med din Enterprise-registrering.
 author: bandersmsft
 manager: yashar
 tags: billing
@@ -12,154 +12,154 @@ ms.workload: na
 ms.date: 07/01/2019
 ms.author: banders
 ms.openlocfilehash: 507ad62a917120689bee3f1e293e23c9ab8b0f66
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
-ms.translationtype: MT
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2019
+ms.lasthandoff: 09/11/2019
 ms.locfileid: "68598093"
 ---
-# <a name="get-enterprise-agreement-reservation-costs-and-usage"></a>Få Enterprise-avtal reservations kostnader och användning
+# <a name="get-enterprise-agreement-reservation-costs-and-usage"></a>Hämta data om reservationskostnader och reservationsanvändning för Enterprise-avtal (EA)
 
-Reservations kostnader och användnings data är tillgängliga för Enterprise-avtal kunder i Azure Portal och REST-API: er. Den här artikeln hjälper dig att:
+Reservationskostnader och användningsdata är tillgängliga för Enterprise-avtalskunder från Azure-portalen och REST-API:er. I den här artikeln lär du dig hur du:
 
-- Hämta reservations inköps data
-- Vet vilken prenumeration, resurs grupp eller resurs som använts för reservationen
-- Åter betalning för reservations användning
-- Beräkna reservations besparingar
-- Hämta reservationer under användnings data
-- Amortera reservations kostnader
+- Hämtar data om reservationsköp
+- Ser vilken prenumeration, resursgrupp eller resurs som använt reservationen
+- Allokerar reservationsförbrukning
+- Beräknar reservationsbesparingar
+- Hämtar data om underutnyttjade reservationer
+- Amorterar reservationskostnader
 
-Marketplace-kostnader samlas in i användnings data. Du kan visa avgifter för första parts användning, Marketplace-användning och köp från en enda data källa.
+Marketplace-kostnaderna slås samman med användningsdata. Du kan visa avgifter för användning av tjänster från första part, Marketplace-användning och köp från en enskild datakälla.
 
-## <a name="reservation-charges-in-azure-usage-data"></a>Reservations avgifter i Azures användnings data
+## <a name="reservation-charges-in-azure-usage-data"></a>Reservationsavgifter i Azure-användningsdata
 
-Data delas upp i två separata data uppsättningar: _Verklig kostnad_ och _periodiserad kostnad_. Hur de här två data uppsättningarna skiljer sig:
+Data delas upp i två separata datauppsättningar: _Verklig kostnad_ och _Amorterad kostnad_. De två datauppsättningarna skiljer sig åt på följande sätt:
 
-**Faktisk kostnad** – tillhandahåller data för att stämma av med din månads faktura. Dessa data har reservations inköps kostnader och reservations program information. Med dessa data kan du se vilken prenumeration eller resurs grupp eller resurs som har tagit emot reservations rabatten på en viss dag. EffectivePrice för den användning som tar emot reservations rabatten är noll.
+**Faktisk kostnad** – Tillhandahåller data för avstämning med din månadsfaktura. Dessa data innehåller kostnader för reservationsköp och information om reservationsprogram. Med dessa data kan du se vilken prenumeration eller resursgrupp eller resurs som reservationsrabatten tillämpades på en viss dag. EffectivePrice för den användning som reservationsrabatten tillämpas på är noll.
 
-Beräknad **kostnad** – den här data uppsättningen liknar den faktiska kostnads data uppsättningen, förutom att-EffectivePrice för användning som erhåller reservations rabatt är den beräknade kostnaden för reservationen (i stället för noll). Detta hjälper dig att känna till det monetära värdet av reservations förbrukningen för en prenumeration, en resurs grupp eller en resurs och kan hjälpa dig att debitera dig för reservations användningen internt. Data uppsättningen har även oanvända reservations timmar. Data uppsättningen saknar reservations inköps poster. 
+**Amorterad kostnad** – Den här datauppsättningen liknar datauppsättningen Faktisk kostnad förutom att – EffectivePrice för den användning som erhåller reservationsrabatt är den beräknade kostnaden för reservationen (i stället för noll). På så sätt kan du se penningvärdet för reservationsförbrukningen för en prenumeration, en resursgrupp eller en resurs. Det gör det också enklare att allokera reservationsanvändningen internt. Datauppsättningen har även oanvända reservationstimmar. Datauppsättningen saknar poster för reservationsköp. 
 
-Jämförelse av två data uppsättningar:
+Jämförelse av två datauppsättningar:
 
-| Data | Faktisk kostnads data uppsättning | Data uppsättning för periodiserad kostnad |
+| Data | Datauppsättningen Faktisk kostnad | Datauppsättningen Amorterad kostnad |
 | --- | --- | --- |
-| Reservations köp | Tillgängligt i den här vyn.<br><br>  För att hämta det här data filtret på &quot;ChargeType&quot;= Purchase. <br><br> Se ReservationID eller ReservationName för att veta vilken reservation som avgiften avser.  | Inte tillämpligt för den här vyn. <br><br> Inköps kostnader tillhandahålls inte i periodiserade data. |
-| EffectivePrice | Värdet är noll för användning som hämtar reservations rabatt. | Värdet är per timmes beräknade kostnad för reservationen för användning med reservations rabatten. |
-| Oanvänd reservation (visar antalet timmar som reservationen inte användes under en dag och det monetära värdet för avfallet) | Inte tillämpligt i den här vyn. | Tillgängligt i den här vyn.<br><br> Filtrera på ChargeType = &quot;UnusedReservation&quot;för att hämta dessa data.<br><br>  Se ReservationID eller ReservationName för att veta vilken reservation som har underutnyttjats. Detta är hur mycket av reservationen som har avvisats för dagen.  |
-| Enhets pris (pris för resursen från pris dokumentet) | Tillgängligt | Tillgängligt |
+| Reservationsköp | Tillgängligt i den här vyn.<br><br>  Du kan hämta dessa data genom att filtrera på ChargeType = &quot;Purchase&quot;. <br><br> ReservationID eller ReservationName anger vilken reservation avgiften avser.  | Inte tillämpligt för den här vyn. <br><br> Inköpskostnader visas inte i amorterade data. |
+| EffectivePrice | Värdet är noll för användning som erhåller reservationsrabatt. | Värdet är den beräknade kostnaden per timme för den reservation som reservationsrabatten tillämpas på. |
+| Oanvänd reservation (visar antalet timmar som reservationen inte användes under en dag och penningvärdet för den outnyttjade tiden) | Inte tillämpligt i den här vyn. | Tillgängligt i den här vyn.<br><br> Du kan hämta dessa data genom att filtrera på ChargeType = &quot;UnusedReservation&quot;.<br><br>  ReservationID eller ReservationName indikerar vilken reservation som underutnyttjades. Detta avser hur mycket av reservationen som inte utnyttjades under dagen.  |
+| UnitPrice (pris för resursen från prisdokumentet) | Tillgängligt | Tillgängligt |
 
-Annan information som är tillgänglig i Azures användnings data har ändrats:
+Annan information som är tillgänglig i Azures användningsdata har ändrats:
 
-- Produkt-och mätar information – Azure ersätter inte den ursprungligen förbrukade mätaren med ReservationId och ReservationName, precis som tidigare.
-- ReservationId och ReservationName – de är egna fält i data. Tidigare användes den bara för att vara tillgänglig under AdditionalInfo.
-- ProductOrderId – ID för reservations order, tillagt som ett eget fält.
-- ProductOrderName – produkt namnet för den köpta reservationen.
+- Produkt- och mätarinformation – Azure ersätter inte den ursprungligen förbrukade mätaren med ReservationId och ReservationName, vilket var fallet tidigare.
+- ReservationId och ReservationName – De är egna fält i datauppsättningen. Tidigare var de bara tillgängliga under AdditionalInfo.
+- ProductOrderId – ID:t för reservationsorder, tillagt som ett eget fält.
+- ProductOrderName – Produktnamnet för den köpta reservationen.
 - Term – 12 månader eller 36 månader.
-- RINormalizationRatio – tillgänglig under AdditionalInfo. Detta är förhållandet där reservationen tillämpas på användnings posten. Om flexibiliteten för instans storleken är aktive rad för din reservation kan den gälla andra storlekar. Värdet visar förhållandet som reservationen tillämpades på för användnings posten.
+- RINormalizationRatio – Tillgängligt under AdditionalInfo. Detta anger i vilken grad reservationen tillämpas på användningsposten. Om flexibilitet för instansstorlek är aktiverat för din reservation kan det gälla andra storlekar. Värdet visar i vilken grad reservationen tillämpades på användningsposten.
 
-## <a name="get-azure-consumption-and-reservation-usage-data-using-api"></a>Hämta användnings data för Azure-användning och reservationer med API
+## <a name="get-azure-consumption-and-reservation-usage-data-using-api"></a>Hämta data om användning och reservationer i Azure med hjälp av API:er
 
-Du kan hämta data med hjälp av API: et eller ladda ned det från Azure Portal.
+Du kan hämta data med hjälp av API:et eller ladda ned det från Azure-portalen.
 
-Du anropar [API:](/rest/api/consumption/usagedetails/list) et för användnings &quot;information med API&quot; -version 2019-04-01 – för hands version för att hämta nya data. Mer information om terminologi finns i [användnings villkor](billing-understand-your-usage.md). Anroparen måste vara företags administratör för Enterprise-avtalet med hjälp av [EA-portalen](https://ea.azure.com). Skrivskyddade företags administratörer kan också hämta data.
+Du anropar [API:et för användningsinformation](/rest/api/consumption/usagedetails/list) med API-version &quot;2019-04-01-preview&quot; för att hämta nya data. Mer information om terminologi finns i [användningsvillkoren](billing-understand-your-usage.md). Anroparen måste vara en företagsadministratör för Enterprise-avtalet och använda [EA-portalen](https://ea.azure.com). Företagsadministratörer som har skrivskyddad behörighet kan också hämta data.
 
-Data är inte tillgängliga i rapporterings- [API: er för företags kunder – användnings information](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail).
+Data är inte tillgängliga i [rapporterings-API:er för företagskunder – användningsinformation](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail).
 
-Här är ett exempel på ett anrop till API: et:
+Här är ett exempel på ett anrop till API:et:
 
 ```
 https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{enrollmentId}/providers/Microsoft.Billing/billingPeriods/{billingPeriodId}/providers/Microsoft.Consumption/usagedetails?metric={metric}&amp;api-version=2019-04-01-preview&amp;$filter={filter}
 ```
 
-Mer information om {enrollmentId} och {billingPeriodId} finns i artikeln [om användnings Detaljer – Visa](https://docs.microsoft.com/rest/api/consumption/usagedetails/list) API.
+Mer information om {enrollmentId} och {billingPeriodId} finns i artikeln om [API:et för användningsinformation – lista](https://docs.microsoft.com/rest/api/consumption/usagedetails/list).
 
-Information i följande tabell om mått och filter kan hjälpa dig att lösa vanliga reservations problem.
+Informationen i följande tabell om mått och filter kan hjälpa dig att lösa vanliga reservationsproblem.
 
-| **Typ av API-data** | API-anrops åtgärd |
+| **Typ av API-data** | API-anropsåtgärd |
 | --- | --- |
-| **Alla avgifter (användning och inköp)** | Ersätt {Metric} med ActualCost |
-| **Användning som hämtade reservations rabatt** | Ersätt {Metric} med ActualCost<br><br>Ersätt {filter} med: Properties/reservationId% 20NE% 20 |
-| **Användning som inte fick reservations rabatt** | Ersätt {Metric} med ActualCost<br><br>Ersätt {filter} med: Properties/reservationId% 20eq% 20 |
-| **Periodiserade avgifter (användning och inköp)** | Ersätt {Metric} med AmortizedCost |
-| **Oanvänd reservations rapport** | Ersätt {Metric} med AmortizedCost<br><br>Ersätt {filter} med: Properties/ChargeType% 20eq% 20 ' UnusedReservation ' |
-| **Reservations köp** | Ersätt {Metric} med ActualCost<br><br>Ersätt {filter} med: Properties/ChargeType% 20eq% 20 "Purchase"  |
-| **Åter betalningar** | Ersätt {Metric} med ActualCost<br><br>Ersätt {filter} med: Properties/ChargeType% 20eq% 20 ' återbetala ' |
+| **Alla avgifter (användning och inköp)** | Ersätt {metric} med ActualCost |
+| **Användning som erhållit reservationsrabatt** | Ersätt {metric} med ActualCost<br><br>Ersätt {filter} med: properties/reservationId%20ne%20 |
+| **Användning som inte erhöll reservationsrabatt** | Ersätt {metric} med ActualCost<br><br>Ersätt {filter} med: properties/reservationId%20eq%20 |
+| **Amorterade avgifter (användning och inköp)** | Ersätt {metric} med AmortizedCost |
+| **Oanvänd reservationsrapport** | Ersätt {metric} med AmortizedCost<br><br>Ersätt {filter} med: properties/ChargeType%20eq%20'UnusedReservation' |
+| **Reservationsköp** | Ersätt {metric} med ActualCost<br><br>Ersätt {filter} med: properties/ChargeType%20eq%20'Purchase'  |
+| **Återbetalningar** | Ersätt {metric} med ActualCost<br><br>Ersätt {filter} med: properties/ChargeType%20eq%20'Refund' |
 
-## <a name="download-the-usage-csv-file-with-new-data"></a>Hämta användnings filen CSV med nya data
+## <a name="download-the-usage-csv-file-with-new-data"></a>Ladda ned CSV-filen med nya användningsdata
 
-Om du är EA-administratör kan du ladda ned den CSV-fil som innehåller nya användnings data från Azure Portal. Dessa data är inte tillgängliga från [EA-portalen](https://ea.azure.com).
+Om du är EA-administratör kan du ladda ned CSV-filen som innehåller nya användningsdata från Azure-portalen. Dessa data är inte tillgängliga från [EA-portalen](https://ea.azure.com).
 
-I Azure Portal går du till [kostnads hantering + fakturering](https://portal.azure.com/#blade/Microsoft_Azure_Billing/ModernBillingMenuBlade/BillingAccounts).
+Navigera till [Kostnadshantering + fakturering](https://portal.azure.com/#blade/Microsoft_Azure_Billing/ModernBillingMenuBlade/BillingAccounts) på Azure-portalen.
 
-1. Välj fakturerings konto.
-2. Klicka på **förbrukning + debitering**.
+1. Välj faktureringskontot.
+2. Klicka på **Användning + avgifter**.
 3. Klicka på **Hämta**.  
-![Exempel som visar var du kan hämta CSV-filen med användnings data i Azure Portal](./media/billing-understand-reserved-instance-usage-ea/portal-download-csv.png)
-4. I **Hämta användning och kostnader** under **användnings information version 2** väljer du **alla avgifter (användning och inköp)** och klickar sedan på Ladda ned. Upprepa för **periodiserade avgifter (användning och inköp)** .
+![Exempel som visar var du kan ladda ned CSV-filen med användningsdata på Azure-portalen](./media/billing-understand-reserved-instance-usage-ea/portal-download-csv.png)
+4. I **Ladda ned användning + kostnader** under **Användningsinformation version 2** väljer du **Alla avgifter (användning och inköp)** och klickar sedan på Ladda ned. Upprepa för **Amorterade avgifter (användning och inköp)** .
 
-CSV-filerna som du hämtar innehåller faktiska kostnader och periodiserade kostnader.
+CSV-filerna som du laddar ned innehåller faktiska kostnader och amorterade kostnader.
 
-## <a name="common-cost-and-usage-tasks"></a>Vanliga kostnader och användnings aktiviteter
+## <a name="common-cost-and-usage-tasks"></a>Vanliga kostnader och användningsaktiviteter
 
-Följande avsnitt är vanliga uppgifter som de flesta använder för att visa sina reservations kostnader och användnings data.
+Följande avsnitt beskriver vanliga sätt att visa reservationskostnader och användningsdata.
 
-### <a name="get-reservation-purchase-costs"></a>Hämta kostnader för reservations inköp
+### <a name="get-reservation-purchase-costs"></a>Hämta kostnader för reservationsköp
 
-Kostnader för reservations inköp är tillgängliga i faktiska kostnads data. Filter för _ChargeType = Purchase_. Se ProductOrderID för att avgöra vilken reservations ordning inköpet avser.
+Kostnader för reservationsköp är tillgängliga i data om faktiska kostnader. Filtrera baserat på _ChargeType = Purchase_. ProductOrderID anger vilken reservationsorder köpet avser.
 
-### <a name="get-underutilized-reservation-quantity-and-costs"></a>Hämta kvantitet och kostnader för underutnyttjad reservation
+### <a name="get-underutilized-reservation-quantity-and-costs"></a>Hämta antal och kostnader för outnyttjade reservationer
 
-Hämta periodiserade kostnads data och filter för _ChargeType_ _= UnusedReservation_. Du får den dagliga outnyttjade reservations mängden och kostnaden. Du kan filtrera data för en reservations-eller reservations order med fälten _ReservationId_ respektive _ProductOrderId_ . Om en reservation var 100% använder posten en kvantitet på 0.
+Hämta data om amorterade kostnader och filtrera baserat på _ChargeType_ _= UnusedReservation_. Den dagliga outnyttjade reservationskvantiteten och kostnaden visas. Du kan filtrera data för en reservation eller reservationsorder med hjälp av fälten _ReservationId_ och _ProductOrderId_. Om 100 % av en reservation användes, visar posten antalet 0.
 
-### <a name="amortize-reservation-costs"></a>Amortera reservations kostnader
+### <a name="amortize-reservation-costs"></a>Amortera reservationskostnader
 
-Hämta periodiserade kostnads data och filtrera för en reservations order med _ProductOrderID_ för att få dagliga periodiserade kostnader för en reservation.
+Hämta data om amorterade kostnader och filtrera fram en reservationsorder med hjälp av _ProductOrderID_ för att visa dagliga amorterade kostnader för en reservation.
 
-### <a name="chargeback-for-a-reservation"></a>Åter betalning för en reservation
+### <a name="chargeback-for-a-reservation"></a>Allokera en reservation baserat på faktisk förbrukning
 
-Du kan återanvända reservationen för andra organisationer efter prenumeration, resurs grupper eller taggar. Periodiserade kostnads data ger ett penning värde för en reservations användning på följande data typer:
+Du kan allokera reservationsanvändning till andra organisationer per prenumeration, resursgrupper eller taggar. Data om amorterade kostnader visar penningvärdet för en reservations förbrukning för följande datatyper:
 
 - Resurser (till exempel en virtuell dator)
-- Resource group
-- Tags
-- Subscription
+- Resursgrupp
+- Taggar
+- Prenumeration
 
-### <a name="get-the-blended-rate-for-chargeback"></a>Hämta det blandade priset för åter betalning
+### <a name="get-the-blended-rate-for-chargeback"></a>Hämta det kombinerade priset för återbetalning
 
-För att fastställa den blandade frekvensen hämtar du de periodiserade kostnaderna och sammanställer den totala kostnaden. För virtuella datorer kan du använda antingen MeterName-eller ServiceType-information från AdditionalInfo JSON-data. Dividera den totala kostnaden med den kvantitet som används för att hämta det blandade priset.
+Du kan beräkna det kombinerade priset genom att hämta data om de amorterade kostnaderna och aggregera totalkostnaden. För virtuella datorer kan du använda antingen MeterName- eller ServiceType-information från JSON-data för AdditionalInfo. Dividera den totala kostnaden med kvantiteten som användes för att hämta det kombinerade priset.
 
-### <a name="audit-optimum-reservation-use-for-instance-size-flexibility"></a>Granska optimal reservations användning för storleks flexibilitet för instans
+### <a name="audit-optimum-reservation-use-for-instance-size-flexibility"></a>Granska optimal reservationsanvändning för flexibel instansstorlek
 
-Flera kvantiteter med _RINormalizationRatio_, från AdditionalInfo. Resultaten visar hur många timmars användning av reservationer som tillämpats på användnings posten.
+Multiplicera antalet med _RINormalizationRatio_, från AdditionalInfo. Resultatet visar hur många timmars reservationsanvändning som tillämpades på användningsposten.
 
-### <a name="determine-reservation-savings"></a>Fastställ reservations besparingar
+### <a name="determine-reservation-savings"></a>Fastställa reservationsbesparingar
 
-Hämta data för de periodiserade kostnaderna och filtrera data för en reserverad instans. Dra
+Hämta data om de amorterade kostnaderna och filtrera fram data för en reserverad instans. Sedan:
 
-1. Få en uppskattad kostnad enligt principen betala per användning. Multiplicera värdet för _enhets pris_ med _kvantitet_ för att få en uppskattad kostnad enligt principen betala per användning, om reservations rabatten inte gäller för användningen.
-2. Hämta reservations kostnaderna. Summera _kostnads_ värden för att få det monetära värdet för det du betalade för den reserverade instansen. Den innehåller reservationens använda och oanvända kostnader.
-3. Dra tillbaka reservations kostnader från uppskattade kostnader för betala per användning för att få de uppskattade besparingarna.
+1. Visa en uppskattning av kostnaderna för användningsbaserad betalning. Multiplicera värdet för _UnitPrice_ (Enhetspris) med _Quantity_ (Kvantitet) för att beräkna kostnaderna för användningsbaserad betalning, om reservationsrabatten inte gällde för användningen.
+2. Hämta reservationskostnaderna. Summera värdena för _Cost_ (Kostnad) för att hämta penningvärdet för det du betalade för den reserverade instansen. Den innehåller reservationens använda och oanvända kostnader.
+3. Subtrahera reservationskostnader från uppskattade kostnader för användningsbaserad betalning för att beräkna de uppskattade besparingarna.
 
-## <a name="reservation-purchases-and-amortization-in-cost-analysis"></a>Köp av reservationer och amorteringar i kostnads analys
+## <a name="reservation-purchases-and-amortization-in-cost-analysis"></a>Köp och amortering av reservationer i kostnadsanalys
 
-Reservations kostnader är tillgängliga vid [kostnads analys](https://aka.ms/costanalysis). Som standard visar kostnads analys den **faktiska kostnaden**, vilket innebär hur kostnader visas på din faktura. Om du vill visa reservations köp som är uppdelat och associerat med de resurser som använde förmånen byter du till **periodiserad kostnad**:
+Reservationskostnader är tillgängliga i [kostnadsanalysen](https://aka.ms/costanalysis). Som standard visar kostnadsanalysen den **faktiska kostnaden**, dvs. hur kostnader visas på din faktura. Om du vill visa reservationsköp uppdelat och associerat med de resurser som använde förmånen byter du till **amorterad kostnad**:
 
-![Exempel som visar var du väljer periodiserad kostnad i kostnads analys](./media/billing-understand-reserved-instance-usage-ea/portal-cost-analysis-amortized-view.png)
+![Exempel som visar var du väljer amorterad kostnad i kostnadsanalys](./media/billing-understand-reserved-instance-usage-ea/portal-cost-analysis-amortized-view.png)
 
-Gruppera efter avgifts typ för att se en uppdelning av användning, inköp och åter betalningar. eller efter reservation för en uppdelning av reservationer och kostnader på begäran. Kom ihåg att de enda reservations kostnader som du ser när du tittar på den faktiska kostnaden är inköp, men kostnader allokeras till de enskilda resurserna som använde benfit när du tittar på en periodiserad kostnad. Du ser också en ny **UnusedReservation** avgifts typ när du tittar på en periodiserad kostnad.
+Gruppera efter avgiftstyp om du vill visa en uppdelning av användning, inköp och återbetalningar, eller efter reservation om du vill visa en uppdelning av reservationskostnader och kostnader på begäran. Kom ihåg att de enda reservationskostnader du ser när du tittar på den faktiska kostnaden är inköp, men att kostnaderna är allokerade till de enskilda resurserna som använde förmånen när du tittar på en amorterad kostnad. Du ser också en ny **UnusedReservation**-avgiftstyp när du tittar på en amorterad kostnad.
 
 ## <a name="need-help-contact-us"></a>Behöver du hjälp? Kontakta oss.
 
-Om du har frågor eller behöver hjälp, [skapa en supportbegäran](https://go.microsoft.com/fwlink/?linkid=2083458).
+Om du har frågor eller behöver hjälp kan du [skapa en supportbegäran](https://go.microsoft.com/fwlink/?linkid=2083458).
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om Azure Reservations finns i följande artiklar:
+Du kan läsa mer om Azure-reservationer i följande artiklar:
 
 - [Vad är Azure Reservations?](billing-save-compute-costs-reservations.md)
 - [Förskottsbetala för Virtual Machines med Azure Reserved VM Instances](../virtual-machines/windows/prepay-reserved-vm-instances.md)
 - [Förskottsbetala för SQL Database-beräkningsresurser med reserverad kapacitet för Azure SQL Database](../sql-database/sql-database-reserved-capacity.md)
 - [Hantera Azure Reservations](billing-manage-reserved-vm-instance.md)
-- [Förstå hur reservations rabatten tillämpas](billing-understand-vm-reservation-charges.md)
-- [Förstå reservations användningen för din prenumeration enligt principen betala per användning](billing-understand-reserved-instance-usage.md)
-- [Windows-programkostnader som inte ingår i reservationer](billing-reserved-instance-windows-software-costs.md)
+- [Förstå hur reservationsrabatten tillämpas](billing-understand-vm-reservation-charges.md)
+- [Förstå reservationsanvändning för din Betala per användning-prenumeration](billing-understand-reserved-instance-usage.md)
+- [Kostnader för Windows-programvara som inte ingår i reservationer](billing-reserved-instance-windows-software-costs.md)

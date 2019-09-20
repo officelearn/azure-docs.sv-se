@@ -1,6 +1,6 @@
 ---
-title: Ändra Azure-prenumerationserbjudande
-description: Läs mer om hur du ändrar din Azure-prenumeration och växla till ett annat erbjudande med hjälp av Azure Kontocenter.
+title: Byta Azure-prenumerationserbjudande
+description: Lär dig hur du ändrar din Azure-prenumeration och byter till ett annat erbjudande med hjälp av Azure-kontocenter.
 author: bandersmsft
 manager: amberb
 tags: billing,top-support-issue
@@ -12,31 +12,31 @@ ms.topic: conceptual
 ms.date: 07/01/2019
 ms.author: banders
 ms.openlocfilehash: 8e87bcb9f7d05fd5041623693c96f8c737758c32
-ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
-ms.translationtype: MT
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/01/2019
+ms.lasthandoff: 09/11/2019
 ms.locfileid: "67490988"
 ---
-# <a name="change-your-azure-subscription-to-a-different-offer"></a>Ändra din Azure-prenumeration till ett annat erbjudande
+# <a name="change-your-azure-subscription-to-a-different-offer"></a>Byt erbjudande för din Azure-prenumeration
 
-Som en kund med en [enskild prenumeration med användningsbaserad betalning](https://azure.microsoft.com/offers/ms-azr-0003p/), kan du växla din Azure-prenumeration till ett annat erbjudande i den [Kontocenter](https://account.windowsazure.com/Subscriptions). Du kan till exempel använda den här funktionen för att dra nytta av den [månadskrediter för Visual Studio-prenumeranter](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
+Som kund med en [enskild prenumeration med användningsbaserad betalning](https://azure.microsoft.com/offers/ms-azr-0003p/) kan du byta erbjudande för din Azure-prenumeration i [Kontocenter](https://account.windowsazure.com/Subscriptions). Du kan till exempel använda den här funktionen för att dra nytta av [de månatliga krediterna för Visual Studio-prenumeranter](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
 
-**Bara vill uppgradera från den kostnadsfria utvärderingsversionen?** Se [uppgradera din prenumeration](billing-upgrade-azure-subscription.md).
+**Vill du bara uppgradera från den kostnadsfria utvärderingsversionen?** Läs [Uppgradera prenumerationen](billing-upgrade-azure-subscription.md).
 
-## <a name="whats-supported"></a>Vad som stöds:
+## <a name="whats-supported"></a>Följande stöds:
 
-Du kan växla från en enskild prenumeration med användningsbaserad betalning till:
+Du kan växla från en individuell prenumeration med användningsbaserade priser till:
 
-- [Betala per användning – utveckling/testning](https://azure.microsoft.com/offers/ms-azr-0023p/)
+- [Dev/Test – betala per användning](https://azure.microsoft.com/offers/ms-azr-0023p/)
 - [Visual Studio Professional](https://azure.microsoft.com/offers/ms-azr-0059p/)
 - [Visual Studio Test Professional](https://azure.microsoft.com/offers/ms-azr-0060p/)
 - [MSDN-plattformar](https://azure.microsoft.com/offers/ms-azr-0062p/)
 - [Visual Studio Enterprise](https://azure.microsoft.com/offers/ms-azr-0063p/)
-- [Visual Studio Enterprise (Bizspark)](https://azure.microsoft.com/offers/ms-azr-0064p/)
+- [Visual Studio Enterprise (BizSpark)](https://azure.microsoft.com/offers/ms-azr-0064p/)
 
 > [!NOTE]
-> För andra ändringar i erbjudandet, [supporten](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+> [Kontakta supporten](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) för andra erbjudandeändringar.
 >
 >
 
@@ -46,74 +46,74 @@ Du kan växla från en enskild prenumeration med användningsbaserad betalning t
 >
 >
 
-1. Logga in på [Azure Kontocenter](https://account.windowsazure.com/Subscriptions).
-1. Välj din enskilda prenumeration med användningsbaserad betalning.
-1. Klicka på **Växla till ett annat erbjudande**. Alternativet är endast tillgängligt om du har en enskild prenumeration med betala per användning och har slutfört din första faktureringsperiod.
+1. Logga in på [Azure-kontocenter](https://account.windowsazure.com/Subscriptions).
+1. Välj din enskilda prenumeration med användningsbaserade priser.
+1. Klicka på **Växla till ett annat erbjudande**. Alternativet är endast tillgängligt om du har en enskild prenumeration med användningsbaserade priser och har slutfört din första faktureringsperiod.
 
-   ![Lägg märke till knappen Växla erbjudande till höger på sidan](./media/billing-how-to-switch-azure-offer/switchbutton.png)
-1. **Välj önskat erbjudande** från listan över erbjudanden prenumerationen kan växlas till. Den här listan varierar beroende på vilka medlemskap ditt konto är associerat med. Om inget är tillgängligt kontrollerar du den [lista över tillgängliga erbjudanden som du kan växla till](#whats-supported) och kontrollera att du har rätt medlemskap.
+   ![Lägg märke till knappen Byt erbjudande till höger på sidan](./media/billing-how-to-switch-azure-offer/switchbutton.png)
+1. **Välj önskat erbjudande** i listan över erbjudanden som din prenumeration kan bytas till. Den här listan varierar beroende på vilka medlemskap ditt konto är associerat med. Om inget är tillgängligt kontrollerar du [listan över tillgängliga erbjudanden som du kan byta till](#whats-supported) och kontrollerar att du har rätt medlemskap.
 
-   ![Välj ett erbjudande som du vill växla till](./media/billing-how-to-switch-azure-offer/selectoffer.png)
-1. Beroende på erbjudandet du växlar till, kan du se om effekten av att växla. Gå igenom listan noggrant och följ instruktionerna innan du fortsätter.
+   ![Välj ett erbjudande som du vill byta till](./media/billing-how-to-switch-azure-offer/selectoffer.png)
+1. Beroende på vilket erbjudande du byter till kan en anmärkning visas som beskriver effekten av bytet. Gå igenom listan noga och följ anvisningarna innan du fortsätter.
 
-   ![Läser du igenom anteckningarna](./media/billing-how-to-switch-azure-offer/thingstonote.png)
-1. Du kan byta namn på din prenumeration. Som standard är den inställd till ett nytt erbjudandenamn. Klicka på **växel erbjuder** att slutföra processen.
+   ![Läs anmärkningarna](./media/billing-how-to-switch-azure-offer/thingstonote.png)
+1. Du kan byta namn på din prenumeration. Standardnamnet är namnet på det nya erbjudandet. Slutför processen genom att klicka på **Byt erbjudande**.
 
    ![Klicka på den gröna knappen](./media/billing-how-to-switch-azure-offer/confirmpage.png)
-1. Lyckades! Din prenumeration nu växlas till det nya erbjudandet.
+1. Lyckades! Nu är din prenumeration kopplad till det nya erbjudandet.
 
 ## <a name="frequently-asked-questions"></a>Vanliga frågor och svar
-I följande avsnitt besvara vanliga frågor.
+I följande avsnitt får du svar på vanliga frågor.
 
-### <a name="what-is-an-azure-offer"></a>Vad är en Azure-erbjudande?
+### <a name="what-is-an-azure-offer"></a>Vad är ett Azure-erbjudande?
 
-Ett Azure-erbjudande är den *typ* för Azure-prenumerationen du har. Till exempel [en prenumeration med användningsbaserad betalning](https://azure.microsoft.com/offers/ms-azr-0003p/), [Azure i Open](https://azure.microsoft.com/offers/ms-azr-0111p/), och [Visual Studio Enterprise](https://azure.microsoft.com/offers/ms-azr-0063p/) är alla Azure-erbjudanden. Varje erbjudande har olika [villkoren](https://azure.microsoft.com/support/legal/offer-details/) och några har särskilda förmåner. Erbjudandet om din prenumeration finns på sidan Kontocenter prenumeration. Klicka på namnet för erbjudandet att få mer information.
+Ett Azure-erbjudande är den *typ* av Azure-prenumeration som du har. Exempel på Azure-erbjudanden är [en prenumeration med prismodellen Betala per användning](https://azure.microsoft.com/offers/ms-azr-0003p/), [Azure i Open-licensiering](https://azure.microsoft.com/offers/ms-azr-0111p/) och [Visual Studio Enterprise](https://azure.microsoft.com/offers/ms-azr-0063p/). Varje erbjudande har olika [villkor](https://azure.microsoft.com/support/legal/offer-details/) och vissa har särskilda förmåner. Du hittar erbjudandet för din prenumeration på prenumerationssidan i Kontocenter. Klicka på namnet på erbjudandet om du vill ha mer information.
 
-   ![Klicka på länken erbjudandet i Kontocentret för att få mer information](./media/billing-how-to-switch-azure-offer/offerlink.png)
+   ![Klicka på länken Erbjudande i Kontocenter om du vill ha mer information](./media/billing-how-to-switch-azure-offer/offerlink.png)
 
 ### <a name="why-dont-i-see-the-button"></a>Varför visas inte knappen?
 
-Du kanske inte ser den **växla till ett annat erbjudande** om:
+Du kanske inte ser alternativet **Byt till ett annat erbjudande** om:
 
-* Du behöver inte en [prenumeration med användningsbaserad betalning](https://azure.microsoft.com/offers/ms-azr-0003p/). För närvarande bara prenumerationer med användningsbaserad betalning kan konverteras till ett annat erbjudande.
-  * Om du har en [kostnadsfri utvärderingsversion](https://azure.microsoft.com/free/), Lär dig hur du [uppgradering till betala per användning](billing-upgrade-azure-subscription.md).
-  * Att byta erbjudande från en annan prenumeration [supporten](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
-* Du är fortfarande i din första faktureringsperiod; Du måste vänta tills din första faktureringsperiod avslutas innan du kan växla erbjudanden.
+* Du inte har en [prenumeration med prismodellen Betala per användning](https://azure.microsoft.com/offers/ms-azr-0003p/). För närvarande kan endast prenumerationer med användningsbaserad betalning omvandlas till ett annat erbjudande.
+  * Om du har en [kostnadsfri utvärderingsversion](https://azure.microsoft.com/free/) läser du hur du kan [uppgradera till Betala per användning](billing-upgrade-azure-subscription.md).
+  * [Kontakta supporten](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) om du vill byta erbjudande från en annan prenumeration.
+* Du är fortfarande på din första faktureringsperiod. Du måste vänta tills din första faktureringsperiod avslutats innan du kan byta erbjudande.
 
-### <a name="why-do-i-see-there-are-no-offers-available-in-your-region-or-country-at-this-time"></a>Varför ser jag ”det finns inga erbjudanden tillgängliga i ditt land just nu”?
+### <a name="why-do-i-see-there-are-no-offers-available-in-your-region-or-country-at-this-time"></a>Varför får jag ett meddelande om att det inte finns några tillgängliga erbjudanden i min region eller mitt land?
 
-* Du kanske inte berättigade till några erbjudandet växlar. Kontrollera den [lista över tillgängliga erbjudanden som du kan växla till](#whats-supported) och se till att du har aktiverat rätt fördelarna med Visual Studio eller Bizspark.
-* Vissa erbjudanden som inte är tillgängliga i alla länder/regioner.
+* Du kanske inte har rätt att byta erbjudande. Kontrollera [listan över tillgängliga erbjudanden som du kan byta till](#whats-supported) och kontrollera att du har aktiverat rätt förmåner med Visual Studio eller BizSpark.
+* Vissa erbjudanden är inte tillgängliga i alla länder/regioner.
 
-### <a name="what-does-switching-azure-offers-do-to-my-service-and-billing"></a>Vad kostar växla Azure-erbjudanden gör till min tjänst och fakturering?
+### <a name="what-does-switching-azure-offers-do-to-my-service-and-billing"></a>Hur påverkas min tjänst och faktureringen om jag byter Azure-erbjudande?
 
-Här följer information om vad som händer när du växlar Azure erbjuder i Kontocenter.
+Här följer information om vad som händer om du byter Azure-erbjudande i Kontocenter.
 
-#### <a name="no-service-downtime"></a>Inga driftstopp för tjänsten
+#### <a name="no-service-downtime"></a>Inget avbrott i tjänsten
 
-Det finns inga driftstopp för tjänsten för alla användare som är associerade med prenumerationen. Erbjudandet du växla till kanske begränsningar. Exempelvis förhindrar vissa erbjudanden användning i produktion, så skulle du behöva flytta produktionsresurser till en annan prenumeration.
+Det förekommer inga tjänstavbrott för användare som är kopplade till prenumerationen. Det kan dock finnas begränsningar för det erbjudande som du byter till. Till exempel tillåts inte användning i produktionsmiljö med vissa erbjudanden, vilket betyder att produktionsresurser måste flyttas till en annan prenumeration.
 
-#### <a name="quota-increases-are-reset"></a>Ökade kvoter återställs
+#### <a name="quota-increases-are-reset"></a>Kvotökningar återställs
 
-När du växlar betalning, eventuella [gräns eller kvot ökar ovan Standardgränsen](../azure-supportability/resource-manager-core-quotas-request.md) återställs. Det finns inga driftstopp för tjänsten, även om du har fler resurser utöver Standardgränsen. Till exempel 200 kärnor använder på din prenumeration och sedan växla erbjudanden återställer din kärnkvot till standardvärdet 20 kärnor. De virtuella datorer som använder 200 kärnor påverkas inte och kan fortsätta att köras. Om du inte gör en annan kvot öka begäran, men kan inte du etablera några fler kärnor.
+När du byter erbjudande återställs [gräns- eller kvotökningar som överskrider standardgränsen](../azure-supportability/resource-manager-core-quotas-request.md). Det förekommer inga tjänstavbrott, även om du har fler resurser än standardgränsen. Om du exempelvis har 200 kärnor i din prenumeration och sedan byter erbjudande, återställs din kvot till standardkvoten på 20 kärnor. De virtuella datorer som använder 200 kärnor påverkas inte och fortsätter att köras. Du måste dock begära en ny kvotökning för att kunna etablera fler kärnor.
 
 #### <a name="billing"></a>Fakturering
 
-På den dag du växla, genereras en faktura för alla utestående debiteringar. Sedan debiteras din prenumeration per prissättning villkoren för det nya erbjudandet. Din prenumeration förfallodag ändras till det datum som du har ändrat erbjudanden. Användning och fakturering data innan ändringen erbjudandet inte bevaras, så vi rekommenderar att du hämtar en kopia innan du växlar.
+Den dag du byter erbjudande genereras en faktura för alla utestående debiteringar. Därefter faktureras din prenumeration enligt prisvillkoren för det nya erbjudandet. Årsdagen för prenumerationens fakturering ändras till det datum då du bytte erbjudande. Användnings- och faktureringsdata före bytet av erbjudande sparas inte. Därför rekommenderar vi att du laddar ned en kopia innan du byter.
 
-### <a name="can-i-migrate-from-a-subscription-with-pay-as-you-go-rates-to-cloud-solution-providerhttpspartnermicrosoftcomsolutionscloud-reseller-overview-csp-or-enterprise-agreementhttpsazuremicrosoftcompricingenterprise-agreement-ea"></a>Kan jag migrera från en prenumeration med användningsbaserad betalning till [Molnlösningsleverantör](https://partner.microsoft.com/Solutions/cloud-reseller-overview) (CSP) eller [Företagsavtal](https://azure.microsoft.com/pricing/enterprise-agreement/) (EA)?
+### <a name="can-i-migrate-from-a-subscription-with-pay-as-you-go-rates-to-cloud-solution-providerhttpspartnermicrosoftcomsolutionscloud-reseller-overview-csp-or-enterprise-agreementhttpsazuremicrosoftcompricingenterprise-agreement-ea"></a>Kan jag migrera från en prenumeration med prismodellen Betala per användning till [Leverantör av molnlösning](https://partner.microsoft.com/Solutions/cloud-reseller-overview) (CSP) eller [Enterprise-avtal](https://azure.microsoft.com/pricing/enterprise-agreement/) (EA)?
 
-* Om du vill migrera till CSP: N, se [Azure betala per användning-Prenumerationsmigrering till CSP](https://docs.microsoft.com/azure/cloud-solution-provider/migration/migration-from-payg-to-csp).
-* Om du vill migrera till EA, har du din lägga till ditt konto i EA-Registreringsadministratör. Följ anvisningarna i e-postinbjudan för att ha dina prenumerationer under EA-avtal flyttas. Mer information finns i [koppla ett befintligt konto](https://ea.azure.com/helpdocs/associateExistingAccount) i EA-portalen.
+* Information om hur du migrerar till CSP finns i [Migrera en Azure-prenumeration med prismodellen Betala per användning till CSP](https://docs.microsoft.com/azure/cloud-solution-provider/migration/migration-from-payg-to-csp).
+* Om du vill migrera till EA ber du din registreringsadministratör att lägga till ditt konto i EA. Följ anvisningarna i e-postinbjudan för att flytta dina prenumerationer i EA-registreringen. Mer information finns i [Associera ett befintligt konto](https://ea.azure.com/helpdocs/associateExistingAccount) på EA-portalen.
 
 ### <a name="can-i-migrate-data-and-services-to-a-new-subscription"></a>Kan jag migrera data och tjänster till en ny prenumeration?
 
-* Du kan migrera resurserna direkt till den nya prenumerationen, se [flytta resurser till ny resursgrupp eller prenumeration](../azure-resource-manager/resource-group-move-resources.md).
-* Om du vill överföra ägarskap för en Azure-prenumeration och allt innehåll i den till någon annan, se [överföra ägarskapet för en Azure-prenumeration](billing-subscription-transfer.md)
+* Du kan migrera resurserna direkt till den nya prenumerationen. Mer information finns i [Flytta resurser till en ny resursgrupp eller prenumeration](../azure-resource-manager/resource-group-move-resources.md).
+* Om du vill överföra ägarskapet för en Azure-prenumeration och allt innehåll i den till någon annan läser du [Överföra ägarskapet för en Azure-prenumeration](billing-subscription-transfer.md)
 
 ## <a name="need-help-contact-us"></a>Behöver du hjälp? Kontakta oss.
 
-Om du har frågor eller behöver hjälp, [skapa en supportbegäran](https://go.microsoft.com/fwlink/?linkid=2083458).
+Om du har frågor eller behöver hjälp kan du [skapa en supportbegäran](https://go.microsoft.com/fwlink/?linkid=2083458).
 
 ## <a name="next-steps"></a>Nästa steg
 - [Börja analysera kostnader](../cost-management/quick-acm-cost-analysis.md)

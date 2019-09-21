@@ -9,18 +9,18 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 09/18/2019
+ms.date: 09/20/2019
 ms.author: dapine
-ms.openlocfilehash: 9d1a6ab698ceb6ac1c0a4fc635b5a8fe1e68b0c6
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: b15ab7be5467d35b774dce643d6bb3910560ae01
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71102042"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71172320"
 ---
 # <a name="install-and-run-luis-docker-containers"></a>Installera och köra LUIS Docker-behållare
  
-Behållaren Language Understanding (LUIS) läser in din utbildade eller publicerade Language Understanding modell, även kallad en [Luis-app](https://www.luis.ai), i en Docker-behållare och ger åtkomst till frågans förutsägelser från BEHÅLLAREns API-slutpunkter. Du kan samla in frågedata från behållaren och överföra tillbaka dem till Language Understanding-appen för att förbättra appens förutsägelse noggrannhet.
+Behållaren Language Understanding (LUIS) läser in din utbildade eller publicerade Language Understanding modell. Som en [Luis-app](https://www.luis.ai)ger Docker-behållaren åtkomst till frågan förutsägelser från BEHÅLLAREns API-slutpunkter. Du kan samla in loggar från behållaren och överföra tillbaka dem till Language Understanding-appen för att förbättra appens förutsägelse noggrannhet.
 
 Följande video visar hur du använder den här behållaren.
 
@@ -30,13 +30,13 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-För att kunna köra behållaren LUIS måste du ha följande: 
+Observera följande krav för att köra LUIS-behållaren:
 
 |Obligatorisk|Syfte|
 |--|--|
 |Docker-motor| Du behöver Docker-motorn installerad på en [värddator](#the-host-computer). Docker innehåller paket som konfigurerar Docker-miljön på [MacOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/)och [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Få en genomgång om grunderna för Docker och behållare finns i den [översikt över Docker](https://docs.docker.com/engine/docker-overview/).<br><br> Docker måste konfigureras för att tillåta behållarna för att ansluta till och skicka faktureringsdata till Azure. <br><br> **I Windows**måste Docker också konfigureras för att stödja Linux-behållare.<br><br>|
 |Bekant med Docker | Du bör ha grundläggande kunskaper om Docker-koncept, t. ex. register, databaser, behållare och behållar avbildningar, samt kunskaper `docker` om grundläggande kommandon.| 
-|Azure `Cognitive Services` Resource och Luis [paketerad app](luis-how-to-start-new-app.md#export-app-for-containers) -fil |För att du ska kunna använda behållaren måste du ha:<br><br>* En _Cognitive Services_ Azure-resurs och den associerade fakturerings nyckeln för fakturerings slut punktens URI. Båda värdena är tillgängliga på sidorna översikt och nycklar för resursen och krävs för att starta behållaren. Du måste lägga till `luis/v2.0` operationsföljden i slut punkts-URI: n enligt följande BILLING_ENDPOINT_URI-exempel. <br>* En utbildad eller publicerad app paketeras som monterad inström till behållaren med dess associerade app-ID. Du kan hämta den paketerade filen från LUIS-portalen eller redigera-API: er. Om du får LUIS paketerad app från [redigerings-API: er](#authoring-apis-for-package-file), behöver du också din _redigerings nyckel_.<br><br>Dessa krav används för att skicka kommando rads argument till följande variabler:<br><br>**{AUTHORING_KEY}** : Den här nyckeln används för att hämta den paketerade appen från LUIS-tjänsten i molnet och ladda upp frågan loggar tillbaka till molnet. Formatet är `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`.<br><br>**{APPLICATION_ID}** : Detta ID används för att välja appen. Formatet är `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`.<br><br>**{API_KEY}** : Den här nyckeln används för att starta behållaren. Du kan hitta slut punkts nyckeln på två platser. Det första är Azure Portal i _Cognitive Services_ resursens nyckel lista. Slut punkts nyckeln är också tillgänglig i LUIS-portalen på sidan nycklar och inställningar för slut punkt. Använd inte start nyckeln.<br><br>**{ENDPOINT_URI}** : Slut punkten enligt vad som anges på översikts sidan.<br><br>[Redigerings nyckeln och slut punkts nyckeln](luis-boundaries.md#key-limits) har olika syfte. Använd dem inte interoförändrade. |
+|Azure `Cognitive Services` Resource och Luis [paketerad app](luis-how-to-start-new-app.md#export-app-for-containers) -fil |För att du ska kunna använda behållaren måste du ha:<br><br>* En _Cognitive Services_ Azure-resurs och den associerade fakturerings nyckeln för fakturerings slut punktens URI. Båda värdena är tillgängliga på sidorna översikt och nycklar för resursen och krävs för att starta behållaren. <br>* En utbildad eller publicerad app paketeras som monterad inström till behållaren med dess associerade app-ID. Du kan hämta den paketerade filen från LUIS-portalen eller redigera-API: er. Om du får LUIS paketerad app från [redigerings-API: er](#authoring-apis-for-package-file), behöver du också din _redigerings nyckel_.<br><br>Dessa krav används för att skicka kommando rads argument till följande variabler:<br><br>**{AUTHORING_KEY}** : Den här nyckeln används för att hämta den paketerade appen från LUIS-tjänsten i molnet och ladda upp frågan loggar tillbaka till molnet. Formatet är `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`.<br><br>**{APPLICATION_ID}** : Detta ID används för att välja appen. Formatet är `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`.<br><br>**{API_KEY}** : Den här nyckeln används för att starta behållaren. Du kan hitta slut punkts nyckeln på två platser. Det första är Azure Portal i _Cognitive Services_ resursens nyckel lista. Slut punkts nyckeln är också tillgänglig i LUIS-portalen på sidan nycklar och inställningar för slut punkt. Använd inte start nyckeln.<br><br>**{ENDPOINT_URI}** : Slut punkten enligt vad som anges på översikts sidan.<br><br>[Redigerings nyckeln och slut punkts nyckeln](luis-boundaries.md#key-limits) har olika syfte. Använd dem inte interoförändrade. |
 
 [!INCLUDE [Gathering required container parameters](../containers/includes/container-gathering-required-parameters.md)]
 
@@ -57,7 +57,7 @@ Den här behållaren stöder lägsta och rekommenderade värden för inställnin
 
 |Container| Minimum | Rekommenderas | TPS<br>(Minimum, maximum)|
 |-----------|---------|-------------|--|
-|LUIS|1 kärna, 2 GB minne|1 kärna, 4 GB minne|20,40|
+|LUIS|1 kärna, 2 GB minne|1 kärna, 4 GB minne|20, 40|
 
 * Varje kärna måste vara minst 2,6 gigahertz (GHz) eller snabbare.
 * TPS-transaktioner per sekund
@@ -85,7 +85,7 @@ När behållaren är på värddatorn [](#the-host-computer)använder du följand
 ![Process för att använda Language Understanding-behållare (LUIS)](./media/luis-container-how-to/luis-flow-with-containers-diagram.jpg)
 
 1. [Exportera paket](#export-packaged-app-from-luis) för container från Luis-portalen eller Luis-API: er.
-1. Flytta paket filen till den nödvändiga indatafilen på [värddatorn](#the-host-computer). Byt inte namn på, ändra, Skriv över eller expandera LUIS-paketfil.
+1. Flytta paket filen till den nödvändiga indatafilen på [värddatorn](#the-host-computer). Byt inte namn på, ändra, Skriv över eller expandera LUIS-paketfilen.
 1. [Kör behållaren](##run-the-container-with-docker-run)med nödvändiga inställningar för _montering_ och fakturering av indatakälla. Fler [exempel](luis-container-configuration.md#example-docker-run-commands) på `docker run` kommandot är tillgängliga. 
 1. [Fråga efter behållarens förutsägelse slut punkt](#query-the-containers-prediction-endpoint). 
 1. När du är färdig med behållaren importerar du [slut punkts loggarna](#import-the-endpoint-logs-for-active-learning) från utmatnings monteringen i Luis-portalen och [stoppar](#stop-the-container) behållaren.
@@ -109,9 +109,9 @@ Monterings katalogen för indatakälla kan innehålla **produktions**-, mellanla
 
 |Typ av paket|API för frågans slut punkt|Tillgänglighet för fråga|Paketets fil namns format|
 |--|--|--|--|
-|Tränad|Hämta, publicera|Endast behållare|`{APPLICATION_ID}_v{APPLICATION_VERSION}.gz`|
-|Mellanlagring|Hämta, publicera|Azure och container|`{APPLICATION_ID}_STAGING.gz`|
-|Produktion|Hämta, publicera|Azure och container|`{APPLICATION_ID}_PRODUCTION.gz`|
+|Tränad|HÄMTA, PUBLICERA|Endast behållare|`{APPLICATION_ID}_v{APPLICATION_VERSION}.gz`|
+|Mellanlagring|HÄMTA, PUBLICERA|Azure och container|`{APPLICATION_ID}_STAGING.gz`|
+|Produktion|HÄMTA, PUBLICERA|Azure och container|`{APPLICATION_ID}_PRODUCTION.gz`|
 
 > [!IMPORTANT]
 > Byt inte namn på, ändra, Skriv över eller expandera LUIS-paketfilerna.
@@ -170,10 +170,10 @@ Ocp-Apim-Subscription-Key: {AUTHORING_KEY}
 
 | Platshållare | Value |
 |-------------|-------|
-|{APPLICATION_ID} | Program-ID för den publicerade LUIS-appen. |
-|{APPLICATION_ENVIRONMENT} | Den publicerade LUIS-appens miljö. Använd något av följande värden:<br/>`PRODUCTION`<br/>`STAGING` |
-|{AUTHORING_KEY} | Redigerings nyckeln för LUIS-kontot för den publicerade LUIS-appen.<br/>Du kan hämta din redigerings nyckel från sidan **användar inställningar** på Luis-portalen. |
-|{AZURE_REGION} | Lämplig Azure-region:<br/><br/>`westus`– Västra USA<br/>`westeurope`– Västeuropa<br/>`australiaeast`– Australien, öst |
+| **{APPLICATION_ID}** | Program-ID för den publicerade LUIS-appen. |
+| **{APPLICATION_ENVIRONMENT}** | Den publicerade LUIS-appens miljö. Använd något av följande värden:<br/>`PRODUCTION`<br/>`STAGING` |
+| **{AUTHORING_KEY}** | Redigerings nyckeln för LUIS-kontot för den publicerade LUIS-appen.<br/>Du kan hämta din redigerings nyckel från sidan **användar inställningar** på Luis-portalen. |
+| **{AZURE_REGION}** | Lämplig Azure-region:<br/><br/>`westus`– Västra USA<br/>`westeurope`– Västeuropa<br/>`australiaeast`– Australien, öst |
 
 Information om hur du hämtar det publicerade paketet finns i [API-dokumentationen här][download-published-package]. Om det har hämtats är svaret en LUIS-paketfil. Spara filen på den lagrings plats som angetts för behållaren för indata-montering. 
 
@@ -189,10 +189,10 @@ Ocp-Apim-Subscription-Key: {AUTHORING_KEY}
 
 | Platshållare | Value |
 |-------------|-------|
-|{APPLICATION_ID} | Program-ID för det utbildade LUIS-programmet. |
-|{APPLICATION_VERSION} | Program versionen för det utbildade LUIS-programmet. |
-|{AUTHORING_KEY} | Redigerings nyckeln för LUIS-kontot för den publicerade LUIS-appen.<br/>Du kan hämta din redigerings nyckel från sidan **användar inställningar** på Luis-portalen.  |
-|{AZURE_REGION} | Lämplig Azure-region:<br/><br/>`westus`– Västra USA<br/>`westeurope`– Västeuropa<br/>`australiaeast`– Australien, öst |
+| **{APPLICATION_ID}** | Program-ID för den tränade LUIS-appen. |
+| **{APPLICATION_VERSION}** | Program versionen av den tränade LUIS-appen. |
+| **{AUTHORING_KEY}** | Redigerings nyckeln för LUIS-kontot för den publicerade LUIS-appen.<br/>Du kan hämta din redigerings nyckel från sidan **användar inställningar** på Luis-portalen. |
+| **{AZURE_REGION}** | Lämplig Azure-region:<br/><br/>`westus`– Västra USA<br/>`westeurope`– Västeuropa<br/>`australiaeast`– Australien, öst |
 
 Information om hur du hämtar det utbildade paketet finns i [API-dokumentationen här][download-trained-package]. Om det har hämtats är svaret en LUIS-paketfil. Spara filen på den lagrings plats som angetts för behållaren för indata-montering. 
 
@@ -245,10 +245,10 @@ Behållaren innehåller REST-baserade slut punkts-API: er för frågor förutsä
 
 Använd värden, `http://localhost:5000`för behållar-API: er. 
 
-|Pakettyp|Metod|Routa|Frågeparametrar|
+|Pakettyp|Metod|Väg|Frågeparametrar|
 |--|--|--|--|
-|Publicerad|[Hämta](https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee78), [publicera](https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee79)|/luis/v2.0/apps/{appId}?|q={q}<br>& mellanlagring<br>[&timezoneOffset]<br>[& utförlig]<br>[&log]<br>|
-|Tränad|Hämta, publicera|/luis/v2.0/apps/{appId}/versions/{versionId}?|q={q}<br>[&timezoneOffset]<br>[& utförlig]<br>[&log]|
+|Publicerad|[HÄMTA](https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee78), [PUBLICERA](https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee79)|/luis/v2.0/apps/{appId}?|q={q}<br>& mellanlagring<br>[&timezoneOffset]<br>[& utförlig]<br>[&log]<br>|
+|Tränad|HÄMTA, PUBLICERA|/luis/v2.0/apps/{appId}/versions/{versionId}?|q={q}<br>[&timezoneOffset]<br>[& utförlig]<br>[&log]|
 
 Frågeparametrarna konfigurerar hur och vad som returneras i svaret för frågan:
 
@@ -286,7 +286,7 @@ Versions namnet får innehålla högst 10 tecken och innehåller endast tecken s
 
 ## <a name="import-the-endpoint-logs-for-active-learning"></a>Importera slut punkts loggarna för aktiv inlärning
 
-Om en utgående montering har angetts för LUIS-behållaren, sparas i utdatakatalogen, där {INSTANCE_ID} är container-ID. Appens fråga logg innehåller frågan, svaret och tidsstämplar för varje förutsägelse fråga som skickats till behållaren LUIS. 
+Om en utgående montering har angetts för Luis-behållaren, sparas i utdatakatalogen, där `{INSTANCE_ID}` är behållar-ID. Appens fråga logg innehåller frågan, svaret och tidsstämplar för varje förutsägelse fråga som skickats till behållaren LUIS. 
 
 Följande plats visar den kapslade katalog strukturen för behållarens loggfiler.
 ```
@@ -330,7 +330,7 @@ Den senaste behållaren, som släpptes på 2019 build, stöder:
 
 ## <a name="unsupported-dependencies-for-latest-container"></a>Beroenden som inte stöds `latest` för container
 
-Om din LUIS-app har ett beroende som inte stöds, kan du inte [Exportera för container](#export-packaged-app-from-luis) förrän du tar bort de funktioner som inte stöds. När du försöker exportera för container rapporterar LUIS-portalen de funktioner som inte stöds som du måste ta bort.
+Om du vill [Exportera för container](#export-packaged-app-from-luis)måste du ta bort beroenden som inte stöds från Luis-appen. När du försöker exportera för container rapporterar LUIS-portalen dessa funktioner som inte stöds och som du måste ta bort.
 
 Du kan använda ett LUIS-program om det **inte innehåller** något av följande beroenden:
 

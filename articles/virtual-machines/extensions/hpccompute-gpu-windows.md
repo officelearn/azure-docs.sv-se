@@ -12,19 +12,19 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 01/09/2019
-ms.author: roiyz
-ms.openlocfilehash: c44722403967f3563472692f97cb2a114e6294cd
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.author: akjosh
+ms.openlocfilehash: 4526456b608f0920c73ae28446a822661995acab
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70084470"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71173985"
 ---
 # <a name="nvidia-gpu-driver-extension-for-windows"></a>NVIDIA GPU-drivrutins tillägg för Windows
 
 ## <a name="overview"></a>Översikt
 
-Det här tillägget installerar NVIDIA GPU-drivrutiner på virtuella datorer med Windows N-serien. Beroende på VM-serien installerar tillägget CUDA eller GRID-drivrutiner. När du installerar NVIDIA-drivrutiner med det här tillägget accepterar du och godkänner villkoren i [licens avtalet för NVIDIA-](https://go.microsoft.com/fwlink/?linkid=874330)slutanvändare. Under installationen kan den virtuella datorn startas om för att slutföra driv rutins konfigurationen.
+Det här tillägget installerar NVIDIA GPU-drivrutiner på virtuella datorer med Windows N-serien. Beroende på VM-serien installerar tillägget CUDA eller GRID-drivrutiner. När du installerar NVIDIA-drivrutiner med det här tillägget accepterar du och godkänner villkoren i [licens avtalet för NVIDIA-slutanvändare](https://go.microsoft.com/fwlink/?linkid=874330). Under installationen kan den virtuella datorn startas om för att slutföra driv rutins konfigurationen.
 
 Anvisningar om manuell installation av driv rutinerna och de aktuella versioner som stöds finns [här](https://docs.microsoft.com/azure/virtual-machines/windows/n-series-driver-setup).
 Det finns också ett tillägg för att installera NVIDIA GPU-drivrutiner på [virtuella datorer i Linux N-serien](hpccompute-gpu-linux.md).

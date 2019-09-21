@@ -8,13 +8,13 @@ author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
-ms.date: 11/08/2018
-ms.openlocfilehash: 7e66f374a1f5f4fb050f366fdad0e787292101f8
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.date: 09/20/2019
+ms.openlocfilehash: 7a628eb02170346a826cab19498d6fdf40cebddd
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62128192"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71173385"
 ---
 # <a name="create-a-terraform-base-template-in-azure-using-yeoman"></a>Skapa en grundläggande Terraform-mall i Azure med hjälp av Yeoman
 
@@ -26,7 +26,7 @@ I den här artikeln får du lära dig hur du använder Yeoman-modulgeneratorn f�
 - Kör Terraform-modulen med hjälp av en Docker-fil som du skapar i den här artikeln.
 - Kör Terraform-modulen internt i Azure Cloud Shell.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 - **Azure-prenumeration**: Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
 - **Visual Studio Code**: Vi kommer att använda [Visual Studio Code](https://www.bing.com/search?q=visual+studio+code+download&form=EDGSPH&mkt=en-us&httpsmsn=1&refig=dffc817cbc4f4cb4b132a8e702cc19a3&sp=3&ghc=1&qs=LS&pq=visual+studio+code&sk=LS1&sc=8-18&cvid=dffc817cbc4f4cb4b132a8e702cc19a3&cc=US&setlang=en-US) för att undersöka filer som skapats av Yeoman-generatorn. Du kan dock använda valfri kodredigerare.
@@ -160,7 +160,7 @@ Definierar stegen för att skapa versionen. Dessa steg omfattar:
 
 Från en kommandotolk anger du `docker version`.
 
-![Dockerversion](media/terraform-vscode-module-generator/ymg-docker-version.png)
+![Docker-version](media/terraform-vscode-module-generator/ymg-docker-version.png)
 
 Resultatet bekräftar att Docker är installerat.
 
@@ -209,7 +209,7 @@ Tryck på `docker info` för att bekräfta att Docker faktiskt körs.
 
 1. Efter en liten stund visas meddelandet **PASS**.
 
-    ![PASS](media/terraform-vscode-module-generator/ymg-pass.png)
+    ![Godkänd](media/terraform-vscode-module-generator/ymg-pass.png)
 
 1. Ange `exit` för att slutföra slutpunkt till slutpunkt-testet och avsluta Docker-miljön.
 
@@ -229,7 +229,7 @@ Processen blir betydligt enklare om du använder Cloud Shell istället för att 
 
 1. Starta en Azure Cloud Shell-session via [Azure-portalen](https://portal.azure.com/), [shell.azure.com](https://shell.azure.com) eller [Azure-mobilappen](https://azure.microsoft.com/features/azure-portal/mobile-app/).
 
-1. Sidan **Välkommen till Azure Cloud Shell** öppnas. Välj **Bash (Linux)**. (Power Shell stöds inte.)
+1. Sidan **Välkommen till Azure Cloud Shell** öppnas. Välj **Bash (Linux)** . (Power Shell stöds inte.)
 
     ![Välkommen till Azure Cloud Shell](media/terraform-vscode-module-generator/ymg-welcome-to-azure-cloud-shell.png)
 
@@ -250,7 +250,7 @@ Processen blir betydligt enklare om du använder Cloud Shell istället för att 
 
 1. Skapa $GOPATH-mappen om det inte redan finns en sådan: Ange `mkdir ~/go`.
 
-1. Skapa en mapp i $GOPATH-mappen: Ange `mkdir ~/go/src`. Den här mappen som används för att lagra och organisera olika projekt mappar som du kan skapa, till exempel den `<your-module-name>` mapp som vi skapar i nästa steg.
+1. Skapa en mapp i $GOPATH-mappen: Ange `mkdir ~/go/src`. Den här mappen används för att lagra och organisera olika projektfiler som du kan skapa, till exempel `<your-module-name>` mappen som skapas i nästa steg.
 
 1. Skapa en mapp som ska innehålla Terraform-modulen: Ange `mkdir ~/go/src/<your-module-name>`.
 
@@ -278,7 +278,7 @@ Processen blir betydligt enklare om du använder Cloud Shell istället för att 
 
 1. Efter en liten stund visas meddelandet **PASS**.
 
-    ![PASS](media/terraform-vscode-module-generator/ymg-pass.png)
+    ![Godkänd](media/terraform-vscode-module-generator/ymg-pass.png)
 
 ## <a name="next-steps"></a>Nästa steg
 

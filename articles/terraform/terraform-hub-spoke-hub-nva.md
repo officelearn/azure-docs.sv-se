@@ -1,40 +1,40 @@
 ---
-title: Skapa en virtuell nätverksinstallation hub med Terraform i Azure
-description: Självstudien implementerar skapandet av Hubbnätverk som fungerar som en vanlig anslutningspunkt mellan alla andra nätverk
+title: Skapa en hubb för virtuella nätverk med terraform i Azure
+description: Själv studie kursen implementerar skapande av hubb-VNet som fungerar som en gemensam kopplings punkt mellan alla andra nätverk
 services: terraform
 ms.service: azure
-keywords: terraform, nav och ekrar, nätverk, hybrid-nätverk, devops, VM, azure, VNet-peering, typen hub-spoke, hub.
+keywords: terraform, hubb och eker, nätverk, hybrid nätverk, DevOps, virtuell dator, Azure, VNet-peering, hubb-eker, hubb.
 author: VaijanathB
 manager: jeconnoc
 ms.author: vaangadi
 ms.topic: tutorial
-ms.date: 03/01/2019
-ms.openlocfilehash: 4155a67f70ccc238c6046c07dded7f0214689617
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 09/20/2019
+ms.openlocfilehash: 1fae21e9a60f533533607e74609853ef68348daf
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60886834"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71173415"
 ---
-# <a name="tutorial-create-a-hub-virtual-network-appliance-with-terraform-in-azure"></a>Självstudier: Skapa en virtuell nätverksinstallation hub med Terraform i Azure
+# <a name="tutorial-create-a-hub-virtual-network-appliance-with-terraform-in-azure"></a>Självstudier: Skapa en hubb för virtuella nätverk med terraform i Azure
 
-En **VPN-enheten** är en enhet som tillhandahåller extern anslutning till ett lokalt nätverk. VPN-enheten kan vara en maskinvaruenhet eller en programvarulösning. Ett exempel på en programvarulösning är Routing and Remote Access Service (RRAS) i Windows Server 2012. Mer information om VPN-installationer finns i [om VPN-enheter för plats-till-plats VPN-Gateway-anslutningar](/azure/vpn-gateway/vpn-gateway-about-vpn-devices).
+En **VPN-enhet** är en enhet som tillhandahåller extern anslutning till ett lokalt nätverk. VPN-enheten kan vara en maskin varu enhet eller en program varu lösning. Ett exempel på en program varu lösning är routing och Remote Access Service (RRAS) i Windows Server 2012. Mer information om VPN-enheter finns i [om VPN-enheter för plats-till-plats-VPN gateway-anslutningar](/azure/vpn-gateway/vpn-gateway-about-vpn-devices).
 
-Azure stöder ett stort antal virtuella nätverksinstallationer som du vill välja från. Den här självstudien används en Ubuntu-avbildning. Mer information om det breda utbud av lösningar för enheter som stöds i Azure finns i [nätverksinstallationer startsida](https://azure.microsoft.com/solutions/network-appliances/).
+Azure har stöd för en mängd olika virtuella nätverks enheter som du kan välja mellan. I den här självstudien används en Ubuntu-avbildning. Mer information om de många olika enhets lösningar som stöds i Azure finns på [Start sidan för nätverks enheter](https://azure.microsoft.com/solutions/network-appliances/).
 
 Den här självstudien omfattar följande uppgifter:
 
 > [!div class="checklist"]
-> * Använd HCL (HashiCorp Language) för att implementera den Hubbnätverk i topologin av typen hub-spoke
-> * Använd Terraform till att skapa Hub nätverk virtuell dator som fungerar som installationen
-> * Använd Terraform till att aktivera vägar med CustomScript-tillägg
-> * Använd Terraform till att skapa NAV och ekrar routningstabeller för gateway
+> * Använd HCL (HashiCorp Language) för att implementera hubbens VNet i hubben för nav-eker
+> * Använd terraform för att skapa en virtuell dator i hubben som fungerar som en apparat
+> * Använda terraform för att aktivera vägar med hjälp av CustomScript-tillägg
+> * Använd terraform för att skapa Hubbs-och eker-gateways väg tabeller
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
-1. [Skapa ett nav och ekrar hybrid nätverkets topologi med Terraform i Azure](./terraform-hub-spoke-introduction.md).
-1. [Skapa en lokal virtuellt nätverk med Terraform i Azure](./terraform-hub-spoke-on-prem.md).
-1. [Skapa ett virtuellt nätverk hub med Terraform i Azure](./terraform-hub-spoke-hub-network.md).
+1. [Skapa en nav-och eker hybrid nätverkstopologi med terraform i Azure](./terraform-hub-spoke-introduction.md).
+1. [Skapa lokalt virtuellt nätverk med terraform i Azure](./terraform-hub-spoke-on-prem.md).
+1. [Skapa ett virtuellt hubb nätverk med terraform i Azure](./terraform-hub-spoke-hub-network.md).
 
 ## <a name="create-the-directory-structure"></a>Skapa katalogstrukturen
 
@@ -56,11 +56,11 @@ Den här självstudien omfattar följande uppgifter:
     cd hub-spoke
     ```
 
-## <a name="declare-the-hub-network-appliance"></a>Deklarera hub-nätverksenhet
+## <a name="declare-the-hub-network-appliance"></a>Deklarera hubb nätverks enheten
 
-Skapa Terraform-konfigurationsfil som deklarerar virtuella lokala nätverk.
+Skapa konfigurations filen terraform som deklarerar det lokala virtuella nätverket.
 
-1. I Cloud Shell skapar du en ny fil med namnet `hub-nva.tf`.
+1. I Cloud Shell skapar du en ny fil med `hub-nva.tf`namnet.
 
     ```bash
     code hub-nva.tf
@@ -68,7 +68,7 @@ Skapa Terraform-konfigurationsfil som deklarerar virtuella lokala nätverk.
 
 1. Klistra in följande kod i redigeringsprogrammet:
     
-    ```JSON
+    ```hcl
     locals {
       prefix-hub-nva         = "hub-nva"
       hub-nva-location       = "CentralUS"
@@ -277,4 +277,4 @@ Skapa Terraform-konfigurationsfil som deklarerar virtuella lokala nätverk.
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Skapa en eker virtuella nätverk med Terraform i Azure](./terraform-hub-spoke-spoke-network.md)
+> [Skapa ett eker-virtuellt nätverk med terraform i Azure](./terraform-hub-spoke-spoke-network.md)

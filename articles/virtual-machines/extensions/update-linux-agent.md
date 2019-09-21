@@ -3,7 +3,7 @@ title: Uppdatera Azure Linux-agenten från GitHub | Microsoft Docs
 description: Lär dig hur du uppdaterar Azure Linux-agenten för din virtuella Linux-dator i Azure
 services: virtual-machines-linux
 documentationcenter: ''
-author: roiyz-msft
+author: axayjo
 manager: gwallace
 editor: ''
 tags: azure-resource-manager,azure-service-management
@@ -13,17 +13,17 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 08/02/2017
-ms.author: roiyz
-ms.openlocfilehash: acb35cbadd64bb5ceeb4a97deb7bc5187ff108ae
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.author: akjosh
+ms.openlocfilehash: 1ae3c3a74d1a46a98fa6676e18ffe71a4d6937a1
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70084097"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71168768"
 ---
 # <a name="how-to-update-the-azure-linux-agent-on-a-vm"></a>Så här uppdaterar du Azure Linux-agenten på en virtuell dator
 
-Om du vill uppdatera [Azure Linux](https://github.com/Azure/WALinuxAgent) -agenten på en virtuell Linux-dator i Azure måste du redan ha:
+Om du vill uppdatera [Azure Linux-agenten](https://github.com/Azure/WALinuxAgent) på en virtuell Linux-dator i Azure måste du redan ha:
 
 - En virtuell Linux-dator som körs i Azure.
 - En anslutning till den virtuella Linux-datorn med SSH.
@@ -473,4 +473,4 @@ För Core, kanske inte kommandot ovan fungerar.
 
 Du kommer att se att Azure Linux-agentens version har uppdaterats till den nya versionen.
 
-Mer information om Azure Linux-agenten finns i [README för Azure Linux](https://github.com/Azure/WALinuxAgent)-agenten.
+Mer information om Azure Linux-agenten finns i [README för Azure Linux-agenten](https://github.com/Azure/WALinuxAgent).

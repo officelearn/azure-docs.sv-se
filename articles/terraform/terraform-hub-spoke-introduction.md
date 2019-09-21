@@ -1,85 +1,85 @@
 ---
-title: Skapa ett nav och ekrar hybrid nätverkets topologi med Terraform i Azure
-description: Självstudie som illustrerar hur du skapar en hela hybridnätverksarkitektur för referens i Azure med Terraform
+title: Skapa en topologi och eker hybrid nätverk sto pol Ogin med terraform i Azure
+description: Självstudie som illustrerar hur du skapar en hel referens arkitektur för Hybrid nätverk i Azure med terraform
 services: terraform
 ms.service: azure
-keywords: terraform, hub and spoke, networks, hybrid networks, devops, virtual machine, azure,  vnet peering, network virtual appliance
+keywords: terraform, hubb och eker, nätverk, hybrid nätverk, DevOps, virtuell dator, Azure, VNet-peering, virtuell nätverks installation
 author: VaijanathB
 manager: jeconnoc
 ms.author: vaangadi
 ms.topic: tutorial
-ms.date: 03/01/2019
-ms.openlocfilehash: 648369d89bd2b5b08171e1f6f5482c81bfba3c66
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 09/20/2019
+ms.openlocfilehash: 5c2a61dd9da6d233a4b1410042f2125a1c300758
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60884733"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71173449"
 ---
-# <a name="tutorial-create-a-hub-and-spoke-hybrid-network-topology-with-terraform-in-azure"></a>Självstudier: Skapa ett nav och ekrar hybrid nätverkets topologi med Terraform i Azure
+# <a name="tutorial-create-a-hub-and-spoke-hybrid-network-topology-with-terraform-in-azure"></a>Självstudier: Skapa en topologi och eker hybrid nätverk sto pol Ogin med terraform i Azure
 
-Den här självstudien visar hur du använder Terraform implementerar i Azure en [nätverkstopologi med nav och ekrar](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke). 
+Den här själv studie serien visar hur du använder terraform för att implementera i Azure a [hubb och ekrar i ekrar](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke). 
 
-En topologi med nav och ekrar är ett sätt att isolera arbetsbelastningar samtidigt som vanliga tjänster. Tjänsterna omfattar identitet och säkerhet. Hubben är ett virtuellt nätverk (VNet) som fungerar som en central anslutningspunkt till ett lokalt nätverk. Ekrarna är virtuella nätverk som peer-kopplas med hubben. Delade tjänster distribueras i hubben, medan individuella arbetsbelastningar distribueras i eker-nätverk.
+En nav-och eker-topologi är ett sätt att isolera arbets belastningar samtidigt som du delar vanliga tjänster. Dessa tjänster omfattar identitet och säkerhet. Hubben är ett virtuellt nätverk (VNet) som fungerar som en central anslutnings punkt till ett lokalt nätverk. Ekrarna är virtuella nätverk som peer-kopplas med hubben. Delade tjänster distribueras i hubben, medan enskilda arbets belastningar distribueras i eker-nätverk.
 
 Den här självstudien omfattar följande uppgifter:
 
 > [!div class="checklist"]
-> * Använda HCL (HashiCorp Language) för att utforma NAV och ekrar hybrid referens arkitektur nätverksresurser
-> * Använd Terraform till att skapa navnätverket installation resurser
-> * Använd Terraform till att skapa navnätverket i Azure så att den fungerar som gemensam tidpunkt för alla resurser
-> * Använd Terraform till att skapa individuella arbetsbelastningar som eker virtuella nätverk i Azure
-> * Använd Terraform till att upprätta gateways och anslutningar mellan lokalt och Azure-nätverk
-> * Använd Terraform till att skapa VNet-peering till ekernätverk
+> * Använd HCL (HashiCorp Language) för att utforma nav och ekrar hybrid nätverks referens arkitektur resurser
+> * Använd terraform för att skapa resurser för hubb nätverks utrustning
+> * Använd terraform för att skapa Hubbs nätverk i Azure för att fungera som gemensam plats för alla resurser
+> * Använd terraform för att skapa enskilda arbets belastningar som eker-virtuella nätverk i Azure
+> * Använd terraform för att upprätta gatewayer och anslutningar mellan lokala nätverk och Azure-nätverk
+> * Använd terraform för att skapa VNet-peering till ekrarade nätverk
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
-- **Azure-prenumeration**: Om du inte redan har en Azure-prenumeration kan du skapa en [kostnadsfritt Azure-konto](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) innan du börjar.
+- **Azure-prenumeration**: Om du inte redan har en Azure-prenumeration kan du skapa ett [kostnads fritt Azure-konto](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) innan du börjar.
 
-- **Installera och konfigurera Terraform**: Att etablera virtuella datorer och annan infrastruktur i Azure, [installera och konfigurera Terraform](/azure/virtual-machines/linux/terraform-install-configure)
+- **Installera och konfigurera terraform**: [Installera och konfigurera terraform](/azure/virtual-machines/linux/terraform-install-configure) för att etablera virtuella datorer och annan infrastruktur i Azure
 
-## <a name="hub-and-spoke-topology-architecture"></a>NAV och ekrar topologi-arkitektur
+## <a name="hub-and-spoke-topology-architecture"></a>Arkitektur för nav och eker-topologi
 
-Hubben är ett virtuellt nätverk i topologin NAV och ekrar. Det virtuella nätverket fungerar som en central plats för anslutning till det lokala nätverket. Ekrarna är virtuella nätverk som peer-kopplas med hubben och som kan användas till att isolera arbetsbelastningar. Trafiken flödar mellan det lokala datacentret och hubben via en ExpressRoute- eller VPN-gatewayanslutning. Följande bild visar komponenterna i en nav och ekrar topologi:
+I nav-och eker-topologin är hubben ett VNet. VNet fungerar som en central punkt för anslutningen till ditt lokala nätverk. Ekrarna är virtuella nätverk som peer-kopplas med hubben och som kan användas till att isolera arbetsbelastningar. Trafiken flödar mellan det lokala datacentret och hubben via en ExpressRoute- eller VPN-gatewayanslutning. Följande bild visar komponenterna i en nav-och eker-topologi:
 
-![NAV och ekrar topologi arkitektur i Azure](./media/terraform-hub-and-spoke-tutorial-series/hub-spoke-architecture.png)
+![Arkitektur för hubb och eker-topologi i Azure](./media/terraform-hub-and-spoke-tutorial-series/hub-spoke-architecture.png)
 
-## <a name="benefits-of-the-hub-and-spoke-topology"></a>Fördelarna med nav och eker-topologi
+## <a name="benefits-of-the-hub-and-spoke-topology"></a>Fördelar med nav-och eker-topologin
 
-En nätverkstopologi med nav och ekrar är ett sätt att isolera arbetsbelastningar samtidigt som vanliga tjänster. Tjänsterna omfattar identitet och säkerhet. Hubben är ett virtuellt nätverk som fungerar som en central anslutningspunkt till ett lokalt nätverk. Ekrarna är virtuella nätverk som peer-kopplas med hubben. Delade tjänster distribueras i hubben, medan individuella arbetsbelastningar distribueras i eker-nätverk. Här följer några av fördelarna med nav och ekrar nätverkets topologi:
+En nätverkstopologi med nav och ekrar är ett sätt att isolera arbets belastningar samtidigt som du delar vanliga tjänster. Dessa tjänster omfattar identitet och säkerhet. Hubben är ett VNet som fungerar som en central anslutnings punkt till ett lokalt nätverk. Ekrarna är virtuella nätverk som peer-kopplas med hubben. Delade tjänster distribueras i hubben, medan enskilda arbets belastningar distribueras i eker-nätverk. Här är några fördelar med nätverk sto pol Ogin nav och ekrar:
 
-- **Besparingar** genom att centralisera tjänster på en enda plats som kan delas av flera arbetsbelastningar. De här arbetsbelastningarna inkluderar virtuella nätverksinstallationer och DNS-servrar.
+- **Kostnads besparingar** genom att centralisera tjänster på en enda plats som kan delas av flera arbets belastningar. Dessa arbets belastningar inkluderar virtuella nätverks enheter och DNS-servrar.
 - **Hantera prenumerationsgränser** genom att peer-koppla virtuella nätverk från olika prenumerationer till den centrala hubben.
 - **Uppdelning** mellan central IT (SecOps, InfraOps) och arbetsbelastningar (DevOps).
 
-## <a name="typical-uses-for-the-hub-and-spoke-architecture"></a>Vanliga användningsområden för arkitekturen NAV och ekrar
+## <a name="typical-uses-for-the-hub-and-spoke-architecture"></a>Typiska användnings områden för hubb och eker-arkitekturen
 
-Några vanliga användningsområden för en arkitektur med nav och ekrar är:
+Några vanliga användnings områden för hubb och eker-arkitektur är:
 
-- Många kunder har arbetsbelastningar som distribueras i olika miljöer. Dessa miljöer innehåller utveckling, testning och produktion. Många gånger behöver dessa arbetsbelastningar dela tjänster, till exempel DNS, ID: N, NTP eller AD DS. De här delade tjänsterna kan placeras i det virtuella hubbnätverket. På så sätt kan distribueras varje miljö till en eker att bibehålla isolering.
-- Arbetsbelastningar som inte kräver anslutning till varandra, men kräver åtkomst till delade tjänster.
-- Företag som kräver central kontroll över säkerhetsaspekter.
-- Företag som kräver fördelad hantering för arbetsbelastningarna i varje eker.
+- Många kunder har arbets belastningar som distribueras i olika miljöer. I dessa miljöer ingår utveckling, testning och produktion. Många gånger måste dessa arbets belastningar dela tjänster som DNS, ID, NTP eller AD DS. Dessa delade tjänster kan placeras i hubbens VNet. På så sätt distribueras varje miljö till en eker för att upprätthålla isoleringen.
+- Arbets belastningar som inte kräver anslutning till varandra, men som kräver åtkomst till delade tjänster.
+- Företag som kräver Central kontroll över säkerhets aspekter.
+- Företag som kräver en isolerad hantering för arbets belastningarna i varje eker.
 
-## <a name="preview-the-demo-components"></a>Förhandsgranska demo-komponenter
+## <a name="preview-the-demo-components"></a>Förhandsgranska demo komponenterna
 
-Medan du arbetar med varje guide i den här serien definieras olika komponenter i olika Terraform-skript. Demo-arkitekturen skapas och distribueras består av följande komponenter:
+När du arbetar med varje självstudie i den här serien definieras olika komponenter i distinkta terraform-skript. Demo arkitekturen som skapas och distribueras består av följande komponenter:
 
-- **Lokalt nätverk**. Ett privat lokalt nätverk som körs med en organisation. För NAV och ekrar Referensarkitektur är ett virtuellt nätverk i Azure används för att simulera ett lokalt nätverk.
+- **Lokalt nätverk**. Ett privat lokalt lokalt nätverk som körs med en organisation. För referens arkitektur för hubb och eker används ett VNet i Azure för att simulera ett lokalt nätverk.
 
-- **VPN-enhet**. En VPN-enhet eller tjänst tillhandahåller extern anslutning till det lokala nätverket. VPN-enheten kan vara en installation för maskinvara eller en programvarulösning. 
+- **VPN-enhet**. En VPN-enhet eller tjänst tillhandahåller extern anslutning till det lokala nätverket. VPN-enheten kan vara en maskin varu enhet eller en program varu lösning. 
 
-- **Virtuellt hubbnätverk**. Hubben är den centrala punkten för anslutning till ditt lokala nätverk och en plats för tjänster. Dessa tjänster kan användas av olika arbetsbelastningar som finns i de virtuella ekernätverken.
+- **Virtuellt hubbnätverk**. Hubben är den centrala punkten för anslutning till ditt lokala nätverk och en plats som är värd för tjänster. Dessa tjänster kan användas av de olika arbets belastningar som finns i eker-virtuella nätverk.
 
-- **Gateway-undernät**. VNet-gateways lagras i samma undernät.
+- **Gateway-undernät**. VNet-gatewayerna lagras i samma undernät.
 
 - **Virtuella ekernätverk**. Ekrar kan användas för att isolera arbetsbelastningar i egna virtuella nätverk, som hanteras separat från andra ekrar. Varje arbetsbelastning kan innehålla flera nivåer, med flera undernät som är anslutna via Azure-lastbalanserare. 
 
-- **VNET-peering**. Två virtuella nätverk kan anslutas med hjälp av en peering-anslutning. Peering-anslutningar är icke-transitiva anslutningar med låg latens mellan virtuella nätverk. När peer-kopplats utbyter de virtuella nätverken trafik med hjälp av Azure-stamnätet, utan att behöva en router. I en nav och ekrar nätverkets topologi används VNet-peering för att ansluta hubben till varje eker. Du kan peerkoppla virtuella nätverk i samma region eller olika regioner.
+- **VNET-peering**. Två virtuella nätverk kan anslutas med hjälp av en peering-anslutning. Peering-anslutningar är icke-transitiva anslutningar med låg latens mellan virtuella nätverk. När peer-kopplats virtuella nätverk Exchange-trafik med hjälp av Azures stamnät, utan att behöva en router. I en nätverkstopologi med nav och ekrar används VNet-peering för att ansluta hubben till varje eker. Du kan peer-virtuella nätverk i samma region eller i olika regioner.
 
 ## <a name="create-the-directory-structure"></a>Skapa katalogstrukturen
 
-Skapa den katalog som innehåller Terraform konfigurationsfilerna för demon.
+Skapa den katalog som innehåller dina terraform-konfigurationsfiler för demonstrationen.
 
 1. Bläddra till [Azure-portalen](https://portal.azure.com).
 
@@ -109,7 +109,7 @@ Skapa den katalog som innehåller Terraform konfigurationsfilerna för demon.
 
 Skapa Terraform-konfigurationsfilen som deklarerar Azure-providern.
 
-1. Öppna en ny fil med namnet i Cloud Shell `main.tf`.
+1. I Cloud Shell öppnar du en ny fil med `main.tf`namnet.
 
     ```bash
     code main.tf
@@ -117,7 +117,7 @@ Skapa Terraform-konfigurationsfilen som deklarerar Azure-providern.
 
 1. Klistra in följande kod i redigeringsprogrammet:
 
-    ```JSON
+    ```hcl
     provider "azurerm" {
         version = "~>1.22"
     }
@@ -125,11 +125,11 @@ Skapa Terraform-konfigurationsfilen som deklarerar Azure-providern.
 
 1. Spara filen och avsluta redigeraren.
 
-## <a name="create-the-variables-file"></a>Skapa filen variabler
+## <a name="create-the-variables-file"></a>Skapa variabeln-filen
 
-Skapa Terraform-konfigurationsfil för vanliga variabler som används i olika skript.
+Skapa konfigurations filen terraform för vanliga variabler som används i olika skript.
 
-1. Öppna en ny fil med namnet i Cloud Shell `variables.tf`.
+1. I Cloud Shell öppnar du en ny fil med `variables.tf`namnet.
 
     ```bash
     code variables.tf
@@ -137,7 +137,7 @@ Skapa Terraform-konfigurationsfil för vanliga variabler som används i olika sk
 
 1. Klistra in följande kod i redigeringsprogrammet:
 
-    ```JSON
+    ```hcl
     variable "location" {
       description = "Location of the network"
       default     = "centralus"
@@ -164,4 +164,4 @@ Skapa Terraform-konfigurationsfil för vanliga variabler som används i olika sk
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"] 
-> [Skapa en lokal virtuellt nätverk med Terraform i Azure](./terraform-hub-spoke-on-prem.md)
+> [Skapa lokalt virtuellt nätverk med terraform i Azure](./terraform-hub-spoke-on-prem.md)

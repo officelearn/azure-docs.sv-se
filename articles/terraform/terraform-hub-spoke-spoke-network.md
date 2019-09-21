@@ -1,42 +1,42 @@
 ---
-title: Skapa en eker-nätverk med Terraform i Azure
-description: Lär dig hur du implementerar två eker virtuella nätverk som är anslutna till ett nav i en nav-eker-topologi
+title: Skapa ett eker-nätverk med terraform i Azure
+description: Lär dig hur du implementerar två eker-virtuella nätverk som är anslutna till ett nav i en topologi med nav ekrar
 services: terraform
 ms.service: azure
-keywords: terraform, nav och ekrar, nätverk, hybrid-nätverk, devops, VM, azure, VNet-peering, eker, typen hub-spoke
+keywords: terraform, hubb och eker, nätverk, hybrid nätverk, DevOps, virtuell dator, Azure, VNet-peering, eker, hubb-eker
 author: VaijanathB
 manager: jeconnoc
 ms.author: vaangadi
 ms.topic: tutorial
-ms.date: 03/01/2019
-ms.openlocfilehash: 9cce809401a26eb2b45b11303afcd4818a1f950b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 09/20/2019
+ms.openlocfilehash: 9437f43a12204c9a08e1c0da11fc737e8c026c80
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60884546"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71173395"
 ---
-# <a name="tutorial-create-a-spoke-virtual-network-with-terraform-in-azure"></a>Självstudier: Skapa ett virtuellt nätverk eker med Terraform i Azure
+# <a name="tutorial-create-a-spoke-virtual-network-with-terraform-in-azure"></a>Självstudier: Skapa ett eker-virtuellt nätverk med terraform i Azure
 
-I den här självstudien får implementera du två separata eker-nätverk för att demonstrera uppdelning av arbetsbelastningar. Nätverk som delar vanliga resurser med hjälp av virtuella navnätverket. Ekrar kan användas för att isolera arbetsbelastningar i egna virtuella nätverk, som hanteras separat från andra ekrar. Varje arbetsbelastning kan innehålla flera nivåer, med flera undernät som är anslutna via Azure-lastbalanserare.
+I den här självstudien implementerar du två separata eker-nätverk för att demonstrera separering av arbets belastningar. Nätverken delar gemensamma resurser med hubb virtuellt nätverk. Ekrar kan användas för att isolera arbetsbelastningar i egna virtuella nätverk, som hanteras separat från andra ekrar. Varje arbetsbelastning kan innehålla flera nivåer, med flera undernät som är anslutna via Azure-lastbalanserare.
 
 Den här självstudien omfattar följande uppgifter:
 
 > [!div class="checklist"]
-> * Använd HCL (HashiCorp Language) för att implementera de eker virtuella nätverken i topologin av typen hub-spoke
-> * Använd Terraform till att skapa virtuella datorer i ekernätverk
-> * Använd Terraform till att upprätta vnet-peering med nav-nätverk
+> * Använd HCL (HashiCorp Language) för att implementera eker-virtuella nätverk i hubben för nav-eker
+> * Använda terraform för att skapa virtuella datorer i eker-nätverk
+> * Använd terraform för att upprätta peer-kopplingar för virtuella nätverk med hubb nätverk
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
-1. [Skapa ett nav och ekrar hybrid nätverkets topologi med Terraform i Azure](./terraform-hub-spoke-introduction.md).
-1. [Skapa en lokal virtuellt nätverk med Terraform i Azure](./terraform-hub-spoke-on-prem.md).
-1. [Skapa ett virtuellt nätverk hub med Terraform i Azure](./terraform-hub-spoke-hub-network.md).
-1. [Skapa en virtuell nätverksinstallation hub med Terraform i Azure](./terraform-hub-spoke-hub-nva.md).
+1. [Skapa en nav-och eker hybrid nätverkstopologi med terraform i Azure](./terraform-hub-spoke-introduction.md).
+1. [Skapa lokalt virtuellt nätverk med terraform i Azure](./terraform-hub-spoke-on-prem.md).
+1. [Skapa ett virtuellt hubb nätverk med terraform i Azure](./terraform-hub-spoke-hub-network.md).
+1. [Skapa en hubb för virtuella nätverk med terraform i Azure](./terraform-hub-spoke-hub-nva.md).
 
 ## <a name="create-the-directory-structure"></a>Skapa katalogstrukturen
 
-Två eker skript skapas i det här avsnittet. Varje skript definierar ett virtuellt eker-nätverk och en virtuell dator för arbetsbelastningen. En peer-kopplade virtuella nätverket från hub till eker skapas.
+Två eker-skript skapas i det här avsnittet. Varje skript definierar ett eker-virtuellt nätverk och en virtuell dator för arbets belastningen. Ett peer-kopplat virtuellt nätverk från hubb till ekrar skapas sedan.
 
 1. Bläddra till [Azure-portalen](https://portal.azure.com).
 
@@ -56,9 +56,9 @@ Två eker skript skapas i det här avsnittet. Varje skript definierar ett virtue
     cd hub-spoke
     ```
 
-## <a name="declare-the-two-spoke-networks"></a>Deklarera två ekernätverk
+## <a name="declare-the-two-spoke-networks"></a>Deklarera de två eker-nätverken
 
-1. Öppna en ny fil med namnet i Cloud Shell `spoke1.tf`.
+1. I Cloud Shell öppnar du en ny fil med `spoke1.tf`namnet.
 
     ```bash
     code spoke1.tf
@@ -66,7 +66,7 @@ Två eker skript skapas i det här avsnittet. Varje skript definierar ett virtue
 
 1. Klistra in följande kod i redigeringsprogrammet:
 
-    ```JSON
+    ```hcl
     locals {
       spoke1-location       = "CentralUS"
       spoke1-resource-group = "spoke1-vnet-rg"
@@ -188,7 +188,7 @@ Två eker skript skapas i det här avsnittet. Varje skript definierar ett virtue
     
 1. Klistra in följande kod i redigeringsprogrammet:
     
-    ```JSON
+    ```hcl
     locals {
       spoke2-location       = "CentralUS"
       spoke2-resource-group = "spoke2-vnet-rg"
@@ -309,4 +309,4 @@ Två eker skript skapas i det här avsnittet. Varje skript definierar ett virtue
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"] 
-> [Verifiera ett nav och ekrar nätverk med Terraform i Azure](./terraform-hub-spoke-validation.md)
+> [Verifiera ett nav-och eker-nätverk med terraform i Azure](./terraform-hub-spoke-validation.md)

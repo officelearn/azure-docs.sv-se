@@ -11,12 +11,12 @@ ms.reviewer: klam, LADocs
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 09/12/2019
-ms.openlocfilehash: 9392cfc9c789a757c3ad533a3dbd4719f5292be5
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: 809d76791522fa135932baaf6e237570ab0af35a
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70931570"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71172174"
 ---
 # <a name="tutorial-create-automated-schedule-based-recurring-workflows-by-using-azure-logic-apps"></a>Självstudier: Skapa automatiserade, schemabaserade, återkommande arbets flöden med hjälp av Azure Logic Apps
 
@@ -235,7 +235,7 @@ Lägg sedan till ett villkor som kontrollerar om den aktuella restiden är stör
 
 1. Under den föregående åtgärden väljer du **nytt steg**.
 
-1. Under **Välj en åtgärd**väljer du **inbyggd**och söker efter "villkor" och väljer **villkors** åtgärden.
+1. Under **Välj en åtgärd**väljer du **inbyggt**. I rutan Sök anger du "Condition" som filter. I listan åtgärder väljer du **villkors** åtgärden.
 
    ![Välj "villkor"-åtgärd](./media/tutorial-build-scheduled-recurring-logic-app-workflow/select-condition-action.png)
 
@@ -243,19 +243,19 @@ Lägg sedan till ett villkor som kontrollerar om den aktuella restiden är stör
 
 1. Bygg ett villkor som kontrollerar om egenskap svärdet **travelTime** överskrider din angivna gräns enligt beskrivningen och visas här:
 
-   1. Inuti villkoret klickar du i rutan **Välj ett värde** på villkorets vänstra sida.
+   1. I villkoret klickar du i rutan **Välj ett värde** på villkorets vänstra sida.
 
-   1. När listan med dynamiskt innehåll visas under **variabler**väljer du egenskapen **travelTime** .
+   1. I listan med dynamiskt innehåll som visas under **variabler**väljer du egenskapen **travelTime** .
 
       ![Bygg villkor vänster](./media/tutorial-build-scheduled-recurring-logic-app-workflow/build-condition-left-side.png)
 
-   1. I jämförelserutan väljer du operatorn **is greater than** (är större än)
+   1. I rutan mellan jämförelser väljer du operatorn **är större än** .
 
    1. I rutan **Välj ett värde** på villkorets högra sida anger du den här gränsen:`15`
 
       När du är klar ser villkoret ut som i det här exemplet:
 
-      ![Skapa villkor](./media/tutorial-build-scheduled-recurring-logic-app-workflow/build-condition-check-travel-time.png)
+      ![Slut villkor](./media/tutorial-build-scheduled-recurring-logic-app-workflow/build-condition-check-travel-time.png)
 
 1. Spara din logikapp.
 

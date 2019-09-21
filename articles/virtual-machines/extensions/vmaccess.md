@@ -1,9 +1,9 @@
 ---
-title: Återställa åtkomst till en virtuell Linux-dator | Microsoft Docs
-description: Hur du hanterar administrativa användare och Återställ åtkomst på virtuella Linux-datorer med hjälp av VMAccess-tillägget och Azure CLI
+title: Återställ åtkomst till en virtuell Azure Linux-dator | Microsoft Docs
+description: Hantera administrativa användare och återställning av åtkomst på virtuella Linux-datorer med VMAccess-tillägget och Azure CLI
 services: virtual-machines-linux
 documentationcenter: ''
-author: roiyz-msft
+author: axayjo
 manager: gwallace
 editor: ''
 tags: azure-resource-manager
@@ -14,49 +14,49 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: article
 ms.date: 05/10/2018
-ms.author: roiyz
-ms.openlocfilehash: 2841aedc1a4fe69e2604d3c6b95cc12dab4c7716
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.author: akjosh
+ms.openlocfilehash: 447c10037503c627092bb23e23b4fe1ee88ca45d
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67706609"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71173963"
 ---
-# <a name="manage-administrative-users-ssh-and-check-or-repair-disks-on-linux-vms-using-the-vmaccess-extension-with-the-azure-cli"></a>Hantera administrativa användare, SSH och kontrollera eller reparera diskar på virtuella Linux-datorer med hjälp av VMAccess-tillägget med Azure CLI
+# <a name="manage-administrative-users-ssh-and-check-or-repair-disks-on-linux-vms-using-the-vmaccess-extension-with-the-azure-cli"></a>Hantera administrativa användare, SSH och kontrol lera eller reparera diskar på virtuella Linux-datorer med VMAccess-tillägget med Azure CLI
 ## <a name="overview"></a>Översikt
-Disken på din Linux-VM visar fel. Du på något sätt återställa rotlösenordet för din Linux-VM eller ta bort SSH-privata nyckeln av misstag. Om detta har inträffat i dagar i datacentret, skulle du behöva öka det och öppna sedan KVM att hämta vid servern. Tänk på Azure VMAccess-tillägget som denna KVM-växel som gör det möjligt att få åtkomst till konsolen för att återställa åtkomst till Linux eller genomför diskunderhåll nivå.
+Disken på den virtuella Linux-datorn visar fel. Du återställer inte rot lösen ordet för din virtuella Linux-dator eller oavsiktligt tagit bort den privata SSH-nyckeln. Om detta hände i dagar för data centret måste du köra det och sedan öppna KVM för att hämta i Server konsolen. Tänk på Azure VMAccess-tillägget som en KVM-växel som gör att du kan komma åt konsolen för att återställa åtkomsten till Linux eller utföra underhåll på disk nivå.
 
-Den här artikeln visar hur du använder Azure VMAccess-tillägget för att kontrollera eller reparera en disk, Återställ användarnas åtkomst, hantera administrativa användarkonton eller uppdatera SSH-konfigurationen på Linux när de körs som Azure Resource Manager-datorer. Om du behöver hantera klassiska virtuella datorer – du kan följa instruktionerna i den [dokumentationen för klassiska virtuella datorer](../linux/classic/reset-access-classic.md). 
+Den här artikeln visar hur du använder Azure VMAccess-tillägget för att kontrol lera eller reparera en disk, återställa användar åtkomst, hantera administrativa användar konton eller uppdatera SSH-konfigurationen på Linux när den körs som Azure Resource Manager virtuella datorer. Om du behöver hantera klassiska virtuella datorer kan du följa anvisningarna i den [klassiska VM-dokumentationen](../linux/classic/reset-access-classic.md). 
  
 > [!NOTE]
-> Om du använder VMAccess-tillägget för att återställa lösenordet för den virtuella datorn när du har installerat tillägget AAD-inloggning måste du köra tillägget AAD-inloggning om du vill återaktivera AAD-inloggning för din dator.
+> Om du använder VMAccess-tillägget för att återställa lösen ordet för den virtuella datorn efter att du har installerat inloggnings tillägget AAD måste du köra inloggnings tillägget AAD igen för att återaktivera AAD-inloggningen för datorn.
 
 ## <a name="prerequisites"></a>Förutsättningar
 ### <a name="operating-system"></a>Operativsystem
 
-VM Access-tillägget kan köras mot dessa Linux-distributioner:
+Tillägget för VM-åtkomst kan köras mot dessa Linux-distributioner:
 
 | Distribution | Version |
 |---|---|
-| Ubuntu | 16.04 LTS, 14.04 LTS och 12.04 LTS |
-| Debian | Debian 7.9+, 8.2+ |
-| Red Hat | RHEL 6.7+, 7.1+ |
+| Ubuntu | 16,04 LTS, 14,04 LTS och 12,04 LTS |
+| Debian | Debian 7.9 +, 8.2 + |
+| Red Hat | RHEL 6,7 +, 7.1 + |
 | Oracle Linux | 6.4+, 7.0+ |
 | SUSE | 11 och 12 |
-| OpenSuse | openSUSE steg 42.2 + |
+| OpenSuse | openSUSE skottår 42.2 + |
 | CentOS | CentOS 6.3+, 7.0+ |
 | CoreOS | 494.4.0+ |
 
 ## <a name="ways-to-use-the-vmaccess-extension"></a>Sätt att använda VMAccess-tillägget
-Det finns två sätt som du kan använda VMAccess-tillägget på din virtuella Linux-datorer:
+Du kan använda VMAccess-tillägget på virtuella Linux-datorer på två sätt:
 
 * Använd Azure CLI och de obligatoriska parametrarna.
-* [Använda raw JSON-filer som VMAccess-tillägget bearbetar](#use-json-files-and-the-vmaccess-extension) och sedan agera utifrån.
+* [Använd RAW JSON-filer som VMAccess-tillägget](#use-json-files-and-the-vmaccess-extension) och sedan agera på.
 
-I följande exempel används [az vm user](/cli/azure/vm/user) kommandon. Om du vill utföra dessa steg du behöver senast [Azure CLI](/cli/azure/install-az-cli2) installerat och loggat in till en Azure-konto med hjälp av [az-inloggning](/cli/azure/reference-index).
+I följande exempel används [AZ VM User](/cli/azure/vm/user) -kommandon. För att utföra de här stegen måste du ha den senaste versionen av [Azure CLI](/cli/azure/install-az-cli2) installerat och inloggad på ett Azure-konto med [AZ-inloggning](/cli/azure/reference-index).
 
 ## <a name="update-ssh-key"></a>Uppdatera SSH-nyckel
-I följande exempel uppdateras SSH-nyckel för användaren `azureuser` på den virtuella datorn med namnet `myVM`:
+I följande exempel uppdateras SSH-nyckeln för användaren `azureuser` på den virtuella datorn med namnet: `myVM`
 
 ```azurecli-interactive
 az vm user update \
@@ -66,10 +66,10 @@ az vm user update \
   --ssh-key-value ~/.ssh/id_rsa.pub
 ```
 
-> **Obs!** Den `az vm user update` kommando lägger du till den nya offentliga nyckel texten ska den `~/.ssh/authorized_keys` fil för administratören på den virtuella datorn. Detta inte ersätter eller ta bort några befintliga SSH-nycklar. Detta tar inte bort tidigare nycklar som anges vid tidpunkten för distribution eller efterföljande uppdateringar via VMAccess-tillägget.
+> **Obs!** Kommandot lägger till den nya offentliga nyckel texten `~/.ssh/authorized_keys` i filen för administratörs användaren på den virtuella datorn. `az vm user update` Detta ersätter eller tar inte bort några befintliga SSH-nycklar. Detta tar inte bort tidigare nycklar som ställts in vid distributions tillfället eller efterföljande uppdateringar via VMAccess-tillägget.
 
 ## <a name="reset-password"></a>Återställ lösenord
-I följande exempel återställer lösenordet för användaren `azureuser` på den virtuella datorn med namnet `myVM`:
+I följande exempel återställer lösen ordet för användaren `azureuser` på den virtuella datorn med namnet: `myVM`
 
 ```azurecli-interactive
 az vm user update \
@@ -80,7 +80,7 @@ az vm user update \
 ```
 
 ## <a name="restart-ssh"></a>Starta om SSH
-I följande exempel startar om SSH-daemon och återställer SSH-konfigurationen till standardvärden på en virtuell dator med namnet `myVM`:
+I följande exempel startar SSH-daemon om och återställer SSH-konfigurationen till standardvärdena på en virtuell dator med `myVM`namnet:
 
 ```azurecli-interactive
 az vm user reset-ssh \
@@ -88,8 +88,8 @@ az vm user reset-ssh \
   --name myVM
 ```
 
-## <a name="create-an-administrativesudo-user"></a>Skapar du en administrativ/sudo-användare
-I följande exempel skapas en användare med namnet `myNewUser` med **sudo** behörigheter. Konton som använder en SSH-nyckel för autentisering på den virtuella datorn med namnet `myVM`. Den här metoden är avsedd för att få åtkomst till en virtuell dator om den aktuella autentiseringsuppgifter har förlorat. Som bästa praxis-konton med **sudo** behörigheter ska vara begränsad.
+## <a name="create-an-administrativesudo-user"></a>Skapa en administrativ/sudo-användare
+I följande exempel skapas en användare med `myNewUser` namnet **sudo** -behörigheter. Kontot använder en SSH-nyckel för autentisering på den virtuella datorn `myVM`med namnet. Den här metoden är utformad för att hjälpa dig att få åtkomst till en virtuell dator i händelse av att aktuella autentiseringsuppgifter går förlorade eller glöms bort. Som bästa praxis bör konton med **sudo** -behörigheter begränsas.
 
 ```azurecli-interactive
 az vm user update \
@@ -100,7 +100,7 @@ az vm user update \
 ```
 
 ## <a name="delete-a-user"></a>Ta bort en användare
-I följande exempel tar bort en användare med namnet `myNewUser` på den virtuella datorn med namnet `myVM`:
+I följande exempel tar bort en användare `myNewUser` som heter på den `myVM`virtuella datorn med namnet:
 
 ```azurecli-interactive
 az vm user delete \
@@ -110,12 +110,12 @@ az vm user delete \
 ```
 
 ## <a name="use-json-files-and-the-vmaccess-extension"></a>Använda JSON-filer och VMAccess-tillägget
-I följande exempel används raw JSON-filer. Använd [az vm-tilläggsuppsättningen](/cli/azure/vm/extension) att anropa JSON-filer. De här JSON-filer kan också anropas från Azure-mallar. 
+I följande exempel används RAW JSON-filer. Använd [AZ VM Extension](/cli/azure/vm/extension) för att anropa dina JSON-filer. Dessa JSON-filer kan även anropas från Azure-mallar. 
 
-### <a name="reset-user-access"></a>Återställ användaråtkomst
-Om du har förlorat åtkomsten till rot på Linux-VM, kan du starta en VMAccess-skript för att uppdatera en användares SSH-nyckel eller lösenord.
+### <a name="reset-user-access"></a>Återställ användar åtkomst
+Om du har förlorat åtkomsten till roten på din virtuella Linux-dator kan du starta ett VMAccess-skript för att uppdatera en användares SSH-nyckel eller lösen ord.
 
-Om du vill uppdatera den offentliga SSH-nyckeln för en användare skapar du en fil med namnet `update_ssh_key.json` och lägga till inställningar i följande format. Ersätt värdena för den `username` och `ssh_key` parametrar:
+Om du vill uppdatera den offentliga SSH-nyckeln för en användare skapar du `update_ssh_key.json` en fil med namnet och lägger till inställningar i följande format. Ersätt dina egna värden för `username` parametrarna och: `ssh_key`
 
 ```json
 {
@@ -124,7 +124,7 @@ Om du vill uppdatera den offentliga SSH-nyckeln för en användare skapar du en 
 }
 ```
 
-Kör skriptet VMAccess med:
+Kör VMAccess-skriptet med:
 
 ```azurecli-interactive
 az vm extension set \
@@ -136,7 +136,7 @@ az vm extension set \
   --protected-settings update_ssh_key.json
 ```
 
-Om du vill återställa en användarlösenord, skapa en fil med namnet `reset_user_password.json` och lägga till inställningar i följande format. Ersätt värdena för den `username` och `password` parametrar:
+Om du vill återställa ett användar lösen ord skapar du `reset_user_password.json` en fil med namnet och lägger till inställningar i följande format. Ersätt dina egna värden för `username` parametrarna och: `password`
 
 ```json
 {
@@ -145,7 +145,7 @@ Om du vill återställa en användarlösenord, skapa en fil med namnet `reset_us
 }
 ```
 
-Kör skriptet VMAccess med:
+Kör VMAccess-skriptet med:
 
 ```azurecli-interactive
 az vm extension set \
@@ -158,7 +158,7 @@ az vm extension set \
 ```
 
 ### <a name="restart-ssh"></a>Starta om SSH
-Om du vill starta om daemon för SSH och återställa SSH-konfigurationen till standardvärden, skapa en fil med namnet `reset_sshd.json`. Lägg till följande innehåll:
+Om du vill starta om SSH-daemonen och återställa SSH-konfigurationen till standardvärdena `reset_sshd.json`skapar du en fil med namnet. Lägg till följande innehåll:
 
 ```json
 {
@@ -166,7 +166,7 @@ Om du vill starta om daemon för SSH och återställa SSH-konfigurationen till s
 }
 ```
 
-Kör skriptet VMAccess med:
+Kör VMAccess-skriptet med:
 
 ```azurecli-interactive
 az vm extension set \
@@ -180,7 +180,7 @@ az vm extension set \
 
 ### <a name="manage-administrative-users"></a>Hantera administrativa användare
 
-Skapa en användare med **sudo** behörigheter som använder en SSH-nyckel för autentisering, skapa en fil med namnet `create_new_user.json` och lägga till inställningar i följande format. Ersätt värdena för den `username` och `ssh_key` parametrar. Den här metoden är avsedd för att få åtkomst till en virtuell dator om den aktuella autentiseringsuppgifter har förlorat. Som bästa praxis-konton med **sudo** behörigheter ska vara begränsad.
+Skapa en användare med **sudo** -behörigheter som använder en SSH-nyckel för autentisering genom att skapa en `create_new_user.json` fil med namnet och lägga till inställningar i följande format. Ersätt dina egna värden för `username` parametrarna och. `ssh_key` Den här metoden är utformad för att hjälpa dig att få åtkomst till en virtuell dator i händelse av att aktuella autentiseringsuppgifter går förlorade eller glöms bort. Som bästa praxis bör konton med **sudo** -behörigheter begränsas.
 
 ```json
 {
@@ -190,7 +190,7 @@ Skapa en användare med **sudo** behörigheter som använder en SSH-nyckel för 
 }
 ```
 
-Kör skriptet VMAccess med:
+Kör VMAccess-skriptet med:
 
 ```azurecli-interactive
 az vm extension set \
@@ -202,7 +202,7 @@ az vm extension set \
   --protected-settings create_new_user.json
 ```
 
-Ta bort en användare genom att skapa en fil med namnet `delete_user.json` och Lägg till följande innehåll. Ersätt ditt eget värde för den `remove_user` parameter:
+Om du vill ta bort en användare skapar du `delete_user.json` en fil med namnet och lägger till följande innehåll. Ersätt ditt eget värde för `remove_user` parametern:
 
 ```json
 {
@@ -210,7 +210,7 @@ Ta bort en användare genom att skapa en fil med namnet `delete_user.json` och L
 }
 ```
 
-Kör skriptet VMAccess med:
+Kör VMAccess-skriptet med:
 
 ```azurecli-interactive
 az vm extension set \
@@ -222,10 +222,10 @@ az vm extension set \
   --protected-settings delete_user.json
 ```
 
-### <a name="check-or-repair-the-disk"></a>Kontrollera eller reparera disken
-Med hjälp av VMAccess du också kontrollera och reparera en disk som du lade till Linux VM.
+### <a name="check-or-repair-the-disk"></a>Kontrol lera eller reparera disken
+Med VMAccess kan du också kontrol lera och reparera en disk som du har lagt till i den virtuella Linux-datorn.
 
-Om du vill kontrollera och reparera disken, skapa en fil med namnet `disk_check_repair.json` och lägga till inställningar i följande format. Ersätt ditt eget värde för namnet på `repair_disk`:
+Om du vill kontrol lera och reparera disken skapar du en fil `disk_check_repair.json` med namnet och lägger till inställningar i följande format. Ersätt ditt eget värde med namnet `repair_disk`:
 
 ```json
 {
@@ -234,7 +234,7 @@ Om du vill kontrollera och reparera disken, skapa en fil med namnet `disk_check_
 }
 ```
 
-Kör skriptet VMAccess med:
+Kör VMAccess-skriptet med:
 
 ```azurecli-interactive
 az vm extension set \

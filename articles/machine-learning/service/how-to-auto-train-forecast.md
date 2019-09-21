@@ -10,12 +10,12 @@ ms.subservice: core
 ms.reviewer: trbye
 ms.topic: conceptual
 ms.date: 06/20/2019
-ms.openlocfilehash: 5339d963b84c5922138d53e44abe9340d55b4dde
-ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
+ms.openlocfilehash: 03c5d46221dc385a390e840381270c01c40bdc6d
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71130236"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71170403"
 ---
 # <a name="auto-train-a-time-series-forecast-model"></a>Automatisk träna en tids serie prognos modell
 
@@ -95,8 +95,10 @@ För prognos uppgifter använder automatisk maskin inlärning för bearbetning o
 |`time_column_name`|Används för att ange kolumnen datetime i de indata som används för att bygga tids serien och härleda dess frekvens.|✓|
 |`grain_column_names`|Namn (er) som definierar enskilda serie grupper i indata. Om kornig het inte har definierats antas data uppsättningen vara en tids serie.||
 |`max_horizon`|Definierar den högsta önskade prognos horisonten i enheter för tids serie frekvens. Enheter baseras på tidsintervallet för dina utbildnings data, t. ex. varje månad, varje vecka att prognosen ska förutsäga.|✓|
-|`target_lags`|Antal rader att ange för fördröjning av målvärdena baserat på data frekvensen. Detta representeras som en lista eller ett enda heltal.||
-|`target_rolling_window_size`|*n* historiska perioder som ska användas för att generera prognostiserade värden < = storlek för tränings uppsättning. Om det utelämnas är *n* den fullständiga inlärnings uppsättningens storlek.||
+|`target_lags`|Antal rader att ange för fördröjning av målvärdena baserat på data frekvensen. Detta representeras som en lista eller ett enda heltal. Fördröjning ska användas när relationen mellan de oberoende variablerna och den underordnade variabeln inte matchar eller korrelerar som standard. När du till exempel försöker prognostisera efter frågan för en produkt kan efter frågan i någon månad bero på priset för vissa råvaruer 3 månader tidigare. I det här exemplet kanske du vill ange ett negativt värde för målet (efter frågan) med tre månader, så att modellen är en utbildning på rätt relation.||
+|`target_rolling_window_size`|*n* historiska perioder som ska användas för att generera prognostiserade värden < = storlek för tränings uppsättning. Om det utelämnas är *n* den fullständiga inlärnings uppsättningens storlek. Ange den här parametern när du bara vill ta hänsyn till en viss mängd historik när du tränar modellen.||
+
+Mer information finns i [referens dokumentationen](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlconfig?view=azure-ml-py) .
 
 Skapa tids serie inställningarna som ett Dictionary-objekt. `time_column_name` Ange`day_datetime` till fältet i data uppsättningen. Definiera parametern för att se till att **två separata tids serie grupper** skapas för data, en för Store A och B. Ange `max_horizon` till 50 för att förutsäga för hela test uppsättningen. `grain_column_names` Ange en prognos period på 10 perioder med `target_rolling_window_size`och ange en enda fördröjning på målvärdena för 2 perioder i förväg `target_lags` med parametern.
 

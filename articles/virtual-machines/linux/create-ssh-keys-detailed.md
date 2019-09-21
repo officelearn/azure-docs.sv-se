@@ -3,7 +3,7 @@ title: Detaljerade steg – SSH-nyckelpar för virtuella Azure Linux-datorer | M
 description: Lär dig mer om hur du skapar och hanterar ett offentligt och privat SSH-nyckelpar för virtuella Linux-datorer i Azure.
 services: virtual-machines-linux
 documentationcenter: ''
-author: dlepow
+author: cynthn
 manager: gwallace
 editor: ''
 tags: ''
@@ -13,13 +13,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 04/17/2018
-ms.author: danlep
-ms.openlocfilehash: f166f460f1518588bd12cc5d0581101d417dd41a
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.author: cynthn
+ms.openlocfilehash: da1454518cff12c2ae05f717b0165c02f437ee74
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70083754"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71168629"
 ---
 # <a name="detailed-steps-create-and-manage-ssh-keys-for-authentication-to-a-linux-vm-in-azure"></a>Detaljerade steg: Skapa och hantera SSH-nycklar för autentisering till en virtuell Linux-dator i Azure 
 Med ett SSH-nyckelpar (Secure Shell) kan du skapa en virtuell Linux-dator på Azure som använder SSH-nycklar som standard för autentisering, vilket eliminerar behovet av lösen ord för att logga in. Virtuella datorer som har skapats med Azure Portal, Azure CLI, Resource Manager-mallar eller andra verktyg kan innehålla din offentliga SSH-nyckel som en del av distributionen, som konfigurerar SSH-nyckel-autentisering för SSH-anslutningar. 

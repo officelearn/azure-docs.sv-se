@@ -1,34 +1,34 @@
 ---
-title: Använda Azure Storage som en Terraform-serverdel
-description: En introduktion till att lagra Terraform tillstånd i Azure Storage.
+title: Använd Azure Storage som terraform-backend
+description: En introduktion till att lagra terraform-tillstånd i Azure Storage.
 services: terraform
 author: tomarchermsft
 ms.service: azure
 ms.topic: article
-ms.date: 09/13/2018
+ms.date: 09/20/2019
 ms.author: tarcher
-ms.openlocfilehash: a88ad25e335026d5172c7997f62629d5ada46f6e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e9b447f4f4dc9d0ee090da9729e483cc17ac7c15
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66693311"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71169940"
 ---
-# <a name="store-terraform-state-in-azure-storage"></a>Tillstånd för Store-Terraform i Azure Storage
+# <a name="store-terraform-state-in-azure-storage"></a>Lagra terraform-tillstånd i Azure Storage
 
-Terraform tillstånd används för att stämma av distribuerade resurser med Terraform-konfigurationer. Med hjälp av tillstånd, vet Terraform vilka Azure-resurser att lägga till, uppdatera eller ta bort. Som standard Terraform tillstånd lagras lokalt när du kör *Terraform gäller*. Den här konfigurationen är inte idealiskt för olika orsaker:
+Terraform-status används för att stämma av distribuerade resurser med terraform-konfigurationer. Med hjälp av State vet terraform vilka Azure-resurser som ska läggas till, uppdateras eller tas bort. Som standard lagras terraform-tillstånd lokalt när du kör *terraform Apply*. Den här konfigurationen är inte idealisk av några anledningar:
 
-- Lokal state fungerar inte bra i ett team eller en samarbetsmiljö
-- Terraform tillstånd kan innehålla känslig information
-- Lagra tillstånd lokalt ökar risken för oavsiktlig borttagning
+- Lokalt tillstånd fungerar inte bra i ett team eller en samarbets miljö
+- Terraform-tillstånd kan innehålla känslig information
+- Lagrings tillstånd lokalt ökar risken för oavsiktlig borttagning
 
-Terraform innehåller konceptet med en serverdel för tillstånd, vilket är Fjärrlagring för Terraform tillstånd. När du använder en tillstånd serverdel, lagras tillståndsfilen i ett datalager som Azure Storage. Det här dokumentet beskriver hur du konfigurerar och använder Azure Storage som Terraform tillstånd serverdel.
+Terraform innehåller konceptet för en tillstånds Server del, som är Fjärrlagring för terraform-tillstånd. När du använder en tillstånds Server del lagras tillstånds filen i ett data lager, till exempel Azure Storage. Det här dokumentet innehåller information om hur du konfigurerar och använder Azure Storage som terraform tillstånds Server.
 
-## <a name="configure-storage-account"></a>Konfigurera storage-konto
+## <a name="configure-storage-account"></a>Konfigurera lagrings konto
 
-Ett storage-konto måste skapas innan du använder Azure Storage som serverdel. Storage-konto kan skapas med Azure portal, PowerShell, Azure CLI eller Terraform själva. Använd följande exempel för att konfigurera storage-konto med Azure CLI.
+Innan du använder Azure Storage som Server del måste du skapa ett lagrings konto. Lagrings kontot kan skapas med Azure Portal, PowerShell, Azure CLI eller terraform. Använd följande exempel för att konfigurera lagrings kontot med Azure CLI.
 
-```azurecli-interactive
+```azurecli
 #!/bin/bash
 
 RESOURCE_GROUP_NAME=tstate
@@ -52,36 +52,36 @@ echo "container_name: $CONTAINER_NAME"
 echo "access_key: $ACCOUNT_KEY"
 ```
 
-Anteckna det lagringskontonamn och behållarnamn lagringsåtkomstnyckeln. Dessa värden krävs när du konfigurerar fjärråtkomst tillstånd.
+Anteckna lagrings kontots namn, behållar namnet och lagrings åtkomst nyckeln. De här värdena behövs när du konfigurerar fjärran slutet.
 
-## <a name="configure-state-backend"></a>Konfigurera tillstånd serverdel
+## <a name="configure-state-backend"></a>Konfigurera tillstånds Server del
 
-Terraform tillstånd serverdelen konfigureras när du kör *Terraform init*. Följande data krävs för att kunna konfigurera tillstånd serverdelen.
+Den terraform tillstånds Server delen konfigureras när du kör *terraform init*. Följande data krävs för att du ska kunna konfigurera tillstånds Server delen.
 
-- storage_account_name - namnet på Azure Storage-kontot.
-- container_name - namnet på blob-behållaren.
-- nyckel – namnet på delstaten lagra filen som ska skapas.
-- access_key - åtkomstnyckel för lagring.
+- storage_account_name – namnet på Azure Storage kontot.
+- container_name – namnet på BLOB-behållaren.
+- Key – namnet på den tillstånds lager fil som ska skapas.
+- access_key – lagrings åtkomst nyckeln.
 
-Var och en av dessa värden kan anges i konfigurationsfilen Terraform eller på kommandoraden, men det rekommenderas att använda en miljövariabel för den `access_key`. Nyckeln med hjälp av en miljövariabel förhindrar skrivs till disk.
+Vart och ett av dessa värden kan anges i konfigurations filen för terraform eller på kommando raden, men vi rekommenderar att du använder en miljö variabel för `access_key`. Om du använder en miljö variabel förhindrar du att nyckeln skrivs till disk.
 
-Skapa miljövariabeln `ARM_ACCESS_KEY` med värdet för Azure Storage-åtkomstnyckel.
+Skapa en miljö variabel med `ARM_ACCESS_KEY` namnet med värdet för Azure Storage åtkomst nyckel.
 
-```console
+```bash
 export ARM_ACCESS_KEY=<storage access key>
 ```
 
-För att ytterligare skydda åtkomstnyckel för Azure Storage-konto kan du lagra den i Azure Key Vault. Miljövariabeln kan sedan anges med ett kommando som liknar följande. Mer information om Azure Key Vault finns i den [dokumentationen för Azure Key Vault][azure-key-vault].
+Om du vill skydda åtkomst nyckeln för Azure Storage konto måste du lagra den i Azure Key Vault. Miljövariabeln kan sedan anges med ett kommando som liknar följande. Mer information om Azure Key Vault finns i Azure Key Vault- [dokumentationen][azure-key-vault].
 
-```console
+```bash
 export ARM_ACCESS_KEY=$(az keyvault secret show --name terraform-backend-key --vault-name myKeyVault --query value -o tsv)
 ```
 
-Om du vill konfigurera Terraform för att använda serverdelen måste innehålla en *serverdel* med en typ av *azurerm* inuti Terraform-konfigurationen. Lägg till den *storage_account_name*, *container_name*, och *nyckel* värden till configuration-block.
+Om du vill konfigurera terraform för att använda Server delen inkluderar du en *Server dels* konfiguration med en typ av *azurerm* inuti terraform-konfigurationen. Lägg till värdena *storage_account_name*, *container_name*och *Key* i konfigurations blocket.
 
-I följande exempel konfigurerar en Terraform-serverdel och skapar en Azure-resursgrupp. Ersätt värdena med värden från din miljö.
+I följande exempel konfigureras en terraform-Server del och en Azure-resurs grupp skapas. Ersätt värdena med värden från din miljö.
 
-```json
+```hcl
 terraform {
   backend "azurerm" {
     storage_account_name  = "tstate09762"
@@ -96,25 +96,25 @@ resource "azurerm_resource_group" "state-demo-secure" {
 }
 ```
 
-Nu kan initiera konfigurationen med *Terraform init* och kör sedan konfigurationen med *Terraform gäller*. När du är klar, hittar du tillståndsfilen i Azure Storage Blob.
+Initiera nu konfigurationen med *terraform init* och kör sedan konfigurationen med *terraform Apply*. När du är klar kan du hitta tillstånds filen i Azure Storage Blob.
 
-## <a name="state-locking"></a>Statliga låsning
+## <a name="state-locking"></a>Tillstånds låsning
 
-När du använder en Azure Storage Blob för lagring av användartillstånd, låses automatiskt blob före en åtgärd som skriver tillstånd. Den här konfigurationen hindrar flera samtidiga åtgärder, vilket kan orsaka skador. Mer information finns i [tillstånd låsning] [ terraform-state-lock] om Terraform-dokumentationen.
+När du använder en Azure Storage Blob för tillstånds lagring låses bloben automatiskt före varje åtgärd som skriver tillstånd. Den här konfigurationen förhindrar flera samtidiga tillstånds åtgärder, vilket kan orsaka skada. Mer information finns i [tillstånds låsning][terraform-state-lock] i terraform-dokumentationen.
 
-Låset visas när du granskar blob via Azure portal eller andra Azure-hanteringsverktyg.
+Du kan se låset när du undersöker blobben via Azure Portal eller andra hanterings verktyg för Azure.
 
-![Azure-blob med lås](media/terraform-backend/lock.png)
+![Azure Blob med lås](media/terraform-backend/lock.png)
 
 ## <a name="encryption-at-rest"></a>Vilande kryptering
 
-Som standard krypteras data som lagras i en Azure Blob innan som sparats till lagringsinfrastrukturen. När Terraform behöver tillstånd, är det hämtas från serverdelen och lagras i minnet i utvecklingssystemet. I den här konfigurationen är tillståndet skyddas i Azure Storage och skrivs inte till den lokala hårddisken.
+Som standard krypteras data som lagras i en Azure-Blob innan de sparas i lagrings infrastrukturen. När terraform behöver status hämtas den från Server delen och lagras i minnet i utvecklings systemet. I den här konfigurationen skyddas tillstånd i Azure Storage och skrivs inte till din lokala disk.
 
-Läs mer om Azure Storage kryptering [Azure Storage Service Encryption för vilande data][azure-storage-encryption].
+Mer information om Azure Storage kryptering finns i [Azure Storage tjänst kryptering för vilande data][azure-storage-encryption].
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om Terraform backend-konfiguration på den [Terraform serverdel dokumentation][terraform-backend].
+Läs mer om terraform-backend-konfiguration i [terraform-backend-dokumentationen][terraform-backend].
 
 <!-- LINKS - internal -->
 [azure-key-vault]: ../key-vault/quick-create-cli.md

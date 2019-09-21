@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 09/11/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 1b898f42fa6f66fba7c84daa67769249642bd986
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: 3420374e90790bd1ffe4c845c19de1bfed317302
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70996487"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71173731"
 ---
 # <a name="manage-access-to-azure-resources-using-rbac-and-azure-cli"></a>Hantera åtkomst till Azure-resurser med RBAC och Azure CLI
 
@@ -369,6 +369,22 @@ I följande exempel tilldelar du rollen för *fakturerings läsaren* till *\@Ala
 
 ```azurecli
 az role assignment create --role "Billing Reader" --assignee alain@example.com --scope /providers/Microsoft.Management/managementGroups/marketing-group
+```
+
+### <a name="create-a-role-assignment-for-a-new-service-principal"></a>Skapa en roll tilldelning för ett nytt huvud namn för tjänsten
+
+Om du skapar ett nytt huvud namn för tjänsten och sedan omedelbart försöker tilldela en roll till tjänstens huvud namn kan roll tilldelningen inte utföras i vissa fall. Om du till exempel använder ett skript för att skapa en ny hanterad identitet och sedan försöker tilldela en roll till tjänstens huvud namn, kan roll tilldelningen Miss förvänta. Orsaken till det här felet är förmodligen en fördröjning i replikeringen. Tjänstens huvud namn skapas i en region. roll tilldelningen kan dock inträffa i en annan region som ännu inte har replikerat tjänstens huvud namn. För att åtgärda det här scenariot bör du ange typ av huvud konto när du skapar roll tilldelningen.
+
+Om du vill skapa en roll tilldelning använder du [AZ roll tilldelning skapa](/cli/azure/role/assignment#az-role-assignment-create), anger ett `--assignee-object-id`värde för och anger `--assignee-principal-type` sedan `ServicePrincipal`till.
+
+```azurecli
+az role assignment create --role <role_name_or_id> --assignee-object-id <assignee_object_id> --assignee-principal-type <assignee_principal_type> --resource-group <resource_group> --scope </subscriptions/subscription_id>
+```
+
+I följande exempel tilldelas rollen *virtuell dator deltagare* till *MSI-test* -hanterad identitet i resurs grupps omfånget *Pharma-Sales* :
+
+```azurecli
+az role assignment create --role "Virtual Machine Contributor" --assignee-object-id 33333333-3333-3333-3333-333333333333 --assignee-principal-type ServicePrincipal --resource-group pharma-sales
 ```
 
 ## <a name="remove-access"></a>Ta bort åtkomst

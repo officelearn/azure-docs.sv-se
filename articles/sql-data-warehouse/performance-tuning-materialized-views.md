@@ -10,12 +10,12 @@ ms.subservice: development
 ms.date: 09/05/2019
 ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick
-ms.openlocfilehash: 85c2607ae163ab2d29a53440cd65672bdbe0fddf
-ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
+ms.openlocfilehash: 6ed6e21f16287148c8764dd98bda378451440e58
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70985355"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71172783"
 ---
 # <a name="performance-tuning-with-materialized-views"></a>Prestanda justering med materialiserade vyer 
 De materialiserade vyerna i Azure SQL Data Warehouse ger en låg underhålls metod för komplexa analytiska frågor för att få snabba prestanda utan att någon fråga ändras. Den här artikeln beskriver den allmänna vägledningen om hur du använder materialiserade vyer.
@@ -84,19 +84,21 @@ Här är den allmänna vägledningen om hur du använder materialiserade vyer f�
 
 **Design för din arbets belastning**
 
-- Innan du börjar skapa materialiserade vyer är det viktigt att du har en djup förståelse för din arbets belastning i termer av fråge mönster, prioritet, frekvens och storleken på resulterande data.  
+Innan du börjar skapa materialiserade vyer är det viktigt att du har en djup förståelse för din arbets belastning i termer av fråge mönster, prioritet, frekvens och storleken på resulterande data.  
 
-- Användare kan köra förklaring WITH_RECOMMENDATIONS < > SQL_statement för de materialiserade vyer som rekommenderas av frågans optimering.  Eftersom dessa rekommendationer är fråge bara för fråga är en materialiserad vy som fördelar en enskild fråga inte optimal för andra frågor i samma arbets belastning.  Utvärdera de här rekommendationerna med dina arbets belastnings behov i åtanke.  De idealiska materialiserade vyerna är de som förmånen för arbets Belastningens prestanda.  
+Användare kan köra förklaring WITH_RECOMMENDATIONS < > SQL_statement för de materialiserade vyer som rekommenderas av frågans optimering.  Eftersom dessa rekommendationer är fråge bara för fråga är en materialiserad vy som fördelar en enskild fråga inte optimal för andra frågor i samma arbets belastning.  Utvärdera de här rekommendationerna med dina arbets belastnings behov i åtanke.  De idealiska materialiserade vyerna är de som förmånen för arbets Belastningens prestanda.  
 
 **Var medveten om kompromissen mellan snabbare frågor och kostnaden** 
 
-- För varje materialiserad vy finns det en lagrings kostnad och en kostnad för Visa-underhållet av tuple-förflyttningen. Det finns en tupel-flyttare per Azure SQL Data Warehouse Server instans.  Om det finns för många materialiserade vyer ökar tuppeln för ingångs arbets belastningen och prestanda för frågor som använder materialiserade vyer kan försämras om tupler-flytten inte kan flytta data till index segment tillräckligt snabbt.  Användarna bör kontrol lera om kostnaden som uppstår från alla materialiserade vyer kan förskjutas med prestanda ökningen för frågan.  Kör den här frågan för listan över materialiserad vy i en databas: 
+För varje materialiserad vy finns det en kostnad för data lagring och en kostnad för att underhålla vyn.  När data ändras i bas tabeller, ökar storleken på den materialiserade vyn och dess fysiska struktur ändras också.  För att undvika att köra prestanda försämringen underhålls varje materialiserad vy separat av data lager motorn, inklusive att flytta rader från delta-lagring till columnstore-indexets segment och konsolidera data ändringar.  Underhålls arbets belastningen blir högre när antalet materialiserade vyer och bas tabell ändringar ökar.   Användarna bör kontrol lera om kostnaden som uppstår från alla materialiserade vyer kan förskjutas med prestanda ökningen för frågan.  
+
+Du kan köra den här frågan för listan över materialiserad vy i en databas: 
 
 ```sql
 SELECT V.name as materialized_view, V.object_id 
 FROM sys.views V 
 JOIN sys.indexes I ON V.object_id= I.object_id AND I.index_id < 2;
-```
+``` 
 
 Alternativ för att minska antalet materialiserade vyer: 
 

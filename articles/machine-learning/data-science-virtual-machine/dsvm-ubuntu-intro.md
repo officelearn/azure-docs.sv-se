@@ -1,123 +1,86 @@
 ---
-title: Snabb start för Linux-Ubuntu
-titleSuffix: Azure Data Science Virtual Machine
-description: Konfigurera och skapa en Data Science Virtual Machine för Linux (Ubuntu) på Azure för att göra analyser och maskininlärning.
-services: machine-learning
+title: 'Snabbstart: Skapa en Ubuntu-DSVM'
+description: Konfigurera och skapa en Data Science Virtual Machine för Linux (Ubuntu) för att göra analyser och maskin inlärning.
 ms.service: machine-learning
 ms.subservice: data-science-vm
-author: vijetajo
-ms.author: vijetaj
+author: gvashishtha
+ms.author: gopalv
 ms.topic: quickstart
-ms.date: 08/13/2019
-ms.openlocfilehash: 9b323970e735a3e2a9d2cf418b787ed046c5574d
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.date: 09/10/2019
+ms.openlocfilehash: 5b50355391180c4a499a0f4e77c3897f8969cdb8
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70192083"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71170962"
 ---
 # <a name="quickstart-set-up-the-data-science-virtual-machine-for-linux-ubuntu"></a>Snabbstart: Konfigurera Data Science Virtual Machine för Linux (Ubuntu)
 
-Data Science Virtual Machine (DSVM) för Linux är en Ubuntu-baserad avbildning av virtuella datorer som gör det enkelt att komma igång med Machine Learning, inklusive djup inlärning, på Azure. Deep learning-verktyg är:
-
-* [Caffe](https://caffe.berkeleyvision.org/): Ett djup inlärnings ramverk som bygger på hastighet, expressivity och modulärhet.
-* [Caffe2](https://github.com/caffe2/caffe2): En plattforms oberoende version av Caffe.
-* [Microsoft Cognitive Toolkit](https://github.com/Microsoft/CNTK): En djup studie av program verktyg från Microsoft Research.
-* [H2O](https://www.h2o.ai/): En stor data plattform med öppen källkod och grafiskt användar gränssnitt.
-* [Keras](https://keras.io/): Ett neurala nätverks-API med hög nivå i python för TensorFlow, Microsoft Cognitive Toolkit och Theano.
-* [MXNet](https://mxnet.io/): Ett flexibelt och effektivt djup inlärnings bibliotek med många språk bindningar.
-* [NVIDIA-SIFFROR](https://developer.nvidia.com/digits): Ett grafiskt system som fören klar vanliga djup inlärnings uppgifter.
-* [PyTorch](https://pytorch.org/): Ett högnivå python-bibliotek med stöd för dynamiska nätverk.
-* [TensorFlow](https://www.tensorflow.org/): Ett bibliotek med öppen källkod för Machine Intelligence från Google.
-* [Theano](http://deeplearning.net/software/theano/): Ett Python-bibliotek för att definiera, optimera och effektivt utvärdera matematiska uttryck som involverar flerdimensionella matriser.
-* [Torch](http://torch.ch/): Ett ramverk för vetenskapliga data behandling med bred support för Machine Learning-algoritmer.
-* CUDA, cuDNN och NVIDIA-drivrutinen.
-* Många exempel på Jupyter Notebooks.
-
-Alla bibliotek är GPU-versioner, även om de också körs på Processorn.
-
-Den virtuella datorn för datavetenskap för Linux innehåller även populära verktyg för datavetenskap och utveckling, inklusive:
-
-* Microsoft Machine Learning Server med Microsoft R Open.
-* Anaconda python-distribution (version 2,7 och 3,5), inklusive populära data analys bibliotek.
-* JuliaPro, en granskad distribution av Julia-språket med populära vetenskapliga och data analys bibliotek.
-* Fristående Spark-instans och Hadoop med en nod (HDFS, garn).
-* JupyterHub, en Jupyter Notebook-server som stöder R-, python-, PySpark-och Julia-kärnor.
-* Azure Storage Explorer.
-* Azure CLI för att hantera Azure-resurser.
-* Machine Learning-verktyg:
-  * [Vowpal Wabbit](https://github.com/JohnLangford/vowpal_wabbit): Ett snabbt Machine Learning-system som stöder metoder som online, hashing, allreduce, reduktioner, learning2search, aktiv och interaktiv utbildning.
-  * [XGBoost](https://xgboost.readthedocs.org/en/latest/): Ett verktyg som ger snabba och exakta bättre trädet implementering.
-  * [Rattle](https://togaware.com/rattle/): Ett grafiskt verktyg som hjälper dig att komma igång med data analys och maskin inlärning i R enkelt.
-  * [LightGBM](https://github.com/Microsoft/LightGBM): En snabb, distribuerad, högpresterande tonings förstärknings ramverk.
-* Azure SDK i Java, python, Node. js, ruby och PHP.
-* Bibliotek i R och Python för använder i Azure Machine Learning och andra Azure-tjänster.
-* Utvecklingsverktyg och redigerare (RStudio, pycharm med, IntelliJ, emacs, vim).
-
-Datavetenskap omfattar iteration av en serie uppgifter:
-
-1. Sökning, läser in och bearbeta data data i förväg
-1. Skapa och testa modeller
-1. Distribuera modeller för användning i intelligenta program
-
-Dataexperter använda olika verktyg för att utföra dessa uppgifter. Det kan ta lång tid att hitta lämpliga versioner av program varan och sedan ladda ned, kompilera och installera dessa versioner.
-
-Den virtuella datorn för datavetenskap för Linux kan avsevärt minska det här problemet. Du kan använda den för att ge ditt analysprojekt. Det kan du arbeta på uppgifter på olika språk, inklusive R, Python, SQL, Java och C++. Azure-SDK som ingår i den virtuella datorn kan du bygga dina program med hjälp av olika tjänster på Linux för Microsofts molnplattform. Dessutom har du till gång till andra språk som ruby, perl, PHP och Node. js som också är förinstallerade.
-
-Det finns inga program varu avgifter för den här DSVM-avbildningen. Du betalar endast de Azure-maskinvaran Användningsavgift som utvärderas baserat på storleken på den virtuella datorn som du etablerar. Mer information om beräknings avgifter finns på [sidan VM-lista i Azure Marketplace](https://azure.microsoft.com/marketplace/partners/microsoft-ads/linux-data-science-vm/).
-
-## <a name="other-versions-of-the-data-science-virtual-machine"></a>Andra versioner av den virtuella datorn för datavetenskap
-
-En [CentOS](linux-dsvm-intro.md) bilden är också tillgängliga med många av samma verktyg som Ubuntu-avbildning. Det finns också en [Windows](provision-vm.md) -avbildning.
+Kom igång med Ubuntu Data Science Virtual Machine.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Innan du kan skapa en virtuell dator för datavetenskap för Linux, måste du ha en Azure-prenumeration. Du kan [få en kostnads fri utvärderings version av Azure](https://azure.microsoft.com/free/).
+Om du vill skapa en Windows-Data Science Virtual Machine måste du ha en Azure-prenumeration. [Prova Azure kostnads fritt](https://azure.com/free).
 
 ## <a name="create-your-data-science-virtual-machine-for-linux"></a>Skapa din virtuella dator för datavetenskap för Linux
 
 Här följer stegen för att skapa en instans av den virtuella datorn för datavetenskap för Linux:
 
-1. Gå till listan med virtuella datorer på [Azure Portal](https://portal.azure.com/#create/microsoft-dsvm.linux-data-science-vm-ubuntulinuxdsvmubuntu). Du kan uppmanas att logga in på ditt Azure-konto om du inte redan har loggat in. 
-1. Välj **skapa** för att öppna guiden.
-    ![Guide för att skapa en virtuell dator](./media/dsvm-ubuntu-intro/configure-data-science-virtual-machine.png)
+1. Gå till [Azure Portal](https://portal.azure.com) du kan uppmanas att logga in på ditt Azure-konto om du inte redan är inloggad.
+1. Hitta listan med virtuella datorer genom att skriva in "data science Virtual Machine" och välja "Data Science Virtual Machine för Linux (Ubuntu)".
+    
+    ![Ubuntu VM-lista](./media/dsvm-ubuntu-intro/search-ubuntu.png)
+
+1. I det efterföljande fönstret väljer du **skapa**.
+
+    ![Guide för att skapa en virtuell dator](./media/dsvm-ubuntu-intro/create-linux.png)
+
+1. Du bör omdirigeras till bladet "skapa en virtuell dator".
+   
+   ![Fliken grunder som motsvarar den virtuella Ubuntu-datorn](./media/dsvm-ubuntu-intro/review-create-ubuntu.png)
+
 1. Ange följande information för att konfigurera varje steg i guiden:
 
     1. **Grunderna**:
     
        * **Prenumeration**: Om du har mer än en prenumeration väljer du den dator där datorn ska skapas och faktureras. Du måste ha behörighet att skapa resurser för prenumerationen.
-       * **Resursgrupp**: Du kan skapa en ny eller Använd en befintlig grupp.
-       * **Namn på virtuell dator**: Ange namnet på den data vetenskaps server som du skapar.
-       * **Region**: Välj det data Center som är lämpligast. Det är vanligt vis data centret som har de flesta data eller som ligger närmast din fysiska plats för snabbast nätverks åtkomst.
-       * **Tillgänglighetsalternativ**: Ange detta om du vill använda den här virtuella datorn i tillgänglighets uppsättningar eller zoner. Annars lämnar du standardvärdet.
+       * **Resursgrupp**: Skapa en ny grupp eller Använd en befintlig.
+       * **Namn på virtuell dator**: Ange namnet på den virtuella datorn. Så här kommer det att visas i Azure Portal.
+       * **Region**: Välj det data Center som är lämpligast. För snabbast nätverks åtkomst är det data Center som har de flesta data eller som är närmast din fysiska plats. Lär dig mer om [Azure-regioner](https://azure.microsoft.com/global-infrastructure/regions/).
        * **Bild**: Låt standardvärdet vara kvar.
-       * **Storlek**: Välj den server typ som uppfyller dina funktions krav och kostnads begränsningar. Välj en NC-eller ND-serien VM för GPU-baserade VM-instanser. 
-       * **Användarnamn**: Ange administratörens användar namn.
-       * **Offentlig SSH-nyckel**: Ange den offentliga RSA-nyckeln i ett enda rad format. (Du kan använda ett lösen ord i stället för en SSH-nyckel.)
+       * **Storlek**: Detta ska automatiskt fylla i med en storlek som passar för allmänna arbets belastningar. Läs mer om [storlekar för virtuella Linux-datorer i Azure](../../virtual-machines/linux/sizes.md).
+       * **Autentiseringstyp**: Välj "lösen ord" för snabbare installation. 
+         
+         > [!NOTE]
+         > Om du tänker använda JupyterHub väljer du "Password", eftersom JupyterHub *inte* har kon figurer ATS för att använda offentliga SSH-nycklar.
+
+       * **Användarnamn**: Ange administratörens användar namn. Detta är det användar namn som du ska använda för att logga in på den virtuella datorn och behöver inte vara samma som ditt Azure-användarnamn. Använd *inte* versala bokstäver.
+         
+         > [!NOTE]
+         > Om du använder versaler i ditt användar namn kommer JupyterHub inte att fungera och du kommer att stöta på ett internt 500-server fel.
+
+       * **Lösenord**: Ange det lösen ord som du ska använda för att logga in på den virtuella datorn.    
     
-    1. **Diskar**:
-    
-       * **Typ av operativ system disk**: Välj **Premium SSD** om du föredrar en SSD-enhet (Solid-State Drive). Annars väljer du **Standard HDD**.
-    
-    1. Du kan använda standardvärdena för resten av inställningarna. Om du vill ta hänsyn till värden som inte är standardvärden hovrar du över informations länken för att få hjälp. När du är klar väljer du **Granska + skapa**.
-    
-    1. När den virtuella datorn har godkänts kontrollerar du att all information som du har angett är korrekt. En länk dirigerar dig till användnings villkoren. Den virtuella datorn har inga ytterligare avgifter utöver beräkningen för Server storleken som du valde i den angivna **storleken** . Starta etableringen genom att välja **skapa**.
+   1. Välj **Granska + skapa**.
+   1. **Granska + skapa**
+      * Kontrollera att all information som du angett är korrekt. 
+      * Välj **Skapa**.
     
     Etableringen tar cirka 5 minuter. Statusen visas i Azure Portal.
 
-## <a name="how-to-access-the-data-science-virtual-machine-for-linux"></a>Hur du kommer åt den virtuella datorn för datavetenskap för Linux
+## <a name="how-to-access-the-ubuntu-data-science-virtual-machine"></a>Så här kommer du åt Ubuntu-Data Science Virtual Machine
 
-Du kan komma åt Ubuntu-DSVM genom att använda tre metoder:
+Du kan komma åt Ubuntu-DSVM på ett av tre sätt:
 
-- SSH för terminal sessioner
-- X2Go för grafiska sessioner
-- JupyterHub och JupyterLab för Jupyter-anteckningsböcker
+  * SSH för terminal sessioner
+  * X2Go för grafiska sessioner
+  * JupyterHub och JupyterLab för Jupyter-anteckningsböcker
 
 Du kan också bifoga en Data Science Virtual Machine till Azure Notebooks för att köra Jupyter-anteckningsböcker på den virtuella datorn och kringgå begränsningarna i den kostnads fria tjänst nivån. Mer information finns i [Hantera och konfigurera Azure Notebooks projekt](../../notebooks/configure-manage-azure-notebooks-projects.md#compute-tier).
 
 ### <a name="ssh"></a>SSH
 
-När den virtuella datorn har skapats kan logga du in till den med hjälp av SSH. Använda de autentiseringsuppgifter som du skapade i den **grunderna** avsnittet i steg 3 för text shell-gränssnittet. I Windows kan du ladda ned ett SSH client-verktyg som [SparaTillFil](https://www.putty.org). Om du föredrar ett grafiskt skriv bord (X Window-System) kan du använda begäran om x11-vidarebefordran på SparaTillFil eller installera X2Go-klienten.
+När den virtuella datorn har skapats, om den har kon figurer ATS med SSH-åtkomst, kan du logga in till den med hjälp av SSH. Använda de autentiseringsuppgifter som du skapade i den **grunderna** avsnittet i steg 3 för text shell-gränssnittet. I Windows kan du ladda ned ett SSH client-verktyg som [SparaTillFil](https://www.putty.org). Om du föredrar ett grafiskt skriv bord (X Window-System) kan du använda begäran om x11-vidarebefordran på SparaTillFil.
 
 > [!NOTE]
 > Klienten X2Go presterade bättre än X11 vidarebefordran i testet. Vi rekommenderar att du använder X2Go-klienten för ett grafiskt gränssnitt för fjärrskrivbord.
@@ -127,352 +90,51 @@ När den virtuella datorn har skapats kan logga du in till den med hjälp av SSH
 Den virtuella Linux-datorn är redan etablerad med X2Go-servern och redo att ta emot klient anslutningar. Slutför följande procedur på klienten för att ansluta till Linux VM grafiska skrivbordet:
 
 1. Ladda ned och installera klienten för din klientplattform från X2Go [X2Go](https://wiki.x2go.org/doku.php/doc:installation:x2goclient).
-1. Kör X2Go-klienten och välj **ny Session**. Det öppnar en konfiguration med flera flikar. Ange följande konfigurationsparametrar:
+1. Anteckna den virtuella datorns offentliga IP-adress, som du hittar i Azure Portal genom att öppna den virtuella dator som du nyss skapade.
+
+   ![Ubuntu dator-IP-adress](./media/dsvm-ubuntu-intro/ubuntu-ip-address.png)
+
+1. Kör X2Go-klienten. Om fönstret "ny session" inte visas automatiskt går du till session-> ny session.
+
+1. I fönstret resulterande konfiguration anger du följande konfigurations parametrar:
    * **Sessionen fliken**:
-     * **Värd**: Ange värd namnet eller IP-adressen för Linux-Data Science Virtual Machine.
+     * **Värd**: Ange IP-adressen för din virtuella dator, som du antecknade tidigare.
      * **Inloggning**: Ange användar namnet på den virtuella Linux-datorn.
      * **SSH-port**: Lämna det på 22 standardvärdet.
      * **Typ av session**: Ändra värdet till **xfce**. Den virtuella Linux-datorn har för närvarande endast stöd för XFCE Desktop.
    * **Fliken Media**: Du kan stänga av ljud supporten och klient utskrift om du inte behöver använda dem.
    * **Delade mappar**: Om du vill att kataloger från klient datorerna ska monteras på den virtuella Linux-datorn lägger du till de klient dator kataloger som du vill dela med den virtuella datorn på den här fliken.
 
-När du har loggat in på den virtuella datorn med hjälp av antingen SSH-klienten eller det grafiska XFCE-Skriv bordet via X2Go-klienten, är du redo att börja använda de verktyg som är installerade och konfigurerade på den virtuella datorn. På XFCE kan du se program meny gen vägar och skriv bords ikoner för många av verktygen.
+   ![X2go-konfiguration](./media/dsvm-ubuntu-intro/x2go-ubuntu.png)
+1. Välj **OK**.
+1. Klicka på rutan i den högra rutan i fönstret X2Go för att öppna inloggnings skärmen för den virtuella datorn.
+1. Ange lösen ordet för den virtuella datorn.
+1. Välj **OK**.
+1. Du kan behöva ge X2Go-behörighet för att kringgå brand väggen för att kunna slutföra anslutningen.
+1. Nu bör du se det grafiska gränssnittet för din Ubuntu-DSVM. 
+
 
 ### <a name="jupyterhub-and-jupyterlab"></a>JupyterHub och JupyterLab
 
-Ubuntu-DSVM kör [JupyterHub](https://github.com/jupyterhub/jupyterhub), en Jupyter-Server. Om du vill ansluta bläddrar du\/till https:/Your-VM-IP: 8000 på din bärbara dator eller Station ära dator. Ange det användar namn och lösen ord som du använde för att skapa den virtuella datorn och logga in. Många exempelanteckningsböcker som är tillgängliga för dig att söka och prova att använda.
+Ubuntu-DSVM kör [JupyterHub](https://github.com/jupyterhub/jupyterhub), en Jupyter-Server. Följ stegen nedan för att ansluta:
 
-JupyterLab, är nästa generations Jupyter notebooks och JupyterHub, också tillgängligt. Logga in på JupyterHub och gå sedan till URL: en https:\//Your-VM-IP: 8000/User/your-username/Lab för att få åtkomst till den. Du kan ange JupyterLab som standard server för bärbara datorer genom att lägga till `/etc/jupyterhub/jupyterhub_config.py`den här raden till:
+   1. Anteckna den offentliga IP-adressen för den virtuella datorn genom att söka efter och välja den virtuella datorn i Azure Portal.
+      ![Ubuntu dator-IP-adress](./media/dsvm-ubuntu-intro/ubuntu-ip-address.png)
+
+   1. Från din lokala dator öppnar du en webbläsare och navigerar till https:\//Your-VM-IP: 8000, ersätter "Your-VM-IP" med IP-adressen som du antecknade tidigare.
+   1. Ange det användar namn och lösen ord som du använde för att skapa den virtuella datorn och logga in. 
+
+      ![Ange Jupyter-inloggning](./media/dsvm-ubuntu-intro/jupyter-login.png)
+
+   1. Bläddra bland de många exempel antecknings böcker som är tillgängliga.
+
+JupyterLab, är nästa generations Jupyter notebooks och JupyterHub, också tillgängligt. För att få åtkomst till den loggar du in på JupyterHub och bläddrar sedan till URL\/: en https:/Your-VM-IP: 8000/User/your-username/Lab och ersätter "ditt-username" med det användar namn som du valde när du konfigurerade den virtuella datorn.
+
+Du kan ange JupyterLab som standard server för bärbara datorer genom att lägga till `/etc/jupyterhub/jupyterhub_config.py`den här raden till:
 
 ```python
 c.Spawner.default_url = '/lab'
 ```
-
-## <a name="tools-installed-on-the-data-science-virtual-machine-for-linux"></a>Verktygen som installeras på den virtuella datorn för datavetenskap för Linux
-
-### <a name="deep-learning-libraries"></a>Djup inlärnings bibliotek
-
-#### <a name="cntk"></a>CNTK
-
-Microsoft Cognitive Toolkit är ett djup inlärnings verktyg med öppen källkod. Python-bindningar är tillgängliga i Conda rot- och py35. Det har också ett kommando rads verktyg (CNTK) som redan finns i sökvägen.
-
-Python exempelanteckningsböcker är tillgängliga i JupyterHub. Kör följande kommandon i gränssnittet för att köra ett grundläggande exempel på kommando raden:
-
-```bash
-cd /home/[USERNAME]/notebooks/CNTK/HelloWorld-LogisticRegression
-cntk configFile=lr_bs.cntk makeMode=false command=Train
-```
-
-Mer information finns i avsnittet CNTK i [GitHub](https://github.com/Microsoft/CNTK) och [CNTK wiki](https://github.com/Microsoft/CNTK/wiki).
-
-#### <a name="caffe"></a>Caffe
-
-Caffe är ett ramverk för djupinlärning från Berkeley Vision och Learning Center. Den finns i/opt/Caffe. Du kan hitta exempel i/opt/Caffe/examples.
-
-#### <a name="caffe2"></a>Caffe2
-
-Caffe2 är ett ramverk för djupinlärning från Facebook som bygger på Caffe. Den finns i python 2,7 i rot miljön Conda. Om du vill aktivera den kör du följande kommando från gränssnittet:
-
-```bash
-source /anaconda/bin/activate root
-```
-
-Vissa exempel bärbara datorer är tillgängliga i JupyterHub.
-
-#### <a name="h2o"></a>H2O
-
-H2O är en snabb, i minnet och distribuerade maskininlärning och förutsägande analyser. En Python-paketet har installerats i rot- och py35 Anaconda-miljöer. Ett R-paket installeras även. 
-
-Öppna H2O från kommando raden genom att köra `java -jar /dsvm/tools/h2o/current/h2o.jar`. Det finns olika [kommando rads alternativ](http://docs.h2o.ai/h2o/latest-stable/h2o-docs/starting-h2o.html#from-the-command-line) som du kanske vill konfigurera. Du kan komma åt Flow-webbgränssnittet genom http://localhost:54321 att bläddra till för att komma igång. Exempelanteckningsböcker är också tillgängliga i JupyterHub.
-
-#### <a name="keras"></a>Keras
-
-Keras är ett neurala nätverks-API med hög nivå i python. Den kan köras ovanpå TensorFlow, Microsoft Cognitive Toolkit eller Theano. Det finns i rot-och py35 python-miljö.
-
-#### <a name="mxnet"></a>MXNet
-
-MXNet är ett ramverk för djupinlärning som utformats för både effektivitet och flexibilitet. Den har R och Python-bindningar på DSVM. Exempelanteckningsböcker som ingår i JupyterHub och exempelkod är tillgänglig i /dsvm/samples/mxnet.
-
-#### <a name="nvidia-digits"></a>NVIDIA SIFFROR
-
-GPU-inlärnings systemet för NVIDIA djup inlärning, som kallas siffror, är ett system för att förenkla vanliga djup inlärnings uppgifter. Dessa uppgifter omfattar hantering av data, utformning och träning av neurala-nätverk på GPU-system och övervakning av prestanda i real tid med avancerad visualisering.
-
-SIFFROR är tillgängligt som en tjänst som kallas *siffror*. Starta tjänsten och bläddra till http://localhost:5000 att komma igång.
-
-SIFFROR installeras även som en Python-modul i Conda rot-miljö.
-
-#### <a name="tensorflow"></a>TensorFlow
-
-TensorFlow är Googles deep learning-biblioteket. Det är ett program bibliotek med öppen källkod för numerisk beräkning med data flödes diagram. Vissa exempelanteckningsböcker som ingår i JupyterHub TensorFlow är tillgängliga i py35 Python-miljön.
-
-#### <a name="theano"></a>Theano
-
-Theano är ett Python-bibliotek för effektiv numeriska beräkning. Det finns i rot-och py35 python-miljö. 
-
-#### <a name="torch"></a>Torch
-
-Torch är ett vetenskapliga databehandling ramverk med brett stöd för machine learning-algoritmer. Den är tillgänglig i/dsvm/tools/Torch och den interaktiva sessionen och LuaRocks Package Manager finns på kommando raden. Exempel finns i /dsvm/samples/torch.
-
-PyTorch är också tillgängliga i roten Anaconda-miljön. Exempel är i /dsvm/samples/pytorch.
-
-### <a name="microsoft-machine-learning-server"></a>Microsoft Machine Learning Server
-
-R är ett av de mest populära språk för dataanalys och maskininlärning. Om du vill använda R för din analys har den virtuella datorn Microsoft Machine Learning Server med Microsoft R Open och Math kernel-biblioteket. Matematiska kernel-bibliotek optimerar matematiska åtgärder som är vanliga i analytiska algoritmer. Microsoft R Open är 100 procent kompatibel med CRAN R och alla R-bibliotek som publiceras i CRAN kan installeras på Microsoft R Open. 
-
-Machine Learning Server ger dig skalning och driftsättning av R-modeller till webb tjänster. Du kan redigera din R-program i ett standard-redigerare som RStudio, vi och Emacs. Om du föredrar att använda redigeraren Emacs, har det varit förinstallerade. Paketet emacs ESS (emacs pratar Statistics) fören klar arbetet med R-filer i emacs-redigeraren.
-
-Om du vill öppna R-konsolen anger du **r** i gränssnittet. Det här kommandot tar dig till en interaktiv miljö. För att utveckla R-programmet använder du vanligt vis ett redigerings program som emacs eller vi och kör sedan skripten i R. Med RStudio har du en fullständig grafisk IDE för att utveckla R-programmet.
-
-Det finns också ett R-skript som du kan använda för att installera de [högsta 20 R](https://www.kdnuggets.com/2015/06/top-20-r-packages.html) -paketen om du vill. Du kan köra det här skriptet när du är i det interaktiva R-gränssnittet. Som tidigare nämnts kan du öppna gränssnittet genom att ange **R** i gränssnittet.  
-
-### <a name="python"></a>Python
-
-Anaconda Python är installerat med Python 2.7 och 3,5 miljöer. 2\.7 miljön kallas _rot_, och 3,5 miljön kallas _py35_. Den här distributionen innehåller grundläggande Python tillsammans med ungefär 300 av de mest populära analyspaket matematiska, teknik och data.
-
-Py35 miljön är standardinställningen. Använd följande kommando för att aktivera rot miljön (2,7):
-
-```bash
-source activate root
-```
-
-Använd följande kommando för att aktivera py35-miljön igen:
-
-```bash
-source activate py35
-```
-
-Om du vill anropa en python-interaktiv session anger du **python** i gränssnittet. 
-
-Installera ytterligare python-bibliotek med Conda eller pip. För pip aktiverar du rätt miljö först om du inte vill använda standardvärdet:
-
-```bash
-source activate root
-pip install <package>
-```
-
-Eller ange den fullständiga sökvägen till pip:
-
-```bash
-/anaconda/bin/pip install <package>
-```
-
-För Conda ska du alltid ange miljö namnet (py35 eller root):
-
-```bash
-conda install <package> -n py35
-```
-
-Om du har ett grafiskt gränssnitt eller har konfigurerat begäran om x11-vidarebefordran kan du ange **pycharm med** för att öppna PYCHARM med python IDE. Du kan använda standard-textredigerare. Dessutom kan du använda Spyder, en python IDE som är paketerad med Anaconda python-distributioner. Spyder måste en grafisk desktop eller X11 vidarebefordran. Det grafiska Skriv bordet har en genväg till Spyder.
-
-### <a name="jupyter-notebook"></a>Jupyter Notebook
-
-Anaconda distribution levereras också med en Jupyter-anteckningsbok, en miljö för att dela kod och analys. Jupyter-anteckningsboken sker via JupyterHub. Du loggar in med ditt lokala Linux-användarnamn och lösen ord.
-
-Jupyter notebook-server har konfigurerats före med Python 2, Python 3 och R-kärnor. Använd ikonen **Jupyter Notebook** skriv bord för att öppna webbläsaren och få åtkomst till Notebook-servern. Om du befinner dig på den virtuella datorn via SSH eller X2Go-klienten, kan du också komma åt Jupyter [https://localhost:8000/](https://localhost:8000/)Notebook-servern på.
-
-> [!NOTE]
-> Fortsätt om du får några certifikatvarningar.
-
-Du kan komma åt Jupyter notebook-server från valfri värddator. Ange **https://\<VM DNS-namn eller IP\>-adress: 8000/** .
-
-> [!NOTE]
-> Port 8000 öppnas i brandväggen som standard när den virtuella datorn etableras. 
-
-Vi har paketerade exempel antecknings böcker – en i python och en i R. Du kan se länken till exemplen på hem sidan för antecknings boken när du har autentiserat dig för Jupyter Notebook genom att använda ditt lokala Linux-användarnamn och lösen ord. Du kan skapa en ny antecknings bok genom att välja **ny**och sedan välja den aktuella språk kärnan. Om du inte ser knappen **nytt** väljer du ikonen **Jupyter** längst upp till vänster för att gå till hem sidan för notebook-servern.
-
-### <a name="apache-spark-standalone"></a>Fristående Apache Spark
-
-En fristående instans av Apache Spark förinstalleras på Linux-DSVM för att hjälpa dig att utveckla Spark-program lokalt innan du testar och distribuerar dem i stora kluster. 
-
-Du kan köra PySpark program via Jupyter-kernel. När du öppnar Jupyter väljer du knappen **nytt** och du bör se en lista över tillgängliga kernels. **Spark – python** är PySpark-kärnan som gör att du kan bygga Spark-program med hjälp av python-språket. Du kan också använda en python IDE som pycharm med eller Spyder för att bygga Spark-programmet. 
-
-I den här fristående instansen körs Spark-stacken i det anropande klient programmet. Den här funktionen gör det snabbare och enklare att felsöka problem, jämfört med att utveckla i ett Spark-kluster.
-
-Jupyter tillhandahåller en exempel PySpark Notebook. Du hittar den i katalogen SparkML under arbets katalogen för Jupyter ($HOME/notebooks/SparkML/pySpark). 
-
-Om du använder programmering i R för Spark kan du använda Microsoft Machine Learning Server, sparker eller sparklyr. 
-
-Innan du kör i en spark-kontext i Microsoft Machine Learning Server måste du göra ett engångs steg för att aktivera en lokal instans av Hadoop HDFS och garn som är en enskild nod. Som standard är Hadoop-tjänster installerat men inaktiverat på DSVM. Om du vill aktivera det måste du köra följande kommandon som rot första gången:
-
-```bash
-echo -e 'y\n' | ssh-keygen -t rsa -P '' -f ~hadoop/.ssh/id_rsa
-cat ~hadoop/.ssh/id_rsa.pub >> ~hadoop/.ssh/authorized_keys
-chmod 0600 ~hadoop/.ssh/authorized_keys
-chown hadoop:hadoop ~hadoop/.ssh/id_rsa
-chown hadoop:hadoop ~hadoop/.ssh/id_rsa.pub
-chown hadoop:hadoop ~hadoop/.ssh/authorized_keys
-systemctl start hadoop-namenode hadoop-datanode hadoop-yarn
-```
-
-Du kan stoppa de Hadoop-relaterade tjänsterna när du inte behöver dem genom att ```systemctl stop hadoop-namenode hadoop-datanode hadoop-yarn```köra.
-
-/Dsvm/samples/MRS-katalogen innehåller ett exempel som visar hur du utvecklar och testar Microsoft Machine Learning Server i en fjärr Spark-kontext (den fristående Spark-instansen på DSVM).
-
-### <a name="ides-and-editors"></a>IDE: er och redigeringsprogram
-
-Du kan välja mellan flera kod redigerare, inklusive vi/vim, emacs, pycharm med, RStudio och IntelliJ. 
-
-Pycharm med, RStudio och IntelliJ är grafiska redigerings program. Om du vill använda dem måste du vara inloggad på ett grafiskt skriv bord. Du öppnar dem med hjälp av meny gen vägar för Skriv bordet och program.
-
-Vim och emacs är textbaserade redigerare. I emacs gör ESS-tilläggs paketet arbetet med R enklare i emacs-redigeraren. Du hittar mer information på ess- [webbplatsen](https://ess.r-project.org/).
-
-LaTex installeras via texlive-paketet, tillsammans med ett Emacs tilläggs paket som kallas [auctex](https://www.gnu.org/software/auctex/manual/auctex/auctex.html). Det här paketet fören klar redigeringen av dina LaTex-dokument i emacs.  
-
-### <a name="databases"></a>Databaser
-
-#### <a name="graphical-sql-client"></a>Grafisk SQL-klient
-
-SQuirrel SQL, en grafisk SQL-klient, kan ansluta till olika databaser (till exempel Microsoft SQL Server och MySQL) och köra SQL-frågor. Du kan köra SQuirrel SQL från en grafisk fjärrskrivbordssession (till exempel via X2Go-klienten) genom att använda en Skriv bords ikon. Eller så kan du köra-klienten med hjälp av följande kommando i gränssnittet:
-
-```bash
-/usr/local/squirrel-sql-3.7/squirrel-sql.sh
-```
-
-Ställa in din drivrutiner och databasen alias innan den första användningen. JDBC-drivrutinerna finns på/usr/share/Java/jdbcdrivers.
-
-Mer information finns i [SQuirrel SQL](http://squirrel-sql.sourceforge.net/index.php?page=screenshots).
-
-#### <a name="command-line-tools-for-accessing-microsoft-sql-server"></a>Kommandoradsverktyg för att komma åt Microsoft SQL Server
-
-Paketets ODBC-drivrutinen för SQL Server levereras med två kommandoradsverktyg:
-
-- **BCP**: BCP-verktyget kopierar data mellan en instans av Microsoft SQL Server och en datafil i ett användardefinierat format. Du kan använda BCP-verktyget för att importera ett stort antal nya rader till SQL Server tabeller eller för att exportera data från tabeller till datafiler. Om du vill importera data till en tabell måste du använda en format fil som skapats för tabellen. Eller så måste du förstå tabell strukturen och vilka typer av data som är giltiga för kolumnerna.
-
-  Mer information finns i [ansluter med bcp](https://msdn.microsoft.com/library/hh568446.aspx).
-
-- **sqlcmd**: Du kan ange Transact-SQL-uttryck med hjälp av SQLCMD-verktyget. Du kan också ange system procedurer och skriptfiler i kommando tolken. Verktyget använder ODBC för att köra Transact-SQL-batchar.
-
-  Mer information finns i [ansluter med sqlcmd](https://msdn.microsoft.com/library/hh568447.aspx).
-
-  > [!NOTE]
-  > Det finns vissa skillnader i det här verktyget mellan Linux-och Windows-plattformar. Se dokumentationen för mer information.
-
-#### <a name="database-access-libraries"></a>Bibliotek för åtkomst av databasen
-
-Bibliotek är tillgängliga i R och python för databas åtkomst:
-
-* I R kan du använda RODBC-paketet eller dplyr-paketet för att fråga eller köra SQL-uttryck på databas servern.
-* I python ger pyodbc-biblioteket databas åtkomst med ODBC som underliggande lager.  
-
-### <a name="azure-tools"></a>Azure-verktyg
-
-Följande Azure-verktygen är installerade på den virtuella datorn:
-
-* **Azure CLI**: Du kan använda kommando rads gränssnittet i Azure för att skapa och hantera Azure-resurser via Shell-kommandon. Öppna Azure-verktygen genom att ange **Azure-hjälpen**. Mer information finns i den [dokumentationssidan för Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2).
-* **Azure Storage Explorer**: Azure Storage Explorer är ett grafiskt verktyg som du kan använda för att bläddra bland de objekt som du har lagrat på ditt Azure Storage-konto och för att ladda upp och ladda ned data till och från Azure-blobbar. Du kan komma åt Storage Explorer från ikonen genvägen på skrivbordet. Du kan också öppna den från en Shell-prompt genom att ange **StorageExplorer**. Du måste vara inloggad från en X2Go-klient eller konfigurera begäran om x11-vidarebefordring.
-* **Azure-bibliotek**: Här följer några av de förinstallerade biblioteken.
-  
-  * **Python**: Azure-relaterade bibliotek i python är *Azure*, *azureml*, *pydocumentdb*och *pyodbc*. Med de tre första biblioteken kan du komma åt Azure storage-tjänster, Azure Machine Learning och Azure Cosmos DB (en NoSQL-databas på Azure). Fjärde biblioteket pyodbc (tillsammans med Microsoft ODBC-drivrutinen för SQL Server), ger åtkomst till SQL Server, Azure SQL Database och Azure SQL Data Warehouse från Python med hjälp av en ODBC-gränssnittet. Ange **pip lista** att se alla bibliotek. Glöm inte att köra det här kommandot i både Python 2.7 och 3,5 miljöer.
-  * **R**: Azure-relaterade bibliotek i R är AzureML och RODBC.
-  * **Java**: Listan med Azure Java-bibliotek finns i katalogen/dsvm/sdk/AzureSDKJava på den virtuella datorn. Viktiga bibliotek är Azure lagring och hantering av API: er, Azure Cosmos DB och JDBC-drivrutiner för SQL Server.  
-
-Du kan komma åt den [Azure-portalen](https://portal.azure.com) från den förinstallerade webbläsaren Firefox. På Azure-portalen kan du skapa, hantera och övervaka Azure-resurser.
-
-### <a name="azure-machine-learning"></a>Azure Machine Learning
-
-Azure Machine Learning är en fullständigt hanterad molntjänst som hjälper dig att bygga, distribuera och dela lösningar med förutsägelseanalys. Du bygger dina experiment och modeller från Azure Machine Learning Studio. Du kan komma åt den från en webbläsare på Data Science Virtual Machine genom att besöka [Microsoft Azure Machine Learning](https://studio.azureml.net).
-
-När du har loggat in på Azure Machine Learning Studio kan du använda en experiment arbets yta för att bygga ett logiskt flöde för Machine Learning-algoritmer. Du har också till gång till en Jupyter-anteckningsbok som finns på Azure Machine Learning och kan arbeta sömlöst med experimenten i Machine Learning Studio. 
-
-Operationalisera maskininlärningsmodeller som du har skapat genom att omsluta dem i ett webbgränssnitt för tjänsten. Genom att använda Machine Learning-modeller kan klienter skrivna på valfritt språk för att anropa förutsägelser från dessa modeller. Mer information finns i den [dokumentation om Machine Learning](https://azure.microsoft.com/documentation/services/machine-learning/).
-
-Du kan också bygga dina modeller i R eller python på den virtuella datorn och sedan distribuera dem i produktion på Azure Machine Learning. Vi har installerat bibliotek i R (**AzureML**) och Python (**azureml**) aktivera den här funktionen.
-
-Information om hur du distribuerar modeller i R och python till Azure Machine Learning finns i [tio saker du kan göra på data science Virtual Machine](vm-do-ten-things.md).
-
-> [!NOTE]
-> Dessa instruktioner skrevs för Windows-versionen av Data Science Virtual Machine. Men informationen om att distribuera modeller till Azure Machine Learning finns tillämplig för Linux-VM.
-
-### <a name="machine-learning-tools"></a>Machine learning-verktyg
-
-Den virtuella datorn levereras med Machine Learning-verktyg och algoritmer som har förkompilerats och redan installerats lokalt. Exempel på dessa är:
-
-* **Vowpal Wabbit**: En snabb online-inlärnings algoritm.
-* **xgboost**: Ett verktyg som tillhandahåller optimerade, förstärkta träd algoritmer.
-* **Rattle**: Ett R-baserat grafiskt verktyg för enkel utforskning och modellering av data.
-* **Python**: Anaconda python levereras med Machine Learning-algoritmer med bibliotek som Scikit-lär. Du kan installera andra bibliotek med hjälp av den `pip install` kommando.
-* **LightGBM**: Ett snabbt, distribuerat, högpresterande tonings ramverk som bygger på algoritmer för besluts träd.
-* **R**: Ett omfattande bibliotek med Machine Learning-funktioner är tillgängligt för R. förinstallerade bibliotek är lm, GLM, randomForest och rpart. Du kan installera andra bibliotek genom att köra det här kommandot:
-  
-        install.packages(<lib name>)
-
-Här är ytterligare information om de första tre machine learning-verktyg i listan.
-
-#### <a name="vowpal-wabbit"></a>Vowpal Wabbit
-
-Vowpal Wabbit är en machine learning-system som använder tekniker som online, hash, allreduce, sänkt, learning2search, aktiv, och interaktiva utbildningar.
-
-Om du vill köra verktyget på ett Basic-exempel använder du följande kommandon:
-
-```bash
-cp -r /dsvm/tools/VowpalWabbit/demo vwdemo
-cd vwdemo
-vw house_dataset
-```
-
-Det finns andra, större demonstrationer i den katalogen. Mer information om Vowpal-Wabbit finns i [det här avsnittet av GitHub](https://github.com/JohnLangford/vowpal_wabbit) och [Vowpal Wabbit wiki](https://github.com/JohnLangford/vowpal_wabbit/wiki).
-
-#### <a name="xgboost"></a>xgboost
-
-Xgboost-biblioteket är utformat och optimerat för förstärkta algoritmer (Tree). Målet med det här biblioteket är att skicka beräkning gränserna för datorer bra som behövs för att tillhandahålla storskaliga trädet boosting som är skalbara, bärbar och korrekt.
-
-Den tillhandahålls som en kommando rad och ett R-bibliotek. Om du vill använda det här biblioteket i R kan du starta en interaktiv R-session (genom att ange **R** i gränssnittet) och läsa in biblioteket.
-
-Här är ett enkelt exempel som du kan köra i en R-prompt:
-
-```R
-library(xgboost)
-
-data(agaricus.train, package='xgboost')
-data(agaricus.test, package='xgboost')
-train <- agaricus.train
-test <- agaricus.test
-bst <- xgboost(data = train$data, label = train$label, max.depth = 2,
-                eta = 1, nthread = 2, nround = 2, objective = "binary:logistic")
-pred <- predict(bst, test$data)
-```
-
-Följande kommandon körs i gränssnittet för att köra xgboost-kommando raden:
-
-```bash
-cp -r /dsvm/tools/xgboost/demo/binary_classification/ xgboostdemo
-cd xgboostdemo
-xgboost mushroom.conf
-```
-
-En modell fil skrivs till den angivna katalogen. Du kan hitta information om det här demonstrations exemplet [på GitHub](https://github.com/dmlc/xgboost/tree/master/demo/binary_classification).
-
-Mer information om xgboost finns på dokumentations [sidan för xgboost](https://xgboost.readthedocs.org/en/latest/) och dess [GitHub-lagringsplats](https://github.com/dmlc/xgboost).
-
-#### <a name="rattle"></a>Spännen
-
-Rattle (den **R** **A**nalysdatamängd **T**yg **T**o **L**tjäna **E** asily) använder GUI-baserade datagranskning och modellering. Det utgör statistiska och visuella sammanfattningar av data, transformeringar data som kan modelleras lätt, bygger både ej kontrollerade och övervakade modeller från data, visar prestanda för modeller grafiskt, och ställer in poäng nya data. Det genererar även R-kod, replikeras de åtgärder i Användargränssnittet som kan köra direkt i R eller användas som utgångspunkt för vidare analys.
-
-Om du vill köra spännen måste finnas i en grafisk inloggning skrivbordssession. Öppna R-miljön genom att ange **r** i terminalen. Ange följande kommandon i R-Kommandotolken:
-
-```R
-library(rattle)
-rattle()
-```
-
-Nu öppnas ett grafiskt gränssnitt med en uppsättning flikar. Använd följande snabb starts steg i Rattle för att använda en exempel data uppsättning för väder och skapa en modell. I vissa av stegen uppmanas du att automatiskt installera och läsa in vissa nödvändiga R-paket som inte redan finns i systemet.
-
-> [!NOTE]
-> Om du inte har åtkomst för att installera paketet i system katalogen (standard) kan du se en prompt i R-konsolens fönster för att installera paket i ditt personliga bibliotek. Svar **y** om du ser de här anvisningarna.
-
-1. Välj **Kör**.
-1. En dialog ruta visas där du tillfrågas om du vill använda exempel data uppsättningen för väder. Välj **Ja** om du vill läsa in exemplet.
-1. Välj fliken **modell** .
-1. Välj **Kör** för att bygga ett besluts träd.
-1. Välj **rit** för att Visa besluts trädet.
-1. Välj alternativet **skog** och välj **Kör** för att bygga en slumpmässig skog.
-1. Välj fliken **utvärdera** .
-1. Välj alternativet **risk** och välj **Kör** för att visa två **riskhanterings (kumulativa)** prestanda observationer.
-1. Välj fliken **logg** för att visa den genererade R-koden för föregående åtgärder.
-   (På grund av ett fel i den aktuella versionen av Rattle måste du infoga ett **#** tecken framför **Exportera loggen** i texten i loggen.)
-1. Välj knappen **Exportera** för att spara R-skript filen med namnet *weather_script. R* till arbetsmappen.
-
-Du kan avsluta Rattle och R. Nu kan du ändra det genererade R-skriptet. Du kan också använda skriptet som det är och köra det när som helst för att upprepa allt som har gjorts i Rattle-ANVÄNDARGRÄNSSNITTET. I synnerhet för nybörjare i R är detta ett sätt att snabbt utföra analyser och maskin inlärning i ett enkelt grafiskt gränssnitt, medan automatiskt genererar kod i R för att ändra eller lära sig.
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -482,3 +144,4 @@ Här är hur du kan fortsätta din inlärning och undersökning:
 * Utforska de olika data vetenskaps verktygen på DSVM genom att prova de verktyg som beskrivs i den här artikeln. Du kan också köra `dsvm-more-info` på gränssnittet i den virtuella datorn för grundläggande introduktion och pekare till mer information om de verktyg som är installerade på den virtuella datorn.  
 * Lär dig att skapa slutpunkt till slutpunkt Analyslösningar systematiskt med hjälp av den [Team Data Science Process](https://aka.ms/tdsp).
 * Gå till den [Azure AI-galleriet](https://gallery.azure.ai/) för machine learning och data analytics-exempel som använder Azure AI-tjänster.
+* Se lämplig [referens dokumentation](./reference-ubuntu-vm.md) för den här virtuella datorn.

@@ -8,13 +8,13 @@ author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
-ms.date: 08/28/2019
-ms.openlocfilehash: 9a80cb7ba44c86d449e4ff4178a2982db302a717
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.date: 09/20/2019
+ms.openlocfilehash: 6feeab9b48715a8fe1f6c6fe11ae90b6be71a57a
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70138349"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71173476"
 ---
 # <a name="use-terraform-to-create-an-azure-virtual-machine-scale-set-from-a-packer-custom-image"></a>Använd Terraform för att skapa en VM-skalningsuppsättning för Azure från en anpassad Packer-avbildning
 
@@ -42,9 +42,9 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 Skapa tre nya filer i en tom katalog med följande namn:
 
-- ```variables.tf``` Den här filen innehåller värdena för variablerna som används i mallen.
-- ```output.tf``` Den här filen beskriver inställningarna som visas efter distributionen.
-- ```vmss.tf```Den här filen innehåller koden för den infrastruktur som du distribuerar.
+- `variables.tf` : Den här filen innehåller värdena för variablerna som används i mallen.
+- `output.tf` : Den här filen beskriver de inställningar som visas efter distributionen.
+- `vmss.tf` : Den här filen innehåller koden för den infrastruktur som du distribuerar.
 
 ##  <a name="create-the-variables"></a>Skapa variablerna 
 
@@ -52,7 +52,7 @@ I det här steget definierar du variabler som anpassar resurserna som skapas av 
 
 Redigera filen `variables.tf`, kopiera följande kod och spara ändringarna.
 
-```tf 
+```hcl
 variable "location" {
   description = "The location where resources are created"
   default     = "East US"
@@ -70,7 +70,7 @@ variable "resource_group_name" {
 
 Spara filen.
 
-När du distribuerar Terraform-mallen hämtar du det fullständigt kvalificerade domännamnet som används för att få åtkomst till programmet. Använd resurstypen ```output``` för Terraform och hämta egenskapen ```fqdn``` för resursen. 
+När du distribuerar Terraform-mallen hämtar du det fullständigt kvalificerade domännamnet som används för att få åtkomst till programmet. Använd resurstypen `output` för Terraform och hämta egenskapen `fqdn` för resursen. 
 
 Redigera filen `output.tf` och kopiera följande kod för att göra det fullständigt kvalificerade domännamnet tillgängligt för de virtuella datorerna. 
 
@@ -89,9 +89,9 @@ I det här steget skapar du följande nätverksinfrastruktur i en ny Azure-resur
 
 Du behöver även en resursgrupp där alla resurser skapas. 
 
-Redigera och kopiera följande kod i filen ```vmss.tf```: 
+Redigera och kopiera följande kod i filen `vmss.tf`: 
 
-```tf 
+```hcl
 
 resource "azurerm_resource_group" "vmss" {
   name     = "${var.resource_group_name}"
@@ -145,7 +145,7 @@ Initiera Terraform-miljön genom att köra följande kommando i katalogen där d
 terraform init 
 ```
  
-Providerns plugin-program hämtas från Terraform-registret till mappen ```.terraform``` i katalogen där du körde kommandot.
+Providerns plugin-program hämtas från Terraform-registret till mappen `.terraform` i katalogen där du körde kommandot.
 
 Distribuera infrastrukturen till Azure genom att köra följande kommando.
 
@@ -185,8 +185,7 @@ I det här steget skapar du följande resurser i nätverket som distribuerades t
 
 Lägg till följande kod i slutet av filen `vmss.tf`.
 
-```tf
-
+```hcl
 
 resource "azurerm_lb" "vmss" {
   name                = "vmss-lb"
@@ -303,7 +302,7 @@ resource "azurerm_virtual_machine_scale_set" "vmss" {
 
 Anpassa distributionen genom att lägga till följande kod i `variables.tf`:
 
-```tf 
+```hcl
 variable "application_port" {
     description = "The port that you want to expose to the external load balancer"
     default     = 80

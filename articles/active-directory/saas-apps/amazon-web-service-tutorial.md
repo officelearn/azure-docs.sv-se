@@ -1,11 +1,11 @@
 ---
-title: 'Självstudier: Azure Active Directory-integrering med Amazon Web Services (AWS) | Microsoft Docs'
+title: 'Självstudier: Azure Active Directory enkel inloggning (SSO) med Amazon Web Services (AWS) | Microsoft Docs'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Amazon Web Services (AWS).
 services: active-directory
 documentationCenter: na
 author: jeevansd
 manager: mtillman
-ms.reviewer: celested
+ms.reviewer: barbkess
 ms.assetid: 7561c20b-2325-4d97-887f-693aa383c7be
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
@@ -13,23 +13,23 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 07/30/2019
+ms.date: 09/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 672a3571202b92232bd45a42254a43019f6a9796
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: ed1f1b6973d96fdc0bce560877720adfc5e33081
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69617331"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71170899"
 ---
-# <a name="tutorial-integrate-amazon-web-services-aws-with-azure-active-directory"></a>Självstudier: Integrera Amazon Web Services (AWS) med Azure Active Directory
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-amazon-web-services-aws"></a>Självstudier: Azure Active Directory enkel inloggning (SSO) med Amazon Web Services (AWS)
 
-I den här självstudien får du lära dig hur du integrerar Amazon Web Services (AWS) med Azure Active Directory (Azure AD). När du integrerar AWS med Azure AD kan du:
+I den här självstudien får du lära dig hur du integrerar Amazon Web Services (AWS) med Azure Active Directory (Azure AD). När du integrerar Amazon Web Services (AWS) med Azure AD kan du:
 
-* Kontroll i Azure AD som har åtkomst till AWS.
-* Gör det möjligt för användarna att logga in automatiskt till AWS med sina Azure AD-konton.
-* Hantera dina konton på en central plats, Azure Portal.
+* Kontroll i Azure AD som har åtkomst till Amazon Web Services (AWS).
+* Gör det möjligt för användarna att logga in automatiskt till Amazon Web Services (AWS) med sina Azure AD-konton.
+* Hantera dina konton på en central plats – Azure Portal.
 
 Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
@@ -63,87 +63,93 @@ För att komma igång behöver du följande objekt:
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
-I den här självstudien konfigurerar och testar du Azure AD SSO i en test miljö. AWS stöder **SP-och IDP** -initierad SSO.
+I den här självstudien konfigurerar och testar du Azure AD SSO i en test miljö.
 
-## <a name="add-aws-from-the-gallery"></a>Lägg till AWS från galleriet
+* Amazon Web Services (AWS) stöder **SP- och IDP**-initierad enkel inloggning
 
-Om du vill konfigurera integreringen av AWS i Azure AD måste du lägga till AWS från galleriet i listan över hanterade SaaS-appar.
+> [!NOTE]
+> ID för det här programmet är ett fast sträng värde så att endast en instans kan konfigureras i en klient.
 
-1. Logga in på [Azure Portal](https://portal.azure.com) med ett arbets-eller skol konto eller en personlig Microsoft-konto.
-1. I den vänstra rutan väljer du tjänsten **Azure Active Directory** .
-1. Gå till **Företagsprogram** och välj sedan **Alla program**.
+## <a name="adding-amazon-web-services-aws-from-the-gallery"></a>Lägga till Amazon Web Services (AWS) från galleriet
+
+För att konfigurera integreringen av Amazon Web Services (AWS) med Azure AD måste du lägga till Amazon Web Services (AWS) från galleriet till din lista över hanterade SaaS-appar.
+
+1. Logga in på [Azure-portalen](https://portal.azure.com) med ett arbets- eller skolkonto eller ett personligt Microsoft-konto.
+1. I det vänstra navigerings fönstret väljer du tjänsten **Azure Active Directory** .
+1. Navigera till **företags program** och välj sedan **alla program**.
 1. Välj **nytt program**om du vill lägga till ett nytt program.
 1. I avsnittet **Lägg till från galleriet** , Skriv **Amazon Web Services (AWS)** i sökrutan.
-1. Välj **Amazon Web Services (AWS)** i resultat panelen och Lägg sedan till appen. Vänta några sekunder medan appen läggs till i din klient organisation.
+1. Välj **Amazon Web Services (AWS)** från resultat panelen och Lägg sedan till appen. Vänta några sekunder medan appen läggs till i din klient organisation.
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
 
-Konfigurera och testa Azure AD SSO med AWS med hjälp av en test användare som heter **B. Simon**. För att SSO ska fungera måste du upprätta en länkad relation mellan en Azure AD-användare och den relaterade användaren i AWS.
+## <a name="configure-and-test-azure-ad-single-sign-on-for-amazon-web-services-aws"></a>Konfigurera och testa enkel inloggning med Azure AD för Amazon Web Services (AWS)
 
-Om du vill konfigurera och testa Azure AD SSO med AWS, slutför du följande Bygg stenar:
+Konfigurera och testa Azure AD SSO med Amazon Web Services (AWS) med hjälp av en test användare som heter **B. Simon**. För att SSO ska fungera måste du upprätta en länk relation mellan en Azure AD-användare och den relaterade användaren i Amazon Web Services (AWS).
 
-1. **Konfigurera Azure AD SSO** så att användarna kan använda den här funktionen.
-2. **Konfigurera AWS** för att konfigurera SSO-inställningar på program sidan.
-3. **Skapa en Azure AD** -testanvändare för att testa Azure AD SSO med B. Simon.
-4. **Tilldela Azure AD** -testanvändaren för att aktivera B. Simon att använda Azure AD SSO.
-5. **Skapa en AWS** -testanvändare som ska ha en motsvarighet till B. Simon i AWS som är länkad till Azure AD-representation av användaren.
-6. **Testa SSO** för att kontrol lera om konfigurationen fungerar.
+Om du vill konfigurera och testa Azure AD SSO med Amazon Web Services (AWS) slutför du följande Bygg stenar:
 
-### <a name="configure-azure-ad-sso"></a>Konfigurera Azure AD SSO
+1. **[Konfigurera Azure AD SSO](#configure-azure-ad-sso)** – så att användarna kan använda den här funktionen.
+    1. **[Skapa en Azure AD-test](#create-an-azure-ad-test-user)** för att testa enkel inloggning med Azure AD med B. Simon.
+    1. **[Tilldela Azure AD](#assign-the-azure-ad-test-user)** -testuser-för att aktivera B. Simon för att använda enkel inloggning med Azure AD.
+1. **[Konfigurera Amazon Web Services (AWS) SSO](#configure-amazon-web-services-aws-sso)** – för att konfigurera inställningarna för enkel inloggning på program sidan.
+    1. **[Skapa Amazon Web Services (AWS)-test användare](#create-amazon-web-services-aws-test-user)** – om du vill ha en motsvarighet till B. Simon i Amazon Web Services (AWS) som är länkad till Azure AD-representation av användare.
+1. **[Testa SSO](#test-sso)** – för att kontrol lera om konfigurationen fungerar.
+
+## <a name="configure-azure-ad-sso"></a>Konfigurera Azure AD SSO
 
 Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
-1. I [Azure Portal](https://portal.azure.com/)på sidan **Amazon Web Services (AWS)** program integration letar du upp avsnittet **Hantera** och väljer **enkel inloggning**.
+1. På sidan **Amazon Web Services (AWS)** program integration i [Azure Portal](https://portal.azure.com/), letar du upp avsnittet **Hantera** och väljer **enkel inloggning**.
 1. På sidan **Välj metod för enkel inloggning** väljer du **SAML**.
-1. På sidan **Konfigurera enkel inloggning med SAML** väljer du Penn ikonen för **grundläggande SAML-konfiguration** för att redigera inställningarna.
+1. På sidan **Konfigurera enkel inloggning med SAML** klickar du på ikonen Redigera/penna för **grundläggande SAML-konfiguration** för att redigera inställningarna.
 
-   ![Skärm bild som visar hur du konfigurerar enkel inloggning med SAML-sidan med Penn ikonen markerad](common/edit-urls.png)
+   ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
 
-4. I avsnittet **grundläggande SAML-konfiguration** är programmet förkonfigurerat och de nödvändiga URL: erna är redan ifyllda med Azure. Användaren måste spara konfigurationen genom att välja **Spara**.
+1. I avsnittet **grundläggande SAML-konfiguration** är programmet förkonfigurerat och de nödvändiga URL: erna är redan ifyllda med Azure. Användaren måste spara konfigurationen genom att välja **Spara**.
 
-5. Ange ett ID-värde när du konfigurerar fler än en instans. Använd följande format från den andra instansen, inklusive ett **#** tecken för att ange ett unikt SPN-värde.
+1. Ange ett ID-värde när du konfigurerar fler än en instans. Använd följande format från den andra instansen, inklusive ett **#** tecken för att ange ett unikt SPN-värde.
 
     `https://signin.aws.amazon.com/saml#2`
 
-6. AWS-programmet förväntar sig SAML-intyg i ett särskilt format, vilket kräver att du lägger till anpassade mappningar av attribut i konfigurationen för SAML-token. I följande skärmbild visas listan över standardattribut. Välj Penn ikonen för att öppna dialog rutan användarattribut.
+1. På sidan **Konfigurera enkel inloggning med SAML** , i avsnittet **SAML-signeringscertifikat** , letar du upp **XML för federationsmetadata** och väljer **Hämta** för att ladda ned certifikatet och spara det på din dator.
 
-    ![Skärm bild av dialog rutan användarattribut med Penn ikonen markerad](common/edit-attribute.png)
-
-7. Förutom föregående attribut förväntar sig AWS-programmet fler attribut att skickas tillbaka i SAML-svaret. I avsnittet **användar anspråk** i dialog rutan användarattribut, utför följande steg för att lägga till SAML-token-attributet.
-
-    | Name  | Källattribut  | Namnrymd |
-    | --------------- | --------------- | --------------- |
-    | RoleSessionName | user.userprincipalname | https://aws.amazon.com/SAML/Attributes |
-    | Role            | user.assignedroles |  https://aws.amazon.com/SAML/Attributes |
-    | SessionDuration             | ”ange ett värde mellan 900 sekunder (15 minuter) och 43 200 sekunder (12 timmar)” |  https://aws.amazon.com/SAML/Attributes |
-
-    a. Välj **Lägg till nytt anspråk** för att öppna dialogrutan **Hantera användaranspråk**.
-
-    ![Skärm bild av avsnittet användar anspråk, med Lägg till nytt anspråk och spara markerat](common/new-save-attribute.png)
-
-    ![Skärm bild av dialog rutan hantera användar anspråk](common/new-attribute-details.png)
-
-    b. I **namn**anger du det attributnamn som visas för raden.
-
-    c. I **namn område**anger du det namn områdes värde som visas för den raden.
-
-    d. I **källa**väljer du **attribut**.
-
-    e. Från listan över **Källattribut** skriver du det attributvärde som visas för den raden.
-
-    f. Välj **OK**.
-
-    g. Välj **Spara**.
-
-1. På sidan **Konfigurera enkel inloggning med SAML** , i avsnittet **SAML-signeringscertifikat** , letar du upp **XML för federationsmetadata**. Välj **Ladda ned** för att ladda ned certifikatet och spara det på din dator.
-
-   ![Skärm bild av avsnittet SAML-signerings certifikat med hämtning markerat](common/metadataxml.png)
+    ![Länk för hämtning av certifikat](common/metadataxml.png)
 
 1. I avsnittet **konfigurera Amazon Web Services (AWS)** kopierar du lämpliga URL: er baserat på ditt krav.
 
-   ![Skärm bild av avsnittet Konfigurera Amazon Web Services (AWS) med konfigurations-URL: er markerade](common/copy-configuration-urls.png)
+    ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
 
-### <a name="configure-aws"></a>Konfigurera AWS
+### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
+
+I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B. Simon.
+
+1. I den vänstra rutan i Azure Portal väljer du **Azure Active Directory**, väljer **användare**och väljer sedan **alla användare**.
+1. Välj **ny användare** överst på skärmen.
+1. I **användar** egenskaperna följer du de här stegen:
+   1. I **Namn**-fältet skriver du `B.Simon`.  
+   1. I fältet **användar namn** anger du username@companydomain.extension. Till exempel `B.Simon@contoso.com`.
+   1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
+   1. Klicka på **Skapa**.
+
+### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
+
+I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning med Azure genom att bevilja åtkomst till Amazon Web Services (AWS).
+
+1. I Azure Portal väljer du **företags program**och väljer sedan **alla program**.
+1. I listan program väljer du **Amazon Web Services (AWS)** .
+1. På sidan Översikt för appen letar du reda på avsnittet **Hantera** och väljer **användare och grupper**.
+
+   ![Länken ”användare och grupper”](common/users-groups-blade.png)
+
+1. Välj **Lägg till användare**och välj sedan **användare och grupper** i dialog rutan **Lägg till tilldelning** .
+
+    ![Länken Lägg till användare](common/add-assign-user.png)
+
+1. I dialog rutan **användare och grupper** väljer du **B. Simon** från listan användare och klickar sedan på knappen **Välj** längst ned på skärmen.
+1. Om du förväntar dig ett roll värde i SAML Assertion, i dialog rutan **Välj roll** , väljer du lämplig roll för användaren i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
+1. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
+
+## <a name="configure-amazon-web-services-aws-sso"></a>Konfigurera Amazon Web Services (AWS) SSO
 
 1. Logga in på din AWS företags webbplats som administratör i ett annat webbläsarfönster.
 
@@ -326,50 +332,29 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
     ![Skärm bild av avsnittet inställningar med på markerad](./media/amazon-web-service-tutorial/provisioning2.png)
 
-### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
+> [!NOTE]
+> Etablerings tjänsten importerar bara roller från AWS till Azure AD. Tjänsten kommer inte att etablera användare och grupper från Azure AD tillbaka till AWS.
 
-I det här avsnittet skapar du en test användare, B. Simon, i Azure Portal.
+### <a name="create-amazon-web-services-aws-test-user"></a>Skapa Amazon Web Services (AWS)-testanvändare
 
-1. I den vänstra rutan i Azure Portal väljer du **Azure Active Directory** > **användare** > **alla användare**.
-1. Välj **ny användare** överst på skärmen.
-1. I **användar** egenskaperna följer du de här stegen:
-   
-   a. I **Namn**-fältet skriver du `B.Simon`.  
-   b. I fältet **användar namn** anger du username@companydomain.extension. Till exempel `B.Simon@contoso.com`.   
-   c. Välj **Visa lösen ord**och skriv ned det. Välj sedan **Create** (Skapa).
+Syftet med det här avsnittet är att skapa en användare som kallas B. Simon i Amazon Web Services (AWS). För Amazon Web Services (AWS) krävs det inte att en användare skapas i deras system för enkel inloggning, så du behöver inte göra någonting här.
 
-### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
+## <a name="test-sso"></a>Testa SSO
 
-I det här avsnittet aktiverar du B. Simon för att använda Azure SSO genom att bevilja åtkomst till AWS.
+I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
 
-1. I Azure Portal väljer du **företags program**och väljer sedan **alla program**.
-1. I listan program väljer du **Amazon Web Services (AWS)** .
-1. På sidan Översikt för appen letar du reda på avsnittet **Hantera** och väljer **användare och grupper**.
-
-   ![Skärm bild av avsnittet hantera med användare och grupper markerade](common/users-groups-blade.png)
-
-1. Välj **Lägg till användare**. I dialog rutan **Lägg till tilldelning** väljer **du användare och grupper**.
-
-    ![Skärm bild av Lägg till användare](common/add-assign-user.png)
-
-1. Välj **B. Simon**i dialog rutan **användare och grupper** . Välj sedan **Välj**.
-1. Om du förväntar dig ett roll värde i SAML-intyget väljer du lämplig roll för användaren i listan i dialog rutan **Välj roll** . Välj sedan **Välj**.
-1. I dialogrutan **Lägg till tilldelning** väljer du **Tilldela**.
-
-### <a name="test-single-sign-on"></a>Testa enkel inloggning
-
-När du väljer panelen AWS på åtkomst panelen, bör du loggas in automatiskt på den AWS som du ställer in SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+När du klickar på Amazon Web Services (AWS)-panelen i åtkomstpanelen bör du automatiskt loggas in på Amazon Web Services (AWS) som du har konfigurerat enkel inloggning för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="known-issues"></a>Kända problem
 
  * I avsnittet om **etablering** visas en "inläsning..." i underavsnittet **mappningar** . meddelande, och visar aldrig mappningar för attribut. Det enda etablerings arbets flödet som stöds idag är att importera roller från AWS till Azure AD för val under en användar-eller grupp tilldelning. Attributens mappningar för detta är för bestämda och kan inte konfigureras.
- 
- * Avsnittet **Etablering** stöder endast inmatning av en uppsättning autentiseringsuppgifter för en AWS-klientorganisation i taget. Alla importerade roller skrivs till `appRoles` egenskapen för Azure AD [ `servicePrincipal` -objektet](https://docs.microsoft.com/graph/api/resources/serviceprincipal?view=graph-rest-beta) för AWS-klienten. 
- 
-   Flera AWS-klienter (som representeras av `servicePrincipals`) kan läggas till i Azure AD från galleriet för etablering. Det finns dock ett känt problem, men det går inte att automatiskt skriva alla importerade roller från de flera AWS `servicePrincipals` som används för etablering i den enda `servicePrincipal` som används för SSO. 
-   
+
+ * Avsnittet **Etablering** stöder endast inmatning av en uppsättning autentiseringsuppgifter för en AWS-klientorganisation i taget. Alla importerade roller skrivs till `appRoles` egenskapen för Azure AD [ `servicePrincipal` -objektet](https://docs.microsoft.com/graph/api/resources/serviceprincipal?view=graph-rest-beta) för AWS-klienten.
+
+   Flera AWS-klienter (som representeras av `servicePrincipals`) kan läggas till i Azure AD från galleriet för etablering. Det finns dock ett känt problem, men det går inte att automatiskt skriva alla importerade roller från de flera AWS `servicePrincipals` som används för etablering i den enda `servicePrincipal` som används för SSO.
+
    Som en lösning kan du använda [Microsoft Graph API](https://docs.microsoft.com/graph/api/resources/serviceprincipal?view=graph-rest-beta) för att extrahera alla `appRoles` importerade till varje AWS `servicePrincipal` där etableringen har kon figurer ATS. Du kan senare lägga till de här roll strängarna `servicePrincipal` i AWS där SSO är konfigurerat.
- 
+
 * Roller måste uppfylla följande krav för att kunna importeras från AWS till Azure AD:
 
   * Roller måste ha exakt en SAML-Provider definierad i AWS
@@ -378,13 +363,13 @@ När du väljer panelen AWS på åtkomst panelen, bör du loggas in automatiskt 
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-- [Självstudier för att integrera SaaS-program med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
-<!--Image references-->
+- [Prova Amazon Web Services (AWS) med Azure AD](https://aad.portal.azure.com/)
 
 [11]: ./media/amazon-web-service-tutorial/ic795031.png
 [12]: ./media/amazon-web-service-tutorial/ic795032.png

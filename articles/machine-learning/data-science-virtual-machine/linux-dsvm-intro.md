@@ -1,419 +1,141 @@
 ---
-title: 'Snabbstart: Skapa en CentOS Linux'
-titleSuffix: Azure Data Science Virtual Machine
-description: Skapa och konfigurera en Linux-Data Science Virtual Machine i Azure för analys och maskin inlärning.
-services: machine-learning
+title: 'Snabbstart: Skapa en CentOS-Data Science Virtual Machine'
+description: Konfigurera och skapa en Data Science Virtual Machine för Linux (CentOS) för att göra analyser och maskin inlärning.
 ms.service: machine-learning
 ms.subservice: data-science-vm
-author: vijetajo
-ms.author: vijetaj
+author: gvashishtha
+ms.author: gopalv
 ms.topic: quickstart
-ms.date: 03/16/2018
-ms.openlocfilehash: 1ab3a527643bc5a567644a937fdd1eb9e31bf567
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.date: 09/13/2019
+ms.openlocfilehash: 34aaae23b834ec1fb9e071f31c6d8e94c9c7dd0a
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70195328"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71170782"
 ---
-# <a name="quickstart-set-up-a-linux-centos-data-science-virtual-machine-in-azure"></a>Snabbstart: Konfigurera en Linux-CentOS Data Science Virtual Machine i Azure
+# <a name="quickstart-set-up-a-centos-linux-data-science-virtual-machine-in-azure"></a>Snabbstart: Konfigurera en CentOS (Linux) Data Science Virtual Machine i Azure
 
-Linux-Data Science Virtual Machine (DSVM) är en CentOS-baserad virtuell Azure-dator. Linux-DSVM levereras med en samling förinstallerade verktyg som du kan använda för data analys och maskin inlärning. 
-
-Viktiga program varu komponenter som ingår i en Linux-DSVM är:
-
-* Linux-CentOS distributions operativ system.
-* Microsoft Machine Learning Server.
-* Anaconda python-distribution (version 3,5 och 2,7), inklusive populära data analys bibliotek.
-* JuliaPro, en granskad distribution av Julia-språket och populära vetenskapliga och data analys bibliotek.
-* Spark fristående instans och Hadoop med en nod (HDFS, garn).
-* JupyterHub, en Jupyter Notebook-server som stöder R-, python-, PySpark-och Julia-kärnor.
-* Azure Storage Explorer.
-* Azure CLI, Azures kommando rads gränssnitt för att hantera Azure-resurser.
-* PostgresSQL-databas.
-* Machine Learning-verktyg:
-  * [Microsoft Cognitive Toolkit](https://github.com/Microsoft/CNTK) (CNTK), ett djup inlärnings program verktyg från Microsoft Research.
-  * [Vowpal Wabbit](https://github.com/JohnLangford/vowpal_wabbit), ett snabbt Machine Learning-system som stöder metoder som online, hashing, allreduce, reduktioner, learning2search, aktiv och interaktiv utbildning.
-  * [XGBoost](https://xgboost.readthedocs.org/en/latest/), ett verktyg som ger snabb och korrekt utökat träd implementering.
-  * [Rattle](https://togaware.com/rattle/)är ett verktyg som gör det enkelt att komma igång med data analys och maskin inlärning. Rattle erbjuder både GUI-baserad data utforskning och modellering genom att använda automatisk R-kod generation.
-* Azure SDK i Java, python, Node. js, ruby och PHP.
-* Bibliotek i R och python som ska användas i Azure Machine Learning och andra Azure-tjänster.
-* Utvecklingsverktyg och redigerare (RStudio, pycharm med, IntelliJ, emacs, gedit, vi).
-
-Datavetenskap omfattar iteration av en serie uppgifter:
-
-1. Hitta, Läs in och Förbearbeta data.
-1. Skapa och testa modeller.
-1. Distribuera modeller för användning i intelligenta program.
-
-Dataexperter använda olika verktyg för att utföra dessa uppgifter. Det kan vara tids krävande att hitta rätt versioner av program varan och sedan ladda ned, kompilera och installera program varan.
-
-Linux-DSVM kan under lätta den här belastningen avsevärt. Använd Linux-DSVM för att komma igång med ditt analys projekt. Linux-DSVM hjälper dig att arbeta med uppgifter på olika språk, inklusive R, python, SQL, Java och C++. Sol förmörkelse tillhandahåller en lättanvänd IDE för utveckling och testning av koden. Azure SDK, som ingår i DSVM, hjälper dig att bygga dina program med hjälp av olika tjänster i Linux för Microsofts moln plattform. Andra språk är förinstallerade, inklusive ruby, perl, PHP och Node. js.
-
-Det finns inga program varu avgifter för DSVM-avbildningen. Du betalar bara de avgifter för Azure-maskinvara som utvärderas utifrån storleken på den virtuella dator som du etablerar med DSVM-avbildningen. Mer information om beräknings avgifter finns i [listan data science Virtual Machine för Linux (CentOS)](https://azure.microsoft.com/marketplace/partners/microsoft-ads/linux-data-science-vm/) på Azure Marketplace.
+Kom igång med en CentOS-baserad Data Science Virtual Machine.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Innan du kan skapa en Linux-Data Science Virtual Machine måste du ha följande förutsättningar:
+Du måste ha en **Azure-prenumeration**för att kunna skapa en CentOS-data science Virtual Machine. [Skapa en kostnads fri prenumeration](https://azure.com/free).
 
-* **Azure-prenumeration**: Information om hur du skaffar en Azure-prenumeration finns i [skapa ett kostnads fritt Azure-konto](https://azure.microsoft.com/free/).
-* **Azure-lagringskonto**: Information om hur du skaffar ett Azure Storage-konto finns i [skapa ett lagrings konto](../../storage/common/storage-quickstart-create-account.md). Om du inte vill använda ett befintligt Azure Storage-konto kan du skapa ett lagrings konto när du skapar DSVM.
+## <a name="create-your-centos-data-science-virtual-machine"></a>Skapa din CentOS-Data Science Virtual Machine
 
-## <a name="other-versions-of-the-data-science-virtual-machine"></a>Andra versioner av den virtuella datorn för datavetenskap
+Här följer stegen för att skapa en instans av CentOS-Data Science Virtual Machine:
 
-Data Science Virtual Machine finns också i följande versioner:
+1. Gå till [Azure-portalen](https://portal.azure.com). Du kan uppmanas att logga in på ditt Azure-konto om du inte redan har loggat in. 
+1. Skriv "data science Virtual Machine" i Sök fältet och välj CentOS-DSVM.
 
-* [Ubuntu](dsvm-ubuntu-intro.md): Ubuntu-avbildningen har många av samma verktyg som CentOS-avbildningen, inklusive djup inlärnings ramverk. 
-* [Windows](provision-vm.md)
+    ![CentOS Sök Resultat](./media/linux-dsvm-intro/search-centos.png)
 
-## <a name="create-a-linux-data-science-virtual-machine"></a>Skapa en Linux-Data Science Virtual Machine
+1. I det efterföljande fönstret väljer du **skapa**.
 
-Så här skapar du en instans av Linux-DSVM:
+    ![Guide för att skapa en virtuell dator](./media/linux-dsvm-intro/create-centos.png)
 
-1. Gå till listan med virtuella datorer i [Azure Portal](https://portal.azure.com/#create/microsoft-ads.linux-data-science-vmlinuxdsvm).
-1. Klicka på **skapa** för att öppna guiden.
-
-   ![Guiden som konfigurerar en Data Science Virtual Machine](./media/linux-dsvm-intro/configure-linux-data-science-virtual-machine.png)
-1. Ange eller Välj följande information för varje steg i guiden:
+1. Du bör omdirigeras till bladet "skapa en virtuell dator".
    
-   **1** **grunder**:
+   ![Fliken grunder som motsvarar den virtuella CentOS-datorn](./media/linux-dsvm-intro/review-create-centos.png)
 
-      * **Namn på**: Namnet på den data science-server som du skapar.
-      * **Användar namn**: Kontots första inloggnings-ID.
-      * **Lösenord**: Kontots första lösenord. (Du kan använda en offentlig SSH-nyckel istället för ett lösenord.)
-      * **Prenumeration**: Om du har mer än en prenumeration väljer du den prenumeration som datorn ska skapas på och faktureras. Du måste ha behörighet att skapa resurser för prenumerationen.
-      * **Resursgrupp**: Du kan skapa en ny resurs grupp eller använda en befintlig grupp.
-      * **Plats**: Välj ett Data Center som ska användas för DSVM. I de flesta fall väljer du det data Center som innehåller de flesta data eller som är närmast din fysiska plats (för den snabbaste nätverks åtkomsten).
-   
-   **2** **storlek**: Välj en server typ som uppfyller dina funktions krav och kostnads begränsningar. Välj **visa alla** att se fler alternativ med VM-storlekar.
-   
-   
-   **3** **Inställningar**:
-      * **Disktyp**: Om du föredrar en SSD-enhet (Solid-State Drive) väljer du **Premium**. Annars väljer du **standard**.
-      * **Lagringskonto**: Du kan skapa ett nytt Azure Storage-konto i din prenumeration eller använda ett befintligt Azure-konto på samma plats som du valde i **grundläggande** steg i guiden.
-      * **Andra parametrar**: I de flesta fall använder du standardvärdena för att konfigurera andra parametrar. Hovra över informations länken för parametern om du vill se värden som inte är standardvärden.
-   
-   **4** **Sammanfattning**: Kontrol lera att den information du har angett är korrekt.
-   
-   **5** **köp**: Starta etableringen genom att välja **köp**. En länk till villkoren i transaktionen tillhandahålls. Det finns inga ytterligare avgifter för DSVM utöver beräkningen för Server storleken du väljer i **storlek**.
+1. Ange följande information för att konfigurera varje steg i guiden:
 
-Etableringen tar 10-20 minuter. Status för etableringen visas i Azure Portal.
+    1. **Grunderna**:
+    
+       * **Prenumeration**: Om du har mer än en prenumeration väljer du den dator där datorn ska skapas och faktureras. Du måste ha behörighet att skapa resurser för prenumerationen.
+       * **Resursgrupp**: Skapa en ny grupp eller Använd en befintlig.
+       * **Namn på virtuell dator**: Ange namnet på den virtuella datorn. Så här kommer det att visas i Azure Portal.
+       * **Region**: Välj det data Center som är lämpligast. För snabbast nätverks åtkomst är det data Center som har de flesta data eller som är närmast din fysiska plats. Lär dig mer om [Azure-regioner](https://azure.microsoft.com/global-infrastructure/regions/).
+       * **Bild**: Låt standardvärdet vara kvar.
+       * **Storlek**: Detta ska automatiskt fylla i med en storlek som passar för allmänna arbets belastningar. Läs mer om [storlekar för virtuella Linux-datorer i Azure](../../virtual-machines/linux/sizes.md).
+       * **Autentiseringstyp**: Välj "lösen ord" för snabbare installation. 
+         
+         > [!NOTE]
+         > Om du tänker använda JupyterHub väljer du "Password", eftersom JupyterHub *inte* har kon figurer ATS för att använda offentliga SSH-nycklar.
 
-## <a name="how-to-access-the-linux-data-science-virtual-machine"></a>Hur du kommer åt Linux Data Science Virtual Machine
+       * **Användarnamn**: Ange administratörens användar namn. Detta är det användar namn som du ska använda för att logga in på den virtuella datorn och behöver inte vara samma som ditt Azure-användarnamn. Använd *inte* versala bokstäver.
+         
+         > [!NOTE]
+         > Om du använder versaler i ditt användar namn kommer JupyterHub inte att fungera och du kommer att stöta på ett internt 500-server fel.
 
-När DSVM har skapats kan du logga in till den med hjälp av SSH. Använd de kontoautentiseringsuppgifter som du skapade i avsnittet **grundläggande** i guiden för gränssnittet text gränssnitt. I Windows kan du ladda ned ett SSH client-verktyg som [SparaTillFil](https://www.putty.org). Om du föredrar ett grafiskt skriv bord (X Window-System) kan du använda begäran om x11-vidarebefordran på SparaTillFil eller installera X2Go-klienten.
+       * **Lösenord**: Ange det lösen ord som du ska använda för att logga in på den virtuella datorn.    
+    
+   1. Välj **Granska + skapa**.
+   1. **Granska + skapa**
+      * Kontrollera att all information som du angett är korrekt. 
+      * Välj **Skapa**.
+    
+    Etableringen tar cirka 5 minuter. Statusen visas i Azure Portal.
+
+## <a name="how-to-access-the-centos-data-science-virtual-machine"></a>Så här kommer du åt CentOS-Data Science Virtual Machine
+
+Du kan komma åt CentOS-DSVM på ett av tre sätt:
+
+  * SSH för terminal sessioner
+  * X2Go för grafiska sessioner
+  * JupyterHub och JupyterLab för Jupyter-anteckningsböcker
+
+Du kan också bifoga en Data Science Virtual Machine till Azure Notebooks för att köra Jupyter-anteckningsböcker på den virtuella datorn och kringgå begränsningarna i den kostnads fria tjänst nivån. Mer information finns i [Hantera och konfigurera Azure Notebooks projekt](../../notebooks/configure-manage-azure-notebooks-projects.md#compute-tier).
+
+### <a name="ssh"></a>SSH
+
+När den virtuella datorn har skapats, om den har kon figurer ATS med SSH-åtkomst, kan du logga in till den med hjälp av SSH. Använda de autentiseringsuppgifter som du skapade i den **grunderna** avsnittet i steg 3 för text shell-gränssnittet. I Windows kan du ladda ned ett SSH client-verktyg som [SparaTillFil](https://www.putty.org). Om du föredrar ett grafiskt skriv bord (X Window-System) kan du använda begäran om x11-vidarebefordran på SparaTillFil.
 
 > [!NOTE]
 > Klienten X2Go presterade bättre än X11 vidarebefordran i testet. Vi rekommenderar att du använder X2Go-klienten för ett grafiskt gränssnitt för fjärrskrivbord.
 
-## <a name="install-and-configure-the-x2go-client"></a>Installera och konfigurera X2Go-klienten
+### <a name="x2go"></a>X2Go
 
-Linux-DSVM har tillhandahållits med X2Go-servern och är redo att ta emot klient anslutningar. För att ansluta till det grafiska Linux-DSVM, utför du följande procedur på klienten:
+Den virtuella Linux-datorn är redan etablerad med X2Go-servern och redo att ta emot klient anslutningar. Slutför följande procedur på klienten för att ansluta till Linux VM grafiska skrivbordet:
 
 1. Ladda ned och installera klienten för din klientplattform från X2Go [X2Go](https://wiki.x2go.org/doku.php/doc:installation:x2goclient).
-1. Kör X2Go-klienten. Välj **ny session**. Ett konfigurations fönster med flera flikar öppnas. Ange följande konfigurationsparametrar:
+1. Anteckna den virtuella datorns offentliga IP-adress, som du hittar i Azure Portal genom att öppna den virtuella dator som du nyss skapade.
+
+   ![CentOS dator-IP-adress](./media/linux-dsvm-intro/centos-ip-address.png)
+
+1. Kör X2Go-klienten. Om fönstret "ny session" inte visas automatiskt går du till session-> ny session.
+
+1. I fönstret resulterande konfiguration anger du följande konfigurations parametrar:
    * **Sessionen fliken**:
-     * **Värd**: Ange värd namnet eller IP-adressen för Linux-DSVM.
-     * **Inloggning**: Ange användar namnet på Linux-DSVM.
-     * **SSH-port**: Lämna standardvärdet **22**.
-     * **Typ av session**: Ändra värdet till **xfce**. Linux-DSVM stöder för närvarande bara XFCE-skrivbordet.
-   * Fliken **Media** : Du kan stänga av ljud supporten och klient utskrift om du inte behöver använda dem.
-   * **Delade mappar**: Om du vill att kataloger från klient datorerna ska monteras på Linux-DSVM lägger du till de klient dator kataloger som du vill dela med DSVM.
+     * **Värd**: Ange IP-adressen för din virtuella dator, som du antecknade tidigare.
+     * **Inloggning**: Ange användar namnet på den virtuella Linux-datorn.
+     * **SSH-port**: Lämna det på 22 standardvärdet.
+     * **Typ av session**: Ändra värdet till **xfce**. Den virtuella Linux-datorn har för närvarande endast stöd för XFCE Desktop.
+   * **Fliken Media**: Du kan stänga av ljud supporten och klient utskrift om du inte behöver använda dem.
+   * **Delade mappar**: Om du vill att kataloger från klient datorerna ska monteras på den virtuella Linux-datorn lägger du till de klient dator kataloger som du vill dela med den virtuella datorn på den här fliken.
 
-När du har loggat in på DSVM genom att använda antingen SSH-klienten eller den XFCE grafiska Skriv bordet via X2Go-klienten, är du redo att börja använda de verktyg som är installerade och konfigurerade på DSVM. På XFCE kan du se program meny gen vägar och skriv bords ikoner för många av verktygen.
+   ![X2go-konfiguration](./media/dsvm-ubuntu-intro/x2go-ubuntu.png)
+1. Välj **OK**.
+1. Klicka på rutan i den högra rutan i fönstret X2Go för att öppna inloggnings skärmen för den virtuella datorn.
+1. Ange lösen ordet för den virtuella datorn.
+1. Välj **OK**.
+1. Du kan behöva ge X2Go-behörighet för att kringgå brand väggen för att kunna slutföra anslutningen.
+1. Nu bör du se det grafiska gränssnittet för din CentOS-DSVM. 
 
-## <a name="tools-installed-on-the-linux-data-science-virtual-machine"></a>Verktygen som installeras på den Linux virtuella datorn för datavetenskap
 
-### <a name="machine-learning-server"></a>Machine Learning Server
+### <a name="jupyterhub-and-jupyterlab"></a>JupyterHub och JupyterLab
 
-R är ett av de mest populära språk för dataanalys och maskininlärning. Om du vill använda R för din analys har DSVM Machine Learning Server med Microsoft R Open och Math kernel-biblioteket. I matematiskt kernel-bibliotek optimeras vanliga matematiska åtgärder i analytiska algoritmer. R Open är helt kompatibelt med CRAN R. Alla R-bibliotek som publiceras i CRAN kan installeras på R Open. 
+CentOS-DSVM kör [JupyterHub](https://github.com/jupyterhub/jupyterhub), en Jupyter-Server. Följ stegen nedan för att ansluta:
 
-Du kan använda Machine Learning Server för att skala och operationalisera R-modeller till webb tjänster. Du kan redigera din R-program i ett standard-redigerare som RStudio, vi och Emacs. Emacs-redigeraren är förinstallerad på DSVM. Paketet emacs ESS (emacs pratar Statistics) fören klar arbetet med R-filer i emacs-redigeraren.
+   1. Anteckna den offentliga IP-adressen för den virtuella datorn genom att söka efter och välja den virtuella datorn i Azure Portal.
 
-Om du vill öppna R-konsolen går du till gränssnittet och anger **R**. Det här kommandot tar dig till en interaktiv miljö. För att utveckla R-programmet använder du vanligt vis ett redigerings program som emacs eller vi och kör sedan skripten i R. RStudio erbjuder en fullständig grafisk IDE för att utveckla R-programmet.
+       ![CentOS dator-IP-adress](./media/linux-dsvm-intro/centos-ip-address.png)
 
-Ett R-skript som du kan använda för att installera de [översta 20 R](https://www.kdnuggets.com/2015/06/top-20-r-packages.html) -paketen ingår i DSVM. Du kan köra det här skriptet när du är i det interaktiva R-gränssnittet. Som tidigare nämnts öppnar du det gränssnittet genom att skriva **R**i gränssnittet.  
+   1. Från din lokala dator öppnar du en webbläsare och navigerar till https:\//Your-VM-IP: 8000, ersätter "Your-VM-IP" med IP-adressen som du antecknade tidigare.
+   1. Ange det användar namn och lösen ord som du använde för att skapa den virtuella datorn och logga in. 
 
-### <a name="python"></a>Python
+      ![Ange Jupyter-inloggning](./media/dsvm-ubuntu-intro/jupyter-login.png)
 
-Anaconda python installeras med python 3,5-och 2,7-miljöerna. 2,7-miljön kallas _rot_ och 3,5-miljön kallas _py35_. Den här distributionen innehåller grundläggande Python tillsammans med ungefär 300 av de mest populära analyspaket matematiska, teknik och data.
+   1. Bläddra bland de många exempel antecknings böcker som är tillgängliga.
 
-Py35 miljön är standardinställningen. Använd följande kommando för att aktivera rot miljön (2,7):
+JupyterLab, är nästa generations Jupyter notebooks och JupyterHub, också tillgängligt. För att få åtkomst till den loggar du in på JupyterHub och bläddrar sedan till URL\/: en https:/Your-VM-IP: 8000/User/your-username/Lab och ersätter "ditt-username" med det användar namn som du valde när du konfigurerade den virtuella datorn.
 
-```bash
-source activate root
+Du kan ange JupyterLab som standard server för bärbara datorer genom att lägga till `/etc/jupyterhub/jupyterhub_config.py`den här raden till:
+
+```python
+c.Spawner.default_url = '/lab'
 ```
-
-Använd följande kommando för att aktivera py35-miljön igen:
-
-```bash
-source activate py35
-```
-
-Om du vill anropa en python-interaktiv session skriver du **python**i gränssnittet. 
-
-Installera ytterligare python-bibliotek med Conda eller pip. För pip aktiverar du rätt miljö först om du inte vill använda standardvärdet:
-
-```bash
-source activate root
-pip install <package>
-```
-
-Eller ange den fullständiga sökvägen till pip:
-
-```bash
-/anaconda/bin/pip install <package>
-```
-
-För Conda ska du alltid ange miljö namnet (py35 eller root):
-
-```bash
-conda install <package> -n py35
-```
-
-Om du har ett grafiskt gränssnitt eller har konfigurerat begäran om x11-vidarebefordran kan du ange **pycharm med** för att öppna PYCHARM med python IDE. Du kan använda standard-textredigerare. Dessutom kan du använda Spyder, en python IDE som är paketerad med Anaconda python-distributioner. Spyder måste en grafisk desktop eller X11 vidarebefordran. Det grafiska Skriv bordet har en genväg till Spyder.
-
-### <a name="jupyter-notebook"></a>Jupyter Notebook
-
-Anaconda-distributionen levereras också med en Jupyter Notebook, en miljö för att dela kod och analys. Få åtkomst till Jupyter Notebook via JupyterHub. Du loggar in med ditt lokala Linux-användarnamn och lösen ord.
-
-Jupyter Notebook servern är förkonfigurerad med python 2, python 3 och R-kernel. Använd **Jupyter Notebook** Skriv bords ikonen för att öppna webbläsaren och komma åt Jupyter Notebook-servern. Om du har åtkomst till DSVM via SSH-eller X2Go-klienten, kan du också komma åt Jupyter Notebook server på\/https:/localhost: 8000/.
-
-> [!NOTE]
-> Fortsätt om du får några certifikatvarningar.
-
-Du kan komma åt Jupyter notebook-server från valfri värddator. Ange **https:\//DSVMDNS\>-namn eller IP-adress: 8000/.\<**
-
-> [!NOTE]
-> Port 8000 öppnas i brand väggen som standard när DSVM är etablerad. 
-
-Microsoft har paketerade exempel antecknings böcker, en i python och en i R. Du kan se länken till exemplen på Jupyter Notebook start sida när du har autentiserat dig för Jupyter Notebook med hjälp av ditt lokala Linux-användarnamn och lösen ord. Om du vill skapa en ny antecknings bok väljer du **ny**och väljer sedan den språk-kernel som du vill använda. Om du inte ser knappen **nytt** väljer du ikonen **Jupyter** längst upp till vänster för att gå till hem sidan för notebook-servern.
-
-### <a name="spark-standalone"></a>Spark fristående 
-
-En instans av läget Spark standalone är förinstallerad på Linux-DSVM för att hjälpa dig att utveckla Spark-program lokalt innan du testar och distribuerar dem i stora kluster. 
-
-Du kan köra PySpark program via Jupyter-kernel. När du öppnar Jupyter väljer du knappen **nytt** och du bör se en lista över tillgängliga kernels. **Spark – python** är PySpark-kärnan som gör att du kan bygga Spark-program med hjälp av python-språket. Du kan också använda en python IDE som pycharm med eller Spyder för att bygga Spark-programmet. 
-
-I den här fristående instansen körs Spark-stacken i det anropande klient programmet. Den här funktionen gör det snabbare och enklare att felsöka problem jämfört med att utveckla i ett Spark-kluster.
-
-Jupyter tillhandahåller en exempel PySpark Notebook. Du hittar den i katalogen SparkML under arbets katalogen för Jupyter ($HOME/notebooks/SparkML/pySpark). 
-
-Om du använder programmering i R för Spark kan du använda Machine Learning Server, sparker eller sparklyr. 
-
-Innan du kör i en spark-kontext i Machine Learning Server måste du göra ett engångs steg för att aktivera en lokal instans av Hadoop HDFS och garn för en enda nod. Som standard är Hadoop-tjänster installerat men inaktiverat på DSVM. Om du vill aktivera Hadoop-tjänster kör du följande kommandon som rot första gången:
-
-```bash
-echo -e 'y\n' | ssh-keygen -t rsa -P '' -f ~hadoop/.ssh/id_rsa
-cat ~hadoop/.ssh/id_rsa.pub >> ~hadoop/.ssh/authorized_keys
-chmod 0600 ~hadoop/.ssh/authorized_keys
-chown hadoop:hadoop ~hadoop/.ssh/id_rsa
-chown hadoop:hadoop ~hadoop/.ssh/id_rsa.pub
-chown hadoop:hadoop ~hadoop/.ssh/authorized_keys
-systemctl start hadoop-namenode hadoop-datanode hadoop-yarn
-```
-
-Du kan stoppa de Hadoop-relaterade tjänsterna när du inte behöver dem genom att `systemctl stop hadoop-namenode hadoop-datanode hadoop-yarn`köra.
-
-/Dsvm/samples/MRS-katalogen innehåller ett exempel som visar hur du utvecklar och testar Machine Learning Server i en fjärr Spark-kontext (den fristående Spark-instansen på DSVM).
-
-### <a name="ides-and-editors"></a>IDE: er och redigeringsprogram
-
-Du kan välja bland flera kod redigerare, inklusive vi/VIM, emacs, gedit, pycharm med, RStudio, Sol förmörkelse, LaTeX och IntelliJ. 
-
-* gedit, Sol förmörkelse, IntelliJ, R Studio och pycharm med är grafiska redigerings program. Om du vill använda dem måste du vara inloggad på ett grafiskt skriv bord. Du öppnar dem med hjälp av meny gen vägar för Skriv bordet och program.
-
-* Vim och emacs är textbaserade redigerare. I emacs fungerar ESS tilläggs paketet med R i emacs-redigeraren enklare. Du hittar mer information på ess- [webbplatsen](https://ess.r-project.org/).
-
-* Sol förmörkelse är en utöknings bar IDE med öppen källkod som har stöd för flera språk. Sol förmörkelse IDE för Java-utvecklare är versionen som är installerad på DSVM. Du kan installera plugin-program för flera populära språk för att utöka miljön. 
-
-  Plugin-programmet Azure Toolkit for Eclipse installeras med Sol förmörkelse på DSVM. Du kan använda Azure Toolkit for Eclipse för att skapa, utveckla, testa och Distribuera Azure-program med hjälp av utvecklings miljön för Sol förmörkelse som stöder språk som Java.
-
-  Azure SDK för Java installeras också med Azure Toolkit for Eclipse på DSVM. Azure SDK för Java ger dig till gång till olika Azure-tjänster inifrån en Java-miljö. 
-  
-  Mer information finns i [Azure Toolkit for Eclipse](/java/azure/eclipse/azure-toolkit-for-eclipse).
-
-* LaTeX installeras via texlive-paketet, tillsammans med ett Emacs tilläggs paket som kallas [auctex](https://www.gnu.org/software/auctex/manual/auctex/auctex.html). Det här paketet fören klar redigeringen av dina LaTeX-dokument i emacs. 
-
-### <a name="databases"></a>Databaser
-
-Linux-DSVM ger dig åtkomst till flera databas-och kommando rads verktyg.
-
-#### <a name="postgressql"></a>PostgresSQL
-
-Databasen med öppen källkod är PostgresSQL tillgänglig på DSVM, där tjänster som kör och initdb har slutförts. Du måste skapa databaser och användare. Mer information finns i PostgresSQL- [dokumentationen](https://www.postgresql.org/docs/).  
-
-#### <a name="squirrel-sql"></a>SQuirreL SQL
-
-SQuirreL SQL är en grafisk SQL-klient som kan ansluta till olika databaser (inklusive SQL Server, PostgresSQL och MySQL) och köra SQL-frågor. Du kan köra SQuirreL SQL från en grafisk fjärrskrivbordssession (till exempel via X2Go-klienten) genom att använda en Skriv bords ikon. Eller så kan du köra-klienten med hjälp av följande kommando i gränssnittet:
-
-```bash
-/usr/local/squirrel-sql-3.7/squirrel-sql.sh /usr/local/squirrel-sql-3.7/squirrel-sql.sh
-```
-
-Ställa in din drivrutiner och databasen alias innan den första användningen. JDBC-drivrutinerna finns på/usr/share/Java/jdbcdrivers.
-
-Mer information finns i [SQUIRREL SQL](http://squirrel-sql.sourceforge.net/index.php?page=screenshots).
-
-#### <a name="command-line-tools-for-accessing-sql-server"></a>Kommando rads verktyg för att komma åt SQL Server
-
-Paketets ODBC-drivrutinen för SQL Server levereras med två kommandoradsverktyg:
-
-* **BCP**: BCP-verktyget Mass kopiering av data mellan en instans av SQL Server och en datafil i ett användardefinierat format. Du kan använda BCP-verktyget för att importera ett stort antal nya rader till SQL Server tabeller eller för att exportera data från tabeller till datafiler. Om du vill importera data till en tabell måste du använda en format fil som skapats för tabellen. Eller så måste du förstå tabell strukturen och vilka typer av data som är giltiga för kolumnerna.
-
-  Mer information finns i [ansluta till BCP](https://msdn.microsoft.com/library/hh568446.aspx).
-
-* **sqlcmd**: Du kan använda verktyget sqlcmd för att ange Transact-SQL-uttryck, system procedurer och skriptfiler i kommando tolken. Verktyget sqlcmd använder ODBC för att köra Transact-SQL-batchar.
-
-  Mer information finns i [ansluta med SQLCMD](https://msdn.microsoft.com/library/hh568447.aspx).
-
-  > [!NOTE]
-  > Det finns vissa skillnader i det här verktyget mellan Linux-och Windows-plattformar. Se dokumentationen för mer information.
-
-#### <a name="database-access-libraries"></a>Bibliotek för åtkomst av databasen
-
-Bibliotek för databas åtkomst är tillgängliga i R och python:
-
-* I R kan du använda RODBC-paketet eller dplyr-paketet för att fråga eller köra SQL-uttryck på databas servern.
-* I python ger pyodbc-biblioteket databas åtkomst med ODBC som underliggande lager.
-
-### <a name="azure-tools"></a>Azure-verktyg
-
-Följande Azure-verktyg är installerade på DSVM:
-
-* **Azure CLI**: Du kan använda kommando rads gränssnittet i Azure för att skapa och hantera Azure-resurser via Shell-kommandon. Öppna Azure-verktygen genom att ange **Azure-hjälpen**. Mer information finns i den [dokumentationssidan för Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2).
-* **Azure Storage Explorer**: Azure Storage Explorer är ett grafiskt verktyg som du kan använda för att bläddra bland de objekt som du har lagrat på ditt Azure Storage-konto och för att ladda upp och ladda ned data till och från Azure-blobbar. Du kan komma åt Storage Explorer från ikonen genvägen på skrivbordet. Du kan också öppna den från en Shell-prompt genom att ange **StorageExplorer**. Du måste vara inloggad från en X2Go-klient eller konfigurera begäran om x11-vidarebefordring.
-* **Azure-bibliotek**: Följande bibliotek är förinstallerade på DSVM:
-  
-  * **Python**: Azure-relaterade bibliotek i python är *Azure*, *azureml*, *pydocumentdb*och *pyodbc*. Med de tre första biblioteken kan du komma åt Azure storage-tjänster, Azure Machine Learning och Azure Cosmos DB (en NoSQL-databas på Azure). Fjärde biblioteket pyodbc (tillsammans med Microsoft ODBC-drivrutinen för SQL Server), ger åtkomst till SQL Server, Azure SQL Database och Azure SQL Data Warehouse från Python med hjälp av en ODBC-gränssnittet. Ange **pip lista** att se alla bibliotek. Glöm inte att köra det här kommandot i både Python 2.7 och 3,5 miljöer.
-  * **R**: Azure-relaterade bibliotek i R är AzureML och RODBC.
-  * **Java**: Listan med Azure Java-bibliotek finns i katalogen/dsvm/sdk/AzureSDKJava på DSVM. Viktiga bibliotek är Azure lagring och hantering av API: er, Azure Cosmos DB och JDBC-drivrutiner för SQL Server.  
-
-Du kan komma åt [Azure Portal](https://portal.azure.com) från den förinstallerade Firefox-webbläsaren. I Azure Portal kan du skapa, hantera och övervaka Azure-resurser.
-
-### <a name="azure-machine-learning"></a>Azure Machine Learning
-
-Azure Machine Learning är en helt hanterad moln tjänst som du kan använda för att bygga, distribuera och dela lösningar för förutsägelse analys. Du bygger dina experiment och modeller från Azure Machine Learning Studio. Om du vill komma åt Azure Machine Learning från en webbläsare på DSVM går du till [Microsoft Azure Machine Learning](https://studio.azureml.net).
-
-När du har loggat in på Azure Machine Learning Studio kan du använda en experiment arbets yta för att bygga ett logiskt flöde för Machine Learning-algoritmer. Du har också till gång till en Jupyter Notebook som finns på Azure Machine Learning. Antecknings boken kan arbeta sömlöst med experimenten i Machine Learning Studio. 
-
-Operationalisera de maskin inlärnings modeller som du skapar genom att figursätta dem i ett webb tjänst gränssnitt. Genom att använda Machine Learning-modeller kan klienter skrivna på valfritt språk för att anropa förutsägelser från dessa modeller. Mer information finns i den [dokumentation om Machine Learning](https://azure.microsoft.com/documentation/services/machine-learning/).
-
-Du kan också bygga dina modeller i R eller python på DSVM och sedan distribuera dem i produktion på Azure Machine Learning. Microsoft har installerat bibliotek i R (**azureml**) och python (**azureml**) för att stödja den här funktionen.
-
-Information om hur du distribuerar modeller i R och python till Azure Machine Learning finns i [tio saker du kan göra på data science Virtual Machine](vm-do-ten-things.md).
-
-> [!NOTE]
-> Anvisningarna i [tio saker du kan göra på data science Virtual Machine](vm-do-ten-things.md) skrevs för Windows-versionen av DSVM. Men information om distribution av modeller till Azure Machine Learning gäller även för Linux-DSVM.
-
-### <a name="machine-learning-tools"></a>Machine learning-verktyg
-
-DSVM levereras med några maskin inlärnings verktyg och algoritmer som är förkompilerade och förinstallerade lokalt. Exempel på dessa är:
-
-* **Microsoft Cognitive Toolkit**: Ett djup inlärnings verktyg.
-* **Vowpal Wabbit**: En snabb online-inlärnings algoritm.
-* **XGBoost**: Ett verktyg som tillhandahåller optimerade, förstärkta träd algoritmer.
-* **Python**: Anaconda python levereras med Machine Learning-algoritmer med bibliotek som Scikit-lär. Du kan installera andra bibliotek med hjälp av den `pip install` kommando.
-* **R**: Ett omfattande bibliotek med Machine Learning-funktioner är tillgängligt för R. förinstallerade bibliotek omfattar lm, GLM, randomForest och rpart. Du kan installera andra bibliotek genom att `install.packages(<lib name>)`köra.
-
-Microsoft Cognitive Toolkit, Vowpal Wabbit och XGBoost diskuteras i detalj i nästa avsnitt.
-
-#### <a name="microsoft-cognitive-toolkit"></a>Microsoft Cognitive Toolkit
-
-Microsoft Cognitive Toolkit är ett djup inlärnings verktyg med öppen källkod. Det är ett kommando rads verktyg (CNTK) och finns redan i sökvägen.
-
-Kör följande kommandon i gränssnittet för att köra ett grundläggande exempel:
-
-```bash
-cd /home/[USERNAME]/notebooks/CNTK/HelloWorld-LogisticRegression
-cntk configFile=lr_bs.cntk makeMode=false command=Train
-```
-
-Mer information finns i [GITHUB CNTK](https://github.com/Microsoft/CNTK) -lagringsplatsen och [CNTK wiki](https://github.com/Microsoft/CNTK/wiki).
-
-#### <a name="vowpal-wabbit"></a>Vowpal Wabbit
-
-Vowpal Wabbit är ett maskin inlärnings system som använder tekniker som online, hashing, allreduce, reduktioner, learning2search, aktiv och interaktiv utbildning.
-
-Kör följande kommandon för att köra verktyget på ett Basic-exempel:
-
-```bash
-cp -r /dsvm/tools/VowpalWabbit/demo vwdemo
-cd vwdemo
-vw house_dataset
-```
-
-Vowpal Wabbit-demo katalogen innehåller andra, större demonstrationer. Mer information om Vowpal-Wabbit finns i [GitHub Vowpal Wabbit](https://github.com/JohnLangford/vowpal_wabbit) -lagringsplatsen och [Vowpal Wabbit wiki](https://github.com/JohnLangford/vowpal_wabbit/wiki).
-
-#### <a name="xgboost"></a>XGBoost
-
-XGBoost-biblioteket är utformat och optimerat för förstärkta algoritmer (Tree). Målet med XGBoost-biblioteket är att skicka datorernas beräknings gränser till de extrem värden som krävs för att skapa storskaliga träd förstärkningar som är skalbara, bärbara och korrekta.
-
-XGBoost tillhandahålls som en kommando rad och som ett R-bibliotek.
-
-Om du vill använda XGBoost-biblioteket i R startar du en interaktiv R-session (i gränssnittet, anger **R**) och läser sedan in biblioteket.
-
-Här är ett enkelt exempel som du kan köra i R-prompten:
-
-```R
-library(xgboost)
-
-data(agaricus.train, package='xgboost')
-data(agaricus.test, package='xgboost')
-train <- agaricus.train
-test <- agaricus.test
-bst <- xgboost(data = train$data, label = train$label, max.depth = 2,
-                eta = 1, nthread = 2, nround = 2, objective = "binary:logistic")
-pred <- predict(bst, test$data)
-```
-
-Kör följande kommandon i gränssnittet för att köra XGBoost-kommando raden:
-
-```bash
-cp -r /dsvm/tools/xgboost/demo/binary_classification/ xgboostdemo
-cd xgboostdemo
-xgboost mushroom.conf
-```
-
-En modell fil skrivs till den angivna katalogen. Information om det här demonstrations exemplet på GitHub finns [](https://github.com/dmlc/xgboost/tree/master/demo/binary_classification)i binära klassificeringar.
-
-Mer information om XGBoost finns i XGBoost- [dokumentationen](https://xgboost.readthedocs.org/en/latest/) och [XGBoost GitHub](https://github.com/dmlc/xgboost)-lagringsplatsen.
-
-#### <a name="rattle"></a>Spännen
-
-Rattle (*R* *A*nalysdatamängd *t*OOL *t*o *L*Erhåll *E*-asily) använder GUI-baserad data utforskning och modellering. Rattle:
-- Visar statistiska och visuella sammanfattningar av data.
-- Transformerar data som kan modelleras.
-- Skapar både inövervakade och övervakade modeller från data.
-- Visar prestanda för modeller grafiskt.
-- Resultat av nya data uppsättningar.
-- Genererar R-kod.
-- Replikerar åtgärder i användar gränssnittet som kan köras direkt i R eller används som utgångs punkt för mer analys.
-
-Om du vill köra Rattle måste du vara inloggad på en grafiskt fjärrskrivbordssession. I en Terminal anger du **r** för att öppna r-miljön. Ange följande kommandon i R-Kommandotolken:
-
-```R
-library(rattle)
-rattle()
-```
-
-Ett grafiskt gränssnitt som har en uppsättning flikar öppnas. Använd följande snabb starts steg i Rattle för att använda en exempel data uppsättning för väder och skapa en modell. I vissa av stegen uppmanas du att automatiskt installera och läsa in vissa nödvändiga R-paket som inte redan finns i systemet.
-
-> [!NOTE]
-> Om du inte har behörighet att installera paketet i system katalogen (standard) kan du se en prompt i R-konsolens fönster för att installera paket i ditt personliga bibliotek. Om du ser dessa prompter anger du **y**.
-
-1. Välj **Kör**.
-1. En dialog ruta där du blir ombedd att läsa in exempel data uppsättningen för väder. Välj **Ja** om du vill läsa in exemplet.
-1. Välj fliken **modell** .
-1. Välj **Kör** för att bygga ett besluts träd.
-1. Välj **rit** för att Visa besluts trädet.
-1. Välj alternativet **skog** och välj sedan **Kör** för att bygga en slumpmässig skog.
-1. Välj fliken **utvärdera** .
-1. Välj alternativet **risk** och välj sedan **Kör** för att visa två riskhanterings diagram **(kumulativa)** .
-1. Välj fliken **logg** för att visa den genererade R-koden för föregående åtgärder. (På grund av ett fel i den aktuella versionen av Rattle måste du infoga ett **#** tecken framför **Exportera loggen** i texten i loggen.)
-1. Välj knappen **Exportera** för att spara R-skript filen med namnet *weather_script. R* till arbetsmappen.
-
-Du kan avsluta Rattle och R. Nu kan du ändra det genererade R-skriptet. Du kan också använda skriptet som det är och köra det när som helst för att upprepa allt som utfördes i Rattle-ANVÄNDARGRÄNSSNITTET. I synnerhet för nybörjare i R är detta ett sätt att snabbt utföra analyser och maskin inlärning i ett enkelt grafiskt gränssnitt, samtidigt som kod skapas automatiskt i R för att ändra eller för inlärning.
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -423,3 +145,4 @@ Här är hur du kan fortsätta din inlärning och undersökning:
 * Utforska de olika data vetenskaps verktygen på DSVM genom att prova de verktyg som beskrivs i den här artikeln. Du kan också köra `dsvm-more-info` i gränssnittet på den virtuella datorn för en grundläggande introduktion och för att visa mer information om de verktyg som är installerade på DSVM.  
 * Lär dig att skapa slutpunkt till slutpunkt Analyslösningar systematiskt med hjälp av den [Team Data Science Process](https://aka.ms/tdsp).
 * Gå till den [Azure AI-galleriet](https://gallery.azure.ai/) för machine learning och data analytics-exempel som använder Azure AI-tjänster.
+* Se lämplig [referens dokumentation](./reference-centos-vm.md) för den här virtuella datorn.

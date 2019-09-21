@@ -1,38 +1,21 @@
 ---
-title: Dynamics 365 för kundengagemang erbjuder för Azure Marketplace
-description: Beskriver hur du skapar en Dynamics 365 för kundengagemang erbjudande för AppSource-marknadsplatsen med partnerportalen i molnet.
+title: Dynamics 365 för kund engagemang för Azure Marketplace
+description: Förklarar hur du skapar ett Dynamics 365 för kund engagemang-erbjudande för AppSource Marketplace med hjälp av Cloud Partner Portal.
 services: Dynamics 365 for Customer Engagement, AppSource Marketplace, Cloud Partner Portal,
 author: v-miclar
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 12/17/2018
 ms.author: pabutler
-ms.openlocfilehash: c8a743076fa803623191b0501de4d90e415fd9c6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 74d1c101139464f9ae5b22438e30a1fde30f18f2
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64942478"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71172998"
 ---
 # <a name="dynamics-365-for-customer-engagement-offer"></a>Erbjudande för Dynamics 365 for Customer Engagement
 
-|     |     |
-| --- | --- |
-| <div style="font-size:1em"> Det här avsnittet beskrivs hur du publicerar en Dynamics 365 för kundengagemang lösningen till Microsofts [AppSource-marknadsplatsen](https://appsource.microsoft.com). Alla appar för Dynamics 365 för kundengagemang (försäljning, Service, Project Service och Field Service) måste gå igenom certifieringsprocessen och stöd för en utvärderingsversion. Certifieringsprocessen kontrollerar din lösning för standardkrav, kompatibilitet och rätt metoder. Utvärderingen kan du distribuera din lösning till en live Dynamics 365-miljö. </div>|  ![Ikon för Dynamics 365 för kundengagemang](./media/dynce-icon1.png)  |
+[Cloud Partner Portal](https://cloudpartner.azure.com/) har inte längre stöd för att skapa och hantera Dynamics 365-erbjudanden om kund engagemang. I stället har den här funktionen flyttats till Microsoft [partner Center-portalen](https://partner.microsoft.com/). Mer information finns i [skapa en ny Dynamics 365 för kund engagemang & PowerApps-erbjudande](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-customer-engagement-offer).
 
-
-## <a name="publishing-overview"></a>Översikt över publicering
-
-På nedanstående video, [leverera intressant på Microsoft AppSource (Build 2018)](https://www.youtube.com/watch?v=WWBFuNHC0J4), ger en översikt över AppSource-marknadsplatsen och fördelarna med den här ekosystem. Bredvid visar den ett exempel på en anpassad Dynamics 365 för Customer Engagement-program, fördelarna med att tillhandahålla en Test Drive-utvärderingsversion och hur du publicerar till AppSource.
-
-> [!Video https://channel9.msdn.com/events/Build/2018/THR1202/player]
-
-
-## <a name="publishing-process"></a>Process för att publicera
-
-I efterföljande artiklar i det här avsnittet hjälper dig genom processen att skapa och publicera en Dynamics 365 för Customer Engagement-program.  Vi rekommenderar att du läser parallella informationen i avsnittet Dynamics 365-dokumentation [publicera din app på AppSource](https://docs.microsoft.com/dynamics365/customer-engagement/developer/publish-app-appsource).
-
-
-## <a name="next-steps"></a>Nästa steg
-
-Innan du skapar en ny Dynamics 365 för kundengagemang erbjudande, måste du uppfylla de [krav](./cpp-prerequisites.md) för den här erbjudandetyp.  
+Innan du skapar ett nytt Dynamics 365-erbjudande för kund engagemang bör du läsa [skapa ett partner Center-konto](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) och sedan öppna [instrument panelen för instrument panelen](https://partner.microsoft.com/dashboard/directory) med den valda **översikts** sidan. Följ instruktionerna i [skapa en ny Dynamics 365 för kund engagemang & PowerApps-erbjudande](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-customer-engagement-offer) för att skapa ditt erbjudande.

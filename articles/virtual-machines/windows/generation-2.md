@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 09/10/2019
 ms.author: lahugh
-ms.openlocfilehash: 5e342418dc6cc9ed0a3bbbfaad42801d5ffe9e9d
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: e4572ac6041caffc6c77d74dcbb2cf52f9f0aed0
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70900245"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71173812"
 ---
 # <a name="support-for-generation-2-vms-preview-on-azure"></a>Stöd för virtuella datorer i generation 2 (för hands version) på Azure
 
@@ -49,7 +49,7 @@ Virtuella datorer i generation 1 stöds av alla VM-storlekar i Azure. Azure erbj
 * [Mv2-serien](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-memory#mv2-series)
 * [NCv2-serien](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-gpu#ncv2-series) och [NCv3-serien](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-gpu#ncv3-series)
 * [ND-serien](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-gpu#nd-series)
-* [NVv2-serien](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-gpu#nvv3-series--1)
+* [NVv3-serien](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-gpu#nvv3-series--1)
 
 ## <a name="generation-2-vm-images-in-azure-marketplace"></a>Generation 2 VM-avbildningar på Azure Marketplace
 
@@ -80,7 +80,7 @@ Azure stöder för närvarande inte några av de funktioner som lokala Hyper-V s
 
 | Funktion | Generation 1 | Generation 2 |
 |---------|--------------|--------------|
-| Start             | PCAT                      | UEFI                               |
+| Starta             | PCAT                      | UEFI                               |
 | Disk styrenheter | IDE                       | SCSI                               |
 | VM-storlekar         | Alla VM-storlekar | Endast virtuella datorer som stöder Premium Storage |
 
@@ -88,12 +88,13 @@ Azure stöder för närvarande inte några av de funktioner som lokala Hyper-V s
 
 | Funktion | Generation 1 | Generation 2 |
 |------------|--------------|--------------|
-| OS-disk > 2 TB                    | :x:                        | :heavy_check_mark: |
-| Anpassad disk/avbildning/växla OS         | :heavy_check_mark:         | :heavy_check_mark: |
-| Stöd för skalnings uppsättning för virtuell dator | :heavy_check_mark:         | :heavy_check_mark: |
-| ASR/säkerhets kopiering                        | :heavy_check_mark:         | :x:                |
-| Delat avbildningsgalleri              | :heavy_check_mark:         | :x:                |
-| Azure Disk Encryption             | :heavy_check_mark:         | :x:                |
+| OS-disk > 2 TB                    | :x:                | :heavy_check_mark: |
+| Anpassad disk/avbildning/växla OS         | :heavy_check_mark: | :heavy_check_mark: |
+| Stöd för skalnings uppsättning för virtuell dator | :heavy_check_mark: | :heavy_check_mark: |
+| Azure Site Recovery               | :heavy_check_mark: | :x:                |
+| Säkerhets kopiering/återställning                    | :heavy_check_mark: | :heavy_check_mark: |
+| Delat bildgalleri              | :heavy_check_mark: | :x:                |
+| Azure Disk Encryption             | :heavy_check_mark: | :x:                |
 
 ## <a name="creating-a-generation-2-vm"></a>Skapar en virtuell dator i generation 2
 
@@ -101,14 +102,37 @@ Azure stöder för närvarande inte några av de funktioner som lokala Hyper-V s
 
 I Azure Portal eller Azure CLI kan du skapa virtuella datorer i generation 2 från en Marketplace-avbildning som stöder UEFI-start.
 
-`windowsserver-gen2preview` Erbjudandet innehåller endast Windows generation 2-avbildningar. Den här förpackningen förhindrar förvirring mellan generation 1 och generation 2-avbildningar. Om du vill skapa en virtuell dator i generation 2 väljer du **avbildningar** från det här erbjudandet och följer standard processen för att skapa den virtuella datorn.
+#### <a name="azure-portal"></a>Azure Portal
 
-Marketplace erbjuder för närvarande följande Windows generation 2-avbildningar:
+Generation 2-avbildningar för Windows och SLES ingår i samma server erbjudande som gen1-avbildningarna. Vad det innebär från ett flödes perspektiv är att du väljer erbjudandet och SKU: n från portalen för din virtuella dator. Om SKU: n stöder både generation 1 och generation 2-avbildningar kan du välja att skapa en virtuell dator i generation 2 från fliken *Avancerat* i flödet för att skapa virtuella datorer.
 
-* 2019-datacenter-gen2
-* 2016-datacenter-gen2
-* 2012-r2-datacenter-gen2
-* 2012-datacenter-gen2
+För närvarande stöder följande SKU: er både generation 1 och generation 2-avbildningar:
+
+* Windows Server 2012
+* Windows Server 2012 R2
+* Windows Server 2016
+* Windows Server 2019
+
+När du väljer en Windows Server-SKU som erbjudande finns det ett alternativ för att skapa antingen en **gen 1** (BIOS) eller **gen 2** (UEFI) virtuell dator i fliken **Avancerat** . Om du väljer **gen 2**, se till att den virtuella dator storleken som valts i fliken **grundläggande** [stöds för virtuella datorer i generation 2](#generation-2-vm-sizes).
+
+![Välj gen 1 eller gen 2 VM](./media/generation-2/gen1-gen2-select.png)
+
+#### <a name="powershell"></a>PowerShell
+
+Du kan också använda PowerShell för att skapa en virtuell dator genom att referera till SKU för generation 1 eller generation 2.
+
+Använd till exempel följande PowerShell-cmdlet för att hämta en lista över SKU: er i `WindowsServer` erbjudandet.
+
+```powershell
+Get-AzVMImageSku -Location westus2 -PublisherName MicrosoftWindowsServer -Offer WindowsServer
+```
+
+Om du skapar en virtuell dator med Windows Server 2012 som operativ system väljer du antingen generation 1 (BIOS) eller generation 2 (UEFI) VM SKU, som ser ut så här:
+
+```powershell
+2012-Datacenter
+2012-datacenter-gensecond
+```
 
 I avsnittet [funktioner och funktioner](#features-and-capabilities) finns en aktuell lista över Marketplace-avbildningar som stöds.
 
@@ -131,7 +155,7 @@ Du kan också skapa virtuella datorer i generation 2 med hjälp av skalnings upp
 * **Jag har en. VHD-fil från min lokala generation 2 VM. Kan jag använda den. VHD-filen för att skapa en generation 2 VM i Azure?**
   Ja, du kan ta din generations 2. VHD-fil till Azure och använda den för att skapa en virtuell dator i generation 2. Använd följande steg för att göra det:
     1. Överför. VHD till ett lagrings konto i samma region där du vill skapa den virtuella datorn.
-    1. Skapa en hanterad disk från VHD-filen. Ange egenskapen HyperV generation till v2. Följande PowerShell-kommandon anger egenskapen HyperV generation när du skapar en hanterad disk.
+    1. Skapa en hanterad disk från VHD-filen. Ställ in Hyper-V generations egenskapen på v2. Följande PowerShell-kommandon ställer in Hyper-V generations-egenskapen när du skapar en hanterad disk.
 
         ```powershell
         $sourceUri = 'https://xyzstorage.blob.core.windows.net/vhd/abcd.vhd'. #<Provide location to your uploaded .vhd file>

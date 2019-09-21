@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 07/31/2019
-ms.openlocfilehash: 5848465033ca0b4df3bc7f63e7cef06059f5c3c5
-ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
+ms.date: 09/21/2019
+ms.openlocfilehash: 9bd620ef9664e921aa88792017585b02e44387f8
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68667757"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71172699"
 ---
 # <a name="tutorial-migrate-rds-mysql-to-azure-database-for-mysql-online-using-dms"></a>Självstudier: Migrera RDS MySQL till Azure Database for MySQL online med DMS
 
@@ -67,7 +67,7 @@ För att slutföra den här kursen behöver du:
 
 ### <a name="set-up-aws-rds-mysql-for-replication"></a>Konfigurera AWS RDS MySQL för replikering
 
-1. Om du vill skapa en ny parameter grupp följer du anvisningarna i AWS i artikeln [MySQL](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_LogAccess.Concepts.MySQL.html)-databasens loggfiler i avsnittet binära **loggnings format** .
+1. Om du vill skapa en ny parameter grupp följer du anvisningarna i AWS i artikeln [MySQL-databasens loggfiler](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_LogAccess.Concepts.MySQL.html)i avsnittet **binära loggnings format** .
 2. Skapa en ny parameter grupp med följande konfiguration:
     * binlog_format = rad
     * binlog_checksum = ingen
@@ -109,15 +109,15 @@ För att slutföra den här kursen behöver du:
         FROM
         (SELECT
         KCU.REFERENCED_TABLE_SCHEMA as SchemaName,
-        KCU.TABLE_NAME,
-        KCU.COLUMN_NAME,
-        CONCAT('ALTER TABLE ', KCU.TABLE_NAME, ' DROP FOREIGN KEY ', KCU.CONSTRAINT_NAME) AS DropQuery,
+                    KCU.TABLE_NAME,
+                    KCU.COLUMN_NAME,
+                    CONCAT('ALTER TABLE ', KCU.TABLE_NAME, ' DROP FOREIGN KEY ', KCU.CONSTRAINT_NAME) AS DropQuery,
         CONCAT('ALTER TABLE ', KCU.TABLE_NAME, ' ADD CONSTRAINT ', KCU.CONSTRAINT_NAME, ' FOREIGN KEY (`', KCU.COLUMN_NAME, '`) REFERENCES `', KCU.REFERENCED_TABLE_NAME, '` (`', KCU.REFERENCED_COLUMN_NAME, '`) ON UPDATE ',RC.UPDATE_RULE, ' ON DELETE ',RC.DELETE_RULE) AS AddQuery
-        FROM INFORMATION_SCHEMA.KEY_COLUMN_USAGE KCU, information_schema.REFERENTIAL_CONSTRAINTS RC
-        WHERE
-          KCU.CONSTRAINT_NAME = RC.CONSTRAINT_NAME
-          AND KCU.REFERENCED_TABLE_SCHEMA = RC.UNIQUE_CONSTRAINT_SCHEMA
-      AND KCU.REFERENCED_TABLE_SCHEMA = ('SchemaName') Queries
+                    FROM INFORMATION_SCHEMA.KEY_COLUMN_USAGE KCU, information_schema.REFERENTIAL_CONSTRAINTS RC
+                    WHERE
+                      KCU.CONSTRAINT_NAME = RC.CONSTRAINT_NAME
+                      AND KCU.REFERENCED_TABLE_SCHEMA = RC.UNIQUE_CONSTRAINT_SCHEMA
+      AND KCU.REFERENCED_TABLE_SCHEMA = 'SchemaName') Queries
       GROUP BY SchemaName;
     ```
 
@@ -213,7 +213,7 @@ När tjänsten har skapats letar du reda på den i Azure Portal, öppnar den och
 
 ## <a name="specify-target-details"></a>Ange målinformation
 
-1. Välj **Spara**, och på skärmen **mål information** anger du anslutnings informationen för mål Azure Database for MySQL servern, som är fördefinierad och har det anställdas schema distribuerat med MySQLDump.
+1. Välj **Spara**, och på skärmen **mål information** anger du anslutnings informationen för mål Azure Database for MySQL servern, som är fördefinierad och har det **anställdas** schema distribuerat med MySQLDump.
 
     ![Välja mål](media/tutorial-rds-mysql-server-azure-db-for-mysql-online/dms-select-target5.png)
 
@@ -241,7 +241,7 @@ När tjänsten har skapats letar du reda på den i Azure Portal, öppnar den och
 
 2. Under **databas namn**väljer du en annan databas för att komma till migreringsprocessen för **fullständig data inläsning** och **stegvisa data synkronisering** .
 
-    **Fullständig data inläsning** visar statusen för den initiala inläsningen och den **stegvisa** datasynkroniseringen visar status för registrering av ändrings data (CDC).
+    **Fullständig data inläsning** visar statusen för den initiala inläsningen och den **stegvisa datasynkroniseringen** visar status för registrering av ändrings data (CDC).
 
     ![Inventerings skärm-fullständig data inläsning](media/tutorial-rds-mysql-server-azure-db-for-mysql-online/dms-inventory-full-load.png)
 
@@ -257,7 +257,7 @@ När den första fullständiga inläsningen har slutförts markeras databaserna 
 
 2. Stoppa alla inkommande transaktioner till källdatabasen och vänta tills **Väntande ändringar** visar **0**.
 3. Välj **Bekräfta** och sedan **Apply** (Använd).
-4. När status för databas migreringenär slutförd ansluter du dina program till den nya mål Azure Database for MySQLs databasen.
+4. När status för databas migreringen är **slutförd**ansluter du dina program till den nya mål Azure Database for MySQLs databasen.
 
 Online-migreringen av en lokal instans av MySQL till Azure Database for MySQL är klar.
 
@@ -265,4 +265,4 @@ Online-migreringen av en lokal instans av MySQL till Azure Database for MySQL ä
 
 * Mer information om Azure Database Migration Service finns i artikeln [What is the Azure Database Migration Service?](https://docs.microsoft.com/azure/dms/dms-overview) (Vad är Azure Database Migration Service?).
 * Mer information om Azure Database for MySQL finns i artikeln [Vad är Azure Database for MySQL?](https://docs.microsoft.com/azure/mysql/overview).
-* Om du har andra frågor kan du skicka ett e-postalias till [Azure Database](mailto:AskAzureDatabaseMigrations@service.microsoft.com) -migreringen.
+* Om du har andra frågor kan du skicka ett e-postalias till [Azure Database-migreringen](mailto:AskAzureDatabaseMigrations@service.microsoft.com) .

@@ -8,13 +8,13 @@ author: tomarcher
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
-ms.date: 1/10/2019
-ms.openlocfilehash: 477b2ec1af4c52f51c3ab20ac2ddf7ef043dfcc7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 09/20/2019
+ms.openlocfilehash: 0373b254a900fd34232bb6863c93802fa7b51aab
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60885507"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71169965"
 ---
 # <a name="create-a-kubernetes-cluster-with-application-gateway-ingress-controller-using-azure-kubernetes-service-and-terraform"></a>Skapa ett Kubernetes-kluster med Application Gateway som ingress-kontrollant med Azure Kubernetes Service och Terraform
 [Azure Kubernetes Service (AKS)](/azure/aks/) hanterar din värdbaserade Kubernetes-miljö. AKS gör det snabbt och enkelt att distribuera och hantera containerbaserade program utan kunskaper om orkestrering av containrar. Det eliminerar också problem med pågående åtgärder och underhåll genom etablering, uppgradering och skalning av resurser på begäran, utan att koppla från dina program.
@@ -29,7 +29,7 @@ I den här självstudien lär du dig hur du utför följande uppgifter för att 
 > * Använda Terraform och AKS för att skapa ett Kubernetes-kluster
 > * Använda verktyget kubectl för att testa tillgängligheten för ett Kubernetes-kluster
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 - **Azure-prenumeration**: Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) innan du börjar.
 
@@ -38,7 +38,7 @@ I den här självstudien lär du dig hur du utför följande uppgifter för att 
 - **Azure-tjänstens huvudnamn**: Följ anvisningarna i avsnittet **Skapa huvudnamn för tjänsten** i artikeln [Skapa Azure-tjänstens huvudnamn med Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest). Anteckna värdena för appId, displayName och password (lösenord).
   - Anteckna objekt-ID för tjänstens huvudnamn genom att köra följande kommando
 
-    ```bash
+    ```azurecli
     az ad sp list --display-name <displayName>
     ```
 
@@ -82,7 +82,7 @@ Skapa Terraform-konfigurationsfilen som deklarerar Azure-providern.
 
 1. Klistra in följande kod i redigeringsprogrammet:
 
-    ```JSON
+    ```hcl
     provider "azurerm" {
         version = "~>1.18"
     }
@@ -99,17 +99,21 @@ Skapa Terraform-konfigurationsfilen som deklarerar Azure-providern.
     ```bash
     :wq
     ```
-   ## <a name="define-input-variables"></a>Definiera indatavariabler
-   Skapa Terraform-konfigurationsfilen som visar en lista över alla variabler som krävs för distributionen
-1. I Cloud Shell skapar du en fil som heter `variables.tf`
+
+## <a name="define-input-variables"></a>Definiera indatavariabler
+Skapa konfigurations filen terraform som visar alla variabler som krävs för den här distributionen.
+
+1. I Cloud Shell skapar du en fil som heter `variables.tf`.
+
     ```bash
     vi variables.tf
     ```
+
 1. Starta infogningsläget genom att trycka på tangenten I.
 
-2. Klistra in följande kod i redigeringsprogrammet:
+1. Klistra in följande kod i redigeringsprogrammet:
     
-    ```JSON
+    ```hcl
     variable "resource_group_name" {
       description = "Name of the resource group already created."
     }
@@ -254,9 +258,9 @@ Skapa Terraform-konfigurationsfilen som skapar alla resurser.
 
 1. Klistra in följande kodblock i redigeringsprogrammet:
 
-    a. Skapa ett block för lokala variabler som kan återanvändas av beräknade variabler
+    a. Skapa ett lokalt block för beräknade variabler att återanvända.
 
-    ```JSON
+    ```hcl
     # # Locals block for hardcoded names. 
     locals {
         backend_address_pool_name      = "${azurerm_virtual_network.test.name}-beap"
@@ -268,8 +272,10 @@ Skapa Terraform-konfigurationsfilen som skapar alla resurser.
         app_gateway_subnet_name = "appgwsubnet"
     }
     ```
-    b. Skapa en datakälla för resursgruppen, ny användaridentitet
-    ```JSON
+
+    b. Skapa en data källa för resurs grupp, ny användar identitet.
+
+    ```hcl
     data "azurerm_resource_group" "rg" {
       name = "${var.resource_group_name}"
     }
@@ -284,8 +290,10 @@ Skapa Terraform-konfigurationsfilen som skapar alla resurser.
       tags = "${var.tags}"
     }
     ```
-    c. Skapa basnätverksresurser
-   ```JSON
+
+    c. Skapa grundläggande nätverks resurser.
+
+    ```hcl
     resource "azurerm_virtual_network" "test" {
       name                = "${var.virtual_network_name}"
       location            = "${data.azurerm_resource_group.rg.location}"
@@ -328,8 +336,10 @@ Skapa Terraform-konfigurationsfilen som skapar alla resurser.
       tags = "${var.tags}"
     }
     ```
-    d. Skapa en Application Gateway-resurs
-    ```JSON
+
+    d. Skapa Application Gateway resurs.
+
+    ```hcl
     resource "azurerm_application_gateway" "network" {
       name                = "${var.app_gateway_name}"
       resource_group_name = "${data.azurerm_resource_group.rg.name}"
@@ -393,8 +403,10 @@ Skapa Terraform-konfigurationsfilen som skapar alla resurser.
       depends_on = ["azurerm_virtual_network.test", "azurerm_public_ip.test"]
     }
     ```
-    e. Skapa rolltilldelningar
-    ```JSON
+
+    e. Skapa roll tilldelningar.
+
+    ```hcl
     resource "azurerm_role_assignment" "ra1" {
       scope                = "${data.azurerm_subnet.kubesubnet.id}"
       role_definition_name = "Network Contributor"
@@ -424,8 +436,10 @@ Skapa Terraform-konfigurationsfilen som skapar alla resurser.
       depends_on           = ["azurerm_user_assigned_identity.testIdentity", "azurerm_application_gateway.network"]
     }
     ```
-    f. Skapa Kubernetes-klustret
-    ```JSON
+
+    f. Skapa Kubernetes-klustret.
+
+    ```hcl
     resource "azurerm_kubernetes_cluster" "k8s" {
       name       = "${var.aks_name}"
       location   = "${data.azurerm_resource_group.rg.location}"
@@ -502,7 +516,7 @@ Med [Terraform-utdata](https://www.terraform.io/docs/configuration/outputs.html)
 
 1. Klistra in följande kod i redigeringsprogrammet:
 
-    ```JSON
+    ```hcl
     output "client_key" {
         value = "${azurerm_kubernetes_cluster.k8s.kube_config.0.client_key}"
     }
@@ -559,7 +573,7 @@ Terraform spårar tillstånd lokalt via filen `terraform.tfstate`. Det här mön
 
 1. I Cloud Shell skapar du en behållare på ditt Azure Storage-konto (ersätt platshållarna &lt;YourAzureStorageAccountName> och &lt;YourAzureStorageAccountAccessKey> med lämpliga värden för ditt Azure Storage-konto).
 
-    ```bash
+    ```azurecli
     az storage container create -n tfstate --account-name <YourAzureStorageAccountName> --account-key <YourAzureStorageAccountKey>
     ```
 
@@ -586,7 +600,7 @@ I det här avsnittet ser du hur du använder kommandot `terraform init` för att
 
 1. Klistra in följande variabler som skapats tidigare i redigeraren:
 
-    ```JSON
+    ```hcl
       resource_group_name = <Name of the Resource Group already created>
 
       location = <Location of the Resource Group>

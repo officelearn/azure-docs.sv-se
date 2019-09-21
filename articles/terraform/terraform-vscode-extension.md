@@ -8,13 +8,13 @@ author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
-ms.date: 08/31/2018
-ms.openlocfilehash: b1102649e48af8cb36a64f1142c078bf9ebc0d99
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 09/20/2019
+ms.openlocfilehash: 7dd87f38ca5dfb1c2fdd38b56b314e0cbbe3ce12
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60888282"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71169932"
 ---
 # <a name="install-and-use-the-azure-terraform-visual-studio-code-extension"></a>Installera och använda tillägget Azure Terraform i Visual Studio Code
 
@@ -26,7 +26,7 @@ I den här artikeln kan du se hur du:
 > * installerar och använder tillägget Microsoft Terraform i Visual Studio Code för Azure-tjänster
 > * använder Visual Studio Code för att skriva, planera och köra Terraform-planer.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 - **Azure-prenumeration**: Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) innan du börjar.
 
 - **Terraform**: [Installera och konfigurera Terraform](/azure/virtual-machines/linux/terraform-install-configure).

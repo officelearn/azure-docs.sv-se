@@ -10,12 +10,12 @@ ms.service: azure-functions
 ms.topic: reference
 ms.date: 09/03/2018
 ms.author: cshoe
-ms.openlocfilehash: d647a643dafe50a5768261c2b09bf8c4154be469
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 464c1a8ab27f6615fdffd8efa6ab20d75e10a7c1
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70086248"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71171178"
 ---
 # <a name="azure-table-storage-bindings-for-azure-functions"></a>Azure Table Storage-bindningar för Azure Functions
 
@@ -529,7 +529,7 @@ Bindningen för tabell lagrings data har stöd för följande scenarier:
 
 * **Läs en eller flera rader i Java Script**
 
-  Ange egenskaperna `take`och. `filter` Ange `partitionKey` inte eller `rowKey`. Få åtkomst till entiteten för indatakälla (eller `context.bindings.<name>`entiteter) med hjälp av. De avserialiserade objekten har `RowKey` och `PartitionKey` egenskaper.
+  Ange egenskaperna `take`och. `filter` Ange `partitionKey` inte eller `rowKey`. Få åtkomst till entiteten för indatakälla (eller `context.bindings.<BINDING_NAME>`entiteter) med hjälp av. De avserialiserade objekten har `RowKey` och `PartitionKey` egenskaper.
 
 ## <a name="output"></a>Output
 
@@ -786,7 +786,7 @@ Bindningen för tabell lagrings utdata stöder följande scenarier:
 
 * **Skriv en eller flera rader i Java Script**
 
-  I JavaScript-funktioner får du åtkomst till tabellens utdata med hjälp av `context.bindings.<name>`.
+  I JavaScript-funktioner får du åtkomst till tabellens utdata med hjälp av `context.bindings.<BINDING_NAME>`.
 
 ## <a name="exceptions-and-return-codes"></a>Undantag och returkoder
 

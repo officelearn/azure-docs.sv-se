@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 07/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: 91c747b8b4ca58e7714dc101777bad51f9f0286f
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: 85ca03bee728ec075383566be14d2484dd7431af
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71035599"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71170429"
 ---
 # <a name="how-azure-machine-learning-works-architecture-and-concepts"></a>Så här fungerar Azure Machine Learning: Arkitektur och koncept
 
@@ -63,10 +63,10 @@ Använd följande verktyg för Azure Machine Learning:
 + <a href="#compute-targets">Compute-mål</a>
 + <a href="#training-scripts">Tränings skript</a>
 + <a href="#runs">Kör</a>
++ <a href="#environments">Utrymmen</a>
 + <a href="#github-tracking-and-integration">Git-spårning</a>
 + <a href="#snapshots">Ögonblicks bild</a>
 + <a href="#activities">Aktivitet</a>
-+ <a href="#images">Avbildning</a>
 + <a href="#deployment">Distribution</a>
 + <a href="#web-service-deployments">Webb tjänster</a>
 + <a href="#iot-module-deployments">IoT-moduler</a>
@@ -180,28 +180,15 @@ En aktivitet representerar en långvarig åtgärd. Följande åtgärder är exem
 
 Aktiviteter kan ge aviseringar via SDK eller webb gränssnittet så att du enkelt kan övervaka förloppet för dessa åtgärder.
 
-### <a name="images"></a>Avbildningar
+### <a name="environments"></a>Miljöer
 
-Med bilder kan du distribuera en modell på ett tillförlitligt sätt, tillsammans med alla komponenter som du behöver för att använda modellen. En avbildning innehåller följande objekt:
+Azure ML-miljöer används för att ange konfigurationen (Docker/python/Spark/osv.) som används för att skapa en miljö för förberedelse av data, modell utbildning och modell hantering. De är hanterade och versions bara entiteter inom din Azure Machine Learning arbets yta som möjliggör återskapande, gransknings bara och bärbara Machine Learning-arbetsflöden över olika beräknings mål.
 
-* En modell.
-* En arbetsflödesbaserad skript eller program. Du kan använda skriptet för att skicka in indata till modellen och returnera utdata från modellen.
-* De beroenden som krävs av modellen eller bedömnings skriptet eller programmet. Du kan exempelvis innehålla en miljö Conda-fil som listar beroendena för Python-paketet.
+Du kan använda ett miljö objekt i din lokala beräkning för att utveckla ditt utbildnings skript, återanvända samma miljö på Azure Machine Learning beräkning för modell utbildning i stor skala och till och med distribuera din modell med samma miljö. 
 
-Azure Machine Learning kan skapa två typer av avbildningar:
+Lär dig [hur du skapar och hanterar en ÅTERANVÄNDBAR ml-miljö](how-to-use-environments.md) för utbildning och härledning.
 
-* **FPGA-avbildning**: Används när du distribuerar till en fält-programmerbar grind mat ris i Azure.
-* **Docker-avbildning**: Används när du distribuerar till beräknings mål som inte är FPGA. Exempel är Azure Container Instances och Azure Kubernetes-tjänsten.
 
-Azure Machine Learning tillhandahåller en bas avbildning som används som standard. Du kan också ange egna anpassade avbildningar.
-
-### <a name="image-registry"></a>Avbildningsregister
-
-Avbildningar katalogiseras i **avbildnings registret** på din arbets yta. Du kan lägga till ytterligare metadata-Taggar när du skapar avbildningen så att du kan söka efter avbildningen senare.
-
-Ett exempel på hur du skapar en avbildning finns [i Distribuera en bild klassificerings modell i Azure Container instances](tutorial-deploy-models-with-aml.md).
-
-Ett exempel på hur du distribuerar en modell med hjälp av en anpassad avbildning finns i [distribuera en modell med hjälp av en anpassad Docker-avbildning](how-to-deploy-custom-docker-image.md).
 
 ### <a name="deployment"></a>Distribution
 

@@ -8,19 +8,19 @@ ms.author: tarcher
 manager: jeconnoc
 ms.topic: tutorial
 ms.date: 11/15/2018
-ms.custom: seo-java-july2019, seo-java-august2019
-ms.openlocfilehash: 06f1c0123d6bdf56b5182605016d2feb80adf18b
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019
+ms.openlocfilehash: c4e4a984adc0ec6af99667ff36c009ca730acf48
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70172969"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71172841"
 ---
 # <a name="tutorial-deploy-from-github-to-azure-app-service-with-jenkins-continuous-integration-and-deployment"></a>Självstudie: Distribuera från GitHub till Azure App Service med kontinuerlig integrering och distribution i Jenkins
 
 Den här självstudien distribueras en Java-webbexempelapp från GitHub till [Azure App Service i Linux](/azure/app-service/containers/app-service-linux-intro) genom att konfigurera kontinuerlig integrering (CI) och kontinuerlig distribution (CD) i Jenkins. När du uppdaterar appen genom att push-överföra incheckningar till GitHub skapar och publicerar Jenkins om din app automatiskt till Azure App Service. Exempelappen i den här självstudien har utvecklats med hjälp av [Spring Boot](https://projects.spring.io/spring-boot/)-ramverket. 
 
-![Översikt](media/tutorial-jenkins-deploy-web-app-azure-app-service/overview.png)
+![Översikt över GitHub till Azure App Service distribution](media/tutorial-jenkins-deploy-web-app-azure-app-service/azure-continuous-integration-deployment-overview.png)
 
 I den här självstudien får du utföra följande uppgifter:
 
@@ -97,21 +97,21 @@ Om du vill att Jenkins övervakar GitHub och svarar när nya incheckningar push-
 
 1. På sidan **Hantera Jenkins** väljer du **Konfigurera system**. 
 
-   ![Konfigurera system](media/tutorial-jenkins-deploy-web-app-azure-app-service/manage-jenkins-configure-system.png)
+   ![Konfigurera system i Jenkins](media/tutorial-jenkins-deploy-web-app-azure-app-service/manage-jenkins-configure-system.png)
 
 1. I **GitHub**-avsnittet anger du information för din GitHub-server. Från listan **Lägga till GitHub-server** väljer du **GitHub-server**. 
 
-   ![Lägga till GitHub-server](media/tutorial-jenkins-deploy-web-app-azure-app-service/add-GitHub-server.png)
+   ![Lägg till GitHub-server i Jenkins](media/tutorial-jenkins-deploy-web-app-azure-app-service/add-GitHub-server.png)
 
 1. Om egenskapen **Manage hooks** (Hantera hookar) inte är markerad markerar du den här egenskapen. Välj **Avancerat** så att du kan ange andra inställningar. 
 
-   ![Välj ”Avancerat” för fler inställningar](media/tutorial-jenkins-deploy-web-app-azure-app-service/advanced-GitHub-settings.png)
+   ![Ange avancerade Jenkins-inställningar för GitHub-Server](media/tutorial-jenkins-deploy-web-app-azure-app-service/advanced-GitHub-settings.png)
 
 1. I listan **Hantera ytterligare GitHub-åtgärder** väljer du **Konvertera inloggning och lösenord till token**.
 
-   ![Välj ”Hantera ytterligare GitHub-åtgärder”](media/tutorial-jenkins-deploy-web-app-azure-app-service/manage-additional-actions.png)
+   ![Konvertera inloggning och lösen ord till token för GitHub](media/tutorial-jenkins-deploy-web-app-azure-app-service/manage-additional-actions.png)
 
-1. Välj **Från användarnamn och lösenord** och ange ditt GitHub-användarnamn och -lösenord. När du är klar väljer du **skapa autentiseringsuppgifter**för token, vilket skapar en [GitHub-Pat (personal Access token)](https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/).   
+1. Välj **Från användarnamn och lösenord** och ange ditt GitHub-användarnamn och -lösenord. När du är klar väljer du **skapa autentiseringsuppgifter för token**, vilket skapar en [GitHub-Pat (personal Access token)](https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/).   
 
    ![Skapa GitHub-PAT från användarnamn och lösenord](media/tutorial-jenkins-deploy-web-app-azure-app-service/create-github-token-credentials.png)
 
@@ -181,11 +181,11 @@ I Jenkins skapar du pipeline-jobbet för att skapa och distribuera din app.
 
 1. Gå tillbaka till din Jenkins-startsida och välj **Nytt objekt**. 
 
-   ![Välj ”Nytt objekt”](media/tutorial-jenkins-deploy-web-app-azure-app-service/jenkins-select-new-item.png)
+   ![Skapa en Jenkins-pipeline](media/tutorial-jenkins-deploy-web-app-azure-app-service/jenkins-select-new-item.png)
 
 1. Ange ett namn för din pipeline-jobb, till exempel ”My-Java-Web-App” och välj **Pipeline**. Klicka på **OK**längst ned.  
 
-   ![Välj ”Pipeline”](media/tutorial-jenkins-deploy-web-app-azure-app-service/jenkins-select-pipeline.png)
+   ![Namnge Jenkins pipeline-jobbet](media/tutorial-jenkins-deploy-web-app-azure-app-service/jenkins-select-pipeline.png)
 
 1. Konfigurera Jenkins med tjänstens huvudnamn så att Jenkins kan distribuera till Azure utan att använda dina autentiseringsuppgifter.
 
@@ -199,7 +199,7 @@ I Jenkins skapar du pipeline-jobbet för att skapa och distribuera din app.
       WEB_APP=yourWebAppName
       ```
 
-      ![Välj ”Förbered en miljö för körningen” och ange miljövariabler](media/tutorial-jenkins-deploy-web-app-azure-app-service/prepare-environment-for-run.png)
+      ![Förbereda en miljö för körningen och ange miljövariabler](media/tutorial-jenkins-deploy-web-app-azure-app-service/prepare-environment-for-jenkins-run.png)
 
 1. När du är klar väljer du **Spara**.
 
@@ -254,7 +254,7 @@ Ange nu det Build and Deployment-skript du vill att Jenkins ska använda.
 
 1. Välj pipeline-jobbet du skapade tidigare i Jenkins. 
 
-   ![Välja pipeline-jobb för din webbapp](media/tutorial-jenkins-deploy-web-app-azure-app-service/select-pipeline-job.png)
+   ![Välj pipeline-jobbet Jenkins för din webbapp](media/tutorial-jenkins-deploy-web-app-azure-app-service/select-pipeline-job.png)
 
 1. På menyn till vänster väljer du **Konfigurera**.
 
@@ -272,7 +272,7 @@ Ange nu det Build and Deployment-skript du vill att Jenkins ska använda.
 
    När du är klar ser pipelinedefinitionen ut som i det här exemplet: 
 
-   ![Rikta pipeline mot skript](media/tutorial-jenkins-deploy-web-app-azure-app-service/set-up-jenkins-github.png)
+   ![Peka din Jenkins-pipeline i skriptet](media/tutorial-jenkins-deploy-web-app-azure-app-service/set-up-jenkins-github.png)
 
 1. När du är klar väljer du **Spara**.
 

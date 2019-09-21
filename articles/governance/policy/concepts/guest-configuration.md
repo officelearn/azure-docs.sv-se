@@ -3,16 +3,16 @@ title: Förstå hur du granskar innehållet på en dator
 description: Lär dig hur Azure Policy använder gäst konfiguration för att granska inställningar i en Azure-dator.
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 09/04/2019
+ms.date: 09/20/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: bfa7f7486a9fa5ef62e8bf9e01dbe39d675d8d27
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: 733b7fd8ef5b302df754fc7299b420739baff153
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70308556"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71172476"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Förstå Azure Policy gäst-konfiguration
 
@@ -70,7 +70,7 @@ I följande tabell visas en lista över de lokala verktyg som används på varje
 
 ### <a name="validation-frequency"></a>Validerings frekvens
 
-Klienten för gäst konfiguration söker efter nytt innehåll var 5: e minut. När en gäst tilldelning tas emot kontrol leras inställningarna på 15-minuters intervall. Resultat skickas till resurs leverantören för gäst konfigurationen så snart granskningen är klar. När en [utlösare](../how-to/get-compliance-data.md#evaluation-triggers) för princip utvärdering inträffar skrivs datorns tillstånd till resurs leverantören för gäst konfiguration. Den här uppdateringen gör att Azure Policy utvärdera Azure Resource Manager egenskaper. En utvärdering på begäran Azure Policy hämtar det senaste värdet från resurs leverantören för gäst konfigurationen. Den utlöser dock inte en ny granskning av konfigurationen på datorn.
+Klienten för gäst konfiguration söker efter nytt innehåll var 5: e minut. När en gäst tilldelning tas emot kontrol leras inställningarna på 15-minuters intervall. Resultat skickas till resurs leverantören för gäst konfigurationen så snart granskningen är klar. När en utlösare för princip [utvärdering](../how-to/get-compliance-data.md#evaluation-triggers) inträffar skrivs datorns tillstånd till resurs leverantören för gäst konfiguration. Den här uppdateringen gör att Azure Policy utvärdera Azure Resource Manager egenskaper. En utvärdering på begäran Azure Policy hämtar det senaste värdet från resurs leverantören för gäst konfigurationen. Den utlöser dock inte en ny granskning av konfigurationen på datorn.
 
 ## <a name="supported-client-types"></a>Stöds klienttyper
 
@@ -130,7 +130,7 @@ Principer för gäst konfiguration stöder för närvarande bara tilldelning av 
 
 ## <a name="built-in-resource-modules"></a>Inbyggda resurs moduler
 
-När du installerar gäst konfigurations tillägget ingår PowerShell-modulen "GuestConfiguration" i den senaste versionen av DSC-resurs-moduler. Den här modulen kan laddas ned från PowerShell-galleriet med hjälp av länken "manuell hämtning" från sidan för modulen [GuestConfiguration/](https://www.powershellgallery.com/packages/GuestConfiguration/).
+När du installerar gäst konfigurations tillägget ingår PowerShell-modulen "GuestConfiguration" i den senaste versionen av DSC-resurs-moduler. Den här modulen kan laddas ned från PowerShell-galleriet med hjälp av länken "manuell hämtning" från sidan för modulen [GuestConfiguration](https://www.powershellgallery.com/packages/GuestConfiguration/).
 Fil formatet '. nupkg ' kan byta namn till '. zip ' för att expandera och granska.
 
 ## <a name="client-log-files"></a>Loggfiler för klienter
@@ -175,7 +175,7 @@ egrep -B $linesToIncludeBeforeMatch -A $linesToIncludeAfterMatch 'DSCEngine|DSCM
 Exempel på gäst konfiguration av principer finns på följande platser:
 
 - [Exempel index – gäst konfiguration](../samples/index.md#guest-configuration)
-- [Azure policy samples GitHub lagrings platsen](https://github.com/Azure/azure-policy/tree/master/samples/GuestConfiguration).
+- [Azure Policy exempel GitHub lagrings platsen](https://github.com/Azure/azure-policy/tree/master/samples/GuestConfiguration)
 
 ## <a name="next-steps"></a>Nästa steg
 

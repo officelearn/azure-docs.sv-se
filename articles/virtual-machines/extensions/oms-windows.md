@@ -3,7 +3,7 @@ title: Azure Monitor tillägg för virtuell dator för Windows | Microsoft Docs
 description: Distribuera Log Analytics agenten på en virtuell Windows-dator med ett tillägg för virtuell dator.
 services: virtual-machines-windows
 documentationcenter: ''
-author: roiyz-msft
+author: axayjo
 manager: gwallace
 editor: ''
 tags: azure-resource-manager
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/12/2019
-ms.author: roiyz
-ms.openlocfilehash: 393b01d7815d94e4ad623c552f4110421c9d98bd
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.author: akjosh
+ms.openlocfilehash: fe8bafcb63c1a27b905bdc339c07d30c9f0a5982
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70092256"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71168925"
 ---
 # <a name="azure-monitor-virtual-machine-extension-for-windows"></a>Azure Monitor tillägg för virtuell dator för Windows
 
@@ -97,7 +97,7 @@ Följande JSON visar schemat för Log Analytics agent-tillägget. Tillägget kr�
 
 ## <a name="template-deployment"></a>Malldistribution
 
-Azure VM-tillägg kan distribueras med Azure Resource Manager-mallar. JSON-schemat som beskrivs i föregående avsnitt kan användas i en Azure Resource Manager-mall för att köra Log Analytics agent-tillägget under en distribution av Azure Resource Manager mallar. En exempel mall som innehåller Log Analytics agentens VM-tillägg finns i [Azure Snabbstart](https://github.com/Azure/azure-quickstart-templates/tree/master/201-oms-extension-windows-vm)-galleriet. 
+Azure VM-tillägg kan distribueras med Azure Resource Manager-mallar. JSON-schemat som beskrivs i föregående avsnitt kan användas i en Azure Resource Manager-mall för att köra Log Analytics agent-tillägget under en distribution av Azure Resource Manager mallar. En exempel mall som innehåller Log Analytics agentens VM-tillägg finns i [Azure Snabbstart-galleriet](https://github.com/Azure/azure-quickstart-templates/tree/master/201-oms-extension-windows-vm). 
 
 >[!NOTE]
 >Mallen har inte stöd för att ange mer än ett arbetsyte-ID och en arbetsyte nyckel när du vill konfigurera agenten att rapportera till flera arbets ytor. Om du vill konfigurera agenten att rapportera till flera arbets ytor, se [lägga till eller ta bort en arbets yta](../../azure-monitor/platform/agent-manage.md#adding-or-removing-a-workspace).  

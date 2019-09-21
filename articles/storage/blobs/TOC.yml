@@ -206,57 +206,35 @@
                       href: ../common/storage-import-export-tool-preparing-hard-drives-import.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
                       items:
                         - name: Ställ in egenskaper och metadata
-                          href: ../common/storage-import-export-tool-setting-properties-metadata-import-v1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                          href: ../common/storage-import-export-tool-setting-properties-metadata-import.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
                         - name: Exempel – förbereda enheter för import
-                          href: ../common/storage-import-export-tool-sample-preparing-hard-drives-import-job-workflow-v1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                          href: ../common/storage-import-export-tool-sample-preparing-hard-drives-import-job-workflow.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
                         - name: Snabbkommandoreferens för import
                           href: ../common/storage-import-export-tool-quick-reference-v1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
                     - name: Skapa importjobb
                       href: ../common/storage-import-export-creating-an-import-job.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
                     - name: Skapa exportjobb
-                      href: ../common/storage-import-export-creating-an-import-job.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                      href: ../common/storage-import-export-creating-an-export-job.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
                     - name: Hämta jobbstatus
                       href: ../common/storage-import-export-retrieving-state-info-for-a-job.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-                    - name: Skapa exportjobb
-                      href: ../common/storage-import-export-creating-an-import-job.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
                     - name: Räkna upp jobb
                       href: ../common/storage-import-export-enumerating-jobs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
                     - name: Avbryta och ta bort jobb
                       href: ../common/storage-import-export-cancelling-and-deleting-jobs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
                     - name: Säkerhetskopiera enhetsmanifest
                       href: ../common/storage-import-export-backing-up-drive-manifests.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-                    - name: Räkna upp jobb
-                      href: ../common/storage-import-export-enumerating-jobs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
                     - name: Diagnostik och felåterställning
                       href: ../common/storage-import-export-diagnostics-and-error-recovery.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
                     - name: Kommandon för importjobb
                       href: ../common/storage-import-export-tool-quick-reference-v1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-                - name: Skapa importjobb
-                  href: ../common/storage-import-export-creating-an-import-job.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-                - name: Skapa exportjobb
-                  href: ../common/storage-import-export-creating-an-import-job.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-                - name: Hämta jobbstatus
-                  href: ../common/storage-import-export-retrieving-state-info-for-a-job.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-                - name: Skapa exportjobb
-                  href: ../common/storage-import-export-creating-an-import-job.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-                - name: Räkna upp jobb
-                  href: ../common/storage-import-export-enumerating-jobs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-                - name: Avbryta och ta bort jobb
-                  href: ../common/storage-import-export-cancelling-and-deleting-jobs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-                - name: Säkerhetskopiera enhetsmanifest
-                  href: ../common/storage-import-export-backing-up-drive-manifests.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-                - name: Räkna upp jobb
-                  href: ../common/storage-import-export-enumerating-jobs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-                - name: Diagnostik och felåterställning
-                  href: ../common/storage-import-export-diagnostics-and-error-recovery.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-                - name: Kommandon för importjobb
-                  href: ../common/storage-import-export-tool-quick-reference-v1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-                - name: Tjänstmanifestfil
-                  href: ../common/storage-import-export-file-format-manifest.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-                - name: Tjänstens metadata och egenskapers filformat
-                  href: ../common/storage-import-export-file-format-metadata-and-properties.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-                - name: Tjänsteloggfil
-                  href: ../common/storage-import-export-file-format-log.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                    - name: Kommandon för importjobb
+                      href: ../common/storage-import-export-tool-quick-reference.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                    - name: Tjänstmanifestfil
+                      href: ../common/storage-import-export-file-format-manifest.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                    - name: Tjänstens metadata och egenskapers filformat
+                      href: ../common/storage-import-export-file-format-metadata-and-properties.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                    - name: Tjänsteloggfil
+                      href: ../common/storage-import-export-file-format-log.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Övervaka och felsök
           items:
             - name: Självstudie om felsökning

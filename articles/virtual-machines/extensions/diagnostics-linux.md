@@ -3,18 +3,18 @@ title: Azure Compute – Linux-diagnostiskt tillägg | Microsoft Docs
 description: Så här konfigurerar du LAD (Azure Linux Diagnostic Extension) för att samla in mått och logg händelser från virtuella Linux-datorer som körs i Azure.
 services: virtual-machines-linux
 author: abhijeetgaiha
-manager: sankalpsoni
+manager: gwallace
 ms.service: virtual-machines-linux
 ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 12/13/2018
 ms.author: gwallace
-ms.openlocfilehash: c4028ff4fef5472ba2a964f70db6d4fe11eeaba6
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: 1da5d8aba92ac5cca5f7cdc281e169ce284b202d
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70918804"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71169174"
 ---
 # <a name="use-linux-diagnostic-extension-to-monitor-metrics-and-logs"></a>Använd Linux-diagnostiskt tillägg för att övervaka mått och loggar
 

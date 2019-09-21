@@ -5,14 +5,14 @@ services: vpn-gateway
 author: yushwang
 ms.service: vpn-gateway
 ms.topic: article
-ms.date: 09/18/2019
+ms.date: 09/20/2019
 ms.author: yushwang
-ms.openlocfilehash: c7d7fcc16fe10c1d4cd4b0dfb6d60575b98212b1
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: 1d80c30e3573d76aabcf854b2d97ea849197577c
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71105606"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71173032"
 ---
 # <a name="about-vpn-devices-and-ipsecike-parameters-for-site-to-site-vpn-gateway-connections"></a>Om VPN-enheter och IPSec-/IKE-parametrar för anslutningar för VPN Gateway från plats till plats
 
@@ -39,14 +39,14 @@ Information om hur du konfigurerar VPN-enheten finns i länkarna som motsvarar l
 | ---                | ---                  | ---                   | ---            | ---           |
 | A10 Networks, Inc. |Thunder CFW           |ACOS 4.1.1             |Inte kompatibel  |[Konfigurationsguide](https://www.a10networks.com/wp-content/uploads/A10-DG-16161-EN.pdf)|
 | Allied Telesis     |AR-serie VPN-routrar |AR-seriens 5.4.7 +               | [Konfigurationsguide](https://www.alliedtelesis.com/documents/how-to/configure/site-to-site-vpn-between-azure-and-ar-series-router) |[Konfigurationsguide](https://www.alliedtelesis.com/documents/how-to/configure/site-to-site-vpn-between-azure-and-ar-series-router)|
-| Barracuda Networks, Inc. |Barracuda NextGen Firewall F-serien |Principbaserad före<br>Routningsbaserad 6.2.0 |[Konfigurationsguide](https://techlib.barracuda.com/NGF/AzurePolicyBasedVPNGW) |[Konfigurationsguide](https://techlib.barracuda.com/NGF/AzureRouteBasedVPNGW) |
-| Barracuda Networks, Inc. |Barracuda NextGen Firewall X-serien |Barracuda Firewall 6.5 |[Konfigurationsguide](https://techlib.barracuda.com/BFW/ConfigAzureVPNGateway) |Inte kompatibel |
+| Barracuda Networks, Inc. |Barracuda CloudGen-brandvägg |Principbaserad före<br>Routningsbaserad 6.2.0 |[Konfigurationsguide](https://campus.barracuda.com/product/cloudgenfirewall/doc/79462887/how-to-configure-an-ikev1-ipsec-site-to-site-vpn-to-the-static-microsoft-azure-vpn-gateway/) |[Konfigurationsguide](https://campus.barracuda.com/product/cloudgenfirewall/doc/79462889/how-to-configure-bgp-over-ikev2-ipsec-site-to-site-vpn-to-an-azure-vpn-gateway/) |
 | Check Point |Security Gateway |R-80.10 |[Konfigurationsguide](https://supportcenter.checkpoint.com/supportcenter/portal?eventSubmit_doGoviewsolutiondetails=&solutionid=sk101275) |[Konfigurationsguide](https://supportcenter.checkpoint.com/supportcenter/portal?eventSubmit_doGoviewsolutiondetails=&solutionid=sk101275) |
 | Cisco              |ASA       |8.3<br>8.4 och senare versioner (IKEv2*) |Stöds |[Konfigurationsguide*](https://www.cisco.com/c/en/us/support/docs/security/adaptive-security-appliance-asa-software/214109-configure-asa-ipsec-vti-connection-to-az.html) |
 | Cisco |ASR |Principbaserad IOS 15,1<br>Routningsbaserad IOS 15,2 |Stöds |Stöds |
 | Cisco | REPRESENTANTER | Routningsbaserad IOS-XE 16.10 | (inte testat) | [Konfigurations skript](vpn-gateway-download-vpndevicescript.md) |
 | Cisco |ISR |Principbaserad IOS 15,0<br>Routningsbaserad *: IOS 15,1 |Stöds |Stöds |
 | Cisco |Meraki |Gäller inte |Inte kompatibel |Inte kompatibel |
+| Cisco | vEdge (Viptela OS) | 18.4.0 (aktivt/passivt läge)<br><br>19,2 (aktivt/aktivt läge) | Inte kompatibel |  [Manuell konfiguration (aktiv/passiv)](https://community.cisco.com/t5/networking-documents/how-to-configure-ipsec-vpn-connection-between-cisco-vedge-and/ta-p/3841454)<br><br>[Cloud bearbetar-konfiguration (aktiv/aktiv)](https://www.cisco.com/c/en/us/td/docs/routers/sdwan/configuration/Network-Optimization-and-High-Availability/Network-Optimization-High-Availability-book/b_Network-Optimization-and-HA_chapter_00.html) |
 | Citrix |NetScaler MPX, SDX, VPX |10.1 och senare |[Konfigurationsguide](https://docs.citrix.com/en-us/netscaler/11-1/system/cloudbridge-connector-introduction/cloudbridge-connector-azure.html) |Inte kompatibel |
 | F5 |BIG-IP-serien |12.0 |[Konfigurationsguide](https://devcentral.f5.com/articles/connecting-to-windows-azure-with-the-big-ip) |[Konfigurationsguide](https://devcentral.f5.com/articles/big-ip-to-azure-dynamic-ipsec-tunneling) |
 | Fortinet |FortiGate |FortiOS 5.6 | (inte testat) |[Konfigurationsguide](https://docs.fortinet.com/document/fortigate/5.6.0/cookbook/255100/ipsec-vpn-to-azure) |
@@ -67,7 +67,7 @@ Information om hur du konfigurerar VPN-enheten finns i länkarna som motsvarar l
 | Synology | MR2200ac <br>RT2600ac <br>RT1900ac | SRM1.1.5/VpnPlusServer-1.2.0 | (inte testat) | [Konfigurationsguide](https://www.synology.com/en-global/knowledgebase/SRM/tutorial/VPN/How_to_set_up_Site_to_Site_VPN_between_Synology_Router_and_MS_Azure) |
 | Ubiquiti | EdgeRouter | Rand v 1.10 | (inte testat) | [BGP över IKEv2/IPsec](https://help.ubnt.com/hc/en-us/articles/115012374708)<br><br>[VTI över IKEv2/IPsec](https://help.ubnt.com/hc/en-us/articles/115012305347)
 | WatchGuard |Alla |Fireware XTM<br> Principbaserad: v11.11.x<br>Routningsbaserad: v11.12.x |[Konfigurationsguide](http://watchguardsupport.force.com/publicKB?type=KBArticle&SFDCID=kA2F00000000LI7KAM&lang=en_US) |[Konfigurationsguide](http://watchguardsupport.force.com/publicKB?type=KBArticle&SFDCID=kA22A000000XZogSAG&lang=en_US)|
-| ZyXEL |ZyWALL USG-serien<br>ZyWALL ATP-serien<br>ZyWALL VPN-serien | ZLD v-4.32 + | (inte testat) | [VTI över IKEv2/IPsec](https://businessforum.zyxel.com/discussion/2648/)<br>[BGP över IKEv2/IPsec](https://businessforum.zyxel.com/discussion/2650/)|
+| ZyXEL |ZyWALL USG-serien<br>ZyWALL ATP-serien<br>ZyWALL VPN-serien | ZLD v-4.32 + | (inte testat) | [VTI över IKEv2/IPsec](https://businessforum.zyxel.com/discussion/2648/)<br><br>[BGP över IKEv2/IPsec](https://businessforum.zyxel.com/discussion/2650/)|
 
 > [!NOTE]
 >

@@ -6,14 +6,14 @@ author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 09/16/2019
+ms.date: 09/20/2019
 ms.author: cherylmc
-ms.openlocfilehash: 63358923dae22a2547d7946cd10ca2a3f02e33a5
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: dc80638bfafbd0ade17fe355c5dcbac58d4ff24e
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71122818"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71172503"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>ExpressRoute-partners och peeringplatser
 
@@ -40,19 +40,19 @@ Du har åtkomst till Azure-tjänster i alla regioner inom en geopolitisk region,
 ## <a name="locations"></a>Azure-regioner till ExpressRoute-platser inom en politisk region.
 Följande tabell innehåller en karta över Azures regioner till ExpressRoute-platser inom en geopolitisk region.
 
-| **Geopolitisk region** | **Zon** | **Azure-regioner** | **ExpressRoute-platser** |
-| --- | --- | --- | --- |
-| **Australiensiska myndigheter** | 1 | Centrala Australien, Centrala Australien 2 |Canberra, Canberra2 |
-| **Europa** | 1 |Frankrike, centrala; Frankrike, södra; Europa, norra; Europa, västra; Storbritannien, västra; Storbritannien, södra |Amsterdam, Amsterdam2, köpen hamn, Dublin, Frankfurt, London, London2, Marseille, Newport (Wales), Paris, Stockholm, Zürich |
-| **Nordamerika** | 1 |USA, östra; USA, västra; USA, östra 2; USA, västra 2; USA, centrala; USA, södra centrala; USA, norra centrala; USA västra centrala; Kanada, centrala; Kanada, östra |Atlanta, Chicago, Dallas, Denver, Las Vegas, Los Angeles, Miami, New York, San Antonio, Seattle, Silicon Valley, Silicon Valley2, Washington DC, Washington DC2, Montreal, Quebec City, Toronto |
-| **Asien** | 2 |Östra Asien, Sydostasien |Hong Kong SAR, Kuala Lumpur, Singapore, Singapore2, Taipei, |
-| **Indien** | 2 |Västra Indien, centrala Indien, södra Indien |Chennai, Chennai2, Mumbai, Mumbai2 |
-| **Japan** | 2 |Västra Japan, östra Japan |Osaka, Tokyo |
-| **Oceanien** | 2 |Sydöstra Australien, östra Australien |Auckland, Melbourne, Perth, Sydney |
-| **Sydkorea** | 2 |Sydkorea, centrala; Sydkorea, södra |Busan, Söul|
-| **FÖRENADE ARABEMIRATEN** | 3 | Förenade Arabemiraten Central, Förenade Arabemiraten Nord | Dubai, Dubai2 |
-| **Sydafrika** | 3 |Sydöstra Sydafrika, norra Sydafrika |Kapstaden, Johannesburg |
-| **Sydamerika** | 3 |Södra Brasilien |Sao Paulo |
+| **Geopolitisk region** | **Azure-regioner** | **ExpressRoute-platser** |
+| --- | --- | --- |
+| **Australiensiska myndigheter** |Centrala Australien, Centrala Australien 2 |Canberra, Canberra2 |
+| **Europa** | Frankrike, centrala; Frankrike, södra; Europa, norra; Europa, västra; Storbritannien, västra; Storbritannien, södra |Amsterdam, Amsterdam2, köpen hamn, Dublin, Frankfurt, London, London2, Marseille, Newport (Wales), Paris, Stockholm, Zürich |
+| **Nordamerika** |USA, östra; USA, västra; USA, östra 2; USA, västra 2; USA, centrala; USA, södra centrala; USA, norra centrala; USA västra centrala; Kanada, centrala; Kanada, östra |Atlanta, Chicago, Dallas, Denver, Las Vegas, Los Angeles, Miami, New York, San Antonio, Seattle, Silicon Valley, Silicon Valley2, Washington DC, Washington DC2, Montreal, Quebec City, Toronto |
+| **Asien** | Östra Asien, Sydostasien |Hong Kong SAR, Kuala Lumpur, Singapore, Singapore2, Taipei, |
+| **Indien** | Västra Indien, centrala Indien, södra Indien |Chennai, Chennai2, Mumbai, Mumbai2 |
+| **Japan** | Västra Japan, östra Japan |Osaka, Tokyo |
+| **Oceanien** | Sydöstra Australien, östra Australien |Auckland, Melbourne, Perth, Sydney |
+| **Sydkorea** | Sydkorea, centrala; Sydkorea, södra |Busan, Söul|
+| **FÖRENADE ARABEMIRATEN** | Förenade Arabemiraten Central, Förenade Arabemiraten Nord | Dubai, Dubai2 |
+| **Sydafrika** | Sydöstra Sydafrika, norra Sydafrika |Kapstaden, Johannesburg |
+| **Sydamerika** | Södra Brasilien |Sao Paulo |
 
 
 ## <a name="regions-and-geopolitical-boundaries-for-national-clouds"></a>Regioner och geopolitiska gränser för nationella moln

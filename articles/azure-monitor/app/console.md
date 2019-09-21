@@ -1,6 +1,6 @@
 ---
-title: Azure Application Insights för konsolprogram | Microsoft Docs
-description: Övervaka webbprogram för tillgänglighet, prestanda och användning.
+title: Azure Application insikter för konsol program | Microsoft Docs
+description: Övervaka webb program för tillgänglighet, prestanda och användning.
 services: application-insights
 documentationcenter: .net
 author: mrbullwinkle
@@ -13,24 +13,29 @@ ms.topic: conceptual
 ms.date: 01/30/2019
 ms.reviewer: lmolkova
 ms.author: mbullwin
-ms.openlocfilehash: 0c2a28462633d47ad1d3f247793e3fcf6f4d40c0
-ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
+ms.openlocfilehash: b6ecf1e9cece51635afc0bf0f8025b6e117438ee
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67795452"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71169447"
 ---
-# <a name="application-insights-for-net-console-applications"></a>Application Insights för .NET-konsolprogram
-[Application Insights](../../azure-monitor/app/app-insights-overview.md) kan du övervaka ditt webbprogram för tillgänglighet, prestanda och användning.
+# <a name="application-insights-for-net-console-applications"></a>Application Insights för .NET-konsol program
 
-Du behöver en prenumeration med [Microsoft Azure](https://azure.com). Logga in med ett Microsoft-konto som du kanske har för Windows, Xbox Live eller andra Microsoft-molntjänster. Ditt team kan ha en organisationens prenumeration på Azure: ber du ägaren att lägga till dig till den med ditt Microsoft-konto.
+Med [Application Insights](../../azure-monitor/app/app-insights-overview.md) kan du övervaka webb programmet för tillgänglighet, prestanda och användning.
+
+Du behöver en prenumeration med [Microsoft Azure](https://azure.com). Logga in med ett Microsoft-konto som du kan ha för Windows, Xbox Live eller andra Microsoft-molntjänster. Ditt team kan ha en organisations prenumeration på Azure: Be ägaren att lägga till dig med hjälp av din Microsoft-konto.
+
+> [!NOTE]
+> Det finns en ny beta Application Insights SDK som heter [Microsoft. ApplicationInsights. WorkerService](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService) som kan användas för att aktivera Application Insights för alla konsol program. Vi rekommenderar att du använder det här paketet och tillhör ande instruktioner [härifrån.](../../azure-monitor/app/worker-service.md) Det här paketet [`NetStandard2.0`](https://docs.microsoft.com/dotnet/standard/net-standard)är mål och kan därför användas i .net Core 2,0 eller högre, och .NET Framework 4.7.2 eller högre.
+Det här dokumentet kommer att bli inaktuellt när en stabil version av det nya paketet släpps.
 
 ## <a name="getting-started"></a>Komma igång
 
-* [Skapa en Application Insights-resurs](../../azure-monitor/app/create-new-resource.md) på [Azure Portal](https://portal.azure.com). Programtyp, Välj **Allmänt**.
-* Kopiera instrumenteringsnyckeln. Leta reda på nyckeln i den **Essentials** listrutan för den nya resursen som du skapade. 
-* Installera senaste [Microsoft.ApplicationInsights](https://www.nuget.org/packages/Microsoft.ApplicationInsights) paketet.
-* Ange instrumenteringsnyckeln i din kod innan du spåra någon telemetri (eller uppsättning APPINSIGHTS_INSTRUMENTATIONKEY miljövariabeln). Efter det ska du kunna spåra telemetri och se hur det på Azure portal manuellt
+* [Skapa en Application Insights-resurs](../../azure-monitor/app/create-new-resource.md) på [Azure Portal](https://portal.azure.com). För program typ väljer du **Allmänt**.
+* Kopiera instrumenteringsnyckeln. Leta upp nyckeln i den **grundläggande** List rutan för den nya resurs som du skapade. 
+* Installera det senaste [Microsoft. ApplicationInsights](https://www.nuget.org/packages/Microsoft.ApplicationInsights) -paketet.
+* Ange Instrumentation-nyckeln i koden innan du spårar en telemetri (eller anger APPINSIGHTS_INSTRUMENTATIONKEY-miljövariabeln). Därefter bör du kunna spåra telemetri manuellt och se det på Azure Portal
 
 ```csharp
 // you may use different options to create configuration as shown later in this article
@@ -40,21 +45,21 @@ var telemetryClient = new TelemetryClient(configuration);
 telemetryClient.TrackTrace("Hello World!");
 ```
 
-* Installera senaste versionen av [Microsoft.ApplicationInsights.DependencyCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DependencyCollector) paket - spårar automatiskt HTTP, SQL eller några andra externa beroendeanrop.
+* Installera den senaste versionen av [Microsoft. ApplicationInsights. DependencyCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DependencyCollector) -paketet – det spårar automatiskt http, SQL eller andra externa beroende anrop.
 
-Du kan starta och konfigurera Application Insights från koden eller med hjälp av `ApplicationInsights.config` fil. Kontrollera att initieringen händer så tidigt som möjligt. 
+Du kan initiera och konfigurera Application Insights från koden eller med hjälp `ApplicationInsights.config` av filen. Kontrol lera att initieringen sker så tidigt som möjligt. 
 
 > [!NOTE]
-> Instruktioner som refererar till **ApplicationInsights.config** gäller endast för appar som riktar in sig på .NET Framework och gäller inte för .NET Core-program.
+> Instruktioner som hänvisar till **ApplicationInsights. config** gäller endast appar som är riktade till .NET Framework och som inte gäller för .net Core-program.
 
-### <a name="using-config-file"></a>Med hjälp av konfigurationsfilen
-Som standard söker Application Insights SDK `ApplicationInsights.config` filen i arbetskatalogen när `TelemetryConfiguration` håller på att skapas
+### <a name="using-config-file"></a>Använda konfigurations filen
+Som standard letar Application Insights SDK efter `ApplicationInsights.config` fil i arbets katalogen när `TelemetryConfiguration` den skapas
 
 ```csharp
 TelemetryConfiguration config = TelemetryConfiguration.Active; // Reads ApplicationInsights.config file if present
 ```
 
-Du kan också ange sökvägen till konfigurationsfilen.
+Du kan också ange sökväg till konfigurations filen.
 
 ```csharp
 using System.IO;
@@ -62,9 +67,9 @@ TelemetryConfiguration configuration = TelemetryConfiguration.CreateFromConfigur
 var telemetryClient = new TelemetryClient(configuration);
 ```
 
-Mer information finns i [configuration filreferens](configuration-with-applicationinsights-config.md).
+Mer information finns i [konfigurations fil referens](configuration-with-applicationinsights-config.md).
 
-Du kan få ett fullständigt exempel av konfigurationsfilen genom att installera senaste versionen av [Microsoft.ApplicationInsights.WindowsServer](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WindowsServer) paketet. Här är den **minimal** konfiguration för beroende samling som motsvarar kodexemplet.
+Du kan få ett fullständigt exempel på konfigurations filen genom att installera den senaste versionen av [Microsoft. ApplicationInsights. Windows Server](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WindowsServer) -paketet. Här är den **minimala** konfigurationen för beroende samling som motsvarar kod exemplet.
 
 ```XML
 <?xml version="1.0" encoding="utf-8"?>
@@ -94,11 +99,11 @@ Du kan få ett fullständigt exempel av konfigurationsfilen genom att installera
 
 ```
 
-### <a name="configuring-telemetry-collection-from-code"></a>Konfigurera telemetriinsamling av från kod
+### <a name="configuring-telemetry-collection-from-code"></a>Konfigurerar telemetri-samling från kod
 > [!NOTE]
-> Läsa konfigurationsfilen stöds inte på .NET Core. Du kan överväga att använda [Application Insights SDK för ASP.NET Core](../../azure-monitor/app/asp-net-core.md)
+> Det finns inte stöd för att läsa konfigurations filen på .NET Core. Du kan överväga att använda [Application Insights SDK för ASP.net Core](../../azure-monitor/app/asp-net-core.md)
 
-* Under start av program skapar och konfigurerar `DependencyTrackingTelemetryModule` instans - det måste vara singleton och måste bevaras under programmet livstid.
+* När programmet startas skapar du och konfigurerar `DependencyTrackingTelemetryModule` instans – det måste vara singleton och måste bevaras för programmets livs längd.
 
 ```csharp
 var module = new DependencyTrackingTelemetryModule();
@@ -125,13 +130,13 @@ module.Initialize(configuration);
 configuration.TelemetryInitializers.Add(new HttpDependenciesParsingTelemetryInitializer());
 ```
 
-Om du har skapat konfigurationen med oformaterad `TelemetryConfiguration()` konstruktor, måste du aktivera stöd för korrelation dessutom. **Den krävs inte** om du läser konfigurationen från filen används `TelemetryConfiguration.CreateDefault()` eller `TelemetryConfiguration.Active`.
+Om du har skapat en konfiguration `TelemetryConfiguration()` med en enkel konstruktor måste du även aktivera korrelations stöd. **Det behövs inte** om du läser konfigurationen från filen, används `TelemetryConfiguration.CreateDefault()` eller. `TelemetryConfiguration.Active`
 
 ```csharp
 configuration.TelemetryInitializers.Add(new OperationCorrelationTelemetryInitializer());
 ```
 
-* Du kanske också vill installera och initiera prestandaräknaren insamlaren modulen enligt beskrivningen [här](https://apmtips.com/blog/2017/02/13/enable-application-insights-live-metrics-from-code/)
+* Du kanske också vill installera och initiera modulen för insamlare av prestanda räknare enligt beskrivningen [här](https://apmtips.com/blog/2017/02/13/enable-application-insights-live-metrics-from-code/)
 
 
 #### <a name="full-example"></a>Fullständigt exempel
@@ -206,5 +211,5 @@ namespace ConsoleApp
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-* [Övervaka beroenden](../../azure-monitor/app/asp-net-dependencies.md) att se om REST, SQL eller andra externa resurser gör systemet långsammare.
-* [Använda API: et](../../azure-monitor/app/api-custom-events-metrics.md) att skicka dina egna händelser och mått för en mer detaljerad vy av appens prestanda och användning.
+* [Övervaka beroenden](../../azure-monitor/app/asp-net-dependencies.md) för att se om rest, SQL eller andra externa resurser saktar ned dig.
+* [Använd API: et](../../azure-monitor/app/api-custom-events-metrics.md) för att skicka egna händelser och mått för en mer detaljerad vy av appens prestanda och användning.

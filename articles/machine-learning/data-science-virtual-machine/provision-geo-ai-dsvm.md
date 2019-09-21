@@ -1,21 +1,18 @@
 ---
-title: 'Snabbstart: Konfigurera en geo-artificiell intelligens'
-titleSuffix: Azure Data Science Virtual Machine
-description: Lär dig hur du skapar och konfigurerar Geo AI Data Science Virtual Machine. Geo AI Data Science Virtual Machine ger dig verktyg för att skapa AI och ML-lösningar med geografiska data.
-keywords: djupinlärning, AI, verktyg för datavetenskap, virtuell dator för datavetenskap, Geospatial analys
-services: machine-learning
+title: 'Snabbstart: Skapa en Geo AI-DSVM'
+description: Konfigurera och skapa en geo AI-Data Science Virtual Machine på Azure för geospatial analys och maskin inlärning.
 ms.service: machine-learning
 ms.subservice: data-science-vm
-author: vijetajo
-ms.author: vijetaj
+author: gvashishtha
+ms.author: gopalv
 ms.topic: quickstart
-ms.date: 03/05/2018
-ms.openlocfilehash: 7afeec3f71cd1af30093801fedabf3f0357ae3d0
-ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
+ms.date: 09/13/2019
+ms.openlocfilehash: 6b32d1f76091d7bbb8f870402020d0ac247d425b
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2019
-ms.locfileid: "70208057"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71170721"
 ---
 # <a name="quickstart-set-up-a-geo-artificial-intelligence-virtual-machine-on-azure"></a>Snabbstart: Konfigurera en virtuell geo-informations dator på Azure 
 

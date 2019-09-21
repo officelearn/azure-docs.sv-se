@@ -3,7 +3,7 @@ title: Chefs tillägg för virtuella Azure-datorer | Microsoft Docs
 description: Distribuera chefs klienten till en virtuell dator med hjälp av VM-tillägget kock.
 services: virtual-machines-linux
 documentationcenter: ''
-author: roiyz-msft
+author: axayjo
 manager: gwallace
 editor: ''
 tags: azure-resource-manager
@@ -12,13 +12,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 09/21/2018
-ms.author: roiyz
-ms.openlocfilehash: 0ed042b3b004fd43bc03304c3042c2ac3e1a6482
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.author: akjosh
+ms.openlocfilehash: e82a5fefcc7f582df65d945735d9840fc3e49829
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70092558"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71169141"
 ---
 # <a name="chef-vm-extension-for-linux-and-windows"></a>Kock VM-tillägg för Linux och Windows
 
@@ -36,7 +36,7 @@ VM-tillägget för chef kräver att den virtuella mål datorn är ansluten till 
 
 ## <a name="extension-schema"></a>Tilläggsschema
 
-Följande JSON visar schemat för VM-tillägget för chef. Tillägget kräver minst chefs serverns URL, verifierings klientens namn och validerings nyckeln för chefs servern. dessa värden finns i `knife.rb` filen Starter-Kit. zip som hämtas när du installerar chef för [Automatisk](https://azuremarketplace.microsoft.com/marketplace/apps/chef-software.chef-automate) eller fristående chefs [Server](https://downloads.chef.io/chef-server). Eftersom validerings nyckeln ska behandlas som känsliga data, bör den konfigureras under **protectedSettings** -elementet, vilket innebär att den endast dekrypteras på den virtuella mål datorn.
+Följande JSON visar schemat för VM-tillägget för chef. Tillägget kräver minst chefs serverns URL, verifierings klientens namn och validerings nyckeln för chefs servern. dessa värden finns i `knife.rb` filen Starter-Kit. zip som hämtas när du installerar chef för [Automatisk](https://azuremarketplace.microsoft.com/marketplace/apps/chef-software.chef-automate) eller fristående [chefs Server](https://downloads.chef.io/chef-server). Eftersom validerings nyckeln ska behandlas som känsliga data, bör den konfigureras under **protectedSettings** -elementet, vilket innebär att den endast dekrypteras på den virtuella mål datorn.
 
 ```json
 {

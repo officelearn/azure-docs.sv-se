@@ -8,13 +8,13 @@ author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
-ms.date: 11/13/2017
-ms.openlocfilehash: 284dcd99dc77d7ec0fb5cb214d49b6fcf93a6aef
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.date: 09/20/2019
+ms.openlocfilehash: bf9539512961930a97d9dcfe86722d0103c1facc
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68854489"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71173461"
 ---
 # <a name="create-a-vm-cluster-with-terraform-and-hcl"></a>Skapa ett VM-kluster med Terraform och HCL
 
@@ -46,7 +46,7 @@ I det här avsnittet skapar du ett huvudnamn för Azure-tjänsten och två Terra
 
 5. Kopiera följande kod till din variabeldeklarationsfil:
 
-   ```tf
+   ```hcl
    variable subscription_id {}
    variable tenant_id {}
    variable client_id {}
@@ -64,7 +64,7 @@ I det här avsnittet skapar du ett huvudnamn för Azure-tjänsten och två Terra
 
 7. Kopiera följande kod till din variabelfil. Se till att ersätta platshållarna så här: För `subscription_id` använder du Azure-prenumerationens ID som du angav för att köra `az account set`. För `tenant_id` använder du värdet `tenant` som returneras från `az ad sp create-for-rbac`. För `client_id` använder du värdet `appId` som returneras från `az ad sp create-for-rbac`. För `client_secret` använder du värdet `password` som returneras från `az ad sp create-for-rbac`.
 
-   ```tf
+   ```hcl
    subscription_id = "<azure-subscription-id>"
    tenant_id = "<tenant-returned-from-creating-a-service-principal>"
    client_id = "<appId-returned-from-creating-a-service-principal>"
@@ -79,7 +79,7 @@ I det här avsnittet skapar du en fil som innehåller resursdefinitionerna för 
 
 2. Kopiera följande exempel på resursdefinitioner till den nyligen skapade filen `main.tf`: 
 
-   ```tf
+   ```hcl
    resource "azurerm_resource_group" "test" {
     name     = "acctestrg"
     location = "West US 2"
@@ -227,7 +227,7 @@ I det här avsnittet skapar du en fil som innehåller resursdefinitionerna för 
 
 Initiera Terraform genom att köra följande kommando:
 
-  ```cmd
+  ```bash
   terraform init
   ```
 
@@ -245,13 +245,13 @@ Vid bearbetning av kommandot `terraform plan` utför Terraform en uppdatering oc
 
 Om du inte behöver spara din körningsplan kör du följande kommando:
 
-  ```cmd
+  ```bash
   terraform plan
   ```
 
 Om du vill spara din körningsplan kör du följande kommando (ersätt platshållaren &lt;path> med önskad sökväg för utdata):
 
-  ```cmd
+  ```bash
   terraform plan -out=<path>
   ```
 
@@ -263,13 +263,13 @@ Det sista steget i den här självstudien är att använda [terraform-kommandot 
 
 Kör följande kommando om du vill tillämpa den senaste körningsplanen:
 
-  ```cmd
+  ```bash
   terraform apply
   ```
 
 Om du vill tillämpa en tidigare sparad körningsplan kör du följande kommando (ersätt platshållaren &lt;path> med sökvägen som innehåller den sparade körningsplanen):
 
-  ```cmd
+  ```bash
   terraform apply <path>
   ```
 

@@ -15,18 +15,18 @@ ms.workload: NA
 ms.date: 09/01/2018
 ms.author: suhuruli
 ms.custom: mvc, seo-java-july2019, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: 57c9bd8caf6e8762ed07ac5e6f4ff16171569723
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: b3210b97fe6fb0cd16499d5c33538c8e2babe612
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70900674"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71173624"
 ---
 # <a name="tutorial-create-an-application-with-a-java-api-front-end-service-and-a-stateful-back-end-service-on-azure-service-fabric"></a>Självstudier: Skapa ett program med en Java API-frontend-tjänst och en tillstånds känslig Server dels tjänst på Azure Service Fabric
 
 Den här självstudien ingår i en serie. När du är klar har du ett röstnings program med en Java-webbklient som sparar röstnings resultat i en tillstånds känslig Server dels tjänst på Azure Service Fabric. För den här självstudien måste du ha en fungerande dator för Mac OSX eller Linux-utvecklare. Om du inte vill skapa röstningsprogrammet manuellt kan du [ladda ned källkoden för det färdiga programmet](https://github.com/Azure-Samples/service-fabric-java-quickstart) och gå vidare till [Gå igenom exempelprogrammet för röstning](service-fabric-tutorial-create-java-app.md#walk-through-the-voting-sample-application). Överväg också att följa [snabb starten för Java Reliable Services.](service-fabric-quickstart-java-reliable-services.md).
 
-![Lokal röstningsapp](./media/service-fabric-tutorial-create-java-app/votingjavalocal.png)
+![Service Fabric-röstningsexempel](./media/service-fabric-tutorial-create-java-app/service-fabric-java-voting-app-sample.png)
 
 I den här självstudieserien får du lära du dig att:
 > [!div class="checklist"]
@@ -60,15 +60,15 @@ Skapa först webbklientdelen för röstningsprogrammet. Ett webbgränssnitt som 
 
 2. Skapa ett projekt med **Arkiv** > **Nytt** > **Övrigt** > **Service Fabric**  >  **Service Fabric-projekt**.
 
-    ![Dialogrutan Nytt projekt i Eclipse](./media/service-fabric-tutorial-create-java-app/create-sf-proj-wizard.png)
+    ![Nytt Service Fabric projekt i Sol förmörkelse](./media/service-fabric-tutorial-create-java-app/service-fabric-project-wizard.png)
 
 3. I dialog rutan **guiden ServiceFabric Project** namnger du projekt **röstningen** och väljer **Nästa**.
 
-    ![Välja den tillståndslösa Java-tjänsten i dialogrutan Ny tjänst](./media/service-fabric-tutorial-create-java-app/name-sf-proj-wizard.png) 
+    ![Välja den tillståndslösa Java-tjänsten i dialogrutan Ny tjänst](./media/service-fabric-tutorial-create-java-app/name-service-fabric-project-wizard.png) 
 
 4. På sidan **Lägg till tjänst** väljer du **tillstånds lös tjänst**och namnger din tjänst **VotingWeb**. Klicka på **Slutför** för att skapa projektet.
 
-    ![Skapa en tillståndslös tjänst]( ./media/service-fabric-tutorial-create-java-app/createvotingweb.png)
+    ![Skapa en tillstånds lös tjänst för ditt Service Fabric-projekt]( ./media/service-fabric-tutorial-create-java-app/add-service-fabric-votingweb-service.png)
 
     Eclipse skapar ett program- och ett tjänstprojekt, samt visar dem i Package Explorer.
 
@@ -416,7 +416,7 @@ I Service Fabric kan du konsekvent och tillförlitligt lagra dina data direkt i 
 
 3. Eclipse skapar ett tjänstprojekt som visas i Package Explorer.
 
-    ![Solution Explorer](./media/service-fabric-tutorial-create-java-app/packageexplorercompletejava.png)
+    ![Projekt Utforskare för Sol förmörkelse](./media/service-fabric-tutorial-create-java-app/service-fabric-package-explorer-java.png)
 
 ### <a name="add-the-votingdataservicejava-file"></a>Lägga till filen VotingDataService.java
 
@@ -557,7 +557,7 @@ Stommen för den tillståndslösa tjänsten i klientdelen och serverdelstjänste
 
 1. Högerklicka på **röstnings** projektet i Package Explorer och välj **ny** > **mapp**. Ge mappen namnet **VotingRPC/src/rpcmethods**.
 
-    ![Skapa VotingRPC-paket](./media/service-fabric-tutorial-create-java-app/createvotingrpcpackage.png)
+    ![Skapa VotingRPC-paket i paket Utforskaren för Sol förmörkelse](./media/service-fabric-tutorial-create-java-app/create-voting-rpc-package-java.png)
 
 3. Skapa en fil under *Voting/VotingRPC/src/rpcmethods* med namnet *VotingRPC.java* och klistra in följande i **VotingRPC.java**-filen. 
 
@@ -720,7 +720,7 @@ Röstningsprogrammet består av två tjänster:
 - Webbtjänst för klientdelen (VotingWeb) – En Java-webbtjänst för webbsidans klientdel som gör API:er tillgängliga för kommunikation med serverdelstjänsten.
 - Serverdelstjänst (VotingDataService) – En Java-webbtjänst som definierar de metoder som anropas via RPC (Remote Procedure Calls) för att spara rösterna.
 
-![Diagram över programmet](./media/service-fabric-tutorial-create-java-app/walkthroughjavavoting.png)
+![Exempel diagram för röstning](./media/service-fabric-tutorial-create-java-app/walkthrough-java-voting.png)
 
 När du utför en åtgärd i programmet (lägger till objekt, röstar, tar bort objekt) händer följande:
 1. Ett JavaScript skickar en begäran till webb-API:n i webbtjänsten för klientdelen som en HTTP-begäran.

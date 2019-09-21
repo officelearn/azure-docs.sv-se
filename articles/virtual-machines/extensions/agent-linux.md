@@ -3,7 +3,7 @@ title: Översikt över Azure Linux VM-agent | Microsoft Docs
 description: Lär dig hur du installerar och konfigurerar Linux-agenten (waagent) för att hantera den virtuella datorns interaktion med Azure Fabric Controller.
 services: virtual-machines-linux
 documentationcenter: ''
-author: roiyz-msft
+author: axayjo
 manager: gwallace
 editor: ''
 tags: azure-service-management,azure-resource-manager
@@ -13,14 +13,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 10/17/2016
-ms.author: roiyz
+ms.author: akjosh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: acb6e14845beb4c947992e63f1984c072ba9f59f
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: e8bc28c7454296f32dda09894ad3dca2f4fae99b
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70084825"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71169157"
 ---
 # <a name="understanding-and-using-the-azure-linux-agent"></a>Förstå och använda Azure Linux-agenten
 

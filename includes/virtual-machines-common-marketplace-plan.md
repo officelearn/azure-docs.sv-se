@@ -2,28 +2,28 @@
 title: ta med fil
 description: ta med fil
 services: virtual-machines-windows, virtual-machines-linux
-author: dlepow
+author: cynthn
 ms.service: multiple
 ms.topic: include
 ms.date: 10/09/2018
-ms.author: danlep
+ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 4d2235eaea457c89d01a632afa5dd5a862bec344
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 8e0e549f88caf4a541642bab77faf54b5e536b29
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67187335"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71174996"
 ---
 ## <a name="deploy-an-image-with-marketplace-terms"></a>Distribuera en avbildning med Marketplace-villkor
 
-Vissa VM-avbildningar på Azure Marketplace har ytterligare en licens och köp villkor att du måste acceptera innan du kan distribuera dem via programmering.  
+Vissa VM-avbildningar på Azure Marketplace har ytterligare licens-och Köp villkor som du måste acceptera innan du kan distribuera dem program mässigt.  
 
-Om du vill distribuera en virtuell dator från en sådan bild, måste både acceptera bildens allmänna och aktivera programdistribution. Du behöver bara göra detta en gång per prenumeration. Därefter varje gång du distribuerar en virtuell dator via programmering från den avbildning som du måste också ange *köper plan* parametrar.
+Om du vill distribuera en virtuell dator från en sådan avbildning måste du både acceptera avbildningens villkor och aktivera program distribution. Du behöver bara göra detta en gång per prenumeration. Efteråt, varje gången du distribuerar en virtuell dator program mässigt från avbildningen, måste du också ange *inköps plan* parametrar.
 
-I de följande avsnitten visar hur du:
+I följande avsnitt visas hur du:
 
-* Ta reda på om en Marketplace-avbildning har ytterligare licensvillkoren 
-* Acceptera villkoren programmässigt
-* Ange köp plan parametrar när du distribuerar en virtuell dator via programmering
+* Ta reda på om en Marketplace-avbildning har ytterligare licens villkor 
+* Godkänn villkoren program mässigt
+* Ange parametrar för inköps planer när du distribuerar en virtuell dator program mässigt
 

@@ -8,13 +8,13 @@ author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
-ms.date: 10/19/2017
-ms.openlocfilehash: c6aa780b04c85b8156463011c2b90da2da4541f6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 09/20/2019
+ms.openlocfilehash: 6279b5c9022b448aea9b33a94fc1b2b35b6d23de
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60885022"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71169862"
 ---
 # <a name="create-a-vm-cluster-with-terraform-using-the-module-registry"></a>Skapa ett kluster med virtuella datorer med modulregistret
 
@@ -35,7 +35,7 @@ Mer information om Terraform finns i [Terraform-dokumentationen](https://www.ter
 
  Läs [Installera Terraform och konfigurera åtkomst till Azure](/azure/virtual-machines/linux/terraform-install-configure) för att skapa ett huvudnamn för Azure-tjänsten. Använd tjänstens huvudnamn för att fylla i följande kod i en ny fil `azureProviderAndCreds.tf` i en tom katalog:
 
-```tf
+```hcl
 variable subscription_id {}
 variable tenant_id {}
 variable client_id {}
@@ -53,7 +53,7 @@ provider "azurerm" {
 
 Skapa en ny Terraform-mall som heter `main.tf` med följande kod:
 
-```tf
+```hcl
 module mycompute {
     source = "Azure/compute/azurerm"
     resource_group_name = "myResourceGroup"

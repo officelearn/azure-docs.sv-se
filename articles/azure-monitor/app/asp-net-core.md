@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 05/22/2019
 ms.author: mbullwin
-ms.openlocfilehash: a48c2fdcce5126747f00cd3b901839864d438346
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: 9e14a9f3f2f27112a591f14e9a93580f66aadef7
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71058280"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71169560"
 ---
 # <a name="application-insights-for-aspnet-core-applications"></a>Application Insights för ASP.NET Core program
 
@@ -29,14 +29,14 @@ Exemplet som vi ska använda här är ett [MVC-program](https://docs.microsoft.c
 
 [Application Insights SDK för ASP.net Core](https://nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore) kan övervaka dina program oavsett var eller hur de körs. Om ditt program körs och har nätverks anslutning till Azure, kan telemetri samlas in. Application Insights övervakning stöds överallt där .NET Core stöds. Support omfattar:
 * **Operativsystem**: Windows, Linux eller Mac.
-* **Värd metod**: I processen eller utanför processen. 
+* **Värd metod**: I processen eller utanför processen.
 * **Distributions metod**: Ramverks beroende eller fristående.
-* **Webb server**: IIS (Internet Information Server) eller Kestrel. 
+* **Webb server**: IIS (Internet Information Server) eller Kestrel.
 * **Värd plattform**: Web Apps funktionen i Azure App Service, Azure VM, Docker, Azure Kubernetes service (AKS) och så vidare.
 * **IDE**: Visual Studio, VS Code eller Command line.
 
 > [!NOTE]
-> Om du använder ASP.NET Core 3,0 – för hands version tillsammans med Application Insights använder du [2.8.0-beta2-](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore/2.8.0-beta2) versionen eller senare. Det här är den enda version som är känd för att fungera bra med ASP.NET Core 3,0. Dessutom stöds inte Visual Studio-baserad onboarding ännu för ASP.NET Core 3,0-appar.
+> Om du använder ASP.NET Core 3,0 – för hands version tillsammans med Application Insights använder du [2.8.0-beta3-](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore/2.8.0-beta3) versionen eller senare. Det här är den enda version som är känd för att fungera bra med ASP.NET Core 3,0. Dessutom stöds inte Visual Studio-baserad onboarding ännu för ASP.NET Core 3,0-appar.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -122,7 +122,7 @@ Exemplet som vi ska använda här är ett [MVC-program](https://docs.microsoft.c
     > [!NOTE]
     > En Instrumentation-nyckel som anges i kod WINS över miljövariabeln `APPINSIGHTS_INSTRUMENTATIONKEY`, som vinner över andra alternativ.
 
-## <a name="run-your-application"></a>Kör programmet
+## <a name="run-your-application"></a>Köra ditt program
 
 Kör programmet och gör begär anden till det. Telemetri ska nu flöda till Application Insights. Application Insights SDK samlar automatiskt in följande telemetri.
 
@@ -241,9 +241,9 @@ Fullständig lista över inställningar i`ApplicationInsightsServiceOptions`
 |AddAutoCollectedMetricExtractor | Aktivera/inaktivera AutoCollectedMetrics Extractor, som är en TelemetryProcessor som skickar församlade mått om begär Anden/beroenden innan provtagning sker. | true
 |RequestCollectionOptions.TrackExceptions | Aktivera/inaktivera rapportering av ohanterad undantags spårning i modulen för begärans insamling. | falskt i netstandard 2.0 (eftersom undantag spåras med ApplicationInsightsLoggerProvider), annars sant.
 
-Se de [konfigurerbara inställningarna i `ApplicationInsightsServiceOptions` ](https://github.com/microsoft/ApplicationInsights-aspnetcore/blob/develop/src/Microsoft.ApplicationInsights.AspNetCore/Extensions/ApplicationInsightsServiceOptions.cs) för den senaste listan.
+Se de [konfigurerbara inställningarna i `ApplicationInsightsServiceOptions` ](https://github.com/microsoft/ApplicationInsights-aspnetcore/blob/develop/src/Shared/Extensions/ApplicationInsightsServiceOptions.cs) för den senaste listan.
 
-### <a name="sampling"></a>Samling
+### <a name="sampling"></a>Sampling
 
 Application Insights SDK för ASP.NET Core stöder både fast priss ätt och anpassningsbar sampling. Adaptiv sampling är aktiverat som standard. 
 

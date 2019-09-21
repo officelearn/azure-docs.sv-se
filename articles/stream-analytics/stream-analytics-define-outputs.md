@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/31/2019
-ms.openlocfilehash: 87dca4cf06bd8c5982e5f83a2498496c4bec69fd
-ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
+ms.openlocfilehash: 386dc737bb45eec031aaa1a0c55f4478b8302c54
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70984865"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71173578"
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>Förstå utdata från Azure Stream Analytics
 
@@ -81,7 +81,7 @@ I följande tabell visas egenskaps namn och beskrivningar för att skapa BLOB-ut
 | Utdataalias        | Ett eget namn som används i frågor för att dirigera utdata till blob storage. |
 | Lagringskonto     | Namnet på det lagrings konto där du ska skicka dina utdata.               |
 | Lagringskontonyckel | Den hemliga nyckeln som är associerade med lagringskontot.                              |
-| Lagringscontainrar   | En logisk gruppering för blobbar som lagras i Azure-Blob Service. När du laddar upp en blob till Blob-tjänsten måste du ange en behållare för blobben. |
+| Lagringscontainer   | En logisk gruppering för blobbar som lagras i Azure-Blob Service. När du laddar upp en blob till Blob-tjänsten måste du ange en behållare för blobben. |
 | Sökvägsmönster | Valfritt. Det fil Sök väg mönster som används för att skriva Blobbarna i den angivna behållaren. <br /><br /> I Sök vägs mönstret kan du välja att använda en eller flera instanser av variablerna datum och tid för att ange frekvensen som blobbar skrivs: <br /> {date}, {time} <br /><br />Du kan använda anpassad BLOB-partitionering för att ange ett anpassat {Field}-namn från dina händelse data till partitionering av blobbar. Fältnamnet är alfanumeriska och kan innehålla blanksteg, bindestreck och understreck. Följande: begränsningar för anpassade fält <ul><li>Fält namn är inte Skift läges känsliga. Tjänsten kan till exempel inte skilja mellan kolumn "ID" och kolumn "ID".</li><li>Kapslade fält är inte tillåtna. Använd i stället ett alias i jobb frågan för att "förenkla" fältet.</li><li>Det går inte att använda uttryck som fält namn.</li></ul> <br />Den här funktionen gör det möjligt att använda anpassade inställningar för datum/tid-format i sökvägen. Anpassat datum och tid format måste vara angivna en i taget, omgivna av den {datetime:\<specificerare >} nyckelord. Tillåtna indata för \<specificeraren > är åååå, mm, m, DD, d, hh, H, mm, m, SS eller s. Nyckelordet {datetime\<: specificerare >} kan användas flera gånger i sökvägen för att skapa anpassade konfigurations datum/tids inställningar. <br /><br />Exempel: <ul><li>Exempel 1: cluster1/logs / {date} / {time}</li><li>Exempel 2: cluster1/logs / {date}</li><li>Exempel 3: cluster1/{client_id}/{date}/{time}</li><li>Exempel 4: cluster1/{datetime: SS}/{myField} där frågan är: Välj data. Field som ett fält från indata.</li><li>Exempel 5: cluster1/Year = {datetime: åååå}/månad = {datetime: MM}/dag = {datetime: DD}</ul><br />Tidstämpeln för den skapade mappstrukturen följer UTC och inte lokal tid.<br /><br />Fil namns användning använder följande konvention: <br /><br />{Path Prefix Pattern}/schemaHashcode_Guid_Number.extension<br /><br />Exempel utdatafilerna:<ul><li>Myoutput/20170901/00/45434_gguid_1.csv</li>  <li>Myoutput/20170901/01/45434_gguid_1.csv</li></ul> <br />Mer information om den här funktionen finns i [Azure Stream Analytics Anpassad partitionering av BLOB-utdata](stream-analytics-custom-path-patterns-blob-storage-output.md). |
 | Datumformat | Valfri. Du kan välja datumformat där filerna ordnas om datumtoken används i prefixsökvägen. Exempel: ÅÅÅÅ/MM/DD |
 | Tidsformat | Valfri. Om tiden token används i prefixsökvägen, ange tidsformatet där filerna ordnas. Det enda värdet som stöds är för närvarande HH. |
@@ -210,6 +210,7 @@ I följande tabell visas egenskaps namnen och deras beskrivningar för att skapa
 | Avgränsare |Gäller endast för CSV-serialisering. Stream Analytics stöder ett antal olika avgränsare för serialisering av data i CSV-format. Värden som stöds är kommatecken, semikolon, utrymme, fliken och lodrät stapel. |
 | Format |Gäller endast för JSON-typ. **Raden separerad** anger att utdata är formaterade genom att ha varje JSON-objekt avgränsat med en ny rad. **Matris** anger att utdata är formaterad som en matris med JSON-objekt. |
 | Egenskapskolumner | Valfritt. Kommaavgränsade kolumner som måste bifogas som användar egenskaper för det utgående meddelandet i stället för nytto lasten. Mer information om den här funktionen finns i avsnittet [anpassade metadata för utdata](#custom-metadata-properties-for-output). |
+| Systemegenskapskolumner | Valfritt. Nyckel värdes par med system egenskaper och motsvarande kolumn namn som måste kopplas till det utgående meddelandet i stället för nytto lasten. Mer information om den här funktionen finns i avsnittet [system egenskaper för Service Bus kö-och ämnes utdata](#system-properties-for-service-bus-queue-and-topic-outputs)  |
 
 Antalet partitioner är [baserat på Service Bus-SKU och storleken](../service-bus-messaging/service-bus-partitioning.md). Partitionsnyckeln är ett heltalsvärde som unikt för varje partition.
 
@@ -229,6 +230,7 @@ I följande tabell visas egenskaps namnen och deras beskrivningar för att skapa
 | Kodning |Om du använder CSV eller JSON-format måste du ange en kodning. UTF-8 är det enda kodformat som stöds för närvarande. |
 | Avgränsare |Gäller endast för CSV-serialisering. Stream Analytics stöder ett antal olika avgränsare för serialisering av data i CSV-format. Värden som stöds är kommatecken, semikolon, utrymme, fliken och lodrät stapel. |
 | Egenskapskolumner | Valfritt. Kommaavgränsade kolumner som måste bifogas som användar egenskaper för det utgående meddelandet i stället för nytto lasten. Mer information om den här funktionen finns i avsnittet [anpassade metadata för utdata](#custom-metadata-properties-for-output). |
+| Systemegenskapskolumner | Valfritt. Nyckel värdes par med system egenskaper och motsvarande kolumn namn som måste kopplas till det utgående meddelandet i stället för nytto lasten. Mer information om den här funktionen finns i avsnittet [system egenskaper för Service Bus kö-och ämnes utdata](#system-properties-for-service-bus-queue-and-topic-outputs) |
 
 Antalet partitioner är [baserat på Service Bus-SKU och storleken](../service-bus-messaging/service-bus-partitioning.md). Partitionsnyckel är ett unikt heltals värde för varje partition.
 
@@ -294,6 +296,25 @@ I följande exempel lägger vi till de två fälten `DeviceId` och `DeviceStatus
 Följande skärm bild visar egenskaper för utmatnings meddelande som har granskats i EventHub genom [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer).
 
 ![Anpassade egenskaper för händelse](./media/stream-analytics-define-outputs/09-stream-analytics-custom-properties.png)
+
+## <a name="system-properties-for-service-bus-queue-and-topic-outputs"></a>System egenskaper för Service Bus kö-och ämnes utdata 
+Du kan koppla frågenoder som [system egenskaper](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage?view=azure-dotnet#properties) till den utgående Service Bus-kön eller ämnes meddelanden. De här kolumnerna hamnar inte i nytto lasten i stället för motsvarande BrokeredMessage [system egenskap](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage?view=azure-dotnet#properties) fylls med värdena i kolumnen fråga.
+Dessa system egenskaper stöds – `MessageId, ContentType, Label, PartitionKey, ReplyTo, SessionId, CorrelationId, To, ForcePersistence, TimeToLive, ScheduledEnqueueTimeUtc`.
+Sträng värden för de här kolumnerna tolkas som motsvarande typ av system egenskaps värde och eventuella tolknings fel behandlas som data fel.
+Det här fältet anges som ett JSON-objekt format. Information om det här formatet är följande:
+* Omgivet av klammerparenteser {}.
+* Skrivet i nyckel/värde-par.
+* Nycklar och värden måste vara strängar.
+* Nyckel är systemets egenskaps namn och värde är frågans kolumn namn.
+* Nycklar och värden avgränsas med kolon.
+* Varje nyckel/värde-par avgränsas med ett kommatecken.
+
+Här visas hur du använder den här egenskapen –
+
+* Frågeterm`select *, column1, column2 INTO queueOutput FROM iotHubInput`
+* Kolumner i system egenskap:`{ "MessageId": "column1", "PartitionKey": "column2"}`
+
+Detta anger `MessageId` om Service Bus Queue-meddelanden med `column1`värdena och PartitionKey har angetts med `column2`värdet.
 
 ## <a name="partitioning"></a>Partitionering
 

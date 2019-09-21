@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 02/19/2019
 ms.reviewer: mbullwin
 ms.author: cithomas
-ms.openlocfilehash: 925264bb69093ab70465665e1d2da615a7a3e53d
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: acc7a218d40ec7b752d9495bd48e5f37436d736d
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68261760"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71169472"
 ---
 # <a name="applicationinsightsloggerprovider-for-net-core-ilogger-logs"></a>ApplicationInsightsLoggerProvider för .NET Core ILogger-loggar
 
@@ -220,6 +220,10 @@ Du kan fortfarande använda den gamla providern. (Den tas bara bort i en större
 > Den nya providern är tillgänglig för program som är riktade till netstandard 2.0 eller senare. Om programmet är inriktat på äldre .NET Core-versioner, till exempel .NET core 1,1 eller om den är riktad mot .NET Framework, fortsätter du att använda den gamla providern.
 
 ## <a name="console-application"></a>Konsol program
+
+> [!NOTE]
+> Det finns en ny beta Application Insights SDK som heter [Microsoft. ApplicationInsights. WorkerService](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService) som kan användas för att aktivera Application Insights (ILogger och annan Application Insights telemetri) för alla konsol program. Vi rekommenderar att du använder det här paketet och tillhör ande instruktioner [härifrån.](../../azure-monitor/app/worker-service.md)
+Följande exempel kommer att bli föråldrat när stabil version av det nya paketet släpps.
 
 Följande kod visar ett exempel på ett konsol program som har kon figurer ATS för att skicka ILogger-spår till Application Insights.
 

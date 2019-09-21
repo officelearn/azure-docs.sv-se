@@ -10,17 +10,56 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 9/4/2019
+ms.date: 9/20/2019
 ms.author: raiye
-ms.openlocfilehash: 71febe6544a4f53215ec4dbee2bcef86bda23386
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: 6168e877022eccd9cbe818c20e81266cc3ea1f69
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70275510"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71169364"
 ---
 # <a name="azure-guest-os"></a>Azure gäst operativ system
 Följande tabeller visar de uppdateringar av Microsoft Security Response Center (MSRC) som tillämpas på Azures gäst operativ system. Sök i den här artikeln för att avgöra om en viss uppdatering gäller det gäst operativ system som du använder. Uppdateringar överför alltid den specifika [familj][family-explain] som de introducerades i.
+
+## <a name="september-2019-guest-os"></a>September 2019-gäst operativ system
+
+>[!NOTE]
+>Gäst operativ systemet i september distribueras för närvarande till virtuella datorer i moln tjänsten som har kon figurer ATS för automatiska uppdateringar. När distributionen är klar görs den här versionen tillgänglig för manuella uppdateringar via Azure Portal-och konfigurationsfiler. Följande korrigeringsfiler ingår i september gäst operativ system. Den här listan kan ändras.
+
+| Produktkategori | Överordnad KB-artikel | Beskrivning av sårbarhet | Gästoperativsystem | Datum för första gången |
+| --- | --- | --- | --- | --- |
+|  Rel 19-09   |  [4516046]  |  Internet Explorer   |  2,90, 3,77, 4,70  |  10 september 2019  |
+|  Rel 19-09   |  [4516115]  |  Flash   |  2,90, 3,77, 4,70, 5,35, 6,11  |  10 september 2019  |
+|  Rel 19-09   |  [4512578]  |  Senaste kumulativa uppdateringen   |  6,11  |  10 september 2019  |
+|  Rel 19-09   |  [4514366]  |  .NET Framework 3,5 och 4.7.2   |  6,11  |  10 september 2019  |
+|  Rel 19-09   |  [4516044]  |  Senaste kumulativa uppdateringen   |  5,35  |  10 september 2019  |
+|  Rel 19-09   |  [4516064]  |  Windows-säkerhet   |  4,7  |  10 september 2019  |
+|  Rel 19-09   |  [4514350]  |  .NET Framework 3,5   |  4,7  |  10 september 2019  |
+|  Rel 19-09   |  [4514341]  |  .NET Framework 4.5.2   |  4,7  |  10 september 2019  |
+|  Rel 19-09   |  [4516062]  |  Windows-säkerhet   |  3,77  |  10 september 2019  |
+|  Rel 19-09   |  [4514349]  |  .NET Framework 3,5   |  3,77  |  10 september 2019  |
+|  Rel 19-09   |  [4514342]  |  .NET Framework 4.5.2   |  3,77  |  10 september 2019  |
+|  Rel 19-09   |  [4516033]  |  Windows-säkerhet   |  2.9  |  12 september 2019  |
+|  Rel 19-09   |  [4512488]  |  Ej säkerhet   |  4,7  |  Aug 13, 2019  |
+|  Rel 19-09   |  [4512518]  |  Ej säkerhet   |  3,77  |  Aug 13, 2019  |
+|  Rel 19-09   |  [4512506]  |  Ej säkerhet   |  2.9  |  Aug 13, 2019  |
+
+[4516046]: https://support.microsoft.com/kb/4516046
+[4516115]: https://support.microsoft.com/kb/4516115
+[4512578]: https://support.microsoft.com/kb/4512578
+[4514366]: https://support.microsoft.com/kb/4514366
+[4516044]: https://support.microsoft.com/kb/4516044
+[4516064]: https://support.microsoft.com/kb/4516064
+[4514350]: https://support.microsoft.com/kb/4514350
+[4514341]: https://support.microsoft.com/kb/4514341
+[4516062]: https://support.microsoft.com/kb/4516062
+[4514349]: https://support.microsoft.com/kb/4514349
+[4514342]: https://support.microsoft.com/kb/4514342
+[4516033]: https://support.microsoft.com/kb/4516033
+[4512488]: https://support.microsoft.com/kb/4512488
+[4512518]: https://support.microsoft.com/kb/4512518
+[4512506]: https://support.microsoft.com/kb/4512506
 
 
 ## <a name="august-2019-guest-os"></a>Gäst operativ system augusti 2019

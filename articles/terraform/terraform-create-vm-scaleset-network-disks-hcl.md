@@ -7,13 +7,13 @@ keywords: terraform, devops, virtuell dator, Azure, skalningsuppsättning, nätv
 author: tomarchermsft
 ms.author: tarcher
 ms.topic: tutorial
-ms.date: 10/26/2018
-ms.openlocfilehash: 21fea65ed7056afa57d9acbacb2457bb4d09cff5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 09/20/2019
+ms.openlocfilehash: a6bc0879d07cadc6c5b0b1a21b11b3075ec69719
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60885157"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71169875"
 ---
 # <a name="use-terraform-to-create-an-azure-virtual-machine-scale-set"></a>Använd Terraform för att skapa en VM-skalningsuppsättning för Azure
 
@@ -31,7 +31,7 @@ I den här självstudien lär du dig använda [Azure Cloud Shell](/azure/cloud-s
 > [!NOTE]
 > Den senaste versionen av Terraform-konfigurationsfilerna som används i den här artikeln finns på [lagringsplatsen Awesome Terraform på GitHub](https://github.com/Azure/awesome-terraform/tree/master/codelab-vmss).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 - **Azure-prenumeration**: Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) innan du börjar.
 
@@ -80,7 +80,7 @@ I Azure Cloud Shell utför du följande steg:
 
 1. Klistra in följande kod i redigeringsprogrammet:
 
-   ```JSON
+   ```hcl
    variable "location" {
     description = "The location where resources will be created"
    }
@@ -124,7 +124,7 @@ I Azure Cloud Shell utför du följande steg:
 1. Klistra in följande kod i redigeringsprogrammet för att göra det fullständigt kvalificerade domännamnet (FQDN) tillgängligt för de virtuella datorerna.
    :
 
-   ```JSON
+   ```hcl
     output "vmss_public_ip" {
         value = "${azurerm_public_ip.vmss.fqdn}"
     }
@@ -157,7 +157,7 @@ I Azure Cloud Shell utför du följande steg:
 
 1. Klistra in följande kod i slutet av filen för att göra det fullständigt kvalificerade domännamnet (FQDN) tillgängligt för de virtuella datorerna.
 
-   ```JSON
+   ```hcl
    resource "azurerm_resource_group" "vmss" {
     name     = "${var.resource_group_name}"
     location = "${var.location}"
@@ -252,7 +252,7 @@ I Cloud Shell utför du följande steg:
 
 1. Klistra in följande kod i slutet av filen:
 
-   ```JSON
+   ```hcl
    resource "azurerm_lb" "vmss" {
     name                = "vmss-lb"
     location            = "${var.location}"
@@ -369,7 +369,7 @@ I Cloud Shell utför du följande steg:
 
 1. Klistra in följande kod i redigeringsprogrammet:
 
-   ```JSON
+   ```hcl
    #cloud-config
    packages:
     - nginx
@@ -393,7 +393,7 @@ I Cloud Shell utför du följande steg:
 
 1. Anpassa distributionen genom att klistra in följande kod i slutet av filen:
 
-    ```JSON
+    ```hcl
     variable "application_port" {
        description = "The port that you want to expose to the external load balancer"
        default     = 80
@@ -458,7 +458,7 @@ En *SSH-jumpbox* är en enskild server som du "hoppar" genom för att komma åt 
 
 1. Klistra in följande kod i slutet av filen:
 
-   ```JSON
+   ```hcl
    resource "azurerm_public_ip" "jumpbox" {
     name                         = "jumpbox-public-ip"
     location                     = "${var.location}"
@@ -528,7 +528,7 @@ En *SSH-jumpbox* är en enskild server som du "hoppar" genom för att komma åt 
 
 1. Klistra in följande kod i slutet av filen för att visa jumpboxens värdnamn när distributionen är klar:
 
-   ```
+   ```hcl
    output "jumpbox_public_ip" {
       value = "${azurerm_public_ip.jumpbox.fqdn}"
    }

@@ -1,6 +1,6 @@
 ---
 title: Resurs gränser för Azure NetApp Files | Microsoft Docs
-description: Beskriver gränser för Azure NetApp Files resurser, inklusive gränser för NetApp-konton, kapacitets grupper, volymer, ögonblicks bilder och det delegerade under nätet.
+description: Beskriver gränser för Azure NetApp Files resurser och hur du begär ökning av resurs gränsen.
 services: azure-netapp-files
 documentationcenter: ''
 author: b-juche
@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/07/2019
+ms.date: 09/20/2019
 ms.author: b-juche
-ms.openlocfilehash: 15d0a584d88045f6020162a88124cd9d6a4735bf
-ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
+ms.openlocfilehash: f7213ddee5d7bdfd41508f5fee66de63cde5b7c4
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70984010"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71170034"
 ---
 # <a name="resource-limits-for-azure-netapp-files"></a>Resursbegränsningar för Azure NetApp Files
 
@@ -40,10 +40,27 @@ I följande tabell beskrivs resurs gränser för Azure NetApp Files:
 |  Minsta storlek på en pool med enskild kapacitet   |  4 TiB     |    Nej  |
 |  Maximal storlek för en pool med enskild kapacitet    |  500 TiB   |   Nej   |
 |  Minsta storlek på en enskild volym    |    100 GiB    |    Nej    |
-|  Maximal storlek på en enskild volym     |    100 TiB    |    Nej       |
-|  Maximalt antal filer (noder i procent) per volym     |    50 000 000    |    Nej    |    
+|  Maximal storlek på en enskild volym     |    100 TiB    |    Nej    |
+|  Maximalt antal filer ([maxfiles](#maxfiles)) per volym     |    100 000 000    |    Ja    |    
+|  Maximal storlek för en enskild fil     |    16 TiB    |    Nej    |    
 
-## <a name="request-limit-increase"></a>Begär gräns ökning 
+## Maxfiles-gränser<a name="maxfiles"></a> 
+
+Azure NetApp Files volymer har en gräns som kallas *maxfiles*. Gränsen för maxfiles är antalet filer som en volym kan innehålla. Maxfiles-gränsen för en Azure NetApp Files volym indexeras baserat på volymens storlek (kvot). Maxfiles-gränsen för en volym ökar eller minskar med hastigheten på 20 000 000 filer per TiB med etablerad volym storlek. 
+
+Tjänsten justerar dynamiskt maxfiles-gränsen för en volym baserat på dess etablerade storlek. Till exempel skulle en volym som har kon figurer ATS ursprungligen med en storlek på 1 TiB ha en maxfiles gräns på 20 000 000. Efterföljande ändringar av volymens storlek skulle leda till automatisk omanpassning av maxfiles-gränsen baserat på följande regler: 
+
+|    Volym storlek (kvot)     |  Automatisk justering av maxfiles-gränsen    |
+|----------------------------|-------------------|
+|    < 1 TiB                 |    20 000 000     |
+|    > = 1 TiB men < 2 TiB    |    40 000 000     |
+|    > = 2 TiB men < 3 TiB    |    60 000 000     |
+|    > = 3 TiB men < 4 TiB    |    80 000 000     |
+|    > = 4 TiB                |    100 000 000    |
+
+För alla volym storlekar kan du initiera en [supportbegäran](#limit_increase) för att öka maxfiles-gränsen bortom 100 000 000.
+
+## Begär gräns ökning<a name="limit_increase"></a> 
 
 Du kan skapa en support förfrågan för Azure för att öka de justerbara gränserna från tabellen ovan. 
 
@@ -64,6 +81,7 @@ Från Azure Portal navigerings plan:
         |  Konto |  *Prenumerations-ID*   |  *Begärt nytt maximalt **konto** nummer*    |  *Vilket scenario eller vilka användnings fall ber begäran?*  |
         |  Pool    |  *Prenumerations-ID, konto-URI*  |  *Begärt nytt nummer för högsta **pool***   |  *Vilket scenario eller vilka användnings fall ber begäran?*  |
         |  Volym  |  *Prenumerations-ID, konto-URI, pool-URI*   |  *Begärt nytt maximalt **volym** nummer*     |  *Vilket scenario eller vilka användnings fall ber begäran?*  |
+        |  Maxfiles  |  *Prenumerations-ID, konto-URI, pool-URI, volym-URI*   |  *Begärt nytt maximalt **maxfiles** -nummer*     |  *Vilket scenario eller vilka användnings fall ber begäran?*  |    
 
     2. Ange lämplig support metod och ange din kontrakts information.
 

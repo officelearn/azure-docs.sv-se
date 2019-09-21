@@ -9,12 +9,12 @@ author: vijetajo
 ms.author: vijetaj
 ms.topic: conceptual
 ms.date: 07/16/2018
-ms.openlocfilehash: 759c804fd4128d7b28cbba078cab5e9d7e6453f6
-ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
+ms.openlocfilehash: f9d4b933bc9c6e11dde8168d9797a1b6196e6f47
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2019
-ms.locfileid: "70208295"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71170696"
 ---
 # <a name="data-science-with-a-linux-data-science-virtual-machine-in-azure"></a>Data vetenskap med ett Linux-Data Science Virtual Machine i Azure
 
@@ -30,7 +30,7 @@ Innan du kan använda en Linux-DSVM måste du ha följande krav:
 
 * **Azure-prenumeration**. Information om hur du skaffar en Azure-prenumeration finns i [skapa ett kostnads fritt Azure-konto idag](https://azure.microsoft.com/free/).
 * [**Linux-data science Virtual Machine**](https://azure.microsoft.com/marketplace/partners/microsoft-ads/linux-data-science-vm). Information om hur du etablerar den virtuella datorn finns i [etablera Linux-data science Virtual Machine](linux-dsvm-intro.md).
-* [**X2Go**](https://wiki.x2go.org/doku.php) installerat på datorn med en öppen xfce-session. Mer information finns i [Installera och konfigurera X2Go-klienten](linux-dsvm-intro.md#install-and-configure-the-x2go-client).
+* [**X2Go**](https://wiki.x2go.org/doku.php) installerat på datorn med en öppen xfce-session. Mer information finns i [Installera och konfigurera X2Go-klienten](linux-dsvm-intro.md#x2go).
 * Om du vill ha en smidigare rullnings upplevelse, går du `gfx.xrender.enabled` till DSVM Firefox-webbläsare och växlar flaggan i. `about:config` [Läs mer](https://www.reddit.com/r/firefox/comments/4nfmvp/ff_47_unbearable_slow_over_remote_x11/). Överväg också att `mousewheel.enable_pixel_scrolling` ställa `False`in på. [Läs mer](https://support.mozilla.org/questions/981140).
 * **Azure Machine Learning konto**. Om du inte redan har ett kan du registrera dig för ett nytt konto på [Start sidan för Azure Machine Learning](https://studio.azureml.net/). Du kan prova det kostnads fritt för att hjälpa dig att komma igång.
 
@@ -375,7 +375,7 @@ Läsa in och konfigurera datauppsättningen:
 Att utforska data:
 
 1. Välj den **utforska** fliken.
-1. Om du vill se information om variabel typer och viss sammanfattnings statistik > väljer du sammanfattnings**körning**.
+1. Om du vill se information om variabel typer och viss sammanfattnings statistik väljer du **sammanfattnings** > **körning**.
 1. Om du vill visa andra typer av statistik om varje variabel väljer du andra alternativ, t. ex. **Beskriv** eller **grunderna**.
 
 Du kan också använda fliken **utforska** för att generera inblickade områden. Att rita ett histogram för data:

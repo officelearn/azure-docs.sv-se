@@ -1,6 +1,6 @@
 ---
 title: Felsökning utan data, Application Insights för .NET
-description: Inte se data i Azure Application Insights? Prova här.
+description: Ser du inte data i Azure Application Insights? Prova här.
 services: application-insights
 documentationcenter: .net
 author: mrbullwinkle
@@ -12,191 +12,191 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 07/23/2018
 ms.author: mbullwin
-ms.openlocfilehash: 2966f90dcb381e439c00a6540ef9a01bd24f8743
-ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
+ms.openlocfilehash: b4bfd984f1e169cb1044002118f9534c4efc9bd8
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67561179"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71169583"
 ---
 # <a name="troubleshooting-no-data---application-insights-for-net"></a>Felsökning utan data, Application Insights för .NET
-## <a name="some-of-my-telemetry-is-missing"></a>Några av Mina telemetri saknas
-*I Application Insights visas bara en bråkdel av de händelser som genereras av min app.*
+## <a name="some-of-my-telemetry-is-missing"></a>En del av min telemetri saknas
+*I Application Insights ser jag bara en bråkdel av de händelser som genereras av appen.*
 
-* Om du konsekvent ser den samma andel, beror det troligen på grund av anpassningsbar [sampling](../../azure-monitor/app/sampling.md). För att bekräfta detta, Öppna sökning (från översiktsbladet) och titta på en instans av en begäran eller händelse. Klicka på ”...” för att få fullständig egenskapsinformationen längst ned i egenskapsavsnittet. Om begär antal > 1 och sedan sampling är i drift.
-* I annat fall är det möjligt att du får en [data hastighetsbegränsning](../../azure-monitor/app/pricing.md#limits-summary) för prisplanen. Dessa begränsningar tillämpas per minut.
+* Om du ständigt ser samma bråk är det förmodligen på grund av adaptiv [sampling](../../azure-monitor/app/sampling.md). Bekräfta detta genom att öppna search (från översikts bladet) och titta på en instans av en begäran eller en annan händelse. Längst ned i avsnittet Egenskaper klickar du på "..." för att få fullständig egenskaps information. Om antalet förfrågningar > 1 är samplingen i drift.
+* Annars är det möjligt att du [påträffar en data hastighets gräns](../../azure-monitor/app/pricing.md#limits-summary) för din pris sättnings plan. Dessa gränser tillämpas per minut.
 
-*Jag har dataförlust slumpmässigt.*
+*Jag upplever data förlust slumpmässigt.*
 
-* Kontrollera om du upplever dataförlust sker på [telemetri kanal](telemetry-channels.md#does-the-application-insights-channel-guarantee-telemetry-delivery-if-not-what-are-the-scenarios-in-which-telemetry-can-be-lost)
+* Kontrol lera om du har data förlust i [telemetri-kanalen](telemetry-channels.md#does-the-application-insights-channel-guarantee-telemetry-delivery-if-not-what-are-the-scenarios-in-which-telemetry-can-be-lost)
 
-* Sök efter kända problem i telemetri kanal [Github-lagringsplatsen](https://github.com/Microsoft/ApplicationInsights-dotnet/issues)
+* Sök efter kända problem i telemetri Channel [GitHub lagrings platsen](https://github.com/Microsoft/ApplicationInsights-dotnet/issues)
 
-*Jag har dataförlust i Konsolapp eller på Web App om appen håller på att stoppa.*
+*Jag upplever data förlust i konsol programmet eller på en webbapp när appen håller på att stoppas.*
 
-* SDK-kanal behålls telemetri i bufferten och skickar dem i batchar. Om programmet stängs av, kan du behöva explicit anropa [Flush()](api-custom-events-metrics.md#flushing-data). Beteendet för `Flush()` beror på den faktiska [kanal](telemetry-channels.md#built-in-telemetry-channels) används.
+* SDK-kanalen behåller telemetri i bufferten och skickar dem i batchar. Om programmet stängs av kan du behöva anropa [Flush ()](api-custom-events-metrics.md#flushing-data)explicit. Beteendet beror på den faktiska kanal som används. [](telemetry-channels.md#built-in-telemetry-channels) `Flush()`
 
-## <a name="no-data-from-my-server"></a>Inga data från Min server
-*Jag har installerat min app på webbservern och nu jag ser inte någon telemetri från den. Det fungerade OK på min utvecklingsdator.*
+## <a name="no-data-from-my-server"></a>Inga data från min server
+*Jag har installerat min app på min webb server och nu kan jag inte se någon telemetri från den. Den fungerade OK på min dev-dator.*
 
-* Förmodligen ett brandväggen problem. [Ange brandväggsundantag för Application Insights att skicka data](../../azure-monitor/app/ip-addresses.md).
-* IIS-servern kan sakna vissa krav: .NET Extensibility 4.5 och ASP.NET 4.5.
+* Troligen en brand Väggs problem. [Ange brand Väggs undantag för Application Insights att skicka data](../../azure-monitor/app/ip-addresses.md).
+* Vissa nödvändiga komponenter kanske saknas i IIS-servern: .NET utöknings Bart 4,5 och ASP.NET 4,5.
 
-*Jag [installerat statusövervakaren](../../azure-monitor/app/monitor-performance-live-website-now.md) på webbservern för att övervaka befintliga appar. Jag ser inte några resultat.*
+*Jag har [installerat statusövervakare](../../azure-monitor/app/monitor-performance-live-website-now.md) på min webb server för att övervaka befintliga appar. Jag ser inga resultat.*
 
-* Se [felsökning statusövervakaren](../../azure-monitor/app/monitor-performance-live-website-now.md#troubleshoot).
+* Se [fel sökning statusövervakare](../../azure-monitor/app/monitor-performance-live-website-now.md#troubleshoot).
 
-## <a name="q01"></a>Alternativet ”Lägg till Application Insights” i Visual Studio
-*När jag högerklickar på ett befintligt projekt i Solution Explorer kan se jag inte några alternativ för Application Insights.*
+## <a name="q01"></a>Alternativet Lägg till Application Insights i Visual Studio
+*När jag högerklickar på ett befintligt projekt i Solution Explorer visas inga Application Insights alternativ.*
 
-* Inte alla typer av .NET-projekt stöds av verktygen. Webb-och WCF stöds. För andra projekttyper av som skrivbord eller tjänsten kan du fortfarande [lägga till en Application Insights SDK i ditt projekt manuellt](../../azure-monitor/app/windows-desktop.md).
-* Kontrollera att du har [Visual Studio 2013 Update 3 eller senare](https://docs.microsoft.com/visualstudio/releasenotes/vs2013-update3-rtm-vs). Den levereras förinstallerad med Developer Analytics-verktyg som ger Application Insights SDK.
-* Välj **verktyg**, **tillägg och uppdateringar** och kontrollera att **Developer Analytics Tools** är installerat och aktiverat. I så, fall klickar du på **uppdateringar** att se om det finns en uppdatering.
-* Öppna dialogrutan Nytt projekt och välj ASP.NET-webbprogram. Om du ser det alternativet Application Insights är verktygen installerade. Om inte, avinstallera och sedan installera om Developer Analytics Tools.
+* Alla typer av .NET-projekt stöds inte av verktygen. Webb-och WCF-projekt stöds. För andra projekt typer, till exempel Skriv bords-eller tjänst program, kan du fortfarande [lägga till en Application Insights SDK i projektet manuellt](../../azure-monitor/app/windows-desktop.md).
+* Kontrol lera att du har [Visual Studio 2013 Update 3 eller senare](https://docs.microsoft.com/visualstudio/releasenotes/vs2013-update3-rtm-vs). Det levereras förinstallerat med Developer Analytics-verktyg, som tillhandahåller Application Insights SDK.
+* Välj **verktyg**, **tillägg och uppdateringar** och kontrol lera att **Developer Analytics tools** är installerat och aktiverat. Om så är fallet klickar du på **uppdateringar** för att se om det finns en tillgänglig uppdatering.
+* Öppna dialog rutan nytt projekt och välj ASP.NET-webbprogram. Om du ser det Application Insights alternativet installeras-verktygen. Annars kan du prova att avinstallera och sedan installera om Developer Analytics-verktygen.
 
 ## <a name="q02"></a>Det gick inte att lägga till Application Insights
-*När jag försöker lägga till Application Insights till ett befintligt projekt, visas ett felmeddelande.*
+*När jag försöker lägga till Application Insights i ett befintligt projekt visas ett fel meddelande.*
 
-Troliga orsaker:
+Sannolika orsaker:
 
-* Det gick inte att kommunicera med Application Insights-portalen; eller
-* Det finns problem med ditt Azure-konto;
-* Du behöver bara [läsbehörighet till den prenumeration eller en grupp där du försökte skapa den nya resursen](../../azure-monitor/app/resources-roles-access-control.md).
+* Det gick inte att kommunicera med Application Insights portalen; eller
+* Det finns ett problem med ditt Azure-konto.
+* Du har bara [Läs behörighet till den prenumeration eller grupp där du försökte skapa den nya resursen](../../azure-monitor/app/resources-roles-access-control.md).
 
-Fix:
+Löser
 
-* Kontrollera att du angett inloggningsuppgifter för rätt Azure-konto.
-* I webbläsaren, kontrollera att du har åtkomst till den [Azure-portalen](https://portal.azure.com). Öppna inställningar och se om det finns några begränsningar.
-* [Lägg till Application Insights i projektet befintliga](../../azure-monitor/app/asp-net.md): Högerklicka på projektet i Solution Explorer och välj ”Lägg till Application Insights”.
+* Kontrol lera att du har angett inloggnings uppgifter för rätt Azure-konto.
+* Kontrol lera att du har åtkomst till [Azure Portal](https://portal.azure.com)i webbläsaren. Öppna inställningar och se om det finns någon begränsning.
+* [Lägg till Application Insights i ditt befintliga projekt](../../azure-monitor/app/asp-net.md): I Solution Explorer högerklickar du på projektet och väljer Lägg till Application Insights.
 
-## <a name="emptykey"></a>Det uppstår ett fel ”instrumenteringsnyckeln kan inte vara tom”
-Det verkar som det uppstod ett fel när du installerar Application Insights eller kanske en loggning nätverkskort.
+## <a name="emptykey"></a>Jag får ett fel meddelande om Instrumentation-nyckeln kan inte vara tom
+Det verkar som om något gick fel när du installerade Application Insights eller kanske ett loggnings kort.
 
-Högerklicka på projektet i Solution Explorer och välj **Application Insights > Konfigurera Application Insights**. Du får en dialogruta där du kan logga in på Azure och skapa en Application Insights-resurs eller återanvända en befintlig.
+I Solution Explorer högerklickar du på projektet och väljer **Application Insights > konfigurera Application Insights**. Du får en dialog ruta som bjuder in dig för att logga in på Azure och antingen skapa en Application Insights resurs eller att använda en befintlig.
 
-## <a name="NuGetBuild"></a> ”NuGet-paket saknas” på min build-server
-*Allt bygger OK när jag felsökning på min utvecklingsdator, men jag får ett NuGet-fel på build-servern.*
+## <a name="NuGetBuild"></a>"NuGet-paket saknas" på min build-Server
+*Allt bygger på OK när jag felsöker på min utvecklings dator, men jag får ett NuGet-fel på Build-servern.*
 
-Se [NuGet-Paketåterställning](https://docs.nuget.org/Consume/Package-Restore) och [automatisk Paketåterställning](https://docs.nuget.org/Consume/package-restore/migrating-to-automatic-package-restore).
+Se [NuGet Package Restore](https://docs.nuget.org/Consume/Package-Restore) och [Automatisk paket återställning](https://docs.nuget.org/Consume/package-restore/migrating-to-automatic-package-restore).
 
-## <a name="missing-menu-command-to-open-application-insights-from-visual-studio"></a>Saknas menyn kommando för att öppna Application Insights från Visual Studio
-*När jag högerklickar på mitt projekt Solution Explorer kan jag ser inte alla Application Insights-kommandon eller ett öppna Application Insights-kommandot finns inte.*
+## <a name="missing-menu-command-to-open-application-insights-from-visual-studio"></a>Meny kommandot som saknas för att öppna Application Insights från Visual Studio
+*När jag högerklickar på mitt projekt Solution Explorer ser jag inte några Application Insights-kommandon eller så visas inte kommandot Öppna Application Insights.*
 
-Troliga orsaker:
+Sannolika orsaker:
 
-* Om du har skapat Application Insights-resursen manuellt, eller om projektet är av en typ som inte stöds av Application Insights-verktyg.
-* Developer Analytics tools är inaktiverade i din Visual Studio.
-* Din Visual Studio är äldre än 2013 Update 3.
+* Om du skapade Application Insights resursen manuellt, eller om projektet är av en typ som inte stöds av Application Insightss verktyg.
+* Developer Analytics Tools är inaktiverade i Visual Studio.
+* Visual Studio är äldre än 2013 uppdatering 3.
 
-Fix:
+Löser
 
-* Kontrollera din version av Visual Studio 2013 update 3 eller senare.
-* Välj **verktyg**, **tillägg och uppdateringar** och kontrollera att **Developer Analytics tools** är installerat och aktiverat. I så, fall klickar du på **uppdateringar** att se om det finns en uppdatering.
-* Högerklicka på projektet i Solution Explorer. Om du ser kommandot **Application Insights > Konfigurera Application Insights**, använda den för att ansluta ditt projekt till resursen i Application Insights-tjänsten.
+* Se till att Visual Studio-versionen är 2013 uppdatering 3 eller senare.
+* Välj **verktyg**, **tillägg och uppdateringar** och kontrol lera att **Developer Analytics tools** är installerat och aktiverat. Om så är fallet klickar du på **uppdateringar** för att se om det finns en tillgänglig uppdatering.
+* Högerklicka på ditt projekt i Solution Explorer. Om du ser kommandot **Application Insights > konfigurera Application Insights**använder du det för att ansluta projektet till resursen i Application Insightss tjänsten.
 
-I annat fall stöds din projekttyp inte direkt av Developer Analytics-verktyg. Om du vill se din telemetri, logga in på den [Azure-portalen](https://portal.azure.com), Välj Application Insights i det vänstra navigeringsfältet och välj ditt program.
+Annars stöds inte projekt typen direkt av Developer Analytics-verktygen. Om du vill se din telemetri loggar du in på [Azure Portal](https://portal.azure.com), väljer Application Insights i det vänstra navigerings fältet och väljer ditt program.
 
-## <a name="access-denied-on-opening-application-insights-from-visual-studio"></a>”Åtkomst nekad” på att öppna Application Insights från Visual Studio
-*Kommandot ”Öppna Application Insights” kommer jag till Azure-portalen, men jag får felmeddelandet ”åtkomst nekad”.*
+## <a name="access-denied-on-opening-application-insights-from-visual-studio"></a>"Åtkomst nekad" vid öppnande av Application Insights från Visual Studio
+*Meny kommandot Öppna Application Insights tar mig till Azure Portal, men jag får ett fel av typen "åtkomst nekad".*
 
-Microsoft inloggningen som du senast använde i din standardwebbläsare har inte åtkomst till [resursen som skapades när Application Insights har lagts till i den här appen](../../azure-monitor/app/asp-net.md). Det finns två sannolika orsaker:
+Den Microsoft-inloggning som du senast använde i din standard webbläsare har inte åtkomst till [den resurs som skapades när Application Insights lades till i den här appen](../../azure-monitor/app/asp-net.md). Det finns två möjliga orsaker:
 
-* Du har mer än en Microsoft-konto – kanske ett arbets- och ett personligt microsoftkonto? Inloggning som du senast använde i din standardwebbläsare var för ett annat konto än det som har åtkomst till [Lägg till Application Insights i projektet](../../azure-monitor/app/asp-net.md).
-  * Fix: Klicka på ditt namn på överst till höger i webbläsarfönstret och logga ut. Logga sedan in med det konto som har åtkomst. Klicka på Application Insights på det vänstra navigeringsfältet och välj din app.
-* Någon annan har lagt till Application Insights i projektet och de har glömt att ge dig [åtkomst till resursgruppen](../../azure-monitor/app/resources-roles-access-control.md) i som den skapades.
-  * Fix: Om de har använt ett organisationskonto, kan de lägga till dig i teamet; eller de kan bevilja enskilda åtkomst till resursgruppen.
+* Har du mer än en Microsoft-konto – kanske ett arbete och en personlig Microsoft-konto? Den inloggning som du senast använde i din standard webbläsare var för ett annat konto än den som har åtkomst att [lägga till Application Insights i projektet](../../azure-monitor/app/asp-net.md).
+  * Löser Klicka på ditt namn längst upp till höger i webbläsarfönstret och logga ut. Logga sedan in med det konto som har åtkomst. Klicka sedan på Application Insights i det vänstra navigerings fältet och välj din app.
+* Någon annan lade till Application Insights i projektet och glömde till att ge dig [åtkomst till resurs gruppen](../../azure-monitor/app/resources-roles-access-control.md) där den skapades.
+  * Löser Om de använder ett organisations konto kan de lägga till dig i teamet. eller så kan de ge dig individuell åtkomst till resurs gruppen.
 
-## <a name="asset-not-found-on-opening-application-insights-from-visual-studio"></a>'Tillgången kunde inte hittas ”med att öppna Application Insights från Visual Studio
-*Kommandot ”Öppna Application Insights” kommer jag till Azure-portalen, men jag får felmeddelandet ”Det gick inte att hitta tillgången'.*
+## <a name="asset-not-found-on-opening-application-insights-from-visual-studio"></a>"Till gången hittades inte vid öppnande av Application Insights från Visual Studio
+*Meny kommandot Öppna Application Insights tar mig till Azure Portal, men jag får ett fel meddelande om att det inte går att hitta till gång.*
 
-Troliga orsaker:
+Sannolika orsaker:
 
-* Application Insights-resurs för ditt program har tagits bort; eller
-* Instrumenteringsnyckeln angavs eller ändrades i ApplicationInsights.config genom att redigera direkt, utan att uppdatera projektfilen.
+* Application Insights resursen för ditt program har tagits bort. eller
+* Instrumentation-nyckeln har angetts eller ändrats i ApplicationInsights. config genom att den redige ras direkt, utan att projekt filen uppdaterades.
 
-Instrumenteringsnyckeln i ApplicationInsights.config kontroller där telemetri som skickas. En rad i projektfilen styr vilken resurs som öppnas när du använder kommandot i Visual Studio.
+Instrumentation-nyckeln i ApplicationInsights. config styr var Telemetrin skickas. En rad i projekt filen styr vilken resurs som öppnas när du använder kommandot i Visual Studio.
 
-Fix:
+Löser
 
-* Högerklicka på projektet i Solution Explorer och välj Application Insights, konfigurera Application Insights. I dialogrutan kan du antingen välja att skicka telemetri till en befintlig resurs eller skapa en ny. Eller:
-* Öppna resursen direkt. Logga in på [Azure-portalen](https://portal.azure.com), klickar du på Application Insights i det vänstra navigeringsfältet och välj sedan din app.
+* I Solution Explorer högerklickar du på projektet och väljer Application Insights, konfigurerar Application Insights. I dialog rutan kan du antingen välja att skicka telemetri till en befintlig resurs eller skapa en ny. Eller
+* Öppna resursen direkt. Logga in på [Azure Portal](https://portal.azure.com), klicka på Application Insights i det vänstra navigerings fältet och välj sedan din app.
 
 ## <a name="where-do-i-find-my-telemetry"></a>Var hittar jag min telemetri?
-*Jag har loggat in på den [Microsoft Azure-portalen](https://portal.azure.com), och jag tittar på instrumentpanelen för Azure hem. Så var hittar jag mina Application Insights-data?*
+*Jag har loggat in på [Microsoft Azure-portalen](https://portal.azure.com)och jag tittar på Azures start instrument panel. Så var hittar jag mina Application Insights-data?*
 
-* På det vänstra navigeringsfältet, klickar du på Application Insights och sedan appnamnet på din. Om du inte har några projekt det kan du behöva [lägga till eller konfigurera Application Insights i webbprojektet](../../azure-monitor/app/asp-net.md).  
-  Det visas en sammanfattning av diagram. Du kan klicka igenom dem för att se mer information.
-* Klicka på knappen Application Insights i Visual Studio medan du felsöker din app.
+* I det vänstra navigerings fältet klickar du på Application Insights och sedan på ditt app-namn. Om du inte har några projekt där måste du [lägga till eller konfigurera Application Insights i ditt webb projekt](../../azure-monitor/app/asp-net.md).  
+  Där visas några sammanfattnings diagram. Du kan klicka på dem för att se mer information.
+* I Visual Studio, medan du felsöker appen, klickar du på knappen Application Insights.
 
-## <a name="q03"></a> Ingen server-data (eller inga data alls)
-*Jag har kört appen och sedan öppna Application Insights-tjänsten i Microsoft Azure, men alla diagram visar ”Lär dig hur du samlar in...” eller ”ej konfigurerad”.* Eller, *endast sidvy och användardata, men inga serverdata.*
+## <a name="q03"></a>Inga Server data (eller inga data alls)
+*Jag körde appen och öppnade Application Insights tjänsten i Microsoft Azure, men i alla diagram visas "Lär dig mer om att samla in..." eller "inte konfigurerad".* Eller, *endast sid visning och användar data, men inga Server data.*
 
-* Kör programmet i felsökningsläge i Visual Studio (F5). Använda programmet för att generera telemetri. Kontrollera att du kan se händelserna som loggas i utdatafönstret i Visual Studio.  
+* Kör programmet i fel söknings läge i Visual Studio (F5). Använd programmet så att du kan generera vissa telemetri. Kontrol lera att du kan se händelser som loggats i Visual Studio output-fönstret.  
   ![](./media/asp-net-troubleshoot-no-data/output-window.png)
-* Öppna Application Insights-portalen [Diagnostiksökning](../../azure-monitor/app/diagnostic-search.md). Data visas vanligtvis här först.
-* Klicka på Uppdatera. Bladet uppdaterar själva regelbundet, men du kan också göra det manuellt. Uppdateringsintervall är längre för större tidsintervall.
-* Kontrollera de instrumentation nycklarna matchar. Huvudbladet innehåller för din app i Application Insights-portalen i den **Essentials** listrutan, titta på **instrumenteringsnyckeln**. I ditt projekt i Visual Studio, öppna ApplicationInsights.config och hitta den `<instrumentationkey>`. Kontrollera att två nycklar är lika med. Om inte:  
-  * I portalen klickar du på Application Insights och leta efter den appresursen med rätt nyckel; eller
-  * Högerklicka på projektet i Visual Studio Solution Explorer och välj Application Insights, konfigurera. Återställ appen för att skicka telemetrin till rätt resurs.
-  * Om du inte kan hitta de matchande nycklarna, kontrollerar du att du använder samma autentiseringsuppgifter logga in i Visual Studio som i på portalen.
-* I den [home Microsoft Azure-instrumentpanelen](https://portal.azure.com), titta på kartan Tjänstehälsa. Om det finns några aviseringar indikationer, vänta tills de har kommit tillbaka till OK och stänger och öppnar ditt programblad i Application Insights.
-* Kontrollera också [vår status blogg](https://blogs.msdn.microsoft.com/servicemap-status/).
-* Har du skriva kod för den [SDK för serversidan](../../azure-monitor/app/api-custom-events-metrics.md) som kan komma att ändras instrumenteringsnyckeln i `TelemetryClient` instanser eller i `TelemetryContext`? Eller har du skriva en [filter eller sampling](../../azure-monitor/app/api-filtering-sampling.md) som kanske filtreras för mycket?
-* Om du har redigerat ApplicationInsights.config noggrant kontrollera konfigurationen för [TelemetryInitializers och TelemetryProcessors](../../azure-monitor/app/api-filtering-sampling.md). En typ av fel namn eller parameter kan orsaka SDK, för att skicka inga data.
+* Öppna [diagnostisk sökning](../../azure-monitor/app/diagnostic-search.md)i Application Insights-portalen. Data visas vanligt vis här först.
+* Klicka på knappen Uppdatera. Bladet uppdateras regelbundet, men du kan också göra det manuellt. Uppdaterings intervallet är längre för större tidsintervall.
+* Kontrol lera Instrumentation Keys-matchningar. På huvud bladet för din app i Application Insights portal går du till kombinations rutan **Essentials** och tittar på **Instrumentation-tangenten**. Öppna sedan ApplicationInsights. config i ditt projekt i Visual Studio och leta upp `<instrumentationkey>`. Kontrol lera att de två nycklarna är lika. Om inte:  
+  * I portalen klickar du på Application Insights och letar efter app-resursen med rätt nyckel. eller
+  * I Visual Studio Solution Explorer högerklickar du på projektet och väljer Application Insights, konfigurera. Återställ appen för att skicka telemetri till rätt resurs.
+  * Om du inte hittar matchande nycklar kontrollerar du att du använder samma inloggnings uppgifter i Visual Studio som i portalen.
+* Titta på Service Health kartan i [Microsoft Azure start-instrumentpanelen](https://portal.azure.com). Om det finns några aviserings indikationer väntar du tills de har kommit tillbaka till OK och stänger sedan och öppnar bladet Application Insights program igen.
+* Kontrol lera även [vår status blogg](https://blogs.msdn.microsoft.com/servicemap-status/).
+* Skrev du någon kod för SDK för [Server sidan](../../azure-monitor/app/api-custom-events-metrics.md) som kan ändra Instrumentation-nyckeln i `TelemetryClient` instanser eller i `TelemetryContext`? Eller har du skrivit ett [filter eller en samplings konfiguration](../../azure-monitor/app/api-filtering-sampling.md) som kan filtrera ut alltför mycket?
+* Om du redigerade ApplicationInsights. config bör du noggrant kontrol lera konfigurationen av [TelemetryInitializers och TelemetryProcessors](../../azure-monitor/app/api-filtering-sampling.md). En felaktigt namngiven typ eller parameter kan orsaka att SDK inte skickar några data.
 
-## <a name="q04"></a>Inga data om sidvisningar, webbläsare, användning
-*Jag se data i svarstid för servern och servern för serverbegäranden, men inga data i vyn sidinläsningstid eller i bladen webbläsare och användning.*
+## <a name="q04"></a>Inga data för sid visningar, webbläsare, användning
+*Jag ser data i diagram över Server svars tid och server begär Anden, men inga data i sid inläsnings tiden, eller i webb sidor för webbläsare eller användning.*
 
-Data kommer från skript i webbsidor. 
+Data kommer från skript på webb sidorna. 
 
-* Om du har lagt till Application Insights till ett befintligt webbprojekt [du måste lägga till skripten manuellt](../../azure-monitor/app/javascript.md).
-* Se till att Internet Explorer inte visar webbplatsen i kompatibilitetsläge.
-* Använda webbläsarens debug-funktionen (F12 på vissa webbläsare, väljer nätverket) för att verifiera att data som skickas till `dc.services.visualstudio.com`.
+* Om du har lagt till Application Insights till ett befintligt webb projekt måste [du lägga till skripten manuellt](../../azure-monitor/app/javascript.md).
+* Se till att Internet Explorer inte visar din webbplats i kompatibilitetsläge.
+* Använd webbläsarens fel söknings funktion (F12 på vissa webbläsare och välj sedan nätverk) för att kontrol lera att data skickas `dc.services.visualstudio.com`till.
 
-## <a name="no-dependency-or-exception-data"></a>Inga data beroende eller undantag
-Se [beroendetelemetri](../../azure-monitor/app/asp-net-dependencies.md) och [undantagstelemetri](asp-net-exceptions.md).
+## <a name="no-dependency-or-exception-data"></a>Inga beroenden eller undantags data
+Se [beroende telemetri](../../azure-monitor/app/asp-net-dependencies.md) och [telemetri för undantag](asp-net-exceptions.md).
 
-## <a name="no-performance-data"></a>Inga prestandadata
-Prestandadata (CPU, IO-frekvens och så vidare) är tillgänglig för [Java webbtjänster](../../azure-monitor/app/java-collectd.md), [Windows-skrivbordsappar](../../azure-monitor/app/windows-desktop.md), [IIS webbprogram och tjänster om du installerar statusövervakaren](../../azure-monitor/app/monitor-performance-live-website-now.md), och [Azure Cloud Services](../../azure-monitor/app/app-insights-overview.md). Du hittar det under inställningar för servrar.
+## <a name="no-performance-data"></a>Inga prestanda data
+Prestanda data (CPU, IO-taxa och så vidare) är tillgängliga för [Java-webbtjänster](../../azure-monitor/app/java-collectd.md), [Windows](../../azure-monitor/app/windows-desktop.md)-skrivbordsappar, [IIS-webbappar och-tjänster om du installerar status övervakaren](../../azure-monitor/app/monitor-performance-live-website-now.md)och [Azure Cloud Services](../../azure-monitor/app/app-insights-overview.md). du hittar det under Inställningar, servrar.
 
-## <a name="no-server-data-since-i-published-the-app-to-my-server"></a>Inga (server) data eftersom jag har publicerat appen till Min server
-* Kontrollera att du faktiskt kopieras alla Microsoft. ApplicationInsights DLL-filer till servern, tillsammans med Microsoft.Diagnostics.Instrumentation.Extensions.Intercept.dll
-* I brandväggen, du kan behöva [öppna vissa TCP-portar](../../azure-monitor/app/ip-addresses.md).
-* Om du behöver använda en proxyserver för att skicka utanför företagets nätverk, ställa in [defaultProxy](https://msdn.microsoft.com/library/aa903360.aspx) i Web.config
-* Windows Server 2008: Kontrollera att du har installerat följande uppdateringar: [KB2468871](https://support.microsoft.com/kb/2468871), [KB2533523](https://support.microsoft.com/kb/2533523), [KB2600217](https://support.microsoft.com/kb/2600217).
+## <a name="no-server-data-since-i-published-the-app-to-my-server"></a>Inga (Server) data sedan jag publicerade appen på min server
+* Kontrol lera att du verkligen har kopierat alla Microsoft. ApplicationInsights-dll: er till-servern, tillsammans med Microsoft. Diagnostics. Instrumentation. Extensions. skärning. dll
+* I brand väggen kan du behöva [öppna vissa TCP-portar](../../azure-monitor/app/ip-addresses.md).
+* Om du måste använda en proxyserver för att skicka ut från företags nätverket anger du [defaultProxy](https://msdn.microsoft.com/library/aa903360.aspx) i Web. config
+* Windows Server 2008: Kontrol lera att du har installerat följande uppdateringar: [KB2468871](https://support.microsoft.com/kb/2468871), [KB2533523](https://support.microsoft.com/kb/2533523), [KB2600217](https://support.microsoft.com/kb/2600217).
 
-## <a name="i-used-to-see-data-but-it-has-stopped"></a>Jag använde för att se data, men den har stoppats
-* Kontrollera den [status blogg](https://blogs.msdn.com/b/applicationinsights-status/).
-* Har du nått din månatliga kvot för datapunkter? Öppna inställningar/kvoter och priser för att ta reda på. I så fall kan du uppgradera din plan eller betala för ytterligare kapacitet. Se den [priser schema](https://azure.microsoft.com/pricing/details/application-insights/).
+## <a name="i-used-to-see-data-but-it-has-stopped"></a>Jag har använt för att se data, men har stoppats
+* Kontrol lera [status bloggen](https://blogs.msdn.com/b/applicationinsights-status/).
+* Har du nått din månads kvot för data punkter? Öppna inställningarna/kvoten och prissättningen för att ta reda på det. I så fall kan du uppgradera planen eller betala för ytterligare kapacitet. Se [pris Planen](https://azure.microsoft.com/pricing/details/application-insights/).
 
-## <a name="i-dont-see-all-the-data-im-expecting"></a>Jag ser inte alla data som jag förväntar mig
-Om ditt program skickar stora mängder data och du använder Application Insights SDK för ASP.NET version 2.0.0-beta3 eller senare, den [Adaptiv sampling](../../azure-monitor/app/sampling.md) funktionen kan användas och skicka bara en del av telemetrin.
+## <a name="i-dont-see-all-the-data-im-expecting"></a>Jag ser inte alla data jag förväntar mig
+Om ditt program skickar mycket data och du använder Application Insights SDK för ASP.NET-version 2.0.0-beta3 eller senare, kan den [anpassningsbara samplings](../../azure-monitor/app/sampling.md) funktionen hantera och bara skicka en procent andel av din telemetri.
 
-Du kan inaktivera det, men detta rekommenderas inte. Sampling är utformat så att relaterad telemetri är korrekt överförs i diagnostiskt syfte.
+Du kan inaktivera det, men det rekommenderas inte. Sampling är utformad så att relaterad telemetri överförs korrekt, i syfte att utföra diagnostiken.
 
 ## <a name="client-ip-address-is-0000"></a>Klientens IP-adress är 0.0.0.0
 
-Februari 5 2018 meddelade vi att vi har tagit bort loggning av klient-IP-adress. Detta påverkar inte geografisk plats.
+Den 5 2018 februari meddelade vi att vi tog bort en loggning av klientens IP-adress. Detta påverkar inte geo-platsen.
 
 > [!NOTE]
-> Om du behöver först 3 oktetter i IP-adress kan du använda en [telemetriinitieraren](https://docs.microsoft.com/azure/application-insights/app-insights-api-filtering-sampling#add-properties-itelemetryinitializer) att lägga till ett anpassat attribut.
+> Om du behöver de tre första oktetterna i IP-adressen kan du använda en [telemetri-initierare](https://docs.microsoft.com/azure/application-insights/app-insights-api-filtering-sampling#add-properties-itelemetryinitializer) för att lägga till ett anpassat attribut.
 > Detta påverkar inte data som samlats in före den 5 februari 2018.
 
-## <a name="wrong-geographical-data-in-user-telemetry"></a>Fel geografiska data i användaren telemetri
-Den ort, region och land dimensioner härleds från IP-adresser och alltid är inte korrekt. Dessa IP-adresser bearbetas för platsen först och sedan ändrades till 0.0.0.0 ska lagras.
+## <a name="wrong-geographical-data-in-user-telemetry"></a>Fel geografisk data i telemetri för användare
+Dimensionerna stad, region och land härleds från IP-adresser och är inte alltid korrekta. De här IP-adresserna bearbetas först och ändras sedan till 0.0.0.0 för att lagras.
 
 ## <a name="exception-method-not-found-on-running-in-azure-cloud-services"></a>Undantaget ”metoden hittades inte” vid körning i Azure Cloud Services
 Utvecklade du för .NET 4.6? 4.6 stöds inte automatiskt i Azure Cloud Services-roller. [Installera 4.6 för varje roll](../../cloud-services/cloud-services-dotnet-install-dotnet.md) innan du kör din app.
 
-## <a name="troubleshooting-logs"></a>Felsökningsloggar
+## <a name="troubleshooting-logs"></a>Felsöka loggar
 
-Följ dessa instruktioner för att avbilda felsökningsloggarna för ditt ramverk.
+Följ de här anvisningarna för att avbilda fel söknings loggar för ditt ramverk.
 
 ### <a name="net-framework"></a>.NET Framework
 
-1. Installera den [Microsoft.AspNet.ApplicationInsights.HostingStartup](https://www.nuget.org/packages/Microsoft.AspNet.ApplicationInsights.HostingStartup) från NuGet. Den version som du installerar måste matcha den aktuella installerade versionen av `Microsoft.ApplicationInsighs`
+1. Installera paketet [Microsoft. ASPNET. ApplicationInsights. HostingStartup](https://www.nuget.org/packages/Microsoft.AspNet.ApplicationInsights.HostingStartup) från NuGet. Versionen som du installerar måste matcha den aktuella installerade versionen av`Microsoft.ApplicationInsighs`
 
-2. Ändra filen applicationinsights.config för att inkludera följande:
+2. Ändra filen applicationinsights. config så att den innehåller följande:
 
     ```xml
     <TelemetryModules>
@@ -207,19 +207,19 @@ Följ dessa instruktioner för att avbilda felsökningsloggarna för ditt ramver
       </Add>
     </TelemetryModules>
     ```
-    Programmet måste ha skrivbehörighet till den konfigurerade platsen
+    Ditt program måste ha Skriv behörighet till den konfigurerade platsen
 
-3. Starta om processen så att de nya inställningarna fångas upp av SDK
+3. Starta om processen så att dessa nya inställningar hämtas av SDK
 
-4. När du är klar kan du återställa dessa ändringar.
+4. Återställ ändringarna när du är färdig.
 
 ### <a name="net-core"></a>.NET Core
 
-1. Installera den [Microsoft.AspNet.ApplicationInsights.HostingStartup](https://www.nuget.org/packages/Microsoft.AspNet.ApplicationInsights.HostingStartup) från NuGet. Den version som du installerar måste matcha den aktuella installerade versionen av `Microsoft.ApplicationInsights`
+1. Installera paketet [Microsoft. ASPNET. ApplicationInsights. HostingStartup](https://www.nuget.org/packages/Microsoft.AspNet.ApplicationInsights.HostingStartup) från NuGet. Versionen som du installerar måste matcha den aktuella installerade versionen av`Microsoft.ApplicationInsights`
 
-Den senaste versionen av Microsoft.ApplicationInsights.AspNetCore är 2.7.1 och den refererar till Microsoft.ApplicationInsights version 2.10. Därför bör Microsoft.AspNet.ApplicationInsights.HostingStartup installeras vara 2.10.0
+Den senaste versionen av Microsoft. ApplicationInsights. AspNetCore är 2.7.1 och refererar till Microsoft. ApplicationInsights version 2,10. Därför bör den version av Microsoft. ASPNET. ApplicationInsights. HostingStartup som ska installeras vara 2.10.0
 
-2. Ändra `ConfigureServices` -metod i din `Startup.cs` klass.:
+2. Ändra `ConfigureServices` metod`Startup.cs` i klassen.:
 
     ```csharp
     services.AddSingleton<ITelemetryModule, FileDiagnosticsTelemetryModule>();
@@ -229,32 +229,32 @@ Den senaste versionen av Microsoft.ApplicationInsights.AspNetCore är 2.7.1 och 
         module.Severity = "Verbose";
     } );
     ```
-    Programmet måste ha skrivbehörighet till den konfigurerade platsen
+    Ditt program måste ha Skriv behörighet till den konfigurerade platsen
 
-3. Starta om processen så att de nya inställningarna fångas upp av SDK
+3. Starta om processen så att dessa nya inställningar hämtas av SDK
 
-4. När du är klar kan du återställa dessa ändringar.
+4. Återställ ändringarna när du är färdig.
 
 
-## <a name="PerfView"></a> Samla in loggar med PerfView
-[PerfView](https://github.com/Microsoft/perfview) är ett kostnadsfritt diagnostik och prestandaanalys verktyg som hjälper att isolera processor, minne och andra problem genom att samla in och visualisera diagnostikinformation från många källor.
+## <a name="PerfView"></a>Samla in loggar med PerfView
+[PerfView](https://github.com/Microsoft/perfview) är ett kostnads fritt verktyg för diagnostik och prestanda analys som hjälper till att isolera CPU, minne och andra problem genom att samla in och visualisera diagnostikinformation från många källor.
 
-Application Insights SDK logga EventSource lokal felsökning loggarna som samlas in av PerfView.
+Application Insights SDK-loggen EventSource själv fel söknings loggar som kan samlas in av PerfView.
 
-Hämta PerfView för att samla in loggar och kör det här kommandot:
+Om du vill samla in loggar hämtar du PerfView och kör det här kommandot:
 ```cmd
-PerfView.exe collect -MaxCollectSec:300 -NoGui /onlyProviders=*Microsoft-ApplicationInsights-Core,*Microsoft-ApplicationInsights-Data,*Microsoft-ApplicationInsights-WindowsServer-TelemetryChannel,*Microsoft-ApplicationInsights-Extensibility-AppMapCorrelation-Dependency,*Microsoft-ApplicationInsights-Extensibility-AppMapCorrelation-Web,*Microsoft-ApplicationInsights-Extensibility-DependencyCollector,*Microsoft-ApplicationInsights-Extensibility-HostingStartup,*Microsoft-ApplicationInsights-Extensibility-PerformanceCollector,*Microsoft-ApplicationInsights-Extensibility-PerformanceCollector-QuickPulse,*Microsoft-ApplicationInsights-Extensibility-Web,*Microsoft-ApplicationInsights-Extensibility-WindowsServer,*Microsoft-ApplicationInsights-WindowsServer-Core,*Microsoft-ApplicationInsights-Extensibility-EventSourceListener,*Microsoft-ApplicationInsights-AspNetCore
+PerfView.exe collect -MaxCollectSec:300 -NoGui /onlyProviders=*Microsoft-ApplicationInsights-Core,*Microsoft-ApplicationInsights-Data,*Microsoft-ApplicationInsights-WindowsServer-TelemetryChannel,*Microsoft-ApplicationInsights-Extensibility-AppMapCorrelation-Dependency,*Microsoft-ApplicationInsights-Extensibility-AppMapCorrelation-Web,*Microsoft-ApplicationInsights-Extensibility-DependencyCollector,*Microsoft-ApplicationInsights-Extensibility-HostingStartup,*Microsoft-ApplicationInsights-Extensibility-PerformanceCollector,*Microsoft-ApplicationInsights-Extensibility-EventCounterCollector,*Microsoft-ApplicationInsights-Extensibility-PerformanceCollector-QuickPulse,*Microsoft-ApplicationInsights-Extensibility-Web,*Microsoft-ApplicationInsights-Extensibility-WindowsServer,*Microsoft-ApplicationInsights-WindowsServer-Core,*Microsoft-ApplicationInsights-Extensibility-EventSourceListener,*Microsoft-ApplicationInsights-AspNetCore
 ```
 
-Du kan ändra parametrarna efter behov:
-- **MaxCollectSec**. Ange den här parametern för att förhindra PerfView körs på obestämd tid och påverkar serverns prestanda.
-- **OnlyProviders**. Ange den här parametern för att endast samla in loggar från SDK. Du kan anpassa den här listan baserat på dina specifika undersökningar. 
-- **NoGui**. Ange den här parametern om du vill samla in loggar utan det grafiska användargränssnittet.
+Du kan ändra dessa parametrar efter behov:
+- **MaxCollectSec**. Ange den här parametern för att förhindra att PerfView körs på obestämd tid och påverkar serverns prestanda.
+- **OnlyProviders**. Ange den här parametern om du endast vill samla in loggar från SDK. Du kan anpassa listan baserat på dina speciella undersökningar. 
+- **NoGui**. Ange den här parametern om du vill samla in loggar utan det grafiska användar gränssnittet.
 
 
 Mer information
-- [Spela in prestandaspårningar med PerfView](https://github.com/dotnet/roslyn/wiki/Recording-performance-traces-with-PerfView).
-- [Application Insights-händelsekällor](https://github.com/microsoft/ApplicationInsights-Home/tree/master/Samples/ETW)
+- [Prestanda spår registreras med PerfView](https://github.com/dotnet/roslyn/wiki/Recording-performance-traces-with-PerfView).
+- [Application Insights händelse källor](https://github.com/microsoft/ApplicationInsights-Home/tree/master/Samples/ETW)
 
-## <a name="still-not-working"></a>Fortfarande fungerar inte...
-* [Application Insights-forum](https://social.msdn.microsoft.com/Forums/vstudio/en-US/home?forum=ApplicationInsights)
+## <a name="still-not-working"></a>Fungerar fortfarande inte...
+* [Application Insights forum](https://social.msdn.microsoft.com/Forums/vstudio/en-US/home?forum=ApplicationInsights)

@@ -8,18 +8,18 @@ author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
-ms.date: 03/19/2019
-ms.openlocfilehash: 9d621905122ab7bf64432323d7d11cf8f1b50750
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 09/20/2019
+ms.openlocfilehash: 637bb01bff625989e392d5d711ebd5cdef5c0e09
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60888379"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71169643"
 ---
 # <a name="test-terraform-modules-in-azure-by-using-terratest"></a>Testa Terraform-moduler i Azure med hjälp av Terratest
 
 > [!NOTE]
-> Exempelkoden i den här artikeln fungerar inte med version 0,12 (eller senare).
+> Exempel koden i den här artikeln fungerar inte med version 0,12 (och senare).
 
 Du kan använda Azure Terraform-moduler för att skapa återanvändbara, sammansättningsbara och testningsbara komponenter. Terraform-moduler innehåller inkapsling som är användbar för att implementera infrastruktur som kodprocesser.
 

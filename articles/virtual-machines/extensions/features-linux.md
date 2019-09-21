@@ -3,7 +3,7 @@ title: Azure VM-tillägg och-funktioner för Linux | Microsoft Docs
 description: Lär dig vilka tillägg som är tillgängliga för virtuella Azure-datorer, grupperade efter vad de erbjuder eller förbättrar.
 services: virtual-machines-linux
 documentationcenter: ''
-author: roiyz-msft
+author: axayjo
 manager: gwallace
 editor: ''
 tags: azure-service-management,azure-resource-manager
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/30/2018
-ms.author: roiyz
-ms.openlocfilehash: 1a3fe1f70143e2c33a3e4d309991f1174eb2d6dd
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.author: akjosh
+ms.openlocfilehash: f66ec2ea9d0c042b698db1725980e981a27a55d0
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70092396"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71169011"
 ---
 # <a name="virtual-machine-extensions-and-features-for-linux"></a>Tillägg och funktioner för virtuella datorer för Linux
 
@@ -33,7 +33,7 @@ Flera olika Azure VM-tillägg är tillgängliga, var och en med ett särskilt an
 
 - Använd PowerShell Desired State Configurations på en virtuell dator med DSC-tillägget för Linux. Mer information finns i [tillägget Azure Desired State Configuration](https://github.com/Azure/azure-linux-extensions/tree/master/DSC).
 - Konfigurera övervakning av en virtuell dator med det virtuella dator tillägget för Microsoft Monitoring Agent. Mer information finns i [så här övervakar du en virtuell Linux-dator](../linux/tutorial-monitoring.md).
-- Konfigurera övervakning av din Azure-infrastruktur med chefs-eller Datadog-tillägget. Mer information finns i chefs [dokumenten](https://docs.chef.io/azure_portal.html) eller [Datadog-bloggen](https://www.datadoghq.com/blog/introducing-azure-monitoring-with-one-click-datadog-deployment/).
+- Konfigurera övervakning av din Azure-infrastruktur med chefs-eller Datadog-tillägget. Mer information finns i [chefs dokumenten](https://docs.chef.io/azure_portal.html) eller [Datadog-bloggen](https://www.datadoghq.com/blog/introducing-azure-monitoring-with-one-click-datadog-deployment/).
 
 Förutom process-/regionsspecifika tillägg är ett anpassat skript tillägg tillgängligt för virtuella Windows-och Linux-datorer. Med tillägget för anpassat skript för Linux kan alla bash-skript köras på en virtuell dator. Anpassade skript är användbara för att utforma Azure-distributioner som kräver konfiguration utöver vad interna Azure-verktyg kan tillhandahålla. Mer information finns i avsnittet om [anpassat skript tillägg för Linux-datorer](custom-script-linux.md).
 
@@ -403,7 +403,7 @@ Du kan också ta bort ett tillägg i Azure Portal på följande sätt:
 
 ## <a name="common-vm-extension-reference"></a>Vanlig referens för VM-tillägg
 
-| Tilläggs namn | Beskrivning | Mer information |
+| Namn på tillägg | Beskrivning | Mer information |
 | --- | --- | --- |
 | Anpassat skript tillägg för Linux |Kör skript mot en virtuell Azure-dator |[Anpassat skript tillägg för Linux](custom-script-linux.md) |
 | VM Access-tillägg |Få åtkomst till en virtuell Azure-dator |[VM Access-tillägg](https://github.com/Azure/azure-linux-extensions/tree/master/VMAccess) |

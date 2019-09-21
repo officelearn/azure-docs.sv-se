@@ -1,45 +1,45 @@
 ---
-title: Verifiera ett nav och ekrar nätverk med Terraform i Azure
-description: Självstudie för att verifiera NAV och ekrar nätverkets topologi med alla virtuella nätverk är anslutna till varandra.
+title: Verifiera ett nav-och eker-nätverk med terraform i Azure
+description: Självstudie för att verifiera nätverk sto pol Ogin för nav och ekrar med alla virtuella nätverk som är anslutna till varandra.
 services: terraform
 ms.service: azure
-keywords: terraform, nav och ekrar, nätverk, hybrid-nätverk, devops, VM, azure, vnet-peering,
+keywords: terraform, hubb och eker, nätverk, hybrid nätverk, DevOps, virtuell dator, Azure, VNet-peering,
 author: VaijanathB
 manager: jeconnoc
 ms.author: vaangadi
 ms.topic: tutorial
-ms.date: 03/01/2019
-ms.openlocfilehash: 157be65a19a1f790b911aa9d861c5f18fc8c0813
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.date: 09/20/2019
+ms.openlocfilehash: e35af0fcf4a8f1f8f0446be44fe5b0bb6eeec693
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62128271"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71169700"
 ---
-# <a name="tutorial-validate-a-hub-and-spoke-network-with-terraform-in-azure"></a>Självstudier: Verifiera ett nav och ekrar nätverk med Terraform i Azure
+# <a name="tutorial-validate-a-hub-and-spoke-network-with-terraform-in-azure"></a>Självstudier: Verifiera ett nav-och eker-nätverk med terraform i Azure
 
-I den här artikeln kan du köra terraform-filerna som skapades i föregående artikel i den här serien. Resultatet är en verifiering av anslutning mellan de virtuella nätverken för demonstration.
+I den här artikeln kör du terraform-filerna som skapades i föregående artikel i den här serien. Resultatet är en validering av anslutningen mellan virtuella demo nätverk.
 
 Den här självstudien omfattar följande uppgifter:
 
 > [!div class="checklist"]
-> * Använd HCL (HashiCorp Language) för att implementera den Hubbnätverk i topologin av typen hub-spoke
-> * Använd Terraform prenumerationen för att verifiera resurserna som ska distribueras
-> * Använd Terraform ansöka om för att skapa resurser i Azure
-> * Kontrollera anslutningen mellan olika nätverk
-> * Använd Terraform till att ta bort alla resurser
+> * Använd HCL (HashiCorp Language) för att implementera hubbens VNet i hubben för nav-eker
+> * Använd terraform plan för att kontrol lera vilka resurser som ska distribueras
+> * Använd terraform Använd för att skapa resurser i Azure
+> * Kontrol lera anslutningen mellan olika nätverk
+> * Använd terraform för att förstöra alla resurser
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
-1. [Skapa ett nav och ekrar hybrid nätverkets topologi med Terraform i Azure](./terraform-hub-spoke-introduction.md).
-1. [Skapa en lokal virtuellt nätverk med Terraform i Azure](./terraform-hub-spoke-on-prem.md).
-1. [Skapa ett virtuellt nätverk hub med Terraform i Azure](./terraform-hub-spoke-hub-network.md).
-1. [Skapa en virtuell nätverksinstallation hub med Terraform i Azure](./terraform-hub-spoke-hub-nva.md).
-1. [Skapa en eker virtuella nätverk med Terraform i Azure](./terraform-hub-spoke-spoke-network.md).
+1. [Skapa en nav-och eker hybrid nätverkstopologi med terraform i Azure](./terraform-hub-spoke-introduction.md).
+1. [Skapa lokalt virtuellt nätverk med terraform i Azure](./terraform-hub-spoke-on-prem.md).
+1. [Skapa ett virtuellt hubb nätverk med terraform i Azure](./terraform-hub-spoke-hub-network.md).
+1. [Skapa en hubb för virtuella nätverk med terraform i Azure](./terraform-hub-spoke-hub-nva.md).
+1. [Skapa ett eker-virtuellt nätverk med terraform i Azure](./terraform-hub-spoke-spoke-network.md).
 
-## <a name="verify-your-configuration"></a>Kontrollera konfigurationen
+## <a name="verify-your-configuration"></a>Verifiera konfigurationen
 
-När du har slutfört den [krav](#prerequisites), kontrollera att rätt konfigurationsfiler finns.
+När du har slutfört [kraven](#prerequisites)kontrollerar du att rätt konfigurationsfiler finns.
 
 1. Bläddra till [Azure-portalen](https://portal.azure.com).
 
@@ -59,27 +59,27 @@ När du har slutfört den [krav](#prerequisites), kontrollera att rätt konfigur
     cd hub-spoke
     ```
 
-1. Kör den `ls` kommando för att kontrollera att den `.tf` konfigurationsfiler som skapats i de föregående självstudierna visas:
+1. Kör kommandot för att kontrol lera `.tf` att config-filerna som skapats i de föregående självstudierna visas: `ls`
 
-    ![Konfigurationsfiler för Terraform-demo](./media/terraform-hub-and-spoke-tutorial-series/hub-spoke-config-files.png)
+    ![Konfigurationsfiler för terraform-demonstration](./media/terraform-hub-and-spoke-tutorial-series/hub-spoke-config-files.png)
 
 ## <a name="deploy-the-resources"></a>Distribuera resurserna
 
-1. Initiera Terraform-providern:
+1. Initiera terraform-providern:
     
     ```bash
     terraform init
     ```
     
-    ![Exempel på resultat av kommandot ”terraform init”](./media/terraform-hub-and-spoke-tutorial-series/hub-spoke-terraform-init.png)
+    ![Exempel på resultat av kommandot "terraform init"](./media/terraform-hub-and-spoke-tutorial-series/hub-spoke-terraform-init.png)
     
-1. Kör den `terraform plan` kommando för att se effekten av distributionen innan körningen:
+1. `terraform plan` Kör kommandot för att se resultatet av distributionen före körningen:
 
     ```bash
     terraform plan
     ```
     
-    ![Exempel på resultat av kommandot ”terraform plan”](./media/terraform-hub-and-spoke-tutorial-series/hub-spoke-terraform-plan.png)
+    ![Exempel på resultat av kommandot "terraform plan"](./media/terraform-hub-and-spoke-tutorial-series/hub-spoke-terraform-plan.png)
 
 1. Distribuera lösningen:
 
@@ -87,46 +87,46 @@ När du har slutfört den [krav](#prerequisites), kontrollera att rätt konfigur
     terraform apply
     ```
     
-    Ange `yes` när du uppmanas att bekräfta distribution.
+    Ange `yes` när du uppmanas att bekräfta distributionen.
 
-    ![Exempel på resultat från ”terraform gäller” kommandot](./media/terraform-hub-and-spoke-tutorial-series/hub-spoke-terraform-apply.png)
+    ![Exempel på resultat av kommandot "terraform Apply"](./media/terraform-hub-and-spoke-tutorial-series/hub-spoke-terraform-apply.png)
     
-## <a name="test-the-hub-vnet-and-spoke-vnets"></a>Testa det virtuella hubbnätverket och virtuella ekernätverk
+## <a name="test-the-hub-vnet-and-spoke-vnets"></a>Testa hubben VNet och ekrar virtuella nätverk
 
-Det här avsnittet visar hur du testa anslutningen från den simulerade lokala miljön till det virtuella hubbnätverket.
+Det här avsnittet visar hur du testar anslutningen från den simulerade lokala miljön till hubbens VNet.
 
-1. I Azure-portalen bläddrar du till den **onprem-vnet-rg** resursgrupp.
+1. I Azure Portal bläddrar du till resurs gruppen **OnPrem-VNet-RG** .
 
-1. I den **onprem-vnet-rg** väljer du den virtuella datorn med namnet **onprem-vm**.
+1. På fliken **OnPrem-VNet-RG** väljer du den virtuella datorn med namnet **OnPrem-VM**.
 
 1. Välj **Anslut**.
 
-1. Bredvid texten **logga in med lokalt konto för virtuell dator**, kopiera den **ssh** kommandot till Urklipp.
+1. Kopiera **SSH** -kommandot till Urklipp bredvid text **inloggningen med hjälp av lokalt konto för virtuell dator**.
 
-1. Från Kommandotolken i Linux, kör `ssh` att ansluta till den simulerade lokala miljön. Använd lösenordet som angavs i den `on-prem.tf` parameterfilen.
+1. Från Kommandotolken i Linux, kör `ssh` att ansluta till den simulerade lokala miljön. Använd lösen ordet som anges i `on-prem.tf` parameter filen.
 
-1. Kör den `ping` kommando för att testa anslutningen till jumpbox-datorn i det virtuella hubbnätverket:
+1. `ping` Kör kommandot för att testa anslutningen till den virtuella hopp datorn i hubbens VNet:
 
    ```bash
    ping 10.0.0.68
    ```
 
-1. Kör den `ping` kommando för att testa anslutningen till jumpboxen virtuella datorer i varje eker:
+1. `ping` Kör kommandot för att testa anslutningen till de virtuella datorerna i byglarna i varje eker:
 
    ```bash
    ping 10.1.0.68
    ping 10.2.0.68
    ```
 
-1. Avsluta den ssh-session på den **onprem-vm** virtuell dator, ange `exit` och tryck på &lt;RETUR >.
+1. Om du vill avsluta SSH-sessionen på den virtuella datorn **OnPrem** anger `exit` du och trycker &lt;på RETUR >.
 
-## <a name="troubleshoot-vpn-issues"></a>Felsöka problem med VPN
+## <a name="troubleshoot-vpn-issues"></a>Felsöka VPN-problem
 
-Information om hur du löser fel VPN finns i artikeln [felsöka hybrid VPN-anslutning](/azure/architecture/reference-architectures/hybrid-networking/troubleshoot-vpn).
+Information om hur du löser VPN-fel finns i artikeln [Felsöka en hybrid VPN-anslutning](/azure/architecture/reference-architectures/hybrid-networking/troubleshoot-vpn).
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-När den inte längre behövs kan du ta bort resurserna som skapas i den här självstudieserien.
+Ta bort de resurser som skapats i själv studie serien när de inte längre behövs.
 
 1. Ta bort de resurser som har deklarerats i planen:
 
@@ -134,15 +134,15 @@ När den inte längre behövs kan du ta bort resurserna som skapas i den här sj
     terraform destroy
     ```
 
-    Ange `yes` när du uppmanas att bekräfta borttagningen av resurser.
+    Ange `yes` när du uppmanas att bekräfta borttagningen av resurserna.
 
-1. Ändra sökvägen till den överordnade katalogen:
+1. Ändra kataloger till den överordnade katalogen:
 
     ```bash
     cd ..
     ```
 
-1. Ta bort den `hub-scope` katalogen (inklusive alla dess filer):
+1. Ta bort `hub-scope` katalogen (inklusive alla filer):
 
     ```bash
     rm -r hub-spoke
@@ -151,4 +151,4 @@ När den inte längre behövs kan du ta bort resurserna som skapas i den här sj
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"] 
-> [Läs mer om hur du använder Terraform i Azure](/azure/terraform)
+> [Lär dig mer om hur du använder terraform i Azure](/azure/terraform)

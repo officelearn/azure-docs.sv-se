@@ -5,14 +5,14 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: troubleshooting
-ms.date: 08/29/2019
+ms.date: 09/20/2019
 ms.author: helohr
-ms.openlocfilehash: 03a8e8063f1a66b929311f09bf8e20cd4b951e43
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: f919ff1efcb094dec4c810f51a1810f2383ea09d
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70163307"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71174117"
 ---
 # <a name="tenant-and-host-pool-creation"></a>Skapa klient- och värdpool
 
@@ -80,7 +80,7 @@ Det rekommenderade sättet att etablera virtuella datorer med hjälp av Azure Re
 
 Följ de här anvisningarna för att bekräfta att komponenterna är installerade och för att söka efter fel meddelanden.
 
-1. Bekräfta att de två komponenterna är installerade genom att kontrol > lera i program**och funktioner**på **kontroll panelen** > . Om **Windows Virtual Desktop** -agenten och start inläsaren för **virtuella Skriv bords agenter** för Windows inte visas, är de inte installerade på den virtuella datorn.
+1. Bekräfta att de två komponenterna är installerade genom att kontrol lera**i program** > **och funktioner**på **kontroll panelen** > . Om **Windows Virtual Desktop-agenten** och **Start inläsaren för virtuella Skriv bords agenter** för Windows inte visas, är de inte installerade på den virtuella datorn.
 2. Öppna **Utforskaren** och gå till **C:\Windows\Temp\scriptlogs.log**. Om filen saknas, anger det att PowerShell DSC som installerade de två komponenterna inte kunde köras i den angivna säkerhets kontexten.
 3. Om filen **C:\Windows\Temp\scriptlogs.log** finns öppnar du den och kontrollerar om det finns fel meddelanden.
 
@@ -296,17 +296,76 @@ Om operativ systemet är Microsoft Windows 10 fortsätter du med instruktionerna
 
 16. När cmdletarna har körts startar du om den virtuella datorn med den felaktiga stacken sida vid sida.
 
-## <a name="remote-licensing-model-is-not-configured"></a>Fjärran sluten licensierings modell har inte kon figurer ATS
+## <a name="remote-licensing-model-isnt-configured"></a>Fjärran sluten licensierings modell är inte konfigurerad
 
-Om du loggar in på Windows 10 Enterprise multi-session med ett administratörs konto kan du få ett meddelande om att licens läget för fjärr skrivbord inte har kon figurer ATS, Fjärrskrivbordstjänster slutar att fungera om X dagar. Använd Serverhanteraren för att ange licensierings läget för fjärr skrivbord på anslutnings Utjämnings servern. " Om du ser det här meddelandet innebär det att du måste konfigurera licens läget manuellt till **per användare**.
+Om du loggar in på Windows 10 Enterprise multi-session med ett administratörs konto kan du få ett meddelande om att licens läget för fjärr skrivbord inte har kon figurer ATS, Fjärrskrivbordstjänster slutar att fungera om X dagar. Använd Serverhanteraren för att ange licensierings läget för fjärr skrivbord på anslutnings Utjämnings servern. "
 
-Så här konfigurerar du licensierings läget manuellt:  
+Om tids gränsen löper ut visas ett fel meddelande om att "Fjärrsessionen kopplades från eftersom det inte finns några åtkomst licenser för fjärr skrivbords klienten tillgängliga för den här datorn."
 
-1. Gå till sökrutan i **Start-menyn** och leta upp och öppna **gpedit. msc** för att få åtkomst till den lokala grupprincip redigeraren. 
-2. Gå till **dator konfiguration** > **administrativa mallar** > **Windows-komponenter** > Fjärrskrivbordstjänstervärd >  för fjärrskrivbordssession >  **Licensiering**. 
-3. Välj **Ange licensierings läge för fjärr skrivbord** och ändra det till **per användare**.
+Om något av dessa meddelanden visas, innebär det att du måste öppna grupprincip redigeraren och manuellt konfigurera licensierings läget till **per användare**. Den manuella konfigurations processen varierar beroende på vilken version av Windows 10 Enterprise multi-session du använder. I följande avsnitt beskrivs hur du kontrollerar versions numret och vad du ska göra för var och en.
 
-Vi tittar för närvarande på problem med meddelande-och Grace-perioder och planerar att åtgärda dem i en framtida uppdatering. 
+>[!NOTE]
+>Windows Virtual Desktop kräver bara en klient åtkomst licens för klient organisation (CAL) när din värddator innehåller Windows Server-sessionsbaserade värdar. Information om hur du konfigurerar en klient åtkomst licens för fjärr skrivbords tjänster finns i [licens för klient åtkomst licenser](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-client-access-license).
+
+### <a name="identify-which-version-of-windows-10-enterprise-multi-session-youre-using"></a>Identifiera vilken version av Windows 10 Enterprise multi-session som du använder
+
+För att kontrol lera vilken version av Windows 10 Enterprise multi-session du har:
+
+1. Logga in med ditt administratörs konto.
+2. Ange "About" i Sök fältet bredvid Start-menyn.
+3. Välj **om din dator**.
+4. Kontrol lera numret bredvid "version". Talet ska vara antingen "1809" eller "1903", som du ser i följande bild.
+   
+    ![En skärm bild av fönstret Windows-specifikationer. Versions numret är markerat i blått.](media/windows-specifications.png)
+
+Nu när du vet versions numret kan du gå vidare till relevant avsnitt.
+
+### <a name="version-1809"></a>Version 1809
+
+Om ditt versions nummer står "1809" kan du antingen uppgradera till Windows 10 Enterprise multi-session, version 1903 eller distribuera om poolen med den senaste avbildningen.
+
+Uppgradera till Windows 10, version 1903:
+
+1. Om du inte redan har gjort det kan du hämta och installera [Windows 10 maj 2019 Update](https://support.microsoft.com/help/4028685/windows-10-get-the-update).
+2. Logga in på datorn med ditt administratörs konto.
+3. Kör **gpedit. msc** för att öppna grupprincip redigeraren.
+4. Under dator konfiguration går du till **administrativa mallar** > **Windows-komponenter** > **Fjärrskrivbordstjänster** > **värd** > licensiering för fjärrskrivbordssession.
+5. Välj **Ange licensierings läge för fjärr skrivbord**.
+6. I fönstret som öppnas väljer du först **aktive rad**och under alternativ anger du licensierings läget för värd servern för fjärrskrivbordssession som **per användare**, som du ser i följande bild.
+    
+    ![En skärm bild av fönstret "Ange licens läge för fjärr skrivbord" konfigurerat enligt anvisningarna i steg 6.](media/group-policy-editor-per-user.png)
+
+7. Välj **Använd**.
+8. Välj **OK**.
+9.  Starta om datorn.
+
+Distribuera om poolen med den senaste avbildningen:
+
+1. Följ instruktionerna i [skapa en adresspool med hjälp av Azure Marketplace](create-host-pools-azure-marketplace.md) tills du uppmanas att välja en avbildnings-OS-version. Du kan välja antingen Windows 10 Enterprise multi-session med eller utan Office365 ProPlus.
+2. Logga in på datorn med ditt administratörs konto.
+3. Kör **gpedit. msc** för att öppna grupprincip redigeraren.
+4. Under dator konfiguration går du till **administrativa mallar** > **Windows-komponenter** > **Fjärrskrivbordstjänster** > **värd** > licensiering för fjärrskrivbordssession.
+5. Välj **Ange licensierings läge för fjärr skrivbord**.
+6. I fönstret som öppnas väljer du först **aktive rad**och under alternativ anger du licensierings läget för värd servern för fjärrskrivbordssession som **per användare**.
+7. Välj **Använd**.
+8. Välj **OK**.
+9.  Starta om datorn.
+
+### <a name="version-1903"></a>Version 1903
+
+Om ditt versions nummer står "1903", följer du dessa anvisningar:
+
+1. Logga in på datorn med ditt administratörs konto.
+2. Kör **gpedit. msc** för att öppna grupprincip redigeraren.
+3. Under dator konfiguration går du till **administrativa mallar** > **Windows-komponenter** > **Fjärrskrivbordstjänster** > **värd** > licensiering för fjärrskrivbordssession.
+4. Välj **Ange licensierings läge för fjärr skrivbord**.
+6. I fönstret som öppnas väljer du först **aktive rad**och under alternativ anger du licensierings läget för värd servern för fjärrskrivbordssession som **per användare**, som du ser i följande bild.
+    
+    ![En skärm bild av fönstret "Ange licens läge för fjärr skrivbord" konfigurerat enligt anvisningarna i steg 6.](media/group-policy-editor-per-user.png)
+
+7. Välj **Använd**.
+8. Välj **OK**.
+9.  Starta om datorn.
 
 ## <a name="next-steps"></a>Nästa steg
 

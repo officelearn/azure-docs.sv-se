@@ -15,12 +15,12 @@ ms.date: 04/01/2019
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 395957099a19d11d26fb5bdd2a1eecdd5590dd64
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: ba51e10503a3aab7afa2e9639453448d03b91852
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71056135"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71170469"
 ---
 # <a name="managing-user-account-provisioning-for-enterprise-apps-in-the-azure-portal"></a>Hantera användar konto etablering för företags program i Azure Portal
 
@@ -81,7 +81,7 @@ Anpassningar som stöds är:
 
 Du kan starta och stoppa Azure AD Provisioning-tjänsten för det valda programmet i **Inställningar** -avsnittet på **etablerings** skärmen. Du kan också välja att rensa etablerings-cachen och starta om tjänsten.
 
-Om etableringen aktive ras för första gången för ett program aktiverar du tjänsten genom att ändra **etablerings statusen** till **på**. Den här ändringen gör att Azure AD Provisioning-tjänsten kör en första cykel. Den läser de användare som tilldelats i avsnittet **användare och grupper** , frågar mål programmet för dem och kör sedan de etablerings åtgärder som definierats i avsnittet Azure AD- **mappningar** . Under den här processen lagrar etablerings tjänsten cachelagrade data om vilka användar konton den hanterar, så icke-hanterade konton i mål programmen som aldrig fanns i omfattningen för tilldelningen påverkas inte av inetablerings åtgärder. Efter den första cykeln synkroniserar etablerings tjänsten automatiskt användar-och grupp objekt i ett intervall om 10 minuter.
+Om etableringen aktive ras för första gången för ett program aktiverar du tjänsten genom att ändra **etablerings statusen** till **på**. Den här ändringen gör att Azure AD Provisioning-tjänsten kör en första cykel. Den läser de användare som tilldelats i avsnittet **användare och grupper** , frågar mål programmet för dem och kör sedan de etablerings åtgärder som definierats i avsnittet Azure AD- **mappningar** . Under den här processen lagrar etablerings tjänsten cachelagrade data om vilka användar konton den hanterar, så icke-hanterade konton i mål programmen som aldrig fanns i omfattningen för tilldelningen påverkas inte av inetablerings åtgärder. Efter den första cykeln synkroniserar etablerings tjänsten automatiskt användar-och grupp objekt i ett intervall om 40 minuter.
 
 Ändra **etablerings statusen** till **av** för att pausa etablerings tjänsten. I det här läget skapar inte Azure, uppdaterar eller tar bort användar-eller grupp objekt i appen. Ändra statusen tillbaka till **på** och tjänsten hämtar var den slutade.
 

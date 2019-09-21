@@ -2,19 +2,19 @@
 title: ta med fil
 description: ta med fil
 services: virtual-machines-linux
-author: dlepow
+author: cynthn
 ms.service: virtual-machines-linux
 ms.topic: include
 ms.date: 04/17/2018
-ms.author: danlep
+ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: bed3f15d5a27e482041d4f45ef45b8d927a91d70
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 2ea82f80396c5254ac4ad47bd2395413682a96bc
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67187352"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71168614"
 ---
-## <a name="supported-ssh-key-formats"></a>SSH key de format som stöds
+## <a name="supported-ssh-key-formats"></a>SSH-filformat som stöds
 
-Azure för närvarande stöder SSH-protokollet 2 (SSH-2) RSA offentligt / privat nyckelpar med en minsta längd på 2 048 bitar. Andra viktiga format, till exempel ED25519 och ECDSA stöds inte. 
+Azure stöder för närvarande SSH-protokoll 2 (SSH-2) RSA-offentliga nyckel par med en minsta längd på 2048 bitar. Andra nyckel format som ED25519 och ECDSA stöds inte. 

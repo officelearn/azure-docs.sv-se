@@ -5,14 +5,14 @@ services: terraform
 author: neilpeterson
 ms.service: azure
 ms.topic: quickstart
-ms.date: 02/04/2019
+ms.date: 09/20/2019
 ms.author: nepeters
-ms.openlocfilehash: 57ab3fbc584932cb7d08bda76530bbe95ce61a6f
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: c53f3a31b46f00d3207cd8f47dcfbfa131c03666
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68699091"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71173515"
 ---
 # <a name="create-a-terraform-configuration-for-azure"></a>Skapa en Terraform-konfigurations för Azure
 
@@ -24,7 +24,7 @@ I det här avsnittet skapar du konfigurationen för en Azure Cosmos DB-instans.
 
 Välj **prova nu** för att öppna Azure Cloud Shell. När det är öppet anger du `code .` för att öppna kodredigeraren för Cloud Shell.
 
-```azurecli-interactive
+```bash
 code .
 ```
 
@@ -34,7 +34,7 @@ Den här konfigurationen modellerar en Azure-resursgrupp, ett slumpvist heltal o
 
 Spara filen som `main.tf` när du är klar. Den här åtgärden kan utföras med hjälp av ellipserna i den övre högra delen av kodredigeraren.
 
-```azurecli-interactive
+```hcl
 resource "azurerm_resource_group" "vote-resource-group" {
   name     = "vote-resource-group"
   location = "westus"
@@ -67,7 +67,7 @@ resource "azurerm_cosmosdb_account" "vote-cosmos-db" {
 
 Kommandot [terraform init](https://www.terraform.io/docs/commands/init.html) initierar arbetskatalogen. Kör `terraform init` i Cloud Shell-terminalen för att förbereda för distributionen av den nya konfigurationen.
 
-```azurecli-interactive
+```bash
 terraform init
 ```
 
@@ -75,13 +75,13 @@ Kommandot [terraform plan](https://www.terraform.io/docs/commands/plan.html) kan
 
 Kör `terraform plan` för att testa den nya Terraform-konfigurationen.
 
-```azurecli-interactive
+```bash
 terraform plan --out plan.out
 ```
 
 Tillämpa konfigurationen med hjälp av [terraform apply](https://www.terraform.io/docs/commands/apply.html) och ange namnet på planfilen. Det här kommandot distribuerar resurserna i din Azure-prenumeration.
 
-```azurecli-interactive
+```bash
 terraform apply plan.out
 ```
 
@@ -98,7 +98,7 @@ Två miljövariabler anges: `COSMOS_DB_ENDPOINT` och `COSMOS_DB_MASTERKEY`. Dess
 
 Konfigurationen innehåller även ett utdatablock som returnerar det fullständiga domännamnet (FQDN) för containerinstansen.
 
-```azurecli-interactive
+```hcl
 resource "azurerm_container_group" "vote-aci" {
   name                = "vote-aci"
   location            = "${azurerm_resource_group.vote-resource-group.location}"
@@ -134,13 +134,13 @@ output "dns" {
 
 Kör `terraform plan` för att skapa den uppdaterade planen och visualisera de ändringar som ska göras. Du bör se att Azure Container-instansresurs har lagts till konfigurationen.
 
-```azurecli-interactive
+```bash
 terraform plan --out plan.out
 ```
 
 Kör slutligen `terraform apply` för att tillämpa konfigurationen.
 
-```azurecli-interactive
+```bash
 terraform apply plan.out
 ```
 
@@ -156,7 +156,7 @@ Gå till containerinstansens FQDN. Om allt konfigurerades korrekt bör du se fö
 
 När du är klar kan Azure-resurserna och resursgruppen tas bort med hjälp av kommandot [terraform destroy](https://www.terraform.io/docs/commands/destroy.html).
 
-```azurecli-interactive
+```bash
 terraform destroy -auto-approve
 ```
 

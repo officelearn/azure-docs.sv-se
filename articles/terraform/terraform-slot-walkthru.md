@@ -8,13 +8,13 @@ author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
-ms.date: 4/05/2018
-ms.openlocfilehash: 08e90a69791b0555a6497166f6008e8619f40704
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 09/20/2019
+ms.openlocfilehash: ec2ed1da46df2793a241c9c89d168a6c5d462b9d
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60889346"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71169820"
 ---
 # <a name="use-terraform-to-provision-infrastructure-with-azure-deployment-slots"></a>Använd Terraform för att etablera infrastruktur med distributionsfack för Terraform
 
@@ -22,7 +22,7 @@ Du kan använda [distributionsfack för Terraform](/azure/app-service/deploy-sta
 
 I den här artikeln visas ett exempel på hur du kan använda distributionsfack genom att guida dig genom distributionen av två appar via GitHub och Azure. En app lagras på produktionsplatsen. Den andra appen lagras på en mellanlagringsplats. (Namnen "produktion" och "mellanlagring" är valfria och kan vara vilka namn som helst som du vill representerar ditt scenario.) När du har konfigurerat dina distributionsfack kan du använda Terraform för att växla mellan de två facken efter behov.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 - **Azure-prenumeration**: Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) innan du börjar.
 
@@ -74,7 +74,7 @@ I den här artikeln visas ett exempel på hur du kan använda distributionsfack 
 
 1. Klistra in följande kod i redigeringsprogrammet:
 
-    ```JSON
+    ```hcl
     # Configure the Azure provider
     provider "azurerm" { }
 
@@ -266,7 +266,7 @@ Testa att växla mellan de två distributionsfacken med följande steg:
 
 1. Klistra in följande kod i redigeringsprogrammet:
 
-    ```JSON
+    ```hcl
     # Configure the Azure provider
     provider "azurerm" { }
 

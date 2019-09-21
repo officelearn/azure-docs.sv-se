@@ -49,16 +49,16 @@ I följande tabell beskrivs vad som finns i varje logg. Beroende på vilken slut
 | TenantId | Ditt klient-ID |
 | SourceSystem | `Azure` |
 | TimeGenerated [UTC] | Tidstämpel när loggen registrerades i UTC |
-| type | Loggens typ. Alltid `AzureDiagnostics` |
+| Type | Loggens typ. Alltid `AzureDiagnostics` |
 | SubscriptionId | GUID för den prenumeration som servern tillhör |
 | ResourceGroup | Namnet på den resurs grupp som servern tillhör |
 | ResourceProvider | Namnet på resurs leverantören. Alltid `MICROSOFT.DBFORPOSTGRESQL` |
-| Resurstyp | `Servers` |
+| ResourceType | `Servers` |
 | ResourceId | Resurs-URI |
 | Resource | Namnet på servern |
 | Category | `PostgreSQLLogs` |
 | OperationName | `LogEvent` |
-| Nivå | Loggnings nivå, exempel: LOGG, FEL, MEDDELANDE |
+| errorLevel | Loggnings nivå, exempel: LOGG, FEL, MEDDELANDE |
 | Message | Primärt logg meddelande | 
 | Domain | Server version, exempel: postgres-10 |
 | Detalj | Sekundärt logg meddelande (om tillämpligt) |

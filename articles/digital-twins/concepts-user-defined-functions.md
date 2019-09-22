@@ -6,14 +6,14 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 07/29/2019
+ms.date: 09/17/2019
 ms.author: alinast
-ms.openlocfilehash: f4aa7e6660e3febdca6e0e5b1ad9f11bebaa48ea
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 07facf06702a63df8ea93d43b9896b72322b209f
+ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68638469"
+ms.lasthandoff: 09/22/2019
+ms.locfileid: "71178262"
 ---
 # <a name="data-processing-and-user-defined-functions"></a>Databearbetning och användardefinierade funktioner
 
@@ -23,7 +23,7 @@ Azure Digitals dubbla ger avancerade beräknings funktioner. Utvecklare kan defi
 
 När enheterna skickar telemetridata till Azure Digitals, kan utvecklare bearbeta data i fyra faser: *validera*, *matcha*, *Beräkna*och *Skicka*.
 
-![Data bearbetnings flöde för Azure Digital][1]
+[![Data bearbetnings flöde för Azure Digital](media/concepts/digital-twins-data-processing-flow.png)](media/concepts/digital-twins-data-processing-flow.png#lightbox)
 
 1. Validerings fasen transformerar meddelandet inkommande telemetri till ett vanligt [data överförings objekt](https://docs.microsoft.com/aspnet/web-api/overview/data/using-web-api-with-entity-framework/part-5) format. I den här fasen körs även enhets-och sensor validering.
 1. Matchnings fasen söker efter lämpliga användardefinierade funktioner som ska köras. Fördefinierade matchningar söker efter användardefinierade funktioner baserat på information om enhet, sensor och utrymme från meddelandet inkommande telemetri.
@@ -32,11 +32,9 @@ När enheterna skickar telemetridata till Azure Digitals, kan utvecklare bearbet
 
 ## <a name="data-processing-objects"></a>Data bearbetnings objekt
 
-Data bearbetning i digitala Digital-objekt i Azure består av att definieratre objekt: motsvarigheter, *användardefinierade funktioner*och *roll tilldelningar*.
+Data bearbetning i digitala Digital-objekt i Azure består av att definiera tre objekt: *motsvarigheter*, *användardefinierade funktioner*och *roll tilldelningar*.
 
-![Azure Digitals dubbla data bearbetnings objekt][2]
-
-<div id="matcher"></div>
+[![Azure Digitals dubbla data bearbetnings objekt](media/concepts/digital-twins-user-defined-functions.png)](media/concepts/digital-twins-user-defined-functions.png#lightbox)
 
 ### <a name="matchers"></a>Matchningar
 
@@ -92,7 +90,7 @@ Motsvarigheter definierar en uppsättning villkor som utvärderar vilka åtgärd
 
 ### <a name="user-defined-functions"></a>Användardefinierade funktioner
 
-En användardefinierad funktion är en anpassad funktion som körs i en isolerad Azure digital-miljö. Användardefinierade funktioner har åtkomst till meddelanden om RAW-telemetri när de tas emot. Användardefinierade funktioner har även åtkomst till spatial graf och dispatcher-tjänsten. När den användardefinierade funktionen har registrerats i ett diagram måste en matchandeare (detaljerad beskrivning [ovan](#matcher)) skapas för att ange när funktionen ska köras. Exempel: när Azure Digitals dubbla mottagare tar emot ny telemetri från en viss sensor, kan den matchade användardefinierade funktionen Beräkna ett glidande medelvärde för de senaste sensor avläsningarna.
+En användardefinierad funktion är en anpassad funktion som körs i en isolerad Azure digital-miljö. Användardefinierade funktioner har åtkomst till meddelanden om RAW-telemetri när de tas emot. Användardefinierade funktioner har även åtkomst till spatial graf och dispatcher-tjänsten. När den användardefinierade funktionen har registrerats i ett diagram måste en matchandeare (detaljerad beskrivning [ovan](#matchers)) skapas för att ange när funktionen ska köras. Exempel: när Azure Digitals dubbla mottagare tar emot ny telemetri från en viss sensor, kan den matchade användardefinierade funktionen Beräkna ett glidande medelvärde för de senaste sensor avläsningarna.
 
 Användardefinierade funktioner kan skrivas i Java Script. Hjälp metod metoder interagerar med grafen i den användardefinierade körnings miljön. Utvecklare kan köra anpassade kod avsnitt mot meddelanden om sensor telemetri. Exempel:
 
@@ -103,14 +101,11 @@ Användardefinierade funktioner kan skrivas i Java Script. Hjälp metod metoder 
 
 Mer information finns i [så här använder du användardefinierade funktioner](./how-to-user-defined-functions.md).
 
-
 #### <a name="examples"></a>Exempel
 
 [GitHub-lagrings platsen för C# digitala dubbla exempel](https://github.com/Azure-Samples/digital-twins-samples-csharp/) innehåller några exempel på användardefinierade funktioner:
 - [Den här funktionen](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/actions/userDefinedFunctions/availabilityForTutorial.js) söker efter värden för koldioxid, rörelse och temperatur för att avgöra om ett rum är tillgängligt med dessa värden inom räckhåll. I [självstudierna för digitala dubbla](tutorial-facilities-udf.md) , utforskar du den här funktionen i mer information. 
-- [Den här funktionen](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/actions/userDefinedFunctions/multiplemotionsensors.js) söker efter data från flera rörelse sensorer och avgör att utrymmet är tillgängligt om ingen av dem identifierar någon rörelse. Du kan enkelt ersätta den användardefinierade funktionen som används i [snabb](quickstart-view-occupancy-dotnet.md)starten eller självstudierna genom [](tutorial-facilities-setup.md)att göra ändringarna som anges i avsnittet kommentarer i filen. 
-
-
+- [Den här funktionen](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/actions/userDefinedFunctions/multiplemotionsensors.js) söker efter data från flera rörelse sensorer och avgör att utrymmet är tillgängligt om ingen av dem identifierar någon rörelse. Du kan enkelt ersätta den användardefinierade funktionen som används i [snabb](quickstart-view-occupancy-dotnet.md)starten eller [självstudierna](tutorial-facilities-setup.md)genom att göra ändringarna som anges i avsnittet kommentarer i filen. 
 
 ### <a name="role-assignment"></a>Rolltilldelning
 
@@ -125,7 +120,3 @@ Det är möjligt för en matchning att utlösa en användardefinierad funktion s
 - Om du vill veta mer om hur du skapar motsvarigheter, användardefinierade funktioner och roll tilldelningar läser du [guiden för att använda användardefinierade funktioner](./how-to-user-defined-functions.md).
 
 - Granska den [användardefinierade funktionen klient biblioteks referens dokumentation](./reference-user-defined-functions-client-library.md).
-
-<!-- Images -->
-[1]: media/concepts/digital-twins-data-processing-flow.png
-[2]: media/concepts/digital-twins-user-defined-functions.png

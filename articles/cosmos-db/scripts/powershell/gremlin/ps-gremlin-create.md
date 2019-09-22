@@ -1,19 +1,20 @@
 ---
-title: Azure PowerShell-skript – Azure Cosmos DB Skapa databas för Gremlin-API och graph
-description: Azure PowerShell-skript – Azure Cosmos DB Skapa databas för Gremlin-API och graph
+title: Azure PowerShell skript – Azure Cosmos DB skapa Gremlin API-databas och diagram
+description: Azure PowerShell skript – Azure Cosmos DB skapa Gremlin API-databas och diagram
 author: markjbrown
 ms.service: cosmos-db
+ms.subservice: cosmosdb-graph
 ms.topic: sample
 ms.date: 05/18/2019
 ms.author: mjbrown
-ms.openlocfilehash: 92af72609aa4f6261dfbd41ae07ddacd4275ab39
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 1820195b59a370b9378283a35d1d058abde6eccd
+ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67602467"
+ms.lasthandoff: 09/22/2019
+ms.locfileid: "71178963"
 ---
-# <a name="create-a-database-and-graph-for-azure-cosmos-db---gremlin-api"></a>Skapa en databas och graf för Azure Cosmos DB - Gremlin-API
+# <a name="create-a-database-and-graph-for-azure-cosmos-db---gremlin-api"></a>Skapa en databas och en graf för Azure Cosmos DB-Gremlin-API
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 
@@ -39,7 +40,7 @@ Det här skriptet använder följande kommandon. Varje kommando i tabellen länk
 |---|---|
 |**Azure-resurser**| |
 | [New-AzResource](https://docs.microsoft.com/powershell/module/az.resources/new-azresource) | Skapar en resurs. |
-|**Azure-resursgrupper**| |
+|**Resurs grupper i Azure**| |
 | [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) | Tar bort en resursgrupp, inklusive alla kapslade resurser. |
 |||
 

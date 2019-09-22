@@ -3,15 +3,16 @@ title: Azure PowerShell skript-Azure Cosmos DB skapa SQL (Core) API-databas och 
 description: Azure PowerShell skript-Azure Cosmos DB skapa SQL (Core) API-databas och behållare
 author: markjbrown
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: sample
 ms.date: 09/20/2019
 ms.author: mjbrown
-ms.openlocfilehash: 29b0e81dd6eac62a18307788bb023ac3d802f11a
-ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
+ms.openlocfilehash: eee1e31808412dc5e4308dee92f3685507e771f3
+ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71154856"
+ms.lasthandoff: 09/22/2019
+ms.locfileid: "71178805"
 ---
 # <a name="create-a-database-and-container-for-azure-cosmos-db---sql-core-api"></a>Skapa en databas och behållare för API: et för Azure Cosmos DB-SQL (Core)
 

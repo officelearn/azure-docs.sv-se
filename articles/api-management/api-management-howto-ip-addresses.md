@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 08/26/2019
 ms.author: apimpm
-ms.openlocfilehash: 6e12a16b221a8f31d82a002fbc93b090d6f0c577
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: 7224c6a77df496624903830f0a2cbd8d193517cc
+ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70861247"
+ms.lasthandoff: 09/22/2019
+ms.locfileid: "71178188"
 ---
 # <a name="ip-addresses-of-azure-api-management"></a>IP-adresser för Azure API Management
 
@@ -61,7 +61,7 @@ I [flera regionala distributioner](api-management-howto-deploy-multi-region.md)h
 
 Om din API Management-tjänst finns i ett virtuellt nätverk, kommer den att ha två typer av IP-adresser – offentliga och privata.
 
-Offentliga IP-adresser används för intern kommunikation på port `3443` – för hantering av konfiguration (till exempel via Azure Resource Manager). När en begäran skickas från API Management till en offentlig Server del (Internet), visas dessutom en offentlig IP-adress som källa för begäran.
+Offentliga IP-adresser används för intern kommunikation på port `3443` – för hantering av konfiguration (till exempel via Azure Resource Manager). I den externa VNET-konfigurationen används de också för körnings-API-trafik. När en begäran skickas från API Management till en offentlig Server del (Internet), visas en offentlig IP-adress som källa för begäran.
 
 Privata virtuella IP-adresser (VIP) används för att ansluta inifrån nätverket till API Management slut punkter – gatewayer, Developer-portalen och hanterings planet för Direct API-åtkomst. Du kan använda dem för att konfigurera DNS-poster i nätverket.
 

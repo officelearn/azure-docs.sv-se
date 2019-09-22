@@ -1,33 +1,30 @@
 ---
-title: Verktyget search Explorer för att fråga efter data i Azure Portal-Azure Search
-description: Använd Azure Portal-verktyg som Sök Utforskaren för att fråga index i Azure Search. Ange Sök termer eller fullständigt kvalificerade Sök strängar med avancerad syntax.
+title: Använd search Explorer-verktyget för att fråga efter data i Azure Portal-Azure Search
+description: Sök Utforskaren är inbyggd i Azure Portal som är användbar för att utforska innehåll och verifiera frågor i Azure Search. Ange strängar för Sök termer eller fraser, eller fullständigt kvalificerade Sök uttryck med avancerad syntax.
 manager: nitinme
 author: HeidiSteen
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 05/02/2019
+ms.date: 09/20/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: e941e487adaac38c4ec3bd61a58b4b0c61f4c80a
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: fe66787ea82a8f97470199e99faadb72b85c83b2
+ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69649958"
+ms.lasthandoff: 09/22/2019
+ms.locfileid: "71178133"
 ---
-# <a name="search-explorer-for-querying-data-in-azure-search"></a>Sök Utforskaren för att köra frågor mot data i Azure Search 
+# <a name="use-search-explorer-in-the-azure-portal-for-querying-documents-in-azure-search"></a>Använd Sök Utforskaren i Azure Portal för att köra frågor mot dokument i Azure Search 
 
-Den här artikeln visar hur du frågar ett befintligt Azure Search-index med hjälp av **Sök Utforskaren** i Azure Portal. Du kan använda Sök Utforskaren för att skicka enkla eller fullständiga Lucene-frågesträngar till ett befintligt index i din tjänst. 
+Den här artikeln visar hur du frågar ett befintligt Azure Search-index med hjälp av **Sök Utforskaren** i Azure Portal. Du kan starta Sök Utforskaren från kommando fältet för att skicka enkla eller fullständiga Lucene-frågeuttryck till ett befintligt index i tjänsten. 
 
    ![Kommandot Sök Utforskaren i portalen](./media/search-explorer/search-explorer-cmd2.png "Kommandot Sök Utforskaren i portalen")
 
-
-För hjälp med att komma igång, se [Starta Sök Utforskaren](#start-search-explorer).
-
 ## <a name="basic-search-strings"></a>Grundläggande Sök strängar
 
-I följande exempel förutsätts det inbyggda realestate-exempel indexet. Information om hur du skapar det här [indexet finns i snabb start: Importera, indexera och fråga i Azure Portal](search-get-started-portal.md).
+Följande exempel förutsätter det inbyggda exempel indexet för fastighets fastighets. Du kan skapa det här indexet med hjälp av guiden Importera data i portalen och välja **exempel** som data källa.
 
 ### <a name="example-1---empty-search"></a>Exempel 1 – tom sökning
 
@@ -142,7 +139,7 @@ Tips för att söka i **Sök Utforskaren**:
 
 + Resultat returneras som utförliga JSON-dokument så att du kan se dokument konstruktion och innehåll, i sin helhet. Du kan använda frågeuttryck, som visas i exemplen, för att begränsa vilka fält som returneras.
 
-+ Dokument består av alla fält som har marker ATS som hämtnings bara i indexet. Om du vill visa indexattribut i portalen klickar du på *realestate-US-Sample* i listan **index** på sidan Sök översikt.
++ Dokument består av alla fält som har marker ATS som **hämtnings** bara i indexet. Om du vill visa indexattribut i portalen klickar du på *realestate-US-Sample* i listan **index** på sidan Sök översikt.
 
 + Kostnads fria frågor, som liknar vad du kan ange i en kommersiell webbläsare, är användbara för att testa en slut användar upplevelse. Om du till exempel antar det inbyggda realestate exempel indexet, kan du ange "Seattle lägenheter Lake Washington" och sedan använda Ctrl-F för att hitta termer inom Sök resultaten. 
 

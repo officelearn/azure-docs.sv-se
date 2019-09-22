@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/20/2019
 ms.author: spelluru
-ms.openlocfilehash: 3d08105e78274300eb7ee0a8c0ad146a737d0ffa
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: 562ad0e5e6088c2fbadc853779b7533c5398e079
+ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69644958"
+ms.lasthandoff: 09/22/2019
+ms.locfileid: "71176640"
 ---
 # <a name="enable-remote-desktop-for-linux-virtual-machines-in-a-lab-in-azure-lab-services"></a>Aktivera fjärr skrivbord för virtuella Linux-datorer i ett labb i Azure Lab Services
 Den här artikeln visar hur du utför följande uppgifter:
@@ -36,7 +36,8 @@ I rutan **aktivera anslutning till fjärrskrivbord** meddelande väljer du **For
 ![Aktivera anslutning till fjärr skrivbord för en Linux-avbildning](../media/how-to-enable-remote-desktop-linux/enabling-remote-desktop-connection-dialog.png)
 
 > [!IMPORTANT] 
-> När du aktiverar **anslutning till fjärr skrivbord** öppnas **RDP** -porten på Linux-datorer. Som lärare ansluter du till Linux-datorn med hjälp av SSH för första gången och installerar RDP-och GUI-paket så att du kan ansluta till Linux-datorn med RDP senare. Sedan **publicerar** du avbildningen så att eleverna kan RDP i de virtuella student Linux-datorerna. 
+> När du aktiverar **anslutning till fjärr skrivbord** öppnas **RDP** -porten på Linux-datorer. Om RDP redan har installerats och kon figurer ATS på den virtuella dator avbildningen (till exempel: Ubuntu Data Science Virtual Machine-avbildning) kan du/studenter ansluta till virtuella datorer via RDP utan att följa ytterligare steg.
+> Om den virtuella dator avbildningen inte har RDP installerat och konfigurerad, måste du ansluta till Linux-datorn med SSH för första gången och installera RDP-och GUI-paket så att du/studenter kan ansluta till Linux-datorn med RDP senare. Sedan publicerar du avbildningen så att eleverna kan RDP i de virtuella student Linux-datorerna.
 
 ## <a name="supported-operating-systems"></a>Operativsystem som stöds
 Anslutning till fjärr skrivbord stöds för följande operativ system:

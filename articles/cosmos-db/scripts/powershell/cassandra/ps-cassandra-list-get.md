@@ -1,19 +1,20 @@
 ---
-title: Azure PowerShell-skript – Azure Cosmos DB lista och hämta åtgärder för Cassandra-API
-description: Azure PowerShell-skript – Azure Cosmos DB lista och hämta åtgärder för Cassandra-API
+title: Azure PowerShell skript-Azure Cosmos DB lista och hämta åtgärder för API för Cassandra
+description: Azure PowerShell skript-Azure Cosmos DB lista och hämta åtgärder för API för Cassandra
 author: markjbrown
 ms.service: cosmos-db
+ms.subservice: cosmosdb-cassandra
 ms.topic: sample
 ms.date: 05/18/2019
 ms.author: mjbrown
-ms.openlocfilehash: f426afee2ab5635cf29ee5a48a6e11e1f6d10f4e
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 185ad9d01e6f4909c0adad7f2b587a17e652dfd4
+ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67604002"
+ms.lasthandoff: 09/22/2019
+ms.locfileid: "71179029"
 ---
-# <a name="list-and-get-keyspaces-and-tables-for-azure-cosmos-db---cassandra-api"></a>Visa och hämta keyspaces och tabeller för Azure Cosmos DB - API för Cassandra
+# <a name="list-and-get-keyspaces-and-tables-for-azure-cosmos-db---cassandra-api"></a>Lista och hämta disk utrymme och tabeller för Azure Cosmos DB-API för Cassandra
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 
@@ -39,7 +40,7 @@ Det här skriptet använder följande kommandon. Varje kommando i tabellen länk
 |---|---|
 |**Azure-resurser**| |
 | [New-AzResource](https://docs.microsoft.com/powershell/module/az.resources/new-azresource) | Skapar en resurs. |
-|**Azure-resursgrupper**| |
+|**Resurs grupper i Azure**| |
 | [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) | Tar bort en resursgrupp, inklusive alla kapslade resurser. |
 |||
 

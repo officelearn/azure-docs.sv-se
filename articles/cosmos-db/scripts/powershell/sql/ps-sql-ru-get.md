@@ -1,19 +1,20 @@
 ---
-title: Azure PowerShell-skript – Azure Cosmos DB hämta etablerat dataflöde (RU/s) för SQL (kärna) API
-description: Azure PowerShell-skript – Azure Cosmos DB hämta etablerat dataflöde (RU/s) för SQL (kärna) API
+title: Azure PowerShell skript – Azure Cosmos DB Hämta allokerat data flöde (RU/s) för SQL (Core) API
+description: Azure PowerShell skript – Azure Cosmos DB Hämta allokerat data flöde (RU/s) för SQL (Core) API
 author: markjbrown
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: sample
 ms.date: 07/03/2019
 ms.author: mjbrown
-ms.openlocfilehash: 75a8ebbb04fd3cbad9f0a1a3f302b40439adbbcc
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: c7d7f295589d4e3b152016c2b55cfe07355d1cb0
+ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67602137"
+ms.lasthandoff: 09/22/2019
+ms.locfileid: "71178775"
 ---
-# <a name="get-the-provisioned-throughput-rus-for-a-database-or-container-for-azure-cosmos-db---sql-core-api"></a>Hämta dataflöden (RU/s) för en databas eller behållare för Azure Cosmos DB - SQL (kärna) API
+# <a name="get-the-provisioned-throughput-rus-for-a-database-or-container-for-azure-cosmos-db---sql-core-api"></a>Hämta det etablerade data flödet (RU/s) för en databas eller behållare för Azure Cosmos DB-SQL (Core) API
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 
@@ -39,7 +40,7 @@ Det här skriptet använder följande kommandon. Varje kommando i tabellen länk
 |---|---|
 |**Azure-resurser**| |
 | [New-AzResource](https://docs.microsoft.com/powershell/module/az.resources/new-azresource) | Skapar en resurs. |
-|**Azure-resursgrupper**| |
+|**Resurs grupper i Azure**| |
 | [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) | Tar bort en resursgrupp, inklusive alla kapslade resurser. |
 |||
 

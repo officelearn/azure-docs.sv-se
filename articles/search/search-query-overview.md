@@ -7,73 +7,57 @@ ms.author: heidist
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 05/13/2019
-ms.custom: seodec2018
-ms.openlocfilehash: 30c3b233a1454d04fb281e049376b2b3aafe1879
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.date: 09/20/2019
+ms.openlocfilehash: 4646cb30ef7602da990e24f923c8eceada4debd0
+ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69647974"
+ms.lasthandoff: 09/22/2019
+ms.locfileid: "71178035"
 ---
-# <a name="how-to-compose-a-query-in-azure-search"></a>Så här skapar du en fråga i Azure Search
+# <a name="query-types-and-composition-in-azure-search"></a>Frågetyper och sammansättning i Azure Search
 
-I Azure Search är en fråga en fullständig specifikation av en tur och retur-åtgärd. Parametrar på begäran ger matchnings villkor för att hitta dokument i ett index, körnings instruktioner för motorn och direktiv för att forma svaret. 
+I Azure Search är en fråga en fullständig specifikation av en tur och retur-åtgärd. Parametrar på begäran ger matchnings villkor för att hitta dokument i ett index, vilka fält som ska inkluderas eller exkluderas, körnings instruktioner som skickas till motorn och direktiv för att forma svaret. Ospecificerad (`search=*`), en fråga körs mot alla sökbara fält som en fullständig texts ökning och returnerar en resultat uppsättning i valfri ordning.
 
-En fråge förfrågan är en omfattande konstruktion där du anger vilka fält som är omfång, hur du söker, vilka fält som ska returneras, om du vill sortera eller filtrera och så vidare. Ospecificerad, en fråga körs mot alla sökbara fält som en fullständig texts öknings åtgärd och returnerar en resultat uppsättning i valfri ordning.
-
-## <a name="apis-and-tools-for-testing"></a>API: er och verktyg för testning
-
-I följande tabell visas de API: er och verktyg baserade metoder för att skicka frågor.
-
-| Metod | Beskrivning |
-|-------------|-------------|
-| [Sök Utforskaren (portal)](search-explorer.md) | Innehåller ett sökfält och alternativ för val av index och API-version. Resultat returneras som JSON-dokument. <br/>[Läs mer.](search-get-started-portal.md#query-index) | 
-| [Postman eller Fiddler](search-get-started-postman.md) | Webb test verktyg är ett utmärkt alternativ för att utforma REST-anrop. REST API stöder varje möjlig åtgärd i Azure Search. I den här artikeln får du lära dig hur du ställer in en HTTP-begärans huvud och brödtext för att skicka begär anden till Azure Search.  |
-| [SearchIndexClient (.NET)](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchindexclient?view=azure-dotnet) | Klient som kan användas för att fråga ett Azure Search-index.  <br/>[Läs mer.](search-howto-dotnet-sdk.md#core-scenarios)  |
-| [Sök dokument (REST API)](https://docs.microsoft.com/rest/api/searchservice/search-documents) | Hämta eller publicera metoder för ett index med hjälp av frågeparametrar för ytterligare indata.  |
-
-## <a name="a-first-look-at-query-requests"></a>En första titt på fråge förfrågningar
-
-Exempel är användbara för att introducera nya begrepp. Som en representativ fråga som skapats i [REST API](https://docs.microsoft.com/rest/api/searchservice/search-documents), riktar detta exempel sig på [fastighets demonstrations indexet](search-get-started-portal.md) och inkluderar gemensamma parametrar.
+Följande exempel är en representativ fråga som konstruerats i [REST API](https://docs.microsoft.com/rest/api/searchservice/search-documents). Det här exemplet riktar sig till [hotell demonstrations indexet](search-get-started-portal.md) och inkluderar vanliga parametrar.
 
 ```
 {
     "queryType": "simple" 
-    "search": "seattle townhouse* +\"lake\"",
-    "searchFields": "description, city",
-    "count": "true",
-    "select": "listingId, street, status, daysOnMarket, description",
+    "search": "+New York +restaurant",
+    "searchFields": "Description, Address/City, Tags",
+    "select": "HotelId, HotelName, Description, Rating, Address/City, Tags",
     "top": "10",
-    "orderby": "daysOnMarket"
+    "count": "true",
+    "orderby": "Rating desc"
 }
 ```
 
-+ **`queryType`** ställer in parsern, som i Azure Search kan vara den [enkla](search-query-simple-examples.md) standardparsern (optimal för full texts ökning) eller den [fullständiga Lucene-frågeuttrycket](search-query-lucene-examples.md) som används för avancerade fråge konstruktioner som reguljära uttryck, närhets sökning, fuzzy och jokertecken Sök, för att ge några.
++ **`queryType`** ställer in parsern, som antingen är den [standardinställda parsern](search-query-simple-examples.md) (optimal för full texts ökning) eller den [fullständiga Lucene-frågeuttrycket](search-query-lucene-examples.md) som används för avancerade fråge konstruktioner som reguljära uttryck, närhets sökning, fuzzy och jokertecken för att namnge en viss.
 
 + **`search`** innehåller matchnings villkor, vanligt vis text men ofta tillsammans med booleska operatorer. Enstaka fristående villkor är *term* frågor. Quote – inneslutna frågor med flera delar är *viktiga fras* frågor. Sökningen kan vara odefinierad, som i **`search=*`** , men mer sannolikt består av termer, fraser och operatorer som liknar vad som visas i exemplet.
 
-+ **`searchFields`** är valfritt, används för att begränsa frågekörningen till vissa fält.
++ **`searchFields`** begränsar frågans körning till vissa fält. Alla fält som har attribut som *sökbara* i index schemat är en kandidat för den här parametern.
 
-Svar är också formade av de parametrar som du inkluderar i frågan. I exemplet består resultat uppsättningen av fält som anges i **`select`** instruktionen. Endast de 10 översta träffarna returneras i den här frågan, **`count`** men visar hur många dokument som matchar övergripande. I den här frågan sorteras rader efter daysOnMarket.
+Svar är också formade av de parametrar som du inkluderar i frågan. I exemplet består resultat uppsättningen av fält som anges i **`select`** instruktionen. Endast fält som är markerade som *hämtnings* bara kan användas i en $SELECT-instruktion. Dessutom returneras bara de **`top`** 10 träffarna i den här frågan, medan **`count`** visar hur många dokument som matchar övergripande, vilket kan vara mer än vad som returneras. I den här frågan sorteras rader efter klassificering i fallande ordning.
 
 I Azure Search är frågekörningen alltid mot ett index, autentiserad med hjälp av en API-nyckel som anges i begäran. I REST finns båda i begärandehuvuden.
 
 ### <a name="how-to-run-this-query"></a>Så här kör du den här frågan
 
-Använd [Sök Utforskaren och fastighets demo indexet](search-get-started-portal.md)för att köra den här frågan. 
+Använd [Sök Utforskaren och hotell demonstrations indexet](search-get-started-portal.md)för att köra den här frågan. 
 
-Du kan klistra in den här frågesträngen i Explorer-Sök fältet:`search=seattle townhouse +lake&searchFields=description, city&$count=true&$select=listingId, street, status, daysOnMarket, description&$top=10&$orderby=daysOnMarket`
+Du kan klistra in den här frågesträngen i Explorer-Sök fältet:`search=+"New York" +restaurant&searchFields=Description, Address/City, Tags&$select=HotelId, HotelName, Description, Rating, Address/City, Tags&$top=10&$orderby=Rating desc&$count=true`
 
 ## <a name="how-query-operations-are-enabled-by-the-index"></a>Hur Query-åtgärder aktive ras av indexet
 
 Index design och fråge design är tätt kopplade till Azure Search. Ett viktigt faktum att känna sig fram är att *index schemat*, med attribut på varje fält, bestämmer vilken typ av fråga som du kan skapa. 
 
-Indexattribut i ett fält ange tillåtna åtgärder – om ett fält är sökbart i indexet, kan *hämtas* i resultat, sorterbart, *filtrerat*och så vidare. I exempel frågans sträng `"$orderby": "daysOnMarket"` fungerar endast eftersom fältet daysOnMarket är markerat som *sorterbart* i index schemat. 
+Indexattribut i ett fält ange tillåtna åtgärder – om ett fält är *sökbart* i indexet, kan *hämtas* i resultat, *sorterbart*, *filtrerat*och så vidare. I exempel frågans sträng `"$orderby": "Rating"` fungerar endast eftersom fältet klassificering är markerat som *sorterbart* i index schemat. 
 
-![Index definition för det riktiga fastighets exemplet](./media/search-query-overview/realestate-sample-index-definition.png "Index definition för det riktiga fastighets exemplet")
+![Index definition för hotellet-exemplet](./media/search-query-overview/hotel-sample-index-definition.png "Index definition för hotellet-exemplet")
 
-Skärm bilden ovan är en ofullständig lista över indexattribut för fastighets exemplet. Du kan visa hela index schemat i portalen. Mer information om indexattribut finns i [skapa index REST API](https://docs.microsoft.com/rest/api/searchservice/create-index).
+Skärm bilden ovan är en ofullständig lista över indexattribut för Hotels-exemplet. Du kan visa hela index schemat i portalen. Mer information om indexattribut finns i [skapa index REST API](https://docs.microsoft.com/rest/api/searchservice/create-index).
 
 > [!Note]
 > Vissa fråge funktioner har Aktiver ATS för index i stället för per fält. Dessa funktioner omfattar: [synonym Maps](search-synonyms.md), [anpassade analys](index-add-custom-analyzers.md)verktyg, [förslags konstruktioner (för Autoavsluta och föreslagna frågor)](index-add-suggesters.md), [bedömnings logik för ranknings resultat](index-add-scoring-profiles.md).
@@ -92,22 +76,33 @@ Nödvändiga element i en förfrågan innehåller följande komponenter:
 
 Alla andra Sök parametrar är valfria. En fullständig lista över attribut finns i [skapa index (rest)](https://docs.microsoft.com/rest/api/searchservice/create-index). En närmare titt på hur parametrar används under bearbetningen finns i [hur full texts ökning fungerar i Azure Search](search-lucene-query-architecture.md).
 
+## <a name="choose-apis-and-tools"></a>Välj API: er och verktyg
+
+I följande tabell visas de API: er och verktyg baserade metoder för att skicka frågor.
+
+| Metod | Beskrivning |
+|-------------|-------------|
+| [Sök Utforskaren (portal)](search-explorer.md) | Innehåller ett sökfält och alternativ för val av index och API-version. Resultat returneras som JSON-dokument. Rekommenderas för undersökning, testning och validering. <br/>[Läs mer.](search-get-started-portal.md#query-index) | 
+| [Postman eller andra REST-verktyg](search-get-started-postman.md) | Webb test verktyg är ett utmärkt alternativ för att utforma REST-anrop. REST API stöder varje möjlig åtgärd i Azure Search. I den här artikeln får du lära dig hur du ställer in en HTTP-begärans huvud och brödtext för att skicka begär anden till Azure Search.  |
+| [SearchIndexClient (.NET)](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchindexclient?view=azure-dotnet) | Klient som kan användas för att fråga ett Azure Search-index.  <br/>[Läs mer.](search-howto-dotnet-sdk.md#core-scenarios)  |
+| [Sök dokument (REST API)](https://docs.microsoft.com/rest/api/searchservice/search-documents) | Hämta eller publicera metoder för ett index med hjälp av frågeparametrar för ytterligare indata.  |
+
 ## <a name="choose-a-parser-simple--full"></a>Välj en parser: enkel | fullständig
 
 Azure Search finns ovanpå Apache Lucene och ger dig möjlighet att välja mellan två fråge tolkare för att hantera typiska och specialiserade frågor. Begär Anden som använder den enkla parsern formuleras med hjälp av den [enkla frågesyntaxen](query-simple-syntax.md), valt som standard för dess hastighet och effektivitet i text frågor med fri form. Den här syntaxen stöder ett antal vanliga Sök operatorer som operatörerna AND, OR, NOT, fras, suffix och prioritet.
 
 Den [fullständiga Lucene-frågesyntaxen](query-Lucene-syntax.md#bkmk_syntax), som aktive ras `queryType=full` när du lägger till begäran, exponerar det vanligaste och lättfattliga programspecifika-frågespråket som utvecklats som en del av [Apache Lucene](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/classic/package-summary.html). Fullständig syntax utökar den enkla syntaxen. Alla frågor som du skriver för den enkla syntaxen körs under hela Lucene-parsern. 
 
-I följande exempel visas punkten: samma fråga, men med olika inställningar för queryType ger det olika resultat. I den första frågan behandlas den `^3` som en del av Sök termen.
+I följande exempel visas punkten: samma fråga, men med olika inställningar för queryType ger det olika resultat. I den första frågan `^3` behandlas efter `historic` som en del av Sök termen. Det översta resultatet för den här frågan är "Marquis Plaza & Suitess", som har *10 i beskrivningen*
 
 ```
-queryType=simple&search=mountain beach garden ranch^3&searchFields=description&$count=true&$select=listingId, street, status, daysOnMarket, description&$top=10&$orderby=daysOnMarket
+queryType=simple&search=ocean historic^3&searchFields=Description, Tags&$select=HotelId, HotelName, Tags, Description&$count=true
 ```
 
-Samma fråga som använder den fullständiga Lucene-tolken tolkar fält höjningen på "Ranch", vilket ökar Sök rankningen för resultat som innehåller den aktuella termen.
+Samma fråga `^3` som använder den fullständiga Lucene-parsern tolkar som en term förstärkning i fält. När du växlar parser ändras rangordningen, med resultat som innehåller den *historiska* termen flytta högst upp.
 
 ```
-queryType=full&search=mountain beach garden ranch^3&searchFields=description&$count=true&$select=listingId, street, status, daysOnMarket, description&$top=10&$orderby=daysOnMarket
+queryType=full&search=ocean historic^3&searchFields=Description, Tags&$select=HotelId, HotelName, Tags, Description&$count=true
 ```
 
 <a name="types-of-queries"></a>
@@ -118,7 +113,7 @@ Azure Search stöder en mängd olika frågetyper.
 
 | Frågetyp | Användning | Exempel och mer information |
 |------------|--------|-------------------------------|
-| Texts ökning med fritext | Sök parameter och antingen parser| Fullständig texts ökning söker efter en eller flera termer i alla sökbara fält i ditt index och fungerar på samma sätt som du förväntar dig att en sökmotor som Google eller Bing fungerar. Exemplet i introduktionen är full texts ökning.<br/><br/>Full texts ökning underbörjar text analys med hjälp av standard Lucene Analyzer (som standard) till gemener alla villkor, ta bort stoppord som "The". Du kan åsidosätta standardvärdet med [icke-engelska analyserare](index-add-language-analyzers.md#language-analyzer-list) eller [specialiserade oberoende-analyser](index-add-custom-analyzers.md#AnalyzerTable) som ändrar text analyser. Ett exempel är ett [nyckelord](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/KeywordAnalyzer.html) som behandlar hela innehållet i ett fält som en enskild token. Detta är användbart för data som post nummer, ID: n och vissa produkt namn. | 
+| Texts ökning med fritext | Sök parameter och antingen parser| Fullständig texts ökning söker efter en eller flera termer i alla *sökbara* fält i ditt index och fungerar på samma sätt som du förväntar dig att en sökmotor som Google eller Bing fungerar. Exemplet i introduktionen är full texts ökning.<br/><br/>Full texts ökning underbörjar text analys med hjälp av standard Lucene Analyzer (som standard) till gemener alla villkor, ta bort stoppord som "The". Du kan åsidosätta standardvärdet med [icke-engelska analyserare](index-add-language-analyzers.md#language-analyzer-list) eller [specialiserade oberoende-analyser](index-add-custom-analyzers.md#AnalyzerTable) som ändrar text analyser. Ett exempel är ett [nyckelord](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/KeywordAnalyzer.html) som behandlar hela innehållet i ett fält som en enskild token. Detta är användbart för data som post nummer, ID: n och vissa produkt namn. | 
 | Filtrerad sökning | [OData filter-uttryck](query-odata-filter-orderby-syntax.md) och antingen parser | Filter frågor utvärderar ett booleskt uttryck över alla *filter* bara fält i ett index. Till skillnad från sökningen matchar en filter fråga det exakta innehållet i ett fält, inklusive Skift läges känslighet i sträng fält. En annan skillnad är att filter frågor uttrycks i OData-syntax. <br/>[Exempel på filter uttryck](search-query-simple-examples.md#example-3-filter-queries) |
 | Geo-sökning | [EDM. GeographyPoint-typ](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) i fältet, filter uttrycket och antingen parsern | Koordinater som lagras i ett fält med en EDM. GeographyPoint används för "hitta nära mig" eller mappbaserade Sök kontroller. <br/>[Exempel på Geo-sökning](search-query-simple-examples.md#example-5-geo-search)|
 | Intervalls ökning | filter uttryck och enkel parser | I Azure Search skapas intervall frågor med hjälp av filter parametern. <br/>[Exempel på intervall filter](search-query-simple-examples.md#example-4-range-filters) | 

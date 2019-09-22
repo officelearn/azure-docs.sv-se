@@ -1,33 +1,35 @@
 ---
-title: Fråga efter exempel med hjälp av "enkel" Söksyntaxen – Azure Search
-description: Enkla fråge exempel för full texts ökning, filter sökning, geo-sökning, fasett-sökning och andra frågesträngar som används för att fråga ett Azure Search-index.
+title: Skapa en enkel fråga – Azure Search
+description: Lär dig genom att köra frågor baserat på den enkla syntaxen för full texts ökning, filtrera sökning, geo-sökning, fasett-sökning mot ett Azure Search-index.
 author: HeidiSteen
 manager: nitinme
 tags: Simple query analyzer syntax
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 05/02/2019
+ms.date: 09/20/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: df84686e512db90351d5a9815706890bce49848b
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: 7c4aeef07d34159e01f188effae77926895e2857
+ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69647622"
+ms.lasthandoff: 09/22/2019
+ms.locfileid: "71179184"
 ---
-# <a name="query-examples-using-the-simple-search-syntax-in-azure-search"></a>Fråga exempel med hjälp av "enkel" söksyntax i Azure Search
+# <a name="create-a-simple-query-in-azure-search"></a>Skapa en enkel fråga i Azure Search
 
-[Enkel frågesyntax](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) anropar standard frågans parser för att köra fullständiga texts öknings frågor mot ett Azure Search-index. Den enkla Query Analyzer är snabb och hanterar vanliga scenarier i Azure Search, inklusive full texts ökning, filtrerad och fasett-sökning och geo-sökning. I den här artikeln får du stegvisa exempel på hur du demonstrerar frågor som är tillgängliga när du använder den enkla syntaxen.
+I Azure Search anropar den [enkla frågesyntaxen](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) standard frågans parser för att köra fullständiga texts öknings frågor mot ett index. Den här parsern är snabb och hanterar vanliga scenarier, inklusive full texts ökning, filtrerad och fasett-sökning och geo-sökning. 
 
-Den alternativa frågesyntaxen är [full Lucene](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search)och stöder mer komplexa frågeuttryck, till exempel Fuzzy-och jokertecken, vilket kan ta ytterligare tid att bearbeta. Mer information och exempel på hur du demonstrerar fullständig syntax finns i [exempel frågor för Lucene](search-query-lucene-examples.md).
+I den här artikeln använder vi exempel för att illustrera den enkla syntaxen.
+
+En alternativ frågesyntax är [full Lucene](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search)och stöder mer komplexa frågeuttryck, till exempel Fuzzy-och jokertecken, vilket kan ta ytterligare tid att bearbeta. Mer information och exempel som demonstrerar fullständig syntax finns i [använda fullständig Lucene-syntax](search-query-lucene-examples.md).
 
 ## <a name="formulate-requests-in-postman"></a>Formulera förfrågningar i Postman
 
 I följande exempel används ett sökindex för NYC-jobb som består av jobb som är tillgängliga baserat på en data uppsättning som tillhandahålls av Göteborg från [New York-data](https://nycopendata.socrata.com/) initiativ. Dessa data ska inte betraktas som aktuella eller fullständiga. Indexet finns på en sandbox-tjänst som tillhandahålls av Microsoft, vilket innebär att du inte behöver en Azure-prenumeration eller Azure Search för att testa dessa frågor.
 
-Vad du behöver är Postman eller ett motsvarande verktyg för att skicka HTTP-begäran på GET. Mer information finns i [utforska med rest-klienter](search-get-started-postman.md).
+Vad du behöver är Postman eller ett motsvarande verktyg för att skicka HTTP-begäran på GET. Mer information finns i [ Snabbstart: Utforska Azure Search REST API med Postman](search-get-started-postman.md).
 
 ### <a name="set-the-request-header"></a>Ange rubriken för begäran
 
@@ -267,7 +269,7 @@ Flera parametrar styr vilka fält som finns i Sök resultaten, antalet dokument 
 ```http
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-05-06&$count=true&$select=job_id,agency,business_title,civil_service_title,work_location,job_description&search="fire department"
 ```
-Läggs till i föregående exempel, du kan sortera efter rubrik. Den här sorteringen fungerar eftersom civil_service_title kan sorteras i indexet.
+Läggs till i föregående exempel, du kan sortera efter rubrik. Den här sorteringen fungerar eftersom civil_service_title *kan sorteras i* indexet.
 
 ```http
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-05-06&$count=true&$select=job_id,agency,business_title,civil_service_title,work_location,job_description&search="fire department"&$orderby=civil_service_title

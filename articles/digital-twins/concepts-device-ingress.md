@@ -6,14 +6,14 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 07/29/2019
+ms.date: 09/17/2019
 ms.author: alinast
-ms.openlocfilehash: a3a5555bf163aedd9b41a9c9aa363a883deb4cb8
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 22ae7aeeff4542bee764e131f58eb115026a4fb3
+ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68638516"
+ms.lasthandoff: 09/22/2019
+ms.locfileid: "71177117"
 ---
 # <a name="device-connectivity-and-telemetry-ingress"></a>Enhetsanslutning och inkommande telemetri
 
@@ -21,7 +21,7 @@ Telemetri-data som skickas av enheter och sensorer utgör stamnätet i alla IoT-
 
 Kom igång genom att skapa en Azure IoT Hub-resurs i roten för det spatiala diagrammet. Med IoT Hub-resursen kan du skicka meddelanden från alla enheter under rot utrymmet. När IoT Hub har skapats registrerar du enheter med sensorer i den digitala dubbla instansen. Enheterna kan skicka data till en digital enhets tjänst via [Azure IoT-enhetens SDK](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-sdks).
 
-En steg-för-steg-guide om hur du hanterar enheter finns i självstudien [för att distribuera och konfigurera digitala dubbla](tutorial-facilities-setup.md). Du kan snabbt och enkelt följa stegen:
+En steg-för-steg-guide om hur du hanterar enheter finns i [självstudien för att distribuera och konfigurera digitala dubbla](tutorial-facilities-setup.md). Du kan snabbt och enkelt följa stegen:
 
 - Distribuera en Digitals dubbla instanser från [Azure Portal](https://portal.azure.com).
 - Skapa blank steg i grafen.

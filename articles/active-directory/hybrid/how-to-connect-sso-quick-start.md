@@ -16,12 +16,12 @@ ms.date: 04/16/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 87764ed30182dc548fc3a260582174f121e27e24
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: 29f94d6ff8045b7cae64957eeae00d2460ca3e37
+ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68965220"
+ms.lasthandoff: 09/22/2019
+ms.locfileid: "71176835"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>Azure Active Directory sömlös enkel inloggning: Snabbstart
 
@@ -69,7 +69,7 @@ Om du har en ny installation av Azure AD Connect väljer du den [anpassade insta
 
 ![Azure AD Connect: Användarinloggning](./media/how-to-connect-sso-quick-start/sso8.png)
 
-Om du redan har en installation av Azure AD Connect väljer du inloggnings sidan **ändra användare** i Azure AD Connect och väljer sedan **Nästa**. Om du använder Azure AD Connect versioner 1.1.880.0 eller senare, är alternativet **aktivera enkel inloggning** markerat som standard. Om du använder äldre versioner av Azure AD Connect väljer du alternativet **aktivera enkel inloggning** .
+Om du redan har en installation av Azure AD Connect väljer du **inloggnings sidan Ändra användare** i Azure AD Connect och väljer sedan **Nästa**. Om du använder Azure AD Connect versioner 1.1.880.0 eller senare, är alternativet **aktivera enkel inloggning** markerat som standard. Om du använder äldre versioner av Azure AD Connect väljer du alternativet **aktivera enkel inloggning** .
 
 ![Azure AD Connect: Ändra användar inloggningen](./media/how-to-connect-sso-quick-start/changeusersignin.png)
 
@@ -88,7 +88,7 @@ Följ dessa anvisningar för att kontrol lera att du har aktiverat sömlös SSO 
 1. Logga in på [Azure Active Directory administrations Center](https://aad.portal.azure.com) med den globala administratörs behörigheten för din klient organisation.
 2. Välj **Azure Active Directory** i det vänstra fönstret.
 3. Välj **Azure AD Connect**.
-4. Kontrol lera att funktionen **sömlös enkel inloggning** visas som aktive **rad**.
+4. Kontrol lera att funktionen **sömlös enkel inloggning** visas som **aktive rad**.
 
 ![Azure-portalen: Azure AD Connects fönster](./media/how-to-connect-sso-quick-start/sso10.png)
 
@@ -221,7 +221,7 @@ I steg 2 skapar Azure AD Connect dator konton (som representerar Azure AD) i all
 >[!IMPORTANT]
 >Krypterings nyckeln för Kerberos på ett dator konto, om den läcker, kan användas för att generera Kerberos-biljetter för alla användare i AD-skogen. Skadliga aktörer kan sedan personifiera Azure AD-inloggningar för komprometterade användare. Vi rekommenderar starkt att du regelbundet rullar över dessa Kerberos-dekrypterings nycklar, minst en gång var 30: e dag.
 
-Instruktioner för hur du rullar över nycklar finns [Azure Active Directory sömlös enkel inloggning: Vanliga frågor och](how-to-connect-sso-faq.md#how-can-i-roll-over-the-kerberos-decryption-key-of-the-azureadssoacc-computer-account)svar. Vi arbetar på en möjlighet att införa automatiserade nycklar.
+Instruktioner för hur du rullar över nycklar finns [Azure Active Directory sömlös enkel inloggning: Vanliga frågor och](how-to-connect-sso-faq.md)svar. Vi arbetar på en möjlighet att införa automatiserade nycklar.
 
 >[!IMPORTANT]
 >Du behöver inte göra det här steget _direkt_ efter att du har aktiverat funktionen. Rulla över Kerberos-dekrypterings nycklarna minst en gång var 30: e dag.

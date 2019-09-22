@@ -6,14 +6,14 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 07/29/2019
+ms.date: 09/17/2019
 ms.author: alinast
-ms.openlocfilehash: 0bb7309ae452b2885be279d1ab38b8467397f2f8
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 37f2afbd9bae4ca6bccc5062515f166687d8913c
+ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68638490"
+ms.lasthandoff: 09/22/2019
+ms.locfileid: "71177067"
 ---
 # <a name="understand-digital-twins-object-models-and-spatial-intelligence-graph"></a>Förstå digitala objekt modeller och spatial Intelligence-diagram
 
@@ -23,9 +23,7 @@ Digitala dubbla objekt modeller beskriver domänbaserade koncept, kategorier och
 
 Med digitala dubbla objekt modeller och en Ontology på plats kan du fylla ett _spatial diagram_. Spatiala diagram är virtuella representationer av många relationer mellan utrymmen, enheter och personer som är relevanta för en IoT-lösning. Det här diagrammet visar ett exempel på en spatial graf som använder en smart byggnads Ontology.
 
-![Byggnad med digitala dubbla diagram][1]
-
-<a id="model"></a>
+[![Byggnad med digitala dubbla diagram](media/concepts/digital-twins-spatial-graph-building.png)](media/concepts/digital-twins-spatial-graph-building.png#lightbox)
 
 I spatial grafen samlas utrymmen, enheter, sensorer och användare samman. Varje länkas samman på ett sätt som modellerar den verkliga världen. I det här exemplet har plats 43 fyra golv, var och en med många olika områden. Användare är kopplade till sina arbets stationer och tilldelas åtkomst till delar av grafen. En administratör har behörighet att göra ändringar i den spatiala grafen, medan en besökare har behörighet att bara visa vissa byggnads data.
 
@@ -56,8 +54,6 @@ Andra objekt kategorier är:
 - **Matchningar** är objekt som avgör vilka UDF: er som körs för ett angivet telemetri.
 - **Slut punkter** är de platser där telemetri-meddelanden och digitala dubbla händelser kan dirigeras, till exempel `Event Hub` `Service Bus`,, och `Event Grid`.
 
-<a id="graph"></a>
-
 ## <a name="spatial-intelligence-graph"></a>Diagram för spatial intelligens
 
 Spatial graf är det hierarkiska diagrammet över utrymmen, enheter och personer som definierats i den digitala dubbla objekt modellen. Det spatiala diagrammet stöder arv, filtrering, bläddringskontroll, skalbarhet och utöknings barhet. Du kan hantera och interagera med din spatiala graf med en samling REST-API: er.
@@ -68,7 +64,7 @@ Om du distribuerar en Digitals dubbla tjänst i din prenumeration blir du global
 
 **Diagram filtrering**. Filtrering används för att begränsa resultaten av begäran. Du kan filtrera efter ID: n, namn, typer, under typer, överordnat utrymme och associerade utrymmen. Du kan också filtrera efter sensor data typer, egenskaps nycklar och värden, gå *igenom*, *minLevel*, *maxLevel*och andra OData-filter parametrar.
 
-**Graf-bläddra**. Du kan förflytta den spatiala grafen genom dess djup och bredd. För djup kan du förflytta diagrammet uppåt eller nedåt genom att använda parametrarna Traversal, *minLevel*och *maxLevel*. Bläddra i grafen för att hämta noder på samma nivå som är direkt kopplade till ett överordnat utrymme eller en av dess underordnade för bredd. När du frågar ett objekt kan du hämta alla relaterade objekt som har relationer till objektet med hjälp av parametern *includes* i get-API: erna.
+**Graf-bläddra**. Du kan förflytta den spatiala grafen genom dess djup och bredd. För djup kan du förflytta diagrammet uppåt eller nedåt genom att använda parametrarna *Traversal*, *minLevel*och *maxLevel*. Bläddra i grafen för att hämta noder på samma nivå som är direkt kopplade till ett överordnat utrymme eller en av dess underordnade för bredd. När du frågar ett objekt kan du hämta alla relaterade objekt som har relationer till objektet med hjälp av parametern *includes* i get-API: erna.
 
 **Diagram skalbarhet**. Digitala dubblare garanterar diagram skalbarhet, så att den kan hantera dina verkliga arbets belastningar. Digitala garn kan användas för att representera stora portföljer av fastighets-, infrastruktur-, enhets-, sensorer-, telemetri-och mer.
 
@@ -76,20 +72,20 @@ Om du distribuerar en Digitals dubbla tjänst i din prenumeration blir du global
 
 ### <a name="spatial-intelligence-graph-management-apis"></a>API: er för grafisk hantering i spatial information
 
-När du har distribuerat digitala dubbla från [Azure Portal](https://portal.azure.com) [genereras URL:](https://swagger.io/tools/swagger-ui/) en för hanterings-API: erna automatiskt. Den visas i Azure Portal i översikts avsnittet med följande format.
+När du har distribuerat digitala dubbla från [Azure Portal](https://portal.azure.com) [genereras URL: en för](https://swagger.io/tools/swagger-ui/) hanterings-API: erna automatiskt. Den visas i Azure Portal i **översikts** avsnittet med följande format.
 
 ```plaintext
 https://YOUR_INSTANCE_NAME.YOUR_LOCATION.azuresmartspaces.net/management/swagger
 ```
 
-| Namn | Ersätt med |
+| Name | Ersätt med |
 | --- | --- |
 | YOUR_INSTANCE_NAME | Namnet på Digital Twins-instansen |
 | YOUR_LOCATION | Den serverregion som instansen finns i |
 
  Det fullständiga URL-formatet visas i den här bilden.
 
-![Digitalt sammanflätade Portal hanterings-API][2]
+(![Digitalt sammanflätade Portal hanterings-API](media/concepts/digital-twins-spatial-graph-management-api-url.png)] (Media/Concepts/Digital-Twins-spatial-Graph-Management-API-URL. png # Lightbox)
 
 Mer information om hur du använder spatialdata i spatial Intelligence finns i förhands granskning av Azure Digitals hanterings-API: er.
 
@@ -106,7 +102,3 @@ Alla API-anrop måste autentiseras med hjälp av [OAuth](https://docs.microsoft.
 - Om du vill veta mer om enhets anslutning och hur du skickar telemetri till digitala enheter kan du läsa mer i [Azure Digitals enhets anslutning och telemetri](concepts-device-ingress.md).
 
 - Om du vill veta mer om hanterings-API-begränsningar och begränsningar kan du läsa [Azure Digitals dubbla API-hantering och begränsningar](concepts-service-limits.md).
-
-<!-- Images -->
-[1]: media/concepts/digital-twins-spatial-graph-building.png
-[2]: media/concepts/digital-twins-spatial-graph-management-api-url.png

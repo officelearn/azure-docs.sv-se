@@ -8,12 +8,12 @@ ms.service: container-instances
 ms.topic: article
 ms.date: 04/03/2019
 ms.author: danlep
-ms.openlocfilehash: 599339b0591245462dcc0840400ad5241cd5922c
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: a38b0cfe7072975e4bcaf61b65ab7733694f714c
+ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68325819"
+ms.lasthandoff: 09/22/2019
+ms.locfileid: "71178563"
 ---
 # <a name="tutorial-deploy-a-multi-container-group-using-a-yaml-file"></a>Självstudier: Distribuera en grupp med flera behållare med hjälp av en YAML-fil
 
@@ -24,7 +24,7 @@ ms.locfileid: "68325819"
 
 Azure Container Instances stöder distribution av flera behållare till en enda värd med hjälp av en behållar [grupp](container-instances-container-groups.md). En behållar grupp är användbar när du skapar en program-sidvagn för loggning, övervakning eller andra konfigurationer där en tjänst behöver en andra ansluten process.
 
-I den här självstudien följer du steg för steg hur du kör en enkel sidvagn-konfiguration med två behållare genom att distribuera en YAML-fil med hjälp av Azure CLI. En YAML-fil ger ett koncist format för att ange instans inställningarna. Lär dig att:
+I den här självstudien följer du steg för steg hur du kör en enkel sidvagn-konfiguration med två behållare genom att distribuera en [yaml-fil](container-instances-reference-yaml.md) med hjälp av Azure CLI. En YAML-fil ger ett koncist format för att ange instans inställningarna. Lär dig att:
 
 > [!div class="checklist"]
 > * Konfigurera en YAML-fil

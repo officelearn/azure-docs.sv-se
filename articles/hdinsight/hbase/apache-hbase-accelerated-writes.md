@@ -8,12 +8,12 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 08/21/2019
-ms.openlocfilehash: c24ed7efe9e046a36a05ec5924cbd61d218b1b01
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: bcc9736280b144a77bca57b4f4df1303f4b54796
+ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71091735"
+ms.lasthandoff: 09/22/2019
+ms.locfileid: "71179084"
 ---
 # <a name="azure-hdinsight-accelerated-writes-for-apache-hbase"></a>Azure HDInsight-accelererade skrivningar för Apache HBase
 
@@ -54,6 +54,12 @@ flush 'mytable'
 ```
 disable 'mytable'
 ```
+
+Följ liknande steg när du skalar ned klustret: Töm tabellerna och inaktivera dina tabeller för att stoppa inkommande data. Du kan inte skala ned klustret till färre än tre noder.
+
+Genom att följa dessa steg kan du se till att det går att skala ned och undvika möjligheten för en namenode att försättas i fel säkert läge på grund av replikerade eller temporära filer.
+
+Om din namenode går in i fel säkert läge efter en nedskalning, använder du HDFS-kommandon för att replikera de replikerade blocken på nytt och få HDFS ur fel säkert läge. Med den här omreplikeringen kan du starta om HBase.
 
 ## <a name="next-steps"></a>Nästa steg
 

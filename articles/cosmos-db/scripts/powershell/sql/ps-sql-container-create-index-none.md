@@ -1,19 +1,20 @@
 ---
-title: Azure PowerShell-skript – skapa en behållare som indexering avstängd i ett Azure Cosmos-konto
-description: Azure PowerShell-skriptexempel – skapa en behållare som indexering avstängd i ett Azure Cosmos-konto
+title: Azure PowerShell skript – skapa en behållar indexering inaktive rad i ett Azure Cosmos-konto
+description: Azure PowerShell skript exempel – skapa en behållar indexering inaktive rad i ett Azure Cosmos-konto
 author: markjbrown
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: sample
 ms.date: 05/06/2019
 ms.author: mjbrown
-ms.openlocfilehash: 7cec954bc85873d300a4abb96396025600e17201
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: d216aa7eaa25ee18c7b5e962309e2a08f11df284
+ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67603865"
+ms.lasthandoff: 09/22/2019
+ms.locfileid: "71178831"
 ---
-# <a name="create-a-container-indexing-turned-off-in-an-azure-cosmos-account-using-powershell"></a>Skapa en behållare som indexering avstängd i ett Azure Cosmos-konto med hjälp av PowerShell
+# <a name="create-a-container-indexing-turned-off-in-an-azure-cosmos-account-using-powershell"></a>Skapa en behållar indexering inaktive rad i ett Azure Cosmos-konto med PowerShell
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 
@@ -39,7 +40,7 @@ Det här skriptet använder följande kommandon. Varje kommando i tabellen länk
 |---|---|
 |**Azure-resurser**| |
 | [New-AzResource](https://docs.microsoft.com/powershell/module/az.resources/new-azresource) | Skapar en resurs. |
-|**Azure-resursgrupper**| |
+|**Resurs grupper i Azure**| |
 | [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) | Tar bort en resursgrupp, inklusive alla kapslade resurser. |
 |||
 

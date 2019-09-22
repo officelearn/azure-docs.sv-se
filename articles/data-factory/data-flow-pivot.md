@@ -1,72 +1,78 @@
 ---
-title: Azure Data Factory Dataomvandling Flow Pivot-mappning
-description: Pivotera data från rader till kolumner med hjälp av Azure Data Factory mappning Flow Pivot Dataomvandling
+title: Azure Data Factory mappar Pivot-transformering för data flöde
+description: Pivotera data från rader till kolumner med Azure Data Factory mappa data flödets Pivot-transformering
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/30/2019
-ms.openlocfilehash: e16cac281b77f3ca93d9ef358ae806203bc8b663
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0b68007f8c3383997f0d31888198af866d38b590
+ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61348503"
+ms.lasthandoff: 09/22/2019
+ms.locfileid: "71178652"
 ---
-# <a name="azure-data-factory-pivot-transformation"></a>Azure data factory pivot-transformering
+# <a name="azure-data-factory-pivot-transformation"></a>Pivot-transformering för Azure Data Factory
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
-Använd Pivot i ADF dataflöde som en aggregering där en eller flera grupperade kolumner har dess distinkta radvärden omvandlas till enskilda kolumner. Du kan i princip pivotera radvärdena i nya kolumner (omvandla data till metadata).
+Använd Pivot i ADF-dataflöde som en agg regering där en eller flera grupperade kolumner har sina distinkta rad värden omvandlade till enskilda kolumner. I stort sett kan du pivotera rad värden i nya kolumner (omvandla data till metadata).
 
-![Alternativ för pivotpunktens](media/data-flow/pivot1.png "pivotera 1")
+![Pivot-alternativ](media/data-flow/pivot1.png "Pivot 1")
 
 ## <a name="group-by"></a>Gruppera efter
 
-![Alternativ för pivotpunktens](media/data-flow/pivot2.png "pivotera 2")
+![Pivot-alternativ](media/data-flow/pivot2.png "Pivot 2")
 
-Ange först de kolumner som du vill gruppera efter för pivot-aggregering. Du kan ange fler än 1 kolumn här med den + bredvid kolumnlistan.
+Ange först de kolumner som du vill gruppera efter för din Pivot-aggregering. Du kan ange mer än 1 kolumn här med +-tecknet bredvid kolumn listan.
 
 ## <a name="pivot-key"></a>Pivot-nyckel
 
-![Alternativ för pivotpunktens](media/data-flow/pivot3.png "pivotera 3")
+![Pivot-alternativ](media/data-flow/pivot3.png "Pivot 3")
 
-Pivot-nyckeln är den kolumn som ADF kommer växla över från rader till kolumnen. Som standard kommer varje unikt värde i datauppsättningen för det här fältet växla över till en kolumn. Du kan också ange värdena för från den datauppsättning som du vill växla över till kolumnvärdena. Detta är den kolumn som avgör de nya kolumnerna som ska skapas.
+Pivot-tangenten är den kolumn som ADF kommer från rad till kolumn. Som standard kommer varje unikt värde i data uppsättningen för det här fältet att pivoteras till en kolumn. Du kan också ange värden från data uppsättningen som du vill pivotera till kolumn värden. Det här är den kolumn som avgör vilka nya kolumner som ska skapas.
 
-## <a name="pivoted-columns"></a>Pivoterad kolumner
+## <a name="pivoted-columns"></a>Pivoterade kolumner
 
-![Alternativ för pivotpunktens](media/data-flow/pivot4.png "pivotera 4")
+![Pivot-alternativ](media/data-flow/pivot4.png "Pivot 4")
 
-Till sist väljer du den aggregering som du vill använda för pivoterat värden och hur du vill att kolumnerna som ska visas i den nya utdata-projektionen från omvandlingen.
+Slutligen väljer du den agg regering som du vill använda för de pivoterade värdena och hur du vill att kolumnerna ska visas i den nya utdata-projektionen från omvandlingen.
 
-(Valfritt) Du kan ange ett namngivningsmönster från en med ett prefix, mitten och suffixet som ska läggas till varje nytt kolumnnamn från radvärdena.
+Valfritt Du kan ange ett namn mönster med ett prefix, mellan och suffix som ska läggas till i varje nytt kolumn namn från rad värden.
 
-Exempelvis skulle pivotering ”försäljning” av ”Region” leda till nya kolumnvärdena från varje försäljningsvärde, dvs. "25", "50", "1000", etc. Men om du ställer in prefixvärdet ”Sales-” varje kolumnvärde skulle lägga till ”Sales-” i början av värdet.
+Om du till exempel pivoterar "Sales" efter "region" skulle det leda till nya kolumn värden från varje försäljnings värde, dvs. "25", "50", "1000", etc. Men om du anger ett prefixvärde för "Sales-" lägger varje kolumn värde till "Sales-" i början av värdet.
 
-![Alternativ för pivotpunktens](media/data-flow/pivot5.png "pivotera 5")
+![Pivot-alternativ](media/data-flow/pivot5.png "Pivot 5")
 
-Ange kolumnordning till ”Normal” grupperas alla pivoterat kolumner med deras aggregerade värden. Ange hur kolumnerna till ”laterala” kommer växla mellan kolumn och värde.
+Om du anger kolumn ordningen till "normal" grupperas alla de pivoterade kolumnerna med deras sammanlagda värden. Att ange kolumnernas ordning till "lateral" kommer att alternera mellan kolumn och värde.
 
 ### <a name="aggregation"></a>Sammansättning
 
-Om du vill ange den aggregering som du vill använda för pivot-värden, klickar du på fältet längst ned i fönstret pivoteras kolumner. Du ska ange i Uttrycksverktyget ADF Data flöda där du kan skapa ett uttryck för aggregering och ange ett beskrivande aliasnamn för din nya sammanställda värden.
+Om du vill ange den agg regering som du vill använda för pivottabellens värden klickar du på fältet längst ned i fönstret för pivoterade kolumner. Du kommer att ange i uttrycks verktyget för ADF-dataflöde där du kan skapa ett agg regerings uttryck och tillhandahålla ett beskrivande aliasnamn för dina nya aggregerade värden.
 
-Använda Flow Uttrycksspråk för ADF Data för att beskriva pivoterad kolumn omvandlingar i Uttrycksverktyget: https://aka.ms/dataflowexpressions.
+Använd uttrycks språket för ADF-dataflödet för att beskriva de pivoterade kolumn omvandlingarna i https://aka.ms/dataflowexpressions uttrycks verktyget:.
 
-## <a name="pivot-metadata"></a>Pivot-metadata
+## <a name="pivot-metadata"></a>Pivotera metadata
 
-Pivot-transformeringen skapas nya kolumnnamn som är dynamiska baserat på inkommande data. Pivot-nyckeln ger värden för varje nytt kolumnnamn. Om du inte ange enskilda värden och vill skapa dynamiska kolumnnamn för varje unikt värde i Pivot-nyckeln, metadata i Granska visas inte i Användargränssnittet och det blir inga kolumnen spridning till mottagare transformeringen. Om du anger värden för nyckeln Pivot sedan ADF kan fastställa de nya kolumnnamnen och de kolumnnamn ska vara tillgängliga för dig i granska och mappning för mottagare.
+I Pivot-transformeringen skapas nya kolumn namn som är dynamiska utifrån dina inkommande data. Pivot-nyckeln genererar värdena för varje nytt kolumn namn. Om du inte anger enskilda värden och vill skapa dynamiska kolumn namn för varje unikt värde i din Pivot-nyckel, visar användar gränssnittet inte de metadata som granskas och det kommer inte att finnas någon kolumn spridning till Sink-omvandlingen. Om du anger värden för Pivot-nyckeln kan ADF identifiera de nya kolumn namnen och de kolumn namn som är tillgängliga för dig i inspektions-och mottagar mappningen.
 
-### <a name="landing-new-columns-in-sink"></a>Hamnar nya kolumner i mottagare
+### <a name="generate-a-new-model-from-dynamic-columns"></a>Generera en ny modell från dynamiska kolumner
 
-Även med dynamiska kolumnnamnen i Pivot, kan du fortfarande mottagare din nya kolumnnamn och värden till ditt målarkiv. Ange ”Tillåt schemat Drift” till på i inställningarna för mottagare. Nya dynamiska namn visas inte i kolumnmetadata för, men drift schemaalternativet gör att du kan få data.
+Pivot genererar nya kolumn namn dynamiskt baserat på rad värden. Du kan omvandla dessa nya kolumner till metadata som kan refereras till senare i ditt data flöde. Det gör du genom att klicka på fliken Data förhands granskning. Alla nya kolumner som genereras av din Pivot-transformering visas med en "förbockad" ikon i tabell rubriken. Klicka på knappen "Mappa förbrukade" för att omvandla de nya kolumnerna till metadata, vilket gör dem till en del av data flödets modell.
 
-### <a name="view-metadata-in-design-mode"></a>Visa metadata i designläge
+![Pivotera kolumner](media/data-flow/newpivot1.png "Mappa uppstaplade Pivot-kolumner")
 
-Om du vill visa de nya kolumnnamnen som metadata i granska och du vill se kolumnerna som uttryckligen spridas till mottagare transformeringen, ange explicita värden på fliken Pivot-nyckel.
+### <a name="landing-new-columns-in-sink"></a>Landning av nya kolumner i mottagare
 
-### <a name="how-to-rejoin-original-fields"></a>Hur du återansluta till ursprungliga fält
-Pivot-transformeringen kommer endast att projicera kolumner som används i aggregeringar, gruppering och pivot-åtgärd. Om du vill ta med de andra kolumnerna från föregående steg i ditt flöde, Använd en ny gren i föregående steg och mönstret självkoppling ansluta flödet med metadata.
+Även med dynamiska kolumn namn i Pivot kan du fortfarande skapa nya kolumn namn och-värden i mål lagret. Ställ bara in "Tillåt schema drift" i i dina Sink-inställningar. Du kommer inte att se de nya dynamiska namnen i metadata för kolumnen, men du kan använda alternativet schema drifts alternativ för att landa data.
+
+### <a name="view-metadata-in-design-mode"></a>Visa metadata i design läge
+
+Om du vill visa de nya kolumn namnen som metadata i inspektionen och du vill se att kolumnerna sprids direkt till Sink-omvandlingen, anger du explicita värden på fliken för Pivot-tangenten.
+
+### <a name="how-to-rejoin-original-fields"></a>Så här återansluter du ursprungliga fält
+Pivot-transformeringen projicerar bara de kolumner som används i instruktionen agg regerings-, grupperings-och Pivot-åtgärd. Om du vill inkludera de andra kolumnerna från föregående steg i ditt flöde använder du en ny gren från föregående steg och använder själv kopplings mönstret för att ansluta flödet med de ursprungliga metadata.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Prova den [normalisera omvandling](data-flow-unpivot.md) att kolumnvärden radvärden. 
+Prova [unpivot-transformeringen](data-flow-unpivot.md) för att omvandla kolumn värden till rad värden. 

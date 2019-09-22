@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: elisol, bryanla
 ms.custom: aaddev, seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ba4beeff5484f774e801842f06d694af456c4e96
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: 88d74fe794f4de95b7ba8b0dd5575ca56d2016e5
+ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71033757"
+ms.lasthandoff: 09/22/2019
+ms.locfileid: "71176931"
 ---
 # <a name="how-to-list-your-application-in-the-azure-active-directory-application-gallery"></a>Anvisningar: Visa ditt program i Azure Active Directory-programgalleriet
 
@@ -80,7 +80,7 @@ Om du vill visa ett program i Azure AD App-galleriet måste du först implemente
     ![Tids linje som visar hur OpenID ansluter programmet till galleriet](./media/howto-app-gallery-listing/openid.png)
 
     * Om du vill lägga till programmet i listan i galleriet med OpenID Connect väljer du **OpenID connect & OAuth 2,0** som ovan.
-    * Om du har problem med åtkomsten kontaktar du [integrerings teamet för Azure AD SSO](<mailto:SaaSApplicationIntegrations@service.microsoft.com>). 
+    * Om du har problem med åtkomsten kontaktar du [integrerings teamet för Azure AD SSO](<mailto:SaaSApplicationIntegrations@service.microsoft.com>).
 
 - **SAML 2,0** eller **WS-utfodras**: Om din app stöder SAML 2,0 kan du integrera den direkt med en Azure AD-klient genom att följa [anvisningarna för att lägga till ett anpassat program](../active-directory-saas-custom-apps.md).
 
@@ -98,6 +98,12 @@ Skapa ett webb program som har en HTML-inloggnings sida för att konfigurera [l�
 * Om du vill lägga till ditt program i listan i galleriet med hjälp av lösen ord för enkel inloggning väljer du **lösen ord för SSO** som ovan.
 * Om du har problem med åtkomsten kontaktar du [integrerings teamet för Azure AD SSO](<mailto:SaaSApplicationIntegrations@service.microsoft.com>).
 
+## <a name="requesting-for-user-provisioning"></a>Begär användar etablering
+
+Följ processen nedan för att begära användar etablering –
+
+   ![Tids linje för att Visa SAML-program i galleriet](./media/howto-app-gallery-listing/user-provisioning.png)
+
 ## <a name="updateremove-existing-listing"></a>Uppdatera/ta bort befintlig lista
 
 Om du vill uppdatera eller ta bort ett befintligt program i Azure AD App-galleriet måste du först skicka in begäran i [program nätverks portalen](https://microsoft.sharepoint.com/teams/apponboarding/Apps). Om du har ett Office 365-konto använder du det för att logga in på den här portalen. Om inte, använder du Microsoft-konto (till exempel Outlook eller Hotmail) för att logga in.
@@ -106,9 +112,9 @@ Om du vill uppdatera eller ta bort ett befintligt program i Azure AD App-galleri
 
     ![Tids linje för att Visa SAML-program i galleriet](./media/howto-app-gallery-listing/updateorremove.png)
 
-    * Om du vill uppdatera ett befintligt program väljer du **Uppdatera befintlig program lista**.
-    * Om du vill ta bort ett befintligt program från Azure AD-galleriet väljer du **ta bort befintlig program lista**.
-    * Om du har problem med åtkomsten kontaktar du [integrerings teamet för Azure AD SSO](<mailto:SaaSApplicationIntegrations@service.microsoft.com>). 
+    * Om du vill uppdatera ett befintligt program väljer du lämpligt alternativ enligt ditt krav.
+    * Om du vill ta bort ett befintligt program från Azure AD-galleriet väljer du **ta bort min program lista från galleriet**.
+    * Om du har problem med åtkomsten kontaktar du [integrerings teamet för Azure AD SSO](<mailto:SaaSApplicationIntegrations@service.microsoft.com>).
 
 ## <a name="listing-requests-by-customers"></a>Visar begär Anden från kunder
 
@@ -120,15 +126,15 @@ Nedan visas de program som krävs av kunden,
 
 ![Visar flödet för efterfrågade appar för kund](./media/howto-app-gallery-listing/customer-request.png)
 
-## <a name="timelines"></a>Tidslinjer
+## <a name="timelines"></a>Tids linjer
 
 Tids linjen för processen med att lista ett SAML 2,0-eller WS-utfodras program i galleriet är 7-10 arbets dagar.
 
-   ![Tids linje för att Visa SAML-program i galleriet](./media/howto-app-gallery-listing/timeline.png)
+  ![Tids linje för att Visa SAML-program i galleriet](./media/howto-app-gallery-listing/timeline.png)
 
 Tids linjen för processen med att ange ett OpenID Connect-program i galleriet är 2-5 arbets dagar.
 
-   ![Tids linje för att Visa SAML-program i galleriet](./media/howto-app-gallery-listing/timeline2.png)
+  ![Tids linje för att Visa SAML-program i galleriet](./media/howto-app-gallery-listing/timeline2.png)
 
 ## <a name="escalations"></a>Förfrågningar
 

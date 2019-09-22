@@ -3,18 +3,18 @@ title: Översikt över Azure Digital Twins | Microsoft Docs
 description: Läs mer om Azure Digital Twins, en Azure IoT-lösning för spatial intelligens.
 author: julieseto
 ms.author: jseto
-ms.date: 08/01/2019
+ms.date: 09/17/2019
 ms.topic: overview
 ms.service: digital-twins
 services: digital-twins
 manager: bertvanhoof
 ms.custom: mvc
-ms.openlocfilehash: 6bd4e3bb688e92d30a21c39599e2e5bdb7b17dba
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.openlocfilehash: 2b80d0b364330a0effa7b89c620bd935157de290
+ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68736971"
+ms.lasthandoff: 09/22/2019
+ms.locfileid: "71178294"
 ---
 # <a name="overview-of-azure-digital-twins"></a>Översikt över Azure Digital Twins
 
@@ -33,7 +33,7 @@ Azure Digitals sammanflätade gäller för alla typer av miljöer, till exempel 
 - Analysera användningsnivåerna för en byggnad.
 - Hitta den mest använda kassan i din butik.
 
-Oavsett ditt verkliga affärs scenario är det mycket troligt att en motsvarande Digital instans kan tillhandahållas via Azures digitala dubbla.
+Oavsett ditt verkliga affärs scenario är det förmodligen en motsvarande Digital instans som kan tillhandahållas via Azures digitala dubbla.
 
 Följande videoklipp tar en närmare titt på Azure Digital Twins.
 
@@ -45,13 +45,13 @@ Azure Digital Twins har följande viktiga funktioner.
 
 ### <a name="spatial-intelligence-graph"></a>Diagram för spatial intelligens
 
-[*Diagrammet för spatial intelligens*](./concepts-objectmodel-spatialgraph.md#graph), eller *den rumsliga grafen*, är en virtuell representation av den fysiska miljön. Du kan använda det för att skapa relationer mellan personer, platser och enheter.
+[*Diagrammet för spatial intelligens*](./concepts-objectmodel-spatialgraph.md#spatial-intelligence-graph), eller *den rumsliga grafen*, är en virtuell representation av den fysiska miljön. Du kan använda det för att skapa relationer mellan personer, platser och enheter.
 
 Tänk dig en smart verktygsapp som hanterar flera elmätare som är anslutna i ett stadsområde. Tillverkaren av det smarta verktyget måste korrekt övervaka och förutse användning av och debitering för elektricitet. Varje enhet och sensorn måste modelleras med kontext om platsen och den kund som ska faktureras. Du kan använda diagrammet för spatial intelligens för att modellera de här typerna av komplexa relationer.
 
 ### <a name="digital-twin-object-models"></a>Digitala tvillingobjektmodeller
 
-[Digitala tvillingobjektmodeller](./concepts-objectmodel-spatialgraph.md#model) är fördefinierade enhetsprotokoll och dataschema. De justerar lösningens domänspecifika behov att påskynda och förenkla utvecklingen.
+[Digitala tvillingobjektmodeller](./concepts-objectmodel-spatialgraph.md#digital-twins-object-models) är fördefinierade enhetsprotokoll och dataschema. De justerar lösningens domänspecifika behov att påskynda och förenkla utvecklingen.
 
 Till exempel kan ett Room-program använda fördefinierade utrymmes typer som campus, byggnad, golv och rum.
 
@@ -93,9 +93,9 @@ Azure Digital Twins är användbart för att representera den fysiska världen o
 
 Azure Digital Twins använder Azure IoT Hub för att ansluta IoT-enheter och -sensorer som håller allt uppdaterat med den fysiska världen. Följande diagram visar hur Azure Digital Twins relaterar till andra Azure IoT-tjänster.
 
-![Azure Digital Twins är en tjänst som bygger på Azure IoT Hub][1]
+[![Azure Digitals dubbla är en tjänst som bygger på Azure IoT Hub](media/overview/azure-digital-twins-in-iot-ecosystem.png)](media/overview/azure-digital-twins-in-iot-ecosystem.png#lightbox)
 
-Läs mer om IoT [Azure IoT-tekniker och lösningar](https://docs.microsoft.com/azure/iot-fundamentals/iot-services-and-technologies).
+Läs mer om IoT [Azure IoT-tekniker och lösningar](../iot-fundamentals/iot-services-and-technologies.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -113,6 +113,3 @@ Läs mer om grundläggande Azure Digital Twins-begrepp:
 
 >[!div class="nextstepaction"]
 >[Förstå Digital Twins-objektmodellen och diagram för spatial intelligens](./concepts-objectmodel-spatialgraph.md)
-
-<!-- Images -->
-[1]: media/overview/azure-digital-twins-in-iot-ecosystem.png

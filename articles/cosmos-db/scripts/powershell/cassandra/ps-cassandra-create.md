@@ -1,19 +1,20 @@
 ---
-title: Azure PowerShell-skript – Azure Cosmos DB skapa Cassandra API keyspace och tabell
-description: Azure PowerShell-skript – Azure Cosmos DB skapa Cassandra API keyspace och tabell
+title: Azure PowerShell skript – Azure Cosmos DB skapa API för Cassandrat tecken utrymme och tabell
+description: Azure PowerShell skript – Azure Cosmos DB skapa API för Cassandrat tecken utrymme och tabell
 author: markjbrown
 ms.service: cosmos-db
+ms.subservice: cosmosdb-cassandra
 ms.topic: sample
 ms.date: 05/18/2019
 ms.author: mjbrown
-ms.openlocfilehash: 1427640519936bab907c7159b4e88e723bac57fd
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 52b65b6d9be4220b5d7078fc28e78ae4d764a988
+ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67602579"
+ms.lasthandoff: 09/22/2019
+ms.locfileid: "71179036"
 ---
-# <a name="create-a-keyspace-and-table-for-azure-cosmos-db---cassandra-api"></a>Skapa ett keyspace och tabell för Azure Cosmos DB - API för Cassandra
+# <a name="create-a-keyspace-and-table-for-azure-cosmos-db---cassandra-api"></a>Skapa ett tecken utrymme och en tabell för Azure Cosmos DB-API för Cassandra
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 
@@ -39,7 +40,7 @@ Det här skriptet använder följande kommandon. Varje kommando i tabellen länk
 |---|---|
 |**Azure-resurser**| |
 | [New-AzResource](https://docs.microsoft.com/powershell/module/az.resources/new-azresource) | Skapar en resurs. |
-|**Azure-resursgrupper**| |
+|**Resurs grupper i Azure**| |
 | [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) | Tar bort en resursgrupp, inklusive alla kapslade resurser. |
 |||
 

@@ -6,14 +6,14 @@ author: alinamstanciu
 ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial
-ms.date: 08/16/2019
+ms.date: 09/17/2019
 ms.author: alinast
-ms.openlocfilehash: a107f7dba7f28b41303727ad37b7c50f2e215c4f
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.openlocfilehash: eebf6f58000178f2aa8021fbd435aa863fb70e49
+ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69623000"
+ms.lasthandoff: 09/22/2019
+ms.locfileid: "71177200"
 ---
 # <a name="tutorial-deploy-azure-digital-twins-preview-and-configure-a-spatial-graph"></a>Självstudier: Distribuera Azure Digitals förhands granskning och konfigurera ett spatial diagram
 
@@ -43,15 +43,11 @@ I de här kurserna används och ändras samma exempel som i [snabbstarten för a
 
 - [Visual Studio Code](https://code.visualstudio.com/) för att utforska exempelkoden. 
 
-<a id="deploy"></a>
-
 ## <a name="deploy-digital-twins"></a>Distribuera Digital Twins
 
 Använd stegen i det här avsnittet för att skapa en ny instans av Azure Digital Twins-tjänsten. Bara en instans kan skapas per prenumeration. Hoppa till nästa avsnitt om du redan har en som körs. 
 
 [!INCLUDE [create-digital-twins-portal](../../includes/digital-twins-create-portal.md)]
-
-<a id="permissions"></a>
 
 ## <a name="grant-permissions-to-your-app"></a>Bevilja appen behörigheter
 
@@ -76,7 +72,7 @@ Om du redan har exemplen för [snabbstarten för att hitta tillgängliga rum](qu
 
 I den extraherade exempelmappen öppnar du filen **digital-twins-samples-csharp\digital-twins-samples.code-workspace** i Visual Studio Code. Den innehåller två projekt:
 
-* Du kan använda etableringsexemplet **occupancy-quickstart** för att konfigurera och etablera en [graf med rumslig information](concepts-objectmodel-spatialgraph.md#graph). Den här grafen är en digital bild av fysiska utrymmen och resurserna i dem. Den använder en [objektmodell](concepts-objectmodel-spatialgraph.md#model) som definierar objekt för en smart byggnad. En komplett lista över Digital Twins-objekt och REST-API:er finns i [den här REST API-dokumentationen](https://docs.westcentralus.azuresmartspaces.net/management/swagger) eller den URL för API för hantering som har skapats för [din instans](#deploy).
+* Du kan använda etableringsexemplet **occupancy-quickstart** för att konfigurera och etablera en [graf med rumslig information](concepts-objectmodel-spatialgraph.md#digital-twins-object-models). Den här grafen är en digital bild av fysiska utrymmen och resurserna i dem. Den använder en [objektmodell](concepts-objectmodel-spatialgraph.md#digital-twins-object-models) som definierar objekt för en smart byggnad. En komplett lista över Digital Twins-objekt och REST-API:er finns i [den här REST API-dokumentationen](https://docs.westcentralus.azuresmartspaces.net/management/swagger) eller den URL för API för hantering som har skapats för [din instans](#deploy-digital-twins).
 
    Om du vill utforska exemplet och se hur det kommunicerar med din Digital Twins-instans kan du börja med mappen **src\actions**. Filerna i den här mallen implementerar kommandon som du vill använda i dessa självstudier:
     - Filen **provisionSample.cs** visar hur du etablerar din rumsliga graf.
@@ -101,17 +97,15 @@ I den extraherade exempelmappen öppnar du filen **digital-twins-samples-csharp\
     ```
 
 1. I Visual Studio Code öppnar du filen [appSettings.json](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/appSettings.json) i projektet **occupancy-quickstart**. Uppdatera följande värden:
-   * **ClientId**: Ange program-ID:t för din Azure AD-appregistrering. Du antecknade ID:t i avsnittet där du [anger appbehörigheter](#permissions).
-   * **Klientorganisation**: Ange katalog-ID för din [Azure AD-klient](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant). Du antecknade även ID:t i avsnittet där du [anger appbehörigheter](#permissions).
-   * **BaseUrl**: Ange URL:en för din Digital Twins-instans. Du kan hämta den här URL:en genom att ersätta platshållarna i den här URL:en med värdena för din instans: `https://yourDigitalTwinsName.yourLocation.azuresmartspaces.net/management/api/v1.0/`. Du kan också hämta URL:en genom att ändra URL:en för API för hantering i [distributionsavsnittet](#deploy). Ersätt **swagger/** med **api/v1.0/** .
+   * **ClientId**: Ange program-ID:t för din Azure AD-appregistrering. Du antecknade ID:t i avsnittet där du [anger appbehörigheter](#grant-permissions-to-your-app).
+   * **Klientorganisation**: Ange katalog-ID för din [Azure AD-klient](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant). Du antecknade även ID:t i avsnittet där du [anger appbehörigheter](#grant-permissions-to-your-app).
+   * **BaseUrl**: Ange URL:en för din Digital Twins-instans. Du kan hämta den här URL:en genom att ersätta platshållarna i den här URL:en med värdena för din instans: `https://yourDigitalTwinsName.yourLocation.azuresmartspaces.net/management/api/v1.0/`. Du kan också hämta URL:en genom att ändra URL:en för API för hantering i [distributionsavsnittet](#deploy-digital-twins). Ersätt **swagger/** med **api/v1.0/** .
 
 1. Se en lista över Digital Twins-funktioner som du kan utforska med hjälp av exemplet. Kör följande kommando:
 
     ```cmd/sh
     dotnet run
     ```
-
-<a id="provision-spaces"></a>
 
 ## <a name="understand-the-provisioning-process"></a>Förstå etableringsprocessen
 

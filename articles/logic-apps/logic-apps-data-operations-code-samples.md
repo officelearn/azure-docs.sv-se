@@ -1,33 +1,33 @@
 ---
-title: Data åtgärden-exempel – Azure Logic Apps | Microsoft Docs
-description: Kodexempel för datadefinitioner åtgärden åtgärd i Azure Logic Apps
+title: Data åtgärds exempel – Azure Logic Apps
+description: Kod exempel för data åtgärds åtgärder i Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps
+ms.suite: integration
 author: ecfan
 ms.author: estfan
-manager: jeconnoc
-ms.topic: reference
-ms.date: 07/25/2018
+manager: carmonm
 ms.reviewer: klam, LADocs
-ms.suite: integration
-ms.openlocfilehash: 8de70e8df50b79f27c19c74307d9321ff8cd1eb5
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.topic: reference
+ms.date: 09/01/2019
+ms.openlocfilehash: d692d943249c9fc6b46ed6eb1ddff3f07152f5b6
+ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67203120"
+ms.lasthandoff: 09/22/2019
+ms.locfileid: "71179164"
 ---
-# <a name="data-operation-code-samples-for-azure-logic-apps"></a>Data åtgärden kodexempel för Azure Logic Apps
+# <a name="data-operation-code-samples-for-azure-logic-apps"></a>Data åtgärds kod exempel för Azure Logic Apps
 
-Här följer kodexempel för datadefinitioner för åtgärden åtgärd i artikeln [utföra dataåtgärder](../logic-apps/logic-apps-perform-data-operations.md). Du kan använda de här exemplen för när du vill prova exemplen med din egen logikapp underliggande arbetsflödesdefinitionen, Azure-prenumeration och API-anslutningar. Bara kopiera och klistra in dessa åtgärdsdefinitioner i kodredigeraren vyn för din logikapp arbetsflödesdefinitionen och sedan ändra definitioner för specifika arbetsflödet. 
+Här är kod exemplen för åtgärds definitionerna för data åtgärder i artikeln [utför du data åtgärder](../logic-apps/logic-apps-perform-data-operations.md). Du kan använda dessa exempel för när du vill testa exemplen med din egen Logic Apps underliggande arbets flödes definition, Azure-prenumeration och API-anslutningar. Kopiera och klistra in de här åtgärds definitionerna i kodvyn för din Logic Apps arbets flödes definition och ändra sedan definitionerna för ditt speciella arbets flöde. 
 
-Baserat på JavaScript Object Notation (JSON)-standarder kan visas dessa åtgärdsdefinitioner i alfabetisk ordning. Men i Logic App Designer varje definition visas i rätt ordning inom arbetsflödet eftersom varje åtgärdsdefinition `runAfter` egenskap anger kör ordning. 
+Baserat på JavaScript Object Notation (JSON)-standarder visas dessa åtgärds definitioner i alfabetisk ordning. I Logic Apps Designer visas dock varje definition i rätt ordning i ditt arbets flöde eftersom varje åtgärds definitions `runAfter` egenskap anger körnings ordningen.
 
 <a name="compose-action-example"></a>
 
 ## <a name="compose"></a>Compose
 
-Att testa den [ **Compose** åtgärd exempel](../logic-apps/logic-apps-perform-data-operations.md#compose-action), här är åtgärdsdefinitioner som du kan använda:
+För att testa [ **Skriv** åtgärds exemplet](../logic-apps/logic-apps-perform-data-operations.md#compose-action)är följande de åtgärds definitioner som du kan använda:
 
 ```json
 "actions": {
@@ -97,7 +97,7 @@ Att testa den [ **Compose** åtgärd exempel](../logic-apps/logic-apps-perform-d
 
 ## <a name="create-csv-table"></a>Skapa CSV-tabell
 
-Att testa den [ **skapa CSV tabell** åtgärd exempel](../logic-apps/logic-apps-perform-data-operations.md#create-csv-table-action), här är åtgärdsdefinitioner som du kan använda:
+Om du vill prova [Åtgärds exemplet **Skapa CSV-tabell** ](../logic-apps/logic-apps-perform-data-operations.md#create-csv-table-action)kan du använda följande definitions definitioner:
 
 ```json
 "actions": {
@@ -142,7 +142,7 @@ Att testa den [ **skapa CSV tabell** åtgärd exempel](../logic-apps/logic-apps-
 
 ## <a name="create-html-table"></a>Skapa HTML-tabell
 
-Att testa den [ **skapa HTML-tabell** åtgärd exempel](../logic-apps/logic-apps-perform-data-operations.md#create-html-table-action), här är åtgärdsdefinitioner som du kan använda:
+För att testa [Åtgärds exemplet **skapa HTML-tabell** ](../logic-apps/logic-apps-perform-data-operations.md#create-html-table-action), är det här de åtgärds definitioner som du kan använda:
 
 ```json
 "actions": {
@@ -185,9 +185,9 @@ Att testa den [ **skapa HTML-tabell** åtgärd exempel](../logic-apps/logic-apps
 
 <a name="filter-array-action-example"></a>
 
-## <a name="filter-array"></a>Filtrera matris
+## <a name="filter-array"></a>Filtermatris
 
-Att testa den [ **filtermatris** åtgärd exempel](../logic-apps/logic-apps-perform-data-operations.md#filter-array-action), här är åtgärdsdefinitioner som du kan använda:
+Om du vill testa [Åtgärds exemplet för **filter mat ris** åtgärd](../logic-apps/logic-apps-perform-data-operations.md#filter-array-action)är följande de definitions definitioner som du kan använda:
 
 ```json
 "actions": {
@@ -226,9 +226,9 @@ Att testa den [ **filtermatris** åtgärd exempel](../logic-apps/logic-apps-perf
 
 <a name="join-action-example"></a>
 
-## <a name="join"></a>Anslut
+## <a name="join"></a>Slå ihop
 
-Att testa den [ **ansluta** åtgärd exempel](../logic-apps/logic-apps-perform-data-operations.md#join-action), här är åtgärdsdefinitioner som du kan använda:
+För att testa [exemplet på **kopplings** åtgärden](../logic-apps/logic-apps-perform-data-operations.md#join-action)är följande de åtgärds definitioner som du kan använda:
 
 ```json
 "actions": {
@@ -269,7 +269,7 @@ Att testa den [ **ansluta** åtgärd exempel](../logic-apps/logic-apps-perform-d
 
 ## <a name="parse-json"></a>Parsa JSON
 
-Att testa den [ **parsa JSON** åtgärd exempel](../logic-apps/logic-apps-perform-data-operations.md#parse-json-action), här är åtgärdsdefinitioner som du kan använda:
+Om du vill testa exemplet på att [ **parsa JSON** -åtgärden](../logic-apps/logic-apps-perform-data-operations.md#parse-json-action)är följande de åtgärds definitioner som du kan använda:
 
 ```json
 "actions": {
@@ -326,9 +326,9 @@ Att testa den [ **parsa JSON** åtgärd exempel](../logic-apps/logic-apps-perfor
 
 <a name="select-action-example"></a>
 
-## <a name="select"></a>Välj
+## <a name="select"></a>Markera
 
-Att testa den [ **Välj** åtgärd exempel](../logic-apps/logic-apps-perform-data-operations.md#select-action), här är åtgärdsdefinitioner som du kan använda:
+Om du vill testa exempel på [ **Select** -åtgärd](../logic-apps/logic-apps-perform-data-operations.md#select-action)är följande de åtgärds definitioner som du kan använda:
 
 ```json
 "actions": {
@@ -367,11 +367,6 @@ Att testa den [ **Välj** åtgärd exempel](../logic-apps/logic-apps-perform-dat
 },
 ```
 
-## <a name="get-support"></a>Få support
-
-* Om du har frågor kan du besöka [forumet för Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
-* Om du vill skicka in eller rösta på förslag på funktioner besöker du [webbplatsen för Logic Apps-användarfeedback](https://aka.ms/logicapps-wish).
-
 ## <a name="next-steps"></a>Nästa steg
 
-* [Utföra dataåtgärder](../logic-apps/logic-apps-perform-data-operations.md)
+* [Utföra data åtgärder](../logic-apps/logic-apps-perform-data-operations.md)

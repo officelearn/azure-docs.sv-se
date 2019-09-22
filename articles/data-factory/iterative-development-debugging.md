@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 author: djpmsft
 ms.author: daperlov
 manager: craigg
-ms.openlocfilehash: afc51735fcbd8f4131b2a4066a0fc4adbb8f1a41
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: a1c4bf55fbb8242293fc0e30bbe16a6884b901cb
+ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70142339"
+ms.lasthandoff: 09/22/2019
+ms.locfileid: "71178615"
 ---
 # <a name="iterative-development-and-debugging-with-azure-data-factory"></a>Iterativ utveckling och fel sökning med Azure Data Factory
 
@@ -52,9 +52,13 @@ Du kan visualisera alla fel söknings körningar som pågår för din data fabri
 
 ![Exempel lista över aktiva fel söknings körningar](media/iterative-development-debugging/view-debug-runs-image2.png)
 
+Om du har aktiva data flödes fel söknings sessioner visas dessa sessioner i den nedre delen av det aktiva fel söknings fönstret. Du kan välja en aktiv Data Flow-session och stoppa respektive kluster.
+
+![Exempel lista med fel söknings körningar av aktiva data flöden](media/data-flow/dfsessions.png)
+
 ## <a name="monitoring-debug-runs"></a>Övervaka fel söknings körningar
 
-Test körningar som initieras med **fel söknings** funktionen är inte tillgängliga i listan på fliken **övervaka** . Du kan bara se körningar som har utlösts med utlösare **nu**, **schema**eller **rullande fönster** utlösare på fliken **övervakning** . Du kan se att den senaste test körningen har initierats med **fel söknings** funktionen i fönstret **utdata** på pipeline-arbetsytan.
+Test körningar som initieras med **fel söknings** funktionen är inte tillgängliga i listan på fliken **övervaka** . Du kan bara se körningar som har utlösts med **utlösare nu**, **schema**eller **rullande fönster** utlösare på fliken **övervakning** . Du kan se att den senaste test körningen har initierats med **fel söknings** funktionen i fönstret **utdata** på pipeline-arbetsytan.
 
 ## <a name="setting-breakpoints-for-debugging"></a>Ange Bryt punkter för fel sökning
 

@@ -1,19 +1,20 @@
 ---
-title: Azure PowerShell-skript – Azure Cosmos DB lista och hämta åtgärder för tabell-API
-description: Azure PowerShell-skript – Azure Cosmos DB lista och hämta åtgärder för tabell-API
+title: Azure PowerShell skript-Azure Cosmos DB lista och hämta åtgärder för Tabell-API
+description: Azure PowerShell skript-Azure Cosmos DB lista och hämta åtgärder för Tabell-API
 author: markjbrown
 ms.service: cosmos-db
+ms.subservice: cosmosdb-table
 ms.topic: sample
 ms.date: 05/18/2019
 ms.author: mjbrown
-ms.openlocfilehash: 28394d1a5cb09caca243ad9f3a584aa2e55f8fe9
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: d4d299f9cec7170256e66ec161eff3976c5211ca
+ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67603805"
+ms.lasthandoff: 09/22/2019
+ms.locfileid: "71178717"
 ---
-# <a name="list-and-get-tables-for-azure-cosmos-db---table-api"></a>Visa och hämta tabeller för Azure Cosmos DB - tabell-API
+# <a name="list-and-get-tables-for-azure-cosmos-db---table-api"></a>Lista och hämta tabeller för Azure Cosmos DB-Tabell-API
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 
@@ -39,7 +40,7 @@ Det här skriptet använder följande kommandon. Varje kommando i tabellen länk
 |---|---|
 |**Azure-resurser**| |
 | [New-AzResource](https://docs.microsoft.com/powershell/module/az.resources/new-azresource) | Skapar en resurs. |
-|**Azure-resursgrupper**| |
+|**Resurs grupper i Azure**| |
 | [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) | Tar bort en resursgrupp, inklusive alla kapslade resurser. |
 |||
 

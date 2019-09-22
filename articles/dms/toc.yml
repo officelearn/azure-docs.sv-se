@@ -47,6 +47,7 @@
     - name: Migrera SSI-paket till en hanterad Azure SQL Database-instans
       href: how-to-migrate-ssis-packages-managed-instance.md
 - name: Resurser
+  expanded: true
   items:
     - name: Status för databasmigreringsscenario
       href: resource-scenario-status.md

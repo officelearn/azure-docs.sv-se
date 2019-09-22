@@ -92,16 +92,16 @@ Exempel på JSON-nytto last:
 
    | deviceId | messageId | deviceLocation |
    | --- | --- | --- |
-   | FXXX | LINJE\_DATA | EU |
-   | FYYY | LINJE\_DATA | USA |
+   | FXXX | LINE\_DATA | EU |
+   | FYYY | LINE\_DATA | US |
 
 * Time Series Insights händelse tabell efter förenkling:
 
    | deviceId | messageId | deviceLocation | timestamp | serie. Flow hastighet ft3/s | serie. Motorn olja tryck psi |
    | --- | --- | --- | --- | --- | --- |
-   | FXXX | LINJE\_DATA | EU | 2018-01-17T01:17:00Z | 1.0172575712203979 | 34.7 |
-   | FXXX | LINJE\_DATA | EU | 2018-01-17T01:17:00Z | 2.445906400680542 | 49.2 |
-   | FYYY | LINJE\_DATA | USA | 2018-01-17T01:18:00Z | 0.58015072345733643 | 22.2 |
+   | FXXX | LINE\_DATA | EU | 2018-01-17T01:17:00Z | 1.0172575712203979 | 34.7 |
+   | FXXX | LINE\_DATA | EU | 2018-01-17T01:17:00Z | 2.445906400680542 | 49.2 |
+   | FYYY | LINE\_DATA | US | 2018-01-17T01:18:00Z | 0.58015072345733643 | 22.2 |
 
 Anteckningar om dessa två tabeller:
 

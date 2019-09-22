@@ -66,17 +66,17 @@ Följande JSON visar schemat för program hälso tillägget. Tillägget kräver 
 | Namn | Värdet / exempel | Datatyp
 | ---- | ---- | ---- 
 | apiVersion | `2018-10-01` | date |
-| publisher | `Microsoft.ManagedServices` | sträng |
-| type | `ApplicationHealthLinux`(Linux), `ApplicationHealthWindows` (Windows) | sträng |
+| publisher | `Microsoft.ManagedServices` | string |
+| type | `ApplicationHealthLinux`(Linux), `ApplicationHealthWindows` (Windows) | string |
 | typeHandlerVersion | `1.0` | int |
 
 ### <a name="settings"></a>Inställningar
 
 | Name | Värdet / exempel | Datatyp
 | ---- | ---- | ----
-| protocol | `http` eller `tcp` | sträng |
+| protocol | `http` eller `tcp` | string |
 | port | Valfritt om protokollet är `http`obligatoriskt när protokollet är`tcp` | int |
-| requestPath | Obligatoriskt när protokollet är `http`, tillåts inte när protokollet är`tcp` | sträng |
+| requestPath | Obligatoriskt när protokollet är `http`, tillåts inte när protokollet är`tcp` | string |
 
 ## <a name="deploy-the-application-health-extension"></a>Distribuera program hälso tillägget
 Det finns flera sätt att distribuera program hälso tillägget till dina skalnings uppsättningar enligt beskrivningen i exemplen nedan.

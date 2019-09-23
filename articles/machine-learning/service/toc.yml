@@ -54,26 +54,6 @@
     - name: Notebooks
       displayName: 'example, examples, server, jupyter, azure notebooks, python, notebook, github'
       href: samples-notebooks.md
-    - name: Experiment för visuellt gränssnitt
-      items:
-        - name: Förutsäga pris
-          displayName: 'regression, studio'
-          href: ui-sample-regression-predict-automobile-price-basic.md
-        - name: Förutsäga pris (avancerat)
-          displayName: 'regression, studio'
-          href: ui-sample-regression-predict-automobile-price-compare-algorithms.md
-        - name: Förutsäga kreditrisk
-          displayName: 'classification, studio'
-          href: ui-sample-classification-predict-credit-risk-basic.md
-        - name: Förutsäga kreditrisk (avancerat)
-          displayName: 'classification, studio'
-          href: ui-sample-classification-predict-credit-risk-cost-sensitive.md
-        - name: Förutsäga omsättning
-          displayName: 'classification, studio'
-          href: ui-sample-classification-predict-churn.md
-        - name: Förutse flygförseningar
-          displayName: 'classification, studio'
-          href: ui-sample-classification-predict-flight-delay.md
     - name: Azure Open Datasets
       href: /azure/open-datasets/samples?context=azure/machine-learning/service/context/ml-context
 - name: Begrepp
@@ -174,6 +154,27 @@
               href: how-to-train-pytorch.md
             - name: Använda Chainer
               href: how-to-train-chainer.md
+        - name: Använda visuellt gränssnitt
+          displayName: sample visual interface experiments
+          items:
+            - name: Förutsäga pris
+              displayName: 'regression, studio'
+              href: how-to-ui-sample-regression-predict-automobile-price-basic.md
+            - name: Förutsäga pris (avancerat)
+              displayName: 'regression, studio'
+              href: how-to-ui-sample-regression-predict-automobile-price-compare-algorithms.md
+            - name: Förutsäga kreditrisk
+              displayName: 'classification, studio'
+              href: how-to-ui-sample-classification-predict-credit-risk-basic.md
+            - name: Förutsäga kreditrisk (avancerat)
+              displayName: 'classification, studio'
+              href: how-to-ui-sample-classification-predict-credit-risk-cost-sensitive.md
+            - name: Förutsäga omsättning
+              displayName: 'classification, studio'
+              href: how-to-ui-sample-classification-predict-churn.md
+            - name: Förutse flygförseningar
+              displayName: 'classification, studio'
+              href: how-to-ui-sample-classification-predict-flight-delay.md
         - name: Justering av hyperparametrar
           displayName: parameter
           href: how-to-tune-hyperparameters.md

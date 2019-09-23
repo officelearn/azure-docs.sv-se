@@ -1,67 +1,131 @@
-### YamlMime:YamlDocument
-documentType: LandingData
+### YamlMime:Landing
 title: Dokumentation om Azure Search
+summary: Molnsökning i privat heterogent innehåll, med alternativ för AI-berikning om innehållet är ostrukturerat eller om det inte går att söka i innehållet i obearbetad form.
 metadata:
-  document_id: null
-  title: 'Dokumentation om Azure Search – självstudier, snabbstarter, API-referenser'
-  description: 'Lär dig hur du skapar en söklösning för företag med privat, heterogent innehåll med hjälp av Azure Search. Självstudier, API-referenser och andra dokument visar dig hur du konsoliderar sökbart innehåll till ett enda snabbt frågningsbart index med hjälp av enkel-till-avancerad syntax för en mängd olika scenarier.'
+  title: Dokumentation om Azure Search
+  description: Molnsökning i privat heterogent innehåll, med alternativ för AI-berikning om innehållet är ostrukturerat eller om det inte går att söka i innehållet i obearbetad form.
   services: search
-  author: HeidiSteen
-  manager: nitinme
-  ms.service: search
+  ms.service: service
+  ms.subservice: cognitive-search
   ms.topic: landing-page
-  ms.date: 08/12/2019
+  ms.collection: collection
+  author: HeidiSteen
   ms.author: heidist
-abstract:
-  description: 'Lär dig hur du skapar en söklösning för företag med privat, heterogent innehåll med hjälp av Azure Search. Självstudier, API-referenser och andra dokument visar dig hur du konsoliderar sökbart innehåll till ett enda snabbt frågningsbart index med hjälp av enkel-till-avancerad syntax för en mängd olika scenarier. <p/><a href="/azure/search/cognitive-search-concept-intro"><b>Kognitiv sökning</b> </a> är en funktion i Azure Search som bifogar AI-processer för att indexera, identifiera text och egenskaper i bildfiler samt hitta mönster i stora block av ostrukturerad text. AI-processer backas upp av Cognitive Services.<p/><a href="/azure/search/knowledge-store-concept-intro"><b> Kunskapslager (förhandsversion)</b></a> utökar kognitiv sökning och lagrar AI-berikanden där du kan visa, omvandla och använda dem i klientappar och underordnade processer.'
-  aside:
-    image:
-      alt: null
-      height: 110
-      src: 'https://docs.microsoft.com/azure/search/media/index/search-page-callouts3.png'
-      width: 250
-    title: 'Vad är Azure Search (1:27)'
-    href: 'https://channel9.msdn.com/Blogs/Azure/What-is-Azure-Search/player'
-    width: 250
-sections:
-  - title: Snabbstarter på 5 minuter
-    items:
-      - type: paragraph
-        text: 'Börja med en söktjänst i portalen och definiera, läs in och fråga sedan index i C# eller REST.'
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: /azure/search/media/index/portal.svg
-            text: Azure Portal
-            href: 'https://docs.microsoft.com/azure/search/search-create-service-portal'
-          - image:
-              src: /azure/search/media/index/logo_Csharp.svg
-            text: .NET
-            href: 'https://docs.microsoft.com/azure/search/search-create-index-dotnet'
-          - image:
-              src: /azure/search/media/index/rest.svg
-            text: REST
-            href: 'https://docs.microsoft.com/azure/search/search-get-started-postman'
-  - title: Steg för steg-självstudier
-    items:
-      - type: paragraph
-        text: 'Koda i .NET eller REST, eller använd portalen för snabb koncepttestning.'
-      - type: list
-        style: ordered
-        items:
-          - html: <a href="/azure/search/search-get-started-portal">Använda portalen för indexering och frågetestning</a>
-          - html: <a href="/azure/search/search-howto-dotnet-sdk">Använd .NET för att skriva din första söklösning</a>
-          - html: <a href="/azure/search/cognitive-search-tutorial-blob">Berika med AI (Cognitive Services)</a>
-          - html: <a href="/azure/search/search-indexer-tutorial">Indexera Azure SQL Database-innehåll med .NET</a>
-          - html: <a href="/azure/search/search-semi-structured-data">Indexera halvstrukturerade data i Azure Blob Storage med REST</a>
-  - title: Referens
-    items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: Språk
-            html: '<p><a href="/dotnet/api/?term=microsoft.azure.search">NET</a></p><p><a href="/dotnet/api/?term=microsoft.azure.management.search">.NET (hantering)</a></p><p><a href="https://docs.microsoft.com/python/api/?view=azure-python&term=search">Python (hantering)</a></p>'
-          - title: REST
-            html: <p><a href="/rest/api/searchservice">Referens för API för tjänst</a></p><p><a href="/rest/api/searchmanagement">Referens för API för hantering</a></p>
+  ms.date: 09/20/2019
+  ms.openlocfilehash: 113ee13c1667e00f1052c88c9b29b881f312b00c
+  ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 09/19/2019
+  ms.locfileid: "71147279"
+landingContent:
+- title: Om Azure Search
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Vad är Azure Search?
+      url: search-what-is-azure-search.md
+  - linkListType: architecture
+    links:
+    - text: Så här fungerar fulltextsökning i Azure Search
+      url: search-lucene-query-architecture.md
+  - linkListType: video
+    links:
+    - text: Vad är Azure Search (1 min 27 sek)?
+      url: https://channel9.msdn.com/Blogs/Azure/What-is-Azure-Search/player
+- title: Komma igång
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Skapa en tjänst
+      url: search-create-service-portal.md
+    - text: Skapa ett index
+      url: search-get-started-portal.md
+    - text: Skapa en berikningspipeline
+      url: cognitive-search-quickstart-blob.md
+  - linkListType: learn
+    links:
+    - text: Introduktion till Azure Search
+      url: https://docs.microsoft.com/learn/modules/intro-to-azure-search/
+- title: Indexera dina data
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Definiera ett index
+      url: search-what-is-an-index.md
+    - text: Importera data
+      url: search-what-is-data-import.md
+    - text: Använda en indexerare
+      url: search-indexer-overview.md
+  - linkListType: how-to-guide
+    links:
+    - text: Indexera från Blob Storage
+      url: search-howto-indexing-azure-blob-storage.md
+    - text: Indexera JSON-blobar
+      url: search-howto-index-json-blobs.md
+    - text: Indexera från Azure SQL Database
+      url: search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md
+    - text: Indexera från Cosmos DB-data
+      url: search-howto-index-cosmosdb.md
+  - linkListType: reference
+    links:
+    - text: Skapa index (REST)
+      url: https://docs.microsoft.com/rest/api/searchservice/create-index
+    - text: Skapa indexerare (REST)
+      url: https://docs.microsoft.com/rest/api/searchservice/create-indexer
+- title: Utöka dina data
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Vad är kognitiv sökning?
+      url: cognitive-search-concept-intro.md
+    - text: Kompetensuppsättningar
+      url: cognitive-search-defining-skillset.md
+    - text: Kunskapslager
+      url: knowledge-store-concept-intro.md
+    - text: Projektioner
+      url: knowledge-store-projection-overview.md
+  - linkListType: how-to-guide
+    links:
+    - text: Bifoga Cognitive Services
+      url: cognitive-search-attach-cognitive-services.md
+    - text: Definiera en kunskapsuppsättning
+      url: cognitive-search-defining-skillset.md
+    - text: Skapa ett kunskapslager
+      url: knowledge-store-create-portal.md
+  - linkListType: reference
+    links:
+    - text: Fördefinierade kunskaper
+      url: cognitive-search-predefined-skills.md
+- title: Fråga dina data
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Översikt
+      url: search-query-overview.md
+    - text: Enkel syntax (standard)
+      url: query-simple-syntax.md
+    - text: Fullständig Lucene-syntax
+      url: query-lucene-syntax.md
+  - linkListType: how-to-guide
+    links:
+    - text: Skapa en enkel fråga
+      url: search-query-simple-examples.md
+    - text: Använda fullständig syntax
+      url: search-query-lucene-examples.md
+  - linkListType: reference
+    links:
+    - text: Språkreferens för OData
+      url: query-odata-filter-orderby-syntax.md
+    - text: Söka i dokument (REST)
+      url: https://docs.microsoft.com/rest/api/searchservice/search-documents
+- title: Hjälp och feedback
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: VANLIGA FRÅGOR OCH SVAR
+      url: search-faq-frequently-asked-questions.md
+    - text: Ställa frågor i Stack Overflow
+      url: https://stackoverflow.com/questions/tagged/azure-search
+    - text: Begär en funktion
+      url: https://feedback.azure.com/forums/263029-azure-search

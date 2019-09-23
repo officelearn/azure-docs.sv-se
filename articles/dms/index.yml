@@ -13,7 +13,7 @@ metadata:
   ms.service: dms
   ms.tgt_pltfrm: na
   ms.topic: landing-page
-  ms.date: 03/12/2019
+  ms.date: 09/22/2019
 abstract:
   description: Med Azure Database Migration Service kan du migrera sömlöst från flera databaskällor till Azure-dataplattformar med minsta möjliga stilleståndstid. Tjänsten använder Data Migration Assistant för att skapa utvärderingsrapporter som ger rekommendationer som vägleder dig genom de ändringar som krävs innan du utför en migrering. När du är redo att påbörja migreringsprocessen utför Azure Database Migration Service alla nödvändiga steg.
   aside:
@@ -40,19 +40,36 @@ sections:
   - title: Steg för steg-självstudier
     items:
       - type: paragraph
-        text: 'Lär dig hur du migrerar databaser med Database Migration Service:'
+        text: 'Lär dig hur du migrerar databaser med Azure Database Migration Service:'
       - type: list
-        style: ordered
+        style: unordered
         items:
-          - html: <a href="/azure/dms/tutorial-sql-server-to-azure-sql">Migrera SQL Server till Azure SQL Database offline med DMS</a>
-          - html: <a href="/azure/dms/tutorial-sql-server-azure-sql-online">Migrera SQL Server till Azure SQL Database online med DMS</a>
-          - html: <a href="/azure/dms/tutorial-sql-server-to-managed-instance">Migrera SQL Server till en hanterad Azure SQL Database-instans offline med DMS</a>
-          - html: <a href="/azure/dms/tutorial-sql-server-managed-instance-online">Migrera SQL Server till en hanterad Azure SQL Database-instans online med DMS</a>
-          - html: <a href="/azure/dms/tutorial-rds-sql-server-azure-sql-and-managed-instance-online">Migrera RDS SQL Server till Azure SQL Database eller Azure SQL Database Managed Instance online med DMS</a>
-          - html: <a href="/azure/dms/tutorial-mysql-azure-mysql-online">Migrera MySQL till Azure Database for MySQL online med DMS</a>
-          - html: <a href="/azure/dms/tutorial-postgresql-azure-postgresql-online">Migrera PostgreSQL till Azure Database for PostgreSQL online med DMS</a>
-          - html: <a href="/azure/dms/tutorial-mongodb-cosmos-db">Migrera MongoDB till Azure Cosmos DB Mongo API offline med hjälp av DMS</a>
-          - html: <a href="/azure/dms/tutorial-mongodb-cosmos-db-online">Migrera MongoDB till Azure Cosmos DB Mongo API online med DMS</a>
+          - html: <a href="/azure/dms/tutorial-sql-server-to-azure-sql">Migrera SQL Server till Azure SQL Database offline</a>
+          - html: <a href="/azure/dms/tutorial-sql-server-azure-sql-online">Migrera SQL Server till Azure SQL Database online</a>
+          - html: <a href="/azure/dms/tutorial-sql-server-to-managed-instance">Migrera SQL Server till en hanterad Azure SQL Database-instans offline</a>
+          - html: <a href="/azure/dms/tutorial-sql-server-managed-instance-online">Migrera SQL Server till en hanterad Azure SQL Database-instans online</a>
+          - html: <a href="/azure/dms/tutorial-rds-sql-server-azure-sql-and-managed-instance-online">Migrera RDS SQL Server till en hanterad Azure SQL Database- eller Azure SQL Database-instans online</a>
+          - html: <a href="/azure/dms/tutorial-mysql-azure-mysql-online">Migrera MySQL till Azure Database for MySQL online</a>
+          - html: <a href="/azure/dms/tutorial-rds-mysql-server-azure-db-for-mysql-online">Migrera RDS MySQL till Azure Database for MySQL online</a>
+          - html: <a href="/azure/dms/tutorial-postgresql-azure-postgresql-online">Migrera PostgreSQL till Azure Database for PostgreSQL online</a>
+          - html: <a href="/azure/dms/tutorial-rds-postgresql-server-azure-db-for-postgresql-online">Migrera RDS PostgreSQL till Azure Database for PostgreSQL online</a>
+          - html: <a href="/azure/dms/tutorial-mongodb-cosmos-db">Migrera MongoDB till Azure Cosmos DB Mongo-API offline</a>
+          - html: <a href="/azure/dms/tutorial-mongodb-cosmos-db-online">Migrera MongoDB till Azure Cosmos DB Mongo API online</a>
+          - html: <a href="/azure/dms/tutorial-oracle-azure-postgresql-online">Migrera Oracle till Azure Database for PostgreSQL online</a>
+  - title: Videoklipp
+    items:
+      - type: list
+        style: unordered
+        className: spaced noBullet
+        items:
+          - html: '<a href="https://azure.microsoft.com/resources/videos/how-to-use-the-azure-database-migration-guide/">Använda databasmigreringsguiden</a>'
+          - html: '<a href="https://azure.microsoft.com/resources/videos/overview-of-migration-and-recommended-tools-services/">Migreringsprocessen och rekommenderade verktyg/tjänster</a>'
+          - html: '<a href="https://azure.microsoft.com/resources/videos/how-to-address-prerequisites-and-create-a-dms-instance/">Åtgärda krav och skapa en DMS-instans</a>'
+          - html: '<a href="https://azure.microsoft.com/resources/videos/how-to-migrate-sql-server-2008-or-r2-to-azure-sqldbmi/">Migrera SQL Server 2008 till en hanterad Azure SQL Database-instans</a>'
+          - html: '<a href="https://azure.microsoft.com/resources/videos/how-to-migrate-postgresql-to-azure-postgresql-online-dms-and-cli/">Migrera PostgreSQL till Azure Database for PostgreSQL</a>'
+          - html: '<a href="https://azure.microsoft.com/resources/videos/how-to-monitor-online-migration-and-perform-cutover/">Övervaka en onlinemigrering och utför snabb migrering</a>'
+          - html: '<a href="https://azure.microsoft.com/resources/videos/how-to-migrate-oracle-to-sqldb-online/">Migrera Oracle till Azure SQL Database</a>'
+          - html: '<a href="https://azure.microsoft.com/resources/videos/how-to-migrate-mongodb-to-cosmos-db/">Migrera MongoDB till Azure Cosmos DB</a>'
   - title: Exempel
     items:
       - type: list

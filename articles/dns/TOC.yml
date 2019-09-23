@@ -9,12 +9,22 @@
 - name: Snabbstarter
   expanded: true
   items:
-    - name: Namnmatchning – portalen
-      href: dns-getstarted-portal.md
-    - name: Namnmatchning – PowerShell
-      href: dns-getstarted-powershell.md
-    - name: Namnmatchning – CLI
-      href: dns-getstarted-cli.md
+    - name: Offentligt DNS
+      items:
+        - name: Skapa en offentlig zon – portalen
+          href: dns-getstarted-portal.md
+        - name: Skapa en offentlig zon – PowerShell
+          href: dns-getstarted-powershell.md
+        - name: Skapa en offentlig zon – CLI
+          href: dns-getstarted-cli.md
+    - name: Privat DNS
+      items:
+        - name: Skapa en privat zon – portalen
+          href: private-dns-getstarted-portal.md
+        - name: Skapa en privat zon – CLI
+          href: private-dns-getstarted-cli.md
+        - name: Skapa en privat zon – PowerShell
+          href: private-dns-getstarted-powershell.md
 - name: Självstudier
   items:
     - name: Offentligt DNS
@@ -29,10 +39,6 @@
           href: tutorial-alias-pip.md
         - name: Aliasposter för zonposter
           href: tutorial-alias-rr.md
-    - name: Privat DNS
-      items:
-        - name: Skapa privat DNS-zon och -post
-          href: private-dns-portal.md
 - name: Exempel
   items:
     - name: Azure CLI
@@ -63,12 +69,6 @@
           href: private-dns-scenarios.md
 - name: Gör så här för att
   items:
-    - name: Privat DNS
-      items:
-        - name: Skapa privat zon – CLI
-          href: private-dns-getstarted-cli.md
-        - name: Skapa privat zon – PowerShell
-          href: private-dns-getstarted-powershell.md
     - name: Offentligt DNS
       items:
         - name: Aliasposter för belastningsutjämnade webbappar

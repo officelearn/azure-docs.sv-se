@@ -229,8 +229,8 @@
       href: /rest/api/mysql
     - name: Resource Manager-mall
       href: /azure/templates/microsoft.dbformysql/allversions
-    - name: Lagrade procedurer för dataintensiv replikering
-      href: reference-data-in-stored-procedures.md
+    - name: Lagrade Azure-procedurer
+      href: reference-stored-procedures.md
 - name: Resurser
   items:
     - name: Distributionsmallar

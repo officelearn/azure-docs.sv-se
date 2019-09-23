@@ -134,8 +134,10 @@
       href: ../../virtual-machine-scale-sets/overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
     - name: Infrastruktur för automatisering
       href: infrastructure-automation.md
-    - name: Säkerhet och principer
-      href: security-policy.md
+    - name: Säkerhet
+      items:
+        - name: Säkerhet och principer
+          href: security-policy.md
     - name: Tillstånd och livscykel
       href: states-lifecycle.md
     - name: Övervakning
@@ -183,6 +185,8 @@
           href: windows-desktop-multitenant-hosting-deployment.md
     - name: Säkra virtuella datorer
       items:
+        - name: Rekommendationer
+          href: security-recommendations.md
         - name: Just-in-time-åtkomst
           href: ../../security-center/security-center-just-in-time.md
         - name: Kryptera
@@ -259,6 +263,14 @@
           href: instance-metadata-service.md
         - name: Aktivera kapslad virtualisering
           href: nested-virtualization.md
+    - name: Övervaka virtuella datorer
+      items:
+        - name: Azure Monitor för virtuella datorer
+          href: ../../azure-monitor/insights/vminsights-overview.md
+        - name: Skapa måttaviseringar
+          href: ../../azure-monitor/platform/alerts-metric.md
+        - name: Skapa loggaviseringar
+          href: ../../azure-monitor/platform/alerts-log.md
     - name: Hantera kostnader
       items:
         - name: Förskottsbetala för virtuella datorer – Azure-reservationer

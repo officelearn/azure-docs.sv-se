@@ -36,27 +36,25 @@
   items:
     - name: Hantera användare
       items:
-        - name: Lägga till nya användare i Azure AD
+        - name: Skapa användare
           href: /azure/active-directory/fundamentals/add-users-azure-active-directory?context=azure/active-directory/users-groups-roles/context/ugr-context
+        - name: Massgenerering av användare (förhandsversion)
+          href: users-bulk-add.md
         - name: Hantera användarprofiler
           href: /azure/active-directory/fundamentals/active-directory-users-profile-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
-        - name: Massåtgärder (förhandsversion)
-          items:
-            - name: Ladda ned användare (förhandsversion)
-              href: users-bulk-download.md
-            - name: Massimport av användare (förhandsversion)
-              href: users-bulk-add.md
-            - name: Massborttagning av användare (förhandsversion)
-              href: users-bulk-delete.md
-            - name: Massåterställning av användare (förhandsversion)
-              href: users-bulk-restore.md
+        - name: Hämta användarinformation (förhandsversion)
+          href: users-bulk-download.md
         - name: Dela användarkonton
           href: users-sharing-accounts.md
         - name: Tilldela användare administrativa roller
           href: /azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
+        - name: Massborttagning av användare (förhandsversion)
+          href: users-bulk-delete.md
         - name: Återställa en borttagen användare
           href: /azure/active-directory/fundamentals/active-directory-users-restore?context=azure/active-directory/users-groups-roles/context/ugr-context
-        - name: Avsluta ditt konto i en ohanterad katalog
+        - name: Massåterställning av användare (förhandsversion)
+          href: users-bulk-restore.md
+        - name: Stänga ett konto i en ohanterad katalog
           href: users-close-account.md
         - name: Lägga till B2B-användare
           href: /azure/active-directory/b2b/what-is-b2b?context=azure/active-directory/users-groups-roles/context/ugr-context
@@ -86,28 +84,26 @@
           href: /azure/active-directory/fundamentals/active-directory-manage-groups?context=azure/active-directory/users-groups-roles/context/ugr-context
         - name: Söka grupp- och medlemslistor (förhandsversion)
           href: groups-members-owners-search.md
+        - name: Skapa en grupp (Azure-portalen)
+          href: /azure/active-directory/fundamentals/active-directory-groups-create-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
         - name: Hantera grupper i PowerShell för Graph (v2)
           href: groups-settings-v2-cmdlets.md
         - name: Hantera grupper i PowerShell MSOnline
           href: groups-settings-cmdlets.md
-        - name: Hantera gruppmedlemmar
+        - name: Lägga till eller ta bort gruppmedlemmar
           href: /azure/active-directory/fundamentals/active-directory-groups-members-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
+        - name: Masstillägg av medlemmar (förhandsversion)
+          href: groups-bulk-import-members.md
+        - name: Massborttagning av medlemmar (förhandsversion)
+          href: groups-bulk-remove-members.md
+        - name: Massnedladdning av medlemslistor (förhandsversion)
+          href: groups-bulk-download-members.md
         - name: Hantera gruppägare
           href: /azure/active-directory/fundamentals/active-directory-accessmanagement-managing-group-owners?context=azure/active-directory/users-groups-roles/context/ugr-context
-        - name: Massåtgärder (förhandsversion)
-          items:
-            - name: Massimport av medlemmar (förhandsversion)
-              href: groups-bulk-import-members.md
-            - name: Massnedladdning av medlemmar (förhandsversion)
-              href: groups-bulk-download-members.md
-            - name: Massborttagning av medlemmar (förhandsversion)
-              href: groups-bulk-remove-members.md
-            - name: Massnedladdning av en grupplista (förhandsversion)
-              href: groups-bulk-download.md
+        - name: Massnedladdning av grupplistor (förhandsversion)
+          href: groups-bulk-download.md
         - name: Hantera grupper i grupper
           href: /azure/active-directory/fundamentals/active-directory-groups-membership-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
-        - name: Skapa en grupp (Azure-portalen)
-          href: /azure/active-directory/fundamentals/active-directory-groups-create-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
         - name: Hantera gruppåtkomst till SaaS-appar
           href: groups-saasapps.md
         - name: Referens för namngivning av grupper

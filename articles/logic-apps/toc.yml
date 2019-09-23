@@ -17,9 +17,9 @@
   items:
     - name: Skapa schemabaserade arbetsflöden
       href: tutorial-build-schedule-recurring-logic-app-workflow.md
-    - name: Hantera begäranden om distributionslista
+    - name: Skapa godkännandebaserade arbetsflöden
       href: tutorial-process-mailing-list-subscriptions-workflow.md
-    - name: Bearbeta e-postbilagor
+    - name: Skapa Azure Storage- och Azure Functions-arbetsflöde
       href: tutorial-process-email-attachments-workflow.md
 - name: Exempel
   items:
@@ -31,7 +31,7 @@
   items:
     - name: Anslutningsappar för Logic Apps
       href: ../connectors/apis-list.md
-    - name: Schemalägga automatiska återkommande arbetsflöden
+    - name: Schemalägga återkommande arbetsflöden
       href: concepts-schedule-automated-recurring-tasks-workflows.md
     - name: Azure-lösningar utan server
       href: logic-apps-serverless-overview.md
@@ -105,12 +105,18 @@
           href: logic-apps-diagnosing-failures.md
     - name: Utveckla för B2B-scenarier
       items:
-        - name: Skapa ett integrationskonto
+        - name: Skapa integrationskonto
           href: logic-apps-enterprise-integration-create-integration-account.md
         - name: Handelspartner
           href: logic-apps-enterprise-integration-partners.md
         - name: Avtal
           href: logic-apps-enterprise-integration-agreements.md
+        - name: Scheman för XML-verifiering
+          href: logic-apps-enterprise-integration-schemas.md
+        - name: Mappningar för XML-transformering
+          href: logic-apps-enterprise-integration-maps.md
+        - name: Certifikat
+          href: logic-apps-enterprise-integration-certificates.md
         - name: Artefaktmetadata
           href: logic-apps-enterprise-integration-metadata.md
         - name: Ta emot B2B-meddelanden
@@ -141,20 +147,14 @@
           href: logic-apps-scenario-edi-send-batch-messages.md
         - name: Bearbeta flata filer
           href: logic-apps-enterprise-integration-flatfile.md
+        - name: Omvandla XML
+          href: logic-apps-enterprise-integration-transform.md
         - name: Bearbeta XML
           href: logic-apps-enterprise-integration-xml.md
         - name: Verifiera XML
           href: logic-apps-enterprise-integration-xml-validation.md
-        - name: Lägga till scheman för XML-verifiering
-          href: logic-apps-enterprise-integration-schemas.md
-        - name: Omvandla XML
-          href: logic-apps-enterprise-integration-transform.md
-        - name: Lägga till kartor för XML-transformering
-          href: logic-apps-enterprise-integration-maps.md
         - name: Transformera JSON
           href: logic-apps-enterprise-integration-liquid-transform.md
-        - name: Lägga till säkerhetscertifikat
-          href: logic-apps-enterprise-integration-certificates.md
         - name: Felsöka B2B-fel
           href: logic-apps-enterprise-integration-b2b-list-errors-solutions.md
         - name: Skapa en haveriberedskapsplan

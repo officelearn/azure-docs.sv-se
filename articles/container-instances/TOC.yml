@@ -29,6 +29,10 @@
           href: container-instances-multi-container-yaml.md
         - name: Distribuera en containergrupp – Resource Manager
           href: container-instances-multi-container-group.md
+    - name: Integrera med Azure-tjänster
+      items:
+        - name: Utlösa med Azure Functions
+          href: container-instances-tutorial-azure-function-trigger.md
 - name: Exempel
   items:
     - name: Kodexempel
@@ -121,6 +125,8 @@
       href: /javascript/api/overview/azure/containerinstances
     - name: Resource Manager-mall
       href: /azure/templates/microsoft.containerinstance/containergroups
+    - name: YAML
+      href: container-instances-reference-yaml.md
     - name: Anslutningsprogram
       href: /connectors/aci
 - name: Resurser

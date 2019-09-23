@@ -192,6 +192,8 @@
           href: functions-deployment-slots.md
         - name: Skapa och distribuera via Azure Pipelines
           href: functions-how-to-azure-devops.md
+        - name: Utveckla och distribuera med GitHub-åtgärder
+          href: functions-how-to-github-actions.md
         - name: Distribuera ZIP-filer
           href: deployment-zip-push.md
         - name: Kör från paketet

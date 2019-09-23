@@ -251,18 +251,18 @@
               href: knowledge-store-connect-power-bi.md
     - name: Köra frågor mot dokument
       items:
-        - name: Skapa en grundläggande fråga
+        - name: Frågetyper och sammansättning
           href: search-query-overview.md
-        - name: Sökutforskaren (portal)
+        - name: Skapa en enkel fråga
+          href: search-query-simple-examples.md
+        - name: Använda fullständig Lucene-syntax
+          href: search-query-lucene-examples.md
+        - name: Använda Search Explorer (portalen)
           href: search-explorer.md
         - name: Enkel frågesyntax
           href: query-simple-syntax.md
         - name: Fullständigt Lucene-frågesyntax
           href: query-lucene-syntax.md
-        - name: Exempel (enkel syntax)
-          href: search-query-simple-examples.md
-        - name: Exempel (fullständig Lucene)
-          href: search-query-lucene-examples.md
         - name: moreLikeThis (förhandsversion)
           href: search-more-like-this.md
     - name: Använda filter

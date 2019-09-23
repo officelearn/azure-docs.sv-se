@@ -27,7 +27,7 @@
           href: tutorial-create-populate-tsi-environment.md
     - name: Förhandsversion av Azure Time Series Insights
       items:
-        - name: Självstudie om förhandsversionen av Azure Time Series Insights
+        - name: Konfigurera en förhandsversionsmiljö
           href: time-series-insights-update-create-environment.md
 - name: Begrepp
   items:

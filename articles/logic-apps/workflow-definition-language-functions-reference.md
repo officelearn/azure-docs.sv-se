@@ -114,7 +114,7 @@ Om du vill arbeta med samlingar, vanligt vis matriser, strängar och ibland kan 
 | [length](../logic-apps/workflow-definition-language-functions-reference.md#length) | Returnera antalet objekt i en sträng eller matris. |
 | [skip](../logic-apps/workflow-definition-language-functions-reference.md#skip) | Ta bort objekt från början av en samling och returnera *alla andra* objekt. |
 | [take](../logic-apps/workflow-definition-language-functions-reference.md#take) | Returnera objekt från början av en samling. |
-| [Union](../logic-apps/workflow-definition-language-functions-reference.md#union) | Returnera en samling som innehåller *alla* objekt från de angivna samlingarna. |
+| [union](../logic-apps/workflow-definition-language-functions-reference.md#union) | Returnera en samling som innehåller *alla* objekt från de angivna samlingarna. |
 |||
 
 <a name="comparison-functions"></a>

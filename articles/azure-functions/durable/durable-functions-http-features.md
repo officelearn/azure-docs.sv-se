@@ -8,12 +8,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: azfuncdf
-ms.openlocfilehash: b909918ff4f9abc1dd64d4c7e5ccb35954b233f7
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: 5a9143643b1a1cabb32903933dbd68d665d0424f
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70935799"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71171139"
 ---
 # <a name="http-features"></a>HTTP-funktioner
 
@@ -205,7 +205,7 @@ Det inbyggda stödet för att anropa HTTP API: er är en bekvämlighets funktion
 Om någon av dessa begränsningar kan påverka din användnings fråga bör du i stället använda aktivitets funktioner och språkspecifika HTTP-klientcertifikat för att göra utgående HTTP-anrop.
 
 > [!NOTE]
-> Om du är en .NET-utvecklare kanske du undrar varför den här funktionen använder `DurableHttpRequest` och `DurableHttpResponse` typer i stället för de inbyggda .net `HttpRequestMessage` och `HttpResponseMessage`. Det här design valet var avsiktligt. Den främsta orsaken är att en anpassad typ hjälper till att se till att användarna inte gör felaktiga antaganden om de funktioner som stöds av den interna HTTP-klienten. Robusta specifika typer gör det också möjligt att förenkla API-utformningen och lätt att se särskilda funktioner, till exempel [hanterad identitets integrering](#managed-identities) och [avsöknings konsument mönster](#http-202-handling).
+> Om du är en .NET-utvecklare kanske du undrar varför den här funktionen använder `DurableHttpRequest` och `DurableHttpResponse` typer i stället för de inbyggda .net `HttpRequestMessage` och `HttpResponseMessage`. Det här design valet var avsiktligt. Den främsta orsaken är att anpassade typer hjälper till att se till att användarna inte gör felaktiga antaganden om de funktioner som stöds av den interna HTTP-klienten. Robusta specifika typer gör det också möjligt att förenkla API-utformningen och lätt att se särskilda funktioner, till exempel [hanterad identitets integrering](#managed-identities) och [avsöknings konsument mönster](#http-202-handling).
 
 ## <a name="next-steps"></a>Nästa steg
 

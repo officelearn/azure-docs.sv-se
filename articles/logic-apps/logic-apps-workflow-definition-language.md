@@ -79,11 +79,11 @@ Här är den allmänna strukturen för en parameter definition:
 
 | Attribut | Obligatorisk | Typ | Beskrivning |
 |-----------|----------|------|-------------|
-| <*parameter-Name*> | Ja | Sträng | Namnet på den parameter som du vill definiera |
+| <*parameter-name*> | Ja | String | Namnet på den parameter som du vill definiera |
 | <*parameter-type*> | Ja | int, Float, String, bool, array, Object, SecureString, secureobject <p><p>**Obs!** För alla lösen ord, nycklar och hemligheter använder du `securestring` typerna eller `secureobject` eftersom `GET` åtgärden inte returnerar de här typerna. Mer information om hur du skyddar parametrar finns i [säkerhets rekommendationer för åtgärder och indataparametrar](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters). | Parameterns typ |
-| <*standard-parameter-Value*> | Ja | Samma som`type` | Det standard parameter värde som ska användas om inget värde anges när arbets flödet instansieras. `defaultValue` Attributet krävs så att Logic Apps Designer kan visa parametern korrekt, men du kan ange ett tomt värde. |
-| <*matris – med-tillåts-parameter-Values*> | Nej | Array | En matris med värden som parametern kan acceptera |
-| <*Parameter-Beskrivning*> | Nej | JSON-objekt | Alla andra parameter uppgifter, till exempel en beskrivning av parametern |
+| <*default-parameter-value*> | Ja | Samma som`type` | Det standard parameter värde som ska användas om inget värde anges när arbets flödet instansieras. `defaultValue` Attributet krävs så att Logic Apps Designer kan visa parametern korrekt, men du kan ange ett tomt värde. |
+| <*array-with-permitted-parameter-values*> | Nej | Array | En matris med värden som parametern kan acceptera |
+| <*parameter-description*> | Nej | JSON-objekt | Alla andra parameter uppgifter, till exempel en beskrivning av parametern |
 ||||
 
 Skapa sedan en [Azure Resource Manager mall](../azure-resource-manager/resource-group-overview.md) för arbets flödes definitionen, definiera mallparametrar som godkänner de värden som du vill ha vid distributionen, Ersätt hårdkodad-värden med referenser till mall-eller arbets flödes definitions parametrar som lämpligt och lagra de värden som ska användas vid distributionen i en separat [parameter fil](../azure-resource-manager/resource-group-template-deploy.md#parameter-files). På så sätt kan du enkelt ändra dessa värden genom parameter filen utan att behöva uppdatera och distribuera om din Logic app. För information som är känslig eller måste skyddas, t. ex. användar namn, lösen ord och hemligheter, kan du lagra dessa värden i Azure Key Vault och låta parameter filen hämta dessa värden från ditt nyckel valv. Mer information och exempel på hur du definierar parametrar på mall-och arbets flödes definitions nivåer finns i [översikt: Automatisera distribution av logi Kap par med Azure Resource Manager](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)mallar.

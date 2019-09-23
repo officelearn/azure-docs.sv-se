@@ -441,7 +441,7 @@ Välj den frekvens som kunderna måste betala i det angivna priset. Minst ett m�
 - **Pris**: USD per månad eller USD per år
 
 Priser som anges i lokal valuta (USD = USA dollar) konverteras till den lokala valutan för alla valda marknader med de aktuella växelkurserna som är tillgängliga under installationen. Validera dessa priser innan du publicerar genom att exportera pris kalkyl bladet och granska priset på varje marknad. Om du vill ange anpassade priser på en enskild marknad ändrar du och importerar pris kalkyl bladet. Du ansvarar för att verifiera priset och äga dessa inställningar.
-**Du måste först spara dina pris ändringar för att möjliggöra export av pris information.*
+* *Du måste först spara dina pris ändringar för att möjliggöra export av pris information.*
 
 Granska dina priser noggrant innan du publicerar, eftersom det finns vissa begränsningar för vad som kan ändras när en plan publiceras:
 

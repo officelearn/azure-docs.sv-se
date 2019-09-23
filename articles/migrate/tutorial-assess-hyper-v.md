@@ -73,7 +73,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
     - Du kan välja en annan Azure-mål region när du migrerar de virtuella datorerna. Alla Azure-regioner stöds för mål för migrering.
 
 7. Klicka på **Nästa**.
-8. I **Välj bedömnings verktyg**väljer **du Azure Migrate: Serverutvärdering > Nästa.
+8. I **Välj bedömnings verktyg**väljer **du Azure Migrate: Serverutvärdering** > **Nästa.
 
     ![Skapa ett Azure Migrate-projekt](./media/tutorial-assess-hyper-v/assessment-tool.png)
 

@@ -142,7 +142,7 @@ Om din arbets roll inte kan anslutas, men din webb roll lyckas, är det förmodl
    ```
 
 * Se till att Server namnet inte börjar med **https://** .
-* Se till att Azure SQL DB-servern tillåter att Azure-tjänster ansluter till den. Det gör du genom att öppna din databas i portalen och kontrol lera att inställningen **Tillåt åtkomst till Azure-tjänster** är inställd på * * på * * * *.
+* Se till att Azure SQL DB-servern tillåter att Azure-tjänster ansluter till den. Det gör du genom att öppna din databas i portalen och kontrol lera att inställningen **Tillåt åtkomst till Azure-tjänster** är inställd på **på** **.
 
 ## <a name="test-the-service-deployment"></a>Testa tjänst distributionen
 ### <a name="connect-with-a-web-browser"></a>Ansluta till en webbläsare

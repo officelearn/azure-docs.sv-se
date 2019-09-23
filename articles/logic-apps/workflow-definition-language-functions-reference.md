@@ -4159,7 +4159,7 @@ Och returnerar följande resultat:`"Hello World"`
 
 <a name="union"></a>
 
-### <a name="union"></a>Union
+### <a name="union"></a>union
 
 Returnera en samling som innehåller *alla* objekt från de angivna samlingarna.
 För att visas i resultatet kan ett objekt visas i alla samlingar som skickas till den här funktionen. Om ett eller flera objekt har samma namn visas det sista objektet med det namnet i resultatet.

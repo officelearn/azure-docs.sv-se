@@ -28,9 +28,9 @@ Skapa, ta bort och hantera program och program typer.
 |Kommando|Beskrivning|
 | --- | --- |
 | create | Skapar ett Service Fabric program med hjälp av den angivna beskrivningen. |
-| radera | Tar bort ett befintligt Service Fabric-program. |
+| delete | Tar bort ett befintligt Service Fabric-program. |
 | deployed | Hämtar information om ett program som distribuerats på en Service Fabric-nod. |
-| distribuerad hälsa | Hämtar information om hälso tillståndet för ett program som distribuerats på en Service Fabric-nod. |
+| deployed-health | Hämtar information om hälso tillståndet för ett program som distribuerats på en Service Fabric-nod. |
 | deployed-list | Hämtar listan över program som har distribuerats på en Service Fabric-nod. |
 | health | Hämtar hälso tillståndet för Service Fabric-programmet. |
 | info | Hämtar information om ett Service Fabric-program. |

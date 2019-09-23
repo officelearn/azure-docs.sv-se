@@ -83,7 +83,7 @@ Följande är egenskaps beskrivningarna:
 | publisher | Microsoft.Azure.ServiceFabric | --- | namnet på Service Fabric omfattnings utgivaren |
 | clusterEndpont | sträng | --- | URI: PORT till hanterings slut punkt |
 | nodeTypeRef | sträng | --- | namn på nodeType |
-| durabilityLevel | brons, silver, guld, platina | --- | tid som tillåts för att pausa oåterkallelig Azure-infrastruktur |
+| durabilityLevel | bronze, silver, gold, platinum | --- | tid som tillåts för att pausa oåterkallelig Azure-infrastruktur |
 | enableParallelJobs | Sant eller falskt | --- | Aktivera Compute ParallelJobs som ta bort virtuell dator och starta om den virtuella datorn i samma skalnings uppsättning parallellt |
 | nicPrefixOverride | sträng | --- | Undernätsprefixet som "10.0.0.0/24" |
 | commonNames | sträng [] | --- | Vanliga namn på installerade kluster certifikat |

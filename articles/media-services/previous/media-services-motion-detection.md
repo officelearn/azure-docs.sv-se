@@ -42,7 +42,7 @@ Du kan använda följande parametrar:
 
 | Namn | Alternativ | Beskrivning | Standard |
 | --- | --- | --- | --- |
-| sensitivityLevel |Sträng: låg, medium, hög |Anger känslighets nivån då rörelserna rapporteras. Justera detta för att justera antalet falska positiva identifieringar. |säker |
+| sensitivityLevel |String: low, medium, high |Anger känslighets nivån då rörelserna rapporteras. Justera detta för att justera antalet falska positiva identifieringar. |säker |
 | frameSamplingValue |Positivt heltal |Anger med vilken frekvens algoritmen körs. 1 lika med varje bild ruta, 2 betyder varje andra ram och så vidare. |1 |
 | detectLightChange |Boolean: true, false |Anger om ljus ändringar rapporteras i resultaten |! |
 | mergeTimeThreshold |XS-Time: Hh: mm: SS<br/>Exempel: 00:00:03 |Anger tidsfönstret mellan rörelse händelser där 2 händelser kombineras och rapporteras som 1. |00:00:00 |

@@ -1,19 +1,19 @@
 ---
-title: Lägga till lagring till en Azure HPC-cache
+title: Lägga till lagring till en Azure HPC-cache (för hands version)
 description: Definiera lagrings mål så att Azure HPC-cachen kan använda ditt lokala NFS-system eller Azure Blob-behållare för långsiktig fil lagring
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: v-erkell
-ms.openlocfilehash: ca8e13e322c3e192b697248f1252b65f6cbeda7f
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: a17952e193f3e03becaab044f55637372bac7b0d
+ms.sourcegitcommit: a19bee057c57cd2c2cd23126ac862bd8f89f50f5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71037230"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71181002"
 ---
-# <a name="add-storage"></a>Lägg till lagringsutrymme
+# <a name="add-storage-targets"></a>Lägg till lagrings mål
 
 *Lagrings målen* är Server dels lagring för filer som nås via en Azure HPC-instans. Du kan lägga till NFS-lagring, till exempel ett lokalt maskin varu system eller lagra data i Azure blob.
 
@@ -112,8 +112,8 @@ Fyll i följande värden för varje export:
 
 När du är färdig klickar du på **OK** för att lägga till lagrings målet.
 
-### <a name="choose-a-usage-model"></a>Välj en användnings modell 
-<!-- link in GUI to this heading -->
+### <a name="choose-a-usage-model"></a>Välj en användnings modell
+<!-- referenced from GUI - update aka.ms link if you change this heading -->
 
 När du skapar ett lagrings mål som pekar på ett NFS-lagrings system måste du välja *användnings modellen* för det målet. Den här modellen avgör hur dina data cachelagras.
 

@@ -1,9 +1,14 @@
 ---
-ms.openlocfilehash: f478956c3a220ea4435c4f6e8b1096a1e9fdcadf
-ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+author: ramonarguelles
+ms.service: azure-spatial-anchors
+ms.topic: include
+ms.date: 08/23/2019
+ms.author: rgarcia
+ms.openlocfilehash: 9a02dfbf3f2976489c10ccfeb935915a65d8dc84
+ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70014820"
+ms.lasthandoff: 09/22/2019
+ms.locfileid: "71180077"
 ---
 När din bevakare har skapats `AnchorLocated` utlöses händelsen för varje fäst punkt som begärs. Den här händelsen utlöses när ett ankare finns eller om ankaret inte kan hittas. Om den här situationen inträffar anges orsaken i status. När alla ankare för en bevakare har bearbetats, hittats eller inte hittas, `LocateAnchorsCompleted` kommer händelsen att utlösas. Det finns en gräns på 35 identifierare per övervakare. 

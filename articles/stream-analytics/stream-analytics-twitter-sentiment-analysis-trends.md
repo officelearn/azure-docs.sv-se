@@ -291,7 +291,7 @@ I den här instruktions guiden skriver du de aggregerade tweet-händelserna frå
 
 1. Klicka på rutan **utdata** i avsnittet **jobb sto pol Ogin** . 
 
-2. Klicka på  **+ Läggtillpåbladetutdataochfyllsedani&nbsp;** bladet med följande värden:
+2. **Klicka på** **+&nbsp; Läggtillpåbladetutdataochfyllsedani** bladet med följande värden:
 
    * **Utdataalias**: Använd namnet `TwitterStream-Output`. 
    * **Mottagare**: Välj **Blob-lagring**.

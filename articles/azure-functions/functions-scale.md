@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c39ee29b9a4449000d44e44bc6feae407cf4cd38
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 2fcace82eed81b85571ba88243a3de991ae01aa0
+ms.sourcegitcommit: a19bee057c57cd2c2cd23126ac862bd8f89f50f5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69874937"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71180099"
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Azure Functions skala och vara värd
 
@@ -62,6 +62,8 @@ Förbruknings planen är standard värd planen och ger följande fördelar:
 * Skala ut automatiskt, även under perioder med hög belastning
 
 Function-appar i samma region kan tilldelas samma förbruknings plan. Det finns ingen nack delar eller påverkan på att flera appar körs i samma förbruknings plan. Tilldelning av flera appar till samma förbruknings plan påverkar inte återhämtning, skalbarhet eller tillförlitlighet för varje app.
+
+Mer information om hur du beräknar kostnader när du kör i en förbruknings plan finns i [förstå förbruknings plan kostnader](functions-consumption-costs.md).
 
 ## <a name="premium-plan"></a>Premium-plan (för hands version)
 
@@ -131,6 +133,8 @@ När utdata från det här kommandot är `dynamic`är din Function-app i förbru
 
 I alla planer kräver en Function-app ett allmänt Azure Storage konto, som stöder Azure Blob, Queue, Files och table Storage. Detta beror på att funktioner förlitar sig på Azure Storage för åtgärder som att hantera utlösare och loggning av funktions körningar, men vissa lagrings konton stöder inte köer och tabeller. Dessa konton, som inkluderar BLOB-endast lagrings konton (inklusive Premium Storage) och allmänna lagrings konton med zon-redundant lagrings replikering, filtreras bort från dina befintliga **lagrings konto** val när du skapar en function-app.
 
+Samma lagrings konto som används av din Function-app kan också användas av utlösare och bindningar för att lagra program data. För lagrings intensiva åtgärder bör du dock använda ett separat lagrings konto.   
+
 <!-- JH: Does using a Premium Storage account improve perf? -->
 
 Mer information om lagrings konto typer finns i [Introduktion till Azure Storage-tjänsterna](../storage/common/storage-introduction.md#azure-storage-services).
@@ -143,7 +147,7 @@ Funktions kod filen lagras på Azure Files resurser på funktionens huvud lagrin
 
 ### <a name="runtime-scaling"></a>Körnings skalning
 
-Azure Functions använder en komponent som kallas för skalnings styrenheten för att övervaka händelse frekvensen och bestämma om du vill skala ut eller skala in. Skalnings styrenheten använder heuristik för varje utlösnings typ. Om du till exempel använder en Azure Queue Storage-utlösare, skalas den baserat på köns längd och ålder för det äldsta Queue meddelandet.
+Azure Functions använder en komponent som kallas för *skalnings styrenheten* för att övervaka händelse frekvensen och bestämma om du vill skala ut eller skala in. Skalnings styrenheten använder heuristik för varje utlösnings typ. Om du till exempel använder en Azure Queue Storage-utlösare, skalas den baserat på köns längd och ålder för det äldsta Queue meddelandet.
 
 Skalnings enheten för Azure Functions är Function-appen. När funktions programmet skalas ut allokeras ytterligare resurser för att köra flera instanser av den Azure Functions värden. I takt med att Compute demand minskas, tar skalnings kontrollen bort funktions värd instanser. Antalet instanser skalas slutligen ned till noll när inga funktioner körs i en Function-app.
 

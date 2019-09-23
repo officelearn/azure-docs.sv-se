@@ -1,6 +1,6 @@
 ---
-title: Begränsa åtkomst med signaturer för delad åtkomst - Azure HDInsight
-description: Lär dig hur du använder signaturer för delad åtkomst för att begränsa HDInsight åtkomst till data som lagras i Azure storage-blobbar.
+title: Begränsa åtkomst med signaturer för delad åtkomst – Azure HDInsight
+description: Lär dig hur du använder signaturer för delad åtkomst för att begränsa åtkomsten till HDInsight till data som lagras i Azure Storage-blobbar.
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -8,81 +8,81 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/29/2019
 ms.author: hrasheed
-ms.openlocfilehash: 7f7f6fe31afe35d9ccfd6ee33617bd7e4fbe46b7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 46cf7d3dd7efecff0280320c100af432367e25f2
+ms.sourcegitcommit: a19bee057c57cd2c2cd23126ac862bd8f89f50f5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65409550"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71180815"
 ---
 # <a name="use-azure-storage-shared-access-signatures-to-restrict-access-to-data-in-hdinsight"></a>Använd Azure Storage signaturer för delad åtkomst för att begränsa åtkomsten till data i HDInsight
 
-HDInsight har fullständig åtkomst till data i Azure Storage-konton som är associerade med klustret. Du kan använda signaturer för delad åtkomst för blob-behållaren för att begränsa åtkomsten till data. Signaturer för delad åtkomst (SAS) är en funktion i Azure storage-konton där du kan begränsa åtkomsten till data. Till exempel konfigurera skrivskyddad åtkomst till data.
+HDInsight har fullständig åtkomst till data i Azure Storage konton som är kopplade till klustret. Du kan använda signaturer för delad åtkomst på BLOB-behållaren för att begränsa åtkomsten till data. Signaturer för delad åtkomst (SAS) är en funktion i Azure Storage-konton som gör att du kan begränsa åtkomsten till data. Till exempel tillhandahåller skrivskyddad åtkomst till data.
 
 > [!IMPORTANT]  
-> Överväg att använda domänanslutna HDInsight för en lösning som använder Apache Ranger. Mer information finns i den [konfigurera domänanslutna HDInsight](./domain-joined/apache-domain-joined-configure.md) dokumentet.
+> Om du använder en lösning med Apache Ranger bör du överväga att använda domänanslutna HDInsight. Mer information finns i Konfigurera ett [domänanslutet HDInsight-](./domain-joined/apache-domain-joined-configure.md) dokument.
 
 > [!WARNING]  
-> HDInsight måste ha fullständig åtkomst till standardlagringen för klustret.
+> HDInsight måste ha fullständig åtkomst till standard lagrings utrymmet för klustret.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 * En Azure-prenumeration.
 
 * En SSH-klient. Mer information finns i [Ansluta till HDInsight (Apache Hadoop) med hjälp av SSH](./hdinsight-hadoop-linux-use-ssh-unix.md).
 
-* En befintlig [lagringsbehållare](../storage/blobs/storage-quickstart-blobs-portal.md).  
+* En befintlig [lagrings behållare](../storage/blobs/storage-quickstart-blobs-portal.md).  
 
-* Om du använder PowerShell, måste den [Az modulen](https://docs.microsoft.com/powershell/azure/overview).
+* Om du använder PowerShell behöver du AZ- [modulen](https://docs.microsoft.com/powershell/azure/overview).
 
-* Om du vill använda Azure CLI och du inte har installerat den, se [installera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
+* Om du vill använda Azure CLI och du ännu inte har installerat det kan du läsa [Installera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
-* Om du använder [Python](https://www.python.org/downloads/), version 2.7 eller senare.
+* Om du använder [python](https://www.python.org/downloads/), version 2,7 eller senare.
 
-* Om du använder C#, Visual Studio måste vara version 2013 eller senare.
+* Om du C#använder, måste Visual Studio vara version 2013 eller högre.
 
-* Den [URI-schema](./hdinsight-hadoop-linux-information.md#URI-and-scheme) för ditt lagringskonto. Detta skulle vara `wasb://` för Azure Storage, `abfs://` för Azure Data Lake Storage Gen2 eller `adl://` för Azure Data Lake Storage Gen1. Om säker överföring har aktiverats för Azure Storage eller Data Lake Storage Gen2, URI: N blir `wasbs://` eller `abfss://`respektive Se även [säker överföring](../storage/common/storage-require-secure-transfer.md).
+* [URI-schemat](./hdinsight-hadoop-linux-information.md#URI-and-scheme) för ditt lagrings konto. Detta gäller Azure Storage, `abfs://` för Azure Data Lake Storage Gen2 eller `adl://` för Azure Data Lake Storage gen1. `wasb://` Om säker överföring har Aktiver ATS för Azure Storage är URI: `wasbs://`n. Se även [säker överföring](../storage/common/storage-require-secure-transfer.md).
 
-* Ett befintligt HDInsight-kluster att lägga till en signatur för delad åtkomst till. Om inte, du kan använda Azure PowerShell för att skapa ett kluster och lägga till en signatur för delad åtkomst när klustret skapas.
+* Ett befintligt HDInsight-kluster för att lägga till en signatur för delad åtkomst till. Annars kan du använda Azure PowerShell för att skapa ett kluster och lägga till en signatur för delad åtkomst när klustret skapas.
 
-* I exempel-filer från [ https://github.com/Azure-Samples/hdinsight-dotnet-python-azure-storage-shared-access-signature ](https://github.com/Azure-Samples/hdinsight-dotnet-python-azure-storage-shared-access-signature). Den här lagringsplatsen innehåller följande objekt:
+* Exempelfilerna från [https://github.com/Azure-Samples/hdinsight-dotnet-python-azure-storage-shared-access-signature](https://github.com/Azure-Samples/hdinsight-dotnet-python-azure-storage-shared-access-signature). Den här lagrings platsen innehåller följande objekt:
 
-  * Ett Visual Studio-projekt som kan skapa en lagringsbehållare och lagrade princip SAS för användning med HDInsight
-  * Ett Python-skript som kan skapa en lagringsbehållare och lagrade princip SAS för användning med HDInsight
-  * Ett PowerShell-skript som kan skapa ett HDInsight-kluster och konfigurera den att använda SAS. Används för en uppdaterad version nedan.
-  * En exempelfil: `hdinsight-dotnet-python-azure-storage-shared-access-signature-master\sampledata\sample.log`
+  * Ett Visual Studio-projekt som kan skapa en lagrings behållare, lagrad princip och SAS för användning med HDInsight
+  * Ett Python-skript som kan skapa en lagrings behållare, lagrad princip och SAS för användning med HDInsight
+  * Ett PowerShell-skript som kan skapa ett HDInsight-kluster och konfigurera det att använda SAS. En uppdaterad version används nedan.
+  * En exempel fil:`hdinsight-dotnet-python-azure-storage-shared-access-signature-master\sampledata\sample.log`
 
 ## <a name="shared-access-signatures"></a>Signaturer för delad åtkomst
 
-Det finns två typer av signaturer för delad åtkomst:
+Det finns två former av signaturer för delad åtkomst:
 
-* Ad hoc: Starttid, förfallotid och behörigheter för SAS anges på SAS-URI.
+* Ad hoc: Start tiden, förfallo tiden och behörigheterna för SAS anges i SAS-URI: n.
 
-* Lagrad åtkomstprincip: En lagrad åtkomstprincip har definierats för en resurs-behållare, till exempel en blob-behållare. En princip kan användas för att hantera begränsningar för en eller flera signaturer för delad åtkomst. När du kopplar en SAS med en lagrad åtkomstprincip, ärver SAS begränsningarna - starttid, förfallotid och behörigheter - har definierats för lagrad åtkomstprincip.
+* Princip för lagrad åtkomst: En lagrad åtkomst princip definieras på en resurs behållare, till exempel en BLOB-behållare. En princip kan användas för att hantera begränsningar för en eller flera signaturer för delad åtkomst. När du associerar en SAS med en lagrad åtkomst princip ärver SAS begränsningarna-start tiden, förfallo tiden och de behörigheter som definierats för den lagrade åtkomst principen.
 
-Skillnaden mellan de två formulär är viktigt för ett viktiga scenario: återkallade certifikat. En SAS är en URL så att alla som erhåller SAS kan använda det, oavsett vem som begärde att. Om en SAS publiceras offentligt, kan den användas av vem som helst i världen. En SAS som distribueras är giltig tills något av följande händer:
+Skillnaden mellan de två formulären är viktig för ett nyckel scenario: återkallning. En SAS är en URL, så vem som helst som får SAS kan använda den, oavsett vem som begär att den ska börja med. Om en SAS publiceras offentligt kan den användas av vem som helst i världen. En SAS som är distribuerad är giltig tills något av fyra saker sker:
 
-1. Förfallotiden som anges för SAS har nåtts.
+1. Den förfallo tid som angetts för SAS har uppnåtts.
 
-2. Förfallotiden som anges på lagrad åtkomstprincip som refereras av SAS har nåtts. Följande scenarier orsaka förfallotiden att nå:
+2. Utgångs tiden som angetts för den lagrade åtkomst principen som refereras av SAS har nåtts. Följande scenarier orsakar förfallo tiden som nåtts:
 
-    * Tidsintervallet har gått ut.
-    * Lagrad åtkomstprincip ändras så att den har en förfallotid tidigare. Ändra förfallotiden är ett sätt att återkalla signaturen för delad åtkomst.
+    * Tidsintervallet har förflutit.
+    * Den lagrade åtkomst principen ändras till att ha en förfallo tid tidigare. Att ändra förfallo tiden är ett sätt att återkalla SAS.
 
-3. Lagrad åtkomstprincip som refereras av SAS tas bort, vilket är ett annat sätt att återkalla signaturen för delad åtkomst. Om du återskapar lagrad åtkomstprincip med samma namn, är alla SAS-token för den föregående principen giltiga (om förfallotiden för SAS inte har passerats). Om du planerar att återkalla signaturen för delad åtkomst, måste du använda ett annat namn om du återskapar åtkomstprincip med en förfallotid i framtiden.
+3. Den lagrade åtkomst principen som refereras av SAS tas bort, vilket är ett annat sätt att återkalla SAS. Om du återskapar den lagrade åtkomst principen med samma namn är alla SAS-token för den tidigare principen giltiga (om förfallo tiden på SAS: t inte har passerat). Om du tänker återkalla SAS måste du använda ett annat namn om du återskapar åtkomst principen med en förfallo tid i framtiden.
 
-4. Den kontonyckel som används för att skapa SAS återskapas. Återskapar nyckeln gör att alla program som använder den tidigare nyckeln Avbryt autentisering. Uppdatera alla komponenter till den nya nyckeln.
+4. Den konto nyckel som användes för att skapa SAS återskapas. Om du återskapar nyckeln kan alla program som använder den föregående nyckeln inte autentiseras. Uppdatera alla komponenter till den nya nyckeln.
 
 > [!IMPORTANT]  
-> En signatur för delad åtkomst URI: N är associerad med den kontonyckel som används för att skapa signaturen och den associerade lagras åtkomstprincip (om sådan finns). Om ingen lagrad åtkomstprincip anges, är det enda sättet att återkalla en signatur för delad åtkomst för att ändra kontonyckeln.
+> En signatur-URI för delad åtkomst är kopplad till den konto nyckel som används för att skapa signaturen och den associerade lagrade åtkomst principen (om sådan finns). Om ingen lagrad åtkomst princip anges, är det enda sättet att återkalla en signatur för delad åtkomst att ändra konto nyckeln.
 
-Vi rekommenderar att du alltid använder lagrade åtkomstprinciper. När du använder lagrade principer, kan du återkalla signaturer eller utöka utgångsdatum efter behov. Stegen i det här dokumentet använder lagrade åtkomstprinciper för att generera SAS.
+Vi rekommenderar att du alltid använder lagrade åtkomst principer. När du använder lagrade principer kan du antingen återkalla signaturer eller förlänga förfallo datumet vid behov. Stegen i det här dokumentet använder lagrade åtkomst principer för att generera SAS.
 
 Mer information om signaturer för delad åtkomst finns i [förstå SAS-modellen](../storage/common/storage-dotnet-shared-access-signature-part-1.md).
 
-## <a name="create-a-stored-policy-and-sas"></a>Skapa en princip för lagrade och SAS
+## <a name="create-a-stored-policy-and-sas"></a>Skapa en lagrad princip och SAS
 
-Spara SAS-token som skapas i slutet av varje metod. Token ska se ut ungefär så här:
+Spara SAS-token som skapas i slutet av varje metod. Token ser ut ungefär så här:
 
 ```output
 ?sv=2018-03-28&sr=c&si=myPolicyPS&sig=NAxefF%2BrR2ubjZtyUtuAvLQgt%2FJIN5aHJMj6OsDwyy4%3D
@@ -90,7 +90,7 @@ Spara SAS-token som skapas i slutet av varje metod. Token ska se ut ungefär så
 
 ### <a name="using-powershell"></a>Använda PowerShell
 
-Ersätt `RESOURCEGROUP`, `STORAGEACCOUNT`, och `STORAGECONTAINER` med lämpliga värden för din befintliga lagringsbehållare. Gå till katalogen för `hdinsight-dotnet-python-azure-storage-shared-access-signature-master` eller ändra den `-File` parameter som innehåller den absoluta sökvägen för `Set-AzStorageblobcontent`. Ange följande PowerShell-kommando:
+Ersätt `RESOURCEGROUP`, `STORAGEACCOUNT` och`STORAGECONTAINER` med lämpliga värden för din befintliga lagrings behållare. Ändra katalogen till `hdinsight-dotnet-python-azure-storage-shared-access-signature-master` eller `-File` ändra parametern så att den innehåller den absoluta sökvägen för `Set-AzStorageblobcontent`. Ange följande PowerShell-kommando:
 
 ```PowerShell
 $resourceGroupName = "RESOURCEGROUP"
@@ -154,9 +154,9 @@ Set-AzStorageblobcontent `
 
 ### <a name="using-azure-cli"></a>Använda Azure CLI
 
-Användning av variabler i det här avsnittet baseras på en Windows-miljö. Små variationer krävs för bash eller andra miljöer.
+Användningen av variabler i det här avsnittet baseras på en Windows-miljö. Små variationer kommer att krävas för bash eller andra miljöer.
 
-1. Ersätt `STORAGEACCOUNT`, och `STORAGECONTAINER` med lämpliga värden för din befintliga lagringsbehållare.
+1. Ersätt `STORAGEACCOUNT` och`STORAGECONTAINER` med lämpliga värden för din befintliga lagrings behållare.
 
     ```azurecli
     # set variables
@@ -173,14 +173,14 @@ Användning av variabler i det här avsnittet baseras på en Windows-miljö. Sm�
     az storage account keys list --account-name %AZURE_STORAGE_ACCOUNT% --query "[0].{PrimaryKey:value}" --output table
     ```
 
-2. Ange den primära nyckeln som hämtades till en variabel för senare användning. Ersätt `PRIMARYKEY` med det hämtade värdet i föregående steg och ange sedan kommandot nedan:
+2. Ange den hämtade primär nyckeln till en variabel för senare användning. Ersätt `PRIMARYKEY` med det hämtade värdet i föregående steg och ange sedan kommandot nedan:
 
     ```azurecli
     #set variable for primary key
     set AZURE_STORAGE_KEY=PRIMARYKEY
     ```
 
-3. Gå till katalogen för `hdinsight-dotnet-python-azure-storage-shared-access-signature-master` eller ändra den `--file` parameter som innehåller den absoluta sökvägen för `az storage blob upload`. Kör de resterande kommandona:
+3. Ändra katalogen till `hdinsight-dotnet-python-azure-storage-shared-access-signature-master` eller `--file` ändra parametern så att den innehåller den absoluta sökvägen för `az storage blob upload`. Kör återstående kommandon:
 
     ```azurecli
     # Create stored access policy on the containing object
@@ -201,37 +201,37 @@ Användning av variabler i det här avsnittet baseras på en Windows-miljö. Sm�
 
 ### <a name="using-python"></a>Använda Python
 
-Öppna den `SASToken.py` och Ersätt `storage_account_name`, `storage_account_key`, och `storage_container_name` med lämpliga värden för din befintliga behållaren och kör skriptet.
+Öppna filen och Ersätt `storage_account_name`, `storage_account_key`och `storage_container_name` med lämpliga värden för din befintliga lagrings behållare, och kör sedan skriptet. `SASToken.py`
 
-Du kan behöva köra `pip install --upgrade azure-storage` om du får ett felmeddelande `ImportError: No module named azure.storage`.
+Du kan behöva köra `pip install --upgrade azure-storage` om du får fel meddelandet. `ImportError: No module named azure.storage`
 
 ### <a name="using-c"></a>Använd C#
 
 1. Öppna lösningen i Visual Studio.
 
-2. I Solution Explorer högerklickar du på den **SASExample** projektet och välj **egenskaper**.
+2. I Solution Explorer högerklickar du på projektet **SASExample** och väljer **Egenskaper**.
 
-3. Välj **inställningar** och lägga till värden för följande poster:
+3. Välj **Inställningar** och Lägg till värden för följande poster:
 
-   * StorageConnectionString: Anslutningssträngen för lagringskontot som du vill skapa en princip för lagrade och SAS för. Formatet ska vara `DefaultEndpointsProtocol=https;AccountName=myaccount;AccountKey=mykey` där `myaccount` är namnet på ditt lagringskonto och `mykey` är nyckeln till lagringskontot.
+   * StorageConnectionString Anslutnings strängen för det lagrings konto som du vill skapa en lagrad princip och SAS för. Formatet bör vara `DefaultEndpointsProtocol=https;AccountName=myaccount;AccountKey=mykey` där `myaccount` är namnet på ditt lagrings konto och `mykey` är nyckeln för lagrings kontot.
 
-   * ContainerName: Behållare i lagringskontot som du vill begränsa åtkomst till.
+   * ContainerName Den behållare i lagrings kontot som du vill begränsa åtkomsten till.
 
-   * SASPolicyName: Namnet du använder för lagrade principen för att skapa.
+   * SASPolicyName: Namnet som ska användas för den lagrade principen som ska skapas.
 
-   * FileToUpload: Sökväg till en fil som har överförts till behållaren.
+   * FileToUpload: Sökvägen till en fil som överförs till behållaren.
 
-4. Kör projektet. Spara SAS-token för principen, lagringskontonamn och behållarnamn. De här värdena används när du associerar storage-konto med ditt HDInsight-kluster.
+4. Kör projektet. Spara SAS-principens token, lagrings kontots namn och behållar namnet. Dessa värden används när du kopplar lagrings kontot till ditt HDInsight-kluster.
 
 ## <a name="use-the-sas-with-hdinsight"></a>Använda SAS med HDInsight
 
-När du skapar ett HDInsight-kluster, måste du ange en primär lagring-konto och Alternativt kan du ange ytterligare lagringskonton. Båda dessa metoder för att lägga till lagring kräver fullständig åtkomst till lagringskonton och behållare som används.
+När du skapar ett HDInsight-kluster måste du ange ett primärt lagrings konto och du kan också ange ytterligare lagrings konton. Båda dessa metoder för att lägga till lagring kräver fullständig åtkomst till de lagrings konton och behållare som används.
 
-Om du vill använda en signatur för delad åtkomst för att begränsa åtkomsten till en behållare, lägger du till en anpassad post i **core-site** konfigurationen för klustret. Du kan lägga till posten när klustret skapas med hjälp av PowerShell eller när klustret har skapats med hjälp av Ambari.
+Om du vill använda en signatur för delad åtkomst för att begränsa åtkomsten till en behållare lägger du till en anpassad post i konfigurationen för **kärn platsen** för klustret. Du kan lägga till posten när klustret skapas med hjälp av PowerShell eller när klustret har skapats med Ambari.
 
 ### <a name="create-a-cluster-that-uses-the-sas"></a>Skapa ett kluster som använder SAS
 
-Ersätt `CLUSTERNAME`, `RESOURCEGROUP`, `DEFAULTSTORAGEACCOUNT`, `STORAGECONTAINER`, `STORAGEACCOUNT`, och `TOKEN` med lämpliga värden. Ange PowerShell-kommandon:
+Ersätt `CLUSTERNAME` ,`RESOURCEGROUP` ,,`TOKEN` , och med lämpliga värden. `DEFAULTSTORAGEACCOUNT` `STORAGECONTAINER` `STORAGEACCOUNT` Ange PowerShell-kommandon:
 
 ```powershell
 
@@ -343,82 +343,82 @@ Remove-AzResourceGroup `
 ```
 
 > [!IMPORTANT]  
-> När du tillfrågas om HTTP/s eller SSH-användarnamn och lösenord, måste du ange ett lösenord som uppfyller följande kriterier:
+> När du uppmanas att ange ett användar namn och lösen ord för HTTP/s eller SSH måste du ange ett lösen ord som uppfyller följande kriterier:
 >
 > * Måste vara minst 10 tecken långt.
 > * Måste innehålla minst en siffra.
-> * Måste innehålla minst ett icke-alfanumeriska tecken.
+> * Måste innehålla minst ett icke-alfanumeriskt tecken.
 > * Måste innehålla minst en versal eller gemen bokstav.
 
-Det tar en stund innan det här skriptet att slutföra, vanligen cirka 15 minuter. När skriptet har slutförts utan fel har klustret skapats.
+Det tar en stund innan skriptet slutförs, vanligt vis cirka 15 minuter. När skriptet har slutförts utan fel har klustret skapats.
 
 ### <a name="use-the-sas-with-an-existing-cluster"></a>Använda SAS med ett befintligt kluster
 
-Om du har ett befintligt kluster kan du lägga till SAS till den **core-site** konfiguration med hjälp av följande steg:
+Om du har ett befintligt kluster kan du lägga till SAS i **Core-site-** konfigurationen med hjälp av följande steg:
 
-1. Öppna Ambari-webbgränssnittet för klustret. Adress för den här sidan är `https://YOURCLUSTERNAME.azurehdinsight.net`. När du uppmanas, autentisera till klustret med administratörsnamn (admin) och lösenordet som du använde när du skapar klustret.
+1. Öppna Ambari-webbgränssnittet för klustret. Adressen till den här sidan är `https://YOURCLUSTERNAME.azurehdinsight.net`. När du uppmanas till detta ska du autentisera till klustret med administratörs namnet (admin) och lösen ordet som du använde när du skapade klustret.
 
-2. Från vänster sida av Ambari-webbgränssnittet väljer **HDFS** och välj sedan den **Peeringkonfigurationer** fliken mitt på sidan.
+2. Från vänster sida av Ambari-webbgränssnittet väljer du **HDFS** och väljer sedan fliken **konfigurationer** i mitten av sidan.
 
-3. Välj den **Avancerat** fliken och rullar tills du hittar den **anpassad core-site** avsnittet.
+3. Välj fliken **Avancerat** och bläddra tills du hittar avsnittet **anpassad Core-site** .
 
-4. Expandera den **anpassad core-site** avsnittet och rulla till slutet och välj sedan den **Lägg till egenskap...**  länk. Använd följande värden för den **nyckel** och **värdet** fält:
+4. Expandera avsnittet **anpassad Core-site** och bläddra till slutet och välj länken **Lägg till egenskap...** . Använd följande värden för fälten **nyckel** och **värde** :
 
-   * **nyckeln**: `fs.azure.sas.CONTAINERNAME.STORAGEACCOUNTNAME.blob.core.windows.net`
-   * **Värde**: SAS som returneras av en av de metoder som körts tidigare.
+   * **Nyckel**:`fs.azure.sas.CONTAINERNAME.STORAGEACCOUNTNAME.blob.core.windows.net`
+   * **Värde**: SAS som returnerades av en av metoderna som tidigare utfördes.
 
-     Ersätt `CONTAINERNAME` med behållaren namnet du använde med den C# eller SAS-program. Ersätt `STORAGEACCOUNTNAME` med namnet du använde.
+     Ersätt `CONTAINERNAME` med namnet på den behållare som du använde C# med eller SAS-programmet. Ersätt `STORAGEACCOUNTNAME` med det lagrings konto namn som du använde.
 
-5. Klicka på den **Lägg till** knappen för att spara den här nyckeln och värdet och klicka sedan på den **spara** för att spara konfigurationsändringarna. När du uppmanas, lägga till en beskrivning av ändringen (”att lägga till SAS-lagringsåtkomst” till exempel) och klicka sedan på **spara**.
+5. Klicka på knappen **Lägg** till för att spara den här nyckeln och värdet och klicka sedan på knappen **Spara** för att spara konfigurations ändringarna. När du uppmanas till det, lägger du till en beskrivning av ändringen ("lägga till SAS-lagringsenhet" till exempel) och klickar sedan på **Spara**.
 
-    Klicka på **OK** när ändringarna har utförts.
+    Klicka på **OK** när ändringarna har slutförts.
 
    > [!IMPORTANT]  
    > Du måste starta om flera tjänster innan ändringen börjar gälla.
 
-6. Ambari-webbgränssnittet, Välj **HDFS** i listan till vänster och välj sedan **starta om alla påverkade** från den **tjänståtgärder** listan till höger. När du uppmanas, väljer __bekräfta starta om alla__.
+6. I Ambari-webbgränssnittet väljer du **HDFS** i listan till vänster och väljer sedan **starta om alla som påverkas** från List rutan **service åtgärder** till höger. När du uppmanas väljer du __Bekräfta omstart av alla__.
 
-    Upprepa processen för MapReduce2 och YARN.
+    Upprepa den här processen för MapReduce2 och garn.
 
-7. När tjänsterna har startats om, markerar du var och en och inaktivera underhållsläge från den **tjänståtgärder** nedrullningsbar listruta.
+7. När tjänsterna har startats om väljer du var och en och inaktiverar underhålls läget från List rutan **service åtgärder** .
 
 ## <a name="test-restricted-access"></a>Testa begränsad åtkomst
 
-Använd följande steg för att verifiera att du kan endast Läs- och objekt för SAS-lagringskontot.
+Använd följande steg för att kontrol lera att du bara kan läsa och lista objekt på SAS-lagrings kontot.
 
-1. Ansluta till klustret. Ersätt `CLUSTERNAME` med namnet på klustret och ange följande kommando:
+1. Anslut till klustret. Ersätt `CLUSTERNAME` med namnet på klustret och ange följande kommando:
 
     ```cmd
     ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net
     ```
 
-2. Använd följande kommando från prompten för att visa innehållet i behållaren:
+2. Om du vill visa innehållet i behållaren använder du följande kommando från prompten:
 
     ```bash
     hdfs dfs -ls wasbs://SASCONTAINER@SASACCOUNTNAME.blob.core.windows.net/
     ```
 
-    Ersätt `SASCONTAINER` med namnet på behållaren som skapades för kontot i SAS-lagring. Ersätt `SASACCOUNTNAME` med namnet på lagringskontot som används för signaturen för delad åtkomst.
+    Ersätt `SASCONTAINER` med namnet på den behållare som skapats för SAS-lagrings kontot. Ersätt `SASACCOUNTNAME` med namnet på det lagrings konto som används för SAS.
 
-    Listan innehåller filen när behållaren och SAS har skapats.
+    Listan innehåller den fil som laddats upp när behållaren och SAS skapades.
 
-3. Använd följande kommando för att kontrollera att du kan läsa innehållet i filen. Ersätt den `SASCONTAINER` och `SASACCOUNTNAME` som i föregående steg. Ersätt `sample.log` med namnet på den fil som visas i föregående kommando:
+3. Använd följande kommando för att kontrol lera att du kan läsa innehållet i filen. `SASCONTAINER` Ersätt och `SASACCOUNTNAME` som i föregående steg. Ersätt `sample.log` med namnet på filen som visas i föregående kommando:
 
     ```bash
     hdfs dfs -text wasb://SASCONTAINER@SASACCOUNTNAME.blob.core.windows.net/sample.log
     ```
 
-    Det här kommandot visar innehållet i filen.
+    Det här kommandot visar filens innehåll.
 
-4. Använd följande kommando för att ladda ned filen till det lokala filsystemet:
+4. Använd följande kommando för att ladda ned filen till det lokala fil systemet:
 
     ```bash
     hdfs dfs -get wasbs://SASCONTAINER@SASACCOUNTNAME.blob.core.windows.net/sample.log testfile.txt
     ```
 
-    Det här kommandot laddar ned filen till en lokal fil med namnet **testfile.txt**.
+    Det här kommandot laddar ned filen till en lokal fil med namnet **testfile. txt**.
 
-5. Använd följande kommando för att ladda upp den lokala filen till en ny fil med namnet **testupload.txt** på SAS-lagring:
+5. Använd följande kommando för att överföra den lokala filen till en ny fil med namnet **testUpload. txt** på SAS-lagringen:
 
     ```bash
     hdfs dfs -put testfile.txt wasbs://SASCONTAINER@SASACCOUNTNAME.blob.core.windows.net/testupload.txt
@@ -428,19 +428,19 @@ Använd följande steg för att verifiera att du kan endast Läs- och objekt fö
 
         put: java.io.IOException
 
-    Det här felet uppstår eftersom lagringsplatsen är skrivskyddade + endast lista över. Använd följande kommando för att publicera den på standardlagringen för klustret, som är skrivbar:
+    Felet beror på att lagrings platsen är Read + List. Använd följande kommando för att lagra data på standard lagrings utrymmet för klustret, vilket är skrivbart:
 
     ```bash
     hdfs dfs -put testfile.txt wasbs:///testupload.txt
     ```
 
-    Den här gången bör åtgärden slutföras utan problem.
+    Den här gången bör åtgärden slutföras.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu när du har lärt dig hur du lägger till lagring med begränsad åtkomst till ditt HDInsight-kluster kan läsa andra sätt att arbeta med data i ditt kluster:
+Nu när du har lärt dig hur du lägger till lagring med begränsad åtkomst till ditt HDInsight-kluster kan du lära dig andra sätt att arbeta med data i klustret:
 
 * [Använda Apache Hive med HDInsight](hadoop/hdinsight-use-hive.md)
-* [Använda Apache Pig med HDInsight](hadoop/hdinsight-use-pig.md)
+* [Använda Apache gris med HDInsight](hadoop/hdinsight-use-pig.md)
 * [Använda MapReduce med HDInsight](hadoop/hdinsight-use-mapreduce.md)
 

@@ -1,22 +1,21 @@
 ---
-title: Skapa en Azure HPC-cache
+title: Skapa en Azure HPC-cache (för hands version)
 description: Så här skapar du en Azure HPC cache-instans
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: v-erkell
-ms.openlocfilehash: c3d14eaefaa1f317cb061273866ffee83747f12b
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: 677d42dfa1c468417f18ba4222cb0d5fd3ebb189
+ms.sourcegitcommit: a19bee057c57cd2c2cd23126ac862bd8f89f50f5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71036850"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71180968"
 ---
-# <a name="configure-aggregated-namespace"></a>Konfigurera sammanställd namnrymd
-<!-- change link in GUI -->
+# <a name="plan-the-aggregated-namespace"></a>Planera det sammanställda namn området
 
-Med Azure HPC cache får klienterna åtkomst till en mängd olika lagrings system via ett virtuellt namn område som döljer information om Server dels lagrings systemet.
+Azure HPC cache (för hands version) gör att klienter får åtkomst till en mängd olika lagrings system via en virtuell namnrymd som döljer information om Server dels lagrings systemet.
 
 När du lägger till ett lagrings mål anger du klient Sök vägen. Klient datorer monterar denna fil Sök väg. Du kan ändra det lagrings mål som är associerat med den sökvägen. Du kan till exempel ersätta ett maskin varu lagrings system med moln lagring utan att behöva skriva över klientbaserade procedurer.
 
@@ -31,7 +30,7 @@ Mal lin data lagras i ett Data Center och den information som krävs för det h�
     /goldline/templates/acme2017/sku798
     /goldline/templates/acme2017/sku980 
 
-Data Center Storage-systemet visar dessa exporter: 
+Data Center Storage-systemet visar dessa exporter:
 
     /
     /goldline
@@ -41,7 +40,7 @@ De data som ska analyseras har kopierats till en Azure Blob Storage-behållare m
 
 Överväg att skapa lagrings mål med dessa sökvägar för virtuella namn områden för att tillåta enkel åtkomst via cachen:
 
-| Server delens NFS-sökväg eller BLOB-behållare | Sökväg för virtuell namnrymd |
+| Server delens NFS-sökväg eller BLOB-behållare | Sökväg för virtuellt namnområde |
 |-----------------------------------------|------------------------|
 | /goldline/templates/acme2017/sku798     | /templates/sku798      |
 | /goldline/templates/acme2017/sku980     | /templates/sku980      |
@@ -49,7 +48,7 @@ De data som ska analyseras har kopierats till en Azure Blob Storage-behållare m
 
 Eftersom NFS-källans sökvägar är under kataloger för samma export, måste du definiera flera namn områdes Sök vägar från samma lagrings mål. 
 
-| Värdnamn för lagrings mål  | Sökväg till NFS-export      | Sökväg till under Katalog | Sökväg till namnrymd    |
+| Värdnamn för lagrings mål  | NFS-exportsökväg      | Sökväg till underkatalog | Sökväg till namnrymd    |
 |--------------------------|----------------------|-------------------|-------------------|
 | *IP-adress eller värdnamn* | /goldline/templates  | acme2017/sku798   | /templates/sku798 |
 | *IP-adress eller värdnamn* | /goldline/templates  | acme2017/sku980   | /templates/sku980 |

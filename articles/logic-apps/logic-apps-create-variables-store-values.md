@@ -10,12 +10,12 @@ manager: carmonm
 ms.reviewer: klam, LADocs
 ms.topic: conceptual
 ms.date: 09/20/2019
-ms.openlocfilehash: 016ab15b2ca4b2e6278752b166c746f6f5aef72d
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: 0f7947e4a96a49e3a7a3b0059a1b20b21ac8cbd1
+ms.sourcegitcommit: a19bee057c57cd2c2cd23126ac862bd8f89f50f5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71171241"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71180783"
 ---
 # <a name="store-and-manage-values-by-using-variables-in-azure-logic-apps"></a>Lagra och hantera värden med hjälp av variabler i Azure Logic Apps
 
@@ -99,6 +99,9 @@ Om du växlar från designern till kodvyn visas här hur åtgärden **initiera v
    }
 },
 ```
+
+> [!NOTE]
+> Även om åtgärden **initiera variabel** har ett `variables` avsnitt som är strukturerat som en matris, kan åtgärden bara skapa en variabel i taget. Varje ny variabel kräver en enskild **initierande variabel** åtgärd.
 
 Här följer några exempel på några andra variabel typer:
 
@@ -200,7 +203,7 @@ Om du vill öka eller *öka* en variabel med ett konstant värde lägger du till
 
    Om du vill lägga till en åtgärd mellan befintliga steg flyttar du musen över den anslutande pilen så att plus tecknet (+) visas. Välj plus tecknet och välj sedan **Lägg till en åtgärd**.
 
-1. I rutan Sök anger du "öka variabel" som filter. I listan åtgärder väljer du **variabler-öka variabel**.
+1. I rutan Sök anger du "öka variabel" som filter. I listan åtgärder väljer du **öka variabel**.
 
    ![Välj åtgärden "öka variabel"](./media/logic-apps-create-variables-store-values/select-increment-variable-action.png)
 

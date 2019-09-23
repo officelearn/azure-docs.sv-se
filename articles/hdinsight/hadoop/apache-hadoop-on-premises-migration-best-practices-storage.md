@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: hrasheed
-ms.openlocfilehash: 2fd8dd09da8080e9eff60bcec7d595476243cd02
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.openlocfilehash: 0acd4c2793c7c13fb687f591d01e6d8753f71bdc
+ms.sourcegitcommit: a19bee057c57cd2c2cd23126ac862bd8f89f50f5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70736123"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71181139"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight"></a>Migrera lokala Apache Hadoop-kluster till Azure HDInsight
 
@@ -110,7 +110,7 @@ Tidigare hade molnbaserad analys att angripa i delar av prestanda, hantering och
 
 Ett av följande format kan användas för att komma åt data som lagras i ADLS Gen2:
 - `abfs:///`: Få åtkomst till standard Data Lake Storage för klustret.
-- `abfs[s]://file_system@account_name.dfs.core.windows.net`: Används vid kommunikation med ett Data Lake Storage som inte är standard.
+- `abfs://file_system@account_name.dfs.core.windows.net`: Används vid kommunikation med ett Data Lake Storage som inte är standard.
 
 Mer information finns i följande artiklar:
 

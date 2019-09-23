@@ -5,13 +5,13 @@ author: kromerm
 ms.topic: conceptual
 ms.author: makromer
 ms.service: data-factory
-ms.date: 05/16/2019
-ms.openlocfilehash: 8eb244a0eff1569ac27feae68104db613373463a
-ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
+ms.date: 09/22/2019
+ms.openlocfilehash: e4b3e08c0cc7fc1ead2aed551c228c6a1165c3b6
+ms.sourcegitcommit: a19bee057c57cd2c2cd23126ac862bd8f89f50f5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69992360"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71180855"
 ---
 # <a name="mapping-data-flows-performance-and-tuning-guide"></a>Prestanda-och justerings guiden för att mappa data flöden
 
@@ -90,6 +90,13 @@ Om du klickar på ikonen visas körnings planen och efterföljande prestanda pro
 * I data flödes designern använder du fliken Data förhands granskning i omvandlingar för att visa resultatet av din omvandlings logik.
 * Enhet testa dina data flödar från pipeline-designern genom att placera en data flödes aktivitet på pipelinens design arbets yta och använda knappen "Felsök" för att testa.
 * Testning i fel söknings läge fungerar mot en aktiv kluster miljö utan att behöva vänta på ett just-in-Time-kluster.
+* Under för hands versionen av data Flow-upplevelsen kan du begränsa mängden data som du testar med för varje källa genom att ange rad gränsen från länken fel söknings inställningar i gränssnittet för Data Flow designer. Observera att du först måste aktivera fel söknings läget.
+
+![Fel söknings inställningar](media/data-flow/debug-settings.png "Fel söknings inställningar")
+
+* När du testar dina data flöden från en pipeline för fel sökning kan du begränsa antalet rader som används för testning genom att ställa in samplings storleken på var och en av dina källor. Se till att inaktivera sampling när du schemalägger pipelinen enligt ett regelbundet drift schema.
+
+![Rad sampling](media/data-flow/source1.png "Rad sampling")
 
 ### <a name="disable-indexes-on-write"></a>Inaktivera index vid skrivning
 * Använd en lagrad procedur i ADF-pipeline innan data flödes aktiviteten som inaktiverar index i mål tabellerna som skrivs till från din mottagare.
@@ -140,6 +147,10 @@ Om jag till exempel har en lista med datafiler från 2019 juli som jag vill bear
 ```DateFiles/*_201907*.txt```
 
 Detta kommer att utföra bättre än en sökning mot BLOB-arkivet i en pipeline som sedan itererar över alla matchade filer med hjälp av en försvarad aktivitet med data flödes aktiviteten Kör i.
+
+### <a name="increase-the-size-of-your-debug-cluster"></a>Öka storleken på ditt fel söknings kluster
+
+Som standard använder fel söknings programmet standard Azure integration runtime som skapas automatiskt för varje data fabrik. Standardvärdet Azure IR har angetts till 8 kärnor, 4 för en driver-nod och 4 för en arbetsnoden, med hjälp av allmänna beräknings egenskaper. När du testar med större data kan du öka storleken på ditt fel söknings kluster genom att skapa en ny Azure IR med större konfigurationer och välja den nya Azure IR när du växlar vid fel sökning. Detta instruerar ADF att använda den här Azure IR för för hands versionen av data och pipeline-felsökning med data flöden.
 
 ## <a name="next-steps"></a>Nästa steg
 

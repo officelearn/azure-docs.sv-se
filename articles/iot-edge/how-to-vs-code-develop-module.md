@@ -116,8 +116,8 @@ Om du vill lägga till ytterligare moduler i lösningen kör du **kommandot Azur
 
 Standard koden för modulen som medföljer lösningen finns på följande plats:
 
-- Azure function (C#): **moduler >  *&lt;modulens namn&gt;*  >  *&lt;dittModulnamn&gt;* . cs
-- C#: **moduler > *&lt;ditt Modulnamn&gt;* > program.cs
+- Azure function (C#): **moduler >  *&lt;modulens namn&gt;*  >  *&lt;dittModulnamn&gt;* . cs**
+- C#: **moduler > *&lt;ditt Modulnamn&gt;* > program.cs**
 - Python: **moduler > *&lt;ditt Modulnamn&gt;* > main.py**
 - Node. js: **moduler > *&lt;ditt Modulnamn&gt;* > app. js**
 - Java: **moduler > *&lt;modulens namn&gt;* > src > main > Java > com > edgemodulemodules > app. java**

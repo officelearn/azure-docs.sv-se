@@ -117,11 +117,11 @@ I- `staticResults` attributet definierar du en åtgärds modell `outputs` och `s
 
 | Attribut | Obligatorisk | Typ | Beskrivning |
 |-----------|----------|------|-------------|
-| <*static-result-definition-name*> | Ja | Sträng | Namnet på en statisk resultat definition som en åtgärds definition kan referera till via `runtimeConfiguration.staticResult` ett objekt. Mer information finns i [konfigurations inställningar för körning](../logic-apps/logic-apps-workflow-actions-triggers.md#runtime-config-options). <p>Du kan använda valfritt unikt namn. Som standard läggs det här unika namnet till med ett nummer, vilket ökar efter behov. |
+| <*static-result-definition-name*> | Ja | String | Namnet på en statisk resultat definition som en åtgärds definition kan referera till via `runtimeConfiguration.staticResult` ett objekt. Mer information finns i [konfigurations inställningar för körning](../logic-apps/logic-apps-workflow-actions-triggers.md#runtime-config-options). <p>Du kan använda valfritt unikt namn. Som standard läggs det här unika namnet till med ett nummer, vilket ökar efter behov. |
 | <*output-attributes-and-values-returned*> | Ja | Varierar | Kraven för dessa attribut varierar beroende på olika villkor. Om `status` till exempel är `Succeeded`, `outputs` innehåller attributet attribut och värden som returneras som bildutdata av åtgärden. `status` Om är `Failed` `message` , inkluderar attributet attributet,somärenmatrismedettellerflerafelobjektsominnehållerfelinformation.`errors` `outputs` |
 | <*header-values*> | Nej | JSON | Alla rubrik värden som returneras av åtgärden |
-| <*status-code-returned*> | Ja | Sträng | Status koden som returnerades av åtgärden |
-| <*action-status*> | Ja | Sträng | Åtgärdens status, till exempel `Succeeded` eller`Failed` |
+| <*status-code-returned*> | Ja | String | Status koden som returnerades av åtgärden |
+| <*action-status*> | Ja | String | Åtgärdens status, till exempel `Succeeded` eller`Failed` |
 |||||
 
 I den här definitionen `runtimeConfiguration.staticResult.name` för http-åtgärder är attributet exempelvis referenser `HTTP0` `staticResults` i attributet där de blå utdata för åtgärden definieras. Attributet anger att den statiska resultat inställningen är `Enabled` i http-åtgärden. `runtimeConfiguration.staticResult.staticResultOptions`
@@ -280,7 +280,7 @@ Här är den allmänna strukturen för en utmatnings definition:
 
 | Attribut | Obligatorisk | Typ | Beskrivning |
 |-----------|----------|------|-------------|
-| <*nyckel namn*> | Ja | Sträng | Nyckel namnet för returvärdet för utdata |
+| <*nyckel namn*> | Ja | String | Nyckel namnet för returvärdet för utdata |
 | <*key-type*> | Ja | int, float, string, securestring, bool, array, JSON-objekt | Retur värdets typ |
 | <*nyckel värde*> | Ja | Samma som <*key-type*> | Retur värde för utdata |
 |||||

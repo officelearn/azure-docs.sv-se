@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/20/2019
-ms.openlocfilehash: 1904ab07a188e4e877a4fb2f2b7682d923c08fb2
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.openlocfilehash: 7f97348999f2cab6509afeb44bc704d5109ee0f7
+ms.sourcegitcommit: a19bee057c57cd2c2cd23126ac862bd8f89f50f5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68442000"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71181105"
 ---
 # <a name="information-about-using-hdinsight-on-linux"></a>Information om hur du använder HDInsight på Linux
 
@@ -30,7 +30,7 @@ Många av stegen i det här dokumentet använder följande verktyg, som kan beh�
 
 ## <a name="users"></a>Användare
 
-Om [den](./domain-joined/hdinsight-security-overview.md)inte är domänansluten bör HDInsight betraktas som ett system med en **användare** . Ett enda SSH-användarkonto skapas med klustret med behörighet som administratörs nivå. Ytterligare SSH-konton kan skapas, men de har också administratörs åtkomst till klustret.
+Om [den inte är domänansluten bör](./domain-joined/hdinsight-security-overview.md)HDInsight betraktas som ett system med en **användare** . Ett enda SSH-användarkonto skapas med klustret med behörighet som administratörs nivå. Ytterligare SSH-konton kan skapas, men de har också administratörs åtkomst till klustret.
 
 Domänanslutna HDInsight stöder flera användare och mer detaljerade behörigheter och roll inställningar. Mer information finns i [Hantera domänanslutna HDInsight-kluster](./domain-joined/apache-domain-joined-manage.md).
 
@@ -82,7 +82,7 @@ Det här kommandot returnerar ett JSON-dokument som beskriver tjänsten och häm
     > [!NOTE]  
     > Du kan bara komma åt kluster huvud-noder via SSH från en klient dator. När du är ansluten kan du sedan komma åt arbetsnoderna med hjälp av SSH från en huvudnoden.
 
-Mer information finns i portarna som [används av Apache Hadoop Services i HDInsight](hdinsight-hadoop-port-settings-for-services.md) -dokument.
+Mer information finns i [portarna som används av Apache Hadoop Services i HDInsight](hdinsight-hadoop-port-settings-for-services.md) -dokument.
 
 ## <a name="file-locations"></a>Filplatser
 
@@ -124,11 +124,9 @@ Använd något av följande URI-scheman när du använder __Azure Storage__:
 
 * `wasb://<container-name>@<account-name>.blob.core.windows.net/`: Används vid kommunikation med ett lagrings konto som inte är standard. Till exempel när du har ett ytterligare lagrings konto eller när du har åtkomst till data som lagras i ett offentligt tillgängligt lagrings konto.
 
-Använd något av följande URI-scheman när du använder __Azure Data Lake Storage Gen2__:
+Använd följande URI-schema när du använder __Azure Data Lake Storage Gen2__:
 
-* `abfs:///`: Få åtkomst till standard lagring med okrypterad kommunikation.
-
-* `abfss:///`: Få åtkomst till standard lagring med krypterad kommunikation.  Abfss-schemat stöds endast från HDInsight version 3,6 och senare.
+* `abfs://`: Få åtkomst till standard lagring med krypterad kommunikation.
 
 * `abfs://<container-name>@<account-name>.dfs.core.windows.net/`: Används vid kommunikation med ett lagrings konto som inte är standard. Till exempel när du har ett ytterligare lagrings konto eller när du har åtkomst till data som lagras i ett offentligt tillgängligt lagrings konto.
 

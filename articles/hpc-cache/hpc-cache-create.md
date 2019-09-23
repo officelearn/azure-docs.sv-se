@@ -1,21 +1,21 @@
 ---
-title: Skapa en Azure HPC-cache
+title: Skapa en Azure HPC-cache (för hands version)
 description: Så här skapar du en Azure HPC cache-instans
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: tutorial
 ms.date: 09/06/2019
 ms.author: v-erkell
-ms.openlocfilehash: e1b69f17d964647944f23f4d16a0a1a5f112b60d
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: 1cc77b24c96514f40c86115f7d611076facd406b
+ms.sourcegitcommit: a19bee057c57cd2c2cd23126ac862bd8f89f50f5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71037078"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71181035"
 ---
-# <a name="create-an-azure-hpc-cache"></a>Skapa en Azure HPC-cache
+# <a name="create-an-azure-hpc-cache-preview"></a>Skapa en Azure HPC-cache (för hands version)
 
-Använd Azure Portal för att skapa din cache.
+Använd Azure Portal för att skapa din cache. 
 
 ![skärm bild av cache-översikten i Azure Portal med knappen Skapa längst ned](media/hpc-cache-home-page.png)
 
@@ -32,7 +32,7 @@ I **tjänst information**anger du cache-namn och följande attribut:
 * Undernät – Välj eller skapa ett undernät med minst 64 IP-adresser (/24) som endast ska användas för Azure HPC-cache.
 
 ## <a name="set-cache-capacity"></a>Ange cache-kapacitet
-<!-- change link in GUI -->
+<!-- referenced from GUI - update aka.ms link if you change this header text -->
 
 På sidan **cache** måste du ange kapaciteten för Azure HPC-cachen. Det här värdet avgör hur mycket data ditt cacheminne kan innehålla och hur snabbt det kan betjäna klient begär Anden. Efter den offentliga för hands perioden kommer kapaciteten också att påverka cachens kostnad.
 
@@ -61,7 +61,7 @@ Klicka på **länken Lägg till lagrings mål** för att definiera dina Server d
 
 Du kan definiera upp till tio olika lagrings mål.
 
-Steg för steg-instruktioner för att lägga till ett lagrings mål ingår i [Lägg till lagring](hpc-cache-add-storage.md). Proceduren skiljer sig för Blob Storage eller för NFS-export.
+Steg för steg-instruktioner för att lägga till ett lagrings mål ingår i [Lägg till lagrings mål](hpc-cache-add-storage.md). Proceduren skiljer sig för Blob Storage eller för NFS-export.
 
 Här följer några tips: 
 

@@ -1,19 +1,19 @@
 ---
-title: Montera en Azure HPC-cache
+title: Montera en Azure HPC-cache (för hands version)
 description: Ansluta klienter till en Azure HPC cache-tjänst
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
 ms.date: 09/12/2019
 ms.author: v-erkell
-ms.openlocfilehash: 46f221fd7c340b7f321d317f0e7493448d83177c
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: 3b7a59afa0dea300e200b953d045d38218e99b22
+ms.sourcegitcommit: a19bee057c57cd2c2cd23126ac862bd8f89f50f5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71036970"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71180921"
 ---
-# <a name="mount-the-azure-hpc-cache"></a>Montera Azure HPC-cachen
+# <a name="mount-the-azure-hpc-cache-preview"></a>Montera Azure HPC cache (för hands version)
 
 När cachen har skapats kan NFS-klienter komma åt den med ett enkelt monterings kommando.
 
@@ -54,7 +54,7 @@ För en robust klient montering ska du överföra dessa inställningar och argum
 
 | Rekommenderade monterings kommando inställningar | |
 --- | --- 
-``hard`` | Mjuka monteringar till vFXT-klustret är kopplade till program fel och eventuell data förlust. 
+``hard`` | Mjuka monteringar till Azure HPC cache är kopplade till program haverier och eventuell data förlust. 
 ``proto=netid`` | Det här alternativet stöder lämplig hantering av NFS-nätverks fel.
 ``mountproto=netid`` | Det här alternativet stöder lämplig hantering av nätverks fel för monterings åtgärder.
 ``retry=n`` | Ange ``retry=30`` för att undvika tillfälliga monterings problem. (Ett annat värde rekommenderas i förgrunds monteringar.)

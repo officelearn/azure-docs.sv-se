@@ -1,19 +1,19 @@
 ---
-title: Öppna ett support ärende för Azure HPC cache
+title: Öppna ett support ärende för Azure HPC cache (för hands version)
 description: Öppna en hjälp förfrågan för Azure HPC cache
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
 ms.date: 09/12/2019
 ms.author: v-erkell
-ms.openlocfilehash: d845195940fdba81562acf4c0cfe9069245bd34c
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: 29750ab19f74ef1ceab8c69792d12b9f9ca2a297
+ms.sourcegitcommit: a19bee057c57cd2c2cd23126ac862bd8f89f50f5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71036896"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71180881"
 ---
-# <a name="open-a-support-ticket-for-azure-hpc-cache"></a>Öppna ett support ärende för Azure HPC cache
+# <a name="open-a-support-ticket-for-azure-hpc-cache-preview"></a>Öppna ett support ärende för Azure HPC cache (för hands version)
 
 Använd Azure Portal för att öppna ett support ärende. Navigera till din cache-instans och klicka sedan på länken **ny support förfrågan** som visas längst ned på sid panelen.
 

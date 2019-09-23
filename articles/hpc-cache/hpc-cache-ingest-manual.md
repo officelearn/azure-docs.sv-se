@@ -1,19 +1,19 @@
 ---
-title: Data inmatning för Azure HPC-cache – manuell kopiering
+title: För hands version av Azure HPC cache – manuell kopiering
 description: Använda CP-kommandon för att flytta data till ett Blob Storage-mål i Azure HPC-cache
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
 ms.date: 08/30/2019
 ms.author: v-erkell
-ms.openlocfilehash: 2d89a74d4b79e74c2bc6667a5f76c2348ca3c274
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.openlocfilehash: 217f976d53a7be8931be9f8d21b000549a9ed68a
+ms.sourcegitcommit: a19bee057c57cd2c2cd23126ac862bd8f89f50f5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70775239"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71180990"
 ---
-# <a name="azure-hpc-cache-data-ingest---manual-copy-method"></a>Data inmatning för Azure HPC-cache – manuell kopierings metod
+# <a name="azure-hpc-cache-preview-data-ingest---manual-copy-method"></a>Data inmatning för Azure HPC cache (för hands version) – manuell kopierings metod
 
 Den här artikeln innehåller detaljerade anvisningar för att manuellt kopiera data till en Blob Storage-behållare för användning med Azure HPC-cache. Den använder flera trådar parallella åtgärder för att optimera kopierings hastigheten.
 

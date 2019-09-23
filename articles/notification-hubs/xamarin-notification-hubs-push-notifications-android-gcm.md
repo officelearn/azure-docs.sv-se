@@ -85,7 +85,7 @@ Meddelandehubben har konfigurerats för att fungera med FCM och du har anslutnin
     ![Paketnamn i GCM](./media/partner-xamarin-notification-hubs-android-get-started/package-name-gcm.png)
 4. Gör så här för att ställa in målets Android-version för projektet på **android 9,0 (cirkel)** : 
     1. Högerklicka på projektet och välj **Egenskaper**. 
-    1. **För kompilering med Android-version: (Mål ramverk) väljer du **Android 9,0 (cirkel).**** 
+    1. **För kompilering med Android-version: (Mål ramverk)** väljer du **Android 9,0 (cirkel).** 
     1. Välj **Ja** i meddelande rutan om du vill fortsätta med att ändra mål ramverket.
 1. Lägg till nödvändiga NuGet-paket i projektet genom att följa dessa steg:
     1. Högerklicka på projektet och välj **Hantera NuGet-paket...** .

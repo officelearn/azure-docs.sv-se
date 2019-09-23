@@ -132,7 +132,7 @@ För att hjälpa dig att övervaka lyckades, fel och meddelandeegenskaper för b
 | respondingtransactionSetControlNumber | String | Svarar Kontrollnumret för transaktionsuppsättningen. (Valfritt) |
 | respondingTransactionSetId | String | Svarar transaktionsuppsättnings-ID, som mappar till AK201 i godkännandet. (Valfritt) |
 | statusCode | Boolean | Transaktionsuppsättnings-bekräftelsestatuskod. (Obligatorisk) |
-| segmentsCount | Enum | Bekräftelsestatuskod. Tillåtna värden är **godkända**, **Avvisad**, och **AcceptedWithErrors**. (Obligatorisk) |
+| segmentsCount | Enum | Bekräftelsestatuskod. Tillåtna värden är **Accepted**, **Rejected**, och **AcceptedWithErrors**. (Obligatorisk) |
 | processingStatus | Enum | Bearbetningsstatus av bekräftelsen. Tillåtna värden är **mottagna**, **Generated**, och **skickade**. (Obligatorisk) |
 | CorrelationMessageId | String | Korrelations-meddelande-ID. En kombination av {AgreementName} {*GroupControlNumber*} {TransactionSetControlNumber}. (Valfritt) |
 | isMessageFailed | Boolean | Om X12 meddelandet misslyckades. (Obligatorisk) |
@@ -236,7 +236,7 @@ För att hjälpa dig att övervaka lyckades, fel och meddelandeegenskaper för b
 | isaSegment | String | ISA-segmentet för den tekniska bekräftelse som tas emot från partner. (Valfritt) |
 | respondingInterchangeControlNumber |String | Interchange-kontrollnummer för den tekniska bekräftelse som tas emot från partner. (Valfritt) |
 | isMessageFailed | Boolean | Om X12 meddelandet misslyckades. (Obligatorisk) |
-| statusCode | Enum | Interchange bekräftelsestatuskod. Tillåtna värden är **godkända**, **Avvisad**, och **AcceptedWithErrors**. (Obligatorisk) |
+| statusCode | Enum | Interchange bekräftelsestatuskod. Tillåtna värden är **Accepted**, **Rejected**, och **AcceptedWithErrors**. (Obligatorisk) |
 | processingStatus | Enum | Bekräftelsestatusen. Tillåtna värden är **mottagna**, **Generated**, och **skickade**. (Obligatorisk) |
 | ta102 | String | Interchange datum. (Valfritt) |
 | ta103 | String | Interchange tid. (Valfritt) |

@@ -1,19 +1,19 @@
 ---
-title: Krav för Azure HPC-cache
+title: Förutsättningar för Azure HPC-cache (för hands version)
 description: Krav för att använda Azure HPC cache
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: v-erkell
-ms.openlocfilehash: 50c60e38b58815be04cfb892c3622b9579529e67
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: 29dc5256424ea4fe7c3a72624ce8d1b3d9e59f3c
+ms.sourcegitcommit: a19bee057c57cd2c2cd23126ac862bd8f89f50f5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71036860"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71180907"
 ---
-# <a name="prerequisites-for-azure-hpc-cache"></a>Krav för Azure HPC-cache
+# <a name="prerequisites-for-azure-hpc-cache-preview"></a>Krav för Azure HPC cache (för hands version)
 
 Innan du använder Azure Portal för att skapa en ny Azure HPC-cache kontrollerar du att din miljö uppfyller dessa krav.
 
@@ -59,7 +59,7 @@ Kontrol lera de här behörighets kraven innan du börjar skapa din cache.
 * Azure HPC-cachen måste kunna skapa virtuella nätverks gränssnitt (NIC). Den användare som skapar cachen måste ha tillräcklig behörighet i prenumerationen för att skapa nätverkskort.
 <!-- There are several ways to authorize this access; read [Additional prerequisites](media/preview-prereqs.md) to learn more. -->
 
-* Om du använder Blob Storage måste Azure HPC-instansen ha behörighet att komma åt ditt lagrings konto. Du kan använda rollbaserad åtkomst kontroll (RBAC) för att ge cache åtkomst till Blob Storage. Två roller krävs: Lagrings konto deltagare och data deltagare i Storage blob. Följ instruktionerna i [Lägg till lagring i cacheminnet](hpc-cache-add-storage.md#add-the-access-control-roles-to-your-account).
+* Om du använder Blob Storage måste Azure HPC-instansen ha behörighet att komma åt ditt lagrings konto. Du kan använda rollbaserad åtkomst kontroll (RBAC) för att ge cache åtkomst till Blob Storage. Två roller krävs: Lagrings konto deltagare och data deltagare i Storage blob. Följ instruktionerna i [Lägg till lagrings mål](hpc-cache-add-storage.md#add-the-access-control-roles-to-your-account).
 
 ## <a name="storage-infrastructure"></a>Lagrings infrastruktur
 
@@ -86,7 +86,7 @@ Använd följande inställningar om du vill skapa ett kompatibelt lagrings konto
 
 Det är en bra idé att använda ett lagrings konto på samma plats som din cache.
 
-Du måste också ge cache-programmet åtkomst till ditt Azure Storage-konto. Följ beskrivningen i [Lägg till lagring i cacheminnet](hpc-cache-add-storage.md#add-the-access-control-roles-to-your-account) för att ge cachen åtkomst rollerna lagrings konto deltagare och Storage BLOB data-deltagare. Om du inte är lagrings kontots ägare kan du låta ägaren göra detta steg.
+Du måste också ge cache-programmet åtkomst till ditt Azure Storage-konto. Följ beskrivningen i [Lägg till lagrings mål](hpc-cache-add-storage.md#add-the-access-control-roles-to-your-account) för att ge cachen åtkomst roller till lagrings konto deltagare och lagrings-BLOB-datadeltagare. Om du inte är lagrings kontots ägare kan du låta ägaren göra detta steg.
 
 ## <a name="next-steps"></a>Nästa steg
 

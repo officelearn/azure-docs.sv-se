@@ -37,7 +37,7 @@ I [del två](ui-tutorial-automobile-price-deploy.md) av självstudien får du l�
 
 En slutförd version av den här självstudien är tillgänglig som ett exempel experiment.
 
-Du hittar det genom att välja **Lägg till ny**på  ****sidan experiment**och sedan välja 1-regression: Test av bil pris förutsägelse (grundläggande** ).
+Du hittar det genom att välja **Lägg till ny** på **sidan experiment**och sedan **välja 1-regression: Test av bil pris förutsägelse (grundläggande** ).
 
 ## <a name="create-a-new-experiment"></a>Skapa ett nytt experiment
 

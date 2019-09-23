@@ -87,7 +87,7 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-an
 I det här avsnittet uppdaterar du koden för att ange att både token utfärdarens slut punkter är giltiga.
 
 1. Öppna lösningen **B2C-WebAPI-dotNet. SLN** i Visual Studio
-1. I **TaskService** -projektet öppnar du filen *TaskService\\App_Start\\* * startup.auth.cs** * i redigeraren
+1. I **TaskService** -projektet öppnar du filen *TaskService\\App_Start\\**startup.auth.cs*** i redigeraren
 1. Lägg till följande `using` direktiv överst i filen:
 
     `using System.Collections.Generic;`
@@ -122,7 +122,7 @@ Som tidigare nämnts tillhandahåller andra OWIN-bibliotek vanligt vis en liknan
 
 Med båda URI: erna som stöds av ditt webb-API, behöver du nu uppdatera webb programmet så att det hämtar tokens från b2clogin.com-slutpunkten.
 
-Du kan till exempel konfigurera exempel webb programmet att använda den nya slut punkten genom att ändra `ida:AadInstance` värdet i filen *TaskWebApp\\* * Web. config** * i **TaskWebApp** -projektet.
+Du kan till exempel konfigurera exempel webb programmet att använda den nya slut punkten genom att ändra `ida:AadInstance` värdet i filen *TaskWebApp\\**Web. config*** i **TaskWebApp** -projektet.
 
 Ändra värdet i *Web. config* för TaskWebApp så att det refererar `{your-b2c-tenant-name}.b2clogin.com` till i stället för. `login.microsoftonline.com` `ida:AadInstance`
 

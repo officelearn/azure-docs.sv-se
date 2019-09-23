@@ -1,19 +1,19 @@
 ---
-title: Azure HPC cache-data inmatning – parallell kopierings skript
+title: Azure HPC cache för hands versions data inmatning – skript för parallell kopiering
 description: Så här använder du ett parallellt kopierings skript för att flytta data till ett Blob Storage-mål i Azure HPC-cache
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
 ms.date: 08/30/2019
 ms.author: v-erkell
-ms.openlocfilehash: 7414d830f5a2e6fc12066b2f408da041838283db
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.openlocfilehash: 852b4e692a4316c7701c8c179039104bee561949
+ms.sourcegitcommit: a19bee057c57cd2c2cd23126ac862bd8f89f50f5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70775369"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71180950"
 ---
-# <a name="azure-hpc-cache-data-ingest---parallel-copy-script-method"></a>Azure HPC cache-data inmatning – parallell kopiering skript metod
+# <a name="azure-hpc-cache-preview-data-ingest---parallel-copy-script-method"></a>Azure HPC cache (för hands version) data inmatning – parallell kopiering skript metod
 
 Den här artikeln innehåller instruktioner för hur ``parallelcp`` du skapar skriptet och använder det för att flytta data till en Blob Storage-behållare för användning med Azure HPC-cache.
 

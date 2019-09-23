@@ -4,30 +4,30 @@ ms.service: storage
 ms.topic: include
 ms.date: 06/07/2019
 ms.author: rogarana
-ms.openlocfilehash: 368f08272173b019873dfe20e1164d6baf72ff5e
-ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
+ms.openlocfilehash: b28427b3ede0cfaeb9e08d3c73b15ea7f2961f1b
+ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67542667"
+ms.lasthandoff: 09/22/2019
+ms.locfileid: "71180076"
 ---
-#### <a name="additional-premium-file-share-level-limits"></a>Ytterligare premium filen resursen på gränser
+#### <a name="additional-premium-file-share-level-limits"></a>Ytterligare begränsningar för Premium fil resurs nivå
 
 |Område  |Mål  |
 |---------|---------|
-|Minimistorlek öka/minska    |1 GiB      |
+|Minsta storlek för ökning/minskning    |1 GiB      |
 |Baslinje-IOPS    |1 IOPS per GiB, upp till 100 000|
-|IOPS bursting    |3 x IOPS per GiB, upp till 100 000|
-|Priset för utgående trafik         |60 MiB/s + 0.06 * etablerats GiB        |
-|Ingångshändelser| 40 MiB/s + 0.04 * etablerats GiB |
+|IOPS-burst    |3x IOPS per GiB, upp till 100 000|
+|Utgående hastighet         |60 MiB/s + 0,06 * etablerad GiB        |
+|Ingress-pris| 40 MiB/s + 0,04 * etablerad GiB |
 
-#### <a name="file-level-limits"></a>Filen på gränser
+#### <a name="file-level-limits"></a>Fil nivå begränsningar
 
-|Område  |Premium-fil  |Standard-fil |
+|Område  |Premium-fil  |Standard fil |
 |---------|---------|---------|
 |Size                  |1 TiB         |1 TiB|
 |Max IOPS per fil     |5,000         |1,000|
-|Samtidiga handtag    |2,000         |2,000|
-|Ingress  |300 MiB/sec|      Se standardfil dataflöde värden|
-|Egress   |200 Mib/sec| Se standardfil dataflöde värden|
-|Dataflöde| Se premium filvärden för ingående/utgående trafik| Upp till 60 MiB/sek|
+|Samtidiga referenser    |2,000         |2,000|
+|Egress  |300 MiB/SEK|      Se standard fil data flödes värden|
+|Ingress  |200 MiB/SEK| Se standard fil data flödes värden|
+|Dataflöde| Se ingångs-/utgående värden för Premium filen| Upp till 60 MiB/s|

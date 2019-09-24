@@ -36,6 +36,8 @@
           href: virtual-machines-windows-sql-automated-backup-v2.md
     - name: Hantering
       items:
+        - name: Dedikerad värd
+          href: virtual-machines-windows-sql-dedicated-host.md
         - name: Med Azure Portal
           href: virtual-machines-windows-sql-manage-portal.md
         - name: Utöka stödet för SQL 2008 & R2

@@ -257,6 +257,12 @@
     - name: Förstå Policy-effekter
       displayName: 'order, evaluation'
       href: ./concepts/effects.md
+    - name: Tilldelningsstruktur i Azure Policy
+      displayName: 'parameters, enforcementmode, policyDefinitionId'
+      href: ./concepts/assignment-structure.md
+    - name: Utvärdera effekten av en ny princip
+      displayName: 'audit, enforcementmode, compliance'
+      href: ./concepts/evaluate-impact.md
     - name: Azure Policy för Kubernetes
       displayName: 'aks, rego, k8s, opa, open policy agent, gatekeeper'
       href: ./concepts/rego-for-aks.md

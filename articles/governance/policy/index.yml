@@ -1,72 +1,117 @@
-### YamlMime:YamlDocument
-documentType: LandingData
-title: Dokumentation om Azure Policy-tjänsten
+### YamlMime:Landing
+title: Dokumentation om Azure Policy
+summary: Med Azure Policy kan du hantera och förebygga IT-problem med principdefinitioner som framtvingar regler och effekter för dina resurser.
 metadata:
-  title: 'Dokumentation om Azure Policy – självstudier, API-referens'
-  description: Med Azure Policy kan du hantera och förebygga IT-problem med principdefinitioner som framtvingar regler och effekter för dina resurser. Med Azure Policy blir resurserna kompatibla med företagets standarder och serviceavtal.
-  author: DCtheGeek
-  manager: carmonm
+  title: Dokumentation om Azure Policy
+  description: Med Azure Policy kan du hantera och förebygga IT-problem med principdefinitioner som framtvingar regler och effekter för dina resurser.
   ms.service: azure-policy
   ms.topic: landing-page
-  ms.date: 03/16/2019
+  ms.collection: collection
+  author: DCtheGeek
   ms.author: dacoulte
-abstract:
-  description: Med Azure Policy kan du hantera och förebygga IT-problem med principdefinitioner som framtvingar regler och effekter för dina resurser. Med Azure Policy blir resurserna kompatibla med företagets standarder och serviceavtal.
-sections:
-  - title: Snabbstarter på 5 minuter
-    items:
-      - type: paragraph
-        text: 'Lär dig hur du skapar, tilldelar och hanterar principdefinitioner i Azure.'
-      - type: list
-        style: icon48
-        items:
-          - image:
-              alt: Azure Portal
-              src: 'https://docs.microsoft.com/media/common/i_portal.svg'
-            text: Azure Portal
-            href: ./assign-policy-portal
-          - image:
-              alt: Azure PowerShell
-              src: ./media/powershell.svg
-            text: Azure PowerShell
-            href: ./assign-policy-powershell
-          - image:
-              alt: Azure CLI
-              src: ./media/cli.svg
-            text: Azure CLI
-            href: ./assign-policy-azurecli
-          - image:
-              alt: Resource Manager-mall
-              src: 'https://docs.microsoft.com/media/logos/logo_vs-code.svg'
-            text: Resource Manager-mall
-            href: ./assign-policy-template
-  - title: Steg för steg-självstudier
-    items:
-      - type: paragraph
-        text: 'Lär dig hur du skapar, tilldelar och hanterar principdefinitioner i Azure.'
-      - type: list
-        style: unordered
-        items:
-          - html: <a href="/azure/governance/policy/tutorials/create-and-manage">Skapa och hantera Azure Policy</a>
-          - html: <a href="/azure/governance/policy/tutorials/create-custom-policy-definition">Skapa en anpassad principdefinition</a>
-  - title: Exempel
-    items:
-      - type: paragraph
-        text: Granska de tillgängliga exemplen för att få hjälp med att skapa principdefinitioner i Azure.
-      - type: list
-        style: unordered
-        className: spaced noBullet
-        items:
-          - html: <a href="/azure/governance/policy/samples/index">Exempel på index</a>
-  - title: Referens
-    items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: Kommandorad
-            html: '<p><a href="/cli/azure/policy">Azure CLI</a></p><p><a href="/powershell/module/az.resources/#policies">Azure PowerShell (Policy)</a></p><p><a href="/powershell/module/az.policyinsights#policy_insights">Azure PowerShell (Policy Insights)</a></p><p><a href="https://www.powershellgallery.com/packages/Az.GuestConfiguration">Azure PowerShell (gästkonfiguration)</a></p>'
-          - title: Mallar för Resurshanteraren
-            html: <p><a href="/azure/templates/microsoft.authorization/policyassignments">Tilldelningar</a></p><p><a href="/azure/templates/microsoft.authorization/policydefinitions">Principdefinitioner</a></p><p><a href="/azure/templates/microsoft.authorization/policysetdefinitions">Initiativdefinitioner</a></p>
-          - title: REST
-            html: <p><a href="/rest/api/policy-insights/policyevents">Händelser</a></p><p><a href="/rest/api/policy-insights/policystates">Tillstånd</a></p><p><a href="/rest/api/resources/policyassignments">Tilldelningar</a></p><p><a href="/rest/api/resources/policydefinitions">Principdefinitioner</a></p><p><a href="/rest/api/resources/policysetdefinitions">Initiativdefinitioner</a></p><p><a href="/rest/api/policy-insights/policytrackedresources">Principspårade resurser</a></p><p><a href="/rest/api/policy-insights/remediations">Reparationer</a></p><p><a href="/rest/api/guestconfiguration/">Gästkonfiguration</a></p>
+  ms.date: 09/17/2019
+  ms.openlocfilehash: 43deed57090cd2f64bc9ee96f6f0c6f5286b0dca
+  ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 09/23/2019
+  ms.locfileid: "71203972"
+landingContent:
+- title: Om Azure Policy
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Vad är Azure Policy?
+      url: ./overview.md
+    - text: Principeffekter
+      url: ./concepts/effects.md
+    - text: Definitionsstruktur
+      url: ./concepts/definition-structure.md
+    - text: Tilldelningsstruktur
+      url: ./concepts/assignment-structure.md
+  - linkListType: video
+    links:
+    - text: Azure Policy på Build 2018
+      url: https://channel9.msdn.com/events/Build/2018/THR2030
+- title: Komma igång
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Tilldela en princip (portalen)
+      url: ./assign-policy-portal.md
+    - text: Tilldela en princip (PowerShell)
+      url: ./assign-policy-powershell.md
+    - text: Tilldela en princip (Azure CLI)
+      url: ./assign-policy-azurecli.md
+    - text: Tilldela en princip (mall)
+      url: ./assign-policy-template.md
+  - linkListType: tutorial
+    links:
+    - text: Skapa och hantera principer
+      url: ./tutorials/create-and-manage.md
+  - linkListType: deploy
+    links:
+    - text: Index för principexempel
+      url: ./samples/index.md
+- title: Skapa principer
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Skapa en anpassad princip
+      url: ./tutorials/create-custom-policy-definition.md
+  - linkListType: how-to-guide
+    links:
+    - text: Skapa en princip med SDK
+      url: ./how-to/programmatically-create.md
+    - text: Skapa principer för matriser
+      url: ./how-to/author-policies-for-arrays.md
+  - linkListType: concept
+    links:
+    - text: Princip för AKS
+      url: ./concepts/rego-for-aks.md
+    - text: Princip för virtuella datorer
+      url: ./concepts/guest-configuration.md
+- title: Granska och reparera resurser
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Hämta data för efterlevnad
+      url: ./how-to/get-compliance-data.md
+    - text: Fastställa orsaker till icke-kompatibilitet
+      url: ./how-to/determine-non-compliance.md
+    - text: Åtgärda icke-kompatibla resurser
+      url: ./how-to/remediate-resources.md
+- title: Delta
+  linkLists:
+  - linkListType: get-started
+    links:
+    - text: Azure Governances YouTube-kanal
+      url: https://www.youtube.com/channel/UCZZ3-oMrVI5ssheMzaWC4uQ
+    - text: Begära produktfunktion
+      url: https://feedback.azure.com/forums/915958-azure-governance
+    - text: Teknisk community för Azure Governance
+      url: https://techcommunity.microsoft.com/t5/Azure-Governance/bd-p/AzureGovernance
+- title: Referens
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: Azure CLI
+      url: /cli/azure/policy
+    - text: Azure PowerShell (Policy)
+      url: /powershell/module/az.resources/#policies
+    - text: Azure PowerShell (Policy Insights)
+      url: /powershell/module/az.policyinsights#policy_insights
+    - text: Azure SDK för .NET (tilldelningar)
+      url: /dotnet/api/microsoft.azure.management.resourcemanager.models.policyassignment
+    - text: Azure SDK för .NET (principdefinitioner)
+      url: /dotnet/api/microsoft.azure.management.resourcemanager.models.policydefinition
+    - text: REST (principinsikter)
+      url: /rest/api/policy-insights/
+    - text: REST (tilldelningar)
+      url: /rest/api/resources/policyassignments
+    - text: REST (definitioner)
+      url: /rest/api/resources/policydefinitions
+    - text: REST (initiativ)
+      url: /rest/api/resources/policysetdefinitions
+    - text: Mallar för Resurshanteraren
+      url: /azure/templates/microsoft.authorization

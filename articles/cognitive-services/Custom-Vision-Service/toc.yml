@@ -44,6 +44,8 @@
           href: go-tutorial-object-detection.md
 - name: Självstudier
   items:
+    - name: IoT-app för visuella aviseringar
+      href: iot-visual-alerts-tutorial.md
     - name: Logotypavkännare för mobila enheter
       href: logo-detector-mobile.md
 - name: Instruktionsguider

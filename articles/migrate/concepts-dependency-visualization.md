@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 07/18/2019
 ms.author: hamusa
-ms.openlocfilehash: e7b69e57d4e01c292a2c6d032ba995d1936b88dc
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 33594e09778b9a629645e12357e6bafe561ad35e
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70142891"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71202911"
 ---
 # <a name="dependency-visualization"></a>Beroendevisualisering
 
@@ -44,11 +44,14 @@ Azure Migrate använder [tjänstkarta](../operations-management-suite/operations
     ![Lägg till arbetsyta](./media/how-to-create-group-machine-dependencies/workspace.png)
 
 - När du kopplar en arbets yta får du möjlighet att skapa en ny arbets yta eller att koppla en befintlig:
-  - När du skapar en ny arbets yta måste du ange ett namn för arbets ytan. Arbets ytan skapas sedan i en region i samma Azure- [geografi](https://azure.microsoft.com/global-infrastructure/geographies/) som migreringsjobbet.
+  - När du skapar en ny arbets yta måste du ange ett namn för arbets ytan. Du kan välja den [region](https://azure.microsoft.com/global-infrastructure/regions/) där arbets ytan ska skapas.
   - När du ansluter en befintlig arbets yta kan du välja mellan alla tillgängliga arbets ytor i samma prenumeration som migreringsjobbet. Observera att endast de arbets ytor som har skapats i en region där [tjänstkarta stöds](../azure-monitor/insights/vminsights-enable-overview.md#prerequisites). Se till att du har "läsare"-åtkomst till arbets ytan för att kunna ansluta till en arbets yta.
 
   > [!NOTE]
   > När du har kopplat en arbets yta till ett projekt kan du inte ändra den senare.
+
+  > [!NOTE]
+  > Azure Migrate har för närvarande stöd för att skapa OMS-arbetsyta i regionerna östra USA, Sydostasien och Europa, västra. Om arbets ytan har skapats utanför Azure Migrate i någon annan region, kan den för närvarande inte associeras med ett Azure Migrate-projekt. 
 
 - Den associerade arbets ytan är Taggad meddet här och värdet **projekt namn**, som du kan använda för att söka i Azure Portal.
 - Om du vill navigera till arbets ytan som är kopplad till projektet kan du gå till avsnittet Essentials på projekt **översikts** sidan och komma åt arbets ytan

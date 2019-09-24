@@ -93,7 +93,7 @@ De har ingen åtkomst till patientjournaler.
 
 -   Omfång: ResourceGroup
 
-### <a name="data-scientist"></a>Dataexpert
+### <a name="data-scientist"></a>Dataforskare
 
 
 Data Science fungerar Azure Machine Learning Studio. De kan importera, exportera, och hantera data och köra rapporter. Data Science har tillgång till patientens data, men har inte administratörsbehörighet.

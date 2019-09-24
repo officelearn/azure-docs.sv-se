@@ -163,21 +163,21 @@ Exempel på JSON-nytto last:
 
    | deviceId | series.tagId | messageId | deviceLocation | type | enhet |
    | --- | --- | --- | --- | --- | --- |
-   | FXXX | pumpRate | LINJE\_DATA | EU | Flödes hastighet | ft3/s |
-   | FXXX | oilPressure | LINJE\_DATA | EU | Motor Oil-tryck | psi |
-   | FYYY | pumpRate | LINJE\_DATA | USA | Flödes hastighet | ft3/s |
-   | FYYY | oilPressure | LINJE\_DATA | USA | Motor Oil-tryck | psi |
+   | FXXX | pumpRate | LINE\_DATA | EU | Flödes hastighet | ft3/s |
+   | FXXX | oilPressure | LINE\_DATA | EU | Motor Oil-tryck | psi |
+   | FYYY | pumpRate | LINE\_DATA | US | Flödes hastighet | ft3/s |
+   | FYYY | oilPressure | LINE\_DATA | US | Motor Oil-tryck | psi |
 
 * Time Series Insights händelse tabell efter förenkling:
 
    | deviceId | series.tagId | messageId | deviceLocation | type | enhet | timestamp | serie. Value |
    | --- | --- | --- | --- | --- | --- | --- | --- |
-   | FXXX | pumpRate | LINJE\_DATA | EU | Flödes hastighet | ft3/s | 2018-01-17T01:17:00Z | 1.0172575712203979 | 
-   | FXXX | oilPressure | LINJE\_DATA | EU | Motor Oil-tryck | psi | 2018-01-17T01:17:00Z | 34.7 |
-   | FXXX | pumpRate | LINJE\_DATA | EU | Flödes hastighet | ft3/s | 2018-01-17T01:17:00Z | 2.445906400680542 | 
-   | FXXX | oilPressure | LINJE\_DATA | EU | Motor Oil-tryck | psi | 2018-01-17T01:17:00Z | 49.2 |
-   | FYYY | pumpRate | LINJE\_DATA | USA | Flödes hastighet | ft3/s | 2018-01-17T01:18:00Z | 0.58015072345733643 |
-   | FYYY | oilPressure | LINJE\_DATA | USA | Motor Oil-tryck | psi | 2018-01-17T01:18:00Z | 22.2 |
+   | FXXX | pumpRate | LINE\_DATA | EU | Flödes hastighet | ft3/s | 2018-01-17T01:17:00Z | 1.0172575712203979 | 
+   | FXXX | oilPressure | LINE\_DATA | EU | Motor Oil-tryck | psi | 2018-01-17T01:17:00Z | 34.7 |
+   | FXXX | pumpRate | LINE\_DATA | EU | Flödes hastighet | ft3/s | 2018-01-17T01:17:00Z | 2.445906400680542 | 
+   | FXXX | oilPressure | LINE\_DATA | EU | Motor Oil-tryck | psi | 2018-01-17T01:17:00Z | 49.2 |
+   | FYYY | pumpRate | LINE\_DATA | US | Flödes hastighet | ft3/s | 2018-01-17T01:18:00Z | 0.58015072345733643 |
+   | FYYY | oilPressure | LINE\_DATA | US | Motor Oil-tryck | psi | 2018-01-17T01:18:00Z | 22.2 |
 
 Anteckningar om dessa två tabeller:
 

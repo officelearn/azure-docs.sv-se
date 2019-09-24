@@ -26,7 +26,7 @@
               href: tutorial-train-models-with-aml.md
             - name: 2. Distribuera en modell
               href: tutorial-deploy-models-with-aml.md
-        - name: Regression (data från taxibilar i New York)
+        - name: Regression med automatiserad ML (data från taxibilar i New York)
           items:
             - name: Träna en maskininlärningsmodell automatiskt
               displayName: 'automl, automated, auto ml,'
@@ -44,7 +44,7 @@
         - name: 2. Distribuera regressionsmodellen
           displayName: studio
           href: ui-tutorial-automobile-price-deploy.md
-    - name: Automatiserad maskininlärning
+    - name: Automatiserad ML (gränssnitt)
       items:
         - name: Klassificering (bankdata)
           displayName: 'automl, automated, auto ml, portal, ui'
@@ -107,13 +107,13 @@
         - name: Använda Resource Manager-mallar
           displayName: arm
           href: how-to-create-workspace-template.md
-    - name: Konfigurera utvecklingsmiljön
+    - name: Konfigurera din miljö
       items:
         - name: Konfigurera utvecklingsmiljöer
           displayName: 'local, remote, azure notebooks, notebook, Jupyter, dsvm, Databricks, ADB'
           href: how-to-configure-environment.md
-        - name: Hantera programvarumiljön
-          displayName: 'pip, Conda'
+        - name: Konfigurera programvarumiljöer
+          displayName: 'pip, Conda, anaconda'
           href: how-to-use-environments.md
         - name: Aktivera loggning
           displayName: 'troubleshoot, log, files, tracing'

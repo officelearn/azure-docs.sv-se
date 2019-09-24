@@ -11,18 +11,18 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 58e3254d499e013dc686bf6b7d53f919a457c901
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7a863c8fe81a08f00385cb267bf360994918fe82
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60414076"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71212119"
 ---
 # <a name="quickstart-self-service-password-reset"></a>Snabbstart: Återställning av lösenord för självbetjäning
 
 I den här snabbstarten går du igenom konfiguration av självåterställning av lösenord (SSPR) som ett enkelt sätt för IT-administratörer att göra så att användarna kan återställa sina lösenord eller låsa upp sina konton.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 * En aktiv Azure AD-klientorganisation med minst en aktiverad utvärderingslicens.
 * Ett konto med behörigheter som global administratör.
@@ -31,7 +31,7 @@ I den här snabbstarten går du igenom konfiguration av självåterställning av
 
 ## <a name="enable-self-service-password-reset"></a>Aktivera lösenordsåterställning via självbetjäning
 
-> [!VIDEO https://www.youtube.com/embed/Pa0eyqjEjvQ]
+[Visa den här processen som en video på YouTube](https://youtu.be/Pa0eyqjEjvQ)
 
 1. På **Azure-portalen** väljer du **Återställning av lösenord** under **Azure Active Directory** från din befintliga Azure AD-klientorganisation.
 
@@ -43,10 +43,10 @@ I den här snabbstarten går du igenom konfiguration av självåterställning av
    * Antal metoder som krävs för återställning: **1**
    * Metoder som är tillgängliga för användare:
       * **E-post**
-      * **Kod för mobilapp (förhandsversion)**
+      * **Kod för mobilapp (för hands version)**
    * Klicka på **Spara**.
 
-     ![Val av autentiseringsmetoder för SSPR][Authentication]
+     ![Välja autentiseringsmetoder för SSPR][Authentication]
 
 4. Från sidan **Registrering** gör du följande val:
    * Kräv att användare registrerar sig vid inloggning: **Ja**

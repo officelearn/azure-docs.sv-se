@@ -8,13 +8,13 @@ ms.devlang: java
 ms.topic: quickstart
 ms.date: 03/26/2019
 ms.author: lbosq
-ms.custom: seo-java-july2019, seo-java-august2019
-ms.openlocfilehash: 8689cb74e35d5b87c300f5fce239993691652ee2
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019
+ms.openlocfilehash: 1b37475cfa8df38a00ea6017d47e90677ed457d2
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70172534"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71212642"
 ---
 # <a name="quickstart-build-a-graph-database-with-the-java-sdk-and-the-azure-cosmos-db-table-api"></a>Snabbstart: Bygg en graf-databas med Java SDK och Azure Cosmos DB Tabell-API
 
@@ -110,7 +110,7 @@ Gå nu tillbaka till Azure Portal för att hämta anslutningsinformation och kop
 
     Kopiera den första delen av URI-värdet.
 
-    ![Visa och kopiera åtkomstnyckeln i Azure Portal, sidan Nycklar](./media/create-graph-java/keys.png)
+    ![Visa och kopiera åtkomstnyckeln i Azure Portal, sidan Nycklar](./media/create-graph-java/copy-access-key-azure-portal.png)
 2. Öppna filen src/remote.yaml och klistra in det unika ID-värdet över `$name$` i `hosts: [$name$.graphs.azure.com]`.
 
     Rad 1 i remote.yaml bör nu se ut ungefär så här 
@@ -219,15 +219,15 @@ Nu kan du gå tillbaka till datautforskaren och se de hörn som lagts till i gra
 
 12. Nu kan du koppla ihop rakesh och ashley. Se till att **Ashley** är markerat i **resultat** listan och välj ![sedan ändra målet för ett formhörn i ett diagram](./media/create-graph-java/edit-pencil-button.png) bredvid **mål** på nedre högra sidan. Du kan behöva bredda fönstret för att se knappen.
 
-    ![Ändra mål för ett hörn i en graf](./media/create-graph-java/azure-cosmosdb-data-explorer-edit-target.png)
+    ![Ändra målet för ett formhörn i ett diagram – Azure-CosmosDB](./media/create-graph-java/azure-cosmosdb-data-explorer-edit-target.png)
 
 13. I rutan **mål** anger du *Rakesh*och i rutan **kant etikett** anger du *känner*till och markerar sedan kryss rutan.
 
-    ![Lägg till en anslutning mellan Ashley och Rakesh i datautforskaren](./media/create-graph-java/azure-cosmosdb-data-explorer-set-target.png)
+    ![Lägg till en anslutning i Datautforskaren – Azure-CosmosDB](./media/create-graph-java/azure-cosmosdb-data-explorer-set-target.png)
 
 14. Markera nu **rakesh** i resultatlistan och se att Ashley och Rakesh är anslutna. 
 
-    ![Två hörn anslutna i datautforskaren](./media/create-graph-java/azure-cosmosdb-graph-explorer.png)
+    ![Två hörn anslutna i Datautforskaren – Azure-CosmosDB](./media/create-graph-java/azure-cosmosdb-graph-explorer.png)
 
     Då är delen om att skapa resurser slutförd i den här självstudien. Du kan fortsätta att lägga till hörn i diagrammet, ändra befintliga hörn eller ändra frågorna. Vi ska nu titta på de mått som Azure Cosmos DB tillhandahåller, och sedan ska vi rensa resurserna. 
 

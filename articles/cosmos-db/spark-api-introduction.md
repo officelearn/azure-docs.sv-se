@@ -6,12 +6,12 @@ ms.topic: overview
 ms.date: 08/01/2019
 author: rimman
 ms.author: rimman
-ms.openlocfilehash: 3fd7990043543b92eb3daf8ec699ec58db3387ec
-ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
+ms.openlocfilehash: 0f070cb9a6e300dad0ec9e0b393b09b7f22d2942
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68717574"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71212591"
 ---
 # <a name="built-in-operational-analytics-in-azure-cosmos-db-with-apache-spark-preview"></a>Inbyggd drift analys i Azure Cosmos DB med Apache Spark (förhands granskning) 
 
@@ -28,7 +28,7 @@ Apache Spark support i Azure Cosmos DB ger följande fördelar:
 
 * Du kan förenkla arkitekturen för din lösning och sänka den [totala ägande kostnaden](total-cost-ownership.md) (TCO). Systemet kommer att ha minst antal data bearbetnings komponenter och undvika onödig data förflyttning mellan dem.
 
-* Skapar en [säkerhets](secure-access-to-data.md)- [](compliance.md), efterlevnads-och gransknings gränser som omfattar alla data under hantering.
+* Skapar en [säkerhets](secure-access-to-data.md)-, [efterlevnads](compliance.md)-och gransknings gränser som omfattar alla data under hantering.
 
 * Tillhandahåller "Always On" eller [hög tillgängliga](high-availability.md) slut användar analys som backas upp av stränga service avtal.
 
@@ -137,15 +137,9 @@ Följande bild visar hur Azure Cosmos DB Spark-stödet används i spel analys:
 
 ![Azure Cosmos DB Spark-stöd i spel analys](./media/spark-api-introduction/gaming-analytics.png)
 
-## <a name="built-in-jupyter-notebooks-support"></a>Inbyggt stöd för Jupyter Notebooks
-
-Azure Cosmos DB stöder inbyggda Jupyter-anteckningsböcker för alla API: er som Cassandra, MongoDB, SQL, Gremlin och Table. Jupyter-anteckningsbokarna körs i Azure Cosmos-kontona och de förbättrar utvecklaren. Med det inbyggda Notebook-stödet för alla Azure Cosmos DB-API: er och data modeller kan du interaktivt köra frågor. Du kan också köra Machine Learning-modeller och analysera data som lagras i dina Azure Cosmos-databaser. Genom att använda Jupyter Notebook-upplevelsen kan du analysera de lagrade data, bygga och träna Machine Learning-modeller och utföra inferencing på data i Azure Portal som visas i följande bild:
-
-![Stöd för Jupyter Notebooks i Azure Cosmos DB](./media/spark-api-introduction/jupyter-notebooks-portal.png)
-
 ## <a name="next-steps"></a>Nästa steg
 
-* Mer information om fördelarna med Azure Cosmos DB finns i översikts [](introduction.md) artikeln.
+* Mer information om fördelarna med Azure Cosmos DB finns i [översikts](introduction.md) artikeln.
 * [Kom igång med Azure Cosmos DB API för MongoDB](mongodb-introduction.md)
 * [Kom igång med Azure Cosmos DB API för Cassandra](cassandra-introduction.md)
 * [Kom igång med API: et för Azure Cosmos DB Gremlin](graph-introduction.md)

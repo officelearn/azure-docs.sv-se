@@ -3,9 +3,8 @@ title: Förbättra din regelefterlevnad med hjälp av Azure Security Center | Mi
 description: 'Självstudier: Lär dig hur du kan förbättra din regelefterlevnad med hjälp av Azure Security Center.'
 services: security-center
 documentationcenter: na
-author: monhaber
-manager: barbkess
-editor: ''
+author: memildin
+manager: rkarlin
 ms.assetid: 5f50c4dc-ea42-418d-9ea8-158ffeb93706
 ms.service: security-center
 ms.devlang: na
@@ -13,13 +12,13 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 4/30/2019
-ms.author: v-mohabe
-ms.openlocfilehash: e1544b0c9bf280c8d097d2fa25f7fc652450b87e
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.author: memildin
+ms.openlocfilehash: 20842997c5df81835024a6f458cd863b4e4d78b0
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65968571"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71202422"
 ---
 # <a name="tutorial-improve-your-regulatory-compliance"></a>Självstudier: Förbättra regelefterlevnaden
 ---
@@ -34,7 +33,7 @@ I den här självstudien får du lära dig hur man:
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 För att gå igenom funktionerna i den här självstudien måste du ha standardnivån i Security Center. Du kan prova Security Center Standard utan kostnad.
 Mer information finns på [prissidan](https://azure.microsoft.com/pricing/details/security-center/). Snabbstarten för att [registrera Azure-prenumerationen till Security Center Standard](https://docs.microsoft.com/azure/security-center/security-center-get-started) vägleder dig genom uppgraderingen till Standard.
@@ -47,7 +46,7 @@ Instrumentpanelens vy för efterlevnad hjälper dig att fokusera din uppmärksam
 
 >[!NOTE]
 > Regelverk som stöds för närvarande är: Azure CIS, PCI DSS 3.2, ISO 27001 och SOC TSP. Ytterligare standarder återspeglas i instrumentpanelen i takt med att de utvecklas.
-1.  I Security Center-huvudmenyn under **princip och efterlevnad** Välj **regelefterlevnad**. <br>
+1.  I Security Center huvud menyn, under **princip &AMP; regelefterlevnad** väljer du **regelefterlevnad.** <br>
 Överst på skärmen visas en instrumentpanel med en översikt över din efterlevnadsstatus med en uppsättning efterlevnadsföreskrifter som stöds. Du kan se din övergripande kompatibilitetspoäng och antalet godkända och icke godkända utvärderingar som är associerade med varje standard.
 
     ![hög exakthet för datorbeskrivning](./media/security-center-compliance-dashboard/compliance-dashboard.png)
@@ -61,11 +60,11 @@ Instrumentpanelens vy för efterlevnad hjälper dig att fokusera din uppmärksam
 
     ![kompatibilitetspoängpåverkan](./media/security-center-compliance-dashboard/compliance-all-tabs.png)
 
-1. Om du vill skapa och ladda ned en PDF-rapport som sammanfattar din aktuella efterlevnadsstatus för en viss standard, klickar du på **ladda ned rapporten**.
+1. Klicka på **Hämta rapport**om du vill skapa och ladda ned en PDF-rapport som sammanfattar din aktuella kompatibilitetsstatus för en viss standard.
 
-    Rapporten innehåller en kort sammanfattning av kompatibilitetsstatus för för den valda standarden baserat på data för Security Center-utvärderingar och ordnas enligt kontroller av den specifika standarden. Rapporten kan delas med relevanta intressenter och kan användas för att bevisa att interna och externa granskare.
+    Rapporten ger en översikt över din kompatibilitetsstatus för den valda standarden baserat på Security Center utvärderings data och organiseras enligt kontrollerna i denna specifika standard. Rapporten kan delas med relevanta intressenter och kan användas för att tillhandahålla bevis till interna och externa revisorer.
 
-    ![hämta](./media/security-center-compliance-dashboard/download-report.png)
+    ![ladda ned](./media/security-center-compliance-dashboard/download-report.png)
 
 ## <a name="improve-your-compliance-posture"></a>Förbättra din efterlevnadsstatus
 

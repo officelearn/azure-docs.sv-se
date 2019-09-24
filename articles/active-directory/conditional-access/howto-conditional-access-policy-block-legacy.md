@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d802e48231a03fbf3fee9439894371188f31d5e1
-ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
+ms.openlocfilehash: bc7710619b8975064ec4ec60ed44ccede970ac34
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69576659"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71200959"
 ---
 # <a name="conditional-access-block-legacy-authentication"></a>Villkorlig åtkomst: Blockera äldre autentisering
 
@@ -24,7 +24,7 @@ På grund av den ökade risken som är associerad med äldre autentiseringsproto
 
 ## <a name="create-a-conditional-access-policy"></a>Skapa en princip för villkorlig åtkomst
 
-Följande steg hjälper dig att skapa en princip för villkorlig åtkomst som kräver att de tilldelade administrativa rollerna utför Multi-Factor Authentication.
+Följande steg hjälper dig att skapa en princip för villkorlig åtkomst för att blockera äldre autentiseringsbegäranden.
 
 1. Logga in på **Azure Portal** som global administratör, säkerhets administratör eller villkorlig åtkomst administratör.
 1. Bläddra till **Azure Active Directory** > **villkorlig åtkomst**.

@@ -10,12 +10,12 @@ ms.subservice: personalizer
 ms.topic: overview
 ms.date: 09/19/2019
 ms.author: diberry
-ms.openlocfilehash: ee17e204082389db19e1ebe463352a40d7ecd5ae
-ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
+ms.openlocfilehash: e2af5cb193653736a0d75b4194e09d42282d2fa6
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71155245"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71203796"
 ---
 # <a name="what-is-personalizer"></a>Vad är Personanpassning?
 
@@ -53,7 +53,7 @@ Ditt klient program kan till exempel lägga till en Personanpassare till:
 * Välj ett svar för chatt-roboten för att klargöra användar avsikten eller föreslå en åtgärd.
 * Prioritera förslag på vad en användare ska göra som nästa steg i en affärs process.
 
-Personanpassaren är inte en tjänst för att spara och hantera information om användar profiler, eller för att logga enskilda användares inställningar eller historik. Personanpassaren lär sig allt från varje interaktions funktion i åtgärd a-kontexten en enskild modell som kan få högsta fördelar när liknande funktioner inträffar. 
+Personanpassaren är inte en tjänst för att spara och hantera information om användar profiler, eller för att logga enskilda användares inställningar eller historik. Personanpassaren lär sig från varje interaktions funktion i en enskild modell som kan få högsta möjliga belöning när liknande funktioner inträffar. 
 
 ## <a name="personalization-for-developers"></a>Anpassning för utvecklare
 

@@ -7,12 +7,12 @@ ms.subservice: data-science-vm
 ms.author: gopalv
 ms.date: 09/11/2019
 ms.topic: reference
-ms.openlocfilehash: 9366eb1bde05d80b8882ee28aa9eb03a75f75964
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: d50bb18d15bcad72eed3a97088b61c623e6208fe
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71174726"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71199986"
 ---
 # <a name="reference-centos-linux-data-science-virtual-machine"></a>Referens: CentOS (Linux) Data Science Virtual Machine
 
@@ -341,3 +341,7 @@ Ett grafiskt gränssnitt som har en uppsättning flikar öppnas. Använd följan
 1. Välj knappen **Exportera** för att spara R-skript filen med namnet *weather_script. R* till arbetsmappen.
 
 Du kan avsluta Rattle och R. Nu kan du ändra det genererade R-skriptet. Du kan också använda skriptet som det är och köra det när som helst för att upprepa allt som utfördes i Rattle-ANVÄNDARGRÄNSSNITTET. I synnerhet för nybörjare i R är detta ett sätt att snabbt utföra analyser och maskin inlärning i ett enkelt grafiskt gränssnitt, samtidigt som kod skapas automatiskt i R för att ändra eller för inlärning.
+
+## <a name="next-steps"></a>Nästa steg
+
+Har du fler frågor? Överväg att skapa ett [support ärende](https://azure.microsoft.com/support/create-ticket/).

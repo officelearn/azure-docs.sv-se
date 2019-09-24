@@ -3,28 +3,28 @@ title: Skapa en HTTP-utlöst funktion i Azure
 description: Lär dig hur du skapar din första Python-funktion i Azure med hjälp av Azure Functions Core Tools och Azure CLI.
 author: ggailey777
 ms.author: glenga
-ms.date: 04/24/2019
+ms.date: 09/11/2019
 ms.topic: quickstart
 ms.service: azure-functions
 ms.custom: mvc
 ms.devlang: python
 manager: gwallace
-ms.openlocfilehash: 28169bfb8dead65c543a3752a709f33487854e60
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: 03b8e12d63ba84b4e20d7263f1c2ecb8d912936d
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70844740"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71203146"
 ---
 # <a name="create-an-http-triggered-function-in-azure"></a>Skapa en HTTP-utlöst funktion i Azure
 
-Den här artikeln visar hur du använder kommando rads verktyg för att skapa ett python-projekt som körs i Azure Functions. Funktionen som du skapar utlöses av HTTP-begäranden. Slutligen publicerar du ditt projekt så att det körs som en [Server lös funktion](functions-scale.md#consumption-plan) i Azure.
+Den här artikeln visar hur du använder kommando rads verktyg för att skapa ett python-projekt som körs i Azure Functions. Du skapar också en funktion som utlöses av en HTTP-begäran. Slutligen publicerar du ditt projekt så att det körs som en [Server lös funktion](functions-scale.md#consumption-plan) i Azure.
 
-Den här artikeln är den första av två snabb starter för Azure Functions. När du har slutfört den här artikeln [lägger du till en Azure Storage utgående bindning för kön](functions-add-output-binding-storage-queue-python.md) till din funktion.
+Den här artikeln är den första av två python-snabb starter för Azure Functions. När du har slutfört den här snabb starten kan du [lägga till en Azure Storage utgående bindning för kön](functions-add-output-binding-storage-queue-python.md) till din funktion.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Innan du börjar måste du ha följande:
+Innan du börjar måste du:
 
 + Installera [python 3.6. x](https://www.python.org/downloads/).
 
@@ -32,121 +32,132 @@ Innan du börjar måste du ha följande:
 
 + Installera [Azure CLI](/cli/azure/install-azure-cli) version 2. x eller en senare version.
 
-+ En aktiv Azure-prenumeration.
++ Ha en aktiv Azure-prenumeration.
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+    [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="create-and-activate-a-virtual-environment-optional"></a>Skapa och aktivera en virtuell miljö (valfritt)
 
-För att lokalt utveckla och testa python-funktioner rekommenderar vi att du använder en python 3,6-miljö. Kör följande kommandon för att skapa och aktivera en virtuell miljö med namnet `.venv`. 
+Du bör använda en python 3.6. x-miljö för att utveckla python-funktioner lokalt. Kör följande kommandon för att skapa och aktivera en virtuell miljö med namnet `.venv`.
 
 > [!NOTE]
 > Om python inte har installerat venv på din Linux-distribution kan du installera det med hjälp av följande kommando:
 > ```command
 > sudo apt-get install python3-venv
->
 
 ### <a name="bash"></a>Bash
 
 ```bash
-python3.6 -m venv .venv
+python -m venv .venv
 source .venv/bin/activate
 ```
 
 ### <a name="powershell-or-a-windows-command-prompt"></a>PowerShell eller en kommando tolk i Windows:
 
 ```powershell
-py -3.6 -m venv .venv
+py -m venv .venv
 .venv\scripts\activate
 ```
 
-Återstående kommandon körs i den virtuella miljön.
+Nu när du har aktiverat den virtuella miljön kör du de återstående kommandona i den. Kör `deactivate`om du vill ta bort den virtuella miljön.
 
 ## <a name="create-a-local-functions-project"></a>Skapa ett lokalt Functions-projekt
 
 Ett Functions-projekt motsvarar en Function-app i Azure. Det kan ha flera funktioner som alla delar samma lokala och värdbaserade konfigurationer.
 
-Kör följande kommando i den virtuella miljön och välj **python** som arbetar-Runtime.
+1. Kör följande kommando i den virtuella miljön:
 
-```console
-func init MyFunctionProj
-```
+    ```console
+    func init MyFunctionProj
+    ```
 
-En mapp med namnet _MyFunctionProj_ skapas, som innehåller följande tre filer:
+1. Välj **python** som arbetar-Runtime.
 
-* `local.settings.json`används för att lagra appinställningar och anslutnings strängar när de körs lokalt. Den här filen publiceras inte i Azure.
-* `requirements.txt`innehåller listan över paket som ska installeras vid publicering till Azure.
-* `host.json`innehåller globala konfigurations alternativ som påverkar alla funktioner i en Function-app. Den här filen publiceras i Azure.
+    Kommandot skapar en _MyFunctionProj_ -mapp. Den innehåller följande tre filer:
 
-Navigera till den nya mappen MyFunctionProj:
+    * *Local. Settings. JSON*: används för att lagra appinställningar och anslutnings strängar när de körs lokalt. Den här filen publiceras inte i Azure.
+    * *Requirements. txt*: innehåller en lista över de paket som systemet ska installera vid publicering till Azure.
+    * *Host. JSON*: innehåller globala konfigurations alternativ som påverkar alla funktioner i en Function-app. Den här filen publiceras i Azure.
 
-```console
-cd MyFunctionProj
-```
+1. Gå till den nya mappen *MyFunctionProj* :
+
+    ```console
+    cd MyFunctionProj
+    ```
 
 ## <a name="create-a-function"></a>Skapa en funktion
 
-Om du vill lägga till en funktion i projektet kör du följande kommando:
+Lägg till en funktion i det nya projektet.
 
-```console
-func new
-```
+1. Om du vill lägga till en funktion i projektet kör du följande kommando:
 
-Välj mallen för **http-utlösare** , Skriv `HttpTrigger` som namn på funktionen och tryck på RETUR.
+    ```console
+    func new
+    ```
 
-En undermapp med namnet _HttpTrigger_ skapas, som innehåller följande filer:
+1. Använd nedåtpilen för att välja mallen för **http-utlösare** .
 
-* **Function. JSON**: konfigurations fil som definierar funktionen, utlösaren och andra bindningar. Granska den här filen och se att värdet för `scriptFile` pekar på filen som innehåller funktionen, medan anrops utlösaren och bindningarna definieras `bindings` i matrisen.
+1. När du uppmanas att ange ett funktions namn, anger du *HttpTrigger* och trycker sedan på RETUR.
 
-  Varje bindning kräver en riktning, skriv och ett unikt namn. HTTP-utlösaren har en inkommande bindning [`httpTrigger`](functions-bindings-http-webhook.md#trigger) av typen och utgående bindningen av typen. [`http`](functions-bindings-http-webhook.md#output)
+De här kommandona skapar en undermapp med namnet _HttpTrigger_. Den innehåller följande filer:
 
-* **init.py\_: skript fil som är din http-utlöst funktion.\_ \_ \_** Granska det här skriptet och se att det innehåller ett `main()`standardvärde. HTTP-data från utlösaren skickas till den här funktionen `req` med hjälp av den namngivna bindnings parametern. Definierad i function. JSON, `req` är en instans av [klassen Azure. functions. HttpRequest](/python/api/azure-functions/azure.functions.httprequest). 
+* *Function. JSON*: konfigurations fil som definierar funktionen, utlösaren och andra bindningar. Observera att värdet för `scriptFile` pekar på filen som innehåller funktionen `bindings` och att matrisen definierar anrops utlösaren och bindningarna i den här filen.
 
-    Returvärdet, som definieras som `$return` i function. JSON, är en instans av [klassen Azure. functions. HttpResponse](/python/api/azure-functions/azure.functions.httpresponse). Läs mer i [Azure Functions HTTP-utlösare och bindningar](functions-bindings-http-webhook.md).
+    Varje bindning kräver en riktning, skriv och ett unikt namn. HTTP-utlösaren har en inkommande bindning [`httpTrigger`](functions-bindings-http-webhook.md#trigger) av typen och utgående bindningen av typen. [`http`](functions-bindings-http-webhook.md#output)
+
+* *init.py\_: skript fil som är din http-utlöst funktion.\_ \_ \_* Observera att det här skriptet har ett `main()`standardvärde. HTTP-data från utlösaren skickas till funktionen med `req` hjälp `binding parameter`av namnet. , Som definieras i function. JSON, är en instans av [klassen Azure. functions. HttpRequest.](/python/api/azure-functions/azure.functions.httprequest) `req` 
+
+    Returvärdet, som definieras som `$return` i *Function. JSON*, är en instans av [klassen Azure. functions. HttpResponse](/python/api/azure-functions/azure.functions.httpresponse). Läs mer i [Azure Functions HTTP-utlösare och bindningar](functions-bindings-http-webhook.md).
 
 ## <a name="run-the-function-locally"></a>Kör funktionen lokalt
 
-Följande kommando startar Function-appen, som körs lokalt med samma Azure Functions-körning som finns i Azure.
+Funktionen körs lokalt med hjälp av Azure Functions Runtime.
 
-```console
-func host start
-```
+1. Det här kommandot startar Function-appen:
 
-När Functions-värden startar skriver den något som följande utdata, som har trunkerats för läsbarhet:
+    ```console
+    func host start
+    ```
 
-```output
+    När Azure Functions värden startar skriver den något som följande utdata. Den trunkeras här så att du kan läsa den bättre:
 
-                  %%%%%%
-                 %%%%%%
-            @   %%%%%%    @
-          @@   %%%%%%      @@
-       @@@    %%%%%%%%%%%    @@@
-     @@      %%%%%%%%%%        @@
-       @@         %%%%       @@
-         @@      %%%       @@
-           @@    %%      @@
-                %%
-                %
+    ```output
+    
+                      %%%%%%
+                     %%%%%%
+                @   %%%%%%    @
+              @@   %%%%%%      @@
+           @@@    %%%%%%%%%%%    @@@
+         @@      %%%%%%%%%%        @@
+           @@         %%%%       @@
+             @@      %%%       @@
+               @@    %%      @@
+                    %%
+                    %
+    
+    ...
+    
+    Content root path: C:\functions\MyFunctionProj
+    Now listening on: http://0.0.0.0:7071
+    Application started. Press Ctrl+C to shut down.
+    
+    ...
+    
+    Http Functions:
+    
+            HttpTrigger: http://localhost:7071/api/HttpTrigger
+    
+    [8/27/2018 10:38:27 PM] Host started (29486ms)
+    [8/27/2018 10:38:27 PM] Job host started
+    ```
 
-...
+1. Kopiera URL:en till din funktion `HttpTrigger` från körtidutdatan och klistra in den i webbläsarens adressfält.
 
-Content root path: C:\functions\MyFunctionProj
-Now listening on: http://0.0.0.0:7071
-Application started. Press Ctrl+C to shut down.
+1. Lägg till frågesträngen `?name=<yourname>` i webbadressen och kör din begäran. Följande skärm bild visar svaret på GET-begäran som den lokala funktionen returnerar till webbläsaren:
 
-...
+    ![Verifiera lokalt i webbläsaren](./media/functions-create-first-function-python/function-test-local-browser.png)
 
-Http Functions:
-
-        HttpTrigger: http://localhost:7071/api/HttpTrigger
-
-[8/27/2018 10:38:27 PM] Host started (29486ms)
-[8/27/2018 10:38:27 PM] Job host started
-```
-
-Kopiera URL:en till din funktion `HttpTrigger` från körtidutdatan och klistra in den i webbläsarens adressfält. Lägg till frågesträngen `?name=<yourname>` i webbadressen och kör din begäran. Nedan visas svaret på GET-begäran som returnerades av den lokala funktionen i webbläsaren:
-
-![Testa lokalt i webbläsaren](./media/functions-create-first-function-python/function-test-local-browser.png)
+1. Välj CTRL + C om du vill stänga av din Function-app.
 
 Nu när du har kört funktionen lokalt kan du skapa funktionsappen och andra nödvändiga resurser i Azure.
 
@@ -158,31 +169,32 @@ Nu när du har kört funktionen lokalt kan du skapa funktionsappen och andra nö
 
 En Function-app tillhandahåller en miljö för att köra funktions koden. Där kan du gruppera funktioner som en logisk enhet så att det blir enklare att hantera, distribuera och dela resurser.
 
-Kör följande kommando med ett unikt funktionsappnamn i stället för platshållaren `<APP_NAME>` och lagringskontonamnet i stället för `<STORAGE_NAME>`. `<APP_NAME>` är även DNS-standarddomänen för funktionsappen. Det här namnet måste vara unikt inom alla appar i Azure.
+Kör följande kommando. Ersätt `<APP_NAME>` med ett unikt namn för Function-appen. Ersätt `<STORAGE_NAME>` med ett lagrings konto namn. `<APP_NAME>` är även DNS-standarddomänen för funktionsappen. Det här namnet måste vara unikt inom alla appar i Azure.
+
+> [!NOTE]
+> Du kan inte vara värd för Linux-och Windows-appar i samma resurs grupp. Om du har en befintlig resurs grupp med `myResourceGroup` namnet med en Windows Function-app eller webbapp måste du använda en annan resurs grupp.
 
 ```azurecli-interactive
 az functionapp create --resource-group myResourceGroup --os-type Linux \
 --consumption-plan-location westeurope  --runtime python \
 --name <APP_NAME> --storage-account  <STORAGE_NAME>
 ```
-> [!NOTE]
-> Linux-och Windows-appar kan inte finnas i samma resurs grupp. Om du har en befintlig resurs grupp med `myResourceGroup` namnet med en Windows Function-app eller webbapp måste du använda en annan resurs grupp.
 
-Det här kommandot etablerar även en associerad Azure Application insikts-instans i samma resurs grupp som kan användas för att övervaka och Visa loggar.
+Föregående kommando etablerar även en associerad Azure Application insikts-instans i samma resurs grupp. Du kan använda den här instansen för att övervaka din Function-app och Visa loggar.
 
 Nu är du redo att publicera ditt lokala Functions-projekt till Function-appen i Azure.
 
 ## <a name="deploy-the-function-app-project-to-azure"></a>Distribuera funktionsapprojektet till Azure
 
-När du har skapat Function-appen i Azure kan du använda [`func azure functionapp publish`](functions-run-local.md#project-file-deployment) kommandot Core Tools för att distribuera projekt koden till Azure. I de här exemplen `<APP_NAME>` ersätter du med namnet på din app från föregående steg.
+När du har skapat Function-appen i Azure kan du använda kommandot [FUNC Azure-functionapp publicera](functions-run-local.md#project-file-deployment) Core-verktyg för att distribuera projekt koden till Azure. I det här exemplet ersätter `<APP_NAME>` du med namnet på din app.
 
-```command
+```console
 func azure functionapp publish <APP_NAME> --build remote
 ```
 
 `--build remote` Alternativet skapar ett fjärran slutet python-projekt i Azure från filerna i distributions paketet. 
 
-Du ser utdata som liknar följande, som har trunkerats för läsbarhet:
+Du ser utdata som liknar följande meddelande. Den trunkeras här så att du kan läsa den bättre:
 
 ```output
 Getting site publishing info...
@@ -198,12 +210,12 @@ Functions in myfunctionapp:
         Invoke url: https://myfunctionapp.azurewebsites.net/api/httptrigger?code=cCr8sAxfBiow548FBDLS1....
 ```
 
-Kopiera värdet för din `HttpTrigger`, som du nu kan använda för att testa din funktion i Azure. `Invoke url` URL: en innehåller `code` ett sträng värde för frågan som är din funktions nyckel. Den här nyckeln gör det svårt för andra att anropa en slut punkt för HTTP-utlösare i Azure.
+Du kan kopiera `Invoke url` värdet `HttpTrigger` för och använda det för att verifiera din funktion i Azure. URL: en innehåller `code` ett sträng värde för frågan som är din funktions nyckel, vilket gör det svårt för andra att anropa en slut punkt för http-utlösare i Azure.
 
 [!INCLUDE [functions-test-function-code](../../includes/functions-test-function-code.md)]
 
 > [!NOTE]
-> Om du vill visa nära real tids loggar för en publicerad python-app rekommenderar vi att du använder [Application Insights Live Metrics Stream](functions-monitoring.md#streaming-logs)
+> Om du vill visa nära real tids loggar för en publicerad python-app använder du [Application Insights Live Metrics Stream](functions-monitoring.md#streaming-logs).
 
 ## <a name="next-steps"></a>Nästa steg
 

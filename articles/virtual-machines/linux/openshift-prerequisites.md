@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/14/2019
 ms.author: haroldw
-ms.openlocfilehash: ab8814f1620cc019a0bee872c7b8f42cbb427365
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 8dae521902d0568f2d79725bad792d4df64daa1c
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70091746"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71204004"
 ---
 # <a name="common-prerequisites-for-deploying-openshift-in-azure"></a>Vanliga krav för att distribuera OpenShift i Azure
 
@@ -116,7 +116,7 @@ Skapa tjänstens huvud namn:
 scope=`az group show --name openshiftrg --query id`
 az ad sp create-for-rbac --name openshiftsp \
       --role Contributor --password {Strong Password} \
-      --scopes $scope
+      --scopes $scope \
 ```
 Om du använder Windows kör ```az group show --name openshiftrg --query id``` du och använder resultatet i stället för $scope.
 
@@ -147,7 +147,7 @@ Som standard distribuerar mallen ett OpenShift-kluster med självsignerade certi
 
 Du måste lagra de här filerna i Key Vault hemligheter.  Använd samma Key Vault som det som används för den privata nyckeln.  I stället för att kräva ytterligare ytterligare indata för de hemliga namnen, hårdkodas mallen för att använda vissa hemliga namn för var och en av SSL-certifikatets filer.  Lagra certifikat data med hjälp av informationen i följande tabell.
 
-| Hemligt namn      | Certifikatfil   |
+| Hemlighetens namn      | Certifikatfil   |
 |------------------|--------------------|
 | mastercafile     | huvud-CA-fil     |
 | mastercertfile   | huvud certifikat fil   |

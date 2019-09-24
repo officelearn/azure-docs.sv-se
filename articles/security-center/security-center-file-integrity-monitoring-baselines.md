@@ -3,9 +3,8 @@ title: Jämför bas linjer med övervakning av fil integritet i Azure Security C
 description: Lär dig hur du jämför bas linjer med övervakning av fil integritet i Azure Security Center.
 services: security-center
 documentationcenter: na
-author: monhaber
-manager: barbkess
-editor: ''
+author: memildin
+manager: rkarlin
 ms.assetid: c8a2a589-b737-46c1-b508-7ea52e301e8f
 ms.service: security-center
 ms.devlang: na
@@ -13,13 +12,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/29/2019
-ms.author: v-mohabe
-ms.openlocfilehash: afc03baa71f17deb0b923f483fde214a86c5e9b4
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.author: memildin
+ms.openlocfilehash: 116f295365084e7570ed9afc493d9179ea2dfb5a
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68296473"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71202137"
 ---
 # <a name="compare-baselines-using-file-integrity-monitoring-fim"></a>Jämför bas linjer med hjälp av File Integrity Monitoring (FIM)
 
@@ -37,7 +36,7 @@ I själva verket kräver många reglerande standarder som PCI-DSS & ISO 17799 im
 
 Standardvärdena för FIM-Hive är ett bekvämt sätt att övervaka rekursiva ändringar inom vanliga säkerhets områden.  En angripare kan till exempel konfigurera ett skript som ska köras i LOCAL_SYSTEM-kontext genom att konfigurera en körning vid start eller avstängning.  Aktivera den inbyggda kontrollen för att övervaka ändringar av den här typen.  
 
-![Registernyckeln](./media/security-center-file-integrity-monitoring-baselines/baselines-registry.png)
+![Register](./media/security-center-file-integrity-monitoring-baselines/baselines-registry.png)
 
 >[!NOTE]
 > Rekursiva kontroller gäller endast för rekommenderade säkerhets strukturer och inte anpassade register Sök vägar.  

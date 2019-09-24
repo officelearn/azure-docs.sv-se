@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/11/2019
 ms.author: saudas
 ms.custom: mvc
-ms.openlocfilehash: b7e079e92c2f438fa7acc87a7d7333c371fe8e54
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: 5c2ecd5a53bb77193469ba1135c46d9b5fa65b2c
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71099465"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71202972"
 ---
 # <a name="security-hardening-in-aks-virtual-machine-hosts"></a>Säkerhets härdning i AKS virtuella dator värdar 
 
@@ -77,9 +77,7 @@ AKS-Engine befordrar eller följer inte någon speciell säkerhets standard för
 |5.4.4 |Se till att standard användaren umask är 027 eller mer restriktiv |
 |5.6 |Se till att åtkomsten till Su-kommandot är begränsad|
 
-(*) Måste vara aktive rad. Se kluster definitions [dokumentationen](https://github.com/Azure/aks-engine/blob/master/docs/topics/clusterdefinitions.md).
-
-## <a name="additional-notes"></a>Ytterligare information
+## <a name="additional-notes"></a>Ytterligare meddelanden
  
 * Vissa onödiga driv rutiner för kernel-moduler har inaktiverats i operativ systemet för att ytterligare minska risken för attack ytan. 
 

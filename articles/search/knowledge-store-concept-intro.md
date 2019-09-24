@@ -9,12 +9,12 @@ ms.subservice: cognitive-search
 ms.topic: overview
 ms.date: 08/02/2019
 ms.author: heidist
-ms.openlocfilehash: 6177f5821efe74fdf3a6aba7fe52f41e9db22728
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: 07a0d3ef8660d32d14b8339fb76fa296b1c9635b
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71123106"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71202990"
 ---
 # <a name="what-is-knowledge-store-in-azure-search"></a>Vad är kunskaps lager i Azure Search?
 
@@ -26,13 +26,13 @@ Kunskaps Store är en funktion i Azure Search som sparar berikade dokument och m
 
 Om du har använt kognitiv sökning tidigare vet du redan att färdighetsuppsättningar används för att flytta ett dokument genom en sekvens av anrikninger. Resultatet kan vara ett Azure Search-index eller (nytt i den här förhands granskningen) projektioner i ett kunskaps lager. De två utmatningarna, Sök indexet och kunskaps lagret, är fysiskt åtskilda från varandra. De delar samma innehåll, men lagras och används på olika sätt.
 
-Fysiskt skapas ett kunskaps lager i ett Azure Storage konto, antingen som Azure Table Storage eller Blob Storage, beroende på hur du konfigurerar pipelinen. Alla verktyg eller processer som kan ansluta till Azure Storage kan använda innehållet i ett kunskaps lager.
+Fysiskt är ett kunskaps lager ett Azure Storage konto, antingen som Azure Table Storage, Blob Storage eller båda, beroende på hur du konfigurerar pipelinen. Alla verktyg eller processer som kan ansluta till Azure Storage kan använda innehållet i ett kunskaps lager.
 
 Projektioner är din mekanism för att strukturera data i ett kunskaps lager. Genom projektioner kan du till exempel välja om utdata ska sparas som en enskild BLOB eller en samling relaterade tabeller. Ett enkelt sätt att visa innehållet i kunskaps lagret är genom den inbyggda [Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows) för Azure Storage.
 
 ![Kunskaps lager i Pipeline-diagram](./media/knowledge-store-concept-intro/annotationstore_sans_internalcache.png "Kunskaps lager i Pipeline-diagram")
 
-Om du vill använda kunskaps lager `knowledgeStore` lägger du till ett-element i en färdigheter som definierar steg-för-steg-åtgärder i en indexerings pipeline. Under körningen skapar Azure Search ett utrymme i ditt Azure Storage-konto och fyller det med definitioner och innehåll som skapas av pipelinen.
+Om du vill använda kunskaps lager `knowledgeStore` lägger du till ett-element i en färdigheter som definierar steg-för-steg-åtgärder i en indexerings pipeline. Under körningen skapar Azure Search ett utrymme i ditt Azure Storage-konto och projekt de sammanrika dokumenten med den definition som skapats i pipelinen.
 
 ## <a name="benefits-of-knowledge-store"></a>Fördelar med kunskaps lager
 
@@ -51,7 +51,7 @@ Räknat, fördelarna med kunskaps lager inkluderar följande:
 > [!Note]
 > Är du inte bekant med AI-baserad indexering med Cognitive Services? Azure Search integreras med Cognitive Services vision-och språk funktioner för att extrahera och utöka källdata med OCR (optisk tecken läsning) över bildfiler, entitets igenkänning och nyckel fras extrahering från textfiler med mera. Mer information finns i [Vad är kognitiv sökning?](cognitive-search-concept-intro.md).
 
-## <a name="create-a-knowledge-store"></a>Skapa ett kunskaps lager
+## <a name="create-a-knowledge-store"></a>Skapa ett kunskapslager
 
 Ett kunskaps lager ingår i en färdigheter-definition. I den här för hands versionen måste du skapa REST API, `api-version=2019-05-06-Preview` med hjälp av eller guiden **Importera data** i portalen.
 
@@ -105,6 +105,13 @@ Om du redan är bekant med AI-baserad indexering bestämmer färdigheter-definit
 
             ], 
             "objects": [ 
+               
+            ]      
+        },
+        { 
+            "tables": [ 
+            ], 
+            "objects": [ 
                 { 
                 "storageContainer": "Reviews", 
                 "format": "json", 
@@ -112,7 +119,7 @@ Om du redan är bekant med AI-baserad indexering bestämmer färdigheter-definit
                 "key": "/document/Review/Id" 
                 } 
             ]      
-        }    
+        }        
     ]     
     } 
 }
@@ -143,17 +150,17 @@ Azure Search tillhandahåller indexerings funktionen och indexerare används fö
 | Object | REST-API | Beskrivning |
 |--------|----------|-------------|
 | datakälla | [Skapa datakälla](https://docs.microsoft.com/rest/api/searchservice/create-data-source)  | En resurs som identifierar en extern Azure-datakälla som tillhandahåller källdata som används för att skapa dokument med omfattande data.  |
-| färdigheter | [Skapa färdigheter (API-version = 2019-05-06)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)  | En resurs som koordinerar användningen av [inbyggda kunskaper](cognitive-search-predefined-skills.md) och [anpassade kognitiva kunskaper](cognitive-search-custom-skill-interface.md) som används i en anriknings pipeline vid indexering. |
+| färdigheter | [Skapa färdigheter (API-version = 2019-05 -06 – för hands version)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)  | En resurs som koordinerar användningen av [inbyggda kunskaper](cognitive-search-predefined-skills.md) och [anpassade kognitiva kunskaper](cognitive-search-custom-skill-interface.md) som används i en anriknings pipeline vid indexering. |
 | index | [Skapa index](https://docs.microsoft.com/rest/api/searchservice/create-index)  | Ett schema som uttrycker ett Azure Search-index. Fält i index kartan till fält i källdata eller till fält som tillverkas under anriknings fasen (till exempel ett fält för organisations namn som skapats av enhets igenkänning). |
 | indexerare | [Skapa indexerare (API-version = 2019-05-06)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)  | En resurs som definierar komponenter som används vid indexering: inklusive en data källa, en färdigheter, fält associationer från käll-och mellanliggande data strukturer till mål index och själva indexet. Att köra indexeraren är utlösaren för data inmatning och berikning. Utdata är ett sökindex baserat på index schemat, ifyllt med källdata, berikade med färdighetsuppsättningar.  |
 
 ### <a name="3---cognitive-services"></a>3-Cognitive Services
 
-De berikningar som anges i en färdigheter baseras på Visuellt innehåll-och språk funktionerna i Cognitive Services. Cognitive Services funktionerna utnyttjas under indexeringen genom din färdigheter. En färdigheter är en sammansättning av färdigheter och färdigheter är kopplade till specifika Visuellt innehåll-och språk funktioner. Om du vill integrera Cognitive Services [ansluter du en Cognitive Services resurs](cognitive-search-attach-cognitive-services.md) till en färdigheter.
+De berikningar som anges i en färdigheter är antingen anpassade eller baserade på Visuellt innehåll-och språk funktionerna i Cognitive Services. Cognitive Services funktionerna utnyttjas under indexeringen genom din färdigheter. En färdigheter är en sammansättning av färdigheter och färdigheter är kopplade till specifika Visuellt innehåll-och språk funktioner. Om du vill integrera Cognitive Services [ansluter du en Cognitive Services resurs](cognitive-search-attach-cognitive-services.md) till en färdigheter.
 
 ### <a name="4---storage-account"></a>4 – lagrings konto
 
-Under ditt Azure Storage-konto skapar Azure Search en BLOB-behållare eller tabeller, beroende på hur du konfigurerar en färdigheter. Om dina data kommer från Azure Blob eller Table Storage har du redan ställts in. Annars måste du skapa ett Azure Storage-konto. Tabeller och objekt i Azure Storage innehåller de berikade dokument som skapats av AI-baserade indexerings pipeliner.
+Under ditt Azure Storage-konto skapar Azure Search en BLOB-behållare eller-tabeller eller båda, beroende på hur du konfigurerar projektioner i färdigheter. Om dina data kommer från Azure Blob eller Table Storage har du redan angett och kan återanvända lagrings kontot. Annars måste du skapa ett Azure Storage-konto. Tabeller och objekt i Azure Storage innehåller de berikade dokument som skapats av AI-baserade indexerings pipeliner.
 
 Lagrings kontot anges i färdigheter. I `api-version=2019-05-06-Preview`innehåller en färdigheter-definition en kunskaps lager definition så att du kan ange konto information.
 
@@ -179,15 +186,13 @@ I lagrings kontot kan berikarna uttryckas som tabeller i Azure Table Storage ell
 
 + Blob Storage skapar en allt-inkluderad JSON-representation av varje dokument. Du kan använda båda lagrings alternativen i en färdigheter för att få ett fullständigt spektrum av uttryck.
 
-+ Azure Search behåller innehållet i ett index. Om ditt scenario inte är sökrelaterat, till exempel om målet är analys i ett annat verktyg, kan du ta bort indexet som pipelinen skapar. Men du kan också behålla indexet och använda ett inbyggt verktyg som [Sök Utforskaren](search-explorer.md) som ett tredje medium (bakom Storage Explorer och din analys app) för att interagera med ditt innehåll.
-
-Tillsammans med dokument innehåll innehåller berikade dokument metadata för den färdigheter-version som skapade berikarna.  
++ Azure Search behåller innehållet i ett index. Om ditt scenario inte är sökrelaterat, till exempel om målet är analys i ett annat verktyg, kan du ta bort indexet som pipelinen skapar. Men du kan också behålla indexet och använda ett inbyggt verktyg som [Sök Utforskaren](search-explorer.md) som ett tredje medium (bakom Storage Explorer och din analys app) för att interagera med ditt innehåll.  
 
 ## <a name="inside-a-knowledge-store"></a>I ett kunskaps lager
 
-Kunskaps lagret består av en antecknings-cache och projektioner. *Cachen* används av tjänsten internt för att cachelagra resultaten från färdigheter och spåra ändringar. En *projektion* definierar schemat och strukturen för de anrikninger som matchar den avsedda användningen. Det finns ett cacheminne per kunskaps lager, men flera projektioner. 
+ En *projektion* definierar schemat och strukturen för de anrikninger som matchar den avsedda användningen. Du kan definiera flera projektioner om du har program som använder data i olika format och former. 
 
-Cachen är alltid en BLOB-behållare, men projektioner kan ledas som tabeller eller objekt:
+Projektioner kan ledas som objekt eller tabeller:
 
 + Som ett objekt mappar projektionen till Blob Storage, där projektionen sparas i en behållare, inom vilka är objekt eller hierarkiska representationer i JSON för scenarier som en data vetenskaps pipeline.
 

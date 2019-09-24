@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/9/2019
 ms.author: mlearned
-ms.openlocfilehash: 7a58e8559587ddcb307c338f5ce87cd6b8e52021
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: 93eddc0ff8f1a1af8b485fcdb891f72d874b5c0a
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71171503"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71202959"
 ---
 # <a name="preview---create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>För hands version – skapa och hantera flera resurspooler för ett kluster i Azure Kubernetes service (AKS)
 
@@ -35,7 +35,7 @@ Du behöver Azure CLI-versionen 2.0.61 eller senare installerad och konfigurerad
 
 ### <a name="install-aks-preview-cli-extension"></a>Installera AKS-Preview CLI-tillägg
 
-Om du vill använda flera noder i pooler behöver du *AKS-Preview CLI-* tillägget 0.4.12 eller högre. Installera *AKS-Preview* Azure CLI-tillägget med kommandot [AZ Extension Add][az-extension-add] och Sök sedan efter eventuella tillgängliga uppdateringar med kommandot [AZ Extension Update][az-extension-update] ::
+Om du vill använda flera noder i pooler behöver du *AKS-Preview CLI-* tillägget 0.4.16 eller högre. Installera *AKS-Preview* Azure CLI-tillägget med kommandot [AZ Extension Add][az-extension-add] och Sök sedan efter eventuella tillgängliga uppdateringar med kommandot [AZ Extension Update][az-extension-update] ::
 
 ```azurecli-interactive
 # Install the aks-preview extension
@@ -178,7 +178,9 @@ $ az aks nodepool list --resource-group myResourceGroup --cluster-name myAKSClus
 > [!NOTE]
 > Uppgraderings-och skalnings åtgärder i ett kluster eller en Node-pool kan inte inträffa samtidigt, om ett försök görs att returnera ett fel. I stället måste varje åtgärds typ slutföras på mål resursen innan nästa begäran om samma resurs. Läs mer om detta i vår [fel söknings guide](https://aka.ms/aks-pending-upgrade).
 
-När ditt AKS-kluster ursprungligen skapades i det första steget angavs `--kubernetes-version` en av *1.13.10* . Detta anger Kubernetes-versionen för både kontroll planet och standardnoden. Kommandona i det här avsnittet beskriver hur du uppgraderar en enskild viss Node-pool. Relationen mellan att uppgradera Kubernetes-versionen av kontroll planet och Node-poolen beskrivs i [avsnittet nedan](#upgrade-a-cluster-control-plane-with-multiple-node-pools).
+När ditt AKS-kluster ursprungligen skapades i det första steget angavs `--kubernetes-version` en av *1.13.10* . Detta anger Kubernetes-versionen för både kontroll planet och standardnoden. Kommandona i det här avsnittet beskriver hur du uppgraderar en enskild viss Node-pool.
+
+Relationen mellan att uppgradera Kubernetes-versionen av kontroll planet och Node-poolen beskrivs i [avsnittet nedan](#upgrade-a-cluster-control-plane-with-multiple-node-pools).
 
 > [!NOTE]
 > Operativ system avbildnings versionen för Node-poolen är kopplad till Kubernetes-versionen av klustret. Du kan bara hämta uppgraderingar av operativ Systems avbildningar efter en kluster uppgradering.
@@ -193,9 +195,6 @@ az aks nodepool upgrade \
     --kubernetes-version 1.13.10 \
     --no-wait
 ```
-
-> [!Tip]
-> Om du vill uppgradera kontroll planet till *1.14.6*kör `az aks upgrade -k 1.14.6`du. Lär dig mer om [kontroll Plans uppgraderingar med flera Node-pooler här](#upgrade-a-cluster-control-plane-with-multiple-node-pools).
 
 Ange status för dina nodkonfigurationer igen med kommandot [AZ AKS Node pool List][az-aks-nodepool-list] . I följande exempel visas att *mynodepool* är i *uppgraderings* läge till *1.13.10*:
 
@@ -232,7 +231,7 @@ $ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
 
 Det tar några minuter att uppgradera noderna till den angivna versionen.
 
-Som bästa praxis bör du uppgradera alla resurspooler i ett AKS-kluster till samma Kubernetes-version. Möjligheten att uppgradera enskilda noder i pooler gör att du kan utföra en löpande uppgradering och schemalägga poddar mellan noder för att upprätthålla drift tiden för programmet inom ovannämnda begränsningar.
+Som bästa praxis bör du uppgradera alla resurspooler i ett AKS-kluster till samma Kubernetes-version. Standard beteendet för `az aks upgrade` är att uppgradera alla resurspooler tillsammans med kontroll planet för att uppnå den här justeringen. Möjligheten att uppgradera enskilda noder i pooler gör att du kan utföra en löpande uppgradering och schemalägga poddar mellan noder för att upprätthålla drift tiden för programmet inom ovannämnda begränsningar.
 
 ## <a name="upgrade-a-cluster-control-plane-with-multiple-node-pools"></a>Uppgradera ett kluster kontroll plan med flera noder i pooler
 
@@ -243,11 +242,12 @@ Som bästa praxis bör du uppgradera alla resurspooler i ett AKS-kluster till sa
 > * Node-versionen kan vara en lägre version som är mindre än kontroll Plans versionen.
 > * En version av Node-poolen kan vara en korrigerings version så länge de andra två begränsningarna följs.
 
-Ett AKS-kluster har två kluster resurs objekt. Det första är en kontroll Plans Kubernetes-version. Den andra är en agent-pool med en Kubernetes-version. Ett kontroll plan mappar till en eller flera nodkonfigurationer och var och en har sina egna Kubernetes-versioner. Beteendet för en uppgraderings åtgärd beror på vilken resurs som är mål och vilken version av underliggande API som anropas.
+Ett AKS-kluster har två kluster resurs objekt med associerade Kubernetes-versioner. Det första är en kontroll Plans Kubernetes-version. Den andra är en agent-pool med en Kubernetes-version. Ett kontroll plan mappar till en eller flera Node-pooler. Beteendet för en uppgraderings åtgärd beror på vilket Azure CLI-kommando som används.
 
 1. Att uppgradera kontroll planet kräver att du använder`az aks upgrade`
-   * Detta kommer också att uppgradera alla noder i klustret
-1. Uppgradera med`az aks nodepool upgrade`
+   * Då uppgraderas kontroll Plans versionen och alla noder i klustret
+   * Genom att `az aks upgrade` skicka `--control-plane-only` med-flaggan uppgraderar du bara kluster kontroll planet och ingen av de `--control-plane-only` associerade noderna * flaggan är tillgänglig i **AKS-Preview Extension v 0.4.16** eller högre
+1. Om du vill uppgradera enskilda noder måste du använda`az aks nodepool upgrade`
    * Detta kommer endast att uppgradera målnoden med den angivna Kubernetes-versionen
 
 Relationen mellan Kubernetes-versioner som innehas av Node-pooler måste också följa en uppsättning regler.

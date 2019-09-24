@@ -7,12 +7,12 @@ ms.subservice: data-science-vm
 ms.author: gopalv
 ms.date: 09/11/2019
 ms.topic: reference
-ms.openlocfilehash: 20fe027ddf47ba98cef41cdc40a1b2e0d387c2a5
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: 0c48b8ba28f67ac7f38d6f636728abe7c5a6bd4e
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71174713"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71204031"
 ---
 # <a name="reference-ubuntu-linux-data-science-virtual-machine"></a>Referens: Ubuntu (Linux) Data Science Virtual Machine
 
@@ -342,3 +342,6 @@ Nu öppnas ett grafiskt gränssnitt med en uppsättning flikar. Använd följand
 
 Du kan avsluta Rattle och R. Nu kan du ändra det genererade R-skriptet. Du kan också använda skriptet som det är och köra det när som helst för att upprepa allt som har gjorts i Rattle-ANVÄNDARGRÄNSSNITTET. I synnerhet för nybörjare i R är detta ett sätt att snabbt utföra analyser och maskin inlärning i ett enkelt grafiskt gränssnitt, medan automatiskt genererar kod i R för att ändra eller lära sig.
 
+## <a name="next-steps"></a>Nästa steg
+
+Har du fler frågor? Överväg att skapa ett [support ärende](https://azure.microsoft.com/support/create-ticket/).

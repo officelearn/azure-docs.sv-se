@@ -3,9 +3,8 @@ title: Arbeta med säkerhets principer | Microsoft Docs
 description: Den här artikeln beskriver hur du arbetar med säkerhets principer i Azure Security Center.
 services: security-center
 documentationcenter: na
-author: monhaber
-manager: barbkess
-editor: ''
+author: memildin
+manager: rkarlin
 ms.assetid: 2d248817-ae97-4c10-8f5d-5c207a8019ea
 ms.service: security-center
 ms.devlang: na
@@ -13,14 +12,14 @@ ms.topic: conceptual
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 7/18/2019
-ms.author: v-mohabe
-ms.openlocfilehash: 1820c31053c13a0f3039812b31df415bc9fa4fdc
-ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
+ms.date: 07/18/2019
+ms.author: memildin
+ms.openlocfilehash: 11e1c837e416a5d2105f494c43823298edfd4355
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70910380"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71200495"
 ---
 # <a name="working-with-security-policies"></a>Arbeta med säkerhetsprinciper
 
@@ -234,7 +233,7 @@ Det här exemplet visar hur du tar bort en tilldelning:
 |Slutpunktsskydd |Övervaka saknade Endpoint Protection i Azure Security Center |endpointProtectionMonitoringEffect |
 |Diskkryptering |Övervaka okrypterade VM-diskar i Azure Security Center |diskEncryptionMonitoringEffect|
 |Sårbarhetsbedömning |Övervaka säkerhets risker i virtuella datorer i Azure Security Center |vulnerabilityAssessmentMonitoringEffect|
-|Brandvägg för webbappar |Övervaka oskyddat webb program i Azure Security Center |webApplicationFirewallMonitoringEffect |
+|Brandvägg för webbaserade program |Övervaka oskyddat webb program i Azure Security Center |webApplicationFirewallMonitoringEffect |
 |Nästa generations brandvägg |Övervaka oskyddade nätverks slut punkter i Azure Security Center| |
 
 

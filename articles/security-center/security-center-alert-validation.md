@@ -1,67 +1,66 @@
 ---
-title: Avisera verifiering (EICAR test-fil) i Azure Security Center | Microsoft Docs
+title: Aviserings verifiering (EICAR Test fil) i Azure Security Center | Microsoft Docs
 description: I det här dokumentet får du hjälp med att verifiera säkerhetsaviseringar i Azure Security Center.
 services: security-center
 documentationcenter: na
-author: rkarlin
-manager: barbkess
-editor: ''
+author: memildin
+manager: rkarlin
 ms.assetid: f8f17a55-e672-4d86-8ba9-6c3ce2e71a57
 ms.service: security-center
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 7/02/2019
-ms.author: rkarlin
-ms.openlocfilehash: f65b4b74a1a91fa081bd9c0d8146d055cebb0de6
-ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
+ms.date: 07/02/2019
+ms.author: memildin
+ms.openlocfilehash: 32f67fb94b207735e77583a6db62f7c8703dd991
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67626305"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71202734"
 ---
-# <a name="alert-validation-eicar-test-file-in-azure-security-center"></a>Aviseringsverifiering (EICAR test-fil) i Azure Security Center
+# <a name="alert-validation-eicar-test-file-in-azure-security-center"></a>Aviserings verifiering (EICAR Test fil) i Azure Security Center
 I det här dokumentet får du hjälp med att verifiera systemet är rätt konfigurerat för aviseringar från Azure Security Center.
 
 ## <a name="what-are-security-alerts"></a>Vad är säkerhetsaviseringar?
-Aviseringar är de meddelanden som Security Center genererar när hot på dina resurser. Den prioriterar och visar en lista över aviseringar tillsammans med den information som behövs att snabbt undersöka problemet. Security Center innehåller också rekommendationer för hur du kan avhjälpa angrepp.
-Mer information finns i [säkerhetsaviseringar i Azure Security Center](security-center-alerts-overview.md) och [hantera och åtgärda säkerhetsaviseringar i Azure Security Center](security-center-managing-and-responding-alerts.md)
+Aviseringar är de meddelanden som Security Center genererar när de identifierar hot på dina resurser. Den prioriterar och listar aviseringarna tillsammans med den information som behövs för att du snabbt ska kunna undersöka problemet. Security Center innehåller också rekommendationer för hur du kan åtgärda ett angrepp.
+Mer information finns i [säkerhets aviseringar i Azure Security Center](security-center-alerts-overview.md) och [Hantera och svara på säkerhets aviseringar i Azure Security Center](security-center-managing-and-responding-alerts.md)
 
 ## <a name="alert-validation"></a>Aviseringsverifiering
 
 * [Windows](#validate-windows)
 * [Linux](#validate-linux)
 
-## Validering av på Windows virtuell dator <a name="validate-windows"></a>
+## Verifiera avisering på virtuell Windows-dator<a name="validate-windows"></a>
 
-När Security Center-agenten är installerad på datorn, följer du de här stegen från datorn där du vill ha den angripna resursen för aviseringen:
+När Security Center agent har installerats på datorn följer du de här stegen från den dator där du vill bli den angripna resursen för aviseringen:
 
-1. Kopiera en körbar fil (till exempel **calc.exe**) till datorns skrivbord eller en annan katalog för din bekvämlighet och Byt namn på det som **ASC_AlertTest_662jfi039N.exe**.
-1. Öppna Kommandotolken och kör den här filen med ett argument (bara ett falskt argumentnamnet), till exempel: ```ASC_AlertTest_662jfi039N.exe -foo```
-1. Vänta 5–10 minuter och öppna sedan Security Center-aviseringar. En avisering som liknar den [exempel](#alert-validate) nedan ska visas:
+1. Kopiera en körbar fil (till exempel **calc. exe**) till datorns skriv bord, eller någon annan katalog och Byt namn på den som **ASC_AlertTest_662jfi039N. exe**.
+1. Öppna kommando tolken och kör den här filen med ett argument (bara ett falsk argument namn), till exempel:```ASC_AlertTest_662jfi039N.exe -foo```
+1. Vänta 5–10 minuter och öppna sedan Security Center-aviseringar. En avisering som liknar [exemplet](#alert-validate) nedan ska visas:
 
 > [!NOTE]
-> När du granskar den här aviseringen test för Windows, se till att fältet **argument-granskning aktiverat** är **SANT**. Om det är **FALSKT**, måste du aktivera granskning av kommandoradsargument. Aktivera det genom att använda följande kommandorad:
+> När du granskar test aviseringen för Windows kontrollerar du att fält **argumenten granskning är aktive rad** är **Sant**. Om det är **falskt**måste du aktivera granskning av kommando rads argument. Använd följande kommando rad för att aktivera den:
 >
 >```reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\policies\system\Audit" /f /v "ProcessCreationIncludeCmdLine_Enabled"```
 
-## Validering av på Linux VM <a name="validate-linux"></a>
+## Verifiera avisering på virtuell Linux-dator<a name="validate-linux"></a>
 
-När Security Center-agenten är installerad på datorn, följer du de här stegen från datorn där du vill ha den angripna resursen för aviseringen:
-1. Kopiera en körbar fil på en lämplig plats och Byt namn på den till **. / asc_alerttest_662jfi039n**, till exempel:
+När Security Center agent har installerats på datorn följer du de här stegen från den dator där du vill bli den angripna resursen för aviseringen:
+1. Kopiera en körbar fil till en lämplig plats och Byt namn på den till **./asc_alerttest_662jfi039n**, till exempel:
 
     ```cp /bin/echo ./asc_alerttest_662jfi039n```
 
-1. Öppna Kommandotolken och kör den här filen:
+1. Öppna kommando tolken och kör den här filen:
 
     ```./asc_alerttest_662jfi039n testing eicar pipe```
 
-1. Vänta 5–10 minuter och öppna sedan Security Center-aviseringar. En avisering som liknar den [exempel](#alert-validate) nedan ska visas:
+1. Vänta 5–10 minuter och öppna sedan Security Center-aviseringar. En avisering som liknar [exemplet](#alert-validate) nedan ska visas:
 
-### Aviseringsexemplet <a name="alert-validate"></a>
+### Aviserings exempel<a name="alert-validate"></a>
 
-![Aviseringsverifiering exempel](./media/security-center-alert-validation/security-center-alert-validation-fig2.png) 
+![Exempel på aviserings verifiering](./media/security-center-alert-validation/security-center-alert-validation-fig2.png) 
 
 ## <a name="see-also"></a>Se också
 I den här artikeln förklaras processen för aviseringsverifiering. Nu när du är bekant med den här verifieringen kan du titta på följande artiklar:

@@ -3,9 +3,8 @@ title: Datasäkerhet i Azure Security Center | Microsoft Docs
 description: Det här dokumentet beskriver hur data hanteras och skyddas i Azure Security Center.
 services: security-center
 documentationcenter: na
-author: rkarlin
-manager: barbkess
-editor: ''
+author: memildin
+manager: rkarlin
 ms.assetid: 33f2c9f4-21aa-4f0c-9e5e-4cd1223e39d7
 ms.service: security-center
 ms.devlang: na
@@ -13,13 +12,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/28/2018
-ms.author: rkarlin
-ms.openlocfilehash: cd91b83bc808d811fc50293fbf1726d609ad5b46
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: memildin
+ms.openlocfilehash: 30f4358bea2670cfa8d825bf1ef75feeba7ea851
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65234084"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71202353"
 ---
 # <a name="azure-security-center-data-security"></a>Datasäkerhet i Azure Security Center
 Azure Security Center hjälper kunder att förhindra, upptäcka och svara på hot genom att samla in och bearbeta säkerhetsrelaterade data, inklusive konfigurationsinformation, metadata, händelseloggar, kraschdumpfiler och annat. Microsoft följer strikta riktlinjer för efterlevnad och säkerhet – från kodning till driften av en tjänst.
@@ -29,30 +28,30 @@ Den här artikeln beskriver hur data hanteras och skyddas i Azure Security Cente
 ## <a name="data-sources"></a>Datakällor
 Azure Security Center analyserar data från följande källor för att ge dig information om säkerhetstillstånd, identifiera säkerhetsproblem, rekommendera lösningar och upptäcka aktiva hot:
 
-- Azure-tjänster: Använder information om konfiguration av Azure-tjänster som du har distribuerat genom att kommunicera med tjänstens resursprovider.
-- Nätverkstrafik: Använder samplade metadata för nätverkstrafiken från Microsofts infrastruktur, till exempel källans/målets IP-adress/port, paketstorlek och nätverksprotokoll.
-- Partnerlösningar: Använder säkerhetsaviseringar från integrerade partnerlösningar, till exempel brandväggar och lösningar mot skadlig kod.
-- Dina virtuella datorer och servrar: Använder konfigurationsinformation och information om säkerhetshändelser, till exempel Windows-loggar för händelser och granskningsloggar, IIS-loggar, syslog-meddelanden och kraschdumpfiler från dina virtuella datorer. När en avisering skapas kan dessutom Azure Security Center generera en ögonblicksbild av den berörda virtuella datordisken och extrahera artefakter relaterade till aviseringen från den virtuella datordisken, till exempel en registerfil, för datautredningsändamål.
+- Azure-tjänster: Använder information om konfigurationen av Azure-tjänster som du har distribuerat genom att kommunicera med tjänstens resurs leverantör.
+- Nätverks trafik: Använder exempel på metadata från Microsofts infrastruktur, till exempel käll-/mål-IP/port, paket storlek och nätverks protokoll.
+- Partner lösningar: Använder säkerhets aviseringar från integrerade partner lösningar, till exempel brand väggar och lösningar mot skadlig kod.
+- Dina Virtual Machines och servrar: Använder konfigurations information och information om säkerhets händelser, till exempel händelser och gransknings loggar i Windows, IIS-loggar, syslog-meddelanden och krasch dum par-filer från dina virtuella datorer. När en avisering skapas kan dessutom Azure Security Center generera en ögonblicksbild av den berörda virtuella datordisken och extrahera artefakter relaterade till aviseringen från den virtuella datordisken, till exempel en registerfil, för datautredningsändamål.
 
 
 ## <a name="data-protection"></a>Dataskydd
-**Dataavgränsning**: Data lagras logiskt separerade på varje komponent i tjänsten. Alla data taggas efter organisation. Den här taggningen finns kvar i informationens hela livscykel och används på varje lager i tjänsten.
+**Data uppdelning**: Data lagras logiskt åtskilda på varje komponent i tjänsten. Alla data taggas efter organisation. Den här taggningen finns kvar i informationens hela livscykel och används på varje lager i tjänsten.
 
-**Dataåtkomst**: För att kunna erbjuda säkerhetsrekommendationer och undersöka möjliga säkerhetshot kan komma Microsofts Personal åt information som samlas in eller analyseras av Azure-tjänster, inklusive kraschdumpfiler, processgenereringshändelser, ögonblicksbilder av Virtuella datordiskar och artefakter där kan oavsiktligt innehålla kunddata eller personuppgifter från dina virtuella datorer. Vi följer [villkoren för Microsoft Online Services och tillhörande sekretesspolicy](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31), som garanterar att Microsoft inte använder kunddata eller härleder information från dem för reklamändamål eller i liknande kommersiellt syfte. Vi använder bara kunddata i den mån det är nödvändigt för att tillhandahålla Azure-tjänsterna, samt för därtill relaterade ändamål. Du äger alla rättigheter till dina kunddata.
+**Dataåtkomst**: För att kunna erbjuda säkerhets rekommendationer och undersöka möjliga säkerhetshot kan Microsofts personal komma åt information som samlas in eller analyseras av Azure-tjänster, inklusive krasch dum par-filer, process skapande händelser, ögonblicks bilder av VM-diskar och artefakter. Detta kan oavsiktligt inkludera kunddata eller personliga data från dina virtuella datorer. Vi följer [villkoren för Microsoft Online Services och tillhörande sekretesspolicy](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31), som garanterar att Microsoft inte använder kunddata eller härleder information från dem för reklamändamål eller i liknande kommersiellt syfte. Vi använder bara kunddata i den mån det är nödvändigt för att tillhandahålla Azure-tjänsterna, samt för därtill relaterade ändamål. Du äger alla rättigheter till dina kunddata.
 
-**Dataanvändning**: Microsoft använder mönster och hotinformation som identifieras över flera klienter för att förbättra våra skydds- och identifieringsfunktioner funktioner; Vi har gjort i enlighet med sekretessåtaganden som beskrivs i vår [sekretesspolicy](https://www.microsoft.com/privacystatement/en-us/OnlineServices/Default.aspx).
+**Data användning**: Microsoft använder mönster och hot information som visas över flera klienter för att förbättra våra förebyggande-och identifierings funktioner. Vi gör detta i enlighet med de sekretess åtaganden som beskrivs i vår [sekretess policy](https://www.microsoft.com/privacystatement/en-us/OnlineServices/Default.aspx).
 
 ## <a name="data-location"></a>Dataplats
 
-**Arbetsytor**: En arbetsyta definieras för följande regioner och data som samlas in från dina Azure-datorer, inklusive kraschdumpar och vissa typer av aviseringsdata, lagras i den närmaste arbetsytan.
+**Din arbets yta (er)** : En arbets yta anges för följande geografiska områden och data som samlas in från dina virtuella Azure-datorer, inklusive krasch dum par, och vissa typer av aviserings data, lagras i den närmaste arbets ytan.
 
 | Region för virtuell dator                              | Region för arbetsyta |
 |-------------------------------------|---------------|
 | USA, Brasilien, Sydafrika | USA |
 | Kanada                              | Kanada        |
 | Europa (exklusive Storbritannien)   | Europa        |
-| Storbritannien                      | Storbritannien |
-| Asien (exklusive Indien, Japan, Sydkorea, Kina)   | Asien och stillahavsområdet  |
+| Storbritannien och Nordirland                      | Storbritannien och Nordirland |
+| Asien (exklusive Indien, Japan, Korea, Kina)   | Asien och stillahavsområdet  |
 | Korea                              | Asien och stillahavsområdet  |
 | Indien                               | Indien         |
 | Japan                               | Japan         |
@@ -64,7 +63,7 @@ Azure Security Center analyserar data från följande källor för att ge dig in
 
 För virtuella datorer och servrar som körs i andra miljöer, t.ex. lokalt, kan du ange arbetsytan och regionen där insamlade data lagras.
 
-**Azure Security Center Storage**: Information om säkerhetsvarningar, inklusive partneraviseringar lagras regionalt enligt platsen för den relaterade Azure-resursen, medan Information om hälsostatus för säkerhet och rekommendationer lagras centralt i antingen USA eller Europa enligt kundens plats.
+**Azure Security Center lagring**: Information om säkerhets aviseringar, inklusive partner aviseringar, lagras regionalt enligt platsen för den relaterade Azure-resursen, medan information om säkerhets hälso status och rekommendation lagras centralt i antingen USA eller Europa enligt kundens plats.
 Azure Security Center samlar in tillfälliga kopior av dina kraschdumpfiler och analyserar dem efter tecken på kryphål och säkerhetsintrång. Azure Security Center utför den här analysen inom samma geografiska region som arbetsytan och tar bort de tillfälliga kopiorna när analysen är klar.
 
 Artefakter lagras centralt i samma region som den virtuella datorn.
@@ -82,7 +81,7 @@ Om du använder Azure Security Center Free, kan du inaktivera datainsamling frå
 Kunder kan använda Security Center-relaterade data från olika dataströmmar:
 
 * **Azure-aktivitet**: alla säkerhetsaviseringar, [just in time](https://docs.microsoft.com/azure/security-center/security-center-just-in-time)-begäranden som godkänts av Security Center och alla aviseringar som genereras av [adaptiva programkontroller](https://docs.microsoft.com/azure/security-center/security-center-adaptive-application).
-* **Azure Monitor-loggar**: alla säkerhetsaviseringar.
+* **Azure Monitor loggar**: alla säkerhets aviseringar.
 
 
 > [!NOTE]

@@ -1,11 +1,10 @@
 ---
 title: Rekommendationer för behållare i Azure Security Center | Microsoft Docs
-description: Det här dokumentet beskriver Azure Security Center-rekommendationer för hur du kan skydda dina behållare.
+description: Det här dokumentet beskriver Azure Security Center rekommendationer för hur du kan skydda dina behållare.
 services: security-center
 documentationcenter: na
-author: rkarlin
-manager: barbkess
-editor: ''
+author: memildin
+manager: rkarlin
 ms.assetid: 2e76c7f7-a3dd-4d9f-add9-7e0e10e9324d
 ms.service: security-center
 ms.devlang: na
@@ -13,39 +12,39 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/20/2018
-ms.author: rkarlin
-ms.openlocfilehash: 782c769bc7825dc9b6bd3ba3b8e36885bf150eaa
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: memildin
+ms.openlocfilehash: 96efe5271b91f87e30ba26aabe69a0de76e1a791
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60705297"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71202394"
 ---
-# <a name="understand-azure-security-center-container-recommendations"></a>Förstå rekommendationer för Azure Security Center-behållare
+# <a name="understand-azure-security-center-container-recommendations"></a>Förstå rekommendationer för Azure Security Center container
 
-När du migrerar dina gammal program att köra verksamhetskritiska molnbaserade program i behållare i produktion, du kan dra nytta av funktionerna i behållare, inklusive enkel och snabb distribution och uppdatering. När antalet behållare som distribueras fortsätter att öka, måste säkerhetslösningar vara på plats för att ge dig insyn i säkerhetsläget för dina behållare och skydda dem mot hot.
+När du migrerar dina monolit-program till att köra verksamhets kritiska, molnbaserad molnbaserade program i produktion, kan du dra nytta av funktionerna i behållare, inklusive enkel och snabb distribution och uppdatering. När antalet behållare som distribueras fortsätter att öka måste säkerhetslösningarna vara på plats för att ge dig insyn i säkerhets läget för dina behållare och hjälpa till att skydda dem mot hot.
 
-Azure Security Center innehåller följande funktioner för att skydda dina behållare:
+Azure Security Center tillhandahåller följande funktioner som hjälper dig att skydda dina behållare:
 
-- **Insyn i behållare som finns på IaaS Linux-datorer**<br>I Azure Security Center visar fliken behållare alla virtuella datorer som distribueras med Docker. När du utforskar säkerhetsproblem på en virtuell dator innehåller ytterligare information som rör behållare på dator, till exempel Docker-versionen och antalet avbildningar som körs på värden i Security Center.
+- **Insyn i behållare som finns på IaaS Linux-datorer**<br>I Azure Security Center visar fliken behållare alla virtuella datorer som har distribuerats med Docker. När du utforskar säkerhets problemen på en virtuell dator innehåller Security Center ytterligare information som är relaterad till behållarna på datorn, till exempel Docker-versionen och antalet avbildningar som körs på värden.
 
-    ![behållare-fliken](./media/security-center-container-recommendations/docker-recommendation.png)
+    ![fliken container](./media/security-center-container-recommendations/docker-recommendation.png)
 
 
-- **Säkerhetsrekommendationer baserat på tillgängligheten för CIS-benchmark för Docker**<br>Security Center söker igenom dina Docker-konfigurationer och ger dig insyn i felkonfigurationer genom att tillhandahålla en lista över alla misslyckade regler som har utvärderats. Security Center innehåller riktlinjer för att hjälpa dig att lösa dessa problem snabbt och spara tid. Security Center utvärderar Docker-konfigurationer och ger dig det senaste tillståndet kontinuerligt.
+- **Säkerhets rekommendationer baserat på CIS-benchmark för Docker**<br>Security Center söker igenom dina Docker-konfigurationer och ger dig insyn i felkonfigurationer genom att tillhandahålla en lista över alla misslyckade regler som har utvärderats. Security Center innehåller rikt linjer som hjälper dig att snabbt lösa problemen och spara tid. Security Center utvärderar Docker-konfigurationer och ger dig det senaste tillståndet kontinuerligt.
 
-    ![behållare-fliken](./media/security-center-container-recommendations/container-cis-benchmark.png)
+    ![fliken container](./media/security-center-container-recommendations/container-cis-benchmark.png)
 
-- **Identifiering av hot i realtid behållare**<br> Security Center tillhandahåller i realtid hotidentifiering för dina behållare på Linux-datorer med AuditD-komponenten. Aviseringarna som identifierar flera misstänkta Docker-aktiviteter, till exempel att skapa en privilegierad behållare på en indikation på Secure Shell (SSH)-server som körs i en Docker-behållare eller användning av kryptografi datautvinnare-värden. Du kan använda den här informationen för att snabbt åtgärda säkerhetsproblem och förbättra säkerheten för dina behållare.
+- **Hot identifiering för behållare i real tid**<br> Security Center tillhandahåller hot identifiering i real tid för dina behållare på Linux-datorer med granskad komponent. Aviseringarna identifierar flera misstänkta Docker-aktiviteter, till exempel skapandet av en privilegie rad behållare på värden, en indikation på SSH-servern (Secure Shell) som körs i en Docker-behållare eller användning av kryptografiska gruv arbetare. Du kan använda den här informationen för att snabbt åtgärda säkerhetsproblem och förbättra säkerheten för dina behållare.
 
-    ![behållare-fliken](./media/security-center-container-recommendations/docker-threat-detection.png)
+    ![fliken container](./media/security-center-container-recommendations/docker-threat-detection.png)
 
 ## <a name="recommendations"></a>Rekommendationer
-Använd tabellen nedan som referens för att förstå tillgängliga behållare på IaaS Linux-datorer och säkerhetsbedömning för sina Docker-konfigurationer.
+Använd tabellerna nedan som referens för att hjälpa dig att förstå de tillgängliga behållare som finns på IaaS Linux-datorer och säkerhets utvärdering av sina Docker-konfigurationer.
 
 | Rekommendation | Beskrivning | Åtgärd |
 | --- | --- | --- |
-|Åtgärda sårbarheter i behållaren säkerhetskonfigurationer |Åtgärda sårbarheter i behållaren säkerhetskonfigurationer baserat på bästa metoderna för konfiguration.| Åtgärda sårbarheter i säkerhetskonfigurationer behållare:<br>1. Granska listan över misslyckade regler.<br>2. Åtgärda varje regel enligt angivna instruktionerna.|
+|Åtgärda sårbarheter i säkerhets konfigurationerna för behållare |Åtgärda sårbarheter i säkerhets konfigurationerna för behållare baserat på rekommenderade konfigurations metoder.| Så här åtgärdar du säkerhets risker i säkerhets konfigurationerna för behållare:<br>1. Granska listan över misslyckade regler.<br>2. Korrigera varje regel enligt de instruktioner som anges.|
 
 
 ## <a name="next-steps"></a>Nästa steg

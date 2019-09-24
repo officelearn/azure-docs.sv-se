@@ -3,9 +3,8 @@ title: Vanliga frågor (och svar FAQ) för Azure Security Center | Microsoft Doc
 description: Den här vanliga frågor och svar innehåller frågor och svar om Azure Security Center.
 services: security-center
 documentationcenter: na
-author: monhaber
-manager: barbkess
-editor: ''
+author: memildin
+manager: rkarlin
 ms.assetid: be2ab6d5-72a8-411f-878e-98dac21bc5cb
 ms.service: security-center
 ms.devlang: na
@@ -13,13 +12,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/19/2019
-ms.author: v-mohabe
-ms.openlocfilehash: 33ce4c3c7f7cba8310ca75ffd0de3ecb24ad6d8d
-ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
+ms.author: memildin
+ms.openlocfilehash: b8ca4dfe8b1bba169b1234461dc5e8855fef1d7e
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70873402"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71202296"
 ---
 # <a name="azure-security-center-frequently-asked-questions-faq"></a>Vanliga frågor och svar om Azure Security Center
 Den här vanliga frågor och svar innehåller frågor och svar om Azure Security Center, en tjänst som hjälper dig att förhindra, upptäcka och svara på hot med ökad insyn i och kontroll över säkerheten hos dina Microsoft Azure-resurser.
@@ -55,7 +54,7 @@ Security Center utvärderar konfigurationen av dina resurser för att identifier
 Se [behörigheter i Azure Security Center](security-center-permissions.md) mer information om roller och tillåtna åtgärder i Security Center.
 
 ## <a name="data-collection-agents-and-workspaces"></a>Insamling av data, agenter och arbetsytor
-Security Center samlar in data från dina virtuella Azure-datorer (VM), Virtual Machine Scale set (VMSS), IaaS-behållare och icke-Azure (inklusive lokala) datorer för att övervaka säkerhets problem och hot. Data samlas in med Microsoft Monitoring Agent, som läser olika säkerhetsrelaterade konfigurationer och händelseloggar från datorn och kopierar data till din arbetsyta för analys.
+Security Center samlar in data från dina virtuella Azure-datorer (VM), skalnings uppsättningar för virtuella datorer, IaaS behållare och icke-Azure-datorer (inklusive lokalt) för att övervaka säkerhets problem och hot. Data samlas in med Microsoft Monitoring Agent, som läser olika säkerhetsrelaterade konfigurationer och händelseloggar från datorn och kopierar data till din arbetsyta för analys.
 
 ### <a name="am-i-billed-for-azure-monitor-logs-on-the-workspaces-created-by-security-center"></a>Faktureras jag för Azure Monitor loggar på arbets ytorna som skapats av Security Center?
 Nej. Arbets ytor som skapats av Security Center, och som kon figurer ATS för Azure Monitor loggar per nod fakturering, debiteras inte Azure Monitor loggar avgifter. Security Center fakturering baseras alltid på din säkerhetsprincip i Security Center och de lösningar som är installerad på en arbetsyta:
@@ -133,10 +132,10 @@ För Linux-datorer stöds inte agent multi-värdar ännu, vilket innebär att om
 
 För befintliga datorer på prenumerationer som har registrerats på Security Center före 2019-03-17 kommer Microsoft Monitoring Agent-tillägget inte att installeras när en befintlig agent identifieras och datorn påverkas inte. De här datorerna finns i rekommendationen "lösa övervaknings agent hälso problem på dina datorer" för att lösa problem med Agent installationen på dessa datorer
 
- Mer information finns i nästa avsnitt [vad händer om en SCOM eller OMS dirigera agenten är redan installerad på den virtuella datorn?](#scomomsinstalled)
+ Mer information finns i nästa avsnitt [Vad händer om en System Center Operations Manager-eller OMS Direct-agent redan är installerad på den virtuella datorn?](#scomomsinstalled)
 
-### Vad händer om en System Center Operations Manager-agent (SCOM) redan är installerad på den virtuella datorn?<a name="scomomsinstalled"></a>
-Security Center kommer att installera Microsoft Monitoring Agent-tillägget sida vid sida till den befintliga System Center Operations Manager-agenten. Den befintliga SCOM-agenten fortsätter att rapportera till System Center Operations Manager servern på vanligt sätt. Observera att System Center Operations Manager agent och Microsoft Monitoring Agent delar gemensamma kör tids bibliotek, som kommer att uppdateras till den senaste versionen under den här processen. OBS! om System Center Operations Manager agent version 2012 är installerad aktiverar du inte automatisk etablering på (hanterings funktioner kan gå förlorade när System Center Operations Manager-servern också är version 2012).
+### Vad händer om en System Center Operations Manager agent redan är installerad på den virtuella datorn?<a name="scomomsinstalled"></a>
+Security Center kommer att installera Microsoft Monitoring Agent-tillägget sida vid sida till den befintliga System Center Operations Manager-agenten. Den befintliga agenten fortsätter att rapportera till System Center Operations Manager servern på vanligt sätt. Observera att Operations Manager agent och Microsoft Monitoring Agent delar gemensamma kör tids bibliotek, som kommer att uppdateras till den senaste versionen under den här processen. OBS! om version 2012 av Operations Manager agenten är installerad ska du inte aktivera automatisk etablering på (hanterings funktioner kan gå förlorade när Operations Manager-servern också är version 2012).
 
 ### <a name="what-is-the-impact-of-removing-these-extensions"></a>Vad är effekt vid borttagning av dessa tillägg?
 Om du tar bort tillägget Microsoft Monitoring Security Center kan inte samla in säkerhetsdata från den virtuella datorn och vissa säkerhetsrekommendationer och aviseringar är inte tillgängliga. Security Center anger att den virtuella datorn saknar tillägget och installerar om tillägget inom 24 timmar.
@@ -160,8 +159,8 @@ Du kan inaktivera automatisk etablering för dina prenumerationer i säkerhetspr
 
 Du kanske vill välja bort automatisk etablering om följande gäller för dig:
 
-- Agenten för automatisk installation av Security Center gäller för hela prenumerationen.  Du kan inte använda automatisk installation till en delmängd av virtuella datorer. Om det finns kritiska virtuella datorer som inte kan installeras med Microsoft Monitoring Agent, bör du välja bort automatisk etablering.
-- Installationen av tillägget Microsoft Monitoring Agent (MMA) uppdaterar agentens version. Detta gäller för en direkt agent och en SCOM-agent (i den senare delar SCOM och MMA delar vanliga körnings bibliotek, som kommer att uppdateras i processen). Om den installerade SCOM-agenten är version 2012 och uppgraderas, att hanterbarhet funktioner gå förlorade när SCOM-servern är också version 2012. Överväg väljer från automatisk etablering om den installerade SCOM-agenten är version 2012.
+- Agenten för automatisk installation av Security Center gäller för hela prenumerationen. Du kan inte använda automatisk installation till en delmängd av virtuella datorer. Om det finns kritiska virtuella datorer som inte kan installeras med Microsoft Monitoring Agent, bör du välja bort automatisk etablering.
+- Installationen av tillägget Microsoft Monitoring Agent (MMA) uppdaterar agentens version. Detta gäller för en direkt agent och en System Center Operations Manager-agent (i den senare, Operations Manager och MMA delar vanliga körnings bibliotek, som kommer att uppdateras i processen). Om den installerade Operations Manager agenten är version 2012 och uppgraderas kan hanterings funktioner gå förlorade när Operations Manager-servern också är version 2012. Överväg väljer från automatisk etablering om den installerade Operations Manager-agenten är version 2012.
 - Om du har en anpassad arbetsyta som är externa för prenumerationen (en centraliserade arbetsytor) bör du välja bort automatisk etablering. Du kan manuellt installera Microsoft Monitoring Agent-tillägget och ansluta den arbetsytan utan att Security Center åsidosätta anslutningen.
 - Om du vill undvika att skapa flera arbetsytor per prenumeration och du har en egen anpassad arbetsyta inom prenumerationen, har du två alternativ:
 
@@ -298,7 +297,7 @@ Security Center är en Azure-tjänst som ständigt övervakar kundens Azure-milj
 Azure Security Center övervakar följande Azure-resurser:
 
 * Virtuella datorer (VM) (inklusive [molntjänster](../cloud-services/cloud-services-choose-me.md))
-* Skalnings uppsättningar för virtuella datorer (VMSSs)
+* Virtual Machine Scale Sets
 * Azure Virtual Networks
 * Azure SQL-tjänst
 * Azure-lagringskonto

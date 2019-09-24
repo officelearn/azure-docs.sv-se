@@ -1,5 +1,5 @@
 ---
-title: 'Referens: Windows-DSVM'
+title: 'Referens: Windows DSVM'
 description: Information om verktyg som ingår i Windows Data Science VM
 author: gvashishtha
 ms.service: machine-learning
@@ -7,12 +7,12 @@ ms.subservice: data-science-vm
 ms.author: gopalv
 ms.date: 09/11/2019
 ms.topic: reference
-ms.openlocfilehash: 8ed083ad39c3ace3a0f66a61936974b462ed418f
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: be4397de477891f2a698c9f7dcb131da79479529
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71174700"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71200013"
 ---
 # <a name="reference-windows-data-science-virtual-machine"></a>Referens: Windows Data Science Virtual Machine
 
@@ -132,4 +132,6 @@ Du kan använda [installations programmet för Microsoft Web Platform](https://w
 > [!NOTE]
 > På Windows Server 2012-utgåvan av DSVM och Windows Server 2016 Edition före mars 2018 är standard miljön python 2,7. Den sekundära miljön är python 3,5, som finns på C:\Anaconda\envs\py35.
 
+## <a name="next-steps"></a>Nästa steg
 
+Har du fler frågor? Överväg att skapa ett [support ärende](https://azure.microsoft.com/support/create-ticket/).

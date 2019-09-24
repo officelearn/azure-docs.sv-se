@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 09/17/2019
 ms.author: juliako
-ms.openlocfilehash: a4b7ccf6ece8ed40d6f6c6a22410d4bbe99e590a
-ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
+ms.openlocfilehash: d346f68534a9fdbc286cd5521c00d81c2a5fec78
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71146476"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71203553"
 ---
 # <a name="what-is-video-indexer"></a>Vad är Video Indexer?
 
@@ -79,7 +79,6 @@ När indexering av en kanal del resultat för dessa modeller är tillgänglig
 
 * **Extrahering av nyckelord**: Extraherar nyckelord från tal och visuell text.
 * **Extrahering av namngivna enheter**: Extraherar varumärken, platser och personer från tal och visuell text via naturlig språk bearbetning (NLP).
-* **Extrahering av varumärken**: Extraherar varumärken från tal och visuell text.
 * **Avsnitts härledning**: Gör det enklare att utföra huvud ämnena i avskrifter. IPTC-taxonomi på den första nivån ingår.
 * **Artefakter**: Extraherar omfattande uppsättning "nästa nivå av information"-artefakter för varje modell.
 * **Sentiment-analys**: Identifierar positiva, negativa och neutrala sentiment från tal och visuell text.

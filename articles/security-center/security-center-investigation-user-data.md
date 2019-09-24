@@ -1,11 +1,10 @@
 ---
-title: Hantera användardata finns i en undersökning av Azure Security Center | Microsoft Docs
-description: " Lär dig hur du hanterar användardata finns i undersökningsfunktionen i Azure Security Center. "
+title: Hantera användar data som finns i en Azure Security Center undersökning | Microsoft Docs
+description: " Lär dig hur du hanterar användar data som finns i Azure Security Centers undersöknings funktion. "
 services: operations-management-suite
 documentationcenter: na
-author: rkarlin
-manager: barbkess
-editor: ''
+author: memildin
+manager: rkarlin
 ms.assetid: 411d7bae-c9d4-4e83-be63-9f2f2312b075
 ms.service: security-center
 ms.devlang: na
@@ -13,40 +12,40 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/20/2018
-ms.author: rkarlin
-ms.openlocfilehash: 1fd979be117104186b2dfce47cc79947a092eb9e
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.author: memildin
+ms.openlocfilehash: 8b6bde69f233fee9fe20b260e392966298f13a9a
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67672335"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71202032"
 ---
-# <a name="manage-user-data-found-in-an-azure-security-center-investigation"></a>Hantera användardata finns i en undersökning av Azure Security Center
-Den här artikeln innehåller information om hur du hanterar användardata finns i undersökningsfunktionen i Azure Security Center. Undersökning data lagras i [Azure Monitor loggar](../log-analytics/log-analytics-overview.md) och visas i Security Center. Hantering av användardata omfattar möjligheten att ta bort eller exportera data.
+# <a name="manage-user-data-found-in-an-azure-security-center-investigation"></a>Hantera användar data som finns i en Azure Security Center undersökning
+Den här artikeln innehåller information om hur du hanterar användar data som finns i Azure Security Centers undersöknings funktion. Gransknings data lagras i [Azure Monitor loggar](../log-analytics/log-analytics-overview.md) och exponeras i Security Center. Att hantera användar data innebär att du kan ta bort eller exportera data.
 
 [!INCLUDE [gdpr-intro-sentence.md](../../includes/gdpr-intro-sentence.md)]
 
 ## <a name="searching-for-and-identifying-personal-data"></a>Söka efter och identifiera personliga data
-Du kan använda Security Center i Azure-portalen [undersökningsfunktionen](../security-center/security-center-investigation.md) att söka efter personliga data. Undersökningsfunktionen är tillgänglig under **säkerhetsaviseringar**.
+I Azure Portal kan du använda Security Centers [gransknings funktion](../security-center/security-center-investigation.md) för att söka efter personliga data. Undersöknings funktionen finns i **säkerhets aviseringar**.
 
-Undersökningsfunktionen visar alla entiteter, användarinformation och data under den **entiteter** fliken.
+I undersöknings funktionen visas alla entiteter, användar information och data på fliken **entiteter** .
 
-## <a name="securing-and-controlling-access-to-personal-information"></a>Skydda och kontrollera åtkomst till personlig information
-En Security Center-användare har tilldelats rollen Läsare, ägare, deltagare eller kontoadministratören kan komma åt kundinformation i verktyget.
+## <a name="securing-and-controlling-access-to-personal-information"></a>Skydda och kontrol lera åtkomst till personlig information
+En Security Center användare som har tilldelats rollen läsare, ägare, deltagare eller konto administratör kan komma åt kund information i verktyget.
 
-Se [inbyggda roller för rollbaserad åtkomstkontroll i Azure](../role-based-access-control/built-in-roles.md) mer information om rollerna som läsare, ägare och deltagare. Se [Azure prenumerationens administratörer](../billing/billing-add-change-azure-subscription-administrator.md) vill veta mer om administratörsrollen för kontot.
+Se [inbyggda roller för rollbaserad åtkomst kontroll i Azure](../role-based-access-control/built-in-roles.md) om du vill veta mer om rollerna läsare, ägare och deltagare. Se [Azure-prenumerations administratörer](../billing/billing-add-change-azure-subscription-administrator.md) för att lära dig mer om rollen konto administratör.
 
 ## <a name="deleting-personal-data"></a>Ta bort personliga data
-En Security Center-användare tilldelas rollen som ägare, deltagare, eller kontoadministratören kan ta bort informationen om undersökning.
+En Security Center användare som tilldelats rollen ägare, deltagare eller konto administratör kan ta bort information om undersökningen.
 
-Om du vill ta bort en undersökning, kan du skicka en `DELETE` begäran till Azure Resource Manager REST API:
+Om du vill ta bort en undersökning kan du `DELETE` skicka en begäran till Azure Resource Manager REST API:
 
 ```HTTP
 DELETE
 https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/features/security/incidents/{incidentName}
 ```
 
-Den `incidentName` indata kan hittas genom att lista alla incidenter med hjälp av en `GET` begäran:
+Du `incidentName` kan hitta indatamängden genom att visa alla incidenter `GET` med en begäran:
 
 ```HTTP
 GET
@@ -54,8 +53,8 @@ https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{reso
 ```
 
 ## <a name="exporting-personal-data"></a>Exportera personliga data
-En Security Center-användare tilldelas rollen som ägare, deltagare, eller kontoadministratör exportera undersökning information. Om du vill exportera undersökning information går du till den **entiteter** flik för att kopiera och klistra in den relevanta informationen.
+En Security Center användare som tilldelats rollen ägare, deltagare eller konto administratör kan exportera information om undersökningen. Om du vill exportera information om undersökningen går du till fliken **entiteter** för att kopiera och klistra in relevant information.
 
 ## <a name="next-steps"></a>Nästa steg
-Läs mer om hur du hanterar användardata, [hanterar användardata i Azure Security Center](security-center-privacy.md).
-Mer information om att ta bort personliga data i Azure Monitor-loggar finns [exportera och ta bort privata data](../azure-monitor/platform/personal-data-mgmt.md#how-to-export-and-delete-private-data).
+Mer information om hur du hanterar användar data finns [i hantera användar data i Azure Security Center](security-center-privacy.md).
+Mer information om hur du tar bort privata data i Azure Monitor loggar finns i [Exportera och ta bort privata data](../azure-monitor/platform/personal-data-mgmt.md#how-to-export-and-delete-private-data).

@@ -8,27 +8,27 @@ ms.topic: conceptual
 ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: 1625f0e6f9bfe8297cae2770e63107bf4f19f95e
-ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.openlocfilehash: f577059e1ebf70e3a9dfe9e538a9d3d49d7c8e96
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70012989"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71200007"
 ---
 # <a name="build-and-deploy-the-opc-vault-certificate-management-service"></a>Bygga och distribuera certifikat hanterings tjänsten för OPC Vault
 
 Den här artikeln förklarar hur du distribuerar OPC-valvet för certifikat hantering i Azure.
 
 > [!NOTE]
-> Mer information om distributions information och instruktioner finns i GitHub [OPC Vault](https://github.com/Azure/azure-iiot-opc-vault-service)-lagringsplatsen.
+> Mer information finns i GitHub [OPC Vault-lagringsplatsen](https://github.com/Azure/azure-iiot-opc-vault-service).
 
 ## <a name="prerequisites"></a>Förutsättningar
 
 ### <a name="install-required-software"></a>Installera nödvändig program vara
 
 För närvarande är åtgärden för att bygga och distribuera begränsad till Windows.
-Exemplen är skrivna för C# .net standard, vilket krävs för att bygga tjänsten och exempel för distribution.
-Alla verktyg du behöver för .net standard levereras med .net Core-verktyg. [Här](https://docs.microsoft.com/dotnet/articles/core/getting-started) finns information om vad du behöver.
+Exemplen är skrivna för C# .net standard, som du behöver för att bygga tjänsten och exempel för distribution.
+Alla verktyg du behöver för .NET standard levereras med .NET Core-verktyg. Se [Kom igång med .net Core](https://docs.microsoft.com/dotnet/articles/core/getting-started).
 
 1. [Installera .net Core 2.1 +][dotnet-install].
 2. [Installera Docker][docker-url] (valfritt, endast om den lokala Docker-versionen krävs).
@@ -37,27 +37,26 @@ Alla verktyg du behöver för .net standard levereras med .net Core-verktyg. [H�
 
 ### <a name="clone-the-repository"></a>Klona lagringsplatsen
 
-Om du inte har gjort det ännu kan du klona den här GitHub-lagringsplatsen.  Öppna en kommando tolk eller Terminal och kör:
+Klona den här GitHub-lagringsplatsen om du inte redan gjort det. Öppna en kommando tolk eller Terminal och kör följande:
 
 ```bash
 git clone https://github.com/Azure/azure-iiot-opc-vault-service
 cd azure-iiot-opc-vault-service 
 ```
 
-eller klona lagrings platsen direkt i Visual Studio 2017.
+Du kan också klona lagrings platsen direkt i Visual Studio 2017.
 
 ### <a name="build-and-deploy-the-azure-service-on-windows"></a>Bygg och Distribuera Azure-tjänsten i Windows
 
-Ett PowerShell-skript är ett enkelt sätt att distribuera OPC Vault mikrotjänster och programmet.<br>
+Ett PowerShell-skript är ett enkelt sätt att distribuera OPC Vault mikrotjänster och programmet.
 
 1. Öppna ett PowerShell-fönster i lagrings platsen-roten. 
-3. Gå till mappen Deploy`cd deploy`
-3. Välj ett namn för `myResourceGroup` det är osannolikt att orsaka en konflikt med andra distribuerade webb sidor. Se [](#website-name-already-in-use) hur webb sidornas namn väljs utifrån namnet på resurs gruppen.
-5. Starta distributionen med `.\deploy.ps1` för interaktiv installation<br>
-eller ange en fullständig kommando rad:  
+3. Gå till mappen `cd deploy`distribuera.
+3. Välj ett namn för `myResourceGroup` det är osannolikt att orsaka en konflikt med andra distribuerade webb sidor. Se avsnittet "webbplats namn som redan används" längre fram i den här artikeln.
+5. Starta distributionen med `.\deploy.ps1` för interaktiv installation eller ange en fullständig kommando rad:  
 `.\deploy.ps1  -subscriptionName "MySubscriptionName" -resourceGroupLocation "East US" -tenantId "myTenantId" -resourceGroupName "myResourceGroup"`
 7. Om du planerar att utveckla med den här distributionen lägger `-development 1` du till för att aktivera Swagger-användargränssnittet och distribuera fel söknings versioner.
-6. Följ instruktionerna i skriptet för att logga in på prenumerationen och ange ytterligare information.
+6. Följ instruktionerna i skriptet för att logga in på din prenumeration och ange ytterligare information.
 9. När du har skapat och distribuerat en lyckad åtgärd bör du se följande meddelande:
    ```
    To access the web client go to:
@@ -73,48 +72,50 @@ eller ange en fullständig kommando rad:
    .\myResourceGroup-gds.cmd
    ```
 
-Om du stöter på problem följer du stegen [nedan](#troubleshooting-deployment-failures).
+   > [!NOTE]
+   > I händelse av problem kan du läsa avsnittet "Felsöka distributions fel" senare i artikeln.
 
 8. Öppna din favorit webbläsare och öppna program sidan:`https://myResourceGroup.azurewebsites.net`
-8. Ge webbappen och OPC-valvet en mikrotjänst några minuter att värma upp efter distributionen. Webb start sidan kanske låser sig vid första användningen i upp till en minut tills du får de första svaren.
-11. Ta en titt på Swagger API Open:`https://myResourceGroup-service.azurewebsites.net`
-13. Starta en lokal GDS-server med dotNet Start `.\myResourceGroup-gds.cmd` eller med Docker Start `.\myResourceGroup-dockergds.cmd`.
+8. Ge webbappen och OPC-valvet en mikrotjänst några minuter att värma upp efter distributionen. Webb start sidan kanske låser sig vid första användningen, i upp till en minut tills du får de första svaren.
+11. Ta en titt på Swagger-API: et genom att öppna:`https://myResourceGroup-service.azurewebsites.net`
+13. Starta en lokal GDS-server med dotNet genom att `.\myResourceGroup-gds.cmd`starta. Starta `.\myResourceGroup-dockergds.cmd`med Docker.
 
-Som sido anteckning är det möjligt att distribuera om en version med exakt samma inställningar. Tänk på att en sådan åtgärd förnyar alla program hemligheter och kan återställa vissa inställningar i program registreringarna i Azure Active Directory (Azure AD).
+Det går att distribuera om en version med exakt samma inställningar. Tänk på att en sådan åtgärd förnyar alla program hemligheter och kan återställa vissa inställningar i program registreringarna i Azure Active Directory (Azure AD).
 
-Det går också att distribuera om bara webbappens binärfiler. Med parameterns `-onlyBuild 1` nya zip-paket och appen distribueras till webb programmen.
+Det är också möjligt att distribuera om bara webbappens binärfiler. Med-parametern `-onlyBuild 1`distribueras nya zip-paket för tjänsten och appen till webb programmen.
 
-När distributionen är klar är du välkommen att börja använda tjänsterna: [Så här hanterar du certifikat hanterings tjänsten för OPC Vault](howto-opc-vault-manage.md)
+När distributionen är klar kan du börja använda tjänsterna. Se [Hantera certifikat hanterings tjänsten för OPC Vault](howto-opc-vault-manage.md).
 
 ## <a name="delete-the-services-from-the-subscription"></a>Ta bort tjänsterna från prenumerationen
 
-1. Logga in på Azure Portal: `https://portal.azure.com`.
+Så här gör du:
+
+1. Logga in på [Azure Portal](https://portal.azure.com).
 2. Gå till resurs gruppen där tjänsten distribuerades.
-3. Välj `Delete resource group` och bekräfta.
-4. Efter en kort stund har alla distribuerade tjänst komponenter tagits bort.
-5. Gå nu till `Azure Active Directory/App registrations`.
-6. Det bör finnas tre registreringar för varje distribuerad resurs grupp med följande namn: `resourcegroup-client`, `resourcegroup-module`, `resourcegroup-service`.
-Varje registrering måste tas bort separat.
-7. Nu tas alla distribuerade komponenter bort.
+3. Välj **Ta bort resursgrupp** och bekräfta.
+4. Efter en kort stund tas alla distribuerade tjänst komponenter bort.
+5. Gå till **Azure Active Directory** > **Appregistreringar**.
+6. Det bör finnas tre registreringar för varje distribuerad resurs grupp. Registreringarna har följande namn: `resourcegroup-client`, `resourcegroup-module`, `resourcegroup-service`. Ta bort varje registrering separat.
+
+Nu tas alla distribuerade komponenter bort.
 
 ## <a name="troubleshooting-deployment-failures"></a>Felsöka distributions fel
 
 ### <a name="resource-group-name"></a>Resursgruppsnamn
 
-Se till att du använder ett kort och enkelt resurs grupp namn.  Namnet används också för att namnge resurser och URL-prefixet för tjänsten och därför måste det uppfylla kraven för resurs namn.  
+Använd ett kort och enkelt resurs grupp namn. Namnet används också för att namnge resurser och URL-prefixet för tjänsten. Det måste därför uppfylla kraven på resurs namn.  
 
 ### <a name="website-name-already-in-use"></a>Webbplats namnet används redan
 
-Det är möjligt att namnet på webbplatsen redan används.  Om du stöter på det här felet måste du använda ett annat resurs grupp namn. Värd namnen som används av distributions skriptet är: https://resourcegroupname.azurewebsites.net och. https://resourgroupname-service.azurewebsites.net
+Det är möjligt att namnet på webbplatsen redan används. Du måste använda ett annat resurs grupps namn. Värd namnen som används av distributions skriptet är: https://resourcegroupname.azurewebsites.net och. https://resourgroupname-service.azurewebsites.net
 Andra namn på tjänster skapas med kombinationen av korta namn-hashar och är sannolikt inte en konflikt med andra tjänster.
 
-### <a name="azure-active-directory-azure-ad-registration"></a>Azure Active Directory (Azure AD)-registrering 
+### <a name="azure-ad-registration"></a>Azure Active Directory-registrering 
 
-Distributions skriptet försöker registrera tre Azure AD-program i Azure Active Directory.  
-Den här åtgärden kan Miss förväntas beroende på dina behörigheter i den valda Azure AD-klienten.   Det finns två alternativ:
+Distributions skriptet försöker registrera tre Azure AD-program i Azure AD. Den här åtgärden kan Miss förväntas beroende på dina behörigheter i den valda Azure AD-klienten. Det finns två alternativ:
 
-1. Om du väljer en Azure AD-klient från en lista över klienter startar du om skriptet och väljer ett annat i listan.
-2. Du kan också distribuera en privat Azure AD-klient i en annan prenumeration, starta om skriptet och välja att använda det.
+- Om du väljer en Azure AD-klient från en lista över klienter startar du om skriptet och väljer ett annat i listan.
+- Du kan också distribuera en privat Azure AD-klient i en annan prenumeration. Starta om skriptet och välj att använda det.
 
 ## <a name="deployment-script-options"></a>Distributions skript alternativ
 
@@ -125,28 +126,28 @@ Skriptet använder följande parametrar:
 -resourceGroupName
 ```
 
-Kan vara namnet på en befintlig eller en ny resurs grupp.
+Detta kan vara namnet på en befintlig eller en ny resurs grupp.
 
 ```
 -subscriptionId
 ```
 
 
-Valfritt, prenumerations-ID där resurser ska distribueras.
+Detta är det prenumerations-ID där resurser ska distribueras. Det är valfritt.
 
 ```
 -subscriptionName
 ```
 
 
-Eller alternativt prenumerations namnet.
+Du kan också använda prenumerations namnet.
 
 ```
 -resourceGroupLocation
 ```
 
 
-Valfritt, en resurs grupps plats. Om det här alternativet anges försöker att skapa en ny resurs grupp på den här platsen.
+Det här är en resurs grupps plats. Om den här parametern anges försöker den här parametern skapa en ny resurs grupp på den här platsen. Den här parametern är också valfri.
 
 
 ```
@@ -154,19 +155,19 @@ Valfritt, en resurs grupps plats. Om det här alternativet anges försöker att 
 ```
 
 
-Azure AD-klient som ska användas. 
+Det här är Azure AD-klienten som ska användas. 
 
 ```
 -development 0|1
 ```
 
-Valfritt, för att distribuera för utveckling. Använd fel söknings version och Ställ in ASP.Net-miljön på utveckling. Skapa '. publishsettings ' för import i Visual Studio 2017 så att den kan distribuera appen och tjänsten direkt.
+Detta är att distribuera för utveckling. Använd fel söknings version och Ställ in ASP.NET-miljön på utveckling. Skapa `.publishsettings` för import i Visual Studio 2017 så att den kan distribuera appen och tjänsten direkt. Den här parametern är också valfri.
 
 ```
 -onlyBuild 0|1
 ```
 
-Valfritt, för att återskapa och omdistribuera bara webbappar och återskapa Docker-behållare.
+Detta är att bygga om och omdistribuera bara webbapparna och återskapa Docker-behållare. Den här parametern är också valfri.
 
 [azure-free]:https://azure.microsoft.com/free/
 [powershell-install]:https://azure.microsoft.com/downloads/#powershell
@@ -175,7 +176,7 @@ Valfritt, för att återskapa och omdistribuera bara webbappar och återskapa Do
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu när du har lärt dig hur du distribuerar OPC-valvet från grunden är det föreslagna nästa steg:
+Nu när du har lärt dig hur du distribuerar OPC-valvet från grunden kan du:
 
 > [!div class="nextstepaction"]
 > [Hantera OPC-valv](howto-opc-vault-manage.md)

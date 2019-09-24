@@ -3,9 +3,8 @@ title: Hantera problem med slut punkts skydd med Azure Security Center | Microso
 description: Lär dig hur du hanterar problem med slut punkts skydd i Azure Security Center.
 services: security-center
 documentationcenter: na
-author: rkarlin
-manager: barbkess
-editor: ''
+author: memildin
+manager: rkarlin
 ms.assetid: 1599ad5f-d810-421d-aafc-892e831b403f
 ms.service: security-center
 ms.devlang: na
@@ -13,13 +12,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/28/2019
-ms.author: rkarlin
-ms.openlocfilehash: 58a220192d6a02c6ad66094e8421405578a82a01
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.author: memildin
+ms.openlocfilehash: b1bcce1e94a64253986ad9b1fd77874ba0a39839
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70231316"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71202070"
 ---
 # <a name="manage-endpoint-protection-issues-with-azure-security-center"></a>Hantera problem med slut punkts skydd med Azure Security Center
 Azure Security Center övervakar status för skydd mot skadlig kod och rapporterar detta under bladet problem med slut punkts skydd. Security Center fokuserar på problem, till exempel identifierade hot och otillräckligt skydd, vilket kan göra att dina virtuella datorer (VM) och datorer är utsatta för hot mot skadlig kod. Genom att använda informationen under **problem med slut punkts skydd**kan du identifiera en plan för att åtgärda eventuella problem som identifieras.
@@ -36,7 +35,7 @@ Security Center rapporterar följande problem med slut punkts skydd:
   - Okänd – en lösning för program mot skadlig kod har installerats men dess status är okänd eller rapporterar ett okänt fel.
 
     > [!NOTE]
-    > Se [integrera](security-center-services.md#endpoint-supported) säkerhetslösningar för en lista över säkerhets lösningar för Endpoint Protection som är integrerade med Security Center.
+    > Se [integrera säkerhetslösningar](security-center-services.md#endpoint-supported) för en lista över säkerhets lösningar för Endpoint Protection som är integrerade med Security Center.
     >
     >
 

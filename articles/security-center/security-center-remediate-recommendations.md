@@ -3,9 +3,8 @@ title: Åtgärda rekommendationer i Azure Security Center | Microsoft Docs
 description: Det här dokumentet beskriver hur du kan åtgärda rekommendationer i Azure Security Center som hjälper dig att skydda dina Azure-resurser och hålla dem kompatibla med säkerhets principer.
 services: security-center
 documentationcenter: na
-author: monhaber
-manager: barbkess
-editor: ''
+author: memildin
+manager: rkarlin
 ms.assetid: 8be947cc-cc86-421d-87a6-b1e23077fd50
 ms.service: security-center
 ms.devlang: na
@@ -13,13 +12,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/18/2019
-ms.author: v-mohabe
-ms.openlocfilehash: a32e344ffe33f411bae85763ae3b919040c1109b
-ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
+ms.author: memildin
+ms.openlocfilehash: 9bd1586193d2e36c370217e37b77409298821a67
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69575592"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71200998"
 ---
 # <a name="remediate-recommendations-in-azure-security-center"></a>Åtgärda rekommendationer i Azure Security Center
 
@@ -56,7 +55,7 @@ Så här implementerar du ett-klick-reparation:
    ![Åtgärd med ett klick](./media/security-center-remediate-recommendations/security-center-one-click-fix-view.png)
 
     > [!NOTE]
-    > Konsekvenserna visas i den grå rutan i fönstret åtgärds **resurser** som öppnas när du klickar på **åtgärda**. De visar vilka ändringar som inträffar när du fortsätter med 1-Klicka på reparation.
+    > Konsekvenserna visas i den grå rutan i fönstret **Åtgärds resurser** som öppnas när du klickar på **åtgärda**. De visar vilka ändringar som inträffar när du fortsätter med 1-Klicka på reparation.
 
 4. Infoga relevanta parametrar vid behov och godkänn reparationen.
 

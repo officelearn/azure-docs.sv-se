@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: b5a21bd144558459ac60ae2da405f9ea57ca2fd1
-ms.sourcegitcommit: 80dff35a6ded18fa15bba633bf5b768aa2284fa8
+ms.openlocfilehash: 1fc322cf7e425e35751369ab8daf1ef1809d5f07
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70020189"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71203258"
 ---
 # <a name="build-a-python-django-web-app-with-postgresql-in-azure-app-service"></a>Bygg en python-webbapp (django) med PostgreSQL i Azure App Service
 
@@ -37,11 +37,11 @@ I den här guiden får du lära dig att:
 > [!NOTE]
 > Innan du skapar en Azure Database for PostgreSQL kontrollerar du [vilken beräkningsgeneration som är tillgänglig i din region](https://docs.microsoft.com/azure/postgresql/concepts-pricing-tiers#compute-generations-and-vcores).
 
-Du kan följa stegen i den här artikeln i macOS. Instruktionerna för Linux och Windows är desamma i de flesta fall, men skillnaderna anges inte i den här självstudien.
+Du kan följa stegen i den här artikeln i macOS, Linux-och Windows-instruktioner är desamma i de flesta fall, men skillnaderna beskrivs inte i den här självstudien.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här självstudien behöver du:
 

@@ -10,12 +10,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 05/02/2019
 ms.author: robreed
-ms.openlocfilehash: 58b6531a394db8f9d29dcc0fe9b4b40d1725e70a
-ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
+ms.openlocfilehash: c0c160d9fc2fcfb8da004d02baae1dd410620cbb
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2019
-ms.locfileid: "68774590"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71204198"
 ---
 # <a name="custom-script-extension-for-windows"></a>Anpassat skript tillägg för Windows
 
@@ -69,7 +69,7 @@ De här objekten ska behandlas som känsliga data och anges i konfigurationerna 
 {
     "apiVersion": "2018-06-01",
     "type": "Microsoft.Compute/virtualMachines/extensions",
-    "name": "config-app",
+    "name": "virtualMachineName/config-app",
     "location": "[resourceGroup().location]",
     "dependsOn": [
         "[concat('Microsoft.Compute/virtualMachines/', variables('vmName'),copyindex())]",
@@ -100,6 +100,9 @@ De här objekten ska behandlas som känsliga data och anges i konfigurationerna 
 
 > [!NOTE]
 > Endast en version av ett tillägg kan installeras på en virtuell dator vid en viss tidpunkt, vilket innebär att det inte går att ange ett anpassat skript två gånger i samma Resource Manager-mall för samma virtuella dator.
+
+> [!NOTE]
+> Vi kan använda det här schemat i VirtualMachine-resursen eller som en fristående resurs. Namnet på resursen måste ha formatet "virtualMachineName/tillägg", om tillägget används som en fristående resurs i ARM-mallen. 
 
 ### <a name="property-values"></a>Egenskapsvärden
 

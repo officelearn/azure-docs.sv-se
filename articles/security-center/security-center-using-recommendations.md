@@ -3,23 +3,22 @@ title: Använd Azure Security Center rekommendationer för att förbättra säke
 description: " Lär dig hur du använder säkerhets principer och rekommendationer i Azure Security Center för att minimera en säkerhets attack. "
 services: security-center
 documentationcenter: na
-author: monhaber
-manager: barbkess
-editor: ''
+author: memildin
+manager: rkarlin
 ms.assetid: ''
 ms.service: security-center
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 8/22/2019
-ms.author: v-mohabe
-ms.openlocfilehash: 13d6eb64b2089cf93f08c294cc9b6a2034b64fa0
-ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
+ms.date: 08/22/2019
+ms.author: memildin
+ms.openlocfilehash: 69fa9d24d24c26a7d945c27e86739475f9883b27
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69990549"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71200694"
 ---
 # <a name="use-azure-security-center-recommendations-to-enhance-security"></a>Använd Azure Security Center rekommendationer för att förbättra säkerheten
 Du kan minska risken för en betydande säkerhets händelse genom att konfigurera en säkerhets princip och sedan implementera de rekommendationer som tillhandahålls av Azure Security Center. Den här artikeln visar hur du använder säkerhets principer och rekommendationer i Security Center för att minimera en säkerhets attack. 
@@ -30,7 +29,7 @@ Security Center kör automatiskt kontinuerliga genomsökningar för att analyser
 - Rekommendationer för Endpoint Protection problem uppdateras inom 8 timmar
 
 ## <a name="scenario"></a>Scenario
-Det här scenariot visar hur du använder Security Center för att minska risken för en säkerhets incident genom att övervaka Security Center rekommendationer och vidta åtgärder. Scenariot använder det fiktiva företaget, Contoso och roller som presenteras i Security Center planerings- [och drift guide](security-center-planning-and-operations-guide.md#security-roles-and-access-controls). I det här scenariot fokuserar vi på rollerna för följande personer:
+Det här scenariot visar hur du använder Security Center för att minska risken för en säkerhets incident genom att övervaka Security Center rekommendationer och vidta åtgärder. Scenariot använder det fiktiva företaget, Contoso och roller som presenteras i Security Center [planerings-och drift guide](security-center-planning-and-operations-guide.md#security-roles-and-access-controls). I det här scenariot fokuserar vi på rollerna för följande personer:
 
 ![Scenario roller](./media/security-center-using-recommendations/scenario-roles.png)
 

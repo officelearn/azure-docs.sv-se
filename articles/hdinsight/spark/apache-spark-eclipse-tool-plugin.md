@@ -2,18 +2,18 @@
 title: 'Azure Toolkit for Eclipse: Skapa Scala-program för HDInsight Spark '
 description: Använd HDInsight-verktyg i Azure Toolkit for Eclipse för att utveckla Spark-program som skrivits i Scala och skicka dem till ett HDInsight Spark-kluster direkt från de Sol förmörkelse som IDE.
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/30/2017
-ms.author: hrasheed
-ms.openlocfilehash: b027ef911b65931f7c96ad45fae66656b3586730
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: 1ebea83d87cd169f61c91a93f092fa277f5017a7
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70994631"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71203804"
 ---
 # <a name="use-azure-toolkit-for-eclipse-to-create-apache-spark-applications-for-an-hdinsight-cluster"></a>Använd Azure Toolkit for Eclipse för att skapa Apache Spark-program för ett HDInsight-kluster
 
@@ -50,11 +50,12 @@ Användaren kan antingen [Logga in i Azure-prenumerationen](#sign-in-to-your-azu
 
 1. Starta Sol förmörkelse IDE och öppna Azure Explorer. Välj **Visa vy**på **fönster** -menyn och välj sedan **annat**. I dialog rutan som öppnas expanderar du **Azure**, väljer **Azure Explorer**och väljer sedan **OK**.
 
-   ![Visa dialog rutan Visa](./media/apache-spark-eclipse-tool-plugin/eclipse-view-explorer1.png)
+   ![Apache Spark Eclispse Visa vy](./media/apache-spark-eclipse-tool-plugin/eclipse-view-explorer1.png)
+
 1. Högerklicka på **Azure** -noden och välj sedan **Logga**in.
 1. I dialog rutan **Azure-inloggning** väljer du autentiseringsmetod, sedan **Logga in**och anger dina autentiseringsuppgifter för Azure.
 
-   ![Dialog rutan för Azure-inloggning](./media/apache-spark-eclipse-tool-plugin/eclipse-view-explorer2.png)
+   ![Apache Spark Eclispse Azure Sign](./media/apache-spark-eclipse-tool-plugin/eclipse-view-explorer2.png)
 
 1. När du har loggat in visar dialog rutan **Välj prenumerationer** alla Azure-prenumerationer som är associerade med autentiseringsuppgifterna. Stäng dialog rutan genom att klicka på **Välj** .
 
@@ -183,7 +184,7 @@ Du kan utföra olika åtgärder med hjälp av HDInsight-verktyg, inklusive åtko
 
    * Hovra över jobb diagrammet. Den visar grundläggande information om jobbet som körs. Välj jobb diagrammet och du kan se de faser och information som varje jobb genererar.
 
-     ![Information om jobb steg](./media/apache-spark-eclipse-tool-plugin/Job-graph-stage-info.png)
+     ![Information om Apache Spark jobb diagram steg](./media/apache-spark-eclipse-tool-plugin/Job-graph-stage-info.png)
 
    * Välj fliken **logg** om du vill visa vanliga loggar, inklusive **driv rutin stderr**, **driv Rutins-STDOUT**och **katalog information**.
 
@@ -238,7 +239,7 @@ För att lösa det här felet måste du [Hämta den körbara filen](https://publ
    * Välj **HDInsight** i den vänstra fönsterrutan.
    * I den högra rutan väljer du **Spark på lokala HDInsight-testexempel (Scala)** .
 
-   ![Dialogrutan Nytt projekt](./media/apache-spark-eclipse-tool-plugin/hdi-spark-app-local-run.png)
+   ![Nytt projekt Välj en guide dialog ruta](./media/apache-spark-eclipse-tool-plugin/hdi-spark-app-local-run.png)
 
 1. Om du vill ange projekt information följer du steg 3 till 6 i det tidigare avsnittet [Konfigurera ett Spark Scala-projekt för ett HDInsight Spark-kluster](#set-up-a-spark-scala-project-for-an-hdinsight-spark-cluster).
 

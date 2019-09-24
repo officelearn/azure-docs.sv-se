@@ -3,9 +3,8 @@ title: Azure Security Center-snabbstart – Publicera dina Linux-datorer till Se
 description: I den här snabbstarten får du veta hur du publicerar dina Linux-datorer till Security Center.
 services: security-center
 documentationcenter: na
-author: rkarlin
-manager: barbkess
-editor: ''
+author: memildin
+manager: rkarlin
 ms.assetid: 61e95a87-39c5-48f5-aee6-6f90ddcd336e
 ms.service: security-center
 ms.devlang: na
@@ -14,13 +13,13 @@ ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/02/2018
-ms.author: rkarlin
-ms.openlocfilehash: 110dcb1531390b207ae741af07fe0ad18964aae1
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.author: memildin
+ms.openlocfilehash: 82ce466f12acef529b5e45e5dd94c64b94be0f7e
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68816132"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71202881"
 ---
 # <a name="quickstart-onboard-linux-computers-to-azure-security-center"></a>Snabbstart: Publicera Linux-datorer till Azure Security Center
 När du har publicerat dina Azure-prenumerationer kan du aktivera Security Center för Linux-resurser som körs utanför Azure, till exempel lokalt eller i andra moln, genom att tillhandahålla en agent. Agenten kallas Microsoft Monitoring Agent (MMA), men kallas även OMS-agenten.
@@ -82,7 +81,7 @@ Så här tar du bort agenten:
     `sudo sh ./omsagent-<version>.universal.x64.sh --purge`
 
 ## <a name="next-steps"></a>Nästa steg
-I den här snabbstarten etablerade du agenten på en Linux-dator. Om du vill läsa mer om hur du använder Security Center fortsätter du till självstudien om konfiguration av en säkerhetsprincip och utvärderar resursers säkerhet.
+I den här snabb starten etablerade du agenten på en Linux-dator. Om du vill läsa mer om hur du använder Security Center fortsätter du till självstudien om konfiguration av en säkerhetsprincip och utvärderar resursers säkerhet.
 
 > [!div class="nextstepaction"]
 > [Självstudier: Definiera och utvärdera säkerhetsprinciper](tutorial-security-policy.md)

@@ -3,7 +3,7 @@ title: 'Azure Statusövervakare v2 API-referens: Konfigurera konfiguration | Mic
 description: API-referens för Statusövervakare v2. Set-ApplicationInsightsMonitoringConfig. Övervaka webbplatsens prestanda utan att omdistribuera webbplatsen. Fungerar med ASP.NET-webbappar som finns lokalt, i virtuella datorer eller på Azure.
 services: application-insights
 documentationcenter: .net
-author: MS-TimothyMothra
+author: TimothyMothra
 manager: alexklim
 ms.assetid: 769a5ea4-a8c6-4c18-b46c-657e864e24de
 ms.service: application-insights
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
-ms.openlocfilehash: f3a55caba13b3b96884d446e0750d9fb67a343df
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 6d93be5b01be63a75041b939f6b8deb9106c4262
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68326299"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71200444"
 ---
 # <a name="status-monitor-v2-api-set-applicationinsightsmonitoringconfig"></a>API för Statusövervakare v2: Set-ApplicationInsightsMonitoringConfig
 

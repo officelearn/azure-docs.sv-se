@@ -8,12 +8,12 @@ ms.custom: hdinsightactive,seodec18
 ms.topic: tutorial
 ms.date: 05/22/2019
 ms.author: hrasheed
-ms.openlocfilehash: 32e47f688150333ac78091589d8a252641d4c7d6
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.openlocfilehash: bcf1b967cf8eeab7aae4b720683785309689858e
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71076999"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71204226"
 ---
 # <a name="tutorial-use-apache-spark-structured-streaming-with-apache-kafka-on-hdinsight"></a>Självstudie: Använda Apache Spark Structured Streaming med Apache Kafka i HDInsight
 
@@ -186,12 +186,15 @@ Det här exemplet visar hur du använder Spark Structured streaming med Kafka p�
 
 4. Läs in paket som används av antecknings boken genom att ange följande information i en Notebook-cell. Kör kommandot genom att trycka på **CTRL + RETUR**.
 
+Spark streaming har mikrobatchering, vilket innebär att data kommer som batchar och körningar som körs i batchar med data. Om utförar har en tids gräns för inaktivitet som är kortare än den tid det tar att bearbeta batchen, läggs körningarna ständigt till och tas bort. Om tids gränsen för inaktiva inaktivitet är större än batchens varaktighet tas utförar aldrig bort. **Vi rekommenderar därför att du inaktiverar dynamisk allokering genom att ställa in Spark. dynamicAllocation. enabled på false när du kör strömmande program.**
+
     ```
     %%configure -f
     {
         "conf": {
             "spark.jars.packages": "org.apache.spark:spark-sql-kafka-0-10_2.11:2.2.0",
-            "spark.jars.excludes": "org.scala-lang:scala-reflect,org.apache.spark:spark-tags_2.11"
+            "spark.jars.excludes": "org.scala-lang:scala-reflect,org.apache.spark:spark-tags_2.11",
+            "spark.dynamicAllocation.enabled": false
         }
     }
     ```

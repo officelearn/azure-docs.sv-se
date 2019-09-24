@@ -3,9 +3,8 @@ title: Avancerad data säkerhet för IaaS i Azure Security Center | Microsoft Do
 description: " Lär dig hur du aktiverar avancerad data säkerhet för IaaS i Azure Security Center. "
 services: security-center
 documentationcenter: na
-author: monhaber
-manager: barbkess
-editor: monhaber
+author: memildin
+manager: rkarlin
 ms.assetid: ba46c460-6ba7-48b2-a6a7-ec802dd4eec2
 ms.service: security-center
 ms.devlang: na
@@ -13,13 +12,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/29/2019
-ms.author: v-mohabe
-ms.openlocfilehash: 0b83575baa2221f0b502abbf919654492c7ab6cf
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.author: memildin
+ms.openlocfilehash: 287da68617a9527bc398df577cf8d10773fa8557
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68295760"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71202167"
 ---
 # <a name="advanced-data-security-for-sql-servers-on-azure-virtual-machines-public-preview"></a>Avancerad data säkerhet för SQL-servrar på Azure Virtual Machines (offentlig för hands version)
 Avancerad data säkerhet för SQL-servrar på Azure Virtual Machines är ett enhetligt paket för avancerade SQL-säkerhetsfunktioner. Den för närvarande (i offentlig för hands version) innehåller funktioner för Visa och åtgärder för att åtgärda eventuella sårbarheter i databasen och identifiera avvikande aktiviteter som kan tyda på ett hot mot databasen. 
@@ -70,9 +69,9 @@ Du kan visa och hantera dina aktuella säkerhets aviseringar.
 
 1. I kolumnen **attackerad resurs** klickar du på en resurs som har attacker ATS.
 
-1. Om du vill visa information om aviseringar och åtgärder för att undersöka det aktuella hotet och åtgärda framtida hot, bläddrar du ned sidan **allmän information** och klickar på länken gransknings steg i  avsnittet **reparations steg** .
+1. Om du vill visa information om aviseringar och åtgärder för att undersöka det aktuella hotet och åtgärda framtida hot, bläddrar du ned sidan **allmän information** och klickar på länken gransknings steg i avsnittet **reparations steg** .
 
-    ![Reparations steg](./media/security-center-advanced-iaas-data/remediation-steps.png)
+    ![Reparationssteg](./media/security-center-advanced-iaas-data/remediation-steps.png)
 
 1. Om du vill visa de loggar som är associerade med aktivering av aviseringen går du till **Log Analytics-arbetsytor** och utför följande steg:
 

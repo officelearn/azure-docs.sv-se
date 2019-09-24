@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/23/2018
 ms.author: chackdan
-ms.openlocfilehash: f33b25112b5c4ee77f1f7d2a419ffb8e926a27d9
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: f929ca1cd0fe6f2a94864ae3eb4df28e7b1927db
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68501366"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71200455"
 ---
 # <a name="azure-service-fabric-node-types-and-virtual-machine-scale-sets"></a>Azure Service Fabric Node-typer och skalnings uppsättningar för virtuella datorer
 [Skalnings uppsättningar för virtuella datorer](/azure/virtual-machine-scale-sets) är en Azure Compute-resurs. Du kan använda skalnings uppsättningar för att distribuera och hantera en samling virtuella datorer som en uppsättning. Varje nodtyp som du definierar i ett Azure Service Fabric-kluster ställer in en separat skala.  Service Fabric Runtime installerat på varje virtuell dator i skalnings uppsättningen av tillägget Microsoft. Azure. ServiceFabric för virtuella datorer. Du kan skala upp eller ned varje nodtyp separat, ändra OS-SKU: n som körs på varje klusternod, ha olika portar öppna och använda olika kapacitets mått.
@@ -78,7 +78,7 @@ Följande är egenskaps beskrivningarna:
 | **Namn** | **Tillåtna värden** | ** --- ** | **Vägledning eller kort beskrivning** |
 | --- | --- | --- | --- |
 | name | sträng | --- | unikt namn för tillägg |
-| type | "ServiceFabricLinuxNode" eller "ServiceFabricWindowsNode | --- | Identifierar OS-Service Fabric som startas |
+| type | "ServiceFabricLinuxNode" eller "ServiceFabricWindowsNode" | --- | Identifierar OS-Service Fabric som startas |
 | autoUpgradeMinorVersion | Sant eller falskt | --- | Aktivera automatisk uppgradering av SF runtime minor-versioner |
 | publisher | Microsoft.Azure.ServiceFabric | --- | namnet på Service Fabric omfattnings utgivaren |
 | clusterEndpont | sträng | --- | URI: PORT till hanterings slut punkt |
@@ -87,9 +87,9 @@ Följande är egenskaps beskrivningarna:
 | enableParallelJobs | Sant eller falskt | --- | Aktivera Compute ParallelJobs som ta bort virtuell dator och starta om den virtuella datorn i samma skalnings uppsättning parallellt |
 | nicPrefixOverride | sträng | --- | Undernätsprefixet som "10.0.0.0/24" |
 | commonNames | sträng [] | --- | Vanliga namn på installerade kluster certifikat |
-| x509StoreName | sträng | --- | Namn på arkivet där det installerade kluster certifikatet finns |
+| X509StoreName | sträng | --- | Namn på arkivet där det installerade kluster certifikatet finns |
 | typeHandlerVersion | 1.1 | --- | Version av tillägget. 1,0 Classic-versionen av tillägget rekommenderas för att uppgradera till 1,1 |
-| dataPath | sträng | --- | Sökväg till enheten som används för att spara tillstånd för Service Fabric system tjänster och program data. 
+| DataPath | sträng | --- | Sökväg till enheten som används för att spara tillstånd för Service Fabric system tjänster och program data. 
 
 ## <a name="next-steps"></a>Nästa steg
 * Se [översikten över funktionen "distribuera överallt" och en jämförelse med Azure-hanterade kluster](service-fabric-deploy-anywhere.md).

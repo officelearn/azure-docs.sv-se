@@ -8,25 +8,24 @@ ms.service: security-center
 ms.topic: article
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: b4367bacf13e121220f12b6587c5ad60ad59d031
-ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
+ms.openlocfilehash: 6e7263dfa0faf0bf2fd7e8b7d6e050ca6bc95e2a
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70910573"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71202205"
 ---
+# <a name="retirement-of-security-center-features-july-2019"></a>Dra tillbaka Security Center funktioner (2019 juli)
+
 > [!NOTE]
 > Det här dokumentet innehåller en lista över funktioner som har dragits tillbaka från Azure Security Center den 31 juli 2019.
 >
 >
 
-
-# <a name="retirement-of-security-center-features-july-2019"></a>Dra tillbaka Security Center funktioner (2019 juli)
-
 Vi har gjort flera [förbättringar](https://azure.microsoft.com/updates/?product=security-center) för Azure Security Center under de sex månaderna, vilket ledde till 2019 juli.
 Med dessa förbättrade funktioner tog vi bort några redundanta funktioner och relaterade API: er från Security Center den 31 juli 2019.
 
-De flesta av dessa funktioner kan ersättas med nya funktioner i Azure Security Center eller Azure Log Analytics. Andra funktioner kan implementeras med hjälp av [Azure Sentinel (för hands version)](https://azure.microsoft.com/services/azure-sentinel/).
+De flesta av dessa kasse rings funktioner kan ersättas med andra funktioner i Azure Security Center eller Azure Log Analytics. Andra funktioner kan implementeras med hjälp av [Azure Sentinel (för hands version)](https://azure.microsoft.com/services/azure-sentinel/).
 
 Föråldrade Security Center-funktioner är:
 
@@ -104,11 +103,11 @@ Vi har tagit bort knappen **gå till säkerhets händelse mappning** och instrum
 
 ![Karta över säkerhets aviseringar – knapp][10]
 
-När du väljer knappen **gå till säkerhets händelser karta** öppnar du instrument panelen Hot information. Vi har dragit tillbaka hot Intelligence-instrumentpanelen.
+När du väljer **mappnings knappen gå till säkerhets händelser** öppnas den (nu drog) instrument panel för hot information.
 
 ![Instrumentpanelen för hotinformation][11]
 
-När du väljer en arbets yta för att visa instrument panelen för hot information öppnar du skärmen säkerhets aviserings mappning (förhands granskning) i Log Analytics. Vi drog tillbaka den här skärmen.
+När du väljer en arbets yta för att visa instrument panelen för hot information öppnar du skärmen (nu drog tillbaka) säkerhets aviserings mappning (för hands version) i Log Analytics.
 
 ![Säkerhets aviseringar mappas i Log Analytics][12]
 

@@ -3,9 +3,8 @@ title: Ange information om säkerhets kontakt i Azure Security Center | Microsof
 description: Det här dokumentet visar hur du anger säkerhets kontakt uppgifter i Azure Security Center.
 services: security-center
 documentationcenter: na
-author: rkarlin
-manager: barbkess
-editor: ''
+author: memildin
+manager: rkarlin
 ms.assetid: 26b5dcb4-ce3f-4f22-8d56-d2bf743cfc90
 ms.service: security-center
 ms.devlang: na
@@ -13,13 +12,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/09/2019
-ms.author: rkarlin
-ms.openlocfilehash: ae7c130df40ea0553bd9e3ae117534fe98466f26
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.author: memildin
+ms.openlocfilehash: fabccb7a3f49442a009fd69ee6d3b831760751d2
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68934896"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71201018"
 ---
 # <a name="provide-security-contact-details-in-azure-security-center"></a>Ange säkerhets kontakt uppgifter i Azure Security Center
 Azure Security Center rekommenderar att du anger säkerhets kontakt information för din Azure-prenumeration om du inte redan har gjort det. Den här informationen används av Microsoft för att kontakta dig om Microsoft Security Response Center (MRSC) upptäcker att en obehörig part har kommit åt dina kunddata. MSRC utför en urvals säkerhets övervakning av Azure-nätverket och-infrastrukturen och tar emot Hot information och klagomål från missbruk från tredje part.
@@ -41,10 +40,10 @@ Till exempel om ett e-postmeddelande redan har skickats för att meddela dig om 
 
 1. Välj **pris & inställningar**i portalen.
 1. Klicka på prenumerationen.
-1. Klicka på **e-** postaviseringar.
+1. Klicka på **e-postaviseringar**.
 
 > [!NOTE]
-> Om du implementerar en rekommendation väljer du **Ange säkerhets kontakt information**under **rekommendationer**, väljer den Azure-prenumeration som du vill ge kontakt information på. Detta öppnar **e-** postaviseringar.
+> Om du implementerar en rekommendation väljer du **Ange säkerhets kontakt information**under **rekommendationer**, väljer den Azure-prenumeration som du vill ge kontakt information på. Detta öppnar **e-postaviseringar**.
 
    ![Ange säkerhetskontaktuppgifter][2]
 

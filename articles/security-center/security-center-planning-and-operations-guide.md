@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: b731c5fe6b6c7055b7397386b1e9fd4bed47db8a
-ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
+ms.openlocfilehash: 62387fe7ddbde75e79724c77dd7eeedd5cae64c3
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70910597"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71201870"
 ---
 # <a name="azure-security-center-planning-and-operations-guide"></a>Planerings- och användningsguide för Azure Security Center
 Den här guiden är till för IT-experter, IT-arkitekter, informations säkerhets analytiker och moln administratörer som planerar att använda Azure Security Center.
@@ -182,13 +182,13 @@ När du har genomfört alla rekommendationer bör **skyddsdelen** vara grön fö
 Planera in att använda [Hotinformation](https://docs.microsoft.com/azure/security-center/security-center-threat-intel) som en del av dina dagliga säkerhetsåtgärder. Där kan du identifiera säkerhetshot mot miljön, till exempel identifiera om en viss dator är en del av ett botnät.
 
 ### <a name="monitoring-for-new-or-changed-resources"></a>Övervakning av nya och ändrade resurser
-De flesta miljöer i Azure är dynamiska, med nya resurser som skapas och försvinner, nya konfigurationer och ändringar och så vidare. Med Security Center har du bra insyn i de nya objektens säkerhetsstatus.
+De flesta Azure-miljöer är dynamiska, och de resurser som regelbundet skapas, anpassas upp eller ned, konfigureras om och ändras. Med Security Center har du bra insyn i de nya objektens säkerhetsstatus.
 
 När du lägger till nya resurser (virtuella datorer, SQL-databaser osv.) i Azure-miljön identifierar Security Center de här resurserna automatiskt och börjar övervaka deras säkerhet. Detta omfattar även arbetarroller och webbroller i PaaS. Om datainsamling har aktiverats i [säkerhetsprincipen](tutorial-security-policy.md) aktiveras ytterligare övervakningsfunktioner för alla virtuella datorer automatiskt.
 
 ![Huvuddelar](./media/security-center-planning-and-operations-guide/security-center-planning-and-operations-guide-fig3-newUI.png)
 
-1. För virtuella datorer, klickar du på **Compute** under området **Förebyggande**. Eventuella problem med att aktivera datainsamling eller tillhörande rekommendationer visas i fliken **Översikt** och **Monitoring Recommendations** (Övervakningsrekommendationer).
+1. För virtuella datorer klickar du på **compute & Apps**i avsnittet **resurs säkerhets hygien** . Eventuella problem med att aktivera datainsamling eller tillhörande rekommendationer visas i fliken **Översikt** och **Monitoring Recommendations** (Övervakningsrekommendationer).
 2. Under **Recommendations (Rekommendationer)** kan du se om några säkerhetsrisker har upptäckts i den nya resursen.
 3. När nya virtuella datorer läggs till i miljön brukar det först bara vara operativsystemet som är installerat. Resursägaren kan behöva lite tid för att distribuera andra program som ska användas på de här datorerna.  Helst bör du veta vilka planerna för arbetsbelastningen är. Ska det vara en programserver? Beroende på vad den nya arbetsbelastningen ska bli kan du aktivera en **säkerhetsprincip** som passar, vilket är det tredje steget i det här arbetsflödet.
 4. När nya resurser läggs till i din Azure-miljö kan nya aviseringar visas i panelen **säkerhets aviseringar** . Sök efter nya aviseringar i den här panelen och följ rekommendationerna.

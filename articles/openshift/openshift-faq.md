@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 05/08/2019
-ms.openlocfilehash: 6ba252ccf7a46e93b2057b6822f2aae298f537d1
-ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
+ms.openlocfilehash: 86875643950e11f1e5030676c1ab3825039749ed
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69991631"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71203534"
 ---
 # <a name="azure-red-hat-openshift-faq"></a>Vanliga frågor och svar om Azure Red Hat
 
@@ -157,10 +157,52 @@ Varnings skydd måste användas när du använder vissa etiketter:
 
 ## <a name="what-is-the-maximum-number-of-pods-in-an-aro-cluster-what-is-the-maximum-number-of-pods-per-node-in-aro"></a>Vilket är det maximala antalet poddar i ett ARO-kluster?  Vilket är det maximala antalet poddar per nod i ARO?
 
-Se överordnade OpenShift- [dokument](https://docs.openshift.com/container-platform/3.11/scaling_performance/cluster_limits.html#scaling-performance-current-cluster-limits) för mer information. Red Hat OpenShift 3,11 har en gräns på 250 Pod per nod, medan [Aro har en gräns på 20 beräknings noder](https://docs.microsoft.com/azure/openshift/openshift-faq#what-cluster-operations-are-available), så att Caps Max antalet poddar stöds i ett Aro-kluster till 250 * 20 = 5000.
+Se [överordnade OpenShift-dokument](https://docs.openshift.com/container-platform/3.11/scaling_performance/cluster_limits.html#scaling-performance-current-cluster-limits) för mer information. Red Hat OpenShift 3,11 har en gräns på 250 Pod per nod, medan [Aro har en gräns på 20 beräknings noder](https://docs.microsoft.com/azure/openshift/openshift-faq#what-cluster-operations-are-available), så att Caps Max antalet poddar stöds i ett Aro-kluster till 250 * 20 = 5000.
 
 ## <a name="can-we-specify-ip-ranges-for-deployment-on-the-private-vnet-avoiding-clashes-with-other-corporate-vnets-once-peered"></a>Kan vi ange IP-intervall för distribution på det privata virtuella nätverket, vilket undviker konflikt med andra företags virtuella nätverk när de har peer-kopplats?
 
 Azure Red Hat OpenShift stöder VNET-peering och gör det möjligt för kunden att tillhandahålla ett VNET för peer-koppla med och en VNET CIDR där OpenShift-nätverket fungerar.
 
 Det virtuella nätverket som skapades av ARO kommer att skyddas och kommer inte att acceptera konfigurations ändringar. Det virtuella nätverket som är peer-kopplat styrs av kunden och finns i prenumerationen.
+
+## <a name="does-the-cluster-reside-in-a-customer-subscription"></a>Finns klustret i en kund prenumeration? 
+
+Det Azure-hanterade programmet finns i en låst resurs grupp med kund prenumerationen. Kunden kan visa objekt i den RG men inte ändra.
+
+## <a name="is-the-sdn-module-configurable"></a>Kan modulen SDN konfigureras?
+
+SDN är OpenShift-OVS-networkpolicy och kan inte konfigureras.
+
+## <a name="which-unix-rights-in-iaas-are-available-for-mastersinfraapp-nodes"></a>Vilka UNIX-rättigheter (i IaaS) är tillgängliga för Masters/infraröda/app-noder?
+
+Inte tillämpligt för det här erbjudandet. Åtkomst till noden är förbjuden.
+
+## <a name="which-ocp-rights-do-we-have-cluster-admin-project-admin"></a>Vilka OCP-rättigheter har vi? Kluster-admin? Projekt-admin?
+
+Mer information finns i Översikt över Azure Red Hat OpenShift [cluster administration](https://docs.openshift.com/aro/admin_guide/index.html).
+
+## <a name="which-kind-of-federation-with-ldap"></a>Vilken typ av Federation med LDAP?
+
+Detta kan uppnås via Azure AD-integrering. 
+
+## <a name="is-there-any-element-in-aro-shared-with-other-customers-or-is-everything-independent"></a>Finns det något element i ARO som delas med andra kunder? Eller är allt oberoende?
+
+Varje Azure Red Hat OpenShift-kluster är dedikerad till en bestämd kund och är i kund prenumerationen. 
+
+## <a name="can-we-choose-any-persistent-storage-solution-ocs"></a>Kan vi välja valfri beständig lagrings lösning. OCS? 
+
+Det finns två lagrings klasser att välja mellan: Azure-disk och Azure-fil.
+
+## <a name="how-is-a-cluster-updated-including-majors-and-minors-due-to-vulnerabilities"></a>Hur uppdateras ett kluster (inklusive huvud och minderåriga på grund av sårbarheter)?
+
+Se [Vad är den allmänna uppgraderings processen?](https://docs.microsoft.com/azure/openshift/openshift-faq#what-is-the-general-upgrade-process)
+
+## <a name="what-azure-load-balancer-is-used-by-aro-is-it-standard-or-basic-and-is-it-configurable"></a>Vilken Azure Load Balancer används av ARO?  Är det standard eller Basic och det kan konfigureras?
+
+ARO använder standard Azure Load Balancer och kan inte konfigureras.
+
+## <a name="can-aro-use-netapp-based-storage"></a>Kan ARO använda NetApp-baserad lagring?
+
+Just nu är de enda lagrings alternativ som stöds för Azure disk-och Azure File Storage-klasser. 
+
+

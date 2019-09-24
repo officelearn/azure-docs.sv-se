@@ -16,12 +16,12 @@ ms.date: 07/09/2018
 ms.author: mlearned
 ms.custom: mvc, seo-java-july2019, seo-java-august2019, seo-java-september2019
 monikerRange: vsts
-ms.openlocfilehash: d395855de6bb16841d54821c87a6af6d5d62c11c
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: 49514022dc00afcd07002c7a3278c18a606e5ad5
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70898059"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71203718"
 ---
 # <a name="quickstart-set-up-a-cicd-pipeline-for-a-java-app-with-azure-devops-projects"></a>Snabbstart: Konfigurera en CI/CD-pipeline för en Java-app med Azure DevOps Projects
 
@@ -39,7 +39,7 @@ Om du inte har en Azure-prenumeration kan du skaffa en kostnadsfritt via [Visual
 
 2. Välj **Skapa**.
 
-    ![Börja konfiguration av kontinuerlig leverans](_img/azure-devops-project-java/fullbrowser.png)
+    ![Skapa en Azure-resurs i DevOps Projects](_img/azure-devops-project-java/continuous-delivery-configuration-full-browser.png)
 
 ## <a name="select-a-sample-application-and-azure-service"></a>Välj ett exempelprogram och en Azure-tjänst
 
@@ -62,7 +62,7 @@ Java-exemplet innehåller ett val av flera programramverk.
 
 2. Visa ditt körande program genom att välja **Bläddra**.
 
-    ![Instrumentpanelsvy](_img/azure-devops-project-java/dashboardnopreview.png) 
+    ![Visa instrument panelen för programmet i Azure Portal](_img/azure-devops-project-java/azure-devops-application-dashboard.png) 
     
    DevOps Projects konfigurerade automatiskt en CI-version och versionsutlösare.  Nu är du redo att samarbeta med ett team på en Java-app med en CI/CD-process som automatiskt distribuerar ditt senaste arbete till din webbplats.
 

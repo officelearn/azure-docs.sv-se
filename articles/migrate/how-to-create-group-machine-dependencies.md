@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 07/17/2019
 ms.author: hamusa
-ms.openlocfilehash: c48323bb4c8798a0f36d3fda99a4c659187e0e81
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.openlocfilehash: 8e793891ea646ae8c91077ead36be9b84c1b08c8
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69906379"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71200202"
 ---
 # <a name="set-up-dependency-visualization-for-assessment"></a>Konfigurera beroende visualisering för utvärdering
 
@@ -61,7 +61,7 @@ Koppla en arbets yta enligt följande:
 
     ![Lägg till arbetsyta](./media/how-to-create-group-machine-dependencies/workspace.png)
 
-    - När du har angett ett namn för en ny arbets yta skapas den i samma geografi som Azure Migrate-projektet.
+    - När du har angett ett namn för en ny arbets yta kan du välja den [region](https://azure.microsoft.com/global-infrastructure/regions/) där arbets ytan ska skapas.
     - När du ansluter en befintlig arbets yta kan du välja mellan alla tillgängliga arbets ytor i samma prenumeration som migreringsjobbet.
     - Du måste ha Läs behörighet till arbets ytan för att kunna koppla den.
     - Du kan inte ändra arbets ytan som är kopplad till ett projekt när den har bifogats.

@@ -10,12 +10,12 @@ ms.subservice: ''
 ms.topic: quickstart
 ms.date: 07/25/2019
 ms.author: pafarley
-ms.openlocfilehash: 16a487dc007526f685edb52726f5797303a30c11
-ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
+ms.openlocfilehash: d0ef228f9f019b6f975ba32cf6a579f328226ae2
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70966989"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71203450"
 ---
 # <a name="quickstart-computer-vision-client-library-for-java"></a>Snabbstart: Visuellt innehåll klient bibliotek för Java
 
@@ -24,6 +24,7 @@ Kom igång med Visuellt innehåll klient bibliotek för Java. Följ de här steg
 Använd Visuellt innehåll klient bibliotek för Java för att:
 
 * Analysera en bild för taggar, text beskrivning, ansikten, vuxen innehåll med mera.
+* Identifiera skriven text skriven och handskriven text med API: t batch Read.
 
 [Exempel på referens dokumentations](https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/computervision?view=azure-java-stable) | [](https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=vision&sort=0) [artefakt (maven)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.ComputerVision/) | 
 
@@ -115,6 +116,7 @@ De här kodfragmenten visar hur du gör följande uppgifter med Visuellt innehå
 
 * [Autentisera klienten](#authenticate-the-client)
 * [Analysera en bild](#analyze-an-image)
+* [Skriv ut och handskriven text](#read-printed-and-handwritten-text)
 
 ## <a name="authenticate-the-client"></a>Autentisera klienten
 
@@ -211,6 +213,29 @@ Följande kod tolkar data om identifierade landmärken i bilden.
 Följande kod skriver ut information om typen av bild&mdash;oavsett om den är en ClipArt-eller linje ritning.
 
 [!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/ComputerVisionQuickstart.java?name=snippet_imagetype)]
+
+## <a name="read-printed-and-handwritten-text"></a>Skriv ut och handskriven text
+
+Visuellt innehåll kan läsa synlig text i en bild och konvertera den till en tecken ström.
+
+> [!NOTE]
+> Du kan också läsa text i en fjärran sluten avbildning med hjälp av dess URL. Se exempel koden på [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/java/ComputerVision/ComputerVisionQuickstart.java) för scenarier som rör fjärranslutna avbildningar.
+
+### <a name="call-the-recognize-api"></a>Anropa API: et för igenkänning
+
+Använd först följande kod för att anropa **recognizePrintedTextInStream** -metoden för den aktuella avbildningen. När du lägger till den här koden i projektet måste du ersätta värdet för `localTextImagePath` med sökvägen till den lokala avbildningen. 
+
+[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/ComputerVisionQuickstart.java?name=snippet_imagetype)]
+
+### <a name="print-recognize-results"></a>Skriv ut identifiera resultat
+
+Följande kodblock bearbetar den returnerade texten och tolkar den för att skriva ut det första ordet på varje rad. Du kan använda den här koden för att snabbt förstå strukturen för en **OcrResult** -instans.
+
+[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/ComputerVisionQuickstart.java?name=snippet_read_print)]
+
+Slutligen avslutar du try/catch-blocket och metod definitionen.
+
+[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/ComputerVisionQuickstart.java?name=snippet_read_catch)]
 
 ## <a name="run-the-application"></a>Köra programmet
 

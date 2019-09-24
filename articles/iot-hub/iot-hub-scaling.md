@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 06/28/2019
 ms.author: wesmc
-ms.openlocfilehash: 18864a662464f77d799e54d583092a371bc2d137
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 8d7bb201a9d01725f933105a4a0beb85c82ca105
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "70999970"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71203711"
 ---
 # <a name="choose-the-right-iot-hub-tier-for-your-solution"></a>Välj rätt IoT Hub nivå för din lösning
 
@@ -47,6 +47,7 @@ Det går bara att välja en typ av [utgåva](https://azure.microsoft.com/pricing
 | [Enhets uppflätade](iot-hub-devguide-device-twins.md), [modulens sammanflätade](iot-hub-devguide-module-twins.md)och [enhets hantering](iot-hub-device-management-overview.md) |   | Ja |
 | [Enhets strömmar (förhands granskning)](iot-hub-device-streams-overview.md) |   | Ja |
 | [Azure IoT Edge](../iot-edge/about-iot-edge.md) |   | Ja |
+| [IoT Plug and Play Preview](../iot-pnp/overview-iot-plug-and-play.md) |   | Ja |
 
 IoT Hub erbjuder också en kostnads fri nivå som är avsedd för testning och utvärdering. Den har alla funktioner i standard-nivån, men begränsade meddelande ersättningar. Du kan inte uppgradera från den kostnads fria nivån till antingen Basic eller standard.
 

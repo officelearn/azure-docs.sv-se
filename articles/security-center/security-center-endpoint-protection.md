@@ -3,8 +3,8 @@ title: Slut punkts skydds lösningar identifiering och hälso utvärdering i Azu
 description: Hur lösningar för slut punkts skydd identifieras och identifieras som felfria.
 services: security-center
 documentationcenter: na
-author: monhaber
-manager: barbkess
+author: memildin
+manager: rkarlin
 ms.assetid: 2730a2f5-20bc-4027-a1c2-db9ed0539532
 ms.service: security-center
 ms.devlang: na
@@ -12,28 +12,28 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/08/2019
-ms.author: v-mohabe
-ms.openlocfilehash: a5cd0f88173abb65a120aa305206505af51d9f9e
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.author: memildin
+ms.openlocfilehash: 8de0caa5db4a7e1d97c7d6c055bcb01fed635821
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70861368"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71202253"
 ---
 # <a name="endpoint-protection-assessment-and-recommendations-in-azure-security-center"></a>Endpoint Protection-utvärdering och rekommendationer i Azure Security Center
 
-Endpoint Protection-utvärdering och rekommendationer i Azure Security Center identifierar och tillhandahåller hälso utvärdering av versioner av slut punkts skydds lösningar som [stöds](https://docs.microsoft.com/azure/security-center/security-center-os-coverage) . I det här avsnittet beskrivs scenarier som genererar följande två rekommendationer för Endpoint Protection-lösningar med Azure Security Center.
+Azure Security Center tillhandahåller hälso utvärdering av versioner av Endpoint Protection-lösningar som [stöds](https://docs.microsoft.com/azure/security-center/security-center-os-coverage) . I den här artikeln beskrivs scenarier som leder Security Center att generera följande två rekommendationer:
 
 * **Installera Endpoint Protection-lösningar på den virtuella datorn**
 * **Lös problem med hälso tillstånd för slut punkts skydd på dina datorer**
 
 ## <a name="windows-defender"></a>Windows Defender
 
-* Rekommendationen **"Installera Endpoint Protection-lösningar på virtuell dator"** genereras när [Get-MpComputerStatus](https://docs.microsoft.com/powershell/module/defender/get-mpcomputerstatus?view=win10-ps) körs och resultatet är **AMServiceEnabled: !**
+* Security Center rekommenderar att du **installerar Endpoint Protection-lösningar på den virtuella datorn** när [Get-MpComputerStatus](https://docs.microsoft.com/powershell/module/defender/get-mpcomputerstatus?view=win10-ps) körs och resultatet är **AMServiceEnabled: !**
 
-* Rekommendationen **"Lös problem med Endpoint Protection-hälso problemen på dina datorer"** genereras när [Get-MpComputerStatus](https://docs.microsoft.com/powershell/module/defender/get-mpcomputerstatus?view=win10-ps) körs, eller båda av följande inträffar:
+* Security Center rekommenderar att du **löser problem med hälso tillstånd för slut punkts skydd på dina datorer** när [Get-MpComputerStatus](https://docs.microsoft.com/powershell/module/defender/get-mpcomputerstatus?view=win10-ps) körs och något av följande inträffar:
 
-  * Minst en av följande egenskaper är falsk:
+  * Någon av följande egenskaper är falskt:
 
      **AMServiceEnabled**
 
@@ -47,7 +47,7 @@ Endpoint Protection-utvärdering och rekommendationer i Azure Security Center id
 
      **OnAccessProtectionEnabled**
 
-  * Om en eller båda av följande egenskaper är större än eller lika med 7.
+  * Om en eller båda av följande egenskaper är 7 eller mer.
 
      **AntispywareSignatureAge**
 
@@ -55,9 +55,9 @@ Endpoint Protection-utvärdering och rekommendationer i Azure Security Center id
 
 ## <a name="microsoft-system-center-endpoint-protection"></a>Microsoft System Center Endpoint Protection
 
-* Rekommendationen **"Installera Endpoint Protection-lösningar på virtuell dator"** skapas när du importerar **SCEPMpModule ("$env:P rogramfiles\microsoft Security Client\MpProvider\MpProvider.psd1")** och kör  **Get-MProtComputerStatus-** resultat med **AMServiceEnabled = false**
+* Security Center rekommenderar att du **installerar Endpoint Protection-lösningar på den virtuella datorn** när du importerar **SCEPMpModule ("$env:P rogramfiles\microsoft Security Client\MpProvider\MpProvider.psd1")** och kör  **Get-MProtComputerStatus-** resultat med **AMServiceEnabled = false**
 
-* Rekommendationen **"Lös problem med Endpoint Protection-hälso problemen på dina datorer"** genereras när **Get-MprotComputerStatus** körs, eller båda av följande inträffar:
+* Security Center rekommenderar att du **löser problem med hälso tillstånd för slut punkts skydd på dina datorer** när **Get-MprotComputerStatus** körs och något av följande inträffar:
 
     * Minst en av följande egenskaper är falsk:
 
@@ -81,14 +81,14 @@ Endpoint Protection-utvärdering och rekommendationer i Azure Security Center id
 
 ## <a name="trend-micro"></a>Trend Micro
 
-* Rekommendationen **"Installera Endpoint Protection-lösningar på virtuell dator"** skapas om en eller flera av följande kontroller inte är uppfyllda:
+* Security Center rekommenderar att du **installerar Endpoint Protection-lösningar på den virtuella datorn** när någon av följande kontroller inte är uppfyllda:
     * **HKLM: \ SOFTWARE\TrendMicro\Deep säkerhets agent** finns
     * **HKLM: \ SOFTWARE\TrendMicro\Deep Security Agent\InstallationFolder** finns
     * Filen **dsq_query. cmd** finns i installationsmappen
     * Kör **dsa_query. cmd** -resultat med **komponent. am. mode: analys av Micro-djup säkerhets agent har identifierats**
 
 ## <a name="symantec-endpoint-protection"></a>Symantec Endpoint Protection
-Rekommendationen **"Installera Endpoint Protection-lösningar på virtuell dator"** skapas om någon av följande kontroller inte är uppfyllda:
+Security Center rekommenderar att du **installerar Endpoint Protection-lösningar på den virtuella datorn** när någon av följande kontroller inte är uppfyllda:
 
 * **HKLM: \ Software\Symantec\Symantec Endpoint Protection\CurrentVersion\PRODUCTNAME = "Symantec Endpoint Protection"**
 
@@ -100,7 +100,7 @@ Eller
 
 * **HKLM:\Software\Wow6432Node\Symantec\Symantec Endpoint Protection\CurrentVersion\public-opstate\ASRunningStatus = 1**
 
-Rekommendationen **"Lös problem med slut punkts skydd på dator"** skapas om någon av följande kontroller inte är uppfyllda:  
+Security Center rekommenderar att du **löser problem med hälso tillstånd för slut punkts skydd på dina datorer** när någon av följande kontroller inte är uppfyllda:
 
 * Kontrol lera Symantec-versionen > = 12:  Register plats: **HKLM:\Software\Symantec\Symantec Endpoint Protection\CurrentVersion" -Value "PRODUCTVERSION"**
 
@@ -121,13 +121,13 @@ Register Sök vägar:
 
 ## <a name="mcafee-endpoint-protection-for-windows"></a>McAfee Endpoint Protection för Windows
 
-Rekommendationen **"Installera Endpoint Protection-lösningar på virtuell dator"** skapas om följande kontroller inte är uppfyllda:
+Security Center rekommenderar att du **installerar Endpoint Protection-lösningar på den virtuella datorn** när någon av följande kontroller inte är uppfyllda:
 
 * **HKLM: \ SOFTWARE\McAfee\Endpoint\AV\ProductVersion** finns
 
 * **HKLM: \ SOFTWARE\McAfee\AVSolution\MCSHIELDGLOBAL\GLOBAL\enableoas = 1**
 
-Rekommendationen **"Lös problem med slut punkts skydd på** datorerna" skapas om följande kontroller inte är uppfyllda:
+Security Center rekommenderar att du **löser problem med hälso tillstånd för slut punkts skydd på dina datorer** när någon av följande kontroller inte är uppfyllda:
 
 * McAfee-version: **HKLM: \ SOFTWARE\McAfee\Endpoint\AV\ProductVersion > = 10**
 
@@ -139,13 +139,13 @@ Rekommendationen **"Lös problem med slut punkts skydd på** datorerna" skapas o
 
 ## <a name="mcafee-endpoint-security-for-linux-threat-prevention"></a>Säkerhet för McAfee-slutpunkten för Linux hot förebyggande 
 
-**Installations slut punkts skydds lösningarna på den virtuella datorns** rekommendation skapas om en eller båda av följande kontroller inte är uppfyllda:  
+Security Center rekommenderar att du **installerar Endpoint Protection-lösningar på den virtuella datorn** när någon av följande kontroller inte är uppfyllda:
 
 - Filen **/opt/ISEC/ens/threatprevention/bin/isecav** avslutas 
 
 - **"/opt/ISEC/ens/threatprevention/bin/isecav--version"-** utdata är: **McAfee-namn = McAfees slut punkts säkerhet för Linux Threat förebygga och McAfee-version > = 10**
 
-**Lösnings problemen för slut punkts skydd på din dators** rekommendation skapas om en eller flera av följande kontroller inte är uppfyllda:
+Security Center rekommenderar att du **löser problem med hälso tillstånd för slut punkts skydd på dina datorer** när någon av följande kontroller inte är uppfyllda:
 
 - **"/opt/ISEC/ens/threatprevention/bin/isecav--listtask"** returnerar **snabb sökning, fullständig genomsökning** och båda genomsökningarna < = 7 dagar
 
@@ -155,19 +155,19 @@ Rekommendationen **"Lös problem med slut punkts skydd på** datorerna" skapas o
 
 ## <a name="sophos-antivirus-for-linux"></a>Sophos Antivirus för Linux 
 
-**Installations slut punkts skydds lösningarna på den virtuella datorns** rekommendation skapas om en eller båda av följande kontroller inte är uppfyllda:
+Security Center rekommenderar att du **installerar Endpoint Protection-lösningar på den virtuella datorn** när någon av följande kontroller inte är uppfyllda:
 
 - Filen **/opt/Sophos-av/bin/savdstatus** avslutas eller söker efter den anpassade platsen **"Readlink $ (som savscan)"**
 
 - **"/opt/Sophos-av/bin/savdstatus--version"** returnerar Sophos-namn = **Sophos Anti-virus och sophos-version > = 9**
 
-**Lösnings problemen för slut punkts skydd på din dators** rekommendation skapas om en eller flera av följande kontroller inte är uppfyllda:
+Security Center rekommenderar att du **löser problem med hälso tillstånd för slut punkts skydd på dina datorer** när någon av följande kontroller inte är uppfyllda:
 
 - **"/opt/Sophos-av/bin/savlog--MaxAge = 7 | grep-i "schemalagd sökning. \* slutfört "| svan-1"** , returnerar ett värde   
 
 - **"/opt/Sophos-av/bin/savlog--MaxAge = 7 | grep "skanningen är färdig"** | pilslut-1 ", returnerar ett värde   
 
-- **"/opt/Sophos-av/bin/savdstatus--lastupdate"** returnerar lastupdate som ska vara < = 7 dagar 
+- **"/opt/Sophos-av/bin/savdstatus--lastupdate"** returnerar lastupdate, vilket ska vara < = 7 dagar 
 
 - **"/opt/Sophos-av/bin/savdstatus-v"** är lika med **"Genomsökning vid åtkomst körs"** 
 
@@ -182,4 +182,4 @@ Microsofts tilläggs loggar för program mot skadlig kod finns på:
 
 ### <a name="support"></a>Support
 
-Om du behöver mer hjälp när som helst i den här artikeln kan du kontakta Azure-experter på den [Azure för MSDN och Stack Overflow-forum](https://azure.microsoft.com/support/forums/). Du kan också skriva en support incident för Azure. Gå till den [Azure supportwebbplats](https://azure.microsoft.com/support/options/) och väljer Get support. Information om hur du använder Azure-supporten finns i [vanliga frågor om Microsoft Azure-support](https://azure.microsoft.com/support/faq/).
+Om du behöver mer hjälp kan du kontakta Azure-experterna i [MSDN Azure och Stack Overflow forum](https://azure.microsoft.com/support/forums/). Eller fil en support incident för Azure. Gå till den [Azure supportwebbplats](https://azure.microsoft.com/support/options/) och väljer Get support. Information om hur du använder Azure-supporten finns i [vanliga frågor om Microsoft Azure-support](https://azure.microsoft.com/support/faq/).

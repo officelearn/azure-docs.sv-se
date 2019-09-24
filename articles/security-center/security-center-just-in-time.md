@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: 9948f4d9e6287530004b073adf10bb723899e96d
-ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
+ms.openlocfilehash: 2abe917d1713bbc5f5844aced5e688baacc7d397
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70910610"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71202010"
 ---
 # <a name="manage-virtual-machine-access-using-just-in-time"></a>Hantera åtkomst till virtuella datorer med just-in-Time
 
@@ -38,7 +38,7 @@ Ett sätt att minska exponeringen för en brute force-attack är att begränsa h
 
 När just-in-Time är aktiverat Security Center låser inkommande trafik till dina virtuella Azure-datorer genom att skapa en NSG-regel. Du väljer portarna på den virtuella datorn till vilken inkommande trafik ska låsas. Dessa portar styrs av just-in-Time-lösningen.
 
-När en användare begär åtkomst till en virtuell dator kontrollerar Security Center att användaren har rollbaserad behörighet för [Access Control (RBAC)](../role-based-access-control/role-assignments-portal.md) som gör det möjligt för dem att begära åtkomst till en virtuell dator. Om begäran godkänns konfigurerar Security Center automatiskt nätverks säkerhets grupper (NSG: er) och Azure-brandvägg för att tillåta inkommande trafik till de valda portarna och begärda käll-IP-adresser eller intervall, för den angivna tiden. När tiden har gått ut Security Center återställer NSG: er till sina tidigare tillstånd. De anslutningar som redan är etablerade avbryts dock inte.
+När en användare begär åtkomst till en virtuell dator kontrollerar Security Center att användaren har [rollbaserade Access Control (RBAC)](../role-based-access-control/role-assignments-portal.md) behörigheter för den virtuella datorn. Om begäran godkänns konfigurerar Security Center automatiskt nätverks säkerhets grupper (NSG: er) och Azure-brandvägg för att tillåta inkommande trafik till de valda portarna och begärda käll-IP-adresser eller intervall, för den angivna tiden. När tiden har gått ut Security Center återställer NSG: er till sina tidigare tillstånd. De anslutningar som redan är etablerade avbryts dock inte.
 
  > [!NOTE]
  > Om en begäran om JIT-åtkomst har godkänts för en virtuell dator bakom en Azure-brandvägg ändrar Security Center automatiskt både NSG-och brand Väggs princip reglerna. För den tid som har angetts tillåter reglerna inkommande trafik till de valda portarna och begärda käll-IP-adresser eller intervall. När tiden är över, Security Center återställer brand Väggs-och NSG-reglerna till sina tidigare tillstånd.

@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/15/2018
 ms.author: kumud
-ms.reviewer: yagup
-ms.openlocfilehash: dbc0829adc29848c9047368295a2ade589834e8b
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.reviewer: vinigam
+ms.openlocfilehash: 6c11f415fc1ea3a578893f6d14a60dfc1c4fddb0
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70031862"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71203007"
 ---
 # <a name="traffic-analytics"></a>Trafikanalys
 
@@ -30,6 +30,8 @@ Trafikanalys är en molnbaserad lösning som ger insyn i användar-och program a
 - Förstå trafik flödes mönster i Azure-regioner och på Internet för att optimera nätverks distributionen för prestanda och kapacitet.
 - Hitta felaktiga nätverks konfigurationer som leder till misslyckade anslutningar i nätverket.
 
+> [!NOTE]
+> Trafikanalys stöder nu insamling av data flödes loggar med en högre frekvens på 10 minuter
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -180,8 +182,8 @@ Välj följande alternativ, som du ser på bilden:
 4. Ange **kvarhållning** till det antal dagar som du vill lagra data för.
 > [!IMPORTANT]
 > För närvarande finns det ett problem där [nätverks säkerhets grupps flödes loggar (NSG)](network-watcher-nsg-flow-logging-overview.md) för Network Watcher inte automatiskt tas bort från Blob Storage utifrån inställningar för bevarande principer. Om du har en befintlig bevarande princip som inte är noll rekommenderar vi att du regelbundet tar bort de lagrings blobbar som håller på att kvarhållas för att undvika kostnader. Mer information om hur du tar bort NSG Flow logg Storage-bloggen finns i [ta bort NSG Flow logg Storage blobs](network-watcher-delete-nsg-flow-log-blobs.md).
-5. Välj för **trafikanalys status**.
-6. Välj bearbetnings intervall. Baserat på ditt val samlas flödes loggar in från lagrings kontot och bearbetas av Trafikanalys. Du kan välja bearbetnings intervall för varannan timme eller var 10: e minut.
+5. Välj *för* **trafikanalys status**.
+6. Välj bearbetnings intervall. Baserat på ditt val samlas flödes loggar in från lagrings kontot och bearbetas av Trafikanalys. Du kan välja bearbetnings intervall för varannan timme eller var 10: e minut. 
 7. Välj en befintlig Log Analytics (OMS)-arbets yta eller Välj **Skapa ny arbets yta** för att skapa en ny. En Log Analytics arbets yta används av Trafikanalys för att lagra aggregerade och indexerade data som sedan används för att generera analysen. Om du väljer en befintlig arbets yta måste den finnas i någon av de [regioner som stöds](#supported-regions-log-analytics-workspaces) och ha uppgraderats till det nya frågespråket. Om du inte vill uppgradera en befintlig arbets yta eller om du inte har en arbets yta i en region som stöds skapar du en ny. Mer information om frågespråk finns i [Azure Log Analytics uppgradera till ny loggs ökning](../log-analytics/log-analytics-log-search-upgrade.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
 
     Log Analytics-arbetsytan som är värd för Traffic Analytics-lösningen och NSG: er behöver inte vara i samma region. Du kan till exempel ha trafik analys i en arbets yta i regionen Europa, västra, medan du kan ha NSG: er i USA och västra USA. Flera NSG: er kan konfigureras i samma arbets yta.

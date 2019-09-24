@@ -7,12 +7,12 @@ author: gvashishtha
 ms.author: gopalv
 ms.topic: quickstart
 ms.date: 09/10/2019
-ms.openlocfilehash: 5b50355391180c4a499a0f4e77c3897f8969cdb8
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: f50d784b7518bd01a3a0069cb474296d359420a8
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71170962"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71200041"
 ---
 # <a name="quickstart-set-up-the-data-science-virtual-machine-for-linux-ubuntu"></a>Snabbstart: Konfigurera Data Science Virtual Machine för Linux (Ubuntu)
 
@@ -33,7 +33,7 @@ Här följer stegen för att skapa en instans av den virtuella datorn för datav
 
 1. I det efterföljande fönstret väljer du **skapa**.
 
-    ![Guide för att skapa en virtuell dator](./media/dsvm-ubuntu-intro/create-linux.png)
+   [![](media/dsvm-ubuntu-intro/create-linux.png "För att skapa en Ubuntu-dator")](media/dsvm-ubuntu-intro/create-linux-expanded.png#lightbox)
 
 1. Du bör omdirigeras till bladet "skapa en virtuell dator".
    

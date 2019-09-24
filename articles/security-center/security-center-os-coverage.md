@@ -3,23 +3,22 @@ title: Plattformar som stöds av Azure Security Center | Microsoft Docs
 description: Det här dokumentet innehåller en lista över plattformar som stöds av Azure Security Center.
 services: security-center
 documentationcenter: na
-author: monhaber
+author: memildin
 manager: rkarlin
-editor: ''
 ms.assetid: 70c076ef-3ad4-4000-a0c1-0ac0c9796ff1
 ms.service: security-center
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 8/29/2019
-ms.author: v-mohabe
-ms.openlocfilehash: c094ef5f3e7c7bfa96f95264e137fd8938296bb4
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.date: 08/29/2019
+ms.author: memildin
+ms.openlocfilehash: 1d13db922ae84e4032304a8865ba6fcdafa65748
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70232217"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71201631"
 ---
 # <a name="supported-platforms"></a>Plattformar som stöds 
 
@@ -38,7 +37,7 @@ För en Azure-miljö aktive rad på en Azure-prenumeration identifierar Azure Se
 > För att få en fullständig uppsättning säkerhetsfunktioner måste du ha Log Analytics- [agenten](../azure-monitor/platform/agents-overview.md#log-analytics-agent), som används av Azure Security Center, installerad och [korrekt konfigurerad för att skicka data till Azure Security Center](security-center-enable-data-collection.md#manual-agent).
 
 
-I följande avsnitt listas de serveroperativ system som stöds och som [Log Analytics](../azure-monitor/platform/agents-overview.md#log-analytics-agent)-agenten, som används av Azure Security Center, kan köras.
+I följande avsnitt listas de serveroperativ system som stöds och som [Log Analytics-agenten](../azure-monitor/platform/agents-overview.md#log-analytics-agent), som används av Azure Security Center, kan köras.
 
 ### Windows Server-operativsystem<a name="os-windows"></a>
 

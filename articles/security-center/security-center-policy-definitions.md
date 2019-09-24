@@ -2,18 +2,18 @@
 title: Azure policy definitionerna övervakas i Azure Security Center | Microsoft Docs
 description: Azure policy definitionerna övervakas i Azure Security Center.
 services: security-center
-author: monhaber
-manager: barbkess
+author: memildin
+manager: rkarlin
 ms.service: security-center
 ms.topic: conceptual
 ms.date: 8/22/2019
-ms.author: v-mohabe
-ms.openlocfilehash: 37c29a40596a0ea7989b91d1ffcbabf930e5ed93
-ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
+ms.author: memildin
+ms.openlocfilehash: 892b33f52788bd37d430f221f14ba4c98f764cfb
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70910360"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71201675"
 ---
 # <a name="azure-security-policies-monitored-by-security-center"></a>Azure säkerhets principer övervakas av Security Center
 Den här artikeln innehåller en lista över Azure Policy definitioner som du kan övervaka i Azure Security Center. Mer information om säkerhets principer finns i [arbeta med säkerhets principer](tutorial-security-policy.md).

@@ -1,77 +1,76 @@
 ---
-title: Skydda poäng i Azure Security Center | Microsoft Docs
-description: " Prioritera dina säkerhetsrekommendationer som använder säker poängen i Azure Security Center. "
+title: Säkra poäng i Azure Security Center | Microsoft Docs
+description: " Prioritera dina säkerhets rekommendationer med hjälp av säkra poäng i Azure Security Center. "
 services: security-center
 documentationcenter: na
-author: monhaber
-manager: barbkess
-editor: ''
+author: memildin
+manager: rkarlin
 ms.assetid: c42d02e4-201d-4a95-8527-253af903a5c6
 ms.service: security-center
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 1/15/2019
-ms.author: v-mohabe
-ms.openlocfilehash: c23c9a2b9af1947c397b96431ae3c3bcd0e30aaa
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 01/15/2019
+ms.author: memildin
+ms.openlocfilehash: 0a39fd1870ae803f2cf694e01c67d125fc96cac9
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65968301"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71200967"
 ---
-# <a name="improve-your-secure-score-in-azure-security-center"></a>Förbättra dina säker poäng i Azure Security Center
+# <a name="improve-your-secure-score-in-azure-security-center"></a>Förbättra dina säkra poäng i Azure Security Center
 
 
-Med så många tjänster som erbjuder säkerhetsfördelarna, är det ofta svårt att veta vilka steg du ska vidta först att skydda och förstärka din arbetsbelastning. Azure säker poängen går igenom din säkerhetsrekommendationer och prioriterar dem åt dig, så att du vet vilka rekommendationer för att utföra först. Detta hjälper dig att hitta de mest allvarliga säkerhetsriskerna, så att du kan prioritera undersökningen. Säker poängen är ett verktyg som hjälper dig att bedöma din arbetsbelastning säkerhetsposition.
+Med så många tjänster som erbjuder säkerhets förmåner är det ofta svårt att veta vilka steg du bör vidta för att först skydda och torka din arbets belastning. Azures säkra Poäng granskar dina säkerhets rekommendationer och prioriterar dem åt dig, så att du vet vilka rekommendationer som ska utföras först. Detta hjälper dig att hitta de allvarliga säkerhets sårbarheterna så att du kan prioritera undersökningen. Secure Score är ett verktyg som hjälper dig att utvärdera säkerhetsstatusen för dina arbetsbelastningar.
 
-## <a name="secure-score-calculation"></a>Skydda poängberäkningen
+## <a name="secure-score-calculation"></a>Säker Poäng beräkning
 
-Security Center imiterar verk som tillhör en säkerhetsanalytiker, granska dina säkerhetsrekommendationer och tillämpa avancerade algoritmer att avgöra hur viktigt är varje rekommendation.
-Azure Security center ständigt granskar du aktiva rekommendationer och beräknar dina säker poäng som baseras på dem, poängen för en rekommendation härleds från dess allvarlighetsgrad och säkerhetsmetoder som påverkar säkerheten för din arbetsbelastning mest.
+Security Center imiterar arbetet med en säkerhetsanalytiker, kontrollerar dina säkerhets rekommendationer och tillämpar avancerade algoritmer för att fastställa hur viktiga varje rekommendation är.
+Azure Security Center granskar ständigt dina aktiva rekommendationer och beräknar dina säkra Poäng utifrån dem, resultatet av en rekommendation härleds från dess allvarlighets grad och säkerhets metoder som påverkar din arbets belastnings säkerhet.
 
-Security Center innehåller också en **övergripande skyddar score**. 
+Security Center ger också en **övergripande säker Poäng**. 
 
-**Skydda övergripande poäng** är en anhopning av ditt rekommendation resultat. Du kan visa din övergripande säker poäng över dina prenumerationer och hanteringsgrupper, beroende på vad du väljer. Poängen varierar beroende på prenumerationen som valts och aktiva rekommendationer för dessa prenumerationer.
+**Övergripande säkra Poäng** är en ackumulering av alla dina rekommendations poäng. Du kan visa dina övergripande säkra poäng i dina prenumerationer eller hanterings grupper, beroende på vad du väljer. Poängen varierar beroende på vilken prenumeration som valts och de aktiva rekommendationerna för dessa prenumerationer.
 
  
-Om du vill kontrollera vilka rekommendationer påverka säker poängen mest, du kan visa de tre översta störst rekommendationerna i instrumentpanelen i Security Center eller du kan sortera rekommendationerna i den rekommendationer bladet med hjälp av den **säker poäng påverkan** kolumn.
+Om du vill kontrol lera vilka rekommendationer som påverkar dina säkra Poäng mest kan du Visa de tre mest effektfulla rekommendationerna i Security Center instrument panelen eller så kan du sortera rekommendationerna på bladet rekommendationer på listan med hjälp av en **säker Poäng effekt** artikeln.
 
 
-Visa dina övergripande säker poäng:
+Så här visar du de övergripande säkra poängen:
 
-1. I Azure-instrumentpanelen klickar du på **Security Center** och klicka sedan på **säker poäng**.
-2. Överst ser du Secure bedöma viktiga funktioner:
+1. Klicka på **Security Center** på Azure-instrumentpanelen och klicka sedan på **säkra Poäng**.
+2. Längst upp kan du se säkra Poäng höjd punkter:
    - **Övergripande säkerhetspoäng** motsvarar antal poäng per principer per vald prenumeration
-   - **Skydda poäng efter kategori** visar vilka resurser behöver mest åtgärdas
-   - **Främsta rekommendationer av säker poäng inverkan** tillhandahåller en lista över rekommendationer som förbättrar dina säker poäng mest om du implementerar dem.
+   - **Säkra poäng per kategori** visar vilka resurser som behöver mest uppmärksamhet
+   - De **främsta rekommendationerna med säker Poäng påverkan** ger dig en lista över rekommendationer som förbättrar din säkra poäng om du implementerar dem.
  
-   ![säker poäng](./media/security-center-secure-score/secure-score-dashboard.png)
+   ![Säkra Poäng](./media/security-center-secure-score/secure-score-dashboard.png)
 
-3. Du kan se var och en av dina prenumerationer och den övergripande säker poängen för varje i tabellen nedan.
+3. I tabellen nedan kan du se var och en av dina prenumerationer och de övergripande säkra poängen för var och en.
 
    > [!NOTE]
    > Summan av säkerhetspoängen för varje prenumeration är inte lika med den övergripande säkerhetspoängen. Säkerhetspoängen är en beräkning som bygger på förhållandet mellan dina felfria resurser och ditt sammanlagda antal resurser per rekommendation, inte summan av säkerhetspoäng för dina prenumerationer. 
    >
-4. Klicka på **visa rekommendationer** att se rekommendationer för prenumerationen som du kan reparera för att förbättra dina säker poäng.
-4. I listan över rekommendationer kan du se att det för varje rekommendation finns en kolumn som representerar den **skyddar score påverkan**. Det här talet anger hur mycket den totala säkra dina poäng förbättras om du följer rekommendationerna. Till exempel på skärmen nedan om du **åtgärda sårbarheter i behållaren säkerhetskonfigurationer**, säker resultatet kommer att ökas med 35 punkter.
+4. Klicka på **Visa rekommendationer** för att se rekommendationerna för den prenumerationen som du kan åtgärda för att förbättra dina säkra poäng.
+4. I listan över rekommendationer kan du se att för varje rekommendation finns det en kolumn som representerar den **säkra Poäng effekten**. Det här värdet anger hur mycket din totala säkra poäng kommer att öka om du följer rekommendationerna. På skärmen nedan, om du till exempel **reparerar säkerhets risker i behållar säkerhetskonfigurationer**, kommer dina säkra poäng att öka med 35 punkter.
 
-   ![säker poäng](./media/security-center-secure-score/security-center-secure-score1.png)
+   ![Säkra Poäng](./media/security-center-secure-score/security-center-secure-score1.png)
 
 
 
-## <a name="individual-secure-score"></a>Enskilda säker poäng
+## <a name="individual-secure-score"></a>Individuella säkra Poäng
 
-Dessutom om du vill visa enskilda säker poäng hittar du dessa alternativ inom bladet enskilda rekommendation.  
+Om du dessutom vill visa enskilda säkra Poäng kan du hitta dem på bladet individuell rekommendation.  
 
 **Säkerhetspoäng för rekommendation** är en beräkning som bygger på förhållandet mellan dina felfria resurser och ditt sammanlagda antal resurser. Om antalet felfria resurser är lika med det totala antalet resurser, får du 50 poäng, vilket är högsta möjliga säkerhetspoäng för rekommendationer. Åtgärda resurserna med fel genom att följa rekommendationerna så kommer du närmare högsta möjliga säkerhetspoäng.
 
 **Rekommendationernas inverkan** visar med hur mycket dina säkerhetspoäng ökar om du utför de rekommenderade stegen. Exempel: om din säkerhetspoäng är 42 och **rekommendationens inverkan** är + 3 förbättras dina poäng till 45 om du utför stegen i rekommendationen.
 
-Rekommendationen visar vilka hot arbetsbelastningen utsätts för om åtgärdssteg inte utförs.
+Rekommendationen visar vilka hot din arbets belastning exponeras för om reparations stegen inte vidtas.
 
-![enskilda rekommendation säker poäng](./media/security-center-secure-score/indiv-recommendation-secure-score.png)
+![individuell rekommendation säker Poäng](./media/security-center-secure-score/indiv-recommendation-secure-score.png)
 
 
 
@@ -80,7 +79,7 @@ Rekommendationen visar vilka hot arbetsbelastningen utsätts för om åtgärdsst
 
 
 ## <a name="next-steps"></a>Nästa steg
-Den här artikeln visar dig hur du kan förbättra din säkerhet hållning med hjälp av **säker poäng** i Azure Security Center. I följande avsnitt kan du lära dig mer om Security Center:
+Den här artikeln visar hur du kan förbättra din säkerhets position med **säkra Poäng** i Azure Security Center. I följande avsnitt kan du lära dig mer om Security Center:
 
 * [Vanliga frågor och svar om Azure Security Center](security-center-faq.md): Här finns vanliga frågor om tjänsten.
 * [Övervakning av säkerhetshälsa i Azure Security Center](security-center-monitoring.md): Här kan du läsa om hur du övervakar dina Azure-resursers hälsa.

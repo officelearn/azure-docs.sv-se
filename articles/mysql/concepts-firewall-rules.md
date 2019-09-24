@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 02/28/2018
-ms.openlocfilehash: 0802185b7fb0d1a6d7d41cd1fa5a30f5ce10424b
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.date: 09/22/2019
+ms.openlocfilehash: e84dfb35a435e32cd14b244b29044d700c79d14d
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68443912"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71203578"
 ---
 # <a name="azure-database-for-mysql-server-firewall-rules"></a>Azure Database for MySQL server brand Väggs regler
 Brand väggar förhindrar all åtkomst till din databas server tills du anger vilka datorer som har behörighet. Brand väggen beviljar åtkomst till servern baserat på den ursprungliga IP-adressen för varje begäran.
@@ -46,18 +46,20 @@ Om du vill tillåta att program från Azure ansluter till din Azure Database for
 ## <a name="programmatically-managing-firewall-rules"></a>Hantera brandväggsregler via programmering
 Förutom Azure Portal kan brand Väggs regler hanteras program mässigt med hjälp av Azure CLI. Se även [skapa och hantera Azure Database for MySQL brand Väggs regler med hjälp av Azure CLI](./howto-manage-firewall-using-cli.md)
 
-## <a name="troubleshooting-the-database-firewall"></a>Felsöka databasbrandväggen
+## <a name="troubleshooting-firewall-issues"></a>Felsöka brand Väggs problem
 Tänk på följande när åtkomst till Microsoft Azure databasen för MySQL Server-tjänsten inte fungerar som förväntat:
 
-* **Ändringar i listan över tillåtna har inte börjat att fungera än:** Det kan finnas en fördröjning på fem minuter för ändringar i Azure Database for MySQL serverns brand Väggs konfiguration som börjar gälla.
+* **Ändringar i listan över tillåtna har inte börjat att fungera än:** Det kan uppstå en fördröjning på upp till fem minuter innan ändringar i brandväggskonfigurationen för Azure Database for MySQL Server börjar gälla.
 
 * **Inloggningen är inte auktoriserad eller så användes ett felaktigt lösen ord:** Om en inloggning inte har behörighet på Azure Database for MySQL-servern eller om det lösen ord som används är felaktigt nekas anslutningen till Azure Database for MySQL-servern. En brandväggsinställning ger endast klienter möjlighet att försöka ansluta till din server. Varje klient måste fortfarande ange nödvändiga säkerhetsreferenser.
 
 * **Dynamisk IP-adress:** Om du har en Internet anslutning med dynamisk IP-adressering och du har problem med att komma åt brand väggen kan du prova någon av följande lösningar:
 
-* Be Internet leverantören (ISP) om IP-adressintervallet som har tilldelats till de klient datorer som har åtkomst till Azure Database for MySQL-servern och Lägg sedan till IP-adressintervallet som en brand Väggs regel.
+   * Be Internet leverantören (ISP) om IP-adressintervallet som har tilldelats till de klient datorer som har åtkomst till Azure Database for MySQL-servern och Lägg sedan till IP-adressintervallet som en brand Väggs regel.
 
-* Använd statisk IP-adressering i stället för dina klientdatorer och lägg sedan till IP-adresserna som brandväggsregler.
+   * Använd statisk IP-adressering i stället för dina klientdatorer och lägg sedan till IP-adresserna som brandväggsregler.
+
+* **Serverns IP-adress verkar vara offentlig:** Anslutningar till Azure Database for MySQL-servern dirigeras via en offentligt tillgänglig Azure-Gateway. Den faktiska Server-IP-adressen skyddas dock av brand väggen. Mer information finns i artikeln om [anslutnings arkitektur](concepts-connectivity-architecture.md). 
 
 ## <a name="next-steps"></a>Nästa steg
 

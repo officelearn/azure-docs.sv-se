@@ -3,9 +3,8 @@ title: Skydda nätverks resurserna i Azure Security Center | Microsoft Docs
 description: Det här dokumentet beskriver rekommendationer i Azure Security Center som hjälper dig att skydda dina Azure-nätverks resurser och hålla dig informerad om säkerhets principer.
 services: security-center
 documentationcenter: na
-author: monhaber
-manager: barbkess
-editor: ''
+author: memildin
+manager: rkarlin
 ms.assetid: 96c55a02-afd6-478b-9c1f-039528f3dea0
 ms.service: security-center
 ms.devlang: na
@@ -13,13 +12,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/05/2019
-ms.author: v-mohabe
-ms.openlocfilehash: 536e2e3732a0b196801e37c51dfb6c746e070441
-ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
+ms.author: memildin
+ms.openlocfilehash: bf33fe29b18b09bf903e1fc331f1c378eacb3e17
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70910463"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71201713"
 ---
 # <a name="protect-your-network-resources-in-azure-security-center"></a>Skydda nätverks resurserna i Azure Security Center
 Azure Security Center fort löp ande analyserar säkerhets läget för dina Azure-resurser för metod tips för nätverks säkerhet. När Security Center identifierar potentiella säkerhets risker skapar den rekommendationer som vägleder dig genom processen att konfigurera de nödvändiga kontrollerna för att skärp och skydda dina resurser.
@@ -39,7 +38,7 @@ Sidan **nätverk** ger en översikt över de avsnitt som du kan ta del av för a
  
 ![Fönstret nätverk](./media/security-center-network-recommendations/networking-pane.png)
 
-## <a name="network-map"></a>Nätverks karta
+## <a name="network-map"></a>Nätverkskarta
 Den interaktiva nätverks kartan är en grafisk vy med säkerhets överlägg som ger dig rekommendationer och insikter för att härdning av dina nätverks resurser. Med hjälp av kartan kan du se nätverk sto pol Ogin för dina Azure-arbetsbelastningar, anslutningar mellan dina virtuella datorer och undernät och möjligheten att öka detalj nivån från kartan till vissa resurser och rekommendationerna för dessa resurser.
 
 Så här öppnar du nätverks kartan:
@@ -134,7 +133,7 @@ På den tredje nivån visas virtuella datorer, vilket liknar det som beskrivs ov
 
 ## <a name="network-recommendations"></a>Nätverksrekommendationer
 
-|Rekommendations namn|Beskrivning|severity|Säkerhetspoäng|Resurstyp|
+|Rekommendationens namn|Beskrivning|severity|Säkerhetspoäng|Resurstyp|
 |----|----|----|----|----|----|
 |Nätverks säkerhets grupper på under näts nivån måste vara aktiverade|Aktivera nätverks säkerhets grupper för att kontrol lera nätverks åtkomst till resurser som har distribuerats i dina undernät.|Hög/medel|30|Subnet|
 |Virtuella datorer ska associeras med en nätverks säkerhets grupp|Aktivera nätverks säkerhets grupper för att kontrol lera nätverks åtkomst för dina virtuella datorer.|Hög/medel|30|Virtuell dator|

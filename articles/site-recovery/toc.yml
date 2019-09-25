@@ -425,7 +425,7 @@
       href: hyper-v-azure-powershell-resource-manager.md
     - name: Konfigurera haveriberedskap för virtuella Hyper-V-datorer (med VMM) till Azure med PowerShell
       href: hyper-v-vmm-powershell-resource-manager.md
-    - name: Lägga till Azure Automation-runbookflöden i återställningsplaner för att samordna redundans
+    - name: Lägga till Azure Automation-runbookflöden i återställningsplaner
       href: site-recovery-runbook-automation.md
 - name: Övervakning
   items:

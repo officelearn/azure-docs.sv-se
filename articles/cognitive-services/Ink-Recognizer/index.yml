@@ -1,81 +1,67 @@
-### YamlMime:YamlDocument
-documentType: LandingData
-title: Dokumentation om handskriftsigenkänning
+### YamlMime:Landing
+title: Dokumentation om API:et för handskriftsigenkänning
+summary: Lär dig hur du integrerar handskriftsigenkänning i dina appar och tjänster med hjälp av API:et för handskriftsigenkänning. API:et är en molnbaserad tjänst som använder maskininlärning för att identifiera handskrivna former och text i alla kontexter.
 metadata:
-  title: 'Dokumentation om handskriftsigenkänning – snabbstarter, självstudier, API-referens – Azure Cognitive Services | Microsoft Docs'
-  description: Lär dig hur du använder Translator Text för att översätta text på flera språk.
+  title: API:et för handskriftsigenkänning – självstudier, snabbstarter, API-referens
+  titleSuffix: Azure Cognitive Services
+  description: Digitala pennanteckningar avser teknik som möjliggör digitala representationer av indata, till exempel handskrift och ritningar. När enheter fortsätter att aktivera omfattande användning av digitala pennanteckningar kan artificiell intelligens och maskininlärning möjliggöra igenkänning av skriftliga former och text i en kontext. API:et för handskriftsigenkänning är en molnbaserad tjänst som gör att du kan skicka bläckpenseldrag och få detaljerad information om dem.
   services: cognitive-services
-  author: erhopf
+  author: aahill
   manager: nitinme
+  layout: LandingPage
   ms.service: cognitive-services
   ms.subservice: ink-recognizer
   ms.topic: landing-page
-  ms.date: 05/02/2019
-  ms.author: erhopf
-abstract:
-  description: 'Digitala pennanteckningar avser teknik som möjliggör digitala representationer av indata, till exempel handskrift och ritningar. När enheter fortsätter att aktivera omfattande användning av digitala pennanteckningar kan artificiell intelligens och maskininlärning möjliggöra igenkänning av skriftliga former och text i en kontext. API:et för handskriftsigenkänning är en molnbaserad tjänst som gör att du kan skicka bläckpenseldrag och få detaljerad information om dem.'
-sections:
-  - items:
-      - type: list
-        style: cards
-        className: cardsM
-        columns: 3
-        items:
-          - href: /azure/cognitive-services/ink-recognizer/overview
-            html: <p>Ta reda på mer om handskriftsigenkänning och hur du integrerar det i dina produkter</p>
-            image:
-              src: ../media/index/i_overview.svg
-            title: Vad är API för handskriftsigenkänning?
-          - href: concepts/send-ink-data.md
-            html: '<p>Lär dig mer om rekommenderade anropsmönster när du använder API:et</p>'
-            image:
-              src: ../media/index/i_overview.svg
-            title: 'Skicka pennanteckning till API:et för handskriftsigenkänning'
-  - title: Snabbstarter på 5 minuter
-    items:
-      - type: paragraph
-        text: 'Kom igång med API:et för handskriftsigenkänning:'
-      - type: table
-        style: dataMatrix
-        columns:
-          - image:
-              src: media/index/logo-csharp.svg
-            title: 'C#'
-          - image:
-              src: media/index/logo-java.svg
-            title: Java
-          - image:
-              src: media/index/logo-js.svg
-            title: Javascript
-        rows:
-          - title: Identifiera digitala penseldrag
-            values:
-              - href: quickstarts/csharp.md
-              - href: quickstarts/java.md
-              - href: quickstarts/javascript.md
-  - title: Exempel
-    items:
-      - type: paragraph
-        text: 'Du kan använda de här exempelprogrammen för att se hur kan integrera API:et för handskriftsigenkänning i dina program:'
-      - type: paragraph
-        text: '<a href="https://go.microsoft.com/fwlink/?linkid=2089803">C# och Universell Windows-plattform (UWP)</a>'
-      - type: paragraph
-        text: '<a href="https://go.microsoft.com/fwlink/?linkid=2089804">C# och Windows Presentation Foundation (WPF)</a>'
-      - type: paragraph
-        text: '<a href="https://go.microsoft.com/fwlink/?linkid=2089908">JavaScript-webbläsarappen</a>'
-      - type: paragraph
-        text: '<a href="https://go.microsoft.com/fwlink/?linkid=2089906">Java- och Android-mobilapp</a>'
-      - type: paragraph
-        text: '<a href="https://go.microsoft.com/fwlink/?linkid=2089805">Swift- och iOS-mobilapp</a>'
-  - title: Referens
-    items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: REST-API
-            html: '<p><a href="https://go.microsoft.com/fwlink/?linkid=2089907"> REST API-referens</a></p>'
-          - title: PowerShell
-            html: '<p><a href=https://docs.microsoft.com/powershell/module/az.cognitiveservices/#cognitive_services">Azure PowerShell</a></p>'
-          - title: CLI
-            html: '<p><a href="https://docs.microsoft.com/cli/azure/cognitiveservices">Azure CLI</a></p>'
+  ms.date: 09/23/2019
+  ms.author: aahi
+  ms.openlocfilehash: 985cdb6492445c89462e79cc2931d28bc34abb58
+  ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 09/24/2019
+  ms.locfileid: "71219524"
+landingContent:
+- title: Om API:et för handskriftsigenkänning
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Vad är API för handskriftsigenkänning?
+      url: overview.md
+- title: Identifiera digitala penseldrag
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Använd C#
+      url: quickstarts/csharp.md
+    - text: Använda Java
+      url: quickstarts/java.md
+    - text: Använda JavaScript
+      url: quickstarts/javascript.md
+  - linkListType: concept
+    links:
+    - text: Skicka data om penseldrag till API:et
+      url: concepts/send-ink-data.md
+- title: Referens
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: REST-API
+      url: https://go.microsoft.com/fwlink/?linkid=2089907
+    - text: Azure PowerShell
+      url: https://docs.microsoft.com/powershell/module/az.cognitiveservices/#cognitive_services
+    - text: Azure CLI
+      url: https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest#az_cognitiveservices_list
+- title: Exempel
+  linkLists:
+  - linkListType: learn
+    links:
+    - text: C# och Universell Windows-plattform (UWP)
+      url: https://go.microsoft.com/fwlink/?linkid=2089803
+    - text: C# och Windows Presentation Foundation (WPF)
+      url: https://go.microsoft.com/fwlink/?linkid=2089804
+    - text: JavaScript-webbläsarappen
+      url: https://go.microsoft.com/fwlink/?linkid=2089908
+    - text: Java- och Android-mobilapp
+      url: https://go.microsoft.com/fwlink/?linkid=2089906
+    - text: Swift- och iOS-mobilapp
+      url: https://go.microsoft.com/fwlink/?linkid=2089805

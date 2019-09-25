@@ -5,15 +5,15 @@ author: DCtheGeek
 manager: carmonm
 ms.service: blueprints
 ms.topic: sample
-ms.date: 09/04/2019
+ms.date: 09/24/2019
 ms.author: dacoulte
 ms.custom: fasttrack-edit
-ms.openlocfilehash: ea2c56e35741a49d057f2261f7b53fb754a43f8b
-ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
+ms.openlocfilehash: d54d60728b9ad0cc72a6cbc81b380b2511d732a8
+ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70967992"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71219818"
 ---
 # <a name="azure-blueprints-samples"></a>Azure Blueprints-exempel
 
@@ -31,6 +31,7 @@ Följande tabell innehåller länkar till exempel för Azure Blueprints. Alla ex
 | [ISO 27001 App Service-miljön/SQL Database-arbetsbelastning](./iso27001-ase-sql-workload/index.md) | Tillhandahåller ytterligare infrastruktur för skissexemplet [ISO 27001 Delade tjänster](./iso27001-shared/index.md). |
 | [NIST SP 800-53 R4](./nist-sp-800-53-rev4/index.md) | Tillhandahåller efterlevnadsriktlinjer för NIST SP 800-53 R4. |
 | [PCI-DSS v3.2.1](./pci-dss-3.2.1/index.md) | Innehåller en uppsättning principer som hjälp för efterlevnad av PCI-DSS v3.2.1. |
+| [SWIFT CSP-CSCF v2020](./swift-2020/index.md) | Hjälper till med SWIFT CSP-CSCF v2020-efterlevnad. |
 | [Styrning av UK OFFICIAL och UK NHS](./ukofficial/index.md) | Tillhandahåller en uppsättning kompatibla infrastruktursmönster och principriktlinjer som hjälper dig med attesteringen för UK OFFICIAL och UK NHS. |
 | [CAF Foundation](./caf-foundation/index.md) | Innehåller en uppsättning kontroller som hjälper dig att hantera din molnegendom i enlighet med [Microsoft Cloud adoption Framework för Azure (CAF)](/azure/architecture/cloud-adoption/governance/journeys/index). |
 | [CAF Migrate-landningszonen](./caf-migrate-landing-zone/index.md) | Innehåller en uppsättning kontroller som hjälper dig att förbereda migrering av din första arbetsbelastning samt hantera din molnegendom i enlighet med [Microsoft Cloud adoption Framework för Azure (CAF)](/azure/architecture/cloud-adoption/migrate/index). |

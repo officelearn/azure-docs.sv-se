@@ -56,6 +56,8 @@
       href: getting-started-improving-your-classifier.md
     - name: 'Använd förutsägelse-API:t'
       href: use-prediction-api.md
+    - name: Använda föreslagna taggar
+      href: suggested-tags.md
     - name: Exportera modeller
       items:
         - name: Exportera din modell till mobil

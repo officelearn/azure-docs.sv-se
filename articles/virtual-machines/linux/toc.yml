@@ -476,6 +476,8 @@
           href: expand-disks.md
         - name: Ögonblicksbild av en disk
           href: snapshot-copy-managed-disk.md
+        - name: Skapa en inkrementell ögonblicksbild
+          href: disks-incremental-snapshots.md
         - name: Säkerhetskopiera ohanterade diskar
           href: incremental-snapshots.md
         - name: Migrering och konvertering

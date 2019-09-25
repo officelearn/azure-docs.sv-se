@@ -1,4 +1,4 @@
-- name: Dokumentation om förhandsversionen av Azure Sentinel
+- name: Dokumentation om Azure Sentinel
   href: index.yml
 - name: Översikt
   href: overview.md
@@ -11,12 +11,22 @@
       href: quickstart-get-visibility.md
 - name: Självstudier
   items:
-    - name: Identifiera misstänkta hot
-      href: tutorial-detect-threats.md
+    - name: Använda inbyggd analys för att identifiera hot
+      href: tutorial-detect-threats-built-in.md
+    - name: Skapa anpassade regler för att identifiera hot
+      href: tutorial-detect-threats-custom.md
+    - name: Övervaka dina data
+      href: tutorial-monitor-your-data.md
     - name: Undersöka incidenter
       href: tutorial-investigate-cases.md
     - name: Reagera på hot
       href: tutorial-respond-threats-playbook.md
+- name: Begrepp
+  items:
+    - name: Tilldela behörigheter med hjälp av roller
+      href: roles.md
+    - name: Avancerad attackidentifiering i flera faser
+      href: fusion.md
 - name: Instruktionsguider
   items:
     - name: Ansluta till datakällor
@@ -74,6 +84,10 @@
           href: connect-threat-intelligence.md
         - name: Ansluta virtuella datorer i Azure Stack
           href: connect-azure-stack.md
+    - name: Flera klienter (MSSP)
+      href: multiple-tenants-service-providers.md
+    - name: Skapa incidenter från aviseringar
+      href: create-incidents-from-alerts.md
     - name: Hotjakt
       href: hunting.md
       items:
@@ -81,8 +95,8 @@
           href: notebooks.md
         - name: Använda bokmärken för hotjakt
           href: bookmarks.md
-    - name: Aktivera fusion
-      href: connect-fusion.md
+    - name: Ta bort Azure Sentinel
+      href: offboard.md
 - name: Resurser
   items:
     - name: Användbara resurser

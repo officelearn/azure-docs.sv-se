@@ -227,6 +227,10 @@
           href: spark-api-introduction.md
         - name: Lambda-arkitektur
           href: lambda-architecture.md
+    - name: Inbyggd analys med Jupyter Notebooks
+      items:
+        - name: Översikt över Jupyter Notebooks
+          href: cosmosdb-jupyter-notebooks.md
     - name: Programmering på serversidan
       items:
         - name: 'Lagrade procedurer, utlösare och UDF:er'
@@ -675,6 +679,10 @@
         - name: Direktuppspelning med Apache Kafka och Cosmos DB
           href: /azure/hdinsight/apache-kafka-spark-structured-streaming-cosmosdb
           maintainContext: true
+    - name: Inbyggda Jupyter Notebooks
+      items:
+        - name: Aktivera notebook-filer
+          href: enable-notebooks.md
     - name: Programmering på serversidan
       items:
         - name: 'Skriva lagrade procedurer, utlösare och UDF:er'

@@ -8,12 +8,12 @@ ms.service: key-vault
 ms.topic: conceptual
 ms.date: 02/11/2019
 ms.author: mbaldwin
-ms.openlocfilehash: a2749ca35e6137d42a09b79da9315c8f7b242c31
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 1ebf4feb0687d9580bba29cd8213030e542a06da
+ms.sourcegitcommit: 263a69b70949099457620037c988dc590d7c7854
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71000802"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71268836"
 ---
 # <a name="azure-key-vault-developers-guide"></a>Guide för Azure Key Vault utvecklare
 
@@ -29,26 +29,6 @@ Mer allmän information om Azure Key Vault finns i [Vad är Key Vault](key-vault
 ## <a name="public-previews"></a>Offentliga för hands versionerna
 
 Med jämna mellanrum släpper vi en offentlig för hands version av en ny Key Vault funktion. Prova dessa och berätta för oss vad du tycker via azurekeyvault@microsoft.com, vår e-postadress för feedback.
-
-### <a name="storage-account-keys---july-10-2017"></a>Lagrings konto nycklar – 10 juli 2017
-
->[!NOTE]
->För den här uppdateringen av Azure Key Vault är bara funktionen **lagrings konto nycklar** i för hands version.
-
-Den här för hands versionen innehåller vår nya lagrings konto nycklar, som är tillgängliga via dessa gränssnitt. [.Net/C#](/dotnet/api/microsoft.azure.keyvault/), [rest](/rest/api/keyvault/) och [PowerShell](/powershell/module/az.keyvault/?view=azps-1.2.0#key_vault). 
-
-Mer information om de nya funktionerna för lagrings konto nycklar finns i [Översikt över Azure Key Vault lagrings konto nycklar](key-vault-ovw-storage-keys.md).
-
-## <a name="videos"></a>Videor
-
-Den här videon visar hur du skapar ett eget nyckel valv och hur du använder det från exempel programmet Hello Key Vault.
-
-- [Key Vault Developer – snabb starts guide](https://channel9.msdn.com/Blogs/Azure/Azure-Key-Vault-Developer-Quick-Start/player)
-
-Resurser som nämns ovan:
-
-- [Azure PowerShell](https://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409)
-- [Azure Key Vault exempel kod](https://go.microsoft.com/fwlink/?LinkId=521527&clcid=0x409)
 
 ## <a name="creating-and-managing-key-vaults"></a>Skapa och hantera nyckel valv
 

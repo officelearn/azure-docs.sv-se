@@ -15,12 +15,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5288fe57b2f83522b140f65fa62e08f9c63a7af5
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: d56a07b46c4cd54577bcb3d81f2c45c03433fc31
+ms.sourcegitcommit: 263a69b70949099457620037c988dc590d7c7854
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68852688"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71268353"
 ---
 # <a name="scenario-desktop-app-that-calls-web-apis"></a>Scenario: Datorprogram som anropar webb-API:er
 
@@ -32,7 +32,7 @@ Lär dig allt du behöver för att bygga en stationär app som anropar webb-API:
 
 ## <a name="getting-started"></a>Komma igång
 
-Om du inte redan har gjort det kan du skapa ditt första program genom att följa snabb starten för .NET Desktop eller UWP snabb start:
+Om du inte redan har gjort det kan du skapa ditt första program genom att följa snabb starten för .NET Desktop, UWP snabb start eller den virtuella macOS-appen snabb start:
 
 > [!div class="nextstepaction"]
 > [Snabbstart: Hämta en token och anropa Microsoft Graph API från en Windows Desktop-app](./quickstart-v2-windows-desktop.md)
@@ -41,13 +41,16 @@ Om du inte redan har gjort det kan du skapa ditt första program genom att följ
 > [!div class="nextstepaction"]
 > [Snabbstart: Hämta en token och anropa Microsoft Graph API från en UWP-app](./quickstart-v2-uwp.md)
 
+> [!div class="nextstepaction"]
+> [Snabbstart: Hämta en token och anropa Microsoft Graph API från en macOS-inbyggd app](./quickstart-v2-ios.md)
+
 ## <a name="overview"></a>Översikt
 
 Du skriver ett Skriv bords program och vill logga in användare i ditt program och anropa webb-API: er, till exempel Microsoft Graph, andra Microsoft API: er eller ditt eget webb-API. Det finns flera möjligheter:
 
 - Du kan använda den interaktiva hämtningen av token:
 
-  - Om ditt Skriv bords program stöder grafiska kontroller, till exempel om det är ett Windows. Forms-program eller ett WPF-program.
+  - Om ditt Skriv bords program stöder grafiska kontroller, till exempel om det är ett Windows. Forms-program, ett WPF-program eller ett internt macOS-program.
   - Om det är ett .NET Core-program och du samtycker till att interagera med Azure AD sker i system läsaren
 
 - För Windows-värdbaserade program är det också möjligt för program som körs på datorer som är anslutna till en Windows-domän eller AAD-ansluten för att hämta en token i tysthet med hjälp av integrerad Windows-autentisering.

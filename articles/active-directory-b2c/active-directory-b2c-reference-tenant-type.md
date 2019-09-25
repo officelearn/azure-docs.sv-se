@@ -1,61 +1,70 @@
 ---
-title: Region regionstillgänglighet och dataplacering i Azure Active Directory B2C | Microsoft Docs
-description: Ett avsnitt om vilka typer av Azure Active Directory B2C-klienter.
+title: Regions tillgänglighet & data placering i Azure Active Directory B2C
+description: Ett avsnitt om typerna av Azure Active Directory B2C klienter.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 04/10/2017
+ms.date: 09/26/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 30f13a3b85e68babcaef62b9200a296105b3ce83
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0bb7a7ef2aabd7f93531d9afa662d7e582e05550
+ms.sourcegitcommit: a6718e2b0251b50f1228b1e13a42bb65e7bf7ee2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66509011"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71273568"
 ---
 # <a name="azure-active-directory-b2c-region-availability--data-residency"></a>Azure Active Directory B2C: Regionstillgänglighet och dataplacering
-Tillgänglighet för regioner och dataplacering är två helt olika begrepp som gäller på olika sätt för Azure AD B2C från resten av Azure. Den här artikeln förklarar skillnaderna mellan dessa två begrepp och jämför hur de används Azure jämfört med Azure AD B2C.
 
-## <a name="summary"></a>Sammanfattning
-Azure AD B2C är **allmänt tillgänglig i hela världen** med alternativet för **dataplacering i USA eller Europa**.
+Regions tillgänglighet och data placering är två mycket olika koncept som fungerar annorlunda för Azure AD B2C från resten av Azure. Den här artikeln förklarar skillnaderna mellan dessa två begrepp och jämför hur de gäller för Azure jämfört med Azure AD B2C.
 
-## <a name="concepts"></a>Begrepp
-* **Regiontillgänglighet** avser där en tjänst är tillgänglig för användning.
-* **Dataplacering** refererar till där användarinformationen är lagrad.
+Azure AD B2C är **allmänt tillgänglig i hela världen** med alternativet för **data placering** i **USA, Europa eller Asien och Stillahavsområdet**.
+
+[Region tillgänglighet](#region-availability) syftar på var en tjänst är tillgänglig för användning.
+
+[Data placering](#data-residency) refererar till var användar data lagras.
 
 ## <a name="region-availability"></a>Regional tillgänglighet
-Azure AD B2C är tillgängligt i hela världen via det offentliga Azure-molnet. 
 
-Detta skiljer sig från modellen följer de flesta andra Azure-tjänster som koppla tillgänglighet med dataplacering. Du kan se exempel på detta i både Azure [produkter tillgängliga efter Region](https://azure.microsoft.com/regions/services/) sidan och [Active Directory B2C priskalkylator](https://azure.microsoft.com/pricing/details/active-directory-b2c/).
+Azure AD B2C är tillgängligt i hela världen via det offentliga Azure-molnet.
+
+Detta skiljer sig från modellen följt av de flesta andra Azure-tjänster, som vanligt vis är *tillgängliga* med *data placering*. Du kan se exempel på detta i båda Azures [produkter som är tillgängliga på sidan region](https://azure.microsoft.com/regions/services/) och [Active Directory B2C pris kalkylatorn](https://azure.microsoft.com/pricing/details/active-directory-b2c/).
 
 ## <a name="data-residency"></a>Dataplacering
-Azure AD B2C lagrar användardata i USA eller Europa.
 
-Dataplacering fastställs baserat på vilket land/region är markerad när [skapar en Azure AD B2C-klient](active-directory-b2c-get-started.md).
+Azure AD B2C lagrar användar data i antingen USA, Europa eller Asien och stillahavsområdet region.
 
-![Skärmbild av en Förhandsgranska klient](./media/active-directory-b2c-reference-tenant-type/data-residency-b2c-tenant.png)
+Data placering bestäms av landet/regionen som du väljer när du [skapar en Azure AD B2C klient](active-directory-b2c-get-started.md):
 
-Det finns data i USA för följande länder/regioner:
+![Skärm bild av en för hands klient](./media/active-directory-b2c-reference-tenant-type/data-residency-b2c-tenant.png)
 
-> USA, Kanada, Costa Rica, Dominikanska republiken, El Salvador, Guatemala, Mexiko, Panama, Puerto Rico och Trinidad och Tobago
+Data finns i **USA** för följande länder/regioner:
 
-Det finns data i Europa för följande länder/regioner:
+> USA, Kanada, Costa Rica, Dominikanska republiken, El Salvador, Guatemala, Mexiko, Panama, Puerto Rico och Trinidad & Tobago
 
-> Algeriet, Österrike, Azerbajdzjan, Bahrain, Vitryssland, Belgien, Bulgarien, Kroatien, Cypern, Tjeckien, Danmark, Egypten, Estland, Finland, Frankrike, Tyskland, Grekland, Ungern, Island, Irland, Israel, Italien, Jordanien, Kazakstan, Kenya, Kuwait, Lettland, Libanon Liechtenstein, Litauen, Luxemburg, norra Makedonien, Malta, Montenegro, Marocko, Nederländerna, Nigeria, Norge, Oman, Pakistan, Polen, Portugal, Qatar, Rumänien, Ryssland, Saudiarabien, Serbien, Slovakien, Slovenien, Sydafrika, Spanien, Sverige, Schweiz, Tunisien, Turkiet, Ukraina, Förenade Arabemiraten och Storbritannien.
+Data finns i **Europa** för följande länder/regioner:
 
-Återstående länderna/regionerna håller som läggs till i listan.  Nu kan du fortfarande använda Azure AD B2C genom att välja någon av de länder/regionerna som ovan.
+> Algeriet, Österrike, Azerbajdzjan, Bahrain, Vitryssland, Belgien, Bulgarien, Cypern, Tjeckien, Danmark, Egypten, Estland, Finland, Frankrike, Grekland, Ungern, Island, Irland, Israel, Italien, Jordanien, Kazakstan, Tyskland, Kuwait, Lettland, Libanon, Liechtenstein, Litauen, Luxemburg, norra Makedonien, Malta, Montenegro, Marocko, Nederländerna, Nigeria, Norge, Oman, Pakistan, Polen, Portugal, Qatar, Rumänien, Ryssland, Saudiarabien, Serbien, Slovakien, Slovenien, Sydafrika, Spanien, Sveriges Schweiz, Tunisien, Turkiet, Ukraina, Förenade Arabemiraten och Förenade kungariket.
 
-> Afghanistan, Argentina, Australien, Brasilien, Chile, Colombia, Ecuador, Hongkong SAR, Indien, Indonesien, Irak, Japan, Sydkorea, Malaysia, Nya Zeeland, Paraguay, Peru, Filippinerna, Singapore, Sri Lanka, Taiwan, Thailand, Uruguay och Venezuela.
+Data finns i **Asien och Stillahavsområdet** för följande länder/regioner:
+
+> Afghanistan, Hongkong SAR, Indien, Indonesien, Japan, Korea, Malaysia, Filippinerna, Singapore, Sri Lanka, Taiwan och Thailand.
+
+Följande länder/regioner håller på att läggas till i listan. Nu kan du fortfarande använda Azure AD B2C genom att välja någon av de länder/regioner som finns ovan.
+
+> Argentina, Australien, Brasilien, Chile, Colombia, Ecuador, Irak, Nya Zeeland, Paraguay, Peru, Uruguay och Venezuela.
 
 ## <a name="preview-tenant"></a>Förhandsgranska klient
-Om du har skapat en B2C-klient för Azure AD B2C-förhandsversionen, är det troligt som din **klient typ** säger **Förhandsgranska klient**. Om så är fallet, måste du använda din klient endast för utveckling och testning och inte för produktionsappar.
 
-> [!IMPORTANT]
-> Det finns inga migreringsvägen från en förhandsversion B2C-klient till en produktionsskala-B2C-klient. Observera att det finns kända problem när du tar bort en Förhandsgranska B2C-klient och återskapa en produktionsskala-B2C-klient med samma domännamn. Du måste skapa en B2C-produktionsskala-klient med ett annat domännamn.
+Om du har skapat en B2C-klient under för hands versionen av Azure AD B2C's är det troligt att **klient typen** säger för **hands klienten**.
 
+I så fall måste du bara använda din klient för utvecklings-och testnings syfte. Använd inte en för hands version av produktions program.
 
-![Skärmbild av en Förhandsgranska klient](./media/active-directory-b2c-reference-tenant-type/preview-b2c-tenant.png)
+**Det finns ingen sökväg för migrering** från en för hands version B2C-klient till en B2C-klient för produktion. Du måste skapa en ny B2C-klient för dina produktions program.
+
+Det finns kända problem när du tar bort en för hands version av B2C-klienten och skapar en B2C-klient för produktion med samma domän namn. *Du måste skapa en B2C-klient för produktions skala med ett annat domän namn*.
+
+![Skärm bild av en för hands klient](./media/active-directory-b2c-reference-tenant-type/preview-b2c-tenant.png)

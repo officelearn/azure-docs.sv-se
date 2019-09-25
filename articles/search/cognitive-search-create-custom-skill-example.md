@@ -5,16 +5,15 @@ manager: nitinme
 author: luiscabrer
 services: search
 ms.service: search
-ms.subservice: cognitive-search
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
-ms.openlocfilehash: d77b4e3a002757bcf6c91b6611876e732273fcf9
-ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
+ms.openlocfilehash: d76a250cc3554b086501899376cb411346a4251c
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70183520"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71266339"
 ---
 # <a name="example-create-a-custom-skill-using-the-bing-entity-search-api"></a>Exempel: Skapa en anpassad kunskap med hjälp av API för entitetsökning i Bing
 
@@ -30,7 +29,7 @@ I det här exemplet lär du dig hur du skapar en anpassad webb-API-färdighet. D
 
 ## <a name="create-an-azure-function"></a>Skapa en Azure-funktion
 
-I det här exemplet används en Azure-funktion som värd för ett webb-API, men det är inte obligatoriskt.  Så länge du uppfyller gränssnitts [kraven för en kognitiv skicklighet](cognitive-search-custom-skill-interface.md), är den metod du tar oväsentlig. Azure Functions, gör det dock enkelt att skapa en anpassad färdighet.
+I det här exemplet används en Azure-funktion som värd för ett webb-API, men det är inte obligatoriskt.  Så länge du uppfyller [gränssnitts kraven för en kognitiv skicklighet](cognitive-search-custom-skill-interface.md), är den metod du tar oväsentlig. Azure Functions, gör det dock enkelt att skapa en anpassad färdighet.
 
 ### <a name="create-a-function-app"></a>Skapa en funktionsapp
 
@@ -40,7 +39,7 @@ I det här exemplet används en Azure-funktion som värd för ett webb-API, men 
 
 1. Välj **Azure Functions v2 (.net Core)** . Du kan också göra det med version 1, men koden som skrivs nedan baseras på v2-mallen.
 
-1. Välj den typ som ska vara **http-** utlösare
+1. Välj den typ som ska vara **http-utlösare**
 
 1. För lagrings kontot kan du välja **ingen**eftersom du inte behöver något lagrings utrymme för den här funktionen.
 

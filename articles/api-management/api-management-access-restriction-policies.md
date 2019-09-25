@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/21/2019
 ms.author: apimpm
-ms.openlocfilehash: cfb4bda597b2b7ab4658244c46253f5118723402
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 3201edd3b90d6db1393286db688b24065ea8dc6b
+ms.sourcegitcommit: a6718e2b0251b50f1228b1e13a42bb65e7bf7ee2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70073809"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71273531"
 ---
 # <a name="api-management-access-restriction-policies"></a>Principer för begränsning av API Management åtkomst
 
@@ -122,7 +122,7 @@ Den här principen kan användas i följande princip [avsnitt](https://azure.mic
 
 | Name      | Beskrivning                                                                                                                                                                                                                                                                                              | Obligatorisk |
 | --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
-| Ange gräns | Rot element.                                                                                                                                                                                                                                                                                            | Ja      |
+| hastighets begränsning | Rot element.                                                                                                                                                                                                                                                                                            | Ja      |
 | api       | Lägg till en eller flera av de här elementen för att införa en gräns för anrops frekvensen för API: er i produkten. Hastighets begränsningar för produkt-och API-anrop tillämpas oberoende av varandra. API: t kan refereras antingen `name` via `id`eller. Om båda attributen anges `id` används och `name` kommer att ignoreras.                    | Nej       |
 | operation | Lägg till en eller flera av de här elementen för att införa en gräns för anrops frekvensen för åtgärder inom ett API. Hastighets begränsningar för produkt, API och åtgärd tillämpas oberoende av varandra. Åtgärden kan refereras antingen via `name` eller. `id` Om båda attributen anges `id` används och `name` kommer att ignoreras. | Nej       |
 
@@ -185,9 +185,9 @@ I följande exempel anges frekvens gränsen av IP-adressen för anroparen.
 
 ### <a name="elements"></a>Element
 
-| Name      | Beskrivning   | Obligatorisk |
-| --------- | ------------- | -------- |
-| Ange gräns | Rot element. | Ja      |
+| Name              | Beskrivning   | Obligatorisk |
+| ----------------- | ------------- | -------- |
+| hastighets begränsning för nyckel | Rot element. | Ja      |
 
 ### <a name="attributes"></a>Attribut
 
@@ -235,7 +235,7 @@ I följande exempel tillåter principen bara begär Anden som kommer från den e
 | Name                                      | Beskrivning                                         | Obligatorisk                                                       |
 | ----------------------------------------- | --------------------------------------------------- | -------------------------------------------------------------- |
 | IP-filter                                 | Rot element.                                       | Ja                                                            |
-| adress                                   | Anger en enskild IP-adress som du vill filtrera efter.   | Minst ett `address` eller `address-range` -element krävs. |
+| Adress                                   | Anger en enskild IP-adress som du vill filtrera efter.   | Minst ett `address` eller `address-range` -element krävs. |
 | adress – intervall från = "adress" till = "adress" | Anger ett intervall med IP-adresser som ska filtreras. | Minst ett `address` eller `address-range` -element krävs. |
 
 ### <a name="attributes"></a>Attribut
@@ -542,7 +542,7 @@ Det här exemplet visar hur du använder [validate JWT](api-management-access-re
 | fråga-parameter-Name            | Namnet på frågeparametern som innehåller token.                                                                                                                                                                                                                                                                                                                                                                                                     | En av `header-name`, `query-parameter-name` eller `token-value` måste anges. | Gäller inte                                                                               |
 | token-värde                     | Uttrycket returnerar en sträng som innehåller JWT-token                                                                                                                                                                                                                                                                                                                                                                                                     | En av `header-name`, `query-parameter-name` eller `token-value` måste anges. | Gäller inte                                                                               |
 | id                              | Attributet i- elementetgör`kid` att du kan ange den sträng som ska matchas mot anspråk i token (om det finns) för att ta reda på vilken nyckel som ska användas för verifiering av signaturen. `key` `id`                                                                                                                                                                                                                                           | Nej                                                                               | Gäller inte                                                                               |
-| matchning                           | `match` Attributet`claim` i elementet anger om alla anspråks värden i principen måste finnas i token för att verifieringen ska lyckas. Möjliga värden är:<br /><br /> - `all`-alla anspråks värden i principen måste finnas i token för att verifieringen ska lyckas.<br /><br /> - `any`-minst ett anspråks värde måste finnas i token för att verifieringen ska lyckas.                                                       | Nej                                                                               | alla                                                                               |
+| matchning                           | `match` Attributet`claim` i elementet anger om alla anspråks värden i principen måste finnas i token för att verifieringen ska lyckas. Möjliga värden är:<br /><br /> - `all`-alla anspråks värden i principen måste finnas i token för att verifieringen ska lyckas.<br /><br /> - `any`-minst ett anspråks värde måste finnas i token för att verifieringen ska lyckas.                                                       | Nej                                                                               | all                                                                               |
 | require-expiration-time         | Booleskt. Anger om ett förfallo datum måste anges i token.                                                                                                                                                                                                                                                                                                                                                                               | Nej                                                                               | true                                                                              |
 | Kräv schema                  | Namnet på token-schemat, t. ex. "Bearer". När det här attributet anges ser principen till att det angivna schemat finns i värdet för Authorization-huvudet.                                                                                                                                                                                                                                                                                    | Nej                                                                               | Gäller inte                                                                               |
 | Kräv-signerade-token           | Booleskt. Anger om en token måste signeras.                                                                                                                                                                                                                                                                                                                                                                                           | Nej                                                                               | true                                                                              |

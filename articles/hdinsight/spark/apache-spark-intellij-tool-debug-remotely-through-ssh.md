@@ -2,19 +2,19 @@
 title: 'Azure Toolkit for IntelliJ: Felsöka Spark-program via SSH '
 description: Stegvisa anvisningar om hur du använder HDInsight-verktyg i Azure Toolkit for IntelliJ att felsöka program via fjärr anslutning i HDInsight-kluster via SSH
 keywords: Felsöka fjärran IntelliJ, fjärrfelsökning IntelliJ, SSH, IntelliJ, HDInsight, felsöka IntelliJ, fel sökning
-ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
+ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 11/25/2017
-ms.openlocfilehash: 844901d9c689d5a04312b52101572854f4d7fe6b
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: 1f3f08385ac4f7044f4e6c4e4110be701e8f576d
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70994005"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71266212"
 ---
 # <a name="debug-apache-spark-applications-on-an-hdinsight-cluster-with-azure-toolkit-for-intellij-through-ssh"></a>Felsöka Apache Spark program i ett HDInsight-kluster med Azure Toolkit for IntelliJ via SSH
 
@@ -46,17 +46,17 @@ Den här artikeln innehåller steg-för-steg-anvisningar om hur du använder HDI
 
    c. I listan med **byggverktyg** väljer du något av följande enligt dina behov:
 
-   - **Maven**, för guidestöd när du skapar Scala-projekt
+   - **Maven**, för guiden skapa projekt för Scala.
 
-   - **SBT**, för att hantera beroenden när du skapar Scala-projekt 
+   - **SBT**för hantering av beroenden och skapande av Scala-projektet.
 
-     ![Skapa ett fel söknings projekt](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-create-projectfor-debug-remotely.png)
+     ![IntelliJ skapa nytt projekt Spark](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-create-projectfor-debug-remotely.png)
 
-   d. Välj **Nästa**.     
- 
+   d. Välj **Nästa**.
+
 1. I nästa **nya projekt** fönster gör du följande:
 
-   ![Välj Spark SDK](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-new-project.png)
+   ![IntelliJ nytt projekt Välj Spark-version](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-new-project.png)
 
    a. Ange ett projekt namn och en projekt plats.
 
@@ -69,90 +69,96 @@ Den här artikeln innehåller steg-för-steg-anvisningar om hur du använder HDI
 1. Välj **src** > main- > **Scala** för att öppna din kod i projektet. I det här exemplet används **SparkCore_wasbloTest** -skriptet.
 
 ### <a name="prerequisite-for-windows"></a>Förutsättning för Windows
-När du kör det lokala Spark Scala-programmet på en Windows-dator kan du få ett undantag, enligt beskrivningen i [Spark-2356](https://issues.apache.org/jira/browse/SPARK-2356). Undantaget beror på att WinUtils. exe saknas i Windows. 
+När du kör det lokala Spark Scala-programmet på en Windows-dator kan du få ett undantag, enligt beskrivningen i [Spark-2356](https://issues.apache.org/jira/browse/SPARK-2356). Undantaget beror på att WinUtils. exe saknas i Windows.
 
 Lös problemet genom att [Ladda ned den körbara filen](https://public-repo-1.hortonworks.com/hdp-win-alpha/winutils.exe) till en plats, till exempel **C:\WinUtils\bin**. Lägg sedan till miljövariabeln **HADOOP_HOME**och ange värdet för variabeln till **C:\WinUtils**.
 
 ### <a name="scenario-2-perform-local-run"></a>Scenario 2: Utför lokal körning
+
 1. Öppna **SparkCore_wasbloTest** -skriptet, högerklicka på skript redigeraren och välj sedan alternativet **kör [Spark Job] XXX** för att utföra lokal körning.
+
 1. När den lokala körningen är klar kan du se utdatafilen Spara till din aktuella **__standard__** för Project Explorer- **data** > .
 
-    ![Lokalt körnings resultat](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/spark-local-run-result.png)
+    ![IntelliJ-projektets lokala körnings resultat](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/spark-local-run-result.png)
+
 1. Våra verktyg har ställt in standard konfigurationen för lokal körning automatiskt när du utför den lokala körningen och lokal fel sökning. Öppna konfigurationen **[Spark på HDInsight] XXX** i det övre högra hörnet, så kan du se **[Spark på HDInsight] XXX** redan har skapats under **Apache Spark i HDInsight**. Växla till fliken **lokalt körning** .
 
-    ![Lokal körnings konfiguration](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/local-run-configuration.png)
+    ![IntelliJ kör felsöka konfigurationer lokal körning](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/local-run-configuration.png)
+
     - [Miljövariabler](#prerequisite-for-windows): Om du redan anger system miljö variabeln **HADOOP_HOME** till **C:\WinUtils**kan den automatiskt identifiera att du inte behöver lägga till manuellt.
     - [Plats för WinUtils. exe](#prerequisite-for-windows): Om du inte har angett system miljö variabeln kan du hitta platsen genom att klicka på knappen.
     - Du behöver bara välja något av två alternativ och de behövs inte på MacOS och Linux.
+
 1. Du kan också ange konfigurationen manuellt innan du utför lokal körning och lokal fel sökning. Välj plus tecknet ( **+** ) i föregående skärm bild. Välj sedan alternativet **Apache Spark på HDInsight** . Ange information om **namn**, **huvud klass namn** som ska sparas och klicka sedan på knappen lokal körning.
 
 ### <a name="scenario-3-perform-local-debugging"></a>Scenario 3: Utför lokal fel sökning
 1. Öppna **SparkCore_wasbloTest** -skriptet och ange Bryt punkter.
-1. Högerklicka på skript redigeraren och välj sedan alternativet **Felsök [Spark på HDInsight] XXX** för att utföra lokal fel sökning.   
-
-
+1. Högerklicka på skript redigeraren och välj sedan alternativet **Felsök [Spark på HDInsight] XXX** för att utföra lokal fel sökning.
 
 ## <a name="learn-how-to-perform-remote-run-and-debugging"></a>Lär dig hur du utför fjärrkörning och fel sökning
 ### <a name="scenario-1-perform-remote-run"></a>Scenario 1: Utför fjärrkörning
 
 1. Välj ikonen i det övre högra hörnet för att komma åt menyn **Redigera konfigurationer** . Från den här menyn kan du skapa eller redigera konfigurationer för fjärrfelsökning.
 
-   ![Redigera konfigurationer](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-edit-configurations.png) 
+   ![HDI IntelliJ Edit Configurations](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-edit-configurations.png)
 
 1. I dialog rutan **Kör/Felsök konfigurationer** väljer du plus tecknet ( **+** ). Välj sedan alternativet **Apache Spark på HDInsight** .
 
-   ![Lägg till ny konfiguration](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-add-new-Configuration.png)
+   ![IntelliJ Lägg till ny konfiguration](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-add-new-Configuration.png)
+
 1. Växla till **fjärran sluten på kluster** -fliken. Ange information om **namn**, **Spark-kluster**och **huvud klass namn**. Klicka sedan på **Avancerad konfiguration (fjärrfelsökning)** . Våra verktyg stöder fel sökningmed körningar. Standardvärdet är 5 i **numExectors**. Du är bättre på att inte ange högre än 3.
 
-   ![Kör fel söknings konfigurationer](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-run-debug-configurations.png)
+   ![IntelliJ kör fel söknings konfiguration](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-run-debug-configurations.png)
 
 1. I delen **Avancerad konfiguration (Remote-felsökning)** väljer du **Aktivera Spark**-fjärrfelsökning. Ange SSH-användarnamnet och ange ett lösen ord eller Använd en privat nyckel fil. Om du vill utföra fjärrfelsökning måste du ange den. Du behöver inte ange det om du bara vill använda fjärran sluten.
 
-   ![Aktivera fjärrfelsökning med Spark](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-enable-spark-remote-debug.png)
+   ![IntelliJ Avancerad konfiguration aktivera Spark-fjärrfelsökning](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-enable-spark-remote-debug.png)
 
-1. Konfigurationen sparas nu med det namn du angav. Välj konfigurations namnet om du vill visa konfigurations informationen. Välj **Redigera konfigurationer**om du vill göra ändringar. 
+1. Konfigurationen sparas nu med det namn du angav. Välj konfigurations namnet om du vill visa konfigurations informationen. Välj **Redigera konfigurationer**om du vill göra ändringar.
 
 1. När du har slutfört konfigurations inställningarna kan du köra projektet mot fjärrklusteret eller utföra fjärrfelsökning.
-   
-   ![Fjärrkörning (knapp)](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/perform-remote-run-button.png)
+
+   ![IntelliJ Felsök fjärran sluten Spark-jobb, knapp](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/perform-remote-run-button.png)
 
 1. Klicka på knappen **Koppla från** om du inte vill att sändnings loggarna ska visas i den vänstra panelen. Den körs dock fortfarande på Server delen.
 
-   ![Fjärrkörnings resultat](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/spark-remote-run-result.png)
+   ![Fjärrkörning av IntelliJ debug-jobb fjärrstyrt resultat](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/spark-remote-run-result.png)
 
 ### <a name="scenario-2-perform-remote-debugging"></a>Scenario 2: Utför fjärrfelsökning
 1. Konfigurera Bryt punkter och klicka sedan på ikonen **fjärrfelsökning** . Skillnaden med fjärrsändning är att SSH username/Password måste konfigureras.
 
-   ![Välj ikonen Felsök](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-debug-icon.png)
+   ![Fel söknings ikon för IntelliJ-felsökning för fjärr Spark-jobb](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-debug-icon.png)
 
 1. När program körningen når Bryt punkten ser du fliken **driv rutin** och två **utförar** -flikar i **fel söknings** fönstret. Välj ikonen **återuppta program** för att fortsätta att köra koden, som sedan når nästa Bryt punkt. Du måste växla till rätt **utförar** -flik för att hitta mål utförar för fel sökning. Du kan visa körnings loggarna på motsvarande **konsol** flik.
 
-   ![Fliken fel sökning](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-debugger-tab.png)
+   ![IntelliJ Felsök fjärr Spark-jobb fel söknings flik](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-debugger-tab.png)
 
 ### <a name="scenario-3-perform-remote-debugging-and-bug-fixing"></a>Scenario 3: Utför fjärrfelsökning och åtgärda fel
+
 1. Konfigurera två Bryt punkter och välj sedan **fel söknings** ikonen för att starta fjärrfelsökning.
 
-1. Koden stannar vid den första Bryt punkten och parameter-och variabel informationen visas i fönstret **variabler** . 
+1. Koden stannar vid den första Bryt punkten och parameter-och variabel informationen visas i fönstret **variabler** .
 
 1. Välj ikonen **återuppta program** för att fortsätta. Koden stoppas vid den andra punkten. Undantaget upptäcktes som förväntat.
 
-   ![Utlös fel](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-throw-error.png) 
+   ![Fel sökning av IntelliJ för fjärrspark-jobb](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-throw-error.png)
 
 1. Välj ikonen **återuppta program** igen. I fönstret **HDInsight Spark-sändning** visas fel meddelandet "Det gick inte att köra jobb".
 
-   ![Fel vid överföring](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-error-submission.png) 
+   ![Fel sökning av IntelliJ för fjärrkörning av Spark-jobb](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-error-submission.png)
 
-1. Om du vill uppdatera variabelvärdet dynamiskt genom att använda IntelliJ fel söknings funktion väljer du **Felsök** igen. Fönstret **variabler** visas igen. 
+1. Om du vill uppdatera variabelvärdet dynamiskt genom att använda IntelliJ fel söknings funktion väljer du **Felsök** igen. Fönstret **variabler** visas igen.
 
-1. Högerklicka på målet på fliken **Felsök** och välj sedan **Ange värde**. Ange sedan ett nytt värde för variabeln. Spara värdet genom att välja **RETUR** . 
+1. Högerklicka på målet på fliken **Felsök** och välj sedan **Ange värde**. Ange sedan ett nytt värde för variabeln. Spara värdet genom att välja **RETUR** .
 
-   ![Ange värde](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-set-value1.png)
+   ![IntelliJ fel söknings värde för fjärrspark jobb uppsättning](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-set-value1.png)
 
 1. Välj ikonen **för** att fortsätta köra programmet. Den här gången har inget undantag påträffats. Du kan se att projektet har körts utan undantag.
 
-   ![Felsök utan undantag](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-debug-without-exception.png)
+   ![IntelliJ Felsök fjärr Spark-jobb utan undantag](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-debug-without-exception.png)
 
 ## <a name="seealso"></a>Nästa steg
+
 * [: Apache Spark på Azure HDInsight](apache-spark-overview.md)
 
 ### <a name="demo"></a>Demo

@@ -17,12 +17,12 @@ ms.date: 09/09/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b996b2387e324c7e318536c2a13bdc9de39a7a5e
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: 648652ed32a5dea30de665b7fa49190171a7f10a
+ms.sourcegitcommit: 263a69b70949099457620037c988dc590d7c7854
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70860875"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71268394"
 ---
 # <a name="desktop-app-that-calls-web-apis---app-registration"></a>Stationär app som anropar webb-API: er – app-registrering
 
@@ -51,6 +51,7 @@ Omdirigerings-URI: erna som ska användas i Skriv bords program beror på det fl
   > [!IMPORTANT]
   > I dag MSAL.NET används en annan omdirigerings-URI som standard i Skriv`urn:ietf:wg:oauth:2.0:oob`bords program som körs på Windows (). I framtiden ska vi ändra den här standardinställningen och därför rekommenderar vi att du använder`https://login.microsoftonline.com/common/oauth2/nativeclient`
 
+- Om du skapar en intern mål-C-eller Swift-app för macOS vill du registrera redirectUri baserat på programmets paket-ID i följande format: **msauth. <. app. bundle. id >://auth** (Ersätt < ditt. app. bundle. ID > med programmets paket identifierare)
 - Om din app endast använder integrerad Windows-autentisering eller användar namn/lösen ord, behöver du inte registrera en omdirigerings-URI för programmet. De här flödena gör en tur och retur till Microsoft Identity Platform v 2.0-slutpunkten och programmet kommer inte att anropas tillbaka på någon specifik URI.
 - För att skilja enhets kod flödet, integrerad Windows-autentisering och användar namn/lösen ord från ett konfidentiellt klient program flöde som inte har omdirigerings-URI: er, antingen (det flöde för klientautentisering som används i daemon-program), måste du uttrycka att ditt programmet är ett offentligt klient program. För att uppnå den här konfigurationen går du till avsnittet **autentisering** för ditt program. I underavsnittet **Avancerade inställningar** i stycket **standard klient typ** väljer du sedan **Ja** för frågan **behandla programmet som en offentlig klient**.
 

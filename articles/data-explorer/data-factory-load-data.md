@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 04/15/2019
-ms.openlocfilehash: b3bd9b800da4f096639d02c78b718216441621a9
-ms.sourcegitcommit: 95b180c92673507ccaa06f5d4afe9568b38a92fb
+ms.openlocfilehash: 5eb05df7ed97839ef80798a752565234d180f0e2
+ms.sourcegitcommit: 263a69b70949099457620037c988dc590d7c7854
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/08/2019
-ms.locfileid: "70803982"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71268829"
 ---
 # <a name="copy-data-to-azure-data-explorer-using-azure-data-factory"></a>Kopiera data till Azure Datautforskaren med Azure Data Factory 
 
@@ -96,6 +96,9 @@ Det finns två sätt att läsa in data i Azure Datautforskaren med Azure Data Fa
     * Ange nyckel värde för **hemlig åtkomst** .
     * Välj **test anslutning** för att testa den länkade tjänst anslutningen som du skapade.
     * Välj **Slutför**.
+    
+    > [!NOTE]
+    > I Amazon S3 väljer du ditt Amazon-användarnamn i navigerings fältet och väljer sedan **Mina säkerhets uppgifter** för att hitta din **åtkomst nyckel**. 
 
 1. På sidan **käll data lager** visas den nya AmazonS31-anslutningen. Välj **Nästa**.
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 895d44ea7ab6bfebee44014ad4e96016a555c08e
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.openlocfilehash: 5ad8f24c9d23e9412a4f6e4e5f97692bba2c0c39
+ms.sourcegitcommit: 263a69b70949099457620037c988dc590d7c7854
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70959923"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71268674"
 ---
 # <a name="deploy-azure-ad-password-protection"></a>Distribuera Azure AD-lösenordsskydd
 
@@ -43,23 +43,24 @@ När funktionen har körts i gransknings läge under en rimlig period, kan du v�
 ## <a name="deployment-requirements"></a>Distributions krav
 
 * Licensierings krav för Azure AD Password Protection finns i artikeln [eliminera Felaktiga lösen ord i din organisation](concept-password-ban-bad.md#license-requirements).
-* Alla domänkontrollanter som hämtar DC-agenttjänsten för Azure AD Password Protection måste köra Windows Server 2012 eller senare. Detta krav innebär inte att den Active Directory domänen eller skogen måste finnas på Windows Server 2012-domän eller skogens funktions nivå. Som vi nämnt i [design principer](concept-password-ban-bad-on-premises.md#design-principles)finns det ingen minsta DFL eller FFL som krävs för att antingen DC-agenten eller proxy-programvaran ska kunna köras.
+* Alla datorer där Azure AD Password Protection DC Agent-programvaran ska installeras måste köra Windows Server 2012 eller senare. Detta krav innebär inte att den Active Directory domänen eller skogen måste finnas på Windows Server 2012-domän eller skogens funktions nivå. Som vi nämnt i [design principer](concept-password-ban-bad-on-premises.md#design-principles)finns det ingen minsta DFL eller FFL som krävs för att antingen DC-agenten eller proxy-programvaran ska kunna köras.
 * Alla datorer som hämtar DC-agenttjänsten måste ha .NET 4,5 installerat.
-* Alla datorer som får proxy-tjänsten för lösen ords skydd i Azure AD måste köra Windows Server 2012 R2 eller senare.
+* Alla datorer där Azure AD Password Protection proxy service ska installeras måste köra Windows Server 2012 R2 eller senare.
    > [!NOTE]
    > Det krävs ett obligatoriskt krav för att distribuera Azure AD-lösenord även om domänkontrollanten kan ha utgående direkt Internet anslutning. 
    >
 * Alla datorer där Azure AD Password Protection-proxytjänsten ska installeras måste ha .NET 4,7 installerat.
   .NET 4,7 bör redan vara installerat på en helt uppdaterad Windows Server. Om detta inte är fallet kan du hämta och köra installations programmet som finns i [.NET Framework 4,7 Offline Installer för Windows](https://support.microsoft.com/help/3186497/the-net-framework-4-7-offline-installer-for-windows).
-* Alla datorer, inklusive domänkontrollanter, som hämtar Azure AD-komponenter för lösen ords skydd måste ha Universal C-körning installerad. Du kan få körnings miljön genom att se till att du har alla uppdateringar från Windows Update. Eller så kan du hämta det i ett OS-enskilt uppdaterings paket. Mer information finns i [Uppdatera för Universal C runtime i Windows](https://support.microsoft.com/help/2999226/update-for-uniersal-c-runtime-in-windows).
+* Alla datorer, inklusive domänkontrollanter, som har Azure AD Password Protection-komponenter installerade måste ha Universal C-körningsmiljön installerat. Du kan få körnings miljön genom att se till att du har alla uppdateringar från Windows Update. Eller så kan du hämta det i ett OS-enskilt uppdaterings paket. Mer information finns i [Uppdatera för Universal C runtime i Windows](https://support.microsoft.com/help/2999226/update-for-uniersal-c-runtime-in-windows).
 * Nätverks anslutningen måste finnas mellan minst en domänkontrollant i varje domän och minst en server som är värd för-proxyservern för lösen ords skydd. Den här anslutningen måste tillåta att domänkontrollanten får åtkomst till RPC Endpoint Mapper port 135 och RPC-serverport på proxyservern. Som standard är RPC-Server porten en dynamisk RPC-port, men den kan konfigureras att [använda en statisk port](#static).
-* Alla datorer som är värdar för proxy-tjänsten måste ha nätverks åtkomst till följande slut punkter:
+* Alla datorer där Azure AD Password Protection-proxytjänsten ska installeras måste ha nätverks åtkomst till följande slut punkter:
 
     |**Slutpunkt**|**Syfte**|
     | --- | --- |
     |`https://login.microsoftonline.com`|Autentiseringsbegäranden|
     |`https://enterpriseregistration.windows.net`|Funktioner för lösen ords skydd i Azure AD|
 
+  Du måste också aktivera nätverks åtkomst för den uppsättning portar och URL: er som anges i [installations procedurerna för programproxy-miljön](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-add-on-premises-application#prepare-your-on-premises-environment). De här konfigurations stegen krävs för att Microsoft Azure AD Connect agent Updater-tjänsten ska kunna fungera (den här tjänsten installeras sida vid sida med proxy-tjänsten). Vi rekommenderar inte att du installerar Azure AD-proxy för lösen ords skydd och programproxy sida vid sida på samma dator, på grund av inkompatibiliteter mellan versionerna av Microsoft Azure AD Connect agent Updateer-programvaran.
 * Alla datorer som är värdar för proxyservern för lösen ords skydd måste konfigureras för att ge domänkontrollanter möjlighet att logga in på proxy-tjänsten. Detta styrs via privilegie tilldelningen "åtkomst till den här datorn från nätverket".
 * Alla datorer som är värdar för proxy-tjänsten för lösen ords skydd måste konfigureras för att tillåta utgående TLS 1,2 HTTP-trafik.
 * Ett globalt administratörs konto för att registrera-proxyservern för lösen ords skydd och-skogar med Azure AD.

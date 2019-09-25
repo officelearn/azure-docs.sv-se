@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: troubleshooting
 ms.date: 07/05/2019
 ms.author: dacurwin
-ms.openlocfilehash: 85c0cbc1e516730018f80e1978ba565e311117fe
-ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
+ms.openlocfilehash: ab03056557c7c67c5b75d701c9995c9ad500caae
+ms.sourcegitcommit: 263a69b70949099457620037c988dc590d7c7854
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71018176"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71268782"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Felsöka Azure Backup fel: Problem med agenten eller tillägget
 
@@ -110,7 +110,7 @@ När du har registrerat och schemalagt en virtuell dator för Azure Backup tjän
 **Felkod**: UserErrorUnsupportedDiskSize <br>
 **Fel meddelande**: De konfigurerade disk storlekarna stöds för närvarande inte av Azure Backup. <br>
 
-Säkerhets kopierings åtgärden kunde inte utföras vid säkerhets kopiering av en virtuell dator med en disk storlek som är större än 30 TB. Dessutom stöds inte säkerhets kopiering av krypterade diskar som är större än 4 TB i dag. Kontrol lera att disk storleken/diskarna är mindre än eller lika med den gräns som stöds genom att dela diskarna.
+Säkerhets kopierings åtgärden kunde inte utföras vid säkerhets kopiering av en virtuell dator med en disk storlek som är större än 30 TB. Dessutom stöds inte säkerhets kopiering av krypterade diskar som är större än 4 TB idag. Kontrol lera att disk storleken/diskarna är mindre än eller lika med den gräns som stöds genom att dela diskarna.
 
 ## <a name="usererrorbackupoperationinprogress---unable-to-initiate-backup-as-another-backup-operation-is-currently-in-progress"></a>UserErrorBackupOperationInProgress – det går inte att initiera säkerhets kopieringen eftersom en annan säkerhets kopiering pågår just nu
 
@@ -233,7 +233,11 @@ När du slutför de här stegen installeras tillägget om under nästa säkerhet
 
 ### <a name="clean_up_restore_point_collection"></a>Rensa återställnings punkt samling
 
-När du har tagit bort låset måste återställnings punkterna rensas. Om du vill rensa återställnings punkterna följer du någon av metoderna:<br>
+När du har tagit bort låset måste återställnings punkterna rensas.
+
+Om du tar bort resurs gruppen för den virtuella datorn eller själva datorn, förblir ögonblicks bilder av hanterade diskar aktiva och upphör att gälla enligt den kvarhållna uppsättningen. För att ta bort ögonblicks bilderna för omedelbar återställning (om du inte behöver dem längre) som lagras i återställnings punkts samlingen rensar du återställnings punkts samlingen enligt stegen nedan.
+
+Om du vill rensa återställnings punkterna följer du någon av metoderna:<br>
 
 - [Rensa återställnings punkts samlingen genom att köra Ad hoc-säkerhetskopiering](#clean-up-restore-point-collection-by-running-ad-hoc-backup)<br>
 - [Rensa återställnings punkt samling från Azure Portal](#clean-up-restore-point-collection-from-azure-portal)<br>

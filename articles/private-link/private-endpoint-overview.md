@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 09/16/2019
 ms.author: kumud
-ms.openlocfilehash: 7394a9e1b1fa90741bc26fc0e9b6b7e6284d75e0
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: 80f2e8a8fd41fbafbaf6d30bc1001b86c5dcdd50
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71104683"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71266374"
 ---
 # <a name="what-is-azure-private-endpoint"></a>Vad är en privat Azure-slutpunkt?
 
@@ -43,7 +43,7 @@ Här följer några viktiga uppgifter om privata slut punkter:
  
 - Flera privata slut punkter kan skapas med samma privata länk resurs. Den rekommenderade metoden är att använda en enda privat slut punkt för en viss privat länk resurs för att undvika dubbla poster eller konflikter i DNS-matchning för ett enda nätverk som använder en gemensam DNS-serverkonfiguration. 
  
-- Flera privata slut punkter kan skapas i samma eller olika undernät i samma virtuella nätverk. Det finns gränser för antalet privata slut punkter som du kan skapa i en prenumeration. Mer information finns i [Azure-gränser](https://docs.microsoft.com/azure/azure-subscription-service-limits.md#networking-limits).
+- Flera privata slut punkter kan skapas i samma eller olika undernät i samma virtuella nätverk. Det finns gränser för antalet privata slut punkter som du kan skapa i en prenumeration. Mer information finns i [Azure-gränser](https://docs.microsoft.com/azure/azure-subscription-service-limits#networking-limits).
 
 
  

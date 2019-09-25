@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 09/11/2019
 ms.author: raynew
-ms.openlocfilehash: 47914a635afe754cb4205a1e089622a69b706b51
-ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
+ms.openlocfilehash: cb46acf3f54b5955ba8542adf73b7ca896f20c28
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70910444"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71266409"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>Stöd mat ris för haveri beredskap för virtuella VMware-datorer och fysiska servrar till Azure
 
@@ -57,7 +57,7 @@ Windows Server-roller | Aktivera inte Active Directory Domain Services; Internet
 Grup principer| -Förhindra åtkomst till kommando tolken. <br/> -Förhindra åtkomst till verktyg för redigering av registret. <br/> – Förtroende logik för bifogade filer. <br/> – Aktivera skript körning. <br/> - [Lära sig mer](https://technet.microsoft.com/library/gg176671(v=ws.10).aspx)|
 IIS | Kontrol lera att du:<br/><br/> -Har ingen befintlig standard webbplats <br/> -Aktivera [Anonym autentisering](https://technet.microsoft.com/library/cc731244(v=ws.10).aspx) <br/> -Aktivera [FastCGI](https://technet.microsoft.com/library/cc753077(v=ws.10).aspx) -inställning  <br/> -Har inte redan befintlig webbplats/app-lyssning på port 443<br/>
 Typ av nätverkskort | VMXNET3 (när den distribueras som en virtuell VMware-dator)
-IP-adresstyp | Statisk
+IP-adresstyp | Static
 Portar | 443 som används för kontroll av kanal dirigering<br/>9443 för data transport
 
 ## <a name="replicated-machines"></a>Replikerade datorer
@@ -117,7 +117,7 @@ SUSE Linux Enterprise Server 12 (SP1, SP2, SP3, SP4) | [9.24][9.24 UR] | SP1 3.1
 
 **Komponent** | **Stöds**
 --- | ---
-Fil system | ext3, ext4, XFS
+Filsystem | ext3, ext4, XFS
 Volym hanterare | -LVM stöds.<br/> -/Boot på LVM stöds från [Samlad uppdatering 31](https://support.microsoft.com/help/4478871/) (version 9,20 av mobilitets tjänsten) och senare. Den stöds inte i tidigare mobilitets tjänst versioner.<br/> -Flera operativ system diskar stöds inte.
 Paravirtualiserade lagrings enheter | Enheter som exporteras av paravirtualiserade drivrutiner stöds inte.
 Block-i/o-enheter med flera köer | Stöds ej.
@@ -193,6 +193,7 @@ Gäst/Server Hot Lägg till/ta bort disk | Nej
 Gäst/Server – exkludera disk | Ja
 Multisökväg för gäst/Server (MPIO) | Nej
 GPT-partitioner för gäst/Server | Det finns stöd för fem partitioner från samlad [uppdatering 37](https://support.microsoft.com/help/4508614/) (version 9,25 av mobilitets tjänsten) och senare. Tidigare fanns stöd för fyra.
+ReFS | Elastiskt fil system stöds med mobilitets tjänst version 9,23 eller senare
 Gäst/Server-EFI/UEFI-start | – Stöds när du kör mobilitets tjänst version 9,13 eller senare.<br/> – Stöds när du migrerar virtuella VMware-datorer eller fysiska servrar som kör Windows Server 2012 eller senare till Azure.<br/> -Du kan bara replikera virtuella datorer för migrering. Återställning efter fel till lokal plats stöds inte.<br/> -Endast NTFS stöds <br/> -Start typen för säker UEFI stöds inte. <br/> – Disk sektor storleken ska vara 512 byte per fysisk sektor.
 
 ## <a name="replication-channels"></a>Kanaler för replikering
@@ -293,7 +294,7 @@ Flytta lagring, nätverk, virtuella Azure-datorer inom och över prenumerationer
 --- | --- | ---
 Konfigurationsserver | Installerat lokalt.<br/> Koordinerar kommunikationen mellan lokala VMware-servrar eller fysiska datorer och Azure. | - [Läs mer om](vmware-physical-azure-config-process-server-overview.md) konfigurations servern.<br/> - [Lär dig mer om](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server) att uppgradera till den senaste versionen.<br/> - [Lär dig hur](vmware-azure-deploy-configuration-server.md) du konfigurerar konfigurations servern. 
 Processerver | Installeras som standard på konfigurationsservern.<br/> Tar emot replikeringsdata, optimerar dem med cachelagring, komprimering och kryptering och skickar dem till Azure.<br/> När distributionen växer kan du lägga till ytterligare process servrar för att hantera större volymer av replikeringstrafiken. | - [Lär dig mer om](vmware-physical-azure-config-process-server-overview.md) processervern.<br/> - [Lär dig mer om](vmware-azure-manage-process-server.md#upgrade-a-process-server) att uppgradera till den senaste versionen.<br/> - [Lär dig mer om](vmware-physical-large-deployment.md#set-up-a-process-server) att konfigurera skalbara process servrar.
-Mobilitets tjänst | Installerat på virtuella VMware-datorer eller fysiska servrar som du vill replikera.<br/> Samordnar replikering mellan lokala VMware-servrar/fysiska servrar och Azure.| - [Lär dig mer om](vmware-physical-mobility-service-overview.md) mobilitets tjänsten.<br/> - [Lär dig mer om](vmware-physical-manage-mobility-service.md#update-mobility-service-from-azure-portal) att uppgradera till den senaste versionen.<br/> 
+Mobilitetstjänsten | Installerat på virtuella VMware-datorer eller fysiska servrar som du vill replikera.<br/> Samordnar replikering mellan lokala VMware-servrar/fysiska servrar och Azure.| - [Lär dig mer om](vmware-physical-mobility-service-overview.md) mobilitets tjänsten.<br/> - [Lär dig mer om](vmware-physical-manage-mobility-service.md#update-mobility-service-from-azure-portal) att uppgradera till den senaste versionen.<br/> 
 
 
 

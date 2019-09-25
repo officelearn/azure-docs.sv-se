@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/06/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 69c63d4eb2e0bfd04bb232cb0cf39965a5b77193
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: be82ab1597021d7198d7936ecd24e4bec64fdf25
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70104299"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71266916"
 ---
 ## <a name="benefits-of-managed-disks"></a>Fördelar med hanterade diskar
 
@@ -43,15 +43,21 @@ För att skydda mot regionala haverier kan [Azure Backup](../articles/backup/bac
 
 Du kan använda [rollbaserad åtkomst kontroll (RBAC) i Azure](../articles/role-based-access-control/overview.md) för att tilldela vissa behörigheter för en hanterad disk till en eller flera användare. Hanterade diskar visar en rad olika åtgärder, inklusive läsa, skriva (Skapa/uppdatera), ta bort och hämta en [URL för signatur för delad åtkomst (SAS)](../articles/storage/common/storage-dotnet-shared-access-signature-part-1.md) för disken. Du kan bevilja åtkomst till endast de åtgärder som en person behöver för att utföra sitt jobb. Om du till exempel inte vill att en person ska kopiera en hanterad disk till ett lagrings konto kan du välja att inte bevilja åtkomst till export åtgärden för den hanterade disken. Om du inte vill att en person ska använda en SAS-URI för att kopiera en hanterad disk kan du välja att inte bevilja den här behörigheten till den hanterade disken.
 
+### <a name="upload-your-vhd"></a>Ladda upp din virtuella hård disk
+
+ Med direkt uppladdning är det enkelt att överföra din virtuella hård disk till en Azure-hanterad disk. Tidigare var du tvungen att följa en mer engagerad process som inkluderade mellanlagring av dina data i ett lagrings konto. Nu finns det färre steg. Det är enklare att ladda upp lokala virtuella datorer till Azure, ladda upp till stora hanterade diskar och säkerhets kopierings-och återställnings processen för enklas. Det minskar också kostnaden genom att tillåta att du överför data till hanterade diskar direkt utan att koppla dem till virtuella datorer. Du kan använda direkt uppladdning för att ladda upp virtuella hård diskar upp till 32 TiB i storlek.
+
+ Information om hur du överför din virtuella hård disk till Azure finns i [CLI](../articles/virtual-machines/linux/disks-upload-vhd-to-managed-disk-cli.md) -eller [PowerShell](../articles/virtual-machines/windows/disks-upload-vhd-to-managed-disk-powershell.md) -artiklarna.
+
 ## <a name="encryption"></a>Kryptering
 
-Hanterade diskar erbjuder två olika typer av kryptering. Det första är Kryptering för lagringstjänst (SSE) som utförs av lagrings tjänsten. Den andra är Azure Disk Encryption, som du kan aktivera på operativ systemets och data diskarna för dina virtuella datorer.
+Hanterade diskar erbjuder två olika typer av kryptering. Det första är Kryptering för lagringstjänst (SSE) som utförs av lagrings tjänsten. Den andra är Azure Disk Encryption (ADE) som du kan aktivera på operativ systemets och data diskarna för dina virtuella datorer.
 
 ### <a name="storage-service-encryption-sse"></a>Kryptering för lagringstjänst (SSE)
 
 [Azure Storage tjänst kryptering](../articles/storage/common/storage-service-encryption.md) ger kryptering vid vila och skyddar dina data så att de uppfyller organisationens säkerhets-och efterlevnads åtaganden. SSE är aktiverat som standard för alla hanterade diskar, ögonblicks bilder och avbildningar i alla regioner där Managed disks finns tillgängliga. Mer information finns på [sidan med vanliga frågor och svar om Managed disks](../articles/virtual-machines/windows/faq-for-disks.md#managed-disks-and-storage-service-encryption) .
 
-### <a name="azure-disk-encryption-ade"></a>Azure Disk Encryption (ADE)
+### <a name="azure-disk-encryption"></a>Azure Disk Encryption
 
 Med Azure Disk Encryption kan du kryptera operativ system och data diskar som används av en virtuell IaaS-dator. Krypteringen omfattar Managed disks. För Windows krypteras enheterna med hjälp av teknik för BitLocker-kryptering enligt bransch standard. För Linux krypteras diskarna med hjälp av DM-crypt-teknik. Krypteringsprocessen är integrerad med Azure Key Vault så att du kan styra och hantera diskkrypteringsnycklarna. Mer information finns i [Azure Disk Encryption för virtuella datorer för IaaS](../articles/security/azure-security-disk-encryption-overview.md).
 

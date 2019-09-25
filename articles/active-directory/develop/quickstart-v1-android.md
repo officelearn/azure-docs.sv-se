@@ -1,6 +1,6 @@
 ---
 title: Logga in användare och anropa Microsoft Graph API från en Android-app | Microsoft Docs
-description: Lär dig hur du loggar in användare och anropar Microsoft Graph API från Android-appen.
+description: Lär dig hur du loggar in användare och anropar Microsoft Graph API från min Android-app.
 services: active-directory
 documentationcenter: android
 author: rwike77
@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.reviewer: brandwe, jmprieur, saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f1ebfce2b96da51b9c33646c1626495d280d7b8a
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: ac4007cc9379aa98d88099df13ba303063f9831f
+ms.sourcegitcommit: 263a69b70949099457620037c988dc590d7c7854
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68592242"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71268524"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-android-app"></a>Snabbstart: Logga in användare och anropa Microsoft Graph API från en Android-app
 
@@ -88,7 +88,7 @@ Du behöver ha ett internt klientprogram som har registrerats med Microsoft med 
     - Välj **ny registrering**.
     - Ange ett appnamn i fältet **Namn**.
     - Under **Kontotyper som stöds** väljer du **Accounts in any organizational directory and personal Microsoft accounts** (Konton i alla organisationskataloger och personliga Microsoft-konton).
-    - I omdirigerings- **URI**väljer du **offentlig klient (mobil och stationär dator)** i `http://localhost`List rutan och anger.
+    - I **omdirigerings-URI**väljer du **offentlig klient (mobil och stationär dator)** i `http://localhost`List rutan och anger.
     - Klicka på **Registrera**.
 
 3. Konfigurera Microsoft Graph

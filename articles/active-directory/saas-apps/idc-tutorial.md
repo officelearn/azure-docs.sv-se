@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 09/19/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 642eb15c62c895e85add55b725318b150b51658e
-ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
+ms.openlocfilehash: df8dfc72dea9289fc13d648b05b59f6d1bd9b3e0
+ms.sourcegitcommit: a6718e2b0251b50f1228b1e13a42bb65e7bf7ee2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2019
-ms.locfileid: "71179969"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71273596"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-idc"></a>Självstudier: Azure Active Directory enkel inloggning (SSO) med IDC
 
@@ -90,7 +90,7 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
 1. Klicka på **Ange ytterligare URL:er** och utför följande steg om du vill konfigurera programmet i **SP**-initierat läge:
 
-    I rutan **Inloggnings-URL** anger du en URL: `https://cas.idc.com/saml-welcome/AzureAppDirectory`
+    I rutan **Inloggnings-URL** anger du en URL: `https://www.idc.com/saml-welcome/<SamlWelcomeCode>`
 
     > [!NOTE]
     > Dessa värden är inte verkliga. Uppdatera dessa värden med den faktiska identifieraren och svars-URL. Kontakta [IDC-klientens support team](mailto:webchanneldev@idc.com) för att hämta dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
@@ -139,7 +139,7 @@ Om du vill konfigurera enkel inloggning på **IDC** -sidan måste du skicka den 
 
 ### <a name="create-idc-test-user"></a>Skapa IDC-test användare
 
-I det här avsnittet skapar du en användare som heter Britta Simon i IDC. Arbeta med [IDC-support teamet](mailto:webchanneldev@idc.com) för att lägga till användarna på IDC-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
+En användare behöver inte skapas i IDC i förväg. Användaren skapas automatiskt när han använder enkel inloggning för första gången.
 
 ## <a name="test-sso"></a>Testa SSO 
 

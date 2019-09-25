@@ -10,12 +10,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 07/02/2019
 ms.author: memildin
-ms.openlocfilehash: 0d6f05524be41693ba280b0f0162f65b517ec281
-ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
+ms.openlocfilehash: 50d4023b09eb14fcfafe752ca60b8e888acc1fef
+ms.sourcegitcommit: a6718e2b0251b50f1228b1e13a42bb65e7bf7ee2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71219631"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71273887"
 ---
 # <a name="threat-detection-for-vms-and-servers-in-azure-security-center"></a>Hot identifiering för virtuella datorer och servrar i Azure Security Center
 
@@ -28,14 +28,14 @@ Det här avsnittet innehåller olika typer av identifierings metoder och aviseri
 
 Azure Security Center integreras med Azure-tjänster för att övervaka och skydda dina Windows-baserade datorer. Security Center visar aviseringar och reparations förslag från alla dessa tjänster i ett lättanvänt format.
 
-### Windows Server Defender ATP<a nanme="windows-atp"></a>
+### Microsoft Defender ATP<a nanme="windows-atp"></a>
 
-Security Center utvidgar dess moln skydds plattform genom att integrera med Windows Server Defender Avancerat skydd (ATP). Detta ger omfattande EDR-funktioner (slut punkts identifiering och svar).
+Security Center utvidgar dess moln skydds plattform genom att integrera med Microsoft Defender Avancerat skydd (ATP). Detta ger omfattande EDR-funktioner (slut punkts identifiering och svar).
 
 > [!NOTE]
-> Windows Server Defender ATP-sensorn aktive ras automatiskt på Windows-servrar som använder Security Center.
+> Microsoft Defender ATP-sensorn aktive ras automatiskt på Windows-servrar som använder Security Center.
 
-När Windows Server Defender ATP identifierar ett hot utlöses en avisering. Aviseringen visas på instrument panelen för Security Center. Från instrument panelen kan du pivotera till Microsoft Defender ATP-konsolen och utföra en detaljerad undersökning för att få fram omfattningen av angreppet. Mer information om Windows Server Defender ATP finns i [onboard servers to the Microsoft Defender ATP service](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/configure-server-endpoints).
+När Microsoft Defender ATP identifierar ett hot utlöses en avisering. Aviseringen visas på instrument panelen för Security Center. Från instrument panelen kan du pivotera till Microsoft Defender ATP-konsolen och utföra en detaljerad undersökning för att få fram omfattningen av angreppet. För ytterligare information om Microsoft Defender ATP, se [onboard-servrar till Microsoft Defender ATP-tjänsten](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/configure-server-endpoints).
 
 ### Analys av krasch dumpning<a nanme="windows-dump"></a>
 

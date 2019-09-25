@@ -13,18 +13,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/30/2018
 ms.author: memildin
-ms.openlocfilehash: d035dc4e8f77bb64a9e845a9dae0668365a6aacb
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 8b069bedd3c36f27828e54a1110443ae6dfcdf3f
+ms.sourcegitcommit: 263a69b70949099457620037c988dc590d7c7854
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71202271"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71268863"
 ---
 # <a name="monitor-identity-and-access-in-azure-security-center-preview"></a>Övervaka identitet och åtkomst i Azure Security Center (för hands version)
 Den här artikeln hjälper dig att använda Azure Security Center för att övervaka användarnas identitets- och åtkomstrelaterade aktiviteter.
-
-> [!NOTE]
-> Länken "Visa *klassisk* identitets & åtkomst" kommer att dras tillbaka den 31 juli 2019. Klicka [här](security-center-features-retirement-july2019.md#menu_classicidentity) om du vill lära dig mer om alternativa tjänster.
 
 > [!NOTE]
 > Övervakning av identitet och åtkomst är i för hands version och endast tillgängligt på standard nivån för Security Center. Mer information om prisalternativen för Security Center finns i [Priser](security-center-pricing.md).
@@ -67,7 +64,7 @@ Under **identitets & åtkomst**finns det två flikar:
 ### <a name="overview-section"></a>Översikts avsnitt
 Under **Översikt**finns det en lista över rekommendationer. Den första kolumnen visar rekommendationen. Den andra kolumnen visar det totala antalet prenumerationer som påverkas av den här rekommendationen. Den tredje kolumnen visar problemets allvarlighets grad.
 
-1. Välj en rekommendation. Rekommendations fönstret öppnas och visas:
+1. Välj en rekommendation. Fönstret rekommendationer öppnas och visar:
 
    - Beskrivning av rekommendationen
    - Lista över felaktiga och felfria prenumerationer
@@ -80,7 +77,7 @@ Under **Översikt**finns det en lista över rekommendationer. Den första kolumn
 ### <a name="subscriptions-section"></a>Avsnittet prenumerationer
 Detfinns en lista över prenumerationer under prenumerationer. Den första kolumnen visar prenumerationerna. Den andra kolumnen visar det totala antalet rekommendationer för varje prenumeration. Den tredje kolumnen visar allvarlighets graden för problemen.
 
-![Prenumerationens flik][4]
+![Fliken prenumerationer][4]
 
 1. Välj en prenumeration. En sammanfattningsvy öppnas med tre flikar:
 
@@ -125,13 +122,13 @@ Använd tabellen nedan som referens för att hjälpa dig att förstå tillgängl
 > Om du har skapat en princip för villkorlig åtkomst som kräver MFA men har angett undantag, anser den Security Center MFA rekommendations utvärderingen att principen inte är kompatibel, eftersom det gör att vissa användare kan logga in på Azure utan MFA.
 
 ## <a name="next-steps"></a>Nästa steg
-Om du vill veta mer om rekommendationer som gäller för andra Azure-resurstyper finns i:
+Mer information om rekommendationer som gäller för andra typer av Azure-resurser finns i följande artiklar:
 
 - [Skydda datorer och program i Azure Security Center](security-center-virtual-machine-protection.md)
 - [Skydda nätverket i Azure Security Center](security-center-network-recommendations.md)
 - [Skydda din Azure SQL-tjänst och data i Azure Security Center](security-center-sql-service-recommendations.md)
 
-I följande avsnitt kan du lära dig mer om Security Center:
+I följande artiklar kan du lära dig mer om Security Center:
 * [Hantera och besvara säkerhetsaviseringar i Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts). Lär dig hur du hanterar aviseringar och åtgärdar säkerhetsincidenter i Security Center.
 * [Förstå säkerhetsaviseringar i Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-alerts-type). Läs mer om de olika typerna av säkerhetsaviseringar.
 * [Vanliga frågor och svar om Azure Security Center](security-center-faq.md). Få svar på vanliga frågor om användningen av Security Center.

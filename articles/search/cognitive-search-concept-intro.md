@@ -5,20 +5,19 @@ manager: nitinme
 author: HeidiSteen
 services: search
 ms.service: search
-ms.subservice: cognitive-search
 ms.topic: overview
 ms.date: 08/15/2019
 ms.author: heidist
-ms.openlocfilehash: 4987c17eabf5d9e140352e3581b38a7d29049c5f
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: aa8ab3a3bc2f243e8b0ee404228926ef46bc46db
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69899967"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71266395"
 ---
 # <a name="what-is-cognitive-search-in-azure-search"></a>Vad är "kognitiv sökning" i Azure Search?
 
-Kognitiv sökning är en AI-funktion i Azure Search som används för att extrahera text från bilder, blobbar och andra ostrukturerade data källor – vilket gör att innehållet kan sökas i ett Azure Search-index. Extraktion och berikning implementeras genom kognitiva *kunskaper* som är kopplade till en indexerings pipeline. AI-berikningar stöds på följande sätt: 
+Kognitiv sökning är en AI-funktion i Azure Search som används för att extrahera text från bilder, blobbar och andra ostrukturerade data källor – vilket gör att innehållet kan sökas i ett Azure Search-index. Extraktion och berikning implementeras genom *kognitiva kunskaper* som är kopplade till en indexerings pipeline. AI-berikningar stöds på följande sätt: 
 
 + Kunskaper om **bearbetning av naturligt språk** omfattar [enhets igenkänning](cognitive-search-skill-entity-recognition.md), [språk identifiering](cognitive-search-skill-language-detection.md), [extrahering av nyckel fraser](cognitive-search-skill-keyphrases.md), text manipulation och [sentiment identifiering](cognitive-search-skill-sentiment.md). Med dessa kunskaper kan ostrukturerad text utgå från nya formulär som är mappade som sökbara och filter bara fält i ett index.
 
@@ -68,7 +67,7 @@ I början av pipelinen har du ostrukturerad text eller innehåll som inte är te
 
 ### <a name="step-2-cognitive-skills-and-enrichment-phase"></a>Steg 2: Kognitiva färdigheter och anriknings fas
 
-Berikning är genom kognitiva *kunskaper* som utför atomiska åtgärder. När du har text innehåll från en PDF kan du till exempel använda identifiering av enhets igenkännings språk, eller extrahering av nyckel fraser för att skapa nya fält i indexet som inte är tillgängliga i källan. Den samling med kunskaper som används i din pipeline kallas helt en *färdigheter*.  
+Berikning är genom *kognitiva kunskaper* som utför atomiska åtgärder. När du har text innehåll från en PDF kan du till exempel använda identifiering av enhets igenkännings språk, eller extrahering av nyckel fraser för att skapa nya fält i indexet som inte är tillgängliga i källan. Den samling med kunskaper som används i din pipeline kallas helt en *färdigheter*.  
 
 ![Anriknings fas](./media/cognitive-search-intro/enrichment-phase-blowup.png "anriknings fas")
 
@@ -98,7 +97,7 @@ Index genereras från ett index schema som definierar fält, attribut och andra 
 
 | Begrepp | Beskrivning| Länkar |
 |---------|------------|-------|
-| Färdigheter | En namngiven resurs på översta nivån som innehåller en samling kunskaper. En färdigheter är en pipeline för anrikning. Den anropas vid indexering av en indexerare. | [Definiera en färdigheter](cognitive-search-defining-skillset.md) |
+| Kompetensuppsättning | En namngiven resurs på översta nivån som innehåller en samling kunskaper. En färdigheter är en pipeline för anrikning. Den anropas vid indexering av en indexerare. | [Definiera en färdigheter](cognitive-search-defining-skillset.md) |
 | Kognitiva kunskaper | En atomisk omvandling i en anriknings pipeline. Ofta är det en komponent som extraherar eller härleder struktur, och därmed förstärker din förståelse av indata. Nästan alltid är utdatan textbaserad och bearbetningen är en text-och bearbetnings bearbetning av naturligt språk eller bild bearbetning som extraherar eller genererar text från bildfiler. Utdata från en färdighet kan mappas till ett fält i ett index eller användas som indata för en underordnad berikning. En kunskap är antingen fördefinierad och tillhandahålls av Microsoft, eller anpassad: skapas och distribueras av dig. | [Fördefinierade kunskaper](cognitive-search-predefined-skills.md) |
 | Extrahering av data | Omfattar ett brett utbud av bearbetning, men tillhör kognitiv sökning, används vanligt vis för att extrahera data (en entitet) från en källa som inte tillhandahåller den informationen internt. | [Kompetens för enhets igenkänning](cognitive-search-skill-entity-recognition.md)| 
 | Bearbetning av avbildning | Härleder text från en bild, till exempel möjlighet att identifiera ett landmärke eller extrahera text från en bild. Vanliga exempel är OCR för att lyfta tecken från en JPEG-fil (scannad dokument) eller som identifierar ett gatu namn i ett fotografi som innehåller ett gatu tecken. | [Bild analys kunskaper](cognitive-search-skill-image-analysis.md) eller [OCR-kunskaper](cognitive-search-skill-ocr.md)

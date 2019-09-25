@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: article
 ms.date: 09/16/2019
 ms.author: kumud
-ms.openlocfilehash: 87d0f08d67dbbe6a0fa1725aba850c8d9b6c5619
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: c67d2cd4e90b2fa61a4d95e89a68c888a6e1fe3f
+ms.sourcegitcommit: a6718e2b0251b50f1228b1e13a42bb65e7bf7ee2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71104709"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71273637"
 ---
 # <a name="create-a-private-link-service-using-azure-cli"></a>Skapa en privat länk-tjänst med Azure CLI
 Den här artikeln visar hur du skapar en privat länk-tjänst i Azure med hjälp av Azure CLI.
@@ -29,13 +29,13 @@ Innan du kan skapa ett virtuellt nätverk måste du skapa en resursgrupp som ska
 az group create --name myResourceGroup --location westcentralus
 ```
 ### <a name="create-a-virtual-network"></a>Skapa ett virtuellt nätverk
-Skapa ett virtuellt nätverk med kommandot [az network vnet create](/cli/azure/network/az-network-vnet-create). I det här exemplet skapas ett virtuellt standard nätverk med namnet *myVirtualNetwork* med ett undernät med namnet *undernät*:
+Skapa ett virtuellt nätverk med kommandot [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create). I det här exemplet skapas ett virtuellt standard nätverk med namnet *myVirtualNetwork* med ett undernät med namnet *undernät*:
 
 ```azurecli-interactive
 az network vnet create --resource-group myResourceGroup --name myVirtualNetwork --address-prefix 10.0.0.0/16  
 ```
 ### <a name="create-a-subnet"></a>Skapa ett undernät
-Skapa ett undernät för det virtuella nätverket med [AZ Network VNet Subnet Create](/cli/azure/network/az-network-vnet-subnet-create). I det här exemplet skapas ett undernät med namnet *mitt undernät* i det virtuella *myVirtualNetwork* -nätverket:
+Skapa ett undernät för det virtuella nätverket med [AZ Network VNet Subnet Create](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-create). I det här exemplet skapas ett undernät med namnet *mitt undernät* i det virtuella *myVirtualNetwork* -nätverket:
 
 ```azurecli-interactive
 az network vnet subnet create --resource-group myResourceGroup --vnet-name myVirtualNetwork --name mySubnet --address-prefixes 10.0.0.0/24    
@@ -82,7 +82,7 @@ I det här exemplet ska vi inte skapa en virtuell dator. Du kan följa stegen i 
 
 
 ### <a name="disable-private-link-service-network-policies-on-subnet"></a>Inaktivera nätverks principer för privata länkar i undernät 
-Private Link Service kräver en IP-adress från valfritt undernät i ett virtuellt nätverk. För närvarande stöder vi inte nätverks principer på de här IP-adresserna.  Därför måste vi inaktivera nätverks principerna på under nätet. Uppdatera under nätet för att inaktivera nätverks principer för privata länk tjänster med [AZ Network VNet Subnet Update](/cli/azure/network/az-network-vnet-subnet-update).
+Private Link Service kräver en IP-adress från valfritt undernät i ett virtuellt nätverk. För närvarande stöder vi inte nätverks principer på de här IP-adresserna.  Därför måste vi inaktivera nätverks principerna på under nätet. Uppdatera under nätet för att inaktivera nätverks principer för privata länk tjänster med [AZ Network VNet Subnet Update](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-update).
 
 ```azurecli-interactive
 az network vnet subnet update --resource-group myResourceGroup --vnet-name myVirtualNetwork --name mySubnet --disable-private-link-service-network-policies true 
@@ -90,7 +90,7 @@ az network vnet subnet update --resource-group myResourceGroup --vnet-name myVir
  
 ## <a name="create-a-private-link-service"></a>Skapa en Private Link-tjänst  
  
-Skapa en privat länk-tjänst med Standard Load Balancer klient delens IP-konfiguration med [AZ Network Private-Link-service Create](/cli/azure/network/az-network-private-link-service-create). I det här exemplet skapas en privat länk tjänst med namnet *myPLS* med hjälp av standard Load Balancer med namnet *myLoadBalancer* i resurs gruppen med namnet *myResourceGroup*. 
+Skapa en privat länk-tjänst med Standard Load Balancer klient delens IP-konfiguration med [AZ Network Private-Link-service Create](/cli/azure/network/private-link-service#az-network-private-link-service-create). I det här exemplet skapas en privat länk tjänst med namnet *myPLS* med hjälp av standard Load Balancer med namnet *myLoadBalancer* i resurs gruppen med namnet *myResourceGroup*. 
  
 ```azurecli-interactive
 az network private-link-service create \
@@ -108,10 +108,10 @@ I det här skedet har din privata länk tjänst skapats och är redo att ta emot
  
 Härnäst visar vi hur du mappar den här tjänsten till en privat slut punkt i ett annat virtuellt nätverk med hjälp av Azure CLI. Återigen är exemplet begränsat till att skapa den privata slut punkten och ansluta till den privata länk tjänsten som skapats ovan med hjälp av Azure CLI. Dessutom kan du skapa virtuella datorer i det virtuella nätverket för att skicka/ta emot trafik till den privata slut punkten.        
  
-## <a name="private-endpoints"></a>Privata slut punkter
+## <a name="private-endpoints"></a>Privata slutpunkter
 
 ### <a name="create-the-virtual-network"></a>Skapa det virtuella nätverket 
-Skapa ett virtuellt nätverk med [AZ Network VNet Create](/cli/azure/network/az-network-vnet-create). I det här exemplet skapas ett virtuellt nätverk med namnet *myPEVNet* i resurs gruppen med namnet *myResourcegroup*: 
+Skapa ett virtuellt nätverk med [AZ Network VNet Create](/cli/azure/network/vnet#az-network-vnet-create). I det här exemplet skapas ett virtuellt nätverk med namnet *myPEVNet* i resurs gruppen med namnet *myResourcegroup*: 
 ```azurecli-interactive
 az network vnet create \
 --resource-group myResourceGroup \
@@ -119,7 +119,7 @@ az network vnet create \
 --address-prefix 10.0.0.0/16  
 ```
 ### <a name="create-the-subnet"></a>Skapa under nätet 
-Skapa ett undernät i ett virtuellt nätverk med [AZ Network VNet Subnet Create](/cli/azure/network/az-network-vnet-subnet-create). I det här exemplet skapas ett undernät med namnet *mitt undernät* i det virtuella nätverket med namnet *myPEVnet* i resurs gruppen med namnet *myResourcegroup*: 
+Skapa ett undernät i ett virtuellt nätverk med [AZ Network VNet Subnet Create](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-create). I det här exemplet skapas ett undernät med namnet *mitt undernät* i det virtuella nätverket med namnet *myPEVnet* i resurs gruppen med namnet *myResourcegroup*: 
 
 ```azurecli-interactive 
 az network vnet subnet create \
@@ -129,7 +129,7 @@ az network vnet subnet create \
 --address-prefixes 10.0.0.0/24 
 ```   
 ## <a name="disable-private-endpoint-network-policies-on-subnet"></a>Inaktivera nätverks principer för privata slut punkter på undernät 
-Privat slut punkt kan skapas i valfritt undernät som du väljer i ett virtuellt nätverk. För närvarande stöder vi inte nätverks principer på privata slut punkter.  Därför måste vi inaktivera nätverks principerna på under nätet. Uppdatera under nätet för att inaktivera principer för privata nätverks slut punkter med [AZ Network VNet Subnet Update](/cli/azure/network/az-network-vnet-subnet-update). 
+Privat slut punkt kan skapas i valfritt undernät som du väljer i ett virtuellt nätverk. För närvarande stöder vi inte nätverks principer på privata slut punkter.  Därför måste vi inaktivera nätverks principerna på under nätet. Uppdatera under nätet för att inaktivera principer för privata nätverks slut punkter med [AZ Network VNet Subnet Update](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-update). 
 
 ```azurecli-interactive
 az network vnet subnet update \
@@ -156,7 +156,7 @@ Du kan hämta *privat anslutnings-resurs-ID* med `az network private-link-servic
  
 ## <a name="show-private-link-service-connections"></a>Visa anslutningar för privata länk tjänster 
  
-Se anslutnings begär Anden på din privata länk tjänst med [AZ Network Private-Link-service show](/cli/azure/network/az-network-private-link-service-show).    
+Se anslutnings begär Anden på din privata länk tjänst med [AZ Network Private-Link-service show](/cli/azure/network/private-link-service#az-network-private-link-service-show).    
 ```azurecli-interactive 
 az network private-link-service show --resource-group myResourceGroup --name myPLS 
 ```

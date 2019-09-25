@@ -1,27 +1,27 @@
 ---
 title: Apache Spark arbets belastnings prestanda med Azure HDInsight IO-cache (för hands version)
 description: Lär dig mer om Azure HDInsight IO-cache och hur du använder den för att förbättra Apache Spark prestanda.
-ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
+ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/15/2018
-ms.openlocfilehash: f3f171d4dfd3642dc71724afbe084c3fcbf8beaa
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: ecb393ea1f64897f17ce73170da1673886ef8916
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71091077"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71266191"
 ---
-# <a name="improve-performance-of-apache-spark-workloads-using-azure-hdinsight-io-cache"></a>Förbättra prestanda för Apache Spark arbets belastningar med Azure HDInsight IO-cache 
+# <a name="improve-performance-of-apache-spark-workloads-using-azure-hdinsight-io-cache"></a>Förbättra prestanda för Apache Spark arbets belastningar med Azure HDInsight IO-cache
 
 I/o-cache är en datacache-tjänst för Azure HDInsight som förbättrar prestanda för Apache Spark jobb. IO-cachen fungerar också med [Apache TEZ](https://tez.apache.org/) och [Apache Hive](https://hive.apache.org/) arbets belastningar som kan köras på [Apache Spark](https://spark.apache.org/) -kluster. I/o-cache använder en caching-komponent med öppen källkod som heter RubiX. RubiX är ett lokalt disk-cacheminne som används med Big data analys motorer som har åtkomst till data från moln lagrings system. RubiX är unikt bland caching-system, eftersom den använder solid-state-enheter (SSD) i stället för att reservera operativ minne för cachelagring. I/o-Cache-tjänsten startar och hanterar RubiX-metadatafiler på varje arbets nod i klustret. Den konfigurerar även alla tjänster i klustret för genomskinlig användning av RubiX cache.
 
 De flesta SSD tillhandahåller mer än 1 GByte per sekund för bandbredden. Den här bandbredden, kompletterad med operativ systemets minnesbaserade filcache, ger tillräckligt med bandbredd för att kunna läsa in bearbetnings motorer för Big data Compute, till exempel Apache Spark. Operativ minnet är tillgängligt för Apache Spark att bearbeta kraftigt minnes beroende aktiviteter, till exempel blandade. Med exklusiv användning av operativ minne kan Apache Spark uppnå optimal resursanvändning.  
 
->[!Note]  
->I/o-cachen använder för närvarande RubiX som en caching-komponent, men detta kan ändras i framtida versioner av tjänsten. Använd gränssnitt för IO-cachen och ta inga beroenden direkt i RubiX-implementeringen.
+> [!Note]  
+> I/o-cachen använder för närvarande RubiX som en caching-komponent, men detta kan ändras i framtida versioner av tjänsten. Använd gränssnitt för IO-cachen och ta inga beroenden direkt i RubiX-implementeringen.
 
 ## <a name="benefits-of-azure-hdinsight-io-cache"></a>Fördelar med Azure HDInsight IO-cache
 
@@ -70,7 +70,7 @@ Du kan få disk utrymmes fel som kör Spark-jobb när du har aktiverat IO-cache.
 
 1. Välj **Starta** > om**omstart alla påverkade**.
 
-    ![Starta om alla berörda](./media/apache-spark-improve-performance-iocache/ambariui-restart-all-affected.png "Starta om alla berörda")
+    ![Apache Ambari-omstart alla påverkade](./media/apache-spark-improve-performance-iocache/ambariui-restart-all-affected.png "Starta om alla berörda")
 
 1. Välj **Bekräfta omstart av alla**.
 

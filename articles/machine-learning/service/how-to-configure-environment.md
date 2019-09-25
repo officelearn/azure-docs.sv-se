@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.topic: conceptual
 ms.date: 07/31/2019
 ms.custom: seodec18
-ms.openlocfilehash: 933ae5b70d8e0485360a94ede1fff99c02f75a4c
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: 0bd4b1d969de0b54a1836048b5cb5910470f1ffa
+ms.sourcegitcommit: 263a69b70949099457620037c988dc590d7c7854
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71034874"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71269221"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>Konfigurera en utvecklingsmiljö för Azure Machine Learning
 
@@ -36,7 +36,7 @@ Den här artikeln innehåller också ytterligare användnings tips för följand
 
 * [Jupyter-anteckningsböcker](#jupyter): Om du redan använder Jupyter Notebook har SDK viss extra utrustning som du bör installera.
 
-* [Visual Studio Code](#vscode): Om du använder Visual Studio Code finns det några användbara tillägg som du kan installera.
+* [Visual Studio Code](#vscode): Om du använder Visual Studio Code innehåller [Azure Machine Learning-tillägget](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.vscode-ai) omfattande språk stöd för python samt funktioner för att arbeta med tjänsten Azure Machine Learning mycket bekvämare och mer produktivt.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -76,7 +76,7 @@ Den virtuella Notebook-datorn är:
 
 + **Anpassningsbar**. Även om det finns ett hanterat och säkert VM-erbjudande behåller du full till gång till maskin varu funktionerna och anpassar dem till ditt hjärta. Du kan till exempel snabbt skapa den senaste NVidia V100-baserade virtuella datorn för att utföra steg-för-steg-felsökning av den nya neurala-nätverks arkitekturen.
 
-[Stoppa den virtuella Notebook](tutorial-1st-experiment-sdk-train.md#clean-up-resources)-datorn om du vill sluta debitera VM-kostnader för bärbara datorer. 
+[Stoppa den virtuella Notebook](tutorial-1st-experiment-sdk-train.md#clean-up-resources)-datorn om du vill sluta debitera VM-kostnader för bärbara datorer.
 
 ## <a id="dsvm"></a>Virtuell dator för datavetenskap
 
@@ -90,7 +90,7 @@ DSVM är en anpassad avbildning av en virtuell dator (VM). Det är utformat för
 
 Azure Machine Learning SDK fungerar antingen i Ubuntu-eller Windows-versionen av DSVM. Men om du endast planerar att använda DSVM som ett beräknings mål stöds endast Ubuntu.
 
-Om du vill använda DSVM som utvecklings miljö gör du följande:
+Så här använder du DSVM som utvecklings miljö:
 
 1. Skapa en DSVM i någon av följande miljöer:
 
@@ -151,7 +151,7 @@ Mer information finns i [Virtual Machines för data vetenskap](https://azure.mic
 
 ## <a id="local"></a>Lokal dator
 
-När du använder en lokal dator (som också kan vara en virtuell fjärrdator) skapar du en Anaconda-miljö och installerar SDK: n genom att göra följande:
+När du använder en lokal dator (som också kan vara en virtuell fjärrdator) skapar du en Anaconda-miljö och installerar SDK. Här är ett exempel:
 
 1. Hämta och installera [Anaconda](https://www.anaconda.com/distribution/#download-section) (python 3,7-versionen) om du inte redan har den.
 
@@ -185,10 +185,10 @@ När du använder en lokal dator (som också kan vara en virtuell fjärrdator) s
 
 1. Använd följande kommandon för att installera paket:
 
-    Det här kommandot installerar bas Azure Machine Learning SDK med Notebook och automl extra. Det `automl` extra är en stor installation och kan tas bort från hakparenteserna om du inte tänker köra automatiserade maskin inlärnings experiment. Det `automl` extra inkluderar även Azure Machine Learning data prep SDK som standard som ett beroende.
+    Det här kommandot installerar bas Azure Machine Learning SDK med antecknings boken och `automl` tillägg. Det `automl` extra är en stor installation och kan tas bort från hakparenteserna om du inte tänker köra automatiserade maskin inlärnings experiment. Det `automl` extra inkluderar även Azure Machine Learning data prep SDK som standard som ett beroende.
 
     ```shell
-    pip install azureml-sdk[notebooks,automl]
+    pip install azureml-sdk[notebooks, automl]
     ```
 
    > [!NOTE]
@@ -221,14 +221,16 @@ När du använder en lokal dator (som också kan vara en virtuell fjärrdator) s
 
 Jupyter Notebooks är en del av den [Jupyter projekt](https://jupyter.org/). De ger en interaktiv kodningserfarenheter där du skapar dokument som blandar live-koden med löpande text och grafik. Jupyter-anteckningsböcker är också ett bra sätt att dela dina resultat med andra, eftersom du kan spara utdata från kod avsnitten i dokumentet. Du kan installera Jupyter Notebooks på en rad olika plattformar.
 
-Proceduren i avsnittet [lokal dator](#local) installerar nödvändiga komponenter för att köra Jupyter-anteckningsböcker i en Anaconda-miljö. Gör så här om du vill aktivera dessa komponenter i Jupyter Notebooks miljön:
+Proceduren i avsnittet [lokal dator](#local) installerar nödvändiga komponenter för att köra Jupyter-anteckningsböcker i en Anaconda-miljö.
+
+Så här aktiverar du dessa komponenter i Jupyter Notebooks miljön:
 
 1. Öppna en Anaconda-prompt och aktivera din miljö.
 
     ```shell
     conda activate myenv
     ```
-    
+
 1. Klona [GitHub](https://aka.ms/aml-notebooks) -lagringsplatsen för en uppsättning exempel antecknings böcker.
 
     ```CLI
@@ -254,34 +256,35 @@ Proceduren i avsnittet [lokal dator](#local) installerar nödvändiga komponente
     import sys
     sys.path
     ```
-    
+
 1. Om du vill konfigurera Jupyter Notebook att använda arbets ytan Azure Machine Learning går du till avsnittet [skapa en konfigurations fil för arbets yta](#workspace) .
 
 
 ### <a id="vscode"></a>Visual Studio Code
 
-Visual Studio Code är en plattformsoberoende Kodredigerare. Den förlitar sig på en lokal installation av Python 3 och Conda för Python-support, men ger ytterligare verktyg för att arbeta med AI. Den innehåller också stöd för att välja Conda-miljö från Kodredigeraren.
+Visual Studio Code är en mycket populär kod redigerare för olika plattformar som stöder en omfattande uppsättning programmeringsspråk och verktyg via tillägg som är tillgängliga i [Visual Studio Marketplace](https://marketplace.visualstudio.com/vscode). [Azure Machine Learning-tillägget](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.vscode-ai) installerar [python-tillägget](https://marketplace.visualstudio.com/items?itemName=ms-python.python) för kodning i alla typer av python-miljöer (Virtual, Anaconda osv.). Dessutom innehåller den praktiska funktioner för att arbeta med Azure Machine Learning resurser och köra Azure Machine Learning experiment utan att lämna Visual Studio Code.
 
-Om du vill använda Visual Studio Code för utveckling gör du följande:
+Så här använder du Visual Studio Code för utveckling:
 
-1. Information om hur du använder Visual Studio Code för python-utveckling finns i [Kom igång med python i VSCode](https://code.visualstudio.com/docs/python/python-tutorial).
-
-1. Om du vill välja Conda-miljön öppnar du VS Code och väljer sedan Ctrl + Shift + P (Linux och Windows) eller Kommando + Skift + P (Mac).
-    __Kommandots lastpall__ öppnas.
-
-1. Ange __python: Välj tolken__och välj sedan Conda-miljön.
-
-1. Om du vill verifiera att du kan använda SDK skapar du och kör sedan en ny python-fil (. py) som innehåller följande kod:
-
-    ```python
-    import azureml.core
-    azureml.core.VERSION
-    ```
-
-1. Information om hur du installerar Azure Machine Learning-tillägget för Visual Studio Code finns i [Tools för AI](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.vscode-ai).
+1. Installera Azure Machine Learning-tillägget för Visual Studio Code finns i [Azure Machine Learning](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.vscode-ai).
 
     Mer information finns i [använda Azure Machine Learning för Visual Studio Code](how-to-vscode-tools.md).
 
+1. Lär dig hur du använder Visual Studio Code för alla typer av python-utveckling, se [Kom igång med python i VSCode](https://code.visualstudio.com/docs/python/python-tutorial).
+
+    - Om du vill välja SDK python-miljön som innehåller SDK öppnar du VS Code och väljer sedan Ctrl + Shift + P (Linux och Windows) eller Kommando + Skift + P (Mac).
+        - __Kommando paletten__ öppnas.
+
+    - Ange __python: Välj tolken__och välj sedan lämplig miljö
+
+1. Du kan kontrol lera att du kan använda SDK genom att skapa en ny python-fil (. py) som innehåller följande kod:
+
+    ```python
+    #%%
+    import azureml.core
+    azureml.core.VERSION
+    ```
+    Kör den här koden genom att klicka på "kör cell" CodeLens eller tryck på Skift-Enter.
 <a name="aml-databricks"></a>
 
 ## <a name="azure-databricks"></a>Azure Databricks
@@ -302,7 +305,7 @@ Använd de här inställningarna:
 | Inställning |Gäller| Value |
 |----|---|---|
 | Klusternamn |alltid| yourclustername |
-| Databricks Runtime |alltid| En icke ML-körning (icke-ML 4. x, 5. x) |
+| Databricks Runtime |alltid| En icke-ML-körning (icke-ML 4. x, 5. x) |
 | Python-version |alltid| 3 |
 | Arbetare |alltid| 2 eller senare |
 | VM-typer för arbetsnoder <br>(fastställer Max antal samtidiga iterationer) |Automatisk ML<br>Only| Minnesoptimerade VM-prioritet |
@@ -326,7 +329,7 @@ När klustret har körts skapar du [ett bibliotek](https://docs.databricks.com/u
    * Välj inte **Anslut automatiskt till alla kluster**.
    * Välj **Anslut** bredvid klustrets namn.
 
-1. Övervaka fel tills status ändras till **kopplat**, vilket kan ta flera minuter.  Om det här steget Miss lyckas kontrollerar du följande:
+1. Övervaka fel tills status ändras till **kopplat**, vilket kan ta flera minuter.  Om det här steget Miss lyckas:
 
    Försök att starta om klustret genom att:
    1. Välj **kluster**i den vänstra rutan.

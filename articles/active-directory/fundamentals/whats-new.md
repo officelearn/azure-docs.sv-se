@@ -16,12 +16,12 @@ ms.author: lizross
 ms.reviewer: dhanyahk
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e6bb926aeab4f88f2d41c578ae3962737df7b2f3
-ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
+ms.openlocfilehash: ea6e654037e545a1b969aa2a9b41245fb2892bff
+ms.sourcegitcommit: a6718e2b0251b50f1228b1e13a42bb65e7bf7ee2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70872863"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71273809"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Vad är nytt i Azure Active Directory?
 
@@ -91,7 +91,7 @@ Om du behöver ytterligare behörigheter eller resurser som stöds, som du för 
 Nya etablerings loggar är tillgängliga som hjälper dig att övervaka och felsöka distribution av användar-och grupp etablering. Dessa nya loggfiler innehåller information om:
 
 - Vilka grupper har skapats i [ServiceNow](https://docs.microsoft.com/azure/active-directory/saas-apps/servicenow-provisioning-tutorial)
-- Vilka roller importerades från [Amazon Web Services (AWS)](https://docs.microsoft.com/azure/active-directory/saas-apps/amazon-web-service-tutorial#configure-and-test-azure-ad-single-sign-on)
+- Vilka roller importerades från [Amazon Web Services (AWS)](https://docs.microsoft.com/azure/active-directory/saas-apps/amazon-web-service-tutorial#configure-and-test-azure-ad-single-sign-on-for-amazon-web-services-aws)
 - Vilka medarbetare som inte har importer ATS från [Workday](https://docs.microsoft.com/azure/active-directory/saas-apps/workday-inbound-tutorial)
 
 Mer information finns i [etablerings rapporter i Azure Active Directory portal (för hands version)](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs).
@@ -203,7 +203,7 @@ Mer information finns i [Hantera dynamiska medlemskaps regler](https://docs.micr
 
 **Bastyp** Ändrad funktion  
 **Tjänste kategori:** Åtkomstgranskningar  
-**Produkt kapacitet:** Identity Governance
+**Produkt kapacitet:** Identitetsstyrning
 
 Vi har introducerat en ny Microsoft Graph app- `AccessReview.ReadWrite.Membership`behörighet, som gör det möjligt för appar att automatiskt skapa och hämta åtkomst granskningar för grupp medlemskap och app-tilldelningar. Den här behörigheten kan användas av schemalagda jobb eller som en del av din automatisering, utan att det krävs någon inloggad användar kontext.
 
@@ -808,8 +808,8 @@ Mer information om den uppdaterade versionen av Azure AD Identity Protection fin
 ### <a name="azure-ad-entitlement-management-is-now-available-public-preview"></a>Hantering av Azure AD-berättigande är nu tillgängligt (offentlig för hands version)
 
 **Bastyp** Ny funktion  
-**Tjänste kategori:** Identity Governance  
-**Produkt kapacitet:** Identity Governance
+**Tjänste kategori:** Identitetsstyrning  
+**Produkt kapacitet:** Identitetsstyrning
 
 Hantering av Azure AD-hantering, nu i offentlig för hands version, hjälper kunderna att delegera hantering av åtkomst paket, som definierar hur anställda och affärs partner kan begära åtkomst, vem som måste godkänna och hur länge de har åtkomst. Åtkomst paket kan hantera medlemskap i Azure AD-och Office 365-grupper, roll tilldelningar i företags program och roll tilldelningar för SharePoint Online-webbplatser. Läs mer om hantering av rättigheter i [Översikt över hantering av Azure AD-rättigheter](https://docs.microsoft.com/azure/active-directory/governance/entitlement-management-overview). Om du vill veta mer om bredden på Azure AD Identity Governance funktioner, inklusive Privileged Identity Management, åtkomst granskningar och användnings villkor, se [Vad är Azure AD Identity Governance?](../governance/identity-governance-overview.md).
 
@@ -871,7 +871,7 @@ Mer information om apparna som finns i [SaaS-programintegration med Azure Active
 
 **Bastyp** Ny funktion  
 **Tjänste kategori:** Åtkomstgranskningar  
-**Produkt kapacitet:** Identity Governance
+**Produkt kapacitet:** Identitetsstyrning
 
 Nya uppdateringar i åtkomst granskningar i Azure AD gör att du kan:
 

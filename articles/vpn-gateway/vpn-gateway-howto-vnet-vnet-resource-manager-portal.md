@@ -2,25 +2,17 @@
 title: Konfigurera en VPN-gatewayanslutning mellan virtuella nätverk med hjälp av Azure-portalen | Microsoft Docs
 description: Skapa en VPN-gateway-anslutning mellan virtuella nätverk med hjälp av Resource Manager och Azure Portal.
 services: vpn-gateway
-documentationcenter: na
 author: cherylmc
-manager: jpconnock
-editor: ''
-tags: azure-resource-manager
-ms.assetid: a7015cfc-764b-46a1-bfac-043d30a275df
 ms.service: vpn-gateway
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 12/03/2018
+ms.date: 09/24/2019
 ms.author: cherylmc
-ms.openlocfilehash: 94b32595cf2c884ccfd1362f6c8d03f542aabfc5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7ad83327d5b85784f523a5931f277cd00009e0ed
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62128389"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71266450"
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-by-using-the-azure-portal"></a>Konfigurera en VPN-gatewayanslutning mellan virtuella nätverk med hjälp av Azure-portalen
 
@@ -39,7 +31,6 @@ Anvisningarna i den här artikeln gäller för Azure Resource Manager-distributi
 > * [Ansluta olika distributionsmodeller – PowerShell](vpn-gateway-connect-different-deployment-models-powershell.md)
 >
 >
-
 
 ## <a name="about-connecting-vnets"></a>Om att ansluta virtuella nätverk
 
@@ -94,7 +85,6 @@ Den här artikeln visar hur du ansluter virtuella nätverk via VNet-till-VNet-an
     - **Gateway-undernät**:
         - **Namn**: *GatewaySubnet* är automatiskt ifyllt.
         - **Adressintervall**: Ange *10.11.255.0/27*.
-    - **DNS-server**: Välj **Anpassad** och ange DNS-serverns IP-adress.
 
 - **Inställningar för virtuell nätverksgateway** 
     - **Namn**: Ange *TestVNet1GW*.
@@ -120,7 +110,6 @@ Den här artikeln visar hur du ansluter virtuella nätverk via VNet-till-VNet-an
    - **GatewaySubnet** 
       - **Namn**: *GatewaySubnet* är automatiskt ifyllt.
       - **Adressintervall**: Ange *10.41.255.0/27*.
-   - **DNS-server**: Välj **Anpassad** och ange DNS-serverns IP-adress.
 
 - **Inställningar för virtuell nätverksgateway** 
     - **Namn**: Ange *TestVNet4GW*.
@@ -133,7 +122,7 @@ Den här artikeln visar hur du ansluter virtuella nätverk via VNet-till-VNet-an
        - **Delad nyckel**: Ange *abc123*. Du kan skapa den delade nyckeln själv. När du skapar anslutningen mellan de virtuella nätverken måste värdena matcha.
 
 ## <a name="create-and-configure-testvnet1"></a>Skapa och konfigurera TestVNet1
-Om du redan har ett VNet, kontrollerar du att inställningarna är kompatibla med din VPN-gatewaydesign. Var särskilt noga med alla undernät som överlappar med andra nätverk. Om du har överlappande undernät fungerar inte anslutningen ordentligt. När ditt VNet är konfigurerat med de korrekta inställningarna kan du börja med stegen i avsnittet Ange en DNS-server.
+Om du redan har ett VNet, kontrollerar du att inställningarna är kompatibla med din VPN-gatewaydesign. Var särskilt noga med alla undernät som överlappar med andra nätverk. Om du har överlappande undernät fungerar inte anslutningen ordentligt.
 
 ### <a name="to-create-a-virtual-network"></a>Så här skapar du ett virtuellt nätverk
 [!INCLUDE [vpn-gateway-basic-vnet-rm-portal](../../includes/vpn-gateway-basic-vnet-rm-portal-include.md)]
@@ -143,26 +132,15 @@ Du kan lägga till ytterligare adressutrymme och skapa undernät när ditt virtu
 
 [!INCLUDE [vpn-gateway-additional-address-space](../../includes/vpn-gateway-additional-address-space-include.md)]
 
-## <a name="create-a-gateway-subnet"></a>Skapa ett gateway-undernät
-Du måste skapa gatewayundernätet innan du skapar en virtuell nätverksgateway för ditt virtuella nätverk. Gatewayundernätet innehåller de IP-adresser som används av den virtuella nätverksgatewayen. Om möjligt är det bäst att skapa ett gateway-undernät med CIDR-block av /28 eller /27 för att tillhandahålla tillräckligt med IP-adresser för att hantera ytterligare framtida konfigurationskrav.
-
-Om du skapar den här konfigurationen för att öva dig, kan du hänvisa till de här [exempelvärdena](#example-settings) när du skapar gateway-undernätet.
-
-[!INCLUDE [vpn-gateway-no-nsg](../../includes/vpn-gateway-no-nsg-include.md)]
-
-### <a name="to-create-a-gateway-subnet"></a>Så här skapar du ett gateway-undernät
-[!INCLUDE [vpn-gateway-add-gwsubnet-rm-portal](../../includes/vpn-gateway-add-gwsubnet-rm-portal-include.md)]
-
-## <a name="specify-a-dns-server-optional"></a>Ange en DNS-server (valfritt)
-DNS krävs inte för VNet-till-VNet-anslutningar. Om du vill använda namnmatchning för resurser som distribueras till ditt virtuella nätverk bör du dock ange en DNS-server. Med den här inställningen kan du ange vilken DNS-server du vill använda för namnmatchning för det här virtuella nätverket. Den skapar inte någon DNS-server.
-
-[!INCLUDE [vpn-gateway-add-dns-rm-portal](../../includes/vpn-gateway-add-dns-rm-portal-include.md)]
-
 ## <a name="create-a-virtual-network-gateway"></a>Skapa en virtuell nätverksgateway
 I det här steget ska du skapa den virtuella nätverksgatewayen för ditt virtuella nätverk. Att skapa en gateway kan ofta ta 45 minuter eller mer, beroende på vald gateway-SKU. Om du skapar den här konfigurationen för att öva dig kan du se [exempelinställningarna](#example-settings).
 
+[!INCLUDE [About gateway subnets](../../includes/vpn-gateway-about-gwsubnet-portal-include.md)]
+
 ### <a name="to-create-a-virtual-network-gateway"></a>Så här skapar du en virtuell nätverksgateway
 [!INCLUDE [vpn-gateway-add-gw-rm-portal](../../includes/vpn-gateway-add-gw-rm-portal-include.md)]
+
+[!INCLUDE [vpn-gateway-no-nsg](../../includes/vpn-gateway-no-nsg-include.md)]
 
 ## <a name="create-and-configure-testvnet4"></a>Skapa och konfigurera TestVNet4
 När du har konfigurerat TestVNet1 kan du skapa TestVNet4 genom att upprepa föregående steg och ersätta värdena med de för TestVNet4. Du behöver inte vänta tills den virtuella nätverksgatewayen för TestVNet1 har skapats innan du konfigurerar TestVNet4. Om du använder egna värden måste du kontrollera att adressutrymmena inte överlappar några av de virtuella nätverk som du vill ansluta till.

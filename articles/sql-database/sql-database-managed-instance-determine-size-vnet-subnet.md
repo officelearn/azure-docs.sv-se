@@ -11,12 +11,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab
 ms.date: 02/22/2019
-ms.openlocfilehash: 4b627b13fb79cd5105a95d9161d9239f28f2e062
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 167e243b1fe4ea5ba9403ac3ca1fcea42f02f59a
+ms.sourcegitcommit: a6718e2b0251b50f1228b1e13a42bb65e7bf7ee2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68567496"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71273562"
 ---
 # <a name="determine-vnet-subnet-size-for-azure-sql-database-managed-instance"></a>Bestäm storleken på VNet-undernät för Azure SQL Database Hanterad instans
 
@@ -29,7 +29,7 @@ När du skapar en hanterad instans allokerar Azure ett antal virtuella datorer b
 En hanterad instans kräver minst 16 IP-adresser i ett undernät och kan använda upp till 256 IP-adresser. Det innebär att du kan använda nät masker mellan/28 och/24 när du definierar IP-intervall för under nätet. En nätverks mask-bit på/28 (14 värdar per nätverk) är en lämplig storlek för en enskild generell användning eller verksamhets kritisk distribution. En mask bit till/27 (30 värdar per nätverk) är idealisk för flera distributioner av hanterade instanser inom samma VNet. Mask bit inställningar för/26 (62-värdar) och/24 (254 värdar) gör det möjligt att utöka VNet ytterligare för att stödja ytterligare hanterade instanser.
 
 > [!IMPORTANT]
-> En under näts storlek med 16 IP-adresser är minimalt med begränsad potential för den ytterligare hanterade instansen som skalas ut. Vi rekommenderar starkt att du väljer undernät med prefix/27 eller lägre.
+> En under näts storlek med 16 IP-adresser är minimalt med begränsad potential där en skalnings åtgärd som vCore storleks ändring inte stöds. Vi rekommenderar starkt att du väljer undernät med prefix/27 eller längst prefix.
 
 ## <a name="determine-subnet-size"></a>Bestäm under näts storlek
 

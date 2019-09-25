@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/05/2019
+ms.date: 09/23/2019
 ms.author: ryanwi
 ms.reviewer: saeeda, sureshja, hirsin
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 79f462b8903033784f186032c715cc966dfae7b4
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.openlocfilehash: 76c5214fc26d299c6abb72ed6cd448728903e78f
+ms.sourcegitcommit: a6718e2b0251b50f1228b1e13a42bb65e7bf7ee2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69622709"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71272543"
 ---
 # <a name="what-is-authentication"></a>Vad är autentisering?
 
@@ -59,6 +59,25 @@ I exempelscenariot ovan kan du klassificera apparna enligt dessa två roller:
 
 * Appar som behöver säker åtkomst till resurser
 * Appar som har rollen av själva resursen
+
+### <a name="how-each-flow-emits-tokens-and-codes"></a>Hur varje flöde avger tokens och koder
+
+Beroende på hur din klient har skapats kan den använda en (eller flera) av de autentiserings flöden som stöds av Microsoft Identity Platform.  Dessa flöden kan skapa en mängd olika token (id_tokens, Refresh tokens, åtkomsttoken) samt auktoriseringsregler och kräver olika token för att de ska fungera. Det här diagrammet proides en översikt:
+
+|Flöde | Innebär | id_token | åtkomsttoken | uppdatera token | auktoriseringskod | 
+|-----|----------|----------|--------------|---------------|--------------------|
+|[Flöde för auktoriseringskod](v2-oauth2-auth-code-flow.md) | | x | x | x | x|  
+|[Implicit flöde](v2-oauth2-implicit-grant-flow.md) | | x        | x    |      |                    |
+|[Hybrid OIDC-flöde](v2-protocols-oidc.md#get-access-tokens)| | x  | |          |            x   |
+|[Uppdatera token-inlösen](v2-oauth2-auth-code-flow.md#refresh-the-access-token) | uppdatera token | x | x | x| |
+|[On-Behalf-Of-flöde](v2-oauth2-on-behalf-of-flow.md) | åtkomsttoken| x| x| x| |
+|[Enhets kod flöde](v2-oauth2-device-code.md) | | x| x| x| |
+|[Klientautentiseringsuppgifter](v2-oauth2-client-creds-grant-flow.md) | | | x (endast app-only)| | |
+
+**Anteckningar**:
+
+Token som utfärdas via det implicita läget har en längd begränsning på grund av att de skickas tillbaka till webbläsaren via URL `response_mode` : `query` en `fragment`(där är eller).  Vissa webbläsare har en gräns för storleken på URL: en som kan placeras i webbläsarens fält och inte fungerar när den är för lång.  Detta innebär att dessa tokens inte har eller `groups` `wids` är anspråk. 
+
 
 Nu när du har en översikt över grunderna kan du läsa om hur du kan förstå Identity app-modellen och API, hur etablering fungerar i Microsoft Identity Platform och länkar till detaljerad information om vanliga scenarier som stöds av Microsoft Identity Platform.
 
@@ -104,7 +123,7 @@ Säkerhetstoken (åtkomst-och ID-token) som utfärdats av Microsoft Identity Pla
 
 Anspråk som finns i alla angivna säkerhetstoken beror på typen av token, på typen av autentiseringsuppgift som används för att autentisera användaren och på programkonfigurationen.
 
-En kort beskrivning av varje typ av anspråk som skickats av Microsoft Identity Platform finns i tabellen nedan. Mer detaljerad information finns i åtkomsttoken och [](access-tokens.md) [ID-token](id-tokens.md) som utfärdats av Microsoft Identity Platform.
+En kort beskrivning av varje typ av anspråk som skickats av Microsoft Identity Platform finns i tabellen nedan. Mer detaljerad information [finns i åtkomsttoken och](access-tokens.md) [ID-token](id-tokens.md) som utfärdats av Microsoft Identity Platform.
 
 | Begäran | Beskrivning |
 | --- | --- |

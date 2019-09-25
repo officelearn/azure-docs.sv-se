@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 09/27/2018
 ms.author: cynthn
-ms.openlocfilehash: 33f3b03ba76a0c3fd33e057d0f15b2ab7a0f44e4
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: c133431bb2b84525a8ea875dea94cec8595733bb
+ms.sourcegitcommit: a6718e2b0251b50f1228b1e13a42bb65e7bf7ee2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70089487"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71273870"
 ---
 # <a name="create-a-managed-image-of-a-generalized-vm-in-azure"></a>Skapa en hanterad avbildning av en generaliserad virtuell dator i Azure
 
@@ -34,7 +34,7 @@ Sysprep tar bort allt ditt personliga konto och din säkerhets information och f
 Kontrol lera att de Server roller som körs på datorn stöds av Sysprep. Mer information finns i [Sysprep-stöd för Server roller](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep-support-for-server-roles) och [scenarier som inte stöds](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview#unsupported-scenarios).
 
 > [!IMPORTANT]
-> När du har kört Sysprep på en virtuell dator betraktas den virtuella datorn som generaliserad och kan inte startas om. Det går inte att ångra processen för att generalisera en virtuell dator. Om du behöver behålla den ursprungliga virtuella datorn bör du skapa en [kopia av den virtuella datorn](create-vm-specialized.md#option-3-copy-an-existing-azure-vm) och generalisera dess kopia. 
+> När du har kört Sysprep på en virtuell dator betraktas den virtuella datorn som *generaliserad* och kan inte startas om. Det går inte att ångra processen för att generalisera en virtuell dator. Om du behöver behålla den ursprungliga virtuella datorn bör du skapa en [kopia av den virtuella datorn](create-vm-specialized.md#option-3-copy-an-existing-azure-vm) och generalisera dess kopia. 
 >
 > Om du planerar att köra Sysprep innan du laddar upp den virtuella hård disken (VHD) till Azure för första gången ser du till att du har för [berett den virtuella](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)datorn.  
 > 
@@ -71,9 +71,9 @@ Följ dessa steg om du vill generalisera din virtuella Windows-dator:
 
 5. För **resurs grupp**, Välj **Skapa ny** och ange ett namn, eller Välj **Använd befintlig** och välj en resurs grupp som ska användas i list rutan.
 
-6. Om du vill ta bort den virtuella käll datorn när avbildningen har skapats väljer du **ta bort den här virtuella datorn automatiskt när du**har skapat avbildningen.
+6. Om du vill ta bort den virtuella käll datorn när avbildningen har skapats väljer du **ta bort den här virtuella datorn automatiskt när du har skapat avbildningen**.
 
-7. Om du vill kunna använda avbildningen i valfri tillgänglighets [zon](../../availability-zones/az-overview.md)väljer du **på** för **zon återhämtning**.
+7. Om du vill kunna använda avbildningen i valfri [tillgänglighets zon](../../availability-zones/az-overview.md)väljer du **på** för **zon återhämtning**.
 
 8. Välj **skapa** för att skapa avbildningen.
 
@@ -91,7 +91,7 @@ Kontrol lera att du har den senaste versionen av Azure PowerShell-modulen innan 
 
 
 > [!NOTE]
-> Om du vill lagra avbildningen i zoner – redundant lagring måste du skapa den i en region som har stöd för tillgänglighets [zoner](../../availability-zones/az-overview.md) och inkludera `-ZoneResilient` parametern i avbildnings konfigurationen (`New-AzImageConfig` kommandot).
+> Om du vill lagra avbildningen i zoner – redundant lagring måste du skapa den i en region som har stöd för [tillgänglighets zoner](../../availability-zones/az-overview.md) och inkludera `-ZoneResilient` parametern i avbildnings konfigurationen (`New-AzImageConfig` kommandot).
 
 Följ dessa steg om du vill skapa en avbildning av en virtuell dator:
 
@@ -205,9 +205,9 @@ Du kan skapa en hanterad avbildning från en ögonblicks bild av en generalisera
     ``` 
 
 
-## <a name="create-an-image-from-a-vhd-in-a-storage-account"></a>Skapa en avbildning från en virtuell hård disk i ett lagrings konto
+## <a name="create-an-image-from-a-vm-that-uses-a-storage-account"></a>Skapa en avbildning från en virtuell dator som använder ett lagrings konto
 
-Skapa en hanterad avbildning från en generaliserad OS-VHD i ett lagrings konto. Du behöver URI för den virtuella hård disken i lagrings kontot, vilket är i följande format: https://*mystorageaccount*. blob.Core.Windows.net/*vhdcontainer*/*vhdfilename. VHD*. I det här exemplet är den virtuella hård disken i *mystorageaccount*, i en behållare med namnet *vhdcontainer*och VHD-filnamnet är *vhdfilename. VHD*.
+Om du vill skapa en hanterad avbildning från en virtuell dator som inte använder hanterade diskar behöver du URI för OS-VHD: n i lagrings kontot i följande format: https://*mystorageaccount*. blob.Core.Windows.net/*vhdcontainer* /  *vhdfilename. VHD*. I det här exemplet är den virtuella hård disken i *mystorageaccount*, i en behållare med namnet *vhdcontainer*och VHD-filnamnet är *vhdfilename. VHD*.
 
 
 1.  Skapa vissa variabler.

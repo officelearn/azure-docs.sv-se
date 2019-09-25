@@ -1,19 +1,19 @@
 ---
 title: 'Självstudier: Bearbeta data från Azure Event Hubs med Apache Spark i HDInsight'
 description: Självstudie – Anslut Apache Spark i Azure HDInsight till Azure Event Hubs och bearbeta strömmande data.
-ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
+ms.service: hdinsight
 ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
 ms.date: 05/24/2019
-ms.openlocfilehash: 2483ba22d3d502479e87ae385bcc837ec87a103c
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.openlocfilehash: be21b809272a132ee6e63582036c36ad5dcdf4ad
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70735341"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71266196"
 ---
 # <a name="tutorial-process-tweets-using-azure-event-hubs-and-apache-spark-in-hdinsight"></a>Självstudier: Bearbeta tweets med Azure Event Hubs och Apache Spark i HDInsight
 
@@ -38,7 +38,7 @@ Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](ht
 
 Om du vill få en dataström med tweets skapar du ett program i Twitter. Följ anvisningarna skapa ett Twitter-program och skriv ned de värden som du behöver för att slutföra den här självstudien.
 
-1. Bläddra till [Twitter-programhantering](https://apps.twitter.com/).
+1. Bläddra till [Twitter](https://apps.twitter.com/)-programhantering.
 
 1. Välj **Skapa ny app**.
 
@@ -53,7 +53,7 @@ Om du vill få en dataström med tweets skapar du ett program i Twitter. Följ a
 
 1. Välj **Ja, jag har läst och samtycker till Twitter Developer Agreement**och välj sedan **skapa ditt Twitter-program**.
 
-1. Välj fliken **nycklar och åtkomst-token** .
+1. Välj fliken **nycklar och åtkomst** -token.
 
 1. Välj **skapa min åtkomsttoken** i slutet av sidan.
 
@@ -252,9 +252,9 @@ Med HDInsight lagras dina data i Azure Storage eller Azure Data Lake Storage, s�
 
 Öppna klustret i Azure Portal och välj **Ta bort**.
 
-![Ta bort HDInsight-kluster](./media/apache-spark-load-data-run-query/hdinsight-azure-portal-delete-cluster.png "Ta bort HDInsight-kluster")
+![HDInsight Azure Portal ta bort kluster](./media/apache-spark-load-data-run-query/hdinsight-azure-portal-delete-cluster.png "Ta bort HDInsight-kluster")
 
-Du kan också välja resursgruppnamnet för att öppna resursgruppsidan. Välj sedan **Ta bort resursgrupp**. När resursgruppen tas bort, tas även HDInsight Spark-klustret och standardkontot för lagring bort.
+Du kan också välja det resursgruppnamn som ska öppna resursgruppsidan och sedan välja **Ta bort resursgrupp**. När resursgruppen tas bort, tas även HDInsight Spark-klustret och standardkontot för lagring bort.
 
 ## <a name="next-steps"></a>Nästa steg
 

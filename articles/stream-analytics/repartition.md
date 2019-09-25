@@ -7,12 +7,12 @@ ms.author: mamccrea
 ms.date: 09/19/2019
 ms.topic: conceptual
 ms.custom: mvc
-ms.openlocfilehash: 82e4a225d26bac04ed4754169cc4a79e0a8f9b32
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: fcbef434d3b88c20cdaaeab92a973e5fbe41680d
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71101516"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71266443"
 ---
 # <a name="use-repartitioning-to-optimize-processing-with-azure-stream-analytics"></a>Använd ompartitionering för att optimera bearbetningen med Azure Stream Analytics
 
@@ -56,7 +56,7 @@ Experimentera och studera resursanvändningen för jobbet för att fastställa d
 
 När jobbet använder SQL Database för utdata använder du explicit ompartitionering för att matcha det optimala antalet partitioner för att maximera data flödet. Eftersom SQL fungerar bäst med åtta skrivare, behöver du partitionera om flödet till åtta innan du tömmer eller någonstans ytterligare överströms, vilket kan dra nytta av jobbets prestanda. 
 
-Om det finns fler än 8 inpartitioner är det inte säkert att du väljer att ärva schemat för inpartitionering. Överväg att [använda i frågan för att](/stream-analytics-query/into-azure-stream-analytics.md#into-shard-count) uttryckligen ange antalet utgående skrivare. 
+Om det finns fler än 8 inpartitioner är det inte säkert att du väljer att ärva schemat för inpartitionering. Överväg att [använda i frågan för att](/stream-analytics-query/into-azure-stream-analytics#into-shard-count) uttryckligen ange antalet utgående skrivare. 
 
 Följande exempel läser från indata, oavsett om de är naturligt partitionerade och partitionerar om Stream-tiofaldig enligt DeviceID-dimensionen och tömmer data till utdata. 
 

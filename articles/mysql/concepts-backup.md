@@ -1,82 +1,82 @@
 ---
-title: Säkerhetskopiering och återställning i Azure Database för MySQL
-description: Läs mer om automatisk säkerhetskopiering och återställning av Azure Database för MySQL-server.
+title: Säkerhets kopiering och återställning i Azure Database for MySQL
+description: Lär dig mer om automatisk säkerhets kopiering och att återställa Azure Database for MySQL-servern.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 02/28/2018
-ms.openlocfilehash: 6fe5aea9b8fa87efdfa7cc57716cf548a52e076b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: dfbf416c93c78e6ba5e23819084d69e57c47edc8
+ms.sourcegitcommit: a6718e2b0251b50f1228b1e13a42bb65e7bf7ee2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60532129"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71273658"
 ---
-# <a name="backup-and-restore-in-azure-database-for-mysql"></a>Säkerhetskopiering och återställning i Azure Database för MySQL
+# <a name="backup-and-restore-in-azure-database-for-mysql"></a>Säkerhets kopiering och återställning i Azure Database for MySQL
 
-Azure Database för MySQL automatiskt skapar säkerhetskopiering av servrar och lagrar dem i Användarkonfigurerad lokalt redundant eller geo-redundant lagring. Säkerhetskopieringar kan användas för att återställa servern till point-in-time. Säkerhetskopiering och återställning är en viktig del av alla strategi för affärskontinuitet eftersom de skyddar dina data från oavsiktliga skador eller tas bort.
+Azure Database for MySQL skapar automatiskt Server säkerhets kopior och lagrar dem i användar konfiguration lokalt redundant eller Geo-redundant lagring. Säkerhetskopieringar kan användas för att återställa servern till en vald tidpunkt. Säkerhets kopiering och återställning är en viktig del av en strategi för affärs kontinuitet eftersom de skyddar dina data från oavsiktlig skada eller borttagning.
 
 ## <a name="backups"></a>Säkerhetskopior
 
-Azure Database för MySQL tar fullständig, differentiell och säkerhetskopieringar av transaktionsloggen. Dessa säkerhetskopior kan du återställa en server till valfri point-in-time inom din konfigurerade kvarhållningsperiod. Standard-kvarhållningsperiod är sju dagar. Du kan också konfigurera det upp till 35 dagar. Alla säkerhetskopieringar krypteras med AES 256-bitars kryptering.
+Azure Database for MySQL tar fullständiga, differentiella och transaktions logg säkerhets kopior. Med dessa säkerhets kopieringar kan du återställa en server till alla tidpunkter inom den konfigurerade kvarhållningsperioden för säkerhets kopior. Standard kvarhållningsperioden för säkerhets kopiering är sju dagar. Du kan [också konfigurera det](howto-restore-server-portal.md#set-backup-configuration) upp till 35 dagar. Alla säkerhets kopior krypteras med AES 256-bitars kryptering.
 
 ### <a name="backup-frequency"></a>Säkerhetskopieringsfrekvens
 
-I allmänhet fullständiga säkerhetskopieringar sker varje vecka, differentiella säkerhetskopieringar sker två gånger per dag och säkerhetskopieringar av transaktionsloggen inträffar var femte minut. Den första fullständiga säkerhetskopian schemaläggs omedelbart när en server har skapats. Den första säkerhetskopieringen kan ta längre tid på en stor återställda server. Den tidigaste tidpunkten som en ny server kan återställas till är den tid då den första fullständiga säkerhetskopieringen är klar.
+Normalt sker fullständiga säkerhets kopieringar varje vecka, differentiella säkerhets kopieringar sker två gånger per dag och säkerhets kopieringar av transaktions loggar sker var femte minut. Den första fullständiga säkerhets kopieringen schemaläggs direkt efter att en server har skapats. Den första säkerhets kopieringen kan ta längre tid på en stor återställd Server. Den tidigaste tidpunkt som en ny server kan återställas till är den tid då den första fullständiga säkerhets kopieringen är klar.
 
 ### <a name="backup-redundancy-options"></a>Redundansalternativ för säkerhetskopiering
 
-Azure Database för MySQL ger dig flexibilitet att välja mellan lokalt redundant eller geo-redundant lagring generell användning och Minnesoptimerad nivåer av säkerhetskopior. När säkerhetskopiorna som lagras i geo-redundant lagring av säkerhetskopior kan de bara lagras inte i den region där din server är värd för, men replikeras också till en [kopplat Datacenter](https://docs.microsoft.com/azure/best-practices-availability-paired-regions). Detta ger bättre skydd och möjlighet att återställa servern i en annan region i händelse av en katastrof. Basic-nivån erbjuder endast lokalt redundant lagring av säkerhetskopior.
+Azure Database for MySQL ger flexibiliteten att välja mellan lokalt redundant eller Geo-redundant lagring av säkerhets kopior i Generell användning och minnesoptimerade nivåer. När säkerhets kopiorna lagras i Geo-redundant lagring av säkerhets kopior lagras de inte bara i den region där servern finns, men replikeras också till ett [parat Data Center](https://docs.microsoft.com/azure/best-practices-availability-paired-regions). Detta ger bättre skydd och möjlighet att återställa servern i en annan region i händelse av en katastrof. Basic-nivån erbjuder endast lokalt redundant säkerhets kopierings lagring.
 
 > [!IMPORTANT]
-> Konfigurera lokalt redundant eller geo-redundant lagring för säkerhetskopiering tillåts endast under server skapar. När servern har etablerats kan du inte ändra redundansalternativ för lagring av säkerhetskopior.
+> Det går bara att konfigurera lokalt redundant eller Geo-redundant lagring för säkerhets kopiering när servern skapas. När servern har tillhandahållits kan du inte ändra redundans alternativet för lagring av säkerhets kopior.
 
-### <a name="backup-storage-cost"></a>Kostnaden för lagring av säkerhetskopior
+### <a name="backup-storage-cost"></a>Reserv lagrings kostnad
 
-Azure Database for MySQL tillhandahåller upp till 100% av ditt etablerade serverutrymme som lagringsutrymme för säkerhetskopior utan extra kostnad. Vanligtvis är lämplig för en kvarhållning av säkerhetskopior på sju dagar. Eventuella ytterligare säkerhetskopieringslagring används debiteras i GB-månad.
+Azure Database for MySQL tillhandahåller upp till 100% av din etablerade Server lagring som säkerhets kopierings lagring utan extra kostnad. Detta är vanligt vis lämpligt för kvarhållning av säkerhets kopior på sju dagar. Ytterligare lagrings utrymme för säkerhets kopior debiteras i GB-månad.
 
-Om du har etablerat en server med 250 GB, har du till exempel 250 GB säkerhetskopieringslagring utan extra kostnad. Lagring som överstiger 250 GB debiteras.
+Om du till exempel har etablerad en server med 250 GB har du 250 GB lagring av säkerhets kopior utan extra kostnad. Lagring som överstiger 250 GB debiteras.
 
 ## <a name="restore"></a>Återställ
 
-I Azure Database för MySQL skapar utför en återställning en ny server från den ursprungliga servern säkerhetskopior.
+I Azure Database for MySQL skapar en återställning en ny server från den ursprungliga serverns säkerhets kopior.
 
 Det finns två typer av återställning:
 
-- **Point-in-time-återställning** är tillgängliga med något av alternativen säkerhetskopieringsredundans och skapar en ny server i samma region som den ursprungliga servern.
-- **GEO-återställning** är bara tillgängligt om du har konfigurerat din server för geo-redundant lagring och du kan återställa servern till en annan region.
+- **Återställning av tidpunkt** är tillgängligt med alternativ för redundans och skapar en ny server i samma region som den ursprungliga servern.
+- **Geo-återställning** är bara tillgängligt om du har konfigurerat servern för Geo-redundant lagring och du kan återställa servern till en annan region.
 
-Beräknad tid för återställning är beroende av flera faktorer, inklusive databasernas storlek, transaktionsloggarnas storlek, nätverkets bandbredd och det totala antalet databaser som återställs i samma region på samma gång. Tiden för återställning är vanligtvis mindre än 12 timmar.
+Den uppskattade återställnings tiden beror på flera faktorer, till exempel databasens storlek, transaktions loggens storlek, nätverks bandbredden och det totala antalet databaser som återställs i samma region på samma tid. Återställnings tiden är vanligt vis mindre än 12 timmar.
 
 > [!IMPORTANT]
-> Ta bort servrar **kan** återställas. Om du tar bort servern tas även bort alla databaser som hör till servern och kan inte återställas. Om du vill skydda serverresurser efter distributionen, från oavsiktlig borttagning eller oväntade ändringar, kan administratörer utnyttja [hanteringslås](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-lock-resources).
+> **Det går inte** att återställa borttagna servrar. Om du tar bort servern tas även alla databaser som tillhör servern bort och kan inte återställas. För att skydda server resurser, efter distribution, från oavsiktlig borttagning eller oväntade ändringar, kan administratörer utnyttja [hanterings lås](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-lock-resources).
 
 ### <a name="point-in-time-restore"></a>Återställning från tidpunkt
 
-Oberoende av din säkerhetskopiering redundansalternativ du utföra en återställning till valfri punkt i tiden i din kvarhållningsperiod. En ny server skapas i samma Azure-region som den ursprungliga servern. Den har skapats med den ursprungliga servern konfiguration för prisnivå, beräkningsgenerering och antalet virtuella kärnor, lagringsstorlek, kvarhållningsperiod för säkerhetskopiering och redundansalternativ för säkerhetskopiering.
+Oberoende av ditt alternativ för säkerhets kopiering kan du utföra en återställning till vilken tidpunkt som helst inom lagrings perioden för säkerhets kopiorna. En ny server skapas i samma Azure-region som den ursprungliga servern. Den skapas med den ursprungliga serverns konfiguration för pris nivån, beräknings generering, antalet virtuella kärnor, lagrings storlek, kvarhållning av säkerhets kopior och alternativet för redundans.
 
-Point-in-time-återställning är användbart i scenarier med flera. Till exempel när en användare av misstag tar bort data, släpper en viktig tabell eller databas, eller om ett program oavsiktligt skriver över värdefulla data med felaktiga data på grund av ett fel i programmet.
+Återställning av tidpunkt är användbart i flera scenarier. Till exempel när en användare oavsiktligt tar bort data, släpper en viktig tabell eller databas, eller om ett program av misstag skriver över bra data med felaktiga data på grund av ett program fel.
 
-Du kan behöva vänta på Nästa säkerhetskopiering av transaktionsloggen som ska vidtas innan du kan återställa till en tidpunkt inom de senaste fem minuterna.
+Du kan behöva vänta tills nästa säkerhets kopiering av transaktions loggen tas innan du kan återställa till en tidpunkt under de senaste fem minuterna.
 
 ### <a name="geo-restore"></a>Geo-återställning
 
-Du kan återställa en server till en annan Azure-region där tjänsten är tillgänglig om du har konfigurerat din server för geo-redundanta säkerhetskopieringar. GEO-återställning är standardalternativet för återställning när servern är inte tillgänglig på grund av en incident i den region där servern finns. Om en storskalig incident i en region blir otillgänglig programmets databasen återställa du en server från geo-redundanta säkerhetskopieringar till en server i alla andra regioner. Det finns en fördröjning mellan när en säkerhetskopia görs och när de replikeras till annan region. Den här fördröjningen kan vara upp till en timme, så om en olycka inträffar, det kan ta upp till en timme dataförlust.
+Du kan återställa en server till en annan Azure-region där tjänsten är tillgänglig om du har konfigurerat servern för geo-redundanta säkerhets kopieringar. Geo-återställning är standard alternativet för återställning när servern inte är tillgänglig på grund av en incident i den region där-servern finns. Om en storskalig incident i en region resulterar i att databas programmet inte är tillgängligt, kan du återställa en server från de geo-redundanta säkerhets kopieringarna till en server i någon annan region. Det uppstår en fördröjning mellan när en säkerhets kopia tas och när den replikeras till en annan region. Den här fördröjningen kan vara upp till en timme, så om en katastrof inträffar kan det vara upp till en timmes data förlust.
 
-Under geo-återställning inkludera serverkonfigurationerna kan ändras compute-generering, vCore, kvarhållningsperiod för säkerhetskopiering och redundansalternativ för säkerhetskopiering. Ändra prisnivå (Basic, generell användning eller Minnesoptimerade) eller lagringsstorleken under geo-återställning stöds inte.
+Vid geo-återställning kan de serverkonfigurationer som kan ändras omfatta beräknings generering, vCore, bevarande period för säkerhets kopior och alternativ för säkerhets kopiering. Det finns inte stöd för att ändra pris nivå (Basic, Generell användning eller Minnesoptimerade) eller lagrings storlek under geo-återställning.
 
 ### <a name="perform-post-restore-tasks"></a>Utföra uppgifter efter återställning
 
-Efter en återställning från endera återställningsmetod bör du utföra följande uppgifter för att få dina användare och program igen igång:
+Efter en återställning från återställnings metoden bör du utföra följande uppgifter för att få dina användare och program att säkerhetskopiera och köra dem:
 
-- Om den nya servern är avsedd att ersätta den ursprungliga servern, omdirigera klienter och klientprogram till den nya servern
-- Se till att lämpliga brandväggsregler på servernivå är på plats för användare att ansluta
-- Se till att rätt inloggningar och databasnivåbehörigheter är på plats
+- Om den nya servern är avsedd att ersätta den ursprungliga servern omdirigerar du klienter och klient program till den nya servern
+- Se till att det finns lämpliga brand Väggs regler på server nivå för att användare ska kunna ansluta
+- Se till att lämpliga inloggningar och behörigheter på databas nivå är på plats
 - Konfigurera aviseringar efter behov
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Läs mer om affärskontinuitet i den [översikt över affärskontinuitet](concepts-business-continuity.md).
-- Om du vill återställa till en tidpunkt med hjälp av Azure-portalen, se [återställa databasen till en tidpunkt med hjälp av Azure-portalen](howto-restore-server-portal.md).
-- Om du vill återställa till en tidpunkt med hjälp av Azure CLI, se [återställa databasen till en tidpunkt med hjälp av CLI](howto-restore-server-cli.md).
+- Mer information om verksamhets kontinuitet finns i [Översikt över affärs kontinuitet](concepts-business-continuity.md).
+- Om du vill återställa till en tidpunkt med hjälp av Azure Portal, se [restore Database till en tidpunkt med hjälp av Azure Portal](howto-restore-server-portal.md).
+- Om du vill återställa till en tidpunkt med hjälp av Azure CLI, se [restore Database till en tidpunkt med hjälp av CLI](howto-restore-server-cli.md).

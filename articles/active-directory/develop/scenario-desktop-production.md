@@ -1,6 +1,6 @@
 ---
-title: 'Skrivbordsappen att anrop web API: er (flytta till produktion) - Microsoft identity-plattformen'
-description: 'Lär dig att skapa en skrivbordsapp att anrop webb-API: er (flytta till produktion)'
+title: 'Skriv bords app som anropar webb-API: er (flytta till produktion) – Microsoft Identity Platform'
+description: 'Lär dig hur du skapar en stationär app som anropar webb-API: er (flytta till produktion)'
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -17,36 +17,38 @@ ms.date: 04/18/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2343a416bd810792e7267b94395f953aa4f880a1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6a353b4577f8cfa9ba279ad2793e1a7ab8b27e55
+ms.sourcegitcommit: 263a69b70949099457620037c988dc590d7c7854
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67111187"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71268324"
 ---
-# <a name="desktop-app-that-calls-web-apis---move-to-production"></a>Skrivbordsappen som anropar webb-API: er – flytta till produktion
+# <a name="desktop-app-that-calls-web-apis---move-to-production"></a>Skriv bords app som anropar webb-API: er – flytta till produktion
 
-Den här artikeln innehåller information om att förbättra programmet ytterligare och flytta den till produktion.
+Den här artikeln innehåller information om hur du förbättrar programmet ytterligare och flyttar det till produktion.
 
-## <a name="handling-errors-in-desktop-applications"></a>Hantera fel i program
+## <a name="handling-errors-in-desktop-applications"></a>Hantera fel i Skriv bords program
 
-I de olika flödena har du lärt dig hantera fel för tyst flöden (som visas i kodfragment). Du har också fått se att det finns fall där interaktion krävs (inkrementell medgivande och villkorlig åtkomst).
+I de olika flödena har du lärt dig hur du hanterar felen för de tysta flödena (som visas i kodfragment). Du har också sett att det finns fall där interaktion krävs (stegvist medgivande och villkorlig åtkomst).
 
-## <a name="how-to-have--the-user-consent-upfront-for-several-resources"></a>Hur du får användargodkännande förskott för flera resurser
+## <a name="how-to-have--the-user-consent-upfront-for-several-resources"></a>Så här får du användar medgivande för flera resurser
 
 > [!NOTE]
-> Flera resurser fungerar för Microsoft identity-plattformen, men inte för Azure Active Directory (Azure AD) B2C ska få medgivande. Azure AD-B2C stöder endast administratörens godkännande, inte användarens medgivande.
+> Att få ett medgivande för flera resurser fungerar för Microsoft Identity Platform, men inte för Azure Active Directory (Azure AD) B2C. Azure AD B2C stöder endast administrativt godkännande, inte användar medgivande.
 
-Microsoft identity-plattformen (v2.0) endpoint låter dig inte att hämta en token för flera resurser på samma gång. Därför kan den `scopes` parametern får bara innehålla omfång för en enskild resurs. Du kan se till att användaren redan godkänner flera resurser med hjälp av den `extraScopesToConsent` parametern.
+Slut punkten för Microsoft Identity Platform (v 2.0) låter dig inte hämta en token för flera resurser på en gång. `scopes` Parametern kan därför bara innehålla omfång för en enskild resurs. Du kan se till att användaren i förväg samtycka till flera resurser genom att `extraScopesToConsent` använda-parametern.
 
-Till exempel om det finns två resurser scope som har två var:
+Om du till exempel har två resurser som har två omfång:
 
-- `https://mytenant.onmicrosoft.com/customerapi` -med 2 omfång `customer.read` och `customer.write`
-- `https://mytenant.onmicrosoft.com/vendorapi` -med 2 omfång `vendor.read` och `vendor.write`
+- `https://mytenant.onmicrosoft.com/customerapi`– med 2 omfattningar `customer.read` och`customer.write`
+- `https://mytenant.onmicrosoft.com/vendorapi`– med 2 omfattningar `vendor.read` och`vendor.write`
 
-Du bör använda den `.WithAdditionalPromptToConsent` modifieraren som har den `extraScopesToConsent` parametern.
+Du bör använda `.WithAdditionalPromptToConsent` modifieraren som `extraScopesToConsent` har parametern.
 
 Exempel:
+
+### <a name="in-msalnet"></a>I MSAL.NET
 
 ```CSharp
 string[] scopesForCustomerApi = new string[]
@@ -67,17 +69,47 @@ var result = await app.AcquireTokenInteractive(scopesForCustomerApi)
                      .ExecuteAsync();
 ```
 
-Det här anropet får du en åtkomsttoken för den första webben-API.
+### <a name="in-msal-for-ios-and-macos"></a>I MSAL för iOS och macOS
 
-När du vill anropa andra webb-API kan anropa du:
+Mål-C:
+
+```objc
+NSArray *scopesForCustomerApi = @[@"https://mytenant.onmicrosoft.com/customerapi/customer.read",
+                                @"https://mytenant.onmicrosoft.com/customerapi/customer.write"];
+    
+NSArray *scopesForVendorApi = @[@"https://mytenant.onmicrosoft.com/vendorapi/vendor.read",
+                              @"https://mytenant.onmicrosoft.com/vendorapi/vendor.write"]
+    
+MSALInteractiveTokenParameters *interactiveParams = [[MSALInteractiveTokenParameters alloc] initWithScopes:scopesForCustomerApi webviewParameters:[MSALWebviewParameters new]];
+interactiveParams.extraScopesToConsent = scopesForVendorApi;
+[application acquireTokenWithParameters:interactiveParams completionBlock:^(MSALResult *result, NSError *error) { /* handle result */ }];
+```
+
+Införliva
+
+```swift
+let scopesForCustomerApi = ["https://mytenant.onmicrosoft.com/customerapi/customer.read",
+                            "https://mytenant.onmicrosoft.com/customerapi/customer.write"]
+        
+let scopesForVendorApi = ["https://mytenant.onmicrosoft.com/vendorapi/vendor.read",
+                          "https://mytenant.onmicrosoft.com/vendorapi/vendor.write"]
+        
+let interactiveParameters = MSALInteractiveTokenParameters(scopes: scopesForCustomerApi, webviewParameters: MSALWebviewParameters())
+interactiveParameters.extraScopesToConsent = scopesForVendorApi
+application.acquireToken(with: interactiveParameters, completionBlock: { (result, error) in /* handle result */ })
+```
+
+Det här anropet får du en åtkomsttoken för det första webb-API: et.
+
+När du behöver anropa det andra webb-API: et kan du `AcquireTokenSilent` anropa API:
 
 ```CSharp
 AcquireTokenSilent(scopesForVendorApi, accounts.FirstOrDefault()).ExecuteAsync();
 ```
 
-### <a name="microsoft-personal-account-requires-reconsenting-each-time-the-app-is-run"></a>Personliga Microsoft-konto kräver reconsenting varje gång appen körs
+### <a name="microsoft-personal-account-requires-reconsenting-each-time-the-app-is-run"></a>Microsoft personal-kontot kräver att du godkänner varje tillfälle som appen körs
 
-För användare med Microsoft personliga konton är reprompting om medgivande på varje native client (desktop/mobilapp)-anrop för att auktorisera det avsedda funktionssättet. Interna klientens identitet är sin natur osäkert (sätt som strider mot konfidentiell klientprogrammet som exchange en hemlighet med Microsoft Identity-plattformen att bevisa sin identitet). Microsoft identity-plattformen har valt att minimera den här insecurity för tjänster genom att fråga användaren om tillstånd, varje gång programmet behörighet.
+För användare av Microsoft personal, uppmanas du att svara på varje intern klient (stationär dator/mobilapp) anrop till auktorisera är det avsedda beteendet. Den interna klient identiteten är osäker (till skillnad från konfidentiellt klient program som utbyter en hemlighet med Microsoft Identity Platform för att bevisa sin identitet). Microsoft Identity Platform valde att minimera den här insäkerheten för konsument tjänster genom att meddela användaren om godkännande, varje gången programmet auktoriseras.
 
 ## <a name="next-steps"></a>Nästa steg
 

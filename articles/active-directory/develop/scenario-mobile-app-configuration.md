@@ -15,12 +15,12 @@ ms.date: 07/23/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8ebf524d932322fa08729f229a451afe656900d5
-ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
+ms.openlocfilehash: e7b731c9936ab85b19428687330044a46c563c49
+ms.sourcegitcommit: 263a69b70949099457620037c988dc590d7c7854
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70061398"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71268371"
 ---
 # <a name="mobile-app-that-calls-web-apis---code-configuration"></a>Mobilapp som anropar webb-API: er – kod konfiguration
 
@@ -33,14 +33,14 @@ Microsoft-biblioteken som stöder Mobile Apps är:
   MSAL-bibliotek | Beskrivning
   ------------ | ----------
   ![MSAL.NET](media/sample-v2-code/logo_NET.png) <br/> MSAL.NET  | För att utveckla bärbara program. MSAL.NET-plattformar som stöds för att bygga ett mobilt program är UWP, Xamarin. iOS och Xamarin. Android.
-  ![MSAL. iOS](media/sample-v2-code/logo_iOS.png) <br/> MSAL. iOS | Utveckla inbyggda iOS-program med mål C eller Swift
+  ![MSAL. iOS](media/sample-v2-code/logo_iOS.png) <br/> MSAL. iOS | Utveckla inbyggda iOS-program med mål-C eller Swift
   ![MSAL. Android](media/sample-v2-code/logo_android.png) <br/> MSAL. Android | Utveckla inbyggda Android-program i Java för Android
 
-## <a name="configuring-the-application"></a>Konfigurera programmet
-
-Mobil program använder `PublicClientApplication` klassen. Så här skapar du en instans av det:
+## <a name="instantiating-the-application"></a>Instansiera programmet
 
 ### <a name="android"></a>Android
+
+Mobil program använder `PublicClientApplication` klassen. Så här skapar du en instans av det:
 
 ```Java
 PublicClientApplication sampleApp = new PublicClientApplication(
@@ -50,21 +50,28 @@ PublicClientApplication sampleApp = new PublicClientApplication(
 
 ### <a name="ios"></a>iOS
 
-```swift
-// Initialize the app.
-guard let authorityURL = URL(string: kAuthority) else {
-    self.loggingText.text = "Unable to create authority URL"
-    return
-}
-let authority = try MSALAADAuthority(url: authorityURL)
-let msalConfiguration = MSALPublicClientApplicationConfig(clientId: kClientID, redirectUri: nil, authority: authority)
-self.applicationContext = try MSALPublicClientApplication(configuration: msalConfiguration)
-}
+Mobil program på iOS måste instansiera `MSALPublicClientApplication` klassen.
+
+Mål-C:
+
+```objc
+NSError *msalError = nil;
+     
+MSALPublicClientApplicationConfig *config = [[MSALPublicClientApplicationConfig alloc] initWithClientId:@"<your-client-id-here>"];    
+MSALPublicClientApplication *application = [[MSALPublicClientApplication alloc] initWithConfiguration:config error:&msalError];
 ```
+
+Införliva
+```swift
+let config = MSALPublicClientApplicationConfig(clientId: "<your-client-id-here>")
+if let application = try? MSALPublicClientApplication(configuration: config){ /* Use application */}
+```
+
+Det finns [ytterligare MSALPublicClientApplicationConfig-egenskaper](https://azuread.github.io/microsoft-authentication-library-for-objc/Classes/MSALPublicClientApplicationConfig.html#/Configuration%20options) som kan åsidosätta standard utfärdaren, ange en omdirigerings-URI eller ändra beteendet för cachelagring av MSAL. 
 
 ### <a name="xamarin-or-uwp"></a>Xamarin eller UWP
 
-I följande stycke förklaras hur du konfigurerar koden för programmet för Xamarin. iOS-, Xamarin. Android-och UWP-appar. Det första steget är att instansiera programmet. Ett valfritt steg är att konfigurera Broker.
+I följande stycke förklaras hur du instansierar programmet för Xamarin. iOS-, Xamarin. Android-och UWP-appar.
 
 #### <a name="instantiating-the-application"></a>Instansiera programmet
 
@@ -102,7 +109,7 @@ var pca = PublicClientApplicationBuilder
 - Listan över alla modifierare som är tillgängliga på `PublicClientApplicationBuilder`finns i referens dokumentationen [PublicClientApplicationBuilder](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.publicclientapplicationbuilder#methods)
 - Beskrivning av alla alternativ som visas i `PublicClientApplicationOptions` se [PublicClientApplicationOptions](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.publicclientapplicationoptions)i referens dokumentationen
 
-#### <a name="xamarin-ios-specific-considerations"></a>Xamarin iOS-/regionsspecifika överväganden
+## <a name="xamarin-ios-specific-considerations"></a>Xamarin iOS-/regionsspecifika överväganden
 
 På Xamarin iOS finns det flera saker som du måste ta hänsyn till när du använder MSAL.NET:
 
@@ -111,9 +118,17 @@ På Xamarin iOS finns det flera saker som du måste ta hänsyn till när du anv�
 1. [Aktivera delning av token cache](msal-net-xamarin-ios-considerations.md#enable-token-cache-sharing-across-ios-applications)
 1. [Aktivera nyckel rings åtkomst](msal-net-xamarin-ios-considerations.md#enable-keychain-access)
 
-Information finns i [Xamarin iOS](msal-net-xamarin-ios-considerations.md) -överväganden
+Information finns i [Xamarin iOS-överväganden](msal-net-xamarin-ios-considerations.md)
 
-#### <a name="other-xamarin-android-specific-considerations"></a>Andra Xamarin Android-/regionsspecifika faktorer
+## <a name="msal-for-ios-and-macos-specific-considerations"></a>MSAL för iOS-och macOS-särskilt överväganden
+
+Liknande överväganden gäller när du använder MSAL för iOS och macOS:
+
+1. [`openURL` Implementera motringningen](#brokered-authentication-for-msal-for-ios-and-macos)
+2. [Aktivera nyckel rings åtkomst grupper](howto-v2-keychain-objc.md)
+3. [Anpassa webbläsare och webbvyer](customize-webviews.md)
+
+## <a name="xamarin-android-specific-considerations"></a>Xamarin Android-/regionsspecifika överväganden
 
 Här är Xamarin Android-information:
 
@@ -122,7 +137,7 @@ Här är Xamarin Android-information:
 - [Använda den inbäddade webb visningen (valfritt)](msal-net-xamarin-android-considerations.md#use-the-embedded-web-view-optional)
 - [Felsökning](msal-net-xamarin-android-considerations.md#troubleshooting)
 
-Mer information finns i [Xamarin Android](msal-net-xamarin-android-considerations.md) -överväganden
+Mer information finns i [Xamarin Android-överväganden](msal-net-xamarin-android-considerations.md)
 
 Slutligen finns det vissa speciella kunskaper om webbläsare på Android. De beskrivs i [Xamarin Android-/regionsspecifika överväganden med MSAL.net](msal-net-system-browser-android-considerations.md)
 
@@ -132,17 +147,21 @@ På UWP kan du använda företags nätverk. För ytterligare information om hur 
 
 ## <a name="configuring-the-application-to-use-the-broker"></a>Konfigurera programmet så att det använder Service Broker
 
-### <a name="why-use-brokers-on-xamarinios-and-xamarinandroid-applications"></a>Varför ska du använda utjämnare i Xamarin. iOS och Xamarin. Android-program?
+### <a name="why-use-brokers-in-ios-and-android-applications"></a>Varför ska jag använda utjämnare i iOS-och Android-program?
 
 I Android och iOS aktiverar mäklaren:
 
-- Enkel inloggning (SSO). Användarna behöver inte logga in på varje program.
+- Enkel inloggning (SSO) när enheten har registrerats med AAD. Användarna behöver inte logga in på varje program.
 - Enhets identifiering. Aktiverar Azure AD Device-relaterade principer för villkorlig åtkomst genom att komma åt enhets certifikatet som skapades på enheten när den var ansluten till arbets platsen.
 - Verifiering av program identifiering. När ett program anropar Broker, skickar den sin omdirigerings-URL och Service Broker verifierar den.
 
 ### <a name="enable-the-brokers-on-xamarin"></a>Aktivera utjämnare på Xamarin
 
-Om du vill aktivera någon av dessa funktioner använder `WithBroker()` du parametern när du `PublicClientApplicationBuilder.CreateApplication` anropar-metoden. `.WithBroker()`anges till sant som standard. Följ stegen nedan för [iOS](#brokered-authentication-for-xamarinios).
+Om du vill aktivera någon av dessa funktioner använder `WithBroker()` du parametern när du `PublicClientApplicationBuilder.CreateApplication` anropar-metoden. `.WithBroker()`anges till sant som standard. Följ stegen nedan för [Xamarin. iOS](#brokered-authentication-for-xamarinios).
+
+### <a name="enable-the-broker-for-msal-for-ios-and-macos"></a>Aktivera Broker för MSAL för iOS och macOS
+
+Brokered Authentication är aktiverat som standard för AAD-scenarier i MSAL för iOS och macOS. Följ stegen nedan för att konfigurera ditt program för stöd för Brokered Authentication för [MSAL för iOS och MacOS](#brokered-authentication-for-msal-for-ios-and-macos). Observera att vissa steg skiljer sig mellan [MSAL för Xamarin. iOS](#brokered-authentication-for-xamarinios) och [MSAL för iOS och MacOS](#brokered-authentication-for-msal-for-ios-and-macos).
 
 ### <a name="brokered-authentication-for-xamarinios"></a>Brokered Authentication för Xamarin. iOS
 
@@ -252,6 +271,80 @@ MSAL använder `–canOpenURL:` för att kontrol lera om Broker är installerad 
     <array>
       <string>msauthv2</string>
     </array>
+```
+
+### <a name="brokered-authentication-for-msal-for-ios-and-macos"></a>Brokered Authentication for MSAL för iOS och macOS
+
+Brokered Authentication är aktiverat som standard för AAD-scenarier.
+
+#### <a name="step-1-update-appdelegate-to-handle-the-callback"></a>Steg 1: Uppdatera AppDelegate för att hantera återanropet
+
+När MSAL för iOS och MacOS anropar Service Broker, kommer koordinatorn att i sin tur ringa tillbaka till ditt program via `openURL` -metoden. Eftersom MSAL väntar på svar från Service Broker måste programmet samar beta för att anropa MSAL tillbaka. Du gör detta genom att uppdatera `AppDelegate.m` filen för att åsidosätta metoden nedan.
+
+Mål-C:
+
+```objc
+- (BOOL)application:(UIApplication *)app
+            openURL:(NSURL *)url
+            options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options
+{
+    return [MSALPublicClientApplication handleMSALResponse:url 
+                                         sourceApplication:options[UIApplicationOpenURLOptionsSourceApplicationKey]];
+}
+```
+
+Införliva
+
+```swift
+    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+        
+        guard let sourceApplication = options[UIApplication.OpenURLOptionsKey.sourceApplication] as? String else {
+            return false
+        }
+        
+        return MSALPublicClientApplication.handleMSALResponse(url, sourceApplication: sourceApplication)
+    }
+```
+
+Observera att om du antog UISceneDelegate på iOS 13 + måste MSAL-återanropet placeras `scene:openURLContexts:` i UISceneDelegate i stället (se [Apples dokumentation](https://developer.apple.com/documentation/uikit/uiscenedelegate/3238059-scene?language=objc)). MSAL `handleMSALResponse:sourceApplication:` får bara anropas en gång för varje URL.
+
+#### <a name="step-2-register-a-url-scheme"></a>Steg 2: Registrera ett URL-schema
+
+MSAL för iOS och macOS använder URL: er för att anropa Service Broker och returnerar sedan Service Broker-svaret tillbaka till din app. Du måste registrera ett URL-schema för din app i `Info.plist` filen för att kunna slutföra den här fördröjningen.
+
+Lägg till ett anpassat URL- `msauth`schema med. Lägg sedan till **paket identifieraren** i slutet.
+
+`msauth.(BundleId)`
+
+**Exempel:** 
+`msauth.com.yourcompany.xforms`
+
+> [!NOTE]
+> Detta URL-schema kommer att bli en del av RedirectUri som används för unik identifiering av appen när du tar emot svaret från Service Broker. Kontrol lera att RedirectUri i formatet för `msauth.(BundleId)://auth` är registrerat för ditt program i Azure- [portalen](https://portal.azure.com).
+
+```XML
+<key>CFBundleURLTypes</key>
+<array>
+    <dict>
+        <key>CFBundleURLSchemes</key>
+        <array>
+            <string>msauth.[BUNDLE_ID]</string>
+        </array>
+    </dict>
+</array>
+```
+
+#### <a name="step-3-lsapplicationqueriesschemes"></a>Steg 3: LSApplicationQueriesSchemes
+
+**Lägg`LSApplicationQueriesSchemes`** till för att tillåta att anrop till Microsoft Authenticator om det är installerat.
+Observera att "msauthv3"-schemat krävs när du kompilerar din app med Xcode 11 och senare. 
+
+```XML 
+<key>LSApplicationQueriesSchemes</key>
+<array>
+  <string>msauthv2</string>
+  <string>msauthv3</string>
+</array>
 ```
 
 ### <a name="brokered-authentication-for-xamarinandroid"></a>Brokered Authentication för Xamarin. Android

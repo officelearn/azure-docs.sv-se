@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/15/2019
 ms.author: iainfou
-ms.openlocfilehash: 965714fc4b02430653d3670ddec69fcd77cc7920
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.openlocfilehash: 2b10866adb1615b31446388fa0e9d0dabffd13da
+ms.sourcegitcommit: 263a69b70949099457620037c988dc590d7c7854
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71075647"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71268681"
 ---
 # <a name="join-a-centos-linux-virtual-machine-to-an-azure-ad-domain-services-managed-domain"></a>Anslut en virtuell CentOS Linux-dator till en Azure AD Domain Services hanterad domän
 
@@ -69,7 +69,7 @@ I *hosts* -filen uppdaterar du adressen till *localhost* . I följande exempel:
 Uppdatera namnen med dina egna värden:
 
 ```console
-127.0.0.1 centos centos.contoso.com
+127.0.0.1 centos.contoso.com centos
 ```
 
 När du är färdig sparar du och avslutar *hosts* - `:wq` filen med hjälp av redigerings kommandot.

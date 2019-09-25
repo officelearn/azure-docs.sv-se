@@ -32,12 +32,14 @@
       href: 'https://github.com/Azure/azure-relay/tree/master/samples/wcf-relay'
 - name: Begrepp
   items:
-    - name: Autentisering och auktorisering
-      href: relay-authentication-and-authorization.md
+    - name: Säkerhet
+      items:
+        - name: Autentisering och auktorisering
+          href: relay-authentication-and-authorization.md
+        - name: Inbyggda säkerhetskontroller
+          href: service-bus-relay-security-controls.md
     - name: Hybridanslutningsprotokoll
       href: relay-hybrid-connections-protocol.md
-    - name: Inbyggda säkerhetskontroller
-      href: service-bus-relay-security-controls.md
 - name: Gör så här för att
   items:
     - name: Planera och designa

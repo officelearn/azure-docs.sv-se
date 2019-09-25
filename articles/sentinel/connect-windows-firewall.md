@@ -1,6 +1,6 @@
 ---
-title: Ansluta Windows-brandväggen data till Azure Sentinel-förhandsgranskning | Microsoft Docs
-description: Lär dig hur du ansluter Windows-brandväggen data till Azure Sentinel.
+title: Anslut data från Windows-brandväggen till Azure Sentinel | Microsoft Docs
+description: Lär dig hur du ansluter Windows-brandväggens data till Azure Sentinel.
 services: sentinel
 documentationcenter: na
 author: rkarlin
@@ -13,53 +13,51 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/17/2019
+ms.date: 09/23/2019
 ms.author: rkarlin
-ms.openlocfilehash: a863910ee338da5655e9f3b5610b0a8049b8b2a9
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 840e8b3bc86281a8c42689b1cb68917741ef2bd9
+ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67620782"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71240632"
 ---
 # <a name="connect-windows-firewall"></a>Ansluta till Windows-brandvägg
 
-> [!IMPORTANT]
-> Azure Sentinel är för närvarande i offentlig förhandsversion.
-> Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Connector för Windows-brandväggen kan du enkelt ansluta dina brandväggar loggar Windows om de är anslutna till din Azure Sentinel-arbetsyta. Den här anslutningen kan du visa instrumentpaneler, skapa anpassade varningar och förbättra undersökningen. Detta ger dig en överblick över nätverket och förbättrar din säkerhetsfunktioner för åtgärden. Lösningen samlar in händelser för Windows-brandväggen från Windows-datorer där en Log Analytics-agenten är installerad. 
+
+Med anslutnings programmet för Windows-brandväggen kan du enkelt ansluta dina Windows-brandväggens loggar, om de är anslutna till din Azure Sentinel-arbetsyta. Med den här anslutningen kan du Visa instrument paneler, skapa anpassade aviseringar och förbättra undersökningen. Detta ger dig bättre insikt i din organisations nätverk och förbättrar dina säkerhets åtgärder. Lösningen samlar in händelser i Windows-brandväggen från Windows-datorer där en Log Analytics-agent är installerad. 
 
 
 > [!NOTE]
-> Data lagras i den geografiska platsen för arbetsytan där du kör Azure Sentinel.
+> Data lagras på den geografiska platsen för den arbets yta där du kör Azure Sentinel.
 
-## <a name="enable-the-connector"></a>Aktivera anslutningsprogrammet 
+## <a name="enable-the-connector"></a>Aktivera anslutningen 
 
-1. I Sentinel-Azure-portalen väljer **datakopplingar** och klicka sedan på den **Windows-brandväggen** panelen. 
-1.  Om din Windows-datorer finns i Azure:
-    1. Klicka på **installera agent i Windows Azure VM**.
-    1. I den **virtuella datorer** väljer du den Windows-datorn som du vill spela in Azure Sentinel. Kontrollera att det här är en virtuell Windows-dator.
-    1. I fönstret som öppnas för den virtuella datorn klickar du på **Connect**.  
-    1. Klicka på **aktivera** i den **Windows-brandväggen connector** fönster. 
+1. I Azure Sentinel-portalen väljer du **data kopplingar** och klickar sedan på panelen **Windows-brandväggen** . 
+1.  Om dina Windows-datorer finns i Azure:
+    1. Klicka på **Installera agent på virtuell Azure Windows-dator**.
+    1. I listan med **virtuella datorer** väljer du den Windows-dator som du vill strömma till Azure Sentinel. Se till att det här är en virtuell Windows-dator.
+    1. I fönstret som öppnas för den virtuella datorn klickar du på **Anslut**.  
+    1. Klicka på **Aktivera** i fönstret **anslutning till Windows-brandväggen** . 
 
-2. Om din Windows-dator inte är en Azure-dator:
-    1. Klicka på **installera agent i Azure-datorer**.
-    1. I den **direktagent** fönstret väljer du antingen **ladda ned Windows agent (64-bitars)** eller **ladda ned Windows agent (32-bitars)** .
-    1. Installera agenten på din Windows-dator. Kopiera den **arbetsyte-ID**, **primärnyckel**, och **sekundärnyckel** och använda dem när du uppmanas till detta under installationen.
+2. Om din Windows-dator inte är en virtuell Azure-dator:
+    1. Klicka på **Installera agent på datorer som inte är Azure-datorer**.
+    1. I fönstret **direkt agent** väljer du antingen **Ladda ned Windows-agent (64 bitar)** eller **ladda ned Windows agent (32 bitar)** .
+    1. Installera agenten på Windows-datorn. Kopiera **arbetsyte-ID**, **primär nyckel**och **sekundär nyckel** och Använd dem när du uppmanas att göra det under installationen.
 
-4. Välj vilka datatyper som du vill spela.
-5. Klicka på **installera lösningen för**.
-6. Om du vill använda relevanta schemat i Log Analytics för Windows-brandväggen, Sök efter **SecurityEvent**.
+4. Välj vilka data typer du vill strömma.
+5. Klicka på **installera lösning**.
+6. Om du vill använda det relevanta schemat i Log Analytics för Windows-brandväggen söker du efter **SecurityEvent**.
 
-## <a name="validate-connectivity"></a>Verifiera anslutningen
+## <a name="validate-connectivity"></a>Verifiera anslutning
 
-Det kan ta höjningen tjugonde minut tills loggarna börjar visas i Log Analytics. 
+Det kan ta upp till 20 minuter innan loggarna börjar visas i Log Analytics. 
 
 
 
 ## <a name="next-steps"></a>Nästa steg
-I det här dokumentet har du lärt dig hur du ansluter Windows-brandväggen till Sentinel-Azure. Mer information om Azure Sentinel finns i följande artiklar:
-- Lär dig hur du [få insyn i dina data och potentiella hot](quickstart-get-visibility.md).
-- Kom igång [upptäcka hot med Azure Sentinel](tutorial-detect-threats.md).
+I det här dokumentet har du lärt dig hur du ansluter Windows-brandväggen till Azure Sentinel. Mer information om Azure Sentinel finns i följande artiklar:
+- Lär dig hur du [får insyn i dina data och potentiella hot](quickstart-get-visibility.md).
+- Kom igång [med att identifiera hot med Azure Sentinel](tutorial-detect-threats-built-in.md).
 

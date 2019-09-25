@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/06/2019
 ms.author: terrylan
-ms.openlocfilehash: 9da58bf3152867bc13dd1879ec57a69b8bd38cb0
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 69e55b17814c5b5ada0813bd0de66cc3a9a591f4
+ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70129331"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71219506"
 ---
 # <a name="azure-operational-security-best-practices"></a>Metod tips för Azure drift säkerhet
 Den här artikeln innehåller en uppsättning metod tips för att skydda dina data, program och andra till gångar i Azure.
@@ -37,7 +37,7 @@ I följande tabell visas några metod tips för att hantera användar lösen ord
 **Information**: Följ anvisningarna i [Microsoft Password guide](https://www.microsoft.com/research/publication/password-guidance/), som är begränsade till användare av Microsoft Identity-plattformar (Azure Active Directory, Active Directory och Microsoft-konto).
 
 **Bästa praxis**: Övervaka för misstänkta åtgärder relaterade till dina användar konton.   
-**Information**: Övervaka för [användare i risk](/azure/active-directory/reports-monitoring/concept-user-at-risk) [-](../../active-directory/reports-monitoring/concept-risk-events.md) och riskfyllda inloggningar med hjälp av Azure AD-säkerhetsrapporter.
+**Information**: Övervaka för [användare i risk](/azure/active-directory/reports-monitoring/concept-user-at-risk) [-och riskfyllda inloggningar](../../active-directory/reports-monitoring/concept-risk-events.md) med hjälp av Azure AD-säkerhetsrapporter.
 
 **Bästa praxis**: Identifiera och reparera lösen ord med hög risk automatiskt.   
 **Information**: [Azure AD Identity Protection](/azure/active-directory/identity-protection/overview) är en funktion i Azure AD Premium P2-versionen som gör att du kan:
@@ -95,7 +95,7 @@ Den kostnads fria nivån av Security Center erbjuder begränsad säkerhet för e
 
 Använd Security Center för att få en central vy över säkerhets läget för alla dina Azure-resurser. Kontrol lera snabbt att rätt säkerhets kontroller är på plats och korrekt konfigurerade och identifiera eventuella resurser som behöver åtgärdas.
 
-Security Center integreras också med [Windows Defender Avancerat skydd (ATP)](../../security-center/security-center-wdatp.md), vilket ger omfattande funktioner för slut punkts identifiering och-svar (EDR). Med Windows Defender ATP-integrering kan du upptäcka avvikelser. Du kan också identifiera och svara på avancerade attacker på Server slut punkter som övervakas av Security Center.
+Security Center integreras också med [Microsoft Defender Avancerat skydd (ATP)](../../security-center/security-center-wdatp.md), vilket ger omfattande funktioner för slut punkts identifiering och-svar (EDR). Med Microsoft Defender ATP-integrering kan du upptäcka avvikelser. Du kan också identifiera och svara på avancerade attacker på Server slut punkter som övervakas av Security Center.
 
 Nästan alla företags organisationer har ett SIEM-system (Security information and Event Management) för att identifiera nya hot genom att konsolidera logg information från olika data insamlings enheter. Loggarna analyseras sedan av ett data analys system som hjälper dig att identifiera vad som är "intressant" från bruset som är oundvikligt i alla lösningar för insamling och analys av loggar.
 
@@ -121,7 +121,7 @@ De säkra poängen, som baseras på CIS-kontroller (Center for Internet Security
 **Information**: Använd [Azure Monitor för att samla in och exportera data](/azure/azure-monitor/overview#integrate-and-export-data). Den här metoden är viktig för att aktivera undersökningen av säkerhets incidenter och logg kvarhållning online är begränsad. Om du använder Azure Sentinel, se [Anslut data källor](../../sentinel/connect-data-sources.md).
 
 **Bästa praxis**: Påskynda dina undersökningar och jakt processer och minska antalet falska positiva identifieringar genom att integrera funktionerna för slut punkts identifiering och-svar (EDR) i angrepps undersökningen.   
-**Information**: [Aktivera Windows Defender ATP-integrering](../../security-center/security-center-wdatp.md#enable-windows-defender-atp-integration) via din Security Center säkerhets princip. Överväg att använda Azure Sentinel för hotets jakt och incident svar.
+**Information**: [Aktivera Microsoft Defender ATP-integrering](../../security-center/security-center-wdatp.md#enable-microsoft-defender-atp-integration) via din Security Center säkerhets princip. Överväg att använda Azure Sentinel för hotets jakt och incident svar.
 
 ## <a name="monitor-end-to-end-scenario-based-network-monitoring"></a>Övervaka övervakning från slut punkt till slut punkt för scenario baserad nätverks övervakning
 Kunderna skapar ett nätverk från slut punkt till slut punkt i Azure genom att kombinera nätverks resurser som ett virtuellt nätverk, ExpressRoute, Application Gateway och belastningsutjämnare. Övervakning är tillgängligt på varje nätverks resurs.
@@ -151,7 +151,7 @@ Du kan använda [Azure Resource Manager](https://azure.microsoft.com/documentati
 **Information**: Du kan konfigurera Azure DevOps Projects att [automatiskt bygga och distribuera](https://docs.microsoft.com/azure/devops/pipelines/index?azure-devops) till Azure-webbappar eller moln tjänster. Azure DevOps distribuerar automatiskt binärfilerna när du har gjort en build till Azure efter varje kod incheckning. Paket Bygg processen motsvarar paket kommandot i Visual Studio och publicerings stegen motsvarar kommandot Publicera i Visual Studio.
 
 **Bästa praxis**: Automatisera versions hantering.  
-**Information**: [Azure](https://docs.microsoft.com/azure/devops/pipelines/index?azure-devops) -pipelines är en lösning för automatisering av distribution av flera steg och hantering av versions processen. Skapa hanterade pipeliner för kontinuerlig distribution för att få ut snabbt, enkelt och ofta. Med Azure-pipelines kan du automatisera din versions process och du kan ha fördefinierade arbets flöden för godkännande. Distribuera lokalt och i molnet, utöka och anpassa efter behov.
+**Information**: [Azure-pipelines](https://docs.microsoft.com/azure/devops/pipelines/index?azure-devops) är en lösning för automatisering av distribution av flera steg och hantering av versions processen. Skapa hanterade pipeliner för kontinuerlig distribution för att få ut snabbt, enkelt och ofta. Med Azure-pipelines kan du automatisera din versions process och du kan ha fördefinierade arbets flöden för godkännande. Distribuera lokalt och i molnet, utöka och anpassa efter behov.
 
 **Bästa praxis**: Kontrol lera appens prestanda innan du startar den eller distribuerar uppdateringar till produktion.  
 **Information**: Kör molnbaserade [belastnings test](/azure/devops/test/load-test/overview#alternatives) för att:
@@ -176,7 +176,7 @@ Design och byggnad för DDoS-återhämtning kräver planering och design för en
 
 Att se till att ett program är tillräckligt flexibelt för att hantera en denial of service som är riktad mot själva programmet är viktigast. Säkerhet och sekretess är inbyggda i Azure-plattformen, från och med [säkerhets utvecklings livs cykeln (SDL)](https://www.microsoft.com/sdl). SDL adresserar säkerheten i varje utvecklings fas och säkerställer att Azure uppdateras kontinuerligt för att göra det ännu säkrare.
 
-**Bästa praxis**: Utforma dina program så [](https://docs.microsoft.com/azure/architecture/guide/design-principles/scale-out) att de kan skalas horisontellt för att möta efter frågan på en förstärkt belastning, särskilt i händelse av en DDoS-attack. Om ditt program är beroende av en enda instans av en tjänst skapas en enskild felpunkt. Genom att tillhandahålla flera instanser blir systemet mer flexibelt och mer skalbart.  
+**Bästa praxis**: Utforma dina program så att de kan [skalas horisontellt](https://docs.microsoft.com/azure/architecture/guide/design-principles/scale-out) för att möta efter frågan på en förstärkt belastning, särskilt i händelse av en DDoS-attack. Om ditt program är beroende av en enda instans av en tjänst skapas en enskild felpunkt. Genom att tillhandahålla flera instanser blir systemet mer flexibelt och mer skalbart.  
 **Information**: För [Azure App Service](/azure/app-service/app-service-value-prop-what-is)väljer du en [App Service plan](../../app-service/overview-hosting-plans.md) som erbjuder flera instanser.
 
 För Azure Cloud Services konfigurerar du var och en av dina roller så att de använder [flera instanser](../../cloud-services/cloud-services-choose-me.md).
@@ -206,7 +206,7 @@ Aktivera Azure Policy för att övervaka och upprätthålla din organisations sk
 
 Här följer några rekommenderade säkerhets metoder när du har infört Azure Policy:
 
-**Bästa praxis**: Principen stöder flera olika typer av effekter. Du kan läsa om dem i [Azure policy definitions struktur](../../governance/policy/concepts/definition-structure.md#policy-rule). Affärs åtgärder kan påverkas negativt av återställnings effekten och den **åtgärd** som tillämpas, så börja med gransknings effekten för att begränsa risken för negativ påverkan från principen.   
+**Bästa praxis**: Principen stöder flera olika typer av effekter. Du kan läsa om dem i [Azure policy definitions struktur](../../governance/policy/concepts/definition-structure.md#policy-rule). Affärs åtgärder kan påverkas negativt av återställnings **effekten och** den **åtgärd** som tillämpas, så börja med **gransknings** effekten för att begränsa risken för negativ påverkan från principen.   
 **Information**: [Starta princip distributioner i gransknings läge](../../governance/policy/concepts/definition-structure.md#policy-rule) och fortsätt sedan med att **neka** eller **åtgärda**det senare. Testa och granska resultatet av gransknings effekterna innan du går vidare till **neka** eller **åtgärda**.
 
 Mer information finns i [skapa och hantera principer för att genomdriva efterlevnad](../../governance/policy/tutorials/create-and-manage.md).

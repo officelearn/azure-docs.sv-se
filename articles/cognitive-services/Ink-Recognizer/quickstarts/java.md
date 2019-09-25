@@ -1,43 +1,43 @@
 ---
-title: 'Snabbstart: Identifiera digitala ink med Ink Igenkännande REST API och Java'
+title: 'Snabbstart: Identifiera digitalt bläck med hand SKRIFTS tolken REST API och Java'
 titleSuffix: Azure Cognitive Services
-description: Använd Ink Igenkännande API för att starta eftersom digitala ink linjer.
+description: Använd pennan tecknings tolkens API för att börja identifiera digitala penndrag.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: ink-recognizer
 ms.topic: quickstart
-ms.date: 05/02/2019
+ms.date: 09/23/2019
 ms.author: aahi
-ms.openlocfilehash: b1c739b6355d3b32063e5289720ed1d191611e65
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: 36ff0fe4550b140a722ed25f4e372f7c88581211
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67721244"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71212684"
 ---
-# <a name="quickstart-recognize-digital-ink-with-the-ink-recognizer-rest-api-and-java"></a>Snabbstart: Identifiera digitala ink med Ink Igenkännande REST API och Java
+# <a name="quickstart-recognize-digital-ink-with-the-ink-recognizer-rest-api-and-java"></a>Snabbstart: Identifiera digitalt bläck med hand SKRIFTS tolken REST API och Java
 
-Använd den här snabbstarten för att börja använda API: et för pennanteckningar Igenkännande på digitala ink linjer. Det här Java-programmet skickar en API-begäran som innehåller JSON-formaterade ink linje data och hämtar svaret.
+Använd den här snabb starten för att börja använda pennan tecknings tolkens API på digitala penndrag. Det här Java-programmet skickar en API-begäran som innehåller JSON-formaterade penndrag och hämtar svaret.
 
 Även om det här programmet är skrivet i Java, är API:et en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk.
 
-Vanligtvis skulle du anropa API från en digital digital penna app. Den här snabbstarten skickar ink linje data för följande handskriven exempel från en JSON-fil.
+Normalt anropar du API: et från en digital intecknings app. I den här snabb starten skickas Penn strecks data för följande handskrivna exempel från en JSON-fil.
 
 ![en bild av handskriven text](../media/handwriting-sample.jpg)
 
-Källkoden för den här snabbstarten finns på [GitHub](https://go.microsoft.com/fwlink/?linkid=2089904).
+Du hittar käll koden för den här snabb starten på [GitHub](https://go.microsoft.com/fwlink/?linkid=2089904).
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-- Den [Java&trade; utveckling Kit(JDK) 7](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) eller senare.
+- [Java&trade; Development Kit (JDK) 7](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) eller senare.
 
-- Importera dessa bibliotek från Maven-centrallagret
-    - [JSON i Java](https://mvnrepository.com/artifact/org.json/json) paket
-    - [Apache HttpClient](https://mvnrepository.com/artifact/org.apache.httpcomponents/httpclient) paket
+- Importera de här biblioteken från maven-lagringsplatsen
+    - [JSON i Java](https://mvnrepository.com/artifact/org.json/json) -paket
+    - [Apache httpclient](https://mvnrepository.com/artifact/org.apache.httpcomponents/httpclient) -paket
 
-- Exempel ink linje data för den här snabbstarten finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/InkRecognition/quickstart/example-ink-strokes.json).
+- Du hittar exempel Penn strecks data för den här snabb starten på [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/InkRecognition/quickstart/example-ink-strokes.json).
 
 [!INCLUDE [cognitive-services-ink-recognizer-signup-requirements](../../../../includes/cognitive-services-ink-recognizer-signup-requirements.md)]
 
@@ -58,7 +58,7 @@ Källkoden för den här snabbstarten finns på [GitHub](https://go.microsoft.co
     import java.nio.file.Paths;
     ```
 
-2. Skapa variabler för din prenumerationsnyckel och slutpunkten. Nedan visas den URI som du kan använda för pennanteckningar erkännande. Det kommer att läggas till tjänstens slutpunkt senare för att skapa API-begäran-URL.
+2. Skapa variabler för din prenumerations nyckel och din slut punkt. Ersätt slut punkten nedan med den som har genererats för din tryck färgs igenkännings resurs. Lägg till den i hand SKRIFTS tolkens URI för att ansluta till API: et.
 
     ```java
     // Replace the subscriptionKey string value with your valid subscription key.
@@ -66,23 +66,23 @@ Källkoden för den här snabbstarten finns på [GitHub](https://go.microsoft.co
     // Replace the dataPath string with a path to the JSON formatted ink stroke data file.
     static final String dataPath = "PATH_TO_INK_STROKE_DATA";
     
-    static final String endpoint = "https://api.cognitive.microsoft.com";
+    static final String endpoint = "https://<your-custom-subdomain>.cognitiveservices.azure.com";
     static final String inkRecognitionUrl = "/inkrecognizer/v1.0-preview/recognize";
     ```
 
-## <a name="create-a-function-to-send-requests"></a>Skapa en funktion för att skicka begäranden
+## <a name="create-a-function-to-send-requests"></a>Skapa en funktion för att skicka begär Anden
 
-1. Skapa en ny funktion som kallas `sendRequest()` som tar de variabler som skapades ovan. Utför sedan följande steg.
+1. Skapa en ny funktion `sendRequest()` som använder variablerna som skapats ovan. Utför sedan följande steg.
 
-2. Skapa en `CloseableHttpClient` objekt som kan skicka begäranden till API: et. Skicka begäran till en `HttpPut` objekt genom att kombinera din slutpunkt och URL: en för pennanteckningar Igenkännande.
+2. Skapa ett `CloseableHttpClient` objekt som kan skicka begär anden till API: et. Skicka begäran till ett `HttpPut` Request-objekt genom att kombinera slut punkten och färg tolknings-URL: en.
 
-3. Använd en förfrågan `setHeader()` funktionen för att ange den `Content-Type` sidhuvud till `application/json`, och Lägg till din prenumerationsnyckel till den `Ocp-Apim-Subscription-Key` rubrik.
+3. Använd begärans `setHeader()` funktion för att `Content-Type` ange rubriken till `application/json`och Lägg till din prenumerations nyckel i `Ocp-Apim-Subscription-Key` rubriken.
 
-4. Använd en förfrågan `setEntity()` att data skickas.   
+4. Använd begärans `setEntity()` funktion för att skicka de data som ska skickas.   
 
-5. Använda klientens `execute()` för att skicka begäran och spara den i en `CloseableHttpResponse` objekt. 
+5. Använd klientens `execute()` funktion för att skicka begäran och spara den till ett `CloseableHttpResponse` objekt. 
 
-6. Skapa en `HttpEntity` objekt för att lagra svarsinnehållet. Hämta innehåll med `getEntity()`. Om svaret är inte tom, returnera den.
+6. Skapa ett `HttpEntity` objekt för att lagra svars innehållet. Hämta innehållet med `getEntity()`. Returnera det om svaret inte är tomt.
     
     ```java
     static String sendRequest(String apiAddress, String endpoint, String subscriptionKey, String requestData) {
@@ -108,9 +108,9 @@ Källkoden för den här snabbstarten finns på [GitHub](https://go.microsoft.co
     }
     ```
 
-## <a name="send-an-ink-recognition-request"></a>Skicka en begäran om ink taligenkänning
+## <a name="send-an-ink-recognition-request"></a>Skicka en begäran om hand SKRIFTS igenkänning
 
-Skapa en metod som kallas `recognizeInk()` ska kunna identifiera dina ink linje data. Anropa den `sendRequest()` metod som skapades ovan med din slutpunkt, URL: en, prenumerationsnyckel och json-data. Få resultat och skriva ut den till konsolen.
+Skapa en metod som `recognizeInk()` kallas för att identifiera Penn strecks data. `sendRequest()` Anropa metoden som skapades ovan med din slut punkt, URL, prenumerations nyckel och JSON-data. Hämta resultatet och skriv ut det till-konsolen.
 
 ```java
 static void recognizeInk(String requestData) {
@@ -120,11 +120,11 @@ static void recognizeInk(String requestData) {
 }
 ```
 
-## <a name="load-your-digital-ink-data-and-send-the-request"></a>Läsa in dina digitala ink-data och skicka begäran
+## <a name="load-your-digital-ink-data-and-send-the-request"></a>Läs in dina digitala pennan tecknings data och skicka begäran
 
-1. Läs i JSON-fil som innehåller de data som kommer att läggas till begäranden i ditt program main-metoden.
+1. I appens huvud metod läser du i JSON-filen som innehåller de data som ska läggas till i begäran.
 
-2. Anropa funktionen ink erkännande skapade ovan.
+2. Anropa funktionen för tryck färgs igenkänning som skapats ovan.
     
     ```java
     public static void main(String[] args) throws Exception {
@@ -133,9 +133,9 @@ static void recognizeInk(String requestData) {
     }
     ```
 
-## <a name="run-the-application-and-view-the-response"></a>Kör programmet och visa svaret
+## <a name="run-the-application-and-view-the-response"></a>Kör programmet och Visa svaret
 
-Kör appen. Ett lyckat svar returneras i JSON-format. Du kan också hitta JSON-svar på [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/InkRecognition/quickstart/example-response.json).
+Kör appen. Ett lyckat svar returneras i JSON-format. Du kan också hitta JSON-svaret på [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/InkRecognition/quickstart/example-response.json).
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -143,7 +143,7 @@ Kör appen. Ett lyckat svar returneras i JSON-format. Du kan också hitta JSON-s
 > [REST API-referens](https://go.microsoft.com/fwlink/?linkid=2089907)
 
 
-Om du vill se hur den Ink-API: T fungerar i en digital digital penna app, ta en titt på de följande exempelprogram på GitHub:
+Ta en titt på följande exempel program på GitHub för att se hur API: et för färg igenkänning fungerar i en digital inkungs app:
 * [C# och Universal Windows-plattform (UWP)](https://go.microsoft.com/fwlink/?linkid=2089803)  
 * [C# och Windows Presentation Foundation(WPF)](https://go.microsoft.com/fwlink/?linkid=2089804)
 * [JavaScript-webbläsarappen](https://go.microsoft.com/fwlink/?linkid=2089908)       

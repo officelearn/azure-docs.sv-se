@@ -11,12 +11,12 @@ author: MayMSFT
 ms.reviewer: nibaccam
 ms.date: 08/2/2019
 ms.custom: seodec18
-ms.openlocfilehash: eaed6e7b0ea044ba39a1055ad14de13d5deb9b05
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: ecd1212385473e33d05f38f67db5708bff060daa
+ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71035299"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71218236"
 ---
 # <a name="access-data-in-azure-storage-services"></a>Få åtkomst till data i Azure Storage-tjänster
 
@@ -147,7 +147,8 @@ datastore.download(target_path='your target path',
 <a name="train"></a>
 ## <a name="access-your-data-during-training"></a>Få åtkomst till dina data under utbildningen
 
-För att få åtkomst till data under utbildningen kan du antingen ladda ned eller montera dina data från dina Azure Storage-tjänster till beräknings målet via data lager.
+> [!IMPORTANT]
+> Att använda [Azure Machine Learning data uppsättningar (för hands version)](how-to-create-register-datasets.md) är det nya rekommenderade sättet att komma åt dina data i utbildningen. Data uppsättningar tillhandahåller funktioner som läser in tabell data i Pandas eller Spark DataFrame, och möjligheten att ladda ned eller montera filer i alla format från Azure Blob, Azure File, Azure Data Lake gen 1, Azure Data Lake gen 2, Azure SQL, Azure PostgreSQL. Lär dig mer om [hur du tränar med data uppsättningar](how-to-train-with-datasets.md).
 
 I följande tabell visas de metoder som talar om för beräknings målet hur data lagringen ska användas vid körningar. 
 

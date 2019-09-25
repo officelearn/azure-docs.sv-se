@@ -5,14 +5,14 @@ services: batch
 ms.service: batch
 author: laurenhughes
 ms.author: lahugh
-ms.date: 09/10/2019
+ms.date: 09/19/2019
 ms.topic: conceptual
-ms.openlocfilehash: 2b0a132c156cc12d317bf51488625191bb8091fc
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: 30a365b36645dfe79f35b4bb889c0a06535a4c73
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70881477"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71212724"
 ---
 # <a name="pre-installed-applications-on-rendering-vm-images"></a>Förinstallerade program på att återge VM-avbildningar
 
@@ -39,6 +39,37 @@ Följande lista gäller för CentOS 7,6, version 1.1.6 rendering images.
 
 ## <a name="applications-on-latest-windows-server-2016-rendering-images"></a>Program på de senaste Windows Server 2016-avbildningarna
 
+Följande lista gäller för Windows Server 2016, version 1.3.8 rendering images.
+
+* Autodesk Maya I/O 2017 uppdatering 5 (version 17.4.5459)
+* Autodesk Maya I/O 2018 uppdatering 6 (version 18.4.0.7622)
+* Autodesk Maya I/O 2019
+* Autodesk Maya 3ds I/O 2018 uppdatering 4 (version 20.4.0.4254)
+* Autodesk 3ds Max I/O 2019 uppdatering 1 (version 21.2.0.2219)
+* Autodesk 3ds Max I/O 2020 uppdatering 2
+* Autodesk Arnold för Maya 2017 (Arnold version 5.3.0.2) MtoA-3.2.0.2-2017
+* Autodesk Arnold för Maya 2018 (Arnold version 5.3.0.2) MtoA-3.2.0.2-2018
+* Autodesk Arnold för Maya 2019 (Arnold version 5.3.0.2) MtoA-3.2.0.2-2019
+* Autodesk Arnold för 3ds Max 2018 (Arnold version 5.3.0.2) (version 1.2.926)
+* Autodesk Arnold för 3ds Max 2019 (Arnold version 5.3.0.2) (version 1.2.926)
+* Autodesk Arnold för 3ds Max 2020 (Arnold version 5.3.0.2) (version 1.2.926)
+* Kaos Group V-Ray för Maya 2017 (version 4.12.01)
+* Kaos Group V-Ray för Maya 2018 (version 4.12.01)
+* Kaos Group V-Ray för Maya 2019 (version 4.04.03)
+* Kaos Group V-Ray för 3ds Max 2018 (version 4.20.01)
+* Kaos Group V-Ray för 3ds Max 2019 (version 4.20.01)
+* Kaos Group V-Ray för 3ds Max 2020 (version 4.20.01)
+* Blender (2.79)
+* Över gång (2,80)
+* AZ 10
+
+> [!IMPORTANT]
+> Om du vill köra V-Ray med Maya utanför [Azure Batch tilläggs mallar](https://github.com/Azure/batch-extension-templates)startar `vrayses.exe` du innan du kör renderingen. För att starta vrayses. exe utanför mallarna kan du använda följande kommando `%MAYA_2017%\vray\bin\vrayses.exe"`.
+>
+> Ett exempel finns i Start uppgiften för [Maya-och V-Ray-mallen](https://github.com/Azure/batch-extension-templates/blob/master/templates/maya/render-vray-windows/pool.template.json) på GitHub.
+
+## <a name="applications-on-previous-windows-server-2016-rendering-images"></a>Program på tidigare Windows Server 2016-åter givnings avbildningar
+
 Följande lista gäller för Windows Server 2016, version 1.3.7 rendering images.
 
 * Autodesk Maya I/O 2017 uppdatering 5 (version 17.4.5459)
@@ -55,24 +86,8 @@ Följande lista gäller för Windows Server 2016, version 1.3.7 rendering images
 * Kaos Group V-Ray för 3ds Max 2019 (version 4.10.01)
 * Blender (2.79)
 
-
 > [!NOTE]
 > Kaos Group V-Ray för 3ds Max 2019 (version 4.10.01) introducerar brytande ändringar i V-Ray. Använd den tidigare versionen (version 3.60.02) genom att använda Windows Server 2016, version 1.3.2 rendering Nodes.
-
-## <a name="applications-on-previous-windows-server-2016-rendering-images"></a>Program på tidigare Windows Server 2016-åter givnings avbildningar
-
-Följande lista gäller för Windows Server 2016, version 1.3.2 rendering images.
-
-* Autodesk Maya I/O 2017 uppdatering 5 (version 17.4.5459)
-* Autodesk Maya I/O 2018 uppdatering 4 (version 18.4.0.7622)  
-* Autodesk 3ds Max I/O 2019 uppdatering 1 (version 21.2.0.2219)
-* Autodesk Maya 3ds I/O 2018 uppdatering 4 (version 20.4.0.4254)
-* Autodesk Arnold för Maya 2017 (Arnold version 5.2.0.1) MtoA-3.1.0.1-2017
-* Autodesk Arnold för Maya 2018 (Arnold version 5.2.0.1) MtoA-3.1.0.1-2018
-* Autodesk Arnold för 3ds Max (Arnold version 5.0.2.4) (version 1.2.926)
-* Kaos Group V-Ray för Maya 2019 (version 3.52.03)
-* Kaos Group V-Ray för 3ds Max 2018 (version 3.60.02)
-* Blender (2.79)
 
 ## <a name="next-steps"></a>Nästa steg
 

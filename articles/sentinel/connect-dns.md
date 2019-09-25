@@ -1,5 +1,5 @@
 ---
-title: Ansluta DNS-data i Azure-Sentinel-förhandsversionen | Microsoft Docs
+title: Anslut DNS-data i Azure Sentinel | Microsoft Docs
 description: Lär dig hur du ansluter DNS-data i Azure Sentinel.
 services: sentinel
 documentationcenter: na
@@ -13,29 +13,27 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/17/2019
+ms.date: 09/23/2019
 ms.author: rkarlin
-ms.openlocfilehash: 1c79aad557efb85a8797584c33c74983ef645d07
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: dd5442ff8c8d296dfa221a9ea7ed8d5833fd89c1
+ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67611318"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71240716"
 ---
-# <a name="connect-your-domain-name-server"></a>Connect your domain name server
+# <a name="connect-your-domain-name-server---preview"></a>Anslut din domän namn server – för hands version
 
-> [!IMPORTANT]
-> Azure Sentinel är för närvarande i offentlig förhandsversion.
-> Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Du kan ansluta alla Server DNS (Domain Name) som körs på Windows till Azure Sentinel. Detta görs genom att installera en agent på den DNS-datorn. Med hjälp av DNS-loggar, du får säkerhet, prestanda och operations-relaterade insikter om DNS-infrastrukturen i organisationen genom att samla in, analysera, och korrelera analytiska och granskningsloggar och andra relaterade data från DNS-servrar.
 
-När du aktiverar DNS-log-anslutning kan du:
-- Identifiera klienter som försöker matcha skadliga domännamn
-- Identifiera inaktuella poster
-- Identifiera ofta efterfrågade domännamn och pratsam DNS-klienter
-- Visa belastning för begäranden på DNS-servrar
-- Visa dynamiska DNS-registreringsfel
+Du kan ansluta alla DNS-servrar (Domain Name Server) som körs på Windows till Azure Sentinel. Detta görs genom att installera en agent på DNS-datorn. Med hjälp av DNS-loggar kan du få säkerhet, prestanda och säkerhetsrelaterade insikter om organisationens DNS-infrastruktur genom att samla in, analysera och korrelera analys-och gransknings loggar och andra relaterade data från DNS-servrarna.
+
+När du aktiverar DNS-logg anslutning kan du:
+- Identifiera klienter som försöker lösa skadliga domän namn
+- Identifiera inaktuella resurs poster
+- Identifiera ofta efterfrågade domän namn och pratsam DNS-klienter
+- Visa begär ande belastning på DNS-servrar
+- Visa dynamiska DNS-registrerings fel
 
 ## <a name="connected-sources"></a>Anslutna källor
 
@@ -45,7 +43,7 @@ I följande tabell beskrivs de anslutna källor som stöds av den här lösninge
 | --- | --- | --- |
 | [Windows-agenter](../azure-monitor/platform/agent-windows.md) | Ja | Lösningen samlar in DNS-information från Windows-agenter. |
 | [Linux-agenter](../azure-monitor/learn/quick-collect-linux-computer.md) | Nej | Lösningen samlar inte in DNS-information från direkt Linux-agenter. |
-| [System Center Operations Manager-hanteringsgrupp](../azure-monitor/platform/om-agents.md) | Ja | Lösningen samlar in DNS-information från agenter i en ansluten hanteringsgrupp för Operations Manager. En direktanslutning från Operations Manager-agenten till Azure Monitor krävs inte. Data vidarebefordras från hanteringsgruppen till Log Analytics-arbetsytan. |
+| [System Center Operations Manager-hanteringsgrupp](../azure-monitor/platform/om-agents.md) | Ja | Lösningen samlar in DNS-information från agenter i en ansluten hanteringsgrupp för Operations Manager. En direkt anslutning från Operations Manager agent till Azure Monitor krävs inte. Data vidarebefordras från hanteringsgruppen till Log Analytics-arbetsytan. |
 | [Azure Storage-konto](../azure-monitor/platform/collect-azure-metrics-logs.md) | Nej | Azure storage används inte av lösningen. |
 
 ### <a name="data-collection-details"></a>Information om insamling av data
@@ -53,27 +51,27 @@ I följande tabell beskrivs de anslutna källor som stöds av den här lösninge
 Lösningen samlar in DNS-inventering och DNS-händelse-relaterade data från DNS-servrar där en Log Analytics-agenten är installerad. Inventeringsrelaterade data, till exempel antalet DNS-servrar, zoner och resursposter som samlas in genom att köra DNS PowerShell-cmdlets. Data uppdateras en gång varannan dag. Händelse-relaterade data samlas nära realtid från den [analytiska och granskningsloggar](https://technet.microsoft.com/library/dn800669.aspx#enhanc) tillhandahålls av förbättrad DNS-loggning och diagnostik i Windows Server 2012 R2.
 
 
-## <a name="connect-your-dns-appliance"></a>Ansluta din DNS-installation
+## <a name="connect-your-dns-appliance"></a>Anslut din DNS-installation
 
-1. I Sentinel-Azure-portalen väljer **datakopplingar** och välj den **DNS** panelen.
-1. Om din DNS-datorer finns i Azure:
-    1. Klicka på **installera agent i Windows Azure VM**.
-    1. I den **virtuella datorer** väljer du den DNS-datorn som du vill spela in Azure Sentinel. Kontrollera att det här är en virtuell Windows-dator.
-    1. I fönstret som öppnas för den virtuella datorn klickar du på **Connect**.  
-    1. Klicka på **aktivera** i den **DNS connector** fönster. 
+1. I Azure Sentinel-portalen väljer du **data anslutningar** och sedan panelen **DNS** .
+1. Om dina DNS-datorer finns i Azure:
+    1. Klicka på **Installera agent på virtuell Azure Windows-dator**.
+    1. I listan med **virtuella datorer** väljer du den DNS-dator som du vill strömma till Azure Sentinel. Se till att det här är en virtuell Windows-dator.
+    1. I fönstret som öppnas för den virtuella datorn klickar du på **Anslut**.  
+    1. Klicka på **Aktivera** i fönstret **DNS-anslutning** . 
 
-2. Om din DNS-dator inte är en Azure-dator:
-    1. Klicka på **installera agent i Azure-datorer**.
-    1. I den **direktagent** fönstret väljer du antingen **ladda ned Windows agent (64-bitars)** eller **ladda ned Windows agent (32-bitars)** .
-    1. Installera agenten på DNS-datorn. Kopiera den **arbetsyte-ID**, **primärnyckel**, och **sekundärnyckel** och använda dem när du uppmanas till detta under installationen.
+2. Om din DNS-dator inte är en virtuell Azure-dator:
+    1. Klicka på **Installera agent på datorer som inte är Azure-datorer**.
+    1. I fönstret **direkt agent** väljer du antingen **Ladda ned Windows-agent (64 bitar)** eller **ladda ned Windows agent (32 bitar)** .
+    1. Installera agenten på din DNS-dator. Kopiera **arbetsyte-ID**, **primär nyckel**och **sekundär nyckel** och Använd dem när du uppmanas att göra det under installationen.
 
-3. Om du vill använda relevanta schemat i Log Analytics för DNS-loggar, Sök efter **DnsEvents**.
+3. Om du vill använda det relevanta schemat i Log Analytics för DNS-loggarna söker du efter **DnsEvents**.
 
 ## <a name="validate"></a>Verifiera 
 
-Sök efter schemat i Log Analytics, **DnsEvents** och se till att det finns händelser.
+Sök efter schemat **DnsEvents** i Log Analytics och se till att det finns händelser.
 
 ## <a name="next-steps"></a>Nästa steg
-I det här dokumentet har du lärt dig hur du ansluter en lokal DNS-tillämpningar till Azure Sentinel. Mer information om Azure Sentinel finns i följande artiklar:
-- Lär dig hur du [få insyn i dina data och potentiella hot](quickstart-get-visibility.md).
-- Kom igång [upptäcka hot med Azure Sentinel](tutorial-detect-threats.md).
+I det här dokumentet har du lärt dig hur du ansluter lokala DNS-enheter till Azure Sentinel. Mer information om Azure Sentinel finns i följande artiklar:
+- Lär dig hur du [får insyn i dina data och potentiella hot](quickstart-get-visibility.md).
+- Kom igång [med att identifiera hot med Azure Sentinel](tutorial-detect-threats-built-in.md).

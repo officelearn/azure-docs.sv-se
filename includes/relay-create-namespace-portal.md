@@ -4,39 +4,37 @@ ms.service: service-bus-relay
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: clemensv
-ms.openlocfilehash: bbcf38ab54632144920b729f433c222f426d96dc
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 3e3617f68d58e51f24affaae7d69812195b72fd0
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67187571"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71210350"
 ---
 1. Logga in på [Azure Portal][Azure portal].
-2. Välj **+ Skapa en resurs** på menyn till vänster. Välj sedan **Integrering** > **Relay**. Om du inte ser **Relay** i listan väljer du **Visa alla** i det övre högra hörnet. 
-3. Under **Skapa namnområde** anger du ett namn för namnområdet. Systemet kontrollerar omedelbart om namnet är tillgängligt.
-4. I rutan **Prenumeration** väljer du en Azure-prenumeration för vilken du vill skapa namnområdet.
-5. I rutan [Resursgrupp](../articles/azure-resource-manager/manage-resource-groups-portal.md) väljer du en befintlig resursgrupp där namnområdet ska placeras eller skapar en ny.  
-6. I **Plats** väljer du land eller region där namnområdet ska finnas.
-   
+1. Välj **Skapa en resurs**. Välj sedan **Integrering** > **Relay**. Om du inte ser **Relay** i listan väljer du **Visa alla** i det övre högra hörnet.
+1. Välj **skapa**och ange ett namn för namn området i fältet **namn** . Azure Portal kontrollerar om namnet är tillgängligt.
+1. Välj en Azure-prenumeration där du vill skapa namn området.
+1. För [resurs grupp](../articles/azure-resource-manager/manage-resource-groups-portal.md)väljer du en befintlig resurs grupp där namn området ska placeras eller skapar en ny.  
+1. Välj land eller region där namn området ska vara värd.
+
     ![Skapa namnområde][create-namespace]
-7. Välj **Skapa**. Systemet skapar namnområdet och aktiverar det. Efter ett par minuter etableras resurser för ditt konto i systemet.
+
+1. Välj **Skapa**. Azure Portal skapar ditt namn område och aktiverar det. Efter ett par minuter etableras resurser för ditt konto i systemet.
 
 ### <a name="get-management-credentials"></a>Få autentiseringsuppgifter för hantering
 
-1. Välj **Alla resurser** och välj sedan den nyligen skapade namnrymden.
-2. Under Relay-namnrymden väljer du **Principer för delad åtkomst**.  
-3. Under **Principer för delad åtkomst** väljer du **RootManageSharedAccessKey**.
-   
-    ![connection-info][connection-info]
-4. Under **Princip: RootManageSharedAccessKey** väljer du knappen **Kopiera** intill **Anslutningssträng – Primärnyckel**. Anslutningssträngen kopieras då till Urklipp för senare användning. Klistra in det här värdet i Anteckningar eller på en tillfällig plats.
-   
-    ![connection-string][connection-string]
+1. Välj **alla resurser**och välj sedan namnet på den nyligen skapade namn rymden.
+1. Välj **principer för delad åtkomst**.  
+1. Under **Principer för delad åtkomst** väljer du **RootManageSharedAccessKey**.
+1. Under **SAS-princip: RootManageSharedAccessKey**väljer du knappen **Kopiera** bredvid **primär anslutnings sträng**. Den här åtgärden kopierar anslutnings strängen till Urklipp för senare användning. Klistra in det här värdet i Anteckningar eller på en tillfällig plats.
+1. Upprepa föregående steg för att kopiera och klistra in värdet för **primärnyckeln** till en tillfällig plats för senare användning.  
 
-5. Upprepa föregående steg för att kopiera och klistra in värdet för **primärnyckeln** till en tillfällig plats för senare användning.  
+    ![connection-string][connection-string]
 
 <!--Image references-->
 
-[create-namespace]: ./media/relay-create-namespace-portal/create-namespace.png
+[create-namespace]: ./media/relay-create-namespace-portal/create-namespace-vs2019.png
 [connection-info]: ./media/relay-create-namespace-portal/connection-info.png
-[connection-string]: ./media/relay-create-namespace-portal/connection-string.png
+[connection-string]: ./media/relay-create-namespace-portal/connection-string-vs2019.png
 [Azure portal]: https://portal.azure.com

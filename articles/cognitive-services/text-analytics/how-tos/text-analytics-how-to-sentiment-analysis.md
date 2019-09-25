@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: sample
-ms.date: 07/30/2019
+ms.date: 09/23/2019
 ms.author: aahi
-ms.openlocfilehash: 60ae2136c3fa934c178de95f51d490e570f45faa
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: ea145239d38a4030423a4517fe02c62b8eefa08a
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70845339"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71211769"
 ---
 # <a name="example-detect-sentiment-with-text-analytics"></a>Exempel: Identifiera sentiment med Textanalys
 
@@ -139,7 +139,7 @@ I följande exempel visas svaret på dokument samlingen i den här artikeln:
 > [!NOTE]
 > * Formatet för förfrågnings formatet för Attitydanalys v3 och [data begränsningarna](../overview.md#data-limits) är desamma som i den tidigare versionen.
 > * Attitydanalys v3 vid detta tillfälle:
->    * Stöder för närvarande engelska, förenklad kinesiska och japanska språk.
+>    * Stöder för närvarande engelska, franska, italienska, japanska, förenklade och traditionella kinesiska språk.
 >    * Är tillgängligt i `Australia East`följande regioner:, `East US 2` ,`West US 2` ,, `East Asia`,,,,,, och `Central US` `Central Canada` `East US` `North Europe` `Southeast Asia` `South Central US` `UK South` `West Europe` .
 
 |Funktion |Beskrivning  |

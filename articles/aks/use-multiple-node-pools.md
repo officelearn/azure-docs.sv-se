@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/9/2019
 ms.author: mlearned
-ms.openlocfilehash: 93eddc0ff8f1a1af8b485fcdb891f72d874b5c0a
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: c1b372dbeaea31e83c8ff42a84fc39d762b2ebdb
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71202959"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71212263"
 ---
 # <a name="preview---create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>För hands version – skapa och hantera flera resurspooler för ett kluster i Azure Kubernetes service (AKS)
 
@@ -176,7 +176,7 @@ $ az aks nodepool list --resource-group myResourceGroup --cluster-name myAKSClus
 ## <a name="upgrade-a-node-pool"></a>Uppgradera en Node-pool
  
 > [!NOTE]
-> Uppgraderings-och skalnings åtgärder i ett kluster eller en Node-pool kan inte inträffa samtidigt, om ett försök görs att returnera ett fel. I stället måste varje åtgärds typ slutföras på mål resursen innan nästa begäran om samma resurs. Läs mer om detta i vår [fel söknings guide](https://aka.ms/aks-pending-upgrade).
+> Uppgraderings-och skalnings åtgärder i ett kluster eller en nods pool kan inte inträffa samtidigt, om ett försök till ett fel returneras. I stället måste varje åtgärds typ slutföras på mål resursen innan nästa begäran om samma resurs. Läs mer om detta i vår [fel söknings guide](https://aka.ms/aks-pending-upgrade).
 
 När ditt AKS-kluster ursprungligen skapades i det första steget angavs `--kubernetes-version` en av *1.13.10* . Detta anger Kubernetes-versionen för både kontroll planet och standardnoden. Kommandona i det här avsnittet beskriver hur du uppgraderar en enskild viss Node-pool.
 
@@ -245,15 +245,15 @@ Som bästa praxis bör du uppgradera alla resurspooler i ett AKS-kluster till sa
 Ett AKS-kluster har två kluster resurs objekt med associerade Kubernetes-versioner. Det första är en kontroll Plans Kubernetes-version. Den andra är en agent-pool med en Kubernetes-version. Ett kontroll plan mappar till en eller flera Node-pooler. Beteendet för en uppgraderings åtgärd beror på vilket Azure CLI-kommando som används.
 
 1. Att uppgradera kontroll planet kräver att du använder`az aks upgrade`
-   * Då uppgraderas kontroll Plans versionen och alla noder i klustret
-   * Genom att `az aks upgrade` skicka `--control-plane-only` med-flaggan uppgraderar du bara kluster kontroll planet och ingen av de `--control-plane-only` associerade noderna * flaggan är tillgänglig i **AKS-Preview Extension v 0.4.16** eller högre
+   * Detta uppgraderar kontroll Plans versionen och alla noder i klustret
+   * Genom att `az aks upgrade` `--control-plane-only` bara skicka med flaggan är det bara kluster kontroll planet som uppgraderas och ingen av de associerade noderna har ändrats. Flaggan är tillgänglig i **AKS-Preview Extension v 0.4.16** eller senare. `--control-plane-only`
 1. Om du vill uppgradera enskilda noder måste du använda`az aks nodepool upgrade`
-   * Detta kommer endast att uppgradera målnoden med den angivna Kubernetes-versionen
+   * Detta uppgraderar bara målnoden med den angivna Kubernetes-versionen
 
 Relationen mellan Kubernetes-versioner som innehas av Node-pooler måste också följa en uppsättning regler.
 
 1. Du kan inte nedgradera kontroll planet eller en Kubernetes-version för Node-poolen.
-1. Om en Kubernetes version av en nod inte anges, kommer standardvärdet som används att återgå till kontroll Plans versionen.
+1. Om en Kubernetes version av en nod inte anges, beror beteendet på vilken klient som används. För deklaration i ARM-mall används den befintliga versionen som definierats för Node-poolen, om ingen är inställd, används kontroll Plans versionen.
 1. Du kan antingen uppgradera eller skala ett kontroll plan eller en Node-pool vid en specifik tidpunkt, men du kan inte skicka båda åtgärderna samtidigt.
 1. En Kubernetes version av Node-pool måste ha samma huvud version som kontroll planet.
 1. En Kubernetes version av Node-pool kan vara högst två (2) mindre versioner som är mindre än kontroll planet, aldrig större.
@@ -593,7 +593,7 @@ AKS-noder kräver inte sina egna offentliga IP-adresser för kommunikation. Viss
 az feature register --name NodePublicIPPreview --namespace Microsoft.ContainerService
 ```
 
-När registreringen är klar distribuerar du en Azure Resource Manager-mall enligt samma instruktioner som [ovan](#manage-node-pools-using-a-resource-manager-template) och lägger till följande booleska värdes egenskap "enableNodePublicIP" på agentPoolProfiles. Ange som standard som standard anges den som `false` om den inte anges. `true` Detta är endast en egenskap för att skapa en tid och kräver en lägsta API-version på 2019-06-01. Detta kan användas för både Linux-och Windows-adresspooler.
+När registreringen är klar distribuerar du en Azure Resource Manager-mall enligt samma instruktioner som [ovan](#manage-node-pools-using-a-resource-manager-template) och lägger till följande booleska värdes egenskap "enableNodePublicIP" på agentPoolProfiles. Ange detta `true` som standard som standard, anges som `false` om det inte anges. Detta är endast en egenskap för att skapa en tid och kräver en lägsta API-version på 2019-06-01. Detta kan användas för både Linux-och Windows-adresspooler.
 
 ```
 "agentPoolProfiles":[  

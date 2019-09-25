@@ -1,11 +1,11 @@
 ---
-title: Notification Hubs – Enterprise Push-arkitektur
-description: Vägledning om hur du använder Azure Notification Hubs i en företagsmiljö
+title: Notification Hubs-Enterprise push-arkitektur
+description: Vägledning om hur du använder Azure Notification Hubs i en företags miljö
 services: notification-hubs
 documentationcenter: ''
-author: jwargo
-manager: patniko
-editor: spelluru
+author: sethmanheim
+manager: femila
+editor: jwargo
 ms.assetid: 903023e9-9347-442a-924b-663af85e05c6
 ms.service: notification-hubs
 ms.workload: mobile
@@ -13,65 +13,67 @@ ms.tgt_pltfrm: mobile-windows
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/04/2019
-ms.author: jowargo
-ms.openlocfilehash: 938801148b175456553865b54d59271021811401
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: sethm
+ms.reviewer: jowargo
+ms.lastreviewed: 01/04/2019
+ms.openlocfilehash: 5b65fe6acb1fdf7ba79b106c876527c9b6736c5f
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60873400"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71211900"
 ---
 # <a name="enterprise-push-architectural-guidance"></a>Push-arkitekturvägledning för företag
 
-Företag befordras idag gradvis mot skapar mobila applikationer för antingen slutanvändarna (extern) eller för anställda (internt). De har befintliga serverdelssystem på plats stordatorer och vissa LoB-program som integreras i arkitekturen för mobila program. Den här guiden pratar om hur bäst att göra den här integreringen rekommenderar möjlig lösning till vanliga scenarier.
+Företag idag flyttar gradvis till att skapa mobil program för slutanvändare (externa) eller för de anställda (interna). De har befintliga backend-system på plats, de är stordatorer eller vissa LoB-program som måste integreras i arkitekturen för mobil program. Den här guiden beskriver hur du bäst använder den här integrationen för att rekommendera vanliga scenarier.
 
-En ofta krävs för att skicka push-meddelande till användare via deras mobila program när en händelse av intresse som inträffar i backend-system. till exempel vill en bankkund som har bankens bank-appen på en iPhone meddelas när en debitering görs över en viss mängd från kontot eller en intranätscenario där en medarbetare från ekonomiavdelningen som har en budget godkännande-app på en Windows Phone-vill  att bli meddelad när en begäran om godkännande tas emot.
+Ett frekvent krav är att skicka push-meddelanden till användarna via deras mobil program när en händelse av intresse inträffar i backend-systemen. Till exempel vill en bank kund som har bankens bank app på en iPhone meddelas när ett debetbelopp görs över en viss mängd från kontot eller ett intranäts scenario där en anställd från ekonomi avdelningen som har en app för godkännande av budget på en Windows Phone vill  att meddelas när begäran om godkännande tas emot.
 
-Bank-konto eller godkännande bearbetning troligtvis som ska utföras i vissa backend-system som måste initiera en push till användaren. Det kan finnas flera sådana backend-system, vilket skapar samma typ av logik för att push-när en händelse utlöser en avisering. Komplexiteten här ligger i att integrera flera backend-system tillsammans med ett enda push-system där slutanvändarna kan prenumererar på olika meddelanden och det kan även finnas flera mobila program. Exempelvis intranät mobilappar när en mobilprogram kan vilja ta emot meddelanden från flera sådana backend-system. Backend-system inte känner till eller behöver veta om push-semantik/teknik så att en vanlig lösning har traditionellt att införa en komponent som ska avsöka backend-system för händelser av intresse och ansvarar för att skicka push-meddelanden till den klient.
+Bank kontot eller godkännande bearbetningen kan förmodligen utföras i vissa Server dels system, vilket måste initiera en push-överföring till användaren. Det kan finnas flera sådana backend-system, vilket måste alla bygga samma typ av logik för att pusha när en händelse utlöser ett meddelande. Komplexiteten här är att integrera flera backend-system tillsammans med ett enda push-system där slutanvändarna kan ha prenumererat på olika meddelanden och det kan även finnas flera mobil program. Till exempel kan du använda mobila mobil program där ett mobilt program vill ta emot meddelanden från flera sådana Server dels system. Backend-systemen känner inte igen eller behöver känna till push-meddelanden/-teknik, så en gemensam lösning här traditionellt har varit att införa en komponent, som avsöker backend-systemen efter händelser av intresse och ansvarar för att skicka push-meddelanden till klientsession.
 
-En bättre lösning är att använda Azure Service Bus - ämne/prenumeration modellen, vilket minskar komplexiteten när du gjorde lösningen skalbara.
+En bättre lösning är att använda Azure Service Bus-ämne/prenumerations modell, vilket minskar komplexiteten samtidigt som lösningen blir skalbar.
 
-Här är lösningen allmän arkitektur (generaliserad med flera mobilappar men lika tillämpliga när det är bara en mobilapp)
+Här är den allmänna arkitekturen i lösningen (generaliseras med flera mobilappar, men gäller även när det bara finns en mobilapp)
 
 ## <a name="architecture"></a>Arkitektur
 
 ![][1]
 
-Viktig i den här Arkitekturdiagram är Azure Service Bus, vilket ger en ämnen/prenumerationer programmeringsmodellen (mer om den på [Service Bus Pub/Sub-programmering]). Mottagare, som i det här fallet är mobil serverdel (vanligtvis [Azure Mobile Service], som initierar en push för mobila appar) tar inte emot meddelanden direkt från backend-system utan istället en mellanliggande abstraktion lagret som tillhandahålls av [Azure Service Bus], vilket gör att mobilserverdel ta emot meddelanden från en eller flera backend-system. En Service Bus-ämne måste skapas för var och en av backend-system, till exempel konto, HR, ekonomi, som i praktiken är ”intresseområden”, som startar meddelanden skickas som push-meddelande. Backend-system skicka meddelanden till det här avsnittet. En mobil serverdel kan prenumerera på att en eller flera ämnen genom att skapa en Service Bus-prenumeration. Den ger rätt mobilserverdel tar emot ett meddelande från motsvarande backend-system. Mobil serverdel fortsätter att lyssna efter meddelanden i sina prenumerationer och när ett meddelande anländer, den sätts och skickar den som meddelandet till dess meddelandehubben. Meddelandehubbar sedan leverera så småningom meddelande till mobilappen. Här är listan över viktiga komponenter:
+Nyckel delen i det här arkitektur diagrammet är Azure Service Bus, vilket ger en programmerings modell för ämnen/prenumerationer (mer på den med [Service Bus pub/sub-programmering]). Mottagaren, som i det här fallet är mobil Server del (vanligt vis [Azure Mobile Service], som initierar en push-överföring till Mobile Apps) tar inte emot meddelanden direkt från backend-systemen utan i stället ett mellanliggande abstraktions lager [Azure Service Bus], som gör det möjligt för mobila Server delar att ta emot meddelanden från ett eller flera backend-system. Ett Service Bus ämne måste skapas för var och en av backend-systemen, till exempel konto, HR, ekonomi, som i princip är ämnen som är intressanta, som initierar meddelanden som ska skickas som push-meddelanden. Backend-systemen skickar meddelanden till dessa ämnen. En mobil Server del kan prenumerera på ett eller flera sådana ämnen genom att skapa en Service Bus prenumeration. Den ger den mobila Server delen för att ta emot ett meddelande från motsvarande Server dels system. Mobil Server del fortsätter att lyssna efter meddelanden på sina prenumerationer och så snart ett meddelande anländer, så blir det tillbaka och skickar det som ett meddelande till sin Notification Hub. Notification Hub skickar sedan meddelandet till mobilappen. Här är listan över viktiga komponenter:
 
 1. Backend-system (LoB/äldre system)
-   * Skapar Service Bus-ämne
+   * Skapar Service Bus ämne
    * Skickar meddelande
 1. Mobil serverdel
-   * Skapar prenumeration på tjänsten
-   * Tar emot meddelande (från Backend-system)
+   * Skapar tjänst prenumeration
+   * Tar emot meddelande (från backend-systemet)
    * Skickar meddelande till klienter (via Azure Notification Hub)
-1. Mobilprogram
-   * Tar emot och aviseringar
+1. Mobil program
+   * Ta emot och Visa meddelande
 
 ### <a name="benefits"></a>Fördelar
 
-1. Frikoppling mellan mottagare (mobila appen/tjänsten via Notification Hub) och avsändare (backend-system) kan ytterligare backend-system som integreras med minimal ändringen.
-1. Gör det också scenario där flera mobila appar att kunna ta emot händelser från en eller flera backend-system.  
+1. Kopplingen mellan mottagaren (mobilappen/tjänsten via Notification Hub) och avsändaren (backend-system) gör att ytterligare Server dels system integreras med minimal ändring.
+1. Det gör också scenariot för flera mobilappar att kunna ta emot händelser från ett eller flera backend-system.  
 
 ## <a name="sample"></a>Exempel
 
-### <a name="prerequisites"></a>Nödvändiga komponenter
+### <a name="prerequisites"></a>Förutsättningar
 
-Slutför följande självstudiekurser och bekanta med koncept samt vanliga steg för skapande och konfiguration:
+Följ de här självstudierna för att bekanta dig med begreppen och vanliga & konfigurations steg för att skapa:
 
-1. [Service Bus Pub/Sub-programmering] – den här självstudiekursen beskriver hur du arbetar med Service Bus-ämnen/prenumerationer, hur du skapar ett namnområde för att innehålla ämnen/prenumerationer, så skicka och ta emot meddelanden från dem.
-2. [Notification Hubs – självstudiekurs för Windows Universal] – den här självstudien beskrivs hur du konfigurerar en Windows Store-app och använder Notification Hubs för att registrera och ta emot meddelanden.
+1. [Service Bus pub/sub-programmering] – i den här självstudien beskrivs information om hur du arbetar med Service Bus ämnen/prenumerationer, hur du skapar ett namn område som innehåller ämnen/prenumerationer, hur du skickar & ta emot meddelanden från dem.
+2. [Notification Hubs Windows Universal-självstudie] – i den här självstudien beskrivs hur du konfigurerar en Windows Store-app och använder Notification Hubs för att registrera och ta emot meddelanden.
 
 ### <a name="sample-code"></a>Exempelkod
 
-Fullständig exempelkoden finns på [Notification Hub-exempel]. Det är uppdelat i tre komponenter:
+Den fullständiga exempel koden är tillgänglig i [Notification Hub-exempel]. Den delas upp i tre komponenter:
 
 1. **EnterprisePushBackendSystem**
 
-    a. Det här projektet använder den **WindowsAzure.ServiceBus** NuGet-paketet och baseras på [Service Bus Pub/Sub-programmering].
+    a. I det här projektet används NuGet-paketet **windowsazure. Service Bus** och baseras på [Service Bus pub/sub-programmering].
 
-    b. Det här programmet är en enkel C#-konsolapp att simulera en LoB-system, som startar meddelandet som ska levereras till mobilappen.
+    b. Det här programmet är en C# enkel konsol app för att simulera ett LOB-system, som initierar meddelandet som ska levereras till mobilappen.
 
     ```csharp
     static void Main(string[] args)
@@ -87,7 +89,7 @@ Fullständig exempelkoden finns på [Notification Hub-exempel]. Det är uppdelat
     }
     ```
 
-    c. `CreateTopic` används för att skapa Service Bus-ämne.
+    c. `CreateTopic`används för att skapa Service Bus avsnittet.
 
     ```csharp
     public static void CreateTopic(string connectionString)
@@ -104,7 +106,7 @@ Fullständig exempelkoden finns på [Notification Hub-exempel]. Det är uppdelat
     }
     ```
 
-    d. `SendMessage` används för att skicka meddelanden till den här Service Bus-ämne. Den här koden skickar helt enkelt en uppsättning slumpmässiga meddelanden till ämnet med jämna mellanrum i exemplet. Det är normalt en backend-system som skickar meddelanden när en händelse inträffar.
+    d. `SendMessage`används för att skicka meddelanden till den här Service Bus avsnittet. Den här koden skickar bara en uppsättning slumpmässiga meddelanden till ämnet med jämna mellanrum för exemplet. Normalt finns det ett Server dels system som skickar meddelanden när en händelse inträffar.
 
     ```csharp
     public static void SendMessage(string connectionString)
@@ -138,9 +140,9 @@ Fullständig exempelkoden finns på [Notification Hub-exempel]. Det är uppdelat
     ```
 2. **ReceiveAndSendNotification**
 
-    a. Det här projektet använder den *WindowsAzure.ServiceBus* och **Microsoft.Web.WebJobs.Publish** NuGet-paket och baseras på [Service Bus Pub/Sub-programmering].
+    a. I det här projektet används *windowsazure. Service Bus* och **Microsoft. Web. WebJobs. publicera** NuGet-paket och baseras på [Service Bus pub/sub-programmering].
 
-    b. Följande konsolappen körs som en [Azure WebJob] eftersom den måste köras kontinuerligt för att lyssna efter meddelanden från LoB-/ serverdelssystem. Det här programmet är en del av din mobila serverdelstjänst.
+    b. Följande konsol program körs som ett [Azure-webbjobb] eftersom det måste köras kontinuerligt för att lyssna efter meddelanden från LOB/backend-systemen. Det här programmet är en del av din mobila Server del.
 
     ```csharp
     static void Main(string[] args)
@@ -156,7 +158,7 @@ Fullständig exempelkoden finns på [Notification Hub-exempel]. Det är uppdelat
     }
     ```
 
-    c. `CreateSubscription` används för att skapa en Service Bus-prenumerationen för ämnet där backend-systemet skickar meddelanden. Beroende på scenario företag skapar en eller flera prenumerationer till motsvarande avsnitt i den här komponenten (till exempel vissa kan få meddelanden från HR-systemet, vissa från finans-system och så vidare)
+    c. `CreateSubscription`används för att skapa en Service Bus-prenumeration för det avsnitt där backend-systemet skickar meddelanden. Beroende på affärs scenariot skapar den här komponenten en eller flera prenumerationer på motsvarande ämnen (till exempel vissa kan ta emot meddelanden från HR-system, vissa från ekonomi system och så vidare)
 
     ```csharp
     static void CreateSubscription(string connectionString)
@@ -172,7 +174,7 @@ Fullständig exempelkoden finns på [Notification Hub-exempel]. Det är uppdelat
     }
     ```
 
-    d. `ReceiveMessageAndSendNotification` används för att läsa meddelandet från ämnet med hjälp av dess prenumeration och Läs genomförs sedan skapa ett meddelande (i Exempelscenario ett Windows interna popup-meddelande) för att skickas till den mobila program med Azure Notification Hubs.
+    d. `ReceiveMessageAndSendNotification`används för att läsa meddelandet från avsnittet med hjälp av prenumerationen och om läsningen lyckas kan du skicka ett meddelande (i exempel scenariot ett Windows Native popup-meddelande) till det mobila programmet med Azure Notification Hubs.
 
     ```csharp
     static void ReceiveMessageAndSendNotification(string connectionString)
@@ -224,25 +226,25 @@ Fullständig exempelkoden finns på [Notification Hub-exempel]. Det är uppdelat
     }
     ```
 
-    e. För att publicera den här appen som en **WebJob**, högerklicka på lösningen i Visual Studio och välj **Publicera som WebJob**
+    e. För att publicera den här appen som ett **webb jobb**, högerklicka på lösningen i Visual Studio och välj **Publicera som webb jobb**
 
     ![][2]
 
-    f. Välj din publiceringsprofil och skapa en ny Azure-webbplats om den inte redan finns, som är värd för den här WebJob och när du har webbplatsen du **publicera**.
+    f. Välj din publicerings profil och skapa en ny Azure-webbplats om den inte redan finns, som är värd för det här webb jobbet och när du har **publicerat**webbplatsen.
 
     ![][3]
 
-    g. Konfigurera jobbet för att vara ”kör kontinuerligt” så att när du loggar in till den [Azure Portal] du bör se ut ungefär så här:
+    g. Konfigurera jobbet så att det körs kontinuerligt, så när du loggar in på [Azure Portal] bör du se något som liknar följande:
 
     ![][4]
 
 3. **EnterprisePushMobileApp**
 
-    a. Det här programmet är ett Windows Store-program som tar emot popup-meddelanden från Webbjobbet körs som en del av din mobila serverdelstjänst och visa den. Den här koden är baserad på [Notification Hubs – självstudiekurs för Windows Universal].  
+    a. Det här programmet är ett Windows Store-program som tar emot popup-meddelanden från webb jobbet som körs som en del av din mobila Server del och visar det. Den här koden baseras på [Notification Hubs Windows Universal-självstudie].  
 
-    b. Kontrollera att ditt program är aktiverat för att ta emot popup-meddelanden.
+    b. Se till att ditt program är aktiverat för att ta emot popup-meddelanden.
 
-    c. Se till att följande Notification Hubs Registreringskod anropas vid appen startar (när du har ersatt den `HubName` och `DefaultListenSharedAccessSignature` värden:
+    c. Se till att följande Notification Hubs registrerings kod anropas vid appens start (när du `HubName` har ersatt värdena och: `DefaultListenSharedAccessSignature`
 
     ```csharp
     private async void InitNotificationsAsync()
@@ -264,13 +266,13 @@ Fullständig exempelkoden finns på [Notification Hub-exempel]. Det är uppdelat
 
 ### <a name="running-the-sample"></a>Köra exemplet
 
-1. Kontrollera att ditt WebJob har körts och schemalagd för att köras kontinuerligt.
-2. Kör den **EnterprisePushMobileApp**, vilket startar Windows Store-app.
-3. Kör den **EnterprisePushBackendSystem** konsolappen, som simulerar LoB-serverdelen och börjar skicka meddelanden och du bör se popup-meddelanden som visas som på följande bild:
+1. Kontrol lera att ditt webb jobb körs utan problem och att det är schemalagt att köras kontinuerligt.
+2. Kör **EnterprisePushMobileApp**, som startar Windows Store-appen.
+3. Kör **EnterprisePushBackendSystem** -konsol programmet, som simulerar LOB-Server delen och börjar skicka meddelanden och du bör se popup-meddelanden som visas som följande bild:
 
     ![][5]
 
-4. Meddelandena som har ursprungligen skickats till Service Bus-ämnen som har som övervakas av Service Bus-prenumerationer i ditt webb-jobb. När ett meddelande togs emot ett meddelande skapades och skickas till den mobila appen. Du kan söka igenom WebJob-loggar att bekräfta bearbetningen när du går till länken loggar i [Azure Portal] för ditt webb-jobb:
+4. Meddelandena skickades ursprungligen till Service Bus ämnen som övervakades av Service Bus prenumerationer i ditt webb jobb. När ett meddelande har tagits emot har ett meddelande skapats och skickats till mobilappen. Du kan titta igenom webb jobbs loggarna för att bekräfta bearbetningen när du går till länken loggar i [Azure Portal] för ditt webb jobb:
 
     ![][6]
 
@@ -286,7 +288,7 @@ Fullständig exempelkoden finns på [Notification Hub-exempel]. Det är uppdelat
 [Notification Hub-exempel]: https://github.com/Azure/azure-notificationhubs-samples
 [Azure Mobile Service]: https://azure.microsoft.com/documentation/services/mobile-services/
 [Azure Service Bus]: https://azure.microsoft.com/documentation/articles/fundamentals-service-bus-hybrid-solutions/
-[Service Bus Pub/Sub-programmering]: https://azure.microsoft.com/documentation/articles/service-bus-dotnet-how-to-use-topics-subscriptions/
-[Azure WebJob]: ../app-service/webjobs-create.md
-[Notification Hubs – självstudiekurs för Windows Universal]: https://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-get-started/
+[Service Bus pub/sub-programmering]: https://azure.microsoft.com/documentation/articles/service-bus-dotnet-how-to-use-topics-subscriptions/
+[Azure-webbjobb]: ../app-service/webjobs-create.md
+[Notification Hubs Windows Universal-självstudie]: https://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-get-started/
 [Azure Portal]: https://portal.azure.com/

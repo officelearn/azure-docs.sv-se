@@ -1,12 +1,11 @@
 ---
-title: Vill du ansluta data källor till Azure Sentinel Preview? | Microsoft Docs
+title: Vill du ansluta data källor till Azure Sentinel? | Microsoft Docs
 description: Lär dig hur du ansluter data källor till Azure Sentinel.
 services: sentinel
 documentationcenter: na
 author: rkarlin
-manager: rkarlin
+manager: angrobe
 editor: ''
-ms.assetid: a3b63cfa-b5fe-4aff-b105-b22b424c418a
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.devlang: na
@@ -14,20 +13,18 @@ ms.topic: overview
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/04/2019
+ms.date: 09/23/2019
 ms.author: rkarlin
-ms.openlocfilehash: 4928657aa9052b50faf1f326cc09797c5aaf69bb
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.openlocfilehash: d8d3e52882a5cde9b00bf07ded933ae4d45b454b
+ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68780506"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71240172"
 ---
 # <a name="connect-data-sources"></a>Ansluta till datakällor
 
-> [!IMPORTANT]
-> Azure Sentinel är för närvarande en offentlig för hands version.
-> Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 
 
 
@@ -65,7 +62,7 @@ Följande data anslutnings metoder stöds av Azure Sentinel:
 - **Externa lösningar via API**: Vissa data källor är anslutna via API: er som tillhandahålls av den anslutna data källan. Oftast tillhandahåller de flesta säkerhets tekniker en uppsättning API: er via vilka händelse loggar som kan hämtas. API: erna ansluter till Azure Sentinel och samlar in vissa data typer och skickar dem till Azure Log Analytics. Enheter som är anslutna via API inkluderar:
     - [Barracuda](connect-barracuda.md)
     - [Symantec](connect-symantec.md)
-- **Externa lösningar via agent**: Azure Sentinel kan anslutas till alla andra data källor som kan utföra logg strömning i real tid med syslog-protokollet via en agent. <br>De flesta apparater använder syslog-protokollet för att skicka händelse meddelanden som innehåller själva loggen och data om loggen. Formatet på loggarna varierar, men de flesta apparater stöder common Event format (CEF)-standarden. <br>Azure Sentinel-agenten, som baseras på Microsoft Monitoring Agent, konverterar CEF-formaterade loggar till ett format som kan matas in med Log Analytics. Beroende på typ av installation installeras agenten antingen direkt på enheten eller på en särskild Linux-server. Agenten för Linux tar emot händelser från syslog-daemon över UDP, men om en Linux-dator förväntas samla in en stor mängd Syslog-händelser skickas de via TCP från syslog-daemon till agenten och därifrån att Log Analytics.
+- **Externa lösningar via agent**: Azure Sentinel kan anslutas till alla andra data källor som kan utföra logg strömning i real tid med syslog-protokollet via en agent. <br>De flesta apparater använder syslog-protokollet för att skicka händelse meddelanden som innehåller själva loggen och data om loggen. Formatet på loggarna varierar, men de flesta apparater stöder common Event format (CEF)-standarden. <br>Azure Sentinel-agenten, som baseras på Log Analytics agent, konverterar CEF-formaterade loggar till ett format som kan matas in av Log Analytics. Beroende på typ av installation installeras agenten antingen direkt på enheten eller på en särskild Linux-server. Agenten för Linux tar emot händelser från syslog-daemon över UDP, men om en Linux-dator förväntas samla in en stor mängd Syslog-händelser skickas de via TCP från syslog-daemon till agenten och därifrån att Log Analytics.
     - Brand väggar, proxyservrar och slut punkter:
         - [F5](connect-f5.md)
         - [Check Point](connect-checkpoint.md)
@@ -90,6 +87,42 @@ Om du vill ansluta din externa installation till Azure Sentinel måste agenten d
 Alternativt kan du distribuera agenten manuellt på en befintlig virtuell Azure-dator, på en virtuell dator i ett annat moln eller på en lokal dator.
 
 ![CEF lokalt](./media/connect-cef/cef-syslog-onprem.png)
+
+## <a name="map-data-types-with-azure-sentinel-connection-options"></a>Mappa data typer med anslutnings alternativ för Azure Sentinel
+
+
+| **Datatyp** | **Så här ansluter du** | **Data koppling?** | **kommentarer** |
+|------|---------|-------------|------|
+| AWSCloudTrail | [Anslut AWS](connect-aws.md) | V | |
+| AzureActivity | Översikt över [Anslut Azure-aktivitet](connect-azure-activity.md) och [aktivitets loggar](../azure-monitor/platform/activity-logs-overview.md)| V | |
+| AuditLogs | [Anslut Azure AD](connect-azure-active-directory.md)  | V | |
+| SigninLogs | [Anslut Azure AD](connect-azure-active-directory.md)  | V | |
+| AzureFirewall |[Azure Diagnostics](../firewall/tutorial-diagnostics.md) | V | |
+| InformationProtectionLogs_CL  | [Azure Information Protection rapporter](https://docs.microsoft.com/azure/information-protection/reports-aip)<br>[Anslut Azure Information Protection](connect-azure-information-protection.md)  | V | Detta använder vanligt vis **InformationProtectionEvents** -funktionen tillsammans med data typen. Mer information finns i [ändra rapporterna och skapa anpassade frågor](https://docs.microsoft.com/azure/information-protection/reports-aip#how-to-modify-the-reports-and-create-custom-queries)|
+| AzureNetworkAnalytics_CL  | [Trafik analys schema](../network-watcher/traffic-analytics.md) [Trafik analys](../network-watcher/traffic-analytics.md)  | | |
+| CommonSecurityLog  | [Anslut CEF](connect-common-event-format.md)  | V | |
+| OfficeActivity | [Anslut Office 365](connect-office-365.md) | V | |
+| SecurityEvents | [Anslut säkerhets händelser i Windows](connect-windows-security-events.md)  | V | Arbets böckerna för oskyddade protokoll finns i [arbets boks konfiguration för oskyddade protokoll](https://blogs.technet.microsoft.com/jonsh/azure-sentinel-insecure-protocols-dashboard-setup/)  |
+| Syslog | [Anslut syslog](connect-syslog.md) | V | |
+| Microsoft-brand vägg för webbaserade program (WAF) – (AzureDiagnostics) |[Anslut brand väggen för Microsoft-webbprogram](connect-microsoft-waf.md) | V | |
+| SymantecICDx_CL | [Anslut Symantec](connect-symantec.md) | V | |
+| ThreatIntelligenceIndicator  | [Anslut Hot information](connect-threat-intelligence.md)  | V | |
+| VMConnection <br> ServiceMapComputer_CL<br> ServiceMapProcess_CL|  [Azure Monitor tjänst karta](../azure-monitor/insights/service-map.md)<br>[Azure Monitor VM Insights onboarding](../azure-monitor/insights/vminsights-onboard.md) <br> [Aktivera Azure Monitor VM-insikter](../azure-monitor/insights/vminsights-enable-overview.md) <br> [Använda en enda virtuell dator](../azure-monitor/insights/vminsights-enable-single-vm.md)<br>  [Använda fordonsbaserad via princip](../azure-monitor/insights/vminsights-enable-at-scale-policy.md)| X | Arbets bok för VM Insights  |
+| DnsEvents | [Anslut DNS](connect-dns.md) | V | |
+| W3CIISLog | [Anslut IIS-loggar](../azure-monitor/platform/data-sources-iis-logs.md)  | X | |
+| WireData | [Anslut tråd data](../azure-monitor/insights/wire-data.md) | X | |
+| WindowsFirewall | [Anslut Windows-brandväggen](connect-windows-firewall.md) | V | |
+| AADIP SecurityAlert  | [Anslut Azure AD Identity Protection](connect-azure-ad-identity-protection.md)  | V | |
+| AATP SecurityAlert  | [Anslut Azure ATP](connect-azure-atp.md) | V | |
+| ASC-SecurityAlert  | [Anslut Azure Security Center](connect-azure-security-center.md)  | V | |
+| MCAS SecurityAlert  | [Anslut Microsoft Cloud App Security](connect-cloud-app-security.md)  | V | |
+| SecurityAlert | | | |
+| Sysmon (händelse) | [Anslut Sysmon](https://azure.microsoft.com/blog/detecting-in-memory-attacks-with-sysmon-and-azure-security-center)<br> [Anslut Windows-händelser](../azure-monitor/platform/data-sources-windows-events.md) <br> [Hämta Sysmon-parsern](https://github.com/Azure/Azure-Sentinel/blob/master/Parsers/SysmonParser.txt)| X | Sysmon-samlingen installeras inte som standard på virtuella datorer. Mer information om hur du installerar Sysmon-agenten finns i [Sysmon](https://docs.microsoft.com/sysinternals/downloads/sysmon). |
+| ConfigurationData  | [Automatisera VM-inventering](../automation/automation-vm-inventory.md)| X | |
+| ConfigurationChange  | [Automatisera spårning av virtuella datorer](../automation/change-tracking.md) | X | |
+| F5 BIG-IP | [Anslut F5 BIG-IP](https://devcentral.f5.com/s/articles/Integrating-the-F5-BIGIP-with-Azure-Sentinel.md)  | X | |
+| McasShadowItReporting  |  | X | |
+| Barracuda_CL | [Anslut Barracuda](connect-barracuda.md) | V | |
 
 
 ## <a name="next-steps"></a>Nästa steg

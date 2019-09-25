@@ -11,10 +11,10 @@ ms.workload: Active
 ms.date: 07/23/2019
 ms.author: alehall
 ms.openlocfilehash: 942553e2ececf2bdc7bb2b240d4fa6c5f338beb2
-ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2019
+ms.lasthandoff: 09/24/2019
 ms.locfileid: "68976508"
 ---
 # <a name="tutorial-stream-data-into-azure-databricks-using-event-hubs"></a>Självstudier: Strömma data i Azure Databricks med Event Hubs
@@ -148,7 +148,7 @@ I den här självstudien använder du Twitter-API:er för att skicka tweets till
 
      ![Ange Maven-koordinater](./media/databricks-stream-from-eventhubs/databricks-add-library-search.png "Ange Maven-koordinater")
 
-     ![Ange maven] -koordinater (./media/databricks-stream-from-eventhubs/databricks-add-library-search-dialogue.png "Sök maven") -koordinater
+     ![Ange maven-koordinater](./media/databricks-stream-from-eventhubs/databricks-add-library-search-dialogue.png "Sök maven-koordinater")
 
 3. Välj **Installera**.
 

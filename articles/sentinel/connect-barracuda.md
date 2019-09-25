@@ -1,6 +1,6 @@
 ---
-title: Anslut Barracuda data till Azure Sentinel-Preview | Microsoft Docs
-description: Lär dig hur du ansluter Barracuda data till Azure Sentinel.
+title: Anslut Barracuda-data till Azure Sentinel | Microsoft Docs
+description: Lär dig hur du ansluter Barracuda-data till Azure Sentinel.
 services: sentinel
 documentationcenter: na
 author: rkarlin
@@ -13,46 +13,44 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/17/2019
+ms.date: 09/23/2019
 ms.author: rkarlin
-ms.openlocfilehash: 33953c3a6b4244ec50ca5b1505b6d48621527d64
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: b3ca93d9e70456d25d5f78b2ca1fde8e4ea24f8d
+ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67620557"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71240206"
 ---
-# <a name="connect-your-barracuda-appliance"></a>Ansluta din Barracuda-installation 
+# <a name="connect-your-barracuda-appliance"></a>Anslut din Barracuda-apparat 
 
-> [!IMPORTANT]
-> Azure Sentinel är för närvarande i offentlig förhandsversion.
-> Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Barracuda Web Application Firewall (WAF)-anslutningsappen kan du enkelt ansluta dina Barracuda-loggar med din Azure Sentinel, att visa instrumentpaneler, skapa anpassade varningar och förbättra undersökningen. Detta ger dig en överblick över nätverket och förbättrar din säkerhetsfunktioner för åtgärden. Azure Sentinel drar nytta av den interna integreringen mellan **Barracuda** och Microsoft Monitoring Agent för att ge sömlös integrering. 
+
+Med Barracuda WebApplication Firewall (WAF) Connector kan du enkelt ansluta Barracuda-loggar med din Azure Sentinel, för att visa instrument paneler, skapa anpassade aviseringar och förbättra undersökningen. Detta ger dig bättre insikt i din organisations nätverk och förbättrar dina säkerhets åtgärder. Azure Sentinel drar nytta av den inbyggda integreringen mellan **Barracuda** och Log Analytics agent för att tillhandahålla sömlös integrering. 
 
 
 > [!NOTE]
-> Data lagras i den geografiska platsen för arbetsytan där du kör Azure Sentinel.
+> Data lagras på den geografiska platsen för den arbets yta där du kör Azure Sentinel.
 
-## <a name="configure-and-connect-barracuda-waf"></a>Konfigurera och ansluta Barracuda WAF
-Barracuda Web Application Firewall kan integrera och exportloggar direkt till Azure Sentinel via Microsoft Monitoring Agent.
-1. Gå till [Barracuda WAF configuration flow](https://campus.barracuda.com/product/webapplicationfirewall/doc/73696965/configure-the-barracuda-web-application-firewall-to-integrate-with-the-oms-server-and-export-logs/), och följ anvisningarna för att upprätta anslutningen med hjälp av dessa parametrar:
-    - **Arbetsyte-ID**: Kopiera värdet för arbetsyte-ID från sidan Azure Sentinel Barracuda connector.
-    - **Primär nyckel**: Kopiera värdet för den primära nyckeln från sidan Azure Sentinel Barracuda connector.
-2. Sentinel-Azure-portalen går du till arbetsytan där du har distribuerat Azure Sentinel och väljer ellipsen (...) i slutet av raden och välj **avancerade inställningar**. 
-1. Välj **Data** och sedan **Syslog**.
-1. Kontrollera att funktionen som du anger i Barracuda finns och ange allvarlighetsgraden och klicka på **spara**.
-6. Om du vill använda relevanta schemat i Log Analytics för Barracuda-händelser, söka efter **CommonSecurityLog** och **barracuda_CL**.
+## <a name="configure-and-connect-barracuda-waf"></a>Konfigurera och ansluta Barracuda-WAF
+Barracuda WebApplication-brandvägg kan integrera och exportera loggar direkt till Azure Sentinel via Log Analytics agent.
+1. Gå till [Barracuda WAF Configuration Flow](https://campus.barracuda.com/product/webapplicationfirewall/doc/73696965/configure-the-barracuda-web-application-firewall-to-integrate-with-the-oms-server-and-export-logs/)och följ anvisningarna för att konfigurera anslutningen med följande parametrar:
+    - **Arbetsyte-ID**: kopiera värdet för ditt arbetsyte-ID från Azure Sentinel Barracuda Connector-sidan.
+    - **Primär nyckel**: kopiera värdet för din primär nyckel från anslutnings sidan för Azure Sentinel Barracuda.
+2. På Azure Sentinel-portalen går du till arbets ytan där du distribuerade Azure Sentinel och väljer ellipsen (...) i slutet av raden och väljer **Avancerade inställningar**. 
+1. Välj **data** och sedan **syslog**.
+1. Se till att den funktion som du ställer in i Barracuda finns och ange allvarlighets grad och klicka på **Spara**.
+6. Om du vill använda det relevanta schemat i Log Analytics för Barracuda-händelserna söker du efter **CommonSecurityLog** och **barracuda_CL**.
 
 
-## <a name="validate-connectivity"></a>Verifiera anslutningen
+## <a name="validate-connectivity"></a>Verifiera anslutning
 
-Det kan ta höjningen tjugonde minut tills loggarna börjar visas i Log Analytics. 
+Det kan ta upp till 20 minuter innan loggarna börjar visas i Log Analytics. 
 
 
 
 ## <a name="next-steps"></a>Nästa steg
-I det här dokumentet har du lärt dig hur du ansluter Barracuda installationer till Sentinel-Azure. Mer information om Azure Sentinel finns i följande artiklar:
-- Lär dig hur du [få insyn i dina data och potentiella hot](quickstart-get-visibility.md).
-- Kom igång [upptäcka hot med Azure Sentinel](tutorial-detect-threats.md).
+I det här dokumentet har du lärt dig hur du ansluter Barracuda-enheter till Azure Sentinel. Mer information om Azure Sentinel finns i följande artiklar:
+- Lär dig hur du [får insyn i dina data och potentiella hot](quickstart-get-visibility.md).
+- Kom igång [med att identifiera hot med Azure Sentinel](tutorial-detect-threats-built-in.md).
 

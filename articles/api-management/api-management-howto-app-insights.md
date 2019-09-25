@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: apimpm
-ms.openlocfilehash: 10e8edcd3a1e781866eaee2cbe48d1536dbc1229
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: ae467e3def65d446a8c331c4f15033b4c01886ae
+ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70073584"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71219487"
 ---
 # <a name="how-to-integrate-azure-api-management-with-azure-application-insights"></a>Så här integrerar du Azure API Management med Azure Application Insights
 
@@ -40,7 +40,7 @@ Innan du kan använda Azure Application insikter måste du först skapa en insta
 
 ## <a name="create-a-connection-between-azure-application-insights-and-azure-api-management-service-instance"></a>Skapa en anslutning mellan Azure Application Insights och Azure API Management-tjänstinstans
 
-1. Gå till **Azure API Management Service-** instansen i **Azure Portal**.
+1. Gå till **Azure API Management Service-instansen** i **Azure Portal**.
 2. Välj **Application Insights** på menyn till vänster.
 3. Klicka på **+ Lägg till**.  
     ![App Insights-loggning](media/api-management-howto-app-insights/apim-app-insights-logger-1.png)  
@@ -54,7 +54,7 @@ Innan du kan använda Azure Application insikter måste du först skapa en insta
 
 ## <a name="enable-application-insights-logging-for-your-api"></a>Aktivera Application Insights loggning för ditt API
 
-1. Gå till **Azure API Management Service-** instansen i **Azure Portal**.
+1. Gå till **Azure API Management Service-instansen** i **Azure Portal**.
 2. Välj **API:er** i menyn till vänster.
 3. Klicka på ditt API, i det här fallet **demo konferens-API**.
 4. Gå till fliken **Inställningar** från det översta fältet.
@@ -74,11 +74,12 @@ Innan du kan använda Azure Application insikter måste du först skapa en insta
 | Inställningsnamn                        | Värdetyp                        | Beskrivning                                                                                                                                                                                                                                                                                                                                      |
 |-------------------------------------|-----------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Aktivera                              | boolean                           | Anger om loggning av detta API är aktiverat.                                                                                                                                                                                                                                                                                                |
-| Mål                         | Azure Application Insights-loggning | Anger Azure Application insikts logg som ska användas                                                                                                                                                                                                                                                                                           |
+| Destination                         | Azure Application Insights-loggning | Anger Azure Application insikts logg som ska användas                                                                                                                                                                                                                                                                                           |
 | Sampling (%)                        | decimal                           | Värden från 0 till 100 (procent). <br/> Anger hur många procent av begär Anden som ska loggas till Azure Application insikter. 0% sampling innebär att noll begär Anden loggas, medan 100% sampling innebär att alla begär Anden loggas. <br/> Den här inställningen används för att minska prestanda konsekvenserna av loggnings begär anden till Azure Application insikter (se avsnittet nedan). |
 | Logga alltid fel                   | boolean                           | Om den här inställningen väljs loggas alla avbrott till Azure Application insikter, oavsett inställningen för **sampling** .                                                                                                                                                                                                                  |
 | Grundläggande alternativ: Huvuden              | list                              | Anger de huvuden som ska loggas i Azure Application insikter om begär Anden och svar.  Standard: inga huvuden loggas.                                                                                                                                                                                                             |
-| Grundläggande alternativ: Första byte i brödtext  | integer                           | Anger hur många första byte i bröd texten som loggas för att Azure Application insikter om begär Anden och svar.  Standard: bröd texten loggas inte.                                                                                                                                                                                              |
+| Grundläggande alternativ: Första byte i brödtext  | integer                           | Anger hur många första byte i bröd texten som loggas för att Azure Application insikter om begär Anden och svar.  Standard: bröd texten loggas inte.                                                                                                                                                                                                    |
+| Avancerade alternativ: Utförlighets         |                                   | Anger nivån för utförlighet. Endast anpassade spår med högre allvarlighets grad kommer att loggas. Objekt Mer.                                                                                                                                                                                                                               |
 | Avancerade alternativ: Frontend-begäran  |                                   | Anger om och hur *frontend-begäranden* ska loggas för att Azure Application insikter. *Frontend-begäran* är en inkommande begäran till Azure API Management-tjänsten.                                                                                                                                                                        |
 | Avancerade alternativ: Frontend-svar |                                   | Anger om och hur *klient delens svar* ska loggas för att Azure Application insikter. *Frontend-svar* är ett utgående svar från Azure API Management-tjänsten.                                                                                                                                                                   |
 | Avancerade alternativ: Backend-begäran   |                                   | Anger om och hur *Server dels begär Anden* ska loggas för att Azure Application insikter. *Backend-begäran* är en begäran utgående från Azure API Management-tjänsten.                                                                                                                                                                        |
@@ -124,5 +125,5 @@ Att hoppa över loggning av rubriker och brödtext för förfrågningar och svar
 
 ## <a name="next-steps"></a>Nästa steg
 
-+ Läs mer om [Azure Application](https://docs.microsoft.com/azure/application-insights/)insikter.
++ Läs mer om [Azure Application insikter](https://docs.microsoft.com/azure/application-insights/).
 + Överväg att [Logga med Azure Event Hubs](api-management-howto-log-event-hubs.md).

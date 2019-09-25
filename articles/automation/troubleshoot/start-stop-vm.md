@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 04/04/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 447aa4f5bb3c274900beddcef8c89db88d3f3ee9
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: fe4317c193e8aa6c6723556ef36d6111df6f51cd
+ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68688037"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71240848"
 ---
 # <a name="troubleshoot-the-startstop-vms-during-off-hours-solution"></a>Felsök lösningen starta/stoppa virtuella datorer under låg tid
 
@@ -44,6 +44,14 @@ The subscription is not registered to use namespace 'Microsoft.Insights'.
 The scope '/subscriptions/000000000000-0000-0000-0000-00000000/resourcegroups/<ResourceGroupName>/providers/Microsoft.OperationalInsights/workspaces/<WorkspaceName>/views/StartStopVMView' cannot perform write operation because following scope(s) are locked: '/subscriptions/000000000000-0000-0000-0000-00000000/resourceGroups/<ResourceGroupName>/providers/Microsoft.OperationalInsights/workspaces/<WorkspaceName>/views/StartStopVMView'. Please remove the lock and try again
 ```
 
+```error
+A parameter cannot be found that matches parameter name 'TagName'
+```
+
+```error
+Start-AzureRmVm : Run Login-AzureRmAccount to login
+```
+
 ### <a name="cause"></a>Orsak
 
 Distributioner kan Miss lyckas på grund av en av följande orsaker:
@@ -52,6 +60,7 @@ Distributioner kan Miss lyckas på grund av en av följande orsaker:
 2. En princip är på plats som inte tillåter distribution av lösningen starta/stoppa virtuella datorer.
 3. Resurs typerna `Microsoft.Insights` ,eller`Microsoft.Automation` är inte registrerade. `Microsoft.OperationsManagement`
 4. Din Log Analytics-arbetsyta har ett lås på den.
+5. Du har en inaktuell version av AzureRM-moduler eller starta/stoppa-lösningen.
 
 ### <a name="resolution"></a>Lösning
 
@@ -66,6 +75,7 @@ Läs följande lista för eventuella lösningar på problemet eller platser att 
 
    Se, [Lös fel för registrering av resurs leverantör](../../azure-resource-manager/resource-manager-register-provider-errors.md) för att lära dig mer om fel vid registrering av leverantörer.
 4. Om du har ett lås på Log Analytics arbets ytan går du till din arbets yta i Azure Portal och tar bort eventuella lås på resursen.
+5. Om lösningarna ovan inte löser problemet följer du anvisningarna under [Uppdatera lösningen](../automation-solution-vm-management.md#update-the-solution) för att omdistribuera start-/stopp lösningen.
 
 ## <a name="all-vms-fail-to-startstop"></a>Situationen Det gick inte att starta/stoppa alla virtuella datorer
 
@@ -193,9 +203,9 @@ Det här problemet kan orsakas av ett felaktigt konfigurerat eller utgånget kö
 
 Om du vill kontrol lera att kör som-kontot är korrekt konfigurerat går du till ditt Automation-konto i Azure Portal och väljer **Kör som-konton** under **konto inställningar**. Här visas statusen för dina kör som-konton, om ett Kör som-konto är felaktigt konfigurerat eller upphör att gälla visas detta.
 
-Om kör som-kontot är [](../manage-runas-account.md#misconfiguration)felkonfigurerat bör du ta bort och återskapa kör som-kontot.
+Om kör som-kontot är [felkonfigurerat](../manage-runas-account.md#misconfiguration)bör du ta bort och återskapa kör som-kontot.
 
-Om certifikatet har upphört att gälla för ditt kör som-konto följer du stegen i listan med självsignerat [certifikat för förnyelse](../manage-runas-account.md#cert-renewal) av certifikatet.
+Om certifikatet har upphört att gälla för ditt kör som-konto följer du stegen i listan med [självsignerat certifikat för förnyelse](../manage-runas-account.md#cert-renewal) av certifikatet.
 
 Problemet kan bero på att behörigheter saknas. Information om hur du kontrollerar behörigheter för en resurs finns i [snabb start: Visa roller som har tilldelats till en användare med](../../role-based-access-control/check-access.md)hjälp av Azure Portal. Du måste ange program-ID för tjänstens huvud namn som används av kör som-kontot. Du kan hämta det här värdet genom att gå till ditt Automation-konto i Azure Portal, välja **Kör som-konton** under **konto inställningar** och klicka på lämpligt kör som-konto.
 
@@ -203,14 +213,14 @@ Problemet kan bero på att behörigheter saknas. Information om hur du kontrolle
 
 ### <a name="issue"></a>Problem
 
-Du får ett problem eller ett oväntat resultat när du använder den virtuella datorn för att starta/stoppa virtuella datorer vid låg belastnings tider som inte visas på den här sidan.
+Du får ett problem eller oväntat resultat när du använder Starta/stoppa virtuella datorer när de inte används-lösningen som inte visas på den här sidan.
 
 ### <a name="cause"></a>Orsak
 
 Många gånger kan fel uppstå genom att använda en gammal och inaktuell version av lösningen.
 
 > [!NOTE]
-> Lösningen starta/stoppa virtuella datorer vid låg belastning har testats med Azure-modulerna som importeras till ditt Automation-konto när du distribuerar lösningen. Lösningen fungerar för närvarande inte med nyare versioner av Azure-modulen. Detta påverkar bara det Automation-konto som du använder för att köra lösningen för att starta/stoppa virtuella datorer vid låg belastnings tider. Du kan fortfarande använda nyare versioner av Azure-modulen i andra Automation-konton, enligt beskrivningen i [så här uppdaterar du Azure PowerShell moduler i Azure Automation](../automation-update-azure-modules.md)
+> Den Starta/stoppa virtuella datorer när de inte används lösningen har testats med Azure-modulerna som importeras till ditt Automation-konto när du distribuerar lösningen. Lösningen fungerar för närvarande inte med nyare versioner av Azure-modulen. Detta påverkar bara det Automation-konto som du använder för att köra Starta/stoppa virtuella datorer när de inte används-lösningen. Du kan fortfarande använda nyare versioner av Azure-modulen i andra Automation-konton, enligt beskrivningen i [så här uppdaterar du Azure PowerShell moduler i Azure Automation](../automation-update-azure-modules.md)
 
 ### <a name="resolution"></a>Lösning
 

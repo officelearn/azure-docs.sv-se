@@ -1,6 +1,6 @@
 ---
-title: Håll koll på data medan jakt i Sentinel-förhandsversionen av Azure med hjälp av jakt bokmärken | Microsoft Docs
-description: Den här artikeln beskriver hur du använder Azure Sentinel jakt bokmärken för att hålla reda på data.
+title: Håll koll på data under jakt i Azure Sentinel med hjälp av jakt bok märken | Microsoft Docs
+description: Den här artikeln beskriver hur du använder bok märkes bok för Azure Sentinel för att hålla reda på data.
 services: sentinel
 documentationcenter: na
 author: rkarlin
@@ -14,90 +14,141 @@ ms.topic: conceptual
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 2/28/2019
+ms.date: 09/24/2019
 ms.author: rkarlin
-ms.openlocfilehash: aec04c4b9fd56b79a92c2774a48fd55f2f6a9d7a
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: aa414e37470cc11b7dc83e7416590aa2babf6818
+ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67620218"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71240258"
 ---
-# <a name="keep-track-of-data-during-hunting"></a>Håll koll på data under jakt
+# <a name="keep-track-of-data-during-hunting-with-azure-sentinel"></a>Håll koll på data under jakt med Azure Sentinel
+
+Hot jakt kräver vanligt vis en granskande av berg av loggdata som letar efter bevis på skadligt beteende. Under den här processen kan du söka efter händelser som de vill komma ihåg, gå tillbaka och analysera som en del av att verifiera potentiella Hypotheses och förstå den fullständiga artikeln i en kompromiss.
+
+Med bok märken i Azure Sentinel kan du göra detta genom att bevara de frågor som du körde i Log Analytics, tillsammans med frågeresultaten som du anser är relevanta. Du kan också registrera dina sammanhangsbaserade observationer och referera till dina resultat genom att lägga till anteckningar och taggar. Bok märkes data är synliga för dig och dina samarbets kamrater för att förenkla samarbetet.
+
+Du kan när som helst gå tillbaka till bok märkes data på fliken **bok märke** i fönstret **jakt** . Du kan använda filtrerings-och sökalternativ för att snabbt hitta vissa data för din aktuella undersökning. Du kan också visa dina data bok märken direkt i tabellen **HuntingBookmark** i Azure Monitor. På så sätt kan du filtrera, sammanfatta och koppla data från bok märken med andra data källor, vilket gör det lätt att söka efter bevisning.
+
+Om du hittar något som brådskande måste åtgärdas under för hands versionen av dina loggar i ett par klick kan du skapa ett bok märke och befordra det till en incident eller lägga till bok märket i en befintlig incident. Mer information om incidenter finns i [Självstudier: Undersök incidenter med Azure Sentinel](tutorial-investigate-cases.md). 
+
+I för hands versionen kan du också visualisera dina data bok märken genom att klicka på **Undersök** från bok märkes information. Detta startar en undersökning i vilken du kan visa, undersöka och visuellt förmedla dina resultat med ett interaktivt diagram och en tids linje.
+
+## <a name="add-a-bookmark"></a>Lägg till ett bok märke
+
+1. I Azure Portal navigerar du till **kontroll** > **Threat Management** > **jakt** för att köra frågor om misstänkt och avvikande beteende.
+
+2. Välj en av jakt frågorna och till höger, i frågor om jakt, väljer du **Kör fråga**. 
+
+3. Välj **Visa frågeresultat**. Exempel:
+    
+    > [!div class="mx-imgBorder"]
+    > ![Visa frågeresultaten från Azure Sentinel-jakt](./media/bookmarks/new-processes-observed-example.png)
+    
+    Den här åtgärden öppnar frågeresultaten i fönstret **loggar** .
+
+4. I listan logg frågeresultat expanderar du den rad som innehåller den information som du hittar intressant.
+
+5. Välj ellipsen (...) till vänster och välj sedan **Lägg till jakt bok märke**:
+    
+    > [!div class="mx-imgBorder"]
+    > ![Lägg till jakt bok märke i fråga](./media/bookmarks/add-hunting-bookmark.png)
+
+6. Till höger, i fönstret **Lägg till jakt bok märke** , kan du också uppdatera bok märkes namnet, lägga till taggar och kommentarer som hjälper dig att identifiera vad som var intressant för objektet.
+
+7. I avsnittet **information om frågor** använder du List rutorna för att extrahera information från frågeresultaten för entiteterna **konto**, **värd**och IP- **adress** . Den här åtgärden mappar den valda entitetstypen till en viss kolumn från frågeresultatet. Exempel:
+    
+    > [!div class="mx-imgBorder"]
+    > ![Mappa entitetstyper för jakt bok märken](./media/bookmarks/map-entity-types-bookmark.png)
+    
+    Om du vill visa bok märket i undersöknings diagrammet (för närvarande i för hands version) måste du mappa minst en entitetstyp som antingen är **konto**, **värd**eller **IP-adress**. 
+
+5. Klicka på **Lägg till** för att spara ändringarna och lägga till bok märket. Alla data som har bok märken delas med andra Utforskare, och är ett första steg mot en gemensam gransknings upplevelse.
+
+ 
+> [!NOTE]
+> Resultatet av logg frågan stöder bok märken när det här fönstret öppnas från Azure Sentinel. Du kan till exempel välja **allmänna** > **loggar** i navigerings fältet, välja händelse länkar i utrednings diagrammet eller välja ett aviserings-ID från den fullständiga informationen om en incident (för närvarande i för hands version). Du kan inte skapa bok märken när fönstret **loggar** öppnas från andra platser, till exempel direkt från Azure Monitor.
+
+## <a name="view-and-update-bookmarks"></a>Visa och uppdatera bok märken 
+
+1. I Azure Portal går du till **kontroll** > **Threat Management** > **jakt**. 
+
+2. Välj fliken **bok märken** om du vill visa listan över bok märken.
+
+3. Använd sökrutan eller filter alternativen för att hjälpa dig att hitta ett speciellt bok märke.
+
+4. Välj enskilda bok märken och Visa bok märkes informationen i det högra informations fönstret.
+
+5. Gör dina ändringar efter behov, som sparas automatiskt.
+
+## <a name="exploring-bookmarks-in-the-investigation-graph"></a>Utforska bok märken i undersöknings diagrammet
 
 > [!IMPORTANT]
-> Azure Sentinel är för närvarande i offentlig förhandsversion.
-> Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
- 
-Threat jakt kräver normalt att granska bergen av loggdata som söker efter tecken på skadligt beteende. Under den här processen kan hitta fler människor händelser som ska komma ihåg, gå tillbaka och analysera som en del av verifiera potentiella hypoteser och förstå helheten för en kompromettering.
-Jakt bokmärken hjälper dig att göra detta genom att bevara de frågor som du körde i Log Analytics, tillsammans med frågeresultatet som du anser relevanta. Du kan även spela in din sammanhangsberoende observationer och referera till dina resultat genom att lägga till kommentarer och taggar. Bokmärkta data är synliga för dig och dina gruppmedlemmar för enkelt samarbete.   
+> Utforska bok märken i undersöknings diagrammet och själva undersöknings diagrammet finns för närvarande i en offentlig för hands version.
+> Dessa funktioner tillhandahålls utan service nivå avtal och rekommenderas inte för produktions arbets belastningar.
+> Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Du kan gå tillbaka till dina bokmärken data när som helst på den **bokmärke** fliken den **jakt** sidan. Du kan använda filtrering och söka alternativ för att snabbt hitta specifika data för din aktuella undersökning. Alternativt kan du visa dina bokmärken data direkt i den **HuntingBookmark** tabellen i Log Analytics. På så sätt kan du filtrera sammanfatta och ansluta till bokmärkta data med andra datakällor, vilket gör det enkelt att söka efter bekräftar bevis.
+1. I Azure Portal navigerar du till fliken **Sentinel** > **Threat Management** > **jakt** > **bok märken** och väljer det bok märke eller bok märken som du vill undersöka.
 
-Du kan också visualisera dina bokmärken data genom att klicka på **Undersök**. Detta startar felsökningsfunktionen där du kan visa, undersöka och förmedla visuellt dina resultat med hjälp av en interaktiv entitet-graph diagram och en tidslinje.
+2. I bok märkes detaljerna ser du till att minst en entitet är mappad. För **entiteter**visas till exempel poster för **IP**, **dator**eller **konto**.
 
+3. Klicka på **Undersök** för att Visa bok märket i undersöknings diagrammet.
 
-## <a name="run-a-log-analytics-query-from-azure-sentinel"></a>Kör en Log Analytics-fråga från Sentinel-Azure
+Anvisningar om hur du använder undersöknings diagrammet finns i [använda undersökningen-diagrammet till djupet](tutorial-investigate-cases.md#use-the-investigation-graph-to-deep-dive).
 
-1. Sentinel-Azure-portalen klickar du på **jakt** att köra frågor för misstänkta och avvikande beteende.
+## <a name="add-bookmarks-to-a-new-or-existing-incident"></a>Lägga till bok märken till en ny eller befintlig incident
 
-1. Om du vill köra en jakt kampanj, väljer du en av frågorna som jakt och på vänster och granska resultaten. 
+> [!IMPORTANT]
+> Att lägga till bok märken till en ny eller befintlig incident är för närvarande en offentlig för hands version.
+> Den här funktionen tillhandahålls utan service nivå avtal och rekommenderas inte för produktions arbets belastningar.
+> Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-1. Klicka på **visa frågeresultaten** i jakt frågan **information** sidan kan du se frågan resulterar i Log Analytics. Här är ett exempel på vad som visas om du körde en anpassad fråga för SSH bruteforce attack.
-  
-   ![Visa resultat](./media/bookmarks/ssh-bruteforce-example.png)
+1. I Azure Portal navigerar du till fliken **Sentinel** > **Threat Management** > **jakt** > **bok märken** och väljer det bok märke eller bok märken som du vill lägga till i en incident.
 
-## <a name="add-a-bookmark"></a>Lägga till ett bokmärke
-
-1. Expandera den rad som innehåller den information som du hittar intressant i resultatlistan för Log Analytics-fråga.
-
-4. Välj ellipsen (...) i slutet av raden och välj **lägga till jakt bokmärken**.
-5. Till höger i den **information** sidan uppdatera namn och lägga till taggar och kommentarer för att identifiera vad var intressant om objektet.
-6. Klicka på **spara** att genomföra ändringarna. Alla bokmärken data delas med andra fler människor och är ett första steg mot att en samarbetsfunktioner felsökningsfunktionen.
-
-   ![Visa resultat](./media/bookmarks/add-bookmark-la.png)
-
- 
-> [!NOTE]
-> Du kan också använda bokmärken med valfri Log Analytics-frågor som startas från Azure Sentinel-Log Analytics loggar sidan eller frågor som skapats på menyn från sidan Log Analytics och öppnade från sidan jakt. Du kommer inte att kunna lägga till ett bokmärke om du startar Log Analytics från utanför Azure Sentinel. 
-
-## <a name="view-and-update-bookmarks"></a>Visa och uppdatera bokmärken 
-
-1. Sentinel-Azure-portalen klickar du på **jakt**. 
-2. Klicka på den **bokmärken** fliken mitt sidan för att visa en lista över bokmärken.
-3. Använd sökalternativen för box eller filter för att hitta ett specifikt bokmärke.
-4. Välj enskilda bokmärken i rutnätet nedan för att visa information om bokmärke i informationsfönstret höger.
-5. För att uppdatera taggar och kommentarer, klicka på de redigerbara textrutorna och på **spara** att bevara dina ändringar.
-
-   ![Visa resultat](./media/bookmarks/view-update-bookmarks.png)
-
-## <a name="view-bookmarked-data-in-log-analytics"></a>Visa bokmärken data i Log Analytics 
-
-Det finns flera alternativ för att visa dina bokmärken data i Log Analytics. 
-
-Det enklaste sättet att visa bokmärkta frågor, resultat eller historik är genom att välja önskad bokmärket i den **bokmärken** tabellen och använda länkarna i informationsfönstret. Alternativen är: 
-- Klicka på **vyfrågan** visa källfrågan i Log Analytics.  
-- Klicka på **visa bokmärke historik** att se alla bokmärk metadata, inklusive: vem som lagade uppdateringen, de uppdaterade värdena och den tid som uppdateringen genomfördes. 
-
-- Du kan också visa rå bokmärke data för alla bokmärken genom att klicka på **bokmärk loggar** ovanför rutnätet bokmärke. Den här vyn visas alla dina bokmärken i tabellen jakt bokmärke med tillhörande metadata. Du kan använda KQL frågor för att filtrera fram den senaste versionen av specifika bokmärket du letar efter.  
-
-
-> [!NOTE]
-> Det kan vara betydande fördröjning (mätt i minuter) mellan skapandet av ett bokmärke och när den visas i den **HuntingBookmark** tabell. Vi rekommenderar att skapa dina bokmärken först och sedan analysera dem när data matas in. 
-
-## <a name="delete-a-bookmark"></a>Ta bort ett bokmärke
-Om du vill ta bort ett bokmärke genom att göra följande: 
-1.  Öppna th **jakt bokmärke** fliken. 
-2.  Välj Målet bokmärket.
-3.  Välj ellipsen (...) i slutet av raden och välj **ta bort bokmärke**.
+2. Välj **incident åtgärder (förhands granskning)** från kommando fältet:
     
-Tar bort bokmärket försvinner bokmärket från listan i den **bokmärke** fliken.  Log Analytics ”HuntingBookmark” tabell fortsätter att finnas poster som föregående bokmärke, men den senaste posten kommer att ändras i **SoftDelete** värdet till SANT, vilket gör det enkelt att filtrera bort gamla bokmärken.  Tar bort ett bokmärke tar inte bort några entiteter från undersökning som är associerade med andra bokmärken eller aviseringar. 
+    > [!div class="mx-imgBorder"]
+    > ![Lägg till bok märken i incidenten](./media/bookmarks/incident-actions.png)
+
+3. Välj antingen **Skapa ny incident** eller **Lägg till i befintlig incident, om**det behövs. Sedan:
+    
+    - För en ny incident: Du kan också uppdatera informationen för incidenten och sedan välja **skapa**.
+    - För att lägga till ett bok märke till en befintlig incident: Välj en incident och välj sedan **Lägg till**. 
+
+Så här visar du bok märket i incidenten: Gå till **indikator** > **Threat Management** > -**incidenter** och välj incidenten med ditt bok märke. Välj **Visa fullständig information**och välj sedan fliken **bok märken** .
+
+## <a name="view-bookmarked-data-in-logs"></a>Visa bok märkes data i loggar
+
+Om du vill visa frågor, resultat eller historik för bok märken väljer du bok märket på fliken **jakt** > **bok märken** och använder länkarna i informations fönstret: 
+
+- **Visa käll frågan** om du vill visa käll frågan i fönstret **loggar** .
+
+- **Visa bok märkes loggar** om du vill visa alla metadata för bok märken som innehåller vem som gjort uppdateringen, de uppdaterade värdena och tidpunkten då uppdateringen ägde rum.
+
+Du kan också Visa rå data bok märken för alla bok märken genom att välja **bok märkes loggar** från kommando fältet på fliken **jakt** > **bok märken** :
+
+> [!div class="mx-imgBorder"]
+> ![Bok märkes loggar](./media/bookmarks/bookmark-logs.png)
+
+I den här vyn visas alla dina bok märken med tillhör ande metadata. Du kan använda KQL-frågor ( [Keyword Query Language](https://docs.microsoft.com/sharepoint/dev/general-development/keyword-query-language-kql-syntax-reference) ) för att filtrera ned till den senaste versionen av det specifika bok märke som du letar efter.
+
+> [!NOTE]
+> Det kan finnas en betydande fördröjning (mätt i minuter) mellan den tidpunkt då du skapar ett bok märke och när det visas på fliken **bok märken** .
+
+## <a name="delete-a-bookmark"></a>Ta bort ett bok märke
+ 
+1.  I Azure Portal navigerar du till fliken **Sentinel** > **Threat Management** > **jakt** > **bok märken** och väljer det bok märke eller bok märken som du vill ta bort. 
+
+2. Välj ellipsen (...) i slutet av raden och välj **ta bort bok märke**.
+    
+Om du tar bort bok märket tas bok märket bort från listan på fliken **bok märke** . Log Analytics **HuntingBookmark** -tabellen fortsätter att innehålla tidigare bok märkes poster, men den senaste posten kommer att ändra **SoftDelete** -värdet till true, vilket gör det enkelt att filtrera bort gamla bok märken. Om du tar bort ett bok märke tas inga entiteter bort från undersökningen som är associerade med andra bok märken eller aviseringar. 
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här artikeln har du lärt dig hur du kör en jakt undersökning använda bokmärken i Sentinel-Azure. Mer information om Azure Sentinel finns i följande artiklar:
+I den här artikeln har du lärt dig hur du kör en jakt undersökning med hjälp av bok märken i Azure Sentinel. Mer information om Azure Sentinel finns i följande artiklar:
 
 
-- [Hitta proaktivt hot](hunting.md)
-- [Använda anteckningsböcker för att köra automatiserade jakt kampanjer](notebooks.md)
+- [Söker proaktivt efter hot](hunting.md)
+- [Använd antecknings böcker för att köra automatiserade jakt kampanjer](notebooks.md)

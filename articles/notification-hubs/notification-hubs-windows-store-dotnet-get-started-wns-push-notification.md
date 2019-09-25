@@ -1,11 +1,11 @@
 ---
 title: Skicka meddelanden till Universal Windows Platform-appar med hjälp av Azure Notification Hubs | Microsoft Docs
-description: Lär dig hur du använder Azure Notification Hubs för push-meddelanden till en Windows Universal-plattformsapp.
+description: Luta hur du använder Azure Notification Hubs för att skicka meddelanden till ett Windows Universal Platform-program.
 services: notification-hubs
 documentationcenter: windows
-author: jwargo
-manager: patniko
-editor: spelluru
+author: sethmanheim
+manager: femila
+editor: jwargo
 ms.assetid: cf307cf3-8c58-4628-9c63-8751e6a0ef43
 ms.service: notification-hubs
 ms.workload: mobile
@@ -14,24 +14,26 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 03/22/2019
-ms.author: jowargo
-ms.openlocfilehash: 714c2be7265a41a7791ce39bfaa1bdc12fa58cac
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.author: sethm
+ms.reviewer: jowargo
+ms.lastreviewed: 03/22/2019
+ms.openlocfilehash: 82f983f6fc55c01c4e445915d06da33889977d24
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67340752"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71213431"
 ---
 # <a name="tutorial-send-notifications-to-universal-windows-platform-apps-by-using-azure-notification-hubs"></a>Självstudier: Skicka push-meddelanden till Universal Windows Platform-appar med hjälp av Azure Notification Hubs
 
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
 
-I den här självstudiekursen kommer du att skapa en meddelandehubb för att skicka push-meddelanden till en Windows Universal Platform-app (UWP). Du skapar en tom Windows Store-app som tar emot push-meddelanden med hjälp av Windows Push Notification Service (WNS). Sedan kan du använda meddelandehubben för att sända push-meddelanden till alla enheter som kör din app.
+I den här självstudiekursen kommer du att skapa en meddelandehubb för att skicka push-meddelanden till en Windows Universal Platform-app (UWP). Du skapar en tom Windows Store-app som tar emot push-meddelanden med hjälp av Windows Push Notification Service (WNS). Sedan använder du Notification Hub för att sända push-meddelanden till alla enheter som kör din app.
 
 > [!NOTE]
 > Du hittar den färdiga koden för den här självstudiekursen på [GitHub](https://github.com/Azure/azure-notificationhubs-dotnet/tree/master/Samples/UwpSample).
 
-Du kan utföra följande steg:
+Du utför följande steg:
 
 > [!div class="checklist"]
 > * Skapa en app i Windows Store
@@ -39,17 +41,17 @@ Du kan utföra följande steg:
 > * Skapa en Windows-exempelapp
 > * Skicka testmeddelanden
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 - **Azure-prenumeration**. Om du inte har en Azure-prenumeration skapar du ett [kostnadsfritt Azure-konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 - [Microsoft Visual Studio Community 2015](https://www.visualstudio.com/products/visual-studio-community-vs) eller senare.
 - [Installerade verktyg för UWP-apputveckling](https://msdn.microsoft.com/windows/uwp/get-started/get-set-up)
 - Ett aktivt Windows Store-konto
-- Bekräfta att **få meddelanden från appar och andra sändare** inställningen är aktiverad. 
-    - Starta **inställningar** fönstret på datorn.
-    - Välj den **System** panelen.
-    - Välj **meddelanden och åtgärder** menyn till vänster. 
-    - Bekräfta att den **få meddelanden från appar och andra sändare** inställningen är aktiverad. Om den inte är aktiverad, aktivera den. 
+- Bekräfta att inställningen **Hämta meddelanden från appar och annan avsändare** är aktive rad. 
+    - Starta fönstret **Inställningar** på datorn.
+    - Välj **system** panelen.
+    - Välj **meddelanden & åtgärder** på den vänstra menyn. 
+    - Bekräfta att inställningen **Hämta meddelanden från appar och andra avsändare** är aktive rad. Aktivera den om den inte är aktive rad. 
 
 Du måste slutföra den här självstudiekursen innan du börjar någon annan kurs om Notification Hubs för UWP-appar.
 
@@ -175,7 +177,7 @@ Du kan snabbt testa att ta emot meddelanden i appen genom att skicka meddelanden
     ![Aviseringsmeddelande](./media/notification-hubs-windows-store-dotnet-get-started/test-notification-message.png)
 
 ## <a name="next-steps"></a>Nästa steg
-Du har skickat broadcast-meddelanden till alla dina Windows-enheter med hjälp av portalen eller ett konsolprogram. Information om hur du skickar meddelanden till specifika enheter finns i följande självstudie:
+Du har skickat broadcast-meddelanden till alla dina Windows-enheter med hjälp av portalen eller en konsol app. Information om hur du skickar meddelanden till specifika enheter finns i följande självstudie:
 
 > [!div class="nextstepaction"]
 >[Skicka meddelanden till specifika enheter](

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/23/2019
 ms.reviewer: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 20ca823f60ced4260c2e61ca15ae04e158b7d952
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: f50f1b3e2ee7f98d14d29f1e2205a97d76eaacc8
+ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69615673"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71219903"
 ---
 # <a name="change-feed-in-azure-cosmos-db---overview"></a>Ändra feed i Azure Cosmos DB – översikt
 
@@ -42,7 +42,7 @@ Den här funktionen stöds för närvarande av följande Azure Cosmos DB API: er
 
 ## <a name="change-feed-and-different-operations"></a>Ändringsfeed och olika åtgärder
 
-Idag kan du se alla åtgärder i den ändringsflödet. Funktionen där du kan kontrollera ändringsflödet, för specifika åtgärder som endast uppdateringar och inte infogningar inte är tillgänglig ännu. Du kan lägga till en ”mjuk markör” på för uppdateringar och filtrera utifrån som vid bearbetning av objekten i den ändringsflödet. För närvarande logga inte ändringsfeed borttagningar. På liknande sätt som i föregående exempel, du kan lägga till en mjuk markör på de objekt som tas bort, t.ex, du kan lägga till ett attribut i objektet kallas ”borttagen” och ge den värdet ”true” och ange TTL på objektet, så att den kan tas bort automatiskt. Du kan läsa ändringen-flöden för historisk objekt, till exempel objekt som har lagts till fem år sedan. Om objektet inte tas bort. Du kan läsa ändringen feed ur ursprunget behållarens.
+Idag kan du se alla åtgärder i den ändringsflödet. Funktionen där du kan kontrollera ändringsflödet, för specifika åtgärder som endast uppdateringar och inte infogningar inte är tillgänglig ännu. Du kan lägga till en ”mjuk markör” på för uppdateringar och filtrera utifrån som vid bearbetning av objekten i den ändringsflödet. För närvarande logga inte ändringsfeed borttagningar. På liknande sätt som i föregående exempel, du kan lägga till en mjuk markör på de objekt som tas bort, t.ex, du kan lägga till ett attribut i objektet kallas ”borttagen” och ge den värdet ”true” och ange TTL på objektet, så att den kan tas bort automatiskt. Du kan läsa ändrings flödet för historiska objekt (den senaste ändringen som motsvarar objektet, det innehåller inte mellanliggande ändringar), till exempel objekt som har lagts till fem år sedan. Om objektet inte tas bort. Du kan läsa ändringen feed ur ursprunget behållarens.
 
 ### <a name="sort-order-of-items-in-change-feed"></a>Sortera ordningen på objekten i ändringsfeed
 

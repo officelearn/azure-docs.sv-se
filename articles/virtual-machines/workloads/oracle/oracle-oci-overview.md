@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 06/04/2019
 ms.author: rogirdh
 ms.custom: ''
-ms.openlocfilehash: 4628955998ab8b289a429cdfb85e23f7f97b0b40
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 9947d28cbde7f4804283e03cc07093b9240ca6bf
+ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70101437"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71241006"
 ---
 # <a name="oracle-application-solutions-integrating-microsoft-azure-and-oracle-cloud-infrastructure-preview"></a>Oracle-programlösningar som integrerar Microsoft Azure och Oracle Cloud Infrastructure (för hands version)
 
@@ -50,7 +50,7 @@ Följande diagram är en övergripande översikt över den anslutna lösningen. 
 
 ## <a name="preview-limitations"></a>Begränsningar för förhandsversion
 
-* Anslutningar mellan moln i för hands versionen är begränsade till regionen USA, östra USA (östra) och OCI-Ashburn (US-Ashburn-1).
+* Anslutningar mellan moln i för hands versionen är begränsade till Azures uksouth-regioner (östra USA) & Storbritannien, södra () och OCI-Ashburn (USA, östra) & London (Storbritannien, södra). För Storbritannien, södra använder du tillgänglighets domän 1 (AD 1) i OCI när du distribuerar Inter-Connect för lägre fördröjning.
 
 ## <a name="networking"></a>Nätverk
 
@@ -76,4 +76,4 @@ Med den här integreringen kan du för närvarande hantera på en central plats,
 
 Kom igång med ett [nätverk över molnet](configure-azure-oci-networking.md) mellan Azure och OCI. 
 
-Mer information och dokumentation om OCI finns i dokumentationen till [Oracle](https://docs.cloud.oracle.com/iaas/Content/home.htm) -molnet.
+Mer information och dokumentation om OCI finns i dokumentationen till [Oracle-molnet](https://docs.cloud.oracle.com/iaas/Content/home.htm) .

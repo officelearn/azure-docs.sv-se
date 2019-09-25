@@ -1,10 +1,10 @@
 ---
-title: Azure Notification Hubs Secure Push
-description: Lär dig hur du skickar säker push-meddelanden till en iOS-app från Azure. Kodexempel som skrivits i Objective-C och C#.
+title: Azure Notification Hubs säker push
+description: Lär dig hur du skickar säkra push-meddelanden till en iOS-app från Azure. Kod exempel som skrivits i mål-C C#och.
 documentationcenter: ios
-author: jwargo
-manager: patniko
-editor: spelluru
+author: sethmanheim
+manager: femila
+editor: jwargo
 services: notification-hubs
 ms.assetid: 17d42b0a-2c80-4e35-a1ed-ed510d19f4b4
 ms.service: notification-hubs
@@ -13,15 +13,17 @@ ms.tgt_pltfrm: ios
 ms.devlang: objective-c
 ms.topic: article
 ms.date: 01/04/2019
-ms.author: jowargo
-ms.openlocfilehash: d88bdb1eaeb95413df84bf69ed4fc763b6d4901f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: sethm
+ms.reviewer: jowargo
+ms.lastreviewed: 01/04/2019
+ms.openlocfilehash: 4a175b14d44ef7ba019c28fbd03bac98ada7a2a3
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61458505"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71212142"
 ---
-# <a name="azure-notification-hubs-secure-push"></a>Azure Notification Hubs Secure Push
+# <a name="azure-notification-hubs-secure-push"></a>Azure Notification Hubs säker push
 
 > [!div class="op_single_selector"]
 > * [Windows Universal](notification-hubs-aspnet-backend-windows-dotnet-wns-secure-push-notification.md)
@@ -30,47 +32,47 @@ ms.locfileid: "61458505"
 
 ## <a name="overview"></a>Översikt
 
-Stöd för push-meddelande i Microsoft Azure kan du komma åt en enkel att använda och utskalad push-infrastruktur, vilket förenklar implementeringen av push-meddelanden för konsument- och enterprise-program för mobila enheter plattformar.
+Med stöd för push-meddelanden i Microsoft Azure kan du komma åt en lättanvänd och utskalad push-infrastruktur som är lätt att använda, vilket avsevärt fören klar implementeringen av push-meddelanden för både konsument-och företags program för mobila enheter maskinvaruplattformar.
 
-På grund av föreskrifter säkerhetsbegränsningar, ibland ett program kan också vilja inkludera något i meddelandet som inte kan tillhandahållas via standard push-meddelandeinfrastruktur. Den här självstudien beskrivs hur du uppnår samma upplevelse genom att skicka känslig information via en säker och autentiserad anslutning mellan klientenheten och appserverdelen.
+På grund av regler eller säkerhets begränsningar kan ett program ibland vilja inkludera något i meddelandet som inte kan skickas via standard infrastrukturen för push-meddelanden. I den här självstudien beskrivs hur du uppnår samma upplevelse genom att skicka känslig information via en säker, autentiserad anslutning mellan klienten het och appens Server del.
 
-På en hög nivå är flödet på följande sätt:
+På hög nivå är flödet följande:
 
-1. App backend-server:
-   * Butiker säker nyttolast i backend-databasen.
+1. Appens backend-sida:
+   * Lagrar säker nytto Last i backend-databasen.
    * Skickar ID för det här meddelandet till enheten (ingen säker information skickas).
-2. Appen på enheten när du tar emot meddelandet:
-   * Enheten kontaktar serverdelen begär säker nyttolasten.
-   * Appen kan visa nyttolasten som ett meddelande på enheten.
+2. Appen på enheten när meddelandet tas emot:
+   * Enheten kontaktar Server dels förfrågan om säker nytto Last.
+   * Appen kan visa nytto lasten som ett meddelande på enheten.
 
-Det är viktigt att Observera att i föregående flödet (och i den här självstudien), förutsätter vi att enheten lagrar en autentiseringstoken i lokal lagring, när användaren loggar in. Detta garanterar en sömlös upplevelse som enheten kan hämta den meddelandets säker nyttolast använder denna token. Om ditt program lagrar inte autentiseringstoken på enheten eller om dessa token kan ha upphört att gälla, enhetsapp när tas emot meddelandet ska visa ett allmänt meddelande där användaren uppmanas att starta appen. Appen sedan autentiserar användaren och visar meddelandets nyttolast.
+Det är viktigt att Observera att i föregående flöde (och i den här självstudien) förutsätter vi att enheten lagrar en autentiseringstoken i lokal lagring efter att användaren har loggat in. Detta garanterar en sömlös upplevelse eftersom enheten kan hämta meddelandets säkra nytto last med denna token. Om ditt program inte lagrar autentiseringstoken på enheten, eller om dessa token kan ha upphört att gälla, bör enhetens app vid mottagandet av meddelandet Visa ett allmänt meddelande där användaren uppmanas att starta appen. Appen autentiserar sedan användaren och visar meddelande nytto lasten.
 
-Den här säker Push-självstudien visar hur du skickar push-meddelanden på ett säkert sätt. Självstudiekursen bygger vidare på den [meddela användare](notification-hubs-aspnet-backend-ios-apple-apns-notification.md) kursen, så du måste slutföra stegen i självstudien först.
+Den här säkra självstudien visar hur du skickar ett push-meddelande på ett säkert sätt. Själv studie Kursen bygger vidare på själv studie kursen om att [meddela användarna](notification-hubs-aspnet-backend-ios-apple-apns-notification.md) , så du bör slutföra stegen i den här självstudien först.
 
 > [!NOTE]
-> Den här självstudien förutsätter att du har skapat och konfigurerat din meddelandehubb, enligt beskrivningen i [komma igång med Notification Hubs (iOS)](notification-hubs-ios-apple-push-notification-apns-get-started.md).
+> Den här självstudien förutsätter att du har skapat och konfigurerat din Notification Hub enligt beskrivningen i [komma igång med Notification Hubs (iOS)](notification-hubs-ios-apple-push-notification-apns-get-started.md).
 
 [!INCLUDE [notification-hubs-aspnet-backend-securepush](../../includes/notification-hubs-aspnet-backend-securepush.md)]
 
-## <a name="modify-the-ios-project"></a>Ändra på iOS-projektet
+## <a name="modify-the-ios-project"></a>Ändra iOS-projektet
 
-Nu när du har ändrat din appens serverdel att skicka bara *ID* av ett meddelande, du måste ändra din iOS-app för att hantera som meddelanden och Ring tillbaka din serverdel för att hämta det säkra meddelandet som ska visas.
+Nu när du ändrade appens Server del för att skicka bara *ID: t* för ett meddelande måste du ändra din iOS-app för att hantera meddelandet och anropa Server delen för att hämta det säkra meddelandet som ska visas.
 
-För att åstadkomma detta måste vi skriva logik för att hämta skyddat innehåll från appens serverdel.
+För att uppnå det här målet måste vi skriva logiken för att hämta det säkra innehållet från appens Server del.
 
-1. I `AppDelegate.m`, kontrollera att app-register för tyst meddelanden så att den bearbetar meddelande-ID skickas från serverdelen. Lägg till den `UIRemoteNotificationTypeNewsstandContentAvailability` alternativ i didFinishLaunchingWithOptions:
+1. I `AppDelegate.m`kontrollerar du att appen registrerar sig för meddelanden om tyst meddelande så att den bearbetar det meddelande-ID som skickas från Server delen. Lägg till `UIRemoteNotificationTypeNewsstandContentAvailability` alternativet i didFinishLaunchingWithOptions:
 
     ```objc
     [[UIApplication sharedApplication] registerForRemoteNotificationTypes: UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeNewsstandContentAvailability];
     ```
-2. I din `AppDelegate.m` lägga till en implementeringsavsnittet överst med följande försäkran:
+2. I avsnittet `AppDelegate.m` Lägg till ett implementering överst med följande deklaration:
 
     ```objc
     @interface AppDelegate ()
     - (void) retrieveSecurePayloadWithId:(int)payloadId completion: (void(^)(NSString*, NSError*)) completion;
     @end
     ```
-3. Lägg sedan till i implementeringsavsnittet följande kod, och Ersätt platshållaren `{back-end endpoint}` med slutpunkt för din serverdel som hämtats tidigare:
+3. Lägg sedan till följande kod i avsnittet implementering och ersätt plats hållaren `{back-end endpoint}` med slut punkten för din backend-server tidigare:
 
     ```objc
     NSString *const GetNotificationEndpoint = @"{back-end endpoint}/api/notifications";
@@ -117,14 +119,14 @@ För att åstadkomma detta måste vi skriva logik för att hämta skyddat inneh�
     }
     ```
 
-    Den här metoden anropar din appens serverdel för att hämta meddelandeinnehållet med de autentiseringsuppgifter som lagras i delade inställningar.
+    Den här metoden anropar appens Server del för att hämta meddelande innehållet med hjälp av de autentiseringsuppgifter som lagras i delade inställningar.
 
-4. Nu har vi och hanteringen av inkommande meddelanden som du kan använda metoden ovan för att hämta innehåll ska visas. Först måste vi aktivera din iOS-app ska köras i bakgrunden när du tar emot ett push-meddelande. I **XCode**, app-projekt i den vänstra rutan och sedan klicka på dina viktigaste app-mål i den **mål** avsnitt från fönstret i mitten.
-5. Klicka sedan på din **funktioner** fliken högst upp på din centrala fönstret och kontrollera den **Remote Notifications** kryssrutan.
+4. Nu måste vi hantera det inkommande meddelandet och använda metoden ovan för att hämta innehållet som ska visas. Först måste vi aktivera att iOS-appen ska köras i bakgrunden när du tar emot ett push-meddelande. I **Xcode**väljer du ditt app-projekt på den vänstra panelen och klickar sedan på ditt huvud program mål i avsnittet **mål** i fönstret Central.
+5. Klicka sedan på fliken **funktioner** överst i det centrala fönstret och markera kryss rutan **fjärraviseringar** .
 
     ![][IOS1]
 
-6. I `AppDelegate.m` lägger du till följande metod för att hantera push-meddelanden:
+6. I `AppDelegate.m` Lägg till följande metod för att hantera push-meddelanden:
 
     ```objc
     -(void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler
@@ -149,14 +151,14 @@ För att åstadkomma detta måste vi skriva logik för att hämta skyddat inneh�
     }
     ```
 
-    Observera att det är bättre att hantera fall av saknas huvud-autentiseringsegenskapen eller nekande av backend-server. Särskild hantering av dessa fall beror huvudsakligen på din användarupplevelse för målet. Ett alternativ är att visa ett meddelande med en allmän uppmaning att autentisera användaren att hämta anmälan.
+    Observera att det är bättre att hantera de fall då egenskap för Authentication Header saknas eller att avvisas av Server delen. Den specifika hanteringen av dessa fall beror främst på din mål användar upplevelse. Ett alternativ är att visa ett meddelande med en allmän prompt för användaren att autentisera sig för att hämta det faktiska meddelandet.
 
 ## <a name="run-the-application"></a>Kör programmet
 
-Om du vill köra programmet måste du göra följande:
+Gör så här för att köra programmet:
 
-1. Kör appen på en fysisk iOS-enhet (push-meddelanden inte fungerar i simulatorn) i XCode.
-2. Ange ett användarnamn och lösenord i iOS-appens användargränssnitt. Det kan vara valfri sträng, men de måste vara samma värde.
-3. I iOS-appens användargränssnitt klickar du på **logga in**. Klicka sedan på **skicka push**. Du bör se säkra meddelandet som visas i meddelandecentret.
+1. I XCode kör du appen på en fysisk iOS-enhet (push-meddelanden fungerar inte i simulatorn).
+2. Ange ett användar namn och lösen ord i iOS-appens användar gränssnitt. Det kan vara valfri sträng, men de måste vara samma värde.
+3. I iOS-appens användar gränssnitt klickar du på **Logga in**. Klicka sedan på **skicka push**. Du bör se det säkra meddelandet som visas i meddelande centret.
 
 [IOS1]: ./media/notification-hubs-aspnet-backend-ios-secure-push/secure-push-ios-1.png

@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 30b1af29d1a7e3a01659353b27d8c997e739e702
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: a523028fb312f030bc453692daceb0f254f844b6
+ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69030998"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71240955"
 ---
 # <a name="tutorial-develop-iot-edge-modules-for-linux-devices"></a>Självstudier: Utveckla IoT Edge-moduler för Linux-tjänster
 
@@ -40,7 +40,7 @@ I den här guiden får du lära dig att:
 
 Den här självstudien vägleder dig genom utvecklingen av en IoT Edge modul. En *IoT Edge modul*, eller ibland bara *modul* för kort, är en behållare som innehåller körbar kod. Du kan distribuera en eller flera moduler till en IoT Edge enhet. Moduler utför vissa uppgifter som att mata in data från sensorer, utföra data analyser eller åtgärder för data rensning eller skicka meddelanden till en IoT-hubb. Mer information finns i [förstå Azure IoT Edge moduler](iot-edge-modules.md).
 
-När du utvecklar IoT Edge moduler är det viktigt att förstå skillnaden mellan utvecklings datorn och mål IoT Edges enheten där modulen slutligen kommer att distribueras. Den behållare som du skapar för att hålla din modul kod måste matcha *mål enhetens*operativ system (OS). Det vanligaste scenariot är att någon utvecklar en modul på en Windows-dator som avser att rikta in sig mot en Linux-enhet som kör IoT Edge. I så fall skulle behållar operativ systemet vara Linux. När du går igenom den här självstudien bör du tänka på skillnaden mellan *utvecklings datorn* och behållar *operativ*systemet.
+När du utvecklar IoT Edge moduler är det viktigt att förstå skillnaden mellan utvecklings datorn och mål IoT Edges enheten där modulen slutligen kommer att distribueras. Den behållare som du skapar för att hålla din modul kod måste matcha *mål enhetens*operativ system (OS). Det vanligaste scenariot är att någon utvecklar en modul på en Windows-dator som avser att rikta in sig mot en Linux-enhet som kör IoT Edge. I så fall skulle behållar operativ systemet vara Linux. När du går igenom den här självstudien bör du tänka på skillnaden mellan *utvecklings datorn* och *BEhållar operativ*systemet.
 
 Den här kursen riktar sig till Linux-enheter som kör IoT Edge. Du kan använda önskat operativ system så länge din utvecklings dator kan köra Linux-behållare. Vi rekommenderar att du använder Visual Studio Code för att utveckla för Linux-enheter, så att den här självstudien kommer att använda. Du kan även använda Visual Studio även om det finns skillnader i stödet mellan de två verktygen.
 
@@ -63,6 +63,7 @@ I den här självstudien får du lära dig utvecklings stegen för Visual Studio
 En utvecklings dator:
 
 * Du kan använda din egen dator eller en virtuell dator, beroende på dina utvecklings inställningar.
+  * Kontrol lera att utvecklings datorn stöder kapslad virtualisering. Den här funktionen är nödvändig för att köra en behållar motor som du installerar i nästa avsnitt.
 * De flesta operativ system som kan köra en behållar motor kan användas för att utveckla IoT Edge moduler för Linux-enheter. I den här självstudien används en Windows-dator, men vi pekar på kända skillnader i MacOS eller Linux. 
 * Installera [git](https://git-scm.com/), för att hämta mallar för modulblad senare i den här självstudien.  
 * [C# för Visual Studio Code-tillägg (drivs av OmniSharp)](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp).
@@ -171,11 +172,11 @@ För närvarande kan Visual Studio Code utveckla C# moduler för linux amd64-och
 
 I lösnings mal len som du skapade ingår exempel kod för en IoT Edge-modul. Den här exempel modulen tar bara emot meddelanden och skickar dem vidare. Pipeline-funktionen visar ett viktigt begrepp i IoT Edge, vilket är hur moduler kommunicerar med varandra.
 
-Varje modul kan ha flera *indata* -och utmatnings köer som deklareras i koden. IoT Edge hubben som körs på enheten dirigerar meddelanden från utdata från en modul till indata för en eller flera moduler. Det specifika språket för att deklarera indata och utdata varierar mellan olika språk, men begreppet är detsamma i alla moduler. Mer information om routning mellan moduler finns i [deklarera vägar](module-composition.md#declare-routes).
+Varje modul kan ha flera *indata* -och *utmatnings* köer som deklareras i koden. IoT Edge hubben som körs på enheten dirigerar meddelanden från utdata från en modul till indata för en eller flera moduler. Det specifika språket för att deklarera indata och utdata varierar mellan olika språk, men begreppet är detsamma i alla moduler. Mer information om routning mellan moduler finns i [deklarera vägar](module-composition.md#declare-routes).
 
 Exempel C# koden som medföljer projekt mal len använder [klassen MODULECLIENT](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.moduleclient?view=azure-dotnet) från IoT Hub SDK för .net. 
 
-1. Öppna filen **program.cs** , som finns i modulerna **/SampleModule/** Folder. 
+1. Öppna filen **program.cs** , som finns i **modulerna/SampleModule/** Folder. 
 
 2. I program.cs hittar du **SetInputMessageHandlerAsync** -metoden.
 

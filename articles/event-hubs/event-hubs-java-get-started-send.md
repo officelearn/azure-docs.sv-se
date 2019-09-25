@@ -10,12 +10,12 @@ ms.topic: article
 ms.custom: seodec18, seo-java-august2019, seo-java-september2019
 ms.date: 04/15/2019
 ms.author: shvija
-ms.openlocfilehash: a24263e80f50d880be269238441545785e2f51e8
-ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
+ms.openlocfilehash: 054289de296488036dd0855d228d272fdea18baf
+ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70967615"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71219422"
 ---
 # <a name="use-java-to-send-events-to-or-receive-events-from-azure-event-hubs"></a>Använd Java för att skicka händelser till eller ta emot händelser från Azure Event Hubs
 
@@ -181,11 +181,11 @@ Om du vill använda EventProcessorHost måste du ha ett [Azure Storage konto] [A
 1. Logga in på [Azure Portal](https://portal.azure.com)och välj **skapa en resurs** till vänster på skärmen.
 2. Välj **lagring**och välj sedan **lagrings konto**. I den **skapa lagringskonto** fönstret anger du ett namn för lagringskontot. Fyll i resten av fälten, Välj önskad region och välj sedan **skapa**.
    
-    ![Skapa lagringskonto](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-storage2.png)
+    ![Skapa ett lagrings konto i Azure Portal](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-azure-storage-account.png)
 
 3. Välj det nyligen skapade lagrings kontot och välj sedan **åtkomst nycklar**:
    
-    ![Hämta åtkomstnycklar](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-storage3.png)
+    ![Hämta dina åtkomst nycklar i Azure Portal](./media/event-hubs-dotnet-framework-getstarted-receive-eph/select-azure-storage-access-keys.png)
 
     Kopiera key1-värdet till en tillfällig plats. Du använder det senare i den här självstudien.
 

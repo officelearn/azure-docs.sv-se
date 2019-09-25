@@ -1,32 +1,29 @@
 ---
-title: Anslut kontroll punkts data till Azure Sentinel Preview | Microsoft Docs
+title: Anslut kontroll punkts data till Azure Sentinel | Microsoft Docs
 description: Lär dig hur du ansluter kontroll punkts data till Azure Sentinel.
 services: sentinel
 documentationcenter: na
 author: rkarlin
 manager: rkarlin
 editor: ''
-ms.assetid: 3229233d-400d-4971-8d76-eaa0d6591d75
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/31/2019
+ms.date: 09/23/2019
 ms.author: rkarlin
-ms.openlocfilehash: ea9cb7997f86c10bb09c01dfc345aaeeef46708a
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: 1bfa59e92ce2cde45b448174260396f4e93a6282
+ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68679343"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71240142"
 ---
 # <a name="connect-your-check-point-appliance"></a>Anslut Check Point-enheten
 
-> [!IMPORTANT]
-> Azure Sentinel är för närvarande en offentlig för hands version.
-> Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 
 Du kan ansluta Azure Sentinel till valfri Check Point-apparat genom att spara loggfilerna som syslog-CEF. Integrationen med Azure Sentinel gör det möjligt för dig att enkelt köra analyser och frågor i logg fils data från Check Point. Mer information om hur Azure Sentinel matar in CEF-data finns i [ansluta CEF-enheter](connect-common-event-format.md).
 
@@ -47,7 +44,7 @@ Om du vill se ett nätverks diagram över båda alternativen, se [Anslut data k�
 ### <a name="deploy-the-agent"></a>Distribuera agenten
 1. I Azure Sentinel-portalen klickar du på **data kopplingar** och väljer **Check Point** och sedan **Öppna kopplings sida**. 
 
-1. Under **Hämta och installera syslog**-agenten väljer du dator typ, antingen Azure eller lokalt. 
+1. Under **Hämta och installera syslog-agenten**väljer du dator typ, antingen Azure eller lokalt. 
 1. På skärmen **virtuella datorer** som öppnas väljer du den dator som du vill använda och klickar på **Anslut**.
 1. Om du väljer **Hämta och installera agent för virtuella Azure Linux-datorer**väljer du datorn och klickar på **Anslut**. Om du väljer **Hämta och installera agent för virtuella datorer som inte använder Azure Linux**kör du skriptet under **Ladda ned och integrera agent för Linux**på skärmen **Direct agent** .
  
@@ -143,5 +140,5 @@ Det kan ta upp till 20 minuter innan loggarna börjar visas i Log Analytics.
 ## <a name="next-steps"></a>Nästa steg
 I det här dokumentet har du lärt dig hur du ansluter kontroll punkts apparater till Azure Sentinel. Mer information om Azure Sentinel finns i följande artiklar:
 - Lär dig hur du [får insyn i dina data och potentiella hot](quickstart-get-visibility.md).
-- Kom igång [med att identifiera hot med Azure Sentinel](tutorial-detect-threats.md).
+- Kom igång [med att identifiera hot med Azure Sentinel](tutorial-detect-threats-built-in.md).
 

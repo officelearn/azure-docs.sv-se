@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/28/2019
 ms.author: b-juche
-ms.openlocfilehash: a99fb3b61d8193f1671fa1d8e228439941659d57
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 09a1e48d2eb9ab9b117cb1b1161d5137607400ad
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70141167"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71212098"
 ---
-# <a name="azure-netapp-files-sdks-and-cli-tools"></a>Azure NetApp Files SDK: er och CLI-verktyg
+# <a name="azure-netapp-files-sdks-and-cli-tools"></a>SDK:er och CLI-verktyg för Azure NetApp Files
 
 Den här artikeln innehåller SDK: er och kommando rads verktyg (CLI) som stöds av Azure NetApp Files.
 
@@ -33,7 +33,7 @@ I tabellen nedan visas de SDK: er som stöds.  Du hittar information om de SDK: 
 |------------------|--------------------------------------------------------------|
 |    .NET  |    [Azure/Azure-SDK – för-net](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/netapp)    |
 |    Python  |  [Azure/Azure-SDK – för – python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/netapp)    |
-|    Gå till    |    [Azure/Azure-SDK – för-go](https://github.com/Azure/azure-sdk-for-go/tree/master/services/netapp)       |
+|    Go    |    [Azure/Azure-SDK – för-go](https://github.com/Azure/azure-sdk-for-go/tree/master/services/netapp)       |
 |    Java |     [Azure/Azure-SDK – för-Java](https://github.com/Azure/azure-sdk-for-java/tree/master/netapp/resource-manager) |
 |    JavaScript    |    [Azure/Azure-SDK-för-JS](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/netapp/arm-netapp)    |
 |    Ruby   |    [Azure/Azure-SDK – för-ruby](https://github.com/Azure/azure-sdk-for-ruby/tree/master/management/azure_mgmt_netapp)    |

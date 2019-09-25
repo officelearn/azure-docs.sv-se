@@ -8,12 +8,12 @@ ms.service: digital-twins
 ms.topic: tutorial
 ms.date: 09/17/2019
 ms.author: alinast
-ms.openlocfilehash: eebf6f58000178f2aa8021fbd435aa863fb70e49
-ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
+ms.openlocfilehash: 1ab3f30f035f8099ab50f827e559e56b31d7f1f6
+ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2019
-ms.locfileid: "71177200"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71219737"
 ---
 # <a name="tutorial-deploy-azure-digital-twins-preview-and-configure-a-spatial-graph"></a>Självstudier: Distribuera Azure Digitals förhands granskning och konfigurera ett spatial diagram
 
@@ -80,7 +80,7 @@ I den extraherade exempelmappen öppnar du filen **digital-twins-samples-csharp\
     - Filen **getAvailableAndFreshSpaces.cs** hämtar resultatet av en anpassad funktion som kallas för användardefinierad funktion.
     - Filen **createEndpoints.cs** skapar slutpunkter för att interagera med andra tjänster.
 
-* Simuleringsexemplet **device-connectivity** simulerar sensordata och skickar det till den IoT-hubb som har etablerats för din Digital Twin-instans. Du använder det här exemplet i [nästa självstudie när du har etablerat den rumsliga grafen](tutorial-facilities-udf.md#simulate). Sensorn och enhetsidentifierarna som du använder för att konfigurera det här exemplet ska vara samma som det du använder för att etablera grafen.
+* Simuleringsexemplet **device-connectivity** simulerar sensordata och skickar det till den IoT-hubb som har etablerats för din Digital Twin-instans. Du använder det här exemplet i [nästa självstudie när du har etablerat den rumsliga grafen](tutorial-facilities-udf.md#simulate-sensor-data). Sensorn och enhetsidentifierarna som du använder för att konfigurera det här exemplet ska vara samma som det du använder för att etablera grafen.
 
 ### <a name="configure-the-provisioning-sample"></a>Konfigurera etableringsexemplet
 

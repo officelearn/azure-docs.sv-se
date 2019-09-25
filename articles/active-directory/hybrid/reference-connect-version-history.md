@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/23/2019
+ms.date: 09/23/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ce66c0239eee3f31695a942a586766694525fbad
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: 2a875e028a38c085d45d062984764cd840983fc3
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71097599"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71212323"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: Versionshistorik
 Gruppen Azure Active Directory (Azure AD) uppdaterar regelbundet Azure AD Connect med nya funktioner. Alla tillägg gäller inte för alla mål grupper.
@@ -46,7 +46,13 @@ Det är inte alla versioner av Azure AD Connect som görs tillgängliga för aut
 ## <a name="14x0"></a>1.4. X. 0
 
 >[!IMPORTANT]
->Tidigare var Windows äldre Windows-baserade datorer anslutna till lokal AD felaktigt synkroniserade med molnet under vissa omständigheter. Som exempel fylls attributvärdet userCertificate för Windows-enheter på den äldre nivån i AD. Men sådana enheter i Azure AD är alltid i vänte läge eftersom dessa operativ system versioner inte har utformats för att registreras med Azure AD via AAD Sync. I den här versionen av Azure AD Connect slutar AAD Sync synkronisera Windows-datorer med äldre versioner till Azure AD och tar också bort de felaktigt synkroniserade Windows-enheter på äldre nivå från Azure AD. Observera att den här ändringen inte tar bort några Windows-enheter på låg nivå som har registrerats korrekt med Azure AD med hjälp av MSI-paketet. Dessa enheter fortsätter att fungera som förväntat för användning av enhets villkorliga åtkomst. Vissa kunder kan se vissa eller alla sina Windows-enheter på äldre nivå försvinner från Azure AD. Detta är inte en anledning till problem eftersom dessa enhets identiteter aldrig faktiskt användes av Azure AD under auktoriseringen för villkorlig åtkomst. Sådana kunder kan behöva https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-plan gå tillbaka och få sina Windows-enheter på hög nivå registrerade på rätt sätt för att säkerställa att sådana enheter helt kan delta i enhets-baserad villkorlig åtkomst. Observera att om du ser de här borttagningarna av dator-/enhets objekt på äldre nivå i Azure AD som överskrider tröskelvärdet för borttagning av export, rekommenderar vi att kunden tillåter dessa borttagningar att gå igenom.
+>Windows-datorer som registrerats som hybrid Azure AD-anslutna representeras i Azure AD som enhets objekt. Dessa enhets objekt kan användas för villkorlig åtkomst. Windows 10-datorer synkroniseras till molnet via Azure AD Connect och Windows-datorer på nivån i Windows registreras direkt med antingen AD FS eller sömlös enkel inloggning.
+>
+>Endast Windows 10-datorer med ett angivet userCertificate som kon figurer ATS av hybrid Azure AD Join kommer att synkroniseras med molnet genom att Azure AD Connect.  I tidigare versioner av Azure AD Connect det här kravet inte rigoröst tvingande, vilket resulterar i onödiga enhets objekt i Azure AD. Sådana enheter i Azure AD är alltid i vänte läge eftersom dessa datorer inte var avsedda att registreras med Azure AD.
+>
+>Den här versionen av Azure AD Connect synkroniserar bara Windows 10-datorer som är korrekt konfigurerade för att vara hybrid Azure AD-anslutna. Azure AD Connect bör aldrig synkronisera [Windows-enheter på detalj nivå](../../active-directory/devices/hybrid-azuread-join-plan.md#windows-down-level-devices).  Alla enheter i Azure AD som synkroniserades tidigare kommer nu att tas bort från Azure AD.  Den här ändringen tar dock inte bort några Windows-enheter som har registrerats korrekt med Azure AD för Hybrid Azure AD-anslutning. 
+>
+>Vissa kunder kan se vissa eller alla sina Windows-enheter försvinner från Azure AD. Detta är inte en orsak till betänkligheter eftersom dessa enhets identiteter inte används av Azure AD under auktoriseringen för villkorlig åtkomst. Vissa kunder kan behöva [gå tillbaka till: Planera implementeringen](../../active-directory/devices/hybrid-azuread-join-plan.md) av hybrid Azure Active Directory för att få sina Windows-datorer registrerade korrekt och se till att sådana enheter helt kan delta i enhets-baserad villkorlig åtkomst. Om Azure AD Connect försöker ta bort [Windows-enheter på äldre nivå](../../active-directory/devices/hybrid-azuread-join-plan.md#windows-down-level-devices) är enheten inte den som skapades av [Microsoft-Workplace Join för MSI-versioner som inte är Windows 10-datorer](https://www.microsoft.com/download/details.aspx?id=53554) och som inte kan användas av någon annan Azure AD-funktion.  Om du ser borttagningen av dator-/enhets objekt i Azure AD som överskrider tröskelvärdet för export borttagning, rekommenderar vi att kunden tillåter dessa borttagningar att gå igenom.
 
 ### <a name="release-status"></a>Versions status
 9/10/2019: Endast publicerat för automatisk uppgradering

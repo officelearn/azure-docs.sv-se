@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/15/2019
 ms.author: magoedte
-ms.openlocfilehash: 17135f896140a843dd95c8d9624e9faf1d7194c3
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: 1ab49d17ebf10a1ae0277768ddbd1878195d835d
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70996252"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71212760"
 ---
 # <a name="monitoring-your-storage-service-with-azure-monitor-for-storage-preview"></a>Övervaka lagrings tjänsten med Azure Monitor för lagring (för hands version)
 
-Azure Monitor för lagring (för hands version) ger en omfattande övervakning av dina Azure Storage-konton genom att leverera en enhetlig vy över dina Azure Storage tjänsters prestanda, kapacitet och tillgänglighet. Du kan se lagrings kapacitet och prestanda på två sätt, Visa direkt från ett lagrings konto eller vy från Azure Monitor för att se flera grupper av lagrings konton. 
+Azure Monitor för lagring (för hands version) ger omfattande övervakning av dina Azure Storage-konton genom att leverera en enhetlig vy över dina Azure Storage tjänsters prestanda, kapacitet och tillgänglighet. Du kan se lagrings kapacitet och prestanda på två sätt, Visa direkt från ett lagrings konto eller vy från Azure Monitor för att se flera grupper av lagrings konton. 
 
 Den här artikeln hjälper dig att förstå upplevelsen Azure Monitor för lagring (för hands version) som ger dig möjlighet att härleda användbara kunskaper om hälsa och prestanda för lagrings konton i stor skala, med möjlighet att fokusera på hotspots och diagnostisera svars tid, begränsning, och tillgänglighets problem.
 

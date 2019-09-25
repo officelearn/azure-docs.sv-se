@@ -4,9 +4,9 @@ description: I den här självstudiekursen beskrivs hur du använder Azure Notif
 services: notification-hubs
 documentationcenter: ios
 keywords: push-meddelande, push-meddelanden, push-meddelanden i ios
-author: jwargo
-manager: patniko
-editor: spelluru
+author: sethmanheim
+manager: femila
+editor: jwargo
 ms.assetid: b7fcd916-8db8-41a6-ae88-fc02d57cb914
 ms.service: notification-hubs
 ms.workload: mobile
@@ -15,13 +15,15 @@ ms.devlang: objective-c
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 05/21/2019
-ms.author: jowargo
-ms.openlocfilehash: c5793d2388ddd7bb59d68f8f7fd7af773179ed41
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.author: sethm
+ms.reviewer: jowargo
+ms.lastreviewed: 05/21/2019
+ms.openlocfilehash: 0335f5c71f99e6c7a90ce920c25e6bb7e9b4a08f
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65988210"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71211942"
 ---
 # <a name="tutorial-push-notifications-to-ios-apps-using-azure-notification-hubs"></a>Självstudier: Skicka push-meddelanden till iOS-appar med hjälp av Azure Notification Hubs
 
@@ -45,7 +47,7 @@ I den här självstudien gör du följande:
 
 Den slutförda koden för den här självstudiekursen hittar du [på GitHub](https://github.com/Azure/azure-notificationhubs-ios/tree/master/Samples). 
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 * Ett aktivt Azure-konto. Om du inte har något konto kan du [skapa ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free) på bara några minuter.
 * [Windows Azure Messaging Framework]
@@ -80,42 +82,42 @@ Du måste slutföra den här självstudiekursen innan du börjar någon annan ku
 
     ![Xcode – push-funktioner][12]
 
-5. Lägg till Azure Notification Hubs SDK-moduler.
+5. Lägg till Azure Notification Hubs SDK-modulerna.
 
-   Du kan integrera Azure Notification Hubs SDK i din app med hjälp av [Cocoapods](https://cocoapods.org) eller genom att manuellt lägga till de binära filerna i projektet.
+   Du kan integrera Azure Notification Hubs SDK i din app med hjälp av [Cocoapods](https://cocoapods.org) eller genom att manuellt lägga till binärfilerna i projektet.
 
    - Integrering via Cocoapods
 
-     Lägg till följande beroenden till din `podfile` att inkludera Azure Notification Hubs SDK i din app.
+     Lägg till följande beroenden i `podfile` för att inkludera Azure Notification Hubs SDK i din app.
 
      ```ruby
      pod 'AzureNotificationHubs-iOS'
      ```
 
-     Kör `pod install` du installerar din nya pod och öppnar din `.xcworkspace`.
+     Kör `pod install` för att installera den nyligen definierade Pod och öppna `.xcworkspace`din.
 
      > [!NOTE]
-     > Om du ser ett fel som ```[!] Unable to find a specification for `AzureNotificationHubs-iOS` ``` när du kör `pod install`, kör `pod repo update` att hämta senaste poddarna från Cocoapods databasen och kör sedan `pod install`.
+     > Om du ser ett fel som ```[!] Unable to find a specification for `AzureNotificationHubs-iOS` ``` vid körning `pod install`kan du köra `pod repo update` för att hämta de senaste poddar från Cocoapods-lagringsplatsen och `pod install`sedan köra.
 
    - Integrering via Carthage
 
-     Lägg till följande beroenden till din `Cartfile` att inkludera Azure Notification Hubs SDK i din app.
+     Lägg till följande beroenden i `Cartfile` för att inkludera Azure Notification Hubs SDK i din app.
 
      ```ruby
      github "Azure/azure-notificationhubs-ios"
      ```
 
-     Sedan måste uppdatera och skapa beroenden:
+     Nästa, uppdatera och bygg beroenden:
 
      ```shell
      $ carthage update
      ```
 
-     Mer information om hur du använder Carthage finns i den [Carthage GitHub-lagringsplatsen](https://github.com/Carthage/Carthage).
+     Mer information om hur du använder Carthage finns i [Carthage GitHub-lagringsplatsen](https://github.com/Carthage/Carthage).
 
-   - Integration genom att kopiera de binära filerna i projektet
+   - Integrering genom att kopiera binärfilerna till projektet
 
-     1. Ladda ned den [Azure Notification Hubs SDK](https://github.com/Azure/azure-notificationhubs-ios/releases) framework tillhandahålls som en zip-fil och packa upp den.
+     1. Hämta [Azure Notification HUBS SDK](https://github.com/Azure/azure-notificationhubs-ios/releases) Framework som tillhandahålls som en zip-fil och packa upp den.
 
      2. Högerklicka på ditt projekt i Xcode och klicka sedan på alternativet **Lägg till filer i** för att lägga till mappen **WindowsAzureMessaging.framework** till ditt Xcode-projekt. Välj **Alternativ** och se till att **Kopiera objekt vid behov** är markerat och klicka sedan på **Lägg till**.
 

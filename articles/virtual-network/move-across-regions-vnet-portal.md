@@ -6,12 +6,12 @@ ms.service: virtual-network
 ms.topic: article
 ms.date: 08/26/2019
 ms.author: allensu
-ms.openlocfilehash: 2a1ee358a6c97b721ec6f0da3eb70269239b0737
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.openlocfilehash: a09ce7b77dfcaa51e7c82f67a5d20000f3e22b61
+ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71077677"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71220006"
 ---
 # <a name="move-azure-virtual-network-to-another-region-using-the-azure-portal"></a>Flytta Azure-Virtual Network till en annan region med hjälp av Azure Portal
 
@@ -27,7 +27,7 @@ Du kan använda en Azure Resource Manager-mall för att slutföra flyttningen av
 - Om du vill exportera ett virtuellt nätverk och distribuera en mall för att skapa ett virtuellt nätverk i en annan region behöver du rollen som nätverks deltagare eller högre.
 
 - Peering för virtuella nätverk återskapas inte och kommer att Miss klar om de fortfarande finns i mallen.  Du måste ta bort alla virtuella nätverks-peer-datorer innan du exporterar mallen och sedan återupprätta peer-datorerna när det virtuella nätverket har flyttats.
-    
+
 - Identifiera käll nätverks layouten och alla resurser som du använder just nu. Den här layouten omfattar men är inte begränsad till belastningsutjämnare, nätverks säkerhets grupper (NSG: er) och offentliga IP-adresser.
 
 - Kontrol lera att din Azure-prenumeration låter dig skapa virtuella nätverk i mål regionen som används. Kontakta supporten och aktivera den kvot som krävs.
@@ -40,13 +40,13 @@ Följande steg visar hur du förbereder det virtuella nätverket för flytt med 
 
 ### <a name="export-the-template-and-deploy-from-the-portal"></a>Exportera mallen och distribuera från portalen
 
-1. Logga in på [Azure Portal](http://portal.azure.com) > **resurs grupper**.
+1. Logga in på [Azure Portal](https://portal.azure.com) > **resurs grupper**.
 2. Leta upp resurs gruppen som innehåller det virtuella käll nätverket och klicka på den.
 3. Välj**Exportera mall**för > **Inställningar** > .
 4. Välj **distribuera** på bladet **Exportera mall** .
 5. Klicka på **mall** > **Redigera parametrar** för att öppna filen **parametrar. JSON** i online-redigeraren.
 6. Om du vill redigera parametern för det virtuella nätverks namnet ändrar du egenskapen **Value** under **parametrar**:
-    
+
     ```json
     {
         "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
@@ -62,7 +62,7 @@ Följande steg visar hur du förbereder det virtuella nätverket för flytt med 
 
 8.  Klicka på **Spara** i redigeraren.
 
-9.  Klicka på **mall** > **Redigera mall** för att öppna filen **Template. JSON** i online-redigeraren. 
+9.  Klicka på **mall** > **Redigera mall** för att öppna filen **Template. JSON** i online-redigeraren.
 
 10. Redigera mål regionen där det virtuella nätverket ska flyttas genom att ändra **plats** egenskapen under **resurser** i online-redigeraren:
 
@@ -83,11 +83,11 @@ Följande steg visar hur du förbereder det virtuella nätverket för flytt med 
                         },
 
     ```
- 
+
 11. Information om hur du hämtar koder för regions platser finns i [Azure-platser](https://azure.microsoft.com/global-infrastructure/locations/).  Koden för en region är region namnet utan några blank steg, **centrala USA** =  **, centrala.**
- 
+
 12. Du kan också ändra andra parametrar i mallen om du väljer, och de är valfria beroende på dina krav:
-    
+
     * **Adress utrymme** – det virtuella nätverkets adress utrymme kan ändras innan du sparar genom att ändra avsnittet **Resources** > **addressSpace** och ändra egenskapen **addressPrefixes** i filen **Template. JSON** :
 
         ```json
@@ -179,7 +179,7 @@ Följande steg visar hur du förbereder det virtuella nätverket för flytt med 
 
 14. Klicka på **grundläggande** > **prenumeration** för att välja den prenumeration där det virtuella mål nätverket ska distribueras.
 
-15. Klicka på **grundläggande** > **resurs grupp** för att välja den resurs grupp där det virtuella mål nätverket ska distribueras.  Du kan klicka på **Skapa ny** för att skapa en ny resurs grupp för det virtuella mål nätverket.  Se till att namnet inte är samma som käll resurs gruppen för det befintliga virtuella nätverket. 
+15. Klicka på **grundläggande** > **resurs grupp** för att välja den resurs grupp där det virtuella mål nätverket ska distribueras.  Du kan klicka på **Skapa ny** för att skapa en ny resurs grupp för det virtuella mål nätverket.  Se till att namnet inte är samma som käll resurs gruppen för det befintliga virtuella nätverket.
 
 16. Kontrol lera att **grundläggande** > **platser** är inställt på den målplats där du vill att det virtuella nätverket ska distribueras.
 
@@ -189,7 +189,7 @@ Följande steg visar hur du förbereder det virtuella nätverket för flytt med 
 
 19. Klicka på knappen **köp** för att distribuera det virtuella mål nätverket.
 
-## <a name="discard"></a>Kasta bort 
+## <a name="discard"></a>Kasta bort
 
 Om du vill ta bort det virtuella mål nätverket tar du bort resurs gruppen som innehåller det virtuella mål nätverket.  Det gör du genom att välja resurs gruppen från din instrument panel i portalen och välja **ta bort** överst på sidan Översikt.
 

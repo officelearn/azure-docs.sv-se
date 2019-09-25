@@ -3,9 +3,9 @@ title: Skicka meddelanden till specifika Windows-telefoner med Azure Notificatio
 description: I den här självstudiekursen kommer du att få lära dig hur du använder Azure Notification Hubs för att skicka push-meddelanden till specifika (inte alla) Windows Phone 8- eller Windows Phone 8.1-enheter som har registrerats med programserverdelen.
 services: notification-hubs
 documentationcenter: windows
-author: jwargo
-manager: patniko
-editor: spelluru
+author: sethmanheim
+manager: femila
+editor: jwargo
 ms.assetid: 42726bf5-cc82-438d-9eaa-238da3322d80
 ms.service: notification-hubs
 ms.workload: mobile
@@ -14,13 +14,15 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/04/2019
-ms.author: jowargo
-ms.openlocfilehash: 10f8c2e21f2dcf8c108576d54fe6776ecf04a0f0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: sethm
+ms.reviewer: jowargo
+ms.lastreviewed: 01/04/2019
+ms.openlocfilehash: 88326b07a96dcc8ce7a72f8709a88c2662f48707
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60872500"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71213402"
 ---
 # <a name="tutorial-push-notifications-to-specific-windows-phone-devices-by-using-azure-notification-hubs"></a>Självstudier: Skicka push-meddelanden till specifika Windows Phone-enheter med hjälp av Azure Notification Hubs
 
@@ -41,7 +43,7 @@ I den här guiden får du lära dig att:
 > * Skicka taggade meddelanden
 > * Testa appen
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Slutför [Självstudie: Skicka push-meddelanden till Windows Phone-appar med hjälp av Azure Notification Hubs](notification-hubs-windows-mobile-push-notifications-mpns.md). I den här självstudiekursen uppdaterar du mobilprogrammet så att du kan registrera dig för olika nyhetskategorier som du är intresserad av och därmed endast få push-meddelanden för dessa kategorier.
 

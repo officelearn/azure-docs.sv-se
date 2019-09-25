@@ -10,10 +10,10 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 07/29/2019
 ms.openlocfilehash: 9718a6e394c7628cdf7bb62b2dafea2f3d59a3ca
-ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
+ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2019
+ms.lasthandoff: 09/24/2019
 ms.locfileid: "68619558"
 ---
 # <a name="tutorial-sentiment-analysis-on-streaming-data-using-azure-databricks"></a>Självstudier: Sentimentanalys på strömmade data med hjälp av Azure Databricks
@@ -146,7 +146,7 @@ I den här självstudien använder du Twitter-API:er för att skicka tweets till
 
      ![Ange Maven-koordinater](./media/databricks-sentiment-analysis-cognitive-services/databricks-add-library-search.png "Ange Maven-koordinater")
 
-     ![Ange maven] -koordinater (./media/databricks-sentiment-analysis-cognitive-services/databricks-add-library-search-dialogue.png "Sök maven") -koordinater
+     ![Ange maven-koordinater](./media/databricks-sentiment-analysis-cognitive-services/databricks-add-library-search-dialogue.png "Sök maven-koordinater")
 
 3. Välj **Installera**.
 

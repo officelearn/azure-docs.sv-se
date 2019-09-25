@@ -1,45 +1,45 @@
 ---
-title: 'Snabbstart: Identifiera digitala ink med Ink Igenkännande REST API och Node.js'
+title: 'Snabbstart: Identifiera digitalt bläck med hand SKRIFTS tolken REST API och Node. js'
 titleSuffix: Azure Cognitive Services
-description: Använd Ink Igenkännande API för att starta eftersom digitala ink linjer.
+description: Använd pennan tecknings tolkens API för att börja identifiera digitala penndrag.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: ink-recognizer
 ms.topic: quickstart
-ms.date: 05/02/2019
+ms.date: 09/23/2019
 ms.author: aahi
-ms.openlocfilehash: 7e158b0ae27780eeecb1ee7948087bf59b1502e1
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: 5e3b97faaed84f2c07ea70ddb73bd8e8c9efa71d
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67721264"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71212656"
 ---
-# <a name="quickstart-recognize-digital-ink-with-the-ink-recognizer-rest-api-and-javascript"></a>Snabbstart: Identifiera digitala ink med Ink Igenkännande REST API och JavaScript
+# <a name="quickstart-recognize-digital-ink-with-the-ink-recognizer-rest-api-and-javascript"></a>Snabbstart: Identifiera digitalt bläck med hand SKRIFTS tolken REST API och Java Script
 
-Använd den här snabbstarten för att börja använda API: et för pennanteckningar Igenkännande på digitala ink linjer. Det här programmet JavaScript skickar en API-begäran som innehåller JSON-formaterade ink linje data och visar svaret.
+Använd den här snabb starten för att börja använda pennan tecknings tolkens API på digitala penndrag. Det här JavaScript-programmet skickar en API-begäran som innehåller JSON-formaterade penndrag och visar svaret.
 
-Även om det här programmet är skriven i Javascript och körs i webbläsaren, är API: et en RESTful-webb-tjänst som är kompatibla med de flesta programmeringsspråk.
+Även om det här programmet är skrivet i Java Script och körs i webbläsaren, är API: et en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk.
 
-Vanligtvis skulle du anropa API från en digital digital penna app. Den här snabbstarten skickar ink linje data för följande handskriven exempel från en JSON-fil.
+Normalt anropar du API: et från en digital intecknings app. I den här snabb starten skickas Penn strecks data för följande handskrivna exempel från en JSON-fil.
 
 ![en bild av handskriven text](../media/handwriting-sample.jpg)
 
-Källkoden för den här snabbstarten finns på [GitHub](https://go.microsoft.com/fwlink/?linkid=2089905).
+Du hittar käll koden för den här snabb starten på [GitHub](https://go.microsoft.com/fwlink/?linkid=2089905).
 
 ## <a name="prerequisites"></a>Förutsättningar
 
 - En webbläsare
-- Exempel ink linje data för den här snabbstarten finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/javascript/InkRecognition/quickstart/example-ink-strokes.json).
+- Du hittar exempel Penn strecks data för den här snabb starten på [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/javascript/InkRecognition/quickstart/example-ink-strokes.json).
 
 
 [!INCLUDE [cognitive-services-ink-recognizer-signup-requirements](../../../../includes/cognitive-services-ink-recognizer-signup-requirements.md)]
 
 ## <a name="create-a-new-application"></a>Skapa ett nytt program
 
-1. I din favorit-IDE eller redigerare, skapar en ny `.html` fil. Lägg sedan till grundläggande HTML till den kod som vi lägger till senare.
+1. I din favorit-IDE eller-redigerare skapar du `.html` en ny fil. Lägg sedan till grundläggande HTML-kod i den för koden som vi ska lägga till senare.
     
     ```html
     <!DOCTYPE html>
@@ -56,9 +56,9 @@ Källkoden för den här snabbstarten finns på [GitHub](https://go.microsoft.co
     </html>
     ```
 
-2. I den `<body>` tagga, Lägg till följande html:
-    1. Två textområden för att visa JSON-begäran och svaret.
-    2. En knapp för att anropa den `recognizeInk()` funktion som skapas senare.
+2. `<body>` I taggen lägger du till följande HTML:
+    1. Två text områden för att Visa JSON-begäran och-svar.
+    2. En knapp för att anropa `recognizeInk()` funktionen som kommer att skapas senare.
     
     ```HTML
     <!-- <body>-->
@@ -72,13 +72,13 @@ Källkoden för den här snabbstarten finns på [GitHub](https://go.microsoft.co
     <!--</body>-->
     ```
 
-## <a name="load-the-example-json-data"></a>Läsa in exempel JSON-data
+## <a name="load-the-example-json-data"></a>Läs in exemplet med JSON-data
 
-1. I den `<script>` tagga, skapa en variabel för sampleJson. Skapa en JavaScript-funktion med namnet `openFile()` som öppnar en Utforskaren, så du kan välja en JSON-fil. När den `Recognize ink` klickar på knappen, den anropar funktionen och börja läsa filen.
-2. Använd en `FileReader` objektets `onload()` funktionen för att bearbeta filen asynkront. 
-    1. Ersätt alla `\n` eller `\r` tecken i filen med en tom sträng. 
-    2. Använd `JSON.parse()` att konvertera texten till giltig JSON
-    3. Uppdatera den `request` textrutan i programmet. Använd `JSON.stringify()` att formatera JSON-sträng. 
+1. `<script>` I taggen skapar du en variabel för sampleJson. Skapa sedan en JavaScript-funktion `openFile()` med namnet som öppnar en fil Utforskare så att du kan välja din JSON-fil. När du `Recognize ink` klickar på knappen anropas den här funktionen och börjar läsa filen.
+2. Använd ett `FileReader` `onload()` objekts funktion för att bearbeta filen asynkront. 
+    1. Ersätt eventuella `\n` eller `\r` tecken i filen med en tom sträng. 
+    2. Använd `JSON.parse()` för att konvertera texten till giltig JSON
+    3. `request` Uppdatera text rutan i programmet. Används `JSON.stringify()` för att formatera JSON-strängen. 
     
     ```javascript
     var sampleJson = "";
@@ -95,9 +95,9 @@ Källkoden för den här snabbstarten finns på [GitHub](https://go.microsoft.co
     };
     ```
 
-## <a name="send-a-request-to-the-ink-recognizer-api"></a>Skicka en begäran till Ink Igenkännande API
+## <a name="send-a-request-to-the-ink-recognizer-api"></a>Skicka en begäran till hand SKRIFTS tolkens API
 
-1. I den `<script>` tagga, skapa en funktion som kallas `recognizeInk()`. Den här funktionen kommer senare att anropa API och uppdatera sidan med svaret. Lägg till koden från följande steg i den här funktionen. 
+1. I taggen skapar du en funktion som kallas `recognizeInk()`. `<script>` Den här funktionen anropar sedan API: et och uppdaterar sidan med svaret. Lägg till koden från följande steg i den här funktionen. 
         
     ```javascript
     function recognizeInk() {
@@ -105,18 +105,18 @@ Källkoden för den här snabbstarten finns på [GitHub](https://go.microsoft.co
     }
     ```
 
-    1. Skapa variabler för slutpunkts-URL, prenumerationsnyckel och exemplet-JSON. Skapa sedan en `XMLHttpRequest` -objektet skickar API-begäran. 
+    1. Skapa variabler för slut punkts-URL, prenumerations nyckel och exempel-JSON. Skapa sedan ett `XMLHttpRequest` objekt för att skicka API-begäran. 
         
         ```javascript
         // Replace the below URL with the correct one for your subscription. 
-        // Your endpoint can be found in the Azure portal. For example: https://westus2.api.cognitive.microsoft.com
+        // Your endpoint can be found in the Azure portal. For example: "https://<your-custom-subdomain>.cognitiveservices.azure.com";
         var SERVER_ADDRESS = "YOUR-SUBSCRIPTION-URL";
         var ENDPOINT_URL = SERVER_ADDRESS + "/inkrecognizer/v1.0-preview/recognize";
         // Replace the subscriptionKey string value with your valid subscription key.
         var SUBSCRIPTION_KEY = "YOUR-SUBSCRIPTION-KEY";
         var xhttp = new XMLHttpRequest();
         ```
-    2. Skapa returfunktionen för den `XMLHttpRequest` objekt. Den här funktionen Analysera API-svaret från en lyckad begäran och visa dem i programmet. 
+    2. Skapa funktionen Return för `XMLHttpRequest` objektet. Den här funktionen kommer att parsa API-svaret från en lyckad begäran och visa den i programmet. 
             
         ```javascript
         function returnFunction(xhttp) {
@@ -125,7 +125,7 @@ Källkoden för den här snabbstarten finns på [GitHub](https://go.microsoft.co
             document.getElementById('response').innerHTML = JSON.stringify(response, null, 2);
         }
         ```
-    3. Skapa felfunktionen för Begäranobjektet. Den här funktionen loggas felet i konsolen. 
+    3. Skapa funktionen Error för objektet Request. Den här funktionen loggar felet till-konsolen. 
             
         ```javascript
         function errorFunction() {
@@ -133,7 +133,7 @@ Källkoden för den här snabbstarten finns på [GitHub](https://go.microsoft.co
         }
         ```
 
-    4. Skapa en funktion för Begäranobjektet `onreadystatechange` egenskapen. När begäran objektets beredskapstillståndet ändras, används dessa funktioner för återlämning och fel.
+    4. Skapa en funktion för `onreadystatechange` egenskapen Request för objektet. När det begär ande objektets beredskaps tillstånd ändras, kommer ovanstående retur-och fel funktioner att tillämpas.
             
         ```javascript
         xhttp.onreadystatechange = function () {
@@ -147,7 +147,7 @@ Källkoden för den här snabbstarten finns på [GitHub](https://go.microsoft.co
         };
         ```
     
-    5. Skicka API-begäran. Lägg till din prenumerationsnyckel till den `Ocp-Apim-Subscription-Key` rubrik och ange den `content-type` till `application/json`
+    5. Skicka API-begäran. Lägg till din prenumerations nyckel `Ocp-Apim-Subscription-Key` i rubriken och `content-type` ange till`application/json`
     
         ```javascript
         xhttp.open("PUT", ENDPOINT_URL, true);
@@ -157,16 +157,16 @@ Källkoden för den här snabbstarten finns på [GitHub](https://go.microsoft.co
         };
         ```
 
-## <a name="run-the-application-and-view-the-response"></a>Kör programmet och visa svaret
+## <a name="run-the-application-and-view-the-response"></a>Kör programmet och Visa svaret
 
-Det här programmet kan köras i webbläsaren. Ett lyckat svar returneras i JSON-format. Du kan också hitta JSON-svar på [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/javascript/InkRecognition/quickstart/example-response.json):
+Det här programmet kan köras i webbläsaren. Ett lyckat svar returneras i JSON-format. Du kan också hitta JSON-svaret på [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/javascript/InkRecognition/quickstart/example-response.json):
 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
 > [REST API-referens](https://go.microsoft.com/fwlink/?linkid=2089907)
 
-Om du vill se hur den Ink-API: T fungerar i en digital digital penna app, ta en titt på de följande exempelprogram på GitHub:
+Ta en titt på följande exempel program på GitHub för att se hur API: et för färg igenkänning fungerar i en digital inkungs app:
 * [C# och Universal Windows-plattform (UWP)](https://go.microsoft.com/fwlink/?linkid=2089803)  
 * [C# och Windows Presentation Foundation(WPF)](https://go.microsoft.com/fwlink/?linkid=2089804)
 * [JavaScript-webbläsarappen](https://go.microsoft.com/fwlink/?linkid=2089908)       

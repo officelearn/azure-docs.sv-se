@@ -1,12 +1,11 @@
 ---
-title: Snabb start för Azure Sentinel – kom igång med Azure Sentinel Preview | Microsoft Docs
+title: Snabb start för Azure Sentinel – kom igång med Azure Sentinel | Microsoft Docs
 description: Snabb start för Azure Sentinel – kom igång med Azure Sentinel
 services: sentinel
 documentationcenter: na
 author: rkarlin
 manager: rkarlin
 editor: ''
-ms.assetid: 5a4ae93c-d648-41fb-8fb8-96a025d2f73e
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.devlang: na
@@ -14,23 +13,21 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 3/20/2019
+ms.date: 09/23/2019
 ms.author: rkarlin
-ms.openlocfilehash: c6434b4f5808c349d5e0ab04dafc5233f6ec63ac
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.openlocfilehash: c81f4cacd4c93d681122f3c8cd692ca8645288af
+ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68780474"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71240093"
 ---
-# <a name="quickstart-get-started-with-azure-sentinel-preview"></a>Snabbstart: Kom igång med Azure Sentinel Preview
-
-> [!IMPORTANT]
-> Azure Sentinel är för närvarande en offentlig för hands version.
-> Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+# <a name="quickstart-get-started-with-azure-sentinel"></a>Snabbstart: Komma igång med Azure Sentinel
 
 
-I den här snabb starten får du lära dig hur du snabbt kan visa och övervaka vad som händer i din miljö med hjälp av Azure Sentinel. När du har anslutit dina data källor till Azure Sentinel får du direkt visualisering och analys av data så att du vet vad som händer i alla dina anslutna data källor. Azure Sentinel ger dig till gång till instrument paneler som ger dig alla verktyg som redan är tillgängliga i Azure samt tabeller och diagram som är inbyggda för att ge dig analyser för dina loggar och frågor. Du kan antingen använda inbyggda instrument paneler eller skapa en ny instrument panel enkelt från början eller baserat på en befintlig instrument panel. 
+
+
+I den här snabb starten får du lära dig hur du snabbt kan visa och övervaka vad som händer i din miljö med hjälp av Azure Sentinel. När du har anslutit dina data källor till Azure Sentinel får du direkt visualisering och analys av data så att du vet vad som händer i alla dina anslutna data källor. Med Azure Sentinel får du en arbets bok med alla verktyg som redan är tillgängliga i Azure samt tabeller och diagram som är inbyggda i och som ger dig analyser för dina loggar och frågor. Du kan antingen använda inbyggda arbets böcker eller skapa en ny arbets bok enkelt från början eller baserat på en befintlig arbets bok. 
 
 ## <a name="get-visualization"></a>Hämta visualisering
 
@@ -59,43 +56,43 @@ Huvud delen av översikts sidan ger en överblick över en överskådlig säkerh
 
    ![Azure Sentinel-karta](./media/qs-get-visibility/anomolies.png)
 
-## Använd inbyggda instrument paneler<a name="dashboards"></a>
+## Använda inbyggda arbets böcker<a name="dashboards"></a>
 
-Inbyggda instrument paneler tillhandahåller integrerade data från dina anslutna data källor så att du kan få en djup inblick i de händelser som genereras i dessa tjänster. Inbyggda instrument paneler inkluderar Azure ID, Azure Activity events och on-premises, som kan vara data från Windows-händelser från servrar, från första part-aviseringar från alla tredje parter, inklusive brand Väggs trafik loggar, Office 365 och oskyddade protokoll baserade på Windows planering.
+Inbyggda arbets böcker ger integrerade data från dina anslutna data källor så att du kan få en djup inblick i de händelser som genereras i dessa tjänster. De inbyggda arbets böckerna inkluderar Azure ID, Azure Activity events och on-premises, som kan vara data från Windows-händelser från servrar, från första part-aviseringar från alla utomstående, inklusive brand Väggs trafik loggar, Office 365 och oskyddade protokoll baserade på Windows planering. Arbets böckerna baseras på Azure Monitor arbets böcker för att ge dig bättre anpassningsbarhet och flexibilitet i utformningen av din egen arbets bok. Mer information finns i [arbets böcker](../azure-monitor/app/usage-workbooks.md).
 
-1. Välj **instrument paneler**under **Inställningar**. Under **installerad**kan du se alla installerade instrument paneler. Under **alla** kan du se hela galleriet med inbyggda instrument paneler som är tillgängliga för installation. 
-2. Sök efter en speciell instrument panel för att se hela listan och en beskrivning av vad de erbjuder. 
-3. Förutsatt att du använder Azure AD för att komma igång med Azure Sentinel rekommenderar vi att du installerar minst följande instrument paneler:
+1. Under **Inställningar**väljer du **arbets böcker**. Under **installerad**kan du se all din installerade arbets bok. Under **alla**kan du se hela galleriet med inbyggda arbets böcker som är tillgängliga för installation. 
+2. Sök efter en speciell arbets bok för att se hela listan och en beskrivning av vad varje erbjudande har. 
+3. Förutsatt att du använder Azure AD för att komma igång med Azure Sentinel rekommenderar vi att du installerar minst följande arbets böcker:
    - **Azure AD**: Använd antingen eller båda av följande:
-       - I **Azure AD-inloggningar** analyseras inloggningar över tid för att se om det finns avvikelser. Den här instrument panelen tillhandahåller misslyckade inloggningar av program, enheter och platser så att du snabbt kan se om något händer. Var uppmärksam på flera misslyckade inloggningar. 
+       - I **Azure AD-inloggningar** analyseras inloggningar över tid för att se om det finns avvikelser. Arbets böckerna innehåller misslyckade inloggningar av program, enheter och platser så att du snabbt kan se om något händer. Var uppmärksam på flera misslyckade inloggningar. 
        - **Azure AD audit-loggar** analyserar administrations aktiviteter, till exempel ändringar i användare (Lägg till, ta bort, osv.), grupp skapande och ändringar.  
 
-   - Lägg till en instrument panel för brand väggen. Lägg till exempel till Palo-instrument panelen. Instrument panelen analyserar brand Väggs trafiken och ger dig korrelationer mellan brand Väggs data och hot händelser och markerar misstänkta händelser mellan entiteter. Med instrument paneler får du information om trender i din trafik och du kan öka detalj nivån och filtrera resultaten. 
+   - Lägg till en arbets bok för brand väggen. Lägg till exempel till Palo-arbets boken. Arbets boken analyserar brand Väggs trafiken och ger dig korrelationer mellan brand Väggs data och hot händelser och markerar misstänkta händelser i flera entiteter. Arbets böcker ger dig information om trender i trafiken och gör det möjligt att öka detalj nivån och filtrera resultaten. 
 
       ![PAL-instrument panel](./media/qs-get-visibility/palo-alto-week-query.png)
 
 
-Du kan anpassa instrument panelerna antingen genom att redigera knappen ![](./media/qs-get-visibility/edit-query-button.png)för huvud frågan. Du kan klicka på knappen ![knapp](./media/qs-get-visibility/go-to-la-button.png) för att gå till [Log Analytics för att redigera frågan där](../azure-monitor/log-query/get-started-portal.md), och du kan välja ellipsen (...) och välja **Anpassa panel data**, vilket gör att du kan redigera huvud tids filtret, eller ta bort vissa paneler från instrument panelen.
+Du kan anpassa arbets böckerna antingen genom att redigera knappen ![](./media/qs-get-visibility/edit-query-button.png)för huvud frågan. Du kan klicka på knappen ![knapp](./media/qs-get-visibility/go-to-la-button.png) för att gå till [Log Analytics för att redigera frågan där](../azure-monitor/log-query/get-started-portal.md), och du kan välja ellipsen (...) och välja **Anpassa panel data**, vilket gör att du kan redigera huvud tids filtret, eller ta bort vissa paneler från arbets boken.
 
 Mer information om hur du arbetar med frågor finns [i Självstudier: Visuella data i Log Analytics](../azure-monitor/learn/tutorial-logs-dashboards.md)
 
 ### <a name="add-a-new-tile"></a>Lägg till en ny panel
 
-Om du vill lägga till en ny panel kan du lägga till den i en befintlig instrument panel, antingen en som du skapar eller en inbyggd instrument panel för Azure-kontroll. 
+Om du vill lägga till en ny panel kan du lägga till den i en befintlig arbets bok, antingen en som du skapar eller en inbyggd Azure Sentinel-arbetsbok. 
 1. I Log Analytics skapar du en panel med hjälp av anvisningarna i [självstudierna: Visuella data i Log Analytics](../azure-monitor/learn/tutorial-logs-dashboards.md). 
-2. När panelen har skapats väljer du den instrument panel som du vill att panelen ska visas under **PIN-kod**.
+2. När panelen har skapats väljer du den arbets bok som du vill att panelen ska visas under **PIN-kod**.
 
-## <a name="create-new-dashboards"></a>Skapa nya instrument paneler
-Du kan skapa en ny instrument panel från grunden eller använda en inbyggd instrument panel som grund för din nya instrument panel.
+## <a name="create-new-workbooks"></a>Skapa nya arbets böcker
+Du kan skapa en ny arbets bok från början eller använda en inbyggd arbets bok som grund för din nya arbets bok.
 
-1. Om du vill skapa en ny instrument panel från grunden väljer du **instrument paneler** och sedan **+ ny instrument panel**.
-2. Välj den prenumeration som instrument panelen skapas i och ge den ett beskrivande namn. Varje instrument panel är en Azure-resurs på samma sätt som andra, och du kan tilldela IT-roller (RBAC) för att definiera och begränsa vem som har åtkomst till den. 
-3. Om du vill att den ska visas på dina instrument paneler för att fästa visualiseringar på, måste du dela den. Klicka på **dela** och **Hantera användare**. 
+1. Om du vill skapa en ny arbets bok från grunden väljer du **arbets böcker** och sedan **+ ny arbets bok**.
+2. Välj den prenumeration som arbets boken skapas i och ge den ett beskrivande namn. Varje arbets bok är en Azure-resurs på samma sätt som andra, och du kan tilldela IT-roller (RBAC) för att definiera och begränsa vem som har åtkomst till den. 
+3. Om du vill att det ska visas i dina arbets böcker för att fästa visualiseringar i måste du dela den. Klicka på **dela** och **Hantera användare**. 
  
-1. Använd **kontrol lera åtkomst** -och **roll tilldelningar** på samma sätt som för andra Azure-resurser. Mer information finns i [dela Azure-instrumentpaneler med hjälp av RBAC](../azure-portal/azure-portal-dashboard-share-access.md).
+1. Använd **kontrol lera åtkomst** -och **roll tilldelningar** på samma sätt som för andra Azure-resurser. Mer information finns i [dela Azure-arbetsböcker med hjälp av RBAC](../azure-portal/azure-portal-dashboard-share-access.md).
 
 
-## <a name="new-dashboard-examples"></a>Nya exempel på instrument paneler
+## <a name="new-workbook-examples"></a>Exempel på nya arbets böcker
 
 I följande exempel fråga kan du jämföra trender för trafik över flera veckor. Du kan enkelt byta enhets leverantör och data källa som du kör frågan på. I det här exemplet används SecurityEvent från Windows, du kan växla den till att köras på AzureActivity eller CommonSecurityLog på någon annan brand vägg.
 
@@ -117,7 +114,7 @@ Du kanske vill skapa en fråga som införlivar data från flera källor. Du kan 
     | project OperationName, RoleAssignmentTime = TimeGenerated, user = Caller) on user
     | project-away user1
 
-Du kan skapa olika instrument paneler baserat på roll för person som tittar på data och vad de letar efter. Du kan till exempel skapa en instrument panel för nätverks administratören som innehåller brand Väggs data. Du kan också skapa instrument paneler baserat på hur ofta du vill titta på dem, om det finns saker som du vill granska varje dag och andra objekt som du vill kontrol lera en gång i timmen, till exempel kanske du vill titta på dina Azure AD-inloggningar varje timme för att söka efter avvikelser ES. 
+Du kan skapa olika arbets böcker baserat på roll för person som tittar på data och vad de letar efter. Du kan till exempel skapa en arbets bok för nätverks administratören som innehåller brand Väggs data. Du kan också skapa arbets böcker baserat på hur ofta du vill titta på dem, om det finns saker som du vill granska varje dag, och andra objekt som du vill kontrol lera en gång i timmen, till exempel kanske du vill titta på dina Azure AD-inloggningar varje timme för att söka efter avvikelser na. 
 
 ## <a name="create-new-detections"></a>Skapa nya identifieringar
 
@@ -125,18 +122,14 @@ Generera identifieringar av [data källor som du har anslutit till Azure Sentine
 
 När du skapar en ny identifiering kan du utnyttja de inbyggda identifieringarna som är utformade av Microsofts säkerhets forskare som är skräddarsydda för de data källor som du har anslutit.
 
-1. [I GitHub](https://github.com/Azure/Azure-Sentinel/tree/master/Detections) -communityn går du till identifierings-mappen och väljer relevanta mappar.
-   ![relevanta mappar](./media/qs-get-visibility/detection-folders.png)
- 
-3.  Gå till fliken **analys** och välj **Lägg till**.
-   ![Skapa regel i Log Analytics](./media/qs-get-visibility/query-params.png)
+Om du vill visa alla färdiga identifieringar går du till **analyser** och sedan **regel mallar**. Den här fliken innehåller alla inbyggda regler för Azure-kontroll.
 
-3.  Kopiera alla parametrar till regeln och klicka på **skapa**.
-   ![Skapa aviserings regel](./media/qs-get-visibility/create-alert-rule.png)
+   ![Använd inbyggda identifieringar för att hitta hot med Azure Sentinel](media/tutorial-detect-built-in/view-oob-detections.png)
 
+Mer information om hur du hämtar välkomst identifieringar finns i [Självstudier: Hämta inbyggda analyser](tutorial-detect-threats-built-in.md).
  
 ## <a name="next-steps"></a>Nästa steg
-I den här snabb starten har du lärt dig hur du kommer igång med Azure Sentinel. Fortsätt till självstudien för [att identifiera hot](tutorial-detect-threats.md).
+I den här snabb starten har du lärt dig hur du kommer igång med Azure Sentinel. Fortsätt till självstudien för [att identifiera hot](tutorial-detect-threats-built-in.md).
 > [!div class="nextstepaction"]
-> [Identifiera hot](tutorial-detect-threats.md) för att automatisera dina svar på hot.
+> [Skapa anpassade hot identifierings regler](tutorial-detect-threats-custom.md) som automatiserar dina svar på hot.
 

@@ -3,16 +3,16 @@ title: Ladda upp, hämta, lista och ta bort blobar med Azure Storage v10 SDK fö
 description: Skapa, ladda upp och ta bort blobar och containrar i Node.js med Azure Storage
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 11/14/2018
+ms.date: 09/24/2019
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: 9d709d19f179dc29b5e290a141d446f3353f4971
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: f8c7de63f2bd4b7329e8ae6a53123c9c1ea035af
+ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70306027"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71240430"
 ---
 # <a name="quickstart-upload-download-list-and-delete-blobs-using-azure-storage-v10-sdk-for-javascript"></a>Snabbstart: Ladda upp, hämta, lista och ta bort blobar med Azure Storage v10 SDK för JavaScript
 
@@ -51,6 +51,7 @@ npm install
 ```
 
 ## <a name="run-the-sample"></a>Kör exemplet
+
 Nu när beroendena har installerats kan du köra exemplet med följande kommando:
 
 ```bash
@@ -60,10 +61,11 @@ npm start
 Appens utdata bör likna följande exempel:
 
 ```bash
+Container "demo" is created
 Containers:
  - container-one
  - container-two
-Container "demo" is created
+ - demo
 Blob "quickstart.txt" is uploaded
 Local file "./readme.md" is uploaded
 Blobs in "demo" container:
@@ -75,9 +77,11 @@ Blob "quickstart.txt" is deleted
 Container "demo" is deleted
 Done
 ```
-Om du använder ett nytt lagringskonto för den här snabbstarten kanske du inte ser containernamn under etiketten ”*Containrar*”.
+
+Om du använder ett nytt lagrings konto för den här snabb starten kan du bara se *demo* behållaren som visas under etiketten "*behållare:* ".
 
 ## <a name="understanding-the-code"></a>Förstå koden
+
 Exemplet börjar med att importera ett antal klasser och funktioner från Azure Blob Storage-namnområdet. Vart och ett av de importerade objekten diskuteras i sin kontext så som de används i exemplet.
 
 ```javascript
@@ -123,14 +127,18 @@ const STORAGE_ACCOUNT_NAME = process.env.AZURE_STORAGE_ACCOUNT_NAME;
 const ACCOUNT_ACCESS_KEY = process.env.AZURE_STORAGE_ACCOUNT_ACCESS_KEY;
 ```
 Nästa uppsättning konstanter hjälper till att visa syftet med filstorleksberäkningar under uppladdningar.
+
 ```javascript
 const ONE_MEGABYTE = 1024 * 1024;
 const FOUR_MEGABYTES = 4 * ONE_MEGABYTE;
 ```
+
 Begäranden som görs av API:et kan konfigureras med tidsgränser efter ett visst intervall. Klassen [Aborter](/javascript/api/%40azure/storage-blob/aborter?view=azure-node-preview) ansvarar för att hantera tidsgränser för begäranden och den efterföljande konstanten används för att definiera tidsgränser som används i det här exemplet.
+
 ```javascript
 const ONE_MINUTE = 60 * 1000;
 ```
+
 ### <a name="calling-code"></a>Anropa kod
 
 För att ge stöd för *async/await*-syntaxen i JavaScript innesluts anropskoden i en funktion med namnet *execute*. Därefter anropas *execute* och hanteras som ett löfte.
@@ -142,6 +150,7 @@ async function execute() {
 
 execute().then(() => console.log("Done")).catch((e) => console.log(e));
 ```
+
 All följande kod körs inuti execute-funktionen där kommentaren `// commands...` har lagts till.
 
 Först deklareras de relevanta variablerna för att tilldela namn och exempelinnehåll och för att peka på den lokala filen som ska laddas upp till Blob Storage.
@@ -160,6 +169,7 @@ const credentials = new SharedKeyCredential(STORAGE_ACCOUNT_NAME, ACCOUNT_ACCESS
 const pipeline = StorageURL.newPipeline(credentials);
 const serviceURL = new ServiceURL(`https://${STORAGE_ACCOUNT_NAME}.blob.core.windows.net`, pipeline);
 ```
+
 Följande klasser används i det här kodblocket:
 
 - Klassen [SharedKeyCredential](/javascript/api/%40azure/storage-blob/sharedkeycredential?view=azure-node-preview) ansvarar för att omsluta autentiseringsuppgifterna för lagringskontot och skicka dem till en pipeline som begär dem.
@@ -174,6 +184,7 @@ Följande klasser används i det här kodblocket:
 const containerURL = ContainerURL.fromServiceURL(serviceURL, containerName);
 const blockBlobURL = BlockBlobURL.fromContainerURL(containerURL, blobName);
 ```
+
 Variablerna *containerURL* och *blockBlobURL* återanvänds i exemplet för att hantera lagringskontot. 
 
 I detta läge finns inte containern i lagringskontot. *ContainerURL*-instansen representerar en URL som du kan hantera. Du kan skapa och ta bort containern med hjälp av den här instansen. Platsen för den här containern motsvarar en plats som följande:
@@ -187,6 +198,7 @@ https://<ACCOUNT_NAME>.blob.core.windows.net/demo
 ```bash
 https://<ACCOUNT_NAME>.blob.core.windows.net/demo/quickstart.txt
 ```
+
 Precis som med containern finns inte blockbloben än. *blockBlobURL*-variabeln används senare för att skapa bloben genom att överföra innehåll.
 
 ### <a name="using-the-aborter-class"></a>Använda klassen Aborter
@@ -196,37 +208,13 @@ Begäranden som görs av API:et kan konfigureras med tidsgränser efter ett viss
 ```javascript
 const aborter = Aborter.timeout(30 * ONE_MINUTE);
 ```
+
 En Aborter ger dig kontroll över begäranden genom att låta dig:
 
 - ange hur lång tid som ska tilldelas en grupp med begäranden
 - ange hur länge en enskild begäran får köra i batchen
 - avbryta begäranden
 - använda den statiska medlemmen *Aborter.none* för att helt förhindra att begäranden stoppas på grund av en timeout
-
-### <a name="show-container-names"></a>Visa namn på containrar
-Konton kan lagra ett stort antal containrar. Följande kod visar hur du listar containrar på ett segmentbaserat sätt, vilket gör att du kan gå igenom ett stort antal containrar. Instanser av *ServiceURL* och *Aborter* skickas till funktionen *showContainerNames*.
-
-```javascript
-console.log("Containers:");
-await showContainerNames(serviceURL, aborter);
-```
-Funktionen *showContainerNames* använder metoden *listContainersSegment* för att begära batchar med namn på containrar från lagringskontot.
-```javascript
-async function showContainerNames(aborter, serviceURL) {
-
-    let response;
-    let marker;
-
-    do {
-        response = await serviceURL.listContainersSegment(aborter, marker);
-        marker = response.marker;
-        for(let container of response.containerItems) {
-            console.log(` - ${ container.name }`);
-        }
-    } while (marker);
-}
-```
-När svaret returneras itereras *containerItems* för att logga namnet på konsolen. 
 
 ### <a name="create-a-container"></a>Skapa en container
 
@@ -236,22 +224,58 @@ Metoden *create* för *ContainerURL* används för att skapa en container.
 await containerURL.create(aborter);
 console.log(`Container: "${containerName}" is created`);
 ```
+
 Eftersom namnet på containern definieras när *ContainerURL.fromServiceURL(serviceURL, containerName)* anropas, behöver du bara anropa metoden *create* för att skapa containern.
 
+### <a name="show-container-names"></a>Visa namn på containrar
+
+Konton kan lagra ett stort antal containrar. Följande kod visar hur du listar containrar på ett segmentbaserat sätt, vilket gör att du kan gå igenom ett stort antal containrar. Instanser av *ServiceURL* och *Aborter* skickas till funktionen *showContainerNames*.
+
+```javascript
+console.log("Containers:");
+await showContainerNames(serviceURL, aborter);
+```
+
+Funktionen *showContainerNames* använder metoden *listContainersSegment* för att begära batchar med namn på containrar från lagringskontot.
+
+```javascript
+async function showContainerNames(aborter, serviceURL) {
+    let marker = undefined;
+
+    do {
+        const listContainersResponse = await serviceURL.listContainersSegment(aborter, marker);
+        marker = listContainersResponse.nextMarker;
+        for(let container of listContainersResponse.containerItems) {
+            console.log(` - ${ container.name }`);
+        }
+    } while (marker);
+}
+```
+
+När svaret returneras itereras *containerItems* för att logga namnet på konsolen. 
+
 ### <a name="upload-text"></a>Ladda upp text
+
 Du överför text till bloben genom att använda metoden *upload*.
+
 ```javascript
 await blockBlobURL.upload(aborter, content, content.length);
 console.log(`Blob "${blobName}" is uploaded`);
 ```
+
 Här skickas texten och dess längd till metoden.
+
 ### <a name="upload-a-local-file"></a>Ladda upp en lokal fil
+
 För att ladda upp en lokal fil till containern behöver du en container-URL och sökvägen till filen.
+
 ```javascript
 await uploadLocalFile(aborter, containerURL, localFilePath);
 console.log(`Local file "${localFilePath}" is uploaded`);
 ```
+
 Funktionen *uploadLocalFile* anropar funktionen *uploadFileToBlockBlob*, som använder sökvägen till filen och en instans av målet för blockbloben som argument.
+
 ```javascript
 async function uploadLocalFile(aborter, containerURL, filePath) {
 
@@ -263,16 +287,20 @@ async function uploadLocalFile(aborter, containerURL, filePath) {
     return await uploadFileToBlockBlob(aborter, filePath, blockBlobURL);
 }
 ```
+
 ### <a name="upload-a-stream"></a>Ladda upp en dataström
+
 Det går också att ladda upp dataströmmar. Det här exemplet öppnar en lokal fil som en dataström som ska skickas till metoden upload.
+
 ```javascript
 await uploadStream(containerURL, localFilePath, aborter);
 console.log(`Local file "${localFilePath}" is uploaded as a stream`);
 ```
+
 Funktionen *uploadStream* anropar *uploadStreamToBlockBlob* för att ladda upp dataströmmen till lagringscontainern.
+
 ```javascript
 async function uploadStream(aborter, containerURL, filePath) {
-
     filePath = path.resolve(filePath);
 
     const fileName = path.basename(filePath).replace('.md', '-stream.md');
@@ -295,51 +323,82 @@ async function uploadStream(aborter, containerURL, filePath) {
                     uploadOptions.maxBuffers);
 }
 ```
+
 Under en uppladdning allokerar *uploadStreamToBlockBlob* buffertar för att cachelagra data från dataströmmen om ett nytt försök skulle bli nödvändigt. *maxBuffers*-värdet anger maximalt antal buffertar som används eftersom varje buffert skapar en separat överföringsförfrågan. Fler buffertar innebär högre hastigheter, men på bekostnad av högre minnesanvändning. Uppladdningshastigheten avstannar när antalet buffertar är tillräckligt högt för att flaskhalsen ska övergå till nätverket eller disken i stället för klienten.
 
 ### <a name="show-blob-names"></a>Visa blobnamn
-Precis som konton kan innehålla många containrar kan varje container potentiellt innehålla ett stort antal blobar. Åtkomsten till varje blob i en container är tillgänglig via en instans av klassen *ContainerURL*. 
+
+Precis som konton kan innehålla många containrar kan varje container potentiellt innehålla ett stort antal blobar. Åtkomsten till varje blob i en container är tillgänglig via en instans av klassen *ContainerURL*.
+
 ```javascript
 console.log(`Blobs in "${containerName}" container:`);
 await showBlobNames(aborter, containerURL);
 ```
+
 Funktionen *showBlobNames* anropar *listBlobFlatSegment* för att begäran batchar med blobar från containern.
+
 ```javascript
 async function showBlobNames(aborter, containerURL) {
-
-    let response;
-    let marker;
+    let marker = undefined;
 
     do {
-        response = await containerURL.listBlobFlatSegment(aborter);
-        marker = response.marker;
-        for(let blob of response.segment.blobItems) {
+        const listBlobsResponse = await containerURL.listBlobFlatSegment(Aborter.none, marker);
+        marker = listBlobsResponse.nextMarker;
+        for (const blob of listBlobsResponse.segment.blobItems) {
             console.log(` - ${ blob.name }`);
         }
     } while (marker);
 }
 ```
+
 ### <a name="download-a-blob"></a>Ladda ned en blob
+
 När en blob har skapats kan du ladda ned innehållet med hjälp av metoden *download*.
+
 ```javascript
 const downloadResponse = await blockBlobURL.download(aborter, 0);
-const downloadedContent = downloadResponse.readableStreamBody.read(content.length).toString();
+const downloadedContent = await streamToString(downloadResponse.readableStreamBody);
 console.log(`Downloaded blob content: "${downloadedContent}"`);
 ```
-Svaret returneras som en dataström. I det här exemplet konverteras dataströmmen till en sträng som loggas till konsolen.
+
+Svaret returneras som en dataström. I det här exemplet konverteras strömmen till en sträng med hjälp av följande *streamToString* Helper-funktion.
+
+```javascript
+// A helper method used to read a Node.js readable stream into a string
+async function streamToString(readableStream) {
+    return new Promise((resolve, reject) => {
+      const chunks = [];
+      readableStream.on("data", data => {
+        chunks.push(data.toString());
+      });
+      readableStream.on("end", () => {
+        resolve(chunks.join(""));
+      });
+      readableStream.on("error", reject);
+    });
+}
+```
+
 ### <a name="delete-a-blob"></a>Ta bort en blob
+
 Metoden *delete* från en *BlockBlobURL*-instans tar bort en blob från containern.
+
 ```javascript
 await blockBlobURL.delete(aborter)
 console.log(`Block blob "${blobName}" is deleted`);
 ```
+
 ### <a name="delete-a-container"></a>Ta bort en container
+
 Metoden *delete* från en *ContainerURL*-instans tar bort en container från lagringskontot.
+
 ```javascript
 await containerURL.delete(aborter);
 console.log(`Container "${containerName}" is deleted`);
 ```
+
 ## <a name="clean-up-resources"></a>Rensa resurser
+
 Alla data som skrivits till lagringskontot tas bort automatiskt i slutet av kodexemplet. 
 
 ## <a name="next-steps"></a>Nästa steg

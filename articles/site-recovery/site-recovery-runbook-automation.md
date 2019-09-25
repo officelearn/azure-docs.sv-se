@@ -1,163 +1,162 @@
 ---
-title: Lägg till Azure Automation-runbooks i återställningsplaner för Site Recovery | Microsoft Docs
-description: Lär dig mer om att utöka återställningsplaner med Azure Automation för haveriberedskap med Azure Site Recovery.
+title: Lägg till Azure Automation runbooks i Site Recovery återställnings planer
+description: Lär dig hur du utökar återställnings planer med Azure Automation för haveri beredskap med Azure Site Recovery.
 author: rajani-janaki-ram
 manager: gauravd
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 09/18/2019
 ms.author: rajanaki
-ms.openlocfilehash: 26c3466080cb356ca3610d42eaaf5ee4975d3731
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f6e2fedf3f2f8384d4a6062852888c312e8285a1
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61471946"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71212863"
 ---
-# <a name="add-azure-automation-runbooks-to-recovery-plans"></a>Lägg till Azure Automation-runbooks i återställningsplaner
-I den här artikeln beskriver vi hur Azure Site Recovery kan integreras med Azure Automation kan du utöka dina återställningsplaner. Återställningsplaner kan dirigera återställning av virtuella datorer som skyddas med Site Recovery. Återställningsplaner fungerar både för replikering till en sekundär molnet och för replikering till Azure. Återställningsplaner även gör återställningen **konsekvent korrekt**, **upprepningsbara**, och **automatiserade**. Om du växlar över dina virtuella datorer till Azure utökar-integrering med Azure Automation dina återställningsplaner. Du kan använda den för att köra runbooks, som erbjuder kraftfulla automatiserade uppgifter.
+# <a name="add-azure-automation-runbooks-to-recovery-plans"></a>Lägg till Azure Automation runbooks i återställnings planer
 
-Om du är nybörjare på Azure Automation kan du [registrera](https://azure.microsoft.com/services/automation/) och [hämta skriptexempel](https://azure.microsoft.com/documentation/scripts/). Mer information och för att lära dig hur du organiserar återställning till Azure med hjälp av [återställningsplaner](./site-recovery-create-recovery-plans.md), se [Azure Site Recovery](https://azure.microsoft.com/services/site-recovery/).
+I den här artikeln beskrivs hur du integrerar Azure Automation runbooks för att utöka [Azure Site Recovery](site-recovery-overview.md) återställnings planer. Vi visar dig hur du automatiserar grundläggande uppgifter som annars skulle behöva åtgärdas manuellt och hur du konverterar en multi-Step-återställning till en åtgärd med enkel klickning.
 
-I den här artikeln beskriver vi hur du kan integrera Azure Automation-runbooks i dina återställningsplaner. Vi kan använda exemplen för att automatisera grundläggande uppgifter som tidigare krävde manuella åtgärder. Vi beskriver också hur du konverterar en återställning med flera steg till en enda musklick återställningsåtgärd.
+## <a name="recovery-plans"></a>Återställningsplaner 
 
-## <a name="customize-the-recovery-plan"></a>Anpassa återställningsplanen
-1. Gå till den **Site Recovery** recovery plan-resursbladet. I det här exemplet har två virtuella datorer har lagts till, för återställning i återställningsplanen. Om du vill börja lägga till en runbook, klickar du på den **anpassa** fliken.
+Du kan använda återställnings planer när du växlar över lokala datorer eller virtuella Azure-datorer. Med återställnings planer kan du definiera en systematisk återställnings process som definierar hur datorer växlar över och hur de startar och återställer efter redundansväxlingen. 
 
-    ![Klicka på knappen Anpassa](media/site-recovery-runbook-automation-new/essentials-rp.png)
+Det kan vara komplicerat att återställa stora appar. Återställnings planer hjälper till att införa order så att återställningen konsekvent är korrekt, repeterbar och automatiserad. Du kan automatisera uppgifter i en återställnings plan med hjälp av skript, samt Azure Automation runbooks. Vanliga exempel kan vara att konfigurera inställningar på en virtuell Azure-dator efter redundansväxlingen eller konfigurera om en app som körs på den virtuella datorn.
 
-
-2. Högerklicka på **grupp 1: Starta**, och välj sedan **Lägg till efteråtgärd**.
-
-    ![Högerklicka på grupp 1: Starta och Lägg till åtgärd efter](media/site-recovery-runbook-automation-new/customize-rp.png)
-
-3. Klicka på **Välj ett skript**.
-
-4. På den **åtgärden Uppdatera** bladet namn skriptet **Hello World**.
-
-    ![Bladet Update-åtgärd](media/site-recovery-runbook-automation-new/update-rp.png)
-
-5. Ange ett namn på Automation-konto.
-    >[!NOTE]
-    > Automation-kontot kan vara i alla Azure-regioner. Automation-kontot måste vara i samma prenumeration som Azure Site Recovery-valvet.
-
-6. Välj en runbook i ditt Automation-konto. Denna runbook är det skript som körs under körningen av återställningsplanen, efter återställningen av den första gruppen.
-
-7. Spara skriptet genom att klicka på **OK**. Skriptet har lagts till i **grupp 1: Steg efter**.
-
-    ![Efter åtgärdsgrupp 1:Start](media/site-recovery-runbook-automation-new/addedscript-rp.PNG)
+- [Läs mer](recovery-plan-overview.md) om återställnings planer.
+- [Läs mer](../automation/automation-runbook-types.md) om Azure Automation runbooks.
 
 
-## <a name="considerations-for-adding-a-script"></a>Överväganden för att lägga till ett skript
 
-* Om alternativ för att **ta bort ett steg** eller **uppdatera skriptet**, högerklicka på skriptet.
-* Ett skript kan köras på Azure under redundansväxlingen från en lokal dator till Azure. Den kan även köras på Azure som en primär plats skript före avstängning, vid återställning från Azure till en lokal dator.
-* När ett skript körs det lägger in en recovery plan-kontext. I följande exempel visas en sammanhangsvariabel:
+## <a name="runbooks-in-recovery-plans"></a>Runbooks i återställnings planer
 
-    ```
-            {"RecoveryPlanName":"hrweb-recovery",
+Du lägger till ett Azure Automation konto och Runbooks i en återställnings plan. Runbooken anropas när återställnings planen körs.
 
-            "FailoverType":"Test",
+- Automation-kontot kan finnas i valfri Azure-region och måste vara i samma prenumeration som Site Recovery-valvet. 
+- En Runbook kan köras i en återställnings plan under redundansväxling från en primär plats till en sekundär, eller under återställning efter fel från den sekundära platsen till den primära.
+- Runbooks i en återställnings plan körs seriellt, en efter en annan, i uppsättnings ordningen.
+- Om Runbooks i en återställnings plan konfigurerar virtuella datorer att starta i olika grupper, fortsätter återställnings planen bara att gälla när Azure rapporterar alla virtuella datorer som körs.
+- Återställnings planer fortsätter att köras, även om ett skript Miss lyckas.
 
-            "FailoverDirection":"PrimaryToSecondary",
+### <a name="recovery-plan-context"></a>Kontext för återställnings plan
 
-            "GroupId":"1",
+När ett skript körs injiceras en kontext för återställnings planen till runbooken. Kontexten innehåller de variabler som sammanfattas i tabellen.
 
-            "VmMap":{"7a1069c6-c1d6-49c5-8c5d-33bfce8dd183":
+| **Variabel namn** | **Beskrivning** |
+| --- | --- |
+| RecoveryPlanName |Namn på återställnings plan. Används i åtgärder baserat på namnet. |
+| FailoverType |Anger om det är ett test-eller produktions fel. 
+| FailoverDirection | Anger om återställningen är till en primär eller sekundär plats. |
+| GroupID |Identifierar grupp numret i återställnings planen när planen körs. |
+| VmMap |En matris med alla virtuella datorer i gruppen. |
+| VMMap-nyckel |En unik nyckel (GUID) för varje virtuell dator. |
+| SubscriptionId |ID för Azure-prenumerationen där den virtuella datorn skapades. |
+| ResourceGroupName | Namnet på resurs gruppen där den virtuella datorn finns.
+| CloudServiceName |Namnet på Azure-molnet som den virtuella datorn skapades under. |
+| RoleName |Namnet på den virtuella Azure-datorn. |
+| RecoveryPointId|Tidsstämpeln för VM-återställningen. |
 
-                    { "SubscriptionId":"7a1111111-c1d6-49c5-8c5d-111ce8dd183",
+I följande exempel visas en Sammanhangs variabel:
 
-                    "ResourceGroupName":"ContosoRG",
+```
+{"RecoveryPlanName":"hrweb-recovery",
+"FailoverType":"Test",
+"FailoverDirection":"PrimaryToSecondary",
+"GroupId":"1",
+"VmMap":{"7a1069c6-c1d6-49c5-8c5d-33bfce8dd183":
+    { "SubscriptionId":"7a1111111-c1d6-49c5-8c5d-111ce8dd183",
+    "ResourceGroupName":"ContosoRG",
+    "CloudServiceName":"pod02hrweb-Chicago-test",
+    "RoleName":"Fabrikam-Hrweb-frontend-test",
+    "RecoveryPointId":"TimeStamp"}
+    }
+}
+```
 
-                    "CloudServiceName":"pod02hrweb-Chicago-test",
-
-                    "RoleName":"Fabrikam-Hrweb-frontend-test",
-
-                    "RecoveryPointId":"TimeStamp"}
-
-                    }
-
-            }
-    ```
-
-    I följande tabell visas namn och beskrivning för varje variabel i kontexten.
-
-    | **Variabelnamn** | **Beskrivning** |
-    | --- | --- |
-    | RecoveryPlanName |Namnet på den plan som körs. Den här variabeln kan du vidta olika åtgärder baserat på namnet på återställningsplanen. Du kan även återanvända skriptet. |
-    | FailoverType |Anger om växling vid fel är ett test, planerad eller oplanerad. |
-    | FailoverDirection |Anger om återställningen görs till en primär eller sekundär plats. |
-    | GroupID |Identifierar gruppnumret i återställningsplanen när planen körs. |
-    | VmMap |En matris med alla virtuella datorer i gruppen. |
-    | VMMap nyckel |En unik nyckel (GUID) för varje virtuell dator. Det är samma som Azure Virtual Machine Manager (VMM)-ID för den virtuella datorn, om tillämpligt. |
-    | SubscriptionId |Azure-prenumerations-ID som den virtuella datorn skapades. |
-    | RoleName |Namnet på den virtuella Azure-datorer som återställs. |
-    | CloudServiceName |Azure molntjänstens namn som den virtuella datorn skapades. |
-    | ResourceGroupName|Azure resursgruppens namn som den virtuella datorn skapades. |
-    | RecoveryPointId|Tidsstämpel för när den virtuella datorn återställs. |
-
-* Kontrollera att Automation-kontot har följande moduler:
-    * AzureRM.profile
-    * AzureRM.Resources
-    * AzureRM.Automation
-    * AzureRM.Network
-    * AzureRM.Compute
-
-Alla moduler som ska ha kompatibla versioner. Ett enkelt sätt att se till att alla moduler som är kompatibla är att använda de senaste versionerna av alla moduler.
-
-### <a name="access-all-vms-of-the-vmmap-in-a-loop"></a>Få åtkomst till alla virtuella datorer av VMMap i en loop
-Använd följande kod för att bläddra i alla virtuella datorer för Microsoft-VMMap:
+Om du vill få åtkomst till alla virtuella datorer i VMMap i en slinga kan du använda följande kod:
 
 ```
 $VMinfo = $RecoveryPlanContext.VmMap | Get-Member | Where-Object MemberType -EQ NoteProperty | select -ExpandProperty Name
 $vmMap = $RecoveryPlanContext.VmMap
- foreach($VMID in $VMinfo)
- {
-     $VM = $vmMap.$VMID                
-             if( !(($VM -eq $Null) -Or ($VM.ResourceGroupName -eq $Null) -Or ($VM.RoleName -eq $Null))) {
-         #this check is to ensure that we skip when some data is not available else it will fail
- Write-output "Resource group name ", $VM.ResourceGroupName
- Write-output "Rolename " = $VM.RoleName
-     }
- }
-
+    foreach($VMID in $VMinfo)
+    {
+        $VM = $vmMap.$VMID                
+            if( !(($VM -eq $Null) -Or ($VM.ResourceGroupName -eq $Null) -Or ($VM.RoleName -eq $Null))) {
+            #this check is to ensure that we skip when some data is not available else it will fail
+    Write-output "Resource group name ", $VM.ResourceGroupName
+    Write-output "Rolename " = $VM.RoleName
+            }
+        }
 ```
 
-> [!NOTE]
-> De namn och rollen värdena för resursgruppnamn är tomma när skriptet är en åtgärd till en start-grupp. Värden fylls bara om den virtuella datorn i den gruppen lyckas i redundanskluster. Skriptet är efteråtgärd i Start-gruppen.
 
-## <a name="use-the-same-automation-runbook-in-multiple-recovery-plans"></a>Använd samma Automation-runbook i flera återställningsplaner
-
-Du kan använda ett enda skript i flera återställningsplaner med externa variabler. Du kan använda [Azure Automation-variabler](../automation/automation-variables.md) att lagra parametrar som du kan skicka för körning av en recovery plan. Lägger till namnet på återställningsplanen som ett prefix i variabeln kan skapa du enskilda variabler för varje återställningsplan. Sedan Använd variablerna som parametrar. Du kan ändra en parameter utan att ändra skriptet, men ändå ändra hur skriptet fungerar.
-
-### <a name="use-a-simple-string-variable-in-a-runbook-script"></a>Använda en enkel strängvariabel i en runbook-skriptet
-
-I det här exemplet är ett skript tar indata för en Nätverkssäkerhetsgrupp (NSG) och tillämpar den på de virtuella datorerna i en återställningsplan.
-
-För skriptet att identifiera vilka recovery plan körs kan använda recovery plan context:
-
-```
-workflow AddPublicIPAndNSG {
-    param (
-          [parameter(Mandatory=$false)]
-          [Object]$RecoveryPlanContext
-    )
-
-    $RPName = $RecoveryPlanContext.RecoveryPlanName
-```
-
-Om du vill använda en befintlig NSG, måste du känna NSG-namnet och NSG resursgruppens namn. Använd dessa variabler som indata för recovery plan skript. Gör detta genom att skapa två variabler i Automation-konto-tillgångar. Lägg till namnet på återställningsplanen som du skapar parametrarna för som ett prefix till variabelnamnet.
-
-1. Skapa en variabel för att lagra NSG-namnet. Lägga till ett prefix till variabelnamnet med namnet på återställningsplanen.
-
-    ![Skapa en variabel för NSG-namn](media/site-recovery-runbook-automation-new/var1.png)
-
-2. Skapa en variabel för att lagra den NSG resursgruppens namn. Lägga till ett prefix till variabelnamnet med namnet på återställningsplanen.
-
-    ![Skapa en NSG resursgruppens namn](media/site-recovery-runbook-automation-new/var2.png)
+Aman- [Sharma finns ett](http://harvestingclouds.com) användbart exempel på ett [kontext skript för återställnings plan](http://harvestingclouds.com/post/script-sample-azure-automation-runbook-for-asr-recovery-plan/).
 
 
-3.  Använd följande referenskod för att få variabelvärdena i skriptet:
+
+## <a name="before-you-start"></a>Innan du börjar
+
+- Om du inte har använt Azure Automation kan du [Registrera dig](https://azure.microsoft.com/services/automation/) och [Hämta exempel skript](https://azure.microsoft.com/documentation/scripts/).
+- Se till att Automation-kontot har följande moduler:
+    - AzureRM.profile
+    - AzureRM.Resources
+    - AzureRM.Automation
+    - AzureRM.Network
+    - AzureRM.Compute
+
+    Alla moduler måste vara kompatibla versioner. Det enklaste sättet är att alltid använda de senaste versionerna av alla moduler.
+
+
+
+## <a name="customize-the-recovery-plan"></a>Anpassa återställnings planen
+
+1. I valvet väljer du **återställnings planer (Site Recovery)**
+2. Klicka på **+ återställnings plan**för att skapa en återställnings plan. [Läs mer](/site-recovery-create-recovery-plans.md). Om du redan har en återställnings plan väljer du att öppna den.
+3. På sidan återställnings plan klickar du på **Anpassa**.
+
+    ![Klicka på knappen anpassa](media/site-recovery-runbook-automation-new/custom-rp.png)
+
+2. Klicka på ellipserna (...) bredvid **grupp 1: Starta**Lägg > **till post-åtgärd**.
+3. I **Infoga åtgärd**kontrollerar du att **skript** är markerat och anger ett namn för skriptet (**Hello World**).
+4. Ange ett Automation-konto och välj en Runbook. Klicka på **OK**om du vill spara skriptet. Skriptet läggs till i **grupp 1: Post-steg**.
+
+
+## <a name="reuse-a-runbook-script"></a>Återanvänd ett Runbook-skript
+
+Du kan använda ett enda Runbook-skript i flera återställnings planer genom att använda externa variabler. 
+
+- Du använder [Azure Automation variabler](../automation/automation-variables.md) för att lagra parametrar för att köra en återställnings plan.
+- Genom att lägga till återställnings plan namnet som ett prefix till variabeln kan du skapa enskilda variabler för varje återställnings plan. Använd sedan variablerna som parametrar.
+- Du kan ändra en parameter utan att ändra skriptet, men ändå ändra hur skriptet fungerar.
+
+### <a name="use-a-simple-string-variable-in-a-runbook-script"></a>Använda en enkel sträng variabel i ett Runbook-skript
+
+I det här exemplet tar ett skript sig in i en nätverks säkerhets grupp (NSG) och tillämpar det på de virtuella datorerna i en återställnings plan. 
+
+1. För att skriptet ska kunna identifiera vilken återställnings plan som körs använder du den här kontexten för återställnings plan:
+
+    ```
+    workflow AddPublicIPAndNSG {
+        param (
+              [parameter(Mandatory=$false)]
+              [Object]$RecoveryPlanContext
+        )
+
+        $RPName = $RecoveryPlanContext.RecoveryPlanName
+    ```
+
+2. Observera NSG namn och resurs grupp. Du använder dessa variabler som indata för återställnings plan skript. 
+1. I Automation-kontots till gångar. skapa en variabel för att lagra NSG namn. Lägg till ett prefix till variabel namnet med namnet på återställnings planen.
+
+    ![Skapa en variabel för NSG Name](media/site-recovery-runbook-automation-new/var1.png)
+
+2. Skapa en variabel för att lagra resurs grupps namnet för NSG-resursen. Lägg till ett prefix till variabel namnet med namnet på återställnings planen.
+
+    ![Skapa ett NSG resurs grupp namn](media/site-recovery-runbook-automation-new/var2.png)
+
+
+3.  Använd den här referens koden i skriptet för att hämta variabel värden:
 
     ```
     $NSGValue = $RecoveryPlanContext.RecoveryPlanName + "-NSG"
@@ -167,7 +166,7 @@ Om du vill använda en befintlig NSG, måste du känna NSG-namnet och NSG resurs
     $RGnameVar = Get-AutomationVariable -Name $NSGRGValue
     ```
 
-4.  Använda variabler i runbook för att tillämpa NSG: N till nätverksgränssnittet för den redundansväxlade virtuella datorn:
+4.  Använd variablerna i runbooken för att tillämpa NSG på nätverks gränssnittet för den misslyckade virtuella datorn:
 
     ```
     InlineScript {
@@ -182,16 +181,26 @@ Om du vill använda en befintlig NSG, måste du känna NSG-namnet och NSG resurs
     }
     ```
 
-Skapa oberoende variabler för varje återställningsplanen så att du kan återanvända skriptet. Lägg till ett prefix med hjälp av namnet på återställningsplanen. En fullständig, slutpunkt till slutpunkt skriptet i det här scenariot finns [lägga till en offentlig IP- och NSG till virtuella datorer under redundanstest av en återställningsplan för Site Recovery](https://gallery.technet.microsoft.com/Add-Public-IP-and-NSG-to-a6bb8fee).
+
+Skapa oberoende variabler för varje återställnings plan så att du kan återanvända skriptet. Lägg till ett prefix med hjälp av namnet på återställnings planen. 
+
+För ett komplett skript från slut punkt till slut punkt för det här scenariot, granska [skriptet](https://gallery.technet.microsoft.com/Add-Public-IP-and-NSG-to-a6bb8fee).
 
 
-### <a name="use-a-complex-variable-to-store-more-information"></a>Använda en variabel för komplex för att lagra mer information
+### <a name="use-a-complex-variable-to-store-more-information"></a>Använd en komplex variabel för att lagra mer information
 
-Tänk dig ett scenario som du vill att ett enda skript för att aktivera en offentlig IP på specifika virtuella datorer. I ett annat scenario kanske du vill tillämpa olika NSG: er på olika virtuella datorer (inte för alla virtuella datorer). Du kan göra ett skript som är återanvändbara för någon återställningsplan. Varje återställningsplanen kan ha en variabel antalet virtuella datorer. Till exempel har en SharePoint-återställning två klientdelar. En grundläggande line-of-business (LOB)-programmet har bara en klientdel. Du kan inte skapa separata variabler för varje återställningsplan.
+I vissa fall kanske du inte kan skapa separata variabler för varje återställnings plan. Överväg ett scenario där du vill att ett enda skript ska tilldela en offentlig IP-adress på vissa virtuella datorer. I ett annat scenario kanske du vill använda olika NSG: er på olika virtuella datorer (inte på alla virtuella datorer). Tänk på följande:
 
-I följande exempel vi använda en ny teknik och skapa en [komplex variabeln](https://docs.microsoft.com/powershell/module/servicemanagement/azure/set-azureautomationvariable) i Azure Automation-konto tillgångar. Du kan göra detta genom att ange flera värden. Du måste använda Azure PowerShell för att slutföra följande steg:
+- Du kan göra ett skript som kan återanvändas för alla återställnings planer.
+- Varje återställnings plan kan ha ett variabel antal virtuella datorer.
+- Till exempel har en SharePoint-återställning två frontend-sidor. Ett grundläggande LOB-program (Line-of-Business) har bara en klient del.
+- I det här scenariot kan du inte skapa separata variabler för varje återställnings plan.
 
-1. Logga in på Azure-prenumerationen i PowerShell:
+I följande exempel skapar vi en [komplex variabel](https://docs.microsoft.com/powershell/module/servicemanagement/azure/set-azureautomationvariable) i Azure Automation-kontot.
+
+Vi gör detta genom att ange flera värden med hjälp av Azure PowerShell.
+
+1. Logga in på din Azure-prenumeration i PowerShell:
 
     ```
     Connect-AzureRmAccount
@@ -199,24 +208,24 @@ I följande exempel vi använda en ny teknik och skapa en [komplex variabeln](ht
     $sub | Select-AzureRmSubscription
     ```
 
-2. Skapa komplexa variabeln med namnet på återställningsplanen för att lagra parametrarna:
+2. Om du vill lagra parametrarna skapar du den komplexa variabeln med namnet på återställnings planen:
 
     ```
     $VMDetails = @{"VMGUID"=@{"ResourceGroupName"="RGNameOfNSG";"NSGName"="NameOfNSG"};"VMGUID2"=@{"ResourceGroupName"="RGNameOfNSG";"NSGName"="NameOfNSG"}}
         New-AzureRmAutomationVariable -ResourceGroupName <RG of Automation Account> -AutomationAccountName <AA Name> -Name <RecoveryPlanName> -Value $VMDetails -Encrypted $false
     ```
 
-3. I den här variabeln för komplexa, **VMDetails** är VM-ID för den skyddade virtuella datorn. Visa egenskaper för virtuella datorer för att hämta VM-ID i Azure-portalen. I följande skärmbild visas en variabel som lagrar information om två virtuella datorer:
+3. I den här komplexa variabeln är **VMDETAILS** VM-ID: t för den skyddade virtuella datorn. Om du vill hämta VM-ID: t i Azure Portal visar du VM-egenskaperna. Följande skärm bild visar en variabel som lagrar information om två virtuella datorer:
 
-    ![Använda VM-ID som GUID](media/site-recovery-runbook-automation-new/vmguid.png)
+    ![Använd VM-ID: t som GUID](media/site-recovery-runbook-automation-new/vmguid.png)
 
-4. Använd den här variabeln i din runbook. Om den angivna VM-GUID hittas i kontexten recovery plan gäller NSG: N på den virtuella datorn:
+4. Använd den här variabeln i din Runbook. Om det angivna virtuella dator-GUID: et finns i återställnings planens kontext använder du NSG på den virtuella datorn:
 
     ```
     $VMDetailsObj = (Get-AutomationVariable -Name $RecoveryPlanContext.RecoveryPlanName).ToObject([hashtable])
     ```
 
-4. Gå igenom de virtuella datorerna i kontexten recovery plan i din runbook. Kontrollera om den virtuella datorn finns i **$VMDetailsObj**. Komma åt egenskaper för variabeln för att tillämpa NSG: N om den finns:
+4. I din Runbook går du igenom de virtuella datorerna i återställnings planens kontext. Kontrol lera om den virtuella datorn finns i **$VMDetailsObj**. Om den finns får du åtkomst till egenskaperna för variabeln för att tillämpa NSG:
 
     ```
         $VMinfo = $RecoveryPlanContext.VmMap | Get-Member | Where-Object MemberType -EQ NoteProperty | select -ExpandProperty Name
@@ -236,24 +245,25 @@ I följande exempel vi använda en ny teknik och skapa en [komplex variabeln](ht
         }
     ```
 
-Du kan använda samma skript för olika återställningsplaner. Ange olika parametrar genom att lagra värdet som motsvarar en återställningsplan i olika variabler.
+Du kan använda samma skript för olika återställnings planer. Ange olika parametrar genom att lagra värdet som motsvarar en återställnings plan i olika variabler.
 
 ## <a name="sample-scripts"></a>Exempelskript
 
-Distribuera exempelskript till ditt Automation-konto genom att klicka på den **distribuera till Azure** knappen.
+Om du vill distribuera exempel skript till ditt Automation-konto klickar du på knappen **distribuera till Azure** .
 
 [![Distribuera till Azure](https://azurecomcdn.azureedge.net/mediahandler/acomblog/media/Default/blog/c4803408-340e-49e3-9a1f-0ed3f689813d.png)](https://aka.ms/asr-automationrunbooks-deploy)
 
-Ett annat exempel finns i följande videoklipp. Den visar hur du återställer en tvålagers-WordPress-program till Azure:
+Den här videon innehåller ett annat exempel. Det visar hur du återställer ett WordPress-program på två nivåer till Azure:
 
 
 > [!VIDEO https://channel9.msdn.com/Series/Azure-Site-Recovery/One-click-failover-of-a-2-tier-WordPress-application-using-Azure-Site-Recovery/player]
 
 
-## <a name="additional-resources"></a>Ytterligare resurser
-* [Azure Automation-tjänsten kör som-konto](../automation/automation-create-runas-account.md)
-* [Översikt över Azure Automation](https://msdn.microsoft.com/library/azure/dn643629.aspx "översikt över Azure Automation")
-* [Azure Automation-exempelskript](https://gallery.technet.microsoft.com/scriptcenter/site/search?f\[0\].Type=User&f\[0\].Value=SC%20Automation%20Product%20Team&f\[0\].Text=SC%20Automation%20Product%20Team "exempelskript för Azure Automation")
-
 ## <a name="next-steps"></a>Nästa steg
-[Läs mer](site-recovery-failover.md) om att köra redundansväxlingar.
+
+- Lär dig mer om ett [Azure Automation kör som-konto](../automation/automation-create-runas-account.md)
+- Granska [Azure Automation exempel skript](https://gallery.technet.microsoft.com/scriptcenter/site/search?f%5B0%5D.Type=User&f%5B0%5D.Value=SC%20Automation%20Product%20Team&f%5B0%5D.Text=SC%20Automation%20Product%20Team).
+- [Läs mer](site-recovery-failover.md) om att köra redundans.
+
+
+

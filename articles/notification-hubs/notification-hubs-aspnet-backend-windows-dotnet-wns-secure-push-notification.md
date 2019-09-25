@@ -2,9 +2,9 @@
 title: Azure Notification Hubs säker push
 description: Lär dig hur du skickar säkra push-meddelanden i Azure. Kodexempel som skrivits i C# med hjälp av .NET-API.
 documentationcenter: windows
-author: jwargo
-manager: patniko
-editor: spelluru
+author: sethmanheim
+manager: femila
+editor: jwargo
 services: notification-hubs
 ms.assetid: 5aef50f4-80b3-460e-a9a7-7435001273bd
 ms.service: notification-hubs
@@ -13,13 +13,15 @@ ms.tgt_pltfrm: windows
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/04/2019
-ms.author: jowargo
-ms.openlocfilehash: 2f18b4793d205cfa019f501549dedfcd62f501e7
-ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
+ms.author: sethm
+ms.reviewer: jowargo
+ms.lastreviewed: 01/04/2019
+ms.openlocfilehash: 5d1cf2a74d4fe85bb85eb244da3e3757f36fba0a
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68348603"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71212043"
 ---
 # <a name="securely-push-notifications-from-azure-notification-hubs"></a>Push-meddelanden på ett säkert sätt från Azure Notification Hubs
 
@@ -89,7 +91,7 @@ Den här säkra självstudien visar hur du skickar ett push-meddelande på ett s
 
 Nästa steg är att skapa komponenten push-bakgrund.
 
-1. I Solution Explorer högerklickar du på noden på översta nivån i lösningen (lösningens**SecurePush** i det här fallet) och klickar sedan på **Lägg till**och sedan på **nytt projekt**.
+1. I Solution Explorer högerklickar du på noden på översta nivån i lösningen (**lösningens SecurePush** i det här fallet) och klickar sedan på **Lägg till**och sedan på **nytt projekt**.
 2. Expandera **Store-appar**, klicka på **Windows Phone appar**och klicka sedan på **Windows Runtime komponent (Windows Phone)** . Namnge projektet **PushBackgroundComponent**och klicka sedan på **OK** för att skapa projektet.
 
     ![][12]
@@ -161,7 +163,7 @@ Nästa steg är att skapa komponenten push-bakgrund.
 12. I Solution Explorer dubbelklickar du på **Package. appxmanifest** i **NotifyUserWindowsPhone-projektet (Windows Phone 8,1)** . Under **aviseringar**ställer du in **popup-funktion** till **Ja**.
 
     ![][3]
-13. Klicka fortfarande på menyn deklarationer längst upp  i **Package. appxmanifest**. I list rutan **tillgängliga deklarationer** klickar du på bakgrunds **aktiviteter**och sedan på **Lägg till**.
+13. Klicka fortfarande på menyn **deklarationer** längst upp i **Package. appxmanifest**. I list rutan **tillgängliga deklarationer** klickar du på **bakgrunds aktiviteter**och sedan på **Lägg till**.
 14. I **Package. appxmanifest**, under **Egenskaper**, kontrollerar du **push-meddelande**.
 15. I **Package. appxmanifest**under **appinställningar**skriver du **PushBackgroundComponent. PushBackgroundTask** i fältet **Start punkt** .
 

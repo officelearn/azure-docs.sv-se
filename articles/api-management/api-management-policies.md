@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: ed20ef023a884ac79150cd31f25fde86b715c752
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 2b6e056fbfb134f0b1218b4281b9f971a0e24202
+ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70073400"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71219466"
 ---
 # <a name="api-management-policies"></a>API Management-principer
 Det här avsnittet innehåller en referens för följande API Managements principer. Information om hur du lägger till och konfigurerar principer finns [i principer i API Management](api-management-howto-policies.md).  
@@ -39,7 +39,7 @@ Det här avsnittet innehåller en referens för följande API Managements princi
 -   [Avancerade principer](api-management-advanced-policies.md#AdvancedPolicies)  
     -   [Kontroll flöde](api-management-advanced-policies.md#choose) – villkorligt tillämpar princip uttryck baserat på utvärderingen av booleska uttryck.  
     -   [Vidarebefordra begäran](api-management-advanced-policies.md#ForwardRequest) – vidarebefordrar begäran till backend-tjänsten.
-    -   [Begränsning](api-management-advanced-policies.md#LimitConcurrency) av samtidighet – förhindrar att omslutna principer körs av fler än det angivna antalet begär anden i taget.
+    -   [Begränsning av samtidighet](api-management-advanced-policies.md#LimitConcurrency) – förhindrar att omslutna principer körs av fler än det angivna antalet begär anden i taget.
     -   [Logga till Event Hub](api-management-advanced-policies.md#log-to-eventhub) – skickar meddelanden i angivet format till ett meddelande mål som definierats av en loggad entitet.
     -   [Skiss-svar](api-management-advanced-policies.md#mock-response) – avbryter pipeline-körningen och returnerar ett skissat svar direkt till anroparen.
     -   [Försök igen](api-management-advanced-policies.md#Retry) – nya försök att köra de omslutna princip instruktionerna, om och tills villkoret är uppfyllt. Körningen upprepas vid de angivna tidsintervallen och upp till det angivna antalet försök.  
@@ -50,7 +50,7 @@ Det här avsnittet innehåller en referens för följande API Managements princi
     -   [Ange variabel](api-management-advanced-policies.md#set-variable) – Behåll ett värde i en namngiven kontext variabel för senare åtkomst.  
     -   [Ange metod för begäran](api-management-advanced-policies.md#SetRequestMethod) – gör att du kan ändra http-metoden för en begäran.  
     -   [Ange status kod](api-management-advanced-policies.md#SetStatus) – ändrar HTTP-statuskoden till det angivna värdet.  
-    -   [Trace](api-management-advanced-policies.md#Trace) – lägger till en sträng i utdata för [API-kontrollen](https://azure.microsoft.com/documentation/articles/api-management-howto-api-inspector/) .  
+    -   [Trace](api-management-advanced-policies.md#Trace) – lägger till anpassade spårningar i [API-kontrollens](https://azure.microsoft.com/documentation/articles/api-management-howto-api-inspector/) utdata, Application Insights telemetrivärden och diagnostikloggar.  
     -   [Vänta](api-management-advanced-policies.md#Wait) – väntar på en bifogad [sändnings förfrågan](api-management-advanced-policies.md#SendRequest), [hämtar värdet från cachen](api-management-caching-policies.md#GetFromCacheByKey)eller [styr flödes](api-management-advanced-policies.md#choose) principer som ska slutföras innan du fortsätter.  
 -   [Autentiseringsprinciper](api-management-authentication-policies.md#AuthenticationPolicies)  
     -   [Autentisera med Basic](api-management-authentication-policies.md#Basic) -autentisera med en backend-tjänst med grundläggande autentisering.  

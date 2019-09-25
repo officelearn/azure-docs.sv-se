@@ -1,43 +1,45 @@
 ---
-title: Exportera och importera Azure Notification Hubs många registreringar samtidigt | Microsoft Docs
-description: Lär dig hur du använder Meddelandehubbar bulk stöd att utföra ett stort antal åtgärder på en notification hub eller att exportera alla registreringar.
+title: Exportera och importera Azure Notification Hubs-registreringar i bulk | Microsoft Docs
+description: Lär dig hur du använder Notification Hubs Mass stöd för att utföra ett stort antal åtgärder på en Notification Hub, eller för att exportera alla registreringar.
 services: notification-hubs
-author: jwargo
-manager: patniko
-editor: spelluru
+author: sethmanheim
+manager: femila
+editor: jwargo
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: article
 ms.date: 03/18/2019
-ms.author: jowargo
-ms.openlocfilehash: d7e38e8eca58c06fc6896887522b320a797fc42e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: sethm
+ms.reviewer: jowargo
+ms.lastreviewed: 03/18/2019
+ms.openlocfilehash: 8eb03a42f38c0cc7fe82eda6a81d1c8c1213ec74
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64575299"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71212393"
 ---
-# <a name="export-and-import-azure-notification-hubs-registrations-in-bulk"></a>Exportera och importera Azure Notification Hubs många registreringar samtidigt
-Det finns scenarier där det krävs för att skapa eller ändra många registreringar i en notification hub. Några av de här scenarierna är taggen uppdateringar efter batch beräkningar eller migrerar en befintlig push-implementering för att använda Meddelandehubbar.
+# <a name="export-and-import-azure-notification-hubs-registrations-in-bulk"></a>Exportera och importera Azure Notification Hubs-registreringar i bulk
+Det finns scenarier där det krävs för att skapa eller ändra ett stort antal registreringar i en Notification Hub. Några av dessa scenarier är tagga uppdateringar efter batch-beräkningar eller migrering av en befintlig push-implementering för att använda Notification Hubs.
 
-Den här artikeln förklarar hur du utför ett stort antal åtgärder på en notification hub eller exportera alla registreringar gruppvis.
+Den här artikeln förklarar hur du utför ett stort antal åtgärder på en Notification Hub, eller om du vill exportera alla registreringar i bulk.
 
-## <a name="high-level-flow"></a>Övergripande flöde
-Batch-stöd är utformad för långvariga jobb med miljontals registreringar. För att uppnå den här skalningsuppsättningen använder batchstöd Azure Storage för att lagra jobbinformation och utdata. Användaren krävs för uppdatering av massåtgärder, att skapa en fil i en blobbehållare, vars innehåll är en lista över registreringsuppdateringsåtgärder. När jobbet startas, ger användaren en URL till indata-blob, tillsammans med en URL till en annan utdatakatalog (även i en blob-behållare). När jobbet har startats kan du kontrollera status genom att fråga en URL-plats som anges vid start av jobbet. Ett specifikt jobb kan bara utföra åtgärder för en viss typ (skapar, uppdaterar eller tar bort). Exportåtgärder utförs på samma sätt.
+## <a name="high-level-flow"></a>Flöde på hög nivå
+Batch-support har utformats för att stödja långvariga jobb som omfattar miljon tals registreringar. För att uppnå denna skalning använder batch-supporten Azure Storage för att lagra jobb information och utdata. För Mass uppdaterings åtgärder krävs det att användaren skapar en fil i en BLOB-behållare, vars innehåll är en lista över registrerings uppdaterings åtgärder. När jobbet startas tillhandahåller användaren en URL till bloben för indata, tillsammans med en URL till en utdataparameter (även i en BLOB-behållare). När jobbet har startats kan användaren kontrol lera statusen genom att fråga en URL-plats som anges i början av jobbet. Ett enskilt jobb kan bara utföra åtgärder av en viss typ (skapar, uppdaterar eller tar bort). Export åtgärder utförs analogously.
 
 ## <a name="import"></a>Importera
 
 ### <a name="set-up"></a>Konfigurera
-Det här avsnittet förutsätter att du har följande entiteter:
+I det här avsnittet förutsätter vi att du har följande entiteter:
 
-- En etablerad notification hub.
-- En Azure Storage blob-behållare.
-- Referenser till den [Azure Storage NuGet-paketet](https://www.nuget.org/packages/windowsazure.storage/) och [Notification Hubs-NuGet-paketet](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/).
+- En etablerad Notification Hub.
+- En Azure Storage BLOB-behållare.
+- Referenser till [Azure Storage NuGet-paketet](https://www.nuget.org/packages/windowsazure.storage/) och [Notification Hubs NuGet-paketet](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/).
 
-### <a name="create-input-file-and-store-it-in-a-blob"></a>Skapa filen med indata och lagra den i en blob
-En indatafil innehåller en lista över registreringar serialiseras i XML, en per rad. Med Azure SDK visar i följande kodexempel hur du serialisera registreringarna och överföra dem till blob-behållare.
+### <a name="create-input-file-and-store-it-in-a-blob"></a>Skapa indatafilen och lagra den i en BLOB
+En indatafil innehåller en lista över registreringar serialiserade i XML, en per rad. Med hjälp av Azure SDK visar följande kod exempel hur du serialiserar registreringarna och laddar upp dem till BLOB-behållare.
 
 ```csharp
 private static void SerializeToBlob(CloudBlobContainer container, RegistrationDescription[] descriptions)
@@ -57,10 +59,10 @@ private static void SerializeToBlob(CloudBlobContainer container, RegistrationDe
 ```
 
 > [!IMPORTANT]
-> Föregående kod Serialiserar registreringar i minnet och sedan överför hela dataströmmen till en blob. Om du har överfört en fil med mer än bara ett par megabyte, finns i Azure blob-vägledning om hur du utför de här stegen; till exempel [blockblobbar](/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs).
+> Föregående kod serialiserar registreringarna i minnet och laddar upp hela data strömmen till en blob. Om du har laddat upp en fil med fler än några megabyte kan du läsa mer i Azure Blob-vägledningen om hur du utför de här stegen. Du kan till exempel [blockera blobbar](/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs).
 
 ### <a name="create-url-tokens"></a>Skapa URL-token
-När indatafilen har överförts, generera URL: er att förse din meddelandehubb för både indatafilen och katalogen. Du kan använda två olika blob-behållare för indata och utdata.
+När indatafilen har överförts genererar du webb adresserna för att tillhandahålla Notification Hub för både indatafilen och katalogen utdata. Du kan använda två olika BLOB-behållare för indata och utdata.
 
 ```csharp
 static Uri GetOutputDirectoryUrl(CloudBlobContainer container)
@@ -88,7 +90,7 @@ static Uri GetInputFileUrl(CloudBlobContainer container, string filePath)
 ```
 
 ### <a name="submit-the-job"></a>Skicka jobbet
-Du kan nu starta batch-jobb med de två webbadresserna för inkommande och utgående.
+Med de två URL: erna för in-och utdata kan du nu starta batch-jobbet.
 
 ```csharp
 NotificationHubClient client = NotificationHubClient.CreateClientFromConnectionString(CONNECTION_STRING, HUB_NAME);
@@ -113,23 +115,23 @@ while (i > 0 && job.Status != NotificationHubJobStatus.Completed)
 }
 ```
 
-Utöver de inkommande och utgående URL-adresser, det här exemplet skapar en `NotificationHubJob` objekt som innehåller en `JobType` -objektet, vilket kan vara något av följande typer:
+Förutom URL: erna för indata och utdata skapar det här exemplet `NotificationHubJob` ett objekt som innehåller `JobType` ett-objekt som kan vara någon av följande typer:
 
 - `ImportCreateRegistrations`
 - `ImportUpdateRegistrations`
 - `ImportDeleteRegistrations`
 
-När anropet har slutförts fortsätter jobbet av notification hub och du kan kontrollera statusen med anropet till [GetNotificationHubJobAsync](/dotnet/api/microsoft.azure.notificationhubs.notificationhubclient.getnotificationhubjobasync?view=azure-dotnet).
+När anropet har slutförts fortsätter jobbet av Notification Hub och du kan kontrol lera dess status med anropet till [GetNotificationHubJobAsync](/dotnet/api/microsoft.azure.notificationhubs.notificationhubclient.getnotificationhubjobasync?view=azure-dotnet).
 
-När jobbet är slutfört, kan du visa resultaten genom att titta på följande filer i utdatakatalogen:
+När jobbet har slutförts kan du kontrol lera resultatet genom att titta på följande filer i utmatnings katalogen:
 
 - `/<hub>/<jobid>/Failed.txt`
 - `/<hub>/<jobid>/Output.txt`
 
-De här filerna innehåller listan över lyckade och misslyckade åtgärder från din batch. Filformatet är `.cvs`, i där varje rad har numret på den ursprungliga filen för indata och utdata från åtgärden (vanligtvis skapats eller uppdaterats registrering beskrivning).
+De här filerna innehåller en lista över lyckade och misslyckade åtgärder från batchen. Fil formatet är `.cvs`, där varje rad har rad numret för den ursprungliga indatafilen och resultatet av åtgärden (vanligt vis den skapade eller uppdaterade registrerings beskrivningen).
 
-### <a name="full-sample-code"></a>Fullständig exempelkod
-Följande exempelkod importerar registreringar till en meddelandehubb.
+### <a name="full-sample-code"></a>Fullständig exempel kod
+Följande exempel kod importerar registreringar till en Notification Hub.
 
 ```csharp
 using Microsoft.Azure.NotificationHubs;
@@ -260,13 +262,13 @@ namespace ConsoleApplication1
 ```
 
 ## <a name="export"></a>Exportera
-Exportera registrering liknar import, med följande skillnader:
+Export av registreringen liknar importen, med följande skillnader:
 
 - Du behöver bara URL: en för utdata.
 - Du skapar en NotificationHubJob av typen ExportRegistrations.
 
-### <a name="sample-code-snippet"></a>Exempel-kodfragment
-Här är ett exempel kodfragment för att exportera registreringar i Java:
+### <a name="sample-code-snippet"></a>Exempel kods tycke
+Här är ett exempel kods tycke för att exportera registreringar i Java:
 
 ```java
 // submit an export job
@@ -288,6 +290,6 @@ while(true){
 ## <a name="next-steps"></a>Nästa steg
 Mer information om registreringar finns i följande artiklar:
 
-- [Registreringshantering](notification-hubs-push-notification-registration-management.md)
+- [Registrerings hantering](notification-hubs-push-notification-registration-management.md)
 - [Taggar för registreringar](notification-hubs-tags-segment-push-message.md)
-- [Mallregistreringar](notification-hubs-templates-cross-platform-push-messages.md)
+- [Mall registreringar](notification-hubs-templates-cross-platform-push-messages.md)

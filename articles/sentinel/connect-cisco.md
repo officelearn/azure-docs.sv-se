@@ -1,5 +1,5 @@
 ---
-title: Ansluta Cisco-data till Azure Sentinel Preview | Microsoft Docs
+title: Anslut Cisco-data till Azure Sentinel | Microsoft Docs
 description: Lär dig hur du ansluter Cisco-data till Azure Sentinel.
 services: sentinel
 documentationcenter: na
@@ -13,20 +13,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/31/2019
+ms.date: 09/23/2019
 ms.author: rkarlin
-ms.openlocfilehash: e4df594128a119f38c66796d7b00a30420a2a0bd
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: 6218d3a53df38e938b7d7805c45facd30f850105
+ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68679332"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71240148"
 ---
 # <a name="connect-your-cisco-asa-appliance"></a>Anslut Cisco ASA-enheten 
 
-> [!IMPORTANT]
-> Azure Sentinel är för närvarande en offentlig för hands version.
-> Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 
 Du kan ansluta Azure Sentinel till valfri Cisco ASA-enhet. Cisco ASA är inbyggt integrerat med Azure Sentinel för data inmatning, så att även om Cisco-installationen inte sparar loggar som CEF, matar Azure Sentinel in dem på samma sätt som den hanterar CEF-loggar. Integrationen med Azure Sentinel gör det möjligt för dig att enkelt köra analyser och frågor i logg fils data från Cisco ASA. 
 
@@ -48,7 +46,7 @@ Om du vill se ett nätverks diagram över båda alternativen, se [Anslut data k�
 
 1. I Azure Sentinel-portalen klickar du på **data kopplingar** och väljer sedan **Cisco ASA** och sedan **Öppna kopplings sida**. 
 
-1. Under **Hämta och installera syslog**-agenten väljer du dator typ, antingen Azure eller lokalt. 
+1. Under **Hämta och installera syslog-agenten**väljer du dator typ, antingen Azure eller lokalt. 
 1. På skärmen **virtuella datorer** som öppnas väljer du den dator som du vill använda och klickar på **Anslut**.
 1. Om du väljer **Hämta och installera agent för virtuella Azure Linux-datorer**väljer du datorn och klickar på **Anslut**. Om du väljer **Hämta och installera agent för virtuella datorer som inte använder Azure Linux**kör du skriptet under **Ladda ned och integrera agent för Linux**på skärmen **Direct agent** .
 1. Ange om syslog-daemonen ska vara **rsyslog. d** eller **syslog-ng**på anslutnings skärmen under **Konfigurera och vidarebefordra syslog**. 
@@ -131,5 +129,5 @@ Det kan ta upp till 20 minuter innan loggarna börjar visas i Log Analytics.
 ## <a name="next-steps"></a>Nästa steg
 I det här dokumentet har du lärt dig hur du ansluter Cisco ASA-enheter till Azure Sentinel. Mer information om Azure Sentinel finns i följande artiklar:
 - Lär dig hur du [får insyn i dina data och potentiella hot](quickstart-get-visibility.md).
-- Kom igång [med att identifiera hot med Azure Sentinel](tutorial-detect-threats.md).
+- Kom igång [med att identifiera hot med Azure Sentinel](tutorial-detect-threats-built-in.md).
 

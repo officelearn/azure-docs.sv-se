@@ -7,12 +7,12 @@ ms.author: parthp
 ms.service: marketplace
 ms.topic: guide
 ms.date: 09/10/2019
-ms.openlocfilehash: fd1da6a43e4c1d7d6b66d5dbacb2d7a587c2856a
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: 9d19b31ccce8feeb2d5ce12353d9b79841b40724
+ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70898689"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71219446"
 ---
 # <a name="create-a-commercial-marketplace-account-in-partner-center"></a>Skapa ett kommersiellt marknads plats konto i Partner Center
 
@@ -60,7 +60,7 @@ Logga in med ett arbets konto så att du kan koppla företagets jobb-e-postkonto
 
 ### <a name="agree-to-terms-and-conditions"></a>Godkänn de allmänna villkoren
 
-Du måste godkänna de allmänna villkoren i [Microsoft Marketplace Publisher-avtalet](http://go.microsoft.com/fwlink/?LinkID=699560).
+Du måste godkänna de allmänna villkoren i [Microsoft Marketplace Publisher-avtalet](https://go.microsoft.com/fwlink/?LinkID=699560).
 
 ### <a name="provide-your-publisher-profile"></a>Ange din utgivar profil
 
@@ -103,7 +103,7 @@ När du har loggat in använder du stegen i det här avsnittet för att slutför
 
 1. Från Partner Center väljer du **Inställningar** > **partner inställningar** > **program** > **Kom igång**.
 2. Microsoft Partner Network identifierar din prenumeration och visar sidan Publisher-profil där du kan ange företagets namn och MPN-ID.
-3. Läs villkoren i [Microsoft Marketplace utgivar avtalet](http://go.microsoft.com/fwlink/?LinkID=699560)och välj sedan **Godkänn och fortsätt** för att slutföra registreringen.
+3. Läs villkoren i [Microsoft Marketplace utgivar avtalet](https://go.microsoft.com/fwlink/?LinkID=699560)och välj sedan **Godkänn och fortsätt** för att slutföra registreringen.
 
 När du har registrerat dig kommer du till översikts sidan för den kommersiella Marketplace. Den **kommersiella marknads platsen** visas i det vänstra navigerings fältet. Om du väljer **Inställningar** > **partner inställningar** > **program**, ser du att den kommersiella Marketplace är listad som registrerad.
 

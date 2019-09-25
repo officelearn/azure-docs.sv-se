@@ -3,9 +3,9 @@ title: Notification Hubs säkerhet
 description: I det här avsnittet beskrivs säkerheten för Azure Notification Hub.
 services: notification-hubs
 documentationcenter: .net
-author: jwargo
-manager: patniko
-editor: spelluru
+author: sethmanheim
+manager: femila
+editor: jwargo
 ms.assetid: 6506177c-e25c-4af7-8508-a3ddca9dc07c
 ms.service: notification-hubs
 ms.workload: mobile
@@ -13,13 +13,15 @@ ms.tgt_pltfrm: mobile-multiple
 ms.devlang: multiple
 ms.topic: article
 ms.date: 05/31/2019
-ms.author: jowargo
-ms.openlocfilehash: 73a6d0eaab286dec9d02bb55eb75f0781bcffcc4
-ms.sourcegitcommit: a3a40ad60b8ecd8dbaf7f756091a419b1fe3208e
+ms.author: sethm
+ms.reviewer: jowargo
+ms.lastreviewed: 05/31/2019
+ms.openlocfilehash: 753493100bbdb34255574656a47217560e2d321a
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69891573"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71213053"
 ---
 # <a name="notification-hubs-security"></a>Notification Hubs säkerhet
 
@@ -35,7 +37,7 @@ När du utför registrerings hantering från-klient program, om informationen so
 
 Appar ska inte bädda in nyckelvärdet i Windows Store-klientprogram, i stället måste klient programmet hämta det från appens Server del vid start.
 
-Med den här nyckeln med avlyssnings åtkomst kan en klient app registrera sig för alla Taggar. Om din app måste begränsa registreringen till vissa taggar till vissa klienter (till exempel när taggar representerar användar-ID), måste appens Server del utföra registreringarna. Mer information finns i [registrerings hantering](notification-hubs-push-notification-registration-management.md). Observera att på det här sättet kommer klient programmet inte att ha direkt åtkomst till Notification Hubs.
+Med den här nyckeln med **avlyssnings** åtkomst kan en klient app registrera sig för alla Taggar. Om din app måste begränsa registreringen till vissa taggar till vissa klienter (till exempel när taggar representerar användar-ID), måste appens Server del utföra registreringarna. Mer information finns i [registrerings hantering](notification-hubs-push-notification-registration-management.md). Observera att på det här sättet kommer klient programmet inte att ha direkt åtkomst till Notification Hubs.
 
 ## <a name="security-claims"></a>Säkerhets anspråk
 

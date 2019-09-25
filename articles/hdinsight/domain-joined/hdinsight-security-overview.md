@@ -6,13 +6,13 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: overview
-ms.date: 07/22/2019
-ms.openlocfilehash: 4619545ab1fed5f55504e80eede0d1cf240eea87
-ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
+ms.date: 09/23/2019
+ms.openlocfilehash: e1863cc54759f6cc2266073629093d4923260525
+ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68488695"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71240408"
 ---
 # <a name="overview-of-enterprise-security-in-azure-hdinsight"></a>Översikt över företags säkerhet i Azure HDInsight
 
@@ -52,7 +52,7 @@ Granskning av all åtkomst till kluster resurserna och data är nödvändig för
 
 Administratören kan visa och rapportera all åtkomst till HDInsight-kluster resurser och data. Administratören kan också visa och rapportera alla ändringar i åtkomst kontroll principerna som har skapats i Apache Ranger-stödda slut punkter. 
 
-För att komma åt Apache Ranger och Ambari gransknings loggar samt SSH-åtkomst loggar [aktiverar Azure Monitor](../hdinsight-hadoop-oms-log-analytics-tutorial.md) och visar relaterade gransknings poster.
+För att komma åt Apache Ranger och Ambari gransknings loggar samt SSH-åtkomst loggar [aktiverar Azure Monitor](../hdinsight-hadoop-oms-log-analytics-tutorial.md#cluster-auditing) och visar de tabeller som innehåller gransknings poster.
 
 ### <a name="encryption"></a>Kryptering
 
@@ -73,6 +73,7 @@ Följande tabell innehåller länkar till resurser för varje typ av säkerhets 
 | Säkerhet för data åtkomst | Konfigurera [åtkomst kontrol listor med ACL: er](../../storage/blobs/data-lake-storage-access-control.md) för Azure Data Lake Storage gen1 och Gen2  | Kunden |
 |  | Aktivera egenskapen ["säker överföring krävs"](../../storage/common/storage-require-secure-transfer.md) för lagrings konton. | Kunden |
 |  | Konfigurera [Azure Storage brand väggar](../../storage/common/storage-network-security.md) och virtuella nätverk | Kunden |
+|  | Konfigurera [tjänst slut punkter för Azure Virtual Network](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) för Cosmos DB och [Azure SQL DB](https://docs.microsoft.com/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview) | Kunden |
 |  | Se till att [TLS-kryptering](../../storage/common/storage-security-tls.md) har Aktiver ATS för data under överföring. | Kunden |
 |  | Konfigurera [Kundhanterade nycklar](../../storage/common/storage-encryption-keys-portal.md) för Azure Storage kryptering | Kunden |
 | Program-och mellanprogram säkerhet | Integrera med AAD-DS och [Konfigurera autentisering](apache-domain-joined-configure-using-azure-adds.md) | Kunden |

@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/07/2019
+ms.date: 09/20/2019
 ms.author: magoedte
-ms.openlocfilehash: 5d6e68b4b17c31056ed1f96a779823fc856962fb
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: fa3c8b8cee0b8621a6a2800655f62a3d339f67c3
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70034726"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71211994"
 ---
 # <a name="designing-your-azure-monitor-logs-deployment"></a>Designa distributioner av Azure Monitor loggar
 
@@ -36,6 +36,8 @@ En Log Analytics arbets yta innehåller:
 
 Den här artikeln innehåller en detaljerad översikt över design-och migrerings överväganden, åtkomst kontroll översikt och en förståelse för de design implementeringar vi rekommenderar för din IT-organisation.
 
+
+
 ## <a name="important-considerations-for-an-access-control-strategy"></a>Viktiga överväganden för en strategi för åtkomst kontroll
 
 Att identifiera hur många arbets ytor du behöver påverkas av ett eller flera av följande krav:
@@ -47,7 +49,7 @@ Att identifiera hur många arbets ytor du behöver påverkas av ett eller flera 
 IT-organisationer idag modelleras efter antingen en centraliserad, decentraliserad eller en mellan hybrid hybrider av båda strukturerna. Därför har följande distributions modeller för arbets ytor ofta använts för att mappa till någon av dessa organisations strukturer:
 
 * **Centraliserad**: Alla loggar lagras på en central arbets yta och administreras av ett enda team, med Azure Monitor som tillhandahåller differentierad åtkomst per team. I det här scenariot är det enkelt att hantera, söka bland resurser och korsa-korrelerade loggar. Arbets ytan kan växa avsevärt beroende på mängden data som samlas in från flera resurser i din prenumeration, med ytterligare administrations kostnader för att upprätthålla åtkomst kontroll till olika användare.
-* Decentraliserad: Varje team har sin egen arbets yta som skapats i en resurs grupp som de äger och hanterar, och loggdata åtskiljs per resurs. I det här scenariot kan arbets ytan vara säker och åtkomst kontrollen är konsekvent med resurs åtkomst, men det är svårt att korsa korrelerande loggar. Användare som behöver en bred vy över många resurser kan inte analysera data på ett meningsfullt sätt.
+* **Decentraliserad**: Varje team har sin egen arbets yta som skapats i en resurs grupp som de äger och hanterar, och loggdata åtskiljs per resurs. I det här scenariot kan arbets ytan vara säker och åtkomst kontrollen är konsekvent med resurs åtkomst, men det är svårt att korsa korrelerande loggar. Användare som behöver en bred vy över många resurser kan inte analysera data på ett meningsfullt sätt.
 * **Hybrid**: Kraven på säkerhets gransknings efterlevnad försäkrar ytterligare det här scenariot eftersom många organisationer implementerar båda distributions modellerna parallellt. Detta leder ofta till en komplicerad, dyr och hårt hanterad konfiguration med luckor i loggar täckning.
 
 När du använder Log Analyticss agenter för att samla in data måste du förstå följande för att kunna planera agent distributionen:
@@ -129,6 +131,19 @@ I följande tabell sammanfattas åtkomst lägena:
     > Om en användare bara har resurs behörigheter till arbets ytan kan de bara komma åt arbets ytan med resurs kontext läge förutsatt att arbets ytans åtkomst läge är inställt på att **använda resurs-eller arbets ytans behörigheter**.
 
 Information om hur du ändrar åtkomst kontrol läget i portalen, med PowerShell eller med hjälp av en Resource Manager-mall finns i [Konfigurera åtkomst kontrol läge](manage-access.md#configure-access-control-mode).
+
+## <a name="ingestion-volume-rate-limit"></a>Gräns för inläsnings volym
+
+Azure Monitor är en hög skalbar data tjänst som tjänar tusentals kunder som skickar terabyte data varje månad i en växande takt. Standard tröskelvärdet för inmatnings frekvens är inställt på **500 MB/min** per arbets yta. Om du skickar data till ett högre pris till en enskild arbets yta, släpps vissa data och en händelse skickas till *Åtgärds* tabellen i arbets ytan var 6: e timme medan tröskelvärdet fortsätter att överskridas. Om din inmatnings volym fortsätter att överskrida hastighets gränsen eller om du förväntar dig att få en stund snart, kan du begära en ökning av arbets ytan genom att öppna en support förfrågan.
+ 
+Om du vill bli informerad om en sådan händelse i arbets ytan skapar du en [logg aviserings regel](alerts-log.md) med hjälp av följande fråga med aviserings logik basen för antalet resultat som är större än noll.
+
+``` Kusto
+Operation
+|where OperationCategory == "Ingestion"
+|where Detail startswith "The rate of data crossed the threshold"
+``` 
+
 
 ## <a name="recommendations"></a>Rekommendationer
 

@@ -1,59 +1,86 @@
 ---
-title: Ansluta threat intelligence-data till Azure Sentinel-förhandsgranskning | Microsoft Docs
-description: Läs mer om hur du ansluter threat intelligence-data till Azure Sentinel.
+title: Anslut hot informations data till Azure Sentinel | Microsoft Docs
+description: Lär dig mer om hur du ansluter hot Intelligence-data till Azure Sentinel.
 documentationcenter: na
 author: rkarlin
 manager: rkarlin
 editor: ''
-ms.assetid: 56412543-5664-44c1-b026-2dbaf78a9a50
 ms.service: security-center
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/07/2019
+ms.date: 09/24/2019
 ms.author: rkarlin
-ms.openlocfilehash: 266e487a7c345f75e966afbde567c5bc4683b5c0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: cbdf05c714971db5a618ca2a8bb35fe286d6804c
+ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65233763"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71240679"
 ---
-# <a name="connect-data-from-threat-intelligence-providers"></a>Anslut data från säkerhetsexperter 
+# <a name="connect-data-from-threat-intelligence-providers---preview"></a>Anslut data från hot Intelligence-leverantörer – för hands version
 
 > [!IMPORTANT]
-> Azure Sentinel är för närvarande i offentlig förhandsversion.
-> Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Hot information i Azure Sentinel är för närvarande en offentlig för hands version.
+> Den här funktionen tillhandahålls utan service nivå avtal och rekommenderas inte för produktions arbets belastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-När du strömma data till Azure Sentinel, kan du utöka den med hotinformationen feed som du använder i organisationen. 
+Med Azure Sentinel kan du importera de hot indikatorer som din organisation använder, vilket kan förbättra din säkerhetsanalytikers möjlighet att identifiera och prioritera kända hot. Flera funktioner från Azure Sentinel blir sedan tillgängliga eller förbättrade:
 
-Så att du mellan efter dina aviseringar och regler med SANT hotinformation, till exempel om du får en avisering från en specifik IP-adress kommer din threat intelligence providern integrering att kunna meddela dig om IP-adress nyligen visade sig vara skadliga , Azure Sentinel möjliggör integrering med [hot intelligence providers](https://aka.ms/graphsecuritytips). 
+- **Analytics** innehåller en uppsättning schemalagda regelmallar som du kan aktivera för att generera aviseringar och incidenter som baseras på matchningar av logg händelser från dina hot indikatorer.
 
-Du kan strömma loggar från säkerhetsexperter till Sentinel-Azure med ett enda klick. Den här anslutningen gör att du kan införliva indikatorer som innehåller olika typer av observables, till exempel IP-adress, domän, URL: en och hash-värdet att söka efter och skapa anpassade varnar regler i Azure Sentinel.  
-> [!NOTE]
-> Du kan ange anpassade threat indikatorer i Azure-Sentinel för användning i Varningsregler, instrumentpaneler och jakt scenarier genom att integrera med den [Microsoft Graph Security tiIndicator](https://aka.ms/graphsecuritytiindicators) entitet eller genom att använda en [Microsoft Graph-säkerheten integrerad plattform för Threat Intelligence](https://aka.ms/graphsecuritytips).
+- **Arbets böcker** ger sammanfattad information om de hot indikatorer som importeras till Azure Sentinel och eventuella varningar som genereras från analys regler som matchar dina hot indikatorer.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter  
+- Med **jakt** frågor kan säkerhetsövervakare använda hot indikatorer inom ramen för vanliga jakt scenarier.
 
-- Användare med global administratör eller administratörsbehörighet för säkerhet 
+- **Antecknings böcker** kan använda hot indikatorer när du undersöker avvikelser och söker efter skadliga beteenden.
 
-- Threat intelligence-appar som är integrerad med Microsoft Intelligent Security Graph 
+Du kan strömma hot indikatorer till Azure Sentinel genom att använda en av de "TIP-produkter (Integrated Threat Intelligence Platform) som anges i nästa avsnitt, eller genom Microsoft Graph att använda direkt integrering med [tiIndicators-API: et för säkerhet](https://aka.ms/graphsecuritytiindicators).
 
-## <a name="connect-to-threat-intelligence"></a>Ansluta till hotinformation 
+## <a name="integrated-threat-intelligence-platform-products"></a>Integrerade hot Intelligence Platform-produkter
 
-1. Om du redan använder en threat intelligence provider, måste du bläddra till programmets tips och ge behörighet att skicka indikatorer till Microsoft och ange tjänsten som Azure Sentinel.  
+- [MISP för hot information med öppen källkod](https://www.misp-project.org/)
+    
+    Ett exempel skript som förser klienter med MISP-instanser för att migrera hot indikatorer till Microsoft Graph Security API finns i avsnittet [MISP to Microsoft Graph Security script](https://github.com/microsoftgraph/security-api-solutions/tree/master/Samples/MISP).
 
-2. I Azure Sentinel väljer **datakopplingar** och klicka sedan på den **Hotinformation** panelen.
+- [Palo-nätverk MineMeld](https://www.paloaltonetworks.com/products/secure-the-network/subscriptions/minemeld)
+    
+    Guidade instruktioner finns i [Skicka IOCs till säkerhets-API: et för Microsoft Graph med MineMeld](https://live.paloaltonetworks.com/t5/MineMeld-Articles/Sending-IOCs-to-the-Microsoft-Graph-Security-API-using-MineMeld/ta-p/258540).
 
-3. Klicka på **Anslut**. 
+- [ThreatConnect-plattform](https://threatconnect.com/solution/)
 
-4. Om du vill använda relevanta schema i Log Analytics för insamling av hotinformation, Sök efter **ThreatIntelligenceIndicator**. 
 
- 
+## <a name="prerequisites"></a>Förutsättningar  
+
+- Azure AD-rollen för antingen global administratör eller säkerhets administratör för att ge behörighet till din TIP-produkt eller anpassade program som använder direkt integrering Microsoft Graph med tiIndicators-API: et för säkerhet.
+
+- Läs-och Skriv behörighet till arbets ytan i Azure Sentinel för att lagra dina hot indikatorer.
+
+## <a name="connect-azure-sentinel-to-your-threat-intelligence-provider"></a>Anslut Azure Sentinel till din Threat Intelligence-Provider
+
+1. [Registrera ett program](/graph/auth-v2-service#1-register-your-app) i Azure Active Directory för att hämta ett program-ID, program hemlighet och Azure Active Directory klient-ID. Du behöver dessa värden för när du konfigurerar din integrerade tips produkt eller app som använder direkt integrering med Microsoft Graph Security tiIndicators API.
+
+2. [Konfigurera API-behörigheter](/graph/auth-v2-service#2-configure-permissions-for-microsoft-graph) för det registrerade programmet: Lägg till Microsoft Graph Application permission **ThreatIndicators. readwrite. OwnedBy** i det registrerade programmet.
+
+3. Be din Azure Active Directory klient administratör att bevilja administrativt medgivande till det registrerade programmet för din organisation. Från Azure Portal: **Azure Active Directory** > **Appregistreringar** ***appens*namnVisa>API-behörigheter bevilja administrativt medgivande för\<**  >  >  >  ***klient organisations namn*>. \<**
+
+4. Konfigurera TIP-produkten eller appen som använder direkt integrering med Microsoft Graph Security tiIndicators API för att skicka indikatorer till Azure Sentinel genom att ange följande:
+    
+    a. Värdena för det registrerade programmets ID, hemlighet och klient-ID.
+    
+    b. För mål produkten anger du Azure Sentinel.
+    
+    c. Ange avisering för åtgärden.
+
+5. I Azure Portal går du till **Azure Sentinel** > **data Connectors** och väljer sedan **Hot information Platforms (för hands version)** Connector.
+
+6. Välj **Öppna anslutnings sidan**och **Anslut**sedan.
+
+7. Om du vill visa de hot indikatorer som importeras till Azure Sentinel går du till **Azure Sentinel-logs** > **SecurityInsights**och expanderar sedan **ThreatIntelligenceIndicator**.
+
 ## <a name="next-steps"></a>Nästa steg
 
-I det här dokumentet har du lärt dig hur du ansluter din Hotinformation-provider till Sentinel-Azure. Mer information om Azure Sentinel finns i följande artiklar.
+I det här dokumentet har du lärt dig hur du ansluter din Threat Intelligence-Provider till Azure Sentinel. Mer information om Azure Sentinel finns i följande artiklar.
 
-- Om du vill komma igång med Azure Sentinel, behöver du en prenumeration på Microsoft Azure. Om du inte har någon prenumeration kan du registrera dig för en [kostnadsfri utvärderingsversion](https://azure.microsoft.com/free/).
-- Lär dig hur du [publicera dina data till Azure Sentinel](quickstart-onboard.md), och [få insyn i dina data och potentiella hot](quickstart-get-visibility.md).
+- Lär dig hur du [får insyn i dina data och potentiella hot](quickstart-get-visibility.md).
+- Kom igång [med att identifiera hot med Azure Sentinel](tutorial-detect-threats.md).

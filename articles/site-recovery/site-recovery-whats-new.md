@@ -5,14 +5,14 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 09/12/2019
+ms.date: 09/18/2019
 ms.author: raynew
-ms.openlocfilehash: 867a2dc9739e839a6957190f93311a811556df15
-ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
+ms.openlocfilehash: c54273e0ca8c88a6fe47d5611950acd38f50b4c0
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71010248"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71212795"
 ---
 # <a name="whats-new-in-site-recovery"></a>Nyheter i Site Recovery
 
@@ -111,7 +111,7 @@ Samlad [uppdatering 38](https://support.microsoft.com/help/4513507/) innehåller
 
 ### <a name="general"></a>Allmänt
 
-Site Recovery stöder nu användning av generell användning v2-lagrings konton för cachelagring av cache-lagring eller mål lagring. Endast v1 stöds tidigare.
+Site Recovery stöder nu användning av generell användning v2-lagrings konton för cache Storage eller mål lagring. Endast v1 stöds tidigare.
 
 ### <a name="vmware-to-azure-disaster-recovery"></a>Haveriberedskap för VMware till Azure
 

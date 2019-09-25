@@ -1,6 +1,6 @@
 ---
 title: REST-självstudie med Azure Relay | Microsoft Docs
-description: Bygg ett enkelt Azure Service Bus relä värd program som visar ett REST-baserat gränssnitt.
+description: Bygg ett Azure Service Bus relä värd program som visar ett REST-baserat gränssnitt.
 services: service-bus-relay
 documentationcenter: na
 author: spelluru
@@ -12,36 +12,39 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/06/2018
+ms.date: 09/12/2019
 ms.author: spelluru
-ms.openlocfilehash: 4e988724f842ff12cd599eba95c31006fe208fad
-ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
+ms.openlocfilehash: a3daa7847ef037f0276792bf8173ad55aba0a944
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68422887"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71212918"
 ---
 # <a name="azure-wcf-relay-rest-tutorial"></a>Självstudier om Azure WCF Relay REST
-I den här självstudien beskrivs hur du skapar ett enkelt Azure Relay värd program som visar ett REST-baserat gränssnitt. Med hjälp av REST kan du ge en webbklient, till exempel en webbläsare, åtkomst till API:er för Service Bus via HTTP-förfrågningar.
 
-I självstudien används den Windows Communication Foundation (WCF) REST programmerings modellen för att skapa en REST-tjänst på Azure Relay. Mer information finns i [Programmeringsmodellen WCF REST](/dotnet/framework/wcf/feature-details/wcf-web-http-programming-model) och [Utforma och implementera tjänster](/dotnet/framework/wcf/designing-and-implementing-services) i WCF-dokumentationen.
+I den här självstudien beskrivs hur du skapar ett Azure Relay värd program som exponerar ett REST-baserat gränssnitt. Med hjälp av REST kan du ge en webbklient, till exempel en webbläsare, åtkomst till API:er för Service Bus via HTTP-förfrågningar.
 
-I den här självstudien gör du följande:
+I självstudien används den Windows Communication Foundation (WCF) REST programmerings modellen för att skapa en REST-tjänst på Azure Relay. Mer information finns i [WCF rest programmerings modell](/dotnet/framework/wcf/feature-details/wcf-web-http-programming-model) och [utformning och implementering av tjänster](/dotnet/framework/wcf/designing-and-implementing-services).
+
+Du utför följande uppgifter i den här självstudien:
 
 > [!div class="checklist"]
+>
+> * Installera krav för den här självstudien.
 > * Skapa ett relä namn område.
-> * Definiera ett REST-baserat WCF Service-kontrakt
-> * Implementera REST-baserade WCF-kontrakt
-> * Värd och köra den REST-baserade WCF-tjänsten
-> * Kör och testa tjänsten
+> * Definiera ett REST-baserat WCF-tjänst kontrakt.
+> * Implementera REST-baserade WCF-kontrakt.
+> * Värd och kör REST-baserade WCF-tjänster.
+> * Kör och testa tjänsten.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här självstudien, finns följande förhandskrav:
 
-- En Azure-prenumeration. Om du inte har ett konto kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
-- [Visual Studio 2015 eller senare](https://www.visualstudio.com). I exemplen i den här självstudiekursen används Visual Studio 2017.
-- Azure SDK för .NET. Installera det från den [nedladdningssidan för SDK](https://azure.microsoft.com/downloads/).
+* En Azure-prenumeration. Om du inte har ett konto kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
+* [Visual Studio 2015 eller senare](https://www.visualstudio.com). I exemplen i den här självstudien använder du Visual Studio 2019.
+* Azure SDK för .NET. Installera det från den [nedladdningssidan för SDK](https://azure.microsoft.com/downloads/).
 
 ## <a name="create-a-relay-namespace"></a>Skapa ett relä namn område
 
@@ -49,48 +52,66 @@ För att komma igång med reläfunktionerna i Azure måste du först skapa ett n
 
 ## <a name="define-a-rest-based-wcf-service-contract-to-use-with-azure-relay"></a>Definiera ett REST-baserat WCF-tjänst kontrakt som ska användas med Azure Relay
 
-När du skapar en tjänst för WCF REST-Style måste du definiera kontraktet. Kontraktet anger vilka åtgärder som värden stöder. En tjänsteåtgärd kan anses vara en webbtjänstemetod. Kontrakt skapas genom att definiera ett gränssnitt för C++, C# eller Visual Basic. Varje metod i gränssnittet motsvarar en viss tjänsteåtgärd. Attributet [ServiceContractAttribute](/dotnet/api/system.servicemodel.servicecontractattribute) måste tillämpas på varje gränssnitt och attributet [OperationContractAttribute](/dotnet/api/system.servicemodel.operationcontractattribute) måste tillämpas på varje åtgärd. Om en metod i ett gränssnitt som har [ServiceContractAttribute](/dotnet/api/system.servicemodel.servicecontractattribute) inte har [OperationContractAttribute](/dotnet/api/system.servicemodel.operationcontractattribute), är inte den metoden exponerad. Den kod som används för dessa aktiviteter visas i exemplet som följer efter proceduren.
+När du skapar en tjänst för WCF REST-Style måste du definiera kontraktet. Kontraktet anger vilka åtgärder som värden stöder. En tjänst åtgärd liknar en webb tjänst metod. Definiera ett kontrakt med ett C++, C#-eller Visual Basic-gränssnitt. Varje metod i gränssnittet motsvarar en viss tjänsteåtgärd. Använd attributet [ServiceContractAttribute](/dotnet/api/system.servicemodel.servicecontractattribute) för varje gränssnitt och Använd attributet [OperationContractAttribute](/dotnet/api/system.servicemodel.operationcontractattribute) för varje åtgärd. 
 
-Den främsta skillnaden mellan ett WCF-kontrakt och ett REST-format-kontrakt är att lägga till en egenskap till [OperationContractAttribute](/dotnet/api/system.servicemodel.operationcontractattribute): [WebGetAttribute](/dotnet/api/system.servicemodel.web.webgetattribute). Den här egenskapen gör att du kan mappa en metod i gränssnittet till en metod på andra sidan av gränssnittet. I det här exemplet används attributet [WebGetAttribute](/dotnet/api/system.servicemodel.web.webgetattribute) för att länka en metod till http get. Detta gör det möjligt för Service Bus att korrekt hämta och tolka kommandon som skickas till gränssnittet.
+> [!TIP]
+> Om en metod i ett gränssnitt som har [ServiceContractAttribute](/dotnet/api/system.servicemodel.servicecontractattribute) inte har [OperationContractAttribute](/dotnet/api/system.servicemodel.operationcontractattribute), så visas inte metoden. Koden som används för dessa aktiviteter visas i exemplet enligt proceduren.
+
+Den främsta skillnaden mellan ett WCF-kontrakt och ett REST-format-kontrakt är att lägga till en egenskap till [OperationContractAttribute](/dotnet/api/system.servicemodel.operationcontractattribute): [WebGetAttribute](/dotnet/api/system.servicemodel.web.webgetattribute). Den här egenskapen gör att du kan mappa en metod i gränssnittet till en metod på andra sidan av gränssnittet. I det här exemplet används attributet [WebGetAttribute](/dotnet/api/system.servicemodel.web.webgetattribute) för att länka en `HTTP GET`metod till. Den här metoden gör det möjligt för Service Bus att korrekt hämta och tolka kommandon som skickas till gränssnittet.
 
 ### <a name="to-create-a-contract-with-an-interface"></a>Så här skapar du ett kontrakt med ett gränssnitt
 
-1. Öppna Visual Studio som administratör: Högerklicka på programmet i **Start**-menyn och klicka sedan på **Kör som administratör**.
-2. Skapa ett nytt konsolapprojekt. Klicka på **Arkiv**-menyn, välj **Nytt** och sedan **Projekt**. I dialogrutan **Nytt projekt** klickar du på **Visual C#** , väljer mallen **Konsolprogram** och ger den namnet **ImageListener**. Använd standardinställningen **Plats**. Klicka på **OK** för att skapa projektet.
-3. Visual Studio skapar en `Program.cs`-fil för ett C#-projekt. Den här klassen innehåller en tom `Main()`-metod, ett krav för att ett konsolapprojekt ska kunna skapas på rätt sätt.
-4. Lägg till referenser till Service Bus och **System.ServiceModel.dll** till projektet genom att installera Service Bus NuGet-paketet. Det här paketet lägger automatiskt till referenser till Service Bus-bibliotek, samt även WCF **System.ServiceModel**. Högerklicka på projektet **ImageListener** i Solution Explorer och klicka sedan på **Hantera NuGet-paket**. Klicka på **Bläddra**-fliken och sök sedan efter `Microsoft Azure Service Bus`. Klicka på **Installera** och godkänn användningsvillkoren.
-5. Du måste uttryckligen lägga till en referens för **System.ServiceModel.Web.dll** i projektet:
-   
-    a. Högerklicka på mappen **Referenser** i Solution Explorer, under projektmappen, och klicka sedan på **Lägg till referens**.
-   
-    b. I dialogrutan **Lägg till referens** klickar du på fliken **Framework** till vänster. Sedan skriver du in **System.ServiceModel.Web** i rutan **Sök**. Markera kryssrutan **System.ServiceModel.Web** och klicka sedan på **OK**.
-6. Lägg till följande `using`-uttryck högst upp i filen Program.cs.
-   
+1. Starta Microsoft Visual Studio som administratör. Det gör du genom att högerklicka på program ikonen för Visual Studio och välja **Kör som administratör**.
+1. I Visual Studio väljer du **skapa ett nytt projekt**.
+1. I **skapa ett nytt projekt**väljer du **konsol program (.NET Framework)** för C# och väljer **sedan nästa**.
+1. Ge projektet namnet *ImageListener*. Använd standard **platsen**och välj sedan **skapa**.
+
+   För ett C# projekt skapar Visual Studio en *program.cs* -fil. Den här klassen innehåller en tom `Main()`-metod, ett krav för att ett konsolapprojekt ska kunna skapas på rätt sätt.
+
+1. I **Solution Explorer**högerklickar du på projektet **ImageListener** och väljer sedan **Hantera NuGet-paket**.
+1. Välj **Bläddra**, leta upp och välj **windowsazure. Service Bus**. Välj **Installera**och godkänn användnings villkoren.
+
+    Det här steget lägger till referenser till Service Bus och *system. ServiceModel. dll*. Det här paketet lägger automatiskt till referenser till Service Bus bibliotek och WCF `System.ServiceModel`.
+
+1. Lägg uttryckligen till en referens `System.ServiceModel.Web.dll` till i projektet. I **Solution Explorer**högerklickar du på **referenser** under projektmappen och väljer **Lägg till referens**.
+1. I **Lägg till referens**väljer du **ramverk** och anger *system. ServiceModel. Web* i **search**. Markera kryssrutan **System.ServiceModel.Web** och klicka sedan på **OK**.
+
+Gör sedan följande kod ändringar till projektet:
+
+1. Lägg till följande `using` -instruktioner överst i *program.cs* -filen.
+
     ```csharp
     using System.ServiceModel;
     using System.ServiceModel.Channels;
     using System.ServiceModel.Web;
     using System.IO;
     ```
-   
-    [System.ServiceModel](/dotnet/api/system.servicemodel) är det namnområde som genom programmering ger åtkomst till grundläggande funktioner i WCF. WCF Relay använder många av objekten och attributen för WCF för att definiera tjänste kontrakt. Du använder det här namn området i de flesta relä program. På samma sätt kan [system. ServiceModel. Channels](/dotnet/api/system.servicemodel.channels) definiera kanalen, som är det objekt som kommunicerar med Azure Relay och klientens webbläsare. Slutligen är det [System.ServiceModel.Web](/dotnet/api/system.servicemodel.web) som innehåller de typer som gör att du kan skapa webbaserade appar.
-7. Byt namn på `ImageListener` namnområdet till **Microsoft.ServiceBus.Samples**.
-   
+
+    * [System.ServiceModel](/dotnet/api/system.servicemodel) är det namnområde som genom programmering ger åtkomst till grundläggande funktioner i WCF. WCF Relay använder många av objekten och attributen för WCF för att definiera tjänste kontrakt. Du använder det här namn området i de flesta relä program.
+    * Med [system. ServiceModel. Channels](/dotnet/api/system.servicemodel.channels) kan du definiera kanalen, som är det objekt som du kommunicerar med Azure Relay och klientens webbläsare.
+    * [System. ServiceModel. Web](/dotnet/api/system.servicemodel.web) innehåller de typer som du kan använda för att skapa webbaserade program.
+
+1. Byt namn `ImageListener` på namn `Microsoft.ServiceBus.Samples`området till.
+
     ```csharp
     namespace Microsoft.ServiceBus.Samples
     {
         ...
     ```
-8. Direkt efter den inledande klammerparentesen för namnområdesdeklarationen definierar du ett nytt gränssnitt med namnet **IImageContract** och sedan tillämpar du attributet **ServiceContractAttribute** på gränssnittet med ett värde av `https://samples.microsoft.com/ServiceModel/Relay/`. Namnområdesvärdet skiljer sig från det namnområde som du använder under hela intervallet för din kod. Namnområdesvärdet används som en unik identifierare för det här kontraktet och bör innehålla versionsinformation. Mer information finns i [Versionshantering för tjänster](https://go.microsoft.com/fwlink/?LinkID=180498). Genom att ange namnområdet uttryckligen förhindrar du att det förvalda namnområdesvärdet läggs till i kontraktnamnet.
-   
+
+1. Direkt efter den inledande klammern i namn områdes deklarationen definierar du ett nytt gränssnitt med `IImageContract` namnet och `ServiceContractAttribute` tillämpar attributet på `https://samples.microsoft.com/ServiceModel/Relay/RESTTutorial1`gränssnittet med värdet. 
+
     ```csharp
     [ServiceContract(Name = "ImageContract", Namespace = "https://samples.microsoft.com/ServiceModel/Relay/RESTTutorial1")]
     public interface IImageContract
     {
     }
     ```
-9. Inne i gränssnittet `IImageContract` deklarerar du en metod för den enkla åtgärd som `IImageContract`-kontraktet exponerar i gränssnittet. Sedan tillämpar du attributet `OperationContractAttribute` på den metod som du vill exponera som en del av det offentliga Service Bus-kontraktet.
-   
+
+    Namnområdesvärdet skiljer sig från det namnområde som du använder under hela intervallet för din kod. Namn områdets värde är en unik identifierare för det här kontraktet och måste ha versions information. Mer information finns i [Versionshantering för tjänster](/dotnet/framework/wcf/service-versioning). Genom att ange namnområdet uttryckligen förhindrar du att det förvalda namnområdesvärdet läggs till i kontraktnamnet.
+
+1. I gränssnittet deklarerar du en metod för den enskild åtgärd `IImageContract` som kontraktet visar i gränssnittet och tillämpar `OperationContract` attributet på den metod som du vill exponera som en del av det offentliga Service Bus kontraktet. `IImageContract`
+
     ```csharp
     public interface IImageContract
     {
@@ -98,8 +119,9 @@ Den främsta skillnaden mellan ett WCF-kontrakt och ett REST-format-kontrakt är
         Stream GetImage();
     }
     ```
-10. Lägg till **WebGet**-värdet i attributet **OperationContract**.
-    
+
+1. I attributet lägger du `WebGet` till värdet. `OperationContract`
+
     ```csharp
     public interface IImageContract
     {
@@ -107,18 +129,21 @@ Den främsta skillnaden mellan ett WCF-kontrakt och ett REST-format-kontrakt är
         Stream GetImage();
     }
     ```
-    
-    På så sätt kan Relay-tjänsten dirigera http get-begäranden `GetImage`till och översätta retur `GetImage` värden till ett http-GETRESPONSE svar. Lite längre fram i denna självstudiekurs kommer du att använda en webbläsare för att få tillgång till denna metod. Sedan visar du bilden i webbläsaren.
-11. Direkt efter definitionen `IImageContract` deklarerar du en kanal som ärver från både `IImageContract`- och `IClientChannel`-gränssnittet.
-    
+
+   Genom att lägga till `GetImage` `GetImage` `HTTP GETRESPONSE` värdet kan relä tjänsten dirigera http get-begäranden till och översätta retur värden i ett svar. `WebGet` Senare i självstudien använder du en webbläsare för att få åtkomst till den här metoden och för att visa bilden i webbläsaren.
+
+1. Direkt efter definitionen `IImageContract` deklarerar du en kanal som ärver från både `IImageContract`- och `IClientChannel`-gränssnittet.
+
     ```csharp
     public interface IImageChannel : IImageContract, IClientChannel { }
     ```
-    
-    En kanal är det WCF-objekt via vilken tjänsten och klienten skickar information till varandra. Senare skapar du kanalen i värd programmet. Azure Relay använder sedan den här kanalen för att skicka HTTP GET-begäranden från webbläsaren till din **getimage** -implementering. Reläet använder också kanalen för att ta **getimage** -returvärdet och översätta den till en http-GETRESPONSE för klientens webbläsare.
-12. Från menyn **Skapa** klickar du på **Skapa lösning** för att bekräfta att det arbete du utfört hittills är korrekt.
 
-### <a name="example"></a>Exempel
+   En kanal är det WCF-objekt via vilken tjänsten och klienten skickar information till varandra. Senare skapar du kanalen i värd programmet. Azure Relay använder sedan den här kanalen för att skicka HTTP Get-begäranden från webbläsaren till `GetImage` din implementering. Reläet använder också kanalen för att ta `GetImage` returvärdet och översätta den till en `HTTP GETRESPONSE` för klientens webbläsare.
+
+1. Välj **bygge** > **build-lösning** för att bekräfta att ditt arbete hittills är korrekt.
+
+### <a name="example-that-defines-a-wcf-relay-contract"></a>Exempel som definierar ett WCF Relay kontrakt
+
 Följande kod visar ett grundläggande gränssnitt som definierar ett WCF Relay kontrakt.
 
 ```csharp
@@ -153,45 +178,57 @@ namespace Microsoft.ServiceBus.Samples
 ```
 
 ## <a name="implement-the-rest-based-wcf-service-contract"></a>Implementera REST-baserade WCF Service-kontrakt
-Om du skapar en REST-typ WCF Relay tjänst måste du först skapa kontraktet, som definieras med hjälp av ett gränssnitt. Nästa steg är att implementera gränssnittet. Detta innebär att du skapar en klass som heter **ImageService** som implementerar det användardefinierade **IImageContract**-gränssnittet. Efter att du har implementerat kontraktet, konfigurerar du gränssnittet genom att använda en App.config-fil. Konfigurations filen innehåller nödvändig information för programmet, till exempel namnet på tjänsten, namnet på kontraktet och typen av protokoll som används för att kommunicera med relä tjänsten. Den kod som används för dessa arbetsuppgifter visas i exemplet som följer efter proceduren.
 
-Precis som i föregående steg är det mycket mycket skillnad mellan att implementera ett kontrakt med REST-format och ett WCF Relay kontrakt.
+Om du vill skapa en REST-typ WCF Relay tjänst skapar du först kontraktet med ett gränssnitt. Nästa steg är att implementera gränssnittet. Den här proceduren förutsätter att du `ImageService` skapar en klass som heter `IImageContract` och som implementerar det användardefinierade gränssnittet. När du har implementerat kontraktet konfigurerar du gränssnittet med hjälp av en *app. config* -fil. Konfigurations filen innehåller nödvändig information för programmet. Den här informationen innehåller namnet på tjänsten, namnet på kontraktet och typen av protokoll som används för att kommunicera med relä tjänsten. Koden som används för dessa aktiviteter visas i exemplet enligt proceduren.
+
+Precis som i föregående steg är det mycket skillnad mellan att implementera ett REST-format-kontrakt och ett WCF Relay kontrakt.
 
 ### <a name="to-implement-a-rest-style-service-bus-contract"></a>Implementera ett Service Bus-kontrakt i REST-format
-1. Skapa en ny klass med namnet **ImageService** direkt efter definitionen av gränssnittet **IImageContract**. Klassen **ImageService** implementerar gränssnittet **IImageContract**.
-   
+
+1. Skapa en ny klass med namnet `ImageService` direkt efter definitionen av gränssnittet `IImageContract`. Klassen `ImageService` implementerar gränssnittet `IImageContract`.
+
     ```csharp
     class ImageService : IImageContract
     {
     }
     ```
+
     Precis som med andra gränssnittsimplementeringar kan du implementera definitionen i en annan fil. Men i den här självstudiekursen visas implementeringen i samma fil som gränssnittsdefinitionen och `Main()`-metoden.
-2. Tillämpa attributet [ServiceBehaviorAttribute](/dotnet/api/system.servicemodel.servicebehaviorattribute) i klassen **IImageService** för att ange att klassen är en implementering av ett WCF-kontrakt.
-   
+
+1. Använd attributet [ServiceBehaviorAttribute](/dotnet/api/system.servicemodel.servicebehaviorattribute) för `IImageService` klassen för att ange att klassen är en implementering av ett WCF-kontrakt.
+
     ```csharp
     [ServiceBehavior(Name = "ImageService", Namespace = "https://samples.microsoft.com/ServiceModel/Relay/")]
     class ImageService : IImageContract
     {
     }
     ```
-   
-    Som tidigare nämnts är det här namnområdet inte ett traditionellt namnområde. Det är istället en del av WCF-arkitekturen som identifierar kontraktet. Mer information finns i artikeln [data kontrakt namn](https://msdn.microsoft.com/library/ms731045.aspx) i WCF-dokumentationen.
-3. Lägg till en .jpg-bild i projektet.  
-   
-    Det här är en bild som tjänsten visar i den mottagande webbläsaren. Högerklicka på ditt projekt och klicka sedan på **Lägg till**. Klicka därefter på **Befintligt objekt**. Använd dialogrutan **Lägg till befintligt objekt** för att bläddra till en lämplig .jpg-bild och klicka sedan på **Lägg till**.
-   
-    När du lägger till filen, måste du se till att **Alla filer** är markerad i listrutan bredvid fältet **Filnamn:** . I resten av den här självstudiekursen förutsätter vi att namnet på denna bild är ”image.jpg”. Om du har en annan fil måste du byta namn på avbildningen eller ändra din kod för att kompensera.
-4. För att försäkra dig om att den tjänst som körs kan hitta bildfilen kan du högerklicka på bildfilen i **Solution Explorer** och sedan klicka på **Egenskaper**. I rutan **Egenskaper** ställer du in **Kopiera till utdatakatalog** på **Kopiera om nyare**.
-5. Lägg till en referens till sammansättningen **System.Drawing.dll** i projektet och lägg även till följande associerade `using`-uttryck.  
-   
+
+    Som tidigare nämnts är det här namn området inte ett traditionellt namn område. Den ingår i WCF-arkitekturen som identifierar kontraktet. Mer information finns i [data kontrakts namn](/dotnet/framework/wcf/feature-details/data-contract-names/).
+
+1. Lägg till en *. jpg* -bild i projektet. Den här filen är en bild som tjänsten visar i den mottagande webbläsaren.
+
+   1. Högerklicka på projektet och välj **Lägg till**.
+   1. Välj sedan **befintligt objekt**.
+   1. Använd **Lägg till befintligt objekt** för att bläddra till en lämplig. jpg och välj sedan **Lägg till**. När du lägger till filen väljer du **alla filer** i list rutan bredvid **fil namn**.
+
+   Resten av den här självstudien förutsätter att namnet på avbildningen är *image. jpg*. Om du har en annan fil måste du byta namn på avbildningen eller ändra din kod för att kompensera.
+
+1. För att se till att den aktiva tjänsten kan hitta avbildnings filen i **Solution Explorer** högerklickar du på avbildnings filen och väljer sedan **Egenskaper**. I **Egenskaper**, anger du **Kopiera till utdatakatalogen** för att **Kopiera om nyare**.
+
+1. Använd proceduren i [om du vill skapa ett kontrakt med ett gränssnitt](#to-create-a-contract-with-an-interface) för att lägga till en referens i sammansättningen *system. Drawing. dll* till projektet.
+
+1. Lägg till följande associerade `using` instruktioner:
+
     ```csharp
     using System.Drawing;
     using System.Drawing.Imaging;
     using Microsoft.ServiceBus;
     using Microsoft.ServiceBus.Web;
     ```
-6. I klassen **ImageService** lägger du till följande konstruktor som läser in bitmappen och förbereder den för att skicka den till klientens webbläsare.
-   
+
+1. I- `ImageService` klassen lägger du till följande konstruktor som läser in bitmappen och förbereder den för att skicka den till klientens webbläsare:
+
     ```csharp
     class ImageService : IImageContract
     {
@@ -205,8 +242,9 @@ Precis som i föregående steg är det mycket mycket skillnad mellan att impleme
         }
     }
     ```
-7. Direkt efter föregående kod lägger du till följande **GetImage**-metod i klassen **ImageService** för att returnera ett HTTP-meddelande som innehåller bilden.
-   
+
+1. Direkt efter föregående kod lägger du till följande `GetImage` metod `ImageService` i-klassen för att returnera ett http-meddelande som innehåller avbildningen.
+
     ```csharp
     public Stream GetImage()
     {
@@ -219,16 +257,19 @@ Precis som i föregående steg är det mycket mycket skillnad mellan att impleme
         return stream;
     }
     ```
-   
-    Den här implementeringen använder **MemoryStream** för att hämta bilden och förbereda den för strömning till webbläsaren. Den startar strömningspositionen vid noll, deklarerar ströminnehållet som jpeg och strömmar sedan informationen.
-8. Klicka på **Skapa lösning** från **Skapa**-menyn.
+
+    Den här implementeringen använder `MemoryStream` för att hämta avbildningen och förbereda den för strömning till webbläsaren. Den startar ström positionen vid noll, deklarerar Stream-innehållet som en *. jpg*och strömmar informationen.
+
+1. Välj **bygge** > **build-lösning**.
 
 ### <a name="to-define-the-configuration-for-running-the-web-service-on-service-bus"></a>Definiera konfigurationen för att köra webbtjänsten på Service Bus
-1. Dubbelklicka på filen **App.config** i **Solution Explorer** för att öppna den i Visual Studio-redigeraren.
-   
-    Filen **app. config** innehåller namnet på tjänsten, slut punkten (det vill säga platsen Azure Relay visar för klienter och värdar för att kommunicera med varandra) och bindningen (typ av protokoll som används för att kommunicera). Den största skillnaden här är att den konfigurerade tjänst slut punkten refererar till en [WebHttpRelayBinding](/dotnet/api/microsoft.servicebus.webhttprelaybinding) -bindning.
-2. XML-elementet `<system.serviceModel>` är ett WCF-element som definierar en eller flera tjänster. Här används det för att definiera tjänstenamnet och slutpunkten. Längst ned i elementet `<system.serviceModel>` (men fortfarande i `<system.serviceModel>`), lägger du till ett `<bindings>`-element som har följande innehåll. Detta definierar de bindningar som används i appen. Du kan definiera flera bindningar men i den här kursen definierar du bara en.
-   
+
+1. I **Solution Explorer**dubbelklickar du på **app. config** för att öppna filen i Visual Studio-redigeraren.
+
+    Filen *app. config* innehåller tjänst namnet, slut punkten och bindningen. Slut punkten är platsen Azure Relay visar för klienter och värdar för att kommunicera med varandra. Bindningen är den typ av protokoll som används för att kommunicera. Den största skillnaden här är att den konfigurerade tjänst slut punkten refererar till en [WebHttpRelayBinding](/dotnet/api/microsoft.servicebus.webhttprelaybinding) -bindning.
+
+1. XML-elementet `<system.serviceModel>` är ett WCF-element som definierar en eller flera tjänster. Här används den för att definiera namn och slut punkt för tjänsten. Längst ned i `<system.serviceModel>` elementet, men fortfarande i `<system.serviceModel>`, lägger du till ett `<bindings>` element som har följande innehåll:
+
     ```xml
     <bindings>
         <!-- Application Binding -->
@@ -239,10 +280,13 @@ Precis som i föregående steg är det mycket mycket skillnad mellan att impleme
         </webHttpRelayBinding>
     </bindings>
     ```
-   
-    Föregående kod definierar en WCF Relay [WebHttpRelayBinding](/dotnet/api/microsoft.servicebus.webhttprelaybinding) -bindning med **RelayClientAuthenticationType** inställd på **ingen**. Den här inställningen anger att en slutpunkt som använder den här bindningen inte kräver autentiseringsuppgifter för klienten.
-3. Lägg till ett `<services>`-element efter elementet `<bindings>`. På ett liknande sätt som med bindningarna kan du definiera flera tjänster i en enda konfigurationsfil. I den här självstudiekursen kommer du dock bara att definiera en.
-   
+
+    Det här innehållet definierar de bindningar som används i programmet. Du kan definiera flera bindningar, men i den här självstudien har du bara definierat en.
+
+    Föregående kod definierar en WCF Relay [WebHttpRelayBinding](/dotnet/api/microsoft.servicebus.webhttprelaybinding) -bindning med `relayClientAuthenticationType` värdet `None`. Den här inställningen anger att en slut punkt som använder denna bindning inte kräver klientens autentiseringsuppgifter.
+
+1. Lägg till ett `<services>`-element efter elementet `<bindings>`. På ett liknande sätt som med bindningarna kan du definiera flera tjänster i en enda konfigurationsfil. I den här självstudiekursen kommer du dock bara att definiera en.
+
     ```xml
     <services>
         <!-- Application Service -->
@@ -257,10 +301,11 @@ Precis som i föregående steg är det mycket mycket skillnad mellan att impleme
         </service>
     </services>
     ```
-   
-    I det här steget konfigurerar vi en tjänst som använder den förvalda **webHttpRelayBinding** som definierats tidigare. Den använder också den förvalda **sbTokenProvider**, som definieras i nästa steg.
-4. Efter elementet skapar `<behaviors>` du ett-element med följande innehåll och ersätter "SAS_KEY" med signaturen för *delad åtkomst* (SAS) som du tidigare hämtade från [Azure Portal.][Azure portal] `<services>`
-   
+
+    Det här innehållet konfigurerar en tjänst som använder den tidigare definierade standarden `webHttpRelayBinding`. Den använder också standard `sbTokenProvider`, som definieras i nästa steg.
+
+1. Efter elementet `<services>` skapar du ett `<behaviors>` -element med följande innehåll och ersätter `SAS_KEY` det med nyckeln signatur för delad åtkomst (SAS). Information om hur du hämtar en SAS-nyckel från [Azure Portal][Azure portal]finns i [Hämta autentiseringsuppgifter för hantering](service-bus-relay-tutorial.md#get-management-credentials).
+
     ```xml
     <behaviors>
         <endpointBehaviors>
@@ -279,8 +324,9 @@ Precis som i föregående steg är det mycket mycket skillnad mellan att impleme
             </serviceBehaviors>
     </behaviors>
     ```
-5. Medan du fortfarande är kvar i App.config, i elementet `<appSettings>`, byter du ut hela värdet för anslutningssträngen mot den sträng som du tidigare fick från portalen. 
-   
+
+1. I `<appSettings>` filen *app. config*, i-elementet, ersätter du hela värdet för anslutnings strängen med den anslutnings sträng som du tidigare hämtade från portalen.
+
     ```xml
     <appSettings>
        <!-- Service Bus specific app settings for messaging connections -->
@@ -288,10 +334,12 @@ Precis som i föregående steg är det mycket mycket skillnad mellan att impleme
            value="Endpoint=sb://yourNamespace.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=YOUR_SAS_KEY"/>
     </appSettings>
     ```
-6. Klicka på **Skapa lösning** för att skapa hela lösningen från menyn **Skapa**.
 
-### <a name="example"></a>Exempel
-Följande kod visar kontrakt- och tjänsteimplementeringen för en REST-baserad tjänst som körs på Service Bus med hjälp av bindningen **WebHttpRelayBinding**.
+1. Välj **build** > **build-lösning** för att bygga hela lösningen.
+
+### <a name="example-that-implements-the-rest-based-wcf-service-contract"></a>Exempel som implementerar REST-baserade WCF Service-kontrakt
+
+Följande kod visar kontrakt-och tjänst implementering för en rest-baserad tjänst som körs på Service Bus med hjälp `WebHttpRelayBinding` av bindningen.
 
 ```csharp
 using System;
@@ -353,7 +401,7 @@ namespace Microsoft.ServiceBus.Samples
 }
 ```
 
-I följande exempel visas den App.config-fil som är associerad med tjänsten.
+I följande exempel visas den *app. config* -fil som är associerad med tjänsten.
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -447,38 +495,47 @@ I följande exempel visas den App.config-fil som är associerad med tjänsten.
 ```
 
 ## <a name="host-the-rest-based-wcf-service-to-use-azure-relay"></a>Värd för den REST-baserade WCF-tjänsten att använda Azure Relay
-Det här steget beskriver hur du kör en webb tjänst med hjälp av ett konsol program med WCF Relay. En fullständig lista över den kod som skrivs i det här steget finns i det exempel som följer efter proceduren.
+
+I det här avsnittet beskrivs hur du kör en webb tjänst med hjälp av ett konsol program med WCF Relay. En fullständig lista över koden som skrivs i det här avsnittet visas i exemplet enligt proceduren.
 
 ### <a name="to-create-a-base-address-for-the-service"></a>Så här skapar du en basadress för tjänsten
+
 1. `Main()` I funktions deklarationen skapar du en variabel för att lagra projektets namnrymd. Ersätt `yourNamespace` med namnet på det relä namn område som du skapade tidigare.
-   
+
     ```csharp
     string serviceNamespace = "yourNamespace";
     ```
+
     Service Bus använder namnet på ditt namnområde för att skapa ett unikt URI.
-2. Skapa en `Uri`-instans för tjänstens basadress som baseras på namnområdet.
-   
+
+1. Skapa en `Uri`-instans för tjänstens basadress som baseras på namnområdet.
+
     ```csharp
     Uri address = ServiceBusEnvironment.CreateServiceUri("https", serviceNamespace, "Image");
     ```
 
 ### <a name="to-create-and-configure-the-web-service-host"></a>Så här skapar och konfigurerar du webbtjänstevärden
-* Skapa webbtjänstevärden med hjälp av den URI-adress som du skapade tidigare i det här avsnittet.
+
+I `Main()`skapar du webb tjänst värden med hjälp av den URI-adress som skapades tidigare i det här avsnittet.
   
-    ```csharp
-    WebServiceHost host = new WebServiceHost(typeof(ImageService), address);
-    ```
-    Tjänstevärden är det WCF-objekt som instantierar värdprogrammet. Det här exemplet överför den typ av värd som du vill skapa (en **ImageService**), och även adressen som du vill exponera värdprogrammet på.
+```csharp
+WebServiceHost host = new WebServiceHost(typeof(ImageService), address);
+```
+
+Tjänstevärden är det WCF-objekt som instantierar värdprogrammet. I det här exemplet överförs den typ av värd som du vill skapa, som är `ImageService`en och även den adress där du vill exponera värd programmet.
 
 ### <a name="to-run-the-web-service-host"></a>Så här kör du webbtjänstevärden
-1. Öppna tjänsten.
-   
+
+1. I `Main()`lägger du till följande rad för att öppna tjänsten.
+
     ```csharp
     host.Open();
     ```
+
     Tjänsten körs nu.
-2. Visa ett meddelande som anger att tjänsten körs och hur du stoppar tjänsten.
-   
+
+1. Visa ett meddelande som anger att tjänsten körs och hur du stoppar tjänsten.
+
     ```csharp
     Console.WriteLine("Copy the following address into a browser to see the image: ");
     Console.WriteLine(address + "GetImage");
@@ -486,14 +543,16 @@ Det här steget beskriver hur du kör en webb tjänst med hjälp av ett konsol p
     Console.WriteLine("Press [Enter] to exit");
     Console.ReadLine();
     ```
-3. Stäng tjänstevärden när du är klar.
-   
+
+1. Stäng tjänstevärden när du är klar.
+
     ```csharp
     host.Close();
     ```
 
-### <a name="example"></a>Exempel
-Följande exempel innehåller tjänstekontraktet och implementeringen från föregående steg i självstudiekursen och fungerar som värd för tjänsten i ett konsolprogram. Sammanställ följande kod i en körbar fil med namnet ImageListener.exe.
+### <a name="example-of-the-service-contract-and-implementation"></a>Exempel på tjänst kontrakt och implementering
+
+Följande exempel innehåller tjänstekontraktet och implementeringen från föregående steg i självstudiekursen och fungerar som värd för tjänsten i ett konsolprogram. Kompilera följande kod till en körbar fil med namnet *ImageListener. exe*.
 
 ```csharp
 using System;
@@ -568,16 +627,18 @@ namespace Microsoft.ServiceBus.Samples
 ```
 
 ## <a name="run-and-test-the-service"></a>Kör och testa tjänsten
+
 Gör följande för att köra appen när du har skapat lösningen:
 
-1. Tryck på **F5**, eller bläddra till den körbara filplatsen (ImageListener\bin\Debug\ImageListener.exe) för att köra tjänsten. Fortsätt att köra appen eftersom det är nödvändigt för att kunna utföra nästa steg.
-2. Kopiera och klistra in adressen från kommandotolken i en webbläsare för att se bilden.
-3. När du är klar trycker du på **Retur** i kommandotolken för att stänga appen.
+1. Välj F5 eller bläddra till platsen för den körbara filen *ImageListener\bin\Debug\ImageListener.exe*för att köra tjänsten. Låt appen köras, eftersom det krävs för nästa steg.
+1. Kopiera och klistra in adressen från kommandotolken i en webbläsare för att se bilden.
+1. När du är klar väljer du retur i kommando tolks fönstret för att stänga appen.
 
 ## <a name="next-steps"></a>Nästa steg
+
 Nu när du har skapat ett program som använder tjänsten Azure Relay kan du läsa mer i följande artiklar:
 
-* [Översikt över Azure Relay](relay-what-is-it.md)
-* [Använda WCF Relay-tjänsten med .NET](service-bus-relay-tutorial.md)
+* [Vad är Azure Relay?](relay-what-is-it.md)
+* [Exponera en lokal WCF REST-tjänst till extern klient med hjälp av Azure WCF Relay](service-bus-relay-tutorial.md)
 
 [Azure portal]: https://portal.azure.com

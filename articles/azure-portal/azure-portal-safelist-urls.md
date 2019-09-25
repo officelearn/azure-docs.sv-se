@@ -9,12 +9,12 @@ ms.date: 09/13/2019
 ms.topic: conceptual
 ms.service: azure-portal
 manager: mtillman
-ms.openlocfilehash: 78c752423d20d183c561d5bcf0bb95246b84ab49
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.openlocfilehash: 9618d99495e65231de22eb719355e2ca75a17600
+ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71076663"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71218036"
 ---
 # <a name="safelist-the-azure-portal-urls-on-your-firewall-or-proxy-server"></a>SAFELIST Azure Portal webb adresser på din brand vägg eller proxyserver
 
@@ -80,8 +80,8 @@ URL-slutpunkterna till SAFELIST för Azure Portal är bara för det Azure-moln d
 Behöver du SAFELIST IP-adresser? Ladda ned listan över Microsoft Azure Data Center IP-intervall för ditt moln:
 
 * [Över hela världen](https://www.microsoft.com/download/details.aspx?id=56519)
-* [USA Stat](http://www.microsoft.com/download/details.aspx?id=57063)
-* [Tyskland](http://www.microsoft.com/download/details.aspx?id=57064)
-* [Kina](http://www.microsoft.com/download/details.aspx?id=57062)
+* [USA Stat](https://www.microsoft.com/download/details.aspx?id=57063)
+* [Tyskland](https://www.microsoft.com/download/details.aspx?id=57064)
+* [Kina](https://www.microsoft.com/download/details.aspx?id=57062)
 
 Andra Microsoft-tjänster använder ytterligare URL: er och IP-adresser för anslutning. Information om hur du optimerar nätverks anslutningen för Microsoft 365 tjänster finns i [Konfigurera ditt nätverk för Office 365](/office365/enterprise/set-up-network-for-office-365).

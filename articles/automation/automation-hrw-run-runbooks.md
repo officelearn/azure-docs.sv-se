@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 01/29/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 97d900146b3485df5cdf226f07aaa3aee116fc92
-ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
+ms.openlocfilehash: 100740e87c13887a3e7ac85aa5fce3d67c838ea0
+ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70186765"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71240326"
 ---
 # <a name="running-runbooks-on-a-hybrid-runbook-worker"></a>Köra Runbooks på en Hybrid Runbook Worker
 
@@ -41,8 +41,7 @@ Start-AzureRmAutomationRunbook –AutomationAccountName "MyAutomationAccount" �
 
 ## <a name="runbook-permissions"></a>Runbook-behörigheter
 
-Runbooks som körs på en Hybrid Runbook Worker kan inte använda samma metod som vanligt vis används för Runbooks som autentiserar sig för Azure-resurser, eftersom de har åtkomst till resurser som inte finns i Azure. Runbooken kan antingen tillhandahålla egen autentisering till lokala resurser eller konfigurera autentisering med [hanterade identiteter för Azure-resurser.](../active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-arm.md#grant-your-vm-access-to-a-resource-group-in-resource-manager
-) Du kan också ange ett RunAs-konto för att tillhandahålla en användar kontext för alla Runbooks.
+Runbooks som körs på en Hybrid Runbook Worker kan inte använda samma metod som vanligt vis används för Runbooks som autentiserar sig för Azure-resurser, eftersom de har åtkomst till resurser som inte finns i Azure. Runbooken kan antingen tillhandahålla egen autentisering till lokala resurser eller konfigurera autentisering med [hanterade identiteter för Azure-resurser](../active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-arm.md#grant-your-vm-access-to-a-resource-group-in-resource-manager). Du kan också ange ett RunAs-konto för att tillhandahålla en användar kontext för alla Runbooks.
 
 ### <a name="runbook-authentication"></a>Runbook-autentisering
 
@@ -313,5 +312,5 @@ Den signerade runbooken kan nu överföras till Azure Automation och kan köras 
 
 * Mer information om de olika metoder som kan användas för att starta en Runbook finns [i starta en Runbook i Azure Automation](automation-starting-a-runbook.md).
 * För att förstå de olika sätten att arbeta med PowerShell-Runbooks i Azure Automation använda text redigeraren, se [Redigera en Runbook i Azure Automation](automation-edit-textual-runbook.md)
-* Om Runbooks inte slutförs kan du läsa fel söknings guiden om [fel i Runbook](troubleshoot/hybrid-runbook-worker.md#runbook-execution-fails)-körningen.
-* Mer information om PowerShell, inklusive språk referens-och inlärnings moduler finns i [PowerShell](https://docs.microsoft.com/en-us/powershell/scripting/overview)-dokumenten.
+* Om Runbooks inte slutförs kan du läsa fel söknings guiden om [fel i Runbook-körningen](troubleshoot/hybrid-runbook-worker.md#runbook-execution-fails).
+* Mer information om PowerShell, inklusive språk referens-och inlärnings moduler finns i [PowerShell-dokumenten](https://docs.microsoft.com/en-us/powershell/scripting/overview).

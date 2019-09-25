@@ -1,12 +1,12 @@
 ---
-title: 'Azure Notification Hubs: Vanliga frågor (FAQ) | Microsoft Docs'
-description: Vanliga frågor och svar på Designa/implementera lösningar på Meddelandehubbar
+title: 'Azure Notification Hubs: Vanliga frågor och svar (FAQ) | Microsoft Docs'
+description: Vanliga frågor och svar om att utforma/implementera lösningar på Notification Hubs
 services: notification-hubs
 documentationcenter: mobile
-author: jwargo
-manager: patniko
-editor: spelluru
-keywords: push-meddelande, push-meddelanden, push-meddelanden för iOS, android push-meddelanden, push för ios, android-push
+author: sethmanheim
+manager: femila
+editor: jwargo
+keywords: push-meddelande, push-meddelanden, iOS push-meddelanden, Android push-meddelanden, iOS-push, Android-push
 ms.assetid: 7b385713-ef3b-4f01-8b1f-ffe3690bbd40
 ms.service: notification-hubs
 ms.workload: mobile
@@ -14,210 +14,212 @@ ms.tgt_pltfrm: mobile-multiple
 ms.devlang: multiple
 ms.topic: article
 ms.date: 03/11/2019
-ms.author: jowargo
-ms.openlocfilehash: a434101a806a810218927cbf0bc24fa0d22c5628
-ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
+ms.author: sethm
+ms.reviewer: jowargo
+ms.lastreviewed: 03/11/2019
+ms.openlocfilehash: 5de8c9523e05411a4751766c836b8e99ebb977c1
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67488653"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71213146"
 ---
 # <a name="push-notifications-with-azure-notification-hubs-frequently-asked-questions"></a>Push-meddelanden med Azure Notification Hubs: Vanliga frågor och svar
 
 ## <a name="general"></a>Allmänt
 
-### <a name="what-is-the-resource-structure-of-notification-hubs"></a>Vad är resource strukturen för Meddelandehubbar?
+### <a name="what-is-the-resource-structure-of-notification-hubs"></a>Vad är resurs strukturen för Notification Hubs?
 
-Azure Notification Hubs har två resursnivåer: hubs och namnområden. En hubb är en enkel push-resurs som kan innehålla plattformsoberoende push-information för en app. Ett namnområde är en samling med hubbar i en region.
+Azure Notification Hubs har två resurs nivåer: hubbar och namn områden. En hubb är en enda push-resurs som kan lagra plattforms oberoende push-information för en app. Ett namn område är en samling hubbar i en region.
 
-Rekommenderade mappning matchar ett namnområde med en app. Du kan ha en hubb för produktion som fungerar med din produktionsapp, ett testning nav som fungerar med din app och så vidare inom namnområdet.
+Rekommenderad mappning matchar en namnrymd med en app. I ett namn område kan du ha ett produktions nav som fungerar med din webbapp, ett test nav som fungerar med din testapp och så vidare.
 
-### <a name="what-is-the-price-model-for-notification-hubs"></a>Vad är Prismodell för Meddelandehubbar?
+### <a name="what-is-the-price-model-for-notification-hubs"></a>Vad är pris modellen för Notification Hubs?
 
-Senaste prisinformationen hittar du på den [Prisinformation om Notification hub] sidan. Notification Hub faktureras på namnområdesnivå. (Definition av ett namnområde, finns i ”vad är resource strukturen för Meddelandehubbar”?) Meddelandehubbar erbjuder tre nivåer:
+Du hittar den senaste pris informationen på sidan [Notification Hubs priser] . Notification Hubs faktureras på namn områdes nivå. (Information om definitionen av ett namn område finns i "Vad är resurs strukturen för Notification Hubs?") Notification Hubs har tre nivåer:
 
-* **Kostnadsfria**: Den här nivån är en bra utgångspunkt för att utforska push-funktioner. Det rekommenderas inte för produktionsappar. Du får 500 enheter och 1 miljon push-meddelanden ingår per namnområde per månad, med ingen garanti för tjänsten servicenivåavtal (SLA).
-* **Basic**: Den här nivån (eller Standard-nivån) rekommenderas för mindre produktionsappar. Du får 200 000 enheter och 10 miljoner push-meddelanden ingår per namnområde per månad som utgångspunkt.
-* **Standard**: Den här nivån rekommenderas för medelstora till stora produktionsappar. Du får 10 miljoner enheter och 10 miljoner push-meddelanden ingår per namnområde per månad som utgångspunkt. Innehåller omfattande telemetri (ytterligare data om push-status som).
+* **Kostnads fri**: Den här nivån är en lämplig utgångs punkt för att utforska push-funktionerna. Det rekommenderas inte för produktions program. Du får 500 enheter och 1 000 000 push-meddelanden per namnrymd per månad, utan garanti för service nivå avtal (SLA).
+* **Basic**: Den här nivån (eller standard nivån) rekommenderas för mindre produktions program. Du får 200 000 enheter och 10 000 000 push-meddelanden per namnrymd per månad som en bas linje.
+* **Standard**: Den här nivån rekommenderas för medel stora och stora produktions program. Du får 10 000 000 enheter och 10 000 000 push-meddelanden per namnrymd per månad som en bas linje. Innehåller omfattande telemetri (ytterligare information om push-status har angetts).
 
-Standard-nivån funktioner:
+Standard-nivå funktioner:
 
-* **Omfattande telemetri**: Du kan använda Notification Hubs telemetri Per meddelande för att spåra alla push-begäranden och feedback från plattformsspecifikt System för felsökning.
-* **Multitenancy**: Du kan arbeta med plattformsspecifika meddelandesystem autentiseringsuppgifter i en namnområdesnivå. Det här alternativet kan du enkelt dela klienter i hubs inom samma namnområde.
-* **Schemalagda push**: Du kan schemalägga meddelanden skickas ut när som helst.
-* **Massregistrera operations**: Aktivera registreringar Export/Import-funktioner som beskrivs i den [registreringar Export/Import] dokumentet.
+* **Avancerad telemetri**: Du kan använda telemetri för Notification Hubs per meddelande för att spåra push-begäranden och Plattformsspecifikt meddelandesystem feedback för fel sökning.
+* Flera **innehavare**: Du kan arbeta med Plattformsspecifikt meddelandesystem autentiseringsuppgifter på en namn områdes nivå. Med det här alternativet kan du enkelt dela klienter i hubbar inom samma namnrymd.
+* **Schemalagd push**: Du kan schemalägga att meddelanden ska skickas när som helst.
+* **Mass åtgärder**: Möjliggör registrering av export/import-funktioner enligt beskrivningen i [Export/import av registreringar] dokumentet för registrering.
 
-### <a name="what-is-the-notification-hubs-sla"></a>Vad är Notification Hubs SLA?
+### <a name="what-is-the-notification-hubs-sla"></a>Vad är service avtal för Notification Hubs?
 
-För nivåerna Basic och Standard Meddelandehubbar kan korrekt konfigurerade program skicka push-meddelanden eller utföra registreringshanteringsåtgärder minst 99,9 procent av tiden. Mer information om serviceavtalet går du till den [Notification Hubs SLA](https://azure.microsoft.com/support/legal/sla/notification-hubs/) sidan.
+För Basic-och Standard Notification Hubs-nivåer kan korrekt konfigurerade program skicka push-meddelanden eller utföra registrerings hanterings åtgärder minst 99,9 procent av tiden. Om du vill veta mer om service avtalet går du till sidan [Notification Hubs service avtal](https://azure.microsoft.com/support/legal/sla/notification-hubs/) .
 
 > [!NOTE]
-> Eftersom push-meddelanden är beroende av tredje parts plattformsspecifika meddelandesystem (till exempel Apple APNS och Google FCM), finns det ingen garanti för serviceavtal (SLA) för leverans av dessa meddelanden. När Meddelandehubbar skickar batcharna till plattformsspecifika meddelandesystem (SLA garanterad), är det ansvar plattformsspecifika meddelandesystem att leverera push-meddelanden (inget serviceavtal som garanterar).
+> Eftersom push-meddelanden är beroende av plattforms meddelande system från tredje part (till exempel Apple APN och Google FCM), finns det ingen SLA-garanti för leverans av dessa meddelanden. När Notification Hubs skickar batcharna till plattforms meddelande system (garanterat service avtal) är det ansvaret för plattforms aviserings systemen att leverera push-meddelanden (Inget SLA-garanti).
 
-### <a name="how-do-i-upgrade-or-downgrade-my-hub-or-namespace-to-a-different-tier"></a>Hur jag för att uppgradera eller nedgradera min hubb eller namnområdet till en annan nivå?
+### <a name="how-do-i-upgrade-or-downgrade-my-hub-or-namespace-to-a-different-tier"></a>Hur gör jag för att uppgradera eller nedgradera mitt nav eller namn område till en annan nivå?
 
-Gå till den  **[Azure Portal]**  > **Notification Hubs-Namnrymder** eller **Meddelandehubbar**. Välj den resurs som du vill uppdatera och gå till **prisnivå**. Observera följande krav:
+Gå till **[Azure Portal]**  > **Notification Hubs namnrum** eller **Notification Hubs**. Välj den resurs som du vill uppdatera och gå till **pris nivån**. Observera följande krav:
 
-* Uppdaterade prisnivån gäller *alla* hubs i namnområdet som du arbetar med.
-* Om din enhetsantal överskrider gränsen på den nivå som du nedgradering till, måste du ta bort enheterna innan du börjar Nedgradera.
+* Den uppdaterade pris nivån gäller för *alla* hubbar i namn området som du arbetar med.
+* Om antalet enheter överskrider gränsen för den nivå som du degraderar till, måste du ta bort enheter innan du degraderar.
 
 ## <a name="design-and-development"></a>Design och utveckling
 
-### <a name="which-server-side-platforms-do-you-support"></a>Vilka plattformar som serversidan stöder ni?
+### <a name="which-server-side-platforms-do-you-support"></a>Vilka plattform för Server sidan har du stöd för?
 
-Server-SDK: er är tillgängliga för .NET, Java, Node.js, PHP och Python. Notification Hubs API: er baseras på REST-gränssnitt, så att du kan arbeta direkt med REST API: er om du använder olika plattformar eller inte vill att extra beroende. Mer information går du till den [Notification Hub REST API: er] sidan.
+Server-SDK: er är tillgängliga för .NET, Java, Node. js, PHP och python. Notification Hubs-API: er baseras på REST-gränssnitt, så du kan arbeta direkt med REST-API: er om du använder olika plattformar eller inte vill ha något extra beroende. Mer information finns på sidan [Notification HUBS REST-API: er] .
 
-### <a name="which-client-platforms-do-you-support"></a>Vilka klientplattformar stöder ni?
+### <a name="which-client-platforms-do-you-support"></a>Vilka klient plattformar stöder du?
 
-Push-meddelanden stöds för [iOS](notification-hubs-ios-apple-push-notification-apns-get-started.md), [Android](notification-hubs-android-push-notification-google-fcm-get-started.md), [Windows Universal](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md), [Windows Phone](notification-hubs-windows-mobile-push-notifications-mpns.md), [Android Kina ( via Baidu)](notification-hubs-baidu-china-android-notifications-get-started.md), Xamarin ([iOS](xamarin-notification-hubs-ios-push-notification-apns-get-started.md) och Android, och [Safari](https://github.com/Azure/azure-notificationhubs-samples/tree/master/PushToSafari). Mer information går du till den [Notification Hubs komma igång-Självstudier] sidan.
+Push-meddelanden stöds för [iOS](notification-hubs-ios-apple-push-notification-apns-get-started.md), [Android](notification-hubs-android-push-notification-google-fcm-get-started.md), [Windows Universal](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md), [Windows Phone](notification-hubs-windows-mobile-push-notifications-mpns.md), [Android China (via Baidu)](notification-hubs-baidu-china-android-notifications-get-started.md), Xamarin ([iOS](xamarin-notification-hubs-ios-push-notification-apns-get-started.md) och Android och [Safari](https://github.com/Azure/azure-notificationhubs-samples/tree/master/PushToSafari). Mer information finns på sidan med [självstudier för Notification Hubs komma igång] .
 
-### <a name="do-you-support-text-message-email-or-web-notifications"></a>Har du stöd för SMS, e-post eller webb-meddelanden?
+### <a name="do-you-support-text-message-email-or-web-notifications"></a>Stöder du SMS, e-post eller webb meddelanden?
 
-Meddelandehubbar är primärt utformat för att skicka meddelanden till mobila appar. Det ger inte e-post eller SMS-funktioner. Men från tredje part-plattformar som innehåller dessa funktioner kan integreras med Notification Hubs för att skicka systemspecifika push-meddelanden med hjälp av [Mobile Apps].
+Notification Hubs har främst utformats för att skicka meddelanden till mobilappar. Den innehåller inga e-post-eller SMS-funktioner. Tredjeparts plattformar som tillhandahåller dessa funktioner kan dock integreras med Notification Hubs för att skicka interna push-meddelanden med hjälp av [Mobile Apps].
 
-Meddelandehubbar ger också inte en i webbläsaren push leverans meddelandetjänst direkt ur lådan. Kunder kan implementera den här funktionen med SignalR ovanpå plattformarna som stöds från serversidan. 
+Notification Hubs tillhandahåller inte heller en webb läsar tjänst för push-meddelanden i webbläsaren. Kunder kan implementera den här funktionen med hjälp av Signalerare ovanpå de plattformar som stöds på Server sidan. 
 
 ### <a name="how-are-mobile-apps-and-azure-notification-hubs-related-and-when-do-i-use-them"></a>Hur är Mobile Apps och Azure Notification Hubs relaterade och när ska jag använda dem?
 
-Om du har en befintlig serverdel för mobilappen och du vill lägga till bara möjligheten att skicka push-meddelanden, kan du använda Azure Notification Hubs. Överväg att använda funktionen Mobile Apps i Azure App Service om du vill konfigurera mobilappsserverdelen från grunden. En mobil app etablerar automatiskt en notification hub så att du enkelt kan skicka push-meddelanden från serverdelen för mobilappen. Priser för Mobile Apps innehåller basavgifterna för en meddelandehubb. Du betalar endast när du överskrider de inkluderade push-meddelandena. Mer information om kostnaderna går du till den [prissättning för App Service] sidan.
+Om du har en befintlig server del för mobilappar och bara vill lägga till möjligheten att skicka push-meddelanden kan du använda Azure Notification Hubs. Om du vill konfigurera server delen för mobilapp från grunden kan du överväga att använda Mobile Apps funktionen i Azure App Service. En mobilapp etablerar automatiskt ett meddelande NAV så att du enkelt kan skicka push-meddelanden från Server delen för mobilappar. Prissättningen för Mobile Apps omfattar bas avgifterna för en Notification Hub. Du betalar bara när du överskrider de inkluderade push-meddelandena. Mer information om kostnader finns på sidan [Prissättning för App Service] .
 
-### <a name="how-many-devices-can-i-support-if-i-send-push-notifications-via-notification-hubs"></a>Hur stöder många enheter kan jag om jag skicka push-meddelanden via Notification Hubs?
+### <a name="how-many-devices-can-i-support-if-i-send-push-notifications-via-notification-hubs"></a>Hur många enheter kan jag använda om jag skickar push-meddelanden via Notification Hubs?
 
-Referera till den [Prisinformation om Notification hub] för information om hur många enheter som stöds.
+Mer information om antalet enheter som stöds finns på sidan med [Notification Hubs priser] .
 
-Om du behöver stöd för fler än 10 miljoner registrerade enheter måste du dela dina enheter över flera hubbar.
+Om du behöver stöd för fler än 10 000 000 registrerade enheter måste du partitionera enheterna över flera hubbar.
 
 ### <a name="how-many-push-notifications-can-i-send-out"></a>Hur många push-meddelanden kan jag skicka ut?
 
-Beroende på den valda nivån skalar Azure Notification Hubs automatiskt upp baserat på antalet meddelanden som passerar genom systemet.
+Beroende på den valda nivån skalar Azure Notification Hubs automatiskt upp baserat på antalet meddelanden som flödar genom systemet.
 
 > [!NOTE]
-> Den övergripande förbrukningskostnad kan öka baserat på antalet push-meddelanden som hanteras. Se till att du är medveten om gränserna för nivån som beskrivs i den [Prisinformation om Notification hub] sidan.
+> Den totala förbruknings kostnaden kan öka baserat på antalet push-meddelanden som hanteras. Se till att du är medveten om nivå gränserna som beskrivs på sidan [Notification Hubs priser] .
 
-Våra kunder använder Notification Hubs för att skicka miljontals push-meddelanden per dag. Du behöver inte göra något speciellt för att skala räckvidden för push-meddelanden så länge du använder Azure Notification Hubs.
+Våra kunder använder Notification Hubs för att skicka miljon tals push-meddelanden varje dag. Du behöver inte göra något särskilt för att skala räckvidden för dina push-meddelanden så länge du använder Azure Notification Hubs.
 
-### <a name="how-long-does-it-take-for-sent-push-notifications-to-reach-my-device"></a>Hur lång tid tar det för skickas push-meddelanden till min enhet?
+### <a name="how-long-does-it-take-for-sent-push-notifications-to-reach-my-device"></a>Hur lång tid tar det för skickade push-meddelanden för att få åtkomst till enheten?
 
-I ett scenario för normal användning, där den inkommande belastningen är konsekvent och även, Azure Notification Hubs kan bearbeta minst *1 miljon push-meddelande skickar en minut*. Priset kan variera beroende på antalet taggar, typ av inkommande skickar och andra externa faktorer.
+I ett scenario med normal användning, där den inkommande belastningen är konsekvent och även, kan Azure Notification Hubs bearbeta minst *1 000 000 push-meddelande skickar en minut*. Hastigheten kan variera beroende på antalet taggar, typen av inkommande sändningar och andra externa faktorer.
 
-Tjänsten beräknar per plattform och vägar till Push Notification Service (PNS) baserat på den registrerade taggar eller Tagguttryck under uppskattad leveranstid. Det är ansvar för pns-systemet att skicka meddelanden till enheten.
+Under den uppskattade leverans tiden beräknar tjänsten målen per plattform och skickar meddelanden till Push Notification Service (PNS) baserat på registrerade taggar eller tagg uttryck. PNS är ansvaret för att skicka meddelanden till enheten.
 
-Pns-systemet garanterar inte servicenivåavtal (SLA) för att leverera meddelanden. Men levereras de flesta push-meddelanden till målenheter inom ett par minuter (vanligtvis inom 10 minuter) från tidpunkten då de skickas till Notification Hubs. Några meddelanden kan ta längre tid.
-
-> [!NOTE]
-> Azure Notification Hubs har en princip för att släppa alla push-meddelanden som inte levereras till PNS inom 30 minuter. Den här fördröjningen kan bero på ett antal orsaker, men de flesta ofta eftersom PNS begränsar ditt program.
-
-### <a name="is-there-any-latency-guarantee"></a>Finns det ingen garanti för fördröjning?
-
-På grund av push-meddelanden (de levereras med en extern, plattformsspecifika PNS), finns det ingen garanti för svarstid. Flesta av push-meddelanden levereras normalt inom några minuter.
-
-### <a name="what-do-i-need-to-consider-when-designing-a-solution-with-namespaces-and-notification-hubs"></a>Vad behöver jag tänka på när du utformar en lösning med namnområden och notification hubs?
-
-#### <a name="mobile-appenvironment"></a>Mobila app-miljö
-
-* Använda en meddelandehubb per mobilappen per miljö.
-* Varje klient ska ha en separat hub i ett scenario med flera innehavare.
-* Aldrig delar samma meddelandehubben för produktion- och testmiljöer. Den här metoden kan orsaka problem när du skickar meddelanden. (Apple erbjuder sandbox-miljön och Push-produktion slutpunkter, var och en med separata autentiseringsuppgifter.)
-* Som standard kan du skicka testmeddelanden till dina registrerade enheter via Azure portal eller Azure integrerad komponenten i Visual Studio. Tröskelvärdet har angetts till 10 enheter som väljs slumpmässigt från poolen registrering.
+PNS garanterar inte några service avtal för att leverera meddelanden. De flesta push-meddelanden levereras dock till mål enheter inom några minuter (vanligt vis inom 10 minuter) från den tid de skickas till Notification Hubs. Det kan ta längre tid att få aviseringar.
 
 > [!NOTE]
-> Om din hubb ursprungligen konfigurerades med ett certifikat för Apple-sandbox-miljön och sedan har konfigurerats för att använda ett Apple-certifikat för produktion, är de ursprungliga enhetstoken ogiltiga. Ogiltig token orsaka push-meddelanden misslyckades. Separera din produktions- och testmiljöer och använda olika hubs för olika miljöer.
+> Azure Notification Hubs har en princip för att ta bort alla push-meddelanden som inte levereras till PNS inom 30 minuter. Fördröjningen kan inträffa av flera orsaker, men oftast på grund av att PNS begränsar ditt program.
+
+### <a name="is-there-any-latency-guarantee"></a>Garanterar svars tiden?
+
+På grund av typen av push-meddelanden (de levereras av en extern, plattformsspecifik PNS) finns det ingen latens garanti. Oftast levereras merparten av push-meddelanden inom några minuter.
+
+### <a name="what-do-i-need-to-consider-when-designing-a-solution-with-namespaces-and-notification-hubs"></a>Vad måste jag tänka på när jag skapar en lösning med namn områden och Notification Hub?
+
+#### <a name="mobile-appenvironment"></a>Mobilapp/miljö
+
+* Använd en Notification Hub per mobilapp per miljö.
+* I ett scenario med flera innehavare bör varje klient ha en separat hubb.
+* Dela aldrig samma Notification Hub för produktions-och test miljöer. Den här metoden kan orsaka problem när du skickar meddelanden. (Apple erbjuder begränsat antal-och produktions-push-slutpunkter, var och en med separata autentiseringsuppgifter.)
+* Som standard kan du skicka test meddelanden till dina registrerade enheter via Azure Portal eller den integrerade Azure-komponenten i Visual Studio. Tröskelvärdet är inställt på 10 enheter som väljs slumpmässigt från registrerings poolen.
+
+> [!NOTE]
+> Om navet ursprungligen konfigurerades med ett certifikat från Apple Sandbox och sedan konfigurerades om för att använda ett Apple-produktionsområde, är de ursprungliga tokens ogiltiga. Ogiltiga token orsakar att push-meddelanden inte fungerar. Separera dina produktions-och test miljöer och Använd olika hubbar för olika miljöer.
 
 #### <a name="pns-credentials"></a>PNS-autentiseringsuppgifter
 
-När en mobil app registreras med en plattform developer-portalen (till exempel Apple eller Google), skickas en apptoken för identifierare och säkerhet. Appserverdelen ger dessa token till plattformens PNS så att push-meddelanden kan skickas till enheter. Säkerhetstoken kan vara i form av certifikat (till exempel Apple iOS eller Windows Phone) eller security-nycklar (till exempel Google Android eller Windows). De måste konfigureras i meddelandehubbar. Konfigurationen görs normalt på meddelandehubb nivå, men det kan också göras på namnområdesnivå i ett scenario med flera innehavare.
+När en mobilapp registreras med en plattforms utvecklings portal (till exempel Apple eller Google), skickas ett app-ID och säkerhetstoken. Appens Server del innehåller dessa tokens till plattformens PNS så att push-meddelanden kan skickas till enheter. Säkerhetstoken kan vara i form av certifikat (till exempel Apple iOS eller Windows Phone) eller säkerhets nycklar (till exempel Google Android eller Windows). De måste konfigureras i Notification Hub. Konfigurationen utförs vanligt vis på meddelande-Hub-nivån, men den kan också göras på namn områdes nivå i ett scenario med flera innehavare.
 
 #### <a name="namespaces"></a>Namnområden
 
-Namnområden kan användas för distribution av gruppering. De kan också användas för att representera alla meddelandehubbar för alla klienter i samma app i ett scenario med flera innehavare.
+Namn områden kan användas för gruppering av distribution. De kan också användas för att representera alla meddelande hubbar för alla klienter i samma app i ett scenario med flera innehavare.
 
-#### <a name="geo-distribution"></a>GEO-replikering
+#### <a name="geo-distribution"></a>Geo-distribution
 
-GEO-replikering är inte alltid viktiga i scenarier för push-meddelande. Olika PNSes (till exempel APNS eller FCM) som levererar push-meddelanden till enheter som inte är jämnt.
+Geo-distribution är inte alltid kritiskt i scenarier med push-meddelanden. Olika PNSes (till exempel APN eller FCM) som levererar push-meddelanden till enheter är inte jämnt distribuerade.
 
-Om du har ett program som används för globalt kan skapa du hubbar i olika namnområden med hjälp av Notification Hubs-tjänsten i olika Azure-regioner runtom i världen.
-
-> [!NOTE]
-> Vi rekommenderar inte detta arrangemang eftersom det ökar dina kostnader för hantering, särskilt för registreringar. Det görs bara om det finns ett explicit behov.
-
-### <a name="should-i-do-registrations-from-the-app-backend-or-directly-through-client-devices"></a>Ska jag göra registreringar från appserverdelen eller direkt via klienten enheter?
-
-Registreringar från appserverdelen är användbara när du har att autentisera klienter innan du skapar registreringen. Det är också användbart när du har taggar som måste skapas eller ändras av appserverdelen baserat på applogik. Mer information går du till den [Vägledning för backend-registrering] och [Registrering av backend-vägledning 2] sidor.
-
-### <a name="what-is-the-push-notification-delivery-security-model"></a>Vad är push-meddelande leveransmodell säkerhet?
-
-Azure Notification Hubs använder en [signatur för delad åtkomst](../storage/common/storage-dotnet-shared-access-signature-part-1.md)-baserade säkerhetsmodell. Du kan använda token som signatur för delad åtkomst på rotnivå för namnområde eller på detaljerad notification hub. Signaturen för delad åtkomst token kan ställas in att följa olika regler, till exempel, att skicka meddelandet behörigheter eller att lyssna efter meddelanden behörigheter. Mer information finns i den [Säkerhetsmodell för Notification Hubs] dokumentet.
-
-### <a name="how-should-i-handle-sensitive-payload-in-push-notifications"></a>Hur hanterar jag bör känsliga nyttolast i push-meddelanden?
-
-Alla meddelanden levereras till målenheter av plattformens PNS. När ett meddelande skickas till Azure Notification Hubs, bearbetas och skickas till respektive pns-systemet.
-
-Alla anslutningar från avsändaren med Azure Notification Hubs för att pns-systemet, använder HTTPS.
+Om du har ett program som används globalt kan du skapa hubbar i olika namn områden med hjälp av tjänsten Notification Hubs i olika Azure-regioner runtom i världen.
 
 > [!NOTE]
-> Azure Meddelandehubbar loggar inte nyttolasten för meddelanden på något sätt.
+> Vi rekommenderar inte detta avtal eftersom det ökar din hanterings kostnad, särskilt för registreringar. Det bör endast göras om det finns ett explicit behov.
 
-För att skicka känslig nyttolaster, bör du använda en säker Push-mönster. Avsändaren levererar ett ping-meddelande med en identifierare för meddelandet till enheten utan känsliga nyttolasten. När appen på enheten får nyttolasten, anropar appen en säker API: et direkt för att hämta informationen. En guide för hur du implementerar det här mönstret går du till den [Handledning för Hubs säker Push-meddelande] sidan.
+### <a name="should-i-do-registrations-from-the-app-backend-or-directly-through-client-devices"></a>Ska jag göra-registreringar från appens Server del eller direkt via klient enheter?
+
+Registreringar från appens Server del är användbara när du måste autentisera klienter innan du skapar registreringen. De är också användbara när du har taggar som måste skapas eller ändras av appens Server del baserat på appens logik. Mer information finns i rikt linjer för [Vägledning för Server dels registrering] och [Guide för registrering av Server del 2] sidor.
+
+### <a name="what-is-the-push-notification-delivery-security-model"></a>Vad är leverans säkerhets modellen för push-meddelanden?
+
+Azure Notification Hubs använder en signatur baserad säkerhets modell för [delad åtkomst](../storage/common/storage-dotnet-shared-access-signature-part-1.md). Du kan använda token för signaturer för delad åtkomst på rot namn områdes nivån eller på den detaljerade nivån för Notification Hub. Token för signaturer för delad åtkomst kan anges till att följa olika auktoriseringsregler, till exempel för att skicka meddelande behörigheter eller för att lyssna efter aviserings behörigheter. Mer information finns i dokumentet om [Notification Hubs säkerhets modell] .
+
+### <a name="how-should-i-handle-sensitive-payload-in-push-notifications"></a>Hur ska jag hantera känslig nytto Last i push-meddelanden?
+
+Alla meddelanden levereras till mål enheter av plattformens PNS. När ett meddelande skickas till Azure Notification Hubs bearbetas det och skickas till respektive PNS.
+
+Alla anslutningar, från avsändaren till Azure-Notification Hubs till PNS, använder HTTPS.
+
+> [!NOTE]
+> Azure Notification Hubs loggar inte nytto lasten för meddelanden på något sätt.
+
+Om du vill skicka känsliga nytto laster rekommenderar vi att du använder ett säkert push-mönster. Avsändaren skickar ett ping-meddelande med en meddelande identifierare till enheten utan den känsliga nytto lasten. När appen på enheten tar emot nytto lasten anropar appen ett säkert API direkt för att hämta information om meddelandet. En guide om hur du implementerar det här mönstret finns på sidan [Själv studie kurs om Notification Hubs säker push] .
 
 ## <a name="operations"></a>Åtgärder
 
-### <a name="what-support-is-provided-for-disaster-recovery"></a>Vilken support tillhandahålls för haveriberedskap?
+### <a name="what-support-is-provided-for-disaster-recovery"></a>Vilken support tillhandahålls för haveri beredskap?
 
-Vi tillhandahåller metadata disaster recovery täckning på vår sida (Notification Hub-namn, anslutningssträngen och annan viktig information). När en katastrofåterställning utlöses registreringsdata är den *endast segmentera* av Notification Hubs-infrastruktur som går förlorad. Du behöver att implementera en lösning för att åter fylla dessa data till din nya hub efter återställning:
+Vi tillhandahåller katastrof återställnings täckning för metadata i vårt slut (Notification Hubs namn, anslutnings sträng och annan viktig information). När ett katastrof återställnings scenario utlöses är registrerings data det *enda segmentet* i Notification Hubs-infrastrukturen som förloras. Du måste implementera en lösning för att fylla i dessa data i din nya hubb efter återställning:
 
-1. Skapa en sekundär meddelandehubben i ett annat datacenter. Vi rekommenderar att du skapar en från första början för att skydda dig från disaster recovery händelser som kan påverka dina hanteringsfunktioner. Du kan också skapa en vid tidpunkten för disaster recovery-händelse.
+1. Skapa en sekundär meddelande hubb i ett annat data Center. Vi rekommenderar att du skapar en från början för att skydda dig från en katastrof återställnings händelse som kan påverka hanterings funktionerna. Du kan också skapa en vid tidpunkten för katastrof återställnings händelsen.
 
-2. Fyll i den sekundära meddelandehubben med registreringen från din primära notification hub. Vi rekommenderar inte att underhålla registreringar på båda hubs och hålla dem synkroniserade när registreringar kommer in. Den här metoden fungerar inte bra brukar inneboende registreringar att gälla på PNS-sida. Meddelandehubbar rensar dem som den tar emot PNS feedback om registreringar har upphört att gälla eller är ogiltig.  
+2. Fyll i den sekundära meddelande hubben med registreringarna från den primära meddelande hubben. Vi rekommenderar inte att du försöker upprätthålla registreringar på båda hubbarna och håller dem synkroniserade som registreringar i. Den här metoden fungerar inte bra på grund av tendensen av att registreringarna upphör att gälla på PNS-sidan. Notification Hubs rensar dem när de får PNS feedback om förfallna eller ogiltiga registreringar.  
 
-Vi har två rekommendationer för serverdelar:
+Vi har två rekommendationer för App-Server delar:
 
-* Använd en appserverdel som upprätthåller en given uppsättning registreringar på dess slut. Den kan sedan utföra en massinfogning till sekundära meddelandehubben.
-* Använd en appserverdel som hämtar en vanlig dump registreringar från den primära meddelandehubben som en säkerhetskopia. Den kan sedan utföra en massinfogning till sekundära meddelandehubben.
-
-> [!NOTE]
-> Registreringar Export/Import-funktioner som är tillgängliga i Standard-nivån beskrivs i den [registreringar Export/Import] dokumentet.
-
-Om du inte har en serverdel när appen startar på målenheter kan utföra de en ny registrering i sekundära meddelandehubben. Så småningom har sekundära meddelandehubben alla aktiva enheter som har registrerats.
-
-Det blir en tidsperiod när enheter med oöppnad appar inte ta emot meddelanden.
-
-### <a name="is-there-audit-log-capability"></a>Finns det audit log funktionen?
-
-Ja. Hantering av åtgärder av alla Meddelandehubbar-uppdatering som Azure-aktivitetsloggen som exponeras i den [Azure Portal]. Azure-aktivitetsloggen ger insikt i de åtgärder som utförts på resurser i dina prenumerationer. Med aktivitetsloggen kan du bestämma vad, vem, och när för alla skrivåtgärder (PUT, POST, ta bort) för resurser i din prenumeration. Du kan också förstå statusen för åtgärder och andra relevanta egenskaper. Men. Aktivitetsloggen inkluderar inte läsåtgärder (GET) igen.
-
-## <a name="monitoring-and-troubleshooting"></a>Övervakning och felsökning
-
-### <a name="what-troubleshooting-capabilities-are-available"></a>Vilka funktioner för felsökning är tillgängliga?
-
-Azure Meddelandehubbar ger flera funktioner för felsökning, särskilt för det vanligaste scenariot för utelämnade meddelanden. Mer information finns i [Meddelandehubbar felsökning] white paper om.
-
-### <a name="what-telemetry-features-are-available"></a>Vilka telemetrifunktioner är tillgängliga?
-
-Azure Notification Hubs kan visa dessa data i den [Azure Portal]. Information om mått som är tillgängliga på den [Notification Hubs mått] sidan.
-
-Du kan även programmässigt komma åt mätvärden. Mer information finns i följande artiklar:
-
-- [Hämta Azure Monitor-mått med .NET](https://azure.microsoft.com/resources/samples/monitor-dotnet-metrics-api/). Det här exemplet används det användarnamn och lösenord. Om du vill använda ett certifikat, överbelasta FromServicePrincipal-metod för att ange ett certifikat som visas i [det här exemplet](https://github.com/Azure/azure-libraries-for-net/blob/master/src/ResourceManagement/ResourceManager/Authentication/AzureCredentialsFactory.cs). 
-- [Hämta mått och aktivitet för en resurs](https://azure.microsoft.com/resources/samples/monitor-dotnet-query-metrics-activitylogs/)
-- [Azure Monitoring REST API-genomgång](../azure-monitor/platform/rest-api-walkthrough.md)
-
+* Använd en app-backend som innehåller en specifik uppsättning registreringar i slutet. Den kan sedan utföra en Mass infogning i den sekundära meddelande hubben.
+* Använd en app-backend som hämtar en vanlig dumpning av registreringar från den primära Notification Hub som en säkerhets kopia. Den kan sedan utföra en Mass infogning i den sekundära meddelande hubben.
 
 > [!NOTE]
-> Lyckade meddelanden innebär helt enkelt att push-meddelanden har levererats till externa PNS (till exempel APNS för Apple) eller FCM för Google. Ansvarar för att leverera meddelanden till målenheterna pns-systemet. Normalt exponerar PNS inte mått för leverans till tredje part.  
+> Registreringar av export-och import funktioner som är tillgängliga på standard nivån beskrivs i dokument för [export/import av registreringar] .
+
+Om du inte har en server del, när appen startar på mål enheter, utför de en ny registrering i den sekundära Notification Hub. Slutligen kommer den sekundära meddelande hubben att alla aktiva enheter har registrerats.
+
+Det kommer att finnas en tids period när enheter med appar som inte är öppna får aviseringar.
+
+### <a name="is-there-audit-log-capability"></a>Finns det funktioner för gransknings logg?
+
+Ja. Alla Notification Hubs hanterings åtgärder uppdaterar Azure aktivitets loggen som visas i [Azure Portal]. Azure aktivitets loggen ger insikter om de åtgärder som utförs på resurser i dina prenumerationer. Med hjälp av aktivitets loggen kan du bestämma vad, vem och när för Skriv åtgärder (skicka, skicka och ta bort) som gjorts för resurserna i din prenumeration. Du kan också förstå statusen för åtgärder och andra relevanta egenskaper. Ändå. Aktivitets loggen innehåller inte Läs-(GET)-åtgärd.
+
+## <a name="monitoring-and-troubleshooting"></a>Övervakning och fel sökning
+
+### <a name="what-troubleshooting-capabilities-are-available"></a>Vilka fel söknings funktioner är tillgängliga?
+
+Azure Notification Hubs innehåller flera funktioner för fel sökning, särskilt för det vanligaste scenariot med ignorerade meddelanden. Mer information finns i [Notification Hubs fel sökning] White Paper.
+
+### <a name="what-telemetry-features-are-available"></a>Vilka funktioner för telemetri är tillgängliga?
+
+Med Azure Notification Hubs kan du Visa telemetridata i [Azure Portal]. Information om måtten finns på sidan [Notification Hubs mått] .
+
+Du kan också program mässigt komma åt Mät värden. Mer information finns i följande artiklar:
+
+- [Hämta Azure Monitor mått med .net](https://azure.microsoft.com/resources/samples/monitor-dotnet-metrics-api/). I det här exemplet används användar namn och lösen ord. Om du vill använda ett certifikat överbelastar du FromServicePrincipal-metoden för att tillhandahålla ett certifikat som visas i [det här exemplet](https://github.com/Azure/azure-libraries-for-net/blob/master/src/ResourceManagement/ResourceManager/Authentication/AzureCredentialsFactory.cs). 
+- [Hämta mått och aktivitets loggar för en resurs](https://azure.microsoft.com/resources/samples/monitor-dotnet-query-metrics-activitylogs/)
+- [Genom gång av Azure Monitoring REST API](../azure-monitor/platform/rest-api-walkthrough.md)
+
+
+> [!NOTE]
+> Lyckade meddelanden innebär bara att push-meddelanden har levererats till den externa PNS (till exempel APN för Apple eller FCM for Google). Det åligger PNS att leverera meddelanden till mål enheter. Normalt visar PNS inte leverans måtten för tredje part.  
 
 [Azure Portal]: https://portal.azure.com
-[Prisinformation om Notification hub]: https://azure.microsoft.com/pricing/details/notification-hubs/
+[Notification Hubs priser]: https://azure.microsoft.com/pricing/details/notification-hubs/
 [Notification Hubs SLA]: https://azure.microsoft.com/support/legal/sla/
-[Notification Hub REST API: er]: https://msdn.microsoft.com/library/azure/dn530746.aspx
-[Notification Hubs komma igång-Självstudier]: https://azure.microsoft.com/documentation/articles/notification-hubs-ios-get-started/
+[Notification Hubs REST-API: er]: https://msdn.microsoft.com/library/azure/dn530746.aspx
+[Självstudier för Notification Hubs Komma igång]: https://azure.microsoft.com/documentation/articles/notification-hubs-ios-get-started/
 [Mobile Services Pricing]: https://azure.microsoft.com/pricing/details/mobile-services/
-[Vägledning för backend-registrering]: https://msdn.microsoft.com/library/azure/dn743807.aspx
-[Registrering av backend-vägledning 2]: https://msdn.microsoft.com/library/azure/dn530747.aspx
-[Säkerhetsmodell för Notification Hubs]: https://msdn.microsoft.com/library/azure/dn495373.aspx
-[Handledning för Hubs säker Push-meddelande]: https://azure.microsoft.com/documentation/articles/notification-hubs-aspnet-backend-ios-secure-push/
-[Meddelandehubbar felsökning]: https://azure.microsoft.com/documentation/articles/notification-hubs-diagnosing/
+[Vägledning för Server dels registrering]: https://msdn.microsoft.com/library/azure/dn743807.aspx
+[Guide för registrering av Server del 2]: https://msdn.microsoft.com/library/azure/dn530747.aspx
+[Notification Hubs säkerhets modell]: https://msdn.microsoft.com/library/azure/dn495373.aspx
+[Själv studie kurs om Notification Hubs säker push]: https://azure.microsoft.com/documentation/articles/notification-hubs-aspnet-backend-ios-secure-push/
+[Notification Hubs fel sökning]: https://azure.microsoft.com/documentation/articles/notification-hubs-diagnosing/
 [Notification Hubs mått]: ../azure-monitor/platform/metrics-supported.md#microsoftnotificationhubsnamespacesnotificationhubs
-[Registreringar Export/Import]: https://docs.microsoft.com/azure/notification-hubs/export-modify-registrations-bulk
+[Export/import av registreringar]: https://docs.microsoft.com/azure/notification-hubs/export-modify-registrations-bulk
 [Azure Portal]: https://portal.azure.com
 [complete samples]: https://github.com/Azure/azure-notificationhubs-samples
 [Mobile Apps]: https://azure.microsoft.com/services/app-service/mobile/

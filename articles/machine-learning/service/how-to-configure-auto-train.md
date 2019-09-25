@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 07/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: 2ef501af63628b47bc52d416930c90057569b5de
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: 4d4a3eae9ea3931ceb720785bbf458f54689be6e
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71035032"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71213517"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Konfigurera automatiserade ML-experiment i python
 
@@ -202,7 +202,7 @@ Några exempel är:
         n_cross_validations=5)
     ```
 
-De tre olika `task` parametervärdena bestämmer listan över algoritmer som ska användas.  Använd parametrarna `blacklist` eller för att ytterligare ändra iterationer med tillgängliga algoritmer som ska tas med eller undantas. `whitelist` Listan över modeller som stöds finns i SupportedAlgorithms- [klassen](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.constants.supportedalgorithms?view=azure-ml-py).
+De tre olika `task` parametervärdena bestämmer listan över modeller som ska användas.  Använd parametrarna `blacklist` eller för att ytterligare ändra iterationer med tillgängliga modeller som ska tas med eller undantas. `whitelist` Listan över modeller som stöds finns i SupportedModels- [klassen](https://docs.microsoft.com/en-us/python/api/azureml-train-automl/azureml.train.automl.constants.supportedmodels?view=azure-ml-py).
 
 ### <a name="primary-metric"></a>Primär mått
 Primärt mått. som du ser i exemplen ovan bestäms måttet som ska användas vid modell träning för optimering. Det primära måttet du kan välja avgörs av den aktivitets typ som du väljer. Nedan visas en lista över tillgängliga mått.

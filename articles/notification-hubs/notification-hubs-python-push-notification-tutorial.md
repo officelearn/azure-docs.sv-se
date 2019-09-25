@@ -3,23 +3,25 @@ title: Använda Notification Hubs med python
 description: Lär dig hur du använder Azure Notification Hubs från en python-backend.
 services: notification-hubs
 documentationcenter: ''
-author: jwargo
-manager: patniko
-editor: spelluru
+author: sethmanheim
+manager: femila
+editor: jwargo
 ms.assetid: 5640dd4a-a91e-4aa0-a833-93615bde49b4
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: python
 ms.devlang: php
 ms.topic: article
-ms.author: jowargo
 ms.date: 01/04/2019
-ms.openlocfilehash: e2d0c7089ea070d82c75337c07fcc4a9df1c7c28
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.author: sethm
+ms.reviewer: jowargo
+ms.lastreviewed: 01/04/2019
+ms.openlocfilehash: 5321802023d57bedc135e2d19b2289f1d66deb72
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68359827"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71213075"
 ---
 # <a name="how-to-use-notification-hubs-from-python"></a>Använda Notification Hubs från python
 
@@ -36,7 +38,7 @@ Den här artikeln visar hur du:
 - Skicka meddelanden med hjälp av python-gränssnittet till REST-API: erna för Notification Hub.
 - Få en dumpning av HTTP REST-begäran/-svaret för fel sökning/utbildnings syfte.
 
-Du kan följa självstudien [Kom igång](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md) för den mobila plattform som du väljer, implementera backend-delen i python.
+Du kan följa [självstudien kom igång](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md) för den mobila plattform som du väljer, implementera backend-delen i python.
 
 > [!NOTE]
 > Omfånget för exemplet är bara begränsat för att skicka meddelanden och ingen registrerings hantering.
@@ -63,7 +65,7 @@ hub.send_windows_notification(wns_payload)
 
 ## <a name="implementation"></a>Implementering
 
-Om du inte redan har gjort det följer du självstudien [Självstudier för att komma igång] fram till det sista avsnittet där du måste implementera Server delen.
+Om du inte redan har gjort det följer du [Självstudier för att komma igång] fram till det sista avsnittet där du måste implementera Server delen.
 
 All information om hur du implementerar ett komplett REST-omslag finns på [MSDN](https://msdn.microsoft.com/library/dn530746.aspx). I det här avsnittet beskrivs python-implementering av de viktigaste stegen som krävs för att få åtkomst till Notification Hubs REST-slutpunkter och skicka meddelanden
 
@@ -303,7 +305,7 @@ Aviserings-HTTP-URL: en för Notification Hub läggs till med en "test"-frågest
 
 Nu kan du slutföra självstudien kom igång genom att skicka meddelandet från en python-backend.
 
-Initiera din Notification Hubs-klient (Ersätt anslutnings strängen och hubbens namn enligt anvisningarna i [Självstudier för att komma igång]-självstudien):
+Initiera din Notification Hubs-klient (Ersätt anslutnings strängen och hubbens namn enligt anvisningarna i [Självstudier för att komma igång]):
 
 ```python
 hub = NotificationHub("myConnectionString", "myNotificationHubName")
@@ -449,7 +451,7 @@ Den här artikeln visar hur du skapar en python REST-klient för Notification Hu
 
 - Hämta det fullständiga [Exempel på python REST], som innehåller all kod i den här artikeln.
 - Fortsätt lära dig mer om Notification Hubs taggnings funktionen i [Själv studie kurs om att dela nyheter]
-- Fortsätt lära dig mer om Notification Hubs mallar i självstudien om [Själv studie kurs om att lokalisera nyheter]
+- Fortsätt lära dig mer om Notification Hubs mallar i [Själv studie kurs om att lokalisera nyheter]
 
 <!-- URLs -->
 [Exempel på python REST]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/notificationhubs-rest-python

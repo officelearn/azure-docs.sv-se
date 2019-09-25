@@ -1,11 +1,11 @@
 ---
-title: Routning och Tagguttryck
-description: Det här avsnittet beskriver Routning och tagg uttryck för Azure notification hub.
+title: Uttryck för Routning och tagg
+description: I det här avsnittet beskrivs routing-och tagg uttryck för Azure Notification Hub.
 services: notification-hubs
 documentationcenter: .net
-author: jwargo
-manager: patniko
-editor: spelluru
+author: sethmanheim
+manager: femila
+editor: jwargo
 ms.assetid: 0fffb3bb-8ed8-4e0f-89e8-0de24a47f644
 ms.service: notification-hubs
 ms.workload: mobile
@@ -13,39 +13,41 @@ ms.tgt_pltfrm: mobile-multiple
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/23/2019
-ms.author: jowargo
-ms.openlocfilehash: 31a22aabc7b0f1d51a673ef8642037103badcc02
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: sethm
+ms.reviewer: jowargo
+ms.lastreviewed: 01/23/2019
+ms.openlocfilehash: 66388f139b63c63e1f0f8ee8ee063e0ddd0f9da5
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61457829"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71213033"
 ---
 # <a name="routing-and-tag-expressions"></a>Uttryck för Routning och tagg
 
 ## <a name="overview"></a>Översikt
 
-Tagguttryck kan du target specifika uppsättningar enheter eller mer specifikt registreringar när du skickar ett push-meddelande via Meddelandehubbar.
+Med tagg uttryck kan du rikta in specifika uppsättningar av enheter eller mer specifikt registreringar när du skickar ett push-meddelande via Notification Hubs.
 
-## <a name="targeting-specific-registrations"></a>Riktar in sig på specifika registreringar
+## <a name="targeting-specific-registrations"></a>Rikta in sig på specifika registreringar
 
-Det enda sättet att målet specifikt meddelande registreringar är att associera taggar med dem, rikta taggarna. Enligt beskrivningen i [Registreringshantering](notification-hubs-push-notification-registration-management.md)för att ta emot push-meddelanden som en app har att registrera en enhet som hanteras på en notification hub. När en registrering har skapats på en notification hub kan kan serverdelen för programmet skicka push-meddelanden till den. Serverdelen för programmet kan välja registreringar till målet med ett specifikt meddelande på följande sätt:
+Det enda sättet att rikta in sig på specifika meddelande registreringar är att associera Taggar med dem och sedan rikta dessa taggar. Som beskrivs i [registrerings hantering](notification-hubs-push-notification-registration-management.md), för att kunna ta emot push-meddelanden, måste en app registrera en enhets referens i en Notification Hub. När en registrering har skapats på en Notification Hub kan program Server delen skicka push-meddelanden till den. Programmets Server del kan välja vilka registreringar som ska riktas mot ett särskilt meddelande på följande sätt:
 
-1. **Skicka**: alla registreringar i meddelandehubben tar emot meddelandet.
-2. **Taggen**: alla registreringar som innehåller den angivna taggen tar emot meddelandet.
-3. **Tagguttryck**: alla registreringar vars uppsättning taggar matchar det angivna uttrycket tar emot meddelandet.
+1. **Sändning**: alla registreringar i Notification Hub får meddelandet.
+2. **Tagg**: alla registreringar som innehåller den angivna taggen får meddelandet.
+3. **Tag-uttryck**: alla registreringar vars uppsättning taggar matchar det angivna uttrycket får meddelandet.
 
 ## <a name="tags"></a>Tags
 
-En tagg kan vara valfri sträng, upp till 120 tecken, som innehåller alfanumeriska och följande icke-alfanumeriska tecken: '_', ' @', '#', '. ',':', '-'. I följande exempel visar ett program som du kan ta emot popup-meddelanden om specifika musik grupper. I det här scenariot är ett enkelt sätt att dirigera meddelanden till etiketten registreringar med taggar som representerar olika band, som i följande bild:
+En tagg kan vara valfri sträng, upp till 120 tecken, med alfanumeriska tecken och följande icke-alfanumeriska tecken: ' _ ', ' @ ', ' # ', ': ', '-'. I följande exempel visas ett program som du kan ta emot popup-meddelanden från om specifika musik grupper. I det här scenariot är ett enkelt sätt att dirigera meddelanden till etiketter för registreringar med taggar som representerar de olika banden, som i följande bild:
 
 ![](./media/notification-hubs-routing-tag-expressions/notification-hubs-tags.png)
 
-På den här bilden meddelandet taggade **Beatles** når den surfplatta som registrerats med taggen **Beatles**.
+I den här bilden når det taggade **Beatles** endast den surfplatta som har registrerats med taggen **Beatles**.
 
-Läs mer om hur du skapar registreringar för taggar, [Registreringshantering](notification-hubs-push-notification-registration-management.md).
+Mer information om hur du skapar registreringar för taggar finns i [registrerings hantering](notification-hubs-push-notification-registration-management.md).
 
-Du kan skicka meddelanden till taggar på metoderna skicka meddelanden med den `Microsoft.Azure.NotificationHubs.NotificationHubClient` klassen i den [Microsoft Azure Notification Hubs](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/) SDK. Du kan också använda Node.js- eller Push-meddelanden REST API: erna.  Här är ett exempel med hjälp av SDK.
+Du kan skicka meddelanden till taggar med hjälp av metoden skicka aviseringar `Microsoft.Azure.NotificationHubs.NotificationHubClient` för klassen i [Microsoft Azure Notification Hubs](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/) SDK. Du kan också använda Node. js eller REST-API: er för push-meddelanden.  Här är ett exempel på hur du använder SDK: n.
 
 ```csharp
 Microsoft.Azure.NotificationHubs.NotificationOutcome outcome = null;
@@ -61,32 +63,32 @@ toast = @"<toast><visual><binding template=""ToastGeneric""><text id=""1"">" +
 outcome = await Notifications.Instance.Hub.SendWindowsNativeNotificationAsync(toast, "Wailers");
 ```
 
-Taggar måste inte vara företablerade och kan referera till flera appspecifika begrepp. Exempelvis kan användare av det här exempelprogrammet kommentera band och vill få toasts, inte bara för kommentarer om sina favorit band, utan också för alla kommentarer från sina vänner, oavsett den band där de kommentarer. Följande bild visar ett exempel på det här scenariot:
+Taggarna behöver inte vara företablerade och kan referera till flera app-/regionsspecifika begrepp. Till exempel kan användare av det här exempel programmet kommentera band och vill ta emot popup-fönster, inte bara för kommentarer på deras favorit band, utan även för alla kommentarer från sina vänner, oavsett vilket band de kommenterar. Följande bild visar ett exempel på det här scenariot:
 
 ![](./media/notification-hubs-routing-tag-expressions/notification-hubs-tags2.png)
 
-Alice är intresserade av uppdateringar för Beatles på den här bilden och Bob är intresserade av uppdateringar för Wailers. Bob är också intresserat Charlies kommentarer och Charlie är intresserad av att Wailers. När ett meddelande har skickats för Charlies kommentera Beatles, får både Alice och Bob den.
+I den här bilden är Alice intresse rad av uppdateringar för Beatles och Bob är intresse rad av uppdateringar för Wailers. Bob är också intresse rad av Kalles kommentarer, och Kalle är intresserade av Wailers. När ett meddelande skickas för Kalle-kommentaren på Beatles, får både Alice och Robert det.
 
-Medan du kan koda flera frågor i taggar (till exempel ”band_Beatles” eller ”follows_Charlie”), är taggar enkla strängar och inte egenskaper med värden. En registrering matchas endast på närvaron eller frånvaron av en viss tagg.
+Även om du kan koda flera frågor i taggar (till exempel "band_Beatles" eller "follows_Charlie"), är Taggar enkla strängar och inte egenskaper med värden. En registrering matchar bara förekomsten eller frånvaron av en speciell tagg.
 
-En fullständig stegvis självstudiekurs om hur du använder taggar för att skicka till intressegrupper, se [större nyheter](notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns.md).
+En fullständig steg-för-steg-guide om hur du använder taggar för att skicka till intresse grupper finns i avsnittet om att [dela nyheter](notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns.md).
 
 > [!NOTE]
-> Azure Notification Hubs stöder högst 60 taggar per registrering.
+> Azure Notification Hubs stöder högst 60 Taggar per registrering.
 
-## <a name="using-tags-to-target-users"></a>Med hjälp av taggar till målanvändare
+## <a name="using-tags-to-target-users"></a>Använda taggar för mål användare
 
-Ett annat sätt att använda taggar är att identifiera alla enheter av en viss användare. Registreringar taggas med en tagg som innehåller ett användar-ID, som i följande bild:
+Ett annat sätt att använda taggar är att identifiera alla enheter för en viss användare. Registreringar kan taggas med en tagg som innehåller ett användar-ID, som i följande bild:
 
 ![](./media/notification-hubs-routing-tag-expressions/notification-hubs-tags3.png)
 
-På den här bilden taggade meddelandet uid: Alice når alla registreringar taggade ”uid:Alice”; därför alla Alices enheter.
+I den här bilden är meddelandet taggat UID: Alice når alla registreringar Taggade "UID: Alice"; Därför är alla Alices enheter.
 
-## <a name="tag-expressions"></a>Tagguttryck
+## <a name="tag-expressions"></a>Tagg uttryck
 
-Det finns fall där ett meddelande har att rikta en uppsättning registreringar som identifieras inte som en enskild tagg, men med ett booleskt uttryck på taggar.
+Det finns fall där ett meddelande måste riktas mot en uppsättning registreringar som identifieras inte av en enskild tagg, utan av ett booleskt uttryck för taggar.
 
-Överväg ett sport-program som skickar en påminnelse till alla i Boston om ett spel mellan Red Sox och Cardinals. Om klientappen registrerar taggar om intresse för team och plats, vara meddelandet mål för alla i Boston som är intresserade Red Sox eller Cardinals. Det här tillståndet kan uttryckas med följande booleskt uttryck:
+Överväg ett idrotts program som skickar en påminnelse till alla i Boston om ett spel mellan den röda Sox och kardinalerna. Om klient programmet registrerar taggar för intresse i team och plats, ska meddelandet vara riktat till alla i Boston som är intresserade av antingen den röda Sox eller kardinalerna. Det här tillståndet kan uttryckas med följande booleska uttryck:
 
 ```csharp
 (follows_RedSox || follows_Cardinals) && location_Boston
@@ -94,9 +96,9 @@ Det finns fall där ett meddelande har att rikta en uppsättning registreringar 
 
 ![](./media/notification-hubs-routing-tag-expressions/notification-hubs-tags4.png)
 
-Tagguttryck kan innehålla alla booleska operatorer som och (& &), eller (|) och inte (!). De kan också innehålla parenteser. Tagguttryck är begränsade till 20 taggar om de innehåller endast ORs; Annars är de begränsade till 6 taggar.
+Tag-uttryck kan innehålla alla booleska operatorer, till exempel och (& &) eller (| |) och inte (!). De kan också innehålla parenteser. Tag-uttryck är begränsade till 20 Taggar om de bara innehåller ORs; annars är de begränsade till 6 taggar.
 
-Här är ett exempel för att skicka meddelanden med Tagguttryck med hjälp av SDK.
+Här är ett exempel på hur du skickar meddelanden med tagg uttryck med hjälp av SDK.
 
 ```csharp
 Microsoft.Azure.NotificationHubs.NotificationOutcome outcome = null;

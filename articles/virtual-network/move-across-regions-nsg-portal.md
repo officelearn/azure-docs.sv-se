@@ -6,12 +6,12 @@ ms.service: virtual-network
 ms.topic: article
 ms.date: 08/31/2019
 ms.author: allensu
-ms.openlocfilehash: 0dd460f7ed829bf82c285b80e59778dacd882404
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: 839e608aa4bba26712ae5b0c160da40db279bbc9
+ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71059325"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71219185"
 ---
 # <a name="move-azure-network-security-group-nsg-to-another-region-using-the-azure-portal"></a>Flytta Azures nätverks säkerhets grupp (NSG) till en annan region med hjälp av Azure Portal
 
@@ -27,7 +27,7 @@ Det går inte att flytta Azures säkerhets grupper från en region till en annan
 - Det går inte att flytta Azures nätverks säkerhets grupper mellan regioner.  Du måste associera den nya NSG till resurser i mål regionen.
 
 - Om du vill exportera en NSG-konfiguration och distribuera en mall för att skapa en NSG i en annan region behöver du rollen som nätverks deltagare eller högre.
-   
+
 - Identifiera käll nätverks layouten och alla resurser som du använder just nu. Den här layouten omfattar men är inte begränsad till belastningsutjämnare, offentliga IP-adresser och virtuella nätverk.
 
 - Kontrol lera att din Azure-prenumeration låter dig skapa NSG: er i mål regionen som används. Kontakta supporten och aktivera den kvot som krävs.
@@ -41,7 +41,7 @@ Följande steg visar hur du förbereder nätverks säkerhets gruppen för konfig
 
 ### <a name="export-the-template-and-deploy-from-the-portal"></a>Exportera mallen och distribuera från portalen
 
-1. Logga in på [Azure Portal](http://portal.azure.com) > **resurs grupper**.
+1. Logga in på [Azure Portal](https://portal.azure.com) > **resurs grupper**.
 2. Leta upp resurs gruppen som innehåller käll-NSG och klicka på den.
 3. Välj**Exportera mall**för > **Inställningar** > .
 4. Välj **distribuera** på bladet **Exportera mall** .
@@ -77,19 +77,19 @@ Följande steg visar hur du förbereder nätverks säkerhets gruppen för konfig
             "location": "<target-region>",
             "properties": {
                 "provisioningState": "Succeeded",
-                "resourceGuid": "2c846acf-58c8-416d-be97-ccd00a4ccd78", 
+                "resourceGuid": "2c846acf-58c8-416d-be97-ccd00a4ccd78",
              }
             }
            ]
 
     ```
-  
+
 11. Information om hur du hämtar koder för regions platser finns i [Azure-platser](https://azure.microsoft.com/global-infrastructure/locations/).  Koden för en region är region namnet utan några blank steg, **centrala USA** =  **, centrala.**
-    
+
 12. Du kan också ändra andra parametrar i mallen om du väljer, och de är valfria beroende på dina krav:
 
     * **Säkerhets regler** – du kan redigera vilka regler som distribueras till mål-NSG genom att lägga till eller ta bort regler i **securityRules** -avsnittet i filen **Template. JSON** :
-    
+
         ```json
            "resources": [
             {
@@ -155,7 +155,7 @@ Följande steg visar hur du förbereder nätverks säkerhets gruppen för konfig
 
 14. Klicka på **grundläggande** > **prenumeration** för att välja den prenumeration där mål-NSG ska distribueras.
 
-15. Klicka på **grundläggande** > **resurs grupp** för att välja den resurs grupp där mål-NSG ska distribueras.  Du kan klicka på **Skapa ny** för att skapa en ny resurs grupp för mål-NSG.  Se till att namnet inte är samma som käll resurs gruppen för det befintliga NSG. 
+15. Klicka på **grundläggande** > **resurs grupp** för att välja den resurs grupp där mål-NSG ska distribueras.  Du kan klicka på **Skapa ny** för att skapa en ny resurs grupp för mål-NSG.  Se till att namnet inte är samma som käll resurs gruppen för det befintliga NSG.
 
 16. Kontrol lera att **grundläggande** > **platser** är inställt på den mål plats där du vill att NSG ska distribueras.
 
@@ -165,7 +165,7 @@ Följande steg visar hur du förbereder nätverks säkerhets gruppen för konfig
 
 19. Klicka på knappen **köp** för att distribuera mål nätverks säkerhets gruppen.
 
-## <a name="discard"></a>Kasta bort 
+## <a name="discard"></a>Kasta bort
 
 Om du vill ignorera mål-NSG tar du bort resurs gruppen som innehåller mål-NSG.  Det gör du genom att välja resurs gruppen från din instrument panel i portalen och välja **ta bort** överst på sidan Översikt.
 

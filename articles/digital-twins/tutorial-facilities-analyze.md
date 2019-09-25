@@ -6,14 +6,14 @@ author: alinamstanciu
 ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial
-ms.date: 08/05/2019
+ms.date: 09/23/2019
 ms.author: alinast
-ms.openlocfilehash: 0244d6ac51b7cad6b74139c39914223928e2b627
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: d155d3566ef87e8a21cdc3e701892144c613f694
+ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68827828"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71219279"
 ---
 # <a name="tutorial-visualize-and-analyze-events-from-your-azure-digital-twins-spaces-by-using-time-series-insights"></a>Självstudier: Visualisera och analysera händelser från dina Azure Digital Twins-utrymmen med hjälp av Time Series Insights
 
@@ -37,6 +37,9 @@ Den här självstudien förutsätter att du har [konfigurerat](tutorial-faciliti
 - En instans av Digital Twins som körs.
 - [Digital Twins C#-exemplen](https://github.com/Azure-Samples/digital-twins-samples-csharp) nedladdade och extraherade på din arbetsdator.
 - [.NET Core SDK version 2.1.403 eller senare](https://www.microsoft.com/net/download) på utvecklingsdatorn för att köra exemplet. Kör `dotnet --version` för att kontrollera att rätt version är installerad.
+
+> [!TIP]
+> Använd ett unikt digitalt namn på en delad instans om du skapar en ny instans.
 
 ## <a name="stream-data-by-using-event-hubs"></a>Strömma data med Event Hubs
 
@@ -130,7 +133,7 @@ Med tjänsten [Event Hubs](../event-hubs/event-hubs-about.md) kan du skapa en pi
 
 1. Välj **Skapa en resurs** längst upp till vänster i [Azure-portalen](https://portal.azure.com). 
 
-1. Sök efter och välj en ny **Time Series Insights**-resurs. Välj **Skapa**.
+1. Sök efter och välj en resurs för **Time Series Insights** allmän tillgänglighet (ga). Välj **Skapa**.
 
 1. Ange en **namn** på Time Series Insights-instansen och välj sedan din **prenumeration**. Välj **resursgruppen** du använde för din Digital Twins-instans och din **plats**. Välj **Nästa: Knappen händelse** källa eller fliken **händelse källa** .
 

@@ -3,9 +3,9 @@ title: Skicka lokaliserade meddelanden till Windows-appar med hjälp av Azure No
 description: Lär dig hur du använder Azure Notification Hubs för att skicka lokaliserade meddelanden med senaste nytt.
 services: notification-hubs
 documentationcenter: windows
-author: jwargo
-manager: patniko
-editor: spelluru
+author: sethmanheim
+manager: femila
+editor: jwargo
 ms.assetid: c454f5a3-a06b-45ac-91c7-f91210889b25
 ms.service: notification-hubs
 ms.workload: mobile
@@ -14,13 +14,15 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 03/22/2019
-ms.author: jowargo
-ms.openlocfilehash: f3880db813072ca0bcecf073a8db24b21c87189f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: sethm
+ms.reviewer: jowargo
+ms.lastreviewed: 03/22/2019
+ms.openlocfilehash: 57353999ff94aa8fd4499b511c86cd59d24d1f0a
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60871844"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71213379"
 ---
 # <a name="tutorial-push-localized-notifications-to-windows-apps-by-using-azure-notification-hubs"></a>Självstudier: Skicka lokaliserade meddelanden till Windows-appar med hjälp av Azure Notification Hubs
 
@@ -44,7 +46,7 @@ I den här guiden får du lära dig att:
 > * Uppdatera serverdelsappen så att den skickar lokaliserade meddelanden
 > * Testa appen
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Slutför [Självstudie: Skicka meddelanden till specifika enheter (Universal Windows Platform)](notification-hubs-windows-phone-push-xplat-segmented-mpns-notification.md).
 
@@ -192,9 +194,9 @@ Mer information om mallar finns i avsnittet om [push-mallar](notification-hubs-t
 
 
 
-## <a name="run-the-uwp-application"></a>Kör UWP-appen
+## <a name="run-the-uwp-application"></a>Kör UWP-programmet
 
-1. Kör Universal Windows Platform-programmet. Vänta tills du ser meddelandet **Registreringen lyckades**.
+1. Kör Universell Windows-plattform-programmet. Vänta tills du ser meddelandet **Registreringen lyckades**.
 
     ![Mobilprogram och registrering](./media/notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification/registration-successful.png)
 2. Välj **kategorier** och **språk** och klicka på **Prenumerera**. Appen konverterar de valda kategorierna till taggar och begär en ny enhetsregistrering för de valda taggarna från meddelandehubben.
@@ -204,7 +206,7 @@ Mer information om mallar finns i avsnittet om [push-mallar](notification-hubs-t
 
     ![Prenumerationsmeddelande](./media/notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification/subscription-message.png)
 
-## <a name="update-console-app-to-send-localized-notifications"></a>Uppdatera konsolapp för att skicka lokaliserade meddelanden
+## <a name="update-console-app-to-send-localized-notifications"></a>Uppdatera konsol program för att skicka lokaliserade meddelanden
 
 När du skickar mallmeddelanden behöver du bara ange en uppsättning egenskaper. I den här självstudiekursen skickar serverdelsprogrammet en uppsättning egenskaper som innehåller den lokaliserade versionen av senaste nytt:
 
@@ -257,8 +259,8 @@ private static async void SendTemplateNotificationAsync()
 
 Detta enkla anrop levererar de lokaliserade nyheterna till **alla** enheter, oavsett plattform, eftersom din meddelandehubb skapar och levererar korrekt intern nyttolast för alla enheter som prenumererar på en specifik tagg.
 
-## <a name="run-console-app-to-send-localized-notification"></a>Kör konsolappen för att skicka lokaliserade meddelanden
-Kör den **konsolapp** att skicka meddelanden för varje kategori och i varje språk som stöds. Kontrollera att du bara får ett meddelande i de kategorier som du prenumererar på och meddelandet gäller för det språk du valt.
+## <a name="run-console-app-to-send-localized-notification"></a>Köra en konsol app för att skicka lokaliserad avisering
+Kör- **konsol programmet** för att skicka meddelanden för varje kategori och för varje språk som stöds. Kontrollera att du bara får ett meddelande i de kategorier som du prenumererar på och meddelandet gäller för det språk du valt.
 
 ![Meddelanden](./media/notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification/notifications.png)
 

@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/29/2019
+ms.date: 09/24/2019
 ms.author: memildin
-ms.openlocfilehash: 97708fa3211aa203aab56253b1c7720d04329014
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: ad662cdeb0a87e57eb9e3e7480d120be1c6c729e
+ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71200807"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71218259"
 ---
 # <a name="supported-features-available-in-azure-security-center"></a>Funktioner som stöds i Azure Security Center
 
@@ -41,7 +41,7 @@ I följande avsnitt visas Security Center funktioner som är tillgängliga för 
 ||**Virtuell dator**|**Skalnings uppsättning för virtuell dator**||**Virtuell dator**|**Skalnings uppsättning för virtuell dator**|
 |Aviseringar om VMBA hot identifiering|✔|✔|✔|✔ (i versioner som stöds)|✔ (i versioner som stöds)|✔|Rekommendationer (kostnads fri) hot identifiering (standard)|
 |Nätverksbaserade hot identifierings aviseringar|✔|✔|X|✔|✔|X|Standard|
-|Windows Defender ATP-integrering|✔ (i versioner som stöds)|✔ (i versioner som stöds)|✔|X|X|X|Standard|
+|Microsoft Defender ATP-integrering|✔ (i versioner som stöds)|✔ (i versioner som stöds)|✔|X|X|X|Standard|
 |Korrigeringar som saknas|✔|✔|✔|✔|✔|✔|Lediga|
 |Säkerhetskonfigurationer|✔|✔|✔|✔|✔|✔|Lediga|
 |Endpoint Protection-utvärdering|✔|✔|✔|X|X|X|Lediga|

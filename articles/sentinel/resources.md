@@ -1,5 +1,5 @@
 ---
-title: Användbara resurser när du arbetar med Azure Sentinel Preview | Microsoft Docs
+title: Användbara resurser när du arbetar med Azure Sentinel | Microsoft Docs
 description: I det här dokumentet får du en lista över användbara resurser när du arbetar med Azure Sentinel.
 services: sentinel
 documentationcenter: na
@@ -13,27 +13,29 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 8/14/2019
+ms.date: 09/23/2019
 ms.author: rkarlin
-ms.openlocfilehash: 138efd7cba80e288c4f8831b45272f4e46c8ee3f
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: 6634920b1efa3cd24267aca8bcf53587754caa66
+ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69036229"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71239981"
 ---
-# <a name="useful-resources-for-working-with-azure-sentinel-preview"></a>Användbara resurser för att arbeta med Azure Sentinel Preview
+# <a name="useful-resources-for-working-with-azure-sentinel"></a>Användbara resurser för att arbeta med Azure Sentinel
 
-> [!IMPORTANT]
-> Azure Sentinel är för närvarande en offentlig för hands version.
-> Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 
 Den här artikeln innehåller resurser som kan hjälpa dig att få mer information om hur du arbetar med Azure Sentinel.
 
 Azure Logic Apps kopplingar:<https://docs.microsoft.com/connectors/>
 
-## <a name="vendor-documentation"></a>Leverantörs dokumentation
 
+## <a name="auditing-and-reporting"></a>Granskning och rapportering
+Gransknings loggar för Azure Sentinel finns kvar i [Azures aktivitets loggar](../azure-monitor/platform/activity-logs-overview.md).
+
+
+## <a name="vendor-documentation"></a>Leverantörs dokumentation
 
 | **Leverantör**  | **Använd incident i Azure Sentinel** | **Länk**|
 |----|----|----|

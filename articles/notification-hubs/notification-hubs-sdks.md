@@ -1,39 +1,41 @@
 ---
 title: 'Azure Notification Hubs SDK: er'
-description: En lista över tillgängliga Azure Notification Hubs SDK
+description: 'En lista över tillgängliga Azure Notification Hubs SDK: er'
 services: notification-hubs
 documentationcenter: ''
-author: jwargo
-manager: patniko
-editor: spelluru
+author: sethmanheim
+manager: femila
+editor: jwargo
 ms.assetid: 91188310-307a-11e9-b210-d663bd873d93
 ms.service: notification-hubs
 ms.workload: mobile
 ms.topic: article
-ms.author: jowargo
 ms.date: 02/14/2019
-ms.openlocfilehash: 9ed69ac3526098cd5426c966952de97c948322b5
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: sethm
+ms.reviewer: jowargo
+ms.lastreviewed: 02/14/2019
+ms.openlocfilehash: 8a4b05c0ee76aca07fd740a16a76a634727504e9
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60559950"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71213020"
 ---
 # <a name="azure-notification-hubs-sdks"></a>Azure Notification Hubs SDK: er
 
-Microsoft och tredje part kan du publicera SDK: er för Azure Notification Hubs. Microsoft-lagringsplatser för Android, iOS och .NET kan du även inkludera exempelappar för varje målplattform som.
+Microsoft och tredje part publicerar SDK: er för Azure Notification Hubs. Microsoft-databaserna för Android, iOS och .NET innehåller även exempel program för varje mål plattform.
 
 | SDK            | Utgivare      |
 | -------------- | -------------- |
-| [.NET Server](https://github.com/Azure/azure-notificationhubs-dotnet) | Microsoft |
+| [.NET-Server](https://github.com/Azure/azure-notificationhubs-dotnet) | Microsoft |
 | [Android](https://github.com/Azure/azure-notificationhubs-android)  |Microsoft |
-| [Apache Cordova](https://github.com/derek82511/cordova-azure-notification-hubs) | Från tredje part |
+| [Apache Cordova](https://github.com/derek82511/cordova-azure-notification-hubs) | Tredje part |
 | [iOS](https://github.com/Azure/azure-notificationhubs-ios) |Microsoft |
 | [Java Server](https://github.com/Azure/azure-notificationhubs-java-backend) |Microsoft |
-| [Nodejs](https://github.com/Azure/azure-sdk-for-node) | Microsoft |
-| [Reagera intern](https://github.com/CatalystCode/react-native-azurenotificationhub) | Från tredje part |
+| [NodeJS](https://github.com/Azure/azure-sdk-for-node) | Microsoft |
+| [Reagera inbyggd](https://github.com/CatalystCode/react-native-azurenotificationhub) | Tredje part |
 
 > [!Note]
-> Microsoft ansvarar inte för kvalitet, användbarhet och support för alla lösningar från tredje part.
+> Microsoft ansvarar inte för kvalitet, användbarhet eller support för lösningar från tredje part.
 
-Berätta om det inte någon saknas.
+Berätta för oss om det saknas.

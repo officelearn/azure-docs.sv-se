@@ -1,11 +1,11 @@
 ---
-title: Push-meddelanden till specifika Android-enheter med Azure Notification Hubs och Google Firebase Cloud Messaging | Microsoft Docs
-description: Lär dig hur du använder Meddelandehubbar för push-meddelanden till specifika Android-enheter med hjälp av Azure Notification Hubs och Google Firebase Cloud Messaging (FCM).
+title: Push-meddelanden till vissa Android-enheter med Azure Notification Hubs och Google Firebase Cloud Messaging | Microsoft Docs
+description: Lär dig hur du använder Notification Hubs för att skicka meddelanden till vissa Android-enheter med hjälp av Azure Notification Hubs och Google Firebase Cloud Messaging (FCM).
 services: notification-hubs
 documentationcenter: android
-author: jwargo
-manager: patniko
-editor: spelluru'
+author: sethmanheim
+manager: femila
+editor: jwargo
 ms.assetid: 3c23cb80-9d35-4dde-b26d-a7bfd4cb8f81
 ms.service: notification-hubs
 ms.workload: mobile
@@ -14,15 +14,17 @@ ms.devlang: java
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 04/30/2019
-ms.author: jowargo
-ms.openlocfilehash: 0192326feeab3063c6e03376f565590728ba2a02
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.author: sethm
+ms.reviewer: jowargo
+ms.lastreviewed: 04/30/2019
+ms.openlocfilehash: 1d0825fcfbcf10aaebc320a5c7cbbf2dd8c13856
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68227558"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71213350"
 ---
-# <a name="tutorial-push-notifications-to-specific-android-devices-using-azure-notification-hubs-and-google-firebase-cloud-messaging-fcm"></a>Självstudier: Push-meddelanden till specifika Android-enheter med Azure Notification Hubs och Google Firebase Cloud Messaging (FCM)
+# <a name="tutorial-push-notifications-to-specific-android-devices-using-azure-notification-hubs-and-google-firebase-cloud-messaging-fcm"></a>Självstudier: Push-meddelanden till vissa Android-enheter med Azure Notification Hubs och Google Firebase Cloud Messaging (FCM)
 
 [!INCLUDE [notification-hubs-selector-breaking-news](../../includes/notification-hubs-selector-breaking-news.md)]
 
@@ -42,7 +44,7 @@ I den här självstudien gör du följande:
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Den här självstudien bygger på den app som du skapade i [Självstudie: Push-meddelanden till Android-enheter med hjälp av Azure Notification Hubs och Firebase Cloud Messaging](notification-hubs-android-push-notification-google-fcm-get-started.md). Innan du påbörjar den här självstudien slutför du [Självstudie: Push-meddelanden till Android-enheter med hjälp av Azure Notification Hubs och Firebase Cloud Messaging](notification-hubs-android-push-notification-google-fcm-get-started.md).
+Den här självstudien bygger på den app som du skapade i [Självstudie: Push-meddelanden till Android-enheter med hjälp av Azure Notification Hubs och](notification-hubs-android-push-notification-google-fcm-get-started.md)Firebase Cloud Messaging. Innan du påbörjar den här självstudien slutför du [Självstudie: Push-meddelanden till Android-enheter med hjälp av Azure Notification Hubs och](notification-hubs-android-push-notification-google-fcm-get-started.md)Firebase Cloud Messaging.
 
 ## <a name="add-category-selection-to-the-app"></a>Lägga till kategorival till appen
 
@@ -202,12 +204,12 @@ Det första steget är att lägga till de UI-element i din befintliga huvudaktiv
     ```
 
     Den här klassen använder lokal lagring för att lagra de nyhetskategorier som den här enheten ska ta emot. Den innehåller också metoder för att registrera dig för dessa kategorier.
-4. I din `MainActivity` class, lägga till ett fält för `Notifications`:
+4. I din `MainActivity` klass lägger du till ett fält `Notifications`för:
 
     ```java
     private Notifications notifications;
     ```
-5. Sedan uppdaterar den `onCreate` metoden enligt följande kod. Du registrerar med Notification Hubs finns i den **subscribeToCategories** -metoden för den **meddelanden** klass. 
+5. Uppdatera `onCreate` sedan metoden som visas i följande kod. Du registrerar dig för Notification Hubs i **subscribeToCategories** -metoden i **meddelande** klassen. 
 
     ```java
     @Override
@@ -273,7 +275,7 @@ Din app kan nu lagra en uppsättning kategorier i lokal lagring på enheten och 
 
 De här stegen registreras med meddelandehubben vid start med hjälp av de kategorier som har lagrats i lokal lagring.
 
-1. Bekräfta att följande kod i slutet av den `onCreate` -metod i den `MainActivity` klass:
+1. Bekräfta att följande kod är i slutet av `onCreate` -metoden `MainActivity` i-klassen:
 
     ```java
     notifications.subscribeToCategories(notifications.retrieveCategories());

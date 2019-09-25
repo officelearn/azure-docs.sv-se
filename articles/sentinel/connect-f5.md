@@ -1,5 +1,5 @@
 ---
-title: Ansluta F5-data till Azure Sentinel Preview | Microsoft Docs
+title: Anslut F5-data till Azure Sentinel | Microsoft Docs
 description: Lär dig hur du ansluter F5-data till Azure Sentinel.
 services: sentinel
 documentationcenter: na
@@ -13,20 +13,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/31/2019
+ms.date: 09/23/2019
 ms.author: rkarlin
-ms.openlocfilehash: 7ad95515ff58e2990102fa2b71d0ce66d4377617
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: 64ea16b6e5a2821db4f053928e4b95ba80d177dd
+ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68679299"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71240013"
 ---
 # <a name="connect-your-f5-appliance"></a>Anslut din F5-apparat
 
-> [!IMPORTANT]
-> Azure Sentinel är för närvarande en offentlig för hands version.
-> Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 
 Du kan ansluta Azure Sentinel till valfri F5-apparat genom att spara loggfilerna som syslog-CEF. Integrationen med Azure Sentinel gör det möjligt för dig att enkelt köra analyser och frågor i logg fils data från F5. Mer information om hur Azure Sentinel matar in CEF-data finns i [ansluta CEF-enheter](connect-common-event-format.md).
 
@@ -48,7 +46,7 @@ Om du vill se ett nätverks diagram över båda alternativen, se [Anslut data k�
 
 1. I Azure Sentinel-portalen klickar du på **data kopplingar** och väljer **F5** och sedan **Öppna kopplings sida**. 
 
-1. Under **Hämta och installera syslog**-agenten väljer du dator typ, antingen Azure eller lokalt. 
+1. Under **Hämta och installera syslog-agenten**väljer du dator typ, antingen Azure eller lokalt. 
 1. På skärmen **virtuella datorer** som öppnas väljer du den dator som du vill använda och klickar på **Anslut**.
 1. Om du väljer **Hämta och installera agent för virtuella Azure Linux-datorer**väljer du datorn och klickar på **Anslut**. Om du väljer **Hämta och installera agent för virtuella datorer som inte använder Azure Linux**kör du skriptet under **Ladda ned och integrera agent för Linux**på skärmen **Direct agent** .
 1. Ange om syslog-daemonen ska vara **rsyslog. d** eller **syslog-ng**på anslutnings skärmen under **Konfigurera och vidarebefordra syslog**. 
@@ -76,12 +74,12 @@ Om du vill se ett nätverks diagram över båda alternativen, se [Anslut data k�
 Konfigurera F5 för att vidarebefordra syslog-meddelanden i CEF-format till din Azure-arbetsyta via syslog-agenten:
 
 Gå till F5 [Konfigurera loggning av program säkerhets händelser](https://aka.ms/asi-syslog-f5-forwarding)och följ anvisningarna för att konfigurera fjärrloggning med hjälp av följande rikt linjer:
-  - Ange **typen** av Fjärrlagring till **CEF**.
+  - Ange **typen av Fjärrlagring** till **CEF**.
   - Ange **protokollet** till **UDP**.
   - Ange **IP-adressen** till syslog-serverns IP-adress.
   - Ange **port numret** till **514**, eller den port som du anger att agenten ska använda.
   - Ställ in **funktionen** på den som du angav i syslog-agenten (som standard ställer agenten in på **local4**).
-  - Du kan ange **Max** storleken för frågesträngen till den storlek som du har angett i din agent.
+  - Du kan ange max storleken för **frågesträngen** till den storlek som du har angett i din agent.
 
 ## <a name="step-3-validate-connectivity"></a>Steg 3: Verifiera anslutning
 
@@ -130,5 +128,5 @@ Det kan ta upp till 20 minuter innan loggarna börjar visas i Log Analytics.
 ## <a name="next-steps"></a>Nästa steg
 I det här dokumentet har du lärt dig hur du ansluter F5-enheter till Azure Sentinel. Mer information om Azure Sentinel finns i följande artiklar:
 - Lär dig hur du [får insyn i dina data och potentiella hot](quickstart-get-visibility.md).
-- Kom igång [med att identifiera hot med Azure Sentinel](tutorial-detect-threats.md).
+- Kom igång [med att identifiera hot med Azure Sentinel](tutorial-detect-threats-built-in.md).
 

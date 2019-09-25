@@ -4,16 +4,16 @@ description: Använd funktioner som lagrings analys, loggning på klient sidan o
 author: normesta
 ms.service: storage
 ms.topic: conceptual
-ms.date: 05/11/2017
+ms.date: 09/23/2019
 ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
-ms.openlocfilehash: 08c19daa0af226834ea70db8847e1637c2373351
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 34aa4ff6c54b34acf865af0b57c3dfa7945a637c
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68855357"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71212833"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-microsoft-azure-storage"></a>Övervaka, diagnostisera och felsök Microsoft Azure Storage
 [!INCLUDE [storage-selector-portal-monitoring-diagnosing-troubleshooting](../../../includes/storage-selector-portal-monitoring-diagnosing-troubleshooting.md)]
@@ -102,6 +102,8 @@ Om du är bekant med Windows prestanda övervakning kan du tänka på lagrings m
 
 Du kan välja vilka Tim mått som du vill visa i [Azure Portal](https://portal.azure.com) och konfigurera regler som meddelar administratörer via e-post när ett Tim mått överskrider ett visst tröskelvärde. Mer information finns i [ta emot aviseringar](/azure/monitoring-and-diagnostics/monitoring-overview-alerts).
 
+Vi rekommenderar att du läser [Azure Monitor för lagring](../../azure-monitor/insights/storage-insights-overview.md) (för hands version). Det är en funktion i Azure Monitor som erbjuder omfattande övervakning av dina Azure Storage-konton genom att leverera en enhetlig vy över dina Azure Storage tjänsters prestanda, kapacitet och tillgänglighet. Du behöver inte aktivera eller konfigurera något, och du kan direkt Visa dessa mått från de fördefinierade interaktiva diagrammen och andra visualiseringar som ingår.
+
 Lagrings tjänsten samlar in mått med bästa möjliga ansträngning, men kanske inte spelar in varje lagrings åtgärd.
 
 I Azure Portal kan du visa mått som tillgänglighet, totalt antal förfrågningar och Genomsnittlig latens nummer för ett lagrings konto. En meddelande regel har också ställts in för att varna en administratör om tillgänglighet sjunker under en viss nivå. Vid visning av dessa data är ett möjligt område för undersökning att den procent andel av tabell tjänster som är lägre än 100% (mer information finns i avsnittet "[Mätvärdena visar låg PercentSuccess eller analytics loggposter innehålla åtgärder med transaktionsstatus för ClientOtherErrors]").
@@ -123,7 +125,7 @@ I resten av det här avsnittet beskrivs vilka mått du ska övervaka och varför
 Du kan använda [Azure Portal](https://portal.azure.com) för att Visa hälso tillståndet för lagrings tjänsten (och andra Azure-tjänster) i alla Azure-regioner runtom i världen. Med övervakning kan du se direkt om ett problem utanför kontrollen påverkar lagrings tjänsten i den region som du använder för ditt program.
 
 [Azure Portal](https://portal.azure.com) kan också tillhandahålla meddelanden om incidenter som påverkar de olika Azure-tjänsterna.
-Anteckning: Den här informationen var tidigare tillgänglig, tillsammans med historiska data, på [instrument panelen för Azure-tjänsten](https://status.azure.com).
+Obs! Den här informationen var tidigare tillgänglig, tillsammans med historiska data, på [instrument panelen för Azure-tjänsten](https://status.azure.com).
 
 [Azure Portal](https://portal.azure.com) samlar in hälso information från inifrån Azure-datacenter (inifrån och ut), kan du också överväga att använda en yttre metod för att generera syntetiska transaktioner som regelbundet får åtkomst till din Azure-värdbaserade webb program från flera platser. Tjänsterna som erbjuds av [dynaTrace](https://www.dynatrace.com/en/synthetic-monitoring) och Application Insights för Azure DevOps är exempel på den här metoden. Mer information om Application Insights för Azure-DevOps finns i bilagan "[Appendix 5: Övervakning med Application Insights för Azure-](#appendix-5)DevOps. "
 
@@ -140,7 +142,7 @@ Information om hur du uppskattar storleken på olika lagrings objekt, till exemp
 ### <a name="monitoring-availability"></a>Övervaknings tillgänglighet
 Du bör övervaka tillgängligheten för lagrings tjänsterna i ditt lagrings konto genom att övervaka värdet i kolumnen **tillgänglighet** i tabellerna för tim-eller minut mått – **$MetricsHourPrimaryTransactionsBlob** **$ MetricsHourPrimaryTransactionsTable**, **$MetricsHourPrimaryTransactionsQueue**, **$MetricsMinutePrimaryTransactionsBlob**, **$MetricsMinutePrimaryTransactionsTable**, **$MetricsMinutePrimaryTransactionsQueue** , **$MetricsCapacityBlob**. Kolumnen **tillgänglighet** innehåller ett procent värde som anger tillgängligheten för tjänsten eller den API-åtgärd som representeras av raden ( **RowKey** visar om raden innehåller mått för tjänsten som helhet eller för en viss API-åtgärd) .
 
-Alla värden som är mindre än 100% indikerar att vissa lagrings begär Anden inte fungerar. Du kan se varför de inte fungerar genom att undersöka de andra kolumnerna i mått data som visar antalet begär Anden med olika fel typer, till exempel **ServerTimeoutError**. Du bör förvänta dig att se till att **tillgänglighet** sjunker tillfälligt under 100% av orsaker som tillfälligt Server-timeout medan tjänsten flyttar partitioner till en bättre belastnings Utjämnings förfrågan. logiken för omprövning i klient programmet bör hantera sådana tillfälliga förhållanden. Artikeln [Lagringsanalys loggade åtgärder och status meddelanden](https://msdn.microsoft.com/library/azure/hh343260.aspx) innehåller en lista över de transaktions typer som lagrings måtten innehåller i sin tillgänglighets beräkning.
+Alla värden som är mindre än 100% indikerar att vissa lagrings begär Anden inte fungerar. Du kan se varför de inte fungerar genom att undersöka de andra kolumnerna i mått data som visar antalet begär Anden med olika fel typer, till exempel **ServerTimeoutError**. Du bör förvänta dig att se till att **tillgänglighet** sjunker tillfälligt under 100% av orsaker som tillfälligt Server-timeout medan tjänsten flyttar partitioner till en bättre belastnings Utjämnings förfrågan. logiken för omprövning i klient programmet bör hantera sådana tillfälliga förhållanden. Artikeln [Lagringsanalys loggade åtgärder och status meddelanden](https://msdn.microsoft.com/library/azure/hh343260.aspx) innehåller en lista över de transaktions typer som lagrings måtten innehåller i sin **tillgänglighets** beräkning.
 
 I [Azure Portal](https://portal.azure.com)kan du lägga till aviserings regler för att meddela dig om **tillgänglighet** för en tjänst faller under ett tröskelvärde som du anger.
 
@@ -461,12 +463,12 @@ Server-timeout indikerar ett problem med lagrings tjänsten som kräver ytterlig
 ### <a name="metrics-show-an-increase-in-PercentNetworkError"></a>Mått visar en ökning i PercentNetworkError
 Dina mått visar en ökning i **PercentNetworkError** för en av dina lagrings tjänster. **PercentNetworkError** -måttet är en agg regering av följande mått: **NetworkError**, **AnonymousNetworkError**och **SASNetworkError**. Detta inträffar när lagrings tjänsten identifierar ett nätverks fel när klienten gör en lagrings förfrågan.
 
-Den vanligaste orsaken till det här felet är att klienten kopplar från innan en tids gräns går ut i lagrings tjänsten. Undersök koden i klienten för att förstå varför och när klienten kopplas från lagrings tjänsten. Du kan också använda wireshark, Microsoft Message Analyzer eller TCPing för att undersöka problem med nätverks anslutningen från klienten. Dessa verktyg beskrivs i tilläggen [].
+Den vanligaste orsaken till det här felet är att klienten kopplar från innan en tids gräns går ut i lagrings tjänsten. Undersök koden i klienten för att förstå varför och när klienten kopplas från lagrings tjänsten. Du kan också använda wireshark, Microsoft Message Analyzer eller TCPing för att undersöka problem med nätverks anslutningen från klienten. Dessa verktyg beskrivs i [tilläggen].
 
 ### <a name="the-client-is-receiving-403-messages"></a>Klienten får HTTP 403 (ej tillåtet) meddelanden
 Om klientprogrammet utfärdar HTTP 403-fel (förbjudet) beror det förmodligen på att klienten använder en SAS (signatur för delad åtkomst) som har upphört att gälla när den skickar förfrågningar om lagring (även om det finns andra orsaker, som klockförskjutning, ogiltiga nycklar eller tomma rubriker). Om orsaken är en SAS-nyckel som har upphört att gälla visas inte några poster i Storage Logging-loggdata på serversidan. I följande tabell visas ett exempel från loggen på klient sidan som genereras av lagrings klient biblioteket som illustrerar det här problemet:
 
-| Source | Utförlighet | Utförlighet | ID för klientbegäran | Åtgärds text |
+| Source | Utförlighets | Utförlighets | ID för klientbegäran | Åtgärds text |
 | --- | --- | --- | --- | --- |
 | Microsoft.Azure.Storage |Information |3 |85d077ab-... |Startar åtgärden med plats primärt per plats läge PrimaryOnly. |
 | Microsoft.Azure.Storage |Information |3 |85d077ab-... |Startar synkron begäran till<https://domemaildist.blob.core.windows.netazureimblobcontainer/blobCreatedViaSAS.txt?sv=2014-02-14&sr=c&si=mypolicy&sig=OFnd4Rd7z01fIvh%2BmcR6zbudIH2F5Ikm%2FyhNYZEmJNQ%3D&api-version=2014-02-14> |
@@ -560,7 +562,7 @@ Om klient programmet försöker använda en SAS-nyckel som inte innehåller de n
 
 I följande tabell visas ett exempel på Server sidans logg meddelande från logg filen för lagrings loggning:
 
-| Namn | Value |
+| Name | Value |
 | --- | --- |
 | Start tid för begäran | 2014-05-30T06:17:48.4473697Z |
 | Åtgärds typ     | GetBlobProperties            |
@@ -665,7 +667,7 @@ För de funktioner som Storage-emulatorn inte stöder använder du Azure Storage
 #### <a name="error-HTTP-header-not-correct-format"></a>Fel: värdet för ett av HTTP-huvudena har inte rätt format "när du använder Storage-emulatorn
 Du testar ditt program som använder lagrings klient biblioteket mot den lokala lagrings emulatorn och metod anrop som **CreateIfNotExists** inte fungerar med fel meddelandet "värdet för ett av HTTP-huvudena har fel format." Det betyder att den version av Storage-emulatorn som du använder inte stöder den version av lagrings klient biblioteket som du använder. Lagrings klient biblioteket lägger till huvudet **x-MS-version** till alla begär Anden som det gör. Om Storage-emulatorn inte känner igen värdet i **x-MS-version-** huvudet, avvisar den begäran.
 
-Du kan använda lagrings bibliotekets klient loggar för att se värdet för **x-MS-version-huvud** som det skickas. Du kan också se värdet för sidhuvudet **x-MS-version** om du använder Fiddler för att spåra begär Anden från klient programmet.
+Du kan använda lagrings bibliotekets klient loggar för att se värdet för **x-MS-version-huvud** som det skickas. Du kan också se värdet för **sidhuvudet x-MS-version** om du använder Fiddler för att spåra begär Anden från klient programmet.
 
 Det här scenariot uppstår vanligt vis om du installerar och använder den senaste versionen av lagrings klient biblioteket utan att uppdatera Storage-emulatorn. Du bör antingen installera den senaste versionen av Storage-emulatorn eller använda moln lagring i stället för emulatorn för utveckling och testning.
 
@@ -745,7 +747,7 @@ WireShark markerar eventuella fel som finns i fönstret **packetlist** . Du kan 
 
 ![][7]
 
-Du kan också välja att Visa TCP-data när program lagret ser det genom att högerklicka på TCP-data och välja **Följ TCP**-dataström. Detta är användbart om du har fångat din dump utan ett infångstfilter. Mer information finns i [följande TCP-strömmar](https://www.wireshark.org/docs/wsug_html_chunked/ChAdvFollowTCPSection.html).
+Du kan också välja att Visa TCP-data när program lagret ser det genom att högerklicka på TCP-data och välja **Följ TCP-dataström**. Detta är användbart om du har fångat din dump utan ett infångstfilter. Mer information finns i [följande TCP-strömmar](https://www.wireshark.org/docs/wsug_html_chunked/ChAdvFollowTCPSection.html).
 
 ![][8]
 
@@ -758,7 +760,7 @@ Du kan också välja att Visa TCP-data när program lagret ser det genom att hö
 Du kan använda Microsoft Message Analyzer för att avbilda HTTP-och HTTPS-trafik på ett likartat sätt för att Fiddler och samla in nätverks trafik på ett liknande sätt som i wireshark.
 
 #### <a name="configure-a-web-tracing-session-using-microsoft-message-analyzer"></a>Konfigurera en webbspårande-session med Microsoft Message Analyzer
-Om du vill konfigurera en webbspårnings-session för HTTP-och HTTPS-trafik med Microsoft Message Analyzer kör du Microsoft Message Analyzer-programmet och klickar sedan på **avbilda/spåra**på **Arkiv** -menyn. I listan över tillgängliga spårnings scenarier väljer du **webbproxy**. I rutan **HostnameFilter** i konfigurations rutan för **spårnings scenario** lägger du sedan till namnen på dina lagrings slut punkter (du kan söka efter dessa namn i [Azure Portal](https://portal.azure.com)). Om namnet på ditt Azure Storage-konto till exempel är **contosodata**, ska du lägga till följande i **HostnameFilter** -text rutan:
+Om du vill konfigurera en webbspårnings-session för HTTP-och HTTPS-trafik med Microsoft Message Analyzer kör du Microsoft Message Analyzer-programmet och klickar sedan på **avbilda/spåra**på **Arkiv** -menyn. I listan över tillgängliga spårnings scenarier väljer du **webbproxy**. I rutan **HostnameFilter** i **konfigurations rutan för spårnings scenario** lägger du sedan till namnen på dina lagrings slut punkter (du kan söka efter dessa namn i [Azure Portal](https://portal.azure.com)). Om namnet på ditt Azure Storage-konto till exempel är **contosodata**, ska du lägga till följande i **HostnameFilter** -text rutan:
 
 ```
 contosodata.blob.core.windows.net contosodata.table.core.windows.net contosodata.queue.core.windows.net
@@ -773,7 +775,7 @@ När du är redo att börja samla in spårnings data klickar du på knappen **st
 
 Mer information om Microsoft Message Analyzer- **webbproxy-** spårning finns i [Microsoft-PEF-WebProxy-providern](https://technet.microsoft.com/library/jj674814.aspx).
 
-Den inbyggda webbproxy -spårningen i Microsoft Message Analyzer baseras på Fiddler; den kan avbilda HTTPS-trafik på klient sidan och Visa okrypterade HTTPS-meddelanden. **Webbproxy-** spårningen fungerar genom att konfigurera en lokal Proxy för all http-och HTTPS-trafik som ger åtkomst till okrypterade meddelanden.
+Den inbyggda **webbproxy** -spårningen i Microsoft Message Analyzer baseras på Fiddler; den kan avbilda HTTPS-trafik på klient sidan och Visa okrypterade HTTPS-meddelanden. **Webbproxy-** spårningen fungerar genom att konfigurera en lokal Proxy för all http-och HTTPS-trafik som ger åtkomst till okrypterade meddelanden.
 
 #### <a name="diagnosing-network-issues-using-microsoft-message-analyzer"></a>Diagnostisera nätverks problem med Microsoft Message Analyzer
 Förutom att använda Microsoft Message Analyzer **-webbproxy-** spårning för att samla in information om http/https-trafik mellan klient programmet och lagrings tjänsten, kan du också använda den inbyggda **lokala länk skikts** spårningen för att avbilda nätverket paket information. På så sätt kan du samla in data som du kan avbilda med wireshark och diagnostisera nätverks problem som tappade paket.
@@ -786,7 +788,7 @@ När du skapar spårningssessionen i Microsoft Message Analyzer kan du ange filt
 
 ![][10]
 
-Mer information om spårningen i den lokala länk nivån i Microsoft Message Analyzer finns i [Microsoft-PEF-NDIS-PacketCapture](https://technet.microsoft.com/library/jj659264.aspx)-providern.
+Mer information om spårningen i den lokala länk nivån i Microsoft Message Analyzer finns i [Microsoft-PEF-NDIS-PacketCapture-providern](https://technet.microsoft.com/library/jj659264.aspx).
 
 ### <a name="appendix-4"></a>Bilaga 4: Använda Excel för att visa mått och logg data
 Med många verktyg kan du ladda ned lagrings mått data från Azure Table Storage i ett avgränsat format som gör det enkelt att läsa in data i Excel för visning och analys. Lagrings loggnings data från Azure Blob Storage är redan i ett avgränsat format som du kan läsa in i Excel. Du måste dock lägga till lämpliga kolumn rubriker som är baserade i informationen i [Lagringsanalys logg format](https://msdn.microsoft.com/library/azure/hh343259.aspx) och [Lagringsanalys mått tabell scheman](https://msdn.microsoft.com/library/azure/hh343264.aspx).
@@ -795,7 +797,7 @@ Importera lagrings loggnings data till Excel när du har laddat ned det från Bl
 
 * På **data** -menyn klickar du på **från text**.
 * Bläddra till logg filen som du vill visa och klicka på **Importera**.
-* I steg 1 i **guiden text import**väljer du avgränsad.
+* I steg 1 i **guiden text import**väljer du **avgränsad**.
 
 I steg 1 i **guiden text import**väljer du **semikolon** som den enda avgränsaren och väljer dubbelt citat tecken som **text kvalificerare**. Klicka sedan på **Slutför** och välj var du vill placera data i din arbets bok.
 
@@ -811,7 +813,7 @@ Du hittar mer information om [vad som är Application Insights](../../azure-moni
 
 Mer information om analyser i Azure Storage finns i följande resurser:
 
-* [Övervaka ett lagrings konto i Azure Portal](storage-monitor-storage-account.md)
+* [Övervaka ett lagringskonto i Azure-portalen](storage-monitor-storage-account.md)
 * [Lagrings analys](storage-analytics.md)
 * [Mått för lagrings analys](storage-analytics-metrics.md)
 * [Schema för lagrings analysens mått tabell](/rest/api/storageservices/storage-analytics-metrics-table-schema)

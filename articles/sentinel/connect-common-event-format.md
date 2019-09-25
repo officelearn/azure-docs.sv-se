@@ -6,21 +6,20 @@ documentationcenter: na
 author: rkarlin
 manager: rkarlin
 editor: ''
-ms.assetid: cbf5003b-76cf-446f-adb6-6d816beca70f
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/19/2019
+ms.date: 09/23/2019
 ms.author: rkarlin
-ms.openlocfilehash: 28def73926294a025d70844e535a0856153ae30a
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 25ae54ea8dd75fae74d4578b33146483ade53e4c
+ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69611931"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71240751"
 ---
 # <a name="connect-your-external-solution-using-common-event-format"></a>Ansluta din externa lösning med hjälp av vanligt händelse format
 
@@ -72,7 +71,7 @@ Du måste distribuera en agent på en särskild Linux-dator (VM eller lokalt) f�
 
 1. I Azure Sentinel-portalen klickar du på **data kopplingar** och väljer **vanligt händelse format (CEF)** och **öppnar sedan kopplings sidan**. 
 
-1. Under **Hämta och installera syslog**-agenten väljer du dator typ, antingen Azure eller lokalt. 
+1. Under **Hämta och installera syslog-agenten**väljer du dator typ, antingen Azure eller lokalt. 
 1. På skärmen **virtuella datorer** som öppnas väljer du den dator som du vill använda och klickar på **Anslut**.
 1. Om du väljer **Hämta och installera agent för virtuella Azure Linux-datorer**väljer du datorn och klickar på **Anslut**. Om du väljer **Hämta och installera agent för virtuella datorer som inte använder Azure Linux**kör du skriptet under **Ladda ned och integrera agent för Linux**på skärmen **Direct agent** .
 1. På skärmen CEF-anslutning under **Konfigurera och vidarebefordra syslog**anger du om ditt syslog-daemon är **rsyslog. d** eller **syslog-ng**. 
@@ -148,5 +147,5 @@ Det kan ta upp till 20 minuter innan loggarna börjar visas i Log Analytics.
 ## <a name="next-steps"></a>Nästa steg
 I det här dokumentet har du lärt dig hur du ansluter CEF-enheter till Azure Sentinel. Mer information om Azure Sentinel finns i följande artiklar:
 - Lär dig hur du [får insyn i dina data och potentiella hot](quickstart-get-visibility.md).
-- Kom igång [med att identifiera hot med Azure Sentinel](tutorial-detect-threats.md).
+- Kom igång [med att identifiera hot med Azure Sentinel](tutorial-detect-threats-built-in.md).
 

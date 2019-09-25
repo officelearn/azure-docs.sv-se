@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 3140aff93c9afcf9a911fe1f381859ff93efef14
-ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
+ms.openlocfilehash: beb9e1344f5dd3bf4b3c3d293e38a7a28170771c
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2019
-ms.locfileid: "71178351"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71212005"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planera för distribution av Azure Files
 
@@ -215,7 +215,7 @@ Standard fil resurser är tillgängliga i alla regioner upp till 5 TiB. I vissa 
 |East US        |LRS     |Nej    |Inte ännu|
 |Frankrike, centrala |LRS, ZRS|Nej    |LRS – Ja, ZRS – inte ännu|
 |Frankrike, södra   |LRS     |Nej    |Ja|
-|Norra Europa   |LRS     |Nej    |Ja|
+|Norra Europa   |LRS     |Nej    |Inte ännu|
 |Indien, södra    |LRS     |Nej    |Inte ännu|
 |Sydostasien |LRS, ZRS|Nej    |Ja|
 |Västra centrala USA|LRS     |Nej    |Inte ännu|

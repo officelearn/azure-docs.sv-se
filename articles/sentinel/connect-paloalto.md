@@ -1,5 +1,5 @@
 ---
-title: Anslut Palo-nätverks data till Azure Sentinel Preview | Microsoft Docs
+title: Anslut Palo-nätverks data till Azure Sentinel | Microsoft Docs
 description: Lär dig hur du ansluter Palo-nätverks data till Azure Sentinel.
 services: sentinel
 documentationcenter: na
@@ -13,20 +13,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/31/2019
+ms.date: 09/23/2019
 ms.author: rkarlin
-ms.openlocfilehash: 5860e1b1b817985aafd95f6f63d39553489482b9
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: 659f36a036d8a165b0c2b28830ae2312adb56c56
+ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68679222"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71240245"
 ---
 # <a name="connect-your-palo-alto-networks-appliance"></a>Anslut din Palo-nätverks-enhet
 
-> [!IMPORTANT]
-> Azure Sentinel är för närvarande en offentlig för hands version.
-> Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 
 Du kan ansluta Azure Sentinel till valfri Palo-enhet med-nätverk genom att spara loggfilerna som syslog-CEF (common Error format). Integrationen med Azure Sentinel gör det möjligt för dig att enkelt köra analyser och frågor i logg fils data från Palo-nätverk. Mer information om hur Azure Sentinel matar in CEF-data finns i [ansluta CEF-enheter](connect-common-event-format.md).
 
@@ -49,7 +47,7 @@ Om du vill se ett nätverks diagram över båda alternativen, se [Anslut data k�
 
 1. Klicka på **data kopplingar** på Azure Sentinel-portalen och välj **Palo-nätverk** och **Öppna sedan kopplings sidan**. 
 
-1. Under **Hämta och installera syslog**-agenten väljer du dator typ, antingen Azure eller lokalt. 
+1. Under **Hämta och installera syslog-agenten**väljer du dator typ, antingen Azure eller lokalt. 
 1. På skärmen **virtuella datorer** som öppnas väljer du den dator som du vill använda och klickar på **Anslut**.
 1. Om du väljer **Hämta och installera agent för virtuella Azure Linux-datorer**väljer du datorn och klickar på **Anslut**. Om du väljer **Hämta och installera agent för virtuella datorer som inte använder Azure Linux**kör du skriptet under **Ladda ned och integrera agent för Linux**på skärmen **Direct agent** .      1. Ange om syslog-daemonen ska vara **rsyslog. d** eller **syslog-ng**på anslutnings skärmen under **Konfigurera och vidarebefordra syslog**. 
 1. Kopiera dessa kommandon och kör dem på din apparat:
@@ -141,5 +139,5 @@ Det kan ta upp till 20 minuter innan loggarna börjar visas i Log Analytics.
 ## <a name="next-steps"></a>Nästa steg
 I det här dokumentet har du lärt dig hur du ansluter Palo-enheter till Azure Sentinel. Mer information om Azure Sentinel finns i följande artiklar:
 - Lär dig hur du [får insyn i dina data och potentiella hot](quickstart-get-visibility.md).
-- Kom igång [med att identifiera hot med Azure Sentinel](tutorial-detect-threats.md).
+- Kom igång [med att identifiera hot med Azure Sentinel](tutorial-detect-threats-built-in.md).
 

@@ -9,14 +9,14 @@ ms.date: 06/01/2019
 ms.author: tamram
 ms.reviewer: hux
 ms.subservice: blobs
-ms.openlocfilehash: aa6bee9cceffc0252dd39d85ebe9d70625e33419
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: 6278b16221072b9b5bca371007296806454ba197
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71036411"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71212437"
 ---
-# <a name="store-business-critical-data-in-azure-blob-storage"></a>Lagra affärs kritiska data i Azure Blob Storage
+# <a name="store-business-critical-data-in-azure-blob-storage-immutably"></a>Lagra affärs kritiska data i Azure Blob Storage immutably 
 
 Oföränderlig lagring för Azure Blob Storage gör det möjligt för användare att lagra affärs kritiska data objekt i en mask (Skriv en gång, läsa många). Det här läget gör att data inte kan raderas och inte kan ändras för ett användardefinierat intervall. BLOB-objekt kan skapas och läsas, men inte ändras eller tas bort, under lagrings intervallets längd. Oföränderlig lagring är aktiverat för Generell användning v2-och Blob Storage-konton i alla Azure-regioner.
 
@@ -93,7 +93,7 @@ I följande tabell visas de typer av BLOB-åtgärder som är inaktiverade för o
 - För en behållare är det maximala antalet redigeringar som utökar ett kvarhållningsintervall för låsta tidsbaserade, oföränderliga principer 5.
 - För en behållare behålls högst 7 tidsbaserade logg gransknings loggar för en låst princip.
 
-### <a name="legal-hold"></a>Juridiskt bevarande
+### <a name="legal-hold"></a>Bevarande av juridiska skäl
 - För ett lagrings konto är det maximala antalet behållare med en juridisk undantags inställning 1 000.
 - För en behållare är det maximala antalet juridiska undantags etiketter 10.
 - Den minsta längden för en juridiskt Hold-tagg är 3 alfanumeriska tecken. Den maximala längden är 23 alfanumeriska tecken.

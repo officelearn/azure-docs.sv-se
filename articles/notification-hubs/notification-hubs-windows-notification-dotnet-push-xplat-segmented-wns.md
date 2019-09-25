@@ -3,9 +3,9 @@ title: Skicka meddelanden till specifika enheter (Universal Windows Platform) | 
 description: Använd Azure Notification Hubs med taggar i registreringen om du vill skicka de senaste nyheterna till en Universal Windows Platform-app.
 services: notification-hubs
 documentationcenter: windows
-author: jwargo
-manager: patniko
-editor: spelluru
+author: sethmanheim
+manager: femila
+editor: jwargo
 ms.assetid: 994d2eed-f62e-433c-bf65-4afebf1c0561
 ms.service: notification-hubs
 ms.workload: mobile
@@ -14,13 +14,15 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 03/22/2019
-ms.author: jowargo
-ms.openlocfilehash: 9cfe5f490ef4063e02d9407f23130c1a216961ed
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: sethm
+ms.reviewer: jowargo
+ms.lastreviewed: 03/22/2019
+ms.openlocfilehash: efe668e42e04942cc0d9fc99670057ab5bdd302a
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60872408"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71212121"
 ---
 # <a name="tutorial-push-notifications-to-specific-windows-devices-running-universal-windows-platform-applications"></a>Självstudier: Skicka push-meddelanden till specifika Windows-enheter som kör Universal Windows Platform-program
 
@@ -45,9 +47,9 @@ I den här självstudien gör du följande:
 > * Skicka taggade meddelanden
 > * Kör appen och generera meddelanden
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
-Slutför [Självstudie: Skicka push-meddelanden till Universal Windows Platform-appar med hjälp av Azure Notification Hubs][get-started] innan du startar den här självstudien.  
+Slutför [Självstudie: Skicka meddelanden till universell Windows-plattform appar med Azure Notification Hubs][get-started] innan du påbörjar den här självstudien.  
 
 ## <a name="add-category-selection-to-the-app"></a>Lägga till kategorival till appen
 
@@ -201,7 +203,7 @@ I det här avsnittet registrerar du med meddelandehubben vid start med hjälp av
     var result = await notifications.SubscribeToCategories();
     ```
 
-    Den här processen säkerställer att när appen startas så hämtas kategorier från lokal lagring och begär registrering av dessa kategorier. Du har skapat metoden `InitNotificationsAsync` som en del av självstudien [Kom igång med Notification Hubs][get-started].
+    Den här processen säkerställer att när appen startas så hämtas kategorier från lokal lagring och begär registrering av dessa kategorier. Du har skapat `InitNotificationsAsync` metoden som en del av självstudien [Kom igång med Notification Hubs][get-started] .
 2. I projektfilen `MainPage.xaml.cs` lägger du till följande kod i metoden `OnNavigatedTo`:
 
     ```csharp
@@ -233,14 +235,14 @@ Appen är nu klar. Den kan lagra en uppsättning kategorier i enhetens lokala la
 
     ![Kategoriväxlingsknapparna och prenumerationsknappen](./media/notification-hubs-windows-store-dotnet-send-breaking-news/notification-hub-windows-toast-2.png)
 
-## <a name="create-a-console-app-to-send-tagged-notifications"></a>Skapa en konsolapp för att skicka taggade meddelanden
+## <a name="create-a-console-app-to-send-tagged-notifications"></a>Skapa en konsol app för att skicka taggade meddelanden
 
 [!INCLUDE [notification-hubs-send-categories-template](../../includes/notification-hubs-send-categories-template.md)]
 
-## <a name="run-the-console-app-to-send-tagged-notifications"></a>Kör konsolappen för att skicka taggade meddelanden
+## <a name="run-the-console-app-to-send-tagged-notifications"></a>Kör-konsol programmet för att skicka taggade meddelanden
 
-1. Kör appen skapades i föregående avsnitt.
-2. Meddelanden för de valda kategorierna visas som popup-meddelanden. Om du väljer meddelandet kan se du det första fönstret för UWP-app. 
+1. Kör appen som skapades i föregående avsnitt.
+2. Meddelanden för de valda kategorierna visas som popup-meddelanden. Om du väljer meddelandet visas det första UWP app-fönstret. 
 
      ![Popup-meddelanden](./media/notification-hubs-windows-store-dotnet-send-breaking-news/notification-hub-windows-reg-2.png)
 

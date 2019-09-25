@@ -11,20 +11,20 @@ author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 08/22/2019
-ms.openlocfilehash: d2b9e53fc6c58f0477e252c751e25a99bdbfba42
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 7a6a2c35360f59c8c2e3d0a75e646ae76c0c9de2
+ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71200098"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71218297"
 ---
 # <a name="create-and-access-datasets-preview-in-azure-machine-learning"></a>Skapa och få åtkomst till data uppsättningar (för hands version) i Azure Machine Learning
 
 I den här artikeln får du lära dig hur du skapar Azure Machine Learning data uppsättningar (för hands version) och hur du kommer åt data från lokala eller fjärranslutna experiment.
 
-Med Azure Machine Learning data uppsättningar kan du: 
+Med Azure Machine Learning data uppsättningar kan du:
 
-* **Behåll en enda kopia av data i din lagring** som refereras av data uppsättningar. 
+* **Behåll en enda kopia av data i din lagring** som refereras av data uppsättningar.
 
 * **Kom enkelt åt data under modell träning** utan att behöva oroa dig om anslutnings strängar eller data Sök vägar.
 
@@ -45,7 +45,7 @@ Om du vill skapa och arbeta med data uppsättningar behöver du:
 
 ## <a name="dataset-types"></a>Data uppsättnings typer
 
-Data uppsättningar kategoriseras i två typer baserat på hur användarna använder dem i utbildningen. 
+Data uppsättningar kategoriseras i två typer baserat på hur användarna använder dem i utbildningen.
 
 * [TabularDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py) representerar data i tabell format genom att parsa den angivna filen eller listan med filer. Det ger dig möjlighet att materialisera data till en Pandas-eller Spark-DataFrame. Ett `TabularDataset` objekt kan skapas från CSV-, TSV-, Parquet-filer, SQL-frågeresultat osv. En fullständig lista finns i vår [dokumentation](https://aka.ms/tabulardataset-api-reference).
 
@@ -53,7 +53,7 @@ Data uppsättningar kategoriseras i två typer baserat på hur användarna anvä
 
 Läs mer om kommande API-ändringar i [här](https://aka.ms/tabular-dataset).
 
-## <a name="create-datasets"></a>Skapa datauppsättningar 
+## <a name="create-datasets"></a>Skapa datauppsättningar
 
 Genom att skapa en data uppsättning skapar du en referens till data käll platsen, tillsammans med en kopia av dess metadata. Data behålls på den befintliga platsen, så ingen extra lagrings kostnad uppstår.
 
@@ -81,9 +81,9 @@ datastore = Datastore.get(workspace, datastore_name)
 
 ### <a name="create-tabulardatasets"></a>Skapa TabularDatasets
 
-TabularDatasets kan skapas via SDK eller med hjälp av landnings sidan för arbets ytan (för hands version). En tidsstämpel kan anges från en kolumn i data eller Sök vägs data lagras i för att möjliggöra en timeseries-trait, som möjliggör enkel och effektiv filtrering med tiden. 
+TabularDatasets kan skapas via SDK eller med hjälp av landnings sidan för arbets ytan (för hands version). En tidsstämpel kan anges från en kolumn i data eller Sök vägs data lagras i för att möjliggöra en timeseries-trait, som möjliggör enkel och effektiv filtrering med tiden.
 
-#### <a name="using-the-sdk"></a>Med SDK 
+#### <a name="using-the-sdk"></a>Med SDK
 
 Använd metoden i `TabularDatasetFactory` klassen för att läsa filer i CSV-eller TSV-format och skapa en oregistrerad TabularDataset. [`from_delimited_files()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory?view=azure-ml-py#from-delimited-files-path--validate-true--include-path-false--infer-column-types-true--set-column-types-none--separator------header--promoteheadersbehavior-all-files-have-same-headers--3---partition-format-none-) Om du läser från flera filer aggregeras resultaten i en tabell representation.
 
@@ -120,7 +120,7 @@ from azureml.core import Dataset, Datastore
 sql_datastore = Datastore.get(workspace, 'mssql')
 sql_ds = Dataset.Tabular.from_sql_query((sql_datastore, 'SELECT * FROM my_table'))
 ```
-Använd metoden i `TabularDataset` klassen för att aktivera enkel och effektiv filtrering med tiden. [`with_timestamp_columns()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py#with-timestamp-columns-fine-grain-timestamp--coarse-grain-timestamp-none--validate-false-) Fler exempel och information hittar du [här](http://aka.ms/azureml-tsd-notebook). 
+Använd metoden i `TabularDataset` klassen för att aktivera enkel och effektiv filtrering med tiden. [`with_timestamp_columns()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py#with-timestamp-columns-fine-grain-timestamp--coarse-grain-timestamp-none--validate-false-) Fler exempel och information hittar du [här](https://aka.ms/azureml-tsd-notebook).
 
 ```Python
 # create a TabularDataset with timeseries trait
@@ -132,20 +132,20 @@ dataset = Dataset.Tabular.from_parquet_files(path=datastore_path, partition_form
 # set coarse timestamp to the virtual column created, and fine grain timestamp from a column in the data
 dataset = dataset.with_timestamp_columns(fine_grain_timestamp='datetime', coarse_grain_timestamp='coarse_time')
 
-# filter with timeseries trait specific methods 
+# filter with timeseries trait specific methods
 data_slice = dataset.time_before(datetime(2019, 1, 1))
 data_slice = dataset.time_after(datetime(2019, 1, 1))
-data_slice = dataset.time_between(datetime(2019, 1, 1), datetime(2019, 2, 1)) 
-data_slice = dataset.time_recent(timedelta(weeks=1, days=1))                  
+data_slice = dataset.time_between(datetime(2019, 1, 1), datetime(2019, 2, 1))
+data_slice = dataset.time_recent(timedelta(weeks=1, days=1))
 ```
 
-#### <a name="using-the-workspace-landing-page"></a>Använda arbets ytans landnings sida 
+#### <a name="using-the-workspace-landing-page"></a>Använda arbets ytans landnings sida
 
 Logga in på [sidan med landnings sidan för arbets ytan](https://ml.azure.com) för att skapa en data uppsättning via webb upplevelsen. För närvarande har sidan landnings sidan för arbets ytan bara stöd för att skapa TabularDatasets.
 
-Följande animering visar hur du skapar en data uppsättning i landnings sidan för arbets ytan. 
+Följande animering visar hur du skapar en data uppsättning i landnings sidan för arbets ytan.
 
-Först väljer du **data uppsättningar** i avsnittet **till gångar** i det vänstra fönstret. Välj sedan **+ skapa data uppsättning** för att välja källa för din data uppsättning. Detta kan antingen vara från lokala filer, data lager eller offentliga webb adresser. **Inställningarna och för hands versionen** och **schema** formulären fylls i intelligent baserat på filtypen. Välj **Nästa** för att granska dem eller om du vill konfigurera data uppsättningen ytterligare innan du skapar den. Välj **klar** för att skapa data uppsättningen. 
+Först väljer du **data uppsättningar** i avsnittet **till gångar** i det vänstra fönstret. Välj sedan **+ skapa data uppsättning** för att välja källa för din data uppsättning. Detta kan antingen vara från lokala filer, data lager eller offentliga webb adresser. **Inställningarna och för hands versionen** och **schema** formulären fylls i intelligent baserat på filtypen. Välj **Nästa** för att granska dem eller om du vill konfigurera data uppsättningen ytterligare innan du skapar den. Välj **klar** för att skapa data uppsättningen.
 
 ![Skapa en data uppsättning med användar gränssnittet](media/how-to-create-register-datasets/create-dataset-ui.gif)
 
@@ -166,7 +166,7 @@ animal_ds = Dataset.File.from_files(path=datastore_paths)
 web_paths = [
             'https://azureopendatastorage.blob.core.windows.net/mnist/train-images-idx3-ubyte.gz',
             'https://azureopendatastorage.blob.core.windows.net/mnist/train-labels-idx1-ubyte.gz'
-           ]          
+           ]
 mnist_ds = Dataset.File.from_files(path=web_paths)
 ```
 
@@ -183,11 +183,11 @@ titanic_ds = titanic_ds.register(workspace = workspace,
 ```
 
 >[!Note]
-> Data uppsättningar som skapas via sidan med landnings sidan för arbets ytan registreras automatiskt på arbets ytan. 
+> Data uppsättningar som skapas via sidan med landnings sidan för arbets ytan registreras automatiskt på arbets ytan.
 
 ## <a name="version-datasets"></a>Versions data uppsättningar
 
-Du kan registrera en ny data uppsättning med samma namn genom att skapa en ny version. Data uppsättnings version är ett sätt att lägga till data i data uppsättningen, så att du kan använda en speciell version av data uppsättningen för experimentering eller framtida åter givning. Typiska scenarier för att överväga versions hantering: 
+Du kan registrera en ny data uppsättning med samma namn genom att skapa en ny version. Data uppsättnings version är ett sätt att lägga till data i data uppsättningen, så att du kan använda en speciell version av data uppsättningen för experimentering eller framtida åter givning. Typiska scenarier för att överväga versions hantering:
 * När nya data är tillgängliga för omträning.
 * När du använder olika metoder för data förberedelse eller funktions teknik.
 
@@ -196,7 +196,7 @@ Du kan registrera en ny data uppsättning med samma namn genom att skapa en ny v
 web_paths = [
             'https://dprepdata.blob.core.windows.net/demo/Titanic.csv',
             'https://dprepdata.blob.core.windows.net/demo/Titanic2.csv'
-           ]          
+           ]
 titanic_ds = Dataset.Tabular.from_delimited_files(path=web_paths)
 
 # create a new version of titanic_ds

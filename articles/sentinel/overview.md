@@ -1,5 +1,5 @@
 ---
-title: Vad är Azure Sentinel Preview? | Microsoft Docs
+title: Vad är Azure Sentinel? | Microsoft Docs
 description: Lär dig mer om Azure Sentinel, dess viktiga funktioner och hur det fungerar.
 services: sentinel
 documentationcenter: na
@@ -14,20 +14,18 @@ ms.topic: overview
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 2/28/2019
+ms.date: 09/23/2019
 ms.author: rkarlin
-ms.openlocfilehash: 15cf770a372c9a1386dd0293abeac01fd3cacf63
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.openlocfilehash: 19291e233e4086815488973629167cc7d7dc9f4a
+ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68779748"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71240543"
 ---
-# <a name="what-is-azure-sentinel-preview"></a>Vad är Azure Sentinel Preview?
+# <a name="what-is-azure-sentinel"></a>Vad är Azure Sentinel?
 
-> [!IMPORTANT]
-> Azure Sentinel är för närvarande en offentlig för hands version.
-> Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 
 Microsoft Azure Sentinel är en skalbar, molnbaserad, molnbaserad, **Siem (Security information Event Management)** och **Soar-lösning (Security Orchestration autoresponse)** . Azure Sentinel ger intelligent säkerhets analys och hot information i hela företaget, vilket ger en enda lösning för aviserings identifiering, Hot synlighet, proaktiv jakt och hot svar. 
 
@@ -53,25 +51,17 @@ För att kunna använda Azure Sentinel måste du först [ansluta till dina säke
 
 ![Data insamlare](./media/collect-data/collect-data-page.png)
 
-## <a name="dashboards"></a>Instrumentpaneler
+## <a name="workbooks"></a>Arbetsböcker
 
-När du har anslutit data källor kan du välja från ett galleri med [expertbaserade instrument paneler](quickstart-get-visibility.md#dashboards) som visar insikter från dina data källor. Varje instrument panel är helt anpassningsbar – du kan lägga till din egen logik eller ändra frågor, eller så kan du skapa en instrument panel från grunden.
+När du har [anslutit dina data källor](quickstart-onboard.md) till Azure Sentinel kan du övervaka data med hjälp av Azure Sentinel-integrering med Azure Monitor arbets böcker, vilket ger mångsidighet i att skapa anpassade arbets böcker. Även om arbets böcker visas på olika sätt i Azure Sentinel, kan det vara praktiskt att se hur du [skapar interaktiva rapporter med Azure Monitor arbets böcker](../azure-monitor/app/usage-workbooks.md). Med Azure Sentinel kan du skapa anpassade arbets böcker i dina data och även med inbyggda mallar för arbets böcker så att du snabbt kan få insikter om dina data så snart du ansluter en data källa.
 
-Instrument panelerna ger interaktiv visualisering med avancerad analys för att hjälpa dina säkerhetsanalytiker att få en bättre förståelse för vad som händer vid ett angrepp. Med hjälp av undersöknings verktygen kan du på ett djup kunna utveckla ett fält, från alla data, för att snabbt utveckla hot kontext. 
-
-![Instrumentpaneler](./media/overview/dashboards.png)
+![Instrumentpaneler](./media/tutorial-monitor-data/access-workbooks.png)
 
 ## <a name="analytics"></a>Analytics
 
-För att hjälpa dig att minska bruset och minimera antalet aviseringar som du måste granska och undersöka, använder Azure Sentinel [analyser för att korrelera aviseringar till incidenter](tutorial-detect-threats.md). **Incidenter** är grupper med relaterade aviseringar som tillsammans skapar ett åtgärds möjligt hot som du kan undersöka och lösa. Använd de inbyggda korrelations reglerna som de är, eller Använd dem som start punkt för att skapa en egen. Azure Sentinel tillhandahåller också maskin inlärnings regler som mappar ditt nätverks beteende och letar efter avvikelser i dina resurser. Dessa analyser ansluter punkterna, genom att kombinera aviseringar med låg kvalitet på olika enheter i potentiella säkerhets incidenter med hög kvalitet.
+För att hjälpa dig att minska bruset och minimera antalet aviseringar som du måste granska och undersöka, använder Azure Sentinel [analyser för att korrelera aviseringar till incidenter](tutorial-detect-threats-built-in.md). **Incidenter** är grupper med relaterade aviseringar som tillsammans skapar ett åtgärds möjligt hot som du kan undersöka och lösa. Använd de inbyggda korrelations reglerna som de är, eller Använd dem som start punkt för att skapa en egen. Azure Sentinel tillhandahåller också maskin inlärnings regler som mappar ditt nätverks beteende och letar efter avvikelser i dina resurser. Dessa analyser ansluter punkterna, genom att kombinera aviseringar med låg kvalitet på olika enheter i potentiella säkerhets incidenter med hög kvalitet.
 
-![Fall](./media/overview/cases.png)
-
-## <a name="user-analytics"></a>Användaranalys
-
-Med inbyggd integrering av Machine Learning (ML) och [användar analys](user-analytics.md)kan Azure Sentinel hjälpa dig att upptäcka hot snabbt. Azure Sentinel integreras sömlöst med Azures avancerade hot skydd för att analysera användar beteende och prioritera vilka användare som du bör undersöka först, baserat på deras aviseringar och misstänkta aktivitets mönster i Azure Sentinel och Microsoft 365.
-
-![Användaranalys](./media/overview/user-analytics.png)
+![Incidenter](./media/tutorial-investigate-cases/incident-severity.png)
 
 
 ## <a name="security-automation--orchestration"></a>Säkerhets automatisering & dirigering
@@ -84,22 +74,22 @@ Om du till exempel använder ServiceNow Ticket-systemet kan du använda de verkt
 
 
 
-## <a name="investigation"></a>Undersökning
+## <a name="investigation-preview"></a>Undersökning (förhands granskning)
 
-Med [djupgående](tutorial-investigate-cases.md) undersöknings verktyg för Azure Sentinel kan du förstå omfattningen och hitta rotor saken, av ett potentiellt säkerhetshot. Du kan välja en entitet i det interaktiva diagrammet för att ställa intressanta frågor för en speciell entitet och öka detalj nivån i entiteten och dess anslutningar för att komma till den grundläggande orsaken till hotet. 
+Med [djupgående undersöknings](tutorial-investigate-cases.md) verktyg för Azure Sentinel kan du förstå omfattningen och hitta rotor saken, av ett potentiellt säkerhetshot. Du kan välja en entitet i det interaktiva diagrammet för att ställa intressanta frågor för en speciell entitet och öka detalj nivån i entiteten och dess anslutningar för att komma till den grundläggande orsaken till hotet. 
 
-![Undersökning](./media/overview/investigation.png)
+![Undersökning](./media/tutorial-investigate-cases/map-timeline.png)
 
 
-## <a name="hunting"></a>Hotjakt
+## <a name="hunting"></a>Jakt
 
-Använd Azure Sentinels [kraftfulla verktyg för jakt och verktyg](hunting.md), baserat på Mitre-ramverket, som gör det möjligt för dig att proaktivt söka efter säkerhetshot i din organisations data källor innan en avisering utlöses. När du har identifierat vilken jakt fråga som ger hög värdes information i möjliga attacker, kan du också skapa anpassade identifierings regler baserat på din fråga och ställa en funktions insikt som aviseringar till dina säkerhets incident svarare. Samtidigt kan du skapa bok märken för intressanta händelser, så att du kan återgå till dem senare, dela dem med andra och gruppera dem med andra korrelerande händelser för att skapa ett övertygande fall för undersökning.
+Använd Azure Sentinels [kraftfulla verktyg för jakt och verktyg](hunting.md), baserat på Mitre-ramverket, som gör det möjligt för dig att proaktivt söka efter säkerhetshot i din organisations data källor innan en avisering utlöses. När du har identifierat vilken jakt fråga som ger hög värdes information i möjliga attacker, kan du också skapa anpassade identifierings regler baserat på din fråga och ställa en funktions insikt som aviseringar till dina säkerhets incident svarare. Samtidigt kan du skapa bok märken för intressanta händelser, så att du kan återgå till dem senare, dela dem med andra och gruppera dem med andra korrelerande händelser för att skapa en övertygande incident för undersökning.
 
-![Hotjakt](./media/overview/hunting.png)
+![Jakt](./media/overview/hunting.png)
 
 ## <a name="community"></a>Community
 
-Azure Sentinel community är en kraftfull resurs för hot identifiering och automatisering. Våra Microsoft-säkerhetsanalytiker skapar och lägger till nya instrument paneler, spel böcker, jakt frågor och annat, så att du kan använda dem i din miljö. Du kan hämta exempel innehåll från den privata gruppen GitHub [](https://aka.ms/asicommunity) -lagringsplatsen för att skapa anpassade instrument paneler, jakt frågor, antecknings böcker och spel böcker för Azure Sentinel. 
+Azure Sentinel community är en kraftfull resurs för hot identifiering och automatisering. Våra Microsoft-säkerhetsanalytiker skapar och lägger till nya arbets böcker, spel böcker, jakt frågor med mera, så att du kan använda dem i din miljö. Du kan hämta exempel innehåll från den privata gruppen GitHub- [lagringsplatsen](https://aka.ms/asicommunity) för att skapa anpassade arbets böcker, jakt frågor, antecknings böcker och spel böcker för Azure Sentinel. 
 
 ![Community](./media/overview/community.png)
 

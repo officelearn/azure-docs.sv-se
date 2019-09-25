@@ -6,12 +6,12 @@ ms.service: virtual-network
 ms.topic: article
 ms.date: 08/29/2019
 ms.author: allensu
-ms.openlocfilehash: 0ee3a386c6044abe834b901ce43795df68bd37c6
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: 2610afe9df06d28f2b75bd0023f7ec5a3fe9e56c
+ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71059338"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71219220"
 ---
 # <a name="move-azure-public-ip-to-another-region-using-the-azure-portal"></a>Flytta den offentliga Azure-IP-adressen till en annan region med hjälp av Azure Portal
 
@@ -27,7 +27,7 @@ Offentliga Azure-IP-adresser är regions information och kan inte flyttas från 
 - Det går inte att flytta offentliga Azure-IP-adresser mellan regioner.  Du måste associera den nya offentliga IP-adressen till resurser i mål regionen.
 
 - Om du vill exportera en offentlig IP-konfiguration och distribuera en mall för att skapa en offentlig IP-adress i en annan region behöver du rollen som nätverks deltagare eller högre.
-   
+
 - Identifiera käll nätverks layouten och alla resurser som du använder just nu. Den här layouten omfattar men är inte begränsad till belastningsutjämnare, nätverks säkerhets grupper (NSG: er) och virtuella nätverk.
 
 - Kontrol lera att din Azure-prenumeration låter dig skapa offentliga IP-adresser i mål regionen som används. Kontakta supporten och aktivera den kvot som krävs.
@@ -40,13 +40,13 @@ Följande steg visar hur du förbereder den offentliga IP-adressen för konfigur
 
 ### <a name="export-the-template-and-deploy-from-a-script"></a>Exportera mallen och distribuera från ett skript
 
-1. Logga in på [Azure Portal](http://portal.azure.com) > **resurs grupper**.
+1. Logga in på [Azure Portal](https://portal.azure.com) > **resurs grupper**.
 2. Leta upp resurs gruppen som innehåller den offentliga käll-IP-adressen och klicka på den.
 3. Välj**Exportera mall**för > **Inställningar** > .
 4. Välj **distribuera** på bladet **Exportera mall** .
 5. Klicka på **mall** > **Redigera parametrar** för att öppna filen **parametrar. JSON** i online-redigeraren.
 8. Om du vill redigera parametern för det offentliga IP-namnet ändrar du egenskapen under **parameter** > **värde** från den offentliga IP-adressen till namnet på din mål-offentliga IP-adress, se till att namnet är inom citat tecken:
-    
+
     ```json
             {
         "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
@@ -61,7 +61,7 @@ Följande steg visar hur du förbereder den offentliga IP-adressen för konfigur
     ```
 8.  Klicka på **Spara** i redigeraren.
 
-9.  Klicka på **mall** > **Redigera mall** för att öppna filen **Template. JSON** i online-redigeraren. 
+9.  Klicka på **mall** > **Redigera mall** för att öppna filen **Template. JSON** i online-redigeraren.
 
 10. Om du vill redigera mål regionen där den offentliga IP-adressen ska flyttas ändrar du egenskapen **location** under **resurser**:
 
@@ -86,11 +86,11 @@ Följande steg visar hur du förbereder den offentliga IP-adressen för konfigur
                 "ipTags": []
                }
                }
-             ]             
+             ]
     ```
-  
+
 11. Information om hur du hämtar koder för regions platser finns i [Azure-platser](https://azure.microsoft.com/global-infrastructure/locations/).  Koden för en region är region namnet utan några blank steg, **centrala USA** =  **, centrala.**
-    
+
 12. Du kan också ändra andra parametrar i mallen om du väljer, och de är valfria beroende på dina krav:
 
     * **SKU** – du kan ändra SKU: n för den offentliga IP-adressen i konfigurationen från standard till Basic eller Basic till standard genom att ändra egenskapen **SKU** > -**namn** i filen **Template. JSON** :
@@ -131,17 +131,17 @@ Följande steg visar hur du förbereder den offentliga IP-adressen för konfigur
                 "publicIPAllocationMethod": "Dynamic",
                 "idleTimeoutInMinutes": 4,
                 "ipTags": []
-        
+
         ```
 
         Mer information om fördelnings metoder och tids gräns värden för inaktivitet finns i [skapa, ändra eller ta bort en offentlig IP-adress](https://docs.microsoft.com/azure/virtual-network/virtual-network-public-ip-address).
 
- 
+
 13. Klicka på **Spara** i redigeraren online.
 
 14. Klicka på **grundläggande** > **prenumeration** för att välja den prenumeration där den offentliga mål-IP-adressen ska distribueras.
 
-15. Klicka på **grundläggande** > **resurs grupp** för att välja den resurs grupp där den offentliga mål-IP-adressen ska distribueras.  Du kan klicka på **Skapa ny** för att skapa en ny resurs grupp för den offentliga IP-adressen.  Se till att namnet inte är samma som käll resurs gruppen för den befintliga offentliga IP-adressen. 
+15. Klicka på **grundläggande** > **resurs grupp** för att välja den resurs grupp där den offentliga mål-IP-adressen ska distribueras.  Du kan klicka på **Skapa ny** för att skapa en ny resurs grupp för den offentliga IP-adressen.  Se till att namnet inte är samma som käll resurs gruppen för den befintliga offentliga IP-adressen.
 
 16. Kontrol lera att **grundläggande** > **platser** är inställt på den mål plats där du vill att den offentliga IP-adressen ska distribueras.
 
@@ -151,7 +151,7 @@ Följande steg visar hur du förbereder den offentliga IP-adressen för konfigur
 
 19. Klicka på knappen **köp** för att distribuera den offentliga mål-IP-adressen.
 
-## <a name="discard"></a>Kasta bort 
+## <a name="discard"></a>Kasta bort
 
 Ta bort den resurs grupp som innehåller den offentliga IP-adressen om du vill ta bort den offentliga mål-IP-adressen.  Det gör du genom att välja resurs gruppen från din instrument panel i portalen och välja **ta bort** överst på sidan Översikt.
 

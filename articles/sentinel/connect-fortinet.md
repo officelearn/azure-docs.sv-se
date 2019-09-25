@@ -1,5 +1,5 @@
 ---
-title: Anslut Fortinet-data till Azure Sentinel Preview | Microsoft Docs
+title: Anslut Fortinet-data till Azure Sentinel | Microsoft Docs
 description: Lär dig hur du ansluter Fortinet-data till Azure Sentinel.
 services: sentinel
 documentationcenter: na
@@ -13,20 +13,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/31/2019
+ms.date: 09/23/2019
 ms.author: rkarlin
-ms.openlocfilehash: 339b8c1b59720989016f68fdb94fae30c26b42f0
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: 20079fd0c95da3e3aec9518f194ea39561a5e662
+ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68679271"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71240701"
 ---
 # <a name="connect-your-fortinet-appliance"></a>Anslut din Fortinet-apparat
 
-> [!IMPORTANT]
-> Azure Sentinel är för närvarande en offentlig för hands version.
-> Den här för hands versionen tillhandahålls utan service nivå avtal. Vi rekommenderar det inte för produktions arbets belastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade. Mer information finns i kompletterande användnings [villkor för Microsoft Azure för hands](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)versionerna.
+
 
 Du kan ansluta Azure Sentinel till valfri Fortinet-apparat genom att spara loggfilerna som syslog-CEF (common Event format). Med integreringen med Azure Sentinel kan du enkelt köra analyser och frågor över logg fils data från Fortinet. Mer information om hur Azure Sentinel matar in CEF-data finns i [ansluta CEF-enheter](connect-common-event-format.md).
 
@@ -48,7 +46,7 @@ Om du vill se ett nätverks diagram över båda alternativen, se [Anslut data k�
 
 1. Klicka på **data kopplingar** på Azure Sentinel-portalen och välj **Fortinet** och **Öppna sedan kopplings sidan**. 
 
-1. Under **Hämta och installera syslog**-agenten väljer du dator typ, antingen Azure eller lokalt. 
+1. Under **Hämta och installera syslog-agenten**väljer du dator typ, antingen Azure eller lokalt. 
 1. På skärmen **virtuella datorer** som öppnas väljer du den dator som du vill använda och klickar på **Anslut**.
 1. Om du väljer **Hämta och installera agent för virtuella Azure Linux-datorer**väljer du datorn och klickar på **Anslut**. Om du väljer **Hämta och installera agent för virtuella datorer som inte använder Azure Linux**kör du skriptet under **Ladda ned och integrera agent för Linux**på skärmen **Direct agent** .
 1. På anslutnings skärmen under **Konfigurera och vidarebefordra syslog**anger du om syslog-daemonen är **rsyslog. d** eller **syslog-ng**. 
@@ -89,7 +87,7 @@ Konfigurera Fortinet så att syslog-meddelanden vidarebefordras i CEF-format til
     - Om du vill aktivera CEF-format i tidiga FortiOS-versioner kan du behöva köra kommandot **CSV Disable**.
  
    > [!NOTE] 
-   > Mer information finns i [Fortinet](https://aka.ms/asi-syslog-fortinet-fortinetdocumentlibrary)-dokumentbiblioteket. Välj din version och Använd referensen **handböcker** och **logg meddelande**.
+   > Mer information finns i [Fortinet-dokumentbiblioteket](https://aka.ms/asi-syslog-fortinet-fortinetdocumentlibrary). Välj din version och Använd referensen **handböcker** och **logg meddelande**.
 
  Om du vill använda det relevanta schemat i Azure Monitor Log Analytics för Fortinet-händelserna söker `CommonSecurityLog`du efter.
 
@@ -147,5 +145,5 @@ Det kan ta upp till 20 minuter innan loggarna börjar visas i Log Analytics.
 ## <a name="next-steps"></a>Nästa steg
 I den här artikeln har du lärt dig hur du ansluter Fortinet-enheter till Azure Sentinel. Mer information om Azure Sentinel finns i följande artiklar:
 - Lär dig hur du [får insyn i dina data och potentiella hot](quickstart-get-visibility.md).
-- Kom igång [med att identifiera hot med Azure Sentinel](tutorial-detect-threats.md).
+- Kom igång [med att identifiera hot med Azure Sentinel](tutorial-detect-threats-built-in.md).
 

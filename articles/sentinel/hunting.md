@@ -1,5 +1,5 @@
 ---
-title: Jakt funktioner i Azure Sentinel Preview | Microsoft Docs
+title: Jakt funktioner i Azure Sentinel | Microsoft Docs
 description: Den här artikeln beskriver hur du använder funktionerna i Azure Sentinel-jakt.
 services: sentinel
 documentationcenter: na
@@ -14,20 +14,18 @@ ms.topic: conceptual
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 2/28/2019
+ms.date: 09/10/2019
 ms.author: rkarlin
-ms.openlocfilehash: 5e6ad3c0b415722349dc584434add1031b7c3cb1
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.openlocfilehash: b00f60394a24008ca39f3ac7b378b1936c46ef76
+ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68780462"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71240620"
 ---
-# <a name="hunt-for-threats-with-in-azure-sentinel-preview"></a>Söker efter hot med i för hands versionen av Azure Sentinel
+# <a name="hunt-for-threats-with-in-azure-sentinel"></a>Söker efter hot med i Azure Sentinel
 
-> [!IMPORTANT]
-> Azure Sentinel är för närvarande en offentlig för hands version.
-> Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 
 Om du är en utredare som vill vara proaktiv om att söka efter säkerhetshot, kan du söka efter säkerhetshot i Azure Sentinel i din organisations data källor. Men dina system-och säkerhets apparater genererar berg data som kan vara svåra att parsa och filtrera i meningsfulla händelser. För att hjälpa säkerhetsanalytikerna att titta proaktivt för nya avvikelser som inte identifierats av dina säkerhetsappar, kan du med Azure Sentinel-de inbyggda jakt frågorna ställa rätt frågor till att hitta problem i de data som du redan har i nätverket. 
 
@@ -41,8 +39,7 @@ Med Azure Sentinel-jakt kan du dra nytta av följande funktioner:
 
 - Kraftfullt frågespråk med IntelliSense: Byggd ovanpå ett frågespråk som ger dig den flexibilitet du behöver för att kunna ta jakt till nästa nivå.
 
-- Skapa egna bok märken: Under jakt processen kan du stöta på matchningar eller resultat, instrument paneler eller aktiviteter som ser ovanliga eller misstänkta. Använd bok märkes funktionen för att markera dessa objekt så att du kan komma tillbaka till dem i framtiden. Med bok märken kan du Spara poster för senare, som ska användas för att skapa en incident för undersökning. Mer information om bok märken finns i använda [bok märken i jakt].
-
+- Skapa egna bok märken: Under jakt processen kan du stöta på matchningar eller resultat, instrument paneler eller aktiviteter som ser ovanliga eller misstänkta. Använd bok märkes funktionen för att markera dessa objekt så att du kan komma tillbaka till dem i framtiden. Med bok märken kan du Spara poster för senare, som ska användas för att skapa en incident för undersökning. Mer information om bok märken finns [i använda bok märken i jakt](hunting.md).
 - Använd antecknings böcker för att automatisera undersökningen: Bärbara datorer är som steg-för-steg-spel böcker som du kan bygga för att gå igenom stegen i en undersökning och jakt.  Antecknings böcker kapslar in alla jakt steg i en återanvändbar Spelbok som kan delas med andra i din organisation. 
 - Fråga lagrade data: Du kan söka efter data i tabeller. Du kan till exempel skapa en fråga om process skapande, DNS-händelser och många andra händelse typer.
 
@@ -75,7 +72,7 @@ Jakt i Azure Sentinel baseras på Azure Log Analytics frågespråk. Mer informat
 
 ## <a name="public-hunting-query-github-repository"></a>Offentlig jakt fråga GitHub-lagringsplats
 
-Kolla in [jakt](https://github.com/Azure/Orion)-lagringsplatsen. Delta och Använd exempel frågor som delas av våra kunder.
+Kolla in [jakt-lagringsplatsen](https://github.com/Azure/Orion). Delta och Använd exempel frågor som delas av våra kunder.
 
  
 
@@ -102,7 +99,7 @@ Frågespråket är kraftfullt och har många tillgängliga operatorer, men vissa
 
 **sammanfatta** – skapa en tabell som sammanställer innehållet i Indatakällan.
 
-sammanfoga rader med två tabeller för att skapa en ny tabell genom att matcha värdena för de angivna kolumnerna från varje tabell.
+**Sammanfoga rader** med två tabeller för att skapa en ny tabell genom att matcha värdena för de angivna kolumnerna från varje tabell.
 
 **Count** – returnera antalet poster i den angivna Indataposten.
 

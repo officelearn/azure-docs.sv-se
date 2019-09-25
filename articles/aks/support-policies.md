@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 04/01/2019
 ms.author: jenoller
-ms.openlocfilehash: bf29799bc2aee12a27216ad45f7ed1e3355bab8a
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 8c1736fcd4356e0778c3b36301b4490764efab76
+ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68596121"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71240889"
 ---
 # <a name="support-policies-for-azure-kubernetes-service"></a>Support principer för Azure Kubernetes-tjänsten
 
@@ -95,7 +95,7 @@ Microsoft och våra kunder delar ansvar för Kubernetes arbetsnoder där:
   * Docker eller Moby daemon
 
 > [!NOTE]
-> Om en kontroll Plans komponent inte fungerar på en arbetsnoden kan AKS-teamet behöva starta om hela arbets noden. På grund av sin begränsade åtkomst till kundens aktiva arbets belastning och data, startar AKS-teamet om en arbetsnod endast om kunden eskalerar problemet. När det är möjligt fungerar AKS-teamet för att förhindra att en nödvändig omstart påverkar programmet.
+> Om en kontroll Plans komponent inte fungerar på en arbetsnoden kan AKS-teamet behöva starta om enskilda komponenter eller hela arbetsnoden. De här omstarts åtgärderna automatiseras och tillhandahåller automatisk reparation av vanliga problem. Dessa omstarter sker bara på _nodnivå_ och inte i klustret om detta inte är ett katastrof underhåll eller avbrott.
 
 ### <a name="customer-responsibilities-for-aks-worker-nodes"></a>Kund ansvar för AKS Worker-noder
 
@@ -149,7 +149,7 @@ Funktioner som ingår i den offentliga för hands versionen är under stöd för
 * [Vanliga frågor och svar om support för Azure](https://azure.microsoft.com/support/faq/)
 
 > [!NOTE]
-> För hands versions funktionerna börjar gälla på Azures prenumerations nivå. Installera inte för hands versions funktioner i en produktions prenumeration. I en produktions prenumeration kan förhands gransknings funktioner ändra standard-API-beteendet och påverka vanliga åtgärder.
+> För hands versions funktionerna börjar gälla på Azures *prenumerations* nivå. Installera inte för hands versions funktioner i en produktions prenumeration. I en produktions prenumeration kan förhands gransknings funktioner ändra standard-API-beteendet och påverka vanliga åtgärder.
 
 ## <a name="upstream-bugs-and-issues"></a>Överordna buggar och problem
 

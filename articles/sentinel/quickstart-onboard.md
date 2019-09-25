@@ -1,5 +1,5 @@
 ---
-title: Publicera i Azure Sentinel Preview | Microsoft Docs
+title: Publicera i Azure Sentinel | Microsoft Docs
 description: Lär dig hur du samlar in data i Azure Sentinel.
 services: sentinel
 documentationcenter: na
@@ -13,26 +13,24 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/22/2019
+ms.date: 09/23/2019
 ms.author: rkarlin
-ms.openlocfilehash: b609dc70c45941ec1132c7cdf614cf9bec8119ff
-ms.sourcegitcommit: 3f78a6ffee0b83788d554959db7efc5d00130376
+ms.openlocfilehash: 7f209ef8bb8c492245b59374c33187dbbe763aa5
+ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70019021"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71240483"
 ---
-# <a name="on-board-azure-sentinel-preview"></a>För hands version av Azure-kontroll på kort
+# <a name="on-board-azure-sentinel"></a>Fordonsbaserad Azure Sentinel
 
-> [!IMPORTANT]
-> Azure Sentinel är för närvarande en offentlig för hands version.
-> Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 
 I den här snabb starten får du lära dig hur du kan använda Azure Sentinel på kort. 
 
 För att kunna använda Azure Sentinel måste du först aktivera Azure Sentinel och sedan ansluta dina data källor. Azure Sentinel levereras med ett antal anslutningar för Microsoft-lösningar, som är tillgängliga direkt och ger real tids integrering, inklusive Microsoft Threat Protection-lösningar, Microsoft 365 källor, inklusive Office 365, Azure AD, Azure ATP och Microsoft Cloud App Security med mera. Dessutom finns det inbyggda anslutnings program till det bredare säkerhets eko systemet för lösningar som inte kommer från Microsoft. Du kan också använda vanliga händelse format, syslog eller REST-API för att ansluta dina data källor med Azure Sentinel.  
 
-När du har anslutit dina data källor väljer du från ett galleri med experter skapade instrument paneler som är baserade på dina data. Dessa instrument paneler kan enkelt anpassas efter dina behov.
+När du har anslutit dina data källor väljer du från ett galleri med arbets böcker som skapats av experten som är baserade på dina data. Dessa arbets böcker kan enkelt anpassas efter dina behov.
 
 
 ## <a name="global-prerequisites"></a>Globala krav
@@ -42,8 +40,9 @@ När du har anslutit dina data källor väljer du från ett galleri med experter
 - Log Analytics arbets yta. Lär dig hur du [skapar en arbets yta för Log Analytics](../log-analytics/log-analytics-quick-create-workspace.md)
 
 -  Om du vill aktivera Azure Sentinel måste du ha deltagar behörighet till den prenumeration där Azure Sentinel-arbetsytan finns. 
-- Om du vill använda Azure Sentinel behöver du antingen deltagar-eller läsar behörighet för resurs gruppen som arbets ytan tillhör
-- Ytterligare behörigheter kan behövas för att ansluta vissa data källor
+- Om du vill använda Azure Sentinel behöver du antingen deltagar-eller läsar behörighet för resurs gruppen som arbets ytan tillhör.
+- Ytterligare behörigheter kan krävas för att ansluta till vissa data källor.
+- Azure Sentinel är en betald tjänst. Pris information finns i [om Azure Sentinel](https://go.microsoft.com/fwlink/?linkid=2104058).
  
 ## Aktivera Azure Sentinel<a name="enable"></a>
 
@@ -59,8 +58,7 @@ När du har anslutit dina data källor väljer du från ett galleri med experter
 
    >[!NOTE] 
    > - Standard arbets ytor som skapats av Azure Security Center visas inte i listan. Du kan inte installera Azure Sentinel på dem.
-   > - Azure Sentinel kan köras på arbets ytor som har distribuerats i någon av följande regioner: Östra Australien, sydöstra Australien, centrala Kanada, centrala Indien, östra USA, östra USA 2 EUAP (Kanarie), Östra Japan, Sydostasien, Storbritannien, södra, Västeuropa, västra USA 2, västra centrala USA, centrala Frankrike, centrala USA, norra Europa, östra USA 2, Asien, östra, västra USA, centrala USA. Södra centrala USA.
-
+   > - Azure Sentinel kan köras på arbets ytor i alla [ga-regioner med Log Analytics](https://azure.microsoft.com/global-infrastructure/services/?products=monitor) förutom regionerna Kina, tyskland och Azure Government. Data som genereras av Azure Sentinel (t. ex. incidenter, bok märken och varnings regler som kan innehålla vissa kund uppgifter från dessa arbets ytor) sparas antingen i Västeuropa (för arbets ytor i Europa) eller östra USA (för alla USA-baserade arbets ytor, samt alla andra regioner utom Europa).
 
 6. Klicka på **Lägg till Azure Sentinel**.
   
@@ -72,7 +70,7 @@ Azure Sentinel skapar anslutningen till tjänster och appar genom att ansluta ti
 1. Klicka på **data insamling**.
 2. Det finns en panel för varje data källa som du kan ansluta.<br>
 Klicka till exempel på **Azure Active Directory**. Om du ansluter den här data källan strömmar du alla loggar från Azure AD till Azure Sentinel. Du kan välja vilken typ av loggar du vill använda för att få inloggnings loggar och/eller gransknings loggar. <br>
-I det nedre avsnittet ger Azure Sentinel rekommendationer för vilka instrument paneler du bör installera för varje koppling så att du direkt kan få intressanta insikter över dina data. <br> Följ installations anvisningarna eller [Läs den relevanta anslutnings guiden](connect-data-sources.md) för mer information. Information om data anslutningar finns i [ansluta Microsoft-tjänster](connect-data-sources.md).
+I det nedre avsnittet ger Azure Sentinel rekommendationer för vilka arbets böcker du bör installera för varje koppling så att du snabbt kan få intressanta insikter över dina data. <br> Följ installations anvisningarna eller [Läs den relevanta anslutnings guiden](connect-data-sources.md) för mer information. Information om data anslutningar finns i [ansluta Microsoft-tjänster](connect-data-sources.md).
 
 När dina data källor är anslutna börjar dina data strömma till Azure Sentinel och är redo att börja arbeta med. Du kan visa loggarna på de [inbyggda instrument panelerna](quickstart-get-visibility.md) och börja skapa frågor i Log Analytics för att [undersöka data](tutorial-investigate-cases.md).
 
@@ -81,5 +79,5 @@ När dina data källor är anslutna börjar dina data strömma till Azure Sentin
 ## <a name="next-steps"></a>Nästa steg
 I det här dokumentet har du lärt dig hur du ansluter data källor till Azure Sentinel. Mer information om Azure Sentinel finns i följande artiklar:
 - Lär dig hur du [får insyn i dina data och potentiella hot](quickstart-get-visibility.md).
-- Kom igång [med att identifiera hot med Azure Sentinel](tutorial-detect-threats.md).
+- Kom igång [med att identifiera hot med Azure Sentinel](tutorial-detect-threats-built-in.md).
 - Strömma data från [vanliga fel formats enheter](connect-common-event-format.md) till Azure Sentinel.

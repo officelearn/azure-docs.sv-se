@@ -1,80 +1,80 @@
 ---
-title: Skapa tekniska resurser till en virtuell dator för Azure Marketplace
-description: Beskriver hur du skapar de tekniska resurserna till en virtuell dator på Azure Marketplace.
+title: Skapa tekniska till gångar för ett erbjudande för virtuella datorer för Azure Marketplace
+description: Förklarar hur du skapar tekniska till gångar för ett erbjudande för virtuella datorer på Azure Marketplace.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: pbutlerm
 ms.service: marketplace
 ms.topic: article
 ms.date: 08/20/2018
 ms.author: pabutler
-ms.openlocfilehash: 6113c10cd152a22bd31e7212d86925b0c2107e58
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c1ef00f846dfad76629b0603ab79fba17249417c
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64938417"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "71224527"
 ---
-# <a name="create-technical-assets-for-a-virtual-machine-offer"></a>Skapa tekniska resurser till en virtuell dator
+# <a name="create-technical-assets-for-a-virtual-machine-offer"></a>Skapa tekniska till gångar för ett erbjudande för virtuell dator
 
-Det här avsnittet visar hur du skapar och konfigurerar de tekniska resurserna till en virtuell dator (VM) för Azure Marketplace.  En virtuell dator innehåller två komponenter: lösning virtuell hårddisk (VHD) och valfria associerade datadiskar.  
+Det här avsnittet beskriver hur du skapar och konfigurerar tekniska till gångar för ett erbjudande för virtuella datorer (VM) för Azure Marketplace.  En virtuell dator innehåller två komponenter: den virtuella hård disken för lösningen (VHD) och valfria associerade data diskar.  
 
-- *Virtuella hårddiskar (VHD)* , som innehåller operativsystemet och din lösning som du distribuerar i ditt Azure Marketplace-erbjudande. Processen med att förbereda den virtuella Hårddisken som skiljer sig beroende på om det är en Linux-baserade, Windows-baserad eller en anpassad-baserad virtuell dator.
-- *Datadiskar* representerar dedikerad, beständig lagring för en virtuell dator. Gör *inte* använder lösningen VHD (till exempel den `C:` enhet) för lagring av beständig information.
+- *Virtuella hård diskar (VHD: er)* , som innehåller operativ systemet och din lösning, som du ska distribuera med ditt Azure Marketplace-erbjudande. Processen för att förbereda den virtuella hård disken varierar beroende på om det är en Linux-baserad, Windows-baserad eller en anpassad virtuell dator.
+- *Data diskar* representerar dedikerad, beständig lagring för en virtuell dator. Använd *inte* den virtuella hård disk lösningen (till exempel `C:` enheten) för att lagra beständig information.
 
-En datoravbildning av virtuell innehåller en operativsystemdisk och noll eller flera datadiskar. En VHD krävs per disk. Även tomma datadiskar kräver en virtuell Hårddisk som ska skapas.
-Du måste konfigurera VM-OS, VM-storlek, portar som ska öppnas, och upp till 15 anslutna datadiskar.
+En avbildning av en virtuell dator innehåller en operativ system disk och noll eller flera data diskar. En virtuell hård disk krävs per disk. Även tomma data diskar kräver att en virtuell hård disk skapas.
+Du måste konfigurera VM-OS, storleken på den virtuella datorn, portar som ska öppnas och upp till 15 anslutna data diskar.
 
 > [!TIP] 
-> Oavsett vilket operativsystem du använder lägger du endast till det minsta antalet datadiskar som SKU n kräver. Kunder kan inte ta bort diskar som är en del av en avbildning vid distributionen, men de kan alltid lägga till diskar under eller efter distributionen. 
+> Oavsett vilket operativsystem du använder lägger du endast till det minsta antalet datadiskar som SKU:n kräver. Kunder kan inte ta bort diskar som ingår i en avbildning vid tidpunkten för distributionen, men de kan alltid lägga till diskar under eller efter distributionen. 
 
 > [!IMPORTANT]
-> *Ändra inte Diskantalet i en ny Avbildningsversion.* Om du måste konfigurera om datadiskar i bilden, definierar du en ny SKU. Publicera en ny Avbildningsversion med annan disk antal har risken med att bryta ny distribution som baseras på den nya avbildningsversionen i fall av automatisk skalning, automatiska distributioner av lösningar via Azure Resource Manager-mallar och andra scenarier.
+> *Ändra inte antalet diskar i en ny avbildnings version.* Om du måste konfigurera om data diskarna i avbildningen definierar du en ny SKU. Om du publicerar en ny avbildnings version med olika disk antal får du möjlighet att dela upp nya distributioner baserat på den nya avbildnings versionen i händelse av automatisk skalning, automatisk distribution av lösningar via Azure Resource Manager mallar och andra scenarier.
 
 [!INCLUDE [updated-for-az](../../../../includes/updated-for-az.md)]
 
 ## <a name="fundamental-technical-knowledge"></a>Grundläggande teknisk kunskap
 
-Utforma, bygga och testa dessa tillgångar ta tid och kräver teknisk kunskap av både Azure-plattformen och de tekniker som används för att skapa erbjudandet. Förutom att din lösning domän, bör ingenjörsteamet ha kunskaper om följande Microsoft-tekniker: 
+Att utforma, skapa och testa dessa till gångar tar tid och kräver teknisk kunskap om både Azure-plattformen och teknikerna som används för att skapa erbjudandet. Förutom din lösnings domän bör ditt tekniska team ha kunskap om följande Microsoft-tekniker: 
 -   Grundläggande förståelse för [Azure-tjänster](https://azure.microsoft.com/services/) 
--   Så här [utforma och skapa Azure-program](https://azure.microsoft.com/solutions/architecture/)
--   Kunskaper om [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/), [Azure Storage](https://azure.microsoft.com/services/?filter=storage) och [Azure Networking](https://azure.microsoft.com/services/?filter=networking)
--   Kunskaper om [Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/)
--   Kunskaper om [JSON](https://www.json.org/)
+-   Så här [utformar och skapar du Azure-program](https://azure.microsoft.com/solutions/architecture/)
+-   Arbeta med kunskaper om [azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/), [Azure Storage](https://azure.microsoft.com/services/?filter=storage) och [Azure-nätverk](https://azure.microsoft.com/services/?filter=networking)
+-   Arbeta med [Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/)
+-   Arbeta med kunskaper om [JSON](https://www.json.org/)
 
 
-## <a name="suggested-tools"></a>Föreslaget verktyg 
+## <a name="suggested-tools"></a>Rekommenderade verktyg 
 
-Välj en eller båda av följande skript miljöer för att hantera virtuella hårddiskar och virtuella datorer:
+Välj en eller båda av följande skript miljöer för att hantera virtuella hård diskar och virtuella datorer:
 -   [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)
 -   [Azure CLI](https://docs.microsoft.com/cli/azure)
 
-Vi rekommenderar dessutom att lägga till följande verktyg i utvecklingsmiljön: 
+Dessutom rekommenderar vi att du lägger till följande verktyg i utvecklings miljön: 
 
 -   [Azure Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer)
 -   [Visual Studio Code](https://code.visualstudio.com/)
-    *   Tillägg: [Verktyget Azure Resource Manager](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools)
-    *   Tillägg: [Tjärgropar](https://marketplace.visualstudio.com/items?itemName=HookyQR.beautify)
-    *   Tillägg: [Prettify JSON](https://marketplace.visualstudio.com/items?itemName=mohsen1.prettify-json)
+    *   Utöka [Azure Resource Manager verktyg](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools)
+    *   Utöka [Beautify](https://marketplace.visualstudio.com/items?itemName=HookyQR.beautify)
+    *   Utöka [Prettify-JSON](https://marketplace.visualstudio.com/items?itemName=mohsen1.prettify-json)
 
-Vi rekommenderar också granska de tillgängliga verktyg i den [Azure-utvecklarverktyg](https://azure.microsoft.com/tools/) sidan och, om du använder Visual Studio i [Visual Studio Marketplace](https://marketplace.visualstudio.com/).
+Vi rekommenderar också att du går igenom de tillgängliga verktygen på [Azure utvecklarverktyg](https://azure.microsoft.com/tools/) -sidan och, om du använder Visual Studio, [Visual Studio Marketplace](https://marketplace.visualstudio.com/).
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-I efterföljande artiklar i det här avsnittet vägleder dig igenom steg för att skapa och registrera dessa VM-resurser:
+Följande artiklar i det här avsnittet beskriver steg för steg hur du skapar och registrerar dessa VM-tillgångar:
 
-1. [Skapa en virtuell hårddisk i Azure-kompatibel](./cpp-create-vhd.md) förklarar hur du skapar antingen en Linux - eller Windows-baserade virtuella Hårddisk som är kompatibla med Azure.  Den innehåller bästa praxis, till exempel ändra storlek, korrigering och förbereda den virtuella datorn för att ladda upp.
+1. [Skapa en Azure-kompatibel virtuell hård disk](./cpp-create-vhd.md) förklarar hur du skapar en Linux-eller Windows-baserad virtuell hård disk som är kompatibel med Azure.  Den innehåller metod tips, till exempel storlek, uppdatering och förberedelse av den virtuella dator som ska laddas upp.
 
-2. [Ansluta till den virtuella datorn](./cpp-connect-vm.md) förklarar hur du ansluter till den nyligen skapade virtuella datorn och loggar in via en fjärranslutning.  Den här artikeln beskriver också hur du stoppa den virtuella datorn att spara på kostnader.
+2. [Anslut till den virtuella datorn](./cpp-connect-vm.md) och lär dig hur du fjärransluter till den virtuella datorn som du skapade och logga in på den.  Den här artikeln beskriver också hur du stoppar den virtuella datorn för att spara användnings kostnader.
 
-3. [Konfigurera den virtuella datorn](./cpp-configure-vm.md) förklarar hur du väljer rätt VHD-storlek, generalisera bilden, gäller de senaste uppdateringarna (korrigeringar) och schemalägger anpassade konfigurationer.
+3. [Konfigurera den virtuella datorn](./cpp-configure-vm.md) förklarar hur du väljer rätt VHD-storlek, generaliserar avbildningen, tillämpar de senaste uppdateringarna (patch) och schemalägger anpassade konfigurationer.
 
-4. [Distribuera en virtuell dator från en virtuell hårddisk](./cpp-deploy-vm-vhd.md) beskrivs hur du registrerar en virtuell dator från en Azure-distribuerade virtuella Hårddisken.  Visas en lista med de verktyg som krävs och hur du använder dem för att skapa en VM-avbildning för användaren och sedan distribuera den till Azure med hjälp av antingen den [Microsoft Azure-portalen](https://ms.portal.azure.com/) eller PowerShell-skript. 
+4. Om du [distribuerar en virtuell dator från en virtuell hård disk](./cpp-deploy-vm-vhd.md) förklaras hur du registrerar en virtuell dator från en Azure-distribuerad virtuell hård disk.  Den visar en lista över de verktyg som krävs och hur du använder dem för att skapa en användar avbildning av en virtuell dator och sedan distribuera den till Azure med hjälp av antingen [Microsoft Azure-portalen](https://ms.portal.azure.com/) -eller PowerShell-skript. 
 
-5. [Certifiera en avbildning av virtuell dator](./cpp-certify-vm.md) förklarar hur du testar och skicka in en VM-avbildning för certifiering för Azure Marketplace. Den förklarar var du kan hämta den *Test Certification Tool för Azure Certified* verktyget och hur du använder det här verktyget för att certifiera din avbildning. 
+5. [Certifiera en avbildning av en virtuell dator](./cpp-certify-vm.md) förklarar hur du testar och skickar en VM-avbildning för Azure Marketplace-certifiering. Den förklarar var du får verktyget *för certifierings test för Azure Certified* Tool och hur du använder det här verktyget för att certifiera din avbildning av virtuella datorer. 
 
-6. [Hämta SAS-URI](./cpp-get-sas-uri.md) förklarar hur du hittar signatur för delad åtkomst (SAS)-URI för VM-avbildningar.
+6. [Hämta SAS URI](./cpp-get-sas-uri.md) förklarar hur du hämtar URL: en för signaturen för delad åtkomst (SAS) för dina VM-avbildningar.
  
-Som en stödjande artikel [gemensamma delade URL: en signatur-åtkomstproblem](./cpp-common-sas-url-issues.md) visas några vanliga problem som kan uppstå med hjälp av SAS URI: er och motsvarande möjliga lösningar.
+Som en Support artikel innehåller [vanliga URL: er för signatur för delad åtkomst](./cpp-common-sas-url-issues.md) en lista med några vanliga problem som kan uppstå med SAS-URI: er och motsvarande möjliga lösningar.
 
-När du har slutfört de här stegen kan du vara redo att [publicera ditt erbjudande för virtuell dator](./cpp-publish-offer.md) på Azure Marketplace.
+När du har slutfört alla dessa steg är du redo att [publicera ditt virtuella dator erbjudande](./cpp-publish-offer.md) på Azure Marketplace.

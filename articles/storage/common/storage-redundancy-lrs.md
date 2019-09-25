@@ -1,27 +1,28 @@
 ---
-title: Lokalt redundant lagring (LRS) för låg kostnad redundans i Azure Storage | Microsoft Docs
-description: Som standard använder nya Azure storage-konton lokalt redundant lagring (LRS) för replikering. LRS är det billigaste alternativet för replikering. Det skyddar mot maskinvarufel i datacentret, men inte mot datacenternivå problem.
+title: Lokalt redundant lagring (LRS) för redundans med låg kostnad i Azure Storage
+description: Som standard använder nya Azure Storage-konton lokalt redundant lagring (LRS) för replikering. LRS är det billigaste alternativet för replikering. Den skyddar mot maskin varu problem i data centret, men inte mot katastrofer på data center nivå.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 02/12/2019
+ms.date: 09/23/2019
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 0cb1b3d10c8b8ea29081cb60cea8b8867a734e2a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b859751b84d75e347fc245ea1e96b94774cdfd6e
+ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65146048"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71219716"
 ---
-# <a name="locally-redundant-storage-lrs-low-cost-data-redundancy-for-azure-storage"></a>Lokalt redundant lagring (LRS): Dataredundans med låg kostnad för Azure Storage
+# <a name="locally-redundant-storage-lrs-low-cost-data-redundancy-for-azure-storage"></a>Lokalt redundant lagring (LRS): Data redundans för låg kostnad för Azure Storage
 
 [!INCLUDE [storage-common-redundancy-LRS](../../../includes/storage-common-redundancy-lrs.md)]
 
 ## <a name="see-also"></a>Se också
 
 - [Azure Storage-replikering](storage-redundancy.md)
-- [Zonredundant lagring (ZRS): Azure Storage-program med hög tillgänglighet](storage-redundancy-zrs.md)
-- [GEO-redundant lagring (GRS): Tvärregional replikering för Azure Storage](storage-redundancy-grs.md)
+- [Zon-redundant lagring (ZRS): Azure Storage program med hög tillgänglighet](storage-redundancy-zrs.md)
+- [Geo-redundant lagring (GRS): Replikering mellan regioner för Azure Storage](storage-redundancy-grs.md)
+- [Bygga hög tillgängliga Azure Storage program med geo-Zone-redundant lagring (GZRS) (för hands version)](storage-redundancy-gzrs.md)

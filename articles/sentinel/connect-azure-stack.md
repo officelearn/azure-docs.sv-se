@@ -10,20 +10,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/25/2019
+ms.date: 09/23/2019
 ms.author: rkarlin
-ms.openlocfilehash: caaf708b3efd8ffbe059f8ad249b7945d31fd7cc
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: fb306ec3f8abe2eedb97f83d01836745779db914
+ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68601169"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71240761"
 ---
 # <a name="connect-azure-stack-virtual-machines-to-azure-sentinel"></a>Anslut Azure Stack virtuella datorer till Azure Sentinel
 
-> [!IMPORTANT]
-> Azure Sentinel är för närvarande en offentlig för hands version.
-> Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 
 
 Med Azure Sentinel kan du övervaka dina virtuella datorer som körs på Azure och Azure Stack på ett och samma ställe. Du måste först lägga till det virtuella dator tillägget till dina befintliga Azure Stack virtuella datorer för att kunna installera dina Azure Stack datorer i Azure Sentinel. 
@@ -53,7 +51,7 @@ Lägg till tillägget **Azure Monitor, uppdatering och konfigurations hantering*
 
 Mer information om hur du installerar och konfigurerar agenten för Windows finns i [ansluta Windows-datorer](../azure-monitor/platform/agent-windows.md#install-the-agent-using-setup-wizard).
 
-Information om Linux-felsökning av agent problem finns i [Felsöka Azure Log Analytics Linux](../azure-monitor/platform/agent-linux-troubleshoot.md)-agenten.
+Information om Linux-felsökning av agent problem finns i [Felsöka Azure Log Analytics Linux-agenten](../azure-monitor/platform/agent-linux-troubleshoot.md).
 
 I Azure Sentinel-portalen på Azure, under **Virtual Machines**, har du en översikt över alla virtuella datorer och datorer tillsammans med deras status. 
 
@@ -71,5 +69,5 @@ Ta bort tillägget:
 
 Mer information om Azure Sentinel finns i följande artiklar:
 - Lär dig hur du [får insyn i dina data och potentiella hot](quickstart-get-visibility.md).
-- Kom igång [med att identifiera hot med Azure Sentinel](tutorial-detect-threats.md).
+- Kom igång [med att identifiera hot med Azure Sentinel](tutorial-detect-threats-built-in.md).
 - Strömma data från [vanliga fel formats enheter](connect-common-event-format.md) till Azure Sentinel.

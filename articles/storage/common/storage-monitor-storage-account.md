@@ -1,5 +1,5 @@
 ---
-title: Så här övervakar du ett Azure Storage konto | Microsoft Docs
+title: Så här övervakar du ett Azure Storage konto i Azure Portal | Microsoft Docs
 description: Lär dig hur du övervakar ett lagrings konto i Azure med hjälp av Azure Portal.
 author: normesta
 ms.service: storage
@@ -8,16 +8,18 @@ ms.date: 07/31/2018
 ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
-ms.openlocfilehash: 912c1c3403191f40dac054f99f29ac60ba84ce8f
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 143574ff02960fcd0fd33ccaed5a80a9bb4f3147
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68844912"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71211851"
 ---
 # <a name="monitor-a-storage-account-in-the-azure-portal"></a>Övervaka ett lagrings konto i Azure Portal
 
-[Azure-lagringsanalys](storage-analytics.md) tillhandahåller mått för alla lagrings tjänster och loggar för blobbar, köer och tabeller. Du kan använda [Azure Portal](https://portal.azure.com) för att konfigurera vilka mått och loggar som registreras för ditt konto och konfigurera diagram som ger visuella representationer av dina mått data.
+[Azure-lagringsanalys](storage-analytics.md) tillhandahåller mått för alla lagrings tjänster och loggar för blobbar, köer och tabeller. Du kan använda [Azure Portal](https://portal.azure.com) för att konfigurera vilka mått och loggar som registreras för ditt konto och konfigurera diagram som ger visuella representationer av dina mått data. 
+
+Vi rekommenderar att du läser [Azure Monitor för lagring](../../azure-monitor/insights/storage-insights-overview.md) (för hands version). Det är en funktion i Azure Monitor som erbjuder omfattande övervakning av dina Azure Storage-konton genom att leverera en enhetlig vy över dina Azure Storage tjänsters prestanda, kapacitet och tillgänglighet. Du behöver inte aktivera eller konfigurera något, och du kan direkt Visa dessa mått från de fördefinierade interaktiva diagrammen och andra visualiseringar som ingår.
 
 > [!NOTE]
 > Det finns kostnader för att undersöka övervaknings data i Azure Portal. Mer information finns i [Lagringsanalys](storage-analytics.md).
@@ -60,13 +62,13 @@ Använd följande procedur för att välja vilka lagrings mått som ska visas i 
 
 1. Börja med att visa ett mått för lagrings mått i Azure Portal. Du kan hitta diagram på **bladet lagrings konto** och på **mått** bladet för en enskild tjänst (BLOB, kö, tabell, fil).
 
-   I det här exemplet använder följande diagram som visas på bladet **lagrings konto**:
+   I det här exemplet använder följande diagram som visas på **bladet lagrings konto**:
 
    ![Diagram val i Azure Portal](./media/storage-monitor-storage-account/stg-customize-chart-00.png)
 
 1. Klicka någonstans i diagrammet för att redigera diagrammet.
 
-1. Välj sedan tidsintervallet för de mått som ska visas i diagrammet och **tjänsten** (BLOB, kö, tabell, fil) vars mått du vill visa. Här väljer du de senaste vecko måtten som ska visas för Blob-tjänsten:
+1. Välj sedan **tidsintervallet** för de mått som ska visas i diagrammet och **tjänsten** (BLOB, kö, tabell, fil) vars mått du vill visa. Här väljer du de senaste vecko måtten som ska visas för Blob-tjänsten:
 
    ![Tidsintervall och tjänst val på bladet redigera diagram](./media/storage-monitor-storage-account/storage-edit-metric-time-range.png)
 
@@ -93,7 +95,7 @@ Måtten som du har valt i **diagnostik** bestämmer upplösningen för de mått 
 
 Du kan skapa aviseringar som meddelar dig när tröskelvärden har nåtts för lagrings resurs mått.
 
-1. Öppna bladet **aviserings regler**genom att rulla ned till **avsnittet övervakning** i **meny bladet** och välja **aviseringar (klassisk)** .
+1. Öppna **bladet aviserings regler**genom att rulla ned till avsnittet **övervakning** i **meny bladet** och välja **aviseringar (klassisk)** .
 2. Välj **Lägg till mått varning (klassisk)** för att öppna bladet **Lägg till en varnings regel**
 3. Ange ett **namn** och en **Beskrivning** för den nya varnings regeln.
 4. Välj det **mått** som du vill lägga till en avisering för, ett varnings **villkor**och ett **tröskelvärde**. Tröskeln för enhets typ ändras beroende på mått som du har valt. Exempel: "count" är enhets typen för *ContainerCount*, medan enheten för *PercentNetworkError* -måttet är en procent andel.

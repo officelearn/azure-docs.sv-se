@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 08/05/2019
-ms.openlocfilehash: 7d015f485a51ae1f929e2ecaf1a05811d21594a2
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: a693b14bb61eb52a09ab1f1ecd5d00b339357d5d
+ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68816024"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71240376"
 ---
 # <a name="use-azure-monitor-logs-to-monitor-hdinsight-clusters"></a>Använd Azure Monitor loggar för att övervaka HDInsight-kluster
 
@@ -109,6 +109,15 @@ Rapporten visar inte några aktiviteter eftersom klustret är ett helt nytt klus
 ## <a name="configuring-performance-counters"></a>Konfigurera prestanda räknare
 
 Azure Monitor stöder också insamling och analys av prestanda mått för noderna i klustret. Mer information om hur du aktiverar och konfigurerar den här funktionen finns i [data källor för Linux-prestanda i Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/data-sources-performance-counters#linux-performance-counters).
+
+## <a name="cluster-auditing"></a>Kluster granskning
+
+HDInsight support kluster granskning med Azure Monitor loggar genom att importera följande typer av loggar:
+
+* `log_gateway_audit_CL`– den här tabellen innehåller gransknings loggar från klusternoder som visar lyckade och misslyckade inloggnings försök.
+* `log_auth_CL`– den här tabellen innehåller SSH-loggar med lyckade och misslyckade inloggnings försök.
+* `log_ambari_audit_CL`– den här tabellen innehåller gransknings loggar från Ambari.
+* `log_ranger_audti_CL`– den här tabellen innehåller gransknings loggar från Apache Ranger på ESP-kluster.
 
 ## <a name="next-steps"></a>Nästa steg
 

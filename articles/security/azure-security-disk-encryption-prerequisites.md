@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 03/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: 2f7ad49fc56fc82955f79155838c69ff714aba2f
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: bd51e70122a5457c8dcf1bd8f2061fe25943e87f
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68845873"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "71224516"
 ---
 # <a name="azure-disk-encryption-prerequisites"></a>Krav för Azure Disk Encryption
 
@@ -28,7 +28,7 @@ Innan du aktiverar Azure Disk Encryption på virtuella Azure IaaS-datorer för d
 
 ## <a name="supported-vm-sizes"></a>VM-storlekar som stöds
 
-Azure Disk Encryption är inte tillgänglig på [virtuella datorer i A-serien](/pricing/details/virtual-machines/series/). Azure Disk Encryption är tillgängligt på andra virtuella datorer som uppfyller de minsta minnes kraven:
+Azure Disk Encryption är inte tillgänglig på [virtuella datorer i A-serien](https://azure.microsoft.com/pricing/details/virtual-machines/series/). Azure Disk Encryption är tillgängligt på andra virtuella datorer som uppfyller de minsta minnes kraven:
 
 | Virtuell dator | Minsta minnes krav |
 |--|--|

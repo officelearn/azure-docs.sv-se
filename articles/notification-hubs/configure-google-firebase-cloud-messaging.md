@@ -1,38 +1,40 @@
 ---
 title: Konfigurera Google Firebase Cloud Messaging i Azure Notification Hubs | Microsoft Docs
-description: Lär dig hur du konfigurerar en Azure notification hub med Google Firebase Cloud Messaging-inställningar.
+description: Lär dig hur du konfigurerar en Azure Notification Hub med Google Firebase Cloud Messaging-inställningar.
 services: notification-hubs
-author: jwargo
-manager: patniko
-editor: spelluru
+author: sethmanheim
+manager: femila
+editor: jwargo
 ms.service: notification-hubs
 ms.workload: mobile
 ms.topic: article
 ms.date: 03/25/2019
-ms.author: jowargo
-ms.openlocfilehash: d200f5746d5f7c62ff3a52873d5d5d6c3e1322dc
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: sethm
+ms.reviewer: jowargo
+ms.lastreviewed: 03/25/2019
+ms.openlocfilehash: 803289476d4d8869f7828b2843a983ee0c86bfbd
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60239185"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71212496"
 ---
-# <a name="configure-google-firebase-cloud-messaging-fcm-settings-for-a-notification-hub-in-the-azure-portal"></a>Konfigurera inställningarna för Google Firebase Cloud Messaging (FCM) för en notification hub i Azure portal
-Den här artikeln visar hur du konfigurerar inställningarna för Google Firebase Cloud Messaging (FCM) för en Azure notification hub med hjälp av Azure portal.  
+# <a name="configure-google-firebase-cloud-messaging-fcm-settings-for-a-notification-hub-in-the-azure-portal"></a>Konfigurera inställningar för Google Firebase Cloud Messaging (FCM) för en Notification Hub i Azure Portal
+Den här artikeln visar hur du konfigurerar inställningar för Google Firebase Cloud Messaging (FCM) för en Azure Notification Hub med hjälp av Azure Portal.  
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
-Om du inte redan har skapat en meddelandehubb, ska du skapa en nu. Mer information finns i [skapar en Azure notification hub i Azure-portalen](create-notification-hub-portal.md). 
+## <a name="prerequisites"></a>Förutsättningar
+Om du inte redan har skapat en Notification Hub skapar du ett nu. Mer information finns i [skapa en Azure Notification Hub i Azure Portal](create-notification-hub-portal.md). 
 
 ## <a name="configure-google-firebase-cloud-messaging-fcm"></a>Konfigurera Google Firebase Cloud Messaging (FCM)
 
-Följande procedur ger dig steg för att konfigurera inställningarna för Google Firebase Cloud Messaging (FCM) för en notification hub: 
+Följande procedur visar hur du konfigurerar inställningar för Google Firebase Cloud Messaging (FCM) för en Notification Hub: 
 
-1. I Azure-portalen på den **Meddelandehubb** väljer **Google (GCM/FCM)** på den vänstra menyn. 
-2. Klistra in den **API-nyckel** för FCM-projektet som du sparade tidigare. 
+1. I Azure Portal på sidan **Notification Hub** väljer du **Google (GCM/FCM)** på den vänstra menyn. 
+2. Klistra in **API-nyckeln** för det FCM-projekt som du sparade tidigare. 
 3. Välj **Spara**. 
 
-   ![Skärmbild som visar hur du konfigurerar Meddelandehubbar för Google FCM](./media/notification-hubs-android-push-notification-google-fcm-get-started/fcm-server-key.png)
+   ![Skärm bild som visar hur du konfigurerar Notification Hubs för Google FCM](./media/notification-hubs-android-push-notification-google-fcm-get-started/fcm-server-key.png)
 
 ## <a name="next-steps"></a>Nästa steg
-Se en självstudie med stegvisa instruktioner för push-meddelanden till Android-enheter med hjälp av Azure Notification Hubs och Google Firebase Cloud Messaging [Push-meddelanden till Android-enheter med hjälp av Meddelandehubbar och Google FCM ](notification-hubs-android-push-notification-google-fcm-get-started.md).
+En själv studie kurs med stegvisa instruktioner för att skicka meddelanden till Android-enheter med hjälp av Azure Notification Hubs och Google Firebase Cloud Messaging finns i [push-meddelanden till Android-enheter med Notification Hubs och Google FCM](notification-hubs-android-push-notification-google-fcm-get-started.md).
 

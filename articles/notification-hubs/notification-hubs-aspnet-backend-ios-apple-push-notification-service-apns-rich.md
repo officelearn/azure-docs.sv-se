@@ -3,9 +3,9 @@ title: Azure Notification Hubs Rich push
 description: Lär dig hur du skickar omfattande push-meddelanden till en iOS-app från Azure. Kod exempel som skrivits i mål-C C#och.
 documentationcenter: ios
 services: notification-hubs
-author: jwargo
-manager: patniko
-editor: spelluru
+author: sethmanheim
+manager: femila
+editor: jwargo
 ms.assetid: 590304df-c0a4-46c5-8ef5-6a6486bb3340
 ms.service: notification-hubs
 ms.workload: mobile
@@ -13,13 +13,15 @@ ms.tgt_pltfrm: ios
 ms.devlang: objective-c
 ms.topic: article
 ms.date: 01/04/2019
-ms.author: jowargo
-ms.openlocfilehash: 7fcb4a1db62abfc04d2b0c60488d35393d98c57e
-ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
+ms.author: sethm
+ms.reviewer: jowargo
+ms.lastreviewed: 01/04/2019
+ms.openlocfilehash: 9da629929ca88f406dc503710477104be94c47e3
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68348476"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71212201"
 ---
 # <a name="azure-notification-hubs-rich-push"></a>Azure Notification Hubs Rich push
 
@@ -142,12 +144,12 @@ På hög nivå:
 Nu när du har ändrat appens Server del för att skicka bara *ID: t* för ett meddelande, ändrar du din iOS-app så att den hanterar detta ID och hämtar det avancerade meddelandet från Server delen.
 
 1. Öppna ditt iOS-projekt och aktivera fjärraviseringar genom att gå till huvudappens mål i avsnittet **mål** .
-2. Klicka på **funktioner**, aktivera bakgrunds **lägen**och markera kryss  rutan fjärraviseringar.
+2. Klicka på **funktioner**, aktivera **bakgrunds lägen**och markera kryss rutan **fjärraviseringar** .
 
     ![][IOS3]
 3. Öppna `Main.storyboard`och kontrol lera att du har en Visa kontrollant (kallas start visare i den här självstudien) från guiden [meddela användaren](notification-hubs-aspnet-backend-ios-apple-apns-notification.md) .
-4. Lägg till en **navigerings kontroll** på din storyboard och kontrol lera att du använder den för att dra den till  en trädvy. Kontrol lera att den **initiala View** -kontrollanten i attribut kontroll bara är markerad för navigerings kontroll enheten.
-5. Lägg till en **View-kontrollant** i storyboard och Lägg till en bildvy. Det här är sidan användare ser när de väljer att lära sig mer genom att klicka på meddelandet. Din storyboard bör se ut så här:
+4. Lägg till en **navigerings kontroll** på din storyboard och kontrol lera att du använder den för att **dra den till** en trädvy. Kontrol lera att den **initiala View-kontrollanten** i attribut kontroll bara är markerad för navigerings kontroll enheten.
+5. Lägg till en **View-kontrollant** i storyboard och Lägg till en **bildvy**. Det här är sidan användare ser när de väljer att lära sig mer genom att klicka på meddelandet. Din storyboard bör se ut så här:
 
     ![][IOS4]
 6. Klicka på **hem visnings styrenheten** på storyboard och kontrol lera att den har **HomeViewController** som dess **anpassade klass** och **storyboard-ID** under identitets kontrollen.

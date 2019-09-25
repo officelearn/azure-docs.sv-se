@@ -1,11 +1,11 @@
 ---
 title: Mallar
-description: Det här avsnittet beskriver mallar för Azure notification hub.
+description: Det här avsnittet beskriver mallar för Azure Notification Hub.
 services: notification-hubs
 documentationcenter: .net
-author: jwargo
-manager: patniko
-editor: spelluru
+author: sethmanheim
+manager: femila
+editor: jwargo
 ms.assetid: a41897bb-5b4b-48b2-bfd5-2e3c65edc37e
 ms.service: notification-hubs
 ms.workload: mobile
@@ -13,34 +13,36 @@ ms.tgt_pltfrm: mobile-multiple
 ms.devlang: multiple
 ms.topic: article
 ms.date: 01/04/2019
-ms.author: jowargo
-ms.openlocfilehash: 02473eb5649c7d201b6a54fd57faea997c1a21cc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: sethm
+ms.reviewer: jowargo
+ms.lastreviewed: 01/04/2019
+ms.openlocfilehash: 54c53fee260062960d6bce9c1822971c935d88d1
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60872113"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71212984"
 ---
 # <a name="templates"></a>Mallar
 
-Med mallar kan ett klientprogram att ange det exakta formatet för den vill ta emot meddelanden. Med hjälp av mallar, kan en app spara flera olika fördelar, inklusive följande:
+Mallar gör det möjligt för ett klient program att ange det exakta formatet för de meddelanden som ska tas emot. Med hjälp av mallar kan en app inse flera olika fördelar, inklusive följande:
 
-- En plattformsagnostiska-serverdel
+- En plattforms oberoende oberoende Server del
 - Anpassade meddelanden
-- Oberoende klient-version
-- Enkelt lokalisering
+- Klient versions oberoende
+- Enkel lokalisering
 
-Det här avsnittet innehåller två djupgående exempel på hur du använder mallar att skicka plattformsoberoende meddelanden på alla enheter på plattformar och för att anpassa broadcast-meddelande till varje enhet.
+Det här avsnittet innehåller två djupgående exempel på hur du använder mallar för att skicka oberoende meddelanden som riktar sig mot alla dina enheter på olika plattformar och för att anpassa sändnings aviseringen till varje enhet.
 
-## <a name="using-templates-cross-platform"></a>Med hjälp av mallar plattformsoberoende
+## <a name="using-templates-cross-platform"></a>Använda mallar mellan plattformar
 
-Standardmetoden för att skicka push-meddelanden är att skicka för varje meddelande som ska skickas, en specifik nyttolast till plattformarnas meddelandetjänster (WNS, APNS). Om du vill skicka en avisering till APNS, är exempelvis nyttolasten ett JSON-objekt i följande format:
+Standard sättet att skicka push-meddelanden är att skicka för varje meddelande som ska skickas en speciell nytto Last till Platform Notification Services (WNS, APN). Om du till exempel vill skicka en avisering till APN är nytto lasten ett JSON-objekt av följande format:
 
 ```json
 {"aps": {"alert" : "Hello!" }}
 ```
 
-Om du vill skicka ett liknande popup-meddelande på ett Windows Store-program, är XML-nyttolasten följande:
+För att skicka ett liknande popup-meddelande i ett Windows Store-program är XML-nyttolasten följande:
 
 ```xml
 <toast>
@@ -52,23 +54,23 @@ Om du vill skicka ett liknande popup-meddelande på ett Windows Store-program, �
 </toast>
 ```
 
-Du kan skapa liknande nyttolaster för MPNS (Windows Phone) och FCM (Android) plattformar.
+Du kan skapa liknande nytto laster för MPNS-(Windows Phone) och FCM-plattformar (Android).
 
-Det här kravet tvingar appserverdelen att skapa olika nyttolaster för varje plattform och gör effektivt serverdelen ansvarig för en del av presentationslagret av appen. Vissa frågor är lokalisering och grafiska layouter (särskilt för Windows Store-appar som innehåller meddelanden för olika typer av paneler).
+Det här kravet tvingar appens Server del att producera olika nytto laster för varje plattform och gör det effektivt för Server delen som ansvarar för en del av presentations lagret i appen. Vissa problem innefattar lokalisering och grafiska layouter (särskilt för Windows Store-appar som innehåller aviseringar för olika typer av paneler).
 
-Med Meddelandehubbar mall-funktionen kan ett klientprogram att skapa särskilda registreringar som kallas mallregistreringar, bland annat, förutom uppsättningen taggar, en mall. Med Meddelandehubbar mall-funktionen kan ett klientprogram att associera enheter med mallar, oavsett om du arbetar med installationer (rekommenderas) eller registreringar. Med föregående exempel nyttolasten kan är informationen bara plattformsoberoende den faktiska varning (Hej!). En mall är en uppsättning instruktioner för Meddelandehubben om hur du formaterar ett plattformsoberoende meddelande för registreringen av den specifika klient-appen. I föregående exempel plattformsoberoende meddelandet är en enskild egenskap: `message = Hello!`.
+Med funktionen Notification Hubs mall kan du skapa särskilda registreringar, till exempel mall registreringar, som inkluderar, förutom uppsättningen taggar, en mall. Med funktionen Notification Hubs mall kan en klient app associera enheter med mallar oavsett om du arbetar med installationer (standard) eller registreringar. Med föregående nytto Last exempel är den enda plattforms oberoende informationen det faktiska varnings meddelandet (Hej!). En mall är en uppsättning instruktioner för Notification Hub om hur du formaterar ett plattforms oberoende meddelande för registreringen av den aktuella klient appen. I föregående exempel är det plattforms oberoende meddelandet en enda egenskap: `message = Hello!`.
 
-Följande bild visar processen:
+Följande bild illustrerar processen:
 
 ![](./media/notification-hubs-templates/notification-hubs-hello.png)
 
-Mallen för iOS-app klientregistrering är följande:
+Mallen för iOS client app-registreringen är följande:
 
 ```json
 {"aps": {"alert": "$(message)"}}
 ```
 
-Motsvarande mallen för Windows Store-klientappen är:
+Motsvarande mall för Windows Store-klientens app är:
 
 ```xml
 <toast>
@@ -80,17 +82,17 @@ Motsvarande mallen för Windows Store-klientappen är:
 </toast>
 ```
 
-Observera att det faktiska meddelandet ersätts för uttrycket $(meddelande). Det här uttrycket instruerar Meddelandehubben, när du skickar den ett meddelande till den här specifika registreringen att skapa ett meddelande som följer det och växlar i vanliga värdet.
+Observera att det faktiska meddelandet ersätts med uttrycket $ (Message). Det här uttrycket instruerar Notification Hub när det skickar ett meddelande till den här specifika registreringen för att bygga ett meddelande som följer och växlar i det gemensamma värdet.
 
-Om du arbetar med installationsmodell innehåller ”mallar” installationsnyckel en JSON över flera mallar. Om du arbetar med registrering modell kan klientprogrammet skapa flera registreringar för att kunna använda flera mallar. till exempel uppdaterar en mall för aviseringsmeddelanden och en mall för panel. Klientprogram kan även blanda interna registreringar (registreringar med ingen mall) och mallregistreringar.
+Om du arbetar med installations modellen, innehåller installations "mallar"-nyckeln en JSON-uppsättning med flera mallar. Om du arbetar med registrerings modellen kan klient programmet skapa flera registreringar för att använda flera mallar. till exempel en mall för aviserings meddelanden och en mall för panel uppdateringar. Klient program kan också blanda interna registreringar (registreringar utan mall) och mall-registreringar.
 
-Notification Hub skickar ett meddelande för varje mall utan att överväga om de tillhör samma klientappen. Det här beteendet kan användas för att översätta plattformsoberoende meddelanden till flera meddelanden. Till exempel kan samma plattformsoberoende meddelande till Notification Hub sömlöst översättas i en popup-avisering och en tile-uppdatering utan serverdelen känna till den. Vissa plattformar (till exempel iOS) kan komprimera flera meddelanden till samma enhet om de skickas i en kort tidsperiod.
+Notification Hub skickar ett meddelande för varje mall utan att fundera över om de tillhör samma klient program. Det här beteendet kan användas för att översätta plattforms oberoende meddelanden till fler meddelanden. Samma plattforms oberoende meddelande till Notification Hub kan till exempel enkelt översättas i en popup-avisering och en uppdatering av en panel, utan att Server delen måste vara medveten om den. Vissa plattformar (till exempel iOS) kan komprimera flera meddelanden till samma enhet om de skickas under en kort tids period.
 
-## <a name="using-templates-for-personalization"></a>Med hjälp av mallar för anpassning
+## <a name="using-templates-for-personalization"></a>Använda mallar för anpassning
 
-En annan fördel med att använda mallar är möjligheten att använda Meddelandehubbar för att utföra per registrering anpassning av meddelanden. Anta exempelvis att en väder-app som visar en panel med vädret på en viss plats. En användare kan välja mellan grader Celsius eller Fahrenheit och en enkel eller fem dagar prognos. Med hjälp av mallar, kan varje klientinstallation för appen registreras för det format som krävs (1 dag Celsius, 1-dags Fahrenheit, 5 dagar Celsius, 5 dagar Fahrenheit), och har serverdelen skicka ett enda meddelande som innehåller den information som krävs för att fylla dessa mallar (till exempel vara en femdagars gör prognoser i grader Celsius och Fahrenheit).
+En annan fördel med att använda mallar är möjligheten att använda Notification Hubs för att utföra anpassningar av meddelanden per registrering. Överväg till exempel en väder-app som visar en panel med väder förhållanden på en speciell plats. En användare kan välja mellan Celsius eller Fahrenheit grader, och en enda eller fem dagars prognos. Med hjälp av mallar kan varje klient programs installation registreras för det format som krävs (1 – dag Celsius, 1 dag Fahrenheit, 5 dagar Celsius, 5 dagar Fahrenheit) och har Server delen skicka ett enda meddelande som innehåller all information som krävs för att fylla i mallarna (till exempel en prognos på fem dagar med Celsius och Fahrenheit grader).
 
-Mallen för prognosen endagsevenemang med Celsius temperaturer är följande:
+Mallen för en dags prognos med Celsius-temperaturer är följande:
 
 ```xml
 <tile>
@@ -104,7 +106,7 @@ Mallen för prognosen endagsevenemang med Celsius temperaturer är följande:
 </tile>
 ```
 
-Meddelandet som skickas till Meddelandehubben innehåller följande egenskaper:
+Meddelandet som skickas till Notification Hub innehåller alla följande egenskaper:
 
 ```html
 <table border="1">
@@ -117,35 +119,35 @@ Meddelandet som skickas till Meddelandehubben innehåller följande egenskaper:
 </table><br/>
 ```
 
-Genom att använda det här mönstret kan skickas serverdelen endast ett enskilt meddelande utan att behöva lagra specifika anpassningsalternativ för app-användare. Följande bild visar det här scenariot:
+Genom att använda det här mönstret skickar Server delen bara ett enda meddelande utan att behöva lagra vissa anpassnings alternativ för användarna i appen. Följande bild illustrerar det här scenariot:
 
 ![](./media/notification-hubs-templates/notification-hubs-registration-specific.png)
 
 ## <a name="how-to-register-templates"></a>Så här registrerar du mallar
 
-Om du vill registrera med mallar med installationsmodell (rekommenderas) eller registrering av modellen, se [Registreringshantering](notification-hubs-push-notification-registration-management.md).
+Om du vill registrera dig för mallar med hjälp av installations modellen (önskad) eller registrerings modellen, se [registrerings hantering](notification-hubs-push-notification-registration-management.md).
 
-## <a name="template-expression-language"></a>Språk för malluttryck
+## <a name="template-expression-language"></a>Språk för mall uttryck
 
-Mallar är begränsade till XML eller JSON-dokument-format. Du kan också bara placera uttryck på specifika platser. till exempel noden attribut eller värden för XML, sträng egenskapsvärden för JSON.
+Mallar är begränsade till XML-eller JSON-dokument format. Du kan också bara placera uttryck på specifika platser. till exempel Node-attribut eller värden för XML, sträng egenskaps värden för JSON.
 
-I följande tabell visas de språk som tillåts i mallar:
+Följande tabell visar det språk som tillåts i mallar:
 
-| uttryck       | Beskrivning |
+| Uttryck       | Beskrivning |
 | ---------------- | --- |
-| $(prop)          | Referens till en händelseegenskap med det angivna namnet. Egenskapsnamn är inte skiftlägeskänsliga. Det här uttrycket matchas till egenskapsvärdet text eller till en tom sträng om egenskapen inte finns. |
-| $(prop, n)       | Som ovan, men texten är uttryckligen klipps n tecken, till exempel $(rubrik, 20) klipp innehållet i egenskapen Rubrik på 20 tecken. |
-| . (prop, n)       | Som ovan, men texten suffix med tre punkter som den beskärs. Den totala storleken på förkortade strängen och suffixet överstiger inte n tecken. . (rubrik, 20) med en indata-egenskap av ”är rubriken” resulterar i **detta är titeln...** |
-| %(prop)          | Liknar $(name) förutom att utdata är URI-kodad. |
-| #(prop)          | Används i JSON-mallar (till exempel för iOS och Android-mallar).<br><br>Den här funktionen fungerar likadant som $(prop) tidigare angiven, förutom när det används i JSON-mallar (till exempel Apple-mallar). I det här fallet, om den här funktionen inte omges av ”{', '}” (till exempel ”myJsonProperty”: ”#(namn)”), och det resulterar i ett tal i Javascript-format, till exempel regexp: (0&#124;(&#91;1 – 9&#93;&#91;0-9&#93;*)) (\.&#91;0-9&#93;+)? ((e&#124;E) (+&#124;-)? &#91;0-9&#93;+)?, och sedan utdata JSON är ett tal.<br><br>Till exempel ”märket: '#(namn)' blir 'ge en skylt”: 40 (och inte 40). |
-| ”text” eller ”text” | En literal. Litteraler innehåller godtyckliga text mellan enkla eller dubbla citattecken. |
-| Uttr1 + uttr2    | Operator för strängsammanfogning koppla två uttryck i en sträng. |
+| $ (prop)          | Referens till en händelse egenskap med angivet namn. Egenskaps namn är inte Skift läges känsliga. Det här uttrycket matchar egenskapens text värde eller till en tom sträng om egenskapen inte finns. |
+| $ (prop, n)       | Som ovan, men texten är explicit beskuren med n tecken, till exempel $ (rubrik, 20) klipp innehåll i egenskapen title med 20 tecken. |
+| . (prop, n)       | Som ovan, men texten suffixs med tre punkter när den klipps ut. Den totala storleken på den urklippta strängen och suffixet innehåller inte fler än n tecken. . (rubrik, 20) med inmatad egenskap "det här är rubrik raden" resulterar i **Detta är rubriken...** |
+| % (prop)          | Liknar $ (Name) förutom att utdata är URI-kodad. |
+| # (prop)          | Används i JSON-mallar (till exempel för iOS-och Android-mallar).<br><br>Den här funktionen fungerar exakt på samma sätt som $ (prop) som tidigare angavs, förutom när den används i JSON-mallar (till exempel Apple-mallar). I det här fallet, om den här funktionen inte omges av "{", "}" (till exempel "myJsonProperty": "# (Name)") och den utvärderas till ett tal i JavaScript-format, till exempel regexp: (0&#124;(&#91;1-9&#93;&#91;0-9&#93;*)) (\.&#91;0-9&#93;+)? ((e&#124;-e) (&#124;+-)? &#91;0-9&#93;+)?, är utdata-JSON ett tal.<br><br>Till exempel "Badge:" # (namn) "blir" BADGE ": 40 (och inte "40"). |
+| ' text ' eller ' text ' | En literal. Litteraler innehåller godtycklig text omgiven av enkla eller dubbla citat tecken. |
+| Uttr1 + Expr2    | Sammanfognings operatorn kopplar ihop två uttryck i en enda sträng. |
 
-Uttryck som kan vara något av de föregående formulär.
+Uttrycken kan vara något av de föregående formulären.
 
-När du använder sammanfogning hela uttrycket måste omges av `{}`. Till exempel `{$(prop) + ‘ - ’ + $(prop2)}`.
+När du använder sammanfogning måste hela uttrycket omges av `{}`. Till exempel `{$(prop) + ‘ - ’ + $(prop2)}`.
 
-Till exempel är följande mall inte en giltig XML-mall:
+Följande mall är till exempel inte en giltig XML-mall:
 
 ```xml
 <tile>
@@ -157,7 +159,7 @@ Till exempel är följande mall inte en giltig XML-mall:
 </tile>
 ```
 
-Enligt beskrivningen tidigare, när du använder sammanfogning, måste uttryck omges av klammerparenteser. Exempel:
+Som förklaras tidigare, när du använder sammanfogning, måste uttryck omges av klammerparenteser. Exempel:
 
 ```xml
 <tile>

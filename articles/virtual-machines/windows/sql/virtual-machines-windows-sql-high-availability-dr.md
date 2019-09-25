@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/27/2017
 ms.author: mikeray
-ms.openlocfilehash: 175ea1c0c25a0c6dd41c68ea0a340cc1b18cc8b0
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 1d0bdfbbad7e811ac8f1eeffb1991cc5430483a6
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70100590"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71262892"
 ---
 # <a name="high-availability-and-disaster-recovery-for-sql-server-in-azure-virtual-machines"></a>Hög tillgänglighet och haveriberedskap för SQL Server på Azure Virtual Machines
 
@@ -78,7 +78,11 @@ Du kan ha en katastrof återställnings lösning för SQL Server databaser i en 
 Virtuella Azure-datorer, lagring och nätverk har olika operativa egenskaper än en lokal, icke-virtualiserad IT-infrastruktur. En lyckad implementering av en HADR SQL Server-lösning i Azure måste du förstå dessa skillnader och utforma din lösning anpassas till dem.
 
 ### <a name="high-availability-nodes-in-an-availability-set"></a>Noder med hög tillgänglighet i en tillgänglighets uppsättning
-Med tillgänglighets uppsättningar i Azure kan du placera noderna med hög tillgänglighet i separata fel domäner (fd) och uppdaterings domäner (UDs). För att virtuella Azure-datorer ska placeras i samma tillgänglighets uppsättning måste du distribuera dem i samma moln tjänst. Endast noder i samma moln tjänst kan ingå i samma tillgänglighets uppsättning. Mer information finns i [Hantera tillgängligheten för Virtual Machines](../manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Med tillgänglighets uppsättningar i Azure kan du placera noderna med hög tillgänglighet i separata fel domäner (fd) och uppdaterings domäner (UDs). Varje virtuell dator i din tillgänglighets uppsättning tilldelas en uppdaterings domän och en feldomän av den underliggande Azure-plattformen. Den här konfigurationen i ett Data Center garanterar att minst en virtuell dator är tillgänglig under en planerad eller oplanerad underhålls händelse och uppfyller 99,95% Azure SLA. Om du vill konfigurera inställningar för hög tillgänglighet placerar du alla deltagande SQL-Virtual Machines i samma tillgänglighets uppsättning för att undvika program-eller data förlust under en underhålls händelse. Endast noder i samma moln tjänst kan ingå i samma tillgänglighets uppsättning. Mer information finns i [Hantera tillgängligheten för Virtual Machines](../manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+
+### <a name="high-availability-nodes-in-an-availability-zone"></a>Noder med hög tillgänglighet i en tillgänglighets zon
+Tillgänglighetszoner är unika, fysiska platser inom en Azure-region. Varje zon består av en eller flera datacenter som är utrustade med oberoende kraft, kylning och nätverkstjänster. Den fysiska separeringen av Tillgänglighetszoner inom en region skyddar program och data från data Center problem genom att se till att minst en virtuell dator är tillgänglig och uppfyller 99,99% Azure SLA. Om du vill konfigurera hög tillgänglighet placerar du deltagande SQL Virtual Machines sprids över tillgängliga Tillgänglighetszoner i regionen. Det kommer att finnas ytterligare avgifter för VM-till-VM-dataöverföringar mellan olika tillgänglighets zoner. Mer information finns i [tillgänglighets zoner](/azure/availability-zones/az-overview). 
+
 
 ### <a name="failover-cluster-behavior-in-azure-networking"></a>Funktions sätt för redundanskluster i Azure-nätverk
 En icke-RFC-kompatibel DHCP-tjänst i Azure kan orsaka att vissa konfigurationer av redundanskluster inte kan skapas, på grund av att kluster nätverks namnet tilldelas en dubblett av en IP-adress, till exempel samma IP-adress som en av klusternoderna. Detta är ett problem när du implementerar tillgänglighets grupper som är beroende av funktionen Windows-redundanskluster.

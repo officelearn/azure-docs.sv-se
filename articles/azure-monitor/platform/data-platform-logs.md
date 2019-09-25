@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/26/2019
 ms.author: bwren
-ms.openlocfilehash: f6eaeb7c4a4d28fcf11ec9acda14629a79d00791
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: 9aed19c88517868c2e8cb860dc01d01b7a7c3127
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68814326"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71262084"
 ---
 # <a name="logs-in-azure-monitor"></a>Loggar i Azure Monitor
 
@@ -26,7 +26,7 @@ ms.locfileid: "68814326"
 Loggar i Azure Monitor är särskilt användbara för att utföra komplexa analyser mellan data från olika källor. Den här artikeln beskriver hur loggar struktureras i Azure Monitor, vad du kan göra med data och identifierar olika data källor som lagrar data i loggar.
 
 > [!NOTE]
-> Det är viktigt att skilja mellan Azure Monitor loggar och källor till loggdata i Azure. Händelser på prenumerations nivå i Azure skrivs till exempel till en [aktivitets logg](activity-logs-overview.md) som du kan visa från Azure Monitor-menyn. De flesta resurser kommer att skriva funktions information till en [diagnostisk logg](diagnostic-logs-overview.md) som du kan vidarebefordra till olika platser. Azure Monitor loggar är en logg data plattform som samlar in aktivitets loggar och diagnostikloggar tillsammans med andra övervaknings data för att ge en djup analys över hela uppsättningen med resurser.
+> Det är viktigt att skilja mellan Azure Monitor loggar och källor till loggdata i Azure. Händelser på prenumerations nivå i Azure skrivs till exempel till en [aktivitets logg](activity-logs-overview.md) som du kan visa från Azure Monitor-menyn. De flesta resurser kommer att skriva funktions information till en [diagnostisk logg](resource-logs-overview.md) som du kan vidarebefordra till olika platser. Azure Monitor loggar är en logg data plattform som samlar in aktivitets loggar och diagnostikloggar tillsammans med andra övervaknings data för att ge en djup analys över hela uppsättningen med resurser.
 
 ## <a name="what-are-azure-monitor-logs"></a>Vad är Azure Monitor loggar?
 
@@ -46,7 +46,7 @@ I följande tabell visas de olika sätt som du kan använda för att logga in Az
 | Analysera | Använd [Log Analytics](../log-query/get-started-portal.md) i Azure Portal för att skriva [logg frågor](../log-query/log-query-overview.md) och analysera logg data interaktivt med hjälp av den kraftfulla datautforskaren analys motorn.<br>Använd [Application Insights Analytics-konsolen](../app/analytics.md) i Azure Portal om du vill skriva logg frågor och analysera loggdata interaktivt från Application Insights. |
 | Visualisera | Fäst frågeresultaten som återges som tabeller eller diagram på en [Azure-instrumentpanel](../../azure-portal/azure-portal-dashboards.md).<br>Skapa en [arbets bok](../app/usage-workbooks.md) som ska kombineras med flera data uppsättningar i en interaktiv rapport. <br>Exportera resultatet av en fråga till [Power BI](powerbi.md) att använda olika visualiseringar och dela med användare utanför Azure.<br>Exportera resultatet av en fråga till [Grafana](grafana-plugin.md) för att dra nytta av dess instrument panel och kombinera med andra data källor.|
 | Varning | Konfigurera en [loggvarningsregler](alerts-log.md) som skickar ett meddelande eller tar [automatisk åtgärd](action-groups.md) när frågans resultat matchar ett visst resultat.<br>Konfigurera en [mått varnings regel](alerts-metric-logs.md) för vissa logg data loggar som extraheras som mått. |
-| Hämta | Få åtkomst till logg frågeresultat från en kommando rad med hjälp av [Azure CLI](/cli/azure/ext/log-analytics/monitor/log-analytics).<br>Kom åt logg frågeresultaten från en kommando rad med [PowerShell](https://docs.microsoft.com/powershell/module/az.operationalinsights)-cmdletar.<br>Få åtkomst till logg frågeresultaten från ett anpassat program med hjälp av [REST API](https://dev.loganalytics.io/). |
+| Hämta | Få åtkomst till logg frågeresultat från en kommando rad med hjälp av [Azure CLI](/cli/azure/ext/log-analytics/monitor/log-analytics).<br>Kom åt logg frågeresultaten från en kommando rad med [PowerShell-cmdletar](https://docs.microsoft.com/powershell/module/az.operationalinsights).<br>Få åtkomst till logg frågeresultaten från ett anpassat program med hjälp av [REST API](https://dev.loganalytics.io/). |
 | Exportera | Bygg ett arbets flöde för att hämta loggdata och kopiera det till en extern plats med hjälp av [Logic Apps](~/articles/logic-apps/index.yml). |
 
 
@@ -85,9 +85,9 @@ Azure Monitor kan samla in loggdata från olika källor både i Azure och från 
 
 | Data | Beskrivning |
 |:---|:---|
-| Resurs diagnostik | Konfigurera diagnostikinställningar som ska skrivas till diagnostikdata, inklusive mått till en Log Analytics-arbetsyta. Se [strömma Azure-diagnostikloggar till Log Analytics](diagnostic-logs-stream-log-store.md). |
+| Resurs diagnostik | Konfigurera diagnostikinställningar som ska skrivas till diagnostikdata, inklusive mått till en Log Analytics-arbetsyta. Se [strömma Azure-diagnostikloggar till Log Analytics](resource-logs-collect-storage.md). |
 | Övervakningslösningar | Övervaknings lösningar skriver data som de samlar in i sin Log Analytics-arbetsyta. Se [information om data insamling för hanterings lösningar i Azure](../insights/solutions-inventory.md) för en lista över lösningar. Mer information om hur du installerar och använder lösningar finns [i övervaknings lösningar i Azure Monitor](../insights/solutions.md) . |
-| Mått | Skicka plattforms mått för Azure Monitor resurser till en Log Analytics arbets yta för att spara loggdata under längre perioder och för att utföra komplex analys med andra data typer med hjälp av [Kusto-frågespråket](/azure/kusto/query/). Se [strömma Azure-diagnostikloggar till Log Analytics](diagnostic-logs-stream-log-store.md). |
+| Mått | Skicka plattforms mått för Azure Monitor resurser till en Log Analytics arbets yta för att spara loggdata under längre perioder och för att utföra komplex analys med andra data typer med hjälp av [Kusto-frågespråket](/azure/kusto/query/). Se [strömma Azure-diagnostikloggar till Log Analytics](resource-logs-collect-storage.md). |
 | Azure tabellagring | Samla in data från Azure Storage där vissa Azure-resurser skriver övervaknings data. Se [använda Azure Blob Storage för IIS och Azure Table Storage för händelser med Log Analytics](azure-storage-iis-table.md). |
 
 ### <a name="virtual-machines"></a>Virtuella datorer
@@ -104,7 +104,7 @@ Azure Monitor kan samla in loggdata från olika källor både i Azure och från 
 | Data | Beskrivning |
 |:---|:---|
 | Begär Anden och undantag | Detaljerad information om program begär Anden och undantag finns i tabellerna för _förfrågningar_, _pageViews_och _undantag_ . Anrop till [externa komponenter](../app/asp-net-dependencies.md) finns i tabellen _beroenden_ . |
-| Användning och prestanda | Prestanda för programmet är tillgängligt i tabellerna requests, _browserTimings_ och _performanceCounters_ . Data för [anpassade mått](../app/api-custom-events-metrics.md#trackevent) finns i tabellen _customMetrics_ .|
+| Användning och prestanda | Prestanda för programmet är tillgängligt i tabellerna _requests_, _browserTimings_ och _performanceCounters_ . Data för [anpassade mått](../app/api-custom-events-metrics.md#trackevent) finns i tabellen _customMetrics_ .|
 | Spårnings data | Resultat från [distribuerad spårning](../app/distributed-tracing.md) lagras i tabellen _spår_ . |
 | Tillgänglighetstester | Sammanfattnings data från [tillgänglighets test](../app/monitor-web-app-availability.md) lagras i tabellen _availabilityResults_ . Detaljerade data från de här testerna finns i separat lagring och nås från Application Insights i Azure Portal. |
 
@@ -120,7 +120,7 @@ Azure Monitor kan samla in loggdata från olika källor både i Azure och från 
 | Data | Beskrivning |
 |:---|:---|
 | REST-API | Skriva data till en Log Analytics-arbetsyta från alla REST-klienter. Mer information finns i [Skicka loggdata till Azure monitor med API för HTTP-datainsamling](data-collector-api.md) .
-| Logikapp | Skriv data till en Log Analytics arbets yta från ett Logic app-arbetsflöde med åtgärden **Azure Log Analytics data** insamlare. |
+| Logikapp | Skriv data till en Log Analytics arbets yta från ett Logic app-arbetsflöde med åtgärden **Azure Log Analytics data insamlare** . |
 
 ### <a name="security"></a>Säkerhet
 

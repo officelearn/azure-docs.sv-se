@@ -10,14 +10,14 @@ ms.reviewer: v-mamcge, jasonh, kfile
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 08/08/2019
+ms.date: 09/23/2019
 ms.custom: seodec18
-ms.openlocfilehash: 602623d48457498963cb5928081d24c1d1132ad4
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 88734b0ee05f5193da89f33e1639e4e7a187f225
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68935253"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71264649"
 ---
 # <a name="authentication-and-authorization-for-azure-time-series-insights-api"></a>Autentisering och auktorisering för Azure Time Series Insights-API
 
@@ -72,7 +72,7 @@ Enligt **steg 3**kan du genom att avgränsa ditt program och dina användarauten
 1. Spara principen genom att välja **OK**.
 
    > [!TIP]
-   > Läs om hur du beviljar [data åtkomst](./time-series-insights-data-access.md) till din Time Series Insights-miljö i Azure Active Directory.
+   > Läs om hur du [beviljar data åtkomst](./time-series-insights-data-access.md) till din Time Series Insights-miljö i Azure Active Directory.
 
 ### <a name="client-app-initialization"></a>Initiering av klient program
 
@@ -100,6 +100,50 @@ Enligt **steg 3**kan du genom att avgränsa ditt program och dina användarauten
     ```
 
 1. Token kan sedan skickas i `Authorization` rubriken när programmet anropar Time Series Insights-API: et.
+
+## <a name="common-headers-and-parameters"></a>Vanliga rubriker och parametrar
+
+I det här avsnittet beskrivs vanliga HTTP-begärandehuvuden och parametrar som används för att skapa frågor mot Time Series Insights GA-och Preview-API: er. API-särskilda krav beskrivs mer detaljerat i [Time Series Insights REST API referens dokumentation](https://docs.microsoft.com/rest/api/time-series-insights/).
+
+### <a name="authentication"></a>Authentication
+
+För att utföra autentiserade frågor mot [Time Series Insights REST-API: er](https://docs.microsoft.com/rest/api/time-series-insights/)måste en giltig OAuth 2,0 Bearer-token skickas i [Authorization-huvudet](/rest/api/apimanagement/authorizationserver/createorupdate) med en rest-klient som du väljer (Postman, Java Script, C#). 
+
+> [!IMPORTANT]
+> Token måste utfärdas exakt till `https://api.timeseries.azure.com/` resursen (kallas även "mål grupp" för token).
+> * Din [Postman](https://www.getpostman.com/) - **AuthURL** med uppfyller därför följande:`https://login.microsoftonline.com/microsoft.onmicrosoft.com/oauth2/authorize?resource=https://api.timeseries.azure.com/`
+
+> [!TIP]
+> Mer information om hur du autentiserar med Time Series Insights-API: er med hjälp av [Java Script client SDK](https://github.com/microsoft/tsiclient/blob/master/docs/API.md)finns i självstudien [utforska Azure Time Series Insights JavaScript-klient bibliotek](tutorial-explore-js-client-lib.md#authentication) .
+
+### <a name="http-headers"></a>HTTP-rubriker
+
+Obligatoriska begärandehuvuden:
+
+- `Authorization`för autentisering och auktorisering måste en giltig OAuth 2,0 Bearer-token skickas i Authorization-huvudet. Token måste utfärdas exakt till `https://api.timeseries.azure.com/` resursen (kallas även "mål grupp" för token).
+
+Valfria begärandehuvuden:
+
+- `Content-type`-stöds `application/json` endast.
+- `x-ms-client-request-id`– en klientbegärans-ID. Tjänsten registrerar det här värdet. Tillåter att tjänsten spårar åtgärder mellan tjänster.
+- `x-ms-client-session-id`-ett sessions-ID för klienten. Tjänsten registrerar det här värdet. Tillåter tjänsten att spåra en grupp relaterade åtgärder mellan tjänster.
+- `x-ms-client-application-name`– namnet på programmet som skapade den här begäran. Tjänsten registrerar det här värdet.
+
+Svars rubriker:
+
+- `Content-type`-stöds `application/json` endast.
+- `x-ms-request-id`– Server-genererat fråge-ID. Kan användas för att kontakta Microsoft för att undersöka en begäran.
+
+### <a name="http-parameters"></a>HTTP-parametrar
+
+Obligatoriska parametrar för URL-frågesträng:
+
+- `api-version=2016-12-12`
+- `api-version=2018-11-01-preview`
+
+Valfria URL-parametrar för frågesträng:
+
+- `timeout=<timeout>`– tids gräns på Server sidan för körning av begäran. Gäller endast för [Hämta miljö händelser](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api#get-environment-events-api) och hämta API: er för [samling av miljö](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api#get-environment-aggregates-api) . Timeout-värdet ska vara i ISO 8601-varaktighets format `"PT20S"` , till exempel och måste vara `1-30 s`inom intervallet. Standardvärdet `30 s`är.
 
 ## <a name="next-steps"></a>Nästa steg
 

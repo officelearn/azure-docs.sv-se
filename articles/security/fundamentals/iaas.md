@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/26/2019
 ms.author: barclayn
-ms.openlocfilehash: 1f662c34f557d382b3d6181bac18a6402b233412
-ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
+ms.openlocfilehash: fc1657be4dbff1acee186e3a85d9d1e772055f73
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70061908"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71262749"
 ---
 # <a name="security-best-practices-for-iaas-workloads-in-azure"></a>Säkerhetsmetodtips för IaaS-arbetsbelastningar i Azure
 Den här artikeln beskriver rekommenderade säkerhets metoder för virtuella datorer och operativ system.
@@ -146,7 +146,7 @@ Resurs missbruk kan vara ett problem när de virtuella dator processerna förbru
 
 Vi rekommenderar att du använder [Azure Monitor](/azure/monitoring-and-diagnostics/monitoring-overview-metrics) för att få insyn i din resurs hälsa. Azure Monitor funktioner:
 
-- [Loggfiler för resurs diagnostik](../../azure-monitor/platform/diagnostic-logs-overview.md): Övervakar dina VM-resurser och identifierar potentiella problem som kan påverka prestanda och tillgänglighet.
+- [Loggfiler för resurs diagnostik](../../azure-monitor/platform/resource-logs-overview.md): Övervakar dina VM-resurser och identifierar potentiella problem som kan påverka prestanda och tillgänglighet.
 - [Azure-diagnostik-tillägg](/azure/azure-monitor/platform/diagnostics-extension-overview): Tillhandahåller funktioner för övervakning och diagnostik på virtuella Windows-datorer. Du kan aktivera dessa funktioner genom att inkludera tillägget som en del av [Azure Resource Manager-mallen](/azure/virtual-machines/windows/extensions-diagnostics-template).
 
 Organisationer som inte övervakar prestanda för virtuella datorer kan inte avgöra om vissa ändringar i prestanda mönster är normala eller onormala. En virtuell dator som använder fler resurser än normal kan tyda på ett angrepp från en extern resurs eller en komprometterad process som körs på den virtuella datorn.

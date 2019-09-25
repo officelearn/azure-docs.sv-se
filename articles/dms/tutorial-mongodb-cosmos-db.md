@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 07/04/2019
-ms.openlocfilehash: baf3c372d0c84d4daf439fdc92fa6eeac5d12d0b
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.date: 09/25/2019
+ms.openlocfilehash: 96540a8ea40efcc3a2d115980999c8d470b85180
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68501021"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71265949"
 ---
 # <a name="tutorial-migrate-mongodb-to-azure-cosmos-dbs-api-for-mongodb-offline-using-dms"></a>Självstudier: Migrera MongoDB till Azure Cosmos DB:s API för MongoDB offline med DMS
 
@@ -116,6 +116,9 @@ När tjänsten har skapats letar du reda på den i Azure Portal, öppnar den och
 ## <a name="specify-source-details"></a>Ange källinformation
 
 1. På sidan **Källinformation** anger du anslutningsinformationen för MongoDB-källservern.
+
+   > [!IMPORTANT]
+   > Azure Database Migration Service stöder inte Azure Cosmos DB som källa.
 
     Det finns tre lägen för att ansluta till en datakälla:
    * **Standardläge** som accepterar ett fullständigt kvalificerat domännamn eller en IP-adress, portnummer och autentiseringsuppgifter för anslutningen.

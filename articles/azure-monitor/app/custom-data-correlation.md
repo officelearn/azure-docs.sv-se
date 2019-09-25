@@ -13,46 +13,46 @@ ms.topic: conceptual
 ms.date: 08/08/2018
 ms.reviewer: mbullwin
 ms.author: evternov
-ms.openlocfilehash: 9bc94f653f5e70883b483fa44f6a17f6e9e9eaf1
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: 3abf50b3467ce9a97f2163a10ad1782f6e1c9c20
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67594426"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71258443"
 ---
-# <a name="correlating-application-insights-data-with-custom-data-sources"></a>Korrelera Application Insights-data med anpassade datakällor
+# <a name="correlating-application-insights-data-with-custom-data-sources"></a>Korrelera Application Insights data med anpassade data källor
 
-Application Insights samlar in flera olika datatyper: undantag, spår, sidvisningar och andra. Det här är ofta räcker för att undersöka ditt programs prestanda, tillförlitlighet och användning, men det finns fall när det är bra att korrelera data som lagras i Application Insights till andra helt anpassad datauppsättningar.
+Application Insights samlar in flera olika data typer: undantag, spår, sid visningar och andra. Det här är ofta tillräckligt för att undersöka programmets prestanda, tillförlitlighet och användning, men det finns fall då det är användbart att korrelera data som lagras i Application Insights till andra helt anpassade data uppsättningar.
 
-Vissa situationer där du anpassade data är:
+Några situationer där du kanske vill att anpassade data ska vara:
 
-- Berikande eller -uppslag datatabeller: till exempel kompletterar ett servernamn med ägaren av servern och lab platsen där den finns 
-- Korrelationen med Application Insights-datakällor: till exempel korrelera data om ett inköp på ett webb-Arkiv med information från ditt köp betjäna tjänsten att avgöra hur exakt din leveranstiden beräknar har 
-- Helt anpassade data: många av våra kunder älskar frågespråk och prestanda för Azure Monitor log-plattformen som säkerhetskopierar Application Insights och vill använda den för att köra frågor mot data som inte är relaterad till Application Insights. Till exempel att spåra solpaneler prestanda som en del av en smart home installation som beskrivs [här]( https://blogs.catapultsystems.com/cfuller/archive/2017/10/04/using-log-analytics-and-a-special-guest-to-forecast-electricity-generation/).
+- Data anriknings-eller uppslags tabeller: du kan till exempel komplettera ett server namn med ägaren av servern och den labb plats där den finns 
+- Korrelation med icke-Application Insights data Källor: du kan t. ex. korrelera data om ett köp i en webb butik med information från din köp tjänst för att fastställa hur korrekta uppskattningar för leverans tiden är 
+- Fullständigt anpassade data: många av våra kunder älskar att älska frågespråket och prestanda för den Azure Monitor logg plattform som säkerhetskopierar Application Insights och vill använda den för att fråga efter data som inte är relaterade till Application Insights. Till exempel för att spåra sol skärms prestanda som en del av en Smart Start installation som beskrivs [här](https://www.catapultsystems.com/blogs/using-log-analytics-and-a-special-guest-to-forecast-electricity-generation/).
 
-## <a name="how-to-correlate-custom-data-with-application-insights-data"></a>Så här att korrelera anpassade data med Application Insights-data 
+## <a name="how-to-correlate-custom-data-with-application-insights-data"></a>Korrelera anpassade data med Application Insights data 
 
-Eftersom Application Insights backas upp av den kraftfulla Azure Monitor log-plattformen, kommer du att använda hela kraften hos Azure Monitor för att mata in data. Sedan skriver du frågor med operatorn ”gå med” som kommer den här anpassade data med data som är tillgängliga för oss i Azure Monitor-loggar. 
+Eftersom Application Insights backas upp av den kraftfulla Azure Monitor logg plattformen kan vi använda den fullt kraften i Azure Monitor för att mata in data. Sedan ska vi skriva frågor med operatorn "Join" som korrelerar dessa anpassade data med de data som är tillgängliga för oss i Azure Monitor loggar. 
 
 ## <a name="ingesting-data"></a>Mata in data
 
-I det här avsnittet kommer vi att granska hur du hämtar dina data till Azure Monitor-loggar.
+I det här avsnittet ska vi granska hur du hämtar dina data till Azure Monitor loggar.
 
-Om du inte redan har ett kan du etablera en ny Log Analytics-arbetsyta genom att följa [instruktionerna](../learn/quick-collect-azurevm.md) till och med steget ”Skapa en arbetsyta”.
+Om du inte redan har ett kan du etablera en ny Log Analytics arbets yta genom att följa [dessa instruktioner](../learn/quick-collect-azurevm.md) genom att följa steget "skapa en arbets yta".
 
-Att börja skicka loggdata i Azure Monitor. Det finns flera alternativ:
+För att börja skicka loggdata till Azure Monitor. Det finns flera alternativ:
 
-- En synkron metod du kan antingen direkt kalla den [API för datainsamling](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-collector-api) eller använda vår Logic App-anslutningsapp – helt enkelt leta efter ”Azure Log Analytics” och välj alternativet ”Skicka Data”:
+- För en synkron mekanism kan du antingen anropa [API: et för data insamlaren](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-collector-api) direkt eller använda vår Logic app Connector – du behöver bara leta efter "Azure Log Analytics" och välja alternativet "skicka data":
 
-  ![Välj skärmbild och åtgärd](./media/custom-data-correlation/01-logic-app-connector.png)  
+  ![Skärm bilds val och åtgärd](./media/custom-data-correlation/01-logic-app-connector.png)  
 
-- För en asynkron alternativet att använda Data Collector API för att skapa en process-pipelinen. Se [i den här artikeln](https://docs.microsoft.com/azure/log-analytics/log-analytics-create-pipeline-datacollector-api) information.
+- För ett asynkront alternativ använder du API: et för data insamling för att bygga en bearbetnings pipeline. Mer information finns i [den här artikeln](https://docs.microsoft.com/azure/log-analytics/log-analytics-create-pipeline-datacollector-api) .
 
 ## <a name="correlating-data"></a>Korrelera data
 
-Application Insights bygger på Azure Monitor log-plattformen. Därför kan vi använda [mellan resurser kopplingar](https://docs.microsoft.com/azure/log-analytics/log-analytics-cross-workspace-search) att korrelera data som vi matas in i Azure Monitor med våra Application Insights-data.
+Application Insights baseras på Azure Monitor logg plattform. Vi kan därför använda [kors resurs kopplingar](https://docs.microsoft.com/azure/log-analytics/log-analytics-cross-workspace-search) för att korrelera data som vi har matat in i Azure monitor med våra Application Insights data.
 
-Exempelvis kan vi mata in vår lab inventerings- och platser till en tabell med namnet ”LabLocations_CL” i en Log Analytics-arbetsyta som kallas ”myLA”. Om vi ville sedan granska våra förfrågningar som spåras i Application Insights-app som kallas ”myAI” och korrelera datornamnen som betjänas begäranden för dessa datorer som lagras i tabellen tidigare nämnda anpassade, kan vi köra följande fråga från den Application Insights eller Azure Monitor kontext:
+Vi kan till exempel mata in vår labb inventering och platser i en tabell med namnet "LabLocations_CL" på en Log Analytics arbets yta med namnet "myLA". Om vi sedan ville granska våra begär Anden som spårats i Application Insights app med namnet "myAI" och korrelera dator namnen som hanterade begär anden till platserna för de här datorerna som lagras i den tidigare nämnda anpassade tabellen, kan vi köra följande fråga från antingen Application Insights-eller Azure Monitors kontexten:
 
 ```
 app('myAI').requests
@@ -64,5 +64,5 @@ app('myAI').requests
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Kolla in den [Data Collector API](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-collector-api) referens.
-- Mer information om [mellan resurser kopplingar](https://docs.microsoft.com/azure/log-analytics/log-analytics-cross-workspace-search).
+- Kolla in API-referens för [data insamling](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-collector-api) .
+- För mer information om [anslutningar över flera resurser](https://docs.microsoft.com/azure/log-analytics/log-analytics-cross-workspace-search).

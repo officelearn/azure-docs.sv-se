@@ -10,12 +10,12 @@ ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.assetid: 5c1b1e15-3b6c-49dc-98a6-bdbe7cb75339
 ms.date: 07/21/2017
-ms.openlocfilehash: 840124a35ed4389699757e011aaf5d05a9400836
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: f6ece10c43c2c4a6bea92d14a8bf6fbdb49fd318
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68385537"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71261357"
 ---
 # <a name="monitor-status-set-up-diagnostics-logging-and-turn-on-alerts-for-azure-logic-apps"></a>Övervaka status, konfigurera diagnostikloggning och aktivera aviseringar för Azure Logic Apps
 
@@ -66,7 +66,7 @@ Konfigurera aviseringar om du vill få meddelanden om fel eller andra möjliga [
    > [!NOTE]
    > All körnings information och händelser krypteras i Logic Appss tjänsten. De dekrypteras bara när en användare begär att visa dessa data. Du kan också kontrol lera åtkomsten till dessa händelser med [hjälp av RBAC (Azure rollbaserad Access Control)](../role-based-access-control/overview.md).
 
-6. Om du vill ha information om en angiven Utlös ande händelse går du  tillbaka till översikts fönstret. Under **utlösnings historik**väljer du händelsen Utlös. Du kan nu granska information som indata och utdata, till exempel:
+6. Om du vill ha information om en angiven Utlös ande händelse går du tillbaka till översikts fönstret. Under **utlösnings historik**väljer du händelsen Utlös. Du kan nu granska information som indata och utdata, till exempel:
 
    ![Utlöser information om utdata för händelse](media/logic-apps-monitor-your-logic-apps/trigger-details.png)
 
@@ -158,7 +158,7 @@ Om du vill förfina frågan genom att lägga till ett filter väljer du **+ Läg
 Tillsammans med Azure Monitor loggar kan du utöka hur du använder dina Logic Apps diagnostikdata med andra Azure-tjänster, till exempel: 
 
 * [Arkivera Azure-diagnostik loggar i Azure Storage](../azure-monitor/platform/archive-diagnostic-logs.md)
-* [Strömma Azure-diagnostik loggar till Azure Event Hubs](../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md) 
+* [Strömma Azure-diagnostik loggar till Azure Event Hubs](../azure-monitor/platform/resource-logs-stream-event-hubs.md) 
 
 Du kan sedan få real tids övervakning genom att använda telemetri och analys från andra tjänster, t. ex. [Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md) och [Power BI](../azure-monitor/platform/powerbi.md). Exempel:
 

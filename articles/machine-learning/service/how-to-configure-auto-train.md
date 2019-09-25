@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 07/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: 4d4a3eae9ea3931ceb720785bbf458f54689be6e
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: e6cfc18f01bb23d0b318ac1b924cf8cbb9f7a2b6
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71213517"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71259980"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Konfigurera automatiserade ML-experiment i python
 
@@ -69,8 +69,10 @@ automl_config = AutoMLConfig(task="classification")
 ```
 
 ## <a name="data-source-and-format"></a>Datakällan och format
+
 Automatiserad maskininlärning har stöd för data som finns på din lokala dator eller i molnet, till exempel Azure Blob Storage. Data kan läsas in i scikit-Läs stöds dataformat. Du kan läsa data till:
-* Numpy matriser X (funktioner) och y (målvariabel eller så kallade etikett)
+
+* Numpy-matriser X (funktioner) och y (Target-variabel, även kallat etikett)
 * Pandas-dataframe
 
 >[!Important]
@@ -93,55 +95,25 @@ Exempel:
     ```python
     import pandas as pd
     from sklearn.model_selection import train_test_split
+
     df = pd.read_csv("https://automldemods.blob.core.windows.net/datasets/PlayaEvents2016,_1.6MB,_3.4k-rows.cleaned.2.tsv", delimiter="\t", quotechar='"')
-    # get integer labels
-    y = df["Label"]
-    df = df.drop(["Label"], axis=1)
-    df_train, _, y_train, _ = train_test_split(df, y, test_size=0.1, random_state=42)
+    y_df = df["Label"]
+    x_df = df.drop(["Label"], axis=1)
+    x_train, x_test, y_train, y_test = train_test_split(x_df, y_df, test_size=0.1, random_state=42)
     ```
 
 ## <a name="fetch-data-for-running-experiment-on-remote-compute"></a>Hämta data för att köra experiment på fjärranslutna beräkning
 
-För fjärrkörningar måste du göra data tillgängliga från fjärrdatorn. Detta kan göras genom att ladda upp data till data lagret.
+För fjärrkörningar måste inlärnings data vara tillgängliga från fjärrdatorn. -Klassen [`Datasets`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py) i SDK visar funktioner för att:
 
-Här är ett exempel på hur `datastore`du använder:
+* överför enkelt data från statiska filer eller URL-källor till din arbets yta
+* gör dina data tillgängliga för att träna skript när de körs på moln beräknings resurser
 
-```python
-    import pandas as pd
-    from sklearn import datasets
-
-    data_train = datasets.load_digits()
-
-    pd.DataFrame(data_train.data[100:,:]).to_csv("data/X_train.csv", index=False)
-    pd.DataFrame(data_train.target[100:]).to_csv("data/y_train.csv", index=False)
-
-    ds = ws.get_default_datastore()
-    ds.upload(src_dir='./data', target_path='digitsdata', overwrite=True, show_progress=True)
-```
-
-### <a name="define-dprep-references"></a>Definiera dprep-referenser
-
-Definiera X-och y som dprep-referens, som skickas till det automatiserade `AutoMLConfig` Machine Learning-objektet, ungefär så här:
-
-```python
-
-    X = dprep.auto_read_file(path=ds.path('digitsdata/X_train.csv'))
-    y = dprep.auto_read_file(path=ds.path('digitsdata/y_train.csv'))
-
-
-    automl_config = AutoMLConfig(task = 'classification',
-                                 debug_log = 'automl_errors.log',
-                                 path = project_folder,
-                                 run_configuration=conda_run_config,
-                                 X = X,
-                                 y = y,
-                                 **automl_settings
-                                )
-```
+Se [instruktionen How-to](how-to-train-with-datasets.md#option-2--mount-files-to-a-remote-compute-target) för ett exempel på hur `Dataset` du använder klassen för att montera data till beräknings målet.
 
 ## <a name="train-and-validation-data"></a>Träna och verifiering
 
-Du kan ange separat tåg-och validerings uppsättning direkt `AutoMLConfig` i-metoden.
+Du kan ange separata tåg-och validerings uppsättningar direkt `AutoMLConfig` i konstruktorn.
 
 ### <a name="k-folds-cross-validation"></a>K Vikningar Korsvalidering
 
@@ -175,7 +147,7 @@ Det finns flera alternativ som du kan använda för att konfigurera dina automat
 
 Några exempel är:
 
-1.  Klassificering experiment med AUC viktad som primär mått med en maximal tid på 12 000 sekunder per iteration med experimentet att avsluta när du har 50 iterationer och 2 mellan verifiering vikningar.
+1.  Klassificerings experiment med AUC viktat som primärt mått med en maximal tid på 12 000 sekunder per iteration, med experimentet att sluta efter 50 iterationer och 2 kors validerings vikning.
 
     ```python
     automl_classifier = AutoMLConfig(
@@ -202,12 +174,10 @@ Några exempel är:
         n_cross_validations=5)
     ```
 
-De tre olika `task` parametervärdena bestämmer listan över modeller som ska användas.  Använd parametrarna `blacklist` eller för att ytterligare ändra iterationer med tillgängliga modeller som ska tas med eller undantas. `whitelist` Listan över modeller som stöds finns i SupportedModels- [klassen](https://docs.microsoft.com/en-us/python/api/azureml-train-automl/azureml.train.automl.constants.supportedmodels?view=azure-ml-py).
+De tre olika `task` parameter värdena (den tredje aktivitets typen är `forecasting`och använder samma algoritm som `regression` aktiviteter) för att fastställa listan över modeller som ska användas. Använd parametrarna `blacklist` eller för att ytterligare ändra iterationer med tillgängliga modeller som ska tas med eller undantas. `whitelist` Listan över modeller som stöds finns i SupportedModels- [klassen](https://docs.microsoft.com/en-us/python/api/azureml-train-automl/azureml.train.automl.constants.supportedmodels?view=azure-ml-py).
 
 ### <a name="primary-metric"></a>Primär mått
-Primärt mått. som du ser i exemplen ovan bestäms måttet som ska användas vid modell träning för optimering. Det primära måttet du kan välja avgörs av den aktivitets typ som du väljer. Nedan visas en lista över tillgängliga mått.
-
-Lär dig mer om de olika definitionerna av dessa för att [förstå automatiserade maskin inlärnings resultat](how-to-understand-automated-ml.md).
+Det primära måttet avgör vilket mått som ska användas vid modell träning för optimering. Tillgängliga mått som du kan välja bestäms av den aktivitets typ som du väljer och följande tabell visar giltiga primära mått för varje aktivitets typ.
 
 |Klassificering | Regression | Prognosticering för tids serier
 |-- |-- |--
@@ -217,9 +187,11 @@ Lär dig mer om de olika definitionerna av dessa för att [förstå automatisera
 |norm_macro_recall | normalized_mean_absolute_error | normalized_mean_absolute_error
 |precision_score_weighted |
 
+Lär dig mer om de olika definitionerna av dessa för att [förstå automatiserade maskin inlärnings resultat](how-to-understand-automated-ml.md).
+
 ### <a name="data-preprocessing--featurization"></a>Data förbehandling & funktionalisering
 
-I varje automatiserad maskin inlärnings experiment [skalas dina data automatiskt och normaliseras](concept-automated-ml.md#preprocess) för att hjälpa algoritmerna att fungera bra.  Du kan dock också aktivera ytterligare för bearbetning/funktionalisering, till exempel saknade värden Imputation, encoding och transformationer. [Läs mer om vad funktionalisering ingår](how-to-create-portal-experiments.md#preprocess).
+I varje automatiserad maskin inlärnings experiment [skalas dina data automatiskt och normaliseras](concept-automated-ml.md#preprocess) för att hjälpa *vissa* algoritmer som är känsliga för funktioner som är i olika skalor.  Du kan dock också aktivera ytterligare för bearbetning/funktionalisering, till exempel saknade värden Imputation, encoding och transformationer. [Läs mer om vad funktionalisering ingår](how-to-create-portal-experiments.md#preprocess).
 
 Om du vill aktivera den här `"preprocess": True` funktionalisering anger du [ `AutoMLConfig` för klassen](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlconfig?view=azure-ml-py).
 
@@ -227,12 +199,13 @@ Om du vill aktivera den här `"preprocess": True` funktionalisering anger du [ `
 > Automatiserad bearbetning av Machine Learning för bearbetning (funktions normalisering, hantering av saknade data, konvertering av text till tal osv.) blir en del av den underliggande modellen. När du använder modellen för förutsägelser tillämpas samma för bearbetnings steg som tillämpas på dina indata-data automatiskt.
 
 ### <a name="time-series-forecasting"></a>Prognosticering för tids serier
-För aktivitets typen tids serie prognos anger du ytterligare parametrar för att definiera.
-1. time_column_name – det här är en obligatorisk parameter som definierar namnet på kolumnen i dina utbildnings data som innehåller datum/tid-serien.
-1. max_horizon – detta definierar den tids längd som du vill förutsäga baserat på tränings informationens periodicitet. Om du till exempel har utbildnings information med dagliga tids kärnor definierar du hur långt ut i dagar du vill att modellen ska tränas.
-1. grain_column_names – detta definierar namnet på kolumner som innehåller individuella tids serie data i dina utbildnings data. Om du till exempel ska prognostisera försäljning av ett visst varumärke med Store definierar du butiks-och märkes kolumner som dina korn kolumner.
+Tids serie `forecasting` aktiviteten kräver ytterligare parametrar i konfigurationsobjektet:
 
-Se exemplet på de här inställningarna som används nedan. exempel på bärbara datorer finns [här](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-orange-juice-sales/auto-ml-forecasting-orange-juice-sales.ipynb).
+1. `time_column_name`: Obligatorisk parameter som definierar namnet på kolumnen i dina utbildnings data som innehåller en giltig tids serie.
+1. `max_horizon`: Definierar hur lång tid som ska förutsägas baserat på tränings informationens periodicitet. Om du till exempel har utbildnings information med dagliga tids kärnor definierar du hur långt ut i dagar du vill att modellen ska tränas.
+1. `grain_column_names`: Definierar namnet på kolumner som innehåller individuella tids serie data i dina tränings data. Om du till exempel ska prognostisera försäljning av ett visst varumärke med Store definierar du butiks-och märkes kolumner som dina korn kolumner. Separata tids serier och prognoser skapas för varje kornig het/gruppering. 
+
+Exempel på de inställningar som används nedan finns i [exempel antecknings boken](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-orange-juice-sales/auto-ml-forecasting-orange-juice-sales.ipynb).
 
 ```python
 # Setting Store and Brand as grains for training.
@@ -341,11 +314,11 @@ run = experiment.submit(automl_config, show_output=True)
 >Ange `show_output` till `True` i utdata som visas på konsolen.
 
 ### <a name="exit-criteria"></a>Avslutnings villkor
-Det finns några alternativ som du kan definiera för att slutföra experimentet.
-1. Inga villkor – om du inte definierar några avslutnings parametrar fortsätter experimentet tills inga ytterligare framsteg görs på ditt primära mått.
-1. Antal iterationer – du definierar antalet iterationer för experimentet som ska köras. Du kan välja Lägg till iteration_timeout_minutes för att definiera en tids gräns i minuter per iteration.
-1. Avsluta efter en tids period – med experiment_timeout_minutes i dina inställningar kan du ange hur lång tid i minuter som ett experiment ska fortsätta köras.
-1. Avsluta efter att poängen har nåtts – när du använder experiment_exit_score kan du välja att slutföra experimentet när en poäng baserat på ditt primära mått har nåtts.
+Det finns några alternativ som du kan definiera för att avsluta experimentet.
+1. Inga kriterier: Om du inte definierar några avslutnings parametrar fortsätter experimentet tills inga ytterligare framsteg görs på ditt primära mått.
+1. Antal iterationer: Du definierar antalet iterationer för experimentet som ska köras. Du kan också lägga till `iteration_timeout_minutes` för att definiera en tids gräns i minuter per iteration.
+1. Avsluta efter en viss tid: Genom `experiment_timeout_minutes` att använda i dina inställningar kan du definiera hur länge i minuter som ett experiment ska fortsätta att köras.
+1. Avsluta efter att poängen har uppnåtts: När `experiment_exit_score` du använder slutförs experimentet efter det att en primär mått Poäng har nåtts.
 
 ### <a name="explore-model-metrics"></a>Utforska mått i modellen
 

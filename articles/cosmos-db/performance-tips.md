@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: sngun
-ms.openlocfilehash: 9a758ce56356da21fc94f426d575a55f7dc762a0
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 27f39af480db8c0a044489a2efe6d2e4447b6db1
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71200315"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71261312"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-net"></a>Prestanda tips för Azure Cosmos DB och .NET
 
@@ -47,7 +47,6 @@ Så om du frågar "Hur kan jag förbättra min databas prestanda?" Överväg fö
      |Anslutnings läge  |Protokoll som stöds  |SDK: er som stöds  |API/tjänst-port  |
      |---------|---------|---------|---------|
      |Gateway  |   HTTPS    |  All SDKS    |   SQL (443), Mongo (10250, 10255, 10256), tabell (443), Cassandra (10350), Graf (443)    |
-     |Direkt    |    HTTPS     |  .NET och Java SDK    |   Portar inom 10 000 – 20000-intervall    |
      |Direkt    |     TCP    |  .NET SDK    | Portar inom 10 000 – 20000-intervall |
 
      Azure Cosmos DB erbjuder en enkel och öppen RESTful programmerings modell över HTTPS. Dessutom erbjuder den ett effektivt TCP-protokoll, som också RESTful i sin kommunikations modell och är tillgängligt via .NET-klient-SDK: n. Både direkt TCP och HTTPS använder SSL för inledande autentisering och kryptering av trafik. Använd TCP-protokollet när det är möjligt för bästa prestanda.
@@ -60,8 +59,7 @@ Så om du frågar "Hur kan jag förbättra min databas prestanda?" Överväg fö
      CosmosClient client = new CosmosClient(serviceEndpoint, authKey,
      new CosmosClientOptions
      {
-        ConnectionMode = ConnectionMode.Direct,
-        ConnectionProtocol = Protocol.Tcp
+        ConnectionMode = ConnectionMode.Direct
      });
      ```
 
@@ -130,13 +128,13 @@ Så om du frågar "Hur kan jag förbättra min databas prestanda?" Överväg fö
 
      SQL .NET SDK-version 1.9.0 och senare stöder parallella frågor, som gör att du kan fråga en partitionerad samling parallellt. Mer information finns i [kod exempel](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Queries/Program.cs) för att arbeta med SDK: er. Parallella frågor är utformade för att förbättra svars tid och data flöde för deras serie motsvarighet. Parallella frågor ger två parametrar som användarna kan justera för att anpassa sig efter deras krav, (a) MaxDegreeOfParallelism: för att kontrol lera det högsta antalet partitioner kan frågas parallellt och (b) MaxBufferedItemCount: för att kontrol lera antalet resultat som redan hämtats.
 
-    (a) ***fin justering\: av MaxDegreeOfParallelism*** parallell fråga fungerar genom att fråga flera partitioner parallellt. Data från en enskild partitionerad insamling hämtas dock seriellt i förhållande till frågan. Det innebär att om du ställer in MaxDegreeOfParallelism på antalet partitioner har du maximal chans att uppnå den mest utförda frågan, förutsatt att alla andra system villkor är desamma. Om du inte vet antalet partitioner, kan du ange MaxDegreeOfParallelism till ett stort antal och systemet väljer det lägsta (antal partitioner, indata från användaren) som MaxDegreeOfParallelism.
+    (a) ***justerings grad för\:***  parallell parallell fråga fungerar genom att fråga flera partitioner parallellt. Men data från en enskild partition hämtas seriellt i förhållande till frågan. Att ställa in [](sql-api-sdk-dotnet.md) `MaxConcurrency` [](sql-api-sdk-dotnet-standard.md) i SDK v2 eller i SDK v3 till antalet partitioner har maximal chans att nå den mest utförda frågan, förutsatt att alla andra system villkor är oförändrade `MaxDegreeOfParallelism` . Om du inte känner till antalet partitioner kan du ange graden av parallellitet till ett högt tal, och systemet väljer det lägsta (antal partitioner, indata från användaren) som graden av parallellitet.
 
     Det är viktigt att Observera att parallella frågor ger de bästa fördelarna om data är jämnt fördelade över alla partitioner med avseende på frågan. Om den partitionerade samlingen är partitionerad, så att alla eller en majoritet av de data som returneras av en fråga är koncentrerade i några partitioner (en partition i värsta fall), skulle prestandan för frågan bli Flask hals av dessa partitioner.
 
     (b) ***justering av\: MaxBufferedItemCount*** parallell fråga är utformad för att hämta resultat när den aktuella gruppen med resultat bearbetas av klienten. För hämtning bidrar till den totala tids fördröjnings förbättringen av en fråga. MaxBufferedItemCount är parametern för att begränsa antalet förhämtade resultat. Om du anger MaxBufferedItemCount till det förväntade antalet returnerade resultat (eller ett högre tal) kan frågan ta emot maximal nytta av för hämtning.
 
-    För hämtning fungerar på samma sätt oavsett MaxDegreeOfParallelism, och det finns en enda buffert för data från alla partitioner.  
+    För hämtning fungerar på samma sätt oavsett graden av parallellitet och det finns en enda buffert för data från alla partitioner.  
 6. **Aktivera server sidans GC**
 
     En minskning av skräp insamlingens frekvens kan i vissa fall hjälpa dig. I .NET anger du [gcServer](https://msdn.microsoft.com/library/ms229357.aspx) till true.

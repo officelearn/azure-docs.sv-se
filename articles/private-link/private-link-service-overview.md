@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 09/16/2019
 ms.author: kumud
-ms.openlocfilehash: 27e927425faec045c4f304ae6de155f2337307d9
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: 67bddea31a4bb375657b0df5e21fab1ab3d732f5
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71104678"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71265561"
 ---
 # <a name="what-is-azure-private-link-service"></a>Vad är Azure Private Link service?
 
@@ -68,7 +68,7 @@ En privat länk-tjänst anger följande egenskaper:
  
 - En enda privat länk-tjänst kan nås från flera privata slut punkter som tillhör olika virtuella nätverk, prenumerationer och/eller Active Directory klienter. Anslutningen upprättas via ett anslutnings arbets flöde. 
  
-- Det går att skapa flera privata länk tjänster på samma Standard Load Balancer att använda olika klient dels-IP-konfigurationer. Det finns gränser för antalet privata länk tjänster som du kan skapa per Standard Load Balancer och per prenumeration. Mer information finns i [Azure-gränser](https://docs.microsoft.com/azure/azure-subscription-service-limits.md#networking-limits).
+- Det går att skapa flera privata länk tjänster på samma Standard Load Balancer att använda olika klient dels-IP-konfigurationer. Det finns gränser för antalet privata länk tjänster som du kan skapa per Standard Load Balancer och per prenumeration. Mer information finns i [Azure-gränser](https://docs.microsoft.com/azure/azure-subscription-service-limits#networking-limits).
  
 - Privata länk tjänster kan ha mer än en länkad NAT-IP-konfiguration. Om du väljer fler än en NAT IP-konfiguration kan tjänst leverantörer skalas. Idag kan tjänst leverantörer tilldela upp till åtta NAT IP-adresser per privat länk tjänst. Med varje NAT-IP-adress kan du tilldela fler portar för dina TCP-anslutningar och därmed skala ut. När du har lagt till flera NAT IP-adresser i en privat länk-tjänst kan du inte ta bort NAT-IP-adresserna. Detta görs för att säkerställa att aktiva anslutningar inte påverkas när du tar bort NAT-IP-adresser.
 

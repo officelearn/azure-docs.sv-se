@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/30/2017
-ms.openlocfilehash: 1ebea83d87cd169f61c91a93f092fa277f5017a7
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 5336153a776f3324e5f73564ba2804389cd96938
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71203804"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71257574"
 ---
 # <a name="use-azure-toolkit-for-eclipse-to-create-apache-spark-applications-for-an-hdinsight-cluster"></a>Använd Azure Toolkit for Eclipse för att skapa Apache Spark-program för ett HDInsight-kluster
 
@@ -75,23 +75,23 @@ Du kan länka ett vanligt kluster med Ambari-hanterade användar namn. På samma
 
 1. Välj **Länka ett kluster** från **Azure Explorer**.
 
-   ![snabb meny för länk kluster](./media/apache-spark-eclipse-tool-plugin/link-a-cluster-context-menu.png)
+   ![Meny för länk kluster i Azure Explorer](./media/apache-spark-eclipse-tool-plugin/link-a-cluster-context-menu.png)
 
 1. Ange **kluster namn**, **användar namn** och **lösen ord**och klicka sedan på OK för att länka klustret. Du kan också ange lagrings konto, lagrings nyckel och välja lagrings behållare för lagrings Utforskaren som ska fungera i den vänstra trädvyn
 
-   ![dialog rutan länka kluster](./media/apache-spark-eclipse-tool-plugin/link-cluster-dialog1.png)
+   ![Dialog rutan länka nytt HDInsight-kluster](./media/apache-spark-eclipse-tool-plugin/link-cluster-dialog1.png)
 
    > [!NOTE]  
    > Vi använder den länkade lagrings nyckeln, användar namnet och lösen ordet om klustret både är inloggat i Azure-prenumerationen och länkade ett kluster.
-   > ![lagrings Utforskaren i Sol förmörkelse](./media/apache-spark-eclipse-tool-plugin/storage-explorer-in-Eclipse.png)
+   > ![Lagrings konton i Azure Explorer](./media/apache-spark-eclipse-tool-plugin/storage-explorer-in-Eclipse.png)
 
 1. Du kan se ett länkat kluster i **HDInsight** -noden när du har klickat på OK, om indatan är rätt. Nu kan du skicka ett program till det här länkade klustret.
 
-   ![länkat kluster](./media/apache-spark-eclipse-tool-plugin/hdinsight-linked-cluster.png)
+   ![Azure Explorer HDI-länkat kluster](./media/apache-spark-eclipse-tool-plugin/hdinsight-linked-cluster.png)
 
 1. Du kan också ta bort länken mellan ett kluster och **Azure Explorer**.
 
-   ![olänkat kluster](./media/apache-spark-eclipse-tool-plugin/hdi-unlinked-cluster.png)
+   ![Azure Explorer-olänkat kluster](./media/apache-spark-eclipse-tool-plugin/hdi-unlinked-cluster.png)
 
 ## <a name="set-up-a-spark-scala-project-for-an-hdinsight-spark-cluster"></a>Konfigurera ett Spark Scala-projekt för ett HDInsight Spark-kluster
 
@@ -103,7 +103,7 @@ Du kan länka ett vanligt kluster med Ambari-hanterade användar namn. På samma
 
 1. Guiden skapa Scala-projekt identifierar automatiskt om du har installerat plugin-programmet Scala. Välj **OK** för att fortsätta ladda ned Scala-plugin-programmet och följ sedan anvisningarna för att starta om Sol förmörkelse.
 
-   ![Scala-kontroll](./media/apache-spark-eclipse-tool-plugin/auto-installation-scala2.png)
+   ![Installera plugin-Scala som saknas](./media/apache-spark-eclipse-tool-plugin/auto-installation-scala2.png)
 
 1. Ange följande värden i dialog rutan **nytt HDInsight Scala-projekt** och välj sedan **Nästa**:
    * Ange ett namn för projektet.
@@ -120,10 +120,10 @@ Du kan länka ett vanligt kluster med Ambari-hanterade användar namn. På samma
 
 1. I dialog rutan **Välj en guide** expanderar du **Scala-guider**, väljer **Scala-objekt**och väljer sedan **Nästa**.
 
-   ![Dialog rutan Välj en guide](./media/apache-spark-eclipse-tool-plugin/create-scala-project1.png)
+   ![Välj en guide skapa ett Scala-objekt](./media/apache-spark-eclipse-tool-plugin/create-scala-project1.png)
 1. I dialog rutan **Skapa ny fil** anger du ett namn för objektet och väljer sedan **Slutför**.
 
-   ![Dialog rutan skapa ny fil](./media/apache-spark-eclipse-tool-plugin/create-scala-project2.png)
+   ![Guiden ny fil skapa ny fil](./media/apache-spark-eclipse-tool-plugin/create-scala-project2.png)
 1. Klistra in följande kod i text redigeraren:
 
     ```scala
@@ -156,11 +156,11 @@ Du kan länka ett vanligt kluster med Ambari-hanterade användar namn. På samma
    * I list rutan för **huvud klass namn** visas alla objekt namn från projektet i guiden Skicka. Välj eller ange en som du vill köra. Om du har valt en artefakt från en hård disk måste du ange huvud klass namnet manuellt. 
    * Eftersom program koden i det här exemplet inte kräver några kommando rads argument eller referens jar v7 eller filer, kan du lämna de återstående text rutorna tomma.
 
-     ![Dialog rutan för Spark-överföring](./media/apache-spark-eclipse-tool-plugin/create-scala-project3.png)
+     ![Dialog rutan Apache Spark sändning](./media/apache-spark-eclipse-tool-plugin/create-scala-project3.png)
 
 1. Fliken **Spark-överföring** ska börja visa förloppet. Du kan stoppa programmet genom att välja knappen röd i fönstret **Spark-överföring** . Du kan också visa loggarna för det här specifika programmet genom att välja ikonen för jordglob (med den blå rutan i bilden).
 
-   ![Spark-överförings fönster](./media/apache-spark-eclipse-tool-plugin/create-scala-project4.png)
+   ![Apache Spark sändnings fönster](./media/apache-spark-eclipse-tool-plugin/create-scala-project4.png)
 
 ## <a name="access-and-manage-hdinsight-spark-clusters-by-using-hdinsight-tools-in-azure-toolkit-for-eclipse"></a>Få åtkomst till och hantera HDInsight Spark-kluster med hjälp av HDInsight-verktyg i Azure Toolkit for Eclipse
 
@@ -170,15 +170,15 @@ Du kan utföra olika åtgärder med hjälp av HDInsight-verktyg, inklusive åtko
 
 1. Expandera **HDInsight**i Azure Explorer, expandera kluster namnet Spark och välj sedan **jobb**.
 
-   ![Nod i vyn jobb](./media/apache-spark-eclipse-tool-plugin/eclipse-job-view-node.png)
+   ![Nod för jobb visning i Azure Explorer](./media/apache-spark-eclipse-tool-plugin/eclipse-job-view-node.png)
 
-1. Välj noden **jobb** . Om Java-versionen är lägre än **1,8**så påminnelser HDInsight-verktyg automatiskt att du installerar E-plugin-programmet **(FX)** . Välj **OK** för att fortsätta och följ sedan guiden för att installera den från Marketplace för Sol förmörkelse och starta om Sol förmörkelse. 
+1. Välj noden **jobb** . Om Java-versionen är lägre än **1,8**så påminnelser HDInsight-verktyg automatiskt att du installerar E-plugin-programmet **(FX)** . Välj **OK** för att fortsätta och följ sedan guiden för att installera den från Marketplace för Sol förmörkelse och starta om Sol förmörkelse.
 
-   ![Installera E-klipp (FX)](./media/apache-spark-eclipse-tool-plugin/auto-install-efxclipse.png)
+   ![Installera ett plugin-program som saknas E-klipp (FX)](./media/apache-spark-eclipse-tool-plugin/auto-install-efxclipse.png)
 
 1. Öppna vyn jobb från noden **jobb** . I den högra rutan visar fliken **Spark Job View** alla program som kördes på klustret. Välj namnet på det program som du vill visa mer information om.
 
-   ![Programinformation](./media/apache-spark-eclipse-tool-plugin/eclipse-view-job-logs.png)
+   ![Apache Sol förmörkelse Visa information om jobb loggar](./media/apache-spark-eclipse-tool-plugin/eclipse-view-job-logs.png)
 
    Du kan sedan vidta någon av följande åtgärder:
 
@@ -188,7 +188,7 @@ Du kan utföra olika åtgärder med hjälp av HDInsight-verktyg, inklusive åtko
 
    * Välj fliken **logg** om du vill visa vanliga loggar, inklusive **driv rutin stderr**, **driv Rutins-STDOUT**och **katalog information**.
 
-     ![Logg information](./media/apache-spark-eclipse-tool-plugin/eclipse-job-log-info.png)
+     ![Apache Spark Sol förmörkelse jobb logg information](./media/apache-spark-eclipse-tool-plugin/eclipse-job-log-info.png)
 
    * Öppna gränssnittet Spark-historik och Apache Hadoop garn gränssnitt (på program nivå) genom att välja hyperlänkarna överst i fönstret.
 
@@ -245,7 +245,7 @@ För att lösa det här felet måste du [Hämta den körbara filen](https://publ
 
 1. Mallen lägger till en exempel kod (**LogQuery**) under **src** -mappen som du kan köra lokalt på datorn.
 
-   ![Plats för LogQuery](./media/apache-spark-eclipse-tool-plugin/local-scala-application.png)
+   ![Plats för LogQuery-lokalt Scala-program](./media/apache-spark-eclipse-tool-plugin/local-scala-application.png)
 
 1. Högerklicka på programmet **LogQuery** , peka på **Kör som**och välj sedan **ett Scala program**. Utdata som detta visas på fliken **konsol** :
 
@@ -308,7 +308,7 @@ När användare skickar jobb till ett kluster med endast läsar roll behörighet
 
 När du länkar ett kluster kan jag föreslå att du anger autentiseringsuppgifter för lagring.
 
-![Interaktiv inloggning](./media/apache-spark-eclipse-tool-plugin/link-cluster-with-storage-credential-eclipse.png)
+![länka kluster med Sol förmörkelse för autentiseringsuppgifter](./media/apache-spark-eclipse-tool-plugin/link-cluster-with-storage-credential-eclipse.png)
 
 Det finns två lägen för att skicka jobben. Om du har angett autentiseringsuppgifter för lagring kommer batch-läget att användas för att skicka jobbet. Annars kommer interaktivt läge att användas. Om klustret är upptaget kan du få felet nedan.
 

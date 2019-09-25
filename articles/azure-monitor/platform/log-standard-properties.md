@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/18/2019
 ms.author: bwren
-ms.openlocfilehash: b9a4a0a18e120a2843e23d44b03c0fe53b0d84fc
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 0fe174f309656011a1d05762927e254ff210b1e7
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68370671"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71262015"
 ---
 # <a name="standard-properties-in-azure-monitor-logs"></a>Standard egenskaper i Azure Monitor loggar
 Data i Azure Monitor loggar [lagras som en uppsättning poster i antingen en Log Analytics arbets yta eller ett Application Insights program](../log-query/logs-structure.md), var och en med en viss datatyp som har en unik uppsättning egenskaper. Många data typer har standard egenskaper som är gemensamma för flera typer. Den här artikeln beskriver dessa egenskaper och innehåller exempel på hur du kan använda dem i frågor.
@@ -26,7 +26,7 @@ Data i Azure Monitor loggar [lagras som en uppsättning poster i antingen en Log
 > Några av standard propert-fälten visas inte i diagramvyn eller IntelliSense i Log Analytics och de visas inte i frågeresultaten om du inte uttryckligen anger egenskapen i utdata.
 
 ## <a name="timegenerated-and-timestamp"></a>TimeGenerated och tidsstämpel
-Egenskaperna **TimeGenerated** (Log Analytics arbetsyte) och **tidsstämpel** (Application Insights program) innehåller datum och tid då posten skapades av data källan. Mer information finns i inmatnings [tiden för logg data i Azure Monitor](data-ingestion-time.md) .
+Egenskaperna **TimeGenerated** (Log Analytics arbetsyte) och **tidsstämpel** (Application Insights program) innehåller datum och tid då posten skapades av data källan. Mer information finns i [inmatnings tiden för logg data i Azure Monitor](data-ingestion-time.md) .
 
 **TimeGenerated** och **tidsstämpel** tillhandahåller en gemensam egenskap som används för filtrering eller sammanfattning per tid. När du väljer ett tidsintervall för en vy eller instrument panel i Azure Portal, används TimeGenerated eller timestamp för att filtrera resultaten. 
 
@@ -52,7 +52,7 @@ exceptions
 ```
 
 ## <a name="_timereceived"></a>\_TimeReceived
-Egenskapen TimeReceived innehåller datum och tid då posten togs emot av Azure Monitor inmatnings punkt i Azure-molnet.  **\_** Detta kan vara användbart för att identifiera svars tids problem mellan data källan och molnet. Ett exempel skulle vara ett nätverks problem som orsakar en fördröjning med data som skickas från en agent. Mer information finns i inmatnings [tiden för logg data i Azure Monitor](data-ingestion-time.md) .
+Egenskapen TimeReceived innehåller datum och tid då posten togs emot av Azure Monitor inmatnings punkt i Azure-molnet.  **\_** Detta kan vara användbart för att identifiera svars tids problem mellan data källan och molnet. Ett exempel är ett nätverks problem som orsakar en fördröjning med data som skickas från en agent. Mer information finns i [inmatnings tiden för logg data i Azure Monitor](data-ingestion-time.md) .
 
 Följande fråga ger den genomsnittliga svars tiden per timme för händelse poster från en agent. Detta inkluderar tiden från agenten till molnet och den totala tiden för posten som ska vara tillgänglig för logg frågor.
 

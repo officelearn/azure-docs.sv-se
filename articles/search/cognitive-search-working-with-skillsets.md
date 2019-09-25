@@ -5,16 +5,15 @@ manager: eladz
 author: vkurpad
 services: search
 ms.service: search
-ms.subservice: cognitive-search
 ms.topic: conceptual
 ms.date: 09/05/2019
 ms.author: vikurpad
-ms.openlocfilehash: df2c469ef825863f958c8c263253c7d1c6f6c732
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: f75e6dece376076d4aa5e33497aff7e4f9f56857
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71004415"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71265685"
 ---
 # <a name="working-with-skillsets"></a>Arbeta med färdighetsuppsättningar
 Den här artikeln är för utvecklare som behöver en djupare förståelse för hur anriknings pipelinen fungerar och förutsätter att du har en konceptuell förståelse för kognitiv Sök processen. Om du är nybörjare på kognitiv sökning börjar du med:

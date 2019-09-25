@@ -9,13 +9,13 @@ ms.topic: tutorial
 ms.author: tzvikei
 author: tsikiksr
 ms.reviewer: nibaccam
-ms.date: 09/09/2019
-ms.openlocfilehash: 8d91768d46d3e4a793982418da91f2d1877c5a79
-ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
+ms.date: 09/26/2019
+ms.openlocfilehash: 38c319fb89e8c763f8231c18cbb59bef099193e2
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71162550"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71259318"
 ---
 # <a name="tutorial-create-your-first-classification-model-with-automated-machine-learning"></a>Självstudier: Skapa din första klassificerings modell med automatisk maskin inlärning
 
@@ -58,10 +58,11 @@ Du har slutfört följande experiment konfiguration och kör steg på sidan land
 
 1. Välj **Kom igång**.
 
-1.  Välj **automatiserad ml** under avsnittet **redigering** i det vänstra fönstret.
-Skärmen **Kom igång** visas, eftersom det första experimentet med automatiserade Machine Learning.
+1. I det vänstra fönstret väljer du **Automatisk ml** under avsnittet **redigering** .
 
-    ![Azure Machine Learning-studio](media/tutorial-1st-experiment-automated-ml/get-started.png)
+   Eftersom det här är ditt första automatiserade ML experiment visas skärmen kom igång.
+
+   ![Azure Machine Learning-studio](media/tutorial-1st-experiment-automated-ml/get-started.png)
 
 1. Välj **Skapa experiment**. 
 
@@ -79,6 +80,7 @@ Skärmen **Kom igång** visas, eftersom det första experimentet med automatiser
    >I den här självstudien använder du det standard lagrings konto och den behållare som skapats med din nya beräkning. De fylls i automatiskt i formuläret.
     
 1. Välj **skapa** för att hämta beräknings målet. 
+
    **Det tar några minuter att slutföra.** 
 
 1. När du har skapat väljer du det nya beräknings målet i list rutan och väljer **Nästa**.
@@ -92,18 +94,18 @@ Skärmen **Kom igång** visas, eftersom det första experimentet med automatiser
     1. Ge din data uppsättning ett unikt namn och ange en valfri beskrivning. 
 
     1. Välj **Nästa** längst ned till vänster för att överföra den till standard behållaren som konfigurerades automatiskt när arbets ytan skapades. Den offentliga för hands versionen stöder endast lokala fil överföringar. 
-
-    1. När uppladdningen är klar fylls **inställningarna och förhands gransknings** formuläret i intelligent baserat på filtypen. Se till att formuläret är ifyllt på följande sätt.
+    
+       När uppladdningen är klar fylls inställningarna och förhands gransknings formuläret i förväg baserat på filtypen. 
+       
+    1. Kontrol lera att **inställningarna och förhands gransknings** formuläret är ifyllt enligt följande och välj **Nästa**.
         
-        Fält|Value
+        Fält|Värde för självstudier
         ---|---
         Filformat| Avgränsad
         Avgränsare| Komma
         Kodning| UTF-8
         Kolumnrubriker| Alla filer har samma rubriker
         Hoppa över rader | Inga
-
-        Välj **Nästa**.
     
     1. Med hjälp av **schema** formuläret kan du ytterligare konfigurera dina data för det här experimentet. I det här exemplet väljer du växlings växeln för **day_of_week** -funktionen, så att den inte inkluderas för det här experimentet. Välj **klar**för att slutföra fil uppladdning och skapa data uppsättningen för experimentet.
 
@@ -116,16 +118,17 @@ Skärmen **Kom igång** visas, eftersom det första experimentet med automatiser
 1. Expandera **Avancerade inställningar** och fyll i fälten enligt följande.
 
    >[!NOTE]
-   > För det här experimentet ställer du inte in mått poäng eller Max kärnor per upprepnings tröskel. Du kan inte heller blockera algoritmer från att testas.
+   > I den här självstudien får du inte ange mått poäng eller Max kärnor per upprepnings tröskel. Du kan inte heller blockera algoritmer från att testas.
    
-    Avancerade&nbsp;inställningar|Beskrivning|Värde&nbsp;för&nbsp;självstudier
-    ------|---------|---
-    Primärt mått| Bedömnings mått som ska mätas av Machine Learning-algoritmen.|**AUC_weighted** 
-    Avslutnings villkor| När något av dessa villkor uppfylls avslutas utbildnings jobbet även om det inte har slutförts fullständigt. |Utbildnings&nbsp;jobb&nbsp;tid&nbsp;(minuter): **5**  <br> <br> Max&nbsp;# för iterationer&#58;10&nbsp;&nbsp; 
-    Förbearbeta| Möjliggör förbehandling som genomförs av automatisk maskin inlärning. Detta inkluderar automatisk rensning av data, förberedelser och transformering för att generera syntetiska funktioner.| Aktivera
-    Verifiering| Validerings typ och antal tester. | **K-vikning** kors validering<br><br>  kors valideringar: **2** 
-    Samtidighet| Maximalt antal samtidiga iterationer.|**5**
-
+   Avancerade&nbsp;inställningar|Beskrivning|Värde&nbsp;för&nbsp;självstudier
+   ------|---------|---
+   Primärt mått| Bedömnings mått som ska mätas av Machine Learning-algoritmen.|AUC_weighted
+   Avslutnings villkor| Om ett villkor uppfylls stoppas utbildnings jobbet. |Utbildnings&nbsp;jobb&nbsp;tid: 5 <br> <br> Max&nbsp;för#iterationer&#58;10&nbsp;&nbsp;
+   Förbearbeta| Möjliggör förbehandling som genomförs av automatisk maskin inlärning. Detta inkluderar automatisk rensning av data, förberedelser och transformering för att generera syntetiska funktioner.| Aktivera
+   Validerings typ | Välj en typ av kors validering.|K-vikning kors validering
+   Antal valideringar | Antal tester. | 2 kors valideringar 
+   Samtidighet| Maximalt antal samtidiga iterationer.|5
+   
 1. Välj **Starta** för att köra experimentet. En skärm visas med ett status meddelande när experiment förberedelsen börjar.
 
 >[!IMPORTANT]

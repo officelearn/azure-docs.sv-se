@@ -1,49 +1,49 @@
 ---
-title: Migrera en databas med importera och exportera i Azure Database för PostgreSQL – enskild Server
-description: Beskriver hur extrahera en PostgreSQL-databas till en skriptfil och importera data till måldatabasen från filen.
+title: Migrera en databas med hjälp av import och export i Azure Database for PostgreSQL-enskild server
+description: Beskriver hur du extraherar en PostgreSQL-databas till en skript fil och importerar data till mål databasen från den filen.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 5/6/2019
-ms.openlocfilehash: 785e9ec77dea749546e3f1d59007706eac14f2ea
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 09/24/2019
+ms.openlocfilehash: 0803f56312ca9b650987c2203c4271cff21df9f8
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65067015"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71260367"
 ---
-# <a name="migrate-your-postgresql-database-using-export-and-import"></a>Migrera din PostgreSQL-databas med exportera och importera
-Du kan använda [pg_dump](https://www.postgresql.org/docs/current/static/app-pgdump.html) att extrahera en PostgreSQL-databas till en skriptfil och [psql](https://www.postgresql.org/docs/current/static/app-psql.html) att importera data till måldatabasen från filen.
+# <a name="migrate-your-postgresql-database-using-export-and-import"></a>Migrera din PostgreSQL-databas med export och import
+Du kan använda [pg_dump](https://www.postgresql.org/docs/current/static/app-pgdump.html) för att extrahera en PostgreSQL-databas till en skript fil och [psql](https://www.postgresql.org/docs/current/static/app-psql.html) för att importera data till mål databasen från den filen.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
-För att gå igenom den här guiden, måste du:
-- En [Azure Database for PostgreSQL-server](quickstart-create-server-database-portal.md) med brandväggsregler som tillåter åtkomst och databasen under den.
-- [pg_dump](https://www.postgresql.org/docs/9.6/static/app-pgdump.html) kommandoradsverktyget installerad
-- [psql](https://www.postgresql.org/docs/9.6/static/app-psql.html) kommandoradsverktyget installerad
+## <a name="prerequisites"></a>Förutsättningar
+För att gå igenom den här instruktions guiden behöver du:
+- En [Azure Database for postgresql-server](quickstart-create-server-database-portal.md) med brand Väggs regler för att tillåta åtkomst och databas under den.
+- kommando rads verktyget [pg_dump](https://www.postgresql.org/docs/current/static/app-pgdump.html) installerat
+- kommando rads verktyget [psql](https://www.postgresql.org/docs/current/static/app-psql.html) installerat
 
-Följ stegen nedan för att exportera och importera PostgreSQL-databasen.
+Följ dessa steg om du vill exportera och importera PostgreSQL-databasen.
 
-## <a name="create-a-script-file-using-pgdump-that-contains-the-data-to-be-loaded"></a>Skapa en skriptfil med pg_dump som innehåller data som ska hämtas
-Att exportera dina befintliga PostgreSQL-databasen lagras lokalt eller i en virtuell dator till en sql-skriptfilen, kör du följande kommando i din befintliga miljö:
+## <a name="create-a-script-file-using-pg_dump-that-contains-the-data-to-be-loaded"></a>Skapa en skript fil med pg_dump som innehåller de data som ska läsas in
+Om du vill exportera din befintliga PostgreSQL-databas lokalt eller i en virtuell dator till en SQL-skriptfil kör du följande kommando i din befintliga miljö:
 ```bash
 pg_dump –-host=<host> --username=<name> --dbname=<database name> --file=<database>.sql
 ```
-Exempel: Om du har en lokal server och en databas som heter **testdb** i den:
+Om du till exempel har en lokal server och en databas med namnet **testdb** :
 ```bash
 pg_dump --host=localhost --username=masterlogin --dbname=testdb --file=testdb.sql
 ```
 
-## <a name="import-the-data-on-target-azure-database-for-postgresql"></a>Importera data i Azure-måldatabas för PostgreSQL
-Du kan använda psql-kommandoraden och parametern--dbname (-d) att importera data till Azure Database for PostgreSQL-server och läsa in data från sql-filen.
+## <a name="import-the-data-on-target-azure-database-for-postgresql"></a>Importera data på mål Azure Database for PostgreSQL
+Du kan använda kommando raden psql och parametern--dbname (-d) för att importera data till den Azure Database for PostgreSQL servern och läsa in data från SQL-filen.
 ```bash
 psql --file=<database>.sql --host=<server name> --port=5432 --username=<user@servername> --dbname=<target database name>
 ```
-Det här exemplet används psql-verktyget och en skriptfil med namnet **testdb.sql** från föregående steg för att importera data till databasen **mypgsqldb** på målservern  **mydemoserver.postgres.Database.Azure.com**.
+I det här exemplet används psql-verktyget och en skript fil med namnet **testdb. SQL** från föregående steg för att importera data till databasen **mypgsqldb** på mål servern **mydemoserver.postgres.Database.Azure.com**.
 ```bash
 psql --file=testdb.sql --host=mydemoserver.database.windows.net --port=5432 --username=mylogin@mydemoserver --dbname=mypgsqldb
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-- Om du vill migrera en PostgreSQL-databas med säkerhetskopiering och återställning, se [migrera din PostgreSQL-databas med säkerhetskopiering och återställning](howto-migrate-using-dump-and-restore.md).
-- Mer information om hur du migrerar databaser till Azure Database för PostgreSQL, finns i den [Guide för Databasmigrering](https://aka.ms/datamigration). 
+- Information om hur du migrerar en PostgreSQL-databas med dump och Restore finns i [migrera PostgreSQL-databasen med dump och Restore](howto-migrate-using-dump-and-restore.md).
+- Mer information om hur du migrerar databaser till Azure Database for PostgreSQL finns i [Guide för databas migrering](https://aka.ms/datamigration). 

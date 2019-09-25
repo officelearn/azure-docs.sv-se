@@ -11,12 +11,12 @@ ms.reviewer: maghan
 manager: jroth
 ms.topic: conceptual
 ms.date: 08/14/2019
-ms.openlocfilehash: e522cba88eaf9cb63ef7ef2f20e3b72691261073
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 4386a7adba17eefe3c373697597abdb7d69c476a
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71002408"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71265987"
 ---
 # <a name="continuous-integration-and-delivery-cicd-in-azure-data-factory"></a>Kontinuerlig integrering och leverans (CI/CD) i Azure Data Factory
 
@@ -669,7 +669,7 @@ Om du inte har git konfigurerat är de länkade mallarna tillgängliga via geste
 
 ## <a name="hot-fix-production-branch"></a>Snabb korrigering av produktions gren
 
-Om du distribuerar en fabrik till produktion och inser att det finns en bugg som behöver åtgärdas direkt, men du inte kan distribuera den aktuella samarbets grenen, kan du behöva distribuera en snabb korrigering.
+Om du distribuerar en fabrik till produktion och inser att det finns en bugg som behöver åtgärdas direkt, men du inte kan distribuera den aktuella samarbets grenen, kan du behöva distribuera en snabb korrigering. Den här metoden kallas snabb korrigerings teknik eller QFE. 
 
 1.  I Azure DevOps går du till den version som distribuerades till produktionen och hittade den senaste incheckning som har distribuerats.
 
@@ -705,8 +705,11 @@ Om du använder git-integrering med din data fabrik och du har en CI/CD-pipeline
 
 ## <a name="unsupported-features"></a>Funktioner som inte stöds
 
--   Du kan inte publicera enskilda resurser. Data Factory-entiteter är beroende av varandra och spårning av ändrings beroenden kan vara svåra och leda till oväntade beteenden. Utlösare är exempelvis beroende av pipeliner, pipeliner är beroende av data uppsättningar och andra pipeliner, så vidare. Om det var möjligt att publicera endast en delmängd av hela ändrings uppsättningen kan vissa oförutsedda fel uppstå.
+- Som design tillåter ADF _inte_ körsbär-plockning eller selektiv publicering av resurser. Publiceringar tar med **alla** ändringar som gjorts i data fabriken
 
--   Du kan inte publicera från privata grenar.
+    - Data Factory-entiteter är beroende av varandra, t. ex. utlösare är beroende av pipeliner, pipelines är beroende av data uppsättningar och andra pipeliner osv. Selektiv publicering av en del av resurser _kan_ leda till oväntade beteenden och fel
+    - I sällsynta fall där selektiv publicering krävs kan det vara en snabb korrigering. Mer information finns i avsnittet om [snabb korrigering av produktions gren](#hot-fix-production-branch)
 
--   Det går inte att vara värd för projekt på Bitbucket.
+-   Det går inte att publicera från privata grenar
+
+-   Från och med nu kan du inte vara värd för projekt på BitBucket

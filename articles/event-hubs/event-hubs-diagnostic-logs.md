@@ -16,19 +16,19 @@ ms.workload: data-services
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: c8f2dba8ff30ceae4085d96640623a01b6784b1e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ff6466ddc6b64dfe85ebfb190205859aeb39ad17
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60822299"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71260842"
 ---
 # <a name="set-up-diagnostic-logs-for-an-azure-event-hub"></a>Konfigurera diagnostikloggar för en Azure-händelsehubb
 
 Du kan visa två typer av loggar för Azure Event Hubs:
 
-* **[Aktivitetsloggar](../azure-monitor/platform/activity-logs-overview.md)** : Dessa loggar har information om åtgärder som utförs på ett jobb. Loggarna är alltid aktiverat.
-* **[Diagnostikloggar](../azure-monitor/platform/diagnostic-logs-overview.md)** : Du kan konfigurera diagnostikloggar för en mer omfattande vy av allt som händer med ett jobb. Diagnostikloggar cover aktiviteter från den tidpunkt då jobbet skapades tills jobbet tas bort, inklusive uppdateringar och aktiviteter som inträffar när jobbet körs.
+* **[Aktivitets loggar](../azure-monitor/platform/activity-logs-overview.md)** : De här loggarna innehåller information om åtgärder som utförts i ett jobb. Loggarna är alltid aktiverat.
+* **[Diagnostikloggar](../azure-monitor/platform/resource-logs-overview.md)** : Du kan konfigurera diagnostikloggar för en mer omfattande vy av allt som händer med ett jobb. Diagnostikloggar cover aktiviteter från den tidpunkt då jobbet skapades tills jobbet tas bort, inklusive uppdateringar och aktiviteter som inträffar när jobbet körs.
 
 ## <a name="enable-diagnostic-logs"></a>Aktivera diagnostikloggar
 
@@ -48,13 +48,13 @@ Diagnostikloggar är inaktiverade som standard. Följ dessa steg om du vill akti
 
     ![Ändra status för diagnostikloggar](./media/event-hubs-diagnostic-logs/image3.png)
 
-5.  Ange arkivet målet som du vill. till exempel loggar ett lagringskonto, en event hub eller Azure Monitor.
+5.  Ange det mål för arkivet som du vill använda. till exempel ett lagrings konto, en Event Hub-eller Azure Monitor-loggar.
 
 6.  Spara de nya diagnostikinställningarna för.
 
 Nya inställningarna träder i kraft i cirka 10 minuter. Efter det loggar visas i den konfigurerade mål för arkivering, i den **diagnostikloggar** fönstret.
 
-Mer information om hur du konfigurerar diagnostik finns i den [översikt över Azure diagnostikloggar](../azure-monitor/platform/diagnostic-logs-overview.md).
+Mer information om hur du konfigurerar diagnostik finns i den [översikt över Azure diagnostikloggar](../azure-monitor/platform/resource-logs-overview.md).
 
 ## <a name="diagnostic-logs-categories"></a>Diagnostikloggar kategorier
 

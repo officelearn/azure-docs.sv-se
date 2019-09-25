@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 4cabf2e7a1f0f1ff058f900ed823cc4df0ce80a6
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: c01931268642aebbf87c54080c292b105af15665
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "70999207"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71262766"
 ---
 # <a name="introduction-to-azure-security"></a>Introduktion till Azure-säkerhet
 ## <a name="overview"></a>Översikt
@@ -93,7 +93,7 @@ Application Insights skapar diagram och tabeller som visar dig, till exempel vil
 Om det uppstår krascher, fel eller prestanda problem kan du söka igenom telemetridata i detalj för att diagnosticera orsaken. Tjänsten skickar dig e-postmeddelanden om det finns några ändringar i appens tillgänglighet och prestanda. Program insikter blir därmed ett värdefullt säkerhets verktyg eftersom det hjälper till med tillgänglighet i säkerhets Triad sekretess, integritet och tillgänglighet.
 
 ### <a name="azure-monitor"></a>Azure Monitor
-[Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/) erbjuder visualisering, frågor, routning, avisering, automatisk skalning och automatisering av data både från Azure-infrastrukturen ([aktivitets loggen](../../azure-monitor/platform/activity-logs-overview.md)) och varje enskild Azure-resurs ([diagnostikloggar](../../azure-monitor/platform/diagnostic-logs-overview.md)). Du kan använda Azure Monitor för att varna dig om säkerhetsrelaterade händelser som genereras i Azure-loggar.
+[Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/) erbjuder visualisering, frågor, routning, avisering, automatisk skalning och automatisering av data både från Azure-infrastrukturen ([aktivitets loggen](../../azure-monitor/platform/activity-logs-overview.md)) och varje enskild Azure-resurs ([diagnostikloggar](../../azure-monitor/platform/resource-logs-overview.md)). Du kan använda Azure Monitor för att varna dig om säkerhetsrelaterade händelser som genereras i Azure-loggar.
 
 ### <a name="azure-monitor-logs"></a>Azure Monitor-loggar
 [Azure Monitor loggar](https://azure.microsoft.com/documentation/services/log-analytics/) – tillhandahåller en IT-hanterings lösning för både lokal infrastruktur baserad på plats och från tredje part (till exempel AWS), utöver Azure-resurser. Data från Azure Monitor kan dirigeras direkt till Azure Monitor loggar så att du kan se mått och loggar för hela miljön på ett och samma ställe.

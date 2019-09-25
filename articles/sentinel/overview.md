@@ -14,18 +14,16 @@ ms.topic: overview
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/23/2019
+ms.date: 09/24/2019
 ms.author: rkarlin
-ms.openlocfilehash: 19291e233e4086815488973629167cc7d7dc9f4a
-ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
+ms.openlocfilehash: 964ba16fb7421c58f43d8b7d0d0d96f5cd377579
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71240543"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71261865"
 ---
 # <a name="what-is-azure-sentinel"></a>Vad är Azure Sentinel?
-
-
 
 Microsoft Azure Sentinel är en skalbar, molnbaserad, molnbaserad, **Siem (Security information Event Management)** och **Soar-lösning (Security Orchestration autoresponse)** . Azure Sentinel ger intelligent säkerhets analys och hot information i hela företaget, vilket ger en enda lösning för aviserings identifiering, Hot synlighet, proaktiv jakt och hot svar. 
 
@@ -73,10 +71,9 @@ Om du till exempel använder ServiceNow Ticket-systemet kan du använda de verkt
 ![Spelböcker](./media/tutorial-respond-threats-playbook/logic-app.png)
 
 
+## <a name="investigation"></a>Undersökning
 
-## <a name="investigation-preview"></a>Undersökning (förhands granskning)
-
-Med [djupgående undersöknings](tutorial-investigate-cases.md) verktyg för Azure Sentinel kan du förstå omfattningen och hitta rotor saken, av ett potentiellt säkerhetshot. Du kan välja en entitet i det interaktiva diagrammet för att ställa intressanta frågor för en speciell entitet och öka detalj nivån i entiteten och dess anslutningar för att komma till den grundläggande orsaken till hotet. 
+I för hands versionen av Azure Sentinel [djupgående undersöknings](tutorial-investigate-cases.md) verktyg kan du förstå omfattningen och hitta rotor saken, av ett potentiellt säkerhetshot. Du kan välja en entitet i det interaktiva diagrammet för att ställa intressanta frågor för en speciell entitet och öka detalj nivån i entiteten och dess anslutningar för att komma till den grundläggande orsaken till hotet. 
 
 ![Undersökning](./media/tutorial-investigate-cases/map-timeline.png)
 

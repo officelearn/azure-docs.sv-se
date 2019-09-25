@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 08/23/2018
 ms.author: meladie
-ms.openlocfilehash: 50e410fc439be7b3a5f4c1e8d4bab5d60c3c4f52
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: 5fe9cfe642585c4f5220d79813816e554fdf48ef
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68946927"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71259190"
 ---
 # <a name="azure-security-and-compliance-blueprint---iaas-web-application-for-australia-protected"></a>IaaS-webbprogram för Australien-skydd Handlingsplan för säkerhet och efterlevnad i Azure
 
@@ -65,7 +65,7 @@ Den här lösningen använder följande Azure-tjänster. Mer information finns i
 - Azure Virtual Network
     - (4) nätverks säkerhets grupper
     - Azure Network Watcher
-- Recovery Services valv
+- Recovery Services-valv
 
 Den här skissen innehåller Azure-tjänster som inte har certifierats för användning på den skyddade klassificeringen av australisk cyberhot Security Centre (ACSC). Alla tjänster som ingår i denna referens arkitektur har certifierats av ACSC på DLM-nivån (spridnings begränsnings markörer). Microsoft rekommenderar att kunderna granskar publicerade säkerhets-och gransknings rapporter som är relaterade till dessa Azure-tjänster och använder sina riskhanterings ramverk för att avgöra om Azure-tjänsten är lämplig för intern ackreditering och användning på Skyddad klassificering.
 
@@ -123,7 +123,7 @@ Dessutom kan följande Azure Active Directory funktioner hantera åtkomst till d
 - [Azure Active Directory Privileged Identity Management](../../active-directory/privileged-identity-management/pim-getting-started.md) gör det möjligt för kunderna att minimera antalet användare som har åtkomst till viss information. Administratörer kan använda Azure Active Directory Privileged Identity Management för att identifiera, begränsa och övervaka privilegierade identiteter och deras åtkomst till resurser. Den här funktionen kan också användas för att framtvinga administrativ åtkomst just-in-Time vid behov.
 - [Azure Active Directory Identity Protection](../../active-directory/identity-protection/overview.md) identifierar potentiella sårbarheter som påverkar en&#39;organisations identiteter, konfigurerar automatiserade svar på identifierade misstänkta åtgärder som är&#39;relaterade till en organisations identiteter. undersöker misstänkta incidenter för att vidta lämpliga åtgärder för att lösa dem.
 
-**Azure Multi-Factor Authentication**: För att skydda identiteter bör Multi-Factor Authentication implementeras. [Azure Multi-Factor Authentication](https://azure.microsoft.com/services/multi-factor-authentication/) är en lättanvänd, skalbar och tillförlitlig lösning som ger en andra autentiseringsmetod för att skydda användare. Azure Multi-Factor Authentication använder kraften i molnet och integreras med lokala Active Directory och anpassade program. Det här skyddet har utökats till verksamhets kritiska scenarier med hög volym.
+**Azure-Multi-Factor Authentication**: För att skydda identiteter bör Multi-Factor Authentication implementeras. [Azure Multi-Factor Authentication](https://azure.microsoft.com/services/multi-factor-authentication/) är en lättanvänd, skalbar och tillförlitlig lösning som ger en andra autentiseringsmetod för att skydda användare. Azure Multi-Factor Authentication använder molnets kraft och kan integreras med lokala Active Directory och anpassade program. Det här skyddet har utökats till verksamhets kritiska scenarier med hög volym.
 
 ### <a name="security"></a>Säkerhet
 **Hemligheter, hantering**: Lösningen använder [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) för hantering av nycklar och hemligheter. Azure Key Vault hjälper dig att skydda krypteringsnycklar och hemligheter som används av molnprogram och molntjänster. Följande Azure Key Vault funktioner hjälper kunder att skydda och komma åt sådana data:
@@ -147,12 +147,12 @@ Azure Security Center använder flera olika identifierings funktioner för att m
 
 Azure Security Center ger prioriterade säkerhets aviseringar och incidenter, vilket gör det enklare för kunderna att upptäcka och åtgärda potentiella säkerhets problem. En [hot informations rapport](https://docs.microsoft.com/azure/security-center/security-center-threat-report) genereras för varje identifierat hot för att hjälpa incident hanterings team att undersöka och åtgärda hot.
 
-Den här referens arkitekturen använder dessutom sårbarhets [bedömningen](https://docs.microsoft.com/azure/security-center/security-center-vulnerability-assessment-recommendations) i Azure Security Center. När en partner agent har kon figurer ATS (t. ex. Qualys) rapporteras sårbarhets data till partnerns hanterings plattform. Partnerns hanterings plattform ger i sin tur sårbarhets-och hälso övervaknings data till Azure Security Center, så att kunderna snabbt kan identifiera sårbara virtuella datorer.
+Den här referens arkitekturen använder dessutom [sårbarhets bedömningen](https://docs.microsoft.com/azure/security-center/security-center-vulnerability-assessment-recommendations) i Azure Security Center. När en partner agent har kon figurer ATS (t. ex. Qualys) rapporteras sårbarhets data till partnerns hanterings plattform. Partnerns hanterings plattform ger i sin tur sårbarhets-och hälso övervaknings data till Azure Security Center, så att kunderna snabbt kan identifiera sårbara virtuella datorer.
 
 **Azure Application Gateway**: Arkitekturen minskar risken för säkerhets problem med en Azure Application Gateway med en brand vägg för webbaserade program konfigurerad, och OWASP-ruleset har Aktiver ATS. Fler funktioner är:
 
 - [Slut punkt till slut punkt – SSL](https://docs.microsoft.com/azure/application-gateway/application-gateway-end-to-end-ssl-powershell)
-- Aktivera [SSL](../../application-gateway/create-ssl-portal.md) -avlastning
+- Aktivera [SSL-avlastning](../../application-gateway/create-ssl-portal.md)
 - Inaktivera [TLS v 1.0 och v 1.1](https://docs.microsoft.com/azure/application-gateway/application-gateway-end-to-end-ssl-powershell)
 - [Brand vägg för webbaserade program](../../application-gateway/waf-overview.md) (skydds läge)
 - [Skydds läge](https://docs.microsoft.com/azure/application-gateway/application-gateway-web-application-firewall-portal) med OWASP 3,0 ruleset
@@ -161,7 +161,7 @@ Den här referens arkitekturen använder dessutom sårbarhets [bedömningen](htt
 - [Azure Security Center](https://azure.microsoft.com/services/security-center) och [Azure Advisor](https://docs.microsoft.com/azure/advisor/advisor-security-recommendations) ger ytterligare skydd och aviseringar. Azure Security Center ger också ett ryktes system.
 
 ### <a name="business-continuity"></a>Verksamhetskontinuitet
-**Hög tillgänglighet**: Lösningen distribuerar alla virtuella datorer i en tillgänglighets [uppsättning](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-availability-sets). Tillgänglighets uppsättningar säkerställer att de virtuella datorerna distribueras över flera isolerade maskin varu kluster för att förbättra tillgängligheten. Minst en virtuell dator är tillgänglig under en planerad eller oplanerad underhålls händelse som uppfyller 99,95% Azure SLA.
+**Hög tillgänglighet**: Lösningen distribuerar alla virtuella datorer i en [tillgänglighets uppsättning](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-availability-sets). Tillgänglighets uppsättningar säkerställer att de virtuella datorerna distribueras över flera isolerade maskin varu kluster för att förbättra tillgängligheten. Minst en virtuell dator är tillgänglig under en planerad eller oplanerad underhålls händelse som uppfyller 99,95% Azure SLA.
 
 **Recovery Services valv**: [Recovery Services Vault](https://docs.microsoft.com/azure/backup/backup-azure-recovery-services-vault-overview) skyddar säkerhets kopierings data och skyddar alla konfigurationer av Azure-Virtual Machines i den här arkitekturen. Med ett Recovery Services-valv kan kunderna återställa filer och mappar från en virtuell IaaS-dator utan att återställa hela den virtuella datorn, vilket möjliggör snabbare återställnings tider.
 
@@ -170,7 +170,7 @@ Den här referens arkitekturen använder dessutom sårbarhets [bedömningen](htt
 ### <a name="logging-and-auditing"></a>Loggning och granskning
 Azure-tjänster loggar system-och användar aktiviteter i stor utsträckning, samt systemets hälso tillstånd:
 - **Aktivitets loggar**: [Aktivitets loggar](../../azure-monitor/platform/activity-logs-overview.md) ger inblick i åtgärder som utförs på resurser i en prenumeration. Aktivitets loggar kan hjälpa till att bestämma en åtgärds initierare, tidpunkt för förekomst och status.
-- **Diagnostikloggar**: [Diagnostikloggar](../../azure-monitor/platform/diagnostic-logs-overview.md) innehåller alla loggar som har avsänts av varje resurs. Dessa loggar innehåller loggar för Windows Event system, Azure Storage loggar, Key Vault gransknings loggar och Application Gateway åtkomst-och brand Väggs loggar. Alla diagnostiska loggar skriver till ett centraliserat och krypterat Azure Storage-konto för arkivering. Kvarhållning är en användare som kan konfigureras, upp till 730 dagar, för att uppfylla organisationens särskilda krav för kvarhållning.
+- **Diagnostikloggar**: [Diagnostikloggar](../../azure-monitor/platform/resource-logs-overview.md) innehåller alla loggar som har avsänts av varje resurs. Dessa loggar innehåller loggar för Windows Event system, Azure Storage loggar, Key Vault gransknings loggar och Application Gateway åtkomst-och brand Väggs loggar. Alla diagnostiska loggar skriver till ett centraliserat och krypterat Azure Storage-konto för arkivering. Kvarhållning är en användare som kan konfigureras, upp till 730 dagar, för att uppfylla organisationens särskilda krav för kvarhållning.
 
 **Azure Monitor loggar**: Dessa loggar konsol IDE ras i [Azure Monitor loggar](https://azure.microsoft.com/services/log-analytics/) för bearbetning, lagring och instrument panels rapportering. När data har samlats in ordnas de i separata tabeller för varje datatyp, som låter alla data analyseras tillsammans oavsett originalkälla. Dessutom kan Azure Security Center integreras med Azure Monitor loggar som gör det möjligt för kunder att använda Kusto-frågor för att komma åt sina säkerhets händelse data och kombinera dem med data från andra tjänster.
 

@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 10/18/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: b7665caad60a5135da5780da242772af3c0a05a4
-ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
+ms.openlocfilehash: fef3daf6e9e535736002e309e3d27491364dc553
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70984886"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71260293"
 ---
 # <a name="quickstart-create-and-manage-azure-file-shares-with-the-azure-portal"></a>Snabbstart: Skapa och hantera Azure-filresurser med Azure-portalen 
 [Azure Files](storage-files-introduction.md) är Microsofts lättanvända filsystem i molnet. Azure-filresurser kan monteras i Windows, Linux och macOS. Den här guiden vägleder dig igenom grunderna i att arbeta med Azure-filresurser med [Azure Portal](https://portal.azure.com/).
@@ -29,7 +29,7 @@ Skapa en Azure-filresurs:
 2. På sidan för lagringskontot i avsnittet **Tjänster** väljer du **Filer**.
     ![En skärmbild av avsnittet Tjänster i lagringskontot; välj Filtjänst](media/storage-how-to-use-files-portal/create-file-share-1.png)
 
-3. På menyn överst på sidan **Filtjänst** klickar du på **+ filresurs**. Sidan **Ny filresurs** rullas ned.
+3. Klicka på **fil resurs**på menyn överst på sidan **fil tjänst** . Sidan **Ny filresurs** rullas ned.
 4. I **namn** skriver du *myshare*.
 5. Klicka på **OK** för att skapa Azure-filresursen.
 

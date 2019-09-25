@@ -8,12 +8,12 @@ ms.date: 09/05/2017
 ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
-ms.openlocfilehash: e31ad78e24f329eb46cd85ba4a5962442a216779
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: c2f6847a286a9c106fc094e9f0aa315d6b1f337d
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68844839"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71257091"
 ---
 # <a name="azure-storage-metrics-in-azure-monitor"></a>Azure Storage-mått i Azure Monitor
 
@@ -25,7 +25,7 @@ Azure Monitor tillhandahåller enhetliga användar gränssnitt för övervakning
 
 Azure Monitor innehåller flera sätt att åtkomst mått. Du kan komma åt dem från [Azure Portal](https://portal.azure.com), Azure Monitors-API: er (rest och .net) och analys lösningar som Event Hubs. Mer information finns i [Azure Monitor mått](../../monitoring-and-diagnostics/monitoring-overview-metrics.md).
 
-Mått är aktiverade som standard och du kan komma åt de senaste 93 dagarna med data. Om du vill behålla data under en längre tid kan du arkivera måttdata till ett Azure Storage-konto. Detta är konfigurerat i [diagnostikinställningar](../../azure-monitor/platform/diagnostic-logs-overview.md) i Azure Monitor.
+Mått är aktiverade som standard och du kan komma åt de senaste 93 dagarna med data. Om du vill behålla data under en längre tid kan du arkivera måttdata till ett Azure Storage-konto. Detta är konfigurerat i [diagnostikinställningar](../../azure-monitor/platform/resource-logs-overview.md) i Azure Monitor.
 
 ### <a name="access-metrics-in-the-azure-portal"></a>Åtkomst mått i Azure Portal
 
@@ -306,15 +306,15 @@ Nedan visas formatet för att ange resurs-ID för var och en av lagrings tjänst
 ```
 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}/blobServices/default
 ```
-* Resurs-ID för Table service
+* Resurs-ID för Table Service
 ```
 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}/tableServices/default
 ```
-* Resurs-ID för Kötjänst
+* Resurs-ID för Queue Service
 ```
 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}/queueServices/default
 ```
-* Resurs-ID för fil tjänst
+* Resurs-ID för File Service
 ```
 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}/fileServices/default
 ```
@@ -393,13 +393,13 @@ Azure Storage stöder följande dimensioner för mått i Azure Monitor.
 | Dimensionsnamn | Beskrivning |
 | ------------------- | ----------------- |
 | **BlobType** | Typ av BLOB för BLOB-mått. De värden som stöds är **BlockBlob**, **PageBlob**och **Azure Data Lake Storage**. Lägg till BLOB ingår i BlockBlob. |
-| **BlobTier** | Azure Storage erbjuder olika åtkomst nivåer, vilket gör att du kan lagra BLOB-Datadata på det mest kostnads effektiva sättet. Läs mer i [Azure Storage BLOB-nivå](../blobs/storage-blob-storage-tiers.md). De värden som stöds är: <br/> <li>**Het**: Frekvent nivå</li> <li>Låg frekvent: Låg frekvent nivå</li> <li>**Arkiv**: Arkiv lag ring</li> <li>**Premium**: Premium-nivå för Block-Blob</li> <li>**P4/P6/P10/P15/P20/P30/P40/P50/P60**: Nivå typer för Premium Page-BLOB</li> <li>**Standard**: Nivå typ för standard sid-BLOB</li> <li>Inte i **nivå**: Nivå typ för det generella syftet v1-lagrings kontot</li> |
+| **BlobTier** | Azure Storage erbjuder olika åtkomst nivåer, vilket gör att du kan lagra BLOB-Datadata på det mest kostnads effektiva sättet. Läs mer i [Azure Storage BLOB-nivå](../blobs/storage-blob-storage-tiers.md). De värden som stöds är: <br/> <li>**Het**: Frekvent nivå</li> <li>Låg **frekvent:** Låg frekvent nivå</li> <li>**Arkiv**: Arkiv lag ring</li> <li>**Premium**: Premium-nivå för Block-Blob</li> <li>**P4/P6/P10/P15/P20/P30/P40/P50/P60**: Nivå typer för Premium Page-BLOB</li> <li>**Standard**: Nivå typ för standard sid-BLOB</li> <li>Inte i **nivå**: Nivå typ för det generella syftet v1-lagrings kontot</li> |
 | **Typ av typ** | Transaktion från primärt eller sekundärt kluster. De tillgängliga värdena är **primär** och **sekundär**. Den gäller för läsning av Geo-redundant lagring med Läs behörighet (RA-GRS) vid läsning av objekt från en sekundär klient. |
 | **ResponseType** | Typ av transaktions svar. Tillgängliga värden är: <br/><br/> <li>**ServerOtherError**: Alla andra fel på serversidan förutom de beskrivna </li> <li>**ServerBusyError**: Autentiseringsbegäran som returnerat statuskoden HTTP 503. </li> <li>**ServerTimeoutError**: Autentiseringsbegäran som tagit för lång tid och returnerat statuskoden HTTP 500. Tidsgränsen överskreds på grund av ett serverfel. </li> <li>**AuthorizationError**: Autentiseringsbegäran som misslyckats på grund av obehörig åtkomst till data eller ett autentiseringsfel. </li> <li>**NetworkError**: Autentiseringsbegäran som misslyckats på grund av nätverksfel. Inträffar vanligen när klienten stänger en anslutning för tidigt innan tidsgränsen. </li> <li>**ClientThrottlingError**: Nätverksbegränsningsfel på klientsidan. </li> <li>**ClientTimeoutError**: Autentiseringsbegäran som tagit för lång tid och returnerat statuskoden HTTP 500. Om klientens tidsgränser för nätverket eller förfrågningar är inställda på lägre värden än vad lagringstjänsten förväntar sig är det en förväntad timeout. Annars rapporteras den som ett ServerTimeoutError. </li> <li>**ClientOtherError**: Alla andra fel på klientsidan förutom de beskrivna. </li> <li>**Success**: Förfrågan klar</li> <li> **SuccessWithThrottling**: Lyckad begäran när en SMB-klient får en begränsning i de första försöken (erna) men lyckas efter återförsök.</li> |
 | **ApiName** | Åtgärdens namn. Exempel: <br/> <li>**CreateContainer**</li> <li>**DeleteBlob**</li> <li>**GetBlob**</li> För alla åtgärds namn, se [dokument](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages). |
 | **Autentisering** | Autentiseringstyp som används i transaktioner. Tillgängliga värden är: <br/> <li>**AccountKey**: Transaktionen autentiseras med lagrings konto nyckeln.</li> <li>**SAS**: Transaktionen autentiseras med signaturer för delad åtkomst.</li> <li>**OAuth**: Transaktionen autentiseras med OAuth-åtkomsttoken.</li> <li>**Anonym**: Transaktionen begärs anonymt. Den omfattar inte preflight-begäranden.</li> <li>**AnonymousPreflight**: Transaktionen är en preflight-begäran.</li> |
 
-För mått som stöder dimensioner måste du ange dimension svärdet för att se motsvarande mått värden. Om du till exempel tittar på **transaktions** värde för lyckade svar måste du filtrera **ResponseType** -dimensionen med lyckat **resultat**. Eller om du tittar på **BlobCount** -värdet för Block-Blob måste du filtrera **BlobType** -dimensionen med **BlockBlob**.
+För mått som stöder dimensioner måste du ange dimension svärdet för att se motsvarande mått värden. Om du till exempel tittar på **transaktions** värde för lyckade svar måste du filtrera **ResponseType** -dimensionen med **lyckat resultat**. Eller om du tittar på **BlobCount** -värdet för Block-Blob måste du filtrera **BlobType** -dimensionen med **BlockBlob**.
 
 ## <a name="service-continuity-of-legacy-metrics"></a>Tjänste kontinuitet för äldre mått
 

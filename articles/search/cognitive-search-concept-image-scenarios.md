@@ -5,17 +5,16 @@ services: search
 manager: nitinme
 author: luiscabrer
 ms.service: search
-ms.subservice: cognitive-search
 ms.workload: search
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
-ms.openlocfilehash: 84109cf04588a5de6fb3fd946a89b5dfee4baa1b
-ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
+ms.openlocfilehash: c1fd5c4e5a3ac054a85bdcc11d95bc3c338ee3c2
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70259155"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71265854"
 ---
 #  <a name="how-to-process-and-extract-information-from-images-in-cognitive-search-scenarios"></a>Så här bearbetar och extraherar du information från bilder i kognitiva Sök scenarier
 
@@ -66,7 +65,7 @@ När *imageAction* är inställt på ett annat värde än "ingen", kommer fälte
 |--------------------|-----------------------------------------|
 | data               | BASE64-kodad sträng för den normaliserade bilden i JPEG-format.   |
 | LED              | Den normaliserade bildens bredd i bild punkter. |
-| våghöjd             | Den normaliserade bildens höjd i bild punkter. |
+| Våghöjd             | Den normaliserade bildens höjd i bild punkter. |
 | originalWidth      | Bildens ursprungliga bredd före normalisering. |
 | originalHeight      | Bildens ursprungliga höjd innan normalisering. |
 | rotationFromOriginal |  Räknaren medsols rotation i grader som uppstod när den normaliserade bilden skulle skapas. Ett värde mellan 0 och 360 grader. Det här steget läser metadata från den avbildning som genereras av en kamera eller skanner. Vanligt vis en multipel av 90 grader. |

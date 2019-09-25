@@ -17,16 +17,16 @@ ms.author: ryanwi
 ms.reviewer: lenalepa, sureshja, zachowd
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 291de1fa9bbb43ff9393a3163d1cd21dd7cd1b01
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 28021c0b8512ca12ead92b0b78541fce690b1f80
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68835151"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71257922"
 ---
 # <a name="how-to-configure-an-applications-publisher-domain-preview"></a>Anvisningar: Konfigurera ett programs utgivares domän (för hands version)
 
-Ett programs utgivares domän visas för användare i [appens godkännande fråga](application-consent-experience.md) för att meddela användarna om var informationen skickas. Program med flera klienter som registreras efter den 21 maj 2019 och som inte har någon utgivar domän som inteär verifierad. Program med flera klienter är program som stöder konton utanför en enda organisations katalog. till exempel stöd för alla Azure AD-konton eller stöd för alla Azure AD-konton och personliga Microsoft-konton.
+Ett programs utgivares domän visas för användare i [appens godkännande fråga](application-consent-experience.md) för att meddela användarna om var informationen skickas. Program med flera klienter som registreras efter den 21 maj 2019 och som inte har någon utgivar domän som inte är **verifierad**. Program med flera klienter är program som stöder konton utanför en enda organisations katalog. till exempel stöd för alla Azure AD-konton eller stöd för alla Azure AD-konton och personliga Microsoft-konton.
 
 ## <a name="new-applications"></a>Nya program
 
@@ -42,11 +42,11 @@ I följande tabell sammanfattas standard beteendet för utgivar domänens värde
 | *.onmicrosoft.com | *.onmicrosoft.com |
 | -*. onmicrosoft.com<br/>– domain1.com<br/>-domain2.com (primär) | domain2.com |
 
-Om ett program från en annan klient organisation inte är inställt, eller om det är inställt på en domän som slutar på. onmicrosoft.com, visas appens medgivande-fråga i stället för utgivarens domän.
+Om ett program från en annan klient organisation inte är inställt, eller om det är inställt på en domän som slutar på. onmicrosoft.com, visas appens medgivande- **fråga i stället** för utgivarens domän.
 
 ## <a name="grandfathered-applications"></a>Grandfathered-program
 
-Om din app registrerades före den 21 maj 2019 visas inte appens medgivande om du inte har angett en Publisher-domän. Vi rekommenderar att du anger utgivarens domän värde så att användarna kan se den här informationen i appens medgivande fråga.
+Om din app registrerades före den 21 maj 2019 visas inte appens **medgivande om du** inte har angett en Publisher-domän. Vi rekommenderar att du anger utgivarens domän värde så att användarna kan se den här informationen i appens medgivande fråga.
 
 ## <a name="configure-publisher-domain-using-the-azure-portal"></a>Konfigurera Publisher-domän med hjälp av Azure Portal
 
@@ -60,9 +60,9 @@ Följ de här stegen om du vill ställa in din apps publicerings domän.
 
 1. Navigera till [Azure Active Directory > Appregistreringar](https://go.microsoft.com/fwlink/?linkid=2083908) för att söka efter och välja den app som du vill konfigurera.
 
-   När du har valt appen ser du appens översikts sida.
+   När du har valt appen ser du appens **översikts** sida.
 
-1. Välj avsnittet **anpassning** på appens översikts sida.
+1. Välj avsnittet **anpassning** på appens **översikts** sida.
 
 1. Hitta fältet för **utgivarens domän** och välj ett av följande alternativ:
 
@@ -96,6 +96,12 @@ Om din app inte är registrerad i en klient, ser du bara alternativet för att v
 ### <a name="to-select-a-verified-domain"></a>Så här väljer du en verifierad domän
 
 - Om klienten har verifierat domäner väljer du en av domänerna i list rutan **Välj en verifierad domän** .
+
+>[!Note]
+> Det förväntade Content-Type-huvudet som ska returneras är `application/json`. Du kan få ett fel meddelande som anges nedan om du använder något annat som`application/json; charset=utf-8` 
+> 
+>``` "Verification of publisher domain failed. Error getting JSON file from https:///.well-known/microsoft-identity-association. The server returned an unexpected content type header value. " ```
+>
 
 ## <a name="implications-on-the-app-consent-prompt"></a>Följder för appens medgivande
 

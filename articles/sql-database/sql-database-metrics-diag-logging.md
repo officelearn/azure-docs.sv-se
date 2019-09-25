@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 05/21/2019
-ms.openlocfilehash: d9f1afdff53ada2df7722fcfdd7014fb6c417e39
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 208ebaa2e22f4cd0ee2138f3e49f78c1e56860cf
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70135178"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71260323"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Azure SQL Database mått och diagnostikloggning
 
@@ -33,7 +33,7 @@ Enskilda databaser, databaser i pooler i elastiska pooler och instans databaser 
 Mer information om mått och logg kategorier som stöds av de olika Azure-tjänsterna finns i:
 
 - [Översikt över mått i Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md)
-- [Översikt över Azure Diagnostics-loggar](../azure-monitor/platform/diagnostic-logs-overview.md)
+- [Översikt över Azure Diagnostics-loggar](../azure-monitor/platform/resource-logs-overview.md)
 
 Den här artikeln innehåller rikt linjer för hur du aktiverar telemetri för Azure SQL-databaser, elastiska pooler och hanterade instanser. Det kan också hjälpa dig att förstå hur du konfigurerar Azure SQL-analys som ett övervaknings verktyg för att Visa telemetri för Database Diagnostics.
 
@@ -304,7 +304,7 @@ Läs om hur du [ändrar diagnostikinställningar genom att använda Azure Monito
 
 ### <a name="resource-manager-template"></a>Resource Manager-mall
 
-Läs om hur du [aktiverar diagnostikinställningar när du skapar en resurs med hjälp av en Resource Manager-mall](../azure-monitor/platform/diagnostic-logs-stream-template.md).
+Läs om hur du [aktiverar diagnostikinställningar när du skapar en resurs med hjälp av en Resource Manager-mall](../azure-monitor/platform/diagnostic-settings-template.md).
 
 ## <a name="stream-into-azure-sql-analytics"></a>Strömma till Azure SQL-analys
 
@@ -314,7 +314,7 @@ Azure SQL-analys är en moln lösning som övervakar prestanda för Azure SQL-da
 
 SQL Database mått och diagnostikloggar kan strömmas till Azure SQL-analys med hjälp av det inbyggda alternativet **Skicka till Log Analytics** på fliken diagnostikinställningar i portalen. Du kan också aktivera Log Analytics genom att använda en diagnostisk inställning via PowerShell-cmdletar, Azure CLI eller Azure Monitor REST API.
 
-### <a name="installation-overview"></a>Installations översikt
+### <a name="installation-overview"></a>Installationsöversikt
 
 Du kan övervaka en SQL Database-flotta med Azure SQL-analys. Utför följande steg:
 
@@ -444,9 +444,9 @@ Information om telemetri som är tillgängliga för alla loggar finns dokumenter
 |ResourceProvider|Namnet på resurs leverantören. Alltid UTFORSKAREN. SQL |
 |Category|Kategorins namn. Alltid ResourceUsageStats |
 |Resource|Namn på resursen |
-|Resurstyp|Namnet på resurs typen. Alltid MANAGEDINSTANCES |
+|ResourceType|Namnet på resurs typen. Alltid MANAGEDINSTANCES |
 |SubscriptionId|Prenumerations-GUID för databasen |
-|ResourceGroup|Namnet på resurs gruppen för databasen |
+|Resursgrupp|Namnet på resurs gruppen för databasen |
 |LogicalServerName_s|Namnet på den hanterade instansen |
 |ResourceId|Resurs-URI |
 |SKU_s|Produkt-SKU för hanterad instans |
@@ -470,9 +470,9 @@ Information om telemetri som är tillgängliga för alla loggar finns dokumenter
 |Category|Kategorins namn. Alltid QueryStoreRuntimeStatistics |
 |OperationName|Åtgärdens namn. Alltid QueryStoreRuntimeStatisticsEvent |
 |Resource|Namn på resursen |
-|Resurstyp|Namnet på resurs typen. Alltid SERVRAR/DATABASER |
+|ResourceType|Namnet på resurs typen. Alltid SERVRAR/DATABASER |
 |SubscriptionId|Prenumerations-GUID för databasen |
-|ResourceGroup|Namnet på resurs gruppen för databasen |
+|Resursgrupp|Namnet på resurs gruppen för databasen |
 |LogicalServerName_s|Namnet på servern för databasen |
 |ElasticPoolName_s|Namnet på den elastiska poolen för databasen, om det finns någon |
 |DatabaseName_s|Namn på databasen |
@@ -521,9 +521,9 @@ Läs mer om [körnings statistik data för Query Store](https://docs.microsoft.c
 |Category|Kategorins namn. Alltid QueryStoreWaitStatistics |
 |OperationName|Åtgärdens namn. Alltid QueryStoreWaitStatisticsEvent |
 |Resource|Namn på resursen |
-|Resurstyp|Namnet på resurs typen. Alltid SERVRAR/DATABASER |
+|ResourceType|Namnet på resurs typen. Alltid SERVRAR/DATABASER |
 |SubscriptionId|Prenumerations-GUID för databasen |
-|ResourceGroup|Namnet på resurs gruppen för databasen |
+|Resursgrupp|Namnet på resurs gruppen för databasen |
 |LogicalServerName_s|Namnet på servern för databasen |
 |ElasticPoolName_s|Namnet på den elastiska poolen för databasen, om det finns någon |
 |DatabaseName_s|Namn på databasen |
@@ -559,9 +559,9 @@ Läs mer om [väntande statistik data för Query Store](https://docs.microsoft.c
 |Category|Kategorins namn. Alltid Fel |
 |OperationName|Åtgärdens namn. Alltid ErrorEvent |
 |Resource|Namn på resursen |
-|Resurstyp|Namnet på resurs typen. Alltid SERVRAR/DATABASER |
+|ResourceType|Namnet på resurs typen. Alltid SERVRAR/DATABASER |
 |SubscriptionId|Prenumerations-GUID för databasen |
-|ResourceGroup|Namnet på resurs gruppen för databasen |
+|Resursgrupp|Namnet på resurs gruppen för databasen |
 |LogicalServerName_s|Namnet på servern för databasen |
 |ElasticPoolName_s|Namnet på den elastiska poolen för databasen, om det finns någon |
 |DatabaseName_s|Namn på databasen |
@@ -588,9 +588,9 @@ Läs mer om [SQL Server fel meddelanden](https://msdn.microsoft.com/library/cc64
 |Category|Kategorins namn. Alltid DatabaseWaitStatistics |
 |OperationName|Åtgärdens namn. Alltid DatabaseWaitStatisticsEvent |
 |Resource|Namn på resursen |
-|Resurstyp|Namnet på resurs typen. Alltid SERVRAR/DATABASER |
+|ResourceType|Namnet på resurs typen. Alltid SERVRAR/DATABASER |
 |SubscriptionId|Prenumerations-GUID för databasen |
-|ResourceGroup|Namnet på resurs gruppen för databasen |
+|Resursgrupp|Namnet på resurs gruppen för databasen |
 |LogicalServerName_s|Namnet på servern för databasen |
 |ElasticPoolName_s|Namnet på den elastiska poolen för databasen, om det finns någon |
 |DatabaseName_s|Namn på databasen |
@@ -617,9 +617,9 @@ Läs mer om [väntande statistik för databaser](https://docs.microsoft.com/sql/
 |Category|Kategorins namn. Alltid Timeouter |
 |OperationName|Åtgärdens namn. Alltid TimeoutEvent |
 |Resource|Namn på resursen |
-|Resurstyp|Namnet på resurs typen. Alltid SERVRAR/DATABASER |
+|ResourceType|Namnet på resurs typen. Alltid SERVRAR/DATABASER |
 |SubscriptionId|Prenumerations-GUID för databasen |
-|ResourceGroup|Namnet på resurs gruppen för databasen |
+|Resursgrupp|Namnet på resurs gruppen för databasen |
 |LogicalServerName_s|Namnet på servern för databasen |
 |ElasticPoolName_s|Namnet på den elastiska poolen för databasen, om det finns någon |
 |DatabaseName_s|Namn på databasen |
@@ -640,9 +640,9 @@ Läs mer om [väntande statistik för databaser](https://docs.microsoft.com/sql/
 |Category|Kategorins namn. Alltid Delar |
 |OperationName|Åtgärdens namn. Alltid BlockEvent |
 |Resource|Namn på resursen |
-|Resurstyp|Namnet på resurs typen. Alltid SERVRAR/DATABASER |
+|ResourceType|Namnet på resurs typen. Alltid SERVRAR/DATABASER |
 |SubscriptionId|Prenumerations-GUID för databasen |
-|ResourceGroup|Namnet på resurs gruppen för databasen |
+|Resursgrupp|Namnet på resurs gruppen för databasen |
 |LogicalServerName_s|Namnet på servern för databasen |
 |ElasticPoolName_s|Namnet på den elastiska poolen för databasen, om det finns någon |
 |DatabaseName_s|Namn på databasen |
@@ -664,9 +664,9 @@ Läs mer om [väntande statistik för databaser](https://docs.microsoft.com/sql/
 |Category|Kategorins namn. Alltid Dödlägen |
 |OperationName|Åtgärdens namn. Alltid DeadlockEvent |
 |Resource|Namn på resursen |
-|Resurstyp|Namnet på resurs typen. Alltid SERVRAR/DATABASER |
+|ResourceType|Namnet på resurs typen. Alltid SERVRAR/DATABASER |
 |SubscriptionId|Prenumerations-GUID för databasen |
-|ResourceGroup|Namnet på resurs gruppen för databasen |
+|Resursgrupp|Namnet på resurs gruppen för databasen |
 |LogicalServerName_s|Namnet på servern för databasen |
 |ElasticPoolName_s|Namnet på den elastiska poolen för databasen, om det finns någon |
 |DatabaseName_s|Namn på databasen |
@@ -684,9 +684,9 @@ Läs mer om [väntande statistik för databaser](https://docs.microsoft.com/sql/
 |ResourceProvider|Namnet på resurs leverantören. Alltid UTFORSKAREN. SQL |
 |Category|Kategorins namn. Alltid AutomaticTuning |
 |Resource|Namn på resursen |
-|Resurstyp|Namnet på resurs typen. Alltid SERVRAR/DATABASER |
+|ResourceType|Namnet på resurs typen. Alltid SERVRAR/DATABASER |
 |SubscriptionId|Prenumerations-GUID för databasen |
-|ResourceGroup|Namnet på resurs gruppen för databasen |
+|Resursgrupp|Namnet på resurs gruppen för databasen |
 |LogicalServerName_s|Namnet på servern för databasen |
 |LogicalDatabaseName_s|Namn på databasen |
 |ElasticPoolName_s|Namnet på den elastiska poolen för databasen, om det finns någon |
@@ -701,7 +701,7 @@ Läs mer om [väntande statistik för databaser](https://docs.microsoft.com/sql/
 |IncludedColumns_s|Inkluderade kolumner |
 |EstimatedImpact_s|Beräknad effekt av JSON för automatisk justerings rekommendation |
 |Event_s|Typ av händelse för automatisk justering |
-|Timestamp_t|Senast uppdaterad tidsstämpel |
+|Timestamp_t|Senaste uppdaterade tidsstämpel |
 
 ### <a name="intelligent-insights-dataset"></a>Intelligent Insights data uppsättning
 
@@ -712,7 +712,7 @@ Läs mer om det [intelligent Insights logg formatet](sql-database-intelligent-in
 Information om hur du aktiverar loggning och förstår de mått och logg kategorier som stöds av de olika Azure-tjänsterna finns i:
 
 - [Översikt över mått i Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md)
-- [Översikt över Azure Diagnostics-loggar](../azure-monitor/platform/diagnostic-logs-overview.md)
+- [Översikt över Azure Diagnostics-loggar](../azure-monitor/platform/resource-logs-overview.md)
 
 Läs mer om Event Hubs:
 

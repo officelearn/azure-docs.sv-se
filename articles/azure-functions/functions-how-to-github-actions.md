@@ -7,12 +7,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 09/16/2019
 ms.author: aelnably
-ms.openlocfilehash: 2d97e46578775cd0d5612fb8d94680bb5be8080a
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: 8e9e1189c3eb9de273926645ad0d4cfde5ba1c49
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71174778"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71260042"
 ---
 # <a name="continuous-delivery-by-using-github-action"></a>Kontinuerlig leverans med hjälp av GitHub-åtgärd
 
@@ -48,7 +48,7 @@ I det här exemplet ersätter du plats hållarna i resursen med ditt prenumerati
 
 ## <a name="configure-the-github-secret"></a>Konfigurera GitHub-hemligheten
 
-1. I [GitHub](https://github/com), bläddra i din lagrings plats, Välj **Inställningar** > **hemligheter** > **Lägg till en ny hemlighet**.
+1. I [GitHub](https://github.com), bläddra i din lagrings plats, Välj **Inställningar** > **hemligheter** > **Lägg till en ny hemlighet**.
 
     ![Lägg till hemlighet](media/functions-how-to-github-actions/add-secret.png)
 

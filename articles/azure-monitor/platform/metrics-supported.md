@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 05/20/2019
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: dbbe5a667b8d467b416e4a4a571d8d3599ec45b6
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.openlocfilehash: a8cffe83ec0f2cdfd2e71accfa55966e5dedcd89
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70051815"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71259144"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Mått som stöds med Azure Monitor
 
@@ -148,18 +148,18 @@ Azure Monitor tillhandahåller flera olika sätt att interagera med mått, inklu
 |totalcommandsprocessed|Totalt antal åtgärder|Count|Totalt||ShardId|
 |cachehits|Cacheträffar|Count|Totalt||ShardId|
 |cachemisses|Cachemissar|Count|Totalt||ShardId|
-|getcommands|Hämtar|Count|Totalt||ShardId|
+|getcommands|Sparas|Count|Totalt||ShardId|
 |setcommands|Uppsättningar|Count|Totalt||ShardId|
 |operationsPerSecond|Åtgärder per sekund|Count|Maximal||ShardId|
 |evictedkeys|Avlägsnade nycklar|Count|Totalt||ShardId|
 |totalkeys|Totalt antal nycklar|Count|Maximal||ShardId|
-|expiredkeys|Utgångna nycklar|Count|Totalt||ShardId|
+|expiredkeys|Förfallna nycklar|Count|Totalt||ShardId|
 |usedmemory|Använt minne|Byte|Maximal||ShardId|
 |usedmemorypercentage|Använd minnes procent|Percent|Maximal||ShardId|
 |usedmemoryRss|RSS för använt minne|Byte|Maximal||ShardId|
-|serverLoad|Serverbelastning|Percent|Maximal||ShardId|
-|cacheWrite|Cacheskrivning|BytesPerSecond|Maximal||ShardId|
-|cacheRead|Cacheläsning|BytesPerSecond|Maximal||ShardId|
+|serverLoad|Server belastning|Percent|Maximal||ShardId|
+|cacheWrite|Skrivcache|BytesPerSecond|Maximal||ShardId|
+|cacheRead|Läsning cache|BytesPerSecond|Maximal||ShardId|
 |percentProcessorTime|Processor|Percent|Maximal||ShardId|
 |cacheLatency|Mikrosekunder för cache-fördröjning (för hands version)|Count|Average||ShardId, SampleType|
 |fel|Fel|Count|Maximal||ShardId, ErrorType|
@@ -352,8 +352,8 @@ Azure Monitor tillhandahåller flera olika sätt att interagera med mått, inklu
 
 |Mått|Metrisk visningsnamn|Enhet|Sammansättningstyp:|Beskrivning|Dimensioner|
 |---|---|---|---|---|---|
-|TotalCalls|Totala anrop|Count|Totalt|Totalt antal anrop.|ApiName, OperationName, region|
-|SuccessfulCalls|Utförda anrop|Count|Totalt|Antal lyckade anrop.|ApiName, OperationName, region|
+|TotalCalls|Totalt antal anrop|Count|Totalt|Totalt antal anrop.|ApiName, OperationName, region|
+|SuccessfulCalls|Lyckade anrop|Count|Totalt|Antal lyckade anrop.|ApiName, OperationName, region|
 |TotalErrors|Totalt antal fel|Count|Totalt|Totalt antal anrop med fel svar (HTTP-svarskod 4xx eller 5xx).|ApiName, OperationName, region|
 |BlockedCalls|Blockerade anrop|Count|Totalt|Antal anrop som har överskridit frekvensen eller kvot gränsen.|ApiName, OperationName, region|
 |ServerErrors|Serverfel|Count|Totalt|Antal anrop med internt tjänst fel (HTTP-svarskod 5xx).|ApiName, OperationName, region|
@@ -363,21 +363,21 @@ Azure Monitor tillhandahåller flera olika sätt att interagera med mått, inklu
 |Svarstid|Svarstid|Millisekunder|Average|Svars tid i millisekunder.|ApiName, OperationName, region|
 |CharactersTranslated|Översatta tecken|Count|Totalt|Totalt antal tecken i begäran om inkommande text.|ApiName, OperationName, region|
 |CharactersTrained|Upptränade tecken|Count|Totalt|Totalt antal tecken som har tränats.|ApiName, OperationName, region|
-|SpeechSessionDuration|Varaktighet för talsession|Sekunder|Totalt|Total varaktighet för talläget på några sekunder.|ApiName, OperationName, region|
+|SpeechSessionDuration|Tal sessionens varaktighet|Sekunder|Totalt|Total varaktighet för talläget på några sekunder.|ApiName, OperationName, region|
 |TotalTransactions|Totalt antal transaktioner|Count|Totalt|Totalt antal transaktioner.|Inga dimensioner|
-|TotalTokenCalls|Tokenanrop totalt|Count|Totalt|Totalt antal token-anrop.|ApiName, OperationName, region|
+|TotalTokenCalls|Totalt antal token-anrop|Count|Totalt|Totalt antal token-anrop.|ApiName, OperationName, region|
 
 ## <a name="microsoftcomputevirtualmachines"></a>Microsoft.Compute/virtualMachines
 
 |Mått|Metrisk visningsnamn|Enhet|Sammansättningstyp:|Beskrivning|Dimensioner|
 |---|---|---|---|---|---|
 |Procent CPU|Procent CPU|Procent|Medel|Procentandel tilldelade beräkningsenheter som används just nu av virtuella datorer|Inga dimensioner|
-|Nätverk in|Nätverk in, fakturerbart|Byte|Totalt|Antalet fakturerbara byte som tagits emot på alla nätverks gränssnitt av den eller de virtuella datorerna (inkommande trafik)|Inga dimensioner|
-|Nätverk ut|Nätverk ut, fakturerbart|Byte|Totalt|Antalet fakturerbara byte ut i alla nätverks gränssnitt av den eller de virtuella datorerna (utgående trafik)|Inga dimensioner|
+|Nätverk in|Nätverk i fakturerbart|Byte|Totalt|Antalet fakturerbara byte som tagits emot på alla nätverks gränssnitt av den eller de virtuella datorerna (inkommande trafik)|Inga dimensioner|
+|Nätverk ut|Fakturerbart för nätverk|Byte|Totalt|Antalet fakturerbara byte ut i alla nätverks gränssnitt av den eller de virtuella datorerna (utgående trafik)|Inga dimensioner|
 |Lästa byte på disk|Lästa byte på disk|Byte|Totalt|Byte som lästs från disk under övervaknings perioden|Inga dimensioner|
 |Skrivna byte på disk|Skrivna byte på disk|Byte|Totalt|Byte som skrivits till disk under övervaknings perioden|Inga dimensioner|
-|Disk Läs åtgärder/SEK|Disk Läs åtgärder/SEK|CountPerSecond|Average|Lästa IOPS på disk|Inga dimensioner|
-|Disk skrivnings åtgärder/SEK|Disk skrivnings åtgärder/SEK|CountPerSecond|Average|Skrivna IOPS på disk|Inga dimensioner|
+|Disk Läs åtgärder/SEK|Disk Läs åtgärder/SEK|CountPerSecond|Average|Disk-Läs-IOPS|Inga dimensioner|
+|Disk skrivnings åtgärder/SEK|Disk skrivnings åtgärder/SEK|CountPerSecond|Average|Skriv IOPS för disk|Inga dimensioner|
 |Återstående CPU-krediter|Återstående CPU-krediter|Count|Average|Totalt antal krediter som är tillgängliga för burst|Inga dimensioner|
 |Förbrukade CPU-krediter|Förbrukade CPU-krediter|Count|Average|Totalt antal krediter som konsumeras av den virtuella datorn|Inga dimensioner|
 |Lästa byte per disk/SEK|Lästa byte på datadisk/SEK (inaktuellt)|CountPerSecond|Average|Byte/s lästa från en enskild disk under övervaknings perioden|SlotId|
@@ -416,12 +416,12 @@ Azure Monitor tillhandahåller flera olika sätt att interagera med mått, inklu
 |Mått|Metrisk visningsnamn|Enhet|Sammansättningstyp:|Beskrivning|Dimensioner|
 |---|---|---|---|---|---|
 |Procent CPU|Procent CPU|Procent|Medel|Procentandel tilldelade beräkningsenheter som används just nu av virtuella datorer|VMName|
-|Nätverk in|Nätverk in, fakturerbart|Byte|Totalt|Antalet fakturerbara byte som tagits emot på alla nätverks gränssnitt av den eller de virtuella datorerna (inkommande trafik)|VMName|
-|Nätverk ut|Nätverk ut, fakturerbart|Byte|Totalt|Antalet fakturerbara byte ut i alla nätverks gränssnitt av den eller de virtuella datorerna (utgående trafik)|VMName|
+|Nätverk in|Nätverk i fakturerbart|Byte|Totalt|Antalet fakturerbara byte som tagits emot på alla nätverks gränssnitt av den eller de virtuella datorerna (inkommande trafik)|VMName|
+|Nätverk ut|Fakturerbart för nätverk|Byte|Totalt|Antalet fakturerbara byte ut i alla nätverks gränssnitt av den eller de virtuella datorerna (utgående trafik)|VMName|
 |Lästa byte på disk|Lästa byte på disk|Byte|Totalt|Byte som lästs från disk under övervaknings perioden|VMName|
 |Skrivna byte på disk|Skrivna byte på disk|Byte|Totalt|Byte som skrivits till disk under övervaknings perioden|VMName|
-|Disk Läs åtgärder/SEK|Disk Läs åtgärder/SEK|CountPerSecond|Average|Lästa IOPS på disk|VMName|
-|Disk skrivnings åtgärder/SEK|Disk skrivnings åtgärder/SEK|CountPerSecond|Average|Skrivna IOPS på disk|VMName|
+|Disk Läs åtgärder/SEK|Disk Läs åtgärder/SEK|CountPerSecond|Average|Disk-Läs-IOPS|VMName|
+|Disk skrivnings åtgärder/SEK|Disk skrivnings åtgärder/SEK|CountPerSecond|Average|Skriv IOPS för disk|VMName|
 |Återstående CPU-krediter|Återstående CPU-krediter|Count|Average|Totalt antal krediter som är tillgängliga för burst|Inga dimensioner|
 |Förbrukade CPU-krediter|Förbrukade CPU-krediter|Count|Average|Totalt antal krediter som konsumeras av den virtuella datorn|Inga dimensioner|
 |Lästa byte per disk/SEK|Lästa byte på datadisk/SEK (inaktuellt)|CountPerSecond|Average|Byte/s lästa från en enskild disk under övervaknings perioden|SlotId|
@@ -531,7 +531,7 @@ Azure Monitor tillhandahåller flera olika sätt att interagera med mått, inklu
 |Enhet|Total kapacitet|Byte|Average|Total kapacitet|Inga dimensioner|
 |Availablecapacity;)|Tillgänglig kapacitet|Byte|Average|Tillgänglig kapacitet i byte under rapporterings perioden.|Inga dimensioner|
 |CloudUploadThroughput|Dataflöde för molnuppladdning|BytesPerSecond|Average|Moln överförings data flödet till Azure under rapporterings perioden.|Inga dimensioner|
-|CloudReadThroughput|Data flöde för moln hämtning|BytesPerSecond|Average|Molnet Ladda ned data flödet till Azure under rapporterings perioden.|Inga dimensioner|
+|CloudReadThroughput|Nedladdningsdataflöde från molnet|BytesPerSecond|Average|Molnet Ladda ned data flödet till Azure under rapporterings perioden.|Inga dimensioner|
 |BytesUploadedToCloud|Överförda moln byte (enhet)|Byte|Average|Det totala antalet byte som överförs till Azure från en enhet under rapporterings perioden.|Inga dimensioner|
 |HyperVVirtualProcessorUtilization|Edge Compute-procent CPU|Percent|Average|Processoranvändning i procent|InstanceName|
 |HyperVMemoryUtilization|Edge Compute-minnes användning|Percent|Average|Mängd RAM som används|InstanceName|
@@ -743,14 +743,14 @@ Azure Monitor tillhandahåller flera olika sätt att interagera med mått, inklu
 |DocumentCount|Antal dokument|Count|Totalt|Totalt antal dokument som har rapporter ATS med 5 minuters precision|Samlings namn, DatabaseName, region|
 |DocumentQuota|Dokument kvot|Byte|Totalt|Total lagrings kvot som rapporter ATS med 5 minuters precision|Samlings namn, DatabaseName, region|
 |IndexUsage|Index användning|Byte|Totalt|Total användning av index rapporterad med 5 minuters precision|Samlings namn, DatabaseName, region|
-|MetadataRequests|Begär Anden om metadata|Count|Count|Antal metadata-begäranden. Cosmos DB behåller systemets metadata-samling för varje konto, vilket gör att du kan räkna upp samlingar, databaser osv och deras konfigurationer kostnads fritt.|DatabaseName, samlings namn, region, StatusCode, |
+|MetadataRequests|Begär Anden om metadata|Count|Count|Antal metadata-begäranden. Cosmos DB behåller systemets metadata-samling för varje konto, så att du kan räkna upp samlingar, databaser osv. och deras konfigurationer kostnads fritt.|DatabaseName, samlings namn, region, StatusCode, |
 |MongoRequestCharge|Mongo begär ande avgift|Count|Totalt|Mongo enheter för förbrukad begäran|DatabaseName, samlings namn, region, CommandName, ErrorCode|
 |MongoRequests|Mongo-begäranden|Count|Count|Antal Mongo-begäranden som gjorts|DatabaseName, samlings namn, region, CommandName, ErrorCode|
 |ProvisionedThroughput|Etablerat dataflöde|Count|Maximal|Etablerat dataflöde|DatabaseName, samlings namn|
 |ReplicationLatency|Fördröjning för P99-replikering|Millisekunder|Average|P99 för replikering i käll-och mål regioner för geo-aktiverat konto|SourceRegion, TargetRegion|
 |ServiceAvailability|Tjänst tillgänglighet|Percent|Average|Konto begär tillgänglighet på en timme, dag eller månads kornig het|Inga dimensioner|
 |TotalRequestUnits|Totalt antal enheter för programbegäran|Count|Totalt|Förbrukade enheter för begär Ande|DatabaseName, samlings namn, region, StatusCode, OperationType|
-|TotalRequests|Totalt antal begäranden|Count|Count|Antal begär Anden som gjorts|DatabaseName, samlings namn, region, StatusCode, OperationType|
+|TotalRequests|Totalt antal förfrågningar|Count|Count|Antal begär Anden som gjorts|DatabaseName, samlings namn, region, StatusCode, OperationType|
 
 ## <a name="microsofteventgridtopics"></a>Microsoft. EventGrid/ämnen
 
@@ -855,10 +855,10 @@ Azure Monitor tillhandahåller flera olika sätt att interagera med mått, inklu
 
 |Mått|Metrisk visningsnamn|Enhet|Sammansättningstyp:|Beskrivning|Dimensioner|
 |---|---|---|---|---|---|
-|ObservedMetricValue|Observerat mätvärde|Count|Average|Det värde som beräknas genom autoskalning vid körning|MetricTriggerSource|
-|MetricThreshold|Tröskelvärde för mått|Count|Average|Det konfigurerade tröskelvärdet för autoskalning vid autoskalning kördes.|MetricTriggerRule|
+|ObservedMetricValue|Observerat mått värde|Count|Average|Det värde som beräknas genom autoskalning vid körning|MetricTriggerSource|
+|MetricThreshold|Mätnings tröskel|Count|Average|Det konfigurerade tröskelvärdet för autoskalning vid autoskalning kördes.|MetricTriggerRule|
 |ObservedCapacity|Observerad kapacitet|Count|Average|Kapaciteten som rapporteras till autoskalning när den kördes.|Inga dimensioner|
-|ScaleActionsInitiated|Skalningsåtgärder har initierats|Count|Totalt|Riktningen för skalnings åtgärden.|ScaleDirection|
+|ScaleActionsInitiated|Initierade skalnings åtgärder|Count|Totalt|Riktningen för skalnings åtgärden.|ScaleDirection|
 
 ## <a name="microsoftinsightscomponents"></a>Microsoft. Insights/komponenter
 
@@ -867,7 +867,7 @@ Azure Monitor tillhandahåller flera olika sätt att interagera med mått, inklu
 |Mått|Metrisk visningsnamn|Enhet|Sammansättningstyp:|Beskrivning|Dimensioner|
 |---|---|---|---|---|---|
 |availabilityResults/availabilityPercentage|Tillgänglighet|Procent|Average|Procent slutförda tillgänglighets test har slutförts|availabilityResult/namn, availabilityResult/plats|
-|availabilityResults/antal|Tillgänglighetstester|Count|Count|Antal tillgänglighets test|availabilityResult/namn, availabilityResult/plats, availabilityResult/lyckad|
+|availabilityResults/antal|Tillgänglighetstester|Count|Count|Antal tillgänglighetstester|availabilityResult/namn, availabilityResult/plats, availabilityResult/lyckad|
 |availabilityResults/varaktighet|Varaktighet för tillgänglighetstest|Millisekunder|Average|Varaktighet för tillgänglighetstest|availabilityResult/namn, availabilityResult/plats, availabilityResult/lyckad|
 |browserTimings/networkDuration|Nätverksanslutningstid för sidhämtning|Millisekunder|Average|Tid mellan användar förfrågan och nätverks anslutning. Inkluderar DNS-sökning och transport anslutning.|Inga dimensioner|
 |browserTimings/processingDuration|Klientbehandlingstid|Millisekunder|Average|Tiden mellan att ta emot sista byten i ett dokument tills DOM har lästs in. Asynkrona begär Anden kan fortfarande bearbetas.|Inga dimensioner|
@@ -875,8 +875,8 @@ Azure Monitor tillhandahåller flera olika sätt att interagera med mått, inklu
 |browserTimings/sendDuration|Tid för att skicka förfrågan|Millisekunder|Average|Tiden mellan nätverks anslutning och mottagande av den första byten.|Inga dimensioner|
 |browserTimings/totalDuration|Sidhämtningstid för webbläsare|Millisekunder|Average|Tid från användar förfrågan tills DOM, formatmallar, skript och bilder har lästs in.|Inga dimensioner|
 |beroenden/antal|Beroendeanrop|Count|Count|Antal anrop gjorda av programmet till externa resurser.|beroende/typ, beroende/performanceBucket, beroende/lyckades, åtgärd/syntetisk, Cloud/roleInstance, Cloud/roleName|
-|beroenden/varaktighet|Beroendevaraktighet|Millisekunder|Average|Varaktigheten för anrop gjorda av programmet till externa resurser.|beroende/typ, beroende/performanceBucket, beroende/lyckades, åtgärd/syntetisk, Cloud/roleInstance, Cloud/roleName|
-|beroenden/misslyckades|Beroende anrops problem|Count|Count|Antal misslyckade beroende anrop gjorda av programmet till externa resurser.|beroende/typ, beroende/performanceBucket, åtgärd/syntetisk, Cloud/roleInstance, Cloud/roleName|
+|beroenden/varaktighet|Varaktighet för beroende|Millisekunder|Average|Varaktigheten för anrop gjorda av programmet till externa resurser.|beroende/typ, beroende/performanceBucket, beroende/lyckades, åtgärd/syntetisk, Cloud/roleInstance, Cloud/roleName|
+|beroenden/misslyckades|Fel vid beroendeanrop|Count|Count|Antal misslyckade beroende anrop gjorda av programmet till externa resurser.|beroende/typ, beroende/performanceBucket, åtgärd/syntetisk, Cloud/roleInstance, Cloud/roleName|
 |pageViews/antal|Sidvisning|Count|Count|Antal sid visningar.|åtgärd/syntetisk|
 |pageViews/varaktighet|Inläsningstid för sidvisning|Millisekunder|Average|Inläsningstid för sidvisning|åtgärd/syntetisk|
 |performanceCounters/requestExecutionTime|Körningstid för HTTP-begäranden|Millisekunder|Average|Körnings tid för den senaste begäran.|Cloud/roleInstance|
@@ -891,7 +891,7 @@ Azure Monitor tillhandahåller flera olika sätt att interagera med mått, inklu
 |begär Anden/varaktighet|Serversvarstid|Millisekunder|Average|Tiden mellan att ta emot en HTTP-förfrågan och avsluta sändningen av svaret.|Request/performanceBucket, Request/resultCode, operation/syntetisk, Cloud/roleInstance, Request/lyckades, Cloud/roleName|
 |begär Anden/antal|Serverbegäranden|Count|Count|Antal slutförda HTTP-förfrågningar.|Request/performanceBucket, Request/resultCode, operation/syntetisk, Cloud/roleInstance, Request/lyckades, Cloud/roleName|
 |begär Anden/misslyckade|Misslyckade förfrågningar|Count|Count|Antal HTTP-begäranden som marker ATS som misslyckade. I de flesta fall är dessa förfrågningar med svars kod > = 400 och inte lika med 401.|Request/performanceBucket, Request/resultCode, operation/syntetisk, Cloud/roleInstance, Cloud/roleName|
-|begär Anden/pris|Server begär ande frekvens|CountPerSecond|Average|Antal server begär Anden per sekund|Request/performanceBucket, Request/resultCode, operation/syntetisk, Cloud/roleInstance, Request/lyckades, Cloud/roleName|
+|begär Anden/pris|Hastighet för serverförfrågningar|CountPerSecond|Average|Antal server begär Anden per sekund|Request/performanceBucket, Request/resultCode, operation/syntetisk, Cloud/roleInstance, Request/lyckades, Cloud/roleName|
 |undantag/antal|Undantag|Count|Count|Sammanlagt antal undantag som inte har fångats.|Cloud/roleName, Cloud/roleInstance, Client/Type|
 |undantag/webbläsare|Webbläsarundantag|Count|Count|Antal ej fångade undantag som har utlösts i webbläsaren.|Inga dimensioner|
 |undantag/Server|Serverundantag|Count|Count|Antal ej fångade undantag som har utlösts i serverprogrammet.|Cloud/roleName, Cloud/roleInstance|
@@ -938,30 +938,30 @@ Azure Monitor tillhandahåller flera olika sätt att interagera med mått, inklu
 |RunsSucceeded|Lyckade körningar|Count|Totalt|Antal slutförda arbets flödes körningar.|Inga dimensioner|
 |RunsFailed|Misslyckade körningar|Count|Totalt|Antal misslyckade arbets flödes körningar.|Inga dimensioner|
 |RunsCancelled|Körningarna har avbrutits|Count|Totalt|Antal avbrutna arbets flödes körningar.|Inga dimensioner|
-|RunLatency|Svarstid för körning|Sekunder|Average|Svars tiden för slutförda arbets flödes körningar.|Inga dimensioner|
-|RunSuccessLatency|Svarstid för lyckad körning|Sekunder|Average|Svars tiden för slutfört arbets flöde körs.|Inga dimensioner|
+|RunLatency|Körnings fördröjning|Sekunder|Average|Svars tiden för slutförda arbets flödes körningar.|Inga dimensioner|
+|RunSuccessLatency|Kör svars tid|Sekunder|Average|Svars tiden för slutfört arbets flöde körs.|Inga dimensioner|
 |RunThrottledEvents|Kör begränsade händelser|Count|Totalt|Antal arbets flödes åtgärder eller utlösa begränsade händelser.|Inga dimensioner|
-|RunFailurePercentage|Kör felprocent|Percent|Totalt|Procent andel av arbets flödes körningen misslyckades.|Inga dimensioner|
+|RunFailurePercentage|Procent körnings avbrott|Percent|Totalt|Procent andel av arbets flödes körningen misslyckades.|Inga dimensioner|
 |ActionsStarted|Startade åtgärder |Count|Totalt|Antal startade arbets flödes åtgärder.|Inga dimensioner|
 |ActionsCompleted|Slutförda åtgärder |Count|Totalt|Antal slutförda arbets flödes åtgärder.|Inga dimensioner|
-|ActionsSucceeded|Lyckade åtgärder |Count|Totalt|Antal slutförda arbets flödes åtgärder.|Inga dimensioner|
+|ActionsSucceeded|Genomförda åtgärder |Count|Totalt|Antal slutförda arbets flödes åtgärder.|Inga dimensioner|
 |ActionsFailed|Misslyckade åtgärder|Count|Totalt|Antalet misslyckade arbets flödes åtgärder.|Inga dimensioner|
-|ActionsSkipped|Överhoppade åtgärder |Count|Totalt|Antal överhoppade arbets flödes åtgärder.|Inga dimensioner|
-|ActionLatency|Svarstid för åtgärd |Sekunder|Average|Svars tid för slutförda arbets flödes åtgärder.|Inga dimensioner|
-|ActionSuccessLatency|Svarstid för lyckad åtgärd |Sekunder|Average|Svars tid för slutförda arbets flödes åtgärder.|Inga dimensioner|
-|ActionThrottledEvents|Begränsade händelser för åtgärder|Count|Totalt|Antal begränsade händelser för arbets flödes åtgärd..|Inga dimensioner|
+|ActionsSkipped|Åtgärder hoppades över |Count|Totalt|Antal överhoppade arbets flödes åtgärder.|Inga dimensioner|
+|ActionLatency|Åtgärds svars tid |Sekunder|Average|Svars tid för slutförda arbets flödes åtgärder.|Inga dimensioner|
+|ActionSuccessLatency|Svars tid för åtgärd |Sekunder|Average|Svars tid för slutförda arbets flödes åtgärder.|Inga dimensioner|
+|ActionThrottledEvents|Åtgärds begränsade händelser|Count|Totalt|Antal begränsade händelser för arbets flödes åtgärd..|Inga dimensioner|
 |TriggersStarted|Startade utlösare |Count|Totalt|Antal startade arbets flödes utlösare.|Inga dimensioner|
 |TriggersCompleted|Slutförda utlösare |Count|Totalt|Antal slutförda arbets flödes utlösare.|Inga dimensioner|
 |TriggersSucceeded|Lyckade utlösare |Count|Totalt|Antal slutförda arbets flödes utlösare.|Inga dimensioner|
 |TriggersFailed|Misslyckade utlösare |Count|Totalt|Antalet misslyckade arbets flödes utlösare.|Inga dimensioner|
 |TriggersSkipped|Ignorerade utlösare|Count|Totalt|Antal överhoppade arbets flödes utlösare.|Inga dimensioner|
-|TriggersFired|Aktiverade utlösare |Count|Totalt|Antal utlösta arbets flödes utlösare.|Inga dimensioner|
-|TriggerLatency|Latensutlösare |Sekunder|Average|Latens för slutförda arbets flödes utlösare.|Inga dimensioner|
-|TriggerFireLatency|Brandlatensutlösare |Sekunder|Average|Fördröjning för utlösta arbets flödes utlösare.|Inga dimensioner|
-|TriggerSuccessLatency|Framgångslatensutlösare |Sekunder|Average|Svars tid för lyckade arbets flödes utlösare.|Inga dimensioner|
-|TriggerThrottledEvents|Utlösare för begränsade händelser|Count|Totalt|Antal begränsade händelser för arbets flödes utlösare.|Inga dimensioner|
-|BillableActionExecutions|Fakturerbara åtgärdskörningar|Count|Totalt|Antal körningar av arbets flödes åtgärder som faktureras.|Inga dimensioner|
-|BillableTriggerExecutions|Fakturerbara utlösarkörningar|Count|Totalt|Antal körningar av arbets flödes utlösare som faktureras.|Inga dimensioner|
+|TriggersFired|Utlöst utlösare |Count|Totalt|Antal utlösta arbets flödes utlösare.|Inga dimensioner|
+|TriggerLatency|Utlös fördröjning |Sekunder|Average|Latens för slutförda arbets flödes utlösare.|Inga dimensioner|
+|TriggerFireLatency|Utlös brand fördröjning |Sekunder|Average|Fördröjning för utlösta arbets flödes utlösare.|Inga dimensioner|
+|TriggerSuccessLatency|Utlös svars tid för lyckade |Sekunder|Average|Svars tid för lyckade arbets flödes utlösare.|Inga dimensioner|
+|TriggerThrottledEvents|Utlös begränsade händelser|Count|Totalt|Antal begränsade händelser för arbets flödes utlösare.|Inga dimensioner|
+|BillableActionExecutions|Fakturerbara åtgärds körningar|Count|Totalt|Antal körningar av arbets flödes åtgärder som faktureras.|Inga dimensioner|
+|BillableTriggerExecutions|Fakturerbara Utlösar-körningar|Count|Totalt|Antal körningar av arbets flödes utlösare som faktureras.|Inga dimensioner|
 |TotalBillableExecutions|Totalt antal fakturerbara körningar|Count|Totalt|Antal arbets flödes körningar som faktureras.|Inga dimensioner|
 |BillingUsageNativeOperation|Fakturerings användning för intern åtgärds körningar|Count|Totalt|Antal körningar av interna åtgärder som debiteras.|Inga dimensioner|
 |BillingUsageStandardConnector|Fakturerings användning för standard kopplings körningar|Count|Totalt|Antal standard kopplings körningar som faktureras.|Inga dimensioner|
@@ -979,29 +979,29 @@ Azure Monitor tillhandahåller flera olika sätt att interagera med mått, inklu
 |RunsSucceeded|Lyckade körningar|Count|Totalt|Antal slutförda arbets flödes körningar.|Inga dimensioner|
 |RunsFailed|Misslyckade körningar|Count|Totalt|Antal misslyckade arbets flödes körningar.|Inga dimensioner|
 |RunsCancelled|Körningarna har avbrutits|Count|Totalt|Antal avbrutna arbets flödes körningar.|Inga dimensioner|
-|RunLatency|Svarstid för körning|Sekunder|Average|Svars tiden för slutförda arbets flödes körningar.|Inga dimensioner|
-|RunSuccessLatency|Svarstid för lyckad körning|Sekunder|Average|Svars tiden för slutfört arbets flöde körs.|Inga dimensioner|
+|RunLatency|Körnings fördröjning|Sekunder|Average|Svars tiden för slutförda arbets flödes körningar.|Inga dimensioner|
+|RunSuccessLatency|Kör svars tid|Sekunder|Average|Svars tiden för slutfört arbets flöde körs.|Inga dimensioner|
 |RunThrottledEvents|Kör begränsade händelser|Count|Totalt|Antal arbets flödes åtgärder eller utlösa begränsade händelser.|Inga dimensioner|
 |RunStartThrottledEvents|Begränsade händelser vid starta körningen|Count|Totalt|Antal händelser som startar begränsning av arbets flödes körning.|Inga dimensioner|
-|RunFailurePercentage|Kör felprocent|Percent|Totalt|Procent andel av arbets flödes körningen misslyckades.|Inga dimensioner|
+|RunFailurePercentage|Procent körnings avbrott|Percent|Totalt|Procent andel av arbets flödes körningen misslyckades.|Inga dimensioner|
 |ActionsStarted|Startade åtgärder |Count|Totalt|Antal startade arbets flödes åtgärder.|Inga dimensioner|
 |ActionsCompleted|Slutförda åtgärder |Count|Totalt|Antal slutförda arbets flödes åtgärder.|Inga dimensioner|
-|ActionsSucceeded|Lyckade åtgärder |Count|Totalt|Antal slutförda arbets flödes åtgärder.|Inga dimensioner|
+|ActionsSucceeded|Genomförda åtgärder |Count|Totalt|Antal slutförda arbets flödes åtgärder.|Inga dimensioner|
 |ActionsFailed|Misslyckade åtgärder |Count|Totalt|Antalet misslyckade arbets flödes åtgärder.|Inga dimensioner|
-|ActionsSkipped|Överhoppade åtgärder |Count|Totalt|Antal överhoppade arbets flödes åtgärder.|Inga dimensioner|
-|ActionLatency|Svarstid för åtgärd |Sekunder|Average|Svars tid för slutförda arbets flödes åtgärder.|Inga dimensioner|
-|ActionSuccessLatency|Svarstid för lyckad åtgärd |Sekunder|Average|Svars tid för slutförda arbets flödes åtgärder.|Inga dimensioner|
-|ActionThrottledEvents|Begränsade händelser för åtgärder|Count|Totalt|Antal begränsade händelser för arbets flödes åtgärd..|Inga dimensioner|
+|ActionsSkipped|Åtgärder hoppades över |Count|Totalt|Antal överhoppade arbets flödes åtgärder.|Inga dimensioner|
+|ActionLatency|Åtgärds svars tid |Sekunder|Average|Svars tid för slutförda arbets flödes åtgärder.|Inga dimensioner|
+|ActionSuccessLatency|Svars tid för åtgärd |Sekunder|Average|Svars tid för slutförda arbets flödes åtgärder.|Inga dimensioner|
+|ActionThrottledEvents|Åtgärds begränsade händelser|Count|Totalt|Antal begränsade händelser för arbets flödes åtgärd..|Inga dimensioner|
 |TriggersStarted|Startade utlösare |Count|Totalt|Antal startade arbets flödes utlösare.|Inga dimensioner|
 |TriggersCompleted|Slutförda utlösare |Count|Totalt|Antal slutförda arbets flödes utlösare.|Inga dimensioner|
 |TriggersSucceeded|Lyckade utlösare |Count|Totalt|Antal slutförda arbets flödes utlösare.|Inga dimensioner|
 |TriggersFailed|Misslyckade utlösare |Count|Totalt|Antalet misslyckade arbets flödes utlösare.|Inga dimensioner|
 |TriggersSkipped|Ignorerade utlösare|Count|Totalt|Antal överhoppade arbets flödes utlösare.|Inga dimensioner|
-|TriggersFired|Aktiverade utlösare |Count|Totalt|Antal utlösta arbets flödes utlösare.|Inga dimensioner|
-|TriggerLatency|Latensutlösare |Sekunder|Average|Latens för slutförda arbets flödes utlösare.|Inga dimensioner|
-|TriggerFireLatency|Brandlatensutlösare |Sekunder|Average|Fördröjning för utlösta arbets flödes utlösare.|Inga dimensioner|
-|TriggerSuccessLatency|Framgångslatensutlösare |Sekunder|Average|Svars tid för lyckade arbets flödes utlösare.|Inga dimensioner|
-|TriggerThrottledEvents|Utlösare för begränsade händelser|Count|Totalt|Antal begränsade händelser för arbets flödes utlösare.|Inga dimensioner|
+|TriggersFired|Utlöst utlösare |Count|Totalt|Antal utlösta arbets flödes utlösare.|Inga dimensioner|
+|TriggerLatency|Utlös fördröjning |Sekunder|Average|Latens för slutförda arbets flödes utlösare.|Inga dimensioner|
+|TriggerFireLatency|Utlös brand fördröjning |Sekunder|Average|Fördröjning för utlösta arbets flödes utlösare.|Inga dimensioner|
+|TriggerSuccessLatency|Utlös svars tid för lyckade |Sekunder|Average|Svars tid för lyckade arbets flödes utlösare.|Inga dimensioner|
+|TriggerThrottledEvents|Utlös begränsade händelser|Count|Totalt|Antal begränsade händelser för arbets flödes utlösare.|Inga dimensioner|
 |IntegrationServiceEnvironmentWorkflowProcessorUsage|Användning av arbets flödes processor för Integration Service Environment|Percent|Average|Användning av arbets flödes processor för integrerings tjänst miljö.|Inga dimensioner|
 |IntegrationServiceEnvironmentWorkflowMemoryUsage|Minnes användning för arbets flöde för Integration Service Environment|Percent|Average|Arbets flödets minnes användning för integrerings tjänst miljön.|Inga dimensioner|
 |IntegrationServiceEnvironmentConnectorProcessorUsage|Anslutnings processor användning för Integration Service Environment|Percent|Average|Anslutnings processor användning för integrerings tjänst miljön.|Inga dimensioner|
@@ -1039,16 +1039,16 @@ Azure Monitor tillhandahåller flera olika sätt att interagera med mått, inklu
 |IoBytesPerTotalOps|IO-byte per op för alla åtgärder|byte/op|Average|Summan av alla in-/ut-byte-åtgärder|Inga dimensioner|
 |IoBytesPerWriteOps|IO-byte per Skriv åtgärd|byte/op|Average|Antal in-/ut-byte per Skriv åtgärd|Inga dimensioner|
 |OtherIops|Andra IOPS|åtgärder per sekund|Average|Annan in/ut-åtgärd per sekund|Inga dimensioner|
-|OtherThroughput|Annat data flöde|S|Average|Annat data flöde (som inte läses eller skrivs) i megabyte per sekund|Inga dimensioner|
+|OtherThroughput|Annat data flöde|Mbit/s|Average|Annat data flöde (som inte läses eller skrivs) i megabyte per sekund|Inga dimensioner|
 |ReadIops|Läs IOPS|åtgärder per sekund|Average|Läs-/ut-åtgärder per sekund|Inga dimensioner|
-|ReadThroughput|Läs data flöde|S|Average|Läs data flöde i megabyte per sekund|Inga dimensioner|
+|ReadThroughput|Läs data flöde|Mbit/s|Average|Läs data flöde i megabyte per sekund|Inga dimensioner|
 |TotalIops|Totalt antal IOPS|åtgärder per sekund|Average|Summan av alla in/ut-åtgärder per sekund|Inga dimensioner|
-|TotalThroughput|Totalt dataflöde|S|Average|Summan av alla data flöde i megabyte per sekund|Inga dimensioner|
+|TotalThroughput|Totalt dataflöde|Mbit/s|Average|Summan av alla data flöde i megabyte per sekund|Inga dimensioner|
 |VolumeAllocatedSize|Allokerad volym storlek|byte|Average|Allokerad storlek på volymen (inte de faktiska använda bytena)|Inga dimensioner|
 |VolumeLogicalSize|Logisk volym storlek|byte|Average|Den logiska storleken på volymen (använda byte)|Inga dimensioner|
 |VolumeSnapshotSize|Storlek på volym ögonblicks bild|byte|Average|Storlek på alla ögonblicks bilder i volymen|Inga dimensioner|
 |WriteIops|Skriv IOPS|åtgärder per sekund|Average|Skriv in/ut-åtgärder per sekund|Inga dimensioner|
-|WriteThroughput|Skriv data flöde|S|Average|Skriv data flöde i megabyte per sekund|Inga dimensioner|
+|WriteThroughput|Skriv data flöde|Mbit/s|Average|Skriv data flöde i megabyte per sekund|Inga dimensioner|
 
 ## <a name="microsoftnetappnetappaccountscapacitypools"></a>Microsoft.NetApp/netAppAccounts/capacityPools
 
@@ -1133,8 +1133,8 @@ Azure Monitor tillhandahåller flera olika sätt att interagera med mått, inklu
 |---|---|---|---|---|---|
 |Dataflöde|Dataflöde|BytesPerSecond|Totalt|Antal byte per sekund som Application Gateway har betjänat|Inga dimensioner|
 |UnhealthyHostCount|Antal felaktiga värdar|Count|Average|Antal värdar för skadade Server delar|BackendSettingsPool|
-|HealthyHostCount|Antal felfria värdar|Count|Average|Antal felfria Server dels värdar|BackendSettingsPool|
-|TotalRequests|Totalt antal begäranden|Count|Totalt|Antal lyckade förfrågningar som Application Gateway har betjänat|BackendSettingsPool|
+|healthyHostCount|Antal felfria värdar|Count|Average|Antal felfria Server dels värdar|BackendSettingsPool|
+|TotalRequests|Totalt antal förfrågningar|Count|Totalt|Antal lyckade förfrågningar som Application Gateway har betjänat|BackendSettingsPool|
 |FailedRequests|Misslyckade förfrågningar|Count|Totalt|Antal misslyckade förfrågningar som Application Gateway har betjänat|BackendSettingsPool|
 |ResponseStatus|Svars status|Count|Totalt|Http-svarets status returnerades av Application Gateway|HttpStatusGroup|
 |CurrentConnections|Aktuella anslutningar|Count|Totalt|Antal aktuella anslutningar som upprättats med Application Gateway|Inga dimensioner|
@@ -1207,67 +1207,67 @@ Azure Monitor tillhandahåller flera olika sätt att interagera med mått, inklu
 
 |Mått|Metrisk visningsnamn|Enhet|Sammansättningstyp:|Beskrivning|Dimensioner|
 |---|---|---|---|---|---|
-|registrering. alla|Registreringsåtgärder|Count|Totalt|Antalet lyckade registrerings åtgärder (skapar uppdateringar av frågor och borttagningar). |Inga dimensioner|
-|registration.create|Registreringsskaparåtgärder|Count|Totalt|Antalet lyckade registreringar som skapas.|Inga dimensioner|
-|registration.update|Registreringsuppdateringsåtgärder|Count|Totalt|Antalet lyckade registrerings uppdateringar.|Inga dimensioner|
-|registration.get|Registreringsläsningsåtgärder|Count|Totalt|Antalet lyckade registrerings frågor.|Inga dimensioner|
-|registration.delete|Registreringsborttagningsåtgärder|Count|Totalt|Antalet lyckade registrerings borttagningar.|Inga dimensioner|
-|inkommande|Inkommande meddelanden|Count|Totalt|Antalet lyckade sändnings-API-anrop. |Inga dimensioner|
-|incoming.scheduled|Schemalagt push-meddelande har skickats|Count|Totalt|Schemalagda push-meddelanden har avbrutits|Inga dimensioner|
+|registrering. alla|Registrerings åtgärder|Count|Totalt|Antalet lyckade registrerings åtgärder (skapar uppdateringar av frågor och borttagningar). |Inga dimensioner|
+|registration.create|Skapa åtgärder för registrering|Count|Totalt|Antalet lyckade registreringar som skapas.|Inga dimensioner|
+|registration.update|Registrera uppdaterings åtgärder|Count|Totalt|Antalet lyckade registrerings uppdateringar.|Inga dimensioner|
+|registration.get|Läs åtgärder för registrering|Count|Totalt|Antalet lyckade registrerings frågor.|Inga dimensioner|
+|registration.delete|Åtgärder för att ta bort registrering|Count|Totalt|Antalet lyckade registrerings borttagningar.|Inga dimensioner|
+|Inkommande|Inkommande meddelanden|Count|Totalt|Antalet lyckade sändnings-API-anrop. |Inga dimensioner|
+|incoming.scheduled|Schemalagda push-meddelanden har skickats|Count|Totalt|Schemalagda push-meddelanden har avbrutits|Inga dimensioner|
 |inkommande. schemalagd. Avbryt|Schemalagda push-meddelanden har avbrutits|Count|Totalt|Schemalagda push-meddelanden har avbrutits|Inga dimensioner|
-|schemalagt. väntar|Schemalagda meddelanden som väntar|Count|Totalt|Schemalagda meddelanden som väntar|Inga dimensioner|
-|installation.all|Installationshanteringsåtgärder|Count|Totalt|Installationshanteringsåtgärder|Inga dimensioner|
-|installation.get|Åtgärder för att hämta installation|Count|Totalt|Åtgärder för att hämta installation|Inga dimensioner|
-|installation.upsert|Skapa eller uppdatera installationsåtgärder|Count|Totalt|Skapa eller uppdatera installationsåtgärder|Inga dimensioner|
-|installation.patch|Åtgärder för att korrigera installation|Count|Totalt|Åtgärder för att korrigera installation|Inga dimensioner|
-|installation.delete|Åtgärder för att ta bort installation|Count|Totalt|Åtgärder för att ta bort installation|Inga dimensioner|
-|outgoing.allpns.success|Levererade meddelanden|Count|Totalt|Antalet lyckade aviseringar.|Inga dimensioner|
-|outgoing.allpns.invalidpayload|Nyttolastfel|Count|Totalt|Antal push-meddelanden som misslyckades eftersom PNS returnerade ett felaktigt nytto Last fel.|Inga dimensioner|
-|outgoing.allpns.pnserror|Externa meddelandesystemfel|Count|Totalt|Antal push-meddelanden som misslyckades på grund av ett problem med att kommunicera med PNS (exkluderar autentiseringsproblem).|Inga dimensioner|
-|outgoing.allpns.channelerror|Kanalfel|Count|Totalt|Antal push-meddelanden som inte har misslyckats på grund av att kanalen var ogiltig och som inte är associerad med rätt app-begränsning eller upphörde att gälla.|Inga dimensioner|
-|outgoing.allpns.badorexpiredchannel|Felaktig eller utgången kanal|Count|Totalt|Antal push-meddelanden som misslyckades eftersom kanal/token/registrationId i registreringen har upphört att gälla eller är ogiltiga.|Inga dimensioner|
-|utgående. WNS. lyckades|WNS – lyckade meddelanden|Count|Totalt|Antalet lyckade aviseringar.|Inga dimensioner|
+|schemalagt. väntar|Väntande schemalagda meddelanden|Count|Totalt|Väntande schemalagda meddelanden|Inga dimensioner|
+|installation.all|Installations hanterings åtgärder|Count|Totalt|Installations hanterings åtgärder|Inga dimensioner|
+|installation.get|Hämta installations åtgärder|Count|Totalt|Hämta installations åtgärder|Inga dimensioner|
+|installation.upsert|Skapa eller uppdatera installations åtgärder|Count|Totalt|Skapa eller uppdatera installations åtgärder|Inga dimensioner|
+|installation.patch|Installation av korrigerings åtgärder|Count|Totalt|Installation av korrigerings åtgärder|Inga dimensioner|
+|installation.delete|Ta bort installations åtgärder|Count|Totalt|Ta bort installations åtgärder|Inga dimensioner|
+|outgoing.allpns.success|Lyckade aviseringar|Count|Totalt|Antalet lyckade aviseringar.|Inga dimensioner|
+|outgoing.allpns.invalidpayload|Nytto Last fel|Count|Totalt|Antal push-meddelanden som misslyckades eftersom PNS returnerade ett felaktigt nytto Last fel.|Inga dimensioner|
+|outgoing.allpns.pnserror|Fel i externt meddelande system|Count|Totalt|Antal push-meddelanden som misslyckades på grund av ett problem med att kommunicera med PNS (exkluderar autentiseringsproblem).|Inga dimensioner|
+|outgoing.allpns.channelerror|Kanal fel|Count|Totalt|Antal push-meddelanden som inte har misslyckats på grund av att kanalen var ogiltig och som inte är associerad med rätt app-begränsning eller upphörde att gälla.|Inga dimensioner|
+|outgoing.allpns.badorexpiredchannel|Dåliga eller utgångna kanal fel|Count|Totalt|Antal push-meddelanden som misslyckades eftersom kanal/token/registrationId i registreringen har upphört att gälla eller är ogiltiga.|Inga dimensioner|
+|utgående. WNS. lyckades|WNS slutförda meddelanden|Count|Totalt|Antalet lyckade aviseringar.|Inga dimensioner|
 |outgoing.wns.invalidcredentials|WNS-auktoriseringsfel (ogiltiga autentiseringsuppgifter)|Count|Totalt|Antal push-meddelanden som misslyckades eftersom PNS inte accepterade de angivna autentiseringsuppgifterna, eller om autentiseringsuppgifterna blockeras. (Windows Live känner inte igen autentiseringsuppgifterna).|Inga dimensioner|
-|outgoing.wns.badchannel|WNS – felaktig kanal|Count|Totalt|Antal push-meddelanden som misslyckades eftersom ChannelURI i registreringen inte kändes igen (WNS status: 404 hittades inte).|Inga dimensioner|
-|outgoing.wns.expiredchannel|WNS – utgången kanal|Count|Totalt|Antal push-meddelanden som misslyckades eftersom ChannelURI har upphört att gälla (WNS-status: 410 borta).|Inga dimensioner|
-|utgående. WNS. begränsad|WNS – begränsade meddelanden|Count|Totalt|Antal push-meddelanden som misslyckades eftersom WNS begränsar den här appen (WNS status: 406 är inte acceptabelt).|Inga dimensioner|
+|outgoing.wns.badchannel|WNS felaktigt kanal fel|Count|Totalt|Antal push-meddelanden som misslyckades eftersom ChannelURI i registreringen inte kändes igen (WNS status: 404 hittades inte).|Inga dimensioner|
+|outgoing.wns.expiredchannel|WNS utgången kanal fel|Count|Totalt|Antal push-meddelanden som misslyckades eftersom ChannelURI har upphört att gälla (WNS-status: 410 borta).|Inga dimensioner|
+|utgående. WNS. begränsad|WNS-begränsade meddelanden|Count|Totalt|Antal push-meddelanden som misslyckades eftersom WNS begränsar den här appen (WNS status: 406 är inte acceptabelt).|Inga dimensioner|
 |outgoing.wns.tokenproviderunreachable|WNS-auktoriseringsfel (kan inte kontaktas)|Count|Totalt|Windows Live är inte tillgängligt.|Inga dimensioner|
 |outgoing.wns.invalidtoken|WNS-auktoriseringsfel (ogiltig token)|Count|Totalt|Den token som angetts för WNS är inte giltig (WNS-status: 401 ej behörig).|Inga dimensioner|
 |outgoing.wns.wrongtoken|WNS-auktoriseringsfel (fel token)|Count|Totalt|Den token som angetts för WNS är giltig men för ett annat program (WNS-status: 403 förbjuden). Detta kan inträffa om ChannelURI i registreringen är kopplad till en annan app. Kontrol lera att klient programmet är associerat med samma app vars autentiseringsuppgifter finns i Notification Hub.|Inga dimensioner|
-|outgoing.wns.invalidnotificationformat|WNS – ogiltigt meddelandeformat|Count|Totalt|Meddelandets format är ogiltigt (WNS-status: 400). Observera att WNS inte avvisar alla ogiltiga nytto laster.|Inga dimensioner|
-|utgående. WNS. invalidnotificationsize|WNS – ogiltig meddelandestorlek|Count|Totalt|Meddelande nytto lasten är för stor (WNS-status: 413).|Inga dimensioner|
-|outgoing.wns.channelthrottled|WNS – begränsad kanal|Count|Totalt|Meddelandet utelämnades eftersom ChannelURI i registreringen är begränsat (WNS-svars huvud: X-WNS-NotificationStatus:channelThrottled).|Inga dimensioner|
-|outgoing.wns.channeldisconnected|WNS – frånkopplad kanal|Count|Totalt|Meddelandet utelämnades eftersom ChannelURI i registreringen är begränsat (WNS-svars huvud: X-WNS-DeviceConnectionStatus: frånkopplad).|Inga dimensioner|
-|outgoing.wns.dropped|WNS – utelämnade meddelanden|Count|Totalt|Meddelandet utelämnades eftersom ChannelURI i registreringen är begränsat (X-WNS-NotificationStatus: släppt men inte X-WNS-DeviceConnectionStatus: frånkopplat).|Inga dimensioner|
+|outgoing.wns.invalidnotificationformat|WNS ogiltigt meddelande format|Count|Totalt|Meddelandets format är ogiltigt (WNS-status: 400). Observera att WNS inte avvisar alla ogiltiga nytto laster.|Inga dimensioner|
+|utgående. WNS. invalidnotificationsize|WNS ogiltig meddelande storleks fel|Count|Totalt|Meddelande nytto lasten är för stor (WNS-status: 413).|Inga dimensioner|
+|outgoing.wns.channelthrottled|WNS-kanalen är begränsad|Count|Totalt|Meddelandet utelämnades eftersom ChannelURI i registreringen är begränsat (WNS-svars huvud: X-WNS-NotificationStatus:channelThrottled).|Inga dimensioner|
+|outgoing.wns.channeldisconnected|WNS-kanalen är frånkopplad|Count|Totalt|Meddelandet utelämnades eftersom ChannelURI i registreringen är begränsat (WNS-svars huvud: X-WNS-DeviceConnectionStatus: frånkopplad).|Inga dimensioner|
+|outgoing.wns.dropped|WNS borttagna meddelanden|Count|Totalt|Meddelandet utelämnades eftersom ChannelURI i registreringen är begränsat (X-WNS-NotificationStatus: släppt men inte X-WNS-DeviceConnectionStatus: frånkopplat).|Inga dimensioner|
 |outgoing.wns.pnserror|WNS-fel|Count|Totalt|Meddelandet levererades inte på grund av fel vid kommunikation med WNS.|Inga dimensioner|
-|utgående. WNS. authenticationerror|WNS-auktoriseringsfel|Count|Totalt|Meddelandet levererades inte på grund av fel vid kommunikation med ogiltiga Windows Live-autentiseringsuppgifter eller felaktigt token.|Inga dimensioner|
-|outgoing.apns.success|APNS – lyckade meddelanden|Count|Totalt|Antalet lyckade aviseringar.|Inga dimensioner|
-|outgoing.apns.invalidcredentials|APNs-auktoriseringsfel|Count|Totalt|Antal push-meddelanden som misslyckades eftersom PNS inte accepterade de angivna autentiseringsuppgifterna, eller om autentiseringsuppgifterna blockeras.|Inga dimensioner|
-|outgoing.apns.badchannel|APNS – felaktig kanal|Count|Totalt|Antal push-meddelanden som misslyckades på grund av att token är ogiltig (APN binär protokoll status kod: 8. Status kod för APNS HTTP-protokoll: 400 med "BadDeviceToken").|Inga dimensioner|
-|outgoing.apns.expiredchannel|APNS – utgången kanal|Count|Totalt|Antalet token som ogiltig förklarades av APNS-feedback-kanalen.|Inga dimensioner|
-|outgoing.apns.invalidnotificationsize|APNS – ogiltig meddelandestorlek|Count|Totalt|Antal push-meddelanden som inte kunde utföras eftersom nytto lasten var för stor (APN Binary-protokoll status kod: 7).|Inga dimensioner|
-|outgoing.apns.pnserror|APNS-fel|Count|Totalt|Antal push-meddelanden som misslyckades på grund av fel vid kommunikation med APN.|Inga dimensioner|
-|utgående. GCM. lyckades|GCM – lyckade meddelanden|Count|Totalt|Antalet lyckade aviseringar.|Inga dimensioner|
+|utgående. WNS. authenticationerror|WNS-autentiseringsfel|Count|Totalt|Meddelandet levererades inte på grund av fel vid kommunikation med ogiltiga Windows Live-autentiseringsuppgifter eller felaktigt token.|Inga dimensioner|
+|outgoing.apns.success|APN-lyckade meddelanden|Count|Totalt|Antalet lyckade aviseringar.|Inga dimensioner|
+|outgoing.apns.invalidcredentials|APN-auktoriseringsfel|Count|Totalt|Antal push-meddelanden som misslyckades eftersom PNS inte accepterade de angivna autentiseringsuppgifterna, eller om autentiseringsuppgifterna blockeras.|Inga dimensioner|
+|outgoing.apns.badchannel|APN dåligt kanal fel|Count|Totalt|Antal push-meddelanden som misslyckades på grund av att token är ogiltig (APN binär protokoll status kod: 8. Status kod för APNS HTTP-protokoll: 400 med "BadDeviceToken").|Inga dimensioner|
+|outgoing.apns.expiredchannel|APN utgånget i kanal fel|Count|Totalt|Antalet token som ogiltig förklarades av APNS-feedback-kanalen.|Inga dimensioner|
+|outgoing.apns.invalidnotificationsize|APN ogiltigt meddelande storleks fel|Count|Totalt|Antal push-meddelanden som inte kunde utföras eftersom nytto lasten var för stor (APN Binary-protokoll status kod: 7).|Inga dimensioner|
+|outgoing.apns.pnserror|APN-fel|Count|Totalt|Antal push-meddelanden som misslyckades på grund av fel vid kommunikation med APN.|Inga dimensioner|
+|utgående. GCM. lyckades|GCM slutförda meddelanden|Count|Totalt|Antalet lyckade aviseringar.|Inga dimensioner|
 |outgoing.gcm.invalidcredentials|GCM-auktoriseringsfel (ogiltiga autentiseringsuppgifter)|Count|Totalt|Antal push-meddelanden som misslyckades eftersom PNS inte accepterade de angivna autentiseringsuppgifterna, eller om autentiseringsuppgifterna blockeras.|Inga dimensioner|
-|outgoing.gcm.badchannel|GCM – felaktig kanal|Count|Totalt|Antal push-meddelanden som misslyckades eftersom registrationId i registreringen inte kändes igen (GCM-resultat: Ogiltig registrering).|Inga dimensioner|
-|outgoing.gcm.expiredchannel|GCM – utgången kanal|Count|Totalt|Antal push-meddelanden som misslyckades på grund av att registrationId i registreringen har upphört att gälla (GCM-resultat: NotRegistered).|Inga dimensioner|
-|utgående. GCM. begränsad|GCM – begränsade meddelanden|Count|Totalt|Antal push-meddelanden som misslyckades eftersom GCM begränsade till den här appen (GCM-status kod: 501-599 eller resultat: inte tillgängligt).|Inga dimensioner|
-|outgoing.gcm.invalidnotificationformat|GCM – ogiltigt meddelandeformat|Count|Totalt|Antal push-meddelanden som misslyckades eftersom nytto lasten inte formaterades korrekt (GCM resultat: InvalidDataKey eller InvalidTtl).|Inga dimensioner|
-|utgående. GCM. invalidnotificationsize|GCM – ogiltig meddelandestorlek|Count|Totalt|Antal push-meddelanden som misslyckades eftersom nytto lasten var för stor (GCM-resultat: MessageTooBig).|Inga dimensioner|
-|outgoing.gcm.wrongchannel|GCM – fel kanal|Count|Totalt|Antal push-meddelanden som misslyckades eftersom registrationId i registreringen inte är kopplad till den aktuella appen (GCM-resultat: InvalidPackageName).|Inga dimensioner|
+|outgoing.gcm.badchannel|GCM felaktigt kanal fel|Count|Totalt|Antal push-meddelanden som misslyckades eftersom registrationId i registreringen inte kändes igen (GCM-resultat: Ogiltig registrering).|Inga dimensioner|
+|outgoing.gcm.expiredchannel|GCM utgången kanal fel|Count|Totalt|Antal push-meddelanden som misslyckades på grund av att registrationId i registreringen har upphört att gälla (GCM-resultat: NotRegistered).|Inga dimensioner|
+|utgående. GCM. begränsad|GCM-begränsade meddelanden|Count|Totalt|Antal push-meddelanden som misslyckades eftersom GCM begränsade till den här appen (GCM-status kod: 501-599 eller resultat: inte tillgängligt).|Inga dimensioner|
+|outgoing.gcm.invalidnotificationformat|GCM ogiltigt meddelande format|Count|Totalt|Antal push-meddelanden som misslyckades eftersom nytto lasten inte formaterades korrekt (GCM resultat: InvalidDataKey eller InvalidTtl).|Inga dimensioner|
+|utgående. GCM. invalidnotificationsize|GCM ogiltig meddelande storleks fel|Count|Totalt|Antal push-meddelanden som misslyckades eftersom nytto lasten var för stor (GCM-resultat: MessageTooBig).|Inga dimensioner|
+|outgoing.gcm.wrongchannel|GCM fel kanal fel|Count|Totalt|Antal push-meddelanden som misslyckades eftersom registrationId i registreringen inte är kopplad till den aktuella appen (GCM-resultat: InvalidPackageName).|Inga dimensioner|
 |outgoing.gcm.pnserror|GCM-fel|Count|Totalt|Antal push-meddelanden som misslyckades på grund av fel vid kommunikation med GCM.|Inga dimensioner|
 |utgående. GCM. authenticationerror|GCM-autentiseringsfel|Count|Totalt|Antal push-meddelanden som misslyckades eftersom PNS inte accepterade de angivna autentiseringsuppgifterna som autentiseringsuppgifterna är blockerade eller om SenderId inte har kon figurer ATS korrekt i appen (GCM-resultat: MismatchedSenderId).|Inga dimensioner|
-|outgoing.mpns.success|MPNS – lyckade meddelanden|Count|Totalt|Antalet lyckade aviseringar.|Inga dimensioner|
-|outgoing.mpns.invalidcredentials|MPNS – ogiltiga autentiseringsuppgifter|Count|Totalt|Antal push-meddelanden som misslyckades eftersom PNS inte accepterade de angivna autentiseringsuppgifterna, eller om autentiseringsuppgifterna blockeras.|Inga dimensioner|
-|outgoing.mpns.badchannel|MPNS – felaktig kanal|Count|Totalt|Antal push-meddelanden som misslyckades eftersom ChannelURI i registreringen inte kändes igen (MPNS status: 404 hittades inte).|Inga dimensioner|
-|outgoing.mpns.throttled|MPNS – begränsade meddelanden|Count|Totalt|Antal push-meddelanden som misslyckades eftersom MPNS begränsar den här appen (WNS MPNS: 406 är inte acceptabelt).|Inga dimensioner|
-|outgoing.mpns.invalidnotificationformat|MPNS – ogiltigt meddelandeformat|Count|Totalt|Antal push-meddelanden som misslyckades eftersom nytto lasten för meddelandet var för stor.|Inga dimensioner|
-|outgoing.mpns.channeldisconnected|MPNS – frånkopplad kanal|Count|Totalt|Antal push-meddelanden som misslyckades på grund av att ChannelURI i registreringen var frånkopplad (MPNS status: 412 hittades inte).|Inga dimensioner|
-|outgoing.mpns.dropped|MPNS – utelämnade meddelanden|Count|Totalt|Antal push-meddelanden som släppts av MPNS (MPNS-svars huvud: X-NotificationStatus: QueueFull eller undertryckt).|Inga dimensioner|
+|outgoing.mpns.success|MPNS slutförda meddelanden|Count|Totalt|Antalet lyckade aviseringar.|Inga dimensioner|
+|outgoing.mpns.invalidcredentials|MPNS ogiltiga autentiseringsuppgifter|Count|Totalt|Antal push-meddelanden som misslyckades eftersom PNS inte accepterade de angivna autentiseringsuppgifterna, eller om autentiseringsuppgifterna blockeras.|Inga dimensioner|
+|outgoing.mpns.badchannel|MPNS felaktigt kanal fel|Count|Totalt|Antal push-meddelanden som misslyckades eftersom ChannelURI i registreringen inte kändes igen (MPNS status: 404 hittades inte).|Inga dimensioner|
+|outgoing.mpns.throttled|MPNS-begränsade meddelanden|Count|Totalt|Antal push-meddelanden som misslyckades eftersom MPNS begränsar den här appen (WNS MPNS: 406 är inte acceptabelt).|Inga dimensioner|
+|outgoing.mpns.invalidnotificationformat|MPNS ogiltigt meddelande format|Count|Totalt|Antal push-meddelanden som misslyckades eftersom nytto lasten för meddelandet var för stor.|Inga dimensioner|
+|outgoing.mpns.channeldisconnected|MPNS-kanalen är frånkopplad|Count|Totalt|Antal push-meddelanden som misslyckades på grund av att ChannelURI i registreringen var frånkopplad (MPNS status: 412 hittades inte).|Inga dimensioner|
+|outgoing.mpns.dropped|MPNS borttagna meddelanden|Count|Totalt|Antal push-meddelanden som släppts av MPNS (MPNS-svars huvud: X-NotificationStatus: QueueFull eller undertryckt).|Inga dimensioner|
 |outgoing.mpns.pnserror|MPNS-fel|Count|Totalt|Antal push-meddelanden som misslyckades på grund av fel vid kommunikation med MPNS.|Inga dimensioner|
 |outgoing.mpns.authenticationerror|MPNS-autentiseringsfel|Count|Totalt|Antal push-meddelanden som misslyckades eftersom PNS inte accepterade de angivna autentiseringsuppgifterna, eller om autentiseringsuppgifterna blockeras.|Inga dimensioner|
 |notificationhub. push-meddelanden|Alla utgående meddelanden|Count|Totalt|Alla utgående aviseringar för Notification Hub|Inga dimensioner|
-|incoming.all.requests|Alla inkommande förfrågningar|Count|Totalt|Totalt antal inkommande begär Anden för en Notification Hub|Inga dimensioner|
+|incoming.all.requests|Alla inkommande begär Anden|Count|Totalt|Totalt antal inkommande begär Anden för en Notification Hub|Inga dimensioner|
 |incoming.all.failedrequests|Alla inkommande misslyckade förfrågningar|Count|Totalt|Totalt antal inkommande misslyckade begär Anden för en Notification Hub|Inga dimensioner|
 
 ## <a name="microsoftoperationalinsightsworkspaces"></a>Microsoft. OperationalInsights/arbets ytor
@@ -1399,8 +1399,8 @@ Azure Monitor tillhandahåller flera olika sätt att interagera med mått, inklu
 |ActiveMessages|Antal aktiva meddelanden i en kö/ett ämne. (Förhandsversion)|Count|Average|Antal aktiva meddelanden i en kö/ett ämne. (Förhandsversion)|EntityName|
 |DeadletteredMessages|Antal meddelanden om obeställbara meddelanden i en kö/ett ämne. (Förhandsversion)|Count|Average|Antal meddelanden om obeställbara meddelanden i en kö/ett ämne. (Förhandsversion)|EntityName|
 |ScheduledMessages|Antal schemalagda meddelanden i en kö/ett ämne. (Förhandsversion)|Count|Average|Antal schemalagda meddelanden i en kö/ett ämne. (Förhandsversion)|EntityName|
-|CPUXNS|Processoranvändning per namnområde|Percent|Maximal|PROCESSOR användnings mått för Service Bus Premium-namnrymd|Inga dimensioner|
-|WSXNS|Minnesstorleksanvändning per namnområde|Percent|Maximal|Minnes användnings mått för Service Bus Premium-namnrymd|Inga dimensioner|
+|CPUXNS|CPU-användning per namnrymd|Percent|Maximal|PROCESSOR användnings mått för Service Bus Premium-namnrymd|Inga dimensioner|
+|WSXNS|Minnes storleks användning per namnrymd|Percent|Maximal|Minnes användnings mått för Service Bus Premium-namnrymd|Inga dimensioner|
 
 ## <a name="microsoftservicefabricmeshapplications"></a>Microsoft.ServiceFabricMesh/applications
 
@@ -1434,17 +1434,17 @@ Azure Monitor tillhandahåller flera olika sätt att interagera med mått, inklu
 |Mått|Metrisk visningsnamn|Enhet|Sammansättningstyp:|Beskrivning|Dimensioner|
 |---|---|---|---|---|---|
 |cpu_percent|Processorprocent|Percent|Average|Processorprocent|Inga dimensioner|
-|physical_data_read_percent|Data I/O-procent|Percent|Average|Data I/O-procent|Inga dimensioner|
-|log_write_percent|Logg I/O-procent|Percent|Average|Logg IO-procent. Ej tillämpligt för data lager.|Inga dimensioner|
+|physical_data_read_percent|IO-procent för data|Percent|Average|IO-procent för data|Inga dimensioner|
+|log_write_percent|Logg-I/O-procent|Percent|Average|Logg IO-procent. Ej tillämpligt för data lager.|Inga dimensioner|
 |dtu_consumption_percent|DTU-procent|Percent|Average|DTU-procent. Gäller för DTU-baserade databaser.|Inga dimensioner|
 |lagring|Använt datautrymme|Byte|Maximal|Total databas storlek. Ej tillämpligt för data lager.|Inga dimensioner|
 |connection_successful|Lyckade anslutningar|Count|Totalt|Lyckade anslutningar|Inga dimensioner|
 |connection_failed|Misslyckade anslutningar|Count|Totalt|Misslyckade anslutningar|Inga dimensioner|
 |blocked_by_firewall|Blockerad av brand väggen|Count|Totalt|Blockerad av brand väggen|Inga dimensioner|
-|hamn|Dödlägen|Count|Totalt|Låsningar. Ej tillämpligt för data lager.|Inga dimensioner|
+|Hamn|Dödlägen|Count|Totalt|Låsningar. Ej tillämpligt för data lager.|Inga dimensioner|
 |storage_percent|Använt data utrymme i procent|Percent|Maximal|Storlek i procent för databasen. Ej tillämpligt för data lager eller storskaliga databaser.|Inga dimensioner|
 |xtp_storage_percent|Minnes intern OLTP-lagring i procent|Percent|Average|Minnes intern OLTP-lagring i procent. Ej tillämpligt för data lager.|Inga dimensioner|
-|workers_percent|Arbetarprocent|Percent|Average|Arbetare i procent. Ej tillämpligt för data lager.|Inga dimensioner|
+|workers_percent|Procent arbetare|Percent|Average|Arbetare i procent. Ej tillämpligt för data lager.|Inga dimensioner|
 |sessions_percent|Sessionsprocent|Percent|Average|Sessioner i procent. Ej tillämpligt för data lager.|Inga dimensioner|
 |dtu_limit|DTU-gräns|Count|Average|DTU-gräns. Gäller för DTU-baserade databaser.|Inga dimensioner|
 |dtu_used|Använt DTU|Count|Average|DTU används. Gäller för DTU-baserade databaser.|Inga dimensioner|
@@ -1458,7 +1458,7 @@ Azure Monitor tillhandahåller flera olika sätt att interagera med mått, inklu
 |cache_hit_percent|Procent andel cacheträffar|Percent|Maximal|Procent av cacheträffar. Gäller endast för data lager.|Inga dimensioner|
 |cache_used_percent|Procent andel som används|Percent|Maximal|Procent andel som används. Gäller endast för data lager.|Inga dimensioner|
 |local_tempdb_usage_percent|Lokal tempdb-procent|Percent|Average|Lokal tempdb-procent. Gäller endast för data lager.|Inga dimensioner|
-|app_cpu_billed|App CPU debiterad|Count|Totalt|App-CPU fakturerad. Gäller databaser utan server.|Inga dimensioner|
+|app_cpu_billed|App-CPU fakturerad|Count|Totalt|App-CPU fakturerad. Gäller databaser utan server.|Inga dimensioner|
 |app_cpu_percent|CPU-procent för app|Percent|Average|CPU-procent för app. Gäller databaser utan server.|Inga dimensioner|
 |app_memory_percent|Procent andel använt program minne|Percent|Average|Procent andel använt program minne. Gäller databaser utan server.|Inga dimensioner|
 |allocated_data_storage|Allokerat datautrymme|Byte|Average|Allokerat data utrymme. Ej tillämpligt för data lager.|Inga dimensioner|
@@ -1468,11 +1468,11 @@ Azure Monitor tillhandahåller flera olika sätt att interagera med mått, inklu
 |Mått|Metrisk visningsnamn|Enhet|Sammansättningstyp:|Beskrivning|Dimensioner|
 |---|---|---|---|---|---|
 |cpu_percent|Processorprocent|Percent|Average|Processorprocent|Inga dimensioner|
-|physical_data_read_percent|Data I/O-procent|Percent|Average|Data I/O-procent|Inga dimensioner|
-|log_write_percent|Logg I/O-procent|Percent|Average|Logg I/O-procent|Inga dimensioner|
+|physical_data_read_percent|IO-procent för data|Percent|Average|IO-procent för data|Inga dimensioner|
+|log_write_percent|Logg-I/O-procent|Percent|Average|Logg-I/O-procent|Inga dimensioner|
 |dtu_consumption_percent|DTU-procent|Percent|Average|DTU-procent. Gäller för DTU-baserade elastiska pooler.|Inga dimensioner|
 |storage_percent|Använt data utrymme i procent||Percent|Average|Lagrings procent|Inga dimensioner|
-|workers_percent|Arbetarprocent|Percent|Average|Arbetarprocent|Inga dimensioner|
+|workers_percent|Procent arbetare|Percent|Average|Procent arbetare|Inga dimensioner|
 |sessions_percent|Sessionsprocent|Percent|Average|Sessionsprocent|Inga dimensioner|
 |eDTU_limit|eDTU-gräns|Count|Average|eDTU-gräns. Gäller för DTU-baserade elastiska pooler.|Inga dimensioner|
 |storage_limit|Maximal datastorlek|Byte|Average|Lagrings gräns|Inga dimensioner|
@@ -1677,12 +1677,12 @@ Azure Monitor tillhandahåller flera olika sätt att interagera med mått, inklu
 |Http406|Http 406|Count|Totalt|Http 406|Instans|
 |Http4xx|Http 4xx|Count|Totalt|Http 4xx|Instans|
 |Http5xx|Http-serverfel|Count|Totalt|Http-serverfel|Instans|
-|MemoryWorkingSet|Arbetsminne|Byte|Average|Arbetsminne|Instans|
+|MemoryWorkingSet|Minnessidmängd|Byte|Average|Minnessidmängd|Instans|
 |AverageMemoryWorkingSet|Genomsnittligt arbetsminne|Byte|Average|Genomsnittligt arbetsminne|Instans|
 |AverageResponseTime|Genomsnittlig svarstid|Sekunder|Average|Genomsnittlig svarstid|Instans|
 |AppConnections|Anslutningar|Count|Average|Anslutningar|Instans|
-|Handtag|Antal referenser|Count|Average|Antal referenser|Instans|
-|Trådar|Antal trådar|Count|Average|Antal trådar|Instans|
+|Konsolindataobjekt|Antal referenser|Count|Average|Antal referenser|Instans|
+|Konversation|Antal trådar|Count|Average|Antal trådar|Instans|
 |PrivateBytes|Privata byte|Byte|Average|Privata byte|Instans|
 |IoReadBytesPerSecond|I/O lästa byte per sekund|BytesPerSecond|Totalt|I/O lästa byte per sekund|Instans|
 |IoWriteBytesPerSecond|I/O skrivna byte per sekund|BytesPerSecond|Totalt|I/O skrivna byte per sekund|Instans|
@@ -1705,7 +1705,7 @@ Azure Monitor tillhandahåller flera olika sätt att interagera med mått, inklu
 |BytesReceived|Data in|Byte|Totalt|Data in|Instans|
 |Bytes sent|Data ut|Byte|Totalt|Data ut|Instans|
 |Http5xx|Http-serverfel|Count|Totalt|Http-serverfel|Instans|
-|MemoryWorkingSet|Arbetsminne|Byte|Average|Arbetsminne|Instans|
+|MemoryWorkingSet|Minnessidmängd|Byte|Average|Minnessidmängd|Instans|
 |AverageMemoryWorkingSet|Genomsnittligt arbetsminne|Byte|Average|Genomsnittligt arbetsminne|Instans|
 |FunctionExecutionUnits|Funktionskörningsenheter|MB/millisekunder|Totalt|[Funktions körnings enheter](https://github.com/Azure/Azure-Functions/wiki/Consumption-Plan-Cost-Billing-FAQ#how-can-i-view-graphs-of-execution-count-and-gb-seconds)|Instans|
 |FunctionExecutionCount|Funktionen Antal körningar|Count|Totalt|Funktionen Antal körningar|Instans|
@@ -1741,14 +1741,14 @@ Azure Monitor tillhandahåller flera olika sätt att interagera med mått, inklu
 |Http406|Http 406|Count|Totalt|Http 406|Instans|
 |Http4xx|Http 4xx|Count|Totalt|Http 4xx|Instans|
 |Http5xx|Http-serverfel|Count|Totalt|Http-serverfel|Instans|
-|MemoryWorkingSet|Arbetsminne|Byte|Average|Arbetsminne|Instans|
+|MemoryWorkingSet|Minnessidmängd|Byte|Average|Minnessidmängd|Instans|
 |AverageMemoryWorkingSet|Genomsnittligt arbetsminne|Byte|Average|Genomsnittligt arbetsminne|Instans|
 |AverageResponseTime|Genomsnittlig svarstid|Sekunder|Average|Genomsnittlig svarstid|Instans|
 |FunctionExecutionUnits|Funktionskörningsenheter|Count|Totalt|Funktionskörningsenheter|Instans|
 |FunctionExecutionCount|Funktionen Antal körningar|Count|Totalt|Funktionen Antal körningar|Instans|
 |AppConnections|Anslutningar|Count|Average|Anslutningar|Instans|
-|Handtag|Antal referenser|Count|Average|Antal referenser|Instans|
-|Trådar|Antal trådar|Count|Average|Antal trådar|Instans|
+|Konsolindataobjekt|Antal referenser|Count|Average|Antal referenser|Instans|
+|Konversation|Antal trådar|Count|Average|Antal trådar|Instans|
 |PrivateBytes|Privata byte|Byte|Average|Privata byte|Instans|
 |IoReadBytesPerSecond|I/O lästa byte per sekund|BytesPerSecond|Totalt|I/O lästa byte per sekund|Instans|
 |IoWriteBytesPerSecond|I/O skrivna byte per sekund|BytesPerSecond|Totalt|I/O skrivna byte per sekund|Instans|
@@ -1804,4 +1804,4 @@ Azure Monitor tillhandahåller flera olika sätt att interagera med mått, inklu
 ## <a name="next-steps"></a>Nästa steg
 * [Läs om mått i Azure Monitor](data-platform.md)
 * [Skapa aviseringar för mått](alerts-overview.md)
-* [Exportera mått till lagring, Event Hub eller Log Analytics](diagnostic-logs-overview.md)
+* [Exportera mått till lagring, Event Hub eller Log Analytics](resource-logs-overview.md)

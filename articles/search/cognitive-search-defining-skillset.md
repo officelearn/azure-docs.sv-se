@@ -8,19 +8,18 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
-ms.subservice: cognitive-search
-ms.openlocfilehash: 457157b93e6fb6be8ed734ae6f58c3b8717fc83d
-ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
+ms.openlocfilehash: f78b8c3b9619b7eea92b6a4f04ed4f6543916efe
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70183471"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71265518"
 ---
 # <a name="how-to-create-a-skillset-in-an-enrichment-pipeline"></a>Så här skapar du en färdigheter i en anriknings pipeline
 
 Kognitiv sökning extraherar och berikar data så att de kan sökas i Azure Search. Vi anropar extraherings-och anriknings stegen *kognitiva färdigheter*, kombinerat med en *färdigheter* som refereras under indexeringen. En färdigheter kan använda [inbyggda kunskaper](cognitive-search-predefined-skills.md) eller anpassade kunskaper (se [exempel: Skapa en anpassad färdighet för kognitiv sökning](cognitive-search-create-custom-skill-example.md) för mer information).
 
-I den här artikeln får du lära dig hur du skapar en rikare pipeline för de kunskaper du vill använda. En färdigheter är kopplad till en Azure Search [](search-indexer-overview.md)-indexerare. En del av pipeline-designen, som beskrivs i den här artikeln, konstruerar själva färdigheter. 
+I den här artikeln får du lära dig hur du skapar en rikare pipeline för de kunskaper du vill använda. En färdigheter är kopplad till en Azure Search- [indexerare](search-indexer-overview.md). En del av pipeline-designen, som beskrivs i den här artikeln, konstruerar själva färdigheter. 
 
 > [!NOTE]
 > En annan del av pipeline-designen är att ange en indexerare som beskrivs i [Nästa steg](#next-step). En indexare-definition innehåller en referens till färdigheter, plus fält mappningar som används för att ansluta indata till utdata i mål indexet.
@@ -37,7 +36,7 @@ Ett rekommenderat inledande steg är att bestämma vilka data som ska extraheras
 
 Anta att du är intresse rad av att bearbeta en uppsättning ekonomiska analytikers kommentarer. För varje fil vill du extrahera företags namn och de allmänna sentiment i kommentarerna. Du kanske också vill skriva en anpassad berikare som använder Entitetssökning i Bings tjänsten för att hitta ytterligare information om företaget, till exempel vilken typ av verksamhet som företaget är förbrukat i. I princip vill du extrahera information som följande, som indexeras för varje dokument:
 
-| record-text | tillverkare | sentiment | företags beskrivningar |
+| record-text | tillverkare | Sentiment | företags beskrivningar |
 |--------|-----|-----|-----|
 |sample-record| ["Microsoft", "LinkedIn"] | 0,99 | ["Microsoft Corporation är ett amerikanskt multinationellt teknik företag...", "LinkedIn är ett verksamhets-och arbetsorienteradt socialt nätverk..."]
 
@@ -46,7 +45,7 @@ Följande diagram illustrerar en hypotetisk anriknings pipeline:
 ![En hypotetisk anriknings pipeline](media/cognitive-search-defining-skillset/sample-skillset.png "En hypotetisk anriknings pipeline")
 
 
-När du har en god uppfattning om vad du vill ha i pipelinen kan du uttrycka färdigheter som innehåller de här stegen. Funktionen färdigheter uttrycks när du laddar upp din index-definition till Azure Search. Mer information om hur du överför indexeraren finns i [dokumentationen](https://docs.microsoft.com/rest/api/searchservice/create-indexer)för indexeraren.
+När du har en god uppfattning om vad du vill ha i pipelinen kan du uttrycka färdigheter som innehåller de här stegen. Funktionen färdigheter uttrycks när du laddar upp din index-definition till Azure Search. Mer information om hur du överför indexeraren finns i [dokumentationen för indexeraren](https://docs.microsoft.com/rest/api/searchservice/create-indexer).
 
 
 I diagrammet sker steget för att *knäcka dokument* automatiskt. Azure Search vet i princip hur man öppnar välkända filer och skapar ett *innehålls* fält som innehåller den text som extraheras från varje dokument. De vita rutorna är inbyggda och de prickade Entitetssökning i Bings rutan representerar en anpassad berikare som du skapar. Som illustreras innehåller färdigheter tre kunskaper.
@@ -272,7 +271,7 @@ En kunskaps lager definition har lagts till i en färdigheter. En genom gång av
 }
 ```
 
-Du kan välja att spara de berikade dokumenten som tabeller med hierarkiska relationer bevarade eller som JSON-dokument i Blob Storage. Utdata från någon av färdigheterna i färdigheter kan användas som indata för projektionen. Om du vill projicera data i en speciell form kan den uppdaterade [formaren](cognitive-search-skill-shaper.md) -kompetensen nu modellera komplexa typer som du kan använda. 
+Du kan välja att spara de berikade dokumenten som tabeller med hierarkiska relationer bevarade eller som JSON-dokument i Blob Storage. Utdata från någon av färdigheterna i färdigheter kan användas som indata för projektionen. Om du vill projicera data i en speciell form kan den uppdaterade [formaren-kompetensen](cognitive-search-skill-shaper.md) nu modellera komplexa typer som du kan använda. 
 
 <a name="next-step"></a>
 

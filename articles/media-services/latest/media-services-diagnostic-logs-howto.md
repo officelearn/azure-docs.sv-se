@@ -1,6 +1,6 @@
 ---
-title: Övervaka medietjänster diagnostikloggar via Azure Monitor | Microsoft Docs
-description: Den här artikeln visar hur du dirigerar och Visa diagnostikloggar via Azure Monitor.
+title: Övervaka Media Services diagnostikloggar via Azure Monitor | Microsoft Docs
+description: Den här artikeln visar hur du dirigerar och visar diagnostikloggar via Azure Monitor.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -13,38 +13,38 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/08/2019
 ms.author: juliako
-ms.openlocfilehash: 233b043ffdc295fe94ed2e3ba837d4229848df22
-ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
+ms.openlocfilehash: 42724ae3619312c2cc172be0e143291cd7fa2a70
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67795846"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71261110"
 ---
-# <a name="monitor-media-services-diagnostic-logs"></a>Övervaka diagnostikloggar för Media Services
+# <a name="monitor-media-services-diagnostic-logs"></a>Övervaka Media Services diagnostikloggar
 
-[Azure Monitor](../../azure-monitor/overview.md) kan du övervaka mått och diagnostikloggar som hjälper dig att förstå hur dina program utför. Detaljerad beskrivning av den här funktionen och varför du skulle vilja använda Azure Media Services mått och diagnostik för loggar finns i [övervaka Media Services-mått och diagnostikloggar](media-services-metrics-diagnostic-logs.md).
+Med [Azure Monitor](../../azure-monitor/overview.md) kan du övervaka mått och diagnostikloggar som hjälper dig att förstå hur dina program presterar. Detaljerad beskrivning av den här funktionen och se varför du vill använda Azure Media Services mått och diagnostikloggar finns i [övervaka Media Services statistik och diagnostikloggar](media-services-metrics-diagnostic-logs.md).
 
-Den här artikeln visar hur du dirigera data till lagringskontot och sedan visa data. 
+Den här artikeln visar hur du dirigerar data till lagrings kontot och sedan visar data. 
 
 ## <a name="prerequisites"></a>Förutsättningar
 
 - [Skapa ett Media Services-konto](create-account-cli-how-to.md).
-- Granska [övervaka Media Services-mått och diagnostikloggar](media-services-metrics-diagnostic-logs.md).
+- Granska [övervaknings Media Services statistik och diagnostikloggar](media-services-metrics-diagnostic-logs.md).
 
-## <a name="route-data-to-the-storage-account-using-the-portal"></a>Dirigera data till lagringskontot med hjälp av portalen
+## <a name="route-data-to-the-storage-account-using-the-portal"></a>Dirigera data till lagrings kontot med hjälp av portalen
 
 1. Logga in på Azure Portal på https://portal.azure.com.
-1. Media Services-kontot i och klickar på **diagnostikinställningar** under **övervakaren**. Här ser du en lista över alla resurser i prenumerationen som producerar övervakningsdata via Azure Monitor. 
+1. Navigera till ditt Media Services-konto i och klicka på **diagnostikinställningar** under **övervaka**. Här ser du en lista över alla resurser i prenumerationen som producerar övervakningsdata via Azure Monitor. 
 
     ![Avsnittet diagnostikinställningar](media/media-services-diagnostic-logs/logs01.png)
 
-1. Klicka på **Lägg till diagnostikinställning**.
+1. Klicka på **Lägg till diagnostisk inställning**.
 
    En resursdiagnostikinställning är en definition av *vilka* övervakningsdata som ska dirigeras från en viss resurs och *vart* dessa övervakningsdata ska dirigeras.
 
 1. I avsnittet som visas ger du inställningen ett **namn** och kryssar i rutan för att **Arkivera till ett lagringskonto**.
 
-    Välj det lagringskonto som du vill skicka loggar och tryck på **OK**.
+    Välj det lagrings konto som du vill skicka loggar till och tryck på **OK**.
 1. Markera alla rutor under **Logg** och **Mått**. Beroende på resurstyp kanske du bara ser ett av alternativen. De här kryssrutorna styr vilka kategorier av för resurstypen tillgängliga logg- och måttdata som skickas till den valda målplatsen, i det här fallet ett lagringskonto.
 
    ![Avsnittet diagnostikinställningar](media/media-services-diagnostic-logs/logs02.png)
@@ -53,9 +53,9 @@ Den här artikeln visar hur du dirigera data till lagringskontot och sedan visa 
 
 Nu flödar övervakningsdata från resursen till lagringskontot.
 
-## <a name="route-data-to-the-storage-account-using-the-cli"></a>Dirigera data till lagringskontot med hjälp av CLI
+## <a name="route-data-to-the-storage-account-using-the-cli"></a>Dirigera data till lagrings kontot med hjälp av CLI
 
-Om du vill aktivera lagring av diagnostiska loggar i ett Lagringskonto, kör du följande `az monitor diagnostic-settings` CLI-kommando: 
+Om du vill aktivera lagring av diagnostikloggar i ett lagrings konto kör du följande `az monitor diagnostic-settings` CLI-kommando: 
 
 ```cli
 az monitor diagnostic-settings create --name <diagnostic name> \
@@ -83,7 +83,7 @@ az monitor diagnostic-settings create --name amsv3diagnostic \
     --logs '[{"category": "KeyDeliveryRequests",  "enabled": true, "retentionPolicy": {"days": 3, "enabled": true }}]'
 ```
 
-## <a name="view-data-in-the-storage-account-using-the-portal"></a>Visa data i storage-konto med hjälp av portalen
+## <a name="view-data-in-the-storage-account-using-the-portal"></a>Visa data i lagrings kontot med hjälp av portalen
 
 Om du har följt föregående steg har data börjat flöda till lagringskontot.
 
@@ -91,14 +91,14 @@ Du kan behöva vänta upp till fem minuter innan händelsen visas på lagringsko
 
 1. I portalen navigerar du till avsnittet **Lagringskonton** genom att söka i navigeringsfältet till vänster.
 1. Identifiera det lagringskonto som du skapade i föregående avsnitt och klicka på det.
-1. Klicka på **Blobar**, sedan på behållaren märkt **insights-logs-keydeliveryrequests**. Det här är den behållare som innehåller dina loggar. Övervakningsdata bryts ned i behållare efter resurs-ID, sedan efter datum och tid.
+1. Klicka på **blobbar**, sedan på behållaren med etiketten **Insights-logs-keydeliveryrequests**. Det här är den behållare som innehåller dina loggar. Övervaknings data är indelade i behållare efter resurs-ID, sedan efter datum och tid.
 1. Navigera till filen PT1H.json genom att klicka på containrarna för resurs-ID, datum och tid. Klicka på filen PT1H.json och på **Hämta**.
 
  Du kan nu visa JSON-händelsen som lagrats i lagringskontot.
 
-### <a name="examples-of-pt1hjson"></a>Exempel på PT1H.json
+### <a name="examples-of-pt1hjson"></a>Exempel på PT1H. JSON
 
-#### <a name="clear-key-delivery-log"></a>Rensa viktiga leverans-logg
+#### <a name="clear-key-delivery-log"></a>Rensa nyckel leverans logg
 
 ```json
 {
@@ -136,7 +136,7 @@ Du kan behöva vänta upp till fem minuter innan händelsen visas på lagringsko
 }
 ```
 
-#### <a name="widevine-encrypted-key-delivery-log"></a>Widevine krypterade nyckeln leverans log
+#### <a name="widevine-encrypted-key-delivery-log"></a>Widevine-krypterad nyckel leverans logg
 
 ```json
 {
@@ -176,9 +176,9 @@ Du kan behöva vänta upp till fem minuter innan händelsen visas på lagringsko
 
 ## <a name="see-also"></a>Se också
 
-* [Azure Monitor-mått](../../azure-monitor/platform/data-platform.md)
-* [Azure Monitor diagnostiska loggar](../../azure-monitor/platform/diagnostic-logs-overview.md)
-* [Så här att samla in och använda loggdata från resurserna i Azure](../../azure-monitor/platform/diagnostic-logs-overview.md)
+* [Azure Monitor mått](../../azure-monitor/platform/data-platform.md)
+* [Azure Monitor diagnostikloggar](../../azure-monitor/platform/resource-logs-overview.md)
+* [Så här samlar du in och använder loggdata från dina Azure-resurser](../../azure-monitor/platform/resource-logs-overview.md)
 
 ## <a name="next-steps"></a>Nästa steg
 

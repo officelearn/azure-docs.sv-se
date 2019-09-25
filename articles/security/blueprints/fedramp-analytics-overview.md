@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 05/02/2018
 ms.author: jomolesk
-ms.openlocfilehash: 7b07fee46bce4c7b80346eb0b4c0fccd5245d87f
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: 9850c5f064815315db6f85a931e7e175d605dcc1
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68946878"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71257594"
 ---
 # <a name="azure-security-and-compliance-blueprint-analytics-for-fedramp"></a>Azure Security and Compliance Blueprint (Handlingsplan för säkerhet och efterlevnad i Azure): Analys för FedRAMP
 
@@ -111,7 +111,7 @@ AzureDiskEncryption
 [Azure Monitor](../../azure-monitor/overview.md) genererar en all visning av övervaknings data, inklusive aktivitets loggar, Mät värden och diagnostikdata, vilket gör det möjligt för kunderna att skapa en fullständig bild av systemets hälsa.  
 [Azure Monitor loggar](../azure-security-disk-encryption-overview.md) innehåller omfattande loggning av system-och användar aktiviteter, samt system hälsan. Den samlar in och analyserar data som genererats av resurser i Azure och lokala miljöer.
 - **Aktivitets loggar**: [Aktivitets loggar](../../azure-monitor/platform/activity-logs-overview.md) ger inblick i åtgärder som utförs på resurser i en prenumeration.
-- **Diagnostikloggar**: [Diagnostikloggar](../../azure-monitor/platform/diagnostic-logs-overview.md) innehåller alla loggar som har avsänts av varje resurs. Dessa loggar omfattar Windows händelse system loggar och Azure Blob Storage, tabeller och Queue-loggar.
+- **Diagnostikloggar**: [Diagnostikloggar](../../azure-monitor/platform/resource-logs-overview.md) innehåller alla loggar som har avsänts av varje resurs. Dessa loggar omfattar Windows händelse system loggar och Azure Blob Storage, tabeller och Queue-loggar.
 - **Brand Väggs loggar**: Application Gateway innehåller fullständiga diagnostik-och åtkomst loggar. Brand Väggs loggar är tillgängliga för WAF-aktiverade Application Gateway-resurser.
 - **Logg arkivering**: Alla diagnostiska loggar skriver till ett centraliserat och krypterat Azure Storage-konto för arkivering med en definierad kvarhållningsperiod på 2 dagar. Dessa loggar ansluter till Azure Monitor loggar för bearbetning, lagring och instrument panels rapportering.
 

@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 05/02/2018
 ms.author: jomolesk
-ms.openlocfilehash: 79ed2b6e5d7bb600a79e12d19268035491f3fe08
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: 7fe5b45d7719b34fff8c09d08f510dc465f50104
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68946868"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71257409"
 ---
 # <a name="azure-security-and-compliance-blueprint-data-warehouse-for-fedramp-automation"></a>Azure Security and Compliance Blueprint (Handlingsplan för säkerhet och efterlevnad i Azure): Informations lager för automatisering av FedRAMP
 
@@ -27,7 +27,7 @@ Den här referens arkitekturen, de tillhör ande guiderna för kontroll implemen
 
 ## <a name="architecture-diagram-and-components"></a>Arkitektur diagram och-komponenter
 
-Den här lösningen tillhandahåller en referens arkitektur för data lager som implementerar ett informations lager med hög prestanda och säkra moln. Det finns två separata data nivåer i den här arkitekturen: en där data importeras, lagras och mellanlagras i en klustrad SQL-miljö och en annan för den Azure SQL Data Warehouse där data läses in med ett ETL-verktyg (t. [](https://docs.microsoft.com/azure/sql-data-warehouse/load-data-from-azure-blob-storage-using-polybase) ex. PolyBase T-SQL-frågor) för bearbetning. När data lagras i Azure SQL Data Warehouse kan analyser köras i en enorm skala.
+Den här lösningen tillhandahåller en referens arkitektur för data lager som implementerar ett informations lager med hög prestanda och säkra moln. Det finns två separata data nivåer i den här arkitekturen: en där data importeras, lagras och mellanlagras i en klustrad SQL-miljö och en annan för den Azure SQL Data Warehouse där data läses in med ett ETL-verktyg (t. ex. [PolyBase](https://docs.microsoft.com/azure/sql-data-warehouse/load-data-from-azure-blob-storage-using-polybase) T-SQL-frågor) för bearbetning. När data lagras i Azure SQL Data Warehouse kan analyser köras i en enorm skala.
 
 Microsoft Azure erbjuder en rad olika rapporterings-och analys tjänster för kunden. Den här lösningen innehåller SQL Server Reporting Services (SSRS) för snabb skapandet av rapporter från Azure SQL Data Warehouse. All SQL-trafik krypteras med SSL genom att du kan inkludera självsignerade certifikat. Som bästa praxis rekommenderar Azure användningen av en betrodd certifikat utfärdare för förbättrad säkerhet.
 
@@ -65,7 +65,7 @@ Azure SQL-Load Balancer
 
 Azure Active Directory
 
-Recovery Services valv
+Recovery Services-valv
 
 Azure Key Vault
 
@@ -100,7 +100,7 @@ Den här referens arkitekturen definierar ett privat virtuellt nätverk med adre
 
 Varje NSG: er har vissa portar och protokoll öppna så att lösningen kan fungera säkert och korrekt. Dessutom är följande konfigurationer aktiverade för varje NSG:
   - [Diagnostikloggar och händelser](https://docs.microsoft.com/azure/virtual-network/virtual-network-nsg-manage-log) är aktiverade och lagras i ett lagrings konto
-  - Azure Monitor loggar är anslutna till [NSG](https://github.com/krnese/AzureDeploy/blob/master/AzureMgmt/AzureMonitor/nsgWithDiagnostics.json) -diagnostiken
+  - Azure Monitor loggar är anslutna till [NSG-diagnostiken](https://github.com/krnese/AzureDeploy/blob/master/AzureMgmt/AzureMonitor/nsgWithDiagnostics.json)
 
 **Undernät**: Varje undernät är associerat med motsvarande NSG.
 
@@ -129,7 +129,7 @@ AzureDiskEncryption
 ### <a name="logging-and-audit"></a>Loggning och granskning
 [Azure Monitor loggar](../azure-security-disk-encryption-overview.md) innehåller omfattande loggning av system-och användar aktiviteter, samt system hälsan. Lösningen [Azure Monitor loggar](https://azure.microsoft.com/services/log-analytics/) samlar in och analyserar data som genererats av resurser i Azure och lokala miljöer.
 - **Aktivitets loggar**: [Aktivitets loggar](../../azure-monitor/platform/activity-logs-overview.md) ger inblick i åtgärder som utförs på resurser i en prenumeration.
-- **Diagnostikloggar**: [Diagnostikloggar](../../azure-monitor/platform/diagnostic-logs-overview.md) innehåller alla loggar som har avsänts av varje resurs. Dessa loggar omfattar Windows händelse system loggar och Azure Blob Storage, tabeller och Queue-loggar.
+- **Diagnostikloggar**: [Diagnostikloggar](../../azure-monitor/platform/resource-logs-overview.md) innehåller alla loggar som har avsänts av varje resurs. Dessa loggar omfattar Windows händelse system loggar och Azure Blob Storage, tabeller och Queue-loggar.
 - **Brand Väggs loggar**: Application Gateway innehåller fullständiga diagnostik-och åtkomst loggar. Brand Väggs loggar är tillgängliga för WAF-aktiverade Application Gateway-resurser.
 - **Logg arkivering**: Alla diagnostiska loggar skriver till ett centraliserat och krypterat Azure Storage-konto för arkivering med en definierad kvarhållningsperiod på 2 dagar. Dessa loggar ansluter till Azure Monitor loggar för bearbetning, lagring och instrument panels rapportering.
 

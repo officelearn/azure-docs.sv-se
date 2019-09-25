@@ -1,76 +1,76 @@
 ---
-title: Serverloggar för Azure Database for MySQL
-description: Beskriver de långsamma frågeloggarna som är tillgängliga i Azure Database för MySQL och tillgängliga parametrar för att aktivera olika loggningsnivåer.
+title: Server loggar för Azure Database for MySQL
+description: Beskriver långsamma frågemeddelanden som är tillgängliga i Azure Database for MySQL och de tillgängliga parametrarna för att aktivera olika loggnings nivåer.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 05/29/2019
-ms.openlocfilehash: 1a8956d40ef30e8d52fbdded3448019e14ab16a5
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 4d801ada8fd8a8b35c71601d3ca274f26afb24f6
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67062396"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71262282"
 ---
-# <a name="slow-query-logs-in-azure-database-for-mysql"></a>Långsam fråga loggar i Azure Database for MySQL
-Långsam frågelogg är tillgänglig för användare i Azure Database för MySQL. Åtkomst till transaktionsloggen stöds inte. Långsam frågelogg kan användas för att identifiera flaskhalsar i prestanda för felsökning.
+# <a name="slow-query-logs-in-azure-database-for-mysql"></a>Långsamma Query-loggar i Azure Database for MySQL
+I Azure Database for MySQL är den långsamma fråge loggen tillgänglig för användare. Åtkomst till transaktions loggen stöds inte. Den långsamma frågans logg kan användas för att identifiera Flask halsar i prestanda för fel sökning.
 
-Mer information om den långsam frågeloggen för MySQL finns i referenshandboken för MySQL [långsam logg frågeavsnitt](https://dev.mysql.com/doc/refman/5.7/en/slow-query-log.html).
+Mer information om den långsamma loggen MySQL finns i [avsnittet om långsam fråga](https://dev.mysql.com/doc/refman/5.7/en/slow-query-log.html)i MySQL-referensen.
 
-## <a name="access-slow-query-logs"></a>Långsamma frågeloggar för åtkomst
-Du kan visa och ladda ned Azure Database för MySQL långsamma frågeloggar med hjälp av Azure-portalen och Azure CLI.
+## <a name="access-slow-query-logs"></a>Komma åt långsamma Query-loggar
+Du kan visa och hämta Azure Database for MySQL långsamma fråge loggar med hjälp av Azure Portal och Azure CLI.
 
-Välj din Azure Database for MySQL-server i Azure-portalen. Under den **övervakning** väljer du den **serverloggar** sidan.
+Välj din Azure Database for MySQL-server i Azure-portalen. Under **övervaknings** rubriken väljer du sidan **Server loggar** .
 
-Läs mer om Azure CLI, [konfigurera och åtkomst till server-loggar med Azure CLI](howto-configure-server-logs-in-cli.md).
+Mer information om Azure CLI finns i [Konfigurera och komma åt Server loggar med Azure CLI](howto-configure-server-logs-in-cli.md).
 
-## <a name="log-retention"></a>Kvarhållning av logg
-Loggarna är tillgängliga i upp till sju dagar från de har skapats. Om den totala storleken på tillgängliga loggar överskrider 7 GB, raderas de äldsta filerna tills utrymme är tillgängligt. 
+## <a name="log-retention"></a>Logg kvarhållning
+Loggar är tillgängliga i upp till sju dagar från deras skapande. Om den totala storleken på de tillgängliga loggarna överstiger 7 GB, tas de äldsta filerna bort tills utrymmet är tillgängligt. 
 
-Loggar roteras var 24 timmar eller 7 GB, beroende på vilket som kommer först.
+Loggarna roteras var 24: e timme eller 7 GB, beroende på vilket som kommer först.
 
-## <a name="configure-slow-query-logging"></a>Konfigurera långsam frågelogg 
-Långsam frågelogg är inaktiverad som standard. Aktivera det genom att ange slow_query_log on.
+## <a name="configure-slow-query-logging"></a>Konfigurera loggning av långsam fråga 
+Som standard är den långsamma frågans logg inaktive rad. Om du vill aktivera det ställer du in slow_query_log på på.
 
 Andra parametrar som du kan justera är:
 
-- **long_query_time**: om en fråga som tar längre tid än long_query_time (i sekunder) som frågan loggas. Standardvärdet är 10 sekunder.
-- **log_slow_admin_statements**: om vidare innehåller administrativa instruktioner som ALTER_TABLE och ANALYZE_TABLE i instruktionerna som skrivs till slow_query_log.
-- **log_queries_not_using_indexes**: Anger om frågor som inte använder index loggas i slow_query_log
-- **log_throttle_queries_not_using_indexes**: Den här parametern begränsar antalet icke-index frågor som kan skrivas till långsam frågelogg. Den här parametern träder i kraft när log_queries_not_using_indexes är inställt på på.
+- **long_query_time**: om en fråga tar längre tid än long_query_time (i sekunder) som frågan loggas. Standardvärdet är 10 sekunder.
+- **log_slow_admin_statements**: om on innehåller administrativa uttryck som ALTER_TABLE och ANALYZE_TABLE i de uttryck som skrivs till slow_query_log.
+- **log_queries_not_using_indexes**: bestämmer om frågor som inte använder index ska loggas i slow_query_log
+- **log_throttle_queries_not_using_indexes**: Den här parametern begränsar antalet icke-indexfrågor som kan skrivas till den långsamma fråge loggen. Den här parametern börjar gälla när log_queries_not_using_indexes är inställt på ON.
 
-Se MySQL [långsam fråga log dokumentation](https://dev.mysql.com/doc/refman/5.7/en/slow-query-log.html) fullständiga beskrivningar av långsam logg Frågeparametrar.
+Se [logg dokumentationen för en långsam fråga](https://dev.mysql.com/doc/refman/5.7/en/slow-query-log.html) i MySQL för att få en fullständig beskrivning av logg parametrarna för långsamma frågor.
 
 ## <a name="diagnostic-logs"></a>Diagnostikloggar
-Azure Database för MySQL är integrerat med Azure Monitor-diagnostikloggar. När du har aktiverat långsamma frågeloggar på MySQL-servern, kan du låta dem som Azure Monitor-loggar, Event Hubs eller Azure Storage. Mer information om hur du aktiverar diagnostikloggar finns hur till avsnittet i den [diagnostikloggar dokumentation](../azure-monitor/platform/diagnostic-logs-overview.md).
+Azure Database for MySQL är integrerat med Azure Monitor diagnostikloggar. När du har aktiverat långsamma Query-loggar på MySQL-servern kan du välja att de ska skickas till Azure Monitor loggar, Event Hubs eller Azure Storage. Om du vill veta mer om hur du aktiverar diagnostikloggar kan du läsa avsnittet så här i [dokumentationen för diagnostikloggar](../azure-monitor/platform/resource-logs-overview.md).
 
 > [!IMPORTANT]
-> Den här diagnostiska funktionen för serverloggar är endast tillgänglig i generell användning och Minnesoptimerad [prisnivåer](concepts-pricing-tiers.md).
+> Den här Diagnostic-funktionen för Server loggar är bara tillgänglig i Generell användning och minnesoptimerade [pris nivåer](concepts-pricing-tiers.md).
 
-I följande tabell beskrivs vad som finns i varje logg. De fält som ingår och i vilken ordning som de visas kan variera beroende på utdata-metod.
+I följande tabell beskrivs vad som finns i varje logg. Beroende på utmatnings metoden kan de fält som ingår och i vilken ordning de visas variera.
 
 | **Egenskap** | **Beskrivning** |
 |---|---|
 | `TenantId` | Ditt klient-ID |
 | `SourceSystem` | `Azure` |
-| `TimeGenerated` [UTC] | Tidsstämpel när loggen registrerades i UTC |
-| `Type` | Typ av loggen. Alltid `AzureDiagnostics` |
+| `TimeGenerated`UTC | Tidstämpel när loggen registrerades i UTC |
+| `Type` | Loggens typ. Alltid `AzureDiagnostics` |
 | `SubscriptionId` | GUID för den prenumeration som servern tillhör |
-| `ResourceGroup` | Namnet på den resursgrupp som servern tillhör |
-| `ResourceProvider` | Namnet på resursprovidern. Alltid `MICROSOFT.DBFORMYSQL` |
+| `ResourceGroup` | Namnet på den resurs grupp som servern tillhör |
+| `ResourceProvider` | Namnet på resurs leverantören. Alltid `MICROSOFT.DBFORMYSQL` |
 | `ResourceType` | `Servers` |
 | `ResourceId` | Resurs-URI |
 | `Resource` | Namnet på servern |
 | `Category` | `MySqlSlowLogs` |
 | `OperationName` | `LogEvent` |
 | `Logical_server_name_s` | Namnet på servern |
-| `start_time_t` [UTC] | Tid som frågan började |
-| `query_time_s` | Total tid som frågan tog att utföra |
-| `lock_time_s` | Total tid som frågan var låst |
+| `start_time_t`UTC | Tiden då frågan började |
+| `query_time_s` | Total tid som frågan tog att köra |
+| `lock_time_s` | Total tid då frågan låstes |
 | `user_host_s` | Användarnamn |
-| `rows_sent_s` | Antalet rader som har skickats |
-| `rows_examined_s` | Antalet rader som undersöks |
+| `rows_sent_s` | Antal rader som skickats |
+| `rows_examined_s` | Antal rader som granskas |
 | `last_insert_id_s` | [last_insert_id](https://dev.mysql.com/doc/refman/8.0/en/information-functions.html#function_last-insert-id) |
 | `insert_id_s` | Infoga ID |
 | `sql_text_s` | Fullständig fråga |
@@ -79,4 +79,4 @@ I följande tabell beskrivs vad som finns i varje logg. De fält som ingår och 
 | `\_ResourceId` | Resurs-URI |
 
 ## <a name="next-steps"></a>Nästa steg
-- [Hur du konfigurerar och få åtkomst till serverloggar från Azure CLI](howto-configure-server-logs-in-cli.md).
+- [Konfigurera och få åtkomst till Server loggar från Azure CLI](howto-configure-server-logs-in-cli.md).

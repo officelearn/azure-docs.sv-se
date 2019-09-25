@@ -9,16 +9,16 @@ ms.service: application-insights
 ms.topic: conceptual
 ms.date: 04/26/2019
 ms.author: mbullwin
-ms.openlocfilehash: 4f296aae6c147b0d5209276dbd008a1207837cfd
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: f45762d5b37a006ede9aeff76e3d756c8144f5ba
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67875207"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71258579"
 ---
 # <a name="monitor-azure-app-service-performance"></a>Övervaka Azure App Service prestanda
 
-Nu är det enklare än någonsin att aktivera övervakning av .NET-och .NET Core-baserade webb program som körs på [Azure App Services](https://docs.microsoft.com/azure/app-service/) . Tidigare var du tvungen att installera ett plats tillägg manuellt, det senaste tillägget/agenten är nu inbyggt i App Service-avbildningen som standard. Den här artikeln vägleder dig genom att aktivera Application Insights övervakning och ge preliminär vägledning för automatisering av processen för storskaliga distributioner.
+Nu är det enklare än någonsin att aktivera övervakning i ASP.NET och ASP.NET Core baserade webb program som körs på [Azure App Services](https://docs.microsoft.com/azure/app-service/) . Tidigare var du tvungen att installera ett plats tillägg manuellt, det senaste tillägget/agenten är nu inbyggt i App Service-avbildningen som standard. Den här artikeln vägleder dig genom att aktivera Application Insights övervakning och ge preliminär vägledning för automatisering av processen för storskaliga distributioner.
 
 > [!NOTE]
 > Att manuellt lägga till ett Application Insights webbplats tillägg via**tillägg** för **utvecklingsverktyg** > är föråldrad. Den här metoden för tilläggs installation var beroende av manuella uppdateringar för varje ny version. Den senaste stabila versionen av tillägget är nu förinstallerad som en del av App Service avbildningen. [](https://github.com/projectkudu/kudu/wiki/Azure-Site-Extensions) Filerna finns i `d:\Program Files (x86)\SiteExtensions\ApplicationInsightsAgent` och uppdateras automatiskt med varje stabil utgåva. Om du följer agentbaserade instruktioner för att aktivera övervakning nedan tas det inaktuella tillägget bort automatiskt.
@@ -304,7 +304,7 @@ Uppgradering från version 2.8.9 sker automatiskt, utan ytterligare åtgärder. 
 
 Kontrol lera vilken version av tillägget som du kör på`http://yoursitename.scm.azurewebsites.net/ApplicationInsights`
 
-![Skärm bild av URL-sökväghttp://yoursitename.scm.azurewebsites.net/ApplicationInsights](./media/azure-web-apps/extension-version.png)
+![Skärm bild av URL-sökväg http://yoursitename.scm.azurewebsites.net/ApplicationInsights](./media/azure-web-apps/extension-version.png)
 
 ### <a name="upgrade-from-versions-100---265"></a>Uppgradera från versioner 1.0.0 – 2.6.5
 
@@ -325,6 +325,9 @@ Nedan visas vår stegvisa fel söknings guide för tillägg/agent-baserad överv
 
 > [!NOTE]
 > Java-och Node. js-program stöds bara på Azure App tjänster via manuell SDK-baserad Instrumentation, och därför gäller inte stegen nedan för dessa scenarier.
+
+> [!NOTE]
+> ASP.NET Core 3,0-program stöds inte. Följ den [manuella instrumentering](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core) via kod för ASP.net Core 3,0-appar.
 
 1. Kontrol lera att programmet övervakas via `ApplicationInsightsAgent`.
     * Kontrol lera `ApplicationInsightsAgent_EXTENSION_VERSION` att appens inställning har värdet "~ 2".

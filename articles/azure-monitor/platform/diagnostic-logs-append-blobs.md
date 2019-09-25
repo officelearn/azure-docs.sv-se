@@ -1,6 +1,6 @@
 ---
-title: Förbereda för formatändring av diagnostikloggar för Azure Monitor
-description: Azure diagnostikloggar kommer att flyttas till använda tilläggsblobbar den 1 November 2018.
+title: Förbered för format ändring till Azure Monitor diagnostikloggar
+description: Azure Diagnostic-loggar kommer att flyttas till Använd tilläggs-blobbar den 1 november 2018.
 author: johnkemnetz
 services: monitoring
 ms.service: azure-monitor
@@ -8,56 +8,56 @@ ms.topic: conceptual
 ms.date: 07/06/2018
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: ab5fba6bbbf6ade83c7699edec937ba02b222939
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a5589828570455c61f857dbeadc896e8fef27178
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60237628"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71258386"
 ---
-# <a name="prepare-for-format-change-to-azure-monitor-diagnostic-logs-archived-to-a-storage-account"></a>Förbereda för ändring av format till Azure Monitor arkiveras på ett lagringskonto för diagnostikloggar
+# <a name="prepare-for-format-change-to-azure-monitor-diagnostic-logs-archived-to-a-storage-account"></a>Förbered för format ändring till Azure Monitor diagnostikloggar arkiverade på ett lagrings konto
 
 > [!WARNING]
-> Om du skickar [diagnostikloggar för Azure-resurs eller mått till ett lagringskonto med hjälp av resursdiagnostikinställningar](./../../azure-monitor/platform/archive-diagnostic-logs.md) eller [aktivitetsloggar till ett storage-konto med loggprofiler](./../../azure-monitor/platform/archive-activity-log.md), formatet för data i storage-konto ändras till JSON-rader från den 1 november 2018. Anvisningarna nedan beskriver effekten och hur du uppdaterar ditt verktyg för att hantera det nya formatet. 
+> Om du skickar [Azure-resursens diagnostikloggar eller mått till ett lagrings konto med hjälp av inställningar för resurs diagnostik](./../../azure-monitor/platform/archive-diagnostic-logs.md) eller [aktivitets loggar till ett lagrings konto med hjälp av logg profiler](./../../azure-monitor/platform/archive-activity-log.md), ändras formatet för data i lagrings kontot till JSON-linjer på Nov. 1, 2018. Anvisningarna nedan beskriver effekten och hur du uppdaterar ditt verktyg för att hantera det nya formatet. 
 >
 > 
 
-## <a name="what-is-changing"></a>Vad ändras
+## <a name="what-is-changing"></a>Vad kommer att förändras
 
-Azure Monitor erbjuder en funktion som gör det möjligt att skicka diagnostikdata för resursen och aktivitetsloggdata till ett Azure storage-konto, namnområde för Event Hubs eller till en Log Analytics-arbetsyta i Azure Monitor. För att lösa ett systemproblem av prestanda på **1 November 2018 vid midnatt UTC** formatet för log data skicka till blob storage kommer att ändras. Om du har verktyg som läser data från blob-lagring, måste du uppdatera ditt verktyg för att identifiera nya formatet.
+Azure Monitor erbjuder en funktion som gör att du kan skicka resurs diagnostikdata och aktivitets logg data till ett Azure Storage-konto, Event Hubs namnrymd eller till en Log Analytics arbets yta i Azure Monitor. För att lösa ett system prestanda problem, den **1 November 2018 vid 12:00 midnatt UTC** , kommer formatet för logg data att skickas till Blob Storage att ändras. Om du har verktyg som läser data från Blob Storage måste du uppdatera verktyget för att förstå det nya data formatet.
 
-* Blobbformatet ändras det torsdag, November 1 2018 vid midnatt UTC för att vara [JSON rader](http://jsonlines.org/). Det innebär att varje post ska vara avgränsade med en ny rad med inga yttre poster matris och inga kommatecken mellan JSON-poster.
-* Blob-formatändringar för alla diagnostikinställningar för alla prenumerationer på samma gång. Den första PT1H.json-filen som genereras under den 1 November använder det nya formatet. Namnen på blob och behållare är desamma.
-* Ange en diagnostikinställning från nu och den 1 November fortsätter att sända data i det aktuella formatet fram till den 1 November.
-* Den här ändringen inträffar på en gång i alla regioner för offentliga moln. Ändringen inträffar inte ännu i Azure i Kina, Azure Tyskland och Azure Government-moln.
-* Den här ändringen påverkar följande datatyper:
-  * [Diagnostikloggar för Azure-resurs](./../../azure-monitor/platform/archive-diagnostic-logs.md) ([finns i listan över resurser här](./../../azure-monitor/platform/diagnostic-logs-schema.md))
-  * [Azure-Resursmått som exporteras av diagnostikinställningar](./../../azure-monitor/platform/diagnostic-logs-overview.md#diagnostic-settings)
-  * [Azure aktivitetsloggdata som exporteras av loggprofiler](./../../azure-monitor/platform/archive-activity-log.md)
+* Den 1 november 2018 vid 12:00 midnatt UTC kommer BLOB-formatet att ändras till [JSON-linjer](http://jsonlines.org/). Det innebär att varje post avgränsas med en ny rad, utan matris för yttre poster och inga kommatecken mellan JSON-poster.
+* BLOB-formatet ändras för alla diagnostikinställningar i alla prenumerationer på en gång. Den första PT1H. JSON-filen som genereras för den 1 november kommer att använda det nya formatet. Blob-och container namnen förblir desamma.
+* Att ställa in en diagnostisk inställning mellan nu och den 1 november fortsätter att generera data i det aktuella formatet fram till 1 november.
+* Den här ändringen görs samtidigt i alla offentliga moln regioner. Ändringen görs inte i Microsoft Azure som drivs av 21Vianet, Azure Germany eller Azure Government moln ännu.
+* Den här ändringen påverkar följande data typer:
+  * [Azure Resource Diagnostic-loggar](archive-diagnostic-logs.md) ([Se lista över resurser här](diagnostic-logs-schema.md))
+  * [Azure-resursens mått exporteras av diagnostikinställningar](diagnostic-settings.md)
+  * [Azures aktivitets logg data exporteras av logg profiler](archive-activity-log.md)
 * Den här ändringen påverkar inte:
-  * Flödesloggar för nätverk
-  * Azure-tjänstloggar inte gjorts tillgängliga via Azure Monitor ännu (till exempel diagnostikloggar för Azure App Service, storage analytics-loggar)
-  * Routning av Azure diagnostikloggar och aktivitetsloggar till andra mål (Event Hubs, Log Analytics)
+  * Nätverks flödes loggar
+  * Azures tjänst loggar är inte tillgängliga via Azure Monitor än (till exempel Azure App Service diagnostikloggar, lagrings analys loggar)
+  * Routning av Azure Diagnostic-loggar och aktivitets loggar till andra destinationer (Event Hubs Log Analytics)
 
-### <a name="how-to-see-if-you-are-impacted"></a>Hur du ser om du påverkas
+### <a name="how-to-see-if-you-are-impacted"></a>Så här ser du om du påverkas
 
-Du påverkas endast av den här ändringen om du:
-1. Loggdata skickas till ett Azure storage-konto med hjälp av en resursdiagnostikinställning och
-2. Har verktyg som är beroende av JSON-strukturen för de här loggarna i lagring.
+Du påverkas bara av den här ändringen om du:
+1. Skickar loggdata till ett Azure Storage-konto med hjälp av en inställning för resurs diagnos och
+2. Har verktyg som är beroende av JSON-strukturen för dessa loggar i lagring.
  
-Du kan se om du har resursdiagnostikinställningar som skickar data till ett Azure storage-konto som du kan navigera till den **övervakaren** avsnittet i portalen klickar du på **diagnostikinställningar**, och identifiera alla resurser som har **Diagnostikstatusen** inställd **aktiverad**:
+För att identifiera om du har inställningar för resurs diagnostik som skickar data till ett Azure Storage-konto, kan du gå till **övervaknings** avsnittet i portalen, klicka på **diagnostikinställningar**och identifiera alla resurser som har **diagnostik Status** satt till **aktive rad**:
 
 ![Bladet Azure Monitor diagnostikinställningar](./media/diagnostic-logs-append-blobs/portal-diag-settings.png)
 
-Om diagnostisk Status är aktiverad, har du en aktiv diagnostikinställning på den aktuella. Klicka på resursen för att se om några diagnostikinställningar skickar data till ett lagringskonto:
+Om diagnostisk status är aktive rad har du en aktiv diagnostisk inställning för den resursen. Klicka på resursen för att se om några diagnostikinställningar skickar data till ett lagrings konto:
 
-![Storage-konto som är aktiverad](./media/diagnostic-logs-append-blobs/portal-storage-enabled.png)
+![Lagrings konto aktiverat](./media/diagnostic-logs-append-blobs/portal-storage-enabled.png)
 
-Om du har resurser som skickar data till ett lagringskonto med hjälp av dessa resursdiagnostikinställningar, kommer formatet för data i det lagringskontot att påverkas av den här ändringen. Om du inte har anpassat verktyg som körs på dessa konton, påverkar inte ändringen format du.
+Om du har resurser som skickar data till ett lagrings konto med hjälp av dessa resurs diagnostikinställningar, kommer formatet på data i det lagrings kontot att påverkas av den här ändringen. Om du inte har anpassat verktyg som påverkar dessa lagrings konton påverkas inte format ändringen.
 
-### <a name="details-of-the-format-change"></a>Information om ändringen format
+### <a name="details-of-the-format-change"></a>Information om format ändringen
 
-Aktuella formatet på filen pt1h.JSON i Azure blob storage använder en JSON-matris med poster. Här är ett exempel på en loggfil för KeyVault nu:
+Det aktuella formatet för PT1H. JSON-filen i Azure Blob Storage använder en JSON-matris med poster. Här är ett exempel på en logg fil för nyckel valvet:
 
 ```json
 {
@@ -118,23 +118,23 @@ Aktuella formatet på filen pt1h.JSON i Azure blob storage använder en JSON-mat
 }
 ```
 
-Det nya formatet använder [JSON rader](http://jsonlines.org/), där varje händelse är en rad och tecknet för ny rad anger en ny händelse. Här är vad exemplet ovan ser ut i filen pt1h.JSON efter ändringen:
+Det nya formatet använder [JSON-linjer](http://jsonlines.org/), där varje händelse är en rad och rad matnings tecknet indikerar en ny händelse. Så här ser exemplet ovan ut i filen PT1H. JSON efter ändringen:
 
 ```json
 {"time": "2016-01-05T01:32:01.2691226Z","resourceId": "/SUBSCRIPTIONS/361DA5D4-A47A-4C79-AFDD-XXXXXXXXXXXX/RESOURCEGROUPS/CONTOSOGROUP/PROVIDERS/MICROSOFT.KEYVAULT/VAULTS/CONTOSOKEYVAULT","operationName": "VaultGet","operationVersion": "2015-06-01","category": "AuditEvent","resultType": "Success","resultSignature": "OK","resultDescription": "","durationMs": "78","callerIpAddress": "104.40.82.76","correlationId": "","identity": {"claim": {"http://schemas.microsoft.com/identity/claims/objectidentifier": "d9da5048-2737-4770-bd64-XXXXXXXXXXXX","http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn": "live.com#username@outlook.com","appid": "1950a258-227b-4e31-a9cf-XXXXXXXXXXXX"}},"properties": {"clientInfo": "azure-resource-manager/2.0","requestUri": "https://control-prod-wus.vaultcore.azure.net/subscriptions/361da5d4-a47a-4c79-afdd-XXXXXXXXXXXX/resourcegroups/contosoresourcegroup/providers/Microsoft.KeyVault/vaults/contosokeyvault?api-version=2015-06-01","id": "https://contosokeyvault.vault.azure.net/","httpStatusCode": 200}}
 {"time": "2016-01-05T01:33:56.5264523Z","resourceId": "/SUBSCRIPTIONS/361DA5D4-A47A-4C79-AFDD-XXXXXXXXXXXX/RESOURCEGROUPS/CONTOSOGROUP/PROVIDERS/MICROSOFT.KEYVAULT/VAULTS/CONTOSOKEYVAULT","operationName": "VaultGet","operationVersion": "2015-06-01","category": "AuditEvent","resultType": "Success","resultSignature": "OK","resultDescription": "","durationMs": "83","callerIpAddress": "104.40.82.76","correlationId": "","identity": {"claim": {"http://schemas.microsoft.com/identity/claims/objectidentifier": "d9da5048-2737-4770-bd64-XXXXXXXXXXXX","http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn": "live.com#username@outlook.com","appid": "1950a258-227b-4e31-a9cf-XXXXXXXXXXXX"}},"properties": {"clientInfo": "azure-resource-manager/2.0","requestUri": "https://control-prod-wus.vaultcore.azure.net/subscriptions/361da5d4-a47a-4c79-afdd-XXXXXXXXXXXX/resourcegroups/contosoresourcegroup/providers/Microsoft.KeyVault/vaults/contosokeyvault?api-version=2015-06-01","id": "https://contosokeyvault.vault.azure.net/","httpStatusCode": 200}}
 ```
 
-Detta nya format kan push-loggfiler med hjälp av Azure Monitor [tilläggsblobbar](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-append-blobs), som är bäst för nya event data läggs till kontinuerligt.
+Det nya formatet gör det möjligt Azure Monitor att skicka loggfiler med hjälp av [bifogade blobbar](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-append-blobs), vilket är mer effektivt för att kontinuerligt lägga till nya händelse data.
 
 ## <a name="how-to-update"></a>Så här uppdaterar du
 
-Du behöver bara göra uppdateringar om du har anpassade verktyg som matar in dessa loggfiler för vidare bearbetning. Om du gör användning av en extern för logganalys eller SIEM-verktyg, rekommenderar vi [med event hubs för att kunna hämta dessa data i stället](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/). Event hubs-integrering är enklare när det gäller bearbetning av loggar från flera olika tjänster och bokmärken plats i en viss logg.
+Du behöver bara göra uppdateringar om du har anpassat verktyg som matar in dessa loggfiler för ytterligare bearbetning. Om du använder ett externt logg analys-eller SIEM-verktyg rekommenderar vi att du [använder Event Hub för att mata in dessa data i stället](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/). Integrering av Event Hub är enklare när det gäller bearbetning av loggar från många tjänster och bok märkes plats i en viss logg.
 
-Anpassade verktyg ska uppdateras för att hantera både det aktuella formatet och rader för JSON-formatet som beskrivs ovan. Det säkerställer att när data börjar visas i det nya formatet, dina verktyg inte skadar.
+Anpassade verktyg bör uppdateras för att hantera både det aktuella formatet och JSON-linje formatet som beskrivs ovan. Detta säkerställer att dina verktyg inte försvinner när data börjar visas i det nya formatet.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Lär dig mer om [arkivering resursdiagnostikloggar till ett lagringskonto](./../../azure-monitor/platform/archive-diagnostic-logs.md)
-* Lär dig mer om [Arkivera aktivitetsloggdata till ett lagringskonto](./../../azure-monitor/platform/archive-activity-log.md)
+* Lär dig mer om [att arkivera resurs diagnostiska loggar till ett lagrings konto](./../../azure-monitor/platform/archive-diagnostic-logs.md)
+* Lär dig mer om [att arkivera aktivitets logg data till ett lagrings konto](./../../azure-monitor/platform/archive-activity-log.md)
 

@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 12/19/2018
-ms.openlocfilehash: d77557f6d5d6a7bb741b9ff6caa4ea8f76db19c0
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 70498c5f4c824681ee59b7232e9409235d7f6a93
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68567880"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71262162"
 ---
 # <a name="intelligent-insights-using-ai-to-monitor-and-troubleshoot-database-performance"></a>Intelligent Insights att använda AI för att övervaka och felsöka databas prestanda
 
@@ -44,13 +44,13 @@ När ett problem med prestanda försämring har upptäckts från flera observera
 
 ![Arbets flöde för databas prestanda analys](./media/sql-database-intelligent-insights/intelligent-insights-concept.png)
 
-Måtten som används för att mäta och identifiera problem med databas prestanda baseras på frågans varaktighet, timeout-begär Anden, överdriven vänte tid och felaktiga begär Anden. Mer information om mått finns i avsnittet identifierings [mått](sql-database-intelligent-insights.md#detection-metrics) i det här dokumentet.
+Måtten som används för att mäta och identifiera problem med databas prestanda baseras på frågans varaktighet, timeout-begär Anden, överdriven vänte tid och felaktiga begär Anden. Mer information om mått finns i avsnittet [identifierings mått](sql-database-intelligent-insights.md#detection-metrics) i det här dokumentet.
 
 Identifierade SQL Database prestanda försämringar registreras i Diagnostic-loggen med intelligenta poster som består av följande egenskaper:
 
 | Egenskap             | Information              |
 | :------------------- | ------------------- |
-| Databas information | Metadata om en databas där insikter upptäcktes, till exempel en resurs-URI. |
+| databas information | Metadata om en databas där insikter upptäcktes, till exempel en resurs-URI. |
 | Observerat tidsintervall | Start-och slut tid för den identifierade insikten. |
 | Påverkade mått | Mått som gjorde att en insikt genererades: <ul><li>Ökning av frågans varaktighet [sekunder].</li><li>Överdriven väntan [sekunder].</li><li>Timeout-begär Anden [procent].</li><li>Misslyckade begär Anden [procent].</li></ul>|
 | Effekt värde | Värde för uppmätt mått. |
@@ -96,7 +96,7 @@ I följande exempel visas en Intelligent Insights som visas via Azure SQL-analys
 
 ### <a name="set-up-with-event-hubs"></a>Konfigurera med Event Hubs
 
-Om du vill använda Intelligent Insights med Event Hubs konfigurerar du Intelligent Insights loggdata som ska strömmas till Event Hubs, se [strömma Azure-diagnostikloggar till Event Hubs](../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md).
+Om du vill använda Intelligent Insights med Event Hubs konfigurerar du Intelligent Insights loggdata som ska strömmas till Event Hubs, se [strömma Azure-diagnostikloggar till Event Hubs](../azure-monitor/platform/resource-logs-stream-event-hubs.md).
 
 Om du vill använda Event Hubs för att konfigurera anpassad övervakning och aviseringar, se [vad du kan göra med mått och diagnostikloggar i Event Hubs](sql-database-metrics-diag-logging.md#what-to-do-with-metrics-and-diagnostics-logs-in-event-hubs).
 
@@ -179,4 +179,4 @@ Om något av de övervakade kritiska undantagen passerar de absoluta tröskelvä
 - Lär dig hur du [felsöker SQL Database prestanda problem med intelligent Insights](sql-database-intelligent-insights-troubleshoot-performance.md).
 - Använd [loggen Intelligent Insights SQL Database prestanda diagnos](sql-database-intelligent-insights-use-diagnostics-log.md).
 - Lär dig hur du [övervakar SQL Database med hjälp av SQL Analytics](../azure-monitor/insights/azure-sql.md).
-- Lär dig hur du [samlar in och använder loggdata från dina Azure-resurser](../azure-monitor/platform/diagnostic-logs-overview.md).
+- Lär dig hur du [samlar in och använder loggdata från dina Azure-resurser](../azure-monitor/platform/resource-logs-overview.md).

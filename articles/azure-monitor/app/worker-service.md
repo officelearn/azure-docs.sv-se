@@ -12,21 +12,18 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 09/15/2019
 ms.author: cithomas
-ms.openlocfilehash: 8cd76a67715898972aac8fc24707085883da8618
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: 653710d2f57385fa6d608a501f72b0dde2f3bb46
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71174674"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71258497"
 ---
 # <a name="application-insights-for-worker-service-applications-non-http-applications"></a>Application Insights för Worker service-program (icke-HTTP-program)
 
 Application Insights frigör en ny SDK, som kallas `Microsoft.ApplicationInsights.WorkerService`, som passar bäst för icke-http-arbetsbelastningar som meddelanden, bakgrunds aktiviteter, konsol program osv. Dessa typer av program har inte begreppet inkommande HTTP-begäran som en traditionell ASP.NET/ASP.NET Core-webbapp, och därför stöds inte Application Insights-paket för [ASP.net](asp-net.md) -eller [ASP.net Core](asp-net-core.md) -program.
 
 Den nya SDK: n utför inte någon telemetri-samling. I stället finns det på andra välkända Application Insights automatiska insamlare som [DependencyCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DependencyCollector/), [PerfCounterCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.PerfCounterCollector/), [ApplicationInsightsLoggingProvider](https://www.nuget.org/packages/Microsoft.Extensions.Logging.ApplicationInsights) osv. Detta SDK visar tilläggs metoder för `IServiceCollection` att aktivera och konfigurera telemetri-samlingen.
-
-> [!NOTE]
-> Den här artikeln är om ett nytt paket från Application Insights SDK för Worker Services. Det här paketet är tillgängligt som ett beta paket idag. Det här dokumentet kommer att uppdateras när ett stabilt paket är tillgängligt.
 
 ## <a name="supported-scenarios"></a>Scenarier som stöds
 
@@ -43,7 +40,7 @@ En giltig Application Insights Instrumentation-nyckel. Den här nyckeln krävs f
 
 ```xml
     <ItemGroup>
-        <PackageReference Include="Microsoft.ApplicationInsights.WorkerService" Version="2.8.0-beta3" />
+        <PackageReference Include="Microsoft.ApplicationInsights.WorkerService" Version="2.8.0" />
     </ItemGroup>
 ```
 
@@ -299,7 +296,7 @@ Nedan visas en lista över all telemetri som samlats in automatiskt av Applicati
 
 ### <a name="live-metrics"></a>Live Metrics
 
-[Live-mått](https://docs.microsoft.com/azure/application-insights/app-insights-live-stream) kan användas för att snabbt kontrol lera om Application Insights har kon figurer ATS korrekt. Det kan ta några minuter innan telemetri börjar visas i portalen och i analysen, men Live-mått visar processor användningen för den process som körs i nära real tid. Det kan också visa andra telemetri som begär Anden, beroenden, spår osv.
+[Live-mått](https://docs.microsoft.com/azure/application-insights/app-insights-live-stream) kan användas för att snabbt kontrol lera om Application Insights övervakning har kon figurer ATS korrekt. Det kan ta några minuter innan telemetri börjar visas i portalen och i analysen, men Live-mått visar processor användningen för den process som körs i nära real tid. Det kan också visa andra telemetri som begär Anden, beroenden, spår osv.
 
 ### <a name="ilogger-logs"></a>ILogger-loggar
 
@@ -311,31 +308,7 @@ Beroende insamling är aktiverat som standard. [Den här](asp-net-dependencies.m
 
 ### <a name="eventcounter"></a>EventCounter
 
-[EventCounter](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.Tracing/documentation/EventCounterTutorial.md)är en plattforms oberoende metod för att publicera och använda räknare i .NET/.net Core. Även om den här funktionen fanns tidigare fanns det inga inbyggda leverantörer som publicerade dessa räknare. Från och med .NET Core 3,0 publiceras flera räknare från rutan som CLR-räknare, CPU osv.
-
-Som standard samlar SDK in följande räknare (endast tillgängligt i .NET Core 3,0 eller senare) och dessa räknare kan frågas antingen i Metrics Explorer eller genom att använda en analys fråga som riktar sig mot tabellen PerformanceCounter. Namnet på räknarna kommer att ha formatet "kategori | Counter ".
-
-|Category | Räknare|
-|---------------|-------|
-|`System.Runtime` | `cpu-usage` |
-|`System.Runtime` | `working-set` |
-|`System.Runtime` | `gc-heap-size` |
-|`System.Runtime` | `gen-0-gc-count` |
-|`System.Runtime` | `gen-1-gc-count` |
-|`System.Runtime` | `gen-2-gc-count` |
-|`System.Runtime` | `time-in-gc` |
-|`System.Runtime` | `gen-0-size` |
-|`System.Runtime` | `gen-1-size` |
-|`System.Runtime` | `gen-2-size` |
-|`System.Runtime` | `loh-size` |
-|`System.Runtime` | `alloc-rate` |
-|`System.Runtime` | `assembly-count` |
-|`System.Runtime` | `exception-count` |
-|`System.Runtime` | `threadpool-thread-count` |
-|`System.Runtime` | `monitor-lock-contention-count` |
-|`System.Runtime` | `threadpool-queue-length` |
-|`System.Runtime` | `threadpool-completed-items-count` |
-|`System.Runtime` | `active-timer-count` |
+`EventCounterCollectionModule`är aktiverat som standard och samlar in en standard uppsättning räknare från .NET Core 3,0-appar. Självstudien om [EventCounter](eventcounters.md) visar en lista över standard uppsättningen med insamlade räknare. Den innehåller också anvisningar om hur du anpassar listan.
 
 ### <a name="manually-tracking-additional-telemetry"></a>Manuellt spåra ytterligare telemetri
 

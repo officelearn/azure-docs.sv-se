@@ -8,13 +8,12 @@ ms.service: search
 ms.topic: tutorial
 ms.date: 08/23/2019
 ms.author: luisca
-ms.subservice: cognitive-search
-ms.openlocfilehash: 726fdd6aeebac970142fa9225381af77114bfe42
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: 6f7c5e2955c57e0e1891593504e5eec1a06bbb04
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70274118"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71265374"
 ---
 # <a name="tutorial-add-structure-to-unstructured-content-with-cognitive-search"></a>Självstudier: Lägg till strukturen i "ostrukturerat innehåll" med kognitiv sökning
 
@@ -117,7 +116,7 @@ De metoder för begäran som används i den här självstudien är **post**, **p
 
 I sidhuvud anger du "Content-Type" till `application/json` och anger `api-key` Admin API-nyckeln för din Azure Search-tjänst. När du har angett rubrikerna kan du använda dem för varje begäran i den här övningen.
 
-  ![URL och rubrik för Postman-begäran](media/search-get-started-postman/postman-url.png "URL och rubrik för Postman-begäran")
+  ![URL och rubrik] för Postman-begäran (media/search-get-started-postman/postman-url.png "URL och rubrik") för Postman-begäran
 
 ## <a name="3---create-the-pipeline"></a>3 – skapa pipelinen
 

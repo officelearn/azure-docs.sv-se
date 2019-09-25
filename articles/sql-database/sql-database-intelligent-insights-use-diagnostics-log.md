@@ -11,16 +11,16 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 12/19/2018
-ms.openlocfilehash: 8180fc4db10019a3183af40cf21d9d92b0102201
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: c25d37a4d1695ab94cc0667a13e36e4da640e12a
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68567901"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71262137"
 ---
 # <a name="use-the-intelligent-insights-azure-sql-database-performance-diagnostics-log"></a>Använd loggen Intelligent Insights Azure SQL Database prestanda diagnostik
 
-Den här sidan innehåller information om hur du använder den Azure SQL Database loggen för prestandadiagnostik som genereras av [intelligent Insights](sql-database-intelligent-insights.md), dess format och de data som den innehåller för dina anpassade utvecklings behov. Du kan skicka den här Diagnostic-loggen till [Azure Monitor loggar](../azure-monitor/insights/azure-sql.md), [Azure Event Hubs](../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md), [Azure Storage](sql-database-metrics-diag-logging.md#stream-into-storage)eller en lösning från tredje part för anpassade DevOps-aviseringar och rapporterings funktioner.
+Den här sidan innehåller information om hur du använder den Azure SQL Database loggen för prestandadiagnostik som genereras av [intelligent Insights](sql-database-intelligent-insights.md), dess format och de data som den innehåller för dina anpassade utvecklings behov. Du kan skicka den här Diagnostic-loggen till [Azure Monitor loggar](../azure-monitor/insights/azure-sql.md), [Azure Event Hubs](../azure-monitor/platform/resource-logs-stream-event-hubs.md), [Azure Storage](sql-database-metrics-diag-logging.md#stream-into-storage)eller en lösning från tredje part för anpassade DevOps-aviseringar och rapporterings funktioner.
 
 ## <a name="log-header"></a>Logg huvud
 

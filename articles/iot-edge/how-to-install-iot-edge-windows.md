@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 07/10/2019
 ms.author: kgremban
 ms.custom: seodec18
-ms.openlocfilehash: e5b99bba3c3b21ea9662845928c523c329695bf8
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 6118c4ddf1386ff4cc816148938e1f5ddeaecc9e
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69877241"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71266086"
 ---
 # <a name="install-the-azure-iot-edge-runtime-on-windows"></a>Installera Azure IoT Edge runtime i Windows
 
@@ -41,6 +41,14 @@ Använd det här avsnittet för att se om din Windows-enhet har stöd för IoT E
 ### <a name="supported-windows-versions"></a>Windows-versioner som stöds
 
 I utvecklings-och test scenarier kan Azure IoT Edge med Windows-behållare installeras på alla versioner av Windows 10 eller Windows Server 2019 (build 17763) som stöder funktionen containers. Information om vilka operativ system som för närvarande stöds för produktions scenarier finns i [Azure IoT Edge system som stöds](support.md#operating-systems). 
+
+IoT core-enheter måste innehålla den valfria funktionen IoT Core – Windows-behållare som stöder IoT Edge Runtime. Använd följande kommando i en [fjärran sluten PowerShell-session](https://docs.microsoft.com/windows/iot-core/connect-your-device/powershell) för att kontrol lera att Windows-behållare stöds på din enhet: 
+
+```powershell
+Get-Service vmcompute
+```
+
+Om tjänsten finns får du ett lyckat svar med tjänstens status som **körs**. Om vmcompute-tjänsten inte hittas uppfyller enheten inte kraven för IoT Edge. Kontakta din maskin varu leverantör för att be om stöd för den här funktionen. 
 
 ### <a name="prepare-for-a-container-engine"></a>Förbereda för en behållar motor 
 
@@ -279,7 +287,7 @@ Kommandot Deploy-IoTEdge hämtar och distribuerar IoT Edge Security daemon och d
 | Parameter | Godkända värden | Kommentar |
 | --------- | --------------- | -------- |
 | **Container** | **Windows** eller **Linux** | Om inget behållar operativ system anges är Windows standardvärdet.<br><br>För Windows-behållare använder IoT Edge Moby container Engine som ingår i installationen. För Linux-behållare måste du installera en behållar motor innan du startar installationen. |
-| **Programproxyfilen** | URL för proxyserver | Ta med den här parametern om enheten måste gå igenom en proxyserver för att komma åt Internet. Mer information finns i [konfigurera en IoT Edge-enhet kan kommunicera via en proxyserver](how-to-configure-proxy-support.md). |
+| **Programproxyfilen** | Proxy-URL | Ta med den här parametern om enheten måste gå igenom en proxyserver för att komma åt Internet. Mer information finns i [konfigurera en IoT Edge-enhet kan kommunicera via en proxyserver](how-to-configure-proxy-support.md). |
 | **OfflineInstallationPath** | Katalogsökväg | Om den här parametern tas med, kontrollerar installations programmet katalogen för de IoT Edge CAB-och VC runtime-MSI-filer som krävs för installationen. Filer som inte hittas i katalogen laddas ned. Om båda filerna finns i katalogen kan du installera IoT Edge utan Internet anslutning. Du kan också använda den här parametern för att använda en speciell version. |
 | **InvokeWebRequestParameters** | Hash-värde för parametrar och värden | Under installationen görs flera webb förfrågningar. Använd det här fältet om du vill ange parametrar för dessa webb förfrågningar. Den här parametern är användbar för att konfigurera autentiseringsuppgifter för proxyservrar. Mer information finns i [konfigurera en IoT Edge-enhet kan kommunicera via en proxyserver](how-to-configure-proxy-support.md). |
 | **RestartIfNeeded** | inga | Med den här flaggan kan distributions skriptet starta om datorn utan att behöva ange om det behövs. |
@@ -307,7 +315,7 @@ Kommandot Initialize-IoTEdge konfigurerar IoT Edge med enhetens anslutnings str�
 | Parameter | Godkända värden | Kommentar |
 | --------- | --------------- | -------- |
 | **Container** | **Windows** eller **Linux** | Om inget behållar-OS anges är Windows standardvärdet. För Windows-behållare kommer en behållar motor att inkluderas i installationen. För Linux-behållare måste du installera en behållar motor innan du startar installationen. |
-| **Programproxyfilen** | URL för proxyserver | Ta med den här parametern om enheten måste gå igenom en proxyserver för att komma åt Internet. Mer information finns i [konfigurera en IoT Edge-enhet kan kommunicera via en proxyserver](how-to-configure-proxy-support.md). |
+| **Programproxyfilen** | Proxy-URL | Ta med den här parametern om enheten måste gå igenom en proxyserver för att komma åt Internet. Mer information finns i [konfigurera en IoT Edge-enhet kan kommunicera via en proxyserver](how-to-configure-proxy-support.md). |
 | **InvokeWebRequestParameters** | Hash-värde för parametrar och värden | Under installationen görs flera webb förfrågningar. Använd det här fältet om du vill ange parametrar för dessa webb förfrågningar. Den här parametern är användbar för att konfigurera autentiseringsuppgifter för proxyservrar. Mer information finns i [konfigurera en IoT Edge-enhet kan kommunicera via en proxyserver](how-to-configure-proxy-support.md). |
 | **OfflineInstallationPath** | Katalogsökväg | Om den här parametern tas med, kontrollerar installations programmet katalogen för de IoT Edge CAB-och VC runtime-MSI-filer som krävs för installationen. Filer som inte hittas i katalogen laddas ned. Om båda filerna finns i katalogen kan du installera IoT Edge utan Internet anslutning. Du kan också använda den här parametern för att använda en speciell version. |
 | **RestartIfNeeded** | inga | Med den här flaggan kan distributions skriptet starta om datorn utan att behöva ange om det behövs. |

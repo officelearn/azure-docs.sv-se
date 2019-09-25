@@ -2,28 +2,49 @@
 title: Felsökningsguide för Azure Security Center | Microsoft Docs
 description: Det här dokumentet hjälper till med fel sökning av problem i Azure Security Center.
 services: security-center
-author: memildin
-manager: rkarlin
+author: v-miegge
+manager: dcscontentpm
 ms.service: security-center
 ms.topic: conceptual
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: 26615819dc407e51281254c73076a1d721e6059f
-ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
+ms.openlocfilehash: 073e500028634e3c35a482d8efc5f9ae169145e3
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70873384"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71257692"
 ---
 # <a name="azure-security-center-troubleshooting-guide"></a>Felsökningsguide för Azure Security Center
+
 Den här guiden riktar sig till de som arbetar med IT, informationssäkerhetsanalytiker och molnadministratörer i organisationer som använder Azure Security Center och behöver felsöka Security Center-relaterade problem.
 
->[!NOTE]
->Security Center använder Microsoft Monitoring Agent för att samla in och lagra data. Mer information finns under [plattformsmigrering i Azure Security Center](security-center-platform-migration.md).
->
+Security Center använder Microsoft Monitoring Agent för att samla in och lagra data. Mer information finns under [plattformsmigrering i Azure Security Center](security-center-platform-migration.md). Informationen i den här artikeln representerar Security Centers funktionalitet efter övergången till Microsoft Monitoring Agent.
 
 ## <a name="troubleshooting-guide"></a>Felsökningsguide
-I den här guiden förklaras hur du felsöker Security Center-relaterade problem. Den mesta felsökningen i Security Center kommer att ske genom att först granska [Granskningslogg](../azure-monitor/platform/activity-logs-overview.md)-posterna för den felaktiga komponenten. Via granskningsloggarna kan du fastställa:
+
+I den här guiden förklaras hur du felsöker Security Center-relaterade problem.
+
+Aviserings typer:
+
+* Virtual Machine Behavioral Analysis (VMBA)
+* Nätverksanalys
+* SQL Database- och SQL Data Warehouse-analys
+* Sammanhangsbaserad information
+
+Beroende på aviseringstypen kan kunderna hämta den information som krävs för att undersöka aviseringen med hjälp av följande resurser:
+
+* Säkerhetsloggarna i händelsevisaren för virtuell dator i Windows
+* AuditD i Linux
+* Azure-aktivitets loggarna och aktivera diagnostikloggar på angrepps resursen.
+
+För vissa aviseringar har vi också en förtroende poäng. Förtroendepoäng i **Security Center** hjälper ditt team bedöma och prioritera aviseringar. **Security Center** använder automatiskt bransch bästa praxis, intelligenta algoritmer och processer som används av analytiker för att avgöra om ett hot är giltigt och ger meningsfulla insikter i form av en förtroende poäng.
+
+Kunder kan dela feedback om aviseringens beskrivning och relevans. Gå till själva aviseringen och välj knappen **Hade du nytta av detta?** . Välj orsak och ange en kommentar för att förklara din feedback. Vi övervakar ständigt den här feedbackkanalen för att förbättra våra aviseringar.
+
+## <a name="audit-log"></a>Granskningslogg
+
+Den mesta felsökningen i Security Center kommer att ske genom att först granska [Granskningslogg](../azure-monitor/platform/activity-logs-overview.md)-posterna för den felaktiga komponenten. Via granskningsloggarna kan du fastställa:
 
 * Vilka åtgärder som har vidtagits
 * Vem som initierade åtgärden
@@ -34,6 +55,7 @@ I den här guiden förklaras hur du felsöker Security Center-relaterade problem
 Granskningsloggen innehåller alla skrivåtgärder (PUT, POST, DELETE) som utförs på dina resurser, men omfattar inte läsåtgärder (GET).
 
 ## <a name="microsoft-monitoring-agent"></a>Microsoft Monitoring Agent
+
 Security Center använder Microsoft Monitoring Agent – det här är samma agent som används av Azure Monitor-tjänsten – för att samla in säkerhets data från dina virtuella Azure-datorer. När datainsamling är aktiverat och agenten är korrekt installerad i måldatorn, ska de här processerna köras:
 
 * HealthService.exe
@@ -46,19 +68,19 @@ Om du vill se vilken version av agenten du har kan du öppna **Aktivitetshantera
 
 ![Fil](./media/security-center-troubleshooting-guide/security-center-troubleshooting-guide-fig6.png)
 
-
 ## <a name="microsoft-monitoring-agent-installation-scenarios"></a>Scenarier för installation av Microsoft Monitoring Agent
+
 Det finns två installationsscenarier som kan ge olika resultat när du installerar Microsoft Monitoring Agent på datorn. Scenarier som stöds är:
 
 * **Agent som installeras automatiskt av Security Center**: i det här scenariot kommer du att kunna visa aviseringarna på båda platser, Security Center och Loggsökning. Du får e-postaviseringar till den e-postadress som har kon figurer ATS i säkerhets principen för den prenumeration som resursen tillhör.
-.
+
 * **Agent installeras manuellt på en virtuell dator som finns i Azure**: i det här scenariot kan du, om du använder agenter som har hämtats och installerats manuellt före februari 2017, Visa aviseringarna i Security Center portalen endast om du filtrerar på prenumerationen på arbets ytan tillhör. Om du filtrerar på prenumerationen som resursen tillhör visas inga aviseringar. Du får e-postaviseringar till den e-postadress som har kon figurer ATS i säkerhets principen för prenumerationen som arbets ytan tillhör.
 
->[!NOTE]
+> [!NOTE]
 > Kontrollera att du laddar ned den senaste versionen av agenten för att undvika det andra scenariot.
->
 
 ## Övervaka problem med hälsotillstånd <a name="mon-agent"></a>
+
 **Övervakningstillstånd** definierar anledningen till att Security Center inte kan övervaka virtuella datorer och datorer som initierats för automatisk etablering. I följande tabell visas steg för värden, beskrivningar och lösningar för **övervakningstillstånd**.
 
 | Övervakningstillstånd | Beskrivning | Lösningsanvisningar |
@@ -74,12 +96,12 @@ Det finns två installationsscenarier som kan ge olika resultat när du installe
 | Agenten svarar inte eller saknar ID | Security Center kan inte hämta säkerhetsdata som genomsökts från den virtuella datorn, trots att agenten är installerad. | Agenten rapporterar inga data, inte heller pulsslag. Agenten kan vara skadad eller så är det något som blockerar trafiken. Eller så rapporterar agenten data men saknar Azure-resurs-ID så att det är omöjligt att matcha data till den virtuella Azure-datorn. Felsökning av Linux beskrivs [felsökningsguide för Log Analytics-agenten för Linux](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/Troubleshooting.md#im-not-seeing-any-linux-data-in-the-oms-portal). Om du vill felsöka i Windows läser du [Felsökning av virtuella Windows-datorer](https://github.com/MicrosoftDocs/azure-docs/blob/8c53ac4371d482eda3d85819a4fb8dac09996a89/articles/log-analytics/log-analytics-azure-vm-extension.md#troubleshooting-windows-virtual-machines). |
 | Agenten har inte installerats | Datainsamling är inaktiverat. | Aktivera datainsamling i säkerhetsprincipen eller installera Microsoft Monitoring Agent manuellt. |
 
-
 ## Felsöka nätverkskrav för övervakningsagenten <a name="mon-network-req"></a>
+
 Agenter att ansluta till och registrera med Security Center, måste de ha åtkomst till nätverksresurser, inklusive portnummer och URL: er för domänen.
 
-- För proxyservrar måste du se till att lämpliga proxy serverresurser konfigureras i agentinställningarna. Mer information om att [ändra proxyinställningarna](https://docs.microsoft.com/azure/log-analytics/log-analytics-windows-agents) finns i den här artikeln.
-- Om du använder en brandvägg för att begränsa åtkomsten till Internet, måste du konfigurera brandväggen att tillåta åtkomst till Log Analytics. Ingen åtgärd krävs i agentinställningarna.
+* För proxyservrar måste du se till att lämpliga proxy serverresurser konfigureras i agentinställningarna. Mer information om att [ändra proxyinställningarna](https://docs.microsoft.com/azure/log-analytics/log-analytics-windows-agents) finns i den här artikeln.
+* Om du använder en brandvägg för att begränsa åtkomsten till Internet, måste du konfigurera brandväggen att tillåta åtkomst till Log Analytics. Ingen åtgärd krävs i agentinställningarna.
 
 I följande tabell visas resurser som krävs för kommunikation.
 
@@ -90,20 +112,19 @@ I följande tabell visas resurser som krävs för kommunikation.
 | *.blob.core.windows.net | 443 | Ja |
 | *.azure-automation.net | 443 | Ja |
 
-Om du får problem med att komma igång med agenten, kan du hitta mer information i artikeln [Felsökning av problem med att komma igång med Operations Management Suite](https://support.microsoft.com/en-us/help/3126513/how-to-troubleshoot-operations-management-suite-onboarding-issues).
-
+Om du får problem med att komma igång med agenten, kan du hitta mer information i artikeln [Felsökning av problem med att komma igång med Operations Management Suite](https://support.microsoft.com/help/3126513/how-to-troubleshoot-operations-management-suite-onboarding-issues).
 
 ## <a name="troubleshooting-endpoint-protection-not-working-properly"></a>Felsökning om Endpoint Protection inte fungerar korrekt
 
 Gästagenten är den överordnade processen av allt tillägget [Microsoft Antimalware](../security/fundamentals/antimalware.md) gör. När gästagentprocessen misslyckas kan även Microsoft Antimalware som körs som en underordnad process för gästagenten misslyckas.  I scenarier som dessa rekommenderas det att verifiera följande alternativ:
 
-- Om den virtuella datorn som är målet är en anpassad avbildning och skaparen av den virtuella datorn aldrig installerade gästagenten.
-- Om målet är en virtuell Linux-dator i stället för en virtuell Windows-dator så kommer installationen av Windows-versionen av tillägget mot skadlig kod att misslyckas. Linux-gästagenten har särskilda krav gällande OS-version och nödvändiga paket. Om de här kraven inte uppfylls kommer inte VM-agenten att fungera där heller.
-- Om den virtuella datorn skapades med en äldre version av gästagenten. Om den var det bör du vara medveten om att vissa gamla agenter inte kan uppdateras automatiskt till nyare versioner och att detta kan leda till det här problemet. Använd alltid den senaste versionen av gästagenten om du skapar dina egna avbildningar.
-- Vissa administrationsprogram från tredje part kan inaktivera gästagenten eller blockera åtkomst till vissa filsökvägar. Om du har ett program från tredje part installerad på den virtuella datorn bör du kontrollera så att agenten är med på undantagslistan.
-- Vissa brandväggsinställningar och nätverkssäkerhetsgrupper (NSG) blockerar nätverkstrafik till och från gästagenten.
-- Vissa åtkomstkontrollistor (ACL) förhindrar åtkomst till disken.
-- Otillräckligt diskutrymme kan blockera gästagenten från att fungera korrekt.
+* Om den virtuella datorn som är målet är en anpassad avbildning och skaparen av den virtuella datorn aldrig installerade gästagenten.
+* Om målet är en virtuell Linux-dator i stället för en virtuell Windows-dator så kommer installationen av Windows-versionen av tillägget mot skadlig kod att misslyckas. Linux-gästagenten har särskilda krav gällande OS-version och nödvändiga paket. Om de här kraven inte uppfylls kommer inte VM-agenten att fungera där heller.
+* Om den virtuella datorn skapades med en äldre version av gästagenten. Om den var det bör du vara medveten om att vissa gamla agenter inte kan uppdateras automatiskt till nyare versioner och att detta kan leda till det här problemet. Använd alltid den senaste versionen av gästagenten om du skapar dina egna avbildningar.
+* Vissa administrationsprogram från tredje part kan inaktivera gästagenten eller blockera åtkomst till vissa filsökvägar. Om du har ett program från tredje part installerad på den virtuella datorn bör du kontrollera så att agenten är med på undantagslistan.
+* Vissa brandväggsinställningar och nätverkssäkerhetsgrupper (NSG) blockerar nätverkstrafik till och från gästagenten.
+* Vissa åtkomstkontrollistor (ACL) förhindrar åtkomst till disken.
+* Otillräckligt diskutrymme kan blockera gästagenten från att fungera korrekt.
 
 Som standard är användargränssnittet för Microsoft Antimalware inaktiverat, se [Enabling Microsoft Antimalware User Interface on Azure Resource Manager VMs Post Deployment](https://blogs.msdn.microsoft.com/azuresecurity/2016/03/09/enabling-microsoft-antimalware-user-interface-post-deployment/) (Aktivera användargränssnittet för Microsoft Antimalware på virtuella Azure Resource Manager-datorer efter distribution) för mer information om hur du aktiverar det om det behövs.
 
@@ -112,17 +133,26 @@ Som standard är användargränssnittet för Microsoft Antimalware inaktiverat, 
 Om du har problem med att läsa in instrumentpanelen för Security Center ska du kontrollera att användaren som registrerar prenumerationen på Security Center (dvs. den första användaren som öppnade Security Center med prenumerationen) och användaren som vill aktivera datasamling är *ägare* eller *deltagare* i prenumerationen. Från det ögonblicket kan även användare som är *läsare* i prenumerationen se instrumentpanelen/aviseringar/rekommendationer/policy.
 
 ## <a name="contacting-microsoft-support"></a>Kontakta Microsoft Support
+
 Vissa problem kan identifieras med hjälp av riktlinjerna i den här artikeln, andra hittar du också dokumenterade i Security Centers offentliga [forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureSecurityCenter). Om du behöver ytterligare felsökning kan du öppna en ny supportbegäran med hjälp av **Azure Portal** enligt nedan:
 
 ![Microsoft Support](./media/security-center-troubleshooting-guide/security-center-troubleshooting-guide-fig2.png)
 
-
 ## <a name="see-also"></a>Se också
+
 I det här avsnittet har vi berättat hur du ställer in säkerhetsprinciper i Azure Security Center. I följande avsnitt kan du lära dig mer om Azure Security Center:
 
 * [Planerings- och bruksanvisning för Azure Security Center](security-center-planning-and-operations-guide.md) – Här får du lära dig att planera och vad du behöver tänka på när det gäller design när du ska börja använda Azure Security Center.
 * [Övervakning av säkerhetshälsa i Azure Security Center](security-center-monitoring.md) – Lär dig hur du övervakar dina Azure-resursers hälsa.
 * [Hantera och åtgärda säkerhetsaviseringar i Azure Security Center](security-center-managing-and-responding-alerts.md) – Lär dig hur du hanterar och åtgärdar säkerhetsaviseringar.
+* [Förstå säkerhetsaviseringar i Azure Security Center](security-center-alerts-type.md)
+* [Självstudier: Reagera på säkerhetsincidenter](tutorial-security-incident.md)
+* [Aviseringsverifiering i Azure Security Center](security-center-alert-validation.md)
+* [E-postmeddelanden i Azure Security Center](security-center-provide-security-contact-details.md)
+* [Hantera säkerhetsincidenter i Azure Security Center](security-center-incident.md)
+* [Förtroendepoäng för avisering](security-center-secure-score.md)
+* [Undersöka incidenter och aviseringar i Azure Security Center](security-center-investigation.md)
+* [Identifieringsfunktioner i Azure Security Center](security-center-detection-capabilities.md)
 * [Övervaka partnerlösningar med Azure Security Center](security-center-partner-solutions.md) – Lär dig hur du övervakar dina partnerlösningars hälsostatus.
 * [Vanliga frågor och svar om Azure Security Center](security-center-faq.md) – Här hittar du vanliga frågor och svar om tjänsten
 * [Azures säkerhetsblogg](https://blogs.msdn.com/b/azuresecurity/) – Här hittar du blogginlägg om säkerhet och regelefterlevnad i Azure

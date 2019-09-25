@@ -5,23 +5,22 @@ services: search
 manager: nitinme
 author: luiscabrer
 ms.service: search
-ms.subservice: cognitive-search
 ms.workload: search
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
-ms.openlocfilehash: e4b94e7a6e41a5c6beaf94069c0fb6bed795ca6d
-ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
+ms.openlocfilehash: 40559744f0650c64afb1dc63c38f56efaa0219d7
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70183511"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71265538"
 ---
 # <a name="how-to-reference-annotations-in-a-cognitive-search-skillset"></a>Så här refererar du till anteckningar i en kognitiv search-färdigheter
 
 I den här artikeln får du lära dig hur du refererar till kommentarer i kunskaps definitioner, med hjälp av exempel för att illustrera olika scenarier. När innehållet i ett dokument flödar genom en uppsättning kunskaper får den omfattande anteckningar. Anteckningar kan användas som indata för ytterligare nedströms berikning eller mappas till ett utmatnings fält i ett index. 
  
-Exemplen i den här artikeln baseras på *innehålls* fältet som genereras automatiskt av [Azure Blob](search-howto-indexing-azure-blob-storage.md) -indexerare som en del av dokumentets cracking-fas. När du refererar till dokument från en BLOB-behållare ska du använda ett `"/document/content"`format, till exempel, där *innehålls* fältet är en del av *dokumentet*. 
+Exemplen i den här artikeln baseras på *innehålls* fältet som genereras automatiskt av [Azure Blob-indexerare](search-howto-indexing-azure-blob-storage.md) som en del av dokumentets cracking-fas. När du refererar till dokument från en BLOB-behållare ska du använda ett `"/document/content"`format, till exempel, där *innehålls* fältet är en del av *dokumentet*. 
 
 ## <a name="background-concepts"></a>Koncept i bakgrunden
 

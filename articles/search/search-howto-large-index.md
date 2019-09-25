@@ -8,12 +8,12 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 09/19/2019
 ms.author: heidist
-ms.openlocfilehash: e3240ca40b9dcf866c5e4a5cf570b5575b7586d8
-ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
+ms.openlocfilehash: aaf0d5edb91d60be85360746f76c4ca1f8db8978
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71240360"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71257034"
 ---
 # <a name="how-to-index-large-data-sets-in-azure-search"></a>Så här indexerar du stora data mängder i Azure Search
 
@@ -25,9 +25,9 @@ I följande avsnitt lär du dig tre tekniker för att indexera stora mängder da
 
 ## <a name="option-1-pass-multiple-documents"></a>Alternativ 1: Skicka flera dokument
 
-En av de enklaste mekanismerna för att indexera en större data uppsättning är att skicka flera dokument eller poster i en och samma begäran. Så länge hela nytto lasten är under 16 MB kan en begäran hantera upp till 1000 dokument i en Mass överförings åtgärd. Dessa begränsningar gäller om du använder klassen [Lägg till dokument (rest)](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) eller [index](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.index?view=azure-dotnet) i .NET SDK. För båda API: erna kommer du att paketera 1000-dokument i bröd texten för varje begäran.
+En av de enklaste mekanismerna för att indexera en större data uppsättning är att skicka flera dokument eller poster i en och samma begäran. Så länge hela nytto lasten är under 16 MB kan en begäran hantera upp till 1000 dokument i en Mass överförings åtgärd. Dessa begränsningar gäller oavsett om du använder [Lägg till dokument REST API](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) eller [index-metoden](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.documentsoperationsextensions.index?view=azure-dotnet) i .NET SDK. För båda API: erna kommer du att paketera 1000-dokument i bröd texten för varje begäran.
 
-Batch-indexering implementeras för enskilda förfrågningar med hjälp av REST eller .NET, eller genom indexerare. Några indexerare använder olika gränser. Mer specifikt ställer Azure Blob-indexering batch-storlek vid 10 dokument i redovisningen av den större genomsnittliga dokument storleken. För indexerare baserade på [skapa indexerare (rest)](https://docs.microsoft.com/rest/api/searchservice/Create-Indexer )kan du ange `BatchSize` argumentet för att anpassa den här inställningen för att bättre matcha egenskaperna för dina data. 
+Batch-indexering implementeras för enskilda förfrågningar med hjälp av REST eller .NET, eller genom indexerare. Några indexerare använder olika gränser. Mer specifikt ställer Azure Blob-indexering batch-storlek vid 10 dokument i redovisningen av den större genomsnittliga dokument storleken. För indexerare som baseras på [skapa indexerare REST API](https://docs.microsoft.com/rest/api/searchservice/Create-Indexer)kan du ange `BatchSize` argumentet för att anpassa den här inställningen för att bättre matcha egenskaperna för dina data. 
 
 > [!NOTE]
 > Undvik att lägga till icke-frågedata till ett index för att hålla nere dokument storleken. Bilder och andra binära data är inte direkt sökbara och bör inte lagras i indexet. Om du vill integrera data som inte går att köra i Sök resultaten bör du definiera ett fält som inte går att söka i som lagrar en URL-referens till resursen.
@@ -44,7 +44,7 @@ Att öka antalet repliker och partitioner är fakturerbara händelser som ökar 
 
 + Med Schemaläggaren kan du regelbundet indexera index med jämna mellanrum så att du kan sprida ut det över tid.
 + Schemalagd indexering kan återupptas vid den senast kända stopp punkten. Om en data källa inte är fullständigt crawlad inom ett 24-timmarsformat, kommer indexeraren att återuppta indexeringen på dag två på var den slutade.
-+ Att partitionera data i mindre enskilda data källor möjliggör parallell bearbetning. Du kan dela upp en stor data uppsättning i mindre data uppsättningar på käll data plattformen (till exempel Azure Blob Storage eller Azure SQL Database) och sedan skapa flera [data käll objekt](https://docs.microsoft.com/rest/api/searchservice/create-data-source) på Azure Search som kan indexeras parallellt.
++ Att partitionera data i mindre enskilda data källor möjliggör parallell bearbetning. Du kan dela upp käll data i mindre komponenter, till exempel i flera behållare i Azure Blob Storage, och sedan skapa motsvarande flera [data käll objekt](https://docs.microsoft.com/rest/api/searchservice/create-data-source) i Azure Search som kan indexeras parallellt.
 
 > [!NOTE]
 > Indexerare är data källa-/regionsspecifika, så användning av en indexerare-metod är endast livskraftig för valda data källor på Azure: [SQL Database](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md), [Blob Storage](search-howto-indexing-azure-blob-storage.md), [Table Storage](search-howto-indexing-azure-tables.md), [Cosmos DB](search-howto-index-cosmosdb.md).

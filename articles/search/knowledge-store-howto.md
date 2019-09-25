@@ -5,16 +5,15 @@ manager: nitinme
 author: HeidiSteen
 services: search
 ms.service: search
-ms.subservice: cognitive-search
 ms.topic: tutorial
 ms.date: 06/29/2019
 ms.author: heidist
-ms.openlocfilehash: d6cecdce9bc4f7fee9ec936ac73b6accc77084c4
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: 7568742c4a01903eddf7681da71e4f243cac1e56
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69648826"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71265618"
 ---
 # <a name="how-to-get-started-with-knowledge-store-in-azure-search"></a>Så här kommer du igång med kunskaps lager i Azure Search
 
@@ -65,7 +64,7 @@ I den här övningen används kompakta textfiler (juridisk information) som komm
 
 I den här uppgiften skapar du en Azure Blob-behållare för de här dokumenten som ska användas som inmatade i pipelinen. 
 
-1. Hämta och extrahera [Azure Search](https://github.com/Azure-Samples/azure-search-sample-data/tree/master/caselaw) data lagrings plats för att hämta [Caselaw](https://github.com/Azure-Samples/azure-search-sample-data/tree/master/caselaw)-datauppsättningen. 
+1. Hämta och extrahera [Azure Search](https://github.com/Azure-Samples/azure-search-sample-data/tree/master/caselaw) data lagrings plats för att hämta [Caselaw-datauppsättningen](https://github.com/Azure-Samples/azure-search-sample-data/tree/master/caselaw). 
 
 1. [Logga](https://portal.azure.com)in på Azure Portal, navigera till ditt Azure Storage-konto, klicka på **blobbar**och klicka sedan på **+ container**.
 

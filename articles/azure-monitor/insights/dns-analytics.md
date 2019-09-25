@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/20/2018
 ms.author: magoedte
-ms.openlocfilehash: 9fac349657340486674e4a899b21821b45cc0703
-ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
+ms.openlocfilehash: 46045664e9ddeebc45c2dae7c1f0a9f6a0d6b004
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69982588"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71265171"
 ---
 # <a name="gather-insights-about-your-dns-infrastructure-with-the-dns-analytics-preview-solution"></a>Samla in information om DNS-infrastrukturen med förhandsversionen av DNS Analytics-lösning
 
@@ -179,6 +179,12 @@ På sidan Log Search kan du skapa en fråga. Du kan filtrera sökresultaten geno
 1. I den **fråga sökrutan**, typ `DnsInventory` att visa alla DNS-inventeringsrelaterade data för DNS-servrar som hanteras av lösningen. I resultatlistan loggdata för DNS-servrar, DNS-zoner och resursposter.
 
     ![DnsInventory loggsökning](./media/dns-analytics/log-search-dnsinventory.png)
+    
+### <a name="troubleshooting"></a>Felsökning
+
+Commopn fel söknings steg:
+
+1. DNS-sökningar saknas – för att felsöka det här problemet kan du försöka med att återställa konfigurationen eller läsa in konfigurations sidan en gång i portalen. För att återställa, ändra bara en inställning till ett annat värde och ändra sedan tillbaka till det ursprungliga värdet och spara konfigurationen.
 
 ## <a name="feedback"></a>Feedback
 

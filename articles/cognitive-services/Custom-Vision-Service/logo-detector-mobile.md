@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: tutorial
 ms.date: 07/03/2019
 ms.author: pafarley
-ms.openlocfilehash: b0a5b110951d7b13110fab935d5ca1333f7f8c1e
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: bdcf8a0d63b880075cd22c73305afa8cf09a2e3b
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68564211"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71261976"
 ---
 # <a name="tutorial-recognize-azure-service-logos-in-camera-pictures"></a>Självstudier: Identifiera Azure-tjänstens logotyper i bilder med kameran
 
@@ -57,7 +57,7 @@ När du har laddat upp träningsbilderna väljer du den första på skärmen. Ta
 
 Appen är konfigurerad för att fungera med specifika taggsträngar. Definitionerna finns i filen *Source\VisualProvision\Services\Recognition\RecognitionService.cs*:
 
-[!code-csharp[Tag definitions](~/AIVisualProvision/Source/VisualProvision/Services/Recognition/RecognitionService.cs?range=18-33)]
+[!code-csharp[Tag definitions](~/AIVisualProvision/Source/VisualProvision/Services/Recognition/RecognitionService.cs?name=snippet_constants)]
 
 När du har taggat en bild går du till höger för att tagga nästa. Stäng taggningsfönstret när du är klar.
 
@@ -73,19 +73,19 @@ När din modell har tränats är du redo att integrera den med din app. Du måst
 
 ![Custom Vision-webbplatsen med en förutsägelse-API-skärm som visar en URL-adress och en API-nyckel](media/azure-logo-tutorial/cusvis-endpoint.png)
 
-Kopiera bildfilens URL och värdet för **Prediction-Key** till lämpliga fält filen *Source\VisualProvision\AppSettings.cs*:
+Kopiera slut punkts **-** URL: en och resultatvärdet till lämpliga fält i *Source\VisualProvision\AppSettings.cs* -filen:
 
-[!code-csharp[Custom Vision fields](~/AIVisualProvision/Source/VisualProvision/AppSettings.cs?range=22-26)]
+[!code-csharp[Custom Vision fields](~/AIVisualProvision/Source/VisualProvision/AppSettings.cs?name=snippet_cusvis_keys)]
 
 ## <a name="examine-custom-vision-usage"></a>Granska Custom Vision-användning
 
 Öppna filen *Source/VisualProvision/Services/Recognition/CustomVisionService.cs* för att se hur appen använder din Custom Vision-nyckel och slutpunkts-URL. Metoden **PredictImageContentsAsync** tar en byteström av en bildfil tillsammans med en annuleringstoken (för hantering av asynkron aktivitet), anropar förutsägelse-API:t för Custom Vision och returnerar förutsägelseresultatet. 
 
-[!code-csharp[Custom Vision fields](~/AIVisualProvision/Source/VisualProvision/Services/Recognition/CustomVisionService.cs?range=12-28)]
+[!code-csharp[Custom Vision fields](~/AIVisualProvision/Source/VisualProvision/Services/Recognition/CustomVisionService.cs?name=snippet_prediction)]
 
 Resultatet får formen av en **PredictionResult**-instans, som innehåller en lista över **förutsägelseinstanser**. En **förutsägelse** innehåller en identifierad tagg och dess avgränsningsfältsplats i bilden.
 
-[!code-csharp[Custom Vision fields](~/AIVisualProvision/Source/VisualProvision/Services/Recognition/Prediction.cs?range=3-12)]
+[!code-csharp[Custom Vision fields](~/AIVisualProvision/Source/VisualProvision/Services/Recognition/Prediction.cs?name=snippet_prediction_class)]
 
 Om du vill lära dig mer om hur appen hanterar dessa data börjar du med metoden **GetResourcesAsync**. Den här metoden definieras i filen *Source/VisualProvision/Services/Recognition/RecognitionService.cs*.  
 
@@ -99,7 +99,7 @@ Prenumerera på tjänsten Visuellt innehåll för att hämta en nyckel och slutp
 
 Nu öppnar du filen *Source\VisualProvision\AppSettings.cs* och fyller i variablerna `ComputerVisionEndpoint` och `ComputerVisionKey` med rätt värden.
 
-[!code-csharp[Computer Vision fields](~/AIVisualProvision/Source/VisualProvision/AppSettings.cs?range=28-32)]
+[!code-csharp[Computer Vision fields](~/AIVisualProvision/Source/VisualProvision/AppSettings.cs?name=snippet_comvis_keys)]
 
 ## <a name="create-a-service-principal"></a>Skapa ett huvudnamn för tjänsten
 
@@ -133,7 +133,7 @@ Vid slutförande bör du se följande JSON-utdata, däribland nödvändiga auten
 
 Anteckna värdena `clientId` och `tenantId`. Lägg till dem i rätt fält i filen *Source\VisualProvision\AppSettings.cs*.
 
-[!code-csharp[Computer Vision fields](~/AIVisualProvision/Source/VisualProvision/AppSettings.cs?range=8-16)]
+[!code-csharp[Computer Vision fields](~/AIVisualProvision/Source/VisualProvision/AppSettings.cs?name=snippet_serviceprincipal)]
 
 ## <a name="run-the-app"></a>Kör appen
 

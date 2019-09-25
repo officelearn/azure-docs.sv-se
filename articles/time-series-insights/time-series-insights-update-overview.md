@@ -9,16 +9,16 @@ manager: cshankar
 ms.reviewer: dpalled
 ms.workload: big-data
 ms.topic: overview
-ms.date: 08/01/2019
+ms.date: 09/23/2019
 ms.custom: seodec18
-ms.openlocfilehash: 7d411e8d41f3026476ca8344e8ff9736701d6af6
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.openlocfilehash: ffa4424dd3173cf6493ec219fe92925c970ad08c
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68736173"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71258312"
 ---
-# <a name="what-is-azure-time-series-insights-preview"></a>Vad är Azure Time Series Insights för hands version?
+# <a name="what-is-azure-time-series-insights-preview"></a>Vad är Azure Time Series Insights (förhandsversion)?
 
 Azure Time Series Insights för hands version är ett PaaS-erbjudande (end-to-end service). Den används för att samla in, bearbeta, lagra, analysera och fråga mycket sammanhangsbaserade, tidsbaserad, tidsbaserad och optimerad IoT-Scale-data. Time Series Insights är idealiskt för ad hoc-dataundersökning och drift analys. Time Series Insights är en unikt utbyggbar och anpassad tjänst som uppfyller de omfattande behoven för industriella IoT-distributioner.
 

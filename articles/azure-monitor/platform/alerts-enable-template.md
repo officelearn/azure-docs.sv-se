@@ -1,6 +1,6 @@
 ---
-title: Skapa en klassisk måttavisering i Azure med en Resource Manager-mall
-description: Lär dig hur du använder Resource Manager-mall för att skapa en klassisk måttavisering för att ta emot meddelanden med e-post eller webhook.
+title: Skapa en klassisk måtta avisering i Azure med en Resource Manager-mall
+description: Lär dig hur du använder en Resource Manager-mall för att skapa en klassisk mått avisering för att ta emot aviseringar via e-post eller webhook.
 author: johnkemnetz
 services: azure-monitor
 ms.service: azure-monitor
@@ -8,31 +8,31 @@ ms.topic: conceptual
 ms.date: 4/27/2018
 ms.author: johnkem
 ms.subservice: metrics
-ms.openlocfilehash: df26547132403bfe2f3fb3be74e5d1a3d9400967
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: faeb4df915cc5c56e21d1857fe75a956d419c46e
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60776447"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71262094"
 ---
 # <a name="create-a-classic-metric-alert-with-a-resource-manager-template"></a>Skapa en klassisk måttavisering med en Resource Manager-mall
-Den här artikeln visar hur du kan använda en [Azure Resource Manager-mall](../../azure-resource-manager/resource-group-authoring-templates.md) att konfigurera Azure måttaviseringar. På så sätt kan du automatiskt konfigurera aviseringar för dina resurser när de har skapats för att se till att alla resurser är korrekt.
+Den här artikeln visar hur du kan använda en [Azure Resource Manager-mall](../../azure-resource-manager/resource-group-authoring-templates.md) för att konfigurera Azure Metric-aviseringar. På så sätt kan du automatiskt konfigurera aviseringar för dina resurser när de skapas för att säkerställa att alla resurser övervakas korrekt.
 
 > [!NOTE]
 > 
-> Den här artikeln beskrivs hur du skapar **klassiska måttaviseringar** med hjälp av Resource Manager-mallar. Om du behöver för att skapa [nyare måttaviseringar](../../azure-monitor/platform/alerts-metric-near-real-time.md) med hjälp av mallar, [i den här artikeln](alerts-metric-create-templates.md) ger detaljerad information.
+> I den här artikeln beskrivs hur du skapar **klassiska mått varningar** med Resource Manager-mallar. Om du letar efter att skapa [nya mått aviseringar](../../azure-monitor/platform/alerts-metric-near-real-time.md) med hjälp av mallar, innehåller [den här artikeln](alerts-metric-create-templates.md) information.
 >
 
 
 De grundläggande stegen är följande:
 
 1. Skapa en mall som en JSON-fil som beskriver hur du skapar aviseringen.
-2. [Distribuera mallen med hjälp av valfri distributionsmetod](../../azure-resource-manager/resource-group-template-deploy.md).
+2. [Distribuera mallen med valfri distributions metod](../../azure-resource-manager/resource-group-template-deploy.md).
 
-Nedan beskrivs hur du Resource Manager-mall först skapa en avisering ensamt och sedan för en varning under genereringen av en annan resurs.
+Nedan beskrivs hur du skapar en Resource Manager-mall först för en avisering, sedan för en avisering när du skapar en annan resurs.
 
-## <a name="resource-manager-template-for-a-classic-metric-alert"></a>Resource Manager-mall för en klassisk måttavisering
-Om du vill skapa en avisering med en Resource Manager-mall, skapar du en resurs av typen `Microsoft.Insights/alertRules` och Fyll i alla relaterade egenskaper. Nedan visas en mall som skapar en aviseringsregel.
+## <a name="resource-manager-template-for-a-classic-metric-alert"></a>Resource Manager-mall för en klassisk måtta avisering
+Om du vill skapa en avisering med hjälp av en Resource Manager-mall skapar du `Microsoft.Insights/alertRules` en resurs av typen och fyller i alla relaterade egenskaper. Nedan visas en mall som skapar en varnings regel.
 
 ```json
 {
@@ -179,10 +179,10 @@ Om du vill skapa en avisering med en Resource Manager-mall, skapar du en resurs 
 }
 ```
 
-En förklaring av schemat och egenskaper för en varningsregel [finns här](https://msdn.microsoft.com/library/azure/dn933805.aspx).
+En förklaring av schema och egenskaper för en varnings regel [finns här](https://msdn.microsoft.com/library/azure/dn933805.aspx).
 
-## <a name="resource-manager-template-for-a-resource-with-a-classic-metric-alert"></a>Resource Manager-mall för en resurs med en klassisk måttavisering
-En avisering på en Resource Manager-mallen är mest användbart när du skapar en avisering när du skapar en resurs. Du kan till exempel vill se till att en ”CPU % > 80” regeln ställs in varje gång du distribuerar en virtuell dator. Detta gör du lägger till varningsregeln som en resurs i matrisen resurs för VM-mallen och lägga till ett beroende med hjälp av den `dependsOn` egenskapen till VM-resurs-ID. Här är ett fullständigt exempel som skapar en virtuell Windows-dator och lägger till en avisering som meddelar prenumerationsadministratörer när processoranvändningen går över 80%.
+## <a name="resource-manager-template-for-a-resource-with-a-classic-metric-alert"></a>Resource Manager-mall för en resurs med en klassisk måtta avisering
+En avisering i en Resource Manager-mall är oftast användbar när du skapar en avisering när du skapar en resurs. Du kanske till exempel vill se till att en "CPU% > 80"-regel konfigureras varje gång du distribuerar en virtuell dator. Om du vill göra det lägger du till varnings regeln som en resurs i resurs mat ris mal len för VM-mallen och lägger till `dependsOn` ett beroende med egenskapen till resurs-ID för virtuell dator. Här är ett fullständigt exempel som skapar en virtuell Windows-dator och lägger till en avisering som meddelar prenumerations administratörer när processor användningen går över 80%.
 
 ```json
 {
@@ -403,6 +403,6 @@ En avisering på en Resource Manager-mallen är mest användbart när du skapar 
 
 ## <a name="next-steps"></a>Nästa steg
 * [Läs mer om aviseringar](alerts-overview.md)
-* [Lägg till diagnostikinställningar](../../azure-monitor/platform/diagnostic-logs-stream-template.md) till Resource Manager-mall
-* JSON-syntax och egenskaper finns i [Microsoft.Insights/alertrules](/azure/templates/microsoft.insights/alertrules) mallreferensen.
+* [Lägg till diagnostikinställningar](../../azure-monitor/platform/diagnostic-settings-template.md) i Resource Manager-mallen
+* För JSON-syntax och egenskaper, se referens för [Microsoft. Insights/alertrules-](/azure/templates/microsoft.insights/alertrules) mallen.
 

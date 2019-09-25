@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 08/09/2019
 ms.author: v-adgera
 ms.custom: seodec18
-ms.openlocfilehash: dd1481c74cdf519dcb4588e0b7cf09b7b6ab5f1d
-ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
+ms.openlocfilehash: d0f5f9a1d488b6be8ca91fdd057880e351ae0b3f
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68950130"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71261033"
 ---
 # <a name="how-to-configure-monitoring-in-azure-digital-twins"></a>Så här konfigurerar du övervakning i digitala Azure-dubbla
 
@@ -57,7 +57,7 @@ För Avancerad aktivitets loggning:
 
 ## <a name="enable-customer-diagnostic-logs"></a>Aktivera kunders diagnostikloggar
 
-Azure [Diagnostic-inställningar](../azure-monitor/platform/diagnostic-logs-overview.md) kan ställas in för varje Azure-instans för att komplettera aktivitets loggning. När aktivitets loggar rör händelser på prenumerations nivå, ger diagnostisk loggning insikter om arbets historiken för resurserna själva.
+Azure [Diagnostic-inställningar](../azure-monitor/platform/resource-logs-overview.md) kan ställas in för varje Azure-instans för att komplettera aktivitets loggning. När aktivitets loggar rör händelser på prenumerations nivå, ger diagnostisk loggning insikter om arbets historiken för resurserna själva.
 
 Exempel på diagnostisk loggning är:
 
@@ -129,6 +129,6 @@ Azure Digitals dubbla, stöder också programspecifik loggning och säkerhets gr
 
 - Läs mer om Azures [aktivitets loggar](../azure-monitor/platform/activity-logs-overview.md).
 
-- Lär dig mer om Azure Diagnostic-inställningar genom [att läsa en översikt över diagnostikloggar](../azure-monitor/platform/diagnostic-logs-overview.md).
+- Lär dig mer om Azure Diagnostic-inställningar genom [att läsa en översikt över diagnostikloggar](../azure-monitor/platform/resource-logs-overview.md).
 
 - Läs mer om [Azure Monitor loggar](../azure-monitor/log-query/get-started-portal.md).

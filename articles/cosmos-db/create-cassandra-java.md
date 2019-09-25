@@ -8,13 +8,13 @@ ms.subservice: cosmosdb-cassandra
 ms.devlang: java
 ms.topic: quickstart
 ms.date: 09/24/2018
-ms.custom: seo-java-august2019
-ms.openlocfilehash: 6463a578d514a7bcc9fb703e34f94381e1e9cf65
-ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
+ms.custom: seo-java-august2019, seo-java-september2019
+ms.openlocfilehash: 5b1eacb1d0121f2dd0d97807f07042e828fe7932
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69981776"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71266008"
 ---
 # <a name="quickstart-build-a-java-app-to-manage-azure-cosmos-db-cassandra-api-data"></a>Snabbstart: Bygg en Java-app för att hantera Azure Cosmos DB API för Cassandra data
 
@@ -152,9 +152,9 @@ Gå nu tillbaka till Azure-portalen för att hämta information om din anslutnin
 
 1. På [Azure-portalen](https://portal.azure.com/) väljer du **Anslutningssträng**. 
 
-    ![Visa och kopiera ett användarnamn från Azure-portalen, sidan Anslutningssträng](./media/create-cassandra-java/keys.png)
+    ![Visa och kopiera ett användarnamn från Azure-portalen, sidan Anslutningssträng](./media/create-cassandra-java/copy-username-connection-string-azure-portal.png)
 
-2. Använd ![Kopieringsknapp](./media/create-cassandra-java/copy.png) knappen på höger sida av skärmen för att kopiera värdet KONTAKTPUNKT.
+2. Använd ![Knappen Kopiera](./media/create-cassandra-java/copy-button-azure-portal.png) knappen på höger sida av skärmen för att kopiera värdet KONTAKTPUNKT.
 
 3. Öppna filen `config.properties` i mappen `C:\git-samples\azure-cosmosdb-cassandra-java-getting-started\java-examples\src\main\resources`. 
 
@@ -208,7 +208,7 @@ Gå nu tillbaka till Azure-portalen för att hämta information om din anslutnin
 
 4. I **Datautforskaren** på Azure-portalen kan du fråga, ändra och arbeta med dessa nya data. 
 
-    ![Visa data i Datautforskaren](./media/create-cassandra-java/data-explorer.png)
+    ![Visa data i Datautforskaren-Azure Cosmos DB](./media/create-cassandra-java/view-data-explorer-java-app.png)
 
 ## <a name="review-slas-in-the-azure-portal"></a>Granska serviceavtal i Azure-portalen
 

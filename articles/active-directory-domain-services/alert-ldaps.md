@@ -1,68 +1,66 @@
 ---
-title: 'Azure Active Directory Domain Services: Felsöka säker LDAP | Microsoft Docs'
-description: Felsöka säkert LDAP för Azure AD Domain Services
+title: Lös säkra LDAP-aviseringar i Azure AD Domain Services | Microsoft Docs
+description: Lär dig hur du felsöker och löser vanliga aviseringar med säker LDAP för Azure Active Directory Domain Services.
 services: active-directory-ds
-documentationcenter: ''
 author: iainfoulds
-manager: ''
-editor: ''
+manager: daveba
 ms.assetid: 81208c0b-8d41-4f65-be15-42119b1b5957
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: conceptual
-ms.date: 05/22/2019
+ms.topic: troubleshooting
+ms.date: 09/18/2019
 ms.author: iainfou
-ms.openlocfilehash: 8f9f4a8b52548dad011f5e825fa42c50da970ea7
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 06b0fa1979f18981ec5cf78dc9a9dbad8b196394
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69613154"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71258054"
 ---
-# <a name="azure-ad-domain-services---troubleshooting-secure-ldap-configuration"></a>Azure AD Domain Services – fel sökning av säkert LDAP konfiguration
+# <a name="known-issues-secure-ldap-alerts-in-azure-active-directory-domain-services"></a>Kända problem: säkert LDAP aviseringar i Azure Active Directory Domain Services
 
-Den här artikeln innehåller lösningar på vanliga problem när du [konfigurerar säker LDAP](tutorial-configure-ldaps.md) för Azure AD Domain Services.
+Program och tjänster som använder LDAP (Lightweight Directory Access Protocol) för att kommunicera med Azure Active Directory Domain Services (Azure AD DS) kan [konfigureras för att använda säker LDAP](tutorial-configure-ldaps.md). Ett lämpligt certifikat och nödvändiga nätverks portar måste vara öppna för att säker LDAP ska fungera korrekt.
 
-## <a name="aadds101-secure-ldap-network-security-group-configuration"></a>AADDS101: säkert LDAP konfiguration av nätverks säkerhets grupp
+Den här artikeln hjälper dig att förstå och lösa vanliga aviseringar med säker LDAP-åtkomst i Azure AD DS.
 
-**Aviserings meddelande:**
+## <a name="aadds101-secure-ldap-network-configuration"></a>AADDS101: säkert LDAP nätverks konfiguration
+
+### <a name="alert-message"></a>Aviserings meddelande
 
 *Säkert LDAP över Internet är aktiverat för den hanterade domänen. Åtkomst till port 636 är dock inte låst med en nätverks säkerhets grupp. Detta kan innebära att användar konton på den hanterade domänen används för lösen ords brutet angrepp.*
 
-### <a name="secure-ldap-port"></a>säkert LDAP port
+### <a name="resolution"></a>Lösning
 
-När säker LDAP har Aktiver ATS rekommenderar vi att du skapar ytterligare regler för att tillåta inkommande LDAP-åtkomst enbart från vissa IP-adresser. Reglerna skyddar din domän från brute force-attacker som kan utgöra ett säkerhetshot. Port 636 ger åtkomst till din hanterade domän. Så här uppdaterar du NSG för att tillåta åtkomst för säkert LDAP:
+När du aktiverar säker LDAP rekommenderar vi att du skapar ytterligare regler som begränsar inkommande LDAPs åtkomst till vissa IP-adresser. De här reglerna skyddar den hanterade domänen i Azure AD DS från brute force-attacker. Utför följande steg för att uppdatera nätverks säkerhets gruppen så att den begränsar TCP-port 636-åtkomst för säker LDAP:
 
-1. Gå till [fliken nätverks säkerhets grupper](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.Network%2FNetworkSecurityGroups) i Azure Portal
-2. Välj den NSG som är kopplad till din domän från tabellen.
-3. Klicka på **inkommande säkerhets regler**
-4. Skapa port 636-regeln
-   1. Klicka på **Lägg till** i det övre navigerings fältet.
-   2. Välj **IP-adresser** för källan.
-   3. Ange käll portens intervall för den här regeln.
-   4. Inmatar "636" för mål ports intervall.
-   5. Protokollet är **TCP**.
-   6. Ge regeln ett lämpligt namn, en beskrivning och prioritet. Regelns prioritet ska vara högre än din regels prioritet för "Neka alla" om du har en.
-   7. Klicka på **OK**.
-5. Kontrol lera att regeln har skapats.
-6. Kontrol lera din domän hälsa på två timmar för att se till att du har slutfört stegen korrekt.
+1. Sök efter och välj **nätverks säkerhets grupper**i Azure Portal.
+1. Välj den nätverks säkerhets grupp som är kopplad till din hanterade domän, t. ex. *AADDS-contoso.com-NSG*, och välj sedan **inkommande säkerhets regler**
+1. **+ Lägg till** en regel för TCP-port 636. Om det behövs väljer du **Avancerat** i fönstret för att skapa en regel.
+1. För **källan**väljer du *IP-adresser* på den nedrullningsbara menyn. Ange de käll-IP-adresser som du vill bevilja åtkomst för säker LDAP-trafik.
+1. Välj *valfri* som **mål**och ange sedan *636* för **mål ports intervall**.
+1. Ange **protokollet** som *TCP* och **åtgärden** som ska *tillåtas*.
+1. Ange regelns prioritet och ange sedan ett namn som *RestrictLDAPS*.
+1. När du är klar väljer du **Lägg till** för att skapa regeln.
+
+Azure AD DS-hanterad domän hälsa uppdateras automatiskt inom två timmar och tar bort aviseringen.
 
 > [!TIP]
-> Port 636 är inte den enda regeln som krävs för att Azure AD Domain Services ska kunna köras smidigt. Mer information finns i [rikt linjerna för nätverk](network-considerations.md) eller [fel sökning av NSG](alert-nsg.md) -konfigurations artiklar.
->
+> TCP-port 636 är inte den enda regeln som krävs för att Azure AD DS ska kunna köras smidigt. Mer information finns i [nätverks säkerhets grupper för Azure AD DS och de portar som krävs](network-considerations.md#network-security-groups-and-required-ports).
 
 ## <a name="aadds502-secure-ldap-certificate-expiring"></a>AADDS502: säkert LDAP certifikat upphör att gälla
 
-**Aviserings meddelande:**
+### <a name="alert-message"></a>Aviserings meddelande
 
 *Det säkra LDAP-certifikatet för den hanterade domänen upphör att gälla [datum]].*
 
-**Lösning**
+### <a name="resolution"></a>Lösning
 
-Skapa ett nytt säkert LDAP-certifikat genom att följa stegen som beskrivs i artikeln [Konfigurera säker LDAP](tutorial-configure-ldaps.md) .
+Skapa ett nytt, säkert LDAP-certifikat genom att följa stegen för att [skapa ett certifikat för säker LDAP](tutorial-configure-ldaps.md#create-a-certificate-for-secure-ldap). Tillämpa ersättnings certifikatet på Azure AD DS och distribuera certifikatet till alla klienter som ansluter med hjälp av säker LDAP.
 
-## <a name="contact-us"></a>Kontakta oss
-Kontakta Azure Active Directory Domain Services produkt teamet för att [dela feedback eller för support](contact-us.md).
+## <a name="next-steps"></a>Nästa steg
+
+Om du fortfarande har problem [öppnar du en support förfrågan för Azure][azure-support] om du behöver ytterligare fel sökning.
+
+<!-- INTERNAL LINKS -->
+[azure-support]: ../active-directory/fundamentals/active-directory-troubleshooting-support-howto.md

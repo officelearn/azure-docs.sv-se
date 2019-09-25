@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 07/16/2019
+ms.date: 09/26/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: b7eb004dbeba499e6f67f98165b72d7ec8615f1b
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 8e858869d742120138e7997ce21d9e4cca93ed9b
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71065851"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71264369"
 ---
 # <a name="get-started-with-custom-policies-in-azure-active-directory-b2c"></a>Kom igång med anpassade principer i Azure Active Directory B2C
 
@@ -25,44 +25,45 @@ ms.locfileid: "71065851"
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-- Om du inte redan har en, måste du [skapa en Azure AD B2C-klient](tutorial-create-tenant.md) som är länkad till din Azure-prenumeration.
+- Om du inte redan har en, [skapar du en Azure AD B2C klient](tutorial-create-tenant.md) som är länkad till din Azure-prenumeration.
 - [Registrera ditt program](tutorial-register-applications.md) i klient organisationen som du skapade så att den kan kommunicera med Azure AD B2C.
+- Slutför stegen i Konfigurera [registrering och inloggning med ett Facebook-konto](active-directory-b2c-setup-fb-app.md) för att konfigurera ett Facebook-program.
 
 ## <a name="add-signing-and-encryption-keys"></a>Lägg till signerings-och krypterings nycklar
 
-1. Logga in på [Azure Portal](https://portal.azure.com/) som global administratör för din Azure AD B2C-klientorganisationen.
-2. Kontrol lera att du använder den katalog som innehåller din Azure AD B2C-klient. Välj **katalog + prenumerations** filter på den översta menyn och välj den katalog som innehåller din klient.
-3. Välj **Alla tjänster** på menyn högst upp till vänster i Azure-portalen och sök efter och välj **Azure AD B2C**.
-4. På sidan Översikt väljer du **ID för identitets miljö**.
+1. Logga in på [Azure-portalen](https://portal.azure.com)
+1. Använd filtret för **katalog + prenumeration** på den översta menyn för att välja den katalog som innehåller Azure AD B2C klient.
+1. På den vänstra menyn väljer du **Azure AD B2C**. Eller Välj **alla tjänster** och Sök efter och välj **Azure AD B2C**.
+1. På sidan Översikt väljer du **ID för identitets miljö**.
 
 ### <a name="create-the-signing-key"></a>Skapa signerings nyckeln
 
 1. Välj **princip nycklar** och välj sedan **Lägg till**.
-2. För **alternativ**väljer `Generate`du.
-3. I **namn**anger `TokenSigningKeyContainer`du. Prefixet `B2C_1A_` kan läggas till automatiskt.
-4. För **nyckel typ**väljer du **RSA**.
-5. För **nyckel användning**väljer du **signatur**.
-6. Klicka på **Skapa**.
+1. För **alternativ**väljer `Generate`du.
+1. I **namn**anger `TokenSigningKeyContainer`du. Prefixet `B2C_1A_` kan läggas till automatiskt.
+1. För **nyckel typ**väljer du **RSA**.
+1. För **nyckel användning**väljer du **signatur**.
+1. Välj **Skapa**.
 
 ### <a name="create-the-encryption-key"></a>Skapa krypterings nyckeln
 
 1. Välj **princip nycklar** och välj sedan **Lägg till**.
-2. För **alternativ**väljer `Generate`du.
-3. I **namn**anger `TokenEncryptionKeyContainer`du. Prefixet `B2C_1A`_ kan läggas till automatiskt.
-4. För **nyckel typ**väljer du **RSA**.
-5. För **nyckel användning**väljer du **kryptering**.
-6. Klicka på **Skapa**.
+1. För **alternativ**väljer `Generate`du.
+1. I **namn**anger `TokenEncryptionKeyContainer`du. Prefixet `B2C_1A`_ kan läggas till automatiskt.
+1. För **nyckel typ**väljer du **RSA**.
+1. För **nyckel användning**väljer du **kryptering**.
+1. Välj **Skapa**.
 
 ### <a name="create-the-facebook-key"></a>Skapa Facebook-nyckeln
 
-Om du redan har en [Facebook](active-directory-b2c-setup-fb-app.md)-programhemlighet, lägger du till den som en princip nyckel för din klient. Annars måste du skapa nyckeln med ett plats hållare-värde så att principerna klarar verifieringen.
+Lägg till ditt Facebook-programs [app-hemlighet](active-directory-b2c-setup-fb-app.md) som en princip nyckel. Du kan använda appens hemlighet för det program som du skapade som en del av den här artikelns krav.
 
 1. Välj **princip nycklar** och välj sedan **Lägg till**.
-2. För **alternativ**väljer `Manual`du.
-3. Som **namn**anger `FacebookSecret`du. Prefixet `B2C_1A_` kan läggas till automatiskt.
-4. I **hemlighet**anger du din Facebook-hemlighet från Developers.Facebook.com `0` eller som plats hållare. Det här värdet är hemligheten, inte program-ID: t.
-5. För **nyckel användning**väljer du **signatur**.
-6. Klicka på **Skapa**.
+1. För **alternativ**väljer `Manual`du.
+1. Som **namn**anger `FacebookSecret`du. Prefixet `B2C_1A_` kan läggas till automatiskt.
+1. I **hemlighet**anger du din Facebook- *appens program hemlighet* från Developers.Facebook.com. Det här värdet är hemligheten, inte program-ID: t.
+1. För **nyckel användning**väljer du **signatur**.
+1. Välj **Skapa**.
 
 ## <a name="register-identity-experience-framework-applications"></a>Registrera program för identitets upplevelse Framework
 
@@ -78,19 +79,19 @@ Azure AD B2C kräver att du registrerar två program som används för att regis
 1. Som **namn**anger `IdentityExperienceFramework`du.
 1. För **program typ**väljer du **webbapp/API**.
 1. För **inloggnings-URL**anger `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com`du, där `your-tenant-name` är ditt Azure AD B2C klient domän namn. Alla URL: er ska nu använda [b2clogin.com](b2clogin.md).
-1. Klicka på **Skapa**. När den har skapats kopierar du program-ID: t och sparar det för att använda det senare.
+1. Välj **Skapa**. När den har skapats kopierar du program-ID: t och sparar det för att använda det senare.
 
 ### <a name="register-the-proxyidentityexperienceframework-application"></a>Registrera ProxyIdentityExperienceFramework-programmet
 
 1. I **Appregistreringar (bakåtkompatibelt)** väljer du **ny program registrering**.
-2. Som **namn**anger `ProxyIdentityExperienceFramework`du.
-3. Välj **intern**för **program typ**.
-4. Föromdirigerings- `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com`URI anger `your-tenant-name` du, där är Azure AD B2C klient.
-5. Klicka på **Skapa**. När den har skapats kopierar du program-ID: t och sparar det för att använda det senare.
-6. På sidan Inställningar väljer du **nödvändiga behörigheter**och väljer sedan **Lägg till**.
-7. Välj **Välj ett API**, Sök efter och välj **IdentityExperienceFramework**och klicka sedan på **Välj**.
-9. Markera kryss rutan bredvid Access- **IdentityExperienceFramework**, klicka på **Välj**och sedan på **färdig**.
-10. Välj **bevilja behörigheter**och bekräfta genom att välja **Ja**.
+1. Som **namn**anger `ProxyIdentityExperienceFramework`du.
+1. Välj **intern**för **program typ**.
+1. Föromdirigerings- `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com`URI anger `your-tenant-name` du, där är Azure AD B2C klient.
+1. Välj **Skapa**. När den har skapats kopierar du program-ID: t och sparar det för att använda det senare.
+1. Välj **Inställningar**och välj sedan **nödvändiga behörigheter**och välj sedan **Lägg till**.
+1. Välj **Välj ett API**, Sök efter och välj **IdentityExperienceFramework**och klicka sedan på **Välj**.
+1. Markera kryss rutan bredvid Access- **IdentityExperienceFramework**, klicka på **Välj**och sedan på **färdig**.
+1. Välj **bevilja behörigheter**och bekräfta genom att välja **Ja**.
 
 ## <a name="custom-policy-starter-pack"></a>Start paket för anpassad princip
 
@@ -160,7 +161,6 @@ När du överför filerna lägger Azure till prefixet `B2C_1A_` i varje.
 
 ## <a name="add-facebook-as-an-identity-provider"></a>Lägg till Facebook som en identitets leverantör
 
-1. Slutför stegen i Konfigurera [registrering och inloggning med ett Facebook-konto](active-directory-b2c-setup-fb-app.md) för att konfigurera ett Facebook-program.
 1. Ersätt värdet för`client_id` med Facebook-programmets ID i **filen:`TrustFrameworkExtensions.xml`** `SocialAndLocalAccounts/`
 
    ```xml
@@ -172,7 +172,7 @@ När du överför filerna lägger Azure till prefixet `B2C_1A_` i varje.
 
 1. Ladda upp filen *TrustFrameworkExtensions. XML* till din klient organisation.
 1. Under **anpassade principer**väljer du **B2C_1A_signup_signin**.
-1. Välj **Kör nu** och välj Facebook för att logga in med Facebook och testa den anpassade principen. Eller så anropar du principen direkt från ditt registrerade program.
+1. Välj **Kör nu** och välj Facebook för att logga in med Facebook och testa den anpassade principen.
 
 ## <a name="next-steps"></a>Nästa steg
 

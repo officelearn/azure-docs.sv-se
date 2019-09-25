@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 04/16/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 67e5364996be2945d67aa1a95cbc3ab8137e077e
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: b9d2dda589cc59be24b73ce16dcdcbbe79b31aef
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68850261"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71259164"
 ---
 # <a name="troubleshoot-desired-state-configuration-dsc"></a>Felsök önskad tillstånds konfiguration (DSC)
 
@@ -24,7 +24,7 @@ Den här artikeln innehåller information om fel sökning av problem med önskad
 
 När du har problem med att kompilera eller distribuera konfigurationer i Azure-tillstånds konfiguration så är det några steg som hjälper dig att diagnostisera problemet.
 
-1. **Se till att konfigurationen kompileras korrekt på den lokala datorn:**  Azure State Configuration bygger på PowerShell DSC. Du hittar dokumentationen för DSC-språket och syntaxen i [POWERSHELL DSC](https://docs.microsoft.com/en-us/powershell/scripting/overview)-dokumenten.
+1. **Se till att konfigurationen kompileras korrekt på den lokala datorn:**  Azure State Configuration bygger på PowerShell DSC. Du hittar dokumentationen för DSC-språket och syntaxen i [POWERSHELL DSC-dokumenten](https://docs.microsoft.com/en-us/powershell/scripting/overview).
 
    Genom att kompilera DSC-konfigurationen på den lokala datorn kan du identifiera och lösa vanliga fel, till exempel:
 
@@ -124,7 +124,7 @@ Compilation completed successfully, but no node configuration.mofs were generate
 
 #### <a name="cause"></a>Orsak
 
-När uttrycket efter nodens nyckelord i DSC-konfigurationen utvärderas till `$null`, skapas inga nodkonfigurationer.
+När uttrycket efter **nodens** nyckelord i DSC-konfigurationen utvärderas till `$null`, skapas inga nodkonfigurationer.
 
 #### <a name="resolution"></a>Lösning
 
@@ -149,7 +149,7 @@ Du har uppgraderat din WMF-version och har skadat WMI.
 
 #### <a name="resolution"></a>Lösning
 
-Åtgärda problemet genom att följa anvisningarna i artikeln om [kända problem och begränsningar i DSC](https://msdn.microsoft.com/powershell/wmf/5.0/limitation_dsc) .
+Åtgärda problemet genom att följa anvisningarna i artikeln om [kända problem och begränsningar i DSC](https://docs.microsoft.com/powershell/scripting/wmf/known-issues/known-issues-dsc) .
 
 ### <a name="issue-using-credential"></a>Situationen Det går inte att använda autentiseringsuppgifter i en DSC-konfiguration
 

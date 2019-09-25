@@ -8,199 +8,204 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 05/09/2019
-ms.openlocfilehash: 482e3e534486a226783e2377c10b074a087e67ed
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: 9b9071eae4ec18cb1d5fd277f6f5403ce3997f48
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71037305"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71261730"
 ---
 # <a name="create-and-configure-enterprise-security-package-clusters-in-azure-hdinsight"></a>Skapa och konfigurera Enterprise Security Package kluster i Azure HDInsight
 
-Med Enterprise Security Package för Azure HDInsight får du till gång till Active Directory-baserad autentisering, stöd för flera användare och rollbaserad åtkomst kontroll för dina Apache Hadoop-kluster i Azure. HDInsight ESP-kluster möjliggör organisationer, som följer strikta företags säkerhets principer, för att bearbeta känsliga data på ett säkert sätt.
+Enterprise Security Package (ESP) för Azure HDInsight ger dig till gång till Active Directory-baserad autentisering, stöd för flera användare och rollbaserad åtkomst kontroll för dina Apache Hadoop-kluster i Azure. Med HDInsight ESP-kluster kan organisationer som följer strikta företags säkerhets principer bearbeta känsliga data på ett säkert sätt.
 
-Målet med den här guiden är att konfigurera nödvändiga resurser korrekt så att lokala användare kan logga in på ett ESP-aktiverat HDInsight-kluster. Den här artikeln vägleder dig genom de steg som krävs för att skapa ett Enterprise Security Package aktiverat Azure HDInsight-kluster. Stegen beskriver hur du skapar en virtuell Windows IaaS-dator med Active Directory & Domain Name Services (DNS) aktiverat. Den här servern fungerar som en ersättning för din **verkliga** lokala miljö och gör att du kan fortsätta med konfigurations-och konfigurations stegen så att du kan upprepa dem senare i din egen miljö. Den här guiden hjälper dig också att skapa en hybrid identitets miljö med hjälp av hash-synkronisering av lösen ord med Azure Active Directory.
+Den här guiden visar hur du skapar ett ESP-aktiverat Azure HDInsight-kluster. Det visar också hur du skapar en virtuell Windows IaaS-dator där Active Directory och Domain Name System (DNS) är aktiverade. Använd den här guiden för att konfigurera nödvändiga resurser så att lokala användare kan logga in på ett ESP-aktiverat HDInsight-kluster.
 
-Den här guiden är avsedd att komplettera [användnings Enterprise Security Package i HDInsight](apache-domain-joined-architecture.md)
+Den server som du skapar fungerar som en ersättning för din *faktiska* lokala miljö. Du använder den för konfigurations-och konfigurations stegen. Senare upprepar du stegen i din egen miljö. 
 
-Innan du använder den här processen i din egen miljö kan du konfigurera Active Directory och domän namns tjänster (DNS). Du kan också aktivera Azure Active Directory och synkronisera lokala användar konton till Azure Active Directory.
+Den här guiden hjälper dig också att skapa en hybrid identitets miljö med hjälp av lösen ords-hash-synkronisering med Azure Active Directory (Azure AD). Guiden kompletterar [användningen av ESP i HDInsight](apache-domain-joined-architecture.md).
 
-![Diagram över Azure Active Directory arkitektur](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0002.png)
+Innan du använder den här processen i din egen miljö:
+* Konfigurera Active Directory och DNS.
+* Aktivera Azure AD.
+* Synkronisera lokala användar konton till Azure AD.
 
-## <a name="create-on-premises-environment"></a>Skapa en lokal miljö
+![Arkitektur diagram för Azure AD](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0002.png)
 
-Översikt: I det här avsnittet ska du använda en mall för snabb distribution av Azure för att skapa nya virtuella datorer, konfigurera Domain Name Services (DNS) och en ny AD-skog.
+## <a name="create-an-on-premises-environment"></a>Skapa en lokal miljö
 
-1. Gå till [skapa en virtuell Azure-dator med en ny AD-skog](https://azure.microsoft.com/resources/templates/active-directory-new-domain/)för att Visa mallen för snabb distribution.
+I det här avsnittet ska du använda en distributions mall för Azure snabb start för att skapa nya virtuella datorer, konfigurera DNS och lägga till en ny Active Directory skog.
 
-1. Klicka på **distribuera till Azure**.
+1. Gå till distributions mal len för snabb start för att [skapa en virtuell Azure-dator med en ny Active Directory skog](https://azure.microsoft.com/resources/templates/active-directory-new-domain/).
+
+1. Välj **distribuera till Azure**.
 1. Logga in på din Azure-prenumeration.
-1. På sidan **skapa en virtuell Azure-dator med en ny AD-skog** utför du följande steg:
-    1. Välj den prenumeration där du vill att resurserna ska distribueras från **prenumerations** List rutan.
-    1. Välj **Skapa ny** bredvid **resurs grupp** och ange namnet **OnPremADVRG**
+1. På sidan **skapa en virtuell Azure-dator med en ny AD-skog** :
+    1. I list rutan **prenumeration** väljer du den prenumeration där du vill distribuera resurserna.
+    1. Bredvid **resurs grupp**väljer du **Skapa ny**och anger namnet *OnPremADVRG*.
     1. Ange följande information för resten av mall fälten:
 
         * **Plats**: Centrala USA
         * **Admin-användar namn**: HDIFabrikamAdmin
-        * **Administratörs lösen ord**: < YOUR_PASSWORD >
-        * **Domän**: HDIFabrikam.com
+        * **Administratörs lösen ord**: \<YOUR_PASSWORD >
+        * **Domän namn**: HDIFabrikam.com
         * **DNS-prefix**: hdifabrikam
 
-        ![Skapa mall för Azure VM och AD-skog](./media/apache-domain-joined-create-configure-enterprise-security-cluster/create-azure-vm-ad-forest.png)
+        ![Mall för att skapa en virtuell Azure-dator med en ny Azure AD-skog](./media/apache-domain-joined-create-configure-enterprise-security-cluster/create-azure-vm-ad-forest.png)
 
-    1. Klicka på **köp**
+    1. Välj **Köp**.
     1. Övervaka distributionen och vänta tills den är klar.
-    1. Bekräfta att resurserna skapas under rätt resurs grupp `OnPremADVRG`.
+    1. Se till att resurserna skapas under rätt resurs grupp, **OnPremADVRG**.
 
 ## <a name="configure-users-and-groups-for-cluster-access"></a>Konfigurera användare och grupper för kluster åtkomst
 
-Översikt: I det här avsnittet ska du skapa de användare som ska ha åtkomst till HDInsight-klustret i slutet av den här hand boken.
+I det här avsnittet ska du skapa de användare som ska ha åtkomst till HDInsight-klustret i slutet av den här hand boken.
 
 1. Anslut till domänkontrollanten med hjälp av fjärr skrivbord.
-    1. Om du använde mallen i början är domänkontrollanten en virtuell dator som heter **adVM** i `OnPremADVRG` resurs gruppen.
-    1. Gå till Azure Portal > **resurs grupper** > **OnPremADVRG** > **adVM** > **Connect**.
-    1. Klicka på fliken **RDP** och klicka sedan på **Ladda ned RDP-fil**.
+    1. Om du använde mallen i början är domänkontrollanten en virtuell dator som heter **adVM** i resurs gruppen **OnPremADVRG** .
+    1. I Azure Portal väljer du **resurs grupper** > **OnPremADVRG** > **adVM** > **Connect**.
+    1. Välj fliken **RDP** > **Ladda ned RDP-fil**.
     1. Spara filen på din dator och öppna den.
-    1. När du uppmanas att ange `HDIFabrikam\HDIFabrikamAdmin` autentiseringsuppgifter använder du som användar namn och anger sedan det lösen ord som du valde för administratörs kontot.
+    1. När du uppmanas att ange autentiseringsuppgifter använder du *HDIFabrikam\HDIFabrikamAdmin* som användar namn. Ange sedan det lösen ord som du har valt för administratörs kontot.
 
-1. När din fjärrskrivbordssession öppnas på den virtuella domänkontrollanten startar du **Active Directory användare och datorer** från **Serverhanteraren** instrument panelen. Klicka på **verktyg** i det övre högra hörnet och **Active Directory sedan användare och datorer** i list rutan.
+1. När fjärrskrivbordssessionen öppnas på den virtuella domänkontrollanten öppnar du **Active Directory användare och datorer**på **Serverhanteraren** instrument panelen. I det övre högra hörnet väljer du **verktyg** > **Active Directory användare och datorer**.
 
-    ![Serverhanteraren öppna Active Directory hantering](./media/apache-domain-joined-create-configure-enterprise-security-cluster/server-manager-active-directory-screen.png)
+    ![Öppna Active Directory hantering på Serverhanteraren instrument panelen](./media/apache-domain-joined-create-configure-enterprise-security-cluster/server-manager-active-directory-screen.png)
 
-1. Skapa två nya användare, **HDIAdmin**, **HDIUser**. Dessa två användare kommer att användas för att logga in på HDInsight-kluster.
+1. Skapa två nya användare: **HDIAdmin** och **HDIUser**. Dessa två användare kommer att logga in på HDInsight-kluster.
 
-    1. På skärmen **Active Directory användare och datorer** klickar du på **åtgärd** > **ny** > **användare**.
+    1. På sidan **Active Directory användare och datorer** väljer du **åtgärd** > **ny** > **användare**.
 
-        ![Skapa ny Active Directory användare](./media/apache-domain-joined-create-configure-enterprise-security-cluster/create-active-directory-user.png)
+        ![Skapa en ny Active Directory användare](./media/apache-domain-joined-create-configure-enterprise-security-cluster/create-active-directory-user.png)
 
-    1. På skärmen **nytt objekt – användare** anger `HDIUser` du som **användarens inloggnings namn** och klickar på **Nästa**.
+    1. På sidan **nytt objekt – användare** för **användarens inloggnings namn**, anger du *HDIUser*. Välj sedan **Nästa**.
 
-        ![Skapa första administratörs användar objekt](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0020.png)
+        ![Skapa det första administratörs användar objektet](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0020.png)
 
-    1. I popup-fönstret som visas anger du önskat lösen ord för det nya kontot. Markera kryss rutan som säger att **lösen ordet aldrig upphör att gälla**. HDIClick **OK**.
+    1. I popup-fönstret som visas anger du ett lösen ord för det nya kontot. Välj **lösen ord upphör aldrig att gälla** > **OK**.
     1. Klicka på **Slutför** för att skapa det nya kontot.
-    1. Skapa en annan `HDIAdmin`användare.
+    1. Skapa en annan användare med namnet *HDIAdmin*.
 
-        ![Skapa andra administratörs användar objekt](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0024.png)
+        ![Skapa ett andra administratörs användar objekt](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0024.png)
 
-1. På skärmen **Active Directory användare och datorer** klickar du på **åtgärd** > **ny** > **grupp**. Skapa `HDIUserGroup` som en ny grupp.
+1. På sidan **Active Directory användare och datorer** väljer du **åtgärd** > **ny** > **grupp**. Lägg till en grupp med namnet *HDIUserGroup*.
 
-    ![Skapa ny Active Directory grupp](./media/apache-domain-joined-create-configure-enterprise-security-cluster/create-active-directory-group.png)
+    ![Skapa en ny Active Directory grupp](./media/apache-domain-joined-create-configure-enterprise-security-cluster/create-active-directory-group.png)
 
-    ![dialog rutan skapa ny objekt grupp](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0028.png)
+    ![Skapa ett nytt objekt](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0028.png)
 
-1. Lägg till **HDIUser** som skapades i föregående steg till **HDIUserGroup** som medlem.
+1. Lägg till **HDIUser** i **HDIUserGroup** som grupp medlem.
 
-    1. Högerklicka på **HDIUserGroup** och klicka på **Egenskaper**.
-    1. Gå till fliken **medlemmar** och klicka på **Lägg till**.
-    1. Ange `HDIUser` **de objekt namn som ska väljas** i rutan och klicka på **OK**.
-    1. Upprepa föregående steg för det andra kontot`HDIAdmin`
+    1. Högerklicka på **HDIUserGroup** och välj **Egenskaper**.
+    1. På fliken **medlemmar** väljer du **Lägg till**.
+    1. I rutan **Ange de objekt namn som ska väljas** anger du *HDIUser*. Välj sedan **OK**.
+    1. Upprepa föregående steg för **HDIAdmin** -kontot.
 
-        ![Lägg till medlems HDIUser i gruppen HDIUserGroup](./media/apache-domain-joined-create-configure-enterprise-security-cluster/active-directory-add-users-to-group.png)
+        ![Lägg till medlemmen HDIUser i gruppen HDIUserGroup](./media/apache-domain-joined-create-configure-enterprise-security-cluster/active-directory-add-users-to-group.png)
 
-Nu har du skapat din Active Directory-miljö, tillsammans med två användare och en användar grupp för åtkomst till HDInsight-klustret.
+Nu har du skapat din Active Directorys miljö. Du har lagt till två användare och en användar grupp som har åtkomst till HDInsight-klustret.
 
-Dessa användare kommer att synkroniseras med Azure AD.
+Användarna kommer att synkroniseras med Azure AD.
 
-### <a name="create-a-new-azure-active-directory"></a>Skapa en ny Azure Active Directory
+### <a name="create-an-azure-ad-directory"></a>Skapa en Azure AD-katalog
 
 1. Logga in på Azure Portal.
-1. Klicka på **skapa en resurs** och skriv **katalogen**. Välj **Azure Active Directory** > **skapa**.
-1. Ange **HDIFabrikam** under **organisations namn**.
-1. Ange **HDIFabrikamoutlook** under **initialt domän namn**.
-1. Klicka på **Skapa**.
-1. Klicka på **Azure Active Directory**till vänster i Azure Portal.
-1. Om det behövs klickar du på **Växla katalog** för att ändra till den nya katalog som du skapade **HDIFabrikamoutlook**.
-1. Under **Hantera** klickar du på **anpassade domän namn** > **Lägg till anpassad domän**.
-1. Ange **HDIFabrikam.com** under **anpassat domän namn** och klicka på **Lägg till domän**.
+1. Välj **skapa en resurs** och typ *katalog*. Välj **Azure Active Directory** > **skapa**.
+1. Under **organisations namn**anger du *HDIFabrikam*.
+1. Under **första domän namn**, anger du *HDIFabrikamoutlook*.
+1. Välj **Skapa**.
 
-![skapa en ny Azure Active Directory](./media/apache-domain-joined-create-configure-enterprise-security-cluster/create-new-directory.png)
+    ![Skapa en Azure AD-katalog](./media/apache-domain-joined-create-configure-enterprise-security-cluster/create-new-directory.png)
 
-![Azure AD, skapa en ny anpassad domän](./media/apache-domain-joined-create-configure-enterprise-security-cluster/create-custom-domain.png)
+1. På vänster sida av Azure Portal väljer du **Azure Active Directory**.
+1. Om det behövs väljer du **Växla katalog** för att ändra till den nya **HDIFabrikamoutlook** -katalogen.
+1. Under **Hantera**väljer du **anpassade domän namn** > **Lägg till anpassad domän**.
+1. Under **eget domän namn**, anger du *HDIFabrikam.com* och väljer **Lägg till domän**.
+
+![Skapa en anpassad domän](./media/apache-domain-joined-create-configure-enterprise-security-cluster/create-custom-domain.png)
 
 ## <a name="configure-your-azure-ad-tenant"></a>Konfigurera din Azure AD-klient
 
-Översikt: Nu ska du konfigurera din Azure AD-klient så att du kan synkronisera användare och grupper från lokala AD till molnet.
+Nu ska du konfigurera din Azure AD-klient så att du kan synkronisera användare och grupper från den lokala Active Directory-instansen till molnet.
 
-1. Skapa en AD-innehavaradministratör.
-    1. Logga in på Azure Portal och välj din Azure AD-klient **HDIFabrikam**
-    1. Välj **användare** under **Hantera** och sedan **ny användare**.
+1. Skapa en Active Directory klient organisations administratör.
+    1. Logga in på Azure Portal och välj din Azure AD-klient, **HDIFabrikam**.
+    1. Under **Hantera**väljer **du användare** > **ny användare**.
     1. Ange följande information för den nya användaren:
+        * **Namn**: fabrikamazureadmin
+        * **Användar namn**:fabrikamazureadmin@hdifabrikam.com
+        * **Lösenord**: Ett säkert lösen ord som du väljer
 
-        * Namn: fabrikamazureadmin
-        * Användar namn:fabrikamazureadmin@hdifabrikam.com
-        * Lösen ord: ett säkert lösen ord som du väljer
+    1. I avsnittet **grupper** söker du efter **AAD DC-administratörer** och klickar på **Välj**.
 
-    1. Klicka på avsnittet **grupper** , Sök efter **AAD DC-administratörer**och klicka på **Välj**.
+        ![Dialog rutan Azure AD-grupper](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0038.png)
 
-        ![Dialog rutan Azure Active Directory grupper](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0038.png)
+    1. Öppna avsnittet **katalog roll** och gå till höger och välj **Global administratör** > **OK**.
 
-    1. Klicka på **katalog roll** avsnittet och välj **Global administratör** på den högra sidan. Klicka på **OK**.
+        ![Dialog rutan Azure AD-roll](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0040.png)
 
-        ![Dialog rutan Azure Active Directory roll](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0040.png)
+    1. Ange ett lösen ord för användaren. Välj sedan **Skapa**.
 
-    1. Ange ett lösen ord för användaren. Klicka på **Skapa**.
-
-1. Om du vill ändra lösen ordet för den nyligen skapade användaren <fabrikamazureadmin@hdifabrikam.com>. Logga in på Azure Portal med identiteten så uppmanas du att ändra lösen ordet.
+1. Om du vill ändra lösen ordet för den nyligen skapade användaren \< fabrikamazureadmin@hdifabrikam.com> använder du identiteten för att logga in på Azure Portal. Sedan uppmanas du att ändra lösen ordet.
 
 ## <a name="sync-on-premises-users-to-azure-ad"></a>Synkronisera lokala användare med Azure AD
 
-### <a name="download-and-install-microsoft-azure-active-directory-connect"></a>Hämta och installera Microsoft Azure Active Directory Anslut
+### <a name="download-and-install-azure-ad-connect"></a>Ladda ned och installera Azure AD Connect
 
 1. [Ladda ned Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594).
 
-1. Installera Microsoft Azure Active Directory Anslut på domänkontrollanten.
+1. Installera Azure AD Connect på domänkontrollanten.
 
-    1. Öppna den körbara fil som du laddade ned i föregående steg och godkänn licens villkoren. Klicka på **Fortsätt**.
+    1. Öppna den körbara filen som du laddade ned och godkänn licens villkoren. Välj **Fortsätt**.
 
-        ![Välkommen till Azure AD Connect dialog ruta](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0052.png)
+        ![Sidan "Välkommen till Azure AD Connect"](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0052.png)
 
-    1. Klicka på **Använd Express inställningar** och slutför installationen.
+    1. Välj **Använd Express inställningar** och slutför installationen.
 
         ![Azure AD Connect Express-inställningar](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0054.png)
 
-### <a name="configure-sync-with-on-premises-domain-controller"></a>Konfigurera synkronisering med den lokala domänkontrollanten
+### <a name="configure-a-sync-with-the-on-premises-domain-controller"></a>Konfigurera en synkronisering med den lokala domänkontrollanten
 
-1. På skärmen **Anslut till Azure AD** anger du användar namn och lösen ord för den globala administratören för Azure AD. Klicka på **Nästa**. Detta är det användar `fabrikamazureadmin@hdifabrikam.com` namn som du skapade när du konfigurerade din AD-klient.
+1. På sidan **Anslut till Azure AD** anger du användar namn och lösen ord för den globala administratören för Azure AD. Använd det användar `fabrikamazureadmin@hdifabrikam.com` namn som du skapade när du konfigurerade Active Directory-klienten. Välj sedan **Nästa**. 
 
-    ![Anslut till Azure Active Directory ](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0058.png)
+    ![Sidan "Anslut till Azure AD"](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0058.png)
 
-1. På skärmen **Anslut till Active Directory Domain Services** anger du användar namnet och lösen ordet för ett företags administratörs konto. Klicka på **Nästa**. Detta är användar namnet `HDIFabrikam\HDIFabrikamAdmin` och det matchande lösen ordet som du skapade tidigare.
+1. På sidan **Anslut till Active Directory Domain Services** anger du användar namnet och lösen ordet för ett företags administratörs konto. Använd användar namnet `HDIFabrikam\HDIFabrikamAdmin` och lösen ordet som du skapade tidigare. Välj sedan **Nästa**. 
 
-   ![Anslut till Active Directory Domain Services](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0060.png)
-1. Klicka på **Nästa**på sidan **konfiguration av Azure AD-inloggning** .
-    ![Inloggnings konfiguration för Azure AD](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0062.png)
+   ![Sidan "Anslut till Azure AD"](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0060.png)
+1. På sidan **konfiguration av Azure AD-inloggning** väljer du **Nästa**.
+   ![Sidan "inloggnings konfiguration för Azure AD"](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0062.png)
 
-1. På skärmen redo att konfigurera klickar du på **Installera**.
+1. Välj **Installera**på sidan **klar att konfigurera** .
 
-    ![Azure AD Connect redo att konfigurera dialog rutan](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0064.png)
+   ![Sidan "klar att konfigurera"](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0064.png)
 
-1. När skärmen **konfiguration är klar** visas klickar du på **Avsluta**.
-    ![Azure AD-konfiguration har slutförts](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0078.png)
+1. På sidan **konfigurationen har slutförts** väljer du **Avsluta**.
+   ![Sidan "konfigurationen har slutförts"](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0078.png)
 
-1. När synkroniseringen är klar bekräftar du om de användare som du skapade på IAAS-Active Directory synkroniseras till Azure Active Directory.
-    1. Logga in på Azure Portal.
-    1. Välj **Azure Active Directory** > HDIFabrikam- > **användare**.
+1. När synkroniseringen är klar bekräftar du att de användare som du skapade i IaaS-katalogen synkroniseras med Azure AD.
+   1. Logga in på Azure Portal.
+   1. Välj **Azure Active Directory** > HDIFabrikam- > **användare**.
 
-### <a name="create-an-user-assigned-managed-identity"></a>Skapa en användardefinierad hanterad identitet
+### <a name="create-a-user-assigned-managed-identity"></a>Skapa en användartilldelad hanterad identitet
 
-Skapa en användardefinierad hanterad identitet som ska användas för att konfigurera Azure Active Directory Domain Services (Azure AD-DS). Mer information om hur du skapar en användardefinierad hanterad identitet finns i [skapa, lista, ta bort eller tilldela en roll till en användare som tilldelats en hanterad identitet med hjälp av Azure Portal](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md).
+Skapa en användardefinierad hanterad identitet som du kan använda för att konfigurera Azure AD Domain Services (Azure AD DS). Mer information finns i [skapa, lista, ta bort eller tilldela en roll till en användardefinierad hanterad identitet med hjälp av Azure Portal](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md).
 
 1. Logga in på Azure Portal.
-1. Klicka på **skapa en resurs** och skriv **hanterad identitet**. Välj **användare tilldelad hanterad identitet** > **skapa**.
-1. Ange **HDIFabrikamManagedIdentity** som **resurs namn**.
+1. Välj **skapa en resurs** och skriv *hanterad identitet*. Välj **användare tilldelad hanterad identitet** > **skapa**.
+1. Skriv *HDIFabrikamManagedIdentity*som **resurs namn**.
 1. Välj din prenumeration.
-1. Under **resurs grupp** klickar du på **Skapa nytt** och anger **HDIFabrikam-Central**.
-1. Välj **centrala USA** under **plats**.
-1. Klicka på **Skapa**.
+1. Under **resurs grupp**väljer du **Skapa nytt** och anger *HDIFabrikam-Central*.
+1. Under **plats**väljer du **centrala USA**.
+1. Välj **Skapa**.
 
 ![skapa en ny användare som tilldelats en hanterad identitet](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0082.png)
 
-### <a name="enable-azure-active-directory-domain-services"></a>Aktivera Azure Active Directory Domain Services
+### <a name="enable-azure-ad-ds"></a>Aktivera Azure AD DS
 
-Mer information finns i [aktivera Azure Active Directory Domain Services med hjälp av Azure Portal](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started).
+Följ dessa steg om du vill aktivera Azure AD DS. Mer information finns i [Aktivera Azure AD DS med hjälp av Azure Portal](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started).
 
-1. Skapa Virtual Network som värd för Azure AD-DS. Kör följande PowerShell-kod.
+1. Skapa ett virtuellt nätverk som värd för Azure AD DS. Kör följande PowerShell-kod.
 
     ```powershell
     Connect-AzAccount
@@ -212,62 +217,65 @@ Mer information finns i [aktivera Azure Active Directory Domain Services med hj�
     ```
 
 1. Logga in på Azure Portal.
-1. Klicka på **skapa resurs**, ange **domän tjänster** och välj **Azure AD Domain Services**.
-1. Utför följande steg på skärmen **grundläggande** :
-    1. Under **katalog namn** väljer du de Azure Active Directory som skapats för den här artikeln, **HDIFabrikam**.
-    1. Ange ett **DNS-domännamn** för **HDIFabrikam.com**.
+1. Välj **skapa resurs**, ange *domän tjänster*och välj **Azure AD Domain Services**.
+1. På sidan **grundläggande** :
+    1. Under **katalog namn**väljer du den Azure AD-katalog som du skapade: **HDIFabrikam**.
+    1. Ange *HDIFabrikam.com*som **namn på DNS-domän**.
     1. Välj din prenumeration.
-    1. Ange resurs gruppen **HDIFabrikam-Central** och **platsen** för **centrala USA**.
+    1. Ange resurs gruppen **HDIFabrikam-Central**. För **plats**väljer du **centrala USA**.
 
-        ![Azure AD Domain Services grundläggande information](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0084.png)
+        ![Grundläggande information om Azure AD DS](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0084.png)
 
-1. På skärmen **nätverk** slutfört väljer du nätverket (**HDIFabrikam-VNet**) och under nätet (**AADDS-Subnet**) som du skapade med det tidigare PowerShell-skriptet. Eller så kan du använda alternativet **Skapa nytt** för att skapa ett virtuellt nätverk nu.
+1. På sidan **nätverk** väljer du det nätverk (**HDIFabrikam-VNet**) och under nätet (**AADDS-Subnet**) som du skapade med hjälp av PowerShell-skriptet. Eller Välj **Skapa ny** för att skapa ett virtuellt nätverk nu.
 
-    ![Azure AD Domain Services Skapa virtuellt nätverk](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0086.png)
+    ![Steget "Skapa virtuellt nätverk"](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0086.png)
 
-1. På skärmen **Administratörs grupp** bör du se ett meddelande om att en grupp med namnet **AAD DC-administratörer** redan har skapats för att administrera den här gruppen. Du kan också ändra medlemskap i den här gruppen, men det är inte nödvändigt för stegen i den här artikeln. Klicka på **OK**.
+1. På sidan **Administratörs grupp** bör du se ett meddelande om att en grupp med namnet **AAD DC-administratörer** redan har skapats för att administrera den här gruppen. Du kan ändra medlemskapet för den här gruppen om du vill, men i det här fallet behöver du inte ändra den. Välj **OK**.
 
     ![Visa Azure AD-administratörskonsolen](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0088.png)
 
-1. På skärmen **synkronisering** aktiverar du slutför synkronisering genom att välja **alla** och klickar sedan på **OK**.
+1. På sidan **synkronisering** aktiverar du fullständig synkronisering genom att välja **alla** > **OK**.
 
-    ![Aktivera Azure AD Domain Services synkronisering](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0090.png)
+    ![Aktivera Azure AD DS-synkronisering](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0090.png)
 
-1. På sidan **Sammanfattning** kontrollerar du informationen för Azure AD-DS och klickar på **OK**.
+1. På sidan **Sammanfattning** kontrollerar du informationen för Azure AD DS och väljer **OK**.
 
-    ![Aktivera Azure AD Domain Services Sammanfattning](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0092.png)
+    ![Sammanfattningen av "Aktivera Azure AD Domain Services"](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0092.png)
 
-1. När du har aktiverat Azure AD-DS körs en lokal Domain Name Service (DNS)-server på AD-Virtual Machines (VM).
+När du har aktiverat Azure AD DS körs en lokal DNS-server på de virtuella Azure AD-datorerna.
 
-### <a name="configure-your-azure-ad-ds-virtual-network"></a>Konfigurera ditt virtuella Azure AD-DS-nätverk
+### <a name="configure-your-azure-ad-ds-virtual-network"></a>Konfigurera ditt virtuella Azure AD DS-nätverk
 
-Stegen i det här avsnittet hjälper dig att konfigurera Azure AD-DS Virtual Network (**HDIFabrikam-AADDSVNET**) att använda dina anpassade DNS-servrar.
+Använd följande steg för att konfigurera Azure AD DS Virtual Network (**HDIFabrikam-AADDSVNET**) för att använda dina anpassade DNS-servrar.
 
-1. Leta upp IP-adresserna för dina anpassade DNS-servrar. Klicka på **HDIFabrikam.com** AD-DS-resursen, klicka på **Egenskaper** under **Hantera**   och titta på IP-adresserna som visas under **IP-adress på Virtual Network**.
+1. Leta upp IP-adresserna för dina anpassade DNS-servrar. 
+    1. Välj **HDIFabrikam.com** Azure AD DS-resurs. 
+    1. Under **Hantera**, väljer du **Egenskaper**. 
+    1. Hitta IP-adresserna under **IP-adress i virtuellt nätverk**.
 
-    ![Hitta anpassade DNS IP-adresser för Azure AD-DS](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0096.png)
+    ![Hitta anpassade DNS-IP-adresser för Azure AD DS](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0096.png)
 
-1. Konfigurera **HDIFabrikam-AADDSVNET** till anpassade IP `10.0.0.4` - `10.0.0.5`adresser och.
+1. Konfigurera **HDIFabrikam-AADDSVNET** för att använda anpassade IP-adresser 10.0.0.4 och 10.0.0.5.
 
-    1. Välj **DNS-servrar** under kategorin **Inställningar** . Klicka sedan på alternativ knappen bredvid **anpassad**, ange den första IP-adressen (10.0.0.4) i text rutan nedan och klicka på **Spara**.
-    1. Lägg till ytterligare IP-adresser (10.0.0.5) med samma steg.
+    1. Under **Inställningar**väljer du **DNS-servrar**. 
+    1. Välj **anpassad**.
+    1. I text rutan anger du den första IP-adressen (*10.0.0.4*).
+    1. Välj  **Spara**.
+    1. Upprepa stegen för att lägga till den andra IP-adressen (*10.0.0.5*).
 
-1. I vårt scenario har Azure AD-DS kon figurer ATS för att använda IP-adresser 10.0.0.4 och 10.0.0.5, ange samma IP-adress på AADDS VNet som visas i bilden nedan.
+I vårt scenario konfigurerade vi Azure AD DS att använda IP-adresser 10.0.0.4 och 10.0.0.5 och ange samma IP-adress på det virtuella Azure AD DS-nätverket:
 
-    ![Visa dialog rutan anpassade DNS-servrar](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0098.png)
+![Sidan anpassade DNS-servrar](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0098.png)
 
 ## <a name="securing-ldap-traffic"></a>Skydda LDAP-trafik
 
-LDAP (Lightweight Directory Access Protocol) används för att läsa från och skriva till Active Directory. Du kan göra LDAP-trafik konfidentiell och säker med hjälp av Secure Sockets Layer (SSL)/Transport Layer Security (TLS). Du kan aktivera LDAP över SSL (LDAPs) genom att installera ett korrekt formaterat certifikat.
+LDAP (Lightweight Directory Access Protocol) används för att läsa från och skriva till Azure Active Directory. Du kan göra LDAP-trafik konfidentiell och säker genom att använda Secure Sockets Layer (SSL) eller Transport Layer Security (TLS). Du kan aktivera LDAP över SSL (LDAPs) genom att installera ett korrekt formaterat certifikat.
 
-Mer information om säker LDAP finns i [Konfigurera säker LDAP (LDAPS) för en Azure AD Domain Services hanterad domän](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-admin-guide-configure-secure-ldap).
+Mer information om säker LDAP finns i [Konfigurera LDAPS för en Azure AD DS-hanterad domän](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-admin-guide-configure-secure-ldap).
 
-I det här avsnittet skapar du ett självsignerat certifikat, laddar ned certifikatet och konfigurerar säkert LDAP (LDAPs) för den **hdifabrikam** Azure AD-DS-hanterade domänen.
+I det här avsnittet skapar du ett självsignerat certifikat, laddar ned certifikatet och konfigurerar LDAPs för den **HDIFabrikam** Azure AD DS-hanterade domänen.
 
-Följande skript skapar ett certifikat för hdifabrikam. Certifikatet sparas under sökvägen "LocalMachine".
-
-> [!Note] 
-> Alla verktyg eller program som skapar en giltig PKCS \#10-begäran kan användas för att forma begäran om SSL-certifikat.
+Följande skript skapar ett certifikat för **HDIFabrikam**. Certifikatet sparas i *LocalMachine* -sökvägen.
 
 ```powershell
 $lifetime = Get-Date
@@ -276,37 +284,39 @@ New-SelfSignedCertificate -Subject hdifabrikam.com `
 -Type SSLServerAuthentication -DnsName *.hdifabrikam.com, hdifabrikam.com
 ```
 
-Kontrol lera att certifikatet är installerat i datorns\'personliga arkiv. Utför följande steg:
+> [!NOTE] 
+> Alla verktyg eller program som skapar en giltig PKCS 10-begäran (Public Key Cryptography \#Standards) kan användas för att forma begäran om SSL-certifikat.
+
+Kontrol lera att certifikatet är installerat i datorns **personliga** Arkiv:
 
 1. Starta Microsoft Management Console (MMC).
-1. Lägg till snapin-modulen certifikat som hanterar certifikat på den lokala datorn.
-1. Expandera **certifikat (lokal dator)** , expandera **personliga**och expandera sedan **certifikat**. Ett nytt certifikat bör finnas i det personliga arkivet. Certifikatet utfärdas till det fullständigt kvalificerade värd namnet.
+1. Lägg till snapin-modulen **certifikat** som hanterar certifikat på den lokala datorn.
+1. Expandera **certifikat (lokal dator)**  > **personliga** > **certifikat**. Ett nytt certifikat bör finnas i det **personliga** arkivet. Certifikatet utfärdas till det fullständigt kvalificerade värd namnet.
 
     ![Bekräfta skapande av lokalt certifikat](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0102.png)
 
-1. Högerklicka på det certifikat som du skapade i föregående steg i den högra rutan, peka på **alla aktiviteter**och klicka sedan på **Exportera**.
+1. I fönstret till höger högerklickar du på det certifikat som du har skapat. Peka på **alla aktiviteter**och välj sedan **Exportera**.
 
-1. På sidan **Exportera privat nyckel** klickar du på **Ja, exportera den privata nyckeln**. Den privata nyckeln krävs för att de krypterade meddelandena ska kunna läsas från den dator där nyckeln ska importeras.
+1. På sidan **Exportera privat nyckel** väljer du **Ja, exportera den privata nyckeln**. Datorn där nyckeln kommer att importeras behöver den privata nyckeln för att läsa de krypterade meddelandena.
 
-    ![Certifikat guiden, sidan Exportera privat nyckel](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0103.png)
+    ![Sidan Exportera privat nyckel i guiden Exportera certifikat](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0103.png)
 
-1. På sidan **fil format** för export lämnar du standardinställningarna och klickar sedan på **Nästa**. 
-1. På sidan **lösen ord** skriver du ett lösen ord för den privata nyckeln, väljer **TripleDES-SHA1** för **kryptering** och klickar på **Nästa**.
-1. På sidan **fil som ska exporteras** anger du sökvägen till och namnet på den exporterade certifikat filen och klickar sedan på **Nästa**.
-1. Fil namnet måste vara. pfx-tillägget, den här filen är konfigurerad på Azure Portal för att upprätta en säker anslutning.
-1. Aktivera säker LDAP (LDAPs) för en Azure AD Domain Services hanterad domän.
-    1. Välj domänen **HDIFabrikam.com** från Azure Portal.
-    1. Klicka på **säkert LDAP** under **Hantera**.
-    1. På **säkert LDAP** skärmen klickar du på **Aktivera** under **säkert LDAP**.
+1. På sidan **fil format** för export lämnar du standardinställningarna och väljer sedan **Nästa**. 
+1. På sidan **lösen ord** anger du ett lösen ord för den privata nyckeln. För **kryptering**väljer du **TripleDES-SHA1**. Välj sedan **Nästa**.
+1. På sidan **fil som ska exporteras** anger du sökvägen till och namnet på den exporterade certifikat filen och väljer sedan **Nästa**. Fil namnet måste ha fil namns tillägget. pfx. Den här filen konfigureras i Azure Portal för att upprätta en säker anslutning.
+1. Aktivera LDAPs för en Azure AD DS-hanterad domän.
+    1. Välj domänen **HDIFabrikam.com**från Azure Portal.
+    1. Under **Hantera**väljer du **säkert LDAP**.
+    1. På sidan **säkert LDAP** väljer du **Aktivera**under **säkert LDAP**.
     1. Bläddra efter. PFX-certifikat filen som du exporterade på datorn.
     1. Ange certifikatets lösen ord.
 
-    ![Azure AD-DS, Aktivera säker LDAP](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0113.png)
+    ![Aktivera säker LDAP](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0113.png)
 
-1. Nu när du har aktiverat säkert LDAP kontrollerar du att det går att komma åt genom att aktivera port 636.
-    1. Klicka på nätverks säkerhets gruppen **AADDS-HDIFabrikam.com-NSG** i resurs gruppen **HDIFabrikam-centrala** .
-    1. Under **Inställningar** klickar du på **inkommande säkerhets regler** > **Lägg till**.
-    1. På skärmen **Lägg till inkommande säkerhets regel** anger du följande egenskaper och klickar på **Lägg till**:
+1. Nu när du har aktiverat LDAPs kontrollerar du att det går att komma åt dem genom att aktivera port 636.
+    1. I resurs gruppen **HDIFabrikam-centrala** väljer du nätverks säkerhets gruppen **AADDS-HDIFabrikam.com-NSG**.
+    1. Under **Inställningar**väljer du **inkommande säkerhets regler** > **Lägg till**.
+    1. På sidan **Lägg till inkommande säkerhets regel** anger du följande egenskaper och väljer **Lägg till**:
 
         | Egenskap | Value |
         |---|---|
@@ -316,21 +326,21 @@ Kontrol lera att certifikatet är installerat i datorns\'personliga arkiv. Utfö
         | Destination port range | 636 |
         | Protocol | Any |
         | Action | Allow |
-        | Priority | \<Desired Number\> |
+        | Priority | \<Önskat antal > |
         | Name | Port_LDAP_636 |
 
     ![Dialog rutan Lägg till inkommande säkerhets regel](./media/apache-domain-joined-create-configure-enterprise-security-cluster/add-inbound-security-rule.png)
 
-1. `HDIFabrikamManagedIdentity`är den användare som tilldelats hanterad identitet, rollen HDInsight Domain Services Contributor är aktive rad för den hanterade identitet som gör att den här identiteten kan läsa, skapa, ändra och ta bort Domain Services-åtgärder.
+**HDIFabrikamManagedIdentity** är den användare som tilldelats den hanterade identiteten. Rollen HDInsight Domain Services Contributor är aktive rad för den hanterade identitet som tillåter den här identiteten att läsa, skapa, ändra och ta bort domän tjänster.
 
-    ![Skapa användartilldelad hanterad identitet](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0117.png)
+![Skapa en användartilldelad hanterad identitet](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0117.png)
 
-## <a name="creating-enterprise-security-package-enabled-hdinsight-cluster"></a>Skapa Enterprise Security Package aktiverat HDInsight-kluster
+## <a name="create-an-esp-enabled-hdinsight-cluster"></a>Skapa ett ESP-aktiverat HDInsight-kluster
 
 Det här steget kräver följande krav:
 
-1. Skapa en ny resurs grupp `HDIFabrikam-WestUS` på platsen. `West US`
-1. Skapa ett virtuellt nätverk som ska vara värd för ESP-aktiverat HDInsight-kluster.
+1. Skapa en ny resurs grupp *HDIFabrikam* på platsen **västra USA**.
+1. Skapa ett virtuellt nätverk som ska vara värd för det ESP-aktiverade HDInsight-klustret.
 
     ```powershell
     $virtualNetwork = New-AzVirtualNetwork -ResourceGroupName 'HDIFabrikam-WestUS' -Location 'West US' -Name 'HDIFabrikam-HDIVNet' -AddressPrefix 10.1.0.0/16
@@ -338,7 +348,7 @@ Det här steget kräver följande krav:
     $virtualNetwork | Set-AzVirtualNetwork
     ```
 
-1. Skapa en peer-relation mellan Virtual Network som är värd för AADDS`HDIFabrikam-AADDSVNET`() och Virtual Network som ska vara värd för det ESP-aktiverade`HDIFabrikam-HDIVNet`HDInsight-klustret (). Använd följande PowerShell-kod för att peer-koppla dessa två virtuella nätverk.
+1. Skapa en peer-relation mellan det virtuella nätverk som är värd för Azure`HDIFabrikam-AADDSVNET`AD DS () och det virtuella nätverk som ska vara värd för det ESP`HDIFabrikam-HDIVNet`-aktiverade HDInsight-klustret (). Använd följande PowerShell-kod för att peer-koppla de två virtuella nätverken.
 
     ```powershell
     Add-AzVirtualNetworkPeering -Name 'HDIVNet-AADDSVNet' -RemoteVirtualNetworkId (Get-AzVirtualNetwork -ResourceGroupName 'HDIFabrikam-CentralUS').Id -VirtualNetwork (Get-AzVirtualNetwork -ResourceGroupName 'HDIFabrikam-WestUS')
@@ -346,44 +356,43 @@ Det här steget kräver följande krav:
     Add-AzVirtualNetworkPeering -Name 'AADDSVNet-HDIVNet' -RemoteVirtualNetworkId (Get-AzVirtualNetwork -ResourceGroupName 'HDIFabrikam-WestUS').Id -VirtualNetwork (Get-AzVirtualNetwork -ResourceGroupName 'HDIFabrikam-CentralUS')
     ```
 
-1. Skapa ett nytt Azure Data Lake Storage Gen2-konto, **Hdigen2store**, som har kon figurer ATS med **HDIFabrikamManagedIdentity**för användarens hanterade identiteter. Mer information om hur du skapar Data Lake Storage Gen2 konton som är aktiverade med hanterade identiteter i användare finns i [använda Azure Data Lake Storage Gen2 med Azure HDInsight-kluster](../hdinsight-hadoop-use-data-lake-storage-gen2.md).
+1. Skapa ett nytt Azure Data Lake Storage Gen2-konto med namnet **Hdigen2store**. Konfigurera kontot med den användar hanterade identiteten **HDIFabrikamManagedIdentity**. Mer information finns i [använda Azure Data Lake Storage Gen2 med Azure HDInsight-kluster](../hdinsight-hadoop-use-data-lake-storage-gen2.md).
 
 1. Konfigurera anpassad DNS på det virtuella **HDIFabrikam-AADDSVNET-** nätverket.
     1. Gå till Azure Portal > **resurs grupper** > **OnPremADVRG** > **HDIFabrikam-AADDSVNET** > **DNS-servrar**.
-    1. Välj **anpassad** och ange `10.0.0.4` och `10.0.0.5`.
-    1. Klicka på **Spara**.
+    1. Välj **anpassad** och ange *10.0.0.4* och *10.0.0.5*.
+    1. Välj **Spara**.
 
-        ![Spara anpassade DNS-inställningar för virtuellt nätverk](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0123.png)
+        ![Spara anpassade DNS-inställningar för ett virtuellt nätverk](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0123.png)
 
 1. Skapa ett nytt ESP-aktiverat HDInsight Spark-kluster.
-    1. Klicka på **Anpassad (storlek, inställningar, appar)** .
-    2. Ange önskad information för **grunderna**i avsnitt 1. Se till att **kluster typen** är **Spark 2,3 (HDI 3,6)** och att **resurs gruppen** är **HDIFabrikam-centrala**
+    1. Välj **Anpassad (storlek, inställningar, appar)** .
+    2. Ange information om **grunderna** (avsnitt 1). Se till att **kluster typen** är **Spark 2,3 (HDI 3,6)** . Se till att **resurs gruppen** är **HDIFabrikam-Central**.
 
-    1. Utför följande steg under avsnitt 2 **säkerhet + nätverk**:
-        1. Klicka på **aktive rad** under **Enterprise Security Package**.
-        1. Klicka på **kluster administratörs användare** och välj det **HDIAdmin** -konto som du skapade tidigare som den lokala administratörs användaren. Klicka på **Välj**.
+    1. För **säkerhet + nätverk** (avsnitt 2) fyller du i följande information:
+        * Under **Enterprise Security Package**väljer du **aktive rad**.
+        * Välj **kluster administratörs användare** och välj det **HDIAdmin** -konto som du skapade som den lokala administratörs användaren. Klicka på **Välj**.
+        * Välj **kluster åtkomst grupp** > **HDIUserGroup**. Alla användare som du lägger till i den här gruppen i framtiden kommer att kunna komma åt HDInsight-kluster.
 
-        1. Klicka på **kluster åtkomst grupp** och välj sedan **HDIUserGroup**. Alla användare som du lägger till i den här gruppen i framtiden kommer att kunna komma åt HDInsight-kluster.
+            ![Välj gruppen HDIUserGroup för kluster åtkomst](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0129.jpg)
 
-            ![Välj kluster åtkomst grupp HDIUserGroup](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0129.jpg)
+    1. Slutför de andra stegen i kluster konfigurationen och kontrol lera informationen i **kluster sammanfattningen**. Välj **Skapa**.
 
-    1. Slutför de andra stegen i kluster konfigurationen och kontrol lera informationen i **kluster sammanfattningen**. Klicka på **Skapa**.
+1. Logga in på Ambari-ANVÄNDARGRÄNSSNITTET för det nyligen skapade klustret på `https://CLUSTERNAME.azurehdinsight.net`. Använd administratörens användar `hdiadmin@hdifabrikam.com` namn och lösen ord.
 
-1. Logga in på Ambari-användargränssnittet för det nyskapade klustret `https://CLUSTERNAME.azurehdinsight.net` med hjälp av administratörs användar `hdiadmin@hdifabrikam.com` namn och lösen ord.
+    ![Fönstret Apache Ambari UI-inloggning](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0135.jpg)
 
-    ![Apache Ambari UI-inloggnings fönster](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0135.jpg)
-
-1. Klicka på **roller** från kluster instrument panelen.
-1. På sidan **roller** anger du gruppen **hdiusergroup** för att tilldela den till rollen **kluster administratör** under **tilldela roller till dessa**.
+1. Välj **roller**på instrument panelen för klustret.
+1. På sidan **roller** , under **tilldela roller till dessa**, anger du gruppen *hdiusergroup*bredvid rollen **kluster administratör** . 
 
     ![Tilldela rollen kluster administratör till hdiusergroup](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0137.jpg)
 
-1. Öppna SSH-klienten och logga in på klustret med hjälp av **hdiuser** som du skapade tidigare i den lokala Active Directory.
+1. Öppna din SSH-klient (Secure Shell) och logga in på klustret. Använd **hdiuser** som du skapade i den lokala Active Directory-instansen.
 
-    ![Logga in på kluster med SSH-klient](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0139.jpg)
+    ![Logga in på klustret med SSH-klienten](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0139.jpg)
 
-Om du kan logga in med det här kontot har du konfigurerat ditt ESP-kluster på ett korrekt sätt för att synkronisera med din lokala Active Directory.
+Om du kan logga in med det här kontot har du konfigurerat ditt ESP-kluster på ett korrekt sätt för att synkronisera med din lokala Active Directory-instans.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [En introduktion till Apache Hadoop-säkerhet med Enterprise Security Package](hdinsight-security-overview.md)
+Läs [en introduktion till Apache Hadoop säkerhet med ESP](hdinsight-security-overview.md).

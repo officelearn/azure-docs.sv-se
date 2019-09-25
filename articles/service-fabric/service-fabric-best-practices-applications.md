@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/18/2019
 ms.author: mfussell
-ms.openlocfilehash: 06af1f4326e3f6a6dcb53c8710a126f43e2d2f6a
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: eec5daf0100d527886a508f5adbdb2b0e3010b09
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67875103"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71262262"
 ---
 # <a name="azure-service-fabric-application-design-best-practices"></a>Metod tips för Azure Service Fabric program design
 
@@ -40,7 +40,7 @@ Använd en API Gateway-tjänst som kommunicerar med Server dels tjänster som se
 
 - [Azure API Management](https://docs.microsoft.com/azure/service-fabric/service-fabric-api-management-overview), som är [integrerat med Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-tutorial-deploy-api-management).
 - [Azure IoT Hub](https://docs.microsoft.com/azure/iot-hub/) eller [Azure-Event Hubs](https://docs.microsoft.com/azure/event-hubs/), med hjälp av [ServiceFabricProcessor](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/ServiceFabricProcessor) för att läsa från Event Hub-partitioner.
-- [Træfik omvänd proxy](https://blogs.msdn.microsoft.com/azureservicefabric/2018/04/05/intelligent-routing-on-service-fabric-with-traefik/)med [Azure Service Fabric](https://docs.traefik.io/configuration/backends/servicefabric/)-providern.
+- [Træfik omvänd proxy](https://blogs.msdn.microsoft.com/azureservicefabric/2018/04/05/intelligent-routing-on-service-fabric-with-traefik/)med [Azure Service Fabric](https://docs.traefik.io/v1.6/configuration/backends/servicefabric/)-providern.
 - [Azure Application Gateway](https://docs.microsoft.com/azure/application-gateway/).
 
    > [!NOTE] 

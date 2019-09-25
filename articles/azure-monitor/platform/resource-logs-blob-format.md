@@ -1,0 +1,140 @@
+---
+title: Förbered för format ändring till Azure Monitor diagnostikloggar
+description: Azure Diagnostic-loggar kommer att flyttas till Använd tilläggs-blobbar den 1 november 2018.
+author: johnkemnetz
+services: monitoring
+ms.service: azure-monitor
+ms.topic: conceptual
+ms.date: 07/06/2018
+ms.author: johnkem
+ms.subservice: logs
+ms.openlocfilehash: c6f21ffdcf94f23d089073710f2e6c18fd20558d
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71262432"
+---
+# <a name="prepare-for-format-change-to-azure-monitor-platform-logs-archived-to-a-storage-account"></a>Förbered för format ändring till Azure Monitor plattforms loggar arkiverade på ett lagrings konto
+
+> [!WARNING]
+> Om du skickar [Azures resurs loggar eller mått till ett lagrings konto med hjälp av diagnostikinställningar](resource-logs-collect-storage.md) eller [aktivitets loggar till ett lagrings konto med hjälp av logg profiler](activity-log-export.md), ändrades formatet för data i lagrings kontot till JSON-linjer på nov. 1 2018. Anvisningarna nedan beskriver effekten och hur du uppdaterar ditt verktyg för att hantera det nya formatet. 
+>
+> 
+
+## <a name="what-is-changing"></a>Vad kommer att förändras
+
+Azure Monitor erbjuder en funktion som gör att du kan skicka resurs loggar och aktivitets loggar till ett Azure Storage-konto, Event Hubs namnrymd eller till en Log Analytics arbets yta i Azure Monitor. För att lösa ett system prestanda problem, den **1 November 2018 vid 12:00 midnatt UTC** , kommer formatet för logg data att skickas till Blob Storage att ändras. Om du har verktyg som läser data från Blob Storage måste du uppdatera verktyget för att förstå det nya data formatet.
+
+* På torsdag 1 november 2018 vid 12:00 midnatt UTC, ändrades BLOB-formatet till JSON- [linjer](http://jsonlines.org/). Det innebär att varje post avgränsas med en ny rad, utan matris för yttre poster och inga kommatecken mellan JSON-poster.
+* BLOB-formatet har ändrats för alla diagnostikinställningar i alla prenumerationer på samma gång. Den första PT1H. JSON-filen som har spridits för 1 november använde detta nya format. Blob-och container namnen förblir desamma.
+* Ställer in en diagnostisk inställning mellan före 1 november fortsatte att generera data i det aktuella formatet fram till 1 november.
+* Den här ändringen inträffade samtidigt i alla offentliga moln regioner. Ändringen görs inte i Microsoft Azure som drivs av 21Vianet, Azure Germany eller Azure Government moln ännu.
+* Den här ändringen påverkar följande data typer:
+  * [Azure resurs loggar](archive-diagnostic-logs.md) ([Se lista över resurser här](diagnostic-logs-schema.md))
+  * [Azure-resursens mått exporteras av diagnostikinställningar](diagnostic-settings.md)
+  * [Azures aktivitets logg data exporteras av logg profiler](activity-log-collect.md)
+* Den här ändringen påverkar inte:
+  * Nätverks flödes loggar
+  * Azures tjänst loggar är inte tillgängliga via Azure Monitor än (till exempel Azure App Service diagnostikloggar, lagrings analys loggar)
+  * Routning av Azure Diagnostic-loggar och aktivitets loggar till andra destinationer (Event Hubs Log Analytics)
+
+### <a name="how-to-see-if-you-are-impacted"></a>Så här ser du om du påverkas
+
+Du påverkas bara av den här ändringen om du:
+1. Skickar loggdata till ett Azure Storage-konto med hjälp av en diagnostisk inställning och
+2. Har verktyg som är beroende av JSON-strukturen för dessa loggar i lagring.
+ 
+För att identifiera om du har diagnostikinställningar som skickar data till ett Azure Storage-konto, kan du gå till **övervaknings** avsnittet i portalen, klicka på **diagnostikinställningar**och identifiera eventuella resurser som har **diagnostisk status** Ange som **aktive rad**:
+
+![Bladet Azure Monitor diagnostikinställningar](media/diagnostic-logs-append-blobs/portal-diag-settings.png)
+
+Om diagnostisk status är aktive rad har du en aktiv diagnostisk inställning för den resursen. Klicka på resursen för att se om några diagnostikinställningar skickar data till ett lagrings konto:
+
+![Lagrings konto aktiverat](media/diagnostic-logs-append-blobs/portal-storage-enabled.png)
+
+Om du har resurser som skickar data till ett lagrings konto med hjälp av dessa resurs diagnostikinställningar, kommer formatet på data i det lagrings kontot att påverkas av den här ändringen. Om du inte har anpassat verktyg som påverkar dessa lagrings konton påverkas inte format ändringen.
+
+### <a name="details-of-the-format-change"></a>Information om format ändringen
+
+Det aktuella formatet för PT1H. JSON-filen i Azure Blob Storage använder en JSON-matris med poster. Här är ett exempel på en logg fil för nyckel valvet:
+
+```json
+{
+    "records": [
+        {
+            "time": "2016-01-05T01:32:01.2691226Z",
+            "resourceId": "/SUBSCRIPTIONS/361DA5D4-A47A-4C79-AFDD-XXXXXXXXXXXX/RESOURCEGROUPS/CONTOSOGROUP/PROVIDERS/MICROSOFT.KEYVAULT/VAULTS/CONTOSOKEYVAULT",
+            "operationName": "VaultGet",
+            "operationVersion": "2015-06-01",
+            "category": "AuditEvent",
+            "resultType": "Success",
+            "resultSignature": "OK",
+            "resultDescription": "",
+            "durationMs": "78",
+            "callerIpAddress": "104.40.82.76",
+            "correlationId": "",
+            "identity": {
+                "claim": {
+                    "http://schemas.microsoft.com/identity/claims/objectidentifier": "d9da5048-2737-4770-bd64-XXXXXXXXXXXX",
+                    "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn": "live.com#username@outlook.com",
+                    "appid": "1950a258-227b-4e31-a9cf-XXXXXXXXXXXX"
+                }
+            },
+            "properties": {
+                "clientInfo": "azure-resource-manager/2.0",
+                "requestUri": "https://control-prod-wus.vaultcore.azure.net/subscriptions/361da5d4-a47a-4c79-afdd-XXXXXXXXXXXX/resourcegroups/contosoresourcegroup/providers/Microsoft.KeyVault/vaults/contosokeyvault?api-version=2015-06-01",
+                "id": "https://contosokeyvault.vault.azure.net/",
+                "httpStatusCode": 200
+            }
+        },
+        {
+            "time": "2016-01-05T01:33:56.5264523Z",
+            "resourceId": "/SUBSCRIPTIONS/361DA5D4-A47A-4C79-AFDD-XXXXXXXXXXXX/RESOURCEGROUPS/CONTOSOGROUP/PROVIDERS/MICROSOFT.KEYVAULT/VAULTS/CONTOSOKEYVAULT",
+            "operationName": "VaultGet",
+            "operationVersion": "2015-06-01",
+            "category": "AuditEvent",
+            "resultType": "Success",
+            "resultSignature": "OK",
+            "resultDescription": "",
+            "durationMs": "83",
+            "callerIpAddress": "104.40.82.76",
+            "correlationId": "",
+            "identity": {
+                "claim": {
+                    "http://schemas.microsoft.com/identity/claims/objectidentifier": "d9da5048-2737-4770-bd64-XXXXXXXXXXXX",
+                    "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn": "live.com#username@outlook.com",
+                    "appid": "1950a258-227b-4e31-a9cf-XXXXXXXXXXXX"
+                }
+            },
+            "properties": {
+                "clientInfo": "azure-resource-manager/2.0",
+                "requestUri": "https://control-prod-wus.vaultcore.azure.net/subscriptions/361da5d4-a47a-4c79-afdd-XXXXXXXXXXXX/resourcegroups/contosoresourcegroup/providers/Microsoft.KeyVault/vaults/contosokeyvault?api-version=2015-06-01",
+                "id": "https://contosokeyvault.vault.azure.net/",
+                "httpStatusCode": 200
+            }
+        }
+    ]
+}
+```
+
+Det nya formatet använder [JSON-linjer](http://jsonlines.org/), där varje händelse är en rad och rad matnings tecknet indikerar en ny händelse. Så här ser exemplet ovan ut i filen PT1H. JSON efter ändringen:
+
+```json
+{"time": "2016-01-05T01:32:01.2691226Z","resourceId": "/SUBSCRIPTIONS/361DA5D4-A47A-4C79-AFDD-XXXXXXXXXXXX/RESOURCEGROUPS/CONTOSOGROUP/PROVIDERS/MICROSOFT.KEYVAULT/VAULTS/CONTOSOKEYVAULT","operationName": "VaultGet","operationVersion": "2015-06-01","category": "AuditEvent","resultType": "Success","resultSignature": "OK","resultDescription": "","durationMs": "78","callerIpAddress": "104.40.82.76","correlationId": "","identity": {"claim": {"http://schemas.microsoft.com/identity/claims/objectidentifier": "d9da5048-2737-4770-bd64-XXXXXXXXXXXX","http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn": "live.com#username@outlook.com","appid": "1950a258-227b-4e31-a9cf-XXXXXXXXXXXX"}},"properties": {"clientInfo": "azure-resource-manager/2.0","requestUri": "https://control-prod-wus.vaultcore.azure.net/subscriptions/361da5d4-a47a-4c79-afdd-XXXXXXXXXXXX/resourcegroups/contosoresourcegroup/providers/Microsoft.KeyVault/vaults/contosokeyvault?api-version=2015-06-01","id": "https://contosokeyvault.vault.azure.net/","httpStatusCode": 200}}
+{"time": "2016-01-05T01:33:56.5264523Z","resourceId": "/SUBSCRIPTIONS/361DA5D4-A47A-4C79-AFDD-XXXXXXXXXXXX/RESOURCEGROUPS/CONTOSOGROUP/PROVIDERS/MICROSOFT.KEYVAULT/VAULTS/CONTOSOKEYVAULT","operationName": "VaultGet","operationVersion": "2015-06-01","category": "AuditEvent","resultType": "Success","resultSignature": "OK","resultDescription": "","durationMs": "83","callerIpAddress": "104.40.82.76","correlationId": "","identity": {"claim": {"http://schemas.microsoft.com/identity/claims/objectidentifier": "d9da5048-2737-4770-bd64-XXXXXXXXXXXX","http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn": "live.com#username@outlook.com","appid": "1950a258-227b-4e31-a9cf-XXXXXXXXXXXX"}},"properties": {"clientInfo": "azure-resource-manager/2.0","requestUri": "https://control-prod-wus.vaultcore.azure.net/subscriptions/361da5d4-a47a-4c79-afdd-XXXXXXXXXXXX/resourcegroups/contosoresourcegroup/providers/Microsoft.KeyVault/vaults/contosokeyvault?api-version=2015-06-01","id": "https://contosokeyvault.vault.azure.net/","httpStatusCode": 200}}
+```
+
+Det nya formatet gör det möjligt Azure Monitor att skicka loggfiler med hjälp av [bifogade blobbar](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-append-blobs), vilket är mer effektivt för att kontinuerligt lägga till nya händelse data.
+
+## <a name="how-to-update"></a>Så här uppdaterar du
+
+Du behöver bara göra uppdateringar om du har anpassat verktyg som matar in dessa loggfiler för ytterligare bearbetning. Om du använder ett externt logg analys-eller SIEM-verktyg rekommenderar vi att du [använder Event Hub för att mata in dessa data i stället](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/). Integrering av Event Hub är enklare när det gäller bearbetning av loggar från många tjänster och bok märkes plats i en viss logg.
+
+Anpassade verktyg bör uppdateras för att hantera både det aktuella formatet och JSON-linje formatet som beskrivs ovan. Detta säkerställer att dina verktyg inte försvinner när data börjar visas i det nya formatet.
+
+## <a name="next-steps"></a>Nästa steg
+
+* Lär dig mer om [att arkivera resurs diagnostiska loggar till ett lagrings konto](./../../azure-monitor/platform/archive-diagnostic-logs.md)
+* Lär dig mer om [att arkivera aktivitets logg data till ett lagrings konto](./../../azure-monitor/platform/archive-activity-log.md)
+

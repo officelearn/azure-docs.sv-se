@@ -11,16 +11,16 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 01/25/2019
-ms.openlocfilehash: 9f6b20806f75cc28b5f4f740ffb67faae491ae84
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: f884b39db92f44f7cff938e0ac4b9c2e22dc36cb
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68567919"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71262197"
 ---
 # <a name="troubleshoot-azure-sql-database-performance-issues-with-intelligent-insights"></a>Felsök Azure SQL Database prestanda problem med Intelligent Insights
 
-Den här sidan innehåller information om prestanda problem för Azure SQL Database och hanterade instanser som upptäckts genom att logga in med hjälp av [intelligent Insights](sql-database-intelligent-insights.md) Database-prestandadiagnostik. Telemetri för diagnostikloggar kan strömmas till [Azure Monitor loggar](../azure-monitor/insights/azure-sql.md), [Azure Event Hubs](../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md), [Azure Storage](sql-database-metrics-diag-logging.md#stream-into-storage)eller en lösning från tredje part för anpassade DevOps-aviseringar och rapporterings funktioner.
+Den här sidan innehåller information om prestanda problem för Azure SQL Database och hanterade instanser som upptäckts genom att logga in med hjälp av [intelligent Insights](sql-database-intelligent-insights.md) Database-prestandadiagnostik. Telemetri för diagnostikloggar kan strömmas till [Azure Monitor loggar](../azure-monitor/insights/azure-sql.md), [Azure Event Hubs](../azure-monitor/platform/resource-logs-stream-event-hubs.md), [Azure Storage](sql-database-metrics-diag-logging.md#stream-into-storage)eller en lösning från tredje part för anpassade DevOps-aviseringar och rapporterings funktioner.
 
 > [!NOTE]
 > En snabb SQL Database prestanda fel söknings guide med hjälp av Intelligent Insights finns i det [rekommenderade fel söknings flödet](sql-database-intelligent-insights-troubleshoot-performance.md#recommended-troubleshooting-flow) i det här dokumentet.
@@ -331,4 +331,4 @@ Intelligent Insights behöver vanligt vis en timmes tid för att utföra rotor S
 - Lär dig [intelligent Insights](sql-database-intelligent-insights.md) begrepp.
 - Använd [loggen Intelligent Insights Azure SQL Database prestanda diagnos](sql-database-intelligent-insights-use-diagnostics-log.md).
 - Övervaka [Azure SQL Database med Azure SQL-analys](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-sql).
-- Lär dig att [samla in och använda loggdata från dina Azure-resurser](../azure-monitor/platform/diagnostic-logs-overview.md).
+- Lär dig att [samla in och använda loggdata från dina Azure-resurser](../azure-monitor/platform/resource-logs-overview.md).

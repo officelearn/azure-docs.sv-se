@@ -11,12 +11,12 @@ author: aamalvea
 ms.author: aamalvea
 ms.reviewer: jrasnik, carlrab
 ms.date: 11/02/2018
-ms.openlocfilehash: 9468dbd71ee8da88cbabc3ca9f76c77d47adc221
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 3103b556098d0b9ccbfca7348ab70c183a69753d
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68567922"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71262236"
 ---
 # <a name="create-alerts-for-azure-sql-database-and-data-warehouse-using-azure-portal"></a>Skapa aviseringar för Azure SQL Database och informations lager med Azure Portal
 
@@ -77,34 +77,34 @@ När du har skapat en avisering kan du välja den och:
 | Resurstyp | Måttnamn | Eget namn | Sammansättningstyp: | Minsta tids period för avisering|
 | --- | --- | --- | --- | --- |
 | SQL-databas | cpu_percent | Processorprocent | Average | 5 minuter |
-| SQL-databas | physical_data_read_percent | Data I/O-procent | Average | 5 minuter |
-| SQL-databas | log_write_percent | Logg I/O-procent | Average | 5 minuter |
+| SQL-databas | physical_data_read_percent | IO-procent för data | Average | 5 minuter |
+| SQL-databas | log_write_percent | Logg-I/O-procent | Average | 5 minuter |
 | SQL-databas | dtu_consumption_percent | DTU-procent | Average | 5 minuter |
 | SQL-databas | lagring | Total databas storlek | Maximal | 30 minuter |
 | SQL-databas | connection_successful | Lyckade anslutningar | Totalt | 10 minuter |
 | SQL-databas | connection_failed | Misslyckade anslutningar | Totalt | 10 minuter |
 | SQL-databas | blocked_by_firewall | Blockerad av brand väggen | Totalt | 10 minuter |
-| SQL-databas | hamn | Dödlägen | Totalt | 10 minuter |
+| SQL-databas | Hamn | Dödlägen | Totalt | 10 minuter |
 | SQL-databas | storage_percent | Databasstorlek i procent | Maximal | 30 minuter |
 | SQL-databas | xtp_storage_percent | Minnes intern OLTP-lagring i procent (för hands version) | Average | 5 minuter |
-| SQL-databas | workers_percent | Arbetarprocent | Average | 5 minuter |
+| SQL-databas | workers_percent | Procent arbetare | Average | 5 minuter |
 | SQL-databas | sessions_percent | Sessioner i procent | Average | 5 minuter |
 | SQL-databas | dtu_limit | DTU-gräns | Average | 5 minuter |
 | SQL-databas | dtu_used | Använt DTU | Average | 5 minuter |
 ||||||
 | Elastisk pool | cpu_percent | Processorprocent | Average | 10 minuter |
-| Elastisk pool | physical_data_read_percent | Data I/O-procent | Average | 10 minuter |
-| Elastisk pool | log_write_percent | Logg I/O-procent | Average | 10 minuter |
+| Elastisk pool | physical_data_read_percent | IO-procent för data | Average | 10 minuter |
+| Elastisk pool | log_write_percent | Logg-I/O-procent | Average | 10 minuter |
 | Elastisk pool | dtu_consumption_percent | DTU-procent | Average | 10 minuter |
 | Elastisk pool | storage_percent | Lagrings procent | Average | 10 minuter |
-| Elastisk pool | workers_percent | Arbetarprocent | Average | 10 minuter |
+| Elastisk pool | workers_percent | Procent arbetare | Average | 10 minuter |
 | Elastisk pool | eDTU_limit | eDTU-gräns | Average | 10 minuter |
 | Elastisk pool | storage_limit | Lagrings gräns | Average | 10 minuter |
 | Elastisk pool | eDTU_used | eDTU använt | Average | 10 minuter |
 | Elastisk pool | storage_used | Använt lagringsutrymme | Average | 10 minuter |
 ||||||               
 | SQL Data Warehouse | cpu_percent | Processorprocent | Average | 10 minuter |
-| SQL Data Warehouse | physical_data_read_percent | Data I/O-procent | Average | 10 minuter |
+| SQL Data Warehouse | physical_data_read_percent | IO-procent för data | Average | 10 minuter |
 | SQL Data Warehouse | connection_successful | Lyckade anslutningar | Totalt | 10 minuter |
 | SQL Data Warehouse | connection_failed | Misslyckade anslutningar | Totalt | 10 minuter |
 | SQL Data Warehouse | blocked_by_firewall | Blockerad av brand väggen | Totalt | 10 minuter |
@@ -118,5 +118,5 @@ När du har skapat en avisering kan du välja den och:
 ## <a name="next-steps"></a>Nästa steg
 * [Få en översikt över Azure-övervakning](../monitoring-and-diagnostics/monitoring-overview.md) , inklusive de typer av information som du kan samla in och övervaka.
 * Läs mer om hur du [konfigurerar Webhooks i aviseringar](../azure-monitor/platform/alerts-webhooks.md).
-* Få en [Översikt över diagnostikloggar](../azure-monitor/platform/diagnostic-logs-overview.md) och samla in detaljerade mått för hög frekvens på din tjänst.
+* Få en [Översikt över diagnostikloggar](../azure-monitor/platform/resource-logs-overview.md) och samla in detaljerade mått för hög frekvens på din tjänst.
 * Få en [Översikt över mått samlingen](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md) för att se till att tjänsten är tillgänglig och svarar.

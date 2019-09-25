@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 08/15/2019
 ms.author: mahender
 ms.reviewer: yevbronsh
-ms.openlocfilehash: 16c65a98ca420a4b15281ee033ea7773197b5b2a
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 1774fcf0af287bba03c2c5c79e14883e3594ef0c
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70098478"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71260147"
 ---
 # <a name="how-to-use-managed-identities-for-app-service-and-azure-functions"></a>Använda hanterade identiteter för App Service och Azure Functions
 
@@ -307,9 +307,12 @@ En app med en hanterad identitet har två miljövariabler definierade:
 > |Parameternamn|I|Beskrivning|
 > |-----|-----|-----|
 > |resource|Söka i data|AAD-resurs-URI för resursen som en token ska hämtas för. Detta kan vara en av de [Azure-tjänster som stöder Azure AD-autentisering](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication) eller andra resurs-URI: er.|
-> |API-versionen|Söka i data|Den version av token API som ska användas. "2017-09-01" är för närvarande den enda version som stöds.|
+> |api-version|Söka i data|Den version av token API som ska användas. "2017-09-01" är för närvarande den enda version som stöds.|
 > |secret|Huvud|Värdet för MSI_SECRET-miljövariabeln. Den här rubriken används för att minska risken för förfalskning av SSRF-attacker (Server sidans begäran).|
-> |clientid|Söka i data|Valfritt ID för den användar tilldelnings identitet som ska användas. Om det utelämnas används den systemtilldelade identiteten.|
+> |clientid|Söka i data|(Valfritt, såvida inte användaren tilldelas) ID för den användar tilldelnings identitet som ska användas. Om det utelämnas används den systemtilldelade identiteten.|
+
+> [!IMPORTANT]
+> Om du försöker hämta tokens för användarspecifika identiteter måste du inkludera `clientid` egenskapen. Annars försöker token-tjänsten hämta en token för en tilldelad identitet, som kan vara eller inte finns.
 
 Ett lyckat 200 OK-svar innehåller en JSON-text med följande egenskaper:
 

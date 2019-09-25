@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/14/2019
 ms.author: TomSh
-ms.openlocfilehash: 80f90f1788e798261f77bb7a4147763e7ca6cec0
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: d64cdce34127b066aedc8a5fcd6ec3a891b38c5e
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68946510"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71262853"
 ---
 # <a name="azure-logging-and-auditing"></a>Loggning och granskning i Azure
 
@@ -36,7 +36,7 @@ Moln program är komplexa, med många rörliga delar. Loggar innehåller data so
 Azure-loggar kategoriseras i följande typer:
 * **Kontroll-/hanterings loggar** innehåller information om Azure Resource Manager Skapa, uppdatera och ta bort åtgärder. Mer information finns i [Azure aktivitets loggar](../../azure-monitor/platform/activity-logs-overview.md).
 
-* **Data Plans loggar** innehåller information om händelser som aktive ras som en del Azure-resursanvändning. Exempel på den här typen av logg är Windows händelse system-, säkerhets-och program loggar i en virtuell dator (VM) och [](../../azure-monitor/platform/diagnostic-logs-overview.md) de diagnostikloggar som konfigureras via Azure Monitor.
+* **Data Plans loggar** innehåller information om händelser som aktive ras som en del Azure-resursanvändning. Exempel på den här typen av logg är Windows händelse system-, säkerhets-och program loggar i en virtuell dator (VM) och [de diagnostikloggar](../../azure-monitor/platform/resource-logs-overview.md) som konfigureras via Azure Monitor.
 
 * **Bearbetade händelser** ger information om analyserade händelser/aviseringar som har bearbetats för din räkning. Exempel på den här typen är [Azure Security Center varningar](../../security-center/security-center-managing-and-responding-alerts.md) där [Azure Security Center](../../security-center/security-center-intro.md) har bearbetat och analyserat din prenumeration och ger kortfattade säkerhets aviseringar.
 
@@ -45,7 +45,7 @@ I följande tabell visas de viktigaste typerna av loggar som är tillgängliga i
 | Loggkategori | Loggtyp | Användning | Integrering |
 | ------------ | -------- | ------ | ----------- |
 |[Aktivitets loggar](../../azure-monitor/platform/activity-logs-overview.md)|Kontroll – plan händelser på Azure Resource Manager resurser|  Ger insikt i de åtgärder som utfördes på resurser i din prenumeration.|    REST-API, [Azure Monitor](../../azure-monitor/platform/activity-logs-overview.md)|
-|[Azure Diagnostics-loggar](../../azure-monitor/platform/diagnostic-logs-overview.md)|Frekventa data om driften av Azure Resource Manager resurser i prenumerationen|  Ger inblick i åtgärder som din resurs själv utfört.| Azure Monitor, [Stream](../../azure-monitor/platform/diagnostic-logs-overview.md)|
+|[Azure Diagnostics-loggar](../../azure-monitor/platform/resource-logs-overview.md)|Frekventa data om driften av Azure Resource Manager resurser i prenumerationen|    Ger inblick i åtgärder som din resurs själv utfört.| Azure Monitor, [Stream](../../azure-monitor/platform/resource-logs-overview.md)|
 |[Azure AD-rapportering](../../active-directory/reports-monitoring/overview-reports.md)|Loggar och rapporter | Rapporterar användar inloggnings aktiviteter och system aktivitets information om användare och grupp hantering.|[Graph API](../../active-directory/develop/active-directory-graph-api-quickstart.md)|
 |[Virtuella datorer och moln tjänster](../../azure-monitor/learn/quick-collect-azurevm.md)|Windows händelse logg tjänst och Linux syslog|  Avbildar system data och loggnings data på de virtuella datorerna och överför dessa data till ett valfritt lagrings konto.|   Windows (med Windows Azure-diagnostik [[wad](../../monitoring-and-diagnostics/azure-diagnostics.md)] Storage) och Linux i Azure Monitor|
 |[Azure-lagringsanalys](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics)|Lagrings loggning, tillhandahåller mått data för ett lagrings konto|Ger insyn i trace-begäranden, analyserar användnings trender och diagnostiserar problem med ditt lagrings konto.|   REST API eller [klient biblioteket](https://msdn.microsoft.com/library/azure/mt347887.aspx)|
@@ -83,7 +83,7 @@ Integrations scenarier för en aktivitets logg händelse:
 
 Du kan använda ett lagrings konto eller ett [namn område för händelsehubben](../../event-hubs/event-hubs-resource-manager-namespace-event-hub-enable-capture.md) som inte finns i samma prenumeration som den som avger loggen. Användare som konfigurerar inställningen måste ha lämplig [rollbaserad åtkomst kontroll (RBAC)](../../role-based-access-control/role-assignments-portal.md) för båda prenumerationerna.
 
-### <a name="azure-diagnostics-logs"></a>Azure-diagnostikloggar
+### <a name="azure-diagnostics-logs"></a>Azure Diagnostics-loggar
 
 Azure Diagnostics-loggar genereras av en resurs som ger omfattande, frekventa data om driften av resursen. Innehållet i de här loggarna varierar efter resurstyp. [Windows Event System-loggar](../../azure-monitor/platform/data-sources-windows-events.md) är till exempel en kategori av diagnostikloggar för virtuella datorer, och [BLOB-, tabell-och Queue-](../../storage/common/storage-monitor-storage-account.md) loggar är kategorier av diagnostikloggar för lagrings konton. Diagnostikloggar skiljer sig från aktivitets loggar, som ger inblick i de åtgärder som utfördes på resurser i din prenumeration.
 
@@ -95,7 +95,7 @@ Azure Diagnostics-loggar erbjuder flera konfigurations alternativ, till exempel 
 
 * Spara dem till ett [lagrings konto](../../azure-monitor/platform/archive-diagnostic-logs.md) för granskning eller manuell kontroll. Du kan ange Retentions tid (i dagar) med hjälp av diagnostikinställningar.
 
-* [Strömma dem till händelse hubbar](../../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md) för inmatning av en tjänst från tredje part eller en anpassad analys lösning, till exempel [PowerBI](https://powerbi.microsoft.com/documentation/powerbi-azure-and-power-bi/).
+* [Strömma dem till händelse hubbar](../../azure-monitor/platform/resource-logs-stream-event-hubs.md) för inmatning av en tjänst från tredje part eller en anpassad analys lösning, till exempel [PowerBI](https://powerbi.microsoft.com/documentation/powerbi-azure-and-power-bi/).
 
 * Analysera dem med [Azure Monitor loggar](../../log-analytics/log-analytics-queries.md).
 
@@ -315,11 +315,11 @@ I mitten av Azure Monitor loggar är arbets ytan Log Analytics, som finns i Azur
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-Anslutna källor är datorer och andra resurser som genererar data som samlas in av Azure Monitor loggar. Källor kan omfatta agenter som är installerade på [Windows](../../log-analytics/log-analytics-agent-windows.md) -och [Linux](../../log-analytics/log-analytics-quick-collect-linux-computer.md) -datorer som ansluter direkt eller agenter i [en ansluten System Center Operations Manager hanterings grupp](../../azure-monitor/platform/om-agents.md). Azure Monitor loggar kan även samla in data från ett [Azure Storage-konto](../../azure-monitor/platform/diagnostic-logs-stream-log-store.md).
+Anslutna källor är datorer och andra resurser som genererar data som samlas in av Azure Monitor loggar. Källor kan omfatta agenter som är installerade på [Windows](../../log-analytics/log-analytics-agent-windows.md) -och [Linux](../../log-analytics/log-analytics-quick-collect-linux-computer.md) -datorer som ansluter direkt eller agenter i [en ansluten System Center Operations Manager hanterings grupp](../../azure-monitor/platform/om-agents.md). Azure Monitor loggar kan även samla in data från ett [Azure Storage-konto](../../azure-monitor/platform/resource-logs-collect-storage.md).
 
 [Data källor](../../azure-monitor/platform/agent-data-sources.md) är de olika typerna av data som samlas in från varje ansluten källa. Källor innehåller händelser och [prestanda data](../../azure-monitor/platform/data-sources-performance-counters.md) från [Windows](../../azure-monitor/platform/data-sources-windows-events.md) -och Linux-agenter, förutom källor som [IIS-loggar](../../azure-monitor/platform/data-sources-iis-logs.md) och [anpassade text loggar](../../azure-monitor/platform/data-sources-custom-logs.md). Du kan konfigurera varje datakälla som du vill samla in och konfigurationen skickas automatiskt till varje ansluten källa.
 
-Det finns fyra sätt att [samla in loggar och mät värden för Azure-tjänster](../../azure-monitor/platform/diagnostic-logs-stream-log-store.md):
+Det finns fyra sätt att [samla in loggar och mät värden för Azure-tjänster](../../azure-monitor/platform/resource-logs-collect-storage.md):
 
 * Azure-diagnostik direkt till Azure Monitor loggar (**diagnostik** i följande tabell)
 

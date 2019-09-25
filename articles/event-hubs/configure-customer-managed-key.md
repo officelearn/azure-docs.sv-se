@@ -8,12 +8,12 @@ author: spelluru
 ms.topic: conceptual
 ms.date: 08/13/2019
 ms.author: spelluru
-ms.openlocfilehash: 311f69ffa436eebb261fb8aa5ee72886ad9fe9d0
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: 37ca2b655d30ffd330d5430da20d07d9548a7c84
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70035912"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71260878"
 ---
 # <a name="configure-customer-managed-keys-for-encrypting-azure-event-hubs-data-at-rest-by-using-the-azure-portal"></a>Konfigurera Kundhanterade nycklar för kryptering av Azure Event Hubs-data i vila med hjälp av Azure Portal
 Azure Event Hubs tillhandahåller kryptering av data i vila med Azure Storage Service Encryption (Azure SSE). Event Hubs förlitar sig på Azure Storage för att lagra data och som standard krypteras alla data som lagras med Azure Storage med hjälp av Microsoft-hanterade nycklar. 
@@ -24,7 +24,7 @@ Azure Event Hubs stöder nu möjligheten att kryptera data i vila med antingen M
 Att aktivera funktionen BYOK är en tids inställnings process i namn området.
 
 > [!NOTE]
-> BYOK-funktionen stöds av Event Hubs dedikerade kluster med [en enda klient](event-hubs-dedicated-overview.md) . Det går inte att aktivera den för standard Event Hubs-namnområden.
+> BYOK-funktionen stöds av [Event Hubs dedikerade kluster med en enda klient](event-hubs-dedicated-overview.md) . Det går inte att aktivera den för standard Event Hubs-namnområden.
 
 Du kan använda Azure Key Vault för att hantera dina nycklar och granska din nyckel användning. Du kan antingen skapa egna nycklar och lagra dem i ett nyckel valv, eller så kan du använda Azure Key Vault API: er för att generera nycklar. Mer information om Azure Key Vault finns i [Vad är Azure Key Vault?](../key-vault/key-vault-overview.md)
 
@@ -84,7 +84,7 @@ När krypterings nyckeln har återkallats går Event Hubss tjänsten på det kry
 > Om du tar bort en befintlig krypterings nyckel från nyckel valvet och ersätter den med en ny nyckel i Event Hubs namn området, eftersom borttagnings nyckeln fortfarande är giltig (eftersom den cachelagras) i upp till en timme, kan dina gamla data (som krypterades med den gamla nyckeln) fortfarande vara tillgängliga tillsammans  med nya data, som nu är åtkomliga med den nya nyckeln. Det här beteendet är avsiktligt i för hands versionen av funktionen. 
 
 ## <a name="set-up-diagnostic-logs"></a>Konfigurera diagnostikloggar 
-Genom att ställa in diagnostikloggar för BYOK-aktiverade namn rymder får du nödvändig information om åtgärder när ett namn område krypteras med Kundhanterade nycklar. Dessa loggar kan aktive ras och senare strömmas till en Event Hub eller analyseras via Log Analytics eller strömmas till lagring för att utföra anpassad analys. Mer information om diagnostiska loggar finns i [Översikt över Azure Diagnostic-loggar](../azure-monitor/platform/diagnostic-logs-overview.md).
+Genom att ställa in diagnostikloggar för BYOK-aktiverade namn rymder får du nödvändig information om åtgärder när ett namn område krypteras med Kundhanterade nycklar. Dessa loggar kan aktive ras och senare strömmas till en Event Hub eller analyseras via Log Analytics eller strömmas till lagring för att utföra anpassad analys. Mer information om diagnostiska loggar finns i [Översikt över Azure Diagnostic-loggar](../azure-monitor/platform/resource-logs-overview.md).
 
 ## <a name="enable-user-logs"></a>Aktivera användar loggar
 Följ dessa steg om du vill aktivera loggar för Kundhanterade nycklar.
@@ -110,7 +110,7 @@ Alla loggar lagras i JavaScript Object Notation (JSON)-format. Varje post inneh�
 | Aktivitets-ID | Internt ID som används för spårning. |
 | category | Definierar klassificeringen för uppgiften. Om nyckeln från ditt nyckel valv till exempel är inaktive rad, är det en informations kategori eller om en nyckel inte kan vara unwrap, kan den falla under fel. |
 | resourceId | Resurs-ID för Azure Resource Manager |
-| keyVault | Fullständigt namn på nyckel valvet. |
+| KeyVault | Fullständigt namn på nyckel valvet. |
 | key | Nyckel namnet som används för att kryptera Event Hubs-namnområdet. |
 | version | Den nyckel version som används. |
 | operation | Åtgärden som utförs på nyckeln i ditt nyckel valv. Du kan till exempel inaktivera/aktivera nyckeln, radbrytas eller packa upp |

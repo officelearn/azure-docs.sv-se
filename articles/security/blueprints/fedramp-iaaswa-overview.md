@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: e1d481c6019feebf3d62f0e23480f5572363869c
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: bcce4dcac35b783efefe81abc2090506502e9931
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68946847"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71257283"
 ---
 # <a name="azure-security-and-compliance-blueprint-iaas-web-application-for-fedramp"></a>Azure Security and Compliance Blueprint (Handlingsplan för säkerhet och efterlevnad i Azure): IaaS-webbprogram för FedRAMP
 
@@ -62,9 +62,9 @@ Den här lösningen använder följande Azure-tjänster. Information om distribu
 - Azure Load Balancer
 - Azure Application Gateway
     - (1) WAF Application Gateway aktive rad
-        - brand Väggs läge: skydd
-        - regel uppsättning: OWASP 3,0
-        - lyssnare: port 443
+        - Brand Väggs läge: skydd
+        - Regel uppsättning: OWASP 3,0
+        - Lyssnare: port 443
 - Azure Storage
     - (7) geo-redundanta lagrings konton
 - Azure Cloud Witness
@@ -132,7 +132,7 @@ Följande tekniker tillhandahåller funktioner för identitets hantering i Azure
 **Application Gateway**: Arkitekturen minskar risken för säkerhets problem med en Application Gateway med brand vägg för webbaserade program (WAF) och OWASP-ruleset är aktive rad. Fler funktioner är:
 
 - [Slut punkt till slut punkt – SSL](https://docs.microsoft.com/azure/application-gateway/application-gateway-end-to-end-ssl-powershell)
-- Aktivera [SSL](../../application-gateway/create-ssl-portal.md) -avlastning
+- Aktivera [SSL-avlastning](../../application-gateway/create-ssl-portal.md)
 - Inaktivera [TLS v 1.0 och v 1.1](https://docs.microsoft.com/azure/application-gateway/application-gateway-end-to-end-ssl-powershell)
 - [Brand vägg för webbaserade program](../../application-gateway/waf-overview.md) (WAF-läge)
 - [Skydds läge](https://docs.microsoft.com/azure/application-gateway/application-gateway-web-application-firewall-portal) med OWASP 3,0 ruleset
@@ -150,7 +150,7 @@ Följande tekniker tillhandahåller funktioner för identitets hantering i Azure
 Azure Monitor loggar innehåller omfattande loggning av system-och användar aktiviteter, samt system hälsan. Lösningen [Azure Monitor loggar](../azure-security-disk-encryption-overview.md) samlar in och analyserar data som genererats av resurser i Azure och lokala miljöer.
 
 - **Aktivitets loggar:**  [Aktivitets loggar](../../azure-monitor/platform/activity-logs-overview.md) ger inblick i åtgärder som utförs på resurser i en prenumeration. Aktivitets loggar kan hjälpa till att bestämma en åtgärds initierare, tidpunkt för förekomst och status.
-- **Diagnostikloggar:**  [Diagnostikloggar](../../azure-monitor/platform/diagnostic-logs-overview.md) är alla loggar som genereras av varje resurs. Loggarna omfattar Windows händelse system loggar, Azure Storage-loggar, Key Vault gransknings loggar och Application Gateway åtkomst-och brand Väggs loggar.
+- **Diagnostikloggar:**  [Diagnostikloggar](../../azure-monitor/platform/resource-logs-overview.md) är alla loggar som genereras av varje resurs. Loggarna omfattar Windows händelse system loggar, Azure Storage-loggar, Key Vault gransknings loggar och Application Gateway åtkomst-och brand Väggs loggar.
 - **Logg arkivering:**  Alla diagnostiska loggar skriver till ett centraliserat och krypterat Azure Storage-konto för arkivering. Kvarhållning är en användare som kan konfigureras, upp till 730 dagar, för att uppfylla organisationens särskilda krav för kvarhållning. Dessa loggar ansluter till Azure Monitor loggar för bearbetning, lagring och instrument panels rapportering.
 
 Dessutom installeras följande övervaknings lösningar som en del av den här arkitekturen. Observera att det är kundens ansvar att konfigurera dessa lösningar så att de överensstämmer med FedRAMP säkerhets kontroller:

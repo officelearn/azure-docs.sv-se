@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: 602e4356ccd9eb45855462a7a25e0966dc176b4f
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: 4a30e496c96fcc90417e58b0f921717985b89693
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69899944"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71262803"
 ---
 # <a name="azure-security-and-compliance-blueprint---three-tier-iaas-web-application-for-uk-official"></a>Handlingsplan för säkerhet och efterlevnad i Azure – IaaS-webbprogram på tre nivåer för Storbritannien och EUT
 
@@ -149,7 +149,7 @@ Storage
 
 **Användardefinierade vägar**: [Användardefinierade vägar](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview) används för att definiera flödet av IP-trafik i Azure virtuella nätverk.
 
-**Nätverksansluten virtuella nätverk**: Virtuella nätverk för produktion och hantering är anslutna med [VNet](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview)-peering.
+**Nätverksansluten virtuella nätverk**: Virtuella nätverk för produktion och hantering är anslutna med [VNet-peering](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview).
 Dessa virtuella nätverk hanteras fortfarande som separata resurser, men visas som en för alla anslutningar för dessa virtuella datorer. Dessa nätverk kommunicerar med varandra direkt med hjälp av privata IP-adresser. VNet-peering omfattas av virtuella nätverk som finns i samma Azure-region.
 
 **Nätverks säkerhets grupper**: [NSG: er](../../virtual-network/virtual-network-vnet-plan-design-arm.md) innehåller Access Control listor som tillåter eller nekar trafik i ett VNet. NSG: er kan användas för att skydda trafik i ett undernät eller på en individuell VM-nivå.
@@ -172,7 +172,7 @@ Dessa virtuella nätverk hanteras fortfarande som separata resurser, men visas s
 
 **Aktivitets loggar**: Konfigurera [Azures aktivitets loggar](../../azure-monitor/platform/activity-logs-overview.md) för att ge inblick i de åtgärder som utfördes på resurser i din prenumeration.
 
-**Diagnostikloggar**: [Diagnostikloggar](../../azure-monitor/platform/diagnostic-logs-overview.md) är alla loggar som genereras av en resurs. Loggarna kan innehålla Windows Event System-loggar, BLOB-, tabell-och Queue-loggar.
+**Diagnostikloggar**: [Diagnostikloggar](../../azure-monitor/platform/resource-logs-overview.md) är alla loggar som genereras av en resurs. Loggarna kan innehålla Windows Event System-loggar, BLOB-, tabell-och Queue-loggar.
 
 **Brand Väggs loggar**: Application Gateway tillhandahåller fullständiga diagnostik-och åtkomst loggar. Brandväggsloggar är tillgängliga för Application Gateway-resurser som har WAF aktiverat.
 
@@ -214,7 +214,7 @@ Kunder kan också överväga att använda en [förbättrad säkerhets modell](ht
 
 ## <a name="ncsc-cloud-security-principles-compliance-documentation"></a>Dokumentation om NCSC Cloud Security princips Compliance
 
-Den kommersiella tjänsten för Kron tjänster (ett organ som arbetar för att förbättra företagets handels-och anskaffnings aktivitet) har förnyat klassificeringen av Microsofts moln tjänster i företags klass till G-Cloud V6, som omfattar alla sina erbjudanden på den officiella nivån. Information om Azure och G-Cloud finns i sammanfattningen av [Azures utvärdering av säkerhets utvärderingen](https://www.microsoft.com/en-us/trustcenter/compliance/uk-g-cloud).
+Den kommersiella tjänsten för Kron tjänster (ett organ som arbetar för att förbättra företagets handels-och anskaffnings aktivitet) har förnyat klassificeringen av Microsofts moln tjänster i företags klass till G-Cloud V6, som omfattar alla sina erbjudanden på den officiella nivån. Information om Azure och G-Cloud finns i [sammanfattningen av Azures utvärdering av säkerhets utvärderingen](https://www.microsoft.com/en-us/trustcenter/compliance/uk-g-cloud).
 
 Den här skissen motsvarar de 14 moln säkerhets principer som dokumenteras i NCSC [Cloud Security-principer](https://www.ncsc.gov.uk/guidance/implementing-cloud-security-principles) för att säkerställa en miljö som stöder arbets belastningar som klassificeras som Storbritannien-officiellt.
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/23/2019
 ms.author: pepogors
-ms.openlocfilehash: d221b828624e649a0d04a89c4394fe5a7fa857dd
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 317977af9d41163013545a6e5f60bee887da596c
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "66237325"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71262254"
 ---
 # <a name="networking"></a>Nätverk
 
@@ -54,7 +54,7 @@ Om du vill aktivera accelererat nätverk på ett befintligt Service Fabric-klust
 1. Etablera en NodeType med accelererat nätverk aktiverat
 2. Migrera dina tjänster och deras tillstånd till den etablerade NodeType med accelererat nätverk aktiverat
 
-Att skala ut infrastruktur krävs för att aktivera accelererat nätverk i ett befintligt kluster, eftersom aktivering av accelererade nätverk på plats skulle orsaka drift stopp, eftersom det krävs att alla virtuella datorer i en tillgänglighets uppsättning stoppas och frigörs [innan Aktivera accelererat nätverk på alla befintliga nätverkskort](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli#enable-accelerated-networking-on-existing-vms).
+Att skala ut infrastruktur krävs för att aktivera accelererat nätverk i ett befintligt kluster, eftersom aktivering av accelererade nätverk på plats skulle orsaka drift stopp, eftersom det krävs att alla virtuella datorer i en tillgänglighets uppsättning [stoppas och frigörs innan Aktivera accelererat nätverk på alla befintliga nätverkskort](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli#enable-accelerated-networking-on-existing-vms).
 
 ## <a name="cluster-networking"></a>Kluster nätverk
 
@@ -70,7 +70,7 @@ Att skala ut infrastruktur krävs för att aktivera accelererat nätverk i ett b
 
 * Om du vill köra arbets belastningar i Windows-behållare använder du [Öppna Nätverks läge](https://docs.microsoft.com/azure/service-fabric/service-fabric-networking-modes#set-up-open-networking-mode) för att förenkla kommunikationen mellan tjänster och tjänster.
 
-* Använd en omvänd proxy, till exempel [Traefik](https://docs.traefik.io/configuration/backends/servicefabric/) eller [Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-reverseproxy) den omvända proxyn för att visa vanliga program portar, till exempel 80 eller 443.
+* Använd en omvänd proxy, till exempel [Traefik](https://docs.traefik.io/v1.6/configuration/backends/servicefabric/) eller [Service Fabric den omvända proxyn](https://docs.microsoft.com/azure/service-fabric/service-fabric-reverseproxy) för att visa vanliga program portar, till exempel 80 eller 443.
 
 * För Windows-behållare som finns på gapped datorer som inte kan hämta bas lager från moln lagring i Azure kan du åsidosätta beteendet för det främmande lagret med hjälp av flaggan [--Allow-undistribuerbara-artefakter](https://docs.microsoft.com/virtualization/windowscontainers/about/faq#how-do-i-make-my-container-images-available-on-air-gapped-machines) i Docker daemon.
 

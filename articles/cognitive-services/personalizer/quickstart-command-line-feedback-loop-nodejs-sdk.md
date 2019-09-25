@@ -10,12 +10,12 @@ ms.subservice: personalizer
 ms.topic: quickstart
 ms.date: 09/12/2019
 ms.author: diberry
-ms.openlocfilehash: 49fa2cd53ebefa811673ea25a1851081f8cfa415
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.openlocfilehash: ab593ae33f11fe3e39846c50e9f43f73f80894ba
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70958906"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71265966"
 ---
 # <a name="quickstart-personalize-client-library-for-nodejs"></a>Snabbstart: Anpassa klient bibliotek för Node. js
 
@@ -143,6 +143,11 @@ Följande upprepnings kod loopar genom en cykel som ber användaren att ange sin
 [!code-javascript[Create the learning loop](~/samples-personalizer/quickstarts/node/sample.js?name=mainLoop)]
 
 Ta en närmare titt på rang-och belönings anropen i följande avsnitt.
+
+Lägg till följande metoder, som [hämtar innehålls valen](#get-content-choices-represented-as-actions), innan du kör kod filen:
+
+* getActionsList
+* getContextFeaturesList
 
 ## <a name="request-a-rank"></a>Begär en rang
 

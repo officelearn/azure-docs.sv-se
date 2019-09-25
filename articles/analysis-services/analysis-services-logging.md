@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.date: 09/12/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 6b311135832e1ec861cf6e14e5ad7e82574294bf
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.openlocfilehash: b158545390dafa36e7dad285953c78243f891f28
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70959071"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71259419"
 ---
 # <a name="setup-diagnostic-logging"></a>Konfigurera Diagnostisk loggning
 
-En viktig del av alla Analysis Services-lösningar övervakar hur dina servrar utför. Med [Azure Resource Diagnostic-loggar](../azure-monitor/platform/diagnostic-logs-overview.md)kan du övervaka och skicka loggar till [Azure Storage](https://azure.microsoft.com/services/storage/), strömma dem till [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/)och exportera dem till [Azure Monitor loggar](../azure-monitor/azure-monitor-log-hub.md).
+En viktig del av alla Analysis Services-lösningar övervakar hur dina servrar utför. Med [Azure Resource Diagnostic-loggar](../azure-monitor/platform/resource-logs-overview.md)kan du övervaka och skicka loggar till [Azure Storage](https://azure.microsoft.com/services/storage/), strömma dem till [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/)och exportera dem till [Azure Monitor loggar](../azure-monitor/azure-monitor-log-hub.md).
 
 ![Diagnostisk loggning till lagring, Event Hubs eller Azure Monitor loggar](./media/analysis-services-logging/aas-logging-overview.png)
 
@@ -141,7 +141,7 @@ Lär dig hur du [ändra inställningarna för startdiagnostik med hjälp av REST
 
 ### <a name="resource-manager-template"></a>Resource Manager-mall
 
-Lär dig hur du [aktivera diagnostikinställningar när resursen skapas med hjälp av Resource Manager-mall](../azure-monitor/platform/diagnostic-logs-stream-template.md). 
+Lär dig hur du [aktivera diagnostikinställningar när resursen skapas med hjälp av Resource Manager-mall](../azure-monitor/platform/diagnostic-settings-template.md). 
 
 ## <a name="manage-your-logs"></a>Hantera dina loggar
 
@@ -327,6 +327,6 @@ Set-AzDiagnosticSetting -ResourceId $account.ResourceId`
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läs mer om [Diagnostisk loggning för Azure-resurs](../azure-monitor/platform/diagnostic-logs-overview.md).
+Läs mer om [Diagnostisk loggning för Azure-resurs](../azure-monitor/platform/resource-logs-overview.md).
 
 Se [set-AzDiagnosticSetting](https://docs.microsoft.com/powershell/module/az.monitor/set-azdiagnosticsetting) i PowerShell-hjälpen.

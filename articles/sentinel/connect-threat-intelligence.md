@@ -12,17 +12,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/24/2019
 ms.author: rkarlin
-ms.openlocfilehash: cbdf05c714971db5a618ca2a8bb35fe286d6804c
-ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
+ms.openlocfilehash: c1c374977460de04d2339ba8c93019cf9152dbe3
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71240679"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71262705"
 ---
-# <a name="connect-data-from-threat-intelligence-providers---preview"></a>Anslut data från hot Intelligence-leverantörer – för hands version
+# <a name="connect-data-from-threat-intelligence-providers"></a>Anslut data från hot Intelligence-leverantörer
 
 > [!IMPORTANT]
-> Hot information i Azure Sentinel är för närvarande en offentlig för hands version.
+> Data kopplingen för Threat Intelligence-plattformarna i Azure Sentinel är för närvarande en offentlig för hands version.
 > Den här funktionen tillhandahålls utan service nivå avtal och rekommenderas inte för produktions arbets belastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Med Azure Sentinel kan du importera de hot indikatorer som din organisation använder, vilket kan förbättra din säkerhetsanalytikers möjlighet att identifiera och prioritera kända hot. Flera funktioner från Azure Sentinel blir sedan tillgängliga eller förbättrade:

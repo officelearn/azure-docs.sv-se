@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 07/10/2019
+ms.date: 09/26/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 281bd73671352e1e525e11a7bfde1882d3ef8864
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: eae82fbd56782faf5b15479c13fe530e189a0e3e
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71065424"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71256911"
 ---
 # <a name="manage-threats-to-resources-and-data-in-azure-active-directory-b2c"></a>Hantera hot mot resurser och data i Azure Active Directory B2C
 
@@ -37,10 +37,10 @@ De första 10 utelåsnings perioderna är en minut lång. De följande 10 utelå
 
 För att hantera inställningar för lösen ords skydd, inklusive utelåsnings tröskeln:
 
-1. Navigera till [Azure-portalen](https://portal.azure.com).
-1. Välj filtret **katalog + prenumeration** på menyn längst upp till höger i portalen och välj sedan din Azure AD B2C klient.
-1. Välj **Azure Active Directory** på menyn till vänster (eller Välj **alla tjänster** i det övre vänstra avsnittet i portalen och Sök sedan efter och välj *Azure Active Directory*).
-1. Välj **autentiseringsmetoder**under **säkerhet**och välj sedan **lösen ords skydd**.
+1. Logga in på [Azure-portalen](https://portal.azure.com)
+1. Använd filtret för **katalog + prenumeration** på den översta menyn för att välja den katalog som innehåller Azure AD B2C klient.
+1. På den vänstra menyn väljer du **Azure AD B2C**. Eller Välj **alla tjänster** och Sök efter och välj **Azure AD B2C**.
+1. Under **säkerhet**väljer du **autentiseringsmetoder (förhands granskning)** och väljer sedan **lösen ords skydd**.
 1. Ange önskade inställningar för lösen ords skydd och välj sedan **Spara**.
 
     ![Sidan Azure Portal lösen ords skydd i Azure AD-inställningar](media/active-directory-b2c-reference-threat-management/portal-02-password-protection.png)

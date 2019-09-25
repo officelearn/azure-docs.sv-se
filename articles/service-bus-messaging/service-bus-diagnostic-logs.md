@@ -1,6 +1,6 @@
 ---
-title: Diagnostikloggar för Azure Service Bus | Microsoft Docs
-description: Lär dig hur du ställer in diagnostikloggar för Service Bus i Azure.
+title: Azure Service Bus diagnostikloggar | Microsoft Docs
+description: Lär dig hur du konfigurerar diagnostikloggar för Service Bus i Azure.
 keywords: ''
 documentationcenter: .net
 services: service-bus-messaging
@@ -15,26 +15,26 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: 7d4cb8e55c5d1561c09cf85122550a66e3671f17
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6443cb727573645792a4e6c929b80c3406d72025
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60714157"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71261810"
 ---
-# <a name="service-bus-diagnostic-logs"></a>Service Bus-diagnostikloggar
+# <a name="service-bus-diagnostic-logs"></a>Service Bus diagnostikloggar
 
 Du kan visa två typer av loggar för Azure Service Bus:
-* **[Aktivitetsloggar](../azure-monitor/platform/activity-logs-overview.md)** . Dessa loggar innehåller information om åtgärder som utförs på ett jobb. Loggarna är alltid aktiverat.
-* **[Diagnostikloggar](../azure-monitor/platform/diagnostic-logs-overview.md)** . Du kan konfigurera diagnostikloggar mer omfattande information om allt som händer i ett jobb. Diagnostikloggar cover aktiviteter från den tidpunkt då jobbet skapades tills jobbet tas bort, inklusive uppdateringar och aktiviteter som inträffar när jobbet körs.
+* **[Aktivitets loggar](../azure-monitor/platform/activity-logs-overview.md)** . Dessa loggar innehåller information om åtgärder som utförts i ett jobb. Loggarna är alltid aktiverat.
+* **[Diagnostikloggar](../azure-monitor/platform/resource-logs-overview.md)** . Du kan konfigurera diagnostikloggar för mer information om allt som händer i ett jobb. Diagnostikloggar cover aktiviteter från den tidpunkt då jobbet skapades tills jobbet tas bort, inklusive uppdateringar och aktiviteter som inträffar när jobbet körs.
 
 ## <a name="turn-on-diagnostic-logs"></a>Aktivera diagnostikloggar
 
-Diagnostikloggar är inaktiverade som standard. Utför följande steg om du vill aktivera diagnostikloggar:
+Diagnostikloggar är inaktiverade som standard. Utför följande steg för att aktivera diagnostikloggar:
 
 1.  I den [Azure-portalen](https://portal.azure.com)under **övervakning + hantering**, klickar du på **diagnostikloggar**.
 
-    ![bladnavigering till diagnostikloggar](./media/service-bus-diagnostic-logs/image1.png)
+    ![blad navigering till diagnostikloggar](./media/service-bus-diagnostic-logs/image1.png)
 
 2. Klicka på den resurs som du vill övervaka.  
 
@@ -44,39 +44,39 @@ Diagnostikloggar är inaktiverade som standard. Utför följande steg om du vill
 
 4.  För **Status**, klickar du på **på**.
 
-    ![Ändra status för diagnostikloggar](./media/service-bus-diagnostic-logs/image3.png)
+    ![ändra status diagnostikloggar](./media/service-bus-diagnostic-logs/image3.png)
 
-5.  Ange arkivet målet som du vill. till exempel loggar ett lagringskonto, en event hub eller Azure Monitor.
+5.  Ange det mål för arkivet som du vill använda. till exempel ett lagrings konto, en Event Hub-eller Azure Monitor-loggar.
 
 6.  Spara de nya diagnostikinställningarna för.
 
-Nya inställningarna träder i kraft i cirka 10 minuter. Efter det loggarna visas i den konfigurerade mål för arkivering, på den **diagnostikloggar** bladet.
+Nya inställningarna träder i kraft i cirka 10 minuter. Därefter visas loggar i det konfigurerade lagrings målet på bladet diagnostik- **loggar** .
 
-Mer information om hur du konfigurerar diagnostik finns i den [översikt över Azure diagnostikloggar](../azure-monitor/platform/diagnostic-logs-overview.md).
+Mer information om hur du konfigurerar diagnostik finns i den [översikt över Azure diagnostikloggar](../azure-monitor/platform/resource-logs-overview.md).
 
 ## <a name="diagnostic-logs-schema"></a>Diagnostikloggar schema
 
-Alla loggar lagras i JavaScript Object Notation (JSON)-format. Varje post innehåller strängfält som använder formatet som beskrivs i följande avsnitt.
+Alla loggar lagras i JavaScript Object Notation (JSON)-format. Varje post har sträng fält som använder det format som beskrivs i följande avsnitt.
 
 ## <a name="operational-logs-schema"></a>Driftloggar schema
 
-Loggar in på **OperationalLogs** kategori avbilda vad som händer under Service Bus-åtgärder. Mer specifikt avbilda loggarna åtgärdstypen, inklusive kön har skapats, resurser som används och status för åtgärden.
+Loggar i **OperationalLogs** kategori fångar vad som händer under Service Bus åtgärder. Mer specifikt fångar dessa loggar åtgärds typen, inklusive skapande av kö, använda resurser och status för åtgärden.
 
 Arbetsloggen JSON-strängar är uppgifter som anges i tabellen nedan:
 
 Namn | Beskrivning
 ------- | -------
-Aktivitets-ID | Internt ID som användes för spårning
+Aktivitets-ID | Internt ID som används för spårning
 EventName | Åtgärdens namn           
-resourceId | Azure Resource Manager-resurs-ID
+resourceId | Resurs-ID för Azure Resource Manager
 SubscriptionId | Prenumerations-ID:t
-EventTimeString | Åtgärden tid
-EventProperties | Åtgärden egenskaper
-Status | Åtgärdsstatus
-Anropare | Anroparen av åtgärden (Azure-portalen eller hantering klient)
+EventTimeString | Åtgärds tid
+EventProperties | Egenskaper för åtgärd
+State | Åtgärdsstatus
+Anropare | Uppringnings åtgärd (Azure Portal-eller hanterings klient)
 category | OperationalLogs
 
-Här är ett exempel på en arbetsloggen JSON-sträng:
+Här är ett exempel på en fungerande logg-JSON-sträng:
 
 ```json
 {
@@ -94,7 +94,7 @@ Här är ett exempel på en arbetsloggen JSON-sträng:
 
 ## <a name="next-steps"></a>Nästa steg
 
-Se följande länkar för att lära dig mer om Service Bus:
+Se följande länkar om du vill veta mer om Service Bus:
 
 * [Introduktion till Service Bus](service-bus-messaging-overview.md)
 * [Kom igång med Service Bus](service-bus-dotnet-get-started-with-queues.md)

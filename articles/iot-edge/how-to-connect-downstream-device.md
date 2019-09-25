@@ -4,17 +4,17 @@ description: Konfigurera underordnade eller löv enheter för att ansluta till A
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 06/07/2019
+ms.date: 09/07/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 41039d148e0aae7303dbc95c832bed842acdcc90
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 822e58d1d35cfb9b62565ca78ea2277b8d194bc0
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "70999407"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71266110"
 ---
 # <a name="connect-a-downstream-device-to-an-azure-iot-edge-gateway"></a>En underordnad ansluts till en Azure IoT Edge-gateway
 
@@ -33,6 +33,10 @@ Den här artikeln identifierar vanliga problem med underordnade enhetsanslutning
 * Gå igenom Azure IoT-exempel i flera språk för att snabbt komma igång. 
 
 I den här artikeln villkoren *gateway* och *IoT Edge-gateway* referera till en IoT Edge-enhet som har konfigurerats som en transparent gateway. 
+
+## <a name="prerequisites"></a>Förutsättningar 
+
+Ha certifikat filen **Azure-IoT-test-Only. root. ca. cert. pem** som genererades i [Konfigurera en IoT Edge-enhet för att fungera som en transparent Gateway](how-to-create-transparent-gateway.md) som är tillgänglig på din underordnade enhet. Den underordnade enheten använder det här certifikatet för att verifiera identiteten för gateway-enheten. 
 
 ## <a name="prepare-a-downstream-device"></a>Förbereda en underordnad enhet
 
@@ -89,6 +93,14 @@ Du bör se ett meddelande med texten ”uppdaterar certifikat i /etc/ssl/certs..
 ### <a name="windows"></a>Windows
 
 Följande är ett exempel på hur du installerar ett CA-certifikat på en Windows-värd. I det här exemplet förutsätter vi att du använder certifikatet **Azure-IoT-test-Only. root. ca. cert. pem** från de nödvändiga artiklarna och att du har kopierat certifikatet till en plats på den underordnade enheten.
+
+Du kan installera certifikat med hjälp av PowerShell: s [import-Certificate](https://docs.microsoft.com/powershell/module/pkiclient/import-certificate?view=win10-ps) som administratör:
+
+```powershell
+import-certificate  <file path>\azure-iot-test-only.root.ca.cert.pem -certstorelocation cert:\LocalMachine\root
+```
+
+Du kan också installera certifikat med **certlm** -verktyget: 
 
 1. I Start-menyn, Sök efter och välj **hantera datorcertifikat**. Ett verktyg som kallas **certlm** öppnas.
 2. Gå till **certifikat – lokal dator** > **betrodda rotcertifikatutfärdare**.

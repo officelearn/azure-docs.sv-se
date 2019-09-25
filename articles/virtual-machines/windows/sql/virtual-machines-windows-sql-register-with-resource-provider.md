@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 06/24/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: edda6dffa04bfc0492b7336893c5b167ccc42ca5
-ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
+ms.openlocfilehash: 2bf7118d1f4be065969312d1fb9b0cf77e820d48
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70743922"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71262886"
 ---
 # <a name="register-a-sql-server-virtual-machine-in-azure-with-the-sql-vm-resource-provider"></a>Registrera en SQL Server virtuell dator i Azure med providern för SQL VM-resurs
 
@@ -27,11 +27,21 @@ Den här artikeln beskriver hur du registrerar SQL Server virtuell dator (VM) i 
 
 Genom att distribuera en SQL Server VM Azure Marketplace-avbildning via Azure Portal registreras SQL Server VM automatiskt med resurs leverantören. Om du väljer att själv installera SQL Server på en virtuell Azure-dator i stället för att välja en avbildning från Azure Marketplace, eller om du etablerar en virtuell Azure-dator från en anpassad virtuell hård disk med SQL Server, bör du registrera dina SQL Server VM med resurs leverantören för :
 
-- **Kompatibilitet**: Enligt Microsofts produkt villkor måste kunderna berätta för Microsoft när de använder [Azure Hybrid-förmån](https://azure.microsoft.com/pricing/hybrid-benefit/). För att göra det måste de registreras med resurs leverantören för SQL-VM. 
+- **Förenkla licens hanteringen**: Enligt Microsofts produkt villkor måste kunderna berätta för Microsoft när de använder [Azure Hybrid-förmån](https://azure.microsoft.com/pricing/hybrid-benefit/). Genom att registrera med den virtuella SQL-AZ kan du förenkla hanteringen av SQL Server licens hantering, och du kan snabbt identifiera SQL Server virtuella datorer med hjälp av Azure Hybrid-förmån i [portalen](virtual-machines-windows-sql-manage-portal.md) eller CLI: 
+
+   ```azurecli-interactive
+   $vms = az sql vm list | ConvertFrom-Json
+   $vms | Where-Object {$_.sqlServerLicenseType -eq "AHUB"}
+   ```
 
 - **Funktions förmåner**: Genom att registrera din SQL Server VM med Resource providern låser du upp [automatiserad uppdatering](virtual-machines-windows-sql-automated-patching.md), [Automatisk säkerhets kopiering](virtual-machines-windows-sql-automated-backup-v2.md)och övervakning och hanterings funktioner. Den låser också upp flexibiliteten för [licensiering](virtual-machines-windows-sql-ahb.md) och [utgåvor](virtual-machines-windows-sql-change-edition.md) . Tidigare var dessa funktioner bara tillgängliga för SQL Server VM avbildningar från Azure Marketplace.
 
+- **Kostnads fri hantering**:  Registrering med resurs leverantören för SQL VM och alla hanterbarhets lägen är helt kostnads fritt. Det finns ingen ytterligare kostnad kopplad till resurs leverantören eller med ändring av hanterings lägen. 
+
 Om du vill använda en SQL VM-adressresurs måste du också registrera SQL VM-resurspoolen med din prenumeration. Du kan göra detta med hjälp av Azure Portal, Azure CLI eller PowerShell. 
+
+  > [!NOTE]
+  > Det finns inga ytterligare licensierings krav kopplade till registrering med resurs leverantören. Registrering med SQL VM Resource providern erbjuder en förenklad metod för att uppfylla kravet på att meddela Microsoft att Azure Hybrid-förmån har Aktiver ATS i stället för att hantera licens registrerings formulär för varje resurs. 
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -172,13 +182,13 @@ Ett fel indikerar att SQL Server VM inte har registrerats hos resurs leverantör
 
 ## <a name="change-management-modes"></a>Ändra hanterings lägen
 
-Det finns tre hanterbarhets lägen för SQL Server IaaS-tillägget: 
+Det finns tre kostnads fria hanterings lägen för SQL Server IaaS-tillägget: 
 
-- **Fullständigt** läge ger alla funktioner, men kräver omstart av SQL Server-och system administratörs behörighet. Detta är det alternativ som installeras som standard. Använd den för att hantera en SQL Server VM med en enda instans. 
+- **Fullständigt** läge ger alla funktioner, men kräver omstart av SQL Server-och system administratörs behörighet. Detta är det alternativ som installeras som standard. Använd den för att hantera en SQL Server VM med en enda instans. I fullständigt läge installeras två Windows-tjänster som har minimal påverkan på minne och CPU – dessa kan övervakas via aktivitets hanteraren. Det finns ingen kostnad för att använda läget fullständig hanterbarhet. 
 
-- **Lightweight** kräver inte omstart av SQL Server, men den stöder bara ändring av licens typ och utgåva av SQL Server. Använd det här alternativet för SQL Server virtuella datorer med flera instanser eller för deltagande i en instans av en redundanskluster (FCI). 
+- **Lightweight** kräver inte omstart av SQL Server, men den stöder bara ändring av licens typ och utgåva av SQL Server. Använd det här alternativet för SQL Server virtuella datorer med flera instanser eller för deltagande i en instans av en redundanskluster (FCI). Det går inte att påverka minne eller CPU när du använder Lightweight-läge. Det finns ingen kostnad för att använda läget för förenklad hanterbarhet. 
 
-- **Noagent** är dedikerat till SQL Server 2008 och SQL Server 2008 R2 installerat på Windows Server 2008. 
+- **Noagent** är dedikerat till SQL Server 2008 och SQL Server 2008 R2 installerat på Windows Server 2008. Det påverkar inte minne eller CPU när du använder noagent-läge. Det finns ingen kostnad för att använda noagent Managed mode. 
 
 Du kan visa det aktuella läget för SQL Server IaaS-agenten med hjälp av PowerShell: 
 
@@ -359,6 +369,12 @@ Ja. SQL Server instanser av kluster för växling vid fel på en virtuell Azure-
 **Kan jag registrera min virtuella dator med resurs leverantören för SQL-VM om en Always on-tillgänglighetsgruppen är konfigurerad?**
 
 Ja. Det finns inga begränsningar för att registrera en SQL Server-instans på en virtuell Azure-dator med resurs leverantören för SQL-VM om du deltar i en konfiguration med Always on-tillgänglighetsgrupper.
+
+**Vad kostar det att registrera med den virtuella SQL VM-adressresursen eller genom att uppgradera till fullständigt hanterbarhets läge?**
+Ingen. Det finns ingen avgift kopplad till registrering med den virtuella SQL VM-adressresursen eller med något av de tre hanterbarhets lägena. Att hantera SQL Server VM med Resource providern är helt kostnads fritt. 
+
+**Vilken prestanda påverkas av att använda olika hanterbarhets lägen?**
+Det påverkas inte när du använder *Noagent* -och *Lightweight* hanterbarhets läge. Det finns minimal påverkan när du använder läget *fullständig* hantering från två tjänster som är installerade på operativ systemet. Dessa kan övervakas via aktivitets hanteraren. 
 
 ## <a name="next-steps"></a>Nästa steg
 

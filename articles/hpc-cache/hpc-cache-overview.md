@@ -4,18 +4,18 @@ description: Beskriver Azure HPC cache, en lösning för fil åtkomst Accelerato
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: overview
-ms.date: 09/19/2019
+ms.date: 09/24/2019
 ms.author: v-erkell
-ms.openlocfilehash: f4c858d7a71cf02b4a8fe181deecbf3a1b652885
-ms.sourcegitcommit: a19bee057c57cd2c2cd23126ac862bd8f89f50f5
+ms.openlocfilehash: 093116a8def69e3f63af9aeb963abc60841cbe85
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71180680"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71257019"
 ---
 # <a name="what-is-azure-hpc-cache-preview"></a>Vad är Azure HPC Cache? (Förhandsversion)
 
-Azure HPC cache ger åtkomst till dina data för HPC-uppgifter (data behandling med höga prestanda). Genom cachelagring av filer i Azure blir det skalbart för moln data behandling tillgängliga även för arbets flöden där dina data lagras i WAN-länkar, t. ex. i din lokala NAS-miljö (Network-Attached Storage).
+Azure HPC cache ger åtkomst till dina data för HPC-uppgifter (data behandling med höga prestanda). Genom att cachelagra filer i Azure ger Azure HPC-cache skalbarhet för molnbaserad data behandling till ditt befintliga arbets flöde. Den här tjänsten kan användas även för arbets flöden där dina data lagras i WAN-länkar, t. ex. i din lokala NAS-miljö (Data Center Network-Attached Storage).
 
 Azure HPC-cache är enkelt att starta och övervaka från Azure Portal. Befintlig NFS-lagring eller nya BLOB-behållare kan bli en del av dess sammanlagda namnrymd, vilket gör klient åtkomsten enkel även om du ändrar Server dels lagrings målet.
 
@@ -37,13 +37,13 @@ I media och underhållning kan Azure HPC-cache påskynda data åtkomsten för ti
 
 Många arbets flöden i Life Science kan dra nytta av skalbar cachelagring av filer.
 
-Ett forsknings institut som vill hamna i sina genomiks analys arbets flöden i Azure kan enkelt byta till dem med hjälp av Azure HPC-cache. Eftersom cachen tillhandahåller POSIX-filåtkomst kan de köra sitt befintliga arbets flöde på klient sidan i molnet utan några ändringar.
+Ett forsknings institut som vill hamna i sina genomiks analys arbets flöden i Azure kan enkelt byta till dem med hjälp av Azure HPC-cache. Eftersom cachen tillhandahåller POSIX-filåtkomst behövs inga ändringar på klient sidan för att köra befintliga klient arbets flöden i molnet.
 
 Azure HPC cache kan också användas för att förbättra effektiviteten i uppgifter som sekundär analys, farmakologisk simulering eller AI-driven bild analys.
 
 ### <a name="financial-services-analytics"></a>Analyser för ekonomiska tjänster
 
-En Azure HPC-cache kan påskynda kvantitativa analys beräkningar, riskhanterings arbets belastningar och Monte Carlo-simuleringar för att ge finansiella tjänste företag bättre insikt i att fatta strategiska beslut.
+En Azure HPC cache-distribution kan hjälpa dig att påskynda kvantitativa analys beräkningar, riskhanterings arbets belastningar och Monte Carlo-simuleringar för att ge finansiella tjänste företag bättre insikt i att fatta strategiska beslut.
 
 ## <a name="region-availability"></a>Regional tillgänglighet
 

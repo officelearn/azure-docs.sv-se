@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 08/12/2019
 ms.author: v-adgera
 ms.custom: seodec18
-ms.openlocfilehash: 24dc01d47bece4191d1b142a58c4ad7b6d9fb6cf
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: c1bd33ea5cbe45d6ff862645d614d54d20110ef4
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69876569"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71260845"
 ---
 # <a name="how-to-debug-user-defined-functions-in-azure-digital-twins"></a>Så här felsöker du användardefinierade funktioner i Azure Digitals dubbla
 
@@ -35,7 +35,7 @@ Azure Digitals dubbla har stöd för robust loggning, övervakning och analys. L
 
 * Information om hur du loggar konfiguration som är unik för Azure Digitals dubbla finns [i Konfigurera övervakning och loggning](./how-to-configure-monitoring.md).
 * Läs [Azure Monitor](../azure-monitor/overview.md) översikt och lär dig om kraftfulla logg inställningar som Aktiver ats via Azure Monitor.
-* Läs igenom artikeln [samla in och Använd loggdata från dina Azure-resurser](../azure-monitor/platform/diagnostic-logs-overview.md) för att konfigurera diagnostikloggar i Azure Digitals dubbla steg via Azure Portal, Azure CLI eller PowerShell.
+* Läs igenom artikeln [samla in och Använd loggdata från dina Azure-resurser](../azure-monitor/platform/resource-logs-overview.md) för att konfigurera diagnostikloggar i Azure Digitals dubbla steg via Azure Portal, Azure CLI eller PowerShell.
 
 När du har konfigurerat kan du välja alla logg kategorier, mått och använda kraftfulla Azure Monitor Log Analytics-arbetsytor som stöd för dina fel söknings åtgärder.
 

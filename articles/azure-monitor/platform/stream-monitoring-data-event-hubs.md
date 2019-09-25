@@ -1,124 +1,67 @@
 ---
-title: Stream Azure-övervakningsdata till Event Hubs
-description: Lär dig mer om att strömma Azure övervakningsdata till en händelsehubb för att hämta data till en partner SIEM eller analysverktyg.
-author: nkiest
+title: Strömma Azure-övervaknings data till händelsehubben
+description: Lär dig hur du direktuppspelar Azures övervaknings data till en Event Hub för att hämta data till en partner SIEM eller ett analys verktyg.
+author: bwren
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 11/01/2018
-ms.author: nikiest
+ms.date: 07/20/2019
+ms.author: bwren
 ms.subservice: ''
-ms.openlocfilehash: 8a4de244d0fa07bfc162625f577015317fca7e6a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 535c74fd161019db28e691ff916ad03eaaf07c90
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67069338"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71260381"
 ---
-# <a name="stream-azure-monitoring-data-to-an-event-hub-for-consumption-by-an-external-tool"></a>Stream Azure-övervakningsdata till en händelsehubb för användning av något externt verktyg
+# <a name="stream-azure-monitoring-data-to-an-event-hub"></a>Strömma Azure övervaknings data till en Event Hub
+Azure Monitor ger en fullständig lösning för stack övervakning för program och tjänster i Azure, i andra moln och lokalt. Förutom att använda Azure Monitor för att analysera data och använda dem för olika övervaknings scenarier, kan du behöva skicka dem till andra övervaknings verktyg i din miljö. Den mest effektiva metoden att strömma övervaknings data till externa verktyg i de flesta fall är att använda [Azure Event Hubs](/azure/event-hubs/). Den här artikeln innehåller en kort beskrivning av hur du kan strömma övervaknings data från olika källor till en Event Hub och länkar till detaljerad vägledning.
 
-Den här artikeln beskriver steg för steg genom att ställa in olika nivåer av data från Azure-miljön som ska skickas till en enda Event Hubs-namnområde eller händelse hubb, där den kan samlas in av något externt verktyg.
 
-> [!VIDEO https://www.youtube.com/embed/SPHxCgbcvSw]
+## <a name="create-an-event-hubs-namespace"></a>Skapa ett Event Hubs-namnområde
 
-## <a name="what-data-can-i-send-into-an-event-hub"></a>Vilka data som kan skicka till en event hub?
+Innan du konfigurerar strömning för en data källa måste du [skapa ett Event Hubs-namnområde och händelsehubben](../../event-hubs/event-hubs-create.md). Det här namn området och händelsehubben är målet för alla dina övervaknings data. Ett Event Hubs-namnområde är en logisk gruppering av händelse hubbar som delar samma åtkomst princip, ungefär som ett lagrings konto har enskilda blobbar inom det lagrings kontot. Tänk på följande om Event Hub-namnområdet och händelse nav som du använder för att strömma övervaknings data:
 
-Det finns flera ”nivåer” för övervakning av data inom Azure-miljön, och metoden för att komma åt data från varje nivå varierar något. Dessa nivåer kan normalt beskrivas som:
+* Antalet data flödes enheter gör att du kan öka data flödets skala för dina Event Hub. Det krävs vanligt vis en data flödes enhet. Om du behöver skala upp när logg användningen ökar kan du manuellt öka antalet data flödes enheter för namn området eller aktivera automatisk inflation.
+* Med antalet partitioner kan du parallellisera förbrukningen för många konsumenter. En enda partition har stöd för upp till 20MBps eller cirka 20 000 meddelanden per sekund. Beroende på vilket verktyg som utnyttjar data kan det hända att det inte går att använda från flera partitioner. Fyra partitioner är rimliga för att starta om du är osäker på om du är osäker på hur många partitioner som ska anges.
+* Du ställer in meddelande kvarhållning på händelsehubben till minst 7 dagar. Om ditt förbrukare verktyg går ned i mer än en dag, ser detta till att verktyget kan fortsätta där det slutade för händelser upp till 7 dagar gammal.
+* Använd standard konsument gruppen för händelsehubben. Du behöver inte skapa andra konsument grupper eller använda en separat konsument grupp om du inte planerar att ha två olika verktyg som använder samma data från samma Event Hub.
+* För Azure aktivitets loggen väljer du ett Event Hubs namn område och Azure Monitor skapar en händelsehubben i det namn området som kallas _Insights-loggar-operativa loggar_. För andra typer av loggar kan du antingen välja en befintlig händelsehubben eller låta Azure Monitor skapa en Event Hub per logg kategori.
+* Utgående port 5671 och 5672 måste vanligt vis öppnas på datorn eller VNET som använder data från händelsehubben.
 
-- **Program övervakade data:** Data om prestanda och funktioner i koden som du har skrivit och körs på Azure. Exempel på program övervakningsdata är prestandaspårningar, programloggar och telemetri för användaren. Programövervakning data samlas vanligtvis på något av följande sätt:
-  - Genom att instrumentera din kod med ett SDK som den [Application Insights SDK](../../azure-monitor/app/app-insights-overview.md).
-  - Genom att köra en övervakningsagent som lyssnar efter nya program loggar in på datorn köra ditt program, till exempel den [Windows Azure-Diagnostikagenten](./../../azure-monitor/platform/diagnostics-extension-overview.md) eller [Linux Azure-Diagnostikagenten](../../virtual-machines/extensions/diagnostics-linux.md).
-- **Övervakningsdata för Gästoperativsystem:** Information om operativsystemet där programmet körs. Exempel på övervakningsdata för gäst-OS är Linux syslog eller Windows-systemhändelser. Om du vill samla in den här typen av data, måste du installera en agent som den [Windows Azure-Diagnostikagenten](./../../azure-monitor/platform/diagnostics-extension-overview.md) eller [Linux Azure-Diagnostikagenten](../../virtual-machines/extensions/diagnostics-linux.md).
-- **Azure-resurs övervakning av data:** Information om driften av en Azure-resurs. För vissa typer av Azure-resurser, till exempel virtuella datorer, finns ett gäst-OS och programmen för att övervaka inuti den Azure-tjänsten. För andra Azure-resurser, till exempel Nätverkssäkerhetsgrupperna, är resurs-övervakningsdata den högsta nivån av tillgängliga data (eftersom det finns ingen gäst-OS eller program som körs i dessa resurser). Dessa data kan samlas in med [resursdiagnostikinställningar](./../../azure-monitor/platform/diagnostic-logs-overview.md#diagnostic-settings).
-- **Azure-prenumeration övervakning av data:** Data om driften och hanteringen av en Azure-prenumeration, samt data om klientens hälsotillstånd och driften av Azure själva. Den [aktivitetsloggen](./../../azure-monitor/platform/activity-logs-overview.md) innehåller de flesta prenumerationen övervakning av data, till exempel service health incidenter och Azure Resource Manager granskningar. Du kan samla in dessa data med en profil för loggen.
-- **Azure-klient övervakning av data:** Information om driften av Azure på klientnivå-tjänster, till exempel Azure Active Directory. Azure Active Directory revisioner och inloggningar är exempel på klient övervakningsdata. Dessa data kan samlas in med hjälp av en diagnostikinställning för klienten.
 
-Data från valfri nivå kan skickas till en händelsehubb där det kan användas i ett partner-verktyg. Vissa datakällor kan konfigureras för att skicka data direkt till en event hub medan en annan bearbeta som en Logikapp kan krävas att hämta nödvändiga data. I nästa avsnitt beskrivs hur du kan konfigurera data från varje nivå strömmas till en händelsehubb. Förutsätter vi att du redan har tillgångar på den nivån som ska övervakas.
+## <a name="monitoring-data-available"></a>Tillgängliga övervaknings data
+[Källor för övervaknings data för Azure Monitor](data-sources.md) beskriver olika data nivåer för Azure-program och vilka typer av övervaknings data som är tillgängliga för var och en. I följande tabell visas var och en av dessa nivåer och en beskrivning av hur data kan strömmas till en händelsehubben. Följ länkarna som finns för ytterligare information.
 
-## <a name="set-up-an-event-hubs-namespace"></a>Konfigurera ett namnområde för Event Hubs
+| Nivå | Data | Metod |
+|:---|:---|:---|
+| [Azure-klient](data-sources.md#azure-tenant) | Azure Active Directory gransknings loggar | Konfigurera en inställning för klientens diagnostik på din AAD-klient. Se [Självstudier: Strömma Azure Active Directory loggar till en Azure Event Hub](../../active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md) för mer information. |
+| [Azure-prenumeration](data-sources.md#azure-subscription) | Azure-aktivitetsloggen | Skapa en logg profil för att exportera aktivitets logg händelser till Event Hubs.  Mer information finns i [Exportera Azure aktivitets logg till Storage eller azure Event Hubs](activity-log-export.md) . |
+| [Azure-resurser](data-sources.md#azure-resources) | Plattforms mått<br>Diagnostikloggar |Båda typerna av data skickas till en Event Hub med en inställning för resurs diagnostik. Mer information finns i [Stream Azure-diagnostikloggar till en Event Hub](resource-logs-stream-event-hubs.md) . |
+| [Operativ system (gäst)](data-sources.md#operating-system-guest) | Virtuella Azure-datorer | Installera [Azure-diagnostik-tillägget](diagnostics-extension-overview.md) på virtuella Windows-och Linux-datorer i Azure. Se [strömmande Azure-diagnostik data i den aktiva sökvägen med hjälp av Event Hubs](diagnostics-extension-stream-event-hubs.md) för information om virtuella Windows-datorer och [Använd Linux Diagnostic-tillägg för att övervaka statistik och loggar](../../virtual-machines/extensions/diagnostics-linux.md#protected-settings) för information om virtuella Linux-datorer. |
+| [Program kod](data-sources.md#application-code) | Application Insights | Application Insights tillhandahåller inte någon direkt metod för att strömma data till händelse nav. Du kan [Konfigurera kontinuerlig export](../../azure-monitor/app/export-telemetry.md) av Application Insights data till ett lagrings konto och sedan använda en Logi Kap par för att skicka data till en Event Hub enligt beskrivningen i [manuell strömning med Logic app](#manual-streaming-with-logic-app). |
 
-Innan du börjar måste du [skapa ett Event Hubs-namnområde och en händelsehubb](../../event-hubs/event-hubs-create.md). Den här namnområde och en händelsehubb är målet för alla dina övervakningsdata. Ett namnområde för Event Hubs är en logisk gruppering av händelsehubbar som delar samma åtkomstprincip, mycket som en storage-konto har enskilda blobbar i det lagringskontot. Lägg märke till några få information om event hubs-namnområde och händelsehubbar som du skapar:
-* Vi rekommenderar att du använder en Standard Event Hubs-namnområdet.
-* Vanligtvis krävs bara en genomflödesenhet. Om du vill skala upp när dina log användning ökar du alltid manuellt öka antalet dataflödesenheter för namnområdet senare eller aktivera automatisk inflationen.
-* Antal throughput units kan du öka skala dataflöde för event hubs. Antalet partitioner kan du parallellisera förbrukning bland många konsumenter. En partition kan göra upp till 20MBps eller cirka 20 000 meddelanden per sekund. Beroende på vilket verktyg som använder data kanske eller kanske inte stöder förbrukar från flera partitioner. Om du inte vet om antalet partitioner för att ange rekommenderar vi att börja med fyra partitioner.
-* Vi rekommenderar att du ställer in kvarhållning av meddelanden på din event hub till 7 dagar. Om ditt verktyg för konsumerande stängs av i mer än en dag, Detta säkerställer att verktyget kan ta vid där den slutade (för händelser upp till 7 dagar).
-* Vi rekommenderar att du använder förinställd konsumentgrupp för din händelsehubb. Det finns inget behov att skapa andra konsumentgrupper eller använda en separat konsumentgrupp om du planerar att ha två olika verktyg som använder samma data från samma event hub.
-* För Azure aktivitetsloggen kan du välja ett namnområde för Event Hubs och Azure Monitor skapar en händelsehubb i namnområdet kallas ”insights-logs-operational-logs”. För andra loggtyper av kan du antingen välja en befintlig händelsehubb (så att du kan återanvända samma insights-logs-operational-logs event hub) eller så har Azure Monitor skapar en event hub per loggkategori.
-* Utgående port 5671 och 5672 måste vanligtvis öppnas på en dator eller virtuella nätverk som använder data från händelsehubben.
+## <a name="manual-streaming-with-logic-app"></a>Manuell strömning med Logic app
+För data som du inte kan strömma direkt till en Event Hub kan du skriva till Azure Storage och sedan använda en tidsinitierad Logic-app som [hämtar data från Blob Storage](../../connectors/connectors-create-api-azureblobstorage.md#add-action) och skickar [dem som ett meddelande till händelsehubben](../../connectors/connectors-create-api-azure-event-hubs.md#add-action). 
 
-Se även de [Azure Event Hubs vanliga frågor och svar](../../event-hubs/event-hubs-faq.md).
 
-## <a name="azure-tenant-monitoring-data"></a>Azure-klient övervakningsdata
+## <a name="tools-with-azure-monitor-integration"></a>Verktyg med Azure Monitor-integrering
 
-Azure-klient övervakningsdata är för närvarande endast tillgängliga för Azure Active Directory. Du kan använda data från [Azure Active Directory-rapportering](../../active-directory/reports-monitoring/overview-reports.md), som innehåller historik över inloggning aktivitet och granska spårning av ändringar som gjorts i en viss klient.
+Genom att vidarebefordra dina övervaknings data till en Event Hub med Azure Monitor kan du enkelt integrera med externa SIEM och övervaknings verktyg. Exempel på verktyg med Azure Monitor-integrering är följande:
 
-### <a name="azure-active-directory-data"></a>Azure Active Directory data
+| Verktyg | Beskrivning |
+|:---|:---|
+|  IBM QRadar | Microsoft Azure DSM-och Microsoft Azure Event Hub-protokollet kan hämtas från [IBM support-webbplatsen](https://www.ibm.com/support). Du kan lära dig mer om integrering med Azure på [QRADAR DSM-konfiguration](https://www.ibm.com/support/knowledgecenter/SS42VS_DSM/c_dsm_guide_microsoft_azure_overview.html?cp=SS42VS_7.3.0). |
+| Splunk | [Azure Monitor-tillägget för Splunk](https://splunkbase.splunk.com/app/3534/) är ett projekt med öppen källkod som är tillgängligt i Splunkbase. Dokumentationen finns på [Azure Monitor addon för Splunk](https://github.com/Microsoft/AzureMonitorAddonForSplunk/wiki/Azure-Monitor-Addon-For-Splunk).<br><br> Om du inte kan installera ett tillägg i din Splunk-instans, om du till exempel använder en proxy eller som körs på Splunk-molnet, kan du vidarebefordra händelserna till insamlaren för HTTP-Splunk med [Azure Function för Splunk](https://github.com/Microsoft/AzureFunctionforSplunkVS), som utlöses av nya meddelanden i Event Hub. |
+| SumoLogic | Anvisningar för att konfigurera SumoLogic för att använda data från en händelsehubben är tillgängliga vid [insamling av loggar för Azure audit-appen från Event Hub](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure-Audit/02Collect-Logs-for-Azure-Audit-from-Event-Hub). |
+| ArcSight | Smart Connector för ArcSight Azure Event Hub är tillgängligt som en del av [ArcSight Smart Connector-samlingen](https://community.softwaregrp.com/t5/Discussions/Announcing-General-Availability-of-ArcSight-Smart-Connectors-7/m-p/1671852). |
+| Syslog-server | Om du vill strömma Azure Monitor data direkt till en Syslog-server kan du använda en [lösning som baseras på en Azure-funktion](https://github.com/miguelangelopereira/azuremonitor2syslog/).
 
-Om du vill skicka data från Azure Active Directory-loggen i ett Event Hubs-namnområde måste konfigurera du en diagnostikinställning för klient på din AAD-klient. [Den här guiden](../../active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md) att ställa in en diagnostikinställning för klienten.
-
-## <a name="azure-subscription-monitoring-data"></a>Azure-prenumeration övervakningsdata
-
-Azure-prenumeration övervakningsdata är tillgängliga i den [Azure-aktivitetsloggen](./../../azure-monitor/platform/activity-logs-overview.md). Innehåller skapa, uppdatera och ta bort från Resource Manager, ändringar i [Azure tjänstehälsa](../../service-health/service-health-overview.md) som kan påverka resurser i din prenumeration, de [resurshälsa](../../service-health/resource-health-overview.md) tillstånd övergångar och flera andra typer av händelser på prenumerationsnivå. [Den här artikeln beskriver alla typer av händelser som visas i Azure-aktivitetsloggen](./../../azure-monitor/platform/activity-log-schema.md).
-
-### <a name="activity-log-data"></a>Aktivitetsloggdata
-
-Om du vill skicka data från Azure-aktivitetsloggen till Event Hubs-namnområdet, ställer du in en logg för din prenumeration. [Den här guiden](./activity-logs-stream-event-hubs.md) att ställa in en logg-profil på din prenumeration. Göra detta en gång per prenumeration som du vill övervaka.
-
-> [!TIP]
-> En logg-profil kan för närvarande du bara välja ett namnområde för Event Hubs, där en händelsehubb skapas med de namnet ”insights-operational-logs”. Det går inte ännu att ange ditt eget namn på händelsehubb i en logg-profil.
-
-## <a name="azure-resource-metrics-and-diagnostics-logs"></a>Azure-resurs mått och diagnostik för loggar
-
-Azure-resurser genererar två typer av övervakning av data:
-1. [Resursdiagnostikloggar](diagnostic-logs-overview.md)
-2. [Mått](data-platform.md)
-
-Båda typerna av data skickas till en händelsehubb med en resursdiagnostikinställning. [Den här guiden](diagnostic-logs-stream-event-hubs.md) att ställa in en resursdiagnostikinställning på en viss resurs. Ange en resursdiagnostikinställning för varje resurs som du vill samla in loggar.
-
-> [!TIP]
-> Du kan använda Azure Policy för att säkerställa att alla resurser inom ett visst omfång alltid är konfigurerad med en diagnostikinställning [med effekten DeployIfNotExists i principregeln](../../governance/policy/concepts/definition-structure.md#policy-rule).
-
-## <a name="guest-os-data"></a>Gäst-OS-data
-
-Du måste installera en agent för att skicka guest OS övervakningsdata i en händelsehubb. För Windows eller Linux anger du de data som du vill ska skickas till event hub och event hub som data ska skickas i en konfigurationsfil och skicka konfigurationsfilen till agenten som körs på den virtuella datorn.
-
-### <a name="linux-data"></a>Linux-data
-
-Den [Linux Azure diagnostikagenten](../../virtual-machines/extensions/diagnostics-linux.md) kan användas för att skicka övervakningsdata från en Linux-dator till en händelsehubb. Gör detta genom att lägga till event hub som en mottagare i din LAD skyddade inställningar för konfigurationsfiler JSON. [Se den här artikeln om du vill veta mer om att lägga till event hub-mottagare i din Linux Azure diagnostikagenten](../../virtual-machines/extensions/diagnostics-linux.md#protected-settings).
-
-> [!NOTE]
-> Du kan inte konfigurera strömning av gäst-OS övervakade data till en händelsehubb i portalen. I stället måste du manuellt redigera konfigurationsfilen.
-
-### <a name="windows-data"></a>Windows-data
-
-Den [Windows Azure Diagnostics-agenten](./../../azure-monitor/platform/diagnostics-extension-overview.md) kan användas för att skicka övervakningsdata från en Windows-dator till en händelsehubb. Gör detta genom att lägga till event hub som en mottagare i din privateConfig-avsnittet i konfigurationsfilen WAD. [Se den här artikeln om du vill veta mer om att lägga till event hub-mottagare i din Windows Azure Diagnostics-agenten](./../../azure-monitor/platform/diagnostics-extension-stream-event-hubs.md).
-
-> [!NOTE]
-> Du kan inte konfigurera strömning av gäst-OS övervakade data till en händelsehubb i portalen. I stället måste du manuellt redigera konfigurationsfilen.
-
-## <a name="application-monitoring-data"></a>Program övervakade data
-
-Programmet övervakningsdata kräver att koden är utrustade med ett SDK, så det finns en allmänna lösning till routning program övervakning av data till en händelsehubb i Azure. Dock [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) är en tjänst som kan användas för att samla in data för Azure på programnivå. Om du använder Application Insights kan du strömma övervakningsdata till en händelsehubb genom att göra följande:
-
-1. [Konfigurera löpande export](../../azure-monitor/app/export-telemetry.md) av Application Insights-data till ett lagringskonto.
-
-2. Konfigurera en timerutlöst Logikapp som [hämtar data från blob storage](../../connectors/connectors-create-api-azureblobstorage.md#add-action) och [skickas som ett meddelande till händelsehubben](../../connectors/connectors-create-api-azure-event-hubs.md#add-action).
-
-## <a name="what-can-i-do-with-the-monitoring-data-being-sent-to-my-event-hub"></a>Vad kan jag göra med övervakningsdata som skickas till min event hub?
-
-Routning övervakningsdata till en event hub med Azure Monitor kan du lätt kan integrera med partner SIEM och övervakningsverktyg. De flesta verktygen kräver event hub-anslutningssträngen och vissa behörigheter för din Azure-prenumeration för att läsa data från händelsehubben. Här är en ofullständig lista över verktyg med Azure Monitor-integrering:
-
-* **IBM QRadar** – The DSM för Microsoft Azure och Microsoft Azure Event Hub-protokollet är tillgängliga för nedladdning från [supportwebbplatsen IBM](https://www.ibm.com/support). Du kan [lära dig mer om integrering med Azure här](https://www.ibm.com/support/knowledgecenter/SS42VS_DSM/c_dsm_guide_microsoft_azure_overview.html?cp=SS42VS_7.3.0).
-* **Splunk** -det finns två sätt beroende på din Splunk-konfiguration:
-    1. [Azure Monitor-tillägget för Splunk](https://splunkbase.splunk.com/app/3534/) är tillgängligt i Splunkbase och ett projekt med öppen källkod. [Dokumentationen är här](https://github.com/Microsoft/AzureMonitorAddonForSplunk/wiki/Azure-Monitor-Addon-For-Splunk).
-    2. Om du inte kan installera ett tillägg i din instans av Splunk (t.ex.) Om en proxy eller som körs på Splunk molnet), du kan vidarebefordra dessa händelser till Splunk HTTP Event Collector med [den här funktionen som utlöses av nya meddelanden i event hub](https://github.com/Microsoft/AzureFunctionforSplunkVS).
-* **SumoLogic** -instruktioner för att konfigurera SumoLogic för att använda data från en händelsehubb är [tillgänglig här](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure-Audit/02Collect-Logs-for-Azure-Audit-from-Event-Hub)
-* **ArcSight** -smart ArcSight Azure Event Hub-anslutningsappen är tillgänglig som en del av [ArcSight smart connector samlingen här](https://community.softwaregrp.com/t5/Discussions/Announcing-General-Availability-of-ArcSight-Smart-Connectors-7/m-p/1671852).
-* **Syslog-servern** – om du vill strömma Azure Monitor-data direkt till en syslog-server, du kan ta en titt [denna GitHub-lagringsplats](https://github.com/miguelangelopereira/azuremonitor2syslog/).
 
 ## <a name="next-steps"></a>Nästa steg
-* [Arkivera aktivitetsloggen till ett lagringskonto](../../azure-monitor/platform/archive-activity-log.md)
-* [Läs en översikt över Azure-aktivitetsloggen](../../azure-monitor/platform/activity-logs-overview.md)
-* [Konfigurera en avisering baserat på en händelse i aktivitetsloggen](../../azure-monitor/platform/alerts-log-webhook.md)
+* [Arkivera aktivitets loggen till ett lagrings konto](../../azure-monitor/platform/archive-activity-log.md)
+* [Läs översikten över Azures aktivitets logg](../../azure-monitor/platform/activity-logs-overview.md)
+* [Konfigurera en avisering baserat på en aktivitets logg händelse](../../azure-monitor/platform/alerts-log-webhook.md)
 
 

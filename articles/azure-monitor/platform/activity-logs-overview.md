@@ -5,15 +5,15 @@ author: bwren
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 05/19/2019
+ms.date: 09/20/2019
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: fa1737a8627fe9561a2a84e7f0ef69aefb6deb14
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.openlocfilehash: ee3a1fef379e2950172dddc389b30e0a363127ae
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70170624"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71262134"
 ---
 # <a name="overview-of-azure-activity-log"></a>Översikt över Azure aktivitets logg
 
@@ -23,10 +23,10 @@ Använd aktivitets loggen för att fastställa _vad_, _vem_och _när_ för Skriv
 
 Aktivitets loggen innehåller inte Läs-(GET)-åtgärder eller åtgärder för resurser som använder klassisk/RDFE-modell.
 
-## <a name="comparison-to-diagnostic-logs"></a>Jämförelse med diagnostikloggar
-Det finns en enda aktivitets logg för varje Azure-prenumeration. Den ger information om åtgärder på en resurs från utsidan ("kontroll planet"). [Diagnostikloggar](diagnostic-logs-overview.md) genereras av en resurs och ger information om hur resursen fungerar ("data planet"). Du måste aktivera diagnostikinställningar för varje resurs.
+## <a name="comparison-to-resource-logs"></a>Jämförelse med resurs loggar
+Det finns en enda aktivitets logg för varje Azure-prenumeration. Den ger information om åtgärder på en resurs från utsidan ("kontroll planet"). [Resurs loggar](resource-logs-overview.md) genereras av en resurs och ger information om hur resursen fungerar ("data planet"). Du måste skapa en diagnostisk inställning för varje resurs för att samla in resurs loggar.
 
-![Aktivitets loggar jämfört med diagnostikloggar](./media/activity-logs-overview/Activity_Log_vs_other_logs_v5.png)
+![Aktivitets loggar jämfört med resurs loggar](media/activity-logs-overview/Activity_Log_vs_other_logs_v5.png)
 
 
 > [!NOTE]
@@ -58,7 +58,7 @@ Varje händelse i aktivitets loggen har en viss kategori som beskrivs i följand
 |:---|:---|
 | Administrativ | Innehåller posten över alla åtgärder för att skapa, uppdatera, ta bort och åtgärd som utförs via Resource Manager. Exempel på administrativa händelser är att _skapa en virtuell dator_ och _ta bort nätverks säkerhets grupp_.<br><br>Varje åtgärd som utförs av en användare eller ett program som använder Resource Manager är modellerad som en åtgärd på en viss resurs typ. Om åtgärds typen är _Skriv_, _ta bort_eller _åtgärd_registreras posterna för både start och lyckad eller misslyckad åtgärd i den administrativa kategorin. Administrativa händelser inkluderar även eventuella ändringar av rollbaserad åtkomst kontroll i en prenumeration. |
 | Service Health | Innehåller posten för eventuella service Health-incidenter som har inträffat i Azure. Ett exempel på en Service Health händelse _SQL Azure i östra USA drabbas av drift stopp_. <br><br>Service Health händelser levereras på sex sorter: _Åtgärd krävs_, _stöd för återställning_, _incident_, _Underhåll_, _information_eller _säkerhet_. Dessa händelser skapas endast om du har en resurs i prenumerationen som skulle påverkas av händelsen.
-| Resource Health | Innehåller posten för eventuella resurs hälso händelser som har inträffat på dina Azure-resurser. Ett exempel på en Resource Health-händelse är _hälso statusen för den virtuella datorn har ändrats till otillgänglig_.<br><br>Resource Health händelser kan representera en av fyra hälso status: _Tillgänglig, ej_ _tillgänglig_,degraderad och _okänd_. Dessutom kan Resource Health händelser kategoriseras som plattform som _initieras_ eller _användaren initieras_. |
+| Resource Health | Innehåller posten för eventuella resurs hälso händelser som har inträffat på dina Azure-resurser. Ett exempel på en Resource Health-händelse är _hälso statusen för den virtuella datorn har ändrats till otillgänglig_.<br><br>Resource Health händelser kan representera en av fyra hälso status: _Tillgänglig, ej_ _tillgänglig_, _degraderad_och _okänd_. Dessutom kan Resource Health händelser kategoriseras som plattform som _initieras_ eller _användaren initieras_. |
 | Varning | Innehåller posten för aktiveringar för Azure-aviseringar. Ett exempel på en varnings händelse är _CPU% på myVM har varit över 80 under de senaste 5 minuterna_.|
 | Automatisk skalning | Innehåller posten för alla händelser som rör driften av autoskalning-motorn baserat på de inställningar för autoskalning som du har definierat i din prenumeration. Ett exempel på en autoskalning-händelse är autoskalning- _åtgärden misslyckades_. |
 | Rekommendation | Innehåller rekommendations händelser från Azure Advisor. |

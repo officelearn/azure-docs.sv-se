@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 07/13/2018
 ms.author: jomolesk
-ms.openlocfilehash: c0163b5280de942491f2174aa371fa7cc83d5984
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: 1f6eeea85a348bb8e88a387fa0fc6bed55e41a5e
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68946525"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71262775"
 ---
 # <a name="azure-security-and-compliance-blueprint-paas-web-application-hosting-for-uk-official-workloads"></a>Azure Security and Compliance Blueprint (Handlingsplan för säkerhet och efterlevnad i Azure): PaaS webb program som värd för offentliga Storbritannien-arbetsbelastningar
 
@@ -53,7 +53,7 @@ Den här lösningen använder följande Azure-tjänster. Information om distribu
 
 - Azure Active Directory
 - App Service
-- Webbprogram
+- Webbapp
 - API-app
 - Azure DNS
 - Key Vault
@@ -112,8 +112,8 @@ Den här mallen distribuerar följande App Service funktioner:
 - [Standard](https://docs.microsoft.com/azure/app-service/overview-hosting-plans) App Service plans nivå
 - Flera App Service [distributions fack](https://docs.microsoft.com/azure/app-service/deploy-staging-slots): Dev, Preview, frågor och svar, UAT och kurs produktion (standard fack).
 - [Hanterade identiteter för Azure-resurser](https://docs.microsoft.com/azure/app-service/overview-managed-identity) för att ansluta till [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) (detta kan också användas för att ge åtkomst till [Azure SQL Database](https://azure.microsoft.com/services/sql-database/) 
-- Integrering med [Azure Application](../../azure-monitor/app/azure-web-apps.md) insikter för att övervaka prestanda
-- [Diagnostikloggar](../../azure-monitor/platform/diagnostic-logs-overview.md) 
+- Integrering med [Azure Application insikter](../../azure-monitor/app/azure-web-apps.md) för att övervaka prestanda
+- [Diagnostikloggar](../../azure-monitor/platform/resource-logs-overview.md) 
 - Mått [varningar](../../azure-monitor/app/alerts.md) 
 - [Azure API Apps](https://azure.microsoft.com/services/app-service/api/) 
 
@@ -162,7 +162,7 @@ Detaljerad information om hur du skyddar Azure Storage finns i [säkerhets hand 
 
 #### <a name="azure-key-vault-in-this-blueprint"></a>Azure Key Vault i den här skissen
 
-- Innehåller lagrings åtkomst nyckeln med Läs behörighet till den hanterade [identiteten](https://docs.microsoft.com/azure/app-service/overview-managed-identity) för kundens webb program
+- Innehåller lagrings åtkomst nyckeln med Läs behörighet till den [hanterade identiteten](https://docs.microsoft.com/azure/app-service/overview-managed-identity) för kundens webb program
 - Innehåller SQL Server DBA-lösenord (i ett separat valv)
 - Diagnostikloggning
 
@@ -205,7 +205,7 @@ Data flödes diagrammet för den här referens arkitekturen är tillgängligt f�
 
 ## <a name="ncsc-cloud-security-principles-compliance-documentation"></a>Dokumentation om NCSC Cloud Security princips Compliance
 
-Den kommersiella tjänsten för Kron tjänster (ett organ som arbetar för att förbättra företagets handels-och anskaffnings aktivitet) har förnyat klassificeringen av Microsofts moln tjänster i företags klass till G-Cloud V6, som omfattar alla sina erbjudanden på den officiella nivån. Information om Azure och G-Cloud finns i sammanfattningen av [Azures utvärdering av säkerhets utvärderingen](https://www.microsoft.com/trustcenter/compliance/uk-g-cloud).
+Den kommersiella tjänsten för Kron tjänster (ett organ som arbetar för att förbättra företagets handels-och anskaffnings aktivitet) har förnyat klassificeringen av Microsofts moln tjänster i företags klass till G-Cloud V6, som omfattar alla sina erbjudanden på den officiella nivån. Information om Azure och G-Cloud finns i [sammanfattningen av Azures utvärdering av säkerhets utvärderingen](https://www.microsoft.com/trustcenter/compliance/uk-g-cloud).
 
 Den här skissen motsvarar de 14 moln säkerhets principer som dokumenteras i NCSC [Cloud Security-principer](https://www.ncsc.gov.uk/guidance/implementing-cloud-security-principles) för att säkerställa en miljö som stöder arbets belastningar som klassificeras som brittisk tjänsteman.
 

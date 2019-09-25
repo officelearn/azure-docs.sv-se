@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/26/2019
 ms.author: bwren
-ms.openlocfilehash: a80f99bc37d3a92a794a78f1f47ce32fbaae75a3
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 1bc4a7634e864f0e3feb0d33cef3b967e5b6741f
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68989175"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71262216"
 ---
 # <a name="azure-monitor-overview"></a>Översikt över Azure Monitor
 
-Azure Monitor maximerar tillgänglighet och prestanda för dina program genom att leverera en omfattande lösning för att samla in, analysera och agera på telemetri från molnet och lokala miljöer. Det hjälper dig att förstå hur dina program fungerar och identifierar proaktivt problem som påverkar dem och de resurser som de förlitar sig på.
+Azure Monitor maximerar programmens tillgänglighet och prestanda genom att leverera en heltäckande lösning för att samla in, analysera och arbeta med telemetri från dina molnmiljöer och lokala miljöer. Det hjälper dig att förstå hur dina program fungerar och identifierar proaktivt problem som påverkar dem och de resurser som de förlitar sig på.
 
 > [!VIDEO https://www.youtube.com/embed/_hGff5bVtkM]
 
@@ -57,7 +57,7 @@ Azure Monitor kan samla in data från olika källor. Du kan tänka på att över
 
 När du skapar en Azure-prenumeration och börjar lägga till resurser, till exempel virtuella datorer och webbappar, börjar Azure Monitor samla in data.  [Aktivitets loggar](platform/activity-logs-overview.md) poster när resurser skapas eller ändras. [Mått](platform/data-platform.md) visar hur resursen presterar och vilka resurser den använder. 
 
-Utöka de data som du samlar in i den faktiska åtgärden för resurserna genom att [Aktivera diagnostik](platform/diagnostic-logs-overview.md) och [lägga till en agent](platform/agent-windows.md) för att beräkna resurser. Detta samlar in telemetri för den interna driften av resursen och låter dig konfigurera olika [data källor](platform/agent-data-sources.md) för att samla in loggar och mått från Windows och Linux gäst operativ system. 
+Utöka de data som du samlar in i den faktiska åtgärden för resurserna genom att [Aktivera diagnostik](platform/resource-logs-overview.md) och [lägga till en agent](platform/agent-windows.md) för att beräkna resurser. Detta samlar in telemetri för den interna driften av resursen och låter dig konfigurera olika [data källor](platform/agent-data-sources.md) för att samla in loggar och mått från Windows och Linux gäst operativ system. 
 
 Aktivera övervakning för ditt [app Services program](app/azure-web-apps.md) eller en [virtuell dator och ett program för skalnings uppsättning för virtuella datorer](app/azure-vm-vmss-apps.md), så att Application Insights kan samla in detaljerad information om ditt program, inklusive sid visningar, program begär Anden och undantag. Kontrol lera att programmet är tillgängligt genom att konfigurera ett [tillgänglighets test](app/monitor-web-app-availability.md) för att simulera användar trafik.
 

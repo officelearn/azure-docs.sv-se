@@ -14,12 +14,12 @@ ms.subservice: users-groups-roles
 ms.custom: it-pro
 ms.reviewer: martincoetzer; MarkMorow
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6c5a08677759f0ed1a39f5507d936c777516b237
-ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+ms.openlocfilehash: 7d3346c873f88654f75628863a01fda76449ce2d
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68608110"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71259415"
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Skydda privilegie rad åtkomst för Hybrid-och moln distributioner i Azure AD
 
@@ -123,7 +123,7 @@ Utvärdera de konton som är tilldelade eller berättigade till den globala admi
 
 #### <a name="turn-on-multi-factor-authentication-and-register-all-other-highly-privileged-single-user-non-federated-admin-accounts"></a>Aktivera Multi-Factor Authentication och registrera alla andra icke-federerade administratörs konton med hög privilegier
 
-Kräv Azure Multi-Factor Authentication (MFA) vid inloggning för alla enskilda användare som har tilldelats permanent till en eller flera av administratörs rollerna för Azure AD: Global administratör, privilegie rad roll administratör, Exchange Online-administratör och SharePoint Online-administratör. Använd guiden för att aktivera [Multi-Factor Authentication (MFA) för dina administratörs konton](../authentication/howto-mfa-userstates.md) och se till att alla användare har [https://aka.ms/mfasetup](https://aka.ms/mfasetup)registrerat sig på. Mer information finns under steg 2 och steg 3 i guiden [Skydda åtkomsten till data och tjänster i Office 365](https://support.office.com/article/Protect-access-to-data-and-services-in-Office-365-a6ef28a4-2447-4b43-aae2-f5af6d53c68e). 
+Kräv Azure Multi-Factor Authentication (MFA) vid inloggning för alla enskilda användare som permanent tilldelas till en eller flera av administratörs rollerna för Azure AD: Global administratör, privilegie rad roll administratör, Exchange Online-administratör och SharePoint Online-administratör. Använd guiden för att aktivera [Multi-Factor Authentication (MFA) för dina administratörs konton](../authentication/howto-mfa-userstates.md) och se till att alla användare har [https://aka.ms/mfasetup](https://aka.ms/mfasetup)registrerat sig på. Mer information finns under steg 2 och steg 3 i guiden [Skydda åtkomsten till data och tjänster i Office 365](https://support.office.com/article/Protect-access-to-data-and-services-in-Office-365-a6ef28a4-2447-4b43-aae2-f5af6d53c68e). 
 
 ## <a name="stage-2-mitigate-the-most-frequently-used-attack-techniques"></a>Steg 2: Minimera de oftast använda angrepps teknikerna
 
@@ -139,7 +139,7 @@ Med ökningen i BYOD-och arbets-och arbets plats-principerna och tillväxten av 
 
 * Identifiera de användare som har administrativa roller och de tjänster som de kan hantera.
 * Använd Azure AD PIM för att ta reda på vilka användare i din organisation som har administratörs åtkomst till Azure AD, inklusive ytterligare roller utöver de som anges i steg 1.
-* Utöver de roller som definierats i Azure AD levereras Office 365 med en uppsättning administratörs roller som du kan tilldela till användare i din organisation. Varje administratörs roll mappar till vanliga affärs funktioner och ger personer i organisationen behörighet att utföra specifika uppgifter i [Microsoft 365 administrations centret](https://admin.microsoft.com). Använd Microsoft 365 administrations Center för att ta reda på vilka användare i din organisation som har administratörs åtkomst till Office 365, inklusive via roller som inte hanteras i Azure AD. Mer information finns i [om office 365-administratörs roller](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d) och [rekommenderade säkerhets metoder för Office 365](https://support.office.com/article/Security-best-practices-for-Office-365-9295e396-e53d-49b9-ae9b-0b5828cdedc3).
+* Utöver de roller som definierats i Azure AD levereras Office 365 med en uppsättning administratörs roller som du kan tilldela till användare i din organisation. Varje administratörs roll mappar till vanliga affärs funktioner och ger personer i organisationen behörighet att utföra specifika uppgifter i [Microsoft 365 administrations centret](https://admin.microsoft.com). Använd Microsoft 365 administrations Center för att ta reda på vilka användare i din organisation som har administratörs åtkomst till Office 365, inklusive via roller som inte hanteras i Azure AD. Mer information finns i [om office 365-administratörs roller](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d) och [rekommenderade säkerhets metoder för Office 365](https://docs.microsoft.com/office365/servicedescriptions/office-365-platform-service-description/office-365-securitycompliance-center).
 * Utför inventeringen i andra tjänster som din organisation använder, till exempel Azure, Intune eller Dynamics 365.
 * Se till att dina administratörs konton (konton som används för administrations syfte, inte bara användares dagliga konton) har fungerande e-postadresser kopplade till dem och har registrerat sig för Azure MFA eller Använd MFA lokalt.
 * Be användarna om sin affärs motivering för administrativ åtkomst.
@@ -173,7 +173,7 @@ Aktivera:
 
 Om du använder Windows Hello för företag kan MFA-kravet uppfyllas med hjälp av Windows Hello-inloggningen. Mer information finns i [Windows Hello](https://docs.microsoft.com/windows/uwp/security/microsoft-passport). 
 
-#### <a name="configure-identity-protection"></a>Konfigurera Identity Protection 
+#### <a name="configure-identity-protection"></a>Konfigurera identitets skydd 
 
 Azure AD Identity Protection är ett algoritm-baserat övervaknings-och rapporterings verktyg som du kan använda för att identifiera potentiella sårbarheter som påverkar organisationens identiteter. Du kan konfigurera automatiserade svar på de identifierade misstänkta aktiviteterna och vidta lämpliga åtgärder för att lösa dem. Mer information finns i [Azure Active Directory Identity Protection](../active-directory-identityprotection.md).
 

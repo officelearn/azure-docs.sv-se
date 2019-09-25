@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 09/10/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 5d72b474e5f5e62ded6423fcc756e1cd51b905f4
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 10ddb7272de164e6f92022a6f512df31753f7e31
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68850671"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71265130"
 ---
 # <a name="compiling-dsc-configurations-in-azure-automation-state-configuration"></a>Kompilera DSC-konfigurationer i Azure Automation tillstånds konfiguration
 
@@ -124,7 +124,7 @@ Information om hur du skickar PSCredentials som parametrar finns i [behörighets
 
 ### <a name="compiling-configurations-in-azure-automation-that-contain-composite-resources"></a>Kompilera konfigurationer i Azure Automation som innehåller sammansatta resurser
 
-Med sammansatta **resurser** kan du använda DSC-konfigurationer som kapslade resurser i en konfiguration. På så sätt kan du tillämpa flera konfigurationer på en enskild resurs. Se [sammansatta resurser: Använd en DSC-konfiguration som en](/powershell/dsc/authoringresourcecomposite) resurs för att lära dig mer om sammansatta **resurser**.
+Med **sammansatta resurser** kan du använda DSC-konfigurationer som kapslade resurser i en konfiguration. På så sätt kan du tillämpa flera konfigurationer på en enskild resurs. Se [sammansatta resurser: Använd en DSC-konfiguration som en](/powershell/dsc/authoringresourcecomposite) resurs för att lära dig mer om **sammansatta resurser**.
 
 > [!NOTE]
 > För att konfigurationer som innehåller **sammansatta resurser** ska kunna kompileras korrekt måste du först se till att alla DSC-resurser som den sammansatta förlitar sig på först importeras i till Azure Automation.
@@ -259,7 +259,7 @@ En konfiguration för signerad nod verifieras lokalt på en hanterad nod av DSC-
 > [!NOTE]
 > En nods konfigurations fil får inte vara större än 1 MB för att den ska kunna importeras till Azure Automation.
 
-Mer information om hur du signerar nodkonfigurationer finns [i förbättringar i WMF 5,1 – så här signerar du konfiguration och modul](/powershell/wmf/5.1/dsc-improvements#dsc-module-and-configuration-signing-validations).
+Mer information om hur du signerar nodkonfigurationer finns [i förbättringar i WMF 5,1 – så här signerar du konfiguration och modul](/powershell/scripting/wmf/whats-new/dsc-improvements#dsc-module-and-configuration-signing-validations).
 
 ### <a name="compiling-a-configuration-in-windows-powershell"></a>Kompilera en konfiguration i Windows PowerShell
 

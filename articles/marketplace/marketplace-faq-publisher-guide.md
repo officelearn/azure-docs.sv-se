@@ -5,14 +5,14 @@ services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 author: qianw211
 ms.service: marketplace
 ms.topic: article
-ms.date: 07/11/2019
+ms.date: 9/24/2019
 ms.author: ellacroi
-ms.openlocfilehash: 209905eaf90e006ded232be73ab2a3a428568eda
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: 6b9cc80dfb397d5bf330d0be947f468e9b802139
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70309025"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71259947"
 ---
 # <a name="marketplace-faqs"></a>Vanliga frågor om Marketplace
 
@@ -185,7 +185,7 @@ Enterprise-avtal-kunder (EA) debiteras mot deras EA. Vissa Azure Marketplace-erb
 
 **Var kan jag se information om min Azure Marketplace-prenumeration och fakturerings information?**
 
-MOSP – kunder som [prenumererar på Microsoft Online](https://azure.microsoft.com/support/legal/subscription-agreement/?country=us&language=en) (Web Direct) kan visa inköps information för Marketplace på fliken fakturor i avsnittet Cost Management + fakturering i [Azure Portal].
+MOSP – kunder som prenumererar på [Microsoft Online](https://azure.microsoft.com/support/legal/subscription-agreement/?country=us&language=en) (Web Direct) kan visa inköps information för Marketplace på fliken fakturor i avsnittet Cost Management + fakturering i [Azure Portal].
 
 Enterprise-avtal-kunder (EA) kan visa inköps information för Marketplace på fliken fakturor i avsnittet Cost Management + fakturering i [Azure Portal].
 
@@ -225,7 +225,7 @@ Du hittar en uppskattad användnings information i [Azure Portal]. Sådan uppska
 
 Kontakta program utgivaren direkt för allmän program support om användning eller fel sökning.
 
-Kontakta [Azure-supporten](https://support.microsoft.com/getsupport?oaspworkflow=start_1.0.0.0&wf=0&wfname=productselection&prid=16230&forceorigin=esmc&ccsid=636694515623707953)för fakturerings-och prenumerations problem med ditt Azure Marketplace-köp.
+Kontakta [Azure](https://support.microsoft.com/getsupport?oaspworkflow=start_1.0.0.0&wf=0&wfname=productselection&prid=16230&forceorigin=esmc&ccsid=636694515623707953)-supporten för fakturerings-och prenumerations problem med ditt Azure Marketplace-köp.
 
 **Vem kontaktar jag om jag behöver teknisk support för en lösning som jag har köpt på Azure Marketplace?**
 
@@ -233,7 +233,7 @@ Kontakta utgivar leverantören för all teknisk produkt support. Information om 
 
 **Vem kontaktar jag för fakturerings support/frågor om en lösning från tredje part som köpts från Marketplace?**
 
-Kontakta Microsoft Support på [Azure-supporten](https://support.microsoft.com/getsupport?oaspworkflow=start_1.0.0.0&wf=0&wfname=productselection&prid=16230&forceorigin=esmc&ccsid=636694515623707953).
+Kontakta Microsoft Support på [Azure](https://support.microsoft.com/getsupport?oaspworkflow=start_1.0.0.0&wf=0&wfname=productselection&prid=16230&forceorigin=esmc&ccsid=636694515623707953)-supporten.
 
 **Vem kontaktar jag om jag har frågor om priser eller villkor för partner lösningar som säljs på Azure Marketplace?**
 
@@ -244,6 +244,14 @@ Kontakta utgivar leverantören för all teknisk produkt support. Information om 
 Köp som görs från [Azure Marketplace](https://azuremarketplace.microsoft.com/) kan inte returneras, men kan avbrytas/tas bort. Förbruknings erbjudanden faktureras baserat på användning, så när den stoppas upphör även avgifterna. Prenumerationer annulleras och debiteras inte efter den aktuella fakturerings perioden. Om en prenumeration annulleras kort efter köpet (24 timmar för varje månad och 14 dagar per år) ges en fullständig åter betalning.
 
 Kunderna måste kontakta utgivaren direkt för att få tekniska problem som rör sin Marketplace-tjänst eller köp. Information om utgivarens kontakt information och/eller en länk till support webbplatsen finns på sidan lösnings information på Azure Marketplace.
+
+**Hur hanteras licens tillägg när det har ökat halva tiden?**
+
+Licenser som läggs till en befintlig prenumeration beräknas proportionellt för resten av prenumerationens varaktighet.
+
+**Hur hanteras licens borttagningar vid halva perioden?**
+
+Licenser som har avbrutits omfattas av den bidrags policy som finns i dessa vanliga frågor och svar.  Alla licenser som avbryts tas omedelbart bort från ditt konto och kommer inte längre att vara tillgängliga för användning.
 
 ## <a name="faq-for-publishers"></a>Vanliga frågor och svar om utgivare
 
@@ -291,7 +299,7 @@ Det finns inga publicerings avgifter när du överför en lista, en utvärdering
 
 **Finns det några transaktions avgifter för inköp via Azure Marketplace?**
 
-När lösnings licensen har köpts via Azure Marketplace delas intäkterna för program varu licensen mellan utgivaren och Microsoft.  Detta görs i enlighet med villkoren i Marketplace: a [utgivar avtal](https://cloudpartner.azure.com/Content/Unversioned/PublisherAgreement2.pdf). Lösningar med BYOL (ta med egna licens tjänster) debiterar dessutom inte transaktions avgifter.
+När lösnings licensen har köpts via Azure Marketplace delas intäkterna för program varu licensen mellan utgivaren och Microsoft.  Detta görs i enlighet med villkoren i Marketplace: a utgivar [avtal](https://cloudpartner.azure.com/Content/Unversioned/PublisherAgreement2.pdf). Lösningar med BYOL (ta med egna licens tjänster) debiterar dessutom inte transaktions avgifter.
 
 **Vad är ett standard kontrakt?**
 
@@ -402,7 +410,7 @@ Logga ett ärende med [Microsoft Support](https://support.microsoft.com/getsuppo
 
 Kontakta [Cloud Partner Portal support](https://support.microsoft.com/getsupport?wf=0&tenant=ClassicCommercial&oaspworkflow=start_1.0.0.0&locale=en-us&supportregion=en-us&pesid=16230&ccsid=636565784998876007)om du vill ha allmän program support för användbarhet eller fel sökning.
 
-Kontakta [Azure-supporten](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)för fakturerings-och prenumerations problem med ditt Azure Marketplace-köp.
+Kontakta [Azure](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)-supporten för fakturerings-och prenumerations problem med ditt Azure Marketplace-köp.
 
 **Vem kontaktar jag för att publicera eller erbjuda hanterings frågor?**
 

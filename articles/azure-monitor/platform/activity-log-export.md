@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: 9b4e7ce714d0a1f65e0a35b9c493e99200c668c6
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: 925fed320359edc04ad6c91fe7a7d9bde5370254
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70034852"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71258475"
 ---
 # <a name="export-azure-activity-log-to-storage-or-azure-event-hubs"></a>Exportera Azure aktivitets logg till lagring eller Azure Event Hubs
 [Azure aktivitets loggen](activity-logs-overview.md) ger inblick i händelser på prenumerations nivå som har inträffat i din Azure-prenumeration. Förutom att Visa aktivitets loggen i Azure Portal eller kopiera den till en Log Analytics arbets yta där den kan analyseras med andra data som samlas in av Azure Monitor, kan du skapa en logg profil för att arkivera aktivitets loggen till ett Azure Storage-konto eller strömma den till en  Event Hub.
@@ -60,13 +60,9 @@ Logg profilen definierar följande.
 Om bevarande principer har ställts in, men lagrings loggar i ett lagrings konto är inaktiverat, har bevarande principerna ingen påverkan. Principer för kvarhållning är tillämpad per dag, så i slutet av en dag (UTC) loggar från den dag som är nu utöver kvarhållning principen tas bort. Till exempel om du har en bevarandeprincip för en dag skulle i början av dagen idag loggar från dag innan igår tas bort. Ta bort börjar vid midnatt UTC-tid, men Observera att det kan ta upp till 24 timmar innan loggarna som ska tas bort från ditt lagringskonto.
 
 
-
-> [!WARNING]
-> Formatet på loggdata i lagrings kontot har ändrats till JSON-linjer på nov. 1st, 2018. [Den här artikeln beskriver effekten av den här ändringen samt hur du uppdaterar dina verktyg för att hantera det nya formatet.](diagnostic-logs-append-blobs.md)
-
-
 > [!IMPORTANT]
 > Du kan få ett fel meddelande när du skapar en logg profil om Microsoft. Insights-resurs leverantören inte är registrerad. Se [Azures resurs leverantörer och typer](../../azure-resource-manager/resource-manager-supported-services.md) för att registrera denna provider.
+
 
 ### <a name="create-log-profile-using-the-azure-portal"></a>Skapa logg profil med hjälp av Azure Portal
 
@@ -167,6 +163,9 @@ Om det redan finns en logg profil måste du först ta bort den befintliga logg p
 
 ## <a name="activity-log-schema"></a>Aktivitets logg schema
 Oavsett om du skickar till Azure Storage eller Event Hub, skrivs aktivitets logg data till JSON med följande format.
+
+
+> Formatet på de aktivitets logg data som skrivs till ett lagrings konto har ändrats till JSON-linjer på nov. 1st, 2018. Se [förbereda för format ändring för att Azure Monitor diagnostikloggar arkiverade på ett lagrings konto](diagnostic-logs-append-blobs.md) för information om det här format ändringen.
 
 ``` JSON
 {

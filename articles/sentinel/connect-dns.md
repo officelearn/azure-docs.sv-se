@@ -13,18 +13,20 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/23/2019
+ms.date: 09/24/2019
 ms.author: rkarlin
-ms.openlocfilehash: dd5442ff8c8d296dfa221a9ea7ed8d5833fd89c1
-ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
+ms.openlocfilehash: c5e58f496176ec0f1b8317c8b862a8ef2ffa434d
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71240716"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71262735"
 ---
-# <a name="connect-your-domain-name-server---preview"></a>Anslut din domän namn server – för hands version
+# <a name="connect-your-domain-name-server"></a>Anslut din domän namns Server
 
-
+> [!IMPORTANT]
+> DNS data Connector i Azure Sentinel är för närvarande en offentlig för hands version.
+> Den här funktionen tillhandahålls utan service nivå avtal och rekommenderas inte för produktions arbets belastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Du kan ansluta alla DNS-servrar (Domain Name Server) som körs på Windows till Azure Sentinel. Detta görs genom att installera en agent på DNS-datorn. Med hjälp av DNS-loggar kan du få säkerhet, prestanda och säkerhetsrelaterade insikter om organisationens DNS-infrastruktur genom att samla in, analysera och korrelera analys-och gransknings loggar och andra relaterade data från DNS-servrarna.
 
@@ -53,7 +55,7 @@ Lösningen samlar in DNS-inventering och DNS-händelse-relaterade data från DNS
 
 ## <a name="connect-your-dns-appliance"></a>Anslut din DNS-installation
 
-1. I Azure Sentinel-portalen väljer du **data anslutningar** och sedan panelen **DNS** .
+1. I Azure Sentinel-portalen väljer du **data anslutningar** och sedan panelen **DNS (för hands version)** .
 1. Om dina DNS-datorer finns i Azure:
     1. Klicka på **Installera agent på virtuell Azure Windows-dator**.
     1. I listan med **virtuella datorer** väljer du den DNS-dator som du vill strömma till Azure Sentinel. Se till att det här är en virtuell Windows-dator.

@@ -17,12 +17,12 @@ ms.date: 04/18/2019
 ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4cc07ac2644ac9f97146e980a1961b9b84e7c561
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: c3a05a531fd03cbd77bf3460ec45300692764565
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70127050"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71259160"
 ---
 # <a name="interpret-the-azure-ad-sign-in-logs-schema-in-azure-monitor"></a>Tolka schemat för inloggnings loggar för Azure AD i Azure Monitor
 
@@ -151,7 +151,7 @@ I den här artikeln beskrivs inloggnings logg schema för Azure Active Directory
 | OperationVersion | Den REST API version som begärs av klienten. |
 | Category | För inloggningar är det här värdet alltid *inloggnings*värde. | 
 | TenantId | Klient-GUID som är associerat med loggarna. |
-| ResultType | Resultatet av inloggnings åtgärden kan lyckas eller Miss *lyckas* . | 
+| ResultType | Resultatet av inloggnings åtgärden kan lyckas *eller Miss* *lyckas* . | 
 | ResultSignature | Innehåller eventuell felkod för inloggnings åtgärden. |
 | ResultDescription | Innehåller fel beskrivningen för inloggnings åtgärden. |
 | riskDetail | riskDetail | Tillhandahåller orsaken bakom ett särskilt tillstånd för en riskfylld användare, inloggning eller risk identifiering. De möjliga värdena är: `none` `userPerformedSecuredPasswordChange`, `adminGeneratedTemporaryPassword` `userPerformedSecuredPasswordReset` ,,`adminConfirmedSigninCompromised`,,,,,, .`unknownFutureValue` `adminConfirmedSigninSafe` `aiConfirmedSigninSafe` `userPassedMFADrivenByRiskBasedPolicy` `adminDismissedAllRiskForUser` Värdet `none` innebär att ingen åtgärd har utförts för användaren eller inloggning hittills. <br>**Obs:** Information om den här egenskapen kräver en Azure AD Premium P2-licens. Andra licenser returnerar värdet `hidden`. |
@@ -170,4 +170,4 @@ I den här artikeln beskrivs inloggnings logg schema för Azure Active Directory
 ## <a name="next-steps"></a>Nästa steg
 
 * [Tolka schema för spårningsloggar i Azure Monitor](reference-azure-monitor-audit-log-schema.md)
-* [Läs mer om Azure Diagnostic-loggar](../../azure-monitor/platform/diagnostic-logs-overview.md)
+* [Läs mer om Azure Diagnostic-loggar](../../azure-monitor/platform/resource-logs-overview.md)

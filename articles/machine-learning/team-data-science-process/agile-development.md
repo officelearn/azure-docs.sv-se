@@ -1,189 +1,222 @@
 ---
 title: Smidig utveckling av dataforskningsprojekt - Team Data Science Process
-description: Hur utvecklare kan köra ett datavetenskapsprojekt i en systematisk, version kontrolleras och samarbetsfunktioner sätt projektteamet genom att använda Team Data Science Process.
+description: Kör ett data vetenskaps projekt i en systematisk, version som styrs och samar beta i ett projekt team med hjälp av processen för team data vetenskap.
 author: marktab
 manager: cgronlun
 editor: cgronlun
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 11/28/2017
+ms.date: 09/05/2019
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: adf713fc3f875168f99b302b0a9affef88e8414f
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 09c5962e62077fbecc9b327320d0bb5b88416ffa
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60327905"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71260689"
 ---
 # <a name="agile-development-of-data-science-projects"></a>Smidig utveckling av dataforskningsprojekt
 
-Det här dokumentet beskriver hur utvecklare kan köra ett datavetenskapsprojekt i en systematisk, version kontrolleras och samarbetsfunktioner sätt inom en projektgrupp med hjälp av den [Team Data Science Process](overview.md) (TDSP). TDSP är ett ramverk som utvecklats av Microsoft och som tillhandahåller en strukturerade sekvensen av aktiviteter att köra molnbaserad förutsägande Analyslösningar effektivt. En översikt över rollerna som personal och förknippade aktiviteter som hanteras av en data science team standardisera om den här processen finns i [roller för Team Data Science Process och uppgifter](roles-tasks.md). 
+Det här dokumentet beskriver hur utvecklare kan köra ett datavetenskapsprojekt i en systematisk, version kontrolleras och samarbetsfunktioner sätt inom en projektgrupp med hjälp av den [Team Data Science Process](overview.md) (TDSP). TDSP är ett ramverk som utvecklats av Microsoft och som ger en strukturerad serie aktiviteter för att effektivt köra molnbaserade, förutsägelse analys lösningar. En översikt över de roller och uppgifter som hanteras av ett data vetenskaps team som är standardiserade på TDSP finns i [process roller och uppgifter för team data vetenskap](roles-tasks.md). 
 
 Den här artikeln innehåller instruktioner om hur du: 
 
-1. gör **sprint planera** för arbetsobjekt som ingår i ett projekt.<br> Om du inte känner till sprint planering, hittar du information om och allmän information [här](https://en.wikipedia.org/wiki/Sprint_(software_development) "här"). 
-2. **Lägg till arbetsobjekt** till sprintar. 
+- *Planera Sprint* för arbets objekt som ingår i ett projekt.
+- Lägg till *arbets objekt* i sprintar.
+- Skapa och Använd en *smidigare mall för arbets objekt* som specifikt anpassas med TDSP livs cykel stadier.
+
+Följande anvisningar beskriver de steg som krävs för att konfigurera en TDSP team miljö med Azure-kort och Azure-databaser i Azure DevOps. Anvisningarna använder Azure-DevOps eftersom det är hur du implementerar TDSP på Microsoft. Om din grupp använder en annan kod värd plattform, ändras inte gruppens ledar aktiviteter ofta, men sättet att slutföra uppgifterna är annorlunda. Att länka ett arbets objekt till en git-gren kan exempelvis inte vara detsamma med GitHub eftersom det är med Azure databaser.
+
+Följande bild illustrerar ett typiskt arbets flöde för Sprint planering, kodning och käll kontroll för ett data vetenskaps projekt:
+
+![TDSP (Team Data Science Process)](./media/agile-development/1-project-execute.png)
+
+##  <a name='Terminology-1'></a>Arbets objekts typer
+
+I TDSP Sprint planerings ramverk finns fyra typer av *arbets objekt* som används ofta: *Funktioner*, *användar berättelser*, *uppgifter*och *buggar*. Efter släpning för alla arbets uppgifter finns på projekt nivå, inte på git-lagringsplatsen. 
+
+Här är definitionerna för arbets objekts typerna:
+
+- **Funktion**: En funktion motsvarar ett projekt engagemang. Olika engagemang med en klient är olika funktioner, och det är bäst att överväga olika faser i ett projekt som olika funktioner. Om du väljer ett schema som  *\<ClientName >-\<EngagementName >* för att namnge dina funktioner kan du enkelt identifiera projektets kontext och engagemang från själva namnen.
+  
+- **Användar berättelse**: Användar berättelser är arbets objekt som behövs för att slutföra en funktion från slut punkt till slut punkt. Exempel på användar berättelser är:
+  - Hämta data 
+  - Utforska data 
+  - Generera funktioner
+  - Skapa modeller
+  - Operationalisera modeller 
+  - Omtrimningsmodeller
+  
+- **Uppgift**: Uppgifter är tilldelnings bara arbets objekt som måste utföras för att slutföra en speciell användar berättelse. Till exempel kan uppgifter i användar artikeln *Hämta data* :
+  - Hämta SQL Server autentiseringsuppgifter
+  - Ladda upp data till SQL Data Warehouse
+  
+- **Fel**: Buggar är problem i befintliga kod eller dokument som måste åtgärdas för att slutföra en uppgift. Om buggar orsakas av saknade arbets objekt kan de eskalera för att vara användar berättelser eller uppgifter. 
+
+Data experter kan känna sig smidigare med en flexibel mall som ersätter funktioner, användar berättelser och uppgifter med TDSP livs cykel steg och under faser. Om du vill skapa en Agile-härledd mall som är specifikt justerad med TDSP livs cykel stadier, se [Använd en smidig TDSP arbets mal len](#set-up-agile-dsp-6).
 
 > [!NOTE]
-> De steg som krävs för att ställa in en TDSP teammiljö med Azure DevOps Services beskrivs i följande uppsättning instruktioner. De anger du hur du utför dessa uppgifter med Azure DevOps Services eftersom det är hur du implementerar TDSP på Microsoft.  Om du väljer att använda Azure DevOps-tjänsterna, objekt (3) och (4) i listan ovan är fördelar som du får naturligt. Om du använder en annan kod som är värd för plattformen för din grupp, ändra inte de uppgifter som måste slutföras av gruppledare Allmänt. Men sättet att utföra dessa uppgifter kommer att vara olika. Till exempel objekt i avsnittet sex, **länka ett arbetsobjekt med en Git-gren**, kanske inte är lika enkelt som i Azure DevOps-tjänsterna.
->
->
-
-Följande bild visar en typisk sprint planering, kodning och källkontroll arbetsflödet som ingår i att implementera ett datavetenskapsprojekt:
-
-![1](./media/agile-development/1-project-execute.png)
-
-
-##  1. <a name='Terminology-1'></a>Terminologi 
-
-I TDSP sprint planering framework finns det fyra vanliga typer av **arbetsobjekt**: **Funktionen**, **Användarhistoria**, **uppgift**, och **bugg**. Varje projekt har en enda kvarvarande uppgifter för alla arbetsobjekt. Det finns några kvarvarande uppgifter på nivån för Git-lagringsplatsen under ett projekt. Här är deras definitioner:
-
-- **Funktionen**: En funktion som motsvarar ett projekt engagement. Olika engagemang med en klient betraktas som olika funktioner. På samma sätt är det bäst att tänka på olika faser i ett projekt med en klient som olika funktioner. Om du väljer ett schema som ***ClientName EngagementName*** för att namnge dina funktioner, sedan du känner enkelt kontexten för projekt/engagement från namnen själva.
-- **Berättelse**: Berättelser är olika arbetsobjekt som behövs för att slutföra en funktion (projekt) slutpunkt till slutpunkt. Exempel på artiklar:
-    - Hämta Data 
-    - Utforska Data 
-    - Generera funktioner
-    - Skapa modeller
-    - Operationalisera modeller 
-    - Träna modeller
-- **Uppgiften**: Uppgifter är tilldelningsbara kod eller arbetsobjekt för dokumentet eller andra aktiviteter som måste utföras för att slutföra en specifik historia. Till exempel aktiviteter i artikeln *hämta Data* kan vara:
-    -  Hämta autentiseringsuppgifterna för SQLServer 
-    -  Ladda upp Data till SQL Data Warehouse. 
-- **Bugg**: Buggar avser vanligtvis korrigeringar som behövs för en befintlig kod eller ett dokument som utförs när du går igenom en uppgift. Om felet orsakas av respektive saknas steg eller uppgifter, eskalera den till som en artikel eller en uppgift. 
-
-> [!NOTE]
-> Begrepp lånar av funktioner, artiklar, uppgifter och buggar från programvaruhantering kod (SCM) som ska användas i datavetenskap. De kan skilja sig något från deras vanliga SCM-definitioner.
->
->
-
-> [!NOTE]
-> Dataexperter kan känner dig bekvämade med en smidig mall som specifikt överensstämmer med livscykelstadier för TDSP. Med det i åtanke har en Agile-härledd sprint planeringsmallen skapats, där Epics berättelser osv har ersatts av livscykelstadier för TDSP eller substages. Anvisningar om hur du skapar en flexibel mall finns i [ställa in flexibla datavetenskapsprocess i Visual Studio Online](agile-development.md#set-up-agile-dsp-6).
->
->
-
-## 2. <a name='SprintPlanning-2'></a>Sprint planering 
-
-Sprint planering är användbart för projektet prioritering och resursplanering och allokering. Många dataanalytiker arbetade med flera projekt, som kan ta månader att slutföra. Projekt fortsätta ofta på olika bbar. För Azure DevOps-tjänsterna, kan du enkelt skapa, hantera, och spåra arbetsobjekt i ditt projekt och utför sprint planerar att se till att dina projekt flyttar framåt som förväntat. 
-
-Följ [den här länken](https://www.visualstudio.com/en-us/docs/work/scrum/sprint-planning) stegvisa instruktioner om sprint planering i Azure DevOps-tjänsterna. 
-
-
-## 3. <a name='AddFeature-3'></a>Lägg till en funktion  
-
-När projektet databasen skapas under ett projekt, går du till teamet **översikt** och klicka på **hantera arbete**.
-
-![2](./media/agile-development/2-sprint-team-overview.png)
-
-För att inkludera en funktion i planeringen, klickar du på **eftersläpningar** --> **funktioner** --> **New**, typ i funktionen **rubrik**(vanligtvis ditt projektnamn), och klicka sedan på **Lägg till** .
-
-![3](./media/agile-development/3-sprint-team-add-work.png)
-
-Dubbelklicka på den funktion som du skapade. Fyll i beskrivningar, tilldela medlemmar för den här funktionen och ange planera parametrar för den här funktionen. 
-
-Du kan också länka den här funktionen till lagringsplatsen för projektet. Klicka på **länken Lägg till** under den **utveckling** avsnittet. När du har redigerat funktionen klickar du på **spara och Stäng** att avsluta.
-
-
-## 4. <a name='AddStoryunderfeature-4'></a>Lägg till berättelse under funktionen 
-
-Under funktionen kan berättelser läggas till beskriver viktiga steg som behövs för att slutföra projektet (funktion). Lägg till en ny artikel, klicka på den **+** logga till vänster om funktionen för eftersläpning i vyn.  
-
-![4](./media/agile-development/4-sprint-add-story.png)
-
-Du kan redigera information om budskapet, till exempel status, beskrivning, kommentarer, planering och prioritet i popup-fönstret.
-
-![5](./media/agile-development/5-sprint-edit-story.png)
-
-Du kan länka den här artikeln till en befintlig databas genom att klicka på **+ Lägg till länk** under **utveckling**. 
-
-![6](./media/agile-development/6-sprint-link-existing-branch.png)
-
-
-## 5. <a name='AddTaskunderstory-5'></a>Lägg till en aktivitet i en artikel 
-
-Uppgifter är specifika detaljerade steg som behövs för att slutföra varje artikel. När alla aktiviteter i en artikel har slutförts, bör budskapet slutföras för. 
-
-Lägg till en uppgift i en artikel, klicka på den **+** bredvid berättelse-objektet och välj **uppgift**, och sedan fylla i den detaljerade informationen i den här uppgiften i popup-fönstret.
-
-![7](./media/agile-development/7-sprint-add-task.png)
-
-När funktionerna, berättelser och uppgifter har skapats kan du se dem i den **eftersläpning** eller **tavla** vyer för att spåra deras status.
-
-![8](./media/agile-development/8-sprint-backlog-view.png)
-
-![9](./media/agile-development/9-link-to-a-new-branch.png)
-
-
-## 6. <a name='set-up-agile-dsp-6'></a> Konfigurera en flexibel TDSP arbete-mall i Visual Studio Online
-
-Den här artikeln förklarar hur du ställer in en flexibel data science process-mall som använder TDSP data science-livscykelstadier och spårar arbetsobjekt med Visual Studio Online (vso). Stegen nedan genomgången ett exempel på hur du konfigurerar den data science-specifikt smidigt att bearbeta mallen *AgileDataScienceProcess* och visar hur du skapar arbetsuppgifter för data science baserat på mallen.
-
-### <a name="agile-data-science-process-template-setup"></a>Flexibel Data Science Process inställningar
-
-1. Gå till startsidan för server **konfigurera** -> **processen**.
-
-    ![10](./media/agile-development/10-settings.png) 
-
-2. Gå till **alla processer** -> **processer**under **Agile** och klicka på **skapa ärvt processen**. Sedan placera processnamn ”AgileDataScienceProcess” och klicka på **Skapa process**.
-
-    ![11](./media/agile-development/11-agileds.png)
-
-3. Under den **AgileDataScienceProcess** -> **typer av arbetsobjekt** fliken, inaktivera **Epic**, **funktionen**,  **Användarhistoria**, och **uppgift** arbetsobjekt typer av **konfigurera -> Inaktivera**
-
-    ![12](./media/agile-development/12-disable.png)
-
-4. Gå till **AgileDataScienceProcess** -> **eftersläpning nivåer** fliken. Byt namn på ”Epics” till ”TDSP-projekt” genom att klicka på den **konfigurera** -> **redigera/Byt namn på**. I dialogrutan samma klickar du på **+ ny typ av arbetsobjekt** i ”Datavetenskapsprojekt” och ange värdet för **standard arbetsobjektstyp** till ”TDSP-projekt” 
-
-    ![13](./media/agile-development/13-rename.png)  
-
-5. På samma sätt kan ändra eftersläpning namnet ”funktioner” till ”TDSP faser” och Lägg till följande till den **nytt verk objekttyp**:
-
-    - Förståelse för verksamheten
-    - Datainsamling
-    - Modellering
-    - Distribution
-
-6. Byt namn på ”Användarhistoria” till ”TDSP Substages” med standard arbetsobjektstyp inställd på nyligen skapade ”TDSP Substage” typen.
-
-7. Ange ”uppgifterna” nyligen skapade arbetsobjektstyp ”TDSP-uppgiften” 
-
-8. Efter de här stegen eftersläpning nivåer bör se ut så här:
-
-    ![14](./media/agile-development/14-template.png)  
-
- 
-### <a name="create-data-science-work-items"></a>Skapa arbetsobjekt för Data Science
-
-Du kan skapa och spåra dina data science-arbetsuppgifter som relaterar till TDSP-livscykel när data science process-mallen har skapats.
-
-1. När du skapar ett nytt projekt, väljer du ”Agile\AgileDataScienceProcess” som den **arbetsobjektet bearbeta**:
-
-    ![15](./media/agile-development/15-newproject.png)
-
-2. Navigera till det nyskapade projektet och klicka på **Work** -> **eftersläpningar**.
-
-3. Se ”TDSP-projekt” genom att klicka på **konfigurera inställningar för team** och kontrollera ”TDSP-projekt”; spara.
-
-    ![16](./media/agile-development/16-enabledsprojects.png)
-
-4. Nu kan du börja skapa data science-specifika arbetsuppgifter.
-
-    ![17](./media/agile-development/17-dsworkitems.png)
-
-5. Här är ett exempel på hur arbetsobjekt för data science projektet ska visas:
-
-    ![18](./media/agile-development/18-workitems.png)
+> TDSP lånar koncepten med funktioner, användares berättelser, uppgifter och buggar från program kod hantering (SCM). TDSP-begreppen kan skilja sig något från de konventionella SCM-definitionerna.
+
+## <a name='SprintPlanning-2'></a>Planera sprintar
+
+Många data tekniker är engagerade i flera projekt, vilket kan ta månader att slutföra och fortsätta i olika takt. Sprint planering är användbart för projektet prioritering och resursplanering och allokering. I Azure-kort kan du enkelt skapa, hantera och spåra arbets uppgifter för dina projekt och göra Sprint planeringen för att se till att projekt flyttas framåt som förväntat.
+
+Mer information om Sprint planering finns i [Scrum Sprints](https://en.wikipedia.org/wiki/Scrum_(software_development)#Sprint). 
+
+Mer information om Sprint planering i Azure-kort finns i [tilldela efter släpning objekt till en sprint](/azure/devops/boards/sprints/assign-work-sprint). 
+
+## <a name='AddFeature-3'></a>Lägga till en funktion i efter släpning 
+
+När projektet och projekt kod lagrings platsen har skapats kan du lägga till en funktion i efter släpandet för att representera arbetet för projektet.
+
+1. Från projekt sidan väljer du **bakkorts** > **loggar** i det vänstra navigerings fältet. 
+   
+1. På fliken efter **släpning** , om arbets objekts typen i det översta fältet är **artiklar**, list rutor och välj **funktioner**. Välj sedan **nytt arbets objekt.**
+   
+   ![Välj nytt arbets objekt](./media/agile-development/2-sprint-team-overview.png)
+   
+1. Ange en rubrik för funktionen, vanligt vis ditt projekt namn, och välj sedan **Lägg till överst**. 
+   
+   ![Ange en rubrik och välj Lägg till överst](./media/agile-development/3-sprint-team-add-work.png)
+   
+1. I listan efter **släpning** väljer du och öppnar den nya funktionen. Fyll i beskrivningen, tilldela en grupp medlem och ange planerings parametrar. 
+   
+   Du kan också länka funktionen till projektets Azure databaser Code-lagringsplats genom att välja **Lägg till länk** under avsnittet **utveckling** . 
+   
+   När du har redigerat funktionen väljer du **spara & Stäng**.
+   
+   ![Redigera funktion och välj Spara & Stäng](./media/agile-development/3a-add-link-repo.png)
+
+## <a name='AddStoryunderfeature-4'></a>Lägg till en användar berättelse till funktionen 
+
+Under funktionen kan du lägga till användar berättelser som beskriver de viktigaste stegen som krävs för att slutföra projektet. 
+
+Så här lägger du till en ny användar berättelse i en funktion:
+
+1. På fliken efter **släpning** väljer **+** du till vänster om funktionen. 
+   
+   ![Lägg till en ny användar berättelse under funktionen](./media/agile-development/4-sprint-add-story.png)
+   
+1. Ge användar berättelsen en rubrik och redigera information som tilldelning, status, beskrivning, kommentarer, planering och prioritet. 
+   
+   Du kan också länka användar berättelsen till en gren i projektets Azure databaser Code-lagringsplats genom att välja **Lägg till länk** under avsnittet **utveckling** . Välj den lagrings plats och gren som du vill länka arbets uppgiften till och välj sedan **OK**.
+   
+   ![Lägg till länk](./media/agile-development/5-sprint-edit-story.png)
+   
+1. När du är klar med redigeringen av användar artikeln väljer du **spara & Stäng**. 
+
+## <a name='AddTaskunderstory-5'></a>Lägg till en uppgift i en användar berättelse 
+
+Uppgifter är särskilda detaljerade steg som behövs för att slutföra varje användar berättelse. När alla uppgifter i en användar berättelse har slutförts bör användar berättelsen vara slutförd. 
+
+Om du vill lägga till en uppgift i en användar berättelse **+** väljer du nästa artikel och väljer **uppgift**. Fyll i rubriken och annan information i uppgiften.
+
+![Lägg till en uppgift i en användar berättelse](./media/agile-development/7-sprint-add-task.png)
+
+När du har skapat funktioner, användar berättelser och uppgifter kan du visa dem i vyerna **för efter** släpning eller **kort** för att spåra deras status.
+
+![Vy över efter släpning](./media/agile-development/8-sprint-backlog-view.png)
+
+![Vyn kort](./media/agile-development/8a-sprint-board-view.png)
+
+## <a name='set-up-agile-dsp-6'></a>Använd en smidig TDSP arbets mal len
+
+Data experter kan känna sig smidigare med en flexibel mall som ersätter funktioner, användar berättelser och uppgifter med TDSP livs cykel steg och under faser. I Azure-kort kan du skapa en Agile-härledd mall som använder TDSP livs cykel stadier för att skapa och spåra arbets objekt. Följande steg beskriver hur du konfigurerar en data vetenskaps bestämd mall och skapar data vetenskaps arbets objekt baserat på mallen.
+
+### <a name="set-up-an-agile-data-science-process-template"></a>Konfigurera en smidig mall för data vetenskaps process
+
+1. Från din Azure DevOps-organisations huvud sida väljer du **organisations inställningar** i det vänstra navigerings fältet. 
+   
+1. I **organisations inställningarna** till vänster navigering, under **kort**, väljer du **process**. 
+   
+1. I fönstret **alla processer** väljer du **...** bredvid **Agile**och väljer sedan **skapa ärvd process**.
+   
+   ![Skapa ärvd process från Agile](./media/agile-development/10-settings.png) 
+   
+1. I dialog rutan **skapa ärvd process från Agile** anger du namnet *AgileDataScienceProcess*och väljer **Skapa process**.
+   
+   ![Skapa AgileDataScienceProcess-process](./media/agile-development/11-agileds.png)
+   
+1. I **alla processer**väljer du den nya **AgileDataScienceProcess**. 
+   
+1. På fliken **arbets objekts typer** inaktiverar du **episka**, **funktion**, **användar berättelse**och **uppgift** genom att markera **...** bredvid varje objekt och sedan välja **inaktivera**. 
+   
+   ![Inaktivera arbets objekts typer](./media/agile-development/12-disable.png)
+   
+1. I **alla processer**väljer du fliken efter **släpning** . Under **portföljer-avloggar**väljer du **...** bredvid **episka (inaktive rad)** och väljer sedan **Redigera/Byt namn**. 
+   
+1. I dialog rutan **Redigera efter släpning** :
+   1. Ersätt **episka** med *TDSP-projekt*under **namn**. 
+   1. Under **arbets objekts typer på den här nivån för efter släpning**väljer du **ny typ av arbets objekt**, anger *TDSP-projekt*och väljer **Lägg till**. 
+   1. Under **standard arbets objekts typ**, släpp och välj **TDSP-projekt**. 
+   1. Välj **Spara**.
+   
+   ![Ange efter släpning-nivå för portföljen](./media/agile-development/13-rename.png)  
+   
+1. Följ samma steg för att byta namn på **funktioner** till *TDSP-faser*och Lägg till följande nya arbets objekts typer:
+   
+   - *Förståelse för verksamheten*
+   - *Data hämtning*
+   - *Modellering*
+   - *Distribution*
+   
+1. Under **krav på efter släpning**, byter du namn på **berättelser** till *TDSP under steg*, lägger till den nya arbets objekt typen *TDSP under steget*och anger standard typen av arbets objekt till **TDSP under steg**.
+   
+1. Lägg till en ny arbets objekt typ *TDSP uppgift*under **iteration efter släpning**och Ställ in den som standard typ av arbets objekt. 
+   
+När du har slutfört stegen bör du se efter i efter släpande nivåer:
+   
+ ![Nivåer för TDSP-mallens efter släpning](./media/agile-development/14-template.png)  
+
+### <a name="create-agile-data-science-process-work-items"></a>Skapa arbets objekt för smidig data vetenskaps process
+
+Du kan använda mallen för data vetenskaps process för att skapa TDSP-projekt och spåra arbets objekt som motsvarar TDSP livs cykel stadier.
+
+1. Från din Azure DevOps-organisations huvud sida väljer du **nytt projekt**. 
+   
+1. I dialog rutan **Skapa nytt projekt** ger du ditt projekt ett namn och väljer sedan **Avancerat**. 
+   
+1. Under **arbets uppgifts process**klickar du på list rutan och väljer **AgileDataScienceProcess**. Välj sedan **skapa**.
+   
+   ![Skapa ett TDSP-projekt](./media/agile-development/15-newproject.png)
+   
+1. I det nyskapade projektet väljer du **kort** > -**loggfiler** i det vänstra navigerings fältet.
+   
+1. Om du vill göra TDSP-projekt synliga väljer du ikonen **Konfigurera team inställningar** . I fönstret **Inställningar** markerar du kryss rutan **TDSP-projekt** och väljer sedan **Spara och Stäng**.
+   
+   ![Markera kryss rutan TDSP-projekt](./media/agile-development/16-enabledsprojects1.png)
+   
+1. Om du vill skapa ett data science-särskilt TDSP-projekt väljer du **TDSP-projekt** i det översta fältet och väljer sedan **nytt arbets objekt**. 
+   
+1. I popup-fönstret ger du TDSP-projektet ett namn och väljer Lägg till **överst**.
+   
+   ![Skapa arbets objekt för data vetenskaps projekt](./media/agile-development/17-dsworkitems0.png)
+   
+1. Om du vill lägga till ett arbets objekt i TDSP-projektet **+** väljer du intill projektet och väljer sedan den typ av arbets objekt som ska skapas. 
+   
+   ![Välj typ av arbets objekt för data vetenskap](./media/agile-development/17-dsworkitems1.png)
+   
+1. Fyll i informationen i det nya arbets objektet och välj **spara & Stäng**.
+   
+1. Fortsätt genom att välja **+** symbolerna bredvid arbets objekt för att lägga till nya TDSP-faser, under steg och uppgifter. 
+   
+Här är ett exempel på hur arbets objekt i data vetenskaps arbetet ska visas i vyerna för efter **släpning** :
+
+![18](./media/agile-development/18-workitems1.png)
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Samarbetsbaserad kodning med Git](collaborative-coding-with-git.md) beskriver hur du gör samarbetsfunktioner kodutveckling för data science-projekt med Git som utvecklingsramverk delad kod och hur du länka dessa kodning aktiviteter i arbetet planerat med agil process.
+[Samarbete med git](collaborative-coding-with-git.md) beskriver hur du utför samarbets kod utveckling för data vetenskaps projekt med git som delad kod utvecklings ramverk och hur du länkar dessa kodnings aktiviteter till arbetet som planeras med den flexibla processen.
 
-Här följer ytterligare länkar till resurser i flexibla processer.
+I [exempel genom gångar](walkthroughs.md) visas en genom gång av vissa scenarier med länkar och miniatyr beskrivningar. De länkade scenarierna illustrerar hur du kombinerar molnet och lokala verktyg och tjänster i arbets flöden eller pipelines för att skapa intelligenta program.
+  
+Ytterligare resurser på Agile-processer:
 
-- Agil process   [https://www.visualstudio.com/en-us/docs/work/guidance/agile-process](https://www.visualstudio.com/en-us/docs/work/guidance/agile-process)
-- Agil process objekttyper för arbetsobjekt och arbetsflöde   [https://www.visualstudio.com/en-us/docs/work/guidance/agile-process-workflow](https://www.visualstudio.com/en-us/docs/work/guidance/agile-process-workflow)
+- [Smidig process](/azure/devops/boards/work-items/guidance/agile-process)
+  
+- [Agile bearbeta arbets objekt typer och arbets flöde](/azure/devops/boards/work-items/guidance/agile-process-workflow)
 
-
-Genomgångar som visar alla steg i processen för **specifika scenarier** tillhandahålls också. De visas och som är kopplad till miniatyrbilder beskrivningarna i den [exempel genomgångar](walkthroughs.md) artikeln. De visar hur du kombinerar molnlösningar, lokala verktyg och tjänster i ett arbetsflöde eller en pipeline för att skapa ett intelligenta program. 

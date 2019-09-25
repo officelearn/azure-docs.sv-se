@@ -8,14 +8,14 @@ manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 08/01/2019
+ms.date: 09/24/2019
 ms.custom: seodec18
-ms.openlocfilehash: 726fc2d2f53e904fdf7f50be5aef7b274dcc51ac
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.openlocfilehash: f4eb1b69a1464cacaf666e49f4aff7422d63611d
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68736146"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71264521"
 ---
 # <a name="azure-time-series-insights-preview-use-cases"></a>Azure Time Series Insights för hands versions användning
 
@@ -40,11 +40,15 @@ Utforska och analysera direkt flera miljarder händelser för att upptäcka avvi
 
 [![Data Utforskaren](media/v2-update-use-cases/data-explorer.svg)](media/v2-update-use-cases/data-explorer.svg#lightbox)
 
-De flesta kunder samtycker till att tiden för insikter är bland de starkaste till gångarna i Time Series Insights. Time Series Insights kräver ingen förberedelse av första data. Det fungerar snabbt för att ansluta dig till miljarder händelser i Azure IoT Hub eller Azure Event Hubs på några minuter. När du är ansluten kan du visualisera och analysera miljarder händelser för att upptäcka avvikelser och identifiera dolda trender i dina data.
+De flesta kunder samtycker till att den minsta tiden som krävs för att få insikter är en av främsta-funktionerna i Time Series Insights:
 
-Time Series Insights är intuitivt och enkelt att använda. Du kan interagera med dina data utan att behöva skriva en enda rad kod. Det finns inte heller något nytt språk att lära sig. Time Series Insights innehåller detaljerad text baserad fråga för avancerade användare som är bekanta med SQL. Du kan också välja att välja och klicka på utforskning för nybörjare.
+* Time Series Insights kräver ingen förberedelse av första data. 
+* Det fungerar snabbt för att ansluta dig till miljarder händelser i Azure IoT Hub eller Azure Event Hubs på några minuter. 
+* När du är ansluten kan du visualisera och analysera miljarder händelser för att upptäcka avvikelser och identifiera dolda trender i dina data.
 
-Kunderna drar nytta av hastigheten för att diagnostisera till gångs problem snabbt. De kan utföra DevOps för att komma till rotor saken till en bugg i en IoT-lösning. De kan också identifiera områden för att undersöka data vetenskaps initiativ.  
+Time Series Insights är intuitivt och enkelt att använda. Du kan interagera med dina data utan att behöva skriva en enda rad kod. Det finns inget nytt språk som du måste lära dig, även om Time Series Insights ger avancerade användare som är bekanta med SQL. Du kan också välja att välja och klicka på utforskning för nybörjare.
+
+Kunder kan dra nytta av hastigheten för att snabbt diagnostisera problem med till gångs problem. De kan utföra DevOps analys för att komma till rotor saken till en bugg i en IoT-lösning. De kan också identifiera områden för att flagga för ytterligare undersökning som en del av deras initiativ för data vetenskap.  
 
 Det finns tre huvudsakliga sätt att interagera med data som lagras i Time Series Insights:
 
@@ -98,4 +102,4 @@ Time Series Insights sammanfogar mellanrummet mellan IoT-data och avancerad anal
 
 - Läs mer om [Time Series Insights Preview Explorer](./time-series-insights-update-explorer.md).
 - Läs [Time Series Insights för hands versions planering](./time-series-insights-update-plan.md) för att planera för din miljö.
-- Läs [Time Series Insights](https://github.com/Microsoft/tsiclient) -klientens dokumentation.
+- Läs [Time Series Insights-klientens](https://github.com/Microsoft/tsiclient) dokumentation.

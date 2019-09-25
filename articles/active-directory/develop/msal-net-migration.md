@@ -17,20 +17,28 @@ ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d4de1fa903120fa6adc50d34428d8c3e2a28cf23
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 9a132834952d2654f400217bd6eed1a3745efbf9
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68835012"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71264276"
 ---
 # <a name="migrating-applications-to-msalnet"></a>Migrera program till MSAL.NET
 
-Både Microsoft Authentication Library för .NET (MSAL.NET) och Azure AD Authentication Library för .NET (ADAL.NET) används för att autentisera Azure AD-entiteter och begära token från Azure AD. Fram till nu har de flesta utvecklare arbetat med Azure AD för utvecklare Platform (v 1.0) för att autentisera Azure AD-identiteter (arbets-och skol konton) genom att begära token med Azure AD Authentication Library (ADAL). Nu kan du använda MSAL.NET för att autentisera en bredare uppsättning Microsoft-identiteter (Azure AD-identiteter och Microsoft-konton, samt sociala och lokala konton via Azure AD B2C) via slut punkten för Microsoft Identity Platform. 
+Både Microsoft Authentication Library för .NET (MSAL.NET) och Azure AD Authentication Library för .NET (ADAL.NET) används för att autentisera Azure AD-entiteter och begära token från Azure AD. Fram till nu har de flesta utvecklare arbetat med Azure AD för utvecklare Platform (v 1.0) för att autentisera Azure AD-identiteter (arbets-och skol konton) genom att begära token med Azure AD Authentication Library (ADAL). Använda MSAL:
 
-Den här artikeln beskriver hur du väljer mellan Microsoft Authentication Library för .NET (MSAL.NET) och Azure AD Authentication Library för .NET (ADAL.NET) och jämför de två biblioteken.  
+- Du kan autentisera en bredare uppsättning av Microsoft-identiteter (Azure AD-identiteter och Microsoft-konton, och sociala och lokala konton via Azure AD B2C) när du använder Microsoft Identity Platform-slutpunkten.
+- användarna får bästa möjliga upplevelse med enkel inloggning.
+- ditt program kan möjliggöra stegvist godkännande och stöd för villkorlig åtkomst är enklare
+- du får nytta av innovationen.
+
+**MSAL.net är nu det rekommenderade auth-biblioteket som ska användas med Microsoft Identity Platform**. Inga nya funktioner kommer att implementeras på ADAL.NET. Ansträngningarna fokuserar på att förbättra MSAL.
+
+Den här artikeln beskriver skillnaderna mellan Microsoft Authentication Library för .NET (MSAL.NET) och Azure AD Authentication Library för .NET (ADAL.NET) och hjälper dig att migrera till MSAL.  
 
 ## <a name="differences-between-adal-and-msal-apps"></a>Skillnader mellan ADAL och MSAL-appar
+
 I de flesta fall vill du använda MSAL.NET och slut punkten för Microsoft Identity Platform, som är den senaste generationen av Microsoft Authentication Libraries. Med MSAL.NET kan du hämta token för användare som loggar in till ditt program med Azure AD (arbets-och skol konton), Microsoft (personliga) konton (MSA) eller Azure AD B2C. 
 
 Om du redan är bekant med slut punkten för Azure AD för utvecklare (v 1.0) (och ADAL.NET) kanske du vill läsa [vad som är annorlunda om slut punkten för Microsoft Identity Platform (v 2.0)?](active-directory-v2-compare.md).
@@ -129,13 +137,13 @@ Typ av app | Bevilja | ADAL.NET | MSAL.NET
 ----- | ----- | ----- | -----
 Webbapp, webb-API, daemon | Klientautentiseringsuppgifter | [Klientens autentiseringsuppgifter flödar i ADAL.NET](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Client-credential-flows) | [Klientens autentiseringsuppgifter flöden i MSAL.net](msal-authentication-flows.md#client-credentials))
 Webb-API | På uppdrag av | [Tjänst-till-tjänst-anrop för användarens räkning med ADAL.NET](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Service-to-service-calls-on-behalf-of-the-user) | [På uppdrag av i MSAL.NET](msal-authentication-flows.md#on-behalf-of)
-Webbprogram | Auth-kod | [Hämta token med auktoriseringsregler i Web Apps med ADAL.NET](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Acquiring-tokens-with-authorization-codes-on-web-apps) | [Hämta token med auktoriseringsregler i Web Apps med en MSAL.NET](msal-authentication-flows.md#authorization-code)
+Webbapp | Auth-kod | [Hämta token med auktoriseringsregler i Web Apps med ADAL.NET](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Acquiring-tokens-with-authorization-codes-on-web-apps) | [Hämta token med auktoriseringsregler i Web Apps med en MSAL.NET](msal-authentication-flows.md#authorization-code)
 
 ### <a name="cache-persistence"></a>Beständighet i cacheminnet
 
 Med ADAL.net kan du utöka `TokenCache` -klassen för att implementera de önskade beständiga funktionerna på plattformar utan ett säkert lagrings utrymme (.NET Framework och .net Core) med `BeforeWrite` `BeforeAccess`hjälp av metoderna, och. Mer information finns i [cachelagring av token i ADAL.net](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Token-cache-serialization).
 
-MSAL.NET gör att token cachelagrar en förseglad klass och tar bort möjligheten att utöka den. Därför måste din implementation av cachelagring av token-cachen vara i form av en hjälp klass som interagerar med den förseglade token-cachen. Den här interaktionen beskrivs i cachelagring av [token i MSAL.net](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/token-cache-serialization).
+MSAL.NET gör att token cachelagrar en förseglad klass och tar bort möjligheten att utöka den. Därför måste din implementation av cachelagring av token-cachen vara i form av en hjälp klass som interagerar med den förseglade token-cachen. Den här interaktionen beskrivs i [cachelagring av token i MSAL.net](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/token-cache-serialization).
 
 ## <a name="signification-of-the-common-authority"></a>Signification för den gemensamma utfärdaren
 
@@ -151,7 +159,7 @@ Det finns två versioner av tokens:
 
 V 1.0-slutpunkten (används av ADAL) avger endast v 1.0-token.
 
-V 2.0-slutpunkten (används av MSAL) genererar dock versionen av den token som webb-API: n accepterar. En egenskap hos applikations manifestet för webb-API: et gör det möjligt för utvecklare att välja vilken version av token som godkänns. Se `accessTokenAcceptedVersion` i referens [](reference-app-manifest.md) dokumentationen för applikations manifestet.
+V 2.0-slutpunkten (används av MSAL) genererar dock versionen av den token som webb-API: n accepterar. En egenskap hos applikations manifestet för webb-API: et gör det möjligt för utvecklare att välja vilken version av token som godkänns. Se `accessTokenAcceptedVersion` i referens dokumentationen för [applikations manifestet](reference-app-manifest.md) .
 
 Mer information om v 1.0-och v 2.0-token finns i [Azure Active Directory åtkomsttoken](access-tokens.md)
 
@@ -206,7 +214,7 @@ var scopes = new [] {  ResourceId+"/.default"};
 
 ### <a name="scopes-to-request-in-the-case-of-client-credential-flow--daemon-app"></a>Omfattningar som ska begäras i händelse av Flow/daemon-app för klientens autentiseringsuppgifter
 
-Om det gäller klientens Credential-flöde, är `/.default`det också den omfattning som passas. Detta säger till Azure AD: "alla behörigheter på program nivå som administratören har samtyckt till i program registreringen.
+Om det gäller klientens Credential-flöde, är `/.default`det också den omfattning som passas. Det här omfånget talar om för Azure AD: "alla de behörigheter på program nivå som administratören har samtyckt till i program registreringen.
 
 ## <a name="adal-to-msal-migration"></a>ADAL till MSAL-migrering
 
@@ -214,9 +222,9 @@ I ADAL.NET v2. X visade uppdateringstoken att du kan utveckla lösningar kring a
 * Tids krävande tjänster som utför åtgärder, inklusive uppdatering av instrument paneler för användarens räkning, är inte längre anslutna. 
 * Webb server scenarier för att göra det möjligt för klienten att ta RT till webb tjänsten (cachelagring görs på klient sidan, krypterad cookie och inte Server sida)
 
-Detta är inte fallet med MSAL.NET, men vi rekommenderar inte längre att använda uppdateringstoken på det här sättet av säkerhets skäl. Detta skulle göra det svårt att migrera till MSAL 3. x eftersom API: et inte tillhandahåller ett sätt att skicka i tidigare hämtade uppdateringstoken. 
+MSAL.NET visar inte uppdateringstoken, av säkerhets skäl: MSAL hanterar uppdatering av tokens åt dig. 
 
-MSAL.NET har nu en API som gör att du kan migrera dina tidigare uppdateringstoken till`IConfidentialClientApplication` 
+Lyckligt vis har MSAL.NET nu ett API som gör att du kan migrera dina tidigare uppdateringstoken (erhållna med ADAL) till `IConfidentialClientApplication`:
 
 ```CSharp
 /// <summary>
@@ -261,4 +269,4 @@ Du kan också använda den här metoden för olika integrations scenarier där d
 
 ## <a name="next-steps"></a>Nästa steg
 
-Du hittar mer information om omfattningarna i [omfattningar, behörigheter och medgivande i Microsoft Identity Platform-](v2-permissions-and-consent.md) slutpunkten
+Du hittar mer information om omfattningarna i [omfattningar, behörigheter och medgivande i Microsoft Identity Platform-slutpunkten](v2-permissions-and-consent.md)

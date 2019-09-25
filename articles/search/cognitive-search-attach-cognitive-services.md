@@ -5,20 +5,19 @@ manager: nitinme
 author: LuisCabrer
 services: search
 ms.service: search
-ms.subservice: cognitive-search
 ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: luisca
-ms.openlocfilehash: dcdef8df25bdf6a7a60b1221d1463e6be5486875
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: 113286f829b628d4740fbba34e7279741a934aef
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69639436"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71265935"
 ---
 # <a name="attach-a-cognitive-services-resource-with-a-skillset-in-azure-search"></a>Bifoga en Cognitive Services resurs med en färdigheter i Azure Search 
 
-AI-algoritmer [](cognitive-search-concept-intro.md) driver de kognitiva indexerings pipelinen som används för dokument berikning i Azure Search. Algoritmerna baseras på Azure Cognitive Services resurser, inklusive [visuellt innehåll](https://azure.microsoft.com/services/cognitive-services/computer-vision/) för bild analys och optisk tecken IGENKÄNNING (OCR) och [textanalys](https://azure.microsoft.com/services/cognitive-services/text-analytics/) för enhets igenkänning, extrahering av nyckel fraser och andra anrikninger . Som används av Azure Search för dokument berikning omsluts algoritmerna inuti en *färdighet*, placeras i en *färdigheter*och refereras till av en indexerare under indexeringen.
+AI-algoritmer driver de [kognitiva indexerings pipelinen](cognitive-search-concept-intro.md) som används för dokument berikning i Azure Search. Algoritmerna baseras på Azure Cognitive Services resurser, inklusive [visuellt innehåll](https://azure.microsoft.com/services/cognitive-services/computer-vision/) för bild analys och optisk tecken IGENKÄNNING (OCR) och [textanalys](https://azure.microsoft.com/services/cognitive-services/text-analytics/) för enhets igenkänning, extrahering av nyckel fraser och andra anrikninger . Som används av Azure Search för dokument berikning omsluts algoritmerna inuti en *färdighet*, placeras i en *färdigheter*och refereras till av en *indexerare* under indexeringen.
 
 Du kan utöka ett begränsat antal dokument kostnads fritt. Eller så kan du koppla en fakturerbar Cognitive Services resurs till en *färdigheter* för större och mer frekventa arbets belastningar. I den här artikeln får du lära dig hur du kopplar en fakturerbar Cognitive Services-resurs för att utöka dokumenten under Azure Search [indexering](search-what-is-an-index.md).
 
@@ -82,7 +81,7 @@ Du debiteras bara för färdigheter som anropar API:er för Cognitive Services. 
 
    ![Välj den Cognitive Services resursen](./media/cognitive-search-attach-cognitive-services/attach2.png "Välj den Cognitive Services resursen")
 
-1. Expandera avsnittet **Lägg till** berikare och välj de speciella kognitiva färdigheter som du vill köra på dina data. Slutför resten av guiden. En beskrivning av tillgängliga kunskaper i portalen finns [i steg 2: Lägg till kognitiva kunskaper](cognitive-search-quickstart-blob.md#create-the-enrichment-pipeline) i snabb start för kognitiv sökning.
+1. Expandera avsnittet **Lägg till berikare** och välj de speciella kognitiva färdigheter som du vill köra på dina data. Slutför resten av guiden. En beskrivning av tillgängliga kunskaper i portalen finns [i steg 2: Lägg till kognitiva kunskaper](cognitive-search-quickstart-blob.md#create-the-enrichment-pipeline) i snabb start för kognitiv sökning.
 
 ## <a name="attach-an-existing-skillset-to-a-cognitive-services-resource"></a>Koppla en befintlig färdigheter till en Cognitive Services-resurs
 
